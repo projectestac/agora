@@ -63,7 +63,7 @@ function get_books_structure_publisher($publisherid, $wsurl_contenido, $user, $p
             	$resp_libros = rcommon_xml2array($ret);
                 $keys = array('Envelope', 'Body', 'ObtenerTodosResponse', 'ObtenerTodosResult', 'Catalogo', 'libros', 'libro');
                 $arraylibros = rcommond_findarrayvalue($resp_libros, $keys);
-                
+
                 if(!empty($arraylibros)){
 					// MARSUPIAL ************ AFEGIT -> Fix bug, when there is just one received book
 					// 2011.09.29 @mmartinez
@@ -71,7 +71,7 @@ function get_books_structure_publisher($publisherid, $wsurl_contenido, $user, $p
 						$arraylibros = array(0 => $arraylibros);
 					}
 					// *********** FI
-					
+
 	                //foreach($resp_libros["soap:Envelope"]["soap:Body"]["ObtenerTodosResponse"]["ObtenerTodosResult"]["Catalogo"]["libros"]["libro"] as $li)
 	                foreach($arraylibros as $li) {
 	                	$instance = new StdClass();
@@ -532,7 +532,7 @@ function get_books($wsurl_contenido, $user, $password) {
 // MARSUPIAL *********** MODIFICAT -> Added proxy option
 // 2012.08.30 @mmartinez
             $client = @new soapclient($wsurl_contenido.'?wsdl', $options);
-            
+
 // *********** ORIGINAL
 			//$client = @new soapclient($wsurl_contenido.'?wsdl', array('trace' => 1, 'connection_timeout' => 120 ));
 // ************* FI

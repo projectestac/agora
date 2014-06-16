@@ -61,95 +61,84 @@ class format_simple_renderer extends format_topics_renderer {
      */
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         global $PAGE;
-		$context = context_course::instance($course->id);
-		if (has_capability('moodle/course:update',$context) && $displaysection) {
-			parent::print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection);
-			return;
-		}
         $modinfo = get_fast_modinfo($course);
         $course = course_get_format($course)->get_course();
 
-        // Can we view the section in question?
-        if($displaysection){
-        	if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
-            	// This section doesn't exist
-            	print_error('unknowncoursesection', 'error', null, $course->fullname);
-            	return;
-        	}
+		// Can we view the section in question?
+        if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+            // This section doesn't exist
+            print_error('unknowncoursesection', 'error', null, $course->fullname);
+            return;
+        }
 
-        	if (!$sectioninfo->uservisible) {
-				if (!$course->hiddensections) {
-					echo $this->start_section_list();
-					echo $this->section_hidden($displaysection);
-					echo $this->end_section_list();
-				}
-				// Can't view this section.
-				return;
-			}
+        if (!$sectioninfo->uservisible) {
+            if (!$course->hiddensections) {
+                echo $this->start_section_list();
+                echo $this->section_hidden($displaysection);
+                echo $this->end_section_list();
+            }
+            // Can't view this section.
+            return;
+        }
 
-			// Copy activity clipboard..
-        	echo $this->course_activity_clipboard($course, $displaysection);
-		}
+		// Copy activity clipboard..
+        echo $this->course_activity_clipboard($course, $displaysection);
 
-   		if (!empty($course->showtopiczero) || $displaysection == 0) {
-        	$thissection = $modinfo->get_section_info(0);
+        if (!empty($course->showtopiczero) && $displaysection) {
+	        $thissection = $modinfo->get_section_info(0);
 	        if ($thissection->summary or !empty($modinfo->sections[0])) {
-    		    echo $this->start_section_list();
+	            echo $this->start_section_list();
 	            echo $this->section_header($thissection, $course, true, $displaysection);
-	            $this->print_simple_section($course, $thissection, null, null, true, "100%", false, $displaysection);
-    		    echo $this->section_footer();
+	            print_section($course, $thissection, null, null, true, "100%", false, $displaysection);
+	            echo $this->section_footer();
 	            echo $this->end_section_list();
-    		}
-		}
+	        }
+	    }
 
+        // Start single-section div
+        echo html_writer::start_tag('div', array('class' => 'single-section'));
 
+		// The requested section page.
+        $thissection = $modinfo->get_section_info($displaysection);
 
-		// Start single-section div
-		echo html_writer::start_tag('div', array('class' => 'single-section'));
+        // Title with section navigation links.
+        $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
+        $sectiontitle = '';
+        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+        $sectiontitle .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));
+        $sectiontitle .= html_writer::tag('span', $sectionnavlinks['next'], array('class' => 'mdl-right'));
+        // Title attributes
+        $titleattr = 'mdl-align title';
+        if (!$thissection->visible) {
+            $titleattr .= ' dimmed_text';
+        }
+        $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+        $sectiontitle .= html_writer::end_tag('div');
+        echo $sectiontitle;
 
-		// Title with section navigation links.
-		$sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
-		$sectiontitle = '';
-		$sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
-		$sectiontitle .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));
-		$sectiontitle .= html_writer::tag('span', $sectionnavlinks['next'], array('class' => 'mdl-right'));
-		// Title attributes
+        // Now the list of sections..
+        echo $this->start_section_list();
 
-		if($displaysection){
-			// The requested section page.
-			$thissection = $modinfo->get_section_info($displaysection);
-			$titleattr = 'mdl-align title';
-			if (!$thissection->visible) {
-				$titleattr .= ' dimmed_text';
-			}
-			$sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
-			$sectiontitle .= html_writer::end_tag('div');
-			echo $sectiontitle;
+        echo $this->section_header($thissection, $course, true, $displaysection);
 
-			// Now the list of sections..
-			echo $this->start_section_list();
+        //print_section($course, $thissection, null, null, true, '100%', false, $displaysection);
+        $this->print_simple_section($course, $thissection, null, null, true, '100%', false, $displaysection);
+        echo $this->section_footer();
+        echo $this->end_section_list();
 
-			echo $this->section_header($thissection, $course, true, $displaysection);
+        // Display section bottom navigation.
+        $courselink = html_writer::link(course_get_url($course), get_string('returntomaincoursepage'));
+        $sectionbottomnav = '';
+        $sectionbottomnav .= html_writer::start_tag('div', array('class' => 'section-navigation mdl-bottom'));
+        $sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));
+        $sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['next'], array('class' => 'mdl-right'));
+        $sectionbottomnav .= html_writer::tag('div', $courselink, array('class' => 'mdl-align'));
+        $sectionbottomnav .= html_writer::end_tag('div');
+        echo $sectionbottomnav;
 
-			$this->print_simple_section($course, $thissection, null, null, true, '100%', false, $displaysection);
-			echo $this->section_footer();
-			echo $this->end_section_list();
-
-		}
-
-		// Display section bottom navigation.
-		$sectionbottomnav = '';
-		$sectionbottomnav .= html_writer::start_tag('div', array('class' => 'section-navigation mdl-bottom'));
-		$sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));
-		$sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['next'], array('class' => 'mdl-right'));
-		$sectionbottomnav .= html_writer::tag('div', '', array('class' => 'mdl-align'));
-		$sectionbottomnav .= html_writer::end_tag('div');
-		echo $sectionbottomnav;
-
-		// close single-section div.
-		echo html_writer::end_tag('div');
-
-    }
+        // close single-section div.
+        echo html_writer::end_tag('div');
+	}
 
 	/**
 	 * Prints a section full of activity modules
@@ -179,11 +168,11 @@ class format_simple_renderer extends format_topics_renderer {
 				$mod = $modinfo->cms[$modnumber];
 
 				// We can continue (because it will not be displayed at all)
-				// if The activity is not visible
-				if (!$mod->visible) {
-					// visibility shortcut
-					continue;
-				}
+	            // if The activity is not visible to users
+	            if (!$mod->uservisible) {
+	                // visibility shortcut
+	                continue;
+	            }
 
 				$modcontext = context_module::instance($mod->id);
 
@@ -225,8 +214,9 @@ class format_simple_renderer extends format_topics_renderer {
 				// about visibility, without the actual link
 				$contentpart = '';
 
-				// Get on-click attribute value if specified
-				$onclick = $mod->get_on_click();
+				// Get on-click attribute value if specified and decode the onclick - it
+                // has already been encoded for display (puke).
+                $onclick = htmlspecialchars_decode($mod->get_on_click(), ENT_QUOTES);
 
 				if ($url = $mod->get_url()) {
 					// Display link itself.
@@ -275,10 +265,6 @@ class format_simple_renderer extends format_topics_renderer {
 				echo html_writer::end_tag('div');
 				echo html_writer::end_tag('li')."\n";
 			}
-
-		}
-
-		if (!empty($modinfo->sections[$section->section])) {
 			echo "</ul><!--class='section'-->\n\n";
 		}
 	}

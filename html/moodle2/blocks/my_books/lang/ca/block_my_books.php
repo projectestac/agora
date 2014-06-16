@@ -1,10 +1,6 @@
 <?php
-// MARSUPIAL *********** AFEGIT -> pluginname
-// 2011.11.18 @abertranb
 $string['pluginname'] ='Els meus llibres';
-// *********** FI
 
-// MARSUPIAL ********** ADDED -> Catalan text string for my_books block
 
 $string['activitytypeopen'] = 'Visualitza l\'activitat';
 $string['activitytypeopeninfo'] = 'On se li ha d\'obrir l\'activitat a l\'alumnat?';
@@ -35,10 +31,7 @@ $string['viewertypeopeninfo'] = 'On se li ha d\'obrir l\'enllaç del bloc a l\'a
 $string['width'] = 'Amplada';
 $string['widthinfo'] = 'Quina amplada per defecte han de tenir les noves finestres emergents?';
 
-// ********** END
 
-// MARSUPIAL -> EVO: credentials
-// 2012.07.06 @mmartinez
 $string['addkey_button'] = 'Afegeix';
 $string['addkey_button_title'] = 'Afegeix credencial';
 $string['manage_button'] = 'Gestiona';
@@ -90,4 +83,6 @@ $string['keymanager_selectaction'] = 'Amb les credencials seleccionades...';
 $string['keymanager_selectall'] = 'Selecciona-ho tot';
 $string['keymanager_unselectall'] = 'Desmarca-ho tot';
 $string['keymanager_messageunassing2'] = 'Esteu segur/a que voleu desassignar la credencial seleccionada?';
-// *********** FI
+$string['my_books:myaddinstance'] = 'Afegir instancia del bloc My Books a la pàgina del «meu Moodle»';
+$string['my_books:addinstance'] = 'Afegir instancia del bloc My Books';
+

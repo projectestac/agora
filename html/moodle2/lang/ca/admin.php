@@ -875,6 +875,7 @@ $string['questioncwqpfscheck'] = 'Una o més preguntes "aleatòries" d\'algun q�
 $string['questioncwqpfsok'] = 'D\'acord. No teniu cap pregunta "aleatòria" en els vostres qüestionaris que seleccioni preguntes d\'una barreja de categories compartides i no compartides.';
 $string['questiontype'] = 'Tipus de pregunta';
 $string['questiontypes'] = 'Tipus de preguntes';
+$string['quizattemptsupgradedmessage'] = 'En la versió Moodle 2.1 va haver-hi una actualització important de les preguntes. Llavors era possible ajornar l\'actualització d\'una part de la base dades. Abans d\'actualitzar a Moodle 2.7 cal completar aquesta actualització.';
 $string['recaptchaprivatekey'] = 'Clau privada de ReCAPTCHA';
 $string['recaptchapublickey'] = 'Clau pública de ReCAPTCHA';
 $string['register'] = 'Registreu el vostre lloc';

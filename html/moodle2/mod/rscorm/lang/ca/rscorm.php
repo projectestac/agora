@@ -71,6 +71,7 @@ $string['deleteattemptcheck'] = 'Està completament segur de que vol eliminar aq
 $string['details'] = 'Detalls de seguiment';
 $string['directories'] = 'Mostra els enllaços del directori';
 $string['display'] = 'Visualitza';
+$string['displaysettings'] = 'Configuració de pantalla';
 $string['displayattemptstatus'] = 'Mostrar estat dels intents';
 $string['displayattemptstatusdesc'] = 'Aquesta preferència estableix el valor per defecte del paràmetre mostrar l\'estat dels intents';
 $string['displayattemptstatus_help'] = 'Si està activat, les puntuacions i les qualificacions es mostren a la plana de resum SCORM';
@@ -324,12 +325,12 @@ $string['width'] = 'Amplada';
 $string['window'] = 'Finestra';
 //MARSUPIAL ********** AFEGIT - text strings
 $string['level']='Nivell';
-$string['isbn']='ISBN';
+$string['isbn']='Llibre (ISBN)';
 $string['unit']='Unitat';
 $string['activity']='Activitat';
 
 $string['isbnerror']='Heu de seleccionar una opció vàlida aquí.';
-  
+
 $string['parametererror']='Par√†metre ID no està present en la cadena de sol.licitud';
 $string['jsonerror']='La cadena ajax de resposta no és vàlida';
 $string['ajaxresponseerror']='Resposta ajax no vàlida';

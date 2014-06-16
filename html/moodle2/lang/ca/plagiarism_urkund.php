@@ -70,4 +70,4 @@ $string['urkund_studentemail'] = 'Envia un correu electrònic a l\'alumne';
 $string['urkund_studentemail_help'] = 'En processar un fitxer s\'enviarà un correu electrònic a l\'alumne per fer-li saber que hi ha un informe disponible, el correu electrònic també inclou l\'enllaç opt-out.';
 $string['urkund_username'] = 'Nom d\'usuari';
 $string['urkund_username_help'] = 'Nom d\'usuari proporcionat per URKUND per accedir a API';
-$string['useurkund'] = 'Desactiva  URKUND';
+$string['useurkund'] = 'Activa URKUND';

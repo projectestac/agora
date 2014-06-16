@@ -85,7 +85,7 @@ $string['passwordinvalidhint'] = 'Aquesta clau d\'inscripció es errònia, si us
 (Heus ací una pista: comença per \'{$a}\'.)
 
 (Una pista: comença per \'{$a}\'';
-$string['pluginname'] = 'Auto inscripció';
+$string['pluginname'] = 'Autoinscripció';
 $string['pluginname_desc'] = 'El connector d\'auto inscripció  habilita als usuaris per escollir els cursos en els quals volen participar. Els cursos poden estar protegits per una clau d\'inscripció. La inscripció es fa de forma interna amb el connector d\'inscripció el qual ha d\'estar habilitat al mateix curs.';
 $string['requirepassword'] = 'És necessària una clau d\'inscripció';
 $string['requirepassword_desc'] = 'Força la clau d\'inscripció per als cursos nous i impedeix la cancel·lació de la inscripció als cursos que ja existien.';

@@ -1,19 +1,28 @@
 Release notes for JClic Module for Moodle (https://projectes.lafarga.cat/projects/jclicmoodle)
 
-More information on each of the fixes can be found in the project 
+More information on each of the fixes can be found in the project
 development home at https://projectes.lafarga.cat/projects/jclicmoodle
+
+Changes in progress
+---------------------------------------------------------------------------------------
+- Solved error with activities that lasts more than 99 seconds saving total_time in seconds instead of miliseconds. Now the limit is about 27 hours per activity
+- Updated Jclicplugin.js to the last version
+- Use the jclicplugin.js from the clic server or the configured one
+- Reviewed permissions for lang/pt_br/jclic.php file
+
 
 Changes in 0.2.3 - 2013022200 (2013/09/19)
 ---------------------------------------------------------------------------------------
 - Fixed bug when deleting jclic activities and enableajax is enabled
 - Fixed bug when upgrading empty maxgrade (reported by Ferran Recio - UPCnet)
 - Fixed bug when editing title from main course page (is still not working but solve some minor warnings)
+- Jclicplugin.js can be loaded from config.
 
 
 Changes in 0.2.3 RC - 2013022200 (2013/02/22)
 ---------------------------------------------------------------------------------------
 - Added Brazilian translation
-- Updated Euskara translation (downloaded from AMOS) 
+- Updated Euskara translation (downloaded from AMOS)
 - Reviewed English translation (thanks to German Valero!)
 - Reviewed some SQL to avoid Postgre problem with userid
 - Included SVG icons (thanks to Pau Ferrer!)
@@ -63,7 +72,7 @@ Changes in 0.1.0.9 (2009/10/27)
 
 Changes in 0.1.0.8 (2008/12/10)
 ---------------------------------------------------------------------------------------
-- Solved include /gradelib.php bug 
+- Solved include /gradelib.php bug
 
 
 Changes in 0.1.0.8 (2008/11/07)

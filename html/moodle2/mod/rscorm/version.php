@@ -26,9 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 
-$module->version   = 2013042200;        // The current plugin version (Date: YYYYMMDDXX)
+$module->version   = 2014050700;        // The current plugin version (Date: YYYYMMDDXX)
 $module->requires  = 2011033009;        // Requires this Moodle version
 $module->component = 'mod_rscorm';      // Full name of the plugin (used for diagnostics)
-$module->release   = 'v2.0.2';          // Human-readable version name
+$module->release   = 'v2.0.5';          // Human-readable version name
 $module->maturity  = MATURITY_STABLE;       // How stable the plugin is
 $module->cron      = 300;

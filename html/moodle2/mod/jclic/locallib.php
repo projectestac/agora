@@ -160,19 +160,23 @@ require_once("$CFG->libdir/filelib.php");
             echo $OUTPUT->box(get_string('expired', 'jclic', userdate($jclic->timedue)), 'generalbox boxaligncenter jclicdates');
         } else {
             if ($jclic->maxattempts<0 || $attempts < $jclic->maxattempts){
-              echo '<div id="jclic_applet" style="text-align:center;padding-top:10px;">';
-              echo '</div>';
-              $PAGE->requires->js('/mod/jclic/jclicplugin.js');
-              $PAGE->requires->js('/mod/jclic/jclic.js');
-              $params = get_object_vars($jclic);
-              $params['jclic_url'] = jclic_get_url($jclic, $context);
-              $params['jclic_path'] = jclic_get_server();
-              $params['jclic_service'] = jclic_get_path().'/mod/jclic/action/beans.php';
-              $params['jclic_user'] = $USER->id;
-              $params['jclic_jarbase'] = $CFG->jclic_jarbase;
-              $params['jclic_lap'] = $CFG->jclic_lap;
-              $params['jclic_protocol'] = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
-              $PAGE->requires->js_init_call('M.mod_jclic.init', array($params));
+                echo '<div id="jclic_applet" style="text-align:center;padding-top:10px;">';
+                echo '</div>';
+                if(isset($CFG->jclic_pluginjs) && !empty($CFG->jclic_pluginjs)){
+                    echo '<script type="text/javascript" src="'.$CFG->jclic_pluginjs.'"></script>';
+                } else {
+                    $PAGE->requires->js('/mod/jclic/jclicplugin.js');
+                }
+                $PAGE->requires->js('/mod/jclic/jclic.js');
+                $params = get_object_vars($jclic);
+                $params['jclic_url'] = jclic_get_url($jclic, $context);
+                $params['jclic_path'] = jclic_get_server();
+                $params['jclic_service'] = jclic_get_path().'/mod/jclic/action/beans.php';
+                $params['jclic_user'] = $USER->id;
+                $params['jclic_jarbase'] = $CFG->jclic_jarbase;
+                $params['jclic_lap'] = $CFG->jclic_lap;
+                $params['jclic_protocol'] = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
+                $PAGE->requires->js_init_call('M.mod_jclic.init', array($params));
             }else{
                 echo $OUTPUT->box(get_string('msg_noattempts', 'jclic'), 'generalbox boxaligncenter');
             }

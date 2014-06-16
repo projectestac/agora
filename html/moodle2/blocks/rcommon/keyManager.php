@@ -21,13 +21,8 @@ $action  = optional_param('action', '', PARAM_TEXT);
 
 
 //key synchronization
-echo '<div>
-		<h2 class="headingblock header ">'.get_string('keymanager', 'block_rcommon').'</h2>
-		<ul class="unlist">
-			<li>
-				<div class="coursebox clearfix">
-					<div class="info-manager">
-						<div class="name">';
+echo '<h2 class="headingblock header ">'.get_string('keymanager', 'block_rcommon').'</h2>
+		<div class="generalbox box contentbox">';
 
 switch ($action){
 	case 'manage':
@@ -85,11 +80,11 @@ switch ($action){
 			    //doi/isbn
 			    $select_list = array();
 				// MARSUPIAL ********** MODIFICAT -> To order books by title
-				// 2011.11.04 @sarjona             
+				// 2011.11.04 @sarjona
 			    $books = $DB->get_records_sql('SELECT b.*, p.name as pname FROM {rcommon_books} b JOIN {rcommon_publisher} p ON b.publisherid = p.id ORDER BY b.name ');
 				// ********** ORIGINAL
 				//$books = $DB->get_records_sql('SELECT '.$CFG->prefix.'rcommon_books.*, '.$CFG->prefix.'rcommon_publisher.name as pname FROM '.$CFG->prefix.'rcommon_books JOIN '.$CFG->prefix.'rcommon_publisher ON '.$CFG->prefix.'rcommon_books.publisherid = '.$CFG->prefix.'rcommon_publisher.id');
-				// ********* FI                                                                
+				// ********* FI
 				foreach($books as $book) {
 					$select_list[$book->isbn] = $book->name.'&nbsp;('.$book->pname.')';
 				}
@@ -107,20 +102,20 @@ switch ($action){
                 $bform->closeHeaderBefore('buttonar');
 			}
 		}
-		
+
 		//set valued
 		$form = new stdClass();
 		$form->username = required_param('username', PARAM_RAW);
 		$form->id       = required_param('id', PARAM_INT);
-		
+
 		//print title
 		echo '<p>'.get_string('keyaddingforuser', 'block_rcommon').' <b>'.  htmlentities($form->username).'</b></p>';
-		
+
 		//print form
 		$bform = new block_rcommon_publishers_form();
 		$bform->set_data($form);
 	    $bform->display();
-	    
+
 	break;
 	case 'doAdd':
 		$doi = optional_param('doi', '', PARAM_TEXT);
@@ -142,15 +137,15 @@ switch ($action){
 	break;
 	default:
 		echo '				<p>'.get_string('keyslookupusertext','block_rcommon').'<br/>
-							<form actio	n="keyManager.php?action=manage" method="GET">
+							<form action="keyManager.php?action=manage" method="GET">
 								<select name="username">
 								';
                                                                 // MARSUPIAL ********** MODIFICAT -> To avoid deleted or not confirmed users
-                                                                // 2011.10.21 @sarjona             
+                                                                // 2011.10.21 @sarjona
                                                                 $users = get_users(true, '', true);
                                                                 // ********** ORIGINAL
                                                                 //$users = $DB->get_records_sql("select * from ".$CFG->prefix."user WHERE username != 'guest' ORDER BY firstname");
-                                                                // ********* FI                                                                
+                                                                // ********* FI
 								foreach($users as $user) {
 								    echo '<option value="'.$user->username.'">'.$user->firstname.' '.$user->lastname.' ('.$user->username.')</option>';
 								}
@@ -161,13 +156,7 @@ switch ($action){
 							</p>
 							<!--p><input onclick="document.location.href=\'export.php\';" type="submit" value="'.get_string('keymanagerexportbtn', 'block_rcommon').'" /></p-->';
 }
-						echo '</div>
-					</div>
-					<div class="summary"></div>
-				</div>
-			</li>
-		</ul>
-	</div>';
+echo '</div>';
 
 echo $OUTPUT->footer();
 

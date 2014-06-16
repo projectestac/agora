@@ -23,24 +23,44 @@ echo $OUTPUT->header();
 
 $pagetitle = $publisher->name;
 
-
 echo '<h2 class="headingblock header ">'.$publisher->name.' - '.get_string('marsupialcontent','block_rcommon').'</h2>';
+echo '<div class="generalbox box contentbox">';
+
 $sql = 'SELECT b.*, l.name AS "level" FROM {rcommon_books} b, {rcommon_level} l WHERE b.levelid=l.id AND b.publisherid='.$id.' ORDER BY l.name, b.format, b.name';
 $books = $DB->get_records_sql($sql);
 //$books = $DB->get_records('rcommon_books', array('publisherid'=> $id), 'format, name');
 
 if (!empty($books)){
+
     $levelid = null;
-    echo "<ul>";
-    foreach ($books as $book){
+    $table = new html_table();
+    $table->class = 'generaltable generalbox';
+    $table->head = array(
+                        get_string('name'),
+                        'ISBN',
+                        get_string('format'));
+    $table->align = array('left', 'center', 'center');
+
+    foreach($books as $book) {
         if ($levelid != $book->levelid) {
-            //echo '<br/><h3>'.get_string($book->format, "block_rcommon").'</h3>';
-            echo '<br/><h3>'.$book->level.'</h3>';
+            if(!empty($table->data)){
+                echo html_writer::table($table);
+
+                $table->data = array();
+                $table->align = array('left', 'center', 'center');
+            }
+
+            echo '<h3>'.$book->level.'</h3>';
             $levelid = $book->levelid;
         }
-        echo '<li>'.$book->name.' (ISBN: '.$book->isbn.' - '.get_string($book->format, "block_rcommon").')</li>';
+        $row = array();
+        $row[] = $book->name;
+        $row[] = $book->isbn;
+        $row[] = get_string($book->format, "block_rcommon");
+        $table->data[] = $row;
+        $levelid = $book->levelid;
     }
-    echo "</ul><br/>";
+    echo html_writer::table($table);
 } else{
     echo "<br/><br/>".get_string("nobooks", "block_rcommon")."<br/><br/>";
 }
@@ -50,4 +70,5 @@ echo '<div id="downloadbookstructures_warning" style="display:none; padding:10px
 
 echo '<div style="padding:10px;">'.get_string("marsupial_bookswarning", "block_rcommon").'</div>';
 
+echo '</div>';
 echo $OUTPUT->footer();

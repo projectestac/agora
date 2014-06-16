@@ -5,6 +5,20 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.06.02
+---------------------------------------------------------------------------------------
+MOODLE 2
+- Rcontent: Delete parent redirection on Rcontent activities
+
+ZIKULA 2
+- IWjclic: Fixed incorrect field name in table definition of IWjclic_sessions
+
+
+Changes 14.05.28
+---------------------------------------------------------------------------------------
 GENERAL
 - DataCopy: Added script to copy contact info from Moodle 1.9 services to Moodle 2 in agoraportal
 
@@ -12,6 +26,11 @@ MOODLE 2
 - Solved MDL-39740 Updating grade_item idnumber doesn't update course_module idnumber
 - Changed loglifetime from 365 to 0 to avoid delete them (for learning analytics project)
 - Solved MDL-45480 Mod completion cannot be changed on certain cases
+- Jclic module updated to the last version (0.2.3+)
+- Geogebra module updated to the last version (0.2.5+)
+- Format simple improvements showing custom images and solving duplicity of topic zero
+- Marsupial modules updated to the last version (2.0.5+)
+- Updated catalan translation (27-05-2014)
 
 PORTAL
 - Agoraportal: Added ability to show and delete subdirectoris in Moodle repository

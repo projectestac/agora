@@ -23,13 +23,8 @@ if ($action!='save') {
 
 	$pagetitle = get_string('publishersmanager', 'block_rcommon');
 	//publishers management
-	echo '<div>
-			<h2 class="headingblock header ">'.$pagetitle.'</h2>
-			<ul class="unlist">
-				<li>
-					<div class="coursebox clearfix">
-						<div class="info-manager">
-							<div class="name">';
+	echo '<h2 class="headingblock header ">'.$pagetitle.'</h2>
+				<div class="generalbox box contentbox">';
 }
 switch($action){
 	case 'edit':
@@ -173,30 +168,29 @@ switch($action){
 		}
 	break;
 	default:
-        	$publishers = $DB->get_records('rcommon_publisher', array(), 'name ASC');
-		if (!empty($publishers)){
-                    echo '<p>'.get_string('selectpublisheredit','block_rcommon').'<br/>
-			<form action="publishersManager.php" method="GET">
-				<input type="hidden" name="action" value="edit" />
-			    <select name="publisher" id="publisher">
-				';
-				$publishers = $DB->get_records('rcommon_publisher', array(), 'name ASC');
-				foreach($publishers as $publisher) {
-				    echo '<option value="'.$publisher->id.'">'.$publisher->name.(!empty($publisher->code)?' ('.$publisher->code.')':'').'</option>';
-				}
-				echo '</select>
-				<input type="submit" value="'.get_string('edit').'" /> <input type="button" value="'.get_string('delete').'" onclick="if (document.getElementById(\'publisher\').value != 0){ document.location.href=\'publishersManager.php?action=del&publisher=\'+document.getElementById(\'publisher\').value;}" />
-			</form>
-			</p>';
-                }
 		echo '<p><input onclick="document.location.href=\'publishersManager.php?action=add\';" type="submit" value="'.get_string('addnewpublisher', 'block_rcommon').'" /></p>';
+        $publishers = $DB->get_records('rcommon_publisher', array(), 'name ASC');
+		if (!empty($publishers)){
+			$table = new html_table();
+			$table->class = 'generaltable generalbox';
+			$table->head = array(
+								get_string('publisher', 'block_rcommon'),
+								get_string('marsupialcontent', 'block_rcommon'),
+								get_string('edit'),
+								get_string('delete'));
+			$table->align = array('left', 'center', 'center', 'center');
+
+			foreach($publishers as $publisher) {
+				$row = array();
+				$row[] = $publisher->name.(!empty($publisher->code)?' ('.$publisher->code.')':'');
+				$row[] = "<a href=\"getBooks.php?id=".$publisher->id."\">".get_string('marsupialcontent', 'block_rcommon')."</a>";
+			    $row[] = "<a href=\"publishersManager.php?action=edit&publisher=".$publisher->id."\">".get_string('edit')."</a>";
+			    $row[] = "<a href=\"publishersManager.php?action=del&publisher=".$publisher->id."\">".get_string('delete')."</a>";
+			    $table->data[] = $row;
+			}
+			echo html_writer::table($table);
+        }
 }
-echo '</div>
-</div>
-<div class="summary"></div>
-</div>
-</li>
-</ul>
-</div>';
+echo '</div>';
 
 echo $OUTPUT->footer();

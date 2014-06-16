@@ -24,7 +24,7 @@
 .course-content ul.simple ul.section{
 	text-align:center;
 	margin:10px auto;
-	max-width:860px;
+	max-width: 860px;
 }
 
 .course-content ul.simple li.section .summary{
@@ -38,6 +38,7 @@
 	min-height: 210px;
 	margin: 20px 20px 0 20px;
 	width:175px;
+	clear: none;
 }
 
 .course-content ul.simple .activity img.activityicon{

@@ -174,9 +174,10 @@
     background-color: transparent !important;
 }
 
-h2.main {
-  font-size: 16px !important;
-  text-align: center !important;
-  margin-bottom: 3px !important;
- /* border-bottom: 0px !important;*/
-}
+/* Not needed to change the default style only for a module
+.path-mod-rcontent h2.main {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 3px;
+  //border-bottom: 0p;
+}*/

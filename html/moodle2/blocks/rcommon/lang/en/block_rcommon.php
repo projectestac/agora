@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 // MARSUPIAL *********** AFEGIT -> pluginname
 // 2011.11.18 @abertranb
 $string['pluginname'] ='Remote resources';
@@ -26,15 +26,19 @@ $string['delko'] = 'Unable to delete the data, please try again a few minutes la
 // *********** FI
 $string['downloadbookstructures'] = 'Download books structures';
 $string['error_authentication'] = 'Authentication error: Code: ';
+
+$string['error_code_1'] = 'URL successfully generated';
 $string['error_code_0'] = 'Unexpected error.';
 $string['error_code_-1'] = 'Failed to make the dynamic URL.';
-$string['error_code_-2'] = 'The license code is invalid.';
-$string['error_code_-3'] = 'The product Isbn is not valid.';
+$string['error_code_-2'] = 'The credential/license code is invalid.';
+$string['error_code_-3'] = 'The product ISBN is not valid.';
 $string['error_code_-4'] = 'The license has expired.';
-$string['error_code_-101'] = 'Incorrect authentication. The user requesting access to this
-Web service method is not correct.';
-$string['error_code_-102'] = 'Incorrect authentication. The user requesting access to this
-web service method has insufficient permissions.';
+$string['error_code_-5'] = 'The unit identifier is not valid.';
+$string['error_code_-6'] = 'The activity identifier is not valid.';
+$string['error_code_-7'] = 'The role is not valid.';
+$string['error_code_-101'] = 'Incorrect authentication. The user requesting access to this Web service method is not correct.';
+$string['error_code_-102'] = 'Incorrect authentication. The user requesting access to this Web service method has insufficient permissions.';
+
 $string['exit'] = 'Exit';
 // MARSUPIAL ********** AFEGIT -> Insert form key
 //2011.10.24 @mmartinez
@@ -67,7 +71,7 @@ $string['nocredentials'] = 'Credentials not found.';
 $string['nopublisher'] = 'Publisher not found.';
 // MARSUPIAL *********** AFEGIT -> Insert form key
 // 2011.10.24 @mmartinez
-$string['nokeybtn'] = 'It have no key';
+$string['nokeybtn'] = 'It has no key';
 // *********** FI
 $string['nounit'] = 'Unit not found.';
 // MARSUPIAL *********** AFEGIT -> Publishers manager
@@ -135,8 +139,13 @@ $string['no_publishers'] 		= 'There isn\'t any publisher';
 $string['without_credentials'] 		= 'Users without credentials';
 $string['with_credentials'] 		= 'Users with credentials';
 $string['back_to_stats'] 		= 'Go back';
-$string['good_connection'] 		= 'Connection succed';
+$string['good_connection'] 		= 'Connection succeeded';
 $string['bad_connection'] 		= 'Connection fail';
+// MARSUPIAL ************ AFEGIT -> New string for bad wsdl connection.
+// 2014.01.13 @naseq
+$string['bad_wsdl_connection']          = 'Check authentication web services address.';
+$string['bad_wsdl_connection_alert']    = 'Check authentication web services address.';
+//************ FI
 $string['books'] 			= 'books';
 $string['atria_error_information'] 	= 'Maybe the connection error is caused because no user has been synchronized yet';
 $string['check_publishers'] 		= 'Check the connection';
@@ -239,4 +248,3 @@ $string['keymanager_assing_nouser'] = 'No user was selected';
 $string['checkcredentialko_messageempty'] = 'Credential can\'t be empty';
 $string['rcommon_data_store_log'] = 'Folder to save traces';
 $string['rcommon_data_store_log_desc'] = 'Indicate the folder to save traces';
-?>

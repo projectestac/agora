@@ -236,7 +236,7 @@ switch($action){
 		<th>' . get_string('publisher', 'block_my_books') . '</th>
 		<th>' . get_string('book', 'block_my_books') . ' (ISBN)</th>
 		<th width="95">' . get_string('credential', 'block_my_books') . '</th>';
-		$context = get_context_instance(CONTEXT_SYSTEM); // pinned blocks do not have own context
+		$context = context_system::instance(); // pinned blocks do not have own context
 		if (has_capability('blocks/my_books:modifycredentials', $context)){
 			echo'<th width="145">' . get_string('actions', 'block_my_books') . '</th>';
 		}

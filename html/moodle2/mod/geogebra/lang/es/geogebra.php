@@ -161,3 +161,4 @@ $string['msg_noattempts']= 'Ya has realizado esta actividad el n&uacute;mero de 
 $string['lastmodifiedsubmission'] = $string['datestudent'];
 $string['lastmodifiedgrade'] = $string['dateteacher'];
 $string['viewattempttab'] = 'Intento';
+$string['extractedfromggb'] = 'archivos extraidos desde el ggb';

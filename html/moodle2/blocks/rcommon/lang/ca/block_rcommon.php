@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 // MARSUPIAL *********** AFEGIT -> pluginname
 // 2011.11.18 @abertranb
 $string['pluginname'] ='Recursos remots';
@@ -26,15 +26,19 @@ $string['delko'] = 'No ha estat possible esborrar les dades, si us plau torni a 
 // *********** FI
 $string['downloadbookstructures'] = 'Descarrega/actualitza l\'estructura dels llibres';
 $string['error_authentication'] = 'Error d\'autenticaci&oacute, codi: ';
+
+$string['error_code_1'] = 'URL generada correctament.';
 $string['error_code_0'] = 'Error inesperat.';
 $string['error_code_-1'] = 'Error al realitzar la URL din&agrave;mica.';
-$string['error_code_-2'] = 'El codi de llicencia no es v&agrave;lid.';
-$string['error_code_-3'] = 'El Isbn del producte no es v&agrave;lid.';
-$string['error_code_-4'] = 'La llicencia ha expirat.';
-$string['error_code_-101'] = 'Autenticaci&oacute; incorrecta. L\'usuari que sol&middot;licitat acc&eacute;s a aquest
-m&egrave;tode del servei web no es correcte.';
-$string['error_code_-102'] = 'Autenticaci&oacute; incorrecta. L\'usuari que sol&middot;licita acc&eacute;s a aquest
-m&egrave;tode del servei web no te permisos suficients.';
+$string['error_code_-2'] = 'La credencial/llicència no és vàlida.';
+$string['error_code_-3'] = 'El ISBN del producte no es v&agrave;lid.';
+$string['error_code_-4'] = 'La llicència ha expirat.';
+$string['error_code_-5'] = 'L\'identificador de la unitat no és vàlid.';
+$string['error_code_-6'] = 'L\'identificador de l\'activitat no és vàlid.';
+$string['error_code_-7'] = 'Rol incorrecte';
+$string['error_code_-101'] = 'Autenticaci&oacute; incorrecta. L\'usuari que sol&middot;licitat acc&eacute;s a aquest m&egrave;tode del servei web no es correcte.';
+$string['error_code_-102'] = 'Autenticaci&oacute; incorrecta. L\'usuari que sol&middot;licita acc&eacute;s a aquest m&egrave;tode del servei web no te permisos suficients.';
+
 $string['exit'] = 'Surt';
 // MARSUPIAL ********** AFEGIT -> Insert form key
 //2011.10.24 @mmartinez
@@ -139,6 +143,11 @@ $string['with_credentials'] 		= 'Usuaris amb credencials';
 $string['back_to_stats'] 		= 'Torna';
 $string['good_connection'] 		= 'Connexió correcta';
 $string['bad_connection'] 		= 'S\'ha produït un problema en intentar connectar';
+// MARSUPIAL ************ AFEGIT -> New string for bad wsdl connection.
+// 2014.01.13 @naseq
+$string['bad_wsdl_connection']          = 'Comprova l\'adre&ccedil;a del servei web d\'autenticaci&oacute;.';
+$string['bad_wsdl_connection_alert']    = 'Comprova l\'adre&ccedil;a del servei web d\'autenticaci&oacute;.';
+//************ FI
 $string['books'] 			= 'llibres';
 $string['atria_error_information'] 	= 'És possible que l\'error de connexió amb &Agrave;tria es produeixi perquè encara no s\'ha sincronitzat cap usuari/ària';
 $string['check_publishers'] 		= 'Comprova la connexió';
@@ -244,4 +253,3 @@ $string['keymanager_import_error_20'] = 'Ja s\'est&agrave; important una credenc
 $string['checkcredentialko_messageempty'] = 'La credencial no pot ser buida';
 $string['rcommon_data_store_log'] = 'Directori per guardar el seguiment';
 $string['rcommon_data_store_log_desc'] = 'Indiqui el directori per guardar el seguiment';
-?>

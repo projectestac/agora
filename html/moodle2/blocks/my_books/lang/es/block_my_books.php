@@ -1,9 +1,6 @@
 <?php
-// MARSUPIAL *********** AFEGIT -> pluginname
-// 2011.11.18 @abertranb
 $string['pluginname'] ='Mis libros';
-// *********** FI
-// MARSUPIAL ********** ADDED -> Spanish text string for my_books block
+
 
 $string['activitytypeopen'] = 'C&oacute;mo se ha de abrir la actividad';
 $string['activitytypeopeninfo'] = 'C&oacute;mo quieres que se le abra al alumno la actividad';
@@ -33,10 +30,7 @@ $string['viewertypeopen'] = 'C&oacute;mo se ha de abrir el visor';
 $string['viewertypeopeninfo'] = 'C&oacute;mo quieres que se le abra al alumno el visor';
 $string['width'] = 'Ancho';
 $string['widthinfo'] = 'Esta preferencia ajusta la anchura por defecto del marco o ventana';
-// ********** END
 
-// MARSUPIAL -> EVO: credentials
-// 2012.07.06 @mmartinez
 $string['addkey_button'] = 'A&ntilde;adir';
 $string['addkey_button_title'] = 'A&ntilde;adir credencial';
 $string['manage_button'] = 'Gestionar';
@@ -90,4 +84,4 @@ $string['keymanager_selectaction'] = 'A las credenciales seleccionadas...';
 $string['keymanager_selectall'] = 'Seleccionar todo';
 $string['keymanager_unselectall'] = 'Desseleccionar todo';
 $string['keymanager_messageunassing2'] = 'Esta seguro que quiere desasignar la credencial seleccionada?';
-// *********** FI
+

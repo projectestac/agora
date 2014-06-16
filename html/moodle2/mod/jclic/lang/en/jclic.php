@@ -81,13 +81,13 @@ $string['availabledate'] = 'Available from';
 $string['closebeforeopen'] = 'Could not update the jclic. You have specified a due date before the available date.';
 $string['duedate'] = 'Due date';
 $string['exiturl_help'] = 'This is the URL that appears when students finish the last JClic activity.
-    
+
 To make work this redirection it\'s necessary to associate to the last activity in the Sequences tab the action "Exit JClic" in the Forward arrow section.';
 $string['expired'] = 'Sorry, this activity closed on {$a} and is no longer available';
 $string['filetype'] = 'Type';
 $string['filetype_help'] = 'This setting determines how the JClic activity is included in the course. There are up to 2 options:
 
-* Uploaded JClic - Enables a valid ".jclic.zip" package to be chosen by the file picker. 
+* Uploaded JClic - Enables a valid ".jclic.zip" package to be chosen by the file picker.
 * External URL - Enables a URL to be specified. Note: The URL must start with http(s) or www and contain a valid "jclic.zip" file.';
 $string['filetypeexternal'] = 'External URL';
 $string['filetypelocal'] = 'Uploaded JClic';
@@ -102,9 +102,9 @@ $string['jclicfile'] = 'JClic file';
 $string['jclicfile_help'] = 'The .jclic.zip file containing the JClic files.';
 $string['lap']='Lap';
 $string['lap_help']='Time between client-server transactions (in seconds)';
-$string['modulename_help'] = '<a href="http://clic.xtec.cat" target="_blank">JClic</a> is a project of the Catalan Ministry of Education. 
-    It consists of a set of open source software applications that allow the creation of several types of multimedia educational activities: puzzles, association games, text activities, crosswords, wordsearch games and more. 
-    Besides, the <a href="http://clic.xtec.cat/db/listact_ca.jsp" target="_blank">ClicZone</a> offers a repository where more than a thousand activities are displayed. 
+$string['modulename_help'] = '<a href="http://clic.xtec.cat" target="_blank">JClic</a> is a project of the Catalan Ministry of Education.
+    It consists of a set of open source software applications that allow the creation of several types of multimedia educational activities: puzzles, association games, text activities, crosswords, wordsearch games and more.
+    Besides, the <a href="http://clic.xtec.cat/db/listact_ca.jsp" target="_blank">ClicZone</a> offers a repository where more than a thousand activities are displayed.
     It has been created by teachers and other professionals who want to share their work with others.
 
 This module allows teachers to add JClick activities to any course and to track pupils\' results (time spent on each of the activities, number of tries, score...).';
@@ -124,3 +124,6 @@ $string['jclic:grade'] = 'Grade JClic';
 
 /* Revision Moodle 2.3 */
 $string['jclic:addinstance'] = 'Add JClic';
+$string['pluginjs'] = 'JClic plugin js file url';
+$string['pluginjs_help'] = 'URL where to find jclicplugin.js needed to work. If empty, it will use the file on the module.';
+
