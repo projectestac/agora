@@ -3279,7 +3279,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $mailerAvailable = ($modinfo['state'] == 3) ? 1 : 0;
 
         // Build warning message
-        $warningMsgTpl = "<p>Benvolgut/da,</p><p>Aquest missatge és per informar-vos de que ###warningMsgForUser###";
+        $warningMsgTpl = "<p>Benvolgut/da,</p><p>Aquest missatge és per informar-vos de què ###warningMsgForUser###";
         $warningMsgTpl .= " En cas de superar el límit d'espai consumit, els usuaris no hi podran pujar fitxers.";
         $warningMsgTpl .= " Actualment heu consumit el ###diskConsumeValue###% de la quota.</p>";
         $warningMsgTpl .= "<p>Els gestors dels serveis Àgora del centre poden sol·licitar l'ampliació de la quota del servei des de la secció <strong>altres sol·licituds</strong> de l'<a href=\"" . $agora['server']['server'] . $agora['server']['base'] . "portal\">aplicació de gestió dels serveis d'Àgora</a>.</p>";
@@ -3307,13 +3307,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         $path = '';
                 }
                 if (!file_exists($path)) {
-                    $errorMsg .= $this->__('No s\'ha trobat el fitxer de consums de disc per: ' . $service['serviceName']);
+                    $errorMsg .= $this->__('No s\'ha trobat el fitxer de consums de disc per: ' . $service['serviceName'] . '<br />');
                     $error = true;
                 } else {
                     $noValidFile = false;
                     // TODO: Check if it is a valid file. If not send a warning mail
                     if ($noValidFile) {
-                        $errorMsg .= $this->__('El fitxer de consums de disc no és valid per: ' . $service['serviceName']);
+                        $errorMsg .= $this->__('El fitxer de consums de disc no és valid per: ' . $service['serviceName'] . '<br />');
                         $error = true;
                     } else {
                         // Add service because usage file is generated correctly
