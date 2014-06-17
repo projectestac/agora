@@ -121,6 +121,11 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
                         'whereArray' => 'active|1$$searchable|1'));
             $fieldsArray = array_merge($fieldsArray, $fields);
         }
+        
+        // If a user has no access to any searchable field, there's no possible search
+        if (empty($fieldsArray)) {
+            return true;
+        }
 
         // get the db and table info
         $dbtable = DBUtil::getTables();

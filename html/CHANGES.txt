@@ -13,6 +13,9 @@ PORTAL
 - Agoraportal: Added fields URL and hasDB to service definition table
 - Agoraportal: Added support to apply for new service Nodes
 
+ZIKULA
+- IWforms: Fixed error when there are no searchable fields
+
 WORDPRESS
 - Added WordPress 3.9.1
 - Modified wp-config.php and added site-config.php to WordPress
