@@ -17,7 +17,7 @@ PORTAL
 - Agoraportal: Added fields URL and hasDB to service definition table
 - Agoraportal: Added support to apply for new service Nodes
 
-ZIKULA
+ZIKULA 2
 - IWforms: Fixed error when there are no searchable fields
 
 WORDPRESS
@@ -1144,3 +1144,825 @@ ZIKULA
 
 
 Changes 11.09.08
+---------------------------------------------------------------------------------------
+GENERAL
+- Fixed detection of oldDNS. Now, when detected, redirects to an info page
+- sync_to_file: removed legacy code, improved format and added some comments
+- dblib-mysql: removed legacy code, improved format and added some comments
+
+MOODLE
+- Fixed problem when importing quizzes activities
+
+PORTAL
+- Removed debug code for admins when activating new services
+- Checks and inform if a client have moodle in administrator pannel
+- Added inteligent checks in services activation form depending on what checkboxs are checked
+- The no visible clients can ask for new services and they can see the available services
+- The admin password is the password of the manager who ask for the service
+- General enhancements to e-mail sent when changings the state of services
+- Removed synchronization of changing DNS to preschools and update info messages in change DNS
+
+
+Changes 11.09.02
+---------------------------------------------------------------------------------------
+GENERAL
+- Removed html/tools dir because it's no longer necessary
+- Added script to create schools lists files to substitute the old adminTools'
+
+PORTAL
+- Fixed calc of free database in moodle
+- Allow upload of big files to moodle even if quota is exceeded
+- Removed Tour module because we're not using it and we won't do it
+
+
+Changes 11.08.29
+---------------------------------------------------------------------------------------
+GENERAL
+- Fixed dblib-mysql.php to provide school codes starting by letter or number
+
+PORTAL
+- Fixed bug related with allowedIps to execute updateDiskUse function
+- Removed URL from Marsupial service
+- Added disk usage and disk quote (in MB) to myAgora and upload Moodle files pages
+- Ask for confirmation in case the user refuse to become a client's manager.
+- Changed code to connect to moodle DB's (not in all cases). Better use of Zikula API and added limit length for field city in mluser table.
+- Zikula doesn't recognise oci8po driver name. We must use oci8 (also possible: oracle)
+- Improved information seen by managers in myAgora
+- Removed restriction which blocked direct changes among some states
+
+MOODLE
+- Fixed problems with the top menu size
+- Added function to remove old backups remotely
+- Added menu to view disk usage quotes
+- Added menu to manage Marsupial options
+- Created page to show all the books from a publisher. Modified default option in the Marsupial main menu to show this page instead of update the book structure directly.
+- rscorm lang files: Replaced ISBN string for "Book"
+- rcommon lang files: Revised some strings to add HTML entities
+
+ZIKULA
+- Moved password update to finishnewuser. Just need to take care of moderation to be off.
+- Commented code in system/Users to avoid sending of e-mail when an LDAP user is created i users table.
+
+
+Changes 11.08.22
+---------------------------------------------------------------------------------------
+GENERAL
+- Added param $agora['intranet']['datadir'] to config/env-config-dist.php
+- Added params $agora['moodle']['discusagefile'] and $agora['intranet']['discusagefile'] to config/config-dist.php
+- Added params $agora['server']['ubr_upload'] and $agora['server']['ubr_temp'] to config/config-dist.php
+
+PORTAL
+- Removed not used Zikula themes
+- Fixed load of block position "center" missing in templates
+- Changed log options in config.php
+- Fixed integration of ubr_upload in agoraPortal.
+- Lots of minor improvements to agoraPortal module.
+- Added info for users to login screen
+
+MOODLE
+- Added functionality to block upload forms if there isn't free disk space
+- Added functionality to remove old copies when backup succed
+- Fixed problems with special characters in top menu
+- Added option to remove old backups
+- Modified XTEC2 theme (decoration and color of links)
+
+
+Changes 11.07.08
+---------------------------------------------------------------------------------------
+GENERAL
+- Revised dblib information to add diskPercent_moodle, diskPercent_intranet and clientCode. At the moment, the diskPercent is still not correct (is always 0).
+- Statistics: Commented code which checks and adds schoolcode field tot tables, cause all tables already have it
+
+PORTAL
+- Improved initialization of the module agoraPortal adding schools to groups_membership as members of the group clients.
+- Added parameter to allow restringered IPs to execute script for services disc consume.
+- Ckecks and inform if a client have moodle in administrator pannel.
+- Added inteligent checks in services activation form depending on what checkboxs are checked.
+- The no visible clients can ask for new services.
+- The admin password is the password of the manager who ask for the service.
+
+
+MOODLE
+- Updated version to 1.9.12
+- Updated marsupial modules to last version and revised the code to hide them for non-marsupial schools.
+- Installed atria module.
+- Installed my_books block.
+- Revised site-config.php to move location when the school domain is not correct.
+- Added code to avoid upload files if the disk quota is exceeded.
+- Enabled grouping experimental feature.
+
+ZIKULA
+- Fixed style in theme XTEC2 showing too-wide left column while wieving some modules like iw_noteboard
+- Added templates to show localized error messages when there are technical problems
+- Fixed iwcron sending incorrect new content notifications
+
+
+
+Changes 11.06.27
+---------------------------------------------------------------------------------------
+GENERAL
+- Statistics.php: moodle week stats use schoolcode in where clauses
+- Changed adminTools to send e-mails via smtp.gmail.com. Requires change in html/eines/config.php
+- Updated eines/phpmailer in order to support SSL connections
+- apc.php now uses html/config/config.php instead of html/eines/config.php
+- env-config-dist.php modified to get schools info from MySQL
+- Added dblib-mysql.php to get schools info from MySQL
+- config-dist.php modified with prefix of Portal and Intranet tables
+
+PORTAL
+- Improved performace of agoraPortal import of data
+- Added upgrader to transform tables to utf-8
+- Added advMailer
+- Added AuthLDAP. Will replace clientAuthLDAP.
+- Added disk consume calc functionalities
+- Added Marsupial service
+- Added 1x1 network property for clients
+- Prefix set in general config file
+- Save in a session variable the state in services table to recover previous state during services management and make things easier to administrators
+
+MOODLE
+- Added e-mail format validation
+- New improvements in the management of Senzill format icons
+- Removed old config files no longer used: personal_config.php and personal_config-dist.php
+- Fixed problem with load balancing (BIGIP) HTTPS is enabled
+- Moved CFG->enable_hour_restrictions param to database to change it easily
+- Moved CFG->loginhttps param to database to change it easily
+
+ZIKULA
+- Removed safeHTML alert (admin_admin_securityanalyzer.htm)
+- Improved automatic sending of new things to see by mail and traduced to Catalan
+- All HTML tags are allowed for non admins if they are allowed in security center
+- Removed old config files no longer used: personal_config.php and personal_config_mostra.php
+- Prefix set in general config file
+
+
+Changes in 11.05.16
+---------------------------------------------------------------------------------------
+GENERAL
+- Statistics.php: courses and activities are calculated taking care of the moment of execution
+- Statistics.php: improvements to code to increase SQL efficiency
+- Statistics.php: improved phpdoc and several other minor improvements
+- Statistics.php: improved intranet month users count and moodle month access
+
+MOODLE
+- Fixed error in forum's index appearance
+- Fixed error in forum's summary sent via webservice
+
+
+Changes in 11.05.10
+---------------------------------------------------------------------------------------
+GENERAL
+- Revised works to fix some problems and check the intranet database connection also
+
+MOODLE
+- Added top menu in XTEC2 theme
+- Added handwrite font
+- Added possibility to send messages via apligest system
+- Appearance modifications
+- Fixed error of multiple file fields in the same database form
+- Fixed errors between versions with UPCnet in "Senzill per temes" format
+- Icon can't be chosen for "label" resource type in "Senzill per temes" format
+
+ZIKULA
+- Upgraded to Zikula 1.2.7
+- Fixed change lost in update to 1.2.6: allow 'style' attribs in posts sent by non-admin users
+- Fixed change lost in update to 1.2.6: force short URL always disabled
+- Added new mailer module: advMailer
+- Added new statistics module: IWstats
+- Removed old upgrade scripts
+- Added new script to install modules IWstats and advMailer and empty temp dirs
+- Added new script to deactivate module Stats
+- Minor improvements to iw_bookings
+
+PORTAL
+- Upgraded to Zikula 1.2.7
+- Small change in graphics code for better showing of labels in agoraPortal graphics
+
+
+Changes in 11.04.15
+---------------------------------------------------------------------------------------
+GENERAL
+- Fixed access blocked to new schools present in DB but not yet in allschools.php
+- Fixed statistics.php stopping when a school wasn't found in DB
+
+MOODLE
+- Added log for ADODB connection error. Log file is stored in usu1 site files.
+- Removed warnings messages in format "Senzill per temes".
+- Several improvements in management of format "Senzill per temes".
+- Fixed invalid DNS showing database error instead of "not a valid school".
+- Label resource is now enabled in format "Senzill per temes".
+
+ZIKULA
+- Added 2 files lost in the way of upgrading to Zikula 1.2.6
+- Fixed invalid DNS showing database error instead of "not a valid school".
+
+
+
+
+Changes in 11.03.18
+---------------------------------------------------------------------------------------
+MOODLE
+ - Added Senzill course format, including big icons. GIF icons allowed. By defaul uses png icons.
+ - New options to configure navigation bar in the top of the courses
+ - Slideshow module upgraded to last version and edit_form.php addded
+ - In personal messages sent from school account, the name of the autor appears on "subject" and "replyto" fields only
+
+PORTAL
+- Upgraded to Zikula 1.2.6
+- New features in Statistics tool (order by, summatory, AI ...)
+- Added one-click CSV export statistics (export of single schools no supported yet)
+- Added graphics to Statistics (first version, not completed yet)
+- Changed stats script to use school code instead of school DNS
+
+ZIKULA
+- Upgraded to Zikula 1.2.6
+- Error getting Zikula version in Export module solved
+- Added templates to display news in RSS, Atom and Printer formats
+- Cosmetic improvements to theme iw_xtec
+- Fixed bug in Files module to allow downloads of files in root folder
+- Fixed 2 bugs in iw_moodle which prevented some groups to be shown in course inscription and in user synchronization
+- Fixed alternate link to RSS in themes iw_xtec, iw_xtec2 and iw_bluegrace_agora
+
+
+
+
+Changes in 11.01.24
+---------------------------------------------------------------------------------------
+MOODLE
+- Using new system to get database connection information
+- Added patch to change special chars in CSV user upload files  (only for the username field)
+- Updated marsupial module (rcommon, rcontent and rscorm) to last version (1.2)
+
+PORTAL
+- Using new system to get database connection information
+
+ZIKULA
+- Using new system to get database connection information
+- Fixed wrong width attributes in <img> tags
+- Fixed false-positive errors shown related to Moodle DB Connection
+
+
+Changes in 11.01.03
+---------------------------------------------------------------------------------------
+MOODLE
+- Warning of "Advices block" removed
+- Edu3 videos now available in tasks
+- Changed logos according to new brandname
+- Updated marsupial module (rcommon, rcontent and rscorm) to last version (1.1)
+
+PORTAL
+- Changed logos according to new brandname
+- Created new theme (based in iw_xtec2)
+
+ZIKULA
+- Changed logos according to new brandname
+- Error in "save draft" function in "News" module solved
+
+
+Changes in 10.12.27
+---------------------------------------------------------------------------------------
+MOODLE
+- Fixed error with suport email
+- Updated wiris module version and changed config file to remove edu365 references (because license is not valid from 01/01/2011)
+- Error in search by menu or multimenu fields in moodle's databases solved
+
+PORTAL
+- Added features of "Order by" and "Summatory" in stats manager
+- Fixeded error with weekly stats generation
+
+ZIKULA
+- Fixed error with navigation in iw_bookings module
+- Fixed error with importation in Export module
+
+
+Changes in 10.12.02
+---------------------------------------------------------------------------------------
+MOODLE
+- Revised db auth method to let edit parameters when $isagora is not enabled
+
+PORTAL
+- Fixed bug (with new order by feature)
+
+
+Changes in 10.11.30
+---------------------------------------------------------------------------------------
+GENERAL
+- Revised username text for login page (to avoid confusion)
+
+MOODLE
+- Customized database connection error
+
+PORTAL
+- Added feature to order schools by schoolid (for advices and SQL functions)
+- Fixed database username hardcoded. Now, using variables defined in config.
+
+ZIKULA
+- Solved some error in iw_chat module
+
+
+Changes in 10.11.04
+---------------------------------------------------------------------------------------
+MOODLE
+- Added changes on mail subject, prefixing [Àgora] to let selecting and filtering messages from Agora
+- Avoid replying to SMTP address when sending via Google Apps
+- Solved bug "SQL ORA-00932: inconsistent datatypes: expected - got CLOB" in database module
+
+PORTAL
+- Solved error with installation/uninstallation of the module AgoraPortal
+- Improved "Edit" feature of the stored SQL commands
+- Added menu with tabs for the stored SQL commands
+
+ZIKULA
+- Added files of module iw_chat lost in the last update
+- Fixed some tiny errors of Export module
+- iw_xtec2 theme is now customizable through files in Files module
+
+
+Changes in 10.10.18
+---------------------------------------------------------------------------------------
+MOODLE
+- Improvements on xtec2 theme
+- Bug repaired: "Can't delete quiz attempts when specific group is selected" MDL-22847 It will be solved on Moodle 1.9.10 version
+- Updated message on Rush hour taken operations
+
+PORTAL
+- Added functionality to store SQL comands to database
+- SQL comands now recounts the values if they are unique
+- Repaired some errors with SQL execution
+
+ZIKULA
+- Fixed unclosed tag in formicula module template
+- Removed block xslt.php because breaks Zikula in Agora
+- Removed Zikula restriction which blocked style attributes in HTML tags when user is not admin
+- Added module iw_menu
+- Added module iw_chat based on phpFreeChat
+- Improved templates on several modules
+- Added theme iw_xtec2
+- Adapted all templates to iw_menu module
+- Added module Export
+- All themes updated to support iw_menu
+
+
+Changes in 10.09.27
+---------------------------------------------------------------------------------------
+GENERAL
+- Added educat info to Moodle stats
+
+MOODLE
+- Changed rush hour (from 9-14 and from 15-17)
+- Solved bug with restore lib
+
+PORTAL
+- Added option to send notices to Intranets
+- Solved some problems with SQL execution
+
+
+Changes in 10.09.15
+---------------------------------------------------------------------------------------
+GENERAL
+- Moved CHANGES.txt to html directory to include it in all the versions
+
+MOODLE
+- Deleted the chat deleting scripts
+- Added Image Slideshow module
+- Removed 1.9.7 securiy warning message (to avoid confuse people with the installed Moodle version)
+- Updated rcommon block to solve bug with one the web services
+
+PORTAL
+- Added field educat 1x1 which makes possible to classify the schools that subscribe the educat project
+- Upgraded the core version to 1.2.4 of Zikula
+- Added advises created via blocks directy in clients' intranets
+- Removed some unnecessary files in portal/pnTemp folder
+
+ZIKULA
+- Upgraded the core version to 1.2.4 of Zikula
+- Some minor bugs fixed in intraweb modules
+
+
+Changes in 10.09.08
+---------------------------------------------------------------------------------------
+GENERAL
+- Revised information returned by the web service for agora migration
+- Moved EOIs to agora-eoi server
+
+MOODLE
+-  New course parameters allows user:
+    * to hide blocks per course overriding theme parameters
+    * hide, and control the advanced navigation bar on top of the course
+- Revised XTEC2 theme: changed sidebar color, linked logos in header...
+- Enabled hour restrictions for reports and backups
+- Deleted chat activity module to improve performance
+- Added last version of rscom, rcontent i rcommon modules/block
+
+
+
+Changes in 10.08.26
+---------------------------------------------------------------------------------------
+ZIKULA
+- Fixed bug which blocks module regeneration
+- Fixed bug in Files which blocks file uploading
+
+
+Changes in 10.08.20
+---------------------------------------------------------------------------------------
+ADMINTOOLS
+- Added field for eduCAT 1x1
+
+GENERAL
+- Renamed moodle and zikula directories
+- Added web service for agora migration (file checkuser.php)
+
+PORTAL
+- Refactored config files
+
+ZIKULA
+- Refactored config files
+- Improved upgrader2.php
+- Fixed small bugs in modules
+
+
+Changes in 10.08.05
+---------------------------------------------------------------------------------------
+MOODLE
+- Added adminTools/changeConfig.php file to update config table from CLOB to VARCHAR2
+
+
+Changes in 10.07.26
+---------------------------------------------------------------------------------------
+MOODLE
+- Updated Moodle version from 1.9.5 to 1.9.9.
+- Updated some Moodle filters and modules: advises, wiris (2.2.2), dragmath (0.7.8.2), freemind.
+- Added missing pix files to xtec2 theme.
+
+PORTAL
+- Fixed problem with advises block (missing database name)
+
+ZIKULA
+- Updated Zikula from 1.1.2 to 1.2.3
+- Changed charset (files & DB) from iso-8859-15 to utf-8 (core & modules)
+- Changed multilanguage system to gettext (core & modules)
+- Upgraded all modules
+- Added migration script (upgrader.php) to convert databases
+- Fixed several minor bugs
+
+
+Changes in 10.06.30
+---------------------------------------------------------------------------------------
+MOODLE
+- Added advices block. This block allows system admins to alert all agora moodles about important notices.
+- In a course, by default, show only current topic for students
+- Repaired the problem erasing SCORM reports reported in http://agora.xtec.cat/moodle/moodle/mod/forum/discuss.php?d=13641
+- $agora['moodle']['dbnumber'] has been moved to config.php
+- Added $CFG->enable_hour_restrictions = false; parameter to personal_config.php to enable/disable backup/restore restriction
+
+PORTAL
+- Fixed problem with Moodle database connection used for SQL editor and advises.
+
+ZIKULA
+- Made print logo customizable via logoprint.png in theme directory. Also hidden EZComments form when printing.
+- Added support for iw_vhmenu for andreas08 theme
+- Made RSS logo customizable via logorss.png in theme directory
+- Refactored theme header for better customization via style2.css. Lengthened logo area.
+- Added rel link for RSS news
+
+
+Changes in 10.06.08
+---------------------------------------------------------------------------------------
+PORTAL
+- Fixed problems deleting tables of the agoraPortal module.
+
+ZIKULA
+- Added logo of Departament d'Educació to theme iw_xtec and some minor changes.
+- iw_files: file.php now preserves original filename
+- iw_noteboard: fixed dropdown menu missing groups when editing topic
+
+
+Changes in 10.06.01
+---------------------------------------------------------------------------------------
+MOODLE
+- Wiris filter updated to version 2.1.35 (to solve problem with allow_url_fopen)
+
+PORTAL
+- Fixed problems with schools list
+
+
+Changes in 10.05.20
+---------------------------------------------------------------------------------------
+ADMINTOOLS
+- Added more information to schools list (location, type...) and revised updating of schools to save also this information. It's necessary to add some tables and fiels to the administration database.
+
+GENERAL
+- Added option to redirect to the new DNS when the user attempt to acces to a place with changed DNS (eines/userAPI.php, moodle/personal_config.php, config/zk/personal_config.php, error.php). Requires a new field in PRE_SCHOOLS table: "SCHOOL_OLD_DNS" VARCHAR2(50)
+
+MOODLE
+- Geogebra filter updated to version 3.2
+- Wiris filter updated to version 2.1.33
+
+PORTAL
+- Revised schools list to add more information (location, type...)
+- Fixed default user group importing users from moodle using iw_moodle
+
+
+
+Changes in 10.05.03
+---------------------------------------------------------------------------------------
+MOODLE
+- Take out ldap data to complete user profile
+- Fixed the clickreportid hotpotatoes restore problem
+- Fixed XML encoding errors on restoring
+- Fixed a deprecation warning in qv
+- Set sessiontimeout parameter on config to 3600s.
+- Added restriction to personal_config.php file for stress-testing
+
+PORTAL
+- New tool to execute SQL in the selected centers
+- New tool to change the advices block content of the moodles.
+
+ZIKULA
+- Added restriction to config.php file for stress-testing
+
+
+Changes in 10.03.18
+---------------------------------------------------------------------------------------
+MOODLE
+- Fixed Error in ratings exported glossary entries MDL-18421
+- Bulk operation to capitalize user names
+- Little change in the message of deleting bulk users
+- Added $CFG->dbsessions=1; parameter to save sessions to database in all Moodle instances
+- Fixed some problems in the analytics block
+
+ZIKULA
+- Fixed captcha in module formicula
+- Fixed pnsearchapi.php for Downloads
+
+
+Changes in 10.03.04
+---------------------------------------------------------------------------------------
+MOODLE
+- Avoid to disable recaptcha on signup
+- Resolves the warning about the deleting of a large number of user does not work
+- Disable Backup operations in rush hours. Monday to Friday from 9:00 to 13:59 and from 15:00 to 21:59.
+- Hide the next categories to the normal and admins users except xtecadmin: Reports, Server:Statistics, Server: HTTP, Network
+- Preset some settings in personal-config.php
+- Revised infr.moodledata_sessions.sh script and added 5 schools more to analytics
+
+PORTAL
+- Fixed gettext problem
+
+ZIKULA
+- Fixed bug involving iw_bookings (groups missing in dropdown menu)
+
+
+Changes in 10.02.01
+---------------------------------------------------------------------------------------
+- Added Basque, Dutch, Korean, Simplified Chinese and Urdú language packs
+- Updated French language pack
+- Allow negative marks for multiple choice questions of a quiz with and without multiple answer
+- Warning that the deleting of a large number of user does not work
+- Added Freemind Filter and browser version 0.8.1
+- Solved database ordering problems (mod/data/view.php)
+- Solved viewing phpInfo for xtecadmin in (admin/settings/server.php)
+- Added lib/agora.php to manage some agora related functions.
+- Apply patch MDL-16336 to make htmleditor works in Google Chrome
+- Installed admin_service block (visible only when school_type=portal)
+- Fixed some recaptcha parameters in config file
+
+
+Changes in 9.11.13
+---------------------------------------------------------------------------------------
+- Updated jclic module to 0.1.0.10 version
+- Hidden Security | Antivirus admin option
+
+
+Changes in 9.10.15
+---------------------------------------------------------------------------------------
+- Found supportemail='' but not added to config to delete agora@xtec.cat from it. It's necessary to invest more.
+- Added path to solve problem with LaTeX in multiple choice (http://tracker.moodle.org/browse/MDL-12418)
+- Solved problems with EOICampus warning when restoring a course
+- Added Catalonia to countries list
+
+
+Changes in 9.10.08
+---------------------------------------------------------------------------------------
+- Revised personal_config for Moodle and Intranet: solved some problems with database connection
+
+
+Changes in 9.10.01
+---------------------------------------------------------------------------------------
+- Solved problems with contacts list in private messages window
+
+
+Changes in 9.09.15
+---------------------------------------------------------------------------------------
+- Solved problems with question backup
+- Solved problems with hotspot restore
+- Solved problem with course and categories list display (TXTEC theme)
+
+
+Changes in 9.09.08
+---------------------------------------------------------------------------------------
+- Revised EOICampus module (to add mod_form.php file because mod.html fails)
+- Revised XTEC theme to add always all default css files
+- Added release information on statistics tool (to know which is the Moodle version of each school)
+
+
+Changes in 9.09.03
+---------------------------------------------------------------------------------------
+- Added EOICampus module (only for schools with pre_schools.school_type=EOI)
+- Created actualitza.php file to update all intranet schools
+
+
+Changes in 9.09.01
+---------------------------------------------------------------------------------------
+- Solved some problems with upgrade to 1.9.5
+- Hidden link in the main page
+- Revised creation of xtecadmin user to solve problems with mnethostid
+- Revised iw_moodle to solve users syncronization
+
+
+Changes in 9.08.27
+---------------------------------------------------------------------------------------
+- Solved problems with HTML editor
+
+
+Changes in 9.07.24
+---------------------------------------------------------------------------------------
+- Updated Moodle from 1.8.9 to 1.9.5
+- Updated Wiris filter to 2.1.27
+- Updated DragMath filter to 0.7.8.1
+- Updated questionnaire module to put 1.9 version (2008060403)
+- Revised server parameters to make easier the installation in Odissea (for instance, added CFG->isagora parameter)
+
+
+Changes in 9.06.19
+---------------------------------------------------------------------------------------
+- Updated Moodle from 1.8.7 to 1.8.9
+- Revised works.php to check also the connection to all the databases (not only the first one)
+- Hidden Secutity | HTTP Security option because HTTPS login fails
+- Solved problems with questionnaire module (groups, some activities...)
+- Solved problem with iw_moodle intranet module reinstallation
+
+
+Changes in 9.06.08
+---------------------------------------------------------------------------------------
+- Solved tex filter problem
+- Added error page (if it's not possible to connect with the moodle_administration database)
+
+
+Changes in 9.04.30
+---------------------------------------------------------------------------------------
+- Geogebra filter installation
+
+
+Changes in 9.04.03
+---------------------------------------------------------------------------------------
+- Debugging server option to enable only for xtecadmin user
+- Updated qv (2.0.5) and jclic (0.1.0.9) module version
+- Updated filter/tex to solve a security problem (downloaded the latest weekly version)
+- Installed questionnaire module
+
+
+Changes in 9.03.19
+---------------------------------------------------------------------------------------
+- Revised SMTP server settings to mask password
+- Solved problems with the specials characters in the name inside zip files
+- Hidden global search block (because it's a experimental service)
+- Solved problems with users form city length
+- Revised initial database number (migration of moodle and moodle2 to smaller databases (only 200 schemas))
+
+
+Changes in 9.02.03
+---------------------------------------------------------------------------------------
+- Updated Moodle from 1.8.6 to 1.8.7
+- Added greek language pack
+
+
+Changes in 9.01.20
+---------------------------------------------------------------------------------------
+- Solved SMTP configuration problems (ssl protocol was always added)
+
+
+Changes in 9.01.07
+---------------------------------------------------------------------------------------
+- Revised SMTP configuration (added line to class.smtp.php file to add ssl for google server)
+- Updated WIRIS plugin to 2.1.24
+- Revised the permissions of DragMath filter
+
+
+Changes in 8.12.01
+---------------------------------------------------------------------------------------
+- Solved problems with cookies for schools in database 2
+- Added debugagora parameter to show the error messages when it's specified
+- Revised SMTP server config to let specify the port (smtp.google.com:465 for instance)
+
+
+Changes in 8.11.05
+---------------------------------------------------------------------------------------
+- Solved problems with HTML Editor (with german language)
+- Revised the way to get the school information and changed to get it from schools table. Changed also the information stored in the cookie.
+
+
+Changes in 8.10.20
+---------------------------------------------------------------------------------------
+- Added hidden field to solve problem with login url redirections
+- Revised eines to create schools with id_schools > 400 (second database)
+
+
+Changes in 8.10.16
+---------------------------------------------------------------------------------------
+- Added some language packages to Moodle (japanese, german, russian, portuguese, italian, arabic)
+- Separated config files of eines and Moodle (created personal_config.php)
+- Solved problem with login url redirections
+- Revised config file for Moodle to let have more than one database
+
+
+Changes in 8.09.23
+---------------------------------------------------------------------------------------
+- First version of the intranet (with the final database)
+- Created a new contract for non-public schools
+- Revised Moodle xtec-theme to adapt the Agora XTEC skin.
+
+
+Changes in 8.09.04
+---------------------------------------------------------------------------------------
+- Updated Moodle version to 1.8.6 to solve security problems
+- Revised the backup of courses and solved problems with quiz activities
+- Added error.php file to show if the URL isn't correct
+- Changed the FAX from 932002921 to 932415341
+
+
+Changes in 8.07.16
+---------------------------------------------------------------------------------------
+- Solved problems detected with .inc file generation (dns name wasn't been included inside the file)
+- Revised admin list tool (to let one school to have more than one service). Revised getSchoolsInformation and getAllSchools functions
+- Revised createSchoolsList.php to use config parameters and get only the moodle and activated schools
+
+
+
+Changes in 8.07.09
+---------------------------------------------------------------------------------------
+- Database and administration application revised and adapted to let the creation of intranet also.
+- Revised and solved some bugs (cookie generation, error page...)
+
+- Replace the following lines in moodle185/config.php file
+			From
+				setcookie('xtecSchool',$data[0].'--'.$data[1]);
+			to
+				setcookie('xtecSchool',$data[0].'--'.$data[1],0,'/');
+
+	Twice more o less lines 23 and 36
+			From
+				header('location: ../../error.htm');
+			to
+				header('location: '.MOODLE_WWWROOT.'error.htm');
+	Once more o less in line 12
+
+- Execute SQL to delete index school_name unique and create index code and actived_service unique
+			file: agora_schools_service_2080707.sql
+
+- Modify the file eines/config.php. The follow rows have to be added at the end of the file:
+
+	//schools intranet database access
+	$agora['intranet']['username'] = "agora";
+	$agora['intranet']['userpwd'] = "agora";
+	$agora['intranet']['host'] =  "localhost:3306";
+
+	//current versions for interprices
+	$agora['moodle']['current_version'] = "185";
+	$agora['intranet']['current_version'] = "10";
+
+	with the correct parameters for mysql connection in public servers
+
+Changes in 8.05.19
+---------------------------------------------------------------------------------------
+- Created administration tool to move uploaded files
+- Revised lang packages of moodle (ca, es and fr)
+
+
+Changes in 8.05.08
+---------------------------------------------------------------------------------------
+- Added the lines
+		$agora['server']['root'] = "/dades/eduphp/agora-moodle/";
+		$agora['server']['cgi_folder']="http://php-int.educacio.intranet/agora-cgi/";
+		$agora['server']['html']="http://php-int.educacio.intranet/agora-moodle/";
+		$agora['config']['need_validation']="true";
+		$agora['config']['valid_initials']=array("ies", "ceip", "afa", "cfa", "ses", "eoi");
+	in file config.php
+- Modified $agora['smtp']['user'] = 'blocs'; to $agora['smtp']['user'] = 'agora';
+- Added ses and eoi schools also
+- Solved problem with the lenght of the city (at the signup).
+- Added upload service (for files bigger than 10MB)
+
+
+Changes in 8.04.28 (2008/04/29)
+---------------------------------------------------------------------------------------
+- Changed Moodle version from 1.8.4 to 1.8.5
+- Added button to add/delete xtecadmin user in Moodle
+- Revised contracte.php (to solve some bugs detected and to add specific text for SE)
+- Added school code to the list admin page
+
+
+Changes in 8.04.23 (2008/04/23)
+---------------------------------------------------------------------------------------
+- Added adminTools/activacio/updateMoodleAdmin.php file to make xtec_admin administrador
+- Revised acces/contracte.php (only accept id=se parameter and shows an empty contract)
