@@ -5,6 +5,10 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+Changes 14.06.20
+---------------------------------------------------------------------------------------
 GENERAL
 - Modified general config.php, env-config.php, dblib-mysql.php and .htaccess to support new service Nodes
 - Added special code to .htaccess for permalinks in WordPress
