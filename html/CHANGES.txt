@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- IWportal: Don't show central blocks in admin pages
+
 
 
 Changes 14.06.20

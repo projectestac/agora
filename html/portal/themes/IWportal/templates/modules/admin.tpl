@@ -33,10 +33,6 @@
             </div>
 
             <div id="theme_content">
-                <div id="center" style="clear:both;">
-                    {blockposition name=center}
-                </div>
-                
                 <div id="z-maincontent">
                     {$maincontent}
                 </div>
