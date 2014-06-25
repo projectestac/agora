@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Invite Anyone package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Invite Anyone 1.2\n"
+"Project-Id-Version: Invite Anyone 1.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/invite-anyone\n"
-"POT-Creation-Date: 2014-04-25 14:18:33+00:00\n"
+"POT-Creation-Date: 2014-06-23 12:51:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#. #-#-#-#-#  invite-anyone.pot (Invite Anyone 1.2)  #-#-#-#-#
+#. #-#-#-#-#  invite-anyone.pot (Invite Anyone 1.3)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: admin/admin-panel.php:6 admin/admin-panel.php:113 widgets/widgets.php:38
 #: widgets/widgets.php:86
@@ -264,11 +264,11 @@ msgstr ""
 msgid "Invited Email"
 msgstr ""
 
-#: admin/admin-panel.php:452 by-email/by-email.php:753
+#: admin/admin-panel.php:452 by-email/by-email.php:761
 msgid "Sent"
 msgstr ""
 
-#: admin/admin-panel.php:460 by-email/by-email.php:754
+#: admin/admin-panel.php:460 by-email/by-email.php:762
 msgid "Accepted"
 msgstr ""
 
@@ -577,7 +577,7 @@ msgid ""
 "information below to create your account."
 msgstr ""
 
-#: by-email/by-email.php:269 by-email/by-email.php:669
+#: by-email/by-email.php:269 by-email/by-email.php:677
 #: group-invites/group-invites.php:59
 #: group-invites/templates/invite-anyone.php:87
 #: group-invites/templates/invite-anyone.php:178
@@ -589,7 +589,7 @@ msgstr ""
 msgid "Invite New Members"
 msgstr ""
 
-#: by-email/by-email.php:291 by-email/by-email.php:725
+#: by-email/by-email.php:291 by-email/by-email.php:733
 msgid "Sent Invites"
 msgstr ""
 
@@ -680,11 +680,11 @@ msgid ""
 "groups when they join the site."
 msgstr ""
 
-#: by-email/by-email.php:732
+#: by-email/by-email.php:740
 msgid "You have sent invitations to the following people."
 msgstr ""
 
-#: by-email/by-email.php:745
+#: by-email/by-email.php:753
 msgid ""
 "This table displays a list of all your sent invites.\n"
 "\t\t\tInvites that have been accepted are highlighted in the listings.\n"
@@ -692,107 +692,107 @@ msgid ""
 "the invites from the list."
 msgstr ""
 
-#: by-email/by-email.php:751
+#: by-email/by-email.php:759
 msgid "Invited email address"
 msgstr ""
 
-#: by-email/by-email.php:752
+#: by-email/by-email.php:760
 msgid "Group invitations"
 msgstr ""
 
-#: by-email/by-email.php:762
+#: by-email/by-email.php:770
 msgid "Clear all accepted invites from the list"
 msgstr ""
 
-#: by-email/by-email.php:762
+#: by-email/by-email.php:770
 msgid "Clear all accepted invitations"
 msgstr ""
 
-#: by-email/by-email.php:763
+#: by-email/by-email.php:771
 msgid "Clear all your listed invites"
 msgstr ""
 
-#: by-email/by-email.php:763
+#: by-email/by-email.php:771
 msgid "Clear all invitations"
 msgstr ""
 
-#: by-email/by-email.php:789
+#: by-email/by-email.php:797
 msgid "Clear this invitation"
 msgstr ""
 
-#: by-email/by-email.php:843
+#: by-email/by-email.php:851
 msgid "You haven't sent any email invitations yet."
 msgstr ""
 
-#: by-email/by-email.php:876
+#: by-email/by-email.php:884
 msgid "An invitation to join the %s community."
 msgstr ""
 
-#: by-email/by-email.php:901
+#: by-email/by-email.php:909
 msgid ""
 "You have been invited by %%INVITERNAME%% to join the %s community.\n"
 "\n"
 "Visit %%INVITERNAME%%'s profile at %%INVITERURL%%."
 msgstr ""
 
-#: by-email/by-email.php:924
+#: by-email/by-email.php:932
 msgid "To accept this invitation, please visit %%ACCEPTURL%%"
 msgstr ""
 
-#: by-email/by-email.php:928
+#: by-email/by-email.php:936
 msgid ""
 "To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
 msgstr ""
 
-#: by-email/by-email.php:1091
+#: by-email/by-email.php:1099
 msgid ""
 "You are only allowed to invite up to %s people at a time. Please remove some "
 "addresses and try again"
 msgstr ""
 
-#: by-email/by-email.php:1100
+#: by-email/by-email.php:1109
 msgid "You didn't include any email addresses!"
 msgstr ""
 
-#: by-email/by-email.php:1112
+#: by-email/by-email.php:1122
 msgid ""
 "You are only allowed to invite %s more people. Please remove some addresses "
 "and try again"
 msgstr ""
 
-#: by-email/by-email.php:1132
+#: by-email/by-email.php:1143
 msgid "<strong>%s</strong> has opted out of email invitations from this site."
 msgstr ""
 
-#: by-email/by-email.php:1136
+#: by-email/by-email.php:1147
 msgid "<strong>%s</strong> is already a registered user of the site."
 msgstr ""
 
-#: by-email/by-email.php:1140
+#: by-email/by-email.php:1151
 msgid "<strong>%s</strong> is not a permitted email address."
 msgstr ""
 
-#: by-email/by-email.php:1144
+#: by-email/by-email.php:1155
 msgid ""
 "<strong>%s</strong> is not a valid email address. Please make sure that you "
 "have typed it correctly."
 msgstr ""
 
-#: by-email/by-email.php:1148
+#: by-email/by-email.php:1159
 msgid ""
 "<strong>%s</strong> is not a permitted email address. Please make sure that "
 "you have typed the domain name correctly."
 msgstr ""
 
-#: by-email/by-email.php:1207
+#: by-email/by-email.php:1218
 msgid "Invitations were sent successfully to the following email addresses: %s"
 msgstr ""
 
-#: by-email/by-email.php:1213
+#: by-email/by-email.php:1223
 msgid "Please correct your errors and resubmit."
 msgstr ""
 
-#: by-email/by-email.php:1251 by-email/by-email.php:1291
+#: by-email/by-email.php:1261 by-email/by-email.php:1301
 msgid "We couldn't find any invitations associated with this email address."
 msgstr ""
 
@@ -803,7 +803,7 @@ msgid ""
 msgstr ""
 
 #: group-invites/group-invites.php:89 group-invites/group-invites.php:132
-#: group-invites/group-invites.php:171
+#: group-invites/group-invites.php:176
 msgid "Group invites sent."
 msgstr ""
 
@@ -811,13 +811,13 @@ msgstr ""
 msgid "Group created successfully."
 msgstr ""
 
-#: group-invites/group-invites.php:377
+#: group-invites/group-invites.php:382
 #: group-invites/templates/invite-anyone.php:70
 #: group-invites/templates/invite-anyone.php:159
 msgid "Remove Invite"
 msgstr ""
 
-#: group-invites/group-invites.php:547
+#: group-invites/group-invites.php:566
 msgid ""
 "%1$s has invited you to the group: \"%2$s\".\n"
 "\n"

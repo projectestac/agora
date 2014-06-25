@@ -3,43 +3,47 @@
 Plugin Name: Invite Anyone
 Plugin URI: http://teleogistic.net/code/buddypress/invite-anyone/
 Description: Allows group admins to invite any member of their BuddyPress community to a group or to the site
-Version: 1.2.1
+Version: 1.3
 Author: Boone Gorges
 Author URI: http://boone.gorg.es
 */
-define( 'BP_INVITE_ANYONE_VER', '1.2.1' );
-define( 'BP_INVITE_ANYONE_DB_VER', '1.2.1' );
+
+define( 'BP_INVITE_ANYONE_VER', '1.3' );
+define( 'BP_INVITE_ANYONE_DB_VER', '1.3' );
 
 if ( !defined( 'BP_INVITE_ANYONE_SLUG' ) )
 	define( 'BP_INVITE_ANYONE_SLUG', 'invite-anyone' );
+
+if ( ! defined( 'BP_INVITE_ANYONE_DIR' ) ) {
+	define( 'BP_INVITE_ANYONE_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+}
 
 register_activation_hook( __FILE__, 'invite_anyone_activation' );
 
 /* Only load the BuddyPress plugin functions if BuddyPress is loaded and initialized. */
 function invite_anyone_init() {
 
-	require( dirname( __FILE__ ) . '/functions.php' );
+	require( BP_INVITE_ANYONE_DIR . 'functions.php' );
 
 	if ( function_exists( 'bp_is_active' ) ) {
 		if ( bp_is_active( 'groups' ) )
-			require( dirname( __FILE__ ) . '/group-invites/group-invites.php' );
+			require( BP_INVITE_ANYONE_DIR . 'group-invites/group-invites.php' );
 	} else if ( function_exists( 'groups_install' ) ) {
-		require( dirname( __FILE__ ) . '/group-invites/group-invites.php' );
+		require( BP_INVITE_ANYONE_DIR . 'group-invites/group-invites.php' );
 	}
 
-	require( dirname( __FILE__ ) . '/by-email/by-email.php' );
+	require( BP_INVITE_ANYONE_DIR . 'by-email/by-email.php' );
 
 	if ( is_admin() )
-		require( dirname( __FILE__ ) . '/admin/admin-panel.php' );
+		require( BP_INVITE_ANYONE_DIR . 'admin/admin-panel.php' );
 }
 add_action( 'bp_include', 'invite_anyone_init' );
 
 function invite_anyone_locale_init () {
-	$plugin_dir = basename(dirname(__FILE__));
 	$locale = get_locale();
-	$mofile = WP_PLUGIN_DIR . "/invite-anyone/languages/invite-anyone-$locale.mo";
+	$mofile = BP_INVITE_ANYONE_DIR . "languages/invite-anyone-$locale.mo";
 
-      if ( file_exists( $mofile ) )
+	if ( file_exists( $mofile ) )
       		load_textdomain( 'bp-invite-anyone', $mofile );
 }
 add_action ('plugins_loaded', 'invite_anyone_locale_init');
