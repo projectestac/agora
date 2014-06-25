@@ -6,10 +6,12 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL:
-- config.php: use same global variable name for all services: $agora[$serviceName]['userprefix']
+- config.php: Use same global variable name for all services: $agora[$serviceName]['userprefix']
+- config.php: Change var name from $agora[$serviceName]['discusagefile'] to $agora[$serviceName]['diskusagefile']
 
 PORTAL
 - IWportal: Don't show central blocks in admin pages
+- Agoraportal: Added support for quotas in service Nodes
 
 WORDPRESS
 - Upgraded Invite Anyone from v1.2.1 to v1.3

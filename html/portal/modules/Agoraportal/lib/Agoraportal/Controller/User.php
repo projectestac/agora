@@ -647,19 +647,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         //calc the folder use
         global $agora;
 
-        $dir = '';
         $serviceName = $services[$client[$clientServiceId]['serviceId']]['serviceName'];
-        switch ($serviceName) {
-            case 'intranet':
-                $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['intranet']['userprefix'] . $client[$clientServiceId]['activedId'];
-                break;
-            case 'moodle2':
-                $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['moodle2']['userprefix'] . $client[$clientServiceId]['activedId'];
-                break;
-        }
+        
+        // Get absolute path to usage file
+        $dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
 
         if (!is_dir($dir)) {
-            LogUtil::registerError($this->__('No s\'ha trobat el directori ' . $agora[$serviceName]['datadir']));
+            LogUtil::registerError($this->__('No s\'ha trobat el directori ' . $dir));
             return false;
         }
 
@@ -671,15 +665,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             $i++;
         }
 
-        $sumatory = $sumatoryString;
-
-        //$sumatory = ModUtil::func('Agoraportal', 'user', 'getSumatori', array('dir' => $dir));
         // save value in database
         ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientServiceId,
-            'diskConsume' => $sumatory,
+            'diskConsume' => $sumatoryString,
         ));
 
-        return $sumatory;
+        return $sumatoryString;
     }
 
 // Deprecated

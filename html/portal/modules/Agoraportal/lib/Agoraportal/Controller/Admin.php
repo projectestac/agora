@@ -3294,20 +3294,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         foreach ($services as $service) {
             // Marsupial has defaultDiskSpace = 0
             if ($service['defaultDiskSpace'] > 0) {
-                switch ($service['serviceName']) {
-                    case 'moodle2':
-                        $path = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['discusagefile'];
-                        $userprefix = $agora['moodle2']['userprefix'];
-                        break;
-                    case 'intranet':
-                        $path = $agora['server']['root'] . $agora['intranet']['datadir'] . $agora['intranet']['discusagefile'];
-                        $userprefix = $agora['intranet']['userprefix'];
-                        break;
-                    default:
-                        $path = '';
-                }
+                $path = $agora['server']['root'] . $agora[$service['serviceName']]['datadir'] . $agora[$service['serviceName']]['diskusagefile'];
+                $userprefix = $agora[$service['serviceName']]['userprefix'];
+
                 if (!file_exists($path)) {
-                    $errorMsg .= $this->__('No s\'ha trobat el fitxer de consums de disc per: ' . $service['serviceName'] . '<br />');
+                    $errorMsg .= $this->__('No s\'ha trobat el fitxer de consums de disc per al servei: ' . $service['serviceName'] . '<br />');
                     $error = true;
                 } else {
                     $noValidFile = false;
