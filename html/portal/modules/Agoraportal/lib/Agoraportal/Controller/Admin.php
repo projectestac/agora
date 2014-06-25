@@ -3297,7 +3297,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 switch ($service['serviceName']) {
                     case 'moodle2':
                         $path = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['discusagefile'];
-                        $userprefix = $agora['moodle2']['username'];
+                        $userprefix = $agora['moodle2']['userprefix'];
                         break;
                     case 'intranet':
                         $path = $agora['server']['root'] . $agora['intranet']['datadir'] . $agora['intranet']['discusagefile'];

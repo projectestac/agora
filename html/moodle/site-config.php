@@ -29,7 +29,7 @@
     }
 
     // Check to disconnect usu1
-    $disconnectfile = INSTALL_BASE . $agora['moodle']['datadir'] . $agora['moodle']['username'] . '2/1/usu1off.txt';
+    $disconnectfile = INSTALL_BASE . $agora['moodle']['datadir'] . $agora['moodle']['userprefix'] . '2/1/usu1off.txt';
 
     // Check if logs are on. There's no database at this stage, so an alternative control system is mandatory.
     if (($school_info['id_moodle'] == 1) && file_exists($disconnectfile)) {
@@ -91,10 +91,10 @@
     
     //New definition in moodle/site-config.php
     $CFG->dbname    = $school_info['database_moodle'];
-    $CFG->dbuser    = $agora['moodle']['username'].$school_info['id_moodle'];
+    $CFG->dbuser    = $agora['moodle']['userprefix'].$school_info['id_moodle'];
 //    $CFG->wwwroot   = $moodle_wwwroot.$centre.'/'.MOODLE_DIRROOT;
     $CFG->wwwroot   = $moodle_wwwroot.$centre.'/'.$moodle_dirroot;
-    $CFG->dataroot  = INSTALL_BASE.$agora['moodle']['datadir'].$agora['moodle']['username'].$school_info['id_moodle'];
+    $CFG->dataroot  = INSTALL_BASE.$agora['moodle']['datadir'].$agora['moodle']['userprefix'].$school_info['id_moodle'];
     $CFG->dnscentre = $centre;
     
 //    if ($agora['server']['enviroment'] == 'FOR'){

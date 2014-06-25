@@ -7,6 +7,7 @@
     $agora['moodle']['prefix']             = 'ml';                 // Moodle table prefix (only 2 chars)
     $agora['moodle']['username']           = $agora['server']['userprefix'];
     $agora['moodle']['discusagefile']      = 'diskUsageMdl.txt';
+    $agora['moodle']['userprefix']         = $agora['server']['userprefix']; // All services need to have the same variable name
 
     // Params for Moodle2
     $agora['moodle2']['dbtype']            = 'oci8po';             // oci8po (Oracle), mysql, ...
@@ -14,6 +15,7 @@
     $agora['moodle2']['username']          = $agora['server']['userprefix'];
     $agora['moodle2']['discusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/'; // folder for uploading big files, sinchronization between 1.9 and 2 files...
+    $agora['moodle2']['userprefix']        = $agora['server']['userprefix']; // All services need to have the same variable name
 
     // Schools intranet database access info  (common in all environments)
     $agora['intranet']['dbtype']           = 'mysql';              // oci8po (Oracle), mysql, ...

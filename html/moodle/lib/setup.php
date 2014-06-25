@@ -149,11 +149,11 @@ global $HTTPSPAGEREQUIRED;
 	// 2011.04.06 @aginard
     // Check if any error was generated while trying to open ADODB connection
     if (!empty($db->_errorMsg)) {
-		$logcontrolfile = $CFG->dataroot.'/../'.$agora['moodle']['username'].'1/1/adodberror/logon.txt';
+		$logcontrolfile = $CFG->dataroot.'/../'.$agora['moodle']['userprefix'].'1/1/adodberror/logon.txt';
 
         // Check if logs are on. There's no database at this stage, so an alternative control system is mandatory.
         if (file_exists($logcontrolfile)) {
-            $logfile = $CFG->dataroot.'/../'.$agora['moodle']['username'].'1/1/adodberror/'.date('Ymd').'-error.csv';
+            $logfile = $CFG->dataroot.'/../'.$agora['moodle']['userprefix'].'1/1/adodberror/'.date('Ymd').'-error.csv';
 
             // Open file
             $oldumask = umask(7);
@@ -192,7 +192,7 @@ global $HTTPSPAGEREQUIRED;
 		// XTEC ************** AFEGIT - Personalització del missatge d'error
 		// 2010.11.25 @aginard
 		// Get custom info file from moodledata
-		$avis = $CFG->dataroot.'/../'.$agora['moodle']['username'].'1/1/avis.txt';
+		$avis = $CFG->dataroot.'/../'.$agora['moodle']['userprefix'].'1/1/avis.txt';
 
 		// Open file
 		$gestor = fopen($avis, 'rb');

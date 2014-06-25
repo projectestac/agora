@@ -114,6 +114,6 @@ $CFG->cronclionly = 0; // changed to avoid schools change it
 
 //Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
-if(isset($agora['moodle']['username']) && !empty($agora['moodle']['username'])){
-	$CFG->usu1repofiles  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . '1/repository/files';
+if(isset($agora['moodle2']['userprefix']) && !empty($agora['moodle2']['userprefix'])){
+	$CFG->usu1repofiles  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . '1/repository/files';
 }

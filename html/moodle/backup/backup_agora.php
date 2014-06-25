@@ -27,7 +27,7 @@ print_header('Restaurant el curs ' . $courseid . ' amb nom ' . $course->fullname
 $ara = time();
 
 if (is_agora()) {
-    $backuppath = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . $school_info['id_moodle2'] . $agora['moodle2']['repository_files'];
+    $backuppath = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'] . $agora['moodle2']['repository_files'];
 } else {
     $backuppath = $agora['moodle2']['backuppath'];
 }

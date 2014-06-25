@@ -557,7 +557,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // read moodle2 repository folder
         if (in_array('moodle2', $activedServicesNames) && $action == 'm2x') {
             $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
-            $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $clientService['activedId'] . '/repository/files/';
+            $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . '/repository/files/';
 
             if (is_dir($folder)) {
                 $moodle2RepoFiles = array();
@@ -602,7 +602,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $folder = $agora['moodle2']['repository_files'];
 
         $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
-        $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $clientService['activedId'] . $folder;
+        $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . $folder;
 
         //Check if file exists. If not returns error.
         if (!file_exists($filename)) {
@@ -654,7 +654,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['intranet']['userprefix'] . $client[$clientServiceId]['activedId'];
                 break;
             case 'moodle2':
-                $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['moodle2']['username'] . $client[$clientServiceId]['activedId'];
+                $dir = '../../' . $agora[$serviceName]['datadir'] . $agora['moodle2']['userprefix'] . $client[$clientServiceId]['activedId'];
                 break;
         }
 

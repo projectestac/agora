@@ -130,13 +130,13 @@ function checkMoodleDatabase($school) {
             if (is_numeric($result) && $result > 0) {
                 $isok = true;
             } else {
-                $state .= '<br>No s\'ha pogut accedir a la taula ' . $agora['moodle2']['prefix'] . 'course de l\'usuari ' . $agora['moodle2']['username'] . $school['id'] . '.';
+                $state .= '<br>No s\'ha pogut accedir a la taula ' . $agora['moodle2']['prefix'] . 'course de l\'usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . '.';
             }
         }
 
         disconnect_moodle($con);
     } else {
-        $state .= '<br>No s\'ha pogut connectar a la inst&agrave;ncia ' . $school['database'] . ' (usuari ' . $agora['moodle2']['username'] . $school['id'] . ')';
+        $state .= '<br>No s\'ha pogut connectar a la inst&agrave;ncia ' . $school['database'] . ' (usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . ')';
     }
 
     return $isok;

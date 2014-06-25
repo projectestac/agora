@@ -266,7 +266,7 @@ function checkConnection($id) {
     
     global $agora;
     
-    $dbUser = $agora['moodle']['username'] . $id;
+    $dbUser = $agora['moodle2']['userprefix'] . $id;
     $prefix = strtoupper($agora['moodle2']['prefix']);
 
     if (empty($agora['moodle']['dbnumber'])) {

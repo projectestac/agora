@@ -81,8 +81,8 @@
     }
 
     $CFG->dbname    = $school_info['database_moodle2'];
-    $CFG->dbuser    = $agora['moodle']['username'] . $school_info['id_moodle2'];
+    $CFG->dbuser    = $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];
     $CFG->wwwroot   = $moodle_wwwroot.$centre . '/' . $moodle_dirroot;
     $CFG->wwwroot19 = $moodle_wwwroot.$centre . '/' . getMoodleDirrot($school_info, 'moodle');
-    $CFG->dataroot  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . $school_info['id_moodle2'];
+    $CFG->dataroot  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];
     $CFG->dnscentre = $centre;

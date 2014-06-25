@@ -1682,7 +1682,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     return false;
                 break;
             case 'moodle2':
-                $user = $agora['moodle2']['username'] . $database;
+                $user = $agora['moodle2']['userprefix'] . $database;
                 if ($clientService != false) {
                     $databaseName = $clientService[0]['serviceDB'];
                 } else {
