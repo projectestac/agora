@@ -62,12 +62,15 @@
     $files[$filename] = $school_str;
 
 
-    // Write files to disk
+    // Remove content of syncdata/sync/ and the directory itself
     $path = $agora['dbsource']['syncdir'];
     if (is_dir($path)) {
+        // Remove all content
         $dir = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::CHILD_FIRST);
         for ($dir->rewind(); $dir->valid(); $dir->next()) {
-            unlink($dir->getPathname());
+            if (!is_dir($dir->getPathname())) {
+                unlink($dir->getPathname());
+            }
         }
         if (rmdir($path)) {
             xtec_debug("$path directory erased<br/>\n");
@@ -90,8 +93,6 @@
         fwrite($fp, "<?php\n$school_str\n");
         fclose($fp);
         $i++;
-        //xtec_debug("<h2>File: ".$filename."</h2>");
-        //xtec_debug("<pre>".$school_str."</pre>");
     }
 
 
