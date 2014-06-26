@@ -18,6 +18,7 @@ WORDPRESS
 
 ZIKULA 2
 - IWbooks: Fixed creation of pdf in user view
+- IWbooks: Improvements to catalan translation
 
 
 Changes 14.06.20

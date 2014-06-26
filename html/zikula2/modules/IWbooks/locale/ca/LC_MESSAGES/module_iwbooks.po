@@ -1,15 +1,19 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: IWbooks\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-28 10:48+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: intraweb <intraweb@xtec.cat>\n"
-"Language-Team: \n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: Intraweb <intraweb@xtec.cat>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,39,-1,-1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: pnfpdf.php:142
 msgid "Page"
@@ -22,7 +26,7 @@ msgstr "Informació generada el"
 #: pnfpdf.php:395
 #: pnuser.php:467
 msgid "There aren't books for your selection"
-msgstr "No hi llibres per a la selecció sol·licitada"
+msgstr "No hi ha cap llibre que compleixi els criteris de cerca"
 
 #: pnfpdf.php:403
 #: pnuser.php:477
@@ -91,7 +95,7 @@ msgstr "S'ha produït un error en carregar elements"
 #: pninit.php:102
 #: pninit.php:130
 msgid "Failed to update the tables"
-msgstr "Error en l'actualització de le taules"
+msgstr "S'ha produït un error en actualitzar la base de dades"
 
 #: pnuser.php:40
 #: pnuser.php:61
@@ -120,48 +124,48 @@ msgstr "Esborra"
 #: pnuser.php:375
 #: pnadmin.php:568
 #: pnadmin.php:1325
-#: pntemplates/IWbooks_admin_menu.htm:3
-#: pntemplates/IWbooks_user_menu.htm:2
+#: pntemplates/iw_books_admin_menu.htm:3
+#: pntemplates/iw_books_user_menu.htm:2
 msgid "Textbooks and lectures"
 msgstr "Llibres de text i lectures"
 
 #: pnuser.php:311
-#: pntemplates/IWbooks_user_view.htm:11
+#: pntemplates/iw_books_user_view.htm:11
 msgid "Try course:"
 msgstr "Curs: "
 
 #: pnuser.php:317
-#: pntemplates/IWbooks_user_view.htm:13
+#: pntemplates/iw_books_user_view.htm:13
 msgid "Plan:"
 msgstr "Pla: "
 
 #: pnuser.php:323
-#: pntemplates/IWbooks_user_view.htm:15
+#: pntemplates/iw_books_user_view.htm:15
 msgid "Level:"
 msgstr "Nivell:"
 
 #: pnuser.php:331
-#: pntemplates/IWbooks_user_display.htm:12
-#: pntemplates/IWbooks_user_view.htm:17
+#: pntemplates/iw_books_user_display.htm:12
+#: pntemplates/iw_books_user_view.htm:17
 msgid "Subject:"
 msgstr "Matèria: "
 
 #: pnuser.php:336
-#: pntemplates/IWbooks_user_view.htm:19
+#: pntemplates/iw_books_user_view.htm:19
 msgid "Reads:"
 msgstr "Lectures: "
 
 #: pnuser.php:342
 msgid "See list of books"
-msgstr "Veure llistat de llibres"
+msgstr "Llista de llibres"
 
 #: pnuser.php:347
 msgid "Creating listed on page PDF"
-msgstr "Crear llistat en pàgina PDF"
+msgstr "Crea llistat en PDF"
 
 #: pnuser.php:380
 #: pnadmin.php:1328
-#: pntemplates/IWbooks_user_display.htm:23
+#: pntemplates/iw_books_user_display.htm:23
 msgid "Back"
 msgstr "Torna enrere"
 
@@ -180,7 +184,7 @@ msgstr "L'intent de creació ha fallat"
 #: pnadmin.php:248
 #: pnadmin.php:1211
 msgid "You are not allowed to enter this module"
-msgstr "No estàs autoritzat a entrar en aquest mòdul"
+msgstr "No teniu autorització per accedir a aquest mòdul"
 
 #: pnadminapi.php:186
 #: pnadminapi.php:357
@@ -199,52 +203,52 @@ msgstr "No s'ha pogut carregar el mòdul"
 msgid "Error! Update attempt failed."
 msgstr "No s'ha pogut actualitzar"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:83
-#: pntemplates/plugins/function.IWbooksuserlinks.php:84
+#: pntemplates/plugins/function.iw_booksadminlinks.php:83
+#: pntemplates/plugins/function.iw_booksuserlinks.php:84
 #: pnadmin.php:583
-#: pntemplates/IWbooks_admin_view_mat.htm:8
-#: pntemplates/IWbooks_admin_view.htm:8
+#: pntemplates/iw_books_admin_view_mat.htm:8
+#: pntemplates/iw_books_admin_view.htm:8
 msgid "See all the books entered"
-msgstr "Veure tots els llibres entrats"
+msgstr "Llibres"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:86
-#: pntemplates/plugins/function.IWbooksuserlinks.php:87
+#: pntemplates/plugins/function.iw_booksadminlinks.php:86
+#: pntemplates/plugins/function.iw_booksuserlinks.php:87
 #: pnadmin.php:578
 msgid "Add a new book"
-msgstr "Entrar llibre nou"
+msgstr "Llibre nou"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:89
-#: pntemplates/plugins/function.IWbooksuserlinks.php:90
+#: pntemplates/plugins/function.iw_booksadminlinks.php:89
+#: pntemplates/plugins/function.iw_booksuserlinks.php:90
 #: pnadmin.php:597
 msgid "Show subjects"
-msgstr "Mostra matèries"
+msgstr "Matèries"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:92
-#: pntemplates/plugins/function.IWbooksuserlinks.php:93
+#: pntemplates/plugins/function.iw_booksadminlinks.php:92
+#: pntemplates/plugins/function.iw_booksuserlinks.php:93
 #: pnadmin.php:590
-#: pntemplates/IWbooks_admin_modify_mat.htm:7
-#: pntemplates/IWbooks_admin_new_mat.htm:7
-#: pntemplates/IWbooks_admin_new.htm:7
+#: pntemplates/iw_books_admin_modify_mat.htm:7
+#: pntemplates/iw_books_admin_new_mat.htm:7
+#: pntemplates/iw_books_admin_new.htm:7
 msgid "Enter new subject"
-msgstr "Entra matèria nova"
+msgstr "Matèria nova"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:95
-#: pntemplates/plugins/function.IWbooksuserlinks.php:96
+#: pntemplates/plugins/function.iw_booksadminlinks.php:95
+#: pntemplates/plugins/function.iw_booksuserlinks.php:96
 msgid "Modification of the configuration module"
-msgstr "Modificació de la configuració del mòdul"
+msgstr "Configuració"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:99
-#: pntemplates/plugins/function.IWbooksuserlinks.php:100
+#: pntemplates/plugins/function.iw_booksadminlinks.php:99
+#: pntemplates/plugins/function.iw_booksuserlinks.php:100
 #: pnadmin.php:440
 #: pnadmin.php:610
 msgid "Copy the following year"
 msgstr "Copia a l'any següent"
 
-#: pntemplates/plugins/function.IWbooksadminlinks.php:103
-#: pntemplates/plugins/function.IWbooksuserlinks.php:104
+#: pntemplates/plugins/function.iw_booksadminlinks.php:103
+#: pntemplates/plugins/function.iw_booksuserlinks.php:104
 #: pnadmin.php:616
 msgid "Export books (CSV)"
-msgstr "Exportar llibres (CSV)"
+msgstr "Exporta a CSV"
 
 #: pnadmin.php:115
 #: pnadmin.php:278
@@ -255,7 +259,7 @@ msgstr "La clau de validació no és vàlida. Això vol dir que heu clicat el bo
 
 #: pnadmin.php:126
 msgid "The new book has been created"
-msgstr "El llibre nou ha estat creat"
+msgstr "S'ha creat el llibre"
 
 #: pnadmin.php:151
 #: pnadmin.php:660
@@ -295,315 +299,315 @@ msgstr "S'ha creat l'element"
 
 #: pnadmin.php:1222
 msgid "Delete selected subject"
-msgstr "Esborrar matèria seleccionada"
+msgstr "Esborra la matèria seleccionada"
 
 #: pnadmin.php:1224
 msgid "Do you really want to delete?"
-msgstr "Segur que la vols eliminar?"
+msgstr "Esteu segur/a de voler-la eliminar?"
 
 #: pnadmin.php:1247
 msgid "The subject has been cleared"
 msgstr "S'ha esborrat la matèria"
 
-#: pntemplates/IWbooks_admin_view_mat.htm:15
-#: pntemplates/IWbooks_admin_view.htm:45
+#: pntemplates/iw_books_admin_view_mat.htm:15
+#: pntemplates/iw_books_admin_view.htm:45
 msgid "Codi"
 msgstr "Codi"
 
-#: pntemplates/IWbooks_admin_view_mat.htm:16
+#: pntemplates/iw_books_admin_view_mat.htm:16
 msgid "Matèria"
 msgstr "Matèria"
 
-#: pntemplates/IWbooks_admin_view_mat.htm:17
-#: pntemplates/IWbooks_admin_view.htm:52
+#: pntemplates/iw_books_admin_view_mat.htm:17
+#: pntemplates/iw_books_admin_view.htm:52
 msgid "Opcions"
 msgstr "Opcions"
 
-#: pntemplates/IWbooks_admin_view_mat.htm:33
-#: pntemplates/IWbooks_admin_view.htm:78
+#: pntemplates/iw_books_admin_view_mat.htm:33
+#: pntemplates/iw_books_admin_view.htm:78
 msgid "No items found."
 msgstr "No s'ha trobat cap element"
 
-#: pntemplates/IWbooks_admin_modify_mat.htm:5
-#: pntemplates/IWbooks_admin_new_mat.htm:5
-#: pntemplates/IWbooks_admin_new.htm:5
-#: pntemplates/IWbooks_admin_copi_prev.htm:6
-#: pntemplates/IWbooks_admin_modifyconfig.htm:4
-#: pntemplates/IWbooks_admin_modify.htm:5
+#: pntemplates/iw_books_admin_modify_mat.htm:5
+#: pntemplates/iw_books_admin_new_mat.htm:5
+#: pntemplates/iw_books_admin_new.htm:5
+#: pntemplates/iw_books_admin_copi_prev.htm:6
+#: pntemplates/iw_books_admin_modifyconfig.htm:4
+#: pntemplates/iw_books_admin_modify.htm:5
 msgid "_EXAMPLEDBADD"
 msgstr "_EXAMPLEDBADD"
 
-#: pntemplates/IWbooks_admin_modify_mat.htm:18
-#: pntemplates/IWbooks_admin_new_mat.htm:18
+#: pntemplates/iw_books_admin_modify_mat.htm:18
+#: pntemplates/iw_books_admin_new_mat.htm:18
 msgid "Code subject"
 msgstr "Codi mat."
 
-#: pntemplates/IWbooks_admin_modify_mat.htm:23
-#: pntemplates/IWbooks_admin_new_mat.htm:23
-#: pntemplates/IWbooks_admin_new.htm:42
-#: pntemplates/IWbooks_user_view.htm:47
-#: pntemplates/IWbooks_admin_modify.htm:52
+#: pntemplates/iw_books_admin_modify_mat.htm:23
+#: pntemplates/iw_books_admin_new_mat.htm:23
+#: pntemplates/iw_books_admin_new.htm:42
+#: pntemplates/iw_books_user_view.htm:47
+#: pntemplates/iw_books_admin_modify.htm:52
 msgid "Subject"
 msgstr "Assignatura"
 
-#: pntemplates/IWbooks_admin_modify_mat.htm:31
-#: pntemplates/IWbooks_admin_new_mat.htm:33
-#: pntemplates/IWbooks_admin_new.htm:99
-#: pntemplates/IWbooks_admin_copi_prev.htm:32
-#: pntemplates/IWbooks_admin_modify.htm:109
+#: pntemplates/iw_books_admin_modify_mat.htm:31
+#: pntemplates/iw_books_admin_new_mat.htm:33
+#: pntemplates/iw_books_admin_new.htm:99
+#: pntemplates/iw_books_admin_copi_prev.htm:32
+#: pntemplates/iw_books_admin_modify.htm:109
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: pntemplates/IWbooks_admin_modify_mat.htm:32
-#: pntemplates/IWbooks_admin_new_mat.htm:34
-#: pntemplates/IWbooks_admin_new.htm:100
-#: pntemplates/IWbooks_admin_copi_prev.htm:33
+#: pntemplates/iw_books_admin_modify_mat.htm:32
+#: pntemplates/iw_books_admin_new_mat.htm:34
+#: pntemplates/iw_books_admin_new.htm:100
+#: pntemplates/iw_books_admin_copi_prev.htm:33
 msgid "Create"
 msgstr "Crea"
 
-#: pntemplates/IWbooks_admin_main.htm:5
-#: pntemplates/IWbooks_admin_view.htm:92
+#: pntemplates/iw_books_admin_main.htm:5
+#: pntemplates/iw_books_admin_view.htm:92
 msgid "About this module"
 msgstr "Pel que fa a aquest mòdul"
 
-#: pntemplates/IWbooks_admin_view.htm:14
+#: pntemplates/iw_books_admin_view.htm:14
 msgid "Curs acad.: "
 msgstr "Curs: "
 
-#: pntemplates/IWbooks_admin_view.htm:16
+#: pntemplates/iw_books_admin_view.htm:16
 msgid "Pla: "
 msgstr "Pla: "
 
-#: pntemplates/IWbooks_admin_view.htm:18
+#: pntemplates/iw_books_admin_view.htm:18
 msgid "Nivell: "
 msgstr "Nivell: "
 
-#: pntemplates/IWbooks_admin_view.htm:20
+#: pntemplates/iw_books_admin_view.htm:20
 msgid "Matèria: "
 msgstr "Matèria: "
 
-#: pntemplates/IWbooks_admin_view.htm:24
+#: pntemplates/iw_books_admin_view.htm:24
 msgid "Filtra"
 msgstr "Cerca"
 
-#: pntemplates/IWbooks_admin_view.htm:25
-#: pntemplates/IWbooks_user_view.htm:26
-#: pntemplates/IWbooks_user_view.htm:40
+#: pntemplates/iw_books_admin_view.htm:25
+#: pntemplates/iw_books_user_view.htm:26
+#: pntemplates/iw_books_user_view.htm:40
 msgid "Crea llistat PDF"
 msgstr "Crea un document PDF"
 
-#: pntemplates/IWbooks_admin_view.htm:41
+#: pntemplates/iw_books_admin_view.htm:41
 msgid "Autor"
 msgstr "Autor/a"
 
-#: pntemplates/IWbooks_admin_view.htm:42
+#: pntemplates/iw_books_admin_view.htm:42
 msgid "Tí­tol"
 msgstr "Tí­tol"
 
-#: pntemplates/IWbooks_admin_view.htm:43
-#: pntemplates/IWbooks_user_display.htm:9
-#: pntemplates/IWbooks_admin_new.htm:26
-#: pntemplates/IWbooks_user_view.htm:50
-#: pntemplates/IWbooks_admin_modify.htm:36
+#: pntemplates/iw_books_admin_view.htm:43
+#: pntemplates/iw_books_user_display.htm:9
+#: pntemplates/iw_books_admin_new.htm:26
+#: pntemplates/iw_books_user_view.htm:50
+#: pntemplates/iw_books_admin_modify.htm:36
 msgid "Editorial"
 msgstr "Editorial"
 
-#: pntemplates/IWbooks_admin_view.htm:44
+#: pntemplates/iw_books_admin_view.htm:44
 msgid "Any"
 msgstr "Any"
 
-#: pntemplates/IWbooks_admin_view.htm:46
+#: pntemplates/iw_books_admin_view.htm:46
 msgid "Pla"
 msgstr "Pla"
 
-#: pntemplates/IWbooks_admin_view.htm:47
+#: pntemplates/iw_books_admin_view.htm:47
 msgid "Nivell"
 msgstr "Nivell"
 
-#: pntemplates/IWbooks_admin_view.htm:48
+#: pntemplates/iw_books_admin_view.htm:48
 msgid "Lect?"
 msgstr "Lectura"
 
-#: pntemplates/IWbooks_admin_view.htm:49
+#: pntemplates/iw_books_admin_view.htm:49
 msgid "Aval"
 msgstr "Avaluació"
 
-#: pntemplates/IWbooks_admin_view.htm:50
+#: pntemplates/iw_books_admin_view.htm:50
 msgid "Opt?"
 msgstr "Optativa"
 
-#: pntemplates/IWbooks_admin_view.htm:51
+#: pntemplates/iw_books_admin_view.htm:51
 msgid "Mat"
 msgstr "Materials"
 
-#: pntemplates/IWbooks_user_display.htm:7
-#: pntemplates/IWbooks_admin_new.htm:16
-#: pntemplates/IWbooks_user_view.htm:48
-#: pntemplates/IWbooks_admin_modify.htm:26
+#: pntemplates/iw_books_user_display.htm:7
+#: pntemplates/iw_books_admin_new.htm:16
+#: pntemplates/iw_books_user_view.htm:48
+#: pntemplates/iw_books_admin_modify.htm:26
 msgid "Author"
 msgstr "Autor/a"
 
-#: pntemplates/IWbooks_user_display.htm:8
-#: pntemplates/IWbooks_admin_new.htm:21
-#: pntemplates/IWbooks_user_view.htm:49
-#: pntemplates/IWbooks_admin_modify.htm:31
+#: pntemplates/iw_books_user_display.htm:8
+#: pntemplates/iw_books_admin_new.htm:21
+#: pntemplates/iw_books_user_view.htm:49
+#: pntemplates/iw_books_admin_modify.htm:31
 msgid "Title"
 msgstr "Títol"
 
-#: pntemplates/IWbooks_user_display.htm:10
-#: pntemplates/IWbooks_admin_new.htm:31
-#: pntemplates/IWbooks_admin_modify.htm:41
+#: pntemplates/iw_books_user_display.htm:10
+#: pntemplates/iw_books_admin_new.htm:31
+#: pntemplates/iw_books_admin_modify.htm:41
 msgid "Release Year"
 msgstr "Any de publicació"
 
-#: pntemplates/IWbooks_user_display.htm:11
-#: pntemplates/IWbooks_admin_new.htm:36
-#: pntemplates/IWbooks_admin_modify.htm:46
+#: pntemplates/iw_books_user_display.htm:11
+#: pntemplates/iw_books_admin_new.htm:36
+#: pntemplates/iw_books_admin_modify.htm:46
 msgid "ISBN"
 msgstr "ISBN"
 
-#: pntemplates/IWbooks_user_display.htm:13
-#: pntemplates/IWbooks_admin_new.htm:52
-#: pntemplates/IWbooks_admin_modify.htm:62
+#: pntemplates/iw_books_user_display.htm:13
+#: pntemplates/iw_books_admin_new.htm:52
+#: pntemplates/iw_books_admin_modify.htm:62
 msgid "Plan (Key 'Ctrl' for choose more plans)"
 msgstr "Pla (Tecla  'Ctrl' per triar més d'un pla)"
 
-#: pntemplates/IWbooks_user_display.htm:14
-#: pntemplates/IWbooks_admin_new.htm:57
-#: pntemplates/IWbooks_user_view.htm:51
-#: pntemplates/IWbooks_admin_modify.htm:67
+#: pntemplates/iw_books_user_display.htm:14
+#: pntemplates/iw_books_admin_new.htm:57
+#: pntemplates/iw_books_user_view.htm:51
+#: pntemplates/iw_books_admin_modify.htm:67
 msgid "Level"
 msgstr "Nivell"
 
-#: pntemplates/IWbooks_user_display.htm:15
-#: pntemplates/IWbooks_admin_new.htm:62
-#: pntemplates/IWbooks_user_view.htm:52
-#: pntemplates/IWbooks_admin_modify.htm:72
+#: pntemplates/iw_books_user_display.htm:15
+#: pntemplates/iw_books_admin_new.htm:62
+#: pntemplates/iw_books_user_view.htm:52
+#: pntemplates/iw_books_admin_modify.htm:72
 msgid "Optional?"
 msgstr "Optativa"
 
-#: pntemplates/IWbooks_user_display.htm:16
-#: pntemplates/IWbooks_admin_new.htm:71
-#: pntemplates/IWbooks_user_view.htm:53
-#: pntemplates/IWbooks_admin_modify.htm:81
+#: pntemplates/iw_books_user_display.htm:16
+#: pntemplates/iw_books_admin_new.htm:71
+#: pntemplates/iw_books_user_view.htm:53
+#: pntemplates/iw_books_admin_modify.htm:81
 msgid "Read?"
 msgstr "Lectura"
 
-#: pntemplates/IWbooks_user_display.htm:17
-#: pntemplates/IWbooks_admin_new.htm:80
-#: pntemplates/IWbooks_admin_modify.htm:90
+#: pntemplates/iw_books_user_display.htm:17
+#: pntemplates/iw_books_admin_new.htm:80
+#: pntemplates/iw_books_admin_modify.htm:90
 msgid "Evaluation (Read Only)"
 msgstr "Avaluació (només per a les lectures)"
 
-#: pntemplates/IWbooks_user_display.htm:18
-#: pntemplates/IWbooks_admin_new.htm:47
-#: pntemplates/IWbooks_admin_modify.htm:57
+#: pntemplates/iw_books_user_display.htm:18
+#: pntemplates/iw_books_admin_new.htm:47
+#: pntemplates/iw_books_admin_modify.htm:57
 msgid "Academic Year"
 msgstr "Any acadèmic"
 
-#: pntemplates/IWbooks_user_display.htm:19
-#: pntemplates/IWbooks_admin_new.htm:86
-#: pntemplates/IWbooks_admin_modify.htm:96
+#: pntemplates/iw_books_user_display.htm:19
+#: pntemplates/iw_books_admin_new.htm:86
+#: pntemplates/iw_books_admin_modify.htm:96
 msgid "Comment"
 msgstr "Comentari"
 
-#: pntemplates/IWbooks_user_display.htm:20
-#: pntemplates/IWbooks_admin_new.htm:91
-#: pntemplates/IWbooks_admin_modify.htm:101
+#: pntemplates/iw_books_user_display.htm:20
+#: pntemplates/iw_books_admin_new.htm:91
+#: pntemplates/iw_books_admin_modify.htm:101
 msgid "Home course materials (books, brushes ...)"
 msgstr "Materials inici de curs (llibretes, pinzells...)"
 
-#: pntemplates/IWbooks_admin_copi_prev.htm:8
+#: pntemplates/iw_books_admin_copi_prev.htm:8
 msgid "Copy all the books in the following year"
 msgstr "Copiar tots els llibres a l'any següent"
 
-#: pntemplates/IWbooks_user_view.htm:10
+#: pntemplates/iw_books_user_view.htm:10
 msgid "Options filter"
 msgstr "Opcions de cerca"
 
-#: pntemplates/IWbooks_user_view.htm:25
+#: pntemplates/iw_books_user_view.htm:25
 msgid "Filter"
 msgstr "Cerca"
 
-#: pntemplates/IWbooks_user_view.htm:43
+#: pntemplates/iw_books_user_view.htm:43
 msgid "List of Textbooks"
 msgstr "Llistat de Llibres de text"
 
-#: pntemplates/IWbooks_user_view.htm:43
+#: pntemplates/iw_books_user_view.htm:43
 msgid "and reading"
 msgstr " i de lectura"
 
-#: pntemplates/IWbooks_user_view.htm:43
+#: pntemplates/iw_books_user_view.htm:43
 msgid "Course"
 msgstr "Curs"
 
-#: pntemplates/IWbooks_user_view.htm:54
+#: pntemplates/iw_books_user_view.htm:54
 msgid "Eval."
 msgstr "Avaluació"
 
-#: pntemplates/IWbooks_user_view.htm:78
+#: pntemplates/iw_books_user_view.htm:78
 msgid "Total number of books for this selection"
 msgstr "Nombre total de llibres seleccionats"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:6
+#: pntemplates/iw_books_admin_modifyconfig.htm:6
 msgid "Settings"
 msgstr "Paràmetres"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:14
+#: pntemplates/iw_books_admin_modifyconfig.htm:14
 msgid "Default Academic year"
 msgstr "Any acadèmic per defecte"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:19
+#: pntemplates/iw_books_admin_modifyconfig.htm:19
 msgid "Items per page (screen)"
 msgstr "Elements per pàgina (pantalla)"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:24
+#: pntemplates/iw_books_admin_modifyconfig.htm:24
 msgid "Name and path of the image header listings"
 msgstr "Camí i nom de la imatge d'encapçalament de llistats"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:29
+#: pntemplates/iw_books_admin_modifyconfig.htm:29
 msgid "Road where the library FPDF (with / end)"
 msgstr "Camí on es troba la biblioteca FPDF (amb / al final)"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:34
+#: pntemplates/iw_books_admin_modifyconfig.htm:34
 msgid "Highest level"
 msgstr "Nivells disponibles (Clau#Descripció) separats per | "
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:40
+#: pntemplates/iw_books_admin_modifyconfig.htm:40
 msgid "Syllabuses (Code # Desc. Code | Ex.: ESO # Ed. Sec. Request. |)"
 msgstr "Plans d'estudi (Codi#Desc. codi| Ex.: ESO#Ed. Sec. Oblig.|)"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:49
+#: pntemplates/iw_books_admin_modifyconfig.htm:49
 msgid "Font size of the list"
 msgstr "Mida font dels llistats"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:54
+#: pntemplates/iw_books_admin_modifyconfig.htm:54
 msgid "Listed materials too?"
 msgstr "Llistar també materials?"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:64
+#: pntemplates/iw_books_admin_modifyconfig.htm:64
 msgid "Provisional (watermark)"
 msgstr "Provisional (marca d'aigua)"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:74
+#: pntemplates/iw_books_admin_modifyconfig.htm:74
 msgid "Update Configuration"
 msgstr "Actualitza la configuració"
 
-#: pntemplates/IWbooks_admin_modify.htm:8
+#: pntemplates/iw_books_admin_modify.htm:8
 msgid "Copy the book"
 msgstr "Copia el llibre"
 
-#: pntemplates/IWbooks_admin_modify.htm:10
+#: pntemplates/iw_books_admin_modify.htm:10
 msgid "Modification of the data book"
 msgstr "Modificació de les dades del llibre"
 
-#: pntemplates/IWbooks_admin_modify.htm:110
+#: pntemplates/iw_books_admin_modify.htm:110
 msgid "Update"
 msgstr "Modifica"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:28
-msgid "Root directory defined on IWmain module"
-msgstr "Directori arrel dels fitxers definit al mòdul IWmain"
+#: pntemplates/iw_books_admin_modifyconfig.htm:28
+msgid "Root directory defined on iw_main module"
+msgstr "Directori arrel dels fitxers definit al mòdul iw_main"
 
 #: pnfpdf.php:355
 msgid "All subjects"
@@ -615,17 +619,17 @@ msgstr "Tots els cursos"
 
 #: pnfpdf.php:367
 msgid "All stages"
-msgstr "Totes els plans"
+msgstr "Tots els plans"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:24
-msgid "It's not possible to define an image header because IWmain module is not available or root directory is not defined."
+#: pntemplates/iw_books_admin_modifyconfig.htm:24
+msgid "It's not possible to define an image header because iw_main module is not available or root directory is not defined."
 msgstr "No es pot definir una imatge de capçalera perquè el mòdul IWmain no està disponible o bé no s'ha definit un directori de fitxers"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:32
+#: pntemplates/iw_books_admin_modifyconfig.htm:32
 msgid "Root directory don't exists"
-msgstr "El directori de fitxers arrel no existeix"
+msgstr "El directori arrel de fitxers no existeix"
 
-#: pntemplates/IWbooks_admin_modifyconfig.htm:39
+#: pntemplates/iw_books_admin_modifyconfig.htm:39
 msgid "Header image don't exists"
 msgstr "La imatge de capçalera no existeix"
 
