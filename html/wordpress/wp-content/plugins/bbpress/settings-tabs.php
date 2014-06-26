@@ -27,7 +27,7 @@ class Xtec_Bbpress_Settings_Tabs {
 	function __construct() {
 		add_action( 'init', array( &$this, 'load_settings' ) );
 		add_action( 'admin_init', array( &$this, 'register_general_settings' ) );
-		add_action( 'admin_init', array( &$this, 'register_advanced_settings' ) );
+		//add_action( 'admin_init', array( &$this, 'register_advanced_settings' ) );
 		add_action( 'admin_menu', array( &$this, 'add_admin_menus' ) );
 	}
 	
@@ -124,13 +124,34 @@ class Xtec_Bbpress_Settings_Tabs {
 		?>
 		<div class="wrap">
 			<?php $this->plugin_options_tabs(); ?>
+            
+            <div style="width:150px; padding:20px; float:left;">
+                <h3><?php _e('Forums', 'bbpress'); ?></h3>
+                <p><a href="edit.php?post_type=forum"><?php _e('All Forums', 'bbpress'); ?></a></p>
+                <p><a href="post-new.php?post_type=forum"><?php _e('New Forum', 'bbpress'); ?></a></p>
+            </div>
+            
+            <div style="width:150px; padding:20px; float:left;">
+                <h3><?php _e('Topics', 'bbpress'); ?></h3>
+                <p><a href="edit.php?post_type=topic"><?php _e('All Topics', 'bbpress'); ?></a></p>
+                <p><a href="post-new.php?post_type=topic"><?php _e('New Topic', 'bbpress'); ?></a></p>
+                <p><a href="edit-tags.php?taxonomy=topic-tag&post_type=topic"><?php _e('Topic Tags', 'bbpress'); ?></a></p>
+            </div>
+            
+            <div style="width:150px; padding:20px; float:left;">
+                <h3><?php _e('Replies', 'bbpress'); ?></h3>
+                <p><a href="edit.php?post_type=reply"><?php _e('All Replies', 'bbpress'); ?></a></p>
+                <p><a href="post-new.php?post_type=reply"><?php _e('New Reply', 'bbpress'); ?></a></p>
+            </div>
+
 <!--			<form method="post" action="options.php">
 				<?php wp_nonce_field( 'update-options' ); ?>
 				<?php settings_fields( $tab ); ?>
 				<?php do_settings_sections( $tab ); ?>
 				<?php submit_button(); ?>
 			</form>
-		</div>-->
+-->
+		</div>
 		<?php
 	}
 	

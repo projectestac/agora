@@ -494,7 +494,7 @@ final class bbPress {
 // XTEC ************ AFEGIT - Added element to allow hidding of option in main admin menu
 // 2014.06.16 @aginard
 
-                'show_in_menu'        => true,
+                'show_in_menu'        => false,
 
 //************ FI
 
@@ -527,7 +527,7 @@ final class bbPress {
 // XTEC ************ AFEGIT - Added element to allow hidding of option in main admin menu
 // 2014.06.16 @aginard
 
-                'show_in_menu'        => true,
+                'show_in_menu'        => false,
 
 //************ FI
 
@@ -560,7 +560,7 @@ final class bbPress {
 // XTEC ************ AFEGIT - Added element to allow hidding of option in main admin menu
 // 2014.06.16 @aginard
 
-                'show_in_menu'        => true,
+                'show_in_menu'        => false,
 
 //************ FI
 
