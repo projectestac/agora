@@ -182,6 +182,10 @@
                 {assign var='fieldName' value='Users_Constant::MODVAR_HASH_METHOD'|constant}
                 <label for="{$configData->getFieldId($fieldName)}">{gt text="Password hashing method"}<span class="z-form-mandatory-flag">{gt text="*"}</span></label>
                 <select id="{$configData->getFieldId($fieldName)}" name="{$fieldName}">
+                    {* //******* AFEGIT XTEC - Added md5 hash
+                       // 2014.06.26 @aginard *}
+                    <option value="md5" {if $configData->getFieldData($fieldName) == 'md5'} selected="selected"{/if}>MD5</option>
+                    {* //******* FI *}
                     <option value="sha1" {if $configData->getFieldData($fieldName) == 'sha1'} selected="selected"{/if}>SHA1</option>
                     <option value="sha256" {if $configData->getFieldData($fieldName) == 'sha256'} selected="selected"{/if}>SHA256</option>
                 </select>
