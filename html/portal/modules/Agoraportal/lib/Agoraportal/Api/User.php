@@ -396,7 +396,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $items[] = $without;
             }
         }
-        order::orderBy($items, 'clientName ASC');
+        order::orderBy($items, 'clientName, serviceId ASC');
         // Return the items
         return $items;
     }

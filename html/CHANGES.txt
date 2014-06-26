@@ -13,6 +13,7 @@ GENERAL:
 PORTAL
 - IWportal: Don't show central blocks in admin pages
 - Agoraportal: Added support for quotas in service Nodes
+- Agoraportal: Show Nodes in public services list
 - Users: Added support for MD5 hash
 
 WORDPRESS

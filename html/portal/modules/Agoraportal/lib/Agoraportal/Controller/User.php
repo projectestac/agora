@@ -386,43 +386,29 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                     'typeId' => $typeId,
                     'search' => $search,
                     'searchText' => $searchText));
+
         $sitesArray = array();
-
-        // Obtain base URL: https://pwc-acc.xtec.cat/agora/
-        //global $agora;
-
-        //$siteBaseURL = $agora['server']['server'] . $agora['server']['base'];
 
         if (count($sites) > 0) {
             foreach ($sites as $site) {
-                if (!isset($site['serviceId'])) {
-                    $site['serviceId'] = 0;
-                }
-                $class = ($site['serviceId'] > 0) ? $services[$site['serviceId']]['serviceName'] : '';
+                $serviceName = $services[$site['serviceId']]['serviceName'];
+                $hasDB = $services[$site['serviceId']]['hasDB'];
+                $link = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
                 $logos = '';
 
-                if ($site['serviceId'] > 0) {
-                    // Exception for marsupial service
-                    if ($services[$site['serviceId']]['serviceName'] == 'intranet' || $services[$site['serviceId']]['serviceName'] == 'moodle2') {
-                        $logos = '<div style="float:left;width:70px;" class="' . $class . '"><a href="' .
-                                ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $services[$site['serviceId']]['serviceName'])) .
-                                '">' . '<img src="modules/Agoraportal/images/' .
-                                $services[$site['serviceId']]['serviceName'] .
-                                '.gif" alt="' .
-                                $services[$site['serviceId']]['serviceName'] .
-                                '" title="' .
-                                $services[$site['serviceId']]['serviceName'] .
-                                '"/></a></div>';
-                    } elseif ($services[$site['serviceId']]['serviceName'] == 'marsupial') {
-                        $logos = '<div style="float:left;width:70px;" class="' . $class . '"><img src="modules/Agoraportal/images/' .
-                                $services[$site['serviceId']]['serviceName'] .
-                                '.gif" alt="' .
-                                $services[$site['serviceId']]['serviceName'] .
-                                '" title="' .
-                                $services[$site['serviceId']]['serviceName'] .
-                                '"/></div>';
-                    }
+                if ($hasDB) {
+                    $logos = "<div style=\"float:left;\" class=\"$serviceName\">
+                                <a href=\"$link\">
+                                    <img src=\"modules/Agoraportal/images/$serviceName.gif\" alt=\"$serviceName\" title=\"$serviceName\" />
+                                </a>
+                              </div>";
+                } else {
+                    $logos = "<div style=\"float:left;\" class=\"$serviceName\">
+                                <img src=\"modules/Agoraportal/images/$serviceName.gif\" alt=\"$serviceName\" title=\"$serviceName\" />
+                              </div>";
                 }
+
+                // Create an array for printing. Each row is a client and logos are accumulated in a field.
                 if (!array_key_exists($site['clientDNS'], $sitesArray)) {
                     $sitesArray[$site['clientDNS']] = array('clientName' => $site['clientName'],
                         'clientId' => $site['clientId'],
