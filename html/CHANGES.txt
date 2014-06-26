@@ -16,6 +16,9 @@ PORTAL
 WORDPRESS
 - Upgraded Invite Anyone from v1.2.1 to v1.3
 
+ZIKULA 2
+- IWbooks: Fixed creation of pdf in user view
+
 
 Changes 14.06.20
 ---------------------------------------------------------------------------------------
@@ -26,9 +29,6 @@ GENERAL
 PORTAL
 - Agoraportal: Added fields URL and hasDB to service definition table
 - Agoraportal: Added support to apply for new service Nodes
-
-ZIKULA 2
-- IWforms: Fixed error when there are no searchable fields
 
 WORDPRESS
 - Added WordPress 3.9.1
@@ -52,6 +52,9 @@ WORDPRESS
 - Added xtec-mail to send e-mail using XTEC web service
 - Added https login
 - BP-moderation: Fixed repetition of background image in Dashboard
+
+ZIKULA 2
+- IWforms: Fixed error when there are no searchable fields
 
 
 Changes 14.06.02

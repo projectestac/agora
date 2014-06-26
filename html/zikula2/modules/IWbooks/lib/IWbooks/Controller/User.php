@@ -230,6 +230,7 @@ class IWbooks_Controller_User extends Zikula_AbstractController {
 
     function generapdf($args) {
         require_once(ModUtil::getVar('IWbooks', 'fpdf') . 'fpdf.php');
+        require_once(ModUtil::getModuleBaseDir('IWbooks') . '/IWbooks/pnfpdf.php');
 
         $any = FormUtil::getPassedValue('curs');
         $etapa = FormUtil::getPassedValue('etapa');
