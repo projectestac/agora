@@ -9,6 +9,17 @@
 /** WordPress Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
+
+// XTEC ************ AFEGIT - Block access to file editor. Use existing lang message.
+// 2014.06.27 @aginard
+global $isAgora, $isBlocs;
+
+if ($isAgora || $isBlocs) {
+    wp_die(__('You do not have sufficient permissions to edit plugins for this site.'));
+}
+//************ FI
+
+
 if ( is_multisite() && ! is_network_admin() ) {
 	wp_redirect( network_admin_url( 'plugin-editor.php' ) );
 	exit();

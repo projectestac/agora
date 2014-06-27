@@ -394,8 +394,21 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				} // end if $is_active
 			 } // end if $screen->in_admin( 'network' )
 
-			if ( ( ! is_multisite() || $screen->in_admin( 'network' ) ) && current_user_can('edit_plugins') && is_writable(WP_PLUGIN_DIR . '/' . $plugin_file) )
-				$actions['edit'] = '<a href="plugin-editor.php?file=' . $plugin_file . '" title="' . esc_attr__('Open this file in the Plugin Editor') . '" class="edit">' . __('Edit') . '</a>';
+            // XTEC ************ MODIFICAT - Block access to file editor. Don't show link in plugins list
+            // 2014.06.27 @aginard
+            global $isAgora, $isBlocs;
+
+            if (!$isAgora && !$isBlocs) {
+                if ( ( ! is_multisite() || $screen->in_admin( 'network' ) ) && current_user_can('edit_plugins') && is_writable(WP_PLUGIN_DIR . '/' . $plugin_file) )
+                    $actions['edit'] = '<a href="plugin-editor.php?file=' . $plugin_file . '" title="' . esc_attr__('Open this file in the Plugin Editor') . '" class="edit">' . __('Edit') . '</a>';
+            }
+            //************ ORIGINAL
+            /*
+            if ( ( ! is_multisite() || $screen->in_admin( 'network' ) ) && current_user_can('edit_plugins') && is_writable(WP_PLUGIN_DIR . '/' . $plugin_file) )
+                $actions['edit'] = '<a href="plugin-editor.php?file=' . $plugin_file . '" title="' . esc_attr__('Open this file in the Plugin Editor') . '" class="edit">' . __('Edit') . '</a>';
+            */
+            //************ FI
+
 		} // end if $context
 
 		$prefix = $screen->in_admin( 'network' ) ? 'network_admin_' : '';
