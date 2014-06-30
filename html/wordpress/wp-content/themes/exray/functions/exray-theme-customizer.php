@@ -25,7 +25,7 @@ function exray_customize_register($wp_customize){
 	
 	/* Display logo */
 	$wp_customize->add_setting('exray_custom_settings[display_logo]', array(
-			'default'=>'0',
+			'default'=> true,
 			'type'=>'option' 
 		));
 	
@@ -52,7 +52,7 @@ function exray_customize_register($wp_customize){
 	
 	/*Add setting for checkbox enable displaying Top Ad (setting saved to db).*/	
 	$wp_customize->add_setting('exray_custom_settings[display_top_ad]', array(
-				'default' => '0',
+				'default' => true,
 				'type' => 'option'
 		));
 	

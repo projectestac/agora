@@ -19,7 +19,8 @@
     <body <?php body_class() ?> >
 
         <?php 
-            $options = get_option('exray_custom_settings'); 
+            $default_options = array( 'display_logo' => true, 'exray_theme_logo' => THEME_IMAGES.'/logo.png' , 'display_top_ad' => '0', 'top_ad' => 'http://lorempixel.com/468/60', 'top_ad_link' => home_url(), 'top_menu_color' => '#f5f5f5', 'link_color' => '#0d72c7', 'header_color' => '#ffffff', 'main_menu_color' => '#f5f5f5', 'bg_color' => '#ffffff', 'footer_color' => '#f7f7f7', 'copyright_container_color' => '#ededed', );
+            $options = get_option('exray_custom_settings', $default_options); 
             global $exray_general_options;
         ?>
 
@@ -66,15 +67,15 @@
 
                         <div class="row">
                             <div class="span6 logo-container"> 
-
-                                <?php if ($options['display_logo'] != 0) : ?>
+                           
+                                <?php if ($options['display_logo'] === true) : ?>
 
                                      <?php if (is_home()) : ?>
 
                                         <!-- Display logo Image -->
                                         <h1 class="logo"> 
                                             <a href="<?php echo esc_url(home_url()); ?>">
-                                                <img src="<?php echo $options['exray_theme_logo']; ?>" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>" />
+                                                <img src="<?php echo  $options['exray_theme_logo']; ?>" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>" />
                                             </a>
                                         </h1>
 

@@ -1,9 +1,9 @@
 === Exray ===
 Contributors: Septian Ahmad Fujianto
-Tags: gray, white, one-column, two-columns, three-columns, flexible-width, custom-menu, flexible-header, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: gray, white, light, one-column, two-columns, three-columns, responsive-layout, left-sidebar, right-sidebar, custom-menu, custom-colors, flexible-header, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, editor-style, translation-ready
 Requires at least: 3.6
-Tested up to: 3.6.1
-Stable tag: 1.4.1
+Tested up to: 3.9.1
+Stable tag: 1.4.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -104,6 +104,17 @@ You can shoot me email at septianahmad[at]naisinpo[dot]com.
 1. Standard Theme Screenshot
 
 == Changelog ==
+
+= 1.4.3 =
+* Bug fix on logo upload / not showing correctly.
+* Bug fix on Top Ad / Header Widget.
+* Compatible with WordPress 3.9 video and audio playlist.
+* New theme tags, Responsive Layout.
+
+= 1.4.2 =
+* New widgetized area, Header widget and Below header.
+* New widget Banner image.
+* Minor bug fix.
 
 = 1.4.1 =
 * Fix broken layout on Internet Explorer 8 and 9.
