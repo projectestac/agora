@@ -1,0 +1,62 @@
+
+td { text-align: center; line-height: 2em;}
+thead td { font-weight: bold; }
+.bar {
+	width: 200px;
+	text-align: left;
+	line-height: 2em;
+	padding: 0px;
+}
+.ind {
+	position: absolute;
+	background-color: #83B4D8;
+	width: 1px;
+	z-index: 9;
+}
+/* Todo: Review some of these since moving to WP_Tables */
+.stat {
+	z-index: 10;
+	position: relative;
+	text-align: center;
+}
+td.submit {
+	margin:0;
+	padding:0;
+}
+
+td {
+	padding-left:10px;
+	padding-right:10px;
+}
+
+/* Fix for MP6 plugin aka future styling for Admin UI */
+table.wp-list-table td { line-height: 2em;}
+
+.column-BL_name { text-align: left;}
+.column-BL_url { text-align: left;}
+.column-BL_posts { text-align: left; width:12%; }
+.column-BL_comments { text-align: left; width:12%;}
+.column-BL_images { text-align: left; width:12%;}
+.column-BL_links { text-align: left;  width:12%;}
+.column-BL_action { text-align: left; width:8%;}
+
+td.column-BL_posts div { width: 100%; }
+
+/* JQuery Progress Bars */
+.ui-progressbar-value {background-color: #83B4D8;
+                         position:relative;
+                         height:2em;
+                         margin-top:-2em;
+                         z-index: 9;
+                       display: block;}
+.ui-progressbar       {border: thin solid;
+                       height:2em;
+                       }
+
+.ui-progressbar-caption {
+    z-index:10;
+  display: block;
+  position: relative;
+  text-align: center;
+  
+}
