@@ -22,6 +22,7 @@ WORDPRESS
 - bbpress: Moved links in admin menu to a new custom page
 - Block access to file editor. WordPress files cannot be modified via web
 - Force usage of MySQLi instead of MySQL
+- Added Raw HTML 1.4.12
 
 ZIKULA 2
 - IWbooks: Fixed creation of pdf in user view
