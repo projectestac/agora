@@ -24,11 +24,17 @@ $files[] = $agora['server']['root'] . 'html/config/env-config.php';
 $files[] = $agora['server']['root'] . 'html/config/config.php';
 $files[] = $agora['server']['root'] . 'html/config/config-restricted.php';
 $files[] = $agora['server']['root'] . 'html/config/sync-config.sh';
+$files[] = $agora['server']['root'] . 'html/moodle2/config.php';
+$files[] = $agora['server']['root'] . 'html/moodle2/filter/tex/mimetex.linux';
+$files[] = $agora['server']['root'] . 'html/moodle2/filter/tex/mimetex.sunos';
 $files[] = $agora['server']['root'] . 'html/moodle2/local/agora/muc/';
 $files[] = $agora['server']['root'] . 'html/moodle2/local/agora/muc/cacheconfig.php';
+$files[] = $agora['server']['root'] . 'html/wordpress/wp-config.php';
+$files[] = $agora['server']['root'] . 'html/wordpress/wp-content/uploads';
 $files[] = $agora['server']['root'] . $agora['intranet']['datadir'] . 'diskUsageZk.txt';
 $files[] = $agora['server']['root'] . $agora['moodle']['datadir'] .'diskUsageMdl.txt';
 $files[] = $agora['server']['root'] . $agora['moodle2']['datadir'] .'diskUsageMdl2.txt';
+$files[] = $agora['server']['root'] . $agora['nodes']['datadir'] .'diskUsageWp.txt';
 $files[] = $agora['server']['root'] . 'adminInfo/cronIntranet.txt';
 $files[] = $agora['server']['root'] . 'adminInfo/cronMoodle.txt';
 $files[] = $agora['server']['root'] . 'adminInfo/cronMoodle2.txt';
@@ -38,20 +44,23 @@ $files[] = $agora['server']['root'] . 'adminInfo/updateMoodle2.txt';
 
 foreach ($files as $file) {
     if (file_exists($file)) {
-        echo '<h4>Fitxer:</strong> '.$file.'</h4>';
-        echo '<strong>Mida:</strong> '.filesize($file).'<br>';
-        echo '<strong>Propietari:</strong> '.fileowner($file).'<br>';
-        echo '<strong>Permisos:</strong> '.substr(sprintf('%o', fileperms($file)), -4).'<br>';
-        echo '<strong>Creaci&oacute;:</strong> ' .date(DATE_RFC822, filectime($file)).'<br>';
-        echo '<strong>Darrera modificaci&oacute;:</strong> '.date(DATE_RFC822, filemtime($file)).'<br>';
-        echo '<strong>Espai lliure:</strong> ' . fileSizeUnits(disk_free_space(dirname($file))).'<br>';
+        $linkinfo = 'No &eacute;s enlla&ccedil; simb&ograve;lic';
+        if (is_link($file)) {
+            $linkinfo = readlink($file);
+        }
+        echo '<br><h4>Fitxer:</strong> ' . $file . '</h4>';
+        echo '<strong>Mida:</strong> ' . filesize($file) . '<br>';
+        echo '<strong>Propietari:</strong> ' . fileowner($file) . '<br>';
+        echo '<strong>Permisos:</strong> ' . substr(sprintf('%o', fileperms($file)), -4) . '<br>';
+        echo '<strong>Enlla&ccedil; simb&ograve;lic:</strong> ' . $linkinfo . '<br>';
+        echo '<strong>Creaci&oacute;:</strong> ' . date(DATE_RFC822, filectime($file)) . '<br>';
+        echo '<strong>Darrera modificaci&oacute;:</strong> ' . date(DATE_RFC822, filemtime($file)) . '<br>';
+        echo '<strong>Espai lliure:</strong> ' . fileSizeUnits(disk_free_space(dirname($file))) . '<br>';
         echo '<br>';
     } else {
-        echo 'El fitxer ' . $file .' no existeix.<br>';
+        echo 'El fitxer ' . $file . ' no existeix.<br>';
     }
 }
-
-
 
 function fileSizeUnits($FZ)
 {
