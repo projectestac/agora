@@ -25,6 +25,7 @@ WORDPRESS
 - Added Raw HTML 1.4.12
 - Added TinyMCE Advanced 4.0.2
 - Added Blogger Importer 0.7
+- Added WordPress Importer 0.6.1
 - Removed default themes: twentytwelve, twentythirteen and twentyfourteen
 - Upgraded theme exray to version 1.4.3
 - Added customization to theme exray
