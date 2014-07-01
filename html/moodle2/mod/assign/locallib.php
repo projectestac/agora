@@ -579,7 +579,8 @@ class assign {
                 $fileareas = array();
                 $plugincomponent = $plugin->get_subtype() . '_' . $plugin->get_type();
                 $fileareas = $plugin->get_file_areas();
-                foreach ($fileareas as $filearea) {
+                //XTEC MDL-46219 @pferre22 2014.07.01
+                foreach ($fileareas as $filearea => $notused) {
                     $fs->delete_area_files($this->context->id, $plugincomponent, $filearea);
                 }
 
@@ -594,7 +595,8 @@ class assign {
                 $fileareas = array();
                 $plugincomponent = $plugin->get_subtype() . '_' . $plugin->get_type();
                 $fileareas = $plugin->get_file_areas();
-                foreach ($fileareas as $filearea) {
+                //XTEC MDL-46219 @pferre22 2014.07.01
+                foreach ($fileareas as $filearea => $notused) {
                     $fs->delete_area_files($this->context->id, $plugincomponent, $filearea);
                 }
 
@@ -1154,9 +1156,9 @@ class assign {
      * @param int $currentgroup
      * @return int number of matching users
      */
-    public function count_participants($currentgroup) { 
+    public function count_participants($currentgroup) {
         //XTEC ************ MODIFICAT - To fix bug on participants count shown in Grading summary page (MDL-38128)
-        //2013.10.08  @jmiro227  
+        //2013.10.08  @jmiro227
         //Si el curs és SEPARATEGROUPS retorna la suma de tots els altres participants de tots els grups on està l'usuari que crida la funció.
         //Si un participant està a varis grups contabilitzarà un cop per cada grup.
 
@@ -1164,7 +1166,7 @@ class assign {
         $userid = $USER->id;
         $count = 0;
 
-        if (groups_get_activity_groupmode($this->get_course_module()) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $this->context, $USER->id, true)) { 
+        if (groups_get_activity_groupmode($this->get_course_module()) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $this->context, $USER->id, true)) {
             $groups = groups_get_all_groups($this->get_course()->id, $userid);
 
             foreach ($groups as $group) {
@@ -1172,14 +1174,14 @@ class assign {
             }
 
             return $count;
-        } else { 
-            return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup); 
+        } else {
+            return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup);
         }
         //************ ORIGINAL
         /*
                return count_enrolled_users($this->context, "mod/assign:submit", $currentgroup);
         */
-        //************ FI  
+        //************ FI
     }
 
     /**
