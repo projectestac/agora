@@ -96,3 +96,20 @@ function add_ie_html5_shim () {
     echo '<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>';
     echo '<![endif]-->';
 }
+
+
+// XTEC ************ AFEGIT - Add search box to menu bar
+// 2014.07.01 @aginard @jmeler
+
+add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
+
+function add_search_box_to_menu( $items, $args ) {
+        
+    if( $args->theme_location == 'main-menu' ) {
+        return $items.get_search_form();
+    }
+
+    return $items;
+}
+
+//************ FI

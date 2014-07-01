@@ -27,6 +27,7 @@ WORDPRESS
 - Added Blogger Importer 0.7
 - Removed default themes: twentytwelve, twentythirteen and twentyfourteen
 - Upgraded theme exray to version 1.4.3
+- Added customization to theme exray
 
 ZIKULA 2
 - IWbooks: Fixed creation of pdf in user view
