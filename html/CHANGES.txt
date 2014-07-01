@@ -26,6 +26,7 @@ WORDPRESS
 - Added TinyMCE Advanced 4.0.2
 - Added Blogger Importer 0.7
 - Added WordPress Importer 0.6.1
+- Added SlideShare for WordPress by Yoast 1.8
 - Removed default themes: twentytwelve, twentythirteen and twentyfourteen
 - Upgraded theme exray to version 1.4.3
 - Added customization to theme exray

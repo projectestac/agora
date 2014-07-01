@@ -1,0 +1,143 @@
+# Copyright (C) 2010 SlideShare
+# This file is distributed under the same license as the SlideShare package.
+msgid ""
+msgstr ""
+"Project-Id-Version: SlideShare 1.8\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/slideshare\n"
+"POT-Creation-Date: 2011-07-21 11:53:04+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: yst_plugin_tools.php:63 slideshare.php:69
+msgid "Settings"
+msgstr ""
+
+#: yst_plugin_tools.php:154
+msgid "Why not do any or all of the following:"
+msgstr ""
+
+#: yst_plugin_tools.php:156
+msgid "Link to it so other folks can find out about it."
+msgstr ""
+
+#: yst_plugin_tools.php:157
+msgid "Give it a good rating on WordPress.org."
+msgstr ""
+
+#: yst_plugin_tools.php:158
+msgid "Donate a token of your appreciation using the button below."
+msgstr ""
+
+#: yst_plugin_tools.php:159
+msgid "Let other people know that it works with your WordPress setup."
+msgstr ""
+
+#: yst_plugin_tools.php:161
+msgid "Like this plugin?"
+msgstr ""
+
+#: yst_plugin_tools.php:165
+msgid ""
+"This plugin has cost me countless hours of work, if you use it, please "
+"donate a token of your appreciation!"
+msgstr ""
+
+#: yst_plugin_tools.php:180
+msgid ""
+"If you've found a bug in this plugin, please submit it in the Support Forums "
+"with a clear description."
+msgstr ""
+
+#: yst_plugin_tools.php:181
+msgid "Found a bug?"
+msgstr ""
+
+#: yst_plugin_tools.php:223 yst_plugin_tools.php:263
+msgid "No news items, feed might be broken..."
+msgstr ""
+
+#: yst_plugin_tools.php:231 yst_plugin_tools.php:276
+msgid "Subscribe with RSS"
+msgstr ""
+
+#: yst_plugin_tools.php:232 yst_plugin_tools.php:278
+msgid "Subscribe by email"
+msgstr ""
+
+#: yst_plugin_tools.php:234 yst_plugin_tools.php:291
+msgid "Latest news from Yoast"
+msgstr ""
+
+#: yst_plugin_tools.php:252
+msgid ""
+"If you reload, this widget will be gone and never appear again, unless you "
+"decide to delete the database option 'yoastdbwidget'."
+msgstr ""
+
+#: yst_plugin_tools.php:279
+msgid "Remove this widget from all users dashboards"
+msgstr ""
+
+#: slideshare.php:55
+msgid "SlideShare Configuration"
+msgstr ""
+
+#: slideshare.php:65
+msgid "Default width"
+msgstr ""
+
+#: slideshare.php:68
+msgid "Update SlideShare Settings"
+msgstr ""
+
+#: slideshare.php:70
+msgid "Explanation of usage"
+msgstr ""
+
+#: slideshare.php:70
+msgid "Just copy and paste the \"Embed (wordpress.com)\" code from"
+msgstr ""
+
+#: slideshare.php:70
+msgid "and you're done"
+msgstr ""
+
+#: slideshare.php:71
+msgid "Explanation of default width"
+msgstr ""
+
+#: slideshare.php:71
+msgid ""
+"If you enter nothing here, you can change the width by hand by changing the "
+"w= value, that is bolded and red here:"
+msgstr ""
+
+#: slideshare.php:71
+msgid ""
+"If you <em>do</em> enter a value, it will always replace the width with that "
+"value."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "SlideShare"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://yoast.com/wordpress/slideshare/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A plugin for WordPress to easily display slideshare.net presentations."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Joost de Valk"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://yoast.com/"
+msgstr ""
