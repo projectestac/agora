@@ -100,7 +100,6 @@ function add_ie_html5_shim () {
 
 // XTEC ************ AFEGIT - Add search box to menu bar
 // 2014.07.01 @aginard @jmeler
-
 add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
 
 function add_search_box_to_menu( $items, $args ) {
@@ -111,5 +110,13 @@ function add_search_box_to_menu( $items, $args ) {
 
     return $items;
 }
+//************ FI
 
+// XTEC ************ AFEGIT - Removed WordPress logo and "About" menu from admin bar menu
+// 2014.07.01 @aginard
+add_action('admin_bar_menu', 'remove_wp_logo', 999);
+
+function remove_wp_logo($wp_admin_bar) {
+    $wp_admin_bar->remove_node('wp-logo');
+}
 //************ FI
