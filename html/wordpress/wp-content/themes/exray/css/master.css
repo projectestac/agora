@@ -1262,8 +1262,8 @@ input[type="password"]:focus {
   }
 }
 
-// XTEC ************ AFEGIT - Change format of input fields
-// 2014.07.01 @aginard @jmeler
+/* XTEC ************ AFEGIT - Change format of input fields */
+/* 2014.07.01 @aginard @jmeler */
 #search-form input[type="text"] {
     background: #ffffff;
     color: #000000;
@@ -1275,4 +1275,4 @@ input[type="password"]:focus {
     width: 150px;
     float: right;
 }
-//************ FI
+/************ FI */
