@@ -14,8 +14,19 @@ if ( !defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informat
  */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
+
+// XTEC ************ AFEGIT - Don't allow to install plugins in any case
+// 2014.07.02 @aginard
+global $isAgora, $isBlocs;
+
+if ($isAgora || $isBlocs) {
+    wp_die(__('You do not have sufficient permissions to install plugins on this site.'));
+}
+//************ FI
+
+
 if ( ! current_user_can('install_plugins') )
-	wp_die(__('You do not have sufficient permissions to install plugins on this site.'));
+    wp_die(__('You do not have sufficient permissions to install plugins on this site.'));
 
 if ( is_multisite() && ! is_network_admin() ) {
 	wp_redirect( network_admin_url( 'plugin-install.php' ) );

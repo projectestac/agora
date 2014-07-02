@@ -30,6 +30,7 @@ WORDPRESS
 - Removed default themes: twentytwelve, twentythirteen and twentyfourteen
 - Upgraded theme exray to version 1.4.3
 - Added customization to theme exray
+- Hidden and blocked access to install, upgrade, upload and delete plugins and themes
 
 ZIKULA 2
 - IWbooks: Fixed creation of pdf in user view

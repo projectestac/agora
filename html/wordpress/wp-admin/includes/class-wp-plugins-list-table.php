@@ -389,8 +389,21 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				} else {
 					$actions['activate'] = '<a href="' . wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'activate-plugin_' . $plugin_file) . '" title="' . esc_attr__('Activate this plugin') . '" class="edit">' . __('Activate') . '</a>';
 
-					if ( ! is_multisite() && current_user_can('delete_plugins') )
-						$actions['delete'] = '<a href="' . wp_nonce_url('plugins.php?action=delete-selected&amp;checked[]=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins') . '" title="' . esc_attr__('Delete this plugin') . '" class="delete">' . __('Delete') . '</a>';
+                    // XTEC ************ MODIFICAT - Don't show link to delete plugin in "Deactivated plugins list"
+                    // 2014.07.02 @aginard
+                    global $isAgora, $isBlocs;
+
+                    if (!$isAgora && !$isBlocs) {
+                        if ( ! is_multisite() && current_user_can('delete_plugins') )
+                            $actions['delete'] = '<a href="' . wp_nonce_url('plugins.php?action=delete-selected&amp;checked[]=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins') . '" title="' . esc_attr__('Delete this plugin') . '" class="delete">' . __('Delete') . '</a>';
+                    }
+                    //************ ORIGINAL
+                    /*
+                    if ( ! is_multisite() && current_user_can('delete_plugins') )
+                        $actions['delete'] = '<a href="' . wp_nonce_url('plugins.php?action=delete-selected&amp;checked[]=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins') . '" title="' . esc_attr__('Delete this plugin') . '" class="delete">' . __('Delete') . '</a>';
+                    */
+                    //************ FI
+                        
 				} // end if $is_active
 			 } // end if $screen->in_admin( 'network' )
 
