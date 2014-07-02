@@ -86,6 +86,13 @@ define('WPLANG', 'ca');
  */
 define('WP_DEBUG', false);
 
+// Deactivate the loading of compressed Javascript and CSS files
+define('SCRIPT_DEBUG', false);
+
+// Activates the saving of database queries in an array ($wpdb->queries).
+// Set to true and uncomment code in theme exray in footer.php to use it.
+define('SAVEQUERIES', false); 
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

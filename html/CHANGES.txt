@@ -31,6 +31,7 @@ WORDPRESS
 - Upgraded theme exray to version 1.4.3
 - Added customization to theme exray
 - Hidden and blocked access to install, upgrade, upload and delete plugins and themes
+- wp-config.php: Added constants useful for debug
 
 ZIKULA 2
 - IWbooks: Fixed creation of pdf in user view
