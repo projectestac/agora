@@ -19,24 +19,6 @@ if ( isset($_GET['action']) ) {
 	$theme = isset($_REQUEST['theme']) ? urldecode($_REQUEST['theme']) : '';
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
-
-    // XTEC ************ AFEGIT - Don't allow access to install, upgrade and upload plugins and themes
-    // 2014.07.02 @aginard
-    global $isAgora, $isBlocs;
-
-    if ($isAgora || $isBlocs) {
-        if ($action == 'update-selected' || $action == 'upgrade-plugin' ||
-                $action == 'install-plugin' || $action == 'upload-plugin') {
-            wp_die(__('You do not have sufficient permissions to update plugins for this site.'));
-        }
-        if ($action == 'upgrade-theme' || $action == 'update-selected-themes' ||
-                $action == 'install-theme' || $action == 'upload-theme') {
-            wp_die(__('You do not have sufficient permissions to update themes for this site.'));
-        }
-    }
-    //************ FI
-    
-    
     if ( 'update-selected' == $action ) {
 		if ( ! current_user_can( 'update_plugins' ) )
 			wp_die( __( 'You do not have sufficient permissions to update plugins for this site.' ) );

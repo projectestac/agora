@@ -208,16 +208,6 @@ if ( $action ) {
 			break;
 		case 'delete-selected':
 
-            // XTEC ************ AFEGIT - Don't allow access to delete plugins. This is reached through "Bulk dropdown menu"
-            // 2014.07.02 @aginard
-            global $isAgora, $isBlocs;
-
-            if ($isAgora || $isBlocs) {
-                wp_die(__('You do not have sufficient permissions to delete plugins for this site.'));
-            }
-            //************ FI
-
-
 			if ( ! current_user_can('delete_plugins') )
 				wp_die(__('You do not have sufficient permissions to delete plugins for this site.'));
 
@@ -424,25 +414,9 @@ if ( !empty($invalid) )
 <div class="wrap">
 <h2><?php echo esc_html( $title );
 
-
-// XTEC ************ MODIFICAT - Don't show link to add plugins in plugin list
-// 2014.07.02 @aginard
-global $isAgora, $isBlocs;
-
-if (!$isAgora && !$isBlocs) {
-    if ( ( ! is_multisite() || is_network_admin() ) && current_user_can('install_plugins') ) { ?>
-     <a href="<?php echo self_admin_url( 'plugin-install.php' ); ?>" class="add-new-h2"><?php echo esc_html_x('Add New', 'plugin'); ?></a>
-    <?php }
-}
-//************ ORIGINAL
-/*
 if ( ( ! is_multisite() || is_network_admin() ) && current_user_can('install_plugins') ) { ?>
  <a href="<?php echo self_admin_url( 'plugin-install.php' ); ?>" class="add-new-h2"><?php echo esc_html_x('Add New', 'plugin'); ?></a>
 <?php }
-*/
-//************ FI
-
-
 if ( $s )
 	printf( '<span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', esc_html( $s ) ); ?>
 </h2>

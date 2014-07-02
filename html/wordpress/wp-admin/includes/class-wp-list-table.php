@@ -308,17 +308,6 @@ class WP_List_Table {
 
 		foreach ($this->_actions as $name => $title) {
 
-            // XTEC ************ AFEGIT - Don't show link to delete and update plugins in "Bulk dropdown menu"
-            // 2014.07.02 @aginard
-            global $isAgora, $isBlocs;
-
-            if ($isAgora || $isBlocs) {
-                if ($name == 'delete-selected' || $name == 'update-selected') {
-                    continue;
-                }
-            }
-            //************ FI
-
             $class = 'edit' == $name ? ' class="hide-if-no-js"' : '';
 
             echo "\t<option value='$name'$class>$title</option>\n";

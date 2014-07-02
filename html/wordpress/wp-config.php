@@ -37,6 +37,9 @@ if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
 // Force usage of MySQLi instead of MySQL
 define ('WP_USE_EXT_MYSQL', false);
 
+// Block any kind of filesystem change, automatic or by users
+define('DISALLOW_FILE_MODS', true);
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
