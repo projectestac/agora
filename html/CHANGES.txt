@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 14.07.04
+---------------------------------------------------------------------------------------
 GENERAL:
 - config.php: Use same global variable name for all services: $agora[$serviceName]['userprefix']
 - config.php: Change var name from $agora[$serviceName]['discusagefile'] to $agora[$serviceName]['diskusagefile']
@@ -39,6 +44,7 @@ ZIKULA 2
 
 MOODLE 2
 - Assignment: Solved reset assignment submissions MDL-46219
+
 
 Changes 14.06.20
 ---------------------------------------------------------------------------------------
