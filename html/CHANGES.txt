@@ -5,6 +5,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+WORDPRESS
+- Widget Visibility Without Jetpack 0.4
 
 
 

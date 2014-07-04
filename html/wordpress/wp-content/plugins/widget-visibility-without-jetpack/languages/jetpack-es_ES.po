@@ -1,0 +1,145 @@
+# Translation of 1.2 in Spanish (Spain)
+# This file is distributed under the same license as the 1.2 package.
+msgid ""
+msgstr ""
+"Project-Id-Version: JetPack en español\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-05 23:08+0100\n"
+"PO-Revision-Date: 2013-09-05 23:08+0100\n"
+"Last-Translator: Eduardo Larequi <elarequi@gmail.com>\n"
+"Language-Team: Eduardo Larequi <elarequi@gmail.com >\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: Spain\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: widget-visibility/widget-conditions.php:34
+msgid "All category pages"
+msgstr "Todas las páginas de categorías"
+
+#: widget-visibility/widget-conditions.php:48
+msgid "All author pages"
+msgstr "Todas las páginas de autores"
+
+#: widget-visibility/widget-conditions.php:59
+msgid "All tag pages"
+msgstr "Todas las páginas de etiquetas"
+
+#: widget-visibility/widget-conditions.php:73
+msgid "All date archives"
+msgstr "Artículos de todas las fechas"
+
+#: widget-visibility/widget-conditions.php:74
+msgid "Daily archives"
+msgstr "Artículos del día"
+
+#: widget-visibility/widget-conditions.php:75
+msgid "Monthly archives"
+msgstr "Artículos del mes"
+
+#: widget-visibility/widget-conditions.php:76
+msgid "Yearly archives"
+msgstr "Artículos del año"
+
+#: widget-visibility/widget-conditions.php:87
+msgid "Front page"
+msgstr "Página principal"
+
+#: widget-visibility/widget-conditions.php:88
+msgid "Posts page"
+msgstr "Página de entradas"
+
+#: widget-visibility/widget-conditions.php:89
+msgid "404 error page"
+msgstr "Página de error 404 "
+
+#: widget-visibility/widget-conditions.php:90
+msgid "Search results"
+msgstr "Resultados de búsqueda"
+
+#: widget-visibility/widget-conditions.php:91
+msgid "Post type:"
+msgstr "Tipo de contenido:"
+
+#: widget-visibility/widget-conditions.php:104
+msgid "Static page:"
+msgstr "Página estática:"
+
+#: widget-visibility/widget-conditions.php:146
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: widget-visibility/widget-conditions.php:149
+#, php-format
+msgctxt "placeholder: dropdown menu to select widget visibility; hide if or show if"
+msgid "%s if:"
+msgstr "%s si:"
+
+#: widget-visibility/widget-conditions.php:149
+msgctxt "Used in the \"%s if:\" translation for the widget visibility dropdown"
+msgid "Show"
+msgstr "Mostrar"
+
+#: widget-visibility/widget-conditions.php:149
+msgctxt "Used in the \"%s if:\" translation for the widget visibility dropdown"
+msgid "Hide"
+msgstr "Ocultar"
+
+#: widget-visibility/widget-conditions.php:160
+msgctxt "Used as the default option in a dropdown list"
+msgid "-- Select --"
+msgstr "-- Seleccionar --"
+
+#: widget-visibility/widget-conditions.php:161
+msgid "Category"
+msgstr "Categoría"
+
+#: widget-visibility/widget-conditions.php:162
+msgctxt "Noun, as in: \"The author of this post is...\""
+msgid "Author"
+msgstr "Autor"
+
+#: widget-visibility/widget-conditions.php:163
+msgctxt "Noun, as in: \"This post has one tag.\""
+msgid "Tag"
+msgstr "Etiqueta"
+
+#: widget-visibility/widget-conditions.php:164
+msgctxt "Noun, as in: \"This page is a date archive.\""
+msgid "Date"
+msgstr "Fecha"
+
+#: widget-visibility/widget-conditions.php:165
+msgctxt "Example: The user is looking at a page, not a post."
+msgid "Page"
+msgstr "Página"
+
+#: widget-visibility/widget-conditions.php:167
+msgctxt "Widget Visibility: {Rule Major [Page]} is {Rule Minor [Search results]}"
+msgid "is"
+msgstr "es"
+
+#: widget-visibility/widget-conditions.php:168
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: widget-visibility/widget-conditions.php:171
+msgctxt "Shown between widget visibility conditions."
+msgid "or"
+msgstr "o"
+
+#: widget-visibility/widget-conditions.php:174
+msgid "Delete"
+msgstr "Borrar"
+
+#: widget-visibility/widget-conditions.php:174
+msgid "Add"
+msgstr "Añadir"
+
