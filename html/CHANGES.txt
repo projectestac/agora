@@ -11,7 +11,7 @@ PORTAL
 WORDPRESS
 - Added Widget Visibility Without Jetpack 0.4
 - Added Viper’s Video Quicktags 6.5.2
-
+- Added Google Calendar Events 0.7.2
 
 
 Changes 14.07.04
