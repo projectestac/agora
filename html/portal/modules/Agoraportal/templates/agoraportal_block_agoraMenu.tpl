@@ -1,6 +1,6 @@
 <div class="hmenu">
     <div class="hmenuElement">
-        <a href="{modurl modname='Agoraportal' type='user' func='sitesList' ssl=false}">
+        <a href="index.php">
             {gt text="Inici"}
         </a>
     </div>

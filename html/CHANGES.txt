@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Blocks only appear at home page
+
 WORDPRESS
 - Widget Visibility Without Jetpack 0.4
 
