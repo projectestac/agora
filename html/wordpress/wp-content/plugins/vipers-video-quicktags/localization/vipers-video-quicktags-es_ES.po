@@ -1,0 +1,2421 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Viper007Bond
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Viper's Video Quicktags 6.2.13\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-03 09:49+0100\n"
+"PO-Revision-Date: 2009-11-03 09:53+0100\n"
+"Last-Translator: Omi <equipajedemano@gmail.com>\n"
+"Language-Team: Omi <equipajedemano@gmail.com | http://equipajedemano.info>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:246
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:246
+msgid "Click here to view the embedded video."
+msgstr "Pinche aquí para ver el vídeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:413
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1428
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:413
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1428
+msgid "Default"
+msgstr "Por defecto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:414
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:414
+msgid "3D Pixel Style"
+msgstr "Estilo Píxel 3D"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:415
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:415
+msgid "Atomic Red"
+msgstr "Atomic Red"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:416
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:416
+msgid "Bekle (Overlay)"
+msgstr "Bekle (Sobrepuesto)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:417
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:417
+msgid "Blue Metal"
+msgstr "Blue Metal"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:418
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:418
+msgid "Comet"
+msgstr "Comet"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:419
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:419
+msgid "Control Panel"
+msgstr "Panel de Control"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:420
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:420
+msgid "Dang Dang"
+msgstr "Dang Dang"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:421
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:421
+msgid "Fashion"
+msgstr "Fashion"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:422
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:422
+msgid "Festival"
+msgstr "Festival"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:423
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:423
+msgid "Grunge Tape"
+msgstr "Grunge Tape"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:424
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:424
+msgid "Ice Cream Sneaka"
+msgstr "Ice Cream Sneaka"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:425
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:425
+msgid "Kleur"
+msgstr "Kleur"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:426
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:426
+msgid "Magma"
+msgstr "Magma"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:427
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:427
+msgid "Metarby 10"
+msgstr "Metarby 10"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:428
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:428
+msgid "Modieus (Stylish)"
+msgstr "Modieus (elegante)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:429
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:429
+msgid "Modieus (Stylish) Slim"
+msgstr "Modieus (elegante) esbelto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:430
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:430
+msgid "Nacht"
+msgstr "Nacht"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:431
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:431
+msgid "Neon"
+msgstr "Neon"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:432
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:432
+msgid "Pearlized"
+msgstr "Pearlized"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:433
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:433
+msgid "Pixelize"
+msgstr "Pixelize"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:434
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:434
+msgid "Play Casso"
+msgstr "Play Casso"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:435
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:435
+msgid "Schoon"
+msgstr "Schoon"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:436
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:436
+msgid "Silvery White"
+msgstr "Silvery White"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:437
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:437
+msgid "Simple"
+msgstr "Simple"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:438
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:438
+msgid "Snel"
+msgstr "Snel"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:439
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:439
+msgid "Stijl"
+msgstr "Stijl"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:440
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:440
+msgid "Traganja"
+msgstr "Traganja"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:447
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:447
+#, php-format
+msgid "<strong>Viper's Video Quicktags</strong> requires WordPress 2.8 or newer. Please <a href=\"%1$s\">upgrade</a>! By not upgrading, your blog is <a href=\"%2$s\">likely to be hacked</a>."
+msgstr "Esta versión de <strong>Viper's Video Quicktags</strong> requiere de WordPress 2.8 o superior. Por favor <a href=\"%1$s\">actualice</a> o utilice la <a href=\"%2$s\">versión antigua</a> de este plugin."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:453
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:453
+msgid "Viper's Video Quicktags Configuration"
+msgstr "Configuración de Viper's Video Quicktags"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:453
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:453
+msgid "Video Quicktags"
+msgstr "Video Quicktags"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:464
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:464
+msgid "Settings"
+msgstr "Opciones"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:554
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1170
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2212
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2466
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2796
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2826
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2834
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2948
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:554
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1170
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2212
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2466
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2796
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2826
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2834
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2948
+msgid "YouTube"
+msgstr "YouTube"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:555
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:555
+msgid "Embed a video from YouTube"
+msgstr "Incrustar un vídeo de Youtube"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:556
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:562
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:568
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:574
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:580
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:592
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:604
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:610
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:616
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:556
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:562
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:568
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:574
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:580
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:592
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:604
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:610
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:616
+msgid "Please enter the URL at which the video can be viewed."
+msgstr "Por favor, introduzca la URL en la que el vídeo puede verse."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:560
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1171
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2228
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2479
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2900
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2919
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:560
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1171
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2228
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2479
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2900
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2919
+msgid "Google Video"
+msgstr "Google Video"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:561
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:561
+msgid "Embed a video from Google Video"
+msgstr "Incrustar un vídeo de Google Video"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:566
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1172
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2238
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2492
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2972
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:566
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1172
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2238
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2492
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2972
+msgid "DailyMotion"
+msgstr "DailyMotion"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:567
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:567
+msgid "Embed a video from DailyMotion"
+msgstr "Incrustar un vídeo de DailyMotion"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:572
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1173
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2253
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2505
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3012
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3034
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:572
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1173
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2253
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2505
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3012
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3034
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:573
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:573
+msgid "Embed a video from Vimeo"
+msgstr "Incrustar un vídeo de Vimeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:578
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2267
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2518
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3076
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3108
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:578
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2267
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2518
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3076
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3108
+msgid "Veoh"
+msgstr "Veoh"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:579
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:579
+msgid "Embed a video from Veoh"
+msgstr "Incrustar un vídeo de Veoh"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:584
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2170
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2277
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2531
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3157
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3164
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:584
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2170
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2277
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2531
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3157
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3164
+msgid "Viddler"
+msgstr "Viddler"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:585
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:585
+msgid "Embed a video from Viddler"
+msgstr "Incrustar un vídeo de Viddler"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:586
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:586
+#, php-format
+msgid "Please enter the WordPress.com-style embed tag for the Viddler video. See <a href='%s'>Help</a> for details. In the future, you don't need to actually open this window &#8212; you can just paste directly into the editor."
+msgstr "Por favor, introduzca la etiqueta de incrustación con estilo WordPress.com para el vídeo de Viddler. Revise la <a href='%s'>Ayuda</a> para más detalles. En el futuro no tendrá que abrir esta ventana &#8212; podrá pegar directamente dentro del editor."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:590
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2538
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3191
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:590
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2538
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3191
+msgid "Metacafe"
+msgstr "Metacafe"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:591
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:591
+msgid "Embed a video from Metacafe"
+msgstr "Incrustar un vídeo de Metacafe"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:596
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2177
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2551
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3231
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3239
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:596
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2177
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2551
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3231
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3239
+msgid "Blip.tv"
+msgstr "Blip.tv"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:597
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:597
+msgid "Embed a video from Blip.tv"
+msgstr "Incrustar un vídeo de Blip.tv"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:598
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:598
+#, php-format
+msgid "Please enter the WordPress.com-style embed tag for the Blip.tv video. See <a href='%s'>Help</a> for details. In the future, you don't need to actually open this window &#8212; you can just paste directly into the editor."
+msgstr "Por favor, introduzca la etiqueta de incrustación con estilo WordPress.com para el vídeo de Blip.tv. Revise la <a href='%s'>ayuda</a> para más detalles. En el futuro no tendrá que abrir esta ventana &#8212; podrá pegar directamente dentro del editor."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:602
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2283
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2564
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3321
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3339
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:602
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2283
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2564
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3321
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3339
+msgid "Flickr Video"
+msgstr "Flickr Video"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:603
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:603
+msgid "Embed a video from Flickr Video"
+msgstr "Incrustar un vídeo de Flickr Video"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:608
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2577
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3349
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3366
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:608
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2577
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3349
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3366
+msgid "IFILM/Spike"
+msgstr "IFILM/Spike"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:609
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:609
+msgid "Embed a video from IFILM/Spike.com"
+msgstr "Incrustar un vídeo de IFILM/Spike.com"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:614
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3390
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3407
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:614
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3390
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3407
+msgid "MySpace"
+msgstr "MySpace"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:615
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:615
+msgid "Embed a video from MySpace"
+msgstr "Incrustar un vídeo de MySpace"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:620
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3431
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:620
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3431
+msgid "FLV"
+msgstr "FLV"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:621
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:621
+msgid "Embed a Flash Video (FLV) file"
+msgstr "Incrustar un archivo de Flash Video (FLV)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:622
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:628
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:634
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:622
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:628
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:634
+#, php-format
+msgid "Please enter the URL to the %1$s file."
+msgstr "Introduzca la URL para el archivo %1$s."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:622
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2604
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:622
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2604
+msgid "Flash Video (FLV)"
+msgstr "Flash Video (FLV)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:626
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:628
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2319
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2615
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3525
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:626
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:628
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2319
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2615
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3525
+msgid "Quicktime"
+msgstr "Quicktime"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:627
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:627
+msgid "Embed a Quicktime video file"
+msgstr "Incrustar un archivo de vídeo Quicktime"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:632
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:632
+msgid "Video File"
+msgstr "Archivo de vídeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:633
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:633
+msgid "Embed a generic video file"
+msgstr "Incrustar un archivo de vídeo genérico"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:634
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3571
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:634
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3571
+msgid "generic video"
+msgstr "Vídeo genérico"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:700
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:700
+msgid "Example:"
+msgstr "Ejemplo:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:820
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1484
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1580
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1666
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1808
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1926
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:820
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1484
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1580
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1666
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1808
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1926
+msgid "Dimensions"
+msgstr "Dimensiones"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:822
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:822
+#, php-format
+msgid "The default dimensions for this video type can be set on this plugin's <a href='%s'>settings page</a>. However, you can set custom dimensions for this one particular video here:"
+msgstr "Las dimensiones por defecto para este tipo de vídeo pueden establecerse en la <a href='%s'>página de configuración</a> de este plugin. No obstante, puedes establecer aquí unas dimensiones personalizadas para este vídeo en particular:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:842
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:842
+msgid "Cheatin&#8217; uh?"
+msgstr "¿Haciendo trampas?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1132
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1132
+msgid "Settings for this tab reset to defaults."
+msgstr "La configuración de esta pestaña se ha reestablecido a sus valores iniciales."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1140
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1154
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1140
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1154
+msgid "Viper's Video Quicktags"
+msgstr "Viper's Video Quicktags"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1144
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1144
+msgid "Optional Comment"
+msgstr "Comentarios Opcionales"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1159
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1159
+msgid "Donate to Viper007Bond for this plugin via PayPal"
+msgstr "Donar a Viper007Bond por este plugin a través de PayPal"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1169
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1169
+msgid "Additional Settings"
+msgstr "Configuraciones Adicionales"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1175
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1175
+msgid "Help"
+msgstr "Ayuda"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1176
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1176
+msgid "Credits"
+msgstr "Créditos"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1184
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1184
+msgid "General"
+msgstr "General"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1211
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1211
+msgid "Are you sure you want to reset this tab's settings to the defaults?"
+msgstr "¿Está seguro de reestablecer la configuración de esta pestaña a sus valores iniciales?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1223
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1223
+#, php-format
+msgid "Set the defaults for this video type here. All of these settings can be overridden on individual embeds. See the <a href=\"%s\">Help section</a> for details."
+msgstr "Establezca aquí los valores por defecto para este tipo de vídeo. Todas estas configuraciones pueden ser luego sobreescritas en cada incrustación individual. Revise la  <a href=\"%s\">sección de ayuda</a> para obtener más detalles."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1228
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1228
+#, php-format
+msgid "Please consider using a browser other than Internet Explorer though. Due to limitations with your browser, these configuration pages won't be as full featured as if you were using a brower such as <a href=\"%1$s\">Firefox</a> or <a href=\"%2$s\">Opera</a>. If you switch, you'll be able to see the video preview update live as you change <strong>any</strong> option (rather than just a very limited number options) and more."
+msgstr "Por favor, considere el utilizar un navegador distinto de Internet Explorer. Debido a las limitaciones de su navegador, estas páginas de configuración no tendrán tantas opciones como  las que obtendrá al utilizar un navegador como <a href=\"%1$s\">Firefox</a> u <a href=\"%2$s\">Opera</a>. Si cambia, será capaz de previsualizar al momento cada cambio realizado por  <strong>cualquier</strong> opción (en lugar de un número muy limitado de opciones) y mucho más."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1383
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1536
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1616
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1728
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1383
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1536
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1616
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1728
+msgid "Unable to parse preview URL. Please make sure it's the <strong>full</strong> URL and a valid one at that."
+msgstr "Ha sido imposible analizar la URL. Por favor, asegúrese de que es la URL <strong>completal</strong> y de ésta es válida."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1429
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1429
+msgid "Dark Grey"
+msgstr "Gris oscuro"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1430
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1430
+msgid "Dark Blue"
+msgstr "Azul oscuro"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1431
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1431
+msgid "Light Blue"
+msgstr "Azul claro"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1432
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1432
+msgid "Green"
+msgstr "Verde"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1433
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1761
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1433
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1761
+msgid "Orange"
+msgstr "Naranja"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1434
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1434
+msgid "Pink"
+msgstr "Rosa"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1435
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1435
+msgid "Purple"
+msgstr "Morado"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1436
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1436
+msgid "Ruby Red"
+msgstr "Rojo rubí"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1470
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1566
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1652
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1794
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1911
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1470
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1566
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1652
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1794
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1911
+msgid "Preview"
+msgstr "Previsualizar"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1473
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1569
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1655
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1797
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1914
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1473
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1569
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1655
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1797
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1914
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1478
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1574
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1660
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1802
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1919
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1478
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1574
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1660
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1802
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1919
+msgid "Preview URL"
+msgstr "Previsualizar URL"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1487
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1583
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1669
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1811
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1487
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1583
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1669
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1811
+msgid "pixels"
+msgstr "píxeles"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1488
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1584
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1812
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1488
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1584
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1812
+msgid "Maintain aspect ratio"
+msgstr "Mantener proporciones"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1494
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1494
+msgid "Border Color"
+msgstr "Color del borde"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1497
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1505
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1679
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1687
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1695
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1703
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1821
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1960
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1968
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1976
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1984
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1497
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1505
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1679
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1687
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1695
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1703
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1821
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1960
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1968
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1976
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1984
+msgid "Pick a color"
+msgstr "Eligir un color"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1502
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1502
+msgid "Fill Color"
+msgstr "Color de relleno"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1510
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1826
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1510
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1826
+msgid "Color Presets"
+msgstr "Colores predeterminados"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1514
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1514
+msgid "Miscellaneous"
+msgstr "Miscelánea"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1516
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1516
+msgid "Enable HD video by default (not to be confused with &quot;HQ&quot; which can't be enabled by default and not all videos are avilable in HD)"
+msgstr "Activar vídeo HD por defecto (no confundir con &quot;HQ&quot; que no puede ser activado por defecto y no todos los vídeos están disponibles en HD)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1517
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1517
+msgid "Show video details at the end of playback (related videos, embed code, etc.)"
+msgstr "Mostrar detalles al final de la reproducción (vídeos relacionados, códigos de incrustación, etc.)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1518
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1592
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1518
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1592
+msgid "Show fullscreen button"
+msgstr "Mostrar el botón de pantalla completa"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1519
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1519
+msgid "Show border"
+msgstr "Mostrar el borde"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1520
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1520
+msgid "Show the search box"
+msgstr "Mostrar la casilla de búsqueda"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1521
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1521
+msgid "Show the video title and rating"
+msgstr "Mostrar el nombre y la calificación del vídeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1522
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1593
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1710
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1522
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1593
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1710
+msgid "Autoplay video (not recommended)"
+msgstr "Autoreproducción (no recomendado)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1523
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1523
+msgid "Loop video playback"
+msgstr "Volver a reproducir automáticamente al terminar"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1590
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1708
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1590
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1708
+msgid "Other"
+msgstr "Otros"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1676
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1676
+msgid "Toolbar Background Color"
+msgstr "Color del fondo de la barra de herramientas"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1684
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1684
+msgid "Toolbar Glow Color"
+msgstr "Color resaltado de la barra de herramientas"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1692
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1692
+msgid "Button/Text Color"
+msgstr "Color del Botón/Texto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1700
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1700
+msgid "Seekbar Color"
+msgstr "Color de la barra de búsqueda"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1711
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1711
+msgid "Show related videos"
+msgstr "Mostrar vídeos relacionados"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1760
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1760
+msgid "Default (Blue)"
+msgstr "Por defecto (azul)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1762
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1762
+msgid "Lime"
+msgstr "Lima"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1763
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1763
+msgid "Fuschia"
+msgstr "Fucsia"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1764
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1764
+msgid "White"
+msgstr "Blanco"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1818
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1818
+msgid "Color"
+msgstr "Color"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1830
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1830
+msgid "On-Screen Info"
+msgstr "Información en pantalla"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1832
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1832
+msgid "Portrait"
+msgstr "Retrato"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1833
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1833
+msgid "Title"
+msgstr "Título"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1834
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1834
+msgid "Byline"
+msgstr "Subtítulo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1835
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1835
+msgid "Allow fullscreen"
+msgstr "Permitir pantalla completa"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1922
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1922
+msgid "The default preview video is the most recent featured video on YouTube. You can paste in the URL to a FLV file of your own if you wish."
+msgstr "La previsualización del vídeo es la característica más reciente de Youtube. Puedes introducir la URL de un vídeo FLV de tu propiedad si lo deseas."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1930
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1930
+msgid "pixels (if you're using the default skin, add 20 to the height for the control bar)"
+msgstr "píxeles (si utiliza la carátula por defecto, añada 20 a la altura para la barra de control)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1937
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1937
+msgid "Skin"
+msgstr "Carátula"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1951
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1951
+msgid "Use Custom Colors"
+msgstr "Utilizar colores personalizaods"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1957
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1957
+msgid "Control Bar Background Color"
+msgstr "Color de fondo de la barra de control"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1965
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1965
+msgid "Icon/Text Color"
+msgstr "Color del Icono/Texto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1973
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1973
+msgid "Icon/Text Hover Color"
+msgstr "Color principal del Icono/Texto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1981
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1981
+msgid "Video Background Color"
+msgstr "Color de fondo del vídeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1989
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1989
+msgid "Advanced Parameters"
+msgstr "Parámetros Avanzados"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1992
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2314
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1992
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2314
+#, php-format
+msgid "A <a href=\"%1$s\">query-string style</a> list of <a href=\"%2$s\">additional parameters</a> to pass to the player. Example: %3$s"
+msgstr "Es una lista, <a href=\"%1$s\">con formato cadena de consulta (query-string)</a>, de <a href=\"%2$s\">parámetros adicionales</a> que se le pasarán al reproductor. Ejemplo: %3$s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:1993
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:1993
+msgid "You will need to press &quot;Save Changes&quot; for these parameters to take effect due to my moderate Javascript skills."
+msgstr "Debido a mis conocimientos moderados de Javascript, necesitará pinchar sobre &quot;Guardar cambios&quot; para que estos parámetros tomen efecto."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2029
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2029
+msgid "Video Alignment"
+msgstr "Alineación del vídeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2034
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2034
+msgid "Left"
+msgstr "Izquierda"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2035
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2035
+msgid "Center"
+msgstr "Centro"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2036
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2036
+msgid "Right"
+msgstr "Derecha"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2037
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2037
+msgid "Float Left"
+msgstr "Flotar a la izquierda"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2038
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2038
+msgid "Float Right"
+msgstr "Flotar a la derecha"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2050
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2050
+msgid "Show Buttons In Editor On Line Number"
+msgstr "Mostrar los botones dentro del editor en la línea número"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2055
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2055
+msgid "1"
+msgstr "1"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2056
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2056
+msgid "2 (Kitchen Sink Toolbar)"
+msgstr "2 (Barra Kitchen Sink)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2057
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2057
+msgid "3 (Default)"
+msgstr "3 (Por defecto)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2069
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2069
+msgid "Feed Text"
+msgstr "Texto en Feeds"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2072
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2072
+#, php-format
+msgid "Optionally enter some custom text to show in your feed in place of videos (as you can't embed videos in feeds). If left blank, it will default to:<br />%s"
+msgstr "Opcionalmente puede introducir aquí el texto que se mostrará en sus Feeds en lugar del vídeo (ya que no pueden incrustarse vídeos en los feeds). Si se deja en blanco, mostrará por defecto:<br />%s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2076
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2076
+msgid "Windows Media Player"
+msgstr "Windows Media Player"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2078
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2078
+msgid "Attempt to use Windows Media Player for regular video file playback for Windows users"
+msgstr "Intentar utilizar Windows Media Player para reproducir vídeos habituales en los usuarios con Windows"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2083
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2083
+msgid "Advanced Settings"
+msgstr "Opciones Avanzadas"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2085
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2085
+msgid "If you don't know what you're doing, you can safely ignore this section."
+msgstr "Si no sabe lo que está haciendo, puede ignorar tranquilamente esta sección."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2089
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2089
+msgid "Dynamic QTObject Loading"
+msgstr "Carga dinámica QTObject"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2091
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2091
+msgid "Only load the Javascript file if it's needed. Disable this to post Quicktime videos in the sidebar text widget."
+msgstr "Solo carga el archivo Javascript si es necesario. Desactivar para poder poner vídeos tipo Quicktime en el widget de marco de texto."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2096
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2096
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2098
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2098
+msgid "Want to easily set some custom CSS to control the display of the videos? Then just click this text to expand this option."
+msgstr "¿Quiere establecer fácilmente alguno de los parámetros CSS para controlar la presentación de los vídeos? Entonces pinche sobre este texto para expandir esta opción."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2100
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2100
+#, php-format
+msgid "You can enter custom CSS in the box below. It will be outputted after the default CSS you see listed which can be overridden by using %1$s. For help and examples, see the <a href=\"%2$s\">Help</a> tab."
+msgstr "Puede introducir CSS personalizado en el recuadro inferior. Saldrá tras el CSS por defecto que puede ver listado y que puede sobreescribirse utilizando %1$s. Para ayuda y ejemplos revise la sección de <a href=\"%2$s\">ayuda</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2143
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2143
+msgid "Click on a question to see the answer or click this text to expand all answers."
+msgstr "Pinche sobre una pregunta para ver su respuesta, o bien pinche sobre este texto para expandirlas todas."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2147
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2147
+msgid "Videos aren't showing up on my blog, only links to the videos are instead. What gives?"
+msgstr "Los vídeos no se muestran en mi blog; lo único que veo son los enlaces. ¿Qué ocurre?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2150
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2150
+msgid "Here are five common causes:"
+msgstr "Existen varias causas posibles:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2152
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2152
+#, php-format
+msgid "Are you running Firefox and AdBlock? AdBlock and certain block rules can prevent some videos, namely YouTube-hosted ones, from loading. Disable AdBlock or switch to <a href=\"%s\">AdBlock Plus</a>."
+msgstr "¿Está ejecutando Firefox y AdBlock? AdBlock y ciertas reglas pueden impedir que algunos vídeos, del tipo Youtube, carguen correctamente. Desactive AdBlock o cambie a <a href=\"%s\">AdBlock Plus</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2153
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2153
+msgid "Your theme could be missing <code>&lt;?php wp_head();?&gt;</code> inside of it's <code>&lt;head&gt;</code> which means the required Javascript file can't automatically be added. If this is the case, you may be get an alert window popping when you attempt to view a post with a video in it (assuming your problem is not also #3). Edit your theme's <code>header.php</code> file and add it right before <code>&lt;/head&gt;</code>"
+msgstr "A su theme puede faltarle <code>&lt;?php wp_head();?&gt;</code> dentro de su sección <code>&lt;head&gt;</code>, lo que significa que el archivo de Javascript necesario no puede ser añadido automáticamente. Si este es el caso, puede que esté obteniendo una ventana con un mensaje de alerta cada vez que intenta ver una entrada que lleva un vídeo incrustado (asumiendo que su problema no es, también, el número 3). Edite el archivo <code>header.php</code> de su theme y añádalo antes de <code>&lt;/head&gt;</code>"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2154
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2160
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2154
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2160
+#, php-format
+msgid "You may have Javascript disabled. This plugin embeds videos via Javascript to ensure the best experience. Please <a href=\"%s\">enable it</a>."
+msgstr "Puede que tenga Javascript desactivado. Este plugin incrusta vídeos utilizando Javascript para obtener el mejor resultado. Por favor, <a href=\"%s\">actívelo</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2155
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2161
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2155
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2161
+#, php-format
+msgid "You may not have the latest version of Flash installed. Please <a href=\"%s\">install it</a>."
+msgstr "No tiene la última versión de Flash instalada. Por favor, <a href=\"%s\">instálela</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2159
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2159
+#, php-format
+msgid "Are you running Firefox and AdBlock? AdBlock and certain block rules can result in the videos, namely YouTube-hosted ones, not loading. Disable AdBlock or switch to <a href=\"%s\">AdBlock Plus</a>."
+msgstr "¿Está ejecutando Firefox y AdBlock? AdBlock y ciertas reglas de bloqueo pueden impedir que ciertos vídeos, del tipo Youtube, se carguen correctamente. Desactive AdBlock o cambie a <a href=\"%s\">AdBlock Plus</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2167
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2167
+msgid "Where do I get the code from to embed a Viddler video?"
+msgstr "¿De dónde obtengo el código para incrustar un vídeo de Viddler?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2169
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2169
+msgid "Since the URL to a video on Viddler has nothing in common with the embed URL, you must use WordPress.com-style format. Go to the video on Viddler, click the &quot;Embed This&quot; button below the video, and then select the WordPress.com format. You can paste that code directly into a post or Page and it will embed the video."
+msgstr "Ya que la URL de un vídeo en Viddler no tiene nada en común con la URL de incrustación, deberá utilizar el formato de estilo WordPress.com. Vaya al vídeo de Viddler, pinche sobre &quot;Embed This&quot; (botón bajo el vídeo), y seleccione el formato WordPress.com. Puede pegar directamente ese código en una entrada o en una página para incrustar el vídeo."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2174
+msgid "Where do I get the code from to embed a Blip.tv video?"
+msgstr "¿De dónde obtendo el código para incrustar un vídeo de Blip.tv?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2176
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2176
+msgid "Since the URL to a video on Blip.tv has nothing in common with the embed URL, you must use WordPress.com-style format. Go to the video on Blip.tv, click on the yellow &quot;Share&quot; dropdown to the right of the video and select &quot;Embed&quot;. Next select &quot;WordPress.com&quot; from the &quot;Show Player&quot; dropdown. Finally press &quot;Go&quot;. You can paste that code directly into a post or Page and it will embed the video."
+msgstr "Ya que la URL de un vídeo en Viddler no tiene nada en común con la URL de incrustación, deberá utilizar el formato de estilo WordPress.com. Vaya al vídeo en Blip.tv, pinche sobre el desplegable amarillo &quot;Share&quot; a la derecha del vídeo, y seleccione &quot;Embed&quot;. Luego elija &quot;WordPress.com&quot; de la lista &quot;Show Player&quot;. Por último, pinche sobre &quot;Go&quot;. Puede pegar directamente ese código en una entrada o en una página para incrustar el vídeo."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2178
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2178
+msgid "<strong>NOTE:</strong> Ignore the warning message. This plugin adds support for the WordPress.com so it <strong>will</strong> work on your blog."
+msgstr "<strong>NOTA:</strong> Ignore el mensaje de aviso. Este plugin añade soporte para WordPress.com por lo que <strong>deberá</strong> funcionar en su blog."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2182
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2182
+msgid "Why doesn't this plugin support a site I want to embed videos from?"
+msgstr "¿Por qué este plugin no funciona con cierto sitio del que quiero incrustar vídeos?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2184
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2184
+msgid "There's a couple likely reasons:"
+msgstr "Hay algunas razones posibles:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2186
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2186
+msgid "The website may use an embed URL that has nothing in common with the URL in your address bar. This means that even if you give this plugin the URL to the video, it has no easy way of figuring out the embed URL."
+msgstr "El sitio puede estar utilizando una URL de incrustación que no tenga nada que ver con la que se muestra realmente en su barra de direcciones. Esto significa que, incluso si le proporciona esa URL a este plugin, puede que no tenga forma de descubrir la URL de incrustación."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2187
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2187
+msgid "The website may be too small, fringe case, etc. to be worth supporting. There's no real point in this plugin adding support for a video site that only one or two people will use."
+msgstr "El sitio puede ser demasiado pequeño, particular, etc. para que merezca la pena soportarlo. No es objeto de este plugin el añadir soporte para un sitio de vídeos que solo unas pocas personas utilizan."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2188
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2188
+#, php-format
+msgid "I may have just never heard of the site. Please make a thread on <a href='%s'>my forums</a> with an example link to a video on the site and I'll take a look at it."
+msgstr "Puede que nunca haya oído hablar de ese sitio. Por favor, cree un mensaje de discusión en <a href='%s'>mis foros</a> que incluya un enlace hacia un vídeo del sitio y le echaré un vistazo."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2190
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2190
+#, php-format
+msgid "This plugin does have the ability to embed any Flash file though. See the <a href=\"%s\" class=\"expandolink\">Flash shortcode question</a> for details on that."
+msgstr "Este plugin tiene la habilidad, no obstante, de incrustar cualquier fichero Flash. Revise <a href=\"%s\" class=\"expandolink\">la respuesta sobre código abreviado de Flash</a> para obtener más detalles."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2194
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2194
+msgid "There are still red bits (hovering over buttons) in my YouTube embed. What gives?"
+msgstr "Todavía hay puntos rojos (flotando sobre los botones) en mis incrustaciones de vídeos de Youtube, ¿qué pasa?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2196
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2196
+msgid "YouTube does not provide a method to change that color."
+msgstr "YouTube no proporciona ningún método para cambiar ese color."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2200
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2200
+msgid "How can I change the size, colors, etc. for a specific video?"
+msgstr "¿Cómo puedo cambiar el tamaño, los colores, etc. de un vídeo en concreto?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2202
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2202
+#, php-format
+msgid "You can control many thing via the WordPress shortcode system that you use to embed videos in your posts. Shortcodes are similiar to <a href=\"%s\">BBCode</a>. Here are some example shortcodes:"
+msgstr "Puede controlar muchas cosas mediante el sistema de código abreviado de WordPress. Los códigos abreviados son similares a <a href=\"%s\">BBCode</a>. Aquí se muestran algunos ejemplos:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2208
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2208
+msgid "Any value that is not entered will fall back to the default."
+msgstr "Cualquier valor no introducido volverá a su configuración inicial."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2212
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2228
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2238
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2253
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2267
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2277
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2283
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2319
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2333
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2212
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2228
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2238
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2253
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2267
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2277
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2283
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2319
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2333
+#, php-format
+msgid "What are the available parameters for the %s shortcode?"
+msgstr "¿Cuáles son los parámetros disponibles para los códigos abreviados de %s?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2215
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2231
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2241
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2256
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2270
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2286
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2297
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2306
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2323
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2337
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2215
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2231
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2241
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2256
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2270
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2286
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2297
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2306
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2323
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2337
+#, php-format
+msgid "%s &#8212; width in pixels"
+msgstr "%s &#8212; ancho en píxeles"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2216
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2232
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2242
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2257
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2271
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2287
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2298
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2307
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2324
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2338
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2216
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2232
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2242
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2257
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2271
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2287
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2298
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2307
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2324
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2338
+#, php-format
+msgid "%s &#8212; height in pixels"
+msgstr "%s &#8212; alto en píxeles"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2217
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2217
+#, php-format
+msgid "%s &#8212; player border color in hex"
+msgstr "%s &#8212; color del borde del reproductor en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2218
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2218
+#, php-format
+msgid "%s &#8212; player fill color in hex"
+msgstr "%s &#8212; color de relleno del reproductor en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2219
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2219
+#, php-format
+msgid "%s &#8212; show a border or not (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar o no un borde (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2220
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2220
+#, php-format
+msgid "%s &#8212; show related videos, URL, embed details, etc. at the end of playback (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar vídeos relacionados, URL, detalles de incrustación, etc. al final de la reproducción (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2221
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2262
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2221
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2262
+#, php-format
+msgid "%s &#8212; show fullscreen button (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar botón de pantalla completa (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2222
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2233
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2247
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2272
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2222
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2233
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2247
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2272
+#, php-format
+msgid "%s &#8212; automatically start playing (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; iniciar automáticamente la reproducción (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2223
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2223
+#, php-format
+msgid "%s &#8212; loop playback (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; volver a reproducir al terminar (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2243
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2243
+#, php-format
+msgid "%s &#8212; toolbar background color in hex"
+msgstr "%s &#8212; color de fondo de la barra de herramientas en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2244
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2244
+#, php-format
+msgid "%s &#8212; toolbar glow color in hex"
+msgstr "%s &#8212; color principal de la barra de herramientas en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2245
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2245
+#, php-format
+msgid "%s &#8212; button/text color in hex"
+msgstr "%s &#8212; color del botón/texto en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2246
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2246
+#, php-format
+msgid "%s &#8212; seekbar color in hex"
+msgstr "%s &#8212; color de la barra de búsqueda en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2248
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2248
+#, php-format
+msgid "%s &#8212; show related video (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar vídeos relacionados (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2258
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2258
+#, php-format
+msgid "%s &#8212; player color in hex"
+msgstr "%s &#8212; color del reproductor en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2259
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2259
+#, php-format
+msgid "%s &#8212; show uploader's picture (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar la imagen de quien lo subió (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2260
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2260
+#, php-format
+msgid "%s &#8212; show video title (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar el título del vídeo (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2261
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2261
+#, php-format
+msgid "%s &#8212; show video author (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; mostrar el autor del vídeo (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2279
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2279
+msgid "Since the WordPress.com shortcode format is used for embedding Viddler videos, there are no customizable parameters for the Viddler shortcode. The WordPress.com shortcode must be used as the URL of the video and the video's embed URL share nothing in common."
+msgstr "Ya que se utiliza el formato de código abreviado de WordPress.com, no hay parámetros personalizables para el código abreviado de Viddler. El código abreviado de WordPress.com se usará como la URL del vídeo y ésta no tiene nada en común con la URL de incrustación."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2288
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2288
+#, php-format
+msgid "%s &#8212; show video details (<code>0</code> or <code>1</code>), defaults to 1"
+msgstr "%s &#8212; mostrar los detalles del vídeo (<code>0</code> o <code>1</code>), por defecto es 1"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2293
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2293
+msgid "What are the available parameters for the Metacafe, Blip.tv, IFILM/Spike, and MySpace shortcodes?"
+msgstr "¿Cuáles son los parámetros disponibles para los códigos abreviados de Metacafe, Blip.tv, IFILM/Spike y MySpace?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2295
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2295
+msgid "All of these video formats only support the following:"
+msgstr "Todos esos formatos de vídeo solo soportan los siguientes códigos:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2308
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2308
+#, php-format
+msgid "%s &#8212; the URL to the preview image, defaults to the same URL as the video file but <code>.jpg</code> instead of <code>.flv</code>"
+msgstr "%s &#8212; la URL de la imagen de previsualización, por defecto será la misma URL que la del vídeo, pero terminando en <code>.jpg</code> en lugar de en <code>.flv</code>"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2309
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2309
+#, php-format
+msgid "%s &#8212; player control bar background color in hex"
+msgstr "%s &#8212; color de fondo la barra de control del reproductor en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2310
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2310
+#, php-format
+msgid "%s &#8212; player icon/text color in hex"
+msgstr "%s &#8212; color del icono/texto del reproductor en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2311
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2311
+#, php-format
+msgid "%s &#8212; player icon/text hover color in hex"
+msgstr "%s &#8212; color resaltado del icono/texto del reproductor en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2312
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2312
+#, php-format
+msgid "%s &#8212; player video background color in hex"
+msgstr "%s &#8212; color de fondo del reproductor de vídeo en hex"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2313
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2313
+#, php-format
+msgid "%s &#8212; volume percentage, defaults to <code>100</code>"
+msgstr "%s &#8212; porcentaje de volumen, por defecto es de <code>100</code>"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2314
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2314
+#, php-format
+msgid "%1$s &#8212; %2$s"
+msgstr "%1$s &#8212; %2$s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2321
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2321
+msgid "The results of embedding a Quicktime video can very widely depending on the user's computer and what software they have installed, but if you must embed a Quicktime video here are the parameters:"
+msgstr "Los resultados de incrustar un vídeo en formato Quicktime pueden variar mucho, dependiendo del ordenador del usuario y del software que tenga instalado, pero si necesita incrustar un vídeo en formato Quicktime estos son los parámetros:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2325
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2328
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2325
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2328
+#, php-format
+msgid "%s &#8212; automatically start playing (<code>0</code> or <code>1</code>), defaults to 0"
+msgstr "%s &#8212; reproducir automáticamente (<code>0</code> o <code>1</code>), por defecto es 0"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2326
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2326
+#, php-format
+msgid "%s &#8212; use click-to-play placeholder image (<code>0</code> or <code>1</code>), defaults to 0"
+msgstr "%s &#8212; utilizar pinchar-para-reproducir como imagen marcador (<code>0</code> o <code>1</code>), por defecto es 0"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2327
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2327
+#, php-format
+msgid "%s &#8212; the URL to the placeholder image, defaults to the same URL as the video file but <code>.jpg</code> instead of <code>.mov</code>"
+msgstr "%s &#8212; la URL a la imagen marcador, por defecto será la misma URL que la del vídeo, pero con <code>.jpg</code> en lugar de <code>.mov</code> al final"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2333
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2333
+msgid "video file"
+msgstr "archivo de vídeo"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2335
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2335
+msgid "The results of embedding a generic video can very widely depending on the user's computer and what software they have installed, but if you must embed a generic video here are the parameters:"
+msgstr "Los resultados de incrustar un vídeo en formato genérico pueden variar mucho, dependiendo del ordenador del usuario y del software que tenga instalado, pero si necesita incrustar un vídeo en formato genérico estos son los parámetros:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2339
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2339
+#, php-format
+msgid "%s &#8212; attempt to use Windows Media Player for users of Windows (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; intentar utilizar Windows Media Player; para los usuarios de Windows (<code>0</code> o <code>1</code>)"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2345
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2345
+msgid "What's this &quot;Custom CSS&quot; thing on the &quot;Additional Settings&quot; tab for?"
+msgstr "¿Para que sirve esa opción de &quot;CSS Personalizado&quot; al final de la pestaña de &quot;Configuraciones Adicionales&quot;?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2347
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2347
+msgid "It's a quick and easy way to control the look of videos posted on your site without having to go in and edit the <code>style.css</code> file. Just enter some CSS of your own into the box and it will be outputted in the header of your theme."
+msgstr "Es una forma rápida y fácil de controlar como será el aspecto de los vídeos mostrados en su blog sin tener que editar el fichero <code>style.css</code>. Tan sólo ha de introducir algo de CSS personal en el cuadro y éste será puesto en la cabecera de su theme."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2348
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2348
+msgid "Some examples:"
+msgstr "Algunos ejemplos:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2350
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2350
+#, php-format
+msgid "Give a red border to all videos: %s"
+msgstr "Poner un borde rojo a todos los vídeos: %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2351
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2351
+#, php-format
+msgid "Float only YouTube videos to the left: %s"
+msgstr "Hacer que sólo los vídeos de Youtube floten en la izquierda: %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2357
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2357
+msgid "How can I embed a generic Flash file or a video from a website this plugin doesn't support?"
+msgstr "¿Cómo puedo incrustar un archivo genérico de Flash o un vídeo de un sitio que este plugin no soporta directamente?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2359
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2359
+#, php-format
+msgid "This plugin has a %s shortcode that can be used to embed <strong>any</strong> Flash file. Here is the format:"
+msgstr "Este plugin tiene el código abreviado %s que puede utilizarse para incrustar <strong>cualquier</strong> archivo Flash. Aquí está el formato:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2364
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2364
+msgid "Why does your plugin embed Quicktime and other regular video files so poorly? Can't you do a better job?"
+msgstr "¿Por qué este plugin incrusta Quicktime y otros vídeos tan pobremente?, ¿no puedes hacer un trabajo mejor?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2366
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2366
+#, php-format
+msgid "Embedding Quiktime and other regular video files is a major pain in the ass and it's incredibly hard to get it to work in all browsers and operating systems. I <strong>strongly</strong> suggest converting the video to <a href=\"%1$s\">Flash Video</a> format or even <a href=\"%2$s\">H.264</a> format and then using the Flash Video (FLV) embed type. There are free converters out there for both formats and doing so will create a much better experience for your visitors."
+msgstr "Incrustar Quiktime y algunos otros vídeos es una verdadera complicación y es increíblemente difícil conseguir que funcione en todos los navegadores y sistemas operativos. Recomiendo <strong>encarecidamente</strong> convertir el vídeo a formato <a href=\"%1$s\">Flash Video</a> o, incluso a formato <a href=\"%2$s\">H.264</a>, y luego utilizar la incrustación de archivos del tipo Flash Video (FLV). Existen conversores gratuitos para ambos formatos y haciendo esto creará una mejor experiencia para sus visitantes."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2375
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2375
+msgid "This plugin uses many scripts and packages written by others. They deserve credit too, so here they are in no particular order:"
+msgstr "Este plugin utiliza muchos scripts y paquetes escritos por otros. Ellos merecen ser nombrados también, por lo que se mostrarán a continuación sin un orden en particular:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2378
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2378
+#, php-format
+msgid "The authors of and contributors to <a href=\"%s\">SWFObject</a> which is used to embed the Flash-based videos."
+msgstr "Los autores y los colaboradores de <a href=\"%s\">SWFObject</a>, que se utiliza para incrustar los archivos de vídeo de tipo Flash."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2379
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2379
+#, php-format
+msgid "<strong><a href=\"%1$s\">Jeroen Wijering</a></strong> for writing the <a href=\"%2$s\">JW FLV Media Player</a> which is used for FLV playback."
+msgstr "<strong><a href=\"%1$s\">Jeroen Wijering</a></strong> por escribir el <a href=\"%2$s\">JW FLV Media Player</a> que se utiliza para la reproducción de vídeos FLV."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2380
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2380
+#, php-format
+msgid "<strong><a href=\"%1$s\">Steven Wittens</a></strong> for writing <a href=\"%2$s\">Farbtastic</a>, the fantastic Javascript color picker used in this plugin."
+msgstr "<strong><a href=\"%1$s\">Steven Wittens</a></strong> por escribir <a href=\"%2$s\">Farbtastic</a>, el fantástico selector de color en Javascript que utiliza este plugin."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2381
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2381
+#, php-format
+msgid "<strong><a href=\"%1$s\">Ozh</a></strong> for writing his <a href=\"%2$s\">Liz Comment Counter</a> plugin which introduced me to Farbtastic and provided me with some Javascript to base my color picker and color preset code on."
+msgstr "<strong><a href=\"%1$s\">Ozh</a></strong> por escribir su plugin <a href=\"%2$s\">Liz Comment Counter</a>, que me introdujo a Farbtastic y me proporcionó algo de Javascript para realizar mi selector de colores."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2382
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2382
+#, php-format
+msgid "<strong><a href=\"%s\">Andrew Ozz</a></strong> for helping me out with some TinyMCE-related Javascript and in turn saving me a ton of time."
+msgstr "<strong><a href=\"%s\">Andrew Ozz</a></strong> por ayudarme con algo del Javascript relacionado con TinyMCE, lo que me ahorró muchísimo tiempo."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2383
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2383
+#, php-format
+msgid "<strong><a href=\"%1$s\">Geoff Stearns</a></strong> for writing <a href=\"%2$s\">QTObject</a> which is used to embed Quicktime videos."
+msgstr "<strong><a href=\"%1$s\">Geoff Stearns</a></strong> por escribir <a href=\"%2$s\">QTObject</a>, que se utiliza para incrustar vídeos de Quicktime."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2384
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2384
+#, php-format
+msgid "<strong><a href=\"%1$s\">Mark James</a></strong> for creating the <a href=\"%2$s\">Silk icon pack</a>. This plugin uses at least one of the icons from that pack."
+msgstr "<strong><a href=\"%1$s\">Mark James</a></strong> por crear el <a href=\"%2$s\">Silk icon pack</a>. Este plugin utiliza al menos uno de los iconos de ese pack."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2385
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2385
+#, php-format
+msgid "The authors of and contributors to <a href=\"%s\">jQuery</a>, the awesome Javascript package used by WordPress."
+msgstr "Los autores y colaboradores de <a href=\"%s\">jQuery</a>, el increíble paquete de Javascript que utiliza WordPress."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2386
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2386
+#, php-format
+msgid "Everyone who's helped create <a href='%s'>WordPress</a> as without it and it's excellent API, this plugin obviously wouldn't exist."
+msgstr "A todos los que ayudaron a crear <a href='%s'>WordPress</a> sin el cual, y su excelente API, este plugin obviamente no existiría."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2387
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2387
+msgid "Everyone who has provided bug reports and feature suggestions for this plugin."
+msgstr "A todos los que han proporcionado información sobre fallos y mejoras para este plugin."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2390
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2390
+msgid "The following people have been nice enough to translate this plugin into other languages:"
+msgstr "Las siguientes personas han sido muy amables en traducir este plugin a otros idiomas:"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2393
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2393
+#, php-format
+msgid "<strong>Belorussian:</strong> %s"
+msgstr "<strong>Bielorruso:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2394
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2394
+#, php-format
+msgid "<strong>Brazilian Portuguese:</strong> %s"
+msgstr "<strong>Portugués Brasileño:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2395
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2395
+#, php-format
+msgid "<strong>Chinese:</strong> %s"
+msgstr "<strong>Chino:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2396
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2396
+#, php-format
+msgid "<strong>Danish:</strong> %s"
+msgstr "<strong>Danés:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2397
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2397
+#, php-format
+msgid "<strong>Dutch:</strong> %s"
+msgstr "<strong>Holandés:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2398
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2398
+#, php-format
+msgid "<strong>French:</strong> %s"
+msgstr "<strong>Francés:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2399
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2399
+#, php-format
+msgid "<strong>Hungarian:</strong> %s"
+msgstr "<strong>Húngaro:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2400
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2400
+#, php-format
+msgid "<strong>Italian:</strong> %s"
+msgstr "<strong>Italiano:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2401
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2401
+#, php-format
+msgid "<strong>Polish:</strong> %s"
+msgstr "<strong>Polaco:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2402
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2402
+#, php-format
+msgid "<strong>Russian:</strong> %s"
+msgstr "<strong>Ruso:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2403
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2403
+#, php-format
+msgid "<strong>Spanish:</strong> %s"
+msgstr "<strong>Español:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2406
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2406
+#, php-format
+msgid "If you'd like to use this plugin in another language and have your name listed here, just translate the strings in the provided <a href=\"%1$s\">template file</a> located in this plugin's &quot;<code>localization</code>&quot; folder and then <a href=\"%2$s\">send it to me</a>. For help, see the <a href=\"%3$s\">WordPress Codex</a>."
+msgstr "Si quiere utilizar este plugin en otro idioma y ver su nombre aquí reflejado, tan sólo tendrá que traducir las cadenas de texto provistas en el <a href=\"%1$s\">fichero de plantilla</a> que se encuentra en la carpeta &quot;<code>localization</code>&quot; de este plugin y luego <a href=\"%2$s\">enviármelo</a>. Para obtener ayuda, revise el <a href=\"%3$s\">Codex de WordPress</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2413
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2413
+msgid "Click the above links to switch between tabs."
+msgstr "Pinche sobre los enlaces de arriba para cambiar entre pestañas."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2446
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2446
+msgid ""
+"Do you agree to the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license? A link to it can be found to the left.\n"
+"\n"
+"In short though, you cannot use JW's FLV Media Player on a commercial site without purchasing a commercial license."
+msgstr ""
+"¿Está de acuerdo con la licencia Creative Commons Reconocimiento-No comercial-Compartir bajo la misma licencia 3.0 Unported? Puede encontrarse un enlace a ella en la izquierda.\n"
+"\n"
+"En pocas palabras, no podrá utilizar JW's FLV Media Player en un sitio comercial sin haber comprado una licencia comercial."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2457
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2457
+msgid "Media Type"
+msgstr "Tipo de Medio"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2458
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2458
+msgid "Show Editor Button?"
+msgstr "¿Mostrar botón en el editor?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2459
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2459
+msgid "Default Width"
+msgstr "Ancho por defecto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2460
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2460
+msgid "Default Height"
+msgstr "Alto por defecto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2461
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2461
+msgid "Keep Aspect Ratio?"
+msgstr "¿Mantener la proporción?"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2590
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2590
+msgid "MySpaceTV"
+msgstr "MySpaceTV"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2607
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2607
+#, php-format
+msgid "<a href=\"%1$s\">JW's FLV Media Player</a> is covered by the <a href=\"%2$s\">Creative Commons Noncommercial<br />license</a> which means you cannot use it on a <a href=\"%3$s\">commercial website</a>."
+msgstr "<a href=\"%1$s\">JW's FLV Media Player</a> está cubierto por la <a href=\"%2$s\">Licencia Creative Commons Noncommercial<br /></a> lo que significa que no podrá utilizarlo en un <a href=\"%3$s\">sitio comercial</a>."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2622
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2622
+msgid "Generic Video File"
+msgstr "Archivo de vídeo genérico"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2622
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2622
+#, php-format
+msgid "This part of the plugin is fairly buggy as embedding video files is complex.<br />Consider trying TinyMCE's native video embedder instead. <a href='%s'>Why?</a>"
+msgstr "Esta parte del plugin está bastante llena de errores ya que incrustar archivos de vídeo es complejo.<br />Considere el utilizar la propia función nativa de incrustación de vídeo de TinyMCE. <a href='%s'>¿Por qué?</a>"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2637
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2637
+msgid "Save Changes"
+msgstr "Grabar cambios"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2638
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2638
+msgid "Reset Tab To Defaults"
+msgstr "Reestablecer esta pestaña a sus valores originales"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2699
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2699
+#, php-format
+msgid "<strong>ERROR:</strong> %s"
+msgstr "<strong>ERROR:</strong> %s"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2779
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2779
+msgid "Stage6 is no more, so this Stage6-hosted video cannot be displayed."
+msgstr "Stage6 dejó de existir, por lo que los vídeos de Stage6 no podrán ser mostrados."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2796
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2900
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2948
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3012
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3076
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3349
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3390
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2796
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2900
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2948
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3012
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3076
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3174
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3303
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3349
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3390
+#, php-format
+msgid "No URL or video ID was passed to the %s BBCode"
+msgstr "No se ha proporcionado una URL o un ID de vídeo al %s BBCode"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2826
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2834
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2919
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2972
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3034
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3108
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3191
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3321
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3366
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3407
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2826
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2834
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2919
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2972
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3034
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3108
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3191
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3321
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3366
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3407
+#, php-format
+msgid "Unable to parse URL, check for correct %s format"
+msgstr "Ha sido imposible analizar la URL, compruebe el formato %s correcto"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2838
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:2845
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2838
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:2845
+msgid "YouTube Preview Image"
+msgstr "Imagen de previsualización de YouTube"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3138
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3138
+msgid "Sorry, but the only format that is supported for Viddler is the WordPress.com-style format rather than the URL. You can find it in the &quot;Embed This&quot; window."
+msgstr "Lo siento, pero el único formato que soporta Viddler es el de estilo tipo WordPress.com en lugar de la URL. Puede encontrarlo en la ventana &quot;Embed This&quot;."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3157
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3231
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3263
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3157
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3231
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3263
+#, php-format
+msgid "An invalid %s shortcode format was used. Please check your code."
+msgstr "Se ha usado un formato %s invalido de código abreviado. Por favor, revise su código."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3164
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3239
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3286
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3651
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3164
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3239
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3286
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3651
+#, php-format
+msgid "Please <a href=\"%1$s\">enable Javascript</a> and <a href=\"%2$s\">Flash</a> to view this %3$s video."
+msgstr "Por favor, <a href=\"%1$s\">active Javascript</a> y <a href=\"%2$s\">Flash</a> para poder ver el vídeo %3$s."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3214
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3214
+msgid "Sorry, but the only format that is supported for Blip.tv is the WordPress.com-style format. You can find it at Share -&gt; Embed -&gt; WordPress.com."
+msgstr "Lo siento, pero el único formato que soporta Blip.tv es el de estilo tipo WordPress.com. Puede encontrarlo en Share -&gt; Embed -&gt; WordPress.com."
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3263
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3286
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3263
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3286
+msgid "VideoPress"
+msgstr "VideoPress"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3431
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3525
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3571
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3621
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3431
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3525
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3571
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3621
+#, php-format
+msgid "No URL was passed to the %s BBCode"
+msgstr "No se ha pasado una URL al %s BBCode"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3621
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3621
+msgid "generic Flash embed"
+msgstr "incrustar Flash genérico"
+
+#: C:\Documents
+#: and
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/vipers-video-quicktags.php:3651
+#: Settings\USUARIO\Escritorio\vipers-video-quicktags/localization/vipers-video-quicktags.php:3651
+msgid "Flash"
+msgstr "Flash"
+
+#~ msgid ""
+#~ "<strong>WARNING:</strong> If you use the FLV embed feature of Viper's "
+#~ "Video Quicktags, there is a bug in WordPress with the FTP method of "
+#~ "upgrading plugins. It will not upload the <code>.swf</code> files "
+#~ "properly. If you do embed FLV files, please <a href='%s'>manually "
+#~ "download</a> the plugin and upload the files to your server. If you don't "
+#~ "embed FLV files (and only embed YouTube, etc. videos), you can safely "
+#~ "ignore this message and upgrade automatically."
+#~ msgstr ""
+#~ "<strong>AVISO:</strong> Si utiliza la función de incrustar FLV de Viper's "
+#~ "Video Quicktags, debe saber que existe un fallo en Wordpress con el modo "
+#~ "de actualización de plugins a través de FTP. No actualizará los archivos "
+#~ "<code>.swf</code> de forma correcta. Si incrusta archivos FLV, por favor "
+#~ "<a href='%s'>descargue manualmente</a> el plugin y suba los archivos a su "
+#~ "servidor. Si no incrusta archivos FLV (y solo incrusta vídeos de Youtube, "
+#~ "etc.), puede ignorar este mensaje y actualizar de forma automática."
+#~ msgid ""
+#~ "http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/"
+#~ msgstr ""
+#~ "http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/"
+#~ msgid ""
+#~ "Easily embed videos from various video websites such as YouTube, "
+#~ "DailyMotion, and Vimeo into your posts."
+#~ msgstr ""
+#~ "Incruste, de forma sencilla, vídeos de varios sitios web como Youtube, "
+#~ "DailyMotion y Vimeo en sus artículos y páginas."
+#~ msgid "Viper007Bond"
+#~ msgstr "Viper007Bond"
+#~ msgid "http://www.viper007bond.com/"
+#~ msgstr "http://www.viper007bond.com/"
+

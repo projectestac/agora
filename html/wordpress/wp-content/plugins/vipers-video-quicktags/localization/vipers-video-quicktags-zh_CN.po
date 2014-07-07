@@ -1,0 +1,1678 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Viper's Video Quicktags 简体中文语言包\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/vipers-video-quicktags\n"
+"POT-Creation-Date: 2009-09-12 09:56+0000\n"
+"PO-Revision-Date: 2009-09-16 09:29+0800\n"
+"Last-Translator: Dreamcolor <dreamcolor@gmail.com>\n"
+"Language-Team: Dreamcolor <dreamcolor@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: \n"
+"X-Textdomain-Support: yes\n"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:247
+msgid "Click here to view the embedded video."
+msgstr "点击这里查看嵌入的视频。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:407
+#: vipers-video-quicktags.php:1422
+msgid "Default"
+msgstr "默认"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:408
+msgid "3D Pixel Style"
+msgstr "3D Pixel Style"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:409
+msgid "Atomic Red"
+msgstr "Atomic Red"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:410
+msgid "Bekle (Overlay)"
+msgstr "Bekle (Overlay)"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:411
+msgid "Blue Metal"
+msgstr "Blue Metal"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:412
+msgid "Comet"
+msgstr "Comet"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:413
+msgid "Control Panel"
+msgstr "Control Panel"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:414
+msgid "Dang Dang"
+msgstr "Dang Dang"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:415
+msgid "Fashion"
+msgstr "Fashion"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:416
+msgid "Festival"
+msgstr "Festival"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:417
+msgid "Grunge Tape"
+msgstr "Grunge Tape"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:418
+msgid "Ice Cream Sneaka"
+msgstr "Ice Cream Sneaka"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:419
+msgid "Kleur"
+msgstr "Kleur"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:420
+msgid "Magma"
+msgstr "Magma"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:421
+msgid "Metarby 10"
+msgstr "Metarby 10"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:422
+msgid "Modieus (Stylish)"
+msgstr "Modieus (Stylish)"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:423
+msgid "Modieus (Stylish) Slim"
+msgstr "Modieus (Stylish) Slim"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:424
+msgid "Nacht"
+msgstr "Nacht"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:425
+msgid "Neon"
+msgstr "Neon"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:426
+msgid "Pearlized"
+msgstr "Pearlized"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:427
+msgid "Pixelize"
+msgstr "Pixelize"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:428
+msgid "Play Casso"
+msgstr "Play Casso"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:429
+msgid "Schoon"
+msgstr "Schoon"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:430
+msgid "Silvery White"
+msgstr "Silvery White"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:431
+msgid "Simple"
+msgstr "Simple"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:432
+msgid "Snel"
+msgstr "Snel"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:433
+msgid "Stijl"
+msgstr "Stijl"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:434
+msgid "Traganja"
+msgstr "Traganja"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:441
+#, php-format
+msgid "<strong>Viper's Video Quicktags</strong> requires WordPress 2.8 or newer. Please <a href=\"%1$s\">upgrade</a>! By not upgrading, your blog is <a href=\"%2$s\">likely to be hacked</a>."
+msgstr "该版本的 <strong>Viper's Video Quicktags</strong> 需要 WordPress 2.8 或更高。请<a href=\"%1$s\">升级</a>！如果不升级，您的 Blog <a href=\"%2$s\">可能会被入侵</a>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:447
+msgid "Viper's Video Quicktags Configuration"
+msgstr "Viper's Video Quicktags 配置"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:447
+msgid "Video Quicktags"
+msgstr "Video Quicktags"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:458
+msgid "Settings"
+msgstr "设置"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:548
+#: vipers-video-quicktags.php:1164
+#: vipers-video-quicktags.php:2206
+#: vipers-video-quicktags.php:2460
+#: vipers-video-quicktags.php:2772
+#: vipers-video-quicktags.php:2802
+#: vipers-video-quicktags.php:2810
+#: vipers-video-quicktags.php:2924
+msgid "YouTube"
+msgstr "YouTube"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:549
+msgid "Embed a video from YouTube"
+msgstr "嵌入 YouTube 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:550
+#: vipers-video-quicktags.php:556
+#: vipers-video-quicktags.php:562
+#: vipers-video-quicktags.php:568
+#: vipers-video-quicktags.php:574
+#: vipers-video-quicktags.php:586
+#: vipers-video-quicktags.php:598
+#: vipers-video-quicktags.php:604
+#: vipers-video-quicktags.php:610
+msgid "Please enter the URL at which the video can be viewed."
+msgstr "请输入能够被查看的视频的链接。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:554
+#: vipers-video-quicktags.php:1165
+#: vipers-video-quicktags.php:2222
+#: vipers-video-quicktags.php:2473
+#: vipers-video-quicktags.php:2876
+#: vipers-video-quicktags.php:2895
+msgid "Google Video"
+msgstr "Google Video"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:555
+msgid "Embed a video from Google Video"
+msgstr "嵌入 Google Video 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:560
+#: vipers-video-quicktags.php:1166
+#: vipers-video-quicktags.php:2232
+#: vipers-video-quicktags.php:2486
+#: vipers-video-quicktags.php:2948
+msgid "DailyMotion"
+msgstr "DailyMotion"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:561
+msgid "Embed a video from DailyMotion"
+msgstr "嵌入 DailyMotion 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:566
+#: vipers-video-quicktags.php:1167
+#: vipers-video-quicktags.php:2247
+#: vipers-video-quicktags.php:2499
+#: vipers-video-quicktags.php:2988
+#: vipers-video-quicktags.php:3010
+msgid "Vimeo"
+msgstr "Vimeo"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:567
+msgid "Embed a video from Vimeo"
+msgstr "嵌入 Vimeo 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:572
+#: vipers-video-quicktags.php:2261
+#: vipers-video-quicktags.php:2512
+#: vipers-video-quicktags.php:3052
+#: vipers-video-quicktags.php:3084
+msgid "Veoh"
+msgstr "Veoh"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:573
+msgid "Embed a video from Veoh"
+msgstr "嵌入 Veoh 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:578
+#: vipers-video-quicktags.php:2164
+#: vipers-video-quicktags.php:2271
+#: vipers-video-quicktags.php:2525
+#: vipers-video-quicktags.php:3133
+#: vipers-video-quicktags.php:3140
+msgid "Viddler"
+msgstr "Viddler"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:579
+msgid "Embed a video from Viddler"
+msgstr "嵌入 Viddler 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:580
+#, php-format
+msgid "Please enter the WordPress.com-style embed tag for the Viddler video. See <a href='%s'>Help</a> for details. In the future, you don't need to actually open this window &#8212; you can just paste directly into the editor."
+msgstr "请为 Viddler 视频输入 WordPress.com 样式的嵌入标签。查看<a href='%s'>帮助</a>获得更多信息。在这个功能中，您不需要真的打开这个窗口 &#8212; 您只需要直接粘帖到编辑器中即可。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:584
+#: vipers-video-quicktags.php:2532
+#: vipers-video-quicktags.php:3150
+#: vipers-video-quicktags.php:3167
+msgid "Metacafe"
+msgstr "Metacafe"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:585
+msgid "Embed a video from Metacafe"
+msgstr "嵌入 Metacafe 的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:590
+#: vipers-video-quicktags.php:2171
+#: vipers-video-quicktags.php:2545
+#: vipers-video-quicktags.php:3207
+#: vipers-video-quicktags.php:3215
+msgid "Blip.tv"
+msgstr "Blip.tv"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:591
+msgid "Embed a video from Blip.tv"
+msgstr "嵌入 Blip.tv 上的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:592
+#, php-format
+msgid "Please enter the WordPress.com-style embed tag for the Blip.tv video. See <a href='%s'>Help</a> for details. In the future, you don't need to actually open this window &#8212; you can just paste directly into the editor."
+msgstr "请为 Blip.tv 视频输入 WordPress.com 样式的嵌入标签。查看<a href='%s'>帮助</a>获得更多信息。在这个功能中，您不需要真的打开这个窗口 &#8212; 您只需要直接粘帖到编辑器中即可。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:596
+#: vipers-video-quicktags.php:2277
+#: vipers-video-quicktags.php:2558
+#: vipers-video-quicktags.php:3266
+#: vipers-video-quicktags.php:3284
+#: vipers-video-quicktags.php:3302
+msgid "Flickr Video"
+msgstr "Flickr 视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:597
+msgid "Embed a video from Flickr Video"
+msgstr "嵌入 Flickr 上的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:602
+#: vipers-video-quicktags.php:2571
+#: vipers-video-quicktags.php:3312
+#: vipers-video-quicktags.php:3329
+msgid "IFILM/Spike"
+msgstr "IFILM/Spike"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:603
+msgid "Embed a video from IFILM/Spike.com"
+msgstr "嵌入 IFILM/Spike.com 上的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:608
+#: vipers-video-quicktags.php:3353
+#: vipers-video-quicktags.php:3370
+msgid "MySpace"
+msgstr "MySpace"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:609
+msgid "Embed a video from MySpace"
+msgstr "嵌入 MySpace 中的视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:614
+#: vipers-video-quicktags.php:3394
+msgid "FLV"
+msgstr "FLV"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:615
+msgid "Embed a Flash Video (FLV) file"
+msgstr "嵌入 Flash 视频 (FLV) 文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:616
+#: vipers-video-quicktags.php:622
+#: vipers-video-quicktags.php:628
+#, php-format
+msgid "Please enter the URL to the %1$s file."
+msgstr "请输入 %1$s 文件的链接地址。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:616
+#: vipers-video-quicktags.php:1168
+#: vipers-video-quicktags.php:2297
+#: vipers-video-quicktags.php:2598
+msgid "Flash Video (FLV)"
+msgstr "Flash 视频 (FLV)"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:620
+#: vipers-video-quicktags.php:622
+#: vipers-video-quicktags.php:2313
+#: vipers-video-quicktags.php:2609
+#: vipers-video-quicktags.php:3488
+msgid "Quicktime"
+msgstr "Quicktime"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:621
+msgid "Embed a Quicktime video file"
+msgstr "嵌入 Quicktime 视频文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:626
+msgid "Video File"
+msgstr "视频文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:627
+msgid "Embed a generic video file"
+msgstr "嵌入常规视频文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:628
+#: vipers-video-quicktags.php:3534
+msgid "generic video"
+msgstr "常规视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:694
+msgid "Example:"
+msgstr "示例："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:814
+#: vipers-video-quicktags.php:1478
+#: vipers-video-quicktags.php:1574
+#: vipers-video-quicktags.php:1660
+#: vipers-video-quicktags.php:1802
+#: vipers-video-quicktags.php:1920
+msgid "Dimensions"
+msgstr "尺寸"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:816
+#, php-format
+msgid "The default dimensions for this video type can be set on this plugin's <a href='%s'>settings page</a>. However, you can set custom dimensions for this one particular video here:"
+msgstr "该视频格式的默认尺寸可以在该插件的<a href='%s'>设置页面</a>中进行定义。然而，您也可以在这里单独设置该视频的尺寸："
+
+#: vipers-video-quicktags.php:836
+msgid "Cheatin&#8217; uh?"
+msgstr "想作弊吗？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1126
+msgid "Settings for this tab reset to defaults."
+msgstr "该标签下的设置已经被恢复为默认值。"
+
+# @ vipers-video-quicktags
+#. #-#-#-#-#  plugin.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Plugin Name of an extension
+#: vipers-video-quicktags.php:1134
+#: vipers-video-quicktags.php:1148
+msgid "Viper's Video Quicktags"
+msgstr "Viper's Video Quicktags"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1138
+msgid "Optional Comment"
+msgstr "可选注释"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1153
+msgid "Donate to Viper007Bond for this plugin via PayPal"
+msgstr "通过 PayPal 赞助 Viper007Bond"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1163
+msgid "Additional Settings"
+msgstr "附加设置"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1169
+msgid "Help"
+msgstr "帮助"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1170
+msgid "Credits"
+msgstr "鸣谢"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1178
+msgid "General"
+msgstr "常规"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1205
+msgid "Are you sure you want to reset this tab's settings to the defaults?"
+msgstr "您确认想要复位该标签的设置为默认值吗？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1217
+#, php-format
+msgid "Set the defaults for this video type here. All of these settings can be overridden on individual embeds. See the <a href=\"%s\">Help section</a> for details."
+msgstr "在这里设置视频的默认类型。所有设置都可以在独立嵌入项中进行修改。查看<a href=\"%s\">帮助章节</a>获得更多细节。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1222
+#, php-format
+msgid "Please consider using a browser other than Internet Explorer though. Due to limitations with your browser, these configuration pages won't be as full featured as if you were using a brower such as <a href=\"%1$s\">Firefox</a> or <a href=\"%2$s\">Opera</a>. If you switch, you'll be able to see the video preview update live as you change <strong>any</strong> option (rather than just a very limited number options) and more."
+msgstr "请考虑将您的  Internet Explorer 换成其他的浏览器。由于浏览器的限制，无法使用该配置页面上全部的功能。请使用像 <a href=\"%1$s\">Firefox</a> 或 <a href=\"%2$s\">Opera</a> 等浏览器。如果您更换了浏览器，您可以在更改了<strong>任何</strong>设置后实时查看到预览视频的效果（不仅仅是那少量的选项）还有更多。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1377
+#: vipers-video-quicktags.php:1530
+#: vipers-video-quicktags.php:1610
+#: vipers-video-quicktags.php:1722
+msgid "Unable to parse preview URL. Please make sure it's the <strong>full</strong> URL and a valid one at that."
+msgstr "无法解析预览链接。请确认<strong>完整</strong>链接和文件。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1423
+msgid "Dark Grey"
+msgstr "深灰色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1424
+msgid "Dark Blue"
+msgstr "深蓝色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1425
+msgid "Light Blue"
+msgstr "浅蓝"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1426
+msgid "Green"
+msgstr "绿色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1427
+#: vipers-video-quicktags.php:1755
+msgid "Orange"
+msgstr "橙色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1428
+msgid "Pink"
+msgstr "粉色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1429
+msgid "Purple"
+msgstr "紫色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1430
+msgid "Ruby Red"
+msgstr "宝石红"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1464
+#: vipers-video-quicktags.php:1560
+#: vipers-video-quicktags.php:1646
+#: vipers-video-quicktags.php:1788
+#: vipers-video-quicktags.php:1905
+msgid "Preview"
+msgstr "预览"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1467
+#: vipers-video-quicktags.php:1563
+#: vipers-video-quicktags.php:1649
+#: vipers-video-quicktags.php:1791
+#: vipers-video-quicktags.php:1908
+msgid "Loading..."
+msgstr "正在加载……"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1472
+#: vipers-video-quicktags.php:1568
+#: vipers-video-quicktags.php:1654
+#: vipers-video-quicktags.php:1796
+#: vipers-video-quicktags.php:1913
+msgid "Preview URL"
+msgstr "预览链接"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1481
+#: vipers-video-quicktags.php:1577
+#: vipers-video-quicktags.php:1663
+#: vipers-video-quicktags.php:1805
+msgid "pixels"
+msgstr "像素"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1482
+#: vipers-video-quicktags.php:1578
+#: vipers-video-quicktags.php:1806
+msgid "Maintain aspect ratio"
+msgstr "保持显示高宽比"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1488
+msgid "Border Color"
+msgstr "边框颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1491
+#: vipers-video-quicktags.php:1499
+#: vipers-video-quicktags.php:1673
+#: vipers-video-quicktags.php:1681
+#: vipers-video-quicktags.php:1689
+#: vipers-video-quicktags.php:1697
+#: vipers-video-quicktags.php:1815
+#: vipers-video-quicktags.php:1954
+#: vipers-video-quicktags.php:1962
+#: vipers-video-quicktags.php:1970
+#: vipers-video-quicktags.php:1978
+msgid "Pick a color"
+msgstr "选择一个颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1496
+msgid "Fill Color"
+msgstr "填充颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1504
+#: vipers-video-quicktags.php:1820
+msgid "Color Presets"
+msgstr "颜色方案"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1508
+msgid "Miscellaneous"
+msgstr "其它"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1510
+msgid "Enable HD video by default (not to be confused with &quot;HQ&quot; which can't be enabled by default and not all videos are avilable in HD)"
+msgstr "默认开启 HD 视频（请不要与 &quot;HQ&quot; 混淆，而且不是所有视频都有 HD 版本）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1511
+msgid "Show video details at the end of playback (related videos, embed code, etc.)"
+msgstr "播放完毕后显示视频详细信息（相关视频，嵌入代码等等。）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1512
+#: vipers-video-quicktags.php:1586
+msgid "Show fullscreen button"
+msgstr "显示全屏按钮"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1513
+msgid "Show border"
+msgstr "显示边框"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1514
+msgid "Show the search box"
+msgstr "显示搜索框"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1515
+msgid "Show the video title and rating"
+msgstr "显示视频标题和评级"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1516
+#: vipers-video-quicktags.php:1587
+#: vipers-video-quicktags.php:1704
+msgid "Autoplay video (not recommended)"
+msgstr "自动播放视频（不建议）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1517
+msgid "Loop video playback"
+msgstr "循环视频播放"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1584
+#: vipers-video-quicktags.php:1702
+msgid "Other"
+msgstr "其他"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1670
+msgid "Toolbar Background Color"
+msgstr "工具栏背景颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1678
+msgid "Toolbar Glow Color"
+msgstr "工具条耀光颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1686
+msgid "Button/Text Color"
+msgstr "按钮/文本颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1694
+msgid "Seekbar Color"
+msgstr "搜索条颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1705
+msgid "Show related videos"
+msgstr "显示相关视频"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1754
+msgid "Default (Blue)"
+msgstr "默认（蓝色）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1756
+msgid "Lime"
+msgstr "酸橙色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1757
+msgid "Fuschia"
+msgstr "梅红"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1758
+msgid "White"
+msgstr "白色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1812
+msgid "Color"
+msgstr "颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1824
+msgid "On-Screen Info"
+msgstr "屏幕显示信息"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1826
+msgid "Portrait"
+msgstr "作者头像"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1827
+msgid "Title"
+msgstr "标题"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1828
+msgid "Byline"
+msgstr "作者链接"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1829
+msgid "Allow fullscreen"
+msgstr "允许全屏"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1916
+msgid "The default preview video is the most recent featured video on YouTube. You can paste in the URL to a FLV file of your own if you wish."
+msgstr "默认预览视频为 YouTube 上最近推荐的视频。您也可以在这里输入自己的 FLV 视频的链接到这里。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1924
+msgid "pixels (if you're using the default skin, add 20 to the height for the control bar)"
+msgstr "像素（如果您使用默认皮肤，请为控制条增加 20 个像素）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1931
+msgid "Skin"
+msgstr "皮肤"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1945
+msgid "Use Custom Colors"
+msgstr "使用自定义颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1951
+msgid "Control Bar Background Color"
+msgstr "控制条背景色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1959
+msgid "Icon/Text Color"
+msgstr "图标/文本颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1967
+msgid "Icon/Text Hover Color"
+msgstr "图标/文本悬停颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1975
+msgid "Video Background Color"
+msgstr "视频背景颜色"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1983
+msgid "Advanced Parameters"
+msgstr "高级参数"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1986
+#: vipers-video-quicktags.php:2308
+#, php-format
+msgid "A <a href=\"%1$s\">query-string style</a> list of <a href=\"%2$s\">additional parameters</a> to pass to the player. Example: %3$s"
+msgstr "可以传递给播放器的<a href=\"%2$s\">扩展参数</a>的 <a href=\"%1$s\">query-string style</a> 列表。例如：%3$s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:1987
+msgid "You will need to press &quot;Save Changes&quot; for these parameters to take effect due to my moderate Javascript skills."
+msgstr "您需要点击 &quot;保存修改&quot; 才可以看到参数生效后的效果。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2023
+msgid "Video Alignment"
+msgstr "视频对齐"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2028
+msgid "Left"
+msgstr "左"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2029
+msgid "Center"
+msgstr "中"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2030
+msgid "Right"
+msgstr "右"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2031
+msgid "Float Left"
+msgstr "左对齐"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2032
+msgid "Float Right"
+msgstr "右对齐"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2044
+msgid "Show Buttons In Editor On Line Number"
+msgstr "按钮在编辑器上的位置"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2049
+msgid "1"
+msgstr "第一行（依附与原编辑器第一行后方）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2050
+msgid "2 (Kitchen Sink Toolbar)"
+msgstr "第二行（依附与原编辑器第二行后方）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2051
+msgid "3 (Default)"
+msgstr "第三行（默认）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2063
+msgid "Feed Text"
+msgstr "订阅文本"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2066
+#, php-format
+msgid "Optionally enter some custom text to show in your feed in place of videos (as you can't embed videos in feeds). If left blank, it will default to:<br />%s"
+msgstr "选择性的输入一些自定义文本用于显示在订阅中视频的位置（当您的订阅中无法显示视频时）。如果留空，将会使用默认文本：<br />%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2070
+msgid "Windows Media Player"
+msgstr "Windows Media Player"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2072
+msgid "Attempt to use Windows Media Player for regular video file playback for Windows users"
+msgstr "当用户使用 Windows 系统时，尝试使用 Windows Media Player 播放视频文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2077
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2079
+msgid "If you don't know what you're doing, you can safely ignore this section."
+msgstr "如果您不知道以下内容的意思，您可以忽略以下内容。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2083
+msgid "Dynamic QTObject Loading"
+msgstr "动态 QTObject 读取"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2085
+msgid "Only load the Javascript file if it's needed. Disable this to post Quicktime videos in the sidebar text widget."
+msgstr "当需要的时候，仅读取 Javascript 文件。在侧栏的文本 Widget 中插入 Quicktime 视频，请禁用此项。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2090
+msgid "Custom CSS"
+msgstr "自定义 CSS"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2092
+msgid "Want to easily set some custom CSS to control the display of the videos? Then just click this text to expand this option."
+msgstr "想要简单的设置一些自定义 CSS 来控制视频的显示？只需要点击此文本来扩展出相关选项。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2094
+#, php-format
+msgid "You can enter custom CSS in the box below. It will be outputted after the default CSS you see listed which can be overridden by using %1$s. For help and examples, see the <a href=\"%2$s\">Help</a> tab."
+msgstr "您可以在下面的输入框中输入自定义 CSS。它将使用 %1$s 后输出在下面默认 CSS 的后面。获得帮助和示例，可以查看<a href=\"%2$s\">帮助</a>标签。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2137
+msgid "Click on a question to see the answer or click this text to expand all answers."
+msgstr "点击问题查看答案或点击该文本展开所有答案。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2141
+msgid "Videos aren't showing up on my blog, only links to the videos are instead. What gives?"
+msgstr "视频在我的 Blog 上无法显示，仅显示出了视频的链接。怎么办？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2144
+msgid "Here are five common causes:"
+msgstr "这里有几个常见的原因："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2146
+#, php-format
+msgid "Are you running Firefox and AdBlock? AdBlock and certain block rules can prevent some videos, namely YouTube-hosted ones, from loading. Disable AdBlock or switch to <a href=\"%s\">AdBlock Plus</a>."
+msgstr "您正在运行 Firefox 和 AdBlock 插件吗？AdBlock 和某些屏蔽规则会阻止某些视频，例如 YouTube 视频的读取。禁用 AdBlock 或使用 <a href=\"%s\">AdBlock Plus</a>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2147
+msgid "Your theme could be missing <code>&lt;?php wp_head();?&gt;</code> inside of it's <code>&lt;head&gt;</code> which means the required Javascript file can't automatically be added. If this is the case, you may be get an alert window popping when you attempt to view a post with a video in it (assuming your problem is not also #3). Edit your theme's <code>header.php</code> file and add it right before <code>&lt;/head&gt;</code>"
+msgstr "您的主题在 <code>&lt;head&gt;</code> 中缺少 <code>&lt;?php wp_head();?&gt;</code>，这意味着必要的 Javascript 文件将无法自动添加。如果是这个原因，您将在查看拥有视频的日志时看到一个弹出的警告窗口（如果不是这个原因，请看下一条）。编辑您主题的 <code>header.php</code> 文件并添加代码到 <code>&lt;/head&gt;</code> 之前"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2148
+#: vipers-video-quicktags.php:2154
+#, php-format
+msgid "You may have Javascript disabled. This plugin embeds videos via Javascript to ensure the best experience. Please <a href=\"%s\">enable it</a>."
+msgstr "您禁用了 Javascript。该插件通过 Javascript 来嵌入视频以获得最好的用户体验。请<a href=\"%s\">开启它</a>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2149
+#: vipers-video-quicktags.php:2155
+#, php-format
+msgid "You may not have the latest version of Flash installed. Please <a href=\"%s\">install it</a>."
+msgstr "您没有安装最新的 Flash。请<a href=\"%s\">安装它</a>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2153
+#, php-format
+msgid "Are you running Firefox and AdBlock? AdBlock and certain block rules can result in the videos, namely YouTube-hosted ones, not loading. Disable AdBlock or switch to <a href=\"%s\">AdBlock Plus</a>."
+msgstr "您正在运行 Firefox 和 AdBlock 插件吗？AdBlock 和某些屏蔽规则会阻止某些视频，例如 YouTube 视频的读取。禁用 AdBlock 或使用 <a href=\"%s\">AdBlock Plus</a>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2161
+msgid "Where do I get the code from to embed a Viddler video?"
+msgstr "我从什么地方能够获取嵌入 Viddler 视频的代码？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2163
+msgid "Since the URL to a video on Viddler has nothing in common with the embed URL, you must use WordPress.com-style format. Go to the video on Viddler, click the &quot;Embed This&quot; button below the video, and then select the WordPress.com format. You can paste that code directly into a post or Page and it will embed the video."
+msgstr "当前没有直接能够嵌入 Viddler 视频的通用链接代码，您必须使用 WordPress.com-style 格式代码。访问 Viddler 的视频，点击视频下方的“嵌入该视频”按钮，然后点击 WordPress.com 格式。您可以直接复制该代码到日志或页面中，然后视频将被嵌入。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2168
+msgid "Where do I get the code from to embed a Blip.tv video?"
+msgstr "我从什么地方能够获取嵌入 Blip.tv 视频的代码？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2170
+msgid "Since the URL to a video on Blip.tv has nothing in common with the embed URL, you must use WordPress.com-style format. Go to the video on Blip.tv, click on the yellow &quot;Share&quot; dropdown to the right of the video and select &quot;Embed&quot;. Next select &quot;WordPress.com&quot; from the &quot;Show Player&quot; dropdown. Finally press &quot;Go&quot;. You can paste that code directly into a post or Page and it will embed the video."
+msgstr "当前没有直接能够嵌入 Blip.tv 视频的通用链接代码，您必须使用 WordPress.com-style 格式代码。访问 Blip.tv 的视频，点击视频的下拉菜单选择黄色的 &quot;共享&quot; 按钮并选择 &quot;嵌入&quot;。然后在 &quot;显示播放器&quot; 菜单中选择 &quot;WordPress.com&quot;。最后点击 &quot;确认&quot;。您可以直接复制该代码到日志或页面中，然后视频将被嵌入。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2172
+msgid "<strong>NOTE:</strong> Ignore the warning message. This plugin adds support for the WordPress.com so it <strong>will</strong> work on your blog."
+msgstr "<strong>注意：</strong>忽略警告信息。该插件添加了对 WordPress.com 的支持，所以它<strong>将</strong>正常工作在您的 Blog 上。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2176
+msgid "Why doesn't this plugin support a site I want to embed videos from?"
+msgstr "为什么插件无法嵌入某些网站上的视频呢？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2178
+msgid "There's a couple likely reasons:"
+msgstr "这里有几个可能的原因："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2180
+msgid "The website may use an embed URL that has nothing in common with the URL in your address bar. This means that even if you give this plugin the URL to the video, it has no easy way of figuring out the embed URL."
+msgstr "网站提供的链接不包含通用的嵌入链接。这意味着您提供给插件的链接，插件无法找出相应的嵌入链接。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2181
+msgid "The website may be too small, fringe case, etc. to be worth supporting. There's no real point in this plugin adding support for a video site that only one or two people will use."
+msgstr "网站规模很小或很特殊等原因不对其进行支持。插件不会对那些只有很少用户量的网站进行支持。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2182
+#, php-format
+msgid "I may have just never heard of the site. Please make a thread on <a href='%s'>my forums</a> with an example link to a video on the site and I'll take a look at it."
+msgstr "我还没听说过的网站。请在<a href='%s'>我的论坛</a>上发个帖子并提供视频的示例链接，然后我会加以考虑。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2184
+#, php-format
+msgid "This plugin does have the ability to embed any Flash file though. See the <a href=\"%s\" class=\"expandolink\">Flash shortcode question</a> for details on that."
+msgstr "该插件有能力嵌入任何 Flash 文件。查看 <a href=\"%s\" class=\"expandolink\">Flash Shortcode 问题</a>获得更多信息。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2188
+msgid "There are still red bits (hovering over buttons) in my YouTube embed. What gives?"
+msgstr "在嵌入的 YouTube 视频上仍然有红色标记（悬停在按钮上）。怎么回事儿？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2190
+msgid "YouTube does not provide a method to change that color."
+msgstr "YouTube 没有提供改变这个颜色的功能。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2194
+msgid "How can I change the size, colors, etc. for a specific video?"
+msgstr "我如果改变特定视频的尺寸，颜色等等信息？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2196
+#, php-format
+msgid "You can control many thing via the WordPress shortcode system that you use to embed videos in your posts. Shortcodes are similiar to <a href=\"%s\">BBCode</a>. Here are some example shortcodes:"
+msgstr "您可以通过 WordPress Shortcode 系统控制视频的很多东西。Shortcode 和 <a href=\"%s\">BBCode</a> 非常相似。这里有一些示例 Shortcodes："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2202
+msgid "Any value that is not entered will fall back to the default."
+msgstr "任何参数不输入将使用默认设置。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2206
+#: vipers-video-quicktags.php:2222
+#: vipers-video-quicktags.php:2232
+#: vipers-video-quicktags.php:2247
+#: vipers-video-quicktags.php:2261
+#: vipers-video-quicktags.php:2271
+#: vipers-video-quicktags.php:2277
+#: vipers-video-quicktags.php:2297
+#: vipers-video-quicktags.php:2313
+#: vipers-video-quicktags.php:2327
+#, php-format
+msgid "What are the available parameters for the %s shortcode?"
+msgstr "%s Shortcode 可用的参数是什么？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2209
+#: vipers-video-quicktags.php:2225
+#: vipers-video-quicktags.php:2235
+#: vipers-video-quicktags.php:2250
+#: vipers-video-quicktags.php:2264
+#: vipers-video-quicktags.php:2280
+#: vipers-video-quicktags.php:2291
+#: vipers-video-quicktags.php:2300
+#: vipers-video-quicktags.php:2317
+#: vipers-video-quicktags.php:2331
+#, php-format
+msgid "%s &#8212; width in pixels"
+msgstr "%s &#8212; 宽度的像素"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2210
+#: vipers-video-quicktags.php:2226
+#: vipers-video-quicktags.php:2236
+#: vipers-video-quicktags.php:2251
+#: vipers-video-quicktags.php:2265
+#: vipers-video-quicktags.php:2281
+#: vipers-video-quicktags.php:2292
+#: vipers-video-quicktags.php:2301
+#: vipers-video-quicktags.php:2318
+#: vipers-video-quicktags.php:2332
+#, php-format
+msgid "%s &#8212; height in pixels"
+msgstr "%s &#8212; 高度的像素"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2211
+#, php-format
+msgid "%s &#8212; player border color in hex"
+msgstr "%s &#8212; 十六进制的播放器边框颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2212
+#, php-format
+msgid "%s &#8212; player fill color in hex"
+msgstr "%s &#8212; 十六进制的播放器填充颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2213
+#, php-format
+msgid "%s &#8212; show a border or not (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 是否显示边框（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2214
+#, php-format
+msgid "%s &#8212; show related videos, URL, embed details, etc. at the end of playback (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 播放结束后显示相关视频、链接、嵌入详细信息等等。（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2215
+#: vipers-video-quicktags.php:2256
+#, php-format
+msgid "%s &#8212; show fullscreen button (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 显示全屏按钮（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2216
+#: vipers-video-quicktags.php:2227
+#: vipers-video-quicktags.php:2241
+#: vipers-video-quicktags.php:2266
+#, php-format
+msgid "%s &#8212; automatically start playing (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 自动开始播放（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2217
+#, php-format
+msgid "%s &#8212; loop playback (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 循环播放（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2237
+#, php-format
+msgid "%s &#8212; toolbar background color in hex"
+msgstr "%s &#8212; 十六进制的工具条背景颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2238
+#, php-format
+msgid "%s &#8212; toolbar glow color in hex"
+msgstr "%s &#8212; 十六进制的耀光颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2239
+#, php-format
+msgid "%s &#8212; button/text color in hex"
+msgstr "%s &#8212; 十六进制的按钮/文本颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2240
+#, php-format
+msgid "%s &#8212; seekbar color in hex"
+msgstr "%s &#8212; 十六进制的搜索条颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2242
+#, php-format
+msgid "%s &#8212; show related video (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 显示相关视频（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2252
+#, php-format
+msgid "%s &#8212; player color in hex"
+msgstr "%s &#8212; 十六进制的播放器颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2253
+#, php-format
+msgid "%s &#8212; show uploader's picture (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 显示上传者的照片（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2254
+#, php-format
+msgid "%s &#8212; show video title (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 显示视频标题（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2255
+#, php-format
+msgid "%s &#8212; show video author (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 显示视频作者（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2273
+msgid "Since the WordPress.com shortcode format is used for embedding Viddler videos, there are no customizable parameters for the Viddler shortcode. The WordPress.com shortcode must be used as the URL of the video and the video's embed URL share nothing in common."
+msgstr "目前 Viddler 视频需要使用 WordPress.com Shortcode 格式进行嵌入，而且没有任何可以自定义的参数。WordPress.com Shortcode 必须使用视频的链接，视频的嵌入链接没有提供任何内容。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2282
+#, php-format
+msgid "%s &#8212; show video details (<code>0</code> or <code>1</code>), defaults to 1"
+msgstr "%s &#8212; 显示视频详细信息（<code>0</code> 或 <code>1</code>），默认为 1"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2287
+msgid "What are the available parameters for the Metacafe, Blip.tv, IFILM/Spike, and MySpace shortcodes?"
+msgstr "Metacafe、Blip.tv、IFILM/Spike 和 MySpace 的 Shortcode 可用的参数是什么？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2289
+msgid "All of these video formats only support the following:"
+msgstr "所有这些视频格式进支持以下项目："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2302
+#, php-format
+msgid "%s &#8212; the URL to the preview image, defaults to the same URL as the video file but <code>.jpg</code> instead of <code>.flv</code>"
+msgstr "%s &#8212; 预览图片的链接，默认与视频文件相同，仅后缀名由 <code>.flv</code> 变成了 <code>.jpg</code>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2303
+#, php-format
+msgid "%s &#8212; player control bar background color in hex"
+msgstr "%s &#8212; 十六进制的播放器控制条背景颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2304
+#, php-format
+msgid "%s &#8212; player icon/text color in hex"
+msgstr "%s &#8212; 十六进制的播放器图标/文本颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2305
+#, php-format
+msgid "%s &#8212; player icon/text hover color in hex"
+msgstr "%s &#8212; 十六进制的播放器图标/文本悬停颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2306
+#, php-format
+msgid "%s &#8212; player video background color in hex"
+msgstr "%s &#8212; 十六进制的播放器视频背景颜色值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2307
+#, php-format
+msgid "%s &#8212; volume percentage, defaults to <code>100</code>"
+msgstr "%s &#8212; 音量百分比，默认为 <code>100</code>"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2308
+#, php-format
+msgid "%1$s &#8212; %2$s"
+msgstr "%1$s &#8212; %2$s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2315
+msgid "The results of embedding a Quicktime video can very widely depending on the user's computer and what software they have installed, but if you must embed a Quicktime video here are the parameters:"
+msgstr "嵌入 Quicktime 视频的效果很大程度上依赖于用户的电脑和他们安装的软件，但如果您必须嵌入 Quicktime 视频，以下是相关的参数："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2319
+#: vipers-video-quicktags.php:2322
+#, php-format
+msgid "%s &#8212; automatically start playing (<code>0</code> or <code>1</code>), defaults to 0"
+msgstr "%s &#8212; 自动开始播放（<code>0</code> 或 <code>1</code>），默认为 0"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2320
+#, php-format
+msgid "%s &#8212; use click-to-play placeholder image (<code>0</code> or <code>1</code>), defaults to 0"
+msgstr "%s &#8212; 使用点击播放占位图片（<code>0</code> 或 <code>1</code>），默认为 0"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2321
+#, php-format
+msgid "%s &#8212; the URL to the placeholder image, defaults to the same URL as the video file but <code>.jpg</code> instead of <code>.mov</code>"
+msgstr "%s &#8212; 占位图片的链接，默认与视频文件相同，仅后缀名由 <code>.mov</code> 变成了 <code>.jpg</code>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2327
+msgid "video file"
+msgstr "视频文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2329
+msgid "The results of embedding a generic video can very widely depending on the user's computer and what software they have installed, but if you must embed a generic video here are the parameters:"
+msgstr "嵌入常规视频的效果很大程度上依赖于用户的电脑和他们安装的软件，但如果您必须嵌入常规视频，以下是相关的参数："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2333
+#, php-format
+msgid "%s &#8212; attempt to use Windows Media Player for users of Windows (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; 尝试使用用户的 Windows 系统中的 Windows Media Player（<code>0</code> 或 <code>1</code>）"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2339
+msgid "What's this &quot;Custom CSS&quot; thing on the &quot;Additional Settings&quot; tab for?"
+msgstr "&quot;附加设置&quot; 中的 &quot;自定义 CSS&quot; 是做什么的？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2341
+msgid "It's a quick and easy way to control the look of videos posted on your site without having to go in and edit the <code>style.css</code> file. Just enter some CSS of your own into the box and it will be outputted in the header of your theme."
+msgstr "这是一个不用对 <code>style.css</code> 进行修改而控制发布于您站点上视频外观的方式。只需要在输入框中输入一些您自己的 CSS 然后它们将输出到主题的页眉部分。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2342
+msgid "Some examples:"
+msgstr "一些示例："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2344
+#, php-format
+msgid "Give a red border to all videos: %s"
+msgstr "为所有视频赋予红色边框：%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2345
+#, php-format
+msgid "Float only YouTube videos to the left: %s"
+msgstr "仅将 YouTube 视频浮动到左边：%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2351
+msgid "How can I embed a generic Flash file or a video from a website this plugin doesn't support?"
+msgstr "我怎样嵌入该插件不支持的常规 Flash 文件或视频到网站上？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2353
+#, php-format
+msgid "This plugin has a %s shortcode that can be used to embed <strong>any</strong> Flash file. Here is the format:"
+msgstr "该插件拥有一个 %s Shortcode 可以插入<strong>任何</strong> Flash 文件。以下是格式："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2358
+msgid "Why does your plugin embed Quicktime and other regular video files so poorly? Can't you do a better job?"
+msgstr "为什么您的插件在嵌入 Quicktime 或其他常规视频文件时，功能不是很完善呢？能够做的更好？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2360
+#, php-format
+msgid "Embedding Quiktime and other regular video files is a major pain in the ass and it's incredibly hard to get it to work in all browsers and operating systems. I <strong>strongly</strong> suggest converting the video to <a href=\"%1$s\">Flash Video</a> format or even <a href=\"%2$s\">H.264</a> format and then using the Flash Video (FLV) embed type. There are free converters out there for both formats and doing so will create a much better experience for your visitors."
+msgstr "嵌入 Quicktime 和其他常规视频文件很难做到在所有浏览器或操作系统中都正常工作。我<strong>强烈</strong>建议将视频文件转换为 <a href=\"%1$s\">Flash 视频</a>格式或任何 <a href=\"%2$s\">H.264</a> 格式并使用 Flash 视频嵌入的类型。目前有很多免费的转换软件可以使用，而且这样做可以给用户带来更好的访问体验。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2369
+msgid "This plugin uses many scripts and packages written by others. They deserve credit too, so here they are in no particular order:"
+msgstr "该插件使用了很多其他人编写的脚本和程序包。应该感谢他们，以下排名不分先后："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2372
+#, php-format
+msgid "The authors of and contributors to <a href=\"%s\">SWFObject</a> which is used to embed the Flash-based videos."
+msgstr "嵌入 Flash 格式视频所使用的 <a href=\"%s\">SWFObject</a> 的作者和贡献者们。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2373
+#, php-format
+msgid "<strong><a href=\"%1$s\">Jeroen Wijering</a></strong> for writing the <a href=\"%2$s\">JW FLV Media Player</a> which is used for FLV playback."
+msgstr "播放 FLV 所使用的 <a href=\"%2$s\">JW FLV Media Player</a> 的作者 <strong><a href=\"%1$s\">Jeroen Wijering</a></strong>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2374
+#, php-format
+msgid "<strong><a href=\"%1$s\">Steven Wittens</a></strong> for writing <a href=\"%2$s\">Farbtastic</a>, the fantastic Javascript color picker used in this plugin."
+msgstr "插件中使用的颜色选择器 <a href=\"%2$s\">Farbtastic</a> 的作者 <strong><a href=\"%1$s\">Steven Wittens</a></strong>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2375
+#, php-format
+msgid "<strong><a href=\"%1$s\">Ozh</a></strong> for writing his <a href=\"%2$s\">Liz Comment Counter</a> plugin which introduced me to Farbtastic and provided me with some Javascript to base my color picker and color preset code on."
+msgstr "<strong><a href=\"%1$s\">Ozh</a></strong> 编写的 <a href=\"%2$s\">Liz Comment Counter</a> 插件引导我如何使用 Farbtastic 和提供了很多嵌入颜色选择器 Javascript 代码并提供配色方案。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2376
+#, php-format
+msgid "<strong><a href=\"%s\">Andrew Ozz</a></strong> for helping me out with some TinyMCE-related Javascript and in turn saving me a ton of time."
+msgstr "<strong><a href=\"%s\">Andrew Ozz</a></strong> 帮助我解决了一些 TinyMCE 相关的 Javascript 问题，这为我节省了很多时间。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2377
+#, php-format
+msgid "<strong><a href=\"%1$s\">Geoff Stearns</a></strong> for writing <a href=\"%2$s\">QTObject</a> which is used to embed Quicktime videos."
+msgstr "嵌入 Quicktime 所使用的 <a href=\"%2$s\">QTObject</a> 的作者 <strong><a href=\"%1$s\">Geoff Stearns</a></strong>"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2378
+#, php-format
+msgid "<strong><a href=\"%1$s\">Mark James</a></strong> for creating the <a href=\"%2$s\">Silk icon pack</a>. This plugin uses at least one of the icons from that pack."
+msgstr "<strong><a href=\"%1$s\">Mark James</a></strong> 创作的 <a href=\"%2$s\">Silk icon pack</a>。本插件使用了那个包中至少一个图标。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2379
+#, php-format
+msgid "The authors of and contributors to <a href=\"%s\">jQuery</a>, the awesome Javascript package used by WordPress."
+msgstr "<a href=\"%s\">jQuery</a> 的作者和贡献者们，这个神奇的 Javascript 包已在 WordPress 中使用。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2380
+#, php-format
+msgid "Everyone who's helped create <a href='%s'>WordPress</a> as without it and it's excellent API, this plugin obviously wouldn't exist."
+msgstr "每一位帮助开发 <a href='%s'>WordPress</a> 的人们，没有他们和他们提供的 API，该插件不会编写成功。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2381
+msgid "Everyone who has provided bug reports and feature suggestions for this plugin."
+msgstr "每一位给本插件提供 Bug 报告以及功能建议的人。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2384
+msgid "The following people have been nice enough to translate this plugin into other languages:"
+msgstr "以下是将该插件翻译成其他语言的人们："
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2387
+#, php-format
+msgid "<strong>Belorussian:</strong> %s"
+msgstr "<strong>白俄罗斯：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2388
+#, php-format
+msgid "<strong>Brazilian Portuguese:</strong> %s"
+msgstr "<strong>巴西 葡萄牙语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2389
+#, php-format
+msgid "<strong>Chinese:</strong> %s"
+msgstr "<strong>中文：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2390
+#, php-format
+msgid "<strong>Danish:</strong> %s"
+msgstr "<strong>丹麦语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2391
+#, php-format
+msgid "<strong>Dutch:</strong> %s"
+msgstr "<strong>荷兰语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2392
+#, php-format
+msgid "<strong>French:</strong> %s"
+msgstr "<strong>法语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2393
+#, php-format
+msgid "<strong>Hungarian:</strong> %s"
+msgstr "<strong>匈牙利语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2394
+#, php-format
+msgid "<strong>Italian:</strong> %s"
+msgstr "<strong>意大利语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2395
+#, php-format
+msgid "<strong>Polish:</strong> %s"
+msgstr "<strong>波兰语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2396
+#, php-format
+msgid "<strong>Russian:</strong> %s"
+msgstr "<strong>俄语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2397
+#, php-format
+msgid "<strong>Spanish:</strong> %s"
+msgstr "<strong>西班牙语：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2400
+#, php-format
+msgid "If you'd like to use this plugin in another language and have your name listed here, just translate the strings in the provided <a href=\"%1$s\">template file</a> located in this plugin's &quot;<code>localization</code>&quot; folder and then <a href=\"%2$s\">send it to me</a>. For help, see the <a href=\"%3$s\">WordPress Codex</a>."
+msgstr "如果您想使用该插件的其他语言版本并想将自己的名字被列在这里，只需要翻译我们在插件的 &quot;<code>localization</code>&quot; 目录中提供的<a href=\"%1$s\">模板文件</a>并将其<a href=\"%2$s\">发送给我</a>就可以。更多帮助请看 <a href=\"%3$s\">WordPress Codex</a>。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2407
+msgid "Click the above links to switch between tabs."
+msgstr "在标签之间进行切换，请点击上面的链接。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2440
+msgid ""
+"Do you agree to the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license? A link to it can be found to the left.\n"
+"\n"
+"In short though, you cannot use JW's FLV Media Player on a commercial site without purchasing a commercial license."
+msgstr ""
+"您同意 Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported 协议吗？协议的链接可以在左侧找到。\n"
+"\n"
+"简单来说，在您没有购买商业许可之前，您不能够使用 JW's FLV Media Player 与商业站点上。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2451
+msgid "Media Type"
+msgstr "媒体类型"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2452
+msgid "Show Editor Button?"
+msgstr "显示编辑器按钮？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2453
+msgid "Default Width"
+msgstr "默认宽度"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2454
+msgid "Default Height"
+msgstr "默认高度"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2455
+msgid "Keep Aspect Ratio?"
+msgstr "保持画面高宽比？"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2584
+msgid "MySpaceTV"
+msgstr "MySpaceTV"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2601
+#, php-format
+msgid "<a href=\"%1$s\">JW's FLV Media Player</a> is covered by the <a href=\"%2$s\">Creative Commons Noncommercial<br />license</a> which means you cannot use it on a <a href=\"%3$s\">commercial website</a>."
+msgstr "<a href=\"%1$s\">JW's FLV Media Player</a>使用<a href=\"%2$s\">创作共用非商业<br />协议</a>，这意味这您不能够在<a href=\"%3$s\">商业网站</a>中使用。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2616
+msgid "Generic Video File"
+msgstr "常规视频文件"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2616
+#, php-format
+msgid "This part of the plugin is fairly buggy as embedding video files is complex.<br />Consider trying TinyMCE's native video embedder instead. <a href='%s'>Why?</a>"
+msgstr "由于嵌入视频文件比较复杂，本插件这个部分存在一些问题。<br />建议您使用自带的 TinyMCE 编辑器的视频嵌入功能。<a href='%s'>为什么呢？</a>"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2631
+msgid "Save Changes"
+msgstr "保存修改"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2632
+msgid "Reset Tab To Defaults"
+msgstr "复位标签为默认值"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2693
+#, php-format
+msgid "<strong>ERROR:</strong> %s"
+msgstr "<strong>错误：</strong>%s"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2755
+msgid "Stage6 is no more, so this Stage6-hosted video cannot be displayed."
+msgstr "Stage6 已经不存在了，所以 Stage6 的视频无法显示。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2772
+#: vipers-video-quicktags.php:2876
+#: vipers-video-quicktags.php:2924
+#: vipers-video-quicktags.php:2988
+#: vipers-video-quicktags.php:3052
+#: vipers-video-quicktags.php:3150
+#: vipers-video-quicktags.php:3266
+#: vipers-video-quicktags.php:3312
+#: vipers-video-quicktags.php:3353
+#, php-format
+msgid "No URL or video ID was passed to the %s BBCode"
+msgstr "没有链接或视频的 ID 被传递给 %s BBCode"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2802
+#: vipers-video-quicktags.php:2810
+#: vipers-video-quicktags.php:2895
+#: vipers-video-quicktags.php:2948
+#: vipers-video-quicktags.php:3010
+#: vipers-video-quicktags.php:3084
+#: vipers-video-quicktags.php:3167
+#: vipers-video-quicktags.php:3284
+#: vipers-video-quicktags.php:3329
+#: vipers-video-quicktags.php:3370
+#, php-format
+msgid "Unable to parse URL, check for correct %s format"
+msgstr "无法解析链接，请检查当前 %s 的格式"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:2814
+#: vipers-video-quicktags.php:2821
+msgid "YouTube Preview Image"
+msgstr "YouTube 预览图像"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3114
+msgid "Sorry, but the only format that is supported for Viddler is the WordPress.com-style format rather than the URL. You can find it in the &quot;Embed This&quot; window."
+msgstr "抱歉，Viddler 仅支持 WordPress.com 样式的格式。您可以在 &quot;嵌入该视频&quot; 窗口中找到。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3133
+#: vipers-video-quicktags.php:3207
+#: vipers-video-quicktags.php:3238
+#, php-format
+msgid "An invalid %s shortcode format was used. Please check your code."
+msgstr "使用了无效的 %s Shortcode。请检查您的代码。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3140
+#: vipers-video-quicktags.php:3215
+#: vipers-video-quicktags.php:3249
+#: vipers-video-quicktags.php:3614
+#, php-format
+msgid "Please <a href=\"%1$s\">enable Javascript</a> and <a href=\"%2$s\">Flash</a> to view this %3$s video."
+msgstr "请<a href=\"%1$s\">开启 Javascript</a> 和 <a href=\"%2$s\">Flash</a> 来查看该 %3$s 视频。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3190
+msgid "Sorry, but the only format that is supported for Blip.tv is the WordPress.com-style format. You can find it at Share -&gt; Embed -&gt; WordPress.com."
+msgstr "抱歉，Blip.tv 仅支持 WordPress.com 样式的格式。您可以在 共享 -&gt; 嵌入 -&gt; WordPress.com 处找到。"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3238
+#: vipers-video-quicktags.php:3249
+msgid "VideoPress"
+msgstr "VideoPress"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3394
+#: vipers-video-quicktags.php:3488
+#: vipers-video-quicktags.php:3534
+#: vipers-video-quicktags.php:3584
+#, php-format
+msgid "No URL was passed to the %s BBCode"
+msgstr "没有链接被传递给 %s BBCode"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3584
+msgid "generic Flash embed"
+msgstr "常规 Flash 嵌入"
+
+# @ vipers-video-quicktags
+#: vipers-video-quicktags.php:3614
+msgid "Flash"
+msgstr "Flash"
+
+#. Plugin URI of an extension
+msgid "http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/"
+msgstr "http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/"
+
+#. Description of an extension
+msgid "Easily embed videos from various video websites such as YouTube, DailyMotion, and Vimeo into your posts."
+msgstr "方便的插入不同网站上的视频到您的日志中，比如 YouTube、DailyMotion 和 Vimeo。"
+
+#. Author of an extension
+msgid "Viper007Bond"
+msgstr "Viper007Bond"
+
+#. Author URI of an extension
+msgid "http://www.viper007bond.com/"
+msgstr "http://www.viper007bond.com/"
+

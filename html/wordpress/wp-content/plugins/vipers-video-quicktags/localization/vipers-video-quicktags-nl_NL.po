@@ -1,0 +1,1333 @@
+msgid ""
+msgstr ""
+"Project-Id-Versie: Viper's Video Quicktags v6.1.x\n"
+"Rapporteer-Msgid-fouten-naar: \n"
+"POT-Aanmaak-Datum: 21-09-2008 23:52-0800\n"
+"PO-Revisie-Datum: \n"
+"Laatste-Vertaler: Viper007Bond <poedit@viper007bond.com>\n"
+"Taal-Team: \n"
+"MIME-Versie: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: Netherlands\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Map: D:\\Webserver\\htdocs\\plugindev\\wp-content\\plugins\\vipers-video-quicktags\n"
+"X-Poedit-ZoekMap-0: .\n"
+
+#: vipers-video-quicktags.php:378
+#: vipers-video-quicktags.php:1375
+msgid "Default"
+msgstr "Standaard"
+
+#: vipers-video-quicktags.php:379
+msgid "3D Pixel Style"
+msgstr "3D Pixel stijl"
+
+#: vipers-video-quicktags.php:380
+msgid "Atomic Red"
+msgstr "Atoom Rood"
+
+#: vipers-video-quicktags.php:381
+msgid "Comet"
+msgstr "Komeet"
+
+#: vipers-video-quicktags.php:382
+msgid "Control Panel"
+msgstr "Conifguratiescherm"
+
+#: vipers-video-quicktags.php:383
+msgid "Dang Dang"
+msgstr "Dang Dang"
+
+#: vipers-video-quicktags.php:384
+msgid "Fashion"
+msgstr "Fashion"
+
+#: vipers-video-quicktags.php:385
+msgid "Festival"
+msgstr "Festival"
+
+#: vipers-video-quicktags.php:386
+msgid "Ice Cream Sneaka"
+msgstr "IJskoude Sneaker"
+
+#: vipers-video-quicktags.php:387
+msgid "Kleur"
+msgstr "Kleur"
+
+#: vipers-video-quicktags.php:388
+msgid "Magma"
+msgstr "Magma"
+
+#: vipers-video-quicktags.php:389
+msgid "Metarby 10"
+msgstr "Metarby 10"
+
+#: vipers-video-quicktags.php:390
+msgid "Nacht"
+msgstr "Nacht"
+
+#: vipers-video-quicktags.php:391
+msgid "Neon"
+msgstr "Neon"
+
+#: vipers-video-quicktags.php:392
+msgid "Pearlized"
+msgstr "Geparaliseerd"
+
+#: vipers-video-quicktags.php:393
+msgid "Pixelize"
+msgstr "Gepixeld"
+
+#: vipers-video-quicktags.php:394
+msgid "Play Casso"
+msgstr "Kunstzinnig"
+
+#: vipers-video-quicktags.php:395
+msgid "Schoon"
+msgstr "Schoon"
+
+#: vipers-video-quicktags.php:396
+msgid "Silvery White"
+msgstr "Zilver Wit"
+
+#: vipers-video-quicktags.php:397
+msgid "Snel"
+msgstr "Snel"
+
+#: vipers-video-quicktags.php:398
+msgid "Stijl"
+msgstr "Stijl"
+
+#: vipers-video-quicktags.php:399
+msgid "Traganja"
+msgstr "Traganja"
+
+#: vipers-video-quicktags.php:406
+#, php-format
+msgid "This version of <strong>Viper's Video Quicktags</strong> requires WordPress 2.6 or newer. Please <a href=\"%1$s\">upgrade</a> or use the <a href=\"%2$s\">legacy version</a> of this plugin."
+msgstr "Deze versie van <strong>Viper's Video Quicktags</strong> vereist WordPress 2.6 of recenter. <a href=\"%1$s\">Upgrade</a> of gebruik de <a href=\"%2$s\"> oudere versie</a> van deze plugin."
+
+#: vipers-video-quicktags.php:414
+#, php-format
+msgid "<strong>WARNING:</strong> If you use the FLV embed feature of Viper's Video Quicktags, there is a bug in WordPress with the FTP method of upgrading plugins. It will not upload the <code>.swf</code> files properly. If you do embed FLV files, please <a href='%s'>manually download</a> the plugin and upload the files to your server. If you don't embed FLV files (and only embed YouTube, etc. videos), you can safely ignore this message and upgrade automatically."
+msgstr "<strong>WAARSCHUWING:</strong> Als je de embed functie van Viper's Quicktags gebruikt, er is een foutje in WordPress met de FTP manier van opwaarderen van plugins. Het uploaden van de <code>.swf</code> gaat niet goed. Als je FLV bestanden embed, download dan <a href='%s'>handmatig</a> de plugin en stuur deze naar de server. Als je geen FLV bestanden embed (maar alleen YouTube enz. video's), dan kun je deze waarschuwing zonder problemen negeren en automatisch upgraden."
+
+#: vipers-video-quicktags.php:420
+msgid "Viper's Video Quicktags Configuration"
+msgstr "Viper's Video Quicktags Instellingen"
+
+#: vipers-video-quicktags.php:420
+msgid "Video Quicktags"
+msgstr "Video Quicktags"
+
+#: vipers-video-quicktags.php:431
+msgid "Settings"
+msgstr "Instellingen"
+
+#: vipers-video-quicktags.php:510
+#: vipers-video-quicktags.php:1121
+#: vipers-video-quicktags.php:2172
+#: vipers-video-quicktags.php:2420
+#: vipers-video-quicktags.php:2707
+#: vipers-video-quicktags.php:2731
+#: vipers-video-quicktags.php:2739
+#: vipers-video-quicktags.php:2824
+msgid "YouTube"
+msgstr "Youtube"
+
+#: vipers-video-quicktags.php:511
+msgid "Embed a video from YouTube"
+msgstr "Embed een video vanaf Youtube"
+
+#: vipers-video-quicktags.php:512
+#: vipers-video-quicktags.php:518
+#: vipers-video-quicktags.php:524
+#: vipers-video-quicktags.php:530
+#: vipers-video-quicktags.php:536
+#: vipers-video-quicktags.php:548
+#: vipers-video-quicktags.php:560
+#: vipers-video-quicktags.php:566
+#: vipers-video-quicktags.php:572
+msgid "Please enter the URL at which the video can be viewed."
+msgstr "Geef de link waar de video bekeken kan worden."
+
+#: vipers-video-quicktags.php:516
+#: vipers-video-quicktags.php:1122
+#: vipers-video-quicktags.php:2189
+#: vipers-video-quicktags.php:2433
+#: vipers-video-quicktags.php:2784
+#: vipers-video-quicktags.php:2798
+msgid "Google Video"
+msgstr "Google Video"
+
+#: vipers-video-quicktags.php:517
+msgid "Embed a video from Google Video"
+msgstr "Embed een video vanaf Google Video"
+
+#: vipers-video-quicktags.php:522
+#: vipers-video-quicktags.php:1123
+#: vipers-video-quicktags.php:2199
+#: vipers-video-quicktags.php:2446
+#: vipers-video-quicktags.php:2844
+msgid "DailyMotion"
+msgstr "DailyMotion"
+
+#: vipers-video-quicktags.php:523
+msgid "Embed a video from DailyMotion"
+msgstr "Embed een video vanaf DailyMotion"
+
+#: vipers-video-quicktags.php:528
+#: vipers-video-quicktags.php:1124
+#: vipers-video-quicktags.php:2214
+#: vipers-video-quicktags.php:2459
+#: vipers-video-quicktags.php:2882
+#: vipers-video-quicktags.php:2900
+msgid "Vimeo"
+msgstr "Video"
+
+#: vipers-video-quicktags.php:529
+msgid "Embed a video from Vimeo"
+msgstr "Embed een video vanaf Vimeo"
+
+#: vipers-video-quicktags.php:534
+#: vipers-video-quicktags.php:2228
+#: vipers-video-quicktags.php:2472
+#: vipers-video-quicktags.php:2930
+#: vipers-video-quicktags.php:2944
+msgid "Veoh"
+msgstr "Veoh"
+
+#: vipers-video-quicktags.php:535
+msgid "Embed a video from Veoh"
+msgstr "Embed een video vanaf Veoh"
+
+#: vipers-video-quicktags.php:540
+#: vipers-video-quicktags.php:2130
+#: vipers-video-quicktags.php:2238
+#: vipers-video-quicktags.php:2485
+#: vipers-video-quicktags.php:2980
+#: vipers-video-quicktags.php:2987
+msgid "Viddler"
+msgstr "Viddler"
+
+#: vipers-video-quicktags.php:541
+msgid "Embed a video from Viddler"
+msgstr "Embed een video vanaf Viddler"
+
+#: vipers-video-quicktags.php:542
+#, php-format
+msgid "Please enter the WordPress.com-style embed tag for the Viddler video. See <a href='%s'>Help</a> for details. In the future, you don't need to actually open this window &#8212; you can just paste directly into the editor."
+msgstr "Geef het WordPress.com-stijl embed label voor de Viddler video. Zie <a href='%s'>help</a> voor details. In het vervolg hoef je dit scherm niet meer te openen &#8212; je kunt rechtstreeks in de editor plakken. "
+
+#: vipers-video-quicktags.php:546
+#: vipers-video-quicktags.php:2492
+#: vipers-video-quicktags.php:2995
+#: vipers-video-quicktags.php:3008
+msgid "Metacafe"
+msgstr "Metacafe"
+
+#: vipers-video-quicktags.php:547
+msgid "Embed a video from Metacafe"
+msgstr "Embed een video vanaf Metacafe"
+
+#: vipers-video-quicktags.php:552
+#: vipers-video-quicktags.php:2137
+#: vipers-video-quicktags.php:2505
+#: vipers-video-quicktags.php:3042
+#: vipers-video-quicktags.php:3050
+msgid "Blip.tv"
+msgstr "Blip.tv"
+
+#: vipers-video-quicktags.php:553
+msgid "Embed a video from Blip.tv"
+msgstr "Embed een video vanaf Blip.tv"
+
+#: vipers-video-quicktags.php:554
+#, php-format
+msgid "Please enter the WordPress.com-style embed tag for the Blip.tv video. See <a href='%s'>Help</a> for details. In the future, you don't need to actually open this window &#8212; you can just paste directly into the editor."
+msgstr "Geef het WordPress.com-stijl embed label voor de Blip.tv video. Zie <a href='%s'>help</a> voor details. In het vervolg hoef je dit scherm niet meer te openen &#8212; je kunt rechtstreeks in de editor plakken."
+
+#: vipers-video-quicktags.php:558
+#: vipers-video-quicktags.php:2244
+#: vipers-video-quicktags.php:2518
+#: vipers-video-quicktags.php:3065
+#: vipers-video-quicktags.php:3079
+#: vipers-video-quicktags.php:3097
+msgid "Flickr Video"
+msgstr "Flickr Video"
+
+#: vipers-video-quicktags.php:559
+msgid "Embed a video from Flickr Video"
+msgstr "Embed een video vanaf Flickr Video"
+
+#: vipers-video-quicktags.php:564
+#: vipers-video-quicktags.php:2531
+#: vipers-video-quicktags.php:3105
+#: vipers-video-quicktags.php:3118
+msgid "IFILM/Spike"
+msgstr "IFILM/Spike"
+
+#: vipers-video-quicktags.php:565
+msgid "Embed a video from IFILM/Spike.com"
+msgstr "Embed een video vanaf IFILM/Spike.com"
+
+#: vipers-video-quicktags.php:570
+#: vipers-video-quicktags.php:3140
+#: vipers-video-quicktags.php:3153
+msgid "MySpace"
+msgstr "MySpace"
+
+#: vipers-video-quicktags.php:571
+msgid "Embed a video from MySpace"
+msgstr "Embed een video vanaf MySpace"
+
+#: vipers-video-quicktags.php:576
+#: vipers-video-quicktags.php:3175
+msgid "FLV"
+msgstr "FLV"
+
+#: vipers-video-quicktags.php:577
+msgid "Embed a Flash Video (FLV) file"
+msgstr "Embed een Flash video, (FLV bestand)"
+
+#: vipers-video-quicktags.php:578
+#: vipers-video-quicktags.php:584
+#: vipers-video-quicktags.php:590
+#, php-format
+msgid "Please enter the URL to the %1$s file."
+msgstr "Geef de link naar het %1$s bestand."
+
+#: vipers-video-quicktags.php:578
+#: vipers-video-quicktags.php:1125
+#: vipers-video-quicktags.php:2264
+#: vipers-video-quicktags.php:2558
+msgid "Flash Video (FLV)"
+msgstr "Flash Video (FLV)"
+
+#: vipers-video-quicktags.php:582
+#: vipers-video-quicktags.php:584
+#: vipers-video-quicktags.php:2280
+#: vipers-video-quicktags.php:2569
+#: vipers-video-quicktags.php:3246
+msgid "Quicktime"
+msgstr "QuickTime"
+
+#: vipers-video-quicktags.php:583
+msgid "Embed a Quicktime video file"
+msgstr "Embed een QuickTime videobestand"
+
+#: vipers-video-quicktags.php:588
+msgid "Video File"
+msgstr "Video bestand"
+
+#: vipers-video-quicktags.php:589
+msgid "Embed a generic video file"
+msgstr "Embed een algeheel videobestand"
+
+#: vipers-video-quicktags.php:590
+#: vipers-video-quicktags.php:3280
+msgid "generic video"
+msgstr "algemeen videobestand"
+
+#: vipers-video-quicktags.php:656
+msgid "Example:"
+msgstr "Voorbeeld:"
+
+#: vipers-video-quicktags.php:776
+#: vipers-video-quicktags.php:1431
+#: vipers-video-quicktags.php:1541
+#: vipers-video-quicktags.php:1626
+#: vipers-video-quicktags.php:1768
+#: vipers-video-quicktags.php:1886
+msgid "Dimensions"
+msgstr "Afmetingen"
+
+#: vipers-video-quicktags.php:778
+#, php-format
+msgid "The default dimensions for this video type can be set on this plugin's <a href='%s'>settings page</a>. However, you can set custom dimensions for this one particular video here:"
+msgstr "De standaard afmetingen voor dit video-type kan ingesteld worden in deze plugin <a href='%s'>instellingen</a>. Ook kun je je eigen afmetingen voor deze ene video hier instellen:"
+
+#: vipers-video-quicktags.php:798
+msgid "Cheatin&#8217; uh?"
+msgstr "Mij voor de gek houden?"
+
+#: vipers-video-quicktags.php:1084
+msgid "Settings for this tab reset to defaults."
+msgstr "Instellingen hierboven herstellen naar standaard."
+
+#: vipers-video-quicktags.php:1092
+#: vipers-video-quicktags.php:1110
+msgid "Viper's Video Quicktags"
+msgstr "Viper's Video Quicktags"
+
+#: vipers-video-quicktags.php:1096
+msgid "Optional Comment"
+msgstr "Optioneel commentaar"
+
+#: vipers-video-quicktags.php:1108
+msgid "Donate to Viper007Bond for this plugin via PayPal"
+msgstr "Doneer aan Viper007Bond voor deze plugin via PayPal"
+
+#: vipers-video-quicktags.php:1120
+msgid "Additional Settings"
+msgstr "Extra instellingen"
+
+#: vipers-video-quicktags.php:1126
+msgid "Help"
+msgstr "Help"
+
+#: vipers-video-quicktags.php:1127
+msgid "Credits"
+msgstr "Dank aan"
+
+#: vipers-video-quicktags.php:1135
+msgid "General"
+msgstr "Algemeen"
+
+#: vipers-video-quicktags.php:1162
+msgid "Are you sure you want to reset this tab's settings to the defaults?"
+msgstr "Weet je zeker dat je de instellingen wilt herstellen naar de standaarden?"
+
+#: vipers-video-quicktags.php:1174
+#, php-format
+msgid "Set the defaults for this video type here. All of these settings can be overridden on individual embeds. See the <a href=\"%s\">Help section</a> for details."
+msgstr "Stel de standaarden voor dit video-type hier in. Al deze instellingen kunnen per individuele video gewijzigd worden. Zie de <a href=\"%s\">Help sectie</a> voor details."
+
+#: vipers-video-quicktags.php:1179
+#, php-format
+msgid "Please consider using a browser other than Internet Explorer though. Due to limitations with your browser, these configuration pages won't be as full featured as if you were using a brower such as <a href=\"%1$s\">Firefox</a> or <a href=\"%2$s\">Opera</a>. If you switch, you'll be able to see the video preview update live as you change <strong>any</strong> option (rather than just a very limited number options) and more."
+msgstr "Overweeg het gebruik van een andere browser dan Internet Explorer. Door beperkingen met je browser kunnen deze instellingenpagina's niet volledig weergegeven worden, tenzij je overschakelt naar een browser zoals <a href=\"%1$s\">Firefox</a> of <a href=\"%2$s\">Opera</a>. Als je overschakelt kun je de video-voorvertoning <strong>direct</strong> zien als je een waarde aanpast (altijd beter dan alleen een lijst met opties zien zonder voorbeeld). "
+
+#: vipers-video-quicktags.php:1334
+#: vipers-video-quicktags.php:1499
+#: vipers-video-quicktags.php:1576
+#: vipers-video-quicktags.php:1688
+msgid "Unable to parse preview URL. Please make sure it's the <strong>full</strong> URL and a valid one at that."
+msgstr "Onmogelijk om de voorvertoningslink te laten zien. Zorg voor de<strong>volledige</strong> link en controleer deze. "
+
+#: vipers-video-quicktags.php:1376
+msgid "Dark Grey"
+msgstr "Donker grijs"
+
+#: vipers-video-quicktags.php:1377
+msgid "Dark Blue"
+msgstr "Donker blauw"
+
+#: vipers-video-quicktags.php:1378
+msgid "Light Blue"
+msgstr "Licht blauw"
+
+#: vipers-video-quicktags.php:1379
+msgid "Green"
+msgstr "Groen"
+
+#: vipers-video-quicktags.php:1380
+#: vipers-video-quicktags.php:1721
+msgid "Orange"
+msgstr "Oranje"
+
+#: vipers-video-quicktags.php:1381
+msgid "Pink"
+msgstr "Roze"
+
+#: vipers-video-quicktags.php:1382
+msgid "Purple"
+msgstr "Paars"
+
+#: vipers-video-quicktags.php:1383
+msgid "Ruby Red"
+msgstr "Ruby Rood"
+
+#: vipers-video-quicktags.php:1417
+#: vipers-video-quicktags.php:1527
+#: vipers-video-quicktags.php:1612
+#: vipers-video-quicktags.php:1754
+#: vipers-video-quicktags.php:1871
+msgid "Preview"
+msgstr "Voorvertoning"
+
+#: vipers-video-quicktags.php:1420
+#: vipers-video-quicktags.php:1530
+#: vipers-video-quicktags.php:1615
+#: vipers-video-quicktags.php:1757
+#: vipers-video-quicktags.php:1874
+msgid "Loading..."
+msgstr "Laden..."
+
+#: vipers-video-quicktags.php:1425
+#: vipers-video-quicktags.php:1535
+#: vipers-video-quicktags.php:1620
+#: vipers-video-quicktags.php:1762
+#: vipers-video-quicktags.php:1879
+msgid "Preview URL"
+msgstr "Voorvertoningslink"
+
+#: vipers-video-quicktags.php:1434
+#: vipers-video-quicktags.php:1544
+#: vipers-video-quicktags.php:1629
+#: vipers-video-quicktags.php:1771
+msgid "pixels"
+msgstr "pixels"
+
+#: vipers-video-quicktags.php:1435
+#: vipers-video-quicktags.php:1545
+#: vipers-video-quicktags.php:1772
+msgid "Maintain aspect ratio"
+msgstr "Behoud beeldverhouding"
+
+#: vipers-video-quicktags.php:1441
+msgid "Border Color"
+msgstr "Rand kleur"
+
+#: vipers-video-quicktags.php:1444
+#: vipers-video-quicktags.php:1452
+#: vipers-video-quicktags.php:1639
+#: vipers-video-quicktags.php:1647
+#: vipers-video-quicktags.php:1655
+#: vipers-video-quicktags.php:1663
+#: vipers-video-quicktags.php:1781
+#: vipers-video-quicktags.php:1920
+#: vipers-video-quicktags.php:1928
+#: vipers-video-quicktags.php:1936
+#: vipers-video-quicktags.php:1944
+msgid "Pick a color"
+msgstr "Kies een kleur"
+
+#: vipers-video-quicktags.php:1449
+msgid "Fill Color"
+msgstr "Vul-kleur"
+
+#: vipers-video-quicktags.php:1457
+#: vipers-video-quicktags.php:1786
+msgid "Color Presets"
+msgstr "Kleur instellingen"
+
+#: vipers-video-quicktags.php:1461
+msgid "Video Format"
+msgstr "Video formaat"
+
+#: vipers-video-quicktags.php:1466
+msgid "Low Quality FLV (smallest download) &#8212; YouTube Default"
+msgstr "Lage kwaliteit FLV (kleinste download) &#8212; YouTube standaard"
+
+#: vipers-video-quicktags.php:1467
+msgid "High Quality MP4 (medium download) &#8212; Plugin Default"
+msgstr "Hoge kwaliteit MP4 (middelmatige download) &#8212; Plugin standaard"
+
+#: vipers-video-quicktags.php:1468
+msgid "High Quality FLV (largest download)"
+msgstr "Hoge kwaliteit FLV (grootste download)"
+
+#: vipers-video-quicktags.php:1480
+msgid "Miscellaneous"
+msgstr "Overige"
+
+#: vipers-video-quicktags.php:1482
+msgid "Show video details at the end of playback (related videos, embed code, etc.)"
+msgstr "Toon video details aan het einde van het afspelen (gerelateerde video's, embed code, etc.)"
+
+#: vipers-video-quicktags.php:1483
+msgid "Show fullscreen button"
+msgstr "Toon volledig beeld-knop"
+
+#: vipers-video-quicktags.php:1484
+msgid "Show border"
+msgstr "Toon rand"
+
+#: vipers-video-quicktags.php:1485
+#: vipers-video-quicktags.php:1553
+#: vipers-video-quicktags.php:1670
+msgid "Autoplay video (not recommended)"
+msgstr "Speel video automatisch af (niet aanbevolen)"
+
+#: vipers-video-quicktags.php:1486
+msgid "Loop video playback"
+msgstr "Herhaal video continu"
+
+#: vipers-video-quicktags.php:1551
+#: vipers-video-quicktags.php:1668
+msgid "Other"
+msgstr "Anders"
+
+#: vipers-video-quicktags.php:1636
+msgid "Toolbar Background Color"
+msgstr "Knoppenbalk achtergrond"
+
+#: vipers-video-quicktags.php:1644
+msgid "Toolbar Glow Color"
+msgstr "Knoppenbalk glimkleur"
+
+#: vipers-video-quicktags.php:1652
+msgid "Button/Text Color"
+msgstr "Knoppen/tekst kleur"
+
+#: vipers-video-quicktags.php:1660
+msgid "Seekbar Color"
+msgstr "Zoekbalk kleur"
+
+#: vipers-video-quicktags.php:1671
+msgid "Show related videos"
+msgstr "Toon gerelateerde video's"
+
+#: vipers-video-quicktags.php:1720
+msgid "Default (Blue)"
+msgstr "Standaard (blauw)"
+
+#: vipers-video-quicktags.php:1722
+msgid "Lime"
+msgstr "Limoen"
+
+#: vipers-video-quicktags.php:1723
+msgid "Fuschia"
+msgstr "Fuchsia"
+
+#: vipers-video-quicktags.php:1724
+msgid "White"
+msgstr "Wit"
+
+#: vipers-video-quicktags.php:1778
+msgid "Color"
+msgstr "Kleur"
+
+#: vipers-video-quicktags.php:1790
+msgid "On-Screen Info"
+msgstr "On-screen informatie"
+
+#: vipers-video-quicktags.php:1792
+msgid "Portrait"
+msgstr "Portretstand"
+
+#: vipers-video-quicktags.php:1793
+msgid "Title"
+msgstr "Titel"
+
+#: vipers-video-quicktags.php:1794
+msgid "Byline"
+msgstr "Omschrijving"
+
+#: vipers-video-quicktags.php:1795
+msgid "Allow fullscreen"
+msgstr "Sta beeldvullend toe"
+
+#: vipers-video-quicktags.php:1882
+msgid "The default preview video is the most recent featured video on YouTube. You can paste in the URL to a FLV file of your own if you wish."
+msgstr "De standaard voorvertoningsvideo is de meest recente video op YouTube. Je kunt de link knippen/plakken van een FLV bestand van jezelf als je wilt."
+
+#: vipers-video-quicktags.php:1890
+msgid "pixels (if you're using the default skin, add 20 to the height for the control bar)"
+msgstr "pixels (als je de standaard opmaak gebruikt voeg dan 20 toe voor de hoogte van de knoppenbalk)"
+
+#: vipers-video-quicktags.php:1897
+msgid "Skin"
+msgstr "Opmaak"
+
+#: vipers-video-quicktags.php:1911
+msgid "Use Custom Colors"
+msgstr "Gebruik eigen kleuren"
+
+#: vipers-video-quicktags.php:1917
+msgid "Control Bar Background Color"
+msgstr "Knoppenbalk achtergrond kleur"
+
+#: vipers-video-quicktags.php:1925
+msgid "Icon/Text Color"
+msgstr "Knoppen/tekst kleur"
+
+#: vipers-video-quicktags.php:1933
+msgid "Icon/Text Hover Color"
+msgstr "Knoppen tekst kleur bij muisovergang"
+
+#: vipers-video-quicktags.php:1941
+msgid "Video Background Color"
+msgstr "Video achtergrond kleur"
+
+#: vipers-video-quicktags.php:1949
+msgid "Advanced Parameters"
+msgstr "Extra instellingen"
+
+#: vipers-video-quicktags.php:1952
+#: vipers-video-quicktags.php:2275
+#, php-format
+msgid "A <a href=\"%1$s\">query-string style</a> list of <a href=\"%2$s\">additional parameters</a> to pass to the player. Example: %3$s"
+msgstr "Een <a href=\"%1$s\">query-string stijl</a> lijst van <a href=\"%2$s\"> extra instellingen</a> om aan de speler door te geven. Voorbeeld:%3$s"
+
+#: vipers-video-quicktags.php:1953
+msgid "You will need to press &quot;Save Changes&quot; for these parameters to take effect due to my moderate Javascript skills."
+msgstr "Je moet op &quot;Bewaar wijzigingen&quot; klikken voordat de wijzigingen effect hebben, dankzij mijn Javascript kennis. "
+
+#: vipers-video-quicktags.php:1989
+msgid "Video Alignment"
+msgstr "Video uitlijning"
+
+#: vipers-video-quicktags.php:1994
+msgid "Left"
+msgstr "Links"
+
+#: vipers-video-quicktags.php:1995
+msgid "Center"
+msgstr "Midden"
+
+#: vipers-video-quicktags.php:1996
+msgid "Right"
+msgstr "Rechts"
+
+#: vipers-video-quicktags.php:1997
+msgid "Float Left"
+msgstr "Drijvend links"
+
+#: vipers-video-quicktags.php:1998
+msgid "Float Right"
+msgstr "Drijvend rechts"
+
+#: vipers-video-quicktags.php:2010
+msgid "Show Buttons In Editor On Line Number"
+msgstr "Toon knooppen in editor op lijnnummer"
+
+#: vipers-video-quicktags.php:2015
+msgid "1"
+msgstr "1"
+
+#: vipers-video-quicktags.php:2016
+msgid "2 (Aanrecht-achtige-knoppenbalk)"
+msgstr "2"
+
+#: vipers-video-quicktags.php:2017
+msgid "3 (Standaard)"
+msgstr "3"
+
+#: vipers-video-quicktags.php:2029
+msgid "Feed Text"
+msgstr "Feed tekst"
+
+#: vipers-video-quicktags.php:2032
+#, php-format
+msgid "Optionally enter some custom text to show in your feed in place of videos (as you can't embed videos in feeds). If left blank, it will default to:<br />%s"
+msgstr "Optionele, eigen tekst die in de feed komt in plaats van de video's (omdat je video's niet kunt embedden in feeds). Als je niks in vult wordt het:<br />%s"
+
+#: vipers-video-quicktags.php:2032
+#: vipers-video-quicktags.php:2662
+msgid "Click here to view the embedded video."
+msgstr "Klik hier om de embedded video te bekijken."
+
+#: vipers-video-quicktags.php:2036
+msgid "Windows Media Player"
+msgstr "Windows Media Player"
+
+#: vipers-video-quicktags.php:2038
+msgid "Attempt to use Windows Media Player for regular video file playback for Windows users"
+msgstr "Probeer om Windows Media Player te gebruiken voor doorsnee video bestanden voor Windows gebruikers"
+
+#: vipers-video-quicktags.php:2043
+msgid "Advanced Settings"
+msgstr "Geavanceerde instellingen"
+
+#: vipers-video-quicktags.php:2045
+msgid "If you don't know what you're doing, you can safely ignore this section."
+msgstr "Als je niet weet wat je doet kun je de onderstaande instellingen veilig negeren."
+
+#: vipers-video-quicktags.php:2049
+msgid "Dynamic QTObject Loading"
+msgstr "Dynamisch QTobject laden"
+
+#: vipers-video-quicktags.php:2051
+msgid "Only load the Javascript file if it's needed. Disable this to post Quicktime videos in the sidebar text widget."
+msgstr "Alleen het Javascript bestand laden als het nodig is. Zet deze uit om QuickTime videos in de zijbalk tekst widget."
+
+#: vipers-video-quicktags.php:2056
+msgid "Custom CSS"
+msgstr "Eigen CSS"
+
+#: vipers-video-quicktags.php:2058
+msgid "Want to easily set some custom CSS to control the display of the videos? Then just click this text to expand this option."
+msgstr "Makkelijk enkele CSS instellingen maken voor het verschijnen van de video's? Klik dan op deze tekst om de mogelijkheden uit te breiden."
+
+#: vipers-video-quicktags.php:2060
+#, php-format
+msgid "You can enter custom CSS in the box below. It will be outputted after the default CSS you see listed which can be overridden by using %1$s. For help and examples, see the <a href=\"%2$s\">Help</a> tab."
+msgstr "Je kunt hieronder je eigen CSS neerzetten. Het zalna de standaard CSS die je ziet in de lijst. Deze kan overtroffen worden door gebruik te maken van %1$s. Voor hulp en voorbeelden zie de <a href=\"%2$s\">Help</a> tab."
+
+#: vipers-video-quicktags.php:2103
+msgid "Click on a question to see the answer or click this text to expand all answers."
+msgstr "Klik op een vraag om het antwoord te zien of klik op deze tekst om alle antwoorden te zien."
+
+#: vipers-video-quicktags.php:2107
+msgid "Videos aren't showing up on my blog, only links to the videos are instead. What gives?"
+msgstr "Video's zijn niet te zien op mijn blog, alleen links naar de video's. Hoe komt dit?"
+
+#: vipers-video-quicktags.php:2110
+msgid "Here are five common causes:"
+msgstr "Hier zijn vijf mogelijke oorzaken"
+
+#: vipers-video-quicktags.php:2112
+#, php-format
+msgid "Are you running Firefox and AdBlock? AdBlock and certain block rules can prevent some videos, namely YouTube-hosted ones, from loading. Disable AdBlock or switch to <a href=\"%s\">AdBlock Plus</a>."
+msgstr "Maak je gebruik van Fireofox en AdBlock? AdBlock en derglijke blokkeerregels kunnen voorkomen dat sommige video's, voornamelijk YouTube-gehoste video's, niet worden geladen. Zet AdBlock uit of stap over naar <a href=\"%s\">AdBlock Plus</a>."
+
+#: vipers-video-quicktags.php:2113
+msgid "Your theme could be missing <code>&lt;?php wp_head();?&gt;</code> inside of it's <code>&lt;head&gt;</code> which means the required Javascript file can't automatically be added. If this is the case, you may be get an alert window popping when you attempt to view a post with a video in it (assuming your problem is not also #3). Edit your theme's <code>header.php</code> file and add it right before <code>&lt;/head&gt;</code>"
+msgstr "Je thema kan <code>&lt;?php wp_head();?&gt;</code> missen tussen de <code>&lt;head&gt;</code> waardoor het benodigde Javascript niet kan worden toegevoegd. Als dit de oorzaak is krijg je waarschijnlijk een venster op je scherm wanneer je probeert om een artikel te zien waar de video in zit (veronderstellend dat je probleem is niet hetzelfde als #3). Bewerk je thema's <code>header.php</code> bestand en voeg het toe direct voor <code>&lt;/head&gt;</code>."
+
+#: vipers-video-quicktags.php:2114
+#: vipers-video-quicktags.php:2120
+#, php-format
+msgid "You may have Javascript disabled. This plugin embeds videos via Javascript to ensure the best experience. Please <a href=\"%s\">enable it</a>."
+msgstr "Je hebt mogelijk Javascript uitgeschakeld. Deze plugin embed video's via Javascript om je de beste resultaten te geven. Zet het alsjeblieft <a href=\"%s\">weer aan</a>."
+
+#: vipers-video-quicktags.php:2115
+#: vipers-video-quicktags.php:2121
+#, php-format
+msgid "You may not have the latest version of Flash installed. Please <a href=\"%s\">install it</a>."
+msgstr "Je hebt mogelijk niet de nieuwste versie van Flas geïnstalleerd. <a href=\"%s\">Installeer het</a> asljeblieft."
+
+#: vipers-video-quicktags.php:2119
+#, php-format
+msgid "Are you running Firefox and AdBlock? AdBlock and certain block rules can result in the videos, namely YouTube-hosted ones, not loading. Disable AdBlock or switch to <a href=\"%s\">AdBlock Plus</a>."
+msgstr "Maak je gebruik van Fireofox en AdBlock? AdBlock en derglijke blokkeerregels kunnen voorkomen dat sommige video's, voornamelijk YouTube-gehoste video's, niet worden geladen. Zet AdBlock uit of stap over naar <a href=\"%s\">AdBlock Plus</a>."
+
+#: vipers-video-quicktags.php:2127
+msgid "Where do I get the code from to embed a Viddler video?"
+msgstr "Waar haal ik de link van een Viddler video vandaan?"
+
+#: vipers-video-quicktags.php:2129
+msgid "Since the URL to a video on Viddler has nothing in common with the embed URL, you must use WordPress.com-style format. Go to the video on Viddler, click the &quot;Embed This&quot; button below the video, and then select the WordPress.com format. You can paste that code directly into a post or Page and it will embed the video."
+msgstr "Omdat de link van een Viddler video niks met de embed link te maken heeft moet je de Wordpress.com-stijl gebruiken. Ga naar de video op Viddler, klik de &quot;Embed This&quot; knop onder de video en selecteer daarna de WordPress.com opmaak. Je kunt deze code knippen en rechtstreeks in een bericht plakken, de video wordt dan embed."
+
+#: vipers-video-quicktags.php:2134
+msgid "Where do I get the code from to embed a Blip.tv video?"
+msgstr "Waar haal ik de link van een Blip.tv video vandaan?"
+
+#: vipers-video-quicktags.php:2136
+msgid "Since the URL to a video on Blip.tv has nothing in common with the embed URL, you must use WordPress.com-style format. Go to the video on Blip.tv, click on the yellow &quot;Share&quot; dropdown to the right of the video and select &quot;Embed&quot;. Next select &quot;WordPress.com&quot; from the &quot;Show Player&quot; dropdown. Finally press &quot;Go&quot;. You can paste that code directly into a post or Page and it will embed the video."
+msgstr "Omdat de link van een Blip.tv video niks met de embed link te maken heeft moet je de Wordpress.com-stijl gebruiken. Ga naar de video op Blip.tv, klik op het gele &quot;Share&quot; menu aan de rechterkant van de video en selecteer &quot;Embed&quot;. Daarna selecteer je &quot;WordPress.com&quot; van het &quot;Show Player&quot; keuzemenu. Als laatste klik je op &quot;Go&quot;. Je kunt deze code knippen en rechtstreeks in een bericht plakken, de video wordt dan embed. "
+
+#: vipers-video-quicktags.php:2138
+msgid "<strong>NOTE:</strong> Ignore the warning message. This plugin adds support for the WordPress.com so it <strong>will</strong> work on your blog."
+msgstr "<strong>LET OP:</strong> Negeer de waarschuwing. Deze plugin voegt ondersteuning voor de WordPress.com dus het gaat ook op <strong>jouw</strong> blog werken."
+
+#: vipers-video-quicktags.php:2142
+msgid "Why doesn't this plugin support a site I want to embed videos from?"
+msgstr "Waarom ondersteunt deze plugin niet alle video-websites?"
+
+#: vipers-video-quicktags.php:2144
+msgid "There's a couple likely reasons:"
+msgstr "Er zijn verschillende redenen:"
+
+#: vipers-video-quicktags.php:2146
+msgid "The website may use an embed URL that has nothing in common with the URL in your address bar. This means that even if you give this plugin the URL to the video, it has no easy way of figuring out the embed URL."
+msgstr "De website gebruikt links, die niks met de betreffende video te maken heeft, in de adresbalk. Dit betekent dat, ook al geef je de link naar de betreffende video, er geen video getoond kan worden vanuit de gegeven link."
+
+#: vipers-video-quicktags.php:2147
+msgid "The website may be too small, fringe case, etc. to be worth supporting. There's no real point in this plugin adding support for a video site that only one or two people will use."
+msgstr "De website is te klein, beroerd geprogrammeerd, etc. om ondersteund te worden. Je maakt geen punt met een plugin om ondersteuning te bieden aan een video-website waar maar twee mensen komen. "
+
+#: vipers-video-quicktags.php:2148
+#, php-format
+msgid "I may have just never heard of the site. Please make a thread on <a href='%s'>my forums</a> with an example link to a video on the site and I'll take a look at it."
+msgstr "De door jou genoemde website ken ik niet. Wil je dat ik de website wel moet kennen? Maak een topic aan op <a href='%s'>mijn forum</a> met een voorbeeld link naar de door jou bedoelde video. Ik ga er dan naar kijken."
+
+#: vipers-video-quicktags.php:2150
+#, php-format
+msgid "This plugin does have the ability to embed any Flash file though. See the <a href=\"%s\" class=\"expandolink\">Flash shortcode question</a> for details on that."
+msgstr "Deze plugin heeft de mogelijkheid om altijd een Flas bestand te embedden. Zie de <a href=\"%s\" class=\"expandolink\">Flash snelcode vraag</a> voor de details hierover."
+
+#: vipers-video-quicktags.php:2154
+msgid "There are still red bits (hovering over buttons) in my YouTube embed. What gives?"
+msgstr "Er zijn nog steeds rode gedeelten (bij muisovergang over de knoppen) in mijn YouTube video. Hoe kan dit?"
+
+#: vipers-video-quicktags.php:2156
+msgid "YouTube does not provide a method to change that color."
+msgstr "YouTube ondersteunt geen methode om die kleur te wijzigen."
+
+#: vipers-video-quicktags.php:2160
+msgid "How can I change the size, colors, etc. for a specific video?"
+msgstr "Hoe kan ik de grootte, kleur etc. wijzigen voor een individuele video?"
+
+#: vipers-video-quicktags.php:2162
+#, php-format
+msgid "You can control many thing via the WordPress shortcode system that you use to embed videos in your posts. Shortcodes are similiar to <a href=\"%s\">BBCode</a>. Here are some example shortcodes:"
+msgstr "je kunt veel zaken instellen via het WordPress snelcode systeem. welke gebruikt wordt voor het embedden van video's in je berichte. Snelcodes zijn gelijk aan <a href=\"%s\">BBCode</a>. Hier zijn enkele voorbeeldcode's:"
+
+#: vipers-video-quicktags.php:2168
+msgid "Any value that is not entered will fall back to the default."
+msgstr "Elke waarde die niet ingegeven is wordt als standaard weergegeven."
+
+#: vipers-video-quicktags.php:2172
+#: vipers-video-quicktags.php:2189
+#: vipers-video-quicktags.php:2199
+#: vipers-video-quicktags.php:2214
+#: vipers-video-quicktags.php:2228
+#: vipers-video-quicktags.php:2238
+#: vipers-video-quicktags.php:2244
+#: vipers-video-quicktags.php:2264
+#: vipers-video-quicktags.php:2280
+#: vipers-video-quicktags.php:2294
+#, php-format
+msgid "What are the available parameters for the %s shortcode?"
+msgstr "Wat zijn de beschikbare parameters voor de %s snelccode?"
+
+#: vipers-video-quicktags.php:2175
+#: vipers-video-quicktags.php:2192
+#: vipers-video-quicktags.php:2202
+#: vipers-video-quicktags.php:2217
+#: vipers-video-quicktags.php:2231
+#: vipers-video-quicktags.php:2247
+#: vipers-video-quicktags.php:2258
+#: vipers-video-quicktags.php:2267
+#: vipers-video-quicktags.php:2284
+#: vipers-video-quicktags.php:2298
+#, php-format
+msgid "%s &#8212; width in pixels"
+msgstr "%s &#8212; breedte in pixels"
+
+#: vipers-video-quicktags.php:2176
+#: vipers-video-quicktags.php:2193
+#: vipers-video-quicktags.php:2203
+#: vipers-video-quicktags.php:2218
+#: vipers-video-quicktags.php:2232
+#: vipers-video-quicktags.php:2248
+#: vipers-video-quicktags.php:2259
+#: vipers-video-quicktags.php:2268
+#: vipers-video-quicktags.php:2285
+#: vipers-video-quicktags.php:2299
+#, php-format
+msgid "%s &#8212; height in pixels"
+msgstr "%s &#8212; hoogte in pixels"
+
+#: vipers-video-quicktags.php:2177
+#, php-format
+msgid "%s &#8212; player border color in hex"
+msgstr "%s &#8212; randkleur in hex"
+
+#: vipers-video-quicktags.php:2178
+#, php-format
+msgid "%s &#8212; player fill color in hex"
+msgstr "%s &#8212; achtergrondkleur in hex"
+
+#: vipers-video-quicktags.php:2179
+#, php-format
+msgid "%s &#8212; show a border or not (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon een rand of niet (<code>0</code> of <code>1</code>)"
+
+#: vipers-video-quicktags.php:2180
+#, php-format
+msgid "%s &#8212; show related videos, URL, embed details, etc. at the end of playback (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon gerelateerde video's links, embed details ect. aan het einde van afspelen (<code>0</code> of <code>1</code>) "
+
+#: vipers-video-quicktags.php:2181
+#: vipers-video-quicktags.php:2223
+#, php-format
+msgid "%s &#8212; show fullscreen button (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon beeldvullend-knop (<code>0</code> of <code>1</code>)"
+
+#: vipers-video-quicktags.php:2182
+#: vipers-video-quicktags.php:2194
+#: vipers-video-quicktags.php:2208
+#: vipers-video-quicktags.php:2233
+#, php-format
+msgid "%s &#8212; automatically start playing (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; start automatisch afspelen (<code>0</code> of <code>1</code>)"
+
+#: vipers-video-quicktags.php:2183
+#, php-format
+msgid "%s &#8212; loop playback (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; herhaald afspelen (<code>0</code> of <code>1</code>)"
+
+#: vipers-video-quicktags.php:2184
+#, php-format
+msgid "%s &#8212; quality value for video playback (<code>0</code> for low quality FLV, <code>18</code> for high quality MP4, <code>6</code> for high quality FLV)"
+msgstr "%s &#8212; kwaliteit voor het afspelen van video (<code>0</code> voor lage kwaliteit FLV, <code>18</code> voor hoge kwaliteit MP4, <code>6</code> voor hoge kwaliteit FLV)"
+
+#: vipers-video-quicktags.php:2204
+#, php-format
+msgid "%s &#8212; toolbar background color in hex"
+msgstr "%s &#8212; knoppenbalk achtergrond in hex"
+
+#: vipers-video-quicktags.php:2205
+#, php-format
+msgid "%s &#8212; toolbar glow color in hex"
+msgstr "%s &#8212;  knoppenbalk glimkleur in hex"
+
+#: vipers-video-quicktags.php:2206
+#, php-format
+msgid "%s &#8212; button/text color in hex"
+msgstr "%s &#8212; knoppen/tekst kleur in hex"
+
+#: vipers-video-quicktags.php:2207
+#, php-format
+msgid "%s &#8212; seekbar color in hex"
+msgstr "%s &#8212; zoekbalk kleur in hex"
+
+#: vipers-video-quicktags.php:2209
+#, php-format
+msgid "%s &#8212; show related video (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon gerelateerde video (<code>0</code> of <code>1</code>)"
+
+#: vipers-video-quicktags.php:2219
+#, php-format
+msgid "%s &#8212; player color in hex"
+msgstr "%s &#8212; speler kleur in hex"
+
+#: vipers-video-quicktags.php:2220
+#, php-format
+msgid "%s &#8212; show uploader's picture (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon afbeelding van de inzender (<code>0</code> of <code>1</code>) "
+
+#: vipers-video-quicktags.php:2221
+#, php-format
+msgid "%s &#8212; show video title (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon video titel (<code>0</code> of <code>1</code>)"
+
+#: vipers-video-quicktags.php:2222
+#, php-format
+msgid "%s &#8212; show video author (<code>0</code> or <code>1</code>)"
+msgstr "%s &#8212; toon videomaker (<code>0</code> of <code>1</code>) "
+
+#: vipers-video-quicktags.php:2240
+msgid "Since the WordPress.com shortcode format is used for embedding Viddler videos, there are no customizable parameters for the Viddler shortcode. The WordPress.com shortcode must be used as the URL of the video and the video's embed URL share nothing in common."
+msgstr "Omdat de WordPress.com snelcode opmaak is gebruikt voor Viddler video's zijn er geen aanpasbare instellingen voor de Viddler snelcode. De WordPress.com snelcode moet worden gebruikt als de link van de video en de embed link niks met elkaar te maken hebben. "
+
+#: vipers-video-quicktags.php:2249
+#, php-format
+msgid "%s &#8212; show video details (<code>0</code> or <code>1</code>), defaults to 1"
+msgstr "%s &#8212; toon video details (<code>0</code> of <code>1</code>),  standaard op 1"
+
+#: vipers-video-quicktags.php:2254
+msgid "What are the available parameters for the Metacafe, Blip.tv, IFILM/Spike, and MySpace shortcodes?"
+msgstr "Wat zijn de beschikbare instellingen voor de Metacafe, Blip.tv IFILM/Spike en MySpace snelcodes?"
+
+#: vipers-video-quicktags.php:2256
+msgid "All of these video formats only support the following:"
+msgstr "Alle videoformaten ondersteunen alleen het volgende:"
+
+#: vipers-video-quicktags.php:2269
+#, php-format
+msgid "%s &#8212; the URL to the preview image, defaults to the same URL as the video file but <code>.jpg</code> instead of <code>.flv</code>"
+msgstr "%s &#8212; de link naar de voorvertoningsafbeelding, is standaard dezelfde link als het videobestand maar in <code>.flv</code> plaats van <code>.jpg</code>."
+
+#: vipers-video-quicktags.php:2270
+#, php-format
+msgid "%s &#8212; player control bar background color in hex"
+msgstr "%s &#8212; speler knoppenbalk achtergrondkleur in hex"
+
+#: vipers-video-quicktags.php:2271
+#, php-format
+msgid "%s &#8212; player icon/text color in hex"
+msgstr "%s &#8212; speler icoon/tekst kleur in hex"
+
+#: vipers-video-quicktags.php:2272
+#, php-format
+msgid "%s &#8212; player icon/text hover color in hex"
+msgstr "%s &#8212; speler icoon/tekst muisovergang kleur in hex"
+
+#: vipers-video-quicktags.php:2273
+#, php-format
+msgid "%s &#8212; player video background color in hex"
+msgstr "%s &#8212; speler video achtergrond kleur in hex"
+
+#: vipers-video-quicktags.php:2274
+#, php-format
+msgid "%s &#8212; volume percentage, defaults to <code>100</code>"
+msgstr "%s &#8212; volume percentage, standaard op <code>100</code>"
+
+#: vipers-video-quicktags.php:2275
+#, php-format
+msgid "%1$s &#8212; %2$s"
+msgstr "%1$s &#8212; %2$s"
+
+#: vipers-video-quicktags.php:2282
+msgid "The results of embedding a Quicktime video can very widely depending on the user's computer and what software they have installed, but if you must embed a Quicktime video here are the parameters:"
+msgstr "De resultaten van het embedden van een QuickTime video kan erg variëren, afhankelijk van de computer waarop het bekeken wordt en welke software daar is geïnstalleerd. Als je echt QuickTime <strong>moet</strong> embedden zijn hier de instellingen:"
+
+#: vipers-video-quicktags.php:2286
+#: vipers-video-quicktags.php:2289
+#, php-format
+msgid "%s &#8212; automatically start playing (<code>0</code> or <code>1</code>), defaults to 0"
+msgstr "%s &#8212; automatisch afspelen (<code>0</code> of <code>1</code>), standaard op 0"
+
+#: vipers-video-quicktags.php:2287
+#, php-format
+msgid "%s &#8212; use click-to-play placeholder image (<code>0</code> or <code>1</code>), defaults to 0"
+msgstr "%s &#8212; gebruik de klik-om-te-spelen afbeelding (<code>0</code> of <code>1</code>), standaard op 0"
+
+#: vipers-video-quicktags.php:2288
+#, php-format
+msgid "%s &#8212; the URL to the placeholder image, defaults to the same URL as the video file but <code>.jpg</code> instead of <code>.mov</code>"
+msgstr ""
+
+#: vipers-video-quicktags.php:2294
+msgid "video file"
+msgstr "video bestand"
+
+#: vipers-video-quicktags.php:2296
+msgid "The results of embedding a generic video can very widely depending on the user's computer and what software they have installed, but if you must embed a generic video here are the parameters:"
+msgstr ""
+
+#: vipers-video-quicktags.php:2300
+#, php-format
+msgid "%s &#8212; attempt to use Windows Media Player for users of Windows (<code>0</code> or <code>1</code>)"
+msgstr ""
+
+#: vipers-video-quicktags.php:2306
+msgid "What's this &quot;Custom CSS&quot; thing on the &quot;Additional Settings&quot; tab for?"
+msgstr ""
+
+#: vipers-video-quicktags.php:2308
+msgid "It's a quick and easy way to control the look of videos posted on your site without having to go in and edit the <code>style.css</code> file. Just enter some CSS of your own into the box and it will be outputted in the header of your theme."
+msgstr ""
+
+#: vipers-video-quicktags.php:2309
+msgid "Some examples:"
+msgstr "Enkele voorbeelden"
+
+#: vipers-video-quicktags.php:2311
+#, php-format
+msgid "Give a red border to all videos: %s"
+msgstr "Geef een rode rand bij alle video's: %s"
+
+#: vipers-video-quicktags.php:2312
+#, php-format
+msgid "Float only YouTube videos to the left: %s"
+msgstr "Zet alleen YouTube video's aan de linkerkant: %s"
+
+#: vipers-video-quicktags.php:2318
+msgid "How can I embed a generic Flash file or a video from a website this plugin doesn't support?"
+msgstr "Hoe kan ik een algemeen Flas bestand of een video van een website embedden die niet ondersteund wordt door deze plugin?"
+
+#: vipers-video-quicktags.php:2320
+#, php-format
+msgid "This plugin has a %s shortcode that can be used to embed <strong>any</strong> Flash file. Here is the format:"
+msgstr "Deze plugin heeft een %s snelcode die gebruikt kan worden om <strong>ieder</strong> Flash bestand te embedden. Hier is de opmaak:"
+
+#: vipers-video-quicktags.php:2325
+msgid "Why does your plugin embed Quicktime and other regular video files so poorly? Can't you do a better job?"
+msgstr "Waarom gaat het embedden van QuickTime en andere reguliere videobestanden zo slecht? Kun je niet wat beters aanbieden?"
+
+#: vipers-video-quicktags.php:2327
+#, php-format
+msgid "Embedding Quiktime and other regular video files is a major pain in the ass and it's incredibly hard to get it to work in all browsers and operating systems. I <strong>strongly</strong> suggest converting the video to <a href=\"%1$s\">Flash Video</a> format or even <a href=\"%2$s\">H.264</a> format and then using the Flash Video (FLV) embed type. There are free converters out there for both formats and doing so will create a much better experience for your visitors."
+msgstr "Het embedden van QuickTime en andere reguliere videobestanden is een groot probleem. Het is ontzettend lastig om het werkend te krijgen met alle browsers en besturingssystemen. I raad je <strong>sterk</strong> aan om de video te converteren naar <a href=\"%1$s\">Flash Video</a> of zelfs <a href=\"%2$s\">H.264</a> formaat en dan de Flash Video (FLV) embed type te gebruiken. Er zijn gratis converters te verkrijgen voor beide formaten en door dit te doen creëer je een betere ervaring voor je bezoekers."
+
+#: vipers-video-quicktags.php:2336
+msgid "This plugin uses many scripts and packages written by others. They deserve credit too, so here they are in no particular order:"
+msgstr "Deze plugin gebruikt veel scripts en pakketten die geschreven zijn door anderen. Ook zij verdienen hun waardering. Hier komen ze in willekeurige volgorde:"
+
+#: vipers-video-quicktags.php:2339
+#, php-format
+msgid "The authors of and contributors to <a href=\"%s\">SWFObject</a> which is used to embed the Flash-based videos."
+msgstr "De schrijvers en bijdragers van <a href=\"%s\">SWFObject</a> welke gebruikt wordt voor het embedden van Flash gebaseerde video's."
+
+#: vipers-video-quicktags.php:2340
+#, php-format
+msgid "<strong><a href=\"%1$s\">Jeroen Wijering</a></strong> for writing the <a href=\"%2$s\">JW FLV Media Player</a> which is used for FLV playback."
+msgstr "<strong><a href=\"%1$s\">Jeroen Wijering</a></strong> voor het schrijven van <a href=\"%2$s\">JW FLV Media Player</a> welke gebruikt wordt voor FLV af te spelen."
+
+#: vipers-video-quicktags.php:2341
+#, php-format
+msgid "<strong><a href=\"%1$s\">Steven Wittens</a></strong> for writing <a href=\"%2$s\">Farbtastic</a>, the fantastic Javascript color picker used in this plugin."
+msgstr "<strong><a href=\"%1$s\">Steven Wittens</a></strong> voor het schrijven van <a href=\"%2$s\">Farbtastic</a>, de prachtige Javascript kleurenkiezer in deze plugin."
+
+#: vipers-video-quicktags.php:2342
+#, php-format
+msgid "<strong><a href=\"%1$s\">Ozh</a></strong> for writing his <a href=\"%2$s\">Liz Comment Counter</a> plugin which introduced me to Farbtastic and provided me with some Javascript to base my color picker and color preset code on."
+msgstr "<strong><a href=\"%1$s\">Ozh</a></strong> voor het schrijven vna zijn <a href=\"%2$s\">Liz Comment Counter</a> plugin welke leidde tot Farbtastic en mij wat Javascript gaf voor de basis van mijn kleurenkiezer en kleurinstellingscodes."
+
+#: vipers-video-quicktags.php:2343
+#, php-format
+msgid "<strong><a href=\"%s\">Andrew Ozz</a></strong> for helping me out with some TinyMCE-related Javascript and in turn saving me a ton of time."
+msgstr "<strong><a href=\"%s\">Andrew Ozz</a></strong> voor het helpen met enkele TinyMCE-gerelateerde Javascripts en het besparen van veel van mijn tijd. "
+
+#: vipers-video-quicktags.php:2344
+#, php-format
+msgid "<strong><a href=\"%1$s\">Geoff Stearns</a></strong> for writing <a href=\"%2$s\">QTObject</a> which is used to embed Quicktime videos."
+msgstr "<strong><a href=\"%1$s\">Geoff Stearns</a></strong> voor het schrijven van <a href=\"%2$s\">QTObject</a> welke gebruikt wordt voor het embedden van QuickTime video's."
+
+#: vipers-video-quicktags.php:2345
+#, php-format
+msgid "<strong><a href=\"%1$s\">Mark James</a></strong> for creating the <a href=\"%2$s\">Silk icon pack</a>. This plugin uses at least one of the icons from that pack."
+msgstr "<strong><a href=\"%1$s\">Mark James</a></strong> voor het maken van de <a href=\"%2$s\">Silk icoon pakket</a>. Deze plugin gebruikt ten minste één van de iconen van dat pakket."
+
+#: vipers-video-quicktags.php:2346
+#, php-format
+msgid "The authors of and contributors to <a href=\"%s\">jQuery</a>, the awesome Javascript package used by WordPress."
+msgstr "De schrijvers en bijdragers van <a href=\"%s\">jQuery</a>, het geweildige Javascript pakket gebruikt door WordPress."
+
+#: vipers-video-quicktags.php:2347
+#, php-format
+msgid "Everyone who's helped create <a href='%s'>WordPress</a> as without it and it's excellent API, this plugin obviously wouldn't exist."
+msgstr "Iedereen die geholpen heeft om <a href='%s'>WordPress</a> en de API die daarbij hoort. Zonder deze mogelijkheden zou deze plugin niet bestaan."
+
+#: vipers-video-quicktags.php:2348
+msgid "Everyone who has provided bug reports and feature suggestions for this plugin."
+msgstr "Iedereen die fout-rapporten en opmerkingen heeft gestuurd voor deze plugin."
+
+#: vipers-video-quicktags.php:2351
+msgid "The following people have been nice enough to translate this plugin into other languages:"
+msgstr "De volgende mensen zijn zo aardig geweest om deze plugin te vertalen:"
+
+#: vipers-video-quicktags.php:2354
+#, php-format
+msgid "<strong>Dutch:</strong> %s"
+msgstr "<strong>Nederlands:</strong> %s"
+
+#: vipers-video-quicktags.php:2355
+#, php-format
+msgid "<strong>Italian:</strong> %s"
+msgstr "<strong>Italiaans:</strong> %s"
+
+#: vipers-video-quicktags.php:2356
+#, php-format
+msgid "<strong>Polish:</strong> %s"
+msgstr "<strong>Pools:</strong> %s"
+
+#: vipers-video-quicktags.php:2357
+#, php-format
+msgid "<strong>Russian:</strong> %s"
+msgstr "<strong>Russisch:</strong> %s"
+
+#: vipers-video-quicktags.php:2360
+#, php-format
+msgid "If you'd like to use this plugin in another language and have your name listed here, just translate the strings in the provided <a href=\"%1$s\">template file</a> located in this plugin's &quot;<code>localization</code>&quot; folder and then <a href=\"%2$s\">send it to me</a>. For help, see the <a href=\"%3$s\">WordPress Codex</a>."
+msgstr "Als je deze plugin wilt gebruiken in een andere taal en je wilt je naam hier hebben staan, vertaal de regels in het aangeboden <a href=\"%1$s\">taalbestand</a> in de &quot;<code>localization</code>&quot; map en <a href=\"%2$s\">stuur het daarna naar mij</a>."
+
+#: vipers-video-quicktags.php:2367
+msgid "Click the above links to switch between tabs."
+msgstr "Klik op bovenstaande links om vna tab te wisselen."
+
+#: vipers-video-quicktags.php:2400
+msgid ""
+"Do you agree to the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license? A link to it can be found to the left.\n"
+"\n"
+"In short though, you cannot use JW's FLV Media Player on a commercial site without purchasing a commercial license."
+msgstr "Accepteer je de Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported licentie? Een link hier naar toe staat aan de linkerkant.\n"
+"\n"
+"In het kort nog even: je kunt JW's FLV Media Player <strong>niet</strong> op een commerciële website gebruiken zonder een licentie te kopen."
+
+#: vipers-video-quicktags.php:2411
+msgid "Media Type"
+msgstr "Media type"
+
+#: vipers-video-quicktags.php:2412
+msgid "Show Editor Button?"
+msgstr "Toon bewerk knop?"
+
+#: vipers-video-quicktags.php:2413
+msgid "Default Width"
+msgstr "Standaard breedte"
+
+#: vipers-video-quicktags.php:2414
+msgid "Default Height"
+msgstr "Standaard hoogte"
+
+#: vipers-video-quicktags.php:2415
+msgid "Keep Aspect Ratio?"
+msgstr "Behoud beeldverhoudingen?"
+
+#: vipers-video-quicktags.php:2544
+msgid "MySpaceTV"
+msgstr "MySpaceTV"
+
+#: vipers-video-quicktags.php:2561
+#, php-format
+msgid "<a href=\"%1$s\">JW's FLV Media Player</a> is covered by the <a href=\"%2$s\">Creative Commons Noncommercial<br />license</a> which means you cannot use it on a <a href=\"%3$s\">commerical website</a>."
+msgstr "<a href=\"%1$s\">JW's FLV Media Player</a> is vrijgegeven onder de <a href=\"%2$s\">Creative Commons Noncommercial<br />license</a> wat betekent dat het niet gebruikt mag worden op <a href=\"%3$s\">commerciële websites</a>."
+
+#: vipers-video-quicktags.php:2576
+msgid "Generic Video File"
+msgstr "Algemeen videobestand"
+
+#: vipers-video-quicktags.php:2576
+msgid "This part of the plugin is very buggy as embedding video files can be hard.<br />Consider trying TinyMCE's native video embedder instead."
+msgstr "Dit gedeelte van de plugin is kritisch, het embedden van videos kan lastig zijn. <br /> Overweeg het proberen van TinyMCE's eigen video-embedder daar voor in de plaats."
+
+#: vipers-video-quicktags.php:2591
+msgid "Save Changes"
+msgstr "Bewaar wijzigingen"
+
+#: vipers-video-quicktags.php:2592
+msgid "Reset Tab To Defaults"
+msgstr "Herstel Tab naar standaarden"
+
+#: vipers-video-quicktags.php:2652
+#, php-format
+msgid "<strong>ERROR:</strong> %s"
+msgstr "<strong>FOUTJE:</strong> %s"
+
+#: vipers-video-quicktags.php:2692
+msgid "Stage6 is no more, so this Stage6-hosted video cannot be displayed."
+msgstr "Stage6 bestaat niet meer, dus Stage6-gehoste video's kunnen niet getoond worden."
+
+#: vipers-video-quicktags.php:2707
+#: vipers-video-quicktags.php:2784
+#: vipers-video-quicktags.php:2824
+#: vipers-video-quicktags.php:2882
+#: vipers-video-quicktags.php:2930
+#: vipers-video-quicktags.php:2995
+#: vipers-video-quicktags.php:3065
+#: vipers-video-quicktags.php:3105
+#: vipers-video-quicktags.php:3140
+#, php-format
+msgid "No URL or video ID was passed to the %s BBCode"
+msgstr "Er staat geen link of video ID in de %s BBCode"
+
+#: vipers-video-quicktags.php:2731
+#: vipers-video-quicktags.php:2739
+#: vipers-video-quicktags.php:2798
+#: vipers-video-quicktags.php:2844
+#: vipers-video-quicktags.php:2900
+#: vipers-video-quicktags.php:2944
+#: vipers-video-quicktags.php:3008
+#: vipers-video-quicktags.php:3079
+#: vipers-video-quicktags.php:3118
+#: vipers-video-quicktags.php:3153
+#, php-format
+msgid "Unable to parse URL, check for correct %s format"
+msgstr "Niet mogelijk om de link te laden, controleer op een correct %s formaat"
+
+#: vipers-video-quicktags.php:2743
+#: vipers-video-quicktags.php:2750
+msgid "YouTube Preview Image"
+msgstr "YouTube voorvertoningsafbeelding"
+
+#: vipers-video-quicktags.php:2965
+msgid "Sorry, but the only format that is supported for Viddler is the WordPress.com-style format rather than the URL. You can find it in the &quot;Embed This&quot; window."
+msgstr "Sorry maar het enige formaat wat ondersteund wordt voor Viddler is het WordPress.com stijl formaat en niet de link. Je kunt het vinden op dit &quot;Embed This&quot; scherm."
+
+#: vipers-video-quicktags.php:2980
+#: vipers-video-quicktags.php:3042
+#, php-format
+msgid "An invalid %s shortcode format was used. Please check your code."
+msgstr "Een ongeldige %s snelcode formaat is gebruikt. Controleer je code nog eens."
+
+#: vipers-video-quicktags.php:2987
+#: vipers-video-quicktags.php:3050
+#: vipers-video-quicktags.php:3348
+#, php-format
+msgid "Please <a href=\"%1$s\">enable Javascript</a> and <a href=\"%2$s\">Flash</a> to view this %3$s video."
+msgstr "<a href=\"%1$s\">Zet Javascript</a> en <a href=\"%2$s\">Flash</a> aan om deze %3$s video te zien. "
+
+#: vipers-video-quicktags.php:3029
+msgid "Sorry, but the only format that is supported for Blip.tv is the WordPress.com-style format. You can find it at Share -&gt; Embed -&gt; WordPress.com."
+msgstr "Sorry, het enige formaat wat ondersteund wordt voor Blip.tv is het WordPress.com stijl formaat. Je kunt het vinden op Share -&gt; Embed -&gt; WordPress.com."
+
+#: vipers-video-quicktags.php:3175
+#: vipers-video-quicktags.php:3246
+#: vipers-video-quicktags.php:3280
+#: vipers-video-quicktags.php:3323
+#, php-format
+msgid "No URL was passed to the %s BBCode"
+msgstr "Er is egen link doorgegeven aan de %s BBCode"
+
+#: vipers-video-quicktags.php:3323
+msgid "generic Flash embed"
+msgstr "Algemeen Flash embed"
+
+#: vipers-video-quicktags.php:3348
+msgid "Flash"
+msgstr "Flash"
+
+#: vipers-video-quicktags.php:3366
+msgid "Site Administrator: Your theme is missing <?php wp_head(); ?> inside of it's <head> which is required for Viper's Video Quicktags. Please edit your theme's header.php and add it right before </head>."
+msgstr "Website beheerder: Uw thema mist <?php wp_head(); ?> tussen de <head> welke nodig is voor Vipers Video Quicktags. Bewerk je thema's <strong>header.php</strong> en voeg het toe direct voor </head>."
+

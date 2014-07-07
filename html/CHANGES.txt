@@ -9,7 +9,8 @@ PORTAL
 - Blocks only appear at home page
 
 WORDPRESS
-- Widget Visibility Without Jetpack 0.4
+- Added Widget Visibility Without Jetpack 0.4
+- Added Viper’s Video Quicktags 6.5.2
 
 
 
