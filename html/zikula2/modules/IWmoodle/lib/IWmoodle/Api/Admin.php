@@ -63,14 +63,10 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         if (!$connect) {
             return LogUtil::registerError($this->__('The connection to Moodle database has failed.'));
         }
-        $sql = "SELECT
-			id, fullname, to_char(summary), shortname, format, visible
-			FROM
-				$prefix" . "course
-			WHERE
-				category > 0
-			ORDER BY
-				id DESC";
+        $sql = "SELECT id, fullname, dbms_lob.substr(summary, 3900, 1), shortname, format, visible
+			FROM $prefix" . "course
+			WHERE category > 0
+			ORDER BY id DESC";
         $results = oci_parse($connect, $sql);
         $r = oci_execute($results);
         if (!$r) {

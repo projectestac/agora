@@ -13,6 +13,9 @@ WORDPRESS
 - Added Viper’s Video Quicktags 6.5.2
 - Added Google Calendar Events 0.7.2
 
+ZIKULA 2:
+- IWmoodle: Fixed loading of Moodle course list when summary is too big
+
 
 Changes 14.07.04
 ---------------------------------------------------------------------------------------
