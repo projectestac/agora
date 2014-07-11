@@ -15,6 +15,7 @@ WORDPRESS
 
 ZIKULA 2:
 - IWmoodle: Fixed loading of Moodle course list when summary is too big
+- IWstats: Fixed listener creation on upgrade
 
 
 Changes 14.07.04

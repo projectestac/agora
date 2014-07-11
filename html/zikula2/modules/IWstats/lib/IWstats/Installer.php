@@ -71,6 +71,10 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
     public function Upgrade($oldversion) {
 
         switch ($oldversion) {
+            case '0.2':
+                // Create the system init hook (previous versions are for Zikula 1.2)
+                EventUtil::registerPersistentModuleHandler('IWstats', 'core.postinit', array('IWstats_Listeners', 'coreinit'));
+
             case '3.0.0':
                 // Add new fields. Stop in case of error
                 if (!DBUtil::changeTable('IWstats')) {
@@ -83,6 +87,7 @@ class IWstats_Installer extends Zikula_AbstractInstaller {
                 DBUtil::createIndex($c['ipForward'], 'IWstats', 'ipForward');
                 DBUtil::createIndex($c['ipClient'], 'IWstats', 'ipClient');
                 DBUtil::createIndex($c['userAgent'], 'IWstats', 'userAgent');
+
                 break;
         }
 
