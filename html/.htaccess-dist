@@ -23,6 +23,9 @@ RewriteRule ^([^/]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/nodes/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]
 
+# Required for the proper functioning of cacti
+RewriteRule ^server-status$ - [L]
+
 # Required for WordPress
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
