@@ -2000,9 +2000,18 @@ class restore_calendarevents_structure_step extends restore_structure_step {
         } else {
             $params['instance'] = 0;
         }
+        //XTEC ************ MODIFICAT - To fix "inconsistent datatypes: expected - got CLOB" error (https://tracker.moodle.org/browse/MDL-40720)
+        //2014.07.15 @sarjona
+        $sql = 'SELECT id FROM {event} WHERE ' . $DB->sql_compare_text('name', 255) . ' = ' . $DB->sql_compare_text('?', 255).' AND courseid = ? AND
+                repeatid = ? AND modulename = ? AND timestart = ? AND timeduration =?
+                AND ' . $DB->sql_compare_text('description', 255) . ' = ' . $DB->sql_compare_text('?', 255);
+        //************ ORIGINAL
+        /*
         $sql = 'SELECT id FROM {event} WHERE name = ? AND courseid = ? AND
                 repeatid = ? AND modulename = ? AND timestart = ? AND timeduration =?
                 AND ' . $DB->sql_compare_text('description', 255) . ' = ' . $DB->sql_compare_text('?', 255);
+        */
+        //************ FI
         $arg = array ($params['name'], $params['courseid'], $params['repeatid'], $params['modulename'], $params['timestart'], $params['timeduration'], $params['description']);
         $result = $DB->record_exists_sql($sql, $arg);
         if (empty($result)) {
