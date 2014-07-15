@@ -433,9 +433,6 @@ class IWmessages_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }
 
-        // Let any hooks know that we have created a new item.
-        ModUtil::callHooks('item', 'create', $item['msg_id'], array('module' => 'IWmessages'));
-
         // Return the id of the newly created item to the calling process
         return $item['msg_id'];
     }
