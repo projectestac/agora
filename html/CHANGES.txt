@@ -13,11 +13,14 @@ WORDPRESS
 - Added Viper’s Video Quicktags 6.5.2
 - Added Google Calendar Events 0.7.2
 
-ZIKULA 2:
+ZIKULA 2
 - IWmoodle: Fixed loading of Moodle course list when summary is too big
 - IWstats: Fixed listener creation on upgrade
 - IWforms: Fixed deletion of notes in a form
 - IWforms: Removed error message when sending a copy of a note to private mailbox
+
+MOODLE 2
+- Fixed CLOB error with events when restoring courses with events
 
 
 Changes 14.07.04
