@@ -20,6 +20,7 @@ ZIKULA 2
 - IWforms: Removed error message when sending a copy of a note to private mailbox
 - IWdocmanager: Fixed sending of e-mail notifications when there is a new document waiting for validation
 - IWdocmanager: Updated catalan translation
+- Scribite: Added options to Xinha for users' request
 
 MOODLE 2
 - Fixed CLOB error with events when restoring courses with events
