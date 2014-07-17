@@ -22,6 +22,7 @@ ZIKULA 2
 - IWdocmanager: Updated catalan translation
 - Scribite: Added options to Xinha for users' request
 - IWxtec: Fixed E_DEPRECATED error
+- Users: Allow automatic membership to more than one group in bulk import
 
 MOODLE 2
 - Fixed CLOB error with events when restoring courses with events
