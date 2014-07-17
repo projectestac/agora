@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Blocks only appear at home page
+- Agoraportal: Updated services logos
 
 WORDPRESS
 - Added Widget Visibility Without Jetpack 0.4
