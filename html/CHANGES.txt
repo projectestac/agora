@@ -21,6 +21,7 @@ ZIKULA 2
 - IWdocmanager: Fixed sending of e-mail notifications when there is a new document waiting for validation
 - IWdocmanager: Updated catalan translation
 - Scribite: Added options to Xinha for users' request
+- IWxtec: Fixed E_DEPRECATED error
 
 MOODLE 2
 - Fixed CLOB error with events when restoring courses with events
