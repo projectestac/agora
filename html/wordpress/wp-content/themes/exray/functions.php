@@ -1,4 +1,18 @@
 <?php 
+
+// XTEC ************ AFEGIT - Deactivate heartbeat to reduce load on server
+// 2014.07.18 @aginard
+add_action('init', 'stop_heartbeat', 1);
+
+function stop_heartbeat() {
+    global $pagenow;
+
+    if (($pagenow != 'post.php') && ($pagenow != 'post-new.php')) {
+        wp_deregister_script('heartbeat');
+    }
+}
+//************ FI
+
 /***************************************************************/
 /* Define Constant */
 /***************************************************************/
