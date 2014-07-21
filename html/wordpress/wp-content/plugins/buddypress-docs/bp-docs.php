@@ -287,8 +287,18 @@ class BP_Docs {
 			'rewrite'      => array(
 				'slug'       => bp_docs_get_docs_slug(),
 				'with_front' => false
-			)
-		) );
+
+            // XTEC ************ MODIFICAT - Don't show option in admin menu because of custom menu
+            // 2014.07.21 @aginard
+			),
+            'show_in_menu'        => false,
+            //************ ORIGINAL
+            /*
+   			)
+            */
+            //************ FI
+
+        ) );
 
 		// Register the bp_doc post type
 		register_post_type( $this->post_type_name, $bp_docs_post_type_args );

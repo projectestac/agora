@@ -16,6 +16,7 @@ WORDPRESS
 - Added Theme Reactor 1.3.5
 - Exray: Deactivated Heartbeat
 - Added basic statistics collection
+- Admin menu: removed default BuddyPress links and added a global access page
 
 ZIKULA 2
 - IWmoodle: Fixed loading of Moodle course list when summary is too big

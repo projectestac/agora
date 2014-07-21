@@ -2123,7 +2123,17 @@ function ass_self_post_notification( $user_id = false ) {
  * @package BuddyPress Group Email Subscription
  */
 function ass_admin_menu() {
+    
+    // XTEC ************ AFEGIT - Option in main admin menu moved to a suboption in Settings. Cannot 
+    //                            be completely removed because page is not accessible
+    // 2014.07.21 @aginard
+    //************ ORIGINAL
+	add_submenu_page( 'options-general.php', __("Group Email Options", 'bp-ass'), __("Group Email Options", 'bp-ass'), 'manage_options', 'ass_admin_options', "ass_admin_options" );
+    /*
 	add_submenu_page( 'bp-general-settings', __("Group Email Options", 'bp-ass'), __("Group Email Options", 'bp-ass'), 'manage_options', 'ass_admin_options', "ass_admin_options" );
+    */
+    //************ FI
+
 }
 add_action( bp_core_admin_hook(), 'ass_admin_menu' );
 

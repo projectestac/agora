@@ -45,6 +45,12 @@ class bpModBackend extends bpModeration
 
 		add_action("admin_print_styles-$hook", array(&$this, 'admin_css'));
 		add_action("admin_print_scripts-$hook", array(&$this, 'admin_js'));
+        
+        // XTEC ************ AFEGIT - Remove creation of option in main admin menu
+        // 2014.07.21 @aginard
+        remove_menu_page('bp-moderation');
+        //************ FI
+
     }
 
     

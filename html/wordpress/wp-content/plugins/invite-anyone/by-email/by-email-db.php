@@ -102,7 +102,14 @@ class Invite_Anyone_Schema {
 			'hierarchical' 	=> false,
 			'menu_icon'	=> WP_PLUGIN_URL . '/invite-anyone/images/smallest_buddypress_icon_ev.png',
 			'supports' 	=> array( 'title', 'editor', 'custom-fields' )
-		), $this ) );
+
+            // XTEC ************ AFEGIT - Don't show option in admin menu because of custom menu
+            // 2014.07.21 @aginard
+			,
+            'show_in_menu'        => false,
+            //************ FI
+
+        ), $this ) );
 
 		// Define the labels to be used by the invitee taxonomy
 		$invitee_labels = apply_filters( 'invite_anyone_invitee_labels', array(

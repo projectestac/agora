@@ -624,3 +624,11 @@ if ( defined( 'BUDDYPRESS_LATE_LOAD' ) ) {
 }
 
 endif;
+
+
+// XTEC ************ AFEGIT - Add main option in admin menu for custom bbpress menus
+// 2014.07.21 @aginard
+
+include 'settings-tabs.php';
+
+//************ FI
