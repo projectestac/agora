@@ -119,17 +119,45 @@ function openid_wp_login_head() {
  * @action: login_form
  **/
 function openid_wp_login_form() {
-	echo '<hr id="openid_split" style="clear: both; margin-bottom: 1.0em; border: 0; border-top: 1px solid #999; height: 1px;" />';
+    
+    // XTEC ************ MODIFICAT - Show Moodle URL as a default in OpenID form
+    // 2014.07.22 @aginard
 
-	echo '
+    global $agora;
+
+    $cookie = $_COOKIE[$agora['server']['cookie']];
+    $data = explode('__', $cookie);
+    $dns = $data[0];
+    $url = $agora['server']['server'] . $agora['server']['base'] . $dns . '/moodle';
+
+    echo '<hr id="openid_split" style="clear: both; margin-bottom: 1.0em; border: 0; border-top: 1px solid #999; height: 1px;" />';
+
+    echo '
 	<p style="margin-bottom: 8px;">
 		<label style="display: block; margin-bottom: 5px;">' . __('Or login using an OpenID', 'openid') . '<br />
-		<input type="text" name="openid_identifier" id="openid_identifier" class="input openid_identifier" value="" size="20" tabindex="25" /></label>
+		<input style="font-size:0.8em;" type="text" name="openid_identifier" id="openid_identifier" class="input openid_identifier" value="' . $url . '" size="20" tabindex="25" /></label>
 	</p>
 
 	<p style="font-size: 0.9em; margin: 8px 0 24px 0;" id="what_is_openid">
-		<a href="http://openid.net/what/" target="_blank">'.__('Learn about OpenID', 'openid').'</a>
+		<a href="http://openid.net/what/" target="_blank">' . __('Learn about OpenID', 'openid') . '</a>
 	</p>';
+
+    //************ ORIGINAL
+    /*
+
+      echo '<hr id="openid_split" style="clear: both; margin-bottom: 1.0em; border: 0; border-top: 1px solid #999; height: 1px;" />';
+
+      echo '
+      <p style="margin-bottom: 8px;">
+      <label style="display: block; margin-bottom: 5px;">' . __('Or login using an OpenID', 'openid') . '<br />
+      <input type="text" name="openid_identifier" id="openid_identifier" class="input openid_identifier" value="" size="20" tabindex="25" /></label>
+      </p>
+
+      <p style="font-size: 0.9em; margin: 8px 0 24px 0;" id="what_is_openid">
+      <a href="http://openid.net/what/" target="_blank">'.__('Learn about OpenID', 'openid').'</a>
+      </p>';
+    */
+    //************ FI
 }
 
 
