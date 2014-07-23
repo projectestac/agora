@@ -11,9 +11,12 @@
     {if $serviceName eq 'moodle2'}
         {assign var='serviceName4URL' value='moodle'}
         {assign var='serviceName4User' value='moodle'}
-    {else}
+    {elseif $serviceName eq 'intranet'}
         {assign var='serviceName4URL' value='intranet'}
         {assign var='serviceName4User' value='intranet'}
+    {elseif $serviceName eq 'nodes'}
+        {assign var='serviceName4URL' value='nodes'}
+        {assign var='serviceName4User' value='nodes'}
     {/if}
     
     {if $serviceName neq 'marsupial'}
@@ -84,6 +87,19 @@
         de formaci&oacute; sobre l'administració de la intranet</a> a on hi 
         trobareu un conjunt important d'informaci&oacute; sobre l'&uacute;s 
         d'aquesta plataforma.
+    </p>
+    {/if}
+
+    {if $serviceName eq 'nodes'}
+    <p>
+        Tal i com s'especifica a les condicions d'&uacute;s del servei, 
+        recordeu que a la XTEC no hi ha cap figura destinada a solucionar les
+        q&uuml;estions plantejades en relaci&oacute; al funcionament del 
+        WordPress. Per tal de resoldre els dubtes relacionats amb aquest tema
+        podeu adre&ccedil;ar-vos als 
+        f&ograve;rums 
+        del projecte Nodes. En aquest f&ograve;rum tothom pot preguntar 
+        i respondre les q&uuml;estions que consideri oportunes.
     </p>
     {/if}
 

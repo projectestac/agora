@@ -27,6 +27,7 @@
     $agora['intranet']['userprefix']       = $agora['server']['userprefix'];
 
     // Params for WordPress
+    $agora['nodes']['dbtype']              = 'mysql';              // oci8po (Oracle), mysql, ...
     $agora['nodes']['prefix']              = 'wp';                  // Table prefix
     $agora['nodes']['userprefix']          = $agora['server']['userprefix'];
     $agora['nodes']['diskusagefile']       = 'diskUsageWp.txt';

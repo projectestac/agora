@@ -5,9 +5,13 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL:
+- config.php: Added param for nodes
+
 PORTAL
 - Blocks only appear at home page
 - Agoraportal: Updated services logos
+- Agoraportal: Added ability to customize WordPress info when activating a site
 
 WORDPRESS
 - Added Widget Visibility Without Jetpack 0.4

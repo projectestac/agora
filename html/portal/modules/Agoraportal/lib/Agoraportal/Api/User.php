@@ -1653,7 +1653,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
         // Ensure dbhost is set in intranet (MySQL) and serviceDB is set in Moodle (Oracle)
         $clientService = false;
-        if (($serviceName == 'intranet' && (is_null($host) || empty($host)))
+        if (((($serviceName == 'intranet') || ($serviceName == 'nodes')) && (is_null($host) || empty($host)))
            || ($serviceName == 'moodle2' && (is_null($serviceDB) || empty($serviceDB))) ) {
                 // Get all client_service info. This function is quite heavy so is worth trying to avoid it.
                 $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientServiceFull', array('serviceName' => $serviceName,
@@ -1669,8 +1669,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $databaseName = $agora['admin']['database'];
                 $host = $agora['admin']['host'] . ':' . $agora['admin']['port'];
                 $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
-                if (!mysql_select_db($databaseName, $connect))
+                if (!mysql_select_db($databaseName, $connect)) {
                     return false;
+                }
                 break;
             case 'intranet':
                 $databaseName = $agora['intranet']['userprefix'] . $database;
@@ -1678,8 +1679,19 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     $host = $clientService[0]['dbHost'];
                 }
                 $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
-                if (!mysql_select_db($databaseName, $connect))
+                if (!mysql_select_db($databaseName, $connect)) {
                     return false;
+                }
+                break;
+            case 'nodes':
+                $databaseName = $agora['nodes']['userprefix'] . $database;
+                if ($clientService != false) {
+                    $host = $clientService[0]['dbHost'];
+                }
+                $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
+                if (!mysql_select_db($databaseName, $connect)) {
+                    return false;
+                }
                 break;
             case 'moodle2':
                 $user = $agora['moodle2']['userprefix'] . $database;

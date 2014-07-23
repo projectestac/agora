@@ -192,6 +192,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         case 'intranet':
                             $database = ($db) ? $agora['intranet']['userprefix'] . $db : '';
                             break;
+                        case 'nodes':
+                            $database = ($db) ? $agora['nodes']['userprefix'] . $db : '';
+                            break;
                         case 'moodle2':
                             $database = ModUtil::apiFunc('Agoraportal', 'user', 'calcOracleInstance', array('database' => $db));
                             $serviceDB = $database;

@@ -378,8 +378,80 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @return 	array with dummy value
      */
     public function activeService_nodes($args) {
+
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        // Get the params
+        $clientServiceId = $args['clientServiceId'];
+        $dbHost = $args['dbHost'];
+
+        // Needed argument
+        if (!isset($clientServiceId) || !is_numeric($clientServiceId)) {
+            return LogUtil::registerError($this->__('No s\'ha pogut carregar el que volíeu. Reviseu les dades'));
+        }
+
+        // Get all info about service with ID $clientServiceId
+        $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
+        if ($clientService == false) {
+            return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
+        }
+
+        // Get service info
+        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'nodes'));
+        if ($service == false) {
+            return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
+        }
+
+
+
         // TODO: Add the code to calculate the DB
-        return array('db' => 1, 'password' => '');
+        $db = 1; // I apologize for writing this!! :(
+
+
+        
+        // Generate a password for Intraweb admin user
+        $password = $this->createRandomPass();
+        $passwordEnc = md5($password);
+
+        global $agora;
+        $prefix = $agora['nodes']['prefix'];
+        $clientName = $clientService[$clientServiceId]['clientName'];
+        $clientDNS = $clientService[$clientServiceId]['clientDNS'];
+        $clientCode = $clientService[$clientServiceId]['clientCode'];
+        $serviceURL = $service['URL'];
+
+        $sqls = array();
+
+        $value = DataUtil::formatForStore($clientName);
+        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogname'";
+
+        $siteURL = $agora['server']['server'] . $agora['server']['base'] . $clientDNS . "/" . $serviceURL;
+        $value = DataUtil::formatForStore($siteURL);
+        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='siteurl'";
+
+        $value = DataUtil::formatForStore('Espai del centre ' . $clientName);
+        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogdescription'";
+
+        $value = DataUtil::formatForStore($clientCode . '@xtec.cat');
+        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='admin_email'";
+
+        $sqls[] = "UPDATE $prefix" . "_users set user_pass='$passwordEnc', user_email='$clientCode" . "@xtec.cat', user_registered=now() WHERE user_login='admin'";
+
+        foreach ($sqls as $sql) {
+            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                        'sql' => $sql,
+                        'serviceName' => 'nodes',
+                        'host' => $dbHost,
+            ));
+            if (!$result['success']) {
+                return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $oneSql . '. Error: ' . $result['errorMsg']));
+            }
+        }
+
+        return array('db' => $db, 'password' => $password);
     }
 
     /**
@@ -1488,11 +1560,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
 
-        // Exception for portal. Is not a multisite service
-        if ($serviceName == 'portal') {
-            $dbType = 'mysql';
-        }
-        
         $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('database' => $database,
                     'serviceName' => $serviceName,
                     'host' => $host,
