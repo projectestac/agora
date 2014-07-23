@@ -27,6 +27,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 // --------------------------------------------------------------------
 
 $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
+
+    // XTEC ************ ELIMINAT - Removed login provider
+    // 2014.07.23 @aginard
+    /*
 	ARRAY( 
 		"provider_id"       => "Facebook",
 		"provider_name"     => "Facebook", 
@@ -35,8 +39,10 @@ $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
 
 		"default_network"  => true,
 		"cat"               => "socialnetworks",
-	)
-	,
+	
+	*/
+    //************ FI
+    
 	ARRAY(
 		"provider_id"       => "Google",
 		"provider_name"     => "Google",
@@ -46,7 +52,11 @@ $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
 
 		"default_network"  => true,
 		"cat"               => "socialnetworks",
-	) 
+	)
+
+    // XTEC ************ ELIMINAT - Removed login providers
+    // 2014.07.23 @aginard
+    /*
 	,
 	ARRAY( 
 		"provider_id"       => "Twitter",
@@ -240,6 +250,9 @@ $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
 
 		"cat"               => "socialnetworks",
 	),
+    */
+    //************ FI
+    
 );
 
 // --------------------------------------------------------------------
