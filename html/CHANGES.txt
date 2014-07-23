@@ -31,6 +31,7 @@ ZIKULA 2
 - IWxtec: Fixed E_DEPRECATED error
 - Users: Allow automatic membership to more than one group in bulk import
 - IWgroups: Added module
+- IWagendas: Fixed javascript loading in blocks
 
 MOODLE 2
 - Fixed CLOB error with events when restoring courses with events
