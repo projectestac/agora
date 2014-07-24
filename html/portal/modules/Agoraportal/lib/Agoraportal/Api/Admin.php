@@ -307,20 +307,31 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('No s\'ha pogut carregar el que volíeu. Reviseu les dades'));
         }
         // Get all info about service with ID $clientServiceId
-        $item = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
-        if ($item == false) {
+        $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
+        if ($clientService == false) {
             return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
         }
 
-        // Get free data base and config
-        $serviceId = $item[$clientServiceId]['serviceId'];
-        $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
-                    'dbHost' => $dbHost));
-        if (!$db) {
-            LogUtil::registerError($this->__('No queda cap base de dades lliure'));
-            return false;
-        }
+        $serviceId = $clientService[$clientServiceId]['serviceId'];
+        $clientId = $clientService[$clientServiceId]['clientId'];
+        $serviceName = 'intranet';
 
+        $nodes = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
+                    'serviceName' => 'nodes'));
+
+        // If there is a service 'nodes' use the same 'activedId'
+        if (!empty($nodes) && $nodes['activedId'] > 0) {
+            $db = $nodes['activedId'];
+        } else {
+            // There is no service 'intranet' so an empty database is needed
+            $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
+                        'serviceName' => $serviceName));
+            if (!$db) {
+                LogUtil::registerError($this->__('No queda cap base de dades lliure'));
+                return false;
+            }
+        }        
+        
         // Generate a password for Intraweb admin user
         $password = $this->createRandomPass();
         $passwordEnc = '1$$' . md5($password);
@@ -399,24 +410,38 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
         }
 
+        $serviceId = $clientService[$clientServiceId]['serviceId'];
+        $clientId = $clientService[$clientServiceId]['clientId'];
+        $serviceName = 'nodes';
+
+        $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
+                    'serviceName' => 'intranet'));
+
+        // If there is a service 'intranet' use the same 'activedId'
+        if (!empty($intranet) && $intranet['activedId'] > 0) {
+            $db = $intranet['activedId'];
+        } else {
+            // There is no service 'intranet' so an empty database is needed
+            $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
+                        'serviceName' => $serviceName));
+            if (!$db) {
+                LogUtil::registerError($this->__('No queda cap base de dades lliure'));
+                return false;
+            }
+        }        
+        
         // Get service info
         $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'nodes'));
         if ($service == false) {
             return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
         }
 
-
-
-        // TODO: Add the code to calculate the DB
-        $db = 1; // I apologize for writing this!! :(
-
-
-        
         // Generate a password for Intraweb admin user
         $password = $this->createRandomPass();
         $passwordEnc = md5($password);
 
         global $agora;
+        
         $prefix = $agora['nodes']['prefix'];
         $clientName = $clientService[$clientServiceId]['clientName'];
         $clientDNS = $clientService[$clientServiceId]['clientDNS'];
@@ -516,17 +541,32 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             sort($databaseIds);
 
         } else {
-            // get all services (all states)
-            $items = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $args['serviceId'],
+            // Get ID of service 'nodes'
+            $nodes = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'nodes'));
+            $idNodes = $nodes['serviceId'];
+
+            // Get ID of service 'intranet'
+            $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'intranet'));
+            $idIntranet = $intranet['serviceId'];
+            
+            // Get all client services (all states) of service 'nodes'
+            $allNodes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $idNodes,
                         'state' => -1));
-            if (!$items) {
+            if (!$allNodes) {
                 return false;
             }
 
-            // get all the database used
+            // Get all client services (all states) of service 'intranet'
+            $allIntranet = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $idIntranet,
+                        'state' => -1));
+            if (!$allIntranet) {
+                return false;
+            }
+            
+            // Get all the 'activedId' used (each 'activedId' is a database)
             $databaseIds = array();
             $max = 0;
-            foreach ($items as $item) {
+            foreach ($allNodes as $item) {
                 if ($item['activedId'] != 0) {
                     $databaseIds[] = $item['activedId'];
                     if ($item['activedId'] > $max) {
@@ -534,6 +574,17 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     }
                 }
             }
+
+            foreach ($allIntranet as $item) {
+                if ($item['activedId'] != 0) {
+                    $databaseIds[] = $item['activedId'];
+                    if ($item['activedId'] > $max) {
+                        $max = $item['activedId'];
+                    }
+                }
+            }
+
+            $databaseIds = array_unique($databaseIds);
 
             sort($databaseIds);
         }

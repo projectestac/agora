@@ -12,6 +12,7 @@ PORTAL
 - Blocks only appear at home page
 - Agoraportal: Updated services logos
 - Agoraportal: Added ability to customize WordPress info when activating a site
+- Agoraportal: Service 'nodes' can be activated
 
 WORDPRESS
 - Added Widget Visibility Without Jetpack 0.4

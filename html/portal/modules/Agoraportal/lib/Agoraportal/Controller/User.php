@@ -166,8 +166,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientServices = array();
         $haveMoodle = false;
         foreach ($clientInfo as $info) {
-            if ($services[$info['serviceId']]['serviceName'] == 'moodle2')
+            if ($services[$info['serviceId']]['serviceName'] == 'moodle2') {
                 $haveMoodle = true;
+            }
             $clientServices[$info['serviceId']] = $info['serviceId'];
         }
 
@@ -184,6 +185,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         foreach ($notsolicitedServices as $notsolicited) {
             $notsolicitedServices[$notsolicited['serviceId']]['disabled'] = (!$haveMoodle && $notsolicited['serviceName'] == 'marsupial') ? 1 : 0;
         }
+        
+        // Reverse order
+        arsort($notsolicitedServices);
 
         return $this->view->assign('notsolicitedServices', $notsolicitedServices)
                         ->assign('contactName', UserUtil::getVar('uname'))
