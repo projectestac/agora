@@ -23,6 +23,7 @@ WORDPRESS
 - Admin menu: removed default BuddyPress links and added a global access page
 - Added OpenID 3.3.4
 - WordPress Social Login: Removed all the login providers but Google
+- Added Slideshow 2.2.21
 
 ZIKULA 2
 - IWmoodle: Fixed loading of Moodle course list when summary is too big
