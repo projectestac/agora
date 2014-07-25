@@ -102,3 +102,12 @@ function reactor_theme_setup() {
 	if ( !isset( $content_width ) ) $content_width = 1000;
 	
 }
+
+// XTEC ************ AFEGIT - Removed WordPress logo and "About" menu from admin bar menu
+// 2014.07.25 @aginard
+add_action('admin_bar_menu', 'remove_wp_logo', 999);
+
+function remove_wp_logo($wp_admin_bar) {
+    $wp_admin_bar->remove_node('wp-logo');
+}
+//************ FI
