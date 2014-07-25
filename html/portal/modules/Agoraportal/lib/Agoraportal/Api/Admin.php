@@ -314,6 +314,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $serviceId = $clientService[$clientServiceId]['serviceId'];
         $clientId = $clientService[$clientServiceId]['clientId'];
+        $clientName = $clientService[$clientServiceId]['clientName'];
+        $clientCode = $clientService[$clientServiceId]['clientCode'];
         $serviceName = 'intranet';
 
         $nodes = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
@@ -341,13 +343,13 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $sql = array();
 
-        $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientName']));
+        $value = DataUtil::formatForStore(serialize($clientName));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='sitename'";
 
-        $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientName']));
+        $value = DataUtil::formatForStore(serialize($clientName));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='defaultpagetitle'";
 
-        $value = DataUtil::formatForStore(serialize($item[$clientServiceId]['clientCode'] . '@xtec.cat'));
+        $value = DataUtil::formatForStore(serialize($clientCode . '@xtec.cat'));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='adminmail'";
 
         $value = DataUtil::formatForStore(serialize('ZKSID' . $db));
@@ -356,13 +358,13 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $value = DataUtil::formatForStore(serialize(''));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='slogan'";
 
-        $value = DataUtil::formatForStore(serialize('Intranet de ' . $item[$clientServiceId]['clientName']));
+        $value = DataUtil::formatForStore(serialize('Intranet de ' . $clientName));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='defaultmetadescription'";
 
         $value = DataUtil::formatForStore(serialize(date('m/Y', time())));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='ZConfig' AND name='startdate'";
 
-        $sql[] = "UPDATE users set pass='$passwordEnc', email='" . $item[$clientServiceId]['clientCode'] . "@xtec.cat' WHERE uname='admin'";
+        $sql[] = "UPDATE users set pass='$passwordEnc', email='" . $clientCode . "@xtec.cat' WHERE uname='admin'";
 
         $value = DataUtil::formatForStore(serialize($agora['server']['root'] . $agora['intranet']['datadir'] . $username . '/data'));
         $sql[] = "UPDATE module_vars set value='$value' WHERE modname='IWmain' AND name='documentRoot'";
