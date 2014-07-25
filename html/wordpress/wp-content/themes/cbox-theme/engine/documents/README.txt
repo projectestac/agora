@@ -1,1 +1,0 @@
-Documentation files live in this directory :)

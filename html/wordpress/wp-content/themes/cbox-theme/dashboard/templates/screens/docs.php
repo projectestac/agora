@@ -1,1 +1,0 @@
-<iframe width="100%" height="800" src="http://commonsinabox.org/documentation" frameborder="0" allowfullscreen></iframe>

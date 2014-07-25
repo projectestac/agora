@@ -1,8 +1,0 @@
-
- DO NOT PUT EXTENSIONS IN THIS FOLDER
-
- Put extensions in the proper sub-folder of:
-
- themes/your-theme/engine/extensions/
-
- Thank You ;)
