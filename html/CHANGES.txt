@@ -25,6 +25,7 @@ WORDPRESS
 - Added OpenID 3.3.4
 - WordPress Social Login: Removed all the login providers but Google
 - Added Slideshow 2.2.21
+- xtec-mail: Fixed HTML format in e-mail
 
 ZIKULA 2
 - IWmoodle: Fixed loading of Moodle course list when summary is too big

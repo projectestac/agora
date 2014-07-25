@@ -338,7 +338,7 @@ if (!function_exists('wp_mail')) {
         $msg->set_cc($cc);
         $msg->set_bcc($bcc);
         $msg->set_subject($subject);
-        $msg->set_bodyContent($message);
+        $msg->set_bodyContent(nl2br($message));
 
         if (!empty($attachments)) {
             foreach ($attachments as $attachment) {
