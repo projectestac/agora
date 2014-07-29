@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_tree_list', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_tree_list', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   block_course_tree_list
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['course_tree_list:addinstance'] = 'Add a new course tree block';
 $string['course_tree_list:myaddinstance'] = 'Add a new course tree block to the My Moodle page';
 $string['descweeksafter'] = 'If a category contains a class, how many weeks after the class to default the category open.';
 $string['descweeksbefore'] = 'If a category contains a class, how many weeks before the class to default the category open.';
-$string['noenrollments'] = 'Not Enrolled in any courses';
 $string['plugindisplayname'] = 'Course List';
 $string['pluginname'] = 'Course Tree List';
 $string['pluginname_help'] = 'Course Tree List';

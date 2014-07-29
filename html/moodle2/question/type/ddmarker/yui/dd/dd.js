@@ -149,11 +149,11 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
             if (this[drawfunc] instanceof Function){
                var xyfortext = this[drawfunc](dropzoneno, coords, colour);
                if (xyfortext !== null) {
-                   var markerspan = Y.one('div.ddarea div.markertexts span.markertext'+dropzoneno);
+                   var markerspan = this.doc.top_node().one('div.ddarea div.markertexts span.markertext'+dropzoneno);
                    if (markerspan !== null) {
                        markerspan.setStyle('opacity', '0.6');
-                       xyfortext[0] -= Math.round(markerspan.get('offsetWidth') / 2);
-                       xyfortext[1] -= Math.round(markerspan.get('offsetHeight') / 2);
+                       xyfortext[0] -= markerspan.get('offsetWidth') / 2;
+                       xyfortext[1] -= markerspan.get('offsetHeight') / 2;
                        markerspan.setXY(this.convert_to_window_xy(xyfortext));
                        var markerspananchor = markerspan.one('a');
                        if (markerspananchor !== null) {
@@ -265,7 +265,7 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
                 polygon.end();
                 polygon.setXY(this.doc.bg_img().getXY());
                 this.shapes[dropzoneno] = polygon;
-                return [Math.round((minxy[0] + maxxy[0])/2), Math.round((minxy[1] + maxxy[1])/2)];
+                return [(minxy[0] + maxxy[0])/2, (minxy[1] + maxxy[1])/2];
             }
             return null;
         },
@@ -393,8 +393,8 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
             return this.convert_to_window_xy(bgimgxy);
         },
         convert_to_bg_img_xy : function (windowxy) {
-            return [Math.round(+windowxy[0] - this.doc.bg_img().getX()-1),
-                    Math.round(+windowxy[1] - this.doc.bg_img().getY()-1)];
+            return [+windowxy[0] - this.doc.bg_img().getX()-1,
+                    +windowxy[1] - this.doc.bg_img().getY()-1];
         },
         redraw_drags_and_drops : function() {
             this.doc.drag_items().each(function(item) {
@@ -407,8 +407,7 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
                 var coords = this.get_coords(input);
                 var dragitemhome = this.doc.drag_item_home(choiceno);
                 for (var i=0; i < coords.length; i++) {
-                    var dragitem;
-                    dragitem = this.doc.drag_item_for_choice(choiceno, i);
+                    var dragitem = this.doc.drag_item_for_choice(choiceno, i);
                     if (!dragitem || dragitem.hasClass('beingdragged')) {
                         dragitem = this.clone_new_drag_item(dragitemhome, i);
                     } else {
@@ -438,15 +437,27 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
                                         d.shape, d.coords, colourfordropzone, true);
                 }
             }
+            if (YUI.Env.UA.webkit) {
+                // Webkit (Chrome, Safari, Android) has a repaint bug. This is a
+                // work-around. See, for example,
+                // http://stackoverflow.com/questions/3485365/how-can-i-force-webkit-to-redraw-repaint-to-propagate-style-changes
+                var outer = this.doc.top_node().one('div.ddarea');
+                var oldDisplay = outer.getStyle('display');
+                outer.setStyle('display', 'none');
+                outer.get('offsetHeight');
+                outer.setStyle('display', oldDisplay);
+            }
         },
         /**
-         * Return coords of all drag items except any that are currently being dragged
-         * based on contents of hidden inputs and whether drags are 'infinite'
+         * Determine what drag items need to be shown and
+         * return coords of all drag items except any that are currently being dragged
+         * based on contents of hidden inputs and whether drags are 'infinite' or how many drags should be shown.
          */
         get_coords : function (input) {
             var choiceno = this.get_choiceno_for_node(input);
             var fv = input.get('value');
             var infinite = input.hasClass('infinite');
+            var noofdrags = this.get_noofdrags_for_node(input);
             var dragging = (null !== this.doc.drag_item_being_dragged(choiceno));
             var coords = [];
             if (fv !== '') {
@@ -455,7 +466,8 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
                     coords[coords.length] = this.convert_to_window_xy(coordsstrings[i].split(','));
                 }
             }
-            if (infinite || (!dragging && fv === '')) {
+            var displayeddrags = coords.length + (dragging ? 1 : 0);
+            if (infinite || (displayeddrags < noofdrags)) {
                 coords[coords.length] = this.drag_home_xy(choiceno);
             }
             return coords;
@@ -469,6 +481,9 @@ YUI.add('moodle-qtype_ddmarker-dd', function(Y) {
         },
         get_itemno_for_node : function(node) {
             return +this.doc.get_classname_numeric_suffix(node, 'item');
+        },
+        get_noofdrags_for_node : function(node) {
+            return +this.doc.get_classname_numeric_suffix(node, 'noofdrags');
         },
 
         //----------- keyboard accessibility stuff below line ---------------------

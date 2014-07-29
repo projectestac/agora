@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,7 @@ $string['blockcontact'] = 'Blokkeer contactpersoon';
 $string['blockedmessages'] = '{$a} bericht(en) van/aan geblokkeerde gebruikers';
 $string['blockedusers'] = 'Geblokkeerde gebruikers ({$a})';
 $string['blocknoncontacts'] = 'Blokkeer gebruikers  die niet op mijn contactenlijst staan';
-$string['contactlistempty'] = 'Je lijst met contactpersonen is leeg';
+$string['contactlistempty'] = 'Contactpersonen is leeg';
 $string['contacts'] = 'Contactpersonen';
 $string['context'] = 'context';
 $string['defaultmessageoutputs'] = 'Standaard berichtenoutput';
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'Berichten zijn uitgeschakeld op deze site, de bo
 $string['mostrecent'] = 'Recente berichten';
 $string['mostrecentconversations'] = 'Recente conversaties';
 $string['mostrecentnotifications'] = 'Recente meldingen';
-$string['mycontacts'] = 'Mijn contactpersonen';
 $string['newonlymsg'] = 'Toon enkel nieuwe';
 $string['newsearch'] = 'Nieuwe zoekopdracht';
 $string['noframesjs'] = 'Gebruik meer toegankelijke interface';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Alle berichtenpagina\'s';
 $string['pagerefreshes'] = 'Deze pagina ververst automatisch om de {$a} seconden';
 $string['permitted'] = 'Toegestaan';
 $string['private_config'] = 'Pop-up berichtenvenster';
-$string['processordeleteconfirm'] = 'Je gaat berichtenoutput \'{$a}\' volledig verwijderen. Dit zal alles in de databank dat hiermee geassocieerd is onherroepelijk verwijderen. Weet je zeker dat je dit wil doen?';
-$string['processordeletefiles'] = 'Alle gegevens, geassocieerd met de output \'{$a->processor}\' is verwijderd uit de databank. Om het verwijderen af te ronden (en te verhinderen dat de output zichzelf herinstalleerd), moet je nu volgende map verwijderen van je server: {$a->directory}';
 $string['processortag'] = 'Bestemming';
 $string['providers_config'] = 'Configureer meldingsmethodes voor binnenkomende berichten';
 $string['providerstag'] = 'Bron';

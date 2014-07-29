@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'booktool_exportimscp', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'booktool_exportimscp', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   booktool_exportimscp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['exportimscp:export'] = '전자 책을 IMS 콘텐츠 팩키지로 내보내기';
+$string['exportimscp:export'] = '책을 IMS 콘텐츠 팩키지로 내보내기';
 $string['generateimscp'] = 'IMS 콘텐츠 패키지 생성하기';
 $string['nochapters'] = '전자 책의 장이 없어서 IMS CP로 내보내기 할 수 없습니다.';
 $string['pluginname'] = 'IMS 콘텐츠 패키지 내보내기 예약';

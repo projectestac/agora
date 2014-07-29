@@ -15,30 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Link to CSV course upload
+ * Link to CSV course upload.
  *
  * @package    tool_uploadcourse
- * @subpackage uploadcourse
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
  * @copyright  2011 Piers Harding
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-//XTEC ************ AFEGIT - Allow access only to xtecadmin user
-//2013.10.09 @aginard
-if (get_protected_agora()) { 
-//************ FI    
-
-if (has_capability('moodle/restore:restorecourse', $systemcontext)) {
+if ($hassiteconfig) {
     $ADMIN->add('courses', new admin_externalpage('tooluploadcourse',
-                get_string('uploadcourses', 'tool_uploadcourse'),
-                "$CFG->wwwroot/$CFG->admin/tool/uploadcourse/index.php", 'moodle/site:uploadusers'));
+        get_string('uploadcourses', 'tool_uploadcourse'), "$CFG->wwwroot/$CFG->admin/tool/uploadcourse/index.php"));
 }
-
-//XTEC ************ AFEGIT - Allow access only to xtecadmin user
-//2013.10.09 @aginard
-}
-//************ FI    
-    

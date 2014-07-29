@@ -75,7 +75,7 @@ $intro = format_module_intro('qv', $qv, $cm->id);
 echo $OUTPUT->box($intro, 'generalbox boxaligncenter','intro');
 
 $action = optional_param('action', '', PARAM_TEXT);
-if (has_capability('mod/qv:grade', $qv->context, $USER->id, true)){    
+if (has_capability('moodle/grade:viewall', $qv->context, $USER->id, true)){
     if ($action == 'preview'){
         echo $qv->view_assessment($USER, true);
     } else{
@@ -83,7 +83,7 @@ if (has_capability('mod/qv:grade', $qv->context, $USER->id, true)){
         echo $qv->print_results_table($course, $action);
     }
 } else{
-    echo $qv->view_assessment($USER);    
+    echo $qv->view_assessment($USER);
 }
 
 echo $OUTPUT->footer();

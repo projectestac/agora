@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshopeval_best', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshopeval_best', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   workshopeval_best
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,4 +32,5 @@ $string['comparisonlevel3'] = 'zorrotza';
 $string['comparisonlevel5'] = 'zuzena';
 $string['comparisonlevel7'] = 'arina';
 $string['comparisonlevel9'] = 'oso arina';
+$string['configcomparison'] = 'Ebaluazioen kalifikazioan eragiten duen faktorearen berezko balioa';
 $string['pluginname'] = 'Ebaluazio onenarekin egindako alderaketa';

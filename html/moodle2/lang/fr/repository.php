@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Ajouter un plugin de dépôt';
 $string['allowexternallinks'] = 'Permettre les liens externes';
 $string['areacategoryintro'] = 'Descriptif de catégorie';
 $string['areacourseintro'] = 'Descriptif du cours';
+$string['areacourseoverviewfiles'] = 'Fichiers de résumé de cours';
 $string['areamainfile'] = 'Fichier principal';
 $string['arearoot'] = 'Système';
 $string['areauserbackup'] = 'Sauvegarde utilisateur';
@@ -86,6 +87,9 @@ $string['deleterepository'] = 'Supprimer ce dépôt';
 $string['detailview'] = 'Afficher les détails';
 $string['dimensions'] = 'Dimensions';
 $string['disabled'] = 'Désactivé';
+$string['displaydetails'] = 'Afficher le dossier avec le détail des fichiers';
+$string['displayicons'] = 'Afficher le dossier avec les icônes de fichiers';
+$string['displaytree'] = 'Afficher le dossier sous la forme d\'arbre de fichiers';
 $string['download'] = 'Télécharger';
 $string['downloadfolder'] = 'Tout télécharger';
 $string['downloadsucc'] = 'Le fichier a été téléchargé correctement';
@@ -120,6 +124,7 @@ $string['folderexists'] = 'Nom de dossier déjà utilisé. Veuillez utiliser un 
 $string['foldernotfound'] = 'Dossier introuvable';
 $string['folderrecurse'] = 'Un dossier ne peut pas être déplacé vers un de ses propres sous-dossiers';
 $string['getfile'] = 'Sélectionner ce fichier';
+$string['help'] = 'Aide';
 $string['hidden'] = 'Caché';
 $string['iconview'] = 'Icônes';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -150,7 +155,7 @@ $string['manageurl'] = 'Gestion';
 $string['manageuserrepository'] = 'Gérer le dépôt personnel';
 $string['moving'] = 'Déplacement';
 $string['newfolder'] = 'Nouveau dossier';
-$string['newfoldername'] = 'Nom du dossier :';
+$string['newfoldername'] = 'Nom du dossier';
 $string['noenter'] = 'Pas de saisie';
 $string['nofilesattached'] = 'Aucun fichier joint';
 $string['nofilesavailable'] = 'Aucun fichier disponible';
@@ -189,6 +194,7 @@ $string['repositories'] = 'Dépôts';
 $string['repository'] = 'Dépôt';
 $string['repositorycourse'] = 'Dépôts du cours';
 $string['repositoryerror'] = 'Le dépôt distant à renvoyé l\'erreur {$a}';
+$string['repositoryicon'] = 'Icône du dépôt';
 $string['save'] = 'Enregistrer';
 $string['saveas'] = 'Enregistrer sous';
 $string['saved'] = 'Enregistré';
@@ -199,6 +205,7 @@ $string['searchrepo'] = 'Rechercher dans le dépôt';
 $string['sectionbackup'] = 'Sauvegardes de section';
 $string['select'] = 'Sélectionnez';
 $string['setmainfile'] = 'Spécifier comme fichier principal';
+$string['setmainfile_help'] = 'Si plusieurs fichiers sont dans le dossier, le fichier principal est celui qui est affiché sur la page. Les autres fichiers (p. ex. images ou vidéos) peuvent y être intégrés. Dans le gestionnaire de fichiers, le fichier principal est indiqué par un titre en gras.';
 $string['settings'] = 'Réglages';
 $string['setupdefaultplugins'] = 'Mise en place des plugins de dépôt par défaut';
 $string['siteinstances'] = 'Instances de dépôts du site';

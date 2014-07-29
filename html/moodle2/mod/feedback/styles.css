@@ -1,13 +1,5 @@
 /* styles using by feedback */
-.feedback_required_mark {
-    color: #FF0000;
-}
-
 .feedback_switchrequired img{
-}
-
-div.missingrequire {
-	background:#FFAAAA;
 }
 
 span.feedback_info {
@@ -47,22 +39,32 @@ div.feedback_item_commands_right {
 
 li.feedback_item_check_h_left,
 li.feedback_item_check_h_right,
-li.feedback_item_select_h_left,
-li.feedback_item_select_h_right,
 li.feedback_item_radio_h_left,
-li.feedback_item_radio_h_right{
+li.feedback_item_radio_h_right {
 	list-style-type:none;
 	display:inline;
 }
 
+div.feedback_item_select_h_left,
+div.feedback_item_select_h_right {
+    display:block;
+}
+
 li.feedback_item_check_v_left,
 li.feedback_item_check_v_right,
-li.feedback_item_select_v_left,
-li.feedback_item_select_v_right,
 li.feedback_item_radio_v_left,
-li.feedback_item_radio_v_right{
+li.feedback_item_radio_v_right {
 	list-style-type:none;
 	display:block;
+}
+
+div.feedback_item_select_v_left,
+div.feedback_item_select_v_right {
+    display:block;
+}
+
+div.feedback_items label{
+    display: inline;
 }
 
 div.feedback_item_captcha_text_left,
@@ -81,4 +83,32 @@ hr.feedback_pagebreak {
 	color:#aaaaaa;
 	background-color:#aaaaaa;
 	border:0px;
+}
+
+.drag_target_active {
+        opacity: .25;
+}
+
+.drag_item_active {
+        opacity: .5;
+}
+
+ul#feedback_draglist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+}
+
+div#feedback_dragarea {
+    width:95%;
+}
+
+div img.feedback_bar_image {
+    height: 10px;
+}
+
+.path-mod-feedback input,
+.path-mod-feedback textarea,
+.path-mod-feedback .uneditable-input {
+    width: auto;
 }

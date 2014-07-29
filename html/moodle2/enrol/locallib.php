@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -19,8 +18,7 @@
  * This file contains the course_enrolment_manager class which is used to interface
  * with the functions that exist in enrollib.php in relation to a single course.
  *
- * @package    core
- * @subpackage enrol
+ * @package    core_enrol
  * @copyright  2010 Sam Hemelryk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -53,6 +51,26 @@ class course_enrolment_manager {
      * @var string
      */
     protected $instancefilter = null;
+    /**
+     * Limits the focus of the manager to users with specified role
+     * @var int
+     */
+    protected $rolefilter = 0;
+    /**
+     * Limits the focus of the manager to users who match search string
+     * @var string
+     */
+    protected $searchfilter = '';
+    /**
+     * Limits the focus of the manager to users in specified group
+     * @var int
+     */
+    protected $groupfilter = 0;
+    /**
+     * Limits the focus of the manager to users who match status active/inactive
+     * @var int
+     */
+    protected $statusfilter = -1;
 
     /**
      * The total number of users enrolled in the course
@@ -110,12 +128,21 @@ class course_enrolment_manager {
      * @param moodle_page $moodlepage
      * @param stdClass $course
      * @param string $instancefilter
+     * @param int $rolefilter If non-zero, filters to users with specified role
+     * @param string $searchfilter If non-blank, filters to users with search text
+     * @param int $groupfilter if non-zero, filter users with specified group
+     * @param int $statusfilter if not -1, filter users with active/inactive enrollment.
      */
-    public function __construct(moodle_page $moodlepage, $course, $instancefilter = null) {
+    public function __construct(moodle_page $moodlepage, $course, $instancefilter = null,
+            $rolefilter = 0, $searchfilter = '', $groupfilter = 0, $statusfilter = -1) {
         $this->moodlepage = $moodlepage;
         $this->context = context_course::instance($course->id);
         $this->course = $course;
         $this->instancefilter = $instancefilter;
+        $this->rolefilter = $rolefilter;
+        $this->searchfilter = $searchfilter;
+        $this->groupfilter = $groupfilter;
+        $this->statusfilter = $statusfilter;
     }
 
     /**
@@ -139,10 +166,14 @@ class course_enrolment_manager {
         global $DB;
         if ($this->totalusers === null) {
             list($instancessql, $params, $filter) = $this->get_instance_sql();
+            list($filtersql, $moreparams) = $this->get_filter_sql();
+            $params += $moreparams;
             $sqltotal = "SELECT COUNT(DISTINCT u.id)
                            FROM {user} u
                            JOIN {user_enrolments} ue ON (ue.userid = u.id  AND ue.enrolid $instancessql)
-                           JOIN {enrol} e ON (e.id = ue.enrolid)";
+                           JOIN {enrol} e ON (e.id = ue.enrolid)
+                      LEFT JOIN {groups_members} gm ON u.id = gm.userid
+                          WHERE $filtersql";
             $this->totalusers = (int)$DB->count_records_sql($sqltotal, $params);
         }
         return $this->totalusers;
@@ -160,7 +191,7 @@ class course_enrolment_manager {
     public function get_total_other_users() {
         global $DB;
         if ($this->totalotherusers === null) {
-            list($ctxcondition, $params) = $DB->get_in_or_equal(get_parent_contexts($this->context, true), SQL_PARAMS_NAMED, 'ctx');
+            list($ctxcondition, $params) = $DB->get_in_or_equal($this->context->get_parent_context_ids(true), SQL_PARAMS_NAMED, 'ctx');
             $params['courseid'] = $this->course->id;
             $sql = "SELECT COUNT(DISTINCT u.id)
                       FROM {role_assignments} ra
@@ -183,7 +214,8 @@ class course_enrolment_manager {
      * Gets all of the users enrolled in this course.
      *
      * If a filter was specified this will be the users who were enrolled
-     * in this course by means of that instance.
+     * in this course by means of that instance. If role or search filters were
+     * specified then these will also be applied.
      *
      * @global moodle_database $DB
      * @param string $sort
@@ -200,6 +232,8 @@ class course_enrolment_manager {
         $key = md5("$sort-$direction-$page-$perpage");
         if (!array_key_exists($key, $this->users)) {
             list($instancessql, $params, $filter) = $this->get_instance_sql();
+            list($filtersql, $moreparams) = $this->get_filter_sql();
+            $params += $moreparams;
             $extrafields = get_extra_user_fields($this->get_context());
             $extrafields[] = 'lastaccess';
             $ufields = user_picture::fields('u', $extrafields);
@@ -207,7 +241,9 @@ class course_enrolment_manager {
                       FROM {user} u
                       JOIN {user_enrolments} ue ON (ue.userid = u.id  AND ue.enrolid $instancessql)
                       JOIN {enrol} e ON (e.id = ue.enrolid)
-                 LEFT JOIN {user_lastaccess} ul ON (ul.courseid = e.courseid AND ul.userid = u.id)";
+                 LEFT JOIN {user_lastaccess} ul ON (ul.courseid = e.courseid AND ul.userid = u.id)
+                 LEFT JOIN {groups_members} gm ON u.id = gm.userid
+                     WHERE $filtersql";
             if ($sort === 'firstname') {
                 $sql .= " ORDER BY u.firstname $direction, u.lastname $direction";
             } else if ($sort === 'lastname') {
@@ -220,6 +256,62 @@ class course_enrolment_manager {
             $this->users[$key] = $DB->get_records_sql($sql, $params, $page*$perpage, $perpage);
         }
         return $this->users[$key];
+    }
+
+    /**
+     * Obtains WHERE clause to filter results by defined search and role filter
+     * (instance filter is handled separately in JOIN clause, see
+     * get_instance_sql).
+     *
+     * @return array Two-element array with SQL and params for WHERE clause
+     */
+    protected function get_filter_sql() {
+        global $DB;
+
+        // Search condition.
+        $extrafields = get_extra_user_fields($this->get_context());
+        list($sql, $params) = users_search_sql($this->searchfilter, 'u', true, $extrafields);
+
+        // Role condition.
+        if ($this->rolefilter) {
+            // Get context SQL.
+            $contextids = $this->context->get_parent_context_ids();
+            $contextids[] = $this->context->id;
+            list($contextsql, $contextparams) = $DB->get_in_or_equal($contextids, SQL_PARAMS_NAMED);
+            $params += $contextparams;
+
+            // Role check condition.
+            $sql .= " AND (SELECT COUNT(1) FROM {role_assignments} ra WHERE ra.userid = u.id " .
+                    "AND ra.roleid = :roleid AND ra.contextid $contextsql) > 0";
+            $params['roleid'] = $this->rolefilter;
+        }
+
+        // Group condition.
+        if ($this->groupfilter) {
+            $sql .= " AND gm.groupid = :groupid";
+            $params['groupid'] = $this->groupfilter;
+        }
+
+        // Status condition.
+        if ($this->statusfilter === ENROL_USER_ACTIVE) {
+            $sql .= " AND ue.status = :active AND e.status = :enabled AND ue.timestart < :now1
+                    AND (ue.timeend = 0 OR ue.timeend > :now2)";
+            $now = round(time(), -2); // rounding helps caching in DB
+            $params += array('enabled' => ENROL_INSTANCE_ENABLED,
+                             'active' => ENROL_USER_ACTIVE,
+                             'now1' => $now,
+                             'now2' => $now);
+        } else if ($this->statusfilter === ENROL_USER_SUSPENDED) {
+            $sql .= " AND (ue.status = :inactive OR e.status = :disabled OR ue.timestart > :now1
+                    OR (ue.timeend <> 0 AND ue.timeend < :now2))";
+            $now = round(time(), -2); // rounding helps caching in DB
+            $params += array('disabled' => ENROL_INSTANCE_DISABLED,
+                             'inactive' => ENROL_USER_SUSPENDED,
+                             'now1' => $now,
+                             'now2' => $now);
+        }
+
+        return array($sql, $params);
     }
 
     /**
@@ -242,7 +334,7 @@ class course_enrolment_manager {
         }
         $key = md5("$sort-$direction-$page-$perpage");
         if (!array_key_exists($key, $this->otherusers)) {
-            list($ctxcondition, $params) = $DB->get_in_or_equal(get_parent_contexts($this->context, true), SQL_PARAMS_NAMED, 'ctx');
+            list($ctxcondition, $params) = $DB->get_in_or_equal($this->context->get_parent_context_ids(true), SQL_PARAMS_NAMED, 'ctx');
             $params['courseid'] = $this->course->id;
             $params['cid'] = $this->course->id;
             $sql = "SELECT ra.id as raid, ra.contextid, ra.component, ctx.contextlevel, ra.roleid, u.*, ue.lastseen
@@ -588,15 +680,28 @@ class course_enrolment_manager {
      */
     public function unassign_role_from_user($userid, $roleid) {
         global $DB;
-        require_capability('moodle/role:assign', $this->context);
-        $user = $DB->get_record('user', array('id'=>$userid), '*', MUST_EXIST);
-        try {
-            role_unassign($roleid, $user->id, $this->context->id, '', NULL);
-        } catch (Exception $e) {
+        // Admins may unassign any role, others only those they could assign.
+        if (!is_siteadmin() and !array_key_exists($roleid, $this->get_assignable_roles())) {
             if (defined('AJAX_SCRIPT')) {
-                throw $e;
+                throw new moodle_exception('invalidrole');
             }
             return false;
+        }
+        $user = $DB->get_record('user', array('id'=>$userid), '*', MUST_EXIST);
+        $ras = $DB->get_records('role_assignments', array('contextid'=>$this->context->id, 'userid'=>$user->id, 'roleid'=>$roleid));
+        foreach ($ras as $ra) {
+            if ($ra->component) {
+                if (strpos($ra->component, 'enrol_') !== 0) {
+                    continue;
+                }
+                if (!$plugin = enrol_get_plugin(substr($ra->component, 6))) {
+                    continue;
+                }
+                if ($plugin->roles_protected()) {
+                    continue;
+                }
+            }
+            role_unassign($ra->roleid, $ra->userid, $ra->contextid, $ra->component, $ra->itemid);
         }
         return true;
     }
@@ -708,6 +813,7 @@ class course_enrolment_manager {
     public function get_user_roles($userid) {
         $roles = array();
         $ras = get_user_roles($this->context, $userid, true, 'c.contextlevel DESC, r.sortorder ASC');
+        $plugins = $this->get_enrolment_plugins(false);
         foreach ($ras as $ra) {
             if ($ra->contextid != $this->context->id) {
                 if (!array_key_exists($ra->roleid, $roles)) {
@@ -719,7 +825,18 @@ class course_enrolment_manager {
             if (array_key_exists($ra->roleid, $roles) && $roles[$ra->roleid] === false) {
                 continue;
             }
-            $roles[$ra->roleid] = ($ra->itemid == 0 and $ra->component === '');
+            $changeable = true;
+            if ($ra->component) {
+                $changeable = false;
+                if (strpos($ra->component, 'enrol_') === 0) {
+                    $plugin = substr($ra->component, 6);
+                    if (isset($plugins[$plugin])) {
+                        $changeable = !$plugins[$plugin]->roles_protected();
+                    }
+                }
+            }
+
+            $roles[$ra->roleid] = $changeable;
         }
         return $roles;
     }
@@ -770,6 +887,18 @@ class course_enrolment_manager {
         if (!empty($this->instancefilter)) {
             $args['ifilter'] = $this->instancefilter;
         }
+        if (!empty($this->rolefilter)) {
+            $args['role'] = $this->rolefilter;
+        }
+        if ($this->searchfilter !== '') {
+            $args['search'] = $this->searchfilter;
+        }
+        if (!empty($this->groupfilter)) {
+            $args['group'] = $this->groupfilter;
+        }
+        if ($this->statusfilter !== -1) {
+            $args['status'] = $this->statusfilter;
+        }
         return $args;
     }
 
@@ -809,6 +938,7 @@ class course_enrolment_manager {
 
         $userroles = $this->get_other_users($sort, $direction, $page, $perpage);
         $roles = $this->get_all_roles();
+        $plugins = $this->get_enrolment_plugins(false);
 
         $context    = $this->get_context();
         $now = time();
@@ -823,8 +953,17 @@ class course_enrolment_manager {
             }
             $a = new stdClass;
             $a->role = $roles[$userrole->roleid]->localname;
-            $changeable = ($userrole->component == '');
             if ($contextid == $this->context->id) {
+                $changeable = true;
+                if ($userrole->component) {
+                    $changeable = false;
+                    if (strpos($userrole->component, 'enrol_') === 0) {
+                        $plugin = substr($userrole->component, 6);
+                        if (isset($plugins[$plugin])) {
+                            $changeable = !$plugins[$plugin]->roles_protected();
+                        }
+                    }
+                }
                 $roletext = get_string('rolefromthiscourse', 'enrol', $a);
             } else {
                 $changeable = false;
@@ -892,7 +1031,11 @@ class course_enrolment_manager {
             // Roles
             $details['roles'] = array();
             foreach ($this->get_user_roles($user->id) as $rid=>$rassignable) {
-                $details['roles'][$rid] = array('text'=>$allroles[$rid]->localname, 'unchangeable'=>(!$rassignable || !isset($assignable[$rid])));
+                $unchangeable = !$rassignable;
+                if (!is_siteadmin() and !isset($assignable[$rid])) {
+                    $unchangeable = true;
+                }
+                $details['roles'][$rid] = array('text'=>$allroles[$rid]->localname, 'unchangeable'=>$unchangeable);
             }
 
             // Users

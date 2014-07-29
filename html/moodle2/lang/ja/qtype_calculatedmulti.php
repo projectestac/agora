@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedmulti', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedmulti', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedmulti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['answeroptions'] = '選択肢オプション';
+$string['answeroptions_help'] = '選択肢の推奨公式は次のとおりです ...<strong>{={x}+..}</strong>...';
 $string['pluginname'] = '多肢選択計算問題';
 $string['pluginnameadding'] = '多肢選択計算問題の追加';
 $string['pluginnameediting'] = '多肢選択計算問題の編集';

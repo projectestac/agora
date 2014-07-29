@@ -17,7 +17,7 @@
 
 /**
  * Provides support for the conversion of moodle1 backup to the moodle2 format
- * 
+ *
  * @package    mod
  * @subpackage jclic
  * @copyright  2011 Departament d'Ensenyament de la Generalitat de Catalunya
@@ -28,12 +28,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/jclic/locallib.php');
- 
+
 /**
  * JClic conversion handler
  */
 class moodle1_mod_jclic_handler extends moodle1_mod_handler {
- 
+
     /**
      * Declare the paths in moodle.xml we are able to convert
      *
@@ -65,9 +65,9 @@ class moodle1_mod_jclic_handler extends moodle1_mod_handler {
                     ),
                 )
             ),
-        );         
+        );
     }
- 
+
     /**
      * This is executed every time we have one /MOODLE_BACKUP/COURSE/MODULES/MOD/JCLIC
      * data available
@@ -93,17 +93,17 @@ class moodle1_mod_jclic_handler extends moodle1_mod_handler {
         if (!jclic_is_valid_external_url($data['url']) ) {
             // Migrate file
             try{
-                $this->fileman->migrate_file('course_files/'.$data['url']);            
+                $this->fileman->migrate_file('course_files/'.$data['url']);
             } catch (Exception $e){
                 echo 'Caught exception: ',  $e->getMessage(), ' File: \'',$data['url'], '\' on JClic activity \''.$data['name'].'\' <br>';
             }
         }
-        
+
         // To avoid problems if maxgrade is null
         if ($data['maxgrade'] === NULL) $data['maxgrade'] = 100;
         // get grade value from maxgrade
         $data['grade'] = $data['maxgrade'];
-        
+
         // start writing jclic.xml
         $this->open_xml_writer("activities/jclic_{$this->moduleid}/jclic.xml");
         $this->xmlwriter->begin_tag('activity', array('id' => $instanceid, 'moduleid' => $this->moduleid,
@@ -118,7 +118,7 @@ class moodle1_mod_jclic_handler extends moodle1_mod_handler {
 
         return $data;
     }
- 
+
     /**
      * This is executed when we reach the closing </MOD> tag of our 'jclic' path
      */

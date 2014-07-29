@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,21 +27,27 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['activityoverview'] = '{$a} Aktivität(en) erfordern Ihre Aufmerksamkeit';
 $string['alwaysshowall'] = 'Immer alle anzeigen';
-$string['collapseall'] = 'Kursliste zusammenklappen';
-$string['configotherexpanded'] = 'Wenn aktiviert werden \'Andere Kurse\' aufgeklappt. Einstellungen des Nutzers überschreiben die Einstellung.';
+$string['collapseall'] = 'Kursliste einklappen';
+$string['configotherexpanded'] = 'Wenn diese Option aktiviert ist, werden \'Weitere Kurse\' aufgeklappt. Im Nutzerprofil kann die Einstellung geändert werden.';
 $string['configpreservestates'] = 'Wenn aktiviert wird der auf-/zugeklappt Status, den der/die Nutzer/in gesetzt hat, gespeichert und beim Laden der Seite verwandt.';
 $string['course_overview:addinstance'] = 'Neuen Block \'Kursüberblick\' hinzufügen';
 $string['course_overview:myaddinstance'] = 'Block \'Kursübersicht\' für \'Meine Startseite\' hinzufügen';
 $string['defaultmaxcourses'] = 'Standardmäßige Höchstzahl der Kurse';
 $string['defaultmaxcoursesdesc'] = 'Maximalzahl der Kurse, die im Kursübersichtsblock angezeigt wird. \'0\' zeigt alle Kurse an.';
-$string['expandall'] = 'Liste aller Kurse aufklappen';
+$string['expandall'] = 'Kursliste aufklappen';
 $string['forcedefaultmaxcourses'] = 'Festlegung der Höchstzahl der Kurse erzwingen';
 $string['forcedefaultmaxcoursesdesc'] = 'Wenn diese Option aktiviert wird, können Nutzer/innen keine individuellen Einstellungen vornehmen';
 $string['hiddencoursecount'] = 'Sie haben {$a} verborgene Kurse';
 $string['hiddencoursecountplural'] = 'Sie haben {$a} verborgene Kurse';
+$string['hiddencoursecountwithshowall'] = 'Sie haben {$a->coursecount} verborgenen Kurs ({$a->showalllink})';
+$string['hiddencoursecountwithshowallplural'] = 'Sie haben {$a->coursecount} verborgene Kurse ({$a->showalllink})';
 $string['message'] = 'Mitteilung';
 $string['messages'] = 'Mitteilungen';
+$string['moveafterhere'] = 'Verschiebe den Kurs {$a->movingcoursename} hinter {$a->currentcoursename}';
+$string['movecourse'] = 'Kurs bewegen: {$a}';
 $string['movecoursehere'] = 'Kurs hierhin verschieben';
+$string['movetofirst'] = 'Kurs {$a} nach oben bewegen';
+$string['movingcourse'] = 'Sie verschieben: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Zahl der anzuzeigen Kurse:';
 $string['otherexpanded'] = 'Weitere Kurse aufklappen';
 $string['pluginname'] = 'Kursübersicht';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -120,7 +120,7 @@ $string['force_ssl_help'] = 'Seleccionando esta opción fuerza a usar SSL en tod
 
 Además, todas las solicitudes de servicios Web desde el proveedor de la herramienta utilizarán SSL.
 
-Si se utiliza esta opción, asegúrese de que su sitio Moodle y el proveedor de herramientas son compatibles con SSL.';
+Si se utiliza esta opción, asegúrese de que su sitio Moodle y el proveedor de herramientas son compatibles con SSL';
 $string['global_tool_types'] = 'Tipos de herramientas globales';
 $string['grading'] = 'Rutas de calificación';
 $string['icon_url'] = 'URL de icono';
@@ -200,5 +200,6 @@ $string['share_name'] = 'Compartir el nombre del usuario con la herramienta';
 $string['share_name_admin'] = 'Compartir el nombre del usuario con la herramienta';
 $string['size'] = 'Parámetros de tamaño';
 $string['submission'] = 'Entrega';
+$string['submissions'] = 'Envíos';
 $string['tool_settings'] = 'Ajustes de la herramienta';
-$string['viewsubmissions'] = 'Ver entregas y la pantalla de calificaciónes';
+$string['viewsubmissions'] = 'Ver entregas y pantalla de calificaciones';

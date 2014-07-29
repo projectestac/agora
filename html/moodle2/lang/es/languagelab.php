@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'languagelab', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'languagelab', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   languagelab
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['availabledate'] = 'Disponible desde:';
 $string['playeroptionstxt1'] = 'Para usar el laboratorio de idiomas, es necesario autorizar el acceso a su micrófono. Para ello:';

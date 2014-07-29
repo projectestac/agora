@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Beschrijving van deze tekst';
 $string['entryerrornotyours'] = 'Deze tekst is niet van jouw';
 $string['entrysaved'] = 'Je tekst is bewaard';
 $string['entrytitle'] = 'Titel van deze tekst';
-$string['entryupdated'] = 'Blog aangepast';
+$string['evententryadded'] = 'Blog-item toegevoegd';
+$string['evententrydeleted'] = 'Blog-item verwijderd';
+$string['evententryupdated'] = 'Blog aangepast';
 $string['externalblogcrontime'] = 'Externe blog cron planning';
 $string['externalblogdeleteconfirm'] = 'Registratie van externe blog verwijderen?';
 $string['externalblogdeleted'] = 'Registratie van externe blog verwijderd';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'Ongeldig groep-ID';
 $string['invalidurl'] = 'Deze URL is onbereikbaar';
 $string['linktooriginalentry'] = 'Link naar het originele blogitem';
 $string['maxexternalblogsperuser'] = 'Maximale aantal externe blogs per gebruiker';
-$string['mustassociatecourse'] = 'Als je publiceert naar cursus- of groepsleden, dan moet je een cursus met dit item associëren';
 $string['name'] = 'Naam';
 $string['name_help'] = 'Geef een beschrijvende naam voor je extene blog. (Als je geen naam opgeeft, zal de titel van je externe blog gebruikt worden).';
 $string['noentriesyet'] = 'Hier zijn geen zichtbare teksten';

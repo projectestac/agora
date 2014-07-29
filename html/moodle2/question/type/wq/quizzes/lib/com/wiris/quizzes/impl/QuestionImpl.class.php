@@ -5,6 +5,23 @@ class com_wiris_quizzes_impl_QuestionImpl extends com_wiris_quizzes_impl_Questio
 		if(!php_Boot::$skip_constructor) {
 		parent::__construct();
 	}}
+	public function getAlgorithm() {
+		if(com_wiris_quizzes_impl_HTMLTools::emptyCasSession($this->wirisCasSession)) {
+			return null;
+		} else {
+			return $this->wirisCasSession;
+		}
+	}
+	public function setAlgorithm($session) {
+		$this->wirisCasSession = $session;
+	}
+	public function setAnswerFieldType($type) {
+		if(com_wiris_quizzes_impl_LocalData::$VALUE_OPENANSWER_INPUT_FIELD_INLINE_EDITOR === $type || com_wiris_quizzes_impl_LocalData::$VALUE_OPENANSWER_INPUT_FIELD_PLAIN_TEXT === $type || com_wiris_quizzes_impl_LocalData::$VALUE_OPENANSWER_INPUT_FIELD_POPUP_EDITOR === $type) {
+			$this->setLocalData(com_wiris_quizzes_impl_LocalData::$KEY_OPENANSWER_INPUT_FIELD, $type);
+		} else {
+			throw new HException("Invalid type parameter.");
+		}
+	}
 	public function importDeprecated() {
 		if($this->assertions !== null) {
 			$i = null;
@@ -319,6 +336,15 @@ class com_wiris_quizzes_impl_QuestionImpl extends com_wiris_quizzes_impl_Questio
 		}
 		return -1;
 	}
+	public function getCorrectAnswer($index) {
+		if($this->correctAnswers !== null && $this->correctAnswers->length > $index) {
+			$a = $this->correctAnswers[$index];
+			if($a !== null) {
+				return $a->content;
+			}
+		}
+		return null;
+	}
 	public function setCorrectAnswer($index, $content) {
 		$this->id = null;
 		if($index < 0) {
@@ -434,6 +460,9 @@ class com_wiris_quizzes_impl_QuestionImpl extends com_wiris_quizzes_impl_Questio
 		$this->id = null;
 		if($this->options === null) {
 			$this->options = new _hx_array(array());
+		}
+		if($value === null) {
+			$this->removeOption($name);
 		}
 		$opt = new com_wiris_quizzes_impl_Option();
 		$opt->name = $name;

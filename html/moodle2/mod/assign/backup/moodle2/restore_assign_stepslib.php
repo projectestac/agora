@@ -34,32 +34,36 @@ defined('MOODLE_INTERNAL') || die();
 class restore_assign_activity_structure_step extends restore_activity_structure_step {
 
     /**
-     * Define the structure of the restore workflow
+     * Define the structure of the restore workflow.
+     *
      * @return restore_path_element $structure
      */
     protected function define_structure() {
 
         $paths = array();
-        // To know if we are including userinfo
+        // To know if we are including userinfo.
         $userinfo = $this->get_setting_value('userinfo');
 
-        // Define each element separated
+        // Define each element separated.
         $paths[] = new restore_path_element('assign', '/activity/assign');
         if ($userinfo) {
-            $submission = new restore_path_element('assign_submission', '/activity/assign/submissions/submission');
+            $submission = new restore_path_element('assign_submission',
+                                                   '/activity/assign/submissions/submission');
             $paths[] = $submission;
             $this->add_subplugin_structure('assignsubmission', $submission);
             $grade = new restore_path_element('assign_grade', '/activity/assign/grades/grade');
             $paths[] = $grade;
             $this->add_subplugin_structure('assignfeedback', $grade);
         }
-        $paths[] = new restore_path_element('assign_plugin_config', '/activity/assign/plugin_configs/plugin_config');
+        $paths[] = new restore_path_element('assign_plugin_config',
+                                            '/activity/assign/plugin_configs/plugin_config');
 
         return $this->prepare_activity_structure($paths);
     }
 
     /**
-     * Process an assign restore
+     * Process an assign restore.
+     *
      * @param object $data The data in object form
      * @return void
      */
@@ -74,13 +78,20 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         $data->allowsubmissionsfromdate = $this->apply_date_offset($data->allowsubmissionsfromdate);
         $data->duedate = $this->apply_date_offset($data->duedate);
         if (!empty($data->teamsubmissiongroupingid)) {
-            $data->teamsubmissiongroupingid = $this->get_mappingid('grouping', $data->teamsubmissiongroupingid);
+            $data->teamsubmissiongroupingid = $this->get_mappingid('grouping',
+                                                                   $data->teamsubmissiongroupingid);
         } else {
             $data->teamsubmissiongroupingid = 0;
         }
 
         if (!isset($data->cutoffdate)) {
             $data->cutoffdate = 0;
+        }
+        if (!isset($data->markingworkflow)) {
+            $data->markingworkflow = 0;
+        }
+        if (!isset($data->markingallocation)) {
+            $data->markingallocation = 0;
         }
 
         if (!empty($data->preventlatesubmissions)) {
@@ -125,8 +136,32 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         $newitemid = $DB->insert_record('assign_submission', $data);
 
         // Note - the old contextid is required in order to be able to restore files stored in
-        // sub plugin file areas attached to the submissionid
+        // sub plugin file areas attached to the submissionid.
         $this->set_mapping('submission', $oldid, $newitemid, false, null, $this->task->get_old_contextid());
+    }
+
+    /**
+     * Process a user_flags restore
+     * @param object $data The data in object form
+     * @return void
+     */
+    protected function process_assign_userflags($data) {
+        global $DB;
+
+        $data = (object)$data;
+        $oldid = $data->id;
+
+        $data->assignment = $this->get_new_parentid('assign');
+
+        $data->userid = $this->get_mappingid('user', $data->userid);
+        if (!empty($data->extensionduedate)) {
+            $data->extensionduedate = $this->apply_date_offset($data->extensionduedate);
+        } else {
+            $data->extensionduedate = 0;
+        }
+        // Flags mailed and locked need no translation on restore.
+
+        $newitemid = $DB->insert_record('assign_user_flags', $data);
     }
 
     /**
@@ -146,16 +181,25 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         $data->timecreated = $this->apply_date_offset($data->timecreated);
         $data->userid = $this->get_mappingid('user', $data->userid);
         $data->grader = $this->get_mappingid('user', $data->grader);
+
+        // Handle flags restore to a different table.
+        $flags = new stdClass();
+        $flags->assignment = $this->get_new_parentid('assign');
         if (!empty($data->extensionduedate)) {
-            $data->extensionduedate = $this->apply_date_offset($data->extensionduedate);
-        } else {
-            $data->extensionduedate = 0;
+            $flags->extensionduedate = $this->apply_date_offset($data->extensionduedate);
         }
+        if (!empty($data->mailed)) {
+            $flags->mailed = $data->mailed;
+        }
+        if (!empty($data->locked)) {
+            $flags->locked = $data->locked;
+        }
+        $DB->insert_record('assign_user_flags', $flags);
 
         $newitemid = $DB->insert_record('assign_grades', $data);
 
         // Note - the old contextid is required in order to be able to restore files stored in
-        // sub plugin file areas attached to the gradeid
+        // sub plugin file areas attached to the gradeid.
         $this->set_mapping('grade', $oldid, $newitemid, false, null, $this->task->get_old_contextid());
         $this->set_mapping(restore_gradingform_plugin::itemid_mapping('submissions'), $oldid, $newitemid);
     }
@@ -174,7 +218,6 @@ class restore_assign_activity_structure_step extends restore_activity_structure_
         $data->assignment = $this->get_new_parentid('assign');
 
         $newitemid = $DB->insert_record('assign_plugin_config', $data);
-
     }
 
     /**

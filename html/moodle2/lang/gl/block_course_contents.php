@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_contents', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_contents', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_contents
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['config_blocktitle'] = 'Título do bloque';
 $string['config_blocktitle_default'] = 'Índice';
 $string['config_blocktitle_help'] = 'Deixar este campo baleiro para usar o título do bloque predeterminado. Se define un título aquí, usarase no lugar dun predeterminado.';
+$string['config_enumerate'] = 'Enumerar os títulos de sección';
 $string['config_enumerate_label'] = 'Se está activado, o número da sección presentarase antes do título da sección';
 $string['course_contents:addinstance'] = 'Engadir un novo bloque de contidos do curso';
 $string['notusingsections'] = 'Este formato de curso non usa seccións.';

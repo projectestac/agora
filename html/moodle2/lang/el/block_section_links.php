@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,14 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Αύξηση κατά';
 $string['incby2'] = 'Εναλλακτική αύξηση κατά';
-$string['incbydesc1'] = 'Αυτή η τιμή τμήματος αυξάνεται κάθε φορά που ένας σύνδεσμος του τμήματος εμφανίζεται ξεκινώντας από το 1.';
-$string['incbydesc2'] = 'Αυτή η τιμή τμήματος αυξάνεται κάθε φορά που ένας σύνδεσμος του τμήματος εμφανίζεται ξεκινώντας από το 1.';
 $string['jumptocurrenttopic'] = 'Μεταπήδηση στο τρέχον τμήμα';
 $string['jumptocurrentweek'] = 'Μεταπήδηση στην τρέχουσα εβδομάδα';
 $string['numsections1'] = 'Αριθμός τμημάτων';
 $string['numsections2'] = 'Εναλλακτικός αριθμός τμημάτων';
-$string['numsectionsdesc1'] = 'Μόλις ο αριθμός των τμημάτων στο μάθημα φτάσει αυτό το νούμερο τότε χρησιμοποιείται η αύξηση της τιμής.';
-$string['numsectionsdesc2'] = 'Μόλις ο αριθμός των τμημάτων στο μάθημα φτάσει αυτό το νούμερο τότε η Εναλλακτική αύξηση της τιμής χρησιμοποιείται.';
 $string['pluginname'] = 'Σύνδεσμοι ενοτήτων';
 $string['topics'] = 'Τμήματα';
 $string['weeks'] = 'Εβδομάδες';

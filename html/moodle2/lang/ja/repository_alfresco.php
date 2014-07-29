@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_alfresco', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_alfresco', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_alfresco
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['alfresco_url'] = 'Alfresco URI';
-$string['alfrescourltext'] = 'Afresco APIのURIは、次のように入力してください: http://yoursite.com/alfresco/api';
-$string['alfresco:view'] = 'Afrescoリポジトリを表示する';
+$string['alfresco_url'] = 'Alfresco URL';
+$string['alfrescourltext'] = 'Alfresco APIのURLは次のように入力してください: http://yoursite.com/alfresco/api または http://yoursite.com/alfresco/soapapi (Alfresco 4.2.d以上)';
+$string['alfresco:view'] = 'Alfrescoリポジトリを表示する';
 $string['configplugin'] = 'Alfresco設定';
 $string['notitle'] = 'タイトルなし';
 $string['password'] = 'パスワード';
-$string['pluginname'] = 'Alfrescoリカバリ';
+$string['pluginname'] = 'Alfrescoリポジトリ';
 $string['pluginname_help'] = 'Alfresco CMSのプラグインです。';
-$string['soapmustbeenabled'] = 'alfrescoプラグインのため、SOAP拡張モジュールを有効にする必要があります。';
+$string['security_key_notice_message_content'] = '外部リンクによるAlfresco Moodleリポジトリ使用に関して、新たなセキュリティ問題が発見されました。これらのリンク (トークン) に含まれるユーザ情報を使うことにより、ユーザはAlfrescoサーバの他のユーザアカウントにアクセスできるようになります。現在、この機能は無効にされていますが、トークンが含まれたリンクにより、他のユーザのアカウントにアクセスすることができます。あなた自身の安全のため、トークンを有効期限切れにするために、あなたのAlfrescoサーバを再起動することは重要です。';
+$string['security_key_notice_message_small'] = '最近発見されたAlfrescoのセキュリティ問題のため、あなたのAlfrescoサーバの再起動をお勧めします。';
+$string['security_key_notice_message_subject'] = 'Alfrescoリポジトリセキュリティ通知';
+$string['soapmustbeenabled'] = 'Alfrescoプラグインのため、SOAP拡張モジュールを有効にする必要があります。';
 $string['space'] = 'スペース';
 $string['username'] = 'ユーザ名';

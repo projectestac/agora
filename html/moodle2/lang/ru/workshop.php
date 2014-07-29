@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Управление доступом';
 $string['aggregategrades'] = 'Пересчет оценок';
 $string['aggregation'] = 'Расчет итоговой оценки';
 $string['allocate'] = 'Распределение работ';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Уже оценено';
 $string['areaconclusion'] = 'Текст заключения';
 $string['areainstructauthors'] = 'Инструкции для работы';
 $string['areainstructreviewers'] = 'Инструкции по оценке';
+$string['areaoverallfeedbackattachment'] = 'Вложения общего отзыва';
+$string['areaoverallfeedbackcontent'] = 'Тексты общего отзыва';
 $string['areasubmissionattachment'] = 'Приложения к работе';
 $string['areasubmissioncontent'] = 'Текст работы';
 $string['assess'] = 'Оценить';
@@ -126,8 +127,10 @@ $string['examplesmode'] = 'Режим оценки примеров';
 $string['examplesubmissions'] = 'Примеры работ';
 $string['examplesvoluntary'] = 'Добровольная оценка примера работы';
 $string['feedbackauthor'] = 'Отзыв для автора';
+$string['feedbackauthorattachment'] = 'Приложение';
 $string['feedbackby'] = 'Отзыв на {$a}';
 $string['feedbackreviewer'] = 'Отзыв для рецензента';
+$string['feedbacksettings'] = 'Отзыв';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -160,8 +163,7 @@ $string['latesubmissions'] = 'Работы, отправленные с опоз
 $string['latesubmissionsallowed'] = 'Разрешить работы, отправленные с опозданием';
 $string['latesubmissions_desc'] = 'Разрешить представление работ после крайнего срока';
 $string['latesubmissions_help'] = 'Если параметр включен, то автор может представить свою работу после истечения срока представления или в фазе оценки. Работы, отправленные с опозданием, уже нельзя будет изменить.';
-$string['maxbytes'] = 'Максимальный размер файла';
-$string['miscellaneoussettings'] = 'Разные настройки';
+$string['maxbytes'] = 'Максимальный размер вложенного файла';
 $string['modulename'] = 'Семинар';
 $string['modulename_help'] = 'Модуль «Семинар» позволяет накапливать, просматривать, рецензировать и взаимно оценивать студенческие работы.
 
@@ -184,6 +186,14 @@ $string['notoverridden'] = 'Не переопределено';
 $string['noworkshops'] = 'В этом курсе нет семинаров';
 $string['noyoursubmission'] = 'Вы еще не отправили свою работу';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Общий отзыв';
+$string['overallfeedbackfiles'] = 'Максимальное количество вложений общего отзыва';
+$string['overallfeedbackmaxbytes'] = 'Максимальный размер файла';
+$string['overallfeedbackmode'] = 'Режим общего отзыва';
+$string['overallfeedbackmode_0'] = 'Отключен';
+$string['overallfeedbackmode_1'] = 'Включен (дополнительный)';
+$string['overallfeedbackmode_2'] = 'Включен (обязательный)';
+$string['overallfeedbackmode_help'] = 'При включенном параметре внизу формы оценивания отображается текстовое поле. Там рецензенты могут написать общий отзыв к работе или предоставить дополнительные пояснения своей оценки.';
 $string['page-mod-workshop-x'] = 'Любая страница модуля Семинар';
 $string['participant'] = 'Участник';
 $string['participantrevierof'] = 'Рецензируемые участником:';
@@ -208,6 +218,7 @@ $string['recentsubmissions'] = 'Работы семинара:';
 $string['saveandclose'] = 'Сохранить и закрыть';
 $string['saveandcontinue'] = 'Сохранить и продолжить редактирование';
 $string['saveandpreview'] = 'Сохранить и посмотреть';
+$string['saveandshownext'] = 'Сохранить и показать следующее';
 $string['selfassessmentdisabled'] = 'Самооценка отключена';
 $string['showingperpage'] = 'Элементов на странице - {$a}';
 $string['showingperpagechange'] = 'Изменить ...';
@@ -286,7 +297,6 @@ $string['withoutsubmission'] = 'Рецензент без собственной
 $string['workshop:addinstance'] = 'Добавлять новый семинар';
 $string['workshop:allocate'] = 'Размещать работы для рассмотрения';
 $string['workshop:editdimensions'] = 'Редактировать форму оценки';
-$string['workshopfeatures'] = 'Особенности семинара';
 $string['workshop:ignoredeadlines'] = 'Игнорировать ограничения по времени';
 $string['workshop:manageexamples'] = 'Управлять примером работы';
 $string['workshopname'] = 'Название семинара';

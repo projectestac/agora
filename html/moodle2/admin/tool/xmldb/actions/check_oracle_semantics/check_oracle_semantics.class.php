@@ -75,8 +75,8 @@ class check_oracle_semantics extends XMLDBCheckAction {
                 // Get current semantic from dictionary, we only will process B (BYTE) ones
                 // suplying the SQL code to change them to C (CHAR) semantic
                 $params = array(
-                    'table_name' => textlib::strtoupper($DB->get_prefix() . $xmldb_table->getName()),
-                    'column_name' => textlib::strtoupper($xmldb_field->getName()),
+                    'table_name' => core_text::strtoupper($DB->get_prefix() . $xmldb_table->getName()),
+                    'column_name' => core_text::strtoupper($xmldb_field->getName()),
                     'data_type' => 'VARCHAR2');
                 $currentsemantic = $DB->get_field_sql('
                     SELECT char_used
@@ -110,7 +110,7 @@ class check_oracle_semantics extends XMLDBCheckAction {
         $dbman = $DB->get_manager();
 
         $s = '';
-        $r = '<table class="generalbox boxaligncenter boxwidthwide" border="0" cellpadding="5" cellspacing="0" id="results">';
+        $r = '<table class="generaltable boxaligncenter boxwidthwide" border="0" cellpadding="5" cellspacing="0" id="results">';
         $r.= '  <tr><td class="generalboxcontent">';
         $r.= '    <h2 class="main">' . $this->str['searchresults'] . '</h2>';
         $r.= '    <p class="centerpara">' . $this->str['wrongoraclesemantics'] . ': ' . count($wrong_fields) . '</p>';

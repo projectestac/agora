@@ -6,8 +6,8 @@ body {
     padding: 0;
     color: #4b4b4b;
 }
-h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
-    font-family: Helvetica,Arial,sans-serif;
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, input, textarea {
+    font-family: Helvetica, Arial, sans-serif;
 }
 a:link,
 a:visited {
@@ -22,7 +22,10 @@ hr {
     border-bottom: 1px dotted #808080;
     border-top: 0px;
 }
-h2.headingblock {
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2 {
     border-bottom: 1px solid #ddd;
     font-size: 1.4em;
     font-weight: bold;
@@ -32,7 +35,8 @@ Page
 -----------------------*/
 #page {
     font-size: 108%;
-    font-family: Helvetica, Arial, sans-serif
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #fff;
 }
 #page-content {
     border-bottom: 1px solid #ddd;
@@ -43,28 +47,33 @@ Header and Logo
 #page-header {
     height: 100px;
     width: 100%;
-    background: #fff;
+    background-color: #fff;
 }
 a.logo {
     background: url([[setting:logo]]) no-repeat 0 0;
     width: 320px;
     height: 75px;
-    display: block;
-    margin: 15px 10px 10px;
-    float: left;
-}
-.headermenu,
-.langmenu {
-    float:right;
-    clear: right;
-    font-size: 1em;
     margin: 0;
-    text-align: right;
+    float: left;
     position: relative;
     top: 10px;
+    left: 10px;
 }
 .headermenu {
-    right: 10px;
+    float: right;
+    clear: right;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+.headermenu .logininfo,
+.headermenu .langmenu {
+    font-size: 1em;
+}
+#navcontainer {
+    clear: both;
 }
 /*
 Page Footer
@@ -161,13 +170,6 @@ Navbar & Breadcrumb
     color: #787878;
 }
 
-.jsenabled .course_category_tree .controls {
-    visibility: visible;
-    float: right;
-}
-.category_label {
-    padding-left: 20px;
-}
 /*
 Collapse All - Expand All
 -------------------------*/
@@ -229,27 +231,24 @@ textarea {
     cursor: default;
 }
 /*
-Coursebox Info & Summary
-------------------------*/
-.coursebox h3,
-.coursebox .info,
-.coursebox .summary {
-    text-align: left;
+Courses and categories lists
+----------------------------*/
+.coursebox .content .summary,
+.coursebox .content .coursecat {
     width: 100%;
-    height: auto;
-}
-.coursebox .info {
     float: left;
 }
-.coursebox .summary {
-    float: right;
+.coursebox > .info > .name {
+    width: auto;
 }
-.coursebox .summary p {
-    margin: 5px 0 0;
+.coursebox .content .teachers,
+.coursebox .content .courseimage,
+.coursebox .content .coursefile {
+    width: 100%;
 }
-.coursebox .info h3.name {
-    padding: 0;
-    margin: 5px 0 0;
+#page-course-index-category .generalbox.info {
+    margin: 1em 0;
+    padding: 0 5px;
 }
 /*
 Course Section Topic & Weekly
@@ -263,10 +262,6 @@ Course Section Topic & Weekly
 }
 .course-content ul.topics li.section {
   padding-top: 1em;
-}
-.path-course-view .headingblock {
-    display: none; /* hides topic items title or weekly itens title */
-    margin-bottom: 9px;
 }
 /*Login (Login page)*/
 .loginbox .loginform .form-label {
@@ -471,11 +466,21 @@ tab styles for ie6 & ie7
 .file-picker textarea {
     background-color: #EEE;
 }
-/* Important z-index fixes
--------------------------*/
-.yui-skin-sam .yui-panel-container {
-    z-index: 999999!important;
+
+/* Moodle forms
+----------------*/
+
+.mform .btn-cancel {
+    color: #007EBA;
+    text-decoration: none;
 }
-body#page-course-view-topics.path-course div.moodle-dialogue-base div.yui3-widget{
-    z-index: 600!important;
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #cc3300;
+    text-decoration: underline;
+}
+
+/* Actionmenu
+-------------*/
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall {
+    margin: 4px 4px 4px 2px;
 }

@@ -61,10 +61,11 @@ class format_simple_renderer extends format_topics_renderer {
      */
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         global $PAGE;
+
         $modinfo = get_fast_modinfo($course);
         $course = course_get_format($course)->get_course();
 
-		// Can we view the section in question?
+        // Can we view the section in question?
         if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
             // This section doesn't exist
             print_error('unknowncoursesection', 'error', null, $course->fullname);
@@ -81,7 +82,7 @@ class format_simple_renderer extends format_topics_renderer {
             return;
         }
 
-		// Copy activity clipboard..
+        // Copy activity clipboard..
         echo $this->course_activity_clipboard($course, $displaysection);
 
         if (!empty($course->showtopiczero) && $displaysection) {
@@ -89,30 +90,33 @@ class format_simple_renderer extends format_topics_renderer {
 	        if ($thissection->summary or !empty($modinfo->sections[0])) {
 	            echo $this->start_section_list();
 	            echo $this->section_header($thissection, $course, true, $displaysection);
-	            print_section($course, $thissection, null, null, true, "100%", false, $displaysection);
+
+                $this->print_simple_section($course, $thissection, null, null, true, '100%', false, $displaysection);
 	            echo $this->section_footer();
 	            echo $this->end_section_list();
 	        }
 	    }
 
+
         // Start single-section div
         echo html_writer::start_tag('div', array('class' => 'single-section'));
 
-		// The requested section page.
+        // The requested section page.
         $thissection = $modinfo->get_section_info($displaysection);
 
         // Title with section navigation links.
         $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
         $sectiontitle = '';
-        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation header headingblock'));
+        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation navigationtitle'));
         $sectiontitle .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));
         $sectiontitle .= html_writer::tag('span', $sectionnavlinks['next'], array('class' => 'mdl-right'));
         // Title attributes
-        $titleattr = 'mdl-align title';
+        $classes = 'sectionname';
         if (!$thissection->visible) {
-            $titleattr .= ' dimmed_text';
+            $classes .= ' dimmed_text';
         }
-        $sectiontitle .= html_writer::tag('div', get_section_name($course, $displaysection), array('class' => $titleattr));
+        $sectiontitle .= $this->output->heading(get_section_name($course, $displaysection), 3, $classes);
+
         $sectiontitle .= html_writer::end_tag('div');
         echo $sectiontitle;
 
@@ -121,24 +125,91 @@ class format_simple_renderer extends format_topics_renderer {
 
         echo $this->section_header($thissection, $course, true, $displaysection);
 
-        //print_section($course, $thissection, null, null, true, '100%', false, $displaysection);
         $this->print_simple_section($course, $thissection, null, null, true, '100%', false, $displaysection);
         echo $this->section_footer();
         echo $this->end_section_list();
 
         // Display section bottom navigation.
-        $courselink = html_writer::link(course_get_url($course), get_string('returntomaincoursepage'));
         $sectionbottomnav = '';
         $sectionbottomnav .= html_writer::start_tag('div', array('class' => 'section-navigation mdl-bottom'));
         $sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));
         $sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['next'], array('class' => 'mdl-right'));
-        $sectionbottomnav .= html_writer::tag('div', $courselink, array('class' => 'mdl-align'));
+        $sectionbottomnav .= html_writer::tag('div', $this->section_nav_selection($course, $sections, $displaysection),
+            array('class' => 'mdl-align'));
         $sectionbottomnav .= html_writer::end_tag('div');
         echo $sectionbottomnav;
 
-        // close single-section div.
+        // Close single-section div.
         echo html_writer::end_tag('div');
-	}
+    }
+
+    /**
+     * Output the html for a multiple section page
+     *
+     * @param stdClass $course The course entry from DB
+     * @param array $sections (argument not used)
+     * @param array $mods (argument not used)
+     * @param array $modnames (argument not used)
+     * @param array $modnamesused (argument not used)
+     */
+    public function print_multiple_section_page($course, $sections, $mods, $modnames, $modnamesused) {
+        global $PAGE;
+
+        $modinfo = get_fast_modinfo($course);
+        $course = course_get_format($course)->get_course();
+
+        $context = context_course::instance($course->id);
+        // Title with completion help icon.
+        echo $this->output->heading($this->page_title(), 2, 'accesshide');
+
+
+        // Now the list of sections..
+        echo $this->start_section_list();
+
+        foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+            if ($section == 0) {
+                // 0-section is displayed a little different then the others
+                if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+                    echo $this->section_header($thissection, $course, false, 0);
+                    $this->print_simple_section($course, $thissection, null, null, true, '100%', false, $section);
+                    echo $this->section_footer();
+                }
+                continue;
+            }
+            if ($section > $course->numsections) {
+                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
+                continue;
+            }
+            // Show the section if the user is permitted to access it, OR if it's not available
+            // but showavailability is turned on (and there is some available info text).
+            $showsection = $thissection->uservisible ||
+                    ($thissection->visible && !$thissection->available && $thissection->showavailability
+                    && !empty($thissection->availableinfo));
+            if (!$showsection) {
+                // Hidden section message is overridden by 'unavailable' control
+                // (showavailability option).
+                if (!$course->hiddensections && $thissection->available) {
+                    echo $this->section_hidden($section);
+                }
+
+                continue;
+            }
+
+            if (!$PAGE->user_is_editing() && $course->coursedisplay == COURSE_DISPLAY_MULTIPAGE) {
+                // Display section summary only.
+                echo $this->section_summary($thissection, $course, null);
+            } else {
+                echo $this->section_header($thissection, $course, false, 0);
+                if ($thissection->uservisible) {
+                    $this->print_simple_section($course, $thissection, null, null, true, '100%', false, $section);
+                }
+                echo $this->section_footer();
+            }
+        }
+
+        echo $this->end_section_list();
+
+    }
 
 	/**
 	 * Prints a section full of activity modules
@@ -175,11 +246,15 @@ class format_simple_renderer extends format_topics_renderer {
 	            }
 
 				$modcontext = context_module::instance($mod->id);
-
+				
+				$iconsize = !empty($course->simpleiconsize)?$course->simpleiconsize:self::DEFAULTICONSIZE;
+				
 				$liclasses = array();
 				$liclasses[] = 'activity';
 				$liclasses[] = $mod->modname;
 				$liclasses[] = 'modtype_'.$mod->modname;
+				$liclasses[] = 'size_'.$iconsize;
+				
 				$extraclasses = $mod->get_extra_classes();
 				if ($extraclasses) {
 					$liclasses = array_merge($liclasses, explode(' ', $extraclasses));
@@ -189,8 +264,9 @@ class format_simple_renderer extends format_topics_renderer {
 				echo html_writer::start_tag('div');
 
 				// Get data about this course-module
-				list($content, $instancename) =
-						get_print_section_cm_text($modinfo->cms[$modnumber], $course);
+				$cm = $modinfo->cms[$modnumber];
+				$content = $cm->get_formatted_content(array('overflowdiv' => true, 'noclean' => true));
+        		$instancename = $cm->get_formatted_name();
 
 				//Accessibility: for files get description via icon, this is very ugly hack!
 				$altname = '';
@@ -225,13 +301,12 @@ class format_simple_renderer extends format_topics_renderer {
 					$iconurl = simple_get_icon_url($mod, $modnumber);
 					$pattern = '/f\/[a-zA-Z0-9]*-(\d+)\D*$/';
 					preg_match($pattern, $iconurl, $matches);
-					$iconsize = !empty($course->simpleiconsize)?$course->simpleiconsize:self::DEFAULTICONSIZE;
 					if ($matches) {
 						$baseiconurl = str_replace($matches[0],'',$iconurl);
 						$relativeiconurl = str_replace($matches[1],$iconsize,$matches[0]);
 						$iconurl = $baseiconurl.$relativeiconurl;
 					}
-					$html = '<div style="background-image: url(\''.$iconurl.'\'); background-size: contain; background-position: center; background-repeat: no-repeat; height: '.$iconsize.'px; display: block;"></div>';
+					$html = '<div class="simple_image" style="background-image: url(\''.$iconurl.'\');"></div>';
 					$activitylink = $html .html_writer::start_tag('div').
 						html_writer::tag('span', $instancename . $altname, array('class' => 'instancename'))
 						.html_writer::end_tag('div');

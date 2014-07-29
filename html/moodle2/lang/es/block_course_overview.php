@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,7 +41,11 @@ $string['hiddencoursecount'] = 'Usted tiene {$a} cursos(s) oculto(s)';
 $string['hiddencoursecountplural'] = 'Usted tiene {$a} cursos(s) oculto(s)';
 $string['message'] = 'mensaje';
 $string['messages'] = 'mensajes';
+$string['moveafterhere'] = 'Mover el curso {$a->movingcoursename} detrás de {$a->currentcoursename}';
+$string['movecourse'] = 'Mover curso: {$a}';
 $string['movecoursehere'] = 'Mover curso aquí';
+$string['movetofirst'] = 'Mover curso {$a} a arriba';
+$string['movingcourse'] = 'Está moviendo: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Número de cursos para mostrar:';
 $string['otherexpanded'] = 'Otros Cursos expandidos';
 $string['pluginname'] = 'Vista general de cursos';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forumng', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forumng', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   forumng
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,31 +45,39 @@ $string['alert_emailpreface'] = 'A forum post has been reported by {$a->fullname
 $string['alert_emailsubject'] = 'Alert F{$a->postid}: {$a->coursename} {$a->forumname}';
 $string['alert_feedback'] = 'Your report has been sent successfully. A member of staff will
 investigate this issue.';
-$string['alert_info'] = 'The \'Alert\' feature can send this post to a staff member who will
+$string['alert_info'] = 'The \'Report\' feature can send this post to a staff member who will
 investigate. <strong>Please use this feature only if you think the post breaks the
 rules</strong>.';
-$string['alert_intro'] = 'You can use the Alert link if you need to bring a post in this forum to the attention of a moderator.';
-$string['alert_link'] = 'Alert';
+$string['alert_intro'] = 'You can use the Report post link if you need to bring a post in this forum to the attention of a moderator.';
+$string['alert_link'] = 'Report post';
 $string['alert_linktitle'] = 'Report post as unacceptable';
 $string['alert_notcurrentpost'] = 'This post has already been deleted.';
 $string['alert_note'] = 'Please note: This email has also been sent to {$a}';
 $string['alert_pagename'] = 'Report a post as unacceptable';
-$string['alert_reasons'] = 'Reasons for alert';
+$string['alert_reasons'] = 'Reasons for reporting post';
 $string['alert_reporterdetail'] = '{$a->fullname} ({$a->username}; {$a->email}; {$a->ip})';
 $string['alert_reporterinfo'] = '<strong>Reporter\'s details</strong>:';
-$string['alert_submit'] = 'Send alert';
+$string['alert_submit'] = 'Send report';
 $string['alert_turnedoff'] = 'The alert function is not available.';
 $string['allowsubscribe'] = 'Allow people to subscribe';
 $string['allsubscribe'] = 'Subscribe to all forums';
 $string['allunsubscribe'] = 'Unsubscribe from all forums';
 $string['alt_discussion_deleted'] = 'Deleted discussion';
 $string['alt_discussion_locked'] = 'Discussion is read-only';
+$string['alt_discussion_moderator'] = 'Discussion is moderated';
 $string['alt_discussion_sticky'] = 'This discussion always appears at top of list';
 $string['alt_discussion_timeout'] = 'Not currently visible to users (time limit)';
+$string['anonymousmoderator'] = 'Anonymous moderator';
 $string['archive_errorgrouping'] = 'The forum that receives old discussions has a different group
 setting. Please update the forum and change the <strong>Remove old discussions</strong> options.';
 $string['archive_errortargetforum'] = 'The forum that used to receive old discussions no longer
 exists. Please update the forum and change the <strong>Remove old discussions</strong> options.';
+$string['asmoderator'] = 'Post as?';
+$string['asmoderator_anon'] = 'Identify self as moderator (name hidden from students)';
+$string['asmoderator_help'] = 'This option will enable certain users to be able to identify themselves as a forum
+moderator or post as a moderator with their profile hidden from students.';
+$string['asmoderator_post'] = 'Standard Post';
+$string['asmoderator_self'] = 'Identify self as moderator';
 $string['atom'] = 'Atom';
 $string['attachment'] = 'Attachment';
 $string['attachmentmaxbytes'] = 'Maximum attachment size';
@@ -77,7 +85,7 @@ $string['attachmentmaxbytes_help'] = 'This is the maximum <i>total</i> size for 
 a single post.';
 $string['attachmentnum'] = 'Attachment {$a}';
 $string['attachments'] = 'Attachments';
-$string['author'] = 'author: "{$a}"';
+$string['author'] = 'author: &lsquo;{$a}&rsquo;';
 $string['authorname'] = 'Author name';
 $string['authorname_help'] = 'You can type a first name (Jane), a surname (Brown), the whole name (jane brown), or the first part of any of these (Ja, bro, Jane B). Searches are not case sensitive.
 
@@ -97,6 +105,8 @@ $string['beforestartdate'] = 'You can read any posts within this forum, but not 
 posts. This forum opens for posting on {$a}.';
 $string['beforestartdatecapable'] = 'Students can read any posts within this forum, but not submit
 their own posts until {$a}. You have access to submit posts before this time.';
+$string['canpostanon'] = 'Enable anonymous moderator posts';
+$string['canpostanon_help'] = 'Allows users that have postanon capability to make their post anonymous by hiding their name from students.';
 $string['choosefile'] = '1. Choose file';
 $string['clearflag'] = 'Remove flag';
 $string['clicktoadd'] = '2. Add it';
@@ -154,6 +164,7 @@ as charset options and bounce handling.';
 $string['confirmbulkunsubscribe'] = 'Are you sure you want to unsubscribe the users in the list
 below? (This cannot be undone.)';
 $string['confirmdelete'] = 'Are you sure you want to delete this post?';
+$string['confirmdeletediscuss'] = 'Delete discussion';
 $string['confirmdeletedraft'] = 'Are you sure you want to delete this draft post (shown below)?';
 $string['confirmdelete_notdiscussion'] = 'Deleting this post will not delete the discussion. If
 you want to delete the discussion, use the controls at bottom of the discussion page.';
@@ -192,6 +203,7 @@ that forum begins. This ensures that no new messages are posted and
 conversion process for that forum is complete.</li>
 </ul>';
 $string['copytoself'] = 'Send a copy to yourself';
+$string['createdbymoderator'] = 'This is a post created by moderator {$a} with their name hidden from students.';
 $string['crondebug'] = 'Cron debug output';
 $string['crondebugdesc'] = 'FOR TESTING PUPOSES ONLY -- Tick to include debugging output in the
 cron logs';
@@ -263,6 +275,7 @@ $string['edit'] = 'Edit<span class=\'accesshide\'> post {$a}</span>';
 $string['editbyother'] = 'Edited by {$a->name} on {$a->date}';
 $string['editbyself'] = 'Edited by the author on {$a}';
 $string['editdiscussionoptions'] = 'Edit discussion options: {$a}';
+$string['editedforumpost'] = 'Your post has been edited';
 $string['editlimited'] = 'Warning: You must save any changes to this post before {$a}. After that
 time you will no longer be allowed to edit the post.';
 $string['edit_locked'] = 'This discussion is currently locked.';
@@ -277,6 +290,8 @@ $string['edit_rootpost'] = 'This action cannot apply to a post that starts a dis
 $string['edit_timeout'] = 'You are no longer permitted to edit this post; the permitted editing
 time has run out.';
 $string['edit_wronggroup'] = 'You cannot make changes to posts outside your group.';
+$string['emailauthor'] = 'Email author';
+$string['emailauthor_help'] = 'Send an email to the post\'s author informing them that you have edited their post';
 $string['emailcontenthtml'] = 'This is a notification to advise you that your forum post with the
  following details has been deleted by \'{$a->firstname} {$a->lastname}\':<br />
 <br />
@@ -293,6 +308,14 @@ Forum: {$a->forum}
 Module: {$a->course}
 
 To view the discussion visit {$a->deleteurl}';
+$string['emaileditedcontenthtml'] = 'This is a notification to advise you that your forum post with the
+following details has been edited by \'{$a->editinguser}\':<br />
+<br />
+Subject: {$a->subject}<br />
+Forum: {$a->forum}<br />
+Module: {$a->course}<br/>
+<br/>
+<a href="{$a->editurl}" title="view deleted post">View the discussion</a>';
 $string['emailerror'] = 'There was an error sending the email';
 $string['emailmessage'] = 'Message';
 $string['enableadvanced'] = 'Enable advanced features';
@@ -369,6 +392,8 @@ $string['exportedtitle'] = 'Forum discussion &lsquo;{$a->subject}&rsquo; exporte
 $string['exportword'] = 'Export to Word';
 $string['externaldashboardadd'] = 'Add forum to dashboard';
 $string['externaldashboardremove'] = 'Remove forum from dashboard';
+$string['extra_emails'] = 'Email address of other recipients';
+$string['extra_emails_help'] = 'Enter one or more email address(es) separated by spaces or semicolons.';
 $string['feeditems'] = 'Recent items in feeds';
 $string['feeditems_help'] = 'The number of items included in the Atom/RSS feeds. If this is set
 low, then users who don&rsquo;t check the feed frequently might miss some messages.';
@@ -407,6 +432,8 @@ $string['forumng:mailnow'] = 'Mail posts before editing timeout';
 $string['forumng:managediscussions'] = 'Manage discussion options';
 $string['forumng:managesubscriptions'] = 'Manage subscriptions';
 $string['forumng:movediscussions'] = 'Move discussions';
+$string['forumng:postanon'] = 'Post as anonymous moderator';
+$string['forumng:postasmoderator'] = 'Indentify self as moderator in post';
 $string['forumng:rate'] = 'Rate posts';
 $string['forumng:replypost'] = 'Reply to posts';
 $string['forumng:setimportant'] = 'Mark posts as important';
@@ -451,6 +478,7 @@ $string['housekeepingstarthour'] = 'Start hour of archiving';
 $string['housekeepingstophour'] = 'Stop hour of archiving';
 $string['important'] = 'Important post';
 $string['inappropriatedateortime'] = 'From date cannot be after present.';
+$string['includepost'] = 'Include post';
 $string['initialsubscribe'] = 'Automatically subscribe everyone';
 $string['inreplyto'] = 'In reply to';
 $string['invalidalert'] = 'You need to specify the reason for reporting this post.';
@@ -493,8 +521,10 @@ $string['mailnow'] = 'Mail soon';
 $string['mailnow_help'] = 'Send your post to email subscribers more quickly.
 
 Unless you choose this option, the system waits for some time before sending the post so that any edits you might make can be included in the email.';
+$string['managepostalerts'] = 'Manage reported post alerts';
 $string['markdiscussionread'] = 'Mark all posts in this discussion read.';
 $string['message'] = 'Message';
+$string['moderator'] = 'Moderator';
 $string['modulename'] = 'ForumNG';
 $string['modulename_help'] = 'ForumNG is a replacement for standard Moodle forum with most of
 the same features plus additional ones and a more dynamic user interface.
@@ -536,6 +566,8 @@ $string['pluginname'] = 'ForumNG';
 $string['post'] = 'Post';
 $string['postby'] = '(by {$a})';
 $string['postdiscussion'] = 'Post discussion';
+$string['postedasmoderator'] = 'Posted as moderator';
+$string['postedasmoderator_help'] = 'Search for posts that have been identified as being created by a moderator';
 $string['postinfo_deleted'] = 'deleted';
 $string['postinfo_short'] = 'summarised';
 $string['postinfo_unread'] = 'unread';
@@ -592,7 +624,9 @@ $string['reportingemail_help'] = 'If this email address is supplied, then a Repo
 next to each post. Users can click the link to report offensive posts. The information will be sent to this address.
 
 If this email is left blank then the Report feature will not be shown (unless a site-level
-reporting  address has been supplied).';
+reporting  address has been supplied).
+
+More than one email address can be added so long as they are separated by a semi-colon';
 $string['reportunacceptable'] = 'Email for reporting offensive post';
 $string['saveallratings'] = 'Save all ratings';
 $string['savedposts_all'] = '{$a}';
@@ -616,7 +650,7 @@ To exclude a word insert a hyphen immediately before the word.
 
 Example: the search term <tt>picasso -sculpture &quot;early works&quot;</tt> will return results for &lsquo;picasso&rsquo; or the phrase &lsquo;early works&rsquo; but will exclude items containing &lsquo;sculpture&rsquo;.
 
-To search by author or date, click &lsquo;More options&rsquo;.';
+To search by author or date use Advanced search. Access this directly by not entering a search term.';
 $string['searchthisforumlink'] = 'Search this forum';
 $string['searchthisforumlink_help'] = 'Type your search term and press Enter or click the button.
 
@@ -648,6 +682,12 @@ $string['shared'] = 'Allow forum to be shared';
 $string['shared_help'] = 'Tick this box, and set the ID number field below, to enable this forum
 to be shared.
 
+If you prefix the ID number with the prefix of AUTO_ it means that any clone forums will automatically look
+for the latest version of a master forum on restore.
+
+If the forum is backed up and restored if not unique it will add _1 to end
+(if already has _number at end then increment that number e.g. _2).
+
 This forum will become the original forum. You can then create one or more copies of this forum
 by choosing <strong>Use existing shared forum</strong>, and typing in the same ID number, when
 creating each copy.';
@@ -664,6 +704,7 @@ $string['sharedviewinfooriginal'] = '<strong>This forum is shared</strong> under
 $string['sharing'] = 'Forum sharing';
 $string['showidnumber'] = 'Show ID numbers';
 $string['showusername'] = 'Show usernames';
+$string['skipstickydiscussions'] = 'Skip sticky discussions';
 $string['skiptofirstunread'] = 'Skip to first unread post';
 $string['sortby'] = 'Sort by {$a}';
 $string['sorted'] = 'sorted {$a}';

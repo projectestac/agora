@@ -33,7 +33,9 @@ $course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
 require_course_login($course, true);
 $PAGE->set_pagelayout('incourse');
 
-add_to_log($course->id, 'page', 'view all', "index.php?id=$course->id", '');
+// Trigger instances list viewed event.
+$event = \mod_page\event\instances_list_viewed::create(array('context' => context_course::instance($course->id)));
+$event->trigger();
 
 $strpage         = get_string('modulename', 'page');
 $strpages        = get_string('modulenameplural', 'page');
@@ -46,7 +48,7 @@ $PAGE->set_title($course->shortname.': '.$strpages);
 $PAGE->set_heading($course->fullname);
 $PAGE->navbar->add($strpages);
 echo $OUTPUT->header();
-
+echo $OUTPUT->heading($strpages);
 if (!$pages = get_all_instances_in_course('page', $course)) {
     notice(get_string('thereareno', 'moodle', $strpages), "$CFG->wwwroot/course/view.php?id=$course->id");
     exit;

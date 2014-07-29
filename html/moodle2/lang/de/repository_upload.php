@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_upload', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_upload', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_upload
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Plugin-Konfiguration zum Hochladen';
+$string['configplugin'] = 'Einstellungen für \'Datei hochladen\'';
 $string['pluginname'] = 'Datei hochladen';
 $string['pluginname_help'] = 'Datei in Moodle hochladen';
 $string['upload_error_cant_write'] = 'Fehler beim Speichern der Datei';

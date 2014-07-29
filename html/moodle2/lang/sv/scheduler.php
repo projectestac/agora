@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scheduler', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scheduler', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   scheduler
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['action'] = 'Åtgärd';
+$string['addappointment'] = 'Lägg till en annan student';
 $string['addondays'] = 'Lägg till bokningar den';
 $string['addscheduled'] = 'Lägg till schemalagd student';
 $string['addscheduled_help'] = '<h3>Lägg till en bokning när mötestiden sätts upp</h3>
@@ -54,6 +55,7 @@ $string['appointmentmode_help'] = '<p>Du kan här välja bland några alternativ
 </li>
 </ul>
 </p>';
+$string['appointmentno'] = 'Bokning {$a}';
 $string['appointmentnotes'] = 'Anteckningar för bokningen';
 $string['appointments'] = 'Bokningar';
 $string['appointsolo'] = 'bara mig';
@@ -69,6 +71,8 @@ $string['availableslotsnotowned'] = 'Ägs inte';
 $string['availableslotsowned'] = 'Ägs';
 $string['bookwithteacher'] = 'Lärare';
 $string['bookwithteacher_help'] = 'Välj en lärare för mötet.';
+$string['break'] = 'Paus mellan mötestider';
+$string['breaknotnegative'] = 'Pausens längd kan inte vara negativ';
 $string['cancelledbystudent'] = '{$a} : Bokningen annullerad eller flyttad av en student';
 $string['cancelledbyteacher'] = '{$a} : Bokningen annullerad av läraren';
 $string['choice'] = 'Val';
@@ -107,6 +111,7 @@ $string['dontforgetsaveadvice'] = 'Du har ändrat listan av bokade personer. Gl�
 $string['downloadexcel'] = 'Exporterar till Excel';
 $string['downloads'] = 'Exporterar';
 $string['duration'] = 'Varaktighet';
+$string['durationrange'] = 'Mötestidens längd måste vara mellan {$a->min} och {$a->max} minuter.';
 $string['email_applied_html'] = '<p>En bokning har gjorts för en mötestid den {$a->date} vid {$a->time},<br/>
 av studenten <a href="{$a->attendee_url}">{$a->attendee}</a> i kursen:
 
@@ -143,6 +148,7 @@ från <b>{$a->time}</b> till <b>{$a->endtime}</b><br/>
 med <b><a href="{$a->attendant_url}">{$a->attendant}</a></b>.</p>
 
 <p>Plats: <b>{$a->location}</b></p>';
+$string['emailreminderondate'] = 'E-posta en påminnelse den';
 $string['email_reminder_plain'] = 'Du har en bokad mötestid
 den {$a->date} från {$a->time} till {$a->endtime}
 med {$a->attendant}.
@@ -176,6 +182,7 @@ $string['exclusivity_help'] = '<p>Du kan sätta en gräns för hur många studen
 <p>Sätts gränsen till obegränsad (0), kommer den här mötestiden aldrig övervägas i utvärderingen av begränsingar, även om andra mötestider är satta som exklusiva eller begränsade i samma tidsram.
 </p>';
 $string['exclusivitylockedto'] = 'Du kan inte ändra mötestidsläge medan du schemalägger. Målmötestidens nuvarande gräns kommer gälla. Om mötestiden är ny, kommer en standardgräns på 1 att gälla.';
+$string['exclusivityoverload'] = 'Mötestiden har {$a} bokade studenter, fler än vad som tillåts med den här inställningen.';
 $string['explaingeneralconfig'] = 'De här alternativen kan enbart ställas in på systemnivå och kommer gälla för alla schemaläggare i den här Moodle-installationen.';
 $string['exportinstructions'] = 'Du borde helst spara den genererade exportfilen på din hårddisk innan du använder filen.';
 $string['finalgrade'] = 'Slutgiltigt betyg';
@@ -194,14 +201,21 @@ att ta bort tidigare mötestider innan proceduren kan lägga till de nya.
 $string['forcourses'] = 'Välj studenter i kurser';
 $string['friday'] = 'Fredag';
 $string['generalconfig'] = 'Generell konfiguration';
+$string['grade'] = 'Betyg';
 $string['gradingstrategy'] = 'Betygsättningsstrategi';
+$string['gradingstrategy_help'] = 'Välj hur betyg sammanställs i en schemaläggare där studenter kan ha flera bokningar.
+    Betygsboken kan visa endera <ul><li>det genomsnittliga betyget eller</li><li>det högsta betyget</li></ul> som studenten åstadkommit.';
 $string['group'] = 'grupp';
 $string['groupbreakdown'] = 'Enligt gruppstorlek';
 $string['groupscheduling'] = 'Aktivera gruppschemaläggning';
+$string['groupscheduling_desc'] = 'Tillåt hela grupper att bli schemalagda samtidigt.
+(Förutom det globala alternativet, måste aktivitetens gruppläge vara inställt på "Synliga grupper" eller "Separerade grupper" för att kunna aktivera denna funktion.)';
 $string['groupsession'] = 'Gruppsession';
 $string['groupsize'] = 'Gruppstorlek';
 $string['guestscantdoanything'] = 'Gäster kan inte göra något här.';
 $string['howtoaddstudents'] = 'För att kunna lägga till studenter till en schemaläggare som har en global skala, använd modulens rollinställning.<br/>Du kan också använda modulens rolldefinitioner för att definiera vilka som kan ta emot dina studenter.';
+$string['ignoreconflicts'] = 'Ignorera schemamässiga konflikter';
+$string['ignoreconflicts_help'] = 'Om den här checkrutan är markerad kommer mötestiden flyttas till det begärda datumet och tiden, även om andra mötestider redan finns vid samma tillfälle. Detta kan leda till överlappande bokningar för vissa lärare eller studenter och borde därför användas varsamt.';
 $string['incourse'] = 'i kursen';
 $string['introduction'] = 'Introduktion';
 $string['invitation'] = 'Inbjudan';
@@ -214,6 +228,8 @@ $string['location_help'] = 'Specificera den schemalagda platsen för mötet.';
 $string['markasseennow'] = 'Markera som sedd nu';
 $string['markseen'] = 'Efter att du har haft ett möte med en student markera det vänligen som "Sedd" genom att bocka i checkrutan i tabellen ovan.';
 $string['maxgrade'] = 'Välj det högsta betyget';
+$string['maxstudentlistsize'] = 'Maximala längden på studentlistan';
+$string['maxstudentlistsize_desc'] = 'The maximum length of the list of students who need to make an appointment, as shown in the teacher view of the scheduler. If there are more students than this, no list will be displayed.';
 $string['maxstudentsperslot'] = 'Maximalt antal studenter per mötestid';
 $string['maxstudentsperslot_desc'] = 'Gruppmöten / icke-exklusiva möten kan ha det här antalet studenter som mest. Notera även att valet "obegränsad" alltid kan väljas utöver detta för en mötestid.';
 $string['meangrade'] = 'Välj det genomsnittliga betyget';
@@ -223,6 +239,7 @@ $string['mins'] = 'minuter';
 $string['minutes'] = 'minuter';
 $string['minutesperslot'] = 'minuter per mötestid';
 $string['missingstudents'] = '{$a} studenter måste fortfarande boka';
+$string['missingstudentsmany'] = '{$a} studenter måste fortfarande boka. Ingen lista visas på grund av storleken.';
 $string['mode'] = 'Läge';
 $string['modulename'] = 'Schemaläggaren';
 $string['modulename_help'] = 'Schemaläggaren hjälper dig att boka möten med dina studenter.
@@ -301,6 +318,7 @@ $string['schedule'] = 'Schema';
 $string['scheduleappointment'] = 'Boka möte vid {$a}';
 $string['schedulecancelled'] = '{$a} : Din bokning annullerad eller flyttad';
 $string['schedulegroups'] = 'Schemalägg per grupp';
+$string['scheduleinnew'] = 'Schemalägg i en ny lucka';
 $string['scheduler'] = 'Schemaläggare';
 $string['scheduler:addinstance'] = 'Lägg till en ny Schemaläggare';
 $string['scheduler:appoint'] = 'Boka';
@@ -323,6 +341,7 @@ $string['slots'] = 'Mötestider';
 $string['slotsadded'] = '{$a} mötestider har lagts till';
 $string['slottype'] = 'Typ av mötestid';
 $string['slotupdated'] = '1 mötestid uppdaterad';
+$string['slotwarning'] = '<b>Varning: </b>Flytten av denna mötestid till den valda tiden skapar konflikt med mötestiden/tiderna listade nedan. Checka i "Ignorera schemaläggningskonflikter" om du vill flytta mötestiden ändå.';
 $string['staffbreakdown'] = 'Av {$a}';
 $string['staffmember'] = 'Personalmedlem';
 $string['staffrolename'] = 'Lärarens rollnamn';
@@ -341,6 +360,7 @@ $string['student'] = 'Student';
 $string['studentbreakdown'] = 'Av student';
 $string['studentcomments'] = 'Studentens anteckningar';
 $string['studentdetails'] = 'Studentdetaljer';
+$string['studentmultiselect'] = 'Varje student kan väljas endast en gång i denna mötestid';
 $string['studentnotes'] = 'Dina anteckningar om mötet';
 $string['students'] = 'Studenter';
 $string['sunday'] = 'Söndag';
@@ -364,5 +384,7 @@ $string['when'] = 'När?';
 $string['where'] = 'Var?';
 $string['who'] = 'Med vem?';
 $string['whosthere'] = 'Vem är där ?';
+$string['xdaysbefore'] = '{$a} dagar före mötestiden';
+$string['xweeksbefore'] = '{$a} veckor före mötesttiden';
 $string['yourappointmentnote'] = 'Dina privata kommentarer';
 $string['yourslotnotes'] = 'Kommentarer på mötet';

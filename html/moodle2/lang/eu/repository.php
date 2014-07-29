@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -77,6 +77,9 @@ $string['deleterepository'] = 'Biltegi hau ezabatu';
 $string['detailview'] = 'Ikusi xehetasunak';
 $string['dimensions'] = 'Neurriak';
 $string['disabled'] = 'Desgaituta';
+$string['displaydetails'] = 'Erakutsi karpeta fitxategien xehatasun guztiekin';
+$string['displayicons'] = 'Erakutsi karpeta fitxategien ikonoekin';
+$string['displaytree'] = 'Erakutsi karpeta fitxategien zuhaitzekin';
 $string['download'] = 'Jaitsi';
 $string['downloadfolder'] = 'Jaitsi guztiak';
 $string['downloadsucc'] = 'Fitxategia ondo jaitsi da';
@@ -101,6 +104,7 @@ $string['filesaved'] = 'Fitxategia gorde egin da';
 $string['folderexists'] = 'Karpetaren izena dagoeneko erabilita dago. Mesedez, erabili beste izen bat';
 $string['foldernotfound'] = 'Ez da karpeta aurkitu';
 $string['getfile'] = 'Aukeratu fitxategi hau';
+$string['help'] = 'Laguntza';
 $string['hidden'] = 'Ezkutuan';
 $string['iconview'] = 'Ikusi ikono gisa';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -153,12 +157,14 @@ $string['renameto'] = 'Berrizendatu honela: "{$a}"';
 $string['repositories'] = 'Biltegiak';
 $string['repository'] = 'Biltegia';
 $string['repositorycourse'] = 'Ikastaro-biltegiak';
+$string['repositoryicon'] = 'Biltegiaren ikonoa';
 $string['save'] = 'Gorde';
 $string['saveas'] = 'Gorde honela';
 $string['saved'] = 'Gordeta';
 $string['saving'] = 'Gordetzen';
 $string['search'] = 'Bilatu';
 $string['searching'] = 'Bilatu hemen';
+$string['searchrepo'] = 'Bilatu biltegia';
 $string['sectionbackup'] = 'Atalen segurtasun-kopiak';
 $string['select'] = 'Aukeratu';
 $string['setmainfile'] = 'Konfiguratu fitxategi nagusia';
@@ -175,6 +181,7 @@ $string['upload'] = 'Igo fitxategi hau';
 $string['uploading'] = 'Igotzen...';
 $string['uploadsucc'] = 'Fitxategia ondo igo da';
 $string['uselatestfile'] = 'Erabili azken fitxategia';
+$string['usenonjsfilemanager'] = 'Zabaldu fitxagegi-kudeatzailea leiho berrian';
 $string['usenonjsfilepicker'] = 'Fitxategi-hautatzailea leiho berrian zabaldu';
 $string['usercontextrepositorydisabled'] = 'Ezin duzu biltegi hau editatu erabiltzailearen testuinguruan';
 $string['wrongcontext'] = 'Ez duzu testuinguru honetarako sarbiderik';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,8 +46,8 @@ $string['allow'] = '許可';
 $string['allowinstructorcustom'] = '教師によるカスタムパラメータの追加を許可する';
 $string['allowsetting'] = 'ツールによるMoodle内での8Kの設定保存を許可する';
 $string['always'] = '常に';
-$string['automatic'] = '自動、起動URIをベースにする';
-$string['baseurl'] = 'ベースURI';
+$string['automatic'] = '自動、起動URLをベースにする';
+$string['baseurl'] = 'ベースURL';
 $string['basiclti'] = 'LTI';
 $string['basicltiactivities'] = 'LTI活動';
 $string['basiclti_base_string'] = 'LTI OAuth基本ストリング';
@@ -65,8 +65,8 @@ $string['configpassword'] = 'デフォルトのリモートツールパスワー
 $string['configpreferheight'] = 'デフォルト推奨高';
 $string['configpreferwidget'] = 'デフォルト起動をウィジェットに設定する';
 $string['configpreferwidth'] = 'デフォルト推奨幅';
-$string['configresourceurl'] = 'デフォルトリソースURI';
-$string['configtoolurl'] = 'デフォルトリモートツールURI';
+$string['configresourceurl'] = 'デフォルトリソースURL';
+$string['configtoolurl'] = 'デフォルトリモートツールURL';
 $string['configtypes'] = 'LTIアプリケーションを有効にする';
 $string['courseid'] = 'コースIDナンバー';
 $string['coursemisconf'] = 'コースが正しく設定されていません。';
@@ -109,7 +109,7 @@ $string['display_name_help'] = 'このオプションを有効にした場合、
 ツールプロバイダはタイトルを表示することもできます。このオプションにより、活動タイトルが2回表示されることを防ぐことができます。
 
 ツール起動コンテナが新しいウィンドウの場合、説明が表示されることがありません。';
-$string['domain_mismatch'] = '起動URIのドメインがツール設定と合致しません。';
+$string['domain_mismatch'] = '起動URLのドメインがツール設定と合致しません。';
 $string['donot'] = '送信しない';
 $string['donotaccept'] = '承認しない';
 $string['donotallow'] = '許可しない';
@@ -125,9 +125,9 @@ $string['external_tool_type_help'] = 'ツール設定の主目的は、Moodleお
 
 デフォルト設定およびツールにより提供されるサービスの追加的な設定を提供することもできます。
 
-* **自動、起動URIをベースにする** - この設定は、ほとんどすべてのケースで使用されます。起動URIに基づき、Moodleは最も適切なツール設定を選択します。管理者によるツール設定およびコース内でのツール設定の両者が使用されます。起動URIが指定された場合、Moodleは起動URIを認識できるか否か、フィードバックを提供します。Moodleが起動URIを認識できない場合、あなたは手動でツール設定に入力する必要があります。
+* **自動、起動URLをベースにする** - この設定は、ほとんどすべてのケースで使用されます。起動URLに基づき、Moodleは最も適切なツール設定を選択します。管理者によるツール設定およびコース内でのツール設定の両者が使用されます。起動URLが指定された場合、Moodleは起動URLを認識できるか否か、フィードバックを提供します。Moodleが起動URLを認識できない場合、あなたは手動でツール設定に入力する必要があります。
 
-* **特定のツールタイプ** - 特定のツールタイプを選択することで、あなたは外部ツールプロバイダとの通信に関して、Moodleにツール設定内容の使用を強制することができます。起動URIがツールプロバイダに属していない場合、警告が表示されます。一部のケースでは、特定ツールの提供時に起動URIを入力する必要はありません (ツールプロバイダ内で特定のリソースを起動しな場合)。
+* **特定のツールタイプ** - 特定のツールタイプを選択することで、あなたは外部ツールプロバイダとの通信に関して、Moodleにツール設定内容の使用を強制することができます。起動URLがツールプロバイダに属していない場合、警告が表示されます。一部のケースでは、特定ツールの提供時に起動URLを入力する必要はありません (ツールプロバイダ内で特定のリソースを起動しな場合)。
 
 * **カスタム設定** - このインスタンス内でカスタムツール設定を割り当てる場合、拡張要素を表示した後、コンシューマーキーおよび共通秘密鍵を入力してください。コンシューマーキーおよび共通秘密鍵がない場合、あなたはツールプロバイダにリクエストすることができます。すべてのツールがコンシューマーキーおよび共通秘密鍵を必要とすることではないため、その場合はフィールドを空白のままにすることができます。
 
@@ -157,10 +157,11 @@ $string['force_ssl_help'] = 'このオプションを有効にすることで、
 加えて、ツールプロバイダからのウェブサービスリクエストすべてにSSLが使用されます。
 
 このオプションを使用する場合、MoodleサイトおよびツールプロバイダがSSLをサポートしていることを確認してください。';
+$string['generaltool'] = '一般ツール';
 $string['global_tool_types'] = 'グローバルタイプ';
 $string['grading'] = '評定ルーティング';
-$string['icon_url'] = 'アイコンURI';
-$string['icon_url_help'] = 'アイコンURIでは、この活動がコース一覧に表示されるときに表示されるアイコンを変更します。デフォルトのLTIアイコンを使用する代わりに、活動のタイプで使用されるアイコンを指定することができます。';
+$string['icon_url'] = 'アイコンURL';
+$string['icon_url_help'] = 'アイコンURLでは、この活動がコース一覧に表示されるときに表示されるアイコンを変更します。デフォルトのLTIアイコンを使用する代わりに、活動のタイプで使用されるアイコンを指定することができます。';
 $string['id'] = 'ID';
 $string['invalidid'] = 'LTI IDが正しくありません。';
 $string['launch_in_moodle'] = 'Moodle内でツールを起動する';
@@ -176,10 +177,10 @@ $string['launchinpopup_help'] = '起動コンテナは、コースからツー�
 
 * **新しいウィンドウ** - ツールは利用可能なスペースすべてを占有して、新しいウィンドウに表示されます。ブラウザにより、新しいタブまたはポップアップウィンドウが使用されます。ブラウザでは、新しいウィンドウのオープンを抑制することができます。';
 $string['launchoptions'] = '起動オプション';
-$string['launch_url'] = '起動URI';
-$string['launch_url_help'] = '起動URIでは外部ツールのウェブアドレスを指定します。また、表示するリソース等、追加的な情報を含むことができます。起動URIに何を入力するのか分からない場合、ツールプロバイダを確認してください。
+$string['launch_url'] = '起動URL';
+$string['launch_url_help'] = '起動URLでは外部ツールのウェブアドレスを指定します。また、表示するリソース等、追加的な情報を含むことができます。起動URLに何を入力するのか分からない場合、ツールプロバイダを確認してください。
 
-特定のツールタイプを選択した場合、あなたは起動URIを入力する必要はありません。ツールリンクがツールプロバイダのシステムを起動するのみ、または特定のリソースに移動しない場合がこのケースにあたります。';
+特定のツールタイプを選択した場合、あなたは起動URLを入力する必要はありません。ツールリンクがツールプロバイダのシステムを起動するのみ、または特定のリソースに移動しない場合がこのケースにあたります。';
 $string['lti'] = 'LTI';
 $string['lti:addcoursetool'] = 'コース個別ツール設定を追加する';
 $string['lti:addinstance'] = '新しい外部ツール活動を追加する';
@@ -189,12 +190,13 @@ $string['lti:grade'] = '外部ツールから戻された評点を表示する';
 $string['lti_launch_error'] = '外部ツール起動中にエラーが発生しました:';
 $string['lti_launch_error_tool_request'] = '<p>管理者にツール設定の完了をリクエストするには、<a href="{$a->admin_request_url}" target="_top">ここをクリック</a>してください。 </p>';
 $string['lti_launch_error_unsigned_help'] = '<p>ツールプロバイダのコンシューマーキーおよび共通秘密鍵が不足しているため、このエラーが発生したと考えられます。</p>
-
-<p> コンシューマーキーおよび共通秘密鍵がある場合、あなたは外部ツールインスタンスの設定時に入力することができます (拡張要素が表示されていることを確認してください)。<br /> 代わりに、あなたは<a href="{$a->course_tool_editor}">ここで</a>コースレベルのツールプロバイダ設定を作成することができます。</p>';
+<p> コンシューマーキーおよび共通秘密鍵がある場合、あなたは外部ツールインスタンスの設定時に入力することができます (拡張要素が表示されていることを確認してください)。</p>
+<p> 代わりに、あなたは<a href="{$a->course_tool_editor}">ここで</a>コースレベルのツールプロバイダ設定を作成することができます。</p>';
 $string['lti:manage'] = 'ツール起動時、インストラクタになる';
 $string['lti:requesttooladd'] = 'ツールがサイト全体に設定されるようリクエストする';
 $string['lti_tool_request_added'] = 'ツール設定のリクエストが正常に送信されました。ツール設定を完了するため、あなたは管理者に連絡する必要があります。';
 $string['lti_tool_request_existing'] = 'ツールドメインに関するツール設定は、すでに送信されています。';
+$string['ltiunknownserviceapicall'] = 'LTIの不明なサービスAPIがコールされました。';
 $string['lti:view'] = '外部ツール活動を起動する';
 $string['main_admin'] = '概要ヘルプ';
 $string['main_admin_help'] = '外部ツールでは、遠隔に設置されたリソースをMoodleユーザがシームレスに利用できること実現します。特別な起動プロトコルを通して、リモートツールは起動ユーザの一般的な情報にアクセスすることができます。例えば、インスティテューション名、コースID、ユーザIDおよびユーザ名またはメールアドレス等の情報です。
@@ -215,12 +217,12 @@ $string['modulename_help'] = '外部ツール活動モジュールにおいて�
 
 外部ツール活動を作成するには、ツールプロバイダによるLTI (Learning Tool Interoperability 学習ツール相互運用) のサポートが必要です。教師は外部ツール活動を作成またはサイト管理者によって設定されたツールを利用可能な状態にすることができます。
 
-いくつかの点において、外部ツール活動はURIリソースと異なります:
+いくつかの点において、外部ツール活動はURLリソースと異なります:
 
 * 外部ツールはコンテクスト志向 (context aware) です。例えば、インスティテューション、コースおよび氏名等、ツールを起動したユーザの情報にアクセスすることができます。
 * 外部ツールは活動インスタンスに関する評点の閲覧、更新および削除をサポートします。
 * 外部ツール設定では、両者間の安全な通信を許可することにより、あなたのサイトおよびツールプロバイダ間の信頼関係を確立します。';
-$string['modulenameplural'] = 'basiclti';
+$string['modulenameplural'] = '外部ツール';
 $string['modulenamepluralformatted'] = 'LTIインスタンス';
 $string['never'] = 'なし';
 $string['new_window'] = '新しいウィンドウ';
@@ -239,8 +241,8 @@ $string['organizationid'] = '組織ID';
 $string['organizationid_help'] = 'このMoodleインスタンスの固有IDです。一般的に、組織で使用されているDNS名です。
 
 このフィールドを空白にした場合、サイト設定内のデフォルト値が使用されます。';
-$string['organizationurl'] = '組織URI';
-$string['organizationurl_help'] = 'MoodleインスタンスのベースURIです。
+$string['organizationurl'] = '組織URL';
+$string['organizationurl_help'] = 'MoodleインスタンスのベースURLです。
 
 このフィールドを空白にした場合、サイト設定内のデフォルト値が使用されます。';
 $string['pagesize'] = '1ページあたりの表示送信数';
@@ -286,15 +288,15 @@ $string['resourcekey_help'] = '設定処理の一環として提供されるた�
 コンシューマーキーはツールプロバイダから提供される必要があります。コンシューマーキーの取得方法は、ツールプロバイダ間で異なります。自動処理である場合も、またツールプロバイダに連絡が必要な場合もあります。
 
 Moodleからの安全な通信を必要とせず、評定レポートのような追加的なサービスを提供しない場合、コンシューマーキーは必要ではありません。';
-$string['resourceurl'] = 'リソースURI';
+$string['resourceurl'] = 'リソースURL';
 $string['return_to_course'] = 'コースに戻るには、<a href="{$a->link}" target="_top">ここをクリックしてください</a> 。';
 $string['saveallfeedback'] = '私のフィードバックすべてを保存する';
-$string['secure_icon_url'] = 'セキュアアイコンURI';
-$string['secure_icon_url_help'] = 'アイコンURIに似ていますが、ユーザがSSLを通してMoodleに安全にアクセスする場合に使用されます。このフィールドの主目的はユーザによるページアクセス時の警告表示を防ぐことにあります。しかし、安全ではないイメージの表示をリクエストすることになります。';
-$string['secure_launch_url'] = 'セキュア起動URI';
-$string['secure_launch_url_help'] = '起動URIに似ていますが、起動URIの代わりに高度なセキュリティが要求されます。MoodleサイトがSSL経由でアクセスされた場合、またはツール設定にて常にSSLから起動するよう指定されている場合、起動URIの代わりにセキュア起動URIが使用されます。
+$string['secure_icon_url'] = 'セキュアアイコンURL';
+$string['secure_icon_url_help'] = 'アイコンURLに似ていますが、ユーザがSSLを通してMoodleに安全にアクセスする場合に使用されます。このフィールドの主目的はユーザによるページアクセス時の警告表示を防ぐことにあります。しかし、安全ではないイメージの表示をリクエストすることになります。';
+$string['secure_launch_url'] = 'セキュア起動URL';
+$string['secure_launch_url_help'] = '起動URLに似ていますが、起動URLの代わりに高度なセキュリティが要求されます。MoodleサイトがSSL経由でアクセスされた場合、またはツール設定にて常にSSLから起動するよう指定されている場合、起動URLの代わりにセキュア起動URLが使用されます。
 
-SSL経由での起動を強制するため、起動URIにhttpsアドレスを設定することもできます。また、このフィールドは空白のままにすることもできます。';
+SSL経由での起動を強制するため、起動URLにhttpsアドレスを設定することもできます。また、このフィールドは空白のままにすることもできます。';
 $string['send'] = '送信';
 $string['setupoptions'] = 'セットアップオプション';
 $string['share_email'] = 'ランチャーEメールをツールと共有する';
@@ -318,37 +320,40 @@ $string['share_roster_help'] = 'コース内の受講ユーザ一覧にツール
 $string['show_in_course'] = 'ツールインスタンスの作成時にツールタイプを表示する';
 $string['show_in_course_help'] = 'このオプションを有効にした場合、教師によるコース内での外部ツール設定時に、「外部ツールタイプ」ドロップダウンメニューが表示されます。
 
-多くの場合、このオプションを選択する必要はありません。教師は起動URIをベースにツールベースURIを合致させるため、このツールを使用することができます。これは推奨される方法です。
+多くの場合、このオプションを選択する必要はありません。教師は起動URLをベースにツールベースURLを合致させるため、このツールを使用することができます。これは推奨される方法です。
 
 このオプションが選択されるべき唯一のケースは、ツール設定がシングルサインオンを意図している場合のみです。
 
 例えば、ツールプロバイダへの起動すべてがユーザを特定のリソースにアクセスさせるのではなく、ランディングページに移動させる場合です。';
 $string['size'] = 'サイズパラメータ';
 $string['submission'] = '送信';
+$string['submissions'] = '提出';
 $string['submissionsfor'] = '{$a} の提出';
+$string['subplugintype_ltisource'] = 'LTIソース';
+$string['subplugintype_ltisource_plural'] = 'LTIソース';
 $string['toggle_debug_data'] = 'デバッグデータに切り替える';
-$string['tool_config_not_found'] = 'このURIではツール設定が見つかりませんでした。';
+$string['tool_config_not_found'] = 'このURLではツール設定が見つかりませんでした。';
 $string['tool_settings'] = 'ツール設定';
 $string['toolsetup'] = '外部ツール設定';
-$string['toolurl'] = 'ツールベースURI';
-$string['toolurl_help'] = 'ツールベースURIは正しいツール設定をツール起動URIと合致させるために使用されます。URIの接頭辞「http(s)」は任意です。
+$string['toolurl'] = 'ツールベースURL';
+$string['toolurl_help'] = 'ツールベースURLは正しいツール設定をツール起動URLと合致させるために使用されます。URLの接頭辞「http(s)」は任意です。
 
-加えて、外部ツールインスタンスの起動URIが指定されていない場合、ベースURIが使用されます。
+加えて、外部ツールインスタンスの起動URLが指定されていない場合、ベースURLが使用されます。
 
-例えば、ベースURI *tool.com* は以下と合致します:
+例えば、ベースURL *tool.com* は以下と合致します:
 
 * tool.com
 * tool.com/quizzes
 * tool.com/quizzes/quiz.php?id=10
 * www.tool.com/quizzes
 
-ベースURI  *www.tool.com/quizzes* は以下と合致します:
+ベースURL  *www.tool.com/quizzes* は以下と合致します:
 
 * www.tool.com/quizzes
 * tool.com/quizzes
 * tool.com/quizzes/take.php?id=10
 
-ベースURI  *quiz.tool.com* は以下と合致します:
+ベースURL  *quiz.tool.com* は以下と合致します:
 * quiz.tool.com
 * quiz.tool.com/take.php?id=10
 
@@ -358,5 +363,5 @@ $string['typename_help'] = 'ツール名はMoodle内のツールプロバイダ�
 $string['types'] = 'タイプ';
 $string['update'] = '更新';
 $string['using_tool_configuration'] = 'ツール設定を使用する:';
-$string['validurl'] = '有効なURIは http(s):// で開始してください。';
+$string['validurl'] = '有効なURLは http(s):// で開始してください。';
 $string['viewsubmissions'] = '提出および評定画面を表示する';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addanotherhint'] = 'Προσθήκη μιας ακόμα βοήθειας (hint)';
+$string['addmorechoiceblanks'] = 'Κενά πεδία για {no} ακόμα επιλογές';
 $string['adminreport'] = 'Αναφορά πιθανών προβλημάτων στην βάση δεδομένων ερωτήσεων σας.';
 $string['answer'] = 'Απάντηση';
 $string['availableq'] = 'Διαθέσιμο?';
@@ -36,7 +37,6 @@ $string['cannotcopybackup'] = 'Αποτυχία αντιγραφής αρχεί�
 $string['cannotcreate'] = 'Αποτυχία δημιουργίας νέας καταχώρησης στον πίνακα question_attempts';
 $string['cannotcreatepath'] = 'Αποτυχία δημιουργίας διαδρομής: {$a}';
 $string['cannotdeletecate'] = 'Δεν μπορείτε να διαγράψετε αυτή την κατηγορία καθώς είναι η προεπιλεγμένη κατηγορία για αυτό το πλαίσιο.';
-$string['cannotdeletemissingqtype'] = 'Δεν μπορείτε να διαγράψετε τον τύπο ερώτησης. Είναι απαραίτητη στο σύστημα..';
 $string['cannotdeleteqtypeinuse'] = 'Δεν μπορείτε να διαγράψετε τον τύπο ερώτησης \'{$a}\'. Υπάρχουν ερωτήσεις ίδιου τύπου στην τράπεζα ερωτήσεων.';
 $string['cannotdeleteqtypeneeded'] = 'Δεν μπορείτε να διαγράψετε τον τύπο ερώτησης \'{$a}\'. Υπάρχουν εγκατεστημένοι τύποι ερωτήσεων που βασίζονται σε αυτόν.';
 $string['cannotenable'] = 'Ο τύπος ερώτησης {$a} δεν μπορεί να δημιουργηθεί απευθείας.';
@@ -95,8 +95,6 @@ $string['defaultfor'] = 'Προεπιλογή για  {$a}';
 $string['defaultinfofor'] = 'Η προεπιλεγμένη κατηγορία για ερωτήσεις διαμοιρασμένες στο πλαίσιο \'{$a}\'.';
 $string['defaultmark'] = 'Προεπιλεγμένη βαθμολογία';
 $string['deletecoursecategorywithquestions'] = 'Υπάρχουν ερωτήσεις στην τράπεζα ερωτήσεων συσχετισμένες με αυτή την κατηγορία μαθήματος. Εάν συνεχίσετε. θα διαγραφούν. Πιθανώς να θέλετε να τις μετακινήσετε πρώτα, χρησιμοποιώντας την διεπαφή της τράπεζας ερωτήσεων.';
-$string['deleteqtypeareyousure'] = 'Είστε σίγουρος/η πως θέλετε να διαγράψετε τον τύπο ερώτησης \'{$a}\'';
-$string['deleteqtypeareyousuremessage'] = 'Πρόκειται να διαγράψετε τελείως τον τύπο ερώτησης \'{$a}\'. Είστε σίγουρος πως επιθυμείτε να τον απεγκαταστήσετε;';
 $string['deletingqtype'] = 'Διαγραφή τύπου ερώτησης \'{$a}\'';
 $string['disabled'] = 'Απενεργοποιημένο';
 $string['disterror'] = 'Η διανομή {$a} δημιούργησε προβλήματα';
@@ -249,7 +247,6 @@ $string['permissionmove'] = 'Μετακίνηση αυτής της ερώτησ
 $string['permissionsaveasnew'] = 'Αποθήκευση αυτής σαν μια νέα ερώτηση';
 $string['permissionto'] = 'Έχετε δικαίωμα να :';
 $string['published'] = 'διαμοιραζόμενη';
-$string['qtypedeletefiles'] = 'Όλα τα δεδομένα που σχετίζονται με τον τύπο ερώτησης \'{$a->qtype}\' έχουν διαγραφεί από τη βάση. Για να ολοκληρώσετε τη διαγραφή (και να εμποδίσετε τον τύπο ερώτησης από το να επανεγκατασταθεί), πρέπει να διαγράψετε αυτήν την κατηγορίααπό το διακομιστή σας: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">Η ερώτηση "{$a->name}" ({$a->qtype})</a> είναι σε αυτή την κατηγορία ερωτήσεων αλλά χρησιμοποιείται επίσης στο <a href="{$a->qurl}">κουίζ "{$a->quizname}"</a> σε άλλο μάθημα "{$a->coursename}".';
 $string['questionbank'] = 'Τράπεζα ερωτήσεων';
@@ -273,7 +270,6 @@ $string['selectacategory'] = 'Επιλογή μιας κατηγορίας:';
 $string['selectaqtypefordescription'] = 'Επιλέξτε ένα τύπο ερώτησης για να δείτε την περιγραφή του.';
 $string['selectcategoryabove'] = 'Επιλέξτε μια κατηγορία παραπάνω';
 $string['selectquestionsforbulk'] = 'Επιλέξτε ερωτήσεις για μαζικές ενέργειες';
-$string['settingsformultipletries'] = 'Ρυθμίσεις για πολλαλές προσπάθειες';
 $string['shareincontext'] = 'Διαμοιρασμός στο πλαίσιο για {$a}';
 $string['showhidden'] = 'Εμφάνιση επίσης και των παλιών ερωτήσεων';
 $string['shownumpartscorrect'] = 'Εμφάνιση του αριθμού των σωστών απαντήσεων';

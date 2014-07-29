@@ -95,6 +95,11 @@ defined('MOODLE_INTERNAL') || die();
  *          reason or another.
  *     + invalidationevents
  *          [array] An array of events that should cause this cache to invalidate some or all of the items within it.
+ *     + sharingoptions
+ *          [int] The sharing options that are appropriate for this definition. Should be the sum of the possible options.
+ *     + defaultsharing
+ *          [int] The default sharing option to use. It's highly recommended that you don't set this unless there is a very
+ *          specific reason not to use the system default.
  *
  * For examples take a look at lib/db/caches.php
  *
@@ -104,6 +109,26 @@ defined('MOODLE_INTERNAL') || die();
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_definition {
+
+    /** The cache can be shared with everyone */
+    const SHARING_ALL = 1;
+    /** The cache can be shared with other sites using the same siteid. */
+    const SHARING_SITEID = 2;
+    /** The cache can be shared with other sites of the same version. */
+    const SHARING_VERSION = 4;
+    /** The cache can be shared with other sites using the same key */
+    const SHARING_INPUT = 8;
+
+    /**
+     * The default sharing options available.
+     * All + SiteID + Version + Input.
+     */
+    const SHARING_DEFAULTOPTIONS = 15;
+    /**
+     * The default sharing option that gets used if none have been selected.
+     * SiteID. It is the most restrictive.
+     */
+    const SHARING_DEFAULT = 2;
 
     /**
      * The identifier for the definition
@@ -277,6 +302,24 @@ class cache_definition {
     protected $definitionhash = null;
 
     /**
+     * The selected sharing mode for this definition.
+     * @var int
+     */
+    protected $sharingoptions;
+
+    /**
+     * The selected sharing option.
+     * @var int One of self::SHARING_*
+     */
+    protected $selectedsharingoption = self::SHARING_DEFAULT;
+
+    /**
+     * The user input key to use if the SHARING_INPUT option has been selected.
+     * @var string Must be ALPHANUMEXT
+     */
+    protected $userinputsharingkey = '';
+
+    /**
      * Creates a cache definition given a definition from the cache configuration or from a caches.php file.
      *
      * @param string $id
@@ -320,6 +363,9 @@ class cache_definition {
         $ttl = 0;
         $mappingsonly = false;
         $invalidationevents = array();
+        $sharingoptions = self::SHARING_DEFAULT;
+        $selectedsharingoption = self::SHARING_DEFAULT;
+        $userinputsharingkey = '';
 
         if (array_key_exists('simplekeys', $definition)) {
             $simplekeys = (bool)$definition['simplekeys'];
@@ -389,6 +435,26 @@ class cache_definition {
         }
         if (array_key_exists('invalidationevents', $definition)) {
             $invalidationevents = (array)$definition['invalidationevents'];
+        }
+        if (array_key_exists('sharingoptions', $definition)) {
+            $sharingoptions = (int)$definition['sharingoptions'];
+        }
+        if (array_key_exists('selectedsharingoption', $definition)) {
+            $selectedsharingoption = (int)$definition['selectedsharingoption'];
+        } else if (array_key_exists('defaultsharing', $definition)) {
+            $selectedsharingoption = (int)$definition['defaultsharing'];
+        } else if ($sharingoptions ^ $selectedsharingoption) {
+            if ($sharingoptions & self::SHARING_SITEID) {
+                $selectedsharingoption = self::SHARING_SITEID;
+            } else if ($sharingoptions & self::SHARING_VERSION) {
+                $selectedsharingoption = self::SHARING_VERSION;
+            } else {
+                $selectedsharingoption = self::SHARING_ALL;
+            }
+        }
+
+        if (array_key_exists('userinputsharingkey', $definition) && !empty($definition['userinputsharingkey'])) {
+            $userinputsharingkey = (string)$definition['userinputsharingkey'];
         }
 
         if (!is_null($overrideclass)) {
@@ -460,6 +526,9 @@ class cache_definition {
         $cachedefinition->ttl = $ttl;
         $cachedefinition->mappingsonly = $mappingsonly;
         $cachedefinition->invalidationevents = $invalidationevents;
+        $cachedefinition->sharingoptions = $sharingoptions;
+        $cachedefinition->selectedsharingoption = $selectedsharingoption;
+        $cachedefinition->userinputsharingkey = $userinputsharingkey;
 
         return $cachedefinition;
     }
@@ -506,6 +575,9 @@ class cache_definition {
         }
         if (!empty($options['overrideclass'])) {
             $definition['overrideclass'] = $options['overrideclass'];
+        }
+        if (!empty($options['sharingoptions'])) {
+            $definition['sharingoptions'] = $options['sharingoptions'];
         }
         return self::load($id, $definition, null);
     }
@@ -704,7 +776,7 @@ class cache_definition {
         }
 
         foreach ($this->requireidentifiers as $identifier) {
-            if (!array_key_exists($identifier, $identifiers)) {
+            if (!isset($identifiers[$identifier])) {
                 throw new coding_exception('Identifier required for cache has not been provided: '.$identifier);
             }
         }
@@ -744,7 +816,8 @@ class cache_definition {
      *
      * Please call {@link cache_definition::use_static_acceleration()} instead.
      *
-     * @deprecated since 2.4.7
+     * @see cache_definition::use_static_acceleration()
+     * @deprecated since 2.6
      * @return bool
      */
     public function should_be_persistent() {
@@ -765,7 +838,7 @@ class cache_definition {
             // Request caches should never use static acceleration - it just doesn't make sense.
             return false;
         }
-        return $this->staticacceleration || $this->mode === cache_store::MODE_SESSION;
+        return $this->staticacceleration;
     }
 
     /**
@@ -774,7 +847,7 @@ class cache_definition {
      * Please call {@link cache_definition::get_static_acceleration_size()} instead.
      *
      * @see cache_definition::get_static_acceleration_size()
-     * @deprecated since 2.4.7
+     * @deprecated since 2.6
      * @return int
      */
     public function get_persistent_max_size() {
@@ -879,7 +952,30 @@ class cache_definition {
      * @return string A string to be used as part of keys.
      */
     protected function get_cache_identifier() {
-        return cache_helper::get_site_identifier();
+        $identifiers = array();
+        if ($this->selectedsharingoption & self::SHARING_ALL) {
+            // Nothing to do here.
+        } else {
+            if ($this->selectedsharingoption & self::SHARING_SITEID) {
+                $identifiers[] = cache_helper::get_site_identifier();
+            }
+            if ($this->selectedsharingoption & self::SHARING_VERSION) {
+                $identifiers[] = cache_helper::get_site_version();
+            }
+            if ($this->selectedsharingoption & self::SHARING_INPUT && !empty($this->userinputsharingkey)) {
+                $identifiers[] = $this->userinputsharingkey;
+            }
+        }
+        return join('/', $identifiers);
+    }
+
+    /**
+     * Returns true if this definition requires identifiers.
+     *
+     * @param bool
+     */
+    public function has_required_identifiers() {
+        return (count($this->requireidentifiers) > 0);
     }
 
     /**

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,8 +39,14 @@ $string['customtitles'] = 'Titres personnalisés';
 $string['customtitles_help'] = 'Normalement, le titre du chapitre est affiché dans la table des matières et au-dessus du texte.
 
 Si la case des titres personnalisés est cochée, le titre du chapitre n\'est pas affiché au-dessus du texte. Un autre texte, éventuellement plus long que le titre du chapitre, pourra être indiqué pour s\'afficher au-dessus du texte.';
-$string['editingchapter'] = 'Modifier le chapitre';
+$string['editingchapter'] = 'Modification du chapitre';
 $string['errorchapter'] = 'Erreur lors de la lecture du chapitre';
+$string['event_chapter_created'] = 'Chapitre créé';
+$string['event_chapter_deleted'] = 'Chapitre supprimé';
+$string['event_chapter_updated'] = 'Chapitre modifié';
+$string['event_chapter_viewed'] = 'Chapitre consulté';
+$string['event_course_module_viewed'] = 'Module de cours consulté';
+$string['event_instances_list_viewed'] = 'Liste d\'instances consultée';
 $string['modulename'] = 'Livre';
 $string['modulename_help'] = 'Le module livre permet à l\'enseignant de créer une ressource composée de plusieurs pages, comme un livre, avec des chapitres et des sous-chapitres. Les livres peuvent contenir du texte ainsi que des fichiers médias et sont utiles pour afficher des contenus longs à couper en sections.
 

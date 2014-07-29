@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'completion', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'تحقيق الدرجة';
 $string['activities'] = 'الأنشطة';
 $string['activitiescompleted'] = 'الأنشطة المكتملة';
 $string['activitycompletion'] = 'إكتمال النشاط';
-$string['afterspecifieddate'] = 'بعد التاريخ المحدد';
 $string['aggregationmethod'] = 'أسلوب التجميع';
 $string['all'] = 'كل';
 $string['any'] = 'أي';
@@ -68,10 +67,7 @@ $string['completion_none'] = 'لا تقم بالإشارة إلى إكتمال �
 $string['completionnotenabled'] = 'خاصية اتمام المقرر الدراسي غير مفعلة';
 $string['completionnotenabledforcourse'] = 'خاصية اتمام المقرر الدراسي غير مفعلة في هذا  المقرر الدراسي';
 $string['completionnotenabledforsite'] = 'خاصية اتمام المقرر الدراسي غير مفعلة في هذا  الموقع';
-$string['completiononunenrolment'] = 'الإكمال عند إلغاء التسجيل';
 $string['completionsettingslocked'] = 'إعدادات الإكمال مقفلة';
-$string['completionstartonenrol'] = 'تتبع الإكمال يبدأ عند التسجيل';
-$string['completionstartonenrolhelp'] = 'ابدأ تتبع تقدم الطالب في المقرر بعد تسجيله بالمقرر';
 $string['completion-title-manual-n'] = 'علّمه بأنه مكتمل';
 $string['completion-title-manual-y'] = 'علّمه بأنه غير مكتمل';
 $string['completionusegrade'] = 'الدرجة المطلوبة';
@@ -94,8 +90,6 @@ $string['criteriarequiredany'] = 'أي معيار في الأسفل مطلوب';
 $string['csvdownload'] = 'حمل بتنسيق الجداول الإلكترونية (UTF-8 .csv)';
 $string['datepassed'] = 'jadv';
 $string['days'] = 'أيام';
-$string['daysafterenrolment'] = 'أيام بعد التسجيل';
-$string['durationafterenrolment'] = 'المدة بعد التسجيل';
 $string['editcoursecompletionsettings'] = 'تحرير إعدادات إكمال المقرر';
 $string['enablecompletion'] = 'تفعيل تتبع الإكمال';
 $string['enrolmentduration'] = 'يوم باقي';
@@ -118,7 +112,6 @@ $string['moredetails'] = 'المزيد من التفاصيل';
 $string['nocriteriaset'] = 'لم يتم إعداد معايير محددة لإكمال هذا المقرر الدراسي';
 $string['notenroled'] = 'أنت لست مسجلاً كطالب في هذا المقرر';
 $string['notyetstarted'] = 'لم يبدأ بعد';
-$string['overallcriteriaaggregation'] = 'تجميع شامل حسب أنواع المعايير';
 $string['pending'] = 'معلق';
 $string['periodpostenrolment'] = 'الفترة ما بعد التسجيل';
 $string['progress'] = 'تقدّم الطالب';

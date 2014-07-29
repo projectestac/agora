@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,6 +85,7 @@ $string['requires_grade_any'] = 'Disponível depois de ter avaliação em <stron
 $string['requires_grade_max'] = 'Disponível depois de ter uma avaliação apropriada em <strong>{$a}</strong>.';
 $string['requires_grade_min'] = 'Disponível depois de ter a avaliação exigida em <strong>{$a}</strong>.';
 $string['requires_grade_range'] = 'Disponível depois de ter uma avaliação específica em <strong>{$a}</strong>.';
+$string['requires_grouping'] = 'Disponível apenas para agrupamento <strong>{$a}</strong>.';
 $string['requires_user_field_contains'] = 'Não está disponível a não ser que o seu <strong>{$a->field}</strong> contains <strong>{$a->value}</strong>.';
 $string['requires_user_field_doesnotcontain'] = 'Não disponível se o seu <strong>{$a->field}</strong> contains <strong>{$a->value}</strong>.';
 $string['requires_user_field_endswith'] = 'Não está disponível a não ser que o seu <strong>{$a->field}</strong> termine com <strong>{$a->value}</strong>.';
@@ -92,8 +93,8 @@ $string['requires_user_field_isempty'] = 'Não está disponível a não ser que 
 $string['requires_user_field_isequalto'] = 'Não está disponível a não ser que o seu <strong>{$a->field}</strong> seja igual a <strong>{$a->value}</strong>.';
 $string['requires_user_field_isnotempty'] = 'Não está disponível se o seu <strong>{$a->field}</strong> estiver vazio.';
 $string['requires_user_field_startswith'] = 'Não está disponível a não ser que o seu <strong>{$a->field}</strong> inicie com <strong>{$a->value}</strong>.';
-$string['showavailability'] = 'Quando a atividade está indisponível';
-$string['showavailability_hide'] = 'Esconder completamente a atividade';
+$string['showavailability'] = 'Enquanto o acesso está indisponível';
+$string['showavailability_hide'] = 'Ocultar completamente a atividade, tanto na disciplina como na Pauta';
 $string['showavailabilitysection'] = 'Antes da secção ser acedida';
 $string['showavailabilitysection_hide'] = 'Esconder toda a secção';
 $string['showavailabilitysection_show'] = 'Mostrar a secção em cor cinzenta, com informação sobre indisponibilidade';
@@ -101,5 +102,5 @@ $string['showavailability_show'] = 'Mostrar atividade em cor cinzenta, com infor
 $string['startswith'] = 'começa com';
 $string['userfield'] = 'Campo do utilizador';
 $string['userfield_help'] = 'Pode restringir o acesso baseando-se em qualquer campo do perfil dos utilizadores.';
-$string['userrestriction_hidden'] = 'Indisponível (completamente oculto, sem mensagem): &lsquo;{$a}&rsquo;';
-$string['userrestriction_visible'] = 'Indisponível: &lsquo;{$a}&rsquo;';
+$string['userrestriction_hidden'] = 'Indisponível (completamente oculto, sem mensagem): {$a}';
+$string['userrestriction_visible'] = 'Indisponível: {$a}';

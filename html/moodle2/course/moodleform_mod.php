@@ -49,7 +49,18 @@ abstract class moodleform_mod extends moodleform {
     /** a flag indicating whether outcomes are being used*/
     protected $_outcomesused;
 
+    /**
+     * @var bool A flag used to indicate that this module should lock settings
+     *           based on admin settings flags in definition_after_data.
+     */
+    protected $applyadminlockedflags = false;
+
+    /** @var object The course format of the current course. */
+    protected $courseformat;
+
     function moodleform_mod($current, $section, $cm, $course) {
+        global $CFG;
+
         $this->current   = $current;
         $this->_instance = $current->instance;
         $this->_section  = $section;
@@ -59,6 +70,10 @@ abstract class moodleform_mod extends moodleform {
         } else {
             $this->context = context_course::instance($course->id);
         }
+
+        // Set the course format.
+        require_once($CFG->dirroot . '/course/format/lib.php');
+        $this->courseformat = course_get_format($course);
 
         // Guess module name
         $matches = array();
@@ -209,12 +224,10 @@ abstract class moodleform_mod extends moodleform {
                 // is changed, maybe someone has completed it now)
                 $mform->getElement('completionunlocked')->setValue(1);
             } else {
-                // Has the element been unlocked?
-                //XTEC ************ MODIFICAT - MDL-45480 Mod completion cannot be changed on certain cases
-                //2014.05.08 @pferrer
-                //if ($mform->exportValue('unlockcompletion')) {
-                if ($mform->exportValue('unlockcompletion') || $mform->exportValue('completionunlocked')) {
-                //************ FI
+                // Has the element been unlocked, either by the button being pressed
+                // in this request, or the field already being set from a previous one?
+                if ($mform->exportValue('unlockcompletion') ||
+                        $mform->exportValue('completionunlocked')) {
                     // Yes, add in warning text and set the hidden variable
                     $mform->insertElementBefore(
                         $mform->createElement('static', 'completedunlocked',
@@ -282,6 +295,9 @@ abstract class moodleform_mod extends moodleform {
                 }
             }
         }
+
+        // Freeze admin defaults if required (and not different from default)
+        $this->apply_admin_locked_flags();
     }
 
     // form verification
@@ -464,33 +480,6 @@ abstract class moodleform_mod extends moodleform {
         //$this->standard_grading_coursemodule_elements();
 
         $mform->addElement('header', 'modstandardelshdr', get_string('modstandardels', 'form'));
-        if ($this->_features->groups) {
-            $options = array(NOGROUPS       => get_string('groupsnone'),
-                             SEPARATEGROUPS => get_string('groupsseparate'),
-                             VISIBLEGROUPS  => get_string('groupsvisible'));
-            $mform->addElement('select', 'groupmode', get_string('groupmode', 'group'), $options, NOGROUPS);
-            $mform->addHelpButton('groupmode', 'groupmode', 'group');
-        }
-
-        if ($this->_features->groupings or $this->_features->groupmembersonly) {
-            //groupings selector - used for normal grouping mode or also when restricting access with groupmembersonly
-            $options = array();
-            $options[0] = get_string('none');
-            if ($groupings = $DB->get_records('groupings', array('courseid'=>$COURSE->id))) {
-                foreach ($groupings as $grouping) {
-                    $options[$grouping->id] = format_string($grouping->name);
-                }
-            }
-            $mform->addElement('select', 'groupingid', get_string('grouping', 'group'), $options);
-            $mform->addHelpButton('groupingid', 'grouping', 'group');
-            $mform->setAdvanced('groupingid');
-        }
-
-        if ($this->_features->groupmembersonly) {
-            $mform->addElement('checkbox', 'groupmembersonly', get_string('groupmembersonly', 'group'));
-            $mform->addHelpButton('groupmembersonly', 'groupmembersonly', 'group');
-            $mform->setAdvanced('groupmembersonly');
-        }
 
         $mform->addElement('modvisible', 'visible', get_string('visible'));
         if (!empty($this->_cm)) {
@@ -502,7 +491,35 @@ abstract class moodleform_mod extends moodleform {
 
         if ($this->_features->idnumber) {
             $mform->addElement('text', 'cmidnumber', get_string('idnumbermod'));
+            $mform->setType('cmidnumber', PARAM_RAW);
             $mform->addHelpButton('cmidnumber', 'idnumbermod');
+        }
+
+        if ($this->_features->groups) {
+            $options = array(NOGROUPS       => get_string('groupsnone'),
+                             SEPARATEGROUPS => get_string('groupsseparate'),
+                             VISIBLEGROUPS  => get_string('groupsvisible'));
+            $mform->addElement('select', 'groupmode', get_string('groupmode', 'group'), $options, NOGROUPS);
+            $mform->addHelpButton('groupmode', 'groupmode', 'group');
+        }
+
+        if ($this->_features->groupings or $this->_features->groupmembersonly) {
+            //groupings selector - used for normal grouping mode or also when restricting access with groupmembersonly
+            $options = array();
+            if ($groupings = $DB->get_records('groupings', array('courseid'=>$COURSE->id))) {
+                foreach ($groupings as $grouping) {
+                    $options[$grouping->id] = format_string($grouping->name);
+                }
+            }
+            core_collator::asort($options);
+            $options = array(0 => get_string('none')) + $options;
+            $mform->addElement('select', 'groupingid', get_string('grouping', 'group'), $options);
+            $mform->addHelpButton('groupingid', 'grouping', 'group');
+        }
+
+        if ($this->_features->groupmembersonly) {
+            $mform->addElement('checkbox', 'groupmembersonly', get_string('groupmembersonly', 'group'));
+            $mform->addHelpButton('groupmembersonly', 'groupmembersonly', 'group');
         }
 
         if (!empty($CFG->enableavailability)) {
@@ -565,8 +582,10 @@ abstract class moodleform_mod extends moodleform {
                 $fieldcount = 1;
             }
 
-            $this->repeat_elements(array($group), $count, array(), 'conditiongraderepeats', 'conditiongradeadds', 2,
-                                   get_string('addgrades', 'condition'), true);
+            $this->repeat_elements(array($group), $count, array(
+                'conditiongradegroup[conditiongrademin]' => array('type' => PARAM_RAW),
+                'conditiongradegroup[conditiongrademax]' => array('type' => PARAM_RAW)
+                ), 'conditiongraderepeats', 'conditiongradeadds', 2, get_string('addgrades', 'condition'), true);
             $mform->addHelpButton('conditiongradegroup[0]', 'gradecondition', 'condition');
 
             // Conditions based on user fields
@@ -580,11 +599,11 @@ abstract class moodleform_mod extends moodleform {
             $grouparray[] =& $mform->createElement('select', 'conditionfield', '', $useroptions);
             $grouparray[] =& $mform->createElement('select', 'conditionfieldoperator', '', $operators);
             $grouparray[] =& $mform->createElement('text', 'conditionfieldvalue');
-            $mform->setType('conditionfieldvalue', PARAM_RAW);
             $group = $mform->createElement('group', 'conditionfieldgroup', get_string('userfield', 'condition'), $grouparray);
 
-            $this->repeat_elements(array($group), $fieldcount, array(), 'conditionfieldrepeats', 'conditionfieldadds', 2,
-                                   get_string('adduserfields', 'condition'), true);
+            $this->repeat_elements(array($group), $fieldcount, array(
+                'conditionfieldgroup[conditionfieldvalue]' => array('type' => PARAM_RAW)),
+                'conditionfieldrepeats', 'conditionfieldadds', 2, get_string('adduserfields', 'condition'), true);
             $mform->addHelpButton('conditionfieldgroup[0]', 'userfield', 'condition');
 
             // Conditions based on completion
@@ -643,12 +662,16 @@ abstract class moodleform_mod extends moodleform {
             $mform->addElement('hidden', 'completionunlocked', 0);
             $mform->setType('completionunlocked', PARAM_INT);
 
+            $trackingdefault = COMPLETION_TRACKING_NONE;
+            // If system and activity default is on, set it.
+            if ($CFG->completiondefault && $this->_features->defaultcompletion) {
+                $trackingdefault = COMPLETION_TRACKING_MANUAL;
+            }
+
             $mform->addElement('select', 'completion', get_string('completion', 'completion'),
                 array(COMPLETION_TRACKING_NONE=>get_string('completion_none', 'completion'),
                 COMPLETION_TRACKING_MANUAL=>get_string('completion_manual', 'completion')));
-            $mform->setDefault('completion', $this->_features->defaultcompletion
-                ? COMPLETION_TRACKING_MANUAL
-                : COMPLETION_TRACKING_NONE);
+            $mform->setDefault('completion', $trackingdefault);
             $mform->addHelpButton('completion', 'completion', 'completion');
 
             // Automatic completion once you view it
@@ -667,6 +690,11 @@ abstract class moodleform_mod extends moodleform {
                 $mform->disabledIf('completionusegrade', 'completion', 'ne', COMPLETION_TRACKING_AUTOMATIC);
                 $mform->addHelpButton('completionusegrade', 'completionusegrade', 'completion');
                 $gotcompletionoptions = true;
+
+                // If using the rating system, there is no grade unless ratings are enabled.
+                if ($this->_features->rating) {
+                    $mform->disabledIf('completionusegrade', 'assessed', 'eq', 0);
+                }
             }
 
             // Automatic completion according to module-specific rules
@@ -691,23 +719,22 @@ abstract class moodleform_mod extends moodleform {
             $mform->disabledIf('completionexpected', 'completion', 'eq', COMPLETION_TRACKING_NONE);
         }
 
-//XTEC ************ AFEGIT - Added patch for course format "Simple"
-//2010.07.12 @aginard (patch provided by UPCnet)
+        //XTEC ************ AFEGIT - Added patch for course format "Simple"
+        //2010.07.12 @aginard (patch provided by UPCnet)
 
-		//@PATCH SIMPLE: Codi del formulari
-      	if($COURSE->format == 'simple'){
-       		require_once($CFG->dirroot.'/course/format/simple/lib.php');
-       		if (empty($this->_cm)) {
-				$cm = new StdClass();
-				$cm->course = $COURSE->id;
-				$cm->modname = $this->_modname;
-				simple_coursemodule_elements($this->_form, $cm);
-			} else {
-				simple_coursemodule_elements($this->_form, $this->_cm);
-			}
-		}
-
-//************ FI
+        //@PATCH SIMPLE: Codi del formulari
+        if($COURSE->format == 'simple'){
+            require_once($CFG->dirroot.'/course/format/simple/lib.php');
+            if (empty($this->_cm)) {
+                $cm = new StdClass();
+                $cm->course = $COURSE->id;
+                $cm->modname = $this->_modname;
+                simple_coursemodule_elements($this->_form, $cm);
+            } else {
+                simple_coursemodule_elements($this->_form, $this->_cm);
+            }
+        }
+        //************ FI
 
         $this->standard_hidden_coursemodule_elements();
     }
@@ -831,15 +858,16 @@ abstract class moodleform_mod extends moodleform {
         $mform = $this->_form;
         $label = is_null($customlabel) ? get_string('moduleintro') : $customlabel;
 
-        $mform->addElement('editor', 'introeditor', $label, null, array('maxfiles'=>EDITOR_UNLIMITED_FILES, 'noclean'=>true, 'context'=>$this->context));
+        $mform->addElement('editor', 'introeditor', $label, array('rows' => 10), array('maxfiles' => EDITOR_UNLIMITED_FILES,
+            'noclean' => true, 'context' => $this->context, 'subdirs' => true));
         $mform->setType('introeditor', PARAM_RAW); // no XSS prevention here, users must be trusted
         if ($required) {
             $mform->addRule('introeditor', get_string('required'), 'required', null, 'client');
         }
 
-        // If the 'show description' feature is enabled, this checkbox appears
-        // below the intro.
-        if ($this->_features->showdescription) {
+        // If the 'show description' feature is enabled, this checkbox appears below the intro.
+        // We want to hide that when using the singleactivity course format because it is confusing.
+        if ($this->_features->showdescription  && $this->courseformat->has_view_page()) {
             $mform->addElement('checkbox', 'showdescription', get_string('showdescription'));
             $mform->addHelpButton('showdescription', 'showdescription');
         }
@@ -867,7 +895,9 @@ abstract class moodleform_mod extends moodleform {
         // elements in a row need a group
         $buttonarray = array();
 
-        if ($submit2label !== false) {
+        // Label for the submit button to return to the course.
+        // Ignore this button in single activity format because it is confusing.
+        if ($submit2label !== false && $this->courseformat->has_view_page()) {
             $buttonarray[] = &$mform->createElement('submit', 'submitbutton2', $submit2label);
         }
 
@@ -882,6 +912,99 @@ abstract class moodleform_mod extends moodleform {
         $mform->addGroup($buttonarray, 'buttonar', '', array(' '), false);
         $mform->setType('buttonar', PARAM_RAW);
         $mform->closeHeaderBefore('buttonar');
+    }
+
+    /**
+     * Get the list of admin settings for this module and apply any locked settings.
+     * This cannot happen in apply_admin_defaults because we do not the current values of the settings
+     * in that function because set_data has not been called yet.
+     *
+     * @return void
+     */
+    protected function apply_admin_locked_flags() {
+        global $OUTPUT;
+
+        if (!$this->applyadminlockedflags) {
+            return;
+        }
+
+        $settings = get_config($this->_modname);
+        $mform = $this->_form;
+        $lockedicon = html_writer::tag('span',
+                                       $OUTPUT->pix_icon('t/locked', get_string('locked', 'admin')),
+                                       array('class' => 'action-icon'));
+        $isupdate = !empty($this->_cm);
+
+        foreach ($settings as $name => $value) {
+            if (strpos('_', $name) !== false) {
+                continue;
+            }
+            if ($mform->elementExists($name)) {
+                $element = $mform->getElement($name);
+                $lockedsetting = $name . '_locked';
+                if (!empty($settings->$lockedsetting)) {
+                    // Always lock locked settings for new modules,
+                    // for updates, only lock them if the current value is the same as the default (or there is no current value).
+                    $value = $settings->$name;
+                    if ($isupdate && isset($this->current->$name)) {
+                        $value = $this->current->$name;
+                    }
+                    if ($value == $settings->$name) {
+                        $mform->setConstant($name, $settings->$name);
+                        $element->setLabel($element->getLabel() . $lockedicon);
+                        // Do not use hardfreeze because we need the hidden input to check dependencies.
+                        $element->freeze();
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Get the list of admin settings for this module and apply any defaults/advanced/locked settings.
+     *
+     * @param $datetimeoffsets array - If passed, this is an array of fieldnames => times that the
+     *                         default date/time value should be relative to. If not passed, all
+     *                         date/time fields are set relative to the users current midnight.
+     * @return void
+     */
+    public function apply_admin_defaults($datetimeoffsets = array()) {
+        // This flag triggers the settings to be locked in apply_admin_locked_flags().
+        $this->applyadminlockedflags = true;
+
+        $settings = get_config($this->_modname);
+        $mform = $this->_form;
+        $usermidnight = usergetmidnight(time());
+        $isupdate = !empty($this->_cm);
+
+        foreach ($settings as $name => $value) {
+            if (strpos('_', $name) !== false) {
+                continue;
+            }
+            if ($mform->elementExists($name)) {
+                $element = $mform->getElement($name);
+                if (!$isupdate) {
+                    if ($element->getType() == 'date_time_selector') {
+                        $enabledsetting = $name . '_enabled';
+                        if (empty($settings->$enabledsetting)) {
+                            $mform->setDefault($name, 0);
+                        } else {
+                            $relativetime = $usermidnight;
+                            if (isset($datetimeoffsets[$name])) {
+                                $relativetime = $datetimeoffsets[$name];
+                            }
+                            $mform->setDefault($name, $relativetime + $settings->$name);
+                        }
+                    } else {
+                        $mform->setDefault($name, $settings->$name);
+                    }
+                }
+                $advancedsetting = $name . '_adv';
+                if (!empty($settings->$advancedsetting)) {
+                    $mform->setAdvanced($name);
+                }
+            }
+        }
     }
 }
 

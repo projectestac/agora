@@ -1,0 +1,12 @@
+{
+  "moodle-block_navigation-navigation": {
+    "requires": [
+        "base",
+        "io-base",
+        "node",
+        "event-synthetic",
+        "event-delegate",
+        "json-parse"
+    ]
+  }
+}

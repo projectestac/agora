@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,9 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['acceptederror'] = 'Akzeptierter Fehler';
-$string['addmoreanswerblanks'] = 'Leerfelder für {no} weitere Antworten';
+$string['addmoreanswerblanks'] = 'Leerfelder für {no} weitere Antwort(en)';
 $string['addmoreunitblanks'] = 'Leerfelder für {no} weitere Maßeinheiten';
 $string['answercolon'] = 'Antwort:';
+$string['answererror'] = 'Fehler';
 $string['answermustbenumberorstar'] = 'Die Antwort muss eine Zahl, z.B. -1,234 or 3e8, oder \'*\' sein.';
 $string['answerno'] = 'Antwort {$a}';
 $string['decfractionofquestiongrade'] = 'als Dezimalbruch (0-1) der Fragebewertung';
@@ -39,7 +40,7 @@ $string['errornomultiplier'] = 'Sie müssen einen Multiplikator für diese Maße
 $string['errorrepeatedunit'] = 'Sie können nicht zwei Maßeinheiten mit der selben Bezeichnung haben.';
 $string['geometric'] = 'Geometrisch';
 $string['invalidnumber'] = 'Sie müssen eine gültige Zahl eingeben';
-$string['invalidnumbernounit'] = 'Sie müssen eine gültige Zahl eingeben. Geben Sie keine Maßeinheit in der Antwort an.Sie müssen eine gültige Zahl eingeben. Geben Sie keine Maßeinheit in der Antwort an.';
+$string['invalidnumbernounit'] = 'Sie müssen eine gültige Zahl eingeben. Geben Sie keine Maßeinheit in der Antwort an.';
 $string['invalidnumericanswer'] = 'Eine der eingegebenen Antworten ist keine gültige Zahl';
 $string['invalidnumerictolerance'] = 'Eine der eingegebenen Toleranzen ist keine gültige Zahl.';
 $string['leftexample'] = 'Links, z.B. $1.00 oder £1.00';
@@ -53,9 +54,9 @@ $string['nounitdisplay'] = 'Keine Berücksichtigung der Maßeinheit';
 $string['numericalmultiplier'] = 'Multiplikator';
 $string['numericalmultiplier_help'] = 'Der Multiplikator ist der Faktor, mit welchem die richtige numerische Antwort multipliziert wird.
 
-Die erste Einheit (Einheit 1) hat einen Standardmultiplikator von 1. Wenn also die richtige numerische Antwort 5500 lautet und als Einheit ist W (Watt) angegeben, ergibt dies mit dem Multiplikator von 1 die richtige Antwort von 5500 W.
+Die erste Maßeinheit (Einheit 1) hat einen Standardmultiplikator von 1. Wenn also die richtige numerische Antwort 5500 lautet und als Maßeinheit ist W (Watt) angegeben, ergibt dies mit dem Multiplikator von 1 die richtige Antwort von 5500 W.
 
-Wenn Sie die Einheit kW (Kilowatt) mit dem Multiplikator 0,001 hinzufügen, ergibt dies eine weitere richtige Antwort von 5,5 kW. 5500 W sowieso 5,5 kW werden dann als richtig anerkannt.
+Wenn Sie die Maßeinheit kW (Kilowatt) mit dem Multiplikator 0,001 hinzufügen, ergibt dies eine weitere richtige Antwort von 5,5 kW. 5500 W sowieso 5,5 kW werden dann als richtig anerkannt.
 
 Bedenken Sie, dass auch die eingeräumte Fehlertoleranz multipliziert wird; Liegt diese bei 100 W, wird sie automatisch auch zu 0,1 kW.';
 $string['oneunitshown'] = 'Die Maßeinheit wird automatisch neben der Texteingabe angezeigt.';
@@ -76,10 +77,9 @@ $string['tolerancetype'] = 'Toleranztyp';
 $string['unit'] = 'Maßeinheit';
 $string['unitappliedpenalty'] = 'Diese Bewertungen enthalten einen Abzug von {$a} für falsche Maßeinheiten.';
 $string['unitchoice'] = 'Mehrfachauswahl';
-$string['unitedit'] = 'Maßeinheite/n bearbeiten';
+$string['unitedit'] = 'Maßeinheit/en bearbeiten';
 $string['unitgraded'] = 'Die Maßeinheit muss angegeben sein und wird bewertet';
 $string['unithandling'] = 'Verwendung der Maßeinheit';
-$string['unithdr'] = 'Maßeinheit {$a}';
 $string['unitincorrect'] = 'Sie haben nicht die richtige Einheit angegeben';
 $string['unitmandatory'] = 'Obligatorisch';
 $string['unitmandatory_help'] = '* Die Antwort wird zusammen mit der eingegebenen Einheit bewertet.
@@ -98,9 +98,14 @@ $string['unitpenalty_help'] = 'Der Abzug wird berechnet, wenn
 
 * eine Einheit in das Zahlenfeld eingetragen ist';
 $string['unitposition'] = 'Position der Einheit';
+$string['units'] = 'Maßeinheiten';
 $string['unitselect'] = 'ein Drop-Down-menu';
+$string['unitx'] = 'Maßeinheit {no}';
 $string['validnumberformats'] = 'Gültige Zahlenformate';
 $string['validnumberformats_help'] = '* Zahlenschreibweise 13500,67 : 13 500,67 : 13500,67 : 13 500,67
 * Bei Verwendung des Tausendertrennzeichens muss IMMER das Dezimalkomma gesetzt sein  13,500.67 : 13.500
 * Exponentschreibweise 1,350067 * 10<sup>4</ sup> wird so notiert 1,350067 E4 : 1,350067 E04';
 $string['validnumbers'] = '13500.67 : 13 500.67 : 13500,67: 13 500,67 : 1.350067 E4 : 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} muss eine Zahl sein';
+$string['xmustnotbenumeric'] = '{$a} kann keine Zahl sein';
+$string['youmustenteramultiplierhere'] = 'Sie müssen hier einen Multiplikationsfaktor eingeben.';

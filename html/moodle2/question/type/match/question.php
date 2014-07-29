@@ -17,10 +17,9 @@
 /**
  * Matching question definition class.
  *
- * @package    qtype
- * @subpackage match
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_match
+ * @copyright 2009 The Open University
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
@@ -30,8 +29,8 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Represents a matching question.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2009 The Open University
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_match_question extends question_graded_automatically_with_countback {
     /** @var boolean Whether the question stems should be shuffled. */
@@ -189,6 +188,26 @@ class qtype_match_question extends question_graded_automatically_with_countback 
         return $response;
     }
 
+    public function prepare_simulated_post_data($simulatedresponse) {
+        $postdata = array();
+        $stemids = array_keys($this->stems);
+        $choicetochoiceno = array_flip($this->choices);
+        $choicenotochoiceselectvalue = array_flip($this->choiceorder);
+        foreach ($simulatedresponse as $stemno => $choice) {
+            $stemid = $stemids[$stemno];
+            $shuffledstemno = array_search($stemid, $this->stemorder);
+            if (empty($choice)) {
+                $choiceselectvalue = 0;
+            } else if ($choicetochoiceno[$choice]) {
+                $choiceselectvalue = $choicenotochoiceselectvalue[$choicetochoiceno[$choice]];
+            } else {
+                throw new coding_exception("Unknown choice $choice in matching question - {$this->name}.");
+            }
+            $postdata[$this->field($shuffledstemno)] = $choiceselectvalue;
+        }
+        return $postdata;
+    }
+
     public function get_right_choice_for($stemid) {
         foreach ($this->choiceorder as $choicekey => $choiceid) {
             if ($this->right[$stemid] == $choiceid) {
@@ -273,7 +292,7 @@ class qtype_match_question extends question_graded_automatically_with_countback 
 
     public function check_file_access($qa, $options, $component, $filearea, $args, $forcedownload) {
         if ($component == 'qtype_match' && $filearea == 'subquestion') {
-            $subqid = reset($args); // itemid is sub question id
+            $subqid = reset($args); // Itemid is sub question id.
             return array_key_exists($subqid, $this->stems);
 
         } else if ($component == 'question' && in_array($filearea,

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['alternatelogin'] = 'Si vous spécifiez ici une URL, elle sera utilisée
 $string['alternateloginurl'] = 'URL de la page de connexion de rechange';
 $string['auth_changepasswordhelp'] = 'Aide au changement de mot de passe';
 $string['auth_changepasswordhelp_expl'] = 'Affiche des explications concernant la récupération de mot de passe à l\'attention des utilisateurs ayant perdu leur mot de passe {$a}. Ce texte sera affiché soit en même temps, soit à la place de l\'<strong>URL du changement de mot de passe</strong> ou du changement interne de mot de passe de Moodle.';
-$string['auth_changepasswordurl'] = 'URL du changement de mot de passe';
+$string['auth_changepasswordurl'] = 'URL pour changement de mot de passe';
 $string['auth_changepasswordurl_expl'] = 'Indiquez l\'adresse URL vers laquelle diriger les utilisateurs ayant perdu leur mot de passe {$a}. Désactivez l\'option <strong>Utiliser la page de changement de mot de passe standard</strong>.';
 $string['auth_changingemailaddress'] = 'Vous avez demandé la modification de votre adresse de courriel, de {$a->oldemail} à {$a->newemail}. Pour des raisons de sécurité, un message de confirmation vous est envoyé à la nouvelle adresse afin de confirmer qu\'elle vous appartient. Votre adresse de courriel sera modifiée dès que vous aurez cliqué sur l\'URL indiquée dans le message envoyé.';
 $string['auth_common_settings'] = 'Réglages partagés';
@@ -65,6 +65,7 @@ $string['changepassword'] = 'URL de la page de changement du mot de passe';
 $string['changepasswordhelp'] = 'Vous pouvez indiquer dans cette zone l\'URL d\'une page sur laquelle vos utilisateurs pourront récupérer ou changer leurs nom d\'utilisateur et mot de passe s\'ils les ont oubliés. Cette URL sera disponible sous forme d\'un bouton sur la page de connexion. Si cette zone est vide, ce bouton ne sera pas affiché.';
 $string['chooseauthmethod'] = 'Choisir une méthode d\'authentification';
 $string['chooseauthmethod_help'] = 'Ce réglage détermine la méthode d\'authentification utilisée lorsque l\'utilisateur se connecte. Seules les plugins d\'authentification activés doivent être sélectionnés, faute de quoi l\'utilisateur ne pourra pas se connecter. Pour empêcher la connexion d\'un utilisateur, choisissez « Pas de connexion ».';
+$string['createpassword'] = 'Générer le mot de passe et informer l\'utilisateur';
 $string['createpasswordifneeded'] = 'Créer un mot de passe si nécessaire';
 $string['emailchangecancel'] = 'Annuler la modification de l\'adresse de courriel';
 $string['emailchangepending'] = 'Modification en attente. Veuillez cliquer sur le lien qui vous a été envoyé à l\'adresse {$a->preference_newemail}.';
@@ -86,6 +87,8 @@ $string['errorminpasswordlower'] = 'Les mots de passe doivent comporter au moins
 $string['errorminpasswordnonalphanum'] = 'Les mots de passe doivent comporter au moins {$a} caractère(s) non alphanumériques.';
 $string['errorminpasswordupper'] = 'Les mots de passe doivent comporter au moins {$a} lettre(s) majuscules.';
 $string['errorpasswordupdate'] = 'Erreur lors de la modification du mot de passe. Le mot de passe n\'a pas été modifié';
+$string['event_user_loggedin'] = 'L\'utilisateur s\'est connecté';
+$string['eventuserloggedinas'] = 'Connexion d\'un utilisateur sous le nom d\'un autre utilisateur';
 $string['forcechangepassword'] = 'Imposer le changement du mot de passe';
 $string['forcechangepasswordfirst_help'] = 'Impose aux utilisateurs de changer leur mot de passe lors de leur prochaine connexion à Moodle.';
 $string['forcechangepassword_help'] = 'Impose aux utilisateurs de changer leur mot de passe lors de leur première connexion à Moodle.';
@@ -131,6 +134,8 @@ $string['stdchangepassword_expl'] = 'Si la source d\'authentification externe pe
 $string['stdchangepassword_explldap'] = 'Remarque : il est recommandé d\'utiliser LDAP à travers un tunnel chiffré SSL (ldaps://) si le serveur LDAP n\'est pas dans un intranet.';
 $string['suspended'] = 'Compte suspendu';
 $string['suspended_help'] = 'Les comptes suspendus ne peuvent pas se connecter ou utiliser de services web, et tous ses messages sortants sont ignorés.';
+$string['testsettings'] = 'Réglages test';
+$string['testsettingsheading'] = 'Réglage de test d\'authentification – {$a}';
 $string['unlocked'] = 'Déverrouillé';
 $string['unlockedifempty'] = 'Déverrouillé si vide';
 $string['update_never'] = 'Jamais';

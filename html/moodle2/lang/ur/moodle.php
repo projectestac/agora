@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'moodle', language 'ur', branch 'MOODLE_24_STABLE'
+ * Strings for component 'moodle', language 'ur', branch 'MOODLE_26_STABLE'
  *
  * @package   moodle
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -151,7 +151,6 @@ $string['loggedinnot'] = 'آپ لاگ ان نہیں ہیں';
 $string['login'] = 'لاگ ان';
 $string['loginalready'] = 'آپ پہلے ہی لاگ ان ہیں';
 $string['loginsite'] = 'اس سائٹ پر لاگ ان کرنا';
-$string['loginusing'] = 'یہاں آپ کا یوزر نام اور پاس ورڈ کا استعمال کرتے ہوئے لاگ ان کریں';
 $string['logout'] = 'لاگ آؤٹ';
 $string['logoutconfirm'] = 'کیا آپ واقعی لاگ آ ؤٹ ہونا چاہتے ہیں';
 $string['min'] = 'منٹ';

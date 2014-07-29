@@ -15,60 +15,52 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
-* print the form to add or edit a questionnaire-instance
-*
-* @author Mike Churchward
-* @license http://www.gnu.org/copyleft/gpl.html GNU Public License
-* @package questionnaire
-*/
+ * @authors Mike Churchward & Joseph Rézeau
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package questionnaire
+ */
 
-require_once ($CFG->dirroot.'/course/moodleform_mod.php');
+require_once($CFG->dirroot.'/course/moodleform_mod.php');
 require_once($CFG->dirroot.'/mod/questionnaire/questiontypes/questiontypes.class.php');
 
 class questionnaire_questions_form extends moodleform {
 
-    function __construct($action, $moveq=false) {
+    public function __construct($action, $moveq=false) {
         $this->moveq = $moveq;
-        return parent::moodleform($action);
+        return parent::__construct($action);
     }
 
-    function definition() {
+    public function definition() {
         global $CFG, $questionnaire, $SESSION, $OUTPUT;
         global $DB;
 
+        $sid = $questionnaire->survey->id;
         $mform    =& $this->_form;
 
-        $mform->addElement('html', '<div class="qcontainer">');
-
-        //-------------------------------------------------------------------------------
-        $mform->addElement('header', 'questionhdr', get_string('questions', 'questionnaire'));
+        $mform->addElement('header', 'questionhdr', get_string('addquestions', 'questionnaire'));
         $mform->addHelpButton('questionhdr', 'questiontypes', 'questionnaire');
 
         $stredit = get_string('edit', 'questionnaire');
         $strremove = get_string('remove', 'questionnaire');
+        $strmove = get_string('move');
+        $strmovehere = get_string('movehere');
         $stryes = get_string('yes');
         $strno = get_string('no');
+        $strposition = get_string('position', 'questionnaire');
 
-        /// Set up question positions.
         if (!isset($questionnaire->questions)) {
             $questionnaire->questions = array();
         }
-        $quespos = array();
-        $max = count($questionnaire->questions);
-        $sec = 0;
-        for ( $i = 1; $i <= $max; $i++) {
-            $quespos[$i] = "$i";
+        if ($this->moveq) {
+            $moveqposition = $questionnaire->questions[$this->moveq]->position;
         }
 
         $pos = 0;
-        $numq = count($questionnaire->questions);
-        $attributes = 'onChange="this.form.submit()"';
-
         $select = '';
         if (!($qtypes = $DB->get_records_select_menu('questionnaire_question_type', $select, null, '', 'typeid,type'))) {
             $qtypes = array();
         }
-        // needed for non-English languages JR
+        // Needed for non-English languages.
         foreach ($qtypes as $key => $qtype) {
             $qtypes[$key] = questionnaire_get_type($key);
         }
@@ -76,161 +68,272 @@ class questionnaire_questions_form extends moodleform {
         $addqgroup = array();
         $addqgroup[] =& $mform->createElement('select', 'type_id', '', $qtypes);
 
-        // 'sticky' type_id value for further new questions
+        // The 'sticky' type_id value for further new questions.
         if (isset($SESSION->questionnaire->type_id)) {
                 $mform->setDefault('type_id', $SESSION->questionnaire->type_id);
         }
 
         $addqgroup[] =& $mform->createElement('submit', 'addqbutton', get_string('addselqtype', 'questionnaire'));
-        $mform->addGroup($addqgroup, 'addqgroup', '', '', false);
 
-        $mform->addElement('html', '<div class="qheader">');
+        $questionnairehasdependencies = questionnaire_has_dependencies($questionnaire->questions);
 
-        $quesgroup = array();
-        $quesgroup[] =& $mform->createElement('static', 'qnums', '', '<div class="qnums">'.
-                                              get_string('questionnum', 'questionnaire').'</div>');
-        $quesgroup[] =& $mform->createElement('static', 'opentagt', '', '<div class="qicons">'.
-                                              get_string('action', 'questionnaire').'</div>');
-        $quesgroup[] =& $mform->createElement('static', 'qnamet', '', '<div class="qtype">'.
-                                              get_string('questiontypes', 'questionnaire').'</div>');
-        $quesgroup[] =& $mform->createElement('static', 'qreqt', '', '<div class="qreq">'.
-                                              get_string('required').'</div>');
-        $quesgroup[] =& $mform->createElement('static', 'qtypet', '', '<div class="qname">'.
-                                              get_string('optionalname', 'questionnaire').'</div>');
-        $mform->addGroup($quesgroup, 'questgroupt', '', '', false);
+        $mform->addGroup($addqgroup, 'addqgroup', '', ' ', false);
 
-        $mform->addElement('html', '</div>');
+        if (isset($SESSION->questionnaire->validateresults) &&  $SESSION->questionnaire->validateresults != '') {
+            $mform->addElement('static', 'validateresult', '', '<div class="qdepend warning">'.
+                $SESSION->questionnaire->validateresults.'</div>');
+            $SESSION->questionnaire->validateresults = '';
+        }
 
         $qnum = 0;
+
+        // JR skip logic :: to prevent moving child higher than parent OR parent lower than child
+        // we must get now the parent and child positions.
+
+        if ($questionnairehasdependencies) {
+            $parentpositions = questionnaire_get_parent_positions ($questionnaire->questions);
+            $childpositions = questionnaire_get_child_positions ($questionnaire->questions);
+        }
+
+        $mform->addElement('header', 'manageq', get_string('managequestions', 'questionnaire'));
+        $mform->addHelpButton('manageq', 'managequestions', 'questionnaire');
+
+        $mform->addElement('html', '<div class="qcontainer">');
+
         foreach ($questionnaire->questions as $question) {
 
-            /// Skip displaying this question if we are moving this question.
-            //if ($this->moveq && ($this->moveq == $question->id)) {
-            //    continue;
-            //}
+            $manageqgroup = array();
 
-            $required = '';
             $qid = $question->id;
             $tid = $question->type_id;
             $qtype = $question->type;
             $required = $question->required;
-            $pos = $question->position;
-            $qnum_txt = '&nbsp;';
-            if ($tid<99) {
-                $qnum++;
-                $qnum_txt = $qnum;
-            }
-            // needed for non-English languages JR
-            $qtype = '['.questionnaire_get_type($tid).']';
-            $content = '';
-            if($tid == 99) {
-                $sec++;
-                $content .= '<b>'.get_string('sectionbreak', 'questionnaire').'</b>';
-            } else {
-            // to take into account languages filter
-                $content = (format_text($question->content, FORMAT_HTML));
+
+            // Does this questionnaire contain branching questions already?
+            $dependency = '';
+            if ($questionnairehasdependencies) {
+                if ($question->dependquestion != 0) {
+                    $parent = questionnaire_get_parent ($question);
+                    $dependency = '<strong>'.get_string('dependquestion', 'questionnaire').'</strong> : '.
+                        $strposition.' '.$parent[$qid]['parentposition'].' ('.$parent[$qid]['parent'].')';
+                }
             }
 
-            $quesgroup = 'quesgroup_'.$pos;
-            $$quesgroup = array();
-            $butclass = array('class' => 'questionnaire_qbut');
-            $disabledclass = array('class' => 'questionnaire_qbut_disabled',
-                        'disabled' => 'disabled', 'style' => 'width: 11px;');
+            $pos = $question->position;
+            if ($tid != QUESPAGEBREAK && $tid != QUESSECTIONTEXT) {
+                $qnum++;
+            }
+
+            // Needed for non-English languages JR.
+            $qtype = '['.questionnaire_get_type($tid).']';
+            $content = '';
+            // If question text is "empty", i.e. 2 non-breaking spaces were inserted, do not display any question text.
+            if ($question->content == '<p>  </p>') {
+                $question->content = '';
+            }
+            if ($tid != QUESPAGEBREAK) {
+                // Needed to print potential media in question text.
+                $content = format_text(file_rewrite_pluginfile_urls($question->content, 'pluginfile.php',
+                                $question->context->id, 'mod_questionnaire', 'question', $question->id), FORMAT_HTML);
+            }
+            $moveqgroup = array();
+
             $spacer = $OUTPUT->pix_url('spacer');
+
             if (!$this->moveq) {
-                $uextra = array('value' => $question->id,
-                                'alt' => get_string('moveup', 'questionnaire'),
-                                'title' => get_string('moveup', 'questionnaire')) + $butclass;
-                $dextra = array('value' => $question->id,
-                                'alt' => get_string('movedn', 'questionnaire'),
-                                'title' => get_string('movedn', 'questionnaire')) + $butclass;
+                $mform->addElement('html', '<div class="qn-container">'); // Begin div qn-container.
                 $mextra = array('value' => $question->id,
-                                'alt' => get_string('move', 'questionnaire'),
-                                'title' => get_string('move', 'questionnaire')) + $butclass;
+                                'alt' => $strmove,
+                                'title' => $strmove);
                 $eextra = array('value' => $question->id,
                                 'alt' => get_string('edit', 'questionnaire'),
-                                'title' => get_string('edit', 'questionnaire')) + $butclass;
+                                'title' => get_string('edit', 'questionnaire'));
                 $rextra = array('value' => $question->id,
-                                'alt' => get_string('remove', 'questionnaire'),
-                                'title' => get_string('remove', 'questionnaire')) + $butclass;
-                if ($pos == 1) {
-                    $usrc = $spacer;
-                    $uextra = $disabledclass;
+                                'alt' => $strremove,
+                                'title' => $strremove);
+
+                if ($tid == QUESPAGEBREAK) {
+                    $esrc = $CFG->wwwroot.'/mod/questionnaire/images/editd.gif';
+                    $eextra = array('disabled' => 'disabled');
                 } else {
-                    $usrc = $OUTPUT->pix_url('t/up');
+                    $esrc = $CFG->wwwroot.'/mod/questionnaire/images/edit.gif';
                 }
-                if ($pos == ($numq)) {
-                    $dsrc = $spacer;
-                    $dextra = $disabledclass;
-                } else {
-                    $dsrc = $OUTPUT->pix_url('t/down');
-                }
-                if ($question->type_id == QUESPAGEBREAK) {
+
+                if ($tid == QUESPAGEBREAK) {
                     $esrc = $spacer;
-                    $eextra  = $disabledclass;
+                    $eextra = array('disabled' => 'disabled');
                 } else {
                     $esrc = $OUTPUT->pix_url('t/edit');
                 }
                 $rsrc = $OUTPUT->pix_url('t/delete');
+                        $qreq = '';
 
-            //Question numbers
-                ${$quesgroup}[] =& $mform->createElement('static', 'qnums', '', '<div class="qnums">'.$qnum_txt.'</div>');
+                // Question numbers.
+                $manageqgroup[] =& $mform->createElement('static', 'qnums', '',
+                                '<div class="qnums">'.$strposition.' '.$pos.'</div>');
 
-            /// Need to index by 'id' since IE doesn't return assigned 'values' for image inputs.
-                ${$quesgroup}[] =& $mform->createElement('static', 'opentag_'.$question->id, '', '<div class="qicons">');
-                ${$quesgroup}[] =& $mform->createElement('image', 'moveupbutton['.$question->id.']', $usrc, $uextra);
-                ${$quesgroup}[] =& $mform->createElement('image', 'movednbutton['.$question->id.']', $dsrc, $dextra);
-                ${$quesgroup}[] =& $mform->createElement('image', 'movebutton['.$question->id.']',
-                                   $OUTPUT->pix_url('t/move'), $mextra);
-                ${$quesgroup}[] =& $mform->createElement('image', 'editbutton['.$question->id.']', $esrc, $eextra);
-                ${$quesgroup}[] =& $mform->createElement('image', 'removebutton['.$question->id.']', $rsrc, $rextra);
-                ${$quesgroup}[] =& $mform->createElement('static', 'closetag_'.$question->id, '', '</div>');
+                // Need to index by 'id' since IE doesn't return assigned 'values' for image inputs.
+                $manageqgroup[] =& $mform->createElement('static', 'opentag_'.$question->id, '', '');
+                $msrc = $OUTPUT->pix_url('t/move');
+
+                if ($questionnairehasdependencies) {
+                    // Do not allow moving parent question at position #1 to be moved down if it has a child at position < 4.
+                    if ($pos == 1) {
+                        if (isset($childpositions[$qid])) {
+                            $maxdown = $childpositions[$qid];
+                            if ($maxdown < 4) {
+                                $strdisabled = get_string('movedisabled', 'questionnaire');
+                                $msrc = $OUTPUT->pix_url('t/block');
+                                $mextra = array('value' => $question->id,
+                                                'alt' => $strdisabled,
+                                                'title' => $strdisabled);
+                                $mextra += array('disabled' => 'disabled');
+                            }
+                        }
+                    }
+                    // Do not allow moving or deleting a page break if immediately followed by a child question
+                    // or immediately preceded by a question with a dependency and followed by a non-dependent question.
+                    if ($tid == QUESPAGEBREAK) {
+                        if ($nextquestion = $DB->get_record('questionnaire_question', array('survey_id' => $sid,
+                                        'position' => $pos + 1, 'deleted' => 'n' ), $fields = 'dependquestion, name, content') ) {
+                            if ($previousquestion = $DB->get_record('questionnaire_question', array('survey_id' => $sid,
+                                            'position' => $pos - 1, 'deleted' => 'n' ),
+                                            $fields = 'dependquestion, name, content')) {
+                                if ($nextquestion->dependquestion != 0
+                                                || ($previousquestion->dependquestion != 0
+                                                    && $nextquestion->dependquestion == 0) ) {
+                                    $strdisabled = get_string('movedisabled', 'questionnaire');
+                                    $msrc = $OUTPUT->pix_url('t/block');
+                                    $mextra = array('value' => $question->id,
+                                                    'alt' => $strdisabled,
+                                                    'title' => $strdisabled);
+                                    $mextra += array('disabled' => 'disabled');
+
+                                    $rsrc = $msrc;
+                                    $strdisabled = get_string('deletedisabled', 'questionnaire');
+                                    $rextra = array('value' => $question->id,
+                                                    'alt' => $strdisabled,
+                                                    'title' => $strdisabled);
+                                    $rextra += array('disabled' => 'disabled');
+                                }
+                            }
+                        }
+                    }
+                }
+                $manageqgroup[] =& $mform->createElement('image', 'movebutton['.$question->id.']',
+                                $msrc, $mextra);
+                $manageqgroup[] =& $mform->createElement('image', 'editbutton['.$question->id.']', $esrc, $eextra);
+                $manageqgroup[] =& $mform->createElement('image', 'removebutton['.$question->id.']', $rsrc, $rextra);
+
+                if ($tid != QUESPAGEBREAK && $tid != QUESSECTIONTEXT) {
+                    if ($required == 'y') {
+                        $reqsrc = $OUTPUT->pix_url('t/stop');
+                        $strrequired = get_string('required', 'questionnaire');
+                    } else {
+                        $reqsrc = $OUTPUT->pix_url('t/go');
+                        $strrequired = get_string('notrequired', 'questionnaire');
+                    }
+                    $strrequired .= ' '.get_string('clicktoswitch', 'questionnaire');
+                    $reqextra = array('value' => $question->id,
+                                    'alt' => $strrequired,
+                                    'title' => $strrequired);
+                    $manageqgroup[] =& $mform->createElement('image', 'requiredbutton['.$question->id.']', $reqsrc, $reqextra);
+                }
+                $manageqgroup[] =& $mform->createElement('static', 'closetag_'.$question->id, '', '');
+
             } else {
-                ${$quesgroup}[] =& $mform->createElement('static', 'qnum', '', '<div class="qnums">'.$qnum_txt.'</div>');
-                if ($this->moveq != $question->id) {
-                    $mextra = array('value' => $question->id,
-                                'alt' => get_string('movehere', 'questionnaire'),
-                                'title' => get_string('movehere', 'questionnaire')) + $butclass;
-                $msrc = $OUTPUT->pix_url('movehere');
-                ${$quesgroup}[] =& $mform->createElement('static', 'opentag_'.$question->id, '', '<div class="qicons">');
-                $newposition = $max == $pos ? 0 : $pos;
-                ${$quesgroup}[] =& $mform->createElement('image', 'moveherebutton['.$newposition.']', $msrc, $mextra);
-                ${$quesgroup}[] =& $mform->createElement('static', 'closetag_'.$question->id, '', '</div>');
+                $manageqgroup[] =& $mform->createElement('static', 'qnum', '',
+                                '<div class="qnums">'.$strposition.' '.$pos.'</div>');
+                $moveqgroup[] =& $mform->createElement('static', 'qnum', '', '');
+
+                $display = true;
+                if ($questionnairehasdependencies) {
+                    // Prevent moving child to higher position than its parent.
+                    if (isset($parentpositions[$this->moveq])) {
+                        $maxup = $parentpositions[$this->moveq];
+                        if ($pos <= $maxup) {
+                            $display = false;
+                        }
+                    }
+                    // Prevent moving parent to lower position than its (first) child.
+                    if (isset($childpositions[$this->moveq])) {
+                        $maxdown = $childpositions[$this->moveq];
+                        if ($pos >= $maxdown) {
+                            $display = false;
+                        }
+                    }
+                }
+
+                $typeid = $DB->get_field('questionnaire_question', 'type_id', array('id' => $this->moveq));
+
+                if ($display) {
+                    // Do not move a page break to first position.
+                    if ($typeid == QUESPAGEBREAK && $pos == 1) {
+                        $manageqgroup[] =& $mform->createElement('static', 'qnums', '', '');
+                    } else {
+                        if ($this->moveq == $question->id) {
+                            $moveqgroup[] =& $mform->createElement('cancel', 'cancelbutton', get_string('cancel'));
+                        } else {
+                            $mextra = array('value' => $question->id,
+                                            'alt' => $strmove,
+                                            'title' => $strmovehere.' (position '.$pos.')');
+                            $msrc = $OUTPUT->pix_url('movehere');
+                            $moveqgroup[] =& $mform->createElement('static', 'opentag_'.$question->id, '', '');
+                            $moveqgroup[] =& $mform->createElement('image', 'moveherebutton['.$pos.']', $msrc, $mextra);
+                            $moveqgroup[] =& $mform->createElement('static', 'closetag_'.$question->id, '', '');
+                        }
+                    }
                 } else {
-                    ${$quesgroup}[] =& $mform->createElement('static', 'qnums', '', '<div class="qicons">Move From Here</div>');
+                    $manageqgroup[] =& $mform->createElement('static', 'qnums', '', '');
+                    $moveqgroup[] =& $mform->createElement('static', 'qnums', '', '');
+                }
+            }
+            if ($question->name) {
+                $qname = '('.$question->name.')';
+            } else {
+                $qname = '';
+            }
+            $manageqgroup[] =& $mform->createElement('static', 'qtype_'.$question->id, '', $qtype);
+            $manageqgroup[] =& $mform->createElement('static', 'qname_'.$question->id, '', $qname);
+
+            if ($dependency) {
+                $mform->addElement('static', 'qdepend_'.$question->id, '', '<div class="qdepend">'.$dependency.'</div>');
+            }
+            if ($tid != QUESPAGEBREAK) {
+                if ($tid != QUESSECTIONTEXT) {
+                    $qnumber = '<div class="qn-info"><h2 class="qn-number">'.$qnum.'</h2></div>';
+                } else {
+                    $qnumber = '';
                 }
             }
 
-            ${$quesgroup}[] =& $mform->createElement('static', 'qtype_'.$question->id, '', '<div class="qtype">'.$qtype.'</div>');
-
-            $qreq = '';
-            if ($question->type_id != QUESPAGEBREAK && $question->type_id != QUESSECTIONTEXT) {
-                if ($required == 'y') {
-                    $qreq = $stryes;
+            if ($this->moveq && $pos < $moveqposition) {
+                $mform->addGroup($moveqgroup, 'moveqgroup', '', '', false);
+            }
+            if ($this->moveq) {
+                if ($this->moveq == $question->id && $display) {
+                    $mform->addElement('html', '<div class="moving" title="'.$strmove.'">'); // Begin div qn-container.
                 } else {
-                    $qreq = $strno;
+                    $mform->addElement('html', '<div class="qn-container">'); // Begin div qn-container.
                 }
             }
-            ${$quesgroup}[] =& $mform->createElement('static', 'qreq_'.$question->id, '', '<div class="qreq">'.$qreq.'</div>');
+            $mform->addGroup($manageqgroup, 'manageqgroup', '', '&nbsp;', false);
+            if ($tid != QUESPAGEBREAK) {
+                $mform->addElement('static', 'qcontent_'.$question->id, '',
+                    $qnumber.'<div class="qn-question">'.$content.'</div>');
+            }
+            $mform->addElement('html', '</div>'); // End div qn-container.
 
-            $qname = $question->name;
-            ${$quesgroup}[] =& $mform->createElement('static', 'qname_'.$question->id, '', '<div class="qname">'.$qname.'</div>');
-
-            $mform->addGroup($$quesgroup, 'questgroup', '', '', false);
-
-            $mform->addElement('static', 'qcontent_'.$question->id, '', '<div class="qcontent">'.$content.'</div>');
-
-            $pos++;
+            if ($this->moveq && $pos >= $moveqposition) {
+                $mform->addGroup($moveqgroup, 'moveqgroup', '', '', false);
+            }
         }
 
-        // If we are moving a question, display one more line for the end.
         if ($this->moveq) {
             $mform->addElement('hidden', 'moveq', $this->moveq);
         }
 
-
-        //-------------------------------------------------------------------------------
-        // Hidden fields
+        // Hidden fields.
         $mform->addElement('hidden', 'id', 0);
         $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'sid', 0);
@@ -239,26 +342,23 @@ class questionnaire_questions_form extends moodleform {
         $mform->setType('action', PARAM_RAW);
         $mform->setType('moveq', PARAM_RAW);
 
-        //-------------------------------------------------------------------------------
-        // buttons
-
         $mform->addElement('html', '</div>');
-
     }
 
-    function validation($data, $files){
-        return parent::validation($data, $files);
+    public function validation($data, $files) {
+        $errors = parent::validation($data, $files);
+        return $errors;
     }
 
 }
 
 class questionnaire_edit_question_form extends moodleform {
 
-    function definition() {
-        global $CFG, $COURSE, $questionnaire, $question, $QUESTIONNAIRE_REALMS, $SESSION;
+    public function definition() {
+        global $CFG, $COURSE, $questionnaire, $question, $questionnairerealms, $SESSION;
         global $DB;
 
-        // 'sticky' required response value for further new questions
+        // The 'sticky' required response value for further new questions.
         if (isset($SESSION->questionnaire->required) && !isset($question->qid)) {
             $question->required = $SESSION->questionnaire->required;
         }
@@ -266,113 +366,117 @@ class questionnaire_edit_question_form extends moodleform {
             print_error('undefinedquestiontype', 'questionnaire');
         }
 
-        /// Initialize question type defaults:
+        // Initialize question type defaults.
         switch ($question->type_id) {
-        case QUESTEXT:
-            $deflength = 20;
-            $defprecise = 25;
-            $lhelpname = 'fieldlength';
-            $phelpname = 'maxtextlength';
-            break;
-        case QUESESSAY:
-            $deflength = '';
-            $defprecise = '';
-            $lhelpname = 'textareacolumns';
-            $phelpname = 'textarearows';
-            break;
-        case QUESCHECK:
-            $deflength = 0;
-            $defprecise = 0;
-            $lhelpname = 'minforcedresponses';
-            $phelpname = 'maxforcedresponses';
-            $olabelname = 'possibleanswers';
-            $ohelpname = 'checkboxes';
-            break;
-        case QUESRADIO:
-            $deflength = 0;
-            $defprecise = 0;
-            $lhelpname = 'alignment';
-            $olabelname = 'possibleanswers';
-            $ohelpname = 'radiobuttons';
-            break;
-        case QUESRATE:
-            $deflength = 5;
-            $defprecise = 0;
-            $lhelpname = 'numberscaleitems';
-            $phelpname = 'kindofratescale';
-            $olabelname = 'possibleanswers';
-            $ohelpname = 'ratescale';
-            break;
-        case QUESNUMERIC:
-            $deflength = 10;
-            $defprecise = 0;
-            $lhelpname = 'maxdigitsallowed';
-            $phelpname = 'numberofdecimaldigits';
-            break;
-        case QUESDROP:
-            $deflength = 0;
-            $defprecise = 0;
-            $olabelname = 'possibleanswers';
-            $ohelpname = 'dropdown';
-            break;
-        default:
-            $deflength = 0;
-            $defprecise = 0;
+            case QUESTEXT:
+                $deflength = 20;
+                $defprecise = 25;
+                $lhelpname = 'fieldlength';
+                $phelpname = 'maxtextlength';
+                break;
+            case QUESESSAY:
+                $deflength = '';
+                $defprecise = '';
+                $lhelpname = 'textareacolumns';
+                $phelpname = 'textarearows';
+                break;
+            case QUESCHECK:
+                $deflength = 0;
+                $defprecise = 0;
+                $lhelpname = 'minforcedresponses';
+                $phelpname = 'maxforcedresponses';
+                $olabelname = 'possibleanswers';
+                $ohelpname = 'checkboxes';
+                break;
+            case QUESRADIO:
+                $deflength = 0;
+                $defprecise = 0;
+                $lhelpname = 'alignment';
+                $olabelname = 'possibleanswers';
+                $ohelpname = 'radiobuttons';
+                break;
+            case QUESRATE:
+                $deflength = 5;
+                $defprecise = 0;
+                $lhelpname = 'numberscaleitems';
+                $phelpname = 'kindofratescale';
+                $olabelname = 'possibleanswers';
+                $ohelpname = 'ratescale';
+                break;
+            case QUESNUMERIC:
+                $deflength = 10;
+                $defprecise = 0;
+                $lhelpname = 'maxdigitsallowed';
+                $phelpname = 'numberofdecimaldigits';
+                break;
+            case QUESDROP:
+                $deflength = 0;
+                $defprecise = 0;
+                $olabelname = 'possibleanswers';
+                $ohelpname = 'dropdown';
+                break;
+            default:
+                $deflength = 0;
+                $defprecise = 0;
         }
+
+        $defdependquestion = 0;
+        $defdependchoice = 0;
+        $dlabelname = 'dependquestion';
 
         $mform    =& $this->_form;
 
-        //-------------------------------------------------------------------------------
-        // display different messages for new question creation and existing question modification
+        // Display different messages for new question creation and existing question modification.
         if (isset($question->qid)) {
             $streditquestion = get_string('editquestion', 'questionnaire', questionnaire_get_type($question->type_id));
         } else {
             $streditquestion = get_string('addnewquestion', 'questionnaire', questionnaire_get_type($question->type_id));
         }
-		switch ($question->type_id) {
-		    case 1:
-		        $qtype='yesno';
-		        break;
-		    case 2:
-		        $qtype='textbox';
+        switch ($question->type_id) {
+            case QUESYESNO:
+                $qtype = 'yesno';
                 break;
-	        case 3:
-		        $qtype='essaybox';
+            case QUESTEXT:
+                $qtype = 'textbox';
                 break;
-		    case 4:
-		        $qtype='radiobuttons';
-		        break;
-            case 5:
-		        $qtype='checkboxes';
+            case QUESESSAY:
+                $qtype = 'essaybox';
                 break;
-		    case 6:
-		        $qtype='dropdown';
+            case QUESRADIO:
+                $qtype = 'radiobuttons';
                 break;
-		    case 8:
-		        $qtype='ratescale';
+            case QUESCHECK:
+                $qtype = 'checkboxes';
                 break;
-		    case 9:
-		        $qtype='date';
-		        break;
-		    case 10:
-		        $qtype='numeric';
-		        break;
-		    case 100:
-		        $qtype='sectiontext';
-		        break;
-            case 99:
-		        $qtype='sectionbreak';
-		    }
+            case QUESDROP:
+                $qtype = 'dropdown';
+                break;
+            case QUESRATE:
+                $qtype = 'ratescale';
+                break;
+            case QUESDATE:
+                $qtype = 'date';
+                break;
+            case QUESNUMERIC:
+                $qtype = 'numeric';
+                break;
+            case QUESSECTIONTEXT:
+                $qtype = 'sectiontext';
+                break;
+            case QUESPAGEBREAK:
+                $qtype = 'sectionbreak';
+        }
 
-        $mform->addElement('header', 'questionhdr', $streditquestion);
-        $mform->addHelpButton('questionhdr', $qtype, 'questionnaire');
+        $mform->addElement('header', 'questionhdredit', $streditquestion);
+        $mform->addHelpButton('questionhdredit', $qtype, 'questionnaire');
 
-        /// Name and required fields:
+        // Name and required fields.
         if ($question->type_id != QUESSECTIONTEXT && $question->type_id != '') {
             $stryes = get_string('yes');
             $strno  = get_string('no');
 
-            $mform->addElement('text', 'name', get_string('optionalname', 'questionnaire'), array('size'=>'30', 'maxlength'=>'30'));
+            $mform->addElement('text', 'name', get_string('optionalname', 'questionnaire'),
+                            array('size' => '30', 'maxlength' => '30'));
             $mform->setType('name', PARAM_TEXT);
             $mform->addHelpButton('name', 'optionalname', 'questionnaire');
 
@@ -383,57 +487,100 @@ class questionnaire_edit_question_form extends moodleform {
             $mform->addHelpButton('reqgroup', 'required', 'questionnaire');
         }
 
-        /// Length field:
+        // Length field.
         if ($question->type_id == QUESYESNO || $question->type_id == QUESDROP || $question->type_id == QUESDATE ||
             $question->type_id == QUESSECTIONTEXT) {
             $mform->addElement('hidden', 'length', $deflength);
-            $mform->setType('length', PARAM_INT);
         } else if ($question->type_id == QUESRADIO) {
             $lengroup = array();
             $lengroup[] =& $mform->createElement('radio', 'length', '', get_string('vertical', 'questionnaire'), '0');
-            $lengroup[] =& $mform->createElement('radio', 'length', '', get_string('horizontal','questionnaire'), '1');
+            $lengroup[] =& $mform->createElement('radio', 'length', '', get_string('horizontal', 'questionnaire'), '1');
             $mform->addGroup($lengroup, 'lengroup', get_string($lhelpname, 'questionnaire'), ' ', false);
             $mform->addHelpButton('lengroup', $lhelpname, 'questionnaire');
-        } else { // QUESTEXT or QUESESSAY or QUESRATE
+        } else if ($question->type_id == QUESTEXT || $question->type_id == QUESRATE) {
             $question->length = isset($question->length) ? $question->length : $deflength;
-            $mform->addElement('text', 'length', get_string($lhelpname, 'questionnaire'), array('size'=>'1'));
+            $mform->addElement('text', 'length', get_string($lhelpname, 'questionnaire'), array('size' => '1'));
             $mform->setType('length', PARAM_TEXT);
             $mform->addHelpButton('length', $lhelpname, 'questionnaire');
+        } else if ($question->type_id == QUESESSAY) {
+            $responseformats = array(
+                            "0" => get_string('formateditor', 'questionnaire'),
+                            "1" => get_string('formatplain', 'questionnaire'));
+            $mform->addElement('select', 'precise', get_string('responseformat', 'questionnaire'), $responseformats);
+        } else if ($question->type_id == QUESCHECK || $question->type_id == QUESNUMERIC) {
+            $question->length = isset($question->length) ? $question->length : $deflength;
+            $mform->addElement('text', 'length', get_string($lhelpname, 'questionnaire'), array('size' => '1'));
         }
 
-        /// Precision field:
+        $mform->setType('length', PARAM_INT);
+
+        // Precision field.
         if ($question->type_id == QUESYESNO || $question->type_id == QUESDROP || $question->type_id == QUESDATE ||
             $question->type_id == QUESSECTIONTEXT || $question->type_id == QUESRADIO) {
             $mform->addElement('hidden', 'precise', $defprecise);
         } else if ($question->type_id == QUESRATE) {
-            $precoptions = array("0" => get_string('normal','questionnaire'),
-                                 "1" => get_string('notapplicablecolumn','questionnaire'),
-                                 "2" => get_string('noduplicates','questionnaire'),
-                                 "3" => get_string('osgood','questionnaire'));
+            $precoptions = array("0" => get_string('normal', 'questionnaire'),
+                                 "1" => get_string('notapplicablecolumn', 'questionnaire'),
+                                 "2" => get_string('noduplicates', 'questionnaire'),
+                                 "3" => get_string('osgood', 'questionnaire'));
             $mform->addElement('select', 'precise', get_string($phelpname, 'questionnaire'), $precoptions);
             $mform->addHelpButton('precise', $phelpname, 'questionnaire');
-        } else {
+        } else if ($question->type_id == QUESESSAY) {
+            $choices = array();
+            for ($lines = 5; $lines <= 40; $lines += 5) {
+                $choices[$lines] = get_string('nlines', 'questionnaire', $lines);
+            }
+            $mform->addElement('select', 'length', get_string('responsefieldlines', 'questionnaire'), $choices);
+        } else if ($question->type_id == QUESCHECK || $question->type_id == QUESNUMERIC) {
             $question->precise = isset($question->precise) ? $question->precise : $defprecise;
-            $mform->addElement('text', 'precise', get_string($phelpname, 'questionnaire'), array('size'=>'1'));
-            //$mform->addHelpButton('precise', $phelpname, 'questionnaire');
+            $mform->addElement('text', 'precise', get_string($phelpname, 'questionnaire'), array('size' => '1'));
         }
+
         $mform->setType('precise', PARAM_INT);
 
-        /// Content field:
+        // Dependence fields.
+
+        if ($questionnaire->navigate) {
+            $position = isset($question->position) ? $question->position : count($questionnaire->questions) + 1;
+            $dependencies = questionnaire_get_dependencies($questionnaire->questions, $position);
+            $canchangeparent = true;
+            if (count($dependencies) > 1) {
+                if (isset($question->qid)) {
+                    $haschildren = questionnaire_get_descendants ($questionnaire->questions, $question->qid);
+                    if (count($haschildren) !== 0) {
+                        $canchangeparent = false;
+                        $parent = questionnaire_get_parent ($question);
+                        $fixeddependency = $parent [$question->id]['parent'];
+                    }
+                }
+                if ($canchangeparent) {
+                    $question->dependquestion = isset($question->dependquestion) ? $question->dependquestion.','.
+                                    $question->dependchoice : '0,0';
+                    $group = array($mform->createElement('selectgroups', 'dependquestion', '', $dependencies) );
+                    $mform->addGroup($group, 'selectdependency', get_string('dependquestion', 'questionnaire'), '', false);
+                    $mform->addHelpButton('selectdependency', 'dependquestion', 'questionnaire');
+                } else {
+                    $mform->addElement('static', 'selectdependency', get_string('dependquestion', 'questionnaire'),
+                                    '<div class="dimmed_text">'.$fixeddependency.'</div>');
+                }
+                $mform->addHelpButton('selectdependency', 'dependquestion', 'questionnaire');
+            }
+        }
+
+        // Content field.
         $modcontext    = $this->_customdata['modcontext'];
-        $editoroptions = array('maxfiles' => EDITOR_UNLIMITED_FILES, 'trusttext'=>true, 'context'=>$modcontext);
+        $editoroptions = array('maxfiles' => EDITOR_UNLIMITED_FILES, 'trusttext' => true, 'context' => $modcontext);
         $mform->addElement('editor', 'content', get_string('text', 'questionnaire'), null, $editoroptions);
         $mform->setType('content', PARAM_RAW);
         $mform->addRule('content', null, 'required', null, 'client');
-//        $mform->addHelpButton('content', array('writing', 'questions', 'richtext2'), false, 'editorhelpbutton');
 
-        /// Options section:
-        // has answer options ... so show that part of the form
+        // Options section:
+        // has answer options ... so show that part of the form.
         if ($DB->get_field('questionnaire_question_type', 'has_choices', array('typeid' => $question->type_id)) == 'y' ) {
             if (!empty($question->choices)) {
-                $num_choices = count($question->choices);
+                $numchoices = count($question->choices);
             } else {
-                $num_choices = 0;
+                $numchoices = 0;
             }
 
             if (!empty($question->choices)) {
@@ -457,12 +604,11 @@ class questionnaire_edit_question_form extends moodleform {
 
             $mform->addElement('html', '</div>');
 
-            $mform->addElement('hidden', 'num_choices', $num_choices);
+            $mform->addElement('hidden', 'num_choices', $numchoices);
             $mform->setType('num_choices', PARAM_INT);
         }
 
-        //-------------------------------------------------------------------------------
-        // Hidden fields
+        // Hidden fields.
         $mform->addElement('hidden', 'id', 0);
         $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'qid', 0);
@@ -474,9 +620,7 @@ class questionnaire_edit_question_form extends moodleform {
         $mform->addElement('hidden', 'action', 'question');
         $mform->setType('action', PARAM_RAW);
 
-        //-------------------------------------------------------------------------------
-        // buttons
-
+        // Buttons.
         $buttonarray[] = &$mform->createElement('submit', 'submitbutton', get_string('savechanges'));
         if (isset($question->qid)) {
             $buttonarray[] = &$mform->createElement('submit', 'makecopy', get_string('saveasnew', 'questionnaire'));
@@ -485,8 +629,31 @@ class questionnaire_edit_question_form extends moodleform {
         $mform->addGroup($buttonarray, 'buttonar', '', array(' '), false);
     }
 
-    function validation($data, $files){
-        return parent::validation($data, $files);
-    }
+    public function validation($data, $files) {
+        $errors = parent::validation($data, $files);
 
+        // If this is a rate question.
+        if ($data['type_id'] == QUESRATE) {
+            if ($data['length'] < 2) {
+                $errors["length"] = get_string('notenoughscaleitems', 'questionnaire');
+            }
+            // If this is a rate question with no duplicates option.
+            if ($data['precise'] == 2 ) {
+                $allchoices = $data['allchoices'];
+                $allchoices = explode("\n", $allchoices);
+                $nbnameddegrees = 0;
+                $nbvalues = 0;
+                foreach ($allchoices as $choice) {
+                    if ($choice && !preg_match("/^[0-9]{1,3}=/", $choice)) {
+                            $nbvalues++;
+                    }
+                }
+                if ($nbvalues < 2) {
+                    $errors["allchoices"] = get_string('noduplicateschoiceserror', 'questionnaire');
+                }
+            }
+        }
+
+        return $errors;
+    }
 }

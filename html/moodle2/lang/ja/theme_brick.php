@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_brick', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_brick', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_brick
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['linkcolordesc'] = 'テーマ内のリンク色を設定します。HTML
 $string['linkhover'] = 'リンクホバー';
 $string['linkhoverdesc'] = 'テーマ内のリンク色 (ホバー時) を設定します。HTML16進コードを使用してください。';
 $string['logo'] = 'ロゴ';
-$string['logodesc'] = '新しいロゴのURIを入力することで、このテーマのロゴを変更します (例 http://www.somesite/animage.png)。ご参考までに、デフォルトロゴのサイズは幅265px、高さ60pxです。 透過的なpngが最適です。';
+$string['logodesc'] = '新しいロゴのURLを入力することで、このテーマのロゴを変更します (例 http://www.somesite/animage.png)。ご参考までに、デフォルトロゴのサイズは幅265px、高さ60pxです。 透過的なpngが最適です。';
 $string['maincolor'] = 'メインカラー';
 $string['maincolordesc'] = 'ヘッダ、ドックバーおよび他の場所の色を16進で設定します。暗色または飽和色が見栄えよく表示されます。';
 $string['maincolorlink'] = 'メインカラーリンク';

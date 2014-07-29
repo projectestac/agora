@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,15 +59,21 @@ $string['firstattempts'] = '最初の受験';
 $string['firstattemptsavg'] = '最初の受験評点の平均値';
 $string['firstattemptscount'] = '最初の受験数 (評定済み)';
 $string['frequency'] = '頻度';
+$string['highestattempts'] = '最高評点の受験';
+$string['highestattemptsavg'] = '最高評点の受験の平均点';
 $string['intended_weight'] = '意図された加重';
 $string['kurtosis'] = '評点分布の尖度 ({$a})';
+$string['lastattempts'] = '前回の受験';
+$string['lastattemptsavg'] = '前回の受験の平均点';
 $string['lastcalculated'] = '最終計算 {$a->lastcalculated} 前より {$a->count} 件の受験がありました。';
 $string['median'] = '評点の中央値 ({$a})';
 $string['modelresponse'] = 'モデル解答';
 $string['negcovar'] = '受験評点総計における評点の負の共分散';
-$string['negcovar_help'] = '<p>小テストの一連の受験に関する、この問題の評点は全体の受験評点と反対であるという点で異なります。これはこの問題の評点が反対に平均以上であることに対して、全体の受験評点は平均以下の傾向があることを意味します。</p>
-<p>この場合、私たちの有効問題加重の式では計算できません。負の共分散でハイライトされた問題にゼロの最大評点が与えられた場合、この小テスト内の他の問題に関する計算の有効問題加重はこれらの問題の有効問題加重となります。</p>
-<p>あなたが問題を編集して、これらの問題に最大評点ゼロの負の共分散を与えた場合、これらの問題の有効問題加重はゼロになります。そして、他の問題の実有効問題加重は直ちに計算されます。</p>';
+$string['negcovar_help'] = '小テストの一連の受験に関する、この問題の評点は全体の受験評点と反対であるという点で異なります。これはこの問題の評点が反対に平均以上であることに対して、全体の受験評点は平均以下の傾向があることを意味します。
+
+この場合、私たちの有効問題加重の式では計算できません。負の共分散でハイライトされた問題にゼロの最大評点が与えられた場合、この小テスト内の他の問題に関する計算の有効問題加重はこれらの問題の有効問題加重となります。
+
+あなたが問題を編集して、これらの問題に最大評点ゼロの負の共分散を与えた場合、これらの問題の有効問題加重はゼロになります。そして、他の問題の実有効問題加重は直ちに計算されます。';
 $string['nostudentsingroup'] = 'このグループには、まだ学生が登録されていません。';
 $string['optiongrade'] = '部分点';
 $string['partofquestion'] = '問題の一部';
@@ -86,6 +92,7 @@ $string['quizoverallstatistics'] = '小テスト全体の統計';
 $string['quizstructureanalysis'] = '問題構造分析';
 $string['random_guess_score'] = '当てずっぽうの評点';
 $string['recalculatenow'] = '再計算する';
+$string['reportsettings'] = '統計計算設定';
 $string['response'] = '解答';
 $string['skewness'] = '評点分布の歪み ({$a})';
 $string['standarddeviation'] = '標準偏差 ({$a})';

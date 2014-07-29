@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'デフォルト登録期間';
 $string['defaultperiod_desc'] = '登録が有効な場合のデフォルト登録期間 (秒) です。ゼロが設定された場合、登録期間はデフォルトで無制限となります。';
 $string['defaultperiod_help'] = '登録が有効な場合のデフォルト登録期間です。ユーザが登録された時点で開始します。無効にされた場合、登録期間はデフォルトで無制限となります。';
 $string['deleteselectedusers'] = '選択されたユーザ登録を削除する';
-$string['editenrolment'] = '登録を編集する';
 $string['editselectedusers'] = '選択したユーザ登録を編集する';
 $string['enrolledincourserole'] = '「 {$a->course} 」に「 {$a->role} 」として登録されました。';
 $string['enrolusers'] = 'ユーザを登録する';

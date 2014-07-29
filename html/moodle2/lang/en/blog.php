@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Entry description';
 $string['entryerrornotyours'] = 'This entry is not yours';
 $string['entrysaved'] = 'Your entry has been saved';
 $string['entrytitle'] = 'Entry title';
-$string['entryupdated'] = 'Blog entry updated';
+$string['evententryadded'] = 'Blog entry added';
+$string['evententrydeleted'] = 'Blog entry deleted';
+$string['evententryupdated'] = 'Blog entry updated';
 $string['externalblogcrontime'] = 'External blog cron schedule';
 $string['externalblogdeleteconfirm'] = 'Unregister this external blog?';
 $string['externalblogdeleted'] = 'External blog unregistered';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'Invalid group ID';
 $string['invalidurl'] = 'This URL is unreachable';
 $string['linktooriginalentry'] = 'Link to original blog entry';
 $string['maxexternalblogsperuser'] = 'Maximum number of external blogs per user';
-$string['mustassociatecourse'] = 'If you are publishing to course or group members, you must associate a course with this entry';
 $string['name'] = 'Name';
 $string['name_help'] = 'Enter a descriptive name for your external blog. (If no name is supplied, the title of your external blog will be used).';
 $string['noentriesyet'] = 'No visible entries here';

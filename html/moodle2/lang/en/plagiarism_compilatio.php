@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_compilatio', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism_compilatio', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_compilatio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,16 +42,20 @@ $string['compilatio_api'] = 'Compilatio Integration Address';
 $string['compilatio_api_help'] = 'This is the address of the Compilatio API';
 $string['compilatiodefaults'] = 'Compilatio defaults';
 $string['compilatio_draft_submit'] = 'When should the file be submitted to Compilatio';
+$string['compilatio:enable'] = 'Allow the teacher to enable/disable Compilatio inside an activity';
 $string['compilatio_enableplugin'] = 'Enable Compilatio for {$a}';
 $string['compilatioexplain'] = 'For more information on this plugin see: <a href="http://compilatio.net" target="_blank">http://compilatio.net</a>';
 $string['compilatio_password'] = 'Institute code';
 $string['compilatio_password_help'] = 'Institute code provided by Compilatio to access the API';
+$string['compilatio:resetfile'] = 'Allow the teacher to resubmit the file to Compilatio after an error';
 $string['compilatio_show_student_report'] = 'Show similarity report to student';
 $string['compilatio_show_student_report_help'] = 'The similarity report gives a breakdown on what parts of the submission were plagiarised and the location that Compilatio first saw this content';
 $string['compilatio_show_student_score'] = 'Show similarity score to student';
 $string['compilatio_show_student_score_help'] = 'The similarity score is the percentage of the submission that has been matched with other content.';
 $string['compilatio_studentemail'] = 'Send Student email';
 $string['compilatio_studentemail_help'] = 'This will send an e-mail to the student when a file has been processed to let them know that a report is available.';
+$string['compilatio:triggeranalysis'] = 'Allow the teacher to manually trigger analysis';
+$string['compilatio:viewreport'] = 'Allow the teacher to view the full report from Compilatio';
 $string['defaultsdesc'] = 'The following settings are the defaults set when enabling Compilatio within an Activity Module';
 $string['defaultupdated'] = 'Default values updated';
 $string['enabledandworking'] = 'The Compilatio plugin is enabled and working.';
@@ -77,6 +81,7 @@ $string['studentemailsubject'] = 'File processed by Compilatio';
 $string['submitondraft'] = 'Submit file when first uploaded';
 $string['submitonfinal'] = 'Submit file when student sends for marking';
 $string['toolarge'] = 'This file is too large for Compilatio to process';
+$string['unextractablefile'] = 'Compilatio failed to extract the content of your document';
 $string['unknownwarning'] = 'An error occurred trying to send this file to Compilatio';
 $string['unsupportedfiletype'] = 'This filetype is not supported by Compilatio';
 $string['updatecompilatioanalysis'] = 'Update Compilatio Analysis';

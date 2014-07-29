@@ -41,6 +41,9 @@ if (!isset($config->logout_return_url)) {
 if (!isset($config->host_url)) {
      $config->host_url = '';
 }
+if (!isset($config->start_tls)) {
+    $config->start_tls = false;
+}
 if (empty($config->ldapencoding)) {
     $config->ldapencoding = 'utf-8';
 }
@@ -241,7 +244,7 @@ if (!ldap_paged_results_supported($config->ldap_version)) {
     </td>
 </tr>
 <tr valign="top" class="required">
-    <td align="right"><label for="menuldap_version"><?php print_string('auth_ldap_version_key', 'auth_ldap') ?></label></td>
+    <td align="right"><label for="ldap_version"><?php print_string('auth_ldap_version_key', 'auth_ldap') ?></label></td>
     <td>
         <?php
              $versions = array();
@@ -253,6 +256,17 @@ if (!ldap_paged_results_supported($config->ldap_version)) {
     </td>
     <td>
         <?php print_string('auth_ldap_version', 'auth_ldap') ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">
+        <label for="start_tls"><?php print_string('start_tls_key', 'auth_ldap') ?></label>
+    </td>
+    <td>
+        <?php echo html_writer::select($yesno, 'start_tls', $config->start_tls, false); ?>
+    </td>
+    <td>
+        <?php print_string('start_tls', 'auth_ldap') ?>
     </td>
 </tr>
 <tr valign="top" class="required">
@@ -477,6 +491,6 @@ $help .= get_string('auth_updateremote_expl', 'auth');
 $help .= '<hr />';
 $help .= get_string('auth_updateremote_ldap', 'auth');
 
-print_auth_lock_options($this->authtype, $user_fields, $help, true, true);
+print_auth_lock_options($this->authtype, $user_fields, $help, true, true, $this->get_custom_user_profile_fields());
 ?>
 </table>

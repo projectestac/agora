@@ -32,14 +32,15 @@ require_login($course);
 $PAGE->set_url('/mod/assign/index.php', array('id' => $id));
 $PAGE->set_pagelayout('incourse');
 
-add_to_log($course->id, "assign", "view all", "index.php?id=$course->id", "");
+add_to_log($course->id, 'assign', 'view all', 'index.php?id=$course->id', '');
 
-// Print the header
+// Print the header.
 $strplural = get_string("modulenameplural", "assign");
 $PAGE->navbar->add($strplural);
 $PAGE->set_title($strplural);
 $PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
+echo $OUTPUT->heading(format_string($strplural));
 
 $context = context_course::instance($course->id);
 

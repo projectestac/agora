@@ -32,11 +32,8 @@ class user_filter_courserole extends user_filter_type {
      */
     function get_course_categories() {
         global $CFG;
-        require_once($CFG->dirroot.'/course/lib.php');
-        $displaylist = array();
-        $parentlist = array();
-        make_categories_list($displaylist, $parentlist);
-        return array(0=> get_string('anycategory', 'filters')) + $displaylist;
+        require_once($CFG->libdir.'/coursecatlib.php');
+        return array(0=> get_string('anycategory', 'filters')) + coursecat::make_categories_list();
     }
 
     /**
@@ -49,6 +46,7 @@ class user_filter_courserole extends user_filter_type {
         $objs[] =& $mform->createElement('select', $this->_name .'_ct', null, $this->get_course_categories());
         $objs[] =& $mform->createElement('text', $this->_name, null);
         $grp =& $mform->addElement('group', $this->_name.'_grp', $this->_label, $objs, '', false);
+        $mform->setType($this->_name, PARAM_TEXT);
         if ($this->_advanced) {
             $mform->setAdvanced($this->_name.'_grp');
         }

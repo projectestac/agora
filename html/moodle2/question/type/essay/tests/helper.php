@@ -34,7 +34,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 class qtype_essay_test_helper extends question_test_helper {
     public function get_test_questions() {
-        return array('editor', 'editorfilepicker', 'plain', 'monospaced');
+        return array('editor', 'editorfilepicker', 'plain', 'monospaced', 'responsetemplate');
     }
 
     /**
@@ -67,6 +67,31 @@ class qtype_essay_test_helper extends question_test_helper {
     }
 
     /**
+     * Make the data what would be received from the editing form for an essay
+     * question using the HTML editor allowing embedded files as input, and up
+     * to three attachments.
+     *
+     * @return stdClass the data that would be returned by $form->get_gata();
+     */
+    public function get_essay_question_form_data_editor() {
+        $fromform = new stdClass();
+
+        $fromform->name = 'Essay question (HTML editor)';
+        $fromform->questiontext = array('text' => 'Please write a story about a frog.', 'format' => FORMAT_HTML);
+        $fromform->defaultmark = 1.0;
+        $fromform->generalfeedback = array('text' => 'I hope your story had a beginning, a middle and an end.', 'format' => FORMAT_HTML);
+        $fromform->responseformat = 'editor';
+        $fromform->responserequired = 1;
+        $fromform->responsefieldlines = 10;
+        $fromform->attachments = 0;
+        $fromform->attachmentsrequired = 0;
+        $fromform->graderinfo = array('text' => '', 'format' => FORMAT_HTML);
+        $fromform->responsetemplate = array('text' => '', 'format' => FORMAT_HTML);
+
+        return $fromform;
+    }
+
+    /**
      * Makes an essay question using the HTML editor allowing embedded files as
      * input, and up to three attachments.
      * @return qtype_essay_question
@@ -76,6 +101,29 @@ class qtype_essay_test_helper extends question_test_helper {
         $q->responseformat = 'editorfilepicker';
         $q->attachments = 3;
         return $q;
+    }
+
+    /**
+     * Make the data what would be received from the editing form for an essay
+     * question using the HTML editor allowing embedded files as input, and up
+     * to three attachments.
+     *
+     * @return stdClass the data that would be returned by $form->get_gata();
+     */
+    public function get_essay_question_form_data_editorfilepicker() {
+        $fromform = new stdClass();
+
+        $fromform->name = 'Essay question with filepicker and attachments';
+        $fromform->questiontext = array('text' => 'Please write a story about a frog.', 'format' => FORMAT_HTML);
+        $fromform->defaultmark = 1.0;
+        $fromform->generalfeedback = array('text' => 'I hope your story had a beginning, a middle and an end.', 'format' => FORMAT_HTML);
+        $fromform->responseformat = 'editorfilepicker';
+        $fromform->responsefieldlines = 10;
+        $fromform->attachments = 3;
+        $fromform->graderinfo = array('text' => '', 'format' => FORMAT_HTML);
+        $fromform->responsetemplate = array('text' => '', 'format' => FORMAT_HTML);
+
+        return $fromform;
     }
 
     /**
@@ -89,12 +137,42 @@ class qtype_essay_test_helper extends question_test_helper {
     }
 
     /**
+     * Make the data what would be received from the editing form for an essay
+     * question using the HTML editor allowing embedded files as input, and up
+     * to three attachments.
+     *
+     * @return stdClass the data that would be returned by $form->get_gata();
+     */
+    public function get_essay_question_form_data_plain() {
+        $fromform = new stdClass();
+
+        $fromform->name = 'Essay question with filepicker and attachments';
+        $fromform->questiontext = array('text' => 'Please write a story about a frog.', 'format' => FORMAT_HTML);
+        $fromform->defaultmark = 1.0;
+        $fromform->generalfeedback = array('text' => 'I hope your story had a beginning, a middle and an end.', 'format' => FORMAT_HTML);
+        $fromform->responseformat = 'plain';
+        $fromform->responsefieldlines = 10;
+        $fromform->attachments = 0;
+        $fromform->graderinfo = array('text' => '', 'format' => FORMAT_HTML);
+        $fromform->responsetemplate = array('text' => '', 'format' => FORMAT_HTML);
+
+        return $fromform;
+    }
+
+    /**
      * Makes an essay question using monospaced input.
      * @return qtype_essay_question
      */
     public function make_essay_question_monospaced() {
         $q = $this->initialise_essay_question();
         $q->responseformat = 'monospaced';
+        return $q;
+    }
+
+    public function make_essay_question_responsetemplate() {
+        $q = $this->initialise_essay_question();
+        $q->responsetemplate = 'Once upon a time';
+        $q->responsetemplateformat = FORMAT_HTML;
         return $q;
     }
 }

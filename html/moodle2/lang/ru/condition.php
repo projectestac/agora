@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -89,7 +89,7 @@ $string['requires_user_field_isequalto'] = 'Недоступно, если Ва�
 $string['requires_user_field_isnotempty'] = 'Недоступно, если Ваше поле <strong>{$a->field}</strong> пустое.';
 $string['requires_user_field_startswith'] = 'Недоступно, если Ваше поле <strong>{$a->field}</strong> не начинается с <strong>{$a->value}</strong>.';
 $string['showavailability'] = 'Пока элемент недоступен';
-$string['showavailability_hide'] = 'Полностью скрыть этот элемент';
+$string['showavailability_hide'] = 'Полностью скрыть этот элемент в курсе и журнале оценок.';
 $string['showavailabilitysection'] = 'Пока раздел недоступен';
 $string['showavailabilitysection_hide'] = 'Скрыть раздел полностью';
 $string['showavailabilitysection_show'] = 'Отображать раздел серым, с информацией об ограничении.';
@@ -97,5 +97,5 @@ $string['showavailability_show'] = 'Отображать элемент серы
 $string['startswith'] = 'начинается с';
 $string['userfield'] = 'Пользовательское поле';
 $string['userfield_help'] = 'Вы можете ограничить доступ на основе любого поля из профиля пользователя.';
-$string['userrestriction_hidden'] = 'Ограничено (полностью скрыто, без сообщения): "{$a}"';
-$string['userrestriction_visible'] = 'Ограничение: "{$a}"';
+$string['userrestriction_hidden'] = 'Ограничено (полностью скрыто, без сообщения): {$a}';
+$string['userrestriction_visible'] = 'Ограничение: {$a}';

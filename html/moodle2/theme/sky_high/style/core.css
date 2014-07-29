@@ -184,7 +184,10 @@ p.helplink a {
 
 /* @group Course */
 
-.headingblock {
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2 {
     border: 0px none;
     border-bottom: 1px solid #98bcd6;
     padding-bottom: 0px;
@@ -337,3 +340,12 @@ body.has_dock {
     padding:4px;
 }
 /* @end */
+
+.mform .btn-cancel {
+    color: #003466;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #4785ac;
+    text-decoration: none;
+}

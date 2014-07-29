@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tag_youtube', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_tag_youtube', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_tag_youtube
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,4 +44,5 @@ $string['petsanimals'] = '宠物和动物';
 $string['pluginname'] = 'Youtube';
 $string['scienceandtech'] = '科技';
 $string['sports'] = '体育';
+$string['tag_youtube:addinstance'] = '新增 Youtube 版块';
 $string['travel'] = '旅行和景点';

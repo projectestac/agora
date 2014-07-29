@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -93,7 +93,7 @@ $string['averagesdecimalpoints'] = 'Núm. de decimais na columna de medias';
 $string['averagesdecimalpoints_help'] = 'Este axuste determina o número de decimais que presentar na media de cada columna ou se se emprega o axuste global de decimais para a categoría ou elemento de cualificación (herdanza).';
 $string['averagesdisplaytype'] = 'Tipo de presentación de columnas de medias';
 $string['averagesdisplaytype_help'] = 'Este axuste determina se a media presentase como cualificacións reais, porcentaxes ou letras ou se emprega o tipo de presentación pola categoría ou elemento de cualificación (herdanza).';
-$string['backupwithoutgradebook'] = 'A copia de seguranza non conten a configuración do Libro de cualificacións';
+$string['backupwithoutgradebook'] = 'A copia de seguranza non contén a configuración do Libro de cualificacións';
 $string['badgrade'] = 'A cualificación subministrada non é correcta';
 $string['badlyformattedscale'] = 'Escriba unha lista de valores separados por comas (requírense polo menos dous valores).';
 $string['baduser'] = 'O usuario subministrado non é correcto';
@@ -197,6 +197,8 @@ $string['expand'] = 'Expandir a categoría';
 $string['export'] = 'Exportar';
 $string['exportalloutcomes'] = 'Exportar todos os resultados';
 $string['exportfeedback'] = 'Incluír comentarios na exportación';
+$string['exportonlyactive'] = 'Excluír os usuarios suspensos';
+$string['exportonlyactive_help'] = 'Incluír na exportación soamente os alumnos con matriculación activa e que non fosen suspendidos';
 $string['exportplugins'] = 'Engadidos de exportación';
 $string['exportsettings'] = 'Configuración da exportación';
 $string['exportto'] = 'Exportar a';
@@ -542,7 +544,9 @@ $string['selectalloroneuser'] = 'Seleccionar todos ou un usuario';
 $string['selectauser'] = 'Escolla un usuario';
 $string['selectdestination'] = 'Escoller o destino de {$a}';
 $string['separator'] = 'Separador';
+$string['sepcolon'] = 'Coma';
 $string['sepcomma'] = 'Coma';
+$string['sepsemicolon'] = 'Punto e coma';
 $string['septab'] = 'Tabulador';
 $string['setcategories'] = 'Estabelecer categorías';
 $string['setcategorieserror'] = 'Debe estabelecer as categorías do curso antes de poder asignarlle ponderacións.';
@@ -586,6 +590,8 @@ $string['shownohidden'] = 'Non amosar';
 $string['shownooutcomes'] = 'Agochar os resultados';
 $string['shownumberofgrades'] = 'Amosar o número de cualificacións nas medias';
 $string['shownumberofgrades_help'] = 'Se está activado, o número de cualificacións empregadas no cálculo da media presentase entre parénteses despois de cada media.';
+$string['showonlyactiveenrol'] = 'Amosar soamente as matriculacións activas';
+$string['showonlyactiveenrol_help'] = 'Esta configuración determina que estean visíbeis soamente os alumnos con matriculación activa no informe de cualificación. De estar activa, os alumnos con matriculación suspensa non se amosarán no libreo de cualificacións.';
 $string['showpercentage'] = 'Amosar porcentaxe';
 $string['showpercentage_help'] = 'Amosar a porcentaxe de cada elemento de cualificación?';
 $string['showquickfeedback'] = 'Amosar o comentario rápido';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['allowattachments'] = 'Permite anexos';
+$string['allowattachments'] = 'Permitir anexos';
 $string['formateditor'] = 'Editor HTML';
 $string['formateditorfilepicker'] = 'Editor HTML com explorador de ficheiros';
 $string['formatmonospaced'] = 'Texto simples, fonte monoespaçada';
@@ -40,3 +40,5 @@ $string['pluginname_link'] = 'pergunta/tipo/desenvolvimento';
 $string['pluginnamesummary'] = 'Permite uma resposta composta por várias frases ou parágrafos. Este tipo de perguntas tem de ser avaliado manualmente.';
 $string['responsefieldlines'] = 'Tamanho da caixa de resposta';
 $string['responseformat'] = 'Formato da resposta';
+$string['responsetemplate'] = 'Modelo de resposta';
+$string['responsetemplate_help'] = 'Qualquer texto inserido aqui será exibido na caixa de resposta quando inicia uma nova tentativa de resposta à pergunta.';

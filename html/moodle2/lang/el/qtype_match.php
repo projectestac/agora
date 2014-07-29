@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_match', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_match', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_match
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmoreqblanks'] = '{no} ακόμα σετ κενών πεδίων';
 $string['availablechoices'] = 'Διαθέσιμες επιλογές';
+$string['blanksforxmorequestions'] = '{no} ακόμα σετ κενών πεδίων';
 $string['filloutthreeqsandtwoas'] = 'Πρέπει να δώσετε τουλάχιστον δύο ερωτήσεις και τρεις απαντήσεις. Μπορείτε να δώσετε επιπλέον λάθος απαντήσεις δίνοντας μια απάντηση με κενή ερώτηση. Οι καταχωρήσεις στις οποίες και η ερώτηση και η απάντηση είναι κενές θα παραλείπονται.';
 $string['nomatchinganswerforq'] = 'Πρέπει να ορίσετε μια απάντηση για αυτή την ερώτηση.';
 $string['notenoughqsandas'] = 'Πρέπει να δώσετε τουλάχιστον {$a->q} ερωτήσεις και {$a->a} απαντήσεις.';

@@ -43,8 +43,8 @@ class mod_qv_mod_form extends moodleform_mod {
      */
     public function definition() {
         global $CFG;
-        
-        $mform = $this->_form;
+
+        $mform =& $this->_form;
 
          //---GENERAL--------------------------------------------------------------------------
         // Adding the "general" fieldset, where all the common settings are showed
@@ -55,17 +55,17 @@ class mod_qv_mod_form extends moodleform_mod {
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
         } else {
-            $mform->setType('name', PARAM_CLEAN);
+            $mform->setType('name', PARAM_CLEANHTML);
         }
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        
+
         // Adding the standard "intro" and "introformat" fields
         $this->add_intro_editor();
 
         // -------------------------------------------------------------------------------
         $mform->addElement('header', 'timing', get_string('timing', 'qv'));
-        
+
         $mform->addElement('date_time_selector', 'timeavailable', get_string('availabledate', 'qv'), array('optional'=>true));
         $mform->addElement('date_time_selector', 'timedue', get_string('duedate', 'qv'), array('optional'=>true));
 
@@ -79,17 +79,21 @@ class mod_qv_mod_form extends moodleform_mod {
         $mform->setType('qvurl', PARAM_RAW);
         $mform->addHelpButton('qvurl', 'qvurl', 'qv');
         $mform->disabledIf('qvurl', 'filetype', 'eq', QV_FILE_TYPE_LOCAL);
-        
-        $mform->addElement('filemanager', 'qvfile', get_string('qvfile', 'qv'), array('optional'=>false), qv_get_filemanager_options());   
+
+        $mform->addElement('filemanager', 'qvfile', get_string('qvfile', 'qv'), array('optional'=>false), qv_get_filemanager_options());
         $mform->addHelpButton('qvfile', 'qvfile', 'qv');
         $mform->disabledIf('qvfile', 'filetype', 'noteq', QV_FILE_TYPE_LOCAL);
-        
+
         $options = get_string_manager()->get_list_of_translations();
         $mform->addElement('select', 'assessmentlang', get_string('assessmentlang', 'qv'), $options);
         $mform->setDefault('assessmentlang', substr($CFG->lang, 0, -5));
 
         $options = qv_get_skins();
-        $mform->addElement('select', 'assessmentskin', get_string('assessmentskin', 'qv'), $options);
+        $options_parsed = array();
+        foreach($options as $option){
+            $options_parsed[$option] = $option;
+        }
+        $mform->addElement('select', 'skin', get_string('assessmentskin', 'qv'), $options_parsed);
 
         //---GRADING-------------------------------------------------------------------------------
         $this->standard_grading_coursemodule_elements();
@@ -103,51 +107,53 @@ class mod_qv_mod_form extends moodleform_mod {
 
         $mform->addElement('selectyesno', 'showcorrection', get_string('showcorrection', 'qv'));
         $mform->setDefault('showcorrection', '1');
-        
+
         $mform->addElement('selectyesno', 'showinteraction', get_string('showinteraction', 'qv'));
         $mform->setDefault('showinteraction', '1');
-        
+
         $mform->addElement('selectyesno', 'ordersections', get_string('ordersections', 'qv'));
         $mform->addHelpButton('ordersections', 'ordersections', 'qv');
         $mform->setDefault('ordersections', '1');
-        
+
         $mform->addElement('selectyesno', 'orderitems', get_string('orderitems', 'qv'));
         $mform->addHelpButton('orderitems', 'orderitems', 'qv');
         $mform->setDefault('orderitems', '1');
-        
+
          //---OPTIONS---------------------------------------------------------------------------
         $mform->addElement('header', 'optionsheader', get_string('optionsheader', 'qv'));
-        
+
         $options = array('self' => get_string('displayembed','qv'), 'blank' => get_string('displayinpopup','qv'));
-        
+
         $mform->addElement('select', 'target', get_string('displayselect', 'qv'), $options);
         $mform->addHelpButton('target', 'displayselect', 'qv');
         $mform->setDefault('target', 'blank');
-        
+
         $mform->addElement('text', 'width', get_string('width', 'qv'), array('size'=>'5'));
         $mform->setDefault('width', '100%');
-        
+        $mform->setType('width', PARAM_TEXT);
+
         $mform->addElement('text', 'height', get_string('height', 'qv'), array('size'=>'5'));
         $mform->setDefault('height', '400');
-        
+        $mform->setType('height', PARAM_TEXT);
+
         // add standard elements, common to all modules
         $this->standard_coursemodule_elements();
         //-------------------------------------------------------------------------------
         // add standard buttons, common to all modules
         $this->add_action_buttons();
     }
-    
+
     function data_preprocessing(&$default_values) {
         if ($this->current->instance) {
             $draftitemid = file_get_submitted_draft_itemid('qvfile');
             file_prepare_draft_area($draftitemid, $this->context->id, 'mod_qv', 'package', 0, qv_get_filemanager_options());
             $default_values['qvfile'] = $draftitemid;
-        } 
+        }
     }
-    
+
     public function validation($data, $files) {
-        global $USER; 
-        
+        global $USER;
+
         $errors = parent::validation($data, $files);
 
         // Check open and close times are consistent.
@@ -155,7 +161,7 @@ class mod_qv_mod_form extends moodleform_mod {
             $data['timedue'] < $data['timeavailable']) {
             $errors['timedue'] = get_string('closebeforeopen', 'qv');
         }
-        
+
         $type = $data['filetype'];
 		if ($type === QV_FILE_TYPE_LOCAL) {
 			$usercontext = context_user::instance($USER->id);
@@ -171,8 +177,8 @@ class mod_qv_mod_form extends moodleform_mod {
 		}
 
 		return $errors;
-   }    
-    
+   }
+
     // Need to translate the "url" field
     function set_data($default_values) {
         $default_values = (array)$default_values;
@@ -183,18 +189,18 @@ class mod_qv_mod_form extends moodleform_mod {
                 $default_values['qvurl'] = $default_values['reference'];
             } else{
                 $default_values['filetype'] = QV_FILE_TYPE_LOCAL;
-                $default_values['qvfile'] = $default_values['reference'];            
+                $default_values['qvfile'] = $default_values['reference'];
             }
         }
         unset($default_values['reference']);
-        
+
         $this->data_preprocessing($default_values);
         parent::set_data($default_values);
     }
-    
+
     function completion_rule_enabled($data) {
         return !empty($data['completionsubmit']);
     }
-    
-    
+
+
 }

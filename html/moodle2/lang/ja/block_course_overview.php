@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['activityoverview'] = 'あなたには注意が必要な {$a} があります。';
 $string['alwaysshowall'] = '常にすべてを表示する';
 $string['collapseall'] = 'すべてのコース一覧を折りたたむ';
-$string['configotherexpanded'] = 'この設定を有効にした場合、ユーザがプリファレンスでオーバーライドしない限り、他のコースはデフォルトで広げられます。';
+$string['configotherexpanded'] = 'この設定を有効にした場合、ユーザがプリファレンスでオーバーライドしない限り、他のコースはデフォルトで展開されます。';
 $string['configpreservestates'] = 'この設定を有効にした場合、ユーザによって設定された「折りたたむ/展開する」設定が保存され、それぞれの読み込みに使用されます。';
 $string['course_overview:addinstance'] = '新しいコース概要ブロックを追加する';
 $string['course_overview:myaddinstance'] = '新しいコース概要ブロックをマイホームに追加する';
@@ -39,9 +39,15 @@ $string['forcedefaultmaxcourses'] = '最大コース数を強制する';
 $string['forcedefaultmaxcoursesdesc'] = 'この設定を有効にした場合、ユーザは個人設定を変更することはできません。';
 $string['hiddencoursecount'] = 'あなたには {$a} 件の非表示コースがあります。';
 $string['hiddencoursecountplural'] = 'あなたには {$a} 件の非表示コースがあります。';
+$string['hiddencoursecountwithshowall'] = 'あなたには {$a->coursecount} 件の非表示コースがあります ({$a->showalllink})。';
+$string['hiddencoursecountwithshowallplural'] = 'あなたには {$a->coursecount} 件の非表示コースがあります ({$a->showalllink})。';
 $string['message'] = 'メッセージ';
 $string['messages'] = 'メッセージ';
+$string['moveafterhere'] = '{$a->movingcoursename} コースを {$a->currentcoursename} の下に移動する';
+$string['movecourse'] = 'コースを移動する: {$a}';
 $string['movecoursehere'] = 'ここにコースを移動する';
+$string['movetofirst'] = '{$a} コースをトップに移動する';
+$string['movingcourse'] = 'あなたは次を移動しています: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = '表示するコース数:';
 $string['otherexpanded'] = '他のコースを展開する';
 $string['pluginname'] = 'コース概要';

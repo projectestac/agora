@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_boxnet', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_boxnet', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_boxnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'API 키';
 $string['boxnet:view'] = 'Box.net 저장소 보기';
-$string['callbackurl'] = '콜백 URL';
 $string['configplugin'] = 'Box.net 설정';
 $string['information'] = '무들 사이트에서 사용하기 위해 <a href="http://www.box.net/developers/services">Box.net 개발자 페이지</a>로 부터 API 키를 얻으십시오. ';
 $string['invalidpassword'] = '잘못된 비밀번호';

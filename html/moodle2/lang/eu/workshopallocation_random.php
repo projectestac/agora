@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshopallocation_random', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshopallocation_random', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   workshopallocation_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,13 +27,21 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addselfassessment'] = 'Gehitu auto-ebaluazioak';
 $string['allocationaddeddetail'] = 'Ebaluazio berria egin behar da: <strong>{$a->reviewername}</strong> <strong>{$a->authorname}</strong> (r)en ebaluatzailea da';
+$string['allocationdeallocategraded'] = 'Ezin da jada ebaluatuta dagoen bidalketaren esleipena kendu: ebaluatzailea <strong>{$a->reviewername}</strong>, bidalketaren egilea: <strong>{$a->authorname}</strong>';
+$string['allocationreuseddetail'] = 'Berrerabilitako ebaluazioa: <strong>{$a->reviewername}</strong> mantentzen da <strong>{$a->authorname}</strong>-(e)n ebaluatzaile gisa';
 $string['allocationsettings'] = 'Esleipenaren ezarpenak';
+$string['assessmentdeleteddetail'] = 'Ebaluazioaren esleipena kendu da: <strong>{$a->reviewername}</strong> jada ez da <strong>{$a->authorname}</strong>-(e)n ebaluatzailea';
 $string['assesswosubmission'] = 'Partaideek ezer bidali gabe ere ebalua dezakete';
 $string['confignumofreviews'] = 'Berezko bidalketa-kopurua ausaz esleitzeko';
 $string['excludesamegroup'] = 'Debekatu talde bereko kideen arteko ebaluazioak';
 $string['noallocationtoadd'] = 'Ez dago gehitzeko esleipenik';
+$string['nogroupusers'] = '<p>Oharra: Tailerra \'Taldeek elkar ikusten dute\' moduan edo \'Taldeek ezin elkar ikusi\' moduan badago erabiltzaileak gutxienez talde bateko kide izan BEHAR dira erreminta honen bidez berdinen ebaluazioa egin ahal izateko. Halere talderik gabeko erabiltzaileei auto-ebaluazioa esleitu dakieke eta dauzkaten ebaluazioak ezabatu daitezke.</p>
+
+<p>Hurrengo erabiltzaileek une honetan ez daude inongo taldetan: {$a}</p>';
+$string['numofdeallocatedassessment'] = '{$a} esleipen kentzen';
 $string['numofrandomlyallocatedsubmissions'] = 'Ausaz {$a} bidalketa esleitu dira';
 $string['numofreviews'] = 'Berrikusketa-kopurua';
+$string['numofselfallocatedsubmissions'] = '{$a} bidalketa automatikoki esleitzen';
 $string['numperauthor'] = 'bidalketako';
 $string['numperreviewer'] = 'ebaluatzaileko';
 $string['pluginname'] = 'Ausazko esleipena';
@@ -42,4 +50,6 @@ $string['removecurrentallocations'] = 'Ezabatu oraingo esleipena';
 $string['resultnomorepeers'] = 'Ez dago kide gehiago libre';
 $string['resultnomorepeersingroup'] = 'Ez dago kide gehiago libre banatutako talde honetan';
 $string['resultnotenoughpeers'] = 'Ez dago nahiko kide libre';
+$string['resultnumperauthor'] = 'Egile bakoitzari {$a} ebaluatzaile esleitzea saiatzen';
+$string['resultnumperreviewer'] = 'Ebaluatzaile bakoitzari {$a} ebaluazio esleitzea saiatzen';
 $string['stats'] = 'Oraingo esleipenaren estatistikak';

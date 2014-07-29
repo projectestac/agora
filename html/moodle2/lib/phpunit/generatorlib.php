@@ -15,17 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * PHPUnit data generator support
+ * Adds data generator support
  *
+ * Deprecated file in favour of lib/testing/generator/lib.php, keeping
+ * file for backwards reference just in case 3rd party applications are
+ * using them.
+ *
+ * @deprecated
+ * @todo       MDL-37517 This will be deleted in Moodle 2.7
+ * @see        lib/testing/generator/lib.php
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// NOTE: MOODLE_INTERNAL is not verified here because we load this before setup.php!
 
-require_once(__DIR__.'/classes/data_generator.php');
-require_once(__DIR__.'/classes/module_generator.php');
-require_once(__DIR__.'/classes/block_generator.php');
+debugging('File lib/phpunit/generatorlib.php is deprecated, please use lib/testing/generator/lib.php instead', DEBUG_DEVELOPER);
 
+require_once(__DIR__ . '/../testing/generator/lib.php');

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Control d\'accés';
 $string['aggregategrades'] = 'Torna a calcular les qualificacions';
 $string['aggregation'] = 'Agregació de les qualificacions';
 $string['allocate'] = 'Assigneu les trameses';
@@ -126,8 +125,10 @@ $string['examplesmode'] = 'Mode d\'avaluació dels exemples';
 $string['examplesubmissions'] = 'Trameses d\'exemple';
 $string['examplesvoluntary'] = 'L\'avaluació de la tramesa d\'exemple és voluntària';
 $string['feedbackauthor'] = 'Retroacció per a l\'autor';
+$string['feedbackauthorattachment'] = 'Adjunció';
 $string['feedbackby'] = 'Retroacció de {$a}';
 $string['feedbackreviewer'] = 'Retroacció per al revisor';
+$string['feedbacksettings'] = 'Retroacció';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -161,7 +162,6 @@ $string['latesubmissionsallowed'] = 'Es permeten les trameses fora de termini';
 $string['latesubmissions_desc'] = 'Permet les trameses fora de termini';
 $string['latesubmissions_help'] = 'Si s\'habilita, un autor podrà enviar la seva feina després del termini establert, o durant la fase d\'avaluació. Tanmateix, les trameses fora de termini no poden editar-se.';
 $string['maxbytes'] = 'Mida màxima de fitxer';
-$string['miscellaneoussettings'] = 'Paràmetres diversos';
 $string['modulename'] = 'Taller';
 $string['modulename_help'] = 'El mòdul d\'activitat del taller permet la recollida, anàlisi i col·laboració dels dels estudiants.
 Els estudiants poden presentar qualsevol contingut digital (fitxers), com documents o fulls de càlcul en Word o LibreOffice , i també es pot escriure text directament en un camp utilitzant l\'editor de text.
@@ -183,6 +183,14 @@ $string['notoverridden'] = 'No rectificada';
 $string['noworkshops'] = 'Aquest curs no té tallers';
 $string['noyoursubmission'] = 'Encara no heu enviat la vostra feina';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Retroalimentació global';
+$string['overallfeedbackfiles'] = 'Nombre màxim d\'adjunts en la retroalimentació global';
+$string['overallfeedbackmaxbytes'] = 'Mida màxima de fitxer';
+$string['overallfeedbackmode'] = 'Mode de retroalimentació global';
+$string['overallfeedbackmode_0'] = 'Deshabilitat';
+$string['overallfeedbackmode_1'] = 'Habilitat i opcional';
+$string['overallfeedbackmode_2'] = 'Habilitat i necessari';
+$string['overallfeedbackmode_help'] = 'Si s\'habilita es mostrarà un un missatge de text a la part inferior del formulari d\'avaluació. Els professors poden posar l\'avaluació general de la tramesa allí, o proporcionar una explicació addicional de la seva avaluació.';
 $string['page-mod-workshop-x'] = 'Qualsevol pàgina del mòdul de tallers';
 $string['participant'] = 'Participant';
 $string['participantrevierof'] = 'El participant és el revisor de';
@@ -207,6 +215,7 @@ $string['recentsubmissions'] = 'Trameses del taller:';
 $string['saveandclose'] = 'Desa i tanca';
 $string['saveandcontinue'] = 'Desa i continua editant';
 $string['saveandpreview'] = 'Desa i previsualitza';
+$string['saveandshownext'] = 'Desa i mostra el següent';
 $string['selfassessmentdisabled'] = 'L\'autoavaluació està deshabilitada';
 $string['showingperpage'] = 'S\'estan mostrant {$a} elements per pàgina';
 $string['showingperpagechange'] = 'Canvia a...';
@@ -282,7 +291,6 @@ $string['withoutsubmission'] = 'Revisor sense tramesa pròpia';
 $string['workshop:addinstance'] = 'Afegeix un taller nou';
 $string['workshop:allocate'] = 'Assigna les trameses per revisar';
 $string['workshop:editdimensions'] = 'Edita els formularis d\'avaluació';
-$string['workshopfeatures'] = 'Característiques del taller';
 $string['workshop:ignoredeadlines'] = 'Ignora les restriccions temporals';
 $string['workshop:manageexamples'] = 'Gestiona les trameses d\'exemple';
 $string['workshopname'] = 'Nom del taller';

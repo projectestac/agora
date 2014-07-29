@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,10 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['configdisplayoptions'] = 'Scegli le opzioni di visualizzazione che desideri rendere disponibili. Le impostazioni già in essere non saranno modificate. Per selezionare più opzioni tenere premuto il tasto CTRL.';
 $string['content'] = 'Contenuto della pagina';
 $string['contentheader'] = 'Contenuto';
-$string['createpage'] = 'Crea una pagina';
+$string['createpage'] = 'Crea una risorsa pagina';
 $string['displayoptions'] = 'Opzioni di visualizzazione disponibili';
 $string['displayselect'] = 'Visualizzazione';
 $string['displayselectexplain'] = 'Tipo di visualizzazione';
+$string['eventcoursemoduleviewed'] = 'Visualizzata risorsa pagina';
+$string['eventinstanceslistviewed'] = 'Visualizzato elenco istanze pagina';
 $string['legacyfiles'] = 'Migrazione dei file di corsi precedenti';
 $string['legacyfilesactive'] = 'Attivo';
 $string['legacyfilesdone'] = 'Completato';
@@ -48,7 +50,7 @@ E\' possibile usare il modulo pagina per
 * inserire video e suoni accompagnati da testo esplicativo';
 $string['modulenameplural'] = 'Pagine';
 $string['neverseen'] = 'Mai visualizzata';
-$string['optionsheader'] = 'Opzioni';
+$string['optionsheader'] = 'Opzioni di visualizzazione';
 $string['page:addinstance'] = 'Aggiungere pagine';
 $string['page-mod-page-x'] = 'Qualsiasi pagina con moduli';
 $string['page:view'] = 'Visualizzare contenuto pagina';
@@ -58,7 +60,5 @@ $string['popupheight'] = 'Altezza popup (in pixel)';
 $string['popupheightexplain'] = 'Altezza di default per le finestre popup.';
 $string['popupwidth'] = 'Larghezza popup (in pixel)';
 $string['popupwidthexplain'] = 'Larghezza di default per le finestre popup.';
-$string['printheading'] = 'Visualizza il nome della pagina';
-$string['printheadingexplain'] = 'Consente di visualizzare il nome della pagina prima del contenuto.';
 $string['printintro'] = 'Visualizza la descrizione della pagina';
 $string['printintroexplain'] = 'Consente di visualizzare la descrizione della pagina prima del contenuto.';

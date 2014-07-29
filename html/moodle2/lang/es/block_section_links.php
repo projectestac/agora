@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Incrementar en';
+$string['incby1_help'] = 'Este es el valor con el que la sección se incrementa cada vez que se muestra un enlace a la sección comenzando en 1.';
 $string['incby2'] = 'Incremento alternativo en';
-$string['incbydesc1'] = 'Este es el valor con el que la sección se incrementa cada vez que se muestra un enlace a la sección comenzando en 1.';
-$string['incbydesc2'] = 'Este es el valor con el que la sección se incrementa cada vez que se muestra un enlace a la sección comenzando en 1.';
+$string['incby2_help'] = 'Este es el valor con el que la sección se incrementa cada vez que se muestra un enlace a la sección comenzando en 1.';
 $string['jumptocurrenttopic'] = 'Ir al tema actual';
 $string['jumptocurrentweek'] = 'Ir a la semana actual';
 $string['numsections1'] = 'Número de secciones';
+$string['numsections1_help'] = 'Una vez que el número de secciones en el curso alcanza este número, se utilizará el incremento por valor.';
 $string['numsections2'] = 'Número alternativo de secciones';
-$string['numsectionsdesc1'] = 'Una vez que el número de secciones en el curso alcanza este número, se utilizará el incremento por valor.';
-$string['numsectionsdesc2'] = 'Una vez que el número de secciones en el curso alcanza este número, se utilizará el incremento por valor.';
+$string['numsections2_help'] = 'Una vez que el número de secciones en el curso alcanza este número, se utilizará el incremento por valor.';
 $string['pluginname'] = 'Enlaces de sección';
 $string['section_links:addinstance'] = 'Añadir un nuevo bloque de enlaces de sección';
 $string['topics'] = 'Temas';

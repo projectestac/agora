@@ -100,12 +100,14 @@ function definition() {
 //2011.01.19 @mmartinez
         $mform->addElement('hidden','issubmit');
         $mform->setConstant('issubmit',1);
+        $mform->setType('issubmit',PARAM_BOOL);
+        
 //********** FI
         $mform->addElement('text', 'name', get_string('name','rcontent'),array('size' => 64));
         $mform->setType('name', PARAM_TEXT);
 //MARSUPIAL ************ MODIFICAT - Control when ajax is available or not
 //2011.01.19 @mmartinez
-         	$mform->addRule('name', null, 'required');
+        $mform->addRule('name', null, 'required');
 //*********** ORIGINAL
 //Level
 		$level_list_array=rcontent_level_list();
@@ -210,6 +212,7 @@ function definition() {
             if ($option == 'height' or $option == 'width') {
                 $mform->addElement('text', $option, get_string('new'.$option, 'rcontent'), array('size'=>'4'));
                 $mform->setDefault($option,$o );
+                $mform->setType($option,PARAM_INT);
             } else {
                 $mform->addElement('checkbox', $option, get_string('new'.$option, 'rcontent'));
                 $mform->setDefault($option, $o);

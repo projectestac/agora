@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Afegeix un connector de repositori';
 $string['allowexternallinks'] = 'Permet enllaços externs';
 $string['areacategoryintro'] = 'Introducció a la categoria';
 $string['areacourseintro'] = 'Introducció al curs';
+$string['areacourseoverviewfiles'] = 'Fitxers resum del curs';
 $string['areamainfile'] = 'Fitxer principal';
 $string['arearoot'] = 'Sistema';
 $string['areauserbackup'] = 'Còpia de seguretat de l\'usuari';
@@ -86,6 +87,9 @@ $string['deleterepository'] = 'Suprimeix aquest repositori';
 $string['detailview'] = 'Visualitza els detalls';
 $string['dimensions'] = 'Dimensions';
 $string['disabled'] = 'Deshabilitat';
+$string['displaydetails'] = 'Mostra la carpeta amb el detalls dels fitxers';
+$string['displayicons'] = 'Mostra la carpeta amb les icones del fitxers';
+$string['displaytree'] = 'Mostra la carpeta amb l\'arbre dels fitxers';
 $string['download'] = 'Descarrega';
 $string['downloadfolder'] = 'Descarrega-ho tot';
 $string['downloadsucc'] = 'El fitxer ha estat baixat amb èxit';
@@ -120,6 +124,7 @@ $string['folderexists'] = 'El nom de la carpeta ja s\'està utilitzant, utilitze
 $string['foldernotfound'] = 'No s\'ha trobat la carpeta';
 $string['folderrecurse'] = 'La carpeta no es pot moure a la seva pròpia subcarpeta';
 $string['getfile'] = 'Seleccioneu aquest fitxer';
+$string['help'] = 'Ajuda';
 $string['hidden'] = 'Ocult';
 $string['iconview'] = 'Mostra com a icones';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -189,6 +194,7 @@ $string['repositories'] = 'Repositoris';
 $string['repository'] = 'Repositori';
 $string['repositorycourse'] = 'Repositori del curs';
 $string['repositoryerror'] = 'El repositori remot ha retornat l\'error: {$a}';
+$string['repositoryicon'] = 'Icona del repositori';
 $string['save'] = 'Desa';
 $string['saveas'] = 'Anomena i desa';
 $string['saved'] = 'Desat';
@@ -199,6 +205,7 @@ $string['searchrepo'] = 'Cerca repositori';
 $string['sectionbackup'] = 'Còpies de seguretat de la secció';
 $string['select'] = 'Selecciona';
 $string['setmainfile'] = 'Configura el fitxer principal';
+$string['setmainfile_help'] = 'Si hi ha múltiples fitxers a la carpeta, el fitxer principal és el que apareix en la pàgina de visualització. Altres fitxers com ara imatges o vídeos poden aparèixer incrustats en la pàgina. En el gestor de fitxers, s\'indica quin és el fitxer principal amb el títol en negreta.';
 $string['settings'] = 'Configuració';
 $string['setupdefaultplugins'] = 'Configuració dels connectors de repositori per defecte';
 $string['siteinstances'] = 'Instàncies de repositori del lloc';

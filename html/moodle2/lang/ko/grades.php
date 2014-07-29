@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -191,8 +191,8 @@ $string['expand'] = '범주 확장';
 $string['export'] = '내보내기';
 $string['exportalloutcomes'] = '모든 학습성과 내보내기';
 $string['exportfeedback'] = '내보내기에 피드백을 포함';
-$string['exportonlyactive'] = '활성화된 등록이 필요합니다.';
-$string['exportonlyactive_help'] = '등록이 보류되지 않은 학생들만 내보내기에 포함';
+$string['exportonlyactive'] = '유보된 사용자 제외';
+$string['exportonlyactive_help'] = '내보내기 할때 등록이 활성화되어 있고 유보되지 않은 학생들만 포함';
 $string['exportplugins'] = '플러그인 내보내기';
 $string['exportsettings'] = '설정 내보내기';
 $string['exportto'] = '내보낼 곳';
@@ -538,7 +538,9 @@ $string['selectalloroneuser'] = '한 사람 혹은 모두 선택';
 $string['selectauser'] = '사용자 선택';
 $string['selectdestination'] = '{$a} 가 이동할 곳 선택';
 $string['separator'] = '구분선';
+$string['sepcolon'] = '콜론';
 $string['sepcomma'] = '콤마';
+$string['sepsemicolon'] = '세미 콜론';
 $string['septab'] = '탭';
 $string['setcategories'] = '범주 설정';
 $string['setcategorieserror'] = '가중치를 주기 전, 반드시 교육과정의 범주를 설정해야 합니다.';
@@ -581,6 +583,7 @@ $string['shownooutcomes'] = '학습성과 비공개';
 $string['shownumberofgrades'] = '평균에 포함된 성적의 수 보이기';
 $string['shownumberofgrades_help'] = '괄호로 각 성적의 옆에 집계될 성적의 수를 표시
 예: 45(34)';
+$string['showonlyactiveenrol'] = '활성화된 등록 만 보여주기';
 $string['showpercentage'] = '백분율 보이기';
 $string['showpercentage_help'] = '각 채점 항목의 백분율을 보여줄까요?';
 $string['showquickfeedback'] = '빠른 피드백 보이기';

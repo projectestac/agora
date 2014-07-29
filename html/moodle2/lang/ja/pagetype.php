@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'pagetype', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'pagetype', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   pagetype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['page-admin-current'] = '現在のサイト管理ページ';
 $string['page-admin-x'] = 'すべてのサイト管理ページ';
+$string['page-course-index'] = 'トップカテゴリ表示ページ';
+$string['page-course-index-category'] = '現在のカテゴリ表示ページ';
+$string['page-course-index-x'] = 'すべてのカテゴリ表示ページ';
 $string['page-course-report-x'] = 'すべてのコースレポート';
+$string['page-course-search'] = 'コース検索ページ';
 $string['page-course-view-x'] = 'すべてのタイプのコースメインページ';
 $string['page-course-x'] = 'すべてのコースページ';
 $string['page-mod-x'] = 'すべての活動モジュールページ';

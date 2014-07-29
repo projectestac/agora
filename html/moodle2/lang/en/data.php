@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Add comment';
 $string['addentries'] = 'Add entries';
 $string['addtemplate'] = 'Add template';
 $string['advancedsearch'] = 'Advanced search';
+$string['allowcomments'] = 'Allow comments on entries';
 $string['alttext'] = 'Alternative text';
 $string['approve'] = 'Approve';
 $string['approved'] = 'Approved';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'Comments feature is not enabled';
 $string['configenablerssfeeds'] = 'This switch will enable the possibility of RSS feeds for all databases. You will still need to turn feeds on manually in the settings for each database.';
 $string['confirmdeletefield'] = 'You are about to delete this field, are you sure?';
 $string['confirmdeleterecord'] = 'Are you sure you want to delete this entry?';
+$string['confirmdeleterecords'] = 'Are you sure you want to delete these entries?';
 $string['csstemplate'] = 'CSS template';
 $string['csvfailed'] = 'Unable to read the raw data from the CSV file';
 $string['csvfile'] = 'CSV file';
@@ -81,7 +83,7 @@ $string['csvimport'] = 'CSV file import';
 $string['csvimport_help'] = 'Entries may be imported via a plain text file with a list of field names as the first line, then the data, with one record per line.';
 $string['csvwithselecteddelimiter'] = '<acronym title="Comma Separated Values">CSV</acronym> text with selected delimiter:';
 $string['data:addinstance'] = 'Add a new database';
-$string['data:approve'] = 'Approve unapproved entries';
+$string['data:approve'] = 'Approve and undo approved entries';
 $string['data:comment'] = 'Write comments';
 $string['data:exportallentries'] = 'Export all database entries';
 $string['data:exportentry'] = 'Export a database entry';
@@ -104,6 +106,7 @@ $string['dateentered'] = 'Date entered';
 $string['defaultfielddelimiter'] = '(default is the comma character)';
 $string['defaultfieldenclosure'] = '(default is none)';
 $string['defaultsortfield'] = 'Default sort field';
+$string['delcheck'] = 'Bulk delete checkbox';
 $string['delete'] = 'Delete';
 $string['deleteallentries'] = 'Delete all entries';
 $string['deletecomment'] = 'Are you sure you want to delete this comment?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = 'Delete entries by users not enrolled';
 $string['deletewarning'] = 'Are you sure you want to delete this preset?';
 $string['descending'] = 'Descending';
 $string['directorynotapreset'] = '{$a->directory} Not a preset: missing files: {$a->missing_files}';
+$string['disapprove'] = 'Undo approval';
 $string['download'] = 'Download';
 $string['edit'] = 'Edit';
 $string['editcomment'] = 'Edit comment';
@@ -206,7 +210,7 @@ $string['longitude'] = 'Longitude';
 $string['mapexistingfield'] = 'Map to {$a}';
 $string['mapnewfield'] = 'Create a new field';
 $string['mappingwarning'] = 'All old fields not mapped to a new field will be lost and all data in that field will be removed.';
-$string['maxentries'] = 'Maximum entries';
+$string['maxentries'] = 'Maximum number of entries';
 $string['maxentries_help'] = 'The maximum number of entries a student is allowed to submit for this activity.';
 $string['maxsize'] = 'Maximum size';
 $string['menu'] = 'Menu';
@@ -264,7 +268,7 @@ $string['notapproved'] = 'Entry is not approved yet.';
 $string['notinjectivemap'] = 'Not an injective map';
 $string['notopenyet'] = 'Sorry, this activity is not available until {$a}';
 $string['number'] = 'Number';
-$string['numberrssarticles'] = 'RSS articles';
+$string['numberrssarticles'] = 'Entries in the RSS feed';
 $string['numnotapproved'] = 'Pending';
 $string['numrecords'] = '{$a} entries';
 $string['ods'] = '<acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -287,11 +291,12 @@ $string['presets'] = 'Presets';
 $string['radiobutton'] = 'Radio buttons';
 $string['recordapproved'] = 'Entry approved';
 $string['recorddeleted'] = 'Entry deleted';
+$string['recorddisapproved'] = 'Entry unapproved';
 $string['recordsnotsaved'] = 'No entry was saved. Please check the format of the uploaded file.';
 $string['recordssaved'] = 'entries saved';
-$string['requireapproval'] = 'Require approval?';
+$string['requireapproval'] = 'Approval required';
 $string['requireapproval_help'] = 'If enabled, entries require approving by a teacher before they are viewable by everyone.';
-$string['requiredentries'] = 'Required entries';
+$string['requiredentries'] = 'Entries required for completion';
 $string['requiredentries_help'] = 'The number of entries a student is required to submit before the activity can be considered complete.';
 $string['requiredentriestoview'] = 'Entries required before viewing';
 $string['requiredentriestoview_help'] = 'The number of entries a student is required to submit before they can view entries from other students.

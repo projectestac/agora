@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -128,6 +128,7 @@ $string['continuetonextpage'] = 'Continuar en la página siguiente';
 $string['correctanswerjump'] = 'Salto a respuesta correcta';
 $string['correctanswerscore'] = 'Puntuación de respuesta correcta';
 $string['correctresponse'] = 'Comentario (correcto)';
+$string['createaquestionpage'] = 'Crear una página de preguntas';
 $string['credit'] = 'Crédito';
 $string['customscoring'] = 'Puntuación personalizada';
 $string['customscoring_help'] = 'Si está habilitada, se puede dar a cada respuesta una puntuación numérica (positiva o negativa).';
@@ -317,7 +318,7 @@ $string['nameapproved'] = 'Nombre aprobado';
 $string['namereject'] = 'Lo sentimos, su nombre ha sido rechazado por el filtro.<br>Por favor, pruebe con otro nombre.';
 $string['new'] = 'nueva';
 $string['nextpage'] = 'Página siguiente';
-$string['noanswer'] = 'Hay una o más preguntas sin responder. Por favor, vuelva atrás y de una respuesta.';
+$string['noanswer'] = 'No se ha dado respuesta';
 $string['noattemptrecordsfound'] = 'No se encontraron registros de intentos. Sin calificación';
 $string['nobranchtablefound'] = 'No se ha encontrado página de contenido';
 $string['nocommentyet'] = 'Aún no comentado.';
@@ -378,6 +379,7 @@ $string['postsuccess'] = 'Mensaje exitoso';
 $string['practice'] = 'Lección de práctica';
 $string['practice_help'] = '<p>Las lecciones de práctica no se mostrarán en el libro de calificaciones.</p>';
 $string['preprocesserror'] = 'Ha ocurrido un error durante el pre-procesamiento';
+$string['prerequisitelesson'] = 'Lección previa requerida';
 $string['preview'] = 'Previsualizar';
 $string['previewlesson'] = 'Previsualizar {$a}';
 $string['previouspage'] = 'Página anterior';

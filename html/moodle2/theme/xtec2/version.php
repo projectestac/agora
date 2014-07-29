@@ -15,17 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme version info
+ * Moodle's Clean theme, an example of how to make a Bootstrap theme
  *
- * @package    theme
- * @subpackage xtec2
- * @copyright  2012 Agora Development Team
+ * DO NOT MODIFY THIS THEME!
+ * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
+ *
+ * For full information about creating Moodle themes, see:
+ * http://docs.moodle.org/dev/Themes_2.0
+ *
+ * @package    theme_xtec2
+ * @copyright  2013 Moodle, moodle.org
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2013042400; // The current module version (Date: YYYYMMDDXX)
-$plugin->requires  = 2012120303; // Requires this Moodle version
-$plugin->component = 'theme_xtec2'; // Full name of the plugin (used for diagnostics)
-
+$plugin->version   = 2013110500;
+$plugin->requires  = 2013110500;
+$plugin->component = 'theme_xtec2';
+$plugin->dependencies = array(
+    'theme_bootstrapbase'  => 2013110500,
+);

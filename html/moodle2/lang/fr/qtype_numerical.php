@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = 'Erreur acceptée';
 $string['addmoreanswerblanks'] = '{no} emplacements supplémentaires vides';
 $string['addmoreunitblanks'] = '{no} emplacements pour plus d\'unités';
 $string['answercolon'] = 'Réponse :';
+$string['answererror'] = 'Erreur';
 $string['answermustbenumberorstar'] = 'La réponse doit être un nombre ou un astérisque (*).';
 $string['answerno'] = 'Réponse {$a}';
 $string['decfractionofquestiongrade'] = 'comme une fraction (entre 0 et 1) de la note de la question';
@@ -81,7 +82,6 @@ $string['unitchoice'] = 'une sélection de choix multiples';
 $string['unitedit'] = 'Modifier l\'unité';
 $string['unitgraded'] = 'L\'unité doit être indiquée, et sera prise en compte dans la note.';
 $string['unithandling'] = 'Traitement de l\'unité';
-$string['unithdr'] = 'Unité {$a}';
 $string['unitincorrect'] = 'Vous n\'avez pas donné l\'unité correcte.';
 $string['unitmandatory'] = 'Obligatoire';
 $string['unitmandatory_help'] = '* La réponse sera évaluée en utilisant l\'unité écrite.
@@ -99,7 +99,9 @@ $string['unitpenalty_help'] = 'La pénalité est appliquée si :
 * un mauvais nom d\'unité est indiqué dans la zone d\'unité, ou
 * l\'unité est écrite dans la zone de valeur';
 $string['unitposition'] = 'Position de l\'unité';
+$string['units'] = 'Unités';
 $string['unitselect'] = 'un menu déroulant';
+$string['unitx'] = 'Unité {no}';
 $string['validnumberformats'] = 'Formats de nombre valides';
 $string['validnumberformats_help'] = '* nombres réguliers 13500.67, 13 500.67, 13500,67 ou 13 500,67
 
@@ -107,3 +109,6 @@ $string['validnumberformats_help'] = '* nombres réguliers 13500.67, 13 500.67,
 
 * pour l\'exposant, par exemple pour écrire 1.350067 * 10<sup>4</sup>, il faut utiliser  1.350067 E4 ou 1.350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 ou 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} doit être un nombre.';
+$string['xmustnotbenumeric'] = '{$a} ne peut pas être un nombre.';
+$string['youmustenteramultiplierhere'] = 'Vous devez saisir un coefficient dans ce champ.';

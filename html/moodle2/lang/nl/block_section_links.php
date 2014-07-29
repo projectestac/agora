@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Verhoog met';
+$string['incby1_help'] = 'Met deze waarde neemt de sectie toe telkens er een sectielink getoond wordt, te beginnen met 1.';
 $string['incby2'] = 'Alternatief verhoog met';
-$string['incbydesc1'] = 'Dit is de waarde waarmee de sectie verhoogd wordt, telkens een sectielink getoond wordt die begint bij 1';
-$string['incbydesc2'] = 'Dit is de waarde waarmee de sectie verhoogd wordt, telkens een sectielink getoond wordt die begint bij 1';
+$string['incby2_help'] = 'Met deze waarde neemt de sectie toe telkens er een sectielink getoond wordt, te beginnen met 1.';
 $string['jumptocurrenttopic'] = 'Ga naar het huidige onderwerp';
 $string['jumptocurrentweek'] = 'Ga naar deze week';
 $string['numsections1'] = 'Aantal secties';
+$string['numsections1_help'] = 'Als het aantal secties in de cursus dit aantal bereikt, dan wordt de toenemen met-waarde gebruikt.';
 $string['numsections2'] = 'Alternatief aantal secties';
-$string['numsectionsdesc1'] = 'Als het aantal secties in de cursus dit nummer bereikt, wordt de "Verhoog met" waarde gebruikt.';
-$string['numsectionsdesc2'] = 'Als het aantal secties in de cursus dit nummer bereikt, wordt de "Alternatief verhoog met" waarde gebruikt.';
+$string['numsections2_help'] = 'Als het aantal secties in de cursus dit aantal bereikt, dan wordt de toenemen met-waarde gebruikt.';
 $string['pluginname'] = 'Sectie hyperlinks';
 $string['section_links:addinstance'] = 'Voeg een nieuw sectielinksblok toe';
 $string['topics'] = 'Onderwerpen';

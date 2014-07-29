@@ -33,12 +33,12 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configtext('qv_distpluginscripts', get_string('qv_distpluginscripts', 'qv'),
                        get_string('qv_distpluginscripts_help', 'qv'), QV_DEFAULT_DISTSCRIPTS, PARAM_URL, 60));
-    
+
     $settings->add(new admin_setting_configtext('qv_distplugincss', get_string('qv_distplugincss', 'qv'),
                        get_string('qv_distplugincss_help', 'qv'), QV_DEFAULT_DISTCSS, PARAM_URL, 60));
-    
+
     $settings->add(new admin_setting_configtext('qv_skins', get_string('qv_skins', 'qv'),
                        get_string('qv_skins_help', 'qv'), QV_DEFAULT_SKINS, PARAM_TEXT));
-    
+
 }
 

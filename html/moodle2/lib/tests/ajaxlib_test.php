@@ -26,6 +26,22 @@
 defined('MOODLE_INTERNAL') || die();
 
 class core_ajaxlib_testcase extends advanced_testcase {
+    /** @var string Original error log */
+    protected $oldlog;
+
+    protected function setUp() {
+        global $CFG;
+
+        parent::setUp();
+        // Discard error logs.
+        $this->oldlog = ini_get('error_log');
+        ini_set('error_log', "$CFG->dataroot/testlog.log");
+    }
+
+    protected function tearDown() {
+        ini_set('error_log', $this->oldlog);
+        parent::tearDown();
+    }
 
     protected function helper_test_clean_output() {
         $this->resetAfterTest();
@@ -63,58 +79,50 @@ class core_ajaxlib_testcase extends advanced_testcase {
     }
 
     public function test_output_capture_normal_debug_none() {
-        global $CFG;
         // In normal conditions, and with DEBUG_NONE set, we should not receive any output or throw any exceptions.
-        $CFG->debug = DEBUG_NONE;
+        set_debugging(DEBUG_NONE);
         $this->helper_test_clean_output();
     }
 
     public function test_output_capture_normal_debug_normal() {
-        global $CFG;
         // In normal conditions, and with DEBUG_NORMAL set, we should not receive any output or throw any exceptions.
-        $CFG->debug = DEBUG_NORMAL;
+        set_debugging(DEBUG_NORMAL);
         $this->helper_test_clean_output();
     }
 
     public function test_output_capture_normal_debug_all() {
-        global $CFG;
         // In normal conditions, and with DEBUG_ALL set, we should not receive any output or throw any exceptions.
-        $CFG->debug = DEBUG_ALL;
+        set_debugging(DEBUG_ALL);
         $this->helper_test_clean_output();
     }
 
     public function test_output_capture_normal_debugdeveloper() {
-        global $CFG;
         // In normal conditions, and with DEBUG_DEVELOPER set, we should not receive any output or throw any exceptions.
-        $CFG->debug = DEBUG_DEVELOPER;
+        set_debugging(DEBUG_DEVELOPER);
         $this->helper_test_clean_output();
     }
 
     public function test_output_capture_error_debug_none() {
-        global $CFG;
         // With DEBUG_NONE set, we should not throw any exception, but the output will be returned.
-        $CFG->debug = DEBUG_NONE;
+        set_debugging(DEBUG_NONE);
         $this->helper_test_dirty_output();
     }
 
     public function test_output_capture_error_debug_normal() {
-        global $CFG;
         // With DEBUG_NORMAL set, we should not throw any exception, but the output will be returned.
-        $CFG->debug = DEBUG_NORMAL;
+        set_debugging(DEBUG_NORMAL);
         $this->helper_test_dirty_output();
     }
 
     public function test_output_capture_error_debug_all() {
-        global $CFG;
         // In error conditions, and with DEBUG_ALL set, we should not receive any output or throw any exceptions.
-        $CFG->debug = DEBUG_ALL;
+        set_debugging(DEBUG_ALL);
         $this->helper_test_dirty_output();
     }
 
     public function test_output_capture_error_debugdeveloper() {
-        global $CFG;
         // With DEBUG_DEVELOPER set, we should throw an exception.
-        $CFG->debug = DEBUG_DEVELOPER;
+        set_debugging(DEBUG_DEVELOPER);
         $this->helper_test_dirty_output(true);
     }
 

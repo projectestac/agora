@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['activemethodinfonone'] = 'Es wurde für den \'{$a->area}\'-Bereich kein
 $string['changeactivemethod'] = 'Aktive Bewertungsmethode wechseln nach';
 $string['clicktoclose'] = 'anklicken zum Schließen';
 $string['exc_gradingformelement'] = 'Bewertungsformular konnte nicht angelegt werden';
-$string['formnotavailable'] = 'Erweiterte Bewertungsmethode wurde ausgewählt. Das Bewertungsformular steht jedoch noch nicht zur Verfügung. Es muss zuerst über den Link im Block Einstellungen erstellt werden.';
+$string['formnotavailable'] = 'Erweiterte Bewertungsmethode wurde ausgewählt, aber das Bewertungsformular steht noch nicht zur Verfügung. Es muss zuerst über den Link im Block \'Einstellungen\' angelegt werden.';
 $string['gradingformunavailable'] = 'Hinweis: Das erweiterte Bewertungsformular steht noch nicht zur Verfügung. Bis zu seiner Erstellung wird die einfache Bewertung verwendet.';
 $string['gradingmanagement'] = 'Erweiterte Bewertung';
 $string['gradingmanagementtitle'] = 'Erweiterte Bewertung: {$a->component} ({$a->area})';
@@ -63,7 +63,7 @@ $string['searchtemplate_help'] = 'Sie können ein Bewertungsformular suchen und 
 
 Die Grundeinstellung erlaubt die Suche in veröffentlichten Formularen. Sie können zusätzlich Ihre eigenen Formulare in die Suche einbeziehen. Somit können Sie ihre eigenen Formulare wiederverwenden, ohne sie veröffentlichen zu müssen. Nur Formulare, die als \'Fertig zum Gebrauch\' gekennzeichnet wurden, können verwandt werden.';
 $string['statusdraft'] = 'Entwurf';
-$string['statusready'] = 'Bereit für Einsatz';
+$string['statusready'] = 'Bereit für den Einsatz';
 $string['templatedelete'] = 'Löschen';
 $string['templatedeleteconfirm'] = 'Sie sind dabei die Vorlage \'{$a}\' zu löschen. Das löschen der Vorlage wirkt sich nicht auf bestehende Formulare, die aus der Vorlage erstellt wurden aus.';
 $string['templateedit'] = 'Bearbeiten';

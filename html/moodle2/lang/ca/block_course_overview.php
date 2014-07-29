@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,9 +39,15 @@ $string['forcedefaultmaxcourses'] = 'Força el nombre màxim de cursos';
 $string['forcedefaultmaxcoursesdesc'] = 'Si s\'habilita, l\'usuari no podrà canviar aquest paràmetre personal';
 $string['hiddencoursecount'] = 'Teniu {$a} curs(os) ocult(s)';
 $string['hiddencoursecountplural'] = 'Teniu {$a} cursos ocults';
+$string['hiddencoursecountwithshowall'] = 'Teniu {$a->coursecount} cursos amagats ({$a->showalllink})';
+$string['hiddencoursecountwithshowallplural'] = 'Teniu {$a->coursecount} cursos amagats ({$a->showalllink})';
 $string['message'] = 'missatge';
 $string['messages'] = 'missatges';
+$string['moveafterhere'] = 'Mou el curs {$a->movingcoursename} després de {$a->currentcoursename}';
+$string['movecourse'] = 'Mou el curs: {$a}';
 $string['movecoursehere'] = 'Mou el curs aquí';
+$string['movetofirst'] = 'Mou el curs {$a} dalt';
+$string['movingcourse'] = 'Esteu movent: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Nombre de cursos a mostrar:';
 $string['otherexpanded'] = 'Altres Cursos expandits';
 $string['pluginname'] = 'Resum de cursos';

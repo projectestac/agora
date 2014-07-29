@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendanceregister', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendanceregister', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   attendanceregister
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -84,7 +84,7 @@ $string['insert_new_offline_session'] = 'Insert a new offline work session';
 $string['insert_new_offline_session_for_another_user'] = 'Insert a new offline work session for {$a->fullname}';
 $string['last_calc_online_session_logout'] = 'Last Register online Session End (excl. current Session)';
 $string['last_session_logout'] = 'Last Session End';
-$string['last_site_access'] = 'Last actitity on Site';
+$string['last_site_access'] = 'Last activity on Site';
 $string['last_site_login'] = 'Last login on Site';
 $string['login_must_be_before_logout'] = 'Start after end!';
 $string['logout_is_future'] = 'May not be in the future';

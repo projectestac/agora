@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Beschreibung';
 $string['entryerrornotyours'] = 'Dies ist kein eigener Beitrag';
 $string['entrysaved'] = 'Beitrag wurde gespeichert';
 $string['entrytitle'] = 'Titel';
-$string['entryupdated'] = 'Beitrag aktualisiert';
+$string['evententryadded'] = 'Blogeintrag hinzugefügt';
+$string['evententrydeleted'] = 'Blogeintrag gelöscht';
+$string['evententryupdated'] = 'Beitrag aktualisiert';
 $string['externalblogcrontime'] = 'Cronjob für externe Blogs';
 $string['externalblogdeleteconfirm'] = 'Diesen externen Blog abmelden?';
 $string['externalblogdeleted'] = 'Externer Blog ist nicht registriert';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'Ungültige Gruppen-ID';
 $string['invalidurl'] = 'URL ist nicht erreichbar';
 $string['linktooriginalentry'] = 'Zum ursprünglichen Blogeintrag verlinken';
 $string['maxexternalblogsperuser'] = 'Maximale Anzahl externer Blogs pro Nutzer/in';
-$string['mustassociatecourse'] = 'Wenn Sie für Kurse oder Gruppenmitglieder veröffentlichen, muss ein Kurs mit diesem Beitrag verbunden sein';
 $string['name'] = 'Name';
 $string['name_help'] = 'Geben Sie einen beschreibenden Namen für Ihren externen Blog an. Falls kein Name eingetragen ist, wird der Titel des externen Blogs benutzt.';
 $string['noentriesyet'] = 'Keine sichtbaren Beiträge';
@@ -115,7 +116,7 @@ $string['noguestpost'] = 'Gäste dürfen keine Blogeinträge veröffentlichen!';
 $string['nopermissionstodeleteentry'] = 'Sie haben nicht die erforderliche Rechte zum Löschen dieses Blogeintrags';
 $string['norighttodeletetag'] = 'Sie dürfen dieses Schlagwort nicht löschen: {$a}';
 $string['nosuchentry'] = 'Kein solcher Blogeintrag vorhanden';
-$string['notallowedtoedit'] = 'Sie haben keine Berechtigung, diesen Beitrag zu bearbeiten';
+$string['notallowedtoedit'] = 'Sie haben nicht das Recht, diesen Beitrag zu bearbeiten.';
 $string['numberofentries'] = 'Einträge: {$a}';
 $string['numberoftags'] = 'Zahl der gezeigenden Schlagworte';
 $string['page-blog-edit'] = 'Blogbearbeitungsseiten';

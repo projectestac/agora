@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,10 +56,9 @@ Er zijn een aantal toonmogelijkheden voor de URL, zoals ingebed of openen in een
 Merk op dat URL\'s aan elke andere activiteit kan toegevoegd worden via de tekstverwerker.';
 $string['modulenameplural'] = 'URL\'s';
 $string['neverseen'] = 'Nooit gezien';
-$string['optionsheader'] = 'Opties';
 $string['page-mod-url-x'] = 'Elke URL module-pagina';
 $string['parameterinfo'] = '&amp;parameter=variable';
-$string['parametersheader'] = 'Parameters';
+$string['parametersheader'] = 'URL variablen';
 $string['parametersheader_help'] = 'Sommige interne Moodlevariablen kunnen automatisch aan de URL toegevoegd worden. Geef jouw naam voor de parameter in elk tekstvak en selecteer de overeenkomende variable.';
 $string['pluginadministration'] = 'Beheer URL-module';
 $string['pluginname'] = 'URL';
@@ -67,8 +66,6 @@ $string['popupheight'] = 'Hoogte pop-upvenster (in pixels)';
 $string['popupheightexplain'] = 'Bepaalt de standaardhoogte van pop-upvensters';
 $string['popupwidth'] = 'Breedte pop-upvenster (in pixels)';
 $string['popupwidthexplain'] = 'Bepaalt de standaardbreedte van pop-upvensters';
-$string['printheading'] = 'Toon URL naam';
-$string['printheadingexplain'] = 'Toon de URL-naam boven de inhoud, Sommige schermtypes zullen de naam niet kunnen tonen, zelfs niet als dit ingeschakeld is.';
 $string['printintro'] = 'Toon URL-beschrijving';
 $string['printintroexplain'] = 'Toon URL-beschrijving onder de inhoud? Sommige schermtypes zullen dit niet kunnen tonen, zelfs niet als dit ingeschakeld is.';
 $string['rolesinparams'] = 'Rolnamen mee opnemen in parameters';

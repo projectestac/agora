@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Content';
+$string['display'] = 'Display folder contents';
+$string['display_help'] = 'If you choose to display the folder contents on a course page, there  will be no link to a separate page.
+The description will be displayed only if "Display description on course page" is checked.<br />
+Also note that participants view actions can not be logged in this case.';
+$string['displayinline'] = 'Inline on a course page';
+$string['displaypage'] = 'On a separate page';
 $string['dnduploadmakefolder'] = 'Unzip files and create folder';
 $string['folder:addinstance'] = 'Add a new folder';
 $string['foldercontent'] = 'Files and subfolders';
@@ -41,7 +47,10 @@ A folder may be used
 $string['modulename_link'] = 'mod/folder/view';
 $string['modulenameplural'] = 'Folders';
 $string['neverseen'] = 'Never seen';
+$string['noautocompletioninline'] = 'Automatic completion on viewing of activity can not be selected together with "Display inline" option';
 $string['page-mod-folder-view'] = 'Folder module main page';
 $string['page-mod-folder-x'] = 'Any folder module page';
 $string['pluginadministration'] = 'Folder administration';
 $string['pluginname'] = 'Folder';
+$string['showexpanded'] = 'Show subfolders expanded';
+$string['showexpanded_help'] = 'If set to \'yes\', subfolders are shown expanded by default; otherwise they are shown collapsed.';

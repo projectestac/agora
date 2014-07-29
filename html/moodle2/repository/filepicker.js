@@ -340,12 +340,6 @@ YUI.add('moodle-core_filepicker', function(Y) {
                 {key: "mimetype", label: M.str.repository.type, allowHTML: true,
                     sortable: true, sortFn: sortFoldersFirst}
             ];
-            for (var k in fileslist) {
-                // to speed up sorting and formatting
-                fileslist[k].displayname = file_get_displayname(fileslist[k]);
-                fileslist[k].isfolder = file_is_folder(fileslist[k]);
-                fileslist[k].classname = options.classnamecallback(fileslist[k]);
-            }
             scope.tableview = new Y.DataTable({columns: cols, data: fileslist});
             scope.tableview.delegate('click', function (e, tableview) {
                 var record = tableview.getRecord(e.currentTarget.get('id'));
@@ -366,8 +360,12 @@ YUI.add('moodle-core_filepicker', function(Y) {
         }
         /** append items in table view mode */
         var append_files_table = function() {
-            var parentnode = scope.one('.'+classname);
-            scope.tableview.render(parentnode);
+            if (options.appendonly) {
+                fileslist.forEach(function(el) {
+                    this.tableview.data.add(el);
+                },scope);
+            }
+            scope.tableview.render(scope.one('.'+classname));
             scope.tableview.sortable = options.sortable ? true : false;
         };
         /** append items in tree view mode */
@@ -426,6 +424,16 @@ YUI.add('moodle-core_filepicker', function(Y) {
                     element.on('contextmenu', options.rightclickcallback, options.callbackcontext, node);
                 }
             }
+        }
+
+        // If table view, need some additional properties
+        // before passing fileslist to the YUI tableview
+        if (options.viewmode == 3) {
+            fileslist.forEach(function(el) {
+                el.displayname = file_get_displayname(el);
+                el.isfolder = file_is_folder(el);
+                el.classname = options.classnamecallback(el);
+            }, scope);
         }
 
         // initialize files view
@@ -488,7 +496,7 @@ M.core_filepicker.loadedpreviews = M.core_filepicker.loadedpreviews || {};
 /**
 * Set selected file info
 *
-* @parma object file info
+* @param object file info
 */
 M.core_filepicker.select_file = function(file) {
     M.core_filepicker.active_filepicker.select_file(file);
@@ -502,7 +510,6 @@ M.core_filepicker.show = function(Y, options) {
         M.core_filepicker.init(Y, options);
     }
     M.core_filepicker.instances[options.client_id].show();
-    document.getElementById("filepicker-"+ options.client_id).focus();
 };
 
 M.core_filepicker.set_templates = function(Y, templates) {
@@ -588,16 +595,16 @@ M.core_filepicker.init = function(Y, options) {
                             data = Y.JSON.parse(o.responseText);
                         } catch(e) {
                             if (o && o.status && o.status > 0) {
-                                Y.use('moodle-core-notification', function() {
-                                    new M.core.exception(e);
+                                Y.use('moodle-core-notification-exception', function() {
+                                    return new M.core.exception(e);
                                 });
                                 return;
                             }
                         }
                         // error checking
                         if (data && data.error) {
-                            Y.use('moodle-core-notification', function() {
-                                new M.core.ajaxException(data);
+                            Y.use('moodle-core-notification-ajaxexception', function () {
+                                return new M.core.ajaxException(data);
                             });
                             this.fpnode.one('.fp-content').setContent('');
                             return;
@@ -712,17 +719,15 @@ M.core_filepicker.init = function(Y, options) {
                 this.process_dlg_node = Y.Node.createWithFilesSkin(M.core_filepicker.templates.processexistingfile);
                 var node = this.process_dlg_node;
                 node.generateID();
-                this.process_dlg = new Y.Panel({
-                    srcNode      : node,
+                this.process_dlg = new M.core.dialogue({
+                    draggable    : true,
+                    bodyContent  : node,
                     headerContent: M.str.repository.fileexistsdialogheader,
-                    zIndex       : 8000,
                     centered     : true,
                     modal        : true,
                     visible      : false,
-                    render       : true,
-                    buttons      : {}
+                    zIndex       : this.options.zIndex
                 });
-                this.process_dlg.plug(Y.Plugin.Drag,{handles:['#'+node.get('id')+' .yui3-widget-hd']});
                 node.one('.fp-dlg-butoverwrite').on('click', handleOverwrite, this);
                 node.one('.fp-dlg-butrename').on('click', handleRename, this);
                 node.one('.fp-dlg-butcancel').on('click', handleCancel, this);
@@ -755,15 +760,14 @@ M.core_filepicker.init = function(Y, options) {
                 this.msg_dlg_node = Y.Node.createWithFilesSkin(M.core_filepicker.templates.message);
                 this.msg_dlg_node.generateID();
 
-                this.msg_dlg = new Y.Panel({
-                    srcNode      : this.msg_dlg_node,
-                    zIndex       : 8000,
+                this.msg_dlg = new M.core.dialogue({
+                    draggable    : true,
+                    bodyContent  : this.msg_dlg_node,
                     centered     : true,
                     modal        : true,
                     visible      : false,
-                    render       : true
+                    zIndex       : this.options.zIndex
                 });
-                this.msg_dlg.plug(Y.Plugin.Drag,{handles:['#'+this.msg_dlg_node.get('id')+' .yui3-widget-hd']});
                 this.msg_dlg_node.one('.fp-msg-butok').on('click', function(e) {
                     e.preventDefault();
                     this.msg_dlg.hide();
@@ -791,7 +795,7 @@ M.core_filepicker.init = function(Y, options) {
             } else {
                 this.view_as_icons(appenditems);
             }
-            this.fpnode.one('.fp-content').setAttribute('tabIndex', '0');
+            this.fpnode.one('.fp-content').setAttribute('tabindex', '0');
             this.fpnode.one('.fp-content').focus();
             // display/hide the link for requesting next page
             if (!appenditems && this.active_repo.hasmorepages) {
@@ -1105,8 +1109,7 @@ M.core_filepicker.init = function(Y, options) {
             for (var linktype in filelink) {
                 var el = selectnode.one('.fp-linktype-'+linktype);
                 el.addClassIf('uneditable', !(filelink[linktype] && filelinkcount>1));
-                el.one('input').set('disabled', (filelink[linktype] && filelinkcount>1) ? '' : 'disabled').
-                    set('checked', (firstfilelink == linktype) ? 'checked' : '').simulate('change')
+                el.one('input').set('checked', (firstfilelink == linktype) ? 'checked' : '').simulate('change');
             }
 
             // TODO MDL-32532: attributes 'hasauthor' and 'haslicense' need to be obsolete,
@@ -1293,26 +1296,21 @@ M.core_filepicker.init = function(Y, options) {
             var fpid = "filepicker-"+ client_id;
             var labelid = 'fp-dialog-label_'+ client_id;
             this.fpnode = Y.Node.createWithFilesSkin(M.core_filepicker.templates.generallayout).
-                set('id', fpid).set('aria-labelledby', labelid);
-            this.mainui = new Y.Panel({
-                srcNode      : this.fpnode,
+                set('id', 'filepicker-'+client_id).set('aria-labelledby', labelid);
+            this.mainui = new M.core.dialogue({
+                extraClasses : ['filepicker'],
+                draggable    : true,
+                bodyContent  : this.fpnode,
                 headerContent: '<span id="'+ labelid +'">'+ M.str.repository.filepicker +'</span>',
-                zIndex       : 7500,
                 centered     : true,
                 modal        : true,
                 visible      : false,
-                minWidth     : this.fpnode.getStylePx('minWidth'),
-                minHeight    : this.fpnode.getStylePx('minHeight'),
-                maxWidth     : this.fpnode.getStylePx('maxWidth'),
-                maxHeight    : this.fpnode.getStylePx('maxHeight'),
-                render       : true
+                width        : '873px',
+                responsiveWidth : 873,
+                height       : '558px',
+                zIndex       : this.options.zIndex
             });
-            // allow to move the panel dragging it by it's header:
-            this.mainui.plug(Y.Plugin.Drag,{handles:['#filepicker-'+client_id+' .yui3-widget-hd']});
-            this.mainui.show();
-            if (this.mainui.get('y') < 0) {
-                this.mainui.set('y', 0);
-            }
+
             // create panel for selecting a file (initially hidden)
             this.selectnode = Y.Node.createWithFilesSkin(M.core_filepicker.templates.selectlayout).
                 set('id', 'filepicker-select-'+client_id).
@@ -1320,19 +1318,17 @@ M.core_filepicker.init = function(Y, options) {
                 set('role', 'dialog');
 
             var fplabel = 'fp-file_label_'+ client_id;
-            this.selectui = new Y.Panel({
+            this.selectui = new M.core.dialogue({
                 headerContent: '<span id="' + fplabel +'">'+M.str.repository.select+'</span>',
-                srcNode      : this.selectnode,
-                zIndex       : 7600,
+                draggable    : true,
+                width        : '450px',
+                bodyContent  : this.selectnode,
                 centered     : true,
                 modal        : true,
-                close        : true,
-                render       : true
+                visible      : false,
+                zIndex       : this.options.zIndex
             });
-            // allow to move the panel dragging it by it's header:
-            this.selectui.plug(Y.Plugin.Drag,{handles:['#filepicker-select-'+client_id+' .yui3-widget-hd']});
             Y.one('#'+this.selectnode.get('id')).setAttribute('aria-labelledby', fplabel);
-            this.selectui.hide();
             // event handler for lazy loading of thumbnails and next page
             this.fpnode.one('.fp-content').on(['scroll','resize'], this.content_scrolled, this);
             // save template for one path element and location of path bar
@@ -1396,6 +1392,7 @@ M.core_filepicker.init = function(Y, options) {
                 this.display_error(M.str.repository.norepositoriesavailable, 'norepositoriesavailable')
             }
             // display repository that was used last time
+            this.mainui.show();
             this.show_recent_repository();
         },
         parse_repository_options: function(data, appendtolist) {
@@ -1855,10 +1852,6 @@ M.core_filepicker.init = function(Y, options) {
 
             // login button
             enable_tb_control(toolbar.one('.fp-tb-logout'), !r.nologin);
-            if (!r.nologin) {
-                var label = r.logouttext ? r.logouttext : M.str.repository.logout;
-                toolbar.one('.fp-tb-logout').one('a,button').setContent(label)
-            }
 
             // manage url
             enable_tb_control(toolbar.one('.fp-tb-manage'), r.manage);

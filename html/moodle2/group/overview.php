@@ -62,8 +62,12 @@ $strfiltergroups     = get_string('filtergroups', 'group');
 $strnogroups         = get_string('nogroups', 'group');
 $strdescription      = get_string('description');
 
-// Get all groupings
+// Get all groupings and sort them by formatted name.
 $groupings = $DB->get_records('groupings', array('courseid'=>$courseid), 'name');
+foreach ($groupings as $gid => $grouping) {
+    $groupings[$gid]->formattedname = format_string($grouping->name, true, array('context' => $context));
+}
+core_collator::asort_objects_by_property($groupings, 'formattedname');
 $members = array();
 foreach ($groupings as $grouping) {
     $members[$grouping->id] = array();
@@ -90,7 +94,8 @@ if ($groupingid) {
 
 list($sort, $sortparams) = users_order_by_sql('u');
 
-$sql = "SELECT g.id AS groupid, gg.groupingid, u.id AS userid, u.firstname, u.lastname, u.idnumber, u.username
+$allnames = get_all_user_name_fields(true, 'u');
+$sql = "SELECT g.id AS groupid, gg.groupingid, u.id AS userid, $allnames, u.idnumber, u.username
           FROM {groups} g
                LEFT JOIN {groupings_groups} gg ON g.id = gg.groupid
                LEFT JOIN {groups_members} gm ON g.id = gm.groupid
@@ -101,11 +106,7 @@ $sql = "SELECT g.id AS groupid, gg.groupingid, u.id AS userid, u.firstname, u.la
 $rs = $DB->get_recordset_sql($sql, array_merge($params, $sortparams));
 foreach ($rs as $row) {
     $user = new stdClass();
-    $user->id        = $row->userid;
-    $user->firstname = $row->firstname;
-    $user->lastname  = $row->lastname;
-    $user->username  = $row->username;
-    $user->idnumber  = $row->idnumber;
+    $user = username_load_fields_from_object($user, $row, null, array('id' => 'userid', 'username', 'idnumber'));
     if (!$row->groupingid) {
         $row->groupingid = -1;
     }
@@ -139,7 +140,7 @@ echo $strfiltergroups;
 $options = array();
 $options[0] = get_string('all');
 foreach ($groupings as $grouping) {
-    $options[$grouping->id] = strip_tags(format_string($grouping->name));
+    $options[$grouping->id] = strip_tags($grouping->formattedname);
 }
 $popupurl = new moodle_url($rooturl.'&group='.$groupid);
 $select = new single_select($popupurl, 'grouping', $options, $groupingid, array());
@@ -202,7 +203,7 @@ foreach ($members as $gpgid=>$groupdata) {
     if ($gpgid < 0) {
         echo $OUTPUT->heading($strnotingrouping, 3);
     } else {
-        echo $OUTPUT->heading(format_string($groupings[$gpgid]->name), 3);
+        echo $OUTPUT->heading($groupings[$gpgid]->formattedname, 3);
         $description = file_rewrite_pluginfile_urls($groupings[$gpgid]->description, 'pluginfile.php', $context->id, 'grouping', 'description', $gpgid);
         $options = new stdClass;
         $options->noclean = true;

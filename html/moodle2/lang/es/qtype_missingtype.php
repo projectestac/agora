@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_missingtype', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_missingtype', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_missingtype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,9 @@ $string['answerno'] = 'Respuesta {$a}';
 $string['cannotchangeamissingqtype'] = 'Usted no puede hacer ningún cambio a una pregunta de tipo desconocido';
 $string['deletedquestion'] = 'Falta pregunta';
 $string['deletedquestiontext'] = 'Esta pregunta no se encuentra. No se puede mostrar nada.';
+$string['missing'] = 'La pregunta es de un tipo que no está instalado en el sistema';
 $string['missingqtypewarning'] = 'Esta pregunta es de un tipo que no está instalado en este sistema. Usted no podrá hacer nada con esta pregunta.';
 $string['pluginname'] = 'Tipo desconocido';
+$string['pluginnameadding'] = 'Está añadiendo un tipo de pregunta que no está disponible en el sistema';
 $string['pluginnameediting'] = 'Editando una pregunta de tipo desconocido';
 $string['warningmissingtype'] = '<b>Esta pregunta es de un tipo que aún no ha sido instalado en su Moodle.<br />Por favor, adviértaselo a su administrador de Moodle.</b>';

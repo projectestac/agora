@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_profiling', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_profiling', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_profiling
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,13 @@ $string['comment'] = 'Commento';
 $string['cputime'] = 'Tempo di CPU';
 $string['differencesbetween2runsof'] = 'Differenze tra 2 run di {$a}';
 $string['executiontime'] = 'Tempo di esecuzione';
+$string['export'] = 'Esporta';
+$string['exportproblem'] = 'Si sono verificati problemi durante l\'esportazione del profiling run  "{$a->runid}" corrispondente alla richiesta "{$a->listurl}".';
+$string['exportthis'] = 'Esporta questo profiling run "{$a->listurl}".';
+$string['import'] = 'Importa';
+$string['importok'] = 'Il file "{$a}" è stato importato correttamente';
+$string['importprefix'] = 'Prefisso importazione';
+$string['importproblem'] = 'Si sono verificati problemi durante l\'importazione del file "{$a}".';
 $string['lastrunof'] = 'Riassunto dell\'ultimo run di {$a}';
 $string['markreferencerun'] = 'Contrassegna come run di riferimento/commento';
 $string['memory'] = 'Memoria utilizzata';
@@ -43,5 +50,5 @@ $string['referencerun'] = 'Run di riferimento/commento';
 $string['runid'] = 'ID run';
 $string['summaryof'] = 'Riassunto di {$a}';
 $string['viewdetails'] = 'Visualizza dettagli della profilazione';
-$string['viewdiff'] = 'Visualizza le differenze di profilazione tra diversi run';
+$string['viewdiff'] = 'Visualizza le differenze di profiling tra diversi run';
 $string['viewdiffdetails'] = 'Visualizza diff dei run in dettaglio';

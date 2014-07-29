@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'アクセスコントロール';
 $string['aggregategrades'] = '評定を再計算する';
 $string['aggregation'] = '評点合計';
 $string['allocate'] = '提出を割り当てる';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = '評定済み';
 $string['areaconclusion'] = '結論テキスト';
 $string['areainstructauthors'] = '提出のインストラクション';
 $string['areainstructreviewers'] = '評価のインストラクション';
+$string['areaoverallfeedbackattachment'] = '全体フィードバック添付';
+$string['areaoverallfeedbackcontent'] = '全体フィードバックテキスト';
 $string['areasubmissionattachment'] = '提出の添付';
 $string['areasubmissioncontent'] = '提出テキスト';
 $string['assess'] = '評価';
@@ -107,6 +108,7 @@ $string['evaluation'] = '成績評価';
 $string['evaluationmethod'] = '成績評価方法';
 $string['evaluationmethod_help'] = '成績評価方法では評価に対する評点をどのように計算するか決定します。あなたの希望に結果が合致しない場合、評定を繰り返し再計算することができます。';
 $string['evaluationsettings'] = '成績評価設定';
+$string['event_assessable_uploaded'] = '課題がアップロードされました。';
 $string['example'] = '提出例';
 $string['exampleadd'] = '提出例を追加する';
 $string['exampleassess'] = '提出例を評価する';
@@ -126,8 +128,10 @@ $string['examplesmode'] = '評価例のモード';
 $string['examplesubmissions'] = '提出例';
 $string['examplesvoluntary'] = '提出例の評価は任意です';
 $string['feedbackauthor'] = '作成者へのフィードバック';
+$string['feedbackauthorattachment'] = '添付';
 $string['feedbackby'] = '{$a} によるフィードバック';
 $string['feedbackreviewer'] = '評価者に対するフィードバック';
+$string['feedbacksettings'] = 'フィードバック';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -146,7 +150,7 @@ $string['gradeitemsubmission'] = '
 $string['gradeover'] = '提出に対する評点をオーバーライドする';
 $string['gradereceivedfrom'] = '&lt;';
 $string['gradesreport'] = 'ワークショップ評定レポート';
-$string['gradinggrade'] = '評定点';
+$string['gradinggrade'] = '評価に対する評点';
 $string['gradinggradecalculated'] = '評価に対する計算済み評点';
 $string['gradinggrade_help'] = 'この設定では提出の評価に関して取得する最大評点を指定します。';
 $string['gradinggradeof'] = '評価に対する評点 (最大 {$a})';
@@ -162,8 +166,7 @@ $string['latesubmissions'] = '提出期限後の提出';
 $string['latesubmissionsallowed'] = '提出期限後の提出は許可されています。';
 $string['latesubmissions_desc'] = '提出期限後の提出を許可します。';
 $string['latesubmissions_help'] = '有効にした場合、作成者は提出期限後または評価フェーズ時にワークを提出することができます。提出期限後の提出は編集することができません。';
-$string['maxbytes'] = '最大ファイルサイズ';
-$string['miscellaneoussettings'] = 'その他の設定';
+$string['maxbytes'] = '最大提出添付サイズ';
 $string['modulename'] = 'ワークショップ';
 $string['modulename_help'] = 'ワークショップ活動モジュールでは、学生のワークを収集、レビューおよび相互評価することができます。
 
@@ -186,6 +189,14 @@ $string['notoverridden'] = '未オーバーライド';
 $string['noworkshops'] = 'このコース内にワークショップはありません。';
 $string['noyoursubmission'] = 'あなたはまだ自分のワークを提出していません。';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = '全体フィードバック';
+$string['overallfeedbackfiles'] = '全体フィードバックの最大添付数';
+$string['overallfeedbackmaxbytes'] = '最大全体フィードバック添付サイズ';
+$string['overallfeedbackmode'] = '全体フィードバックモード';
+$string['overallfeedbackmode_0'] = '無効';
+$string['overallfeedbackmode_1'] = '有効および任意';
+$string['overallfeedbackmode_2'] = '有効および必須';
+$string['overallfeedbackmode_help'] = '有効にした場合、評価フォーム下部にテキストフィールドが表示されます。 評価者はそこに提出の全体評価を入力、または評価に関する追加的な説明を入力することができます。';
 $string['page-mod-workshop-x'] = 'すべてのワークショップモジュールページ';
 $string['participant'] = '参加者';
 $string['participantrevierof'] = '参加者がレビューする';
@@ -210,6 +221,7 @@ $string['recentsubmissions'] = 'ワークショップ提出:';
 $string['saveandclose'] = '保存して閉じる';
 $string['saveandcontinue'] = '保存して編集を続ける';
 $string['saveandpreview'] = '保存してプレビューする';
+$string['saveandshownext'] = '保存して次を表示する';
 $string['selfassessmentdisabled'] = '自己評価は無効にされています。';
 $string['showingperpage'] = '1ページあたり {$a} アイテムの表示';
 $string['showingperpagechange'] = '変更 ...';
@@ -286,7 +298,6 @@ $string['withoutsubmission'] = '自分では提出していない評価者';
 $string['workshop:addinstance'] = '新しいワークショップを追加する';
 $string['workshop:allocate'] = '提出をレビューのために割り当てる';
 $string['workshop:editdimensions'] = '評価フォームを編集する';
-$string['workshopfeatures'] = 'ワークショップ機能';
 $string['workshop:ignoredeadlines'] = '時間制限を無視する';
 $string['workshop:manageexamples'] = '提出例を管理する';
 $string['workshopname'] = 'ワークショップ名';
@@ -300,6 +311,7 @@ $string['workshop:viewallassessments'] = 'すべての評価を表示する';
 $string['workshop:viewallsubmissions'] = 'すべての提出を表示する';
 $string['workshop:viewauthornames'] = '作成者名を表示する';
 $string['workshop:viewauthorpublished'] = '公開された提出の作成者を表示する';
+$string['workshopviewed'] = 'ワークショップが閲覧されました。';
 $string['workshop:viewpublishedsubmissions'] = '公開済み提出を表示する';
 $string['workshop:viewreviewernames'] = '評価者名を表示する';
 $string['yourassessment'] = 'あなたの評価';

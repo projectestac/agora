@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,11 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Incremento de';
+$string['incby1_help'] = 'Este valor da sección increméntase cada vez que unha ligazón de sección se presenta comezando desde 1.';
 $string['incby2'] = 'Incremento alternativo de';
+$string['incby2_help'] = 'Este valor da seccion increméntase cada vez que se presenta unha ligazón da sección comezando desde 1.';
 $string['jumptocurrenttopic'] = 'Salta ao tema actual';
 $string['jumptocurrentweek'] = 'Salta á semana actual';
 $string['numsections1'] = 'Número de seccións';
+$string['numsections1_help'] = 'Unha vez que o número de seccións no curso acada este número, entón utilízase o valor de incremento.';
 $string['numsections2'] = 'Número alternativo de seccións';
+$string['numsections2_help'] = 'Unha vez que o número de seccións no curso acada ese número, utilízase o valor alternativo de incremento.';
 $string['pluginname'] = 'Ligazóns da sección';
 $string['section_links:addinstance'] = 'Engadir un novo bloque de ligazóns de sección';
 $string['topics'] = 'Temas';

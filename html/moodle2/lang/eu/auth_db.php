@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_db', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_db', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_db
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,7 +51,7 @@ $string['auth_dbpasstype_key'] = 'Pasahitzaren formatua';
 $string['auth_dbreviveduser'] = '{$a}[0] id {$a}[1] erabiltzailea berreskuratuta';
 $string['auth_dbrevivedusererror'] = 'Errorea {$a} erabiltzailea berreskuratzean';
 $string['auth_dbsetupsql'] = 'SQL ezarpen-komandoa';
-$string['auth_dbsuspenduser'] = '{$a}[0] id {$a}[1] erabiltzailea suspendituta';
+$string['auth_dbsuspenduser'] = 'Kontua etendako erabiltzailea ({$a->name}) eta IDa {$a->id}';
 $string['auth_dbsuspendusererror'] = 'Errorea {$a} erabiltzailea suspenditzean';
 $string['auth_dbsybasequoting'] = 'Sybase-ren aipuak (quotes) erabili';
 $string['auth_dbtable'] = 'Taularen izena datu-basean';

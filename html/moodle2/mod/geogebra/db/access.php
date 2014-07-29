@@ -50,7 +50,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
-
     'mod/geogebra:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
@@ -62,7 +61,6 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-
     'mod/geogebra:submit' => array(
         'riskbitmask' => RISK_SPAM,
         'captype' => 'write',
@@ -71,19 +69,6 @@ $capabilities = array(
             'student' => CAP_ALLOW
         )
     ),
-
-    'mod/geogebra:grade' => array(
-        'riskbitmask' => RISK_XSS,
-
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_MODULE,
-        'archetypes' => array(
-            'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
-    ),
-
     'mod/geogebra:addinstance' => array(
         'riskbitmask' => RISK_XSS,
 
@@ -95,6 +80,4 @@ $capabilities = array(
         ),
         'clonepermissionsfrom' => 'moodle/course:manageactivities'
     ),
-    
-    
 );

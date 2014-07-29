@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_grid', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_grid', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   format_grid
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

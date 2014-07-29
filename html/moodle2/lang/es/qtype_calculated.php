@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,14 +27,15 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Agregar ítem';
 $string['addmoreanswerblanks'] = 'Agregar otra respuesta en blanco.';
-$string['addmoreunitblanks'] = 'Espacios en blanco para {$a} unidades más';
 $string['addsets'] = 'Agregar conjunto(s)';
+$string['answerdisplay'] = 'Mostrar';
+$string['answerformula'] = 'Fórmula para la respuesta {$a}';
 $string['answerhdr'] = 'Respuesta';
 $string['answerstoleranceparam'] = 'Parámetros de tolerancia en las respuestas';
 $string['anyvalue'] = 'Cualquier valor';
 $string['atleastoneanswer'] = 'Necesita proporcionar al menos una respuesta.';
-$string['atleastonerealdataset'] = 'Debe haber por lo menos un conjunto de datos reales en el texto de la pregunta';
-$string['atleastonewildcard'] = 'Debe haber al menos un comodín en la fórmula de respuesta o texto de la pregunta';
+$string['atleastonerealdataset'] = 'Debe haber por lo menos un conjunto de datos reales en el enunciado de la pregunta';
+$string['atleastonewildcard'] = 'Debe haber al menos un comodín en la fórmula de respuesta o enunciado de la pregunta';
 $string['calcdistribution'] = 'Distribución';
 $string['calclength'] = 'Decimales';
 $string['calcmax'] = 'Máximo';
@@ -79,10 +80,8 @@ $string['min'] = 'Mín';
 $string['minmax'] = 'Rango de valores';
 $string['missingformula'] = 'Fórmula perdida';
 $string['missingname'] = 'Falta nombre de la pregunta';
-$string['missingquestiontext'] = 'No se encuentra el texto de la pregunta';
-$string['mustbenumeric'] = 'Debe escribir un número.';
+$string['missingquestiontext'] = 'No se encuentra el enunciado de la pregunta';
 $string['mustenteraformulaorstar'] = 'Debe introducir una fórmual o un asterisco \'*\'';
-$string['mustnotbenumeric'] = 'No puede ser un número.';
 $string['newcategory1'] = 'usará un nuevo conjunto de datos compartido';
 $string['newlocal1'] = 'usará un nuevo conjunto de datos privado';
 $string['newsetwildcardvalues'] = 'nueva(s) serie(s) de valores para el comodín';
@@ -101,7 +100,7 @@ $string['pluginnameadding'] = 'Agregando una pregunta calculada';
 $string['pluginnameediting'] = 'Editando una pregunta calculada';
 $string['pluginname_help'] = 'Las preguntas calculadas permiten crear preguntas numéricas utilizando comodines dentro de llaves que se sustituyen por valores concretos cuando se realiza el cuestionario. Por ejemplo, la pregunta "¿Cuál es el área de un rectángulo de longitud {I} y ancho {w}?" tendría como respuesta correcta la fórmual "{l} * {w}" (donde * es el signo de multiplicación).';
 $string['pluginnamesummary'] = 'Las preguntas calculadas son similares a preguntas numéricas pero con números seleccionados aleatoriamente de un conjunto cuando se intenta resolver el cuestionario.';
-$string['possiblehdr'] = 'Es posible comodines sólo en el texto de la pregunta';
+$string['possiblehdr'] = 'Es posible comodines sólo en el enunciado de la pregunta';
 $string['questiondatasets'] = 'Conjunto de datos de la pregunta';
 $string['questiondatasets_help'] = 'Grupo de datos para los comodines que se usarán en cada pregunta.';
 $string['questionstoredname'] = 'Nombre de pregunta guardado';
@@ -120,6 +119,7 @@ $string['synchronizeno'] = 'No sincronizar';
 $string['synchronizeyes'] = 'Sincronizar';
 $string['synchronizeyesdisplay'] = 'Sincronizar y mostrar el nombre de los conjuntos de datos compartidos como prefijo del nombre de la pregunta';
 $string['tolerance'] = 'Tolerancia ±';
+$string['tolerancetype'] = 'Tipo';
 $string['trueanswerinsidelimits'] = 'Respuesta correcta: {$a->correct} dentro de los límites del valor verdadero {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">ERROR Respuesta correcta: {$a->correct} fuera de los límites del valor verdadero {$a->true}</span>';
 $string['uniform'] = 'Uniforme';
@@ -139,5 +139,4 @@ $string['wildcardvalues'] = 'Valores de comodines';
 $string['wildcardvaluesgenerated'] = 'Valores de los comodines generados';
 $string['youmustaddatleastoneitem'] = 'Debe añadir al menos un conjunto de datos para poder guardar esta pregunta.';
 $string['youmustaddatleastonevalue'] = 'Debe agregar al menos un juego de valores para los comodines antes de poder guardar esta pregunta.';
-$string['youmustenteramultiplierhere'] = 'Debe escribir un multiplicador aquí.';
 $string['zerosignificantfiguresnotallowed'] = '¡La respuesta correcta no puede tener cero cifras significativas!';

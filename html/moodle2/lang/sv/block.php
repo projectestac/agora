@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addtodock'] = 'Flytta det här till dockan';
-$string['anypagematchingtheabove'] = 'Alla sidor matchar den ovanstående';
-$string['appearsinsubcontexts'] = 'Visas i underliggande sammanhang';
+$string['anypagematchingtheabove'] = 'Alla sidor som matchar den ovanstående';
+$string['appearsinsubcontexts'] = 'Förekommer i underliggande sammanhang';
 $string['assignrolesinblock'] = 'Tilldela roller i {$a} block';
 $string['blocksettings'] = 'Inställningar för block';
 $string['bracketfirst'] = '{$a} (första)';
@@ -44,26 +44,30 @@ $string['deleteblock'] = 'Ta bort {$a} block';
 $string['deleteblockcheck'] = 'Är du säker att du vill radera denna block med namnet {$a}?';
 $string['deleteblockwarning'] = '<p> Du håller på att radera ett block som finns någon annanstans. </p><p> Original blocket plats: {$a->location} <br /> Visning på sidtyper: {$a->pagetype} </p><p> Är du säker på att du vill fortsätta? </p>';
 $string['deletecheck'] = 'Ta bort {$a} block?';
+$string['dockblock'] = 'Docka {$a} blocket';
 $string['hideblock'] = 'Göm {$a} block';
 $string['hidedockpanel'] = 'Göm dockpanelen';
 $string['hidepanel'] = 'Göm panel';
 $string['moveblock'] = 'Flytta {$a} block';
+$string['moveblockafter'] = 'Flytta blocket efter {$a} blocket';
+$string['moveblockbefore'] = 'Flytta blocket framför {$a} blocket';
 $string['moveblockhere'] = 'Flytta block hit';
 $string['movingthisblockcancel'] = 'Flyttar det här blocket ({$a})';
 $string['onthispage'] = 'På den här sidan';
 $string['pagetypes'] = 'Typer av sidor';
 $string['pagetypewarning'] = 'Den tidigare angivna sidtypen är inte längre valbar. Välj den lämpligaste sidtypen nedan.';
 $string['region'] = 'Region';
-$string['restrictpagetypes'] = 'Visa på sidor av typen';
+$string['restrictpagetypes'] = 'Visa på sidor av typern';
 $string['showblock'] = 'Visa {$a} block';
 $string['showoncontextandsubs'] = 'Visa på \'{$a}\' och alla sidor inom den';
 $string['showoncontextonly'] = 'Visa bara på \'{$a}\' ';
 $string['showonentiresite'] = 'Visa över hela webbplatsen';
 $string['showonfrontpageandsubs'] = 'Visa på hemsidan och på alla sidor som läggs till ingångssidan';
 $string['showonfrontpageonly'] = 'Visa bara på ingångssidan';
-$string['subpages'] = 'Välj sidor';
-$string['thisspecificpage'] = 'Den här specifika sidan';
+$string['subpages'] = 'Specifik underliggande sida';
+$string['thisspecificpage'] = 'Den här specifika sidan (sida {$a})';
 $string['undockall'] = 'Frigör samtliga från dockning';
+$string['undockblock'] = 'Docka av {$a} blocket';
 $string['undockitem'] = 'Frigör den här komponenten från dockning';
 $string['visible'] = 'Synlig';
 $string['weight'] = 'Vikt ';

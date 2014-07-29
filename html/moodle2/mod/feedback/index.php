@@ -40,17 +40,19 @@ $context = context_course::instance($course->id);
 require_login($course);
 $PAGE->set_pagelayout('incourse');
 
-add_to_log($course->id, 'feedback', 'view all', $url->out(false), $course->id);
-
+// Trigger instances list viewed event.
+$event = \mod_feedback\event\instances_list_viewed::create(array('context' => $context));
+$event->trigger();
 
 /// Print the page header
 $strfeedbacks = get_string("modulenameplural", "feedback");
 $strfeedback  = get_string("modulename", "feedback");
 
 $PAGE->navbar->add($strfeedbacks);
-$PAGE->set_heading(format_string($course->fullname));
+$PAGE->set_heading($course->fullname);
 $PAGE->set_title(get_string('modulename', 'feedback').' '.get_string('activities'));
 echo $OUTPUT->header();
+echo $OUTPUT->heading($strfeedbacks);
 
 /// Get all the appropriate data
 

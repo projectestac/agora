@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_replace', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['disclaimer'] = '이 실행의 위험성을 이해합니다.';
 $string['notifyfinished'] = '...완료됨.';
-$string['notifyrebuilding'] = '강좌 캐시를 재구축...';
+$string['notifyrebuilding'] = '강좌 캐시 재구축...';
 $string['notimplemented'] = '죄송합니다. 이 기능은 MySQL 과 PostgreSQL 데이터베이스만 구현되어 있습니다.';
 $string['pageheader'] = '전체 데이터베이스에서 문장을 검색하여';
 $string['pluginname'] = 'DB 검색 및 바꾸기';

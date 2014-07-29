@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -111,7 +111,7 @@ $string['insertimage'] = '이미지 삽입 ...';
 $string['insertimage_help'] = '이 드롭다운 목록은 위키 편집기에 이미지를 삽입할 것입니다. 위키에 더 많은 이미지를 추가하고자 하면 "파일"탭을 사용하십시요.';
 $string['invalidlock'] = '이 페이지는 다른 사용자에 의해 잠금되었습니다.';
 $string['invalidparameters'] = '잘못된 매개변수가 주어졌습니다.';
-$string['invalidsection'] = '잘못된 섹션';
+$string['invalidsection'] = '잘못된 영역';
 $string['invalidsesskey'] = '주어진 세션키가 틀립니다. 데이터를 다시 보내십시요.';
 $string['javascriptdisabledlocks'] = '자바스크립트가 당신의 브라우저에서 비활성화되어 잠금이 작동하지 않습니다. 고친것이 올바르게 저장되지 않을 수 있습니다.';
 $string['links'] = '링크';
@@ -131,8 +131,9 @@ $string['navigation'] = '찾아가기';
 $string['navigationfrom'] = '이 페이지가 온 곳';
 $string['navigationfrom_help'] = '이 페이지에 링크된 위키 페이지들';
 $string['navigationto'] = '이페이지가 가는 곳';
-$string['navigationto_help'] = '다른 페이지로의 링크';
+$string['navigationto_help'] = '페이지에 포함된 링크들';
 $string['newpage'] = '새';
+$string['newpagehdr'] = '세 페이지';
 $string['newpagetitle'] = '새 페이지 제목';
 $string['noattachments'] = '<strong>아무 파일도 첨부되지 않았습니다</strong>';
 $string['nocomments'] = '댓글이 없습니다.';

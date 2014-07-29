@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'CSV 구분자';
 $string['defaultvalues'] = '기본값';
 $string['deleteerrors'] = '오류 삭제';
 $string['encoding'] = '엔코딩';
+$string['errormnetadd'] = '원격 사용자를 추가 할 수 없습니다';
 $string['errors'] = '오류들';
 $string['nochanges'] = '변화 없음';
 $string['pluginname'] = '사용자 업로드';

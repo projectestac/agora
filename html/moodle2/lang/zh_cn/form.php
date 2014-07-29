@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'form', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'form', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   form
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,6 +59,8 @@ $string['security'] = '安全设置';
 $string['selectallornone'] = '选择所有/无';
 $string['selected'] = '已选择';
 $string['showadvanced'] = '显示高级选项';
+$string['showless'] = '显示较少...';
+$string['showmore'] = '显示更多...';
 $string['somefieldsrequired'] = '必须填写有{$a}标记的字段。';
 $string['time'] = '时间';
 $string['timeunit'] = '时间单位';

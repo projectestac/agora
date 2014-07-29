@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'nln', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'nln', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   nln
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,6 +52,7 @@ The materials give learners things to do and a chance to think for themselves. T
 This activity module allows teachers to find and add NLN learning objects to their Moodle courses with a minimum of effort.';
 $string['modulenameplural'] = 'NLN learning objects';
 $string['neverseen'] = 'Never seen';
+$string['nln:addinstance'] = 'Add a new NLN learning object';
 $string['nln_browse'] = 'Browse the NLN materials';
 $string['nln_browse_help'] = 'Click this button to view the NLN materials browser, which lets you browse, preview, and select an NLN learning object.';
 $string['nln_loid'] = 'NLN learning object ID';

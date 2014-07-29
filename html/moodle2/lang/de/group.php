@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['createautomaticgrouping'] = 'Automatische Gruppierung anlegen';
 $string['creategroup'] = 'Gruppe anlegen';
 $string['creategrouping'] = 'Gruppierung anlegen';
 $string['creategroupinselectedgrouping'] = 'Gruppe in der Gruppierung anlegen';
-$string['createingrouping'] = 'In der Gruppierung anlegen';
+$string['createingrouping'] = 'Gruppierung von automatisch angelegten Gruppen';
 $string['createorphangroup'] = 'Einzelne Gruppe';
 $string['databaseupgradegroups'] = 'Die Gruppenversion ist jetzt {$a}';
 $string['defaultgrouping'] = 'Standardmäßige Gruppierung';
@@ -59,7 +59,8 @@ $string['deleteselectedgroup'] = 'Markierte Gruppe löschen';
 $string['editgroupingsettings'] = 'Gruppierungseinstellungen bearbeiten';
 $string['editgroupsettings'] = 'Gruppeneinstellungen bearbeiten';
 $string['enrolmentkey'] = 'Einschreibeschlüssel';
-$string['enrolmentkey_help'] = 'Ein Einschreibeschlüssel erlaubt die Einschränkung von Kurszugängen auf diejenigen, die den Einschreibeschlüssel kennen. Falls zusätzlich ein Einschreibeschlüssel für eine Gruppe angegeben ist, dann dient dieser Schlüssel dem Kurszugang, aber auch der automatischen Zuweisung zur richtigen Gruppe.';
+$string['enrolmentkeyalreadyinuse'] = 'Dieser Einschreibeschlüssel wird bereits für eine andere Gruppe benutzt.';
+$string['enrolmentkey_help'] = 'Ein Einschreibeschlüssel erlaubt die Einschränkung von Kurszugängen auf diejenigen, die den Einschreibeschlüssel kennen. Falls zusätzlich ein Einschreibeschlüssel für eine Gruppe angegeben ist, dann dient dieser Schlüssel dem Kurszugang, aber auch der automatischen Zuweisung der Nutzer zur richtigen Gruppe.';
 $string['erroraddremoveuser'] = 'Fehler beim Hinzufügen/Entfernen von {$a} in der Gruppe';
 $string['erroreditgroup'] = 'Fehler beim Bearbeiten der Gruppe {$a}';
 $string['erroreditgrouping'] = 'Fehler beim Bearbeiten der Gruppierung {$a}';
@@ -68,16 +69,26 @@ $string['errorremovenotpermitted'] = 'Sie haben nicht das Recht, automatisch hin
 $string['errorselectone'] = 'Bitte markieren Sie nur eine Gruppe, bevor Sie diese Option wählen.';
 $string['errorselectsome'] = 'Bitte markieren Sie eine oder mehrere Gruppen, bevor Sie diese Option wählen.';
 $string['evenallocation'] = 'Anmerkung: Um die Verteilung der Gruppen gleichmäßig zu erteilen, kann die Zahl der Mitglieder je Gruppe von der angegeben Zahl abweichen.';
+$string['event_group_created'] = 'Gruppe angelegt';
+$string['event_group_deleted'] = 'Gruppe gelöscht';
+$string['event_grouping_created'] = 'Gruppierung angelegt';
+$string['event_grouping_deleted'] = 'Gruppierung gelöscht';
+$string['event_grouping_updated'] = 'Gruppierung aktualisiert';
+$string['event_group_member_added'] = 'Gruppenmitglied hinzugefügt';
+$string['event_group_member_removed'] = 'Gruppenmitglied entfernt';
+$string['event_group_updated'] = 'Gruppe aktualisiert';
 $string['existingmembers'] = 'Vorhandene Mitglieder: {$a}';
 $string['filtergroups'] = 'Gruppen filtern nach:';
 $string['group'] = 'Gruppe';
 $string['groupaddedsuccesfully'] = 'Gruppe {$a} erfolgreich hinzugefügt';
-$string['groupby'] = 'Festlegen';
+$string['groupaddedtogroupingsuccesfully'] = 'Gruppe \'{$a}\' wurde erfolgreich zur Gruppierung \'{$a}\' hinzugefügt';
+$string['groupby'] = 'Kriterien für automatisches Erstellen';
 $string['groupdescription'] = 'Gruppenbeschreibung';
 $string['groupinfo'] = 'Info zu ausgewählten Gruppen';
 $string['groupinfomembers'] = 'Info zu ausgewählten Mitglieder';
 $string['groupinfopeople'] = 'Info zu ausgewählten Personen';
 $string['grouping'] = 'Gruppierung';
+$string['groupingaddedsuccesfully'] = 'Gruppierung \'{$a}\' wurde erfolgreich hinzugefügt';
 $string['groupingdescription'] = 'Beschreibung der Gruppierung';
 $string['grouping_help'] = 'Eine Gruppierung ist eine Sammlung von Gruppen innerhalb eines Kurses. Wenn eine Gruppierung ausgewählt ist, dann können Teilnehmer/innen aus unterschiedlichen Gruppen innerhalb der Gruppierung zusammenarbeiten.';
 $string['groupingname'] = 'Name der Gruppierung';
@@ -139,6 +150,7 @@ $string['newgrouping'] = 'Neue Gruppierung';
 $string['newpicture'] = 'Neues Bild';
 $string['newpicture_help'] = 'Wählen Sie ein Bild im Format GIF, JPG oder PNG aus. Das Bild wird als Quadrat beschnitten und in der Größe auf 100x100 Pixel verändert.';
 $string['noallocation'] = 'keine Zuweisung';
+$string['nogrouping'] = 'Keine Gruppierung';
 $string['nogroups'] = 'In diesem Kurs gibt es bisher keine Gruppeneinstellungen';
 $string['nogroupsassigned'] = 'Keine Gruppen zugeordnet';
 $string['nopermissionforcreation'] = 'Die Gruppe "{$a}" konnte nicht erstellt werden, weil Sie nicht über die notwendigen Rechte verfügen.';
@@ -159,7 +171,7 @@ $string['removegroupfromselectedgrouping'] = 'Gruppe aus der Gruppierung entfern
 $string['removegroupingsmembers'] = 'Alle Gruppen aus den Gruppierungen entfernen';
 $string['removegroupsmembers'] = 'Alle Gruppenmitglieder entfernen';
 $string['removeselectedusers'] = 'Ausgewählte Nutzer/innen entfernen';
-$string['selectfromrole'] = 'Nutzerauswahl in der Rolle';
+$string['selectfromrole'] = 'Nutzer in der Rolle auswählen';
 $string['showgroupsingrouping'] = 'Gruppen in Gruppierungen anzeigen';
 $string['showmembersforgroup'] = 'Mitglieder der Gruppe anzeigen';
 $string['toomanygroups'] = 'Nur {$a} Nutzer/innen haben die gewählte Rolle. Dies sind zu wenig für die Anzahl der Gruppen.';

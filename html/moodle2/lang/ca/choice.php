@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,11 @@ $string['completionsubmit'] = 'Mostra com a completada quan l\'usuari fa una tri
 $string['displayhorizontal'] = 'En horitzontal';
 $string['displaymode'] = 'Mode de visualització';
 $string['displayvertical'] = 'En vertical';
+$string['event_answer_created'] = 'S\'ha fet l\'elecció';
+$string['event_answer_updated'] = 'S\'ha actualitzat l\'elecció';
+$string['event_choice_viewed'] = 'S\'ha visualitzat l\'elecció';
+$string['event_instances_list_viewed'] = 'S\'ha visualitzat la llista d\'instàncies';
+$string['event_report_viewed'] = 'S\'ha visualitzat l\'informe d\'elecció';
 $string['expired'] = 'Aquesta activitat es va tancar el dia {$a} i ja no està disponible.';
 $string['full'] = '(Complet)';
 $string['havetologin'] = 'Abans de trametre una resposta heu d\'entrar amb el vostre nom d\'usuari i contrasenya.';
@@ -58,6 +63,7 @@ $string['limitanswers'] = 'Limita el nombre de respostes permeses';
 $string['limitanswers_help'] = 'Aquest paràmetre us permet limitar el nombre de participants que poden seleccionar cada opció concreta. Quan s\'arriba al límit ningú més no pot seleccionar aquesta opció.
 
 Si els límits estan inhabilitats, qualsevol nombre de participants pot seleccionar qualsevol de les opcions.';
+$string['limitno'] = 'Límit {núm.}';
 $string['modulename'] = 'Consulta';
 $string['modulename_help'] = 'El mòdul de consulta permet al professorat plantejar una pregunta i especificar un conjunt de possibles respostes per triar.
 
@@ -81,6 +87,8 @@ $string['notopenyet'] = 'Aquesta activitat no està disponible fins el {$a}';
 $string['numberofuser'] = 'Nombre d\'usuaris';
 $string['numberofuserinpercentage'] = 'Nombre d\'usuaris en percentatge';
 $string['option'] = 'Opció';
+$string['optionno'] = 'Opció {no}';
+$string['options'] = 'Opcions';
 $string['page-mod-choice-x'] = 'Qualsevol pàgina del mòdul de consultes';
 $string['pluginadministration'] = 'Administració de la consulta';
 $string['pluginname'] = 'Consulta';
@@ -97,6 +105,7 @@ $string['removeresponses'] = 'Suprimeix totes les respostes';
 $string['responses'] = 'Respostes';
 $string['responsesresultgraphheader'] = 'Mostra la gràfica';
 $string['responsesto'] = 'Respostes per a {$a}';
+$string['results'] = 'Resultats';
 $string['savemychoice'] = 'Desa la meva resposta';
 $string['showunanswered'] = 'Mostra columna de no contestades';
 $string['skipresultgraph'] = 'Omet el gràfic de resultats';

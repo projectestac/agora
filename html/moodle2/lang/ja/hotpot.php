@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,8 +67,7 @@ $string['navigation_help'] = 'この設定ではHot Potatoesクイズ内で使�
 
 * ギブアップボタン - ギブアップボタンをクイズのページ上部に表示します。
 
-* なし - クイズはナビゲーションなしで表示されます。つまり、MoodleナビゲーションバーもHot Potatoesナビゲーションバーも表示されません。クイズの問題すべてが正しく答えられた場合、Moodleは「次の問題を表示」の設定にしたがって、コースページに戻るか、次のクイズを表示します。
-';
+* なし - クイズはナビゲーションなしで表示されます。つまり、MoodleナビゲーションバーもHot Potatoesナビゲーションバーも表示されません。クイズの問題すべてが正しく答えられた場合、Moodleは「次の問題を表示」の設定にしたがって、コースページに戻るか、次のクイズを表示します。';
 $string['navigation_moodle'] = '標準Moodleナビゲーションバー (トップおよびサイド)';
 $string['navigation_none'] = 'なし';
 $string['noactivity'] = '活動なし';
@@ -93,8 +92,7 @@ $string['studentfeedback_help'] = '有効にした場合、学生が「Check」�
 * ウェブページ - 例えば、次のようなウェブページのURIを入力する必要があります: http://myserver.com/feedbackform.html
 * フィードバックフォーム - 例えば、次のようなフォームスクリプトのURIも入力する必要があります: http://myserver.com/cgi-bin/formmail.pl
 * Moodleフォーラム - このMoodleコースのフォーラムインデックスが表示されます。
-* Moodleメッセージ - Moodleインスタントメッセージウィンドウが表示されます。コースに複数の教師が登録されている場合、メッセージページが表示される前、学生に教師を選択するよう指示されます。
-';
+* Moodleメッセージ - Moodleインスタントメッセージウィンドウが表示されます。コースに複数の教師が登録されている場合、メッセージページが表示される前、学生に教師を選択するよう指示されます。';
 $string['textsourcefilename'] = 'ソースファイル名を使用する';
 $string['textsourcefilepath'] = 'ソースファイルパスを使用する';
 $string['textsourcequiz'] = 'クイズより取得する';

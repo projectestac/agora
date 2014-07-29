@@ -6,7 +6,7 @@ require_once($CFG->dirroot . '/question/type/shortanswer/questiontype.php');
 require_once($CFG->dirroot . '/question/type/wq/quizzes/quizzes.php');
 
 class qtype_shortanswerwiris extends qtype_wq {
-
+    
     public function __construct() {
         parent::__construct(new qtype_shortanswer());
     }
@@ -14,21 +14,14 @@ class qtype_shortanswerwiris extends qtype_wq {
     public function create_editing_form($submiturl, $question, $category, $contexts, $formeditable) {
         global $CFG;
         require_once($CFG->dirroot . '/question/type/shortanswerwiris/edit_shortanswerwiris_form.php');
-        $wform = $this->base->create_editing_form($submiturl, $question, $category, $contexts, $formeditable);
+        $wform = new qtype_shortanswerwiris_helper_edit_form($submiturl, $question, $category, $contexts, $formeditable);
         return new qtype_shortanswerwiris_edit_form($wform, $submiturl, $question, $category, $contexts, $formeditable);
     }
-
-    public function menu_name() {
-        return $this->local_name();
+    public function initialise_question_instance(question_definition $question, $questiondata) {
+        parent::initialise_question_instance($question, $questiondata);
+        $question->answers = &$question->base->answers;
     }
 
-    public function display_question_editing_page($mform, $question, $wizardnow) {
-        //This method is used to load tiny_mce.js before quizzes.js
-        parent::display_question_editing_page($mform, $question, $wizardnow);
-        global $PAGE;
-        $PAGE->requires->js('/question/type/wq/quizzes/service.php?name=quizzes.js&service=resource');
-    }
-    
     public function export_to_xml($question, qformat_xml $format, $extra=null) {
         $expout = "    <usecase>{$question->options->usecase}</usecase>\n";
         $expout .= $format->write_answers($question->options->answers);
@@ -37,7 +30,7 @@ class qtype_shortanswerwiris extends qtype_wq {
     }    
     
     public function import_from_xml($data, $question, qformat_xml $format, $extra=null) {
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         if (isset($question) && $question == 0){
             return false;
@@ -192,12 +185,12 @@ class qtype_shortanswerwiris extends qtype_wq {
                 }
             }
             $wirisquestion .= '</question>';
-            $qo->wirisquestion[0] = $wirisquestion;
+            $qo->wirisquestion = $wirisquestion;
         }else{
             //Import from Moodle 2.x
             $qo = $format->import_shortanswer($data);
             $qo->qtype = 'shortanswerwiris';
-            $qo->wirisquestion[0] = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
+            $qo->wirisquestion = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
         }        
         return $qo;
     }

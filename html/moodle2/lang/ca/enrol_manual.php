@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Duració de la inscripció per defecte';
 $string['defaultperiod_desc'] = 'Temps per defecte durant el qual la inscripció serà vàlida. Si es posa a cero, la duració per defecte de la inscripció serà il·limitada.';
 $string['defaultperiod_help'] = 'Temps per defecte (en segons) durant el qual la inscripció serà vàlida, començant des d\'el moment en que l\'usuari s\'inscriu. Si es deshabilita, el temps per defecte de la inscripció serà il·limitat .';
 $string['deleteselectedusers'] = 'Esborreu els usuaris inscrits';
-$string['editenrolment'] = 'Editeu la inscripció';
 $string['editselectedusers'] = 'Edita les inscripcions del usuaris seleccionats';
 $string['enrolledincourserole'] = 'S\'ha efectuat la inscripció en "{$a->course}" com a "{$a->role}"';
 $string['enrolusers'] = 'Inscriviu usuaris';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = '操作';
 $string['availability'] = '利用';
 $string['checkforupdates'] = '利用可能な更新をチェックする';
 $string['checkforupdateslast'] = '最終チェック: {$a}';
+$string['detectedmisplacedplugin'] = 'プラグイン「 $a->component} 」が正しくないロケーション 「 {$a->current} 」にインストールされています。期待されるロケーションは「 {$a->expected} 」です。';
 $string['displayname'] = 'プラグイン名';
 $string['err_response_curl'] = '利用可能なアップデートデータを取得できません - 不明なcURLエラーです。';
 $string['err_response_format_version'] = '予期しないレスポンスフォーマットのバージョンです。利用可能な更新を再度確認してください。';
@@ -88,6 +89,8 @@ $string['type_cachelock'] = 'キャッシュロックハンドラ';
 $string['type_cachelock_plural'] = 'キャッシュロックハンドラ';
 $string['type_cachestore'] = 'キャッシュストア';
 $string['type_cachestore_plural'] = 'キャッシュストア';
+$string['type_calendartype'] = 'カレンダータイプ';
+$string['type_calendartype_plural'] = 'カレンダータイプ';
 $string['type_coursereport'] = 'コースレポート';
 $string['type_coursereport_plural'] = 'コースレポート';
 $string['type_editor'] = 'エディタ';
@@ -114,8 +117,8 @@ $string['type_mnetservice'] = 'MNetサービス';
 $string['type_mnetservice_plural'] = 'MNetサービス';
 $string['type_mod'] = '活動モジュール';
 $string['type_mod_plural'] = '活動モジュール';
-$string['type_plagiarism'] = '盗作防止';
-$string['type_plagiarism_plural'] = '盗作防止プラグイン';
+$string['type_plagiarism'] = '盗作プラグイン';
+$string['type_plagiarism_plural'] = '盗作プラグイン';
 $string['type_portfolio'] = 'ポートフォリオ';
 $string['type_portfolio_plural'] = 'ポートフォリオ';
 $string['type_profilefield'] = 'プロファイルフィールドタイプ';
@@ -137,6 +140,14 @@ $string['type_tool_plural'] = '管理ツール';
 $string['type_webservice'] = 'ウェブサービスプロトコル';
 $string['type_webservice_plural'] = 'ウェブサービスプロトコル';
 $string['uninstall'] = 'アンインストール';
+$string['uninstallconfirm'] = 'あなたはプラグイン「 {$a->name} 」を完全にアンインストールしようとしています。これにより、設定、ログレコード、プラグイン管理のユーザファイルを含む、関連するデータベース内すべてのデータが完全に削除されます。バックアップする方法はなく、Moodle自体もリカバリバックアップを作成しません。本当に続けてもよろしいですか?';
+$string['uninstalldelete'] = 'データベースからプラグイン「 {$a->name} 」に関するすべてのデータが削除されました。プラグインの再インストールを防ぐには、あなたのサーバからフォルダ「 {$a->rootdir} 」を手動削除してください。書き込み権のため、Moodleはフォルダを削除することはできません。';
+$string['uninstalldeleteconfirm'] = 'データベースからプラグイン「 {$a->name} 」に関するすべてのデータが削除されました。プラグインの再インストールを防ぐには、あなたのサーバからフォルダ「 {$a->rootdir} 」を削除してください。プラグインフォルダを削除してもよろしいですか?';
+$string['uninstalldeleteconfirmexternal'] = '現在のバージョンのプラグインはソースコード管理システム ({$a}) のチェックアウト経由で入手されたようです。プラグインフォルダを削除した場合、あなたはコードの重要な独自修正を失うことになります。続ける前に、あなたが本当にプラグインフォルダを削除したいのか確認してください。';
+$string['uninstallextraconfirmblock'] = 'このブロックには {$a->instances} 件のインスタンスがあります。';
+$string['uninstallextraconfirmenrol'] = '{$a->enrolments} 名のユーザ登録があります。';
+$string['uninstallextraconfirmmod'] = 'このモジュールに関して、{$a->courses} 件のコース内に {$a->instances} 件のインスタンスがあります。';
+$string['uninstalling'] = '{$a->name} のアンインストール';
 $string['updateavailable'] = '利用可能な新しいバージョンの {$a} があります!';
 $string['updateavailable_moreinfo'] = '詳細情報 ...';
 $string['updateavailable_release'] = 'リリース {$a}';

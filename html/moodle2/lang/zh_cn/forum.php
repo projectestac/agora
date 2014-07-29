@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = '新讨论区帖子';
 $string['addanewdiscussion'] = '开启一个新话题';
 $string['addanewquestion'] = '添加一个新问题';
 $string['addanewtopic'] = '添加一个新话题';
@@ -43,6 +44,7 @@ $string['attachment'] = '附件';
 $string['attachment_help'] = '您可以向一个帖子附加一个或多个文件。图片附件会在正文后显示。';
 $string['attachmentnopost'] = '您不能导出没有帖子id的附件';
 $string['attachments'] = '附件';
+$string['attachmentswordcount'] = '附件数和字数';
 $string['blockafter'] = '被阻塞前帖数极限';
 $string['blockafter_help'] = '此项设置决定用户在指定的时长内最多允许发几个帖子。有mod/forum:postwithoutthrottling权限的用户不受此限。';
 $string['blockperiod'] = '阻塞统计周期';
@@ -57,7 +59,6 @@ $string['cannotaddsubscriber'] = '不能向此讨论区添加id为{$a}的订阅�
 $string['cannotaddteacherforumto'] = '不能在课程的第0节添加转换过的教师讨论区';
 $string['cannotcreatediscussion'] = '不能建立新话题';
 $string['cannotcreateinstanceforteacher'] = '不能建立新的教师讨论区模块实例';
-$string['cannotdeleteforummodule'] = '您不能删除讨论区模块。';
 $string['cannotdeletepost'] = '您不能删除此帖！';
 $string['cannoteditposts'] = '您不能编辑他人的帖子！';
 $string['cannotfinddiscussion'] = '本讨论区中找不到这个话题';
@@ -101,6 +102,7 @@ $string['configmaxbytes'] = '缺省的所有讨论区最大附件尺寸(受课�
 $string['configoldpostdays'] = '帖子在多少天后应当被视为已读。';
 $string['configreplytouser'] = '当通过email发送讨论区中的帖子时，是否可以包含用户的email地址，以便收信人可以直接而不是通过讨论区回复发帖人？即使设置为“是”，用户仍可以在他们的个人资料里设置email地址为保密。';
 $string['configshortpost'] = '少于该长度(字符个数，不含 HTML)的帖子被认为是短的（见下一项）。';
+$string['configtrackingtype'] = '阅读跟踪信息的默认设置';
 $string['configtrackreadposts'] = '如果希望跟踪每一个用户的已读/未读信息则设定为“是”。';
 $string['configusermarksread'] = '若设定为“是”则用户必须手动将帖子标记为已读。如果设定为“否”，则帖子被浏览时自动标记为已读。';
 $string['confirmsubscribe'] = '您确定要订阅讨论区“{$a}”吗？';
@@ -115,6 +117,7 @@ $string['deletedposts'] = '那些帖子已删除';
 $string['deletesure'] = '您确定要删除该帖吗?';
 $string['deletesureplural'] = '您确定要删除这个帖子及其回复吗？({$a} 个帖子)';
 $string['digestmailheader'] = '这是 {$a->sitename} 讨论区的每日新帖摘要。要修改您的关于讨论区的偏好，请访问 {$a->userprefs}。';
+$string['digestmailpost'] = '更改讨论区摘要的默认设置';
 $string['digestmailprefs'] = '您的用户信息';
 $string['digestmailsubject'] = '{$a}: 讨论区摘要';
 $string['digestmailtime'] = '发送邮件摘要的时间（整点）';
@@ -150,22 +153,42 @@ $string['displaystart_help'] = '<p align="center"><b>讨论区显示时期</b></
 
 <p>注意：管理员用户可以看到所有帖子，无论是在开始前还是过期后。</p>
 <span style="font-weight: bold;">翻译者：况亮</span><br style="font-weight: bold;" /><span style="font-weight: bold;">Email：kuangliang12345@163.com</span><br style="font-weight: bold;" /><span style="font-weight: bold;">翻译日期：2007年3月4日</span><br />';
+$string['displaywordcount'] = '显示字数';
+$string['displaywordcount_help'] = '是否需要显示每个帖子的总字数？';
 $string['eachuserforum'] = '每个人发表一个话题';
 $string['edit'] = '编辑';
 $string['editedby'] = '由 {$a->name} 修改 - 原提交时间 {$a->date}';
 $string['editedpostupdated'] = '{$a}的帖子已更新';
 $string['editing'] = '正在编辑';
+$string['emaildigest_0'] = '每个帖子你都会收到一封邮件';
+$string['emaildigest_1'] = '每天都会收到一封包含完整帖子内容的邮件';
+$string['emaildigest_2'] = '每天都会收到一封只包含帖子主题的邮件';
+$string['emaildigestcompleteshort'] = '完整帖子';
+$string['emaildigestdefault'] = '默认 {$a}';
+$string['emaildigestoffshort'] = '没有摘要';
+$string['emaildigestsubjectsshort'] = '只有主题';
+$string['emaildigesttype'] = '发送邮件摘要的选项';
+$string['emaildigesttype_help'] = '你从讨论区收到的通知，可分成四种类型：
+*默认 -- 会根据你在个人资料中关于帖子摘要的设定；
+*没有摘要 -- 每个新帖子，你都会收到一封邮件；
+*摘要/内容 -- 每个新帖子，你都会收到一封包含帖子全文的邮件；
+*摘要/主题 -- 每个新帖子，你都会收到一封含摘要和主题的邮件。';
+$string['emaildigestupdated'] = '这是发送帖子摘要的选项，已经把 \'{$a->forum}\'更改为 \'{$a->maildigesttitle}\' 。 {$a->maildigestdescription}';
+$string['emaildigestupdated_default'] = '\'{$a->forum}\'讨论区将使用你在资料中的\'{$a->maildigesttitle}\'默认设置。{$a->maildigestdescription}';
 $string['emptymessage'] = '您的帖子有些问题。可能这是个空帖子，或者附件太大了。您的更改<strong>没有</strong>被保存。';
 $string['erroremptymessage'] = '帖子正文不能为空';
 $string['erroremptysubject'] = '帖子标题不能为空。';
 $string['errorenrolmentrequired'] = '您必须先选修此课才能访问此内容';
 $string['errorwhiledelete'] = '删除记录时发生错误。';
+$string['event_assessable_uploaded'] = '某些已经发到讨论区';
 $string['everyonecanchoose'] = '任何人均可选择订阅';
 $string['everyonecannowchoose'] = '现在任何人均可选择订阅';
 $string['everyoneisnowsubscribed'] = '现在所有人都订阅了该讨论区';
 $string['everyoneissubscribed'] = '所有人都订阅了该讨论区';
 $string['existingsubscribers'] = '个订阅者';
 $string['exportdiscussion'] = '导出整个话题';
+$string['forcedreadtracking'] = '强制阅读跟踪';
+$string['forcedreadtracking_desc'] = '允许讨论区设置为“强制阅读跟踪”，可能导致某些课程运行效能降低，特别是在含有多个讨论区和帖子的课程中。若以后关闭此选项，以前的设置为“强制的”都会更改为“自行选择”。';
 $string['forcessubscribe'] = '该讨论区强制每个人都订阅';
 $string['forum'] = '讨论区';
 $string['forum:addinstance'] = '添加新讨论区';
@@ -214,12 +237,14 @@ $string['forum:viewrating'] = '查看自己的总分';
 $string['forum:viewsubscribers'] = '查看订阅者';
 $string['generalforum'] = '一般用途的标准讨论区';
 $string['generalforums'] = '普通讨论区';
+$string['hiddenforumpost'] = '隐藏讨论区帖子内容';
 $string['inforum'] = '在 {$a} 里';
 $string['introblog'] = '本讨论区的帖子自动拷贝自课程的博客用户。那些博客将不能再使用。';
 $string['intronews'] = '普通新闻与通告';
 $string['introsocial'] = '开放的讨论区，可以随便聊聊';
 $string['introteacher'] = '教师专用讨论区';
 $string['invalidaccess'] = '本页面没有被正确访问';
+$string['invaliddigestsetting'] = '邮件摘要设置无效';
 $string['invaliddiscussionid'] = '话题ID不正确或不再存在';
 $string['invalidforcesubscribe'] = '无效的强制订阅模式';
 $string['invalidforumid'] = '讨论区ID错误';
@@ -278,7 +303,6 @@ $string['nopermissiontosubscribe'] = '您没有查看讨论区订阅者的权限
 $string['nopermissiontoview'] = '您没有查看此帖子的权限';
 $string['nopostforum'] = '很抱歉，您不能在此讨论区发帖';
 $string['noposts'] = '没有帖子';
-$string['nopostscontaining'] = '找不到包含“{$a}”的帖子';
 $string['nopostsmadebyuser'] = '{$a}没有发过贴';
 $string['nopostsmadebyyou'] = '您还没发过任何帖子';
 $string['noquestions'] = '此讨论区尚无人提问';
@@ -316,6 +340,7 @@ $string['postadded'] = '<p>您的帖子已经成功发表。</p>
 <p>如果需要，可以在 {$a} 内修改它。</p>';
 $string['postaddedsuccess'] = '您的帖子已成功发布';
 $string['postaddedtimeleft'] = '{$a}内您可以继续编辑它，如果您想修改的话。';
+$string['postbyuser'] = '{$a->post} 由 {$a->user} 所发';
 $string['postincontext'] = '在上下文中看此帖';
 $string['postmailinfo'] = '这是一份来自网站 {$a} 的帖子。
 

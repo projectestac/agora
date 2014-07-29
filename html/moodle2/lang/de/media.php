@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'media', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,9 +30,9 @@ $string['flashanimation_desc'] = 'Dateien mit der Endung *.swf. Aus Sicherheitsg
 $string['flashvideo'] = 'Flash-Video';
 $string['flashvideo_desc'] = 'Dateien mit den Endungen *.flv und *.f4v. Dieser Filter spielt Videoclips mit dem FlowPlayer ab und benötigt Flash und JavaScript.';
 $string['html5audio'] = 'HTML5-Audio';
-$string['html5audio_desc'] = 'Audio-Dateien mit den Endungen *.ogg, *.aac, *.m4a. Der Filter arbeitet nur mit aktuellen Browsern, wobei es kein von allen Browsern unterstütztes Format gibt.';
+$string['html5audio_desc'] = 'Audiodateien mit den Endungen *.ogg, *.aac, *.m4a und *.mp3. Der Filter arbeitet nur mit aktuellen Browsern zusammen, wobei es kein von allen Browsern unterstütztes Format gibt.';
 $string['html5video'] = 'HTML5-Video';
-$string['html5video_desc'] = 'Video-Dateien mit den Endungen *.webm, *.m4v, *.ogv und *.mp4 und anderen. Der Filter arbeitet nur mit aktuellen Browsern, wobei es kein von allen Browsern unterstütztes Format gibt.';
+$string['html5video_desc'] = 'Videodateien mit den Endungen *.webm, *.m4v, *.ogv , *.mp4 und weiteren. Der Filter arbeitet nur mit aktuellen Browsern zusammen, wobei es kein von allen Browsern unterstütztes Format gibt.';
 $string['legacyheading'] = 'Ältere Medienformate';
 $string['legacyheading_desc'] = 'Folgende Formate sind im Web nicht allgemein üblich und benötigen die Installation spezieller Browser Plugins.';
 $string['legacyquicktime'] = 'QuickTime Player';

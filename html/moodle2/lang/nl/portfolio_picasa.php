@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_picasa', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_picasa', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_picasa
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,10 +29,10 @@ $string['clientid'] = 'Client ID';
 $string['noauthtoken'] = 'Er is geen authenticatietoken van Google opgegeven. Zorg er voor dat je Moodle toelaat tot je Google account';
 $string['nooauthcredentials'] = 'OAuth credentials vereist';
 $string['nooauthcredentials_help'] = 'Om de Picasa portfolio plugin te gebruiken, moet je de OAuth credentials configureren in de portfolio instellingen.';
-$string['oauth2upgrade_message_content'] = 'Als deel van de upgrade naar 2.3 wordt de Picasa portfolioplugin uitgeschakeld. Om die opnieuw in te schakelen, moet je Moodle site geregistreerd worden bij Google, zoals beschreven in de documentatie {$a->docsurl}, om een client ID en geheim te verkrijgen. Het client ID en geheim kunnen dan gebruikt worden om all Google Docs en Picasa plugins te configureren.';
+$string['oauth2upgrade_message_content'] = 'Als deel van de upgrade naar 2.3 wordt de Picasa portfolioplugin uitgeschakeld. Om die opnieuw in te schakelen, moet je Moodle site geregistreerd worden bij Google, zoals beschreven in de documentatie {$a->docsurl}, om een client ID en geheim te verkrijgen. Het client ID en geheim kunnen dan gebruikt worden om all Google Drive en Picasa plugins te configureren.';
 $string['oauth2upgrade_message_small'] = 'Deze plugin is uitgeschakeld, omdat het geconfigureerd dient te worden zoals beschreven in de documentatie over Google OAUth 2.0';
 $string['oauth2upgrade_message_subject'] = 'Belangrijke informatie over de Picasa portfolio plugin';
-$string['oauthinfo'] = '<p>Om deze plugin te kunnen gebruiken, moet je je site registreren bij Google, zoals beschreven in de documentatie <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p>Als deel van het registratieproces zul je volgende URL moeten ingeven als \'Authorized Redirect URIs\':</p><p>{$a->callbackurl}</p>Als je geregistreerd bent, zul je een lient ID en geheim krijgen die je dan kunt gebruiken om alle Google Docs en Picasa plugins te configureren.</p>';
+$string['oauthinfo'] = '<p>Om deze plugin te kunnen gebruiken, moet je je site registreren bij Google, zoals beschreven in de documentatie <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p>Als deel van het registratieproces zul je volgende URL moeten ingeven als \'Authorized Redirect URIs\':</p><p>{$a->callbackurl}</p>Als je geregistreerd bent, zul je een lient ID en geheim krijgen die je dan kunt gebruiken om alle Google Drive en Picasa plugins te configureren.</p>';
 $string['pluginname'] = 'Picasa';
 $string['secret'] = 'Geheim';
 $string['sendfailed'] = 'Het is niet gelukt om bestand {$a} naar Picasa over te brengen';

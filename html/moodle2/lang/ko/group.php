@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -72,12 +72,14 @@ $string['existingmembers'] = '실제 회원수 : {$a}';
 $string['filtergroups'] = '모둠을 다음 조건으로 필터링 :';
 $string['group'] = '모둠';
 $string['groupaddedsuccesfully'] = '{$a} 모둠이 성공적으로 추가되었습니다';
+$string['groupaddedtogroupingsuccesfully'] = '모둠 {$a->groupname}이 모둠무리 {$a->groupingname}에 성공적으로 추가되었습니다.';
 $string['groupby'] = '다음 수에 근거하여 모둠 생성';
 $string['groupdescription'] = '모둠 설명';
 $string['groupinfo'] = '선택한 모둠의 정보';
 $string['groupinfomembers'] = '선택한 구성원의 정보';
 $string['groupinfopeople'] = '선택한 사람의 정보';
 $string['grouping'] = '모둠무리';
+$string['groupingaddedsuccesfully'] = '모둠무리 {$a}가 성공적으로 추가되었습니다.';
 $string['groupingdescription'] = '모둠무리 설명';
 $string['grouping_help'] = '모둠 무리는 강좌내 모둠들의 집합을 의미합니다.
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,14 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Conteúdo';
+$string['display'] = 'Exibir conteúdo da pasta';
+$string['display_help'] = 'Se optar por exibir os conteúdos da pasta na página da disciplina, não haverá uma ligação para uma página independente.
+
+A descrição será exibida apenas se a opção "Exibir descrição na página da disciplina" estiver ativa.
+
+Note também que as ações de visualização dos participantes não poderão ser registadas neste caso.';
+$string['displayinline'] = 'Na página da disciplina';
+$string['displaypage'] = 'Numa página separada';
 $string['dnduploadmakefolder'] = 'Extrair zip e criar pasta';
 $string['folder:addinstance'] = 'Adicionar nova pasta';
 $string['foldercontent'] = 'Ficheiros e subpastas';
@@ -41,7 +49,10 @@ A pasta pode ser utilizada para:
 $string['modulename_link'] = 'mod/folder/view';
 $string['modulenameplural'] = 'Pastas';
 $string['neverseen'] = 'Nunca visto';
+$string['noautocompletioninline'] = 'A conclusão automática com base na visualização da atividade não pode ser selecionada em conjunto com a opção "Exibir na página da disciplina"';
 $string['page-mod-folder-view'] = 'Página principal do recurso pasta';
 $string['page-mod-folder-x'] = 'Qualquer pasta';
 $string['pluginadministration'] = 'Administração da Pasta';
 $string['pluginname'] = 'Pasta';
+$string['showexpanded'] = 'Mostrar as subpastas expandidas';
+$string['showexpanded_help'] = 'Se selecionar \'sim\', as subpastas serão exibidas de forma expandida por predefinição. Caso contrário, serão exibidas de forma contraída.';

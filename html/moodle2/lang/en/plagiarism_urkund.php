@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_urkund', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism_urkund', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_urkund
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -47,6 +47,7 @@ $string['pending'] = 'This file is pending submission to URKUND';
 $string['pluginname'] = 'URKUND plagiarism plugin';
 $string['previouslysubmitted'] = 'Previously submitted as';
 $string['processing'] = 'This file has been submitted to URKUND, now waiting for the analysis to be available';
+$string['receivernotvalid'] = 'This is not a valid receiver address.';
 $string['report'] = 'report';
 $string['resubmit'] = 'Resubmit';
 $string['savedconfigfailed'] = 'An incorrect username/password combination has been entered, URKUND has been disabled, please try again.';

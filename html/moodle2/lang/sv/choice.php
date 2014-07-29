@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,28 +25,28 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoices'] = 'Lägg till fler val';
-$string['allowupdate'] = 'Tillåt uppdatering av val';
+$string['addmorechoices'] = 'Lägg till fler opinionsundersökningar';
+$string['allowupdate'] = 'Tillåt uppdatering av opinionsundersökning';
 $string['answered'] = 'Besvarade';
 $string['atleastoneoption'] = 'Du måste lämna minst ett möjligt svar';
 $string['choice'] = 'Svarsalternativ {$a}';
 $string['choice:addinstance'] = 'Lägg till ett nytt val';
-$string['choice:choose'] = 'Registrera ett val';
+$string['choice:choose'] = 'Registrera en opinionsundersökning';
 $string['choiceclose'] = 'Till';
-$string['choice:deleteresponses'] = 'Ta bort svar';
-$string['choice:downloadresponses'] = 'Ladda ner svar';
-$string['choicefull'] = 'Den här valalternativet är fullt och det finns inga tillgängliga platser.';
-$string['choicename'] = 'Valets namn';
+$string['choice:deleteresponses'] = 'Ta bort responser';
+$string['choice:downloadresponses'] = 'Ladda ner responser';
+$string['choicefull'] = 'Den här opinonsundersökningen är full och det finns inga tillgängliga platser.';
+$string['choicename'] = 'Opinionsundersökningens namn';
 $string['choiceopen'] = 'Öppna';
-$string['choiceoptions'] = 'Alternativ för val';
-$string['choiceoptions_help'] = '<p>Här specifierar du de alternativ som de lärande har att välja bland.</p>
-<p>Du kan fylla i valfritt antal av dessa. Det går bra
-att lämna några tomma om du inte behöver alla de sex alternativen.</p>';
-$string['choice:readresponses'] = 'Läs svar';
-$string['choicesaved'] = 'Ditt val har sparats';
-$string['choicetext'] = 'Valets text';
+$string['choiceoptions'] = 'Alternativ för opinonsundersökning';
+$string['choiceoptions_help'] = '<p>H&auml;r specifierar Du de alternativ som de l&auml;rande har att v&auml;lja bland.</p>
+<p>Du kan fylla i valfritt antal av dessa. Det g&aring;r bra
+att l&auml;mna n&aring;gra tomma om Du inte beh&ouml;ver alla de sex alternativen.</p>';
+$string['choice:readresponses'] = 'Läs responser';
+$string['choicesaved'] = 'Din opinionsundersökning har sparats';
+$string['choicetext'] = 'Opinionsundersökningens text';
 $string['chooseaction'] = 'Välj en åtgärd...';
-$string['completionsubmit'] = 'Visa som fullföljd när en användare besvarar ett val';
+$string['completionsubmit'] = 'Visa som fullföljd när en användare besvarar en opinionsundersökning';
 $string['displayhorizontal'] = 'Visa horisontellt';
 $string['displaymode'] = 'Visningsläge';
 $string['displayvertical'] = 'Visa vertikalt';
@@ -54,7 +54,7 @@ $string['expired'] = 'Den här aktiviteten är stängd på {$a} och den är inte
 $string['full'] = '(Full)';
 $string['havetologin'] = 'Du måste logga in innan Du kan skicka Ditt/Dina svar';
 $string['limit'] = 'Begränsning';
-$string['limitanswers'] = 'Begränsa det antal val som är tillåtna';
+$string['limitanswers'] = 'Begränsa det antal svar som är tillåtna';
 $string['limitanswers_help'] = '<p>Med den h&auml;r inst&auml;llningen kan Du begr&auml;nsa antalet deltagare som kan v&auml;lja
 varje specifikt alternativ.</p>
 
@@ -62,22 +62,22 @@ varje specifikt alternativ.</p>
 markera det. Om Du st&auml;ller in det till 0 s&aring; kan ingen v&auml;lja det.</p>
 
 <p>Om Du inte aktiverar n&aring;gra begr&auml;nsningar s&aring; kan hur m&aring;nga deltagare som helst v&auml;lja alternativet.</p>';
-$string['modulename'] = 'Val';
-$string['modulename_help'] = 'Modulen val gör det möjligt för läraren att ställa en fråga och ange ett urval av svarsalternativ.';
-$string['modulenameplural'] = 'Val';
+$string['modulename'] = 'Opinionsundersökning';
+$string['modulename_help'] = 'Modulen opinionsundersökning gör det möjligt för distansläraren att ställa en fråga och ange ett urval av svarsalternativ. ';
+$string['modulenameplural'] = 'Opinionsundersökningar';
 $string['moveselectedusersto'] = 'Flytta de valda användarna till...';
 $string['mustchooseone'] = 'Du måste välja ett svar innan Du kan svara. Ingenting sparades.';
-$string['noguestchoose'] = 'Gäster får tyvärr inte delta i val.';
+$string['noguestchoose'] = 'Gäster får tyvärr inte delta i opinionsundersökningar.';
 $string['noresultsviewable'] = 'Det går f.n. inte att visa resultaten.';
-$string['notanswered'] = 'Ännu inte besvarad';
-$string['notenrolledchoose'] = 'Tyvärr så får bara registrerade användare delta i val.';
+$string['notanswered'] = 'Inte ännu besvarad';
+$string['notenrolledchoose'] = 'Tyvärr så får bara registrerade användare delta i opinionsundersökningar.';
 $string['notopenyet'] = 'Den här aktiviteten är tyvärr inte tillgänglig förrän {$a}';
 $string['numberofuser'] = 'Antal användare';
 $string['numberofuserinpercentage'] = 'Antalet användare i procent.';
 $string['option'] = 'Alternativ';
 $string['page-mod-choice-x'] = 'Varje sida för valmodulen';
-$string['pluginadministration'] = 'Administration av val';
-$string['pluginname'] = 'Val';
+$string['pluginadministration'] = 'Administration av opinionsundersökning';
+$string['pluginname'] = 'Opinionsundersökning';
 $string['privacy'] = 'Integritet för resultat';
 $string['publish'] = 'Publicera resultaten';
 $string['publishafteranswer'] = 'Visa resultaten för studenterna/eleverna/deltagarna/de lärande efter det att de har svarat';
@@ -91,9 +91,9 @@ $string['removeresponses'] = 'Ta bort alla svar';
 $string['responses'] = 'Svar';
 $string['responsesresultgraphheader'] = 'Visa en graf';
 $string['responsesto'] = 'Svar till {$a}';
-$string['savemychoice'] = 'Spara mitt val';
+$string['savemychoice'] = 'Spara min opinionsundersökning';
 $string['showunanswered'] = 'Visa kolumn för icke besvarade';
-$string['skipresultgraph'] = 'Hoppa över resultatdiagramet';
+$string['skipresultgraph'] = 'Hoppa över diagrammet över resultat';
 $string['spaceleft'] = 'Tillgängligt utrymme';
 $string['spacesleft'] = 'Tillgängliga utrymmen';
 $string['taken'] = 'Upptagen';

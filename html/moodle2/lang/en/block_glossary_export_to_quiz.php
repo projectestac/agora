@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_export_to_quiz', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_export_to_quiz', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_export_to_quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['emptyglossaries'] = 'This course glossaries are empty (no entries)';
 $string['emptyglossary'] = 'This course glossary is empty (no entries)';
 $string['exportentriestoxml'] = 'Export entries to Quiz (XML)';
 $string['firstmodified'] = 'Oldest entries first';
+$string['generalhelp'] = 'Block Help';
 $string['glossary_export_to_quiz:addinstance'] = 'Add a new glossary_export_to_quiz block';
 $string['glossary_export_to_quiz:myaddinstance'] = 'Add a new glossary_export_to_quiz block to the My Moodle page';
 $string['lastmodified'] = 'Most recent entries first';
@@ -41,11 +42,14 @@ This option can be useful for exporting a limited number of entries from very la
 $string['multichoice'] = 'Multiple Choice';
 $string['noglossaries'] = 'No glossaries in this course';
 $string['nolink'] = 'Remove glossary autolinks';
-$string['notenoughentries'] = 'Not enough entries (<b>{$a->numentries}</b>) in <b>Glossary</b> <em>{$a->varnotenough}</em> for Multichoice questions.';
+$string['notenoughentriesavailable'] = 'Not enough entries available ({$a}) for Multichoice questions (minimum 4 entries needed).';
+$string['notenoughentriesselected'] = 'Not enough entries selected ({$a}) for Multichoice questions (minimum 4 entries needed).';
 $string['notyetconfigured'] = 'Please <b>Turn editing on</b> to configure this block.';
-$string['notyetconfiguredediting'] = 'Please configure this block using the edit icon.';
+$string['notyetconfiguredediting'] = 'Please click the Actions icon to configure this block.';
 $string['numentries'] = 'Export {$a} entries';
 $string['pluginname'] = 'Export Glossary to Quiz';
+$string['pluginname_help'] = 'Right-click the <b>More Help</b> link to view the Moodle Documentation Wiki.';
+$string['pluginname_link'] = 'block/glossary_export_to_quiz/edit';
 $string['questiontype'] = 'Question type:';
 $string['questiontype_help'] = 'Glossary entries can be exported to the Quiz Questions bank either as multiple choice or short answer questions.
 Multiple choice questions will consist of the following elements:

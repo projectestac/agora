@@ -17,8 +17,7 @@
 /**
  * Version information for the drag-and-drop markers question type.
  *
- * @package    qtype
- * @subpackage ddmarker
+ * @package    qtype_ddmarker
  * @copyright  2012 The Open University
  * @author     Jamie Pratt <me@jamiep.org>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2013031400;
-$plugin->requires  = 2012062500;
+$plugin->version   = 2014060300;
+$plugin->requires  = 2013051400;
 $plugin->cron      = 0;
 $plugin->component = 'qtype_ddmarker';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '1.2 for Moodle 2.3+';
+$plugin->release   = '1.6 for Moodle 2.5+';
 
 $plugin->dependencies = array(
-    'qtype_gapselect'     => 2013031400,
-    'qtype_ddimageortext' => 2013031400,
+    'qtype_gapselect'     => 2014010800,
+    'qtype_ddimageortext' => 2014010800,
 );

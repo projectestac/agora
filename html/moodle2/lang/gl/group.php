@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -122,9 +122,9 @@ $string['hidepicture'] = 'Agochar a imaxe';
 $string['importgroups'] = 'Importar grupos';
 $string['importgroups_help'] = 'Os grupos poden importarse mediante un ficheiro de texto. O formato do ficheiro ten que ser como sigue:
 
-* Cada liña do ficheiro conten un rexistro
+* Cada liña do ficheiro contén un rexistro
 * Cada rexistro é unha serie de datos separados por comas
-* O primeiro rexistro conten unha lista de nomes de campos que definen o formato do resto do ficheiro
+* O primeiro rexistro contén unha lista de nomes de campos que definen o formato do resto do ficheiro
 * É obrigatorio o nome de campo sendo nome de grupo
 * Son opcionais os nomes de campo descrición, chave de matriculación, imaxe, imaxe agochada';
 $string['importgroups_link'] = 'group/import';

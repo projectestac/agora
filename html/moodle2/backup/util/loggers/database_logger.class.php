@@ -59,13 +59,7 @@ class database_logger extends base_logger {
         if ($this->levelcol) {
             $columns[$this->levelcol] = $level;
         }
-        $message = clean_param($message, PARAM_NOTAGS);
-        // Check if the message exceeds the 255 character limit in the database,
-        // if it does, shorten it so that it can be inserted successfully.
-        if (textlib::strlen($message) > 255) {
-            $message = textlib::substr($message, 0, 252) . '...';
-        }
-        $columns[$this->messagecol] = $message;
+        $columns[$this->messagecol] = clean_param($message, PARAM_NOTAGS);
         return $this->insert_log_record($this->logtable, $columns);
     }
 

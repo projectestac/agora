@@ -43,7 +43,7 @@ class assignfeedback_file_upload_zip_form extends moodleform {
         $mform = $this->_form;
         $params = $this->_customdata;
 
-        $mform->addElement('header', '', get_string('uploadzip', 'assignfeedback_file'));
+        $mform->addElement('header', 'uploadzip', get_string('uploadzip', 'assignfeedback_file'));
 
         $fileoptions = array('subdirs'=>0,
                                 'maxbytes'=>$COURSE->maxbytes,
@@ -56,10 +56,15 @@ class assignfeedback_file_upload_zip_form extends moodleform {
         $mform->addHelpButton('feedbackzip', 'feedbackzip', 'assignfeedback_file');
 
         $mform->addElement('hidden', 'id', $params['cm']);
+        $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'action', 'viewpluginpage');
+        $mform->setType('action', PARAM_ALPHA);
         $mform->addElement('hidden', 'pluginaction', 'uploadzip');
+        $mform->setType('pluginaction', PARAM_ALPHA);
         $mform->addElement('hidden', 'plugin', 'file');
+        $mform->setType('plugin', PARAM_PLUGIN);
         $mform->addElement('hidden', 'pluginsubtype', 'assignfeedback');
+        $mform->setType('pluginsubtype', PARAM_PLUGIN);
         $this->add_action_buttons(true, get_string('importfeedbackfiles', 'assignfeedback_file'));
 
     }

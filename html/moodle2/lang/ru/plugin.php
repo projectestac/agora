@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Действия';
 $string['availability'] = 'Доступность';
 $string['checkforupdates'] = 'Проверить наличие обновлений';
 $string['checkforupdateslast'] = 'Последняя проверка обновлений: {$a}';
+$string['detectedmisplacedplugin'] = 'Плагин «{$a->component}» расположен неверно - «{$a->current}»; ожидаемое расположение - «{$a->expected}»';
 $string['displayname'] = 'Название плагина';
 $string['err_response_curl'] = 'Невозможно получить имеющиеся обновления данных - непредвиденная ошибка cURL.';
 $string['err_response_format_version'] = 'Непредвиденная версия формата ответа. Попробуйте еще раз проверить наличие обновлений.';
@@ -55,7 +56,7 @@ $string['numtotal'] = 'Установлено: {$a}';
 $string['numupdatable'] = 'Доступные обновления: {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['pluginchecknotice'] = 'На этой странице отображаются плагины, которые могут потребовать особого внимания в процессе обновления. Выделены новые плагины, которые сейчас будут установлены; обновляемые плагины, которые будут обновлены, а также недостающие ранее установленные плагины. Также отмечены плагины сторонних разработчиков. Рекомендуется проверить, существуют ли более свежие версии плагинов сторонних разработчиков и обновить их исходный код перед продолжением этого обновления Moodle.';
+$string['pluginchecknotice'] = 'На этой странице отображаются плагины, которые могут потребовать особого внимания в процессе обновления. Выделены новые плагины, которые будут установлены; обновляемые плагины, которые будут обновлены, а также отсутствующие ранее установленные плагины. Дополнения выделены при наличии доступных для них обновлений. Рекомендуется проверить, существуют ли более свежие версии доступных дополнений и обновить их исходный код перед продолжением обновления Moodle.';
 $string['plugindisable'] = 'Отключить';
 $string['plugindisabled'] = 'Отключено';
 $string['pluginenable'] = 'Включить';
@@ -88,6 +89,8 @@ $string['type_cachelock'] = 'Обработчик блокировок кэша'
 $string['type_cachelock_plural'] = 'Обработчики блокировок кэша';
 $string['type_cachestore'] = 'Хранилище кэша';
 $string['type_cachestore_plural'] = 'Хранилища кэша';
+$string['type_calendartype'] = 'Тип календаря';
+$string['type_calendartype_plural'] = 'Типы календарей';
 $string['type_coursereport'] = 'Отчет по курсу';
 $string['type_coursereport_plural'] = 'Отчеты по курсам';
 $string['type_editor'] = 'Редактор';
@@ -137,6 +140,14 @@ $string['type_tool_plural'] = 'Инструменты администриров
 $string['type_webservice'] = 'Протокол веб-службы';
 $string['type_webservice_plural'] = 'Протоколы веб-служб';
 $string['uninstall'] = 'Удалить';
+$string['uninstallconfirm'] = 'Вы собираетесь удалить плагин <em>{$a->name}</em>. Это полностью удалит из базы данных всё, что связано с этим плагином, в том числе его настройки, записи журнала, файлы пользователя, управляемые с помощью плагина и т.д. Назад пути не будет - Moodle самостоятельно не создаст никаких восстановлений из резервной копии. Вы УВЕРЕНЫ, что хотите продолжить?';
+$string['uninstalldelete'] = 'Все данные, связанные с плагином <em>{$a->name}</em> были удалены из базы данных. Для предотвращения самоустановки плагина, этот каталог <em>{$a->rootdir}</em>теперь должен быть вручную удален с сервера. Moodle самостоятельно не может удалить каталог из-за отсутствия прав на запись.';
+$string['uninstalldeleteconfirm'] = 'Все данные, связанные с плагином <em>{$a->name}</em> были удалены из базы данных. Для предотвращения самоустановки плагина, этот каталог <em>{$a->rootdir}</em>теперь должен быть удален с сервера. Вы хотите сейчас удалить каталог плагина?';
+$string['uninstalldeleteconfirmexternal'] = 'Вероятно текущая версия плагина была получена через систему управления исходным кодом ({$a}). При удалении каталога плагина Вы можете потерять важные локальные изменения кода. Перед продолжением убедитесь, что Вы осознанно хотите удалить папку плагинов.';
+$string['uninstallextraconfirmblock'] = 'Экземпляров этого блока: {$a->instances}.';
+$string['uninstallextraconfirmenrol'] = 'С помощью этого модуля зачислено пользователей: {$a->enrolments}.';
+$string['uninstallextraconfirmmod'] = 'Экземпляров этого блока: {$a->instances}. Курсов, где используется этот модуль: {$a->courses}.';
+$string['uninstalling'] = 'Удаление плагина {$a->name}';
 $string['updateavailable'] = 'Доступна новая версия плагина {$a}!';
 $string['updateavailable_moreinfo'] = 'Подробнее...';
 $string['updateavailable_release'] = 'Релиз {$a}';

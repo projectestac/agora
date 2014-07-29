@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_progress', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_progress', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block_progress
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,7 +65,7 @@ $string['glossary'] = 'Glossaire';
 $string['graded'] = 'noté';
 $string['hotpot'] = 'Hot Potatoes';
 $string['how_ordering_works'] = 'Comment fonctionne le tri';
-$string['how_ordering_works_help'] = '<p>Il y a deux façon d\'ordonner les éléments de la barre de progression. Ils peuvent être ordonnés selon : </p>
+$string['how_ordering_works_help'] = '<p>Il y a deux façons d\'ordonner les éléments de la barre de progression. Ils peuvent être ordonnés selon : </p>
 <ul>
 <li><em>L\'heure et la date de rendu</em> (default)<br />
 Les dates de rendu ou les dates entrées manuellement dans les activités ou les ressources servent à trier les éléments affichés dans la barre de progression.
@@ -109,38 +109,38 @@ $string['url'] = 'URL';
 $string['viewed'] = 'visualisé';
 $string['what_actions_can_be_monitored'] = 'Quelles actions peuvent être surveillées?';
 $string['what_actions_can_be_monitored_help'] = '<p>Différentes activités et ressources peuvent être surveillées.</p>
-<p>Du fait que les activités et les ressources fonctionnent différement, ce qui est surveillé varie pour chaque module. Par exemple, pour les devoirs, une soumission est surveillée; pour les questionnaires, des réponses sont attendues; pour les forums, ce sont les posts qui sont surveillés; pour les activités avec des choix, les réponses ou la visulalisation des ressources sont surveillées.</p>
+<p>Du fait que les activités et les ressources fonctionnent différemment, ce qui est surveillé varie pour chaque module. Par exemple, pour les devoirs, une soumission est surveillée ; pour les questionnaires, des réponses sont attendues ; pour les forums, ce sont les posts qui sont surveillés ; pour les activités avec des choix, les réponses ou la visualisation des ressources sont surveillées.</p>
 <p>Certaines activités peuvent avoir plus d\'une activité associée. Dans ce cas, vous pouvez choisir l\'activité appropriée pour chaque instance de l\'activité.</p>
 <p>Pour les modules Devoir et de Questionnaire, la notion de passé repose sur un "Grade de passer" d\'être défini pour l\'élément de qualité dans le bulletin de notes. <a href="http://docs.moodle.org/en/Grade_items#Activity-based_grade_items" target="_blank">Plus d\'aide...</a></p>';
 $string['what_does_monitored_mean'] = 'Que signifie "surveillé"?';
-$string['what_does_monitored_mean_help'] = '<p>La raison dêtre de ce bloc est d\'encourager les étudiants à gérer de manière effective leur temps de travail. Chaque étudiant peut contrôler son avancement pour chaque activité et ressource que vous avez créées.</p>
+$string['what_does_monitored_mean_help'] = '<p>La raison d\'être de ce bloc est d\'encourager les étudiants à gérer de manière effective leur temps de travail. Chaque étudiant peut contrôler son avancement pour chaque activité et ressource que vous avez créée.</p>
 <p>Sur la page de configuration, vous pourrez voir la liste de tous les modules que vous avez créés et pouvant être surveillés par le bloc "Barre de progression". Si vous sélectionnez "Oui" afin de surveiller un module, ce dernier apparaîtra sous la forme d\'un petit carré sur la barre de progression.</p>';
 $string['what_expected_by_means'] = 'Que signifie "attendu"?';
 $string['what_expected_by_means_help'] = '<p>Le paramètre <em>Attendu le</em> définit la date et l\'heure auxquelles l\'activité en question doit être terminée (visualisé, soumis, posté, etc...).</p>
-<p>S\'il y a déjà une échéance associée à une activité, comme l\'échéance d\'un devoir, cette échéance peut être utilisée aussi longtemps que "Fermé pour l\'échéance" est sélectionné. En déselectionnant ce dernier, une échéance indépendante de celle définie dans le formulaire de l\'activité est créée et sa modification n\'altera pas l\'échéance définie dans l\'activité.</p>
-<p>Lorsque vous visitez pour la première fois le formulaire de configuration du bloc "Barre de progression", ou si vous créez une nouvelle activité/ressource et que vous retrournez dans le formulaire de configuration, l\'échance du bloc sera définie automatiquement de la manière suivante :
+<p>S\'il y a déjà une échéance associée à une activité, comme l\'échéance d\'un devoir, cette échéance peut être utilisée aussi longtemps que "Fermé pour l\'échéance" est sélectionné. En désélectionnant ce dernier, une échéance indépendante de celle définie dans le formulaire de l\'activité est créée et sa modification n’altèrera pas l\'échéance définie dans l\'activité.</p>
+<p>Lorsque vous visitez pour la première fois le formulaire de configuration du bloc "Barre de progression", ou si vous créez une nouvelle activité/ressource et que vous retournez dans le formulaire de configuration, l’échéance du bloc sera définie automatiquement de la manière suivante :
 <ul>
-    <li>Pour une actitivé avec une échance déjà définie, l\'échéance de l\'activité sera utilisée.</li>
-    <li>Lorsqu\'aucune échéance n\'est définie dans l\'activité, mais que le cours utilise le format hebdomadaire, l\'échéance du bloc tombera à la fin de la semaine (dimanche juste avant minuit).</li>
+    <li>Pour une activité avec une échéance déjà définie, l\'échéance de l\'activité sera utilisée.</li>
+    <li>Lorsqu’aucune échéance n\'est définie dans l\'activité, mais que le cours utilise le format hebdomadaire, l\'échéance du bloc tombera à la fin de la semaine (dimanche juste avant minuit).</li>
     <li>Pour une activité/ressource n\'utilisant pas le format hebdomadaire, la fin de la semaine en cours (dimanche suivant juste avant minuit) sera utilisée comme échéance du bloc.</li>
 </ul>
 </p>
 <p>Lorsqu\'une échéance est définie dans le formulaire du bloc, elle est indépendante des échéances ou des informations de l\'activité ou de la ressource.</p>';
 $string['what_locked_means'] = 'Que signifie "bloqué pour l\'échéance"?';
-$string['what_locked_means_help'] = '<p>Lorsqu\'une activité peut avoir une échéance et que léchéance est définie, vous avez le choix d\'utiliser l\'échéance définie dans le formulaire de l\'activité ou de définir une échéance différente à l\'aide du formulaire du bloc "Barre de progression".</p>
-<p>Pour bloquer la barre de progression sur l\'échéance d\'une activité, l\'échéance doit être préalablement activée et définie. Si l\'échéance est verouillée, le changement de l\'échéance dans le formulaire de l\'activité se répercutera automatiquement sur l\'échéance associée à l\'activité dans la bloc "Barre de progression".</p>
-<p>Lorsqu\'une activité n\'est pas vérouillée, le changement de la date et de l\'heure dans le bloc "Barre de progression" n\'affectera pas léchéance définie dans le formulaire de l\'activité.</p>';
+$string['what_locked_means_help'] = '<p>Lorsqu\'une activité peut avoir une échéance et que l\'échéance est définie, vous avez le choix d\'utiliser l\'échéance définie dans le formulaire de l\'activité ou de définir une échéance différente à l\'aide du formulaire du bloc "Barre de progression".</p>
+<p>Pour bloquer la barre de progression sur l\'échéance d\'une activité, l\'échéance doit être préalablement activée et définie. Si l\'échéance est verrouillée, le changement de l\'échéance dans le formulaire de l\'activité se répercutera automatiquement sur l\'échéance associée à l\'activité dans la bloc "Barre de progression".</p>
+<p>Lorsqu\'une activité n\'est pas verrouillée, le changement de la date et de l\'heure dans le bloc "Barre de progression" n\'affectera pas l\'échéance définie dans le formulaire de l\'activité.</p>';
 $string['why_display_now'] = 'Pourquoi voudriez-vous montrer/cacher l\'indicateur "MAINTENANT"?';
 $string['why_display_now_help'] = '<p>Certains cours ne se focalisent pas sur la complétion de tâches pour une date précise. Certains cours sont ouverts à lauto-inscription, permettant ainsi aux étudiants de travailler à leur rythme.</p>
 <p>Pour utiliser le bloc "Barre de progression" dans ce but, définissez une date dans un futur lointain et n\'utilisez pas l\'icône "MAINTENANT".</p>';
 $string['why_set_the_title'] = 'Pourquoi voudriez-vous modifier le titre du bloc?';
-$string['why_set_the_title_help'] = '<p>Il peut y avoir plusieurs instances du bloc "Barre de progression". Vous pouvez utiliser plusieurs blocs "Barre de progression" afin de suivre différents types d\'activités ou ressources. Par exemple, vous pouvez suivre la progression pour les devoirs dans un bloc et les questionnaires dans un autre. Pour cette raison vous pouvez modifier le titre par defaut et définir un titre plus approprié pour chaque instance.</p>';
+$string['why_set_the_title_help'] = '<p>Il peut y avoir plusieurs instances du bloc "Barre de progression". Vous pouvez utiliser plusieurs blocs "Barre de progression" afin de suivre différents types d\'activités ou ressources. Par exemple, vous pouvez suivre la progression pour les devoirs dans un bloc et les questionnaires dans un autre. Pour cette raison vous pouvez modifier le titre par défaut et définir un titre plus approprié pour chaque instance.</p>';
 $string['why_show_precentage'] = 'Pourquoi montrer un pourcentage de progression pour les étudiants?';
-$string['why_show_precentage_help'] = '<p>Il est possible de montrer un pourcentage global de progrès pour les étudiants.</p>
-<p>Elle est calculée comme le nombre d\'articles compléter divisé par le nombre total d\'éléments dans la barre.</p>
-<p>Le pourcentage de progression s\'affiche jusqu\'à ce que l\'étudiant souris sur un élément dans la barre.</p>';
+$string['why_show_precentage_help'] = '<p>Il est possible de montrer un pourcentage global de progression pour les étudiants.</p>
+<p>Il est calculé comme le nombre d\'activités à réaliser divisé par le nombre total d\'éléments dans la barre.</p>
+<p>Le pourcentage de progression disparait lorsque l\'étudiant survole un élément dans la barre.</p>';
 $string['why_use_icons'] = 'Pourquoi voudriez-vous utiliser des icônes?';
 $string['why_use_icons_help'] = '<p>Vous pouvez ajouter les icônes "vu" et "croix" sur la barre de progression afin d\'améliorer la lisibilité pour les daltoniens.</p>
-<p>Cela clarifie la signification du bloc si vous pensez que la signification des couleurs n\'est pas intuitive, voire pour des raisons cultuelles ou personnelles.</p>';
+<p>Cela clarifie la signification du bloc si vous pensez que la signification des couleurs n\'est pas intuitive, voire pour des raisons culturelles ou personnelles.</p>';
 $string['wiki'] = 'Wiki';
 $string['workshop'] = 'Atelier';

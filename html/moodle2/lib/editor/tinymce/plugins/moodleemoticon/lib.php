@@ -34,13 +34,18 @@ class tinymce_moodleemoticon extends editor_tinymce_plugin {
         if ($this->get_config('requireemoticon', 1)) {
             // If emoticon filter is disabled, do not add button.
             $filters = filter_get_active_in_context($context);
-            if (!array_key_exists('filter/emoticon', $filters)) {
+            if (!array_key_exists('emoticon', $filters)) {
                 return;
             }
         }
 
-        // Add button after 'image' in advancedbuttons3.
-        $this->add_button_after($params, 3, 'moodleemoticon', 'image');
+        if ($row = $this->find_button($params, 'image')) {
+            // Add button after 'image'.
+            $this->add_button_after($params, $row, 'moodleemoticon', 'image');
+        } else {
+            // If 'image' is not found, add button in the end of the last row.
+            $this->add_button_after($params, $this->count_button_rows($params), 'moodleemoticon');
+        }
 
         // Add JS file, which uses default name.
         $this->add_js_plugin($params);

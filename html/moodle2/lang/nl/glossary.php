@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -139,6 +139,7 @@ $string['destination_help'] = '<p>Hier kun je instellen naar waar je de invoer w
 <li><strong>Huidige woordenlijst:</strong> zal de geïmporteerde invoer toevoegen aan de huidige woordenlijst.</li>
 <li><strong>Nieuwe woordenlijst:</strong> zal een nieuwe woordenlijst maken, gebaseerd op de informatie uit het gekozen XML-bestand en de woordenlijst aanvullen.</li>
 </ul>';
+$string['disapprove'] = 'Goedkeuring ongedaan maken';
 $string['displayformat'] = 'Kies opmaak';
 $string['displayformatcontinuous'] = 'Volledige lijst zonder auteur';
 $string['displayformatdefault'] = 'Standaard hetzelfde als opmaakformaat';
@@ -161,7 +162,7 @@ $string['displayformats'] = 'Bekijk opmaakmogelijkheden';
 $string['displayformatssetup'] = 'Instellingen van de opmaakmogelijkheden';
 $string['duplicatecategory'] = 'Dupliceer categorie';
 $string['duplicateentry'] = 'Dupliceer item';
-$string['editalways'] = 'Bewerk altijd';
+$string['editalways'] = 'Bewerken altijd toestaan';
 $string['editalways_help'] = '<p>Met deze optie kun je beslissen of je wil toelaten dat de leerlingen hun bijdragen altijd kunnen blijven bewerken.</p>
 
 <p>Je kunt kiezen voor:</p>
@@ -220,7 +221,7 @@ woorden gelinkt worden.</p>
 <p>Bijvoorbeeld: voor het item "construct" in de woordenlijst wordt geen link gemaakt in het woord
  "constructivisme" als deze optie is ingeschakeld.</p>';
 $string['glossary:addinstance'] = 'Voeg een nieuwe woordenlijst toe';
-$string['glossary:approve'] = 'Nieuwe items goedkeuren';
+$string['glossary:approve'] = 'Nieuwe items goedkeuren of goedgekeurde terug afkeuren';
 $string['glossary:comment'] = 'Commentaar toevoegen';
 $string['glossary:export'] = 'Items exporteren';
 $string['glossary:exportentry'] = 'Exporteer één item';
@@ -301,6 +302,7 @@ $string['page-mod-glossary-x'] = 'Elke woordenlijstmodule pagina';
 $string['pluginadministration'] = 'Woordenlijst beheer';
 $string['pluginname'] = 'Woordenlijst';
 $string['popupformat'] = 'Pop-upgrootte';
+$string['print'] = 'Afdrukken';
 $string['printerfriendly'] = 'Afdrukbare versie';
 $string['printviewnotallowed'] = 'Afdrukbare versie tonen is niet toegelaten';
 $string['question'] = 'Vraag';
@@ -332,7 +334,7 @@ zoals @, #, enz.</p>
 <p><b>Toon alfabet</b> Maakt het mogelijk of onmogelijk om te bladeren volgens letters.</p>
 
 <p><b>Toon alles</b> Maakt het mogelijk of onmogelijk om de inhoud van alle letters tegelijk te zien.</p>';
-$string['showalphabet'] = 'Toon alfabet';
+$string['showalphabet'] = 'Toon links met alfabet';
 $string['showalphabet_help'] = '<p>Je kunt de manier waarop een gebruiker door de woordenlijst kan bladeren, aanpassen. Zoeken, bladeren volgens
 categorieën of op datum zijn altijd zichtbaar, maar je kunt drie opties toevoegen.</p>
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_poodll', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'filter_poodll', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_poodll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -79,6 +79,7 @@ $string['html5widgets'] = 'HTML5 PoodLL Widgets';
 $string['journal_audio'] = 'PoodLL Journal: Audio?';
 $string['journal_recording'] = 'PoodLL Journal: AV Recording Enabled?';
 $string['journal_video'] = 'PoodLL Journal: Video?';
+$string['miccanpause'] = 'Allow pause (MP3 recorder only)';
 $string['micecho'] = 'Mic. Echo';
 $string['micgain'] = 'Mic. Gain';
 $string['micloopback'] = 'Mic. Loopback';

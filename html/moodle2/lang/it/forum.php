@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['attachment'] = 'Allegato';
 $string['attachment_help'] = 'Ad ogni intervento nel forum possono essere allegati uno o più file. Se l\'allegato è una immagine, verrà visualizzata di seguito al testo dell\'intervento. ';
 $string['attachmentnopost'] = 'Non puoi esportare allegati senza specificare l\'id dell\'intervento';
 $string['attachments'] = 'Allegati';
+$string['attachmentswordcount'] = 'Allegati e conteggio parole';
 $string['blockafter'] = 'Soglia massima interventi';
 $string['blockafter_help'] = 'Il numero massimo di interventi che uno studente può effettuare in un dato intervallo di tempo. Gli utenti con il privilegio mod/forum:postwithoutthrottling non sono influenzati da questa impostazione.';
 $string['blockperiod'] = 'Intervallo di controllo';
@@ -58,7 +59,6 @@ $string['cannotaddsubscriber'] = 'Non è stato attivare la sottoscrizione al for
 $string['cannotaddteacherforumto'] = 'Non è stato possibile aggiungere il forum teacher con il tipo già cambiato nella sezione 0 del corso';
 $string['cannotcreatediscussion'] = 'Non è stato possibile creare una nuova discussione';
 $string['cannotcreateinstanceforteacher'] = 'Non è stato possibile creare una nuova istanza del forum docenti';
-$string['cannotdeleteforummodule'] = 'Il modulo di attività forum non può essere eliminato.';
 $string['cannotdeletepost'] = 'Questo intervento non può essere eliminato!';
 $string['cannoteditposts'] = 'Interventi di altri non possono essere modificati!';
 $string['cannotfinddiscussion'] = 'Non è stato possibile trovare la discussione in questo forum';
@@ -102,6 +102,7 @@ $string['configmaxbytes'] = 'Dimensione massima degli allegati per tutti i forum
 $string['configoldpostdays'] = 'Numero di giorni trascorsi i quali tutti i messaggi vecchi verranno considerati come letti.';
 $string['configreplytouser'] = 'Nelle email inviate dai forum, per default compare in chiaro l\'email del mittente. In questo modo sarà possibile rispondere direttamente anche senza intervenire nel forum. Indipendentemente da questa impostazione un utente può comunque mantenere riservato il proprio indirizzo email usando l\'apposita impostazione presente nel profilo utente.';
 $string['configshortpost'] = 'Gli interventi al di sotto del numero di caratteri specificato (escludendo i tag HTML) saranno considerati "brevi".';
+$string['configtrackingtype'] = 'Il tipo di evidenziamento dei messaggi di default.';
 $string['configtrackreadposts'] = 'Impostare a \'Si\' se si desidera tracciare lo stato "letto/non letto" per ciascun utente.';
 $string['configusermarksread'] = 'Con "Si", l\'utente deve spuntare manualmente un intervento come "letto". Con "No", l\'intervento viene automaticamente considerato "letto" all\'atto della visualizzazione.';
 $string['confirmsubscribe'] = 'Vuoi sottoscrivere il forum \'{$a}\'?';
@@ -115,7 +116,8 @@ $string['deletedpost'] = 'L\'intervento è stato eliminato.';
 $string['deletedposts'] = 'Quegli interventi sono stati eliminati';
 $string['deletesure'] = 'Sei sicuro di voler eliminare questo intervento?';
 $string['deletesureplural'] = 'Sei sicuro di voler eliminare questo intervento e tutte le risposte collegate? ({$a} interventi)';
-$string['digestmailheader'] = 'Questa è la tua raccolta giornaliera comprendente i nuovi interventi dai forum di {$a->sitename}. Se vuoi cambiare le preferenze relative all\'invio di e-mail dai forum, recati su {$a->userprefs}.';
+$string['digestmailheader'] = 'Questa è la tua raccolta giornaliera dei nuovi interventi effettuati nei forum di {$a->sitename}. Se vuoi cambiare il default delle preferenze per l\'invio di e-mail dai forum, recati su {$a->userprefs}.';
+$string['digestmailpost'] = 'Modifica preferenze email di raccolta';
 $string['digestmailprefs'] = 'Il tuo profilo utente';
 $string['digestmailsubject'] = '{$a}: raccolta giornaliera dai forum';
 $string['digestmailtime'] = 'Ora di invio email di raccolta';
@@ -136,23 +138,44 @@ $string['displayend_help'] = 'L\'impostazione consente di nascondere un post dop
 $string['displaymode'] = 'Modalità visualizzazione';
 $string['displayperiod'] = 'Periodo di visualizzazione';
 $string['displaystart'] = 'Inizio visualizzazione';
-$string['displaystart_help'] = 'L\'impostazione consente di visualizzare un post a partire dalla data stabilita. Notare che gli amministratori potranno';
+$string['displaystart_help'] = 'L\'impostazione consente di visualizzare un post a partire dalla data stabilita. Notare che gli amministratori potranno comunque visualizzare sempre i post.';
+$string['displaywordcount'] = 'Visualizza conteggio parole';
+$string['displaywordcount_help'] = 'L\'impostazione consente di scegliere se visualizzare o meno il conteggio delle parole per ciascun intervento.';
 $string['eachuserforum'] = 'Ciascun utente avvia una sola discussione';
 $string['edit'] = 'Modifica';
 $string['editedby'] = 'Modificato da {$a->name} - intervento originale effettuato il {$a->date}';
 $string['editedpostupdated'] = 'Il post di {$a} è stato aggiornato';
 $string['editing'] = 'Modifica';
+$string['emaildigest_0'] = 'Riceverai una email per ciascun messaggio nel forum';
+$string['emaildigest_1'] = 'Riceverai una email al giorno contenente la raccolta dei messaggi  di ciascun messaggio nei forum.';
+$string['emaildigest_2'] = 'Riceverai una email al giorno contenente la raccolta del solo oggetto di ciascun messaggio nei forum.';
+$string['emaildigestcompleteshort'] = 'Messaggi per intero';
+$string['emaildigestdefault'] = 'Default ({$a})';
+$string['emaildigestoffshort'] = 'Nessuna raccolta';
+$string['emaildigestsubjectsshort'] = 'Solo oggetto';
+$string['emaildigesttype'] = 'Opzioni email di raccolta';
+$string['emaildigesttype_help'] = 'Il tipo di notifiche che riceverai dai forum.
+
+* Default - saranno usate le impostazioni presenti nel profilo utente, eventuali modifiche nel profilo si rifletteranno anche in questo foum;
+* Nessuna raccolta - riceverai una email per ciascun messaggio nei forum
+* Raccolta - messaggi per intero - riceverai una email al giorno contenente la raccolta dei messaggi  di ciascun messaggio nei forum.
+* Raccolta - solo oggetto - Riceverai una email al giorno contenente la raccolta del solo oggetto di ciascun messaggio nei forum.';
+$string['emaildigestupdated'] = 'Le opzioni email di raccolta sono state cambiate in \'{$a->maildigesttitle}\' per il forum \'{$a->forum}\'. {$a->maildigestdescription}';
+$string['emaildigestupdated_default'] = 'L\' impostazioni di default presa dal tuo profilo - \'{$a->maildigesttitle}\' - è stata utilizzata per il forum \'{$a->forum}\'. {$a->maildigestdescription}.';
 $string['emptymessage'] = 'Il tuo intervento contiene qualche errore. Forse lo hai lasciato in bianco, oppure l\'allegato era troppo grande. Le tue modifiche NON sono state salvate.';
 $string['erroremptymessage'] = 'Il corpo del messaggio non può essere vuoto';
 $string['erroremptysubject'] = 'L\'oggetto non può essere vuoto';
 $string['errorenrolmentrequired'] = 'Devi essere iscritto al corso per accedere a questo contenuto';
 $string['errorwhiledelete'] = 'Si è verificato un errore durante l\'eliminazione del record.';
+$string['event_assessable_uploaded'] = 'Post di contenuto nel forum';
 $string['everyonecanchoose'] = 'Tutti possono decidere di sottoscrivere il forum.';
 $string['everyonecannowchoose'] = 'La sottoscrizione del forum è ora facoltativa per tutti';
 $string['everyoneisnowsubscribed'] = 'La sottoscrizione del forum è ora obbligatoria per tutti';
 $string['everyoneissubscribed'] = 'Forum a sottoscrizione obbligatoria';
 $string['existingsubscribers'] = 'Utenti che hanno sottoscritto il forum';
 $string['exportdiscussion'] = 'Esporta l\'intera discussione';
+$string['forcedreadtracking'] = 'Consenti evidenziamento messaggi forzato';
+$string['forcedreadtracking_desc'] = 'I forum potranno essere impostati per forzare l\'evidenziamento dei messaggi non letti. Può avere un impatto sulle prestazioni, in modo particolare in corsi con molti forum particolarmente attivi. Se l\'impostazione non è attiva, i forum già impostati con l\'evidenziamento dei messaggi forzato saranno impostati con l\'evidenziamento a scelta.';
 $string['forcessubscribe'] = 'Questo forum è a sottoscrizione obbligatoria';
 $string['forum'] = 'Forum';
 $string['forum:addinstance'] = 'Aggiungere forum';
@@ -201,12 +224,14 @@ $string['forum:viewrating'] = 'Visualizzare voti totali ricevuti';
 $string['forum:viewsubscribers'] = 'Visualizzare i sottoscrittori';
 $string['generalforum'] = 'Forum standard per uso generale';
 $string['generalforums'] = 'Forum per uso generale';
+$string['hiddenforumpost'] = 'Intervento nascosto';
 $string['inforum'] = 'in {$a}';
 $string['introblog'] = 'I post di questo forum sono stati copiati automaticamente dai blog degli utenti iscritti al corso poiché tali interventi blog non sono più disponibili';
 $string['intronews'] = 'Annunci e news di carattere generale';
 $string['introsocial'] = 'Un forum aperto per dialogare su qualsiasi argomento di tuo interesse.';
 $string['introteacher'] = 'Un forum riservato agli insegnanti per annotazioni e discussioni.';
 $string['invalidaccess'] = 'Questa pagina non è stata acceduta correttamente.';
+$string['invaliddigestsetting'] = 'Sono state inserire impostazioni non valide per l\'email di raccolta';
 $string['invaliddiscussionid'] = 'L\'ID della discussione è errata oppure non esiste più';
 $string['invalidforcesubscribe'] = 'Modalità sottoscrizione obbligatoria non valida';
 $string['invalidforumid'] = 'L\'ID del forum è errata';
@@ -278,7 +303,6 @@ $string['nopermissiontosubscribe'] = 'Non hai il privilegio per visualizzare i s
 $string['nopermissiontoview'] = 'Non hai il privilegio per visualizzare questo intervento';
 $string['nopostforum'] = 'Spiacente, non puoi visualizzare questo forum';
 $string['noposts'] = 'Nessun intervento';
-$string['nopostscontaining'] = 'Non è stato trovato nessun intervento contenente \'{$a}\' ';
 $string['nopostsmadebyuser'] = '{$a} non ha effettuato nessun intervento';
 $string['nopostsmadebyyou'] = 'Non ha effettuato nessun intervento';
 $string['noquestions'] = 'Al momento il forum non ha sottoscrittori';
@@ -315,6 +339,7 @@ $string['pluginname'] = 'Forum';
 $string['postadded'] = '<p>Il tuo intervento è stato aggiunto con successo.</p><p>Hai {$a} a disposizione se desideri apportare delle modifiche.</p>';
 $string['postaddedsuccess'] = 'Il tuo intervento è stato aggiunto con successo.';
 $string['postaddedtimeleft'] = 'Hai {$a} a disposizione se desideri apportare delle modifiche.';
+$string['postbyuser'] = '{$a->post} di {$a->user}';
 $string['postincontext'] = 'Visualizza questo intervento nel contesto';
 $string['postmailinfo'] = 'Questa è la copia di un intervento effettuato sul sito {$a} .
 
@@ -344,6 +369,7 @@ $string['repliesone'] = '{$a} risposta finora';
 $string['reply'] = 'Rispondi';
 $string['replyforum'] = 'Replica al forum';
 $string['replytouser'] = 'Usa indirizzo email nei messaggi';
+$string['resetdigests'] = 'Elimina tutte le preferenze utente per l\'email di raccolta';
 $string['resetforums'] = 'Rimuovi tutti gli interventi da questi tipi di forum';
 $string['resetforumsall'] = 'Rimuovi tutti gli interventi';
 $string['resetsubscriptions'] = 'Rimuovi tutte le sottoscrizioni al forum';
@@ -386,19 +412,20 @@ $string['subscribersto'] = 'Sottoscrittori del forum \'{$a}\'';
 $string['subscribestart'] = 'Sottoscrivo il forum per ricevere copia degli interventi via email';
 $string['subscribestop'] = 'Non sottoscrivo il forum, non riceverò copie degli interventi via email';
 $string['subscription'] = 'Sottoscrizione';
+$string['subscriptionandtracking'] = 'Sottoscrizione ed evidenziazione';
 $string['subscriptionauto'] = 'Automatica';
 $string['subscriptiondisabled'] = 'Disabilitata';
 $string['subscriptionforced'] = 'Obbligatoria';
 $string['subscription_help'] = 'Sottoscrivendo un forum riceverai copie degli interventi nell\'email. In genere è possibile scegliere se sottoscrivere un forum, in alcuni casi tuttavia la sottoscrizione è obbligatoria.';
 $string['subscriptionmode'] = 'Modalità sottoscrizione';
-$string['subscriptionmode_help'] = 'La sottoscrizione di un forum consente di ricevere copie degli interventi via email
-
-Sono disponibili 4 modalità di sottoscrizione:
+$string['subscriptionmode_help'] = 'La sottoscrizione di un forum consente di ricevere copie degli interventi via email. Sono disponibili 4 modalità di sottoscrizione:
 
 * Facoltativa - I partecipanti possono scegliere se sottoscrivere il forum o meno
-* Obbligatoria - Tutti i partecipanti sottoscrivono il forum e non possono rimuovere la propria sottoscrizione
-* Automatica - Tutti i partecipanti sottoscrivono il forum ma possono rimuovere la propria sottoscrizione se lo desiderano
-* Disabilitata - Non è possibile sottoscrivere il forum';
+* Obbligatoria - La sottoscrizione è attiva per tutti i partecipanti sottoscrivono il forum e non è possibile rimuoverla.
+* Automatica - La sottoscrizione è attiva per tutti i partecipanti ma ciascuno può rimuovere la propria sottoscrizione se lo desidera
+* Disabilitata - Non è possibile sottoscrivere il forum
+
+Nota: eventuali modifiche alla modalità di sottoscrizione influenzerà gli utenti che verranno iscritti al corso dopo la modifica e non gli utenti iscritti in precedenza.';
 $string['subscriptionoptional'] = 'Facoltativa';
 $string['subscriptions'] = 'Sottoscrizioni';
 $string['thisforumisthrottled'] = 'Questo forum ha una soglia massima di interventi che è possibile effettuare in un dato intervallo di tempo - la soglia al momento è impostata a {$a->blockafter} interventi in {$a->blockperiod}';
@@ -407,18 +434,14 @@ $string['timestartenderror'] = 'La data di fine visualizzazione non può essere 
 $string['trackforum'] = 'Evidenzia messaggi non letti';
 $string['tracking'] = 'Evidenzia';
 $string['trackingoff'] = 'Disabilitato';
-$string['trackingon'] = 'Abilitato';
+$string['trackingon'] = 'Forzato';
 $string['trackingoptional'] = 'A scelta';
 $string['trackingtype'] = 'Tipo di evidenziamento messaggi';
-$string['trackingtype_help'] = 'L\'impostazione consente di scegliere se abilitare l\'evidenziamento dei messaggi letti e non letti.
+$string['trackingtype_help'] = 'L\'impostazione consente di scegliere se abilitare l\'evidenziamento dei messaggi non letti. Sono disponibili tre opzioni:
 
-Le impostazioni possibili sono:
-
-* A scelta: i partecipanti possono attivare l\'evidenziamento
-* Abilitato: l\'evidenziamento è sempre attivo
-* Disabilitato: l\'evidenziamento non è mai attivo
-
-Nota: l\'evidenziamento dei messaggi deve essere abilitato anche nel profilo dell\'utente.';
+* A scelta: i partecipanti possono attivare l\'evidenziamento tramite il link nel blocco amministrazione. L\'evidenziamento deve essere attivo anche nel profilo dell\'utente
+* Forzato: l\'evidenziamento è sempre attivo, indipendentemente dalle preferenze dell\'utente
+* Disabilitato: l\'evidenziamento non è attivo';
 $string['unread'] = 'Non letto';
 $string['unreadposts'] = 'Interventi non letti';
 $string['unreadpostsnumber'] = '{$a} interventi non letti';

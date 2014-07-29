@@ -41,7 +41,7 @@ class moodle1_qtype_essaywiris_handler extends moodle1_qtype_essay_handler {
     
     function wrsqz_getCASForComputations($data){
         global $CFG;
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         if (isset($data['essaywiris'][0]['wirisoptions'][0]['wiriscasforcomputations'])){
@@ -70,7 +70,7 @@ class moodle1_qtype_essaywiris_handler extends moodle1_qtype_essay_handler {
     
     function wrsqz_hiddenInitialCASValue($data){
         global $CFG;
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         if (isset($data['essaywiris'][0]['wirisoptions'][0]['hiddeninitialcasvalue'])){

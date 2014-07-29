@@ -39,21 +39,56 @@ class mod_forum_mod_form extends moodleform_mod {
 
         $mform->addElement('text', 'name', get_string('forumname', 'forum'), array('size'=>'64'));
         if (!empty($CFG->formatstringstriptags)) {
-        $mform->setType('name', PARAM_TEXT);
+            $mform->setType('name', PARAM_TEXT);
         } else {
             $mform->setType('name', PARAM_CLEANHTML);
         }
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
-        $forum_types = forum_get_forum_types();
+        $this->add_intro_editor(true, get_string('forumintro', 'forum'));
 
-        asort($forum_types);
-        $mform->addElement('select', 'type', get_string('forumtype', 'forum'), $forum_types);
+        $forumtypes = forum_get_forum_types();
+        core_collator::asort($forumtypes, core_collator::SORT_STRING);
+        $mform->addElement('select', 'type', get_string('forumtype', 'forum'), $forumtypes);
         $mform->addHelpButton('type', 'forumtype', 'forum');
         $mform->setDefault('type', 'general');
 
-        $this->add_intro_editor(true, get_string('forumintro', 'forum'));
+        // Attachments and word count.
+        $mform->addElement('header', 'attachmentswordcounthdr', get_string('attachmentswordcount', 'forum'));
+
+        $choices = get_max_upload_sizes($CFG->maxbytes, $COURSE->maxbytes, 0, $CFG->forum_maxbytes);
+        $choices[1] = get_string('uploadnotallowed');
+        $mform->addElement('select', 'maxbytes', get_string('maxattachmentsize', 'forum'), $choices);
+        $mform->addHelpButton('maxbytes', 'maxattachmentsize', 'forum');
+        $mform->setDefault('maxbytes', $CFG->forum_maxbytes);
+
+        $choices = array(
+            0 => 0,
+            1 => 1,
+            2 => 2,
+            3 => 3,
+            4 => 4,
+            5 => 5,
+            6 => 6,
+            7 => 7,
+            8 => 8,
+            9 => 9,
+            10 => 10,
+            20 => 20,
+            50 => 50,
+            100 => 100
+        );
+        $mform->addElement('select', 'maxattachments', get_string('maxattachments', 'forum'), $choices);
+        $mform->addHelpButton('maxattachments', 'maxattachments', 'forum');
+        $mform->setDefault('maxattachments', $CFG->forum_maxattachments);
+
+        $mform->addElement('selectyesno', 'displaywordcount', get_string('displaywordcount', 'forum'));
+        $mform->addHelpButton('displaywordcount', 'displaywordcount', 'forum');
+        $mform->setDefault('displaywordcount', 0);
+
+        // Subscription and tracking.
+        $mform->addElement('header', 'subscriptionandtrackinghdr', get_string('subscriptionandtracking', 'forum'));
 
         $options = array();
         $options[FORUM_CHOOSESUBSCRIBE] = get_string('subscriptionoptional', 'forum');
@@ -66,25 +101,20 @@ class mod_forum_mod_form extends moodleform_mod {
         $options = array();
         $options[FORUM_TRACKING_OPTIONAL] = get_string('trackingoptional', 'forum');
         $options[FORUM_TRACKING_OFF] = get_string('trackingoff', 'forum');
-        $options[FORUM_TRACKING_ON] = get_string('trackingon', 'forum');
+        if ($CFG->forum_allowforcedreadtracking) {
+            $options[FORUM_TRACKING_FORCED] = get_string('trackingon', 'forum');
+        }
         $mform->addElement('select', 'trackingtype', get_string('trackingtype', 'forum'), $options);
         $mform->addHelpButton('trackingtype', 'trackingtype', 'forum');
-
-        $choices = get_max_upload_sizes($CFG->maxbytes, $COURSE->maxbytes);
-        $choices[1] = get_string('uploadnotallowed');
-        $choices[0] = get_string('courseuploadlimit') . ' ('.display_size($COURSE->maxbytes).')';
-        $mform->addElement('select', 'maxbytes', get_string('maxattachmentsize', 'forum'), $choices);
-        $mform->addHelpButton('maxbytes', 'maxattachmentsize', 'forum');
-        $mform->setDefault('maxbytes', $CFG->forum_maxbytes);
-
-        $choices = array(0,1,2,3,4,5,6,7,8,9,10,20,50,100);
-        $mform->addElement('select', 'maxattachments', get_string('maxattachments', 'forum'), $choices);
-        $mform->addHelpButton('maxattachments', 'maxattachments', 'forum');
-        $mform->setDefault('maxattachments', $CFG->forum_maxattachments);
+        $default = $CFG->forum_trackingtype;
+        if ((!$CFG->forum_allowforcedreadtracking) && ($default == FORUM_TRACKING_FORCED)) {
+            $default = FORUM_TRACKING_OPTIONAL;
+        }
+        $mform->setDefault('trackingtype', $default);
 
         if ($CFG->enablerssfeeds && isset($CFG->forum_enablerssfeeds) && $CFG->forum_enablerssfeeds) {
 //-------------------------------------------------------------------------------
-            $mform->addElement('header', '', get_string('rss'));
+            $mform->addElement('header', 'rssheader', get_string('rss'));
             $choices = array();
             $choices[0] = get_string('none');
             $choices[1] = get_string('discussions', 'forum');
@@ -112,7 +142,7 @@ class mod_forum_mod_form extends moodleform_mod {
         }
 
 //-------------------------------------------------------------------------------
-        $mform->addElement('header', '', get_string('blockafter', 'forum'));
+        $mform->addElement('header', 'blockafterheader', get_string('blockafter', 'forum'));
         $options = array();
         $options[0] = get_string('blockperioddisabled','forum');
         $options[60*60*24]   = '1 '.get_string('day');
@@ -131,7 +161,6 @@ class mod_forum_mod_form extends moodleform_mod {
         $mform->addRule('blockafter', null, 'numeric', null, 'client');
         $mform->addHelpButton('blockafter', 'blockafter', 'forum');
         $mform->disabledIf('blockafter', 'blockperiod', 'eq', 0);
-
 
         $mform->addElement('text', 'warnafter', get_string('warnafter', 'forum'));
         $mform->setType('warnafter', PARAM_INT);

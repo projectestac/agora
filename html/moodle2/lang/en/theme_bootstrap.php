@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_bootstrap', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_bootstrap', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_bootstrap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,13 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>Bootstrap</h2>
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>Bootstrap Base</h2>
 <img class=img-polaroid src="bootstrap/pix/screenshot.jpg" />
 <h3>Theme Credits</h3>
 <p>
-<h3>Moodle twitter Bootstrap theme</h3>
+<h3>Moodle Bootstrap 3 theme</h3>
 <p>
-This theme is based on the Bootstrap CSS framework, version 2.3
+This theme is based on the Bootstrap CSS framework, version 3.0
 </p>
 <p>
 <a href="http://getbootstrap.com">http://getbootstrap.com</a>
@@ -47,7 +47,7 @@ Feel free to modify / improve / share
 </p>
 <p>
 This theme has been created with the help of:
-Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans
+Joby Harding, Gareth J Barnard.
 </p>
 <p>
 Authors: Bas Brands, David Scotson<br>
@@ -66,6 +66,8 @@ on the Moodle tracker</p>
 <li><a href="http://docs.moodle.org/23/en/bootstrap-Theme">Bootstrap on Moodle docs</a></li>
 <li><a href="http://theming.sonsbeekmedia.nl/">Theme testing playground </a></li>
 </ul>';
-$string['pluginname'] = 'Bootstrap';
+$string['closefullscreen'] = 'Close full screen';
+$string['fullscreen'] = 'Full screen';
+$string['pluginname'] = 'Bootstrap 3';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';

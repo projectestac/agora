@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_afterburner', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -60,7 +60,7 @@ $string['customcssdesc'] = 'このテーマのカスタマイズを容易にす�
 $string['footnote'] = 'フットノート';
 $string['footnotedesc'] = 'このテキストエリアのコンテンツは、すべてのページのフッタに表示されます。';
 $string['logo'] = 'ロゴ';
-$string['logodesc'] = 'このテーマのデフォルトロゴと置換したい場合のみ、あなたの新しいロゴのURIを追加してください。<br />ご参考までに、デフォルトロゴイメージの幅は320px、高さは75pxです。';
+$string['logodesc'] = 'このテーマのデフォルトロゴと置換したい場合、あなたのカスタムロゴを追加してください。<br />ご参考までに、デフォルトロゴイメージの幅は320px、高さは75pxのJPGイメージです。';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = '右';
 $string['region-side-pre'] = '左';

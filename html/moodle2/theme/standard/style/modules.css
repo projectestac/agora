@@ -80,8 +80,8 @@ table.mod_index {width:90%;margin:1em auto;}
 .forumpost.firstpost .row.header {background-color:#DDD;}
 .forumpost .topic .author {font-size: 0.8em;padding:4px;}
 .forumpost .topic .subject {font-weight: bold;padding:4px 4px 0;}
-.forumpost .content div,
-.forumpost .options div {padding:4px;}
+.forumpost .content > div,
+.forumpost .options > div {padding:4px;}
 .forumpost.unread {background: #9EBEFF;}
 .forumpost.unread .content {border:2px solid #0046C7;} /** inside border of unread posts in nested format in */
 .forumpost .comment-ctrl,
@@ -159,13 +159,11 @@ table.mod_index {width:90%;margin:1em auto;}
 #page-mod-lesson-essay .sent {color:#006600;}
 #page-mod-lesson-essay .ungraded {color:#999999;}
 #page-mod-lesson-essay .gradetable {margin-bottom: 20px;}
-.path-mod-lesson .branchbuttoncontainer.vertical .lessonbutton,
-.path-mod-lesson .centerpadded {padding:5px;}
+.path-mod-lesson .branchbuttoncontainer.vertical .lessonbutton {padding:5px;}
 #page-mod-lesson-essay .buttons,
 .path-mod-lesson .center,
 .path-mod-lesson .firstpageoptions,
 .path-mod-lesson .clock .content,
-.path-mod-lesson .centerpadded,
 #page-mod-lesson-view .password-form,
 .path-mod-lesson .edit_pages_box .addlinks {text-align:center;}
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -125,6 +125,7 @@ $string['ntlmsso_unknowntype'] = 'ntlmsso mota ezezaguna!';
 $string['pagesize_key'] = 'Orriaren tamaina';
 $string['pluginname'] = 'LDAP zerbitzaria';
 $string['pluginnotenabled'] = 'Plugina ez dago gaituta';
+$string['start_tls_key'] = 'Erabili TLS';
 $string['userentriestoadd'] = 'Gehitzeko erabiltzaile-sarrerak: {$a}';
 $string['userentriestoremove'] = 'Ezabatzeko erabiltzaile-sarrerak: {$a}';
 $string['userentriestorevive'] = 'Berreskuratzeko erabiltzaile-sarrerak: {$a}';

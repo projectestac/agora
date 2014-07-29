@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['auth_ldap_bind_dn_key'] = '識別名';
 $string['auth_ldap_bind_pw'] = 'ユーザバインドのパスワード';
 $string['auth_ldap_bind_pw_key'] = 'パスワード';
 $string['auth_ldap_bind_settings'] = 'バインド設定';
-$string['auth_ldap_changepasswordurl_key'] = 'パスワード変更URI';
+$string['auth_ldap_changepasswordurl_key'] = 'パスワード変更URL';
 $string['auth_ldap_contexts'] = 'ユーザが配置されているコンテクスト一覧です。異なるコンテクストは「;」で区切ってください。例 「ou=users,o=org; ou=others,o=org」';
 $string['auth_ldap_contexts_key'] = 'コンテクスト';
 $string['auth_ldap_create_context'] = 'メールによるアカウント登録確認でユーザを作成する場合、ユーザが作成されるコンテクストを指定してください。セキュリティの観点から、このコンテクストはユーザごとに異なるものにしてください。このコンテクストからMoodleが自動的にユーザを探しますので、このコンテクストをldap_context-vaiableに追加する必要はありません。<br /><b>注意!</b> ユーザ作成を動作させるため、auth/ldap/auth.phpファイルのuser_create() 関数を修正する必要があります。';
@@ -56,8 +56,8 @@ $string['auth_ldap_gracelogins_desc'] = 'LDAPの猶予ログインサポート�
 $string['auth_ldap_gracelogins_key'] = '猶予ログイン';
 $string['auth_ldap_groupecreators'] = 'メンバーがグループの作成を許可されているグループまたはコンテクストの一覧です。複数のグループは、「;」で区切ってください。通常、「cn=teachers,ou=staff,o=myorg」のように指定します。';
 $string['auth_ldap_groupecreators_key'] = 'グループ作成者';
-$string['auth_ldap_host_url'] = 'LDAPホストのURIを「ldap://ldap.myorg.com/」または「ldaps://ldap.myorg.com/」のように明示してください。複数サーバのフェイルオーバーをサポートするには「;」で区切ってください。';
-$string['auth_ldap_host_url_key'] = 'ホストURI';
+$string['auth_ldap_host_url'] = 'LDAPホストのURLを「ldap://ldap.myorg.com/」または「ldaps://ldap.myorg.com/」のように明示してください。複数サーバのフェイルオーバーをサポートするには「;」で区切ってください。';
+$string['auth_ldap_host_url_key'] = 'ホストURL';
 $string['auth_ldap_ldap_encoding'] = 'LDAPサーバで使用するエンコーディングを指定してください。ほとんどの場合、UTF-8ですが、MS AD v2ユーザデフォルトプラットフォームのエンコーディングでは、cp1252、cp1250等のようになります。';
 $string['auth_ldap_ldap_encoding_key'] = 'LDAPエンコーディング';
 $string['auth_ldap_login_settings'] = 'ログイン設定';
@@ -97,8 +97,11 @@ $string['auth_ldap_version_key'] = 'バージョン';
 $string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = '「Yes」にした場合、NTLMドメインでシングルサインオンを試みます。<strong>注意:</strong> 動作させるには、ウェブサーバに対して追加のセットアップが必要です。詳細は、 <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>をご覧ください。';
 $string['auth_ntlmsso_enabled_key'] = '有効';
-$string['auth_ntlmsso_ie_fastpath'] = '「Yes」にした場合、NTLM SSO高速経路 (fast path) が有効にされます (特定のステップをバイパスします。クライアントブラウザがMS Internet Explorerの場合のみ動作します)。';
+$string['auth_ntlmsso_ie_fastpath'] = '有効にした場合、NTLM SSO高速経路 (fast path) が有効にされます (クライアントブラウザがMS Internet Explorerの場合、特定のステップをバイパスします)。';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'すべてのブラウザにNTLMを試みます';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'はい、他のブラウザにNTLMを試みます';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'はい、他のすべてのブラウザでは標準的なログインフォームを使用します';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'REMOTE_USERヘッダからユーザ名を抽出できません。フォーマットは正しく設定されていますか?';
 $string['auth_ntlmsso_missing_username'] = 'あなたはリモートユーザ名フォーマットに少なくとも %username% を指定する必要があります。';
 $string['auth_ntlmsso_remoteuserformat'] = '「認証タイプ」に「NTLM」を選択した場合、あなたはここでリモートユーザ名フォーマットを指定することができます。空白にした場合、デフォルトのDOMAINusernameフォーマットが使用されます。あなたはドメイン名の表示場所に関して、任意で<b>%domain%</b>プレースホルダを使用することができます。 また、必須の<b>%username%</b>プレースホルダはユーザ名が表示される場所を指定します。<br /><br />広く使われているフォーマットは次のとおりです:<tt>%domain%%username%</tt> (MS Windowsデフォルト)、<tt>%domain%/%username%</tt>、<tt>%domain%+%username%</tt>、<tt>%username%</tt> (ドメインの部分がない場合)';
@@ -133,6 +136,8 @@ $string['pluginname'] = 'LDAPサーバ';
 $string['pluginnotenabled'] = 'プラグインが有効にされていません!';
 $string['renamingnotallowed'] = 'LDAPでのユーザ名変更が許可されていません。';
 $string['rootdseerror'] = 'Active DirectoryのrootDSEクエリにエラーが発生しました。';
+$string['start_tls'] = 'TLS暗号化による標準LDAPサービス (ポート389) を使用する';
+$string['start_tls_key'] = 'TLSを使用する';
 $string['updatepasserror'] = '	
 user_update_password() にエラーが発生しました。エラーコード: {$a->errno}  エラーストリング: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'パスワードの有効期限読み込み中、user_update_password() にエラーが発生しました。エラーコード: {$a->errno}  エラーストリング: {$a->errstring}';

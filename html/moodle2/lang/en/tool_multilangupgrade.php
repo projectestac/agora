@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_multilangupgrade', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_multilangupgrade', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_multilangupgrade
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['multilangupgradeinfo'] = 'The multilang filter syntax was changed in 1.8, &lt;lang&gt; tag is not supported any more. <br /><br />Example: &lt;span lang="en" class="multilang">Hello!&lt;/span&gt;&lt;span lang="es" class="multilang">Hola!&lt;/span&gt;<br /><br /><strong>Do you want to upgrade the syntax in all existing texts now?</strong>';
+$string['multilangupgradeinfo'] = '<p>The multilang filter syntax was changed in 1.8 and so the &lt;lang&gt; tag is not supported any more.</p>
+<p>Example: &lt;span lang="en" class="multilang"&gt;Hello!&lt;/span&gt;&lt;span lang="es" class="multilang"&gt;Hola!&lt;/span&gt;</p>
+<p>Do you want to upgrade the syntax in all existing texts now?</p>';
 $string['pluginname'] = 'Multilang upgrade';

@@ -63,6 +63,16 @@
 #page-grade-grading-pick .template-actions .action .action-icon {margin:0px 3px;}
 #page-grade-grading-pick .template-preview-confirm {width:50%;margin:1em auto;border:1px solid #EEE; padding: 1em;}
 #page-grade-grading-pick .singlebutton,
-.path-grade-report-user h2.main {
+.path-grade-report-user h2 {
     clear:both;
+}
+
+/** pre-2.6 outcomes **/
+#page-grade-edit-outcome-course .courseoutcomes {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+#page-grade-edit-outcome-course .courseoutcomes td {
+    text-align:center;
 }

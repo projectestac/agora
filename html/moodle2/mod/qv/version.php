@@ -32,7 +32,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 //$module->version   = 0;             // If version == 0 then module will not be installed
-$module->version   = 2013041000;      // The current module version (Date: YYYYMMDDXX)
+$module->version   = 2014052900;      // The current module version (Date: YYYYMMDDXX)
 $module->requires  = 2011033009;      // Requires this Moodle version (2.0)
 $module->cron      = 0;               // Period for cron to check this module (secs)
 $module->component = 'mod_qv';        // To check on upgrade, that module sits in correct place

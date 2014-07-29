@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ur', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'ur', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['entrybodyonlydesc'] = 'اندراج کی وضاحت';
 $string['entryerrornotyours'] = 'یہ آپ کا اندراج نہیں ہے';
 $string['entrysaved'] = 'آپ کا کیا گیا اندراج محفوظ ہو چکا';
 $string['entrytitle'] = 'اندراجی عنوان';
-$string['entryupdated'] = 'بلاگ کے اندراج میں تبدیل ہو چکی';
+$string['evententryupdated'] = 'بلاگ کے اندراج میں تبدیل ہو چکی';
 $string['groupblog'] = 'گروپ بلاگ: {$a}';
 $string['groupblogs'] = 'استعمال کنندگان صرف ان لوگوں کے بلاگ دیکھ سکتے ہیں جنہوں نے گروپ میں شراکت دی ہے';
 $string['intro'] = 'یہ آر ایس ایس فیڈ ایک یا زیادہ بلاگز سے بنی ہے';

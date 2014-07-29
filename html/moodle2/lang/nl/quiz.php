@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,9 +35,9 @@ $string['addarandomquestion'] = 'Voeg een willekeurige vraag toe...';
 $string['addarandomquestion_help'] = 'Wanneer een willekeurige vraag wordt toegevoegd, dan resulteert dat in een willekeurig gekozen vraag uit de gekozen categorie die toegevoegd wordt aan de test. Dat betekent dat verschillende leerlingen waarschijnlijk een verschillende set vragen gaan krijgen en wanneer de test meerdere pogingen toelaat, dat elke poging waarschijnlijk een nieuwe selectie vragen zal bevatten.';
 $string['adddescriptionlabel'] = 'Beschrijving/label toevoegen';
 $string['addingquestion'] = 'Vraag toevoegen';
-$string['addingquestions'] = 'Aan deze kant van de pagina kun je je vragenlijst beheren. De vragen worden bewaard per categorie om je te helpen ze te ordenen. Ze kunnen gebruikt worden in elke test van je cursus of zelfs in andere cursussen als je ze wil \'publiceren\'.
-<br /><br />Pas wanneer je een categorie gekozen of gemaakt hebt, kun je vragen maken of bewerken.
-Je kunt gelijk welke van die vragen selecteren om ze toe te voegen aan je test aan de andere kant van deze pagina.';
+$string['addingquestions'] = '<p>Aan deze kant van de pagina kun je je vragenlijst beheren. De vragen worden bewaard per categorie om je te helpen ze te ordenen. Ze kunnen gebruikt worden in elke test van je cursus of zelfs in andere cursussen als je ze wil \'publiceren\'.</p><p>
+Pas wanneer je een categorie gekozen of gemaakt hebt, kun je vragen maken of bewerken.
+Je kunt gelijk welke van die vragen selecteren om ze toe te voegen aan je test aan de andere kant van deze pagina.<p>';
 $string['addmoreoverallfeedbacks'] = 'Voeg {no} feedbackvelden toe';
 $string['addnewgroupoverride'] = 'Voeg overschrijving groep toe';
 $string['addnewpagesafterselected'] = 'Nieuwe pagina\'s toevoegen na geselecteerde vragen';
@@ -73,7 +73,6 @@ $string['answerhowmany'] = 'Eén of meer antwoorden';
 $string['answers'] = 'Juiste antwoorden';
 $string['answersingleno'] = 'Meer antwoorden toegestaan';
 $string['answersingleyes'] = 'Slechts één antwoord';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Antwoorden met een geaccepteerde fout moeten numeriek zijn';
 $string['answertoolong'] = 'Antwoord is te lang na lijn {$a} (maximum 255 tekens)';
 $string['aon'] = 'AON-opmaak';
 $string['areyousureremoveselected'] = 'Ben je zeker dat je alle geselecteerde vragen wil verwijderen?';
@@ -101,6 +100,8 @@ $string['attemptsonly'] = 'Toon enkel leerlingen met testpogingen';
 $string['attemptstate'] = 'Status';
 $string['attemptstillinprogress'] = 'Poging nog bezig';
 $string['attemptsunlimited'] = 'Onbeperkt aantal pogingen';
+$string['autosaveperiod'] = 'Tijd tussen automatisch bewaren';
+$string['autosaveperiod_desc'] = 'De antwoorden van de leerlingen kunnen automatisch bewaard worden tijdens de test. Het tussentijds bewaren van de antwoorden verhoogt de belasting op de server, maar vermindert de kans dat leerlingen hun werk verliezen.';
 $string['back'] = 'Terug naar controleer vraag';
 $string['backtocourse'] = 'Terug naar cursus';
 $string['backtoquestionlist'] = 'Terug naar de vragenlijst';
@@ -186,6 +187,12 @@ $string['confirmserverdelete'] = 'Ben je er zeker van dat je server <b>{$a}</b> 
 $string['confirmstartattemptlimit'] = 'Deze test is beperkt tot {$a} pogingen. Je gaat nu een nieuwe poging starten Wil je verder gaan?';
 $string['confirmstartattempttimelimit'] = 'Deze test heeft een tijdslimiet en is beperkt tot {$a} pogingen. Je gaat nu een nieuwe poging starten Wil je verder gaan?';
 $string['confirmstarttimelimit'] = 'De test heeft een tijdslimiet. Wil je de test starten?';
+$string['connectionerror'] = 'Netwerkverbinding verloren (Automatisch bewaren mislukt).
+
+Neem nota van wat je op deze pagina ingetikt hebt tijdens de laatste minuten en probeer opnieuw te verbinden.
+
+Als de connectie terug lukt, dan zou je antwoord bewaard moeten worden en zal dit bericht verdwijnen.';
+$string['connectionok'] = 'Netwerkverbinding hersteld. Je kunt veilig verder werken.';
 $string['containercategorycreated'] = 'Deze categorie is aangemaakt om alle originele categorieën in te verzamelen. Die zijn naar site-niveau verplaatst om onderstaande redenen.';
 $string['continueattemptquiz'] = 'Ga verder met de laatste poging';
 $string['continuepreview'] = 'Ga verder met controleren';
@@ -234,6 +241,7 @@ $string['deletingquestionattempts'] = 'Testpogingen aan het verwijderen';
 $string['description'] = 'Beschrijving';
 $string['disabled'] = 'Uitgeschakeld';
 $string['displayoptions'] = 'Toon';
+$string['donotuseautosave'] = 'Bewaar niet automatisch';
 $string['download'] = 'Klik om het bestand met de geëxporteerde categorie te downloaden';
 $string['downloadextra'] = '(dit bestand is ook bewaard bij de bestanden van je cursus in de map /backupdata/quiz)';
 $string['duplicateresponse'] = 'De inzending werd genegeerd omdat je eerder al een gelijkaardig antwoord gaf.';
@@ -293,6 +301,10 @@ $string['errornotnumbers'] = 'Fout - antwoorden moeten cijfers zijn';
 $string['errorunexpectedevent'] = 'Onverwachte gebeurteniscode {$a->event} gevonden voor vraag {$a->questionid} in poging {$a->attemptid}.';
 $string['essay'] = 'Open vraag';
 $string['essayquestions'] = 'Vragen';
+$string['eventquizattemptabandoned'] = 'Testpoging verlaten';
+$string['eventquizattemptstarted'] = 'Testpoging gestart';
+$string['eventquizattemptsubmitted'] = 'Testpoging ingestuurd';
+$string['eventquizattempttimelimitexceeded'] = 'Tijdslimiet testpoging overschreden';
 $string['everynquestions'] = 'Elke {$a} vragen';
 $string['everyquestion'] = 'Elke vraag';
 $string['everythingon'] = 'Alles op';
@@ -526,6 +538,7 @@ $string['numattemptsmade'] = '{$a} pogingen gedaan in deze test';
 $string['numberabbr'] = '#';
 $string['numerical'] = 'Numeriek';
 $string['numquestionsx'] = 'Vragen: {$a}';
+$string['oneminute'] = '1 minuut';
 $string['onlyteachersexport'] = 'Enkel leraren kunnen vragen exporteren';
 $string['onlyteachersimport'] = 'Enkel leraren met bewerkrechten kunnen vragen importeren';
 $string['onthispage'] = 'Op deze pagina';
@@ -537,7 +550,7 @@ $string['orderandpaging_help'] = 'De nummers 10, 20, 30 tegenover elke vraag dui
 $string['orderingquiz'] = 'Volgorde en paginering';
 $string['orderingquizx'] = 'Volgorde en paginering: {$a}';
 $string['outcomesadvanced'] = 'Competenties zijn geavanceerde instellingen';
-$string['outof'] = '{$a->grade} uit een maximum van {$a->maxgrade}';
+$string['outof'] = '{$a->grade} op een maximum van {$a->maxgrade}';
 $string['outofpercent'] = '{$a->grade} op een maximum van {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
 $string['overallfeedback'] = 'Algemene feedback test';
@@ -558,7 +571,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'Overschrijvingen';
 $string['overrideuser'] = 'Overschrijf gebruiker';
 $string['overrideusereventname'] = '{$a->quiz} - Overschrijf';
+$string['page-mod-quiz-attempt'] = 'Poging testpagina';
 $string['page-mod-quiz-edit'] = 'Bewerk testpagina';
+$string['page-mod-quiz-report'] = 'Elke test rapportpagina';
+$string['page-mod-quiz-review'] = 'Bekijk test pogingenpagina';
+$string['page-mod-quiz-summary'] = 'Testpoging samenvattingspagina';
+$string['page-mod-quiz-view'] = 'Test informatiepagina';
 $string['page-mod-quiz-x'] = 'Elke testmodule pagina';
 $string['pagesize'] = 'Paginagrootte';
 $string['parent'] = 'bovenliggend';
@@ -660,7 +678,7 @@ $string['randomwithsubcat'] = 'Vragen uit deze categorie en uit de subcategorie�
 $string['readytosend'] = 'Je staat op het punt om de test in te sturen zodat hij beoordeeld kan worden. Weet je zeker dat je door wilt gaan?';
 $string['reattemptquiz'] = 'Probeer de test opnieuw';
 $string['recentlyaddedquestion'] = 'Recent toegevoegde vraag!';
-$string['recurse'] = 'Toon ook vragen in subcategorieën';
+$string['recurse'] = 'Gebruik ook vragen in subcategorieën';
 $string['regrade'] = 'Herbereken alle pogingen';
 $string['regradecomplete'] = 'Alle pogingen zijn herberekend';
 $string['regradecount'] = '{$a->changed} van de {$a->attempt} cijfers zijn gewijzigd';
@@ -697,6 +715,7 @@ $string['reportregrade'] = 'Cijfers herberekenen';
 $string['reportresponses'] = 'Antwoorddetails';
 $string['reports'] = 'Rapporten';
 $string['reportshowonly'] = 'Enkel pogingen tonen';
+$string['reportshowonlyfinished'] = 'Toon maximum één voltooide poging per gebruiker ({$a})';
 $string['reportsimplestat'] = 'Eenvoudige statistieken';
 $string['reportusersall'] = 'alle gebruikers die te test geprobeerd hebben';
 $string['reportuserswith'] = 'aangemelde gebruikers die de test geprobeerd hebben';
@@ -800,9 +819,12 @@ $string['showdetailedmarks'] = 'beoordelingsdetails';
 $string['showeachpage'] = 'Toon één pagina tegelijk';
 $string['showfeedback'] = 'Feedback laten zien na het beantwoorden?';
 $string['showinsecurepopup'] = 'Gebruik een \'veilig\' pop-upvenster voor pogingen';
+$string['showlargeimage'] = 'Grote afbeelding';
 $string['shownoattempts'] = 'leerlingen die de test nog niet gemaakt hebben';
 $string['shownoattemptsonly'] = 'Toon enkel leerlingen zonder pogingen';
+$string['shownoimage'] = 'Geen afbeelding';
 $string['showreport'] = 'Toon rapport';
+$string['showsmallimage'] = 'Kleine afbeelding';
 $string['showteacherattempts'] = 'Toon de pogingen van de leraar';
 $string['showuserpicture'] = 'Toon de foto van de gebruiker';
 $string['showuserpicture_help'] = '<p>Als je deze optie inschakeld, dan zal de naam en foto van de leerling zichtbaar op het scherm gehouden worden tijdens een poging van de test en tijdens het nalezen.</p>

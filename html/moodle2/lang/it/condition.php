@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,6 +85,7 @@ $string['requires_grade_any'] = 'Disponibile dopo aver ottenuto una valutazione 
 $string['requires_grade_max'] = 'Disponibile dopo aver ottenuto un voto adeguato in <strong>{$a}</strong>.';
 $string['requires_grade_min'] = 'Disponibile dopo aver ottenuto il voto richiesto in <strong>{$a}</strong>.';
 $string['requires_grade_range'] = 'Disponibile dopo aver ottenuto uno specifico voto in <strong>{$a}</strong>.';
+$string['requires_grouping'] = 'Disponibile solo per il raggruppamento <strong>{$a}</strong>.';
 $string['requires_user_field_contains'] = 'Disponibile solo se il contenuto del campo <strong>{$a->field}</strong> del tuo profilo contiene  <strong>{$a->value}</strong>.';
 $string['requires_user_field_doesnotcontain'] = 'Disponibile solo se il contenuto del campo <strong>{$a->field}</strong> del tuo profilo non contiene  <strong>{$a->value}</strong>.';
 $string['requires_user_field_endswith'] = 'Disponibile solo se il contenuto del campo <strong>{$a->field}</strong> del tuo profilo termina con <strong>{$a->value}</strong>.';
@@ -93,7 +94,7 @@ $string['requires_user_field_isequalto'] = 'Disponibile solo se il contenuto del
 $string['requires_user_field_isnotempty'] = 'Disponibile solo se il campo <strong>{$a->field}</strong> del tuo profilo non è vuoto';
 $string['requires_user_field_startswith'] = 'Disponibile solo se il contenuto del campo <strong>{$a->field}</strong> del tuo profilo  inizia con <strong>{$a->value}</strong>.';
 $string['showavailability'] = 'Fino a quando l\'attività non è disponibile';
-$string['showavailability_hide'] = 'Non visualizzare il titolo';
+$string['showavailability_hide'] = 'Nascondi l\'attività sia nel corso sia nel registro valutatore';
 $string['showavailabilitysection'] = 'Fino a quando la sezione non è disponibile';
 $string['showavailabilitysection_hide'] = 'Non visualizzare la sezione';
 $string['showavailabilitysection_show'] = 'Visualizza la sezione non attiva e le condizioni per l\'accesso';
@@ -101,5 +102,5 @@ $string['showavailability_show'] = 'Visualizza il titolo non attivo e le condizi
 $string['startswith'] = 'inizia con';
 $string['userfield'] = 'Campo del profilo utente';
 $string['userfield_help'] = 'E\' possibile condizionare l\'accesso in funzione dei campi presenti nel profilo utente.';
-$string['userrestriction_hidden'] = 'Disponibilità condizionata (invisibile, senza informazioni): &lsquo;{$a}&rsquo;';
-$string['userrestriction_visible'] = 'Disponibilità condizionata: &lsquo;{$a}&rsquo;';
+$string['userrestriction_hidden'] = 'Disponibilità condizionata (invisibile, senza informazioni): {$a}';
+$string['userrestriction_visible'] = 'Disponibilità condizionata: {$a}';

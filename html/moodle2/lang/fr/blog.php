@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Description de l\'article';
 $string['entryerrornotyours'] = 'Cet article n\'est pas vôtre';
 $string['entrysaved'] = 'L\'article a été enregistré';
 $string['entrytitle'] = 'Titre de l\'article';
-$string['entryupdated'] = 'Article du blog mis à jour';
+$string['evententryadded'] = 'Un article de blog a été ajouté.';
+$string['evententrydeleted'] = 'Un article de blog a été supprimé.';
+$string['evententryupdated'] = 'Article du blog mis à jour';
 $string['externalblogcrontime'] = 'Planification du cron de blog externe';
 $string['externalblogdeleteconfirm'] = 'Désinscrire ce blog externe ?';
 $string['externalblogdeleted'] = 'Blog externe désinscrit';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'Identifiant de groupe non valide';
 $string['invalidurl'] = 'Cette URL n\'est pas atteignable';
 $string['linktooriginalentry'] = 'Lien vers l\'article original';
 $string['maxexternalblogsperuser'] = 'Nombre maximal de blogs externes par utilisateur';
-$string['mustassociatecourse'] = 'Pour publier vers un cours ou pour les membres d\'un groupe, vous devez associer cet article à un cours';
 $string['name'] = 'Nom';
 $string['name_help'] = 'Saisir un nom descriptif pour votre blog externe. Si aucun nom n\'est fourni, le nom de votre blog externe sera utilisé.';
 $string['noentriesyet'] = 'Aucun article visible ici';
@@ -156,7 +157,7 @@ $string['tagsort'] = 'Trier l\'affichage des tags par';
 $string['tagtext'] = 'Texte du tag';
 $string['timefetched'] = 'Date de la dernière synchronisation';
 $string['timewithin'] = 'Afficher les tags utilisés depuis';
-$string['updateentrywithid'] = 'Mise à jour de l\'article';
+$string['updateentrywithid'] = 'Modification de l\'article';
 $string['url'] = 'URL du flux RSS';
 $string['url_help'] = 'Saisir l\'URL du flux RSS de votre blog externe.';
 $string['useblogassociations'] = 'Activer les associations de blog';

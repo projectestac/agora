@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_filesystem', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_filesystem', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_filesystem
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,6 @@ $string['nosubdir'] = 'Je moet minstens één map maken in de <b>{$a}</b> map zo
 $string['path'] = 'Kies een map';
 $string['pluginname'] = 'Bestandssysteem';
 $string['pluginname_help'] = 'Maak een opslagruimte van een lokale map';
+$string['relativefiles'] = 'Relatieve bestanden toestaan';
+$string['relativefiles_desc'] = 'Hiermee worden alle bestanden in de opslagruimte toegankelijk via relatieve links.';
 $string['root'] = 'Root';

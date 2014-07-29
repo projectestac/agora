@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Содержимое';
+$string['display'] = 'Отображать содержимое каталога';
+$string['display_help'] = 'Если Вы выберете отображение содержимого каталога на странице курса, то ссылки на отдельную страницу не будет. Описание будет отображаться, только если отмечен параметр «Показывать описание на странице курса». <br />
+Учтите, что в этом случае просмотр каталога участниками не может быть зафиксирован.';
+$string['displayinline'] = 'Встроенный на странице курса';
+$string['displaypage'] = 'На отдельной странице';
 $string['dnduploadmakefolder'] = 'Распаковать файлы и создать каталог';
 $string['folder:addinstance'] = 'Добавлять новый каталог';
 $string['foldercontent'] = 'Файлы и вложенные папки';
@@ -40,7 +45,10 @@ $string['modulename_help'] = 'Модуль «Каталог» позволяет
 * обеспечения общего пространства на странице курса для загрузок материалов преподавателями (папка скрыта от студентов и только преподаватели могут ее видеть)';
 $string['modulenameplural'] = 'Папки';
 $string['neverseen'] = 'Не просмотрена ни разу';
+$string['noautocompletioninline'] = 'Автоматическая отметка завершения просмотра каталога не может быть выбрана вместе с параметром «Встроенный на странице курса»';
 $string['page-mod-folder-view'] = 'Главная страница модуля «Папка»';
 $string['page-mod-folder-x'] = 'Любая страница модуля «Папка»';
 $string['pluginadministration'] = 'Управление папкой';
 $string['pluginname'] = 'Папка';
+$string['showexpanded'] = 'Подкаталоги показывать развернутыми';
+$string['showexpanded_help'] = 'При включенном параметре по умолчанию вложенные папки будут отображаться  развернутыми. В противном случае вложенные папки будут отображаться свернутыми.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = 'La durata di default dell\'iscrizione. Impostarla
 $string['enrolperiod_help'] = 'La durata di default  dell\'iscrizione, a partire dalla data di iscrizione dell\'utente. Disabilitare l\'impostazione per una durata di default dell\'iscrizione senza limite.';
 $string['enrolstartdate'] = 'Data di inizio';
 $string['enrolstartdate_help'] = 'Consente l\'iscrizione degli utenti solo a partire dalla data impostata.';
+$string['expiredaction'] = 'Azione alla scadenza dell\'iscrizione';
+$string['expiredaction_help'] = 'L\'azione da compiere quando scade l\'iscrizione di un partecipante. Da notare che alcuni dati verranno eliminati per effetto della disiscrizione.';
 $string['mailadmins'] = 'Informa gli amministratori';
 $string['mailstudents'] = 'Informa gli studenti';
 $string['mailteachers'] = 'Informa i docenti';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = '動作';
 $string['addanotherhint'] = '別のヒントを追加する';
 $string['addcategory'] = 'カテゴリを追加する';
+$string['addmorechoiceblanks'] = 'さらに {no} 件の選択肢入力欄を追加する';
 $string['adminreport'] = 'あなたの問題データベースで可能性のある不具合をレポートします。';
 $string['answer'] = '答え';
+$string['answers'] = '答え';
 $string['answersaved'] = '解答保存';
 $string['attemptfinished'] = '受験終了';
 $string['attemptfinishedsubmitting'] = '送信を終了した受験:';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'question_attemptsテーブルに新しいエントリ
 $string['cannotcreatepath'] = 'パスを作成できません: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'あなたは動作「 {$a} 」を削除することはできません。この動作は問題の受験に使用されています。';
 $string['cannotdeletecate'] = 'このコンテクストのデフォルトカテゴリのため、あなたはカテゴリを削除できません。';
-$string['cannotdeletemissingbehaviour'] = 'あなたは不明動作を削除することはできません。システムで必須の動作です。';
-$string['cannotdeletemissingqtype'] = 'システムで必要なため、あなたは不明な問題タイプを削除することはできません。';
 $string['cannotdeleteneededbehaviour'] = '問題動作「 {$a} 」を削除することはできません。インストール済みの他の動作に依存します。';
 $string['cannotdeleteqtypeinuse'] = 'あなたは問題タイプ「 {$a} 」を削除することはできません。このタイプの問題が問題バンクに登録されています。';
 $string['cannotdeleteqtypeneeded'] = 'あなたは問題タイプ「 {$a} 」を削除することはできません。この問題タイプに依存する他の問題タイプがインストールされています。';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'あなたがカテゴリを他のコンテクスト�
 $string['copy'] = '{$a} からコピーおよびリンクを変更する。';
 $string['correct'] = '正解';
 $string['correctfeedback'] = 'すべての正答';
+$string['correctfeedbackdefault'] = 'あなたの答えは正解です。';
 $string['created'] = '作成日時';
 $string['createdby'] = '作成者';
 $string['createdmodifiedheader'] = '作成日時/最終更新日時';
@@ -111,13 +112,10 @@ $string['defaultfor'] = '{$a} デフォルト';
 $string['defaultinfofor'] = 'コンテクスト「 {$a} 」で共有される問題のデフォルトカテゴリ';
 $string['defaultmark'] = 'デフォルト評点';
 $string['defaultmarkmustbepositive'] = 'デフォルトの評点はプラスである必要があります。';
-$string['deletebehaviourareyousure'] = '本当に動作 {$a} を削除してもよろしいですか?';
-$string['deletebehaviourareyousuremessage'] = 'あなたは問題動作「 {$a} 」を完全に削除しようとしています。これにより、この問題動作に関連するデータベース内すべてのデータが完全削除されます。本当に続けてもよろしいですか?';
 $string['deletecoursecategorywithquestions'] = 'このコースカテゴリに関連する問題バンクに問題が登録されています。あなたが続けた場合、問題が削除されます。問題バンクのインターフェースを使用して、最初に問題を移動してください。';
-$string['deleteqtypeareyousure'] = '本当に問題タイプ「 {$a} 」を削除してもよろしいですか?';
-$string['deleteqtypeareyousuremessage'] = 'あなたは問題タイプ「 {$a} 」を完全に削除しようとしています。本当にアンインストールしてもよろしいですか?';
 $string['deletequestioncheck'] = '本当に「 {$a} 」を削除してもよろしいですか?';
-$string['deletequestionscheck'] = '本当に以下の問題を削除してもよろしいですか?<br /><br />{$a}';
+$string['deletequestionscheck'] = '<p>本当に以下の問題を削除してもよろしいですか</p>
+<p>{$a}</p>';
 $string['deletingbehaviour'] = '問題動作「 {$a} 」の削除';
 $string['deletingqtype'] = '問題タイプ「 {$a} 」の削除中';
 $string['didnotmatchanyanswer'] = '[合致する答えはありませんでした]';
@@ -229,6 +227,7 @@ $string['getcategoryfromfile'] = 'ファイルからカテゴリを取得する'
 $string['getcontextfromfile'] = 'ファイルからコンテクストを取得する';
 $string['hidden'] = '非表示';
 $string['hintn'] = 'ヒント {no}';
+$string['hintnoptions'] = 'ヒント {no} オプション';
 $string['hinttext'] = 'ヒントテキスト';
 $string['howquestionsbehave'] = '問題動作';
 $string['howquestionsbehave_help'] = '学生は小テスト内の問題に対して、様々に異なる方法で接することができます。例えば、あなたが学生にそれぞれの問題で答えを入力した後、評定またはフィードバックの前に小テストすべてを送信してもらいたい場合もあるでしょう。これには「遅延フィードバック」モードを使用します。
@@ -254,6 +253,7 @@ $string['impossiblechar'] = '丸括弧として使用できない文字 {$a} が
 $string['includesubcategories'] = 'サブカテゴリの問題も表示する';
 $string['incorrect'] = '不正解';
 $string['incorrectfeedback'] = 'すべての不正解';
+$string['incorrectfeedbackdefault'] = 'あなたの答えは正しくありません。';
 $string['information'] = '情報';
 $string['invalidanswer'] = '不完全な答え';
 $string['invalidarg'] = '有効ではない引数が提供されたか、サーバ設定が正しくありません。';
@@ -385,6 +385,7 @@ $string['parenthesisinproperstart'] = '{$a}** 内の ** の前で丸括弧が適
 $string['parsingquestions'] = 'インポートファイルより問題を解析しています。';
 $string['partiallycorrect'] = '部分的に正解';
 $string['partiallycorrectfeedback'] = 'すべての部分的に正しい解答';
+$string['partiallycorrectfeedbackdefault'] = 'あなたの答えは部分的に正解です。';
 $string['penaltyfactor'] = 'ペナルティ要素';
 $string['penaltyfactor_help'] = '<p>ここではそれぞれの間違った解答に対して、差し引く評点の割合を指定することができます。これは問題に繰り返し答えることのできる、アダプティブモードで小テストが動作している場合のみ関係があります。ペナルティ要素は0から1の間に設定してください。ペナルティ要素が１の場合、学生は単位を得るため、最初の解答で正解する必要があります。ペナルティ要素が0の場合、学生は満点になるまで何度でも好きなだけ受験することができます。</p>';
 $string['penaltyforeachincorrecttry'] = 'それぞれの不正解に対するペナルティ';
@@ -397,8 +398,6 @@ $string['permissionsaveasnew'] = 'この問題を新しい問題として保存�
 $string['permissionto'] = 'あなたのパーミッションは下記のとおりです:';
 $string['previewquestion'] = '問題をプレビューする: {$a}';
 $string['published'] = '共有';
-$string['qbehaviourdeletefiles'] = '問題動作「 {$a->behaviour} 」に関するすべてのデータがデータベースから削除されました。削除を完了するには (そして動作自体が再インストールされることを防ぐには)、あなたのサーバ内の次のディレクトリを削除する必要があります: {$a->directory}';
-$string['qtypedeletefiles'] = '問題タイプ「 {$a->qtype} 」に関連する、すべてのデータがデータベースから削除されました。削除を完了する (および問題タイプの再インストールを防ぐ) には、あなたのサーバより次のディレクトリを削除する必要があります: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">問題「 {$a->name}」({$a->qtype})</a> は、この問題カテゴリ内にありますが、別のコース「 {$a->coursename} 」の <a href="{$a->qurl}">小テスト「 {$a->quizname} 」</a> でも使用されています。';
 $string['questionbank'] = '問題バンク';
@@ -413,6 +412,8 @@ $string['questiondoesnotexist'] = 'この問題は存在しません。';
 $string['questionidmismatch'] = '問題IDが一致しません。';
 $string['questionname'] = '問題名';
 $string['questionno'] = '問題 {$a}';
+$string['questionpreviewdefaults'] = '問題プレビューデフォルト';
+$string['questionpreviewdefaults_desc'] = 'これらのデフォルトはユーザが問題バンク内の問題を最初にプレビューする時点で使用されます。ユーザが問題をプレビューした場合、パーソナルプリファレンスがユーザプリファレンスとして保存されます。';
 $string['questions'] = '問題';
 $string['questionsaveerror'] = '問題の保存中にエラーが発生しました - ({$a})';
 $string['questionsinuse'] = '(* アスタリスクでマークされている問題はすでにいくつかの小テストで使用されています。これらの問題は小テストからは削除されませんが、カテゴリリストからのみ削除されます)';
@@ -422,7 +423,7 @@ $string['questionsrescuedfrominfo'] = 'いくつかの小テストまたは他�
 $string['questiontext'] = '問題テキスト';
 $string['questiontype'] = '問題タイプ';
 $string['questionuse'] = 'この活動で問題を使用する';
-$string['questionvariant'] = '問題変形 (variant)';
+$string['questionvariant'] = '問題変形';
 $string['questionx'] = '問題 {$a}';
 $string['requiresgrading'] = '要評定';
 $string['responsehistory'] = '解答履歴';
@@ -438,7 +439,7 @@ $string['selectacategory'] = 'カテゴリを選択してください:';
 $string['selectaqtypefordescription'] = '説明を表示するには、問題タイプを選択してください。';
 $string['selectcategoryabove'] = '上記カテゴリを選択する';
 $string['selectquestionsforbulk'] = 'バルク処理の問題を選択する';
-$string['settingsformultipletries'] = '複数受験設定';
+$string['settingsformultipletries'] = '複数受験';
 $string['shareincontext'] = '{$a} でコンテクストを共有する';
 $string['showhidden'] = '古い問題も表示する';
 $string['showmarkandmax'] = '評点および最大評点を表示する';
@@ -461,6 +462,7 @@ $string['submitandfinish'] = '送信して終了する';
 $string['submitted'] = '送信: {$a}';
 $string['technicalinfo'] = '技術情報';
 $string['technicalinfo_help'] = '恐らく、この技術情報は新しい問題タイプを開発している開発者にとって有用です。また、問題のトラブル診断のためにも有用です。';
+$string['technicalinfomaxfraction'] = '最大割合: {$a}';
 $string['technicalinfominfraction'] = '最小割合: {$a}';
 $string['technicalinfoquestionsummary'] = '問題概要: {$a}';
 $string['technicalinforightsummary'] = '正解概要: {$a}';

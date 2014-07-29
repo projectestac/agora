@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cachestore_mongodb', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cachestore_mongodb', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   cachestore_mongodb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,7 +36,7 @@ $string['pluginname'] = 'MongoDB';
 $string['replicaset'] = 'Ensemble réplicat';
 $string['replicaset_help'] = 'L\'ensemble réplicat auquel se connecter. Si renseigné, le maître sera déterminé au moyen de la commande de base de donnée ismaster. Il pourrait arriver que la connexion soit faite vers un serveur qui n\'est même pas indiqué.';
 $string['server'] = 'Serveur';
-$string['server_help'] = 'La chaîne de connexion pour le serveur à utiliser. Plusieurs serveurs peuvent être indiqués, en les séparant par des virgules';
+$string['server_help'] = 'La chaîne de connexion pour le serveur à utiliser. Plusieurs serveurs peuvent être indiqués en les séparant par des virgules';
 $string['testserver'] = 'Serveurs de test';
 $string['testserver_desc'] = 'La chaîne de connexion pour le serveur de tests à utiliser. Les serveurs de test sont optionnels. En spécifiant un serveur de test, vous pouvez lancer des tests PHPunit pour ce dépôt, ainsi que des tests de performance.';
 $string['username'] = 'Nom d\'utilisateur';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_unsuproles', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_unsuproles', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_unsuproles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['confirmdelete'] = '정말, 문맥 수준 "{$a->level}"의 "{$a->role}"에 대한 모든 지원하지 않는 역할 부여를 삭제하겠습니까?';
 $string['contextlevel'] = '문맥 수준';
-$string['count'] = '갯수';
+$string['count'] = '계수';
 $string['noprolbems'] = '지원되지 않는 역활 부여 없음';
 $string['pluginname'] = '지원되지 않는 역활 부여';

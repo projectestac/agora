@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_afterburner', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['customcssdesc'] = 'Les règles CSS que vous définissez ici seront ajou
 $string['footnote'] = 'Pied de page';
 $string['footnotedesc'] = 'Le contenu de ce champ sera affiché dans le pied-de-page de chaque page.';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Saisissez l\'URL d\'une image à utiliser comme logo pour ce site, par exemple http://www.monsite.fr/chemin/vers/logo.png.<br />À titre de référence, le logo par défaut est une image JPG de 320px de largeur sur 75px de hauteur';
+$string['logodesc'] = 'Veuillez ajouter votre logo personnalisé si vous désirez remplacer le logo par défaut de ce thème.<br />À titre de référence, le logo par défaut est une image JPG de 320px de largeur sur 75px de hauteur';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = 'Droite';
 $string['region-side-pre'] = 'Gauche';

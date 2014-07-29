@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,7 +48,6 @@ URLa erakusteko modu ezberdinak daude, hala nola enbotaturik edo leiho berri bat
 Badago, bestalde, beste edozein baliabide edo aktibitateetan testu-editorea erabilita URLak gehitzeko aukera ere.';
 $string['modulenameplural'] = 'URLak';
 $string['neverseen'] = 'Ikusi gabea';
-$string['optionsheader'] = 'Aukerak';
 $string['page-mod-url-x'] = 'URL moduluaren edozein orria';
 $string['parameterinfo'] = 'parametroa=aldagaia';
 $string['parametersheader'] = 'Parametroak';
@@ -58,8 +57,6 @@ $string['popupheight'] = 'Popup-aren altuera (pixeletan)';
 $string['popupheightexplain'] = 'Zehaztu zabaltzen den leihoaren berezko altuera.';
 $string['popupwidth'] = 'Popup-aren zabalera (pixeletan)';
 $string['popupwidthexplain'] = 'Zehaztu zabaltzen den leihoaren berezko zabalera.';
-$string['printheading'] = 'Erakutsi URLaren izena';
-$string['printheadingexplain'] = 'Erakutsi URL izena edukiaren gainean? Erakusteko hainbat motak ez dute erakusten URL izena nahiz eta gaituta egon.';
 $string['printintro'] = 'Erakutsi URLaren deskribapena';
 $string['printintroexplain'] = 'Erakutsi URL izena edukiaren azpian? Erakusteko hainbat motak ez dute erakusten URL izena nahiz eta gaituta egon.';
 $string['rolesinparams'] = 'Sartu rol-izenak parametroetan';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,7 +40,6 @@ $string['allowtypeaicchacp_desc'] = 'Om aktiverat tillåter detta extern AICC HA
 $string['allowtypeexternal'] = 'Aktivera paket av extern typ';
 $string['allowtypeexternalaicc'] = 'Aktivera direkt AICC url';
 $string['allowtypeexternalaicc_desc'] = 'Om detta är aktiverat tillåts en direkt url till ett enkelt AICC paket';
-$string['allowtypeimsrepository'] = 'Aktivera typen IMS-paket';
 $string['allowtypelocalsync'] = 'Aktivera nedladdad pakettyp';
 $string['apidebugmask'] = ' "Fånga in"-maskare för API  - använd ett enkelt regex på <username>:<activityname> t ex admin:.* det kommer att debugga endast för admin användare';
 $string['areacontent'] = 'Innehållsfiler';
@@ -61,7 +60,6 @@ $string['autocontinue_help'] = '<p><b>Forts&auml;tt automatiskt</b></p>
 <p>Om detta inte &auml;r aktiverat (Nej) m&aring;ste anv&auml;ndaren sj&auml;lv anv&auml;nda knappen "Forts&auml;tt" f&ouml;r att g&aring; vidare. </p>';
 $string['averageattempt'] = 'Medel av försök';
 $string['badmanifest'] = 'Några fel med manifestet: se loggarna över fel';
-$string['badpackage'] = 'Det angivna paketet/manifestet är inte giltigt. Kontrollera det och försök igen.';
 $string['browse'] = 'Bläddra';
 $string['browsed'] = 'Genombläddrad';
 $string['browsemode'] = 'Läge för förhandsgranskning';
@@ -95,7 +93,6 @@ $string['displaysettings'] = 'Visa inställningar';
 $string['domxml'] = 'DOMXML externt bibliotek';
 $string['duedate'] = 'Sista inskickningsdatum';
 $string['element'] = 'Element';
-$string['elementdefinition'] = 'Elementdefinition';
 $string['enter'] = 'Mata in';
 $string['entercourse'] = 'Mata in en SCORM-kurs';
 $string['errorlogs'] = 'Logg över fel';
@@ -150,8 +147,6 @@ $string['hidebrowse_help'] = '<p>Om det här alternativet är inställt till "Ja
 
 <p>När ett lärobjekt är förhandsgranskat så kommer det att markeras med  <img src="<?php echo $CFG->wwwroot.\'/mod/scorm/pix/browsed.gif\' ?>" alt="<?php print_string(\'browsed\',\'scorm\') ?>" title="<?php print_string(\'browsed\',\'scorm\') ?>" /> ikonen för "förhandsgranskat".</p>';
 $string['hideexit'] = 'Dölj länken \'avsluta\'';
-$string['hidenav'] = 'Dölj knapparna för navigation';
-$string['hidenavdesc'] = 'Det här alternativet anger huruvida knapparna för navigation ska visas eller inte. ';
 $string['hidereview'] = 'Dölj knappen \'Visa igen\'';
 $string['hidetoc'] = 'Visa inte kursstrukturen i spelarens fönster';
 $string['hidetocdesc'] = 'Det här alternativet anger huruvida kursstrukturen (Innehållet) ska visas i SCORM-spelaren eller inte. ';
@@ -161,20 +156,6 @@ $string['identifier'] = 'Identifierare för fråga';
 $string['incomplete'] = 'Inte komplett';
 $string['info'] = 'Info';
 $string['interactions'] = 'Interaktioner';
-$string['interactionscorrectcount'] = 'Antalet korrekta resultat för frågan';
-$string['interactionsid'] = 'Id för elementet';
-$string['interactionslatency'] = 'Tid som förflutit mellan tiden då interaktionen <br />gjordes tillgänglig för eleven för svar <br /> och tiden för det första svaret.';
-$string['interactionslearnerresponse'] = 'Elevens svar';
-$string['interactionspattern'] = 'Mönster för korrekta svar';
-$string['interactionsresponse'] = 'Elevens svar';
-$string['interactionsresult'] = 'Resultat baserat på elevens svar och <br />korrekt svar';
-$string['interactionsscoremax'] = 'Maximalt värde i spannet för råpoäng';
-$string['interactionsscoremin'] = 'Minimalt värde i spannet för råpoäng';
-$string['interactionsscoreraw'] = 'Nummer som återspeglar prestationen för eleven<br /> relativt till spannet avgränsat av värden för min och max';
-$string['interactionssuspenddata'] = 'Tillhandahåller rum för att spara och hämta data <br />mellan elevsessioner';
-$string['interactionstime'] = 'Tid då försöket initierades';
-$string['interactionstype'] = 'Typ av fråga';
-$string['interactionsweight'] = 'Vikt tilldelad till elementet';
 $string['invalidactivity'] = 'Scormaktiviteten är inkorrekt';
 $string['invalidhacpsession'] = 'Ogiltig HACP session';
 $string['invalidmanifestresource'] = 'VARNIN: Följande resurser refererades i ditt manifest men kunde inte hittas:';
@@ -224,7 +205,6 @@ $string['optnoattemptsonly'] = 'Endast användare som inte har gjort några för
 $string['organization'] = 'Organisation';
 $string['organizations'] = 'Organisationer';
 $string['othersettings'] = 'Kompletterande inställningar';
-$string['othertracks'] = 'Andra spår';
 $string['package'] = 'Paketfil';
 $string['packagedir'] = 'Fel i filsystemet: det går inte att skapa en katalog för paketet';
 $string['packagefile'] = 'Ingen paketfil har angivits';
@@ -266,7 +246,6 @@ $string['regular'] = 'Normalt manifest';
 $string['report'] = 'Rapport';
 $string['reportcountattempts'] = '{$a->nbresults} resultat ({$a->nbusers} users)';
 $string['reports'] = 'Rapporter';
-$string['resizable'] = 'Tillåt användaren att ändra storleken på fönstret';
 $string['result'] = 'Resultat';
 $string['results'] = 'Resultat';
 $string['review'] = 'Visa igen';
@@ -321,18 +300,25 @@ $string['suspended'] = 'Avstängd';
 $string['syntax'] = 'Syntaxfel';
 $string['tag_error'] = 'Okänd tagg ({$a->tag}) med detta innehåll: {$a->value}';
 $string['time'] = 'Tid';
-$string['timerestrict'] = 'Begränsa svarande till denna tidsperiod';
 $string['title'] = 'Titel';
 $string['toc'] = 'Innehåll';
 $string['toolbar'] = 'Visa verktygsraden';
 $string['too_many_attributes'] = 'Taggen {$a->tag} har för många attribut';
 $string['too_many_children'] = 'Taggen {$a->tag} har för många barn';
 $string['totaltime'] = 'Tid';
+$string['trackcorrectcount_help'] = 'Antalet korrekta resultat för frågan';
 $string['trackingloose'] = 'VARNING: spårningsdata till detta SCORM-paket kommer att försvinna!';
+$string['tracklatency_help'] = 'Tid som förflutit mellan tiden då interaktionen <br />gjordes tillgänglig för eleven för svar <br /> och tiden för det första svaret.';
+$string['trackresult_help'] = 'Resultat baserat på elevens svar och <br />korrekt svar';
+$string['trackscoremax_help'] = 'Maximalt värde i spannet för råpoäng';
+$string['trackscoremin_help'] = 'Minimalt värde i spannet för råpoäng';
+$string['trackscoreraw_help'] = 'Nummer som återspeglar prestationen för eleven<br /> relativt till spannet avgränsat av värden för min och max';
+$string['tracksuspenddata_help'] = 'Tillhandahåller rum för att spara och hämta data <br />mellan elevsessioner';
+$string['tracktime_help'] = 'Tid då försöket initierades';
+$string['trackweight_help'] = 'Vikt tilldelad till elementet';
 $string['type'] = 'Typ';
 $string['typeaiccurl'] = 'Extern AICC URL';
 $string['typeexternal'] = 'Externt SCORM manifest';
-$string['typeimsrepository'] = 'Lokalt IMS innehållsförråd';
 $string['typelocal'] = 'Uppladdat paket';
 $string['typelocalsync'] = 'Nedladdat paket';
 $string['unziperror'] = 'Ett fel inträffade i samband med att paketet skulle packas upp.';

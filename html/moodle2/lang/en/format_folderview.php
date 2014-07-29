@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_folderview', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_folderview', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   format_folderview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -60,6 +60,8 @@ $string['showaddtopic'] = 'Show Add Topic';
 $string['showalltopics'] = 'Show all topics';
 $string['showfromothers'] = 'Show topic';
 $string['showonlytopic'] = 'View only {$a}';
+$string['topiccollapsed'] = 'Topic collapsed';
+$string['topicexpanded'] = 'Topic expanded';
 $string['topicsettings'] = 'Topic Settings';
 $string['viewall'] = 'View All';
 $string['viewalltopics'] = 'Return to the course page with a list of all the topics';

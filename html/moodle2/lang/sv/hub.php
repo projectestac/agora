@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,7 @@ $string['audienceadmins'] = 'Moodle administratörer';
 $string['audienceeducators'] = 'Utbildare';
 $string['audience_help'] = 'Välj den tänkta målgruppen för den här kursen.';
 $string['audiencestudents'] = 'Studenter/elever/deltagare/lärande';
+$string['badgesnumber'] = 'Antal märken ({$a})';
 $string['badurlformat'] = 'Dåligt format för URL';
 $string['cannotsearchcommunity'] = 'Du har tyvärr inte tillstånd att visa den här sidan. ';
 $string['community'] = 'Gemenskap';
@@ -105,6 +106,7 @@ $string['hub'] = 'Hubb';
 $string['imageurl'] = 'URL till bild';
 $string['imageurl_help'] = 'Denna bild kommer att visas på hubben. Denna bild måste vara tiilgänglig från hubben när som helst. Bilden bör ha en maximal storlek av {$a->width} X {$a->height}';
 $string['information'] = 'Information';
+$string['issuedbadgesnumber'] = 'Antal utfärdade märken ({$a})';
 $string['language'] = 'Språk';
 $string['language_help'] = 'Huvudspråket för den här kursen';
 $string['lasttimechecked'] = 'Senast kontrollerad';

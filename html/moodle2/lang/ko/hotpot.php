@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -192,7 +192,7 @@ $string['islessthan'] = '다음 보다 작습니다:';
 $string['lastaccess'] = '마지막 접속';
 $string['lastattempt'] = '마지막 시도';
 $string['lockframe'] = '프레임 고정';
-$string['maxeventlength'] = '한개 일정 이벤트에 대한 최대 일 수';
+$string['maxeventlength'] = '한개 달력 이벤트에 대한 최대 일 수';
 $string['mediafilter_hotpot'] = 'HotPot 미디어 필터';
 $string['mediafilter_moodle'] = '무들 표준 미디어 필터';
 $string['migratingfiles'] = '핫포테이토 퀴즈 파일 변환';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['alias'] = 'Senha';
 $string['aliases'] = 'Palavra(s)-chave';
 $string['aliases_help'] = 'Cada termo do glossário pode ter associada uma lista de palavras-chave. Se o termo estiver com hiperligações automáticas ativas, todas as palavras-chave associadas serão igualmente objeto de hiperligação automática.
 
-Insira cada senha numa linha (e não separadas por vírgulas).';
+Insira uma palavra-chave por linha (e não separadas por vírgulas).';
 $string['allcategories'] = 'Todas as categorias';
 $string['allentries'] = 'TODOS';
 $string['allowcomments'] = 'Permitir comentários aos termos';
@@ -111,6 +111,7 @@ $string['deletingnoneemptycategory'] = 'A eliminação desta categoria não impl
 $string['descending'] = '(descendente)';
 $string['destination'] = 'Destino dos termos importados';
 $string['destination_help'] = 'Os termos podem ser importados e adicionados ao glossário atual ou a um novo glossário. Neste caso, o novo glossário será criado com base nas informações contidas no ficheiro XML.';
+$string['disapprove'] = 'Anular aprovação';
 $string['displayformat'] = 'Formato de visualização';
 $string['displayformatcontinuous'] = 'Contínuo sem autor';
 $string['displayformatdefault'] = 'Igual ao formato de visualização predefinido';
@@ -133,7 +134,7 @@ $string['displayformats'] = 'Formatos de visualização';
 $string['displayformatssetup'] = 'Configuração de formatos de visualização';
 $string['duplicatecategory'] = 'Duplicar categoria';
 $string['duplicateentry'] = 'Termo repetido';
-$string['editalways'] = 'Permitir editar';
+$string['editalways'] = 'Permitir editar sempre';
 $string['editalways_help'] = 'Esta configuração especifica se os termos podem ser editados a qualquer momento ou se o aluno só pode editar os termos que inseriu durante um período definido (geralmente 30 minutos).';
 $string['editcategories'] = 'Editar categorias';
 $string['editentry'] = 'Editar termo';
@@ -176,7 +177,7 @@ $string['filtername'] = 'Hiperligações automáticas aos termos do glossário';
 $string['fullmatch'] = 'Localizar apenas Palavras inteiras';
 $string['fullmatch_help'] = 'Esta configuração define se apenas são inseridas hiperligações nas palavras que correspondam por inteiro ao termo. Por exemplo, se ativar esta opção para o termo "carro", não será criado um link dentro da palavra "autocarro".';
 $string['glossary:addinstance'] = 'Adicionar novo glossário';
-$string['glossary:approve'] = 'Aprovar termos não aprovados';
+$string['glossary:approve'] = 'Aprovar e desaprovar entradas';
 $string['glossary:comment'] = 'Criar comentários';
 $string['glossary:export'] = 'Exportar termos';
 $string['glossary:exportentry'] = 'Exportar um termo único';
@@ -249,6 +250,7 @@ $string['page-mod-glossary-x'] = 'Qualquer página do glossário';
 $string['pluginadministration'] = 'Administração do glossário';
 $string['pluginname'] = 'Glossário';
 $string['popupformat'] = 'Formato pop-up';
+$string['print'] = 'Imprimir';
 $string['printerfriendly'] = 'Versão de impressão';
 $string['printviewnotallowed'] = 'Não é permitida a vista de impressão';
 $string['question'] = 'Pergunta';
@@ -265,7 +267,7 @@ $string['searchindefinition'] = 'Pesquisar texto completo';
 $string['secondaryglossary'] = 'Glossário secundário';
 $string['showall'] = 'Mostrar o link TODOS';
 $string['showall_help'] = 'Se ativar esta opção, os participantes podem consultar todos os termos de uma vez.';
-$string['showalphabet'] = 'Mostrar alfabeto';
+$string['showalphabet'] = 'Mostrar hiperligações para o alfabeto';
 $string['showalphabet_help'] = 'Se ativar esta opção, os participantes podem consultar os termos por letra inicial.';
 $string['showspecial'] = 'Mostrar o link Especial';
 $string['showspecial_help'] = 'Se ativar esta opção, os participantes podem pesquisar os termos iniciados por carateres especiais como @ e #.';

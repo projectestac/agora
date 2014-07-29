@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dbtransfer', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,5 @@ $string['exportschemaexception'] = 'De huidige databankstructuur komt niet overe
 $string['importschemaexception'] = 'De huidige databankstructuur komt niet overeen met alle install.xml-bestanden.<br />{$a}';
 $string['importversionmismatchexception'] = 'Huidige versie {$a->currentver} komt niet overeen met de geëxporteerde versie {$a->schemaver}.';
 $string['malformedxmlexception'] = 'Slecht gevormde XML gevonden. Kan niet verdergaan.';
+$string['tablex'] = 'Tabel {$a}';
 $string['unknowntableexception'] = 'Onbekende tabel {$a} gevonden in exportbestand.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,7 +86,7 @@ $string['entrybodyonlydesc'] = 'وصف مدخل';
 $string['entryerrornotyours'] = 'هذا المدخل ليس خاص بك';
 $string['entrysaved'] = 'تم حفظ مشاركتك';
 $string['entrytitle'] = 'عنوان مدخل';
-$string['entryupdated'] = 'تم تحديث مدخل بلوق';
+$string['evententryupdated'] = 'تم تحديث مدخل بلوق';
 $string['externalblogcrontime'] = 'جدولة كرون للمدونة الخارجية';
 $string['externalblogdeleteconfirm'] = 'هل حقاً تريد إلغاء تسجيل هذه المدونة الخارجية؟';
 $string['externalblogdeleted'] = 'لقد تم إلغاء تسجيل المدونة الخارجية';
@@ -106,7 +106,6 @@ $string['invalidgroupid'] = 'معرف مجموعة غير صالح';
 $string['invalidurl'] = 'لا يمكن الوصول لهذا العنوان';
 $string['linktooriginalentry'] = 'رابط للتدوينة الأصلية';
 $string['maxexternalblogsperuser'] = 'العدد الأقصى من المدونات الخارجية لكل مستخدم';
-$string['mustassociatecourse'] = 'إن كنت ستنشر لأعضاء مقرر أو مجموعة، فعليك أن تربط مقرراً بهذه التدوينة';
 $string['name'] = 'الاسم';
 $string['name_help'] = 'أدخل اسماً واصفاً لمدونتك الخارجية. (سيتم استخدام عنوان المدونة الخارجية إن لم تكتب اسماً)';
 $string['noentriesyet'] = 'لا يوجد مدلات مرئية هناء';

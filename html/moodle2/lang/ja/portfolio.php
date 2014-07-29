@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,7 +62,7 @@ $string['exportcomplete'] = 'ポートフォリオのエクスポートが完了
 $string['exportedpreviously'] = '前のエクスポート';
 $string['exportexceptionnoexporter'] = '活動セッションでportfolio_export_exceptionがスローされましたが、エクスポーターオブジェクトがありません。';
 $string['exportexpired'] = 'ポートフォリオエクスポート期限切れ';
-$string['exportexpireddesc'] = 'あなたは、いくつかの情報を繰り返しエクスポートしようとしているか、空のエクスポートを開始しようとしています。適切にエクスポートするには、オリジナルのロケーションに戻って、再度エクスポートを開始する必要があります。エクスポートの後、あなたがブラウザの戻るボタンを使用したか、無効なURIをブックマークした場合、この現象が時々発生します。';
+$string['exportexpireddesc'] = 'あなたは、いくつかの情報を繰り返しエクスポートしようとしているか、空のエクスポートを開始しようとしています。適切にエクスポートするには、オリジナルのロケーションに戻って、再度エクスポートを開始する必要があります。エクスポートの後、あなたがブラウザの戻るボタンを使用したか、無効なURLをブックマークした場合、この現象が時々発生します。';
 $string['exporting'] = 'ポートフォリオへのエクスポート';
 $string['exportingcontentfrom'] = '{$a} からコンテンツをエクスポートする';
 $string['exportingcontentto'] = 'コンテンツの {$a} へのエクスポート';

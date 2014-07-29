@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'geogebra', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'geogebra', language 'eu', branch 'MOODLE_25_STABLE'
  *
  * @package   geogebra
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityclosed'] = 'Jarduera hau itxi da';
+$string['activityclosed'] = 'Jarduera hau ez dago eskura';
 $string['activitynotopened'] = 'Jarduera hau ez dago eskura';
 $string['attempt'] = 'Saiakera';
 $string['attempts'] = 'Saiakerak';

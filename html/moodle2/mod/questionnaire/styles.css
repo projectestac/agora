@@ -1,71 +1,44 @@
-.questionnaire_qbut,
-.questionnaire_qbut_disabled  {
-    padding-right: 0.2em;
-    padding-left: 0.2em;
-}
-.questionnaire_qbut_disabled {
-    cursor: default;
-}
+/** Question editing **/
 
-/** Question editing formslib style changes: **/
-
-#page-mod-questionnaire-questions div.qcontainer .fitemtitle {
-    display: none;
+/* !important is needed in moodle 2.6 to override the display block when window width is reduced. */
+#page-mod-questionnaire-questions .qcontainer .fitemtitle,
+#page-mod-questionnaire-questions #id_questionhdr .fitemtitle {
+    display: none!important;
 }
 
-#page-mod-questionnaire-mod .mform{
-    width: 100%;
-}
-
-#page-mod-questionnaire-questions div.qcontainer div.qnums {
-    display: block;
+#page-mod-questionnaire-questions .qcontainer .qnums {
     font-weight: bold;
-    width: 10%;
     float: left;
+    color: gray;
 }
 
-#page-mod-questionnaire-questions div.qcontainer div.qicons {
-    display: block;
-    width: 15%;
-    float: left;
-}
-
-#page-mod-questionnaire-questions div.qcontainer div.qtype {
-    display: block;
-    width: 19%;
-    float: left;
-}
-
-#page-mod-questionnaire-questions div.qcontainer div.qreq {
-    display: block;
-    width: 9%;
-    float: left;
-}
-
-#page-mod-questionnaire-questions div.qcontainer div.qname {
-    float: left;
-    display: block;
-    width: 45%;
-}
-
-#page-mod-questionnaire-questions div.qcontainer div.qheader {
-    border-bottom: double #000000 4px;
-    border-top: double #000000 4px;
-    font-weight: bold;
-    margin-top: 20px;
-    padding-bottom:10px;
-}
-
-#page-mod-questionnaire-questions div.qcontainer div.fstatic {
+#page-mod-questionnaire-questions .qcontainer .fstatic {
     width: 97%;
-    border-bottom: solid #000000 1px;
     margin-right: 1em;
-    margin-left: 10px;
-    background-color: #FFFFFF;
+    margin-left: 5px;
+    /* Set a negative margin-bottom to save some vertical space! */
+    margin-bottom: -10px;
 }
 
-#page-mod-questionnaire-questions div.qcontainer div.qcontent {
-    margin-bottom:-1em;
+#page-mod-questionnaire-questions .mform .fitem fieldset.felement {
+    margin-left: 0%;
+    padding-left: 1%;
+    margin-bottom: 0px!important;
+}
+
+#page-mod-questionnaire-preview fieldset,
+#page-mod-questionnaire-complete fieldset {
+    margin-bottom: 0px!important;
+}
+
+#page-mod-questionnaire-questions .mform .fitem .fitemtitle {
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 0px!important;
+}
+
+#page-mod-questionnaire-questions .moving {
+    border: medium dotted maroon;
 }
 
 div.qoptcontainer div.ftextarea {
@@ -86,176 +59,294 @@ div.qoptcontainer div.ftextarea textarea.qopts {
     font-weight:bold;
 }
 
-#page-mod-questionnaire-print .response .generalbox .generalboxcontent {
-    border-style:hidden;
+td.selected {
+    background-color: #e4f1fa;
+    border: 1px solid gray;
 }
 
-#page-mod-questionnaire-print .qnInnerTable .generalbox,
-#page-mod-questionnaire-print .qnInnerTable .generalboxcontent {
-    margin-top:0px;
-    margin-bottom:0px;
-}
-.qnOuter {
-	padding-right:5px;
-}
-.qnInnerTd {
-    font-family:"Courier New", Courier, monospace;
-    font-size:1.3em;
-    font-weight:bold;
-    text-align:right;
-    width:1.8em;
-    vertical-align: top;
-    padding-top:0.25em;
-}
-
-body#page-mod-questionnaire-view td.qnInner,
-body#page-mod-questionnaire-preview td.qnInner,
-body#page-mod-questionnaire-report td.qnInner,
-body#page-mod-questionnaire-myreport td.qnInner,
-.reportQuestionTitle {
-    border: #CCCCCC thin solid;
-    background-color:#fafafa;
-}
-/*remove paragraph bottom margin for better vertical positioning*/
-body#page-mod-questionnaire-view td.qnInner p,
-body#page-mod-questionnaire-preview td.qnInner p,
-body#page-mod-questionnaire-report td.qnInner p,
-body#page-mod-questionnaire-myreport td.qnInner p,
-.reportQuestionTitle p {
-    margin-bottom:0px;
-}
-
-body#page-mod-questionnaire-view td.qnType,
-body#page-mod-questionnaire-preview td.qnType,
-body#page-mod-questionnaire-report td.qnType,
-body#page-mod-questionnaire-myreport td.qnType {
-    border: #CCCCCC thin solid;
-    border-top:none;
-}
-
-body#page-mod-questionnaire-myreport div.respdate {
+#page-mod-questionnaire-myreport div.respdate {
     font-size: 0.8em;
     font-weight:bold;
-    padding-bottom: 4px;
+    margin-bottom: 6px;
+    padding-top: 6px;
+    border-bottom: 1px dashed gray;
 }
 
-body#page-mod-questionnaire-view .message,
-body#page-mod-questionnaire-view .notifyproblem,
-body#page-mod-questionnaire-view .thankbody,
-body#page-mod-questionnaire-view .thankhead {
+#page-mod-questionnaire-complete .message,
+#page-mod-questionnaire-complete .notifyproblem,
+#page-mod-questionnaire-preview .message,
+#page-mod-questionnaire-preview .notifyproblem,
+#page-mod-questionnaire-complete .thankbody,
+#page-mod-questionnaire-complete .thankhead {
     background-color:#FFFFFF;
-    border-color:#FF0000;
     border-style: solid;
     border-width: 2px;
     margin-bottom:10px;
     padding:5px;
-    width:50%;
 }
 
-body#page-mod-questionnaire-view .reqQuestion,
-body#page-mod-questionnaire-view .reqQuestionMark {
-    color: #FF0000;
+#page-mod-questionnaire-complete .notifyproblem,
+#page-mod-questionnaire-preview .notifyproblem {
+    border-color: red;
 }
 
-body#page-mod-questionnaire-view .reqQuestion {
-    background-color: #FFFFFF;
-    clear:both;
-    margin-bottom:5px;
-    padding:5px;
-    font-weight:bold;
+#page-mod-questionnaire-fbsections .notifyproblem {
+    text-align: left;
+    padding: 0px;
 }
 
-body#page-mod-questionnaire-view .surveyTitle,
-body#page-mod-questionnaire-view .surveySubtitle,
-body#page-mod-questionnaire-view .addInfo {
+#page-mod-questionnaire-complete .message,
+#page-mod-questionnaire-preview .message,
+#page-mod-questionnaire-complete .thankbody,
+#page-mod-questionnaire-complete .thankhead {
+    border-color: blue;
+}
+
+#page-mod-questionnaire-complete .surveyTitle,
+#page-mod-questionnaire-complete .surveySubtitle,
+#page-mod-questionnaire-complete .addInfo {
     clear:both;
     margin:0px;
     margin-bottom:4px;
     padding:10px;
 }
 
-body#page-mod-questionnaire-view .surveyPage {
+.surveyPage {
     background-color: #eee;
     border-bottom-color:#000000;
     border-bottom-style: solid;
-    border-bottom-width:2px;
+    border-bottom-width:1px;
     clear:right;
     padding:3px;
     margin-bottom:5px;
     margin-top:0px;
 }
 
-.reportQuestionTitle {
-    background-color:#f7f7f7;
-    padding-left:7px;
-    padding-top:5px;
-    padding-bottom:5px;
-}
-.reportQuestionNumber {
-    vertical-align: top;
-    padding-top:0.45em;
-    font-family:"Courier New", Courier, monospace;
-    font-size:1.4em;
-    font-weight:bold;
-    text-align:right;
-}
-body#page-mod-questionnaire-view .c0,
-body#page-mod-questionnaire-preview .c0 {
+/* alternate columns formatting */
+
+#page-mod-questionnaire-complete .c0,
+#page-mod-questionnaire-preview .c0,
+#page-mod-questionnaire-print .c0,
+#page-mod-questionnaire-report .individual .c0,
+#page-mod-questionnaire-myreport .individual .c0 {
     background-color: #fafafa;
-    border: #CCCCCC 1px    solid;
+    border: 1px solid silver;
     padding-left:5px;
     padding-right:5px;
-    padding-bottom:3px;
 }
 
-body#page-mod-questionnaire-view .c1,
-body#page-mod-questionnaire-preview .c1 {
+#page-mod-questionnaire-complete .raterow:hover,
+#page-mod-questionnaire-preview .raterow:hover {
+    background-color: #e4f1fa;
+}
+
+#page-mod-questionnaire-complete td.raterow:hover,
+#page-mod-questionnaire-preview td.raterow:hover {
+    border: 1px solid navy;
+}
+
+#page-mod-questionnaire-complete td.notanswered,
+#page-mod-questionnaire-preview td.notanswered {
+    /* border: none; */
+    background-color: #fafafa;;
+}
+
+#page-mod-questionnaire-complete td.notcompleted,
+#page-mod-questionnaire-preview td.notcompleted {
+    border: 2px solid red;
+    background-color: #fafafa;
+}
+
+#page-mod-questionnaire-complete .c1,
+#page-mod-questionnaire-preview .c1,
+#page-mod-questionnaire-print .c1,
+#page-mod-questionnaire-report .individual .c1,
+#page-mod-questionnaire-myreport .individual .c1 {
     background-color: #eee;
-    border: #FFFFFF 1px    solid;
+    border: 1px solid silver;
     padding-left:5px;
     padding-right:5px;
 }
 
-body#page-mod-questionnaire-view .monospace,
-body#page-mod-questionnaire-preview .monospace {
-    font-family:"Courier New", Courier, monospace;
+#page-mod-questionnaire-myreport .individualresp,
+#page-mod-questionnaire-preview .individualresp,
+#page-mod-questionnaire-print .individualresp {
+    border: #c0c0c0 1px solid;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:5px;
+    padding-bottom:0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
-/** overrides any hidden hr tag in current course theme **/
 
-#page hr {
-    display: block;
-    border-width:thin;
-}
-
-
-body#page-mod-questionnaire-view .notice .buttons div,
-body#page-mod-questionnaire-view .notice .buttons form {
+#page-mod-questionnaire-complete .notice .buttons div,
+#page-mod-questionnaire-complete .notice .buttons form {
     display:inline;
 }
 
-body#page-mod-questionnaire-report .generaltable,
-body#page-mod-questionnaire-myreport .generaltable {
-    width:100%;
-}
 .floatprinticon {
     margin-top:-30px;
     float:right;
 }
 
-/* new styles - keep old (quOuter, qnInner, qnInnerTable, qnType) for sections etc. */
-#page-mod-questionnaire-view .qn-number,
-#page-mod-questionnaire-view .qn-legend {
+.qn-legend {
      float: left;
+     font-size:inherit;
+     width: auto;
 }
-#page-mod-questionnaire-view .qn-question {
-    margin-left: 35px;
+
+/* format paragraph top and bottom margins for better vertical positioning in questions text */
+.qn-question p {
+    margin-bottom: 0.6em;
+    margin-top: 0.5em;
+}
+
+.qn-question {
     padding-left: 5px;
-    padding-bottom: 2px;
-    border-left: #CCCCCC thin dotted;
+    padding-right: 5px;
+    padding-bottom: 0.1em;
+    padding-top: 0.1em;
+    /* make background same color as quiz question text */
+    background-color: #e4f1fa;
 }
-#page-mod-questionnaire-view .qn-type {
-    margin-left: 35px;
-    padding: 5px;
-    border-left: #CCCCCC thin dotted;
-    border-bottom: #CCCCCC thin dotted;
+
+#page-mod-questionnaire-questions .qn-question {
+    margin-left: 40px;
+}
+
+.unselected {
+    color: gray;
+}
+
+/*respondents list feature*/
+
+#respondentscolumn {
+    float:left;
+    margin-left:20px;
+}
+.respondentsnavbar {
+    text-align:center;
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-bottom:5px;
+    background-color: #F2F2F2;
+}
+
+/* new quiz-like formatting for 2.5 */
+
+#page-mod-questionnaire-questions .qn-container {
+    border: 1px dotted gray;
+    margin-bottom: 1em;
+}
+
+.dir-rtl .qn-container {
+    text-align: right;
+}
+.qn-info {
+    float: left;
+    width: auto;
+    padding: 7px;
+    background: #eee;
+    font-weight: bold;
+}
+
+.qn-info h2.qn-number {
+    margin: 0px;
+    font-size: 1.5em;
+    line-height: 1.2em;
+}
+
+.qn-question,
+.qn-answer {
+    margin: 0 0 0.5em;
+    overflow:auto;
+}
+
+#notice .qn-question {
+    margin: 0;
+}
+
+.req {
+    font-size: x-small;
+}
+
+.qdepend {
+    color: red;
+    padding-left:5px;
+    margin-bottom: 5px;
+}
+
+.qn-content {
+    margin-bottom: 10px;
+    margin-left: 55px;
+}
+
+/* move horizontal radio buttons closer to their labels */
+.qn-answer input[type="radio"],
+.qn-answer input[type="checkbox"] {
+    margin-right: 3px;
+}
+
+#page-mod-questionnaire-show_nonrespondents input[type="radio"] {
+    margin-right: 1px;
+}
+
+.qn-answer label,
+#page-mod-questionnaire-show_nonrespondents label {
+    margin-right: 0.6em;
+}
+
+.hidedependquestion {
+    color:red;
+    display: none;
+}
+.qn-container {
+    color:black;
+    display: inherit;
+    margin-left: 10px;
+}
+
+#page-mod-questionnaire-fbsections .c0,
+#page-mod-questionnaire-fbsections .c1 {
+    border: 1px solid silver;
+    padding-left:4px;
+    padding-right: 4px;
+}
+
+#page-mod-questionnaire-fbsections .c0 {
+    background-color: #fafafa;
+}
+
+#page-mod-questionnaire-fbsections .c1 {
+    background-color: #eee;
+}
+
+#page-mod-questionnaire-fbsections input[type="radio"] {
+    margin-right: 0px;
+}
+
+#page-mod-questionnaire-fbsections .qn-legend {
+    padding-left: 8px;
+}
+
+#page-mod-questionnaire-fbsections .qcontainer.qcontent {
+    margin-bottom:-5em;
+}
+#page-mod-questionnaire-report div.chart {
+    overflow: auto;
+    margin-left: -40px;
+}
+
+#page-mod-questionnaire-report .generaltable.questionnairereport td {
+    border: 1px solid silver;
+}
+
+.qn-container .smalltext {font-size: 0.75em;}
+
+/* !important is needed in moodle 2.6 to override the display block when window width is reduced. */
+#page-mod-questionnaire-questions #region-main .mform .fitem .felement {
+    margin-bottom: 0px;
+    margin-left: 5px;
+    width: 97%;
 }

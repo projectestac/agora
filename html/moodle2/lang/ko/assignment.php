@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,7 +48,7 @@ $string['assignmentmail'] = '{$a->teacher} 선생님이 제출된 \'{$a->assignm
 $string['assignmentmailhtml'] = '{$a->teacher} 선생님이 제출된 \'<i>{$a->assignment}</i>\' 과제에 대한 의견을 달아놓으셨습니다. <br /><br />
 <a href="{$a->url}">과제 제출</a>에서 추가된 내용을 볼 수 있을 것입니다.';
 $string['assignmentmailsmall'] = '{$a->teacher} 가 과제 제출물 \'{$a->assignment}\' 에 대해 피드백을 남겼습니다. 피드백이 제출물에 첨부된 것을 볼 수 있습니다.';
-$string['assignmentname'] = '과제 이름';
+$string['assignmentname'] = '과제명';
 $string['assignmentsubmission'] = '제출 과제';
 $string['assignment:submit'] = '과제 제출';
 $string['assignmenttype'] = '과제 형태';
@@ -97,7 +97,7 @@ $string['errornosubmissions'] = '다운로드할 제출물이 없습니다.';
 $string['existingfiledeleted'] = '기존 파일 {$a} 가 지워졌습니다.';
 $string['failedupdatefeedback'] = '{$a} 의 과제에 대한 평을 업데이트하는데 실패함';
 $string['feedback'] = '과제평';
-$string['feedbackfromteacher'] = '{$a}로 부터의 피드백';
+$string['feedbackfromteacher'] = '{$a} 의 의견';
 $string['feedbackupdated'] = '{$a} 명의 과제에 대한 의견을 업데이트함';
 $string['finalize'] = '제출 업데이트 방지';
 $string['finalizeerror'] = '오류가 발생하여 제출이 완료되지 못함';
@@ -115,11 +115,11 @@ $string['helpuploadsingle'] = '<p>이 과제 유형은 각각의 참여자들에
 <p>화일은 워드프로세서 문서 혹은 이미지, 압축된 웹 사이트, 혹은 여러분이 요청했던 어떤 것이든 관계 없습니다.</p>';
 $string['hideintro'] = '시작 일시 전에는 설명 감춤';
 $string['hideintro_help'] = '<p>이를 켜 놓으면, 과제에 대한 설명이 과제 개시일 전까지는 보이지 않는다.</p>';
-$string['invalidassignment'] = '잘못된 과제';
+$string['invalidassignment'] = '틀린 과제';
 $string['invalidfileandsubmissionid'] = '누락된 파일 혹은 제출 아이디';
-$string['invalidid'] = '잘못된 과제 아이디';
+$string['invalidid'] = '과제의 ID가 틀렸음';
 $string['invalidsubmissionid'] = '잘못된 과제 아이디';
-$string['invalidtype'] = '잘못된 과제 유형';
+$string['invalidtype'] = '틀린 과제 유형';
 $string['invaliduserid'] = '잘못된 사용자 ID';
 $string['itemstocount'] = '갯수';
 $string['lastgrade'] = '마지막 성적';
@@ -127,14 +127,14 @@ $string['late'] = '{$a} 늦음';
 $string['maximumgrade'] = '최대 성적';
 $string['maximumsize'] = '최대 용량';
 $string['maxpublishstate'] = '예정일 이전에  블로그 항목에 대한 최대 가시성';
-$string['messageprovider:assignment_updates'] = '과제(2.2) 통지';
+$string['messageprovider:assignment_updates'] = '과제 통지';
 $string['modulename'] = '과제 (2.2)';
 $string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/assignment/icon.gif" /> <b>과제제출</b></p>
 <div class="indent">
 과제모듈은 선생님이 학생들에게 디지털 자료를 준비하고 이를 서버에 올려 제출하게 하는 등의 업무를 상세히 기술할 수 있도록 해줍니다.
 과제에는 논술을 포함하여 프로젝트, 리포트 기타 여러 유형이 포함되어 있습니다. 이 모듈에는 즉석에서 채점할 수 있는 기능이 포함되어 있습니다.
 </div>';
-$string['modulenameplural'] = '과제(2.2)';
+$string['modulenameplural'] = '과제제출';
 $string['newsubmissions'] = '제출된 과제들';
 $string['noassignments'] = '아직 주어진 과제가 없음';
 $string['noattempts'] = '이 과제를 제출하려는 시도가 없었음';

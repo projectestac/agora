@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -136,6 +136,8 @@ $string['pluginname'] = 'Usar un servidor LDAP';
 $string['pluginnotenabled'] = 'El pugin no está habilitado';
 $string['renamingnotallowed'] = 'El renombrado del nombre de usuario no está habilitado en LDAP';
 $string['rootdseerror'] = 'Error al consultar rootDSE para Active Directory';
+$string['start_tls'] = 'Utilice el servicio LDAP estándar (puerto 389) con cifrado TLS';
+$string['start_tls_key'] = 'Usar TLS';
 $string['updatepasserror'] = 'Error en user_update_password{}. Código de error: {$a->errno}. Cadena del error: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Error en user_update_password{} al leer el periodo de expiración de la contraseña.  Código de error: {$a->errno}. Cadena del error: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Error en user_update_password{} al modificar el periodo de expiración y/o los intentos de identidicación.  Código de error: {$a->errno}. Cadena del error: {$a->errstring}';

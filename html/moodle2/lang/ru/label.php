@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Предложить создать Пояснение при перетаскивании в курс медиа-файла .';
+$string['configdndresizeheight'] = 'Если Пояснение создано при перетаскивании изображения, то изменить его размер, если он выше, чем указанное количество пикселей (0 - размер не изменять)';
+$string['configdndresizewidth'] = 'Если Пояснение создано при перетаскивании изображения, то изменить его размер, если он шире, чем указанное количество пикселей (0 - размер не изменять)';
+$string['dndmedia'] = 'Перетаскивание медиа-файла';
+$string['dndresizeheight'] = 'Изменить высоту при перетаскивании';
+$string['dndresizewidth'] = 'Изменить ширину при перетаскивании';
+$string['dnduploadlabel'] = 'Добавить изображение на страницу курса';
+$string['dnduploadlabeltext'] = 'Добавить пояснение на страницу курса';
 $string['label:addinstance'] = 'Добавить новое пояснение';
 $string['labeltext'] = 'Текст пояснения';
 $string['modulename'] = 'Пояснение';

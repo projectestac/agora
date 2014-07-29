@@ -51,6 +51,7 @@ class mod_hotpot_attempt_hp_6_jmatch_html_intro_renderer extends mod_hotpot_atte
      * fix_headcontent
      */
     function fix_headcontent()  {
+        $this->fix_headcontent_DragAndDrop();
         $this->fix_headcontent_rottmeier('jintro');
     }
 
@@ -62,8 +63,61 @@ class mod_hotpot_attempt_hp_6_jmatch_html_intro_renderer extends mod_hotpot_atte
     function get_js_functionnames()  {
         // start list of function names
         $names = parent::get_js_functionnames();
-        $names .= ($names ? ',' : '').'CheckAnswer';
+        $names .= ($names ? ',' : '').'CheckAnswer,ShowDescription';
         return $names;
+    }
+
+    /**
+     * fix_js_ShowDescription
+     *
+     * @param xxx $str (passed by reference)
+     * @param xxx $start
+     * @param xxx $length
+     * @todo Finish documenting this function
+     */
+    public function fix_js_ShowDescription(&$str, $start, $length)  {
+        $replace = ''
+            ."function ShowDescription(evt, ElmNum){\n"
+            ."	if (evt==null) {\n"
+            ."		evt = window.event; // IE\n"
+            ."	}\n"
+
+            ."	var obj = document.getElementById('DivIntroPage');\n"
+            ."	if (obj) {\n"
+
+            // get max X and Y for this page
+            ."		var pg = new PageDim();\n"
+            ."		var maxX = (pg.Left + pg.W);\n"
+            ."		var maxY = (pg.Top  + pg.H);\n"
+
+            // get mouse position
+            ."		if (evt.pageX || evt.pageY) {\n"
+            ."			var posX = evt.pageX;\n"
+            ."			var posY = evt.pageY;\n"
+            ."		} else if (evt.clientX || evt.clientY) {\n"
+            ."			var posX = evt.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;\n"
+            ."			var posY = evt.clientY + document.body.scrollTop + document.documentElement.scrollTop;\n"
+            ."		} else {\n"
+            ."			var posX = 0;\n"
+            ."			var posY = 0;\n"
+            ."		}\n"
+
+            // insert new description and make div visible
+            ."		obj.innerHTML = D[ElmNum][0];\n"
+            ."		obj.style.display = 'block';\n"
+
+            // make sure posX and posY are within the display area
+            ."		posX = Math.max(0, Math.min(posX + 12, maxX - getOffset(obj, 'Width')));\n"
+            ."		posY = Math.max(0, Math.min(posY + 12, maxY - getOffset(obj, 'Height')));\n"
+
+            // move the description div to (posX, posY)
+            ."		setOffset(obj, 'Left', posX);\n"
+            ."		setOffset(obj, 'Top', posY);\n"
+            ."		obj.style.zIndex = ++topZ;\n"
+            ."	}\n"
+            ."}\n"
+        ;
+        $str = substr_replace($str, $replace, $start, $length);
     }
 
     /**

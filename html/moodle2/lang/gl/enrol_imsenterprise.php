@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['aftersaving...'] = 'Unha vez gardadas as súas configuracións, poderá desexar';
-$string['allowunenrol'] = 'Permitir datos IMS para <strong>dar de baixa</strong> estudantes/profesores';
+$string['allowunenrol'] = 'Permitir datos IMS para <strong>dar de baixa</strong> alumnos/profesores';
 $string['allowunenrol_desc'] = 'De estar activado, as matriculacións retiraranse cando se especifique nos datos de empresa.';
 $string['basicsettings'] = 'Configuracións básicas';
 $string['coursesettings'] = 'Opcións dos datos do curso';
@@ -44,6 +44,7 @@ $string['cronfrequency'] = 'Frecuencia do procesamento';
 $string['deleteusers'] = 'Eliminar contas de usuario cando son especificadas en datos IMS';
 $string['deleteusers_desc'] = 'Se está activado, os datos de matriculación de IMS Enterprise poden especificar a eliminación das contas de usuario (se a marca "recstatus" se define como 3, que representa a eliminación dunha conta). Como é estándar no Moodle, o rexistro do usuario non se elimina realmente da base de datos de Moodle, pero estabelécese un marca para sinalar a conta como eliminada.';
 $string['doitnow'] = 'executar unha importación IMS Enterprise agora mesmo';
+$string['emptyattribute'] = 'Deixalo baleiro';
 $string['filelockedmail'] = 'O ficheiro de texto que está a utilizar para as inscricións baseadas nos ficheiros IMS ({$a}) non pode ser eliminado polo proceso cron.  Normalmente, isto significa que os permisos non son apropiados.  Sinale os permisos para que Moodle poida eliminar o ficheiro, no caso contrario poderá ser procesado repetidamente.';
 $string['filelockedmailsubject'] = 'Erro importante: Ficheiro de inscricións';
 $string['fixcasepersonalnames'] = 'Modificar os nomes persoais para maiúsculas no Título';
@@ -60,12 +61,18 @@ $string['miscsettings'] = 'Varios';
 $string['pluginname'] = 'Ficheiro IMS Enterprise';
 $string['pluginname_desc'] = 'Este método buscará repetidamente e procesará un ficheiro de texto espcialmente formatado na localización que especifique. O ficheiro debe seguir as especificacións de IMS Enterprise e conter a persoa, grupo e os elementos XML de membro.';
 $string['processphoto'] = 'Engadir datos da fotografía do usuario para o perfil';
-$string['processphotowarning'] = 'Aviso: Ao procesar unha imaxe é probable que sexa engadida unha carga significativa ao servidor. Non é recomendable que active esta opción se hai un grande número de estudantes para seren procesados.';
+$string['processphotowarning'] = 'Aviso: Ao procesar unha imaxe é probable que sexa engadida unha carga significativa ao servidor. Non é recomendábel que active esta opción se hai un grande número de alumnos para seren procesados.';
 $string['restricttarget'] = 'Só procesa datos se o seguinte obxectivo é especificado';
 $string['restricttarget_desc'] = 'Un ficheiro de datos de IMS Enterprise podería ser destinado a varios "obxectivos" - distintos ou sistemas diferentes dentro dunha escola/universidade. É posíbel especificar no ficheiro do Enterprise que os datos están preparados para un ou máis sistemas de destino, nomeándoos en etiquetas <target> contidas na etiqueta <properties>.
 
 En xeral, non se preocupe diso. Deixe en branco a opción e Moodle procesará o ficheiro de datos, non importa se o destino está especificado ou non. En caso contrario, cubra o nome exacto que estará na saída da etiqueta <target>.';
 $string['roles'] = 'Roles';
+$string['settingfullname'] = 'Etiqueta de descrición IMS para o nome completo do curso';
+$string['settingfullnamedescription'] = 'O nome completo é un campo requirido do curso, de modo que ten que definir a etiqueta de descrición no seu ficheiro IMS';
+$string['settingshortname'] = 'A etiqueta de descrición IMS para o nome curto do curso';
+$string['settingshortnamedescription'] = 'O nome curto é un campo requirido do curso así que ten que definir a etiqueta de descrición seleccionada no seu ficheiro IMS Enterprise';
+$string['settingsummary'] = 'A etiqueta de descrición IMS para o resumo do curso';
+$string['settingsummarydescription'] = 'É un campo opcional, seleccione \'Deixalo baleiro\' se non quere especificar un resumo do curso';
 $string['sourcedidfallback'] = 'Utilice o sourcedid para o id de usuario da persoa se o userid campo non é encontrado';
 $string['sourcedidfallback_desc'] = 'Nos datos do IMS, o campo <sourcedid> campo o código persistente de identificación dunha persoa que utiliza o sistema orixe. O campo <userid> é un campo separado que debe conter o código de identificación utilizado polo usuario cando inicia sesión. En moitos casos, estes dous códigos poden ser os mesmos - pero non sempre.
 
@@ -73,6 +80,6 @@ Algúns sistemas de información dos alumnos fallan ao emitir o <userid> campo. 
 $string['truncatecoursecodes'] = 'Truncar os códigos do curso para este período';
 $string['truncatecoursecodes_desc'] = 'Nalgunhas situacións pode ter códigos de curso que desexa truncar a un tamaño determinado antes do procesamento. De ser o caso, introduza o número de caracteres nesta caixa. Doutra maneira deixe a caixa en branco e non se producirá ningún truncamento.';
 $string['usecapitafix'] = 'Marque esta caixa se utiliza Capita (o seu formato XML está algo errado)';
-$string['usecapitafix_desc'] = 'No sistema de datos de estudante producidos por Capita atopouse un lixeiro erro na súa saída XML. De estar a usar Capita, debería activar esta opción - doutra maneira déixeo desmarcada.';
+$string['usecapitafix_desc'] = 'No sistema de datos de alumnos producidos por Capita atopouse un lixeiro erro na súa saída XML. De estar a usar Capita, debería activar esta opción - doutra maneira déixeo desmarcada.';
 $string['usersettings'] = 'Opcións de datos do usuario';
 $string['zeroisnotruncation'] = '0 indica que non hai acción de truncar';

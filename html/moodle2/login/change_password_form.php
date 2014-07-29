@@ -34,8 +34,9 @@ class login_change_password_form extends moodleform {
         global $USER, $CFG;
 
         $mform = $this->_form;
+        $mform->setDisableShortforms(true);
 
-        $mform->addElement('header', '', get_string('changepassword'), '');
+        $mform->addElement('header', 'changepassword', get_string('changepassword'), '');
 
         // visible elements
         $mform->addElement('static', 'username', get_string('username'), $USER->username);
@@ -73,15 +74,11 @@ class login_change_password_form extends moodleform {
         global $USER;
         $errors = parent::validation($data, $files);
 
-        update_login_count();
-
         // ignore submitted username
-        if (!$user = authenticate_user_login($USER->username, $data['password'])) {
+        if (!$user = authenticate_user_login($USER->username, $data['password'], true)) {
             $errors['password'] = get_string('invalidlogin');
             return $errors;
         }
-
-        reset_login_count();
 
         if ($data['newpassword1'] <> $data['newpassword2']) {
             $errors['newpassword1'] = get_string('passwordsdiffer');

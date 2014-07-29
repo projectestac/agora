@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -71,7 +71,6 @@ $string['answerhowmany'] = '단답 혹은 복수의 답?';
 $string['answers'] = '답안';
 $string['answersingleno'] = '복수의 답 인정';
 $string['answersingleyes'] = '단답만 가능';
-$string['answerswithacceptederrormarginmustbenumeric'] = '허용 오차를 포함한 답은 숫자로 표시되야 함';
 $string['answertoolong'] = '{$a} 째 줄의 답이 너무 김';
 $string['aon'] = 'AON 형식';
 $string['areyousureremoveselected'] = '정말 선택한 모든 질문들을 삭제하겠습니까?';
@@ -99,6 +98,7 @@ $string['attemptsonly'] = '시도한 학습자만 보기';
 $string['attemptstate'] = '상태';
 $string['attemptstillinprogress'] = '시도가 아직 진행중입니다.';
 $string['attemptsunlimited'] = '무한정 시도';
+$string['autosaveperiod'] = '자동 저장 기간';
 $string['back'] = '이전 질문으로 돌아가기';
 $string['backtocourse'] = '강좌로 돌아가기';
 $string['backtoquestionlist'] = '질문목록으로 돌아가기';
@@ -230,6 +230,7 @@ $string['deletingquestionattempts'] = '퀴즈 시도 삭제';
 $string['description'] = '설명';
 $string['disabled'] = '불가';
 $string['displayoptions'] = '선택사항 보이기';
+$string['donotuseautosave'] = '자동 저장 사용하지 않음';
 $string['download'] = '내보낸 항목파일을 다운로드하려면 클릭';
 $string['downloadextra'] = '(파일은 강좌의 /backupdata/quiz에도 저장되었음)';
 $string['duplicateresponse'] = '이전에도 같은 답을 했기 때문에 이 제출은 무시되었습니다.';
@@ -272,7 +273,7 @@ $string['emailnotifysubject'] = '{$a->studentname} 은  {$a->quizname} 퀴즈를
 $string['emailoverduesubject'] = '시도기간 초과: {$a->quizname}';
 $string['empty'] = '비었음';
 $string['enabled'] = '가능';
-$string['endtest'] = '시도 종료 ...';
+$string['endtest'] = '시험 종료 ...';
 $string['erroraccessingreport'] = '이 보고서에는 접근할 수 없음';
 $string['errorinquestion'] = '질문 오류';
 $string['errormissingquestion'] = '오류 : 아이디 {$a} 의 질문이 사라짐';
@@ -313,7 +314,7 @@ $string['formulaerror'] = '수식 오류!';
 $string['fractionsaddwrong'] = '당신이 선택한 점수 총계는 100% 가 아닙니다.<br /> 현재 합계가 {$a} % 입니다. <br />질문를 수정하기 위해 되돌아가겠습니까?';
 $string['fractionsnomax'] = '정답은 100%가 되어야 합니다.<br /> 그래야 이 질문에 대한 등급 처리가 가능합니다.<br /> 이 문제를 수정하기 위해 되돌아 가겠습니까?';
 $string['fromfile'] = '파일에서 :';
-$string['functiondisabledbysecuremode'] = '현재 그 기능은 비활성화 되어 있습니다.';
+$string['functiondisabledbysecuremode'] = '지금 그 기능은 사용할 수 없음';
 $string['generalfeedback'] = '일반적 피드백';
 $string['generalfeedback_help'] = '일반 피드백은 질문이 시도된 후 보여지는 문장입니다. 응답에 따라 달라지는 특정 질문에 대한 피드백과는 달리 같은 일반적인 피드백이 항상 보여집니다.';
 $string['graceperiod'] = '제출 유예 기간';
@@ -471,9 +472,10 @@ $string['numattemptsmade'] = '이 퀴즈에 대해 {$a} 시도가 있었음';
 $string['numberabbr'] = '#';
 $string['numerical'] = '수치형';
 $string['numquestionsx'] = '질문: {$a}';
+$string['oneminute'] = '1분';
 $string['onlyteachersexport'] = '선생님만이 질문을 내보내기 할 수 있음';
 $string['onlyteachersimport'] = '편집 권한이 있는 사람만 질문 가져오기를 할 수 있음';
-$string['onthispage'] = '이 페이지';
+$string['onthispage'] = '이 페이지에서';
 $string['open'] = '응답하지 않음';
 $string['openclosedatesupdated'] = '퀴즈 시작 및 종료일이 변경되었음';
 $string['optional'] = '선택사항';
@@ -506,7 +508,7 @@ $string['overrideuser'] = '사용자 덮어쓰기';
 $string['overrideusereventname'] = '{$a->quiz} - 덮어 쓰기';
 $string['page-mod-quiz-edit'] = '퀴즈 페이지 편집';
 $string['page-mod-quiz-x'] = '모든 퀴즈 모듈 페이지';
-$string['pagesize'] = '페이지 크기';
+$string['pagesize'] = '한페이지당 보여질 시도들:';
 $string['parent'] = '상위';
 $string['parentcategory'] = '상위 범주';
 $string['parsingquestions'] = '가져온 파일에서 질문 파싱';
@@ -567,8 +569,8 @@ $string['quizclosed'] = '{$a} 에 퀴즈 끝남';
 $string['quizcloses'] = '퀴즈그만하기';
 $string['quizcloseson'] = '{$a} 에 퀴즈가 종료될 예정임';
 $string['quiz:deleteattempts'] = '퀴즈 시도 삭제';
-$string['quiz:emailconfirmsubmission'] = '제출시 확인 메세지 받기';
-$string['quiz:emailnotifysubmission'] = '시도가 제출될 때 알림 메세지 받기';
+$string['quiz:emailconfirmsubmission'] = '제출할 때 이메일 확인받음';
+$string['quiz:emailnotifysubmission'] = '제출에 대한 안내를 이메일로 받음';
 $string['quiz:emailwarnoverdue'] = '시도가 시간이 지나서 제출되어야 할 필요가 있을때 알림 메세지 받기';
 $string['quiz:grade'] = '퀴즈 수동 채점';
 $string['quiz:ignoretimelimits'] = '퀴즈에서 시간 제한 무시';
@@ -852,6 +854,6 @@ $string['wildcard'] = '와일드카드';
 $string['windowclosing'] = '조금 뒤 창이 닫힐 것입니다.';
 $string['withsummary'] = '요약된 통계와 함께';
 $string['wronguse'] = '이 페이지를 사용할 수 없음';
-$string['xhtml'] = 'XHTML';
+$string['xhtml'] = 'XHTML 형식';
 $string['youneedtoenrol'] = '강좌에 등록을 마쳐야 이 퀴즈에 도전할 수 있음';
 $string['yourfinalgradeis'] = '이번 퀴즈의 최종 점수는 {$a} 입니다.';

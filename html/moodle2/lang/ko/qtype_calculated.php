@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = '항목 추가';
 $string['addmoreanswerblanks'] = '답안란 추가';
-$string['addmoreunitblanks'] = '{$a} 개의 단위 추가';
 $string['addsets'] = '집합 추가';
+$string['answerdisplay'] = '답 표시';
+$string['answerformula'] = '답 {$a} 공식';
 $string['answerhdr'] = '답안';
 $string['answerstoleranceparam'] = '혀용오차 계수';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -67,7 +68,7 @@ $string['functiontakesoneortwoargs'] = '함수 {$a}는  한개 혹은 두개의 
 $string['functiontakestwoargs'] = '함수 {$a}는 정확히 두개의 인수를 갖아야만 합니다.';
 $string['generatevalue'] = '다음 수 안에 사이에 있는 값 생성';
 $string['getnextnow'] = '새 "추가할 항목" 가져오기';
-$string['hexanotallowed'] = '숫자집합 <strong>{$a->name}</strong>에 16진법 값 {$a->value} 은 허용되지 않습니다.';
+$string['hexanotallowed'] = '숫자집합 <strong>{$a->name}</strong>에 16진법 값 $a->value 은 허용되지 않음';
 $string['illegalformulasyntax'] = '\'{$a}\'로 시작하는 잘못된 공식 문법';
 $string['incorrectfeedback'] = '부정확한 반응에 대해';
 $string['itemno'] = '항목 {$a}';
@@ -90,9 +91,7 @@ $string['minmax'] = '값의 범위';
 $string['missingformula'] = '누락된 공식';
 $string['missingname'] = '누락된 질문 이름';
 $string['missingquestiontext'] = '누락된 질문 문장';
-$string['mustbenumeric'] = '여기에는 숫자를 입력해야 합니다.';
 $string['mustenteraformulaorstar'] = '공식 혹은  \'*\'.을 입력해야 합니다.';
-$string['mustnotbenumeric'] = '숫자는 안 됩니다.';
 $string['newcategory1'] = '새롭게 공유된 숫자집합 사용';
 $string['newcategory2'] = '이 범주의 타 질문에서 사용했을 수도 있는 파일의 새 묶음에서 가져온 파일';
 $string['newcategory3'] = '이 범주의 타 질문에서 사용했을 수도 있는 링크의 새 묶음에서 가져온 링크';
@@ -134,6 +133,7 @@ $string['synchronizeno'] = '동기화하지 않음';
 $string['synchronizeyes'] = '동기화';
 $string['synchronizeyesdisplay'] = '질문 이름의 접두어를 이용하여 공유 숫자집합 명칭 표시 및 동기화';
 $string['tolerance'] = '허용오차';
+$string['tolerancetype'] = '유형';
 $string['trueanswerinsidelimits'] = '맞은 답: {$a->correct} 은 정답 {$a->true} 의 오차범위에 들어 있음';
 $string['trueansweroutsidelimits'] = '<span class="error">정답 오류 : {$a->correct} 은 정답 {$a->true} 의 오차범위 밖에 있음</span>';
 $string['uniform'] = '균일 분포';
@@ -153,5 +153,4 @@ $string['wildcardvalues'] = '와일드카드 값';
 $string['wildcardvaluesgenerated'] = '와일드카드 값이 만들어졌습니다.';
 $string['youmustaddatleastoneitem'] = '이 질문을 저장하기전에 최소 한개 데이터집합 항목을 추가하여야 합니다.';
 $string['youmustaddatleastonevalue'] = '이 질문을 저장하기전에 최소 한개의 와일드 카드 값 집합을 추가해야 합니다.';
-$string['youmustenteramultiplierhere'] = '지수를 넣어야만 합니다.';
 $string['zerosignificantfiguresnotallowed'] = '정답은 유효숫자가 0 일 수 없습니다.';

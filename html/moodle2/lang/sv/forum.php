@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,7 +58,6 @@ $string['cannotaddsubscriber'] = 'Det gick inte att lägga till en prenumerant m
 $string['cannotaddteacherforumto'] = 'Det gick inte att lägga till en omvänd instans av ett lärarforum till sektion 0 i kursen';
 $string['cannotcreatediscussion'] = 'Det gick inte att skapa en ny diskussion';
 $string['cannotcreateinstanceforteacher'] = 'Det gick inte att skapa en ny instans av en kursmodul för lärarforumet.';
-$string['cannotdeleteforummodule'] = 'Du kan inte ta bort forummodulen. ';
 $string['cannotdeletepost'] = 'Du kan inte ta bort det här inlägget!';
 $string['cannoteditposts'] = 'Du kan inte redigera andra människors inlägg!';
 $string['cannotfinddiscussion'] = 'Det gick inte att hitta diskussionen i det här forumet';
@@ -293,7 +292,6 @@ $string['nopermissiontosubscribe'] = 'Du har inte tillstånd att visa prenumeran
 $string['nopermissiontoview'] = 'Du har inte tillstånd att visa det här inlägget.';
 $string['nopostforum'] = 'Du har tyvärr inte tillstånd att göra inlägg i detta forum.';
 $string['noposts'] = 'Inga inlägg';
-$string['nopostscontaining'] = 'Det gick inte att hitta  några inlägg som innehåller \'{$a}\'';
 $string['nopostsmadebyuser'] = '{$a} har inte gjort några inlägg';
 $string['nopostsmadebyyou'] = 'Du har inte gjort några inlägg';
 $string['noquestions'] = 'Det finns ännu inga frågor i det här forumet';
@@ -379,7 +377,7 @@ $string['search'] = 'Sök';
 $string['searchdatefrom'] = 'Inlägget måste vara nyare än så här';
 $string['searchdateto'] = 'Inlägget måste vara äldre än så här';
 $string['searchforumintro'] = 'Var snäll och mata in sökord i ett eller flera av de följande textfälten:';
-$string['searchforums'] = 'Sök forum';
+$string['searchforums'] = 'Sök i forum';
 $string['searchfullwords'] = 'De här orden bör stå som hela ord';
 $string['searchnotwords'] = 'De här orden bör INTE tas med';
 $string['searcholderposts'] = 'Sök äldre inlägg...';

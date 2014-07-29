@@ -49,11 +49,7 @@ function brick_set_headingcolor($css, $headingcolor) {
     return $css;
 }
 
-function brick_set_logo($css, $logo, $theme = null) {
- global $OUTPUT;
- if ($theme === null) {
-     $theme = $OUTPUT;
- }
+function brick_set_logo($css, $logo, $theme) {
  $tag = '[[setting:logo]]';
  $replacement = $logo;
  if (is_null($replacement)) {

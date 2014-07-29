@@ -1,0 +1,15 @@
+{
+  "name": "moodle-theme_bootstrapbase-bootstrap",
+  "builds": {
+    "moodle-theme_bootstrapbase-bootstrap": {
+      "prependfiles": [
+        "bootstrapengine.js",
+        "bootstrapcollapse.js",
+        "bootstrapdropdown.js"
+      ],
+      "jsfiles": [
+        "bootstrap.js"
+      ]
+    }
+  }
+}

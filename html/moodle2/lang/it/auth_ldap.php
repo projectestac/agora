@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,7 +51,7 @@ $string['auth_ldap_expiration_warning_desc'] = 'Numero di giorni che precedono l
 $string['auth_ldap_expiration_warning_key'] = 'Avviso di scadenza';
 $string['auth_ldap_expireattr_desc'] = 'Opzionale: modifica l\'attributo ldap che stabilisce la data di scadenza della password';
 $string['auth_ldap_expireattr_key'] = 'Attributo di scadenza';
-$string['auth_ldapextrafields'] = 'Questi campi sono opzionali. E\'  possibile scegliere di riempire alcuni campi dell\'utente in Moodle con i dati provenienti dai <b>campi LDAP</b> qui specificati. <p>Lasciando i campi vuoti, non verranno trasferiti dati da LDAP e verranno usati i dati default di Moodle.</p><p>In entrambi i casi, gli utenti potranno modificare questi campi dopo essersi autenticati.</p>';
+$string['auth_ldapextrafields'] = 'Questi campi sono opzionali. E\'  possibile scegliere di riempire alcuni campi dell\'utente in Moodle con i dati provenienti dai <b>campi LDAP</b> qui specificati. <p>Lasciando i campi vuoti, non verranno trasferiti dati da LDAP e verranno usati i dati di default di Moodle.</p><p>In entrambi i casi, gli utenti potranno modificare questi campi dopo essersi autenticati.</p>';
 $string['auth_ldap_graceattr_desc'] = 'Opzionale: esclude l\'attributo gracelogin';
 $string['auth_ldap_gracelogin_key'] = 'Attributo Grace login';
 $string['auth_ldap_gracelogins_desc'] = 'Abilita il supporto del gracelogin di LDAP. Alla scadenza della password, l\'utente potrà autenticarsi finché il contatore gracelogin non sarà a 0. Abilitando questa impostazione, se la password è scaduta, viene visualizzato il messaggio di grace login.';
@@ -101,8 +101,11 @@ $string['auth_ldap_version_key'] = 'Versione';
 $string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = 'Impostare a SI per provare il Single Sign On con il dominio NTLM. <strong>Nota:</strong> per funzionare, questo richiede impostazioni aggiuntive sul webserver, vedere <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Abilita';
-$string['auth_ntlmsso_ie_fastpath'] = 'Imposta Si per abilitare NTLM SSO fast path. (Evita alcuni passaggi ma funziona solamente con Internet Explorer)';
+$string['auth_ntlmsso_ie_fastpath'] = 'Imposta a Si per abilitare NTLM SSO fast path. (Evita alcuni passaggi se il browser client è Internet Explorer)';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Prova NTLM con qualsiasi browser';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Si, prova NTLM anche con gli altri browser';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Si, gli altri browser useranno il login standard';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'Non è stato possibile estrarre lo username dall\'header REMOTE_USER. Verifica la correttezza del formato.';
 $string['auth_ntlmsso_missing_username'] = 'Nel formato dello username remote devi specificare almeno %username%';
 $string['auth_ntlmsso_remoteuserformat'] = 'Scegliendo come "Tipo di autenticazione\' \'NTLM\', è possibile specificare il formato dello username remoto. Lasciando il formato vuoto, verrà usato il formato DOMAINusername. E\' possibile usare il segnaposto opzionale <b>%domain%</b> per specificare dove appare il  dominio, e il segnaposto obbligatorio<b>%username%</b> per specificare dove compare lo username.<br /><br />Alcuni formati di uso frequente:
@@ -138,6 +141,8 @@ $string['pluginname'] = 'Server LDAP';
 $string['pluginnotenabled'] = 'Plugin non abilitato!';
 $string['renamingnotallowed'] = 'In LDAP non è consentito di rinominare gli utenti';
 $string['rootdseerror'] = 'Si è verificato un errore durante la query del rootDSE in Active Directory';
+$string['start_tls'] = 'Utilizza la porta LDAP standard 389 con crittografia TLS';
+$string['start_tls_key'] = 'Usa TLS';
 $string['updatepasserror'] = 'Errore in user_update_password(). Error code: {$a->errno}; Error string: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Errore in user_update_password() durante la lettura della data di scadenza della password. Error code: {$a->errno}; Error string: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Errore in user_update_password() durante la modifica di expirationtime e/o gracelogin. Error code: {$a->errno}; Error string: {$a->errstring}';

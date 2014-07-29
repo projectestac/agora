@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_completion', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_completion', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   report_completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['completiondate'] = '完成时间';
 $string['completion:view'] = '查看课程进度报告';
+$string['id'] = 'ID';
+$string['name'] = '姓名';
+$string['page-report-completion-index'] = '课程进度报告';
+$string['page-report-completion-user'] = '用户课程进度报告';
+$string['page-report-completion-x'] = '任何进度报告';
 $string['pluginname'] = '课程进度';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multichoice', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = 'En branco para {non} Máis Escollas';
 $string['answerhowmany'] = 'Unha ou varias respostas?';
 $string['answersingleno'] = 'Múltiplas respostas permitidas';
 $string['answersingleyes'] = 'Só unha resposta';

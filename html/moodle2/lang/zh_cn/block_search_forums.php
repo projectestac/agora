@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_search_forums', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_search_forums', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_search_forums
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['advancedsearch'] = '高级搜索';
 $string['pluginname'] = '搜索讨论区';
+$string['search_forums:addinstance'] = '新增搜索讨论区版块';

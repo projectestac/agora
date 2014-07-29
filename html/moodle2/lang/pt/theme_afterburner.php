@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_afterburner', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -57,7 +57,7 @@ $string['customcssdesc'] = 'Quaisquer regras de CSS que adicione a esta área de
 $string['footnote'] = 'Nota de rodapé';
 $string['footnotedesc'] = 'O que quer que adicione nesta área de texto será exibido no rodapé de todas as páginas.';
 $string['logo'] = 'Logotipo';
-$string['logodesc'] = 'Por favor adicione o URL ao seu novo logotipo apenas se pretender substituir o logotipo predefinido para este tema. <br /> Para sua informação, o logotipo predefinido é uma imagem JPG com 320px (largura) por 75px (altura)';
+$string['logodesc'] = 'Por favor, adicione o seu novo logotipo se pretende substituir o logotipo predefinido para este tema. <br /> Para sua informação, o logotipo predefinido é uma imagem JPG com 320px (largura) por 75px (altura)';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = 'Direita';
 $string['region-side-pre'] = 'Esquerda';

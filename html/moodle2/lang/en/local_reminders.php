@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_reminders', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_reminders', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   local_reminders
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,8 +46,9 @@ $string['explaincourseheading'] = 'Reminder settings for course events. These ev
 $string['explaindueheading'] = 'Reminder settings for activity events. These events are coming from activities/modules within a course.';
 $string['explaingroupheading'] = 'Reminder settings for group events. These events are based only for a specific group.';
 $string['explaingroupshowname'] = 'Indicates whether group name should be included to the message being sent, or not.';
+$string['explainrolesallowedfor'] = 'Choose which users having above roles can receive reminders.';
 $string['explainsendactivityreminders'] = 'Indicates in which activity state the reminders should be sent.';
-$string['explainsiteheading'] = 'Reminder settings for site events. These events are relavent to all the users in the site.';
+$string['explainsiteheading'] = 'Reminder settings for site events. These events are relevant to all the users in the site.';
 $string['explainuserheading'] = 'Reminder settings for user events. These events are individual to each user.';
 $string['filterevents'] = 'Filter calendar events:';
 $string['filtereventsdescription'] = 'Which calendar events should be filtered and send reminders for them.';
@@ -55,7 +56,7 @@ $string['filtereventsonlyhidden'] = 'Only hidden events in calendar';
 $string['filtereventsonlyvisible'] = 'Only visible events in calendar';
 $string['filtereventssendall'] = 'All events';
 $string['groupheading'] = 'Group Event Reminders';
-$string['groupshowname'] = 'Show group name in message';
+$string['groupshowname'] = 'Show group name in message:';
 $string['messageprovider:reminders_course'] = 'Reminder notifications for Course events';
 $string['messageprovider:reminders_due'] = 'Reminder notifications for Activity events';
 $string['messageprovider:reminders_group'] = 'Reminder notifications for Group events';
@@ -66,6 +67,7 @@ $string['messagetitleprefixdescription'] = 'This text will be inserted as a pref
 $string['pluginname'] = 'Event Reminders';
 $string['reminderdaysahead'] = 'Send before:';
 $string['reminderfrom'] = 'Reminder from';
+$string['rolesallowedfor'] = 'Allowed Roles:';
 $string['sendactivityreminders'] = 'Activity reminders:';
 $string['siteheading'] = 'Site Event Reminders';
 $string['titlesubjectprefix'] = 'Reminder';

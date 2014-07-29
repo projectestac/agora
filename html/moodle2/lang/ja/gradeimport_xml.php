@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradeimport_xml', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradeimport_xml', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   gradeimport_xml
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['errincorrectgradeidnumber'] = 'エラー - インポートファイル�
 $string['errincorrectidnumber'] = 'エラー - IDナンバーが正しくありません。';
 $string['errincorrectuseridnumber'] = 'エラー - インポートファイルのIDナンバー「 {$a} 」が、どのユーザとも合致しません。';
 $string['error'] = 'エラーが発生しました。';
-$string['fileurl'] = 'リモートファイルURI';
+$string['fileurl'] = 'リモートファイルURL';
 $string['pluginname'] = 'XMLファイル';
 $string['xml:publish'] = 'XMLからの評定インポートを公開する';
 $string['xml:view'] = 'XMLから評定をインポートする';

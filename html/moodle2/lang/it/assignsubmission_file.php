@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_file', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_file', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,12 +31,14 @@ $string['default'] = 'Abilitato per default';
 $string['default_help'] = 'Questo metodo di consegna sarà abilitato per default per le nuove istanze di compito.';
 $string['enabled'] = 'Consegna file';
 $string['enabled_help'] = 'Consente agli studenti di consegnare file.';
+$string['event_assessable_uploaded'] = 'Caricato file';
 $string['file'] = 'Consegna file';
 $string['maxbytes'] = 'Dimensione massima file';
 $string['maxfilessubmission'] = 'Numero massimo di file caricabili';
 $string['maxfilessubmission_help'] = 'Se la consegna di file è abilitata, gli studenti  non potranno consegnare un numero di file superiore al numero massimo impostato.';
 $string['maximumsubmissionsize'] = 'Dimensione massima file';
 $string['maximumsubmissionsize_help'] = 'La dimensione massima dei file caricabili dagli studenti';
+$string['numfilesforlog'] = 'Numero di file: {$a} file';
 $string['pluginname'] = 'Consegna file';
 $string['siteuploadlimit'] = 'Limite del sito';
 $string['submissionfilearea'] = 'File delle consegne caricati';

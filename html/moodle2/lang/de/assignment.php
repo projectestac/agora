@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,8 +45,8 @@ $string['assignmentmail'] = '{$a->teacher} hat ein Feedback zu Ihrer Abgabe zur 
 
 Sie sehen dieses Feedback im Anhang zu Ihrer Abgabe:
 {$a->url}';
-$string['assignmentmailhtml'] = '{$a->teacher} hat ein Feedback zu Ihrer Abgabe zur Aufgabe \'<i>{$a->assignment}</i>\' verfasst.<br /><br />
-Sie sehen dieses Feedback im Anhang zu <a href="{$a->url}">Ihrer Abgabe</a>.';
+$string['assignmentmailhtml'] = '{$a->teacher} hat ein Feedback zu Ihrer Aufgabenlösung \'<i>{$a->assignment}</i>\' verfasst.<br /><br />
+Sie können dieses Feedback im Anhang zu <a href="{$a->url}">Ihrer Abgabe</a> finden.';
 $string['assignmentmailsmall'] = '{$a->teacher} hat ein Feedback zu Ihrem Beitrag für die Aufgabe \'{$a->assignment}\' geschrieben. Sie finden das Feedback an Ihren Beitrag angehängt.';
 $string['assignmentname'] = 'Aufgabenname';
 $string['assignmentsubmission'] = 'Aufgabenabgabe';
@@ -85,7 +85,7 @@ $string['emailteachermail'] = '{$a->username} hat die Aufgabe \'{$a->assignment}
 Die Abgabe ist auf der Website verfügbar
 {$a->url}';
 $string['emailteachermailhtml'] = '{$a->username} hat die Aufgabe <i>\'{$a->assignment}\'</i> bearbeitet und am {$a->timeupdated} hochgeladen. <br /><br />
-Die Abgabe ist <br /><a href="{$a->url}">auf der Website verfügbar</a>.';
+Die Abgabenlösung ist <a href="{$a->url}">auf der Website</a> verfügbar.';
 $string['emailteachers'] = 'E-Mail-Benachrichtung an Trainer/innen';
 $string['emailteachers_help'] = 'Wenn diese Option aktiviert ist, werden Trainer/innen per E-Mail benachrichtigt, wenn Teilnehmer/innen eine Aufgaben abgeben oder aktualisieren.
 

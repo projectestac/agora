@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Добавлять новый бло
 $string['intro'] = 'Убедитесь, что в курсе есть хотя бы один глоссарий, а в нем не менее одной записи. В этом случае Вы можете настроить следующие параметры.';
 $string['invisible'] = '(Продолжение следует)';
 $string['lastmodified'] = 'Последняя измененная запись';
+$string['nextalpha'] = 'В алфавитном порядке';
 $string['nextone'] = 'Следующая запись';
 $string['noentriesyet'] = 'В выбранном глоссарии нет ни одной записи.';
 $string['notyetconfigured'] = 'Пожалуйста, произведите настройки для этого блока, воспользовавшись иконкой редактирования.';

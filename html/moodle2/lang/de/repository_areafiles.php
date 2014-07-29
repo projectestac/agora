@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_areafiles', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_areafiles', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_areafiles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['areafiles:view'] = 'Repository \'Eingebettete Dateien\' anzeigen';
-$string['configplugin'] = 'Einstellungen zum Repository \'Eingebettete Dateien\'';
+$string['configplugin'] = 'Einstellungen für \'Eingebettete Dateien\'';
 $string['pluginname'] = 'Eingebettete Dateien';
 $string['pluginname_help'] = 'Dateien, die im derzeitigen Texteditor eingebettet wurden';

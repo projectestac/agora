@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_formal_white', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,7 @@ $string['customcssdesc'] = '여기에 입력하는 CSS는 이 테마를 커스�
 $string['customlogourl'] = '로고';
 $string['customlogourldesc'] = '이 사이트에 로고로서 사용할 이미지에 대한 URL을 입력하세요. http://www.yoursite.com/path/to/logo.png와 같아야 합니다. <br/> 추천하는 그림의 높이는 100px 입니다.';
 $string['displayheading'] = '페이지 헤딩 표시';
-$string['displaylogo'] = '로고 표시';
+$string['displaylogo'] = '페이지 헤더 내용';
 $string['fontsizereference'] = '폰트 크기 참조';
 $string['fontsizereferencedesc'] = '이것은 이 테마의 기본 폰트 사이즈를 설정하도록 합니다. 13px 이상은 어떤 블록에서는 표시하는데 문제가 생길 수 있어서  추천하지 않습니다.';
 $string['footnote'] = '각주';

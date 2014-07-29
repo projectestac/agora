@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Aggiungi blocco Voce casuale di glos
 $string['intro'] = 'Assicurati di avere almeno un glossario nel corso contenete come minimo una voce. Successivamente potrai perfezionare i parametri seguenti';
 $string['invisible'] = '(continua)';
 $string['lastmodified'] = 'Ultima voce modificata';
+$string['nextalpha'] = 'Ordine alfabetico';
 $string['nextone'] = 'Voce successiva';
 $string['noentriesyet'] = 'Al momento, non ci sono voci nel glossario scelto.';
 $string['notyetconfigured'] = 'Per configurare questo blocco utilizzare l\'icona di modifica.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,3 +39,5 @@ $string['pluginname_help'] = '問題 (イメージを含む) に対して、回�
 $string['pluginnamesummary'] = '少しの文または段落で構成された回答を許可します。回答が入力された後、手動で評定する必要があります。';
 $string['responsefieldlines'] = '入力ボックスサイズ';
 $string['responseformat'] = '解答形式';
+$string['responsetemplate'] = '解答テンプレート';
+$string['responsetemplate_help'] = 'ここで入力されたテキストは、問題の新しい解答開始時に解答入力ボックス内に表示されます。';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = 'Gehitu galdera inkestara';
-$string['add_items'] = 'Gehitu galderak inkestara';
 $string['add_pagebreak'] = 'Gehitu orri-jauzia';
 $string['adjustment'] = 'Posizioa';
 $string['after_submit'] = 'Bidali ondoren';
@@ -70,8 +69,8 @@ $string['delete_old_items'] = 'Ezabatu elementu zaharrak';
 $string['delete_template'] = 'Ezabatu txantiloia';
 $string['delete_templates'] = 'Ezabatu txantiloia...';
 $string['depending'] = 'Mendekotasunak';
-$string['dependitem'] = 'elementu dependentea';
-$string['dependvalue'] = 'balore dependentea';
+$string['dependitem'] = 'Elementu dependentea';
+$string['dependvalue'] = 'Balore dependentea';
 $string['description'] = 'Deskribapena';
 $string['do_not_analyse_empty_submits'] = 'Ez analizatu bidalketa hutsak';
 $string['dropdown'] = 'Aukera anitza - erantzun bakarra baimenduta (zabaltzen den zerrenda)';
@@ -81,9 +80,8 @@ $string['dropdown_values'] = 'Erantzunak';
 $string['drop_feedback'] = 'Ezabatu ikastaro honetatik';
 $string['edit_item'] = 'Editatu galdera';
 $string['edit_items'] = 'Editatu galderak';
-$string['emailnotification'] = 'e-posta bidezko jakinarazpenak';
-$string['email_notification'] = 'Bidali e-posta bidezko jakinarazpenak';
-$string['emailnotification_help'] = 'Gaituz gero, kudeatzaileek bidalketen e-posta bidezko jakinarazapenak jasoko dituzte';
+$string['email_notification'] = 'Bidali bidalketen jakinarazpenak';
+$string['email_notification_help'] = 'Gaituz gero, irakasleek bidalketen jakinarazapenak jasoko dituzte.';
 $string['emailteachermail'] = '{$a->username}(e)k inkesta hau bete du: \'{$a->feedback}\'
 
 Hemen ikus dezakezu:
@@ -92,11 +90,12 @@ Hemen ikus dezakezu:
 $string['emailteachermailhtml'] = '{$a->username}(e)k inkesta hau bete du: <i>\'{$a->feedback}\'</i><br/><br/>
 <a href="{$a->url}">Hemen</a> ikus dezakezu.';
 $string['entries_saved'] = 'Zure erantzunak ondo gorde dira. Eskerrik asko';
+$string['eventresponsedeleted'] = 'Erantzuna ezabatu da';
+$string['eventresponsesubmitted'] = 'Erantzuna bidali da';
 $string['export_questions'] = 'Galderak esportatu';
 $string['export_to_excel'] = 'Excelera esportatu ';
 $string['feedback:addinstance'] = 'Gehitu beste inkesta bat';
 $string['feedbackclose'] = 'Noiz itxi inkesta';
-$string['feedbackcloses'] = 'Inkesta itxita';
 $string['feedback:complete'] = 'Osatu inkesta bat';
 $string['feedback:createprivatetemplate'] = 'Sortu txantiloi pribatua';
 $string['feedback:createpublictemplate'] = 'Sortu txantiloi publikoa';
@@ -107,8 +106,6 @@ $string['feedback_is_not_for_anonymous'] = 'Inkesta ez da anonimoentzat';
 $string['feedback_is_not_open'] = 'Inkesta ez dago zabalik';
 $string['feedback:mapcourse'] = 'Esleitu ikastaroak feedback orokoretarako';
 $string['feedbackopen'] = 'Noiz zabaldu inkesta';
-$string['feedbackopens'] = 'Inkesta zabalik';
-$string['feedback_options'] = 'Inkestaren aukerak';
 $string['feedback:receivemail'] = 'Jaso e-posta jakinarazpena';
 $string['feedback:view'] = 'Ikusi inkesta bat';
 $string['feedback:viewanalysepage'] = 'Bidali ondoren, ikusi analisi-orria';
@@ -130,7 +127,6 @@ $string['insufficient_responses_help'] = 'Talde honetarako erantzunak gutxiegi d
 Iruzkin anonimoak mantentzeko, gutxienez 2 erantzun izan behar dira.';
 $string['item_label'] = 'Etiketa';
 $string['item_name'] = 'Galdera';
-$string['items_are_required'] = 'Asteriskoa duten galderei derrigorrez erantzun behar zaie';
 $string['label'] = 'Etiketa';
 $string['line_values'] = 'Puntuazioa';
 $string['mapcourse'] = 'Ikastaro-mapa';
@@ -162,8 +158,7 @@ $string['multichoice'] = 'Aukera anitzak';
 $string['multichoicerated'] = 'Aukera anitzak (kalifikatua)';
 $string['multichoicetype'] = 'Aukera anitzen mota';
 $string['multichoice_values'] = 'Aukera anitzen baloreak';
-$string['multiplesubmit'] = 'Bidalketa anitzak';
-$string['multiple_submit'] = 'Bidalketa anitzak';
+$string['multiplesubmit'] = 'Baimendu bidalketa anitzak';
 $string['multiplesubmit_help'] = 'Inkesta anonimoak gaituz gero, erabiltzaileek erantzunak nahi beste aldiz bidal ditzakete.';
 $string['name'] = 'Izena';
 $string['name_required'] = 'Izena ezinbestekoa da';
@@ -232,7 +227,7 @@ $string['send_message'] = 'bidali mezua';
 $string['separator_decimal'] = ',';
 $string['separator_thousand'] = '.';
 $string['show_all'] = 'Erakutsi guztiak';
-$string['show_analysepage_after_submit'] = 'Erakutsi analisi-orria bidali ondoren';
+$string['show_analysepage_after_submit'] = 'Erakutsi analisi-orria';
 $string['show_entries'] = 'Erakutsi erantzunak';
 $string['show_entry'] = 'Erakutsi erantzuna';
 $string['show_nonrespondents'] = 'Erakutsi erantzun gabeak';
@@ -256,12 +251,9 @@ $string['textfield_maxlength'] = 'Onartutako gehienezko karaktere-kopurua';
 $string['textfield_size'] = 'Testu-lerroaren zabalera';
 $string['there_are_no_settings_for_recaptcha'] = 'Ez da captcha konfiguratu';
 $string['this_feedback_is_already_submitted'] = 'Dagoeneko egina duzu jarduera hau.';
-$string['timeclose'] = 'Ixteko tartea';
-$string['timeopen'] = 'Zabaltzeko tartea';
 $string['typemissing'] = '"mota" balorea falta da';
 $string['update_item'] = 'Gorde aldaketak';
-$string['url_for_continue'] = 'Jarraitu botoirako URLa';
-$string['url_for_continue_button'] = 'Aurrera jarraitzeko URLa';
+$string['url_for_continue'] = 'Esteka hurrengo jarduerara';
 $string['use_one_line_for_each_value'] = '<br/>Erabil ezazu lerro bat erantzun bakoitzeko!';
 $string['use_this_template'] = 'Txantiloi hau erabili';
 $string['using_templates'] = 'Txantiloia erabili';

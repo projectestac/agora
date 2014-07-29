@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -186,6 +186,7 @@ $string['errornocategorisedid'] = 'Could not get an uncategorised id!';
 $string['errornocourse'] = 'Could not get course information';
 $string['errorreprintheadersnonnumeric'] = 'Received non-numeric value for reprint-headers';
 $string['errorsavegrade'] = 'Could not save grade, sorry.';
+$string['errorsettinggrade'] = 'Error saving "{$a->itemname}" grade for userid {$a->userid}';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Error updating the "Aggregate only non-empty grades" setting of grade category ID {$a->id}';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Error updating the "Include outcomes in aggregation" setting of grade category ID {$a->id}';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Error updating the "Aggregate including subcategories" setting of grade category ID {$a->id}';
@@ -197,8 +198,8 @@ $string['expand'] = 'Expand category';
 $string['export'] = 'Export';
 $string['exportalloutcomes'] = 'Export all outcomes';
 $string['exportfeedback'] = 'Include feedback in export';
-$string['exportonlyactive'] = 'Require active enrolment';
-$string['exportonlyactive_help'] = 'Only include students in the export whose enrolment has not been suspended';
+$string['exportonlyactive'] = 'Exclude suspended users';
+$string['exportonlyactive_help'] = 'Only include students in the export whose enrolment is active and has not been suspended';
 $string['exportplugins'] = 'Export plugins';
 $string['exportsettings'] = 'Export settings';
 $string['exportto'] = 'Export to';
@@ -259,6 +260,7 @@ $string['gradehelp'] = 'Grade help';
 $string['gradehistorylifetime'] = 'Grade history lifetime';
 $string['gradehistorylifetime_help'] = 'This specifies the length of time you want to keep history of changes in grade related tables. It is recommended to keep it as long as possible. If you experience performance problems or have limited database space, try to set lower value.';
 $string['gradeimport'] = 'Grade import';
+$string['gradeimportfailed'] = 'Grade Import failed during commit. Details:';
 $string['gradeitem'] = 'Grade item';
 $string['gradeitemaddusers'] = 'Exclude from grading';
 $string['gradeitemadvanced'] = 'Advanced grade item options';
@@ -548,7 +550,9 @@ $string['selectalloroneuser'] = 'Select all or one user';
 $string['selectauser'] = 'Select a user';
 $string['selectdestination'] = 'Select destination of {$a}';
 $string['separator'] = 'Separator';
+$string['sepcolon'] = 'Colon';
 $string['sepcomma'] = 'Comma';
+$string['sepsemicolon'] = 'Semicolon';
 $string['septab'] = 'Tab';
 $string['setcategories'] = 'Set categories';
 $string['setcategorieserror'] = 'You must first set the categories for your course before you can give weights to them.';
@@ -592,6 +596,8 @@ $string['shownohidden'] = 'Do not show';
 $string['shownooutcomes'] = 'Hide outcomes';
 $string['shownumberofgrades'] = 'Show number of grades in averages';
 $string['shownumberofgrades_help'] = 'If enabled, the number of grades used when calculating the average (mean) is displayed in brackets after each average.';
+$string['showonlyactiveenrol'] = 'Show only active enrolments';
+$string['showonlyactiveenrol_help'] = 'This setting determines, if only active enrolled users will be visible in gradebook report. If enabled suspended users will not be shown in gradebook.';
 $string['showpercentage'] = 'Show percentage';
 $string['showpercentage_help'] = 'Show the percentage value of each grade item?';
 $string['showquickfeedback'] = 'Show quick feedback';
@@ -660,6 +666,9 @@ $string['user'] = 'User';
 $string['userenrolmentsuspended'] = 'User enrolment suspended';
 $string['usergrade'] = 'User {$a->fullname} ({$a->useridnumber}) on item {$a->gradeidnumber}';
 $string['userid'] = 'User ID';
+$string['usermappingerror'] = 'User mapping error: Could not find user with {$a->field} of "{$a->value}".';
+$string['usermappingerrorcurrentgroup'] = 'User is not a member of current group.';
+$string['usermappingerrorusernotfound'] = 'User mapping error. Could not find user.';
 $string['userpreferences'] = 'User preferences';
 $string['useweighted'] = 'Use weighted';
 $string['verbosescales'] = 'Verbose scales';

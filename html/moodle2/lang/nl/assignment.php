@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,8 +45,8 @@ $string['assignment:grade'] = 'Beoordeel opdracht';
 $string['assignmentmail'] = '{$a->teacher} heeft feedback gepost voor je bijdrage aan de opdracht \'{$a->assignment}\'
 Hij is toegevoegd aan je ingestuurde opdracht:
 {$a->url}';
-$string['assignmentmailhtml'] = '{$a->teacher} heeft feedback gepost voor je bijdrage aan de opdracht \'<i>{$a->assignment}</i>\'<br /><br />
-Hij is toegevoegd aan je ingestuurde <a href="{$a->url}">opdracht</a>.';
+$string['assignmentmailhtml'] = '<p>{$a->teacher} heeft feedback gepost voor je bijdrage aan de opdracht \'<i>{$a->assignment}</i>\'</p><p>
+Hij is toegevoegd aan je ingestuurde <a href="{$a->url}">opdracht</a>.</p>';
 $string['assignmentmailsmall'] = '{$a->teacher} heeft feedback voor jou geschreven over je ingestuurde opdracht voor  \'{$a->assignment}\' Je kunt de feedback lezen bij je ingestuurde opdracht.';
 $string['assignmentname'] = 'Naam van de opdracht';
 $string['assignmentsubmission'] = 'Ingestuurde opdrachten';
@@ -85,8 +85,8 @@ $string['emailteachermail'] = '{$a->username} heeft de inzending voor opdracht {
 Je kunt ze hier vinden:
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} heeft de inzending voor opdracht <i>{$a->assignment}</i> aangepast om {$a->timeupdated}.<br /><br />
-Je kunt ze <a href="{$a->url}"> nakijken op de website</a>.';
+$string['emailteachermailhtml'] = '<p>{$a->username} heeft de inzending voor opdracht <i>{$a->assignment}</i> aangepast om {$a->timeupdated}.</p><p>
+Je kunt ze <a href="{$a->url}"> nakijken op de website</a>.</p>';
 $string['emailteachers'] = 'Stuur een e-mail als waarschuwing naar de leraren';
 $string['emailteachers_help'] = 'Als deze optie ingeschakeld is, dan krijgen leraren een korte e-mail als waarschuwing dat een leerling een opdracht heeft ingestuurd of geüpdated.
 

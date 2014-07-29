@@ -76,13 +76,6 @@ if ($mform->is_cancelled()) {
 if (isset($formdata->confirmdelete) AND $formdata->confirmdelete == 1) {
     if ($completed = $DB->get_record('feedback_completed', array('id'=>$completedid))) {
         feedback_delete_completed($completedid);
-        add_to_log($course->id,
-                   'feedback',
-                   'delete',
-                   'view.php?id='.$cm->id,
-                   $feedback->id,
-                   $cm->id);
-
         if ($return == 'entriesanonym') {
             redirect('show_entries_anonym.php?id='.$id);
         } else {
@@ -96,17 +89,17 @@ $strfeedbacks = get_string("modulenameplural", "feedback");
 $strfeedback  = get_string("modulename", "feedback");
 
 $PAGE->navbar->add(get_string('delete_entry', 'feedback'));
-$PAGE->set_heading(format_string($course->fullname));
-$PAGE->set_title(format_string($feedback->name));
+$PAGE->set_heading($course->fullname);
+$PAGE->set_title($feedback->name);
 echo $OUTPUT->header();
 
 /// Print the main part of the page
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-echo $OUTPUT->heading(format_text($feedback->name));
+echo $OUTPUT->heading(format_string($feedback->name));
 echo $OUTPUT->box_start('generalbox errorboxcontent boxaligncenter boxwidthnormal');
-echo $OUTPUT->heading(get_string('confirmdeleteentry', 'feedback'));
+echo html_writer::tag('p', get_string('confirmdeleteentry', 'feedback'), array('class' => 'bold'));
 $mform->display();
 echo $OUTPUT->box_end();
 

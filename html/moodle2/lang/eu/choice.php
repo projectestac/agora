@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,8 +49,12 @@ $string['choicetext'] = 'Kontsultaren testua';
 $string['chooseaction'] = 'Aukera ezazu ekintza bat...';
 $string['completionsubmit'] = 'Erabiltzaileak aukera bat hautatzen duenean, osatutzat erakutsi';
 $string['displayhorizontal'] = 'Erakutsi horizontalean';
-$string['displaymode'] = 'Erakusteko modua';
+$string['displaymode'] = 'Aukerak erakusteko modua';
 $string['displayvertical'] = 'Erakutsi bertikalean';
+$string['event_answer_created'] = 'Kontsulta egin da';
+$string['event_answer_updated'] = 'Kontsulta eguneratu da';
+$string['event_choice_viewed'] = 'Kontsulta eginda da';
+$string['event_report_viewed'] = 'Kontsultaren txostena ikusi da';
 $string['expired'] = 'Barkatu, jarduera hau {$a}(e)an itxi zen eta dagoeneko ez dago eskuragarri.';
 $string['full'] = '(Beteta)';
 $string['havetologin'] = 'Saioa hasi behar duzu erantzuna bidali ahal izateko.';
@@ -61,6 +65,7 @@ $string['limitanswers_help'] = 'Kontsultaren aukera posible bakoitza zenbat part
 Gaitutakoan, muga jartzeko aukera ematen digu. Mugara iritsita, ezin du beste inork aukera hori egin. Muga zero (0) bada, inork ezin du aukera hori egin.
 
 Desaktibatuta badago, edozein aukera egin dezakete nahi beste partaidek.';
+$string['limitno'] = 'Muga {no}';
 $string['modulename'] = 'Kontsulta';
 $string['modulename_help'] = 'Kontsulta jarduerak irakasleari galdera bat egitea eta erantzuteko zenbait aukera eskaintzea ahalbidetzen dio.
 
@@ -74,7 +79,7 @@ Kontsultak  ondokoetarako erabili daitezke
 $string['modulenameplural'] = 'Kontsultak';
 $string['moveselectedusersto'] = 'Aukeratutako erabiltzaileak hona mugitu...';
 $string['mustchooseone'] = 'Erantzunen bat aukeratu behar duzu gorde aurretik. Ezer ez da gorde orain arte.';
-$string['noguestchoose'] = 'Barkatu, bisitariek ezin diete inkestei erantzun';
+$string['noguestchoose'] = 'Barkatu, bisitariek ezin diete kontsultei erantzun.';
 $string['noresultsviewable'] = 'Emaitzak ezin dira orain ikusi';
 $string['notanswered'] = 'Oraindik erantzun gabe';
 $string['notenrolledchoose'] = 'Barkatu, baina matrikulatutako erabiltzaileek baino ezin diote kontsultari erantzun.';
@@ -82,6 +87,8 @@ $string['notopenyet'] = 'Barkatu, baina jarduera hau ez dago erabiltzeko moduan 
 $string['numberofuser'] = 'Partaide-kopurua';
 $string['numberofuserinpercentage'] = 'Partaide-kopurua ehunekotan';
 $string['option'] = 'Aukera';
+$string['optionno'] = 'Aukera {no}';
+$string['options'] = 'Aukerak';
 $string['page-mod-choice-x'] = 'Kontsulta moduluaren edozein orri';
 $string['pluginadministration'] = 'Kontsultaren kudeaketa';
 $string['pluginname'] = 'Kontsulta';
@@ -98,6 +105,7 @@ $string['removeresponses'] = 'Erantzun guztiak ezabatu';
 $string['responses'] = 'Erantzunak';
 $string['responsesresultgraphheader'] = 'Erakutsi grafikoa';
 $string['responsesto'] = 'Erantzunak {$a}-(r)entzat';
+$string['results'] = 'Emaitzak';
 $string['savemychoice'] = 'Gorde nire aukera';
 $string['showunanswered'] = 'Erantzun gabekoen zutabea erakutsi';
 $string['skipresultgraph'] = 'Ez egin kasu emaitzen grafikoari';

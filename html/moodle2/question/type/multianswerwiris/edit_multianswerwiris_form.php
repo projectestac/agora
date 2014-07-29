@@ -7,8 +7,6 @@ require_once($CFG->dirroot . '/question/type/multianswer/edit_multianswer_form.p
 
 class qtype_multianswerwiris_edit_form extends qtype_wq_edit_form {
     
-    protected $base;
-    
     protected function definition_inner($mform) {
         global $CFG;
         parent::definition_inner($mform);
@@ -25,14 +23,6 @@ class qtype_multianswerwiris_edit_form extends qtype_wq_edit_form {
         $mform->insertElementBefore($wirishdr, 'multitriesheader');
         $mform->insertElementBefore($wirismultianswer, 'multitriesheader');        
 
-    }
-    
-    public function set_data($question) {
-        $this->base->set_data($question);
-    }
-    
-    public function validation($data, $files) {
-        return $this->base->validation($data, $files);
     }
     
     public function qtype() {

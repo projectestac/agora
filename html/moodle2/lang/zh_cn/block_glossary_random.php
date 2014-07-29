@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,9 +29,12 @@ $string['addentry'] = '添加的座右铭！';
 $string['askaddentry'] = '如果用户可以将条目添加到词汇表，用链接显示这个文本';
 $string['askinvisible'] = '如果用户不能编辑或查看词汇表，显示这个文本(无链接)';
 $string['askviewglossary'] = '当用户能看到这个词汇表但不能添加词条时，用此文本显示链接';
+$string['glossary_random:addinstance'] = '添加一个随机词条版块';
+$string['glossary_random:myaddinstance'] = '在我的首页添加一个随机词条版块';
 $string['intro'] = '请先确保您至少有一个术语表，且至少有一条术语被添加到了此课程中。然后您可以改更以下设置';
 $string['invisible'] = '（未完待续）';
 $string['lastmodified'] = '最后修改的条目';
+$string['nextalpha'] = '字母顺序';
 $string['nextone'] = '下一个条目';
 $string['noentriesyet'] = '所选词汇表里还没有词条。';
 $string['notyetconfigured'] = '请用编辑图标配置此版块';

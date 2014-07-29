@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,18 +30,24 @@ $string['assignrolefailed'] = 'A atribuição do papel "{$a->role_shortname}" ao
 $string['autocreate'] = '<p>As disciplinas podem ser criadas automaticamente caso sejam detetadas inscrições em disciplinas que não existem no Moodle</p><p>Se estiver a usar a criação automática de disciplinas recomenda-se que sejam removidas as capacidades: moodle/course:changeidnumber, moodle/course:changeshortname, moodle/course:changefullname and moodle/course:changesummary, dos papéis mais importantes para evitar alterações dos campos das disciplinas referidos nestas permissões (ID number, shortname, fullname and summary).</p>';
 $string['autocreate_key'] = 'Criação automática';
 $string['autocreation_settings'] = 'Configurações para criação automática de disciplinas';
+$string['autoupdate_settings'] = 'Atualização das definições automáticas da disciplina';
+$string['autoupdate_settings_desc'] = 'Selecione os ficheiros a atualizar quando o script de sincronização estiver a ser executado (enrol/ldap/cli/sync.php).</p><p> Uma atualização irá decorrer quando pelo menos um campo estiver selecionado.</p>';
 $string['bind_dn'] = 'Se desejar indique neste campo um nome de utilizador de <em>bind</em> para pesquisar utilizadores. Ex: cn=ldapuser,ou=public,o=org';
 $string['bind_dn_key'] = 'DN do utilizador de <em>bind</em>';
 $string['bind_pw'] = 'Senha do utilizador de <em>bind</em>';
 $string['bind_pw_key'] = 'Senha';
 $string['bind_settings'] = 'Configurações de <em>bind</em>';
 $string['cannotcreatecourse'] = 'Não foi possível criar a disciplina porque falta informação no registo LDAP!';
+$string['cannotupdatecourse'] = 'Não é possível atualizar a disciplina: está em falta um dado de registo LDAP requerido. Número de ID da disciplina: \'{$a->idnumber}\'';
+$string['cannotupdatecourse_duplicateshortname'] = 'Não é possível atualizar a disciplina: nome curto em duplicado. A ignorar disciplina com o número de ID \'{$a->idnumber}\'...';
 $string['category'] = 'Categoria a atribuir às disciplinas criadas automaticamente.';
 $string['category_key'] = 'Categoria';
 $string['contexts'] = 'Contextos LDAP';
 $string['couldnotfinduser'] = 'O utilizador "{$a}" não foi encontrado - Ignorar';
 $string['course_fullname'] = 'Opcional: Atributo LDAP que fornece o nome completo da disciplina.';
 $string['course_fullname_key'] = 'Nome completo da disciplina';
+$string['course_fullname_updateonsync'] = 'Atualizar o nome completo durante o script de sincronização';
+$string['course_fullname_updateonsync_key'] = 'Atualizar nome completo';
 $string['course_idnumber'] = 'Atributo LDAP que fornece o identificador da disciplina. Ex: "cn" or "uid".';
 $string['course_idnumber_key'] = 'Identificador da disciplina';
 $string['coursenotexistskip'] = 'A disciplina "{$a}" não existe e a criação automática de disciplinas está desligada -- Ignorar';
@@ -50,8 +56,14 @@ $string['course_search_sub_key'] = 'Procurar em subcontextos';
 $string['course_settings'] = 'Configurações de inscrições em disciplinas';
 $string['course_shortname'] = 'Opcional: Atributo LDAP que fornece o nome curto da disciplina.';
 $string['course_shortname_key'] = 'Nome curto da disciplina';
+$string['course_shortname_updateonsync'] = 'Atualizar o nome curto durante o script de sincronização';
+$string['course_shortname_updateonsync_key'] = 'Atualizar nome curto';
 $string['course_summary'] = 'Opcional: Atributo LDAP que fornece o sumário da disciplina.';
 $string['course_summary_key'] = 'Sumário';
+$string['course_summary_updateonsync'] = 'Atualizar o sumário durante o script de sincronização';
+$string['course_summary_updateonsync_key'] = 'Atualizar sumário';
+$string['courseupdated'] = 'A disciplina com o número de ID \'{$a->idnumber}\' foi atualizada com sucesso.';
+$string['courseupdateskipped'] = 'A disciplina com o número de ID \'{$a->idnumber}\' não requer atualização. A ignorar...';
 $string['createcourseextid'] = 'CRIAR Utilizador inscrito numa disciplina que não existe: "{$a->courseextid}"';
 $string['createnotcourseextid'] = 'Utilizador inscrito numa disciplina que não existe: "{$a->courseextid}"';
 $string['creatingcourse'] = 'A criar a disciplina "{$a}" ...';

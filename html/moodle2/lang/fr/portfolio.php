@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -177,7 +177,7 @@ $string['selectplugin'] = 'Sélectionner la destination';
 $string['singleinstancenomultiallowed'] = 'Une seule instance du plugin de portfolio est disponible. Elle ne supporte pas les exportations multiple durant une même session et une exportation est actuellement en cours durant cette session.';
 $string['somepluginsdisabled'] = 'Certains plugins de portfolio ont été désactivés, soit parce qu\'ils ne sont pas correctement configurés, soit parce qu\'ils requièrent d\'autres composants. Il s\'agit des plugins suivants.';
 $string['sure'] = 'Voulez-vous vraiment supprimer « {$a} »? L\'action est irrémédiable.';
-$string['thirdpartyexception'] = 'Une exception (logiciel tierce partie) a été levée par durant l\'exportation du portfolio ({$a}). L\'erreur a pu être récupérée mais ceci doit être corrigé.';
+$string['thirdpartyexception'] = 'Une exception d\'un logiciel additionnel a été levée par durant l\'exportation du portfolio ({$a}). L\'erreur a pu être récupérée mais ceci doit être corrigé.';
 $string['transfertime'] = 'Durée de transfert';
 $string['unknownplugin'] = 'Inconnu (a été peut-être supprimé par l\'administrateur)';
 $string['wait'] = 'Attendre';

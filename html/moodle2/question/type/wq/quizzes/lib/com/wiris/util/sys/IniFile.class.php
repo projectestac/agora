@@ -2,10 +2,10 @@
 
 class com_wiris_util_sys_IniFile {
 	public function __construct() {
-		;
-	}
-	public function loadProperties($file) {
+		if(!php_Boot::$skip_constructor) {
 		$this->props = new Hash();
+	}}
+	public function loadProperties($file) {
 		$start = null;
 		$end = 0;
 		$count = 1;
@@ -64,15 +64,21 @@ class com_wiris_util_sys_IniFile {
 		$this->props->set($key, $value);
 	}
 	public function loadINI() {
-		$file = null;
 		$s = com_wiris_system_Storage::newStorage($this->filename);
-		if($s->exists()) {
-			$file = $s->read();
-		} else {
-			$r = com_wiris_system_Storage::newResourceStorage($this->filename);
-			$file = $r->read();
+		if(!$s->exists()) {
+			$s = com_wiris_system_Storage::newResourceStorage($this->filename);
 		}
-		$this->loadProperties($file);
+		try {
+			$file = $s->read();
+			if($file !== null) {
+				$this->loadProperties($file);
+			}
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+			}
+		}
 	}
 	public function getProperties() {
 		return $this->props;
@@ -140,6 +146,7 @@ class com_wiris_util_sys_IniFile {
 				$sb->add($key);
 				$sb->add("=");
 				$value = $h->get($key);
+				$value = str_replace("\\", "\\\\", $value);
 				$value = str_replace("\x0A", "\\n", $value);
 				$value = str_replace("\x0D", "\\r", $value);
 				$value = str_replace("\x09", "\\t", $value);

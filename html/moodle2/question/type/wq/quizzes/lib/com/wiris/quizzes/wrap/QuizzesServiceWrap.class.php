@@ -4,8 +4,24 @@ class com_wiris_quizzes_wrap_QuizzesServiceWrap implements com_wiris_quizzes_api
 	public function __construct($service) {
 		if(!php_Boot::$skip_constructor) {
 		$this->service = $service;
-		$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+		$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 	}}
+	public function executeAsync($request, $listener) {
+		try {
+			$this->wrapper->start();
+			$rw = $request;
+			$request = $rw->impl;
+			$this->service->executeAsync($request, $listener);
+			$this->wrapper->stop();
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
 	public function execute($request) {
 		try {
 			$this->wrapper->start();

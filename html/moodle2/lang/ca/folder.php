@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Contingut';
+$string['display'] = 'Mostra els continguts de la carpeta';
+$string['display_help'] = 'Si escolliu mostrar els continguts de la carpeta en una pàgina del curs, no hi haurà enllaç a una pàgina separada. La descripció es mostrarà només si «Mostra la descripció a la pàgina del curs» està marcada.<br />
+També cal tenir en compte que en aquest cas no es podran registrar les accions de visualització dels participants.';
+$string['displayinline'] = 'Dins d\'una pàgina del curs';
+$string['displaypage'] = 'En una pàgina separada';
 $string['dnduploadmakefolder'] = 'Descomprimeix els fitxers i crea una carpeta nova';
 $string['folder:addinstance'] = 'Afegeix una carpeta nova';
 $string['foldercontent'] = 'Fitxers i subcarpetes';
@@ -39,7 +44,10 @@ Una carpeta pot utilitzar-se
 * Per a oferir un espai compartit de càrrega de fitxers per al professorat en la pàgina del curs (manteniment  la carpeta oculta perquè només el professorat ho pugui veure)';
 $string['modulenameplural'] = 'Carpetes';
 $string['neverseen'] = 'Mai vist';
+$string['noautocompletioninline'] = 'La compleció automàtica de la visualització de l\'activitat no és pot seleccionar al mateix temps que l\'opció «Mostra en línia»';
 $string['page-mod-folder-view'] = 'Pàgina principal del mòdul de fitxers';
 $string['page-mod-folder-x'] = 'Qualsevol pàgina del mòdul de fitxers';
 $string['pluginadministration'] = 'Administració de carpetes';
 $string['pluginname'] = 'Carpeta';
+$string['showexpanded'] = 'Mostra les subcarpetes expandides.';
+$string['showexpanded_help'] = 'Si s\'habilita mostrarà les subcarpetes expandides per defecte. En cas contrari les subcarpetes es mostraran col·lapsades.';

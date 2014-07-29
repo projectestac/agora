@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_truefalse', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_truefalse', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_truefalse
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['feedbacktrue'] = 'Feedback pour la réponse « Vrai »';
 $string['pleaseselectananswer'] = 'Veuillez sélectionner une réponse.';
 $string['pluginname'] = 'Vrai/Faux';
 $string['pluginnameadding'] = 'Ajouter une question Vrai/Faux';
-$string['pluginnameediting'] = 'Modifier une question Vrai/Faux';
+$string['pluginnameediting'] = 'Modification d\'une question Vrai/Faux';
 $string['pluginname_help'] = 'En réponse à une question (qui peut contenir des images) le participant choisit entre « Vrai » et « Faux ».';
 $string['pluginnamesummary'] = 'Une forme simplifiée de choix multiple avec les deux seules options Vrai et Faux.';
 $string['selectone'] = 'Sélectionnez une réponse :';

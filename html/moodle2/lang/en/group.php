@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['createautomaticgrouping'] = 'Create automatic grouping';
 $string['creategroup'] = 'Create group';
 $string['creategrouping'] = 'Create grouping';
 $string['creategroupinselectedgrouping'] = 'Create group in grouping';
-$string['createingrouping'] = 'Create in grouping';
+$string['createingrouping'] = 'Grouping of auto-created groups';
 $string['createorphangroup'] = 'Create orphan group';
 $string['databaseupgradegroups'] = 'Groups version is now {$a}';
 $string['defaultgrouping'] = 'Default grouping';
@@ -59,7 +59,10 @@ $string['deleteselectedgroup'] = 'Delete selected group';
 $string['editgroupingsettings'] = 'Edit grouping settings';
 $string['editgroupsettings'] = 'Edit group settings';
 $string['enrolmentkey'] = 'Enrolment key';
-$string['enrolmentkey_help'] = 'An enrolment key enables access to the course to be restricted to only those who know the key. If a group enrolment key is specified, then not only will entering that key let the user into the course, but it will also automatically make them a member of this group.';
+$string['enrolmentkeyalreadyinuse'] = 'This enrolment key is already used for another group.';
+$string['enrolmentkey_help'] = 'An enrolment key enables access to the course to be restricted to only those who know the key. If a group enrolment key is specified, then not only will entering that key let the user into the course, but it will also automatically make them a member of this group.
+
+Note: Group enrolment keys must be enabled in the self enrolment settings and an enrolment key for the course must also be specified.';
 $string['erroraddremoveuser'] = 'Error adding/removing user {$a} to group';
 $string['erroreditgroup'] = 'Error creating/updating group {$a}';
 $string['erroreditgrouping'] = 'Error creating/updating grouping {$a}';
@@ -68,16 +71,26 @@ $string['errorremovenotpermitted'] = 'You do not have permission to remove autom
 $string['errorselectone'] = 'Please select a single group before choosing this option';
 $string['errorselectsome'] = 'Please select one or more groups before choosing this option';
 $string['evenallocation'] = 'Note: To keep group allocation even, the actual number of members per group differs from the number you specified.';
+$string['event_group_created'] = 'Group created';
+$string['event_group_deleted'] = 'Group deleted';
+$string['event_grouping_created'] = 'Grouping created';
+$string['event_grouping_deleted'] = 'Grouping deleted';
+$string['event_grouping_updated'] = 'Grouping updated';
+$string['event_group_member_added'] = 'Group member added';
+$string['event_group_member_removed'] = 'Group member removed';
+$string['event_group_updated'] = 'Group updated';
 $string['existingmembers'] = 'Existing members: {$a}';
 $string['filtergroups'] = 'Filter groups by:';
 $string['group'] = 'Group';
 $string['groupaddedsuccesfully'] = 'Group {$a} added successfully';
-$string['groupby'] = 'Specify';
+$string['groupaddedtogroupingsuccesfully'] = 'Group {$a->groupname} added to grouping {$a->groupingname} successfully';
+$string['groupby'] = 'Auto create based on';
 $string['groupdescription'] = 'Group description';
 $string['groupinfo'] = 'Info about selected group';
 $string['groupinfomembers'] = 'Info about selected members';
 $string['groupinfopeople'] = 'Info about selected people';
 $string['grouping'] = 'Grouping';
+$string['groupingaddedsuccesfully'] = 'Grouping {$a} added successfully';
 $string['groupingdescription'] = 'Grouping description';
 $string['grouping_help'] = 'A grouping is a collection of groups within a course. If a grouping is selected, students assigned to groups within the grouping will be able to work together.';
 $string['groupingname'] = 'Grouping name';
@@ -140,6 +153,7 @@ $string['newgrouping'] = 'New grouping';
 $string['newpicture'] = 'New picture';
 $string['newpicture_help'] = 'Select an image in JPG or PNG format. The image will be cropped to a square and resized to 100x100 pixels.';
 $string['noallocation'] = 'No allocation';
+$string['nogrouping'] = 'No grouping';
 $string['nogroups'] = 'There are no groups set up in this course yet';
 $string['nogroupsassigned'] = 'No groups assigned';
 $string['nopermissionforcreation'] = 'Can\'t create group "{$a}" as you don\'t have the required permissions';
@@ -160,7 +174,7 @@ $string['removegroupfromselectedgrouping'] = 'Remove group from grouping';
 $string['removegroupingsmembers'] = 'Remove all groups from groupings';
 $string['removegroupsmembers'] = 'Remove all group members';
 $string['removeselectedusers'] = 'Remove selected users';
-$string['selectfromrole'] = 'Select members from role';
+$string['selectfromrole'] = 'Select members with role';
 $string['showgroupsingrouping'] = 'Show groups in grouping';
 $string['showmembersforgroup'] = 'Show members for group';
 $string['toomanygroups'] = 'Insufficient users to populate this number of groups - there are only {$a} users in the selected role.';

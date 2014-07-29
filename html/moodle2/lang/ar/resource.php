@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -66,7 +66,6 @@ $string['optionsheader'] = 'خيارات';
 $string['pluginname'] = 'ملف';
 $string['popupresource'] = 'لا بد ان يظهر هذا المورد في نافذه مستقله';
 $string['popupresourcelink'] = 'لو لم تعمل، أنقر هنا: {$a}';
-$string['printheading'] = 'أعرض اسم المورد';
 $string['printintro'] = 'أعرض وصف المورد';
 $string['resourcecontent'] = 'ملفات ومجلدات فرعية';
 $string['resource:exportresource'] = 'تصدير المورد';

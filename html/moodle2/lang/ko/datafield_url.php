@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'datafield_url', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'datafield_url', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   datafield_url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['openlinkinnewwindow'] = '새 창에서 링크 열기';
 $string['pluginname'] = 'URL';

@@ -1,4 +1,4 @@
-/* Question */
+/* Question bank */
 .questionbank h2 {margin-top: 0;}
 .questioncategories h3 {margin-top: 0;}
 
@@ -55,15 +55,22 @@
 .dir-rtl #categoryquestions th { text-align: right; }
 .questionbank .singleselect { margin: 0; }
 
-/* Question editing form */
+/* Question editing forms. */
 #combinedfeedbackhdr div.fhtmleditor {padding: 0;}
 #combinedfeedbackhdr div.fcheckbox {margin-bottom: 1em;}
 
+#multitriesheader div.fitem_feditor {margin-top: 1em;}
+#multitriesheader div.fitem_fgroup {margin-bottom: 1em;}
+#multitriesheader div.fitem_fgroup fieldset.felement label {margin-left: 0.3em; margin-right: 0.3em;}
+
+body.path-question-type .fitem_fgroup .accesshide {font: inherit;left: 0;position: static;padding-right:.3em}
+
+/* Questions being attempted. */
 .que {clear: left;text-align: left;margin: 0 auto 1.8em auto;}
 .dir-rtl .que {text-align: right;}
 
 .que .info {float: left;width: 7em;padding:0.5em;margin-bottom: 1.8em;background: #eee;}
-.que h2.no {margin: 0;font-size: 0.8em;line-height: 1;}
+.que h3.no {margin: 0;font-size: 0.8em;line-height: 1;}
 .que span.qno {font-size: 1.5em;font-weight:bold;}
 .que .info > div {font-size: 0.8em;margin-top: 0.7em;}
 .que .info .questionflag.editable {cursor:pointer;}
@@ -112,6 +119,7 @@
 .que input.questionflagimage { padding-right: 3px; }
 .dir-rtl .que input.questionflagimage { padding-left: 3px; padding-right: 0; }
 
+/* Miscellaneous. */
 .importerror {margin-top: 10px;border-bottom: 1px solid #555;}
 .mform .que.comment .fitemtitle {width: 20%;}
 
@@ -120,6 +128,30 @@
 }
 #page-mod-quiz-edit #categoryquestions .header {
     background: none;
+}
+
+.path-question-type #id_answerhdr .fitem_feditor .felement {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+@media (min-width: 1200px) {
+    .path-question-type #id_answerhdr .fitem_feditor .felement {
+        margin-left: 16%;
+        margin-right: 0px;
+    }
+    body#page-question-type-multichoice div[id^=fitem_id_] .fitemtitle {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .dir-rtl.path-question-type #id_answerhdr .fitem_feditor .felement {
+        margin-right: 16%;
+        margin-left: 0px;
+    }
+
+    body.dir-rtl#page-question-type-multichoice div[id^=fitem_id_] .fitemtitle {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /** Overide for RTL layout **/

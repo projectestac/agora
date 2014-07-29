@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,13 +35,13 @@ $string['aicchacpkeepsessiondata'] = 'Sessão de dados AICC HACP';
 $string['aicchacpkeepsessiondata_desc'] = 'Período de tempo em dias para manter os dados da sessão externa AICC HACP (uma configuração alta vai encher a tabela com dados antigos, mas pode ser útil quando estiver depurando)';
 $string['aicchacptimeout'] = 'Tempo limite AICC HACP';
 $string['aicchacptimeout_desc'] = 'Período de tempo em minutos que uma sessão externa AICC HACP pode permanecer aberta';
+$string['aliasonly'] = 'Ao selecionar um ficheiro \'imsmanifest.xml\' de um repositório, deverá usar um alias/atalho para este ficheiro.';
 $string['allowapidebug'] = 'Ativar debug e tracing da API (configure a máscara de captura com apidebugmask)';
 $string['allowtypeaicchacp'] = 'Permitir AICC HACP externo';
 $string['allowtypeaicchacp_desc'] = 'Se ativar esta opção, permite a comunicação AICC HACP externa sem a necessidade de autenticação do utilizador para pedidos para o pacote externo AICC';
 $string['allowtypeexternal'] = 'Ativar pacote tipo externo';
 $string['allowtypeexternalaicc'] = 'Ativar URL AICC direto';
 $string['allowtypeexternalaicc_desc'] = 'Se ativar esta opção, permite um url direto para um simples pacote AICC';
-$string['allowtypeimsrepository'] = 'Ativar pacote tipo IMS';
 $string['allowtypelocalsync'] = 'Ativar pacote tipo descarregado';
 $string['apidebugmask'] = 'API debug capture mask  - use um simples regex em &lt;username&gt;:&lt;activityname&gt; ex: admin:.* irá efetuar debug apenas para os administradores';
 $string['areacontent'] = 'Ficheiros de conteúdo';
@@ -51,6 +51,7 @@ $string['assetlaunched'] = 'Recursos - Vistos';
 $string['attempt'] = 'Tentativa';
 $string['attempt1'] = '1 tentativa';
 $string['attempts'] = 'Tentativas';
+$string['attemptsmanagement'] = 'Gestão das tentativas';
 $string['attemptstatusall'] = 'Minha página inicial e de entrada';
 $string['attemptstatusentry'] = 'Apenas página de entrada';
 $string['attemptstatusmy'] = 'Apenas página inicial';
@@ -60,14 +61,19 @@ $string['autocontinue'] = 'Prosseguir automaticamente';
 $string['autocontinuedesc'] = 'Se ativar esta opção, os objetos de aprendizagem seguintes serão automaticamente iniciados, caso contrário, terá de ser usado o botão \'Continuar\'.';
 $string['autocontinue_help'] = 'Se ativar esta opção, os objetos de aprendizagem seguintes serão exibidos automaticamente, caso contrário deverá ser usado o botão Continuar.';
 $string['averageattempt'] = 'Média das tentativas';
+$string['badarchive'] = 'Tem de fornecer um ficheiro zip válido';
+$string['badimsmanifestlocation'] = 'Foi encontrado um ficheiro \'imsmanifest.xml\', mas não na raiz do seu ficheiro zip. Por favor, gere um novo pacote SCORM.';
 $string['badmanifest'] = 'Erros no manifesto: ver o registo de erros';
-$string['badpackage'] = 'O pacote/manifesto indicado não é válido. Verifique-o e tente de novo.';
 $string['browse'] = 'Pré-visualizar';
 $string['browsed'] = 'Consultado';
 $string['browsemode'] = 'Modo de pré-visualização';
 $string['browserepository'] = 'Pesquisar repositório';
+$string['calculatedweight'] = 'Peso calculado';
 $string['cannotfindsco'] = 'Não foi possível encontrar o SCO';
 $string['chooseapacket'] = 'Selecionar ou atualizar um pacote de conteúdos';
+$string['collapsetocwinsize'] = 'Contrair Tabela de Conteúdos quando o tamanho da janela é inferior a';
+$string['collapsetocwinsizedesc'] = 'Esta configuração permite especificar o tamanho da janela, abaixo da qual a Tabela de Conteúdos deverá contrair automaticamente.';
+$string['compatibilitysettings'] = 'Configurações de compatibilidade';
 $string['completed'] = 'Completo';
 $string['completionscorerequired'] = 'Exigir nota mínima';
 $string['completionscorerequired_help'] = 'Ativar essa configuração vai exigir que o utilizador tenha pelo menos a pontuação mínima inserida para marcar como completa a atividade SCORM, bem como quaisquer outros requisitos de conclusão de atividade.';
@@ -103,7 +109,6 @@ $string['dnduploadscorm'] = 'Adicionar um pacote SCORM';
 $string['domxml'] = 'Biblioteca externa DOMXML';
 $string['duedate'] = 'Data de fim';
 $string['element'] = 'Elemento';
-$string['elementdefinition'] = 'Definição do elemento';
 $string['enter'] = 'Entrar';
 $string['entercourse'] = 'Entrar';
 $string['errorlogs'] = 'Registo de erros';
@@ -119,6 +124,7 @@ $string['finishscorm'] = 'Se terminou de visualizar este recurso, {$a}';
 $string['finishscormlinkname'] = 'clique aqui para voltar à página da disciplina';
 $string['firstaccess'] = 'Primeiro acesso';
 $string['firstattempt'] = 'Primeira tentativa';
+$string['floating'] = 'Flutuante';
 $string['forcecompleted'] = 'Forçar conclusão';
 $string['forcecompleteddesc'] = 'Esta opção define o valor predefinido para a configuração \'Forçar conclusão';
 $string['forcecompleted_help'] = 'Se ativar esta opção, o estado da tentativa corrente é forçado para "concluída". Esta configuração apenas é aplicável a pacotes SCORM 1.2.';
@@ -131,6 +137,8 @@ $string['forcenewattempt_help'] = 'Se ativar esta opção, cada vez que se acede
 $string['found'] = 'Manifesto encontrado';
 $string['frameheight'] = 'Altura da frame ou janela.';
 $string['framewidth'] = 'Largura da frame ou janela.';
+$string['fromleft'] = 'A partir da esquerda';
+$string['fromtop'] = 'De cima';
 $string['fullscreen'] = 'Ecrã inteiro';
 $string['general'] = 'Dados gerais';
 $string['gradeaverage'] = 'Nota média';
@@ -156,8 +164,6 @@ $string['hidebrowse'] = 'Desativar modo de pré-visualização';
 $string['hidebrowsedesc'] = 'O modo de pré-visualização permite que o aluno navegue na atividade antes de iniciar a sua tentativa de realização.';
 $string['hidebrowse_help'] = 'O modo de pré-visualização permite ao aluno ver a atividade antes de efetuar uma tentativa de realização. Se este modo estiver desativado, o botão de pré-visualização não é disponibilizado.';
 $string['hideexit'] = 'Ocultar link de saída';
-$string['hidenav'] = 'Ocultar botões de navegação';
-$string['hidenavdesc'] = 'Esta opção define se os botões de navegação são mostrados ou ocultados.';
 $string['hidereview'] = 'Ocultar botão de revisão';
 $string['hidetoc'] = 'Exibir a tabela de conteúdos na página do SCORM';
 $string['hidetocdesc'] = 'Esta configuração determina a forma como a tabela de conteúdos é exibida na janela de reprodução do SCORM.';
@@ -167,22 +173,9 @@ $string['identifier'] = 'Identificador de pergunta';
 $string['incomplete'] = 'Incompleto';
 $string['info'] = 'Info';
 $string['interactions'] = 'Interações';
-$string['interactionscorrectcount'] = 'Número de resultados corretos para a pergunta';
-$string['interactionsid'] = 'Id do elemento';
-$string['interactionslatency'] = 'Tempo decorrido entre o momento em que a interação foi disponibilizada ao aluno para que ele respondesse e o momento em que a primeira resposta foi submetida.';
-$string['interactionslearnerresponse'] = 'Resposta do aluno';
-$string['interactionspattern'] = 'Resposta correta';
-$string['interactionsresponse'] = 'Resposta do aluno';
-$string['interactionsresult'] = 'Resultado baseado na resposta do aluno e o resultado correto.';
-$string['interactionsscoremax'] = 'Valor máximo no intervalo para o valor total';
-$string['interactionsscoremin'] = 'Valor mínimo no intervalo para o valor total';
-$string['interactionsscoreraw'] = 'Número que reflete o desempenho do aluno relativamente ao intervalo estabelecido pelos valores mínimo e máximo';
-$string['interactionssuspenddata'] = 'Fornece espaço para armazenar e recuperar dados entre as sessões do aluno.';
-$string['interactionstime'] = 'Hora em que a tentativa foi iniciada';
-$string['interactionstype'] = 'Tipo de pergunta';
-$string['interactionsweight'] = 'Peso atribuído ao elemento';
 $string['invalidactivity'] = 'A atividade SCORM está incorreta';
 $string['invalidhacpsession'] = 'Sessão de HACP inválida';
+$string['invalidmanifestname'] = 'Apenas \'imsmanifest.xml\' ou ficheiros zip podem ser selecionados';
 $string['invalidmanifestresource'] = 'AVISO: Os seguintes recursos foram referenciados no seu manifesto, mas não podem ser encontrados.';
 $string['invalidurl'] = 'O URL é inválido';
 $string['invalidurlhttpcheck'] = 'Foi especificado um URL inválido. Mensagem de erro:<pre>{$a->cmsg}</pre>';
@@ -215,7 +208,20 @@ A atividade SCORM pode ser utilizada;
 * Como uma ferramenta de avaliação.';
 $string['modulename_link'] = 'mod/scorm/view';
 $string['modulenameplural'] = 'Pacotes SCORM';
+$string['nav'] = 'Mostrar Navegação';
+$string['navdesc'] = 'Esta configuração especifica se deseja mostrar ou ocultar os botões de navegação e a sua posição.';
+$string['nav_help'] = 'Esta configuração determina se os botões de navegação serão mostrados ou ocultados e a respetiva posição.
+
+Existem 3 opções:
+
+* Não - os botões de navegação não são mostrados;
+
+* Sob o conteúdo - botões de navegação são mostrados abaixo do conteúdo do pacote SCORM;
+
+ * Flutuante - os botões de navegação são mostrados no modo flutuante, sendo a posição a partir do topo e da esquerda determinada pelo pacote.';
 $string['navigation'] = 'Navegação';
+$string['navpositionleft'] = 'Posição dos botões de navegação a partir da esquerda em píxeis.';
+$string['navpositiontop'] = 'Posição dos botões de navegação de cima em píxeis.';
 $string['newattempt'] = 'Iniciar uma nova tentativa';
 $string['next'] = 'Continuar';
 $string['noactivity'] = 'Nada a registar';
@@ -224,7 +230,7 @@ $string['noattemptsmade'] = 'Número de tentativas realizadas';
 $string['no_attributes'] = 'A tag {$a->tag} tem de ter atributos';
 $string['no_children'] = 'A tag {$a->tag} tem de ter descendentes';
 $string['nolimit'] = 'Tentativas ilimitadas';
-$string['nomanifest'] = 'Manifesto não encontrado';
+$string['nomanifest'] = 'Pacote de ficheiro incorreto - está em falta o \'imsmanifest.xml\' ou a estrutura AICC.';
 $string['noprerequisites'] = 'Lamentamos, mas não reúne os pré-requisitos necessários para poder aceder a esta atividade.';
 $string['noreports'] = 'Não há relatórios para exibir';
 $string['normal'] = 'Normal';
@@ -242,10 +248,10 @@ $string['optnoattemptsonly'] = 'apenas utilizadores sem tentativas';
 $string['organization'] = 'Organização';
 $string['organizations'] = 'Organizações';
 $string['othersettings'] = 'Definições adicionais';
-$string['othertracks'] = 'Outros dados de percurso';
 $string['package'] = 'Ficheiro do pacote';
 $string['packagedir'] = 'Erro no sistema de ficheiros: não é possível criar a pasta do pacote';
 $string['packagefile'] = 'O ficheiro do pacote não foi especificado';
+$string['packagehdr'] = 'Pacote';
 $string['package_help'] = 'O ficheiro do pacote é um zip (ou pif) contendo ficheiros de definição da disciplina em formato SCORM.';
 $string['packageurl'] = 'URL';
 $string['packageurl_help'] = 'Esta opção permite selecionar o pacote SCORM através de um URL em vez de identificar o ficheiro através do localizador de ficheiros.';
@@ -256,6 +262,7 @@ $string['php5'] = 'PHP 5 (biblioteca DOMXML nativa)';
 $string['pluginadministration'] = 'Administração do pacote SCORM';
 $string['pluginname'] = 'Pacote SCORM';
 $string['popup'] = 'Nova janela';
+$string['popuplaunched'] = 'Este Pacote SCORM foi carregado numa janela de pop-up, se já terminou de ver este conteúdo, clique aqui para voltar à página da disciplina.';
 $string['popupmenu'] = 'Numa caixa de seleção';
 $string['popupopen'] = 'Abrir pacote numa nova janela';
 $string['popupsblocked'] = 'Aparentemente, as janelas pop-up estão bloqueadas, impedindo o pacote SCORM de ser exibido. Verifique as configurações do seu navegador antes de tentar de novo.';
@@ -269,31 +276,36 @@ $string['report'] = 'Relatório';
 $string['reportcountallattempts'] = '{$a->nbattempts} tentativas para {$a->nbusers} utilizadores, em {$a->nbresults} resultados';
 $string['reportcountattempts'] = '{$a->nbresults} resultados ({$a->nbusers} utilizadores)';
 $string['reports'] = 'Relatórios';
-$string['resizable'] = 'Permitir redimensionamento da janela';
+$string['repositorynotsupported'] = 'Apenas os repositórios do sistema de ficheiro são suportados quando ligar diretamente a um ficheiro imsmanifest.xml.';
+$string['response'] = 'Resposta';
 $string['result'] = 'Resultado';
 $string['results'] = 'Resultados';
 $string['review'] = 'Rever';
 $string['reviewmode'] = 'Modo de revisão';
+$string['rightanswer'] = 'Resposta certa';
 $string['scoes'] = 'Objetos de aprendizagem';
 $string['score'] = 'Nota';
 $string['scorm:addinstance'] = 'Adicionar um novo SCORM';
-$string['scormclose'] = 'Até';
+$string['scormclose'] = 'Disponível até';
 $string['scormcourse'] = 'Pacote de aprendizagem';
 $string['scorm:deleteownresponses'] = 'Apagar todas as tentativas';
 $string['scorm:deleteresponses'] = 'Apagar tentativas SCORM';
 $string['scormloggingoff'] = 'Logging do API está inativo';
 $string['scormloggingon'] = 'Logging do API está ativo';
-$string['scormopen'] = 'De';
+$string['scormopen'] = 'Disponível a partir de';
 $string['scormresponsedeleted'] = 'Apagar tentativas dos utilizadores';
 $string['scorm:savetrack'] = 'Gravar dados de percurso';
 $string['scorm:skipview'] = 'Saltar vista global';
 $string['scormtype'] = 'Tipo';
-$string['scormtype_help'] = 'Esta configuração define como o pacote será inserido na disciplina. Existem 4 opções:
+$string['scormtype_help'] = 'Esta configuração define como o Pacote SCORM será inserido na disciplina. Existem 4 opções:
 
-* Carregar pacote - Permite selecionar e carregar um pacote SCORM
-* Manifesto externo SCORM - Permite especificar um URL imsmanifest.xml. Nota: Se o URL tiver um nome de domínio diferente do seu site, então é melhor a opção "Descarregar pacote", pois caso contrário as notas não são guardadas.
-* Pacote descarregado - Permite especificar o URL de um pacote. O pacote será descompactado e gravado localmente, e atualizado quando o pacote SCORM externo é atualizado.
-* Repositório local de conteúdo IMS - Permite que um pacote seja selecionado a partir de um repositório IMS';
+* Carregar pacote: permite selecionar e carregar um pacote SCORM;
+
+* Manifesto externo SCORM: permite especificar um URL imsmanifest.xml. (Nota: Se o URL tiver um nome de domínio diferente do seu site, então selecione a opção "Descarregar pacote", pois caso contrário as notas não são guardadas.);
+
+* Pacote descarregado: permite especificar o URL de um pacote. O pacote será descompactado e gravado localmente, e atualizado quando o pacote SCORM externo é atualizado;
+
+* Repositório local de conteúdo IMS: permite que um pacote seja selecionado a partir de um repositório IMS.';
 $string['scorm:viewreport'] = 'Ver relatórios';
 $string['scorm:viewscores'] = 'Ver notas';
 $string['scrollbars'] = 'Permitir deslocamentos dentro da janela';
@@ -317,23 +329,49 @@ $string['suspended'] = 'Suspenso';
 $string['syntax'] = 'Erro de sintaxe';
 $string['tag_error'] = 'Tag desconhecida ({$a->tag}) com o seguinte conteúdo: {$a->value}';
 $string['time'] = 'Tempo';
-$string['timerestrict'] = 'Restringir respostas a este período';
 $string['title'] = 'Título';
 $string['toc'] = 'Índice';
 $string['toolbar'] = 'Mostrar barra de ferramentas';
 $string['too_many_attributes'] = 'A tag {$a->tag} tem demasiados atributos';
 $string['too_many_children'] = 'A tag {$a->tag} tem demasiados descendentes';
 $string['totaltime'] = 'Tempo total';
+$string['trackcorrectcount'] = 'Contagem correta';
+$string['trackcorrectcount_help'] = 'Número de resultados corretos para a pergunta';
+$string['trackid'] = 'ID';
+$string['trackid_help'] = 'Este é o identificador definido pelo pacote SCORM para esta pergunta, a especificação SCORM não permite que a questão de texto completa seja fornecida.';
 $string['trackingloose'] = 'ATENÇÃO: os dados de percurso deste pacote SCORM serão apagados!';
+$string['tracklatency'] = 'Latência';
+$string['tracklatency_help'] = 'Tempo decorrido entre o tempo de interação <br/> que foi disponibilizado para o aluno responder<br/> e o tempo da primeira resposta';
+$string['trackpattern'] = 'Padrão';
+$string['trackpattern_help'] = 'Isto é um exemplo do que seria uma resposta correta a esta pergunta. A resposta do aluno não é mostrada.';
+$string['trackresponse'] = 'Resposta';
+$string['trackresponse_help'] = 'Esta é a resposta que o aluno deu para esta pergunta';
+$string['trackresult'] = 'Resultado';
+$string['trackresult_help'] = 'Resultado baseado na resposta do aluno e o <br/>resultado correto.';
+$string['trackscoremax'] = 'Pontuação máxima';
+$string['trackscoremax_help'] = 'Valor máximo no intervalo para o valor total';
+$string['trackscoremin'] = 'Pontuação mínima';
+$string['trackscoremin_help'] = 'Valor mínimo no intervalo para o valor total';
+$string['trackscoreraw'] = 'Nota bruta';
+$string['trackscoreraw_help'] = 'Número que reflete o desempenho do aluno <br/> em relação aos valores limitados de min e max';
+$string['tracksuspenddata'] = 'Suspender dados';
+$string['tracksuspenddata_help'] = 'Fornece espaço para armazenar e recuperar dados <br/> entre as sessões do aluno.';
+$string['tracktime'] = 'Tempo';
+$string['tracktime_help'] = 'Hora em que a tentativa foi iniciada';
+$string['tracktype'] = 'Tipo';
+$string['tracktype_help'] = 'Tipo de pergunta, por exemplo "seleção" ou "resposta curta".';
+$string['trackweight'] = 'peso';
+$string['trackweight_help'] = 'Peso atribuído ao elemento';
 $string['type'] = 'Tipo';
 $string['typeaiccurl'] = 'URL do AICC Externo';
 $string['typeexternal'] = 'Manifesto SCORM externo';
-$string['typeimsrepository'] = 'Repositório local de conteúdo IMS';
 $string['typelocal'] = 'Pacote carregado';
 $string['typelocalsync'] = 'Pacote descarregado';
+$string['undercontent'] = 'Sob conteúdo';
 $string['unziperror'] = 'Ocorreu um erro durante a descompressão do pacote';
 $string['updatefreq'] = 'Frequência de atualização automática';
 $string['updatefreqdesc'] = 'Esta opção define o valor predefinido de frequência de atualização automática da atividade';
+$string['updatefreq_error'] = 'A frequência de atualização automática só pode ser definida quando o ficheiro do pacote está hospedado externamente';
 $string['updatefreq_help'] = 'Esta opção permite que o pacote externo seja automaticamente descarregado e atualizado';
 $string['validateascorm'] = 'Validar um pacote';
 $string['validation'] = 'Resultado da validação';

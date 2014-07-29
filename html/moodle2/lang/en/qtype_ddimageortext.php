@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddimageortext', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddimageortext', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddimageortext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,6 +33,7 @@ $string['correctansweris'] = 'The correct answer is: {$a}';
 $string['draggableimage'] = 'Draggable image';
 $string['draggableitem'] = 'Draggable item';
 $string['draggableitemheader'] = 'Draggable item {$a}';
+$string['draggableitems'] = 'Draggable items';
 $string['draggableitemtype'] = 'Type';
 $string['draggableword'] = 'Draggable text';
 $string['dropbackground'] = 'Background image for dragging markers onto';
@@ -60,7 +61,6 @@ $string['pluginnameediting'] = 'Editing drag and drop onto image';
 $string['pluginname_help'] = 'Select a background image file, select draggable images or enter text and define the drop zones on the background image to which they must be dragged.';
 $string['pluginname_link'] = 'question/type/ddimageortext';
 $string['pluginnamesummary'] = 'Images or text labels are dragged and dropped into drop zones on a background image.';
-$string['previewarea'] = 'Preview area -';
 $string['previewareaheader'] = 'Preview';
 $string['previewareamessage'] = 'Select a background image file and select draggable images or just enter text that will be made draggable. Then choose a drag item for each \'drop zone\', and drag the drag item to where the student should drag it to.';
 $string['refresh'] = 'Refresh preview';

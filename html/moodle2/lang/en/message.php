@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,7 @@ $string['blockcontact'] = 'Block contact';
 $string['blockedmessages'] = '{$a} message(s) to/from blocked users';
 $string['blockedusers'] = 'Blocked users ({$a})';
 $string['blocknoncontacts'] = 'Prevent non-contacts from messaging me';
-$string['contactlistempty'] = 'Your contact list is empty';
+$string['contactlistempty'] = 'Contact list empty';
 $string['contacts'] = 'Contacts';
 $string['context'] = 'context';
 $string['defaultmessageoutputs'] = 'Default message outputs';
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'Messaging is disabled on this site, emails will 
 $string['mostrecent'] = 'Recent messages';
 $string['mostrecentconversations'] = 'Recent conversations';
 $string['mostrecentnotifications'] = 'Recent notifications';
-$string['mycontacts'] = 'My contacts';
 $string['newonlymsg'] = 'Show only new';
 $string['newsearch'] = 'New search';
 $string['noframesjs'] = 'Use more accessible interface';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Any message pages';
 $string['pagerefreshes'] = 'This page refreshes automatically every {$a} seconds';
 $string['permitted'] = 'Permitted';
 $string['private_config'] = 'Popup message window';
-$string['processordeleteconfirm'] = 'You are about to completely delete message output \'{$a}\'.  This will completely delete everything in the database associated with this output. Are you SURE you want to continue?';
-$string['processordeletefiles'] = 'All data associated with the output \'{$a->processor}\' has been deleted from the database.  To complete the deletion (and prevent the output re-installing itself), you should now delete this directory from your server: {$a->directory}';
 $string['processortag'] = 'Destination';
 $string['providers_config'] = 'Configure notification methods for incoming messages';
 $string['providerstag'] = 'Source';

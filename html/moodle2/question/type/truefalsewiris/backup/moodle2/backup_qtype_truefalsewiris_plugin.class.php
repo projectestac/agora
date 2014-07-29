@@ -11,7 +11,7 @@ class backup_qtype_truefalsewiris_plugin extends backup_qtype_truefalse_plugin {
 
         // add question_xml
         $pluginwrapper = $plugin->get_child($this->get_recommended_name());
-        $question_xml = new backup_nested_element('question_xml', array('id'), array('xml'));
+        $question_xml = new backup_nested_element('question_xml', array('id'), array('xml', 'options'));
         $pluginwrapper->add_child($question_xml);
         $question_xml->set_source_table('qtype_wq', array('question' => backup::VAR_PARENTID));
         

@@ -1,6 +1,20 @@
 This files describes API changes in /enrol/* - plugins,
 information provided here is intended especially for developers.
 
+=== 2.6 ===
+
+* Enrolment plugin which supports self enrolment should implement can_self_enrol()
+* Enrolment plugin should implement get_enrol_info() to expose instance information
+  with webservice or external interface.
+* Webservice core_enrol_get_enrolled_users_with_capability was incorrectly specifing
+  float as the return type for user id. int is the actual returned type and is now
+  reported as such.
+
+=== 2.5 ===
+
+* plugins may use general enrol/editenrolment.php page to let users edit
+  enrolments manually
+* new support for grade recovery in enrol_plugin::enrol_user() method
 
 === 2.4 ===
 

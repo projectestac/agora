@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = 'أضف سؤال للنشاط';
-$string['add_items'] = 'أضف سؤال للنشاط';
 $string['add_pagebreak'] = 'اضف فاصل صفحة';
 $string['adjustment'] = 'تعديلات';
 $string['after_submit'] = 'بعد التسليم';
@@ -63,9 +62,8 @@ $string['dropdown_values'] = 'إجابات';
 $string['drop_feedback'] = 'أحذف من المقرر الدراسي هذا';
 $string['edit_item'] = 'حرر السؤال';
 $string['edit_items'] = 'حرر الأسئلة';
-$string['emailnotification'] = 'إشعارات بريد الإلكتروني';
 $string['email_notification'] = 'ارسال إشعارات بريد الإلكتروني';
-$string['emailnotification_help'] = '';
+$string['email_notification_help'] = '';
 $string['emailteachermail'] = 'أتم {$a->username} الإفادة: \'{$a->feedback}\' يمكنك مشاهدتها هنا: {$a->url}';
 $string['emailteachermailhtml'] = 'أتم {$a->username} الإفادة: <i>\'{$a->feedback}\'</i> يمكنك مشاهدتها <a href="{$a->url}">هنا</a>.';
 $string['entries_saved'] = 'شكراً، لقد تم حفظ إجاباتك';
@@ -79,7 +77,6 @@ $string['feedback:deletesubmissions'] = 'أحذف التسليمات بالكا�
 $string['feedback:deletetemplate'] = 'أحذف القالب';
 $string['feedback:edititems'] = 'حرر العنصر';
 $string['feedbackopen'] = 'فتح الإفادة';
-$string['feedback_options'] = 'خيارات الإفادة';
 $string['feedback:viewanalysepage'] = 'شاهد صفحة التحليل بعد الإرسال';
 $string['feedback:viewreports'] = 'عايين التقرير';
 $string['file'] = 'ملف';
@@ -91,7 +88,6 @@ $string['info'] = 'معلومات';
 $string['infotype'] = 'نوع المعلومات';
 $string['insufficient_responses'] = 'إجابات غير كافية';
 $string['item_name'] = 'سؤال';
-$string['items_are_required'] = 'يجب الإجابة على الأسئلة ذات النجمة.';
 $string['line_values'] = 'تقييم';
 $string['messageprovider:message'] = 'تذكير إفادة';
 $string['messageprovider:submission'] = 'إعلامات الإفادة';
@@ -106,7 +102,6 @@ $string['multichoice'] = 'متعدد الخيارات';
 $string['multichoicetype'] = 'نوع متعدد الخيارات';
 $string['multichoice_values'] = 'قيم متعدد الخيارات';
 $string['multiplesubmit'] = 'إرسالات متعددة';
-$string['multiple_submit'] = 'إرسالات متعددة';
 $string['name'] = 'اسم';
 $string['name_required'] = 'الاسم مطلوب';
 $string['next_page'] = 'الصفحة التالية';
@@ -163,9 +158,6 @@ $string['template_saved'] = 'القالب الذي تم حفظه';
 $string['textarea_height'] = 'عدد الأسطر';
 $string['textfield'] = 'نص إجابة قصيرة';
 $string['this_feedback_is_already_submitted'] = 'لقد قمت مسبقاً بإكمال هذا النشاط.';
-$string['timeclose'] = 'وقت الإغلاق';
-$string['timeopen'] = 'وقت الفتح';
-$string['url_for_continue_button'] = 'الوصلة لزر الاستمرار';
 $string['use_this_template'] = 'استخدم هذا القالب';
 $string['using_templates'] = 'استخدم قالب';
 $string['vertical'] = 'عاموي';

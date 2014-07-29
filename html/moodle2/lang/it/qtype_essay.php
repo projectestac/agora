@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,14 +28,16 @@ defined('MOODLE_INTERNAL') || die();
 $string['allowattachments'] = 'Consenti allegati';
 $string['formateditor'] = 'Editor HTML';
 $string['formateditorfilepicker'] = 'Editor HTML con file picker';
-$string['formatmonospaced'] = 'Testo semplice con font a spaziatura fissa';
+$string['formatmonospaced'] = 'Testo semplice con carattere a spaziatura fissa';
 $string['formatplain'] = 'Testo semplice';
-$string['graderinfo'] = 'Informazioni per il valutatore';
+$string['graderinfo'] = 'Informazioni per i valutatori';
 $string['nlines'] = '{$a} linee';
 $string['pluginname'] = 'Componimento';
 $string['pluginnameadding'] = 'Creazione domanda Componimento';
 $string['pluginnameediting'] = 'Modifica domanda Componimento';
-$string['pluginname_help'] = 'In risposta a una domanda (che può anche includere un\'immagine) lo studente scriverà una risposta lunga un paragrafo o due. La domanda Componimento riceverà un voto solo quando un docente la valuterà manualmente.';
+$string['pluginname_help'] = 'In risposta a una domanda (che può anche includere un\'immagine) lo studente potrà redigere una risposta lunga un paragrafo o due. La domanda Componimento riceverà un voto solo quando un docente la valuterà manualmente.';
 $string['pluginnamesummary'] = 'Consente la creazione di domande la cui risposta è un breve componimento. Questo tipo di domanda deve essere valutata a mano.';
 $string['responsefieldlines'] = 'Dimensione del riquadro di input';
 $string['responseformat'] = 'Formato risposta';
+$string['responsetemplate'] = 'Modello di risposta';
+$string['responsetemplate_help'] = 'Ad ogni nuovo tentativo, il testo inserito sarà visualizzato nel riquadro della risposta';

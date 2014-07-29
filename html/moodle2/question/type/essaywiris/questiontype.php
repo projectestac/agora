@@ -16,16 +16,16 @@ class qtype_essaywiris extends qtype_wq {
         $wform = $this->base->create_editing_form($submiturl, $question, $category, $contexts, $formeditable);
         return new qtype_essaywiris_edit_form($wform, $submiturl, $question, $category, $contexts, $formeditable);
     }    
-    
-    public function menu_name() {
-        return $this->local_name();
-    }
-    
-    public function display_question_editing_page($mform, $question, $wizardnow) {
-        //This method is used to load tiny_mce.js before quizzes.js
-        parent::display_question_editing_page($mform, $question, $wizardnow);
-        global $PAGE;
-        $PAGE->requires->js('/question/type/wq/quizzes/service.php?name=quizzes.js&service=resource');
+   
+    public function initialise_question_instance(question_definition $question, $questiondata) {
+        parent::initialise_question_instance($question, $questiondata);
+        $question->responseformat = &$question->base->responseformat;
+        $question->responsefieldlines = &$question->base->responsefieldlines;
+        $question->attachments = &$question->base->attachments;
+        $question->graderinfo = &$question->base->graderinfo;
+        $question->graderinfoformat = &$question->base->graderinfoformat;
+        $question->responsetemplate = &$question->base->responsetemplate;
+        $question->responsetemplateformat = &$question->base->responsetemplateformat;
     }
     
     public function export_to_xml($question, qformat_xml $format, $extra=null) {
@@ -70,16 +70,15 @@ class qtype_essaywiris extends qtype_wq {
             }
             
             $wirisquestion .= '</question>';
-            $qo->wirisquestion[0] = $wirisquestion;
+            $qo->wirisquestion = $wirisquestion;
             return $qo;
         }else{
             //Moodle 2.x
             $qo = $format->import_essay($data);
             $qo->qtype = 'essaywiris';
-            $qo->wirisquestion[0] = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
+            $qo->wirisquestion = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
             return $qo;
         }            
     }    
     
 }
-?>

@@ -28,6 +28,7 @@ require_once($CFG->libdir.'/gdlib.php');
 require_once($CFG->dirroot.'/user/edit_form.php');
 require_once($CFG->dirroot.'/user/editlib.php');
 require_once($CFG->dirroot.'/user/profile/lib.php');
+require_once($CFG->dirroot.'/user/lib.php');
 
 //HTTPS is required in this page when $CFG->loginhttps enabled
 $PAGE->https_required();
@@ -50,8 +51,7 @@ if ($course->id != SITEID) {
     }
     redirect(get_login_url());
 } else {
-    $PAGE->set_context(get_system_context());
-    $PAGE->set_pagelayout('standard');
+    $PAGE->set_context(context_system::instance());
 }
 
 // Guest can not edit
@@ -131,6 +131,16 @@ if ($user->deleted) {
     die;
 }
 
+$PAGE->set_pagelayout('admin');
+$PAGE->set_context($personalcontext);
+if ($USER->id != $user->id) {
+    $PAGE->navigation->extend_for_user($user);
+} else {
+    if ($node = $PAGE->navigation->find('myprofile', navigation_node::TYPE_ROOTNODE)) {
+        $node->force_open();
+    }
+}
+
 // Process email change cancellation
 if ($cancelemailchange) {
     cancel_email_update($user->id);
@@ -177,8 +187,6 @@ $email_changed = false;
 
 if ($usernew = $userform->get_data()) {
 
-    add_to_log($course->id, 'user', 'update', "view.php?id=$user->id&course=$course->id", '');
-
     $email_changed_html = '';
 
     if ($CFG->emailchangeconfirmation) {
@@ -206,14 +214,14 @@ if ($usernew = $userform->get_data()) {
         $usernew = file_postupdate_standard_editor($usernew, 'description', $editoroptions, $personalcontext, 'user', 'profile', 0);
     }
 
-    $DB->update_record('user', $usernew);
-
-    // pass a true $userold here
-    if (! $authplugin->user_update($user, $usernew)) {
-        // auth update failed, rollback for moodle
-        $DB->update_record('user', $user);
+    // Pass a true old $user here.
+    if (!$authplugin->user_update($user, $usernew)) {
+        // Auth update failed.
         print_error('cannotupdateprofile');
     }
+
+    // Update user with new profile data.
+    user_update_user($usernew, false, false);
 
     //update preferences
     useredit_update_user_preference($usernew);
@@ -224,7 +232,7 @@ if ($usernew = $userform->get_data()) {
     }
 
     //update user picture
-    if (!empty($CFG->gdversion) and empty($CFG->disableuserimages)) {
+    if (empty($CFG->disableuserimages)) {
         useredit_update_picture($usernew, $userform, $filemanageroptions);
     }
 
@@ -237,33 +245,39 @@ if ($usernew = $userform->get_data()) {
     // save custom profile fields data
     profile_save_data($usernew);
 
-    // If email was changed and confirmation is required, send confirmation email now
+    // Trigger event.
+    \core\event\user_updated::create_from_userid($user->id)->trigger();
+
+    // If email was changed and confirmation is required, send confirmation email now to the new address.
     if ($email_changed && $CFG->emailchangeconfirmation) {
-        $temp_user = fullclone($user);
+        $temp_user = $DB->get_record('user', array('id'=>$user->id), '*', MUST_EXIST);
         $temp_user->email = $usernew->preference_newemail;
 
         $a = new stdClass();
         $a->url = $CFG->wwwroot . '/user/emailupdate.php?key=' . $usernew->preference_newemailkey . '&id=' . $user->id;
         $a->site = format_string($SITE->fullname, true, array('context' => context_course::instance(SITEID)));
-        $a->fullname = fullname($user, true);
+        $a->fullname = fullname($temp_user, true);
 
         $emailupdatemessage = get_string('emailupdatemessage', 'auth', $a);
         $emailupdatetitle = get_string('emailupdatetitle', 'auth', $a);
 
         //email confirmation directly rather than using messaging so they will definitely get an email
-        $supportuser = generate_email_supportuser();
+        $supportuser = core_user::get_support_user();
         if (!$mail_results = email_to_user($temp_user, $supportuser, $emailupdatetitle, $emailupdatemessage)) {
             die("could not send email!");
         }
     }
 
-    // reload from db
-    $usernew = $DB->get_record('user', array('id'=>$user->id));
-    events_trigger('user_updated', $usernew);
+    // Reload from db, we need new full name on this page if we do not redirect.
+    $user = $DB->get_record('user', array('id'=>$user->id), '*', MUST_EXIST);
 
     if ($USER->id == $user->id) {
         // Override old $USER session variable if needed
-        foreach ((array)$usernew as $variable => $value) {
+        foreach ((array)$user as $variable => $value) {
+            if ($variable === 'description' or $variable === 'password') {
+                // These are not set for security nad perf reasons.
+                continue;
+            }
             $USER->$variable = $value;
         }
         // preload custom fields

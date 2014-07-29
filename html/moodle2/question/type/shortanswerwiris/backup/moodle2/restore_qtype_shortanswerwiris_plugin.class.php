@@ -48,6 +48,16 @@ class restore_qtype_shortanswerwiris_plugin extends restore_qtype_shortanswer_pl
         }   
         
     }
+    
+    /**
+     * Recode answer identifiers from get_matching_answer cache.
+     */
+    public function recode_response($questionid, $sequencenumber, array $response) {
+        if (array_key_exists('_matching_answer', $response)) {
+            $response['_matching_answer'] = $this->get_mappingid('question_answer', $response['_matching_answer']);
+        }
+        return $response;
+    }
 
     function decode_html_entities($xml) {
         $htmlentitiestable = get_html_translation_table(HTML_ENTITIES, ENT_QUOTES, 'UTF-8');
@@ -56,7 +66,7 @@ class restore_qtype_shortanswerwiris_plugin extends restore_qtype_shortanswer_pl
         $decodetable = array_flip($entitiestable);
         $xml = str_replace(array_keys($decodetable), array_values($decodetable), $xml);
         return $xml;
-    }    
+    }
     
 }
 ?>

@@ -15,21 +15,18 @@ class qtype_truefalsewiris extends qtype_wq {
         require_once($CFG->dirroot . '/question/type/truefalsewiris/edit_truefalsewiris_form.php');
         $wform = $this->base->create_editing_form($submiturl, $question, $category, $contexts, $formeditable);
         return new qtype_truefalsewiris_edit_form($wform, $submiturl, $question, $category, $contexts, $formeditable);
-    }    
-    
-    public function menu_name() {
-        return $this->local_name();
-    }    
-
-    public function display_question_editing_page($mform, $question, $wizardnow) {
-        //This method is used to load tiny_mce.js before quizzes.js
-        parent::display_question_editing_page($mform, $question, $wizardnow);
-        global $PAGE;
-        $PAGE->requires->js('/question/type/wq/quizzes/service.php?name=quizzes.js&service=resource');
     }
     
     protected function initialise_question_instance(question_definition $question, $questiondata) {
         parent::initialise_question_instance($question, $questiondata);
+        $question->wirisoverrideanswer = $questiondata->options->wirisoptions;
+        $question->rightanswer = &$question->base->rightanswer;
+        $question->truefeedback = &$question->base->truefeedback;
+        $question->falsefeedback = &$question->base->falsefeedback;
+        $question->truefeedbackformat = &$question->base->truefeedbackformat;
+        $question->falsefeedbackformat = &$question->base->falsefeedbackformat;
+        $question->trueanswerid = &$question->base->trueanswerid;
+        $question->falseanswerid = &$question->base->falseanswerid;
     }
     
     public function save_question_options($question) {
@@ -85,7 +82,7 @@ class qtype_truefalsewiris extends qtype_wq {
             }            
             
             $wirisquestion .= '</question>';
-            $qo->wirisquestion[0] = $wirisquestion;
+            $qo->wirisquestion = $wirisquestion;
             if (isset($data['#']['wirisoverrideanswer'])){
                 $qo->wirisoverrideanswer = trim($data['#']['wirisoverrideanswer'][0]['#']);    
             }
@@ -94,7 +91,7 @@ class qtype_truefalsewiris extends qtype_wq {
             //Moodle 2.x
             $qo = $format->import_truefalse($data);
             $qo->qtype = 'truefalsewiris';
-            $qo->wirisquestion[0] = trim($data['#']['wirisquestion'][0]['#']);
+            $qo->wirisquestion = trim($data['#']['wirisquestion'][0]['#']);
             if (isset($data['#']['wirisoverrideanswer'])){
                 $qo->wirisoverrideanswer = trim($this->decode_html_entities($data['#']['wirisoverrideanswer'][0]['#']));
             }

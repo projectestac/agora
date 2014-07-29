@@ -68,8 +68,6 @@ class assignment_base {
     var $strlastmodified;
     /** @var string */
     var $pagetitle;
-    /** @var bool */
-    var $usehtmleditor;
     /**
      * @todo document this var
      */
@@ -1247,7 +1245,7 @@ class assignment_base {
         $tabindex = 1; //tabindex for quick grading tabbing; Not working for dropdowns yet
         add_to_log($course->id, 'assignment', 'view submission', 'submissions.php?id='.$this->cm->id, $this->assignment->id, $this->cm->id);
 
-        $PAGE->set_title(format_string($this->assignment->name,true));
+        $PAGE->set_title($this->assignment->name);
         $PAGE->set_heading($this->course->fullname);
         echo $OUTPUT->header();
 
@@ -1521,7 +1519,7 @@ class assignment_base {
                             } else if ($quickgrade) {
                                 $comment = '<div id="com'.$auser->id.'">'
                                          . '<textarea tabindex="'.$tabindex++.'" name="submissioncomment['.$auser->id.']" id="submissioncomment'
-                                         . $auser->id.'" rows="2" cols="20">'.($auser->submissioncomment).'</textarea></div>';
+                                         . $auser->id.'" rows="2" cols="20" spellcheck="true">'.($auser->submissioncomment).'</textarea></div>';
                             } else {
                                 $comment = '<div id="com'.$auser->id.'">'.shorten_text(strip_tags($auser->submissioncomment),15).'</div>';
                             }
@@ -1549,7 +1547,7 @@ class assignment_base {
                             } else if ($quickgrade) {
                                 $comment = '<div id="com'.$auser->id.'">'
                                          . '<textarea tabindex="'.$tabindex++.'" name="submissioncomment['.$auser->id.']" id="submissioncomment'
-                                         . $auser->id.'" rows="2" cols="20">'.($auser->submissioncomment).'</textarea></div>';
+                                         . $auser->id.'" rows="2" cols="20" spellcheck="true">'.($auser->submissioncomment).'</textarea></div>';
                             } else {
                                 $comment = '<div id="com'.$auser->id.'">&nbsp;</div>';
                             }
@@ -2369,6 +2367,7 @@ class assignment_base {
                 assignment_reset_gradebook($data->courseid, $this->type);
             }
         }
+
         return $status;
     }
 
@@ -2818,7 +2817,7 @@ function assignment_cron () {
     global $CFG, $USER, $DB;
 
     /// first execute all crons in plugins
-    if ($plugins = get_plugin_list('assignment')) {
+    if ($plugins = core_component::get_plugin_list('assignment')) {
         foreach ($plugins as $plugin=>$dir) {
             require_once("$dir/assignment.class.php");
             $assignmentclass = "assignment_$plugin";
@@ -3631,7 +3630,7 @@ function assignment_get_coursemodule_info($coursemodule) {
  */
 function assignment_types() {
     $types = array();
-    $names = get_plugin_list('assignment');
+    $names = core_component::get_plugin_list('assignment');
     foreach ($names as $name=>$dir) {
         $types[$name] = get_string('type'.$name, 'assignment');
 
@@ -3814,8 +3813,8 @@ function assignment_get_types() {
     }
 
     /// Drop-in extra assignment types
-    $assignmenttypes = get_list_of_plugins('mod/assignment/type');
-    foreach ($assignmenttypes as $assignmenttype) {
+    $assignmenttypes = core_component::get_plugin_list('assignment');
+    foreach ($assignmenttypes as $assignmenttype=>$fulldir) {
         if (!empty($CFG->{'assignment_hide_'.$assignmenttype})) {  // Not wanted
             continue;
         }
@@ -3874,7 +3873,7 @@ function assignment_reset_userdata($data) {
     global $CFG;
 
     $status = array();
-    foreach (get_plugin_list('assignment') as $type=>$dir) {
+    foreach (core_component::get_plugin_list('assignment') as $type=>$dir) {
         require_once("$dir/assignment.class.php");
         $assignmentclass = "assignment_$type";
         $ass = new $assignmentclass();
@@ -3891,6 +3890,7 @@ function assignment_reset_userdata($data) {
                           'item' => get_string('datechanged'),
                           'error' => false);
     }
+
     return $status;
 }
 

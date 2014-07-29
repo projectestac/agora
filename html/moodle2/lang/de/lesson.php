@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -120,6 +120,7 @@ $string['continuetonextpage'] = 'Auf der nächsten Seite fortsetzen';
 $string['correctanswerjump'] = 'Sprung bei richtiger Antwort';
 $string['correctanswerscore'] = 'Bewertung bei richtiger Antwort';
 $string['correctresponse'] = 'Feedback bei richtiger Antwort';
+$string['createaquestionpage'] = 'Fragenseite anlegen';
 $string['credit'] = 'Bewertung';
 $string['customscoring'] = 'Standardbewertung (Punkte)';
 $string['customscoring_help'] = 'Wenn diese Option aktiviert ist, kann jede Antwort mit einer numerischen Punktzahl zu versehen werden, wobei auch negative Punkte möglich sind.';
@@ -136,21 +137,21 @@ $string['description'] = 'Beschreibung';
 $string['detailedstats'] = 'Ergebnisanalyse';
 $string['didnotanswerquestion'] = 'Hat diese Frage nicht beantwortet.';
 $string['didnotreceivecredit'] = 'Hat keine Bewertung erhalten';
-$string['displaydefaultfeedback'] = 'Standardfeedback anzeigen';
+$string['displaydefaultfeedback'] = 'Standardfeedback benutzen';
 $string['displaydefaultfeedback_help'] = '<h2>Standardrückmeldung anzeigen</h2>
 
 <p>Bei der Einstellung <strong>Ja</strong> wird die Standardrückmeldung (Richtig/Falsch) angezeigt, sofern keine individuelle Rückmeldung vorhanden ist.</p>
 <p>Bei der Einstellung <strong>Nein</strong> wird keine Rückmeldung angezeigt, sofern keine individuelle Rückmeldung vorhanden ist. Die Teilnehmer/innen werden dann automatisch zur nächsten Seite der Lektion geführt. </p>';
 $string['displayhighscores'] = 'High Scores anzeigen';
 $string['displayinleftmenu'] = 'Im linken Seitenmenü anzeigen?';
-$string['displayleftif'] = 'Linkes Seitenmenü nur anzeigen, wenn die Bewertung höher ist als';
+$string['displayleftif'] = 'Menü nur anzeigen, wenn die Bewertung höher ist als';
 $string['displayleftif_help'] = 'Diese Einstellung legt fest, ob eine bestimmte Bewertung erreicht sein muss, bevor das linke Seitenmenü sichtbar wird. Dies zwingt die Teilnehmer/innen dazu, bei ihren ersten Versuchen durch die gesamte Lektion zu gehen. Erst nach dem Erreichen einer bestimmten Punktzahl kann das linke Seitenmenü benutzet werden, um sich die Lösungen nochmals anzuschauen.';
 $string['displayleftmenu'] = 'Linkes Seitenmenü anzeigen';
 $string['displayleftmenu_help'] = 'Wenn diese Option aktiviert ist, wird am linken Rand ein Seitenmenü mit der Liste aller Inhaltsseiten angezeigt.';
 $string['displayofgrade'] = 'Anzeige der Bewertungen (für Teilnehmer/innen)';
 $string['displayreview'] = 'Wiederholung bei falscher Antwort';
 $string['displayreview_help'] = 'Diese Option zeigt nach einer falsch beantworteten Frage eine Taste, mit der die Teilnehmer/innen zur Frage zurückgehen und diese noch einmal antworten können.';
-$string['displayscorewithessays'] = 'Sie haben bisher {$a->score} von {$a->tempmaxgrade} Punkten für die automatisch bewerteten Fragen erzielt.<br /> Die Freitext-Aufgaben ({$a->essayquestions}) werden später bewertet und zur Gesamtpunktzahl hinzugefügt .<br /><br />Ihre derzeitige Bewertung:  {$a->score} von {$a->grade} Punkten.';
+$string['displayscorewithessays'] = '<p>Sie haben bisher {$a->score} von {$a->tempmaxgrade} Punkten für die automatisch bewerteten Fragen erzielt.</p><p> Die Freitext-Aufgaben ({$a->essayquestions}) werden später bewertet und zur Gesamtpunktzahl hinzugefügt .</p><p>Ihre derzeitige Bewertung:  {$a->score} von {$a->grade} Punkten.</p>';
 $string['displayscorewithoutessays'] = 'Ihre Bewertung:  {$a->score} von {$a->grade} Punkten';
 $string['edit'] = 'Bearbeiten';
 $string['editingquestionpage'] = 'Frageseite {$a} bearbeiten';
@@ -356,6 +357,7 @@ $string['postsuccess'] = 'Erfolgreich gesendet';
 $string['practice'] = 'Übungslektion';
 $string['practice_help'] = 'Übungslektionen gehen nicht in die Gesamtbewertungen des Kurses ein.';
 $string['preprocesserror'] = 'Fehler während der Verarbeitung aufgetreten! (pre-processing)';
+$string['prerequisitelesson'] = 'Abhängige Lektion';
 $string['preview'] = 'Vorschau';
 $string['previewlesson'] = 'Vorschau {$a}';
 $string['previouspage'] = 'Vorherige Seite';
@@ -391,6 +393,7 @@ $string['savechanges'] = 'Änderungen speichern';
 $string['savechangesandeol'] = 'Alle Änderungen speichern und zum Ende der Lektion gehen.';
 $string['savepage'] = 'Seite speichern';
 $string['score'] = 'Bewertung';
+$string['score_help'] = 'Punkte werden nur verwendet, wenn eine benutzerdefinierte Bewertung aktiviert ist. Jeder Antwort kann einen (positiver oder negativer) Zahlenwert gegeben werden.';
 $string['scores'] = 'Bewertung';
 $string['secondpluswrong'] = 'Nicht ganz. Wollen Sie noch einmal wiederholen?';
 $string['selectaqtype'] = 'Fragetyp auswählen';

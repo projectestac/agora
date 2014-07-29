@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Controllo accesso';
 $string['aggregategrades'] = 'Ricalcola voti';
 $string['aggregation'] = 'Aggregazione dei voti';
 $string['allocate'] = 'Distribuisci consegne';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Ha già un voto';
 $string['areaconclusion'] = 'Contenuto della conclusione';
 $string['areainstructauthors'] = 'Istruzioni di consegna';
 $string['areainstructreviewers'] = 'Istruzioni per la valutazione';
+$string['areaoverallfeedbackattachment'] = 'Allegati feedback complessivo';
+$string['areaoverallfeedbackcontent'] = 'Testi feedback complessivo';
 $string['areasubmissionattachment'] = 'Allegati alle consegne';
 $string['areasubmissioncontent'] = 'Testi delle consegne';
 $string['assess'] = 'Valuta';
@@ -108,6 +109,7 @@ $string['evaluation'] = 'Calcolo dei voti';
 $string['evaluationmethod'] = 'Metodo di calcolo dei voti';
 $string['evaluationmethod_help'] = 'Il metodo di calcolo della valutazione determina come verranno calcolati i voti. Puoi consentire il calcolo ripetuto dei voti finché non ottieni un risultato che ti soddisfi';
 $string['evaluationsettings'] = 'Impostazioni di calcolo dei voti';
+$string['event_assessable_uploaded'] = 'Caricata consegna';
 $string['example'] = 'Consegna di esempio';
 $string['exampleadd'] = 'Aggiungi una consegna di esempio';
 $string['exampleassess'] = 'Valuta consegna di esempio';
@@ -128,8 +130,10 @@ $string['examplesubmissions'] = 'Consegne di esempio
 ';
 $string['examplesvoluntary'] = 'La valutazione delle consegne di esempio è su base volontaria';
 $string['feedbackauthor'] = 'Feedback per l\'autore';
+$string['feedbackauthorattachment'] = 'Allegato';
 $string['feedbackby'] = 'Feedback di {$a}';
 $string['feedbackreviewer'] = 'Feedback per il revisore';
+$string['feedbacksettings'] = 'Commento';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -162,8 +166,7 @@ $string['latesubmissions'] = 'Consegne in ritardo';
 $string['latesubmissionsallowed'] = 'Le consegne in ritardo saranno accettate';
 $string['latesubmissions_desc'] = 'Accetta consegne dopo la data di fine';
 $string['latesubmissions_help'] = 'E\' possibile consentire ai partecipanti di consegnare il proprio lavoro dopo la scadenza prevista nella fase di valutazione. Le consegne in ritardo non potranno però essere modificate.';
-$string['maxbytes'] = 'Dimensione massima file';
-$string['miscellaneoussettings'] = 'Impostazioni varie';
+$string['maxbytes'] = 'Dimensione massima file consegna';
 $string['modulename'] = 'Workshop';
 $string['modulename_help'] = 'Il modulo di attività workshop consente la raccolta, la revisione e la valutazione tra pari del lavoro svolto dagli studenti.
 
@@ -187,6 +190,14 @@ $string['notoverridden'] = 'Non alterati';
 $string['noworkshops'] = 'In questo corso non ci sono workshop';
 $string['noyoursubmission'] = 'Non hai ancora consegnato il tuo lavoro';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Feedback complessivo';
+$string['overallfeedbackfiles'] = 'Numero massimo di allegati feedback complessivo';
+$string['overallfeedbackmaxbytes'] = 'Dimensione massima file feedback complessivo';
+$string['overallfeedbackmode'] = 'Modalità feedback complessivo';
+$string['overallfeedbackmode_0'] = 'Disabilitato';
+$string['overallfeedbackmode_1'] = 'Abilitato, opzionale';
+$string['overallfeedbackmode_2'] = 'Abilitato, obbligatorio';
+$string['overallfeedbackmode_help'] = 'Consente di visualizzare un campo di testo sotto il form di valutazione, dove i revisori potranno inserire la valutazione complessiva della consegna oppure fornire spiegazioni sulla valutazione.';
 $string['page-mod-workshop-x'] = 'Qualsiasi pagina con modulo workshop';
 $string['participant'] = 'Partecipante';
 $string['participantrevierof'] = 'Il partecipante è il revisore di';
@@ -211,6 +222,7 @@ $string['recentsubmissions'] = 'Consegne workshop:';
 $string['saveandclose'] = 'Salva e chiudi';
 $string['saveandcontinue'] = 'Salva e continua a modificare';
 $string['saveandpreview'] = 'Salva e anteprima';
+$string['saveandshownext'] = 'Salva e visualizza il successivo';
 $string['selfassessmentdisabled'] = 'Auto valutazione disabilitata';
 $string['showingperpage'] = 'Visualizzazione di {$a} elementi per pagina';
 $string['showingperpagechange'] = 'Modifica...';
@@ -287,7 +299,6 @@ $string['withoutsubmission'] = 'Revisori che non hanno consegnato il proprio lav
 $string['workshop:addinstance'] = 'Aggiungere workshop';
 $string['workshop:allocate'] = 'Assegnare consegne per revisione';
 $string['workshop:editdimensions'] = 'Modificare scheda di valutazione';
-$string['workshopfeatures'] = 'Caratteristiche del workshop';
 $string['workshop:ignoredeadlines'] = 'Ignora limitazioni temporali';
 $string['workshop:manageexamples'] = 'Gestire consegne di esempio';
 $string['workshopname'] = 'Nome del workshop';
@@ -301,6 +312,7 @@ $string['workshop:viewallassessments'] = 'Visualizzare qualsiasi valutazione';
 $string['workshop:viewallsubmissions'] = 'Visualizzare qualsiasi consegna';
 $string['workshop:viewauthornames'] = 'Visualizzare nomi degli autori';
 $string['workshop:viewauthorpublished'] = 'Visualizzare gli autori degli invii pubblicati';
+$string['workshopviewed'] = 'Workshop visualizzato';
 $string['workshop:viewpublishedsubmissions'] = 'Visualizzare consegne pubblicate';
 $string['workshop:viewreviewernames'] = 'Visualizzare nome del revisore';
 $string['yourassessment'] = 'La tua valutazione';

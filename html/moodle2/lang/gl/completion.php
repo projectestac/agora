@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'completion', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'Acadando a cualificación';
 $string['activities'] = 'Actividades';
 $string['activitiescompleted'] = 'Actividades completadas';
 $string['activitycompletion'] = 'Completado da actividade';
-$string['afterspecifieddate'] = 'Despois dunha data especificada';
 $string['aggregationmethod'] = 'Método de agregación';
 $string['all'] = 'Todos';
 $string['any'] = 'Calquera';
@@ -50,7 +49,6 @@ $string['completion-alt-manual-enabled'] = 'Os alumnos poden marcar manualmente 
 $string['completion-alt-manual-n'] = 'Sen completar: {$a}. Seleccione para marcar como completado.';
 $string['completion-alt-manual-y'] = 'Completado: {$a}. Seleccione para marcar como sen completar.';
 $string['completion_automatic'] = 'Amosar a actividade como completada cando se cumpran as condicións';
-$string['completiondependencies'] = 'Completado das dependencias';
 $string['completiondisabled'] = 'Desactivado, non se amosa na configuración da actividade';
 $string['completionenabled'] = 'Activado, control por medio da configuración de completado e de actividade';
 $string['completionexpected'] = 'Agardase completala en';
@@ -68,7 +66,6 @@ $string['completion_none'] = 'Non indicar o completado da actividade';
 $string['completionnotenabled'] = 'O completado non está activado';
 $string['completionnotenabledforcourse'] = 'O completado non está activado para este curso';
 $string['completionnotenabledforsite'] = 'O completado non está activado para este sitio';
-$string['completiononunenrolment'] = 'Completado ao dar de baixa (da matrícula)';
 $string['completion-pass'] = 'Completado (acadou a cualificación de aprobado)';
 $string['completionsettingslocked'] = 'Configuración de completado bloqueados';
 $string['completion-title-manual-n'] = 'Marcar como completado: {$a}';
@@ -88,17 +85,14 @@ $string['coursegrade'] = 'Cualificación do curso';
 $string['coursesavailable'] = 'Cursos dispoñíbeis';
 $string['coursesavailableexplaination'] = '<i>Deben estabelecerse os criterios do grado de completado para que o curso apareza nesta lista</i>';
 $string['criteria'] = 'Criterios';
-$string['criteriagradenote'] = 'Teña en conta que actualizar a cualificación requirida aquí non actualizará a cualificación actual de aprobado do curso.';
 $string['criteriagroup'] = 'Grupo de criterios';
 $string['criteriarequiredall'] = 'Requírense todos os criterios que aparecen embaixo';
 $string['criteriarequiredany'] = 'Requírese calquera dos criterios que aparecen embaixo';
 $string['csvdownload'] = 'Descargar en formato de folla de cálculo (UTF-8 .csv)';
 $string['datepassed'] = 'data do aprobado';
 $string['days'] = 'Días';
-$string['daysafterenrolment'] = 'Días despois da matriculación';
 $string['dependencies'] = 'Dependencias';
 $string['dependenciescompleted'] = 'Completáronse as dependencias';
-$string['durationafterenrolment'] = 'Duración despois da matriculación';
 $string['editcoursecompletionsettings'] = 'Editar a configuración de completado do curso';
 $string['enablecompletion'] = 'Activar o seguimento do progreso (para o completado)';
 $string['enrolmentduration'] = 'Días restantes';
@@ -123,7 +117,6 @@ $string['nocriteriaset'] = 'Non hai criterios estabelecidos para o completado de
 $string['notcompleted'] = 'Sen completar';
 $string['notenroled'] = 'Vostede non está matriculado neste curso';
 $string['notyetstarted'] = 'Aínda non comezou';
-$string['overallcriteriaaggregation'] = 'Criterios xerais do tipo agregación';
 $string['pending'] = 'Pendente';
 $string['periodpostenrolment'] = 'Período despois da matriculación';
 $string['progress'] = 'Progreso do alumno';

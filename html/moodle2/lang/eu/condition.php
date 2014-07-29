@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,17 +25,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addcompletions'] = 'Gehitu {ez} jarduera-osaketarako baldintzak formularioari';
-$string['addgrades'] = 'Gehitu {ez} kalifikazio-baldintzak formularioari';
-$string['adduserfields'] = 'Gehitu {ez} erabiltzaile eremu-baldintzak formularioari';
+$string['addcompletions'] = 'Gehitu {no} jarduera-osaketarako baldintza formularioari';
+$string['addgrades'] = 'Gehitu {no} kalifikazio-baldintza formularioari';
+$string['adduserfields'] = 'Gehitu {no} erabiltzaile eremu-baldintza formularioari';
 $string['availabilityconditions'] = 'Mugatu eskuragarritasuna';
 $string['availablefrom'] = 'Noiztik aurrera eskuragarri:';
-$string['availablefrom_help'] = 'Noiztik/noiz arte eskuragarri-k zehazten du noiz izango duen eskuragarri ikasleak jarduera ikastaroaren orriko esteka baten bidez.
-
-Noiztik/noiz arte eskuragarri eta eskuragarritasun ezarpenen arteko ezberdintasuna hauxe da: azken honek eskuragarritasun datatik haratago utzi egiten dio ikasleari jardueraren deskribapena ikusten, eta noiztik/noiz arte eskuragarri-k berriz erabat ukatzen dio sarbidea eta beraz ez du data horietatik kanpo deskribapena ere ikusiko.';
+$string['availablefrom_help'] = 'Noiztik/noiz arte eskuragarri-k zehazten du noiz izango duen eskuragarri ikasleak jarduera ikastaroaren orriko esteka baten bidez. Noiztik/noiz arte eskuragarri eta eskuragarritasun ezarpenen arteko ezberdintasuna hauxe da: azken honek eskuragarritasun datatik haratago utzi egiten dio ikasleari jardueraren deskribapena ikusten, eta noiztik/noiz arte eskuragarri-k berriz erabat ukatzen dio sarbidea eta beraz ez du data horietatik kanpo deskribapena ere ikusiko.';
 $string['availableuntil'] = 'Noiz arte eskuragarri:';
 $string['badavailabledates'] = 'Datak ez dira egokiak. Datak ezartzen badituzu, "noiztik aurrera eskuragarri"-k "noiz arte" baino lehenagokoa behar du.';
-$string['badgradelimits'] = 'Gehienezko eta gutxienezko kalifikazio-muga ezartzen baduzu, gehienezkoaren mugak gutxienezkoarenak baino altuagoa izan behar du.';
+$string['badgradelimits'] = 'Goiko eta beheko kalifikazio-muga ezartzen baduzu, goikoak behekoak baino handiagoa izan behar du.';
 $string['completion_complete'] = 'osatutzat markatu behar da';
 $string['completioncondition'] = 'Jarduera-osaketarako baldintza';
 $string['completioncondition_help'] = 'Jarduerari ekin ahal izateko bete behar diren jardueraren osaketa-balditzak ezartzen ditu ezarpen honek. Ohartu osaketaren jarraipena ezarri behar dela inongo jarduera-osaketa baldintza ezarri aurretik.
@@ -53,7 +51,7 @@ $string['contains'] = 'daukana';
 $string['doesnotcontain'] = 'ez daukana';
 $string['enableavailability'] = 'Baldintzatutako eskuragarritasuna gaitu';
 $string['endswith'] = 'honela bukatzen da';
-$string['fielddeclaredmultipletimes'] = 'Ezin duzu jarduera bakoitzean eremu bera behin baino gehiagotan erabili.';
+$string['fielddeclaredmultipletimes'] = 'Ezin duzu erabili eremu bera behin baino gehiagotan jarduerako.';
 $string['grade_atleast'] = 'gutxienez izan behar du';
 $string['gradecondition'] = 'Kalifikazio-baldintza';
 $string['gradecondition_help'] = 'Jarduerari ekin ahal izateko bete behar diren jardueraren kalifikazio-balditzak ezartzen ditu ezarpen honek.
@@ -88,17 +86,17 @@ $string['requires_grade_range'] = 'Ez dago eskuragarri <strong>{$a}</strong>-n p
 $string['requires_user_field_contains'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong> -k <strong>{$a->value}</strong> izan arte.';
 $string['requires_user_field_doesnotcontain'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong> -k <strong>{$a->value}</strong> izan arte.';
 $string['requires_user_field_endswith'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong>  <strong>{$a->value}</strong>-rekin bukatu arte.';
-$string['requires_user_field_isempty'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong> hutsik egon arte.';
+$string['requires_user_field_isempty'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong>  hutsik egon arte.';
 $string['requires_user_field_isequalto'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong>  <strong>{$a->value}</strong> izan arte.';
-$string['requires_user_field_isnotempty'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong> hutsik egon arte.';
+$string['requires_user_field_isnotempty'] = 'Ez dago eskuragarri zure <strong>{$a->field}</strong>  hutsik egon arte.';
 $string['showavailability'] = 'Jardueraren aurretik dago eskuragarri';
-$string['showavailability_hide'] = 'Jarduera guztiz ezkutatu';
+$string['showavailability_hide'] = 'Jarduera guztiz ezkutatu ikastaroan eta kalifikazio-liburuan';
 $string['showavailabilitysection'] = 'Atala eskuragarri izan aurretik:';
 $string['showavailabilitysection_hide'] = 'Ezkutatu atala erabat';
 $string['showavailabilitysection_show'] = 'Erakutsi atala grisean, eskuratzeko mugaren informazioarekin.';
 $string['showavailability_show'] = 'Jarduera grisean erakutsi, murrizketa-informaziorik gabe';
 $string['startswith'] = 'honela hasten da';
-$string['userfield'] = 'Erabiltzaile-eremua';
+$string['userfield'] = 'Erabiltzailearen eremua';
 $string['userfield_help'] = 'Eskuragarritasuna muga dezakezu erabiltzailearen profileko eremu batean oinarrituta.';
-$string['userrestriction_hidden'] = 'Murriztuta (guztiz ezkutuan, mezurik ez): &lsquo;{$a}&rsquo;';
-$string['userrestriction_visible'] = 'Murriztuta: &lsquo;{$a}&rsquo;';
+$string['userrestriction_hidden'] = 'Murriztuta (guztiz ezkutuan, mezurik ez): {$a}';
+$string['userrestriction_visible'] = 'Murriztuta: {$a}';

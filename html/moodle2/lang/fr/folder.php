@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Contenu';
+$string['display'] = 'Afficher le contenu du dossier';
+$string['display_help'] = 'Si vous choisissez d\'afficher le contenu du dossier sur la page de cours, il n\'y aura pas de lien vers une page séparée.
+La description ne sera affichée que si l\'option « Afficher la description sur la page du cours » es cochée.<br />En outre, la consultation par les participants ne pourra pas être enregistrée dans l\'historique.';
+$string['displayinline'] = 'Sur la page du cours';
+$string['displaypage'] = 'Sur une page séparée';
 $string['dnduploadmakefolder'] = 'Décompresser les fichiers et créer un dossier';
 $string['folder:addinstance'] = 'Ajouter un dossier';
 $string['foldercontent'] = 'fichiers et sous-dossiers';
@@ -40,7 +45,10 @@ Un dossier peut être utilisé par exemple pour :
 * fournir sur la page de cours un espace de dépôt de fichiers commun à plusieurs enseignants, en cachant le dossier de sorte que seuls les enseignants puissent le voir';
 $string['modulenameplural'] = 'Dossiers';
 $string['neverseen'] = 'Jamais consulté';
+$string['noautocompletioninline'] = 'L\'achèvement automatique lors de la consultation d\'une activité ne peut pas être sélectionné en même temps que l\'option « Afficher sur la page du cours »';
 $string['page-mod-folder-view'] = 'Page principale du module dossier';
 $string['page-mod-folder-x'] = 'Toute page du module dossier';
 $string['pluginadministration'] = 'Gestion des dossiers';
 $string['pluginname'] = 'Dossier';
+$string['showexpanded'] = 'Afficher dépliés les sous-dossiers';
+$string['showexpanded_help'] = 'Si ce réglage est activé, les sous-dossiers seront affichés avec leur contenu. Dans le cas contraire, seul leur nom sera affiché.';

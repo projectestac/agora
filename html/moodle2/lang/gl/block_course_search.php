@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_search', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_search', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_search
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,8 +26,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['course_search:addinstance'] = 'Engadir un novo bloque de busca de cursos';
+$string['course_search:myaddinstance'] = 'Engadir un novo bloque de busca de cursos';
+$string['new_search'] = 'Nova busca';
+$string['no_result'] = 'Sen resultados';
 $string['pagetitle'] = 'Resultados da busca de cursos';
 $string['pluginname'] = 'Busca de cursos';
+$string['results'] = 'Resultados para a súa busca con palabras clave:';
 $string['return_course'] = 'Volver ao curso';
+$string['searchfor'] = 'Escriba as palabras clave';
 $string['settings'] = 'Axustes';
 $string['submit'] = 'Ir a';

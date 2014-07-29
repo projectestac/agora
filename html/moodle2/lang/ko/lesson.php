@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = '질문에 정답을 입력하면 다
 * 보지 않은 페이지 보기 - 페이지들이 무작위로 한번만 보여집니다.
 * 답하지 않은 페이지 보기 - 답하지 않은 질문이 있는 페이지들이 무작위로 보여집니다.';
 $string['actions'] = '활동';
-$string['activitylink'] = '활동에 대한 링크';
+$string['activitylink'] = '다음 활동으로의 링크';
 $string['activitylink_help'] = '완전학습의 마지막에 강좌의 다른 활동으로으 링크를 제공하려면 내림목록에서 활동을 선택하십시요.';
 $string['activitylinkname'] = '{$a} 로 가기';
 $string['activityoverview'] = '제출 마감인 완전학습이 있습니다.';
@@ -114,11 +114,12 @@ $string['confirmdelete'] = '페이지 삭제';
 $string['confirmdeletionofthispage'] = '페이지 삭제 확인';
 $string['congratulations'] = '학습의 끝입니다 - 축하합니다';
 $string['continue'] = '계속';
-$string['continuetoanswer'] = '답 수정하기로 가기';
+$string['continuetoanswer'] = '답 수정 계속하기';
 $string['continuetonextpage'] = '다음 페이지로 가기';
 $string['correctanswerjump'] = '정답인 경우 이동할 곳';
 $string['correctanswerscore'] = '정답에 대한 점수';
 $string['correctresponse'] = '정답에 대한 반응';
+$string['createaquestionpage'] = '질문 페이지 만들기';
 $string['credit'] = '학점';
 $string['customscoring'] = '성적매기기';
 $string['customscoring_help'] = '<p>각 답안에 숫자로 된 배점을 적도록 한다. 답안 배점은 음수 혹은 양수를 쓸 수 있다. 외부에서 가져온 문제의 경우에는 자동적으로 정답에는 1점, 오답에는 0점이 주어지지만 이를 바꿀 수도 있다.</p>';
@@ -135,7 +136,7 @@ $string['description'] = '서술';
 $string['detailedstats'] = '자세한 통계';
 $string['didnotanswerquestion'] = '이 질문에 답하지 않았음';
 $string['didnotreceivecredit'] = '점수를 못 받음';
-$string['displaydefaultfeedback'] = '기본 피드백 보이기';
+$string['displaydefaultfeedback'] = '기본 피드백 사용';
 $string['displaydefaultfeedback_help'] = '활성화되면 특정 질문에 대해 응답이 발견되지 않으면 "정답입니다" 혹은 "틀린 답입니다"라는 기본 응답이 보여질 것입니다.';
 $string['displayhighscores'] = '고득점 표시';
 $string['displayinleftmenu'] = '왼쪽 메뉴를 보일까요?';
@@ -343,6 +344,7 @@ $string['postsuccess'] = '게시 성공';
 $string['practice'] = '모의 학습';
 $string['practice_help'] = '연습으로 한 완전학습은 성적부에 나타나지 않습니다.';
 $string['preprocesserror'] = '선처리 과정에서 오류 발생!';
+$string['prerequisitelesson'] = '선수 완전학습';
 $string['preview'] = '미리보기';
 $string['previewlesson'] = '{$a} 미리보기';
 $string['previouspage'] = '앞 페이지';

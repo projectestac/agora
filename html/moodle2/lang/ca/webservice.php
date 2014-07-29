@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,6 +86,14 @@ $string['errorcoursecontextnotvalid'] = 'No podeu executar funcions al context c
 $string['errorinvalidparam'] = 'El paràmetre "{$a}" no és vàlid';
 $string['errornotemptydefaultparamarray'] = 'El paràmetre que descriu el servei web anomenat \'{$a}\' és una estructura única o múltiple. Per defecte pot sols ser una matriu buida. Llegiu la descripció dels serveis web.';
 $string['erroroptionalparamarray'] = 'El paràmetre que descriu el servei web anomenat \'{$a}\' és una estructura única o múltiple. No pot ser posat com VALUE_OPTIONAL. Comproveu la descripció dels serveis web.';
+$string['event_webservice_function_called'] = 'S\'ha cridat una funció del servei web';
+$string['event_webservice_login_failed'] = 'Ha fallat l\'entrada amb usuari al servei web';
+$string['event_webservice_service_created'] = 'S\'ha creat un servei del servei web';
+$string['event_webservice_service_updated'] = 'S\'ha actualitzat un servei del servei web';
+$string['event_webservice_service_user_added'] = 'S\'ha afegit l\'usuari al servei del servei web';
+$string['event_webservice_service_user_removed'] = 'S\'ha suprimit l\'usuari al servei del servei web';
+$string['event_webservice_token_created'] = 'S\'ha creat un testimoni al servei del servei web';
+$string['event_webservice_token_sent'] = 'S\'ha enviat el testimoni al servei del servei web';
 $string['execute'] = 'Executa';
 $string['executewarnign'] = 'AVÍS: Si premeu executa la vostra base de dades serà modificada i els canvis no es podran revertir de forma automàtica!';
 $string['externalservice'] = 'Servei extern';
@@ -120,6 +128,7 @@ $string['missingusername'] = 'Nom d\'usuari perdut';
 $string['missingversionfile'] = 'Error de codificació: el fitxer version.php s\'ha perdut per al component {$a}';
 $string['mobilewsdisabled'] = 'Deshabilitat';
 $string['mobilewsenabled'] = 'Habilitat';
+$string['nocapabilitytouseparameter'] = 'Aquest usuari no té la capacitat per a utilitzar el paràmetre {$a}';
 $string['nofunctions'] = 'Aquest servei no té funcions';
 $string['norequiredcapability'] = 'No cal cap capacitat';
 $string['notoken'] = 'La llista de tokens està buida.';
@@ -184,6 +193,8 @@ $string['tokencreator'] = 'Creador';
 $string['unknownoptionkey'] = 'Tecla d\'opció desconeguda ({$a})';
 $string['unnamedstringparam'] = 'Un paràmetre de cadena no té nom.';
 $string['updateusersettings'] = 'Actualitza';
+$string['uploadfiles'] = 'Es poden penjar fitxers';
+$string['uploadfiles_help'] = 'Si ho habiliteu qualsevol usuari podrà penjar fitxers amb les seves claus segures a les seves àrees privades o a la secció fitxers esborranys. És aplicable qualsevol limitació de les quotes de fitxers d\'usuari.';
 $string['userasclients'] = 'Usuaris com clients amb el testimoni';
 $string['userasclientsdescription'] = 'Els passos següents us ajudaran a aixecar el servei web Moodle per als usuaris com clients. Aquests passos també us ajudaran a aixecar el mètode d\'autenticació recomanat (claus de seguretat). En aquest cas, l\'usuari generarà el seu propi token des la seua pàgina de seguretat mitjançant els paràmetres de El meu perfil.';
 $string['usermissingcaps'] = 'Capacitats perdudes: {$a}';

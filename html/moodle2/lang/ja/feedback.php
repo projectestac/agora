@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = '質問を追加する';
-$string['add_items'] = '質問を追加する';
 $string['add_pagebreak'] = '改ページ (Page break) を追加する';
 $string['adjustment'] = '表示方向';
 $string['after_submit'] = '回答送信後';
@@ -37,7 +36,7 @@ $string['anonymous_edit'] = 'ユーザ名を記録する';
 $string['anonymous_entries'] = '匿名エントリ';
 $string['anonymous_user'] = '匿名ユーザ';
 $string['append_new_items'] = '新しいアイテムを追加する';
-$string['autonumbering'] = '自動番号付け';
+$string['autonumbering'] = '問題の自動番号付け';
 $string['autonumbering_help'] = 'それぞれの質問に対して自動ナンバリングを有効または無効にします。';
 $string['average'] = '平均';
 $string['bold'] = '太字';
@@ -56,7 +55,7 @@ $string['completed'] = '完了';
 $string['completed_feedbacks'] = '送信済み回答';
 $string['complete_the_form'] = '質問に回答する ...';
 $string['completionsubmit'] = 'フィードバックが送信された場合、完了として表示する';
-$string['configallowfullanonymous'] = 'このオプションを有効にした場合、ログインせずにフィードバックを完了することができます。設定はホームページのフィードバックにのみ影響します。';
+$string['configallowfullanonymous'] = 'この設定を有効にした場合、ログインを要求されせずにフィードバックを完了することができます。';
 $string['confirmdeleteentry'] = '本当にこのエントリを削除してもよろしいですか?';
 $string['confirmdeleteitem'] = '本当にこの要素を削除してもよろしいですか?';
 $string['confirmdeletetemplate'] = '本当にこのテンプレートを削除してもよろしいですか?';
@@ -104,22 +103,24 @@ $string['dropdown_values'] = '回答';
 $string['drop_feedback'] = 'このコースから削除する';
 $string['edit_item'] = '質問を編集する';
 $string['edit_items'] = '質問を編集する ...';
-$string['emailnotification'] = '通知メールを送信する';
 $string['email_notification'] = '送信通知を有効にする';
-$string['emailnotification_help'] = '有効にした場合、フィードバックの送信に関して教師宛にメール通知されます。';
+$string['email_notification_help'] = '有効にした場合、フィードバック送信に関して、教師はメール通知されます。';
 $string['emailteachermail'] = '{$a->username} がフィードバック「 {$a->feedback} 」を完了しました。
 
 下記ページにて内容を閲覧できます:
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} がフィードバック「 {$a->feedback} 」を完了しました。<br /><br />
-<a href="{$a->url}">このページ</a>で詳細を閲覧できます。';
+$string['emailteachermailhtml'] = '<p>{$a->username} がフィードバック「 {$a->feedback} 」を完了しました。</p>
+<p><a href="{$a->url}">このページ</a>で詳細を閲覧できます。</p>';
 $string['entries_saved'] = 'あなたの回答が保存されました。ありがとうございます。';
+$string['eventcoursemoduleviewed'] = 'コースモジュールが閲覧されました。';
+$string['eventinstanceslistviewed'] = 'インスタンス一覧が閲覧されました。';
+$string['eventresponsedeleted'] = '回答が削除されました。';
+$string['eventresponsesubmitted'] = '回答が送信されました。';
 $string['export_questions'] = '質問をエクスポートする';
 $string['export_to_excel'] = 'Excelにエクスポートする';
 $string['feedback:addinstance'] = '新しいフィードバックを追加する';
 $string['feedbackclose'] = 'フィードバック終了日時';
-$string['feedbackcloses'] = 'フィードバック終了日時';
 $string['feedback:complete'] = 'フィードバックを終了する';
 $string['feedback:createprivatetemplate'] = 'プライベートテンプレートを作成する';
 $string['feedback:createpublictemplate'] = 'パブリックテンプレートを作成する';
@@ -130,8 +131,6 @@ $string['feedback_is_not_for_anonymous'] = '匿名ユーザは、フィードバ
 $string['feedback_is_not_open'] = 'フィードバックは利用できません。';
 $string['feedback:mapcourse'] = 'コースをグローバルフィードバックにマップする';
 $string['feedbackopen'] = 'フィードバック開始日時';
-$string['feedbackopens'] = 'フィードバック開始日時';
-$string['feedback_options'] = 'フィードバックオプション';
 $string['feedback:receivemail'] = 'メール通知を受信する';
 $string['feedback:view'] = 'フィードバックを表示する';
 $string['feedback:viewanalysepage'] = '回答送信後、分析ページを表示する';
@@ -153,7 +152,6 @@ $string['insufficient_responses_help'] = 'このグループの回答が不足�
 フィードバックを匿名にするには、最低2つの回答が必要です。';
 $string['item_label'] = 'ラベル';
 $string['item_name'] = '質問';
-$string['items_are_required'] = 'アスタリスクが付けられた質問は必須回答です。';
 $string['label'] = 'ラベル';
 $string['line_values'] = '評定';
 $string['mapcourse'] = 'コースにフィードバックをマップする';
@@ -188,8 +186,7 @@ $string['multichoice'] = '多肢選択';
 $string['multichoicerated'] = '多肢選択 (評定)';
 $string['multichoicetype'] = '多肢選択タイプ';
 $string['multichoice_values'] = '多肢選択値';
-$string['multiplesubmit'] = '複数回答';
-$string['multiple_submit'] = '複数回答';
+$string['multiplesubmit'] = '複数回答を許可する';
 $string['multiplesubmit_help'] = '匿名調査に有効にした場合、ユーザは無制限でフィードバックを送信することができます。';
 $string['name'] = '名称';
 $string['name_required'] = '名称を入力してください。';
@@ -215,7 +212,7 @@ $string['oldvalueswillbedeleted'] = '現在の問題およびすべてのユー�
 $string['only_one_captcha_allowed'] = '1フィードバックあたり、1つのCAPTCHAのみ許可されています。';
 $string['overview'] = '概要';
 $string['page'] = 'ページ';
-$string['page_after_submit'] = '回答送信後のページ';
+$string['page_after_submit'] = '完了メッセージ';
 $string['pagebreak'] = 'ページブレーク';
 $string['page-mod-feedback-x'] = 'すべてのフィードバックモジュールページ';
 $string['parameters_missing'] = 'パラメータが入力されていません:';
@@ -230,6 +227,7 @@ $string['preview_help'] = 'このプレビューにて、あなたは質問の�
 $string['previous_page'] = '前のページ';
 $string['public'] = '公開';
 $string['question'] = '質問';
+$string['questionandsubmission'] = '質問および回答設定';
 $string['questions'] = '質問';
 $string['radio'] = '多肢選択 - 単一回答';
 $string['radiobutton'] = '多肢選択 - 単一回答 (ラジオボタン)';
@@ -259,7 +257,7 @@ $string['send_message'] = 'メッセージを送信する';
 $string['separator_decimal'] = '.';
 $string['separator_thousand'] = ',';
 $string['show_all'] = 'すべてを表示する';
-$string['show_analysepage_after_submit'] = '回答送信後、分析ページを表示する';
+$string['show_analysepage_after_submit'] = '分析ページを表示する';
 $string['show_entries'] = '回答を表示する';
 $string['show_entry'] = '回答を表示する';
 $string['show_nonrespondents'] = '未回答者を表示する';
@@ -283,15 +281,10 @@ $string['textfield_maxlength'] = '最大文字数';
 $string['textfield_size'] = 'テキストフィールド幅';
 $string['there_are_no_settings_for_recaptcha'] = 'CAPTCHAが設定されていません。';
 $string['this_feedback_is_already_submitted'] = 'あなたは、すでにこのフィードバックを完了しています。';
-$string['timeclose'] = '終了日時';
-$string['timeclose_help'] = 'あなたはユーザが質問回答のためフィードバックにアクセスできないようになる日時を指定することができます。チェックボックスがチェックされない場合、制限は定義されません。';
-$string['timeopen'] = '開始日時';
-$string['timeopen_help'] = 'あなたはユーザが質問回答のためフィードバックにアクセスできるようになる日時を指定することができます。チェックボックスがチェックされない場合、制限は定義されません。';
 $string['typemissing'] = '「type」の値がありません。';
 $string['update_item'] = '質問の変更を保存する';
-$string['url_for_continue'] = '「続ける」ボタンのURI';
-$string['url_for_continue_button'] = '「続ける」ボタンのURI';
-$string['url_for_continue_help'] = 'デフォルトでは「続ける」ボタンを使用してフィードバックを送信した後、コースページに戻ります。あなたは「続ける」ボタンをクリックした後に移動する別のページのURIを指定することができます。';
+$string['url_for_continue'] = '次の活動にリンクする';
+$string['url_for_continue_help'] = 'フィードバック送信後、デフォルトではコースページにリンクされる「続ける」ボタンが表示されます。ここに活動のURLを入力した場合、代わりに次の活動へリンクすることができます。';
 $string['use_one_line_for_each_value'] = '<br />1行に1つの回答を入力してください!';
 $string['use_this_template'] = 'このテンプレートを使用する';
 $string['using_templates'] = 'テンプレートの使用';

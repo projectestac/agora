@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_log', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_log', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   report_log
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = '日志格式';
 $string['log:view'] = '查看课程日志';
 $string['log:viewtoday'] = '查看今日日志';
+$string['page'] = '第{$a}页';
 $string['page-report-log-index'] = '课程日志报告';
 $string['page-report-log-user'] = '用户课程日志报告';
+$string['page-report-log-x'] = '任何日志报告';
 $string['pluginname'] = '日志';

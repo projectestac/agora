@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'notes', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'notes', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   notes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,9 @@ $string['deleteconfirm'] = '删除该备注吗？';
 $string['deletenotes'] = '删除所有备注';
 $string['editnote'] = '编辑备注';
 $string['enablenotes'] = '启用备注';
+$string['eventnotecreated'] = '创建了笔记';
+$string['eventnotedeleted'] = '删除了笔记';
+$string['eventnotesviewed'] = '查看了笔记';
 $string['groupaddnewnote'] = '添加相同备注';
 $string['invalidid'] = '错误的备注 ID';
 $string['invaliduserid'] = '无效用户id：{$a}';

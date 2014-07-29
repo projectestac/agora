@@ -68,16 +68,16 @@ class moodle1_mod_qv_handler extends moodle1_mod_handler {
                     ),
                 )
             ),
-        );         
+        );
     }
- 
+
     /**
      * This is executed every time we have one /MOODLE_BACKUP/COURSE/MODULES/MOD/QV
      * data available
      */
     public function process_qv($data) {
 		global $CFG;
-		
+
         // get the course module id and context id
         $instanceid     = $data['id'];
         $currentcminfo  = $this->get_cminfo($instanceid);
@@ -113,7 +113,7 @@ class moodle1_mod_qv_handler extends moodle1_mod_handler {
 					// Add zip paths and fs paths to all them
 					$files[$file] = $basepath . $file;
 				}
-				
+
 				$packer = get_file_packer('application/zip');
 				$zipname = str_replace(' ','',$data['name']);
 				$zipname = textlib::strtolower($zipname).'.qv.zip';
@@ -129,12 +129,12 @@ class moodle1_mod_qv_handler extends moodle1_mod_handler {
                 echo 'Caught exception: ',  $e->getMessage(), ' File: \'',$data['reference'], '\' on QV activity \''.$data['name'].'\' <br>';
             }
         }
-        
+
         // To avoid problems if maxgrade is null
         if ($data['maxgrade'] === NULL) $data['maxgrade'] = 100;
         // get grade value from maxgrade
         $data['grade'] = $data['maxgrade'];
-        
+
         // start writing qv.xml
         $this->open_xml_writer("activities/qv_{$this->moduleid}/qv.xml");
         $this->xmlwriter->begin_tag('activity', array('id' => $instanceid, 'moduleid' => $this->moduleid,
@@ -146,10 +146,10 @@ class moodle1_mod_qv_handler extends moodle1_mod_handler {
                 $this->xmlwriter->full_tag($field, $value);
             }
         }
-        
+
         return $data;
     }
- 
+
     /**
      * This is executed when we reach the closing </MOD> tag of our 'qv' path
      */

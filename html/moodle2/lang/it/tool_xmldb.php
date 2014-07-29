@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_xmldb', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -163,8 +163,8 @@ $string['nomissingindexesfound'] = 'Non sono stati individuati indici mancanti. 
 $string['noreffieldsspecified'] = 'Non sono stati specificati campi di riferimento';
 $string['noreftablespecified'] = 'La tabella di riferimento specificata non è stata trovata';
 $string['noviolatedforeignkeysfound'] = 'Non sono state trovate violazioni di Foreign key';
-$string['nowrongdefaultsfound'] = 'Non sono stati trovate valori di default inconsistenti. Il vostro DB non ha bisogno di altre azioni.';
-$string['nowrongintsfound'] = 'Non sono stati trovati Integer errati. Il vostro DB non ha bisogno di altre azioni.';
+$string['nowrongdefaultsfound'] = 'Non sono stati trovati valori di default inconsistenti. Il DB non ha bisogno di azioni ulteriori.';
+$string['nowrongintsfound'] = 'Non sono stati trovati Integer errati. Il DB non ha bisogno di azioni ulteriori.';
 $string['nowrongoraclesemanticsfound'] = 'Non sono state trovate colonne che utilizzano le semantiche Oracle BYTE, il tuo database non ha bisogno di ulteriori azioni.';
 $string['numberincorrectdecimals'] = 'Numero errato di decimali per un campo number';
 $string['numberincorrectlength'] = 'Lunghezza errata per un campo number';
@@ -213,7 +213,11 @@ $string['wronglengthforenum'] = 'Lunghezza errata per un campo enum';
 $string['wrongnumberofreffields'] = 'Numero errato di campi di riferimento';
 $string['wrongoraclesemantics'] = 'Sono state trovate semantiche Oracle  BYTE non valide.';
 $string['wrongreservedwords'] = 'Parole riservate in uso<br/>(notare che il nomi delle tabelle non sono importanti se si utilizza $CFG->prefix)';
-$string['yesmissingindexesfound'] = 'Nel tuo DB sono stati individuati alcuni indici mancanti. Di seguito vengono riportati i dettagli e il codice SQL necessario per crearli (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL.<br /><br />Dopo aver eseguito il codice SQL utilizza di nuovo questa funzione per verificare che non manchino altri indici.';
-$string['yeswrongdefaultsfound'] = 'Nel tuo DB sono stati individuati valori di default inconsistenti. Di seguito vengono riportati i dettagli e il codice SQL necessario per sistemarli (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL.<br /><br />Dopo aver eseguito il codice SQL utilizza di nuovo questa funzione per verificare che non siano presenti altri valori di default inconsistenti.';
-$string['yeswrongintsfound'] = 'Nel tuo DB sono stati individuati Integer errati. Di seguito vengono riportati i dettagli e il codice SQL necessario per sistemarli (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL.<br /><br />Dopo aver eseguito il codice SQL utilizza di nuovo questa funzione per verificare che non siano presenti altri Integer errati.';
-$string['yeswrongoraclesemanticsfound'] = 'Nel tuo database sono state trovate alcune colonne che utilizzano le semantiche Oracle BYTE. Di seguito trovi i dettagli e le istruzioni SQL necessarie da eseguire con l\'interfaccia SQL preferita (nnon dimenticare di effettuare un backup del database prima di eseguire il codice SQL).<br /><br />Dopo aver eseguito le istruzioni, verifica nuovamente la presenza di semantiche errate con questa utility.';
+$string['yesmissingindexesfound'] = '<p>Nel tuo DB sono stati individuati alcuni indici mancanti. Di seguito vengono riportati i dettagli e il codice SQL necessario per crearli (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL.</p>
+<p>Dopo aver eseguito il codice SQL utilizza di nuovo questa funzione per verificare che non manchino altri indici.</p>';
+$string['yeswrongdefaultsfound'] = '<p>Nel tuo DB sono stati individuati valori di default inconsistenti. Di seguito vengono riportati i dettagli e il codice SQL necessario per sistemarli (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL.</p>
+<p>Dopo aver eseguito il codice SQL utilizza di nuovo questa funzione per verificare che non siano presenti altri valori di default inconsistenti.</p>';
+$string['yeswrongintsfound'] = '<p>Nel tuo DB sono stati individuati Integer errati. Di seguito vengono riportati i dettagli e il codice SQL necessario per sistemarli (non dimenticare di effettuare un backup del database prima di eseguire il codice SQL.</p>
+<p>Dopo aver eseguito il codice SQL utilizza di nuovo questa funzione per verificare che non siano presenti altri Integer errati.</p>';
+$string['yeswrongoraclesemanticsfound'] = '<p>Nel tuo database sono state trovate alcune colonne che utilizzano le semantiche Oracle BYTE. Di seguito trovi i dettagli e le istruzioni SQL necessarie da eseguire con l\'interfaccia SQL preferita (nnon dimenticare di effettuare un backup del database prima di eseguire il codice SQL).</p>
+<p>Dopo aver eseguito le istruzioni, verifica nuovamente la presenza di semantiche errate con questa utility.</p>';

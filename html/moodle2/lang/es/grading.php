@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['activemethodinfonone'] = 'No se ha seleccionado el método avanzado de 
 $string['changeactivemethod'] = 'Cambiar método de calificación activo a';
 $string['clicktoclose'] = 'clic para cerrar';
 $string['exc_gradingformelement'] = 'No es posible crear un formulario de calificación';
-$string['formnotavailable'] = 'El método de calificación avanzada fue seleccionado para su uso, pero el formulario de calificación aún no está disponible. Usted debería definirlo previamente utilizando el enlace existente en el menú Ajustes.';
+$string['formnotavailable'] = 'El método de calificación avanzada fue seleccionado para su uso, pero el formulario de calificación aún no está disponible. Debería definirlo antes utilizando el enlace existente en el menú Administración.';
 $string['gradingformunavailable'] = 'Tenga en cuenta que el formulario de calificación avanzada no está listo en este momento. Se utilizará el método simple de calificación hasta que el formulario sea válido.';
 $string['gradingmanagement'] = 'Calificación avanzada';
 $string['gradingmanagementtitle'] = 'Calificación avanzada: {$a->component} ({$a->area})';

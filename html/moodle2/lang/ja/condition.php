@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,6 +85,7 @@ $string['requires_grade_any'] = 'あなたが <strong>{$a}</strong> で点数を
 $string['requires_grade_max'] = 'あなたが <strong>{$a}</strong> で適切な点数を取得しない限り利用できません。';
 $string['requires_grade_min'] = 'あなたが <strong>{$a}</strong> で要求された点数に到達するまで利用できません。';
 $string['requires_grade_range'] = 'あなたが <strong>{$a}</strong> で特定範囲の点数を取得しない限り利用できません。';
+$string['requires_grouping'] = 'グルーピング「 {$a} 」のみに利用可能です。';
 $string['requires_user_field_contains'] = 'あなたの <strong>{$a->field}</strong> が <strong>{$a->value}</strong> を含まない限り、利用できません。';
 $string['requires_user_field_doesnotcontain'] = 'あなたの <strong>{$a->field}</strong> が <strong>{$a->value}</strong> を含む場合、利用できません。';
 $string['requires_user_field_endswith'] = 'あなたの <strong>{$a->field}</strong> が <strong>{$a->value}</strong> で終わらない限り、利用できません。';
@@ -92,8 +93,8 @@ $string['requires_user_field_isempty'] = 'あなたの <strong>{$a->field}</stro
 $string['requires_user_field_isequalto'] = 'あなたの <strong>{$a->field}</strong> が <strong>{$a->value}</strong> と等しくない限り、利用できません。';
 $string['requires_user_field_isnotempty'] = 'あなたの <strong>{$a->field}</strong> が空白の場合、利用できません。';
 $string['requires_user_field_startswith'] = 'あなたの <strong>{$a->field}</strong> が <strong>{$a->value}</strong> で始まらない限り、利用できません。';
-$string['showavailability'] = '活動が利用可能な前に';
-$string['showavailability_hide'] = '活動を完全に隠す';
+$string['showavailability'] = 'アクセスが制限されている間';
+$string['showavailability_hide'] = 'コースおよび評定表の活動を完全に隠す';
 $string['showavailabilitysection'] = 'セクションにアクセスできるようになる前に';
 $string['showavailabilitysection_hide'] = 'セクション全体を隠す';
 $string['showavailabilitysection_show'] = '制限情報と共にグレイアウトしたセクションを表示する';

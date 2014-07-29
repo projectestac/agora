@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_multilangupgrade', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_multilangupgrade', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_multilangupgrade
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['multilangupgradeinfo'] = 'O filtro de sintaxe multi-lingua foi alterado na versão 1.8, &lt;lang&gt; tag não é mais suportada. <br /><br />Exemplo: &lt;span lang="en" class="multilang">Hello!&lt;/span&gt;&lt;span lang="es" class="multilang">Hola!&lt;/span&gt;<br /><br /><strong>Quer atualizar a sintaxe em todos os textos existentes agora?</strong>';
+$string['multilangupgradeinfo'] = '<p>O filtro de sintaxe multi-lingua foi alterado na versão 1.8 e por isso <lang> tag já não é suportado. </p>
+<p>Exemplo: <span lang="en" class="multilang">Hello!</span><span lang="es" class="multilang">Hola!</span></p><p>Quer atualizar a sintaxe em todos os textos existentes agora?</</p>';
 $string['pluginname'] = 'Atualização Multi-língua';

@@ -44,30 +44,91 @@
 function xmldb_forum_upgrade($oldversion) {
     global $CFG, $DB, $OUTPUT;
 
-    $dbman = $DB->get_manager(); // loads ddl manager and xmldb classes
+    $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
 
+    // Moodle v2.2.0 release upgrade line.
+    // Put any upgrade step following this.
 
-    // Moodle v2.2.0 release upgrade line
-    // Put any upgrade step following this
+    // Moodle v2.3.0 release upgrade line.
+    // Put any upgrade step following this.
 
-    // Moodle v2.3.0 release upgrade line
-    // Put any upgrade step following this
+    // Moodle v2.4.0 release upgrade line.
+    // Put any upgrade step following this.
 
+    if ($oldversion < 2013020500) {
 
-    // Moodle v2.4.0 release upgrade line
-    // Put any upgrade step following this
+        // Define field displaywordcount to be added to forum.
+        $table = new xmldb_table('forum');
+        $field = new xmldb_field('displaywordcount', XMLDB_TYPE_INTEGER, '1', null, XMLDB_NOTNULL, null, '0', 'completionposts');
+
+        // Conditionally launch add field displaywordcount.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Forum savepoint reached.
+        upgrade_mod_savepoint(true, 2013020500, 'forum');
+    }
 
     // Forcefully assign mod/forum:allowforcesubscribe to frontpage role, as we missed that when
     // capability was introduced.
-    if ($oldversion < 2012112901) {
+    if ($oldversion < 2013021200) {
         // If capability mod/forum:allowforcesubscribe is defined then set it for frontpage role.
         if (get_capability_info('mod/forum:allowforcesubscribe')) {
             assign_legacy_capabilities('mod/forum:allowforcesubscribe', array('frontpage' => CAP_ALLOW));
         }
         // Forum savepoint reached.
-        upgrade_mod_savepoint(true, 2012112901, 'forum');
+        upgrade_mod_savepoint(true, 2013021200, 'forum');
     }
+
+
+    // Moodle v2.5.0 release upgrade line.
+    // Put any upgrade step following this.
+    if ($oldversion < 2013071000) {
+        // Define table forum_digests to be created.
+        $table = new xmldb_table('forum_digests');
+
+        // Adding fields to table forum_digests.
+        $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
+        $table->add_field('userid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null);
+        $table->add_field('forum', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null);
+        $table->add_field('maildigest', XMLDB_TYPE_INTEGER, '1', null, XMLDB_NOTNULL, null, '-1');
+
+        // Adding keys to table forum_digests.
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+        $table->add_key('userid', XMLDB_KEY_FOREIGN, array('userid'), 'user', array('id'));
+        $table->add_key('forum', XMLDB_KEY_FOREIGN, array('forum'), 'forum', array('id'));
+        $table->add_key('forumdigest', XMLDB_KEY_UNIQUE, array('forum', 'userid', 'maildigest'));
+
+        // Conditionally launch create table for forum_digests.
+        if (!$dbman->table_exists($table)) {
+            $dbman->create_table($table);
+        }
+
+        // Forum savepoint reached.
+        upgrade_mod_savepoint(true, 2013071000, 'forum');
+    }
+
+    // Moodle v2.6.0 release upgrade line.
+    // Put any upgrade step following this.
+
+    if ($oldversion < 2013110501) {
+
+        // Incorrect values that need to be replaced.
+        $replacements = array(
+            11 => 20,
+            12 => 50,
+            13 => 100
+        );
+
+        // Run the replacements.
+        foreach ($replacements as $old => $new) {
+            $DB->set_field('forum', 'maxattachments', $new, array('maxattachments' => $old));
+        }
+
+        // Forum savepoint reached.
+        upgrade_mod_savepoint(true, 2013110501, 'forum');
+    }
+
     return true;
 }
-
-

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_shortanswer', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_shortanswer', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_shortanswer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['answerno'] = 'Svar {$a}';
 $string['caseno'] = 'Nej, är skiftläge är oviktigt';
 $string['casesensitive'] = 'Skiftlägeskänslighet';
 $string['caseyes'] = 'Ja, skiftläge måste vara rätt';
-$string['correctansweris'] = 'Rätt svar är: {$a}';
+$string['correctansweris'] = 'Det rätta svaret är: {$a}';
 $string['correctanswers'] = 'Rätta svar';
 $string['filloutoneanswer'] = 'Du måste avge åtminstone ett möjligt svar. Svar som lämnas tomma kommer inte att användas. \'*\' kan användas som ett \'wildcard\' för att matcha vilket tecken som helst. Det första matchande svaret kommer att användas för att bestämma resultatet och återkopplingen.';
 $string['notenoughanswers'] = 'Denna typ av fråga kräver minst {$a} svar';

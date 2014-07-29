@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'booking', language 'es', branch 'MOODLE_23_STABLE'
+ * Strings for component 'booking', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   booking
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,6 @@ $string['available'] = 'Lugares disponibles';
 $string['booked'] = 'Reservado';
 $string['bookedusers'] = 'Usuarios que reservaron';
 $string['booking'] = 'Reservas';
-$string['booking:choose'] = 'Reservar';
 $string['bookingclose'] = 'Hasta';
 $string['bookingdeleted'] = 'Su reserva fue cancelada';
 $string['booking:deleteresponses'] = 'Eliminar respuestas';
@@ -57,13 +56,7 @@ $string['booknow'] = 'Reservar ahora';
 $string['cancelbooking'] = 'Cancelar reserva';
 $string['choosecourse'] = 'Elija un curso';
 $string['closed'] = 'Reservas cerradas';
-$string['confirmationmessage'] = 'Su reserva ha sido registrada. Estatus: {$a->status} Participante: {$a->name} Curso: {$a->bookingname} Fecha: {$a->date} Para ver todos sus cursos reservados, elija el enlace siguiente: {$a->link}';
 $string['confirmationmessagesettings'] = 'Configuraciones de correo de confirmación';
-$string['confirmationmessagewaitinglist'] = 'Hola {$a->name}, Su solicitud de reserva ha sido registrada. Status: {$a->status} Participante: {$a->name} Curso: {$a->bookingname} Fecha: {$a->date} Para ver todos sus cursos reservados, elija el enlace siguiente: {$a->link}';
-$string['confirmationsubject'] = 'Confirmación de reserva para {$a->bookingname}';
-$string['confirmationsubjectbookingmanager'] = 'Nueva reserva para {$a->bookingname} por {$a->name}';
-$string['confirmationsubjectwaitinglist'] = 'Estatus de reserva para {$a->bookingname}';
-$string['confirmationsubjectwaitinglistmanager'] = 'Status de reserva para {$a->bookingname}';
 $string['confirmbookingoffollowing'] = 'Por favor confirme la reserva para el siguiente curso';
 $string['confirmdeletebookingoption'] = '¿Realmente desea eliminar esta opción de reserva?';
 $string['coursedate'] = 'Fecha';
@@ -73,10 +66,6 @@ $string['createdby'] = 'Módulo de reservas hecho por edulabs.org';
 $string['defaultbookingoption'] = 'Opciones por defecto para reservas';
 $string['deletebooking'] = '¿Realmente desea des-inscribirse en el curso siguiente? <br /><br /> <b>{$a} </b>';
 $string['deletebookingoption'] = 'Eliminar esta opción de reserva';
-$string['deletedbookingmessage'] = 'Reserva eliminada para el curso siguiente: {$a->bookingname} Usuario: {$a->name} Liga: {$a->link};';
-$string['deletedbookingsubject'] = 'Reserva eliminada: {$a->bookingname} por {$a->name}';
-$string['deletedbookingusermessage'] = 'Hola {$a->name}, Su reserva para {$a->bookingname} fue cancelada exitosamente.';
-$string['deletedbookingusersubject'] = 'Reserva para {$a->bookingname} cancelada';
 $string['deleteuserfrombooking'] = '¿Realmente desea eliminar los usuarios de la reserva?';
 $string['donotselectcourse'] = 'No seleccionó curso';
 $string['download'] = 'Descargar';
@@ -84,7 +73,6 @@ $string['downloadallresponses'] = 'Descargar todas las respuestas para todas las
 $string['downloadusersforthisoptionods'] = 'Descargar usuarios como archivo .ODS';
 $string['downloadusersforthisoptionxls'] = 'Descargar usuarios como archivo .XLS';
 $string['endtimenotset'] = 'Fecha final no configurada';
-$string['error:failedtosendconfirmation'] = 'El usuario siguiente no recibió un correo de confirmación de Reserva. Status: {$a->status} Participante: {$a->name} Curso: {$a->bookingname} Fecha: {$a->date} Liga: {$a->link}';
 $string['expired'] = 'Lo sentimos, esta actividad se cerró el {$a} y ya no está disponible';
 $string['fillinatleastoneoption'] = 'Usted necesita proporcionar al menos dos posibles respuestas.';
 $string['full'] = 'LLeno';
@@ -121,8 +109,6 @@ $string['spaceleft'] = 'espacio disponible';
 $string['spacesleft'] = 'espacios disponibles';
 $string['startendtimeknown'] = 'Las horas de principio y fin del curso son conocidas';
 $string['starttimenotset'] = 'No se configuró fecha de inicio';
-$string['statuschangebookedmessage'] = 'Hola {$a->name}, Su estatus de reserva ha cambiado. Usted está ahora registrado en {$a->bookingname}. Estatus de reserva: {$a->status} Participante: {$a->name} Curso: {$a->bookingname} Fecha: {$a->date} Para ver todos sus cursos reservados pulse el enlace siguiente: {$a->link}';
-$string['statuschangebookedsubject'] = 'Estatus de reserva cambiado para {$a->bookingname}';
 $string['submitandaddnew'] = 'Guardar y añadir nuevo';
 $string['subscribetocourse'] = 'Inscribir usuarios al curso';
 $string['subscribeuser'] = '¿Realmente quiere inscribir a los usuarios en el curso siguiente?';

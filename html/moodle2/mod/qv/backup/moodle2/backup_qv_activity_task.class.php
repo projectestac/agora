@@ -45,7 +45,7 @@ class backup_qv_activity_task extends backup_activity_task {
      */
     protected function define_my_steps() {
         qv_normalize_date();
-        $this->add_step(new backup_qv_activity_structure_step('qv_structure', 'qv.xml'));        
+        $this->add_step(new backup_qv_activity_structure_step('qv_structure', 'qv.xml'));
     }
 
     /**

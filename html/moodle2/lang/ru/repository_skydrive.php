@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_skydrive', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_skydrive', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_skydrive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cachedef_foldername'] = 'Название папки кэша';
 $string['clientid'] = 'ID клиента';
-$string['configplugin'] = 'Настройка Microsoft SkyDrive';
-$string['pluginname'] = 'Microsoft SkyDrive';
+$string['configplugin'] = 'Настройка Microsoft OneDrive';
+$string['oauthinfo'] = '<p> Для использования этого плагина необходимо зарегистрировать свой сайт <a href="https://account.live.com/developers/applications"> в Microsoft</a>.<p> В процессе регистрации Вам нужно будет ввести следующий URL-адрес в качестве «Домена перенаправления»:</p><p>{$a->callbackurl}</p> После регистрации Вам будет предоставлен идентификатор (ID) клиента и секретный ключ, который может быть введен здесь.</p>';
+$string['pluginname'] = 'Microsoft OneDrive';
 $string['secret'] = 'Секретный ключ';
-$string['skydrive:view'] = 'Просматривать Microsoft SkyDrive';
+$string['skydrive:view'] = 'Просматривать Microsoft OneDrive';

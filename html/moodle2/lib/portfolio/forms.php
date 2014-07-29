@@ -196,6 +196,7 @@ final class portfolio_admin_form extends moodleform {
 
         $mform->addElement('text', 'name', get_string('name'), 'maxlength="100" size="30"');
         $mform->addRule('name', $strrequired, 'required', null, 'client');
+        $mform->setType('name', PARAM_TEXT);
 
         // let the plugin add the fields they want (either statically or not)
         if (portfolio_static_function($this->plugin, 'has_admin_config')) {
@@ -320,6 +321,7 @@ class portfolio_instance_select extends moodleform {
         $mform =& $this->_form;
         $mform->addElement('select', 'instance', get_string('selectplugin', 'portfolio'), $options);
         $mform->addElement('hidden', 'id', $this->_customdata['id']);
+        $mform->setType('id', PARAM_INT);
         $this->add_action_buttons(true, get_string('next'));
     }
 }

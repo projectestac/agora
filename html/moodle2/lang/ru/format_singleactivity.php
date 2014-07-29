@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_singleactivity', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_singleactivity', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   format_singleactivity
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,3 +33,4 @@ $string['erroractivitytype'] = 'В настройках курса не зада
 $string['orphaned'] = 'Потерянные элементы';
 $string['orphanedwarning'] = 'Эти элементы курса недоступны пользователям!';
 $string['pluginname'] = 'Единственный элемент курса';
+$string['warningchangeformat'] = 'При смене формата курса на «Единственный элемент курса» убедитесь, что вы удалили из курса все остальные элементы, в т.ч. новостной форум. Обратите внимание, что при смене формата может измениться структура разделов курса.';

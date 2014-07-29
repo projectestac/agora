@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_splash', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_splash', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_splash
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,6 +43,6 @@ $string['pluginname'] = 'Splash';
 $string['region-side-post'] = '오른쪽';
 $string['region-side-pre'] = '왼쪽';
 $string['tagline'] = '태그행';
-$string['taglinedesc'] = '이 텍스트 영역의 콘텐츠는 홈페이지의 사이트 로고 아래에 표시될 것입니다.';
+$string['taglinedesc'] = '이 텍스트 영역의 콘텐츠는 누리집의 사이트 로고 아래에 표시될 것입니다.';
 $string['usergreeting'] = '안녕 {$a}!';
 $string['welcome'] = '안녕하세요?  {$a}';

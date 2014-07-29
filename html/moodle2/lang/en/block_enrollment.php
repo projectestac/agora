@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_enrollment', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_enrollment', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_enrollment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['courses'] = 'Courses';
+$string['enrollment:addinstance'] = 'Add an instance of Quick enrollment';
 $string['enrollusers'] = 'Enroll users';
 $string['manager'] = 'Manager';
 $string['notallowed'] = 'You are not allowed to see that page';

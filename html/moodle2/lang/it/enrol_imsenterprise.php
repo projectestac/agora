@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['cronfrequency'] = 'Frequenza di attivazione';
 $string['deleteusers'] = 'Elimina gli account se è specificato nei dati IMS';
 $string['deleteusers_desc'] = 'L\'impostazione consente l\'eliminazione di account utente se specificato nel file IMS (recstatus deve essere impostato a 3, che significa eliminazione di un account). Per default l\'account non viene fisicamente eliminato dalla tabella degli utenti di Moodle ma solo contrassegnato come eliminato.';
 $string['doitnow'] = 'esegui un\'importazione IMS Enterprise immediatamente';
+$string['emptyattribute'] = 'Lascia vuoto';
 $string['filelockedmail'] = 'Il processo cron non riesce ad eliminare il file ({$a}) usato per le iscrizioni IMS Enterprise. L\'errore in genre indica che i permessi non sono corretti. Controllare e impostare correttamente i permessi per consentire a Moodle di eliminare il file, che altrimenti verrà elaborato ripetutamente.';
 $string['filelockedmailsubject'] = 'Errore grave: File di iscrizione';
 $string['fixcasepersonalnames'] = 'Cambia i nomi propri in Maiuscolo/minuscolo';
@@ -66,6 +67,12 @@ $string['restricttarget_desc'] = 'Un file di dati IMS Enterprise può essere usa
 
 In generale non è necessario fornire questo valore, lasciandolo vuoto Moodle elaborerà comunque il file. In alternativa, è possibile specificare il nome esatto all\'interno del tag <target>.';
 $string['roles'] = 'Ruoli';
+$string['settingfullname'] = 'Tag di descrizione IMS per il titolo del corso';
+$string['settingfullnamedescription'] = 'Il titolo del corso è un capo obbligatorio, è necessario definire il tag di descrizione nel file IMS Enterprise';
+$string['settingshortname'] = 'Tag di descrizione IMS per il titolo abbreviato del corso';
+$string['settingshortnamedescription'] = 'Il titolo abbreviato del corso è un capo obbligatorio, è necessario definire il tag di descrizione nel file IMS Enterprise';
+$string['settingsummary'] = 'Tag di descrizione IMS per la descrizione del corso';
+$string['settingsummarydescription'] = 'Il campo è opzionale, è possibile non utilizzarlo selezionando \'Lascia vuoto\'';
 $string['sourcedidfallback'] = 'Utilizza il campo &quot;sourcedid&quot; come userid di una persona se il campo &quot;userid&quot; non è presente';
 $string['sourcedidfallback_desc'] = 'Nei file IMS  il campo <sourcedid> rappresenta il codice ID permanente della persona in uso nel sistema da dove provengono i dati.
 Il campo <userid> è un campo separato che contiene il codice ID usato dagli utenti per autenticarsi. Spesso i due valori coincidono, in altri casi no.

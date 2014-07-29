@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_export_to_quiz', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_export_to_quiz', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_export_to_quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['emptyglossaries'] = 'Les glossaires de ce cours sont vides (aucun artic
 $string['emptyglossary'] = 'Le glossaire de ce cours est vide (aucun article)';
 $string['exportentriestoxml'] = 'Exporter les articles vers un Test (XML)';
 $string['firstmodified'] = 'Articles les plus anciens d\'abord';
+$string['generalhelp'] = 'Aide sur ce bloc';
 $string['glossary_export_to_quiz:addinstance'] = 'Ajouter un nouveau bloc glossary_export_to_quiz';
 $string['glossary_export_to_quiz:myaddinstance'] = 'Ajouter un nouveau bloc glossary_export_to_quiz à Ma page Moodle';
 $string['lastmodified'] = 'Articles les plus récents d\'abord';
@@ -41,11 +42,13 @@ Cette option peut être utile pour restreindre le nombre d\'articles à exporter
 $string['multichoice'] = 'Questions à choix multiple';
 $string['noglossaries'] = 'Il n\'y a pas de glossaires dans ce cours';
 $string['nolink'] = 'Supprimer les liens automatiques';
-$string['notenoughentries'] = 'Pas assez d\'articles (<b>{$a->numentries}</b>) dans ce glossaire <em>{$a->varnotenough}</em> pour des questions de type QCM.';
+$string['notenoughentriesavailable'] = 'Pas assez d\'entrées disponibles ({$a}) pour des questions de type QCM (il en faut au moins 4).';
+$string['notenoughentriesselected'] = 'Pas assez d\'entrées sélectionnées ({$a}) pour des questions de type QCM (il en faut au moins 4).';
 $string['notyetconfigured'] = '<b>Activez le mode édition</b> pour configurer ce bloc.';
-$string['notyetconfiguredediting'] = 'Veuillez configurer ce bloc en cliquant sur l\'icône de modification.';
+$string['notyetconfiguredediting'] = 'Cliquez l\'icône « Actions » pour configurer ce bloc.';
 $string['numentries'] = '[Exporter {$a} articles]';
 $string['pluginname'] = 'Exporter un glossaire vers un Test';
+$string['pluginname_help'] = 'Clic droit sur le lien pour voir le Wiki de documentation Moodle à propos de ce bloc.';
 $string['questiontype'] = 'Type de question :';
 $string['questiontype_help'] = 'Les entrées de glossaire peuvent être exportées vers la banque de questions de Test selon deux types de questions.
 Les questions à choix multipes (QCM) comprendront les éléments suivants :

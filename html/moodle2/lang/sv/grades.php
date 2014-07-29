@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -218,11 +218,10 @@ $string['errorreprintheadersnonnumeric'] = 'Fick ett icke-numeriskt värde för 
 $string['errorsavegrade'] = 'Det gick tyvärr inte att spara betyg/omdöme.';
 $string['excluded'] = 'Utesluten';
 $string['excluded_help'] = '<p>Om - undantagen - är aktiverat så kommer det här betyget att undantas från varje aggregering som utförs av vilken förälder som helst till en betygskomponent eller kategori.</p>';
-$string['expand'] = 'Expandera kategori';
+$string['expand'] = 'Utöka kategori';
 $string['export'] = 'Exportera';
 $string['exportalloutcomes'] = 'Exportera alla resultat';
 $string['exportfeedback'] = 'Ta med återkoppling i export';
-$string['exportonlyactive'] = 'Kräver aktiv registrering';
 $string['exportplugins'] = 'Exportera \'plugin\'-program';
 $string['exportsettings'] = 'Exportera inställningar';
 $string['exportto'] = 'Exportera till';
@@ -331,7 +330,7 @@ $string['hideforcedsettings'] = 'Dölj framtvingade inställningar';
 $string['hidegroups'] = 'Dölj grupper';
 $string['hidelocks'] = 'Dölj låsningar';
 $string['hidenooutcomes'] = 'Visa resultat';
-$string['hidequickfeedback'] = 'Dölj snabb återkoppling';
+$string['hidequickfeedback'] = 'Dölj Snabb återkoppling';
 $string['hideranges'] = 'Visa omfång';
 $string['hidetotalifhiddenitems'] = 'Dölj totalresultat om den innehåller dolda delar';
 $string['hidetotalifhiddenitems_help'] = 'Denna inställning specificerar om totalresultat som innehåller dolda betyg ska visas för elever eller ersättas med bindestreck (-). Om de visas kan totalen beräknas antingen med eller utan dolda delar.
@@ -584,10 +583,10 @@ $string['showquickfeedback_help'] = 'Sanbb återkoppling lägger till en kompone
 $string['showranges'] = 'Visa omfång';
 $string['showranges_help'] = 'Visa en rad som innehåller skalan av möjligheter för varje betygskomponent i betygsrapporten.';
 $string['showrank'] = 'Visa rangordning';
-$string['showrank_help'] = 'Visa användarens ställning i förhållande till resten av klassen, för varje betygskomponent.';
+$string['showrank_help'] = 'Detta avgör huruvida du vill visa användarens ställning i förhållande till resten av klassen, detta för varje betygskomponent.';
 $string['showuserimage'] = 'Visa bilderna från användarnas profiler';
 $string['showuserimage_help'] = 'Detta avgör huruvida användarnas bilder ska visas bredvid namnet i betygsrapporten.';
-$string['showverbose'] = 'Visa {$a->category} {$a->itemmodule} {$a->itemname}';
+$string['showverbose'] = 'Visa {$a->category}$a->itemmodule {$a->itemname}';
 $string['showweight'] = 'Visa viktningar';
 $string['showweight_help'] = 'Ska betygsviktningskolumnen visas?';
 $string['simpleview'] = 'Enkel vy';
@@ -625,7 +624,7 @@ $string['unenrolledusersinimport'] = 'Den här importen tar med de följande bet
 $string['unlimitedgrades'] = 'Obegränsade betyg';
 $string['unlimitedgrades_help'] = 'Som förval begränsas betyg av maxvärdet och minvärdet för betygsdelen. Aktivering av denna inställning tar bor denna begränsning och tillåter betyg över 100% att sättas direkt i betygsboken. Det rekomenderas att denna inställning aktiveras vid en lågbelastningstidpunkt eftersom alla betyg kommer att räknas om vilket kan resultera i hög serverbelastning.';
 $string['unlock'] = 'lås upp';
-$string['unlockverbose'] = 'Lås upp {$a->category} {$a->itemmodule} {$a->itemname}';
+$string['unlockverbose'] = 'Lås upp {$a->category}$a->itemmodule {$a->itemname}';
 $string['unused'] = 'ej använd';
 $string['updatedgradesonly'] = 'Exportera bara nya eller uppdaterade betyg';
 $string['uploadgrades'] = 'ladda upp betyg';

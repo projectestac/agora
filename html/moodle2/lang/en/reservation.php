@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'reservation', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'reservation', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   reservation
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,6 +58,7 @@ $string['byname'] = 'Name';
 $string['bysection'] = 'Topic/Week';
 $string['cancelledon'] = 'Cancelled on';
 $string['checkclashes'] = 'Check place and time clashes';
+$string['clashesfound'] = 'Some place or time clashes found';
 $string['clashesreport'] = 'Clashes report';
 $string['cleanview'] = 'View only current reserved';
 $string['close'] = 'close';

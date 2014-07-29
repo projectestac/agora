@@ -15,6 +15,10 @@ $userid       = optional_param('user', 0, PARAM_INT);
 $filtertype   = optional_param('filtertype', '', PARAM_ALPHA);
 $filterselect = optional_param('filterselect', 0, PARAM_INT);
 
+if (empty($CFG->enablenotes)) {
+    print_error('notesdisabled', 'notes');
+}
+
 $url = new moodle_url('/notes/index.php');
 if ($courseid != SITEID) {
     $url->param('course', $courseid);
@@ -61,19 +65,23 @@ if ($userid) {
 
 /// require login to access notes
 require_login($course);
-add_to_log($courseid, 'notes', 'view', 'index.php?course='.$courseid.'&amp;user='.$userid, 'view notes');
-
-if (empty($CFG->enablenotes)) {
-    print_error('notesdisabled', 'notes');
-}
-
 /// output HTML
 if ($course->id == SITEID) {
     $coursecontext = context_system::instance();   // SYSTEM context
 } else {
     $coursecontext = context_course::instance($course->id);   // Course context
 }
+require_capability('moodle/notes:view', $coursecontext);
 $systemcontext = context_system::instance();   // SYSTEM context
+
+// Trigger event.
+$event = \core\event\notes_viewed::create(array(
+    'courseid' => $courseid,
+    'relateduserid' => $userid,
+    'context' => $coursecontext,
+    'other' => array('content' => 'notes')
+));
+$event->trigger();
 
 $strnotes = get_string('notes', 'notes');
 if ($userid) {

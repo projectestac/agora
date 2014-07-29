@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_online_users', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_online_users', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_online_users
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configtimetosee'] = '认为多少分钟内访问过网站的用户是在线的';
+$string['online_users:addinstance'] = '新增一个在线用户版块';
+$string['online_users:myaddinstance'] = '在我首页新增一个在线用户版块';
 $string['online_users:viewlist'] = '查看在线用户列表';
 $string['periodnminutes'] = '{$a}分钟内';
 $string['pluginname'] = '在线用户';

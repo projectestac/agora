@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'notes', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'notes', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   notes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,10 @@ $string['deleteconfirm'] = 'Delete this note?';
 $string['deletenotes'] = 'Delete all notes';
 $string['editnote'] = 'Edit note';
 $string['enablenotes'] = 'Enable notes';
+$string['eventnotecreated'] = 'Note created';
+$string['eventnotedeleted'] = 'Note deleted';
+$string['eventnotesviewed'] = 'Notes viewed';
+$string['eventnoteupdate'] = 'Note updated';
 $string['groupaddnewnote'] = 'Add a common note';
 $string['invalidid'] = 'Invalid note ID specified';
 $string['invaliduserid'] = 'Invalid user id: {$a}';

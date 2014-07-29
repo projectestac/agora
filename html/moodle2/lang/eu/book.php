@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,9 +36,15 @@ $string['confchapterdelete'] = 'Ziur al zaude atal hau ezabatu nahi duzula?';
 $string['confchapterdeleteall'] = 'Ziur al zaude atal hau eta bere azpiatal guztiak ezabatu nahi dituzula?';
 $string['content'] = 'Edukia';
 $string['customtitles'] = 'Pertsonalizatu izenburuak';
-$string['customtitles_help'] = 'Atalen izenburuak automatikoki eduki-taulan baino ez dira erakutsiko.';
+$string['customtitles_help'] = 'Normalean atalaren izenburua edukien taualan agertzen da (ET) ETA goiburu gisa edukiaren gainean.
+
+Izenburuak pertsonalizatzeko laukitxoa markatuta badago, atalaren izenburua EZ da agertuko goiburu gisa edukiaren gainean. Beste izenburu bat (agian atalaren izenburua baino luzeagoa) sar daiteke edukiaren osagai gisa.';
 $string['editingchapter'] = 'Atala editatzen';
 $string['errorchapter'] = 'Errorea liburuaren atala irakurtzean.';
+$string['event_chapter_created'] = 'Atala sortu da';
+$string['event_chapter_deleted'] = 'Atala ezabatu da';
+$string['event_chapter_updated'] = 'Atala eguneratu da';
+$string['event_chapter_viewed'] = 'Atala ikusi da';
 $string['modulename'] = 'Liburua';
 $string['modulename_help'] = 'Liburua moduluak aukera ematen dio irakasleari liburu formatuko hainbat orritako baliabidea sortzeko, atal eta azpiatalduna. Liburuak media fitxategiak izan ditzake eta baita testua ere eta erabilgarria da ataletan bana daitezkeen informazio-pasarte luzeak erakusteko.
 
@@ -57,14 +63,11 @@ $string['numbering0'] = 'Bat ere ez';
 $string['numbering1'] = 'Zenbakiak';
 $string['numbering2'] = 'Buletak';
 $string['numbering3'] = 'Koskatzea';
-$string['numbering_help'] = '* Bat ere ere - atalen eta azpiatalen izenburuek ez dute formaturik; erabil ezazu aukera hau zenbatze-estilo bereziak definitu nahi badituzu. Adibidez, hizkiak: idatz ezazu atalaren izenburuan "Lehen Atala A", "A.1 Azpiatala"...
-
-* Zenbakiak - atalak eta azpiatalak zenbatuta daude  (1, 1.1, 1.2, 2, ...)
-
-* Buletak - azpiatalak barrura sartuta daude eta irudiak edo buletak dituzte.
-
-* Koska - azpiatalak barrura sartuta daude.';
-$string['numberingoptions'] = 'Eskura dauden zenbatze-aukerak';
+$string['numbering_help'] = '* Bat ere ere - atalen eta azpiatalen izenburuek ez dute formaturik.
+* Zenbakiak - atalak eta azpiatalak zenbatuta daude  1, 1.1, 1.2, 2, ...
+* Buletak - azpiatalak koxkatuta daude eta buletak dituzte eduki-taulan.
+* Koskatuta - azpiatalak koskatuta daude eduki-taulan';
+$string['numberingoptions'] = 'Eskura dauden atalen formatuak';
 $string['numberingoptions_desc'] = 'Aukeratu liburu berriak sortzean eskura dauden zenbatze-aukerak.';
 $string['page-mod-book-x'] = 'Liburua moduluaren edozein orri';
 $string['pluginadministration'] = 'Liburuaren kudeaketa';

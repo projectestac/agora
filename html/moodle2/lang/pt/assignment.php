@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,7 +52,7 @@ Pode ver o comentário junto do trabalho submetido:
     {$a->url}';
 $string['assignmentmailhtml'] = '{$a->teacher} comentou o  trabalho que submeteu em
 \'<i>{$a->assignment}</i>\'<br /><br />.
-Pode ver o comentário junto do <a href="{$a->url}">trabalho submetido</a>.';
+Pode ver o comentário junto do seu trabalho <a href="{$a->url}">trabalho submetido</a>.';
 $string['assignmentmailsmall'] = '{$a->teacher} inseriu feedback sobre o seu trabalho \'{$a->assignment}\' Pode visualizá-lo no local de submissão do trabalho';
 $string['assignmentname'] = 'Nome do trabalho';
 $string['assignmentsubmission'] = 'Trabalhos enviados';
@@ -91,7 +91,8 @@ $string['emailteachermail'] = '{$a->username} atualizou o trabalho enviado para 
 Está disponível aqui:
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} atualizou o trabalho enviado para <i>\'{$a->assignment}\'</i><br /><br /> Está <a href="{$a->url}">disponível aqui</a>';
+$string['emailteachermailhtml'] = '{$a->username} atualizou a submissão do trabalho <i>\'{$a->assignment}\' em {$a->timeupdated}</i>.</p>
+Este encontra-se disponível em <a href="{$a->url}"></a>.</p>';
 $string['emailteachers'] = 'Enviar e-mail de alerta aos professores';
 $string['emailteachers_help'] = 'Se ativar esta opção, os professores serão notificados cada vez que os alunos adicionarem ou modificarem um trabalho.
 

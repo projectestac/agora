@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_picasa', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_picasa', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_picasa
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['clientid'] = 'Bezeroaren IDa';
 $string['noauthtoken'] = 'Ez da autentifikazio-tokena jaso Google-tik. Mesedez, ziurta ezazu Moodle-n zure Google-ren kontura sartzeko baimena duzula';
 $string['pluginname'] = 'Picasa';
+$string['secret'] = 'Sekretua';
 $string['sendfailed'] = '{$a} fitxategiak kale egiten du picasa-ra eramatean';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Adicionar conjunto';
 $string['addmoreanswerblanks'] = 'Adicionar mais um campo de resposta';
-$string['addmoreunitblanks'] = 'Adicionar mais {$a} campos de unidades';
 $string['addsets'] = 'Adicionar conjunto(s)';
+$string['answerdisplay'] = 'Exibição da resposta';
+$string['answerformula'] = 'Fórmula da resposta {$a}';
 $string['answerhdr'] = 'Resposta';
 $string['answerstoleranceparam'] = 'Configuração da tolerância das respostas';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -91,16 +92,14 @@ $string['minmax'] = 'Intervalo de variação';
 $string['missingformula'] = 'A fórmula está em falta';
 $string['missingname'] = 'O nome da pergunta está em falta';
 $string['missingquestiontext'] = 'O texto da pergunta está em falta';
-$string['mustbenumeric'] = 'Tem que introduzir um número';
 $string['mustenteraformulaorstar'] = 'Tem de inserir uma fórmula ou \'*\'.';
-$string['mustnotbenumeric'] = 'Não pode ser um número';
 $string['newcategory1'] = 'terá por base uma nova série numérica partilhada';
 $string['newcategory2'] = 'um ficheiro de um novo conjunto de ficheiros que também poderá ser usado por outras perguntas nesta categoria';
 $string['newcategory3'] = 'um link de um novo conjunto de links que também poderá ser usado por outras perguntas nesta categoria';
 $string['newlocal1'] = 'terá por base uma nova série numérica privada';
 $string['newlocal2'] = 'um ficheiro de um novo conjunto de ficheiros que só será usado nesta pergunta';
 $string['newlocal3'] = 'um link de um novo conjunto de links que só será usada nesta pergunta';
-$string['newsetwildcardvalues'] = 'novos conjunto(s) de valores das variáveis';
+$string['newsetwildcardvalues'] = 'novo(s) conjunto(s) de valores das variáveis';
 $string['nextitemtoadd'] = 'Próximo \'Conjunto a adicionar';
 $string['nextpage'] = 'Página seguinte';
 $string['nocoherencequestionsdatyasetcategory'] = 'Para a pergunta com o id {$a->qid}, a categoria com o id {$a->qcat} não é idêntica à da variável partilhada {$a->name} da categoria com o id {$a->sharedcat}. Edite a pergunta.';
@@ -136,6 +135,7 @@ $string['synchronizeno'] = 'Não sincronizar';
 $string['synchronizeyes'] = 'Sincronizar';
 $string['synchronizeyesdisplay'] = 'Sincronizar e mostrar o nome das séries numéricas partilhadas como prefixo do nome da pergunta';
 $string['tolerance'] = 'Tolerância &plusmn;';
+$string['tolerancetype'] = 'Tipo';
 $string['trueanswerinsidelimits'] = 'Resposta correta : {$a->correct} dentro dos limites do valor aceite de {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">ERRO resposta correta : {$a->correct} fora dos limites do valor aceite {$a->true}</span>';
 $string['uniform'] = 'Uniforme';
@@ -155,5 +155,4 @@ $string['wildcardvalues'] = 'Valores das séries numéricas';
 $string['wildcardvaluesgenerated'] = 'Valores gerados das séries numéricas';
 $string['youmustaddatleastoneitem'] = 'Deve adicionar pelo menos um conjunto de valores para poder guardar esta pergunta';
 $string['youmustaddatleastonevalue'] = 'Deve adicionar pelo menos um conjunto de valores das variáveis para poder guardar esta pergunta';
-$string['youmustenteramultiplierhere'] = 'Tem que introduzir um multiplicador aqui';
 $string['zerosignificantfiguresnotallowed'] = 'A resposta correta não pode ter zero algarismos significativos!';

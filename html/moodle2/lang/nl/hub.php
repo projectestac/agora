@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = 'Moodle beheerders';
 $string['audienceeducators'] = 'Opboeders';
 $string['audience_help'] = 'Kies het bedoelde publiek voor deze cursus.';
 $string['audiencestudents'] = 'Leerlingen';
+$string['badgesnumber'] = 'Aantal badges ({$a})';
 $string['badurlformat'] = 'Slechte URL-opmaak';
 $string['cannotsearchcommunity'] = 'Je hebt het recht niet om deze pagina te zien';
 $string['community'] = 'Community';
@@ -109,6 +110,7 @@ $string['hub'] = 'Hub';
 $string['imageurl'] = 'AfbeeldingsURL';
 $string['imageurl_help'] = 'Deze afbeelding zal getoond worden op de hub. Deze afbeelding moet altijd beschikbaar blijven voor de hub. De afbeelding moet een maximale grootte hebben van {$a->width} X {$a->height}.';
 $string['information'] = 'Informatie';
+$string['issuedbadgesnumber'] = 'Aantal uitgegeven badges ({$a})';
 $string['language'] = 'Taal';
 $string['language_help'] = 'De hoofdtaal van deze cursus';
 $string['lasttimechecked'] = 'Laatste keer gecontroleerd';

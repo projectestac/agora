@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -362,7 +362,7 @@ $string['reviewlesson'] = '复习教程';
 $string['reviewquestionback'] = '再试一次';
 $string['reviewquestioncontinue'] = '不，我只想继续看下一题';
 $string['sanitycheckfailed'] = '检查失败: 这次尝试将被删除';
-$string['savechanges'] = '保存修改';
+$string['savechanges'] = '保存更改';
 $string['savechangesandeol'] = '保存所有修改并跳转到教程的最后。';
 $string['savepage'] = '保存页面';
 $string['score'] = '分数';

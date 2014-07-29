@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_moodleimage', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_moodleimage', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_moodleimage
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodleimage:browseimage'] = '查找或上传一个图片...';
+$string['pluginname'] = '插入图片';

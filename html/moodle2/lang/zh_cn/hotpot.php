@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -207,6 +207,7 @@ $string['exit_feedback_help'] = '这些选项启用和禁用 HotPot 退出页面
 
 另外，如果单元评分方式是最高的，将会显示一条消息，告诉用户最新的答卷是等于还是优于前次。';
 $string['exit_goodtry'] = '良好的尝试！';
+$string['exitgrade'] = '下一个活动等级';
 $string['exit_grades'] = '成绩';
 $string['exit_grades_text'] = '查看此课程您目前为止的成绩';
 $string['exithotpotcourse'] = '此课程的下一个 HotPot';

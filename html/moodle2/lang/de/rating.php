@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,4 +56,4 @@ $string['ratinginvalid'] = 'Ungültige Bewertung';
 $string['ratings'] = 'Bewertungen';
 $string['ratingtime'] = 'Bewertungen auf Beiträge beschränken, die im Zeitraum erstellt wurden';
 $string['rolewarning'] = 'Rollen, die Bewertungen vornehmen dürfen';
-$string['rolewarning_help'] = 'Nutzer benötigen das generelle Recht moodle/rating:rate und (!) modulspezifische Rechte, um Bewertungen durchführen zu können. Nutzer mit folgenden Rollen sollten Beiträge bewerten können. Eine Anpassung ist über den Link \'Rollen\' im Block Einstellungen möglich.';
+$string['rolewarning_help'] = 'Nutzer/innen benötigen das generelle Recht moodle/rating:rate und modulspezifische Rechte, um Bewertungen durchführen zu können. Nutzer mit folgenden Rollen sollten Beiträge bewerten können. Eine Anpassung ist über den Link \'Rollen\' im Block Einstellungen möglich.';

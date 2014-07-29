@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'currencies', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'currencies', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   currencies
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['AED'] = 'Dirham de los Emiratos Arabes Unidos';
 $string['AFN'] = 'Afgani Afgano';
 $string['ALL'] = 'Lek Albano';
 $string['AMD'] = 'Dram Armenio';
-$string['ANG'] = 'Guilder de Antillas Holandesas';
+$string['ANG'] = 'Antillas Holandesas';
 $string['AOA'] = 'Kwanza Angoleño';
 $string['ARS'] = 'Peso argentino';
 $string['AUD'] = 'Dólar Australiano';
@@ -46,8 +46,8 @@ $string['BND'] = 'Dólar de Brunei';
 $string['BOB'] = 'Boliviano de Bolivia';
 $string['BRL'] = 'Real brasileño';
 $string['BSD'] = 'Dólar Bahameño';
-$string['BTN'] = 'Ngultrun de Bután';
-$string['BWP'] = 'Pula de Botswana';
+$string['BTN'] = 'Bután';
+$string['BWP'] = 'Botswana';
 $string['BYR'] = 'Rublo BieloRuso';
 $string['BZD'] = 'Dólar de Belice';
 $string['CAD'] = 'Dólar Canadiense';

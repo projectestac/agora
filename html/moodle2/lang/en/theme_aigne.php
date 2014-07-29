@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_aigne', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_aigne', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_aigne
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['accessibilitypage'] = '<h2 style="text-align: center">This is a sample 
    easy navigation to people with visual impairments or limited mobility.</p>
 <h2>Given parameters::</h2>
   <ul>{$a->supportemail}</ul>
-  <ul>{$a->sendadminemail}</ul>
+  <ul>{$a->sendemailtitle}</ul>
   <p>&nbsp;</p>';
 $string['aco5alt1'] = 'Write here the alternative text for the bellows 1 image';
 $string['aco5alt2'] = 'Write here the alternative text for the bellows 2 image';
@@ -46,6 +46,21 @@ $string['aco5cap2'] = 'Tubarão _ Text of bellows 2';
 $string['aco5cap3'] = 'Polvo _ Text of bellows 3';
 $string['aco5cap4'] = 'Peixe _ Text of bellows 4';
 $string['aco5cap5'] = 'Mergulho _ Text of bellows 5';
+$string['acoaalt1'] = 'Write here the alternative text for the bellows 1 image';
+$string['acoaalt2'] = 'Write here the alternative text for the bellows 2 image';
+$string['acoaalt3'] = 'Write here the alternative text for the bellows 3 image';
+$string['acoaalt4'] = 'Write here the alternative text for the bellows 4 image';
+$string['acoaalt5'] = 'Write here the alternative text for the bellows 5 image';
+$string['acoacap1'] = 'Pastenague _ Text of bellows 1';
+$string['acoacap2'] = 'Requin _ Text of bellows 2';
+$string['acoacap3'] = 'Pieuvre _ Text of bellows 3';
+$string['acoacap4'] = 'Poisson _ Text of bellows 4';
+$string['acoacap5'] = 'Bouteilles _ Text of bellows 5';
+$string['acoainfo1'] = 'Introduce here interesting information to display in bellows 1';
+$string['acoainfo2'] = 'Introduce here interesting information to display in bellows 2';
+$string['acoainfo3'] = 'Introduce here interesting information to display in bellows 3';
+$string['acoainfo4'] = 'Introduce here interesting information to display in bellows 4';
+$string['acoainfo5'] = 'Introduce here interesting information to display in bellows 5';
 $string['afternoon_greeting'] = 'Good afternoon!';
 $string['aim'] = 'AIM URL';
 $string['aimdesc'] = 'Enter the URL of your AIM profile.
@@ -76,8 +91,30 @@ $string['bcsep5'] = 'Underscore  ( _ )';
 $string['bcsep6'] = 'Several Colon ( ::: )';
 $string['bcsep7'] = 'Blank Space ( &nbsp; )';
 $string['bcsepdesc'] = 'Select the type of separator to be used on the Navigation Bar (BreadCrumb).';
-$string['bgposition'] = 'Page background position';
-$string['bgpositiondesc'] = 'When you set the previous option, depending on the image type, you can configure its behavior, choosing if repeated, and in what direction.';
+$string['bgposition'] = 'Posición de la imagen del fondo';
+$string['bgposition00'] = 'In point 0.0';
+$string['bgposition01'] = 'top';
+$string['bgposition02'] = 'center';
+$string['bgposition03'] = 'bottom';
+$string['bgposition04'] = 'left';
+$string['bgposition05'] = 'right';
+$string['bgposition06'] = 'left top';
+$string['bgposition07'] = 'center top';
+$string['bgposition08'] = 'right top';
+$string['bgposition09'] = 'left center';
+$string['bgposition10'] = 'center center';
+$string['bgposition11'] = 'right center';
+$string['bgposition12'] = 'left bottom';
+$string['bgposition13'] = 'center bottom';
+$string['bgposition14'] = 'right bottom';
+$string['bgposition15'] = 'In the middle of screen';
+$string['bgpositiondesc'] = 'Dependiendo del tipo de imagen, puede configurar el punto de origen de la imagen de fondo.';
+$string['bgrepeat'] = 'Page background position';
+$string['bgrepeat01'] = 'No repeat';
+$string['bgrepeat02'] = 'Mosaic';
+$string['bgrepeat03'] = 'Repeat over X';
+$string['bgrepeat04'] = 'Repeat over Y';
+$string['bgrepeatdesc'] = 'When you set the previous option, depending on the image type, you can configure its behavior, choosing if repeated, and in what direction.';
 $string['blogger'] = 'Blogger URL';
 $string['bloggerdesc'] = 'Enter the URL of your Blogger page.
 <a href="http://www.blogger.com/" target="_blank"> (www.blogger.com) .</a>';
@@ -85,9 +122,14 @@ $string['bodyfont'] = 'Font Size';
 $string['bodyfontdesc'] = 'If you want you can set a font size reference. It is known to cause display problems with certain blocks if you set highest font size, try it and decide to.';
 $string['bottomphead'] = 'Footer elements';
 $string['breadcrumbhead'] = 'Breadcrumb Bar options';
+$string['browser_1'] = 'Microsoft Internet Explorer';
+$string['browser_2'] = 'Firefox (Mozilla)';
+$string['browser_3'] = 'Chrome (Webkit)';
+$string['browser_4'] = 'Opera (Webkit)';
 $string['catstyle'] = 'Categories List Style';
 $string['catstyle1'] = 'Standard Moodle Style';
 $string['catstyle2'] = 'Grid Image Style';
+$string['catstyle3'] = 'List with 32x32 Icons';
 $string['catstyledesc'] = 'Categories List Style.<br />
 <br />';
 $string['choosereadme'] = '<div class="clearfix">
@@ -192,8 +234,18 @@ $string['colorschdesc'] = 'Select the site default Colour Schema. [ ::: under co
             <td Style="width:25px; background-color:#000033; color:#FFFFFF">A</td>
         </tr>
     </table>';
+$string['compatbrowser'] = 'Browsers';
+$string['compatbrowserdesc'] = 'Browsers';
 $string['compatcredit'] = 'Compatibilities';
 $string['compatcreditdesc'] = 'If enabled, displays on the footer a list with the logos of the different successful compatibilities validations';
+$string['compatdevice'] = 'Tested devices';
+$string['compatdevicedesc'] = 'Tested devices';
+$string['compatnotedesc'] = 'In this section, you can activate the compatibilities that successfully validate your site. <br />
+Keep on your won ...';
+$string['compatos'] = 'Operating Systems';
+$string['compatosdesc'] = 'Operating Systems';
+$string['compatsocial'] = 'Social policies';
+$string['compatsocialdesc'] = 'Social policies';
 $string['compattested'] = 'Compatibilities Tested';
 $string['compattesteddesc'] = 'Select the compatibilities logo you want displays, count that you have tested at your own responsability';
 $string['compatwai'] = 'Accessibility Tested';
@@ -204,8 +256,8 @@ $string['compatwai4'] = 'Level AAA';
 $string['compatwaidesc'] = 'Select the accessibility logo you want displays, count that you have tested at your own responsability
 <a href="http://www.w3.org/WAI/WCAG1AAA-Conformance" target="_blank"> (WAI WCAG AAA) .</a>';
 $string['configtitle'] = 'aigne Custom Settings';
-$string['contact'] = 'Contact us:';
 $string['contacthead'] = 'Contact options';
+$string['contactlink'] = 'Contact us:';
 $string['contactnote'] = 'Contact Note';
 $string['contactnotedesc'] = 'Whatever you add to this textarea will be displayed in the middle of contact section in footer of every page.';
 $string['contentact'] = 'Content Only in Activity Page';
@@ -222,6 +274,9 @@ $string['corpwebdesc'] = 'Enter the URL of your Institution / Organization / Cor
 This link has no connection with that www root in config.php.';
 $string['cortesyhead'] = 'Courtesy Posts options';
 $string['creditshead'] = 'Credit Posts options';
+$string['csocial_1'] = 'Child Protect & Care';
+$string['csocial_2'] = 'Eqqual + Woman';
+$string['csocial_3'] = 'Multi-Cultural Compliance';
 $string['css_color1'] = 'Light Blue';
 $string['css_color2'] = 'Bluish Green';
 $string['css_color3'] = 'Orange _ Spring';
@@ -271,6 +326,11 @@ $string['defaultstyletxt'] = 'Press to restore the original appearance of the we
 $string['deviantart'] = 'DeviantArt URL';
 $string['deviantartdesc'] = 'Enter the URL of your DeviantArt account.
 <a href="http://www.deviantart.com/" target="_blank"> (www.deviantart.com) .</a>';
+$string['device_1'] = 'HDTV & SmartTV';
+$string['device_2'] = 'Desktop & Workstation & Servers';
+$string['device_3'] = 'Laptop & Notebook & Netbook';
+$string['device_4'] = 'Tablet';
+$string['device_5'] = 'Mobile & SmartPhone';
 $string['disclaimer'] = 'disclaimer';
 $string['disclaimerdesc'] = 'Mandatory legal notice';
 $string['disclaimerpage'] = '<h2 style="text-align: center">This is a sample page</h2>
@@ -282,7 +342,7 @@ $string['disclaimerpage'] = '<h2 style="text-align: center">This is a sample pag
   <ul>{$a->sitenamelow}</ul>
   <ul>{$a->sitename}</ul>
   <ul>{$a->supportemail}</ul>
-  <ul>{$a->sendadminemail}</ul>
+  <ul>{$a->sendemailtitle}</ul>
   <p>&nbsp;</p>';
 $string['dropbox'] = 'DropBox URL';
 $string['dropboxdesc'] = 'Enter the URL of your DropBox page.
@@ -296,6 +356,7 @@ Consider the design proportions and add an image of 32px high.';
 $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Enter the URL of your Facebook page.
 <a href="http://www.facebook.com/" target="_blank"> (www.facebook.com) .</a>';
+$string['fisicallink'] = 'Visit us at:';
 $string['flickr'] = 'Flickr URL';
 $string['flickrdesc'] = 'Enter the URL of your Flickr page.
 <a href="http://www.flickr.com" target="_blank"> (www.flickr.com) .</a>';
@@ -308,6 +369,8 @@ $string['fontfam5'] = 'Tahoma';
 $string['fontfamdesc'] = 'If you want you can set a font family reference';
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer of every page.';
+$string['footnoteshow'] = 'Show Footnote';
+$string['footnoteshowdesc'] = 'If enabled, displays on the footer the content of the "footnote" below.';
 $string['footsearch'] = 'search';
 $string['footsearchdesc'] = 'Overall search';
 $string['footsearchpage'] = '<h2 style="text-align: center">This is a sample page</h2>
@@ -326,6 +389,8 @@ $string['generalhead'] = 'General appearance';
 $string['googleplus'] = 'Google+ URL';
 $string['googleplusdesc'] = 'Enter the URL of your Google+ profile.
 <a href="http://plus.google.com/" target="_blank"> (plus.google.com) .</a>';
+$string['headactivity'] = 'Display header in "Activities"';
+$string['headactivitydesc'] = 'If yes, display the new header in "Activities" (Only on 2.7.xx moodle version)';
 $string['headbanner'] = 'Header Banner';
 $string['headbannerdesc'] = 'Select the type of information to displays in the header of the frontpage.';
 $string['headerhead'] = 'Header Elements';
@@ -347,12 +412,13 @@ $string['helppage'] = '<h2 style="text-align: center">This is a sample page</h2>
 <h2>Given parameters::</h2>
   <ul>{$a->link}</ul>
   <ul>{$a->supportemail}</ul>
-  <ul>{$a->sendadminemail}</ul>
+  <ul>{$a->sendemailtitle}</ul>
   <p>&nbsp;</p>';
 $string['incfontsizetxt'] = 'Press to increase the font size. (Increase text size to improve accessibility)';
 $string['infobanner'] = 'Information Area';
 $string['infobanner0'] = 'None information banner';
 $string['infobanner1'] = 'Show up one static box with a text message';
+$string['infobanner10'] = 'Mostrar el acordeón horizontal AIGNE';
 $string['infobanner2'] = 'Show up one static image';
 $string['infobanner3'] = 'Show up three static boxes with diferent content type';
 $string['infobanner4'] = 'Show up one information box, in horizontal accordion style';
@@ -372,6 +438,8 @@ $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please add your custom logo if you want to replace the default logo for this theme.<br />
 For your information, the default logo is a JPG image 150px wide by 55px high';
 $string['logohead'] = 'Logo Options';
+$string['maplink'] = 'Map server URL';
+$string['maplinkdesc'] = 'Enter the URL of a map server with the organization location. (i.e. google maps / bing maps).';
 $string['marketinghead'] = 'Layout options for the site frontpage';
 $string['marketingheaddesc'] = 'In this section you can customize the elements show in the frontpage, before users logged in.
 You can set information about your institution or the launch of new courses. <br />
@@ -391,6 +459,7 @@ $string['moodlecredit'] = 'Credits to Moodle';
 $string['moodlecreditdesc'] = 'If enabled, displays on the footer a credit message and a link to the original <a href="http://moodle.org/" target="_blank">moodle.org.</a>';
 $string['moodledocsdesc'] = 'Help link to the original pages (MoodleDocs) at <a href="http://docs.moodle.org/" target="_blank">docs.moodle.org.</a>';
 $string['moodlehead'] = 'Moodle elements options';
+$string['moreinfo'] = 'Read more...';
 $string['morning_greeting'] = 'Good morning!';
 $string['mtaghead'] = 'Meta Tags options';
 $string['mtagheaddesc'] = '';
@@ -410,8 +479,29 @@ $string['navhelpdesc'] = 'Web page address of the navigation aid';
 $string['navhelphead'] = 'Navigation Aid options';
 $string['navhelplinks'] = 'Active links';
 $string['navhelplinksdesc'] = 'Active the links to display in the navigation aid bar on footer.';
-$string['navhelppage'] = 'navigation aid page';
-$string['navhelppagetitle'] = 'navigation help';
+$string['navhelppage'] = 'Navigation aid page';
+$string['navhelppagetitle'] = 'Navigation help';
+$string['newsinfo'] = 'Academic information';
+$string['newsinfo1'] = '<h2 style="text-align: center">This is a sample page</h2>
+<p>&nbsp;</p>
+<p>Here you can create a information page.</p>
+<p>&nbsp;</p>';
+$string['newsinfo2'] = '<h2 style="text-align: center">This is a sample page</h2>
+<p>&nbsp;</p>
+<p>Here you can create a information page.</p>
+<p>&nbsp;</p>';
+$string['newsinfo3'] = '<h2 style="text-align: center">This is a sample page</h2>
+<p>&nbsp;</p>
+<p>Here you can create a information page.</p>
+<p>&nbsp;</p>';
+$string['newsinfo4'] = '<h2 style="text-align: center">This is a sample page</h2>
+<p>&nbsp;</p>
+<p>Here you can create a information page.</p>
+<p>&nbsp;</p>';
+$string['newsinfo5'] = '<h2 style="text-align: center">This is a sample page</h2>
+<p>&nbsp;</p>
+<p>Here you can create a information page.</p>
+<p>&nbsp;</p>';
 $string['night_greeting'] = 'Good evening!';
 $string['nocontentdrag'] = 'Due to copyright protection of our courses, it is disabled drag (drag & drop) some content';
 $string['nocontentprint'] = '<h2 style="text-align: center">Printing prevention</h2>
@@ -435,7 +525,6 @@ $string['nocontentprint'] = '<h2 style="text-align: center">Printing prevention<
   <p>&nbsp;</p>';
 $string['nocontentselect'] = 'Due to copyright protection of our courses, it is disabled select (copy & paste) some content';
 $string['noimplemented'] = 'Not implemented yet. We\'re sorry';
-$string['no-repeat'] = 'No repeat';
 $string['notes'] = 'aigne theme notes';
 $string['notesdesc'] = 'To apply any settings simply press "Save Changes" at the bottom of this page. If you do not have "Theme Designer Mode" enabled you may need to visit Site Administration ► Development ► <a href="purgecaches.php">Purge All Caches</a>, to force the refresh.';
 $string['openid'] = 'Open ID URL';
@@ -447,6 +536,11 @@ $string['original_theme'] = 'Layout inspired on original theme by Mary Evans';
 $string['orkut'] = 'Orkut URL';
 $string['orkutdesc'] = 'Enter the URL of your Orkut profile.
 <a href="http://www.orkut.com/" target="_blank"> (www.orkut.com) .</a>';
+$string['osystem_1'] = 'Windows';
+$string['osystem_2'] = 'Linux';
+$string['osystem_3'] = 'Mac / Apple';
+$string['osystem_4'] = 'Android';
+$string['osystem_5'] = 'BlackBerry';
 $string['outbutton'] = 'Logout option in button style';
 $string['outmoodle'] = 'Logout option in moodle hyperlink style';
 $string['outnone'] = 'None logout option';
@@ -485,7 +579,7 @@ $string['privacypage'] = '<h2 style="text-align: center">This is a sample page</
 <h2>Given parameters::</h2>
   <ul>{$a->sitenamelow}</ul>
   <ul>{$a->supportemail}</ul>
-  <ul>{$a->sendadminemail}</ul>
+  <ul>{$a->sendemailtitle}</ul>
   <ul>{$a->remoteaddr}</ul>
   <ul>{$a->remotehost}</ul>
   <ul>{$a->remoteuser}</ul>
@@ -516,9 +610,6 @@ Write a text in your favorite HTML editor, then look up the language file
 <strong>You can use the file aigne_style.css for your CSS format preferences</strong>';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
-$string['repeat'] = 'Mosaic';
-$string['repeat-x'] = 'Repeat over X';
-$string['repeat-y'] = 'Repeat over Y';
 $string['reservedrights'] = 'All rights reserved';
 $string['schooltube'] = 'SchoolTube URL';
 $string['schooltubedesc'] = 'Enter the URL of your SchoolTube channel.
@@ -531,7 +622,8 @@ $string['securitypage'] = '<h2 style="text-align: center">This is a sample page<
 <p>Here you can enter the safety measures used to prevent SPAM,
    the antivirus tools and backup procedures.</p>
   <p>&nbsp;</p>';
-$string['sendadminemail'] = 'send an eMail to Web Site Administrator ...';
+$string['sendemailsubj'] = 'Information about {$a}';
+$string['sendemailtitle'] = '::: send an eMail to Web Site Administrator :::';
 $string['sep_bhr'] = '<br /><hr>';
 $string['sep_br'] = '<br />';
 $string['sep_hr'] = '<hr>';
@@ -539,6 +631,8 @@ $string['sep_hr2'] = '<hr width="50%" align="center">';
 $string['sitelicensemsg'] = 'License Type Message';
 $string['sitelicensemsgdesc'] = 'If enabled, displays at the end of the footer the license type that governs the content of this website.<br />
 The license type can be set in Site Administration ► Extensions ► Licenses ► <a href="settings.php?section=managelicenses">"Licenses Administration"</a> ► "sitedefaultlicense"  .';
+$string['sitenewsi'] = 'Display author info & options in "News"';
+$string['sitenewsidesc'] = 'If yes, display author info in header and the row options in footer of any "Site News" (Forum)';
 $string['skype'] = 'Skype Username';
 $string['skypedesc'] = 'Enter the Institution / Organization / Corporate user name in the Skype Network.';
 $string['sli5alt1'] = 'Write here the alternative text for the slider 1 image';

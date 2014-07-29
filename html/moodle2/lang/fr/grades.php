@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -291,6 +291,7 @@ $string['errornocategorisedid'] = 'Impossible d\'obtenir un identifiant sans cat
 $string['errornocourse'] = 'Impossible d\'obtenir les informations du cours';
 $string['errorreprintheadersnonnumeric'] = 'Valeur non-numérique reçue pour le réaffichage des entêtes';
 $string['errorsavegrade'] = 'Impossible d\'enregistrer la note.';
+$string['errorsettinggrade'] = 'Erreur de l\'enregistrement de la note « {$a->itemname} » pour l\'identifiant utilisateur {$a->userid}';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Erreur lors de la modification du réglage « Tendance centrale pour notes non vides » de la catégorie de note d\'identifiant {$a->id}';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Erreur lors de la modification du réglage « Inclure les objectifs dans les tendances centrales » de la catégorie de note d\'identifiant {$a->id}';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Erreur lors de la modification du réglage « Inclure les sous-catégories dans les tendances centrales » de la catégorie de note d\'identifiant {$a->id}';
@@ -301,12 +302,12 @@ $string['excluded_help'] = '<!-- $Id$ -->
 
 
 <p>Si cette option est activée, la note ne sera prise en compte dans aucun calcul de tendance centrale effectuée dans les éléments d\'évaluation ou les catégories auxquels appartiennent la note.</p>';
-$string['expand'] = 'Développer la catégorie';
+$string['expand'] = 'Déplier la catégorie';
 $string['export'] = 'Exporter';
 $string['exportalloutcomes'] = 'Exporter tous les objectifs';
 $string['exportfeedback'] = 'Inclure les feedbacks dans l\'exportation';
-$string['exportonlyactive'] = 'Requiert une inscription active';
-$string['exportonlyactive_help'] = 'N\'inclure dans l\'exportation que les participants dont l\'inscription n\'a pas été suspendue';
+$string['exportonlyactive'] = 'Exclure les utilisateurs suspendus';
+$string['exportonlyactive_help'] = 'N\'inclure dans l\'exportation que les participants dont l\'inscription est active et n\'a pas été suspendue';
 $string['exportplugins'] = 'Modules d\'exportation';
 $string['exportsettings'] = 'Réglages d\'exportation';
 $string['exportto'] = 'Exporter vers';
@@ -375,6 +376,7 @@ $string['gradehelp'] = 'Aide sur les notes';
 $string['gradehistorylifetime'] = 'Durée de l\'historique des notes';
 $string['gradehistorylifetime_help'] = 'Ce réglage permet d\'indiquer la durée pendant laquelle vous voulez conserver le suivi des modifications des tables concernant les notes. Il est recommandé de les conserver le plus longtemps possible. Si vous avez des problèmes de performance ou un espace disque limité pour votre base de données, essayez d\'indiquer une durée plus basse.';
 $string['gradeimport'] = 'Importation de notes';
+$string['gradeimportfailed'] = 'L\'importation de notes a échoué. Détails :';
 $string['gradeitem'] = 'Élément d\'évaluation';
 $string['gradeitemaddusers'] = 'Exclure de la note';
 $string['gradeitemadvanced'] = 'Options avancées éléments d\'évaluation';
@@ -691,7 +693,9 @@ $string['selectalloroneuser'] = 'Sélectionner tous ou un utilisateur';
 $string['selectauser'] = 'Sélectionner un utilisateur';
 $string['selectdestination'] = 'Choisir la destination de {$a}';
 $string['separator'] = 'Séparateur';
+$string['sepcolon'] = 'Deux-points';
 $string['sepcomma'] = 'Virgule';
+$string['sepsemicolon'] = 'Point-virgule';
 $string['septab'] = 'Tabulateur';
 $string['setcategories'] = 'Catégories';
 $string['setcategorieserror'] = 'Les catégories doivent être mises en place dans votre cours avant de pouvoir leur attribuer des coefficients.';
@@ -713,7 +717,7 @@ $string['showanalysisicon_help'] = 'Si l\'activité le permet, l\'icône d\'anal
 $string['showaverage'] = 'Afficher la moyenne';
 $string['showaverage_help'] = 'Si ce réglage est activé, la colonne avec la moyenne sera affichée. Les étudiants pourraient alors être en mesure d\'estimer les notes d\'autres étudiants, si la moyenne est calculée à partir de peu de notes. Pour des raisons de performance, la moyenne est une estimation lorsqu\'elle dépend d\'éléments cachés.';
 $string['showaverages'] = 'Afficher les moyennes';
-$string['showaverages_help'] = 'Spécifie si la moyenne de chaque colonne doit être affichée.';
+$string['showaverages_help'] = 'Si ce réglage est activé, le rapport de l\'évaluateur contiendra une rangée supplémentaire affichant la moyenne de chaque catégorie et chaque élément d\'évaluation.';
 $string['showcalculations'] = 'Afficher les calculs';
 $string['showcalculations_help'] = 'Afficher une icône de calculatrice pour chaque élément d\'évaluation et chaque catégorie, les bulles d\'aide sur les éléments calculés et un indicateur visuel montrant qu\'une colonne est calculée.';
 $string['showeyecons'] = 'Afficher icônes afficher/cacher';
@@ -738,6 +742,8 @@ $string['shownohidden'] = 'Cacher les éléments';
 $string['shownooutcomes'] = 'Cacher les objectifs';
 $string['shownumberofgrades'] = 'Afficher le nombre des notes dans les moyennes';
 $string['shownumberofgrades_help'] = 'Spécifie si le nombre des notes utilisées pour calculer la moyenne doit être affiché entre parenthèses, à côté de chaque moyenne. Exemple : 45 (34).';
+$string['showonlyactiveenrol'] = 'N\'afficher que les inscriptions actives';
+$string['showonlyactiveenrol_help'] = 'Ce réglage détermine si les seuls utilisateurs visibles dans le carnet de notes sont ceux dont l\'inscription est active. Si le réglage est actif, les utilisateurs suspendus ne seront pas affichés dans le carnet de notes.';
 $string['showpercentage'] = 'Afficher les pour-cents';
 $string['showpercentage_help'] = 'Afficher la valeur en pour-cents de chaque élément d\'évaluation ?';
 $string['showquickfeedback'] = 'Afficher le feedback rapide';
@@ -745,7 +751,7 @@ $string['showquickfeedback_help'] = 'Le feedback rapide ajoute un champ de texte
 $string['showrange'] = 'Afficher les intervalles';
 $string['showrange_help'] = 'Si ce réglage est activé, la colonne avec l\'intervalle sera affichée.';
 $string['showranges'] = 'Afficher les valeurs possibles';
-$string['showranges_help'] = 'Spécifie si les valeurs possibles des notes de chaque colonne doivent être affichées dans une rangée supplémentaire.';
+$string['showranges_help'] = 'Si ce réglage est activé, le rapport de l\'évaluateur contiendra une rangée supplémentaire affichant pour chaque catégorie et chaque élément d\'évaluation les valeurs possibles des notes.';
 $string['showrank'] = 'Afficher le rang';
 $string['showrank_help'] = 'Afficher pour chaque élément le rang du participant, par rapport aux autres participants ?';
 $string['showuserimage'] = 'Afficher les avatars';
@@ -807,6 +813,9 @@ $string['user'] = 'Utilisateur';
 $string['userenrolmentsuspended'] = 'Inscription d\'utilisateurs suspendue';
 $string['usergrade'] = 'Utilisateur {$a->fullname} ({$a->useridnumber}) dans l\'élément {$a->gradeidnumber}';
 $string['userid'] = 'ID utilisateur';
+$string['usermappingerror'] = 'Erreur de correspondance utilisateur : impossible de trouver un utilisateur avec une valeur « {$a->value} » pour le champ {$a->field}.';
+$string['usermappingerrorcurrentgroup'] = 'L\'utilisateur n\'appartient pas au groupe actuel.';
+$string['usermappingerrorusernotfound'] = 'Erreur de correspondance utilisateur : impossible de trouver l\'utilisateur.';
 $string['userpreferences'] = 'Préférences utilisateur';
 $string['useweighted'] = 'Utiliser les pondérations';
 $string['verbosescales'] = 'Barèmes de mots';

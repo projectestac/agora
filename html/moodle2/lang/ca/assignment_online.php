@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment_online', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment_online', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment_online
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_assessable_uploaded'] = 'S\'ha pujat un text en línia.';
 $string['pluginname'] = 'En línia';

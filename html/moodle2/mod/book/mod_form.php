@@ -48,6 +48,9 @@ class mod_book_mod_form extends moodleform_mod {
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
         $this->add_intro_editor($config->requiremodintro, get_string('moduleintro'));
 
+        // Appearance.
+        $mform->addElement('header', 'appearancehdr', get_string('appearance'));
+
         $alloptions = book_get_numbering_types();
         $allowed = explode(',', $config->numberingoptions);
         $options = array();

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = 'Aggiungi domanda';
-$string['add_items'] = 'Aggiungi domande al feedback';
 $string['add_pagebreak'] = 'Interruzione di pagina';
 $string['adjustment'] = 'Allineamento';
 $string['after_submit'] = 'Al termine della compilazione';
@@ -92,22 +91,24 @@ $string['dropdown_values'] = 'Risposte';
 $string['drop_feedback'] = 'Rimuovi da questo corso';
 $string['edit_item'] = 'Modifica domanda';
 $string['edit_items'] = 'Domande';
-$string['emailnotification'] = 'Notifiche email';
 $string['email_notification'] = 'Notifica consegne via email';
-$string['emailnotification_help'] = 'I docenti riceveranno notifiche email per ciascun feedback compilato.';
+$string['email_notification_help'] = 'Il docente riceverà notifiche email per ciascun feedback compilato.';
 $string['emailteachermail'] = '{$a->username} ha compilato il feedback: \'{$a->feedback}\'
 
 Puoi vedere le risposte al seguente indirizzo:
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} ha compilato il feedback: <i>\'{$a->feedback}\'</i><br /><br />
-Puoi vedere le risposte presso <a href="{$a->url}">questo indirizzo</a>.';
+$string['emailteachermailhtml'] = '<p>{$a->username} ha compilato il feedback: <i>\'{$a->feedback}\'</i>.</p>
+<p>Puoi vedere le risposte su <a href="{$a->url}">questa pagina</a>.</p>';
 $string['entries_saved'] = 'Le tue risposte sono state salvate. Grazie.';
+$string['eventcoursemoduleviewed'] = 'Visualizzato modulo corso';
+$string['eventinstanceslistviewed'] = 'Visualizzato elenco istanze';
+$string['eventresponsedeleted'] = 'Eliminate risposte';
+$string['eventresponsesubmitted'] = 'Inviate risposte';
 $string['export_questions'] = 'Esporta domande';
 $string['export_to_excel'] = 'Esporta in formato Excel';
 $string['feedback:addinstance'] = 'Aggiungere feedback';
 $string['feedbackclose'] = 'Chiusura';
-$string['feedbackcloses'] = 'Il feedback chiude il';
 $string['feedback:complete'] = 'Compilare un feedback';
 $string['feedback:createprivatetemplate'] = 'Creare un modello privato';
 $string['feedback:createpublictemplate'] = 'Creare un modello pubblico';
@@ -118,8 +119,6 @@ $string['feedback_is_not_for_anonymous'] = 'feedback non disponibile agli utenti
 $string['feedback_is_not_open'] = 'Il feedback non è aperto';
 $string['feedback:mapcourse'] = 'Associare corsi con feedback globali';
 $string['feedbackopen'] = 'Apertura';
-$string['feedbackopens'] = 'Il feedback apre il';
-$string['feedback_options'] = 'Opzioni';
 $string['feedback:receivemail'] = 'Ricevere notifiche via email';
 $string['feedback:view'] = 'Visualizzare un feedback';
 $string['feedback:viewanalysepage'] = 'Visualizzare la pagina di analisi dopo l\'invio';
@@ -141,7 +140,6 @@ $string['insufficient_responses_help'] = 'Questo gruppo ha fornito un numero di 
 Per mantenere il questionario anonimo, devono pervenire almeno due risposte.';
 $string['item_label'] = 'Etichetta';
 $string['item_name'] = 'Testo della domanda';
-$string['items_are_required'] = 'L\'asterisco indica che la risposta è obbligatoria.';
 $string['label'] = 'Etichetta';
 $string['line_values'] = 'Valutazione';
 $string['mapcourse'] = 'Associa feedback ai corsi';
@@ -177,7 +175,6 @@ $string['multichoicerated'] = 'Scelta multipla (valorizzata)';
 $string['multichoicetype'] = 'Tipo di scelta';
 $string['multichoice_values'] = 'Valori da scegliere';
 $string['multiplesubmit'] = 'Compilazioni multiple';
-$string['multiple_submit'] = 'Consenti compilazioni multiple';
 $string['multiplesubmit_help'] = 'Nei feedback anonimi gli utenti potranno compilare il feedback quante volte vorranno.';
 $string['name'] = 'Titolo';
 $string['name_required'] = 'Il titolo è obbligatorio';
@@ -203,7 +200,7 @@ $string['oldvalueswillbedeleted'] = 'Le domande presenti e tutte le risposte deg
 $string['only_one_captcha_allowed'] = 'E\' possibile inserire un solo captcha per ciascun feedback.';
 $string['overview'] = 'Panoramica';
 $string['page'] = 'Pagina';
-$string['page_after_submit'] = 'Testo da visualizzare';
+$string['page_after_submit'] = 'Messaggio da visualizzare dopo la compilazione';
 $string['pagebreak'] = 'Interruzione di pagina';
 $string['page-mod-feedback-x'] = 'Qualsiasi pagina con modulo feedback';
 $string['parameters_missing'] = 'Mancano dei parametri da';
@@ -218,6 +215,7 @@ $string['preview_help'] = 'Nell\'anteprima è possibile modificare la sequenza d
 $string['previous_page'] = 'Pagina precedente';
 $string['public'] = 'Pubblico';
 $string['question'] = 'Domanda';
+$string['questionandsubmission'] = 'Impostazioni compilazione';
 $string['questions'] = 'Domande';
 $string['radio'] = 'Scelta multipla - una sola alternativa';
 $string['radiobutton'] = 'Pulsanti radio';
@@ -247,7 +245,7 @@ $string['send_message'] = 'invia messaggio';
 $string['separator_decimal'] = ',';
 $string['separator_thousand'] = '.';
 $string['show_all'] = 'Visualizza tutto';
-$string['show_analysepage_after_submit'] = 'Visualizza la pagina di analisi a compilazione terminata';
+$string['show_analysepage_after_submit'] = 'Visualizza la pagina di analisi';
 $string['show_entries'] = 'Risposte';
 $string['show_entry'] = 'Visualizza risposta';
 $string['show_nonrespondents'] = 'Risposte mancanti';
@@ -271,15 +269,10 @@ $string['textfield_maxlength'] = 'Numero max. caratteri accettati';
 $string['textfield_size'] = 'Larghezza del campo della risposta';
 $string['there_are_no_settings_for_recaptcha'] = 'Non ci sono impostazioni per il captcha';
 $string['this_feedback_is_already_submitted'] = 'Hai già completato questa attività.';
-$string['timeclose'] = 'Chiusura';
-$string['timeclose_help'] = 'La data di chiusura del feedback, a partire dalla quale le persone non potranno più rispondere. Se l\'opzione non è selezionata, non ci sarà una data di chiusura.';
-$string['timeopen'] = 'Apertura';
-$string['timeopen_help'] = 'La data di apertura del feedback, a partire dalla quale le persone potranno rispondere. Se l\'opzione non è selezionata, non ci sarà una data di apertura.';
 $string['typemissing'] = 'il "tipo" è mancante';
 $string['update_item'] = 'Salva modifiche';
-$string['url_for_continue'] = 'URL di proseguimento';
-$string['url_for_continue_button'] = 'URL di proseguimento';
-$string['url_for_continue_help'] = 'Per default al termine della compilazione del feedback il pulsante Continua rimanda alla home page del corso. E\' possibile impostare qui un URL alternativo.';
+$string['url_for_continue'] = 'Link ad attività successiva';
+$string['url_for_continue_help'] = 'Per default al termine della compilazione del feedback il pulsante Continua rimanda alla home page del corso. E\' possibile impostare link ad una attività successiva.';
 $string['use_one_line_for_each_value'] = '<br/>E\' necessario utilizzare una riga per ciascun valore';
 $string['use_this_template'] = 'Usa questo modello';
 $string['using_templates'] = 'Usa un modello';

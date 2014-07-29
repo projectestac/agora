@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_editidnumber', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_editidnumber', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   report_editidnumber
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,10 +29,10 @@ $string['activityfilter'] = 'Activity view filter <small>(changing this filter w
 $string['activitytypefilter'] = 'Activity type';
 $string['activitytypefilter_help'] = 'Use the filter to select activities to view and modify. Applying the filter will change the form display but will not save any existing changes.';
 $string['applyactivitytypefilter'] = 'Apply activity type filter';
-$string['editidnumber'] = 'ID Numbers';
-$string['editidnumber:view'] = 'View ID Number report';
+$string['editidnumber'] = 'ID numbers';
+$string['editidnumber:view'] = 'View ID number report';
 $string['gradebookidnumbers'] = 'Gradebook ID numbers';
 $string['gradebookidnumbersunderscore'] = 'Gradebook ID numbers';
 $string['idnumbertaken'] = 'This ID number is already taken';
 $string['page-report-editidnumber-index'] = 'Edit course idnumbers';
-$string['pluginname'] = 'ID Numbers';
+$string['pluginname'] = 'ID numbers';

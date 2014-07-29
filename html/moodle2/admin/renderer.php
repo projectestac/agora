@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir . '/pluginlib.php');
 
 /**
  * Standard HTML output renderer for core_admin subsystem
@@ -121,7 +120,7 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= $this->header();
         $output .= $this->heading(get_string('pluginscheck', 'admin'));
         $output .= $this->warning(get_string('pluginscheckfailed', 'admin', array('pluginslist' => implode(', ', array_unique($failed)))));
-        $output .= $this->plugins_check_table(plugin_manager::instance(), $version, array('xdep' => true));
+        $output .= $this->plugins_check_table(core_plugin_manager::instance(), $version, array('xdep' => true));
         $output .= $this->warning(get_string('pluginschecktodo', 'admin'));
         $output .= $this->continue_button($reloadurl);
 
@@ -135,17 +134,20 @@ class core_admin_renderer extends plugin_renderer_base {
      * during upgrade.
      * @param string $strnewversion
      * @param int $maturity
+     * @param string $testsite
      * @return string HTML to output.
      */
-    public function upgrade_confirm_page($strnewversion, $maturity) {
+    public function upgrade_confirm_page($strnewversion, $maturity, $testsite) {
         $output = '';
 
-        $continueurl = new moodle_url('index.php', array('confirmupgrade' => 1));
-        $cancelurl = new moodle_url('index.php');
+        $continueurl = new moodle_url('/admin/index.php', array('confirmupgrade' => 1, 'cache' => 0));
+        $continue = new single_button($continueurl, get_string('continue'), 'get');
+        $cancelurl = new moodle_url('/admin/index.php');
 
         $output .= $this->header();
         $output .= $this->maturity_warning($maturity);
-        $output .= $this->confirm(get_string('upgradesure', 'admin', $strnewversion), $continueurl, $cancelurl);
+        $output .= $this->test_site_warning($testsite);
+        $output .= $this->confirm(get_string('upgradesure', 'admin', $strnewversion), $continue, $cancelurl);
         $output .= $this->footer();
 
         return $output;
@@ -168,7 +170,7 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= $this->environment_check_table($envstatus, $environment_results);
 
         if (!$envstatus) {
-            $output .= $this->upgrade_reload(new moodle_url('/admin/index.php'), array('confirmupgrade' => 1));
+            $output .= $this->upgrade_reload(new moodle_url('/admin/index.php'), array('confirmupgrade' => 1, 'cache' => 0));
 
         } else {
             $output .= $this->notification(get_string('environmentok', 'admin'), 'notifysuccess');
@@ -177,7 +179,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 $output .= $this->box(get_string('langpackwillbeupdated', 'admin'), 'generalbox', 'notice');
             }
 
-            $output .= $this->continue_button(new moodle_url('/admin/index.php', array('confirmupgrade' => 1, 'confirmrelease' => 1)));
+            $output .= $this->continue_button(new moodle_url('/admin/index.php', array('confirmupgrade' => 1, 'confirmrelease' => 1, 'cache' => 0)));
         }
 
         $output .= $this->footer();
@@ -187,15 +189,15 @@ class core_admin_renderer extends plugin_renderer_base {
 
     /**
      * Display the upgrade page that lists all the plugins that require attention.
-     * @param plugin_manager $pluginman provides information about the plugins.
-     * @param available_update_checker $checker provides information about available updates.
+     * @param core_plugin_manager $pluginman provides information about the plugins.
+     * @param \core\update\checker $checker provides information about available updates.
      * @param int $version the version of the Moodle code from version.php.
      * @param bool $showallplugins
      * @param moodle_url $reloadurl
      * @param moodle_url $continueurl
      * @return string HTML to output.
      */
-    public function upgrade_plugin_check_page(plugin_manager $pluginman, available_update_checker $checker,
+    public function upgrade_plugin_check_page(core_plugin_manager $pluginman, \core\update\checker $checker,
             $version, $showallplugins, $reloadurl, $continueurl) {
         global $CFG;
 
@@ -237,11 +239,11 @@ class core_admin_renderer extends plugin_renderer_base {
     /**
      * Prints a page with a summary of plugin deployment to be confirmed.
      *
-     * @param available_update_deployer $deployer
-     * @param array $data deployer's data package as returned by {@link available_update_deployer::submitted_data()}
+     * @param \core\update\deployer $deployer
+     * @param array $data deployer's data package as returned by {@link \core\update\deployer::submitted_data()}
      * @return string
      */
-    public function upgrade_plugin_confirm_deploy_page(available_update_deployer $deployer, array $data) {
+    public function upgrade_plugin_confirm_deploy_page(\core\update\deployer $deployer, array $data) {
 
         if (!$deployer->initialized()) {
             throw new coding_exception('Unable to render a page for non-initialized deployer.');
@@ -279,10 +281,10 @@ class core_admin_renderer extends plugin_renderer_base {
             $output .= $this->output->container(get_string('updatepluginconfirmexternal', 'core_plugin', $repotype), 'updatepluginconfirmexternal');
         }
 
-        $widget = $deployer->make_execution_widget($data['updateinfo']);
+        $widget = $deployer->make_execution_widget($data['updateinfo'], $data['returnurl']);
         $output .= $this->output->render($widget);
 
-        $output .= $this->output->single_button($data['returnurl'], get_string('cancel', 'core'), 'get');
+        $output .= $this->output->single_button($data['callerurl'], get_string('cancel', 'core'), 'get');
 
         $output .= $this->container_end();
         $output .= $this->footer();
@@ -299,7 +301,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * @param bool $dbproblems warn db has problems
      * @param bool $maintenancemode warn in maintenance mode
      * @param bool $buggyiconvnomb warn iconv problems
-     * @param array|null $availableupdates array of available_update_info objects or null
+     * @param array|null $availableupdates array of \core\update\info objects or null
      * @param int|null $availableupdatesfetch timestamp of the most recent updates fetch or null (unknown)
      *
      * @return string HTML to output.
@@ -338,12 +340,12 @@ class core_admin_renderer extends plugin_renderer_base {
      *  bool contribonly - show only contributed extensions
      *  bool updatesonly - show only plugins with an available update
      *
-     * @param plugin_manager $pluginman
-     * @param available_update_checker $checker
+     * @param core_plugin_manager $pluginman
+     * @param \core\update\checker $checker
      * @param array $options filtering options
      * @return string HTML to output.
      */
-    public function plugin_management_page(plugin_manager $pluginman, available_update_checker $checker, array $options = array()) {
+    public function plugin_management_page(core_plugin_manager $pluginman, \core\update\checker $checker, array $options = array()) {
         global $CFG;
 
         $output = '';
@@ -367,6 +369,98 @@ class core_admin_renderer extends plugin_renderer_base {
 
         $output .= $this->box($this->plugins_control_panel($pluginman, $options), 'generalbox');
         $output .= $this->footer();
+
+        return $output;
+    }
+
+    /**
+     * Display a page to confirm the plugin uninstallation.
+     *
+     * @param core_plugin_manager $pluginman
+     * @param \core\plugininfo\base $pluginfo
+     * @param moodle_url $continueurl URL to continue after confirmation
+     * @param moodle_url $cancelurl URL to to go if cancelled
+     * @return string
+     */
+    public function plugin_uninstall_confirm_page(core_plugin_manager $pluginman, \core\plugininfo\base $pluginfo, moodle_url $continueurl, moodle_url $cancelurl) {
+        $output = '';
+
+        $pluginname = $pluginman->plugin_name($pluginfo->component);
+
+        $confirm = '<p>' . get_string('uninstallconfirm', 'core_plugin', array('name' => $pluginname)) . '</p>';
+        if ($extraconfirm = $pluginfo->get_uninstall_extra_warning()) {
+            $confirm .= $extraconfirm;
+        }
+
+        $output .= $this->output->header();
+        $output .= $this->output->heading(get_string('uninstalling', 'core_plugin', array('name' => $pluginname)));
+        $output .= $this->output->confirm($confirm, $continueurl, $cancelurl);
+        $output .= $this->output->footer();
+
+        return $output;
+    }
+
+    /**
+     * Display a page with results of plugin uninstallation and offer removal of plugin files.
+     *
+     * @param core_plugin_manager $pluginman
+     * @param \core\plugininfo\base $pluginfo
+     * @param progress_trace_buffer $progress
+     * @param moodle_url $continueurl URL to continue to remove the plugin folder
+     * @return string
+     */
+    public function plugin_uninstall_results_removable_page(core_plugin_manager $pluginman, \core\plugininfo\base $pluginfo,
+                                                            progress_trace_buffer $progress, moodle_url $continueurl) {
+        $output = '';
+
+        $pluginname = $pluginman->plugin_name($pluginfo->component);
+
+        // Do not show navigation here, they must click one of the buttons.
+        $this->page->set_pagelayout('maintenance');
+        $this->page->set_cacheable(false);
+
+        $output .= $this->output->header();
+        $output .= $this->output->heading(get_string('uninstalling', 'core_plugin', array('name' => $pluginname)));
+
+        $output .= $this->output->box($progress->get_buffer(), 'generalbox uninstallresultmessage');
+
+        $confirm = $this->output->container(get_string('uninstalldeleteconfirm', 'core_plugin',
+            array('name' => $pluginname, 'rootdir' => $pluginfo->rootdir)), 'uninstalldeleteconfirm');
+
+        if ($repotype = $pluginman->plugin_external_source($pluginfo->component)) {
+            $confirm .= $this->output->container(get_string('uninstalldeleteconfirmexternal', 'core_plugin', $repotype),
+                'uninstalldeleteconfirmexternal');
+        }
+
+        // After any uninstall we must execute full upgrade to finish the cleanup!
+        $output .= $this->output->confirm($confirm, $continueurl, new moodle_url('/admin/index.php'));
+        $output .= $this->output->footer();
+
+        return $output;
+    }
+
+    /**
+     * Display a page with results of plugin uninstallation and inform about the need to remove plugin files manually.
+     *
+     * @param core_plugin_manager $pluginman
+     * @param \core\plugininfo\base $pluginfo
+     * @param progress_trace_buffer $progress
+     * @return string
+     */
+    public function plugin_uninstall_results_page(core_plugin_manager $pluginman, \core\plugininfo\base $pluginfo, progress_trace_buffer $progress) {
+        $output = '';
+
+        $pluginname = $pluginfo->component;
+
+        $output .= $this->output->header();
+        $output .= $this->output->heading(get_string('uninstalling', 'core_plugin', array('name' => $pluginname)));
+
+        $output .= $this->output->box($progress->get_buffer(), 'generalbox uninstallresultmessage');
+
+        $output .= $this->output->box(get_string('uninstalldelete', 'core_plugin',
+            array('name' => $pluginname, 'rootdir' => $pluginfo->rootdir)), 'generalbox uninstalldelete');
+        $output .= $this->output->continue_button(new moodle_url('/admin/index.php'));
+        $output .= $this->output->footer();
 
         return $output;
     }
@@ -522,6 +616,24 @@ class core_admin_renderer extends plugin_renderer_base {
                 'generalbox maturitywarning');
     }
 
+    /*
+     * If necessary, displays a warning about upgrading a test site.
+     *
+     * @param string $testsite
+     * @return string HTML
+     */
+    protected function test_site_warning($testsite) {
+
+        if (!$testsite) {
+            return '';
+        }
+
+        return $this->box(
+            $this->container(get_string('testsiteupgradewarning', 'admin', $testsite)),
+            'generalbox testsitewarning'
+        );
+    }
+
     /**
      * Output the copyright notice.
      * @return string HTML to output.
@@ -564,7 +676,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * The structure of the $updates param has changed since 2.4. It contains not only updates
      * for the core itself, but also for all other installed plugins.
      *
-     * @param array|null $updates array of (string)component => array of available_update_info objects or null
+     * @param array|null $updates array of (string)component => array of \core\update\info objects or null
      * @param int|null $fetch timestamp of the most recent updates fetch or null (unknown)
      * @return string
      */
@@ -599,7 +711,8 @@ class core_admin_renderer extends plugin_renderer_base {
         }
 
         $updateinfo .= $this->container_start('checkforupdates');
-        $updateinfo .= $this->single_button(new moodle_url($this->page->url, array('fetchupdates' => 1)), get_string('checkforupdates', 'core_plugin'));
+        $fetchurl = new moodle_url('/admin/index.php', array('fetchupdates' => 1, 'sesskey' => sesskey(), 'cache' => 0));
+        $updateinfo .= $this->single_button($fetchurl, get_string('checkforupdates', 'core_plugin'));
         if ($fetch) {
             $updateinfo .= $this->container(get_string('checkforupdateslast', 'core_plugin',
                 userdate($fetch, get_string('strftimedatetime', 'core_langconfig'))));
@@ -621,7 +734,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
         if (!$registered) {
 
-            $registerbutton = $this->single_button(new moodle_url('registration/register.php',
+            $registerbutton = $this->single_button(new moodle_url('/admin/registration/register.php',
                     array('huburl' =>  HUB_MOODLEORGHUBURL, 'hubname' => 'Moodle.org')),
                     get_string('register', 'admin'));
 
@@ -635,9 +748,9 @@ class core_admin_renderer extends plugin_renderer_base {
     /**
      * Helper method to render the information about the available Moodle update
      *
-     * @param available_update_info $updateinfo information about the available Moodle core update
+     * @param \core\update\info $updateinfo information about the available Moodle core update
      */
-    protected function moodle_available_update_info(available_update_info $updateinfo) {
+    protected function moodle_available_update_info(\core\update\info $updateinfo) {
 
         $boxclasses = 'moodleupdateinfo';
         $info = array();
@@ -704,12 +817,12 @@ class core_admin_renderer extends plugin_renderer_base {
      *     (bool)full = false: whether to display up-to-date plugins, too
      *     (bool)xdep = false: display the plugins with unsatisified dependecies only
      *
-     * @param plugin_manager $pluginman provides information about the plugins.
+     * @param core_plugin_manager $pluginman provides information about the plugins.
      * @param int $version the version of the Moodle code from version.php.
      * @param array $options rendering options
      * @return string HTML code
      */
-    public function plugins_check_table(plugin_manager $pluginman, $version, array $options = array()) {
+    public function plugins_check_table(core_plugin_manager $pluginman, $version, array $options = array()) {
         global $CFG;
 
         $plugininfo = $pluginman->get_plugins();
@@ -802,7 +915,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 $requires = new html_table_cell($this->required_column($plugin, $pluginman, $version));
 
                 $statusisboring = in_array($statuscode, array(
-                        plugin_manager::PLUGIN_STATUS_NODB, plugin_manager::PLUGIN_STATUS_UPTODATE));
+                        core_plugin_manager::PLUGIN_STATUS_NODB, core_plugin_manager::PLUGIN_STATUS_UPTODATE));
 
                 $coredependency = $plugin->is_core_dependency_satisfied($version);
                 $otherpluginsdependencies = $pluginman->are_dependencies_satisfied($plugin->get_other_required_plugins());
@@ -814,7 +927,7 @@ class core_admin_renderer extends plugin_renderer_base {
                         continue;
                     }
 
-                } else if ($isstandard and $statusisboring and $dependenciesok and empty($availableupdates)) {
+                } else if ($statusisboring and $dependenciesok and empty($availableupdates)) {
                     // no change is going to happen to the plugin - display it only
                     // if the user wants to see the full list
                     if (empty($options['full'])) {
@@ -849,7 +962,7 @@ class core_admin_renderer extends plugin_renderer_base {
             $out .= $this->output->heading(get_string('nonehighlighted', 'core_plugin'));
             if (empty($options['full'])) {
                 $out .= html_writer::link(new moodle_url('/admin/index.php',
-                    array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 1)),
+                    array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 1, 'cache' => 0)),
                     get_string('nonehighlightedinfo', 'core_plugin'));
             }
             $out .= $this->output->container_end();
@@ -859,11 +972,11 @@ class core_admin_renderer extends plugin_renderer_base {
             $out .= $this->output->heading(get_string('somehighlighted', 'core_plugin', $sumofhighlighted));
             if (empty($options['full'])) {
                 $out .= html_writer::link(new moodle_url('/admin/index.php',
-                    array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 1)),
+                    array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 1, 'cache' => 0)),
                     get_string('somehighlightedinfo', 'core_plugin'));
             } else {
                 $out .= html_writer::link(new moodle_url('/admin/index.php',
-                    array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 0)),
+                    array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 0, 'cache' => 0)),
                     get_string('somehighlightedonly', 'core_plugin'));
             }
             $out .= $this->output->container_end();
@@ -878,12 +991,12 @@ class core_admin_renderer extends plugin_renderer_base {
 
     /**
      * Formats the information that needs to go in the 'Requires' column.
-     * @param plugininfo_base $plugin the plugin we are rendering the row for.
-     * @param plugin_manager $pluginman provides data on all the plugins.
+     * @param \core\plugininfo\base $plugin the plugin we are rendering the row for.
+     * @param core_plugin_manager $pluginman provides data on all the plugins.
      * @param string $version
      * @return string HTML code
      */
-    protected function required_column(plugininfo_base $plugin, plugin_manager $pluginman, $version) {
+    protected function required_column(\core\plugininfo\base $plugin, core_plugin_manager $pluginman, $version) {
         $requires = array();
 
         if (!empty($plugin->versionrequires)) {
@@ -935,11 +1048,11 @@ class core_admin_renderer extends plugin_renderer_base {
     /**
      * Prints an overview about the plugins - number of installed, number of extensions etc.
      *
-     * @param plugin_manager $pluginman provides information about the plugins
+     * @param core_plugin_manager $pluginman provides information about the plugins
      * @param array $options filtering options
      * @return string as usually
      */
-    public function plugins_overview_panel(plugin_manager $pluginman, array $options = array()) {
+    public function plugins_overview_panel(core_plugin_manager $pluginman, array $options = array()) {
         global $CFG;
 
         $plugininfo = $pluginman->get_plugins();
@@ -948,7 +1061,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
         foreach ($plugininfo as $type => $plugins) {
             foreach ($plugins as $name => $plugin) {
-                if ($plugin->get_status() === plugin_manager::PLUGIN_STATUS_MISSING) {
+                if ($plugin->get_status() === core_plugin_manager::PLUGIN_STATUS_MISSING) {
                     continue;
                 }
                 $numtotal++;
@@ -1015,11 +1128,11 @@ class core_admin_renderer extends plugin_renderer_base {
      *
      * This default implementation renders all plugins into one big table.
      *
-     * @param plugin_manager $pluginman provides information about the plugins.
+     * @param core_plugin_manager $pluginman provides information about the plugins.
      * @param array $options filtering options
      * @return string HTML code
      */
-    public function plugins_control_panel(plugin_manager $pluginman, array $options = array()) {
+    public function plugins_control_panel(core_plugin_manager $pluginman, array $options = array()) {
         global $CFG;
 
         $plugininfo = $pluginman->get_plugins();
@@ -1067,22 +1180,27 @@ class core_admin_renderer extends plugin_renderer_base {
             get_string('actions', 'core_plugin'),
             get_string('notes','core_plugin'),
         );
+        $table->headspan = array(1, 1, 1, 1, 2, 1);
         $table->colclasses = array(
-            'pluginname', 'source', 'version', 'availability', 'actions', 'notes'
+            'pluginname', 'source', 'version', 'availability', 'settings', 'uninstall', 'notes'
         );
 
         foreach ($plugininfo as $type => $plugins) {
-
-            $header = new html_table_cell($pluginman->plugintype_name_plural($type));
+            $heading = $pluginman->plugintype_name_plural($type);
+            $pluginclass = core_plugin_manager::resolve_plugininfo_class($type);
+            if ($manageurl = $pluginclass::get_manage_url()) {
+                $heading = html_writer::link($manageurl, $heading);
+            }
+            $header = new html_table_cell(html_writer::tag('span', $heading, array('id'=>'plugin_type_cell_'.$type)));
             $header->header = true;
-            $header->colspan = count($table->head);
+            $header->colspan = array_sum($table->headspan);
             $header = new html_table_row(array($header));
             $header->attributes['class'] = 'plugintypeheader type-' . $type;
             $table->data[] = $header;
 
             if (empty($plugins)) {
                 $msg = new html_table_cell(get_string('noneinstalled', 'core_plugin'));
-                $msg->colspan = count($table->head);
+                $msg->colspan = array_sum($table->headspan);
                 $row = new html_table_row(array($msg));
                 $row->attributes['class'] .= 'msg msg-noneinstalled';
                 $table->data[] = $row;
@@ -1098,9 +1216,12 @@ class core_admin_renderer extends plugin_renderer_base {
                 } else {
                     $icon = $this->output->pix_icon('spacer', '', 'moodle', array('class' => 'icon pluginicon noicon'));
                 }
-                if ($plugin->get_status() === plugin_manager::PLUGIN_STATUS_MISSING) {
-                    $msg = html_writer::tag('span', get_string('status_missing', 'core_plugin'), array('class' => 'notifyproblem'));
-                    $row->attributes['class'] .= ' missingfromdisk';
+                $status = $plugin->get_status();
+                $row->attributes['class'] .= ' status-'.$status;
+                if ($status === core_plugin_manager::PLUGIN_STATUS_MISSING) {
+                    $msg = html_writer::tag('span', get_string('status_missing', 'core_plugin'), array('class' => 'statusmsg'));
+                } else if ($status === core_plugin_manager::PLUGIN_STATUS_NEW) {
+                    $msg = html_writer::tag('span', get_string('status_new', 'core_plugin'), array('class' => 'statusmsg'));
                 } else {
                     $msg = '';
                 }
@@ -1129,26 +1250,27 @@ class core_admin_renderer extends plugin_renderer_base {
                     $availability = new html_table_cell(get_string('plugindisabled', 'core_plugin'));
                 }
 
-                $actions = array();
-
                 $settingsurl = $plugin->get_settings_url();
                 if (!is_null($settingsurl)) {
-                    $actions[] = html_writer::link($settingsurl, get_string('settings', 'core_plugin'), array('class' => 'settings'));
+                    $settings = html_writer::link($settingsurl, get_string('settings', 'core_plugin'), array('class' => 'settings'));
+                } else {
+                    $settings = '';
                 }
+                $settings = new html_table_cell($settings);
 
-                $uninstallurl = $plugin->get_uninstall_url();
                 //XTEC ************ MODIFICAT - To let access only to xtecadmin user
                 //2012.06.12  @sarjona
-                if (!is_null($uninstallurl) && get_protected_agora()) {
+                if (get_protected_agora() && $uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
                 //************ ORIGINAL
                 /*  
-                if (!is_null($uninstallurl)) {
+                if ($uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
                 */
-                //************ FI                    
-                    $actions[] = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'), array('class' => 'uninstall'));
+                //************ FI  
+                    $uninstall = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'));
+                } else {
+                    $uninstall = '';
                 }
-
-                $actions = new html_table_cell(implode(html_writer::tag('span', ' ', array('class' => 'separator')), $actions));
+                $uninstall = new html_table_cell($uninstall);
 
                 $requriedby = $pluginman->other_plugins_that_require($plugin->component);
                 if ($requriedby) {
@@ -1168,7 +1290,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 $notes = new html_table_cell($requiredby.$updateinfo);
 
                 $row->cells = array(
-                    $pluginname, $source, $version, $availability, $actions, $notes
+                    $pluginname, $source, $version, $availability, $settings, $uninstall, $notes
                 );
                 $table->data[] = $row;
             }
@@ -1183,9 +1305,9 @@ class core_admin_renderer extends plugin_renderer_base {
      * The passed objects always provides at least the 'version' property containing
      * the (higher) version of the plugin available.
      *
-     * @param available_update_info $updateinfo information about the available update for the plugin
+     * @param \core\update\info $updateinfo information about the available update for the plugin
      */
-    protected function plugin_available_update_info(available_update_info $updateinfo) {
+    protected function plugin_available_update_info(\core\update\info $updateinfo) {
 
         $boxclasses = 'pluginupdateinfo';
         $info = array();
@@ -1214,7 +1336,7 @@ class core_admin_renderer extends plugin_renderer_base {
         $box .= html_writer::tag('div', get_string('updateavailable', 'core_plugin', $updateinfo->version), array('class' => 'version'));
         $box .= $this->output->box(implode(html_writer::tag('span', ' ', array('class' => 'separator')), $info), '');
 
-        $deployer = available_update_deployer::instance();
+        $deployer = \core\update\deployer::instance();
         if ($deployer->initialized()) {
             $impediments = $deployer->deployment_impediments($updateinfo);
             if (empty($impediments)) {
@@ -1254,10 +1376,9 @@ class core_admin_renderer extends plugin_renderer_base {
             get_string('report'),
             get_string('status'),
         );
-        $servertable->align = array('center', 'center', 'left', 'center');
-        $servertable->wrap  = array('nowrap', '', '', 'nowrap');
-        $servertable->size  = array('10', 10, '100%', '10');
-        $servertable->attributes['class'] = 'environmenttable generaltable';
+        $servertable->colclasses = array('centeralign name', 'centeralign info', 'leftalign report', 'centeralign status');
+        $servertable->attributes['class'] = 'admintable environmenttable generaltable';
+        $servertable->id = 'serverstatus';
 
         $serverdata = array('ok'=>array(), 'warn'=>array(), 'error'=>array());
 
@@ -1267,10 +1388,9 @@ class core_admin_renderer extends plugin_renderer_base {
             get_string('report'),
             get_string('status'),
         );
-        $othertable->align = array('center', 'left', 'center');
-        $othertable->wrap  = array('', '', 'nowrap');
-        $othertable->size  = array(10, '100%', '10');
-        $othertable->attributes['class'] = 'environmenttable generaltable';
+        $othertable->colclasses = array('aligncenter info', 'alignleft report', 'aligncenter status');
+        $othertable->attributes['class'] = 'admintable environmenttable generaltable';
+        $othertable->id = 'otherserverstatus';
 
         $otherdata = array('ok'=>array(), 'warn'=>array(), 'error'=>array());
 

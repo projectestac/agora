@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_loginas', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_loginas', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   local_loginas
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['ajaxnext25'] = 'Hurrengo 25ak >>';
+$string['ajaxoneuserfound'] = 'Erabiltzaile bat aurkitu da';
 $string['ajaxprev25'] = '<< aurreko 25ak';
+$string['ajaxxusersfound'] = '{$a} erabiltzaile aurkitu dira';
+$string['courseusers'] = 'Ikastaroko erabiltzaileak';
+$string['pluginname'] = 'Sartu honela';

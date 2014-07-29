@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_profiling', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_profiling', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_profiling
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,13 @@ $string['comment'] = 'Opmerking';
 $string['cputime'] = 'Processortijd';
 $string['differencesbetween2runsof'] = 'Verschillen tussen 2 runs van {$a}';
 $string['executiontime'] = 'Uitvoertijd';
+$string['export'] = 'Exporteer';
+$string['exportproblem'] = 'Er is een probleem opgetreden bij het exporteren van profile run "{$a->runid}" die overeenkomt met de request "{$a->listurl}".';
+$string['exportthis'] = 'Exporteer deze profile run';
+$string['import'] = 'Importeer';
+$string['importok'] = 'Bestand "{$a}" is geïmporteerd.';
+$string['importprefix'] = 'Importeer prefix';
+$string['importproblem'] = 'Er is een probleem opgetreden bij het importeren van bestand "{$a}".';
 $string['lastrunof'] = 'Samenvatting van de laatste run van {$a}';
 $string['markreferencerun'] = 'Markeer als referentierun/opmerking';
 $string['memory'] = 'Gebruikt geheugen';
@@ -43,5 +50,5 @@ $string['referencerun'] = 'Referentierun/opmerking';
 $string['runid'] = 'Run ID';
 $string['summaryof'] = 'Samenvatting van {$a}';
 $string['viewdetails'] = 'Bekijk profiling-details';
-$string['viewdiff'] = 'Vergelijk profiling-verschillen met de laatste referentie-run';
+$string['viewdiff'] = 'Vergelijk profiling-verschillen met:';
 $string['viewdiffdetails'] = 'Bekijk details van profiling-verschillen';

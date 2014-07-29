@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_anomaly', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_anomaly', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_anomaly
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,11 @@ $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><
 href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>.</p>
  </div>
 </div>';
+$string['configtitle'] = 'Anomaly thema';
+$string['customcss'] = 'Aangepaste CSS';
+$string['customcssdesc'] = 'De CSS-regels die je in dit formulier voor aangepaste CSS zet, zullen toegepast worden op elke pagina, wat het makkelijker maakt om dit thema aan te passen.';
 $string['pluginname'] = 'Anomaly';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';
+$string['tagline'] = 'Tag-lijn';
+$string['taglinedesc'] = 'De tekst die je toevoegt in dit tag-lijnformulier zal enkel onder de hoofding van de startpagina van je Moodlesite getoond worden.';

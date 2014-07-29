@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_user_mnet_hosts', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_user_mnet_hosts', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   block_user_mnet_hosts
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,9 +34,11 @@ $string['backsettings'] = 'Back to the settings page';
 $string['configmaharapassthru'] = 'If enabled, all mnet activated users can pass to any registered Mahara site. If disabled, profile field base validation is active even for Mahara sites.';
 $string['createdfields'] = 'Number of fields successfully created:';
 $string['dosync'] = 'Synchronize access fields';
+$string['errorlocaladminconstrainted'] = 'A local administrator of a virtual moodle cannot roam to other nodes';
 $string['errormnetauthdisabled'] = 'Mnet authentication plugin is not enabled';
 $string['errornocapacitytologremote'] = 'You have no capability to login to remote hosts';
 $string['failedfields'] = 'Number of failures:';
+$string['fieldkey'] = 'Field short name';
 $string['fieldname'] = 'Access to platform';
 $string['ignoredfields'] = 'Number of hosts ignored:';
 $string['maharapassthru'] = 'Mahara pass through';

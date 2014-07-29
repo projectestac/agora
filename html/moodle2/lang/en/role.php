@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Adding a new role';
-$string['addingrolebycopying'] = 'Adding a new role based on {$a}';
 $string['addrole'] = 'Add a new role';
 $string['advancedoverride'] = 'Advanced role override';
 $string['allow'] = 'Allow';
@@ -71,10 +70,22 @@ $string['backup:backuptargetimport'] = 'Backup for import';
 $string['backup:configure'] = 'Configure backup options';
 $string['backup:downloadfile'] = 'Download files from backup areas';
 $string['backup:userinfo'] = 'Backup user data';
+$string['badges:awardbadge'] = 'Award badge to a user';
+$string['badges:configurecriteria'] = 'Set up/edit criteria of earning a badge';
+$string['badges:configuredetails'] = 'Set up/edit badge details';
+$string['badges:configuremessages'] = 'Configure badge messages';
+$string['badges:createbadge'] = 'Create/duplicate badges';
+$string['badges:deletebadge'] = 'Delete badges';
+$string['badges:earnbadge'] = 'Earn badge';
+$string['badges:manageglobalsettings'] = 'Manage badges global settings';
+$string['badges:manageownbadges'] = 'View and manage own earned badges';
+$string['badges:viewawarded'] = 'View users who earned a specific badge without being able to award a badge';
+$string['badges:viewbadges'] = 'View available badges without earning them';
+$string['badges:viewotherbadges'] = 'View public badges in other users\' profiles';
 $string['block:edit'] = 'Edit a block\'s settings';
 $string['block:view'] = 'View block';
-$string['blog:associatecourse'] = 'Associate blog entries with courses';
-$string['blog:associatemodule'] = 'Associate blog entries with activity modules';
+$string['blog:associatecourse'] = 'This capability is deprecated and does nothing.';
+$string['blog:associatemodule'] = 'This capability is deprecated and does nothing.';
 $string['blog:create'] = 'Create new blog entries';
 $string['blog:manageentries'] = 'Edit and manage entries';
 $string['blog:manageexternal'] = 'Edit and manage external blogs';
@@ -152,6 +163,7 @@ $string['course:viewhiddensections'] = 'View hidden sections';
 $string['course:viewhiddenuserfields'] = 'View hidden user fields';
 $string['course:viewparticipants'] = 'View participants';
 $string['course:viewscales'] = 'View scales';
+$string['course:viewsuspendedusers'] = 'View suspended users';
 $string['course:visibility'] = 'Hide/show courses';
 $string['createrolebycopying'] = 'Create a new role by copying {$a}';
 $string['createthisrole'] = 'Create this role';
@@ -177,9 +189,17 @@ $string['errorbadrolename'] = 'Incorrect role name';
 $string['errorbadroleshortname'] = 'Incorrect role short name';
 $string['errorexistsrolename'] = 'Role name already exists';
 $string['errorexistsroleshortname'] = 'Role name already exists';
+$string['eventroleallowassignupdated'] = 'Allow role assignment';
+$string['eventroleallowoverrideupdated'] = 'Allow role override';
+$string['eventroleallowswitchupdated'] = 'Allow role switch';
+$string['eventroleassigned'] = 'Role assigned';
+$string['eventrolecapabilitiesupdated'] = 'Role capabilities updated';
+$string['eventroledeleted'] = 'Role deleted';
+$string['eventroleunassigned'] = 'Role unassigned';
 $string['existingadmins'] = 'Current site administrators';
 $string['existingusers'] = '{$a} existing users';
 $string['explanation'] = 'Explanation';
+$string['export'] = 'Export';
 $string['extusers'] = 'Existing users';
 $string['extusersmatching'] = 'Existing users matching \'{$a}\'';
 $string['filter:manage'] = 'Manage local filter settings';
@@ -211,6 +231,7 @@ $string['highlightedcellsshowinherit'] = 'The highlighted cells in the table bel
 $string['inactiveformorethan'] = 'inactive for more than {$a->timeperiod}';
 $string['ingroup'] = 'in the group "{$a->group}"';
 $string['inherit'] = 'Inherit';
+$string['invalidpresetfile'] = 'Invalid role definition file';
 $string['legacy:admin'] = 'LEGACY ROLE: Administrator';
 $string['legacy:coursecreator'] = 'LEGACY ROLE: Course creator';
 $string['legacy:editingteacher'] = 'LEGACY ROLE: Teacher (editing)';
@@ -236,6 +257,7 @@ $string['neededroles'] = 'Roles with permission';
 $string['nocapabilitiesincontext'] = 'No capabilities available in this context';
 $string['noneinthisx'] = 'None in this {$a}';
 $string['noneinthisxmatching'] = 'No users matching \'{$a->search}\' in this {$a->contexttype}';
+$string['norole'] = 'No role';
 $string['noroleassignments'] = 'This user does not have any role assignments anywhere in this site.';
 $string['noroles'] = 'No roles';
 $string['notabletoassignroleshere'] = 'You are not able to assign any roles here';
@@ -287,10 +309,8 @@ $string['rating:rate'] = 'Add ratings to items';
 $string['rating:view'] = 'View the total rating you received';
 $string['rating:viewall'] = 'View all raw ratings given by individuals';
 $string['rating:viewany'] = 'View total ratings that anyone received';
-$string['resetrole'] = 'Reset to defaults';
-$string['resetrolenolegacy'] = 'Clear permissions';
-$string['resetrolesure'] = 'Are you sure that you want to reset role "{$a->name} ({$a->shortname})" to defaults?<p></p>The defaults are taken from the selected archetype ({$a->legacytype}).';
-$string['resetrolesurenolegacy'] = 'Are you sure that you want to clear all permissions defined in this role "{$a->name} ({$a->shortname})"?';
+$string['resetrole'] = 'Reset';
+$string['resettingrole'] = 'Resetting role \'{$a}\'';
 $string['restore:configure'] = 'Configure restore options';
 $string['restore:createuser'] = 'Create users on restore';
 $string['restore:restoreactivity'] = 'Restore activities';
@@ -314,7 +334,11 @@ $string['role:manage'] = 'Create and manage roles';
 $string['role:override'] = 'Override permissions for others';
 $string['roleprohibitheader'] = 'Prohibit role';
 $string['roleprohibitinfo'] = 'Select a role to be added to the list of prohibited roles in context {$a->context}, capability {$a->cap}:';
+$string['rolerepreset'] = 'Use role preset';
+$string['roleresetdefaults'] = 'Defaults';
+$string['roleresetrole'] = 'Use role or archetype';
 $string['role:review'] = 'Review permissions for others';
+$string['rolerisks'] = 'Role risks';
 $string['roles'] = 'Roles';
 $string['role:safeoverride'] = 'Override safe permissions for others';
 $string['roleselect'] = 'Select role';
@@ -357,6 +381,7 @@ $string['tag:edit'] = 'Edit existing tags';
 $string['tag:editblocks'] = 'Edit blocks in tags pages';
 $string['tag:flag'] = 'Flag tags as inappropriate';
 $string['tag:manage'] = 'Manage all tags';
+$string['thisnewrole'] = 'This new role';
 $string['thisusersroles'] = 'This user\'s role assignments';
 $string['unassignarole'] = 'Unassign role {$a}';
 $string['unassignconfirm'] = 'Do you really want to unassign "{$a->role}" role from user "{$a->user}"?';
@@ -374,8 +399,8 @@ $string['user:manageblocks'] = 'Manage blocks on user profile of other users';
 $string['user:manageownblocks'] = 'Manage blocks on own public user profile';
 $string['user:manageownfiles'] = 'Manage files on own private file areas';
 $string['user:managesyspages'] = 'Configure default page layout for public user profiles';
-$string['user:readuserblogs'] = 'See all user blogs';
-$string['user:readuserposts'] = 'See all user posts';
+$string['user:readuserblogs'] = 'View all user blogs';
+$string['user:readuserposts'] = 'View all user forum posts';
 $string['usersfrom'] = 'Users from {$a}';
 $string['usersfrommatching'] = 'Users from {$a->contextname} matching \'{$a->search}\'';
 $string['usersinthisx'] = 'Users in this {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Ofrece crear una etiqueta cuando archivos de medios son arrastrados y soltados dentro de un curso';
+$string['configdndresizeheight'] = 'Cuando se crea una etiqueta de una imagen arrastrado y soltando, cambiar su tamaño si es superior a esta cantidad de píxeles (0 para no cambiar el tamaño)';
+$string['configdndresizewidth'] = 'Cuando se crea una etiqueta de una imagen arrastrado y soltando, cambiar su tamaño si es mayor que esta cantidad de píxeles (0 para no cambiar el tamaño)';
+$string['dndmedia'] = 'Arrastrar y soltar';
+$string['dndresizeheight'] = 'Limitar tamaño de altura';
+$string['dndresizewidth'] = 'Limitar tamaño de ancho';
+$string['dnduploadlabel'] = 'Añadir una imagen a la página del curso';
+$string['dnduploadlabeltext'] = 'Añadir como etiqueta en la página del curso';
 $string['label:addinstance'] = 'Añadir una nueva etiqueta';
 $string['labeltext'] = 'Texto de la etiqueta';
 $string['modulename'] = 'Etiqueta';

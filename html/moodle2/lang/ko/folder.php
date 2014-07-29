@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = '내용';
+$string['display'] = '폴더의 내용 표시';
+$string['displayinline'] = '강좌 페이지에 인라인으로';
+$string['displaypage'] = '별도의 페이지에';
 $string['dnduploadmakefolder'] = '파일 압축해제 및 폴더 생성';
 $string['folder:addinstance'] = '새로운 폴더 추가';
 $string['foldercontent'] = '파일 및 하위 폴더';
@@ -38,3 +41,4 @@ $string['page-mod-folder-view'] = '폴더 모듈 주 페이지';
 $string['page-mod-folder-x'] = '모든 폴더 모듈 페이지';
 $string['pluginadministration'] = '폴더 관리';
 $string['pluginname'] = '폴더';
+$string['showexpanded'] = '확장된 하위 폴더 보여주기';

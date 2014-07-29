@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'moodle', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'moodle', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   moodle
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,12 +62,13 @@ $string['addfilehere'] = 'Bestand(en) hier toevoegen';
 $string['addinganew'] = 'Een nieuwe {$a} toevoegen';
 $string['addinganewto'] = 'Een nieuwe {$a->what} aan {$a->to} toevoegen';
 $string['addingdatatoexisting'] = 'Gegevens toevoegen aan bestaande';
+$string['additionalnames'] = 'Extra namen';
 $string['addlinkhere'] = 'Link hier toevoegen';
 $string['addnewcategory'] = 'Voeg een nieuwe categorie toe';
 $string['addnewcourse'] = 'Voeg een nieuwe cursus toe';
 $string['addnewuser'] = 'Toevoegen';
 $string['addnousersrecip'] = 'Voeg gebruikers aan de ontvangerslijst toe die deze {$a} nog niet bezocht hebben';
-$string['addpagehere'] = 'Pagina hier toevoegen';
+$string['addpagehere'] = 'Tekst hier toevoegen';
 $string['addresource'] = 'Bron toevoegen';
 $string['addresourceoractivity'] = 'Activiteit of bron toevoegen';
 $string['addresourcetosection'] = 'Voeg een bron toe aan sectie \'{$a}\'';
@@ -116,12 +117,15 @@ $string['administratorsandteachers'] = 'Beheerders en leraren';
 $string['advanced'] = 'Geavanceerd';
 $string['advancedfilter'] = 'Geavanceerd zoeken';
 $string['advancedsettings'] = 'Geavanceerde instellingen';
+$string['afterresource'] = 'Na bron "{$a}"';
+$string['aftersection'] = 'Na sectie "{$a}"';
 $string['again'] = 'nogmaals';
 $string['aimid'] = 'AIM ID';
 $string['ajaxuse'] = 'AJAX en Javascript';
 $string['all'] = 'Alle';
 $string['allactions'] = 'Alle acties';
 $string['allactivities'] = 'Alle activiteiten';
+$string['allcategories'] = 'Alle categorieën';
 $string['allchanges'] = 'Alle wijzigingen';
 $string['alldays'] = 'Alle dagen';
 $string['allfieldsrequired'] = 'Alle velden zijn verplicht';
@@ -137,17 +141,21 @@ $string['allparticipants'] = 'Alle deelnemers';
 $string['allteachers'] = 'Alle leraren';
 $string['alphanumerical'] = 'Mag alleen maar alphanummerieke tekens, liggend streepje (-) of punt (.) bevatten';
 $string['alreadyconfirmed'] = 'De registratie is al bevestigd';
+$string['alternatename'] = 'Alternatieve naam';
 $string['always'] = 'Altijd';
 $string['and'] = '{$a->one} en {$a->two}';
 $string['answer'] = 'Antwoord';
 $string['any'] = 'Alle';
+$string['appearance'] = 'Verschijnen';
 $string['approve'] = 'Keur goed';
+$string['areyousure'] = 'Weet je het zeker?';
 $string['areyousuretorestorethis'] = 'Ben je er zeker van dat je dit wil terugzetten?';
 $string['areyousuretorestorethisinfo'] = 'Op een later moment in dit proces heb je de keuze om deze back-up toe te voegen aan een bestaand cursus of om een compleet nieuwe cursus aan te maken.';
 $string['asc'] = 'oplopend';
 $string['assessment'] = 'Beoordeling';
 $string['assignadmins'] = 'Wijs beheerders aan';
 $string['assigncreators'] = 'Wijs cursus-aanmakers aan';
+$string['assignedrolecount'] = '{$a->role}: {$a->count}';
 $string['assignsiteroles'] = 'Site rollen toewijzen';
 $string['authenticateduser'] = 'Geauthenticeerde gebruiker';
 $string['authenticateduserdescription'] = 'Alle aangemelde gebruikers.';
@@ -157,7 +165,6 @@ $string['autosubscribe'] = 'Automatisch inschrijven op het forum';
 $string['autosubscribeno'] = 'Neen: schrijf me niet automatisch in op forums';
 $string['autosubscribeyes'] = 'Ja: schrijf me automatisch in op forums wanneer ik er een bericht in post';
 $string['availability'] = 'Beschikbaarheid';
-$string['availability_help'] = 'Deze instelling bepaalt wanneer een cursus verschijnt in de cursuslijst. Behalve leraren en beheerders hebben gebruikers geen toegang tot deze cursus.';
 $string['availablecourses'] = 'Beschikbare cursussen';
 $string['back'] = 'Terug';
 $string['backto'] = 'Terug naar {$a}';
@@ -196,11 +203,10 @@ $string['backuptakealook'] = 'Controleer je back-uplogs op:
 {$a}';
 $string['backupuserfileshelp'] = 'Selecteer als je gebruikersbestanden in de back-up wil';
 $string['backupversion'] = 'Back-upversie';
+$string['badges'] = 'Badges';
 $string['block'] = 'Blok';
 $string['blockconfiga'] = 'Een {$a} blok configureren';
 $string['blockconfigbad'] = 'Dit blok is niet juist geïmplementeerd en kan dus geen configuratie-interface tonen. Cursus:';
-$string['blockdeleteconfirm'] = 'Je gaat het blok \'{$a}\' volledig verwijderen. Hiermee zal alles in de databank dat met dit blok geassocieerd is verwijderd worden. Ben je ZEKER dat je hiermee verder wil gaan?';
-$string['blockdeletefiles'] = 'Alle gegevens die met het blok \'{$a->block}\' geassocieerd zijn, zijn verwijderd uit de databank. Om het verwijderen af te ronden (en om te verhinderen dat het blok zich opnieuw zou installeren), moet je de map {$a->directory} van je server verwijderen';
 $string['blocks'] = 'Blokken';
 $string['blocksaddedit'] = 'Blokken toevoegen/bewerken';
 $string['blockseditoff'] = 'Blokken bewerken uitschakelen';
@@ -208,6 +214,9 @@ $string['blocksediton'] = 'Blokken bewerken inschakelen';
 $string['blocksetup'] = 'Installeren van de tabellen voor blokken';
 $string['blocksuccess'] = '{$a} tabellen zijn juist geïnstalleerd';
 $string['brief'] = 'Kort';
+$string['bulkactions'] = 'Bulk-acties';
+$string['bulkactionselect'] = '{$a} bulkactie selectie';
+$string['bulkmovecoursessuccess'] = '{$a->courses} cursussen verplaatst naar {$a->category}';
 $string['bycourseorder'] = 'In volgorde van de cursus';
 $string['byname'] = 'volgens {$a}';
 $string['bypassed'] = 'Omzeild';
@@ -215,15 +224,17 @@ $string['cachecontrols'] = 'Cache controles';
 $string['cancel'] = 'Annuleer';
 $string['cancelled'] = 'Geannuleerd';
 $string['categories'] = 'Cursuscategorieën';
+$string['categoriesandcoures'] = 'Cursuscategorieën en cursussen';
 $string['category'] = 'Categorie';
 $string['categoryadded'] = 'De categorie \'{$a}\'  werd toegevoegd';
+$string['categorybulkaction'] = 'Bulkacties voor geselecteerde categorieën';
 $string['categorycontents'] = 'Subcategorieën en cursussen';
 $string['categorycurrentcontents'] = 'Inhoud van {$a}';
 $string['categorydeleted'] = 'De categorie \'{$a}\'  werd verwijderd';
 $string['categoryduplicate'] = 'Er bestaat al een categorie met de naam \'{$a}\'!';
-$string['category_help'] = 'Deze instelling bepaalt de categorie waarin je cursus verschijnt in de cursussenlijst.';
 $string['categorymodifiedcancel'] = 'Categorie gewijzigd! Annuleer en probeer opnieuw.';
 $string['categoryname'] = 'Categorienaam';
+$string['categorysubcategoryof'] = '{$a->category} - subcategorie van {$a->parentcategory}';
 $string['categoryupdated'] = 'De categorie \'{$a}\' is aangepast';
 $string['changedpassword'] = 'Het wachtwoord is veranderd';
 $string['changepassword'] = 'Verander wachtwoord';
@@ -266,8 +277,11 @@ $string['clickhelpiconformoreinfo'] = '... gaat verder ... Klik op het helpicoon
 $string['clickhere'] = 'Klik hier...';
 $string['clicktochangeinbrackets'] = '{$a} (Klik om te wijzigen)';
 $string['clicktohideshow'] = 'Klik om te vergroten of te verkleinen';
+$string['closebuttontitle'] = 'Sluit';
 $string['closewindow'] = 'Sluit dit venster';
+$string['collapse'] = 'Samenklappen';
 $string['collapseall'] = 'Alles samenklappen';
+$string['collapsecategory'] = '{$a} samenklappen';
 $string['commentincontext'] = 'Zoek deze notitie in haar context';
 $string['comments'] = 'Notities';
 $string['commentsnotenabled'] = 'commentaarfunctie niet ingeschakeld';
@@ -278,6 +292,7 @@ $string['completereport'] = 'Volledig rapport';
 $string['configuration'] = 'Configuratie';
 $string['confirm'] = 'Bevestig';
 $string['confirmcheckfull'] = 'Ben je zeker dat je {$a} wil bevestigen?';
+$string['confirmcoursemove'] = 'Weet je zeker dat je cursus ({$a->course}) naar categorie ({$a->category}) wil verplaatsen?';
 $string['confirmed'] = 'Je registratie is bevestigd';
 $string['confirmednot'] = 'Je registratie is nog niet bevestigd !';
 $string['content'] = 'Inhoud';
@@ -317,9 +332,12 @@ $string['courseapprovedsubject'] = 'Je cursus is goedgekeurd';
 $string['courseavailable'] = 'Deze cursus is zichtbaar';
 $string['courseavailablenot'] = 'Deze cursus is niet zichtbaar';
 $string['coursebackup'] = 'Back-up  van cursussen';
+$string['coursebulkaction'] = 'Bulkacties voor geselecteerde cursussen';
 $string['coursecategories'] = 'Cursuscategorieën';
 $string['coursecategory'] = 'Cursuscategorie';
 $string['coursecategorydeleted'] = 'Verwijder cursuscategorie {$a}';
+$string['coursecategory_help'] = 'Deze instelling bepaalt de categorie waarin je cursus verschijnt in de cursussenlijst.';
+$string['coursecatmanagement'] = 'Cursus- en categoriebeheer';
 $string['coursecompletion'] = 'Cursus voltooien';
 $string['coursecompletions'] = 'Cursus voltooien';
 $string['coursecreators'] = 'Cursus-aanmakers';
@@ -357,6 +375,10 @@ $string['courselegacyfilesofcourse'] = 'Oude cursusbestanden: {$a}';
 $string['coursemessage'] = 'Bericht voor de gebruikers van de cursus';
 $string['coursenotaccessible'] = 'Deze cursus is niet publiek toegankelijk';
 $string['courseoverview'] = 'Cursusoverzicht';
+$string['courseoverviewfiles'] = 'Cursus samenvattingsbestanden';
+$string['courseoverviewfilesext'] = 'Cursussamenvattingsbestandsextenties';
+$string['courseoverviewfiles_help'] = 'Cursussamenvattingsbestanden, zoals afbeeldingen, worden in de lijst met cursussen getoond, samen met de samenvatting.';
+$string['courseoverviewfileslimit'] = 'Limiet cursussamenvattingsbestanden';
 $string['courseoverviewgraph'] = 'Grafiek cursusoverzicht';
 $string['courseprofiles'] = 'Cursusprofielen';
 $string['coursereasonforrejecting'] = 'Jouw reden om de aanvraag te verwerpen';
@@ -387,11 +409,15 @@ $string['coursestart'] = 'Cursus start';
 $string['coursesummary'] = 'Samenvatting cursus';
 $string['coursesummary_help'] = 'De samenvatting van de cursus wordt getoond in de lijst met cursussen. Wanneer je naar een cursus zoekt, wordt de samenvattingstekst mee doorzocht met de cursusnamen.';
 $string['courseupdates'] = 'Cursusupdates';
-$string['courseuploadlimit'] = 'Uploadlimiet voor de cursus';
 $string['create'] = 'Maak';
 $string['createaccount'] = 'Maak mijn nieuwe account aan';
 $string['createcategory'] = 'Maak een categorie';
 $string['createfolder'] = 'Maak een map in {$a}';
+$string['createnew'] = 'Maak nieuw';
+$string['createnewcategory'] = 'Maak een nieuwe categorie';
+$string['createnewcourse'] = 'Maak een nieuwe cursus';
+$string['createnewsubcategory'] = 'Maak een nieuwe subcategorie';
+$string['createsubcategoryof'] = 'Maak een subcategorie van {$a}';
 $string['createuser'] = 'Maak gebruiker';
 $string['createuserandpass'] = 'Kies een gebruikersnaam en wachtwoord';
 $string['createziparchive'] = 'Maak een ZIP-archief';
@@ -451,6 +477,7 @@ $string['defaultcoursesummary'] = 'Schrijf hier een korte en interessante paragr
 $string['defaultcourseteacher'] = 'Leraar';
 $string['defaultcourseteacherdescription'] = 'Leraren kunnen alles doen binnen hun cursus, ook het wijzigen van de activiteiten en het beoordelen van leerlingen';
 $string['defaultcourseteachers'] = 'Leraren';
+$string['defaulteditor'] = 'Standaard editor';
 $string['delete'] = 'Verwijder';
 $string['deleteablock'] = 'Verwijder een blok';
 $string['deleteall'] = 'Verwijder alle';
@@ -494,10 +521,8 @@ $string['displayingfirst'] = 'Alleen de eerste {$a->count} {$a->things} worden g
 $string['displayingrecords'] = '{$a} records worden getoond';
 $string['displayingusers'] = 'Gebruikers {$a->start} tot en met {$a->end} worden getoond';
 $string['displayonpage'] = 'Toon op pagina';
-$string['dndenabled'] = 'Slepen en neerzetten beschikbaar';
-$string['dndenabled_help'] = 'Je kunt één of meer bestanden slepen vanaf je desktop en neerzetten in onderstaand vak om ze te uploaden. Merk op: werkt niet in alle webbrowsers';
+$string['dndcourse'] = 'Je kunt deze cursus slepen om de sorteervolgorde te wijzigen of om hem in een andere categorie te plaatsen.';
 $string['dndenabled_inbox'] = 'Je kunt bestanden toevoegen door ze te slepen en hier neer te zetten';
-$string['dndenabled_insentence'] = 'Slepen en neerzetten beschikbaar';
 $string['dndnotsupported'] = 'Uploaden door slepen en neerzetten wordt niet ondersteund.';
 $string['dndnotsupported_help'] = 'Je browser ondersteunt het uploaden met nslepen en neerzetten niet.<br />Deze functie is beschikbaar op alle recente versies van Chrome, Firefox en Safari en ook op Internet Explorer 10 en hoger.';
 $string['dndnotsupported_insentence'] = 'Slepen en neerzetten wordt niet ondersteund.';
@@ -510,6 +535,8 @@ $string['dndworkinglink'] = 'Slepen en neerzetten van links op cursussecties om 
 $string['dndworkingtext'] = 'Slepen en neerzetten van tekst op cursussecties om die te uploaden';
 $string['dndworkingtextlink'] = 'Slepen en neerzetten van tekst of links op cursussecties om ze te uploaden';
 $string['documentation'] = 'Moodledocumentatie';
+$string['dontsortcategories'] = 'Categorieën niet sorteren';
+$string['dontsortcourses'] = 'Cursussen niet sorteren';
 $string['down'] = 'Omlaag';
 $string['download'] = 'Download';
 $string['downloadall'] = 'Download alles';
@@ -563,6 +590,7 @@ $string['edituser'] = 'Wijzig gebruikersaccounts';
 $string['email'] = 'E-mailadres';
 $string['emailactive'] = 'E-mail actief';
 $string['emailagain'] = 'E-mail (nogmaals)';
+$string['emailalreadysent'] = 'Er is al een e-mail verstuurd om je wachtwoord te resetten. Controleer je e-mail.';
 $string['emailcharset'] = 'Tekenset voor e-mail';
 $string['emailconfirm'] = 'Bevestig je account';
 $string['emailconfirmation'] = 'Beste {$a->firstname},
@@ -584,6 +612,13 @@ $string['emailconfirmsent'] = '<p>Als het goed is, is er een e-mail verzonden na
 <p>Indien je moeilijkheden blijft ondervinden, neem dan contact op met je sitebeheerder.</p>';
 $string['emaildigest'] = 'Type samenvattende e-mail';
 $string['emaildigestcomplete'] = 'Volledige samenvatting  (dagelijkse e-mail met alle berichten)';
+$string['emaildigest_help'] = 'Dit zijn de instellingen voor het versturen van een samenvattende mail die forums zullen gebruiken:
+
+* Geen samenvattende mail - je zult één e-mail per forumbericht ontvangen;
+* Samenvattende mail - volledige berichten - je zult één samenvattende mail per dag ontvangen waarin de volledige inhoud van elk forumbericht van die dag zit;
+Samenvattende mail - enkel onderwerpen je zult één samenvattende mail per dag ontvangen waarin alleen de onderwerpen van elk forumbericht zal zitten.
+
+Als je wil kun jJe kunt andere instellingen voor elk forum gebruiken.';
 $string['emaildigestoff'] = 'Geen samenvatting (voor elk forumbericht een e-mail)';
 $string['emaildigestsubjects'] = 'Onderwerpen (dagelijkse e-mail met alleen de onderwerpen van de berichten)';
 $string['emaildisable'] = 'Dit e-mailadres is uitgeschakeld';
@@ -637,14 +672,36 @@ In de meeste e-mailprogramma\'s zou dit moeten verschijnen als een blauwe link w
 Als je hulp nodig hebt, neem dan contact op met de sitebeheerder, {$a->admin}';
 $string['emailpasswordconfirmationsubject'] = '{$a}: bevestiging van de wijziging van het wachtwoord';
 $string['emailpasswordconfirmmaybesent'] = '<p>Als je de juiste gebruikersnaam of e-mailadres hebt ingegeven, ontvang je automatisch een e-mail.</p><p>Daarin lees je eenvoudig hoe je opnieuw toegang kunt krijgen. Daarna kun je meteen je nieuwe wachtwoord bepalen.</p><p>Mocht je moeilijkheden blijven ondervinden, dan kun je het beste contact opnemen met de beheerder van de site.</p>';
+$string['emailpasswordconfirmnoemail'] = '<p>De gebruikersaccount die jij opgeeft, heeft geen e-mailadres opgegeven.</p>
+<p>Neem contact op met de site-beheerder.</p>';
+$string['emailpasswordconfirmnotsent'] = '<p>Met de gegevens die je ingegeven hebt, konden we geen bestaande gebruikersaccount vinden.</p>
+<p>Controleer de informatie en probeer nog eens. Als je blijft problemen ondervinden, neem dan contact op met je site-beheerder.</p>';
 $string['emailpasswordconfirmsent'] = 'Er is een e-mail verstuurd naar jouw adres: <b>{$a}</b>.
 Indien je moeilijkheden blijft ondervinden, neem dan contact op met je sitebeheerder.';
 $string['emailpasswordsent'] = 'Bedankt voor de bevestiging van de wijziging van je wachtwoord.
 Er is een e-mail met je nieuw wachtwoord naar <br /><b>{$a->email}</b><br /> gestuurd.<br />
 Het nieuwe wachtwoord werd automatisch gegenereerd. Misschien wil je het <a href="{$a->link}">wachtwoord veranderen</a> in iets wat je gemakkelijker kunt onthouden.';
+$string['emailresetconfirmation'] = 'Hallo {$a->firstname},
+
+Er is een nieuw wachtwoord gevraagd voor jouw account \'{$a->username}\' op {$a->sitename}.
+
+Ga naar volgend adres om deze vraag te bevestigen en een nieuw wachtwoord voor je account te krijgen:
+
+{$a->link}
+(Deze link is {$a->resetminutes} minuten geldig vanaf het moment dat de aanvraag voor het nieuwe wachtwoord is gebeurd)
+
+Als je geen nieuw wachtwoord gevraagd hebt, dan hoef je verder niets te doen.
+
+Als je hulp nodig hebt, neem dan contact op met {$a->admin}, je site-beheerder.';
+$string['emailresetconfirmationsubject'] = '{$a}: Wachtwoord reset aangevraagd';
+$string['emailresetconfirmsent'] = 'Er is een e-mail verstuurd naar <b>{$a}</b>.
+<br />Daar staan eenvoudige instructies in om je wachtwoord te wijzigen.
+Als dit je aanmeldprobleem niet oplost, neem dan contact op met je site-beheerder.';
+$string['emptydragdropregion'] = 'lege zone';
 $string['enable'] = 'Schakel in';
 $string['encryptedcode'] = 'Geëncrypteerde code';
 $string['english'] = 'Engels';
+$string['enrolmentmethods'] = 'Aanmeldingsmethodes';
 $string['entercourse'] = 'Klik om deze cursus binnen te gaan';
 $string['enteremail'] = 'Geef hier je e-mailadres';
 $string['enteremailaddress'] = 'Typ je e-mailadres om je wachtwoord te resetten en via e-mail een nieuw wachtwoord te ontvangen.';
@@ -654,8 +711,26 @@ $string['error'] = 'Fout';
 $string['errorcreatingactivity'] = 'Kon geen instantie van activiteit \'{$a}\' maken';
 $string['errorfiletoobig'] = 'Het bestand is groter dan de limiet van {$a} bytes';
 $string['errornouploadrepo'] = 'Er is geen upload opslagruimte ingeschakeld voor deze site';
-$string['errortoomanylogins'] = 'Het spijt me, maar je hebt te vaak geprobeerd om in te loggen. Herstart je browser.';
 $string['errorwhenconfirming'] = 'Je account is nog niet bevestigd omdat er iets fout gelopen is. Als je hier gekomen bent door op een link in een e-mail te klikken, kijk dan eens goed of die lijn in je mail niet onderbroken of vervormd was. Het is mogelijk dat je knippen en plakken moet gebruiken om de link op de juiste manier te reconstrueren.';
+$string['eventcontentviewed'] = 'Inhoud bekeken';
+$string['eventcoursecategorydeleted'] = 'Categorie verwijderd';
+$string['eventcoursecontentdeleted'] = 'Cursusinhoud verwijderd';
+$string['eventcoursecreated'] = 'Cursus gemaakt';
+$string['eventcoursedeleted'] = 'Cursus verwijderd';
+$string['eventcoursemodulecreated'] = 'Cursusmodule gemaakt';
+$string['eventcoursemoduledeleted'] = 'Cursusmodule verwijderd';
+$string['eventcoursemoduleupdated'] = 'Cursusmodule aangepast';
+$string['eventcourseresetended'] = 'Cursus reset afgelopen';
+$string['eventcourseresetstarted'] = 'Cursus reset gestart';
+$string['eventcourserestored'] = 'Cursus teruggezet';
+$string['eventcoursesectionupdated'] = 'Cursussectie aangepast';
+$string['eventcourseupdated'] = 'Cursus aangepast';
+$string['eventusercreated'] = 'Gebruikersaccount aangemaakt';
+$string['eventuserdeleted'] = 'Gebruikersaccount verwijderd';
+$string['eventuserlistviewed'] = 'Gebruikerslijst bekeken';
+$string['eventuserloggedout'] = 'Gebruiker afgemeld';
+$string['eventuserprofileviewed'] = 'Gebruikersprofiel bekeken';
+$string['eventuserupdated'] = 'Gebruikersaccount aangepast';
 $string['everybody'] = 'Iedereen';
 $string['executeat'] = 'Voer uit op';
 $string['existing'] = 'Bestaande';
@@ -666,7 +741,9 @@ $string['existingcoursedeleting'] = 'Bestaande cursus eerst verwijderen';
 $string['existingcreators'] = 'Bestaande cursus-aanmakers';
 $string['existingstudents'] = 'Aangemelde leerlingen';
 $string['existingteachers'] = 'Bestaande leraren';
+$string['expand'] = 'Uitklappen';
 $string['expandall'] = 'Alles openklappen';
+$string['expandcategory'] = '{$a} openklappen';
 $string['explanation'] = 'Verklaring';
 $string['extendenrol'] = 'Verleng aanmelding';
 $string['extendperiod'] = 'Verlengde periode';
@@ -677,22 +754,25 @@ $string['file'] = 'Bestand';
 $string['fileexists'] = 'Er is al een bestand met de naam {$a}';
 $string['filemissing'] = '{$a} ontbreekt';
 $string['files'] = 'Bestanden';
+$string['filesanduploads'] = 'Bestanden en uploads';
 $string['filesfolders'] = 'Bestanden/mappen';
 $string['filetoolarge'] = 'is te groot om te uploaden';
 $string['fileuploadwithcontent'] = 'Bestand uploads zouden de content parameter niet mogen meegeven';
 $string['filloutallfields'] = 'Vul alsjeblieft alle velden in dit formulier in';
 $string['filter'] = 'Filter';
 $string['findmorecourses'] = 'Vind meer cursussen...';
+$string['first'] = 'Eerste';
 $string['firstaccess'] = 'Eerste toegang';
 $string['firstname'] = 'Voornaam';
+$string['firstnamephonetic'] = 'Voornaam - phonetisch';
 $string['firsttime'] = 'Is dit de eerste keer dat je hier bent?';
 $string['folder'] = 'Map';
 $string['folderclosed'] = 'Gesloten map';
 $string['folderopened'] = 'Geopende map';
 $string['followingoptional'] = 'De volgende velden zijn niet verplicht';
 $string['followingrequired'] = 'De volgende velden zijn verplicht';
+$string['for'] = 'Voor';
 $string['force'] = 'Verplicht';
-$string['forcedmodeinbrackets'] = '{$a} (verplichte modus)';
 $string['forcelanguage'] = 'Verplicht taal';
 $string['forceno'] = 'Verplicht niet';
 $string['forcepasswordchange'] = 'Verplicht het wijzigen van het wachtwoord';
@@ -706,31 +786,12 @@ $string['forgotten'] = 'Ben je je gebruikersnaam of wachtwoord vergeten?';
 $string['forgottenduplicate'] = 'Dit e-mailadres wordt ook door verschillende andere gebruikers gebruikt. Geef je gebruikersnaam in plaats van je e-mailadres.';
 $string['forgotteninvalidurl'] = 'Ongeldig wachtwoord reset URL';
 $string['format'] = 'Format';
-$string['format_help'] = '<h2>LAMS format</h2>
-<p class="indent">
-Deze format maakt de Learning Activity Management System (LAMS) interface het centrale deel van de cursus. LAMS moet geïnstalleerd zijn door de beheerder om dit te kunnen gebruiken.</p>
+$string['format_help'] = 'De cursus-indeling bepaalt de lay-out van de cursus pagina.
 
-<h2>SCORM format</h2>
-<p class="indent">
-Deze format toont een SCORM package in de eerste sectie van je cursus. (De SCORM/AICC module voorziet een alternatieve manier om een scormpakket in een cursus te tonen.)</p>
-
-<h2>Weekformaat</h2>
-<p class="indent">
-De cursus wordt week per peek georganiseerd, met een duidelijke start- en einddatum.
-Elke week wordt opgebouwd uit activiteiten. Sommige van die activiteiten kunnen over verschillende weken lopen, zoals opdrachten. Een online opdracht kan bijvoorbeeld gedurende twee weken vanaf de startdatum lopen.
-</p>
-
-<h2>Onderwerpformat</h2>
-<p class="indent">
-Dit formaat lijkt erg op de weekformat, behalve dat elke week een onderwerp genoemd wordt. Een onderwerp is
-niet beperkt door een tijdslimiet. Je hoeft geen datums in te stellen.
-</p>
-
-<h2>Forumformat</h2>
-<p class="indent">Deze format is gebouwd rond één hoofdforum, het Sociale Forum. Dat verschijnt op de startpagina van de cursus. Het is
-nuttig voor situaties die minder vormgebonden zijn. Het moet zelfs niet over cursussen gaan. Zo zou het bijvoorbeeld
-kunnen dienen als aankondigingenbord voor een departement.
-</p>';
+* Enkele activiteit formaat - Voor het weergeven van één enkele activiteit of bron (zoals een test of SCORM-pakket) op de cursus pagina
+* Sociaal formaat - Er wordt een forum weergegeven op de cursus pagina
+* Onderwerp formaat - De cursuspagina is opgedeeld in secties
+* Week formaat - De cursuspagina is georganiseerd in weeksecties, met de eerste week beginnend op de cursus startdatum';
 $string['formathtml'] = 'HTML-opmaak';
 $string['formatmarkdown'] = 'Markdown-opmaak';
 $string['formatplain'] = 'Plattetekstopmaak';
@@ -741,13 +802,14 @@ $string['from'] = 'Van';
 $string['frontpagecategorycombo'] = 'Combolijst';
 $string['frontpagecategorynames'] = 'Toon een lijst met categorieën';
 $string['frontpagecourselist'] = 'Toon een lijst met alle cursussen';
+$string['frontpagecoursesearch'] = 'Cursus zoekvak';
 $string['frontpagedescription'] = 'Beschrijving startpagina';
 $string['frontpagedescriptionhelp'] = 'Deze beschrijving van de site kan getoond worden op de startpagina via het cursusbeschrijvingsblok of door een onderwerpssectie toe te voegen aan de startpagina.';
+$string['frontpageenrolledcourselist'] = 'Aangemelde cursussen';
 $string['frontpageformat'] = 'Format startpagina';
 $string['frontpageformatloggedin'] = 'Startpaginaopmaak wanneer aangemeld';
 $string['frontpagenews'] = 'Toon nieuwsberichten';
 $string['frontpagesettings'] = 'Instellingen startpagina';
-$string['frontpagetopiconly'] = 'Toon activiteiten of HTML (onderwerpsectie)';
 $string['fulllistofcourses'] = 'Alle cursussen';
 $string['fullname'] = 'Volledige naam';
 $string['fullnamecourse'] = 'Volledige naam van de cursus';
@@ -757,10 +819,6 @@ $string['fullnameuser'] = 'Volledige naam van de gebruiker';
 $string['fullprofile'] = 'Volledig profiel';
 $string['fullsitename'] = 'Volledige naam van de site';
 $string['functiondisabled'] = 'Deze functie is nu uitgeschakeld';
-$string['gd1'] = 'GD 1.x is geïnstalleerd';
-$string['gd2'] = 'GD 2.x is geïnstalleerd';
-$string['gdneed'] = 'GD moet geïnstalleerd zijn om deze grafiek te kunnen bekijken';
-$string['gdnot'] = 'GD is niet geïnstalleerd';
 $string['general'] = 'Algemeen';
 $string['geolocation'] = 'breedtegraad - lengtegraad';
 $string['gettheselogs'] = 'Toon logs';
@@ -906,11 +964,13 @@ $string['langltr'] = 'Taalrichting van links naar rechts';
 $string['langrtl'] = 'Taalrichting van rechts naar links';
 $string['language'] = 'Taal';
 $string['languagegood'] = 'Dit taalpakket is helemaal bijgewerkt! :-)';
+$string['last'] = 'Laatste';
 $string['lastaccess'] = 'Laatste bezoek';
 $string['lastedited'] = 'Laatste wijziging';
 $string['lastlogin'] = 'Laatste login';
 $string['lastmodified'] = 'Laatste wijziging';
 $string['lastname'] = 'Achternaam';
+$string['lastnamephonetic'] = 'Achternaam - phonetisch';
 $string['lastyear'] = 'Vorig jaar';
 $string['latestlanguagepack'] = 'Haal het meest recente taalpakket van moodle.org';
 $string['layouttable'] = 'Opmaaktabel';
@@ -923,8 +983,8 @@ $string['list'] = 'Lijst';
 $string['listfiles'] = 'Lijst met bestanden in {$a}';
 $string['listofallpeople'] = 'Lijst van alle mensen';
 $string['listofcourses'] = 'Cursuslijst';
+$string['loadinghelp'] = 'Laden...';
 $string['local'] = 'Lokaal';
-$string['localplugindeleteconfirm'] = 'Je gaat de locale plugin \'{$a}\' volledig verwijderen. Dit zal alles wat met deze plugin geassocieerd is uit de databank verwijderen. Ben je er zeker van dat je dit wil doen?';
 $string['localplugins'] = 'Lokale plugins';
 $string['localpluginsmanage'] = 'Beheer lokale plugins';
 $string['location'] = 'Plaats';
@@ -955,7 +1015,6 @@ $string['loginstepsnone'] = 'Hallo!<p>Om volledige toegang te krijgen tot de ver
 </p>
 <p>Als iemand anders de gebruikersnaam al heeft gebruikt zul je het nog een keer met een andere gebruikersnaam moeten proberen.</p>';
 $string['loginto'] = 'Login op {$a}';
-$string['loginusing'] = 'Log hier in met gebruik van je gebruikersnaam en wachtwoord';
 $string['logout'] = 'Log uit';
 $string['logoutconfirm'] = 'Wil je echt afmelden?';
 $string['logs'] = 'Logs';
@@ -965,10 +1024,12 @@ $string['lookback'] = 'rapportperiode';
 $string['mailadmins'] = 'Verwittig beheerders';
 $string['mailstudents'] = 'Verwittig leerlingen';
 $string['mailteachers'] = 'Verwittig leraren';
+$string['maincoursepage'] = 'Hoofdpagina cursus';
 $string['makeafolder'] = 'Maak een map';
 $string['makeeditable'] = 'Als je \'{$a}\' bewerkbaar maakt door het proces op de webserver (bijv. Apache), dan kun je dit bestand rechtstreeks vanuit deze pagina bewerken';
 $string['makethismyhome'] = 'Maak deze pagina als mijn standaard startpagina';
 $string['manageblocks'] = 'Blokken';
+$string['managecategorythis'] = 'Beheer deze categorie';
 $string['managecourses'] = 'Beheer cursussen';
 $string['managedatabase'] = 'Beheer de database';
 $string['manageeditorfiles'] = 'Beheer bestanden gebruikt door de editor';
@@ -978,6 +1039,8 @@ $string['manageroles'] = 'Rollen en rechten';
 $string['markedthistopic'] = 'Dit onderwerp is geselecteerd als het huidige onderwerp';
 $string['markthistopic'] = 'Selecteer dit onderwerp als het huidige onderwerp';
 $string['matchingsearchandrole'] = 'Overeenkomstige \'{$a->search}\' en {$a->role}';
+$string['maxareabytesreached'] = 'Het bestand (of de totale grootte van meerder bestanden) is groter dan de resterende plaats in deze zone.';
+$string['maxbytesforfile'] = 'Het bestand {$a} is groter dan de maximaal toegestane grootte.';
 $string['maxfilesize'] = 'Maximale grootte voor nieuwe bestanden: {$a}';
 $string['maxfilesreached'] = 'Je mag maximaal {$a} bestanden aan dit item koppelen';
 $string['maximumchars'] = 'Een maximum van {$a} characters';
@@ -1000,6 +1063,8 @@ $string['messagedselectedusers'] = 'De geselecteerde gebruikers hebben het beric
 $string['messagedselectedusersfailed'] = 'Er ging wat fout tijdens het versturen van het bericht naar de geselecteerde gebruikers. Sommigen kunnen de boodschap gekregen hebben, anderen niet.';
 $string['messageprovider:availableupdate'] = 'Beschikbare update meldingen';
 $string['messageprovider:backup'] = 'Back-upmeldingen';
+$string['messageprovider:badgecreatornotice'] = 'Meldingen voor wie badges maakt';
+$string['messageprovider:badgerecipientnotice'] = 'Meldingen voor wie badges ontvangt';
 $string['messageprovider:courserequestapproved'] = 'Melding voor goedkeuring nieuwe cursus';
 $string['messageprovider:courserequested'] = 'Melding voor aanvraag nieuwe cursus';
 $string['messageprovider:courserequestrejected'] = 'Melding voor weigering nieuwe cursus';
@@ -1011,6 +1076,7 @@ $string['messageprovider:notices'] = 'Opmerkingen over kleine problemen';
 $string['messageprovider:notices_help'] = 'Dit zijn opmerkingen die interessant zijn voor een beheerder.';
 $string['messageselect'] = 'Selecteer deze gebruiker om berichten te ontvangen';
 $string['messageselectadd'] = 'Stuur bericht';
+$string['middlename'] = 'Middennaam';
 $string['migratinggrades'] = 'Cijfers aan het migreren';
 $string['min'] = 'minuut';
 $string['mins'] = 'minuten';
@@ -1045,11 +1111,10 @@ $string['modchooserdisable'] = 'Activiteitskiezer uit';
 $string['modchooserenable'] = 'Activiteitskiezer aan';
 $string['moddoesnotsupporttype'] = 'Module {$a->modname} ondersteunt geen uploads van het type {$a->type}';
 $string['modified'] = 'Gewijzigd';
-$string['moduledeleteconfirm'] = 'Je staat op het punt de volledige module \'{$a}\' te verwijderen. Hierdoor zal alles wat met deze module is geassocieerd verdwijnen. Ben je ZEKER dat je wil verderdoen?';
-$string['moduledeletefiles'] = 'Alle gegevens in verband met de module \'{$a->module}\' zijn uit de databank verwijderd. Om deze verwijdering verder af te werken (en om te verhinderen dat de module zich herinstalleert), moet je nu de map {$a->directory} van je server verwijderen.';
 $string['moduleintro'] = 'Beschrijving';
 $string['modulesetup'] = 'Klaarmaken van de tabellen van de module';
 $string['modulesuccess'] = '{$a} tabellen zijn met succes klaargemaakt';
+$string['modulesused'] = 'Gebruikte modules';
 $string['month'] = 'Maand';
 $string['months'] = 'Maanden';
 $string['moodledocs'] = 'Moodle Docs';
@@ -1062,9 +1127,16 @@ $string['moreinformation'] = 'Meer informatie over deze fout';
 $string['moreprofileinfoneeded'] = 'Vertel ons meer over jezelf';
 $string['mostrecently'] = 'meest recente';
 $string['move'] = 'Verplaats';
+$string['movecategoriessuccess'] = '{$a->count} categorieën in categorie {$a->to} geplaatst';
+$string['movecategoriestotopsuccess'] = '{$a->count} categorieën verplaatst naar het topniveau.';
 $string['movecategorycontentto'] = 'Verplaats informatie';
+$string['movecategorysuccess'] = 'Categorie {$a->moved} in categorie {$a->to} geplaatst';
 $string['movecategoryto'] = 'Verplaats categorie naar:';
+$string['movecategorytotopsuccess'] = 'Categorie \'{$a->moved}\' naar het topniveau verplaatst';
+$string['movecontent'] = 'Verplaats {$a}';
 $string['movecontentstoanothercategory'] = 'Verplaats inhoud naar een andere categorie';
+$string['movecoursemodule'] = 'Verplaats bron';
+$string['movecoursesection'] = 'Verplaat sectie';
 $string['movecourseto'] = 'Verplaats cursus naar:';
 $string['movedown'] = 'Verplaats naar beneden';
 $string['movefilestohere'] = 'Verplaats de bestanden hier naar toe';
@@ -1073,6 +1145,7 @@ $string['movehere'] = 'Verplaats naar hier';
 $string['moveleft'] = 'Verplaats naar links';
 $string['moveright'] = 'Verplaats naar rechts';
 $string['movesection'] = 'Verplaats sectie {$a}';
+$string['moveselectedcategoriesto'] = 'Verplaats geselecteerde categorieën naar';
 $string['moveselectedcoursesto'] = 'Verplaats geselecteerde cursussen naar...';
 $string['movetoanotherfolder'] = 'Verplaats naar een andere map';
 $string['moveup'] = 'Verplaats naar boven';
@@ -1087,7 +1160,7 @@ $string['mymoodledashboard'] = 'Mijn Moodle dashboard';
 $string['myprofile'] = 'Mijn profiel';
 $string['name'] = 'Naam';
 $string['nameforlink'] = 'Hoe wil je deze link noemen';
-$string['nameforpage'] = 'Hoe wil je deze pagina noemen';
+$string['nameforpage'] = 'Naam';
 $string['navigation'] = 'Navigatie';
 $string['needed'] = 'Nodig';
 $string['never'] = 'Nooit';
@@ -1179,6 +1252,7 @@ $string['noreplybouncemessage'] = 'Je hebt geantwoord op een niet-beantwoorden e
 Dit was de inhoud van je e-mail:';
 $string['noreplybouncesubject'] = '{$a} - geweigerde e-mail';
 $string['noreplyname'] = 'Beantwoord deze e-mail niet door op "beantwoorden" te klikken.';
+$string['noresetrecord'] = 'We hebben geen weet van deze aanvraag voor een nieuw wachtwoord. Vraag het wachtwoord opnieuw aan.';
 $string['noresults'] = 'Geen resultaten';
 $string['normal'] = 'Normaal';
 $string['normalfilter'] = 'Gewoon zoeken';
@@ -1231,12 +1305,12 @@ $string['optional'] = 'niet verplicht';
 $string['options'] = 'opties';
 $string['order'] = 'Volgorde';
 $string['originalpath'] = 'Oorspronkelijk pad';
-$string['orphanedactivities'] = 'Verweesde activiteiten';
 $string['orphanedactivitiesinsectionno'] = 'Verweesde activiteiten (sectie {$a})';
 $string['other'] = 'Andere';
 $string['outline'] = 'Overzicht';
 $string['outlinereport'] = 'Overzichtsrapport';
 $string['page'] = 'Pagina';
+$string['pagea'] = 'Pagina {$a}';
 $string['pageheaderconfigablock'] = 'Blok configureren in {$a->fullname}';
 $string['pagepath'] = 'Paginapad';
 $string['pageshouldredirect'] = 'Deze pagina zou je automatisch moeten doorverwijzen. Als er niets gebeurt, gebruik dan onderstaande link.';
@@ -1261,6 +1335,7 @@ $string['passwordsent'] = 'Het wachtwoord is verzonden';
 $string['passwordsenttext'] = '<p>Er is een e-mail verstuurd naar {$a->email}.</p>
 <p><b>Bekijk je e-mail voor je nieuwe wachtwoord</b></p>
 <p>Het nieuwe wachtwoord is automatisch aangemaakt, dus misschien wil je het <a hrefr="{$a->link}">wijzigen naar iets wat makkelijker te onthouden is</a>.</p>';
+$string['passwordset'] = 'Je wachtwoord is ingesteld';
 $string['path'] = 'Pad';
 $string['pathnotexists'] = 'Dit pad bestaat niet op je server!';
 $string['pathslasherror'] = 'Het pad mag niet eindigen met een schuine streep!';
@@ -1272,6 +1347,8 @@ $string['paymentsorry'] = 'Bedankt voor je betaling! Jammer genoeg is je betalin
 $string['paymentthanks'] = 'Bedankt voor je betaling! Je bent nu aangemeld in je cursus:<br />"{$a}"';
 $string['pendingrequests'] = 'Wachtende aanvragen';
 $string['periodending'] = 'Periode eindigt ({$a})';
+$string['perpage'] = 'Per pagina';
+$string['perpagea'] = 'Per pagina: {$a}';
 $string['personal'] = 'Persoonlijk';
 $string['personalprofile'] = 'Persoonlijk profiel';
 $string['phone'] = 'Telefoon';
@@ -1303,6 +1380,7 @@ $string['preferences'] = 'Voorkeuren';
 $string['preferredlanguage'] = 'Voorkeurstaal';
 $string['preferredtheme'] = 'Voorkeursthema';
 $string['preprocessingbackupfile'] = 'Voorbereiding back-upbestand';
+$string['prev'] = 'Vorige';
 $string['preview'] = 'Bekijk';
 $string['previewhtml'] = 'Voorbeeld HTML-opmaak';
 $string['previeworchoose'] = 'Bekijk of kies een thema';
@@ -1369,11 +1447,18 @@ $string['resetcomponent'] = 'Component';
 $string['resetcourse'] = 'Cursus terug op standaardinstellingen';
 $string['resetinfo'] = 'Met deze pagina kun je de gebruikersgegevens uit een cursus halen, terwijl je de activiteiten en andere instellingen behoudt. Let op: het kiezen van de onderstaande instellingen en het insturen van deze pagina zal de gekozen gebruikersgegevens voor altijd verwijderen!';
 $string['resetnotimplemented'] = 'Reset niet geïmplementeerd';
+$string['resetrecordexpired'] = 'De link om je wachtwoord te resetten is meer dan {$a} minuten oud en is verlopen.
+Vraag opnieuw een nieuw wachtwoord aan.';
 $string['resetstartdate'] = 'Standaardwaarde datum';
 $string['resetstatus'] = 'Status';
 $string['resettask'] = 'Taak';
 $string['resettodefaults'] = 'Herstel standaardinstellingen';
-$string['resortcoursesbyname'] = 'Hersorteer de cursussen op naam';
+$string['resortbyfullname'] = 'Op volledige naam';
+$string['resortbyidnumber'] = 'Op IDnummer';
+$string['resortbyshortname'] = 'Op korte naam';
+$string['resortcourses'] = 'Sorteer cursussen';
+$string['resortsubcategoriesbyidnumber'] = 'Sorteer subcategorieën op IDnummer';
+$string['resortsubcategoriesbyname'] = 'Sorteer subcategorieën op naam';
 $string['resource'] = 'Bron';
 $string['resourcedisplayauto'] = 'Automatisch';
 $string['resourcedisplaydownload'] = 'Download verplicht';
@@ -1403,10 +1488,10 @@ $string['restoreusersprecheck'] = 'Gebruikersgegevens controleren';
 $string['restoreusersprecheckerror'] = 'Er zijn problemen gevonden bij het controleren van gebruikersgegevens';
 $string['restricted'] = 'Beperkt';
 $string['returningtosite'] = 'Al eerder op deze website geweest?';
-$string['returntomaincoursepage'] = 'Terug naar hoofdpagina van de cursus';
 $string['returntooriginaluser'] = 'Keer terug naar {$a}';
 $string['revert'] = 'Keer terug';
 $string['role'] = 'Rol';
+$string['roleassignments'] = 'Roltoewijzingen';
 $string['rolemappings'] = 'Rollen koppelen';
 $string['rolerenaming'] = 'Hernoemen van rollen';
 $string['rolerenaming_help'] = 'Met deze opties kun je de getoonde namen van rollen die je in je cursus gebruikt wijzigen. Enkel de getoonde naam wordt gewijzigd - de onderliggende rechten van de rol worden niet gewijzigd.
@@ -1463,7 +1548,12 @@ $string['searchagain'] = 'Zoek nog een keer';
 $string['searchbyemail'] = 'Zoek op e-mailadres';
 $string['searchbyusername'] = 'Zoek op gebruikersnaam';
 $string['searchcourses'] = 'Zoek cursussen';
-$string['searchhelp'] = 'Je kunt naar meer woorden tegelijkertijd zoeken.<p>woord : zoek naar elke instantie van dit woord in de tekst.<br />+word : alleen precies passende woorden worden gevonden.<br />-word : de resultaten waar dit woord in voorkomt worden niet getoond.';
+$string['searchhelp'] = '<p>Je kunt naar meer woorden tegelijkertijd zoeken.</p>
+<ul>
+<li>woord : zoek naar elke instantie van dit woord in de tekst.</li>
+<li>+word : alleen precies passende woorden worden gevonden.<:li>
+<li>-word : de resultaten waar dit woord in voorkomt worden niet getoond.</li>
+</ul>';
 $string['search_help'] = 'Voor het standaard zoeken met één of meer worden in de tekst, geef je je zoektermen in gescheiden door spaties. Alle woorden, langer dan twee tekens worden gebruikt.
 
 Voor geavanceerd zoeken, klik je op op de zoekknop zonder iets in het zoekvenster te typen om zo in het formulier voor geavanceerd zoeken terecht te komen.';
@@ -1487,6 +1577,7 @@ $string['sectionusedefaultname'] = 'Gebruik standaard sectienaam';
 $string['seealsostats'] = 'Zie ook: statistieken';
 $string['selctauser'] = 'Selecteer een gebruiker';
 $string['select'] = 'Kies';
+$string['selectacategory'] = 'Selecteer een categorie';
 $string['selectacountry'] = 'Kies een land';
 $string['selectacourse'] = 'Selecteer een cursus';
 $string['selectacoursesite'] = 'Selecteer een cursus of site';
@@ -1496,7 +1587,11 @@ $string['selectamodule'] = 'Kies een activiteitenmodule';
 $string['selectanaction'] = 'Selecteer een actie';
 $string['selectanoptions'] = 'Selecteer een optie';
 $string['selectaregion'] = 'Kies een plaats';
+$string['selectcategorysort'] = 'Welke categorieën je wil sorteren?';
+$string['selectcategorysortby'] = 'Selecteer hoe je categorieën wil sorteren';
+$string['selectcoursesortby'] = 'Selecteer hoe je curussen wil sorteren';
 $string['selectdefault'] = 'Kies standaard';
+$string['selectedcategories'] = 'Geselecteerde categorieën';
 $string['selectedfile'] = 'Kies een bestand';
 $string['selectednowmove'] = '{$a} bestanden zijn geselecteerd voor verplaatsen. Ga nu naar de bestemmingsmap en klik op \'Verplaats bestanden hier naar toe\'';
 $string['selectfiles'] = 'Selecteer bestanden';
@@ -1514,6 +1609,8 @@ $string['separateandconnectedinfo'] = 'De schaal is gebaseerd op de theorie van 
 $string['servererror'] = 'Er is een fout opgetreden tijdens de communicatie met de server';
 $string['serverlocaltime'] = 'De lokale tijd van de server';
 $string['setcategorytheme'] = 'Kies categoriethema';
+$string['setpassword'] = 'Wachtwoord aanpassen';
+$string['setpasswordinstructions'] = 'Geef en herhaal hier je nieuwe wachtwoord. Klik dan op "Wachtwoord aanpassen".<br />Je nieuwe wachtwoord wordt bewaard en je zult aangemeld worden.';
 $string['settings'] = 'Instellingen';
 $string['shortname'] = 'Korte naam';
 $string['shortnamecollisionwarning'] = '[*]=Deze korte naam is al in gebruik door een andere cursus en zal gewijzigd moeten worden tijdens het goedkeuren';
@@ -1531,6 +1628,7 @@ $string['showall'] = 'Laat alle {$a} zien';
 $string['showallcourses'] = 'Laat alle cursussen zien';
 $string['showallusers'] = 'Laat alle gebruikers zien';
 $string['showblockcourse'] = 'Toon een lijst met cursussen met dit blok';
+$string['showcategory'] = 'Toon {$a}';
 $string['showcomments'] = 'Toon/verberg notities';
 $string['showcommentsnonjs'] = 'Toon commentaren';
 $string['showdescription'] = 'Toon beschrijving op cursuspagina';
@@ -1547,6 +1645,8 @@ $string['showgrades_help'] = '<p>Voor de meeste activiteiten is het mogelijk cij
   kan het tonen van cijfers uitgezet worden bij de vakinstellingen. Het is
    dan nog wel mogelijk om cijfers te geven voor individuele activiteiten, de
    cijfers zullen alleen niet worden getoond.</p>';
+$string['showingacourses'] = 'Toon alle {$a} cursussen';
+$string['showingxofycourses'] = 'Toon cursussen {$a->start} tot {$a->end} van {$a->total} cursussen';
 $string['showlistofcourses'] = 'Laat de lijst met cursussen zien';
 $string['showmodulecourse'] = 'Toon een lijst met cursussen met deze activiteit';
 $string['showonly'] = 'Toon enkel';
@@ -1578,6 +1678,7 @@ $string['sitefilesused'] = 'Site-bestanden in deze cursus gebruikt';
 $string['sitehome'] = 'Site startpagina';
 $string['sitelegacyfiles'] = 'Verouderde site-bestanden';
 $string['sitelogs'] = 'Sitelogs';
+$string['sitemessage'] = 'Bericht gebruikers';
 $string['sitenews'] = 'Sitenieuws';
 $string['sitepages'] = 'Site pagina\'s';
 $string['sitepartlist'] = 'Je hebt onvoldoende rechten om de deelnemerslijst te zien';
@@ -1593,13 +1694,23 @@ $string['sizegb'] = 'GB';
 $string['sizekb'] = 'KB';
 $string['sizemb'] = 'MB';
 $string['skipped'] = 'Overgeslagen';
+$string['skiptocategorylisting'] = 'Ga onmiddellijk naar categorielijsten';
+$string['skiptocoursedetails'] = 'Ga onmiddellijk naar gedetailleerde cursusinformatie';
+$string['skiptocourselisting'] = 'Ga onmiddellijk naar cursuslijsten';
 $string['skypeid'] = 'Skype ID';
 $string['socialheadline'] = 'Sociale forum - meest recente onderwerpen';
 $string['someallowguest'] = 'Gasten hebben toegang tot sommige cursussen';
 $string['someerrorswerefound'] = 'Bepaalde informatie ontbrak of was fout. Kijk hieronder voor de details.';
+$string['sort'] = 'Sorteer';
 $string['sortby'] = 'Sorteer volgens';
 $string['sortbyx'] = 'Sorteer volgens {$a} oplopend';
 $string['sortbyxreverse'] = 'Sorteer volgens {$a} aflopend';
+$string['sortcategoriesbyidnumber'] = 'Sorteer categorieën op IDnummer';
+$string['sortcategoriesbyname'] = 'Sorteer categorieën op naam';
+$string['sortcoursesbyfullname'] = 'Sorteer cursussen op volledige naam';
+$string['sortcoursesbyidnumber'] = 'Sorteer cursussen op IDnummer';
+$string['sortcoursesbyshortname'] = 'Sorteer cursussen op korte naam';
+$string['sorting'] = 'Sorteren';
 $string['sourcerole'] = 'Bron rol';
 $string['specifyname'] = 'Je moet een naam geven';
 $string['standard'] = 'Standaard';
@@ -1658,6 +1769,8 @@ $string['studentnotallowed'] = 'Het spijt me, maar je kunt deze cursus niet binn
 $string['students'] = 'Leerlingen';
 $string['studentsandteachers'] = 'Leerlingen en leraren';
 $string['subcategories'] = 'Subcategorieën';
+$string['subcategory'] = 'Subcategorie';
+$string['subcategoryof'] = 'Subcategorie van {$a}';
 $string['submit'] = 'Insturen';
 $string['success'] = 'Succes';
 $string['summary'] = 'Beschrijving';
@@ -1673,6 +1786,8 @@ aan dit onderwerp toe te voegen. (de eerste activiteit zou bijvoorbeeld een pagi
 zijn die heet <b>Over dit onderwerp</b>).</p>';
 $string['summaryof'] = 'Beschrijving van {$a}';
 $string['supplyinfo'] = 'Meer details';
+$string['suspended'] = 'Geschorst';
+$string['suspendedusers'] = 'Geschorste gebruikers';
 $string['switchdevicedefault'] = 'Schakel over naar standaard thema';
 $string['switchdevicerecommended'] = 'Schakel over naar het aangewezen thema voor jou toestel';
 $string['switchrolereturn'] = 'Terug naar mijn rol';
@@ -1685,7 +1800,7 @@ $string['targetrole'] = 'Doel rol';
 $string['teacheronly'] = 'alleen maar voor de {$a}';
 $string['teacherroles'] = '{$a} rollen';
 $string['teachers'] = 'leraren';
-$string['textediting'] = 'Als je tekst bewerkt';
+$string['textediting'] = 'Teksteditor';
 $string['texteditor'] = 'Gebruik standaardwebformulieren';
 $string['textformat'] = 'Plattetekstopmaak';
 $string['thanks'] = 'Bedankt';
@@ -1694,10 +1809,12 @@ $string['themes'] = 'Thema\'s';
 $string['themesaved'] = 'Het nieuwe thema is bewaard';
 $string['therearecourses'] = 'Er zijn {$a} cursussen';
 $string['thereareno'] = 'Er zijn geen {$a} in deze cursus';
+$string['thiscategory'] = 'Deze categorie';
 $string['thiscategorycontains'] = 'Deze categorie bevat';
 $string['time'] = 'Tijd';
 $string['timezone'] = 'Tijdzone';
 $string['to'] = 'Tot';
+$string['tocontent'] = 'Naar item "{$a}"';
 $string['tocreatenewaccount'] = 'Overslaan om een nieuwe account te maken';
 $string['today'] = 'Vandaag';
 $string['todaylogs'] = 'Logs van vandaag';
@@ -1712,7 +1829,9 @@ $string['topic'] = 'Onderwerp';
 $string['topichide'] = 'Verberg dit onderwerp voor {$a}';
 $string['topicoutline'] = 'Overzicht van het onderwerp';
 $string['topicshow'] = 'Toon dit onderwerp aan {$a}';
+$string['toplevelcategory'] = 'Bovenste categorie';
 $string['total'] = 'Totaal';
+$string['totopofsection'] = 'Naar bovenaan sectie "{$a}"';
 $string['trackforums'] = 'Forum opvolgen';
 $string['trackforumsno'] = 'Nee: hou niet bij welke berichten ik al heb gelezen';
 $string['trackforumsyes'] = 'Ja: markeer berichten die ik nog niet heb gelezen';
@@ -1722,6 +1841,7 @@ $string['turneditingon'] = 'Zet wijzigen aan';
 $string['undecided'] = 'Onbeslist';
 $string['unfinished'] = 'Niet klaar';
 $string['unknowncategory'] = 'Onbekende categorie';
+$string['unknownerror'] = 'Onbekende fout';
 $string['unlimited'] = 'Onbeperkt';
 $string['unpacking'] = '{$a} wordt uitgepakt';
 $string['unsafepassword'] = 'Dit wachtwoord is niet veilig - probeer iets anders';
@@ -1751,6 +1871,7 @@ $string['uploadfailednotrecovering'] = 'Je bestandsupload is mislukt omdat er ee
 $string['uploadfilelog'] = 'Uploadlog voor bestand {$a}';
 $string['uploadformlimit'] = 'Het geüploade bestand {$a} is groter dan de maximale grootte ingesteld op het formulier';
 $string['uploadlabel'] = 'Titel:';
+$string['uploadlimitwithsize'] = '{$a->contextname} oploadlimiet ({$a->displaysize})';
 $string['uploadnewfile'] = 'Upload nieuw bestand';
 $string['uploadnofilefound'] = 'Er is geen bestand gevonden - weet je zeker dat je een bestand geselecteerd hebt om te uploaden?';
 $string['uploadnotallowed'] = 'Uploads niet toegestaan';
@@ -1801,7 +1922,10 @@ $string['version'] = 'Versie';
 $string['view'] = 'Bekijken';
 $string['viewallcourses'] = 'Bekijk alle cursussen';
 $string['viewallcoursescategories'] = 'Bekijk alle cursussen en categorieën';
+$string['viewallsubcategories'] = 'Bekijk alle subcategorieën';
 $string['viewfileinpopup'] = 'Bekijk bestand in pop-upvenster';
+$string['viewing'] = 'Bekijken:';
+$string['viewmore'] = 'Bekijk meer';
 $string['viewprofile'] = 'Bekijk profiel';
 $string['views'] = 'Bekeken pagina\'s';
 $string['viewsolution'] = 'Bekijk oplossing';
@@ -1825,6 +1949,7 @@ $string['virusfoundsubject'] = '{$a}: Virus gevonden!';
 $string['virusfounduser'] = 'Het bestand {$a->filename} dat je geüpload hebt is door een virusscanner gecontroleerd en is geïnfecteerd! Je bestandsupload is mislukt.';
 $string['virusplaceholder'] = 'Dit geüploade bestand bevat een virus en is verplaatst of verwijderd. De gebruiker is verwittigd.';
 $string['visible'] = 'Zichtbaar';
+$string['visible_help'] = 'Deze instelling bepaalt wanneer een cursus verschijnt in de cursuslijst. Behalve leraren en beheerders hebben gebruikers geen toegang tot deze cursus.';
 $string['visibletostudents'] = 'Zichtbaar voor {$a}';
 $string['warning'] = 'Waarschuwing';
 $string['warningdeleteresource'] = 'Waarschuwing: Er is naar {$a} verwezen vanuit een bron. Wil je de bron aanpassen?';
@@ -1840,6 +1965,8 @@ $string['welcometocoursetext'] = 'Welkom bij {$a->coursename}!
 Eén van de eerste dingen die je zou moeten doen is het invullen van je gebruikersprofiel, zodat we wat meer over jou te weten kunnen komen:
 
 {$a->profileurl}';
+$string['whatforlink'] = 'Wat wil je doen met de link?';
+$string['whatforpage'] = 'Wat wil je doen met de tekst?';
 $string['whattocallzip'] = 'Hoe wil je het zip-bestand noemen?';
 $string['whattodo'] = 'Wat moet ik doen';
 $string['windowclosing'] = 'Dit venster zou automatisch moeten sluiten. Indien niet, sluit het dan nu.';

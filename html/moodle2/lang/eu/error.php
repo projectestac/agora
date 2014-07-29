@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'error', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -75,6 +75,7 @@ $string['cannoteditcommentexpired'] = 'Ezin duzu hau editatu. Denbora amaitu egi
 $string['cannoteditpostorblog'] = 'Ezin duzu mezurik bidali edo bloga editatu';
 $string['cannoteditsiteform'] = 'Ezin duzu guneko ikastaroa formulario hau erabilita';
 $string['cannotedityourprofile'] = 'Barkatu, ezin duzu zeure profila editatu';
+$string['cannotexecduringupgrade'] = 'Ezin izango da egikaitu eguneraketa izan bitartean';
 $string['cannotfindcomponent'] = 'Ezin da osagaia aurkitu';
 $string['cannotfindcontext'] = 'Ezin da testuingurua aurkitu';
 $string['cannotfindcourse'] = 'Ezin da ikastaroa aurkitu';
@@ -101,6 +102,7 @@ $string['cannotmailconfirm'] = 'Errorea pasahitza aldatzeko konfirmazio e-posta 
 $string['cannotmanualctrack'] = 'Jarduerak ez du eskuz osatutzat emateko jarraipenik';
 $string['cannotmarktopic'] = 'Ezin da gai hau markatu ikastaro honetan';
 $string['cannotmigratedatacomments'] = 'Ezin dira iruzkinak migratu datuen modulutik';
+$string['cannotmovecategory'] = 'Ezin da kategoria mugitu';
 $string['cannotmoverolewithid'] = 'Ezin da {$a} ID-a duen rola mugitu';
 $string['cannotopencsv'] = 'Ezin da CSV fitxategia zabaldu';
 $string['cannotopenfile'] = 'Ezin da fitxategia zabaldu ({$a})';
@@ -151,6 +153,7 @@ $string['cannotviewprofile'] = 'Ezin duzu erabiltzaile honen profila ikusi';
 $string['cannotviewreport'] = 'Ezin duzu txosten hau ikusi';
 $string['cannotwritefile'] = 'Ezin da fitxategian idatzi ({$a})';
 $string['categoryerror'] = 'Kategoria-errorea';
+$string['categorynamerequired'] = 'Kategoria-izena derrigorrezkoa da';
 $string['categorytoolong'] = 'Kategoriaren izena luzeegia';
 $string['commentmisconf'] = 'Iruzkinaren IDa gaizki konfiguratuta dago';
 $string['componentisuptodate'] = 'Osagaia eguneratu da';
@@ -218,7 +221,9 @@ $string['generalexceptionmessage'] = 'Salbuespena - {$a}';
 $string['gradepubdisable'] = 'Kalifikazioak argitaratzea desgaituta dago';
 $string['groupalready'] = 'Erabiltzailea oraindik da {$a} taldeko partaidea';
 $string['groupexistforcourse'] = 'Ikastaro honetan dagoeneko bada "{$a}" taldea';
+$string['groupingnotaddederror'] = '"{$a}" taldekatzea ez da gehitu';
 $string['groupnotaddederror'] = '"{$a}" taldea ez da gehitu';
+$string['groupnotaddedtogroupingerror'] = '"{$a->groupname}" taldea ez da  "{$a->groupingname}" taldekatzera gehitu';
 $string['groupunknown'] = '{$a} taldea ez da inongo ikastarokoa';
 $string['groupusernotmember'] = 'Erabiltzailea ez da talde honetako kidea';
 $string['guestnocomment'] = 'Bisitariek ez dute mezuen iruzkinak egiteko baimenik';
@@ -261,6 +266,7 @@ $string['invalidentry'] = 'Hau ez da sarrera baliagarria!';
 $string['invalidevent'] = 'Ekitaldi baliogabea';
 $string['invalidfieldname'] = '"{$a}"  ez da izen baliagarria eremu honetarako';
 $string['invalidfiletype'] = '"{$a}" ez da fitxategi mota baliagarria';
+$string['invalidformatpara'] = 'Formatua ez da zuzena parametroa aukeratzeko';
 $string['invalidformdata'] = 'Datu-formularioa ez da zuzena';
 $string['invalidfunction'] = 'Funtzioa ez da zuzena';
 $string['invalidgradeitemid'] = 'Kalifikaizo-elementuaren IDa ez da zuzena';
@@ -322,6 +328,7 @@ $string['modulemissingcode'] = '{$a} moduluak ez dauka funtzio hau aurrera erama
 $string['mustbeloggedin'] = 'Sartu egin behar duzu honetarako';
 $string['mustbeteacher'] = 'Orri hau irakasleek baino ezin dute ikusi';
 $string['needcopy'] = 'Lehenengo zerbait kopiatu behar duzu!';
+$string['needcoursecategroyid'] = 'Ikastaro guztien IDa edo kategoria zehaztu behar da';
 $string['noadmins'] = 'Ez dago kudeatzailerik!';
 $string['noblocks'] = 'Ez da blokerik aurkitu!';
 $string['nocapabilitytousethisservice'] = 'Erabiltzaileak ez du baimenik zerbitzu hau erabiltzeko';
@@ -376,6 +383,7 @@ $string['restricteduser'] = 'Sentitzen dugu, baina zure kontuak, "{$a}", ezin du
 $string['scheduledbackupsdisabled'] = 'Guneko kudeatzaileak programatutako segurtasun-kopiak desgaitu ditu';
 $string['sectionnotexist'] = 'Atal hau ez da existitzen';
 $string['sendmessage'] = 'Mezua bidali';
+$string['serverconnection'] = 'Errorea zerbitzariarekin konektatzean';
 $string['servicedonotexist'] = 'Zerbitzua ez da existitzen';
 $string['sessionerroruser'] = 'Saioa amaitu da. Sar zaitez berriro, mesedez.';
 $string['sessionerroruser2'] = 'Zure saioari eragiten dion zerbitzari-errorea antzeman da. Berriz sartu edo nabigatzailea berriro abiatu, mesedez.';
@@ -385,10 +393,10 @@ $string['socksnotsupported'] = 'SOCKS5 proxya ez da onartzen PHP4-n';
 $string['spellcheckernotconf'] = 'Zuzentzaile ortografikoa ez dago konfiguratuta';
 $string['sslonlyaccess'] = 'Segurtasun-arrazoiak direla-eta, https konexioak bakarrik dude baimenduta, barkatu.';
 $string['statscatchupmode'] = 'Estatistika une honetan \'catchup\' moduan dago. Orain arte {$a->daysdone} egun prozesatu dira eta {$a->dayspending} prozesatzeko daude. Mesedez, beranduago aztertu berriz.';
-$string['statsdisable'] = 'Estatistikak ez daude gaituta';
+$string['statsdisable'] = 'Estatistikak ez daude gaituta.';
 $string['statsnodata'] = 'Ez dago daturik ikastaro eta denbora-tarte konbinazio horretarako';
 $string['storedfilecannotread'] = 'Ezin da fitxategia irakurri, edo ez dago fitxategia edo baimen arazoak daude.';
-$string['storedfilenotcreated'] = 'Ezin da fitxategia sortu: "{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}/{$a->filepath}/{$a->filename}"';
+$string['storedfilenotcreated'] = 'Ezin da fitxategia sortu: "{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}{$a->filepath}{$a->filename}"';
 $string['tagdisabled'] = 'Etiketak desgaituta daude!';
 $string['tagnotfound'] = 'Ez da aurkitu zehaztutako etiketa datu-basean';
 $string['themenotinstall'] = 'Itxura hau ez dago instalatuta!';
@@ -404,11 +412,13 @@ $string['unknowncontext'] = 'Hau testuinguru ezezaguna da.';
 $string['unknowncourse'] = 'Ez dago "{$a}" izeneko ikastarorik';
 $string['unknowncourseidnumber'] = '"{$a}" ikastaroaren ID ezezaguna';
 $string['unknowncourserequest'] = 'Ikastaro-eskari ezezaguna';
+$string['unknownevent'] = 'Ekitaldi ezezaguna';
 $string['unknowngroup'] = '"{$a}" talde ezezaguna';
 $string['unknownhelp'] = '{$a} laguntza-gaia ezezaguna';
 $string['unknownmodulename'] = 'Moduluaren izena ezezaguna da formulariorako';
 $string['unknownrole'] = '"{$a}" rol ezezaguna';
 $string['unknownuseraction'] = 'Barkatu, baina erabiltzailearen ekintza hau ez dugu ulertzen.';
+$string['unknownuserselector'] = 'Erabiltzaile-hautatzaile ezezaguna';
 $string['unknoworder'] = 'Ordena ezezaguna';
 $string['unknowparamtype'] = 'Parametro-mota ezezaguna: {$a}';
 $string['unknowquestiontype'] = '{$a} galdera-mota onartezina';

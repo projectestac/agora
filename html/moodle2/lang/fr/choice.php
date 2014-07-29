@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,8 +48,13 @@ $string['choicetext'] = 'Texte de la question';
 $string['chooseaction'] = 'Choisir une action...';
 $string['completionsubmit'] = 'Afficher comme terminé quand l\'utilisateur a rempli le sondage';
 $string['displayhorizontal'] = 'Afficher horizontalement';
-$string['displaymode'] = 'Mode d\'affichage';
+$string['displaymode'] = 'Mode d\'affichage des options';
 $string['displayvertical'] = 'Afficher verticalement';
+$string['event_answer_created'] = 'Vote effectué';
+$string['event_answer_updated'] = 'Vote modifié';
+$string['event_choice_viewed'] = 'Vote consulté';
+$string['event_instances_list_viewed'] = 'Liste d\'instances consultée';
+$string['event_report_viewed'] = 'Rapport de vote consulté';
 $string['expired'] = 'Désolé, cette activité s\'est terminée le {$a} et n\'est plus disponible';
 $string['full'] = '(complet)';
 $string['havetologin'] = 'Vous devez vous connecter pour pouvoir répondre à ce sondage';
@@ -58,6 +63,7 @@ $string['limitanswers'] = 'Limiter le nombre de réponses permises';
 $string['limitanswers_help'] = 'Ce réglage vous permet de limiter le nombre de personnes pouvant sélectionner une option d\'un sondage. Lorsque cette limite est atteinte, personne d\'autre ne pourra plus choisir cette option.
 
 Si les limites ne sont pas activées, un nombre quelconque de participants pourra choisir chacune des options.';
+$string['limitno'] = 'Limite {no}';
 $string['modulename'] = 'Sondage';
 $string['modulename_help'] = 'Le module d\'activité sondage permet à un enseignant de poser une question et de proposer un choix de réponses possibles.
 
@@ -79,6 +85,8 @@ $string['notopenyet'] = 'Désolé, cette activité ne sera disponible que le {$a
 $string['numberofuser'] = 'Nombre de participants';
 $string['numberofuserinpercentage'] = 'Pourcentage de participants';
 $string['option'] = 'Option';
+$string['optionno'] = 'Option {no}';
+$string['options'] = 'Options';
 $string['page-mod-choice-x'] = 'Toute page du module sondage';
 $string['pluginadministration'] = 'Administration du sondage';
 $string['pluginname'] = 'Sondage';
@@ -95,6 +103,7 @@ $string['removeresponses'] = 'Supprimer toutes les réponses';
 $string['responses'] = 'Réponses';
 $string['responsesresultgraphheader'] = 'Affichage graphique';
 $string['responsesto'] = 'Réponses à {$a}';
+$string['results'] = 'Résultats';
 $string['savemychoice'] = 'Enregistrer mon choix';
 $string['showunanswered'] = 'Afficher la colonne des « sans réponse »';
 $string['skipresultgraph'] = 'Ne pas montrer le graphique des résultats';

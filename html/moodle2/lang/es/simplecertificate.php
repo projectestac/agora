@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'simplecertificate', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'simplecertificate', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   simplecertificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['awarded'] = 'Otorgado';
-$string['awardedto'] = 'Otorgado';
+$string['awardedto'] = 'Otorgado a';
 $string['cantdeleteissue'] = 'Error al eliminar certificados emitidos';
 $string['certificateimage'] = 'Archivo de imagen de certificado';
 $string['certificateimage_help'] = 'Esta es la imagen que se utilizará en el certificado';
@@ -75,8 +74,6 @@ $string['codex'] = 'Posición horizontal del código QR';
 $string['codey'] = 'Posición vertical del código QR';
 $string['completiondate'] = 'Finalización del curso';
 $string['coursegrade'] = 'Calificación del curso';
-$string['coursehours'] = 'Horas del curso';
-$string['coursehours_help'] = 'Horas del curso';
 $string['coursename'] = 'Nombre alternativo del curso';
 $string['coursename_help'] = 'Nombre alternativo del curso';
 $string['coursetimereq'] = 'Minutos requeridos en el curso';

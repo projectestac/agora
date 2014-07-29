@@ -17,14 +17,16 @@
 /**
  * Theme version info
  *
- * @package    theme
- * @subpackage standardold
+ * @package    theme_standardold
  * @copyright  2011 Petr Skoda  {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2012112900; // The current module version (Date: YYYYMMDDXX)
-$plugin->requires  = 2012112900; // Requires this Moodle version
+$plugin->version   = 2013110500; // The current module version (Date: YYYYMMDDXX)
+$plugin->requires  = 2013110500; // Requires this Moodle version
 $plugin->component = 'theme_standardold'; // Full name of the plugin (used for diagnostics)
+$plugin->dependencies = array(
+    'theme_standard'  => 2013110500,
+);

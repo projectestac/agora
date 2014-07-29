@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -88,7 +88,9 @@ $string['entrybodyonlydesc'] = 'Описание записи';
 $string['entryerrornotyours'] = 'Эта запись не принадлежит вам!';
 $string['entrysaved'] = 'Ваша запись сохранена';
 $string['entrytitle'] = 'Название записи';
-$string['entryupdated'] = 'Запись в блоге обновлена';
+$string['evententryadded'] = 'Запись добавлена в блог';
+$string['evententrydeleted'] = 'Запись удалена из блога';
+$string['evententryupdated'] = 'Запись в блоге обновлена';
 $string['externalblogcrontime'] = 'График CRON для внешнего блога';
 $string['externalblogdeleteconfirm'] = 'Отменить регистрацию этого внешнего блога?';
 $string['externalblogdeleted'] = 'Внешний блог удален';
@@ -108,7 +110,6 @@ $string['invalidgroupid'] = 'Недопустимый ID группы';
 $string['invalidurl'] = 'Этот адрес недоступен';
 $string['linktooriginalentry'] = 'Ссылка на оригинальную запись блога';
 $string['maxexternalblogsperuser'] = 'Максимальное количество внешних блогов пользователя';
-$string['mustassociatecourse'] = 'Если Вы обнародуете курс или список членов группы, то необходимо ассоциировать курс с этой записью';
 $string['name'] = 'Название';
 $string['name_help'] = 'Введите описательное название своего внешнего блога. (Если название не указано, то будет использоваться заглавие Вашего внешнего блога).';
 $string['noentriesyet'] = 'Нет отображаемых записей';

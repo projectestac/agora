@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,13 +35,13 @@ $string['aicchacpkeepsessiondata'] = 'AICC HACP sessiegegevens';
 $string['aicchacpkeepsessiondata_desc'] = 'De tijdsduur in dagen dat de externe AICC HACP sessiedata worden bijgehouden (een hoge instelling zal de tabel vullen met oude data maar kan nuttig zijn bij het debuggen).';
 $string['aicchacptimeout'] = 'AICC HACP timeout';
 $string['aicchacptimeout_desc'] = 'De tijdsduur in minuten dat een externe AICC HACP sessie open kan blijven.';
+$string['aliasonly'] = 'Wanneer je een imsmanifest.xml bestand van een opslagruimte selecteert, moet je een alias/snelkoppeling voor dit bestand gebruiken';
 $string['allowapidebug'] = 'Activeer API debug en tracing (zet het capture mask met apidebugmask)';
 $string['allowtypeaicchacp'] = 'Schakel extern AICC HACP in';
 $string['allowtypeaicchacp_desc'] = 'Indien ingeschakeld, staat dit AICC HACP extern communiceren toe zonder gebruikerslogin te vereisen voor post requests van het extern AICC-pakket';
 $string['allowtypeexternal'] = 'Extern pakkettype inschakelen';
 $string['allowtypeexternalaicc'] = 'Rechtstreekse AICC url inschakelen';
 $string['allowtypeexternalaicc_desc'] = 'Indien ingeschakeld is een rechtstreekse URL naar een eenvoudig AICC-pakket toegestaan';
-$string['allowtypeimsrepository'] = 'IMS pakkettype inschakelen';
 $string['allowtypelocalsync'] = 'Gedownload pakkettype inschakelen';
 $string['apidebugmask'] = 'API debug capture mask - gebruik een eenvoudige regex op &lt;username&gt;:&lt;activityname&gt; vb. admin:.* zal enkel voor gebruiker admin debuggen';
 $string['areacontent'] = 'Inhoud bestanden';
@@ -51,6 +51,7 @@ $string['assetlaunched'] = 'Set - bekeken';
 $string['attempt'] = 'Poging';
 $string['attempt1'] = '1 poging';
 $string['attempts'] = 'Pogingen';
+$string['attemptsmanagement'] = 'Pogingenbeheer';
 $string['attemptstatusall'] = 'Mijn startpagina en ingangspagina';
 $string['attemptstatusentry'] = 'Enkel op ingangspagina';
 $string['attemptstatusmy'] = 'Enkel op Mijn startpagina';
@@ -64,14 +65,19 @@ $string['autocontinue_help'] = '<p><b>Automatisch verdergaan</b></p>
 
 <p>Als dit op Nee staat, moeten de gebruikers op de "Ga verder"-knop klikken om verder te gaan.</p>';
 $string['averageattempt'] = 'Gemiddelde van pogingen';
+$string['badarchive'] = 'Je moet een geldig zip-bestand geven';
+$string['badimsmanifestlocation'] = 'Er is een imsmanifest.xml-bestand gevonden, maar niet in de root van je zip-bestand. Hermaak je SCORM-pakket';
 $string['badmanifest'] = 'Enkele belangrijke fouten: zie foutenlogboek';
-$string['badpackage'] = 'Er zijn problemen met dit pakket. Controleer het en probeer nogmaals';
 $string['browse'] = 'Voorproeven';
 $string['browsed'] = 'Voorgeproefd';
 $string['browsemode'] = 'Probeermodus';
 $string['browserepository'] = 'Blader door de opslagruimte';
+$string['calculatedweight'] = 'Berekende weging';
 $string['cannotfindsco'] = 'Kon SCO niet vinden';
 $string['chooseapacket'] = 'Kies of update een SCORM/AICC-pakket';
+$string['collapsetocwinsize'] = 'Inhoudstafel dichtklappen wanneer het venster kleiner wordt dan';
+$string['collapsetocwinsizedesc'] = 'Deze instelling laat je de venstergrootte kiezen tot wanneer de inhoudstafel automatisch ingeklapt moet blijven.';
+$string['compatibilitysettings'] = 'Compatibiliteitsinstellingen';
 $string['completed'] = 'Volledig';
 $string['completionscorerequired'] = 'Vereiste minimumscore';
 $string['completionscorerequired_help'] = 'Het inschakelen van deze instelling zal er voor zorgen dat een gebruiker minstens de minimumscore moet behalen om deze SCORM-activiteit als voltooid te markeren, samen met eventuele andere vereisten voor Voltooide Activiteit.';
@@ -107,7 +113,6 @@ $string['dnduploadscorm'] = 'Voeg een SCORM-pakket toe';
 $string['domxml'] = 'DOMXML externe bibliotheek';
 $string['duedate'] = 'Klaar tegen';
 $string['element'] = 'Element';
-$string['elementdefinition'] = 'Element definitie';
 $string['enter'] = 'Start';
 $string['entercourse'] = 'Begin de SCORM/AICC-cursus';
 $string['errorlogs'] = 'Foutenlogboek';
@@ -123,6 +128,7 @@ $string['finishscorm'] = 'Je bent klaar met het bekijken van deze bron, {$a}';
 $string['finishscormlinkname'] = 'klik hier om terug te keren naar de cursuspagina';
 $string['firstaccess'] = 'Eerste toegang';
 $string['firstattempt'] = 'Eerste poging';
+$string['floating'] = 'Zwevend';
 $string['forcecompleted'] = 'Verplichte poging voltooid';
 $string['forcecompleteddesc'] = 'Deze instelling regelt de standaard waarde voor het verplicht voltooien';
 $string['forcecompleted_help'] = 'Indien ingeschakeld wordt de status van de huidige poging naar voltooid gezet. (Deze instelling is enkel toepasbaar op SCORM 1.2-pakketten.)';
@@ -135,6 +141,8 @@ $string['forcenewattempt_help'] = 'Indien ingeschakeld zal het opnieuw bezoeken 
 $string['found'] = 'Manifest gevonden';
 $string['frameheight'] = 'Met deze instelling kies je de hoogte van het frame of venster.';
 $string['framewidth'] = 'Deze voorkeurinstelling is de standaardbreedte van het frame of venster.';
+$string['fromleft'] = 'Van links';
+$string['fromtop'] = 'Van boven';
 $string['fullscreen'] = 'Toon op volledig scherm';
 $string['general'] = 'Algemene gegevens';
 $string['gradeaverage'] = 'Gemiddeld cijfer';
@@ -163,8 +171,6 @@ $string['hidebrowse_help'] = '<p>Als deze optie op ja wordt gezet, dan zal de le
 
 <p>Wanneer een leerobject volledig is bekeken in voorproefmodus, dan wordt het gemarkeerd met een <img src="<?php echo $CFG->wwwroot.\'/mod/scorm/pix/browsed.gif\' ?>" alt="<?php print_string(\'browsed\',\'scorm\') ?>" title="<?php print_string(\'browsed\',\'scorm\') ?>" /> Activiteit bekeken-icoon.</p>';
 $string['hideexit'] = 'Verberg de uitgang-link';
-$string['hidenav'] = 'Verberg navigatieknoppen';
-$string['hidenavdesc'] = 'Deze instelling regelt de standaardinstellng voor het al dan niet tonen van navigatieknoppen';
 $string['hidereview'] = 'Verberg de knop voor herzien';
 $string['hidetoc'] = 'Weergave cursusstructuur';
 $string['hidetocdesc'] = 'Deze instelling regelt de standaardinstelling voor het al dan niet tonen van de inhoudstafel van de cursus (TOC) in de SCORM-speler';
@@ -174,22 +180,9 @@ $string['identifier'] = 'Vraagidentificatie';
 $string['incomplete'] = 'Onvolledig';
 $string['info'] = 'Info';
 $string['interactions'] = 'Interacties';
-$string['interactionscorrectcount'] = 'Aantal juiste resultaten voor de vraag';
-$string['interactionsid'] = 'ID van het element';
-$string['interactionslatency'] = 'De tijd die verlopen is tussen het beschikbaar maken <br />van de interactie voor de leerling en <br />het moment van het eerste antwoord.';
-$string['interactionslearnerresponse'] = 'Antwoord van de leerling';
-$string['interactionspattern'] = 'Patroon van het juiste antwoord';
-$string['interactionsresponse'] = 'Antwoord van de leerling';
-$string['interactionsresult'] = 'Resultaat gebaseerd op het antwoord van de leerling <br /> en het juiste resultaat';
-$string['interactionsscoremax'] = 'Maximale waarde in het bereik van de ruwe score';
-$string['interactionsscoremin'] = 'Minimumwaarde in het bereik van de ruwe score';
-$string['interactionsscoreraw'] = 'Getal dat de performantie van de leerling weergeeft<br />relatief tot het bereik aangegeven door de minimum- en maximumwaarde';
-$string['interactionssuspenddata'] = 'Maakt plaats om gegevens te bewaren en op te vragen <br />tussen twee sessies.';
-$string['interactionstime'] = 'Moment waarop de poging was gestart';
-$string['interactionstype'] = 'Vraagtype';
-$string['interactionsweight'] = 'Weging toegekend aan het element';
 $string['invalidactivity'] = 'Fout in SCORM-activiteit';
 $string['invalidhacpsession'] = 'Ongeldige HACP-sessie';
+$string['invalidmanifestname'] = 'Enkel imsmanifest.xml of zip-bestanden mogen geselecteerd worden';
 $string['invalidmanifestresource'] = 'Waarschuwing: volgende bronnen hebben een referentie in je manifest maar konden niet gevonden worden:';
 $string['invalidurl'] = 'Ongeldige URL opgegeven';
 $string['invalidurlhttpcheck'] = 'Ongeldige URL opgegeven. Foutopsporingsbericht: <pre>{$a->cmsg}</pre>';
@@ -221,7 +214,18 @@ SCORM-activiteiten kunnen gebruikt worden
 * om multimedia-inhoud en animaties te tonen
 * als een beoordelingstool';
 $string['modulenameplural'] = 'SCORM-pakketten';
+$string['nav'] = 'Toon navigatie';
+$string['navdesc'] = 'Deze instelling bepaalt of de navigatieknoppen en hun positie getoond worden.';
+$string['nav_help'] = 'Deze instelling bepaalt of navigatieknoppen al dan niet getoond moeten worden en hun positie.
+
+Er zijn 3 opties:
+
+* Nee - Toon geen navigatieknoppen.
+* Onder inhoud - Toon de navigatieknoppen onder de inhoud van je SCORM-pakket.
+* Zwevend - Navigatieknoppen worden zwevend getoond, met de positie van boven en van links bepaald door het pakket.';
 $string['navigation'] = 'Navigatie';
+$string['navpositionleft'] = 'Positie van de navigatieknoppen in pixels van links';
+$string['navpositiontop'] = 'Positie van de navigatieknoppen in pixels van boven.';
 $string['newattempt'] = 'Begin een nieuwe poging';
 $string['next'] = 'Volgende';
 $string['noactivity'] = 'Niets te melden';
@@ -230,7 +234,7 @@ $string['noattemptsmade'] = 'Aantal pogingen die je gedaan hebt';
 $string['no_attributes'] = 'Tag {$a->tag} moet attributen hebben';
 $string['no_children'] = 'Tag {$a->tag} moet children hebben';
 $string['nolimit'] = 'Onbeperkt aantal pogingen';
-$string['nomanifest'] = 'Manifest niet gevonden';
+$string['nomanifest'] = 'Fout bestandspakket - ontbrekend imsmanifest.xml of AICC-structuur';
 $string['noprerequisites'] = 'Sorry, maar je hebt nog niet genoeg voltooid om toegang te krijgen tot dit leerobject';
 $string['noreports'] = 'Er is geen rapport om te tonen';
 $string['normal'] = 'Activiteit starten';
@@ -248,10 +252,10 @@ $string['optnoattemptsonly'] = 'enkel gebruikers zonder pogingen';
 $string['organization'] = 'Organisatie';
 $string['organizations'] = 'Organisaties';
 $string['othersettings'] = 'Bijkomende instellingen';
-$string['othertracks'] = 'Andere sporen';
 $string['package'] = 'Verpakkingsbestand';
 $string['packagedir'] = 'Fout van het bestandssysteem: kan geen map voor het pakket maken';
 $string['packagefile'] = 'Je hebt geen bestand met een pakket gespecifieerd';
+$string['packagehdr'] = 'Pakket';
 $string['package_help'] = '<p><b>Pakketbestand</b></p>
 
 <p>Het pakket is een bestand met extentie <b>zip</b> (of pif) dat een reeks geldige AICC of SCORM vakdefinitiebestanden bevat.</p>
@@ -277,6 +281,7 @@ $string['php5'] = 'PHP 5 (DOMXML native library)';
 $string['pluginadministration'] = 'Beheer SCORM-pakket';
 $string['pluginname'] = 'SCORM-pakket';
 $string['popup'] = 'Open de huidige SCORM/AICC in een nieuw venster';
+$string['popuplaunched'] = 'Dit scormpakket is gestart in een popup-venster. Als je klaar bent met het bekijken van deze bron, klik dan hier om naar de cursuspagina terug te keren.';
 $string['popupmenu'] = 'In een drop downmenu';
 $string['popupopen'] = 'Open het pakket in een nieuw venster';
 $string['popupsblocked'] = 'Blijkbaar zijn pop-upvensters geblokkeerd, waardoor dit SCORM-pakket niet kan afspelen. Controleer je browserinstellingen voor je verder gaat.';
@@ -290,31 +295,32 @@ $string['report'] = 'Rapport';
 $string['reportcountallattempts'] = '{$a->nbattempts} pogingen voor {$a->nbusers} gebruikers, van {$a->nbresults} resultaten';
 $string['reportcountattempts'] = '{$a->nbresults} resultaten ({$a->nbusers} gebruikers)';
 $string['reports'] = 'Rapporten';
-$string['resizable'] = 'Laat formaat van het venster wijzigen toe';
+$string['repositorynotsupported'] = 'Enkel bestandsystemen, gebaseerd op een bestandssysteem worden ondersteund voor het rechtsreeks linken naar een imsmanifest.xml-bestand';
+$string['response'] = 'Antwoord';
 $string['result'] = 'Resultaat';
 $string['results'] = 'Resultaten';
 $string['review'] = 'Herzien';
 $string['reviewmode'] = 'Nalezen';
+$string['rightanswer'] = 'Juist antwood';
 $string['scoes'] = 'Leerobjecten';
 $string['score'] = 'Score';
 $string['scorm:addinstance'] = 'Voeg een nieuw SCORM-pakket toe';
-$string['scormclose'] = 'Tot';
+$string['scormclose'] = 'Beschikbaar tot';
 $string['scormcourse'] = 'Leercursus';
 $string['scorm:deleteownresponses'] = 'Eigen pogingen verwijderen';
 $string['scorm:deleteresponses'] = 'Verwijder SCORM pogingen';
 $string['scormloggingoff'] = 'API loggen staat uit';
 $string['scormloggingon'] = 'API loggen staat aan';
-$string['scormopen'] = 'Open';
+$string['scormopen'] = 'Beschikbaar van';
 $string['scormresponsedeleted'] = 'Verwijderde gebruikerspoging';
 $string['scorm:savetrack'] = 'Bewaar spoor';
 $string['scorm:skipview'] = 'Overzicht overslaan';
 $string['scormtype'] = 'Type';
-$string['scormtype_help'] = 'Deze instelling bepaalt hoe het pakket wordt opgenomen in de cursus. Er zijn vijf opties:
+$string['scormtype_help'] = 'Deze instelling bepaalt hoe het pakket wordt opgenomen in de cursus. Er zijn 4 opties:
 
-* Upload van pakket - Staat toe om een SCORM pakket te kiezen via de file picker
+* Upload van pakket - Hiermee kun je een SCORM pakket kiezen let de bestandenzoeker
 * Extern SCORM manifest - Staat toe om een imsmanifest.xml URL te specifiëren. Nota: Indien de URL een andere domeinnaam heeft dan jouw site, dan is \'Download van pakket\' een betere optie, want anders worden de beoordelingscijfers niet bewaard.
 * Download van pakket - Staat toe om een pakket URL te specifiëren. Dit pakket zal worden unzipped, lokaal bewaard, en bijgewerkt wanneer het externe SCORN pakket wordt bijgewerkt.
-* Lokale IMS content opslagruimte - Staat toe om een pakket te selecteren vanuit een IMS opslagruimte
 * Externe AICC URL - Deze URL is de lancerings URL voor één enkele AICC activiteit. Een pseudo pakket zal hierrond worden opgetrokken.';
 $string['scorm:viewreport'] = 'Bekijk rapporten';
 $string['scorm:viewscores'] = 'Bekijk resultaten';
@@ -347,23 +353,49 @@ $string['suspended'] = 'Onderbroken';
 $string['syntax'] = 'Syntaxisfout';
 $string['tag_error'] = 'Onbekende tag ({$a->tag}) met deze inhoud: {$a->value}';
 $string['time'] = 'Tijd';
-$string['timerestrict'] = 'Beperk antwoorden tot deze periode';
 $string['title'] = 'Titel';
 $string['toc'] = 'Inhoudstafel';
 $string['toolbar'] = 'Toon knoppenbalk';
 $string['too_many_attributes'] = 'Tag {$a->tag} heeft te veel attributen';
 $string['too_many_children'] = 'Tag {$a->tag} heeft teveel children';
 $string['totaltime'] = 'Totale tijd';
+$string['trackcorrectcount'] = 'Juist aantal';
+$string['trackcorrectcount_help'] = 'Aantal juiste resultaten voor de vraag';
+$string['trackid'] = 'ID';
+$string['trackid_help'] = 'Dit is de identificatie, ingesteld door je SCORM-pakket, voor deze vraag. De SCORM-specificatie staat niet toe om de volledige vraagtekst hier te gebruiken.';
 $string['trackingloose'] = 'WAARSCHUWING: de gegevens voor opvolging van dit SCORM/AICC-pakket zullen verloren gaan';
+$string['tracklatency'] = 'Vertraging';
+$string['tracklatency_help'] = 'De tijd die verlopen is tussen het beschikbaar maken <br />van de interactie voor de leerling en <br />het moment van het eerste antwoord.';
+$string['trackpattern'] = 'Patroon';
+$string['trackpattern_help'] = 'Dit is wat een juist antwoord op deze vraag zou zijn. Dit toont het antwoord van de leerling niet.';
+$string['trackresponse'] = 'Antwoord';
+$string['trackresponse_help'] = 'Dit is het antwoord dat de leerling gaf op deze vraag';
+$string['trackresult'] = 'Resultaat';
+$string['trackresult_help'] = 'Resultaat gebaseerd op het antwoord van de leerling <br /> en het juiste resultaat';
+$string['trackscoremax'] = 'Maximale score';
+$string['trackscoremax_help'] = 'Maximale waarde in het bereik van de ruwe score';
+$string['trackscoremin'] = 'Minimale score';
+$string['trackscoremin_help'] = 'Minimumwaarde in het bereik van de ruwe score';
+$string['trackscoreraw'] = 'Ruwe score';
+$string['trackscoreraw_help'] = 'Getal dat de performantie van de leerling weergeeft<br />relatief tot het bereik aangegeven door de minimum- en maximumwaarde';
+$string['tracksuspenddata'] = 'Pauzegegevens';
+$string['tracksuspenddata_help'] = 'Maakt plaats om gegevens te bewaren en op te vragen <br />tussen twee sessies.';
+$string['tracktime'] = 'Tijd';
+$string['tracktime_help'] = 'Moment waarop de poging was gestart';
+$string['tracktype'] = 'Type';
+$string['tracktype_help'] = 'Vraagtype, bijvoorbeeld "meerkeuze" of "kort antwoord".';
+$string['trackweight'] = 'Weging';
+$string['trackweight_help'] = 'Weging toegekend aan het element';
 $string['type'] = 'Type';
 $string['typeaiccurl'] = 'Externe AICC URL';
 $string['typeexternal'] = 'Extern SCORM manifest';
-$string['typeimsrepository'] = 'Lokale IMS opslagruimte';
 $string['typelocal'] = 'Geüpload pakket';
 $string['typelocalsync'] = 'Gedownload pakket';
+$string['undercontent'] = 'Onder inhoud';
 $string['unziperror'] = 'Er is een fout opgetreden bij het uitpakken van het pakket';
 $string['updatefreq'] = 'Frequentie automatisch updaten';
 $string['updatefreqdesc'] = 'Dze instelling bepaalt de standaard auto-updatefrequentie van een activiteit';
+$string['updatefreq_error'] = 'Automatisch aanpassen kan enkel ingeschakeld worden als het pakketbestand extern gehost wordt.';
 $string['updatefreq_help'] = 'Hiermee kan een extern pakket automatisch gedownload en geüpdated worden.';
 $string['validateascorm'] = 'Valideer een SCORM-pakket';
 $string['validation'] = 'Bevestigingsresultaat';

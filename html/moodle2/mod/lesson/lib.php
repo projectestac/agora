@@ -401,7 +401,7 @@ function lesson_update_grades($lesson, $userid=0, $nullifnone=true) {
     } else if ($userid and $nullifnone) {
         $grade = new stdClass();
         $grade->userid   = $userid;
-        $grade->rawgrade = NULL;
+        $grade->rawgrade = null;
         lesson_grade_item_update($lesson, $grade);
 
     } else {
@@ -449,7 +449,7 @@ function lesson_upgrade_grades() {
  * @param array|object $grades optional array/object of grade(s); 'reset' means reset grades in gradebook
  * @return int 0 if ok, error code otherwise
  */
-function lesson_grade_item_update($lesson, $grades=NULL) {
+function lesson_grade_item_update($lesson, $grades=null) {
     global $CFG;
     if (!function_exists('grade_update')) { //workaround for buggy PHP versions
         require_once($CFG->libdir.'/gradelib.php');
@@ -468,13 +468,29 @@ function lesson_grade_item_update($lesson, $grades=NULL) {
     } else if ($lesson->grade < 0) {
         $params['gradetype']  = GRADE_TYPE_SCALE;
         $params['scaleid']   = -$lesson->grade;
+
+        // Make sure current grade fetched correctly from $grades
+        $currentgrade = null;
+        if (!empty($grades)) {
+            if (is_array($grades)) {
+                $currentgrade = reset($grades);
+            } else {
+                $currentgrade = $grades;
+            }
+        }
+
+        // When converting a score to a scale, use scale's grade maximum to calculate it.
+        if (!empty($currentgrade) && $currentgrade->rawgrade !== null) {
+            $grade = grade_get_grades($lesson->course, 'mod', 'lesson', $lesson->id, $currentgrade->userid);
+            $params['grademax']   = reset($grade->items)->grademax;
+        }
     } else {
         $params['gradetype']  = GRADE_TYPE_NONE;
     }
 
     if ($grades  === 'reset') {
         $params['reset'] = true;
-        $grades = NULL;
+        $grades = null;
     } else if (!empty($grades)) {
         // Need to calculate raw grade (Note: $grades has many forms)
         if (is_object($grades)) {
@@ -488,7 +504,7 @@ function lesson_grade_item_update($lesson, $grades=NULL) {
             }
             //check raw grade isnt null otherwise we erroneously insert a grade of 0
             if ($grade['rawgrade'] !== null) {
-                $grades[$key]['rawgrade'] = ($grade['rawgrade'] * $lesson->grade / 100);
+                $grades[$key]['rawgrade'] = ($grade['rawgrade'] * $params['grademax'] / 100);
             } else {
                 //setting rawgrade to null just in case user is deleting a grade
                 $grades[$key]['rawgrade'] = null;
@@ -803,7 +819,7 @@ function lesson_extend_settings_navigation($settings, $lessonnode) {
  */
 function lesson_get_import_export_formats($type) {
     global $CFG;
-    $fileformats = get_plugin_list("qformat");
+    $fileformats = core_component::get_plugin_list("qformat");
 
     $fileformatname=array();
     foreach ($fileformats as $fileformat=>$fdir) {
@@ -869,7 +885,11 @@ function lesson_pluginfile($course, $cm, $context, $filearea, $args, $forcedownl
         $fullpath = "/$context->id/mod_lesson/$filearea/$pageid/".implode('/', $args);
 
     } else if ($filearea === 'mediafile') {
-        array_shift($args); // ignore itemid - caching only
+        if (count($args) > 1) {
+            // Remove the itemid when it appears to be part of the arguments. If there is only one argument
+            // then it is surely the file name. The itemid is sometimes used to prevent browser caching.
+            array_shift($args);
+        }
         $fullpath = "/$context->id/mod_lesson/$filearea/0/".implode('/', $args);
 
     } else {
@@ -931,7 +951,6 @@ function lesson_get_file_info($browser, $areas, $course, $cm, $context, $fileare
     }
 
     if (is_null($itemid)) {
-        require_once(__DIR__ . '/locallib.php');
         return new mod_lesson_file_info($browser, $course, $cm, $context, $areas, $filearea);
     }
 

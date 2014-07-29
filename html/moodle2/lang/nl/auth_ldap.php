@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -99,8 +99,11 @@ $string['auth_ldap_version_key'] = 'Versie';
 $string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = 'Zet dit op Ja om Single-sign-on met het NTLM-domein te bekomen.<strong>Opmerking</strong>dit vereist bijkomende instellingen op de webserver. Zie <a href="http://docs.moodle.org/nl/NTLM_authenticatie">http://docs.moodle.org/nl/NTLM_authenticatie</a';
 $string['auth_ntlmsso_enabled_key'] = 'Inschakelen';
-$string['auth_ntlmsso_ie_fastpath'] = 'Zet op ja om NTLM SSO fast path in in te schakelen (slaat sommige stappen over en werkt alleen als de browser MS Internet Explorer is)';
+$string['auth_ntlmsso_ie_fastpath'] = 'Zet op ja om NTLM SSO fast path in in te schakelen (slaat sommige stappen over als de browser MS Internet Explorer is).';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Probeer NTLM met alle browsers';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Ja, probeer NTLM met alle browsers';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Ja, alle andere browsers gebruiken een standaard loginformulier';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'Kon de gebruikersnaam niet uit de REMOTE_USER header halen. Is de geconfigureerde format correct?';
 $string['auth_ntlmsso_missing_username'] = 'Je moet minstens %username% gebruiken in externe gebruikersnaam format.';
 $string['auth_ntlmsso_remoteuserformat'] = 'Als je \'NTLM\' in \'Authenticatietype\' gekozen hebt, dan kun je hier de opmaak van de externe gebruikersnaam opgeven. Als je dit leeg laat, dan zal de standaard DOMAINusername opmaak gebruikt worden. Je kunt de optionele <b>%domain%</b> plaatshouder gebruiken om op te geven waar de gebruikersnaam komt en de verplichte <b>%username%</b> plaatshouder om te tonen waar de gebruikersnaam komt. <br /><br />Enkele voorbeelden van veelgebruikte opmaak zijn
@@ -136,6 +139,8 @@ $string['pluginname'] = 'LDAP-server';
 $string['pluginnotenabled'] = 'Plugin niet ingeschakeld!';
 $string['renamingnotallowed'] = 'Hernoemen van gebruiker niet toegelaten in LDAP';
 $string['rootdseerror'] = 'Fout bij het bevragen van de rootDSE voor Active Directory';
+$string['start_tls'] = 'Gebruik de gewone LDAP-service (poort 389) met TLS-encryptie.';
+$string['start_tls_key'] = 'Gebruik TLS';
 $string['updatepasserror'] = 'Fout in user_update_password(). Foutcode {$a->errno}; Foutstring: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Fout in user_update_password() bij het lezen van de verlooptijd voor het wachtwoord. Foutcode: {$a->errno}; Foutstring: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Fout in user_update_password() bij het wijzigen van de verlooptijd en/of gracelogins.  Foutcode: {$a->errno}; Foutstring: {$a->errstring}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_selfcompletion', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_selfcompletion', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_selfcompletion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,4 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['alreadyselfcompleted'] = '您已在此课程中将自己标为完成';
 $string['completecourse'] = '完成课程';
 $string['pluginname'] = '自设完成';
+$string['selfcompletion:addinstance'] = '新增自设完成版块';
 $string['selfcompletionnotenabled'] = '本课程未启用自设完成条件';

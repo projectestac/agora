@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choicegroup', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choicegroup', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   choicegroup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -70,7 +70,7 @@ Wenn die Obergrenzen deaktiviert sind, gibt es keine Beschränkung bei der Absti
 $string['members/'] = 'Mitgliederanzahl';
 $string['members/max'] = 'Eingetragen / Maximal';
 $string['modulename'] = 'Gruppenabstimmung';
-$string['modulename_help'] = 'Das Modul \'Gruppenabstimmung\' ermöglicht es, per Abstimmung Nutzer/innen in Gruppen einzuordnen.';
+$string['modulename_help'] = 'Das Modul \'Gruppenabstimmung\' ermöglicht es Studenten, sich selbst in Gruppen innerhalb eines Kurses einzuteilen. Der Trainer wählt die Gruppen, die zur Abstimmung stehen sollen sowie das Maximum an Studenten, die in der jeweiligen Gruppen aufgenommen werden dürfen, aus.';
 $string['modulenameplural'] = 'Gruppenabstimmungen';
 $string['moveselectedusersto'] = 'Ausgewählte Nutzer/innen verschieben nach...';
 $string['multipleenrollmentspossible'] = 'Eintrag in mehrere Gruppen erlauben';

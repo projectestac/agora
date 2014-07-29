@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,10 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['availableplugins'] = 'Plugin disponibili';
-$string['configenableplagiarism'] = 'Abilita plugin plagiarismo';
-$string['configplagiarismplugins'] = 'Scegli i plugin plagiarismo da configurare';
-$string['enableplagiarism'] = 'Abilita plugin plagiarismo';
-$string['manageplagiarism'] = 'Gestione plugin plagiarismo';
-$string['nopluginsinstalled'] = 'Non è installata nessun plugin plagiarismo';
-$string['plagiarism'] = 'Prevenzione plagiarismo';
-$string['plagiarismplugindeleteconfirm'] = 'Stai per rimuovere il plugin plagiarismo \'{$a}\'. Stai per rimuovere il comportamento {$a}.  Saranno anche eliminati tutti i dati presenti nel database relativi a questo plugin. Sei sicuro ?';
+$string['configenableplagiarism'] = 'Abilita plugin di prevenzione plagio';
+$string['configplagiarismplugins'] = 'Scegli i plugin di prevenzione plagio da configurare';
+$string['enableplagiarism'] = 'Abilita plugin prevenzione plagio';
+$string['manageplagiarism'] = 'Gestione plugin prevenzione plagio';
+$string['nopluginsinstalled'] = 'Non è installato nessun plugin di prevenzione plagio';
+$string['plagiarism'] = 'Prevenzione plagio';

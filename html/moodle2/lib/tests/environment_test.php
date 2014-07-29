@@ -29,8 +29,11 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Do standard environment.xml tests.
  */
-class environment_testcase extends advanced_testcase {
+class core_environment_testcase extends advanced_testcase {
 
+    /**
+     * Test the environment.
+     */
     public function test_environment() {
         global $CFG;
 
@@ -39,6 +42,14 @@ class environment_testcase extends advanced_testcase {
 
         $this->assertNotEmpty($envstatus);
         foreach ($environment_results as $environment_result) {
+            if ($environment_result->part === 'php_setting'
+                and $environment_result->info === 'opcache.enable'
+                and $environment_result->getLevel() === 'optional'
+                and $environment_result->getStatus() === false
+            ) {
+                $this->markTestSkipped('OPCache extension is not necessary for unit testing.');
+                continue;
+            }
             $this->assertTrue($environment_result->getStatus(), "Problem detected in environment ($environment_result->part:$environment_result->info), fix all warnings and errors!");
         }
     }

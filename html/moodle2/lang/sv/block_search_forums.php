@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_search_forums', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_search_forums', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   block_search_forums
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['advancedsearch'] = 'Avancerad s&ouml;kning';
-$string['pluginname'] = 'S&ouml;k forum';
+$string['advancedsearch'] = 'Avancerad sökning';
+$string['pluginname'] = 'Sök i forum';
+$string['search_forums:addinstance'] = 'Lägg till blocket Sök i forum';

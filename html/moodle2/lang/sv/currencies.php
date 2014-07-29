@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'currencies', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'currencies', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   currencies
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,8 @@ $string['BBD'] = 'Barbados Dollar';
 $string['BDT'] = 'Bangladeshi Taka';
 $string['BGN'] = 'Bulgarian Lev';
 $string['BHD'] = 'Bahraini Dinar';
+$string['BSD'] = 'Bahamian Dollar';
+$string['BWP'] = 'Botswana Pula';
 $string['CAD'] = 'Kanadensiska dollar';
 $string['CHF'] = 'Schweizerfranc';
 $string['CLP'] = 'Chilenska pesos';
@@ -69,7 +71,7 @@ $string['KWD'] = 'Kuwaitiska dinarer';
 $string['LBP'] = 'Libanesiska pund';
 $string['NOK'] = 'Norska kronor';
 $string['SEK'] = 'Svenska kronor';
-$string['THB'] = '';
+$string['THB'] = 'Thai baht';
 $string['TND'] = 'Tunisiska dinarer';
 $string['TWD'] = 'Taiwanesiska dollar';
 $string['USD'] = 'USA dollar';

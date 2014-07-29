@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_picasa', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_picasa', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_picasa
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,11 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'ID клиента';
 $string['configplugin'] = 'Конфигурация хранилища Picasa';
-$string['oauth2upgrade_message_content'] = 'При обновлении до Moodle 2.3 плагин Picasa был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google для получения ID клиента и ключа, как это описано в документации {$a->docsurl}. ID клиента и ключ могут быть использованы для настройки всех плагинов Google Docs и Picasa.';
+$string['oauth2upgrade_message_content'] = 'При обновлении до Moodle 2.3 плагин Picasa был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google для получения ID клиента и ключа, как это описано в документации {$a->docsurl}. ID клиента и ключ могут быть использованы для настройки всех плагинов Google Drive и Picasa.';
 $string['oauth2upgrade_message_small'] = 'Этот плагин был отключен, так как он требует настройки, как описано в документации установки Google OAuth 2.0.';
 $string['oauth2upgrade_message_subject'] = 'Важная информация о плагине  хранилища Picasa';
 $string['oauthinfo'] = '<p> Для использования этого плагина Вы должны зарегистрировать свой сайт в Google, как описано в документации <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p>
-<p> При регистрации Вам нужно будет ввести следующий URL-адрес как «URL авторизованного перенаправления»: </p><p> {$a->callbackurl} </p> После регистрации Вам будет предоставлен ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Docs и Picasa. </p>';
+<p> При регистрации Вам нужно будет ввести следующий URL-адрес как «URL авторизованного перенаправления»: </p><p> {$a->callbackurl} </p> После регистрации Вам будет предоставлен ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Drive и Picasa. </p>';
 $string['picasa:view'] = 'Просматривать хранилище Picasa';
 $string['pluginname'] = 'Веб-альбомы Picasa';
 $string['secret'] = 'Ключ';

@@ -29,9 +29,9 @@ require_once($CFG->libdir.'/adminlib.php');
 require_once("$CFG->libdir/externallib.php");
 require_once($CFG->dirroot . "/" . $CFG->admin . "/webservice/testclient_forms.php");
 
-$function = optional_param('function', '', PARAM_SAFEDIR);
-$protocol = optional_param('protocol', '', PARAM_SAFEDIR);
-$authmethod = optional_param('authmethod', '', PARAM_SAFEDIR);
+$function = optional_param('function', '', PARAM_PLUGIN);
+$protocol = optional_param('protocol', '', PARAM_ALPHA);
+$authmethod = optional_param('authmethod', '', PARAM_ALPHA);
 
 $PAGE->set_url('/' . $CFG->admin . '/webservice/testclient.php');
 $PAGE->navbar->ignore_active(true);
@@ -67,7 +67,7 @@ if (!isset($functions[$function])) {
 }
 
 // list all enabled webservices
-$available_protocols = get_plugin_list('webservice');
+$available_protocols = core_component::get_plugin_list('webservice');
 $active_protocols = empty($CFG->webserviceprotocols) ? array() : explode(',', $CFG->webserviceprotocols);
 $protocols = array();
 foreach ($active_protocols as $p) {

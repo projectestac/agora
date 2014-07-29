@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_googledocs', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_googledocs', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_googledocs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,14 +26,14 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'Client ID';
-$string['noauthtoken'] = 'Non è stato possibile ricevere un token di autenticazione da Google. Accertatevi di aver consentito a Moodle di accedere al vostro account Google';
+$string['noauthtoken'] = 'Non è stato possibile ottenere un token di autenticazione da Google. Accertati di aver consentito a Moodle di accedere al tuo account Google';
 $string['nooauthcredentials'] = 'Sono necessarie le credenziali OAuth';
-$string['nooauthcredentials_help'] = 'Per usare il plugin portfolio Google Docs devi configurare le credenziali OAuth nelle impostazioni del plugin.';
+$string['nooauthcredentials_help'] = 'Per usare il plugin portfolio Google Drive devi configurare le credenziali OAuth nelle impostazioni del plugin.';
 $string['nosessiontoken'] = 'Non esiste un token di sessione e non è possibile esportare file su Google.';
-$string['oauth2upgrade_message_content'] = 'Per effetto dell\'aggiornamento a Moodle 2.3, il plugin portfolio Google Docs è stato disabilitato. Per riabilitarlo, devi registrare su Google il tuo sito Moodle. La documentazione per ottenere un Client ID  e uno Shared secret è disponibile su {$a->docsurl}. Il client ID e lo Shared secret possono essere utilizzati per configurare sia i plugin Google Docs sia i plugin Picasa.';
+$string['oauth2upgrade_message_content'] = 'Per effetto dell\'aggiornamento a Moodle 2.3, il plugin portfolio Google Drive è stato disabilitato. Per riabilitarlo, devi registrare su Google il tuo sito Moodle. La documentazione per ottenere un Client ID  e uno Shared secret è disponibile su {$a->docsurl}. Il client ID e lo Shared secret possono essere utilizzati per configurare sia i plugin Google Docs sia i plugin Picasa.';
 $string['oauth2upgrade_message_small'] = 'Il plugin è stato disabilitato poiché deve essere riconfigurato secondo quanto descritto nella documentazione per il setup di Google OAuth 2.0.';
-$string['oauth2upgrade_message_subject'] = 'Informazioni importanti sul plugin portfolio Google Docs';
-$string['oauthinfo'] = '<p>Per usare questo plugin, devi essere registrato su Google. Trovi le istruzioni per la registrazione nella documentazione <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p>Durante il processo di registrazione dovrai inserire la seguente URL di callback nel campo \'Authorized Redirect URIs\':</p><p>{$a->callbackurl}</p>Al termine della registrazione riceverai un Client ID ed uno Shared secret che possono essere utilizzati per configurare sia i plugin Google Docs sia i plugin Picasa.</p>';
-$string['pluginname'] = 'Google Docs';
+$string['oauth2upgrade_message_subject'] = 'Informazioni importanti sul plugin portfolio Google Drive';
+$string['oauthinfo'] = '<p>Per usare questo plugin, devi essere registrato su Google. Trovi le istruzioni per la registrazione nella documentazione <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p>Durante il processo di registrazione dovrai inserire la seguente URL di callback nel campo \'Authorized Redirect URIs\':</p><p>{$a->callbackurl}</p>Al termine della registrazione riceverai un Client ID ed uno Shared secret che possono essere utilizzati per configurare sia i plugin Google Drive sia i plugin Picasa.</p>';
+$string['pluginname'] = 'Google Drive';
 $string['secret'] = 'Secret';
 $string['sendfailed'] = 'Non è stato possibile trasferire il file {$a} su Google';

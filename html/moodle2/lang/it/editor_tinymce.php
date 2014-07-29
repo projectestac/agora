@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -346,7 +346,7 @@ $string['contextmenu:right'] = 'Allinea a destra';
 $string['customconfig'] = 'Configurazione personalizzata';
 $string['customconfig_desc'] = 'Configurazione avanzata TinyMCE in formato JSON, ad esempio {"option1" : "value2", "option2" : "value2"}. Le opzioni definite tramite queste impostazioni prevalgono sulle opzioni standard e del plugin.';
 $string['customtoolbar'] = 'Editor toolbar';
-$string['customtoolbar_desc'] = 'Ciascuna linea contiene un elenco separato da virgole con i nomi dei pulsanti. Per separare gruppi di pulsanti utilizza "|". Le linee vuote vengono ignorate.Per l\'elenco di pulsanti di default di TinyMCE: <a href="{$a}" target="_blank">{$a}</a>';
+$string['customtoolbar_desc'] = 'Ciascuna linea contiene un elenco separato da virgole con i nomi dei pulsanti. Per separare gruppi di pulsanti è possibile utilizzare "wrap". Le linee vuote saranno ignorate.Per l\'elenco di pulsanti di default di TinyMCE: <a href="{$a}" target="_blank">{$a}</a>. <br />La prima riga di pulsanti viene sempre visualizzata, la visibilità delle altre righe è a scelta.';
 $string['directionality:ltr_desc'] = 'Direzione da sinistra a destra';
 $string['directionality:rtl_desc'] = 'Direzione da destra a sinistra';
 $string['emotions:delta_height'] = '';
@@ -711,7 +711,7 @@ $string['style_dlg:top'] = 'Superiore';
 $string['style_dlg:visibility'] = 'Visibilità';
 $string['style_dlg:width'] = 'Larghezza';
 $string['style_dlg:zindex'] = 'Z-index';
-$string['subplugindeleteconfirm'] = 'Stai per rimuovere il subplugin TinyMCE \'{$a}\'. Saranno anche eliminati tutti i dati presenti nel database relativi a questo plugin. Sei sicuro ?';
+$string['subplugintype_tinymce'] = 'Plugin';
 $string['subplugintype_tinymce_plural'] = 'Plugin';
 $string['table:cell'] = 'Cella';
 $string['table:cell_desc'] = 'Proprietà cella';

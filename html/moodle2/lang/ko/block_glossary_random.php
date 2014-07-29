@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['askviewglossary'] = '사용자가 용어집을  볼수 있지만 항목
 $string['intro'] = '강좌에 최소 한 항목 이상의 내용이 있는 용어집이 있어야만 합니다. 그래야 다음 설정을 조정할 수 있습니다.';
 $string['invisible'] = '(계속)';
 $string['lastmodified'] = '최신 항목순으로';
+$string['nextalpha'] = '알파벳 순서';
 $string['nextone'] = '차례대로';
 $string['noentriesyet'] = '선택된 용어집에 수록된 내용이 없습니다.';
 $string['notyetconfigured'] = '편집 아이콘을 이용하여 이 블록을 설정하기 바랍니다.';

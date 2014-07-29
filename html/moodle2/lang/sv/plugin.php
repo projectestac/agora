@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -76,15 +76,23 @@ $string['type_block'] = 'Block';
 $string['type_block_plural'] = 'Block';
 $string['type_coursereport'] = 'Kursrapport';
 $string['type_coursereport_plural'] = 'Kursrapporter';
+$string['type_enrol'] = 'Registreringsmetod';
+$string['type_enrol_plural'] = 'Registreringsmetod';
 $string['type_filter'] = 'Filter';
+$string['type_filter_plural'] = 'Textfilter';
+$string['type_format'] = 'Kursformat';
 $string['type_format_plural'] = 'Kursformat';
 $string['type_gradingform'] = 'Avancerad betygssättningsmetod';
 $string['type_gradingform_plural'] = 'Avancerade betygssättningsmetoder';
+$string['type_local'] = 'Lokal plugin';
+$string['type_local_plural'] = 'Lokal plugins';
 $string['type_mnetservice'] = 'MNET tjänst';
 $string['type_mnetservice_plural'] = 'MNET tjänster';
 $string['type_mod'] = 'Aktivitetsmodul';
 $string['type_mod_plural'] = 'Aktivitetsmoduler';
 $string['type_plagiarism'] = 'Åtgärder för att förhindra fusk';
+$string['type_portfolio'] = 'Portfolio';
+$string['type_portfolio_plural'] = 'Portfolio';
 $string['type_qtype'] = 'Frågetyp';
 $string['type_qtype_plural'] = 'Frågetyper';
 $string['type_report'] = 'Site rapport';
@@ -93,7 +101,15 @@ $string['type_repository'] = 'Arkiv';
 $string['type_repository_plural'] = 'Arkiv';
 $string['type_theme'] = 'Layouttema';
 $string['type_theme_plural'] = 'Layoutteman';
+$string['type_tool'] = 'Admin-verktyg';
+$string['type_tool_plural'] = 'Admin-verktyget';
+$string['type_webservice'] = 'Webbtjänst protokoll';
+$string['type_webservice_plural'] = 'Webbtjänst protokoll';
 $string['uninstall'] = 'Avinstallera';
+$string['uninstallextraconfirmenrol'] = 'Det finns {$a->enrolments} användarregistreringar.';
+$string['uninstalling'] = 'Avinstallerar {$a->name}';
+$string['updateavailable'] = 'Det finns en ny version {$a} tillgänglig!';
+$string['updateavailable_moreinfo'] = 'Mer info ...';
 $string['version'] = 'Version';
 $string['versiondb'] = 'Aktuell version';
 $string['versiondisk'] = 'Ny version';

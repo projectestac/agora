@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,15 +32,15 @@ $string['aggregatemin'] = 'Gutxieneko puntuazioa';
 $string['aggregatenone'] = 'Puntuaziorik ez';
 $string['aggregatesum'] = 'Puntuazioen batuketa';
 $string['aggregatetype'] = 'Agregazio-mota';
-$string['aggregatetype_help'] = 'Agregazio-motak definitzen du nola konbinatuko diren puntuazioak kalifikazio-liburuko azken kalifikazioa osatzeko.
+$string['aggregatetype_help'] = 'Agregazio-motak definitzen du nola batuko diren puntuazioak kalifikazio-liburuko azken kalifikazioa osatzeko.
 
-* Puntuazioen batez bestekoa - Puntuazio guztien batez bestekoa
-* Puntuazio-kopurua - Puntuatutako elementu-kopurua izango da azken kalifikazioa. Kontuan izan guztirakoa ezin dela izan jarduerarako gehienezko kalifikazioa baino altuagoa.
+* Puntuazioen batez bestekoa - Puntuazioen batez bestekoa
+* Puntuazio-kopurua - Puntuatutako elementu-kopurua izango da azken kalifikazioa. Kontuan izan guztirakoak ezin duela jarduerarako gehienezko kalifikazioa baino altuagoa.
 * Gehienezkoa - Puntuazio altuena izango da azken kalifikazioa
 * Gutxienekoa - Puntuazio txikiena izango da azken kalifikazioa
-* Batuketa - Puntuazio guztiak batuko dira. Kontuan izan guztirakoa ezin dela izan jarduerarako gehienezko kalifikazioa baino altuagoa.
+* Batuketa - Puntuazio guztiak batuko dira. Kontuan zian guztirakoak ezin duela jarduerarako gehienezko kalifikazioa baino altuagoa.
 
-"Kalifikaziorik ez" aukeratuta, jarduera ez da kalifikazio-liburuan agertuko.';
+"Ez kalifikatu" aukeratzen bada, jarduera ez da kalifikazio-liburuan agertuko.';
 $string['allowratings'] = 'Gaitu elementuak puntuatu ahal izateko?';
 $string['allratingsforitem'] = 'Bidalitako puntuazio guztiak';
 $string['capabilitychecknotavailable'] = 'Egiaztatzeko gaitasuna ez dago eskura jarduera gorde arte';

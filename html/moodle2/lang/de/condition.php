@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,6 +85,7 @@ $string['requires_grade_any'] = 'Verfügbar sobald <strong>{$a}</strong> bewerte
 $string['requires_grade_max'] = 'Verfügbar sobald der vorgegebene Wert für <strong>{$a}</strong> erreicht ist.';
 $string['requires_grade_min'] = 'Verfügbar sobald der vorgegebene Wert für <strong>{$a}</strong> erreicht ist.';
 $string['requires_grade_range'] = 'Verfügbar solange der Wert für <strong>{$a}</strong> in den Grenzen liegt.';
+$string['requires_grouping'] = 'Nur verfügbar für die Gruppierung <strong>{$a}</strong>';
 $string['requires_user_field_contains'] = 'Nicht verfügbar bis <strong>{$a->field}</strong>  <strong>{$a->value}</strong> enthält.';
 $string['requires_user_field_doesnotcontain'] = 'Nicht verfügbar wenn <strong>{$a->field}</strong>  <strong>{$a->value}</strong> enthält.';
 $string['requires_user_field_endswith'] = 'Nicht verfügbar bis <strong>{$a->field}</strong>  mit <strong>{$a->value}</strong> endet.';
@@ -92,7 +93,7 @@ $string['requires_user_field_isempty'] = 'Nicht verfügbar bis <strong>{$a->fiel
 $string['requires_user_field_isequalto'] = 'Nicht verfügbar bis <strong>{$a->field}</strong> mit  <strong>{$a->value}</strong> identisch ist.';
 $string['requires_user_field_isnotempty'] = 'Nicht verfügbar wenn <strong>{$a->field}</strong> leer ist.';
 $string['requires_user_field_startswith'] = 'Nicht verfügbar bis <strong>{$a->field}</strong>  mit <strong>{$a->value}</strong> beginnt.';
-$string['showavailability'] = 'Außerhalb der Verfügbarkeit';
+$string['showavailability'] = 'Bis Zugriff möglich ist';
 $string['showavailability_hide'] = 'Aktivität vollständig verbergen';
 $string['showavailabilitysection'] = 'Bevor Sie auf diesen Kursabschnitt zugreifen können';
 $string['showavailabilitysection_hide'] = 'Kursabschnitt verbergen';
@@ -101,5 +102,5 @@ $string['showavailability_show'] = 'Aktivität grau mit Sperrhinweis zeigen';
 $string['startswith'] = 'beginnt mit';
 $string['userfield'] = 'Nutzerfeld';
 $string['userfield_help'] = 'Sie können den Zugriff basierend auf einem Feld im Nutzerprofil einschränken.';
-$string['userrestriction_hidden'] = 'Bedingt verfügbar (unsichtbar): ‘{$a}’';
-$string['userrestriction_visible'] = 'Bedingt verfügbar: ‘{$a}’';
+$string['userrestriction_hidden'] = 'Eingeschränkt (verborgen, kein Hinweis): {$a}';
+$string['userrestriction_visible'] = 'Eingeschränkt: {$a}';

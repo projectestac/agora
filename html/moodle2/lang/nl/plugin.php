@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Acties';
 $string['availability'] = 'Beschikbaarheid';
 $string['checkforupdates'] = 'Controleer op beschikbare updates';
 $string['checkforupdateslast'] = 'Laatst gecontroleerd op {$a}';
+$string['detectedmisplacedplugin'] = 'Plugin "{$a->component}" is op de foute plaats ge_installeerd "{$a->current}", verwachte locatie is  "{$a->expected}"';
 $string['displayname'] = 'Pluginnaam';
 $string['err_response_curl'] = 'Kon beschikbare updategegevens niet ophalen - onverwachte cURL-fout.';
 $string['err_response_format_version'] = 'Onverwachte versie van de antwoordopmaak. Probeer om alle beschikbare updates te controleren.';
@@ -88,6 +89,8 @@ $string['type_cachelock'] = 'Cache blokker handler';
 $string['type_cachelock_plural'] = 'Cache blokkeer handlers';
 $string['type_cachestore'] = 'Cache opslag';
 $string['type_cachestore_plural'] = 'Cache opslag';
+$string['type_calendartype'] = 'Kalendertype';
+$string['type_calendartype_plural'] = 'Kalendertypes';
 $string['type_coursereport'] = 'cursusrapport';
 $string['type_coursereport_plural'] = 'Cursusrapporten';
 $string['type_editor'] = 'Editor';
@@ -137,6 +140,14 @@ $string['type_tool_plural'] = 'Beheertools';
 $string['type_webservice'] = 'Webservice protocol';
 $string['type_webservice_plural'] = 'Webservice protocols';
 $string['uninstall'] = 'Verwijder';
+$string['uninstallconfirm'] = 'Je gaat plugin <em> {$a->name}</em> verwijderen. Alles in de databank dat hiermee geassocieerd is , zal gewist worden, inclusief de configuratie, logs, gebruikersbestanden die door de plugin beheerd worden enz. Er is geen enkele manier om dit ongedaan te maken en Moodle maakt geen backup om hiervan te herstellen. Weet je ZEKER dat je hiermee wil doorgaan?';
+$string['uninstalldelete'] = 'Alle gegevens die geassocieerd zijn met plugin <em> {$a->name}</em> zijn uit de database verwijderd. Om te verhinderen dat de plugin zichzelf terug installeerd, moet de map waarin die staat <em> {$a->rootdir}</em> manueel verwijderd worden van je server. Moodle kan dat niet zelf, bij gebrek aan schrijfrecht op die map.';
+$string['uninstalldeleteconfirm'] = 'Alle gegevens die geassocieerd zijn met plugin <em> {$a->name}</em> zijn uit de database verwijderd. Om te verhinderen dat de plugin zichzelf terug installeerd, moet de map waarin die staat <em> {$a->rootdir}</em> verwijderd worden van je server. Wil je de plugin-map nu verwijderen?';
+$string['uninstalldeleteconfirmexternal'] = 'Het lijkt er op dat de huidige versie van de plugin via een broncodebeheersysteem  ({$a}) is geïnstalleerd. Als je deze map verwijdert, dan verlies je misschien belangrijke informatie over wijzigingen aan de code.';
+$string['uninstallextraconfirmblock'] = 'Er zijn {$a->instances} exemplaren van dit blok';
+$string['uninstallextraconfirmenrol'] = 'Er zijn {$a->enrolments} gebruikers aangemeld';
+$string['uninstallextraconfirmmod'] = 'Er zijn {$a->instances} exemplaren van deze module in {$a->courses} cursussen';
+$string['uninstalling'] = 'Verwijderen van {$a->name}';
 $string['updateavailable'] = 'Er is een nieuwe versie {$a} beschikbaar!';
 $string['updateavailable_moreinfo'] = 'Meer informatie...';
 $string['updateavailable_release'] = 'Release {$a}';

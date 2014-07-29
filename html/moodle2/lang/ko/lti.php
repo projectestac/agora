@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -182,6 +182,7 @@ $string['share_roster_admin'] = '도구가 강좌 수강생 명단을 접근할 
 $string['show_in_course'] = '도구 인스턴스를 만들때 도구 유형 보여주기';
 $string['size'] = '크기 파라메터';
 $string['submission'] = '제출';
+$string['submissions'] = '제출물들';
 $string['toggle_debug_data'] = '디버그 데이터 토글';
 $string['tool_config_not_found'] = '이 URL에 대한 도구 구성이 발견되지 않았습니다.';
 $string['tool_settings'] = '도구 설정';

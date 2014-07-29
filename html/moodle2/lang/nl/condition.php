@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -92,8 +92,8 @@ $string['requires_user_field_isempty'] = 'Niet beschikbaar tenzij je <strong>{$a
 $string['requires_user_field_isequalto'] = 'Niet beschikbaar tenzij je <strong>{$a->field}</strong> gelijk is aan <strong>{$a->value}</strong>.';
 $string['requires_user_field_isnotempty'] = 'Niet beschikbaar als je <strong>{$a->field}</strong> leeg is.';
 $string['requires_user_field_startswith'] = 'Niet beschikbaar tenzij je <strong>{$a->field}</strong> begint met <strong>{$a->value}</strong>.';
-$string['showavailability'] = 'Voor toegang tot de activiteit mogelijk is';
-$string['showavailability_hide'] = 'Verberg de activiteit volledig';
+$string['showavailability'] = 'Terwijl de toegang verhinderd wordt';
+$string['showavailability_hide'] = 'Verberg de activiteit volledig in de cursus en in het puntenboek';
 $string['showavailabilitysection'] = 'Voor er toegang gegeven wordt tot de sectie';
 $string['showavailabilitysection_hide'] = 'Verberg sectie volledig';
 $string['showavailabilitysection_show'] = 'Toon sectie in het lichtgrijs, met de restrictie-informatie';
@@ -101,5 +101,5 @@ $string['showavailability_show'] = 'Toon de activiteit in het grijs, met beperki
 $string['startswith'] = 'begint met';
 $string['userfield'] = 'Gebruikersveld';
 $string['userfield_help'] = 'Je kunt toegang beperken op basis van gelijk welk veld van het gebruikersprofiel.';
-$string['userrestriction_hidden'] = 'Deze activiteit is beperkt (volledig verborgen, geen boodschap):  &lsquo;{$a}&rsquo;';
-$string['userrestriction_visible'] = 'Deze activiteit is beperkt : &lsquo;{$a}&rsquo;';
+$string['userrestriction_hidden'] = 'Deze activiteit is beperkt zichtbaar (volledig verborgen, geen boodschap):  {$a}';
+$string['userrestriction_visible'] = 'Deze activiteit is beperkt zichtbaar: {$a}';

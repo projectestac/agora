@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -70,6 +70,7 @@ $string['chooseauthmethod_help'] = '<p>Met dit menu kun je de authenticatiemetho
 <p>Let op dat dit sterk afhankelijk is van de authenticatiemethodes die je ingesteld hebt voor de site en welke instellingen je gebruikt.</p>
 
 <p>Hier een fout maken kan ervoor zorgen dat de gebruiker niet meer aangemeld geraakt of kan zelfs de account helemaal verwijderen. Gebruik dit alleen als je echt weet wat je doet.</p>';
+$string['createpassword'] = 'Genereer wachtwoord en verwittig gebruiker';
 $string['createpasswordifneeded'] = 'Maak een wachtwoord indien nodig';
 $string['emailchangecancel'] = 'Annuleer e-mailwijziging';
 $string['emailchangepending'] = 'De wijziging is in behandeling. Open de link in het bericht dat gestuurd is naar {$a->preference_newemail}.';
@@ -91,6 +92,8 @@ $string['errorminpasswordlower'] = 'Wachtwoorden moeten minstens {$a} kleine let
 $string['errorminpasswordnonalphanum'] = 'Wachtwoorden moeten minstens {$a} niet-alphanumerieke tekens hebben.';
 $string['errorminpasswordupper'] = 'Wachtwoorden moeten minstens {$a} hoofdletters hebben.';
 $string['errorpasswordupdate'] = 'Fout tijdens het updaten van het wachtwoord, wachtwoord niet gewijzigd.';
+$string['event_user_loggedin'] = 'Gebruiker ingelogd';
+$string['eventuserloggedinas'] = 'Gebruiker ingelogd als een andere gebruiker';
 $string['forcechangepassword'] = 'Verplicht het wijzigen van het wachtwoord';
 $string['forcechangepasswordfirst_help'] = 'Verplicht gebruikers om hun wachtwoord te wijzigen bij hun eerste aanmelding bij Moodle.';
 $string['forcechangepassword_help'] = 'Verplicht gebruikers om hun wachtwoord te wijzigen bij hun volgende aanmelding bij Moodle';
@@ -142,6 +145,8 @@ $string['stdchangepassword_expl'] = 'Zet dit op ja als het externe systeem toela
 $string['stdchangepassword_explldap'] = 'Merk op: het is aan te raaden om LDAP te gebruiken met een SSL geëncrypteerde tunnel (ldaps://) als de LDAP-server op afstand staat.';
 $string['suspended'] = 'Geschorste account';
 $string['suspended_help'] = 'Geschorste gebruikersaccounts kunnne niet inloggen via webservices en uitgaande berichten worden verworpen.';
+$string['testsettings'] = 'Test instellingen';
+$string['testsettingsheading'] = 'Test authenticatie-instellingen - {$a}';
 $string['unlocked'] = 'Niet geblokkeerd';
 $string['unlockedifempty'] = 'Niet geblokkeerd indien leeg';
 $string['update_never'] = 'Nooit';

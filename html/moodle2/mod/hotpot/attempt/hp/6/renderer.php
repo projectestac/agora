@@ -1203,7 +1203,7 @@ class mod_hotpot_attempt_hp_6_renderer extends mod_hotpot_attempt_hp_renderer {
         // JMatch : AllDone || TimeOver
         // JMix : AllDone || TimeOver (in the CheckAnswer function)
         // JQuiz : AllDone (in the CheckFinished function)
-        return '/\s*if \(\((\w+) == true\)\|\|\(\w+ == true\)\)({).*?}\s*/s';
+        return '/\s*if *\(\((\w+) *== *true\) *\|\| *\(\w+ *== *true\)\) *({).*?}\s*/s';
     }
 
     /**
@@ -1244,6 +1244,200 @@ class mod_hotpot_attempt_hp_6_renderer extends mod_hotpot_attempt_hp_renderer {
             ."		}\n"
             ."	}\n"
         ;
+    }
+
+    /**
+     * fix_js_CardSetHTML
+     * for drag-and-drop JMatch and JMix
+     *
+     * @param xxx $str (passed by reference)
+     * @param xxx $start
+     * @param xxx $length
+     * @return xxx
+     * @todo Finish documenting this function
+     */
+    public function fix_js_CardSetHTML(&$str, $start, $length)  {
+        $substr = substr($str, $start, $length);
+        $search = '/(DragImgs\[i\]). onmousedown = (.*)/';
+        $replace = "HP_add_listener(DragImgs[i], 'mousedown', 'return false');";
+        $substr = preg_replace($search, $replace, $substr);
+        $str = substr_replace($str, $substr, $start, $length);
+    }
+
+    /**
+     * fix_js_beginDrag
+     * for drag-and-drop JMatch and JMix
+     *
+     * @param xxx $str (passed by reference)
+     * @param xxx $start
+     * @param xxx $length
+     * @return xxx
+     * @todo Finish documenting this function
+     */
+    public function fix_js_beginDrag(&$str, $start, $length)  {
+        $substr = substr($str, $start, $length);
+        if (strpos($str, 'function beginDrag', $start + $length)) {
+            $substr = ''; // remove first occurrence of this function
+        } else {
+            // add event handlers for touch screens
+            $search = '/(\s*)([a-z]+).on(mouse[a-z]+)=([a-z]+Drag);?/s';
+            //$replace = '$1$2.onmouse$3 = $4;$1$2.touch$3 = $4;';
+            $replace = '$1HP_add_listener($2, \'$3\', $4);';
+            $substr = preg_replace($search, $replace, $substr);
+
+            // detect drag position for mouse AND touch
+            if ($target = $this->get_beginDrag_target()) {
+                $substr = $this->fix_js_clientXY($substr, $target);
+            }
+
+            // disable scrolling on touch screens
+            $substr = $this->fix_js_disable_event($substr);
+
+            if ($pos = strpos($substr, '{')) {
+                $insert = "\n"
+                    ."	if (e && e.target && e.target.tagName) {\n"
+                    ."		var tagname = e.target.tagName.toUpperCase();\n"
+                    ."		if (tagname=='EMBED' || tagname=='OBJECT') {\n"
+                    ."			return false;\n"
+                    ."		}\n"
+                    ."		if (tagname=='AUDIO' || tagname=='VIDEO') {\n"
+                    ."			return false;\n"
+                    ."		}\n"
+                    ."	}\n"
+                ;
+                $substr = substr_replace($substr, $insert, $pos+1, 0);
+            }
+        }
+        $str = substr_replace($str, $substr, $start, $length);
+    }
+
+    /**
+     * get_beginDrag_target
+     * for drag-and-drop JMatch and JMix
+     *
+     * @return string
+     * @todo Finish documenting this function
+     */
+    public function get_beginDrag_target() {
+        return '';
+    }
+
+    /**
+     * fix_js_doDrag
+     * for drag-and-drop JMatch and JMix
+     *
+     * @param xxx $str (passed by reference)
+     * @param xxx $start
+     * @param xxx $length
+     * @return xxx
+     * @todo Finish documenting this function
+     */
+    public function fix_js_doDrag(&$str, $start, $length)  {
+        $substr = substr($str, $start, $length);
+        if (strpos($str, 'function doDrag', $start + $length)) {
+             $substr = ''; // remove first occurrence of this function
+        } else {
+            // reformat single line if (C.ie){...}else{...}
+            $substr = $this->fix_js_if_then_else($substr);
+
+            // detect drag position for mouse AND touch
+            $substr = $this->fix_js_clientXY($substr, 'var difX');
+
+            // disable scrolling on touch screens
+            $substr = $this->fix_js_disable_event($substr);
+        }
+        $str = substr_replace($str, $substr, $start, $length);
+    }
+
+    /**
+     * fix_js_endDrag
+     * for drag-and-drop JMatch and JMix
+     *
+     * @param xxx $str (passed by reference)
+     * @param xxx $start
+     * @param xxx $length
+     * @return xxx
+     * @todo Finish documenting this function
+     */
+    public function fix_js_endDrag(&$str, $start, $length)  {
+        $substr = substr($str, $start, $length);
+
+        if (strpos($str, 'function endDrag', $start + $length)) {
+            $substr = ''; // remove first occurrence of this function
+        } else {
+            // reformat single line if (C.ie){...}else{...}
+            $substr = $this->fix_js_if_then_else($substr);
+
+            // add event handlers for touch screens
+            $search = '/(\s*)([a-z]+).on(mouse[a-z]+)=([a-z]+);?/';
+            //$replace = '$1$2.onmouse$3=$4;$1$2.touch$3=$4;';
+            $replace = '$1HP_remove_listener($2, \'$3\', doDrag);';
+            $substr = preg_replace($search, $replace, $substr);
+
+            // disable scrolling on touch screens
+            $substr = $this->fix_js_disable_event($substr);
+        }
+
+        $str = substr_replace($str, $substr, $start, $length);
+    }
+
+    /**
+     * fix_js_clientXY
+     * for drag-and-drop JMatch and JMix
+     *
+     * @param string $str
+     * @param string $target
+     * @return string
+     * @todo Finish documenting this function
+     */
+     public function fix_js_clientXY($str, $target) {
+        // replace Ev.client(X|Y) with "x" and "y" variables
+        $search = array('Ev.clientX', 'Ev.clientY');
+        $replace = array('x', 'y');
+        $str = str_replace($search, $replace, $str);
+
+        // set "x" and "y" for mouse or touch device
+        $search = '/(\s*)'.preg_quote($target, '/').'/s';
+        $replace = '$1'.'if (Ev.changedTouches) {'.
+                   '$1'."\t".'var x = Ev.changedTouches[0].clientX;'.
+                   '$1'."\t".'var y = Ev.changedTouches[0].clientY'.
+                   '$1'.'} else {'.
+                   '$1'."\t".'var x = Ev.clientX;'.
+                   '$1'."\t".'var y = Ev.clientY;'.
+                   '$1'.'}'.
+                   '$0';
+        return preg_replace($search, $replace, $str, 1);
+     }
+
+    /**
+     * fix_js_if_then_else
+     * for drag-and-drop JMatch and JMix
+     *
+     * @param string $str
+     * @return string
+     * @todo Finish documenting this function
+     */
+    public function fix_js_if_then_else($str)  {
+        $search = '/(\s*)if *\(C.ie\) *\{(.*?);?\} *else *\{(.*?);?\}/s';
+        $replace = '$1if (C.ie) {$1'."\t".'$2;$1} else {$1'."\t".'$3;$1}';
+        return preg_replace($search, $replace, $str);
+    }
+
+    /**
+     * fix_js_disable_event
+     *
+     * for drag-and-drop JMatch and JMix
+     * adjust mouse events and cursor position
+     * so they work on touch devices too
+     *
+     * @param xxx $substr (passed by reference)
+     * @return xxx
+     * @todo Finish documenting this function
+     */
+    public function fix_js_disable_event($substr)  {
+        $search = '/return (true|false);/';
+        $replace = 'HP_disable_event(e);';
+        return preg_replace($search, $replace, $substr);
     }
 
     /**
@@ -1554,9 +1748,96 @@ class mod_hotpot_attempt_hp_6_renderer extends mod_hotpot_attempt_hp_renderer {
      * filter_text_bodycontent
      */
     function filter_text_bodycontent()  {
-        // convert entities to utf8, filter text and convert back
+
+        // convert entities to utf8
         $this->bodycontent = hotpot_textlib('entities_to_utf8', $this->bodycontent);
-        $this->bodycontent = filter_text($this->bodycontent);
+
+        // fix faulty conversion of non-breaking space (&nbsp;) in Moodle <= 2.0
+        $twobyte = chr(194).chr(160);
+        $fourbyte = chr(195).chr(130).$twobyte;
+        if (hotpot_textlib('entities_to_utf8', '&nbsp;')==$fourbyte) {
+            $this->bodycontent = str_replace($fourbyte, $twobyte, $this->bodycontent);
+        }
+
+        // we will skip these tags and everything they contain
+        $tags = array('audio'  => '</audio>',
+                      'button' => '</button>',
+                      'embed'  => '</embed>',
+                      'object' => '</object>',
+                      'script' => '</script>',
+                      'style'  => '</style>',
+                      'video'  => '</video>',
+                      '!--'    => '-->',
+                      ''       => '>');
+
+        // cache the lengths of the tag strings
+        $len = array();
+        foreach ($tags as $tag => $end) {
+            $len[$tag] = strlen($tag);
+            $len[$end] = strlen($end);
+        }
+
+        // array to store start and end positions
+        // of $texts passed to the Moodle filters
+        $texts = array();
+
+        // detect start and end of all $texts[$i] = $ii;
+        //   $i  : start position
+        //   $ii : end position
+        $i = 0;
+        $i_max = strlen($this->bodycontent);
+        while ($i < $i_max) {
+            $ii = strpos($this->bodycontent, '<', $i);
+            if ($ii===false) {
+                $ii = $i_max;
+            }
+            $texts[$i] = $ii;
+            if ($i < $i_max) {
+                foreach ($tags as $tag => $end) {
+                    if ($len[$tag]==0 || substr($this->bodycontent, $ii+1, $len[$tag])==$tag) {
+                        $char = substr($this->bodycontent, $ii + $len[$tag] + 1, 1);
+                        if ($len[$tag]==0 || $char==' ' || $char=='>') {
+                            if ($ii = strpos($this->bodycontent, $end, $ii + $len[$tag])) {
+                                $ii += $len[$end];
+                            } else {
+                                $ii = $i_max; // no end tag - shouldn't happen !!
+                            }
+                            break; // foreach loop
+                        }
+                    }
+                }
+            }
+            $i = $ii;
+        }
+        unset($tags, $len);
+
+        // reverse the $texts array (preserve keys)
+        $texts = array_reverse($texts, true);
+
+        // cache filter and context
+        $filter = filter_manager::instance();
+        $context = $this->hotpot->context;
+
+        // setup filter (Moodle >= 2.3)
+        if (method_exists($filter, 'setup_page_for_filters')) {
+            $filter->setup_page_for_filters($this->page, $context);
+        }
+
+        // whitespace and punctuation chars
+        $trimchars = "\0\t\n\r !\"#$%&'()*+,-./:;<=>?@[\\]^_`{¦}~\x0B";
+
+        // filter all $texts
+        foreach ($texts as $i => $ii) {
+            $len = ($ii - $i);
+            $text = substr($this->bodycontent, $i, $len);
+            // ignore strings that contain only whitespace and punctuation
+            if (trim($text, $trimchars)) {
+                $text = $filter->filter_text($text, $context);
+                $this->bodycontent = substr_replace($this->bodycontent, $text, $i, $len);
+            }
+        }
+
+        // convert back to HTML entities
         $this->bodycontent = hotpot_textlib('utf8_to_entities', $this->bodycontent);
     }
 
@@ -2808,7 +3089,15 @@ class mod_hotpot_attempt_hp_6_renderer extends mod_hotpot_attempt_hp_renderer {
     function hotpot_keypad_char_value($char)  {
 
         $char = hotpot_textlib('entities_to_utf8', $char);
-        $ord = ord($char);
+        if (class_exists('core_text')) {
+            // Moodle >= 2.6
+            $ord = hotpot_textlib('utf8ord', $char);
+        } else {
+            // Moodle <= 2.5
+            $ord = hotpot_textlib('convert', $char, 'UTF-8', 'UCS-4BE');
+            $ord = unpack('N', $ord);
+            $ord = reset($ord); // get first char
+        }
 
         // lowercase letters (plain or accented)
         if (($ord>=97 && $ord<=122) || ($ord>=224 && $ord<=255)) {

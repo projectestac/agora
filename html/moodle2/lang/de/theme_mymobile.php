@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_mymobile', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_mymobile', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_mymobile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,7 +41,7 @@ $string['showfullsizeimages_desc'] = 'Bilder werden vollformatig in der Übersic
 $string['showmobileintro'] = 'Text für mobile Endgeräte';
 $string['showmobileintro_desc'] = 'Texte und Bilder hinzufügen, die nur für mobile Endgeräte genutzt werden';
 $string['showsitetopic'] = 'Themenabschnitt anzeigen:';
-$string['showsitetopic_desc'] = 'Die Standardabschnitte der Startseite für Nutzer des Mobile Themes verwenden (wenn verfügbar)';
+$string['showsitetopic_desc'] = 'Die Standardabschnitte der Startseite für Nutzer/innen des Mobile Themes verwenden (wenn verfügbar)';
 $string['usetableview'] = 'Tablet-Ansicht';
 $string['usetableview_desc'] = 'Tablet-Ansicht für größere Displays verwenden';
 $string['yes'] = 'Ja';

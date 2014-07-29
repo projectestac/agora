@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,8 +50,6 @@ $string['sendcoursewelcomemessage'] = 'Αποστολή μηνύματος κα�
 $string['sendcoursewelcomemessage_help'] = 'Εάν ενεργοποιηθεί, οι χρήστες λαμβάνουν ένα μήνυμα καλωσορίσματος όταν εγγράφονται μόνοι τους σε ένα μάθημα.';
 $string['showhint'] = 'Εμφάνιση υπόδειξης';
 $string['showhint_desc'] = 'Εμφάνιση πρώτου γράμματος από το κλειδί πρόσβασης επισκέπτη.';
-$string['status'] = 'Επιτρέπονται αυτό-εγγραφές';
-$string['status_desc'] = 'Επιτρέψτε στους χρήστες να αυτό-εγγράφονται στο μάθημα από προεπιλογή.';
 $string['usepasswordpolicy'] = 'Χρήση πολιτικής κωδικού πρόσβασης';
 $string['usepasswordpolicy_desc'] = 'Χρησιμοποιήστε το πρότυπο της πολιτικής κωδικού πρόσβασης για τα κλειδιά εγγραφής.';
 $string['welcometocourse'] = 'Καλωσήλθατε στο {$a}';

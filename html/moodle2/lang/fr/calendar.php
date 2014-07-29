@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Ajouter des événements';
 $string['advancedoptions'] = 'Options avancées';
 $string['allday'] = 'Tout le jour';
 $string['annually'] = 'Chaque année';
 $string['calendar'] = 'Calendrier';
 $string['calendarheading'] = 'Calendrier {$a}';
 $string['calendarpreferences'] = 'Préférences du calendrier';
+$string['calendartypes'] = 'Types de calendriers';
 $string['calendarurl'] = 'URL du calendrier : {$a}';
 $string['clickhide'] = 'cacher';
 $string['clickshow'] = 'afficher';
@@ -44,19 +46,20 @@ $string['course'] = 'Cours';
 $string['courseevent'] = 'Événement de cours';
 $string['courseevents'] = 'Événements de cours';
 $string['courses'] = 'Cours';
+$string['customexport'] = 'Intervalle personnalisé ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Chaque jour';
-$string['dayview'] = 'Vue quotidienne';
+$string['dayviewfor'] = 'Vue quotidienne pour';
 $string['dayviewtitle'] = 'Vue journalière : {$a}';
 $string['daywithnoevents'] = 'Il n\'y a pas d\'événement programmé à cette date.';
 $string['default'] = 'Valeur par défaut';
 $string['deleteevent'] = 'Supprimer l\'événement';
 $string['deleteevents'] = 'Supprimer les événements';
-$string['detailedmonthview'] = 'Vue mensuelle détaillée';
+$string['detailedmonthviewfor'] = 'Vue mensuelle détaillée pour';
 $string['detailedmonthviewtitle'] = 'Vue mensuelle détaillée : {$a}';
 $string['durationminutes'] = 'Durée en minutes';
 $string['durationnone'] = 'Sans durée';
 $string['durationuntil'] = 'Jusqu\'au';
-$string['editevent'] = 'Modifier l\'événement';
+$string['editevent'] = 'Modification de l\'événement';
 $string['erroraddingevent'] = 'Impossible d\'ajouter un événement';
 $string['errorbadsubscription'] = 'Abonnement au calendrier introuvable';
 $string['errorbeforecoursestart'] = 'Impossible de fixer un événement avant le début du cours';
@@ -93,6 +96,7 @@ $string['export'] = 'Exportation';
 $string['exportbutton'] = 'Exporter';
 $string['exportcalendar'] = 'Exporter le calendrier';
 $string['for'] = 'de';
+$string['forcecalendartype'] = 'Imposer le type de calendrier';
 $string['fri'] = 'Ve';
 $string['friday'] = 'Vendredi';
 $string['generateurlbutton'] = 'URL du calendrier';
@@ -127,6 +131,7 @@ $string['monthly'] = 'Chaque mois';
 $string['monthlyview'] = 'Vue mensuelle';
 $string['monthnext'] = 'Mois prochain';
 $string['monththis'] = 'Ce mois';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Jamais';
 $string['newevent'] = 'Nouvel événement';
 $string['nocalendarsubscriptions'] = 'Vous n\'avez pas d\'abonnement à un calendrier';
@@ -137,6 +142,7 @@ $string['pollinterval'] = 'Intervalle de mise à jour';
 $string['pollinterval_help'] = 'Fréquence de mise à jour de votre calendrier';
 $string['preferences'] = 'Réglages';
 $string['preferences_available'] = 'Vos réglages personnels';
+$string['preferredcalendar'] = 'Calendrier préféré';
 $string['pref_lookahead'] = 'Événements à venir';
 $string['pref_lookahead_help'] = 'Ce paramètre détermine le nombre (maximum) de jours avant le début effectif d\'un événement pour que celui-ci soit annoncé comme événement à venir. Il n\'y a <strong>aucune garantie</strong> que tous les événements dans ce laps de temps soeint affichés : si le nombre d\'événements à venir dépasse le nombre maximal défini par le réglage « Nombre maximal d\'événements à venir »), les événements les plus récents ne seront pas affichés.';
 $string['pref_maxevents'] = 'Nombre maximal d\'événements à venir';
@@ -169,6 +175,7 @@ $string['subscriptionname'] = 'Nom du calendrier';
 $string['subscriptionremoved'] = 'Abonnement de calendrier {$a} supprimé';
 $string['subscriptions'] = 'Abonnements';
 $string['subscriptionupdated'] = 'Abonnement de calendrier {$a} mis à jour';
+$string['subsource'] = 'Source de l\'événement : {$a->name}';
 $string['sun'] = 'Di';
 $string['sunday'] = 'Dimanche';
 $string['thu'] = 'Je';
@@ -194,6 +201,7 @@ $string['typegroup'] = 'Événement de groupe';
 $string['typesite'] = 'Événement global';
 $string['typeuser'] = 'Événement privé';
 $string['upcomingevents'] = 'Événements à venir';
+$string['upcomingeventsfor'] = 'Événements à venir pour';
 $string['urlforical'] = 'URL pour abonnement au calendrier';
 $string['user'] = 'Utilisateur';
 $string['userevent'] = 'Événement privé';

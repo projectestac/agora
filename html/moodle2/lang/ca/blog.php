@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Descripció de l\'entrada';
 $string['entryerrornotyours'] = 'Aquesta entrada no és vostra';
 $string['entrysaved'] = 'S\'ha desat la vostra entrada';
 $string['entrytitle'] = 'Títol de l\'entrada';
-$string['entryupdated'] = 'S\'ha actualitzat aquesta entrada';
+$string['evententryadded'] = 'S\'ha afegit l\'entrada al blog';
+$string['evententrydeleted'] = 'S\'ha suprimida l\'entrada del blog';
+$string['evententryupdated'] = 'S\'ha actualitzat aquesta entrada';
 $string['externalblogcrontime'] = 'Planificació del cron pels blogs externs';
 $string['externalblogdeleteconfirm'] = 'Voleu anul·lar el registre d\'aquest blog extern?';
 $string['externalblogdeleted'] = 'El blog extern s\'ha desvinculat';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'ID de grup invàlid';
 $string['invalidurl'] = 'la URL és inaccessible';
 $string['linktooriginalentry'] = 'Enllaça a l\'entrada del blog original';
 $string['maxexternalblogsperuser'] = 'Nombre màxim de blogs externs per usuari';
-$string['mustassociatecourse'] = 'Si esteu publicant a un curs o a un grup de membres, cal que associeu un curs amb aquesta entrada';
 $string['name'] = 'Nom';
 $string['name_help'] = 'Introduïu un nom descriptiu del vostre blog extern. Si no s\'especifica cap nom, s\'usarà el títol del vostre blog extern.';
 $string['noentriesyet'] = 'Aquí no hi ha entrades visibles';

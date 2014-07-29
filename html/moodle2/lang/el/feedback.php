@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = 'Προσθήκη ερώτησης στην δραστηριότητα';
-$string['add_items'] = 'Προσθήκη ερώτησης στην δραστηριότητα';
 $string['add_pagebreak'] = 'Προσθήκη ενός διαχωριστή σελίδας';
 $string['adjustment'] = 'Διευθέτηση';
 $string['after_submit'] = 'Μετά την υποβολή';
@@ -77,7 +76,6 @@ $string['dropdown_values'] = 'Απαντήσεις';
 $string['drop_feedback'] = 'Δαγραφή από αυτό το μάθημα';
 $string['edit_item'] = 'Επεξεργασία ερώτησης';
 $string['edit_items'] = 'Επεξεργασία ερωτήσεων';
-$string['emailnotification'] = 'Ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου';
 $string['email_notification'] = 'Αποστολή ειδοποιήσεων μέσω ηλεκτρονικού ταχυδρομείου';
 $string['emailteachermail'] = 'Ο/Η {$a->username} έχει ολοκληρώσεη την ακόλουθη δραστηριότητα σχόλιου : \'{$a->feedback}\'
 
@@ -90,7 +88,6 @@ $string['entries_saved'] = 'Οι απαντήσεις σας σώθηκαν. Ε�
 $string['export_questions'] = 'Εξαγωγή ερωτήσεων';
 $string['export_to_excel'] = 'Εξαγωγή σε Excel';
 $string['feedbackclose'] = 'Κλείσε το σχόλιο στις';
-$string['feedbackcloses'] = 'Το σχόλιο κλείνει';
 $string['feedback:complete'] = 'Ολοκληρώστε ένα σχόλιο';
 $string['feedback:createprivatetemplate'] = 'Δημιουργία ιδιωτικού πρότυπου';
 $string['feedback:createpublictemplate'] = 'Δημιουργία δημόσιου πρότυπου';
@@ -101,8 +98,6 @@ $string['feedback_is_not_for_anonymous'] = 'το σχόλιο δεν είναι 
 $string['feedback_is_not_open'] = 'Το σχόλιο δεν είναι ανοιχτό';
 $string['feedback:mapcourse'] = 'Αντιστοίχηση μαθημάτων σε σχόλια εύρους ιστοχώρου';
 $string['feedbackopen'] = 'Άνοιξε το σχόλιο στις';
-$string['feedbackopens'] = 'Το σχόλιο ανοίγει';
-$string['feedback_options'] = 'Επιλογές σχόλιου';
 $string['feedback:receivemail'] = 'Λήψη ειδοποιήσεων ηλεκτρονικού ταχυδρομείου';
 $string['feedback:view'] = 'Εμφάνιση ενός σχόλιου';
 $string['feedback:viewanalysepage'] = 'Εμφάνιση της σελίδας ανάλυσης μετά την υποβολή';
@@ -118,7 +113,6 @@ $string['info'] = 'Πληροφορίες';
 $string['infotype'] = 'Πληροφορίες-Τύπος';
 $string['insufficient_responses_for_this_group'] = 'Δεν υπάρχουν αρκετές απαντήσεις για αυτή την ομάδα';
 $string['item_name'] = 'Ερώτηση';
-$string['items_are_required'] = 'Οι απαντήσεις είναι απαραίτητες σε ερωτήσεις με αστέρι.';
 $string['label'] = 'Ετικέτα';
 $string['line_values'] = 'Αξιολόγηση';
 $string['mapcourse'] = 'Αντιστοίχηση μαθήματος';
@@ -142,7 +136,6 @@ $string['multichoicerated'] = 'Πολλαπλών επιλογών (βαθμολ
 $string['multichoicetype'] = 'Τύπος πολλαπλής επιλογής';
 $string['multichoice_values'] = 'Τιμές πολλαπλής επιλογής';
 $string['multiplesubmit'] = 'Πολλαπλή υποβολή';
-$string['multiple_submit'] = 'Πολλαπλή υποβολή';
 $string['multiplesubmit_help'] = 'Αν ενεργοποιηθεί για ανώνυμες μελέτες, οι χρήστες μπορούν να υποβάλουν ανατροφοδότηση απεριόριστες φορές.';
 $string['name'] = 'Όνομα';
 $string['name_required'] = 'Απαιτείται όνομα';
@@ -220,14 +213,8 @@ $string['textfield'] = 'Μικρές απαντήσεις κειμένου';
 $string['textfield_maxlength'] = 'Μέγιστος αποδεκτός αριθμός χαρακτήρων';
 $string['textfield_size'] = 'Πλάτος πεδίου κειμένου';
 $string['this_feedback_is_already_submitted'] = 'Έχετε ολοκληρώσει ήδη αυτή την δραστηριότητα.';
-$string['timeclose'] = 'Κλείσε το σχόλιο στις';
-$string['timeclose_help'] = 'Μπορείτε να καθορίσετε την περίοδο που η ανατροφοδότηση θα είναι προσβάσιμη στους συμμετέχοντες για να απαντήσουν ερωτήσεις. Αν το κουτί δεν είναι επιλεγμένο, δεν υπάρχει καθορισμένο όριο.';
-$string['timeopen'] = 'Άνοιξε το σχόλιο στις';
-$string['timeopen_help'] = 'Μπορείτε να καθορίσετε την περίοδο που η ανατροφοδότηση θα είναι προσβάσιμη στους συμμετέχοντες για να απαντήσουν ερωτήσεις. Αν το κουτί δεν είναι επιλεγμένο, δεν υπάρχει καθορισμένο όριο.';
 $string['typemissing'] = 'ελλειπής "τύπος τιμής"';
 $string['update_item'] = 'Αποθήκευση των αλλαγών στην ερώτηση';
-$string['url_for_continue_button'] = 'URL για το κουμπί συνέχειας';
-$string['url_for_continue_help'] = 'Από προεπιλογή έπειτα από την υποβολή ανατροφοδότησης το κουμπί συνέχειας οδηγεί στη σελίδα του μαθήματος. Μπορείτε να ορίσετε εδώ άλλο URL στο οποίο θα οδηγεί το κουμπί συνέχειας.';
 $string['use_one_line_for_each_value'] = '<br />Χρήση μιας γραμμής για κάθε ερώτηση!';
 $string['use_this_template'] = 'Χρήση αυτού του πρότυπου';
 $string['using_templates'] = 'Χρήση ενός πρότυπου';

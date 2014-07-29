@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_replace', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['disclaimer'] = 'Je comprends les risques de cette opération :';
+$string['cannotfit'] = 'Le texte de remplacement est plus long que l\'original et l\'abréviation n\'est pas autorisée. Impossible de continuer.';
+$string['disclaimer'] = 'Je comprends les risques de cette opération';
+$string['doit'] = 'Oui, allons-y !';
+$string['excludedtables'] = 'Plusieurs tables ne sont pas mises à jour lors du remplacement de texte. Il s\'agit notamment des tables configuration, log, events et session.';
 $string['notifyfinished'] = '... terminé';
 $string['notifyrebuilding'] = 'Reconstruction du cache de cours...';
-$string['notimplemented'] = 'Cette fonctionnalité n\'est implémentée que pour les bases de données MySQL et PostgreSQL.';
+$string['notimplemented'] = 'Cette fonctionnalité n\'est implémentée dans le pilote de votre base de données.';
 $string['notsupported'] = 'Ce script n\'est pas supporté. Faites toujours une sauvegarde complète avant de continuer !<br />L\'opération ne peut pas être annulée !';
 $string['pageheader'] = 'Rechercher et remplacer du texte dans toute la base de données';
 $string['pluginname'] = 'Recherche et remplacement base de données';
-$string['replacewith'] = 'Remplacer par cette chaîne :';
+$string['replacewith'] = 'Remplacer par cette chaîne';
 $string['replacewithhelp'] = 'habituellement l\'URL du nouveau serveur';
-$string['searchwholedb'] = 'Rechercher ce texte dans toute la base de données :';
+$string['searchwholedb'] = 'Rechercher ce texte dans toute la base de données';
 $string['searchwholedbhelp'] = 'habituellement l\'URL de l\'ancien serveur';
+$string['shortenoversized'] = 'Abréger le résultat si nécessaire';

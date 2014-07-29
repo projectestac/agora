@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,9 +51,10 @@ $string['disabled'] = 'Funktionen meddelanden är avaktiverad på den här webbp
 $string['disallowed'] = 'Otillåten';
 $string['discussion'] = 'Diskussion';
 $string['emailmessages'] = 'E-postmeddelanden när jag arbetar i frånkopplat läge';
-$string['emailtagline'] = 'Det här e-postmeddelandet är en kopia av ett meddelande som har skickats till Dig på "{$a->sitename}". Gå till  {$a->url} för att svara.';
+$string['emailtagline'] = 'Det här e-postmeddelandet är en kopia av ett meddelande som har skickats till Dig på "{$a>sitename}". Gå till  {$a->url} för att svara.
+';
 $string['emptysearchstring'] = 'Du måste söka efter någonting';
-$string['errorcallingprocessor'] = 'Fel i sb m anrop till den definierade processorn';
+$string['errorcallingprocessor'] = 'Fel vid anrop av definierad output';
 $string['errortranslatingdefault'] = 'Fel vid översättningen av standardinställningar från plugin, använder systemets standard istället.';
 $string['forced'] = 'Tvingad';
 $string['formorethan'] = 'I mer än';
@@ -85,7 +86,6 @@ $string['messagingdisabled'] = 'Funktionen för meddelanden är avaktiverad på 
 $string['mostrecent'] = 'Aktuella meddelanden';
 $string['mostrecentconversations'] = 'Färska konversationer';
 $string['mostrecentnotifications'] = 'Färska meddelanden';
-$string['mycontacts'] = 'Mina kontakter';
 $string['newonlymsg'] = 'Visa bara nya';
 $string['newsearch'] = 'Ny sökning';
 $string['noframesjs'] = 'Använd ett mer tillgängligt gränssnitt';
@@ -109,8 +109,6 @@ $string['page-message-x'] = 'Vilken meddelandesida som helst';
 $string['pagerefreshes'] = 'Den här sidan uppdateras automatiskt var {$a} sekund';
 $string['permitted'] = 'Tillåten';
 $string['private_config'] = 'Pop-up-fönster med meddelande';
-$string['processordeleteconfirm'] = 'Du håller på att helt ta bort meddelanden utmatning \'{$a}\';. Detta kommer helt radera  allt i databasen som är associerat med den här utmatningen. Är du säker på att du vill fortsätta?';
-$string['processordeletefiles'] = 'Alla data i samband med utmatningen \';{$a->processor}\'; har tagits bort från databasen. För att slutföra borttagningen (och förhindra utmatningen från att installera sig igen), ska du nu ta bort den här katalogen från servern: {$a->directory}';
 $string['processortag'] = 'Destination';
 $string['providers_config'] = 'Konfigurera metoderna för att annonsera inkommande meddelanden';
 $string['providerstag'] = 'Källa';
@@ -129,7 +127,7 @@ $string['sendmessageto'] = 'Skicka meddelande till {$a}';
 $string['sendmessagetopopup'] = 'Skicka meddelande till {$a} - nytt fönster';
 $string['settings'] = 'Inställningar';
 $string['settingssaved'] = 'Dina inställningar har sparats';
-$string['showmessagewindow'] = 'Popup-fönster vid nytt meddelande';
+$string['showmessagewindow'] = 'Visa fönstret för meddelanden automatiskt när jag får nya meddelanden (Du behöver se till att inställningarna i Din webbläsare inte blockerar popup-fönster på den här webbplatsen)';
 $string['strftimedaydatetime'] = '%A, %d %B %Y, %I:%M %p';
 $string['thisconversation'] = 'denna konversation';
 $string['timenosee'] = 'Antal minuter som jag var uppkopplad';

@@ -151,7 +151,7 @@ class com_wiris_quizzes_impl_HTMLGui {
 					$h->close();
 				} else {
 					$h->openSpan("wiristestgradetext" . _hx_string_rec($unique, ""), "wiristestgradetext wirispartiallycorrect");
-					$h->text(_hx_string_rec($grade * 100, "") . "% ");
+					$h->text(_hx_string_rec(Math::round($grade * 100), "") . "% ");
 					$h->text($this->t->t("partiallycorrect"));
 					$h->close();
 				}

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -144,6 +144,7 @@ $string['navigationfrom_help'] = 'Pagine del wiki collegate a questa pagina';
 $string['navigationto'] = 'La pagina va in';
 $string['navigationto_help'] = 'Link ad altre pagine';
 $string['newpage'] = 'Crea pagina';
+$string['newpagehdr'] = 'Nuova pagina';
 $string['newpagetitle'] = 'Titolo nuova pagina';
 $string['noattachments'] = '<strong>Nessun file allegato</strong>';
 $string['nocomments'] = 'Non ci sono commenti';
@@ -176,7 +177,7 @@ $string['overridelocks'] = 'Annullare blocco pagine wiki';
 $string['overridinglocks'] = 'Annullamento blocco pagine wiki';
 $string['pageexists'] = 'La pagina esiste già e ti ci sto portando';
 $string['pageindex'] = 'Indice pagina';
-$string['pageindex_help'] = 'L\'albero delle pagini di questo wiki';
+$string['pageindex_help'] = 'L\'albero delle pagine di questo wiki';
 $string['pageislocked'] = 'In questo momento qualcuno sta modificando questa pagina. Prova a modificarla più tardi.';
 $string['pagelist'] = 'Elenco delle pagine';
 $string['pagelist_help'] = 'Elenco delle pagine categorizzate in ordine alfabetico';
@@ -191,6 +192,7 @@ $string['pluginadministration'] = 'Gestione wiki';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'Versione stampabile';
 $string['previewwarning'] = 'Questa è un\'anteprima. Le modifiche non sono state ancora salvate.';
+$string['print'] = 'Stampa';
 $string['rated'] = 'Hai valutato questa pagina come {$a}';
 $string['rating'] = 'Valutazione';
 $string['ratingmode'] = 'Modalità di valutazione';

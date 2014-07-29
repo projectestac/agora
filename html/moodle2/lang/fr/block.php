@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,10 +45,13 @@ $string['deleteblock'] = 'Supprimer le bloc {$a}';
 $string['deleteblockcheck'] = 'Voulez-vous vraiment supprimer le bloc {$a} ?';
 $string['deleteblockwarning'] = '<p>Vous êtes sur le point de supprimer un bloc affiché ailleurs.</p><p>Emplacement du bloc original : {$a->location}<br />Affichage sur des pages de types : {$a->pagetype}</p><p>Voulez-vous vraiment continuer ?</p>';
 $string['deletecheck'] = 'Supprimer le bloc {$a} ?';
+$string['dockblock'] = 'Mettre le bloc {$a} dans le dock';
 $string['hideblock'] = 'Cacher le bloc {$a}';
 $string['hidedockpanel'] = 'Cacher le panneau du dock';
 $string['hidepanel'] = 'Cacher le dock';
 $string['moveblock'] = 'Déplacer le bloc {$a}';
+$string['moveblockafter'] = 'Déplacer le bloc après le bloc {$a}';
+$string['moveblockbefore'] = 'Déplacer le bloc avant le bloc {$a}';
 $string['moveblockhere'] = 'Déplacer le bloc ici';
 $string['movingthisblockcancel'] = 'Déplacement de ce bloc ({$a})';
 $string['onthispage'] = 'Sur cette page';
@@ -65,6 +68,7 @@ $string['showonfrontpageonly'] = 'Afficher sur la page d\'accueil seulement';
 $string['subpages'] = 'Sélectionner pages';
 $string['thisspecificpage'] = 'Cette page spécifique';
 $string['undockall'] = 'Tout retirer du dock';
+$string['undockblock'] = 'Ôter du dock le bloc {$a}';
 $string['undockitem'] = 'Retirer cet élément du dock';
 $string['visible'] = 'Visible';
 $string['weight'] = 'Poids';

@@ -103,7 +103,7 @@ if ($attemptobj->is_preview_user() && $attemptobj->is_own_attempt()) {
 
 // Set up the page header.
 $headtags = $attemptobj->get_html_head_contributions($page, $showall);
-$PAGE->set_title(format_string($attemptobj->get_quiz_name()));
+$PAGE->set_title($attemptobj->get_quiz_name());
 $PAGE->set_heading($attemptobj->get_course()->fullname);
 
 // Summary table start. ============================================================================
@@ -224,6 +224,9 @@ if ($options->marks >= question_display_options::MARK_AND_MAX && quiz_has_grades
         );
     }
 }
+
+// Any additional summary data from the behaviour.
+$summarydata = array_merge($summarydata, $attemptobj->get_additional_summary_data($options));
 
 // Feedback if there is any, and the user is allowed to see it now.
 $feedback = $attemptobj->get_overall_feedback($grade);

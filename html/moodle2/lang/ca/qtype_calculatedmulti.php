@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedmulti', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedmulti', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedmulti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['answeroptions'] = 'Opcions';
+$string['answeroptions_help'] = 'L\'opció suggerida per a la fórmula és ...<strong>{={x}+..}</strong>...';
 $string['pluginname'] = 'Opcions múltiples calculada.';
 $string['pluginnameadding'] = 'S\'està afegint una pregunta d\'opcions múltiples calculada.';
 $string['pluginnameediting'] = 'S\'està editant una pregunta de selecció múltiple amb càlcul';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'simplecertificate', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'simplecertificate', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   simplecertificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['awarded'] = 'Décerné';
 $string['awardedto'] = 'Décerné à';
 $string['cantdeleteissue'] = 'Erreur dans la suppression des certificats délivrés.';
 $string['certificateimage'] = 'Fichier image du certificat';
@@ -43,8 +42,6 @@ $string['certlifetime_help'] = 'Ceci spécifie la durée pendant laquelle vous s
 $string['code'] = 'Code';
 $string['completiondate'] = 'Fin du cours';
 $string['coursegrade'] = 'Niveau de la formation';
-$string['coursehours'] = 'Horaire du cours';
-$string['coursehours_help'] = 'Horaire du cours';
 $string['coursename'] = 'Autre nom du cours';
 $string['coursename_help'] = 'Autre nom du cours';
 $string['coursetimereq'] = 'Durée exigée en minutes dans le cours';

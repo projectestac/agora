@@ -17,10 +17,9 @@
 /**
  * Defines the editing form for the match question type.
  *
- * @package    qtype
- * @subpackage match
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_match
+ * @copyright 2007 Jamie Pratt me@jamiep.org
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
@@ -30,17 +29,20 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Match question type editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2007 Jamie Pratt me@jamiep.org
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_match_edit_form extends question_edit_form {
 
     protected function get_per_answer_fields($mform, $label, $gradeoptions,
             &$repeatedoptions, &$answersoption) {
+        $mform->addElement('static', 'answersinstruct',
+                get_string('availablechoices', 'qtype_match'),
+                get_string('filloutthreeqsandtwoas', 'qtype_match'));
+
         $repeated = array();
-        $repeated[] = $mform->createElement('header', 'answerhdr', $label);
         $repeated[] = $mform->createElement('editor', 'subquestions',
-                get_string('question'), array('rows'=>3), $this->editoroptions);
+                $label, array('rows'=>3), $this->editoroptions);
         $repeated[] = $mform->createElement('text', 'subanswers',
                 get_string('answer', 'question'), array('size' => 50, 'maxlength' => 255));
         $repeatedoptions['subquestions']['type'] = PARAM_RAW;
@@ -60,15 +62,17 @@ class qtype_match_edit_form extends question_edit_form {
         $mform->addHelpButton('shuffleanswers', 'shuffle', 'qtype_match');
         $mform->setDefault('shuffleanswers', 1);
 
-        $mform->addElement('static', 'answersinstruct',
-                get_string('availablechoices', 'qtype_match'),
-                get_string('filloutthreeqsandtwoas', 'qtype_match'));
-        $mform->closeHeaderBefore('answersinstruct');
-
         $this->add_per_answer_fields($mform, get_string('questionno', 'question', '{no}'), 0);
 
         $this->add_combined_feedback_fields(true);
         $this->add_interactive_settings(true, true);
+    }
+
+    /**
+     * Language string to use for 'Add {no} more {whatever we call answers}'.
+     */
+    protected function get_more_choices_string() {
+        return get_string('blanksforxmorequestions', 'qtype_match');
     }
 
     protected function data_preprocessing($question) {
@@ -88,15 +92,10 @@ class qtype_match_edit_form extends question_edit_form {
 
             $draftid = file_get_submitted_draft_itemid('subquestions[' . $key . ']');
             $question->subquestions[$key] = array();
-            $question->subquestions[$key]['text'] = file_prepare_draft_area(
-                $draftid,           // draftid
-                $this->context->id, // context
-                'qtype_match',      // component
-                'subquestion',      // filarea
-                !empty($subquestion->id) ? (int) $subquestion->id : null, // itemid
-                $this->fileoptions, // options
-                $subquestion->questiontext // text
-            );
+            $question->subquestions[$key]['text'] = file_prepare_draft_area($draftid,
+                    $this->context->id, 'qtype_match', 'subquestion',
+                    !empty($subquestion->id) ? (int) $subquestion->id : null,
+                    $this->fileoptions, $subquestion->questiontext);
             $question->subquestions[$key]['format'] = $subquestion->questiontextformat;
             $question->subquestions[$key]['itemid'] = $draftid;
             $key++;

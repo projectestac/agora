@@ -57,7 +57,6 @@ require_login($course, false, $cm, false, true);
 $PAGE->set_context($context);
 
 echo $OUTPUT->header(); // send headers
-@header('Content-type: text/html; charset=utf-8');
 
 // If uploaded file is larger than post_max_size (php.ini) setting, $_POST content will be empty.
 if (empty($_POST) && !empty($action)) {
@@ -91,36 +90,6 @@ $maxbytes = get_user_max_upload_file_size($context, $CFG->maxbytes, $coursemaxby
 
 // Wait as long as it takes for this script to finish
 set_time_limit(0);
-
-// Early actions which need to be done before repository instances initialised
-switch ($action) {
-    // global search
-    case 'gsearch':
-        $params = array();
-        $params['context'] = array(context::instance_by_id($contextid), get_system_context());
-        $params['currentcontext'] = context::instance_by_id($contextid);
-        $repos = repository::get_instances($params);
-        $list = array();
-        foreach($repos as $repo){
-            if ($repo->global_search()) {
-                $ret = $repo->search($search_text);
-                array_walk($ret['list'], 'repository_attach_id', $repo->id);  // See function below
-                $tmp = array_merge($list, $ret['list']);
-                $list = $tmp;
-            }
-        }
-        $listing = array('list'=>$list);
-        $listing['gsearch'] = true;
-        die(json_encode($listing));
-        break;
-
-    // remove the cache files & logout
-    case 'ccache':
-        $cache = new curl_cache;
-        $cache->refresh();
-        $action = 'list';
-        break;
-}
 
 // These actions all occur on the currently active repository instance
 switch ($action) {
@@ -239,7 +208,7 @@ switch ($action) {
             // note that in this case user may not have permission to access the source file directly
             // so no file_browser/file_info can be used below
             if ($repo->has_moodle_files()) {
-                $file = repository::get_moodle_file($source);
+                $file = repository::get_moodle_file($reference);
                 if ($file && $file->is_external_file()) {
                     $sourcefield = $file->get_source(); // remember the original source
                     $record->source = $repo::build_source_field($sourcefield);
@@ -275,7 +244,7 @@ switch ($action) {
                     $event['existingfile'] = new stdClass;
                     $event['existingfile']->filepath = $saveas_path;
                     $event['existingfile']->filename = $saveas_filename;
-                    $event['existingfile']->url      = moodle_url::make_draftfile_url($itemid, $saveas_path, $saveas_filename)->out();;
+                    $event['existingfile']->url      = moodle_url::make_draftfile_url($itemid, $saveas_path, $saveas_filename)->out();
                 } else {
 
                     $storedfile = $fs->create_file_from_reference($record, $repo_id, $reference);
@@ -312,14 +281,14 @@ switch ($action) {
                     die(json_encode($err));
                 }
 
-                // Check if we exceed the max bytes of the area.
-                if (file_is_draft_area_limit_reached($itemid, $areamaxbytes, filesize($downloadedfile['path']))) {
-                    throw new file_exception('maxareabytes');
-                }
-
                 // Check if exceed maxbytes.
                 if ($maxbytes != -1 && filesize($downloadedfile['path']) > $maxbytes) {
                     throw new file_exception('maxbytes');
+                }
+
+                // Check if we exceed the max bytes of the area.
+                if (file_is_draft_area_limit_reached($itemid, $areamaxbytes, filesize($downloadedfile['path']))) {
+                    throw new file_exception('maxareabytes');
                 }
 
                 $info = repository::move_to_filepool($downloadedfile['path'], $record);

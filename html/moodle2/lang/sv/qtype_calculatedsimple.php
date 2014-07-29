@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'Det måste finnas minst ett wildcard <strong>{x
 $string['converttocalculated'] = 'Spara som en ny vanlig beräknad fråga';
 $string['findwildcards'] = 'Hitta wildcard {x ..} som finns i formlen för det rätta svaret';
 $string['generatenewitemsset'] = 'Generera';
-$string['mustbenumeric'] = 'Du måste skriva in ett nummer här.';
-$string['mustnotbenumeric'] = 'Detta kan inte vara ett nummer.';
 $string['newsetwildcardvalues'] = 'Ny datamängd för wildcard värden';
 $string['pluginname'] = 'Enkel beräkning';
 $string['pluginnameadding'] = 'Lägg till en enkel beräkning';

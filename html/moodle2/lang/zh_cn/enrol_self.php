@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['customwelcomemessage'] = '自定义欢迎信息';
 $string['defaultrole'] = '缺省分配的角色';
 $string['defaultrole_desc'] = '选择用户自助选课后被分配的角色';
-$string['editenrolment'] = '编辑选课';
 $string['enrolenddate'] = '结束时间';
 $string['enrolenddate_help'] = '如果启用，用户只能在此日期前自行加入此课程。';
 $string['enrolenddaterror'] = '选课的结束时间不能早于开始时间';

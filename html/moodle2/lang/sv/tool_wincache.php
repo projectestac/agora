@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_wincache', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_wincache', language 'sv', branch 'MOODLE_25_STABLE'
  *
  * @package   tool_wincache
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

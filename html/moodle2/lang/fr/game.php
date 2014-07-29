@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'game', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'game', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   game
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,11 +38,15 @@ $string['bookquiz_categories'] = 'Catégories';
 $string['bookquiz_chapters'] = 'Chapitres';
 $string['bookquiz_empty'] = 'Le livre est vide';
 $string['bookquiz_import_odt'] = 'Importer à partir d\'un fichier OpenOffice (odt)';
+$string['bookquiz_layout'] = 'Mise en page';
 $string['bookquiz_not_select_book'] = 'Vous n\'avez pas choisi de livre';
 $string['bookquiz_questions'] = 'Associez une catégorie de questions à un sous-chapitre';
 $string['bookquiz_subchapter'] = 'Créer un sous-chapitre';
 $string['bottomtext'] = 'Texte au bas';
+$string['clearrepetitions'] = 'Effacer les statistiques';
+$string['comment'] = 'Commentaire';
 $string['completedon'] = 'Terminé le';
+$string['computerepetitions'] = 'Recalculer les statistiques';
 $string['continueattemptgame'] = 'Continuer une tentative précédente du jeu';
 $string['cross_across'] = 'Across';
 $string['cross_checkbutton'] = 'Vérifier le mot-croisé';
@@ -57,23 +61,51 @@ $string['cross_error_wordlength1'] = 'Le mot correct contient';
 $string['cross_error_wordlength2'] = 'lettres.';
 $string['cross_found_many'] = 'Trouvés';
 $string['cross_found_one'] = 'Trouvé';
+$string['cross_layout'] = 'Mise en page';
+$string['cross_layout0'] = 'Définitions sous la grille';
+$string['cross_layout1'] = 'Définitions à droite de la grille';
+$string['cross_max_attempts'] = 'Maximum de tentatives';
 $string['cross_maxcols'] = 'Nombre maximum de colonnes du mot-croisé';
 $string['cross_maxwords'] = 'Nombre de mots maximum du mot-croisé';
+$string['cross_minwords'] = 'Minimum de mots dans la grille';
+$string['cross_options'] = 'Options de la grille';
 $string['cross_pleasewait'] = 'Attendez le chargement du mot-croisé';
+$string['cross_showprint'] = 'Afficher le bouton Imprimer';
 $string['cross_welcome'] = '<h3>Bienvenue !</h3><p>Cliquez sur un mot pour commencer.</p>';
+$string['cryptex_options'] = 'Options de la grille de mots mêlés';
 $string['deleteattemptcheck'] = 'Etes-vous sûr(e) de vouloir complètement effacer ces tentatives ?';
 $string['displayoptions'] = 'Montrer les options';
 $string['downloadods'] = 'Télécharger au format ODS';
+$string['export'] = 'Exporter';
+$string['export_to_html'] = 'Exporter au format HTML';
+$string['export_to_javame'] = 'Exporter au format Javame';
 $string['feedback'] = 'Rapports';
 $string['feedbacks'] = 'Messages pour réponses correctes';
 $string['finish'] = 'Fin du jeu';
+$string['game:attempt'] = 'Jouer';
 $string['game_bookquiz'] = 'Livre de questions';
+$string['gameclose'] = 'Fermer le jeu';
+$string['gameclosed'] = 'Ce jeu a été fermé le {$a}';
+$string['gamecloseson'] = 'Ce jeu sera fermé le {$a}';
 $string['game_cross'] = 'Mot-croisé';
 $string['game_cryptex'] = 'Cryptex';
+$string['game:deleteattempts'] = 'Effacer les tentatives';
+$string['game:grade'] = 'Evaluer manuellement le jeu';
 $string['game_hangman'] = 'Pendu';
+$string['game_hiddenpicture'] = 'Image cachée';
+$string['game:manage'] = 'Gérer';
+$string['game:manageoverrides'] = 'Gérer les dépassements du jeu';
 $string['game_millionaire'] = 'Millionaire';
+$string['gamenotavailable'] = 'Ce jeu ne sera pas disponible avant le {$a}';
+$string['gameopen'] = 'Mettre à disposition le jeu';
+$string['gameopenclose'] = 'Fixer les dates';
+$string['gameopenclose_help'] = 'Les étudiants ne peuvent débuter leurs tentatives qu\'après cette date et doivent les avoir terminées avant la date de fermeture.';
+$string['gameopenedon'] = 'Ce jeu a débuté le {$a}';
+$string['game:preview'] = 'Prévisualiser le jeu';
+$string['game:reviewmyattempts'] = 'Revoir mes tentatives';
 $string['game_snakes'] = 'Serpent et échelles';
 $string['game_sudoku'] = 'Sudoku';
+$string['game:view'] = 'Voir';
 $string['grade'] = 'Note';
 $string['gradeaverage'] = 'Note moyenne';
 $string['gradehighest'] = 'Note maximale';

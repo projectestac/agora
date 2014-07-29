@@ -42,7 +42,7 @@ class moodle1_qtype_truefalsewiris_handler extends moodle1_qtype_truefalse_handl
     }  
     
     function wrsqz_getCASForComputations($data){
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         $wrap->start();
@@ -66,7 +66,7 @@ class moodle1_qtype_truefalsewiris_handler extends moodle1_qtype_truefalse_handl
     }
     
     function wrsqz_hiddenInitialCASValue($data){
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         if (isset($data['truefalsewiris'][0]['wirisoptions'][0]['hiddeninitialcasvalue'])){

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_grading', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_grading', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,9 @@ $string['attemptstograde'] = 'Kalifikatzeko saiakerak';
 $string['automaticallygraded'] = 'Automatikoki kalifikatua';
 $string['backtothelistofquestions'] = 'Itzuli galdera-zerrendara';
 $string['bydate'] = 'Dataren arabera';
+$string['bystudentfirstname'] = 'Ikaslearen izenaren arabera';
 $string['bystudentidnumber'] = 'Ikaslearen id zenbakiaren arabera';
+$string['bystudentlastname'] = 'Ikaslearen deituraren arabera';
 $string['cannotgradethisattempt'] = 'Ezin da saiakera hau kalifikatu';
 $string['cannotloadquestioninfo'] = 'Ezin da aurkitu questiontype galdera-informazio zehatza';
 $string['changeoptions'] = 'Aldatu aukerak';
@@ -62,8 +64,10 @@ $string['hideautomaticallygraded'] = 'Ezkutatu automatikoki kalifikatutako galde
 $string['inprogress'] = 'Ari da';
 $string['invalidattemptid'] = 'Ez dago ID saiakera hori';
 $string['invalidquestionid'] = '{$a} IDa duen galdera kalifikagarririk ez dago';
+$string['noquestionsfound'] = 'Ez da eskuz kalifikatutako galderarik aurkitu';
 $string['nothingfound'] = 'Ez dago erakusteko ezer';
 $string['options'] = 'Aukerak';
+$string['orderattempts'] = 'Ordenatu saiakerak';
 $string['pluginname'] = 'Eskuzko kalifikazioa';
 $string['qno'] = 'G #';
 $string['questionname'] = 'Galderaren izena';

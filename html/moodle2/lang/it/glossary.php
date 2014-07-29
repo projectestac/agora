@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -111,6 +111,7 @@ $string['deletingnoneemptycategory'] = 'Eliminando questa categoria, non verrann
 $string['descending'] = 'decrescente';
 $string['destination'] = 'Destinazione delle voci importate';
 $string['destination_help'] = 'E\' possibile importare voci nel glossario in uso o in un nuovo glossario. Nel secondo caso verrà creato un nuovo glossario con le impostazioni contenute nel file XML.';
+$string['disapprove'] = 'Disapprova';
 $string['displayformat'] = 'Formato di visualizzazione';
 $string['displayformatcontinuous'] = 'Continuo senza autore';
 $string['displayformatdefault'] = 'Per default uguale al formato di visualizzazione';
@@ -133,7 +134,7 @@ $string['displayformats'] = 'Formati di visualizzazione';
 $string['displayformatssetup'] = 'Impostazione dei formati di visualizzazione';
 $string['duplicatecategory'] = 'Categoria duplicata';
 $string['duplicateentry'] = 'Voce duplicata';
-$string['editalways'] = 'Modifica sempre';
+$string['editalways'] = 'Consenti di modificare sempre';
 $string['editalways_help'] = 'L\'impostazione determina se le voci saranno sempre modificabili oppure no. Nel secondo caso i partecipanti le potranno modificare ed eliminare all\'interno di un prefissato intervallo di tempo (di norma 30 minuti).';
 $string['editcategories'] = 'Modifica categorie';
 $string['editentry'] = 'Modifica voce';
@@ -176,7 +177,7 @@ $string['filtername'] = 'Auto collegamento al Glossario';
 $string['fullmatch'] = 'Collega solo le parole intere';
 $string['fullmatch_help'] = 'L\'impostazione stabilisce se l\'auto collegamento è valido solo per le parole intere. Ad esempio, la voce "costrutti" non sarà collegato all\'interno della parola "costruttivismo"';
 $string['glossary:addinstance'] = 'Aggiungere glossari';
-$string['glossary:approve'] = 'Approvare voci in attesa';
+$string['glossary:approve'] = 'Approvare voci in attesa, o disapprovare voci approvate';
 $string['glossary:comment'] = 'Creare commenti';
 $string['glossary:export'] = 'Esportare voci';
 $string['glossary:exportentry'] = 'Esportare voce singolarmente';
@@ -249,6 +250,7 @@ $string['page-mod-glossary-x'] = 'Qualsiasi pagina con modulo glossario';
 $string['pluginadministration'] = 'Gestione Glossario';
 $string['pluginname'] = 'Glossario';
 $string['popupformat'] = 'Formato visualizzazione';
+$string['print'] = 'Stampa';
 $string['printerfriendly'] = 'Versione stampabile';
 $string['printviewnotallowed'] = 'La visualizzazione per la stampa non è permessa';
 $string['question'] = 'Domanda';
@@ -265,7 +267,7 @@ $string['searchindefinition'] = 'Cerca anche nelle definizioni';
 $string['secondaryglossary'] = 'Glossario secondario';
 $string['showall'] = 'Visualizza link \'TUTTI\'';
 $string['showall_help'] = 'L\'impostazione consente di visualizzare tutte le voci.';
-$string['showalphabet'] = 'Visualizza alfabeto';
+$string['showalphabet'] = 'Visualizza collegamenti alfabetici';
 $string['showalphabet_help'] = 'L\'impostazione consente ai partecipanti di filtrare le voci usando le lettere dell\'alfabeto';
 $string['showspecial'] = 'Visualizza link \'Caratteri speciali\'';
 $string['showspecial_help'] = 'L\'impostazione consente ai partecipanti di filtrare le voci  usando caratteri speciali (ad esempio @ e #).';

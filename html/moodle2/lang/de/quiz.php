@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,7 @@ $string['addarandomquestion'] = 'Zufallsfrage hinzufügen...';
 $string['addarandomquestion_help'] = 'Eine Zufallsfrage wird zufällig aus allen Fragen der gewählten Kategorie ausgewählt. Das führt dazu, dass verschiedene Teilnehmer/iinen eine unterschiedliche Auswahl von Fragen im Test zur Beantwortung erhalten. Falls mehrere Versuche beim Test erlaubt sind, werden bei jedem Versuch die Fragen erneut zufällig gewählt.';
 $string['adddescriptionlabel'] = 'Textfeld hinzufügen';
 $string['addingquestion'] = 'Frage hinzufügen';
-$string['addingquestions'] = 'Diese Spalte der Seite dient der Verwaltung der Testfragen. Fragen werden zwecks besseren Überblicks in Kategorien gespeichert und können von jedem Test Ihres Kurses oder sogar von anderen Kursen (wenn die Option "Veröffentlichen" ausgewählt ist) benutzt werden. <br /><br />Nachdem Sie eine Kategorie eingerichtet haben, können Sie Fragen erzeugen oder bearbeiten. Sie können jede einzelne dieser Fragen auswählen und Ihrem Test in der anderen Spalte hinzufügen.';
+$string['addingquestions'] = '<p>Diese Spalte der Seite dient der Verwaltung der Testfragen. Fragen werden zwecks besseren Überblicks in Kategorien gespeichert und können von jedem Test Ihres Kurses oder sogar von anderen Kursen (wenn die Option "Veröffentlichen" ausgewählt ist) benutzt werden. </p><p>Nachdem Sie eine Kategorie eingerichtet haben, können Sie Fragen erzeugen oder bearbeiten. Sie können jede einzelne dieser Fragen auswählen und Ihrem Test in der anderen Spalte hinzufügen.</p>';
 $string['addmoreoverallfeedbacks'] = '{no} weitere Feedbackfelder hinzufügen';
 $string['addnewgroupoverride'] = 'Gruppenänderung hinzufügen';
 $string['addnewpagesafterselected'] = 'Neue Seite nach markierter Frage hinzufügen';
@@ -71,7 +71,6 @@ $string['answerhowmany'] = 'Eine oder mehrere Antworten';
 $string['answers'] = 'Antworten';
 $string['answersingleno'] = 'Mehrere Antworten erlauben';
 $string['answersingleyes'] = 'Nur eine Antwort erlauben';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Antworten mit akzeptiertem Fehler müssen numerisch sein.';
 $string['answertoolong'] = 'Die Antwort ist nach Zeile {$a} zu lang (Sie können bis zu 255 Zeichen eingeben).';
 $string['aon'] = 'AON';
 $string['areyousureremoveselected'] = 'Sind Sie sicher, dass Sie alle ausgewählten Fragen entfernen möchten?';
@@ -99,6 +98,8 @@ $string['attemptsonly'] = 'Nur Teilnehmer/innen anzeigen, die bereits Versuche d
 $string['attemptstate'] = 'Status';
 $string['attemptstillinprogress'] = 'Versuch dauert noch an';
 $string['attemptsunlimited'] = 'unbegrenzt';
+$string['autosaveperiod'] = 'Zeitspanne zur automatischen Sicherung';
+$string['autosaveperiod_desc'] = 'Teilnehmerantworten können während der Testversuche regelmäßig automatisch gesichert werden. Dies erhöht die Serverlast, verhindert aber den Verlust von Antworten.';
 $string['back'] = 'Zurück zur vorherigen Antwort';
 $string['backtocourse'] = 'Zurück zum Kurs';
 $string['backtoquestionlist'] = 'Zurück zur Fragenliste';
@@ -185,6 +186,12 @@ $string['confirmserverdelete'] = 'Sind Sie sicher, dass Sie den Server <b>{$a}</
 $string['confirmstartattemptlimit'] = 'Anzahl der erlaubten Versuche: {$a}. Möchten Sie wirklich einen neuen Versuch starten?';
 $string['confirmstartattempttimelimit'] = 'Sie können bis zu {$a} Versuch(e) in diesem Test durchführen. Wenn Sie starten, haben Sie eine begrenzte Zeit für die Durchführung des Versuchs. Wollen Sie jetzt einen neuen Versuch starten?';
 $string['confirmstarttimelimit'] = 'Der Test ist zeitlich begrenzt. Wollen Sie jetzt einen Versuch starten?';
+$string['connectionerror'] = 'Sie haben die Netzwerkverbindung verloren. Das automatische Speichern konnte daher nicht ausgeführt werden.
+
+Machen Sie sich eine Notiz über alle in den letzten Minuten  eingegebenen Antworten und versuchen Sie die Vernindung wieder herzustellen.
+
+Sobald die Verbindung wieder hergestellt wurde, sollten Sie die Antworten erneut speichern. Diese Nachricht verschwindet dann.';
+$string['connectionok'] = 'Die Netzwerkverbindung wurde wieder hergestellt. Arbeiten Sie nun vorsichtig weiter.';
 $string['containercategorycreated'] = 'Die Kategorie wurde aus den unten genannten Gründen angelegt, um alle Fragen aus anderen Kategorien aufzunehmen.';
 $string['continueattemptquiz'] = 'Letzten Versuch fortsetzen';
 $string['continuepreview'] = 'Letzte Vorschau fortsetzen';
@@ -236,6 +243,7 @@ $string['deletingquestionattempts'] = 'Löschen der Testversuche';
 $string['description'] = 'Beschreibung';
 $string['disabled'] = 'Deaktiviert';
 $string['displayoptions'] = 'Anzeigeoptionen';
+$string['donotuseautosave'] = 'Nicht automatisch sichern';
 $string['download'] = 'Klick zum Download der exportierten Kategorien';
 $string['downloadextra'] = '(Datei ist auch im Kursverzeichnis backupdata/quiz abgelegt.)';
 $string['duplicateresponse'] = 'Ihre Antwort wurde ignoriert, weil Sie früher bereits eine gleichwertige Antwort gegeben haben.';
@@ -257,7 +265,7 @@ $string['editqcats'] = 'Kategorien bearbeiten';
 $string['editquestions'] = 'Fragen bearbeiten';
 $string['editquiz'] = 'Testinhalt bearbeiten';
 $string['editquizquestions'] = 'Testfragen bearbeiten';
-$string['emailconfirmbody'] = 'Hallo {$a->username},
+$string['emailconfirmbody'] = 'Guten Tag {$a->username},
 
 vielen Dank für die Abgabe Ihrer Antworten zu \'{$a->quizname}\' im Kurs \'{$a->coursename}\' am {$a->submissiontime}.
 
@@ -266,9 +274,12 @@ Diese E-Mail bestätigt, dass Ihre Abgabe sicher angekommen ist.
 Sie können auf den Test zugreifen unter {$a->quizurl}.';
 $string['emailconfirmsmall'] = 'Danke für die Übermittlung Ihrer Antworten auf \'{$a->quizname}\'';
 $string['emailconfirmsubject'] = 'Bestätigung der Testlösungen für {$a->quizname}';
-$string['emailnotifybody'] = 'Hallo {$a->username},
+$string['emailnotifybody'] = 'Guten Tag {$a->username},
 
-{$a->studentname} hat den Test \'{$a->quizname}\' ({$a->quizurl}) im Kurs \'{$a->coursename}\' beendet.
+{$a->studentname} hat den Test
+
+\'{$a->quizname}\' ({$a->quizurl})
+im Kurs \'{$a->coursename}\' beendet.
 
 Sie können diesen Versuch unter {$a->quizreviewurl} ansehen.';
 $string['emailnotifysmall'] = '{$a->studentname} hat {$a->quizname} abgeschlossen. Siehe {$a->quizreviewurl}';
@@ -290,6 +301,10 @@ $string['errornotnumbers'] = 'Fehler: Die Antwort muss eine Zahl sein.';
 $string['errorunexpectedevent'] = 'Unerwarteter Ablaufcode {$a->event}  für Frage {$a->questionid} im Versuch {$a->attemptid} gefunden';
 $string['essay'] = 'Freitext';
 $string['essayquestions'] = 'Freitext-Fragen';
+$string['eventquizattemptabandoned'] = 'Testversuch aufgegeben';
+$string['eventquizattemptstarted'] = 'Testversuch gestartet';
+$string['eventquizattemptsubmitted'] = 'Testversuch eingereicht';
+$string['eventquizattempttimelimitexceeded'] = 'Zeit für Testversuch überschritten';
 $string['everynquestions'] = 'Nach {$a} Fragen';
 $string['everyquestion'] = 'Jede Frage';
 $string['everythingon'] = 'Alles einschalten';
@@ -437,7 +452,7 @@ $string['moveselectedonpage'] = 'Verschieben der ausgewählten Fragen zur Seite:
 $string['multichoice'] = 'Multiple-Choice';
 $string['multipleanswers'] = 'Wählen Sie eine oder mehrere richtige Antworten.';
 $string['multiplier'] = 'Multiplikator';
-$string['mustbesubmittedby'] = 'Dieser Versuch muss abgegeben werden von {$a}.';
+$string['mustbesubmittedby'] = 'Dieser Versuch muss abgegeben werden vor {$a}.';
 $string['name'] = 'Name';
 $string['navmethod'] = 'Navigation';
 $string['navmethod_free'] = 'Selbstgewählt';
@@ -492,6 +507,7 @@ $string['numattemptsmade'] = '{$a} Versuche wurden in diesem Test gemacht';
 $string['numberabbr'] = '#';
 $string['numerical'] = 'Numerisch';
 $string['numquestionsx'] = 'Fragen: {$a}';
+$string['oneminute'] = '1 Minute';
 $string['onlyteachersexport'] = 'Nur Trainer/innen können Fragen exportieren';
 $string['onlyteachersimport'] = 'Nur Trainer/innen mit Bearbeitungsrecht können Fragen importieren';
 $string['onthispage'] = 'Diese Seite';
@@ -507,8 +523,8 @@ Um Fragen über eine Reihe von Seiten anzuordnen, klicken Sie auf die Taste \'Se
 $string['orderingquiz'] = 'Reihenfolge und Seitenumbrüche';
 $string['orderingquizx'] = 'Reihenfolge und Seitenwechsel: {$a}';
 $string['outcomesadvanced'] = 'Lernziele als erweiterte Einstellungen';
-$string['outof'] = '{$a->grade} von maximal {$a->maxgrade}';
-$string['outofpercent'] = '{$a->grade} von maximal {$a->maxgrade} ({$a->percent}%)';
+$string['outof'] = '{$a->grade} von {$a->maxgrade}';
+$string['outofpercent'] = '{$a->grade} von {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
 $string['overallfeedback'] = 'Gesamt-Feedback';
 $string['overallfeedback_help'] = '<h2>Gesamt-Feedback </h2>
@@ -547,7 +563,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'Änderungen';
 $string['overrideuser'] = 'Nutzer/in ändern';
 $string['overrideusereventname'] = '{$a->quiz} - Änderung';
+$string['page-mod-quiz-attempt'] = 'Seite des Testversuchs';
 $string['page-mod-quiz-edit'] = 'Testbearbeitungsseite';
+$string['page-mod-quiz-report'] = 'Jede Seite des Testberichts';
+$string['page-mod-quiz-review'] = 'Seite des Testversuchs neu bewertet';
+$string['page-mod-quiz-summary'] = 'Übersicht des Testversuchs';
+$string['page-mod-quiz-view'] = 'Informationsseite des Tests';
 $string['page-mod-quiz-x'] = 'Jede Testseite';
 $string['pagesize'] = 'Seitengröße';
 $string['parent'] = 'Übergeordnete Kategorie';
@@ -610,7 +631,7 @@ $string['quizavailable'] = 'Der Test ist verfügbar bis {$a}';
 $string['quizclose'] = 'Testschließung';
 $string['quizclosed'] = 'Dieser Test schließt am {$a}';
 $string['quizcloses'] = 'Testschließung';
-$string['quizcloseson'] = 'Dieser Test läuft nur bis {$a}';
+$string['quizcloseson'] = 'Der Test ist verfügbar bis {$a}';
 $string['quiz:deleteattempts'] = 'Testversuche löschen';
 $string['quiz:emailconfirmsubmission'] = 'Bei Abgaben eine E-Mail-Bestätigung versenden';
 $string['quiz:emailnotifysubmission'] = 'Bei Abgaben eine E-Mail-Mitteilung versenden';
@@ -688,6 +709,7 @@ $string['reportregrade'] = 'Testversuche löschen';
 $string['reportresponses'] = 'Detailantworten';
 $string['reports'] = 'Berichte';
 $string['reportshowonly'] = 'Nur Versuche anzeigen';
+$string['reportshowonlyfinished'] = 'Max. einen fertigen Versuch pro Teilnehmer/in anzeigen ({$a})';
 $string['reportsimplestat'] = 'Einfache Statistik';
 $string['reportusersall'] = 'Alle mit Testversuchen';
 $string['reportuserswith'] = 'Eingeschriebene mit Testversuchen';
@@ -775,9 +797,12 @@ $string['showdetailedmarks'] = 'Bewertungsdetails anzeigen';
 $string['showeachpage'] = 'Seiten einzeln anzeigen';
 $string['showfeedback'] = 'Nach dem Antworten Feedback anzeigen?';
 $string['showinsecurepopup'] = 'Browsersicherheit';
+$string['showlargeimage'] = 'Großes Bild';
 $string['shownoattempts'] = 'Teilnehmer/innen anzeigen, die keine Versuche durchgeführt haben';
 $string['shownoattemptsonly'] = 'Nur Teilnehmer/innen anzeigen, die keine Versuche durchgeführt haben';
+$string['shownoimage'] = 'Kein Bild';
 $string['showreport'] = 'Bericht anzeigen';
+$string['showsmallimage'] = 'Kleines Bild';
 $string['showteacherattempts'] = 'Versuche der Trainer/innen anzeigen';
 $string['showuserpicture'] = 'Nutzerbild anzeigen';
 $string['showuserpicture_help'] = 'Aktiviert bedeutet: Name und Profilbild des Teilnehmers wird während des Testversuchs und bei der Rückschau angezeigt. Das macht es einfacher während einer Prüfung festzustellen, ob der Teilnehmer die Prüfung mit seinem eigenen Account durchführt. ';
@@ -809,7 +834,7 @@ $string['startagain'] = 'Erneut starten';
 $string['startattempt'] = 'Versuch beginnen';
 $string['startedon'] = 'Begonnen am';
 $string['startnewpreview'] = 'Neue Vorschau beginnen';
-$string['stateabandoned'] = 'Nie zugegriffen';
+$string['stateabandoned'] = 'Nie abgeschlossen';
 $string['statefinished'] = 'Beendet';
 $string['statefinisheddetails'] = 'Abgeschlossen {$a}';
 $string['stateinprogress'] = 'In Bearbeitung';

@@ -63,9 +63,9 @@ class repository_coursefiles extends repository {
         $browser = get_file_browser();
 
         if (!empty($encodedpath)) {
-            $params = unserialize(base64_decode($encodedpath));
+            $params = json_decode(base64_decode($encodedpath), true);
             if (is_array($params)) {
-                $filepath  = is_null($params['filepath']) ? NULL : clean_param($params['filepath'], PARAM_PATH);;
+                $filepath  = is_null($params['filepath']) ? NULL : clean_param($params['filepath'], PARAM_PATH);
                 $filename  = is_null($params['filename']) ? NULL : clean_param($params['filename'], PARAM_FILE);
                 $context = context::instance_by_id(clean_param($params['contextid'], PARAM_INT));
             }
@@ -80,12 +80,12 @@ class repository_coursefiles extends repository {
         if ($fileinfo = $browser->get_file_info($context, $component, $filearea, $itemid, $filepath, $filename)) {
             // build path navigation
             $pathnodes = array();
-            $encodedpath = base64_encode(serialize($fileinfo->get_params()));
+            $encodedpath = base64_encode(json_encode($fileinfo->get_params()));
             $pathnodes[] = array('name'=>$fileinfo->get_visible_name(), 'path'=>$encodedpath);
             $level = $fileinfo->get_parent();
             while ($level) {
                 $params = $level->get_params();
-                $encodedpath = base64_encode(serialize($params));
+                $encodedpath = base64_encode(json_encode($params));
                 if ($params['contextid'] != $context->id) {
                     break;
                 }
@@ -102,7 +102,7 @@ class repository_coursefiles extends repository {
                 if ($child->is_directory()) {
                     $params = $child->get_params();
                     $subdir_children = $child->get_children();
-                    $encodedpath = base64_encode(serialize($params));
+                    $encodedpath = base64_encode(json_encode($params));
                     $node = array(
                         'title' => $child->get_visible_name(),
                         'datemodified' => $child->get_timemodified(),
@@ -113,7 +113,7 @@ class repository_coursefiles extends repository {
                     );
                     $list[] = $node;
                 } else {
-                    $encodedpath = base64_encode(serialize($child->get_params()));
+                    $encodedpath = base64_encode(json_encode($child->get_params()));
                     $node = array(
                         'title' => $child->get_visible_name(),
                         'size' => $child->get_filesize(),
@@ -155,7 +155,7 @@ class repository_coursefiles extends repository {
         $contextid  = clean_param($params['contextid'], PARAM_INT);
         $fileitemid = clean_param($params['itemid'], PARAM_INT);
         $filename = clean_param($params['filename'], PARAM_FILE);
-        $filepath = clean_param($params['filepath'], PARAM_PATH);;
+        $filepath = clean_param($params['filepath'], PARAM_PATH);
         $filearea = clean_param($params['filearea'], PARAM_AREA);
         $component = clean_param($params['component'], PARAM_COMPONENT);
         $context = context::instance_by_id($contextid);
@@ -212,13 +212,11 @@ class repository_coursefiles extends repository {
     }
 
     /**
-     * Return reference file life time
+     * Is this repository accessing private data?
      *
-     * @param string $ref
-     * @return int
+     * @return bool
      */
-    public function get_reference_file_lifetime($ref) {
-        // this should be realtime
-        return 0;
+    public function contains_private_data() {
+        return false;
     }
 }

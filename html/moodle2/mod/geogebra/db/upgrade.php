@@ -80,24 +80,24 @@ function xmldb_geogebra_upgrade($oldversion) {
         $field->setAttributes(XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, null, null, '0', 'finished');
         $result = $result && add_field($table, $field);
     }
-    
+
     if ($oldversion < 2012082100) {
         $table = new XMLDBTable('geogebra');
         $field = new XMLDBField('url');
         $field->setAttributes(XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, null, null, 'intro');
-        $result = $result && change_field_precision($table, $field);        
-        
-        $table = new XMLDBTable('geogebra_attempts');        
+        $result = $result && change_field_precision($table, $field);
+
+        $table = new XMLDBTable('geogebra_attempts');
         $field = new XMLDBField('gradecomment');
         $field->setAttributes(XMLDB_TYPE_TEXT, 'small', null, false, null, null, null, null, 'vars');
         $result = $result && change_field_notnull($table, $field);
-        
+
         $field = new XMLDBField('date');
         $field->setAttributes(XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, null, null, '0');
         $result = $result && rename_field($table, $field, 'datestudent');
-        
+
     }
-    
+
     if ($oldversion < 2011122902) {
 
         /// Define field introformat to be added to geogebra
@@ -121,25 +121,25 @@ function xmldb_geogebra_upgrade($oldversion) {
             }
             $rs->close();
         }
-        
+
         /// geogebra savepoint reached
         upgrade_mod_savepoint(true, 2011122902, 'geogebra');
     }
-    
+
 //===== 1.9.0 upgrade line ======//
-    
+
     if ($oldversion < 2012042700) {
 
         require_once("$CFG->dirroot/mod/geogebra/db/upgradelib.php");
         // Add upgrading code from 1.9 (+ new file storage system)
         // @TODO: test it!!!!
         geogebra_migrate_files();
-             
+
         // geogebra savepoint reached
         upgrade_mod_savepoint(true, 2012042700, 'geogebra');
     }
-    
-    
+
+
     if ($oldversion < 2013050600) {
 
         // @TODO: test it!!!!
@@ -148,7 +148,7 @@ function xmldb_geogebra_upgrade($oldversion) {
         $field = new xmldb_field('attributes');
         $field->set_attributes(XMLDB_TYPE_TEXT, 'small', null, null, null, null, null, null, 'url');
         $dbman->add_field($table, $field);
-        
+
         $rs = $DB->get_recordset('geogebra');
         foreach ($rs as $f) {
             parse_str($f->url, $parsedVarsURL);
@@ -164,21 +164,21 @@ function xmldb_geogebra_upgrade($oldversion) {
             }
         }
         $rs->close();
-     
+
         // geogebra savepoint reached
         upgrade_mod_savepoint(true, 2013050600, 'geogebra');
     }
-    
+
     if ($oldversion < 2014011305) {
         // Change default codebase to avoid problems sending data
         $sql = "UPDATE {config} SET value='".GEOGEBRA_DEFAULT_CODEBASE."' WHERE name='geogebra_javacodebase'";
         $DB->execute($sql);
-        
+
         // geogebra savepoint reached
         upgrade_mod_savepoint(true, 2014011305, 'geogebra');
     }
-    
-    
+
+
     // Final return of upgrade result (true, all went good) to Moodle.
     return true;
 }

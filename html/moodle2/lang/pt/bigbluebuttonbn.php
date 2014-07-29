@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'bigbluebuttonbn', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'bigbluebuttonbn', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   bigbluebuttonbn
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['bbburl'] = 'O URL do servidor do seu BigBlueButton tem de terminar com /bigbluebutton/. (Este URL predefinido é para um servidor BigBlueButton disponibilizado pela Blindside Networks que pode usar para testar.)';
 $string['bigbluebuttonbn'] = 'BigBlueButton';
-$string['bigbluebuttonbnintro'] = 'Introdução do BigBlueButton';
 $string['bigbluebuttonbnUrl'] = 'URL do servidor do BigBlueButton';
 $string['configsecuritysalt'] = 'A salt de segurança do seu servidor BigBlueButton. (Este salt predefinido é para um servidor do BigBlueButton disponibilizado pela Blindside Networks que pode usar para testar.)';
 $string['general_error_unable_connect'] = 'Não foi possível estabelecer a ligação. Por favor verifique o URL do servidor do BigBlueButton e garanta que este está a funcionar corretamente.';

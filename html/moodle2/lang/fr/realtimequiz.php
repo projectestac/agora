@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'realtimequiz', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'realtimequiz', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   realtimequiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,10 +36,10 @@ $string['answers'] = 'Réponses';
 $string['answersent'] = 'Réponse envoyée, en attente de la fin de la question :';
 $string['answertext'] = 'Texte de réponse :';
 $string['atleastoneanswer'] = 'Vous avez besoin d\'au moins une réponse';
-$string['backquiz'] = 'Retour au quiz en temps réel';
+$string['backquiz'] = 'Retour au test en temps réel';
 $string['backresponses'] = 'Retour aux résultats complets';
 $string['badcurrentquestion'] = 'Mauvaise question:';
-$string['badquizid'] = 'Mauvais identifiant de quiz :';
+$string['badquizid'] = 'Mauvais identifiant de test :';
 $string['badresponse'] = 'Réponse inattendue du serveur';
 $string['badsesskey'] = 'Mauvaise clé de session';
 $string['checkdelete'] = 'Êtes-vous sur de vouloir supprimer la question ?';
@@ -53,7 +53,7 @@ $string['correctnotblank'] = 'La réponse juste ne peut pas être vide';
 $string['cross'] = 'Mauvaise réponse';
 $string['deletequestion'] = 'Supprimer la question';
 $string['displaynext'] = 'À propos de l\'affichage de la prochaine question :';
-$string['edit'] = 'Modifier le quiz';
+$string['edit'] = 'Modifier le test';
 $string['editquestions'] = 'Modifier les questions';
 $string['editquestiontime'] = 'Temps pour la question (0 par défaut)';
 $string['edittingquestion'] = 'Modification de la question';
@@ -62,23 +62,23 @@ $string['finalresults'] = 'Résultats finaux';
 $string['hideusers'] = 'Cacher les utilisateurs';
 $string['httperror'] = 'Il y a un problème avec la requête. État :';
 $string['httprequestfail'] = 'Abandon - impossible de créer une instance XMLHTTP';
-$string['incorrectstatus'] = 'Le quiz est dans un état incorrect :';
-$string['invalidanswer'] = 'Mauvaise numéro de réponse';
+$string['incorrectstatus'] = 'Le test est dans un état incorrect :';
+$string['invalidanswer'] = 'Numéro de réponse non valide';
 $string['joininstruct'] = 'Attendez que votre enseignant vous le demande avant de cliquer sur ce bouton';
-$string['joinquiz'] = 'Rejoindre un quiz';
-$string['modulename'] = 'Quiz en temps réel';
-$string['modulenameplural'] = 'Quiz en temps réel';
+$string['joinquiz'] = 'Rejoindre un test';
+$string['modulename'] = 'Test en temps réel';
+$string['modulenameplural'] = 'Test en temps réel';
 $string['next'] = 'Suivant';
 $string['nextquestion'] = 'Question suivante';
 $string['noanswers'] = 'Pas de réponse donnée';
 $string['nocorrect'] = 'Pas de « bonne » réponse';
 $string['noquestion'] = 'Mauvaise réponse - absence de question:';
-$string['nosessions'] = 'Ce quiz en temps réel n\'a pas encore été tenté';
-$string['notallowedattempt'] = 'Vous n\'êtes pas autorisé à tenter ce quiz';
-$string['notauthorised'] = 'Vous n\'êtes pas autorisé à contrôler ce quiz';
+$string['nosessions'] = 'Ce test en temps réel n\'a pas encore été effectué';
+$string['notallowedattempt'] = 'Vous n\'êtes pas autorisé à effectuer ce test';
+$string['notauthorised'] = 'Vous n\'êtes pas autorisé à contrôler ce test';
 $string['onecorrect'] = 'Erreur : il doit y avoir seulement une bonne réponse';
-$string['pluginadministration'] = 'Administration du quiz en temps réel';
-$string['pluginname'] = 'Quiz en temps réel';
+$string['pluginadministration'] = 'Administration du test en temps réel';
+$string['pluginname'] = 'Test en temps réel';
 $string['prevquestion'] = 'Question précédente';
 $string['question'] = 'Question';
 $string['questiondelete'] = 'Supprimer la question {$a}';
@@ -87,20 +87,20 @@ $string['questionimage'] = 'Image (facultative) :';
 $string['questionmovedown'] = 'Descendre la question {$a}';
 $string['questionmoveup'] = 'Monter la question {$a}';
 $string['questions'] = 'Questions';
-$string['questionslist'] = 'Questions de ce quiz en temps réel';
+$string['questionslist'] = 'Questions de ce test en temps réel';
 $string['questiontext'] = 'Texte de la question :';
 $string['questiontime'] = 'Temps par défaut des questions';
-$string['questiontime_help'] = 'Le temps par défaut (en seconde) permis pour chaque question.<br/>
+$string['questiontime_help'] = 'Le temps par défaut (en seconde) permis pour chaque question.
 Ce paramètre peut être modifié pour chaque question individuellement.';
 $string['quizfinished'] = 'Plus de question';
-$string['quiznotrunning'] = 'Le quiz n\'est pas encore en fonctionnement, attendez que votre enseignant le démarre.';
-$string['realtimequiz:addinstance'] = 'Ajouter un nouveau quiz en temps réel';
-$string['realtimequiz:attempt'] = 'Tenter un quiz';
-$string['realtimequiz:control'] = 'Démarrer / contrôler un quiz';
-$string['realtimequiz:editquestions'] = 'Modifier les question d\'un quiz';
+$string['quiznotrunning'] = 'Le test n\'est pas encore en fonctionnement, attendez que votre enseignant le démarre.';
+$string['realtimequiz:addinstance'] = 'Ajouter un test en temps réel';
+$string['realtimequiz:attempt'] = 'Effectuer un test';
+$string['realtimequiz:control'] = 'Démarrer / contrôler un test';
+$string['realtimequiz:editquestions'] = 'Modifier les questions d\'un test';
 $string['realtimequizintro'] = 'Introduction';
-$string['realtimequiz:seeresponses'] = 'Voir les réponses d\'un quiz';
-$string['realtimequizsettings'] = 'Paramètres du quiz en temps réel';
+$string['realtimequiz:seeresponses'] = 'Voir les réponses d\'un test';
+$string['realtimequizsettings'] = 'Paramètres du test en temps réel';
 $string['removeimage'] = 'Supprimer l\'image';
 $string['responses'] = 'Voir les réponses';
 $string['resultcorrect'] = 'correct';
@@ -114,7 +114,7 @@ $string['servererror'] = 'Le serveur a retourné une erreur :';
 $string['sessions'] = 'Sessions';
 $string['showsession'] = 'Montrer';
 $string['showusers'] = 'Montrer les utilisateurs';
-$string['startquiz'] = 'Démarrer le quiz';
+$string['startquiz'] = 'Démarrer le test';
 $string['submissions'] = 'Tentatives';
 $string['teacherjoinquizinstruct'] = 'Utilisez ce bouton si vous voulez tester vous même votre quiz.<br />Vous aurez aussi besoin de démarrer le quiz dans une fenêtre séparée.';
 $string['teacherstartinstruct'] = 'Utilisez ce bouton pour démarrer le quiz pour les étudiants.<br/>Vous pouvez utiliser le champ textuel pour définir un nom pour cette session afin de vous aider lors des relectures ultérieures.';

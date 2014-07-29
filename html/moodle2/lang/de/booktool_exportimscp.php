@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'booktool_exportimscp', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'booktool_exportimscp', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   booktool_exportimscp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_book_exported'] = 'Buch exportiert';
 $string['exportimscp:export'] = 'IMS-Content exportieren';
 $string['generateimscp'] = 'IMS-CP erzeugen';
 $string['nochapters'] = 'Keine Kapitel gefunden. Der Export als IMS-Content ist nicht möglich.';

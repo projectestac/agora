@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_regexp', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_regexp', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_regexp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,6 +33,7 @@ $string['answer1mustbegiven'] = 'Answer 1 cannot be empty.';
 $string['answermustbegiven'] = 'You must enter an answer if there is a grade or feedback.';
 $string['answerno'] = 'Answer: {$a}';
 $string['bestcorrectansweris'] = '<strong>The best correct answer is:</strong><br />{$a}';
+$string['calculatealternate'] = '(Re-)Calculate alternate answers';
 $string['caseno'] = 'No, case is unimportant';
 $string['casesensitive'] = 'Case sensitivity';
 $string['caseyes'] = 'Yes, case must match';
@@ -75,13 +76,12 @@ $string['regexp_link'] = 'question/type/regexp';
 $string['regexpsensitive'] = 'Use regular expressions to check answers';
 $string['regexpsummary'] = 'Like short answer but the analysis of the student\'s responses is based on regular expressions';
 $string['settingsformultipletries'] = 'Settings for multiple tries and Buying letters or words';
-$string['showalternate'] = 'Show alternate answers';
 $string['showhidealternate'] = 'Show/Hide alternate answers';
 $string['showhidealternate_help'] = 'Calculate and display all correct answers in this form? This may take quite some time on your server,
 depending on the number and complexity of the regular expressions you have entered in the Answer fields!
 
 On the other hand, it is the recommended way to check that your "correct answers" expressions are correctly written.';
-$string['studentshowalternate'] = 'Show alternate answers to student';
+$string['studentshowalternate'] = 'Show alternate';
 $string['studentshowalternate_help'] = 'Show <strong>all</strong> correct alternative answers to student when on review page? If there are a lot
 of automatically generated correct alternative answers, displaying them all can make the review page quite long.';
 $string['usehint'] = 'Help button mode';

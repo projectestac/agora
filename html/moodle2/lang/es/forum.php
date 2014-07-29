@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['attachment'] = 'Archivo adjunto';
 $string['attachment_help'] = 'Si lo desea, puede adjuntar uno o más archivos a un mensaje en el foro. Si adjunta una imagen, se mostrará al final del mensaje.';
 $string['attachmentnopost'] = 'No puede exportar archivos adjuntos sin una id de mensaje';
 $string['attachments'] = 'Archivos adjuntos';
+$string['attachmentswordcount'] = 'Adjuntos y recuento de palabras';
 $string['blockafter'] = 'Umbral de mensajes para bloqueo';
 $string['blockafter_help'] = 'Este ajuste especifica el número máximo de aportaciones que un usuario puede publicar en el período de tiempo especificado. Los usuarios con el permiso \'mod/forum:postwithoutthrottling\'  están exentos de esta limitación.';
 $string['blockperiod'] = 'Período de tiempo para bloqueo';
@@ -59,7 +60,6 @@ $string['cannotaddsubscriber'] = 'No se pudo añadirun suscriptor con la id {$a}
 $string['cannotaddteacherforumto'] = 'No se ha podido convertir el ejemplo de foro de profesores a la sección 0 del curso';
 $string['cannotcreatediscussion'] = 'No se pudo crear un debate nuevo';
 $string['cannotcreateinstanceforteacher'] = 'No se pudo crear un nuevo ejemplo de móduno de curso para el foro de profesores';
-$string['cannotdeleteforummodule'] = 'No se puede eliminar el módulo Foro.';
 $string['cannotdeletepost'] = 'No puede eliminar este mensaje.';
 $string['cannoteditposts'] = 'No puede eliminar los mensajes de otras personas.';
 $string['cannotfinddiscussion'] = 'No se ha podido encontrar el debate en este foro';
@@ -103,10 +103,11 @@ $string['configmaxbytes'] = 'Tamaño máximo por defecto para los archivos adjun
 $string['configoldpostdays'] = 'Número de días para que un mensaje se considere leído.';
 $string['configreplytouser'] = 'Cuando un mensaje del foro es enviado por correo electrónico, ¿debería contener la dirección del usuario de modo que los receptores pudieran responderle personalmente en lugar de hacerlo en el foro? Incluso aunque se seleccione \'Sí\', los usuarios pueden elegir en su perfil que su dirección de correo electrónico se mantenga en secreto.';
 $string['configshortpost'] = 'Cualquier mensaje que no alcance esta extensión (sin incluir código HTML) se considera corto.';
+$string['configtrackingtype'] = 'Ajuste predeterminado para el rastreo de lectura';
 $string['configtrackreadposts'] = 'Seleccione \'Sí\' si desea rastrear leído/no leído para cada usuario.';
 $string['configusermarksread'] = 'Si elige \'sí\' el usuario debe marcar manualmente un mensaje como leído. Si \'no\', cuando el mensaje sea visto se marcará como leído.';
 $string['confirmsubscribe'] = '¿Está seguro que quiere suscribirse al foro \'{$a}\'?';
-$string['confirmunsubscribe'] = '¿Está seguro que quiere darse de baja de foro \'{$ a}\'?';
+$string['confirmunsubscribe'] = '¿Está seguro que quiere darse de baja de foro \'{$a}\'?';
 $string['couldnotadd'] = 'No se puede colocar su mensaje debido a un problema desconocido.';
 $string['couldnotdeletereplies'] = 'Lo sentimos, no podemos borrar este mensaje debido a que tiene réplicas.';
 $string['couldnotupdate'] = 'No se ha podido actualizar su mensaje debido a un error desconocido.';
@@ -138,11 +139,16 @@ $string['displaymode'] = 'Mostrar modo';
 $string['displayperiod'] = 'Mostrar período';
 $string['displaystart'] = 'Mostrar inicio';
 $string['displaystart_help'] = 'Este ajuste especifica si un mensaje en el foro debe mostrarse a partir de una fecha determinada. Tenga en cuenta que los administradores siempre pueden ver los mensajes en el foro.';
+$string['displaywordcount'] = 'Mostrar número de palabras';
+$string['displaywordcount_help'] = 'Este ajuste especifica si el número de palabras de cada mensaje se debe mostrar o no';
 $string['eachuserforum'] = 'Cada persona plantea un tema';
 $string['edit'] = 'Editar';
 $string['editedby'] = 'Editado por {$a->name} - envío original {$a->date}';
 $string['editedpostupdated'] = '{$a} mensajes actualizados';
 $string['editing'] = 'Editando';
+$string['emaildigest_0'] = 'Recibirás un e-mail por cada mensaje del foro.';
+$string['emaildigestcompleteshort'] = 'Mensajes completos';
+$string['emaildigestdefault'] = 'Por defecto ({$a})';
 $string['emptymessage'] = 'Algo va mal con su mensaje. Tal vez lo haya enviado en blanco o el archivo adjunto, si lo hay, es demasiado grande. Sus cambios NO se han guardado.';
 $string['erroremptymessage'] = 'El mensaje no puede estar vacío';
 $string['erroremptysubject'] = 'El asunto del mensaje no puede estar vacío.';
@@ -154,6 +160,8 @@ $string['everyoneisnowsubscribed'] = 'Ahora todos están suscritos a este foro';
 $string['everyoneissubscribed'] = 'Todos están suscritos a este foro';
 $string['existingsubscribers'] = 'Suscriptores existentes';
 $string['exportdiscussion'] = 'Exportar el debate completo';
+$string['forcedreadtracking'] = 'Permitir forzar el rastreo de lectura';
+$string['forcedreadtracking_desc'] = 'Permite que en los foros se establezca forzar el rastreo de lectura. Dará como resultado una disminución del rendimiento para algunos usuarios, sobre todo en cursos con muchos foros y mensajes. Cuando está deshabilitado, los foros establecidos previamente en Siempre se tratarán como opcional.';
 $string['forcessubscribe'] = 'Este foro fuerza la suscripción de todos';
 $string['forum'] = 'Foro';
 $string['forum:addinstance'] = 'Añadir un nuevo foro';
@@ -186,17 +194,17 @@ $string['forumsubjecthidden'] = 'Tema (oculto)';
 $string['forumtracked'] = 'Se están rastreando los mensajes no leídos';
 $string['forumtrackednot'] = 'Los mensajes no leídos no se están rastreando';
 $string['forumtype'] = 'Tipo de foro';
-$string['forumtype_help'] = '<P>Hay cinco tipos diferentes de foros entre los que elegir:
+$string['forumtype_help'] = 'Hay cinco tipos diferentes de foros:
 
-<P><B>Cada persona plantea un tema.</B> Cada persona puede plantear un nuevo tema de debate (y todos pueden responder). Esta modalidad es útil cuando usted quiere que cada estudiante empiece una discusión sobre, digamos, sus reflexiones sobre el tema de la semana, y que todos los demás le respondan.
+* Cada persona plantea un tema - Cada persona puede plantear un nuevo tema de debate (y todos pueden responder). Esta modalidad es útil cuando usted quiere que cada estudiante empiece una discusión sobre, digamos, sus reflexiones sobre el tema de la semana, y que todos los demás le respondan.
 
-<P><B>Un debate sencillo.</B> Es simplemente un intercambio de ideas sobre un solo tema, todo en un página. Útil para debates cortos y concretos.
+* Un debate sencillo. - Es simplemente un intercambio de ideas sobre un solo tema, todo en un página. Útil para debates cortos y concretos.
 
-<P><B>Foro P y R: Pregunta y Respuestas.</B> Los estudiantes primero deben fijar sus puntos de vista antes de ver los mensajes de los demás.
+* Foro P y R: Pregunta y Respuestas. -  Los estudiantes primero deben fijar sus puntos de vista antes de ver los mensajes de los demás.
 
-<P><B>Foro General con formato de Blog.</B> Un foro abierto donde cualquiera puede iniciar un nuevo debate en cualquier momento y en el que los temas de discusión se muestran en una página con enlaces "Discute este tema".
+* Foro General con formato de Blog. - Un foro abierto donde cualquiera puede iniciar un nuevo debate en cualquier momento y en el que los temas de discusión se muestran en una página con enlaces "Discute este tema".
 
-<P><B>Foro para uso general.</B> Es un foro abierto donde cualquiera puede empezar un nuevo tema de debate cuando quiera. Este es el foro más adecuado, para uso general.';
+* Foro para uso general. -  Es un foro abierto donde cualquiera puede empezar un nuevo tema de debate cuando quiera. Este es el foro más adecuado, para uso general.';
 $string['forum:viewallratings'] = 'Ver todas las calificaciones emitidas por las usuarios';
 $string['forum:viewanyrating'] = 'Ver el total de calificaciones que alguien recibió';
 $string['forum:viewdiscussion'] = 'Ver debates';
@@ -283,7 +291,6 @@ $string['nopermissiontosubscribe'] = 'No tiene permiso para ver los suscriptores
 $string['nopermissiontoview'] = 'No tiene permiso para ver este mensaje';
 $string['nopostforum'] = 'Lo sentimos, no puede enviar mensajes a este foro';
 $string['noposts'] = 'No hay mensajes';
-$string['nopostscontaining'] = 'No se encontraron mensajes con \'{$a}\'';
 $string['nopostsmadebyuser'] = '{$a} no ha realizado aportaciones';
 $string['nopostsmadebyyou'] = 'Todavía no se han realizado aportaciones';
 $string['noquestions'] = 'Aún no hay preguntas en este foro';
@@ -399,6 +406,7 @@ $string['subscribersto'] = 'Suscriptores de \'{$a}\'';
 $string['subscribestart'] = 'Deseo recibir copias de este foro por correo';
 $string['subscribestop'] = 'No deseo recibir copias de este foro por correo';
 $string['subscription'] = 'Suscripción';
+$string['subscriptionandtracking'] = 'Suscripción y seguimiento';
 $string['subscriptionauto'] = 'Suscripción automática';
 $string['subscriptiondisabled'] = 'Suscripción deshabilitada';
 $string['subscriptionforced'] = 'Suscripción forzosa';
@@ -420,7 +428,7 @@ $string['timestartenderror'] = 'La fecha final no puede ser anterior a la inicia
 $string['trackforum'] = 'Rastrear mensajes no leídos';
 $string['tracking'] = 'Rastrear';
 $string['trackingoff'] = 'Desconectado';
-$string['trackingon'] = 'Conectado';
+$string['trackingon'] = 'Forzado';
 $string['trackingoptional'] = 'Opcional';
 $string['trackingtype'] = 'Rastreo de lectura';
 $string['trackingtype_help'] = '<p>Si está activada, los usuarios pueden realizar el seguimiento de mensajes leídos y no leídos en los foros y discusiones.

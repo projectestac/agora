@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,14 +52,11 @@ $string['framesize'] = 'Μέγεθος πλαισίου';
 $string['modulename'] = 'Πηγή πληροφοριών';
 $string['modulenameplural'] = 'Πηγές πληροφοριών';
 $string['neverseen'] = 'Ποτέ δεν εμφανίστηκαν';
-$string['optionsheader'] = 'Επιλογές';
 $string['pluginname'] = 'Πηγή πληροφοριών';
 $string['popupheightexplain'] = 'Καθορίζει το προεπιλεγμένο ύψος του αναδυόμενου παράθυρου.';
 $string['popupresource'] = 'Αυτή η πηγή θα εμφανιστεί αυτόματα σε αναδυόμενο παράθυρο.';
 $string['popupresourcelink'] = 'Εάν αυτό δε συμβεί, πατήστε εδώ: {$a}';
 $string['popupwidthexplain'] = 'Καθορίζει το προεπιλεγμένο πλάτος του αναδυόμενου παράθυρου.';
-$string['printheading'] = 'Εμφάνιση ονόματος πηγής';
-$string['printheadingexplain'] = 'Εμφάνιση ονόματος πηγής πάνω από το περιεχόμενο; Ορισμένοι τύποι εμφάνισης μπορεί να μην εμφανίζουν το όνομα της πηγής, ακόμα και αν εχει ενεργοποιηθεί.';
 $string['printintro'] = 'Έμφάνιση περιγραφής πηγής';
 $string['printintroexplain'] = 'Εμφάνιση περιγραφής πηγής κάτω από το περιεχόμενο; Ορισμένοι τύποι εμφάνισης μπορεί να μην εμφανίζουν την περιγραφή, ακόμα και αν έχει ενεργοποιηθεί.';
 $string['resource:exportresource'] = 'Export resource';

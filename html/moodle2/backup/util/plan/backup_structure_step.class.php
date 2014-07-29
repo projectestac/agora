@@ -73,7 +73,9 @@ abstract class backup_structure_step extends backup_step {
                                              // from xml_writer (blame serialized data!)
         }
         $xw = new xml_writer($xo, $xt);
-        $pr = new backup_structure_processor($xw);
+        $progress = $this->task->get_progress();
+        $progress->start_progress($this->get_name());
+        $pr = new backup_structure_processor($xw, $progress);
 
         // Set processor variables from settings
         foreach ($this->get_settings() as $setting) {
@@ -105,6 +107,7 @@ abstract class backup_structure_step extends backup_step {
 
         // Close everything
         $xw->stop();
+        $progress->end_progress();
 
         // Destroy the structure. It helps PHP 5.2 memory a lot!
         $structure->destroy();
@@ -125,7 +128,7 @@ abstract class backup_structure_step extends backup_step {
     /**
      * Add plugin structure to any element in the structure backup tree
      *
-     * @param string $plugintype type of plugin as defined by get_plugin_types()
+     * @param string $plugintype type of plugin as defined by core_component::get_plugin_types()
      * @param backup_nested_element $element element in the structure backup tree that
      *                                       we are going to add plugin information to
      * @param bool $multiple to define if multiple plugins can produce information
@@ -136,7 +139,7 @@ abstract class backup_structure_step extends backup_step {
         global $CFG;
 
         // Check the requested plugintype is a valid one
-        if (!array_key_exists($plugintype, get_plugin_types($plugintype))) {
+        if (!array_key_exists($plugintype, core_component::get_plugin_types($plugintype))) {
              throw new backup_step_exception('incorrect_plugin_type', $plugintype);
         }
 
@@ -146,7 +149,7 @@ abstract class backup_structure_step extends backup_step {
         $element->add_child($optigroup); // Add optigroup to stay connected since beginning
 
         // Get all the optigroup_elements, looking across all the plugin dirs
-        $pluginsdirs = get_plugin_list($plugintype);
+        $pluginsdirs = core_component::get_plugin_list($plugintype);
         foreach ($pluginsdirs as $name => $plugindir) {
             $classname = 'backup_' . $plugintype . '_' . $name . '_plugin';
             $backupfile = $plugindir . '/backup/moodle2/' . $classname . '.class.php';

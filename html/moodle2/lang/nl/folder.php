@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Inhoud';
+$string['display'] = 'Toon mapinhoud';
+$string['display_help'] = 'Als je de mapinhoud op een cursuspagina wil tonen, dan zal er geen link naar een aparte pagina zijn.';
+$string['displayinline'] = 'Inline op een cursuspagina';
+$string['displaypage'] = 'Op een aparte pagina';
 $string['dnduploadmakefolder'] = 'Bestanden unzippen en map maken';
 $string['folder:addinstance'] = 'Voeg een nieuwe map toe';
 $string['foldercontent'] = 'Bestanden en submappen';
@@ -40,7 +44,10 @@ En map kan gebruikt worden
 * om een gedeelde uploadruimte te voorzien voor leraren in dezelfde cursus, waarbij de map verborgen gehouden wordt voor leerlingen, zodat enkel de leraren die kunnen zien.';
 $string['modulenameplural'] = 'Mappen';
 $string['neverseen'] = 'Nooit gezien';
+$string['noautocompletioninline'] = 'Automatisch voltooien kan niet gekozen worden met de optie "inline op de cursuspagina".';
 $string['page-mod-folder-view'] = 'Hoofdpagina mappenmodule';
 $string['page-mod-folder-x'] = 'Elke mappenmodule pagina';
 $string['pluginadministration'] = 'Mappenbeheer';
 $string['pluginname'] = 'Map';
+$string['showexpanded'] = 'Toon onderliggende mappen uitgeklapt';
+$string['showexpanded_help'] = 'Indien ingeschakeld worden de onderliggende mappen standaard uitgeklapt getoond. Anders worden onderliggende mappen dichtgeplooid getoond.';

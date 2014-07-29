@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_dictionary', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_dictionary', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_dictionary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['activated'] = 'The following dictionary is activated:';
 $string['add'] = 'Add a dictionary';
+$string['course_list:myaddinstance'] = 'Add a new pop up dictionary block to My home';
 $string['dictionary'] = 'Dictionary';
 $string['dictionary:addinstance'] = 'Add a new pop up dictionary block';
 $string['dictionaryinstructions'] = 'Put an URL for each field. If the searched word is not at the end, you can use extra param "#WORD#" to place the word in the URL at the moment of the request.<br><i>Example: http://www.larousse.fr/#WORD#/other_params</i>';

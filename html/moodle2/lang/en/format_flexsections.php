@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_flexsections', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_flexsections', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   format_flexsections
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['backtocourse'] = 'Back to course \'{$a}';
 $string['backtosection'] = 'Back to \'{$a}';
 $string['cancelmoving'] = 'Cancel moving \'{$a}';
 $string['currentsection'] = 'This section';
+$string['displaycontent'] = 'Display content';
 $string['hidefromothers'] = 'Hide topic';
 $string['mergeup'] = 'Merge with parent';
 $string['page-course-view-flexsections'] = 'Any course main page in flexsections format';

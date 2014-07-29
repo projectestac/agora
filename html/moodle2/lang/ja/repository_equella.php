@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_equella', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_equella', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_equella
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['breadcrumb'] = 'EQUELLA';
 $string['configplugin'] = 'EQUELLAリポジトリ設定';
 $string['equellaaction'] = 'EQUELLA操作';
 $string['equellaoptions'] = 'EQUELLAオプション';
-$string['equellaurl'] = 'EQUELLA URI';
+$string['equellaurl'] = 'EQUELLA URL';
 $string['equella:view'] = 'EQUELLAリポジトリを表示する';
 $string['group'] = '{$a} ロール設定';
 $string['groupdefault'] = 'デフォルト';

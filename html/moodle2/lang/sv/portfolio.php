@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -76,7 +76,7 @@ $string['format_plainhtml'] = 'HTML';
 $string['format_presentation'] = 'Presentation';
 $string['format_richhtml'] = 'HTML med bilagor';
 $string['format_spreadsheet'] = 'Kalkylblad';
-$string['format_text'] = 'Vanlig text';
+$string['format_text'] = 'Enkel text';
 $string['format_video'] = 'Video';
 $string['hidden'] = 'Dold';
 $string['highdbsizethreshold'] = 'Hög överföring dbstorlek';
@@ -130,6 +130,7 @@ $string['nonprimative'] = 'Ett icke primitivt värde skickades som ett callback 
 $string['nopermissions'] = 'Du har tyvärr inte tillräckliga rättigheter för att exportera filer från den här platsen';
 $string['notexportable'] = 'Den typ av innehåll du försöker exportera är tyvärr inte exporterbart';
 $string['notimplemented'] = 'Du försöker exportera innehåll i något format som tyvärr ännu inte är implementerat ({$a})';
+$string['notyetselected'] = 'Ännu inte vald';
 $string['notyours'] = 'Du försöker återuppta en portfolioexport som inte tillhör dig!';
 $string['off'] = 'Aktiverad men dold';
 $string['on'] = 'Aktiverad och synlig';

@@ -1,21 +1,35 @@
-<?php //$Id$
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 function xmldb_questionnaire_upgrade($oldversion=0) {
     global $CFG, $DB;
 
-    $dbman = $DB->get_manager(); /// loads ddl manager and xmldb classes
+    $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
 
     $result = true;
 
     if ($oldversion < 2007120101) {
         $result &= questionnaire_upgrade_2007120101();
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2007120101, 'questionnaire');
     }
 
     if ($oldversion < 2007120102) {
-    /// Change enum values to lower case for all tables using them.
+        // Change enum values to lower case for all tables using them.
         $enumvals = array('y', 'n');
 
         $table = new xmldb_table('questionnaire_question');
@@ -52,7 +66,6 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
 
         unset($table);
 
-
         $table = new xmldb_table('questionnaire_question_type');
 
         $field = new xmldb_field('has_choices');
@@ -66,7 +79,6 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         unset($field);
 
         unset($table);
-
 
         $table = new xmldb_table('questionnaire_response');
 
@@ -82,7 +94,6 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
 
         unset($table);
 
-
         $table = new xmldb_table('questionnaire_response_bool');
 
         $field = new xmldb_field('choice_id');
@@ -97,7 +108,6 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
 
         unset($table);
 
-
         $table = new xmldb_table('questionnaire_survey');
 
         $field = new xmldb_field('public');
@@ -110,11 +120,13 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $dbman->change_field_default($table, $field);
         unset($field);
 
-    /// Upgrade question_type table with corrected 'response_table' fields.
-        $DB->set_field('questionnaire_question_type', 'response_table', 'resp_single', array('response_table' => 'response_single'));
-        $DB->set_field('questionnaire_question_type', 'response_table', 'resp_multiple', array('response_table' => 'response_multiple'));
+        // Upgrade question_type table with corrected 'response_table' fields.
+        $DB->set_field('questionnaire_question_type', 'response_table', 'resp_single',
+                        array('response_table' => 'response_single'));
+        $DB->set_field('questionnaire_question_type', 'response_table', 'resp_multiple',
+                        array('response_table' => 'response_multiple'));
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached..
         upgrade_mod_savepoint(true, 2007120102, 'questionnaire');
     }
 
@@ -131,7 +143,7 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $field->set_attributes(XMLDB_TYPE_INTEGER, '10', false, true, false, false, null, 0, 'complete');
         $dbman->add_field($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008031902, 'questionnaire');
     }
 
@@ -149,15 +161,11 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
             foreach ($rs as $questionnaire) {
                 $context = get_context_instance(CONTEXT_MODULE, $questionnaire->cmid);
 
-            /// Convert questionnaires with resp_eligible = 'all' so that students & teachers have view and submit
+                // Convert questionnaires with resp_eligible = 'all' so that students & teachers have view and submit.
                 if ($questionnaire->resp_eligible == 'all') {
                     assign_capability($capsubmit, CAP_ALLOW, $editteacherroleid, $context->id, true);
                     assign_capability($capsubmit, CAP_ALLOW, $teacherroleid, $context->id, true);
-            /// Convert questionnaires with resp_eligible = 'students' so that just students have view and submit
-                } else if ($questionnaire->resp_eligible == 'students') {
-                    /// This is the default; no changes necessary.
-
-            /// Convert questionnaires with resp_eligible = 'teachers' so just teachers have view and submit
+                    // Convert questionnaires with resp_eligible = 'students' so that just students have view and submit.
                 } else if ($questionnaire->resp_eligible == 'teachers') {
                     assign_capability($capsubmit, CAP_ALLOW, $editteacherroleid, $context->id, true);
                     assign_capability($capsubmit, CAP_ALLOW, $teacherroleid, $context->id, true);
@@ -168,7 +176,7 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
             $rs->close();
         }
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008031904, 'questionnaire');
     }
 
@@ -177,7 +185,7 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $field = new xmldb_field('changed');
         $dbman->drop_field($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008031905, 'questionnaire');
     }
 
@@ -188,7 +196,7 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $field->setUnsigned(false);
         $dbman->change_field_unsigned($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008031906, 'questionnaire');
     }
 
@@ -199,7 +207,7 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $field->setNotnull(false);
         $dbman->change_field_notnull($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008060401, 'questionnaire');
     }
 
@@ -210,7 +218,7 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $field->setNotnull(false);
         $dbman->change_field_notnull($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008070702, 'questionnaire');
     }
 
@@ -222,41 +230,41 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
             $dbman->add_index($table, $index);
         }
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008070703, 'questionnaire');
     }
 
     if ($oldversion < 2008070704) {
-        /// CONTRIB-1542
+        // CONTRIB-1542.
         $table = new xmldb_table('questionnaire_survey');
         $field = new xmldb_field('email');
         $field->set_attributes(XMLDB_TYPE_CHAR, '64', null, XMLDB_NOTNULL, null, null, null, null, 'title');
         $field->setLength('255');
         $dbman->change_field_precision($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008070704, 'questionnaire');
     }
 
     if ($oldversion < 2008070705) {
-        /// Rename summary field to 'intro' to adhere to new Moodle standard.
+        // Rename summary field to 'intro' to adhere to new Moodle standard.
         $table = new xmldb_table('questionnaire');
         $field = new xmldb_field('summary');
         $field->set_attributes(XMLDB_TYPE_TEXT, 'small', null, XMLDB_NOTNULL, null, null, null, null, 'name');
         $dbman->rename_field($table, $field, 'intro');
 
-        /// Add 'introformat' to adhere to new Moodle standard.
+        // Add 'introformat' to adhere to new Moodle standard.
         $field = new xmldb_field('introformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0', 'intro');
         $dbman->add_field($table, $field);
-        /// Set all existing records to HTML format.
+        // Set all existing records to HTML format.
         $DB->set_field('questionnaire', 'introformat', 1);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008070705, 'questionnaire');
     }
 
     if ($oldversion < 2008070706) {
-        /// CONTRIB-1153
+        // CONTRIB-1153.
         $table = new xmldb_table('questionnaire_survey');
         $field = new xmldb_field('public');
         if ($dbman->field_exists($table, $field)) {
@@ -269,56 +277,56 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
             $dbman->drop_field($table, $field);
         }
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2008070706, 'questionnaire');
     }
 
     if ($oldversion < 2010110100) {
-        // Drop list of values (enum) from field has_choices on table questionnaire_question_type
+        // Drop list of values (enum) from field has_choices on table questionnaire_question_type.
         $table = new xmldb_table('questionnaire_question_type');
         $field = new xmldb_field('has_choices', XMLDB_TYPE_CHAR, '1', null, XMLDB_NOTNULL, null, 'y', 'type');
 
-        // Launch drop of list of values from field has_choices
+        // Launch drop of list of values from field has_choices.
         $dbman->drop_enum_from_field($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2010110100, 'questionnaire');
     }
 
     if ($oldversion < 2010110101) {
-        // Drop list of values (enum) from field respondenttype on table questionnaire
+        // Drop list of values (enum) from field respondenttype on table questionnaire.
         $table = new xmldb_table('questionnaire');
         $field = new xmldb_field('respondenttype', XMLDB_TYPE_CHAR, '9', null, XMLDB_NOTNULL, null, 'fullname', 'qtype');
-        // Launch drop of list of values from field respondenttype
+        // Launch drop of list of values from field respondenttype.
         $dbman->drop_enum_from_field($table, $field);
-        // Drop list of values (enum) from field resp_eligible on table questionnaire
+        // Drop list of values (enum) from field resp_eligible on table questionnaire.
         $field = new xmldb_field('resp_eligible', XMLDB_TYPE_CHAR, '8', null, XMLDB_NOTNULL, null, 'all', 'respondenttype');
-        // Launch drop of list of values from field resp_eligible
+        // Launch drop of list of values from field resp_eligible.
         $dbman->drop_enum_from_field($table, $field);
 
-       // Drop list of values (enum) from field required on table questionnaire_question
+        // Drop list of values (enum) from field required on table questionnaire_question.
         $table = new xmldb_table('questionnaire_question');
         $field = new xmldb_field('required', XMLDB_TYPE_CHAR, '1', null, XMLDB_NOTNULL, null, 'n', 'content');
-        // Launch drop of list of values from field required
+        // Launch drop of list of values from field required.
         $dbman->drop_enum_from_field($table, $field);
-        // Drop list of values (enum) from field deleted on table questionnaire_question
+        // Drop list of values (enum) from field deleted on table questionnaire_question.
         $field = new xmldb_field('deleted', XMLDB_TYPE_CHAR, '1', null, XMLDB_NOTNULL, null, 'n', 'required');
-        // Launch drop of list of values from field deleted
+        // Launch drop of list of values from field deleted.
         $dbman->drop_enum_from_field($table, $field);
 
-        // Drop list of values (enum) from field complete on table questionnaire_response
+        // Drop list of values (enum) from field complete on table questionnaire_response.
         $table = new xmldb_table('questionnaire_response');
         $field = new xmldb_field('complete', XMLDB_TYPE_CHAR, '1', null, XMLDB_NOTNULL, null, 'n', 'submitted');
-        // Launch drop of list of values from field complete
+        // Launch drop of list of values from field complete.
         $dbman->drop_enum_from_field($table, $field);
 
-        // Drop list of values (enum) from field choice_id on table questionnaire_response_bool
+        // Drop list of values (enum) from field choice_id on table questionnaire_response_bool.
         $table = new xmldb_table('questionnaire_response_bool');
         $field = new xmldb_field('choice_id', XMLDB_TYPE_CHAR, '1', null, XMLDB_NOTNULL, null, 'y', 'question_id');
-        // Launch drop of list of values from field choice_id
+        // Launch drop of list of values from field choice_id.
         $dbman->drop_enum_from_field($table, $field);
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2010110101, 'questionnaire');
     }
 
@@ -326,10 +334,6 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         // Changing precision of field name on table questionnaire_survey to (255).
 
         // First drop the index.
-        //XTEC ************ AFEGIT - To avoid questionnaire_survey->name ddldependencyerror
-        //2012.12.27  @sarjona
-        try{
-        //************ FI
         $table = new xmldb_table('questionnaire_survey');
         $index = new xmldb_index('name');
         $index->set_attributes(XMLDB_INDEX_NOTUNIQUE, array('name'));
@@ -344,58 +348,207 @@ function xmldb_questionnaire_upgrade($oldversion=0) {
         $index = new xmldb_index('name');
         $index->set_attributes(XMLDB_INDEX_NOTUNIQUE, array('name'));
         $dbman->add_index($table, $index);
-        //XTEC ************ AFEGIT - To avoid questionnaire_survey->name ddldependencyerror
-        //2012.12.27  @sarjona
-        } catch (Exception $e){
-            
-        }
-        //************ FI
 
-        // questionnaire savepoint reached
+        // Questionnaire savepoint reached.
         upgrade_mod_savepoint(true, 2012100800, 'questionnaire');
+    }
+
+    if ($oldversion < 2013062302) {
+        // Adding completionsubmit field to table questionnaire.
+
+        $table = new xmldb_table('questionnaire');
+        $field = new xmldb_field('completionsubmit', XMLDB_TYPE_INTEGER, '1', null, XMLDB_NOTNULL, null, '0', 'timemodified');
+
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Questionnaire savepoint reached.
+        upgrade_mod_savepoint(true, 2013062302, 'questionnaire');
+    }
+
+    if ($oldversion < 2013062501) {
+        // Skip logic new feature.
+        // Define field dependquestion to be added to questionnaire_question table.
+        $table = new xmldb_table('questionnaire_question');
+        $field = new xmldb_field('dependquestion', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'deleted');
+
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        $table = new xmldb_table('questionnaire_question');
+        $field = new xmldb_field('dependchoice', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'dependquestion');
+
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Replace the = separator with :: separator in quest_choice content.
+        require_once($CFG->dirroot.'/mod/questionnaire/locallib.php');
+        $choices = $DB->get_records('questionnaire_quest_choice', $conditions = null);
+        $total = count($choices);
+        if ($total > 0) {
+            $pbar = new progress_bar('convertchoicevalues', 500, true);
+            $i = 1;
+            foreach ($choices as $choice) {
+                if (($choice->value == null || $choice->value == 'NULL')
+                                && !preg_match("/^([0-9]{1,3})=(.*)$/", $choice->content)) {
+                    $content = questionnaire_choice_values($choice->content);
+                    if ($pos = strpos($content->text, '=')) {
+                        $newcontent = str_replace('=', '::', $content->text);
+                        $choice->content = $newcontent;
+                        $DB->update_record('questionnaire_quest_choice', $choice);
+                    }
+                }
+                $pbar->update($i, $total, "Convert questionnaire choice value separator - $i/$total.");
+                $i++;
+            }
+        }
+
+        // Questionnaire savepoint reached.
+        upgrade_mod_savepoint(true, 2013062501, 'questionnaire');
+    }
+
+    if ($oldversion < 2013100500) {
+        // Add autonumbering option for questions and pages.
+        $table = new xmldb_table('questionnaire');
+        $field = new xmldb_field('autonum', XMLDB_TYPE_INTEGER, '1', null, XMLDB_NOTNULL, null, '3', 'completionsubmit');
+
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Questionnaire savepoint reached.
+        upgrade_mod_savepoint(true, 2013100500, 'questionnaire');
+    }
+
+    if ($oldversion < 2013122201) {
+        // Personality test feature.
+
+        $table = new xmldb_table('questionnaire_survey');
+        $field = new xmldb_field('feedbacksections', XMLDB_TYPE_INTEGER, '2', null, null, null, null, null);
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        unset($field);
+        $field = new xmldb_field('feedbacknotes', XMLDB_TYPE_TEXT, null, null, null, null, null);
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        unset($table);
+        unset($field);
+
+        // Define table questionnaire_fb_sections to be created.
+        $table = new xmldb_table('questionnaire_fb_sections');
+        $table->add_field('id', XMLDB_TYPE_INTEGER, '18', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
+        $table->add_field('survey_id', XMLDB_TYPE_INTEGER, '18', null, XMLDB_NOTNULL, null, null);
+        $table->add_field('section', XMLDB_TYPE_INTEGER, '2', null, null, null, null);
+        $table->add_field('scorecalculation', XMLDB_TYPE_TEXT, null, null, null, null, null);
+        $table->add_field('sectionlabel', XMLDB_TYPE_CHAR, '50', null, null, null, null);
+        $table->add_field('sectionheading', XMLDB_TYPE_TEXT, null, null, null, null, null);
+        $table->add_field('sectionheadingformat', XMLDB_TYPE_INTEGER, '2', null, null, null, '1');
+
+        // Adding keys to table questionnaire_fb_sections.
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+
+        // Conditionally launch create table for assign_user_mapping.
+        if (!$dbman->table_exists($table)) {
+            $dbman->create_table($table);
+        }
+
+        unset($table);
+
+        // Define table questionnaire_feedback to be created.
+        $table = new xmldb_table('questionnaire_feedback');
+        $table->add_field('id', XMLDB_TYPE_INTEGER, '18', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
+        $table->add_field('section_id', XMLDB_TYPE_INTEGER, '18', null, XMLDB_NOTNULL, null, null);
+        $table->add_field('feedbacklabel', XMLDB_TYPE_CHAR, '30', null, null, null, null);
+        $table->add_field('feedbacktext', XMLDB_TYPE_TEXT, null, null, null, null, null);
+        $table->add_field('feedbacktextformat', XMLDB_TYPE_INTEGER, '2', null, null, null, '1');
+        $table->add_field('minscore', XMLDB_TYPE_NUMBER, '10,5', null, null, null, '0.00000');
+        $table->add_field('maxscore', XMLDB_TYPE_NUMBER, '10,5', null, null, null, '101.00000');
+
+        // Adding keys to table questionnaire_fb_sections.
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+
+        // Conditionally launch create table for assign_user_mapping.
+        if (!$dbman->table_exists($table)) {
+            $dbman->create_table($table);
+        }
+
+        // Questionnaire savepoint reached.
+        upgrade_mod_savepoint(true, 2013122201, 'questionnaire');
+    }
+
+    if ($oldversion < 2014010300) {
+        // Personality test with chart.
+        $table = new xmldb_table('questionnaire_survey');
+        $field = new xmldb_field('chart_type', XMLDB_TYPE_CHAR, '64', null, null, null, null, null);
+
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        $field = new xmldb_field('feedbackscores', XMLDB_TYPE_INTEGER, '1', null, null, null, '0');
+
+        // Conditionally launch add field.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Questionnaire savepoint reached.
+         upgrade_mod_savepoint(true, 2014010300, 'questionnaire');
     }
 
     return $result;
 }
 
-    /// Supporting functions used once.
-    function questionnaire_upgrade_2007120101() {
-        global $DB;
+// Supporting functions used once.
+function questionnaire_upgrade_2007120101() {
+    global $DB;
 
-        $dbman = $DB->get_manager(); /// loads ddl manager and xmldb classes
-        $status = true;
+    $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
+    $status = true;
 
-        /// Shorten table names to bring them in accordance with the XML DB schema.
-        $q_table = new xmldb_table('questionnaire_question_choice');
-        $dbman->rename_table($q_table, 'questionnaire_quest_choice', false);
-        unset($q_table);
+    // Shorten table names to bring them in accordance with the XML DB schema.
+    $qtable = new xmldb_table('questionnaire_question_choice');
+    $dbman->rename_table($qtable, 'questionnaire_quest_choice', false);
+    unset($qtable);
 
-        $q_table = new xmldb_table('questionnaire_response_multiple');
-        $dbman->rename_table($q_table, 'questionnaire_resp_multiple', false);
-        unset($q_table);
+    $qtable = new xmldb_table('questionnaire_response_multiple');
+    $dbman->rename_table($qtable, 'questionnaire_resp_multiple', false);
+    unset($qtable);
 
-        $q_table = new xmldb_table('questionnaire_response_single');
-        $dbman->rename_table($q_table, 'questionnaire_resp_single', false);
-        unset($q_table);
+    $qtable = new xmldb_table('questionnaire_response_single');
+    $dbman->rename_table($qtable, 'questionnaire_resp_single', false);
+    unset($qtable);
 
-        /// Upgrade the questionnaire_question_type table to use typeid.
-        $table = new xmldb_table('questionnaire_question_type');
-        $field = new xmldb_field('typeid');
-        $field->set_attributes(XMLDB_TYPE_CHAR, '20', true, true, false, false, null, '0', 'id');
-        $dbman->add_field($table, $field);
-        if (($numrecs = $dbman->count_records('questionnaire_question_type')) > 0) {
-            $recstart = 0;
-            $recstoget = 100;
-            while ($recstart < $numrecs) {
-                if ($records = $dbman->get_records('questionnaire_question_type', array(), '', '*', $recstart, $recstoget)) {
-                    foreach ($records as $record) {
-                        $dbman->set_field('questionnaire_question_type', 'typeid', $record->id, array('id' => $record->id));
-                    }
+    // Upgrade the questionnaire_question_type table to use typeid.
+    $table = new xmldb_table('questionnaire_question_type');
+    $field = new xmldb_field('typeid');
+    $field->set_attributes(XMLDB_TYPE_CHAR, '20', true, true, false, false, null, '0', 'id');
+    $dbman->add_field($table, $field);
+    if (($numrecs = $dbman->count_records('questionnaire_question_type')) > 0) {
+        $recstart = 0;
+        $recstoget = 100;
+        while ($recstart < $numrecs) {
+            if ($records = $dbman->get_records('questionnaire_question_type', array(), '', '*', $recstart, $recstoget)) {
+                foreach ($records as $record) {
+                    $dbman->set_field('questionnaire_question_type', 'typeid', $record->id, array('id' => $record->id));
                 }
-                $recstart += $recstoget;
             }
+            $recstart += $recstoget;
         }
-
-        return $status;
     }
-?>
+
+    return $status;
+}

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_dfcbmexplicitvaildate', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_dfcbmexplicitvaildate', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_dfcbmexplicitvaildate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

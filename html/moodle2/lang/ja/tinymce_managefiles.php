@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_managefiles', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_managefiles', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_managefiles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,5 +32,5 @@ $string['manageareafiles'] = 'テキストエディタの埋め込みファイ�
 $string['managefiles:desc'] = '埋め込みファイルを管理する';
 $string['pluginname'] = '埋め込みファイルを管理する';
 $string['refreshfiles'] = '不明および未使用ファイル一覧をリフレッシュする';
-$string['unusedfilesdesc'] = '次の埋め込みファイルはテキストエリアで使用されていません:';
+$string['unusedfilesdesc'] = '以下の埋め込みファイルはテキストエリアで使用されていません:';
 $string['unusedfilesheader'] = '未使用ファイル';

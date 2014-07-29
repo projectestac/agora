@@ -71,7 +71,7 @@ class moodle1_qtype_shortanswerwiris_handler extends moodle1_qtype_shortanswer_h
     }    
     
     function wrsqz_getCASForComputations($data){
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         if (isset($data['shortanswerwiris'][0]['wirisoptions'][0]['wiriscasforcomputations'])){
@@ -99,7 +99,7 @@ class moodle1_qtype_shortanswerwiris_handler extends moodle1_qtype_shortanswer_h
     }
     
     function wrsqz_hiddenInitialCASValue($data){
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         if (isset($data['shortanswerwiris'][0]['wirisoptions'][0]['hiddeninitialcasvalue'])){
@@ -115,7 +115,7 @@ class moodle1_qtype_shortanswerwiris_handler extends moodle1_qtype_shortanswer_h
     }
     
     function wrsqz_getExtraParameters($data, $isCompound, $originalAnswerText){
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         //Grade function
         $wiriseditor = array();

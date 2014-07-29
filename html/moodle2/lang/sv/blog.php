@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['blogaboutthis'] = 'Blogga om det här {$a->type}';
 $string['blogaboutthiscourse'] = 'Lägg till ett inlägg om den här kursen';
 $string['blogaboutthismodule'] = 'Lägg till ett inlägg om det här  {$a}';
 $string['blogadministration'] = 'Administration av blogg';
-$string['blogdeleteconfirm'] = 'Ta bort detta blogginlägg?';
+$string['blogdeleteconfirm'] = 'Ta bort den här bloggen?';
 $string['blogdisable'] = 'Bloggande är avaktiverat';
 $string['blogentries'] = 'Inlägg i blogg/ar';
 $string['blogentriesabout'] = 'Inlägg i blogg/ar om {$a}';
@@ -56,7 +56,7 @@ $string['blogpreferences'] = 'Blogginställningar';
 $string['blogs'] = 'Bloggar';
 $string['blogscourse'] = 'Kursbloggar';
 $string['blogssite'] = 'Site bloggar';
-$string['blogtags'] = 'Blogg-taggar';
+$string['blogtags'] = 'Bloggetiketter';
 $string['cannotviewcourseblog'] = 'Du har inte behörighet att visa bloggar i denna kurs';
 $string['cannotviewcourseorgroupblog'] = 'Du har inte behörighet att visa bloggar i denna kurs/grupp';
 $string['cannotviewsiteblog'] = 'Du har inte behörighet att visa alla site-bloggar';
@@ -86,7 +86,7 @@ $string['entrybodyonlydesc'] = 'Beskrivning av inlägg';
 $string['entryerrornotyours'] = 'Detta inlägg är inte ditt';
 $string['entrysaved'] = 'Ditt inlägg har sparats';
 $string['entrytitle'] = 'Titel på inlägg';
-$string['entryupdated'] = 'Inlägget är uppdaterat';
+$string['evententryupdated'] = 'Inlägget är uppdaterat';
 $string['externalblogcrontime'] = 'Cron-schema för extern blogg';
 $string['externalblogdeleted'] = 'Ej registrerad extern blogg';
 $string['externalblogs'] = 'Externa bloggar';
@@ -154,7 +154,7 @@ $string['tagtext'] = 'Etikettnamn';
 $string['timefetched'] = 'Tidpunkt för senaste synk';
 $string['timewithin'] = 'Visa etiketter som använts inom detta antal dagar';
 $string['updateentrywithid'] = 'Uppdaterar inlägg';
-$string['url'] = 'URL för RSS-flöde';
+$string['url'] = 'URL';
 $string['url_help'] = 'Skriv in URLen för RSS inflöde från Din externa blogg.';
 $string['useblogassociations'] = 'Aktivera kopplingar mellan bloggar';
 $string['useexternalblogs'] = 'Aktivera externa bloggar';

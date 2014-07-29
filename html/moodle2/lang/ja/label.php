@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'メディアファイルがコースにドラッグ＆ドロップされた場合、ラベル作成を提案します。';
+$string['configdndresizeheight'] = 'イメージのドラッグ＆ドロップによるラベル作成時、ここで指定したピクセルよりも高さが大きい場合、リサイズします (0 = リサイズなし)。';
+$string['configdndresizewidth'] = 'イメージのドラッグ＆ドロップによるラベル作成時、ここで指定したピクセルよりも幅が大きい場合、リサイズします (0 = リサイズなし)。';
+$string['dndmedia'] = 'メディアドラッグ＆ドロップ';
+$string['dndresizeheight'] = 'リサイズドラッグ＆ドロップ高';
+$string['dndresizewidth'] = 'リサイズドラッグ＆ドロップ幅';
+$string['dnduploadlabel'] = 'コースページにイメージを追加する';
+$string['dnduploadlabeltext'] = 'コースページにラベルを追加する';
 $string['label:addinstance'] = '新しいラベルを追加する';
 $string['labeltext'] = 'ラベルテキスト';
 $string['modulename'] = 'ラベル';

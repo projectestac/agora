@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = 'Vorgabe zur Teilnahmedauer (in Sekunden). Falls d
 $string['enrolperiod_help'] = 'Teilnahmedauer (in Sekunden), beginnend mit dem Einschreibezeitpunkt. Falls dieser Wert auf Null gesetzt ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
 $string['enrolstartdate'] = 'Einschreibeende';
 $string['enrolstartdate_help'] = 'Wenn diese Option aktiviert ist, können Nutzer/innen ab diesem Zeitpunkt eingeschrieben werden.';
+$string['expiredaction'] = 'Aktionen bei Ablauf der Kurseinschreibung';
+$string['expiredaction_help'] = 'Wählen Sie die Aktionen, die beim Ablauf der Kurseinschreibung ausgeführt werden sollen. Beim Austragen des Nutzers aus dem Kurs werden einige Nutzerdaten und Einstellungen entfernt.';
 $string['mailadmins'] = 'Admin benachrichtigen';
 $string['mailstudents'] = 'Teilnehmer/innen benachrichtigen';
 $string['mailteachers'] = 'Trainer/innen benachrichtigen';

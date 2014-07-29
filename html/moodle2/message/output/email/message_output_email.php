@@ -39,11 +39,8 @@ class message_output_email extends message_output {
     function send_message($eventdata) {
         global $CFG;
 
-        if (!empty($CFG->noemailever)) {
-            // hidden setting for development sites, set in config.php if needed
-            debugging('$CFG->noemailever active, no email message sent.', DEBUG_MINIMAL);
-            return true;
-        }
+        // Ignore $CFG->noemailever here because we want to test this code,
+        // the message sending fails later in email_to_user().
 
         // skip any messaging suspended and deleted users
         if ($eventdata->userto->auth === 'nologin' or $eventdata->userto->suspended or $eventdata->userto->deleted) {
@@ -66,7 +63,32 @@ class message_output_email extends message_output {
         } else {
             $recipient = $eventdata->userto;
         }
-        $result = email_to_user($recipient, $eventdata->userfrom, $eventdata->subject, $eventdata->fullmessage, $eventdata->fullmessagehtml);
+
+        // Check if we have attachments to send.
+        $attachment = '';
+        $attachname = '';
+        if (!empty($CFG->allowattachments) && !empty($eventdata->attachment)) {
+            if (empty($eventdata->attachname)) {
+                // Attachment needs a file name.
+                debugging('Attachments should have a file name. No attachments have been sent.', DEBUG_DEVELOPER);
+            } else if (!($eventdata->attachment instanceof stored_file)) {
+                // Attachment should be of a type stored_file.
+                debugging('Attachments should be of type stored_file. No attachments have been sent.', DEBUG_DEVELOPER);
+            } else {
+                // Copy attachment file to a temporary directory and get the file path.
+                $attachment = $eventdata->attachment->copy_content_to_temp();
+                // Function email_to_user() adds $CFG->dataroot to file path, so removing it here.
+                $attachment = str_replace($CFG->dataroot, '', $attachment);
+                // Get attachment file name.
+                $attachname = clean_filename($eventdata->attachname);
+            }
+        }
+
+        $result = email_to_user($recipient, $eventdata->userfrom, $eventdata->subject, $eventdata->fullmessage,
+                                $eventdata->fullmessagehtml, $attachment, $attachname);
+
+        // Remove an attachment file if any.
+        @unlink($attachment);
 
         return $result;
     }
@@ -126,5 +148,14 @@ class message_output_email extends message_output {
      */
     function load_data(&$preferences, $userid){
         $preferences->email_email = get_user_preferences( 'message_processor_email_email', '', $userid);
+    }
+
+    /**
+     * Returns true as message can be sent to internal support user.
+     *
+     * @return bool
+     */
+    public function can_send_to_any_users() {
+        return true;
     }
 }

@@ -4,7 +4,7 @@ class com_wiris_quizzes_wrap_QuestionRequestWrap implements com_wiris_quizzes_ap
 	public function __construct($impl) {
 		if(!php_Boot::$skip_constructor) {
 		$this->impl = $impl;
-		$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+		$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 	}}
 	public function serialize() {
 		try {

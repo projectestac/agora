@@ -5,20 +5,19 @@ require_once($CFG->dirroot . '/question/type/wq/edit_wq_form.php');
 require_once($CFG->dirroot . '/question/type/shortanswer/edit_shortanswer_form.php');
 
 class qtype_shortanswerwiris_edit_form extends qtype_wq_edit_form {
-
-    protected $base;
     
     protected function definition_inner($mform) {
         global $CFG;
 
         //require_js(array('http://www.wiris.net/demo/editor/editor'));
         parent::definition_inner($mform);
-
+/*
         $answer = 0;
         $answerhdr = 0;
         $fraction = 0;
-        $feedback = 0;
+        $feedback = 0;*/
        
+        //Hide usecase field
         $usecaseValue = $mform->_elementIndex['usecase'];
         $mform->_elements[$usecaseValue]->_label = '';
         $mform->_elements[$usecaseValue]->_attributes['style'] = 'display:none';
@@ -41,6 +40,12 @@ class qtype_shortanswerwiris_edit_form extends qtype_wq_edit_form {
                 }
             }
         } else {
+            foreach ($mform->_elementIndex as $key => $value){
+                if (substr($key, 0, 7) == 'answer[') {
+                    $mform->_elements[$value]->_attributes['class'] = 'wirisauthoringfield wirisstudio wirisopenanswer wirisvariables wirisauxiliarcas wirisgradingfunction';
+                }
+            }
+            /*
             //A normal Moodle shortanswer has 3 asnwers and add 3 new answers each time you click 
             //the add answers button.
             //We want and we add only one answer.
@@ -77,7 +82,7 @@ class qtype_shortanswerwiris_edit_form extends qtype_wq_edit_form {
                 }else if ($key == 'answersinstruct'){
                     $mform->_elements[$value]->_text = get_string('shortanswerwiris_answersinstruct', 'qtype_shortanswerwiris');
                 }
-            }        
+            }      */  
         }
     }
 
@@ -85,4 +90,14 @@ class qtype_shortanswerwiris_edit_form extends qtype_wq_edit_form {
         return 'shortanswerwiris';
     }	
 	
+}
+
+class qtype_shortanswerwiris_helper_edit_form extends qtype_shortanswer_edit_form {
+    protected function get_more_choices_string() {
+        return get_string('shortanswerwiris_addanswers', 'qtype_shortanswerwiris');
+    }
+    protected function add_per_answer_fields(&$mform, $label, $gradeoptions,
+            $minoptions = QUESTION_NUMANS_START, $addoptions = QUESTION_NUMANS_ADD) {
+        return parent::add_per_answer_fields($mform, $label, $gradeoptions, 1, 1);
+    }
 }

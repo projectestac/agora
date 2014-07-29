@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'countries', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'countries', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   countries
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,6 @@ $string['AG'] = '安提瓜和巴布达';
 $string['AI'] = '安圭拉岛';
 $string['AL'] = '阿尔巴尼亚';
 $string['AM'] = '亚美尼亚';
-$string['AN'] = '荷属安的列斯';
 $string['AO'] = '安哥拉';
 $string['AQ'] = '南极洲';
 $string['AR'] = '阿根廷';
@@ -55,6 +54,7 @@ $string['BL'] = '圣巴泰勒米岛';
 $string['BM'] = '百慕大群岛';
 $string['BN'] = '文莱';
 $string['BO'] = '玻利维亚';
+$string['BQ'] = '博内尔，圣尤斯特歇斯和萨巴';
 $string['BR'] = '巴西';
 $string['BS'] = '巴哈马';
 $string['BT'] = '不丹';
@@ -77,6 +77,7 @@ $string['CO'] = '哥伦比亚';
 $string['CR'] = '哥斯达黎加';
 $string['CU'] = '古巴';
 $string['CV'] = '佛得角';
+$string['CW'] = '库拉索';
 $string['CX'] = '圣诞岛';
 $string['CY'] = '塞浦路斯';
 $string['CZ'] = '捷克共和国';
@@ -231,8 +232,10 @@ $string['SM'] = '圣马力诺';
 $string['SN'] = '塞内加尔';
 $string['SO'] = '索马里';
 $string['SR'] = '苏利南';
+$string['SS'] = '南苏丹';
 $string['ST'] = '普林西比';
 $string['SV'] = '萨尔瓦多';
+$string['SX'] = '圣马丁岛（荷兰的部分）';
 $string['SY'] = '叙利亚';
 $string['SZ'] = '斯威士兰';
 $string['TC'] = '土耳其';

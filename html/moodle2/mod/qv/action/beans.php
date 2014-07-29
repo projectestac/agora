@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // This file is part of Moodle - http://moodle.org/
 //
@@ -54,7 +54,7 @@ $params = array();
 
 function startElement($parser, $name, $attribs ) {
 	global $beans, $currentBean, $params, $thisElement, $oldElements, $elements;
-	
+
 	array_push($oldElements, $thisElement);
 	$thisElement=$name;
 	if ($name == 'BEAN'){
@@ -74,14 +74,14 @@ function startElement($parser, $name, $attribs ) {
 
 function endElement($parser, $name) {
    global $beans, $currentBean, $params, $thisElement, $oldElements;
-   
+
    $thisElement = array_pop( $oldElements);
    $beans[$currentBean]['PARAMS'] = $params;
 }
 
 function characterData($parser, $text) {
 	global $beans, $currentBean, $params, $thisElement, $elements;
-   
+
 	$elements[ $thisElement ] .= $text;
 	if ($thisElement == 'MESSAGE' || $thisElement == 'RESPONSES' || $thisElement == 'SCORES') {
 		if (!array_key_exists(strtolower($thisElement), $params))
@@ -174,20 +174,20 @@ echo str_replace('<?xml version="1.0"?>', '<?xml version="1.0" encoding="UTF-8"?
 
 function getSections($assignmentid){
 	global $DB;
-  
+
 	if (!existsAssignment($assignmentid)){
 		$error = ERROR_ASSIGNMENTID_DOES_NOT_EXIST;
 	}
-	
+
 	$time = '00:00:00';
-	
+
 	$bean = new SimpleXMLElement('<bean/>');
 	$bean->addAttribute('id','get_sections');
 	$bean->addAttribute('assignmentid',$assignmentid);
-	
+
 	if (!isset($error)){
 		if($qv = $DB->get_record_sql("SELECT q.id as qvid, q.maxdeliver, q.showcorrection
-							 FROM {qv} q, {qv_assignments} a 
+							 FROM {qv} q, {qv_assignments} a
 							 WHERE q.id = a.qvid AND a.id = $assignmentid")){
 			if ($qv_sections = $DB->get_records('qv_sections', array('assignmentid'=>$assignmentid))){
 				foreach ($qv_sections as $qv_section){
@@ -202,14 +202,14 @@ function getSections($assignmentid){
 					$section->addAttribute('state',$qv_section->state);
 					$section->addAttribute('time',$qv_section->time);
 				}
-			}	
+			}
 		}
 	} else {
 		$message->addAttribute('error',$error);
 	}
-  
+
 	$bean->addAttribute('time',$time);
-	
+
 	return $bean;
 }
 
@@ -224,7 +224,7 @@ function getSection($assignmentid, $sectionid){
 	$time = "00:00:00";
 	$maxdeliver = '';
 	$showcorrection = '';
-	
+
 	if (!existsAssignment($assignmentid)){
 		$error = ERROR_ASSIGNMENTID_DOES_NOT_EXIST;
 	} else {
@@ -238,11 +238,11 @@ function getSection($assignmentid, $sectionid){
 		}
 
 		if($qv = $DB->get_record_sql("SELECT q.id as qvid, q.maxdeliver, q.showcorrection
-								 FROM {qv} q, {qv_assignments} a 
+								 FROM {qv} q, {qv_assignments} a
 								 WHERE q.id=a.qvid AND a.id=$assignmentid")){
 			  $maxdeliver = $qv->maxdeliver;
 			  $showcorrection = $qv->showcorrection;
-		}  
+		}
 	}
 
 	$bean = new SimpleXMLElement('<bean/>');
@@ -260,7 +260,7 @@ function getSection($assignmentid, $sectionid){
 
 	$section->addChild('responses',$responses);
 	$section->addChild('pending_scores',$pending_scores);
-	
+
 	return $bean;
 }
 
@@ -272,11 +272,11 @@ function existsAssignment($assignmentid){
 
 function checkMaxDeliverNotExceeded($qv_section){
     global $DB;
-    
+
     $not_exceeded = true;
         //Check max deliver < current attempts
     if($qv = $DB->get_record_sql("SELECT q.maxdeliver, q.showcorrection
-                           FROM {qv} q, {qv_assignments} a  
+                           FROM {qv} q, {qv_assignments} a
                            WHERE q.id=a.qvid AND a.id=$qv_section->assignmentid")){
         $not_exceeded = ($qv->maxdeliver < 0 || $qv_section->attempts < $qv->maxdeliver);
     }
@@ -285,7 +285,7 @@ function checkMaxDeliverNotExceeded($qv_section){
 
 function saveSection($assignmentid, $sectionid, $responses, $sectionOrder=-1, $itemOrder=-1, $sectiontime){ //Albert
     global  $DB;
-    
+
     $qvAssignment = existsAssignment($assignmentid);//ALLR
     //ALLR if (!$existsAssignment($assignmentid)){
     if (!$qvAssignment){
@@ -297,13 +297,13 @@ function saveSection($assignmentid, $sectionid, $responses, $sectionOrder=-1, $i
                 $qvAssignment->sectionorder=$sectionOrder;
                 $modifiedAssign = true;
             }
-        }	
+        }
         if($itemOrder>=0){ //Establishing itemOrder
             if($itemOrder!=0 && $qvAssignment->itemorder==0){ //it wasn't established before
                 $qvAssignment->itemorder=$itemOrder;
                 $modifiedAssign = true;
             }
-        }	
+        }
         if ($modifiedAssign){ //Only update if necessary
             if (!$DB->update_record('qv_assignments', $qvAssignment)){
                 $error = ERROR_DB_INSERT;
@@ -317,24 +317,24 @@ function saveSection($assignmentid, $sectionid, $responses, $sectionOrder=-1, $i
             $qv_section->sectionid=$sectionid;
             $qv_section->responses=$responses;
             $qv_section->state=0;
-            $qv_section->time=$sectiontime; 
+            $qv_section->time=$sectiontime;
             if (!$DB->insert_record('qv_sections', $qv_section)){
                 $error = ERROR_DB_INSERT;
             }
         } else {
-            if(checkMaxDeliverNotExceeded($qv_section)){  	
+            if(checkMaxDeliverNotExceeded($qv_section)){
                 //Update section
                 $qv_section->responses = $responses;
                 $qv_section->state = 0;
                 $qv_section->pending_scores = $qv_section->scores;//A
-                $qv_section->time = qv_add_time($qv_section->time, $sectiontime); 
+                $qv_section->time = qv_add_time($qv_section->time, $sectiontime);
                 if (!$DB->update_record('qv_sections', $qv_section)){
                     $error = ERROR_DB_UPDATE;
                 }
             }else{
-                $error = ERROR_MAXDELIVER_EXCEEDED;        		
+                $error = ERROR_MAXDELIVER_EXCEEDED;
             }
-        }  
+        }
     }
 
     $bean = new SimpleXMLElement('<bean/>');
@@ -345,7 +345,7 @@ function saveSection($assignmentid, $sectionid, $responses, $sectionOrder=-1, $i
 	$section->addAttribute('id',$sectionid);
 	if (isset($error)) $section->addAttribute('error',$error);
 	$section->addAttribute('state',$qv_section->state);
-	
+
 	return $bean;
 }
 
@@ -364,7 +364,7 @@ function saveSectionTeacher($assignmentid, $sectionid, $responses, $scores){ //A
             $qv_section->responses=$responses;
             $qv_section->pending_scores=$scores;//A
             //$qv_section->state=0;
-            $qv_section->time="00:00:00"; 
+            $qv_section->time="00:00:00";
             if (!$DB->insert_record('qv_sections', $qv_section)){
                 $error = ERROR_DB_INSERT;
             }
@@ -377,15 +377,15 @@ function saveSectionTeacher($assignmentid, $sectionid, $responses, $scores){ //A
             if (!$DB->update_record('qv_sections', $qv_section)){
                 $error = ERROR_DB_UPDATE;
             }else{
-//                qv_update_gradebook($qv_section);        	
+//                qv_update_gradebook($qv_section);
                 $qv = $DB->get_record('qv', array('id' => $qvAssignment->qvid) );
                 $cm = get_coursemodule_from_instance('qv', $qv->id, $qv->course, false, MUST_EXIST);
                 $qv->cmidnumber = $cm->idnumber;
                 qv_update_grades($qv, $qvAssignment->userid);
             }
-        }  
+        }
     }
-  	
+
 	$bean = new SimpleXMLElement('<bean/>');
 	$bean->addAttribute('id','save_section_teacher');
 	$bean->addAttribute('assignmentid',$assignmentid);
@@ -394,7 +394,7 @@ function saveSectionTeacher($assignmentid, $sectionid, $responses, $scores){ //A
 	$section->addAttribute('id',$sectionid);
 	if (isset($error)) $section->addAttribute('error',$error);
 	$section->addAttribute('state',$qv_section->state);
-	
+
 	return $bean;
 }
 
@@ -412,13 +412,13 @@ function deliverSection($assignmentid, $sectionid, $responses, $scores, $section
                 $qvAssignment->sectionorder=$sectionOrder;
                 $modifiedAssign = true;
             }
-        }	
+        }
         if($itemOrder>=0){ //Establishing itemOrder
             if($itemOrder!=0 && $qvAssignment->itemorder==0){ //it wasn't established before
                     $qvAssignment->itemorder=$itemOrder;
                     $modifiedAssign = true;
             }
-        }	
+        }
         if ($modifiedAssign){ //Only update if necessary
             if (!$DB->update_record('qv_assignments', $qvAssignment)){
               $error = ERROR_DB_INSERT;
@@ -434,7 +434,7 @@ function deliverSection($assignmentid, $sectionid, $responses, $scores, $section
             $qv_section->scores=$scores;
             $qv_section->pending_scores=$scores;//A
             $qv_section->attempts=1;
-            $qv_section->state=1;		
+            $qv_section->state=1;
             $qv_section->time=$sectiontime;//Albert
             if (!$DB->insert_record('qv_sections', $qv_section)){
                 $error = ERROR_DB_INSERT;
@@ -465,13 +465,13 @@ function deliverSection($assignmentid, $sectionid, $responses, $scores, $section
                     qv_update_grades($qv, $qvAssignment->userid);
                 }
             } else{
-                $error=ERROR_MAXDELIVER_EXCEEDED;        		
+                $error=ERROR_MAXDELIVER_EXCEEDED;
             }
-        }  
+        }
     }
 
     if($qv = $DB->get_record_sql("SELECT q.id as qvid, q.maxdeliver, q.showcorrection
-                             FROM {qv} q, {qv_assignments} a 
+                             FROM {qv} q, {qv_assignments} a
                          WHERE q.id=a.qvid AND a.id=$assignmentid")){
 		$maxdeliver = $qv->maxdeliver;
 		$showcorrection = $qv->showcorrection;
@@ -489,13 +489,13 @@ function deliverSection($assignmentid, $sectionid, $responses, $scores, $section
 	$section->addAttribute('showcorrection',$qv_section->showcorrection);
 	$section->addAttribute('time',$qv_section->time);
 	$section->addAttribute('state',$qv_section->state);
-	
+
 	return $bean;
 }
 
 function correctSection($assignmentid, $sectionid, $responses, $scores){
     global $DB;
-    
+
     $qvAssignment = existsAssignment($assignmentid);
     if (!$qvAssignment) {
         $error = ERROR_ASSIGNMENTID_DOES_NOT_EXIST;
@@ -519,7 +519,7 @@ function correctSection($assignmentid, $sectionid, $responses, $scores){
             }
             $qv_section->attempts = 0;
             $qv_section->state = 2;
-            
+
             if (!$DB->insert_record('qv_sections', $qv_section)){
               $error = ERROR_DB_INSERT;
             }
@@ -536,7 +536,7 @@ function correctSection($assignmentid, $sectionid, $responses, $scores){
             if (!$DB->update_record('qv_sections', $qv_section)){
                 $error = ERROR_DB_UPDATE;
             } else{
-//                qv_update_gradebook($qv_section);      		
+//                qv_update_gradebook($qv_section);
                 $qv = $DB->get_record('qv', array('id' => $qvAssignment->qvid) );
                 $cm = get_coursemodule_from_instance('qv', $qv->id, $qv->course, false, MUST_EXIST);
                 $qv->cmidnumber = $cm->idnumber;
@@ -553,13 +553,13 @@ function correctSection($assignmentid, $sectionid, $responses, $scores){
 	$section->addAttribute('id',$sectionid);
 	if (isset($error)) $section->addAttribute('error',$error);
 	$section->addAttribute('state',$qv_section->state);
-	
+
 	return $bean;
 }
 
 function saveTime($assignmentid, $sectionid, $sectiontime){
     global $DB;
-    
+
     if (!existsAssignment($assignmentid)){
         $error = ERROR_ASSIGNMENTID_DOES_NOT_EXIST;
     } else {
@@ -572,7 +572,7 @@ function saveTime($assignmentid, $sectionid, $sectiontime){
             $qv_section->scores="";
             $qv_section->attempts=0;
             $qv_section->state=0;
-            $qv_section->time=$sectiontime;		
+            $qv_section->time=$sectiontime;
             if (!$DB->insert_record('qv_sections', $qv_section)){
                     $error = ERROR_DB_UPDATE;
             }
@@ -593,7 +593,7 @@ function saveTime($assignmentid, $sectionid, $sectiontime){
 	$section->addAttribute('id',$sectionid);
 	if (isset($error)) $section->addAttribute('error',$error);
 	$section->addAttribute('time',$qv_section->time);
-	
+
 	return $bean;
 }
 
@@ -626,7 +626,7 @@ function addMessage($assignmentid, $sectionid, $itemid, $userid, $message){
                 $error = ERROR_DB_INSERT;
             } else{
                 // Mark message read for author user
-                $qv_message_read = readMessage($qv_section);		
+                $qv_message_read = readMessage($qv_section);
             }
         }
     }
@@ -641,7 +641,7 @@ function addMessage($assignmentid, $sectionid, $itemid, $userid, $message){
 
 	$message = $bean->addChild('message');
 	$message->addAttribute('id',$msgid);
-	if (isset($error)) $message->addAttribute('error',$error);  
+	if (isset($error)) $message->addAttribute('error',$error);
 
     return $bean;
 }
@@ -684,7 +684,7 @@ function getMessages($assignmentid, $sectionid){
 function readMessage($qv_section){
     global $USER, $DB;
 
-    // Mark section as read by userid 
+    // Mark section as read by userid
     if ($qv_message_read = $DB->get_record('qv_messages_read', array('sid'=>$qv_section->id, 'userid'=>$USER->id))){
         $qv_message_read->timereaded = time();
         if (!$DB->update_record('qv_messages_read', $qv_message_read)){
@@ -695,7 +695,7 @@ function readMessage($qv_section){
         $qv_message_read->sid = $qv_section->id;
         $qv_message_read->userid = $USER->id;
         $qv_message_read->timereaded = time();
-        if (!$DB->insert_record('qv_messages_read', $qv_message_read)){ 
+        if (!$DB->insert_record('qv_messages_read', $qv_message_read)){
             $error = ERROR_DB_INSERT;
         }
     }

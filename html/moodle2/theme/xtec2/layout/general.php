@@ -1,127 +1,199 @@
 <?php
-$hasheading = ($PAGE->heading);
-$hasnavbar = (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar());
-$hasfooter = (empty($PAGE->layout_options['nofooter']));
-$hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-$hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
-$showsidepre = $hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT);
-$showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT);
-$custommenu = $OUTPUT->custom_menu();
-$hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$bodyclasses = array();
-if ($showsidepre && !$showsidepost) {
-    $bodyclasses[] = 'side-pre-only';
-} else if ($showsidepost && !$showsidepre) {
-    $bodyclasses[] = 'side-post-only';
-} else if (!$showsidepost && !$showsidepre) {
-    $bodyclasses[] = 'content-only';
+/**
+ * Moodle's XTEC2 theme
+ *
+ *
+ * For full information about creating Moodle themes, see:
+ * http://docs.moodle.org/dev/Themes_2.0
+ *
+ * @package   theme_xtec2
+ * @copyright 2014 Departament d'Ensenyament
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+// Get the HTML for the settings bits.
+$html = theme_xtec2_get_html_for_settings($OUTPUT, $PAGE);
+
+if(empty($PAGE->layout_options['nocustommenu'])){
+    $custommenu = $OUTPUT->custom_menu();
+    $hascustommenu = !empty($custommenu);
+} else {
+    $hascustommenu = false;
 }
-if ($hascustommenu) {
-    $bodyclasses[] = 'has_custom_menu';
+
+$hasmainmenu = get_config('theme_xtec2','top_menus');
+if($hasmainmenu){
+    $mainmenu = $OUTPUT->main_menu();
+    $hasmainmenu = !empty($mainmenu);
+} else {
+    $hasmainmenu = false;
 }
-if ($hasnavbar) {
-    $bodyclasses[] = 'hasnavbar';
+
+$hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
+$hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
+
+//For the "Show Blocks" options to work you have to add this code to your theme course layout:
+if($COURSE->format == 'simple'){
+    $context = context_course::instance($COURSE->id);
+    if(!has_capability('moodle/grade:viewall',$context)) { //Is student
+        $format_options = course_get_format($COURSE)->get_format_options();
+        //Those variables define if the side-pre and side-post blocks should be visible or not
+        if(empty($format_options['showblocks'])){
+            $hassidepre = false;
+            $hassidepost = false;
+        }
+    }
 }
 
-echo $OUTPUT->doctype()
-?>
-<html <?php echo $OUTPUT->htmlattributes() ?>>
-    <head>
-        <title><?php echo $PAGE->title ?></title>
-        <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme') ?>" />
-        <?php echo $OUTPUT->standard_head_html() ?>
-    </head>
-    <body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses . ' ' . join(' ', $bodyclasses)) ?>">
-        <?php echo $OUTPUT->standard_top_of_body_html() ?>
+$showsidepre = ($hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT));
+$showsidepost = ($hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT));
 
-        <div id="page">
-            <?php if ($hasheading || $hasnavbar) { ?>
-                <div id="page-header">
-                    <div class="rounded-corner top-left"></div>
-                    <div class="rounded-corner top-right"></div>
-                    <?php if ($hasheading) { ?>
-                        <div class="headermenu">
-                            <div class="toplogo">
-                                <a href="http://www20.gencat.cat/portal/site/ensenyament"><img src="<?php echo $OUTPUT->pix_url('theme/departament', 'theme'); ?>" alt="" title="" /></a>
-                            </div>
-                            <div class="toplogo">
-                                 <a href="http://www.xtec.cat"><img src="<?php echo $OUTPUT->pix_url('theme/xtec', 'theme'); ?>" alt="" title="" /></a>
-                            </div>
-                            <?php
-                            echo $PAGE->headingmenu;
-                            if (!empty($PAGE->layout_options['langmenu'])) {
-                                echo $OUTPUT->lang_menu();
-                            }
-                            echo $OUTPUT->login_info();
-                            ?>
-                        </div>
-                        <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
-                    <?php } ?>
-                </div>
-            <?php } ?>
-            <?php if ($hascustommenu) { ?>
-                <div id="custommenu"><?php echo $custommenu; ?></div>
-            <?php } ?>
+if($showsidepre && $showsidepost){
+    $spanpre = 4;
+    $spanmainpre = 8;
+    $spanmainpost = 9;
+    $spanpost = 3;
+} else if($showsidepre){
+    $spanpre = 3;
+    $spanmainpre = 9;
+    $spanmainpost = 12;
+    $spanpost = 0;
+} else if($showsidepost){
+    $spanpre = 0;
+    $spanmainpre = 12;
+    $spanmainpost = 9;
+    $spanpost = 3;
+} else {
+    $spanpre = 0;
+    $spanmainpre = 12;
+    $spanmainpost = 12;
+    $spanpost = 0;
+}
 
-            <?php if ($hasnavbar) { ?>
-                <div class="navbar clearfix">
-                    <div class="breadcrumb"><?php echo $OUTPUT->navbar(); ?></div>
-                    <div class="navbutton"><?php echo $PAGE->button; ?></div>
-                </div>
-            <?php } ?>
-            <!-- END OF HEADER -->
+if (right_to_left()) {
+    $regionbsid = 'region-bs-main-and-post';
+} else {
+    $regionbsid = 'region-bs-main-and-pre';
+}
 
-            <div id="page-content">
-                <div id="region-main-box">
-                    <div id="region-post-box">
-                        <div id="region-main-wrap">
-                            <div id="region-main">
-                                <div class="region-content">
-                                    <?php echo $OUTPUT->main_content() ?>
-                                </div>
-                            </div>
-                        </div>
+echo $OUTPUT->doctype() ?>
+<html <?php echo $OUTPUT->htmlattributes(); ?>>
+<head>
+    <title><?php echo $OUTPUT->page_title(); ?></title>
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <?php echo $OUTPUT->standard_head_html() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-                        <?php if ($hassidepre) { ?>
-                            <div id="region-pre" class="block-region">
-                                <div class="region-content">
-                                    <?php echo $OUTPUT->blocks_for_region('side-pre') ?>
-                                </div>
-                            </div>
-                        <?php } ?>
+<body <?php echo $OUTPUT->body_attributes(isset($body_classes)?$body_classes:""); ?>>
 
-                        <?php if ($hassidepost) { ?>
-                            <div id="region-post" class="block-region">
-                                <div class="region-content">
-                                    <?php echo $OUTPUT->blocks_for_region('side-post') ?>
-                                </div>
-                            </div>
-                        <?php } ?>
+<?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-                    </div>
+<header role="banner" class="navbar navbar-fixed-top moodle-has-zindex">
+    <nav role="navigation" class="navbar-inner">
+        <div class="container-fluid">
+			<a href="http://www20.gencat.cat/portal/site/ensenyament" class="brand ensenyament hidden-phone"><img src="<?php echo $OUTPUT->pix_url('departament', 'theme'); ?>" alt="" title="" /></a>
+			<a href="http://www.xtec.cat" class="brand xtec hidden-phone"><img src="<?php echo $OUTPUT->pix_url('xtec', 'theme'); ?>" alt="" title="" /></a>
+			<a class="brand mainbrand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->fullname; ?></a>
+            <div class="navbar">
+                <ul class="nav pull-right">
+                    <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+                    <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<header id="title-header" class="clearfix hidden-phone">
+    <div id="logo-top"></div>
+    <div class="container-fluid">
+        <?php echo $OUTPUT->page_heading(); ?>
+    </div>
+</header>
+
+<div id="main_navigation" class="clearfix hidden-phone">
+    <div class="container-fluid">
+        <?php if($hascustommenu) { ?>
+            <div id="custom_menu" class="pull-left">
+                <div class="nav-collapse collapse" id="custom-collapse">
+                    <?php echo $custommenu; ?>
                 </div>
             </div>
-</div>
-            <!-- START OF FOOTER -->
-            <?php if ($hasfooter) { ?>
-            <div class="foot">
-                <div id="page-footer" class="clearfix">
-                    <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')) ?></p>
-                    <?php 
-                    echo $OUTPUT->login_info();
-                    echo $OUTPUT->standard_footer_html();
-                    ?>
-                    <div class="rounded-corner bottom-left"></div>
-                    <div class="rounded-corner bottom-right"></div>
+        <?php } ?>
+        <?php if($hasmainmenu) { ?>
+            <div id="main_menu" class="pull-right">
+                <div class="nav-collapse collapse">
+                    <?php echo $mainmenu; ?>
                 </div>
-            <?php } ?>
-            <div class="clearfix"></div>
-            <div class="footerlogos">
-                <?php if (is_agora()) { ?> <a href="http://agora.xtec.cat" target="_blank"><?php } ?><img src="<?php echo $OUTPUT->pix_url('theme/logo_main', 'theme'); ?>" alt="" title="" /><?php if (is_agora()) { ?></a> <?php } ?>
-                <a href="http://moodle.org" target="_blank"><img src="<?php echo $OUTPUT->pix_url('theme/logo_moodle', 'theme'); ?>" alt="Moodle" title="Moodle" /></a>
-            </div>           
+            </div>
+        <?php } ?>
+    </div>
+</div>
+
+<div id="page" class="container-fluid clearfix">
+	<header id="page-header" class="clearfix">
+		<div id="page-navbar" class="clearfix">
+			<nav class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></nav>
+			<div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
+		</div>
+	</header>
+
+
+    <div id="page-content" class="row-fluid">
+        <div id="<?php echo $regionbsid ?>" class="span<?php echo $spanmainpost;?>">
+            <div class="row-fluid">
+                <section id="region-main" class="span<?php echo $spanmainpre;?> pull-right">
+                    <?php
+                    echo $OUTPUT->course_content_header();
+                    echo $OUTPUT->main_content();
+                    echo $OUTPUT->course_content_footer();
+                    ?>
+                </section>
+                <?php echo $OUTPUT->blocks('side-pre', 'span'.$spanpre.' desktop-first-column'); ?>
+            </div>
         </div>
-        <?php echo $OUTPUT->standard_end_of_body_html() ?>
-    </body>
+        <?php echo $OUTPUT->blocks('side-post', 'span'.$spanpost); ?>
+    </div>
+
+</div>
+
+<footer id="page-footer">
+    <div id="page-footer-top">
+        <div class="row-fluid">
+            <div class="span10">
+                <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
+                <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+                <?php
+                echo $html->footnote;
+                echo $OUTPUT->standard_footer_html();
+                ?>
+            </div>
+            <div class="span2 pull-right">
+                <?php echo $OUTPUT->lang_menu(); ?>
+            </div>
+        </div>
+    </div>
+    <div class="footerlogos clearfix container-fluid">
+        <a href="http://agora.xtec.cat" target="_blank"><img src="<?php echo $OUTPUT->pix_url('logo_main', 'theme'); ?>" alt="" title="" /></a>
+        <a href="http://moodle.org" target="_blank"><img src="<?php echo $OUTPUT->pix_url('logo_moodle', 'theme'); ?>" alt="Moodle" title="Moodle" /></a>
+    </div>
+</footer>
+
+<?php echo $OUTPUT->standard_end_of_body_html() ?>
+</body>
 </html>

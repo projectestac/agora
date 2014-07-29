@@ -31,11 +31,11 @@ if ($ADMIN->fulltree) {
     require_once(__DIR__.'/adminlib.php');
     $settings->add(new tiynce_subplugins_settings());
     $settings->add(new admin_setting_heading('tinymcegeneralheader', new lang_string('settings'), ''));
-    $default = "fontselect,fontsizeselect,formatselect,|,undo,redo,|,search,replace,|,fullscreen
+    $default = "wrap,formatselect,wrap,bold,italic,wrap,bullist,numlist,wrap,link,unlink,wrap,image
 
-bold,italic,underline,strikethrough,sub,sup,|,justifyleft,justifycenter,justifyright,|,cleanup,removeformat,pastetext,pasteword,|,forecolor,backcolor,|,ltr,rtl
+undo,redo,wrap,underline,strikethrough,sub,sup,wrap,justifyleft,justifycenter,justifyright,wrap,outdent,indent,wrap,forecolor,backcolor,wrap,ltr,rtl
 
-bullist,numlist,outdent,indent,|,link,unlink,|,image,nonbreaking,charmap,table,|,code";
+fontselect,fontsizeselect,wrap,code,search,replace,wrap,nonbreaking,charmap,table,wrap,cleanup,removeformat,pastetext,pasteword,wrap,fullscreen";
     $settings->add(new admin_setting_configtextarea('editor_tinymce/customtoolbar',
         get_string('customtoolbar', 'editor_tinymce'), get_string('customtoolbar_desc', 'editor_tinymce', 'http://www.tinymce.com/wiki.php/TinyMCE3x:Buttons/controls'), $default, PARAM_RAW, 100, 8));
     $settings->add(new admin_setting_configtextarea('editor_tinymce/fontselectlist',
@@ -47,9 +47,8 @@ bullist,numlist,outdent,indent,|,link,unlink,|,image,nonbreaking,charmap,table,|
 $ADMIN->add('editortinymce', $settings);
 unset($settings);
 
-require_once("$CFG->libdir/pluginlib.php");
-$allplugins = plugin_manager::instance()->get_plugins();
-foreach ($allplugins['tinymce'] as $plugin) {
+foreach (core_plugin_manager::instance()->get_plugins_of_type('tinymce') as $plugin) {
+    /** @var \editor_tinymce\plugininfo\tinymce $plugin */
     $plugin->load_settings($ADMIN, 'editortinymce', $hassiteconfig);
 }
 

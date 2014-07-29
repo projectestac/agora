@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,37 +26,50 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['chooseavariable'] = 'Escoller unha variábel';
-$string['clicktoopen'] = 'Prema na ligazón {$a} para abrir o recurso';
-$string['configdisplayoptions'] = 'Seleccione todas as opcións que deberían estar dispoñíbeis, a configuración actual non se modifica. Manteña premida a tecla Ctrl para seleccionar múltiplos campos.';
-$string['configrolesinparams'] = 'Activar se quere incluír nomes de rol localizados na lista de parámetros variábeis.';
-$string['configsecretphrase'] = 'Esta frase secreta úsase para producir un valor de código cifrado que se pode enviar a algúns servidores como parámetro. O código cifrado prodúceo un valor md5 do endereo IP do usuario actual concatenado coa súa frase secreta. ie código= md5(IP.frasesecreta). Vexa que isto non é fiábel porque o enderezo IP pode cambiar e adoita ser compartido por diferente usuarios.';
+$string['clicktoopen'] = 'Prema na ligazón {$a} para abrir o recurso.';
+$string['configdisplayoptions'] = 'Seleccione todas as opcións que deberían estar dispoñíbeis, a configuración existente non se modifica. Manteña premida a tecla CTRL para seleccionar varios campos.';
+$string['configframesize'] = 'Cando se presenta unha páxina web ou un ficheiro cargado dentro dun marco, este valor é a altura en píxeles do marco superior (o que contén a navegación).';
+$string['configrolesinparams'] = 'Actíveo se quere incluír nomes de rol localizados na lista de parámetros de variábel dispoñíbeis.';
+$string['configsecretphrase'] = 'Esta frase secreta utilízase para producir un valor de código cifrado que se pode enviar a algúns servidores como un parámetro. O código cifrado prodúceo un valor md5 do enderezo IP actual concatenado coa súa frase secreta. p.ex code = md5(IP.secretphrase). Vexa que isto non é fiábel porque o enderezo IP pode cambiar e ademais adoita ser compartido entre varios computadores.';
 $string['contentheader'] = 'Contido';
 $string['createurl'] = 'Crear un URL';
-$string['displayoptions'] = 'Opcións de presentación dispoñíbeis';
+$string['displayoptions'] = 'Opcións dispoñíbeis de presentación';
 $string['displayselect'] = 'Presentar';
-$string['displayselectexplain'] = 'Escoller o tipo de presentación, desgraciadamente  non son apropiados todos os tipos para todos os URL.';
+$string['displayselectexplain'] = 'Escolla o tipo de presentación. desafortunadamente non todos os tipos están dispoñíbeis para todos os URL.';
+$string['displayselect_help'] = 'Este axuste, xunto co tipo de URL, e sempre que o navegador permita a integración, determina como se presenta o URL. As opcións poden incluír:
+
+* Automático - Seleccionase de forma automática a mellor opción para presentar o URL
+* Incorporado - Presentase o URL dentro da páxina baixo a barra de navegación xunto coa descrición do URL e calquera outro bloque
+* Abrir - Só se presenta o URL na xanela do navegador
+* En xanela emerxente - Presentase o URL dentro dunha nova xanela do navegador sen menús nin unha barra de enderezos
+* Nun marco - Presentase o URL dentro dun marco baixo a barra de navegación e a descrición do URL
+* Nova xanela - Presentase o URL nunha nova xanela do navegador con menús e a barra de enderezos';
 $string['externalurl'] = 'URL externo';
 $string['framesize'] = 'Altura do marco';
-$string['invalidurl'] = 'O URL introducido é incorrecto';
+$string['invalidstoredurl'] = 'Non é posíbel presentar este recurso, o URL non é correcto.';
+$string['invalidurl'] = 'O URL introducido non é correcto';
 $string['modulename'] = 'URL';
-$string['modulename_help'] = 'O módulo URL permítelle a un profesor fornecer unha ligazón web como un recurso de curso. Algo que está libremente dispoñíbel en liña, tal como documentos ou imaxes, poden ligarse; o URL non ten que ser a páxina inicial dun sistio web. O URL dunha páxina particular pode ser copiado e pegado ou un profesor pode usar un selector de ficheiros e escoller unha ligazón dun repositorio tipo Flickr, YouTube ou Wikimedia (segundo que repositorios estean activados para o sitio).
+$string['modulename_help'] = 'O módulo URL permítelle a un profesor fornecer unha ligazón web como un recurso de curso. Algo que estea libremente dispoñíbel en liña, como poden ser documentos ou imaxes, poden ligarse; o URL non ten que ser a páxina inicial dun sitio web. O URL dunha páxina particular pode ser copiado e pegado ou un profesor pode usar un selector de ficheiros e escoller unha ligazón dun repositorio tipo Flickr, YouTube ou Wikimedia (segundo que repositorios estean activados para o sitio).
 
-Hai un certo número de opcións de presentación do URL, incorporada ou aberta nunha nova xanela, por exemplo, e opcións avanzadas para pasar información, tales como un nome de alumno, ao URL, se fose necesario.
+Hai un certo número de opcións de presentación do URL, incorporada ou para abrirse nunha nova xanela, por exemplo, e opcións avanzadas para pasar información, tales como un nome de alumno, ao URL, se fose necesario.
 
 Vexa que os URL tamén poden engadirse a calquera outro recurso ou tipo de actividade a través do editor de texto.';
+$string['modulename_link'] = 'mod/url/vista';
 $string['modulenameplural'] = 'URL';
 $string['neverseen'] = 'Nunca visto';
-$string['page-mod-url-x'] = 'Calquera URL da páxina do módulo';
+$string['page-mod-url-x'] = 'Calquera URL do módulo páxina';
 $string['parameterinfo'] = '&amp;parámetro=variábel';
-$string['parametersheader_help'] = 'Algunhas variábeis internas de Moodle poden asociarse automaticamente ao URL. Escriba o nome do parámetro in cada caixa(s) de texto e logo seleccione a variábel requirida de coincidencia.';
+$string['parametersheader'] = 'Variábeis de URL';
+$string['parametersheader_help'] = 'Algunhas variábeis internas de Moodle poden asociarse automaticamente ao URL. Escriba o nome do parámetro en cada caixa(s) de texto e logo seleccione a variábel requirida de coincidencia.';
 $string['pluginadministration'] = 'Administración do módulo URL';
 $string['pluginname'] = 'URL';
-$string['popupheightexplain'] = 'Especifica a altura predeterminada de xanelas emerxentes.';
+$string['popupheight'] = 'Altura da xanela emerxente (en píxeles)';
+$string['popupheightexplain'] = 'Especifica a altura predeterminada das xanelas emerxentes.';
+$string['popupwidth'] = 'Largura da xanela emerxente (en píxeles)';
 $string['popupwidthexplain'] = 'Especifica a largura predeterminada das xanelas emerxentes.';
-$string['printheading'] = 'Presentar o nome do URL';
-$string['printheadingexplain'] = 'Presentar o nome do URL por riba do contido? Algúns tipos de pantallas poida que non presenten o nome do URL malia que estea activado.';
 $string['printintro'] = 'Presentar a descrición do URL';
-$string['rolesinparams'] = 'Incluír nomes de rol en parámetros';
+$string['printintroexplain'] = 'Presentar a descrición do URL debaixo do contido? Algúns tipos de pantallas poida que non presenten a descrición aínda que estea activado.';
+$string['rolesinparams'] = 'Incluír nomes de roles nos parámetros';
 $string['serverurl'] = 'URL do servidor';
 $string['url:addinstance'] = 'Engadir un novo recurso URL';
-$string['url:view'] = 'Ver URL';
+$string['url:view'] = 'Ver o URL';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_mahara', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_mahara', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_mahara
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -55,4 +55,4 @@ $string['pf_description'] = 'このホストに対してユーザによるMoodle
 $string['pf_name'] = 'ポートフォリオサービス';
 $string['pluginname'] = 'Mahara eポートフォリオ';
 $string['senddisallowed'] = '現在、あなたはMaharaにファイルを転送できません。';
-$string['url'] = 'URI';
+$string['url'] = 'URL';

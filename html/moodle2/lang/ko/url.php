@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['chooseavariable'] = '변수 선택 ...';
-$string['clicktoopen'] = '자원을 열려면 {$a} 링크를 클릭';
+$string['clicktoopen'] = 'URL을 열려면 {$a} 를 클릭';
 $string['configdisplayoptions'] = '이용할 수 있는 모든 선택사항을 선택해도, 기존 설정은 변경되지 않음. 복수의 내용을 선택하려면 CTRL키를 누른 채 선택.';
 $string['configframesize'] = '웹 페이지나 업로드된 파일이 프레임안에 보여진다면 이 값은 상단 프레임(찾아가기를 포함하는)의 높이(픽셀로 표시)입니다.';
 $string['configrolesinparams'] = '가능한 파라메터 변수 목록에서 지역화된 역할 이름을 포함시키기를 원한다면 활성화 하십시요.';
@@ -55,10 +55,9 @@ $string['invalidurl'] = '입력한 URL이 잘못되었습니다.';
 $string['modulename'] = 'URL';
 $string['modulenameplural'] = 'URLs';
 $string['neverseen'] = '볼 수 없음';
-$string['optionsheader'] = '선택사항';
 $string['page-mod-url-x'] = '모든 URL 모듈 페이지';
-$string['parameterinfo'] = '&amp;매개변수=값';
-$string['parametersheader'] = '매개변수';
+$string['parameterinfo'] = '배개변수=값';
+$string['parametersheader'] = 'URL 변수';
 $string['parametersheader_help'] = '내부 무들 변수가 URL에 자동으로 첨부될 수 있습니다. 각 텍스트 박스에 파라메터에 대한 이름을 입력하고 필요한 대응되는 변수를 선택하세요.';
 $string['pluginadministration'] = 'URL 관리';
 $string['pluginname'] = 'URL';
@@ -66,8 +65,6 @@ $string['popupheight'] = '팝업창 높이(픽셀)';
 $string['popupheightexplain'] = '기본 팝업창의 높이 지정 ';
 $string['popupwidth'] = '팝업창 너비(픽셀)';
 $string['popupwidthexplain'] = '기본 팝업창의 너비 지정 ';
-$string['printheading'] = 'URL이름 표시';
-$string['printheadingexplain'] = '내용 상단에 URL명 표시. 어떤 주소지명은 활성화 시켰음에도 불구하고 표시되지 않는 경우도 있다.';
 $string['printintro'] = 'URL 설명 표시';
 $string['printintroexplain'] = '내용 하단에 URL 설명 표시. 어떤 설명은 활성화 시켰음에도 불구하고 표시되지 않는 경우도 있다.';
 $string['rolesinparams'] = '변수에 역할명 포함';

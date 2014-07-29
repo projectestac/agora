@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,14 +34,20 @@ $string['course_overview:addinstance'] = 'Voeg een nieuw cursusoverzichtsblok to
 $string['course_overview:myaddinstance'] = 'Voeg een nieuw cursusoverzichtsblok toe aan Mijn startpagina';
 $string['defaultmaxcourses'] = 'Standaard maximale aantal cursussen';
 $string['defaultmaxcoursesdesc'] = 'Maximale aantal cursussen die getoond worden op het cursus overzichtsblok, 0 toont alle cursussen';
-$string['expandall'] = 'Lijst  alle cursussen uitklappen';
+$string['expandall'] = 'Alle cursuslijsten openklappen';
 $string['forcedefaultmaxcourses'] = 'Maximale aantal cursussen afdwingen';
 $string['forcedefaultmaxcoursesdesc'] = 'Indien dit is ingesteld, dan kan een gebruiker zijn persoonlijke instelling niet wijzigen';
 $string['hiddencoursecount'] = 'Je hebt {$a} verborgen cursus';
 $string['hiddencoursecountplural'] = 'Je hebt {$a} verborgen cursussen';
+$string['hiddencoursecountwithshowall'] = 'Je hebt {$a->cousecount} verborgen cursus {$a->showallink})';
+$string['hiddencoursecountwithshowallplural'] = 'Je hebt {$a->cousecount} verborgen cursussen {$a->showallink})';
 $string['message'] = 'bericht';
 $string['messages'] = 'berichten';
+$string['moveafterhere'] = 'Plaats cursus {$a->movingcoursename} na {$a->currentcoursename}';
+$string['movecourse'] = 'Verplaats cursus: {$a}';
 $string['movecoursehere'] = 'Verplaats cursus naar hier';
+$string['movetofirst'] = 'Verplaats cursus {$a} naar bovenaan';
+$string['movingcourse'] = 'Je verplaatst: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Aantal te tonen cursussen:';
 $string['otherexpanded'] = 'Andere uitgeklapte cursussen';
 $string['pluginname'] = 'Cursusoverzicht';

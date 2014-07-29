@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,5 @@ $string['optionsheader'] = 'خيارات';
 $string['page:view'] = 'عاين محتوى الصفحة';
 $string['pluginadministration'] = 'إدارة وحدة الصفحات';
 $string['pluginname'] = 'صفحة';
-$string['printheading'] = 'أعرض اسم الصفحة';
-$string['printheadingexplain'] = 'اعرض اسم الصفحة فوق المحتوى';
 $string['printintro'] = 'اعرص وصف الصفحة';
 $string['printintroexplain'] = 'اعرض وصف الصفحة فوق المحتوى';

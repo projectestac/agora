@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,16 +33,15 @@ $string['confirmbulkdeleteenrolment'] = 'Vill du verkligen ta bort dessa deltaga
 $string['defaultperiod'] = 'Förinställd period som användare är kopplad till kursen';
 $string['defaultperiod_help'] = 'Förinställd tid som användaren är kopplad till kursen, med start från då användaren läggs till. Om denna är "0" är tiden obegränsad.';
 $string['deleteselectedusers'] = 'Ta bort valda deltagare från kursen';
-$string['editenrolment'] = 'Editera registrering';
-$string['editselectedusers'] = 'Ändra valda användarregistreringar';
-$string['enrolledincourserole'] = 'Registrerad på "{$a->course}" som "{$a->role}"';
-$string['enrolusers'] = 'Registrera användare';
-$string['manual:config'] = 'Konfigurera instanser för manuell registrering av användare i kurs';
+$string['editselectedusers'] = 'Ändra valda användarkopplingar';
+$string['enrolledincourserole'] = 'Registrerad i "{$a->course}" som "{$a->role}"';
+$string['enrolusers'] = 'Lägg till användare';
+$string['manual:config'] = 'Konfigurera instanser för manuell tilläggning av användare i kurs';
 $string['manual:enrol'] = 'Lägg till användare';
 $string['manual:manage'] = 'Hantera tilläggning av användare';
 $string['manual:unenrol'] = 'Koppla bort användare från kursen';
 $string['manual:unenrolself'] = 'Koppla bort dig själv från kursen';
-$string['pluginname'] = 'Registrera användare manuellt';
+$string['pluginname'] = 'Koppla användare manuellt';
 $string['status'] = 'Tillåt lägga till användare manuellt';
 $string['statusdisabled'] = 'Avaktiverad';
 $string['statusenabled'] = 'Aktiverad';
@@ -51,7 +50,7 @@ $string['unenrol'] = 'Koppla bort deltagaren från kursen';
 $string['unenrolselectedusers'] = 'Koppla bort valda deltagare från kursen';
 $string['unenrolselfconfirm'] = 'Vill du verkligen koppla bort dig själv från kursen "{$a}"?';
 $string['unenroluser'] = 'Vill du verkligen koppla bort "{$a->user}" från kursen "{$a->course}"?';
-$string['unenrolusers'] = 'Avregistrera användare';
-$string['wscannotenrol'] = 'Det gick inte att manuellt registrera en användare i kursen id = {$a->courseid}';
-$string['wsnoinstance'] = 'Instansen för manuell registrering av användare finns inte eller är avaktiverad i kursen (id = {$a->courseid})';
+$string['unenrolusers'] = 'Koppla bort användare';
+$string['wscannotenrol'] = 'Det gick inte att manuellt lägga till en användare i kursen id = {$a->courseid}';
+$string['wsnoinstance'] = 'Manuell tilläggning av användare finns inte eller är avaktiverad i kursen (id = {$a->courseid})';
 $string['wsusercannotassign'] = 'Du har inte tillstånd att tilldela rollen ({$a->roleid}) till användaren ({$a->userid}) i den här kursen ({$a->courseid}).';

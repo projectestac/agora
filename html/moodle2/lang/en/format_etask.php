@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_etask', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_etask', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   format_etask
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,8 +32,8 @@ $string['hidefromothers'] = 'Hide topic';
 $string['legend'] = 'Legend';
 $string['nodata'] = 'There are no data for eTask module.';
 $string['notset'] = 'Not set';
-$string['page-course-view-topics'] = 'Any course main page in etask format';
-$string['page-course-view-topics-x'] = 'Any course page in etask format';
+$string['page-course-view-topics'] = 'Any course main page in eTask format';
+$string['page-course-view-topics-x'] = 'Any course page in eTask format';
 $string['passed'] = 'Passed';
 $string['pluginname'] = 'eTask format';
 $string['save'] = 'Save';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,6 +85,7 @@ $string['requires_grade_any'] = 'No disponible hasta que usted tenga una calific
 $string['requires_grade_max'] = 'No disponible a menos que usted consiga una calificación apropiada en <strong>{$a}</strong>.';
 $string['requires_grade_min'] = 'Not available until you achieve a required score in <strong>{$a}</strong>.';
 $string['requires_grade_range'] = 'No disponible hasta que se alcance la puntuación establecida en la actividad <strong>{$a}</strong>.';
+$string['requires_grouping'] = 'Disponible sólo para el agupamiento <strong>{$a}</strong>.';
 $string['requires_user_field_contains'] = 'No disponible hasta que <strong>{$a->field}</strong> contenga <strong>{$a->value}</strong>.';
 $string['requires_user_field_doesnotcontain'] = 'No disponible si tu <strong>{$a->field}</strong> contiene <strong>{$a->value}</strong>.';
 $string['requires_user_field_endswith'] = 'No disponible hasta que <strong>{$a->field}</strong> termine en <strong>{$a->value}</strong>.';

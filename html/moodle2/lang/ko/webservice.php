@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -118,10 +118,11 @@ $string['missingusername'] = '사용자 이름이 없습니다';
 $string['missingversionfile'] = '코딩 오류: 구성요소 {$a}의 version.php 이 없습니다.';
 $string['mobilewsdisabled'] = '비활성화됨';
 $string['mobilewsenabled'] = '활성화됨';
+$string['nocapabilitytouseparameter'] = '사용자는 매개 변수{$a}를 사용하는 데 필요한 능력이 없습니다';
 $string['nofunctions'] = '이 서비스는 함수가 없습니다.';
 $string['norequiredcapability'] = '필요한 능력이 없습니다.';
 $string['notoken'] = '토큰 목록이 비어 있습니다.';
-$string['onesystemcontrolling'] = '외부 시스템이 무들을 통제하도록 허용';
+$string['onesystemcontrolling'] = '토큰으로 무들을 통제하는 한 시스템';
 $string['onesystemcontrollingdescription'] = '다음 단계들은 무들을 통제하는 한 시스템에 대한 무들 웹서비스를 설정하는 것을 도와줍니다. 이들 단계들은 추천된 토큰(보안 키) 인증 방법을 설정하는 것을 도와줍니다.';
 $string['operation'] = '동작';
 $string['optional'] = '옵션';

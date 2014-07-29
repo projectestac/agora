@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_moodlemedia', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_moodlemedia', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_moodlemedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,3 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['moodlemedia:browsemedia'] = '查找或上传一个音频、视频或applet...';
+$string['moodlemedia:desc'] = '插入Moodle媒体';
+$string['nopreview'] = '无法预览媒体';
+$string['pluginname'] = '插入媒体';

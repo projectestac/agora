@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Aggiungi un commento';
 $string['addentries'] = 'Aggiungi record';
 $string['addtemplate'] = 'Modello Aggiungi/Modifica record';
 $string['advancedsearch'] = 'Ricerca avanzata';
+$string['allowcomments'] = 'Commenti alle voci';
 $string['alttext'] = 'Testo alternativo';
 $string['approve'] = 'Approva';
 $string['approved'] = 'Approvato';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'I commenti non sono abilitati';
 $string['configenablerssfeeds'] = 'Questa impostazione consente di generare feed RSS dalle attività Database. Per generare il feed RSS, sarà poi necessario abilitare manualmente l\'impostazione in ciascuna attività Database.';
 $string['confirmdeletefield'] = 'Stai per eliminare questo campo. Sei sicuro?';
 $string['confirmdeleterecord'] = 'Stai per eliminare questo record. Ne sei certo?';
+$string['confirmdeleterecords'] = 'Sei certo di eliminare questi record ?';
 $string['csstemplate'] = 'Foglio di stile CSS';
 $string['csvfailed'] = 'Non è possibile leggere i dati grezzi dal file CSV';
 $string['csvfile'] = 'File CSV';
@@ -81,7 +83,7 @@ $string['csvimport'] = 'Importa un file CSV';
 $string['csvimport_help'] = 'I record possono essere importati tramite un file di testo che abbia il nome del campo come intestazione di colonna ed un record per riga.';
 $string['csvwithselecteddelimiter'] = '<acronym title="Comma Separated Values">CSV</acronym> testo delimitato da:';
 $string['data:addinstance'] = 'Aggiungere attività database';
-$string['data:approve'] = 'Approvare tutti i record in attesa';
+$string['data:approve'] = 'Approvare i record in attesa o disapprovare record già approvati';
 $string['data:comment'] = 'Scrivere i commenti';
 $string['data:exportallentries'] = 'Esportare tutti i record del database';
 $string['data:exportentry'] = 'Esportare un record del database';
@@ -104,6 +106,7 @@ $string['dateentered'] = 'Data di inserimento';
 $string['defaultfielddelimiter'] = '(per default la virgola)';
 $string['defaultfieldenclosure'] = '(per default nessun carattere)';
 $string['defaultsortfield'] = 'Campo di default per l\'ordinamento';
+$string['delcheck'] = 'Casella per eliminazione di massa';
 $string['delete'] = 'Elimina';
 $string['deleteallentries'] = 'Elimina tutti i record';
 $string['deletecomment'] = 'Sei certo di voler eliminare questo commento?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = 'Elimina i record degli utenti non iscritti';
 $string['deletewarning'] = 'Stai per eliminare questa preimpostazione. Ne sei certo?';
 $string['descending'] = 'Decrescente';
 $string['directorynotapreset'] = '{$a->directory} Non è una preimpostazione: file mancanti: {$a->missing_files}';
+$string['disapprove'] = 'Disapprova';
 $string['download'] = 'Scarica';
 $string['edit'] = 'Modifica';
 $string['editcomment'] = 'Modifica commento';
@@ -264,7 +268,7 @@ $string['notapproved'] = 'Il record inserito è in attesa di essere approvato.';
 $string['notinjectivemap'] = 'Non è una mappa \'injective\'';
 $string['notopenyet'] = 'Spiacente, questa attività non sarà disponibile prima del {$a}';
 $string['number'] = 'Numero';
-$string['numberrssarticles'] = 'Numero di record da mostrare nel feed RSS';
+$string['numberrssarticles'] = 'Numero di record da visualizzare nel feed RSS';
 $string['numnotapproved'] = 'In attesa di approvazione';
 $string['numrecords'] = '{$a} record';
 $string['ods'] = '<acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -287,6 +291,7 @@ $string['presets'] = 'Preimpostazioni';
 $string['radiobutton'] = 'Pulsante radio';
 $string['recordapproved'] = 'Record approvati';
 $string['recorddeleted'] = 'Il record è stato eliminato';
+$string['recorddisapproved'] = 'Record disapprovato';
 $string['recordsnotsaved'] = 'Nessun record è stato salvato. Prima di provare nuovamente, per favore controlla il formato del file usato per il caricamento.';
 $string['recordssaved'] = 'record salvati';
 $string['requireapproval'] = 'Approvazione dei record inseriti';

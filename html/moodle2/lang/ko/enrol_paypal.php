@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = '(초로 표시한) 기본 재적 기간';
 $string['enrolperiod_help'] = '사용자가 등록한 후 등록이 유효한 기간. 비 활성화되면 등록 유효 기간은 제한이 없습니다.';
 $string['enrolstartdate'] = '등록 시작일';
 $string['enrolstartdate_help'] = '활성화되면 사용자들은 이 날짜부터 등록할 수 있습니다.';
+$string['expiredaction'] = '등록 만료 조치';
+$string['expiredaction_help'] = '사용자 등록이 만료될때 수행해야 할 행동을 선택하세요. 강좌에서 등록해지될때 몇 몇 사용자의 데이터와 설정은 지워짐을 주목하세요.';
 $string['mailadmins'] = '관리자에게 공지됨';
 $string['mailstudents'] = '학생에게 공지됨';
 $string['mailteachers'] = '선생님에게 공지';

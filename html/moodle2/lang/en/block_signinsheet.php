@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_signinsheet', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_signinsheet', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_signinsheet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,7 @@ $string['date'] = 'Date';
 $string['description'] = 'Description';
 $string['fieldtitle'] = 'Field Title';
 $string['fieldtitledesc'] = 'Title of the field to be displayed at top of column e.g. Student Number';
+$string['filter'] = 'Filter';
 $string['firstname'] = 'First Name';
 $string['genlist'] = 'Generate sign in sheet';
 $string['headerlogotext'] = 'Upload Sign in Sheet Header Logo';
@@ -48,16 +49,22 @@ $string['idfielddesc'] = 'Include Moodle Student ID field';
 $string['idnumber'] = 'ID Number';
 $string['includecustomtextfield'] = 'Include Custom text field';
 $string['includecustomtextfielddesc'] = 'Include Custom text field';
+$string['includedefaultfield'] = 'Include A Default Field From The Moodle User Record';
 $string['includeidfield'] = 'Include ID Field';
 $string['lastname'] = 'Last Name';
+$string['orderby'] = 'Order By';
+$string['personname'] = 'Name';
 $string['pluginname'] = 'Sign in Sheet';
 $string['printbutton'] = 'Print Sign in Sheet';
 $string['saveandreturn'] = 'Save and Return';
 $string['selectcustomfield'] = 'Select custom field to include';
+$string['selectdefaultfield'] = 'Select Default Field To Use';
+$string['selectedfield'] = 'Selected Field';
 $string['selectlogo'] = 'Select Logo';
 $string['settings'] = 'Settings';
 $string['showall'] = 'Show All';
 $string['showbygroup'] = 'Show Faces By Group';
+$string['signature'] = 'Signature';
 $string['signaturesheet'] = 'Signature Sheet';
 $string['signinsheet:addinstance'] = 'Sign in Sheet';
 $string['signinsheet:myaddinstance'] = 'Sign in Sheet';

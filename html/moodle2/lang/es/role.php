@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Agregando nuevo rol';
-$string['addingrolebycopying'] = 'Agregando nuevo rol basado en {$a}';
 $string['addrole'] = 'Añadir un nuevo rol';
 $string['advancedoverride'] = 'Anular rol avanzado';
 $string['allow'] = 'Permitir';
@@ -73,10 +72,22 @@ $string['backup:backuptargetimport'] = 'Copia de seguridad de las importaciones'
 $string['backup:configure'] = 'Configurar las opciones de la copia de seguridad';
 $string['backup:downloadfile'] = 'Descargar archivos de las áreas de copia de seguridad';
 $string['backup:userinfo'] = 'Copia de seguridad de los datos de usuario';
+$string['badges:awardbadge'] = 'Premiar con una insignia a un usuario';
+$string['badges:configurecriteria'] = 'Establecer/editar los criterios de la insignia';
+$string['badges:configuredetails'] = 'Establecer/editar los detalles de la insignia';
+$string['badges:configuremessages'] = 'Configurar mensajes de la insignia';
+$string['badges:createbadge'] = 'Crear/duplicar insignias';
+$string['badges:deletebadge'] = 'Eliminar insignias';
+$string['badges:earnbadge'] = 'Ganar insignia';
+$string['badges:manageglobalsettings'] = 'Gestionar la configuración global de las insignias';
+$string['badges:manageownbadges'] = 'Ver y administrar las insignaias propias conseguidas';
+$string['badges:viewawarded'] = 'Ver los usuarios que hayan obtenido una insignia específica sin que puedan otorgar una insignia';
+$string['badges:viewbadges'] = 'Ver insignias disponibles no ganadas';
+$string['badges:viewotherbadges'] = 'Ver insignias públicas en los perfiles de los demás usuarios';
 $string['block:edit'] = 'Editar la configuración de un bloque';
 $string['block:view'] = 'Ver bloque';
-$string['blog:associatecourse'] = 'Asociar entradas de blog con cursos';
-$string['blog:associatemodule'] = 'Asociar entradas de blog con módulos de actividad';
+$string['blog:associatecourse'] = 'Esta capacidad es obsoleto y no hace nada.';
+$string['blog:associatemodule'] = 'Esta capacidad es obsoleto y no hace nada.';
 $string['blog:create'] = 'Crear nuevas entradas de blog';
 $string['blog:manageentries'] = 'Editar y gestionar entradas';
 $string['blog:manageexternal'] = 'Editar y gestionar blogs externos';
@@ -154,6 +165,7 @@ $string['course:viewhiddensections'] = 'Ver secciones ocultas';
 $string['course:viewhiddenuserfields'] = 'Ver campos de usuario ocultos';
 $string['course:viewparticipants'] = 'Ver participantes';
 $string['course:viewscales'] = 'Ver escalas';
+$string['course:viewsuspendedusers'] = 'Se pueden ver los usuarios suspendidos.';
 $string['course:visibility'] = 'Ocultar/mostrar cursos';
 $string['createrolebycopying'] = 'Crear un nuevo rol copiando {$a}';
 $string['createthisrole'] = 'Crear este rol';
@@ -179,9 +191,17 @@ $string['errorbadrolename'] = 'Nombre de rol incorrecto';
 $string['errorbadroleshortname'] = 'Nombre corto de rol incorrecto';
 $string['errorexistsrolename'] = 'El nombre de este rol ya existe';
 $string['errorexistsroleshortname'] = 'El nombre de este rol ya existe';
+$string['eventroleallowassignupdated'] = 'Permitir asignación de roles';
+$string['eventroleallowoverrideupdated'] = 'Permitir sobreescritura de roles';
+$string['eventroleallowswitchupdated'] = 'Permitir cambio de rol';
+$string['eventroleassigned'] = 'Rol asignado';
+$string['eventrolecapabilitiesupdated'] = 'Capacidades de rol actualizadas';
+$string['eventroledeleted'] = 'Rol eliminado';
+$string['eventroleunassigned'] = 'Rol sin asignar';
 $string['existingadmins'] = 'Administradores actuales del sitio';
 $string['existingusers'] = '{$a} usuarios existentes';
 $string['explanation'] = 'Explicación';
+$string['export'] = 'Exportar';
 $string['extusers'] = 'Usuarios existentes';
 $string['extusersmatching'] = 'Usuarios existentes que coinciden con \'{$a}\'';
 $string['filter:manage'] = 'Gestionar configuración de filtros locales';
@@ -208,11 +228,12 @@ $string['grade:view'] = 'Ver calificaciones propias';
 $string['grade:viewall'] = 'Ver calificaciones de otros usuarios';
 $string['grade:viewhidden'] = 'Ver calificaciones ocultas al usuario';
 $string['hidden'] = 'Ocultas';
-$string['highlightedcellsshowdefault'] = 'Los permisos señalados en la siguiente tabla son los valores predeterminados para el arquetipo de rol actualmente seleccionado arriba.';
+$string['highlightedcellsshowdefault'] = 'Las celdas marcadas en la siguiente tabla muestran los permisos predeterminados para cada tipo de rol, en base al \'tipo de rol heredado del nivel superior\'.';
 $string['highlightedcellsshowinherit'] = 'Las celdas marcadas en la siguiente tabla muestra el permiso (si lo hay) que se hereda. Además de los permisos que realmente desea cambiar, debe dejar todo listo para los permisos a heredar.';
 $string['inactiveformorethan'] = 'inactivo durante más de {$a->timeperiod}';
 $string['ingroup'] = 'en el grupo "{$a->group}"';
 $string['inherit'] = 'Heredar';
+$string['invalidpresetfile'] = 'Archivo de definición de rol no válido';
 $string['legacy:admin'] = 'ROL HEREDADO: Administrador';
 $string['legacy:coursecreator'] = 'ROL HEREDADO: Creador de cursos';
 $string['legacy:editingteacher'] = 'ROL HEREDADO: Profesor (editor)';
@@ -238,6 +259,7 @@ $string['neededroles'] = 'Roles con permiso';
 $string['nocapabilitiesincontext'] = 'Permisos no disponibles en este contexto';
 $string['noneinthisx'] = 'Nombre en este {$a}';
 $string['noneinthisxmatching'] = 'No hay usuarios coincidentes con \'{$a->search}\' en este {$a->contexttype}';
+$string['norole'] = 'Ningún rol';
 $string['noroleassignments'] = 'Este usuario no tiene ninguna tarea de rol en ningún lugar de este sitio';
 $string['noroles'] = 'No hay roles';
 $string['notabletoassignroleshere'] = 'Usted no puede asignar ningún rol aquí';
@@ -291,10 +313,8 @@ $string['rating:view'] = 'Ver la calificación total recibida';
 $string['rating:viewall'] = 'Ver todas las calificaciones emitidas por los usuarios
 ';
 $string['rating:viewany'] = 'Ver el total de calificaciones que alguien recibió';
-$string['resetrole'] = 'Reajustar a valores por defecto';
-$string['resetrolenolegacy'] = 'Limpiar permisos';
-$string['resetrolesure'] = '¿Está seguro de que quiere reajustar el rol "{$a->name} ({$a->shortname})" a los valores predeterminados?<p></p>Los valores predeterminados se toman del arquetipo seleccionado ({$a->legacytype}).';
-$string['resetrolesurenolegacy'] = '¿Está seguro de que quiere eliminar todos los permisos definidos en este rol "{$a->name} ({$a->shortname})"?';
+$string['resetrole'] = 'Restablecer';
+$string['resettingrole'] = 'Restableciendo rol \'{$A}\'';
 $string['restore:configure'] = 'Configurar opciones de restauración';
 $string['restore:createuser'] = 'Crear usuarios en la restauración';
 $string['restore:restoreactivity'] = 'Restaurar actividades';
@@ -318,41 +338,16 @@ $string['role:manage'] = 'Crear y gestionar roles';
 $string['role:override'] = 'Anular permisos para otros';
 $string['roleprohibitheader'] = 'Prohibir rol';
 $string['roleprohibitinfo'] = 'Seleccione un rol para añadir a la lista de roles prohibidos en el contexto {$a->context}, permiso {$a->cap}:';
+$string['rolerepreset'] = 'Usar rol predeterminado';
+$string['roleresetdefaults'] = 'Por defecto';
+$string['roleresetrole'] = 'Usar rol o arquetipo';
 $string['role:review'] = 'Revisión de permisos para los demás';
+$string['rolerisks'] = 'Riesgos del rol';
 $string['roles'] = 'Roles';
 $string['role:safeoverride'] = 'Anular permisos seguros para otros';
 $string['roleselect'] = 'Seleccionar rol';
 $string['rolesforuser'] = 'Roles para el usuario {$a}';
-$string['roles_help'] = '<p>
-Un rol es un conjunto de permisos definidos para todo el sitio que usted puede asignar a usuarios específicos en contextos específicos.
-</p>
-
-<p>
-Por ejemplo, puede tener un rol denominado "Profesor" que se ajusta para permitir que los profesores (y no otros usuarios) puedan hacer ciertas cosas. Una vez que dicho rol existe, usted puede asignarlo a algún usuario del curso y convertirlo en "Profesor" de ese curso. Usted podría asimismo asignar el rol a un usuario en la categoría de cursos y convertirlo en "Profesor" de todos los cursos pertenecientes a tal categoría, o asignar el rol a un usuario simplemente en un foro, restringiendo las posibilidades a ese foro en concreto.
-</p>
-
-<p>
-Un rol debe tener un <strong>nombre</strong>.  Si necesita denominar el rol en varios idiomas, puede utilizar la sintaxis multi-idioma (\'multilang\') si así lo desea, como, por ejemplo <pre>
-  <span lang="en">Maestro</span>
-  <span lang="es_es">Profesor</span>
-  </pre>Si lo hace así, asegúrese de que las "cadenas de filtro" ("filter strings") están activadas en su insstalación.
-</p>
-
-<p>
-El <strong>nombre corto</strong> es necesario para otros conectores (\'plugins\') de Moodle que puedan necesitar referirse a sus Roles (e.g., cuando se cargan usuarios desde un archivo o cuando se llevan a cabo matriculaciones a través de un conector -\'plugin\'- de matriculación).
-</p>
-
-<p>
-La <strong>descripción</strong> consiste en describir el rol con sus propias palabras, de forma que cualquiera entienda en qué consiste.
-</p>
-
-<p>
-Vea también
-<a href="help.php?file=contexts.html">Contextos</a>,
-<a href="help.php?file=permissions.html">Permisos</a>,
-<a href="help.php?file=assignroles.html">Asignación de Roles</a> y
-<a href="help.php?file=overrides.html">Anulaciones</a>.
-</p>';
+$string['roles_help'] = 'Un rol es un conjunto de permisos definidos para todo el sitio que usted puede asignar a usuarios específicos en contextos específicos.';
 $string['roleshortname'] = 'Nombre corto';
 $string['roleshortname_help'] = 'El nombre corto del rol es un identificador del rol de bajo nivel, en el cual solamente están permitidos caracteres ASCII alfanuméricos. No cambie los nombres cortos de los roles estándar.';
 $string['role:switchroles'] = 'Cambiar a otros roles';
@@ -389,7 +384,8 @@ $string['tag:edit'] = 'Editar marcas existentes';
 $string['tag:editblocks'] = 'Editar bloques en páginas de marcas';
 $string['tag:flag'] = 'Señalar marcas (tags) como inapropiadas';
 $string['tag:manage'] = 'Gestionar todas las marcas';
-$string['thisusersroles'] = 'Tareas de rol de este usuario';
+$string['thisnewrole'] = 'Este nuevo rol';
+$string['thisusersroles'] = 'Asignaciones de rol para este usuario';
 $string['unassignarole'] = 'Desasignar rol {$a}';
 $string['unassignconfirm'] = '¿Realmente desea desasignar el rol "{$a->role}" del usuario "{$a->user}"?';
 $string['unassignerror'] = 'Error al desasignar el rol {$a->role} del usuario {$a->user}.';

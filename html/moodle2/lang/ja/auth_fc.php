@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_fc', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_fc', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_fc
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_fcchangepasswordurl'] = 'パスワード変更URI';
+$string['auth_fcchangepasswordurl'] = 'パスワード変更URL';
 $string['auth_fcconnfail'] = '接続に失敗しました。エラー番号: {$a->no}  およびエラーストリング: {$a->str}';
 $string['auth_fccreators'] = 'メンバーが新しいコース作成を許可されているグループの一覧です。複数のグループは、「;」で区切ってください。グループ名はFirstClassサーバと厳密に同じ名称にしてください。システムは、大文字と小文字を区別します。';
 $string['auth_fccreators_key'] = 'コース作成者';

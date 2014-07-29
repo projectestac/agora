@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,9 +67,11 @@ $string['enrollablecourses'] = 'Disciplinas em que me posso inscrever';
 $string['errorcourselisting'] = 'Ocorreu um erro ao recuperar a lista de disciplinas a partir do hub selecionado, por favor, tente novamente mais tarde ({$a})';
 $string['errorhublisting'] = 'Ocorreu um erro ao recuperar a lista de disciplinas hub a partir do Moodle.org, por favor, tente novamente mais tarde ({$a})';
 $string['fileinfo'] = 'Idioma: {$a->lang} - Licença: {$a->license} - Atualizado em: {$a->timeupdated}';
+$string['hideall'] = 'Ocultar hubs';
 $string['hub'] = 'comunidade';
 $string['hubnottrusted'] = 'Não confiável';
 $string['hubtrusted'] = 'Esta comunidade é certificada pelo Moodle.org';
+$string['install'] = 'Descarregar';
 $string['keywords'] = 'Palavras-chave';
 $string['keywords_help'] = 'Pode pesquisar por disciplinas que contenham palavras específicas no título, descrição ou noutros campos da base de dados.';
 $string['langdesc'] = 'Idioma: {$a} -';
@@ -104,6 +106,7 @@ $string['searchcommunitycourse'] = 'Procurar disciplina';
 $string['searchcourse'] = 'Procurar disciplina';
 $string['selecthub'] = 'Selecionar comunidade';
 $string['selecthub_help'] = 'Selecionar a comunidade em que pretende pesquisar disciplinas';
+$string['showall'] = 'Mostrar todos os hubs';
 $string['sites'] = 'Sites';
 $string['subject'] = 'Assunto';
 $string['subject_help'] = 'Para restringir sua pesquisa por disciplinas acerca de um assunto específico, selecione um da seguinte lista.';

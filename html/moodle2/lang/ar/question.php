@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'إجراء';
 $string['addanotherhint'] = 'إضافة تلميح آخر';
 $string['addcategory'] = 'إضافة فئة';
+$string['addmorechoiceblanks'] = 'أضف {no} خيارات فارغة';
 $string['adminreport'] = 'رفع تقرير بمشاكل محتملة في قاعدة بيانات الأسئلة.';
 $string['answer'] = 'إجابة';
 $string['answersaved'] = 'تم حفظ الإجابة';
@@ -40,7 +41,6 @@ $string['cannotcopybackup'] = 'لا يمكن نسخ ملف النسخة الاح
 $string['cannotcreate'] = 'لم يتمكن من إضافة مدخل جديد في جدول question_attempts';
 $string['cannotcreatepath'] = 'لا يمكن إنشاء المسار: {$a}';
 $string['cannotdeletecate'] = 'لا يمكنك حذف هذا التصنيف لأنه التصنيف الافتراضي ضمن هذا السياق.';
-$string['cannotdeletemissingqtype'] = 'لا يمكن حذف نوع السؤال المفقود. هذه متطلبات النظام';
 $string['cannotdeleteqtypeinuse'] = 'لا يمكنك حذف نوع السؤال \'{$a}\'. لأن هناك أسئلة من هذا النوع موجودة ببنك الأسئلة.';
 $string['cannotdeleteqtypeneeded'] = 'لا يمكنك حذف نوع السؤال \'{$a}\'. لأن هناك أنواع أخرى من الأسئلة المنصبة تعتمد عليه.';
 $string['cannotenable'] = 'لا يمكن إنشاء نوع السؤال {$a} مباشر.';
@@ -81,8 +81,6 @@ $string['createdmodifiedheader'] = 'تم إنشائه / أخر مرة تم ال�
 $string['createnewquestion'] = 'إنشاء سؤال جديد ...';
 $string['defaultfor'] = 'افتراضي لـ {$a}';
 $string['defaultmark'] = 'الدرجة الافتراضية';
-$string['deleteqtypeareyousure'] = 'هل أنت متأكد أنك ترغب في حذف نوع السؤال\'{$a}\'';
-$string['deleteqtypeareyousuremessage'] = 'أنت على وشك حذف نوع السؤال \'{$a}\'. هل أنت متأكد انك ترغب في إزالة تثبيت انوع السؤال؟';
 $string['deletingqtype'] = 'حذف نوع السؤال \'{$a}\'';
 $string['disabled'] = 'معطل';
 $string['donothing'] = 'لا تنسخ الملفات ولا تنقلها ولا تغيّر الروابط.';

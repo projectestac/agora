@@ -28,19 +28,19 @@ defined('MOODLE_INTERNAL') || die();
 $string['about'] = '<p>L\'acronyme AMOS signifie « Automated Manipulation Of Strings », c\'est-à-dire « Manipulation automatique de chaînes de caractères ». AMOS est un dépôt central de toutes les chaînes de caractères de l\'interface de Moodle et de leur historique. Il traque automatiquement l\'addition de nouvelles chaînes de caractères en anglais dans le code de Moodle, rassemble les traductions, gère les tâches de traduction habituelles et génère les paquetages de langue en vue de leur déploiement sur les serveurs Moodle.</p>
 <p>Voir la <a href="http://docs.moodle.org/fr/AMOS">documentation AMOS</a> pour plus d\'informations.</p>';
 $string['amos'] = 'AMOS – L\'outil de traduction de Moodle';
-$string['amos:commit'] = 'Implanter les chaînes du chantier dans le dépôt officiel';
+$string['amos:commit'] = 'Implanter les chaînes du chantier dans le dépôt central';
 $string['amos:execute'] = 'Lancer le AMOScript donné';
 $string['amos:importfile'] = 'Importer des chaînes d\'un fichier et les placer dans le chantier';
-$string['amos:importstrings'] = 'Importer directement les chaînes (y compris chaînes en anglais) dans le dépôt principal';
+$string['amos:importstrings'] = 'Importer directement les chaînes (y compris chaînes en anglais) dans le dépôt central';
 $string['amos:manage'] = 'Gérer le portail AMOS';
 $string['amos:stage'] = 'Utiliser l\'outil de traduction AMOS et proposer des chaînes';
-$string['amos:stash'] = 'Enregistrer le chantier actuel dans un entrepôt persistant';
-$string['amos:usegoogle'] = 'Utiliser le service Google Translate';
+$string['amos:stash'] = 'Enregistrer le chantier actuel dans un entrepôt permanent';
+$string['amos:usegoogle'] = 'Utiliser les services de Google Translate';
 $string['commitbutton'] = 'Implanter et tout retirer du chantier';
 $string['commitbutton2'] = 'Implanter et conserver dans le chantier';
 $string['commitmessage'] = 'Message d\'implantation';
 $string['commitstage'] = 'Implanter les chaînes du chantier';
-$string['commitstage_help'] = 'Enregistrer de façon permanente les traductions du chantier dans le dépôt officiel de AMOS. Le chantier est automatiquement nettoyé avant d\'effectuer l\'implantation et entièrement vidé après l\'implantation.';
+$string['commitstage_help'] = 'Enregistrer de façon permanente les traductions du chantier dans le dépôt central de AMOS. Le chantier est automatiquement nettoyé avant d\'effectuer l\'implantation et entièrement vidé après l\'implantation.';
 $string['committableall'] = 'toutes les langues';
 $string['committablenone'] = 'aucune langue permise ; veuillez contacter le gestionnaire de AMOS';
 $string['componentsall'] = 'Tout';
@@ -76,7 +76,7 @@ $string['contribreject'] = 'Rejeter';
 $string['contribresign'] = 'Retirer l\'attribution';
 $string['contribstaged'] = 'Contribution <a href="contrib.php?id={$a->id}">#{$a->id}</a> de {$a->author} copiée dans le chantier';
 $string['contribstagedinfo'] = 'Contribution copiée dans le chantier';
-$string['contribstagedinfo_help'] = 'Le chantier contient les chaînes proposées par un membre de la communauté. Le responsable du paquetage de langue est censé les examiner, puis changer le statut de la contribution en Acceptée (si elles ont été implantées) ou Rejetée (si elles n\'ont pas pu être incorporées dans le paquetage pour une raison ou une autre).';
+$string['contribstagedinfo_help'] = 'Le chantier contient les chaînes proposées par un contributeur. Le responsable du paquetage de langue est censé les examiner, puis changer le statut de la contribution en Acceptée (si elles ont été implantées) ou Rejetée (si elles n\'ont pas pu être incorporées dans le paquetage pour une raison ou une autre).';
 $string['contribstartreview'] = 'Examiner';
 $string['contribstatus'] = 'Statut';
 $string['contribstatus0'] = 'Nouvelle';
@@ -201,7 +201,7 @@ $string['logfiltersourceautomerge'] = 'fusion (copie de la traduction depuis une
 $string['logfiltersourcebot'] = 'bot (opérations en lot exécutées par un script)';
 $string['logfiltersourcecommitscript'] = 'commitscript (AMOScript dans le message d\'implantation)';
 $string['logfiltersourcefixdrift'] = 'fixdrift (correction du décalage AMOS-git)';
-$string['logfiltersourcegit'] = 'git (miroir git du code source de Moodle et paquetage pour 1.x)';
+$string['logfiltersourcegit'] = 'git (miroir git du code source de Moodle et paquetages pour 1.x)';
 $string['logfiltersourceimport'] = 'importation (chaînes importées pour un plugin tiers)';
 $string['logfiltersourcerevclean'] = 'revclean (inversion du processus de nettoyage)';
 $string['logfilterstringid'] = 'Identifiant de chaîne';
@@ -234,14 +234,13 @@ $string['ownstashactions'] = 'Action d\'entrepôt';
 $string['ownstashactions_help'] = '* Appliquer : copie les chaînes traduites de l\'entrepôt vers le chantier et conserve l\'entrepôt sans modification. Si une chaîne est déjà dans le chantier, elle sera écrasée par la chaîne de l\'entrepôt.
 * Copier et jeter : copie les chaînes traduites de l\'entrepôt vers le chantier et supprime l\'entrepôt (équivalent à appliquer, puis jeter).
 * Jeter : supprime l\'entrepôt et tout ce qu\'il contient.
-* Envoyer : ouvre un formulaire vous permettant d\'envoyer vos traductions aux responsables officiels pour qu\'ils puissent l\'inclure dans le paquetage de langue officiel. 
-';
+* Proposer : ouvre un formulaire vous permettant de proposer vos traductions aux responsables officiels pour qu\'ils puissent l\'implanter dans le paquetage de langue officiel.';
 $string['ownstashes'] = 'Vos entrepôts';
 $string['ownstashes_help'] = 'Ceci est la liste de vos entrepôts';
 $string['ownstashesnone'] = 'Vous n\'avez pas d\'entrepôt';
 $string['permalink'] = 'permalien';
 $string['placeholder'] = 'Paramètres';
-$string['placeholder_help'] = 'Les paramètres sont des expressions telles que « {$a} » ou « {$a->blabla} » dans une chaîne de caractères. Lorsque la chaîne est affichée, ils sont remplacés par une valeur.
+$string['placeholder_help'] = 'Les paramètres sont des expressions telles que « {$a} » ou « {$a->blabla} » dans une chaîne de caractères. Lorsque la chaîne est affichée dans Moodle, ils sont remplacés par une valeur.
 
 Il est important de les copier à l\'identique, tels que présents dans la chaîne originale. Ne les traduisez pas et ne modifiez pas leur orientation de gauche à droite.';
 $string['placeholderwarning'] = 'La chaîne contient un paramètre';
@@ -268,7 +267,7 @@ $string['requestactions_help'] = '* Appliquer : copie les chaînes traduites ve
 $string['savefilter'] = 'Enregistrer les réglages du filtre';
 $string['script'] = 'AMOScript';
 $string['scriptexecute'] = 'Lancer et placer le résultat dans le chantier';
-$string['script_help'] = 'Un AMOScript est un jeu d\'instructions à exécuter sur le dépôt de chaînes.';
+$string['script_help'] = 'Un AMOScript est un jeu d\'instructions à exécuter sur le dépôt central des chaînes.';
 $string['sourceversion'] = 'Version source';
 $string['stage'] = 'Chantier';
 $string['stageactions'] = 'Action de chantier';
@@ -285,7 +284,7 @@ $string['stagestring'] = 'Chaîne';
 $string['stagestringsnocommit'] = 'Il y a {$a->staged} chaînes dans le chantier';
 $string['stagestringsnone'] = 'Il n\'y a aucune chaîne dans le chantier';
 $string['stagestringssome'] = '{$a->staged} chaînes dans le chantier. {$a->committable} sont implantables.';
-$string['stagesubmit'] = 'Envoyer aux responsables';
+$string['stagesubmit'] = 'Proposer aux responsables';
 $string['stagetranslation'] = 'Traduction';
 $string['stagetranslation_help'] = 'Affiche la traduction du chantier prête à être implantée. La couleur de fond de la cellule signifie :
 
@@ -295,7 +294,7 @@ $string['stagetranslation_help'] = 'Affiche la traduction du chantier prête à 
 * sans couleur : la traduction du chantier est la même que la traduction déjà existante, et ne sera donc pas implantée.';
 $string['stageunstageall'] = 'Tout retirer du chantier';
 $string['stashactions'] = 'Actions d\'entrepôt';
-$string['stashactions_help'] = 'Un entrepôt est une copie de votre chantier actuel. Les entrepôts peuvent être envoyés aux responsables officiels du paquetage de langue pour inclusion dans celui-ci.';
+$string['stashactions_help'] = 'Un entrepôt est une copie de votre chantier actuel. Les entrepôts peuvent être proposés aux responsables officiels du paquetage de langue pour inclusion dans celui-ci.';
 $string['stashapply'] = 'Appliquer';
 $string['stashautosave'] = 'Entrepôt enregistré automatiquement';
 $string['stashautosave_help'] = 'Cet entrepôt contient une copie de votre chantier le plus récent. Vous pouvez l\'utiliser comme une sauvegarde, dans le cas où vos chaînes sont retirées accidentellement du chantier, par exemple. Cliquez sur Appliquer pour copier toutes les chaînes de l\'entrepôt dans l\'atelier (ceci écrasera les chaînes qui sont déjà dans l\'atelier),';
@@ -306,7 +305,7 @@ $string['stashlanguages'] = '<span>Langues :</span> {$a}';
 $string['stashpop'] = 'Copier et jeter';
 $string['stashpush'] = 'Copier les chaînes du chantier dans un nouvel entrepôt';
 $string['stashstrings'] = '<span>Nombre de chaînes :</span> {$a}';
-$string['stashsubmit'] = 'Envoyer aux responsables';
+$string['stashsubmit'] = 'Proposer aux responsables';
 $string['stashsubmitdetails'] = 'Détails de la proposition';
 $string['stashsubmitmessage'] = 'Message';
 $string['stashsubmitsubject'] = 'Objet';
@@ -314,7 +313,7 @@ $string['stashtitle'] = 'Titre de l\'entrepôt';
 $string['stashtitledefault'] = 'En cours – {$a->time}';
 $string['stringhistory'] = 'Historique';
 $string['strings'] = 'Chaînes';
-$string['submitting'] = 'Envoyer une contribution';
+$string['submitting'] = 'Proposer une contribution';
 $string['submitting_help'] = 'Ceci enverra les chaînes traduites aux responsables officiels de la traduction. Ils pourront alors reprendre votre travail dans leur chantier, le relire et l\'implanter. Veuillez leur fournir un message décrivant votre travail et pourquoi vous désirez que votre contribution soit incluse dans la traduction.';
 $string['targetversion'] = 'Version cible';
 $string['translatorlang'] = 'Langue';
@@ -338,6 +337,7 @@ $string['typecontrib'] = 'Plugins non-standards';
 $string['typecore'] = 'Sous-systèmes centraux';
 $string['typestandard'] = 'Plugins standards';
 $string['unableenfixaddon'] = 'Les correctifs pour l\'anglais ne sont acceptés que pour les plugins standards';
+$string['unableenfixcountries'] = 'Les noms de pays sont tirés de la norme ISO 3166-1';
 $string['unstage'] = 'Retirer du chantier ?';
 $string['unstageconfirm'] = 'Vraiment ?';
 $string['unstaging'] = 'Retrait du chantier';

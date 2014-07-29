@@ -40,7 +40,7 @@
  *
  * TODO: Finish phpdocs
  */
-class backup_controller extends backup implements loggable {
+class backup_controller extends base_controller {
 
     protected $backupid; // Unique identificator for this backup
 
@@ -56,16 +56,12 @@ class backup_controller extends backup implements loggable {
     protected $status; // Current status of the controller (created, planned, configured...)
 
     protected $plan;   // Backup execution plan
-	// XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-	//2013.12.09 @pferre22
     protected $includefiles; // Whether this backup includes files or not.
-	//************ FI
 
     protected $execution;     // inmediate/delayed
     protected $executiontime; // epoch time when we want the backup to be executed (requires cron to run)
 
     protected $destination; // Destination chain object (fs_moodle, fs_os, db, email...)
-    protected $logger;      // Logging chain object (moodle, inline, fs, db, syslog)
 
     protected $checksum; // Cache @checksumable results for lighter @is_checksum_correct() uses
 
@@ -111,6 +107,10 @@ class backup_controller extends backup implements loggable {
 
         // Default logger chain (based on interactive/execution)
         $this->logger = backup_factory::get_logger_chain($this->interactive, $this->execution, $this->backupid);
+
+        // By default there is no progress reporter. Interfaces that wish to
+        // display progress must set it.
+        $this->progress = new core_backup_null_progress();
 
         // Instantiate the output_controller singleton and active it if interactive and inmediate
         $oc = output_controller::get_instance();
@@ -242,10 +242,8 @@ class backup_controller extends backup implements loggable {
     public function get_type() {
         return $this->type;
     }
-    
+
     /**
-	 * XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-	 * 2013.12.09 @pferre22
      * Returns the current value of the include_files setting.
      * This setting is intended to ensure that files are not included in
      * generated backups.
@@ -255,7 +253,6 @@ class backup_controller extends backup implements loggable {
     public function get_include_files() {
         return $this->includefiles;
     }
-	//************ FI
 
     public function get_operation() {
         return $this->operation;
@@ -304,10 +301,6 @@ class backup_controller extends backup implements loggable {
         return $this->plan;
     }
 
-    public function get_logger() {
-        return $this->logger;
-    }
-
     /**
      * Executes the backup
      * @return void Throws and exception of completes
@@ -329,10 +322,6 @@ class backup_controller extends backup implements loggable {
 
     public function get_results() {
         return $this->plan->get_results();
-    }
-
-    public function log($message, $level, $a = null, $depth = null, $display = false) {
-        backup_helper::log($message, $level, $a, $depth, $display, $this->logger);
     }
 
     /**
@@ -380,15 +369,10 @@ class backup_controller extends backup implements loggable {
         $this->log('applying plan defaults', backup::LOG_DEBUG);
         backup_controller_dbops::apply_config_defaults($this);
         $this->set_status(backup::STATUS_CONFIGURED);
-		// XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-		//2013.12.09 @pferre22
         $this->set_include_files();
-		//************ FI
     }
 
     /**
-     * XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-     * 2013.12.09 @pferre22
      * Set the initial value for the include_files setting.
      *
      * @see backup_controller::get_include_files for further information on the purpose of this setting.
@@ -413,7 +397,6 @@ class backup_controller extends backup implements loggable {
         $this->log("setting file inclusion to {$this->includefiles}", backup::LOG_DEBUG);
         return $this->includefiles;
     }
-	//************ FI
 }
 
 /*

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,7 +48,7 @@ $string['choicetext'] = 'Pregunta a responder';
 $string['chooseaction'] = 'Elija una acción ...';
 $string['completionsubmit'] = 'Mostrar como completada cuando el usuario selecciona una opción';
 $string['displayhorizontal'] = 'Mostrar horizontalmente';
-$string['displaymode'] = 'Modo Mostrar';
+$string['displaymode'] = 'Modo de visualización de las opciones';
 $string['displayvertical'] = 'Mostrar verticalmente';
 $string['expired'] = 'Lo sentimos, esta actividad se cerró el {$a} y ya no está disponible';
 $string['full'] = '(Lleno)';
@@ -64,6 +64,7 @@ $string['limitanswers_help'] = '<p>Esta opción le permite limitar el número de
 
 <p>Si está desactivada, cualquier número de participantes puede
    seleccionar cualquiera de las opciones.</p>';
+$string['limitno'] = 'Límite {no}';
 $string['modulename'] = 'Consulta';
 $string['modulename_help'] = 'El módulo Consulta permite al profesor hacer una pregunta especificando las posibles respuestas posibles.
 
@@ -84,9 +85,11 @@ $string['noresultsviewable'] = 'Los resultados no pueden verse en este momento.'
 $string['notanswered'] = 'Sin contestar aún';
 $string['notenrolledchoose'] = 'Lo sentimos, solo los usuarios matriculados pueden seleccionar una opción.';
 $string['notopenyet'] = 'Lo sentimos, esta actividad no estará disponible hasta {$a}';
-$string['numberofuser'] = 'Número de usuarios';
-$string['numberofuserinpercentage'] = 'El número de usuarios en porcentaje';
+$string['numberofuser'] = 'Número de participantes';
+$string['numberofuserinpercentage'] = 'Porcentaje de participantes';
 $string['option'] = 'Opción';
+$string['optionno'] = 'Opción {no}';
+$string['options'] = 'Opciones';
 $string['page-mod-choice-x'] = 'Cualquier página del módulo Consulta';
 $string['pluginadministration'] = 'Administración';
 $string['pluginname'] = 'Consulta';
@@ -103,6 +106,7 @@ $string['removeresponses'] = 'Eliminar todas las respuestas';
 $string['responses'] = 'Respuestas';
 $string['responsesresultgraphheader'] = 'Vista de gráfica';
 $string['responsesto'] = 'Respuestas para {$a}';
+$string['results'] = 'Resultados';
 $string['savemychoice'] = 'Guardar mi elección';
 $string['showunanswered'] = 'Mostrar columna de no respondidas';
 $string['skipresultgraph'] = 'Pasar por alto gráfico de resultados';
@@ -110,7 +114,7 @@ $string['spaceleft'] = 'espacio disponible';
 $string['spacesleft'] = 'espacios disponibles';
 $string['taken'] = 'Tomadas';
 $string['timerestrict'] = 'Restringir la respuesta a este período';
-$string['userchoosethisoption'] = 'El usuario elige esta opción';
+$string['userchoosethisoption'] = 'El usuario elegió esta opción';
 $string['viewallresponses'] = 'Ver {$a} respuestas';
 $string['withselected'] = 'Con seleccionados';
 $string['yourselection'] = 'Su elección';

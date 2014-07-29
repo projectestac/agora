@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,4 +56,4 @@ $string['ratinginvalid'] = 'Rating is invalid';
 $string['ratings'] = 'Ratings';
 $string['ratingtime'] = 'Restrict ratings to items with dates in this range:';
 $string['rolewarning'] = 'Roles with permission to rate';
-$string['rolewarning_help'] = 'To submit ratings users require the moodle/rating:rate capability and any module specific capabilities. Users assigned the following roles should be able to rate items. The list of roles may be amended via the permissions link in the settings block.';
+$string['rolewarning_help'] = 'To submit ratings users require the moodle/rating:rate capability and any module specific capabilities. Users assigned the following roles should be able to rate items. The list of roles may be amended via the permissions link in the administration block.';

@@ -28,8 +28,8 @@ defined('MOODLE_INTERNAL') || die;
 
 //XTEC ************ AFEGIT - Allow access only to xtecadmin user
 //2013.10.09 @aginard
-if (get_protected_agora()) { 
-//************ FI    
+if (get_protected_agora()) {
+//************ FI
 
 if (has_capability('moodle/site:uploadusers', context_system::instance())) {
     $ADMIN->add('courses', new admin_externalpage('tooluploadcoursecategory', get_string('uploadcoursecategories', 'tool_uploadcoursecategory'), "$CFG->wwwroot/$CFG->admin/tool/uploadcoursecategory/index.php", 'moodle/site:uploadusers'));
@@ -38,4 +38,4 @@ if (has_capability('moodle/site:uploadusers', context_system::instance())) {
 //XTEC ************ AFEGIT - Allow access only to xtecadmin user
 //2013.10.09 @aginard
 }
-//************ FI    
+//************ FI

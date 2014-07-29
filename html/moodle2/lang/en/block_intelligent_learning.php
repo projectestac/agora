@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_intelligent_learning', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_intelligent_learning', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_intelligent_learning
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -57,7 +57,7 @@ $string['dateformatdesc'] = 'This determines the format of the date for date ent
 $string['deletedactivity'] = 'Deleted {$a->modname} by {$a->fullname}';
 $string['expiredate'] = 'Expire Date';
 $string['extraletters'] = 'Additional Grade Letters';
-$string['extralettersdesc'] = 'Enter additional letter grades that can be submitted for mid-term or final grades, separated by commas.';
+$string['extralettersdesc'] = 'Enter additional letter grades, separated by commas, that can be submitted for mid-term or final grades.';
 $string['failedtoconvert'] = 'Failed to convert date entered to UNIX timestamp for {$a->date}.  Valid format: {$a->format}';
 $string['finalgrade'] = 'Final Grade';
 $string['finalgrades'] = 'Final Grades';

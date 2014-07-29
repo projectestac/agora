@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -79,15 +79,17 @@ $string['donothaveblog'] = '申し訳ございません、あなたのブログ�
 $string['editentry'] = 'ブログエントリを編集する';
 $string['editexternalblog'] = '外部ブログを編集する';
 $string['emptybody'] = 'ブログエントリ本文を入力してください。';
-$string['emptyrssfeed'] = 'あなたが入力したURIは有効なRSSフィードを指定していません。';
+$string['emptyrssfeed'] = 'あなたが入力したURLは有効なRSSフィードを指定していません。';
 $string['emptytitle'] = 'ブログエントリのタイトルを入力してください。';
-$string['emptyurl'] = 'あなたは有効なRSSフィードのURIを指定する必要があります。';
+$string['emptyurl'] = 'あなたは有効なRSSフィードのURLを指定する必要があります。';
 $string['entrybody'] = 'ブログエントリ本文';
 $string['entrybodyonlydesc'] = 'エントリ説明';
 $string['entryerrornotyours'] = 'これはあなたのエントリではありません。';
 $string['entrysaved'] = 'あなたのエントリが保存されました。';
 $string['entrytitle'] = 'エントリタイトル';
-$string['entryupdated'] = 'ブログエントリが更新されました。';
+$string['evententryadded'] = 'ブログエントリが追加されました。';
+$string['evententrydeleted'] = 'ブログエントリが削除されました。';
+$string['evententryupdated'] = 'ブログエントリが更新されました。';
 $string['externalblogcrontime'] = '外部ブログのcronスケジュール';
 $string['externalblogdeleteconfirm'] = 'この外部ブログの登録を解除しますか?';
 $string['externalblogdeleted'] = '外部ブログの登録が解除されました。';
@@ -104,10 +106,9 @@ $string['groupblogs'] = 'ユーザはグループを共有しているユーザ�
 $string['incorrectblogfilter'] = '正しくないブログフィルタタイプが指定されました。';
 $string['intro'] = 'このRSSフィードは、1つまたはそれ以上のブログから自動生成されました。';
 $string['invalidgroupid'] = '無効なグループID';
-$string['invalidurl'] = 'このURIにはアクセスできません。';
+$string['invalidurl'] = 'このURLにはアクセスできません。';
 $string['linktooriginalentry'] = 'オリジナルのブログエントリにリンクする';
 $string['maxexternalblogsperuser'] = 'ユーザあたりの外部ブログ最大数';
-$string['mustassociatecourse'] = 'コースまたはグループメンバーに公開する場合、あなたはこのエントリをコースに関連付ける必要があります。';
 $string['name'] = '名称';
 $string['name_help'] = 'あなたの外部ブログの説明的な名称を入力してください (空白の場合、あなたの外部ブログのタイトルが使用されます)。';
 $string['noentriesyet'] = '表示できるエントリはありません。';
@@ -157,8 +158,8 @@ $string['tagtext'] = 'タグテキスト';
 $string['timefetched'] = '最終同期日時';
 $string['timewithin'] = '指定した期間に使用されたタグを表示する';
 $string['updateentrywithid'] = 'エントリの更新';
-$string['url'] = 'RSSフィードURI';
-$string['url_help'] = 'あなたの外部ブログのRSSフィードURIを入力してください。';
+$string['url'] = 'RSSフィードURL';
+$string['url_help'] = 'あなたの外部ブログのRSSフィードURLを入力してください。';
 $string['useblogassociations'] = 'ブログ関連付けを有効にする';
 $string['useexternalblogs'] = '外部ブログを有効にする';
 $string['userblog'] = 'ユーザブログ: {$a}';

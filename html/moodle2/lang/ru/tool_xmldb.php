@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_xmldb', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['actual'] = 'Актуально';
 $string['aftertable'] = 'После таблицы:';
 $string['back'] = 'Назад';
 $string['backtomainview'] = 'Вернуться к главной';
@@ -82,7 +83,7 @@ $string['confirmdeletetable'] = 'Вы абсолютно уверены, что 
 $string['confirmdeletexmlfile'] = 'Вы абсолютно уверены, что хотите удалить файл:';
 $string['confirmrevertchanges'] = 'Вы действительно хотите отменить изменения:';
 $string['create'] = 'Создать';
-$string['createtable'] = 'Создайте таблицу:';
+$string['createtable'] = 'Создать таблицу:';
 $string['defaultincorrect'] = 'Некорректное значение по умолчанию';
 $string['delete'] = 'Удалить';
 $string['delete_field'] = 'Удалить поле';
@@ -90,14 +91,14 @@ $string['delete_index'] = 'Удалить индекс';
 $string['delete_key'] = 'Удалить ключ';
 $string['delete_table'] = 'Удалить таблицу';
 $string['delete_xml_file'] = 'Удалить файл XML';
-$string['doc'] = 'Документация:';
+$string['doc'] = 'Документация';
 $string['docindex'] = 'Индекс документации:';
 $string['documentationintro'] = 'Эта документация генерируется автоматически из определений базы данных XMLDB. Она доступна только на английском языке.';
 $string['down'] = 'Вниз';
 $string['duplicate'] = 'Дублировать';
 $string['duplicatefieldname'] = 'Существует другое поле с таким именем';
-$string['duplicatefieldsused'] = 'Используемые повторяющиеся поля';
-$string['duplicateindexname'] = 'Название повторяющихся индексов';
+$string['duplicatefieldsused'] = 'Используются повторяющиеся поля';
+$string['duplicateindexname'] = 'Повторяющееся название индекса';
 $string['duplicatekeyname'] = 'Существует другой ключ с таким именем';
 $string['duplicatetablename'] = 'Существует другая таблица с таким именем';
 $string['edit'] = 'Редактировать';
@@ -121,6 +122,8 @@ $string['fieldsusedinindex'] = 'Это поле используется как 
 $string['fieldsusedinkey'] = 'Это поле используется как ключ';
 $string['filemodifiedoutfromeditor'] = 'Внимание: Файл изменен локально с использованием редактора XMLDB. Локальные изменения будут перезаписаны при сохранении.';
 $string['filenotwriteable'] = 'Файл не перезаписываемый';
+$string['fkunknownfield'] = 'Внешний ключ {$a->keyname} таблицы {$a->tablename} указывает на несуществующее поле {$a->reffield} в указанной таблице {$a->reftable}.';
+$string['fkunknowntable'] = 'Внешний ключ {$a->keyname} таблицы {$a->tablename} указывает на несуществующую таблицу {$a->reftable}.';
 $string['fkviolationdetails'] = 'Внешний ключ {$a->keyname} таблицы {$a->tablename} нарушен {$a->numviolations} из {$a->numrows} строк.';
 $string['float2numbernote'] = 'Примечание: Несмотря на то, что «плавающие» поля на 100% поддерживается XMLDB, рекомендуется вместо них перейти на «числовые» поля.';
 $string['floatincorrectdecimals'] = 'Неверное количество десятичных знаков для плавающего поля';
@@ -157,6 +160,8 @@ $string['new_table_from_mysql'] = 'Новая таблица из MySQL';
 $string['nofieldsspecified'] = 'Нет заданных полей';
 $string['nomasterprimaryuniquefound'] = '';
 $string['nomissingindexesfound'] = 'Отсутствующие индексы не найдены, база данных не нуждается в дальнейших действиях.';
+$string['noreffieldsspecified'] = 'Нет указанного поля.';
+$string['noreftablespecified'] = 'Указанная таблица не найдена';
 $string['noviolatedforeignkeysfound'] = 'Ошибочные внешние ключи не найдены.';
 $string['nowrongdefaultsfound'] = 'Противоречивые значения по умолчанию не найдены. Ваша БД не нуждается в дальнейший действиях.';
 $string['nowrongintsfound'] = 'Неверные целочисленные поля не найдены. Ваша БД не нуждается в дальнейший действиях.';
@@ -183,6 +188,8 @@ $string['selecttable'] = 'Выберите таблицу:';
 $string['table'] = 'Таблица';
 $string['tablenameempty'] = 'Название таблицы не может быть пустым';
 $string['tables'] = 'Таблицы';
+$string['unknownfield'] = 'Указано неизвестное поле';
+$string['unknowntable'] = 'Указана неизвестная таблица';
 $string['unload'] = 'Выгрузить';
 $string['up'] = 'Вверх';
 $string['view'] = 'Просмотр';
@@ -203,5 +210,10 @@ $string['wrong'] = 'Неверные';
 $string['wrongdefaults'] = 'Найдены неверные значения по умолчанию';
 $string['wrongints'] = 'Найдены неверные целочисленные поля';
 $string['wronglengthforenum'] = 'Некорректная длина для перечисляемого поля';
+$string['wrongnumberofreffields'] = 'Ошибочное количество указанных полей';
 $string['wrongoraclesemantics'] = 'Найдены неверные BYTE-семантики Oracle';
 $string['wrongreservedwords'] = 'Найдены использующиеся зарезервированные слова <br /> (отметим, что имена таблиц не важны при использовании $CFG->prefix)';
+$string['yesmissingindexesfound'] = '<p> Некоторые отсутствующие индексы были найдены в БД. Вот их детали и необходимые формулировки SQL, которые будут выполнены для создания индексов, используя интерфейс управления SQL. Не забудьте сначала сделать резервную копию своих данных! </p><p> После этого, настоятельно рекомендуется выполнить эту процедуру еще раз, чтобы убедиться, что отсутствующие индексы больше не будут найдены. </p>';
+$string['yeswrongdefaultsfound'] = '<p> Некоторые противоречивые значения по умолчанию были найдены в БД. Вот их детали и необходимые формулировки SQL, которые будут выполнены для создания значений по умолчанию, используя интерфейс управления SQL. Не забудьте сначала сделать резервную копию своих данных! </p><p> После этого, настоятельно рекомендуется выполнить эту процедуру еще раз, чтобы убедиться, что противоречивые значения по умолчанию больше не будут найдены. </p>';
+$string['yeswrongintsfound'] = '<p> Некоторые неправильные целые были найдены в БД. Вот их детали и необходимые формулировки SQL, которые будут выполнены для создания целых, используя интерфейс управления SQL. Не забудьте сначала сделать резервную копию своих данных! </p><p> После этого, настоятельно рекомендуется выполнить эту процедуру еще раз, чтобы убедиться, что неправильные целые больше не будут найдены. </p>';
+$string['yeswrongoraclesemanticsfound'] = '<p> Некоторые столбцы Oracle с использованием BYTE-семантики были найдены в БД. Вот их детали и необходимые формулировки SQL, которые будут выполнены для создания целых, используя интерфейс управления SQL. Не забудьте сначала сделать резервную копию своих данных! </p><p> После этого, настоятельно рекомендуется выполнить эту процедуру еще раз, чтобы убедиться, что неправильные семантики больше не будут найдены. </p>';

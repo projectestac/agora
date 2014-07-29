@@ -1,47 +1,65 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/*
- * Please note that is file is always loaded last - it means that you can inject entries into other categories too.
- */
+/**
+ * Load all plugins into the admin tree.
+ *
+* Please note that is file is always loaded last - it means that you can inject entries into other categories too.
+*
+* @package    core
+* @copyright  2007 Petr Skoda {@link http://skodak.org}
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+*/
 
 if ($hassiteconfig) {
-    require_once("$CFG->libdir/pluginlib.php");
-    $allplugins = plugin_manager::instance()->get_plugins();
-
     $ADMIN->add('modules', new admin_page_pluginsoverview());
 
     // activity modules
     $ADMIN->add('modules', new admin_category('modsettings', new lang_string('activitymodules')));
     $ADMIN->add('modsettings', new admin_page_managemods());
-    foreach ($allplugins['mod'] as $module) {
-        $module->load_settings($ADMIN, 'modsettings', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('mod') as $plugin) {
+        /** @var \core\plugininfo\mod $plugin */
+        $plugin->load_settings($ADMIN, 'modsettings', $hassiteconfig);
     }
-
-    // hidden script for converting journals to online assignments (or something like that) linked from elsewhere
-    $ADMIN->add('modsettings', new admin_externalpage('oacleanup', 'Online Assignment Cleanup', $CFG->wwwroot.'/'.$CFG->admin.'/oacleanup.php', 'moodle/site:config', true));
 
     // course formats
     $ADMIN->add('modules', new admin_category('formatsettings', new lang_string('courseformats')));
     $temp = new admin_settingpage('manageformats', new lang_string('manageformats', 'core_admin'));
     $temp->add(new admin_setting_manageformats());
     $ADMIN->add('formatsettings', $temp);
-    foreach ($allplugins['format'] as $format) {
-        $format->load_settings($ADMIN, 'formatsettings', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('format') as $plugin) {
+        /** @var \core\plugininfo\format $plugin */
+        $plugin->load_settings($ADMIN, 'formatsettings', $hassiteconfig);
     }
 
     // blocks
     $ADMIN->add('modules', new admin_category('blocksettings', new lang_string('blocks')));
     $ADMIN->add('blocksettings', new admin_page_manageblocks());
-    foreach ($allplugins['block'] as $block) {
-        $block->load_settings($ADMIN, 'blocksettings', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('block') as $plugin) {
+        /** @var \core\plugininfo\block $plugin */
+        $plugin->load_settings($ADMIN, 'blocksettings', $hassiteconfig);
     }
 
     // message outputs
     $ADMIN->add('modules', new admin_category('messageoutputs', new lang_string('messageoutputs', 'message')));
     $ADMIN->add('messageoutputs', new admin_page_managemessageoutputs());
     $ADMIN->add('messageoutputs', new admin_page_defaultmessageoutputs());
-    foreach ($allplugins['message'] as $processor) {
-        $processor->load_settings($ADMIN, 'messageoutputs', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('message') as $plugin) {
+        /** @var \core\plugininfo\message $plugin */
+        $plugin->load_settings($ADMIN, 'messageoutputs', $hassiteconfig);
     }
 
     // authentication plugins
@@ -69,8 +87,12 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configtext('recaptchaprivatekey', new lang_string('recaptchaprivatekey', 'admin'), new lang_string('configrecaptchaprivatekey', 'admin'), '', PARAM_NOTAGS));
     $ADMIN->add('authsettings', $temp);
 
-    foreach ($allplugins['auth'] as $auth) {
-        $auth->load_settings($ADMIN, 'authsettings', $hassiteconfig);
+    $temp = new admin_externalpage('authtestsettings', get_string('testsettings', 'core_auth'), new moodle_url("/auth/test_settings.php"), 'moodle/site:config', true);
+    $ADMIN->add('authsettings', $temp);
+
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('auth') as $plugin) {
+        /** @var \core\plugininfo\auth $plugin */
+        $plugin->load_settings($ADMIN, 'authsettings', $hassiteconfig);
     }
 
     // Enrolment plugins
@@ -78,8 +100,13 @@ if ($hassiteconfig) {
     $temp = new admin_settingpage('manageenrols', new lang_string('manageenrols', 'enrol'));
     $temp->add(new admin_setting_manageenrols());
     $ADMIN->add('enrolments', $temp);
-    foreach($allplugins['enrol'] as $enrol) {
-        $enrol->load_settings($ADMIN, 'enrolments', $hassiteconfig);
+
+    $temp = new admin_externalpage('enroltestsettings', get_string('testsettings', 'core_enrol'), new moodle_url("/enrol/test_settings.php"), 'moodle/site:config', true);
+    $ADMIN->add('enrolments', $temp);
+
+    foreach(core_plugin_manager::instance()->get_plugins_of_type('enrol') as $plugin) {
+        /** @var \core\plugininfo\enrol $plugin */
+        $plugin->load_settings($ADMIN, 'enrolments', $hassiteconfig);
     }
 
 
@@ -88,8 +115,9 @@ if ($hassiteconfig) {
     $temp = new admin_settingpage('manageeditors', new lang_string('editorsettings', 'editor'));
     $temp->add(new admin_setting_manageeditors());
     $ADMIN->add('editorsettings', $temp);
-    foreach ($allplugins['editor'] as $editor) {
-        $editor->load_settings($ADMIN, 'editorsettings', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('editor') as $plugin) {
+        /** @var \core\plugininfo\editor $plugin */
+        $plugin->load_settings($ADMIN, 'editorsettings', $hassiteconfig);
     }
 
 /// License types
@@ -150,8 +178,9 @@ if ($hassiteconfig) {
     }
     $ADMIN->add('filtersettings', $temp);
 
-    foreach ($allplugins['filter'] as $filter) {
-        $filter->load_settings($ADMIN, 'filtersettings', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('filter') as $plugin) {
+        /** @var \core\plugininfo\filter $plugin */
+        $plugin->load_settings($ADMIN, 'filtersettings', $hassiteconfig);
     }
 
 
@@ -196,9 +225,9 @@ if ($hassiteconfig) {
         50, PARAM_INT, 3));
 
     $ADMIN->add('portfoliosettings', $temp);
-    $ADMIN->add('portfoliosettings', new admin_externalpage('portfolionew', new lang_string('addnewportfolio', 'portfolio'), $url, 'moodle/site:config', true), '', $url);
-    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliodelete', new lang_string('deleteportfolio', 'portfolio'), $url, 'moodle/site:config', true), '', $url);
-    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliocontroller', new lang_string('manageportfolios', 'portfolio'), $url, 'moodle/site:config', true), '', $url);
+    $ADMIN->add('portfoliosettings', new admin_externalpage('portfolionew', new lang_string('addnewportfolio', 'portfolio'), $url, 'moodle/site:config', true));
+    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliodelete', new lang_string('deleteportfolio', 'portfolio'), $url, 'moodle/site:config', true));
+    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliocontroller', new lang_string('manageportfolios', 'portfolio'), $url, 'moodle/site:config', true));
 
     foreach (portfolio_instances(false, false) as $portfolio) {
         require_once($CFG->dirroot . '/portfolio/' . $portfolio->get('plugin') . '/lib.php');
@@ -210,9 +239,7 @@ if ($hassiteconfig) {
                 $portfolio->get('name'),
                 $url . '?action=edit&pf=' . $portfolio->get('id'),
                 'moodle/site:config'
-            ),
-            $portfolio->get('name'),
-            $url . '?action=edit&pf=' . $portfolio->get('id')
+            )
         );
     }
 
@@ -232,24 +259,21 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configtext('repositorycacheexpire', new lang_string('cacheexpire', 'repository'), new lang_string('configcacheexpire', 'repository'), 120));
     $temp->add(new admin_setting_configcheckbox('repositoryallowexternallinks', new lang_string('allowexternallinks', 'repository'), new lang_string('configallowexternallinks', 'repository'), 1));
     $temp->add(new admin_setting_configcheckbox('legacyfilesinnewcourses', new lang_string('legacyfilesinnewcourses', 'admin'), new lang_string('legacyfilesinnewcourses_help', 'admin'), 0));
+    $temp->add(new admin_setting_configcheckbox('legacyfilesaddallowed', new lang_string('legacyfilesaddallowed', 'admin'), new lang_string('legacyfilesaddallowed_help', 'admin'), 1));
     $ADMIN->add('repositorysettings', $temp);
     $ADMIN->add('repositorysettings', new admin_externalpage('repositorynew',
-        new lang_string('addplugin', 'repository'), $url, 'moodle/site:config', true),
-        '', $url);
+        new lang_string('addplugin', 'repository'), $url, 'moodle/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositorydelete',
-        new lang_string('deleterepository', 'repository'), $url, 'moodle/site:config', true),
-        '', $url);
+        new lang_string('deleterepository', 'repository'), $url, 'moodle/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositorycontroller',
-        new lang_string('manage', 'repository'), $url, 'moodle/site:config', true),
-        '', $url);
+        new lang_string('manage', 'repository'), $url, 'moodle/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositoryinstancenew',
-        new lang_string('createrepository', 'repository'), $url, 'moodle/site:config', true),
-        '', $url);
+        new lang_string('createrepository', 'repository'), $url, 'moodle/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositoryinstanceedit',
-        new lang_string('editrepositoryinstance', 'repository'), $url, 'moodle/site:config', true),
-        '', $url);
-    foreach ($allplugins['repository'] as $repositorytype) {
-        $repositorytype->load_settings($ADMIN, 'repositorysettings', $hassiteconfig);
+        new lang_string('editrepositoryinstance', 'repository'), $url, 'moodle/site:config', true));
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('repository') as $plugin) {
+        /** @var \core\plugininfo\repository $plugin */
+        $plugin->load_settings($ADMIN, 'repositorysettings', $hassiteconfig);
     }
 
 /// Web services
@@ -301,8 +325,9 @@ if ($hassiteconfig) {
                         'admin'), new lang_string('configenablewsdocumentation', 'admin', $wsdoclink), false));
     $ADMIN->add('webservicesettings', $temp);
     /// links to protocol pages
-    foreach ($allplugins['webservice'] as $webservice) {
-        $webservice->load_settings($ADMIN, 'webservicesettings', $hassiteconfig);
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('webservice') as $plugin) {
+        /** @var \core\plugininfo\webservice $plugin */
+        $plugin->load_settings($ADMIN, 'webservicesettings', $hassiteconfig);
     }
     /// manage token page link
     $ADMIN->add('webservicesettings', new admin_externalpage('addwebservicetoken', new lang_string('managetokens', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/tokens.php", 'moodle/site:config', true));
@@ -321,10 +346,7 @@ if ($hassiteconfig) {
 
 // Question type settings
 if ($hassiteconfig || has_capability('moodle/question:config', $systemcontext)) {
-    if (!$hassiteconfig) {
-        require_once("$CFG->libdir/pluginlib.php");
-        $allplugins = plugin_manager::instance()->get_plugins();
-    }
+
     // Question behaviour settings.
     $ADMIN->add('modules', new admin_category('qbehavioursettings', new lang_string('questionbehaviours', 'admin')));
     $ADMIN->add('qbehavioursettings', new admin_page_manageqbehaviours());
@@ -332,8 +354,57 @@ if ($hassiteconfig || has_capability('moodle/question:config', $systemcontext)) 
     // Question type settings.
     $ADMIN->add('modules', new admin_category('qtypesettings', new lang_string('questiontypes', 'admin')));
     $ADMIN->add('qtypesettings', new admin_page_manageqtypes());
-    foreach ($allplugins['qtype'] as $qtype) {
-        $qtype->load_settings($ADMIN, 'qtypesettings', $hassiteconfig);
+
+    // Question preview defaults.
+    $settings = new admin_settingpage('qdefaultsetting',
+            get_string('questionpreviewdefaults', 'question'),
+            'moodle/question:config');
+    $ADMIN->add('qtypesettings', $settings);
+
+    $settings->add(new admin_setting_heading('qdefaultsetting_preview_options',
+            '', get_string('questionpreviewdefaults_desc', 'question')));
+
+    // These keys are question_display_options::HIDDEN and VISIBLE.
+    $hiddenofvisible = array(
+        0 => get_string('notshown', 'question'),
+        1 => get_string('shown', 'question'),
+    );
+
+    $settings->add(new admin_setting_question_behaviour('question_preview/behaviour',
+            get_string('howquestionsbehave', 'question'), '',
+                    'deferredfeedback'));
+
+    $settings->add(new admin_setting_configselect('question_preview/correctness',
+            get_string('whethercorrect', 'question'), '', 1, $hiddenofvisible));
+
+    // These keys are question_display_options::HIDDEN, MARK_ONLY and MARK_AND_MAX.
+    $marksoptions = array(
+        0 => get_string('notshown', 'question'),
+        1 => get_string('showmaxmarkonly', 'question'),
+        2 => get_string('showmarkandmax', 'question'),
+    );
+    $settings->add(new admin_setting_configselect('question_preview/marks',
+            get_string('marks', 'question'), '', 1, $marksoptions));
+
+    $settings->add(new admin_setting_configselect('question_preview/markdp',
+            get_string('decimalplacesingrades', 'question'), '', 2, array(0, 1, 2, 3, 4, 5, 6, 7)));
+
+    $settings->add(new admin_setting_configselect('question_preview/feedback',
+            get_string('specificfeedback', 'question'), '', 1, $hiddenofvisible));
+
+    $settings->add(new admin_setting_configselect('question_preview/generalfeedback',
+            get_string('generalfeedback', 'question'), '', 1, $hiddenofvisible));
+
+    $settings->add(new admin_setting_configselect('question_preview/rightanswer',
+            get_string('rightanswer', 'question'), '', 1, $hiddenofvisible));
+
+    $settings->add(new admin_setting_configselect('question_preview/history',
+            get_string('responsehistory', 'question'), '', 0, $hiddenofvisible));
+
+    // Settings for particular question types.
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('qtype') as $plugin) {
+        /** @var \core\plugininfo\qtype $plugin */
+        $plugin->load_settings($ADMIN, 'qtypesettings', $hassiteconfig);
     }
 }
 
@@ -343,7 +414,8 @@ if ($hassiteconfig && !empty($CFG->enableplagiarism)) {
     $ADMIN->add('plagiarism', new admin_externalpage('manageplagiarismplugins', new lang_string('manageplagiarism', 'plagiarism'),
         $CFG->wwwroot . '/' . $CFG->admin . '/plagiarism.php'));
 
-    foreach ($allplugins['plagiarism'] as $plugin) {
+    foreach (core_plugin_manager::instance()->get_plugins_of_type('plagiarism') as $plugin) {
+        /** @var \core\plugininfo\plagiarism $plugin */
         $plugin->load_settings($ADMIN, 'plagiarism', $hassiteconfig);
     }
 }
@@ -352,7 +424,7 @@ $ADMIN->add('reports', new admin_externalpage('comments', new lang_string('comme
 // Course reports settings
 if ($hassiteconfig) {
     $pages = array();
-    foreach (get_plugin_list('coursereport') as $report => $path) {
+    foreach (core_component::get_plugin_list('coursereport') as $report => $path) {
         $file = $CFG->dirroot . '/course/report/' . $report . '/settings.php';
         if (file_exists($file)) {
             $settings = new admin_settingpage('coursereport' . $report,
@@ -375,7 +447,7 @@ if ($hassiteconfig) {
 
 // Now add reports
 $pages = array();
-foreach (get_plugin_list('report') as $report => $plugindir) {
+foreach (core_component::get_plugin_list('report') as $report => $plugindir) {
     $settings_path = "$plugindir/settings.php";
     if (file_exists($settings_path)) {
         $settings = new admin_settingpage('report' . $report,
@@ -400,12 +472,10 @@ if ($hassiteconfig) {
                                                      $CFG->wwwroot . '/' . $CFG->admin . '/tools.php'));
 }
 
-// Now add various admin tools
-foreach (get_plugin_list('tool') as $plugin => $plugindir) {
-    $settings_path = "$plugindir/settings.php";
-    if (file_exists($settings_path)) {
-        include($settings_path);
-    }
+// Now add various admin tools.
+foreach (core_plugin_manager::instance()->get_plugins_of_type('tool') as $plugin) {
+    /** @var \core\plugininfo\tool $plugin */
+    $plugin->load_settings($ADMIN, null, $hassiteconfig);
 }
 
 // Now add the Cache plugins
@@ -421,13 +491,23 @@ if ($hassiteconfig) {
     $ADMIN->add('cache', new admin_externalpage('cacheconfig', new lang_string('cacheconfig', 'cache'), $CFG->wwwroot .'/cache/admin.php'));
     $ADMIN->add('cache', new admin_externalpage('cachetestperformance', new lang_string('testperformance', 'cache'), $CFG->wwwroot . '/cache/testperformance.php'));
     $ADMIN->add('cache', new admin_category('cachestores', new lang_string('cachestores', 'cache')));
-    foreach (get_plugin_list('cachestore') as $plugin => $path) {
+    foreach (core_component::get_plugin_list('cachestore') as $plugin => $path) {
         $settingspath = $path.'/settings.php';
         if (file_exists($settingspath)) {
             $settings = new admin_settingpage('cachestore_'.$plugin.'_settings', new lang_string('pluginname', 'cachestore_'.$plugin), 'moodle/site:config');
             include($settingspath);
             $ADMIN->add('cachestores', $settings);
         }
+    }
+}
+
+// Add Calendar type settings.
+if ($hassiteconfig) {
+    $ADMIN->add('modules', new admin_category('calendartype', new lang_string('calendartypes', 'calendar')));
+    foreach (core_component::get_plugin_list_with_file('calendartype', 'settings.php') as $plugin => $settingspath) {
+        $settings = new admin_settingpage('calendartype_' . $plugin . '_settings', new lang_string('pluginname', 'calendartype_' . $plugin), 'moodle/site:config');
+        include($settingspath);
+        $ADMIN->add('calendartype', $settings);
     }
 }
 
@@ -438,12 +518,9 @@ if ($hassiteconfig) {
                                                         $CFG->wwwroot . '/' . $CFG->admin . '/localplugins.php'));
 }
 
-// extend settings for each local plugin. Note that their settings may be in any part of the
-// settings tree and may be visible not only for administrators. We can not use $allplugins here
-foreach (get_plugin_list('local') as $plugin => $plugindir) {
-    $settings_path = "$plugindir/settings.php";
-    if (file_exists($settings_path)) {
-        include($settings_path);
-        continue;
-    }
+// Extend settings for each local plugin. Note that their settings may be in any part of the
+// settings tree and may be visible not only for administrators.
+foreach (core_plugin_manager::instance()->get_plugins_of_type('local') as $plugin) {
+    /** @var \core\plugininfo\local $plugin */
+    $plugin->load_settings($ADMIN, null, $hassiteconfig);
 }

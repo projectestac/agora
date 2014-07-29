@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'إضافة دور جديد';
-$string['addingrolebycopying'] = 'إضافة دور جديدة بناءً على {$a}';
 $string['addrole'] = 'إضافة دور جديد';
 $string['advancedoverride'] = 'تخطي المتقدم للدور';
 $string['allow'] = 'اسمح';
@@ -209,7 +208,6 @@ $string['question:usemine'] = 'استخدم أسئلتك الخاصة';
 $string['question:viewall'] = 'معاينة كل الأسئله';
 $string['question:viewmine'] = 'معاينة أسئلتك الخاصة';
 $string['resetrole'] = 'إعادة للوضع الافتراضي';
-$string['resetrolenolegacy'] = 'مسح الصلاحيات';
 $string['restore:restoreactivity'] = 'إسترجاع الأنشطة';
 $string['restore:restorecourse'] = 'إسترجاع المقررات الدراسية';
 $string['restore:userinfo'] = 'إسترجاع بيانات مستخدم';

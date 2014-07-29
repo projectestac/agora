@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -77,7 +77,7 @@ Een bestand kan gebruikt worden
 $string['modulenameplural'] = 'Bestanden';
 $string['neverseen'] = 'Nooit bekeken';
 $string['notmigrated'] = 'Dit verouderd brontype ({$a}) is nog niet omgezet.';
-$string['optionsheader'] = 'Opties';
+$string['optionsheader'] = 'Toon opties';
 $string['page-mod-resource-x'] = 'Elke bestandsmodule pagina';
 $string['pluginadministration'] = 'Beheer bestandsmodule';
 $string['pluginname'] = 'Bestand';
@@ -87,8 +87,6 @@ $string['popupresource'] = 'Deze bron zou in een pop-upvenster moeten verschijne
 $string['popupresourcelink'] = 'Als ze dat niet deed, klik hier: {$a}';
 $string['popupwidth'] = 'Pop-up breedte (in pixels)';
 $string['popupwidthexplain'] = 'Bepaalt de standaard breedte van pop-upvensters';
-$string['printheading'] = 'Toon naam bron';
-$string['printheadingexplain'] = 'Bronnaam tonen boven de inhoud? Sommige manieren van tonen zullen de bronnaam niet laten zien, zelfs niet als het zo ingesteld is.';
 $string['printintro'] = 'Toon bronbeschrijving';
 $string['printintroexplain'] = 'Toon bronbeschrijving onder de inhoud? Sommige manieren van toenen zullen de beschrijving niet laten zien, zelfs niet als het zo ingesteld is.';
 $string['resource:addinstance'] = 'Voeg een nieuwe bron toe';

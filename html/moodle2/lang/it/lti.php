@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -152,6 +152,7 @@ $string['force_ssl_help'] = 'I lanci di questo tool provider saranno obbligati a
 Inoltre, SSL sarà utilizzato anche per richieste web service provenienti dal tool provider.
 
 Per usare questa opzione, accertatevi che sia Moodle sia il tool provider supportino SSL.';
+$string['generaltool'] = 'Tool generale';
 $string['global_tool_types'] = 'Tipi di tool globali';
 $string['grading'] = 'Instradamento valutazioni';
 $string['icon_url'] = 'URL dell\'icona';
@@ -183,15 +184,15 @@ $string['lti_launch_error'] = 'Si è verificato un errore durante il lancio del 
 $string['lti_launch_error_tool_request'] = '<p>
 Per inviare all\'amministratore una richiesta di completamento di una configurazione di un tool, fai click su  <a href="{$a->admin_request_url}" target="_top">here</a>. </p>
 Aiuto per questola stringa contiene un segnaposto';
-$string['lti_launch_error_unsigned_help'] = '<p>
-L\'errore può essere causato dalla mancanza di consumer key e/o shared secret per l\'accesso al tool provider.
-</p> <p>
-Se disponi di consumer key e shared secret, puoi inserirli nella configurazione del tool esterno (accertati che le opzioni avanzate siano visibili)<br />
+$string['lti_launch_error_unsigned_help'] = '<p>L\'errore può essere causato dalla mancanza di consumer key e/o shared secret per l\'accesso al tool provider.
+</p>
+<p>Se disponi di consumer key e shared secret, puoi inserirli nella configurazione del tool esterno (accertati che le opzioni avanzate siano visibili)<br />
 In alternativa, puoi creare una configurazione di  tool provider a livello di corso <a href="{$a->course_tool_editor}">here</a>. </p>';
 $string['lti:manage'] = 'Diventare docente al lancio del tool esterno';
 $string['lti:requesttooladd'] = 'Richiedere una configurazione tool per tutto il sito';
 $string['lti_tool_request_added'] = 'La richiesta di configurare il tool è stata inviata correttamente. Contatta l\'amministratore per completare la configurazione.';
 $string['lti_tool_request_existing'] = 'E\' già stata inviata una configurazione per il dominio del tool.';
+$string['ltiunknownserviceapicall'] = 'Chiamata servizio API LTI sconosciuta';
 $string['lti:view'] = 'Lanciare attività Tool esterno';
 $string['main_admin'] = 'Help generale';
 $string['main_admin_help'] = 'I tool esterni consentono a Moodle di interagire con risorse formative ospitate in altri siti. Tramite uno speciale protocollo di lancio, il tool remoto può accedere ad alcune informazioni relative all\'utente, come ad esempio il nome dell\'istituzione, l\'id del corso, l\'id dell\'utente, il nome dell\'utente e l\'email.
@@ -216,7 +217,7 @@ I tool esterni si differenziano da una risorsa di tipo URL per diversi aspetti:
 * I tool esterni possono conoscere il contesto, ossia  possono avere accesso alle informazioni dell\'utente che li ha lanciati, come l\'istituzione di appartenenza, il corso, il nome, eccetera.
 * I tool esterni possono leggere, aggiornare ed eliminare le valutazioni associate alla istanza dell\'attività.
 * Le configurazioni di I tool esterni creano una relazione di trust tra Moodle e il tool provider, assicurando un canale di comunicazione sicuro.';
-$string['modulenameplural'] = 'basicltis';
+$string['modulenameplural'] = 'Tool Esterno';
 $string['modulenamepluralformatted'] = 'Istanze LTI';
 $string['never'] = 'Mai';
 $string['new_window'] = 'Nuova finestra';
@@ -325,7 +326,10 @@ Nella magigor parte dei casi questa opzione non è necessaria, i docenti possono
 L\'unico caso in cui questa opzione è utile è quando la configurazione del tool è utilizzata per il Single Sign On, ad esempio quando l\'utente che lancia il tool viene portato in una pagina di atterraggio anziché ad una risorsa specifica.';
 $string['size'] = 'Dimensione parametri';
 $string['submission'] = 'Invii';
+$string['submissions'] = 'Invii';
 $string['submissionsfor'] = 'Invii per {$a}';
+$string['subplugintype_ltisource'] = 'LTI source';
+$string['subplugintype_ltisource_plural'] = 'LTI source';
 $string['toggle_debug_data'] = 'Dati di debug on/off';
 $string['tool_config_not_found'] = 'Per questa URL non è stata trovata nessuna configurazione del tool.';
 $string['tool_settings'] = 'Impostazioni tool';

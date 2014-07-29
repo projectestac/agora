@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -39,6 +39,12 @@ $string['draggableword'] = 'Draggable text';
 $string['dropbackground'] = 'Background image for dragging markers onto';
 $string['dropzone'] = 'Drop zone {$a}';
 $string['dropzoneheader'] = 'Drop zones';
+$string['dropzones'] = 'Drop zones';
+$string['dropzones_help'] = 'The drop zones are defined by typing co-ordinates. As you type, the preview above is immediately updated, so you can position things by trial and error.
+
+* Circle: centre_x, centre_y; radius<br>for example: `80, 100; 50`
+* Polygon: x1, y1; x2, y2; ...; xn, yn<br>for example: `20, 60; 100, 60; 20, 100`
+* Rectangle: left, top, width, height<br>for example: `20, 60; 80, 40`';
 $string['followingarewrong'] = 'The following markers have been placed in the wrong area : {$a}.';
 $string['followingarewrongandhighlighted'] = 'The following markers were incorrectly placed :  {$a}. Highlighted marker(s) are now shown with the correct placement(s).<br /> Click on the marker to highlight the allowed area.';
 $string['formerror_nobgimage'] = 'You need to select an image to use as the background for the drag and drop area.';
@@ -66,6 +72,7 @@ $string['marker'] = 'Marker';
 $string['marker_n'] = 'Marker {no}';
 $string['markers'] = 'Markers';
 $string['nolabel'] = 'No label text';
+$string['noofdrags'] = 'Number';
 $string['noquestionsfound'] = 'No questions found to convert here.';
 $string['pleasedragatleastonemarker'] = 'Your answer is not complete, you must place at least one marker on the image.';
 $string['pluginname'] = 'Drag and drop markers';
@@ -74,7 +81,6 @@ $string['pluginname_link'] = 'question/type/ddmarker';
 $string['pluginnameadding'] = 'Adding drag and drop markers';
 $string['pluginnameediting'] = 'Editing drag and drop markers';
 $string['pluginnamesummary'] = 'Markers are dragged and dropped onto a background image.';
-$string['previewarea'] = 'Preview area -';
 $string['previewareaheader'] = 'Preview';
 $string['previewareamessage'] = 'Select a background image file, enter text labels for markers and define the drop zones on the background image to which they must be dragged.';
 $string['refresh'] = 'Refresh preview';

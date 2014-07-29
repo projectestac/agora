@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dbtransfer', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,5 @@ $string['exportschemaexception'] = '現在のデータベース構造がすべ�
 $string['importschemaexception'] = '現在のデータベース構造がすべてのinstall.xmlファイルに合致しません。<br /> {$a}';
 $string['importversionmismatchexception'] = '現在のバージョン {$a->currentver} がエクスポートされたバージョン {$a->schemaver} と合致しません。';
 $string['malformedxmlexception'] = '不正なXMLが見つかったため、継続できません。';
+$string['tablex'] = 'テーブル {$a}:';
 $string['unknowntableexception'] = 'エクスポートファイルに不明なテーブル {$a} が見つかりました。';

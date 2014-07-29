@@ -148,13 +148,13 @@ class mod_hotpot_attempt_hp_6_jmatch_renderer extends mod_hotpot_attempt_hp_6_re
             ."		var div = document.createElement('div');\n"
             ."		div.setAttribute('id', 'D' + i);\n"
             ."		div.setAttribute('class', 'CardStyle');\n"
-            ."		div.setAttribute('onmousedown', 'beginDrag(event, ' + i + ')');\n"
-            ."		myParentNode.appendChild(div);\n"
+            ."		div = myParentNode.appendChild(div);\n"
+            ."		HP_add_listener(div, 'mousedown', 'beginDrag(event, ' + i + ')');\n"
             ."	} else {\n"
             ."		document.write('".'<div id="'."D' + i + '".'" class="CardStyle" onmousedown="'."beginDrag(event, ' + i + ')".'"'."></div>');\n"
             ."	}\n"
             ."}\n"
-            ."// m = div = myParentNode = null;"
+            ."div = myParentNode = null;"
        ;
         $this->bodycontent = preg_replace($search, $replace, $this->bodycontent, 1);
     }
@@ -214,7 +214,7 @@ class mod_hotpot_attempt_hp_6_jmatch_renderer extends mod_hotpot_attempt_hp_6_re
     function get_js_functionnames()  {
         // start list of function names
         $names = parent::get_js_functionnames();
-        $names .= ($names ? ',' : '').'CheckAnswers,beginDrag';
+        $names .= ($names ? ',' : '').'CardSetHTML,beginDrag,doDrag,endDrag,CheckAnswers';
         return $names;
     }
 
@@ -228,23 +228,14 @@ class mod_hotpot_attempt_hp_6_jmatch_renderer extends mod_hotpot_attempt_hp_6_re
     }
 
     /**
-     * fix_js_beginDrag
+     * get_beginDrag_target
+     * for drag-and-drop JMatch and JMix
      *
-     * @param xxx $str (passed by reference)
-     * @param xxx $start
-     * @param xxx $length
+     * @return string
+     * @todo Finish documenting this function
      */
-    function fix_js_beginDrag(&$str, $start, $length)  {
-        $substr = substr($str, $start, $length);
-        if ($pos = strpos($substr, '{')) {
-            $insert = "\n"
-                ."	if (e && e.target && e.target.tagName && e.target.tagName.toUpperCase()=='OBJECT') {\n"
-                ."		return;\n"
-                ."	}\n"
-            ;
-            $substr = substr_replace($substr, $insert, $pos+1, 0);
-        }
-        $str = substr_replace($str, $substr, $start, $length);
+    public function get_beginDrag_target() {
+        return 'DC[CurrDrag]';
     }
 
     /**

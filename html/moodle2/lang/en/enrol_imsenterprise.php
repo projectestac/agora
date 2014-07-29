@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['cronfrequency'] = 'Frequency of processing';
 $string['deleteusers'] = 'Delete user accounts when specified in IMS data';
 $string['deleteusers_desc'] = 'If enabled, IMS Enterprise enrolment data can specify the deletion of user accounts (if the "recstatus" flag is set to 3, which represents deletion of an account). As is standard in Moodle, the user record isn\'t actually deleted from Moodle\'s database, but a flag is set to mark the account as deleted.';
 $string['doitnow'] = 'perform an IMS Enterprise import right now';
+$string['emptyattribute'] = 'Leave it empty';
 $string['filelockedmail'] = 'The text file you are using for IMS-file-based enrolments ({$a}) can not be deleted by the cron process.  This usually means the permissions are wrong on it.  Please fix the permissions so that Moodle can delete the file, otherwise it might be processed repeatedly.';
 $string['filelockedmailsubject'] = 'Important error: Enrolment file';
 $string['fixcasepersonalnames'] = 'Change personal names to Title Case';
@@ -66,6 +67,12 @@ $string['restricttarget_desc'] = 'An IMS Enterprise data file could be intended 
 
 In general you don\'t need to worry about this. Leave the setting blank and Moodle will always process the data file, no matter whether a target is specified or not. Otherwise, fill in the exact name that will be output inside the <target> tag.';
 $string['roles'] = 'Roles';
+$string['settingfullname'] = 'IMS description tag for the course full name';
+$string['settingfullnamedescription'] = 'The full name is a required course field so you have to define the selected description tag in your IMS Enterprise file';
+$string['settingshortname'] = 'IMS description tag for the course short name';
+$string['settingshortnamedescription'] = 'The short name is a required course field so you have to define the selected description tag in your IMS Enterprise file';
+$string['settingsummary'] = 'IMS description tag for the course summary';
+$string['settingsummarydescription'] = 'Is an optional field, select \'Leave it empty\' if you dont\'t want to specify a course summary';
 $string['sourcedidfallback'] = 'Use the &quot;sourcedid&quot; for a person\'s userid if the &quot;userid&quot; field is not found';
 $string['sourcedidfallback_desc'] = 'In IMS data, the <sourcedid> field represents the persistent ID code for a person as used in the source system. The <userid> field is a separate field which should contain the ID code used by the user when logging in. In many cases these two codes may be the same - but not always.
 

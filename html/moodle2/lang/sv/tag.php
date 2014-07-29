@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tag', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tag', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   tag
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,9 +37,9 @@ $string['deletedcoursetags'] = 'Borttagna - etiketter för kurser';
 $string['description'] = 'Beskrivning';
 $string['edittag'] = 'Redigera den här etiketten';
 $string['entertags'] = 'Skriv in etiketter separerade med komman';
-$string['errordeleting'] = 'Fel i sb m att etiketten med id {$a} skulle tas bort, var snäll och meddela Din systemadministratör.';
+$string['errordeleting'] = 'Fel vid borttagande av etikett med id {$a}. Var god rapportera det här till din systemadministratör.';
 $string['errortagfrontpage'] = 'Det är inte tillåtet att sätta etiketter på ingångssidan för webbplatsen';
-$string['errorupdatingrecord'] = 'Fel i sb m att posten för etiketten skulle uppdateras';
+$string['errorupdatingrecord'] = 'Fel vid uppdatering av post för etikett';
 $string['flag'] = 'Flagga';
 $string['flagasinappropriate'] = 'Flagga som olämplig';
 $string['helprelatedtags'] = 'Kommaseparerade rubriker som är relaterade';

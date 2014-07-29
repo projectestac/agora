@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,8 @@ $string['addarandomquestion'] = 'ランダム問題を追加する ...';
 $string['addarandomquestion_help'] = 'ランダム問題を追加した場合、受験ごとに同じカテゴリよりランダムに問題が選択され、小テストに追加されます。これは学生が小テストを受験するとき、異なる種類の問題群が選択されることを意味します。小テストが再受験可能な場合、それぞれの受験では新しい問題群を含むことになります。';
 $string['adddescriptionlabel'] = '説明/ラベルを追加する';
 $string['addingquestion'] = '問題の追加';
-$string['addingquestions'] = 'ここではデータベース内の問題を管理します。問題は整理しやすいようカテゴリごとに保存されます。また、「公開」を選択した場合、コース内または他のコースの小テストで使用することができます。<br /><br />問題カテゴリの作成を選択した後、問題の作成または編集を行うことができます。ページの反対側にある問題リストから問題を選択して、小テストに追加することができます。';
+$string['addingquestions'] = '<p> ここではデータベース内の問題を管理します。問題は整理しやすいようカテゴリごとに保存されます。また、「公開」を選択した場合、コース内または他のコースの小テストで使用することができます。</p>
+<p> 問題カテゴリの作成を選択した後、問題の作成または編集を行うことができます。ページの反対側にある問題リストから問題を選択して、小テストに追加することができます。</p>';
 $string['addmoreoverallfeedbacks'] = 'さらに {no} 個のフィードバックフィールドを追加する';
 $string['addnewgroupoverride'] = 'グループオーバーライドを追加する';
 $string['addnewpagesafterselected'] = '選択した問題の後に新しいページを追加する';
@@ -71,7 +72,6 @@ $string['answerhowmany'] = '単一または複数解答?';
 $string['answers'] = '正解';
 $string['answersingleno'] = '複数解答を許可する';
 $string['answersingleyes'] = '単一の解答のみ許可する';
-$string['answerswithacceptederrormarginmustbenumeric'] = '受入れるエラー範囲には数字を設定してください。';
 $string['answertoolong'] = '{$a} 行以降の解答が長すぎます (最大、半角255文字)';
 $string['aon'] = 'AONフォーマット';
 $string['areyousureremoveselected'] = '選択した問題すべてを本当に削除してもよろしいですか?';
@@ -99,6 +99,8 @@ $string['attemptsonly'] = '受験済みの学生のみ表示';
 $string['attemptstate'] = '状態';
 $string['attemptstillinprogress'] = '進行中の受験';
 $string['attemptsunlimited'] = '無制限';
+$string['autosaveperiod'] = '自動保存間隔';
+$string['autosaveperiod_desc'] = '学生の解答が数分ごとに自動保存されます。これは学生が作業を喪失する可能性を減らす代わりにサーバの負荷が増すというトレードオフとなります。';
 $string['back'] = '問題のプレビューに戻る';
 $string['backtocourse'] = 'コースに戻る';
 $string['backtoquestionlist'] = '問題リストに戻る';
@@ -186,6 +188,12 @@ $string['confirmserverdelete'] = '本当にサーバ <b>{$a}</b> をリストか
 $string['confirmstartattemptlimit'] = 'この小テストの受験回数: {$a} あなたは新しい受験を開始しようとしています。本当に続けてもよろしいですか?';
 $string['confirmstartattempttimelimit'] = 'この小テストには制限時間があり、受験回数は {$a} 回に制限されています。あなたは新しい受験を開始しようとしています。本当に続けてもよろしいですか?';
 $string['confirmstarttimelimit'] = '小テストには制限時間があります。本当に開始してもよろしいですか?';
+$string['connectionerror'] = 'ネットワークコネクションが切断されました (自動保存失敗)。
+
+このページで入力した最後の数分間の解答をメモした後、再接続を試みてください。
+
+接続が再確立された場合、あなたの解答は保存され、このメッセージは表示されなくなります。';
+$string['connectionok'] = 'ネットワークコネクションが復元されました。あなたは安全に続けることができます。';
 $string['containercategorycreated'] = 'このカテゴリは、下記の原因によりサイトレベルで移動されたすべてのオリジナルカテゴリを保存するために作成されました。';
 $string['continueattemptquiz'] = '前回の受験を続ける';
 $string['continuepreview'] = '前回受験のプレビューを続ける';
@@ -234,6 +242,7 @@ $string['deletingquestionattempts'] = '問題受験結果の削除';
 $string['description'] = '説明';
 $string['disabled'] = '無効';
 $string['displayoptions'] = '表示オプション';
+$string['donotuseautosave'] = '自動保存を使用しない';
 $string['download'] = 'エクスポートしたカテゴリファイルをダウンロードする';
 $string['downloadextra'] = '(ファイルはコースファイル内の /backupdata/quizフォルダにも保存されます。)';
 $string['duplicateresponse'] = 'あなたは、前に同じ解答を送信していますので、この送信は無視されました。';
@@ -274,7 +283,7 @@ $string['emailnotifybody'] = '{$a->username} さん
 
 ユーザ名: {$a->studentname}
 小テスト名: {$a->quizname}
-URI: {$a->quizurl}
+URL: {$a->quizurl}
 コース名: {$a->coursename}
 
 あなたはこの受験を、{$a->quizreviewurl} でレビューすることができます。';
@@ -297,6 +306,10 @@ $string['errornotnumbers'] = 'エラー - 答えは数字を使用してくだ�
 $string['errorunexpectedevent'] = '受験「 {$a->attemptid} 」の問題「 {$a->questionid} 」に予期しないイベントコード「 {$a->event} 」が見つかりました。';
 $string['essay'] = '作文問題';
 $string['essayquestions'] = '問題';
+$string['eventquizattemptabandoned'] = '小テスト受験が放棄されました。';
+$string['eventquizattemptstarted'] = '小テスト受験が開始されました。';
+$string['eventquizattemptsubmitted'] = '小テスト受験が送信されました。';
+$string['eventquizattempttimelimitexceeded'] = '小テスト受験の時間制限を超過しました。';
 $string['everynquestions'] = '問題 {$a} 問ごと';
 $string['everyquestion'] = '問題１問ごと';
 $string['everythingon'] = 'すべて有効';
@@ -337,7 +350,7 @@ $string['generalfeedback_help'] = '<p>全般に対するフィードバックは
 <p>全般に対するフィードバックがいつ表示されるか、小テスト設定ページの「学生はレビューできる」チェックボックスでコントロールすることができます。</p>
 
 <p>どのような知識がこの問題で問われているのかという背景に関して、全般に対するフィードバックを使用して学生に提示することができます。または問題が分からない場合、さらなる情報のリンクを与えて学生が利用できるようにすることもできます。</p>';
-$string['graceperiod'] = '送信猶予期間 (秒)';
+$string['graceperiod'] = '送信猶予期間';
 $string['graceperiod_desc'] = '制限時間経過後に関して、「開いている受験を送信できる場合は猶予期間を設けますが、さらに問題に解答することはできません」が設定されている場合、デフォルトの猶予期間 (秒) が許可されます。';
 $string['graceperiod_help'] = '制限時間経過後に関して、「開いている受験を送信できる場合は猶予期間を設けますが、さらに問題に解答することはできません」が設定されている場合、デフォルトの猶予期間 (秒) が許可されます。';
 $string['graceperiodmin'] = '最終送信の猶予期間 (秒)';
@@ -516,6 +529,7 @@ $string['numattemptsmade'] = 'この小テストは {$a} 回受験されまし�
 $string['numberabbr'] = '#';
 $string['numerical'] = '数値問題';
 $string['numquestionsx'] = '問題: {$a}';
+$string['oneminute'] = '1 分';
 $string['onlyteachersexport'] = '教師のみ問題をエクスポートできます。';
 $string['onlyteachersimport'] = '権限のある教師のみ問題をインポートできます。';
 $string['onthispage'] = 'このページ';
@@ -565,7 +579,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'オーバーライド';
 $string['overrideuser'] = 'ユーザをオーバーライドする';
 $string['overrideusereventname'] = '{$a->quiz} - オーバーライド';
+$string['page-mod-quiz-attempt'] = '小テスト受験ページ';
 $string['page-mod-quiz-edit'] = '小テストページを編集する';
+$string['page-mod-quiz-report'] = '小テストレポートページ';
+$string['page-mod-quiz-review'] = '小テスト受験レビューページ';
+$string['page-mod-quiz-summary'] = '小テスト受験概要ページ';
+$string['page-mod-quiz-view'] = '小テスト情報ページ';
 $string['page-mod-quiz-x'] = 'すべての小テストモジュールページ';
 $string['pagesize'] = 'ページサイズ';
 $string['parent'] = '親';
@@ -680,7 +699,7 @@ $string['removeallquizattempts'] = 'すべての小テスト受験結果を削�
 $string['removeemptypage'] = '空のページを削除する';
 $string['removeselected'] = '選択したものを削除する';
 $string['rename'] = 'リネーム';
-$string['renderingserverconnectfailed'] = 'サーバ {$a} がRQPリクエストの処理に失敗しました。URIが正しいか確認してください。';
+$string['renderingserverconnectfailed'] = 'サーバ {$a} がRQPリクエストの処理に失敗しました。URLが正しいか確認してください。';
 $string['reorderquestions'] = '問題を並べ替える';
 $string['reordertool'] = '並べ替えツールを表示する';
 $string['repaginate'] = '1ページあたりの問題数: {$a}';
@@ -704,6 +723,7 @@ $string['reportregrade'] = '受験の再評定';
 $string['reportresponses'] = '解答詳細';
 $string['reports'] = 'レポート';
 $string['reportshowonly'] = '受験のみ表示する';
+$string['reportshowonlyfinished'] = 'ユーザごとに最大1件の終了した受験を表示する ({$a})';
 $string['reportsimplestat'] = '単純統計';
 $string['reportusersall'] = '小テストを受験したユーザすべて';
 $string['reportuserswith'] = '小テストを受験したことのある登録ユーザ';
@@ -792,7 +812,7 @@ $string['serveradded'] = 'サーバ追加';
 $string['serveridentifier'] = '識別子';
 $string['serverinfo'] = 'サーバ情報';
 $string['servers'] = 'サーバ';
-$string['serverurl'] = 'サーバURI';
+$string['serverurl'] = 'サーバURL';
 $string['settingsoverrides'] = '設定オーバーライド';
 $string['shortanswer'] = '記述問題';
 $string['show'] = '表示';
@@ -806,9 +826,12 @@ $string['showdetailedmarks'] = '評点の詳細を表示する';
 $string['showeachpage'] = '一度に1ページのみ表示する';
 $string['showfeedback'] = '解答後にフィードバックを表示しますか?';
 $string['showinsecurepopup'] = '受験に「セキュア」ポップアップを使用する';
+$string['showlargeimage'] = '大きなイメージ';
 $string['shownoattempts'] = '未受験の学生を表示';
 $string['shownoattemptsonly'] = '未受験の学生のみ表示';
+$string['shownoimage'] = 'イメージなし';
 $string['showreport'] = 'レポートを表示する';
+$string['showsmallimage'] = '小さなイメージ';
 $string['showteacherattempts'] = '教師の受験を表示';
 $string['showuserpicture'] = 'ユーザ写真を表示する';
 $string['showuserpicture_help'] = '<p>あなたがこのオプションを有効にした場合、受験中およびレビュー時、画面に学生の氏名および写真が表示されます。</p>
@@ -895,7 +918,7 @@ $string['updatingthegradebook'] = '評定表の更新';
 $string['upgradesure'] = '小テストモジュールは広範囲におよぶ小テストデータベーステーブルの変更を行うことがあります。また、このアップグレードに関する十分なテストは行われていません。アップグレード処理の前に必ずデータベースのバックアップを行ってください。';
 $string['upgradingquizattempts'] = '小テスト受験のアップグレード: 小テスト {$a->done}/{$a->outof} (小テストID {$a->info})';
 $string['upgradingveryoldquizattempts'] = '非常に古い小テスト受験のアップグレード: {$a->done}/{$a->outof}';
-$string['url'] = 'URI';
+$string['url'] = 'URL';
 $string['usedcategorymoved'] = 'このカテゴリは公開され、他のコースで使用されているため、維持したままサイトレベルに移動されました。';
 $string['useroverrides'] = 'ユーザオーバーライド';
 $string['usersnone'] = 'この小テストにアクセスした学生はいません。';

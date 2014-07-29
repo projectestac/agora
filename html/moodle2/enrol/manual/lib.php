@@ -68,7 +68,9 @@ class enrol_manual_plugin extends enrol_plugin {
 
         $context = context_course::instance($instance->courseid, MUST_EXIST);
 
-        if (!has_capability('enrol/manual:manage', $context) or !has_capability('enrol/manual:enrol', $context) or !has_capability('enrol/manual:unenrol', $context)) {
+        if (!has_capability('enrol/manual:enrol', $context)) {
+            // Note: manage capability not used here because it is used for editing
+            // of existing enrolments which is not possible here.
             return NULL;
         }
 
@@ -111,7 +113,7 @@ class enrol_manual_plugin extends enrol_plugin {
 
         $icons = array();
 
-        if (has_capability('enrol/manual:manage', $context)) {
+        if (has_capability('enrol/manual:enrol', $context) or has_capability('enrol/manual:unenrol', $context)) {
             $managelink = new moodle_url("/enrol/manual/manage.php", array('enrolid'=>$instance->id));
             $icons[] = $OUTPUT->action_icon($managelink, new pix_icon('t/enrolusers', get_string('enrolusers', 'enrol_manual'), 'core', array('class'=>'iconsmall')));
         }
@@ -280,21 +282,23 @@ class enrol_manual_plugin extends enrol_plugin {
      * @return void
      */
     public function cron() {
-        $this->sync(null, true);
-        $this->send_expiry_notifications(true);
+        $trace = new text_progress_trace();
+        $this->sync($trace, null);
+        $this->send_expiry_notifications($trace);
     }
 
     /**
      * Sync all meta course links.
      *
+     * @param progress_trace $trace
      * @param int $courseid one course, empty mean all
-     * @param bool $verbose verbose CLI output
      * @return int 0 means ok, 1 means error, 2 means plugin disabled
      */
-    public function sync($courseid = null, $verbose = false) {
+    public function sync(progress_trace $trace, $courseid = null) {
         global $DB;
 
         if (!enrol_is_enabled('manual')) {
+            $trace->finished();
             return 2;
         }
 
@@ -302,9 +306,7 @@ class enrol_manual_plugin extends enrol_plugin {
         @set_time_limit(0);
         raise_memory_limit(MEMORY_HUGE);
 
-        if ($verbose) {
-            mtrace('Verifying manual enrolment expiration...');
-        }
+        $trace->output('Verifying manual enrolment expiration...');
 
         $params = array('now'=>time(), 'useractive'=>ENROL_USER_ACTIVE, 'courselevel'=>CONTEXT_COURSE);
         $coursesql = "";
@@ -333,14 +335,12 @@ class enrol_manual_plugin extends enrol_plugin {
                 // Always remove all manually assigned roles here, this may break enrol_self roles but we do not want hardcoded hacks here.
                 role_unassign_all(array('userid'=>$ue->userid, 'contextid'=>$ue->contextid, 'component'=>'', 'itemid'=>0), true);
                 $this->unenrol_user($instance, $ue->userid);
-                if ($verbose) {
-                    mtrace("  unenrolling expired user $ue->userid from course $instance->courseid");
-                }
+                $trace->output("unenrolling expired user $ue->userid from course $instance->courseid", 1);
             }
             $rs->close();
             unset($instances);
 
-        } else if ($action == ENROL_EXT_REMOVED_SUSPENDNOROLES) {
+        } else if ($action == ENROL_EXT_REMOVED_SUSPENDNOROLES or $action == ENROL_EXT_REMOVED_SUSPEND) {
             $instances = array();
             $sql = "SELECT ue.*, e.courseid, c.id AS contextid
                       FROM {user_enrolments} ue
@@ -355,11 +355,14 @@ class enrol_manual_plugin extends enrol_plugin {
                     $instances[$ue->enrolid] = $DB->get_record('enrol', array('id'=>$ue->enrolid));
                 }
                 $instance = $instances[$ue->enrolid];
-                // Always remove all manually assigned roles here, this may break enrol_self roles but we do not want hardcoded hacks here.
-                role_unassign_all(array('userid'=>$ue->userid, 'contextid'=>$ue->contextid, 'component'=>'', 'itemid'=>0), true);
-                $this->update_user_enrol($instance, $ue->userid, ENROL_USER_SUSPENDED);
-                if ($verbose) {
-                    mtrace("  suspending expired user $ue->userid in course $instance->courseid");
+                if ($action == ENROL_EXT_REMOVED_SUSPENDNOROLES) {
+                    // Remove all manually assigned roles here, this may break enrol_self roles but we do not want hardcoded hacks here.
+                    role_unassign_all(array('userid'=>$ue->userid, 'contextid'=>$ue->contextid, 'component'=>'', 'itemid'=>0), true);
+                    $this->update_user_enrol($instance, $ue->userid, ENROL_USER_SUSPENDED);
+                    $trace->output("suspending expired user $ue->userid in course $instance->courseid, roles unassigned", 1);
+                } else {
+                    $this->update_user_enrol($instance, $ue->userid, ENROL_USER_SUSPENDED);
+                    $trace->output("suspending expired user $ue->userid in course $instance->courseid, roles kept", 1);
                 }
             }
             $rs->close();
@@ -369,9 +372,8 @@ class enrol_manual_plugin extends enrol_plugin {
             // ENROL_EXT_REMOVED_KEEP means no changes.
         }
 
-        if ($verbose) {
-            mtrace('...manual enrolment updates finished.');
-        }
+        $trace->output('...manual enrolment updates finished.');
+        $trace->finished();
 
         return 0;
     }
@@ -427,7 +429,7 @@ class enrol_manual_plugin extends enrol_plugin {
             $actions[] = new user_enrolment_action(new pix_icon('t/delete', ''), get_string('unenrol', 'enrol'), $url, array('class'=>'unenrollink', 'rel'=>$ue->id));
         }
         if ($this->allow_manage($instance) && has_capability("enrol/manual:manage", $context)) {
-            $url = new moodle_url('/enrol/manual/editenrolment.php', $params);
+            $url = new moodle_url('/enrol/editenrolment.php', $params);
             $actions[] = new user_enrolment_action(new pix_icon('t/edit', ''), get_string('edit'), $url, array('class'=>'editenrollink', 'rel'=>$ue->id));
         }
         return $actions;
@@ -441,10 +443,14 @@ class enrol_manual_plugin extends enrol_plugin {
     public function get_bulk_operations(course_enrolment_manager $manager) {
         global $CFG;
         require_once($CFG->dirroot.'/enrol/manual/locallib.php');
-        $bulkoperations = array(
-            'editselectedusers' => new enrol_manual_editselectedusers_operation($manager, $this),
-            'deleteselectedusers' => new enrol_manual_deleteselectedusers_operation($manager, $this)
-        );
+        $context = $manager->get_context();
+        $bulkoperations = array();
+        if (has_capability("enrol/manual:manage", $context)) {
+            $bulkoperations['editselectedusers'] = new enrol_manual_editselectedusers_operation($manager, $this);
+        }
+        if (has_capability("enrol/manual:unenrol", $context)) {
+            $bulkoperations['deleteselectedusers'] = new enrol_manual_deleteselectedusers_operation($manager, $this);
+        }
         return $bulkoperations;
     }
 

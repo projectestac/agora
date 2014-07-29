@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_multilangsecond', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'filter_multilangsecond', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_multilangsecond
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'Multi-lingual Content';
-$string['mode'] = 'Non HTML syntax';
-$string['mode_desc'] = 'If this is set a non HTML syntax is used {mlang en}English{mlang}{mlang bg}Bulgarian{mlang}. Othewise lang="XX" attribute of html tags is used to identify language &lt;p lang="en"&gt;English&lt;/p&gt;&lt;p lang="bg"&gt;Bulgarian&lt;/p&gt;.';
+$string['filtername'] = 'Multilingual Content';
+$string['mode0'] = 'HTML';
+$string['mode1'] = 'Non-HTML';
+$string['mode2'] = 'Both';
+$string['modenew'] = 'Syntax';
+$string['modenew_desc'] = 'You can choose a <strong>Non-HTML</strong> syntax like {mlang en}English{mlang}{mlang bg}Bulgarian{mlang} or an <strong>HTML</strong> syntax that uses HTML tags to identify the language like &lt;p lang="en"&gt;English&lt;/p&gt;&lt;p lang="bg"&gt;Bulgarian&lt;/p&gt;. Choosing <strong>Both</strong> enables both syntaxes but execution time will also be twice as long.';

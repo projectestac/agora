@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,13 +28,30 @@ defined('MOODLE_INTERNAL') || die();
 $string['activityoverview'] = 'Du har inlämningsuppgifter som behöver bearbetas';
 $string['addsubmission'] = 'Lägg till inskickat bidrag';
 $string['allowdeleting'] = 'Tillåt borttagande';
-$string['allowdeleting_help'] = 'Om du aktiverar detta kommer deltagare att kunna ta bort uppladdade filer när som helst innan de skickar in dem för betygssättning.';
+$string['allowdeleting_help'] = '<p>Om du aktiverar detta så kommer deltagare att kunna ta bort uppladdade filer när som helst innan de skickar in dem för betygssättning. </p>';
 $string['allowmaxfiles'] = 'Maximalt antal uppladdade filer';
-$string['allowmaxfiles_help'] = 'Det maximala antalet filer som varje deltagare får ladda upp.Eftersom denna siffra inte visas någonstans, föreslås det att det nämns i uppdragsbeskrivningen.';
+$string['allowmaxfiles_help'] = '<p>Det maximala antalet filer som varje deltagare får ladda upp.
+Detta antal visas inte för studenterna/eleverna/deltagarna/de lärande så
+om du vill att de ska veta det så måste du ta med det i instruktionen
+till uppgiften.</p>';
 $string['allownotes'] = 'Tillåt anteckningar';
-$string['allownotes_help'] = 'Om aktiverad, kan eleverna skriva anteckningar i ett textområde, som i ett online textuppdrag.';
+$string['allownotes_help'] = '<p>Om detta är aktiverat så kan deltagarna mata in anteckningar i en textyta.
+Det ungefär samma sak som en textbaserad online uppgift.</p>
+
+<p>Den här textytan kan användas för kommunikation med den betygssättande personen,
+beskrivning av hur arbetet med uppgiften fortskrider eller vilken annan aktivitet
+som helst.</p>';
 $string['allowresubmit'] = 'Låt användarna skicka om sina bidrag';
-$string['allowresubmit_help'] = 'Om aktiverad, kommer eleverna att tillåtas skicka svar på nytt efter att de har betygsats.';
+$string['allowresubmit_help'] = '<p>Standardvalet &auml;r att de l&auml;rande INTE kan
+skicka in sina uppgifter igen n&auml;r distansl&auml;raren
+v&auml;l har bed&ouml;mt/v&auml;rderat/betygssatt dem.</p>
+<p>Om Du aktiverar den h&auml;r valm&ouml;jligheten s&aring; kommer de l&auml;rande att kunna
+skicka in sina (reviderade) uppgifter igen efter det att de har
+bed&ouml;mts/v&auml;rderats/betygssatts
+(s&aring; att Du kan bed&ouml;ma/v&auml;rdera/betygss&auml;tta dem igen).</p>
+<p>Det h&auml;r kan vara praktiskt om Du som distansl&auml;rare vill uppmuntra de l&auml;rande
+att f&ouml;rb&auml;ttra sina insatser i en iterativ process.</p>
+<p>Det g&auml;ller naturligtvis inte uppgifter som ska l&ouml;sas offline.</p>';
 $string['alreadygraded'] = 'Din uppgift har redan blivit betygssatt och det är inte tillåtet att skicka en ny version av uppgiften.';
 $string['assignment:addinstance'] = 'Lägg till en ny inlämningsuppgiftuppgift';
 $string['assignmentdetails'] = 'Detaljer om uppgifter';
@@ -48,7 +65,7 @@ $string['assignmentmailhtml'] = '{$a->teacher} har skrivit viss återkoppling p�
 Du hittar den som ett tillägg till Ditt <a href="{$a->url}">inskickade bidrag.</a>';
 $string['assignmentmailsmall'] = '{$a->teacher} har gjort återkoppling till din inlämnade uyppgift för \'{$a->assignment}\' Du kan se det bifogat till din inlämning';
 $string['assignmentname'] = 'Uppgiftens namn';
-$string['assignmentsubmission'] = 'Bidrag inskickade i sb m uppgift';
+$string['assignmentsubmission'] = 'Inskickade inlämningsuppgifter';
 $string['assignment:submit'] = 'Skicka in uppgift';
 $string['assignmenttype'] = 'Uppgiftens typ';
 $string['assignment:view'] = 'Visa uppgift';
@@ -59,7 +76,11 @@ $string['changegradewarning'] = '';
 $string['closedassignment'] = 'Inlämningsdatum för denna uppgift har gått ut.';
 $string['comment'] = 'Kommentar';
 $string['commentinline'] = 'Kommentar inne i dokument';
-$string['commentinline_help'] = 'Om aktiverat, kommer inlämningstexten att kopieras till den återkopplingsfältet under betygssättning, vilket gör det lättare att kommentera inline (med en annan färg, kanske) eller redigera den ursprungliga texten.';
+$string['commentinline_help'] = '<p>Om det h&auml;r alternativet &auml;r f&ouml;rvalt s&aring; kommer den urprungliga
+inskickade uppgiften att kopieras in i textf&auml;ltet f&ouml;r den kommenterande
+&aring;terkopplingen n&auml;r uppgiften ska betygss&auml;ttas. Det g&ouml;r det l&auml;ttare att
+infoga kommentarer eller redigera direkt i uppgiften. Man kan t.ex. anv&auml;nda en annan
+textf&auml;rg.</p>';
 $string['configitemstocount'] = 'Typ av komponenter som ska räknas för studenters inskickade uppgifter online';
 $string['configmaxbytes'] = 'Standardinställningen för den maximala storleken på inskickade uppgifter. Du kan också ställa in ett eget värde för varje kurs och även andra lokala begränsningar är möjliga.';
 $string['configshowrecentsubmissions'] = 'Alla kan se meddelanden om inskickade uppgifter in rapporterna för senaste aktivitet.';
@@ -72,8 +93,8 @@ $string['description'] = 'Beskrivning';
 $string['downloadall'] = 'Ladda ner alla uppgifter som en zip-fil';
 $string['draft'] = 'Utkast';
 $string['due'] = 'Tidsgräns för uppgift';
-$string['duedate'] = 'Stoppdatum/tid';
-$string['duedateno'] = 'Inget stoppdatum/tid';
+$string['duedate'] = 'Slutdatum/tid';
+$string['duedateno'] = 'Inget slutdatum/tid';
 $string['early'] = '{$a} tidigt';
 $string['editmysubmission'] = 'Redigera min inskickade uppgiftslösning';
 $string['editthesefiles'] = 'Redigera dessa filer';
@@ -87,14 +108,12 @@ Den är tillgänglig här:
    {$a->url}';
 $string['emailteachermailhtml'] = '{$a->username} har uppdaterat sin inskickade uppgiftslösning för <i>\'{$a->assignment}\' den {$a->timeupdated}</i><br /><br />Den är <a href="{$a->url}"> tillgänglig på webbplatsen.';
 $string['emailteachers'] = 'Skicka ett e-postmeddelande med information till distanslärarna';
-$string['emailteachers_help'] = 'Om detta är aktiverat så blir lärare informerade via ett kort e-postmeddelande varje gång en student lägger till eller uppdaterar en inskickad uppgiftslösning.
-
-Endast de lärare som har rätt att sätta betyg på/avge omdömen om den aktuella inskickade uppgiftslösningen får ett sådant meddelande. Alltså. om t.ex. kursen använder olika grupper så kommer de lärare som bara är fördelade på vissa grupper inte att få meddelanden om studenter i andra grupper.';
+$string['emailteachers_help'] = '<p>Om detta &auml;r aktiverat s&aring; blir l&auml;rare informerade via ett kort e-postmeddelande varje g&aring;ng en student l&auml;gger till eller uppdaterar en inskickad uppgiftsl&ouml;sning. </p> <p>Endast de l&auml;rare som har r&auml;tt att s&auml;tta betyg p&aring;/avge omd&ouml;men om den aktuella inskickade uppgiftsl&ouml;sningen f&aring;r ett s&aring;dant meddelande. Allts&aring;. om t.ex. kursen anv&auml;nder olika grupper s&aring; kommer de l&auml;rare som bara &auml;r f&ouml;rdelade p&aring; vissa grupper inte att f&aring; meddelanden om studenter i andra grupper.</p> <p>N&auml;r det g&auml;ller aktiviteter offline s&aring; skickas f&ouml;rst&aring;s aldrig n&aring;gra meddelanden, eftersom ingen skickar in n&aring;gra uppgiftsl&ouml;sningar.</p>';
 $string['emptysubmission'] = 'Du har inte skickat in någonting än';
 $string['enablenotification'] = 'Skicka e-post med meddelanden';
-$string['enablenotification_help'] = 'Om aktiverat, kommer eleverna att meddelas när deras inlämningsuppgifter beygsätts.
+$string['enablenotification_help'] = '<p>Om du aktiverar detta så kommer studenterna/eleverna/deltagarna/de lärande att få meddelanden via e-post angående sina betyg och återkoppling.</p>
 
-Dina personliga preferenser kommer att sparas och de kommer att tillämpas på alla inskickade uppgifter som du betygsätter.';
+<p>Dina personliga preferenser kommer att sparas och de kommer att tillämpas på alla inskickade uppgifter som du betygsätter.</p>';
 $string['errornosubmissions'] = 'Det finns inga inskickade bidrag att ladda ner';
 $string['existingfiledeleted'] = 'Befintlig fil har tagits bort: &a';
 $string['failedupdatefeedback'] = 'Uppdateringen av återkopplingen för det inskickade bidraget av användaren {$a} fungerade inte';
@@ -127,7 +146,20 @@ $string['maximumsize'] = 'Maximum storlek';
 $string['maxpublishstate'] = 'Maximal synlighet för inlägg i blogg före datum för offentliggörande';
 $string['messageprovider:assignment_updates'] = 'Anteckningar om uppgifter';
 $string['modulename'] = 'Uppgift (2.2)';
-$string['modulename_help'] = 'Inlämingsuppgifter tillåter distansläraren att formulera en uppgift som är antingen online eller offline och som sedan kan betygsättas.';
+$string['modulename_help'] = '<p><img src="<?php echo $CFG->wwwroot?>/mod/assignment/icon.gif" alt="" />&nbsp;<b>Uppgifter</b></p>
+<ul>
+<li>Uppgifter till&aring;ter distansl&auml;raren att formulera en uppgift som
+inneb&auml;r att de l&auml;rande ska g&ouml;ra iordning digitalt inneh&aring;ll
+(i valfritt format) och skicka in det till servern.</li>
+</ul>
+<ul>
+<li>Ess&auml;er, projekt, rapporter
+osv. &auml;r exempel p&aring; typiska uppgifter.</li>
+</ul>
+<ul>
+<li>Den h&auml;r modulen till&aring;ter
+bed&ouml;mning/v&auml;rdering/betygss&auml;ttning.</li>
+</ul>';
 $string['modulenameplural'] = 'Uppgifter';
 $string['newsubmissions'] = 'Uppgifterna är inskickade';
 $string['noassignments'] = 'Det finns inga uppgifter ännu.';
@@ -157,7 +189,11 @@ $string['pluginname'] = 'Uppgift (2.2)';
 $string['popupinnewwindow'] = 'Öppna i ett popup-fönster';
 $string['preventlate'] = 'Förhindra att någon skickar in försenade uppgiftslösningar';
 $string['quickgrade'] = 'Tillåt snabb betygssättning';
-$string['quickgrade_help'] = 'Om aktiverad, kan flera inlämningsuppgifter betygssättas på en sida. Lägg till betyg och kommentarer och välj sedan "Spara"-knappen för att spara alla ändringar.';
+$string['quickgrade_help'] = '<p>Genom att aktivera Snabba betyg/omd&ouml;men kan Du snabbt s&auml;tta betyg p&aring;/avge omd&ouml;men om flerfaldiga uppgifter p&aring; en sida.</p>
+
+<p>Ändra bara p&aring; betygen/omd&ouml;mena och kommentarerna och anv&auml;nd knappen \'Spara\' f&ouml;r att spara alla Dina &auml;ndringar f&ouml;r den sidan omedelbart.</p>
+
+<p>De normala knapparna f&ouml;r betyg/omd&ouml;men till h&ouml;ger kommer fortfarande att fungera ifall Du beh&ouml;ver mer utrymme. Dina inst&auml;llningar f&ouml;r Snabba betyg/omd&ouml;men har sparats och kommer att till&auml;mpas p&aring; alla uppgifter i alla kurser.</p>';
 $string['requiregrading'] = 'Gör betyg/omdöme obligatoriskt';
 $string['responsefiles'] = 'Responsfiler';
 $string['reviewed'] = 'Recenserad';

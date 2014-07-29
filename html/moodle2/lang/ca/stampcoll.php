@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'stampcoll', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'stampcoll', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   stampcoll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,6 +67,8 @@ $string['stampcoll:managestamps'] = 'Gestiona els segells';
 $string['stampcoll:view'] = 'Mostra l\'activitat';
 $string['stampcoll:viewotherstamps'] = 'Mostra els segells dels altres';
 $string['stampcoll:viewownstamps'] = 'Mostra els meus segells';
+$string['stampgivenby'] = 'Donat per';
+$string['stampgivenon'] = 'Donat el dia';
 $string['stampimage'] = 'Imatge de segell personalitzada';
 $string['stampimage_help'] = 'La mida recomanada és de 35x35 píxels. Si ho deixeu en blanc, s\'agafarà l\'imatge per defecte.';
 $string['stamptext'] = 'Text';

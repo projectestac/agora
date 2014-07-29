@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,10 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'en', branch 'MOODLE_20_STABLE'
+ * Moodle's formal_white theme, an example of how to make a Bootstrap theme
+ *
+ * DO NOT MODIFY THIS THEME!
+ * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
+ *
+ * For full information about creating Moodle themes, see:
+ * http://docs.moodle.org/dev/Themes_2.0
  *
  * @package   theme_formal_white
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright 2013 Mediatouch 2000, mediatouch.it
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -29,6 +34,7 @@ $string['blockcontentbgc'] = 'Blocks content background colour';
 $string['blockcontentbgcdesc'] = 'This sets the blocks content background colour for the theme.';
 $string['blockpadding'] = 'Margin around blocks';
 $string['blockpaddingdesc'] = 'This sets the margin between each block and the containing column.';
+$string['blueberry'] = 'blueberry';
 $string['choosereadme'] = '
 <div class="clearfix">
     <div class="theme_screenshot">
@@ -69,7 +75,7 @@ $string['customcssdesc'] = 'Any CSS you enter here will be added to every page a
 <pre>a:link, a:visited, a:hover, a:active, a:focus {color:blue;}</pre>
 Please adjust colors and CSS rules to fit your needs.';
 $string['customlogourl'] = 'Custom logo';
-$string['customlogourldesc'] = 'Change the logo for this theme by entering the full or relative URL to an image you wish to use (i.e. http://www.yoursite.tld/mylogo.png or ../path/to/your/logo.png). As a reference, the default logo is 200px wide, 50px high and a transparent png will work best.';
+$string['customlogourldesc'] = 'Change the logo for this theme by entering the full or relative URL to an image you wish to use (i.e. http://www.yoursite.tld/mylogo.png or ../path/to/your/logo.png). As a reference the default logo is 200px wide, 50px high and a transparent png will work best.';
 $string['displayheading'] = 'Display page heading';
 $string['displaylogo'] = 'Display logo';
 $string['fontsizereference'] = 'Font size reference';
@@ -79,17 +85,25 @@ $string['footnotedesc'] = 'The content from this textarea will be displayed in t
 $string['framemargin'] = 'Frame margin';
 $string['framemargindesc'] = 'Room between the frame and the edge of the browser window. (This setting will be ignored if "{$a}" is requested).';
 $string['frontpagelogourl'] = 'Custom front page logo';
-$string['frontpagelogourldesc'] = 'Change the logo that is displayed on the front page of your site by entering the full or relative URL to the image you wish to use. This setting overrides the custom logo setting. As a reference the default logo is 300px wide, 80px high and a transparent png will work best.';
+$string['frontpagelogourldesc'] = 'Change the logo that is displayed on the front page of your site by entering the full or relative URL to the image you wish to use (i.e. http://www.yoursite.tld/myfrontpagelogo.png or ../path/to/your/logo.png). This setting overrides the custom logo setting. As a reference the default logo is 300px wide, 80px high and a transparent png will work best.';
 $string['headerbgc'] = 'Header background colour';
 $string['headerbgcdesc'] = 'This sets the blocks header background colour for the theme.';
 $string['headercontent'] = 'Header content';
 $string['headercontentdesc'] = 'Choose whether display moodle logo or page heading text in the header.';
 $string['lblockcolumnbgc'] = 'Left column background colour';
 $string['lblockcolumnbgcdesc'] = 'This sets the left column background colour for the theme.';
+$string['lemon'] = 'lemon';
+$string['lime'] = 'lime';
+$string['mink'] = 'mink';
 $string['noframe'] = 'Formal white 1.9 look';
 $string['noframedesc'] = 'Select this option to require your moodle page to look like moodle 1.*, alias, without the surrounding frame.';
+$string['orange'] = 'orange';
+$string['peach'] = 'peach';
 $string['pluginname'] = 'Formal white';
 $string['rblockcolumnbgc'] = 'Right column background colour';
 $string['rblockcolumnbgcdesc'] = 'This sets the right column background colour for the theme. If you leave this empty the left column background colour will be used.';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
+$string['silver'] = 'silver';
+$string['trendcolor'] = 'Trend color';
+$string['trendcolordesc'] = 'Choose the general trend for the color of the theme.';

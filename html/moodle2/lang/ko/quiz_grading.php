@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_grading', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_grading', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,7 @@ $string['cannotloadquestioninfo'] = '특정 질문 유형의 질문 정보를 �
 $string['changeoptions'] = '옵션 변경';
 $string['essayonly'] = '다음 질문은 수동으로 채점해야 합니다.';
 $string['grade'] = '성적';
-$string['gradeall'] = '모든 시도 채점';
+$string['gradeall'] = '모든 {$a} 시도 채점';
 $string['gradeattemptsall'] = '모두 ({$a})';
 $string['gradeattemptsautograded'] = '자동으로 채점된 것들  ({$a}).';
 $string['gradeattemptsmanuallygraded'] = '이전에 수동으로 채점된 것들  ({$a}).';

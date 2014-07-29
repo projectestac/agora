@@ -54,12 +54,11 @@ YUI.add('moodle-form-dateselector', function(Y) {
     CALENDAR.prototype = {
         panel : null,
         yearselect : null,
-        yearselectchange : null,
         monthselect : null,
-        monthselectchange : null,
         dayselect : null,
-        dayselectchange : null,
+        calendarimage : null,
         enablecheckbox : null,
+        closepopup : true,
         initializer : function(config) {
             var controls = this.get('node').all('select');
             controls.each(function(node){
@@ -69,35 +68,51 @@ YUI.add('moodle-form-dateselector', function(Y) {
                     this.monthselect = node;
                 } else if (node.get('name').match(/\[day]/)) {
                     this.dayselect = node;
-                } else {
-                    node.on('focus', M.form.dateselector.cancel_any_timeout, M.form.dateselector);
-                    node.on('blur', this.blur_event, this);
-                    return;
                 }
-                node.on('focus', this.focus_event, this);
-                node.on('click', this.focus_event, this);
-                node.after('change', this.set_date_from_selects, this);
+                node.after('change', this.handle_select_change, this);
             }, this);
 
-            if (this.yearselect && this.monthselect && this.dayselect) {
-                this.enablecheckbox = this.get('node').one('input');
-            }
+            // Loop through the input fields.
+            var inputs = this.get('node').all('input, a');
+            inputs.each(function(node) {
+                // Check if the current node is a calendar image field.
+                if (node.get('name').match(/\[calendar]/)) {
+                    // Set it so that when the image is clicked the pop-up displays.
+                    node.on('click', this.focus_event, this);
+                    // Set the node to the calendarimage variable.
+                    this.calendarimage = node;
+                } else { // Must be the enabled checkbox field.
+                    // If the enable checkbox is clicked we want to either disable/enable the calendar image.
+                    node.on('click', this.toggle_calendar_image, this);
+                    // Set the node to the enablecheckbox variable.
+                    this.enablecheckbox = node;
+                }
+                // Ensure that the calendarimage and enablecheckbox values have been set.
+                if (this.calendarimage && this.enablecheckbox) {
+                    // Set the calendar icon status depending on the value of the checkbox.
+                    this.toggle_calendar_image();
+                }
+            }, this);
         },
         focus_event : function(e) {
             M.form.dateselector.cancel_any_timeout();
-            if (this.enablecheckbox == null || this.enablecheckbox.get('checked')) {
+            // If the current owner is set, then the pop-up is currently being displayed, so hide it.
+            if (M.form.dateselector.currentowner == this) {
+                this.release_calendar();
+            } else if ((this.enablecheckbox == null)
+                || (this.enablecheckbox.get('checked'))) { // Must be hidden. If the field is enabled display the pop-up.
                 this.claim_calendar();
-            } else {
-                if (M.form.dateselector.currentowner) {
-                    M.form.dateselector.currentowner.release_calendar();
-                }
             }
-        },
-        blur_event : function(e) {
-            M.form.dateselector.hidetimeout = setTimeout(M.form.dateselector.release_current, 300);
+            // Stop the input image field from submitting the form.
+            e.preventDefault();
         },
         handle_select_change : function(e) {
+            // It may seem as if the following variable is not used, however any call to set_date_from_selects will trigger a
+            // call to set_selects_from_date if the calendar is open as the date has changed. Whenever the calendar is displayed
+            // the set_selects_from_date function is set to trigger on any date change (see function connect_handlers).
+            this.closepopup = false;
             this.set_date_from_selects();
+            this.closepopup = true;
         },
         claim_calendar : function() {
             M.form.dateselector.cancel_any_timeout();
@@ -107,7 +122,6 @@ YUI.add('moodle-form-dateselector', function(Y) {
             if (M.form.dateselector.currentowner) {
                 M.form.dateselector.currentowner.release_calendar();
             }
-
             if (M.form.dateselector.currentowner != this) {
                 this.connect_handlers();
                 this.set_date_from_selects();
@@ -123,10 +137,16 @@ YUI.add('moodle-form-dateselector', function(Y) {
             var year = parseInt(this.yearselect.get('value'));
             var month = parseInt(this.monthselect.get('value')) - 1;
             var day = parseInt(this.dayselect.get('value'));
-            M.form.dateselector.calendar.select(new Date(year, month, day));
+            var date = new Date(year, month, day);
+            M.form.dateselector.calendar.select(date);
             M.form.dateselector.calendar.setMonth(month);
             M.form.dateselector.calendar.setYear(year);
             M.form.dateselector.calendar.render();
+            if (date.getDate() != day) {
+                // Must've selected the 29 to 31st of a month that doesn't have such dates.
+                this.dayselect.set('value', date.getDate());
+                this.monthselect.set('value', date.getMonth() + 1);
+            }
         },
         set_selects_from_date : function(eventtype, args) {
             var date = args[0][0];
@@ -135,7 +155,9 @@ YUI.add('moodle-form-dateselector', function(Y) {
             this.yearselect.set('selectedIndex', newindex);
             this.monthselect.set('selectedIndex', date[1] - this.monthselect.firstOptionValue());
             this.dayselect.set('selectedIndex', date[2] - this.dayselect.firstOptionValue());
-            M.form.dateselector.release_current();
+            if (M.form.dateselector.currentowner && this.closepopup) {
+                this.release_calendar();
+            }
         },
         connect_handlers : function() {
             M.form.dateselector.calendar.selectEvent.subscribe(this.set_selects_from_date, this, true);
@@ -144,6 +166,17 @@ YUI.add('moodle-form-dateselector', function(Y) {
             M.form.dateselector.panel.hide();
             M.form.dateselector.currentowner = null;
             M.form.dateselector.calendar.selectEvent.unsubscribe(this.set_selects_from_date, this);
+        },
+        toggle_calendar_image : function() {
+            // If the enable checkbox is not checked, disable the image.
+            if (!this.enablecheckbox.get('checked')) {
+                this.calendarimage.set('disabled', 'disabled');
+                this.calendarimage.setStyle('cursor', 'default');
+                this.release_calendar();
+            } else {
+                this.calendarimage.set('disabled', false);
+                this.calendarimage.setStyle('cursor', null);
+            }
         }
     };
     Y.extend(CALENDAR, Y.Base, CALENDAR.prototype, {
@@ -171,11 +204,11 @@ YUI.add('moodle-form-dateselector', function(Y) {
             if (this.panel === null) {
                 this.initPanel(config);
             }
-            Y.all('fieldset.fdate_time_selector').each(function(){
+            Y.all('.fdate_time_selector').each(function() {
                 config.node = this;
                 new CALENDAR(config);
             });
-            Y.all('fieldset.fdate_selector').each(function(){
+            Y.all('.fdate_selector').each(function() {
                 config.node = this;
                 new CALENDAR(config);
             });
@@ -187,6 +220,10 @@ YUI.add('moodle-form-dateselector', function(Y) {
                 id : 'dateselector-calendar-panel'
             });
             this.panel.render(document.body);
+            // zIndex is added by panel.render() and is set to 0.
+            // Remove zIndex from panel, as this should be set by CSS. This can be done by removeAttr but
+            // ie8 fails and there is know issue for it.
+            Y.one('#dateselector-calendar-panel').setStyle('zIndex', null);
             this.panel.on('heightChange', this.fix_position, this);
 
             Y.one('#dateselector-calendar-panel').on('click', function(e){e.halt();});
@@ -247,11 +284,6 @@ YUI.add('moodle-form-dateselector', function(Y) {
                     node:this.currentowner.get('node').one('select'),
                     points:[Y.WidgetPositionAlign.BL, Y.WidgetPositionAlign.TL]
                 });
-            }
-        },
-        release_current : function() {
-            if (this.currentowner) {
-                this.currentowner.release_calendar();
             }
         },
         document_click : function(e) {

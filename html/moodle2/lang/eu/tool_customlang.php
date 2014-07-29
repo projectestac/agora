@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_customlang', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_customlang', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_customlang
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,9 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['checkin'] = 'Gorde kateak hizkuntza-paketean';
-$string['checkout'] = 'Ireki hizkuntza-paketea editatzeko';
-$string['checkoutdone'] = 'Hizkuntza-paketea igo da';
-$string['checkoutinprogress'] = 'Hizkuntza-paketea igotzen';
+$string['checkout'] = 'ireki hizkuntza-paketea editatzeko';
+$string['checkoutdone'] = 'Hizkuntza-paketea eguneratu da';
+$string['checkoutinprogress'] = 'Hizkuntza-paketea eguneratzen';
 $string['confirmcheckin'] = 'Aldatutako kateak zure hizkuntza-pakete lokalean egiaztatzekotan zara. Honela pertsonalizatutako kateak itzultzailearengandik datu-direktoriora esportatuko dira eta Moodle aldatutako kateak erabiltzen hasiko da. Sakatu \'Jarraitu\' botoiari egiaztatzeko.';
 $string['customlang:edit'] = 'Itzulpen lokala editatu ';
 $string['customlang:view'] = 'Itzulpen lokala ikusi';
@@ -47,11 +47,11 @@ $string['headingstringid'] = 'Katea';
 $string['markinguptodate'] = 'Markatu pertsonalizazioa eguneratu gisa';
 $string['markinguptodate_help'] = 'Pertsonalizatutako itzulpena zaharkitua gera daiteke katea zure gunean pertsonalizatu zenetik jatorrizko Ingeles edo itzulpen ofiziala aldatu bada. Berrikusi pertsonalizatutako itzulpena. Eguneratuta irizten badiozu, markatu laukitxoa. Bestela, editatu.';
 $string['markuptodate'] = 'markatu eguneratu gisa';
-$string['modifiedno'] = 'Ez dago aldatutako katerik gordetzeko.';
+$string['modifiedno'] = 'Ez dago aldatutako katerik egiaztatzeko.';
 $string['modifiednum'] = '{$a} aldatutako kate daude. Egiaztatu egin behar dituzu diskoan behin betiko gordetzeko.';
 $string['nostringsfound'] = 'Ez da katerik aurkitu. Mesedez, aldatu iragazkiaren ezarpenak.';
 $string['placeholder'] = 'Leku-markak';
 $string['placeholderwarning'] = 'Kateak leku-marka du';
 $string['pluginname'] = 'Hizkuntzaren pertsonalizazioa';
-$string['savecheckin'] = 'Gorde eta egiaztatu kateak fitxategietan.';
-$string['savecontinue'] = 'Gorde eta jarraitu editatzen';
+$string['savecheckin'] = 'Gorde aldaketak hizkuntza-paketean';
+$string['savecontinue'] = 'Aplikatu aldaketak eta jarraitu editatzen';

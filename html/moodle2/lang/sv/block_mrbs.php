@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_mrbs', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_mrbs', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   block_mrbs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['browserlang'] = 'Din webbläsare är inställd att använda språk(en)'
 $string['capacity'] = 'Kapacitet';
 $string['charset'] = 'utf-8';
 $string['click_to_reserve'] = 'Klicka på cellen för att göra en bokning.';
+$string['config_date_ddmmyy'] = '';
 $string['confirmdel'] = 'Är du säker att du vill radera den här bokningen?';
 $string['conflict'] = 'Den nya bokningen krockar med följande bokning(ar)';
 $string['createdby'] = 'Skapad av';

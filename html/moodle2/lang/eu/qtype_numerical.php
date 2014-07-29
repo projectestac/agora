@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,9 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['acceptederror'] = 'Onartutako errorea';
-$string['addmoreanswerblanks'] = 'Zuriguneak aukera gehiagotarako {ez}';
-$string['addmoreunitblanks'] = 'Zuriguneak unitate gehiagotarako {ez}';
+$string['addmoreanswerblanks'] = 'Zuriguneak {no} aukera gehiagotarako';
+$string['addmoreunitblanks'] = 'Zuriguneak {no} unitate gehiagotarako';
 $string['answercolon'] = 'Erantzuna:';
+$string['answererror'] = 'Errorea';
 $string['answermustbenumberorstar'] = 'Erantzunak zenbakia behar du izan edo  \'*\'.';
 $string['answerno'] = '{$a} erantzuna';
 $string['decimalformat'] = 'hamartarrak';
@@ -56,12 +57,17 @@ $string['tolerancetype'] = 'Tolerantzia-mota';
 $string['unit'] = 'Unitatea';
 $string['unitedit'] = 'Editatu unitatea';
 $string['unitgraded'] = 'ZENBAKIZKO ERANTZUNA eta ERANTZUNAREN UNITATEA kalifikatuko dira';
-$string['unithdr'] = '{$a} unitatea';
+$string['unitincorrect'] = 'Ez duzu unitate zuzena eman.';
 $string['unitmandatory'] = 'Beharrezkoa';
-$string['unitnotselected'] = 'Ez da unitatea aukeratu';
+$string['unitnotselected'] = 'Unitatea aukeratu behar duzu.';
 $string['unitonerequired'] = 'Gutxienez unitate bat idatzi behar duzu';
 $string['unitoptional'] = 'Aukerako unitatea';
 $string['unitpenalty'] = 'Penalizazio-unitatea';
 $string['unitposition'] = 'Unitatearen kokapena';
+$string['units'] = 'Unitateak';
 $string['unitselect'] = 'zabaltzen den menua';
+$string['unitx'] = '{no}. Unitatea';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 edo 1.350067 E04';
+$string['xmustbenumeric'] = '{$a}-(e)k zenbakia izan behar du.';
+$string['xmustnotbenumeric'] = '{$a}-(e)k ezin da zenbakia.';
+$string['youmustenteramultiplierhere'] = 'Biderkatzaile bat idatzi behar duzu';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_cas', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_cas', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_cas
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 $string['accesCAS'] = 'CASユーザ';
 $string['accesNOCAS'] = '他のユーザ';
 $string['auth_cas_auth_user_create'] = '外部にユーザを作成する';
-$string['auth_cas_baseuri'] = 'サーバのURI (ベースURIが無い場合は空白)<br />CASサーバが host.domaine.fr/CAS/ に応答する場合、<br />cas_baseuri = CAS/';
-$string['auth_cas_baseuri_key'] = 'ベースURI';
+$string['auth_cas_baseuri'] = 'サーバのURL (ベースURLが無い場合は空白)<br />CASサーバが host.domaine.fr/CAS/ に応答する場合、<br />cas_baseuri = CAS/';
+$string['auth_cas_baseuri_key'] = 'ベースURL';
 $string['auth_cas_broken_password'] = 'あなたのパスワードを変更せずに進むことはできませんが、利用できるパスワード変更ページがありません。あなたのMoodle管理者にご連絡ください。';
 $string['auth_cas_cantconnect'] = 'CASモジュールのLDAPがサーバに接続できません: {$a}';
 $string['auth_cas_casversion'] = 'CASプロトコルバージョン';
@@ -38,7 +38,7 @@ $string['auth_cas_certificate_check_key'] = 'サーバ認証';
 $string['auth_cas_certificate_path'] = 'サーバ証明書を認証するためのCAチェーンファイル (PEMフォーマット) のパスです。';
 $string['auth_cas_certificate_path_empty'] = 'あなたがサーバ妥当性を有効にした場合、証明書パスを指定する必要があります。';
 $string['auth_cas_certificate_path_key'] = '証明書パス';
-$string['auth_cas_changepasswordurl'] = 'パスワード変更URI';
+$string['auth_cas_changepasswordurl'] = 'パスワード変更URL';
 $string['auth_cas_create_user'] = 'MoodleデータベースにCAS認証済みユーザを追加したい場合、「Yes」を選択してください。「No」を選択した場合、Moodleデータベースに登録されているユーザのみログインできます。';
 $string['auth_cas_create_user_key'] = 'ユーザを作成する';
 $string['auth_casdescription'] = 'この認証方法では、単一ログイン環境 (Single Sign On environment: SSO) にて、CASサーバ (Central Authentication Service) をユーザ認証に使用します。シンプルLDAP認証を使用することもできます。ユーザ名とパスワードがCASで認証された場合、Moodleは新しいユーザエントリをデータベースに作成します。また、必要であれば、LDAPよりユーザ属性を取得します。次回からは、ユーザ名およびパスワードのみ確認されます。';
@@ -51,8 +51,8 @@ $string['auth_cas_language_key'] = '言語';
 $string['auth_cas_logincas'] = 'セキュアコネクション・アクセス';
 $string['auth_cas_logoutcas'] = 'Moodleからのログアウト時、CASからログアウトしたい場合、「Yes」を選択してください。';
 $string['auth_cas_logoutcas_key'] = 'CASログアウトオプション';
-$string['auth_cas_logout_return_url'] = 'CASユーザのログアウト後にリダイレクトされるURIを提供してください。<br />空白の場合、Moodleがユーザをリダイレクトする場所にリダイレクトされます。';
-$string['auth_cas_logout_return_url_key'] = '代替ログアウト戻りURI';
+$string['auth_cas_logout_return_url'] = 'CASユーザのログアウト後にリダイレクトされるURLを提供してください。<br />空白の場合、Moodleがユーザをリダイレクトする場所にリダイレクトされます。';
+$string['auth_cas_logout_return_url_key'] = '代替ログアウト戻りURL';
 $string['auth_cas_multiauth'] = 'マルチ認証 (CAS + 他の認証) を使用したい場合、「Yes」を選択してください。';
 $string['auth_cas_multiauth_key'] = 'マルチ認証';
 $string['auth_casnotinstalled'] = 'CAS認証を使用できません。PHP LDAPモジュールがインストールされていません。';

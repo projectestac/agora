@@ -94,13 +94,8 @@ $table->rowclasses = array();
 if ($course->format == 'weeks') {
     $table->head = array(get_string('week'), $strname, $strsummary,$strreport);
     $table->align = array('center', 'left');
-}
-else if ($course->format == 'topics') {
+} else {
     $table->head = array(get_string('topic'), $strname, $strsummary, $strreport);
-    $table->align = array('center', 'left', 'left', 'left');
-}
-else {
-    $table->head = array($strname, $strreport);
     $table->align = array('left', 'left', 'left');
 }
 
@@ -154,12 +149,7 @@ for($i=$startindex;$i<($startindex+$limit);$i++) {
         $link = '<a href="view.php?id=' . $rcontent->coursemodule . '">' . $rcontent->name . '</a>';
     }
 
-    if ($course->format == 'weeks' || $course->format == 'topics') {
-        array_push($table->data, array($rcontent->section, $link, $rcontent->summary,$reportshow));
-    }
-    else {
-        array_push($table->data, array($link));
-    }
+    $table->data[] = array($rcontent->section, $link, $rcontent->summary,$reportshow);
 }
 
 if (!isset($context)) {

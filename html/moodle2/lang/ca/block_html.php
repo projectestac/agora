@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_html', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_html', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   block_html
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['allowadditionalcssclasses'] = 'Permet classes CSS addicionals';
-$string['configallowadditionalcssclasses'] = 'Afegeix una opció de configuració per permetre que les instàncies de blocs HTML defineixin classes CSS addicionals.';
-$string['configclasses'] = 'Classes CSS addicionals';
-$string['configclasses_help'] = 'El propòsit d\'aquesta configuració és ajudar amb la tematització permetent que es distingeixin uns blocs HTML d\'altres. Les classes CSS que introduïu aquí (separades per espais) s\'afegiran a les classes per defecte del bloc.';
+$string['allowadditionalcssclasses'] = 'Habilita classes addicionals CSS';
+$string['configallowadditionalcssclasses'] = 'Afegeix una opció de configuració per permetre a les instàncies del HTML configurar classes addicionals CSS';
+$string['configclasses'] = 'Classes addicionals CSS';
+$string['configclasses_help'] = 'El propòsit d\'aquesta configuració es ajudar amb la tematització ajudant a distingir blocs HTML d\'altres. Les classes HTML que introduïu aquí (delimitades per espais) s\'afegiran a les classes per defecte.';
 $string['configcontent'] = 'Contingut';
 $string['configtitle'] = 'Títol del bloc';
 $string['html:addinstance'] = 'Afegir un bloc HTML nou';

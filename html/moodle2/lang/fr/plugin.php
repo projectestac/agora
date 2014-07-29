@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Actions';
 $string['availability'] = 'Disponibilité';
 $string['checkforupdates'] = 'Rechercher des mises à jour';
 $string['checkforupdateslast'] = 'Dernière vérification effectuée le {$a}';
+$string['detectedmisplacedplugin'] = 'Le plugin « {$a->component} » est installé à l\'emplacement incorrect « {$a->current} ». L\'emplacement d\'installation attendu est :  « {$a->expected} »';
 $string['displayname'] = 'Nom du plugin';
 $string['err_response_curl'] = 'Impossible de récupérer les données de mise à jour. Erreur de cURL.';
 $string['err_response_format_version'] = 'Version inattendue du format de réponse. Veuillez vérifier si des mises à jour sont disponibles.';
@@ -55,8 +56,7 @@ $string['numtotal'] = 'Installés : {$a}';
 $string['numupdatable'] = 'Mises à jour disponibles : {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['pluginchecknotice'] = 'Cette page affiche les plugins pouvant requérir votre attention durant la mise à jour. Les éléments affichés incluent les nouveaux plugins sur le point d\'être installés, les plugins qui vont être mis à jour et tous les plugins manquants. Les plugins tiers sont aussi affichés.
-Il est recommandé que vous vérifiiez si des versions plus récentes des plugins tiers sont disponibles et de mettre à jour leur code source avant de poursuivre la mise à jour de ce Moodle.';
+$string['pluginchecknotice'] = 'Cette page affiche les plugins pouvant requérir votre attention durant la mise à jour. Les éléments mis en évidence incluent les nouveaux plugins sur le point d\'être installés, les plugins qui vont être mis à jour et tous les plugins manquants. Les plugins tiers sont aussi mis en évidence si une mise à jour est disponible. Il est recommandé que vous vérifiiez si des versions plus récentes des plugins tiers sont disponibles et de mettre à jour leur code source avant de poursuivre la mise à jour de ce Moodle.';
 $string['plugindisable'] = 'Désactiver';
 $string['plugindisabled'] = 'Désactivé';
 $string['pluginenable'] = 'Activer';
@@ -89,6 +89,8 @@ $string['type_cachelock'] = 'Gestionnaire de verrou de cache';
 $string['type_cachelock_plural'] = 'Gestionnaires de verrou de cache';
 $string['type_cachestore'] = 'Entrepôt du cache';
 $string['type_cachestore_plural'] = 'Entrepôts du cache';
+$string['type_calendartype'] = 'Type de calendrier';
+$string['type_calendartype_plural'] = 'Types de calendriers';
 $string['type_coursereport'] = 'Rapport de cours';
 $string['type_coursereport_plural'] = 'Rapports du cours';
 $string['type_editor'] = 'Éditeur';
@@ -109,14 +111,14 @@ $string['type_gradingform'] = 'Méthode d\'évaluation avancée';
 $string['type_gradingform_plural'] = 'Méthodes d\'évaluation avancées';
 $string['type_local'] = 'Plugin local';
 $string['type_local_plural'] = 'Plugins locaux';
-$string['type_message'] = 'Output de messagerie';
-$string['type_message_plural'] = 'Outputs de messagerie';
+$string['type_message'] = 'Notification de messagerie';
+$string['type_message_plural'] = 'Notifications de messagerie';
 $string['type_mnetservice'] = 'Service MNet';
 $string['type_mnetservice_plural'] = 'Services MNet';
 $string['type_mod'] = 'Module d\'activité';
 $string['type_mod_plural'] = 'Modules d\'activité';
-$string['type_plagiarism'] = 'Plugin de prévention du plagiat';
-$string['type_plagiarism_plural'] = 'Plugins de prévention du plagiat';
+$string['type_plagiarism'] = 'Plugin plagiat';
+$string['type_plagiarism_plural'] = 'Plugins de plagiat';
 $string['type_portfolio'] = 'Portfolio';
 $string['type_portfolio_plural'] = 'Portfolios';
 $string['type_profilefield'] = 'Type de champ de profil';
@@ -138,6 +140,14 @@ $string['type_tool_plural'] = 'Outils d\'administration';
 $string['type_webservice'] = 'Protocole de service web';
 $string['type_webservice_plural'] = 'Protocoles de service web';
 $string['uninstall'] = 'Désinstaller';
+$string['uninstallconfirm'] = 'Vous allez supprimer le plugin « {$a->name} ». Cela va effacer de la base de données tous les éléments associés à ce plugin, y compris sa configuration, les enregistrements du journal, les fichiers des utilisateurs gérés par le plugin, etc. L\'opération est irréversible et Moodle lui-même ne crée pas de sauvegarde de récupération. Voulez-vous <b>vraiment</b> continuer ?';
+$string['uninstalldelete'] = 'Tous les éléments associés au plugin « {$a->name} » ont été effacés de la base de données. Pour terminer la suppression (et empêcher que le module se réinstalle automatiquement), son dossier « {$a->rootdir} » doit maintenant être supprimé manuellement de votre serveur. Moodle lui-même ne peut pas le supprimer, car il ne possède pas les autorisations nécessaires.';
+$string['uninstalldeleteconfirm'] = 'Tous les éléments associés au plugin « {$a->name} » ont été effacés de la base de données. Pour terminer la suppression (et empêcher que le module se réinstalle automatiquement), son dossier « {$a->rootdir} » doit maintenant être supprimé manuellement de votre serveur. Voulez-vous <b>vraiment</b> supprimer le dossier du plugin maintenant ?';
+$string['uninstalldeleteconfirmexternal'] = 'Il semble que la version actuelle du plugin a été obtenue via le système de gestion de code source ({$a}). Si vous supprimez le dossier de plugin, vous risquez de perdre des modifications locales importantes du code. Veuillez vous assurer que vous voulez vraiment supprimer le dossier du plugin avant de poursuivre.';
+$string['uninstallextraconfirmblock'] = 'Il y a {$a->instances} instances de ce bloc.';
+$string['uninstallextraconfirmenrol'] = 'Il y a {$a->enrolments} inscriptions d\'utilisateurs.';
+$string['uninstallextraconfirmmod'] = 'Il y a {$a->instances} instances de ce module dans {$a->courses} cours.';
+$string['uninstalling'] = 'Désinstallation de {$a->name}';
 $string['updateavailable'] = 'Une nouvelle version {$a} est disponible !';
 $string['updateavailable_moreinfo'] = 'Plus d\'infos...';
 $string['updateavailable_release'] = 'Version {$a}';

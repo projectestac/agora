@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = '덧글 추가';
 $string['addentries'] = '내용 추가';
 $string['addtemplate'] = '템플릿 추가';
 $string['advancedsearch'] = '고급 검색';
+$string['allowcomments'] = '덧글 허용';
 $string['alttext'] = '상응 문구';
 $string['approve'] = '승인';
 $string['approved'] = '승인됨';
@@ -234,7 +235,7 @@ $string['longitude'] = '경도';
 $string['mapexistingfield'] = '{$a} 에 대치';
 $string['mapnewfield'] = '새 필드 생성';
 $string['mappingwarning'] = '새로운 필드와 일치하지 않는 예전 필드는 없어지며 그에 대한 자료 역시 삭제될 것임';
-$string['maxentries'] = '최대 게시물';
+$string['maxentries'] = '최대 게시물 수';
 $string['maxentries_help'] = '<p align="center"><strong>최대 입력수</strong></p>
 
 <p>이 활동을 위해 한 참여자가 제출할 수 있는 최대 입력항목 수</p>';
@@ -282,7 +283,7 @@ $string['notapproved'] = '아직 입력을 받을 수 없음';
 $string['notinjectivemap'] = '일대일 매핑이 아님';
 $string['notopenyet'] = '죄송합니다만 이 활동은 {$a} 가 될 때까지 이용할 수 없습니다.';
 $string['number'] = '수';
-$string['numberrssarticles'] = 'RSS 문서';
+$string['numberrssarticles'] = 'RSS 피드 안의 게시글';
 $string['numnotapproved'] = '대기중';
 $string['numrecords'] = '{$a} 게시물';
 $string['ods'] = '<acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -307,7 +308,7 @@ $string['recordapproved'] = '게시물이 허용됨';
 $string['recorddeleted'] = '게시물이 삭제됨';
 $string['recordsnotsaved'] = '게시물이 저장되지 않음. 올린 파일의 형식을 점검하기 바랍니다.';
 $string['recordssaved'] = '게시물이 저장됨';
-$string['requireapproval'] = '승인이 필요합니까?';
+$string['requireapproval'] = '승인이 필요합니다';
 $string['requireapproval_help'] = '활성화되면 입력항목이 모든 사람들에게 보여지기 전에 선생님의 승인이 필요합니다.';
 $string['requiredentries'] = '필요한 게시물';
 $string['requiredentries_help'] = '<p align="center"><strong>요구된 항목수</strong></p>

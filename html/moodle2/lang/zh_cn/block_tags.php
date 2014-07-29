@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tags', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_tags', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_tags
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['alltags'] = '所有标签：';
 $string['arrowtitle'] = '点击这里输入推荐的文本（灰色文字）。';
 $string['configtitle'] = '版块标题';
 $string['coursetags'] = '课程标签：';
+$string['defaultdisplay'] = '要显示的标签类型';
 $string['disabledtags'] = '标签被禁用';
 $string['edit'] = '编辑...';
 $string['editdeletemytag'] = '从该课程中删除标签：';
@@ -71,5 +72,7 @@ $string['showcoursetags'] = '显示课程标签';
 $string['showcoursetagsdef'] = '在标签版块中显示给课程打标签功能，并运行学生打标签。';
 $string['suggestedtagthisunit'] = '该项课程的建议标签：';
 $string['tags'] = '标签';
+$string['tags:addinstance'] = '新增标签版块';
+$string['tags:myaddinstance'] = '在我的首页新增标签版块';
 $string['tagthisunit'] = '对此课程打标签：';
 $string['tagunits'] = '为您喜欢的课程打标签';

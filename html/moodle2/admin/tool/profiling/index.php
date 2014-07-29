@@ -17,8 +17,7 @@
 /**
  * Profiling tool.
  *
- * @package    tool
- * @subpackage profiling
+ * @package    tool_profiling
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -75,12 +74,11 @@ if (isset($script)) {
     $prevreferences = $DB->get_records_select('profiling',
                                               'url = ? AND runreference = 1 AND timecreated < ?',
                                               array($run->url, $run->timecreated),
-                                              'timecreated DESC', 'runid', 0, 1);
-    $prevrunid = $prevreferences ? reset($prevreferences)->runid : false;
+                                              'timecreated DESC', 'runid, runcomment, timecreated', 0, 10);
     echo $OUTPUT->box_start('generalbox boxwidthwide boxaligncenter');
     $header = get_string('lastrunof', 'tool_profiling', $script);
     echo $OUTPUT->heading($header);
-    $table = profiling_print_run($run, $prevrunid);
+    $table = profiling_print_run($run, $prevreferences);
     echo $table;
     echo $OUTPUT->box_end();
 
@@ -127,12 +125,11 @@ if (isset($script)) {
     $prevreferences = $DB->get_records_select('profiling',
                                               'url = ? AND runreference = 1 AND timecreated < ?',
                                               array($run->url, $run->timecreated),
-                                              'timecreated DESC', 'runid', 0, 1);
-    $prevrunid = $prevreferences ? reset($prevreferences)->runid : false;
+                                              'timecreated DESC', 'runid, runcomment, timecreated', 0, 10);
     echo $OUTPUT->box_start('generalbox boxwidthwide boxaligncenter');
     $header = get_string('summaryof', 'tool_profiling', $run->url);
     echo $OUTPUT->heading($header);
-    $table = profiling_print_run($run, $prevrunid);
+    $table = profiling_print_run($run, $prevreferences);
     echo $table;
     echo $OUTPUT->box_end();
 
@@ -161,6 +158,9 @@ if (isset($script)) {
 
     echo $OUTPUT->heading($header);
 
+    // Print the controller block with different options.
+    echo profiling_list_controls($listurl);
+
     // TODO: Fix flexitable to validate tsort/thide/tshow/tifirs/tilast/page
     // TODO: Fix table_sql to allow it to work without WHERE clause
     // add silly condition (1 = 1) because of table_sql bug
@@ -179,9 +179,6 @@ if (isset($script)) {
     $table->define_baseurl($baseurl);
     $table->column_suppress('url');
     $table->out(PROFILING_RUNSPERPAGE, true);
-
-    // Print the controller block with different options
-    echo profiling_list_controls($listurl);
 }
 
 // Footer.

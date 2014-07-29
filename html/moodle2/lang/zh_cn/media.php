@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'media', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,6 +43,11 @@ $string['legacyreal'] = 'Real媒体播放器';
 $string['legacyreal_desc'] = '扩展名是*.rm、*.ra、*.ram、*.ra和*.rv的文件。需要RealPlayer。';
 $string['legacywmp'] = 'Windows媒体播放器';
 $string['legacywmp_desc'] = '扩展名是*.avi和*.wmv的文件。和Windows下的Internet Explorer完全兼容，在其它浏览器或操作系统上可能有问题。';
+$string['mediaformats'] = '可用的播放器';
+$string['mediaformats_desc'] = '启用播放器后，可能通过多媒体过滤器（如果有启用的话）、文件管理器或URL来使用Embed标签嵌入文件。若关闭了播放器，则不会嵌入这些格式。用户可以手动下载访问这些资源。
+
+如果同时有两个播放支持同一种文件格式，启用两个播放器有助于提高在各种设备如手机上的兼容性。当然也可以通过给同一个音视频提供不同格式的文件来进一步提高兼容性。';
+$string['mediasettings'] = '嵌入多媒体文件';
 $string['mp3audio'] = 'MP3音频';
 $string['mp3audio_desc'] = '扩展名是*.mp3的文件。使用Flowplayer播放音频，需要Flash插件。';
 $string['sitevimeo'] = 'Vimeo';

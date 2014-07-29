@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -91,13 +91,6 @@ N ponga unos requisitos demasiado estrictos, ya que puede ocurrir que los usuari
 $string['check_passwordpolicy_error'] = 'No se ha configurado la política de contraseñas.';
 $string['check_passwordpolicy_name'] = 'Política de contraseñas';
 $string['check_passwordpolicy_ok'] = 'Política de contraseñas habilitada.';
-$string['check_passwordsaltmain_details'] = '<p>Configurar un salado de contraseña reduce mucho el riesgo de robo de contraseña.</p> <p>Para configurar un salado de contraseña añada la siguiente linea a su archivo config.php file:</p> <code>$CFG->passwordsaltmain = \'una caderna aleatoria con muchos caracteres\';</code> <p>La cadena aleatorio de caracteres debe ser una mezcla de dígitos, letras y caracteres especiales Su longitud recomendada es de al menos de 40 caracters </p> <p>Consulte la documentación <a href="{$a}" target="_blank">password salting documentation</a>
-
-Si deseara cambiar el salado de la contraseña, una vez que la ponga, ¡NO DEBE BORRARLA!, porque no podría volver a entrar a su sitio!</p>';
-$string['check_passwordsaltmain_name'] = 'Salado de contraseña';
-$string['check_passwordsaltmain_ok'] = 'El salado de la contraseña es correcto';
-$string['check_passwordsaltmain_warning'] = 'No se ha configurado el salado de contraseña';
-$string['check_passwordsaltmain_weak'] = 'El salado de la contraseña es débil';
 $string['check_riskadmin_detailsok'] = '<p>Por favor, compruebe la siguiente lista de los administradores del sistema:</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>Por favor verifique la lista siguiente de administradores del sistema:</p>{$a->admins} <p> Se recomienda que solamente se asigne el rol de administrador en el contexto de sistema. Los siguientes usuarios tienen asignaciones de rol de administrador (no soportadas) en otros contextos:</p>{$a->unsupported}';
 $string['check_riskadmin_name'] = 'Administradores';
@@ -107,7 +100,7 @@ $string['check_riskadmin_warning'] = 'Se encontraron {$a->admincount} administra
 $string['check_riskbackup_detailsok'] = 'Ningún rol permite explícitamente respaldar datos de usuario. Sin embargo, observe que los administradores con la capacidad de \'hacer todo\' (doanything) es probable que puedan hacer esto.';
 $string['check_riskbackup_details_overriddenroles'] = '<p>Estas sustituciones activas dan a los usuarios la habilidad para incluir datos de usuarios dentro de los respaldos. Por favor, asegúrese que este permiso sea estrictamente necesario.</p> {$a}';
 $string['check_riskbackup_details_systemroles'] = '<p>Los siguientes roles del sistema actualmente les permiten a los usuarios incluir datos de usuarios dentro de los respaldos. Por favor, asegúrese que este permiso sea estrictamente necesario.</p> {$a}';
-$string['check_riskbackup_details_users'] = '<p>Debido a los roles de arriba o a las sustituciones locales, las siguientes cuentas de usuarios actualmente tienen permisos para realizar copias de seguridad conteniendo datos privados de cualquier usuario inscrito en estos cursos. Asegúrese de cumplir la normativa nacional para datos personales, que estos usuarios sean de confianza y estén protegidos por contraseñas seguras:</p> {$a}';
+$string['check_riskbackup_details_users'] = '<p>Debido a los roles de más nivel o a las sutituciones locales, las siguientes cuentas de usuarios actualmente tienen permisos para realizar copias de seguridad conteniendo datos privados de cualquier usuario inscrito en estos cursos. Asegúrese de cumplir la normativa nacional para datos personales, que estos usuarios sean de confianza y estén protegidos por contraseñas seguras:</p> {$a}';
 $string['check_riskbackup_editoverride'] = '<a href="{$a->url}">{$a->name} en {$a->contextname}</a>';
 $string['check_riskbackup_editrole'] = '<a href="{$a->url}">{$a->name}</a>';
 $string['check_riskbackup_name'] = 'Copia de seguridad de datos de usuario';
@@ -117,9 +110,7 @@ $string['check_riskbackup_warning'] = 'Se encontraron {$a->rolecount} roles, {$a
 $string['check_riskxss_details'] = '<p>RISK_XSS indicatodas las capacidades peligrosas que solamente deberían usar los usuarios de confianza.</p> <p>Por favor verifique la siguiente lista de usuarios y asegúrese de que confía en ellos completamente en este servidor:</p><p>{$a}</p>';
 $string['check_riskxss_name'] = 'Usuarios de confianza XSS';
 $string['check_riskxss_warning'] = 'RISK_XSS - encontró a {$a} usuarios que deberían ser de confianza.';
-$string['check_unsecuredataroot_details'] = 'El directorio \'dataroot\' no debe ser accesible vía web. La mejor manera de asegurarse de que el directorio no es accesible es utilizar un directorio fuera del directorio web público.
-
-Si se mueve el directorio, es necesario actualizar el ajuste <code>$CFG->dataroot</code> en <code>config.php</code> en consecuencia. </p>';
+$string['check_unsecuredataroot_details'] = 'El directorio \'dataroot\' no debe ser accesible vía web. La mejor manera de asegurarse de que el directorio no es accesible es utilizar un directorio fuera del directorio web público. Si se mueve el directorio, es necesario actualizar el ajuste <code>$CFG->dataroot</code> en <code>config.php</code> en consecuencia. </p>';
 $string['check_unsecuredataroot_error'] = '!Su directorio dataroot <code>{$a}</code> ¡ está en el lugar equivocado y está expuesto a la web!';
 $string['check_unsecuredataroot_name'] = 'Directorio dataroot inseguro';
 $string['check_unsecuredataroot_ok'] = 'El directorio de datos (normalmente /moodledata) no debe ser accesible desde la web';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_customsql', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_customsql', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   report_customsql
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -90,7 +90,7 @@ $string['nodatareturned'] = 'Cette requête n\'a retourné aucun résultat.';
 $string['noexplicitprefix'] = 'N\'incluez pas le préfixe de nom des tables <tt>{$a}</tt> dans la requête SQL. À la place, mettez le nom de table sans préfixe encadré de caractères  <tt>{}</tt>.';
 $string['noreportsavailable'] = 'Pas de requête disponible';
 $string['norowsreturned'] = 'Aucune ligne retournée comme résultat. Cette requête devrait retourner une ligne.';
-$string['noscheduleifplaceholders'] = 'Les reqêtes contenant des paramètres ne peuvent être exécutées qu\'à la demande.';
+$string['noscheduleifplaceholders'] = 'Les requêtes contenant des paramètres ne peuvent être exécutées qu\'à la demande.';
 $string['nosemicolon'] = 'Vous ne pouvez pas utiliser le caractère ; dans la requête SQL.';
 $string['notallowedwords'] = 'Vous ne pouvez pas utiliser les mots <tt>{$a}</tt> dans la requête SQL.';
 $string['note'] = 'Notes';
@@ -104,10 +104,11 @@ $string['querylimitrange'] = 'Le nombre doit être entre 1 et {$a}';
 $string['querynote'] = '<ul>
 <li>La chaîne <tt>%%WWWROOT%%</tt> dans les résultats sera remplacée par <tt>{$a}</tt>.</li>
 <li>Tout champ de sortie ressemblant à une URL sera automatiquement transformé en lien.</li>
+<li>Si un nom de colonne de résultat se termine par <tt>date</tt>, et que la colonne contient une valeur au format integer, elle sera traitée comme un timestamp Unix, et automatiquement convertie en date lisible par l\'homme.</li>
 <li>La chaîne <tt>%%USERID%%</tt> dans la requête sera remplacée par l\'identifiant de l\'utilisateur visualisant le rapport, avant l\'exécution du rapport.</li>
 <li>Pour des rapports programmés, les chaînes <tt>%%STARTTIME%%</tt> et <tt>%%ENDTIME%%</tt> sont remplacées par le timestamp Unix du début et de fin de semaine/mois du rapport dans la requête avant son exécution.</li>
-<li>Vous pouvez inclure des paramètres dans la requête SQL using named placeholders, par exemple <tt>:nom_parametre</tt>. Ainsi quand le rapport est exécuté, l\'utilisateur peut entrer les valeurs des paramètres à utiliser lorsque la requête est exécutée.</li>
-<li>Si le <tt>:nom_parametre</tt> commence ou se termine par les caractères <tt>date</tt> alors un sélecteur de date sera utilisé pour l\'entrée de la valeur de ce paramètre, dans les autre cas un champ texte est utilisé.</li>
+<li>Vous pouvez inclure des paramètres dans la requête SQL en utilisant des marqueurs nommés, par exemple <tt>:nom_parametre</tt>. Ainsi quand le rapport est exécuté, l\'utilisateur peut entrer les valeurs des paramètres à utiliser lorsque la requête est exécutée.</li>
+<li>Si le <tt>:nom_parametre</tt> commence ou se termine par les caractères <tt>date</tt> alors un sélecteur de date sera utilisé pour l\'entrée de la valeur de ce paramètre, dans les autres cas un champ texte est utilisé.</li>
 <li>Vous ne pouvez pas utiliser les caractères  <tt>:</tt> ou <tt>?</tt> dans les chaînes à l\'intérieur de votre requête. Si vous avez besoin de ces caractères, vous pouvez utiliser <tt>CHR(58)</tt> et <tt>CHR(63)</tt> respectivement ainsi que la concaténation des chaînes. (Qui est <tt>CHR</tt> pour Postgres ou Oracle, <tt>CHAR</tt> pour MySQL ou SQL server.)</li>
 </ul>';
 $string['queryparameters'] = 'Paramètres de la requête';

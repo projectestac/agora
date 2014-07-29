@@ -72,7 +72,7 @@ abstract class backup_general_helper extends backup_helper {
 
         static $availableblocks = array(); // Get and cache available blocks
         if (empty($availableblocks)) {
-            $availableblocks = array_keys(get_plugin_list('block'));
+            $availableblocks = array_keys(core_component::get_plugin_list('block'));
         }
 
         $path = $path . '/blocks'; // Always look under blocks subdir
@@ -155,15 +155,12 @@ abstract class backup_general_helper extends backup_helper {
         } else {
             $info->include_file_references_to_external_content = 0;
         }
-		// XTEC *********** AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-		//2013.12.09 @pferre22
         // include_files is a new setting in 2.6.
         if (isset($infoarr['include_files'])) {
             $info->include_files = $infoarr['include_files'];
         } else {
             $info->include_files = 1;
         }
-		//************ FI
         $info->type   =  $infoarr['details']['detail'][0]['type'];
         $info->format =  $infoarr['details']['detail'][0]['format'];
         $info->mode   =  $infoarr['details']['detail'][0]['mode'];
@@ -247,6 +244,7 @@ abstract class backup_general_helper extends backup_helper {
         $tmpname = 'info_from_mbz_' . time() . '_' . random_string(4);
         $tmpdir = $CFG->tempdir . '/backup/' . $tmpname;
         $fp = get_file_packer('application/vnd.moodle.backup');
+
         $extracted = $fp->extract_to_pathname($filepath, $tmpdir, array('moodle_backup.xml'));
         $moodlefile =  $tmpdir . '/' . 'moodle_backup.xml';
         if (!$extracted || !is_readable($moodlefile)) {

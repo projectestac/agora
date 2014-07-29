@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_database', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_database', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_database
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,7 +50,7 @@ $string['localcategoryfield'] = '로컬 범주 필드';
 $string['localcoursefield'] = '로컬 코스 필드';
 $string['localrolefield'] = '로컬 역할 필드';
 $string['localuserfield'] = '로컬 사용자 필드';
-$string['newcoursecategory'] = '새 강좌 범주 필드';
+$string['newcoursecategory'] = '새 강좌 범주 id  항목';
 $string['newcoursefullname'] = '새 강좌 전체이름 항목';
 $string['newcourseidnumber'] = '새 강좌 ID 번호 항목';
 $string['newcourseshortname'] = '새 강좌 짧은 이름 필드';

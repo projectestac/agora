@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_description', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_description', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_description
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,5 +29,5 @@ $string['informationtext'] = 'Texto informativo';
 $string['pluginname'] = 'Descripción';
 $string['pluginnameadding'] = 'Agregando una descripción';
 $string['pluginnameediting'] = 'Editando una descripción';
-$string['pluginname_help'] = 'Una descripción no es en realidad un tipo de pregunta. Simplemente permite que se muestre texto sin necesidad de reuerir respuestas, similar a una etiqueta en la página del curso. El texto de la pregunta se muestra tanto alresponder como en la página de revisión. Cualquier comentario general se muestra solo en la página de revisión.';
+$string['pluginname_help'] = 'Una descripción no es en realidad un tipo de pregunta. Simplemente permite que se muestre texto sin necesidad de requerir respuestas, similar a una etiqueta en la página del curso. El texto de la pregunta se muestra tanto al responder como en la página de revisión. Cualquier comentario general se muestra solo en la página de revisión.';
 $string['pluginnamesummary'] = 'No se trata realmente de una pregunta, sino una forma de añadir algunas instrucciones u otros contenidos a la pregunta. Se utiliza de forma similar a las etiquetas cuando se usan para añadir contenido a la página del curso.';

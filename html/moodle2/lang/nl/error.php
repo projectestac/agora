@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'error', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -80,6 +80,7 @@ $string['cannoteditcommentexpired'] = 'Je kunt dit niet bewerken. De bewerktijd 
 $string['cannoteditpostorblog'] = 'Je kunt geen blogs posten of bewerken.';
 $string['cannoteditsiteform'] = 'Je kunt de startpagina niet bewerken met dit formulier';
 $string['cannotedityourprofile'] = 'Je kunt je eigen profiel niet bewerken.';
+$string['cannotexecduringupgrade'] = 'Kan niet uitgevoerd worden tijdens upgrade';
 $string['cannotfindcategory'] = 'Kan geen categorierecord vinden voor databank met ID - {$a}';
 $string['cannotfindcomponent'] = 'Kan component niet vinden.';
 $string['cannotfindcontext'] = 'Kon context niet vinden';
@@ -111,6 +112,8 @@ $string['cannotmarktopic'] = 'Kon dat onderdeel voor die cursus niet beoordelen'
 $string['cannotmigratedatacomments'] = 'Kan gegevens module notities niet verplaatsen';
 $string['cannotmodulename'] = 'Kan de modulenaam niet aan de navigatie toevoegen.';
 $string['cannotmoduletype'] = 'Kan het moduletype niet aan de navigatie toevoegen.';
+$string['cannotmovecategory'] = 'Kan categorie niet verplaatsen';
+$string['cannotmovecourses'] = 'Kan cursussen niet vanuit deze categorie naar een andere verplaatsen.';
 $string['cannotmoverolewithid'] = 'Kan rol met ID {$a} niet verplaatsen';
 $string['cannotopencsv'] = 'Kan CSV-bestand niet openen';
 $string['cannotopenfile'] = 'Kan bestand {$a} niet openen';
@@ -165,6 +168,8 @@ $string['cannotviewprofile'] = 'Je kan het profiel van deze gebruiker niet bekij
 $string['cannotviewreport'] = 'Je kunt dit rapport niet zien';
 $string['cannotwritefile'] = 'Kan bestand niet wegschrijven ({$a})';
 $string['categoryerror'] = 'Categoriefout';
+$string['categoryidnumbertaken'] = 'ID-nummer is al in gebruik voor een andere categorie';
+$string['categorynamerequired'] = 'Categorienaam is vereist';
 $string['categorytoolong'] = 'Categorienaam te lang';
 $string['commentmisconf'] = 'Commentaar ID is slecht geconfigureerd';
 $string['componentisuptodate'] = 'Component is up-to-date';
@@ -176,6 +181,7 @@ $string['coursedoesnotbelongtocategory'] = 'De cursus behoort niet tot deze cate
 $string['courseformatnotfound'] = 'De cursusformat \'{$a}\' bestaat niet of wordt niet herkend';
 $string['coursegroupunknown'] = 'De cursus die met groep {$a} overeenkomt is niet gespecifieerd';
 $string['courseidnotfound'] = 'Cursus ID bestaat niet';
+$string['courseidnumbertaken'] = 'IDnummer is al in gebruik voor een andere cursus: ({$a})';
 $string['coursemisconf'] = 'Cursus isslecht geconfigureerd';
 $string['courserequestdisabled'] = 'Het aanvragen van nieuwe cursussen is uitgeschakeld door de beheerder.';
 $string['csvcolumnduplicates'] = 'Duplicate kolommen gevonden';
@@ -183,7 +189,7 @@ $string['csvemptyfile'] = 'Het CVS-bestand is leeg';
 $string['csvfewcolumns'] = 'Onvoldoende kolommen. Controleer de instelling voor het scheidingsteken.';
 $string['csvinvalidcols'] = '<b>ONGELDIG CSV BESTAND:</b> De eerste lijn moet de kolomkoppen bevatten en het bestand moet van het type <br />"Expanded Fields/Comma Separated"<br />of<br /> "Expanded Fields with CAVV Result Code/Comma Separated" zijn';
 $string['csvinvalidcolsnum'] = 'ONGELDIG CSV BESTAND; Elke lijn moet 49 of 70 velden hebben';
-$string['csvloaderror'] = 'Fout tijdens het laden van het CSV-bestand!';
+$string['csvloaderror'] = 'Fout tijdens het laden van het CSV-bestand: {$a}';
 $string['csvweirdcolumns'] = 'Ongeldige CSV bestandsopmaak - aantal kolommen is niet constant!';
 $string['dbconnectionfailed'] = '<p>Fout: Databank connectie mislukt.</p>
 <p>Het is mogelijk dat de databank overbelast is of niet goed loopt.</p>
@@ -191,8 +197,8 @@ $string['dbconnectionfailed'] = '<p>Fout: Databank connectie mislukt.</p>
 $string['dbdriverproblem'] = '<p>Fout: een databank driver probleem detecteerd</p>
 <p>De site beheerder zou de serverconfiguratie moeten controleren</p><p>{$a}</p>';
 $string['dbsessionbroken'] = 'Ernstig databank sessieprobleem gevonden.<br /><br />Verwittig de serverbeheerder.';
-$string['dbsessionhandlerproblem'] = 'Het opzetten van je databanksessie is mislukt.<br /><br />Verwittig de serverbeheerder';
-$string['dbsessionmysqlpacketsize'] = 'Ernstigge sessiefout gedetecteerd.<br /><br />Verwittig de beheerder. Dit probleem wordt waarschijnlijk veroorzaakt door een te kleine waarde in de max_allowed_packet MySQL-instelling.';
+$string['dbsessionhandlerproblem'] = 'Het opzetten van je databanksessie is mislukt. Verwittig de beheerder.';
+$string['dbsessionmysqlpacketsize'] = 'Ernstige sessiefout gedetecteerd. Verwittig de beheerder. Dit probleem wordt waarschijnlijk veroorzaakt door een te kleine waarde in de max_allowed_packet MySQL-instelling.';
 $string['dbupdatefailed'] = 'Update van de databank mislukt';
 $string['ddldependencyerror'] = '{$a->targettype} "{$a->targetname}" kan niet gewijzigd worden. Afhankelijkheid gevonden van {$a->offendingtype} "{$a->offendingname}"';
 $string['ddlexecuteerror'] = 'DDL sql uitvoeringsfout';
@@ -227,6 +233,7 @@ $string['errorcreatingrole'] = 'Fout bij het aanmaken van de rol';
 $string['errorfetchingrssfeed'] = 'RSS-feed ophalen mislukt';
 $string['erroronline'] = 'Fout op lijn {$a}';
 $string['errorparsingxml'] = 'Fout bij het verwerken van XML: {$a->errorstring} op lijn {$a->errorline}, char {$a->errorchar}';
+$string['errorprocessingarchive'] = 'Fout bij het verwerken van het archiefbestand';
 $string['errorreadingfile'] = 'Fout bij het lezen van bestand "{$a}"';
 $string['errorsavingrequest'] = 'Er is een fout opgetreden bij het bewaren van je vraag';
 $string['errorsettinguserpref'] = 'Fout bij het instellen van gebruikersvoorkeuren';
@@ -253,7 +260,9 @@ $string['groupexistforcourse'] = 'Groep "{$a}" bestaat al in deze cursus';
 $string['groupexistforcoursewithidnumber'] = '{$a->problemgroup}: Groep "{$a->name}" met ID number  "{$a->idnumber}" bestaat al in deze cursus';
 $string['grouphasidnumber'] = 'Groep "{$a}" heeft een ID nummer en dat kan automatisch gegenereerd zijn door een extern systeem. Je hebt het recht niet om deze groep te verwijderen';
 $string['groupinghasidnumber'] = 'Groepering "{$a}" heeft een ID nummer en dat kan automatisch gegenereerd zijn door een extern systeem. Je hebt het recht niet om deze groepering te verwijderen';
+$string['groupingnotaddederror'] = 'Groupering "{$a}" niet toegevoegd';
 $string['groupnotaddederror'] = 'Groep "{$a}" is niet toegevoegd';
+$string['groupnotaddedtogroupingerror'] = 'Groep "{$a->groupname}" niet toegevoegd aan groepering "{$a->groupingname}"';
 $string['groupunknown'] = 'Groep {$a} is niet geassocieerd met de gespecifieerde groep';
 $string['groupusernotmember'] = 'Gebruiker is geen lid van deze groep.';
 $string['guestnocomment'] = 'Gasten mogen geen commentaren posten!';
@@ -264,7 +273,7 @@ $string['guestsarenotallowed'] = 'Niet toegelaten voor de gastgebruiker';
 $string['hackdetected'] = 'Hackersaanval gedetecteerd!';
 $string['hashpoolproblem'] = 'Foute inhoud pool-bestand {$a}.';
 $string['headersent'] = 'Headers al verzonden';
-$string['idnumbertaken'] = 'ID-nummer is al in gebruik voor een andere cursus';
+$string['idnumbertaken'] = 'Dit ID-nummer is al in gebruik';
 $string['idnumbertoolong'] = 'ID nummer is te lang';
 $string['importformatnotimplement'] = 'Het importeren van dit bestandsforaat is nog niet geïmplementeerd.';
 $string['incorrectext'] = 'Bestand heeft een verkeerde extentie';
@@ -355,8 +364,8 @@ $string['listupdatefail'] = 'Databankoperatie mislukt bij het aanpassen  van de 
 $string['logfilenotavailable'] = 'Logs niet beschikbaar';
 $string['loginasnoenrol'] = 'Je kunt aanmelden en afmelden bij een cursus niet gebruiken wanneer je met een "Login als"-sessie een cursus bekijkt.';
 $string['loginasonecourse'] = 'Je kunt deze cursus niet openen.<br />Je moet je "Login als"-sessie beëindigen voor je een andere cursus opent.';
-$string['maxareabytes'] = 'Er is niet genoeg ruimte om dit bestand op te slaan';
-$string['maxbytes'] = 'Het bestand is groter dan de maximale grootte';
+$string['maxareabytes'] = 'Het bestand is groter dan de beschikbare plaats.';
+$string['maxbytes'] = 'Het bestand is groter dan de maximaal toegestane grootte.';
 $string['messagingdisable'] = 'Berichten zijn uitgeschakeld op deze site';
 $string['mimetexisnotexist'] = 'Je systeem is niet geconfigureerd om mimeTeX te gebruiken. Je moet het noodzakelijke uitvoerbaar bestand downloaden voor jouw PHP_OS platform van <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a>, of de C bronbestanden bekomen van  <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a>, ze compileren en het uitvoerbaar bestand in je moodle/filter/tex/ map zetten.';
 $string['mimetexnotexecutable'] = 'Aangepast mimetex bestand is niet uitvoerbaar!';
@@ -376,6 +385,9 @@ $string['moduledoesnotexist'] = 'Deze module bestaat niet';
 $string['moduleinstancedoesnotexist'] = 'De instantie van deze module bestaat niet';
 $string['modulemissingcode'] = 'De code die nodig is om deze functie uit te voeren ontbreekt in module {$a}.';
 $string['movecatcontentstoroot'] = 'De categorie-inhoud naar root verplaatsen is niet toegestaan. Je moet de inhoud naar een bestaande categorie verplaatsen!';
+$string['movecategorynotpossible'] = 'Je kunt categorie \'{$a}\' niet naar de geselecteerde categorie verplaatsen.';
+$string['movecategoryownparent'] = 'Je kunt categorie \'{$a}\' geen bovenliggende categorie van zichzelf maken.';
+$string['movecategoryparentconflict'] = 'Je kunt categorie \'{$a}\' geen subcategorie maken van één van zijn eigen subcategorieën.';
 $string['multiplerecordsfound'] = 'Meerdere records gevonden, slechts één verwacht.';
 $string['multiplerestorenotallow'] = 'Het meer dan eens uitvoeren van terugplaatsen is hier niet toegelaten!';
 $string['mustbeloggedin'] = 'Je moet aangemeld zijn om dit te doen';
@@ -439,10 +451,11 @@ $string['prefixtoolong'] = '<p>Fout: databank tabel prefix is te lang ({$a->dbfa
 <p>De site-beheerder moet dit probleem oplossen. De maximale lengte voor de tabelprefix in {$a->dbfamily} is {$a->maxlength} tekens.</p>';
 $string['processingstops'] = 'Verwerking stopt hier. De overgebleven records worden genegeerd';
 $string['protected_cc_not_supported'] = 'Protected cartridge niet ondersteund.';
+$string['querystringcannotbeempty'] = 'De query string kan niet leeg zijn.';
 $string['redirecterrordetected'] = 'Niet-ondersteunde verwijzing gevonden. De uitvoering van het script is gestopt.';
 $string['refoundto'] = 'Kan teruggegeven worden aan {$a}';
 $string['refoundtoorigi'] = 'Teruggegeven op oorspronkelijke hoeveelheid: {$a}';
-$string['remotedownloaderror'] = 'De download van de component naar jouw server is mislukt, controleer je proxy-instellingen, de PHP cURL-extentie wordt ten zeerste aanbevolen te installeren.<br /><br />Je moet je <a href="{$a->url}">{$a->url}</a> bestand manueel downloaden , kopiëren naar de map "{$a->dest}" op je server en het daar unzippen.';
+$string['remotedownloaderror'] = '<p>De download van de component naar jouw server is mislukt, controleer je proxy-instellingen, de PHP cURL-extentie wordt ten zeerste aanbevolen te installeren.</p><p>Je moet je <a href="{$a->url}">{$a->url}</a> bestand manueel downloaden , kopiëren naar de map "{$a->dest}" op je server en het daar unzippen.</p>';
 $string['remotedownloadnotallowed'] = 'Het downloaden van componenten naar je server is niet toegelaten (allow_url_fopen is uitgeschakeld)<br /><br />Je moet het <a href="{$a->url}">{$a->url}</a>bestand manueel downloaden en het kopiëren naar "{$a->dest}" op je server en het daar unzippen.';
 $string['reportnotavailable'] = 'Dit type rapport is alleen maar beschikbaar voor de site-cursus';
 $string['requirecorrectaccess'] = 'Ongeldige URL of poort';
@@ -461,22 +474,24 @@ $string['sendmessage'] = 'Stuur bericht';
 $string['serverconnection'] = 'Fout bij het verbinden met de server';
 $string['servicedonotexist'] = 'De service bestaat niet';
 $string['sessioncookiesdisable'] = 'Fout gebruik van require_key_login() - sessie cookies moet uitgeschakeld worden!';
-$string['sessiondiskfull'] = 'De sessiepartitie is vol. Het is nu niet mogelijk om aan te melden.<br /> Verwittig de systeembeheerder.';
+$string['sessiondiskfull'] = 'De sessiepartitie is vol. Het is nu niet mogelijk om aan te melden. Verwittig de systeembeheerder.';
 $string['sessionerroruser'] = 'Je sessie bleef te lang zonder activiteit. Je moet opnieuw inloggen.';
 $string['sessionerroruser2'] = 'Je loginsessie is verknoeid. Meld je opnieuw aan of herstart je browser.';
+$string['sessionhandlerproblem'] = 'Sessieafhandeling is fout geconfigureerd';
 $string['sessionipnomatch'] = 'Sorry, maar je IP-adres is gewijzigd sinds je aangemeld bent. Deze beveiligingsmethode voorkomt dat crackers je identiteit stelen terwijl je aangemeld bent op deze site. Gewone gebruikers zouden deze melding niet mogen zien - vraag je sitebeheerder om hulp.';
-$string['sessionipnomatch2'] = 'Je IP-nummer is blijkbaar gewijzigd sinds je login. Deze beveiligingsfunctie verhindert dat crackers je identiteit stelen terwijl je aangemeld bent bij deze site. Je kunt deze melding zien als je draadloze netwerken gebruikt of als je schakelt tussen verschillende netwerken. Vraag de sitebeheerder om hulp.<br /><br />Als je wil verder gaan, klik dan op F5 om deze pagina te verversen.';
+$string['sessionipnomatch2'] = '<p>Je IP-nummer is blijkbaar gewijzigd sinds je login. Deze beveiligingsfunctie verhindert dat crackers je identiteit stelen terwijl je aangemeld bent bij deze site. Je kunt deze melding zien als je draadloze netwerken gebruikt of als je schakelt tussen verschillende netwerken. Vraag de sitebeheerder om hulp.</p><p>Als je wil verder gaan, klik dan op F5 om deze pagina te verversen.</p>';
 $string['sessionwaiterr'] = 'Time out tijdens het wachten op sessie slot.<br />. Wacht tot je huidige aanvragen afgelopen zijn en probeer later opnieuw.';
-$string['shortnametaken'] = 'Deze korte naam wordt al gebruikt voor een andere cursus';
+$string['shortnametaken'] = 'Deze korte naam wordt al gebruikt voor een andere cursus ({$a})';
 $string['socksnotsupported'] = 'SOCKS5-proxy wordt niet ondersteund in PHP4';
 $string['spellcheckernotconf'] = 'Spellingscontrole niet geconfigureerd';
 $string['sslonlyaccess'] = 'Voor veiligheidsredenen zijn enkel https-connecties toegelaten.';
 $string['statscatchupmode'] = 'De statistiekfunctie is nu wat achterstand aan het inhalen. Tot nu zijn al {$a->daysdone} dagen verwerkt en zijn er nog {$a->dayspending} dagen te doen. Kom later eens terug kijken!';
 $string['statsdisable'] = 'Statistieken niet ingeschakeld.';
 $string['statsnodata'] = 'Er zijn geen gegevens beschikbaar voor die combinatie van cursus en periode';
+$string['storedfilecannotcreatefile'] = 'Kan geen lokaal bestandspoolbestand aanmaken, controleer of de rechten in dataroot juist staan en of er genoeg schijfruimte op de server is.';
 $string['storedfilecannotcreatefiledirs'] = 'Kon geen locale bestandspoolmappen maken. Controleer de rechten in dataroot.';
 $string['storedfilecannotread'] = 'Kan bestand niet lezen. Ofwel bestaat het bestand niet ofwel zijn er rechtenproblemen';
-$string['storedfilenotcreated'] = 'Kon bestand"{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}/{$a->filepath}/{$a->filename}" niet maken';
+$string['storedfilenotcreated'] = 'Kon bestand"{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}{$a->filepath}{$a->filename}" niet maken';
 $string['storedfileproblem'] = 'Onbekende uitzondering opgetreden in verband met lokale bestanden ({$a})';
 $string['tagdisabled'] = 'Tags zijn uitgeschakeld!';
 $string['tagnotfound'] = 'Die tag kon niet in de databank gevonden worden';
@@ -500,6 +515,7 @@ $string['unknowncourse'] = 'Onbekende cursus "{$a}"';
 $string['unknowncourseidnumber'] = 'Onbekend cursusID "{$a}"';
 $string['unknowncourserequest'] = 'Onbekende cursusaanvraag';
 $string['unknowncoursesection'] = 'Onbekende cursus sectie in cursus "{$a}"';
+$string['unknownevent'] = 'Onbekende gebeurtenis';
 $string['unknownfiletype'] = 'Onbekend filtertype';
 $string['unknowngroup'] = 'Onbekende groep "{$a}"';
 $string['unknownhelp'] = 'Onbekend helponderwerp {$a}';

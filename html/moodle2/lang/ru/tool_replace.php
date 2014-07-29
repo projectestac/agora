@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_replace', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,10 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cannotfit'] = 'Замена длиннее оригинала и сокращение не разрешено. Продолжение невозможно.';
 $string['disclaimer'] = 'Я понимаю риски этой операции:';
+$string['doit'] = 'Да, сделать это!';
+$string['excludedtables'] = 'Некоторые таблицы не обновляются при замене части текста - это таблицы конфигурации, журналов, событий и сессий.';
 $string['notifyfinished'] = '... завершено';
 $string['notifyrebuilding'] = 'Восстановление кэша курса ...';
-$string['notimplemented'] = 'К сожалению, эта возможность реализована только для баз данных MySQL и PostgreSQL.';
+$string['notimplemented'] = 'К сожалению, эта возможность не реализована в драйвере вашей базы данных.';
 $string['notsupported'] = 'Этот скрипт не поддерживается, перед применением всегда делайте полную резервную копию! <br /> Эта операция не может быть отменена!';
 $string['pageheader'] = 'Поиск и замена текста по всей базе данных';
 $string['pluginname'] = 'Поиск и замена в БД';
@@ -36,3 +39,4 @@ $string['replacewith'] = 'Заменить на эту строку:';
 $string['replacewithhelp'] = 'В большинстве случаев - новый URL-адрес сервера';
 $string['searchwholedb'] = 'Поиск по всей базе данных:';
 $string['searchwholedbhelp'] = 'В большинстве случаев - прежний URL-адрес сервера';
+$string['shortenoversized'] = 'Сократить результат при необходимости';

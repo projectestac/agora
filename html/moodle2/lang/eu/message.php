@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,7 @@ $string['blockcontact'] = 'Blokeatu kontaktua';
 $string['blockedmessages'] = '{$a} mezu blokeatutako kontaktuengandik';
 $string['blockedusers'] = 'Blokeatutako erabiltzaileak ({$a})';
 $string['blocknoncontacts'] = 'Ez utzi kontaktu ez direnei niri mezuak bidaltzen';
-$string['contactlistempty'] = 'Zure kontaktu-zerrenda hutsik dago';
+$string['contactlistempty'] = 'Kontaktu-zerrenda hutsik';
 $string['contacts'] = 'Kontaktuak';
 $string['context'] = 'testuingurua';
 $string['defaultmessageoutputs'] = 'Lehenetsitako irteerako mezuak';
@@ -62,7 +62,7 @@ $string['includeblockedusers'] = 'Blokeatutako erabiltzaileak barne';
 $string['incomingcontacts'] = 'Sarrera-kontaktuak ({$a})';
 $string['keywords'] = 'Hitz-gakoak';
 $string['keywordssearchresults'] = 'Aurkitutako mezuak: {$a}';
-$string['keywordssearchresultstoomany'] = '{$a}-(e)tik gora mezu aurkituta. Findu zure bilaketa.';
+$string['keywordssearchresultstoomany'] = 'Bilaketaren emaitza: {$a}-(e)tik gora mezu aurkituta. Findu zure bilaketa.';
 $string['loggedin'] = 'On-line';
 $string['loggedindescription'] = 'On-line nagoenean';
 $string['loggedoff'] = 'Ez dago online';
@@ -83,7 +83,6 @@ $string['messagingdisabled'] = 'Mezularitza ez dago gaituta gune honetan, e-post
 $string['mostrecent'] = 'Azken aldiko mezuak';
 $string['mostrecentconversations'] = 'Azken aldiko elkarrizketak';
 $string['mostrecentnotifications'] = 'Azken aldiko jakinarazpenak';
-$string['mycontacts'] = 'Nire kontaktuak';
 $string['newonlymsg'] = 'Berriak baino ez erakutsi';
 $string['newsearch'] = 'Bilaketa berria';
 $string['noframesjs'] = 'Erabili interfaz eskuragarriagoa';
@@ -106,7 +105,7 @@ $string['outputnotconfigured'] = 'Ezarri gabea';
 $string['page-message-x'] = 'Edozein mezu-orri';
 $string['pagerefreshes'] = 'Orri hau {$a} segunduro berriztatzen da';
 $string['permitted'] = 'Baimendua';
-$string['private_config'] = 'Poppup mezuen leihoa';
+$string['private_config'] = 'Popup mezuen leihoa';
 $string['processortag'] = 'Helmuga';
 $string['providers_config'] = 'Ezarri sartutako mezuetarako jakinarazpen-metodoak';
 $string['providerstag'] = 'Iturria';
@@ -136,5 +135,5 @@ $string['unreadnewmessages'] = 'Mezu berriak ({$a})';
 $string['unreadnewnotification'] = 'Jakinarazpen berria';
 $string['unreadnewnotifications'] = 'Jakinarazpen berriak ({$a})';
 $string['userisblockingyou'] = 'Erabiltzaile honek blokeatu egin zaitu eta ezin diozu mezurik bidali';
-$string['userisblockingyounoncontact'] = '{$a}-k bere kontaktuen mezuak onartzen ditu bakarrik.';
+$string['userisblockingyounoncontact'] = '{$a}-k bere kontaktu-zerrendan daudenen mezuak bakarrik onartzen ditu.';
 $string['userssearchresults'] = 'Aurkitutako erabiltzaileak: {$a}';

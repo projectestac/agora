@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'Vous avez des sessions de chat prévues';
 $string['ajax'] = 'Version Ajax';
 $string['autoscroll'] = 'Défilement automatique';
 $string['beep'] = 'Bip';
+$string['bubble'] = 'Bulle';
 $string['cantlogin'] = 'Connexion au salon de chat impossible !';
 $string['chat:addinstance'] = 'Ajouter un chat';
 $string['chat:chat'] = 'Accéder à un salon de chat';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Lire les historiques des chats';
 $string['chatreport'] = 'Sessions de chat';
 $string['chat:talk'] = 'Participer à un chat';
 $string['chattime'] = 'Prochaine session';
+$string['compact'] = 'Compact';
 $string['composemessage'] = 'Composer un message';
 $string['configmethod'] = 'La méthode de chat AJAX fournit une interface AJAX pour le chat, qui contacte régulièrement le serveur pour actualiser l\'affichage. La méthode normale de chat contacte également régulièrement le serveur pour actualiser l\'affichage. Aucune configuration n\'est nécessaire et cela fonctionne partout. En revanche, cela induit une charge importante du serveur, notamment s\'il y a de nombreux participants au chat. L\'utilisation d\'un « démon » sur le serveur nécessite l\'accès à l\'environnement de commande Unix, mais offre en contrepartie un chat rapide et extensible.';
 $string['confignormalupdatemode'] = 'L\'actualisation de l\'affichage des salons de chat est normalement fait de manière plus efficace grâce à l\'utilisation de la fonction <em>Keep-Alive</em> du protocole HTTP 1.1, mais cette option charge passablement le serveur. Une méthode plus sophistiquée utilise la stratégie des <em>Flux</em> pour actualiser l\'affichage. L\'utilisation des <em>Flux</em> fonctionne mieux lorsqu\'il y a de nombreuses connexions (tout comme l\'utilisation du démon <em>chatd</em>), mais n\'est peut-être pas supportée par votre serveur.';
@@ -51,6 +53,7 @@ $string['configserverhost'] = 'Le nom de l\'ordinateur (hostname) sur lequel tou
 $string['configserverip'] = 'L\'adresse IP numérique de l\'ordinateur sur lequel tourne le démon';
 $string['configservermax'] = 'Nombre maximal de clients autorisés';
 $string['configserverport'] = 'Port à utiliser par le démon sur le serveur';
+$string['coursetheme'] = 'Thème de cours';
 $string['currentchats'] = 'Sessions actives';
 $string['currentusers'] = 'Utilisateurs en ligne';
 $string['deletesession'] = 'Supprimer cette session';
@@ -59,6 +62,9 @@ $string['donotusechattime'] = 'Ne pas publier les horaires de chat';
 $string['enterchat'] = 'Cliquer ici pour participer au chat';
 $string['entermessage'] = 'Saisissez votre message';
 $string['errornousers'] = 'Il n\'y a pas d\'utilisateur';
+$string['event_instances_list_viewed'] = 'Liste d\'instances consultée';
+$string['event_message_sent'] = 'Message envoyé';
+$string['event_sessions_viewed'] = 'Sessions consultées';
 $string['explaingeneralconfig'] = 'Ces réglages sont <strong>toujours</strong> utilisés';
 $string['explainmethoddaemon'] = 'Ces réglages sont effectifs <strong>uniquement</strong> si vous avez choisi la méthode de chat « Utilisation d\'un démon »';
 $string['explainmethodnormal'] = 'Ces réglages sont effectifs <strong>uniquement</strong> si vous avez choisi la méthode de chat « Méthode normale »';
@@ -113,7 +119,7 @@ $string['refreshuserlist'] = 'Actualisation liste utilisateurs';
 $string['removemessages'] = 'Supprimer tous les messages';
 $string['repeatdaily'] = 'Chaque jour à la même heure';
 $string['repeatnone'] = 'Pas de répétition - ne publier que la date spécifiée';
-$string['repeattimes'] = 'Répéter les sessions';
+$string['repeattimes'] = 'Répéter/publier les horaires des sessions';
 $string['repeatweekly'] = 'Chaque semaine à la même heure';
 $string['saidto'] = 'a dit à';
 $string['savemessages'] = 'Enregistrer les sessions précédentes';

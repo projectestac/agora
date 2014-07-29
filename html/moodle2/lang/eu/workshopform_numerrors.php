@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshopform_numerrors', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshopform_numerrors', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   workshopform_numerrors
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,6 +37,8 @@ $string['grade0'] = 'Errorea izendatzeko hitza';
 $string['grade0default'] = 'Ez';
 $string['grade1'] = 'Arrakasta izendatzeko hitza';
 $string['grade1default'] = 'Bai';
+$string['grademapping'] = 'Kalifikazioaren eskema-taula';
+$string['maperror'] = 'Garrantzia duten errore kopurua berdina edo txikiagoa da';
 $string['mapgrade'] = 'Bidalketaren kalifikazioa';
 $string['percents'] = '% {$a}';
 $string['pluginname'] = 'Errore-kopurua';

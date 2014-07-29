@@ -220,9 +220,37 @@ function is_enabled_in_agora ($mod){
          (((!isset($CFG->ismarsupial) || !$CFG->ismarsupial) && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade') )
          || ((!isset($CFG->iseoi) || !$CFG->iseoi) && ($mod=='eoicampus') )
          || ((!isset($CFG->isportal) || !$CFG->isportal) && $mod == 'admin_service' )
-         || ( $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || (!$CFG->enabledevicedetection && $mod=='mymobile' )) )
+         || ( $mod=='clean' || $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || (!$CFG->enabledevicedetection && $mod=='mymobile' )) )
          || (!is_xtecadmin() && $mod == 'alfresco') ) {
         return false;
     }
     return true;
+}
+
+
+function agora_course_print_navlinks($course, $section = 0){
+    global $CFG, $OUTPUT;
+    $context = context_course::instance($course->id, MUST_EXIST);
+    echo '<div class="agora_navbar">';
+    //Show reports
+    $reportavailable = false;
+    if (has_capability('moodle/grade:viewall', $context)) {
+        $reportavailable = true;
+    } else if (!empty($course->showgrades)) {
+        if ($reports = core_component::get_plugin_list('gradereport')) {     // Get all installed reports
+            arsort($reports); // user is last, we want to test it first
+            foreach ($reports as $plugin => $pluginname) {
+                if (has_capability('gradereport/' . $plugin . ':view', $context)) {
+                    //stop when the first visible plugin is found
+                    $reportavailable = true;
+                    break;
+                }
+            }
+        }
+    }
+    if ($reportavailable) {
+        $icon=  $OUTPUT->pix_icon('i/grades', "");
+        echo html_writer::link($CFG->wwwroot.'/grade/report/index.php?id=' . $course->id ,$icon.get_string('grades'));
+    }
+    echo '</div>';
 }

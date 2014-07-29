@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_database', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_database', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_database
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['dbencoding'] = 'Codificación da base de datos';
 $string['dbhost'] = 'Equipo da base de datos';
 $string['dbhost_desc'] = 'Escriba o IP do servidor de base de datos ou o nome do equipo';
 $string['dbname'] = 'Nome da base de datos';
+$string['dbname_desc'] = 'Déixeo baleiro se usa un nome DSN na máquina da base de datos.';
 $string['dbpass'] = 'Contrasinal do servidor';
 $string['dbsetupsql'] = 'Orde de configuración da base de datos';
 $string['dbsetupsql_desc'] = 'Orde SQL para configuración especial da base de datos, que se adoita usar para configurar a codificación da comunicación - exemplo para MySQL e PostgreSQL: <em>SET NAMES \'utf8\'</em>';
@@ -45,7 +46,7 @@ $string['defaultcategory_desc'] = 'A categoría predeterminada para cursos autoc
 $string['defaultrole'] = 'Rol predeterminado';
 $string['defaultrole_desc'] = 'O rol que se lle asignará de modo predeterminado se non se especifica ningún outro na táboa externa.';
 $string['ignorehiddencourses'] = 'Ignorar cursos agochados';
-$string['ignorehiddencourses_desc'] = 'De estar activado, os usuarios non se poderán matricular en cursos que se confirguren para non estaren dispoñíbeis aos estudantes.';
+$string['ignorehiddencourses_desc'] = 'De estar activado, os usuarios non se poderán matricular en cursos que se confirguren para non estaren dispoñíbeis aos alumnos.';
 $string['localcategoryfield'] = 'Campo de categoría local';
 $string['localcoursefield'] = 'Nome do campo na táboa de cursos que se emprega para emparellar as entradas na base de datos remota (ex., número ID).';
 $string['localrolefield'] = 'Nome do campo na táboa de roles que se emprega para emparellar as entradas na base de datos remota (ex., nome curto).';

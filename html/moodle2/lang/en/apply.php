@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'apply', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'apply', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   apply
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,8 +41,10 @@ $string['apply:deletesubmissions'] = 'Delete submissions';
 $string['apply:deletetemplate'] = 'Delete template';
 $string['apply:edititems'] = 'Edit Items';
 $string['apply:edittemplates'] = 'Edit Templates';
+$string['apply_is_already_submitted'] = 'Application is already submitted';
 $string['apply_is_closed'] = 'Application period is closed';
 $string['apply_is_disable'] = 'You ca not use this Apply';
+$string['apply_is_not_open'] = 'Application is not opened yet';
 $string['apply_is_not_ready'] = 'Apply is not ready yet. Please edit items first.';
 $string['apply:mapcourse'] = 'Map courses to global applys';
 $string['apply:operatesubmit'] = 'Operation of Entry';
@@ -182,6 +184,7 @@ $string['no_submit_data'] = 'Specified entry data does not exist';
 $string['no_templates_available_yet'] = 'No templates available yet';
 $string['not_exist'] = 'not Exist';
 $string['no_title'] = 'No Title';
+$string['not_selected'] = 'not Selected';
 $string['numeric'] = 'Numeric answer';
 $string['numeric_range_from'] = 'Range from';
 $string['numeric_range_to'] = 'Range to';

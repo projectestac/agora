@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_file', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_file', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,12 +31,14 @@ $string['default'] = 'Berez gaituta';
 $string['default_help'] = 'Ezarriz gero, bidalketa-metodo hau berez gaituko da zeregin berri guztietan';
 $string['enabled'] = 'Fitxategi-bidalketak';
 $string['enabled_help'] = 'Gaituz gero, ikasleek fitxategi bat edo gehiago igo dezakete euren bidalketan';
+$string['event_assessable_uploaded'] = 'Fitxategia ondo igo da.';
 $string['file'] = 'Fitxategi-bidalketak';
 $string['maxbytes'] = 'Fitxategiaren gehienezko tamaina';
 $string['maxfilessubmission'] = 'Igotako fitxategien gehienezko kopurua';
 $string['maxfilessubmission_help'] = 'Fitxategien bidalketa gaituta badago, ikasle bakoitzak fitxategi-kopuru hau bidali ahal izango du gehienez.';
 $string['maximumsubmissionsize'] = 'Bidalketaren gehienezko tamaina';
 $string['maximumsubmissionsize_help'] = 'Ikasleek igotako fitxategiek tamaina hau izan dezakete gehienez.';
+$string['numfilesforlog'] = 'Fitxategi-kopurua: {$a} fitxategi.';
 $string['pluginname'] = 'Fitxategi-bidalketak';
 $string['siteuploadlimit'] = 'Gunearen igoera-muga';
 $string['submissionfilearea'] = 'Bidalketan igotako fitxategiak';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = 'Accepterat fel';
 $string['addmoreanswerblanks'] = 'Tomma utrymmen för {no}  fler svar';
 $string['addmoreunitblanks'] = 'Tomma utrymmen för {no} fler enheter';
 $string['answercolon'] = 'Svar:';
+$string['answererror'] = 'Fel';
 $string['answermustbenumberorstar'] = 'Svaret måste vara ett tal, eller \'*\'.';
 $string['answerno'] = 'Svar {$a}';
 $string['decfractionofquestiongrade'] = 'som en del (0-1) av frågans poäng';
@@ -79,7 +80,6 @@ $string['unitchoice'] = 'ett flervals val';
 $string['unitedit'] = 'Redigera enhet';
 $string['unitgraded'] = 'Enheten måste anges, och kommer att poängsättas.';
 $string['unithandling'] = 'Enhets hantering';
-$string['unithdr'] = 'Enhet {$a}';
 $string['unitincorrect'] = 'Du angav inte rätt enhet.';
 $string['unitmandatory'] = 'Obligatorisk';
 $string['unitmandatory_help'] = '* Svaret bedöms enligt angiven enhet.
@@ -96,7 +96,9 @@ $string['unitpenalty_help'] = 'Poängavdraget tillämpas om
 * fel enhetsnamn anges i enhetsangivningen, eller
 * en enhet anges i ruta för värde';
 $string['unitposition'] = 'Enhetsplacering';
+$string['units'] = 'Enheter';
 $string['unitselect'] = 'en nedrullningsmeny';
+$string['unitx'] = 'Enhet {no}';
 $string['validnumberformats'] = 'Giltiga talformat';
 $string['validnumberformats_help'] = '* vanliga nummer 13500,67, 13 500,67, 13500,67 eller 13 500,67
 
@@ -104,3 +106,6 @@ $string['validnumberformats_help'] = '* vanliga nummer 13500,67, 13 500,67, 1350
 
 * för exponent form säg 1.350067 * 10 <sup>4</sup> använd 1,350067 E4: 1,350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 eller 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} måste vara ett nummer.';
+$string['xmustnotbenumeric'] = '{$a} får inte vara ett nummer.';
+$string['youmustenteramultiplierhere'] = 'Du måste ange en multiplikator här';

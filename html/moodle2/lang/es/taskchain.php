@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'taskchain', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'taskchain', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   taskchain
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,3 +30,4 @@ $string['next2task'] = 'Pasar por alto la siguiente tarea';
 $string['next3task'] = 'Pasar por alto 2 tareas';
 $string['next4task'] = 'Pasar por alto 3 tareas';
 $string['next5task'] = 'Pasar por alto 4 tareas';
+$string['timeopen'] = 'Disponible desde';

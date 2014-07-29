@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_singleactivity', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_singleactivity', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   format_singleactivity
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,8 +30,8 @@ $string['activitytype_help'] = 'Le type d\'activité ou de ressource à utiliser
 $string['defactivitytype'] = 'Type d\'activité par défaut';
 $string['defactivitytypedesc'] = 'Indiquez le type d\'activité qui sera sélectionné par défaut lors de la création d\'un nouveau cours';
 $string['erroractivitytype'] = 'Le type d\'activité n\'est pas défini dans les paramètres du cours';
-$string['errornotsetup'] = 'Ce cours n\'est pas encore configuré';
 $string['orphaned'] = 'Orphelin';
 $string['orphanedwarning'] = 'Ces activités ne sont pas accessibles par les utilisateurs !';
 $string['pluginname'] = 'Activité unique';
 $string['sectionname'] = '';
+$string['warningchangeformat'] = 'Lorsque vous changez le format d\'un cours existant au format « Activité simple », assurez-vous d\'avoir supprimé du cours toutes les activités supplémentaires, y compris le forum des nouvelles. La structure des sections pourrait être modifiée.';

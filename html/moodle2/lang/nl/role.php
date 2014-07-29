@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Nieuwe rol toevoegen';
-$string['addingrolebycopying'] = 'Nieuwe rol toevoegen, gebaseerd op {$a}';
 $string['addrole'] = 'Nieuwe rol toevoegen';
 $string['advancedoverride'] = 'Geavanceerd rollen overschrijven';
 $string['allow'] = 'Toelaten';
@@ -71,10 +70,22 @@ $string['backup:backuptargetimport'] = 'Back-up voor import';
 $string['backup:configure'] = 'Configureer back-upopties';
 $string['backup:downloadfile'] = 'Download bestanden van back-upzone';
 $string['backup:userinfo'] = 'Back-up van gebruikersgegevens maken';
+$string['badges:awardbadge'] = 'Badge uitreiken aan gebruiker';
+$string['badges:configurecriteria'] = 'Opstellen/bewerken van criteria voor een badge';
+$string['badges:configuredetails'] = 'Opstellen/bewerken van badge-details';
+$string['badges:configuremessages'] = 'Badge-berichten configureren';
+$string['badges:createbadge'] = 'Badges maken/dupliceren';
+$string['badges:deletebadge'] = 'Badges verwijderen';
+$string['badges:earnbadge'] = 'Badges verdienen';
+$string['badges:manageglobalsettings'] = 'Globale instellingen van badges beheren';
+$string['badges:manageownbadges'] = 'Bekijken en beheren van eigen verdiende badges';
+$string['badges:viewawarded'] = 'Bekijk gebruikers die een specifieke badge verdienden zonder zelf badges te kunnen uitreiken';
+$string['badges:viewbadges'] = 'Beschikbare badges bekijken zonder ze te verdienen';
+$string['badges:viewotherbadges'] = 'Openbare badges in gebruikersprofielen kunnen zien';
 $string['block:edit'] = 'Bewerk blokinstellingen';
 $string['block:view'] = 'Blok zien';
-$string['blog:associatecourse'] = 'Associeer blogitems met cursussen';
-$string['blog:associatemodule'] = 'Associeer blogitems met activiteitenmodules';
+$string['blog:associatecourse'] = 'Deze mogelijkheid doet niets meer';
+$string['blog:associatemodule'] = 'Deze mogelijkheid doet niets meer';
 $string['blog:create'] = 'Niewe blog items maken';
 $string['blog:manageentries'] = 'Items bewerken en beheren';
 $string['blog:manageexternal'] = 'Bewerk en beheer externe blogs';
@@ -152,6 +163,7 @@ $string['course:viewhiddensections'] = 'Verborgen secties zien';
 $string['course:viewhiddenuserfields'] = 'Verborgen gebruikersvelden zien';
 $string['course:viewparticipants'] = 'Deelnemers bekijken';
 $string['course:viewscales'] = 'Schalen bekijken';
+$string['course:viewsuspendedusers'] = 'Geschorste gebruikers zien';
 $string['course:visibility'] = 'Cursussen verbergen/tonen';
 $string['createrolebycopying'] = 'Een nieuwe rol maken door {$a} te kopiëren';
 $string['createthisrole'] = 'Maak deze rol';
@@ -177,9 +189,17 @@ $string['errorbadrolename'] = 'Verkeerde rolnaam';
 $string['errorbadroleshortname'] = 'Verkeerde korte rolnaam';
 $string['errorexistsrolename'] = 'Rolnaam bestaat al';
 $string['errorexistsroleshortname'] = 'Rolnaam bestaat al';
+$string['eventroleallowassignupdated'] = 'Roltoewijzing toestaan';
+$string['eventroleallowoverrideupdated'] = 'Rol overschrijven toestaan';
+$string['eventroleallowswitchupdated'] = 'Rol wijzigen toestaan';
+$string['eventroleassigned'] = 'Rol toegewezen';
+$string['eventrolecapabilitiesupdated'] = 'Rolmogelijkheden aangepast';
+$string['eventroledeleted'] = 'Rol verwijderd';
+$string['eventroleunassigned'] = 'Rol niet meer toegewezen';
 $string['existingadmins'] = 'Huidige sitebeheerders';
 $string['existingusers'] = '{$a} bestaande gebruikers';
 $string['explanation'] = 'Verklaring';
+$string['export'] = 'Exporteer';
 $string['extusers'] = 'Bestaande gebruikers';
 $string['extusersmatching'] = 'Bestaande gebruikers die overeen komen met \'{$a}\'';
 $string['filter:manage'] = 'Beheer lokale filterinstellingen';
@@ -211,6 +231,7 @@ $string['highlightedcellsshowinherit'] = 'De opgelichte cellen in onderstaande t
 $string['inactiveformorethan'] = 'langer dan {$a->timeperiod} niet actief';
 $string['ingroup'] = 'in de groep "{$a->group}"';
 $string['inherit'] = 'Overerven';
+$string['invalidpresetfile'] = 'Ongeldig roldefinitiebestand';
 $string['legacy:admin'] = 'PRE 1.7 ROL: Beheerder';
 $string['legacy:coursecreator'] = 'VEROUDERDE ROL: Cursusaanmaker';
 $string['legacy:editingteacher'] = 'PRE 1.7 ROL: Leraar (bewerken)';
@@ -236,6 +257,7 @@ $string['neededroles'] = 'Rollen met rechten';
 $string['nocapabilitiesincontext'] = 'Geen mogelijkheden beschikbaar  in deze context';
 $string['noneinthisx'] = 'Niets in deze {$a}';
 $string['noneinthisxmatching'] = 'Er komen geen gebruikers overeen met \'{$a->search}\' in dit {$a->contexttype}';
+$string['norole'] = 'Geen rol';
 $string['noroleassignments'] = 'Deze gebruiker heeft geen roltoewijzingen in deze site';
 $string['noroles'] = 'Geen rollen';
 $string['notabletoassignroleshere'] = 'Je kunt hier geen rollen toewijzen';
@@ -309,9 +331,7 @@ $string['rating:view'] = 'Het beoordelingstotaal zien dat je gekregen hebt';
 $string['rating:viewall'] = 'Bekijk alle ruwe beoordelingen';
 $string['rating:viewany'] = 'Bekijk alle totaalbeoordelingen';
 $string['resetrole'] = 'Standaardinstellingen';
-$string['resetrolenolegacy'] = 'Wis rechten';
-$string['resetrolesure'] = 'Ben je er zeker van dat je de rol "{$a->name} ({$a->shortname})" terug de standaardinstellingen wil geven?<p></p>De standaardinstellingen worden gehaald uit het gekozen archetype ({$a->legacytype}).';
-$string['resetrolesurenolegacy'] = 'Ben je er zeker van dat je alle rechten, gedefinieerd in de rol "{$a->name}({$a->shortname})" wil verwijderen?';
+$string['resettingrole'] = 'Rol \'{$a}\' naar standaardinstellingen';
 $string['restore:configure'] = 'Configureer terugzetopties';
 $string['restore:createuser'] = 'Gebruikers aanmaken bij terugzetten';
 $string['restore:restoreactivity'] = 'Activiteiten terugzetten';
@@ -335,7 +355,11 @@ $string['role:manage'] = 'Aanmaken en beheren van rollen';
 $string['role:override'] = 'Rechten voor anderen overschrijven';
 $string['roleprohibitheader'] = 'Rol verbieden:';
 $string['roleprohibitinfo'] = 'Kies een rol om toe te voegen aan de lijst met verboden rollen in context {$a->context}, mogelijkheid {$a->cap}:';
+$string['rolerepreset'] = 'Gebruik voorinstellingen rol';
+$string['roleresetdefaults'] = 'Standaarden';
+$string['roleresetrole'] = 'Gebruik rol voor archetype';
 $string['role:review'] = 'Rechten voor anderen nakijken';
+$string['rolerisks'] = 'Risico\'s rol';
 $string['roles'] = 'Rollen';
 $string['role:safeoverride'] = 'Overschrijf veilige rechten voor anderen';
 $string['roleselect'] = 'Selecteer rol';
@@ -377,6 +401,7 @@ $string['tag:edit'] = 'Bestaande tags bewerken';
 $string['tag:editblocks'] = 'Bewerk blokken op tag-pagina';
 $string['tag:flag'] = 'Rapporteer als ongeschikt';
 $string['tag:manage'] = 'Alle tags bewerken';
+$string['thisnewrole'] = 'Deze nieuwe rol';
 $string['thisusersroles'] = 'De roltoewijzingen van deze gebruiker';
 $string['unassignarole'] = 'Verwijder toewijzing rol {$a}';
 $string['unassignconfirm'] = 'Wil je echt de toewijzing van rol "{$a->role}" verwijderen van gebruiker "{$a->user}"?';

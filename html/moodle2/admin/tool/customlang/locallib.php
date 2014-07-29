@@ -56,22 +56,18 @@ class tool_customlang_utils {
 
         $list['moodle'] = 'core';
 
-        $coresubsystems = get_core_subsystems();
+        $coresubsystems = core_component::get_core_subsystems();
         ksort($coresubsystems); // should be but just in case
         foreach ($coresubsystems as $name => $location) {
-            if ($name != 'moodle.org') {
-                $list[$name] = 'core_'.$name;
-            }
+            $list[$name] = 'core_'.$name;
         }
 
-        $plugintypes = get_plugin_types();
+        $plugintypes = core_component::get_plugin_types();
         foreach ($plugintypes as $type => $location) {
-            $pluginlist = get_plugin_list($type);
+            $pluginlist = core_component::get_plugin_list($type);
             foreach ($pluginlist as $name => $ununsed) {
                 if ($type == 'mod') {
-                    if (array_key_exists($name, $list)) {
-                        throw new Exception('Activity module and core subsystem name collision');
-                    }
+                    // Plugin names are now automatically validated.
                     $list[$name] = $type.'_'.$name;
                 } else {
                     $list[$type.'_'.$name] = $type.'_'.$name;
@@ -271,7 +267,7 @@ class tool_customlang_utils {
         if ($filename !== clean_param($filename, PARAM_FILE)) {
             throw new coding_exception('Incorrect file name '.s($filename));
         }
-        list($package, $subpackage) = normalize_component($component);
+        list($package, $subpackage) = core_component::normalize_component($component);
         $packageinfo = " * @package    $package";
         if (!is_null($subpackage)) {
             $packageinfo .= "\n * @subpackage $subpackage";
@@ -327,6 +323,7 @@ EOF
             fwrite($f, ";\n");
         }
         fclose($f);
+        @chmod($filepath, $CFG->filepermissions);
     }
 
     /**

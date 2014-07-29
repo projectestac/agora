@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_list', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_list', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_list
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,4 +33,4 @@ $string['course_list:addinstance'] = '새 강좌 블록 추가';
 $string['course_list:myaddinstance'] = '내 공부방에 강좌 블록 추가';
 $string['hideallcourseslink'] = '모든 강좌 링크 감춤';
 $string['owncourses'] = '관리자는 자신의 강좌만 볼 수 있음';
-$string['pluginname'] = '강좌';
+$string['pluginname'] = '강좌 목록';

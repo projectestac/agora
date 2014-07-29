@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'CSVデリミタ';
 $string['defaultvalues'] = 'デフォルト値';
 $string['deleteerrors'] = '削除エラー';
 $string['encoding'] = 'エンコーディング';
+$string['errormnetadd'] = 'リモートユーザを追加できません。';
 $string['errors'] = 'エラー';
 $string['nochanges'] = '変更なし';
 $string['pluginname'] = 'ユーザアップロード';
@@ -60,6 +61,7 @@ $string['uploadusers_help'] = 'テキストファイル経由でユーザをア�
 * 必須フィールド名は次のとおりです: username, password, firstname, lastname, email';
 $string['uploaduserspreview'] = 'アップロードユーザプレビュー';
 $string['uploadusersresult'] = 'アップロードユーザ結果';
+$string['uploaduser:uploaduserpictures'] = 'ユーザ写真をアップロードする';
 $string['useraccountupdated'] = 'ユーザが更新されました。';
 $string['useraccountuptodate'] = '最新ユーザ';
 $string['userdeleted'] = 'ユーザが削除されました。';
@@ -70,7 +72,7 @@ $string['usersrenamed'] = 'ユーザがリネームされました';
 $string['usersskipped'] = 'ユーザがスキップされました';
 $string['usersupdated'] = 'ユーザが更新されました';
 $string['usersweakpassword'] = '弱いパスワードを持ったユーザ';
-$string['uubulk'] = 'バルクユーザ処理の選択';
+$string['uubulk'] = '「バルクユーザ処理」を選択する';
 $string['uubulkall'] = 'すべてのユーザ';
 $string['uubulknew'] = '新しいユーザ';
 $string['uubulkupdated'] = '更新されたユーザ';

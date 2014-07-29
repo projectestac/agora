@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_cas', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_cas', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_cas
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,9 +34,9 @@ $string['auth_cas_broken_password'] = 'You cannot proceed without changing your 
 $string['auth_cas_cantconnect'] = 'LDAP part of CAS-module cannot connect to server: {$a}';
 $string['auth_cas_casversion'] = 'Version';
 $string['auth_cas_changepasswordurl'] = 'Password-change URL';
-$string['auth_cas_create_user'] = 'Ενεργοποιήστε το εάν επιθυμείτε να εισάγετε CAS- πιστοποιημένους χρήστες στην βάση δεδομένων του ΠΗΛΕΑΣ. Εάν όχι, τότε μόνο οι χρήστες που είναι ήδη στην βάση μπορούν να εισέλθουν.';
+$string['auth_cas_create_user'] = 'Ενεργοποιήστε το εάν επιθυμείτε να εισάγετε CAS- πιστοποιημένους χρήστες στην βάση δεδομένων του Moodle. Εάν όχι, τότε μόνο οι χρήστες που είναι ήδη στην βάση μπορούν να εισέλθουν.';
 $string['auth_cas_create_user_key'] = 'Create user';
-$string['auth_casdescription'] = 'Αυτή η μέθοδο χρησιμοποιεί ένα διακομιστή CAS (Central Authentication Service) για την πιστοποίηση των χρηστών σε ένα Single Sign On περιβάλλον(SSO). Μπορείτε επίσης να χρησιμοποιήσετε απλή LDAP πιστοποίηση. Εάν τα δοθέντα όνομα χρήστη και κωδικός είναι έγκυρα σύμφωνα με το CAS, το ΠΗΛΕΑΣ δημιουργεί καινούργια εγγραφή για τον χρήστη στην βάση δεδομένων, λαμβάνοντας χαρακτηριστικά του χρήστη από τον LDAP αν χρειαστεί. Στις επόμενες εισόδους μόνο το όνομα χρήστη και ο κωδικός ελέγχονται.';
+$string['auth_casdescription'] = 'Αυτή η μέθοδο χρησιμοποιεί ένα διακομιστή CAS (Central Authentication Service) για την πιστοποίηση των χρηστών σε ένα Single Sign On περιβάλλον(SSO). Μπορείτε επίσης να χρησιμοποιήσετε απλή LDAP πιστοποίηση. Εάν τα δοθέντα όνομα χρήστη και κωδικός είναι έγκυρα σύμφωνα με το CAS, το Moodle δημιουργεί καινούργια εγγραφή για τον χρήστη στην βάση δεδομένων, λαμβάνοντας χαρακτηριστικά του χρήστη από τον LDAP αν χρειαστεί. Στις επόμενες εισόδους μόνο το όνομα χρήστη και ο κωδικός ελέγχονται.';
 $string['auth_cas_enabled'] = 'Ενεργοποιήστε το εάν θέλετε CAS- πιστοποίηση';
 $string['auth_cas_hostname'] = 'Hostname του CAS διακομιστή <br />πχ: host.domain.fr';
 $string['auth_cas_hostname_key'] = 'Hostname';

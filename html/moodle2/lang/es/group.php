@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['createautomaticgrouping'] = 'Crear agrupamiento automático';
 $string['creategroup'] = 'Crear grupo';
 $string['creategrouping'] = 'Crear agrupamiento';
 $string['creategroupinselectedgrouping'] = 'Crear grupo en agrupamiento';
-$string['createingrouping'] = 'Crear en agrupación';
+$string['createingrouping'] = 'Agrupación de grupos creados automáticamente';
 $string['createorphangroup'] = 'Crear un grupo huérfano';
 $string['databaseupgradegroups'] = 'La versión de grupos es ahora {$a}';
 $string['defaultgrouping'] = 'Agrupamiento por defecto';
@@ -68,16 +68,26 @@ $string['errorremovenotpermitted'] = 'Usted no tiene permiso para remover al mie
 $string['errorselectone'] = 'Por favor, seleccione un solo grupo antes de elegir esta opción';
 $string['errorselectsome'] = 'Por favor, seleccione uno o más grupos antes de elegir esta opción';
 $string['evenallocation'] = 'Nota: Para conservar constante la asignación de usuarios, el número real de miembros por grupo difiere del número que usted ha especificado.';
+$string['event_group_created'] = 'Grupo creado';
+$string['event_group_deleted'] = 'Grupo eliminado';
+$string['event_grouping_created'] = 'Grupo creado';
+$string['event_grouping_deleted'] = 'Grupo eliminado';
+$string['event_grouping_updated'] = 'Grupo actualizado';
+$string['event_group_member_added'] = 'Miembro del grupo añadido';
+$string['event_group_member_removed'] = 'Miembro del grupo eliminado';
+$string['event_group_updated'] = 'Grupo actualizado';
 $string['existingmembers'] = 'Miembros existentes: {$a}';
 $string['filtergroups'] = 'Filtrar grupos por:';
 $string['group'] = 'Grupo';
 $string['groupaddedsuccesfully'] = 'Grupo {$a} agregado con éxito';
-$string['groupby'] = 'Especificar';
+$string['groupaddedtogroupingsuccesfully'] = 'El grupo {$a->groupname} se añadió al agrupamiento {$a->groupingname} con éxito';
+$string['groupby'] = 'Basado en creación automática';
 $string['groupdescription'] = 'Descripción del grupo';
 $string['groupinfo'] = 'Información sobre el grupo seleccionado';
 $string['groupinfomembers'] = 'Información sobre los miembros seleccionados';
 $string['groupinfopeople'] = 'Información sobre las personas seleccionadas';
 $string['grouping'] = 'Agrupamiento';
+$string['groupingaddedsuccesfully'] = 'Agrupamiento {$a} añadido con éxito';
 $string['groupingdescription'] = 'Descripción del agrupamiento';
 $string['grouping_help'] = 'Un agrupamiento es un conjunto de grupos dentro de un curso. Si se selecciona un agrupamiento, los usuarios asignados a los grupos dentro del agrupamiento podrán trabajar juntos.';
 $string['groupingname'] = 'Nombre del agrupamiento';
@@ -89,7 +99,7 @@ $string['groupingsonly'] = 'Sólo agrupamientos';
 $string['groupmember'] = 'Miembro del Grupo';
 $string['groupmemberdesc'] = 'Rol estándar de un miembro de grupo.';
 $string['groupmembers'] = 'Miembros del grupo';
-$string['groupmembersonly'] = 'Sólo disponible para miembros de grupo';
+$string['groupmembersonly'] = 'Sólo disponible para miembros del agrupamiento';
 $string['groupmembersonlyerror'] = 'Lo sentimos, debe ser miembro de al menos un grupo que sea usado en esta actividad.';
 $string['groupmembersonly_help'] = 'Si se marca la casilla, la actividad (o recurso) únicamente estará disponible para los estudiantes asignados a los grupos dentro del agrupamiento seleccionado.';
 $string['groupmemberssee'] = 'Ver los integrantes del grupo';
@@ -176,6 +186,7 @@ es mayor a 100 x 100 píxeles se cortará.
 <P>Cuando acabe de cambiar su imagen es posible que no vea el cambio; si eso sucede
 actualice la página (oprimiendo F5 o el botón actualizar).';
 $string['noallocation'] = 'No asignación';
+$string['nogrouping'] = 'No agrupar';
 $string['nogroups'] = 'Aún no se han formado grupos en este curso';
 $string['nogroupsassigned'] = 'No hay grupos asignados';
 $string['nopermissionforcreation'] = 'No se puede crear el grupo "{$a}": usted no dispone de los permisos requeridos';
@@ -198,7 +209,7 @@ $string['removegroupfromselectedgrouping'] = 'Eliminar grupo del agrupamiento se
 $string['removegroupingsmembers'] = 'Quitar todos los grupos de los agrupamientos';
 $string['removegroupsmembers'] = 'Quitar todos los miembros de los grupos';
 $string['removeselectedusers'] = 'Eliminar usuarios seleccionados';
-$string['selectfromrole'] = 'Seleccionar los miembros a partir del rol';
+$string['selectfromrole'] = 'Seleccionar los miembros con rol';
 $string['showgroupsingrouping'] = 'Mostrar grupos del conjunto';
 $string['showmembersforgroup'] = 'Mostrar miembros del grupo';
 $string['toomanygroups'] = 'Usuarios insuficientes para formar este número de grupos (sólo hay {$a} usuarios en el rol seleccionado).';

@@ -25,8 +25,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-if (get_protected_agora() && $hassiteconfig) {
-    $ADMIN->add('users', 
+defined('MOODLE_INTERNAL') || die;
+
+if (get_protected_agora()) {
+    $ADMIN->add('users',
             new admin_externalpage('odisseagtafsync', get_string('pluginname', 'tool_odisseagtafsync'),
-            $CFG->wwwroot . '/' . $CFG->admin . '/tool/odisseagtafsync/index.php', 'moodle/site:config'));
+            $CFG->wwwroot . '/' . $CFG->admin . '/tool/odisseagtafsync/index.php'));
 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'Разделитель для CSV';
 $string['defaultvalues'] = 'Значения по умолчанию';
 $string['deleteerrors'] = 'Ошибки удаления';
 $string['encoding'] = 'Кодировка';
+$string['errormnetadd'] = 'Невозможно добавить отдаленных пользователей';
 $string['errors'] = 'Ошибки';
 $string['nochanges'] = 'Не изменять';
 $string['pluginname'] = 'Загрузка пользователей';
@@ -60,6 +61,7 @@ $string['uploadusers_help'] = 'Пользователи могут быть за
 * Обязательными именами полей являются: username, password, firstname, lastname, email (логин, пароль, имя, фамилия, адрес электронной почты)';
 $string['uploaduserspreview'] = 'Предварительный просмотр загружаемых пользователей';
 $string['uploadusersresult'] = 'Результаты загрузки пользователей';
+$string['uploaduser:uploaduserpictures'] = 'Загружать изображения пользователей';
 $string['useraccountupdated'] = 'Пользователь обновлен';
 $string['useraccountuptodate'] = 'Пользователь актуален';
 $string['userdeleted'] = 'Пользователь удален';

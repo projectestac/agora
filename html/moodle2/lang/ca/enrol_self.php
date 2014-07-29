@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['canntenrol'] = 'La inscripció està deshabilitada o inactiva';
 $string['cohortnonmemberinfo'] = 'Només el membres de la cohort \'{$a}\' poden inscriure\'s ells mateixos.';
 $string['cohortonly'] = 'Només membres de la cohort';
 $string['cohortonly_help'] = 'L\'autoinscripció pot estar restringida als membres de la cohort especificada. Fixeu-vos que canviar aquest paràmetre no té cap efecte sobre les inscripcions que ja existeixen.';
@@ -37,18 +38,17 @@ Els següents marcadors de posició poden ser inclosos en el missatge:
 * Enllaç a la pàgina de perfil de l\'usuari {$a->profileurl}';
 $string['defaultrole'] = 'Assignació de rol per defecte';
 $string['defaultrole_desc'] = 'Trieu el rol que serà assignat als usuaris durant el procés d\'inscripció';
-$string['editenrolment'] = 'Editeu la inscripció';
 $string['enrolenddate'] = 'Data final';
 $string['enrolenddate_help'] = 'Si s\'habilita, els usuaris només es poden inscriure fins aquest període';
 $string['enrolenddaterror'] = 'La fi del període d\'inscripció no pot ser abans de la data d\'inici.';
 $string['enrolme'] = 'Inscriu-me';
 $string['enrolperiod'] = 'Duració de la inscripció';
-$string['enrolperiod_desc'] = 'La durada per defecte de la inscripció. Si es configura amb el valor zero, la durada de la inscripció esdevé il·limitada.';
+$string['enrolperiod_desc'] = 'La duració del temps d\'inscripció per defecte. Si es configura amb el valor cero, la duració de la inscripció esdevé il·limitada.';
 $string['enrolperiod_help'] = 'La data en que la inscripció és vàlida, que comença al moment en que l\'usuari s\'inscriu ell mateix. Si es deshabilita, la duració de la inscripció esdevé il·limitada.';
 $string['enrolstartdate'] = 'Data d\'inici';
 $string['enrolstartdate_help'] = 'Si s\'habilita, els usuaris només es poden inscriure a partir d\'aquest període';
-$string['expiredaction'] = 'Acció en vèncer la inscripció';
-$string['expiredaction_help'] = 'Seleccioneu l\'acció a realitzar quan la inscripció de l\'usuari venci. Tingueu en compte que algunes dades d\'usuari i configuracions es suprimeixen del curs durant la cancel·lació de la inscripció del curs.';
+$string['expiredaction'] = 'Acció de venciment de la inscripció';
+$string['expiredaction_help'] = 'Seleccioneu l\'acció a realitzar quan la inscripció de l\'usuari venciment. Tingueu en compte que algunes dades d\'usuari i configuracions es suprimeixen  del curs durant la cancel·lació de la inscripció del curs.';
 $string['expirymessageenrolledbody'] = 'Estimat/da {$a->user},
 
 Aquesta és una notificació per comunicar-vos que la inscripció al curs \'{$a->course}\'  és a punt de vèncer el  {$a->timeend}.
@@ -73,6 +73,9 @@ $string['maxenrolled'] = 'Nombre màxim d\'usuaris inscrits';
 $string['maxenrolled_help'] = 'Especifica el nombre màxim d\'usuaris que es poden inscriure. 0 significa que no hi ha límit';
 $string['maxenrolledreached'] = 'Ja s\'ha assolit el nombre màxim d\'usuaris que heu permès auto inscriure\'s.';
 $string['messageprovider:expiry_notification'] = 'Notificació de venciment d\'autoinscripció.';
+$string['newenrols'] = 'Permet inscripcions noves';
+$string['newenrols_desc'] = 'Permet que els usuaris s\'inscriguen ells mateixos per defecte en els cursos nous.';
+$string['newenrols_help'] = 'Aquest paràmetre determina si un usuari pot inscriure\'s en aquest curs.';
 $string['nopassword'] = 'No cal clau d\'inscripció.';
 $string['password'] = 'Clau d\'inscripció';
 $string['password_help'] = 'Una clau d\'inscripció habilita per accedir al curs que està restringit sols als qui coneixen la clau.
@@ -98,9 +101,9 @@ $string['sendcoursewelcomemessage'] = 'Envia un missatge de benvinguda al curs';
 $string['sendcoursewelcomemessage_help'] = 'Si s\'habilita, els usuaris rebran un missatge de benvinguda per correu electrònic quan auto-inscriguin al curs.';
 $string['showhint'] = 'Mostra la pista';
 $string['showhint_desc'] = 'Mostra la primera lletra de la contrasenya d\'accés del convidat.';
-$string['status'] = 'Habilita les auto-inscripcions.';
-$string['status_desc'] = 'Permet als usuaris auto-inscriure\'s al curs per defecte.';
-$string['status_help'] = 'Aquest paràmetre determina quan un usuari pot inscriure\'s ( i també auto-cancel·lar si té el permís apropiat) ell mateix al curs.';
+$string['status'] = 'Habilita les autoinscripcions existents';
+$string['status_desc'] = 'Habilita el mètode d\'autoinscripció per als cursos nous.';
+$string['status_help'] = 'Si està inhabilitat, totes les autoinscripcions existents se suspenen i els nous usuaris no es poden inscriure.';
 $string['unenrol'] = 'Cancel·la la inscripció de l\'usuari.';
 $string['unenrolselfconfirm'] = 'De veritat voleu cancel·lar la vostra inscripció al curs "{$a}"?';
 $string['unenroluser'] = 'De veritat voleu cancel·lar la inscripció de l\'usuari "{$a->user}" al curs  "{$a->course}"?';

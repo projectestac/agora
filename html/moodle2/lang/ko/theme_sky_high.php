@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_sky_high', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_sky_high', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_sky_high
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,4 +40,4 @@ $string['region-side-pre'] = '왼쪽';
 $string['regionwidth'] = '열 너비';
 $string['regionwidthdesc'] = '이것은 왼쪽 열과 오른쪽 열에 만들어질 블록 영역의 폭을 설정합니다.';
 $string['tagline'] = '태그행';
-$string['taglinedesc'] = '이 텍스트 영역의 콘텐츠는 홈페이지의 사이트 이름 아래에 표시될 것입니다.';
+$string['taglinedesc'] = '이 텍스트 영역의 콘텐츠는 누리집의 사이트 이름 아래에 표시될 것입니다.';

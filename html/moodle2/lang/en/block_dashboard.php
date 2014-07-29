@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_dashboard', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_dashboard', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   block_dashboard
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['bigresult'] = '"Big Results" protection';
 $string['blockname'] = 'Dashboard';
 $string['checktohide'] = 'Check box to hide title';
 $string['choicevalue'] = 'Choice';
+$string['cleararea'] = 'Clear all file area';
 $string['configbigresult'] = '<span style="font-size:0.8em">Enable Big Result option</span>';
 $string['configbigresult_help'] = '<h3>Big results security bypass</h3>
 <p>Statistic queries may have dramatic performance impact moreover when having erroneous joins. To avoid GUI break when setting up queries,
@@ -48,6 +49,7 @@ saving a lot of database power.</p>
 amount of output data. The cron automation will allow to shedule at appropriate time the refresh
 of the cache, combined with cache TTL value.</p>';
 $string['configcachingttl'] = 'Cache TTL';
+$string['configcharset'] = 'Charset';
 $string['configcleandisplay'] = 'Clean table display';
 $string['configcoloredvalues'] = 'Color control values';
 $string['configcolorfield'] = 'Color control field';
@@ -76,16 +78,22 @@ $string['configcronhour'] = 'Hour';
 $string['configcronmin'] = 'Minutes';
 $string['configcronmode'] = 'Cron refresh mode';
 $string['configcrontime'] = 'Hour';
-$string['configdahsboardparams'] = 'Dashboard data settings';
+$string['configdashboardcron'] = 'Dashboard cron status';
+$string['configdashboardparams'] = 'Dashboard data settings';
 $string['configdata'] = 'GoogleMaps Markers Data';
 $string['configdatatitles'] = 'Data titles';
 $string['configdatatypes'] = 'Data types';
+$string['configdelayedrefresh'] = 'Delayed refresh for dashboard data';
+$string['configdelayedrefresh_help'] = '<p>Output to file can be delayed to a suitable time by programming refresh scheduling</p>
+<p>You can choose to schedule your output using the general settings for cron activation, or
+choose an instance level schedule</p>';
 $string['configdisplay'] = 'Setup elements for display';
 $string['configenablehorizsums'] = 'Enable horiz sums';
 $string['configenablevertsums'] = 'Enable vertical sums';
 $string['configeventmapping'] = 'Data mapping for events';
 $string['configexplicitscaling'] = 'Explicit scaling';
 $string['configexplicitscaling_help'] = '<p>Usually, JQPlot will automate the graph axis scale and viewport bounds. You may force some bounding and grid parameters here. JQPlot may not always follow your recomendations exaly in some cases (unknown reasons).</p>';
+$string['configexportcharset'] = 'Charset for CSV exports';
 $string['configfileformat'] = 'File format';
 $string['configfilelocation'] = 'Generated file location';
 $string['configfilelocationadmin'] = 'Generated file location admin extension';
@@ -95,8 +103,11 @@ $string['configfilelocation_help'] = '<p>When cron data refresh is programmed on
 <p><b>Beware :</b> This path needs to bind to an existing storage context.</p>';
 $string['configfileoutput'] = 'File output fields';
 $string['configfileoutputformats'] = 'Field value formatting';
-$string['configfilepathadminoverride'] = 'Generated file special path';
+$string['configfileoutput_help'] = '<p>File can use a distinct set of output field than what is required for display. </p>';
+$string['configfilepathadminoverride'] = 'Only administrators can choose where to put the file.';
+$string['configfilepathadminoverride_help'] = 'Administrators may need to generate the files outside the Moodle controlled area';
 $string['configfilesqlouttable'] = 'Ouput SQL tablename (SQL file format)';
+$string['configfilesqlouttable_help'] = '<p>In case file format is outputing an SQL inserts, youl\'ll need tell the table name in which records go in. </p>';
 $string['configfilterdefaults'] = 'Default filter values';
 $string['configfilterdefaults_help'] = '<h3>Default option for filters</h3>
 
@@ -280,7 +291,11 @@ $string['confighidetitle'] = 'Hide block\'s title';
 $string['confighorizformat'] = 'Horiz keys formatting';
 $string['confighorizkey'] = 'Horiz key';
 $string['confighorizlabel'] = 'Horizontal labels';
+$string['confighorodatefiles'] = 'Horodate files';
+$string['confighorodatefiles_help'] = 'When enabled, a timestamp will be added at the end of each generated filename';
 $string['configimportexport'] = 'configuration import/export';
+$string['configisrunning'] = 'Cron is running ?';
+$string['configlastcron'] = 'Last cron stamp';
 $string['configlat'] = 'Latitude';
 $string['configlayout'] = 'Publish data';
 $string['configlineartable'] = 'Linear table settings';
@@ -289,6 +304,7 @@ $string['configlocation'] = 'Location of the map';
 $string['configlocation_help'] = '<p>The central point of the map shown in viewport. You may retrieve directly those values using GoogleMaps interface.</p>';
 $string['configlowerbandunit'] = 'Lower band time scale';
 $string['configmakefile'] = 'Enable file generation';
+$string['configmakefile_help'] = '<p>When data is refreshed in cache, you can choose or not to generate an output file with refreshed data</p>';
 $string['configmaptype'] = 'Map type';
 $string['confignumsums'] = 'Summarizers';
 $string['confignumsumsformats'] = 'Sums formatting';
@@ -367,6 +383,8 @@ $string['configsums_help'] = '<h3>Tabular table row and column sums</h3>
 <p>When enabling this feature, each row (resp. columns) will have an extra column (resp. row)  with the
 sum of the cell value of the entire row. Note in ae of multiplet in cell, only the first numerial field is summated.';
 $string['configtable'] = 'Table settings';
+$string['configtablesplit'] = 'Data table split field';
+$string['configtablesplit_help'] = 'If set, distinct values of this field will make separate subtables';
 $string['configtabletype'] = 'Data table type';
 $string['configtabletype_help'] = '<h3>Data presentation table type</h3>
 
@@ -465,6 +483,7 @@ $string['dashboard_output_encoding'] = 'Output encoding';
 $string['dashboard_output_field_separator'] = 'Output field separator';
 $string['dashboard_output_line_separator'] = 'Output line separator';
 $string['dashboards'] = 'Dashboards';
+$string['dashboardstoragearea'] = 'Dashboard File Storage Area';
 $string['dashboard:systempathaccess'] = 'Can configure output in system data path';
 $string['datalocations'] = 'Geo Locations';
 $string['datarefresh'] = 'Data refresh settings';
@@ -487,10 +506,13 @@ $string['exportconfig'] = 'Get the current config';
 $string['exportdataastable'] = 'Export data as table';
 $string['exportfiltered'] = 'Export filtered data';
 $string['extradbparams'] = 'Extra DB parameters';
+$string['filegenerated'] = 'File has been successfully generated';
 $string['fileoutput'] = 'Data Export settings';
+$string['filesview'] = 'View filearea content';
 $string['friday'] = 'Friday';
 $string['from'] = 'from';
 $string['generalparams'] = 'Access to dashboard settings';
+$string['generatedexports'] = 'Generated exports';
 $string['globalcron'] = 'Global cron settings';
 $string['googlelocationerror'] = 'Google location error';
 $string['googlemap'] = 'Google Map';
@@ -501,8 +523,8 @@ $string['hour'] = 'Hour';
 $string['hours'] = 'Hours';
 $string['importconfig'] = 'Import config';
 $string['instancecron'] = 'Instance cron settings';
-$string['invalidorobsoletefilterquery'] = 'Invalid or obsolete filterquery';
-$string['invalidorobsoletequery'] = 'Invalid or obsolete query : {$a}';
+$string['invalidorobsoletefilterquery'] = 'Invalid or obsolete filterquery.';
+$string['invalidorobsoletequery'] = 'Invalid or obsolete query.';
 $string['line'] = 'Lines';
 $string['linear'] = 'Linear';
 $string['listvalue'] = 'Value List';
@@ -514,11 +536,13 @@ $string['maptypeterrain'] = 'Terrain';
 $string['mins'] = 'Min';
 $string['monday'] = 'Monday';
 $string['month'] = 'Month';
+$string['newdashboard'] = 'New dashboard';
 $string['noquerystored'] = 'No query stored';
 $string['norefresh'] = 'No refresh';
 $string['notretrievable'] = 'No data retrievable. You may be in editing mode and no previous data has been cached. This mode is forced to prevent loosing control of dashboard setup on strangling queries.';
 $string['obsoletequery'] = 'Query seems being written for old Moodle 1.9 database.';
 $string['outputfilegeneration'] = 'Output file generation';
+$string['outputfiltered'] = 'Generate output file (filtered)';
 $string['outputparams'] = 'Query output settings';
 $string['pageexport'] = 'Page export';
 $string['pie'] = 'Pie';
@@ -530,8 +554,8 @@ $string['querydesc'] = 'Query definition';
 $string['queryparams'] = 'Query user parameters';
 $string['rangevalue'] = 'Range';
 $string['saturday'] = 'Saturday';
-$string['savechangesandreturn'] = 'Save and return to course';
 $string['securityparams'] = 'Security and performance settings';
+$string['setup'] = 'Setup';
 $string['sqlinserts'] = 'SQL INSERTs';
 $string['sqlparamlabel'] = 'Label';
 $string['sqlparamtype'] = 'Type';

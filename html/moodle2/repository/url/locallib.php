@@ -114,7 +114,7 @@ function url_to_absolute( $baseUrl, $relativeUrl )
 
 	// If relative URL path doesn't start with /, merge with base path.
 	if ($r['path'][0] != '/') {
-		$base = textlib::strrchr($b['path'], '/', TRUE);
+		$base = core_text::strrchr($b['path'], '/', TRUE);
 		if ($base === FALSE) {
 			$base = '';
 		}
@@ -161,7 +161,7 @@ function url_remove_dot_segments( $path )
 	}
 
 	// Compare last multi-byte character against '/'.
-	if ($outPath != '/' && (textlib::strlen($path) - 1) == textlib::strrpos($path, '/', 'UTF-8')) {
+	if ($outPath != '/' && (core_text::strlen($path) - 1) == core_text::strrpos($path, '/', 'UTF-8')) {
 		$outPath .= '/';
 	}
 	return $outPath;

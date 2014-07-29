@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'install', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,10 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['admindirerror'] = '指定されたadminディレクトリが正しくありません。';
 $string['admindirname'] = 'Adminディレクトリ';
-$string['admindirsetting'] = 'まれに、コントロールパネルまたはその他の管理ツールにアクセスするためのURIとして/adminディレクトリを使用しているウェブホストがあります。残念ながら、これはMoodle管理ページの標準的なロケーションと衝突します。あなたはインストール時にadminディレクトリをリネームすることができます。ここに新しいディレクトリ名を入力してください。例: <br /> <br /><b>moodleadmin</b><br /> <br />
+$string['admindirsetting'] = 'まれに、コントロールパネルまたはその他の管理ツールにアクセスするためのURLとして/adminディレクトリを使用しているウェブホストがあります。残念ながら、これはMoodle管理ページの標準的なロケーションと衝突します。あなたはインストール時にadminディレクトリをリネームすることができます。ここに新しいディレクトリ名を入力してください。例: <br /> <br /><b>moodleadmin</b><br /> <br />
 これによりMoodleのadminリンクを変更します。';
 $string['admindirsettinghead'] = '管理ディレクトリの設定中 ...';
-$string['admindirsettingsub'] = 'まれに、コントロールパネルまたはその他の管理ツールにアクセスするためのURIとして/adminディレクトリを使用しているウェブホストがあります。残念ながら、これはMoodle管理ページの標準的なロケーションと衝突します。あなたはインストール時にadminディレクトリをリネームすることができます。ここに新しいディレクトリ名を入力してください。例: <br /> <br /><b>moodleadmin</b><br /> <br />
+$string['admindirsettingsub'] = 'まれに、コントロールパネルまたはその他の管理ツールにアクセスするためのURLとして/adminディレクトリを使用しているウェブホストがあります。残念ながら、これはMoodle管理ページの標準的なロケーションと衝突します。あなたはインストール時にadminディレクトリをリネームすることができます。ここに新しいディレクトリ名を入力してください。例: <br /> <br /><b>moodleadmin</b><br /> <br />
 これによりMoodleのadminリンクを変更します。';
 $string['availablelangs'] = '利用可能な言語パック';
 $string['caution'] = '警告';
@@ -39,8 +39,8 @@ $string['chooselanguagehead'] = '言語を選択してください。';
 $string['chooselanguagesub'] = 'インストールのみに使用する言語を選択してください。この言語は、サイトのデフォルト言語としても使用されます。サイト言語は、後で変更することが可能です。';
 $string['cliadminpassword'] = '新しい管理者パスワード';
 $string['cliadminusername'] = '管理者アカウントユーザ名';
-$string['clialreadyconfigured'] = 'ファイルconfig.phpは、すでに登録されています。このサイトをインストールしたい場合、admin/cli/install_database.phpを使用してください。';
-$string['clialreadyinstalled'] = 'ファイルconfig.phpは、すでに登録されています。あなたのサイトをアップグレードしたい場合、admin/cli/upgrade.phpを使用してください。';
+$string['clialreadyconfigured'] = '設定ファイルconfig.phpはすでに登録されています。このサイトをインストールしたい場合、admin/cli/install_database.phpを使用してください。';
+$string['clialreadyinstalled'] = '設定ファイルconfig.phpは、すでに登録されています。あなたのサイトをアップグレードしたい場合、admin/cli/upgrade.phpを使用してください。';
 $string['cliinstallfinished'] = 'インストールが正常に完了しました。';
 $string['cliinstallheader'] = 'Moodle {$a} コマンドライン・インストールプログラム';
 $string['climustagreelicense'] = '非インタラクティブモードでは、あなたは「--agree-license」オプションを指定することで、ライセンスに同意する必要があります。';
@@ -54,89 +54,11 @@ $string['configurationcomplete'] = '設定が完了しました。';
 $string['configurationcompletehead'] = '設定が完了しました。';
 $string['configurationcompletesub'] = 'Moodleは、Moodleインストレーションルートへの設定内容の保存を試みました。';
 $string['database'] = 'データベース';
-$string['databasecreationsettings'] = 'ほとんどのMoodleデータが保存されるデータベース設定を行ってください。このデータベースはインストーラーにより、下記の設定が指定された形で自動的に作成されます。<br />
-<br /> <br />
-<b>タイプ:</b> インストーラーにより「mysql」に固定されます。<br />
-<b>ホスト:</b> インストーラーにより「localhost」に固定されます。<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> インストーラーにより「root」に固定されます。<br />
-<b>パスワード:</b> あなたのデータベースパスワードです。<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用される任意の接頭辞です。';
-$string['databasecreationsettingshead'] = 'ほとんどのMoodleデータが保存されるデータベース設定を行ってください。このデータベースはインストーラーにより、下記の設定が指定された形で自動的に作成されます。';
-$string['databasecreationsettingssub'] = '<b>タイプ:</b> インストーラーにより「mysql」に修正されました。<br />
-<b>ホスト:</b> インストーラーにより「localhost」に修正されました。<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> インストーラーにより「root」に修正されました。<br />
-<b>パスワード:</b> あなたのデータベースパスワードです。<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用される任意の接頭辞です。';
-$string['databasecreationsettingssub2'] = '<b>タイプ:</b> インストーラーにより「mysqli」に修正されました。<br />
-<b>ホスト:</b> インストーラーにより「localhost」に修正されました。<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> インストーラーにより「root」に修正されました。<br />
-<b>パスワード:</b> あなたのデータベースパスワードです。<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用される任意の接頭辞です。';
 $string['databasehead'] = 'データベース設定';
 $string['databasehost'] = 'データベースホスト :';
 $string['databasename'] = 'データベース名 :';
 $string['databasepass'] = 'データベースパスワード :';
-$string['databasesettings'] = 'ほとんどのMoodleデータが保存されるデータベース設定を行います。このデータベースは、アクセスするためのユーザ名およびパスワードとともにすでに作成されている必要があります。<br />
-<br /> <br />
-<b>タイプ:</b> mysql または postgres7<br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (任意)';
-$string['databasesettingshead'] = 'ほとんどのMoodleデータが保存されるデータベース設定を行います。このデータベースは、アクセスするためのユーザ名およびパスワードとともにすでに作成されている必要があります。';
-$string['databasesettingssub'] = '<b>タイプ:</b> mysql または postgres7<br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (任意)';
-$string['databasesettingssub_mssql'] = '<b>タイプ:</b> SQL*Server (非UTF-8) <b><strong class="errormsg">実験用! (運用環境には使用しないでください。)</strong></b><br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (必須)';
-$string['databasesettingssub_mssql_n'] = '<b>タイプ:</b> SQL*Server (UTF-8)<b><font color="red">実験用! (運用環境には使用しないでください。)</font></b><br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (必須)';
-$string['databasesettingssub_mysql'] = '<b>タイプ:</b> MySQL<br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (任意)';
-$string['databasesettingssub_mysqli'] = '<b>タイプ:</b> Improved MySQL<br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (任意)';
-$string['databasesettingssub_oci8po'] = '<b>タイプ:</b> Oracle<br />
-<b>ホスト:</b> 使用されませんので空白にしてください。<br />
-<b>データベース名:</b>tnsnames.oraのコネクション名<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (必須、最大2cc.)';
-$string['databasesettingssub_odbc_mssql'] = '<b>タイプ:</b> SQL*Server (ODBC経由) <b><strong class="errormsg">実験用! (運用環境には使用しないでください。)</strong></b><br />
-<b>ホスト:</b>ODBCコントロールパネルのDSN名<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (必須)';
-$string['databasesettingssub_postgres7'] = '<b>タイプ:</b> PostgreSQL<br />
-<b>ホスト:</b> 例 localhost または db.isp.com<br />
-<b>データベース名:</b> 例 moodle<br />
-<b>ユーザ名:</b> データベースのユーザ名<br />
-<b>パスワード:</b> データベースのパスワード<br />
-<b>テーブル接頭辞:</b> すべてのテーブル名に使用する接頭辞 (必須)';
-$string['databasesettingswillbecreated'] = '<b>メモ:</b> データベースが存在していない場合、インストーラーはデータベースの自動作成を試みます。';
+$string['databaseport'] = 'データベースポート';
 $string['databasesocket'] = 'Unixソケット';
 $string['databasetypehead'] = 'データベースドライバを選択する';
 $string['databasetypesub'] = 'Moodeでは、いくつかのデータベースサーバのタイプをサポートします。どのタイプを使用するか分からない場合、サーバ管理者に連絡してください。';
@@ -152,14 +74,10 @@ $string['dbpass'] = 'パスワード';
 $string['dbport'] = 'ポート';
 $string['dbprefix'] = 'テーブル接頭辞';
 $string['dbtype'] = 'タイプ';
-$string['dbwrongencoding'] = '選択したデータベースは、非推奨のエンコーディング ({$a}) で動作しています。代わりにユニコード (UTF-8) でエンコードされたデータベースの使用をお勧めします。下記の「DBエンコーディングテストをスキップ」をチェックすることで、このテストをバイパスできますが、将来的に問題が発生する恐れがあります。';
-$string['dbwronghostserver'] = '上記説明の「ホスト」ルールに従ってください。';
-$string['dbwrongnlslang'] = 'あなたのウェブサーバのNLS_LANG環境変数には、AL32UTF8文字セットを使用してください。OCI8を適切に設定するには、PHPドキュメンテーションをご覧ください。';
-$string['dbwrongprefix'] = '上記説明の「テーブル接頭辞」ルールに従ってください。';
 $string['directorysettings'] = '<p>このMoodleのインストール先を確認してください。</p>
 
 <p><b>ウェブアドレス:</b>
-Moodleにアクセスする完全なウェブアドレスを指定してください。あなたのウェブサイトに複数のURIよりアクセス可能な場合は、学生が利用する最も自然なURIを選択してください。末尾にスラッシュを付けないでください。</p>
+Moodleにアクセスする完全なウェブアドレスを指定してください。あなたのウェブサイトに複数のURLよりアクセス可能な場合は、学生が利用する最も自然なURLを選択してください。末尾にスラッシュを付けないでください。</p>
 
 <p><b>Moodleディレクトリ:</b>
 インストール先の完全なディレクトリパスを指定してください。大文字/小文字が間違っていないか確認してください。</p>
@@ -168,7 +86,7 @@ Moodleにアクセスする完全なウェブアドレスを指定してくだ�
 Moodleにはアップロードされたファイルを保存する場所が必要です。 このディレクトリはウェブサーバのユーザ (通常は「nobody」または「apache」) が読み込みおよび書き込みできるようにしてください。ウェブから直接アクセスできないようにしてください。データディレクトリがない場合、インストーラーは作成を試みます。</p>';
 $string['directorysettingshead'] = 'Moodleのインストール先を確認してください。';
 $string['directorysettingssub'] = '<p><b>ウェブアドレス:</b>
-Moodleにアクセスする完全なウェブアドレスを指定してください。あなたのウェブサイトに複数のURIよりアクセス可能な場合は、学生が利用する最も自然なURIを選択してください。末尾にスラッシュを付けないでください。</p>
+Moodleにアクセスする完全なウェブアドレスを指定してください。あなたのウェブサイトに複数のURLよりアクセス可能な場合は、学生が利用する最も自然なURLを選択してください。末尾にスラッシュを付けないでください。</p>
 <br />
 <br />
 <p><b>Moodleディレクトリ:</b>
@@ -197,24 +115,6 @@ $string['fileuploadshelp'] = '<p>あなたのサーバではファイルのア�
 <p>Moodleのインストールは可能ですが、ファイルのアップロードができない状態ではコースファイルやユーザプロファイルのイメージをアップロードすることができません。</p>
 
 <p>ファイルアップロードを可能にするには、あなた (またはシステム管理者) があなたのシステムのメインのphp.iniファイルを編集して、<b>file_uploads</b> を「1」にする必要があります。</p>';
-$string['gdversion'] = 'GDバージョン';
-$string['gdversionerror'] = 'イメージの処理および作成を行うにはGDライブラリが必要です。';
-$string['gdversionhelp'] = '<p>あなたのサーバにはGDがインストールされていないようです。</p>
-
-<p>GDはMoodleがイメージ (ユーザプロファイルアイコン等) を処理したり、新しいイメージ (ロググラフ等) を作成するためにPHPが必要とするライブラリです。MoodleはGDなしでも動作します -  イメージ処理等ができないだけです。</p>
-
-<p>Unix環境下においてGDをPHPにインストールするには、PHPを --with-gd パラメータでコンパイルしてください。</p>
-
-<p>Windows環境下では、php.iniでphp_gd2.dllを参照している行のコメントアウトを取り除いてください。</p>';
-$string['globalsquotes'] = '安全では無いGlobalsのハンドリング';
-$string['globalsquoteserror'] = 'PHP設定を修正してください: register_globalsを「Off」および/またはmagic_quotes_gpcを「On」';
-$string['globalsquoteshelp'] = '<p>Magic Quotes GPCの無効化およびRegister Globalsの有効化の同時設定お勧めできません。</p>
-
-<p>php.iniに関する推奨設定は <b>magic_quotes_gpc = On</b> および <b>register_globals = Off</b> です。</p>
-
-<p>あなたが php.ini にアクセスできない場合、Moodleディレクトリの中に .htaccess という名称のファイルを次のように記述することができます:</p>
-<blockquote><div>php_value magic_quotes_gpc On</div></blockquote>
-<blockquote><div>php_value register_globals Off</div></blockquote>';
 $string['inputdatadirectory'] = 'データディレクトリ :';
 $string['inputwebadress'] = 'ウェブアドレス :';
 $string['inputwebdirectory'] = 'Moodleディレクトリ :';
@@ -243,13 +143,10 @@ $string['memorylimithelp'] = '<p>現在、サーバのPHPメモリー制限が {
 <blockquote><div>php_value memory_limit 40M</div></blockquote>
 <p>しかし、この設定が<b>すべての</b>PHPページの動作を妨げる場合もあります。ページ閲覧中にエラーが表示される場合、.htaccessファイルを削除してください。</p></li>
 </ol>';
-$string['mssql'] = 'SQL*Server (mssql)';
 $string['mssqlextensionisnotpresentinphp'] = 'PHPのMSSQL拡張モジュールが適切に設定されていないため、SQL*Serverと通信できません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。';
-$string['mssql_n'] = 'SQL*Server UTF-8サポート (mssql_n)';
-$string['mysql'] = 'MySQL (mysql)';
-$string['mysqlextensionisnotpresentinphp'] = 'PHPのMySQL拡張モジュールが適切に設定されていないため、MySQLと通信できません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。';
-$string['mysqli'] = 'Improved MySQL (mysqli)';
 $string['mysqliextensionisnotpresentinphp'] = 'PHPのMySQLi拡張モジュールが適切に設定されていないため、MySQLと通信できません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。MySQLi拡張モジュールは、PHP4では使用できません。';
+$string['nativemariadb'] = 'MariaDB (native/mariadb)';
+$string['nativemariadbhelp'] = 'あなたはほとんどのMoodleデータが保存されるデータベースを設定する必要があります。データベースユーザに必要なパーミッション、ユーザ名およびパスワードがすでに存在する場合、データベースが作成されることになります。テーブル接頭辞は任意です。このドライバに関して、レガシーMyISAMエンジンに対する互換性はありません。';
 $string['nativemssql'] = 'SQL*Server FreeTDS (ネイティブ/mssql)';
 $string['nativemssqlhelp'] = 'あなたはほとんどのMoodleデータが保存されるデータベースを設定する必要があります。このデータベースはすでに作成され、アクセスするためのユーザ名およびパスワードが作成されている必要があります。テーブル接頭辞は必須項目です。';
 $string['nativemysqli'] = 'Improved MySQL (ネイティブ/mysqli)';
@@ -262,20 +159,17 @@ $string['nativesqlsrv'] = 'SQL*Server Microsoft (ネイティブ/sqlsrv)';
 $string['nativesqlsrvhelp'] = 'あなたはほとんどのMoodleデータが保存されるデータベースを設定する必要があります。このデータベースはすでに作成され、アクセスするためのユーザ名およびパスワードが作成されている必要があります。テーブル接頭辞は必須項目です。';
 $string['nativesqlsrvnodriver'] = 'Microsoft SQL Server Driver for PHP がインストールされていない、または適切に設定されませんでした。';
 $string['nativesqlsrvnonwindows'] = 'Microsoft SQL Server Driver for PHP はWindows OSでのみ利用することができます。';
-$string['oci8po'] = 'Oracle (oci8po)';
 $string['ociextensionisnotpresentinphp'] = 'PHPのOCI8拡張モジュールが適切に設定されていないため、Oracleと通信できません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。';
-$string['odbcextensionisnotpresentinphp'] = 'PHPのODBC拡張モジュールが適切に設定されていないため、SQL*Serverと通信できません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。';
-$string['odbc_mssql'] = 'SQL*Server over ODBC (odbc_mssql)';
 $string['pass'] = 'パス';
 $string['paths'] = 'パス';
 $string['pathserrcreatedataroot'] = 'データディレクトリ ({$a->dataroot}) は、インストーラーで作成できません。';
 $string['pathshead'] = 'パスを確認する';
 $string['pathsrodataroot'] = 'datarootディレクトリに書き込み権がありません。';
 $string['pathsroparentdataroot'] = '親ディレクトリ ({$a->parent}) に書き込み権がありません。データディレクトリ ({$a->dataroot}) は、インストーラーで作成できません。';
-$string['pathssubadmindir'] = '極わずかですが、あなたがコントロールパネル等にアクセスするため、特別なURIとして/adminを使用するウェブホストがあります。残念なことに、これはMoodle管理ページの標準的なローケーションと競合してしまいます。ここに新しいディレクトリ名を入力することで、あなたのMoodleのadminディレクトリを修正することができます。例えば、<em>moodleadmin</em>です。これにより、Moodleのadminリンクが修正されます。';
+$string['pathssubadmindir'] = '極わずかですが、あなたがコントロールパネル等にアクセスするため、特別なURLとして/adminを使用するウェブホストがあります。残念なことに、これはMoodle管理ページの標準的なローケーションと競合してしまいます。ここに新しいディレクトリ名を入力することで、あなたのMoodleのadminディレクトリを修正することができます。例えば、<em>moodleadmin</em>です。これにより、Moodleのadminリンクが修正されます。';
 $string['pathssubdataroot'] = 'あなたには、Moodleがファイルをアップロードすることのできる場所が必要です。このディレクトリは、ウェブサーバユーザ (通常「nobody」または「apache」) から読み込みおよび「書き込み」できる必要があります。しかし、ウェブからは直接アクセスできないようにしてください。データディレクトリがない場合、インストーラーは作成を試みます。';
-$string['pathssubdirroot'] = 'Moodleインストールに関するフルディレクトリパスです。';
-$string['pathssubwwwroot'] = 'Moodleにアクセスすることのできるフルウェブアドレスです。複数アドレスを使用して、Moodleにアクセスすることはできません。あなたのサイトに複数のパブリックアドレスがある場合、このアドレスを除く、すべてのアドレスにパーマネントリダイレクトを設定してください。あなたのサイトにイントラネットおよびインターネットからアクセスできる場合、ここにはパブリックアドレスを入力してください。また、イントラネットユーザもパブリックアドレスを利用できるよう、DNSを設定してください。アドレスが正しくない場合、あなたのブラウザのURIを変更して、異なる値でインストールを再開してください。';
+$string['pathssubdirroot'] = 'Moodleコードを含むディレクトリに関するフルパスです。';
+$string['pathssubwwwroot'] = 'Moodleにアクセスすることのできるフルウェブアドレスです。複数アドレスを使用して、Moodleにアクセスすることはできません。あなたのサイトに複数のパブリックアドレスがある場合、このアドレスを除く、すべてのアドレスにパーマネントリダイレクトを設定してください。あなたのサイトにイントラネットおよびインターネットからアクセスできる場合、ここにはパブリックアドレスを入力してください。また、イントラネットユーザもパブリックアドレスを利用できるよう、DNSを設定してください。アドレスが正しくない場合、あなたのブラウザのURLを変更して、異なる値でインストールを再開してください。';
 $string['pathsunsecuredataroot'] = 'dirrootロケーションが安全ではありません。';
 $string['pathswrongadmindir'] = 'adminディレクトリがありません。';
 $string['pgsqlextensionisnotpresentinphp'] = 'PHPのPGSQL拡張モジュールが適切に設定されていないため、PostgreSQLと通信できません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。';
@@ -285,7 +179,6 @@ $string['phpversionhelp'] = '<p>Moodleには、少なくとも 4.3.0 または 5
 <p>現在、バージョン {$a} が動作しています。</p>
 <p>PHPをアップグレードするか、新しいバージョンがインストールされているホストに移動してください!<br />
 (5.0.x の場合、バージョン 4.4.x にダウングレードすることもできます。)</p>';
-$string['postgres7'] = 'PostgreSQL (postgres7)';
 $string['releasenoteslink'] = 'このバージョンのMoodleに関する情報は、{$a} のリリースノートをご覧ください。';
 $string['safemode'] = 'セーフモード';
 $string['safemodeerror'] = 'セーフモードが有効の場合、Moodleに問題が発生する場合があります。';
@@ -298,7 +191,6 @@ $string['sessionautostart'] = 'セッション自動スタート';
 $string['sessionautostarterror'] = 'これは無効にしてください。';
 $string['sessionautostarthelp'] = '<p>Moodleはセッションサポートを必要とします。また、セッションサポートなしでは動作しません。</p>
 <p>セッションは、php.iniファイルで有効にすることができます ... session.auto_startパラメータを探してください。</p>';
-$string['skipdbencodingtest'] = 'DBエンコーディングテストをスキップ';
 $string['sqliteextensionisnotpresentinphp'] = 'PHPのSQLite拡張モジュールが適切に設定されていません。あなたのphp.iniファイルをチェックするか、PHPを再コンパイルしてください。';
 $string['upgradingqtypeplugin'] = '問題/タイププラグインのアップグレード';
 $string['welcomep10'] = '{$a->installername} ({$a->installerversion})';

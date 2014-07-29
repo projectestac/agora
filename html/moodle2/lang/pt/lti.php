@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -159,6 +159,7 @@ $string['force_ssl_help'] = 'Selecionar esta opção obriga todos os arranques d
 Além disso, todas as solicitações de web services do fornecedor de ferramenta usarão SSL.
 
 Se usar esta opção, confirme que este site Moodle e o fornecedor da ferramenta suportam SSL.';
+$string['generaltool'] = 'Ferramenta geral';
 $string['global_tool_types'] = 'Tipos de ferramenta global';
 $string['grading'] = 'A enviar notas';
 $string['icon_url'] = 'URL do Ícone';
@@ -191,21 +192,18 @@ $string['lti:addinstance'] = 'Adicionar nova atividade Ferramenta LTI';
 $string['lti_administration'] = 'Administração do LTI';
 $string['lti_errormsg'] = 'A ferramenta deu a seguinte mensagem de erro: "{$a}"';
 $string['lti:grade'] = 'Ver notas devolvidas pela Ferramenta LTI';
-$string['lti_launch_error'] = 'Ocorreu um erro ao abrir a ferramenta LTI';
+$string['lti_launch_error'] = 'Ocorreu um erro ao executar a ferramenta LTI:';
 $string['lti_launch_error_tool_request'] = '<p>
 Para enviar um pedido ao administrador para concluir a configuração da ferramenta, clique em <a href="{$a->admin_request_url}" target="_top">here</a>.
 </p>';
-$string['lti_launch_error_unsigned_help'] = '<p>
-        Este erro pode ser o resultado de faltar uma senha do fornecedor da ferramenta.
-    </p>
-    <p>
-        Se tem uma senha compartilhada com o consumidor, pode inseri-la ao editar a instância da ferramenta LTI (certifique-se que as opções avançadas estão visíveis).<br />
-        Em alternativa, pode criar um nível de configuração do fornecedor da ferramenta <a href="{$a->course_tool_editor}">aqui</a>.
-    </p>';
+$string['lti_launch_error_unsigned_help'] = '<p>Este erro pode ser o resultado de faltar uma senha do fornecedor da ferramenta.</p>
+<p> Se tem uma senha compartilhada com o consumidor, pode inseri-la ao editar a instância da ferramenta LTI (certifique-se que as opções avançadas estão visíveis).</p>
+<p>Em alternativa, pode criar uma configuração de fornecedor da ferramenta ao nível da disciplina <a href="{$a->course_tool_editor}"> </p>';
 $string['lti:manage'] = 'Ser um Instrutor quando a Ferramenta LTI arranca';
 $string['lti:requesttooladd'] = 'Requerer que a Ferramenta LTI seja configurada ao nível do site';
 $string['lti_tool_request_added'] = 'O pedido de configuração da ferramenta foi submetido com êxito. Pode precisar entrar em contacto com um administrador para concluir a configuração da ferramenta.';
 $string['lti_tool_request_existing'] = 'A ferramenta de configuração para o domínio de ferramentas já foi inserida.';
+$string['ltiunknownserviceapicall'] = 'Serviço desconhecido de LTI no pedido a API.';
 $string['lti:view'] = 'Arrancar atividades Ferramenta LTI';
 $string['main_admin'] = 'Ajuda geral';
 $string['main_admin_help'] = 'As ferramentas externas permitem que os utilizadores do Moodle acedam a recursos de aprendizagem alojados remotamente. Através de um protocolo especial
@@ -235,7 +233,7 @@ As atividades ferramenta LTI diferem dos recursos URL em alguns aspetos:
 * As ferramentas LTI permitem ler, atualizar e apagar notas associadas à atividade;
 * As configurações das ferramentas LTI criam uma ligação fiável entre o seu site e o fornecedor da ferramenta, permitindo uma comunicação segura entre eles.';
 $string['modulename_link'] = 'mod/lti/view';
-$string['modulenameplural'] = 'basicltis';
+$string['modulenameplural'] = 'Ferramentas Externas';
 $string['modulenamepluralformatted'] = 'Instâncias LTI';
 $string['never'] = 'Nunca';
 $string['new_window'] = 'Nova janela';
@@ -356,7 +354,10 @@ O único caso em que esta opção deve ser selecionada é se a ferramenta de con
 Por exemplo, se todos os arranques para o provedor de ferramenta levarem o utilizador para uma página de destino, em vez de a um recurso específico.';
 $string['size'] = 'Parâmetros de tamanho';
 $string['submission'] = 'Submissão';
+$string['submissions'] = 'Submissões';
 $string['submissionsfor'] = 'Submissões para {$a}';
+$string['subplugintype_ltisource'] = 'Fonte LTI';
+$string['subplugintype_ltisource_plural'] = 'Fontes LTI';
 $string['toggle_debug_data'] = 'Toggle Debug Data';
 $string['tool_config_not_found'] = 'A configuração não foi encontrada neste URL.';
 $string['tool_settings'] = 'Configurações da ferramenta';

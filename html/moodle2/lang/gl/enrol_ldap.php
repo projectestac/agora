@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -100,7 +100,7 @@ $string['pluginname'] = 'Matriculacións LDAP';
 $string['pluginname_desc'] = '<p>Pode utilizar un servidor LDAP para controlar as súas inscricións.
                           É asumido que a súa árbore LDAP contén grupos que asignan os
                           cursos, e que cada un deses grupos/cursos terán
-                          entradas de membros para asignar estudantes.</p>
+                          entradas de membros para asignar alumnos.</p>
                           <p>É asumido que os cursos son definidos como grupos en
                           LDAP, e que cada grupo ten múltiples campos de membros
                           (<em>membro</em> ou <em>membroUid</em>) que conteñen unha única
@@ -114,7 +114,7 @@ $string['pluginname_desc'] = '<p>Pode utilizar un servidor LDAP para controlar a
                           <p>As inscricións serán actualizadas cando os usuarios inicien a sesión.
                            Tamén pode executar un script para manter as inscricións sincronizadas. Vexa en
                           <em>inscribir/ldap/inscrición_ldap_sync.php</em>.</p>
-                          <p>Este plugin tamén pode ser definido para crear automaticamente novos
+                          <p>Este engadido tamén pode ser definido para crear automaticamente novos
                           cursos ao aparecer grupos novos en LDAP.</p>';
 $string['pluginnotenabled'] = 'Engadido non activado!';
 $string['role_mapping'] = '<p>Por cada rol que queira asignar desde  LDAP, debe especificar a lista de contextos onde se atopan os grupos de roles do curso. Separe os contextos diferentes con «;».</p><p>Tamén necesita especificar o atributo que os seus servidores LDAP utilizan para conter os membros dun grupo. Adoita ser «membro» ou «Uidmembro»</p>';

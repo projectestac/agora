@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Offer to create a label when media files are dragged & dropped onto a course';
+$string['configdndresizeheight'] = 'When a label is created from a dragged & dropped image, resize it if it is higher than this many pixels (0 for no resize)';
+$string['configdndresizewidth'] = 'When a label is created from a dragged & dropped image, resize it if it is wider than this many pixels (0 for no resize)';
+$string['dndmedia'] = 'Media drag and drop';
+$string['dndresizeheight'] = 'Resize drag and drop height';
+$string['dndresizewidth'] = 'Resize drag and drop width';
+$string['dnduploadlabel'] = 'Add image to course page';
+$string['dnduploadlabeltext'] = 'Add a label to the course page';
 $string['label:addinstance'] = 'Add a new label';
 $string['labeltext'] = 'Label text';
 $string['modulename'] = 'Label';

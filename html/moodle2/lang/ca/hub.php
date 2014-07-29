@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = 'Administradors de Moodle';
 $string['audienceeducators'] = 'Educadors';
 $string['audience_help'] = 'Selecciona l\'audiència prevista per al curs.';
 $string['audiencestudents'] = 'Estudiants';
+$string['badgesnumber'] = 'Nombre d\'insígnies ({$a})';
 $string['badurlformat'] = 'Mal format d\'URL';
 $string['cannotsearchcommunity'] = 'Disculpeu, no teniu els permisos per veure aquesta pàgina.';
 $string['community'] = 'Comunitat';
@@ -109,6 +110,7 @@ $string['hub'] = 'Concentrador';
 $string['imageurl'] = 'URL de la imatge';
 $string['imageurl_help'] = 'Aquesta imatge es mostrarà al concentrador. Aquesta imatge ha d\'estar disponible al concentrador en qualsevol moment. La imatge hauria de tindre una mida màxima de {$a->width} X {$a->height}';
 $string['information'] = 'Informació';
+$string['issuedbadgesnumber'] = 'Nombre d\'insígnies emeses ({$a})';
 $string['language'] = 'Idioma';
 $string['language_help'] = 'L\'idioma principal d\'aquest curs.';
 $string['lasttimechecked'] = 'Darrera vegada que s\'ha comprovat.';

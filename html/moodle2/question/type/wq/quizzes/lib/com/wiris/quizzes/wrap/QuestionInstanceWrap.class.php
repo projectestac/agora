@@ -4,8 +4,53 @@ class com_wiris_quizzes_wrap_QuestionInstanceWrap implements com_wiris_quizzes_a
 	public function __construct($instance) {
 		if(!php_Boot::$skip_constructor) {
 		$this->instance = $instance;
-		$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+		$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 	}}
+	public function getAssertionChecks($correctAnswer, $studentAnswer) {
+		try {
+			$this->wrapper->start();
+			$r = $this->instance->getAssertionChecks($correctAnswer, $studentAnswer);
+			$r = php_Lib::toPhpArray($r);
+			$this->wrapper->stop();
+			return $r;
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function getStudentAnswer($index) {
+		try {
+			$this->wrapper->start();
+			$r = $this->instance->getStudentAnswer($index);
+			$this->wrapper->stop();
+			return $r;
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function setStudentAnswer($index, $answer) {
+		try {
+			$this->wrapper->start();
+			$this->instance->setStudentAnswer($index, $answer);
+			$this->wrapper->stop();
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
 	public function setCasSession($session) {
 		try {
 			$this->wrapper->start();

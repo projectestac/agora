@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dataformview_tabular', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'dataformview_tabular', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dataformview_tabular
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,5 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['headerrow'] = 'Table with header row';
+$string['headerrow_help'] = 'If set to Yes, it is assumed that the first row in the table template is a header row.';
 $string['pluginname'] = 'Tabular';
 $string['table'] = 'Table design';
+$string['table_help'] = 'A table template for displaying the entries. If Table with header row is set to Yes, the first row will be the header row of the displayed table. All the other rows (or all rows if Table with header row is set to No) will be repeated for each entry. Typically the table template will consist of 2 rows if header is used or 1 row if there is no header.';

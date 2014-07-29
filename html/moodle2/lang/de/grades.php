@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -268,6 +268,7 @@ $string['errornocategorisedid'] = 'Keine nicht kategorisierte id!';
 $string['errornocourse'] = 'Keine Kursinformation!';
 $string['errorreprintheadersnonnumeric'] = 'Nicht-numerischer Wert für Kopfzeile!';
 $string['errorsavegrade'] = 'Endschuldigung, aber die Bewertung konnte nicht gespeichert werden.';
+$string['errorsettinggrade'] = 'Fehler beim Speichern "{$a->itemname}" der Bewertung für Nutzer (userid) {$a->userid}';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Es ist ein Fehler beim Aktualisieren der Einstellungen "Zusammenfassung nur bewerteter Elemente" in der Bewertungskategorie mit der ID {$a->id} aufgetreten.';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Es ist ein Fehler beim Aktualisieren der Einstellungen "Zusammenfassen der Ergebnisse" in der Bewertungskategorie mit der ID {$a->id} aufgetreten.';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Es ist ein Fehler beim Aktualisieren der Einstellungen "Zusammenfassung der Unter-Kategorien" in der Bewertungskategorie mit der ID {$a->id} aufgetreten.';
@@ -280,8 +281,8 @@ $string['expand'] = 'Kategorie erweitern';
 $string['export'] = 'Export';
 $string['exportalloutcomes'] = 'Alle Lernziele exportieren';
 $string['exportfeedback'] = 'Feedback mit exportieren';
-$string['exportonlyactive'] = 'Aktive Einschreibung notwendig';
-$string['exportonlyactive_help'] = 'Nur Teilnehmende exportieren, deren Einschreibung nicht aufgehoben wurde.';
+$string['exportonlyactive'] = 'Gesperrte Nutzerkonten ausnehmen';
+$string['exportonlyactive_help'] = 'Nur Teilnehmer/innen exportieren, deren Einschreibung aktiv ist und die nicht gesperrt wurden.';
 $string['exportplugins'] = 'Export-Plugins';
 $string['exportsettings'] = 'Exporteinstellungen';
 $string['exportto'] = 'Export nach';
@@ -342,6 +343,7 @@ $string['gradehelp'] = 'Hilfe für Bewertungen';
 $string['gradehistorylifetime'] = 'Anzeigedauer für den Bewertungsverlauf';
 $string['gradehistorylifetime_help'] = 'Legen Sie fest wie lange die vorgenommenen Veränderungen in den Notentabellen noch verfügbar sein sollen. In manchen Situationen ist es gut, diesen Wert möglichst hoch zu setzen. Sollten Sie Speicherengpässe oder Leistungsprobleme haben, können Sie den Wert wieder niedriger setzen.';
 $string['gradeimport'] = 'Bewertungsimport';
+$string['gradeimportfailed'] = 'Der Bewertungsimport scheiterte beim Commit. Details:';
 $string['gradeitem'] = 'Bewertungsaspekt';
 $string['gradeitemaddusers'] = 'Nicht bewerten';
 $string['gradeitemadvanced'] = 'Erweiterte Optionen für Bewertungsaspekte';
@@ -636,7 +638,9 @@ $string['selectalloroneuser'] = 'Alle oder einen auswählen';
 $string['selectauser'] = 'Nutzer/in wählen';
 $string['selectdestination'] = 'Ziel für {$a} auswählen';
 $string['separator'] = 'Trennzeichen';
+$string['sepcolon'] = 'Komma';
 $string['sepcomma'] = 'Komma';
+$string['sepsemicolon'] = 'Semikolon';
 $string['septab'] = 'Tab';
 $string['setcategories'] = 'Kategorien einrichten';
 $string['setcategorieserror'] = 'Sie müssen Kategorien anlegen, bevor diese gewichtet werden können.';
@@ -680,6 +684,8 @@ $string['shownohidden'] = 'Nicht anzeigen';
 $string['shownooutcomes'] = 'Lernziele verbergen';
 $string['shownumberofgrades'] = 'Anzahl in Durchschnittsbewertungen anzeigen';
 $string['shownumberofgrades_help'] = 'Anzahl der erfassten Bewertungen in Klammern neben dem Durchschnittswert anzeigen. Beispiel: 45 (34)';
+$string['showonlyactiveenrol'] = 'Nur aktive Einschreibungen anzeigen';
+$string['showonlyactiveenrol_help'] = 'Diese Option legt fest, dass nur aktiv eingeschriebene Nutzer/innen in der Bewertungsübersicht angezeigt werden. Wenn die Option aktiviert ist, werden gesperrte Nutzer/innen nicht angezeigt.';
 $string['showpercentage'] = 'Prozentwerte anzeigen';
 $string['showpercentage_help'] = 'Legt fest, ob Prozentwerte für jede Bewertung angezeigt werden.';
 $string['showquickfeedback'] = 'Schnelles Feedback anzeigen';
@@ -747,6 +753,9 @@ $string['user'] = 'Nutzer/in';
 $string['userenrolmentsuspended'] = 'Nutzereinschreibung gesperrt';
 $string['usergrade'] = 'Nutzer/in {$a->fullname} ({$a->useridnumber}) mit Wert {$a->gradeidnumber}';
 $string['userid'] = 'Nutzer-ID';
+$string['usermappingerror'] = 'Nutzerzuordnungsfehler: Nutzer mit {$a->field} von "{$a->value}" wurde nicht gefunden.';
+$string['usermappingerrorcurrentgroup'] = 'Der Nutzer ist kein Mitglied dieser Gruppe.';
+$string['usermappingerrorusernotfound'] = 'Nutzer-Zuordnungsfehler. Nutzer kann nicht gefunden werden.';
 $string['userpreferences'] = 'Nutzereinstellungen';
 $string['useweighted'] = 'Gewichtung verwenden';
 $string['verbosescales'] = 'Wortreiche Skalen';

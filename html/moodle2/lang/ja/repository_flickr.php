@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_flickr', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_flickr', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_flickr
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'APIキー';
-$string['callbackurl'] = 'コールバックURI';
+$string['callbackurl'] = 'コールバックURL';
 $string['callbackurltext'] = '<ol>
 <li>再度、<a href="http://www.flickr.com/services/api/keys/">Flickr API Keys</a>にアクセスしてください。</li>
-<li>このFlickr keyにコールバックURI <strong>{$a}</strong> を設定したかどうか確認してください。</li>
+<li>このFlickr keyにコールバックURL <strong>{$a}</strong> を設定したかどうか確認してください。</li>
 </ol>';
 $string['callbackwarning'] = '<ol>
 <li>あなたのMoodleサイトに<a href="http://www.flickr.com/services/api/keys/">Flickr APIキーおよびSecret</a>を取得してください。</li>
-<li>これら詳細を入力した後、「保存」ボタンをクリックしてください。そして、「設定」をクリックすることで、このページに戻ることができます。あなたには、Moodleが生成したコールバックURIが表示されます。</li>
-<li>あなたの<a href="http://www.flickr.com/services/api/keys/">Flickrキー</a>詳細を編集した後、コールバックURIを設定してください。</li>
+<li>これら詳細を入力した後、「保存」ボタンをクリックしてください。そして、「設定」をクリックすることで、このページに戻ることができます。あなたには、Moodleが生成したコールバックURLが表示されます。</li>
+<li>あなたの<a href="http://www.flickr.com/services/api/keys/">Flickrキー</a>詳細を編集した後、コールバックURLを設定してください。</li>
 </ol>';
 $string['configplugin'] = 'Flickr設定';
 $string['emailaddress'] = 'メールアドレス';

@@ -88,7 +88,7 @@ class enrol_cohort_plugin extends enrol_plugin {
         if (!has_capability('moodle/course:enrolconfig', $coursecontext) or !has_capability('enrol/cohort:config', $coursecontext)) {
             return false;
         }
-        list($sqlparents, $params) = $DB->get_in_or_equal(get_parent_contexts($coursecontext));
+        list($sqlparents, $params) = $DB->get_in_or_equal($coursecontext->get_parent_context_ids());
         $sql = "SELECT id, contextid
                   FROM {cohort}
                  WHERE contextid $sqlparents
@@ -128,7 +128,7 @@ class enrol_cohort_plugin extends enrol_plugin {
         if (has_capability('enrol/cohort:config', $context)) {
             $editlink = new moodle_url("/enrol/cohort/edit.php", array('courseid'=>$instance->courseid, 'id'=>$instance->id));
             $icons[] = $OUTPUT->action_icon($editlink, new pix_icon('t/edit', get_string('edit'), 'core',
-                    array('class' => 'smallicon')));
+                    array('class' => 'iconsmall')));
         }
 
         return $icons;
@@ -142,7 +142,9 @@ class enrol_cohort_plugin extends enrol_plugin {
         global $CFG;
 
         require_once("$CFG->dirroot/enrol/cohort/locallib.php");
-        enrol_cohort_sync();
+        $trace = new null_progress_trace();
+        enrol_cohort_sync($trace);
+        $trace->finished();
     }
 
     /**
@@ -170,7 +172,9 @@ class enrol_cohort_plugin extends enrol_plugin {
         parent::update_status($instance, $newstatus);
 
         require_once("$CFG->dirroot/enrol/cohort/locallib.php");
-        enrol_cohort_sync($instance->courseid);
+        $trace = new null_progress_trace();
+        enrol_cohort_sync($trace, $instance->courseid);
+        $trace->finished();
     }
 
     /**
@@ -289,7 +293,9 @@ class enrol_cohort_plugin extends enrol_plugin {
             $step->set_mapping('enrol', $oldid, $instanceid);
 
             require_once("$CFG->dirroot/enrol/cohort/locallib.php");
-            enrol_cohort_sync($course->id, false);
+            $trace = new null_progress_trace();
+            enrol_cohort_sync($trace, $course->id);
+            $trace->finished();
 
         } else if ($this->get_config('unenrolaction') == ENROL_EXT_REMOVED_SUSPENDNOROLES) {
             $data->customint1 = 0;
@@ -304,7 +310,9 @@ class enrol_cohort_plugin extends enrol_plugin {
             $step->set_mapping('enrol', $oldid, $instanceid);
 
             require_once("$CFG->dirroot/enrol/cohort/locallib.php");
-            enrol_cohort_sync($course->id, false);
+            $trace = new null_progress_trace();
+            enrol_cohort_sync($trace, $course->id);
+            $trace->finished();
 
         } else {
             $step->set_mapping('enrol', $oldid, 0);

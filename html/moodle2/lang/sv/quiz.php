@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -72,7 +72,6 @@ $string['answerhowmany'] = 'Ett eller flera svar?';
 $string['answers'] = 'Svar';
 $string['answersingleno'] = 'Flera svar tillåtna';
 $string['answersingleyes'] = 'Endast ett svar';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Bara numeriska svar kan ha felmarginal';
 $string['answertoolong'] = 'Svaret är för långt efter rad {$a} (max 255 tecken)';
 $string['aon'] = 'AON-format';
 $string['areyousureremoveselected'] = 'Är Du säker på att Du vill ta bort alla de valda frågorna?';
@@ -194,7 +193,7 @@ $string['copyingquestion'] = 'Kopierar en fråga';
 $string['correct'] = 'Rätt';
 $string['correctanswer'] = 'Rätt svar';
 $string['correctanswerformula'] = 'Formel för korrekta svar';
-$string['correctansweris'] = 'Korrekt svar: {$a}';
+$string['correctansweris'] = 'Rätt svar: {$a}';
 $string['correctanswerlength'] = 'Viktiga symboler';
 $string['correctanswers'] = 'Rätt svar';
 $string['correctanswershows'] = 'Rätt svar visar';
@@ -215,9 +214,12 @@ $string['datasetnumber'] = 'Tal/Nummer';
 $string['daysavailable'] = 'Dagar tillgängligt';
 $string['decimaldigits'] = 'Decimalsiffror i betyg';
 $string['decimalplaces'] = 'Antal decimaler i betyg';
-$string['decimalplaces_help'] = 'Genom att använda den här inställningen kan Du ange antalet decimaler som ska visas i betyget/omdömet för varje försök. Om du t.ex. väljer \'0\' så betyder det att de visade betygen kommer att avrundas till heltal.
-
-Den här inställningen påverkar bara visningen av betyg. Detta har ingen inverkan på de interna beräkningarna och avrundning av betyg.';
+$string['decimalplaces_help'] = '<p>Genom att anv&auml;nda den h&auml;r inst&auml;llningen kan Du ange antalet decimaler som
+ska visas i betyget/omd&ouml;met f&ouml;r varje f&ouml;rs&ouml;k. Om du t.ex. väljer \'0\' så betyder det att de visade betygen kommer att avrundas till heltal.
+</p><p>
+Den här inställningen påverkar bara visningen av betyg. Detta har ingen inverkan på
+de interna beräkningarna och avrundning av betyg.
+</p>';
 $string['decimalplacesquestion'] = 'Antal decimaler i betyget för frågan';
 $string['decimalplacesquestion_help'] = 'Denna inställning specificerar det antal siffror som visas efter decimalkommat vid visning av poäng vid varje fråga.';
 $string['decimalpoints'] = 'Decimalpoäng';
@@ -303,7 +305,7 @@ $string['exporterror'] = 'Ett fel inträffade i samband med genomförande av exp
 $string['exportingquestions'] = 'Frågorna exporteras till en fil';
 $string['exportname'] = 'Namn på fil';
 $string['exportquestions'] = 'Exportera frågorna till en fil';
-$string['extraattemptrestrictions'] = 'Extra begränsningar i sb m försök';
+$string['extraattemptrestrictions'] = 'Extra restriktioner för försök';
 $string['false'] = 'Falskt';
 $string['feedback'] = 'Återkoppling';
 $string['feedbackerrorboundaryformat'] = 'Betygsgränserna för återkoppling måste vara angivna antingen i procent eller i form av ett tal. Det värde som Du har angivit inom spannet {$a} är inte giltigt.';
@@ -476,7 +478,7 @@ $string['name'] = 'Namn';
 $string['navmethod'] = 'Navigationsmetod';
 $string['navmethod_free'] = 'Fri';
 $string['navmethod_help'] = 'När sekventiell navigering är aktiverat måste eleven gå igenom testet i angiven ordning och kan då inte gå tillbaka till tidigare sidor eller hoppa framåt.';
-$string['navmethod_seq'] = 'Seventiell';
+$string['navmethod_seq'] = 'Sekventiell';
 $string['navnojswarning'] = 'OBS! de här länkarna kommer inte att spara Dina svar. Använd knappen "Fortsätt" längst ner på sidan. ';
 $string['neverallononepage'] = 'Aldrig, alla frågor på en sida';
 $string['newattemptfail'] = 'Fel: Det gick inte att påbörja ett nytt försök av testet';
@@ -542,7 +544,7 @@ $string['outcomesadvanced'] = 'Resultat är avancerad inställning';
 $string['outof'] = 'av ett maximum på';
 $string['outofpercent'] = '{$a->grade} av ett maximum på {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
-$string['overallfeedback'] = 'övergripande återkoppling';
+$string['overallfeedback'] = 'Övergripande återkoppling';
 $string['overallfeedback_help'] = 'Övergripande återkoppling är text som visas efter att ett test har försökts. Genom att ange specifika poänggränser (som procenttal eller som antal), kan texten bero på den poäng som uppnåtts.';
 $string['overdue'] = 'förfallen';
 $string['overduehandling'] = 'När tiden går ut';

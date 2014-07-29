@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_skydrive', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_skydrive', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_skydrive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cachedef_foldername'] = 'Cache nomi cartelle';
 $string['clientid'] = 'Client ID';
-$string['configplugin'] = 'Configurazione Microsoft Skydrive';
-$string['oauthinfo'] = '<p>Per usare questo plugin è necessario registrare il sito <a href="https://manage.dev.live.com/Applications/Index">con  Microsoft</a>Durante la registrazione sarà necessario inserire il seguente URL come  \'Redirect domain\':</p><p>{$a->callbackurl}</p><p>Al termine della registrazione verrà fornito un Client ID ed un secret che andranno inseriti qui.</p>';
-$string['pluginname'] = 'Microsoft Skydrive';
+$string['configplugin'] = 'Configurazione Microsoft OneDrive';
+$string['oauthinfo'] = '<p>Per usare questo plugin è necessario registrare il sito su <a href="href="https://account.live.com/developers/applications">con  Microsoft</a>Durante la registrazione sarà necessario inserire il seguente URL come  \'Redirect domain\':</p><p>{$a->callbackurl}</p><p>Al termine della registrazione verrà fornito un Client ID ed un secret che andranno inseriti qui.</p>';
+$string['pluginname'] = 'Microsoft OneDrive';
 $string['secret'] = 'Secret';
-$string['skydrive:view'] = 'Visualizzare Skydrive';
+$string['skydrive:view'] = 'Visualizzare OneDrive';

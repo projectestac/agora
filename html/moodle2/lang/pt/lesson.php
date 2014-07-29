@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = 'Após responder corretamente a uma p
 * Mostrar página não vista - As páginas são exibidas de forma aleatória sem que a mesma página seja exibida duas vezes
 * Mostrar página não respondida - As páginas são exibidas de forma aleatória, sendo as perguntas não respondidas exibidas novamente';
 $string['actions'] = 'Ações';
-$string['activitylink'] = 'Link para uma atividade';
+$string['activitylink'] = 'Hiperligação para a próxima atividade';
 $string['activitylink_help'] = 'Mostra um link no final duma lição para outra atividade da disciplina. Selecione a atividade na caixa de seleção..';
 $string['activitylinkname'] = 'Ir para: {$a}';
 $string['activityoverview'] = 'Existem Lições que requerem a sua atenção';
@@ -119,6 +119,7 @@ $string['continuetonextpage'] = 'Continuar para a página seguinte';
 $string['correctanswerjump'] = 'Seguir para, se resposta correta';
 $string['correctanswerscore'] = 'Pontuação da resposta correta';
 $string['correctresponse'] = 'Feedback da resposta correta';
+$string['createaquestionpage'] = 'Criar uma página de pergunta';
 $string['credit'] = 'Crédito';
 $string['customscoring'] = 'Pontuação ajustável';
 $string['customscoring_help'] = 'Se ativar esta opção, pode atribuir a cada resposta uma pontuação numérica (positivo ou negativo).';
@@ -135,18 +136,18 @@ $string['description'] = 'Descrição';
 $string['detailedstats'] = 'Estatísticas detalhadas';
 $string['didnotanswerquestion'] = 'Não respondeu a esta pergunta';
 $string['didnotreceivecredit'] = 'Não obteve qualquer pontuação';
-$string['displaydefaultfeedback'] = 'Exibir feedback predefinido';
+$string['displaydefaultfeedback'] = 'Usar feedback predefinido';
 $string['displaydefaultfeedback_help'] = 'Se ativar esta opção, quando um feedback não é definido numa pergunta em particular, é exibido o feedback predefinido "A resposta está correta" ou a "A resposta está errada".';
 $string['displayhighscores'] = 'Exibir melhores notas';
 $string['displayinleftmenu'] = 'Exibir no menu à esquerda?';
-$string['displayleftif'] = 'Exibir menu à esquerda apenas se a nota for superior a';
+$string['displayleftif'] = 'Exibir menu apenas se a nota for superior a';
 $string['displayleftif_help'] = 'Esta opção determina se um aluno deve obter uma determinada nota para poder visualizar o menu à esquerda. Isso obriga o aluno a percorrer toda a lição na primeira tentativa e depois de obter a nota exigida, pode usar o menu à esquerdo para rever a lição.';
 $string['displayleftmenu'] = 'Exibir menu à esquerda';
 $string['displayleftmenu_help'] = 'Se ativar está opção, será exibida uma lista das páginas da lição';
 $string['displayofgrade'] = 'Exibição da nota (apenas para alunos)';
 $string['displayreview'] = 'Mostrar botão para voltar a responder';
 $string['displayreview_help'] = 'Se ativar esta opção, quando uma pergunta é respondida de forma incorreta, é dado a escolher ao aluno se quer responder de novo sem obter a pontuação ou continuar a lição';
-$string['displayscorewithessays'] = 'Obteve {$a->score} num máximo de {$a->tempmaxgrade}.<br />As suas {$a->essayquestions} respostas a perguntas de desenvolvimento serão avaliadas posteriormente,<br />sendo a pontuação correspondente adicionada à pontuação final.<br /><br />A sua classificação atual, sem as perguntas que falta avaliar, é de  {$a->score} num máximo de {$a->grade}';
+$string['displayscorewithessays'] = 'Obteve {$a->score} num máximo de {$a->tempmaxgrade}.<br />As suas respostas à(s) pergunta(s) de desenvolvimento {$a->essayquestions resposta(s)} serão avaliadas posteriormente,<br />sendo a pontuação correspondente adicionada à pontuação final.<br /><br />A sua classificação atual, sem as perguntas que faltam avaliar, é de  {$a->score} num máximo de {$a->grade}.';
 $string['displayscorewithoutessays'] = 'Obteve uma pontuação de {$a->score} (em {$a->grade}). Clique em Ver notas para ver a sua nota final na pauta';
 $string['edit'] = 'Editar';
 $string['editingquestionpage'] = 'A editar página de pergunta {$a}';
@@ -247,7 +248,7 @@ $string['maximumnumberofattemptsreached'] = 'Atingiu o número máximo de tentat
 $string['maxtime'] = 'Tempo limite (em minutos)';
 $string['maxtimewarning'] = 'Tem {$a} minuto(s) para terminar a lição.';
 $string['mediaclose'] = 'Mostrar botão de fechar:';
-$string['mediafile'] = 'Pop-up para ficheiro ou página web';
+$string['mediafile'] = 'Ficheiro de pop-up';
 $string['mediafile_help'] = 'Para incluir uma janela de pop-up no início da lição, escolha o ficheiro a exibir. Todas as páginas da lição incluirão um link para reabrir o pop-up, se necessário.';
 $string['mediafilepopup'] = 'Clique aqui para ver';
 $string['mediaheight'] = 'Altura da janela:';
@@ -349,6 +350,7 @@ $string['postsuccess'] = 'Mensagem enviada com sucesso';
 $string['practice'] = 'Lição de treino';
 $string['practice_help'] = 'Uma lição de treino é apenas para aprender e a sua avaliação não aparece no relatório de avaliação nem  influencia a nota final do aluno.';
 $string['preprocesserror'] = 'Ocorreu um erro durante o pré-processamento!';
+$string['prerequisitelesson'] = 'Pré-requisitos da lição';
 $string['preview'] = 'Pré-visualizar';
 $string['previewlesson'] = 'Pré-visualizar {$a}';
 $string['previouspage'] = 'Página anterior';
@@ -384,6 +386,7 @@ $string['savechanges'] = 'Gravar alterações';
 $string['savechangesandeol'] = 'Gravar todas as alterações e ir para o fim da lição.';
 $string['savepage'] = 'Guardar página';
 $string['score'] = 'Nota';
+$string['score_help'] = 'A pontuação só é usada quando a pontuação personalizada está ativada. A cada resposta poderá ser dada uma pontuação numérica (positiva ou negativa).';
 $string['scores'] = 'Notas';
 $string['secondpluswrong'] = 'Resposta incorreta. Quer voltar a tentar?';
 $string['selectaqtype'] = 'Selecione tipo de pergunta';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'install', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -54,88 +54,11 @@ $string['configurationcomplete'] = '配置完毕';
 $string['configurationcompletehead'] = '配置完毕';
 $string['configurationcompletesub'] = 'Moodle会尝试将配置存储在您的Moodle根目录中。';
 $string['database'] = '数据库';
-$string['databasecreationsettings'] = '现在您需要配置数据库选项，Moodle的大部分数据都是存储在数据库中的。Moodle4Windows安装程序会根据下面的选项自动为您创建这个数据库。<br />
-<br /> <br />
-<b>类型：</b>安装程序只允许“mysql”<br />
-<b>主机：</b>安装程序只允许“localhost”<br />
-<b>名称：</b>数据库名称，如moodle<br />
-<b>用户名：</b>安装程序只允许“root”<br />
-<b>密码：</b>您的数据库密码<br />
-<b>表格前缀：</b>用于所有表格名的前缀(可选)';
-$string['databasecreationsettingshead'] = '现在您需要配置数据库选项，Moodle的大部分数据都是存储在数据库中的。Moodle的安装程序会根据下面的选项自动为您创建数据库。';
-$string['databasecreationsettingssub'] = '<b>类型：</b>安装程序只允许“mysql”<br />
-<b>主机：</b>安装程序只允许“localhost”<br />
-<b>名称：</b>数据库名称，如moodle<br />
-<b>用户名：</b>安装程序只允许“root”<br />
-<b>密码：</b>您的数据库密码<br />
-<b>表格前缀：</b>用于所有表格名的前缀(可选)';
-$string['databasecreationsettingssub2'] = '<b>类型:</b>被安装程序设定为“mysqli”<br />
-<b>主机:</b> 被安装程序设定为“localhost”<br />
-<b>名字:</b> 数据库名, 比如 moodle<br />
-<b>用户:</b> 被安装程序设定为“root”<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表前缀:</b> 所有表名使用的可选前缀';
 $string['databasehead'] = '数据库设置';
 $string['databasehost'] = '数据库主机';
 $string['databasename'] = '数据库名';
 $string['databasepass'] = '数据库密码';
-$string['databasesettings'] = '现在您需要配置数据库了，多数的Moodle数据都将存储在其中。这个数据库必须已经存在了，并且必须有一个用户名和密码来访问它。<br /> <br /> <br />
-<b>类型：</b>mysql或postgres7<br />
-<b>主机：</b>如localhost或db.isp.com<br />
-<b>名称：</b>数据库名称，如moodle<br />
-<b>用户：</b>访问数据库的用户名<br />
-<b>密码：</b>访问数据库的密码<br />
-<b>表格前缀：</b>在所有的表格名称前加上可选的前缀';
-$string['databasesettingshead'] = '现在您需要配置数据库，Moodle的大部分数据都会存储在其中。您应当事先创建好这个数据库并设定好用于访问该数据库的用户名和密码。';
-$string['databasesettingssub'] = '<b>类型：</b>mysql或postgres7<br />
-<b>主机：</b>如localhost或db.isp.com<br />
-<b>名称：</b>数据库名称，如moodle<br />
-<b>用户：</b>访问数据库的用户名<br />
-<b>密码：</b>访问数据库的密码<br />
-<b>表格前缀：</b>在所有的表格名称前加上可选的前缀';
-$string['databasesettingssub_mssql'] = '<b>类型:</b> SQL*Server (非UTF-8) <b><strong  class="errormsg">试验性的! (不能用在产品中)</strong></b><br />
-<b>主机:</b> 例如，localhost 或者 db.isp.com<br />
-<b>名字:</b> 数据库名, 比如 moodle<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表前缀:</b> 在所有的表名称前加上前缀 (强制的)';
-$string['databasesettingssub_mssql_n'] = '<b>类型:</b> SQL*Server (UTF-8 可以)<br />
-<b>主机:</b> 例如，localhost或者db.isp.com<br />
-<b>名字:</b> 数据库名, 比如moodle<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表格前缀:</b> 在所有的表格名称前加上前缀 (强制的)';
-$string['databasesettingssub_mysql'] = '<b>类型:</b> MySQL<br />
-<b>主机:</b> 例如，localhost或者db.isp.com<br />
-<b>名字:</b> 数据库名, 比如moodle<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表格前缀:</b> 在所有的表格名称前加上前缀（可选的）';
-$string['databasesettingssub_mysqli'] = '<b>类型:</b> MySQL<br />
-<b>主机:</b> 例如，localhost或者db.isp.com<br />
-<b>名字:</b> 数据库名, 比如moodle<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表格前缀:</b> 在所有的表格名称前加上前缀（可选的）';
-$string['databasesettingssub_oci8po'] = '<b>类型:</b> Oracle<br />
-<b>主机:</b> 不需要，必须留空<br />
-<b>名字:</b> 给出tnsnames.ora连接的名字<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表格前缀:</b> 在所有的表格名称前加上前缀(强制的, 最大2cc.)';
-$string['databasesettingssub_odbc_mssql'] = '<b>类型:</b> SQL*Server (通过ODBC) <b><strong  class="errormsg">试验性的! (不可用在产品中)</strong></b><br />
-<b>主机:</b> ODBC控制面板中DSN的名字<br />
-<b>名字:</b> 数据库名, 比如moodle<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表前缀:</b> 在所有的表名称前加上前缀(强制的)';
-$string['databasesettingssub_postgres7'] = '<b>类型:</b> PostgreSQL<br />
-<b>主机:</b> 例如，localhost或者db.isp.com<br />
-<b>名字:</b> 数据库名, 比如moodle<br />
-<b>用户:</b> 您的数据库用户名<br />
-<b>密码:</b> 您的数据库密码<br />
-<b>表格前缀:</b> 在所有的表格名称前加上前缀(强制的)';
-$string['databasesettingswillbecreated'] = '<b>注释:</b> 如果数据库不存在将自动创建';
+$string['databaseport'] = '数据库服务端口';
 $string['databasesocket'] = 'Unix套接字';
 $string['databasetypehead'] = '选择数据库驱动';
 $string['databasetypesub'] = 'Moodle支持若干种数据库服务器。如果您不知道该使用哪一种，请联系服务器管理员。';
@@ -151,10 +74,6 @@ $string['dbpass'] = '密码';
 $string['dbport'] = '端口';
 $string['dbprefix'] = '表格名称前缀';
 $string['dbtype'] = '类型';
-$string['dbwrongencoding'] = '您选择的数据库使用了字符集{$a}，我们推荐您使用一个Unicode (UTF-8)字符集的数据库。当然，您可以选择“跳过数据库字符集检查”来跳过这个环节，但您将来可能会遇到问题。';
-$string['dbwronghostserver'] = '您必须遵循上面所阐述的“主机”规则。';
-$string['dbwrongnlslang'] = '在您的web服务器中的NLS_LANG环境变量必须用 AL32UTF8 字符集。请查阅有关如何正确配置OCI8的PHP文档。';
-$string['dbwrongprefix'] = '您必须遵循上面所阐述的“表格前缀”规则。';
 $string['directorysettings'] = '<p>请确认安装Moodle的位置。</p>
 
 <p><b>Web地址：</b>
@@ -195,24 +114,6 @@ $string['fileuploadshelp'] = '<p>您的服务器好像关闭了文件上传功�
 <p>您仍然可以继续安装Moodle，但没有这个功能，将不能上传课程文件或用户头像。</p>
 
 <p>要激活文件上传，您（或您的系统管理员）需要修改系统的php.ini文件，将其中<b>file_uploads</b>的值改为\'1\'。</p>';
-$string['gdversion'] = 'GD版本';
-$string['gdversionerror'] = '为了能够处理和创建图片，服务器上必须有GD库。';
-$string['gdversionhelp'] = '<p>您的服务器看上去并没有安装GD。</p>
-
-<p>PHP要有GD库才能让Moodle处理图像(如用户图标)。没有GD，Moodle还是可以工作的——只是那些需要GD的功能就不能使用了。</p>
-
-<p>在Unix上为PHP增加GD功能，可以用--with-gd选项来编译PHP。</p>
-
-<p>在Windows上，修改php.ini并去掉php_gd2.dll行前的注释符号就可以了。</p>';
-$string['globalsquotes'] = '处理全局变量的方式不安全';
-$string['globalsquoteserror'] = '修正您的PHP设置：禁用register_globals和/或启动magic_quotes_gpc。';
-$string['globalsquoteshelp'] = '<p>我们不建议您在禁用Magic Quotes GPC的同时开启Register Globals。</p>
-
-<p>一种比较好的做法是在php.ini中设定<b>magic_quotes_gpc = On</b>和<b>register_globals = Off</b>。</p>
-
-<p>如果您无权访问您的php.ini，您可以在Moodle目录内的.htaccess文件中增加如下内容：</p>
-<blockquote><div>php_value magic_quotes_gpc On</div></blockquote>
-<blockquote><div>php_value register_globals Off</div></blockquote>';
 $string['inputdatadirectory'] = '数据目录：';
 $string['inputwebadress'] = 'Web地址：';
 $string['inputwebdirectory'] = 'Moodle目录：';
@@ -241,13 +142,12 @@ $string['memorylimithelp'] = '<p>您服务器的PHP内存限制是{$a}。</p>
 <blockquote>php_value memory_limit 40M</blockquote>
 <p>然而，在一些服务器上这会让<b>所有</b>PHP页面无法正常工作(在访问页面时会有错误)，因此您可能不得不删除.htaccess文件。</p></li>
 </ol>';
-$string['mssql'] = 'SQL*Server(mssql)';
 $string['mssqlextensionisnotpresentinphp'] = 'PHP的MSSQL 扩展并未安装正确，因此无法与SQL*Server通信。请检查您的php.ini文件或重新编译PHP。';
-$string['mssql_n'] = '支持UTF-8的SQL*Server(mssql_n)';
-$string['mysql'] = 'MySQL (mysql)';
-$string['mysqlextensionisnotpresentinphp'] = 'PHP的MySQL扩展并未安装正确，因此无法与MySQL通信。请检查您的php.ini文件或重新编译PHP。';
-$string['mysqli'] = '改进的Mysql(mysqli)';
 $string['mysqliextensionisnotpresentinphp'] = 'PHP的MySQLi扩展并未安装正确，因此无法与MySQL通信。请检查您的php.ini文件或重新编译PHP。对PHP4，MySQLi扩展不可用。';
+$string['nativemariadbhelp'] = '<p>这里必须指定数据库来保存Moodle的配置和数据。</p>
+<p>数据库名、数据库用户名和密码是必须字段，表前缀可选</p>
+<p>如果指定的数据库不存在且指定的数据库用户有足够权限，Moodle会自动创建一个数据库</p>
+<p>驱动程序和MyISAM存储引擎不兼容</p>';
 $string['nativemssql'] = 'SQL*服务器 FreeTDS (native/mssql)';
 $string['nativemssqlhelp'] = '现在，您需要配置数据库，Moodle的大部分数据都将保存于此。
 这个数据库必须已经创建，并且有用户名和密码可以访问它。必须设置表前缀。';
@@ -265,10 +165,7 @@ $string['nativesqlsrvhelp'] = '现在，您需要配置数据库，Moodle的大�
 这个数据库必须已经创建，并且有用户名和密码可以访问它。必须设置表前缀。';
 $string['nativesqlsrvnodriver'] = 'Microsoft 为 PHP 提供的 SQL Server 驱动程序未安装或者未正确配置。';
 $string['nativesqlsrvnonwindows'] = 'Microsoft 为 PHP 提供的 SQL Server 驱动程序只能在Windows 系统上使用。';
-$string['oci8po'] = 'Oracle (oci8po)';
 $string['ociextensionisnotpresentinphp'] = 'PHP的OCI8扩展并未安装正确，因此无法与Oracle通信。请检查您的php.ini文件或重新编译PHP。';
-$string['odbcextensionisnotpresentinphp'] = 'PHP的ODBC扩展并未安装正确，因此无法与SQL*Server通信。请检查您的php.ini文件或重新编译PHP。';
-$string['odbc_mssql'] = '基于ODBC的SQL*Server (odbc_mssql)';
 $string['pass'] = '通过';
 $string['paths'] = '路径';
 $string['pathserrcreatedataroot'] = '安装程序无法建立数据目录({$a->dataroot})。';
@@ -290,7 +187,6 @@ $string['phpversionhelp'] = '<p>Moodle需要PHP 4.3.0或5.1.0（5.0.x有若干�
 <p>您必须升级PHP或者转移到一个有新版PHP的服务器上！<br />
 （如果正使用5.0.x，您也可以降级到4.4.x版）</p>
 ';
-$string['postgres7'] = 'PostgreSQL (postgres7)';
 $string['releasenoteslink'] = '想了解本版本Moodle的信息，请访问发行说明：{$a}';
 $string['safemode'] = '安全模式';
 $string['safemodeerror'] = '在安全模式下运行Moodle可能会有麻烦';
@@ -304,7 +200,6 @@ $string['sessionautostarterror'] = '这应当是关闭的';
 $string['sessionautostarthelp'] = '<p>Moodle需要会话支持，否则便无法正常工作。</p>
 
 <p>通过修改php.ini文件可以激活会话支持...找找session.auto_start参数</p>';
-$string['skipdbencodingtest'] = '跳过数据库编码检测';
 $string['sqliteextensionisnotpresentinphp'] = 'PHP的SQLite扩展配置不正确。请检查php.ini文件或者重新编译PHP。';
 $string['upgradingqtypeplugin'] = '正在升级题目/类型插件';
 $string['welcomep10'] = '{$a->installername} ({$a->installerversion})';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_profiling', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_profiling', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_profiling
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,11 +27,18 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['calls'] = '関数コール';
 $string['cannotfindanyrunforrunid'] = '申し訳ございません、「 {$a} 」プロファイリング実行が見つかりません。';
-$string['cannotfindanyrunforurl'] = '申し訳ございません、{$a} URI実行に関するプロファイリング実行が見つかりません。';
+$string['cannotfindanyrunforurl'] = '申し訳ございません、{$a} URL実行に関するプロファイリング実行が見つかりません。';
 $string['comment'] = 'コメント';
 $string['cputime'] = 'CPU時間';
 $string['differencesbetween2runsof'] = '{$a} に関する2件の実行結果の違い';
 $string['executiontime'] = '実行時間';
+$string['export'] = 'エクスポート';
+$string['exportproblem'] = '「 {$a->listurl 」のリクエストに関して、プロファイル実行 「 {$a->runid} 」 のエクスポートにエラーが発生しました。';
+$string['exportthis'] = 'このプロファイリング実行をエクスポートする';
+$string['import'] = 'インポート';
+$string['importok'] = 'ファイル「 {$a} 」が正常にインポートされました。';
+$string['importprefix'] = 'インポート接頭辞';
+$string['importproblem'] = 'ファイル「 {$a} 」のインポート中に問題が発生しました。';
 $string['lastrunof'] = '{$a} の最新実行の概要';
 $string['markreferencerun'] = '参照実行/コメントとしてマークする';
 $string['memory'] = '使用メモリ';
@@ -43,5 +50,5 @@ $string['referencerun'] = '参照実行/コメント';
 $string['runid'] = '実行iD';
 $string['summaryof'] = '{$a} の概要';
 $string['viewdetails'] = 'プロファイリング詳細を表示する';
-$string['viewdiff'] = '最新の参照実行とのプロファイリングの違いを表示する';
+$string['viewdiff'] = 'プロファイリング相違点を表示する:';
 $string['viewdiffdetails'] = 'プロファイリングdiff詳細を表示する';

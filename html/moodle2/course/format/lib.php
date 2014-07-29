@@ -134,7 +134,7 @@ abstract class format_base {
         global $CFG;
         static $classnames = array('site' => 'format_site');
         if (!isset($classnames[$format])) {
-            $plugins = get_plugin_list('format');
+            $plugins = core_component::get_plugin_list('format');
             $usedformat = self::get_format_or_default($format);
             if (file_exists($plugins[$usedformat].'/lib.php')) {
                 require_once($plugins[$usedformat].'/lib.php');
@@ -235,19 +235,44 @@ abstract class format_base {
             return null;
         }
         if ($this->course === false) {
-            $this->course = $DB->get_record('course', array('id' => $this->courseid));
+            $this->course = get_course($this->courseid);
             $options = $this->get_format_options();
+            $dbcoursecolumns = null;
             foreach ($options as $optionname => $optionvalue) {
-                if (!isset($this->course->$optionname)) {
-                    $this->course->$optionname = $optionvalue;
-                } else {
-                    debugging('The option name '.$optionname.' in course format '.$this->format.
-                        ' is invalid because the field with the same name exists in {course} table',
-                        DEBUG_DEVELOPER);
+                if (isset($this->course->$optionname)) {
+                    // Course format options must not have the same names as existing columns in db table "course".
+                    if (!isset($dbcoursecolumns)) {
+                        $dbcoursecolumns = $DB->get_columns('course');
+                    }
+                    if (isset($dbcoursecolumns[$optionname])) {
+                        debugging('The option name '.$optionname.' in course format '.$this->format.
+                            ' is invalid because the field with the same name exists in {course} table',
+                            DEBUG_DEVELOPER);
+                        continue;
+                    }
                 }
+                $this->course->$optionname = $optionvalue;
             }
         }
         return $this->course;
+    }
+
+    /**
+     * Returns true if the course has a front page.
+     *
+     * This function is called to determine if the course has a view page, whether or not
+     * it contains a listing of activities. It can be useful to set this to false when the course
+     * format has only one activity and ignores the course page. Or if there are multiple
+     * activities but no page to see the centralised information.
+     *
+     * Initially this was created to know if forms should add a button to return to the course page.
+     * So if 'Return to course' does not make sense in your format your should probably return false.
+     *
+     * @return boolean
+     * @since 2.6
+     */
+    public function has_view_page() {
+        return true;
     }
 
     /**

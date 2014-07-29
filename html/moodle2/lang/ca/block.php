@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,10 +45,13 @@ $string['deleteblock'] = 'Suprimeix el bloc {$a}';
 $string['deleteblockcheck'] = 'Esteu segur que voleu suprimir aquest bloc anomenat {$a}?';
 $string['deleteblockwarning'] = '<p> Esteu a punt d\'eliminar un bloc que apareix en un altre lloc. </p><p> Ubicació del bloc original: {$a->location} <br /> Visualització en tipus de pàgines: {$a->pagetype} </p><p> Esteu segur que voleu continuar? </p>';
 $string['deletecheck'] = 'Suprimiu el bloc {$a}?';
+$string['dockblock'] = 'Acobla el bloc {$a}';
 $string['hideblock'] = 'Amaga el bloc {$a}';
 $string['hidedockpanel'] = 'Amaga el tauler d\'acoblament';
 $string['hidepanel'] = 'Amaga el tauler';
 $string['moveblock'] = 'Mou el bloc {$a}';
+$string['moveblockafter'] = 'Mou el bloc després del bloc {$a}';
+$string['moveblockbefore'] = 'Mou el bloc abans del del bloc {$a}';
 $string['moveblockhere'] = 'Mou el bloc aquí';
 $string['movingthisblockcancel'] = 'S\'està movent aquest bloc ({$a})';
 $string['onthispage'] = 'En aquesta pàgina';
@@ -65,6 +68,7 @@ $string['showonfrontpageonly'] = 'Mostra només a la primera plana';
 $string['subpages'] = 'Selecciona pàgines';
 $string['thisspecificpage'] = 'Aquesta pàgina específica';
 $string['undockall'] = 'Restaura tots els blocs a la seva columna';
+$string['undockblock'] = 'Desacobla el bloc {$a}';
 $string['undockitem'] = 'Restaura aquest bloc a columna de blocs';
 $string['visible'] = 'Visible';
 $string['weight'] = 'Pes';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,6 +39,7 @@ $string['defaultenrol_desc'] = '缺省情况下可以把这些插件添加到所
 $string['deleteinstanceconfirm'] = '您确信要删除“{$a->name}”选课插件实例？已有{$a->users}名用户通过它选课。';
 $string['deleteinstancenousersconfirm'] = '您打算删除选课方法“{$a->name}”。您确定需要继续吗？';
 $string['durationdays'] = '{$a}天';
+$string['editenrolment'] = '编辑选课';
 $string['enrol'] = '选课';
 $string['enrolcandidates'] = '未选课用户';
 $string['enrolcandidatesmatching'] = '匹配的未选课用户';
@@ -85,6 +86,7 @@ $string['invalidenrolinstance'] = '无效的选课实例';
 $string['invalidrole'] = '无效角色';
 $string['manageenrols'] = '管理选课插件';
 $string['manageinstance'] = '管理';
+$string['migratetomanual'] = '合并到手动选课';
 $string['nochange'] = '无变化';
 $string['noexistingparticipants'] = '没有任何人加入';
 $string['noguestaccess'] = '访客不能访问此课程，请尝试登录。';
@@ -114,8 +116,6 @@ $string['unenrolconfirm'] = '您确定要从课程“{$a->course}”撤销用户
 $string['unenrolme'] = '从{$a}撤销选课';
 $string['unenrolnotpermitted'] = '您无权或不能撤销此用户的选课。';
 $string['unenrolroleusers'] = '撤销用户的选课';
-$string['uninstallconfirm'] = '您将要完全删除选课插件“{$a}”。这将完全删除数据库中所有与之有个的数据。您确定要继续吗？';
-$string['uninstalldeletefiles'] = '与选课插件“{$a->plugin}”相关的所有数据都已从数据库删除。要彻底完成删除（阻止此插件自己重新安装），您要马上在服务器上删除此目录：{$a->directory}';
 $string['unknowajaxaction'] = '未知的动作请求';
 $string['unlimitedduration'] = '无限';
 $string['usersearch'] = '搜索';

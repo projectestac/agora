@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -132,6 +132,7 @@ $string['navigationfrom_help'] = 'De wiki-sidor som länkar till den här sidan'
 $string['navigationto'] = 'Den här sidan går till';
 $string['navigationto_help'] = 'Länkar till andra sidor';
 $string['newpage'] = 'Ny';
+$string['newpagehdr'] = 'Ny sida';
 $string['newpagetitle'] = 'Ny titel på sida';
 $string['noattachments'] = '<strong>Inga bifogade filer</strong>';
 $string['nocomments'] = 'Det finns inga kommentarer';

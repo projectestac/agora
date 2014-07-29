@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendance', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendance', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   attendance
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -122,6 +122,11 @@ $string['jumpto'] = 'Перейти к занятию';
 $string['Lacronym'] = 'О';
 $string['Lfull'] = 'Опоздал';
 $string['modulename'] = 'Посещаемость';
+$string['modulename_help'] = 'Модуль «Посещаемость» позволяет преподавателю вести учет посещаемости занятий, а студентам видеть информацию о их собственной посещаемости.
+
+Преподаватель может создать несколько занятий и отмечать посещаемость как статусы «Присутствовал», «Не был», «Опоздал», «Уважительная причина» или изменить эти статусы так, чтобы они соответствовали потребностям преподавателя.
+
+В модуле доступны отчеты по всем студентам или по каждому студенту отдельно.';
 $string['modulenameplural'] = 'Посещаемость';
 $string['months'] = 'Месяц';
 $string['myvariables'] = 'Мои переменные';

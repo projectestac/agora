@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -71,7 +71,7 @@ $string['modulename'] = '파일';
 $string['modulenameplural'] = '파일';
 $string['neverseen'] = '보이지 않음';
 $string['notmigrated'] = '정규자료 형식 ({$a}) 은 아직 전환되지 않았습니다. ';
-$string['optionsheader'] = '옵션';
+$string['optionsheader'] = '표시 옵션';
 $string['page-mod-resource-x'] = '모든 파일 모듈 페이지';
 $string['pluginadministration'] = '파일 모듈 관리';
 $string['pluginname'] = '파일';
@@ -81,8 +81,6 @@ $string['popupresource'] = '이것은 팝업창으로 나타납니다.';
 $string['popupresourcelink'] = '나타나지 않으면 이곳을 클릭하시오: {$a}';
 $string['popupwidth'] = '팝업창 너비(픽셀)';
 $string['popupwidthexplain'] = '팝업창의 기본 너비를 지정';
-$string['printheading'] = '학습자원 명칭 표시';
-$string['printheadingexplain'] = '내용 상단에 자료명 표시. 어떤 자료 유형은 활성화 시켰음에도 불구하고 표시되지 않는 경우도 있다.';
 $string['printintro'] = '자료 설명 표시';
 $string['printintroexplain'] = '내용 하단에 자료 설명 표시. 어떤 자료 설명은 활성화 시켰음에도 불구하고 표시되지 않는 경우도 있다.';
 $string['resource:addinstance'] = '새 자원 추가';

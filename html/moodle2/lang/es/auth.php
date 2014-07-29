@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -75,6 +75,7 @@ $string['chooseauthmethod_help'] = '<p>Este menú le permite modificar el métod
    la persona al servidor o incluso el borrado de su cuenta
    de forma completa, así que, por favor, utilice esta opción
    si sabe qué es lo que está haciendo.</p>';
+$string['createpassword'] = 'Generar contraseña y notificar al usuario';
 $string['createpasswordifneeded'] = 'Crear contraseña si es necesario';
 $string['emailchangecancel'] = 'Cancelar cambio de email';
 $string['emailchangepending'] = 'Cambio pendiente. Abra el enlace enviado en {$a->preference_newemail}.';
@@ -96,6 +97,8 @@ $string['errorminpasswordlower'] = 'Las contraseñas deben tener al menos {$a} m
 $string['errorminpasswordnonalphanum'] = 'Las contraseñas deben tener al menos {$a} caracter(es) no alfanumérico(s).';
 $string['errorminpasswordupper'] = 'Las contraseñas deben tener al menos {$a} mayúscula(s).';
 $string['errorpasswordupdate'] = 'Error actualizando contraseña, la contraseña no ha cambiado';
+$string['event_user_loggedin'] = 'El usuario ha iniciado sesión';
+$string['eventuserloggedinas'] = 'El usuario inicia sesión como otro usuario';
 $string['forcechangepassword'] = 'Forzar cambio de contraseña';
 $string['forcechangepasswordfirst_help'] = 'Forzar a los usuarios a cambiar la contraseña la primera vez que accedan a Moodle.';
 $string['forcechangepassword_help'] = 'Forzar a los usuarios a cambiar la contraseña la próxima vez que accedan a Moodle.';
@@ -141,6 +144,8 @@ $string['stdchangepassword_expl'] = 'Si el sistema de identificación externa pe
 $string['stdchangepassword_explldap'] = 'NOTA: Se recomienda que utilice LDAP sobre un túnel encriptado SSL (ldaps://) si el servidor LDAP es remoto.';
 $string['suspended'] = 'Cuenta de usuario suspendida';
 $string['suspended_help'] = 'Las cuentas de usuarios suspendidas no pueden acceder o utilizar los servicios web y los mensajes salientes se descartan.';
+$string['testsettings'] = 'Configuración del test';
+$string['testsettingsheading'] = 'Configuración del test de identificación de usuario - {$a}';
 $string['unlocked'] = 'Desbloqueado';
 $string['unlockedifempty'] = 'Desbloqueado si está vacío';
 $string['update_never'] = 'Nunca';

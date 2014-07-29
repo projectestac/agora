@@ -62,7 +62,7 @@ $return = true;
 if (!empty($edit) || !empty($new)) {
     if (!empty($edit)) {
         $instance = repository::get_instance($edit);
-        if ($instance->instance->contextid != $context->id) {
+        if (!$instance->can_be_edited_by_user()) {
             throw new repository_exception('nopermissiontoaccess', 'repository');
         }
         $instancetype = repository::get_type_by_id($instance->options['typeid']);
@@ -102,6 +102,7 @@ if (!empty($edit) || !empty($new)) {
             $data = data_submitted();
         }
         if ($success) {
+            core_plugin_manager::reset_caches();
             redirect($parenturl);
         } else {
             print_error('instancenotsaved', 'repository', $parenturl);
@@ -118,18 +119,20 @@ if (!empty($edit) || !empty($new)) {
 } else if (!empty($hide)) {
     $instance = repository::get_type_by_typename($hide);
     $instance->hide();
+    core_plugin_manager::reset_caches();
     $return = true;
 } else if (!empty($delete)) {
     $instance = repository::get_instance($delete);
     if ($instance->readonly) {
         // If you try to delete an instance set as readonly, display an error message.
         throw new repository_exception('readonlyinstance', 'repository');
-    } else if ($instance->instance->contextid != $context->id) {
+    } else if (!$instance->can_be_edited_by_user()) {
         throw new repository_exception('nopermissiontoaccess', 'repository');
     }
     if ($sure) {
         if ($instance->delete($downloadcontents)) {
             $deletedstr = get_string('instancedeleted', 'repository');
+            core_plugin_manager::reset_caches();
             redirect($parenturl, $deletedstr, 3);
         } else {
             print_error('instancenotdeleted', 'repository', $parenturl);

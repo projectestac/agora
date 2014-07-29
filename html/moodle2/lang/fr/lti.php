@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -97,7 +97,7 @@ $string['deletetype'] = 'Supprimer la configuration de l\'outil externe';
 $string['display_description'] = 'Afficher la description de l\'activité lors du lancement';
 $string['display_description_help'] = 'Si ce réglage est activé, la description de l\'activité (renseignée ci-dessus) sera affichée au-dessus du contenu du fournisseur de l\'outil.
 
-La description (pas obligatoire) peut être utilisée pour fournir des explications additionnelles pour les utilisateurs de l\'outil.
+La description (pas obligatoire) peut être utilisée pour fournir aux utilisateurs de l\'outil des explications supplémentaires.
 
 La description n\'est jamais affichée lorsque l\'outil est lancé dans une nouvelle fenêtre.';
 $string['display_name'] = 'Afficher le nom de l\'activité lors du lancement';
@@ -118,7 +118,7 @@ $string['enableemailnotification_help'] = 'Si ce réglage est activé, les parti
 $string['errormisconfig'] = 'Outil mal configuré. Veuillez demander à l\'administrateur de votre Moodle de corriger sa configuration.';
 $string['extensions'] = 'Services d\'extension LTI';
 $string['external_tool_type'] = 'Type d\'outil externe';
-$string['external_tool_type_help'] = 'Le but principal d\'une configuration d\'outil est la mise en place d\'un canal de communication sécurisé entre Moodle et le fournisseur de l\'outil. Elle permet également de définir des réglages par défaut ainsi que de paramétrer d\'éventuels services additionnels fournis par l\'outil.
+$string['external_tool_type_help'] = 'Le but principal d\'une configuration d\'outil est la mise en place d\'un canal de communication sécurisé entre Moodle et le fournisseur de l\'outil. Elle permet également de définir des réglages par défaut ainsi que de paramétrer d\'éventuels services supplémentaires fournis par l\'outil.
 
 * **Automatique, basée sur l\'URL de lancement** - Ce réglage doit être utilisés la plupart du temps. Moodle sélectionnera la configuration la plus adéquate sur la base de l\'URL de lancement. Les outils configurés soit par un administrateur, soit dans ce cours seront utilisés. Lorsque l\'URL de lancement est indiqué, Moodle annoncera s\'il le reconnaît ou non. Dans ce dernier cas, vous pourriez être appelé à saisir les détail de la configuration manuellement.
 * **Un type d\'outil spécifique** - En sélectionnant un type d\'outil spécifique, vous pouvez forcer Moodle à utiliser cette configuration lorsqu\'il communique avec le fournisseur d\'outil externe. Si l\'URL de lancement ne semble pas appartenir au fournisseur de l\'outil, un avertissement sera affiché. Dans certains cas, il n\'est pas nécessaire de saisir une URL de lancement pour un type spécifique d\'outil (si l\'on ne lance pas une ressource particulière chez le fournisseur de l\'outil).
@@ -148,6 +148,7 @@ $string['force_ssl_help'] = 'La sélection de cette option impose l\'utilisation
 De plus, toutes les requêtes de services web de ce fournisseur d\'outil utiliseront SSL.
 
 Avant d’activer cette option, assurez-vous que ce site Moodle et que le fournisseur de l\'outil supportent le protocole SSL.';
+$string['generaltool'] = 'Outil générique';
 $string['global_tool_types'] = 'Types d\'outils globaux';
 $string['grading'] = 'Évaluation';
 $string['icon_url'] = 'URL de l\'icône';
@@ -177,11 +178,13 @@ $string['lti:grade'] = 'Voir les notes retournées par un outil externe';
 $string['lti_launch_error'] = 'Une erreur est survenue lors du lancement de l\'outil externe :';
 $string['lti_launch_error_tool_request'] = '<p>Pour demander à un administrateur de terminer la configuration de cet outil, cliquez <a href="{$a->admin_request_url}" target="_top">ici</a>.</p>';
 $string['lti_launch_error_unsigned_help'] = '<p>Cette erreur est vraisemblablement le résultat du manque de la clef client et du secret partagé pour ce fournisseur d\'outil.</p>
-<p>Si vous êtes en possession de la clef utilisateur et du secret partagé, veuillez les saisir lors de la mise en place de l\'instance de l\'outil externe (assurez-vous que les réglages avancés sont affichés).<br />AutreSinonment, vous pouvez <a href="{$a->course_tool_editor}">créer une configuration</a> du fournisseur d\'outil au niveau du cours.</p>';
+<p>Si vous êtes en possession de la clef utilisateur et du secret partagé, veuillez les saisir lors de la mise en place de l\'instance de l\'outil externe (assurez-vous que les réglages avancés sont affichés).</p>
+<p>Ou alors, vous pouvez <a href="{$a->course_tool_editor}">créer une configuration</a> du fournisseur d\'outil au niveau du cours.</p>';
 $string['lti:manage'] = 'Être formateur lors qu\'un outil externe est lancé';
 $string['lti:requesttooladd'] = 'Demander la configuration d\'outils externes pour tout le site';
 $string['lti_tool_request_added'] = 'La demande de configuration a été envoyée correctement. Vous pouvez contacter un administrateur pour terminer la configuration de l\'outil.';
 $string['lti_tool_request_existing'] = 'Une demande de configuration a déjà été envoyée pour cet outil.';
+$string['ltiunknownserviceapicall'] = 'Appel API de service LTI inconnu';
 $string['lti:view'] = 'Lancer des activités d\'outils externes';
 $string['main_admin'] = 'Aide générale';
 $string['main_admin_help'] = 'Les outils externes permettent aux utilisateurs de Moodle d\'interagir de manière transparente avec des ressources d\'apprentissage distantes. Au moyen d\'un protocole de lancement spécial, l\'outil externe aura accès à des informations sur l\'utilisateur qui lance l\'outil, par exemple le nom de l\'institution, l\'identifiant du cours, l\'identifiant de l\'utilisateur et d\'autres informations comme le nom d\'utilisateur ou son adresse de courriel.
@@ -205,7 +208,7 @@ Les outils externes diffèrent des ressources de type URL de plusieurs façons.
 * **Contextualisation** - Les outils externes ont accès à des informations sur l\'utilisateur qui lancent l\'outil, par exemple le nom de l\'institution, l\'identifiant du cours, l\'identifiant de l\'utilisateur et d\'autres informations comme le nom d\'utilisateur ou son adresse de courriel.
 * **Intégration élevée** - Les outils externes supportent la lecture, la modification et la suppression des notes associées  à l\'activité. D\'autres points d\'intégration sont planifiés pour de prochaines versions.
 * **Sécurité** - Les configurations d\'outils externes créent une liaison sécurisée entre Moodle et le fournisseur de l\'outil, permettant une communication sûre entre eux.';
-$string['modulenameplural'] = 'basicltis';
+$string['modulenameplural'] = 'Outils externes';
 $string['modulenamepluralformatted'] = 'Instances LTI';
 $string['never'] = 'Jamais';
 $string['new_window'] = 'Nouvelle fenêtre';
@@ -233,14 +236,14 @@ $string['password'] = 'Secret partagé';
 $string['password_admin'] = 'Secret partagé';
 $string['password_admin_help'] = 'Le secret partagé est une sorte de mot de passe utilisé pour permettre l\'accès à l\'outil. Il doit être fourni avec la clef client par le fournisseur de l\'outil.
 
-Les outils qui ne requièrent pas de connexion sécurisée de la part de Moodle et ne fournissent pas de services additionnels (tel que des rapports d\'évaluation) ne requièrent pas toujours de secret partagé.';
-$string['password_help'] = 'Pour les outils pré-configurés, il n\'est pas nécessaire de saisir une secret partagé, car celui-ci sera fourni au cours du processus de configuration.
+Les outils qui ne requièrent pas de connexion sécurisée de la part de Moodle et ne fournissent pas de services supplémentaires (tel que des rapports d\'évaluation) ne requièrent pas toujours de secret partagé.';
+$string['password_help'] = 'Pour les outils pré-configurés, il n\'est pas nécessaire de saisir un secret partagé, car celui-ci sera fourni au cours du processus de configuration.
 
 Ce champ doit être renseigné lors de la création d\'un lien vers un fournisseur d\'outil qui n\'est pas encore configuré. S\'il est prévu que le fournisseur d\'outil soit utilisé plusieurs fois dans ce cours, il est judicieux d\'ajouter une configuration d\'outil dans ce cours.
 
 Le secret partagé est une sorte de mot de passe utilisé pour permettre l\'accès à l\'outil. Il doit être fourni avec la clef client par le fournisseur de l\'outil.
 
-Les outils qui ne requièrent pas de connexion sécurisée de la part de Moodle et ne fournissent pas de services additionnels (tel que des rapports d\'évaluation) ne requièrent pas toujours de secret partagé.';
+Les outils qui ne requièrent pas de connexion sécurisée de la part de Moodle et ne fournissent pas de services supplémentaires (tel que des rapports d\'évaluation) ne requièrent pas toujours de secret partagé.';
 $string['pending'] = 'En attente';
 $string['pluginadministration'] = 'Administration LTI';
 $string['pluginname'] = 'LTI';
@@ -261,7 +264,7 @@ $string['resourcekey_admin_help'] = 'La clef client est un peu comme un nom d\'u
 
 La clef client doit être donnée par le fournisseur de l\'outil, par un processus automatique ou par un dialogue avec le fournisseur.
 
-Les outils ne nécessitant pas une communication sécurisée depuis Moodle et qui n\'offrent pas de services additionnels (tel que des rapports d\'évaluation) ne requièrent pas toujours de clef client.';
+Les outils ne nécessitant pas une communication sécurisée depuis Moodle et qui n\'offrent pas de services supplémentaires (tel que des rapports d\'évaluation) ne requièrent pas toujours de clef client.';
 $string['resourcekey_help'] = 'Pour les outils pré-configurés, il n\'est pas nécessaire de saisir une clef, car la clef client sera fournie au cours du processus de configuration.
 
 Ce champ doit être renseigné lors de la création d\'un lien vers un fournisseur d\'outil qui n\'est pas encore configuré. S\'il est prévu que le fournisseur d\'outil soit utilisé plusieurs fois dans ce cours, il est judicieux d\'ajouter une configuration d\'outil dans ce cours.
@@ -270,7 +273,7 @@ La clef client est un peu comme un nom d\'utilisateur pour accéder à l\'outil.
 
 La clef client doit être donnée par le fournisseur de l\'outil, par un processus automatique ou par un dialogue avec le fournisseur.
 
-Les outils ne nécessitant pas une communication sécurisée depuis Moodle et qui n\'offrent pas de services additionnels (tel que des rapports d\'évaluation) ne requièrent pas toujours de clef client.';
+Les outils ne nécessitant pas une communication sécurisée depuis Moodle et qui n\'offrent pas de services supplémentaires (tel que des rapports d\'évaluation) ne requièrent pas toujours de clef client.';
 $string['resourceurl'] = 'URL de la ressource';
 $string['return_to_course'] = 'Cliquer <a href="{$a->link}" target="_top">ici</a> pour revenir au cours.';
 $string['saveallfeedback'] = 'Enregistrer mes feedbacks';
@@ -312,7 +315,10 @@ La plupart du temps, cette option ne devrait pas être activée. Les enseignants
 Le seul cas pour le cas où il faut utiliser cette option est celui où cette configuration n\'est destinée qu\'à une authentification unique. Par exemple, si tous les lancements mènent à une page unique plutôt qu\'à une ressource spécifique.';
 $string['size'] = 'Paramètres de taille';
 $string['submission'] = 'Remise';
+$string['submissions'] = 'Remises';
 $string['submissionsfor'] = 'Travaux remis pour {$a}';
+$string['subplugintype_ltisource'] = 'Source LTI';
+$string['subplugintype_ltisource_plural'] = 'Sources LTI';
 $string['toggle_debug_data'] = 'Activer/désactiver les données de débogage';
 $string['tool_config_not_found'] = 'Configuration de l\'outil introuvable avec cet URL';
 $string['tool_settings'] = 'Réglages de l\'outil';

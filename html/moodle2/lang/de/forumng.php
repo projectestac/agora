@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forumng', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forumng', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   forumng
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,17 +43,12 @@ $string['alert_emailpreface'] = 'Ein Foren-Beitrag wurde gemeldet von {$a->fulln
 $string['alert_emailsubject'] = 'Benachrichtigung F{$a->postid}: {$a->coursename} {$a->forumname}';
 $string['alert_feedback'] = 'Ihr Bericht wurde erfolgreich gesendet. Ein Support-Mitarbeiter wird
 dieses Problem untersuchen.';
-$string['alert_info'] = 'Die Benachrichtigungsfunktion kann diesen Beitrag an einen Support-Mitarbeiter schicken, der diesen Beitrag untersucht.
-<strong>Bitte verwenden Sie diese Funktion nur, wenn Sie denken, dass der Beitrag gegen die Regeln des Anstandes verstößt</strong>.';
-$string['alert_link'] = 'Benachrichtigung';
 $string['alert_linktitle'] = 'Beitrag als inakzeptabel melden';
 $string['alert_notcurrentpost'] = 'Dieser Beitrag wurde bereits gelöscht.';
 $string['alert_note'] = 'Bitte beachten Sie: Diese E-Mail wurde auch an {$a} gesendet.';
 $string['alert_pagename'] = 'Einen Beitrag als nicht akzeptabel melden';
-$string['alert_reasons'] = 'Gründe für die Benachrichtigung';
 $string['alert_reporterdetail'] = '{$a->fullname} ({$a->username}; {$a->email}; {$a->ip})';
 $string['alert_reporterinfo'] = '<strong>Reporter Details</strong>:';
-$string['alert_submit'] = 'Hinweis senden';
 $string['alert_turnedoff'] = 'Die Alarm-Funktion ist nicht verfügbar.';
 $string['allowsubscribe'] = 'Abonnieren erlauben';
 $string['allsubscribe'] = 'Alle Foren abonnieren';
@@ -71,7 +66,6 @@ $string['attachmentmaxbytes'] = 'Maximale Größe von Anhängen';
 $string['attachmentmaxbytes_help'] = 'Dies ist die maximale <i>gesamte</i> Größe für alle Anlagen in einem Beitrag.';
 $string['attachmentnum'] = 'Anhang {$a}';
 $string['attachments'] = 'Anhänge';
-$string['author'] = 'Autor: "{$a}"';
 $string['authorname'] = 'Name des Autors';
 $string['authorname_help'] = 'Sie können einen Namen (Jane), einen Nachnamen (Brown), den vollständigen Namen (jane brown), oder der erste Teil von jeder dieser Namen (Ja, bro, Jane B) eintippen. Suchbegriffe sind nicht case sensitive (Groß-und Kleinschreibung).
 
@@ -511,10 +505,6 @@ $string['reply_typelimit'] = 'Aufgrund der Art dieses Forums, sind Sie derzeit n
 $string['reply_wronggroup'] = 'Sie können nicht auf Beiträge in dieser Diskussion antworten, weil Sie nicht in
 die richtige Gruppe sind.';
 $string['reportingemail'] = 'E-Mail Adresse für die Berichterstattung anstößiger Beiträge';
-$string['reportingemail_help'] = 'Wenn diese E-Mail-Adresse angegeben wurde, erscheint ein Link fürs Berichten
-neben jedem Beitrag. Benutzer/innen können anstößige Beiträge melden.
-Die Informationen werden an diese Adresse geschickt.
-Wenn diese E-Mail leer bleibt, wird die Berichtsfunktion nicht angezeigt (Es sei denn, eine Adresse zur Berichterstattung wurde auf der Website-Ebene eingegeben).';
 $string['reportunacceptable'] = 'E-Mail Adresse für die Berichterstattung anstößiger Beiträge';
 $string['saveallratings'] = 'Alle Bewertungen speichern';
 $string['savedposts_all'] = '{$a}';
@@ -530,13 +520,6 @@ $string['savetoportfolio'] = 'Speichern in MyStuff';
 $string['searchallforums'] = 'In allen Foren suchen';
 $string['searchresults'] = 'Suchergebnisse: <strong>{$a}</strong>';
 $string['searchthisforum'] = 'In diesem Forum suchen';
-$string['searchthisforum_help'] = 'Geben Sie Ihren Suchbegriff ein und drücken Sie die Eingabetaste oder klicken Sie auf die Schaltfläche.
-
-Um ein Wort auszuschliessen, fügen Sie unmittelbar einen Bindestrich vor dem Wort ein.
-
-Beispiel: Suchbegriff <tt>picasso -sculpture &quot;early works&quot;</tt> als Suchergebnisse werden &lsquo;picasso&rsquo; or the phrase &lsquo;early works&rsquo; ausgegeben aber Elemente, die &lsquo;sculpture&rsquo enthalten, werden ausgeschlossen;.
-
-Um nach Autor oder Datum zu suchen, klicken Sie &lsquo;Mehr Optionen&rsquo;.';
 $string['searchthisforumlink'] = 'In diesem Forum suchen';
 $string['searchthisforumlink_help'] = 'Geben Sie Ihren Suchbegriff ein und drücken Sie die Eingabetaste oder klicken Sie auf die Schaltfläche.
 

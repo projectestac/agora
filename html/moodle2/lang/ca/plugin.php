@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Accions';
 $string['availability'] = 'Disponibilitat';
 $string['checkforupdates'] = 'Comprova les actualitzacions disponibles';
 $string['checkforupdateslast'] = 'Darrera comprovació feta el {$a}';
+$string['detectedmisplacedplugin'] = 'El connector  "{$a->component}" està instal·lat en la localització incorrecta "{$a->current}", quan s\'esperava que estigués aquí "{$a->expected}"';
 $string['displayname'] = 'Nom del connector';
 $string['err_response_curl'] = 'No s\'han pogut obtenir dades d\'actualitzacions disponibles. S\'ha produït un error inesperat de cURL.';
 $string['err_response_format_version'] = 'Versió inesperada del format de resposta. Si us plau, intenteu tornar a comprovar si hi ha actualitzacions disponibles.';
@@ -55,8 +56,7 @@ $string['numtotal'] = 'Instal·lat: {$a}';
 $string['numupdatable'] = 'Actualitzacions disponibles: {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['pluginchecknotice'] = 'Aquesta pàgina mostra els connectors que poden requerir la vostra atenció durant l\'actualització. Els elements ressaltats inclouen nous connectors que seran instal·lats ara, connectors que seran actualitzats ara i connectors que falten. Els connectors de tercers també es destaquen.
-Es recomana que comproveu si hi ha disponible versions més recents dels connectors de tercers i actualitzar-los abans de continuar amb aquesta actualització de Moodle.';
+$string['pluginchecknotice'] = 'Aquesta pàgina mostra els connectors que poden requerir la vostra atenció durant l\'actualització. Els elements ressaltats inclouen nous connectors que seran instal·lats ara, connectors que seran actualitzats ara i connectors que falten. Els complements es destaquen si hi ha disponibles versions més recents. Us recomanem que comproveu si hi ha versions més recents dels connectors i que actualitzeu el seu codi font abans de continuar amb aquesta actualització de Moodle.';
 $string['plugindisable'] = 'Desactiva';
 $string['plugindisabled'] = 'Desactivat';
 $string['pluginenable'] = 'Activa';
@@ -89,6 +89,8 @@ $string['type_cachelock'] = 'Controlador de bloqueig de memòria cau';
 $string['type_cachelock_plural'] = 'Controladors de bloqueig de memòria cau';
 $string['type_cachestore'] = 'Magatzem de memòria cau';
 $string['type_cachestore_plural'] = 'Magatzems de memòria cau';
+$string['type_calendartype'] = 'Tipus de calendari';
+$string['type_calendartype_plural'] = 'Tipus de calendaris';
 $string['type_coursereport'] = 'Informe del curs';
 $string['type_coursereport_plural'] = 'Informes del curs';
 $string['type_editor'] = 'Editor';
@@ -138,6 +140,14 @@ $string['type_tool_plural'] = 'Eines d\'administració';
 $string['type_webservice'] = 'Protocol de serveis web';
 $string['type_webservice_plural'] = 'Protocols de serveis web';
 $string['uninstall'] = 'Desinstal·la';
+$string['uninstallconfirm'] = 'Esteu a punt de desinstal·lar el connector <em>{$a->name}</em>. Això suprimirà completament de la base de dades tot allò relacionat amb aquest connector, incloent-hi la seva configuració, els registres, fitxers d\'usuari gestionats pel connector etc. No hi ha cap manera de desfer els canvis i Moodle no crearà cap còpia de seguretat de recuperació. Esteu SEGUR que voleu continuar ?';
+$string['uninstalldelete'] = 'Totes les dades associades amb el connector <em>{$a->name}</em> han estat suprimides de la base de dades. Per a impedir que el connector pugui reinstal·lar-se automàticament, heu de esborrar ara manualment en el servidor la seva carpeta <em>{$a->rootdir}</em>. Moodle no pot esborrar aquesta carpeta a causa dels permisos d\'escriptura.';
+$string['uninstalldeleteconfirm'] = 'Totes les dades associades amb el connector <em>{$a->name}</em> han estat suprimides de la base de dades. Per a impedir que el connector pugui reinstal·lar-se automàticament, cal esborrar ara en el servidor la seva capeta <em>{$a->rootdir}</em>. Voleu esborrar ara la carpeta del connector?';
+$string['uninstalldeleteconfirmexternal'] = 'Sembla que la versió actual del connector ha estat obtinguda mitjançant el sistema de gestió de codi font ({$a}). Si suprimiu la carpeta del connector, podeu perdre modificacions locals importants del codi. Assegureu-vos que voleu suprimir la carpeta del connector abans de continuar.';
+$string['uninstallextraconfirmblock'] = 'Hi ha {$a->instances} instàncies d\'aquest bloc';
+$string['uninstallextraconfirmenrol'] = 'Hi ha {$a->enrolments} inscripcions d\'usuaris';
+$string['uninstallextraconfirmmod'] = 'Hi ha  {$a->instances} instàncies d\'aquest mòdul en {$a->courses} cursos.';
+$string['uninstalling'] = 'S\'està desinstal·lant {$a->name}';
 $string['updateavailable'] = 'Hi ha una nova versió disponible {$a}!';
 $string['updateavailable_moreinfo'] = 'Més informació...';
 $string['updateavailable_release'] = 'Llançament {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = '登録が有効な場合のデフォルト登録�
 $string['enrolperiod_help'] = '登録が有効な場合の登録期間です。ユーザが登録された時点で開始します。無効にされた場合、登録期間は無制限となります。';
 $string['enrolstartdate'] = '開始日';
 $string['enrolstartdate_help'] = '有効にした場合、ユーザはこの日以降のみ受講登録することができます。';
+$string['expiredaction'] = '登録期限切れ処理';
+$string['expiredaction_help'] = 'ユーザの登録期限が切れた場合、実行される処理を選択してください。コース登録解除中、一部のユーザデータおよび設定が削除されてしまうことに留意してください。';
 $string['mailadmins'] = '管理者に通知する';
 $string['mailstudents'] = '学生に通知する';
 $string['mailteachers'] = '教師に通知する';

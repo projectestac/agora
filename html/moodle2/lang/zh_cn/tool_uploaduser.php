@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'CSV分隔符';
 $string['defaultvalues'] = '默认值';
 $string['deleteerrors'] = '删除出错';
 $string['encoding'] = '编码';
+$string['errormnetadd'] = '不能添加远程用户';
 $string['errors'] = '错误';
 $string['nochanges'] = '未改变';
 $string['pluginname'] = '用户上传';
@@ -60,6 +61,7 @@ $string['uploadusers_help'] = '可以通过文本文件上传（并能直接选�
 * username、password、firstname、lastname和email字段名是必须的';
 $string['uploaduserspreview'] = '预览';
 $string['uploadusersresult'] = '上传用户结果';
+$string['uploaduser:uploaduserpictures'] = '上传头像';
 $string['useraccountupdated'] = '已更新用户数据';
 $string['useraccountuptodate'] = '用户更新';
 $string['userdeleted'] = '用户已删除';

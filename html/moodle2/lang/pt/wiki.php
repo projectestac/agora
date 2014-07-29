@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -147,6 +147,7 @@ $string['navigationfrom_help'] = 'As páginas do wiki com links para esta págin
 $string['navigationto'] = 'Esta página vai para';
 $string['navigationto_help'] = 'Os links que incluiu nesta página';
 $string['newpage'] = 'Nova página';
+$string['newpagehdr'] = 'Nova página';
 $string['newpagetitle'] = 'Novo título da página';
 $string['noattachments'] = '<strong>Sem ficheiros anexos</strong>';
 $string['nocomments'] = 'Não existem comentários';
@@ -177,7 +178,7 @@ $string['orphaned'] = 'Páginas órfãs';
 $string['orphaned_help'] = 'Lista de páginas que não estão ligadas a partir de outra página.';
 $string['overridelocks'] = 'Ultrapassar bloqueios';
 $string['overridinglocks'] = 'A ultrapassar bloqueios...';
-$string['pageexists'] = 'Esta página já existe. A redirecionar...';
+$string['pageexists'] = 'Esta página já existe. A redirecionar para a mesma.';
 $string['pageindex'] = 'Índice';
 $string['pageindex_help'] = 'Árvore de páginas deste wiki';
 $string['pageislocked'] = 'Alguém está neste momento a editar esta página. Tente editá-la dentro de alguns minutos.';
@@ -194,6 +195,7 @@ $string['pluginadministration'] = 'Administração do Wiki';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'Versão de impressão';
 $string['previewwarning'] = 'Isto é uma pré-visualização. As alterações ainda não foram guardadas.';
+$string['print'] = 'Imprimir';
 $string['rated'] = 'Avaliou esta página como {$a}';
 $string['rating'] = 'Avaliação';
 $string['ratingmode'] = 'Modo de avaliação';

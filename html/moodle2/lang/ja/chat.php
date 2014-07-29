@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'あなたにはまもなく始まるチャット�
 $string['ajax'] = 'Ajaxバージョン';
 $string['autoscroll'] = 'オートスクロール';
 $string['beep'] = 'ビープ';
+$string['bubble'] = 'バブル';
 $string['cantlogin'] = 'チャットルームに入室できませんでした!';
 $string['chat:addinstance'] = '新しいチャットを追加する';
 $string['chat:chat'] = 'チャットルームにアクセスする';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'チャットログを表示する';
 $string['chatreport'] = 'チャットセッション';
 $string['chat:talk'] = 'チャットで会話する';
 $string['chattime'] = '次回のチャットタイム';
+$string['compact'] = 'コンパクト';
 $string['composemessage'] = 'メッセージを作成する';
 $string['configmethod'] = 'Ajaxチャットメソッドでは、サーバが定期的に更新する、Ajaxベースのチャットインターフェースを提供します。ノーマルチャットメソッドでは、クライアントが定期的にサーバにアクセスして内容を更新します。このメソッドは設定を必要とせず、どこでも動作します。しかし、チャット参加者が多くなった場合、サーバに大きな負荷がかかります。Chatサーバデーモンを使用する場合、Unixのシェルアクセスが必要です。また、Chatサーバデーモンにより軽快なチャット環境を提供することができます。';
 $string['confignormalupdatemode'] = 'チャットルームは、通常HTTP 1.1の<em>Keep-Alive</em>機能を使用して、効果的に更新されます。 しかし、この方法はサーバに対して非常に負荷がかかります。さらに進歩した方法は、チャットルームの更新に<em>Stream</em>を使用するものです。<em>Stream</em>を使用する方法 (chatdメソッドに似ています) は、 <em>Keep-Alive</em>機能の使用より優れていますが、あなたのサーバではサポートされていない場合があります。';
@@ -51,6 +53,7 @@ $string['configserverhost'] = 'サーバデーモンが稼動しているホス�
 $string['configserverip'] = '上記ホスト名に合致するIPアドレス';
 $string['configservermax'] = '最大クライアント数';
 $string['configserverport'] = 'デーモンに使用するサーバのポート';
+$string['coursetheme'] = 'コーステーマ';
 $string['currentchats'] = 'アクティブ・チャットセッション';
 $string['currentusers'] = '現在のユーザ';
 $string['deletesession'] = 'このセッションを削除する';
@@ -59,6 +62,9 @@ $string['donotusechattime'] = 'チャット時間を公開しない';
 $string['enterchat'] = 'チャットルームに入室する';
 $string['entermessage'] = 'あなたのメッセージを入力してください。';
 $string['errornousers'] = 'ユーザが見つかりませんでした!';
+$string['event_instances_list_viewed'] = 'インスタンス一覧が閲覧されました。';
+$string['event_message_sent'] = 'メッセージが送信されました。';
+$string['event_sessions_viewed'] = 'セッションが閲覧されました。';
 $string['explaingeneralconfig'] = 'これらの設定は、<strong>常に</strong>使用されます。';
 $string['explainmethoddaemon'] = 'これらの設定は、chat_methodに「Chatサーバデーモン」を選択した場合<strong>のみ</strong>影響します。';
 $string['explainmethodnormal'] = 'これらの設定は、chat_methodに「ノーマルメソッド」を選択した場合<strong>のみ</strong>影響します。';
@@ -115,7 +121,7 @@ $string['refreshuserlist'] = 'ユーザリストをリフレッシュする';
 $string['removemessages'] = 'すべてのメッセージを削除する';
 $string['repeatdaily'] = '毎日同じ時間に';
 $string['repeatnone'] = '繰り返しなし - 指定した時間にのみ公開する';
-$string['repeattimes'] = 'セッションの繰り返し';
+$string['repeattimes'] = 'セッション時間の繰り返し/公開';
 $string['repeatweekly'] = '毎週同じ時間に';
 $string['saidto'] = '&gt;';
 $string['savemessages'] = 'セッションの保存期間';

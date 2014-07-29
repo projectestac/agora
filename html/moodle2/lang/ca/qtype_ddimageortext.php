@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddimageortext', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddimageortext', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddimageortext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,6 +33,7 @@ $string['correctansweris'] = 'La resposta correcta és: {$a}';
 $string['draggableimage'] = 'Imatge arrossegable';
 $string['draggableitem'] = 'Ítem arrossegable';
 $string['draggableitemheader'] = 'Ítem arrossegable {$a}';
+$string['draggableitems'] = 'Ítems arrossegables';
 $string['draggableitemtype'] = 'Tipus';
 $string['draggableword'] = 'Text arrossegable';
 $string['dropbackground'] = 'Imatge de fons per a arrossegar-hi ítems';

@@ -231,6 +231,29 @@ class cache_config {
                 // Invalid cache mode used for the definition.
                 continue;
             }
+            if ($conf['mode'] === cache_store::MODE_SESSION || $conf['mode'] === cache_store::MODE_REQUEST) {
+                // We force this for session and request caches.
+                // They are only allowed to use the default as we don't want people changing them.
+                $conf['sharingoptions'] = cache_definition::SHARING_DEFAULT;
+                $conf['selectedsharingoption'] = cache_definition::SHARING_DEFAULT;
+                $conf['userinputsharingkey'] = '';
+            } else {
+                // Default the sharing option as it was added for 2.5.
+                // This can be removed sometime after 2.5 is the minimum version someone can upgrade from.
+                if (!isset($conf['sharingoptions'])) {
+                    $conf['sharingoptions'] = cache_definition::SHARING_DEFAULTOPTIONS;
+                }
+                // Default the selected sharing option as it was added for 2.5.
+                // This can be removed sometime after 2.5 is the minimum version someone can upgrade from.
+                if (!isset($conf['selectedsharingoption'])) {
+                    $conf['selectedsharingoption'] = cache_definition::SHARING_DEFAULT;
+                }
+                // Default the user input sharing key as it was added for 2.5.
+                // This can be removed sometime after 2.5 is the minimum version someone can upgrade from.
+                if (!isset($conf['userinputsharingkey'])) {
+                    $conf['userinputsharingkey'] = '';
+                }
+            }
             $this->configdefinitions[$id] = $conf;
         }
 
@@ -373,10 +396,18 @@ class cache_config {
      * @param string $storename
      * @return array Associative array of definitions, id=>definition
      */
-    public static function get_definitions_by_store($storename) {
+    public function get_definitions_by_store($storename) {
         $definitions = array();
 
-        $config = cache_config::instance();
+        // This function was accidentally made static at some stage in the past.
+        // It was converted to an instance method but to be backwards compatible
+        // we must step around this in code.
+        if (!isset($this)) {
+            $config = cache_config::instance();
+        } else {
+            $config = $this;
+        }
+
         $stores = $config->get_all_stores();
         if (!array_key_exists($storename, $stores)) {
             // The store does not exist.
@@ -541,6 +572,16 @@ class cache_config {
                 return $this->configlocks[$lock];
             }
         }
+        return $this->get_default_lock();
+    }
+
+    /**
+     * Gets the default lock instance.
+     *
+     * @return array
+     * @throws cache_exception
+     */
+    public function get_default_lock() {
         foreach ($this->configlocks as $lockconf) {
             if (!empty($lockconf['default'])) {
                 return $lockconf;

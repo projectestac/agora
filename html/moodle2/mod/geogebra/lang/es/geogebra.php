@@ -122,7 +122,7 @@ Por ello, el <a href="http://www.gencat.cat/ensenyament/" target="_blank">Depart
     <li>Permite incrustar actividades GeoGebra en cualquier curso Moodle de forma muy sencilla.</li>
     <li>Facilita el seguimiento ya que guarda la puntuación, fecha, duración y construcción de cada uno de los intentos que realiza el alumnado.</li>
     <li>El alumnado puede guardar el estado de las actividades realizadas para continuarlas en otro momento.</li>
-</ul>  
+</ul>
 </p>';
 $string['pluginname'] = 'GeoGebra';
 $string['pluginadministration'] = 'Administración de GeoGebra';

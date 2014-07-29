@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_rss_client', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,7 +62,7 @@ $string['managefeeds'] = '내 피드 관리하기';
 $string['nofeeds'] = '이 사이트에 대한 정의된 RSS 피드가 없습니다.';
 $string['numentries'] = '피드당 항목수';
 $string['pickfeed'] = '새소식 피드 선택';
-$string['pluginname'] = '원격 RSS 피드';
+$string['pluginname'] = 'RSS 수신자';
 $string['remotenewsfeed'] = '원격 뉴스 피드';
 $string['rss_client:addinstance'] = '원격 RSS 피드 블록 추가';
 $string['rss_client:createprivatefeeds'] = '개인 RSS 피드 만들기';
@@ -77,6 +77,6 @@ $string['submitters'] = '누가 새 RSS 피드를 정의할 수 있게 하겠습
 $string['submitters2'] = '제출자';
 $string['timeout'] = '캐시에서 RSS 피드가 만료되기까지 시간. 이는 만료 전 최소 시간을 정의합니다. 만료 후 다음 크론이 실행될 때 피드는 새로 새로고침될 것입니다. 추천값은 30분 이상입니다.';
 $string['timeout2'] = '타임아웃';
-$string['timeoutdesc'] = '케시에 있는 RSS 피드를 위한 분단위의 시간';
+$string['timeoutdesc'] = 'RSS 피드가 캐시에 남아 있는 분단위의 시간';
 $string['updatefeed'] = '뉴스 피드 주소 업데이트 :';
 $string['viewfeed'] = '피드 보기';

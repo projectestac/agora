@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,11 @@ $string['completionsubmit'] = 'Completata all\'atto della scelta';
 $string['displayhorizontal'] = 'Visualizza orizzontalmente';
 $string['displaymode'] = 'Modalità  di visualizzazione';
 $string['displayvertical'] = 'Visualizza verticalmente';
+$string['event_answer_created'] = 'Eseguita scelta';
+$string['event_answer_updated'] = 'Aggiornata scelta';
+$string['event_choice_viewed'] = 'Visualizzata scelta';
+$string['event_instances_list_viewed'] = 'Visualizzato elenco istanze';
+$string['event_report_viewed'] = 'Visualizzato report scelta';
 $string['expired'] = 'Spiacente, questa attività è stata chiusa il {$a} e non è più disponibile';
 $string['full'] = '(Completo)';
 $string['havetologin'] = 'Devi autenticarti prima di poter effettuare la tua scelta';
@@ -58,6 +63,7 @@ $string['limitanswers'] = 'Limita il numero di scelte';
 $string['limitanswers_help'] = 'Limita il numero di partecipanti che possono operare la medesima scelta.
 
 Se l\'opzione è disabilitata, qualsiasi partecipante potrà operare la medesima scelta..';
+$string['limitno'] = 'Limite {no}';
 $string['modulename'] = 'Scelta';
 $string['modulename_help'] = 'Il modulo di attività scelta consente al docente di formulare una domanda offrendo una serie di alternative.
 
@@ -79,6 +85,8 @@ $string['notopenyet'] = 'Spiacente, questa attività  non è disponibile fino al
 $string['numberofuser'] = 'Numero di utenti';
 $string['numberofuserinpercentage'] = 'Percentuale dei partecipanti';
 $string['option'] = 'Proposta';
+$string['optionno'] = 'Opzione {no}';
+$string['options'] = 'Opzioni';
 $string['page-mod-choice-x'] = 'Qualsiasi pagina con modulo scelta';
 $string['pluginadministration'] = 'Gestione Scelta';
 $string['pluginname'] = 'Scelta';
@@ -95,6 +103,7 @@ $string['removeresponses'] = 'Elimina tutte le risposte';
 $string['responses'] = 'Scelte';
 $string['responsesresultgraphheader'] = 'Visualizzazione grafico';
 $string['responsesto'] = 'Scelte su {$a}';
+$string['results'] = 'Risultati';
 $string['savemychoice'] = 'Salva la mia scelta';
 $string['showunanswered'] = 'Visualizza colonna di chi non ha scelto';
 $string['skipresultgraph'] = 'Salta il grafico dei risultati';

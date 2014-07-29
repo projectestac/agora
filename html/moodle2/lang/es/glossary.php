@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -236,7 +236,7 @@ $string['glossaryleveldefaultsettings'] = 'Ajustes por defecto del nivel de glos
 $string['glossary:managecategories'] = 'Gestionar categorías';
 $string['glossary:managecomments'] = 'Gestionar comentarios';
 $string['glossary:manageentries'] = 'Gestionar entradas';
-$string['glossary:rate'] = 'Clasificar entradas';
+$string['glossary:rate'] = 'Calificar entradas';
 $string['glossarytype'] = 'Tipo de glosario';
 $string['glossarytype_help'] = 'Un glosario principal es un glosario en el que se pueden importar entradas de glosarios secundarios. Solo puede haber un glosario principal en cada curso. Si no se necesita importar entradas entre glosarios, todos los glosarios en el curso pueden ser de tipo secundario.';
 $string['glossary:view'] = 'Ver glosario';
@@ -298,6 +298,7 @@ $string['page-mod-glossary-x'] = 'Cualquier página del módulo Glosario';
 $string['pluginadministration'] = 'Administración del glosario';
 $string['pluginname'] = 'Glosario';
 $string['popupformat'] = 'Formato \'popup\'';
+$string['print'] = 'Imprimir';
 $string['printerfriendly'] = 'Versión para impresión';
 $string['printviewnotallowed'] = 'No se permite vista de impresión';
 $string['question'] = 'Pregunta';

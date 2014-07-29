@@ -51,26 +51,25 @@ abstract class qtype_ddtoimage_edit_form_base extends question_edit_form {
 
     /**
      * definition_inner adds all specific fields to the form.
-     * @param object $mform (the form being built).
+     * @param MoodleQuickForm $mform (the form being built).
      */
     protected function definition_inner($mform) {
 
         $mform->addElement('header', 'previewareaheader',
                             get_string('previewareaheader', 'qtype_'.$this->qtype()));
-        $mform->addElement('static', 'previewarea',
-                            get_string('previewarea', 'qtype_'.$this->qtype()),
+        $mform->setExpanded('previewareaheader');
+        $mform->addElement('static', 'previewarea', '',
                             get_string('previewareamessage', 'qtype_'.$this->qtype()));
 
         $mform->registerNoSubmitButton('refresh');
         $mform->addElement('submit', 'refresh', get_string('refresh', 'qtype_'.$this->qtype()));
-        $mform->closeHeaderBefore('refresh');
+        $mform->addElement('filepicker', 'bgimage', get_string('bgimage', 'qtype_'.$this->qtype()),
+                                                               null, self::file_picker_options());
+        $mform->closeHeaderBefore('dropzoneheader');
 
         list($itemrepeatsatstart, $imagerepeats) = $this->get_drag_item_repeats();
         $this->definition_drop_zones($mform, $imagerepeats);
-        $mform->addElement('advcheckbox', 'shuffleanswers', ' ',
-                                        get_string('shuffleimages', 'qtype_'.$this->qtype()));
-        $mform->setDefault('shuffleanswers', 0);
-        $mform->closeHeaderBefore('shuffleanswers');
+
         // Add the draggable image fields to the form.
         $this->definition_draggable_items($mform, $itemrepeatsatstart);
 
@@ -82,21 +81,17 @@ abstract class qtype_ddtoimage_edit_form_base extends question_edit_form {
         $mform->addElement('header', 'dropzoneheader',
                                             get_string('dropzoneheader', 'qtype_'.$this->qtype()));
 
-        $mform->addElement('filepicker', 'bgimage', get_string('bgimage', 'qtype_'.$this->qtype()),
-                                                               null, self::file_picker_options());
-
         $countdropzones = 0;
         if (isset($this->question->id)) {
             foreach ($this->question->options->drops as $drop) {
                 $countdropzones = max($countdropzones, $drop->no);
             }
         }
-        if ($this->question->formoptions->repeatelements) {
-            $dropzonerepeatsatstart = max(self::START_NUM_ITEMS,
-                                                    $countdropzones + self::ADD_NUM_ITEMS);
-        } else {
-            $dropzonerepeatsatstart = $countdropzones;
+
+        if (!$countdropzones) {
+            $countdropzones = self::START_NUM_ITEMS;
         }
+        $dropzonerepeatsatstart = $countdropzones;
 
         $this->repeat_elements($this->drop_zone($mform, $imagerepeats), $dropzonerepeatsatstart,
                 $this->drop_zones_repeated_options(),
@@ -120,14 +115,15 @@ abstract class qtype_ddtoimage_edit_form_base extends question_edit_form {
                 $countimages = max($countimages, $drag->no);
             }
         }
-        if ($this->question->formoptions->repeatelements) {
-            $itemrepeatsatstart = max(self::START_NUM_ITEMS, $countimages + self::ADD_NUM_ITEMS);
-        } else {
-            $itemrepeatsatstart = $countimages;
+
+        if (!$countimages) {
+            $countimages = self::START_NUM_ITEMS;
         }
+        $itemrepeatsatstart = $countimages;
+
         $imagerepeats = optional_param('noitems', $itemrepeatsatstart, PARAM_INT);
-        $addfields = optional_param('additems', '', PARAM_TEXT);
-        if (!empty($addfields)) {
+        $addfields = optional_param('additems', false, PARAM_BOOL);
+        if ($addfields) {
             $imagerepeats += self::ADD_NUM_ITEMS;
         }
         return array($itemrepeatsatstart, $imagerepeats);

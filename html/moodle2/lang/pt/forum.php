@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['attachment'] = 'Anexo';
 $string['attachment_help'] = 'Poderá anexar um ou mais ficheiros a uma mensagem do fórum. Se anexar uma imagem, está será exibida após a mensagem.';
 $string['attachmentnopost'] = 'Não pode exportar anexos sem um id da mensagem';
 $string['attachments'] = 'Anexos';
+$string['attachmentswordcount'] = 'Anexos e contagem de palavras';
 $string['blockafter'] = 'Número máximo de mensagens permitidas';
 $string['blockafter_help'] = 'Especifica o número máximo de mensagens que cada utilizador pode submeter num determinado período de tempo. Utilizadores com a capacidade mod/forum:postwithoutthrottling estão isentos destes limites.';
 $string['blockperiod'] = 'Período de tempo';
@@ -58,7 +59,6 @@ $string['cannotaddsubscriber'] = 'Não foi possível subscrever o utilizador com
 $string['cannotaddteacherforumto'] = 'Não foi possível criar o fórum de professores convertido na secção 0 da disciplina.';
 $string['cannotcreatediscussion'] = 'Não foi possível criar o novo tópico de discussão';
 $string['cannotcreateinstanceforteacher'] = 'Não foi possível criar a instância do novo módulo da disciplina para o fórum de professores';
-$string['cannotdeleteforummodule'] = 'Não pode apagar o módulo do fórum';
 $string['cannotdeletepost'] = 'Não pode apagar esta mensagem';
 $string['cannoteditposts'] = 'Não pode editar mensagens de outros utilizadores';
 $string['cannotfinddiscussion'] = 'Não foi possível localizar o tópico neste fórum';
@@ -102,6 +102,7 @@ $string['configmaxbytes'] = 'Tamanho máximo predefinido para todos os anexos de
 $string['configoldpostdays'] = 'Número de dias para uma mensagem ser considerada como lida.';
 $string['configreplytouser'] = 'Quando uma mensagem de um fórum for distribuída por e-mail, deverá conter o endereço de e-mail do autor para que os destinatários possam responder diretamente em vez de usarem o fórum? Se selecionar sim, os utilizadores poderão sempre decidir no seu perfil que não querem que o seu endereço de e-mail seja divulgado.';
 $string['configshortpost'] = 'Qualquer mensagem abaixo deste tamanho (número de carateres, sem incluir HTML) será considerada curta.';
+$string['configtrackingtype'] = 'Configuração predefinida para "Assinalar mensagens".';
 $string['configtrackreadposts'] = 'Selecione \'sim\' para permitir assinalar mensagens não lidas para cada utilizador.';
 $string['configusermarksread'] = 'Se selecionar \'Sim\', o utilizador deverá marcar manualmente as mensagens como lidas. Se selecionar \'Não\', as mensagens serão marcadas como lidas após a sua visualização.';
 $string['confirmsubscribe'] = 'Tem a certeza que deseja subscrever o fórum \'{$a}\'?';
@@ -115,7 +116,8 @@ $string['deletedpost'] = 'A mensagem foi apagada';
 $string['deletedposts'] = 'Estas mensagens foram apagadas';
 $string['deletesure'] = 'Tem a certeza que deseja apagar esta mensagem?';
 $string['deletesureplural'] = 'Tem a certeza que quer apagar esta mensagem e todas as suas respostas? (número de respostas: {$a})';
-$string['digestmailheader'] = 'Este é o seu resumo diário de novas mensagens nos fóruns de {$a->sitename}. Pode alterar as suas preferências de e-mail em {$a->userprefs}.';
+$string['digestmailheader'] = 'Este é o seu sumário diário de novas mensagens nos fóruns de {$a->sitename}. Pode alterar as suas preferências de e-mail em {$a->userprefs}.';
+$string['digestmailpost'] = 'Altere as suas preferências de Sumários de fóruns';
 $string['digestmailprefs'] = 'o seu perfil de utilizador';
 $string['digestmailsubject'] = '{$a}: sumário do fórum';
 $string['digestmailtime'] = 'Hora para enviar e-mails com sumários do fórum';
@@ -137,22 +139,46 @@ $string['displaymode'] = 'Modo de visualização';
 $string['displayperiod'] = 'Período de visualização';
 $string['displaystart'] = 'Visível a partir de';
 $string['displaystart_help'] = 'Esta configuração permite mostrar um tópico apenas a partir de uma determinada data. Os administradores podem sempre visualizar estes tópicos.';
+$string['displaywordcount'] = 'Exibir contagem de palavras';
+$string['displaywordcount_help'] = 'Esta configuração especifica se a contagem de palavras de cada tópico deve ser exibida ou não.';
 $string['eachuserforum'] = 'Cada participante cria um tópico';
 $string['edit'] = 'Editar';
 $string['editedby'] = 'Editado por {$a->name} em {$a->date}';
 $string['editedpostupdated'] = '{$a} mensagens foram atualizada(s)';
 $string['editing'] = 'A editar';
+$string['emaildigest_0'] = 'Receberá um e-mail por tópico de fórum.';
+$string['emaildigest_1'] = 'Receberá um e-mail por dia com o sumário dos conteúdos completos de cada tópico do fórum.';
+$string['emaildigest_2'] = 'Receberá um e-mail por dia com o sumário dos assuntos de cada tópico do fórum.';
+$string['emaildigestcompleteshort'] = 'Completo';
+$string['emaildigestdefault'] = 'Predefinido ({$a})';
+$string['emaildigestoffshort'] = 'Sem sumário';
+$string['emaildigestsubjectsshort'] = 'Assuntos';
+$string['emaildigesttype'] = 'Opções de Sumários de fóruns';
+$string['emaildigesttype_help'] = 'Tipos de sumários que vai receber diariamente para cada fórum:
+
+*Predefinido: de acordo com a configuração de sumário de fóruns do seu perfil de utilizador. Se atualizar o seu perfil, essa alteração também se vai refletir aqui;
+
+*Sem sumário: irá receber um e-mail por cada mensagem publicada no fórum;
+
+*Completo: irá receber um e-mail diário com o conteúdo completo de cada mensagem publicada no fórum;
+
+*Assuntos - irá receber um e-mail diário com os assuntos de cada mensagem publicada no fórum.';
+$string['emaildigestupdated'] = 'A opção de e-mail com sumários de fóruns foi alterada para \'{$a->maildigesttitle}\' para o fórum \'{$a->forum}\'. {$a->maildigestdescription}';
+$string['emaildigestupdated_default'] = 'A sua configuração predefinida de perfil para \'{$a->maildigesttitle}\' foi usada para o fórum \'{$a->forum}\'. {$a->maildigestdescription}.';
 $string['emptymessage'] = 'Foi encontrado um erro na sua mensagem. Ou estava em branco ou continha um anexo demasiado grande. As suas alterações não foram gravadas.';
 $string['erroremptymessage'] = 'O texto da mensagem não pode estar em branco';
 $string['erroremptysubject'] = 'A assunto da mensagem não pode estar em branco';
 $string['errorenrolmentrequired'] = 'Tem de estar inscrito nesta disciplina para aceder a este conteúdo';
 $string['errorwhiledelete'] = 'Ocorreu um erro ao apagar';
+$string['event_assessable_uploaded'] = 'Foi publicado algum conteúdo.';
 $string['everyonecanchoose'] = 'Todos podem optar por subscrever';
 $string['everyonecannowchoose'] = 'Todos podem optar por subscrever, a partir deste momento';
 $string['everyoneisnowsubscribed'] = 'Todos estão agora subscritos';
 $string['everyoneissubscribed'] = 'Todos têm subscrição ativa neste fórum';
 $string['existingsubscribers'] = 'Subscrições ativas';
 $string['exportdiscussion'] = 'Exportar toda a discussão';
+$string['forcedreadtracking'] = 'Permitir forçar "Assinalar mensagens"';
+$string['forcedreadtracking_desc'] = 'Esta opção permite que os fóruns sejam configurados para forçar a funcionalidade de Monitorização de fóruns. Isto irá resultar num desempenho reduzido para alguns utilizadores, particularmente em disciplinas com muitos fóruns/tópicos. Quando desativada, quaisquer fóruns previamente definidos para forçar a monitorização são tratados como opcionais.';
 $string['forcessubscribe'] = 'Este fórum é de subscrição obrigatória';
 $string['forum'] = 'Fórum';
 $string['forum:addinstance'] = 'Adicionar novo fórum';
@@ -201,12 +227,14 @@ $string['forum:viewrating'] = 'Ver a avaliação global que recebeu';
 $string['forum:viewsubscribers'] = 'Ver lista de subscritores';
 $string['generalforum'] = 'Fórum standard para utilização geral';
 $string['generalforums'] = 'Fóruns gerais';
+$string['hiddenforumpost'] = 'Tópico do fórum oculto';
 $string['inforum'] = 'em {$a}';
 $string['introblog'] = 'As mensagens neste fórum foram copiadas automaticamente de blogues de utilizadores desta disciplina e já não se encontram disponíveis';
 $string['intronews'] = 'Notícias gerais e avisos';
 $string['introsocial'] = 'Um fórum aberto para conversar sobre qualquer assunto';
 $string['introteacher'] = 'Um fórum reservado aos professores';
 $string['invalidaccess'] = 'Esta página não foi acedida corretamente';
+$string['invaliddigestsetting'] = 'Foi fornecida uma configuração inválida para a opção de e-mail com sumários';
 $string['invaliddiscussionid'] = 'O ID do tópico estava incorreto ou já não existe';
 $string['invalidforcesubscribe'] = 'Modo de subscrição obrigatória inválido';
 $string['invalidforumid'] = 'O Id do fórum estava incorreto';
@@ -279,7 +307,6 @@ $string['nopermissiontosubscribe'] = 'Não tem permissão para ver os subscritor
 $string['nopermissiontoview'] = 'Não tem permissões para ver esta mensagem';
 $string['nopostforum'] = 'Lamentamos, mas não tem permissão para submeter mensagens neste fórum';
 $string['noposts'] = 'Nenhuma mensagem';
-$string['nopostscontaining'] = 'Não foi encontrada nenhuma mensagem contendo \'{$a}';
 $string['nopostsmadebyuser'] = '{$a} não inseriu mensagens';
 $string['nopostsmadebyyou'] = 'Ainda não publicou nenhuma mensagem';
 $string['noquestions'] = 'Ainda não há perguntas neste fórum.';
@@ -316,6 +343,7 @@ $string['pluginname'] = 'Fórum';
 $string['postadded'] = '<p>A sua mensagem foi inserida com sucesso.</p><p>Tem {$a} para a editar se desejar fazer alterações.</p>';
 $string['postaddedsuccess'] = 'A sua mensagem foi submetida com sucesso.';
 $string['postaddedtimeleft'] = 'Tem {$a} para editar se desejar fazer alterações.';
+$string['postbyuser'] = '{$a->post} por {$a->user}';
 $string['postincontext'] = 'Ver mensagem no seu contexto';
 $string['postmailinfo'] = 'Esta é uma cópia de uma mensagem enviada para {$a}.
 Para submeter uma resposta, clique em:';
@@ -344,6 +372,7 @@ $string['repliesone'] = '{$a} resposta, por enquanto';
 $string['reply'] = 'Responder';
 $string['replyforum'] = 'Responder para o fórum';
 $string['replytouser'] = 'Usar e-mail na resposta';
+$string['resetdigests'] = 'Eliminar todas as preferências dos utilizadores para os "Sumários de fóruns"';
 $string['resetforums'] = 'Apagar todas as mensagens de';
 $string['resetforumsall'] = 'Apagar todas as mensagens';
 $string['resetsubscriptions'] = 'Cancelar todas as subscrições ao fórum';
@@ -386,19 +415,20 @@ $string['subscribersto'] = 'Subscritores de \'{$a}';
 $string['subscribestart'] = 'Envie-me cópias das mensagens deste fórum por e-mail';
 $string['subscribestop'] = 'Não desejo receber cópias das mensagens deste fórum por e-mail';
 $string['subscription'] = 'Subscrição';
+$string['subscriptionandtracking'] = 'Subscrever e assinalar mensagens';
 $string['subscriptionauto'] = 'Subscrição opcional (ativa no início)';
 $string['subscriptiondisabled'] = 'Subscrição desativada';
 $string['subscriptionforced'] = 'Subscrição obrigatória';
 $string['subscription_help'] = 'Subscrever um fórum significa que receberá por e-mail todas as mensagens submetidas. Por norma, poderá escolher se o deseja sendo que em alguns fóruns a subscrição é obrigatória.';
 $string['subscriptionmode'] = 'Modo de subscrição';
-$string['subscriptionmode_help'] = 'Quando um participante se encontra com a subscrição ativa num fórum significa que irá receber mensagens por e-mail dos tópicos e respostas inseridas.
+$string['subscriptionmode_help'] = 'Quando um participante se encontra com a subscrição ativa num fórum, significa que irá receber notificações dos tópicos desse fórum. Existem 4 opções de subscrição:
 
-Existem 4 opções de subscrição:
+* Subscrição opcional - Os participantes podem escolher se desejam ativar a subscrição;
+* Subscrição obrigatória - Todos ficam com a subscrição ativa e não podem cancelar;
+* Subscrição automática (ativa no início)- Todos estão com a subscrição ativa no início mas podem cancelá-la a qualquer momento;
+* Subscrição desativada - Não é permitido subscrever o fórum.
 
-* Subscrição opcional - os alunos podem escolher se desejam ativar a subscrição
-* Subscrição obrigatória - Todos ficam com a subscrição ativa e não podem cancelar
-* Subscrição opcional (ativa no inicio)- Todos estão com a subscrição ativa no inicio mas podem cancelá-la a qualquer momento
-* Subscrição desativada - Não é permitido subscrever o fórum.';
+Nota: Quaisquer alterações ao modo de subscrição só afetarão os utilizadores que se inscreverem futuramente na disciplina, e não os utilizadores existentes.';
 $string['subscriptionoptional'] = 'Subscrição opcional';
 $string['subscriptions'] = 'Subscrições';
 $string['thisforumisthrottled'] = 'Este fórum possui um limite ao número de mensagens que pode submeter num determinado período de tempo. Está atualmente configurado para {$a->blockafter} mensagem(s) em {$a->blockperiod}';
@@ -407,14 +437,14 @@ $string['timestartenderror'] = 'A data de fim não pode ser anterior à data de 
 $string['trackforum'] = 'Assinalar mensagens não lidas';
 $string['tracking'] = 'Assinalar';
 $string['trackingoff'] = 'Não';
-$string['trackingon'] = 'Sim';
+$string['trackingon'] = 'forçado';
 $string['trackingoptional'] = 'Opcional';
 $string['trackingtype'] = 'Assinalar mensagens';
 $string['trackingtype_help'] = 'Se ativar esta opção, os participantes podem assinalar e marcar como lidas/não lidas os tópicos do fórum bem como nas discussões. Existem três opções:
 
-* Opcional - Os participantes podem ativar ou desativar a sinalização de mensagens
-* Sim - As mensagens são sempre assinaladas
-* Não - As mensagens nunca são assinaladas';
+* Opcional - Os participantes podem optar por ligar ou desligar a sinalização de mensagens através de uma hiperligação no bloco de administração. O modo de subscrição do fórum também deve ser ativado nas configurações de perfil do utilizador.
+* Obrigatória - As mensagens são sempre assinaladas.
+* Desativada - As mensagens nunca são assinaladas.';
 $string['unread'] = 'Não lidas';
 $string['unreadposts'] = 'Mensagens não lidas';
 $string['unreadpostsnumber'] = '{$a} mensagens não lidas';

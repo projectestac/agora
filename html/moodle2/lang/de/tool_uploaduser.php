@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'CSV Trennzeichen';
 $string['defaultvalues'] = 'Standardwerte';
 $string['deleteerrors'] = 'Fehler löschen';
 $string['encoding'] = 'Encoding';
+$string['errormnetadd'] = 'Remote-Nutzer/innen können nicht hinzugefügt werden';
 $string['errors'] = 'Fehler';
 $string['nochanges'] = 'Keine Änderungen';
 $string['pluginname'] = 'Nutzerupload';
@@ -46,11 +47,7 @@ $string['uploadpicture_cannotunzip'] = 'Die Bilddateien können nicht entpackt w
 $string['uploadpicture_invalidfilename'] = 'Die Bilddatei {$a} enthält ungültige Zeichen im Namen und wird nicht benutzt.';
 $string['uploadpicture_overwrite'] = 'Vorhandene Nutzerbilder überschreiben?';
 $string['uploadpictures'] = 'Nutzerbilder hochladen';
-$string['uploadpictures_help'] = '<h2>Nutzerbilder gepackt hochladen</h2>
-
-<p>Nutzerbilder können als gezipptes Paket mit mehreren Dateien hochgeladen werden. Moodle kann dann die darin enthaltenen Dateien den einzelnen Nutzern als Portrait zuordnen. Die Bilddateien müssen dazu in geeigneter Weise benannt sein <i>gewählte Nutzerattribut-Erweiterung</i>. Wenn Sie als Nutzerattribut den Nutzernammen gewählt haben und dieser lautet nutzer1234, dann muss die Bilddatei nutzer1234.jpg heißen.</p>
-<p>zulässige Bilddateitypen sind gif, jpg und png.</p>
-<p>Groß- und Kleinschreibung bei den Dateinamen wird nicht berücksichtigt.</p>';
+$string['uploadpictures_help'] = 'Nutzerbilder können als ZIP-Paket mit mehreren Bilddateien hochgeladen werden. Moodle ordnet die enthaltenen Dateien den Nutzerkonten als Portrait zu, wenn die Bilddateien geeignet benannt sind. Wenn Sie als Nutzerattribut den Nutzernamen gewählt haben, wird die Bilddatei nutzer1234.jpg für das Nutzerkonto nutzer1234 verwendet. Zulässige Bilddateitypen sind gif, jpg und png.';
 $string['uploadpicture_userfield'] = 'Nutzereigenschaft, die fürdie Zuordnung der Nutzerbilder verwandt werden soll:';
 $string['uploadpicture_usernotfound'] = 'Nutzer/in mit \'{$a->userfield}\'-Wert von \'{$a->uservalue}\' existiert nicht. Wird übersprungen.';
 $string['uploadpicture_userskipped'] = 'Nutzerbild {$a} exitiert bereits und wird nicht überschrieben.';
@@ -66,6 +63,7 @@ Das Format der Textdatei sollte folgendermaßen aussehen:
 username, password, firstname, lastname, email';
 $string['uploaduserspreview'] = 'Vorschau Nutzer-Upload';
 $string['uploadusersresult'] = 'Ergebnisse Nutzer-Upload';
+$string['uploaduser:uploaduserpictures'] = 'Nutzerbilder hochladen';
 $string['useraccountupdated'] = 'Nutzer/in aktualisiert';
 $string['useraccountuptodate'] = 'Nutzer/in aktuell';
 $string['userdeleted'] = 'Nutzer/in gelöscht';

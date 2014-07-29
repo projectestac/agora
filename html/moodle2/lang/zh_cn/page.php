@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,7 +49,5 @@ $string['popupheight'] = '弹出窗口高度（单位：像素）';
 $string['popupheightexplain'] = '指定弹出窗口的缺省高度。';
 $string['popupwidth'] = '弹出窗口宽度（单位：像素）';
 $string['popupwidthexplain'] = '指定弹出窗口的缺省宽度。';
-$string['printheading'] = '显示页面名称';
-$string['printheadingexplain'] = '在内容上方显示页面名称？';
 $string['printintro'] = '显示页面描述';
 $string['printintroexplain'] = '在内容上方显示页面描述？';

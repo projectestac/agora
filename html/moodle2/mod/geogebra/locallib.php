@@ -39,7 +39,7 @@ function geogebra_before_add_or_update(&$geogebra, $mform){
     } else{
         $geogebra->url = $geogebra->geogebraurl;
     }
-    
+
     return true;
 }
 
@@ -51,7 +51,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $geogebra->url = $filename;
         $result = $DB->update_record('geogebra', $geogebra);
     }
-    
+
     if ($geogebra->timedue) {
         $event = new stdClass();
         if ($event->id = $DB->get_field('event', 'id', array('modulename'=>'geogebra', 'instance'=>$geogebra->id))) {
@@ -78,8 +78,8 @@ function geogebra_after_add_or_update($geogebra, $mform){
         }
     } else {
         $DB->delete_records('event', array('modulename'=>'geogebra', 'instance'=>$geogebra->id));
-    }  
-    
+    }
+
     // get existing grade item
     geogebra_grade_item_update($geogebra);
 
@@ -114,7 +114,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $filetypes =  array(GEOGEBRA_FILE_TYPE_LOCAL => get_string('filetypelocal', 'geogebra'));
         $filetypes[GEOGEBRA_FILE_TYPE_EXTERNAL] = get_string('filetypeexternal', 'geogebra');
         return $filetypes;
-    }    
+    }
 
     /**
      * Display the header and top of a page
@@ -172,11 +172,11 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_view_dates($geogebra, $cm, $timenow=null) {
         global $OUTPUT;
-        
+
         if (!$geogebra->timeavailable && !$geogebra->timedue) {
             return;
         }
-        
+
         if (is_null($timenow)) $timenow = time();
 
         echo $OUTPUT->box_start('generalbox boxaligncenter geogebradates', 'dates');
@@ -190,30 +190,30 @@ function geogebra_after_add_or_update($geogebra, $mform){
         }
         echo $OUTPUT->box_end();
     }
-     
-    
+
+
     /**
      * Display the geogebra applet
-     * 
+     *
      * @param type $geogebra
      * @param type $cm
      * @param type $context
      * @param type $attempt
      * @param type $viewmode 'submit' (default, let user to submit), 'preview' (show the geogebra without loading status) or 'view' (show geogebra with status but without buttons to submit)
-     * @param type $timenow 
+     * @param type $timenow
      */
     function geogebra_view_applet($geogebra, $cm, $context, $attempt=null, $viewmode='submit', $timenow=null) {
         global $OUTPUT, $PAGE, $CFG, $USER;
-        
+
         if (is_null($timenow)) $timenow = time();
         $isopen = (empty($geogebra->timeavailable) || $geogebra->timeavailable < $timenow);
         $isclosed = (!empty($geogebra->timedue) && $geogebra->timedue < $timenow);
         $attempts = geogebra_count_finished_attempts($geogebra->id, $USER->id);
-        
+
         if ($viewmode=='submit' && !$isopen){
             echo $OUTPUT->box(get_string('notopenyet', 'geogebra', userdate($geogebra->timeavailable)), 'generalbox boxaligncenter geogebradates');
         } else if ($viewmode=='submit' && $isclosed ) {
-            echo $OUTPUT->box(get_string('expired', 'geogebra', userdate($geogebra->timedue)), 'generalbox boxaligncenter geogebradates'); 
+            echo $OUTPUT->box(get_string('expired', 'geogebra', userdate($geogebra->timedue)), 'generalbox boxaligncenter geogebradates');
         } else {
             if ($viewmode!='submit' || $geogebra->maxattempts<0 || $attempts < $geogebra->maxattempts){
                 // Show results when viewmode is "view"
@@ -223,26 +223,26 @@ function geogebra_after_add_or_update($geogebra, $mform){
                 } else if ($viewmode != 'preview'){
                     echo $OUTPUT->box_start('generalbox');
                     if ($geogebra->maxattempts<0) {
-                        echo get_string('unlimitedattempts', 'geogebra').'<br/>'; 
+                        echo get_string('unlimitedattempts', 'geogebra').'<br/>';
                     } else if ($attempts == $geogebra->maxattempts-1) {
-                        echo get_string('lastattemptremaining', 'geogebra').'<br/>'; 
+                        echo get_string('lastattemptremaining', 'geogebra').'<br/>';
                     } else {
-                        echo get_string('attemptsremaining', 'geogebra').($geogebra->maxattempts - $attempts).'<br/>';                         
+                        echo get_string('attemptsremaining', 'geogebra').($geogebra->maxattempts - $attempts).'<br/>';
                     }
-                    
+
                     if (empty($attempt)) {
                         //If there is some unfinished attempt, show it
                         $attempt = geogebra_get_unfinished_attempt($geogebra->id, $USER->id);
                         if (!empty($attempt)){
-                            echo '('.get_string('resumeattempt', 'geogebra').')';                        
+                            echo '('.get_string('resumeattempt', 'geogebra').')';
                         }
                     }
                     echo $OUTPUT->box_end();
                 }
-                
+
                 parse_str($geogebra->attributes, $attributes);
                 $attributes['filename'] = $geogebra->url;
-   
+
                 $PAGE->requires->js('/mod/geogebra/geogebra_view.js');
                 echo '<applet id="geogebra_object" name="ggbApplet" codebase="', geogebra_get_javacodebase(), '" archive="', GEOGEBRA_ARCHIVE, '" code="', GEOGEBRA_CODE, '" width="' . $geogebra->width . 'px" height="' . $geogebra->height . 'px" align="bottom">';
                 $ggbbase64 = geogebra_get_ggbbase64_content($geogebra, $context);
@@ -255,17 +255,17 @@ function geogebra_after_add_or_update($geogebra, $mform){
                 echo geogebra_get_applet_param('showToolBarHelp', $attributes);
                 echo '<param name="language" value="' . $attributes['language'] . '" />';
                 echo geogebra_get_applet_param('enableRightClick', $attributes);
-                $attributes['framePossible'] = is_siteadmin() || has_capability('mod/geogebra:grade', $context);
+                $attributes['framePossible'] = is_siteadmin() || has_capability('moodle/grade:edit', $context);
                 echo geogebra_get_applet_param('framePossible', $attributes);
                 echo '<param name="useBrowserForJS" value="true" />';
                 echo get_string('warningnojava', 'geogebra');
                 echo '</applet>';
 
                 // Include also javascript code from GGB file
-                print_r(geogebra_get_js_from_geogebra($context, $geogebra));                
-                
+                geogebra_get_js_from_geogebra($context, $geogebra);
+
                 // If not preview mode, load state
-                if (!$viewmode!='preview') {                    
+                if (!$viewmode!='preview') {
                     $parsedVars = null;
                     if ($attempt) {
                         parse_str($attempt->vars, $parsedVars);
@@ -299,14 +299,14 @@ function geogebra_after_add_or_update($geogebra, $mform){
                     echo '<input type="hidden" name="prevAppletInformation" value="' . $edu_xtec_adapter_parameters . '" />';
                     echo ' </form>';
                     echo '</div>';
-                }                       
+                }
             }else{
                 echo $OUTPUT->box(get_string('msg_noattempts', 'geogebra'), 'generalbox boxaligncenter');
             }
-            geogebra_view_dates($geogebra, $context, $timenow);            
+            geogebra_view_dates($geogebra, $context, $timenow);
         }
     }
-    
+
     function geogebra_get_javacodebase() {
         global $CFG;
         if (isset($CFG->geogebra_javacodebase) && !empty($CFG->geogebra_javacodebase))
@@ -318,10 +318,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $paramValue = (isset($attributes[$paramName]) && $attributes[$paramName]) ? 'true' : 'false';
         return '<param name="' . $paramName . '" value="' . $paramValue . '" />';
     }
-    
+
     function geogebra_get_ggbbase64_content($geogebra, $context){
         global $CFG;
-        
+
         $url = '';
         if (geogebra_is_valid_external_url($geogebra->url)) {
             // Get contents if specified GGB is external
@@ -333,13 +333,13 @@ function geogebra_after_add_or_update($geogebra, $mform){
                 $content = $file->get_content();
             }
         }
-        
+
         return base64_encode($content);
     }
 
     function geogebra_get_js_from_geogebra($context, $geogebra) {
         global $CFG;
-                
+
         if (geogebra_is_valid_external_url($geogebra->url)) {
             // Prepare tmp dir (create if not exists, download ggb file...)
             $tmpdir = $CFG->tempdir.'/mod_geogebra/'.time();
@@ -349,39 +349,48 @@ function geogebra_after_add_or_update($geogebra, $mform){
             $ggbfile = $geogebra->url;
             $ext = pathinfo($ggbfile, PATHINFO_EXTENSION);
             $tmpggbfile = tempnam($tmpdir, $ext);
-            
+
             // Download external GGB and extract javascript file
-            copy($ggbfile, $tmpggbfile);
-            
+            if(!copy($ggbfile, $tmpggbfile)){
+                return "<br>Error copying from $ggbfile";
+            }
+
             // Extract geogebra js from GGB file
             $zip = new ZipArchive;
             if ($zip->open($tmpggbfile) === TRUE) {
                 $zip->extractTo($tmpdir, array('geogebra_javascript.js'));
                 $zip->close();
+                unlink($tmpggbfile);
+            } else {
+                @unlink($tmpggbfile);
+                @rmdir($tmpdir);
+                return "<br>Cannot open zipfile $tmpggbfile";
             }
 
             $content = file_get_contents($tmpdir.'/geogebra_javascript.js');
-            
+            if(empty($content)){
+                return "Empty content";
+            }
+
             // Delete temporary files
-            unlink($tmpggbfile);
             unlink($tmpdir.'/geogebra_javascript.js');
             rmdir($tmpdir);
         } else{
             $fs = get_file_storage();
             $file = $fs->get_file($context->id, 'mod_geogebra', 'extracted_files', 0, '/', 'geogebra_javascript.js');
             if ($file) {
-                $content = $file->get_content();    
+                $content = $file->get_content();
             }
         }
 
         if ($content) {
-            $content = '<script type="text/javascript">var ggbApplet = document.ggbApplet; ' .$content . '</script>';    
+            $content = '<script type="text/javascript">var ggbApplet = document.ggbApplet; ' .$content . '</script>';
         }
 
         return $content;
     }
-    
-    
+
+
     /**
      * Display the bottom and footer of a page
      *
@@ -412,8 +421,8 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $submitted = '';
         $urlbase = "{$CFG->wwwroot}/mod/geogebra/";
 
-/*        $context = get_context_instance(CONTEXT_MODULE,$this->cm->id);
-        if (has_capability('mod/geogebra:grade', $context)) {
+/*        $context = context_module::instance($this->cm->id);
+        if (has_capability('moodle/grade:viewall', $context)) {
             if ($allgroups and has_capability('moodle/site:accessallgroups', $context)) {
                 $group = 0;
             } else {
@@ -481,12 +490,12 @@ function geogebra_after_add_or_update($geogebra, $mform){
         if (!empty($CFG->wwwroot)) {
             $url = parse_url($CFG->wwwroot);
                     if (array_key_exists('path', $url)){
-                            $path = $url['path'];			
+                            $path = $url['path'];
                     }
         }
         return $path;
-    }    
-    
+    }
+
     function geogebra_get_filemanager_options(){
         $filemanager_options = array();
         $filemanager_options['return_types'] = 3;  // 3 == FILE_EXTERNAL & FILE_INTERNAL. These two constant names are defined in repository/lib.php
@@ -502,15 +511,15 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $cmid = $data->coursemodule;
         $draftitemid = $data->url;
 
-        $context = get_context_instance(CONTEXT_MODULE, $cmid);
+        $context = context_module::instance($cmid);
         if ($draftitemid) {
             file_save_draft_area_files($draftitemid, $context->id, 'mod_geogebra', 'content', 0, geogebra_get_filemanager_options());
         }
-        
+
         $filename = geogebra_extract_package($cmid);
-        
-/* Codi antic        
-        
+
+/* Codi antic
+
         $fs = get_file_storage();
         $files = $fs->get_area_files($context->id, 'mod_geogebra', 'content', 0, 'sortorder', false);
         if (count($files) == 1) {
@@ -522,10 +531,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
  */
         return $filename;
     }
-    
+
     /**
      * Extracts GGB package, sets up all variables.
-     * @param int $cmid 
+     * @param int $cmid
      * @return filename
      */
     function geogebra_extract_package($cmid){
@@ -546,10 +555,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
             $packer = get_file_packer('application/zip');
             $package->extract_to_storage($packer, $context->id, 'mod_geogebra', 'extracted_files', 0, '/');
         }
-        
+
         return $filename;
-    }    
-        
+    }
+
     function geogebra_is_valid_external_url($url){
         return preg_match('/(http:\/\/|https:\/\/|www).*\/*(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?$/i', $url);
     }
@@ -557,15 +566,15 @@ function geogebra_after_add_or_update($geogebra, $mform){
     function geogebra_is_valid_file($filename){
         return preg_match('/.ggb$/i', $filename);
     }
-    
-    
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Attempts                                                         //
 ////////////////////////////////////////////////////////////////////////////////
-    
+
     /**
      * Convert specified time (in milliseconds) to XX' YY'' format
-     * 
+     *
      * @param type $time time (in milliseconds) to format
      */
     function geogebra_format_time($time){
@@ -574,9 +583,9 @@ function geogebra_after_add_or_update($geogebra, $mform){
 
 
     /**
-     * Format time from milliseconds to string 
+     * Format time from milliseconds to string
      *
-     * @return string Formated string [x' y''], where x are the minutes and y are the seconds.	
+     * @return string Formated string [x' y''], where x are the minutes and y are the seconds.
      * @param int $time	The time (in ms)
      */
     function geogebra_time2str($time) {
@@ -584,10 +593,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $seconds = sprintf("%02s", round(fmod((double)$time, 60), 0));
         return ($minutes > 0 ? $minutes . "' " : " ") . $seconds . "''";
     }
-    
+
     function geogebra_view_results($geogebra, $context, $cm, $course, $action){
         global $CFG, $DB, $OUTPUT, $PAGE, $USER;
-        
+
         if ($action == 'submitgrade'){
             // Upgrade submitted grade
             $grade = optional_param('grade', '', PARAM_INT);
@@ -597,10 +606,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
             parse_str($attempt->vars, $parsedVars);
             $parsedVars['grade']=$grade;
             $attempt->vars = http_build_query($parsedVars, '', '&');
-            
+
             geogebra_update_attempt($attemptid, $attempt->vars, GEOGEBRA_UPDATE_TEACHER, $gradecomment['text']);
         }
-        
+
         // TODO: Add Javascript options to show all attempts
         //$PAGE->requires->js('/mod/geogebra/geogebra.js');
 
@@ -615,7 +624,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $currentgroup = groups_get_activity_group($cm, true);
 
         /// Get all ppl that are allowed to submit geogebra
-        list($esql, $params) = get_enrolled_sql($context, 'mod/geogebra:submit', $currentgroup); 
+        list($esql, $params) = get_enrolled_sql($context, 'mod/geogebra:submit', $currentgroup);
         $sql = "SELECT u.id FROM {user} u ".
                "LEFT JOIN ($esql) eu ON eu.id=u.id ".
                "WHERE u.deleted = 0 AND eu.id=u.id ";
@@ -645,7 +654,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
         foreach ($extrafields as $field) {
             $extrafieldnames[] = get_user_field_name($field);
         }
-        
+
         $tableheaders = array_merge(
                 array('', get_string('fullnameuser')),
                 $extrafieldnames,
@@ -684,13 +693,13 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $table->set_attribute('class', 'results generaltable generalbox');
         $table->set_attribute('width', '100%');
 
-        $table->no_sorting('attempts'); 
-        $table->no_sorting('duration'); 
-        $table->no_sorting('grade'); 
-        $table->no_sorting('comment'); 
-        $table->no_sorting('datestudent'); 
-        $table->no_sorting('dateteacher'); 
-        $table->no_sorting('status'); 
+        $table->no_sorting('attempts');
+        $table->no_sorting('duration');
+        $table->no_sorting('grade');
+        $table->no_sorting('comment');
+        $table->no_sorting('datestudent');
+        $table->no_sorting('dateteacher');
+        $table->no_sorting('status');
 
         // Start working -- this is necessary as soon as the niceties are over
         $table->setup();
@@ -715,7 +724,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
                    'WHERE '.$where.'u.id IN ('.implode(',',$users).') ';
 
             $ausers = $DB->get_records_sql($select.$sql.$sort, $params, $table->get_page_start(), $table->get_page_size());
-            
+
             $table->pagesize($perpage, count($users));
             $offset = $page * $perpage; //offset used to calculate index of student in that particular query, needed for the pop up to know who's next
             if ($ausers !== false) {
@@ -730,19 +739,38 @@ function geogebra_after_add_or_update($geogebra, $mform){
                     $auser = $iterator->current();
                     $picture = $OUTPUT->user_picture($auser);
                     $userlink = '<a href="' . $CFG->wwwroot . '/user/view.php?id=' . $auser->id . '&amp;course=' . $course->id . '">' . fullname($auser, has_capability('moodle/site:viewfullnames', $context)) . '</a>';
+
+                    $row = array($picture, $userlink);
+
                     $extradata = array();
                     foreach ($extrafields as $field) {
                         $extradata[] = $auser->{$field};
                     }
 
+                    $row += $extradata;
+
                     // Attempts summary
                     $attempts = geogebra_get_user_attempts($geogebra->id, $auser->id);
                     $attempts_summary = geogebra_get_user_grades($geogebra, $auser->id);
-                    $row = array_merge(array($picture, $userlink), $extradata,
-                            array($attempts_summary->attempts, geogebra_time2str($attempts_summary->duration), $attempts_summary->grade, '','','',''));
-                    $rowclass = ($attempts_summary->attempts>0)?'summary-row':'';
+                    if($attempts_summary){
+                        $row[] = $attempts_summary->attempts;
+                        $row[] = geogebra_time2str($attempts_summary->duration);
+                        $row[] = $attempts_summary->grade;
+                        $rowclass = ($attempts_summary->attempts > 0)?'summary-row':"";
+                    } else {
+                        $row[] = "";
+                        $row[] = "";
+                        $row[] = "";
+                        $rowclass = "";
+                    }
+                    $row[] = "";
+                    $row[] = "";
+                    $row[] = "";
+                    $row[] = "";
+                    $row[] = "";
+
                     $table->add_data($row, $rowclass);
-                    
+
                     // Show attempts information
                     foreach ($attempts as $attempt){
                         $row = array();
@@ -757,7 +785,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
                         array_push($row, $attempt->comment);*/
                         $table->add_data($row);
                     }
-                    
+
                     // Forward iterator
                     $currentposition++;
                     $iterator->next();
@@ -782,12 +810,12 @@ function geogebra_after_add_or_update($geogebra, $mform){
                 $row = array_merge(array($picture, $userlink), $extradata,
                         array($numattempt, $duration, $grade, $gradecomment));
                 $rowclass = '';
-                $table->add_data($row, $rowclass);        
+                $table->add_data($row, $rowclass);
             }
-        }       
-        $table->print_html();  /// Print the whole table    
+        }
+        $table->print_html();  /// Print the whole table
     }
-    
+
     function geogebra_get_results_table_columns($cm=null){
         //$tablecolumns = array('picture', 'fullname', 'attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
         //$tablecolumns = array('attempts', 'duration', 'grade', 'comment', 'datestudent', 'dateteacher', 'status');
@@ -806,10 +834,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
         }
         return array('tablecolumns'=>$tablecolumns, 'tableheaders'=>$tableheaders);
     }
- 
+
     function geogebra_view_userid_results($geogebra, $user, $cm, $context, $action, $attempt=null){
         global $CFG, $DB, $OUTPUT, $PAGE, $USER;
-        
+
         require_once($CFG->libdir.'/tablelib.php');
         $table = new flexible_table('mod-geogebra-results');
 
@@ -817,7 +845,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $table->define_columns($tablecolumns['tablecolumns']);
         $table->define_headers($tablecolumns['tableheaders']);
         $table->define_baseurl($CFG->wwwroot.'/mod/geogebra/view.php?id='.$cm->id.'&amp;action='.$action);
-        
+
         $table->set_attribute('cellspacing', '0');
         $table->set_attribute('id', 'attempts');
         $table->set_attribute('class', 'results generaltable generalbox');
@@ -846,7 +874,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
             $duration = geogebra_time2str($parsedVars['duration']);
             $grade = $parsedVars['grade'];
             if ($grade < 0 ) $grade = '';
-            if (is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false)) {
+            if (is_siteadmin() || has_capability('moodle/grade:viewall', $context, $USER->id, false)) {
                 // Show form to grade and comment this attempt
                 require_once('gradeform.php');
 
@@ -859,7 +887,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
                 $data->grade = $grade;
                 $data->comment_editor['text'] = $attempt->gradecomment;
                 $data->comment_editor['format'] = FORMAT_HTML;
-                
+
                 // Create form
                 $mform = new mod_geogebra_grade_form(null, array($geogebra, $data, null), 'post', '', array('class'=>'gradeform'));
             } else {
@@ -867,14 +895,14 @@ function geogebra_after_add_or_update($geogebra, $mform){
                     // Get scale name
                     $grademenu = make_grades_menu($geogebra->grade);
                     if (!empty($grade)) $grade = $grademenu[$grade];
-                }                
-                // Show attempt 
+                }
+                // Show attempt
                 geogebra_add_table_row_tuple($table, get_string('attempt', 'geogebra'), $numattempt);
                 geogebra_add_table_row_tuple($table, get_string('duration', 'geogebra'), $duration);
                 geogebra_add_table_row_tuple($table, get_string('grade'), $grade);
-                geogebra_add_table_row_tuple($table, get_string('comment', 'geogebra'), $attempt->gradecomment);                
+                geogebra_add_table_row_tuple($table, get_string('comment', 'geogebra'), $attempt->gradecomment);
             }
-                        
+
             // Print attempt information with grade and comment form if user can grade
             if (!empty($mform)){
                 // Print user information
@@ -886,7 +914,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
             } else{
                 echo html_writer::table($table);
             }
-          
+
         } else{
             // Show all attempts information
             $attempts = geogebra_get_user_attempts($geogebra->id, $user->id);
@@ -897,21 +925,21 @@ function geogebra_after_add_or_update($geogebra, $mform){
             }
             $table->print_html();  /// Print the whole table
         }
-            
-    }    
-    
+
+    }
+
     /**
      *
      * @global type $CFG
      * @param type $attempt
      * @param type $user
-     * @param type $cm  
+     * @param type $cm
      * @param array $row
-     * @return array 
+     * @return array
      */
     function geogebra_get_attempt_row($geogebra, $attempt, $user, $cm=null, $context=null, $row=null){
         global $CFG, $USER;
-        
+
         if (empty($row)) $row = array();
         parse_str($attempt->vars, $parsedVars);
         $numattempt = $parsedVars['attempts'];
@@ -938,19 +966,19 @@ function geogebra_after_add_or_update($geogebra, $mform){
         array_push($row, $dateteacher);
         if (!empty($cm)){
             $textlink = get_string('viewattempt', 'geogebra');
-            if (is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false)){
+            if (is_siteadmin() || has_capability('moodle/grade:viewall', $context, $USER->id, false)){
                 if ($attempt->dateteacher < $attempt->datestudent ) {
-                    $textlink = '<span class="pendinggrade" >'. get_string('grade'). '</span>'; 
+                    $textlink = '<span class="pendinggrade" >'. get_string('grade'). '</span>';
                 } else {
                     $textlink = get_string('update');
                 }
             }
-            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?action=view&id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . $textlink . '</a>';            
+            $status = '<a href="' . $CFG->wwwroot . '/mod/geogebra/view.php?action=view&id=' . $cm->id . '&student=' . $user->id .'&attemptid='.$attempt->id.'"> ' . $textlink . '</a>';
             array_push($row, $status);
         }
         return $row;
     }
-    
+
     function geogebra_add_table_row_tuple(html_table $table, $first, $second){
         $row = new html_table_row();
         $cell1 = new html_table_cell('<b>'.$first.'</b>');
@@ -958,7 +986,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $row->cells = array($cell1, $cell2);
         $table->data[] = $row;
     }
-    
+
     /**
      * Workaround to fix an Oracle's bug when inserting a row with date
      */
@@ -966,16 +994,16 @@ function geogebra_after_add_or_update($geogebra, $mform){
         global $CFG, $DB;
         if ($CFG->dbtype == 'oci'){
             $sql = "ALTER SESSION SET NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'";
-            $DB->execute($sql);                        
-        }        
-    } 
+            $DB->execute($sql);
+        }
+    }
 
     /**
      * Count the finished attempts done by the $userid
      */
     function geogebra_count_finished_attempts($geogebraid, $userid) {
         global $CFG, $DB;
-        
+
         return $DB->count_records('geogebra_attempts', array('userid'=>$userid, 'geogebra'=>$geogebraid, 'finished'=>'1'));
     }
 
@@ -989,7 +1017,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_get_unfinished_attempt($geogebraid, $userid) {
         global $DB;
-        
+
         $attempt = $DB->get_record('geogebra_attempts', array('userid'=>$userid, 'geogebra'=>$geogebraid, 'finished'=>'0'));
         return ($attempt);
     }
@@ -1002,7 +1030,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_get_attempt($attemptid) {
         global $DB;
-        
+
         return ($DB->get_record('geogebra_attempts', array('id'=>$attemptid)));
     }
 
@@ -1014,7 +1042,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_get_user_attempts($geogebraid, $userid) {
         global $DB;
-        
+
         return $DB->get_records('geogebra_attempts', array('geogebra'=>$geogebraid, 'userid'=>$userid), 'datestudent ASC');
     }
 
@@ -1029,7 +1057,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_add_attempt($geogebraid, $userid, $vars, $finished = 1) {
         global $DB;
-               
+
         $attempt = new stdClass();
         $attempt->geogebra = $geogebraid;
         $attempt->userid = $userid;
@@ -1039,8 +1067,8 @@ function geogebra_after_add_or_update($geogebra, $mform){
 
         $DB->insert_record('geogebra_attempts', $attempt);
         $geogebra = $DB->get_record('geogebra', array('id'=>$geogebraid));
-        geogebra_update_grades($geogebra, $userid);            
-        
+        geogebra_update_grades($geogebra, $userid);
+
         return true;
     }
 
@@ -1056,7 +1084,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_update_attempt($attemptid, $vars, $actionby, $gradecomment = null, $finished = 1) {
         global $DB;
-        
+
         $attempt = new stdClass();
         $attempt->id = $attemptid;
         $attempt->vars = $vars;
@@ -1076,32 +1104,32 @@ function geogebra_after_add_or_update($geogebra, $mform){
         } else {
             return false;
         }
-        
+
         return true;
     }
 
     function geogebra_get_tabs($cm, $action=null, $cangrade=false){
         global $CFG;
-        
+
         if ($cangrade){
             $tabs[] = new tabobject('view', $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id.'&action=preview', get_string('previewtab', 'geogebra'));
         } else{
             $tabs[] = new tabobject('view', $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id, get_string('viewtab', 'geogebra'));
         }
-        
+
         $tabs[] = new tabobject('result', $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id.'&action=result', get_string('resultstab', 'geogebra'));
-        
+
         if ($action == 'view') {
             $tabs[] = new tabobject('viewattempt', $CFG->wwwroot . '/mod/geogebra/view.php?id=' . $cm->id.'&action=view', get_string('viewattempttab', 'geogebra'));
         }
-        
+
         return array($tabs);
     }
-    
+
     /**
      * Update geogebra object specified to include in the attributes field all the information
-     * 
-     * @param type $geogebra 
+     *
+     * @param type $geogebra
      */
     function geogebra_updateAttributes(&$geogebra) {
         $enableRightClick = isset($geogebra->enableRightClick) && $geogebra->enableRightClick;
@@ -1124,10 +1152,10 @@ function geogebra_after_add_or_update($geogebra, $mform){
         $geogebra->showsubmit = isset($geogebra->showsubmit);
     }
 
-    
+
 
     /**
-     * Calculates number of attempts, the average grade and average duration 
+     * Calculates number of attempts, the average grade and average duration
      * of all attemps for a given user and geogebra
      *
      * @param int $geogebraid ID of an instance of this module
@@ -1136,7 +1164,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
      */
     function geogebra_get_nograding_grade($geogebraid, $userid) {
         global $DB;
-        
+
         if ($attempts = $DB->get_records('geogebra_attempts', array('userid'=>$userid, 'geogebra'=> $geogebraid, 'finished' =>1))) {
             $count = 0;
             $durationsum = 0;
@@ -1161,7 +1189,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
     }
 
     /**
-     * Calculates number of attempts, the average grade and average duration 
+     * Calculates number of attempts, the average grade and average duration
      * of all attemps for a given user and geogebra
      *
      * @param int $geogebraid ID of an instance of this module
@@ -1209,7 +1237,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
             return false;
     }
 
-    
+
     /**
      * Finds the last attempt for a given user and geogebra.
      *
@@ -1271,7 +1299,7 @@ function geogebra_after_add_or_update($geogebra, $mform){
               .'FROM {geogebra_attempts} '
               .'WHERE datestudent = (SELECT MIN(datestudent) FROM {geogebra_attempts} '
                                    .'WHERE userid = ' . $userid . ' AND geogebra = ' . $geogebraid . ' AND finished = 1)';
-        
+
         if ($attempt = $DB->get_record_sql($sql)) {
             if (empty($attempt)) {
                 return false;
@@ -1434,6 +1462,6 @@ function geogebra_after_add_or_update($geogebra, $mform){
             }
         } else
             return false;
-    }    
-    
-    
+    }
+
+

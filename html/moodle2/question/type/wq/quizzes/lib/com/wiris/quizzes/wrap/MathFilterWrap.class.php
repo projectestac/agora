@@ -4,7 +4,7 @@ class com_wiris_quizzes_wrap_MathFilterWrap implements com_wiris_quizzes_api_Mat
 	public function __construct($filter) {
 		if(!php_Boot::$skip_constructor) {
 		$this->impl = $filter;
-		$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+		$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 	}}
 	public function filter($html) {
 		try {

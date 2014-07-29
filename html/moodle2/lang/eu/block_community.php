@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -64,9 +64,11 @@ $string['enrollablecourses'] = 'Matrikulatzeko ikastaroak';
 $string['errorcourselisting'] = 'Errorea gertatu da aukeratutako bilgunetik ikastaro-zerrenda berreskuratzean. Mesedez, saiatu beranduago. ({$a})';
 $string['errorhublisting'] = 'Errorea gertatu da Moodle.org-tik bilgune-zerrenda berreskuratzean. Mesedez, saiatu beranduago. ({$a})';
 $string['fileinfo'] = 'Hizkuntza: {$a->lang} - Lizentzia: {$a->license} - Eguneratze-ordua: {$a->timeupdated}';
+$string['hideall'] = 'Ezkutatu bilguneak';
 $string['hub'] = 'bilgunea';
 $string['hubnottrusted'] = 'Ez da konfiantzazkoa';
 $string['hubtrusted'] = 'Bilgune honek Moodle.org-en bermea du ';
+$string['install'] = 'Jaitsi';
 $string['keywords'] = 'Hitz-gakoak';
 $string['langdesc'] = 'Hizkuntza: {$a} -';
 $string['language'] = 'Hizkuntza';
@@ -100,6 +102,7 @@ $string['searchcommunitycourse'] = 'Bilatu komunitate-ikastaroa';
 $string['searchcourse'] = 'Bilatu komunitate-ikastaroa';
 $string['selecthub'] = 'Aukeratu bilgunea';
 $string['selecthub_help'] = 'Aukeratu ikastaroak bilatzeko bilgunea ';
+$string['showall'] = 'Erakutsi bilgune guztiak';
 $string['sites'] = 'Guneak';
 $string['subject'] = 'Gaia';
 $string['subject_help'] = 'Ikastaro-bilaketa gai jakin batera mugatzeko, aukera ezazu bat zerrenda honetatik.';

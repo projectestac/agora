@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,8 +39,11 @@ $string['defaultenrol_desc'] = 'Het is mogelijk om deze plugin standaard aan all
 $string['deleteinstanceconfirm'] = 'Je gaat de aanmeldingsplugin "{$a->name}" verwijderen. Alle  {$a->users} aangemelde gebruikers zullen hierdoor afgemeld worden en al hun cursusgerelateerde gegevens, zoals cijfers, groeplidmaatschap en foruminschrijvingen zullen verwijderd worden.
 
 Weet je zeker dat je verder wil gaan?';
+$string['deleteinstanceconfirmself'] = 'Weet je zeker dat je instantie "{$a->name}" waardoor je zelf toegang tot de cursus krijgt wil verwijderen? Het is mogelijk dat je niet meer in deze cursus kan als je hiermee verder gaat.';
 $string['deleteinstancenousersconfirm'] = 'Je gaat de aanmeldingsmethode {$a->name}" verwijderen. Weet je zeker dat je wil verdergaan?';
+$string['disableinstanceconfirmself'] = 'Weet je zeker dat je instantie "{$a->name}" waardoor je zelf toegang tot de cursus krijgt wil uitschakelen? Het is mogelijk dat je niet meer in deze cursus kan als je hiermee verder gaat.';
 $string['durationdays'] = '{$a} dagen';
+$string['editenrolment'] = 'Bewerk aanmelding';
 $string['enrol'] = 'Meld aan';
 $string['enrolcandidates'] = 'Niet aangemelde gebruikers';
 $string['enrolcandidatesmatching'] = 'Mogelijke niet aangemelde gebruikers';
@@ -69,6 +72,9 @@ $string['errorenrolcohort'] = 'Fout bij het maken van een site groep sync aanmel
 $string['errorenrolcohortusers'] = 'Fout bij het aanmelden van site groepsleden in deze cursus';
 $string['errorthresholdlow'] = 'De notificatietijd moet minstens 1 dag zijn.';
 $string['errorwithbulkoperation'] = 'Er is een fout opgetreden bij het in bulk bewerken van aanmeldingswijzigingen.';
+$string['eventuserenrolmentcreated'] = 'Gebruiker aangemeld in cursus';
+$string['eventuserenrolmentdeleted'] = 'Gebruiker afgemeld uit cursus';
+$string['eventuserenrolmentupdated'] = 'Gebruiker afmelden aangepast';
 $string['expirynotify'] = 'Melden voor het vervallen van de aanmelding';
 $string['expirynotifyall'] = 'Aanmelder en aangemelde gebruiker';
 $string['expirynotifyenroller'] = 'Enkel aanmelder';
@@ -83,10 +89,13 @@ $string['extremovedsuspend'] = 'Schakel aanmelding bij de cursus uit';
 $string['extremovedsuspendnoroles'] = 'Schakel aanmelding bij de cursus uit en verwijder rollen';
 $string['extremovedunenrol'] = 'Meld de gebruiker af van de cursus';
 $string['finishenrollingusers'] = 'beëindig het aanmelden van gebruikers';
+$string['instanceeditselfwarning'] = 'Waarschuwing:';
+$string['instanceeditselfwarningtext'] = 'Je bent in deze cursus aangemeld door deze aanmeldingsmethode. Het wijzigen hiervan kan je toegang tot deze cursus onmogelijk maken.';
 $string['invalidenrolinstance'] = 'Ongeldige aanmelding';
 $string['invalidrole'] = 'Ingeldige rol';
 $string['manageenrols'] = 'Beheer aanmeldingsplugins';
 $string['manageinstance'] = 'Beheer';
+$string['migratetomanual'] = 'Verplaats naar manuele aanmeldingen';
 $string['nochange'] = 'Geen wijziging';
 $string['noexistingparticipants'] = 'Er bestaan geen deelnemers';
 $string['noguestaccess'] = 'Gasten hebben geen toegang tot deze cursus. Probeer aan te melden.';
@@ -108,6 +117,8 @@ $string['rolefromsystem'] = '{$a->role} (toegewezen op site-niveau)';
 $string['rolefromthiscourse'] = '{$a->role} (toegewezen in deze cursus)';
 $string['startdatetoday'] = 'Vandaag';
 $string['synced'] = 'Gesynchroniseerd';
+$string['testsettings'] = 'Testinstellingen';
+$string['testsettingsheading'] = 'Test aanmeldingsinstellingen - {$a}';
 $string['totalenrolledusers'] = '{$a} aangemelde gebruikers';
 $string['totalotherusers'] = '{$a} andere gebruikers';
 $string['unassignnotpermitted'] = 'Je hebt het recht niet om rollen te verwijderen in deze cursus';
@@ -116,12 +127,6 @@ $string['unenrolconfirm'] = 'Wil je echt gebruiker "{$a->user}" van cursus "{$a-
 $string['unenrolme'] = 'Zeg mijn lidmaatschap van {$a} op';
 $string['unenrolnotpermitted'] = 'Je hebt het recht niet of je kunt deze gebruiker niet afmelden van deze cursus.';
 $string['unenrolroleusers'] = 'Gebruikers afmelden';
-$string['uninstallconfirm'] = 'Je bent bezig met de aanmeldingsplugin \'{$a}\' volledig te verwijderen. Dit zal alles wat geassocieerd is met dit aanmeldingstype uit de databank verwijderen, inclusief  cijfers van leerlingen, groeplidmaatschap, foruminschrijvingen en alle andere cursusgerelateerde gegevens.
-
-Ben je er zeker van dat je wil verder gaan?';
-$string['uninstalldelete'] = 'Verwijder alle aanmeldingen en maak installatie ongedaan';
-$string['uninstalldeletefiles'] = 'Alle gegevens, geassocieerd met de aanmeldingsplugin \'{$a->plugin}\' is verwijderd uit de databank. Om het verwijderen verder af te werken (en te verhinderen dat de plugin zichzelf terug installeert), moet je nu volgende map van de server verwijderen: {$a->directory}';
-$string['uninstallmigrate'] = 'Verwijder installatie maar behoudt de aanmeldingen';
 $string['uninstallmigrating'] = 'Migreren van "{$a}" aanmeldingen';
 $string['unknowajaxaction'] = 'Onbekende actie gevraagd';
 $string['unlimitedduration'] = 'Onbeperkt';

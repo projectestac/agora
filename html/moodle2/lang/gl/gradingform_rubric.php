@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_rubric', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradingform_rubric', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   gradingform_rubric
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,7 +59,7 @@ $string['restoredfromdraft'] = 'NOTA: O último intento para cualificar a esta p
 $string['rubric'] = 'Rúbrica';
 $string['rubricmapping'] = 'Puntuación das regras de asignación de cualificación';
 $string['rubricmappingexplained'] = 'A puntuación mínima posíbel para esta rúbrica é  <b>{$a->minscore} puntos</b> e converteranse na cualificación mínima dispoñíbel neste módulo (que é cero a non ser que se empregue a escala.
-    A puntuación máxima <b>{$a->maxscore} points</b> converterase na cualificación máxima.<br />
+    A puntuación máxima <b>{$a->maxscore} puntos</b> converterase na cualificación máxima.<br />
     As puntuacións intermedias converteranse respectivamente e redondearanse a cualificación máis próxima dispoñíbel.<br />
     De empregarse unha escala no canto dunha cualificación, a puntuación converterase á escala dos elementos como se fosen números enteiros consecutivos.';
 $string['rubricnotcompleted'] = 'Escolla algo para cada criterio';

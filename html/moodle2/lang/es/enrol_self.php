@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,7 +37,6 @@ Los siguientes marcadores pueden incluirse en el mensaje:
 * Enlace a la página de perfil del usuario {$a->profileurl}';
 $string['defaultrole'] = 'Asignación de rol por defecto';
 $string['defaultrole_desc'] = 'Seleccione el rol que debe asignarse a los usuarios con auto-matriculación';
-$string['editenrolment'] = 'Editar matricula';
 $string['enrolenddate'] = 'Fecha límite';
 $string['enrolenddate_help'] = 'Si está habilitado, los usuarios pueden matricularse a si mismos solo hasta esta fecha ';
 $string['enrolenddaterror'] = 'La fecha final de matriculación no puede ser anterior a la fecha inicial';
@@ -71,6 +70,9 @@ $string['maxenrolled'] = 'Número máximo de usuarios matriculados';
 $string['maxenrolled_help'] = 'Especifique el número máximo de usuarios que pueden auto-matricularse.El 0 significa sin límite.';
 $string['maxenrolledreached'] = 'Se alcanzó el número máximo de usuarios permitidos para auto-matriculación.';
 $string['messageprovider:expiry_notification'] = 'Notificaciones de expiración del periodo de auto-matrícula';
+$string['newenrols'] = 'Permitir nuevas matriculaciones';
+$string['newenrols_desc'] = 'Permitir a los usuarios la auto matricula en nuevos cursos de forma predeterminada.';
+$string['newenrols_help'] = 'Este ajuste determina si un usuario puede inscribirse en el curso.';
 $string['nopassword'] = 'No se requiere clave de matriculación';
 $string['password'] = 'Clave de matriculación';
 $string['password_help'] = '<p>Una clave permite que el acceso al curso esté limitado sólo a aquellos que la conocen.</p>
@@ -95,9 +97,9 @@ $string['sendcoursewelcomemessage'] = 'Enviar mensaje de bienvenida al curso';
 $string['sendcoursewelcomemessage_help'] = 'Si esta opción está activada, los usuarios recibirán un mensaje de bienvenida por email cuando se automatriculen en un curso.';
 $string['showhint'] = 'Mostrar pista';
 $string['showhint_desc'] = 'Mostrar la primera letra de la contraseña de acceso de invitados.';
-$string['status'] = 'Permitir la auto-matrículación';
-$string['status_desc'] = 'Permitir, por defecto, que los usuarios puedan auto-inscribirse en un curso.';
-$string['status_help'] = 'Esta opción determina si un usuario puede inscribirse a un curso (y también darse de baja si tienen el permiso adecuado) por si mismo.';
+$string['status'] = 'Habilitar las auto-matriculaciones existentes';
+$string['status_desc'] = 'Habilita el metodo de auto-matriculación para los cursos nuevos.';
+$string['status_help'] = 'Si se encuentra deshabilitado, todas las auto-matriculaciones existentes se suspenden y los nuevos usuarios no se pueden inscribir.';
 $string['unenrol'] = 'Dar de baja usuario';
 $string['unenrolselfconfirm'] = '¿Está seguro que quiere darse de baja del curso "{$a}"?';
 $string['unenroluser'] = '¿Realmente desea dar de baja la matrícula de "{$a->user} del curso "{$a->course}"?';

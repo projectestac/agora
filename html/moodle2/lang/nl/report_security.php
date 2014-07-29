@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -91,15 +91,6 @@ $string['check_passwordpolicy_details'] = '<p>Aangeraden wordt om een wachtwoord
 $string['check_passwordpolicy_error'] = 'Wachtwoordbeleid niet ingesteld';
 $string['check_passwordpolicy_name'] = 'Wachtwoordbeleid';
 $string['check_passwordpolicy_ok'] = 'Wachtwoordbeleid ingeschakeld';
-$string['check_passwordsaltmain_details'] = '<p>SHet instellen van een password salt vermindert het risico op het gestolen worden van wachtwoorden.</p>
-<p>Om een password salt in te stellen, voeg je volgende lijn toe aan je  config.php file:</p>
-<code>$CFG->passwordsaltmain = \'een willekeurig hele lange string met heel veel tekens\';</code>
-<p>De willekeurige string moet een mengeling zijn van letters, cijfers en andere tekens en minstens 40 tekens wordt aangeraden.</p>
-<p>Lees de <a href="{$a}" target="_blank">password salting documentatie</a> als je het password salt wil wijzigen. Eens ingesteld mag je je  password salt NIET verwijderen want anders kun je niet meer inloggen in je site!</p>';
-$string['check_passwordsaltmain_name'] = 'Password salt';
-$string['check_passwordsaltmain_ok'] = 'Password salt is goed';
-$string['check_passwordsaltmain_warning'] = 'Geen password salt ingesteld';
-$string['check_passwordsaltmain_weak'] = 'Password salt is zwak';
 $string['check_riskadmin_detailsok'] = '<p>Controleer aub volgende lijst beheerders:</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>Controleer onderstaande lijst beheerders::</p>{$a->admins}
 <p>Aangeraden wordt om de beheerdersrol enkel toe te wijzen in de systeemcontext. Volgende gebruikers hebben een niet-ondersteunde beheerdersrol:</p>{$a->unsupported}';

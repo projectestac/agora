@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = 'Na een juist antwoord op een vraag z
 * Toon een ongeziene pagina - Toont een willekeurige pagina die nog niet eerder werd getoond, één enkele keer
 * Toon een onbeantwoorde pagina - Toont een willekeurige pagina die nog niet eerder werd beantwoord, hoewel misschien eerder getoond';
 $string['actions'] = 'Acties';
-$string['activitylink'] = 'Link naar een activiteit';
+$string['activitylink'] = 'Link naar volgende activiteit';
 $string['activitylink_help'] = '<p>In dit rolmenu zitten alle activiteiten van deze cursus. Als er één van geselecteerd wordt, dan zal er aan het eind van de les een link verschijnen naar die activiteit.</p>';
 $string['activitylinkname'] = 'Ga naar {$a}';
 $string['activityoverview'] = 'Je hebt lessen te voltooien';
@@ -125,6 +125,7 @@ $string['continuetonextpage'] = 'Ga naar volgende pagina';
 $string['correctanswerjump'] = 'Sprong bij juist antwoord';
 $string['correctanswerscore'] = 'Cijfer bij juist antwoord';
 $string['correctresponse'] = 'Juist antwoord';
+$string['createaquestionpage'] = 'Maak een vragenpagina';
 $string['credit'] = 'Krediet';
 $string['customscoring'] = 'Aangepaste cijfers';
 $string['customscoring_help'] = '<p>Hiermee kun je een numerieke puntenwaarde geven voor elk antwoord. Antwoorden kunnen een negatief of een positief cijfer krijgen. Geïmporteerde vragen zullen automatisch 1 punt voor een juist en 0 punten voor een fout antwoord krijgen. Je kunt dit wijzigen na het importeren.</p>';
@@ -141,21 +142,21 @@ $string['description'] = 'Beschrijving';
 $string['detailedstats'] = 'Gedetailleerde statistieken';
 $string['didnotanswerquestion'] = 'Deze vraag niet beantwoord';
 $string['didnotreceivecredit'] = 'Geen cijfers gekregen';
-$string['displaydefaultfeedback'] = 'Toon standaard feedback';
+$string['displaydefaultfeedback'] = 'Gebruik standaard feedback';
 $string['displaydefaultfeedback_help'] = '<p align="center"><strong>Toon standaardfeedback</strong></p>
 
 <p>Als deze instelling op <strong>ja</strong> gezet wordt, dan zal bij het ontbreken van feedback, de standaardfeedback "Juist antwoord" en "Fout antwoord" gebruikt worden.</p>
 <p>Als deze instelling op <strong>Nee</strong> gezet wordt, dan zal er bij het ontbreken van feedback niets getoond worden. De gebruiker wordt dan automatisch naar de volgende pagina van de les gebracht worden.</p>';
 $string['displayhighscores'] = 'Toon hoogste cijfers';
 $string['displayinleftmenu'] = 'Toon in linkermenu?';
-$string['displayleftif'] = 'Toon linkermenu enkel als cijfer het groter is dan';
+$string['displayleftif'] = 'Minimum cijfer om het linkermenu te tonen';
 $string['displayleftif_help'] = 'Deze instelling bepaalt of een leerling een bepaald cijfer moet halen voor die het linker menu kan zien. Dit verplicht een leerling om door de hele les te gaan tijdens de eerste poging, dan kan die na het behalen van het vereiste cijfer, het linker menu gebruiken om na te kijken.';
 $string['displayleftmenu'] = 'Toon linkermenu';
 $string['displayleftmenu_help'] = 'Indien ingeschakeld, wordt een lijst van pagina\'s getoond.';
 $string['displayofgrade'] = 'Tonen van het cijfer (voor de leerling)';
 $string['displayreview'] = 'Geef de optie om een vraag opnieuw te proberen';
 $string['displayreview_help'] = 'Indien ingeschakeld, zal bij een fout antwoord de student de optie krijgen om ofwel de vraag vrijblijvend opnieuw te proberen (zonder cijfer), ofwel verder te gaan met de les.';
-$string['displayscorewithessays'] = 'Je hebt {$a->score} punten op {$a->tempmaxgrade} behaald voor de automatisch beoordeelde vragen.<br />Je {$a->essayquestions} open vragen zullen beoordeeld worden op een later moment<br />en  toegevoegd worden bij je totaalcijfer.<br /><br />Je resultaat op dit ogenblik, zonder de open vragen is {$a->score} op {$a->grade}.';
+$string['displayscorewithessays'] = '<p>Je hebt {$a->score} punten op {$a->tempmaxgrade} behaald voor de automatisch beoordeelde vragen.</p><p>Je {$a->essayquestions} open vragen zullen beoordeeld worden op een later moment  toegevoegd worden bij je totaalcijfer.</p><p>Je resultaat op dit ogenblik, zonder de open vragen is {$a->score} op {$a->grade}.</p>';
 $string['displayscorewithoutessays'] = 'Je cijfer is {$a->score} (op {$a->grade}).';
 $string['edit'] = 'Bewerk';
 $string['editingquestionpage'] = 'Bewerken {$a} vragenpagina';
@@ -489,6 +490,7 @@ $string['postsuccess'] = 'Posten gelukt';
 $string['practice'] = 'Oefenles';
 $string['practice_help'] = '<p>Een oefenles zal niet in het puntenboek verschijnen.</p>';
 $string['preprocesserror'] = 'Fout opgetreden tijdens de voorbereiding!';
+$string['prerequisitelesson'] = 'Voorwaarde les';
 $string['preview'] = 'Voorbeeld';
 $string['previewlesson'] = 'Voorbeeld van {$a}';
 $string['previouspage'] = 'Vorige pagina';
@@ -530,6 +532,7 @@ $string['savechanges'] = 'Bewaar wijzigingen';
 $string['savechangesandeol'] = 'Bewaar alle wijzigingen en ga naar het einde van de les';
 $string['savepage'] = 'Bewaar pagina';
 $string['score'] = 'Cijfer';
+$string['score_help'] = 'Score wordt alleen gebruikt als aangepaste score is ingeschakeld. Elk antwoord kan vervolgens worden voorzien van een numerieke puntwaarde (positief of negatief).';
 $string['scores'] = 'Cijfers';
 $string['secondpluswrong'] = 'Niet echt. Wil je nog eens proberen?';
 $string['selectaqtype'] = 'Kies een vraagtype';

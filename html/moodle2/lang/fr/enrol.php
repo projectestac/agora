@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,8 +39,11 @@ $string['defaultenrol_desc'] = 'Il est possible d\'ajouter par défaut ce plugin
 $string['deleteinstanceconfirm'] = 'Vous allez supprimer la méthode d\'inscription « {$a->name} ». La totalité des {$a->users} utilisateurs inscrits au moyen de cette méthode seront désinscrits et toutes les données de cours en lien avec ces utilisateurs, notamment les notes, l\'appartenance aux groupes et les abonnements aux forums seront également supprimés.
 
 Voulez-vous vraiment continuer ?';
+$string['deleteinstanceconfirmself'] = 'Voulez-vous vraiment supprimer l\'instance « {$a->name} » qui vous donne accès à ce cours ? Il est possible que vous ne puissiez plus accéder à ce cours, si vous continuez.';
 $string['deleteinstancenousersconfirm'] = 'Vous allez supprimer la méthode d\'inscription « {$a->name} ». Voulez-vous vraiment continuer ?';
+$string['disableinstanceconfirmself'] = 'Voulez-vous vraiment désactiver l\'instance « {$a->name} » qui vous donne accès à ce cours ? Il est possible que vous ne puissiez plus accéder à ce cours, si vous continuez.';
 $string['durationdays'] = '{$a} jours';
+$string['editenrolment'] = 'Modifier l\'inscription';
 $string['enrol'] = 'Inscrire';
 $string['enrolcandidates'] = 'Utilisateurs non inscrits';
 $string['enrolcandidatesmatching'] = 'Utilisateurs non inscrits correspondants';
@@ -69,13 +72,16 @@ $string['errorenrolcohort'] = 'Erreur lors de la création de l\'instance de syn
 $string['errorenrolcohortusers'] = 'Erreur lors de l\'inscription des membres de cohorte dans ce cours.';
 $string['errorthresholdlow'] = 'Le seuil de notification doit être au moins 1 jour.';
 $string['errorwithbulkoperation'] = 'Une erreur est survenue lors du traitement de vos modifications d\'inscription en lot.';
+$string['eventuserenrolmentcreated'] = 'Utilisateur inscrit dans un cours';
+$string['eventuserenrolmentdeleted'] = 'Utilisateur désinscrit d\'un cours';
+$string['eventuserenrolmentupdated'] = 'Désinscription d\'utilisateur modifiée';
 $string['expirynotify'] = 'Informer avant l\'échéance de l\'inscription';
 $string['expirynotifyall'] = 'Personne ayant inscrit et utilisateur inscrit';
 $string['expirynotifyenroller'] = 'Personne ayant inscrit seulement';
 $string['expirynotify_help'] = 'Ce réglage détermine si les messages de notification d\'échéance d\'inscription sont envoyés ou non.';
 $string['expirynotifyhour'] = 'Heure à laquelle envoyer les notifications d\'échéance';
 $string['expirythreshold'] = 'Seuil de notification';
-$string['expirythreshold_help'] = 'Combien de temps avant l\'échéance les utilisateurs doivent être informés ?';
+$string['expirythreshold_help'] = 'Combien de temps avant l\'échéance de l\'inscription les utilisateurs doivent être informés ?';
 $string['extremovedaction'] = 'Action de désincription externe';
 $string['extremovedaction_help'] = 'Veuillez sélectionner une action à effectuer lorsque l\'inscription d\'un utilisateur disparaît de la source d\'inscriptions externe. Attention : certains réglages et données utilisateur sont supprimées du cours lors de la désinscription.';
 $string['extremovedkeep'] = 'Garder l\'utilisateur inscrit';
@@ -83,10 +89,13 @@ $string['extremovedsuspend'] = 'Désactiver l\'inscription au cours';
 $string['extremovedsuspendnoroles'] = 'Désactiver l\'inscription au cours et retirer l\'attribution des rôles';
 $string['extremovedunenrol'] = 'Désinscrire du cours l\'utilisateur';
 $string['finishenrollingusers'] = 'Terminer l\'inscription des utilisateurs';
+$string['instanceeditselfwarning'] = 'Attention :';
+$string['instanceeditselfwarningtext'] = 'Vous êtes inscrit à ce cours au moyen de cette méthode d\'inscription. Des modifications pourraient empêcher votre accès à ce cours.';
 $string['invalidenrolinstance'] = 'Instance d\'inscription non valide';
 $string['invalidrole'] = 'Rôle non valide';
 $string['manageenrols'] = 'Gérer les plugins d\'inscription';
 $string['manageinstance'] = 'Gestion';
+$string['migratetomanual'] = 'Migrer vers l\'inscription manuelle';
 $string['nochange'] = 'Aucun changement';
 $string['noexistingparticipants'] = 'Aucun participant';
 $string['noguestaccess'] = 'Les visiteurs anonymes ne peuvent pas accéder à ce cours. Veuillez vous connecter.';
@@ -108,6 +117,8 @@ $string['rolefromsystem'] = '{$a->role} (attribué au niveau du site) ';
 $string['rolefromthiscourse'] = '{$a->role} (attribué dans ce cours)';
 $string['startdatetoday'] = 'Aujourd\'hui';
 $string['synced'] = 'Synchronisé';
+$string['testsettings'] = 'Réglages de test';
+$string['testsettingsheading'] = 'Réglages de test d\'inscription – {$a}';
 $string['totalenrolledusers'] = '{$a} utilisateurs inscrits';
 $string['totalotherusers'] = '{$a} autres utilisateurs';
 $string['unassignnotpermitted'] = 'Vous n\'avez pas les droits d\'accès requis pour retirer des rôles dans ce cours';
@@ -116,12 +127,6 @@ $string['unenrolconfirm'] = 'Voulez-vous vraiment désinscrire « {$a->user} �
 $string['unenrolme'] = 'Me désinscrire de {$a}';
 $string['unenrolnotpermitted'] = 'Vous n\'avez pas les droits d\'accès requis pour désinscrire cet utilisateur de ce cours.';
 $string['unenrolroleusers'] = 'Désinscrire les utilisateurs';
-$string['uninstallconfirm'] = 'Vous êtes sur le point de supprimer le plugin d\'inscription « {$a} ». Ceci aura pour résultat la suppression de la base de données de la totalité des données associées à ce type d\'inscription, y compris les notes des utilisateurs, l\'appartenance à des groupes, les abonnements aux forums et toute donnée en lien avec le cours.
-
-Voulez-vous vraiment effectuer cette action ?';
-$string['uninstalldelete'] = 'Supprimer toutes les inscriptions et désinstaller';
-$string['uninstalldeletefiles'] = 'Toutes les données associées au plugin d\'inscription « {$a->plugin} » ont été supprimées de la base de données. Pour terminer la suppression et éviter ainsi que le plugin ne se réinstalle, veuillez supprimer le dossier suivant de votre serveur : {$a->directory}';
-$string['uninstallmigrate'] = 'Désinstaller, mais conserver toutes les inscriptions';
 $string['uninstallmigrating'] = 'Migration des inscriptions « {$a} »';
 $string['unknowajaxaction'] = 'Action demandée inconnue';
 $string['unlimitedduration'] = 'Illimité';

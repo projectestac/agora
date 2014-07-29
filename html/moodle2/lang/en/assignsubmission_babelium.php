@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_babelium', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_babelium', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_babelium
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,7 +37,7 @@ $string['babeliumApiErrorCode400'] = 'Babelium Error 400. Malformed request';
 $string['babeliumApiErrorCode403'] = 'Babelium Error 403. Wrong authorization credentials';
 $string['babeliumApiErrorCode404'] = 'Babelium Error 404. Method not found. Invalid parameters';
 $string['babeliumApiErrorCode500'] = 'Babelium Error 500. Internal server error';
-$string['babeliumAvailableRecordableExercises'] = 'Available exercises';
+$string['babeliumAvailableRecordableExercises'] = 'Babelium exercises';
 $string['babeliumAvailableRecordableExercises_help'] = 'Choose the exercise you wish to assign to your students for later evaluation';
 $string['babeliumChooseRecMethod'] = 'Choose recording method';
 $string['babeliumChooseRole'] = 'Choose a role';
@@ -55,6 +55,8 @@ $string['default'] = 'Enabled by default';
 $string['default_help'] = 'If set, this submission method will be enabled by default for all new assignments.';
 $string['enabled'] = 'Babelium submissions';
 $string['enabled_help'] = 'If enabled, students are able to save video-responses as their submission.';
+$string['forcertmpt'] = 'Force RTMPT';
+$string['forcertmpt_help'] = 'Enabling this option forces the player to use RTMPT (encapsulated RTMP) by default. Otherwise, the player first attempts to connect using the RTMP port (1935)';
 $string['loginfo'] = 'Submission responseID: {$a->responseid}, responseHash: {$a->responsehash}';
 $string['pluginname'] = 'Babelium submissions';
 $string['secretaccesskey'] = 'Babelium secret access key';

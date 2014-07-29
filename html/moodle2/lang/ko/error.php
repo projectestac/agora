@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'error', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,7 +37,7 @@ $string['blockdoesnotexistonpage'] = '이  페이지 ({$a->url})에는 블록(id
 $string['blocknameconflict'] = '명칭 중복: {$a->name} 블록은 기존의 {$a->conflict} 블록과 동일한 명칭을 지님!';
 $string['callbackrejectcomment'] = '모듈이 덧글을 추가하는 것을 거부함';
 $string['cannotaddcoursemodule'] = '새 강좌 모듈을 추가할 수 없음';
-$string['cannotaddcoursemoduletosection'] = '그 섹션에 새 강좌 모듈을 추가할 수 없음';
+$string['cannotaddcoursemoduletosection'] = '그 영역에 새 강좌 모듈을 추가할 수 없음';
 $string['cannotaddmodule'] = '{$a} 모듈을 추가할 수 없음!';
 $string['cannotaddnewmodule'] = '{$a} 의 새 모듈을 추가할 수 없음';
 $string['cannotaddrss'] = 'RSS 피드를 추가할 수 있는 권한이 없음';
@@ -77,6 +77,7 @@ $string['cannoteditcommentexpired'] = '제한 시간이 지나서 편집할 수 
 $string['cannoteditpostorblog'] = '블로그를 게시하거나 수정할 수 없음';
 $string['cannoteditsiteform'] = '이 서식으로는 사이트 강좌를 수정할 수 없음';
 $string['cannotedityourprofile'] = '죄송합니다만 개인정보를 수정할 수 없습니다.';
+$string['cannotexecduringupgrade'] = '업그레이드 중에 실행될 수 없습니다.';
 $string['cannotfindcategory'] = '데이테베이스에서 ID - {$a} 로 범주 자료를 찾을 수 없음';
 $string['cannotfindcomponent'] = '구성요소를 찾을 수 없음';
 $string['cannotfindcontext'] = '문맥을 찾을 수 없음';
@@ -107,6 +108,7 @@ $string['cannotmarktopic'] = '본 강좌에서는 그 주제를 표기할 수 �
 $string['cannotmigratedatacomments'] = '데이터 모듈의 덧글을 변환시킬 수 없음';
 $string['cannotmodulename'] = '찾아가기를 만드는데 모듈 명칭을 읽어올 수 없음';
 $string['cannotmoduletype'] = '찾아가기를 만드는데 모듈 형식을 읽어올 수 없음';
+$string['cannotmovecategory'] = '범주를 이동할 수 없습니다.';
 $string['cannotmoverolewithid'] = 'ID {$a} 의 역할을 이동할 수 없음';
 $string['cannotopencsv'] = 'CSV 파일을 열 수 없음';
 $string['cannotopenfile'] = '({$a}) 파일을 열 수 없음';
@@ -161,6 +163,8 @@ $string['cannotviewprofile'] = '이 사용자의 개인정보를 볼 수 없음'
 $string['cannotviewreport'] = '이 보고서를 볼 수 없습니다.';
 $string['cannotwritefile'] = '({$a}) 파일에 기재할 수 없음';
 $string['categoryerror'] = '범주 오류';
+$string['categoryidnumbertaken'] = '아이디번호가 이미 다른 강좌에서 사용되고 있습니다.';
+$string['categorynamerequired'] = '범주 이름이 필요합니다.';
 $string['categorytoolong'] = '범주 이름이 너무 김';
 $string['commentmisconf'] = '촌평의 ID가 잘못 설정됨';
 $string['componentisuptodate'] = '구성 요소가 최신임';
@@ -201,6 +205,7 @@ $string['ddlxmlfileerror'] = 'XML 데이터베이스 파일 오류 발견';
 $string['ddsequenceerror'] = '잘못된 테이블 "{$a}" 정의: 자동 열은 한개만 있어야 하며 키로 정의되어야 합니다.';
 $string['destinationcmnotexit'] = '대상 강좌의 모듈이 서버에 존재하지 않음!';
 $string['detectedbrokenplugin'] = '"{$a}" 플러그인이 문제가 있거나 오래된 것이어서 계속할 수 없습니다.';
+$string['dmlexceptiononinstall'] = '<p>데이터베이스 오류가 발생하였습니다. [{$a->errorcode}].<br />{$a->debuginfo}</p>';
 $string['dmlreadexception'] = '데이터베이스 읽기 오류';
 $string['dmltransactionexception'] = '데이터베이스 처리 오류';
 $string['dmlwriteexception'] = '데이터베이스 쓰기 오류';
@@ -244,6 +249,7 @@ $string['gradecantregrade'] = '성적 계산 중에 오류가 발생하였습니
 $string['gradepubdisable'] = '성적 공개 불가능';
 $string['groupalready'] = '사용자는 이미 {$a} 모둠에 속해 있음';
 $string['groupexistforcourse'] = '강좌에 이미 "{$a}" 모둠이 있음';
+$string['groupingnotaddederror'] = '모둠 무리 "{$a}" 기 가 추가되지 않았습니다.';
 $string['groupnotaddederror'] = '모둠 "{$a}"는 추가되지 않았음';
 $string['groupunknown'] = '{$a} 모둠은 지정한 강좌에 속해있지 않음';
 $string['groupusernotmember'] = '사용자가 이 모둠의 구성원이 아님';
@@ -280,7 +286,7 @@ $string['invalidcomponent'] = '잘못된 구성요소 이름';
 $string['invalidconfirmdata'] = '잘못된 인증 데이터';
 $string['invalidcontext'] = '잘못된 문맥';
 $string['invalidcourse'] = '잘못된 강좌';
-$string['invalidcourseid'] = '잘못된 강좌 아이디:({$a})를 사용하려고 합니다.';
+$string['invalidcourseid'] = '잘못된 강좌 아이디:({$a})를 입력하려고 함';
 $string['invalidcourselevel'] = '바르지 않은 문맥 수준!';
 $string['invalidcoursemodule'] = '잘못된 강좌모듈 아이디';
 $string['invalidcoursenameshort'] = '잘못된 강좌 단축명';
@@ -345,6 +351,7 @@ $string['listupdatefail'] = '위계 목록을 편집 중 DB 조작 실패';
 $string['logfilenotavailable'] = '기록할 수 없음';
 $string['loginasnoenrol'] = '강좌에서 타인명의로는 등록 또는 탈퇴를 할 수 없음';
 $string['loginasonecourse'] = '이 강좌에 입장할 수 없습니다.<br /> 다른 강좌에 들어가기 전에 반드시 다른 역할로로그인한 세션을 종료하여야 합니다.';
+$string['maxareabytes'] = '이 파일은 이 영역에 남아 있는 공간보다 크큽니다.';
 $string['maxbytes'] = '파일이 처리할 수 있는 최대 크기보다 큼';
 $string['messagingdisable'] = '이 사이트에서는 메시지 기능을 쓸 수 없음';
 $string['mimetexisnotexist'] = '시스템이 mimeTeX를 구동하도록 설정되지 않음. <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a>에서 환경에 맞는 적절한 파일을 내려받거나 <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a>에서 C 원본 코드를 내려받아 컴파일하여 moodle/filter/tex/ 경로에 넣어야 함.';
@@ -427,6 +434,7 @@ $string['prefixtoolong'] = '<p>오류: 데이터베이스의 테이블 접두사
 <p>시이트 관리자가 이를 바로잡이야 합니다 {$a->dbfamily} 테이블 접두사의 최대 길이는 {$a->maxlength} 자 입니다.</p>';
 $string['processingstops'] = '진행이 멈췄습니다. 남은 기록은 무시됩니다.';
 $string['protected_cc_not_supported'] = '보호된 카트리지는 지원되지 않습니다.';
+$string['querystringcannotbeempty'] = '질의 문자열은 공백이 될 수 없습니다.';
 $string['redirecterrordetected'] = '지원하지 않는 경로 전환이 발견되었기 때문에, 스크립트 실행이 중지되었음';
 $string['refoundto'] = '{$a} 에게 환불 가능';
 $string['refoundtoorigi'] = '{$a} 전액 환불됨';
@@ -444,7 +452,7 @@ $string['reverseproxyabused'] = '죄송합니다만 역 프록시가 활성화�
 $string['rpcerror'] = 'MNET 교신에 실패! 다음의 내용을 관리자에게 전달해주기 바랍니다: {$a}';
 $string['scheduledbackupsdisabled'] = '자동 백업이 서버관리자에 의해 비활성화 되었음';
 $string['secretalreadyused'] = '암호 변경 확인 링크가 이미 사용되었으므로 암호는 변경되지 않습니다.';
-$string['sectionnotexist'] = '섹션이 존재하지 않음';
+$string['sectionnotexist'] = '영역이 존재하지 않음';
 $string['sendmessage'] = '메세지 보내기';
 $string['serverconnection'] = '서버 접속 오류';
 $string['servicedonotexist'] = '그런 서비스가 없음';

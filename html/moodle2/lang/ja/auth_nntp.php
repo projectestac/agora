@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_nntp', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_nntp', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_nntp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_nntpchangepasswordurl_key'] = 'パスワード変更URI';
+$string['auth_nntpchangepasswordurl_key'] = 'パスワード変更URL';
 $string['auth_nntpdescription'] = 'ここではユーザ名およびパスワードが有効であるか確認するため、NNTPサーバを使用します。';
 $string['auth_nntphost'] = 'NNTPサーバアドレスです。DNS名ではなく、IPアドレスを使用してください。';
 $string['auth_nntphost_key'] = 'ホスト';

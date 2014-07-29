@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,7 +67,6 @@ $string['check_openprofiles_ok'] = 'Erabiltzaileen profilak ikusi ahal izateko, 
 $string['check_passwordpolicy_error'] = 'Pasahitzen politika ez da ezarri.';
 $string['check_passwordpolicy_name'] = 'Pasahitzen politika';
 $string['check_passwordpolicy_ok'] = 'Pasahitzen politika gaituta.';
-$string['check_passwordsaltmain_name'] = '';
 $string['check_riskadmin_detailsok'] = '<p>Mesedez, egiazta ezazu sistemako kudeatzaileen ondoko zerrenda hau: </p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>Mesedez, egiazta ezazu sistemako kudeatzaileen zerrenda hau:</p>{$a->admins}
 <p>Gomendagarria da kudeatzaile-rola sistemaren testuinguruan baino ez esleitzea. Ondoko erabiltzaileek izan dute kudeatzaile-rola esleituta:</p>{$a->unsupporte}';

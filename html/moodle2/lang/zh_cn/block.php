@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,7 @@ $string['defaultweight'] = '缺省重量';
 $string['defaultweight_help'] = '缺省重量使得您可以严格设置此版块在选定区域的上面还是下面显示。最终位置要根据该区域的所有版块计算得出（例如，只有一个版块可以在最顶端）。如果需要，此设置可以在某些特殊页面覆盖。';
 $string['deleteblockcheck'] = '您确定要删除名为 {$a} 的版块？';
 $string['deletecheck'] = '删除版块 {$a}？';
+$string['dockblock'] = '停靠 {$a} 版块';
 $string['hidedockpanel'] = '隐藏停靠栏';
 $string['hidepanel'] = '隐藏栏位';
 $string['moveblockhere'] = '移动版块到此';
@@ -58,6 +59,7 @@ $string['showonfrontpageonly'] = '只显示在首页';
 $string['subpages'] = '选择页面';
 $string['thisspecificpage'] = '指定的页面';
 $string['undockall'] = '全部移走';
+$string['undockblock'] = '移走 {$a} 版块';
 $string['undockitem'] = '移走此项';
 $string['visible'] = '可见';
 $string['weight'] = '重量';

@@ -27,7 +27,9 @@
 
 require_once(dirname(dirname(dirname(__FILE__))).'/../config.php');
 require_once(dirname(__FILE__).'/../locallib.php');
-    
+
+
+
 $id = optional_param('id', 0, PARAM_INT); // course_module ID, or
 
 if ($id) {
@@ -39,7 +41,7 @@ if ($id) {
 }
 
 require_login($course, true, $cm);
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 require_capability('mod/jclic:view', $context);
 
 
@@ -64,8 +66,9 @@ $strno = get_string("no");
 
 $PAGE->set_url('/mod/jclic/action/student_results.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($course->fullname.' - '.$jclic->name));
-//$PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($context);
+$PAGE->set_pagelayout('popup');
+
 echo $OUTPUT->header();
 
 $sessions = jclic_get_sessions($jclic->id, $USER->id);
@@ -74,7 +77,7 @@ if (sizeof($sessions)>0){
     $PAGE->requires->js('/mod/jclic/jclic.js');
     $table = new html_table();
     $table->head = array($strstarttime, $strscore, $strtotaltime, get_string('solveddone', 'jclic'), $strattempts);
-    
+
     // Print session data
     foreach($sessions as $session){
         $starttime='<a href="#" onclick="showSessionActivities(\''.$session->session_id.'\');">'.date('d/m/Y H:i', strtotime($session->starttime)).'</a>';
@@ -87,12 +90,12 @@ if (sizeof($sessions)>0){
         $row = new html_table_row();
         $row->id = 'session_'.$session->session_id;
         $row->attributes = array('class' => 'jclic-session-activities-hidden') ;
-        $row->cells[] = $cell;     
+        $row->cells[] = $cell;
         $table->data[] = $row;
     }
-    
+
     if (sizeof($sessions)>1){
-        $sessions_summary = jclic_get_sessions_summary($jclic->id,$USER->id);                
+        $sessions_summary = jclic_get_sessions_summary($jclic->id,$USER->id);
         $table->data[] = array('<b>'.$strtotals.'</b>', '<b>'.$sessions_summary->score.'%</b>', '<b>'.$sessions_summary->totaltime.'</b>','<b>'.$sessions_summary->solved.' / '.$sessions_summary->done.'</b>','<b>'.$sessions_summary->attempts.'</b>');
     }
     echo html_writer::table($table);

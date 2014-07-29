@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'В формуле правильного отв
 $string['converttocalculated'] = 'Сохранить как новый регулярный вычисляемый вопрос';
 $string['findwildcards'] = 'В формуле правильного ответа найдено подстановочных знаков: {x..}';
 $string['generatenewitemsset'] = 'Генерировать';
-$string['mustbenumeric'] = 'Здесь нужно ввести число.';
-$string['mustnotbenumeric'] = 'Это не число.';
 $string['newsetwildcardvalues'] = 'новый набор (новые наборы) значений подстановочного знака (знаков)';
 $string['pluginname'] = 'Простой Вычисляемый';
 $string['pluginnameadding'] = 'Добавление «Простого вычисляемого вопроса»';

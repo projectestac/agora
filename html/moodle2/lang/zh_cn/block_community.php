@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,8 @@ $string['audience_help'] = '你在寻找什么样的课程？除了专门为学�
 $string['blocks'] = '版块';
 $string['cannotselecttopsubject'] = '不能选择顶级主题';
 $string['comments'] = '评论 ({$a})';
+$string['community:addinstance'] = '新增一个社区搜索版块';
+$string['community:myaddinstance'] = '在我的首页新增一个社区搜索版块';
 $string['contentinfo'] = '主题：{$a->subject} - 受众：{$a->audience} - 教育水平：{$a->educationallevel}';
 $string['continue'] = '继续';
 $string['contributors'] = '- 贡献者：{$a}';
@@ -67,9 +69,11 @@ $string['enrollablecourses'] = '可加入课程';
 $string['errorcourselisting'] = '从所选的hub获取课程列表时出错。请过会儿再试。（{$a}）';
 $string['errorhublisting'] = '从Moodle.org获取hub列表时出错。请过会儿再试。（{$a}）';
 $string['fileinfo'] = '语言：{$a->lang} - 许可证：{$a->license} - 更新时间：{$a->timeupdated}';
+$string['hideall'] = '隐藏所有课程中心';
 $string['hub'] = 'hub';
 $string['hubnottrusted'] = '不可信';
 $string['hubtrusted'] = '此hub由Moodle.org授信';
+$string['install'] = '下载';
 $string['keywords'] = '关键词';
 $string['keywords_help'] = '你可以搜索在名称、描述和其它数据库字段中包含指定文本的课程。';
 $string['langdesc'] = '语言：{$a} -';
@@ -104,6 +108,7 @@ $string['searchcommunitycourse'] = '搜索社区课程';
 $string['searchcourse'] = '搜索社区课程';
 $string['selecthub'] = '选择hub';
 $string['selecthub_help'] = '选择在哪个hub搜索课程。';
+$string['showall'] = '显示所有课程中心';
 $string['sites'] = '网站';
 $string['subject'] = '主题';
 $string['subject_help'] = '从以下列表中选择一个特定的主题，以缩小搜索范围';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cachestore_mongodb', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cachestore_mongodb', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   cachestore_mongodb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,7 @@ $string['pluginname'] = 'MongoDB';
 $string['replicaset'] = 'Набор реплик';
 $string['replicaset_help'] = 'Название набора реплик для подключения. Если набор реплик указан, то основная реплика будет определена с использованием команды ismaster  базы данных. Таким образом драйвер может в конечном итоге подключиться к серверу, которого даже нет в списке.';
 $string['server'] = 'Сервер';
-$string['server_help'] = 'Это сервер, который Вы хотите использовать. Можно указать несколько серверов, разделяя их запятыми.';
+$string['server_help'] = 'Это строка подключения для сервера, который Вы хотите использовать. Можно указать несколько серверов, разделяя их запятыми.';
 $string['testserver'] = 'Тестовый сервер';
 $string['testserver_desc'] = 'Это строка подключения для тестового сервера, который Вы хотите использовать. Указывать тестовые серверы необязательно, они используются для модульного тестирования и тестирования производительности.';
 $string['username'] = 'Имя пользователя';

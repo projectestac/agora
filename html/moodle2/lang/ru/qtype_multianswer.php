@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multianswer', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multianswer', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multianswer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,10 +49,14 @@ $string['questioninquiz'] = '<ul> <li>добавлять или удалять �
 $string['questionnotfound'] = 'Невозможно найти часть вопроса #{$a}';
 $string['questionsadded'] = 'Вопрос добавлен';
 $string['questionsaveasedited'] = 'Вопрос будет сохранен в том виде, в каком будет отредактирован';
+$string['questionsless'] = 'Вопросов ({$a}) меньше, чем   вопросов типа «Множественный выбор», хранящихся в базе данных';
 $string['questionsmissing'] = 'Текст вопроса должен содержать, по меньшей мере, один встроенный ответ.';
+$string['questionsmore'] = 'Вопросов ({$a}) больще, чем   вопросов типа «Множественный выбор», хранящихся в базе данных';
 $string['questiontypechanged'] = 'Тип вопроса изменен';
 $string['questiontypechangedcomment'] = 'По крайней мере один тип вопроса был изменен. <br> Вы добавили, удалили или переместили вопрос? <br> Смотрите в будущее.';
 $string['questionusedinquiz'] = 'Этот вопрос используется в тесте(ах): {$a->nb_of_quiz}), всего попыток: {$a->nb_of_attempts}';
+$string['storedqtype'] = '';
+$string['subqresponse'] = 'часть {$a->i}: {$a->response}';
 $string['unknownquestiontypeofsubquestion'] = 'Неизвестный тип вопроса: {$a->type} части вопроса # {$a->sub}';
 $string['warningquestionmodified'] = '<b>ПРЕДУПРЕЖДЕНИЕ</b>';
 $string['youshouldnot'] = '<b> ВЫ НЕ ДОЛЖНЫ </b>';

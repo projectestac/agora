@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['encoding'] = 'Codificación de archivos';
+$string['expiredaction'] = 'Acción cuando caduca la matriculación';
+$string['expiredaction_help'] = 'Seleccione la acción a realizar cuando finalice el periodo de matriculación del usuario. Por favor, tenga en cuenta que algunos datos de usuario y de configuración se eliminan del curso durante el proceso de baja.';
 $string['filelockedmail'] = 'El fichero de texto empleado en matriculaciones basadas en archivo ({$a}) no puede ser eliminado por el proceso de \'cron\'. Esto generalmente significa que los permisos son erróneos. Por favor, corrija los permisos para que Moodle puede eliminar el archivo, de lo contrario, podría ser procesado en varias ocasiones.';
 $string['filelockedmailsubject'] = 'Error importante: Archivo de matriculación';
+$string['flatfile:manage'] = 'Gestionar manualmente la matriculación de usuario';
+$string['flatfile:unenrol'] = 'Dar de baja usuarios del curso manualmente';
 $string['location'] = 'Ubicación del archivo';
-$string['mailadmin'] = 'Notificar administrador por correo electrónico';
-$string['mailstudents'] = 'Notificar a los estudiantes por correo electrónico';
-$string['mailteachers'] = 'Notificar a los profesores por correo electrónico';
-$string['mapping'] = 'Mapeo de archivos planos';
+$string['location_desc'] = 'Especifique la ruta completa al archivo de matriculaciones. El archivo se borra automáticamente después del proceso.';
+$string['mapping'] = 'Mapeo de archivos planos de rol';
 $string['messageprovider:flatfile_enrolment'] = 'Mensajes de archivos planos de matriculación';
+$string['notifyadmin'] = 'Notificar al administrador';
+$string['notifyenrolled'] = 'Notificar a los usuaruos matriculados';
+$string['notifyenroller'] = 'Notificar al usuario respñonsable de las matriculaciones.';
 $string['pluginname'] = 'Archivo plano (CSV)';
 $string['pluginname_desc'] = 'Este método comprobará habitualmente y procesará un archivo de texto con un formato especial en la ubicación que usted especifique. El archivo es un archivo separado por comas que debe tener cuatro o seis campos por línea:
 

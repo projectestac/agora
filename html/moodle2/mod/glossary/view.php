@@ -240,7 +240,7 @@ $strsearch = get_string("search");
 $strwaitingapproval = get_string('waitingapproval', 'glossary');
 
 /// If we are in approval mode, prit special header
-$PAGE->set_title(format_string($glossary->name));
+$PAGE->set_title($glossary->name);
 $PAGE->set_heading($course->fullname);
 $url = new moodle_url('/mod/glossary/view.php', array('id'=>$cm->id));
 if (isset($mode)) {
@@ -263,6 +263,7 @@ if ($tab == GLOSSARY_APPROVAL_VIEW) {
 } else { /// Print standard header
     echo $OUTPUT->header();
 }
+echo $OUTPUT->heading(format_string($glossary->name), 2);
 
 /// All this depends if whe have $showcommonelements
 if ($showcommonelements) {
@@ -314,11 +315,7 @@ if ($showcommonelements) {
 /// The print icon
     if ( $showcommonelements and $mode != 'search') {
         if (has_capability('mod/glossary:manageentries', $context) or $glossary->allowprintview) {
-//                print_box_start('printicon');
-            echo '<span class="wrap printicon">';
-            echo " <a title =\"". get_string("printerfriendly","glossary") ."\" href=\"print.php?id=$cm->id&amp;mode=$mode&amp;hook=".urlencode($hook)."&amp;sortkey=$sortkey&amp;sortorder=$sortorder&amp;offset=$offset\"><img class=\"icon\" src=\"".$OUTPUT->pix_url('print', 'glossary')."\" alt=\"". get_string("printerfriendly","glossary") . "\" /></a>";
-            echo '</span>';
-//                print_box_end();
+            echo " <a class='printicon' title =\"". get_string("printerfriendly","glossary") ."\" href=\"print.php?id=$cm->id&amp;mode=$mode&amp;hook=".urlencode($hook)."&amp;sortkey=$sortkey&amp;sortorder=$sortorder&amp;offset=$offset\">" . get_string("printerfriendly","glossary")."</a>";
         }
     }
 /// End glossary controls
@@ -423,12 +420,12 @@ if ($allentries) {
 
         // Setting the pivot for the current entry
         $pivot = $entry->glossarypivot;
-        $upperpivot = textlib::strtoupper($pivot);
-        $pivottoshow = textlib::strtoupper(format_string($pivot, true, $fmtoptions));
+        $upperpivot = core_text::strtoupper($pivot);
+        $pivottoshow = core_text::strtoupper(format_string($pivot, true, $fmtoptions));
         // Reduce pivot to 1cc if necessary
         if ( !$fullpivot ) {
-            $upperpivot = textlib::substr($upperpivot, 0, 1);
-            $pivottoshow = textlib::substr($pivottoshow, 0, 1);
+            $upperpivot = core_text::substr($upperpivot, 0, 1);
+            $pivottoshow = core_text::substr($pivottoshow, 0, 1);
         }
 
         // if there's a group break
@@ -453,7 +450,7 @@ if ($allentries) {
                     echo '<th >';
                 }
 
-                echo $OUTPUT->heading($pivottoshow);
+                echo $OUTPUT->heading($pivottoshow, 3);
                 echo "</th></tr></table></div>\n";
 
             }

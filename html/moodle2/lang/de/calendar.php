@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Termine hinzufügen';
 $string['advancedoptions'] = 'Weiterte Optionen';
 $string['allday'] = 'ganztägig';
 $string['annually'] = 'Jährlich';
 $string['calendar'] = 'Kalender';
 $string['calendarheading'] = '{$a} Kalender';
 $string['calendarpreferences'] = 'Kalendereinstellungen';
+$string['calendartypes'] = 'Kalendertypen';
 $string['calendarurl'] = 'Kalender-URL: {$a}';
 $string['clickhide'] = 'Zum Verbergen klicken';
 $string['clickshow'] = 'Zum Anzeigen klicken';
@@ -44,14 +46,15 @@ $string['course'] = 'Kurs';
 $string['courseevent'] = 'Kurstermin';
 $string['courseevents'] = 'Kurstermine';
 $string['courses'] = 'Kurse';
+$string['customexport'] = 'Eigener Bereich ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Täglich';
-$string['dayview'] = 'Tagesansicht';
+$string['dayviewfor'] = 'Tagesbericht für:';
 $string['dayviewtitle'] = 'Tagesansicht: {$a}';
 $string['daywithnoevents'] = 'Heute keine Termine';
 $string['default'] = 'Grundeinstellung';
 $string['deleteevent'] = 'Termin löschen';
 $string['deleteevents'] = 'Termine löschen';
-$string['detailedmonthview'] = 'Monatsansicht';
+$string['detailedmonthviewfor'] = 'Monatsbericht für:';
 $string['detailedmonthviewtitle'] = 'Detaillierte Monatsansicht {$a}';
 $string['durationminutes'] = 'Dauer in Minuten';
 $string['durationnone'] = 'Ohne Zeitangabe';
@@ -93,6 +96,7 @@ $string['export'] = 'Export';
 $string['exportbutton'] = 'Export';
 $string['exportcalendar'] = 'Kalender exportieren';
 $string['for'] = 'für';
+$string['forcecalendartype'] = 'Kalender vorgeben';
 $string['fri'] = 'Fr';
 $string['friday'] = 'Freitag';
 $string['generateurlbutton'] = 'Kalender-URL abfragen';
@@ -127,6 +131,7 @@ $string['monthly'] = 'Monatlich';
 $string['monthlyview'] = 'Monatsübersicht';
 $string['monthnext'] = 'Nächster Monat';
 $string['monththis'] = 'Dieser Monat';
+$string['namewithsource'] = '{$a->name} ({$a->source})';
 $string['never'] = 'Nie';
 $string['newevent'] = 'Neuer Termin';
 $string['nocalendarsubscriptions'] = 'Sie haben kein Kalenderabonnement.';
@@ -137,6 +142,7 @@ $string['pollinterval'] = 'Update-Intervall';
 $string['pollinterval_help'] = 'Wie oft möchten Sie den Kalender für neue Termine aktualisieren?';
 $string['preferences'] = 'Einstellungen';
 $string['preferences_available'] = 'Persönliche Einstellungen';
+$string['preferredcalendar'] = 'Bevorzugter Kalender';
 $string['pref_lookahead'] = 'Terminvorschau';
 $string['pref_lookahead_help'] = 'Diese Einstellung legt die (maximale) Anzahl von Tagen fest, die ein Termin im voraus in der Vorschau angezeigt wird. Spätere Termine werden noch nicht angezeigt.
 
@@ -172,6 +178,7 @@ $string['subscriptionname'] = 'Kalendername';
 $string['subscriptionremoved'] = 'Kalenderabonnement \'{$a}\' entfernt';
 $string['subscriptions'] = 'Abonnements';
 $string['subscriptionupdated'] = 'Kalenderabonnement \'{$a}\' aktualisiert';
+$string['subsource'] = 'Terminquelle: {$a->name}';
 $string['sun'] = 'So';
 $string['sunday'] = 'Sonntag';
 $string['thu'] = 'Do';
@@ -197,6 +204,7 @@ $string['typegroup'] = 'Termin meiner Gruppen';
 $string['typesite'] = 'Allgemeiner Termin';
 $string['typeuser'] = 'Persönlicher Termin';
 $string['upcomingevents'] = 'Aktuelle Termine';
+$string['upcomingeventsfor'] = 'Termine für:';
 $string['urlforical'] = 'URL des iCal-Exports für ein Kalender-Abo';
 $string['user'] = 'Teilnehmer/in';
 $string['userevent'] = 'Persönlicher Termin';

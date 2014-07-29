@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'リポジトリプラグインを追加する';
 $string['allowexternallinks'] = '外部リンクを許可する';
 $string['areacategoryintro'] = 'カテゴリイントロダクション';
 $string['areacourseintro'] = 'コースイントロダクション';
+$string['areacourseoverviewfiles'] = 'コース概要ファイル';
 $string['areamainfile'] = 'メインファイル';
 $string['arearoot'] = 'システム';
 $string['areauserbackup'] = 'ユーザバックアップ';
@@ -86,6 +87,9 @@ $string['deleterepository'] = 'このリポジトリを削除する';
 $string['detailview'] = '詳細を表示する';
 $string['dimensions'] = 'サイズ';
 $string['disabled'] = '無効';
+$string['displaydetails'] = 'ファイル詳細と共にフォルダを表示する';
+$string['displayicons'] = 'ファイルアイコンと共にフォルダを表示する';
+$string['displaytree'] = 'ファイルツリーとしてフォルダを表示する';
 $string['download'] = 'ダウンロード';
 $string['downloadfolder'] = 'すべてをダウンロードする';
 $string['downloadsucc'] = 'ファイルが正常にダウンロードされました。';
@@ -120,6 +124,7 @@ $string['folderexists'] = 'このフォルダ名はすでに使用されてい�
 $string['foldernotfound'] = 'フォルダが見つかりませんでした。';
 $string['folderrecurse'] = 'フォルダを自分のサブフォルダに移動することはできません。';
 $string['getfile'] = 'このファイルを選択する';
+$string['help'] = 'ヘルプ';
 $string['hidden'] = '非表示';
 $string['iconview'] = 'アイコンとして表示する';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -150,7 +155,7 @@ $string['manageurl'] = '管理';
 $string['manageuserrepository'] = 'リポジトリの管理';
 $string['moving'] = '移動';
 $string['newfolder'] = '新しいフォルダ';
-$string['newfoldername'] = '新しいフォルダ名:';
+$string['newfoldername'] = '新しいフォルダ名';
 $string['noenter'] = '何も入力されていません。';
 $string['nofilesattached'] = '添付されているファイルはありません。';
 $string['nofilesavailable'] = '利用できるファイルはありません。';
@@ -189,6 +194,7 @@ $string['repositories'] = 'リポジトリ';
 $string['repository'] = 'リポジトリ';
 $string['repositorycourse'] = 'コースリポジトリ';
 $string['repositoryerror'] = 'リモートリポジトリエラー: {$a}';
+$string['repositoryicon'] = 'リポジトリアイコン';
 $string['save'] = '保存';
 $string['saveas'] = '名前を付けて保存する';
 $string['saved'] = '保存されました。';
@@ -199,6 +205,7 @@ $string['searchrepo'] = 'リポジトリを検索する';
 $string['sectionbackup'] = 'セクションバックアップ';
 $string['select'] = '選択';
 $string['setmainfile'] = 'メインファイルに設定する';
+$string['setmainfile_help'] = 'フォルダ内に複数ファイルがある場合、ページにはメインのファイルが表示されます。イメージ、ビデオ等の他のファイルはページに埋め込まれます。ファイルマネージャにおいて、メインファイルには太字のタイトルが表示されます。';
 $string['settings'] = '設定';
 $string['setupdefaultplugins'] = 'デフォルトリポジトリプラグインの設定';
 $string['siteinstances'] = 'サイトのリポジトリインスタンス';

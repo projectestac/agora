@@ -310,5 +310,3 @@ include("login/index_form.html");
 
 global $OUTPUT;
 $OUTPUT->footer();
-
-?>

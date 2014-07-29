@@ -3,11 +3,7 @@
 function afterburner_process_css($css, $theme) {
 
     // Set the background image for the logo
-    if (!empty($theme->settings->logo)) {
-        $logo = $theme->settings->logo;
-    } else {
-        $logo = null;
-    }
+    $logo = $theme->setting_file_url('logo', 'logo');
     $css = afterburner_set_logo($css, $logo, $theme);
 
     // Set custom CSS
@@ -21,11 +17,7 @@ function afterburner_process_css($css, $theme) {
     return $css;
 }
 
-function afterburner_set_logo($css, $logo, $theme = null) {
-    global $OUTPUT;
-    if ($theme === null) {
-        $theme = $OUTPUT;
-    }
+function afterburner_set_logo($css, $logo, $theme) {
     $tag = '[[setting:logo]]';
     $replacement = $logo;
     if (is_null($replacement)) {
@@ -47,4 +39,13 @@ function afterburner_set_customcss($css, $customcss) {
     $css = str_replace($tag, $replacement, $css);
 
     return $css;
+}
+
+function theme_afterburner_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
+        $theme = theme_config::load('afterburner');
+        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+    } else {
+        send_file_not_found();
+    }
 }

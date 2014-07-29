@@ -61,7 +61,7 @@ function geogebra_submit_attempt(){
         }
 
         alert('The geogebra_object applet is missing');
-        return false;    
+        return false;
 }
 
 

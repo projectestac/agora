@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -57,8 +57,12 @@ $string['firstattempts'] = 'первые попытки';
 $string['firstattemptsavg'] = 'Средняя оценка первых попыток';
 $string['firstattemptscount'] = 'Количество полностью оцененных первых попыток';
 $string['frequency'] = 'Частота';
+$string['highestattempts'] = 'лучшая из оцененных попыток';
+$string['highestattemptsavg'] = 'средняя оценка из лучших оцененных попыток';
 $string['intended_weight'] = 'Намеченный вес';
 $string['kurtosis'] = 'Оценка распределения эксцесса (для {$a})';
+$string['lastattempts'] = 'Последняя попытка';
+$string['lastattemptsavg'] = 'Средняя оценка последних попыток';
 $string['lastcalculated'] = 'Последние ранее рассчитанные попытки {$a->lastcalculated};  с тех пор - {$a->count}.';
 $string['median'] = 'Медиана оценок (для {$a})';
 $string['modelresponse'] = 'Модель ответа';
@@ -85,6 +89,7 @@ $string['quizname'] = 'Название теста';
 $string['quizoverallstatistics'] = 'Общая статистика теста';
 $string['quizstructureanalysis'] = 'Анализ структуры теста';
 $string['recalculatenow'] = 'Пересчитать сейчас';
+$string['reportsettings'] = 'Настройки статистического отчета';
 $string['response'] = 'Ответ';
 $string['skewness'] = 'Оценка асимметрии распределения (для {$a})';
 $string['standarddeviation'] = 'Стандартное отклонение (для {$a})';

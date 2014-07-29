@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -83,7 +83,7 @@ $string['requires_user_field_endswith'] = '<strong>{$a->field} 가 {$a->value}�
 $string['requires_user_field_isempty'] = '<strong>{$a->field}</strong>가 비어있지 않는 한 사용할 수 없습니다.';
 $string['requires_user_field_isequalto'] = '<strong>{$a->field} 가 {$a->value}와 같지</strong>않는 한 사용할 수 없습니다.';
 $string['requires_user_field_isnotempty'] = '<strong>{$a->field}</strong>가 비어있는 경우 사용할 수 없습니다.';
-$string['showavailability'] = '할동이 접근되기 전';
+$string['showavailability'] = '접근 금지되는 동안';
 $string['showavailability_hide'] = '활동 완전 감추기';
 $string['showavailabilitysection'] = '섹션이 접근될 수 있기 전에';
 $string['showavailabilitysection_hide'] = '섹션 모두 감추기';
@@ -91,5 +91,5 @@ $string['showavailabilitysection_show'] = '제한 정보와 함께 섹션을 회
 $string['showavailability_show'] = '제한 조건과 함께 비공식적으로 활동을 공개';
 $string['startswith'] = '시작';
 $string['userfield'] = '사용자 항목';
-$string['userrestriction_hidden'] = '제한됨 (완전 감추기, 메시지 없이): ‘{$a}’';
+$string['userrestriction_hidden'] = '제한됨 (완전 감추기, 메시지 없이): {$a}';
 $string['userrestriction_visible'] = '제한됨: {$a}';

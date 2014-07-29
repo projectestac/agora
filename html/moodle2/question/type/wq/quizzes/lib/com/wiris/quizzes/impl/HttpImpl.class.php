@@ -1,16 +1,17 @@
 <?php
 
 class com_wiris_quizzes_impl_HttpImpl extends haxe_Http {
-	public function __construct($url) {
-		if(!isset($this->onError)) $this->onError = array(new _hx_lambda(array(&$this, &$url), "com_wiris_quizzes_impl_HttpImpl_0"), 'execute');
-		if(!isset($this->onData)) $this->onData = array(new _hx_lambda(array(&$this, &$url), "com_wiris_quizzes_impl_HttpImpl_1"), 'execute');
+	public function __construct($url, $listener) {
+		if(!isset($this->onError)) $this->onError = array(new _hx_lambda(array(&$this, &$listener, &$url), "com_wiris_quizzes_impl_HttpImpl_0"), 'execute');
+		if(!isset($this->onData)) $this->onData = array(new _hx_lambda(array(&$this, &$listener, &$url), "com_wiris_quizzes_impl_HttpImpl_1"), 'execute');
 		if(!php_Boot::$skip_constructor) {
 		parent::__construct($url);
+		$this->listener = $listener;
 		$c = com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration();
 		$host = $c->get(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_HOST);
 		$port = Std::parseInt($c->get(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_PORT));
 		if($host !== null && !($host === "")) {
-			haxe_Http::$PROXY = new com_wiris_util_sys_HttpProxy($host, $port);
+			haxe_Http::$PROXY = new com_wiris_std_system_HttpProxy($host, $port);
 			$user = $c->get(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_USER);
 			$pass = $c->get(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_PASS);
 			if($user !== null && !($user === "")) {
@@ -19,11 +20,13 @@ class com_wiris_quizzes_impl_HttpImpl extends haxe_Http {
 			}
 		}
 	}}
+	public function setAsync($async) {
+	}
 	public function onError($msg) { return call_user_func_array($this->onError, array($msg)); }
 	public $onError = null;
 	public function onData($data) { return call_user_func_array($this->onData, array($data)); }
 	public $onData = null;
-	public $response;
+	public $listener;
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);
@@ -36,13 +39,13 @@ class com_wiris_quizzes_impl_HttpImpl extends haxe_Http {
 	}
 	function __toString() { return 'com.wiris.quizzes.impl.HttpImpl'; }
 }
-function com_wiris_quizzes_impl_HttpImpl_0(&$퍁his, &$url, $msg) {
+function com_wiris_quizzes_impl_HttpImpl_0(&$퍁his, &$listener, &$url, $msg) {
 	{
-		throw new HException($msg);
+		$퍁his->listener->onError($msg);
 	}
 }
-function com_wiris_quizzes_impl_HttpImpl_1(&$퍁his, &$url, $data) {
+function com_wiris_quizzes_impl_HttpImpl_1(&$퍁his, &$listener, &$url, $data) {
 	{
-		$퍁his->response = $data;
+		$퍁his->listener->onData($data);
 	}
 }

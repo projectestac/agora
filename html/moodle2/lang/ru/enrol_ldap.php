@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,18 +31,27 @@ $string['assignrolefailed'] = 'Не удалось назначить роль
 $string['autocreate'] = '<p> Курсы могут создаваться автоматически при зачислении на курс, которого еще не существует в Moodle. </p><p> Если используется автоматическое создание курса, то у соответствующих ролей рекомендуется удалить следующие возможности: moodle/course:changeidnumber, moodle/course:changeshortname, moodle/course:changefullname и moodle/course:changesummary для предотвращения изменения четырех вышеуказанных полей курса (идентификационный номер, краткое название, полное название и описание). </p>';
 $string['autocreate_key'] = 'Автоматическое создание';
 $string['autocreation_settings'] = 'Параметры автоматического создания курса';
+$string['autoupdate_settings'] = 'Настройки автоматического обновления курса';
+$string['autoupdate_settings_desc'] = '<p>Выберите поля для обновления при выполнении скрипта синхронизации  (enrol/ldap/cli/sync.php). </p>
+<p>Обновление будет происходить при выборе хотя бы одного поля.</p>';
 $string['bind_dn'] = 'Если Вы хотите использовать характеристики пользователя для поиска пользователей, укажите их здесь. Например: «cn=ldapuser,ou=public,o=org»';
 $string['bind_dn_key'] = 'Привязка отличительных имен';
 $string['bind_pw'] = 'Пароль для привязки пользователей';
 $string['bind_pw_key'] = 'Пароль';
 $string['bind_settings'] = 'Привязка параметров';
 $string['cannotcreatecourse'] = 'Не удалось создать курс: в записи LDAP отсутствуют необходимые данные!';
+$string['cannotupdatecourse'] = 'Невозможно обновить курс: отсутствуют необходимые данные в записи LDAP!
+ID-номер курса: «{$a->idnumber}»';
+$string['cannotupdatecourse_duplicateshortname'] = 'Невозможно обновить курс: дублируется короткое имя.
+Курс с ID-номером «{$a->idnumber}» пропущен…';
 $string['category'] = 'Категория для автоматически создаваемых курсов';
 $string['category_key'] = 'Категория';
 $string['contexts'] = 'Контексты LDAP';
 $string['couldnotfinduser'] = 'Не удалось найти пользователя «{$a}», пропущено';
 $string['course_fullname'] = 'Дополнительно: атрибут LDAP для получения полного названия курса';
 $string['course_fullname_key'] = 'Полное название';
+$string['course_fullname_updateonsync'] = 'Полное имя курса, обновляемого при выполнении скрипта синхронизации.';
+$string['course_fullname_updateonsync_key'] = 'Полное имя обновляемого курса';
 $string['course_idnumber'] = 'Атрибут LDAP для получения ID курса. Обычно «CN» или «UID».';
 $string['course_idnumber_key'] = 'ID курса';
 $string['coursenotexistskip'] = 'Курс «{$a}» не существует и автоматическое создание отключено; пропущено';
@@ -51,8 +60,14 @@ $string['course_search_sub_key'] = 'Поиск в подконтекстах';
 $string['course_settings'] = 'Настройки зачисления на курс';
 $string['course_shortname'] = 'Дополнительно: атрибут LDAP для получения краткого названия курса';
 $string['course_shortname_key'] = 'Краткое название';
+$string['course_shortname_updateonsync'] = 'Краткое имя курса, обновляемого при выполнении скрипта синхронизации.';
+$string['course_shortname_updateonsync_key'] = 'Краткое имя обновляемого курса';
 $string['course_summary'] = 'Дополнительно: атрибут LDAP для получения описания курса';
 $string['course_summary_key'] = 'Описание';
+$string['course_summary_updateonsync'] = 'Краткое описание курса, обновляемого при выполнении скрипта синхронизации.';
+$string['course_summary_updateonsync_key'] = 'Краткое описание обновляемого курса';
+$string['courseupdated'] = 'Курс с ID-номером «{$a->idnumber}» успешно обновлен.';
+$string['courseupdateskipped'] = 'Курс с ID-номером «{$a->idnumber}» не требует обновления. Пропущен…';
 $string['createcourseextid'] = 'Создать зачисленного пользователя в несуществующем курсе «{$a->courseextid}»';
 $string['createnotcourseextid'] = 'Зачисленный пользователь в несуществующем курсе «{$a->courseextid}»';
 $string['creatingcourse'] = 'Создание курса «{$a}» ...';

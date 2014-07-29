@@ -147,6 +147,42 @@ class backup_dbops_testcase extends advanced_testcase {
         // Drop and check it doesn't exists anymore
         backup_controller_dbops::drop_backup_ids_temp_table('testingid');
         $this->assertFalse($dbman->table_exists('backup_ids_temp'));
+
+        // Test encoding/decoding of backup_ids_temp,backup_files_temp encode/decode functions.
+        // We need to handle both objects and data elements.
+        $object = new stdClass();
+        $object->item1 = 10;
+        $object->item2 = 'a String';
+        $testarray = array($object, 10, null, 'string', array('a' => 'b', 1 => 1));
+        foreach ($testarray as $item) {
+            $encoded = backup_controller_dbops::encode_backup_temp_info($item);
+            $decoded = backup_controller_dbops::decode_backup_temp_info($encoded);
+            $this->assertEquals($item, $decoded);
+        }
+    }
+
+    /**
+     * Check backup_includes_files
+     */
+    function test_backup_controller_dbops_includes_files() {
+        global $DB;
+
+        $dbman = $DB->get_manager(); // Going to use some database_manager services for testing
+
+        // A MODE_GENERAL controller - this should include files
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+            backup::INTERACTIVE_NO, backup::MODE_GENERAL, $this->userid);
+        $this->assertEquals(backup_controller_dbops::backup_includes_files($bc->get_backupid()), 1);
+
+        // A MODE_IMPORT controller - should not include files
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+            backup::INTERACTIVE_NO, backup::MODE_IMPORT, $this->userid);
+        $this->assertEquals(backup_controller_dbops::backup_includes_files($bc->get_backupid()), 0);
+
+        // A MODE_SAMESITE controller - should not include files
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1COURSE, $this->moduleid, backup::FORMAT_MOODLE,
+            backup::INTERACTIVE_NO, backup::MODE_SAMESITE, $this->userid);
+        $this->assertEquals(backup_controller_dbops::backup_includes_files($bc->get_backupid()), 0);
     }
 }
 

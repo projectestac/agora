@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,6 +86,14 @@ $string['errorcoursecontextnotvalid'] = 'あなたはコースコンテクスト
 $string['errorinvalidparam'] = 'パラメータ「 {$a} 」が有効ではありません。';
 $string['errornotemptydefaultparamarray'] = 'ウェブサービス記述パラメータ「 {$a} 」は単一または多重構造となっています。 デフォルトでは空の配列のみ使用できます。ウェブサービス記述を確認してください。';
 $string['erroroptionalparamarray'] = 'ウェブサービス記述パラメータ「 {$a} 」は単一または多重構造となっています。VALUE_OPTIONALとして設定することはできません。ウェブサービス記述を確認してください。';
+$string['event_webservice_function_called'] = 'ウェブサービス関数がコールされました。';
+$string['event_webservice_login_failed'] = 'ウェブサービスのログインに失敗しました。';
+$string['event_webservice_service_created'] = 'ウェブサービスが作成されました。';
+$string['event_webservice_service_updated'] = 'ウェブサービスが更新されました。';
+$string['event_webservice_service_user_added'] = 'ウェブサービスユーザが追加されました。';
+$string['event_webservice_service_user_removed'] = 'ウェブサービスユーザが削除されました。';
+$string['event_webservice_token_created'] = 'ウェブサービストークンが作成されました。';
+$string['event_webservice_token_sent'] = 'ウェブサービストークンが送信されました。';
 $string['execute'] = '実行';
 $string['executewarnign'] = '警告: 実行をクリックした場合、あなたのデータベースが変更され、自動的に戻すことができないようになります!';
 $string['externalservice'] = '外部サービス';
@@ -120,6 +128,7 @@ $string['missingusername'] = 'ユーザ名がありません。';
 $string['missingversionfile'] = 'コーディングエラー: コンポーネント {$a} のversion.phpファイルがありません。';
 $string['mobilewsdisabled'] = '無効';
 $string['mobilewsenabled'] = '無効';
+$string['nocapabilitytouseparameter'] = 'ユーザにはパラメータ「 {$a} 」を使用するための必須ケイパビリティがありません。';
 $string['nofunctions'] = 'このサービスに関数はありません。';
 $string['norequiredcapability'] = '必須ケイパビリティなし';
 $string['notoken'] = 'トークンリストが空です。';
@@ -188,6 +197,8 @@ $string['tokencreator'] = '作成者';
 $string['unknownoptionkey'] = '不明なオプションキーです ({$a})';
 $string['unnamedstringparam'] = 'ストリングパラメータ名がありません。';
 $string['updateusersettings'] = '更新';
+$string['uploadfiles'] = 'ファイルをアップロードできる';
+$string['uploadfiles_help'] = 'この設定を有効にした場合、すべてのユーザは自分のプライベートファイルエリアまたは下書きファイルエリアにファイルおよびセキュリティキーをアップロードすることができます。すべてのユーザファイルに対して、ファイルクオータが適用されます。';
 $string['userasclients'] = 'トークンを使用したユーザのクライアントとして';
 $string['userasclientsdescription'] = '次のステップにより、あなたはユーザのクライアントとしてMoodleウェブサービスをセットアップすることができます。これらのステップは推奨トークン (セキュリティキー) 認証メソッドのセットアップにも役立ちます。この場合、ユーザはプロファイル設定を経由してセキュリティキーページにてトークンを生成することができます。';
 $string['usermissingcaps'] = '不足しているケイパビリティ: {$a}';

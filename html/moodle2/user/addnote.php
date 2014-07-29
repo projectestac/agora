@@ -63,9 +63,7 @@ if (!empty($users) && confirm_sesskey()) {
         $note->content = $contents[$k];
         $note->publishstate = $states[$k];
         $note->userid = $v;
-        if (note_save($note)) {
-            add_to_log($note->courseid, 'notes', 'add', 'index.php?course='.$note->courseid.'&amp;user='.$note->userid . '#note-' . $note->id , 'add note');
-        }
+        note_save($note);
     }
     redirect("$CFG->wwwroot/user/index.php?id=$id");
 }
@@ -111,7 +109,7 @@ foreach ($users as $k => $v) {
     $checkbox .= html_writer::select($state_names, 'states[' . $k . ']', empty($states[$k]) ? NOTES_STATE_PUBLIC : $states[$k], false, array('id' => 'menustates'));
     $table->data[] = array(
         '<input type="hidden" name="userid['.$k.']" value="'.$v.'" />'. fullname($user, true),
-        '<textarea name="contents['. $k . ']" rows="2" cols="40">' . strip_tags(@$contents[$k]) . '</textarea>',
+        '<textarea name="contents['. $k . ']" rows="2" cols="40" spellcheck="true">' . strip_tags(@$contents[$k]) . '</textarea>',
         $checkbox
     );
 }

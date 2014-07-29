@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_progress', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_progress', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_progress
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,9 +33,12 @@ $string['assign'] = 'Assignment';
 $string['assignment'] = 'Assignment';
 $string['attempted'] = 'attempted';
 $string['attempted_colour'] = '#5CD85C';
+$string['attempted_colour_descr'] = 'HTML Colour code for elements that have been attempted';
+$string['attempted_colour_title'] = 'Attempted Colour';
 $string['awarded'] = 'awarded';
 $string['bigbluebuttonbn'] = 'Big Blue Button';
 $string['book'] = 'Book';
+$string['cachedef_cachedlogs'] = 'Progress Bar log query caching';
 $string['certificate'] = 'Certificate';
 $string['chat'] = 'Chat';
 $string['choice'] = 'Choice';
@@ -61,6 +64,8 @@ $string['flashcardtrainer'] = 'Flashcard trainer';
 $string['folder'] = 'Folder';
 $string['forum'] = 'Forum';
 $string['futureNotAttempted_colour'] = '#5C5CFF';
+$string['futurenotattempted_colour_descr'] = 'HTML Colour code for future elements that have not yet been attemted';
+$string['futurenotattempted_colour_title'] = 'Future Not-attempted Colour';
 $string['glossary'] = 'Glossary';
 $string['graded'] = 'graded';
 $string['hotpot'] = 'Hot Potatoes';
@@ -81,9 +86,12 @@ $string['lastonline'] = 'Last online';
 $string['lesson'] = 'Lesson';
 $string['marked'] = 'marked';
 $string['mouse_over_prompt'] = 'Mouse over block for info.';
+$string['no_blocks'] = 'No Progress Bar blocks are set up for your courses.';
 $string['no_events_config_message'] = 'There are no activities or resources to monitor the progress of. Create some activities and/or resources then configure this block.';
 $string['no_events_message'] = 'No activities or resources are being monitored. Use config to set up monitoring.';
 $string['notAttempted_colour'] = '#FF5C5C';
+$string['notattempted_colour_descr'] = 'HTML Colour code for current elements that have not yet been attempted';
+$string['notattempted_colour_title'] = 'Not-attempted Colour';
 $string['no_visible_events_message'] = 'None of the monitored events are currently visible.';
 $string['now_indicator'] = 'NOW';
 $string['overview'] = 'Overview of students';
@@ -95,6 +103,7 @@ $string['posted_to'] = 'posted to';
 $string['progress'] = 'Progress';
 $string['progress:addinstance'] = 'Add a new Progress Bar block';
 $string['progressbar'] = 'Progress Bar';
+$string['progress:myaddinstance'] = 'Add a Progress Bar block to My home page';
 $string['progress:overview'] = 'View course overview of Progress bars for all students';
 $string['questionnaire'] = 'Questionnaire';
 $string['quiz'] = 'Quiz';

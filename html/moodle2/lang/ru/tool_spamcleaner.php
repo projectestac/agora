@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_spamcleaner', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_spamcleaner', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_spamcleaner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,8 @@ $string['pluginname'] = 'Очистка от спама';
 $string['spamauto'] = 'Автоматическое определение распространенных образцов спама.';
 $string['spamcannotdelete'] = 'Невозможно удалить этого пользователя';
 $string['spamcannotfinduser'] = 'Нет пользователей, соответствующих указанным критериям поиска';
-$string['spamcleanerintro'] = 'Этот скрипт позволяет Вам искать во всех профилях пользователей определенные строки, а затем удалять эти учетные записи, которые, очевидно, созданы спамерами. Вы можете перечислить несколько ключевых слов через запятую (например: казино, порно) <br /><br /> В документация Moodle есть статья <href ="http://docs.moodle.org/en/Reducing_spam_in_Moodle"> «Уменьшение спама в Moodle» (на английском)</a>.';
+$string['spamcleanerintro'] = '<p>Этот скрипт позволяет Вам искать во всех профилях пользователей определенные строки, а затем удалять эти учетные записи, которые, очевидно, созданы спамерами. Вы можете перечислить несколько ключевых слов через запятую (например: казино, порно).</p>
+<p>В документация Moodle есть статья <href ="http://docs.moodle.org/en/Reducing_spam_in_Moodle"> «Уменьшение спама в Moodle» (на английском)</a>.</p>';
 $string['spamdeleteall'] = 'Удалить все эти учетные записи';
 $string['spamdeleteallconfirm'] = 'Вы уверены, что хотите удалить все эти учетные записи? Вы не сможете отменить удаление.';
 $string['spamdeleteconfirm'] = 'Вы уверены, что хотите удалить эту запись? Вы не сможете отменить удаление.';

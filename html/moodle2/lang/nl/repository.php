@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Voeg een plugin voor opslagruimte toe';
 $string['allowexternallinks'] = 'Externe links toestaan';
 $string['areacategoryintro'] = 'Categorie introductie';
 $string['areacourseintro'] = 'Cursus introductie';
+$string['areacourseoverviewfiles'] = 'Cursus samenvattingsbestanden';
 $string['areamainfile'] = 'Hoofdbestand';
 $string['arearoot'] = 'Systeem';
 $string['areauserbackup'] = 'Gebruikersback-up';
@@ -86,6 +87,9 @@ $string['deleterepository'] = 'Verwijder deze opslagruimte';
 $string['detailview'] = 'Bekijk details';
 $string['dimensions'] = 'Afmetingen';
 $string['disabled'] = 'Uitgeschakeld';
+$string['displaydetails'] = 'Toon map met bestandsdetails';
+$string['displayicons'] = 'Toon map met bestandsicoontjes';
+$string['displaytree'] = 'Toon map als bestandenboom';
 $string['download'] = 'Download';
 $string['downloadfolder'] = 'Download alles';
 $string['downloadsucc'] = 'Download gelukt';
@@ -120,6 +124,7 @@ $string['folderexists'] = 'Mapnaam bestaat al, kies een andere naam.';
 $string['foldernotfound'] = 'Map niet gevonden';
 $string['folderrecurse'] = 'Map kan niet verplaatst worden naar zijn eigen submap';
 $string['getfile'] = 'Selecteer dit bestand';
+$string['help'] = 'Help';
 $string['hidden'] = 'Verborgen';
 $string['iconview'] = 'Bekijk als icoontjes';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -189,6 +194,7 @@ $string['repositories'] = 'Opslagruimten';
 $string['repository'] = 'Opslagruimte';
 $string['repositorycourse'] = 'Cursusopslagruimten';
 $string['repositoryerror'] = 'Externe opslagruimte gaf een fout: {$a}';
+$string['repositoryicon'] = 'Icoontje opslagruimte';
 $string['save'] = 'Bewaar';
 $string['saveas'] = 'Bewaar als';
 $string['saved'] = 'Bewaard';
@@ -199,6 +205,7 @@ $string['searchrepo'] = 'Doorzoek opslagruimte';
 $string['sectionbackup'] = 'Sectieback-ups';
 $string['select'] = 'Selecteer';
 $string['setmainfile'] = 'Zet als hoofdbestand';
+$string['setmainfile_help'] = 'Als er meerdere bestanden in de map staan, dan is het hoofdbestand hetgene dat getoond wordt. Andere bestanden, zoals afbeeldingen of filmpjes kunnen ingebed worden in het hoofdbestand. In de bestandsbeheerder is het hoofdbestand het bestand waarvan de naam in het vet wordt weergegeven.';
 $string['settings'] = 'Instellingen';
 $string['setupdefaultplugins'] = 'Instellen van de standaard opslagruimten';
 $string['siteinstances'] = 'Verwijzingen naar opslagruimten van de site';

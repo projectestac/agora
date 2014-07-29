@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,8 +17,7 @@
 /**
  * This is the main renderer for the enrol section.
  *
- * @package    core
- * @subpackage enrol
+ * @package    core_enrol
  * @copyright  2010 Sam Hemelryk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -36,9 +34,11 @@ class core_enrol_renderer extends plugin_renderer_base {
      * Renders a course enrolment table
      *
      * @param course_enrolment_table $table
+     * @param moodleform $mform Form that contains filter controls
      * @return string
      */
-    protected function render_course_enrolment_users_table(course_enrolment_users_table $table) {
+    public function render_course_enrolment_users_table(course_enrolment_users_table $table,
+            moodleform $mform) {
 
         $table->initialise_javascript();
 
@@ -56,7 +56,8 @@ class core_enrol_renderer extends plugin_renderer_base {
         if (!empty($buttonhtml)) {
             $content .= $buttonhtml;
         }
-        $content .= $this->output->render($table->get_enrolment_type_filter());
+        $content .= $mform->render();
+
         $content .= $this->output->render($table->get_paging_bar());
 
         // Check if the table has any bulk operations. If it does we want to wrap the table in a
@@ -189,10 +190,10 @@ class core_enrol_renderer extends plugin_renderer_base {
         // get list of roles
         $rolesoutput = '';
         foreach ($roles as $roleid=>$role) {
-            if ($canassign && !$role['unchangeable']) {
+            if ($canassign and (is_siteadmin() or isset($assignableroles[$roleid])) and !$role['unchangeable']) {
                 $strunassign = get_string('unassignarole', 'role', $role['text']);
                 $icon = html_writer::empty_tag('img', array('alt'=>$strunassign, 'src'=>$iconenrolremove));
-                $url = new moodle_url($pageurl, array('action'=>'unassign', 'role'=>$roleid, 'user'=>$userid));
+                $url = new moodle_url($pageurl, array('action'=>'unassign', 'roleid'=>$roleid, 'user'=>$userid));
                 $rolesoutput .= html_writer::tag('div', $role['text'] . html_writer::link($url, $icon, array('class'=>'unassignrolelink', 'rel'=>$roleid, 'title'=>$strunassign)), array('class'=>'role role_'.$roleid));
             } else {
                 $rolesoutput .= html_writer::tag('div', $role['text'], array('class'=>'role unchangeable', 'rel'=>$roleid));
@@ -707,17 +708,6 @@ class course_enrolment_users_table extends course_enrolment_table {
      * @var array
      */
     protected static $sortablefields = array('firstname', 'lastname', 'email', 'lastaccess');
-
-    /**
-     * Gets the enrolment type filter control for this table
-     *
-     * @return single_select
-     */
-    public function get_enrolment_type_filter() {
-        $selector = new single_select($this->manager->get_moodlepage()->url, 'ifilter', array(0=>get_string('all')) + (array)$this->manager->get_enrolment_instance_names(), $this->manager->get_enrolment_filter(), array());
-        $selector->set_label( get_string('enrolmentinstances', 'enrol'));
-        return $selector;
-    }
 }
 
 /**

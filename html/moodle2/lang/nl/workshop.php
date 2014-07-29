@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Toegangscontrole';
 $string['aggregategrades'] = 'Cijfers herrekenen';
 $string['aggregation'] = 'Cijferaggregatie';
 $string['allocate'] = 'Inzendingen toewijzen';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Al beoordeeld';
 $string['areaconclusion'] = 'Conclusietekst';
 $string['areainstructauthors'] = 'Instructies voor insturen';
 $string['areainstructreviewers'] = 'Instructies voor evaluatie';
+$string['areaoverallfeedbackattachment'] = 'Algemene feedback bijlagen';
+$string['areaoverallfeedbackcontent'] = 'Algemene feedback teksten';
 $string['areasubmissionattachment'] = 'Bijlagen van de inzending';
 $string['areasubmissioncontent'] = 'Teksten van de inzending';
 $string['assess'] = 'Evalueer';
@@ -107,6 +108,7 @@ $string['evaluation'] = 'Evaluatie van de beoordeling';
 $string['evaluationmethod'] = 'Methode voor de evaluatie van de beoordeling';
 $string['evaluationmethod_help'] = 'De beoordelingsevaluatiemethode bepaalt hoe het cijfer voor de beoordeling wordt berekend. Je kunt laten herberekenen met verschillende instellingen tenzij je tevreden bent met het resultaat.';
 $string['evaluationsettings'] = 'Instellingen voor het cijfer van de evaluatie';
+$string['event_assessable_uploaded'] = 'Er is een inzending geüploaded';
 $string['example'] = 'Voorbeeldtaak';
 $string['exampleadd'] = 'Voeg een voorbeeldtaak toe';
 $string['exampleassess'] = 'Beoordeel voorbeeldtaak';
@@ -126,8 +128,10 @@ $string['examplesmode'] = 'Modus voor de beoordeling van voorbeeldtaken';
 $string['examplesubmissions'] = 'Voorbeeldinzendingen';
 $string['examplesvoluntary'] = 'Het beoordelen van een voorbeeldtaak is op vrijwillige basis';
 $string['feedbackauthor'] = 'Feedback voor de auteur';
+$string['feedbackauthorattachment'] = 'Bijlage';
 $string['feedbackby'] = 'Feedback door {$a}';
 $string['feedbackreviewer'] = 'Feedback voor de beoordeler';
+$string['feedbacksettings'] = 'Feedback';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -160,8 +164,7 @@ $string['latesubmissions'] = 'Te laat afgegeven';
 $string['latesubmissionsallowed'] = 'Te laat afgeven toegestaan';
 $string['latesubmissions_desc'] = 'Taken aanvaarden na de deadline';
 $string['latesubmissions_help'] = 'Indien ingeschakeld kunnen taken ingestuurd worden na de deadline of tijdens de beoordelingsfase. Te laat ingestuurde taken kunnen niet meer bewerkt worden.';
-$string['maxbytes'] = 'Maximale bestandsgrootte';
-$string['miscellaneoussettings'] = 'Diverse instellingen';
+$string['maxbytes'] = 'Maximale grootte van de inzending';
 $string['modulename'] = 'Workshop';
 $string['modulename_help'] = 'De workshopmodule maakt het ophalen, nakijken en peer-evaluatie van leerlingenwerk mogelijk.
 
@@ -184,6 +187,14 @@ $string['notoverridden'] = 'Niet overschreven';
 $string['noworkshops'] = 'Er zijn geen workshops in deze cursus';
 $string['noyoursubmission'] = 'Je hebt nog geen werk ingestuurd';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Algemene feedback';
+$string['overallfeedbackfiles'] = 'Maximum aantal algemene feedback bijlagen';
+$string['overallfeedbackmaxbytes'] = 'Maximale grootte van de feedback bijlagen';
+$string['overallfeedbackmode'] = 'Algemene feedbackmodus';
+$string['overallfeedbackmode_0'] = 'Uitgeschakeld';
+$string['overallfeedbackmode_1'] = 'Ingeschakeld en optioneel';
+$string['overallfeedbackmode_2'] = 'Ingeschakeld en vereist';
+$string['overallfeedbackmode_help'] = 'Indien ingeschakeld zla een tekstveld getoond worden onderaan het beoordelingsformulier. Beoordelers kunnen de algemene beoordeling van de inzending daar zetten of een bijkomende verklaring geven over hun beoordeling.';
 $string['page-mod-workshop-x'] = 'Elke pagina van de Workshop';
 $string['participant'] = 'Deelnemer';
 $string['participantrevierof'] = 'Deelnemer is beoordeler van';
@@ -208,6 +219,7 @@ $string['recentsubmissions'] = 'Workshop taken:';
 $string['saveandclose'] = 'Bewaar en sluit';
 $string['saveandcontinue'] = 'Bewaar en ga verder met beoordelen';
 $string['saveandpreview'] = 'Bewaar en bekijk voorbeeld';
+$string['saveandshownext'] = 'Bewaar en toon volgende';
 $string['selfassessmentdisabled'] = 'Zelfevaluatie uitgeschakeld';
 $string['showingperpage'] = 'Er worden {$a} items per pagina getoond';
 $string['showingperpagechange'] = 'Wijzig...';
@@ -285,7 +297,6 @@ $string['withoutsubmission'] = 'Beoordelaar zonder eigen inzending';
 $string['workshop:addinstance'] = 'Voeg een nieuwe workshop toe';
 $string['workshop:allocate'] = 'Taken toewijzen voor beoordeling';
 $string['workshop:editdimensions'] = 'Bewerk beoordelingsformulieren';
-$string['workshopfeatures'] = 'Mogelijkheden Workshop';
 $string['workshop:ignoredeadlines'] = 'Negeer tijdsbeperkingen';
 $string['workshop:manageexamples'] = 'Beheer voorbeeldtaken';
 $string['workshopname'] = 'Workshop naam';
@@ -299,6 +310,7 @@ $string['workshop:viewallassessments'] = 'Bekijk alle beoordelingen';
 $string['workshop:viewallsubmissions'] = 'Bekijk alle taken';
 $string['workshop:viewauthornames'] = 'Bekijk de namen';
 $string['workshop:viewauthorpublished'] = 'Bekijk de namen van de gepubliceerde taken';
+$string['workshopviewed'] = 'Workshop bekeken';
 $string['workshop:viewpublishedsubmissions'] = 'Bekijk gepubliceerde taken';
 $string['workshop:viewreviewernames'] = 'Bekijk de namen van de beoordelaars';
 $string['yourassessment'] = 'Jouw beoordeling';

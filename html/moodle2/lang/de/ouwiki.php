@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'ouwiki', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'ouwiki', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   ouwiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -159,7 +159,6 @@ $string['feedtitle'] = '{$a->course} Wiki: {$a->name} - {$a->subtitle}';
 $string['format_html'] = 'Online anzeigen';
 $string['format_rtf'] = 'Im Textformat herunterladen';
 $string['format_template'] = 'Als Wikivorlage herunterladen';
-$string['format_template_file_warning'] = 'Hinweis: Dieses Wiki enthält Anhänge, die nicht in die Wikivorlage einbezogen werden.';
 $string['frompage'] = 'von {$a}';
 $string['frompages'] = 'von {$a}';
 $string['gradesupdated'] = 'Bewertungen aktualisiert';

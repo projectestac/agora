@@ -41,8 +41,6 @@ class enrol_self_enrol_form extends moodleform {
     }
 
     public function definition() {
-        global $DB;
-
         $mform = $this->_form;
         $instance = $this->_customdata;
         $this->instance = $instance;
@@ -50,17 +48,6 @@ class enrol_self_enrol_form extends moodleform {
 
         $heading = $plugin->get_instance_name($instance);
         $mform->addElement('header', 'selfheader', $heading);
-
-        if ($instance->customint3 > 0) {
-            // Max enrol limit specified.
-            $count = $DB->count_records('user_enrolments', array('enrolid'=>$instance->id));
-            if ($count >= $instance->customint3) {
-                // Bad luck, no more self enrolments here.
-                $this->toomany = true;
-                $mform->addElement('static', 'notice', '', get_string('maxenrolledreached', 'enrol_self'));
-                return;
-            }
-        }
 
         if ($instance->password) {
             // Change the id of self enrolment key input as there can be multiple self enrolment methods.
@@ -114,7 +101,7 @@ class enrol_self_enrol_form extends moodleform {
                 } else {
                     $plugin = enrol_get_plugin('self');
                     if ($plugin->get_config('showhint')) {
-                        $hint = textlib::substr($instance->password, 0, 1);
+                        $hint = core_text::substr($instance->password, 0, 1);
                         $errors['enrolpassword'] = get_string('passwordinvalidhint', 'enrol_self', $hint);
                     } else {
                         $errors['enrolpassword'] = get_string('passwordinvalid', 'enrol_self');

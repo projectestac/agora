@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = '访问控制';
 $string['aggregategrades'] = '重新计算成绩';
 $string['aggregation'] = '成绩汇总';
 $string['allocate'] = '分配作业';
@@ -123,8 +122,10 @@ $string['examplesmode'] = '范例评价模式';
 $string['examplesubmissions'] = '范例作业';
 $string['examplesvoluntary'] = '自愿决定是否评价范例作业';
 $string['feedbackauthor'] = '给作者反馈';
+$string['feedbackauthorattachment'] = '附件';
 $string['feedbackby'] = '{$a}的反馈';
 $string['feedbackreviewer'] = '给评价人反馈';
+$string['feedbacksettings'] = '反馈';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -180,6 +181,7 @@ $string['notoverridden'] = '不覆盖';
 $string['noworkshops'] = '这个课程中没有互动评价活动';
 $string['noyoursubmission'] = '您还没有提交作业';
 $string['nullgrade'] = '-';
+$string['overallfeedbackmaxbytes'] = '文件尺寸上限';
 $string['page-mod-workshop-x'] = '任意互动评价模块页面';
 $string['participant'] = '参与者';
 $string['participantrevierof'] = '参与者评价谁';
@@ -204,6 +206,7 @@ $string['recentsubmissions'] = '互动评价的作业：';
 $string['saveandclose'] = '保存并关闭';
 $string['saveandcontinue'] = '保存并继续编辑';
 $string['saveandpreview'] = '保存并预览';
+$string['saveandshownext'] = '保存并显示下一个';
 $string['selfassessmentdisabled'] = '禁用自我评价';
 $string['showingperpage'] = '每页显示项 {$a}';
 $string['showingperpagechange'] = '改变......';
@@ -279,7 +282,6 @@ $string['withoutsubmission'] = '评价人未上传自己的作业';
 $string['workshop:addinstance'] = '添加一个新的互动评价';
 $string['workshop:allocate'] = '分配作业用于评价';
 $string['workshop:editdimensions'] = '编辑评价表格';
-$string['workshopfeatures'] = '互动评价特性';
 $string['workshop:ignoredeadlines'] = '忽略时间限制';
 $string['workshop:manageexamples'] = '管理作业范例';
 $string['workshopname'] = '互动评价名称';

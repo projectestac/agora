@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assign', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assign', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   assign
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,7 +36,6 @@ $string['assign:view'] = 'معاينة مهمة';
 $string['backtoassignment'] = 'العودة للوظيفة';
 $string['comment'] = 'تعليق (علق)';
 $string['currentgrade'] = 'الدرجة الحالية في';
-$string['defaultplugins'] = 'إعدادات الوظيفة الافتراضية';
 $string['description'] = 'الوصف';
 $string['duedate'] = 'تاريخ تقديم مهمة';
 $string['duedateno'] = 'لا يوجد موعد لتقديم المهمة';
@@ -51,6 +50,7 @@ $string['gradingstatus'] = 'حالة التقييم';
 $string['gradingsummary'] = 'خلاصة التقييم';
 $string['modulenameplural'] = 'مهام';
 $string['newsubmissions'] = 'مهام تم تقديمها';
+$string['noattempt'] = 'لا توجد محاولات';
 $string['nosavebutnext'] = 'التالي';
 $string['notgraded'] = 'لم يتم التقييم';
 $string['notgradedyet'] = 'لم تعطى درجة بعد';
@@ -64,6 +64,7 @@ $string['previous'] = 'السابق';
 $string['reviewed'] = 'تمت مراجعته';
 $string['savechanges'] = 'حفظ التغييرات';
 $string['showrecentsubmissions'] = 'أظهر التسليمات الحديثة';
+$string['status'] = 'الحالة';
 $string['submission'] = 'تسليم';
 $string['submissions'] = 'تسليمات';
 $string['submissionslocked'] = 'هذه الوظيفة لا تقبل التسليم الآن';

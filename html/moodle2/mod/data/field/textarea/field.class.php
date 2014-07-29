@@ -69,11 +69,7 @@ class data_field_textarea extends data_field_base {
             $text = file_prepare_draft_area($draftitemid, $this->context->id, 'mod_data', 'content', $content->id, $options, $text);
         } else {
             $draftitemid = file_get_unused_draft_itemid();
-            if (can_use_html_editor()) {
-                $format = FORMAT_HTML;
-            } else {
-                $format = FORMAT_PLAIN;
-            }
+            $format = FORMAT_HTML;
         }
 
         // get filepicker info
@@ -125,7 +121,7 @@ class data_field_textarea extends data_field_base {
         }
         $editor->use_editor($field, $options, $fpoptions);
         $str .= '<input type="hidden" name="'.$field.'_itemid" value="'.$draftitemid.'" />';
-        $str .= '<div><textarea id="'.$field.'" name="'.$field.'" rows="'.$this->field->param3.'" cols="'.$this->field->param2.'">'.s($text).'</textarea></div>';
+        $str .= '<div><textarea id="'.$field.'" name="'.$field.'" rows="'.$this->field->param3.'" cols="'.$this->field->param2.'" spellcheck="true">'.s($text).'</textarea></div>';
         $str .= '<div><label class="accesshide" for="' . $field . '_content1">' . get_string('format') . '</label>';
         $str .= '<select id="' . $field . '_content1" name="'.$field.'_content1">';
         foreach ($formats as $key=>$desc) {

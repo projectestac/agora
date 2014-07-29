@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -89,11 +89,6 @@ No poseu requeriments massa estrictes tampoc, ja que als usuaris no els serà f�
 $string['check_passwordpolicy_error'] = 'No s\'ha establert una política de contrasenyes.';
 $string['check_passwordpolicy_name'] = 'Política de contrasenyes';
 $string['check_passwordpolicy_ok'] = 'S\'ha habilitat la política de contrasenyes.';
-$string['check_passwordsaltmain_details'] = '<p>La configuració d\'una <a href="http://ca.wikipedia.org/wiki/Sal_%28criptografia%29">sal de contrasenya</a> redueix moltíssim el risc de furt de la contrasenya.</p> <p>Per configurar una sal de contrasenya, afegiu la següent línia al fitxer config.php:</p> <code>$CFG->passwordsaltmain = \'poseu aquí una cadena aleatòria molt llarga amb molts caràcters\';</code> <p>La cadena aleatòria de caràcters hauria de ser una barreja de lletres, nombres, i altres caràcters. Es recomana que tingui una longitud de 40 caràcters com a mínim.</p> <p>Si us plau consulteu la <a href="{$a}" target="_blank">documentació de la sal de contrasenya</a> si voleu canviar la sal. Una vegada configurada, NO esborreu la sal de contrasenya o no podreu entrar més al vostre lloc web!</p>';
-$string['check_passwordsaltmain_name'] = 'Sal de contrasenya';
-$string['check_passwordsaltmain_ok'] = 'La sal de contrasenya és correcte';
-$string['check_passwordsaltmain_warning'] = 'No s\'ha configurat cap sal de contrasenya';
-$string['check_passwordsaltmain_weak'] = 'La sal de contrasenya és feble.';
 $string['check_riskadmin_detailsok'] = '<p>Si us plau comproveu la següent llista d\'administrador:</p>{$a}';
 $string['check_riskadmin_name'] = 'Administradors';
 $string['check_riskadmin_ok'] = 'S\'han trobat {$a} administrador(s) dels servidor.';

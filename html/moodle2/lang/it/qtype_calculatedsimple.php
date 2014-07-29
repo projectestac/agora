@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'Almeno un Jolly <strong>{x..}</strong> dovrebbe
 $string['converttocalculated'] = 'Salva come nuova domanda Calcolata semplice standard';
 $string['findwildcards'] = 'Trova i Jolly  {x..} presenti nelle formule delle risposte corrette';
 $string['generatenewitemsset'] = 'Genera';
-$string['mustbenumeric'] = 'Dovete inserire un numero.';
-$string['mustnotbenumeric'] = 'Non può essere un numero.';
 $string['newsetwildcardvalues'] = 'nuovo set di valori Jolly';
 $string['pluginname'] = 'Calcolata semplice';
 $string['pluginnameadding'] = 'Aggiungi domanda Calcolata semplice';

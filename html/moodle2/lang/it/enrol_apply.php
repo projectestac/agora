@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_apply', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_apply', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_apply
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,5 +51,4 @@ $string['mailtoteacher_suject'] = 'Nuova richiesta di iscrizione!';
 $string['notification'] = '<b>Richiesta di iscrizione inviata correttamente</b>. <br/><br/>Sarai informato tramite email quando la tua iscrizione sarà confermata. Se vuoi iscriverti ad altri corsi, clicca su "Corsi" nel menù.';
 $string['pluginname'] = 'Iscrizioni con approvazione';
 $string['sendmailtoteacher'] = 'Invia notifiche via email ai docenti';
-$string['setting_edit'] = 'Modifica';
 $string['status'] = 'Consenti Iscrizioni con approvazione';

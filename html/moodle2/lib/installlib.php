@@ -93,7 +93,7 @@ function install_init_dataroot($dataroot, $dirpermissions) {
         return false;
     }
 
-    umask(0000);
+    umask(0000); // $CFG->umaskpermissions is not set yet.
     if (!file_exists($dataroot)) {
         if (!mkdir($dataroot, $dirpermissions, true)) {
             // most probably this does not work, but anyway
@@ -246,7 +246,10 @@ function install_generate_configphp($database, $cfg) {
     }
     $configphp .= '$CFG->directorypermissions = ' . $chmod . ';' . PHP_EOL . PHP_EOL;
 
-    $configphp .= '$CFG->passwordsaltmain = '.var_export(complex_random_string(), true) . ';' . PHP_EOL . PHP_EOL;
+    // A site-wide salt is only needed if bcrypt is not properly supported by the current version of PHP.
+    if (password_compat_not_supported()) {
+        $configphp .= '$CFG->passwordsaltmain = '.var_export(complex_random_string(), true) . ';' . PHP_EOL . PHP_EOL;
+    }
 
     $configphp .= 'require_once(dirname(__FILE__) . \'/lib/setup.php\');' . PHP_EOL . PHP_EOL;
     $configphp .= '// There is no php closing tag in this file,' . PHP_EOL;
@@ -421,6 +424,7 @@ function install_cli_database(array $options, $interactive) {
     @ini_set('display_errors', '1');
     $CFG->debug = (E_ALL | E_STRICT);
     $CFG->debugdisplay = true;
+    $CFG->debugdeveloper = true;
 
     $CFG->version = '';
     $CFG->release = '';
@@ -491,7 +495,7 @@ function install_cli_database(array $options, $interactive) {
     upgrade_finished();
 
     // log in as admin - we need do anything when applying defaults
-    session_set_user(get_admin());
+    \core\session\manager::set_user(get_admin());
 
     // apply all default settings, do it twice to fill all defaults - some settings depend on other setting
     admin_apply_default_settings(NULL, true);

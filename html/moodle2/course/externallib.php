@@ -156,7 +156,7 @@ class core_course_external extends external_api {
                         //url of the module
                         $url = $cm->get_url();
                         if ($url) { //labels don't have url
-                            $module['url'] = $cm->get_url()->out();
+                            $module['url'] = $cm->get_url()->out(false);
                         }
 
                         $canviewhidden = has_capability('moodle/course:viewhiddenactivities',
@@ -349,7 +349,6 @@ class core_course_external extends external_api {
                 $courseinfo['timemodified'] = $course->timemodified;
                 $courseinfo['forcetheme'] = $course->theme;
                 $courseinfo['enablecompletion'] = $course->enablecompletion;
-                $courseinfo['completionstartonenrol'] = $course->completionstartonenrol;
                 $courseinfo['completionnotify'] = $course->completionnotify;
                 $courseinfo['courseformatoptions'] = array();
                 foreach ($courseformatoptions as $key => $value) {
@@ -423,10 +422,6 @@ class core_course_external extends external_api {
                                     'Enabled, control via completion and activity settings. Disbaled,
                                         not shown in activity settings.',
                                     VALUE_OPTIONAL),
-                            'completionstartonenrol' => new external_value(PARAM_INT,
-                                    '1: begin tracking a student\'s progress in course completion
-                                        after course enrolment. 0: does not',
-                                    VALUE_OPTIONAL),
                             'completionnotify' => new external_value(PARAM_INT,
                                     '1: yes 0: no', VALUE_OPTIONAL),
                             'lang' => new external_value(PARAM_SAFEDIR,
@@ -499,10 +494,6 @@ class core_course_external extends external_api {
                                     'Enabled, control via completion and activity settings. Disabled,
                                         not shown in activity settings.',
                                     VALUE_OPTIONAL),
-                            'completionstartonenrol' => new external_value(PARAM_INT,
-                                    '1: begin tracking a student\'s progress in course completion after
-                                        course enrolment. 0: does not',
-                                    VALUE_OPTIONAL),
                             'completionnotify' => new external_value(PARAM_INT,
                                     '1: yes 0: no', VALUE_OPTIONAL),
                             'lang' => new external_value(PARAM_SAFEDIR,
@@ -537,7 +528,7 @@ class core_course_external extends external_api {
         $params = self::validate_parameters(self::create_courses_parameters(),
                         array('courses' => $courses));
 
-        $availablethemes = get_plugin_list('theme');
+        $availablethemes = core_component::get_plugin_list('theme');
         $availablelangs = get_string_manager()->get_list_of_translations();
 
         $transaction = $DB->start_delegated_transaction();
@@ -584,12 +575,8 @@ class core_course_external extends external_api {
                 if (!array_key_exists('enablecompletion', $course)) {
                     $course['enablecompletion'] = $courseconfig->enablecompletion;
                 }
-                if (!array_key_exists('completionstartonenrol', $course)) {
-                    $course['completionstartonenrol'] = $courseconfig->completionstartonenrol;
-                }
             } else {
                 $course['enablecompletion'] = 0;
-                $course['completionstartonenrol'] = 0;
             }
 
             $course['category'] = $course['categoryid'];
@@ -627,6 +614,200 @@ class core_course_external extends external_api {
                     'id'       => new external_value(PARAM_INT, 'course id'),
                     'shortname' => new external_value(PARAM_TEXT, 'short name'),
                 )
+            )
+        );
+    }
+
+    /**
+     * Update courses
+     *
+     * @return external_function_parameters
+     * @since Moodle 2.5
+     */
+    public static function update_courses_parameters() {
+        return new external_function_parameters(
+            array(
+                'courses' => new external_multiple_structure(
+                    new external_single_structure(
+                        array(
+                            'id' => new external_value(PARAM_INT, 'ID of the course'),
+                            'fullname' => new external_value(PARAM_TEXT, 'full name', VALUE_OPTIONAL),
+                            'shortname' => new external_value(PARAM_TEXT, 'course short name', VALUE_OPTIONAL),
+                            'categoryid' => new external_value(PARAM_INT, 'category id', VALUE_OPTIONAL),
+                            'idnumber' => new external_value(PARAM_RAW, 'id number', VALUE_OPTIONAL),
+                            'summary' => new external_value(PARAM_RAW, 'summary', VALUE_OPTIONAL),
+                            'summaryformat' => new external_format_value('summary', VALUE_OPTIONAL),
+                            'format' => new external_value(PARAM_PLUGIN,
+                                    'course format: weeks, topics, social, site,..', VALUE_OPTIONAL),
+                            'showgrades' => new external_value(PARAM_INT,
+                                    '1 if grades are shown, otherwise 0', VALUE_OPTIONAL),
+                            'newsitems' => new external_value(PARAM_INT,
+                                    'number of recent items appearing on the course page', VALUE_OPTIONAL),
+                            'startdate' => new external_value(PARAM_INT,
+                                    'timestamp when the course start', VALUE_OPTIONAL),
+                            'numsections' => new external_value(PARAM_INT,
+                                    '(deprecated, use courseformatoptions) number of weeks/topics', VALUE_OPTIONAL),
+                            'maxbytes' => new external_value(PARAM_INT,
+                                    'largest size of file that can be uploaded into the course', VALUE_OPTIONAL),
+                            'showreports' => new external_value(PARAM_INT,
+                                    'are activity report shown (yes = 1, no =0)', VALUE_OPTIONAL),
+                            'visible' => new external_value(PARAM_INT,
+                                    '1: available to student, 0:not available', VALUE_OPTIONAL),
+                            'hiddensections' => new external_value(PARAM_INT,
+                                    '(deprecated, use courseformatoptions) How the hidden sections in the course are
+                                        displayed to students', VALUE_OPTIONAL),
+                            'groupmode' => new external_value(PARAM_INT, 'no group, separate, visible', VALUE_OPTIONAL),
+                            'groupmodeforce' => new external_value(PARAM_INT, '1: yes, 0: no', VALUE_OPTIONAL),
+                            'defaultgroupingid' => new external_value(PARAM_INT, 'default grouping id', VALUE_OPTIONAL),
+                            'enablecompletion' => new external_value(PARAM_INT,
+                                    'Enabled, control via completion and activity settings. Disabled,
+                                        not shown in activity settings.', VALUE_OPTIONAL),
+                            'completionnotify' => new external_value(PARAM_INT, '1: yes 0: no', VALUE_OPTIONAL),
+                            'lang' => new external_value(PARAM_SAFEDIR, 'forced course language', VALUE_OPTIONAL),
+                            'forcetheme' => new external_value(PARAM_PLUGIN, 'name of the force theme', VALUE_OPTIONAL),
+                            'courseformatoptions' => new external_multiple_structure(
+                                new external_single_structure(
+                                    array('name' => new external_value(PARAM_ALPHANUMEXT, 'course format option name'),
+                                        'value' => new external_value(PARAM_RAW, 'course format option value')
+                                )),
+                                    'additional options for particular course format', VALUE_OPTIONAL),
+                        )
+                    ), 'courses to update'
+                )
+            )
+        );
+    }
+
+    /**
+     * Update courses
+     *
+     * @param array $courses
+     * @since Moodle 2.5
+     */
+    public static function update_courses($courses) {
+        global $CFG, $DB;
+        require_once($CFG->dirroot . "/course/lib.php");
+        $warnings = array();
+
+        $params = self::validate_parameters(self::update_courses_parameters(),
+                        array('courses' => $courses));
+
+        $availablethemes = core_component::get_plugin_list('theme');
+        $availablelangs = get_string_manager()->get_list_of_translations();
+
+        foreach ($params['courses'] as $course) {
+            // Catch any exception while updating course and return as warning to user.
+            try {
+                // Ensure the current user is allowed to run this function.
+                $context = context_course::instance($course['id'], MUST_EXIST);
+                self::validate_context($context);
+
+                $oldcourse = course_get_format($course['id'])->get_course();
+
+                require_capability('moodle/course:update', $context);
+
+                // Check if user can change category.
+                if (array_key_exists('categoryid', $course) && ($oldcourse->category != $course['categoryid'])) {
+                    require_capability('moodle/course:changecategory', $context);
+                    $course['category'] = $course['categoryid'];
+                }
+
+                // Check if the user can change fullname.
+                if (array_key_exists('fullname', $course) && ($oldcourse->fullname != $course['fullname'])) {
+                    require_capability('moodle/course:changefullname', $context);
+                }
+
+                // Check if the user can change shortname.
+                if (array_key_exists('shortname', $course) && ($oldcourse->shortname != $course['shortname'])) {
+                    require_capability('moodle/course:changeshortname', $context);
+                }
+
+                // Check if the user can change the idnumber.
+                if (array_key_exists('idnumber', $course) && ($oldcourse->idnumber != $course['idnumber'])) {
+                    require_capability('moodle/course:changeidnumber', $context);
+                }
+
+                // Check if user can change summary.
+                if (array_key_exists('summary', $course) && ($oldcourse->summary != $course['summary'])) {
+                    require_capability('moodle/course:changesummary', $context);
+                }
+
+                // Summary format.
+                if (array_key_exists('summaryformat', $course) && ($oldcourse->summaryformat != $course['summaryformat'])) {
+                    require_capability('moodle/course:changesummary', $context);
+                    $course['summaryformat'] = external_validate_format($course['summaryformat']);
+                }
+
+                // Check if user can change visibility.
+                if (array_key_exists('visible', $course) && ($oldcourse->visible != $course['visible'])) {
+                    require_capability('moodle/course:visibility', $context);
+                }
+
+                // Make sure lang is valid.
+                if (array_key_exists('lang', $course) && empty($availablelangs[$course['lang']])) {
+                    throw new moodle_exception('errorinvalidparam', 'webservice', '', 'lang');
+                }
+
+                // Make sure theme is valid.
+                if (array_key_exists('forcetheme', $course)) {
+                    if (!empty($CFG->allowcoursethemes)) {
+                        if (empty($availablethemes[$course['forcetheme']])) {
+                            throw new moodle_exception('errorinvalidparam', 'webservice', '', 'forcetheme');
+                        } else {
+                            $course['theme'] = $course['forcetheme'];
+                        }
+                    }
+                }
+
+                // Make sure completion is enabled before setting it.
+                if (array_key_exists('enabledcompletion', $course) && !completion_info::is_enabled_for_site()) {
+                    $course['enabledcompletion'] = 0;
+                }
+
+                // Make sure maxbytes are less then CFG->maxbytes.
+                if (array_key_exists('maxbytes', $course)) {
+                    $course['maxbytes'] = get_max_upload_file_size($CFG->maxbytes, $course['maxbytes']);
+                }
+
+                if (!empty($course['courseformatoptions'])) {
+                    foreach ($course['courseformatoptions'] as $option) {
+                        if (isset($option['name']) && isset($option['value'])) {
+                            $course[$option['name']] = $option['value'];
+                        }
+                    }
+                }
+
+                // Update course if user has all required capabilities.
+                update_course((object) $course);
+            } catch (Exception $e) {
+                $warning = array();
+                $warning['item'] = 'course';
+                $warning['itemid'] = $course['id'];
+                if ($e instanceof moodle_exception) {
+                    $warning['warningcode'] = $e->errorcode;
+                } else {
+                    $warning['warningcode'] = $e->getCode();
+                }
+                $warning['message'] = $e->getMessage();
+                $warnings[] = $warning;
+            }
+        }
+
+        $result = array();
+        $result['warnings'] = $warnings;
+        return $result;
+    }
+
+    /**
+     * Returns description of method result value
+     *
+     * @return external_description
+     * @since Moodle 2.5
+     */
+    public static function update_courses_returns() {
+        return new external_single_structure(
+            array(
+                'warnings' => new external_warnings()
             )
         );
     }
@@ -1449,7 +1630,7 @@ class core_course_external extends external_api {
      */
     public static function create_categories($categories) {
         global $CFG, $DB;
-        require_once($CFG->dirroot . "/course/lib.php");
+        require_once($CFG->libdir . "/coursecatlib.php");
 
         $params = self::validate_parameters(self::create_categories_parameters(),
                         array('categories' => $categories));
@@ -1469,38 +1650,10 @@ class core_course_external extends external_api {
             self::validate_context($context);
             require_capability('moodle/category:manage', $context);
 
-            // Check name.
-            if (textlib::strlen($category['name'])>255) {
-                throw new moodle_exception('categorytoolong');
-            }
+            // this will validate format and throw an exception if there are errors
+            external_validate_format($category['descriptionformat']);
 
-            $newcategory = new stdClass();
-            $newcategory->name = $category['name'];
-            $newcategory->parent = $category['parent'];
-            // Format the description.
-            if (!empty($category['description'])) {
-                $newcategory->description = $category['description'];
-            }
-            $newcategory->descriptionformat = external_validate_format($category['descriptionformat']);
-            if (isset($category['theme']) and !empty($CFG->allowcategorythemes)) {
-                $newcategory->theme = $category['theme'];
-            }
-            // Check id number.
-            if (!empty($category['idnumber'])) { // Same as in course/editcategory_form.php .
-                if (textlib::strlen($category['idnumber'])>100) {
-                    throw new moodle_exception('idnumbertoolong');
-                }
-                if ($existing = $DB->get_record('course_categories', array('idnumber' => $category['idnumber']))) {
-                    if ($existing->id) {
-                        throw new moodle_exception('idnumbertaken');
-                    }
-                }
-                $newcategory->idnumber = $category['idnumber'];
-            }
-
-            $newcategory = create_course_category($newcategory);
-            // Populate special fields.
-            fix_course_sortorder();
+            $newcategory = coursecat::create($category);
 
             $createdcategories[] = array('id' => $newcategory->id, 'name' => $newcategory->name);
         }
@@ -1563,7 +1716,7 @@ class core_course_external extends external_api {
      */
     public static function update_categories($categories) {
         global $CFG, $DB;
-        require_once($CFG->dirroot . "/course/lib.php");
+        require_once($CFG->libdir . "/coursecatlib.php");
 
         // Validate parameters.
         $params = self::validate_parameters(self::update_categories_parameters(), array('categories' => $categories));
@@ -1571,49 +1724,16 @@ class core_course_external extends external_api {
         $transaction = $DB->start_delegated_transaction();
 
         foreach ($params['categories'] as $cat) {
-            if (!$category = $DB->get_record('course_categories', array('id' => $cat['id']))) {
-                throw new moodle_exception('unknowcategory');
-            }
+            $category = coursecat::get($cat['id']);
 
             $categorycontext = context_coursecat::instance($cat['id']);
             self::validate_context($categorycontext);
             require_capability('moodle/category:manage', $categorycontext);
 
-            if (!empty($cat['name'])) {
-                if (textlib::strlen($cat['name'])>255) {
-                     throw new moodle_exception('categorytoolong');
-                }
-                $category->name = $cat['name'];
-            }
-            if (!empty($cat['idnumber'])) {
-                if (textlib::strlen($cat['idnumber'])>100) {
-                    throw new moodle_exception('idnumbertoolong');
-                }
-                $category->idnumber = $cat['idnumber'];
-            }
-            if (!empty($cat['description'])) {
-                $category->description = $cat['description'];
-                $category->descriptionformat = external_validate_format($cat['descriptionformat']);
-            }
-            if (!empty($cat['theme'])) {
-                $category->theme = $cat['theme'];
-            }
-            if (!empty($cat['parent']) && ($category->parent != $cat['parent'])) {
-                // First check if parent exists.
-                if (!$parent_cat = $DB->get_record('course_categories', array('id' => $cat['parent']))) {
-                    throw new moodle_exception('unknowcategory');
-                }
-                // Then check if we have capability.
-                self::validate_context(get_category_or_system_context((int)$cat['parent']));
-                require_capability('moodle/category:manage', get_category_or_system_context((int)$cat['parent']));
-                // Finally move the category.
-                move_category($category, $parent_cat);
-                $category->parent = $cat['parent'];
-                // Get updated path by move_category().
-                $category->path = $DB->get_field('course_categories', 'path',
-                        array('id' => $category->id));
-            }
-            $DB->update_record('course_categories', $category);
+            // this will throw an exception if descriptionformat is not valid
+            external_validate_format($cat['descriptionformat']);
+
+            $category->update($cat);
         }
 
         $transaction->allow_commit();
@@ -1663,6 +1783,7 @@ class core_course_external extends external_api {
     public static function delete_categories($categories) {
         global $CFG, $DB;
         require_once($CFG->dirroot . "/course/lib.php");
+        require_once($CFG->libdir . "/coursecatlib.php");
 
         // Validate parameters.
         $params = self::validate_parameters(self::delete_categories_parameters(), array('categories' => $categories));
@@ -1670,9 +1791,7 @@ class core_course_external extends external_api {
         $transaction = $DB->start_delegated_transaction();
 
         foreach ($params['categories'] as $category) {
-            if (!$deletecat = $DB->get_record('course_categories', array('id' => $category['id']))) {
-                throw new moodle_exception('unknowcategory');
-            }
+            $deletecat = coursecat::get($category['id'], MUST_EXIST);
             $context = context_coursecat::instance($deletecat->id);
             require_capability('moodle/category:manage', $context);
             self::validate_context($context);
@@ -1680,29 +1799,32 @@ class core_course_external extends external_api {
 
             if ($category['recursive']) {
                 // If recursive was specified, then we recursively delete the category's contents.
-                category_delete_full($deletecat, false);
+                if ($deletecat->can_delete_full()) {
+                    $deletecat->delete_full(false);
+                } else {
+                    throw new moodle_exception('youcannotdeletecategory', '', '', $deletecat->get_formatted_name());
+                }
             } else {
                 // In this situation, we don't delete the category's contents, we either move it to newparent or parent.
                 // If the parent is the root, moving is not supported (because a course must always be inside a category).
                 // We must move to an existing category.
                 if (!empty($category['newparent'])) {
-                    if (!$DB->record_exists('course_categories', array('id' => $category['newparent']))) {
-                        throw new moodle_exception('unknowcategory');
-                    }
-                    $newparent = $category['newparent'];
+                    $newparentcat = coursecat::get($category['newparent']);
                 } else {
-                    $newparent = $deletecat->parent;
+                    $newparentcat = coursecat::get($deletecat->parent);
                 }
 
                 // This operation is not allowed. We must move contents to an existing category.
-                if ($newparent == 0) {
+                if (!$newparentcat->id) {
                     throw new moodle_exception('movecatcontentstoroot');
                 }
 
-                $parentcontext = get_category_or_system_context($newparent);
-                require_capability('moodle/category:manage', $parentcontext);
-                self::validate_context($parentcontext);
-                category_delete_move($deletecat, $newparent, false);
+                self::validate_context(context_coursecat::instance($newparentcat->id));
+                if ($deletecat->can_move_content_to($newparentcat->id)) {
+                    $deletecat->delete_move($newparentcat->id, false);
+                } else {
+                    throw new moodle_exception('youcannotdeletecategory', '', '', $deletecat->get_formatted_name());
+                }
             }
         }
 
@@ -1719,6 +1841,70 @@ class core_course_external extends external_api {
         return null;
     }
 
+    /**
+     * Describes the parameters for delete_modules.
+     *
+     * @return external_external_function_parameters
+     * @since Moodle 2.5
+     */
+    public static function delete_modules_parameters() {
+        return new external_function_parameters (
+            array(
+                'cmids' => new external_multiple_structure(new external_value(PARAM_INT, 'course module ID',
+                        VALUE_REQUIRED, '', NULL_NOT_ALLOWED), 'Array of course module IDs'),
+            )
+        );
+    }
+
+    /**
+     * Deletes a list of provided module instances.
+     *
+     * @param array $cmids the course module ids
+     * @since Moodle 2.5
+     */
+    public static function delete_modules($cmids) {
+        global $CFG, $DB;
+
+        // Require course file containing the course delete module function.
+        require_once($CFG->dirroot . "/course/lib.php");
+
+        // Clean the parameters.
+        $params = self::validate_parameters(self::delete_modules_parameters(), array('cmids' => $cmids));
+
+        // Keep track of the course ids we have performed a capability check on to avoid repeating.
+        $arrcourseschecked = array();
+
+        foreach ($params['cmids'] as $cmid) {
+            // Get the course module.
+            $cm = $DB->get_record('course_modules', array('id' => $cmid), '*', MUST_EXIST);
+
+            // Check if we have not yet confirmed they have permission in this course.
+            if (!in_array($cm->course, $arrcourseschecked)) {
+                // Ensure the current user has required permission in this course.
+                $context = context_course::instance($cm->course);
+                self::validate_context($context);
+                // Add to the array.
+                $arrcourseschecked[] = $cm->course;
+            }
+
+            // Ensure they can delete this module.
+            $modcontext = context_module::instance($cm->id);
+            require_capability('moodle/course:manageactivities', $modcontext);
+
+            // Delete the module.
+            course_delete_module($cm->id);
+        }
+    }
+
+    /**
+     * Describes the delete_modules return value.
+     *
+     * @return external_single_structure
+     * @since Moodle 2.5
+     */
+    public static function delete_modules_returns() {
+        return null;
+    }
 }
 
 /**
@@ -1729,7 +1915,6 @@ class core_course_external extends external_api {
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since Moodle 2.0
  * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
- * @todo MDL-31194 This will be deleted in Moodle 2.5.
  * @see core_course_external
  */
 class moodle_course_external extends external_api {
@@ -1740,7 +1925,6 @@ class moodle_course_external extends external_api {
      * @return external_function_parameters
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_course_external::get_courses_parameters()
      */
     public static function get_courses_parameters() {
@@ -1754,7 +1938,6 @@ class moodle_course_external extends external_api {
      * @return array
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_course_external::get_courses()
      */
     public static function get_courses($options) {
@@ -1767,7 +1950,6 @@ class moodle_course_external extends external_api {
      * @return external_description
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_course_external::get_courses_returns()
      */
     public static function get_courses_returns() {
@@ -1780,7 +1962,6 @@ class moodle_course_external extends external_api {
      * @return external_function_parameters
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_course_external::create_courses_parameters()
      */
     public static function create_courses_parameters() {
@@ -1794,7 +1975,6 @@ class moodle_course_external extends external_api {
      * @return array courses (id and shortname only)
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_course_external::create_courses()
      */
     public static function create_courses($courses) {
@@ -1807,7 +1987,6 @@ class moodle_course_external extends external_api {
      * @return external_description
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_course_external::create_courses_returns()
      */
     public static function create_courses_returns() {

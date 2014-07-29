@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dataformfield_time', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'dataformfield_time', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dataformfield_time
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['dateonly'] = 'Date only';
+$string['dateonly_help'] = 'Select this option to display only the date portion of the field value and a date only selector when the field is edited.';
+$string['day'] = 'Day';
+$string['displayformat'] = 'Display format';
+$string['displayformat_help'] = 'You can set a custom display format for the field value. Format options can be found at <a href="http://php.net/manual/en/function.strftime.php">PHP strftime format</a>.';
 $string['fromtimestamp'] = 'From timestamp:';
+$string['hour'] = 'Hour';
+$string['masked'] = 'Masked';
+$string['masked_help'] = 'Select this option to render Time/Date selector dropdowns with labels (e.g. Year, Month, Day) for empty values. The labels are defined in the language pack.';
+$string['minute'] = 'Minute';
+$string['month'] = 'Month';
 $string['pluginname'] = 'Time';
+$string['startyear'] = 'Start year';
+$string['startyear_help'] = 'Year value (YYYY). This value determines the min year value in the date/time selector in editing mode. Leave 0 or empty to use Moodle default.';
+$string['stopyear'] = 'Stop year';
+$string['stopyear_help'] = 'Year value (YYYY). This value determines the max year value in the date/time selector in editing mode. Leave 0 or empty to use Moodle default.';
+$string['year'] = 'Year';

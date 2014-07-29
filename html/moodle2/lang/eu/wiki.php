@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -120,17 +120,17 @@ $string['migrationfinishednowikis'] = 'Migrazioa amaituta, ez da wikirik migratu
 $string['missingpages'] = 'Edukirik gabeko orriak';
 $string['modified'] = 'Aldatuta';
 $string['modulename'] = 'Wikia';
-$string['modulename_help'] = 'Wiki jarduera moduluak ahalbidetzen du parte hartzaileek web-orri multzoa editatu edo gehitu ahal izatea. Elkarlanerako wikia izan daiteke, denek editatu ahal izago dutena, ala banakakoa, norberak berea baino editatu ezin duena.
+$string['modulename_help'] = 'Wikiak partaideek web-orrien bildumak gehitu eta editatzeko aukera ematen du. Wiki bat elkarlanean eraiki daiteke, guztiek editatzeko aukera izanda, edo banaka, bakoitzak bere wikia editatu eta besteena ikusteko aukera izanda.
 
-Wikiaren historian gordeko dira orri bakoitzaren aurreko bertsio guztiak, parte hartzaile bakoitzak egindako ekarpenen zerrendarekin.
+Wikiaren orri bakoitzaren aurreko bertsioen historia gordetzen da, partaide bakoitzak egindako edizioak zerrendatuz.
 
-Wikiek hainbat erabilera dute, esate baterako
+Wikiak erabili daitezke
 
-* Talde-oharren irakurketa edo ikas-gidak
-* Fakultateko kideentzat, lan-plana osatu edo elkarren arteko bileren agenda osatzeko
-* Ikasleentzat, on-line liburu baten egile kolaboratiboa bihurtzeko, edo edukiak sortzeko tutoreak emandako gairen baten gainean.
-* Parte hartzaile bakoitzak lerro edo bertsio bana idazten duten narrazio kolaboratiboak edo poesia-sorkuntza burutzeko
-* Egunkari pertsonal gisara, azterketetako notak berrikusteko (norbanako wikia erabiliz)';
+* Taldeka hitzaldien oharrak edo ikasgai-apunteak osatzeko
+* Taldeko kideek laneko plangintza antolatu edo bilera agenda osatzeko
+* Ikasleek elkarlanean online liburu bat osatzeko, tutoreak proposatutako gaiaren inguruan edukiak sortuz.
+* Istorio-kontaketa edo poesia elkarlanean sortzeko, non partaide bakoitzak lerro edo bertso bat idazten duen.
+* Azterketa ohar edo berrikuspenen norbanakoen eguneroko bat osatzeko (banakako wikia erabilita)';
 $string['modulenameplural'] = 'Wikiak';
 $string['navigation'] = 'Nabigazioa';
 $string['navigationfrom'] = 'Orri hau hemendik dator';
@@ -138,6 +138,7 @@ $string['navigationfrom_help'] = 'Orri honetara estekatutako wiki-orriak';
 $string['navigationto'] = 'Orri hau hona doa';
 $string['navigationto_help'] = 'Beste orri batzuetarako estekak';
 $string['newpage'] = 'Berria';
+$string['newpagehdr'] = 'Orri berria';
 $string['newpagetitle'] = 'Orri berriaren izenburua';
 $string['noattachments'] = '<strong>Ez dago erantsitako fitxategirik</strong>';
 $string['nocomments'] = 'Ez dago iruzkinik';
@@ -185,6 +186,7 @@ $string['pluginadministration'] = 'Wikiaren kudeaketa';
 $string['pluginname'] = 'Wikia';
 $string['prettyprint'] = 'Inprimatzeko bertsioa';
 $string['previewwarning'] = 'Hau aurrebista da. Aldaketak ez dira oraindik gorde.';
+$string['print'] = 'Inprimatu';
 $string['rated'] = 'Orri hau honela kalifikatu duzu: {$a}';
 $string['rating'] = 'Puntuazioa';
 $string['ratingmode'] = 'Puntuazio-modua';
@@ -242,7 +244,7 @@ $string['wikiheader'] = '{$a} mailako izenburua';
 $string['wikihr'] = 'Marra horizontala';
 $string['wikiimage'] = 'Irudia';
 $string['wikiinternalurl'] = 'Barruko esteka';
-$string['wikiintro'] = 'Wikiaren deskribapena';
+$string['wikiintro'] = 'Deskribapena';
 $string['wikiitalictext'] = 'Etzana';
 $string['wikilockingsettings'] = 'Itxi eta berraztertu denbora-mugak';
 $string['wiki:managecomment'] = 'Kudeatu wikiaren iruzkinak';

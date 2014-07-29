@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_googledocs', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_googledocs', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_googledocs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,12 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'ID клиента';
-$string['configplugin'] = 'Настроить модуль "Документы Google"';
-$string['googledocs:view'] = 'Просматривать хранилище "Документы Google"';
-$string['oauth2upgrade_message_content'] = 'При обновлении до Moodle 2.3 плагин Google Docs был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google для получения ID клиента и ключа, как это описано в документации {$a->docsurl}. ID клиента и ключ могут быть использованы для настройки всех плагинов Google Docs и Picasa.';
+$string['configplugin'] = 'Настроить модуль «Google Drive»';
+$string['googledocs:view'] = 'Просматривать хранилище «Google Drive»';
+$string['oauth2upgrade_message_content'] = 'При обновлении до Moodle 2.3 плагин Google Drive был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google для получения ID клиента и ключа, как это описано в документации {$a->docsurl}. ID клиента и ключ могут быть использованы для настройки всех плагинов Google Drive и Picasa.';
 $string['oauth2upgrade_message_small'] = 'Этот плагин был отключен, так как он требует настройки, как описано в документации установки Google OAuth 2.0.';
-$string['oauth2upgrade_message_subject'] = 'Важная информация о плагине  хранилища Google Docs';
-$string['oauthinfo'] = '<p> Для использования этого плагина Вы должны зарегистрировать свой сайт в Google, как описано в документации <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p>
-<p> При регистрации Вам нужно будет ввести следующий URL-адрес как "URL авторизованного перенаправления": </p><p> {$a->callbackurl} </p> После регистрации Вам будет предоставлен ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Docs и Picasa. </p>';
-$string['pluginname'] = 'Документы Google';
+$string['oauth2upgrade_message_subject'] = 'Важная информация о плагине  хранилища Google Drive';
+$string['oauthinfo'] = '<p> Для использования этого плагина Вы должны зарегистрировать свой сайт в Google, как описано в документации <a href="{$a->docsurl}">Установка Google OAuth 2.0</a>. </p><p> При регистрации Вам нужно будет ввести как «URL-адрес перенаправления авторизации» следующий адрес: </p><p> {$a->callbackurl}. </p> После регистрации Вам будут предоставлены ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Drive и Picasa. </p><p> Обратите внимание, что Вам придется включить службу «Drive API». </p>';
+$string['pluginname'] = 'Google Drive';
 $string['secret'] = 'Ключ';
+$string['servicenotenabled'] = 'Доступ не настроен. Убедитесь, что служба «Drive API» включена.';

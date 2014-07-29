@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'flashcard', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'flashcard', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   flashcard
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -144,6 +144,7 @@ $string['mediumeffortcards'] = 'Middle effort set';
 $string['minaccess'] = 'Less viewed ticks';
 $string['missingimage'] = '{missing image file}';
 $string['missingsound'] = '{missing sound file}';
+$string['missingvid'] = '{missing video file}';
 $string['modulename'] = 'Flash Card Set';
 $string['modulename_help'] = '<p>
 This module provide students a way of fast memoizing list of "things". This is a typical
@@ -214,4 +215,5 @@ $string['trivialcards'] = 'Trivial cards';
 $string['undefinedquestionset'] = 'No matching question was elected in quizzes for this flashcard set';
 $string['userdecks'] = 'Users\' decks';
 $string['userdecksummary'] = 'Deck {$a->deckid}: {$a->count} cards ({$a->cardcount} hits in total on the deck)';
+$string['video'] = 'Video';
 $string['viewed'] = 'Viewes';

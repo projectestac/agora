@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,6 @@ $string['createdat'] = 'الموضع الأصلي للكتلة';
 $string['defaultregion'] = 'منظقة افتراضية';
 $string['defaultweight'] = 'وزن فتراضي';
 $string['defaultweight_help'] = 'تسْمحُ لك القيمةِ الأفتراضي إخْتياَر المكان الذي تُريدُ الكتلةَ أَنْ تَظْهرَ فيه ضمن المنطقةِ المُختَاَرةِ، أمّا في الأعلى أَو الأسفل. مع العلم أنه سيتم حساب الموقعَ النهائيَ للكتلة مع باقي الكُتَل في تلك المنطقةِ (على سبيل المثال، فقط كتلة واحدة يُمْكِنُ أَنْ تَكُونَ في الأعلى). يُمْكِنُ أَنْ تُتجاوزَ هذه القيمةِ على الصفحاتِ المعيّنةِ إذا كان هذا مطلوبا.';
-$string['moveblockhere'] = 'حرك الكتة هنا';
 $string['movingthisblockcancel'] = 'حرك هذه الكتلة ({$a})';
 $string['onthispage'] = 'على هذه الصفحة';
 $string['pagetypes'] = 'أنواع الصفحات';

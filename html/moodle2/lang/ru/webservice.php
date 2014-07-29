@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -107,7 +107,7 @@ $string['invalidiptoken'] = 'Ключ недействителен - этот IP
 $string['invalidtimedtoken'] = 'Ключ недействителен - ключ истек';
 $string['invalidtoken'] = 'Ключ недействителен - ключ не найден.';
 $string['iprestriction'] = 'Ограничение IP-адресов';
-$string['iprestriction_help'] = 'Пользователю нужно будет вызвать веб-службу с перечисленных IP-адресов.';
+$string['iprestriction_help'] = 'Пользователю нужно будет вызвать веб-службу с перечисленных (через запятую) IP-адресов.';
 $string['key'] = 'Ключ';
 $string['keyshelp'] = 'Ключи используются для предоставления внешним приложениям доступа к Вашей учетной записи Moodle.';
 $string['manageprotocols'] = 'Управление протоколами';
@@ -120,6 +120,7 @@ $string['missingusername'] = 'Отсутствует логин';
 $string['missingversionfile'] = 'Ошибка в исходном коде: отсутствует файл version.php для компонента «{$a}»';
 $string['mobilewsdisabled'] = 'Отключено';
 $string['mobilewsenabled'] = 'Включено';
+$string['nocapabilitytouseparameter'] = 'Пользователь не имеет права использовать параметр {$a}';
 $string['nofunctions'] = 'Эта служба не имеет функций.';
 $string['norequiredcapability'] = 'Никакие дополнительные права не требуются';
 $string['notoken'] = 'Список ключей безопасности пуст';
@@ -181,8 +182,11 @@ $string['token'] = 'Ключ';
 $string['tokenauthlog'] = 'Ключ аутентификации';
 $string['tokencreatedbyadmin'] = 'Может быть сброшен только администратором (*)';
 $string['tokencreator'] = 'Создатель';
+$string['unknownoptionkey'] = 'Неизвестный параметр ключа ({$a})';
 $string['unnamedstringparam'] = 'Строка параметров не имеет названия.';
 $string['updateusersettings'] = 'Обновить';
+$string['uploadfiles'] = 'Можно загружать файлы';
+$string['uploadfiles_help'] = 'При включенном параметре любой пользователь может загружать файлы с их ключами безопасности в свою область личных файлов или в область для файлов-черновиков. К любому файлу пользователя применяются квоты.';
 $string['userasclients'] = 'Пользователи как клиенты с ключами';
 $string['userasclientsdescription'] = 'Следующие шаги помогут Вам установить веб-службу Moodle для пользователей-клиентов. Эти действия также помогут Вам установить рекомендуемые ключи безопасности метода авторизации. При этом пользователь должен будет сгенерировать свой ключ из ключей безопасности через настройки «Моего профиля»';
 $string['usermissingcaps'] = 'Пропущенные возможности: {$a}';

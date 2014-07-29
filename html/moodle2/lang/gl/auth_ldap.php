@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -98,10 +98,18 @@ $string['auth_ldap_usertypeundefined'] = 'config.user_type non está definido ou
 $string['auth_ldap_usertypeundefined2'] = 'config.user_type non está definido ou a función ldap_unixi2expirationtime non admite o tipo seleccionado.';
 $string['auth_ldap_version'] = 'A versión do protocolo LDAP que está a empregar o seu servidor.';
 $string['auth_ldap_version_key'] = 'Versión';
+$string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = 'Seleccione «Si» para tentar Single Sign On co dominio NTLM. <strong>Nota:</strong> isto require unha configuración adicional no servidor web para traballar; vexa <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Activar';
 $string['auth_ntlmsso_ie_fastpath'] = 'Seleccione «Si» para activar a ruta NTLM SSO rápida (saltase algúns pasos e só traballa se o navegador é o MS Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Intentar NTLM con todos os navegadores';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'Ruta rápida a MS IE?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Si, tentar NTLM con outros navegadores';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Si, todos os outros navegadores usan o formato para acceso estándar';
+$string['auth_ntlmsso_maybeinvalidformat'] = 'Non foi posíbel extraer o nome de usuario da cabeceira REMOTE_USER (USUARIO_REMOTO). É correcto o formato configurado?';
+$string['auth_ntlmsso_missing_username'] = 'É necesario que especifique polo menos %username% no formato de nome de usuario remoto';
+$string['auth_ntlmsso_remoteuserformat'] = 'Se escolleu «NTLM» no «Tipo de autenticación», Pode especificar aquí o formato de nome de usuario remoto. Se o deixa baleiro, usarase o formato de DOMAINusername (nomedeusuarioDODOMINIO). Pode usar o substituíbel opcional <b>%domain%</b> para especificar onde aparece o nome do dominio, e o substituíbel obrigatorio <b>%username%</b> para especificar onde aparece o nome de usuario. <br /><br />Algúns dos formatos usados frecuentemente son <tt>%domain%%username%</tt> (predeterminado en MS Windows), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> e simplemente <tt>%username%</tt> (se non houber a parte do dominio).';
+$string['auth_ntlmsso_remoteuserformat_key'] = 'Formato de nome de usuario remoto';
 $string['auth_ntlmsso_subnet'] = 'Se estabelece esta opción, só se tentará o SSO con clientes desta subrede. Formato: xxx.xxx.xxx.xxx/máscara. Separe varias subredes con «,» (coma).';
 $string['auth_ntlmsso_subnet_key'] = 'Subrede';
 $string['auth_ntlmsso_type'] = 'O método de autenticación configurado no servidor web para autenticar aos usuarios (en caso de dúbida, escolla NTLM)';
@@ -125,10 +133,15 @@ $string['ntlmsso_attempting'] = 'Tentando Single Sign On mediante NTLM...';
 $string['ntlmsso_failed'] = 'Non foi posíbel acceder automaticamente, tenteo na páxina de acceso normal...';
 $string['ntlmsso_isdisabled'] = 'NTLM SSO está desactivado';
 $string['ntlmsso_unknowntype'] = 'Tipo ntlmsso descoñecido';
+$string['pagedresultsnotsupp'] = 'LDAP enviou resultados non admitidos (sexa que a súa versión PHP non é compatíbel ou que teña configurado Moodle para usar a versión 2 do protocolo LDAP)';
+$string['pagesize'] = 'Asegúrese de que este valor sexa menor ao límite configurado polo resultado do seu servidor LDAP (o número máximo de entradas que poden retornarse nunha soa solicitude)';
+$string['pagesize_key'] = 'Tamaño da páxina';
 $string['pluginname'] = 'Servidor LDAP';
 $string['pluginnotenabled'] = 'Engadido non activado';
 $string['renamingnotallowed'] = 'O renomeado de usuarios non está activado en LDAP';
 $string['rootdseerror'] = 'Produciuse un erro ao consultar rootDSE para Active Directory';
+$string['start_tls'] = 'Usar o servizo LDAP regular (porto 389) con cifrado TLS';
+$string['start_tls_key'] = 'Usar TLS';
 $string['updatepasserror'] = 'Produciuse un erro en user_update_password{}. Código de erro: {$a->errno}. Cadea de erro: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Produciuse un erro en user_update_password{} ao ler a caducidade do contrasinal.  Código de erro: {$a->errno}. Cadea do erro: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Produciuse un erro en user_update_password{} ao modificar a caducidade e/ou os accesos libres.  Código de erro: {$a->errno}. Cadea do erro: {$a->errstring}';

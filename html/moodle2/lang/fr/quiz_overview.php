@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_overview', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_overview', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,7 +44,6 @@ $string['optallattempts'] = 'toutes les tentatives';
 $string['optallstudents'] = 'Tous les {$a}';
 $string['optattemptsonly'] = '{$a} ayant effectué le test';
 $string['optnoattemptsonly'] = '{$a} n\'ayant pas effectué le test';
-$string['optonlygradedattempts'] = 'évaluées de chaque participant ({$a})';
 $string['optonlyregradedattempts'] = 'recalculées ou marquées comme devant être recalculées';
 $string['overview'] = 'Notes';
 $string['overviewdownload'] = 'Téléchargement vue d\'ensemble';

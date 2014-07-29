@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshopallocation_manual', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshopallocation_manual', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   workshopallocation_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['addreviewee'] = 'Gehitu ebaluazioa';
 $string['addreviewer'] = 'Gehitu ebaluatzailea';
 $string['allocationadded'] = 'Bidalketa ondo esleitu da';
 $string['allocationexists'] = 'Esleipena dagoeneko badago';
+$string['areyousuretodeallocate'] = 'Ziur al zaude aukeratutako ebaluaketaren esleipena kendu nahi duzula?';
 $string['areyousuretodeallocategraded'] = 'Dagoeneko kalifikatu den ebaluazioa ezabatuko duzu. Ziur al zaude ezabatu nahi duzula?';
 $string['pluginname'] = 'Eskuzko esleipena';
 $string['showallparticipants'] = 'Partaide guztiak erakutsi';

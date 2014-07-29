@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dbtransfer', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,5 @@ $string['exportschemaexception'] = 'La estructura de la base de datos actual no 
 $string['importschemaexception'] = 'La estructura de la base de datos actual no coincide con todos los archivos install.xml. <br /> {$a}';
 $string['importversionmismatchexception'] = 'La versión actual {$a->currentver} no coincide con la versión exportada {$a->schemaver}.';
 $string['malformedxmlexception'] = 'Se ha encontrado XML corrupto, no se puede continuar.';
+$string['tablex'] = 'Tabla {$a}:';
 $string['unknowntableexception'] = 'Se ha encontrado una tabla desconocida {$a} en el archivo de exportación.';

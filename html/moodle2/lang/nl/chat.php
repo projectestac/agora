@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'Chatsessie op komst';
 $string['ajax'] = 'Versie met Ajax';
 $string['autoscroll'] = 'Automatisch rollen';
 $string['beep'] = 'Piep';
+$string['bubble'] = 'Tekstballonnetje';
 $string['cantlogin'] = 'Kon niet in de chatroom!';
 $string['chat:addinstance'] = 'Voeg een nieuwe chat toe';
 $string['chat:chat'] = 'Gebruik chat';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Bekijk chatlogs';
 $string['chatreport'] = 'Chat-sessies';
 $string['chat:talk'] = 'Praat in een chat';
 $string['chattime'] = 'Volgende chattijd';
+$string['compact'] = 'Compact';
 $string['composemessage'] = 'Maak een bericht';
 $string['configmethod'] = 'De ajax chatmethode geeft een ajaxgebaseerde chatinterface die regelmatig de server contacteert voor updates. De gewone chatmethode laat de clients regelmatig contact opnemen met de server voor updates. Deze methode vraagt geen configuratie en werkt op alle servers, maar kan een zware belasting op de server veroorzaken wanneer er veel chatters tegelijk online zijn. Om een serverdaemon te kunnen gebruiken heb je  shell-toegang tot Unix nodig, maar je krijgt er een snelle, schaalbare chatomgeving mee.';
 $string['confignormalupdatemode'] = 'Chatrooms worden normaal gezien heel eficient geupdatet met de <em>Keep-Alive</em> functie van het HTTP 1.1 protocol, maar het geeft een grote belasting voor de server. Een meer geavanceerde methode is gebruik te maken van <em>Stream</em> om de updates tot bij de gebruikers te krijgen. Het gebruik van <em>Stream</em> geeft betere resultaten (gelijkwaardig met de chatd methode), maar het is mogelijk dat je server dat niet ondersteunt.';
@@ -51,6 +53,7 @@ $string['configserverhost'] = 'De naam van de computer waarop de serverdaemon ge
 $string['configserverip'] = 'Het IP-adres dat hoort bij bovenstaande computernaam';
 $string['configservermax'] = 'Maximale aantal toegelaten clients';
 $string['configserverport'] = 'Poort die de server moet gebruiken voor de daemon';
+$string['coursetheme'] = 'Cursusthema';
 $string['currentchats'] = 'Actieve chatsessies';
 $string['currentusers'] = 'Huidige gebruikers';
 $string['deletesession'] = 'Verwijder de sessie';
@@ -59,6 +62,9 @@ $string['donotusechattime'] = 'Publiceer geen chattijden';
 $string['enterchat'] = 'Klik hier om de chat nu binnen te gaan';
 $string['entermessage'] = 'Geef je bericht';
 $string['errornousers'] = 'Kon geen gebruikers vinden!';
+$string['event_instances_list_viewed'] = 'Instantielijst bekeken';
+$string['event_message_sent'] = 'Bericht verzonden';
+$string['event_sessions_viewed'] = 'Sessies bekeken';
 $string['explaingeneralconfig'] = 'Deze instellingen worden <strong>altijd</strong> gebruikt';
 $string['explainmethoddaemon'] = 'Deze instellingen worden <strong>alleen maar</strong> gebruikt als je de "Chat server daemon" gekozen hebt bij chat_method';
 $string['explainmethodnormal'] = 'Deze instellingen worden <strong>alleen maar</strong> gebrukt als je "Normale methode" gekozen hebt bij chat_method';
@@ -115,7 +121,7 @@ $string['refreshuserlist'] = 'Ververs gebruikerslijst';
 $string['removemessages'] = 'Verwijder alle berichten';
 $string['repeatdaily'] = 'Elke dag om dezelfde tijd';
 $string['repeatnone'] = 'Geen herhalingen - alleen publiceren op de aangegeven tijd';
-$string['repeattimes'] = 'Herhaal sessies';
+$string['repeattimes'] = 'Herhaal/publiceer  chatsessiemomenten';
 $string['repeatweekly'] = 'Elke week om dezelfde tijd';
 $string['saidto'] = 'zei tegen';
 $string['savemessages'] = 'Bewaar voorbije chatsessies';

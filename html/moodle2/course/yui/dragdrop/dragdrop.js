@@ -1,8 +1,9 @@
 YUI.add('moodle-course-dragdrop', function(Y) {
 
     var CSS = {
+        ACTIONAREA: '.actions',
         ACTIVITY : 'activity',
-        COMMANDSPAN : 'span.commands',
+        ACTIVITYINSTANCE : 'activityinstance',
         CONTENT : 'content',
         COURSECONTENT : 'course-content',
         EDITINGMOVE : 'editing_move',
@@ -27,7 +28,7 @@ YUI.add('moodle-course-dragdrop', function(Y) {
     Y.extend(DRAGSECTION, M.core.dragdrop, {
         sectionlistselector : null,
 
-        initializer : function(params) {
+        initializer : function() {
             // Set group for parent class
             this.groups = [ CSS.SECTIONDRAGGABLE ];
             this.samenodeclass = M.course.format.get_sectionwrapperclass();
@@ -40,8 +41,6 @@ YUI.add('moodle-course-dragdrop', function(Y) {
             // Initialise sections dragging
             this.sectionlistselector = M.course.format.get_section_wrapper(Y);
             if (this.sectionlistselector) {
-                // We need both the list of all sections, and just those which are moveable.
-                // When updating titles and orders, the immoveable sections may need to be updated too.
                 this.sectionlistselector = '.'+CSS.COURSECONTENT+' '+this.sectionlistselector;
 
                 this.setup_for_section(this.sectionlistselector);
@@ -76,7 +75,7 @@ YUI.add('moodle-course-dragdrop', function(Y) {
         setup_for_section : function(baseselector) {
             Y.Node.all(baseselector).each(function(sectionnode) {
                 // Determine the section ID
-                var sectionid = this.get_section_id(sectionnode);
+                var sectionid = Y.Moodle.core_course.util.section.getId(sectionnode);
 
                 // We skip the top section as it is not draggable
                 if (sectionid > 0) {
@@ -104,10 +103,6 @@ YUI.add('moodle-course-dragdrop', function(Y) {
                     }
                 }
             }, this);
-        },
-
-        get_section_id : function(node) {
-            return Number(node.get('id').replace(/section-/i, ''));
         },
 
         /*
@@ -149,7 +144,7 @@ YUI.add('moodle-course-dragdrop', function(Y) {
 
             // Get references to our nodes and their IDs.
             var dragnode = drag.get('node'),
-                dragnodeid = this.get_section_id(dragnode),
+                dragnodeid = Y.Moodle.core_course.util.section.getId(dragnode),
                 loopstart = dragnodeid,
 
                 dropnodeindex = this.get_section_index(dragnode),
@@ -169,18 +164,22 @@ YUI.add('moodle-course-dragdrop', function(Y) {
                 loopend = dragnodeid;
             }
 
-            // Get the list of nodes
+            // Get the list of nodes.
             drag.get('dragNode').removeClass(CSS.COURSECONTENT);
             var sectionlist = Y.Node.all(this.sectionlistselector);
 
-            // Add lightbox if it not there
+            // Add a lightbox if it's not there.
             var lightbox = M.util.add_lightbox(Y, dragnode);
 
-            var params = {};
+            // Handle any variables which we must pass via AJAX.
+            var params = {},
+                pageparams = this.get('config').pageparams,
+                varname;
 
-            // Handle any variables which we must pass back through to
-            var pageparams = this.get('config').pageparams;
             for (varname in pageparams) {
+                if (!pageparams.hasOwnProperty(varname)) {
+                    continue;
+                }
                 params[varname] = pageparams[varname];
             }
 
@@ -192,14 +191,13 @@ YUI.add('moodle-course-dragdrop', function(Y) {
             params.id = dragnodeid;
             params.value = dropnodeindex;
 
-            // Do AJAX request
+            // Perform the AJAX request.
             var uri = M.cfg.wwwroot + this.get('ajaxurl');
-
             Y.io(uri, {
                 method: 'POST',
                 data: params,
                 on: {
-                    start : function(tid) {
+                    start : function() {
                         lightbox.show();
                     },
                     success: function(tid, response) {
@@ -223,10 +221,10 @@ YUI.add('moodle-course-dragdrop', function(Y) {
                         do {
                             swapped = false;
                             for (index = loopstart; index <= loopend; index++) {
-                                if (this.get_section_id(sectionlist.item(index - 1)) >
-                                            this.get_section_id(sectionlist.item(index))) {
-                                    Y.log("Swapping " + this.get_section_id(sectionlist.item(index - 1)) +
-                                            " with " + this.get_section_id(sectionlist.item(index)));
+                                if (Y.Moodle.core_course.util.section.getId(sectionlist.item(index - 1)) >
+                                            Y.Moodle.core_course.util.section.getId(sectionlist.item(index))) {
+                                    Y.log("Swapping " + Y.Moodle.core_course.util.section.getId(sectionlist.item(index - 1)) +
+                                            " with " + Y.Moodle.core_course.util.section.getId(sectionlist.item(index)));
                                     // Swap section id.
                                     var sectionid = sectionlist.item(index - 1).get('id');
                                     sectionlist.item(index - 1).set('id', sectionlist.item(index).get('id'));
@@ -246,6 +244,7 @@ YUI.add('moodle-course-dragdrop', function(Y) {
                             lightbox.hide();
                         }, 250);
                     },
+
                     failure: function(tid, response) {
                         this.ajax_failure(response);
                         lightbox.hide();
@@ -279,7 +278,16 @@ YUI.add('moodle-course-dragdrop', function(Y) {
             this.groups = ['resource'];
             this.samenodeclass = CSS.ACTIVITY;
             this.parentnodeclass = CSS.SECTION;
-            this.resourcedraghandle = this.get_drag_handle(M.str.moodle.move, CSS.EDITINGMOVE, CSS.ICONCLASS);
+            this.resourcedraghandle = this.get_drag_handle(M.util.get_string('movecoursemodule', 'moodle'), CSS.EDITINGMOVE, CSS.ICONCLASS, true);
+
+            this.samenodelabel = {
+                identifier: 'afterresource',
+                component: 'moodle'
+            };
+            this.parentnodelabel = {
+                identifier: 'totopofsection',
+                component: 'moodle'
+            };
 
             // Go through all sections
             var sectionlistselector = M.course.format.get_section_selector(Y);
@@ -327,6 +335,7 @@ YUI.add('moodle-course-dragdrop', function(Y) {
                     resources.addClass(CSS.SECTION);
                     sectionnode.one('.'+CSS.CONTENT+' div.'+CSS.SUMMARY).insert(resources, 'after');
                 }
+                resources.setAttribute('data-draggroups', this.groups.join(' '));
                 // Define empty ul as droptarget, so that item could be moved to empty list
                 var tar = new Y.DD.Drop({
                     node: resources,
@@ -354,14 +363,6 @@ YUI.add('moodle-course-dragdrop', function(Y) {
             }, this);
         },
 
-        get_section_id : function(node) {
-            return Number(node.get('id').replace(/section-/i, ''));
-        },
-
-        get_resource_id : function(node) {
-            return Number(node.get('id').replace(/module-/i, ''));
-        },
-
         drag_start : function(e) {
             // Get our drag object
             var drag = e.target;
@@ -383,12 +384,14 @@ YUI.add('moodle-course-dragdrop', function(Y) {
             var dropnode = e.drop.get('node');
 
             // Add spinner if it not there
-            var spinner = M.util.add_spinner(Y, dragnode.one(CSS.COMMANDSPAN));
+            var actionarea = dragnode.one(CSS.ACTIONAREA);
+            var spinner = M.util.add_spinner(Y, actionarea);
 
             var params = {};
 
             // Handle any variables which we must pass back through to
             var pageparams = this.get('config').pageparams;
+            var varname;
             for (varname in pageparams) {
                 params[varname] = pageparams[varname];
             }
@@ -398,11 +401,11 @@ YUI.add('moodle-course-dragdrop', function(Y) {
             params.courseId = this.get('courseid');
             params['class'] = 'resource';
             params.field = 'move';
-            params.id = Number(this.get_resource_id(dragnode));
-            params.sectionId = this.get_section_id(dropnode.ancestor(M.course.format.get_section_wrapper(Y), true));
+            params.id = Number(Y.Moodle.core_course.util.cm.getId(dragnode));
+            params.sectionId = Y.Moodle.core_course.util.section.getId(dropnode.ancestor(M.course.format.get_section_wrapper(Y), true));
 
             if (dragnode.next()) {
-                params.beforeId = Number(this.get_resource_id(dragnode.next()));
+                params.beforeId = Number(Y.Moodle.core_course.util.cm.getId(dragnode.next()));
             }
 
             // Do AJAX request
@@ -457,4 +460,4 @@ YUI.add('moodle-course-dragdrop', function(Y) {
     M.course.init_section_dragdrop = function(params) {
         new DRAGSECTION(params);
     }
-}, '@VERSION@', {requires:['base', 'node', 'io', 'dom', 'dd', 'dd-scroll', 'moodle-core-dragdrop', 'moodle-core-notification', 'moodle-course-coursebase']});
+}, '@VERSION@', {requires:['base', 'node', 'io', 'dom', 'dd', 'dd-scroll', 'moodle-core-dragdrop', 'moodle-core-notification', 'moodle-course-coursebase', 'moodle-course-util']});

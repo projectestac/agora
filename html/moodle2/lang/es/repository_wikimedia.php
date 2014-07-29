@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_wikimedia', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_wikimedia', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_wikimedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Configuración del tipo de repositorio Wikimedia';
 $string['keyword'] = 'Texto completo';
+$string['maxheight'] = 'Altura máxima de la imagen (px)';
+$string['maxwidth'] = 'Anchura máxima de la imagen (px)';
 $string['pluginname'] = 'Wikimedia';
 $string['wikimedia:view'] = 'Ver repositorio Wikimedia';

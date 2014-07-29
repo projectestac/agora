@@ -772,26 +772,26 @@ class grade_grade extends grade_object {
      * @param bool $deleted True if grade was actually deleted
      */
     function notify_changed($deleted) {
-        global $USER, $SESSION, $CFG,$COURSE, $DB;
+        global $CFG;
 
-        // Grades may be cached in user session
-        if ($USER->id == $this->userid) {
-            unset($SESSION->gradescorecache[$this->itemid]);
-        }
-
-        // Ignore during restore
-        // TODO There should be a proper way to determine when we are in restore
-        // so that this hack looking for a $restore global is not needed.
-        global $restore;
-        if (!empty($restore->backup_unique_code)) {
-            return;
+        // Inform conditionlib since it may cache the grades for conditional availability of modules or sections.
+        if (!empty($CFG->enableavailability)) {
+            require_once($CFG->libdir.'/conditionlib.php');
+            condition_info_base::inform_grade_changed($this, $deleted);
         }
 
         require_once($CFG->libdir.'/completionlib.php');
 
         // Bail out immediately if completion is not enabled for site (saves loading
-        // grade item below)
+        // grade item & requiring the restore stuff).
         if (!completion_info::is_enabled_for_site()) {
+            return;
+        }
+
+        // Ignore during restore, as completion data will be updated anyway and
+        // doing it now will result in incorrect dates (it will say they got the
+        // grade completion now, instead of the correct time).
+        if (class_exists('restore_controller', false) && restore_controller::is_executing()) {
             return;
         }
 
@@ -804,11 +804,7 @@ class grade_grade extends grade_object {
         }
 
         // Use $COURSE if available otherwise get it via item fields
-        if(!empty($COURSE) && $COURSE->id == $this->grade_item->courseid) {
-            $course = $COURSE;
-        } else {
-            $course = $DB->get_record('course', array('id'=>$this->grade_item->courseid));
-        }
+        $course = get_course($this->grade_item->courseid, false);
 
         // Bail out if completion is not enabled for course
         $completion = new completion_info($course);

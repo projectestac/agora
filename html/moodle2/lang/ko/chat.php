@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -92,7 +92,7 @@ $string['nopermissiontoseethechatlog'] = '대화 기록을 볼 수 있는 권한
 $string['normalkeepalive'] = '연결유지';
 $string['normalstream'] = '스트림';
 $string['noscheduledsession'] = '예정된 대화방 없음';
-$string['notallowenter'] = '대화방 입장이 허용되지 않습니다.';
+$string['notallowenter'] = '대화방 입장이 허용되지 않음';
 $string['notlogged'] = '아직 로그인하지 않았습니다.';
 $string['oldping'] = '연결 해제 한계값';
 $string['page-mod-chat-x'] = '모든 대화방 모듈 페이지';
@@ -104,7 +104,7 @@ $string['refreshuserlist'] = '사용자 새로 고침';
 $string['removemessages'] = '모든 메시지 삭제';
 $string['repeatdaily'] = '매일 같은 시간에';
 $string['repeatnone'] = '반복 없이 지정된 시간에만 공개';
-$string['repeattimes'] = '세션 반복';
+$string['repeattimes'] = '세션 반복/게시 횟수';
 $string['repeatweekly'] = '매주 같은 시간에';
 $string['saidto'] = '말함';
 $string['savemessages'] = '종료된 대화 저장';

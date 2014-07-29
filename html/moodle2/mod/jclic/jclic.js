@@ -31,15 +31,15 @@ M.mod_jclic.init = function(Y, params) {
     setSkin(params['skin']);
     setLanguage(params['lang']);
     setExitUrl(params['exiturl']);
-    document.getElementById('jclic_applet').innerHTML = getPlugin(params['jclic_url'], params['width'], params['height']);   
+    document.getElementById('jclic_applet').innerHTML = getPlugin(params['jclic_url'], params['width'], params['height']);
 };
 
 
 function showSessionActivities(sessionid){
     activities = document.getElementById('session_'+sessionid);
     if (activities.className == 'jclic-session-activities-visible') {
-        activities.className='jclic-session-activities-hidden';        
+        activities.className='jclic-session-activities-hidden';
     } else{
-        activities.className='jclic-session-activities-visible';        
+        activities.className='jclic-session-activities-visible';
     }
 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Actie';
 $string['addanotherhint'] = 'Voeg nog een hint toe';
 $string['addcategory'] = 'Voeg categorie toe';
+$string['addmorechoiceblanks'] = 'Lege lijnen voor {no} meer keuzes';
 $string['adminreport'] = 'Rapport over mogelijke problemen in je vragendatabank';
 $string['answer'] = 'Antwoord';
+$string['answers'] = 'Antwoorden';
 $string['answersaved'] = 'Antwoord bewaard';
 $string['attemptfinished'] = 'Poging beëindigd';
 $string['attemptfinishedsubmitting'] = 'Poging beëindigd en ingestuurd:';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'Kon geen nieuw item maken in de question_attemptstabe
 $string['cannotcreatepath'] = 'Kon pad niet maken: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'Je kunt vraaggedrag \'{$a}\'niet verwijderen; Het wordt al gebruikt in pogingen van leerlingen.';
 $string['cannotdeletecate'] = 'Je kunt die categorie niet verwijderen. Het is de standaardcategorie voor deze context.';
-$string['cannotdeletemissingbehaviour'] = 'Je kunt het ontbrekende gedrag niet verwijderen. Het wordt vereist door het systeem.';
-$string['cannotdeletemissingqtype'] = 'Je kunt het ontbrekende vraagtype niet verwijderen. Het is nodig voor het systeem.';
 $string['cannotdeleteneededbehaviour'] = 'Kan vraaggedrag \'{$a}\' niet verwijderen. Er zijn andere instellingen die er op steunen.';
 $string['cannotdeleteqtypeinuse'] = 'Je kunt vraagtype \'{$a}\' niet verwijderen. Er zijn vragen van dit type in de vragenpool.';
 $string['cannotdeleteqtypeneeded'] = 'Je kunt vraagtype \'{$a}\' niet verwijderen. Er zijn andere vraagtypes geïnstalleerd die dit type nodig hebben.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'Je zou alleen op deze pagina moeten zijn als je een c
 $string['copy'] = 'Kopiëer van {$a} en wijzig de links.';
 $string['correct'] = 'Juist';
 $string['correctfeedback'] = 'Voor elk juist antwoord';
+$string['correctfeedbackdefault'] = 'Je antwoord is juist.';
 $string['created'] = 'Aangemaakt';
 $string['createdby'] = 'Gemaakt door';
 $string['createdmodifiedheader'] = 'Aangemaakt / gewijzigd';
@@ -111,13 +112,9 @@ $string['defaultfor'] = 'Standaard voor {$a}';
 $string['defaultinfofor'] = 'De standaardcategorie voor gedeelde vragen in context \'{$a}\'';
 $string['defaultmark'] = 'Standaard cijfer';
 $string['defaultmarkmustbepositive'] = 'Het standaardcijfer moet positief zijn.';
-$string['deletebehaviourareyousure'] = 'Verwijder gedrag {$a}: ben je zeker?';
-$string['deletebehaviourareyousuremessage'] = 'Je gaat volledig vraaggedrag  {$a} verwijderen. Dit zal alles verwijderen uit de databank dat geassocieerd is met dit vraaggedrag. Weet je zeker dat je wil verder gaan?';
 $string['deletecoursecategorywithquestions'] = 'Er zijn vragen in de vragenbank geassocieerd met deze cursuscategorie. Als je verdergaat zullen die verwijderd worden. Misschien wil je ze eerst verplaatsen. Gebruik hiervoor de vragenbankinterface.';
-$string['deleteqtypeareyousure'] = 'Ben je er zeker van dat je vraagtype \'{$a}\' wil wissen';
-$string['deleteqtypeareyousuremessage'] = 'Je gaat vraagtype \'{$a}\' verwijderen. Ben je zeker dat je dit wil doen?';
 $string['deletequestioncheck'] = 'Weet je zeker dat je \'{$a}\' wil verwijderen?';
-$string['deletequestionscheck'] = 'Weet je zeker dat je volgende vragen wil verwijderen?<br /><br /> {$a}';
+$string['deletequestionscheck'] = '<p>Weet je zeker dat je volgende vragen wil verwijderen?</p><p> {$a}<p>';
 $string['deletingbehaviour'] = 'Vraaggedrag \'{$a}\' verwijderen';
 $string['deletingqtype'] = 'Vraagtype \'{$a}\' aan het verwijderen';
 $string['didnotmatchanyanswer'] = '[Komt met geen enkel antwoord overeen]';
@@ -191,6 +188,7 @@ $string['getcategoryfromfile'] = 'Haal categorie uit bestand';
 $string['getcontextfromfile'] = 'Haal context uit bestand';
 $string['hidden'] = 'Verborgen';
 $string['hintn'] = 'Hint {no}';
+$string['hintnoptions'] = 'Hint {no} opties';
 $string['hinttext'] = 'Hint tekst';
 $string['howquestionsbehave'] = 'Hoe vragen zich gedragen';
 $string['howquestionsbehave_help'] = 'Leerlingen kunnen op verschillende manieren interageren met de vragen. Bijvoorbeeld kun je wensen dat de leerlingen elke vraag beantwoorden en dan de test insturen voor er ook maar iets beoordeeld wordt of feedback gegeven wordt. Dat is dan de  "Uitgestelde feedback" modus.
@@ -213,6 +211,7 @@ $string['impossiblechar'] = 'Onmogelijk teken {$a} gevonden als haakje';
 $string['includesubcategories'] = 'Toon ook vragen uit subcategorieën';
 $string['incorrect'] = 'Fout';
 $string['incorrectfeedback'] = 'Voor elk fout antwoord';
+$string['incorrectfeedbackdefault'] = 'Je antwoord is niet juist.';
 $string['information'] = 'Informatie';
 $string['invalidanswer'] = 'Onvolledig antwoord';
 $string['invalidarg'] = 'Geen geldige argumenten gegeven of foute serverconfiguratie';
@@ -298,6 +297,7 @@ $string['parenthesisinproperstart'] = 'De haakjes voor ** zijn niet geopend in {
 $string['parsingquestions'] = 'Vragen verwerken van importbestand';
 $string['partiallycorrect'] = 'Gedeeltelijk juist';
 $string['partiallycorrectfeedback'] = 'Voor elk gedeeltelijk juist antwoord';
+$string['partiallycorrectfeedbackdefault'] = 'Je antwoord is gedeeltelijk juist.';
 $string['penaltyfactor'] = 'Strafpuntfactor';
 $string['penaltyfactor_help'] = '<p>Je kunt instellen welk deel van de behaalde score moet afgetrokken worden voor elk fout antwoord. Dit is enkel relevant als de test in adaptieve modus loopt, zodat de leerling meerdere keren kan antwoorden op elke vraag. De straffactor moet een getal zijn tussen 0 en 1. Een straffactor van 1 betekent dat de leerling het antwoord van de eerste keer juist moet hebben om een cijfer te krijgen. Een straffactor van 0 betekent dat de leerling zo dikwijls als hij wil mag proberen en toch nog het volledige cijfer krijgt als hij het antwoord juist heeft.</p>';
 $string['penaltyforeachincorrecttry'] = 'Strafpunt voor elke foute poging';
@@ -310,8 +310,6 @@ $string['permissionsaveasnew'] = 'Bewaar dit als een nieuwe vraag';
 $string['permissionto'] = 'Je hebt het recht om:';
 $string['previewquestion'] = 'Voorbeeld van vraag: {$a}';
 $string['published'] = 'gepubliceerd';
-$string['qbehaviourdeletefiles'] = 'Alle gegevens die geassocieerd zijn met het vraaggedragtype \'{$a->behaviour}\' zijn verwijderd van de databank. Om het verwijderen af te ronden (en om te verhinderen dat het zichzelf opnieuw installeerd), moet je nu volgende map van je server verwijderen: {$a->directory}';
-$string['qtypedeletefiles'] = 'Alle gegevens, geassocieerd met vraagtype \'{$a->qtype}\' zijn verwijderd uit de databank. Om het verwijderen af te ronden (en te voorkomen dat de vraag zichzelf herinstalleerd) moet je nu volgende map van je server verwijderen: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">Vraag "{$a->name}" ({$a->qtype})</a> is in deze vragencategorie, maar is ook gebruikt in <a href="{$a->qurl}">de test "{$a->quizname}"</a> in een andere cursus: "{$a->coursename}".';
 $string['questionbank'] = 'Vragenpool';
@@ -326,6 +324,8 @@ $string['questiondoesnotexist'] = 'Deze vraag bestaat niet.';
 $string['questionidmismatch'] = 'Vraag ID\'s komen niet overeen';
 $string['questionname'] = 'Vraagnaam';
 $string['questionno'] = 'Vraag {$a}';
+$string['questionpreviewdefaults'] = 'Standaardinstellingen vraagvoorbeeld';
+$string['questionpreviewdefaults_desc'] = 'Deze standaardwaarden worden gebruikt wanneer een gebruiker vragen bekijkt in de vragenbank. Wanneer een gebruiker een vraag bekeken heeft, worden deze instellingen bewaard als persoonlijke gebruikersvoorkeuren.';
 $string['questions'] = 'Vragen';
 $string['questionsaveerror'] = 'Fouten opgetreden tijdens het bewaren van de vraag - ({$a})';
 $string['questionsinuse'] = '(* Vragen, gemerkt met een sterretje, zijn al in gebruik in sommige testen. Deze vragen zullen niet uit de testen gewist worden, enkel uit de categorielijst.)';
@@ -351,7 +351,7 @@ $string['selectacategory'] = 'Selecteer een categorie:';
 $string['selectaqtypefordescription'] = 'Selecteer een vraagtype om de beschrijving ervan te zien.';
 $string['selectcategoryabove'] = 'Selecteer één van de bovenstaande categorieën';
 $string['selectquestionsforbulk'] = 'Selecteer vragen voor bulkoperaties';
-$string['settingsformultipletries'] = 'Instellingen voor meerdere pogingen';
+$string['settingsformultipletries'] = 'Meerdere pogingen';
 $string['shareincontext'] = 'Deel in context voor {$a}';
 $string['showhidden'] = 'Toon ook oude vragen';
 $string['showmarkandmax'] = 'Toon cijfer en maximum';
@@ -374,6 +374,7 @@ $string['submitandfinish'] = 'Afgeven en beëindigen';
 $string['submitted'] = 'Afgeven: {$a}';
 $string['technicalinfo'] = 'Technische documentatie';
 $string['technicalinfo_help'] = 'Deze technische informatie is waarschijnlijk enkel nuttig voor ontwikkelaars die aan nieuwe vraagtypes werken. Ze kan ook nuttig zijn om een diagnose te meken bij het oplossen van problemen met vragen.';
+$string['technicalinfomaxfraction'] = 'Maximale fractie: {$a}';
 $string['technicalinfominfraction'] = 'Minimumfractie: {$a}';
 $string['technicalinfoquestionsummary'] = 'Samenvatting vraag: {$a}';
 $string['technicalinforightsummary'] = 'Samenvatting juist antwoord: {$a}';

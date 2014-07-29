@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dbtransfer', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,16 +25,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['checkingsourcetables'] = 'Проверка структуры исходной таблицы';
+$string['checkingsourcetables'] = 'Проверка структуры таблиц исходной базы данных';
 $string['copyingtable'] = 'Копирование таблицы {$a}';
-$string['copyingtables'] = 'Копирование содержимого таблицы';
-$string['creatingtargettables'] = 'Создание таблицы в базе данных-получателе';
+$string['copyingtables'] = 'Копирование содержимого таблиц';
+$string['creatingtargettables'] = 'Создание таблицы в целевой базе данных';
 $string['dbexport'] = 'Экспорт базы данных';
-$string['dbtransfer'] = 'Передача базы данных';
-$string['differenttableexception'] = 'Несоответствие структуры таблицы «{$a}».';
+$string['dbtransfer'] = 'Перенос базы данных';
+$string['differenttableexception'] = 'Несоответствие структуры таблицы {$a}.';
 $string['done'] = 'Выполнено';
 $string['exportschemaexception'] = 'Текущая структура базы данных соответствует не всем файлам install.xml.<br /> {$a}';
 $string['importschemaexception'] = 'Текущая структура базы данных соответствует не всем файлам install.xml<br />{$a}';
 $string['importversionmismatchexception'] = 'Текущая версия {$a->currentver} не соответствует экспортируемой версии {$a->schemaver}.';
-$string['malformedxmlexception'] = 'Некорректный XML, продолжение невозможно.';
-$string['unknowntableexception'] = 'В файле экспорта обнаружена неизвестная таблица «{$a}»';
+$string['malformedxmlexception'] = 'Обнаружен некорректный XML-файл, продолжение невозможно.';
+$string['tablex'] = 'Таблица {$a}:';
+$string['unknowntableexception'] = 'В файле экспорта обнаружена неизвестная таблица {$a}.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradereport_laegrader', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradereport_laegrader', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   gradereport_laegrader
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,12 +31,12 @@ $string['ajaxclicktoclose'] = 'Click this box to remove it';
 $string['ajaxerror'] = 'Error';
 $string['ajaxfailedupdate'] = 'Unable to update [1] for [2]';
 $string['ajaxfieldchanged'] = 'The field you are currently editing has changed, would you like to use the updated value?';
-$string['categorytotal'] = 'CATEGORY TOTAL';
+$string['categorytotal'] = 'CATEGORY TOTAL<br />';
 $string['changedisplay'] = 'Toggle display of this item between Percent, Real, Letter';
 $string['clearoverrides'] = 'Clear all overridden conditions in this column';
 $string['configaccuratetotals'] = 'Categories and course POINT TOTALS computed accurately';
 $string['copytoexcel'] = 'Download contents of gradebook to csv suitable for Excel or Google';
-$string['coursetotal'] = 'COURSE TOTAL';
+$string['coursetotal'] = 'COURSE TOTAL<br />';
 $string['grader:manage'] = 'Manage the grader report';
 $string['laegrader_columnwidth'] = 'Number of characters wide before grade titles wrap';
 $string['laegrader_extrafields'] = 'Show extra user fields';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,9 +39,15 @@ $string['forcedefaultmaxcourses'] = 'Imposer le nombre maximal de cours';
 $string['forcedefaultmaxcoursesdesc'] = 'Si ce réglage est activé, les utilisateurs ne pourront pas modifier ce réglage dans leur profil';
 $string['hiddencoursecount'] = 'Vous avez {$a} cours non affiché';
 $string['hiddencoursecountplural'] = 'Vous avez {$a} cours non affichés';
+$string['hiddencoursecountwithshowall'] = 'Vous avez {$a->coursecount} cours caché ({$a->showalllink})';
+$string['hiddencoursecountwithshowallplural'] = 'Vous avez {$a->coursecount} cours cachés ({$a->showalllink})';
 $string['message'] = 'message';
 $string['messages'] = 'messages';
+$string['moveafterhere'] = 'Déplacement du cours {$a->movingcoursename} après le cours {$a->currentcoursename}';
+$string['movecourse'] = 'Déplacement du cours {$a}';
 $string['movecoursehere'] = 'Déplacer le cours ici';
+$string['movetofirst'] = 'Déplacer le cours {$a} tout en haut';
+$string['movingcourse'] = 'Vous être en train de déplacer {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Nombre de cours à afficher :';
 $string['otherexpanded'] = 'Liste des autres cours dépliée';
 $string['pluginname'] = 'Vue d\'ensemble des cours';
@@ -56,4 +62,4 @@ $string['showwelcomeareadesc'] = 'Si ce réglage est activé, la zone de bienven
 $string['view_edit_profile'] = '(Afficher et modifier votre profil)';
 $string['welcome'] = 'Bienvenue {$a}';
 $string['youhavemessages'] = 'Vous avez un (des) {$a} non lu(s)';
-$string['youhavenomessages'] = 'Vous n\'avez pas de nouveaux';
+$string['youhavenomessages'] = 'Vous n\'avez pas de nouveaux&nbsp;';

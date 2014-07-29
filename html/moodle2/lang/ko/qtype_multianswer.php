@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multianswer', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multianswer', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multianswer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,10 +50,10 @@ $string['questionnotfound'] = '질문영역 #{$a} 에서 질문를 찾을 수 �
 $string['questionsadded'] = '질문 추가됨';
 $string['questionsaveasedited'] = '수정된 대로 저장될 것임';
 $string['questionsless'] = '데이터베이스에 저장된 선다형 질문보다 작은 질문 {$a}';
-$string['questionsmissing'] = '질문 문장은 적어도 한개의 임베드된 답을 포함해야 합니다.';
+$string['questionsmissing'] = '질문 없음. 질문을 만들어야 함';
 $string['questionsmore'] = '데이터베이스에 저장된 선다형 질문보다 많은 질문 {$a}';
 $string['questiontypechanged'] = '질문 유형 변경됨';
-$string['questiontypechangedcomment'] = '적어도 한개의 질문 유형이 변경되었습니다. <br> 질문을 추가, 삭제 혹은 이동하셨습니까? <br> 살펴보십시요.';
+$string['questiontypechangedcomment'] = '적어도 한개의 질문 유형이 변경되었습니다. <br> 질문을 추가, 삭제 혹은 이동하셨습니까? <br> 앞을 내다 보십시요.';
 $string['questionusedinquiz'] = '이 질문은 {$a->nb_of_quiz} 퀴즈에서 사용되었습니다. 총 시도수 : {$a->nb_of_attempts}';
 $string['storedqtype'] = '저장된 질문 유형  {$a}';
 $string['subqresponse'] = '파트 {$a->i}: {$a->response}';

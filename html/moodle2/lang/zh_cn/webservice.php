@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -186,6 +186,8 @@ $string['tokencreatedbyadmin'] = '管理员不能重置（*）';
 $string['tokencreator'] = '创建人';
 $string['unknownoptionkey'] = '未知选项键（{$a}）';
 $string['updateusersettings'] = '更新';
+$string['uploadfiles'] = '可以上传文件';
+$string['uploadfiles_help'] = '若启用，任何用户可以上传文件到私人文件区域或草稿文件区域。文件空间限额对所有用户有效。';
 $string['userasclients'] = '把用户当做有令牌的客户端';
 $string['userasclientsdescription'] = '下面步骤帮助您面向用户设置 Moodle 的网络服务。这些步骤也帮助您设置建议采用的令牌（安全密钥）认证方法。在这种情况下，用户可以在我的个人资料设置中的安全密钥页面生成他的令牌。';
 $string['usermissingcaps'] = '缺少权限：{$a}';

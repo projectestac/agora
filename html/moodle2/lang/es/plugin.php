@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Acciones';
 $string['availability'] = 'Disponibilidad';
 $string['checkforupdates'] = 'Compruebe actualizaciones disponibles';
 $string['checkforupdateslast'] = 'Última comprobación realizada el {$a}';
+$string['detectedmisplacedplugin'] = 'La extensión "{$a->component}" está instalado en la ubicación incorrecta "{$a->current}"; la ubicación prevista es "{$a->expected}"';
 $string['displayname'] = 'Nombre de la extensión';
 $string['err_response_curl'] = 'No pudo obtener actualizaciones disponibles - error cURL inesperado.';
 $string['err_response_format_version'] = 'Formato de respuesta con versión inesperada. Por favor, trate de revisar nuevamente las actualizaciones disponibles.';
@@ -88,6 +89,8 @@ $string['type_cachelock'] = 'Manejador de bloqueo de caché';
 $string['type_cachelock_plural'] = 'Manejadores de bloqueo de caché';
 $string['type_cachestore'] = 'Almacén de caché';
 $string['type_cachestore_plural'] = 'Almacenes de caché';
+$string['type_calendartype'] = 'Tipo de calendario';
+$string['type_calendartype_plural'] = 'Tipos de calendario';
 $string['type_coursereport'] = 'Informe de curso';
 $string['type_coursereport_plural'] = 'Informes del curso';
 $string['type_editor'] = 'Editor';
@@ -137,6 +140,14 @@ $string['type_tool_plural'] = 'Herramientas de administración';
 $string['type_webservice'] = 'Protocolo Webservice';
 $string['type_webservice_plural'] = 'Protocolos de servicios Web';
 $string['uninstall'] = 'Desinstalar';
+$string['uninstallconfirm'] = 'Está apunto de desinstalar la extensión <em>{$a->name}</em>.  Esto eliminará por completo de la base de datos asociada todo lo relacionado con esta extensión, incluyendo su configuración, los registros, los archivos de usuario gestionados por la extensión, etc No hay vuelta atrás y Moodle no crea por si mismo ninguna copia de seguridad de recuperación. ¿Está seguro de que desea continuar?';
+$string['uninstalldelete'] = 'Todos los datos relacionados con la extensión  <em>{$a->name}</em> han sido borrados de la base de datos. Para evitar que la extensión se vuelva a instalar automáticamente, ahora debe eliminar manualmente del servidor su carpeta <em>{$a->rootdir}</em>. Moodle no puede eliminarla automáticamente debido a los permisos de escritura.';
+$string['uninstalldeleteconfirm'] = 'Todos los datos relacionados con la extensión <em>{$a->name}</em> han sido borrados de la base de datos. Para evitar que la extensión se vuelva a instalar automáticamente, ahora debe eliminar del servidor su carpeta <em>{$a->rootdir}</em>. ¿Quieres eliminar la carpeta de la extensión ahora?';
+$string['uninstalldeleteconfirmexternal'] = 'Parece ser que la versión actual de la extensión ha sido obtenida a través de la comprobación del sistema de gestión del código fuente ({$a}t. Si elimina la carpeta de la extensión, puede perder importantes modificaciones locales del código. Por favor asegúrese de que efectivamente quiere eliminar la carpeta de la extensión antes de continuar.';
+$string['uninstallextraconfirmblock'] = 'Hay {$a->instances} instancias de este bloque.';
+$string['uninstallextraconfirmenrol'] = 'Hay {$a->instances} instancias de este bloque.';
+$string['uninstallextraconfirmmod'] = 'Hay {$a->instances} instancias de este bloque.';
+$string['uninstalling'] = 'Desinstalando  {$a->name}';
 $string['updateavailable'] = '¡Existe una nueva versión {$a} disponible!';
 $string['updateavailable_moreinfo'] = 'Más info...';
 $string['updateavailable_release'] = 'Liberado {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_ejsapp_file_browser', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_ejsapp_file_browser', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_ejsapp_file_browser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['auto_refresh'] = 'Frecuencia de actualización automática';
+$string['auto_refresh_description'] = 'Tempo en milisegundos. Escriba «0» para desactivar a actualización automática.';
+$string['auto_refresh_header_config'] = 'Configure a propiedade de actualización automática do bloque';
 $string['managemyfiles'] = 'Xestionar os meus ficheiros';
+$string['pluginname'] = 'Navegador EJSApp de «ficheiros privados»';
 $string['privatefiles'] = 'Ficheiros privados';
+$string['title_of_the_block'] = 'Navegador EJSApp de ficheiros';

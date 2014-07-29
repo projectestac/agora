@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_singleactivity', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_singleactivity', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   format_singleactivity
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,8 +30,8 @@ $string['activitytype_help'] = 'Wählen Sie die Art der Aktivität, die in diese
 $string['defactivitytype'] = 'Standardmäßige Art der Aktivität';
 $string['defactivitytypedesc'] = 'Legen Sie die Aktivität fest, die standardmäßig beim Anlegen eines Kurses ausgewählt wird.';
 $string['erroractivitytype'] = 'Aktivitätstyp ist in den Kurseinstellungen nicht angegeben';
-$string['errornotsetup'] = 'Dieser Kurs ist noch nicht aufgesetzt.';
 $string['orphaned'] = 'Unverknüpft';
 $string['orphanedwarning'] = 'Diese Aktivitäten sind für Nutzer/innen nicht erreichbar!';
 $string['pluginname'] = 'Einzelaktivität';
 $string['sectionname'] = ' ';
+$string['warningchangeformat'] = 'Wenn Sie das vorhandene Kursformat in das Format \'Einzelaktivität\' ändern, müssen Sie vorher alle anderen Aktivitäten aus dem Kurs entfernen, auch das \'Nachrichtenforum\'. Beachten Sie, dass die Abschnittsstruktur sich ändern könnte.';

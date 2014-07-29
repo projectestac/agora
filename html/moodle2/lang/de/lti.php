@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -125,6 +125,7 @@ $string['force_ssl'] = 'SSL erzwingen';
 $string['force_ssl_help'] = 'Mit dieser Funktion erzwingen Sie SSL für alle Verbindungen zu diesem Anbieter.
 Dies gilt auch für alle Web Service Anfrage zu dem Anbieter.
 Hierzu ist es erforderelich, dass sowohl das Moodle-System als auch der Anbieter SSL unterstützen.';
+$string['generaltool'] = 'Allgemeines Tool';
 $string['global_tool_types'] = 'Globale Tooltypen';
 $string['grading'] = 'Bewerungsweiterleitung';
 $string['icon_url'] = 'Icon URL';
@@ -152,12 +153,13 @@ $string['lti_errormsg'] = 'Das Tool gab folgende Fehlermeldung zurück: \'{$a}\'
 $string['lti:grade'] = 'Bewertungen vom ext. Tool anzeigen';
 $string['lti_launch_error'] = 'Beim Start des externen Tools trat ein Fehler auf:';
 $string['lti_launch_error_tool_request'] = '<p>Zum Versand einer Anfrage an den Administrator zur Vervollständigung der Tool-Konfiguration klicken Sie <a href="{$a->admin_request_url}" target="_top">hier</a>. </p>';
-$string['lti_launch_error_unsigned_help'] = '<p>Der Fehler kann seine Ursache in einem fehlenden Anwenderschlüssel und Sicherheitseinstellungen für den Toolanbieter haben</p><p>WennSie einen Anwenderschlüssel und Daten für die Sicherheitskonfiguration haben, geben Sie diese bei den Einstellungen für das externe Tool  ein. Beachten Sie auch die erweiterten Einstelloptionen.<br />Alternativ können Sie auch eine kursweite Konfiguration für den Tool-Anbieter anlegen. Klicken Sie dazu
+$string['lti_launch_error_unsigned_help'] = '<p>Der Fehler kann seine Ursache in einem fehlenden Anwenderschlüssel und Sicherheitseinstellungen für den Toolanbieter haben</p><p>Wenn Sie einen Anwenderschlüssel und Daten für die Sicherheitskonfiguration haben, geben Sie diese bei den Einstellungen für das externe Tool  ein. Beachten Sie auch die erweiterten Einstelloptionen.<br />Alternativ können Sie auch eine kursweite Konfiguration für den Tool-Anbieter anlegen. Klicken Sie dazu
 <a href="{$a->course_tool_editor}">hier</a>. </p>';
 $string['lti:manage'] = 'Als Trainer/in auf das ext. Tool zugreifen';
 $string['lti:requesttooladd'] = 'Externes Tool zur systemweiten Nutzung anfragen';
 $string['lti_tool_request_added'] = 'Die Konfigurationsanfrage wurde erfolgreich weitergeleitet. Kontakten Sie den Administrator nun, um den Prozess abzuschließen.';
 $string['lti_tool_request_existing'] = 'Für die Domain wurde bereits eine Konfiguration beauftragt.';
+$string['ltiunknownserviceapicall'] = 'Unbekannter API-Aufruf für externes Tool';
 $string['lti:view'] = 'Aktivität Externes Tool aufrufen';
 $string['main_admin'] = 'Allgemeine Hilfe';
 $string['main_admin_help'] = 'Externe Tools ermöglichen es Moodle Nutzern nahtlos mit externen Lernanwendungen zu arbeiten und Daten auszutauschen. Durch ein spezielles Start-Protokoll erhält das externe Tool Zugriff auf bestimmte Daten des Nutzers. Dies können sein: Institutionsbezeichnung, Kurs-ID, Nutzer-ID, Nutzername oder E-Mail.
@@ -176,7 +178,7 @@ $string['modulename_help'] = 'Mit der Schnittstelle "Externe Tools" geben Sie de
 Die Teilnehmer/innen benötigen kein zusätzliches Login. Die Verbindung zwischen Moodle und dem externen Lernprogramm erfolgt über den LTI-Standard, den das andere Lernprogramm unterstützen muss. Sie erhalten vom Anbieter einen Link und Zugangsschlüssel.
 
 Hinweis zum Datenschutz: Häufig werden Namen und E-Mail-Adressen Ihrer Teilnehmer/innen an den externen Anbieter übertragen. Fragen Sie den Anbieter.';
-$string['modulenameplural'] = 'Basis-LTIs';
+$string['modulenameplural'] = 'Externe Tools';
 $string['modulenamepluralformatted'] = 'LTI Instanzen';
 $string['never'] = 'Nie';
 $string['new_window'] = 'Neues Fenster';
@@ -270,7 +272,10 @@ In den meisten Fällen ist diese Funktion nicht erforderlich. Trainer können in
 Es wird empfohlen, diese Funktion zu verwenden, wenn die Tool-Konfiguration ein Single-Sign-On verwendet. In dem Fall würden die Nutzer nicht auf einer speziellen Seite landen, sondern eine Startseite vorfinden.';
 $string['size'] = 'Größenparameter';
 $string['submission'] = 'Leistungen';
+$string['submissions'] = 'Einträge';
 $string['submissionsfor'] = 'Einreichungen für {$a}';
+$string['subplugintype_ltisource'] = 'LTI Quelle';
+$string['subplugintype_ltisource_plural'] = 'LTI Quellen';
 $string['toggle_debug_data'] = 'Auf Debug-Modus umschalten';
 $string['tool_config_not_found'] = 'Tool-Konfiguration für diese URL nicht gefunden';
 $string['tool_settings'] = 'Tool-Einstellungen';

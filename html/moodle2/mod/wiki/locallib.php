@@ -719,13 +719,27 @@ function wiki_parser_get_token($markup, $name) {
 /**
  * Checks if current user can view a subwiki
  *
- * @param $subwiki
+ * @param stdClass $subwiki usually record from {wiki_subwikis}. Must contain fields 'wikiid', 'groupid', 'userid'.
+ *     If it also contains fields 'course' and 'groupmode' from table {wiki} it will save extra DB query.
+ * @param stdClass $wiki optional wiki object if known
+ * @return bool
  */
-function wiki_user_can_view($subwiki) {
+function wiki_user_can_view($subwiki, $wiki = null) {
     global $USER;
 
-    $wiki = wiki_get_wiki($subwiki->wikiid);
-    $cm = get_coursemodule_from_instance('wiki', $wiki->id);
+    if (empty($wiki) || $wiki->id != $subwiki->wikiid) {
+        $wiki = wiki_get_wiki($subwiki->wikiid);
+    }
+    $modinfo = get_fast_modinfo($wiki->course);
+    if (!isset($modinfo->instances['wiki'][$subwiki->wikiid])) {
+        // Module does not exist.
+        return false;
+    }
+    $cm = $modinfo->instances['wiki'][$subwiki->wikiid];
+    if (!$cm->uservisible) {
+        // The whole module is not visible to the current user.
+        return false;
+    }
     $context = context_module::instance($cm->id);
 
     // Working depending on activity groupmode
@@ -767,7 +781,7 @@ function wiki_user_can_view($subwiki) {
         //      Each person owns a wiki.
         if ($wiki->wikimode == 'collaborative' || $wiki->wikimode == 'individual') {
             // Only members of subwiki group could view that wiki
-            if (groups_is_member($subwiki->groupid)) {
+            if (in_array($subwiki->groupid, $modinfo->get_groups($cm->groupingid))) {
                 // Only view capability needed
                 return has_capability('mod/wiki:viewpage', $context);
 
@@ -1303,8 +1317,8 @@ function wiki_print_page_content($page, $context, $subwikiid) {
  */
 function wiki_trim_string($text, $limit = 25) {
 
-    if (textlib::strlen($text) > $limit) {
-        $text = textlib::substr($text, 0, $limit) . '...';
+    if (core_text::strlen($text) > $limit) {
+        $text = core_text::substr($text, 0, $limit) . '...';
     }
 
     return $text;
@@ -1404,8 +1418,11 @@ function wiki_print_upload_table($context, $filearea, $fileitemid, $deleteupload
  */
 function wiki_build_tree($page, $node, &$keys) {
     $content = array();
-    static $icon;
-    $icon = new pix_icon('f/odt', '');
+    static $icon = null;
+    if ($icon === null) {
+        // Substitute the default navigation icon with empty image.
+        $icon = new pix_icon('spacer', '');
+    }
     $pages = wiki_get_linked_pages($page->id);
     foreach ($pages as $p) {
         $key = $page->id . ':' . $p->id;

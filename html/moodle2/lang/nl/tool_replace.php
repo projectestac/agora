@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_replace', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,10 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cannotfit'] = 'Het nieuwe is langer dan het origineel en korter maken is niet toegestaan. Kan niet verder.';
 $string['disclaimer'] = 'Ik begrijp de risico\'s van deze opertatie:';
+$string['doit'] = 'Ja, doe maar!';
+$string['excludedtables'] = 'Er zijn verschillende tabellen niet aangepast bij het vervangen van tekst. Dit zijn configuratie, logs en sessietabellen.';
 $string['notifyfinished'] = '... klaar';
 $string['notifyrebuilding'] = 'Cursuscache heropbouwen ...';
-$string['notimplemented'] = 'Deze functie bestaat enkel voor MySQL en PostgreSQL databanken.';
+$string['notimplemented'] = 'Deze functie bestaat niet voor jouw databank-driver';
 $string['notsupported'] = 'Dit script wordt niet ondersteund, maak een volledige back-up voor je verder gaat!<br />Deze operatie kan niet ongedaan gemaakt worden!';
 $string['pageheader'] = 'Zoek en vervang tekst in heel de databank';
 $string['pluginname'] = 'DB zoeken en vervangen';
@@ -36,3 +39,4 @@ $string['replacewith'] = 'Vervang met deze string:';
 $string['replacewithhelp'] = 'gewoonlijk een nieuwe server URL';
 $string['searchwholedb'] = 'Zoek in de hele databank naar:';
 $string['searchwholedbhelp'] = 'gewoonlijk de vorige server URL';
+$string['shortenoversized'] = 'Verkort resultaat als nodig';

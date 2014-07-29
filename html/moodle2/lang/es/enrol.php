@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,8 +39,11 @@ $string['defaultenrol_desc'] = 'Es posible añadir esta extensión, por defecto,
 $string['deleteinstanceconfirm'] = 'Está a punto de eliminar el método de matriculación "{$a->name}". Todos los  {$a->users} usuarios actualmente matriculados con este método serán dados de baja y cualquier información suya relativa a sus cursos, como las calificaciones, pertenencia a grupos o suscripción a foros será eliminada.
 
 ¿Está seguro que quiere continuar?';
+$string['deleteinstanceconfirmself'] = '¿Estás seguro de que quieres eliminar el elemento "{$a->name}" que le da acceso a este curso? Es posible que usted luego no pueda acceder a este curso si continúa.';
 $string['deleteinstancenousersconfirm'] = 'Está a punto de eliminar el método de matriculación "{$a->name}". ¿Está seguro que quiere continuar?';
+$string['disableinstanceconfirmself'] = '¿Estás seguro de que quieres eliminar el elemento "{$a->name}" que le da acceso a este curso? Es posible que usted luego no pueda acceder a este curso si continúa.';
 $string['durationdays'] = '{$a} días';
+$string['editenrolment'] = 'Editar matricula';
 $string['enrol'] = 'Matricular';
 $string['enrolcandidates'] = 'Usuarios no matriculados';
 $string['enrolcandidatesmatching'] = 'Emparejar usuarios no matriculados';
@@ -69,6 +72,9 @@ $string['errorenrolcohort'] = 'Error al crear ejemplo de matriculación sync de 
 $string['errorenrolcohortusers'] = 'Error al matricular a los miembros de la cohorte en este curso.';
 $string['errorthresholdlow'] = 'El umbral para la notificación debe ser al menos 1 día.';
 $string['errorwithbulkoperation'] = 'Se produjo un error mientras se procesaban sus cambios de matriculación masivos';
+$string['eventuserenrolmentcreated'] = 'Usuario matriculado en curso';
+$string['eventuserenrolmentdeleted'] = 'Usuario matriculado en curso';
+$string['eventuserenrolmentupdated'] = 'Usuario matriculado en curso';
 $string['expirynotify'] = 'Notificar antes de que la matrícula expire';
 $string['expirynotifyall'] = 'Persona que matricula y usuario matriculado';
 $string['expirynotifyenroller'] = 'Persona que matricula solamente';
@@ -83,10 +89,13 @@ $string['extremovedsuspend'] = 'Deshabilitar la matriculación en el curso';
 $string['extremovedsuspendnoroles'] = 'Deshabilitar la matriculación en el curso y eliminar los roles';
 $string['extremovedunenrol'] = 'Dar de baja al usuario del curso';
 $string['finishenrollingusers'] = 'Finalizar matriculación de usuarios';
+$string['instanceeditselfwarning'] = 'Advertencia:';
+$string['instanceeditselfwarningtext'] = 'Usted está inscrito en este curso a través de este método de matriculación, los cambios pueden afectar a su acceso a este curso.';
 $string['invalidenrolinstance'] = 'Ejemplo de matriculación no válido';
 $string['invalidrole'] = 'Rol no válido';
 $string['manageenrols'] = 'Gestionar plugins de matriculación';
 $string['manageinstance'] = 'Gestionar';
+$string['migratetomanual'] = 'Migrar a matriculaciones manuales';
 $string['nochange'] = 'Sin cambios';
 $string['noexistingparticipants'] = 'No existen participantes';
 $string['noguestaccess'] = 'Los invitados no pueden acceder a este curso, por favor intente identificarse.';
@@ -108,6 +117,8 @@ $string['rolefromsystem'] = '{$a->role} (Asignado a nivel de sitio)';
 $string['rolefromthiscourse'] = '{$a->role} (Asignado en este curso)';
 $string['startdatetoday'] = 'Hoy';
 $string['synced'] = 'Sincronizado';
+$string['testsettings'] = 'Configuración del test';
+$string['testsettingsheading'] = 'Configuración del test de matriculación - {$a}';
 $string['totalenrolledusers'] = '{$a} usuarios matriculados';
 $string['totalotherusers'] = '{$a} otros usuarios';
 $string['unassignnotpermitted'] = 'No tiene permiso para retirar roles en este curso';
@@ -116,12 +127,6 @@ $string['unenrolconfirm'] = '¿Realmente desea dar de baja al usuario "{$a->user
 $string['unenrolme'] = 'Darme de baja en {$a}';
 $string['unenrolnotpermitted'] = 'No dispone de permiso o no puede dar de baja a este usuario de este curso.';
 $string['unenrolroleusers'] = 'Dar de baja a usuarios';
-$string['uninstallconfirm'] = 'Está a punto de eliminar completamente la extensión de matriculación \'{$a}\'. Esta acción eliminará completamente toda la información en la base de datos asociada con este tipo de matriculación.
-
-¿Está SEGURO de que desea continuar?';
-$string['uninstalldelete'] = 'Eliminar todas las matrículas y desinstalar';
-$string['uninstalldeletefiles'] = 'Todos los datos asociados con el plugin de matriculación \'{$a->plugin}\' han sido eliminados de la base de datos. Para completar la eliminación (y evitar que el plugin vuelva a instalarse automáticamente), debería eliminar ahora este directorio de su servidor: {$a->directory}';
-$string['uninstallmigrate'] = 'Desinstalar pero mantener todas las matrículas';
 $string['uninstallmigrating'] = 'Migrando {$a} matrículas';
 $string['unknowajaxaction'] = 'Se ha solicitado una acción desconocida';
 $string['unlimitedduration'] = 'Sin límite';

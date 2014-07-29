@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,7 @@ $string['audienceadmins'] = 'Administradores de Moodle';
 $string['audienceeducators'] = 'Educadores';
 $string['audience_help'] = 'Seleccionar la audiencia que se pretende para este curso';
 $string['audiencestudents'] = 'Estudiantes';
+$string['badgesnumber'] = 'Número de insignias ({$a})';
 $string['badurlformat'] = 'Formato URL erróneo';
 $string['cannotsearchcommunity'] = 'Lo sentimos, no tiene los permisos adecuados para ver esta página';
 $string['community'] = 'Comunidad';
@@ -113,13 +114,14 @@ $string['hub'] = 'Central de Cursos (hub)';
 $string['imageurl'] = 'URL de la imagen';
 $string['imageurl_help'] = 'Esta imagen se mostrará en el hub. Esta imagen debe estar disponible en el hub en cualquier momento. La imagen debe tener un tamaño máximo de {$a->width} X {$a->height}';
 $string['information'] = 'Información';
+$string['issuedbadgesnumber'] = 'Número de insignias emitidas ({$a})';
 $string['language'] = 'Idioma';
 $string['language_help'] = 'Idioma principal de este curso,';
 $string['lasttimechecked'] = 'Comprobado por última vez';
 $string['licence'] = 'Licencia';
 $string['licence_help'] = 'Seleccione la licencia bajo la que desea distribuir su curso.';
 $string['logourl'] = 'URL del logotipo';
-$string['modulenumberaverage'] = 'Número promedio de módulos del curso';
+$string['modulenumberaverage'] = 'Número promedio de módulos del curso ({$a})';
 $string['moodleorg'] = 'Moodle.org';
 $string['mustselectsubject'] = 'Debe eliminar una materia';
 $string['name'] = 'Nombre';

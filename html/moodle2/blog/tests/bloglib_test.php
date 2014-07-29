@@ -27,11 +27,10 @@ global $CFG;
 require_once($CFG->dirroot . '/blog/locallib.php');
 require_once($CFG->dirroot . '/blog/lib.php');
 
-
 /**
  * Test functions that rely on the DB tables
  */
-class bloglib_testcase extends advanced_testcase {
+class core_bloglib_testcase extends advanced_testcase {
 
     private $courseid; // To store important ids to be used in tests
     private $cmid;
@@ -150,4 +149,106 @@ class bloglib_testcase extends advanced_testcase {
         $blog_headers = blog_get_headers($this->courseid);
         $this->assertNotEquals($blog_headers['heading'], '');
     }
+
+    /**
+     * Test various blog related events.
+     */
+    public function test_blog_entry_created_event() {
+        global $USER;
+
+        $this->setAdminUser();
+        $this->resetAfterTest();
+
+        // Create a blog entry for another user as Admin.
+        $sink = $this->redirectEvents();
+        $blog = new blog_entry();
+        $blog->subject = "Subject of blog";
+        $blog->userid = $this->userid;
+        $states = blog_entry::get_applicable_publish_states();
+        $blog->publishstate = reset($states);
+        $blog->add();
+        $events = $sink->get_events();
+        $sink->close();
+        $event = reset($events);
+        $sitecontext = context_system::instance();
+
+        // Validate event data.
+        $this->assertInstanceOf('\core\event\blog_entry_created', $event);
+        $this->assertEquals($sitecontext->id, $event->contextid);
+        $this->assertEquals($blog->id, $event->objectid);
+        $this->assertEquals($USER->id, $event->userid);
+        $this->assertEquals($this->userid, $event->relateduserid);
+        $this->assertEquals("post", $event->objecttable);
+        $arr = array(SITEID, 'blog', 'add', 'index.php?userid=' . $this->userid . '&entryid=' . $blog->id, $blog->subject);
+        $this->assertEventLegacyLogData($arr, $event);
+        $this->assertEquals("blog_entry_added", $event->get_legacy_eventname());
+        $this->assertEventLegacyData($blog, $event);
+    }
+
+    /**
+     * Tests for event blog_entry_updated.
+     */
+    public function test_blog_entry_updated_event() {
+        global $USER;
+
+        $this->setAdminUser();
+        $this->resetAfterTest();
+        $sitecontext = context_system::instance();
+
+        // Edit a blog entry as Admin.
+        $blog = new blog_entry($this->postid);
+        $sink = $this->redirectEvents();
+        $blog->summary_editor = array('text' => 'Something', 'format' => FORMAT_MOODLE);
+        $blog->edit(array(), null, array(), array());
+        $events = $sink->get_events();
+        $event = array_pop($events);
+        $sink->close();
+
+        // Validate event data.
+        $this->assertInstanceOf('\core\event\blog_entry_updated', $event);
+        $this->assertEquals($sitecontext->id, $event->contextid);
+        $this->assertEquals($blog->id, $event->objectid);
+        $this->assertEquals($USER->id, $event->userid);
+        $this->assertEquals($this->userid, $event->relateduserid);
+        $this->assertEquals("post", $event->objecttable);
+        $this->assertEquals("blog_entry_edited", $event->get_legacy_eventname());
+        $this->assertEventLegacyData($blog, $event);
+        $arr = array (SITEID, 'blog', 'update', 'index.php?userid=' . $this->userid . '&entryid=' . $blog->id, $blog->subject);
+        $this->assertEventLegacyLogData($arr, $event);
+    }
+
+    /**
+     * Tests for event blog_entry_deleted.
+     */
+    public function test_blog_entry_deleted_event() {
+        global $USER, $DB;
+
+        $this->setAdminUser();
+        $this->resetAfterTest();
+        $sitecontext = context_system::instance();
+
+        // Delete a user blog entry as Admin.
+        $blog = new blog_entry($this->postid);
+        $sink = $this->redirectEvents();
+        $record = $DB->get_record('post', array('id' => $blog->id));
+        $blog->delete();
+        $events = $sink->get_events();
+        $event = array_pop($events);
+        $sink->close();
+
+        // Validate event data.
+        $this->assertInstanceOf('\core\event\blog_entry_deleted', $event);
+        $this->assertEquals($sitecontext->id, $event->contextid);
+        $this->assertEquals($blog->id, $event->objectid);
+        $this->assertEquals($USER->id, $event->userid);
+        $this->assertEquals($this->userid, $event->relateduserid);
+        $this->assertEquals("post", $event->objecttable);
+        $this->assertEquals($record, $event->get_record_snapshot("post", $blog->id));
+        $this->assertSame('blog_entry_deleted', $event->get_legacy_eventname());
+        $arr = array(SITEID, 'blog', 'delete', 'index.php?userid=' . $blog->userid, 'deleted blog entry with entry id# ' .
+                $blog->id);
+        $this->assertEventLegacyLogData($arr, $event);
+        $this->assertEventLegacyData($blog, $event);
+    }
 }
+

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_participation', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_participation', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   report_participation
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['page-report-participation-index'] = '课程参与报告';
+$string['page-report-participation-index'] = '课程成员报告';
+$string['page-report-participation-x'] = '任何成员报告';
 $string['participation:view'] = '查看课程成员报表';
 $string['pluginname'] = '课程成员';

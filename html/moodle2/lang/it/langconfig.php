@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'langconfig', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'langconfig', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   langconfig
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,9 +29,9 @@ $string['alphabet'] = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
 $string['backupnameformat'] = '%Y%m%d-%H%M';
 $string['decsep'] = ',';
 $string['firstdayofweek'] = '0';
-$string['iso6391'] = 'en';
-$string['iso6392'] = 'eng';
-$string['labelsep'] = ' :';
+$string['iso6391'] = 'it';
+$string['iso6392'] = 'ita';
+$string['labelsep'] = ': ';
 $string['listsep'] = ';';
 $string['locale'] = 'it_IT.UTF-8';
 $string['localewin'] = 'Italian_Italy.1252';

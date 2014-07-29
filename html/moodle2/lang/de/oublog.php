@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'oublog', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'oublog', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   oublog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,19 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['accessdenied'] = 'Entschuldigung: Sie haben keinen Zugriff, um diese Seite zu sehen.';
 $string['addcomment'] = 'Kommentar hinzufügen';
 $string['addlink'] = 'Link hinzufügen';
-$string['addpost'] = 'Beitrag hinzufügen';
 $string['allowcomments'] = 'Kommentare erlauben';
-$string['allowcomments_help'] = '‘Ja, von angemeldeten Benutzern’; erlaubt Kommentare von Benutzern, die Zugriff auf den Blog haben.
-
-\'Ja, von allen\'; erlaubt Kommentare von Benutzern und der Öffenntlichkeit. Sie erhalten E-Mails, um Kommentare von nicht angemeldeten Benutzern zu genehmigen oder abzulehnen.
-
-\'Nein\'; verhindert alle diesen Beitrag zu kommentieren.';
 $string['allowcommentsmax'] = 'Kommentare erlauben, wenn beim Beitrag gewählt';
 $string['atom'] = 'Atom';
 $string['atomfeed'] = 'Atom Feed';
 $string['attachments'] = 'Anhänge';
 $string['attachments_help'] = 'Sie dürfen Dateien an den Beitrag anhängen, wenn Sie möchten. Angehängte Bilder werden am Ende des Beitrags angezeigt.';
-$string['blogfeed'] = 'Blog Feeds';
 $string['bloginfo'] = 'Bloginformation';
 $string['blogname'] = 'Name';
 $string['blogoptions'] = 'Blogotionen';
@@ -64,10 +57,8 @@ $string['configmaxattachments'] = 'Standardmäßig erlaubte maximale Anzahl von 
 $string['configmaxbytes'] = 'maximale Standard-Größe für alle Blog-Anhänge auf der Seite. (vorbehaltlich Kurs-Limits und anderer lokaler Einstellungen)';
 $string['confirmdeletecomment'] = 'Möchten Sie den Kommentar wirklich löschen?';
 $string['confirmdeletelink'] = 'Möchten Sie den Link wirklich löschen?';
-$string['confirmdeletepost'] = 'Möchten Sie den Beitrag wirklich löschen?';
 $string['couldnotaddcomment'] = 'Kommentar konnte nicht hinzugefügt werden';
 $string['couldnotaddlink'] = 'Link konnte nicht hinzugefügt werden';
-$string['defaultpersonalblogname'] = 'Blog von {$a}';
 $string['delete'] = 'Löschen';
 $string['deletedby'] = 'Gelöscht von {$a->fullname}, {$a->timedeleted}';
 $string['deleteglobalblog'] = 'Sie können keinen Globalen Blog löschen';
@@ -77,7 +68,6 @@ $string['downloadas'] = 'Daten herunterladen als';
 $string['edit'] = 'Bearbeiten';
 $string['editlink'] = 'Link bearbeiten';
 $string['editonsummary'] = 'Bearbeitet {$a->editdate}';
-$string['editpost'] = 'Beitrag aktualisieren';
 $string['editsummary'] = 'Bearbeitet von {$a->editby}, {$a->editdate}';
 $string['error_alreadyapproved'] = 'Kommentar bereits genehmigt oder abgelehnt';
 $string['error_grouppubliccomments'] = 'Sie können keine öffentlichen Kommentare erlauben, wenn der Blog im Gruppen-Modus ist';
@@ -86,7 +76,6 @@ $string['error_noconfirm'] = 'Geben Sie den fett gedruckten Text oben in dieses 
 $string['error_toomanycomments'] = 'Sie haben zu viele Blog-Kommentare in der letzten Stunde von dieser Internet-Adresse abgegeben. Bitte warten Sie eine Weile, dann versuchen Sie es erneut.';
 $string['error_unspecified'] = 'Das System kann diese Anfrage nicht abschließen, weil ein Fehler aufgetreten ist ({$a})';
 $string['error_wrongkey'] = 'Kommentarschlüssel ist nicht korrekt';
-$string['exportedpost'] = 'Exportierer Blog-Beitrag';
 $string['exportpostscomments'] = 'alle aktuell sichtbaren Beiträge und ihre Kommentare.';
 $string['exportuntitledpost'] = 'Beitrag ohne Titel';
 $string['externaldashboardadd'] = 'Blog zum Dashboard hinzufügen';
@@ -94,15 +83,11 @@ $string['externaldashboardremove'] = 'Blog vom Dashboard entfernen';
 $string['extranavolderposts'] = 'Ältere Beiträge: {$a->from}-{$a->to}';
 $string['extranavtag'] = 'Tag: {$a}';
 $string['feedhelp'] = 'Feeds';
-$string['feedhelp_help'] = 'Wenn Sie Feeds verwenden, können Sie Atom- oder RSS-Links hinzufügen, um sich über diesen Blog auf dem Laufenden zu halten. Die meisten Feed-Reader unterstützen Atom- und RSS-Feeds.
-
-Wenn der Blog Kommentare erlaubt, gibt es Feeds für \'nur Kommentare\'.';
 $string['feeds'] = 'Feeds';
 $string['feedsnotenabled'] = 'Feeds sind nicht aktiviert';
 $string['foruser'] = 'für {$a}';
 $string['globalblogmissing'] = 'Der gobale Blog fehlt';
 $string['gradesupdated'] = 'Bewertungen wurden aktualisiert';
-$string['guestblog'] = 'Wenn Sie einen Account im System haben, bitte <a href=\'{$a}\'>melden Sie sich für den vollen Blog-Zugriff an</a>.';
 $string['individualblogs'] = 'Individuelle Blogs';
 $string['individualblogs_help'] = '<p> <strong>Nein (Blog zusammen oder in Gruppe):</strong> <em>einzelne Blogs werden nicht verwendet</em> - es wurden keine einzelnen Blogs festgelegt, jeder ist Teil einer größeren Gemeinschaft (je nach "Gruppen-Modus"-Einstellung). </p><p> <strong>Separate einzelne Blogs :</strong> <em>einzelne Blogs werden privat genutzt</em> - Individuelle Benutzer können nur Beiträge erstellen und ihre eigene Blogs sehen, es sei denn, sie haben die Berechtigung ("viewindividual"), um andere einzelne Blogs zu sehen.
 </p><p> <strong>Sichtbare einzelne Blogs:</strong> <em>Einzelne Blogs werden öffentlich verwendet</em> - einzelne Benutzer können nur Beiträge in ihren eigenen Blogs erstellen, aber sie können andere einzelne Blog-Beiträge sehen.</p>';
@@ -131,7 +116,6 @@ $string['maxvisibility_help'] = '<p><em>In einem persönlichen Blog:</em><strong
 <p><strong>Sichtbar für jedermann in der Welt</strong> - jeder Internet-Nutzer kann diese Beitrag sehen, wenn sie die  Blog-Adresse kennen.</p>
 
 <p>Diese Option gibt es im ganzen Blog sowie in einzelnen Beiträgen. Wenn die Option im gesamten Blog gesetzt wird, gilt dies als Maximum. Zum Beispiel, wenn der ganze Blog auf die erste Ebene eingestellt ist, können Sie die Ebene eines einzelnen Beitrags überhaupt nicht ändern.</p>';
-$string['maybehiddenposts'] = 'Dieser Blog enthält möglicherweise Beiträge, die nur für angemeldete Benutzer sichtbar sind, oder wo nur angemeldete Benutzer kommentieren können. Wenn Sie einen Account im System haben, bitte <a href=\'{$a}\'>melden Sie sich für den vollen Blog-Zugriff an</a>.';
 $string['message'] = 'Beitrag';
 $string['moderated_addedcomment'] = 'Vielen Dank für das Hinzufügen Ihres Kommentars, der erfolgreich empfangen wurde. Ihr Kommentar wird erst angezeigt, wenn dieser vom Autor dieses Beitrags genehmigt wurde.';
 $string['moderated_approve'] = 'Diesen Kommentar zulassen';
@@ -219,14 +203,11 @@ $string['mustprovidepost'] = 'Beitrag-ID muss angegeben werden';
 $string['myparticipation'] = 'Meine Mitarbeit';
 $string['ncomments'] = '{$a} Kommentare';
 $string['newblogposts'] = 'Neue Beiträge';
-$string['newcomment'] = 'Neue Kommentare';
 $string['newerposts'] = 'Neuere Beiträge &gt;';
-$string['newpost'] = 'Neuer Beitrag';
 $string['no'] = 'Nein';
 $string['noblogposts'] = 'Keine Beiträge';
 $string['no_blogtogetheroringroups'] = 'Nein';
 $string['nocomments'] = 'Kommentare nicht erlaubt';
-$string['noposts'] = 'Keine sichtbaren Beiträge in diesem Blog';
 $string['notaddpost'] = 'Beitrag konnte nicht hinzugefügt werden';
 $string['notaddpostnogroup'] = 'Beitrag kann nicht ohne Gruppe hinzugefügt werden';
 $string['nousercomments'] = 'Dieser Benutzer hat keine Kommentare in diesem Blog hinzugefügt.';
@@ -283,23 +264,12 @@ $string['removeblogs'] = 'Entfernen Sie alle Blog-Einträge';
 $string['rss'] = 'RSS';
 $string['rssfeed'] = 'RSS Feed';
 $string['savegrades'] = 'Bewertungen sichern';
-$string['searchblogs'] = 'Blogs durchsuchen';
-$string['searchthisblog'] = 'Diesen Blog durchsuchen';
-$string['searchthisblog_help'] = 'Geben Sie Ihren Suchbegriff ein.
-
-Um exakte Ausdrücke zu suchen, nutzen Sie bitte Anführungszeichen.
-
-Um ein Wort aus der Suche auszuschließen, setzen Sie ein Minuszeichen direkt vor das Wort.
-
-Beispiel: Der Suchbegriff picasso -skulptur "frühe werke" wird Ergebnisse liefern für ‘picasso’ oder für ‘frühe werke’, aber alle Elemente ausschließen, in denen ‘skulptur’ vorkommt.';
 $string['separateindividual'] = 'Getrennte Personen';
 $string['separateindividualblogs'] = 'Getrennte individuelle Blogs';
 $string['siteentries'] = 'Beiträge der Website sehen';
-$string['subscribefeed'] = 'Abonnieren Sie einen Feed (erfordert entsprechende Software), um eine Benachrichtigung zu erhalten, wenn dieser Blog aktualisiert wird.';
 $string['summary'] = 'Beschreibung';
 $string['tags'] = 'Schlagworte';
 $string['tagsfield'] = 'Schlagworte (kommagetrennt)';
-$string['tags_help'] = 'Schlagworte helfen, Beiträge im Blog zu kategorisieren und zu finden';
 $string['tagupdatefailed'] = 'Schlagworte konnten nicht aktualisiert werden';
 $string['title'] = 'Überschrift';
 $string['unsupportedbrowser'] = '<p>Ihr Browser kann leider keine Atom-oder RSS-Feeds direkt anzeigen.</p>
@@ -312,12 +282,7 @@ $string['viewallusersingroup'] = 'Alle Gruppenmitglieder anzeigen';
 $string['viewblogdetails'] = 'Blogdetails anzeigen';
 $string['viewblogposts'] = 'Zurück zum Blog';
 $string['viewedit'] = 'Bearbeitung anzeigen';
-$string['views'] = 'Anzahl der Besuche in diesem Blog';
 $string['visibility'] = 'Wer kann das lesen?';
-$string['visibility_help'] = '<p><strong>Sichtbar für Teilnehmer/innen an diesem Kurs</strong> - um den Beitrag zu sehen, müssen Sie Zugriff auf den Blog haben, in der Regel, indem Sie im Kurs, der den Blog enthält, eingeschrieben sind.</p>
-
-<p><strong>Sichtbar für alle, die in dem System angemeldet sind</strong> - jeder, der angemeldet ist, kann den Beitrag sehen, auch wenn er/sie nicht in einem bestimmten Kurs eingeschrieben ist.</p>
-<p><strong>Sichtbar für jedermann in der Welt</strong> - jeder Internet-Nutzer kann diesen Beitrag sehen, wenn sie die Blog-Adresse kennen.</p>';
 $string['visibleblogusers'] = 'Sichtbar nur für Mitglieder des Blogs';
 $string['visiblecourseusers'] = 'Sichtbar für Teilnehmer/innen des Kurses';
 $string['visibleindividual'] = 'Sichtbare Personen';

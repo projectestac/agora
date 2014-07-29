@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_rolescapabilities', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_rolescapabilities', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   report_rolescapabilities
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allowed_authenticated_user'] = '(allowed by authenticated user role)';
 $string['config_available_roles'] = 'Roles that are shown in Roles\'s Capabilities report';
 $string['desc_available_roles'] = 'Choose which roles will be available to user that can see the report.';
+$string['duplicated_authenticated_user'] = '(duplicated in authenticated user role)';
 $string['legend_title'] = 'Color legends.';
 $string['no_roles_available'] = 'No roles available';
-$string['no_roles_selected'] = 'No roles was selected. Please select at least one role to show capabilities.';
+$string['no_roles_selected'] = 'No roles were selected. Please select at least one role to show capabilities.';
 $string['pluginname'] = 'Roles\'s capabilities';
 $string['repeat_each'] = 'Repeat the header each N entries';
 $string['rolescapabilities'] = 'Roles\'s capabilities';

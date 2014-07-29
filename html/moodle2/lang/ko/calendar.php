@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = '이벤트 추가';
 $string['advancedoptions'] = '상세 설정';
 $string['allday'] = '모든 날';
 $string['annually'] = '매년';
@@ -44,14 +45,13 @@ $string['course'] = '강좌';
 $string['courseevent'] = '강좌행사';
 $string['courseevents'] = '강좌일정';
 $string['courses'] = '강좌';
+$string['customexport'] = '맞춤기간  ({$a->timestart} - {$a->timeend})';
 $string['daily'] = '매일';
-$string['dayview'] = '날짜 보기';
 $string['dayviewtitle'] = '일별 보기: {$a}';
 $string['daywithnoevents'] = '계획된 행사가 없습니다.';
 $string['default'] = '기본';
 $string['deleteevent'] = '일정 삭제하기';
 $string['deleteevents'] = '일정 삭제';
-$string['detailedmonthview'] = '달력 자세히 보기';
 $string['detailedmonthviewtitle'] = '자세한 달별 보기 {$a}';
 $string['durationminutes'] = '유지 시간(분으로)';
 $string['durationnone'] = '기간 제한없이';
@@ -127,6 +127,7 @@ $string['monthly'] = '매달';
 $string['monthlyview'] = '월별로 보기';
 $string['monthnext'] = '다음 달';
 $string['monththis'] = '이번 달';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = '접속안함';
 $string['newevent'] = '새로운 일정';
 $string['nocalendarsubscriptions'] = '달력 구독이 없습니다.';
@@ -169,6 +170,7 @@ $string['subscriptionname'] = '달력 이름';
 $string['subscriptionremoved'] = '달력 구독 {$a} 이 제거되었습니다';
 $string['subscriptions'] = '구독';
 $string['subscriptionupdated'] = '달력 구독 {$a} 이 업데이트되었습니다';
+$string['subsource'] = '이벤트 소스: {$a->name}';
 $string['sun'] = '일';
 $string['sunday'] = '일요일';
 $string['thu'] = '목';

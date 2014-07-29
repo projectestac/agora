@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,15 +32,22 @@ $string['assignrole'] = 'Esleitu rola';
 $string['confirmbulkdeleteenrolment'] = 'Ziur al zaude erabiltzaile hauen matrikula ezabatu nahi duzula?';
 $string['defaultperiod'] = 'Berezko matrikulazio-aldia';
 $string['deleteselectedusers'] = 'Ezabatu aukeratutako erabiltzaileen matrikulak';
-$string['editenrolment'] = 'Editatu matrikulazioa';
 $string['editselectedusers'] = 'Editatu aukeratutako erabiltzaileen matrikulak';
 $string['enrolledincourserole'] = '"{$a->course}" ikastaroan "{$a->role}" rola ezarrita';
 $string['enrolusers'] = 'Matrikulatu erabiltzaileak ';
+$string['expirymessageenrolledbody'] = 'Kaixo {$a->user},
+
+Mezu hau \'{$a->course}\' ikastaroan zure matrikula {$a->timeend} datan amaituko dela jakinarazteko da.
+
+Laguntzarik behar baduzu, jarri harremanetan {$a->enroller}-(r)ekin.';
+$string['expirymessageenrolledsubject'] = 'Matrikulazio-amaieraren jakinarazpena';
+$string['expirymessageenrollersubject'] = 'Matrikulazio-amaieraren jakinarazpena';
 $string['manual:config'] = 'Konfiguratu eskuzko matrikulaziorako instantziak';
 $string['manual:enrol'] = 'Matrikulatu erabiltzaileak ';
 $string['manual:manage'] = 'Erabiltzaileen matrikulak kudeatu';
 $string['manual:unenrol'] = 'Desmatrikulatu erabiltzaileak ikastarotik';
 $string['manual:unenrolself'] = 'Norbera ikastararotik desmatrikulatu';
+$string['messageprovider:expiry_notification'] = 'Eskuzko matrikulazio-amaieraren jakinarazpenak';
 $string['pluginname'] = 'Eskuzko matrikulazioa';
 $string['status'] = 'Gaitu eskuzko matrikulazioa';
 $string['statusdisabled'] = 'Desgaituta';
@@ -50,3 +57,4 @@ $string['unenrolselectedusers'] = 'Desmatrikulatu aukeratutako erabiltzaileak';
 $string['unenrolselfconfirm'] = 'Ziur al zaude "{$a}" ikastarotik desmatrikulatu nahi duzula?';
 $string['unenroluser'] = 'Ziur al zaude  "{$a->user}" desmatrikulatu nahi duzula "{$a}" ikastarotik?';
 $string['unenrolusers'] = 'Desmatrikulatu erabiltzaileak';
+$string['wsusercannotassign'] = 'Ez duzu baimenik ({$a->roleid}) rola ({$a->userid}) erabiltzaileari ({$a->courseid}) ikastaroan esleitzeko.';

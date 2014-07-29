@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Ajouter un élément';
 $string['addmoreanswerblanks'] = 'Ajouter un autre emplacement de réponse vide.';
-$string['addmoreunitblanks'] = 'Emplacements vides pour {$a} unités supplémentaires';
 $string['addsets'] = 'Ajouter des jeux de données';
+$string['answerdisplay'] = 'Affichage de la réponse';
+$string['answerformula'] = 'Formule de la réponse {$a}';
 $string['answerhdr'] = 'Réponse';
 $string['answerstoleranceparam'] = 'Paramètres de tolérance des réponses';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -90,9 +91,7 @@ $string['minmax'] = 'Plage de valeurs';
 $string['missingformula'] = 'Formule manquante';
 $string['missingname'] = 'Nom de la question manquant';
 $string['missingquestiontext'] = 'Texte de la question manquant';
-$string['mustbenumeric'] = 'Vous devez saisir un nombre dans ce champ.';
 $string['mustenteraformulaorstar'] = 'Vous devez saisir une formule ou « * ».';
-$string['mustnotbenumeric'] = 'Ceci ne peut pas être un nombre.';
 $string['newcategory1'] = 'utilisera un nouveau jeu de données partagé';
 $string['newcategory2'] = 'Un fichier d\'un nouvel ensemble de fichiers, pouvant être utilisé par d\'autres questions de cette catégorie';
 $string['newcategory3'] = 'Un lien d\'un nouvel ensemble de liens, pouvant être utilisé par d\'autres questions de cette catégorie';
@@ -135,6 +134,7 @@ $string['synchronizeno'] = 'Ne pas synchroniser';
 $string['synchronizeyes'] = 'Synchroniser';
 $string['synchronizeyesdisplay'] = 'Synchroniser et utiliser le nom des jeux de données partagés comme préfixe du nom de la question';
 $string['tolerance'] = 'Tolérance &plusmn;';
+$string['tolerancetype'] = 'Type';
 $string['trueanswerinsidelimits'] = 'Réponse correcte : {$a->correct} dans les limites de la valeur réelle {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">Erreur de réponse correcte : {$a->correct} en dehors des limites de la valeur réelle {$a->true}</span>';
 $string['uniform'] = 'Uniforme';
@@ -154,5 +154,4 @@ $string['wildcardvalues'] = 'Valeurs des variables';
 $string['wildcardvaluesgenerated'] = 'Valeurs générées des variables';
 $string['youmustaddatleastoneitem'] = 'Vous devez ajouter au moins un élément d\'un jeu de données avant d\'enregistrer cette question.';
 $string['youmustaddatleastonevalue'] = 'Vous devez ajouter au moins un jeu de valeurs aux variables avant d\'enregistrer cette question.';
-$string['youmustenteramultiplierhere'] = 'Vous devez saisir un coefficient dans ce champ.';
 $string['zerosignificantfiguresnotallowed'] = 'La réponse correcte ne peut pas avoir aucun chiffre significatif !';

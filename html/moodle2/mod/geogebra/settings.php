@@ -29,6 +29,6 @@ if ($ADMIN->fulltree) {
     require_once($CFG->dirroot.'/mod/geogebra/lib.php');
 
     $settings->add(new admin_setting_configtext('geogebra_javacodebase', get_string('javacodebase', 'geogebra'),
-                       get_string('javacodebase_help', 'geogebra'), GEOGEBRA_DEFAULT_CODEBASE, PARAM_URL, 60));    
+                       get_string('javacodebase_help', 'geogebra'), GEOGEBRA_DEFAULT_CODEBASE, PARAM_URL, 60));
 }
 

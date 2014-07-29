@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'form', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'form', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   form
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,6 +59,8 @@ $string['security'] = 'Sicurezza';
 $string['selectallornone'] = 'Seleziona tutti/nessuno';
 $string['selected'] = 'Selezionati';
 $string['showadvanced'] = 'Visualizza impostazioni avanzate';
+$string['showless'] = 'Visualizza meno elementi...';
+$string['showmore'] = 'Visualizza più elementi...';
 $string['somefieldsrequired'] = '{$a} = campi a compilazione obbligatoria';
 $string['time'] = 'Ora';
 $string['timeunit'] = 'Unità di tempo';

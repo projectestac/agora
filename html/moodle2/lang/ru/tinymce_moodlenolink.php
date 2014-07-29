@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_moodlenolink', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_moodlenolink', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_moodlenolink
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

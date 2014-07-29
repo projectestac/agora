@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Engadir actividades';
 $string['advancedoptions'] = 'Opcións avanzadas';
 $string['allday'] = 'Todos os días';
 $string['annually'] = 'Anualmente';
 $string['calendar'] = 'Calendario';
 $string['calendarheading'] = '{$a} Calendario';
 $string['calendarpreferences'] = 'Preferencias de calendario';
+$string['calendartypes'] = 'Tipos de calendario';
 $string['calendarurl'] = 'URL do calendario: {$a}';
 $string['clickhide'] = 'premer para agochar';
 $string['clickshow'] = 'premer para amosar';
@@ -44,14 +46,13 @@ $string['course'] = 'Curso';
 $string['courseevent'] = 'Actividade de curso';
 $string['courseevents'] = 'Actividades de curso';
 $string['courses'] = 'Cursos';
+$string['customexport'] = 'Intervalo personalizado ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Diariamente';
-$string['dayview'] = 'Vista diaria';
 $string['dayviewtitle'] = 'Vista diaria: {$a}';
 $string['daywithnoevents'] = 'Non hai actividades este día.';
 $string['default'] = 'Predeterminado';
 $string['deleteevent'] = 'Eliminar actividade';
 $string['deleteevents'] = 'Eliminar actividades';
-$string['detailedmonthview'] = 'Vista mensual detallada';
 $string['detailedmonthviewtitle'] = 'Vista mensual detallada: {$a}';
 $string['durationminutes'] = 'Duración en minutos';
 $string['durationnone'] = 'Sen duración';
@@ -93,6 +94,7 @@ $string['export'] = 'Exportar';
 $string['exportbutton'] = 'Exportar';
 $string['exportcalendar'] = 'Exportar o calendario';
 $string['for'] = 'para';
+$string['forcecalendartype'] = 'Forzar calendario';
 $string['fri'] = 'ven';
 $string['friday'] = 'venres';
 $string['generateurlbutton'] = 'Obter o URL do calendario';
@@ -127,14 +129,18 @@ $string['monthly'] = 'Mensual';
 $string['monthlyview'] = 'Vista do mes';
 $string['monthnext'] = 'Mes seguinte';
 $string['monththis'] = 'Este mes';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Nunca';
 $string['newevent'] = 'Nova actividade';
 $string['nocalendarsubscriptions'] = 'Non ten subscricións ao calendario.';
 $string['notitle'] = 'sen título';
 $string['noupcomingevents'] = 'Non hai actividades próximas';
 $string['oneevent'] = '1 actividade';
+$string['pollinterval'] = 'Intervalo para actualizar';
+$string['pollinterval_help'] = 'Con que frecuencia quere actualizar o calendario coas novas actividades.';
 $string['preferences'] = 'Preferencias';
 $string['preferences_available'] = 'As súas preferencias persoais';
+$string['preferredcalendar'] = 'Calendario preferido';
 $string['pref_lookahead'] = 'Prazo de comezo de eventos próximos';
 $string['pref_lookahead_help'] = 'Esta opción estabelece o número (máximo) de días nos que debe comezar unha actividade a fin de poder presentala como actividade pendente. Teña en conta que <strong>non hai garantía</strong> de que se presenten todas as actividades que comecen nesa data; se hai demasiados (máis que os indicados na preferencia «Núm. máximo de actividades pendentes»), as actividades máis distantes non se amosarán.';
 $string['pref_maxevents'] = 'Num. máximo de actividades pendentes';
@@ -167,6 +173,7 @@ $string['subscriptionname'] = 'Nome do calendario';
 $string['subscriptionremoved'] = 'Retirouse a subscrición ao calendario {$a}';
 $string['subscriptions'] = 'Subscricións';
 $string['subscriptionupdated'] = 'Actualizouse a subscrición ao calendario {$a}';
+$string['subsource'] = 'Orixe da actividade: {$a->name}';
 $string['sun'] = 'dom';
 $string['sunday'] = 'domingo';
 $string['thu'] = 'xov';

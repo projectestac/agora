@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Aktivitäten';
 $string['availability'] = 'Zustand';
 $string['checkforupdates'] = 'Aktualisierungen suchen';
 $string['checkforupdateslast'] = 'Letzte Suche: {$a}';
+$string['detectedmisplacedplugin'] = 'Das Plugin \'{$a->component}\' wurde am falschen Ort installiert \'{$a->current}\'. Die Installation sollte hier erfolgen: \'{$a->expected}\'';
 $string['displayname'] = 'Pluginname';
 $string['err_response_curl'] = 'Unerwarteter Fehler: verfügbare Aktualisierung konnte nicht geladen werden.';
 $string['err_response_format_version'] = 'Unerwartete Fehler: prüfen Sie die verfügbaren Aktualisierungen erneut.';
@@ -55,7 +56,7 @@ $string['numtotal'] = 'Installiert: {$a}';
 $string['numupdatable'] = 'Verfügbare Aktualisierungen: {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['pluginchecknotice'] = 'Diese Seite zeigt Plugins mit einer Mitteilung. Markiert sind Plugins mit neuen Versionen, aktualisierbare Plugins und fehlende Plugins. Die neuen Versionen sollten vor der Aktualisierung von Moodle geladen werden.';
+$string['pluginchecknotice'] = 'Diese Plugins fordern eine Beachtung. Markiert sind neue Plugins, aktualisierbare Plugins und fehlende Plugins. Die aktualisierbaren und fehlenden Versionen sollten Sie laden, bevor Sie die Aktualisierung von Moodle fortsetzen.';
 $string['plugindisable'] = 'Deaktivieren';
 $string['plugindisabled'] = 'Deaktiviert';
 $string['pluginenable'] = 'Aktivieren';
@@ -89,6 +90,8 @@ $string['type_cachelock'] = 'Verfahren der Cache-Sperre';
 $string['type_cachelock_plural'] = 'Verfahren der Cache-Sperren';
 $string['type_cachestore'] = 'Cache-Speicher';
 $string['type_cachestore_plural'] = 'Cache-Speicher';
+$string['type_calendartype'] = 'Kalendertyp';
+$string['type_calendartype_plural'] = 'Kalendertypen';
 $string['type_coursereport'] = 'Kursbericht';
 $string['type_coursereport_plural'] = 'Kursberichte';
 $string['type_editor'] = 'Editor';
@@ -115,8 +118,8 @@ $string['type_mnetservice'] = 'MNet Service';
 $string['type_mnetservice_plural'] = 'MNet Services';
 $string['type_mod'] = 'Aktivitäten';
 $string['type_mod_plural'] = 'Aktivitäten';
-$string['type_plagiarism'] = 'Plagiatsuche';
-$string['type_plagiarism_plural'] = 'Plagiatsuche';
+$string['type_plagiarism'] = 'Plugin zur Plagiatsuche';
+$string['type_plagiarism_plural'] = 'Plugins zur Plagiatsuche';
 $string['type_portfolio'] = 'Portfolio';
 $string['type_portfolio_plural'] = 'Portfolios';
 $string['type_profilefield'] = 'Profilfeldtyp';
@@ -138,10 +141,18 @@ $string['type_tool_plural'] = 'Dienstprogramme';
 $string['type_webservice'] = 'Webservice Protokoll';
 $string['type_webservice_plural'] = 'Webservice Protokolle';
 $string['uninstall'] = 'Deinstallieren';
+$string['uninstallconfirm'] = 'Möchten Sie das Plugin \'{$a->name}\' wirklich löschen? Gleichzeitig werden alle mit dem Plugin verbundenen Daten aus der Datenbank gelöscht, die Konfiguration, alle Logdaten und Nutzerdaten. Diese Daten gehen verloren und können nicht wiederhergestellt werden.';
+$string['uninstalldelete'] = 'Alle mit dem Plugin \'{$a->name}\' verbundenen Daten wurden aus der Datenbank gelöscht. Um zu verhindern, dass sich das Plugin selber neu installiert, muss das Verzeichnis \'{$a->rootdir}\' manuell entfernt werden. Wegen fehlender Rechte kann Moodle das Verzeichnis nicht selber löschen.';
+$string['uninstalldeleteconfirm'] = 'Alle mit dem Plugin \'{$a->name}\' verbundenen Daten wurden aus der Datenbank gelöscht. Um zu verhindern, dass sich das Plugin selber neu installiert, muss das Verzeichnis \'{$a->rootdir}\' entfernt werden. Soll das Verzeichnis wirklich gelöscht werden?';
+$string['uninstalldeleteconfirmexternal'] = 'Die derzeitige Version des Plugins wurde anscheinend über das Quellcode-Verwaltungsystem {$a} bezogen und wurde eventuell lokal im Code angepasst. Wenn Sie das Plugin-Verzeichnis löschen, könnten wichtige Anpassungen verloren gehen. Soll das Verzeichnis wirklich entfernt werden?';
+$string['uninstallextraconfirmblock'] = 'Von diesem Block gibt es {$a->instances} Instanzen';
+$string['uninstallextraconfirmenrol'] = 'Es gibt {$a->enrolments} Nutzereinschreibungen.';
+$string['uninstallextraconfirmmod'] = 'Von diesem Modul gibt es {$a->instances} Instanzen in  {$a->courses} Kursen';
+$string['uninstalling'] = '{$a->name} wird deinstalliert';
 $string['updateavailable'] = 'Neue Version {$a} ist verfügbar!';
 $string['updateavailable_moreinfo'] = 'Weitere Informationen';
 $string['updateavailable_release'] = 'Version: {$a}';
-$string['updatepluginconfirm'] = 'Bestätigung zur Plugin-Aktualisierung';
+$string['updatepluginconfirm'] = 'Plugin-Aktualisierung bestätigen';
 $string['updatepluginconfirmexternal'] = 'Die derzeitige Version des Plugins wurde wahrscheinlich über das Verwaltungssystem {$a} bezogen. Wenn Sie diese Aktualisierung installieren, können Sie das Verwaltungssystem für das Plugin nicht mehr verwenden. Soll dieses Update wirklich installiert werden?';
 $string['updatepluginconfirminfo'] = 'Möchten Sie wirklich eine neue Version des Plugins <strong>{$a->name}</strong> installieren. Die Dateien für die Version {$a->version} werden heruntergeladen, entpackt und anschließend installiert.
 <br /><a href="{$a->url}">{$a->url}</a>';

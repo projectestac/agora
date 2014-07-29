@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'pcast', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'pcast', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   pcast
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -102,16 +102,16 @@ $string['itunes'] = 'iTunes';
 $string['keywords'] = 'Keywords';
 $string['keywords_help'] = 'Keywords describing this podcast';
 $string['maxattachmentsize'] = 'Maximum attachment size';
-$string['maxattachmentsize_help'] = 'This setting specifies the largest size of file that can be attached as a pcast episode.';
-$string['modulename'] = 'Pcast';
-$string['modulename_help'] = 'The pcast activity module enables participants to create a podcast and and publish episodes consisting of video and / or audio files.
+$string['maxattachmentsize_help'] = 'This setting specifies the largest size of file that can be attached as a podcast episode.';
+$string['modulename'] = 'Podcast';
+$string['modulename_help'] = 'The podcast activity module enables participants to create a podcast and and publish episodes consisting of video and / or audio files.
 
 Episodes can be browsed alphabetically or by category, date or author. Episodes can be approved by default or require approving by a teacher before they are viewable by everyone.
 
 A teacher can allow comments on episodes. Episodes can also be rated by teachers or students (peer evaluation). Ratings are aggregated to form a final grade which is recorded in the gradebook.
 
 Students can subscribe to the podcast using their favorite web browser or an Audio application such as iTunes, Winamp, or Windows Media Player, and listen to them on a portable MP3 player such as an iPod.';
-$string['modulenameplural'] = 'Pcasts';
+$string['modulenameplural'] = 'Podcasts';
 $string['name'] = 'Title';
 $string['newepisodes'] = 'New podcast episodes';
 $string['nocommentuntilapproved'] = 'Comments are not available until the episode has been approved';
@@ -123,10 +123,10 @@ $string['noresize'] = 'Do not resize';
 $string['notcategorised'] = 'Not categorised';
 $string['notingroup'] = 'Error: You do not have access to episodes created by members of this group';
 $string['noviews'] = 'No views';
-$string['page-mod-pcast-edit'] = 'Pcast add/edit episode page';
-$string['page-mod-pcast-view'] = 'View pcast edit page';
-$string['page-mod-pcast-x'] = 'Any pcast module page';
-$string['pcast'] = 'pcast';
+$string['page-mod-pcast-edit'] = 'Podcast add/edit episode page';
+$string['page-mod-pcast-view'] = 'View podcast edit page';
+$string['page-mod-pcast-x'] = 'Any podcast module page';
+$string['pcast'] = 'podcast';
 $string['pcast:addinstance'] = 'Add a new podcast';
 $string['pcastadministration'] = 'Podcast administration';
 $string['pcast:approve'] = 'Approve unapproved episodes';
@@ -135,7 +135,7 @@ $string['pcast_help'] = 'This activity allows users to create and maintain video
 $string['pcastlink'] = 'Subscribe in iTunes';
 $string['pcast:manage'] = 'Manage episodes (Edit / Delete)';
 $string['pcastmediafile'] = 'Media file';
-$string['pcastname'] = 'pcast name';
+$string['pcastname'] = 'Podcast name';
 $string['pcast:rate'] = 'Add ratings to episodes';
 $string['pcast:view'] = 'View episodes';
 $string['pcast:viewallratings'] = 'View all raw ratings given by individuals';
@@ -143,7 +143,7 @@ $string['pcast:viewanyrating'] = 'View total ratings that anyone received';
 $string['pcast:viewrating'] = 'View the total ratings you received';
 $string['pcast:write'] = 'Create new episodes';
 $string['pluginadministration'] = 'Podcast administration';
-$string['pluginname'] = 'pcast';
+$string['pluginname'] = 'podcast';
 $string['requireapproval'] = 'Require approval for episodes';
 $string['requireapproval_help'] = 'Require episodes to be approved before posting';
 $string['resetpcastsall'] = 'Delete episodes from all podcasts';

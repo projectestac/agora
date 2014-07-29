@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = '在正确答案公式中至少要有一个通�
 $string['converttocalculated'] = '另保存为新的常规计算题';
 $string['findwildcards'] = '在正确答案公式中寻找通配符 {x..}';
 $string['generatenewitemsset'] = '生成';
-$string['mustbenumeric'] = '您必须在此输入数字。';
-$string['mustnotbenumeric'] = '这不能是数字。';
 $string['newsetwildcardvalues'] = '个新通配符数据集合';
 $string['pluginname'] = '计算题简化版';
 $string['pluginnameadding'] = '添加一道简化版计算题';

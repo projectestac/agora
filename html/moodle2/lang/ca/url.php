@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,6 @@ Hi ha certes opcions de visualització per la URL, com ara incrustada o en una n
 Noteu que les URL també es poden afegir a qualsevol altre recurs o activitat a través de l\'editor de textos.';
 $string['modulenameplural'] = 'URL';
 $string['neverseen'] = 'No s\'ha vist mai';
-$string['optionsheader'] = 'Opcions';
 $string['page-mod-url-x'] = 'Qualsevol pàgina del mòdul URL';
 $string['parameterinfo'] = '&amp;parameter=variable';
 $string['parametersheader'] = 'Paràmetres';
@@ -67,8 +66,6 @@ $string['popupheight'] = 'Alçada (en píxels) de la finestra emergent';
 $string['popupheightexplain'] = 'Especifica l\'alçada per defecte de les finestres emergents.';
 $string['popupwidth'] = 'Amplada (en píxels) de la finestra emergent.';
 $string['popupwidthexplain'] = 'Especifica l\'amplada per defecte de les finestres emergents.';
-$string['printheading'] = 'Mostra el nom de l\'URL';
-$string['printheadingexplain'] = 'Cal mostrar el nom de l\'URL damunt del contingut? Alguns tipus de visualització poden no mostrar el nom de l\'URL encara que s\'habiliti.';
 $string['printintro'] = 'Mostra la descripció de l\'URL';
 $string['printintroexplain'] = 'Cal mostrar la descripció de l\'URL sota el contingut? Alguns tipus de visualització poden no mostrar la descripció encara que s\'habiliti.';
 $string['rolesinparams'] = 'Inclou noms de rols als paràmetres';

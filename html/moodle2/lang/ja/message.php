@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addcontact'] = 'コンタクトリストに追加する';
+$string['addcontact'] = 'コンタクトに追加する';
 $string['addsomecontacts'] = '誰かにメッセージを送信する場合や、このページにショートカットを作成する場合は、上にある<a href="{$a}">検索タブ</a>を使用してください。';
 $string['addsomecontactsincoming'] = 'これらのメッセージは、あなたのコンタクトリストに登録されていない人から送信されています。コンタクトリストに人を追加したい場合、名前の隣にある「コンタクトリストに追加する」アイコンをクリックしてください。';
 $string['ago'] = '{$a} 前';
@@ -39,7 +39,7 @@ $string['blockcontact'] = '受信拒否';
 $string['blockedmessages'] = '拒否ユーザの {$a} 件のto/fromメッセージ';
 $string['blockedusers'] = 'ブロック済みユーザ ({$a})';
 $string['blocknoncontacts'] = '不明なユーザをブロックする';
-$string['contactlistempty'] = 'あなたのコンタクトリストは空です。';
+$string['contactlistempty'] = 'コンタクトリストは空です。';
 $string['contacts'] = 'コンタクト';
 $string['context'] = 'コンテクスト';
 $string['defaultmessageoutputs'] = 'デフォルトのメッセージアウトプット';
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'このサイトでは、メッセージングが
 $string['mostrecent'] = '最近のメッセージ';
 $string['mostrecentconversations'] = '最近の会話';
 $string['mostrecentnotifications'] = '最近の通知';
-$string['mycontacts'] = 'マイ コンタクト';
 $string['newonlymsg'] = '新しいメッセージのみ表示する';
 $string['newsearch'] = '新しい検索';
 $string['noframesjs'] = 'アクセシビリティの高いインターフェースを使用する';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'すべてのメッセージページ';
 $string['pagerefreshes'] = 'このページは {$a} 秒ごとに自動更新されます。';
 $string['permitted'] = '許可';
 $string['private_config'] = 'ポップアップメッセージウィンドウ';
-$string['processordeleteconfirm'] = 'あなたは完全にメッセージアウトプット「 {$a} 」を削除しようとしています。これにより、このアウトプットに関連するデータベース内すべてのデータが完全削除されます。本当に続けてもよろしいですか?';
-$string['processordeletefiles'] = 'データベースからアウトプット「 {$a->processor} 」に関係するデータすべてが削除されました。削除を完全にするには (そして、アウトプットの再インストールを避けるには)、あなたのサーバから次のディレクトリを削除してください: {$a->directory}';
 $string['processortag'] = '宛先:';
 $string['providers_config'] = 'システム内メッセージの通知方法を設定する';
 $string['providerstag'] = '発信元:';

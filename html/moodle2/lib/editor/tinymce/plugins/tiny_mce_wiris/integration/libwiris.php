@@ -210,7 +210,11 @@ function wrs_getCacheDirectory($config) {
 }
 
 function wrs_getContents($config, $url, $postVariables = NULL) {
-
+	if (!isset($_SERVER['REQUEST_URI'])) {
+		// REQUEST_URI is undefined in some versions of IIS
+		$_SERVER['REQUEST_URI'] = $_SERVER['PHP_SELF'];
+		if (isset($_SERVER['QUERY_STRING'])) { $_SERVER['REQUEST_URI'].='?'.$_SERVER['QUERY_STRING']; }
+	}
 	$reqURI = $_SERVER['REQUEST_URI'];
 	if (substr($reqURI, 0, 1) == '/'){
 		$referer = ((isset($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

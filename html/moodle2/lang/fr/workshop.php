@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Contrôle d\'accès';
 $string['aggregategrades'] = 'Recalculer les notes';
 $string['aggregation'] = 'Combinaison des notes';
 $string['allocate'] = 'Attribuer les travaux';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Déjà noté';
 $string['areaconclusion'] = 'Texte de conclusion';
 $string['areainstructauthors'] = 'Instructions pour la remise des travaux';
 $string['areainstructreviewers'] = 'Instructions pour l\'évaluation des travaux';
+$string['areaoverallfeedbackattachment'] = 'Annexes du feedback général';
+$string['areaoverallfeedbackcontent'] = 'Textes du feedback général';
 $string['areasubmissionattachment'] = 'Annexes du travail';
 $string['areasubmissioncontent'] = 'Textes du travail';
 $string['assess'] = 'Évaluer';
@@ -107,6 +108,7 @@ $string['evaluation'] = 'Notation des évaluations';
 $string['evaluationmethod'] = 'Méthode de notation des évaluations';
 $string['evaluationmethod_help'] = 'La méthode de notation des évaluations détermine comment est calculée la note pour les évaluations données. Vous pouvez la faire recalculer les notes à plusieurs reprises avec différents réglages tant que le résultat ne vous satisfait pas.';
 $string['evaluationsettings'] = 'Réglages de la notation des évaluations';
+$string['event_assessable_uploaded'] = 'Un travail a été déposé.';
 $string['example'] = 'Travail exemplaire';
 $string['exampleadd'] = 'Ajouter travail exemplaire';
 $string['exampleassess'] = 'Évaluer travail exemplaire';
@@ -126,8 +128,10 @@ $string['examplesmode'] = 'Mode d\'évaluation des travaux exemplaires';
 $string['examplesubmissions'] = 'Travaux exemplaires';
 $string['examplesvoluntary'] = 'L\'évaluation des travaux exemplaires est facultative';
 $string['feedbackauthor'] = 'Feedback pour l\'auteur';
+$string['feedbackauthorattachment'] = 'Annexe';
 $string['feedbackby'] = 'Feedback de {$a}';
 $string['feedbackreviewer'] = 'Feedback pour l\'évaluateur';
+$string['feedbacksettings'] = 'Feedback';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -160,8 +164,7 @@ $string['latesubmissions'] = 'Travaux remis en retard';
 $string['latesubmissionsallowed'] = 'Les travaux remis en retard sont autorisés';
 $string['latesubmissions_desc'] = 'Autoriser la remise des travaux après le délai';
 $string['latesubmissions_help'] = 'Si ce réglage est activé, les participants peuvent remettre leur travail après le délai fixé ou durant la phase d\'évaluation. Les travaux remis en retard ne pourront en revanche pas être modifiés.';
-$string['maxbytes'] = 'Taille maximale des fichiers';
-$string['miscellaneoussettings'] = 'Réglages divers';
+$string['maxbytes'] = 'Taille maximale des annexes aux travaux';
 $string['modulename'] = 'Atelier';
 $string['modulename_help'] = 'Le module d\'activité atelier permet la récolte, la lecture et l\'évaluation par les pairs de travaux de participants.
 
@@ -184,6 +187,14 @@ $string['notoverridden'] = 'Pas modifié';
 $string['noworkshops'] = 'Il n\'y a pas d\'atelier dans ce cours';
 $string['noyoursubmission'] = 'Vous n\'avez pas encore remis votre travail';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Feedback général';
+$string['overallfeedbackfiles'] = 'Nombre maximal d\'annexes du feedback général';
+$string['overallfeedbackmaxbytes'] = 'Taille totale maximale des annexes de feedback';
+$string['overallfeedbackmode'] = 'Mode feedback général';
+$string['overallfeedbackmode_0'] = 'Désactivé';
+$string['overallfeedbackmode_1'] = 'Activé et optionnel';
+$string['overallfeedbackmode_2'] = 'Activé et requis';
+$string['overallfeedbackmode_help'] = 'Si ce réglage est activé, un champ de texte est affiché au bas du formulaire d\'évaluation. Les évaluateurs peuvent y noter une évaluation globale du travail remis, ou y fournir une explication supplémentaire de leur évaluation.';
 $string['page-mod-workshop-x'] = 'Toute page du module atelier';
 $string['participant'] = 'Participant';
 $string['participantrevierof'] = 'Le participant est évaluateur de';
@@ -208,6 +219,7 @@ $string['recentsubmissions'] = 'Travaux remis de l\'atelier';
 $string['saveandclose'] = 'Enregistrer et fermer';
 $string['saveandcontinue'] = 'Enregistrer et continuer les modifications';
 $string['saveandpreview'] = 'Enregistrer et prévisualiser';
+$string['saveandshownext'] = 'Enregistrer et afficher la suite';
 $string['selfassessmentdisabled'] = 'Auto-évaluation désactivée';
 $string['showingperpage'] = 'Affichage de {$a} éléments par page';
 $string['showingperpagechange'] = 'Changer...';
@@ -220,7 +232,7 @@ $string['strategy_help'] = 'La stratégie d\'évaluation détermine le formulair
 
 * Évaluation cumulative : des commentaires et une note sont donnés sur différents aspects spécifiés
 * Commentaires : des commentaires sont donnés sur différents aspects spécifiés, mais sans note
-* Numbre d\'erreurs : des commentaires sont donnés ainsi qu\'une évaluation oui/non sur des affirmations spécifiées
+* Nombre d\'erreurs : des commentaires sont donnés ainsi qu\'une évaluation oui/non sur des affirmations spécifiées
 * Critères : des évaluations de niveau sont donnés sur différents critères spécifiés';
 $string['submission'] = 'Travail remis';
 $string['submissionattachment'] = 'Annexe';
@@ -284,7 +296,6 @@ $string['withoutsubmission'] = 'Évaluateur sans travail remis';
 $string['workshop:addinstance'] = 'Ajouter un atelier';
 $string['workshop:allocate'] = 'Attribuer les travaux remis pour évaluation';
 $string['workshop:editdimensions'] = 'Modifier les formulaires d\'évaluation';
-$string['workshopfeatures'] = 'Fonctionnalités de l\'atelier';
 $string['workshop:ignoredeadlines'] = 'Ignorer les restrictions de temps';
 $string['workshop:manageexamples'] = 'Gérer les travaux exemplaires';
 $string['workshopname'] = 'Nom de l\'atelier';
@@ -298,6 +309,7 @@ $string['workshop:viewallassessments'] = 'Voir toutes les évaluations';
 $string['workshop:viewallsubmissions'] = 'Voir tous les travaux remis';
 $string['workshop:viewauthornames'] = 'Voir les noms des auteurs';
 $string['workshop:viewauthorpublished'] = 'Voir les auteurs des travaux publiés';
+$string['workshopviewed'] = 'Atelier consulté';
 $string['workshop:viewpublishedsubmissions'] = 'Voir les travaux remis publiés';
 $string['workshop:viewreviewernames'] = 'Voir les noms des évaluateurs';
 $string['yourassessment'] = 'Votre évaluation';

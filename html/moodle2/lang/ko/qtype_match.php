@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_match', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_match', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_match
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmoreqblanks'] = '{no} 개의 공백란 추가';
 $string['answer'] = '답 {$a}';
 $string['availablechoices'] = '가능한 선택';
+$string['blanksforxmorequestions'] = '{no} 개의 공백란 추가';
 $string['correctansweris'] = '정답은 {$a} 입니다.';
 $string['filloutthreeqsandtwoas'] = '최소한 두개의 질문과 세개의 답안을 제시해야만 합니다.  비어있는 질문에 대한 답을 제공하기 위해 별도의 오답을 제공할 수 있습니다. 내용이 들어있지 않은 질문 및 답안은 무시됩니다.';
 $string['nomatchinganswer'] = '질문 \'{$a}\'에 대응하는 답을 지정해야 합니다.';
@@ -41,4 +41,4 @@ $string['pluginnameediting'] = '짝찾기형 질문 편집';
 $string['pluginname_help'] = '짝찾기형 질문은 응답자에게 이름이나 문장의 목록(질문)을 다른 이름이나 문장으로 짝을 연결하도록 합니다.';
 $string['pluginnamesummary'] = '각 내용에 적합한 답을 주어진 목록에서 맞추어야 합니다.';
 $string['shuffle'] = '섞음';
-$string['shuffle_help'] = '활성화되고, 활동 설정에서  "질문내 섞음"도 활성화되면 문장(답)의 순서가 매 시도때마다 무작위로 섞이게 됩니다.';
+$string['shuffle_help'] = '활성화되고, 퀴즈 설정에서  "질문내 섞음"도 활성화되면 문장(답)의 순서가 매 시도때마다 무작위로 섞이게 됩니다.';

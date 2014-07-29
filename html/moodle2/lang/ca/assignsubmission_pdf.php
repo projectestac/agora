@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_pdf', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_pdf', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_pdf
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['courseuploadlimit'] = 'Límit de càrrega del curs';
 $string['invalidpdf'] = '\'{$a}\' no és un PDF vàlid';

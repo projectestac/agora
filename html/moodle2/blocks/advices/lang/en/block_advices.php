@@ -26,11 +26,11 @@
 
 $string['pluginname'] = 'Tips';
 $string['advices'] = 'Tips';
+$string['message'] = 'Message';
 $string['admin_advice'] = 'Tip for administrators';
 $string['not_admin_advice'] = 'Tip for everybody';
 $string['advice_start_date'] = 'Tip start date';
 $string['advice_stop_date'] = 'Tip stop date';
 $string['show_admins'] = 'This message is only shown to site administrators';
-$string['enabled'] = 'Enabled';
 $string['advices:addinstance'] = 'Add a new advices block';
 $string['advices:myaddinstance'] = 'Add a new advices block to My Moodle';

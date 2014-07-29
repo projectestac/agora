@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,8 @@ $string['addarandomquestion'] = 'Aggiungi una domanda casuale...';
 $string['addarandomquestion_help'] = 'Le domande casuali sono prese casualmente dalla categoria indicata. Studenti diversi e tentativi diversi dello stesso studente visualizzeranno domande diverse.';
 $string['adddescriptionlabel'] = 'Aggiungi descrizione/commento';
 $string['addingquestion'] = 'Creazione domanda';
-$string['addingquestions'] = 'Questa parte della pagina ti consente la gestione del deposito delle domande. Le domande vengono salvate in categorie per aiutarti a mantenerle organizzate e possono essere utilizzate in qualsiasi quiz del tuo corso o in altri corsi, se decidi di pubblicarle.<br /><br />Dopo aver selezionato o creato una categoria di domande potrai creare o modificare le domande. Puoi selezionare un qualsiasi numero di domande e aggiungerle al quiz nell\'altra parte della pagina.';
+$string['addingquestions'] = '<p>Questa parte della pagina ti consente la gestione del deposito delle domande. Le domande vengono salvate in categorie per aiutarti a mantenerle organizzate e possono essere utilizzate in qualsiasi quiz del tuo corso o in altri corsi, se decidi di pubblicarle.</p>
+<p>Dopo aver selezionato o creato una categoria di domande potrai creare o modificare le domande. Puoi selezionare un qualsiasi numero di domande e aggiungerle al quiz nell\'altra parte della pagina.</p>';
 $string['addmoreoverallfeedbacks'] = 'Aggiungi altri {no} campi per feedback';
 $string['addnewgroupoverride'] = 'Aggiungi personalizzazione di gruppo';
 $string['addnewpagesafterselected'] = 'Aggiungi nuove pagine dopo le domande selezionate';
@@ -71,7 +72,6 @@ $string['answerhowmany'] = 'Una o più risposte?';
 $string['answers'] = 'Risposte';
 $string['answersingleno'] = 'Risposta fornita';
 $string['answersingleyes'] = 'Una sola risposta';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Le risposte con errore accettato devono essere numeriche';
 $string['answertoolong'] = 'Risposta troppo lunga dopo la linea {$a} (255 caratteri max)';
 $string['aon'] = 'Formato AON';
 $string['areyousureremoveselected'] = 'Confermi la rimozione delle domande selezionate?';
@@ -99,6 +99,8 @@ $string['attemptsonly'] = 'Visualizza solo gli studenti con tentativi';
 $string['attemptstate'] = 'Stato';
 $string['attemptstillinprogress'] = 'Tentativo in svolgimento';
 $string['attemptsunlimited'] = 'Tentativi illimitati';
+$string['autosaveperiod'] = 'Frequenza di salvataggio automatico';
+$string['autosaveperiod_desc'] = 'Le risposte degli studenti possono essere salvate automaticamente secondo la frequenza definita. L\'Impostazione aumenta il carico sul server ma riduce la possibilità di perdita del lavoro svolto.';
 $string['back'] = 'Torna all\'anteprima della domanda';
 $string['backtocourse'] = 'Torna al corso';
 $string['backtoquestionlist'] = 'Torna all\'elenco delle domande';
@@ -185,6 +187,12 @@ $string['confirmserverdelete'] = 'Sei sicuro di voler rimuovere il server <b>{$a
 $string['confirmstartattemptlimit'] = 'Per questo quiz sono previsti {$a} tentativi. L\'accesso al quiz sarà considerato come un tentativo. Vuoi procedere?';
 $string['confirmstartattempttimelimit'] = 'Il quiz ha un tempo massimo di svolgimento e consente un massimo di {$a} tentativi. L\'accesso al quiz sarà contato come un tentativo. Vuoi procedere?';
 $string['confirmstarttimelimit'] = 'Il Quiz ha un tempo massimo di svolgimento. Sei sicuro di voler iniziare?';
+$string['connectionerror'] = 'La connessione di rete si è interrotta (Il salvataggio automatico è fallito).
+
+Annota tutte le risposte date in questa pagina negli ultimi minuti, poi prova a riconnetterti.
+
+Una volta ripristinata la connessione, le tue risposte saranno salvate e questo messaggio scomparirà.';
+$string['connectionok'] = 'La connessione di rete si è ripristinata. Puoi proseguire.';
 $string['containercategorycreated'] = 'Questa categoria è stata creata per contenere tutte le categorie originali spostate a livello di sito a causa di quanto sotto specificato.';
 $string['continueattemptquiz'] = 'Riprendi ultimo tentativo';
 $string['continuepreview'] = 'Continua l\'ultima anteprima';
@@ -233,6 +241,7 @@ $string['deletingquestionattempts'] = 'Cancellazione tentativi di risposta';
 $string['description'] = 'Commento';
 $string['disabled'] = 'Disabilitato';
 $string['displayoptions'] = 'Opzioni';
+$string['donotuseautosave'] = 'Non usare il salvataggio auomatico';
 $string['download'] = 'Click per il download del file della categoria esportata';
 $string['downloadextra'] = '(il file è anche salvato nei files del corso nella cartella /backupdata/quiz)';
 $string['duplicateresponse'] = 'Questo invio è stato ignorato perché hai già dato una risposta equivalente.';
@@ -290,6 +299,10 @@ $string['errornotnumbers'] = 'Errore - le risposte devono essere numeriche';
 $string['errorunexpectedevent'] = 'Rilevato l\'inatteso codice evento {$a->event} per la domanda {$a->questionid} nel tentativo {$a->attemptid}.';
 $string['essay'] = 'Risposta a Testo libero';
 $string['essayquestions'] = 'Domande';
+$string['eventquizattemptabandoned'] = 'Abbandonato tentativo quiz';
+$string['eventquizattemptstarted'] = 'Avviato tentativo quiz';
+$string['eventquizattemptsubmitted'] = 'Inviato tentativo quiz';
+$string['eventquizattempttimelimitexceeded'] = 'Superato tempo limite tentativo quiz';
 $string['everynquestions'] = 'Ogni {$a} domande';
 $string['everyquestion'] = 'Ogni domanda';
 $string['everythingon'] = 'Tutto su';
@@ -497,6 +510,7 @@ $string['numattemptsmade'] = 'Il quiz ha {$a} tentativi effettuati';
 $string['numberabbr'] = '#';
 $string['numerical'] = 'Numerica';
 $string['numquestionsx'] = 'Domande: {$a}';
+$string['oneminute'] = '1 minuto';
 $string['onlyteachersexport'] = 'Solo i docenti possono esportare domande';
 $string['onlyteachersimport'] = 'Solo i docenti con diritto di modifica possono importare domande';
 $string['onthispage'] = 'Questa pagina';
@@ -533,7 +547,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'Personalizzazioni';
 $string['overrideuser'] = 'Personalizzazione per l\'utente';
 $string['overrideusereventname'] = '{$a->quiz} - Personalzizzazione';
+$string['page-mod-quiz-attempt'] = 'Pagina del tentativo del quiz';
 $string['page-mod-quiz-edit'] = 'Modifica pagina quiz';
+$string['page-mod-quiz-report'] = 'Qualsiasi pagina con report del quiz';
+$string['page-mod-quiz-review'] = 'Pagina di revisione del tentativo del quiz';
+$string['page-mod-quiz-summary'] = 'Pagina di riepilogo del tentativo del quiz';
+$string['page-mod-quiz-view'] = 'Pagina informativa del quiz';
 $string['page-mod-quiz-x'] = 'Qualsiasi pagina con modulo quiz';
 $string['pagesize'] = 'Dimensione pagina';
 $string['parent'] = 'Categoria superiore';
@@ -658,7 +677,7 @@ $string['report'] = 'Report';
 $string['reportanalysis'] = 'Analisi risultati';
 $string['reportattemptsfrom'] = 'Tentativi di';
 $string['reportattemptsthatare'] = 'Stato dei tentativi';
-$string['reportdisplayoptions'] = 'Opzioni di visualizazzione';
+$string['reportdisplayoptions'] = 'Opzioni di visualizzazione';
 $string['reportfullstat'] = 'Statistiche dettagliate';
 $string['reportmulti_percent'] = 'Percentuali multiple';
 $string['reportmulti_q_x_student'] = 'Scelte studente multiple';
@@ -670,6 +689,7 @@ $string['reportregrade'] = 'Rivaluta tentativi';
 $string['reportresponses'] = 'Dettaglio risposte date';
 $string['reports'] = 'Report';
 $string['reportshowonly'] = 'Visualizza solo tentativi';
+$string['reportshowonlyfinished'] = 'Visualizza almeno un tentativo completato per utente ({$a})';
 $string['reportsimplestat'] = 'Statistiche semplici';
 $string['reportusersall'] = 'tutti gli utenti che hanno tentato il quiz';
 $string['reportuserswith'] = 'utenti iscritti che hanno tentato il quiz';
@@ -755,9 +775,12 @@ $string['showdetailedmarks'] = 'Visualizza dettagli punteggio';
 $string['showeachpage'] = 'Visualizza una pagina alla volta';
 $string['showfeedback'] = 'Visualizzare il feedback dopo le risposte?';
 $string['showinsecurepopup'] = 'Finestra popup \'sicura\'';
+$string['showlargeimage'] = 'Immagine grande';
 $string['shownoattempts'] = 'Visualizza studenti senza tentativi';
 $string['shownoattemptsonly'] = 'Visualizza solo gli studenti senza tentativi';
+$string['shownoimage'] = 'Nessuna immagine';
 $string['showreport'] = 'Visualizza report';
+$string['showsmallimage'] = 'Immagine piccola';
 $string['showteacherattempts'] = 'Visualizza i tentativi degli insegnanti';
 $string['showuserpicture'] = 'Visualizza immagini degli utenti';
 $string['showuserpicture_help'] = 'Abilitando l\'impostazione, il nome dello studente e la sua immagine saranno visualizzati durante l\'esecuzione del tentativo e sulla schermata di revisione, allo scopo di rendere più facile controllare  che un utente non sia entrato con il nome di un altro.';
@@ -848,7 +871,7 @@ $string['warningmissingtype'] = '<b>La domanda è di un tipo ancora non installa
 $string['wheregrade'] = 'Dov\'è il mio voto';
 $string['wildcard'] = 'Carattere jolly';
 $string['windowclosing'] = 'Questa finestra si chiuderà tra breve.';
-$string['withsummary'] = 'con Statistiche Riepilogative';
+$string['withsummary'] = 'con statistiche riepilogative';
 $string['wronguse'] = 'Non puoi utilizzare la pagina in questo modo';
 $string['xhtml'] = 'XHTML';
 $string['youneedtoenrol'] = 'E\' necessario essere iscritti al corso prima di tentare il quiz';

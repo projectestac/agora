@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_spellchecker', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_spellchecker', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_spellchecker
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Verificar ortografia';
+$string['pluginname'] = 'Corretor ortográfico de retrocompatibilidade';

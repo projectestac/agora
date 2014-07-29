@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,14 +42,14 @@ $string['auth_ldap_create_context_key'] = 'Context for new users';
 $string['auth_ldap_create_error'] = 'Error creating user in LDAP.';
 $string['auth_ldap_creators'] = 'Κατάλογος ομάδων των οποίων τα μέλη επιτρέπεται να δημιουργήσουν νέα μαθήματα. Οι ομάδες διαχωρίζονται με \';\'. Συνήθως κάτι σαν \'cn=teachers,ou=staff,o=myorg\'';
 $string['auth_ldap_creators_key'] = 'Creators';
-$string['auth_ldapdescription'] = 'Αυτή η μέθοδος παρέχει πιστοποίηση έναντι σε έναν εξωτερικό LDAP server. Εάν το δοσμένο όνομα χρήστη και ο κωδικός πρόσβασης ισχύουν, το ΠΗΛΕΑΣ δημιουργεί μια νέα καταχώρηση χρήστη στη βάση δεδομένων του. Αυτή η ενότητα μπορεί να διαβάσει τις ιδιότητες χρηστών από τον LDAP και να συμπληρώσει εκ των προτέρων τα ζητούμενα πεδία στο ΠΗΛΕΑΣ. Για τις επόμενες συνδέσεις μόνο το όνομα χρήστη και ο κωδικός πρόσβασης ελέγχονται.';
+$string['auth_ldapdescription'] = 'Αυτή η μέθοδος παρέχει πιστοποίηση έναντι σε έναν εξωτερικό LDAP server. Εάν το δοσμένο όνομα χρήστη και ο κωδικός πρόσβασης ισχύουν, το Moodle δημιουργεί μια νέα καταχώρηση χρήστη στη βάση δεδομένων του. Αυτή η ενότητα μπορεί να διαβάσει τις ιδιότητες χρηστών από τον LDAP και να συμπληρώσει εκ των προτέρων τα ζητούμενα πεδία στο Moodle. Για τις επόμενες συνδέσεις μόνο το όνομα χρήστη και ο κωδικός πρόσβασης ελέγχονται.';
 $string['auth_ldap_expiration_desc'] = 'Επιλέξτε Όχι για να απενεργοποιήσετε τον έλεγχο ληγμένου κωδικού ή LDAP για να διαβάσετε την τιμή του passwordexpirationtime απευθείας από τον LDAP.';
 $string['auth_ldap_expiration_key'] = 'Expiration';
 $string['auth_ldap_expiration_warning_desc'] = 'Πλήθος ημερών πριν εμφανιστεί προειδοποίηση λήξης του κωδικού πρόσβασης.';
 $string['auth_ldap_expiration_warning_key'] = 'Expiration warning';
 $string['auth_ldap_expireattr_desc'] = 'Προαιρετικό: παρακάμπτει την ldap-attribute η οποία αποθηκεύει το passwordExpirationTime';
 $string['auth_ldap_expireattr_key'] = 'Expiration attribute';
-$string['auth_ldapextrafields'] = 'Αυτά τα πεδία είναι προαιρετικά. Μπορείτε να επιλέξετε να συμπληρώσετε εκ των προτέρων μερικά πεδία χρηστών του ΠΗΛΕΑΣ με τις πληροφορίες από < B>LDAP πεδία</B > που διευκρινίζετε εδώ. <p>Εάν αφήσετε τα πεδία αυτά κενά, τίποτα δεν θα μεταφερθεί από τον LDAP και τα προκαθορισμένα στοιχεία (default) ΠΗΛΕΑΣ θα χρησιμοποιηθούν αντ\' αυτών.<p>Σε κάθε περίπτωση, ο χρήστης θα είναι σε θέση να παρέμβει σε όλα αυτά τα πεδία μετά τη σύνδεση.';
+$string['auth_ldapextrafields'] = 'Αυτά τα πεδία είναι προαιρετικά. Μπορείτε να επιλέξετε να συμπληρώσετε εκ των προτέρων μερικά πεδία χρηστών του Moodle με τις πληροφορίες από < B>LDAP πεδία</B > που διευκρινίζετε εδώ. <p>Εάν αφήσετε τα πεδία αυτά κενά, τίποτα δεν θα μεταφερθεί από τον LDAP και τα προκαθορισμένα στοιχεία (default) Moodle θα χρησιμοποιηθούν αντ\' αυτών.<p>Σε κάθε περίπτωση, ο χρήστης θα είναι σε θέση να παρέμβει σε όλα αυτά τα πεδία μετά τη σύνδεση.';
 $string['auth_ldap_graceattr_desc'] = 'Προαιρετικό: παρακάμπτει την gracelogin';
 $string['auth_ldap_gracelogin_key'] = 'Grace login attribute';
 $string['auth_ldap_gracelogins_desc'] = 'Ενεργοποίηση της υποστήριξης gracelogin του LDAP. Αφού λήξει ο κωδικός πρόσβασης ο χρήστης μπορεί να εισέλθει μέχρι το gracelogin να φθάσει το 0. Ενεργοποιώντας αυτήν τη ρύθμιση θα εμφανίζεται ένα μήνυμα grace login εάν ο κωδικός πρόσβασης έχει λήξει.';
@@ -77,13 +77,13 @@ $string['auth_ldap_opt_deref_key'] = 'Dereference aliases';
 $string['auth_ldap_passtype'] = 'Specify the format of new or changed passwords in LDAP server.';
 $string['auth_ldap_passtype_key'] = 'Password format';
 $string['auth_ldap_passwdexpire_settings'] = 'Ρυθμίσεις λήξης του κωδικού LDAP';
-$string['auth_ldap_preventpassindb'] = 'Επιλέξτε ναι για να αποτρέψετε την αποθήκευση κωδικών πρόσβασης στην βάση δεδομένων του ΠΗΛΕΑΣ.';
+$string['auth_ldap_preventpassindb'] = 'Επιλέξτε ναι για να αποτρέψετε την αποθήκευση κωδικών πρόσβασης στην βάση δεδομένων του Moodle.';
 $string['auth_ldap_preventpassindb_key'] = 'Hide passwords';
 $string['auth_ldap_search_sub'] = 'Βάλτε τις τιμές <> 0 εάν θέλετε να αναζητήσετε χρήστες από τα υπο-περιεχόμενα.';
 $string['auth_ldap_search_sub_key'] = 'Search subcontexts';
 $string['auth_ldap_server_settings'] = 'Ρυθμίσεις διακομιστή LDAP';
 $string['auth_ldap_unsupportedusertype'] = 'auth: ldap user_create() does not support selected usertype: {$a} (..yet)';
-$string['auth_ldap_update_userinfo'] = 'Ενημερώστε τις πληροφορίες χρήστη (όνομα, επώνυμο, διεύθυνση...) από το LDAP στο ΠΗΛΕΑΣ. Δείτε την σελίδα /auth/ldap/attr_mappings.php για πληροφορίες χαρτογράφησης.';
+$string['auth_ldap_update_userinfo'] = 'Ενημερώστε τις πληροφορίες χρήστη (όνομα, επώνυμο, διεύθυνση...) από το LDAP στο Moodle. Δείτε την σελίδα /auth/ldap/attr_mappings.php για πληροφορίες χαρτογράφησης.';
 $string['auth_ldap_user_attribute'] = 'Το χαρακτηριστικό που χρησιμοποιείται για την ονομασία/αναζήτηση χρηστών. Συνήθως \'cn\'.';
 $string['auth_ldap_user_attribute_key'] = 'User attribute';
 $string['auth_ldap_user_exists'] = 'LDAP username already exists.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,6 @@ $string['activemethodinfonone'] = '\'{$a->method}\' metodoa dago aukeratuta kali
 $string['changeactivemethod'] = 'Aldatu kalifikazio-metodoa beste honetara';
 $string['clicktoclose'] = 'sakatu ixteko';
 $string['exc_gradingformelement'] = 'Ezin da kalifikazio-formularioa sortu';
-$string['formnotavailable'] = 'Kalifikazio aurreratua metodoa erabiltzea aukeratu da baina kalifikazio formularioa ez dago eskuragarri. Lehehnik hori definitu beharko zenuke Ezarpenak blokeko esteka erabilita.';
 $string['gradingformunavailable'] = 'Mesedez, ohartu une honetan kalifikazio aurreraturako formularioa ez dagoela prest. Kalifikazio arrunta metodoa erabiliko da formularioa egoki egon arte.';
 $string['gradingmanagement'] = 'Kalifikazio aurreratua';
 $string['gradingmanagementtitle'] = 'Kalifikazio aurreratua: {$a->component} ({$a->area})';

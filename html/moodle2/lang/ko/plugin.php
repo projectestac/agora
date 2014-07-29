@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -129,6 +129,7 @@ $string['type_tool_plural'] = '관리 도구';
 $string['type_webservice'] = '웹서비스 프로토콜';
 $string['type_webservice_plural'] = '웹서비스 프로토콜';
 $string['uninstall'] = '플러그인 제거';
+$string['uninstalling'] = '{$a->name} 제거중';
 $string['updateavailable'] = '새로운 버전 {$a} 이 있습니다.';
 $string['updateavailable_moreinfo'] = '추가 정보 ...';
 $string['updateavailable_release'] = '릴리스 {$a}';

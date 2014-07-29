@@ -56,7 +56,7 @@ class mod_page_mod_form extends moodleform_mod {
         $mform->addRule('page', get_string('required'), 'required', null, 'client');
 
         //-------------------------------------------------------
-        $mform->addElement('header', 'optionssection', get_string('optionsheader', 'page'));
+        $mform->addElement('header', 'appearancehdr', get_string('appearance'));
 
         if ($this->current->instance) {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions), $this->current->display);
@@ -71,7 +71,6 @@ class mod_page_mod_form extends moodleform_mod {
         } else {
             $mform->addElement('select', 'display', get_string('displayselect', 'page'), $options);
             $mform->setDefault('display', $config->display);
-            $mform->setAdvanced('display', $config->display_adv);
         }
 
         if (array_key_exists(RESOURCELIB_DISPLAY_POPUP, $options)) {
@@ -81,7 +80,6 @@ class mod_page_mod_form extends moodleform_mod {
             }
             $mform->setType('popupwidth', PARAM_INT);
             $mform->setDefault('popupwidth', $config->popupwidth);
-            $mform->setAdvanced('popupwidth', $config->popupwidth_adv);
 
             $mform->addElement('text', 'popupheight', get_string('popupheight', 'page'), array('size'=>3));
             if (count($options) > 1) {
@@ -89,15 +87,10 @@ class mod_page_mod_form extends moodleform_mod {
             }
             $mform->setType('popupheight', PARAM_INT);
             $mform->setDefault('popupheight', $config->popupheight);
-            $mform->setAdvanced('popupheight', $config->popupheight_adv);
         }
 
-        $mform->addElement('advcheckbox', 'printheading', get_string('printheading', 'page'));
-        $mform->setDefault('printheading', $config->printheading);
-        $mform->setAdvanced('printintro', $config->printheading_adv);
         $mform->addElement('advcheckbox', 'printintro', get_string('printintro', 'page'));
         $mform->setDefault('printintro', $config->printintro);
-        $mform->setAdvanced('printintro', $config->printintro_adv);
 
         // add legacy files flag only if used
         if (isset($this->current->legacyfiles) and $this->current->legacyfiles != RESOURCELIB_LEGACYFILES_NO) {
@@ -130,9 +123,6 @@ class mod_page_mod_form extends moodleform_mod {
             $displayoptions = unserialize($default_values['displayoptions']);
             if (isset($displayoptions['printintro'])) {
                 $default_values['printintro'] = $displayoptions['printintro'];
-            }
-            if (isset($displayoptions['printheading'])) {
-                $default_values['printheading'] = $displayoptions['printheading'];
             }
             if (!empty($displayoptions['popupwidth'])) {
                 $default_values['popupwidth'] = $displayoptions['popupwidth'];

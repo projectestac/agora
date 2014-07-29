@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'table', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'table', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   table
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['downloadas'] = '';
-$string['downloadexcel'] = 'ett kalkylblad av typ MS Excel';
-$string['downloadods'] = 'ett kalkylblad av typen ';
+$string['downloadexcel'] = 'ett kalkylblad av typ Excel';
+$string['downloadods'] = 'ett kalkylblad av OpenDocument';

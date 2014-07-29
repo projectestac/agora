@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Acción';
 $string['addanotherhint'] = 'Añadir otra pista';
 $string['addcategory'] = 'Añadir Categoría';
+$string['addmorechoiceblanks'] = 'Espacios en blanco para  {no} opciones más';
 $string['adminreport'] = 'Informe sobre posibles problemas en su base de datos de preguntas.';
 $string['answer'] = 'Respuesta';
+$string['answers'] = 'Respuestas';
 $string['answersaved'] = 'Respuesta guardada';
 $string['attemptfinished'] = 'Intento finalizado';
 $string['attemptfinishedsubmitting'] = 'Intento finalizado entregado:';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'No se ha podido crear una nueva entrada en la tabla q
 $string['cannotcreatepath'] = 'No se puede crear la ruta: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'No puede borrar el comportamiento \'{$a}\'. Es empleado por intentos de preguntas.';
 $string['cannotdeletecate'] = 'No puede eliminar la categoría porque es la categoría por defecto para este contexto.';
-$string['cannotdeletemissingbehaviour'] = 'No puede desinstalar el comportamiento que falta. Lo necesita el sistema.';
-$string['cannotdeletemissingqtype'] = 'No puede eliminar el tipo de pregunta ausente. El sistema la necesita.';
 $string['cannotdeleteneededbehaviour'] = 'No se puede eliminar el comportamiento de pregunta \'{$a}\'. Existen otros comportamientos instalados que dependen de él.';
 $string['cannotdeleteqtypeinuse'] = 'No puede eliminar la pregunta de tipo \'{$a}\'. Hay preguntas de ese tipo en el banco de preguntas.';
 $string['cannotdeleteqtypeneeded'] = 'No puede eliminar la pregunta de tipo \'{$a}\'. Hay otros tipos de preguntas que dependen de ella.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'No debería estar aquí si no está moviendo una cate
 $string['copy'] = 'Copiar de {$a} y cambiar los enlaces.';
 $string['correct'] = 'Correcta';
 $string['correctfeedback'] = 'Para cualquier respuesta correcta';
+$string['correctfeedbackdefault'] = 'Respuesta correcta';
 $string['created'] = 'Creado';
 $string['createdby'] = 'Creado por';
 $string['createdmodifiedheader'] = 'Creado / Último guardado';
@@ -110,11 +111,7 @@ $string['defaultfor'] = 'Por defecto en {$a}';
 $string['defaultinfofor'] = 'Categoría por defecto para preguntas compartidas en el contexto {$a}.';
 $string['defaultmark'] = 'Puntuación por defecto';
 $string['defaultmarkmustbepositive'] = 'La puntuación por defecto debe ser positiva';
-$string['deletebehaviourareyousure'] = 'Eliminar comportamiento {$a}: ¿está seguro?';
-$string['deletebehaviourareyousuremessage'] = 'Está a punto de eliminar por completo el comportamiento de la pregunta {$a}. Esta acción eliminará de la base de datos todo aquello asociado al comportamiento de esta pregunta . ¿Seguro de que desea continuar?';
 $string['deletecoursecategorywithquestions'] = 'Hay preguntas en el banco de preguntas asociadas con esta categoría de curso. Si continúa, serán eliminadas. Quizás quiera trasladarlas primero, usando la interfaz del banco de preguntas.';
-$string['deleteqtypeareyousure'] = '¿Está seguro que desea eliminar el tipo de pregunta \'{$a} "';
-$string['deleteqtypeareyousuremessage'] = 'Usted está a punto de eliminar por completo el tipo de pregunta \'{$a}\'. ¿Desea continuar?';
 $string['deletequestioncheck'] = '¿Está totalmente seguro que quiere borrar \'{$a}\'?';
 $string['deletequestionscheck'] = '¿Está totalmente seguro que quiere borrar las siguientes preguntas?<br /><br />{$a}';
 $string['deletingbehaviour'] = 'Borrando el comportamiento de pregunta \'{$a}';
@@ -183,6 +180,7 @@ $string['getcategoryfromfile'] = 'Obtener categoría de archivo';
 $string['getcontextfromfile'] = 'Obtener contexto de archivo';
 $string['hidden'] = 'Oculto/a';
 $string['hintn'] = 'Pista {no}';
+$string['hintnoptions'] = 'Opciones de la pista {no}';
 $string['hinttext'] = 'Texto de la pista';
 $string['howquestionsbehave'] = 'Comportamiento de las preguntas';
 $string['howquestionsbehave_help'] = 'Los estudiantes pueden interactuar con las preguntas en el cuestionario de varias maneras diferentes. Por ejemplo, usted puede desear que los estudiantes introduzcan una respuesta a cada pregunta y posteriormente envien el cuestionario completo, antes de que se realice ninguna calificación o de que se envíe ninguna retroalimentación. Ese sería el modo de \'retroalimentación diferida\'. En otra situación, usted puede desear que los estudiantes respondan una pregunta y sobre la marcha obtengan retroalimentación inmediata, y si la respuesta no es correcta, tengan otra otra oportunidad con menor puntuación. Este modo sería \'interactivo con varios intentos\' .';
@@ -206,6 +204,7 @@ $string['impossiblechar'] = 'Se ha detectado un carácter imposible {$a} como ca
 $string['includesubcategories'] = 'Mostrar también preguntas de las sub-categorías';
 $string['incorrect'] = 'Incorrecta';
 $string['incorrectfeedback'] = 'Para cualquier respuesta incorrecta';
+$string['incorrectfeedbackdefault'] = 'Respuesta incorrecta.';
 $string['information'] = 'Información';
 $string['invalidanswer'] = 'Respuesta incompleta';
 $string['invalidarg'] = 'No se han suministrado argumentos válidos, o la configuración del servidor es incorrecta';
@@ -324,6 +323,7 @@ $string['parenthesisinproperstart'] = 'El paréntesis antes de ** no se ha abier
 $string['parsingquestions'] = 'Procesando las preguntas del archivo importado.';
 $string['partiallycorrect'] = 'Parcialmente correcta';
 $string['partiallycorrectfeedback'] = 'Para cualquier respuesta parcialmente correcta';
+$string['partiallycorrectfeedbackdefault'] = 'Respuesta parcialmente correcta.';
 $string['penaltyfactor'] = 'Factor de penalización';
 $string['penaltyfactor_help'] = '<p>Puede especificar qué fracción de la puntuación obtenida debería substraerse por cada respuesta errónea. Esto sólo resulta relevante si el examen se ejecuta en modo adaptativo, de forma que se permite al estudiante repetir las respuestas a la pregunta.
 
@@ -338,8 +338,6 @@ $string['permissionsaveasnew'] = 'Guardarla como pregunta nueva';
 $string['permissionto'] = 'Usted tiene permiso para:';
 $string['previewquestion'] = 'Vista previa de la pregunta';
 $string['published'] = 'compartida';
-$string['qbehaviourdeletefiles'] = 'Todos los datos relacionados con el comportamiento de pregunta \'{$a->behaviour}\' han sido borrados de la base de datos. Para completar la eliminación (y para evitar que el comportamiento de  pregunta se vuelva a reinstalar por sí misma), debería eliminar ahora este directorio de su servidor: {$a->directory}';
-$string['qtypedeletefiles'] = 'Todos los datos relacionados con el tipo de pregunta \'{$a->qtype}\' han sido borrados de la base de datos. Para completar la eliminación (y para evitar el tipo de pregunta se vuelva a reinstalar por sí misma), debería eliminar ahora este directorio de su servidor: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">La pregunta "{$a->name}" ({$a->qtype})</a> está en esta categoría, pero está también siendo usada en <a href="{$a->qurl}">el cuestionario "{$a->quizname}"</a> en otro curso "{$a->coursename}".';
 $string['questionbank'] = 'Banco de preguntas';
@@ -354,13 +352,15 @@ $string['questiondoesnotexist'] = 'Esta pregunta no existe.';
 $string['questionidmismatch'] = 'Error en los IDs de las preguntas';
 $string['questionname'] = 'Nombre de la pregunta';
 $string['questionno'] = 'Pregunta {$a}';
+$string['questionpreviewdefaults'] = 'Valores por defecto en la previsualización de preguntas';
+$string['questionpreviewdefaults_desc'] = 'Estos valores por defecto se utilizan cuando un usuario previsualiza por primera vez una pregunta del banco de preguntas. Una vez que un usuario ha previsualizar una pregunta, sus preferencias personales se almacenan como preferencias del usuario.';
 $string['questions'] = 'Preguntas';
 $string['questionsaveerror'] = 'Se han producido errores al guardar la pregunta - ({$a})';
 $string['questionsinuse'] = '{*Las preguntas marcadas con un asterisco ya están en uso en algún cuestionario. Estas preguntas no serán borradas de estos cuestionarios, solo de la lista de la categoría}';
 $string['questionsmovedto'] = 'Preguntas aún en uso trasladadas a "{$a}" en la categoría de curso padre.';
 $string['questionsrescuedfrom'] = 'Preguntas guardadas del contexto {$a}.';
 $string['questionsrescuedfrominfo'] = 'Estas preguntas (alguna de las cuales puede estar oculta) se han guardado cuando el contexto {$a} fue eliminado debido a que aún están siendo utilizadas por algún cuestionario o por otras actividades.';
-$string['questiontext'] = 'Texto de la pregunta';
+$string['questiontext'] = 'Enunciado de la pregunta';
 $string['questiontype'] = 'Tipo de pregunta';
 $string['questionuse'] = 'Usar pregunta en esta actividad';
 $string['questionvariant'] = 'Variante de la pregunta';
@@ -379,7 +379,7 @@ $string['selectacategory'] = 'Seleccionar una categoría:';
 $string['selectaqtypefordescription'] = 'Seleccionar un tipo de pregunta para ver su descripción.';
 $string['selectcategoryabove'] = 'Seleccione una categoría';
 $string['selectquestionsforbulk'] = 'Seleccionar preguntas de acciones en masa';
-$string['settingsformultipletries'] = 'Configuración para múltiples intentos';
+$string['settingsformultipletries'] = 'Múltiples intentos';
 $string['shareincontext'] = 'Compartir en contexto para {$a}';
 $string['showhidden'] = 'Mostrar también preguntas antiguas';
 $string['showmarkandmax'] = 'Mostrar puntuacion y máximo';
@@ -387,7 +387,7 @@ $string['showmaxmarkonly'] = 'Mostrar solo puntuación máxima';
 $string['shown'] = 'Se muestra';
 $string['shownumpartscorrect'] = 'Mostrar el número de respuestas correctas';
 $string['shownumpartscorrectwhenfinished'] = 'Mostrar el número de respuestas correctas en cuanto se termine la pregunta';
-$string['showquestiontext'] = 'Mostrar el texto de la pregunta en la lista de preguntas';
+$string['showquestiontext'] = 'Mostrar el enunciado de la pregunta en la lista de preguntas';
 $string['specificfeedback'] = 'Retroalimentación específica';
 $string['specificfeedback_help'] = 'Retroalimentación que depende de las respuestas dadas por el estudiante.';
 $string['started'] = 'Iniciado/a';
@@ -402,6 +402,7 @@ $string['submitandfinish'] = 'Enviar y terminar';
 $string['submitted'] = 'Enviar: {$a}';
 $string['technicalinfo'] = 'Información técnica';
 $string['technicalinfo_help'] = 'Esta información técnica probablemente solo le sea útil a los desarrolladores que trabajan en nuevos tipos de preguntas. Tambén podría serle útil a quienes tratan de diagnosticar problemas con las preguntas.';
+$string['technicalinfomaxfraction'] = 'Fracción máxima: {$a}';
 $string['technicalinfominfraction'] = 'Fracción mínima: {$a}';
 $string['technicalinfoquestionsummary'] = 'Resumen de pregunta: {$a}';
 $string['technicalinforightsummary'] = 'Resumen de respuesta correcta: {$a}';

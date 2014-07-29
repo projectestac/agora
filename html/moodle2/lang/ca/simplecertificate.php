@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'simplecertificate', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'simplecertificate', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   simplecertificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allusers'] = 'Tots els usuaris';
-$string['awarded'] = 'Concedit';
 $string['awardedto'] = 'Concedit a';
 $string['bulkaction'] = 'Tria una acció en bloc';
 $string['bulkbuttonlabel'] = 'Envia';
@@ -79,8 +78,6 @@ $string['codey'] = 'Posició vertical del codi QR';
 $string['completedusers'] = 'Usuaris que compleixin els objectius del curs';
 $string['completiondate'] = 'Compleció del curs';
 $string['coursegrade'] = 'Qualificació del curs';
-$string['coursehours'] = 'Hores del curs';
-$string['coursehours_help'] = 'Total d\'hores de durada del curs (certificades)';
 $string['coursename'] = 'Nom del curs alternatiu';
 $string['coursename_help'] = 'Assigna un nom alternatiu al curs';
 $string['coursetimereq'] = 'Minuts requerits en el curs';

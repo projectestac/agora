@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -102,8 +102,11 @@ $string['auth_ldap_version_key'] = 'Version';
 $string['auth_ntlmsso'] = 'NTLM-SSO';
 $string['auth_ntlmsso_enabled'] = 'Aktivieren Sie diese Einstellung, um die einmalige Anmeldung (Single Sign On) mit der NTML-Domain zu versuchen. Anmerkung: Zusätzlich sind Einstellungen für den Webserver notwendig. Siehe <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Aktivieren';
-$string['auth_ntlmsso_ie_fastpath'] = 'Aktivieren Sie diese Einstellung, um \'NTLM SSO fast path\' zuzulassen. Dies funktioniert ausschließlich, wenn mit dem MS Internet Explorer auf Moodle zugegriffen wird.';
+$string['auth_ntlmsso_ie_fastpath'] = 'Wenn diese Option aktiviert ist, wird der \'NTLM SSO fast path\' zugelassen. Das funktioniert nur mit dem Internet Explorer.';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'NTLM mit allen Browsern versuchen';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Ja, andere NTLM Browser versuchen';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Ja, alle anderen Browser benutzen das normale Login';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'Der Nutzername konnte aus dem Header des REMOTE_USER nicht ausgelesen werden. Ist das Format richtig konfiguriert?';
 $string['auth_ntlmsso_missing_username'] = 'Sie müssen zumindest den %username% im Format des entfernten Nutzernamen festlegen.';
 $string['auth_ntlmsso_remoteuserformat'] = 'Wenn Sie \'NTLM\' als \'Authentifizierungstyp\' verwenden, können Sie hier das Format von externen Nutzernamen angeben. Bleibt der Eintrag leer wird das Standardformat verwendet. Verwenden Sie den optionalen <b>%domain%</b> Platzhalter, um festzulegen wo der Domainname erscheint und den erforderlichen Platzhalter <b>%username%</b> für den Nutzernamenort. <br /><br />Häufig genutzte Formate sind <tt>%domain%%username%</tt> (MS Windows default), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> und einfach <tt>%username%</tt> (wenn kein Domainteil verwendet wird).';
@@ -138,6 +141,8 @@ $string['pluginname'] = 'LDAP-Server';
 $string['pluginnotenabled'] = 'Plugin nicht aktiviert!';
 $string['renamingnotallowed'] = 'Namensänderungen sind in LDAP nicht erlaubt';
 $string['rootdseerror'] = 'Fehler bei der rootDSE-Abfrage für das Active Directory';
+$string['start_tls'] = 'LDAP-Service mit TLS (über Port 389) verschlüsseln';
+$string['start_tls_key'] = 'TLS benutzen';
 $string['updatepasserror'] = 'Fehler in der Funktion user_update_password().
 <br />Fehler-Code: {$a->errno}; Fehlertext: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Fehler in der Funktion user_update_password() beim Lesen der Gültigkeitsdauer des Kennwortes.

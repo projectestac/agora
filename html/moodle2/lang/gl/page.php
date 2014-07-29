@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,5 @@ $string['page:view'] = 'Ver contido da páxina';
 $string['pluginname'] = 'Páxina';
 $string['popupheightexplain'] = 'Especifica a altura predeterminada das xanelas emerxentes.';
 $string['popupwidthexplain'] = 'Especifica a largura predeterminada das xanelas emerxentes.';
-$string['printheading'] = 'Presentar o nome da páxina';
-$string['printheadingexplain'] = 'Presentar o nome da páxina sobre o contido?';
 $string['printintro'] = 'Presentar a descrición da páxina';
 $string['printintroexplain'] = 'Presentar a descrición da páxina sobre o contido?';

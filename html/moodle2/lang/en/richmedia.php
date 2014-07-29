@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'richmedia', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'richmedia', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   richmedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['attempt'] = 'Attempt';
 $string['attempts'] = 'Attempts';
 $string['autoplay'] = 'Autoplay';
 $string['cancel'] = 'Cancel';
+$string['close'] = 'Close';
 $string['composition'] = 'Composition';
 $string['confirmdeleteline'] = 'Are you sure you want to delete the line';
 $string['createedit'] = 'Create/edit the synchronization';
@@ -48,10 +49,12 @@ $string['defaultfontcolor'] = 'This sets the default font color of the Rich Medi
 $string['defaultheight'] = 'This sets the default height of the Rich Media';
 $string['defaultview'] = 'Default view';
 $string['defaultwidth'] = 'This sets the default width of the Rich Media';
+$string['delete'] = 'Delete';
 $string['deletedtheme'] = 'Theme deleted';
 $string['deleteselection'] = 'Delete the selection';
 $string['deselectall'] = 'Deselect all';
 $string['display'] = 'Display';
+$string['down'] = 'Down';
 $string['downloadexcel'] = 'Download in Excel format';
 $string['editxml'] = 'Rich Media edition : synchronization';
 $string['error'] = 'Error';
@@ -69,11 +72,11 @@ $string['generalinformation'] = 'General Information';
 $string['gettime'] = 'Get the time of the video';
 $string['height'] = 'Height (in pixels)';
 $string['html5'] = 'HTML5 player (new tab)';
-$string['html5_help'] = 'The HTML5 player is a simplified version of the Rich Media player compatible with all browsers.
+$string['html5_help'] = 'The HTML5 player is a Rich media player compatible with all recent browsers.
 
 Supported video formats:
 
-MP4 : Safari,Chrome, IE9
+MP4 : Firefox, Safari,Chrome, IE9+
 
 OGG : Chrome, Firefox, Opera
 
@@ -103,7 +106,7 @@ $string['pluginadministration'] = 'Rich Media administration';
 $string['pluginname'] = 'Rich Media';
 $string['police'] = 'Font';
 $string['presentation'] = 'Presentation';
-$string['presentationmedium'] = 'Presentation medium (video)';
+$string['presentationmedium'] = 'Presentation medium (audio or video)';
 $string['presenterbio'] = 'Presenter biography';
 $string['presentername'] = 'Presenter name';
 $string['presentertitle'] = 'Presenter title';
@@ -130,13 +133,14 @@ $string['started'] = 'Started on';
 $string['success'] = 'Success';
 $string['summary'] = 'Summary';
 $string['synchronization'] = 'Synchronization';
-$string['test'] = 'Test';
+$string['test'] = 'Save and test';
 $string['theme'] = 'Theme';
 $string['themeedition'] = 'Theme edition';
 $string['themeimport'] = 'Import a theme';
 $string['tile'] = 'Tile';
 $string['time'] = 'Time';
 $string['title'] = 'Title';
+$string['up'] = 'Up';
 $string['user'] = 'User';
 $string['users'] = 'Users';
 $string['video'] = 'Video';

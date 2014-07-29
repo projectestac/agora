@@ -27,33 +27,15 @@ defined('MOODLE_INTERNAL') || die();
 
 class tinymce_texteditor extends texteditor {
     /** @var string active version - this is the directory name where to find tinymce code */
-    public $version = '3.5.7b';
+    public $version = '3.5.10';
 
     /**
      * Is the current browser supported by this editor?
      * @return bool
      */
     public function supported_by_browser() {
-        if (check_browser_version('MSIE', 6)) {
-            return true;
-        }
-        if (check_browser_version('Gecko', 20030516)) {
-            return true;
-        }
-        if (check_browser_version('Safari', 412)) {
-            return true;
-        }
-        if (check_browser_version('Chrome', 6)) {
-            return true;
-        }
-        if (check_browser_version('Opera', 9)) {
-            return true;
-        }
-        if (check_browser_version('Safari iOS', 534)) {
-            return true;
-        }
-
-        return false;
+        // We don't support any browsers which it doesn't support.
+        return true;
     }
 
     /**
@@ -97,7 +79,7 @@ class tinymce_texteditor extends texteditor {
     public function use_editor($elementid, array $options=null, $fpoptions=null) {
         global $PAGE, $CFG;
         // Note: use full moodle_url instance to prevent standard JS loader, make sure we are using https on profile page if required.
-        if (debugging('', DEBUG_DEVELOPER)) {
+        if ($CFG->debugdeveloper) {
             $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce_src.js'));
         } else {
             $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce.js'));
@@ -110,7 +92,6 @@ class tinymce_texteditor extends texteditor {
 
     protected function get_init_params($elementid, array $options=null) {
         global $CFG, $PAGE, $OUTPUT;
-        require_once($CFG->dirroot . '/lib/editor/tinymce/classes/plugin.php');
 
         //TODO: we need to implement user preferences that affect the editor setup too
 
@@ -147,8 +128,7 @@ class tinymce_texteditor extends texteditor {
             'plugin_insertdate_dateFormat ' => $strdate,
             'plugin_insertdate_timeFormat ' => $strtime,
             'theme' => "advanced",
-            'skin' => "o2k7",
-            'skin_variant' => "silver",
+            'skin' => "moodle",
             'apply_source_formatting' => true,
             'remove_script_host' => false,
             'entity_encoding' => "raw",
@@ -269,7 +249,6 @@ class tinymce_texteditor extends texteditor {
      */
     public function get_plugin($plugin) {
         global $CFG;
-        require_once($CFG->dirroot . '/lib/editor/tinymce/classes/plugin.php');
         return editor_tinymce_plugin::get($plugin);
     }
 
@@ -283,4 +262,5 @@ class tinymce_texteditor extends texteditor {
         global $CFG;
         return new moodle_url("$CFG->httpswwwroot/lib/editor/tinymce/tiny_mce/$this->version/");
     }
+
 }

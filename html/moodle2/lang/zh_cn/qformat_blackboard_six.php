@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_blackboard_six
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,4 +34,3 @@ $string['notenoughtsubans'] = '无法导入匹配问题 {$a}，因为一个匹�
 $string['pluginname'] = 'Blackboard V6+';
 $string['pluginname_help'] = 'Blackboard V6+格式支持通过dat或zip文件导入所有Blackboard导出的题目。对zip文件，还支持导入图片。';
 $string['unhandledpresblock'] = '未处理的演示版块';
-$string['unknownorunhandledtype'] = '未知的或未处理的问题类型：{$a}';

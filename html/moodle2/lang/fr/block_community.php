@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -69,9 +69,11 @@ $string['enrollablecourses'] = 'Cours disponibles pour inscription';
 $string['errorcourselisting'] = 'Une erreur est survenue lors de la récupération de la liste des cours du serveur d\'échanges sélectionné. Veuillez réessayer plus tard ({$a}).';
 $string['errorhublisting'] = 'Une erreur est survenue lors de la récupération de la liste des cours du serveur d\'échanges de Moodle.org. Veuillez réessayer plus tard ({$a}).';
 $string['fileinfo'] = 'Langue : {$a->lang} ; Licence : {$a->license} ; date de modification : {$a->timeupdated}';
+$string['hideall'] = 'Cacher les serveurs d\'échange';
 $string['hub'] = 'Serveur d\'échanges';
 $string['hubnottrusted'] = 'Non certifié';
 $string['hubtrusted'] = 'Ce serveur d\'échanges est certifié par Moodle.org';
+$string['install'] = 'Télécharger';
 $string['keywords'] = 'Mots clefs';
 $string['keywords_help'] = 'Vous pouvez rechercher des cours contenant un texte spécifique dans leur titre, leur description ou d\'autres champ de la base de données.';
 $string['langdesc'] = 'Langue : {$a} -';
@@ -106,6 +108,7 @@ $string['searchcommunitycourse'] = 'Rechercher un cours de la communauté';
 $string['searchcourse'] = 'Rechercher un cours de la communauté';
 $string['selecthub'] = 'Choisir un serveur d\'échanges';
 $string['selecthub_help'] = 'Choisir un serveur d\'échanges où rechercher des cours.';
+$string['showall'] = 'Afficher tous les serveurs d\'échange';
 $string['sites'] = 'Sites';
 $string['subject'] = 'Sujet';
 $string['subject_help'] = 'Pour affiner votre recherche à des cours sur un sujet particulier, veuillez en sélectionner un de cette liste.';

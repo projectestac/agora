@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'survey', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -200,7 +200,7 @@ $string['downloadinfo'] = 'Excel、SPSS等で分析するために、調査の�
 $string['downloadresults'] = 'ダウンロード結果';
 $string['downloadtext'] = 'テキストフォーマットでダウンロードする';
 $string['editingasurvey'] = '調査を編集する';
-$string['guestsnotallowed'] = 'ゲストは調査へ参加できません';
+$string['guestsnotallowed'] = '登録ユーザのみ調査を送信することができます。';
 $string['howlong'] = 'この調査を終えるのにどのくらいの時間がかかりましたか?';
 $string['howlongoptions'] = '1分以下,1-2分,2-3分,3-4分,4-5分,5-10分,10分以上';
 $string['ifoundthat'] = '私は次のことを発見しました:';

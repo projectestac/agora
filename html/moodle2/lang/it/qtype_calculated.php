@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Aggiungi elemento';
 $string['addmoreanswerblanks'] = 'Aggiungi un altro spazio risposta.';
-$string['addmoreunitblanks'] = 'Spazi per altre {$a} unità';
 $string['addsets'] = 'Aggiungi set';
+$string['answerdisplay'] = 'Visualizzazione risposta';
+$string['answerformula'] = 'Risposta formula {$a}';
 $string['answerhdr'] = 'Risposta';
 $string['answerstoleranceparam'] = 'Parametri di tolleranza risposte';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -91,9 +92,7 @@ $string['minmax'] = 'Intervallo di valori';
 $string['missingformula'] = 'Formula mancante';
 $string['missingname'] = 'Nome della domanda mancantre';
 $string['missingquestiontext'] = 'Testo della somanda mancante';
-$string['mustbenumeric'] = 'Deve essere inserito un numero.';
 $string['mustenteraformulaorstar'] = 'Devi inserire una formula oppure \'*\'.';
-$string['mustnotbenumeric'] = 'Questo non può essere un numero.';
 $string['newcategory1'] = 'userà un nuovo dataset condiviso';
 $string['newcategory2'] = 'un file da un nuovo insieme di file che possono anche essere usati da altre domande in questa categoria';
 $string['newcategory3'] = 'un link da un nuovo insieme di link che possono anche essere usati da altre domande in questa categoria';
@@ -135,6 +134,7 @@ $string['synchronizeno'] = 'Non sincronizzare';
 $string['synchronizeyes'] = 'Sincronizza';
 $string['synchronizeyesdisplay'] = 'Sincronizza e visualizza il nome del dataset condiviso come prefisso al nome della domanda';
 $string['tolerance'] = 'Tolleranza &plusmn;';
+$string['tolerancetype'] = 'Tipo';
 $string['trueanswerinsidelimits'] = 'Risposta corretta: {$a->correct} dentro i limiti del valore vero {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">ERRORE Risposta corretta: {$a->correct} fuori dai limiti del valore vero {$a->true}</span>';
 $string['uniform'] = 'Uniform';
@@ -154,5 +154,4 @@ $string['wildcardvalues'] = 'Valori caratteri jolly';
 $string['wildcardvaluesgenerated'] = 'Valori caratteri jolly generati';
 $string['youmustaddatleastoneitem'] = 'È necessario aggiungere almeno un dataset prima di poter salvare questa domanda.';
 $string['youmustaddatleastonevalue'] = 'È necessario aggiungere almeno un set di caratteri jolly prima di poter salvare questa domanda.';
-$string['youmustenteramultiplierhere'] = 'Deve essere inserito un moltiplicatore.';
 $string['zerosignificantfiguresnotallowed'] = 'la risposta corretta non può avere zero cifre significative!';

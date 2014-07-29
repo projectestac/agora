@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,6 +65,7 @@ $string['changepassword'] = 'URL de canvi de contrasenya';
 $string['changepasswordhelp'] = 'Aquí podeu especificar una adreça en la qual els usuaris puguin recuperar o canviar la seua contrasenya si se n\'han oblidat. Aquesta opció apareixerà en forma de botó a la pàgina d\'entrada. Si la deixeu en blanc no apareixerà el botó.';
 $string['chooseauthmethod'] = 'Trieu un mètode d\'autenticació:';
 $string['chooseauthmethod_help'] = 'Aquest paràmetre determina el mètode d\'autenticació utilitzat quan l\'usuari s\'identifica. Només s\'haurien d\'escollir els mòduls d\'autenticació habilitats, altrament l\'usuari no podrà identificar-se més. Per tal d\'evitar que un usuari s\'identifiqui, escolliu "Sense identificació".';
+$string['createpassword'] = 'Genera contrasenya i notifica a l\'usuari';
 $string['createpasswordifneeded'] = 'Crea la contrasenya si cal';
 $string['emailchangecancel'] = 'Cancel·la el canvi de correu';
 $string['emailchangepending'] = 'Canvi pendent. Obriu l\'enllaç que us hem enviat a l\'adreça {$a->preference_newemail}.';
@@ -86,6 +87,8 @@ $string['errorminpasswordlower'] = 'La contrasenya ha de contenir almenys {$a} m
 $string['errorminpasswordnonalphanum'] = 'La contrasenya ha de contenir almenys {$a} caràcter/s no alfanumèric/s.';
 $string['errorminpasswordupper'] = 'La contrasenya ha de contenir almenys {$a} majúscula/es.';
 $string['errorpasswordupdate'] = 'No s\'ha pogut canviar la contrasenya. S\'ha produït un error.';
+$string['event_user_loggedin'] = 'L\'usuari ha entrat';
+$string['eventuserloggedinas'] = 'L\'usuari ha entrat com a un altre usuari';
 $string['forcechangepassword'] = 'Imposa canvi de contrasenya';
 $string['forcechangepasswordfirst_help'] = 'Obliga els usuaris a canviar la contrasenya la pròxima vegada que entrien en Moodle.';
 $string['forcechangepassword_help'] = 'Obliga els usuaris a canviar la contrasenya la pròxima vegada que entrien en Moodle.';
@@ -131,6 +134,8 @@ $string['stdchangepassword_expl'] = 'Si el sistema extern d\'autenticació perme
 $string['stdchangepassword_explldap'] = 'NOTA: s\'aconsella que utilitzeu LDAP sobre un túnel xifrat SSL (ldaps://) si el servidor LDAP és remot.';
 $string['suspended'] = 'Compte invalidat';
 $string['suspended_help'] = 'Els comptes invalidats no poden entrar al Moodle o utilitzar serveis web, i qualsevol missatge de sortida se\'ls rebutjarà.';
+$string['testsettings'] = 'Configuració de la prova';
+$string['testsettingsheading'] = 'Paràmetres de la prova d\'autenticació {$a}';
 $string['unlocked'] = 'Desblocat';
 $string['unlockedifempty'] = 'Desblocat si està buit';
 $string['update_never'] = 'Mai';

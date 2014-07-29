@@ -259,7 +259,7 @@ class moodle1_mod_hotpot_handler extends moodle1_mod_handler {
      * This is executed when we reach the closing </MOD> tag of our 'hotpot' path
      */
     public function on_hotpot_end() {
-        // close scorm.xml
+        // close hotpot.xml
         $this->xmlwriter->end_tag('hotpot');
         $this->xmlwriter->end_tag('activity');
         $this->close_xml_writer();

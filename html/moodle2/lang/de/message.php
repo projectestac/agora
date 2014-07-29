@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,19 +27,19 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addcontact'] = 'Kontakt hinzufügen';
 $string['addsomecontacts'] = 'Um eine Mitteilung an jemanden zu versenden oder eine Verknüpfung zu erstellen, verwenden Sie die <a href="{$a}">Suchoption</a>.';
-$string['addsomecontactsincoming'] = 'Diese Mitteilungen stammen von Personen, die nicht in Ihrer Kontaktliste aufgeführt sind. Um sie in Ihre Kontaktliste zu übernehmen, klicken Sie  neben dem Namen auf die Taste \'Kontakt hinzufügen\'.';
+$string['addsomecontactsincoming'] = 'Diese Mitteilungen stammen von Personen, die nicht in Ihrer Kontaktliste stehen. Um sie in Ihre Kontaktliste zu übernehmen, klicken Sie neben dem Namen auf \'Kontakt hinzufügen\'.';
 $string['ago'] = '{$a} alt';
 $string['ajax_gui'] = 'Ajax Chat';
 $string['allmine'] = 'Alle Mitteilungen an mich oder von mir';
 $string['allstudents'] = 'Alle Mitteilungen der Teilnehmer/innen';
 $string['allusers'] = 'Alle Mitteilungen';
 $string['backupmessageshelp'] = 'Wenn diese Option aktiviert ist, werden die Mitteilungen in die automatisierten Sicherungen der Website einbezogen';
-$string['beepnewmessage'] = 'Signal bei neuer Nachricht';
+$string['beepnewmessage'] = 'Signalton bei neuer Nachricht';
 $string['blockcontact'] = 'Kontakt sperren';
 $string['blockedmessages'] = '{$a} Mitteilung(en) an/von gesperrten Nutzer/innen';
 $string['blockedusers'] = 'Gesperrte Nutzer/innen ({$a})';
 $string['blocknoncontacts'] = 'Unbekannte Personen sperren';
-$string['contactlistempty'] = 'Ihre Kontaktliste ist leer';
+$string['contactlistempty'] = 'Kontaktliste ist leer';
 $string['contacts'] = 'Kontakte';
 $string['context'] = 'Kontext';
 $string['defaultmessageoutputs'] = 'Konfiguration';
@@ -51,7 +51,7 @@ $string['disabled'] = 'Bei dieser Website sind die Mitteilungen deaktiviert';
 $string['disallowed'] = 'Deaktiviert';
 $string['discussion'] = 'Diskussion';
 $string['emailmessages'] = 'Mitteilungen per E-Mail versenden, wenn ich offline bin';
-$string['emailtagline'] = 'Diese E-Mail ist eine Kopie einer Mitteilung, die über \'{$a->sitename}\' an Sie verschickt werden sollte. Zum Antworten gehen Sie bitte zu {$a->url}.';
+$string['emailtagline'] = 'Diese E-Mail enthält die Kopie einer Mitteilung von \'{$a->sitename}\'. Zur Antwort gehen Sie zu {$a->url}.';
 $string['emptysearchstring'] = 'Sie müssen einen Suchbegriff eingeben';
 $string['errorcallingprocessor'] = 'Fehler bei der angegebenen Ausgabe';
 $string['errortranslatingdefault'] = 'Fehler in der Plugin-Einstellung, stattdessen werden die Systemeinstellungen benutzt.';
@@ -80,12 +80,11 @@ $string['messagenavigation'] = 'Mitteilungsnavigation';
 $string['messageoutputs'] = 'Mitteilungsversand';
 $string['messages'] = 'Mitteilungen';
 $string['messaging'] = 'Mitteilungen';
-$string['messagingblockednoncontact'] = '{$a} kann Ihnen nicht antworten, weil Sie fremde Kontakte blockert haben.';
+$string['messagingblockednoncontact'] = '{$a} kann nicht antworten, weil Sie fremde Kontakte gesperrt haben.';
 $string['messagingdisabled'] = 'Bei dieser Website sind die Mitteilungen deaktiviert, aber es werden stattdessen E-Mails verschickt.';
 $string['mostrecent'] = 'Letzte Mitteilungen';
 $string['mostrecentconversations'] = 'Aktuelle Gespräche';
 $string['mostrecentnotifications'] = 'Aktuelle Mitteilungen';
-$string['mycontacts'] = 'Meine Kontakte';
 $string['newonlymsg'] = 'Nur neue anzeigen';
 $string['newsearch'] = 'Neue Suche';
 $string['noframesjs'] = 'Barrierefreie Oberfläche';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Jede Mitteilungsseite';
 $string['pagerefreshes'] = 'Diese Seite wird automatisch nach {$a} Sekunden aktualisiert';
 $string['permitted'] = 'Aktiviert';
 $string['private_config'] = 'Popup-Mitteilung';
-$string['processordeleteconfirm'] = 'Sie löschen nun vollständig das Mitteilungsformat \'{$a}\'. Damit werden alle Einträge in der Datenbank gelöscht, die mit diesem Format verknüpft sind. Sind Sie sicher, dass Sie dies nun tun wollen?';
-$string['processordeletefiles'] = 'Alle Einträge, die mit dem Format \'{$a}\' verknüpft sind, wurden in der Datenbank gelöscht. Um den Löschprozess volständig abzuschließen, und um zu verhindern, dass das Format wieder reaktiviert werden kann, ist es notwendig das zugehörige Verzeichnis (\'{$a->directory>\') auf dem Server zu löschen.';
 $string['processortag'] = 'Ziel';
 $string['providers_config'] = 'Benachrichtigungsmethode für eingehende Mitteilungen';
 $string['providerstag'] = 'Quelle';

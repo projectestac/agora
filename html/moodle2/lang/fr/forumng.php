@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forumng', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forumng', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   forumng
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,17 +41,12 @@ $string['alert_emailpreface'] = 'Un message sur le forum a été signalé par {$
 {$a->email}) {$a->url}';
 $string['alert_emailsubject'] = 'Alerte F{$a->postid}: {$a->coursename} {$a->forumname}';
 $string['alert_feedback'] = 'Votre rapport a été envoyé avec succès. Il va être traité par un membre de l\'équipe.';
-$string['alert_info'] = 'La fonction "Signaler" permet d\'envoyer ce message au modérateur qui pourra juger de son contenu. <strong>Veuillez utiliser ce lien uniquement si vous pensez que le message enfreint les règles relatives à l\'utilisation du forum</strong>.';
-$string['alert_intro'] = 'Vous pouvez utiliser le lien d\'alerte pour attirer l\'attention d\'un modérateur sur un message.';
-$string['alert_link'] = 'Signaler';
 $string['alert_linktitle'] = 'Marquer ce message comme inacceptable';
 $string['alert_notcurrentpost'] = 'Ce message a déjà été supprimé.';
 $string['alert_note'] = 'Note : Ce courriel a également été envoyé à {$a}';
 $string['alert_pagename'] = 'Signaler un message comme incorrect';
-$string['alert_reasons'] = 'Raison du signalement';
 $string['alert_reporterdetail'] = '{$a->fullname} ({$a->username}; {$a->email}; {$a->ip})';
 $string['alert_reporterinfo'] = '<strong>Détails sur le rapporteur</strong>:';
-$string['alert_submit'] = 'Envoyer le rapport';
 $string['alert_turnedoff'] = 'La fonction "Signaler" n\'est pas disponible.';
 $string['allowsubscribe'] = 'Abonnement facultatif';
 $string['allsubscribe'] = 'S\'abonner à tous les forums';
@@ -68,7 +63,6 @@ $string['attachmentmaxbytes'] = 'Taille maximale de l\'annexe';
 $string['attachmentmaxbytes_help'] = 'Il est possible de limiter la taille des annexes. Cette limite est fixée par la personne qui met en place le forum.';
 $string['attachmentnum'] = 'Annexe {$a}';
 $string['attachments'] = 'Annexes';
-$string['author'] = 'auteur : "{$a}"';
 $string['authorname'] = 'Nom de l\'auteur';
 $string['authorname_help'] = 'Vous pouvez taper un prénom (Michel), un nom de famille (Dupont), le nom complet (Michel Dupont), ou la première partie de l\'un de ces éléments (Mic, dup, Michel D). La recherches est insensible à la casse.
 
@@ -462,7 +456,6 @@ $string['replytouser'] = 'Utiliser l\'adresse de l\'auteur dans le champ "Répon
 $string['reply_typelimit'] = 'En raison du format spécifique de ce forum, vous ne pouvez pas répondre à ce message.';
 $string['reply_wronggroup'] = 'Vous ne pouvez pas répondre aux messages de cette discussion, car vous n\'êtes pas dans le bon groupe.';
 $string['reportingemail'] = 'Courriel de contact pour le signalement de messages offensants';
-$string['reportingemail_help'] = 'Si cette adresse mail est fournie, alors un lien "Signaler" apparaît à côté de chaque message. Les utilisateurs peuvent cliquer sur le lien pour rapporter des messages offensifs. Les informations seront envoyées à cette adresse.<br>Si cette adresse mail n\'est pas renseignée, la fonction de rapport ne sera pas disponible (à moins qu\'une adresse spécifique au niveau du site a été fournie).';
 $string['reportunacceptable'] = 'Courriel de contact pour le signalement de messages offensants';
 $string['saveallratings'] = 'Enregistrer toutes les évaluations';
 $string['savedposts_all'] = '{$a}';
@@ -478,15 +471,6 @@ $string['savetoportfolio'] = 'Sauvegarder dans "Mon dossier"';
 $string['searchallforums'] = 'Rechercher dans tous les forums';
 $string['searchresults'] = 'Résultats de la recherche : <strong>{$a}</strong>';
 $string['searchthisforum'] = 'Rechercher dans ce forum';
-$string['searchthisforum_help'] = 'Tapez le terme recherché ici.
-
-Utilisez les guillemets pour rechercher des expressions exactes.
-
-Pour exclure un mot, insérez un trait d\'union immédiatement avant celui-ci.
-
-Par exemple: la recherche <tt> picasso -sculpture "premières œuvres" </ tt> renverra des résultats pour le terme "Picasso" ou l\'expression "premières œuvres" mais exclura les éléments contenant le terme "sculpture".
-
-Si vous laissez cette zone vide, tous les messages qui correspondent à l\'auteur et/ou à des critères de date seront retournés, indépendamment de leur contenu.';
 $string['searchthisforumlink'] = 'Rechercher dans ce forum';
 $string['searchthisforumlink_help'] = 'Tapez le terme recherché ici.
 

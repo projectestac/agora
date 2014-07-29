@@ -41,16 +41,16 @@ class restore_qtype_shortanswer_plugin extends restore_qtype_plugin {
 
         $paths = array();
 
-        // This qtype uses question_answers, add them
+        // This qtype uses question_answers, add them.
         $this->add_question_question_answers($paths);
 
-        // Add own qtype stuff
+        // Add own qtype stuff.
         $elename = 'shortanswer';
-        // we used get_recommended_name() so this works
+        // We used get_recommended_name() so this works.
         $elepath = $this->get_pathfor('/shortanswer');
         $paths[] = new restore_path_element($elename, $elepath);
 
-        return $paths; // And we return the interesting paths
+        return $paths; // And we return the interesting paths.
     }
 
     /**
@@ -62,26 +62,17 @@ class restore_qtype_shortanswer_plugin extends restore_qtype_plugin {
         $data = (object)$data;
         $oldid = $data->id;
 
-        // Detect if the question is created or mapped
+        // Detect if the question is created or mapped.
         $oldquestionid   = $this->get_old_parentid('question');
         $newquestionid   = $this->get_new_parentid('question');
         $questioncreated = $this->get_mappingid('question_created', $oldquestionid) ? true : false;
 
         // If the question has been created by restore, we need to create its
-        // question_shortanswer too, if they are defined (the gui should ensure this).
-        if ($questioncreated && !empty($data->answers)) {
-            // Adjust some columns
-            $data->question = $newquestionid;
-            // Map sequence of question_answer ids
-            $answersarr = explode(',', $data->answers);
-            foreach ($answersarr as $key => $answer) {
-                $answersarr[$key] = $this->get_mappingid('question_answer', $answer);
-            }
-            $data->answers = implode(',', $answersarr);
-            // Insert record
-            $newitemid = $DB->insert_record('question_shortanswer', $data);
-            // Create mapping
-            $this->set_mapping('question_shortanswer', $oldid, $newitemid);
+        // qtype_shortanswer_options too, if they are defined (the gui should ensure this).
+        if ($questioncreated) {
+            $data->questionid = $newquestionid;
+            $newitemid = $DB->insert_record('qtype_shortanswer_options', $data);
+            $this->set_mapping('qtype_shortanswer_options', $oldid, $newitemid);
         }
     }
 }

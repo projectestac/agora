@@ -53,22 +53,18 @@ if ($groupid !== null) {
 }
 
 $PAGE->set_url($url);
-$PAGE->set_pagelayout('standard');
+$PAGE->set_pagelayout('admin');
 
-if ($courseid == SITEID) {
-    require_login();
-    $context = context_system::instance();
-    $PAGE->set_context($context);
-} else {
-    require_login($courseid);
-    $context = context_course::instance($courseid);
-}
+$sitecontext = context_system::instance();
+$PAGE->set_context($sitecontext);
+require_login($courseid);
 
 if (empty($CFG->enableblogs)) {
     print_error('blogdisable', 'blog');
 }
 
-require_capability('moodle/blog:view', $context);
+// The preference is site wide not blog specific. Hence user should have permissions in site level.
+require_capability('moodle/blog:view', $sitecontext);
 
 /// If data submitted, then process and store.
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'userkey', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'userkey', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   userkey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['createnewkey'] = 'Erabiltzaile-giltza berria sortu';
-$string['createuserkey'] = 'Erabiltzaile-giltza sortu';
+$string['createnewkey'] = 'Sortu erabiltzaile-giltza berria';
+$string['createuserkey'] = 'Sortu erabiltzaile-giltza';
 $string['deletekeyconfirm'] = 'Benetan ezabatu nahi al duzu erabiltzaile-giltza hau?';
 $string['edituserkey'] = 'Editatu erabiltzaile-giltza';
 $string['keyiprestriction'] = 'Giltzaren IP muga';

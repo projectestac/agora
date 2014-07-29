@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -92,15 +92,6 @@ $string['check_passwordpolicy_details'] = '<p>建议您设定一个密码策略�
 $string['check_passwordpolicy_error'] = '密码策略未设置。';
 $string['check_passwordpolicy_name'] = '密码策略';
 $string['check_passwordpolicy_ok'] = '密码策略已激活。';
-$string['check_passwordsaltmain_details'] = '<p>设置密码盐可以极大地降低密码被盗的风险。</p>
-<p>把下面这行代码加入config.php文件来设置密码盐：</p>
-<code>$CFG->passwordsaltmain = \'有大量随机字符的长字符串\';</code>
-<p>此随机字符串应该是字母、数字和其它符号的混合。建议至少要40个字符长。</p>
-<p>如果您想修改密码盐，请参考<a href="{$a}" target="_blank">密码盐文档</a>。一旦设置，请不要删除您的密码盐，否则您将永远无法登录您的网站！</p>';
-$string['check_passwordsaltmain_name'] = '密码盐';
-$string['check_passwordsaltmain_ok'] = '密码盐正常';
-$string['check_passwordsaltmain_warning'] = '未设置密码盐';
-$string['check_passwordsaltmain_weak'] = '密码盐强度较弱';
 $string['check_riskadmin_detailsok'] = '<p>请确认下列人员为系统管理员：</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>请确认下列系统管理员：</p>{$a->admins}
 <p>建议只在系统场景下分配管理员角色。下列用户在其它场景中被分配了管理员角色（不支持）：</p>{$a->unsupported}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['canntenrol'] = '登録は無効にされているか、停止しています。';
 $string['cohortnonmemberinfo'] = 'コーホート「 {$a} 」のメンバーのみ自己登録することができます。';
 $string['cohortonly'] = 'コーホートメンバーのみ';
 $string['cohortonly_help'] = '自己登録を指定されたコーホートのみに制限することができます。この設定の変更により、既存の登録が影響を受けないことに留意してください。';
@@ -37,7 +38,6 @@ $string['customwelcomemessage_help'] = 'プレインテキストまたはHTMLタ
 * ユーザプロファイルページへのリンク {$a->profileurl}';
 $string['defaultrole'] = 'デフォルトロール';
 $string['defaultrole_desc'] = '自己登録中にユーザに割り当てるロールを選択してください。';
-$string['editenrolment'] = '登録を編集する';
 $string['enrolenddate'] = '終了日';
 $string['enrolenddate_help'] = '有効にした場合、ユーザはこの日まで受講登録することができます。';
 $string['enrolenddaterror'] = '登録終了日を開始日より早くすることはできません。';
@@ -72,6 +72,9 @@ $string['maxenrolled'] = '最大登録ユーザ';
 $string['maxenrolled_help'] = '自己登録できる最大ユーザ数を指定してください。ゼロは制限なしを意味します。';
 $string['maxenrolledreached'] = 'すでに自己登録可能な最大ユーザ数に達しています。';
 $string['messageprovider:expiry_notification'] = '自己登録期限切れ通知';
+$string['newenrols'] = '新しい登録を許可する';
+$string['newenrols_desc'] = '新しいコースにおけるユーザの自己登録をデフォルトで許可します。';
+$string['newenrols_help'] = 'この設定では、このコースにユーザが自己登録できるかどうか決定します。';
 $string['nopassword'] = '必要な登録キーはありません。';
 $string['password'] = '登録キー';
 $string['password_help'] = '登録キーを使用することにより、登録キーを知っているユーザのみにコースアクセスを制限することができます。
@@ -94,9 +97,9 @@ $string['sendcoursewelcomemessage'] = 'コースウェルカムメッセージ�
 $string['sendcoursewelcomemessage_help'] = 'この設定を有効にした場合、コースへの自己受講登録後、ユーザ宛にウェルカムメッセージがメール送信されます。';
 $string['showhint'] = 'ヒントを表示する';
 $string['showhint_desc'] = 'ゲストアクセスキーの最初の文字を表示します。';
-$string['status'] = '自己登録を許可する';
-$string['status_desc'] = 'デフォルトでユーザがコースに自己登録できるようにします。';
-$string['status_help'] = 'この設定では、ユーザが自分自身でコースに受講登録 (および適切なパーミッションがあれば登録解除) できるかどうか設定します。';
+$string['status'] = '既存の登録を有効にする';
+$string['status_desc'] = '新しいコースにおける自己登録を有効にします。';
+$string['status_help'] = 'この設定を無効にした場合、自己登録は停止され、新しいユーザが登録できないようになります。';
 $string['unenrol'] = 'ユーザを登録解除する';
 $string['unenrolselfconfirm'] = '本当にコース「 {$a} 」からあなたを登録解除してもよろしいですか?';
 $string['unenroluser'] = '本当に「 {$a->user} 」をコース「 {$a->course} 」から登録解除してもよろしいですか?';

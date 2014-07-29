@@ -51,7 +51,7 @@ function ajaxenabled(array $browsers = null) {
     if (!empty($browsers)) {
         $valid = false;
         foreach ($browsers as $brand => $version) {
-            if (check_browser_version($brand, $version)) {
+            if (core_useragent::check_browser_version($brand, $version)) {
                 $valid = true;
             }
         }
@@ -59,19 +59,6 @@ function ajaxenabled(array $browsers = null) {
         if (!$valid) {
             return false;
         }
-    }
-
-    $ie = check_browser_version('MSIE', 6.0);
-    $ff = check_browser_version('Gecko', 20051106);
-    $op = check_browser_version('Opera', 9.0);
-    $sa = check_browser_version('Safari', 412);
-    $ch = check_browser_version('Chrome', 6);
-
-    if (!$ie && !$ff && !$op && !$sa && !$ch) {
-        /** @see http://en.wikipedia.org/wiki/User_agent */
-        // Gecko build 20051107 is what is in Firefox 1.5.
-        // We still have issues with AJAX in other browsers.
-        return false;
     }
 
     if (!empty($CFG->enableajax)) {
@@ -109,11 +96,15 @@ function ajax_check_captured_output() {
     $output = ob_get_contents();
     ob_end_clean();
 
-    if ($CFG->debug == DEBUG_DEVELOPER && !empty($output)) {
-        // Only throw an error if the site is in debugdeveloper.
-        throw new coding_exception('Unexpected output whilst processing AJAX request. ' .
+    if (!empty($output)) {
+        $message = 'Unexpected output whilst processing AJAX request. ' .
                 'This could be caused by trailing whitespace. Output received: ' .
-                var_export($output, true));
+                var_export($output, true);
+        if ($CFG->debugdeveloper && !empty($output)) {
+            // Only throw an error if the site is in debugdeveloper.
+            throw new coding_exception($message);
+        }
+        error_log('Potential coding error: ' . $message);
     }
     return $output;
 }

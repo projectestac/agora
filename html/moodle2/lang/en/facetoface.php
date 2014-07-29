@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'facetoface', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'facetoface', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   facetoface
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,9 +37,9 @@ $string['addsession'] = 'Add a new session';
 $string['addstudent'] = 'Add student';
 $string['alllocations'] = 'All locations';
 $string['allowoverbook'] = 'Allow overbooking';
-$string['allowoverbook_help'] = 'When "Allow overbooking" is checked, learners will be able to sign up for a face-to-face session even if it is already full.</p>
+$string['allowoverbook_help'] = 'When "Allow overbooking" is checked, learners will be able to sign up for a face-to-face session even if it is already full.<br />
 
-<p>When a learner signs up for a session that is already full, they will receive an email advising that they have been waitlisted for the session and will be notified when a booking becomes available.';
+When a learner signs up for a session that is already full, they will receive an email advising that they have been waitlisted for the session and will be notified when a booking becomes available.';
 $string['allsessionsin'] = 'All sessions in {$a}';
 $string['alreadysignedup'] = 'You have already signed-up for this Face-to-face activity.';
 $string['answer'] = 'Sign in';

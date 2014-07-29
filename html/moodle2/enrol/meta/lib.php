@@ -17,8 +17,7 @@
 /**
  * Meta course enrolment plugin.
  *
- * @package    enrol
- * @subpackage meta
+ * @package    enrol_meta
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -119,15 +118,8 @@ class enrol_meta_plugin extends enrol_plugin {
      * @return void
      */
     public function course_updated($inserted, $course, $data) {
-        global $CFG;
-
-        if (!$inserted) {
-            // sync cohort enrols
-            require_once("$CFG->dirroot/enrol/meta/locallib.php");
-            enrol_meta_sync($course->id);
-        } else {
-            // cohorts are never inserted automatically
-        }
+        // Meta sync updates are slow, if enrolments get out of sync teacher will have to wait till next cron.
+        // We should probably add some sync button to the course enrol methods overview page.
     }
 
     /**

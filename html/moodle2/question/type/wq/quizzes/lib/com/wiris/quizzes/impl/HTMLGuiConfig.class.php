@@ -3,7 +3,6 @@
 class com_wiris_quizzes_impl_HTMLGuiConfig {
 	public function __construct($classes) {
 		if(!php_Boot::$skip_constructor) {
-		$this->configClasses = new _hx_array(array());
 		$this->openAnswerConfig();
 		if($classes === null) {
 			$classes = "";
@@ -17,15 +16,12 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 				$className = $classArray[$i1];
 				if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISMULTICHOICE) {
 					$this->multichoiceConfig();
-					$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISMULTICHOICE);
 				} else {
 					if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISOPENANSWER) {
 						$this->openAnswerConfig();
-						$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISOPENANSWER);
 					} else {
 						if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISESSAY) {
 							$this->essayConfig();
-							$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISESSAY);
 						}
 					}
 				}
@@ -39,20 +35,32 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 				$className = $classArray[$i1];
 				if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVARIABLES) {
 					$this->tabVariables = true;
-					$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVARIABLES);
 				} else {
-					if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCAS) {
-						$this->optAuxiliarCas = true;
-						$this->tabCorrectAnswer = true;
-						$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCAS);
+					if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVALIDATION) {
+						$this->tabValidation = true;
 					} else {
-						if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVALIDATION) {
-							$this->tabValidation = true;
-							$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVALIDATION);
+						if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISPREVIEW) {
+							$this->tabPreview = true;
 						} else {
-							if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISGRADINGFUNCTION) {
-								$this->optGradingFunction = true;
-								$this->configClasses->push(com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISGRADINGFUNCTION);
+							if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISCORRECTANSWER) {
+								$this->tabCorrectAnswer = true;
+							} else {
+								if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCAS) {
+									$this->optAuxiliarCas = true;
+									$this->tabCorrectAnswer = true;
+								} else {
+									if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCASREPLACEEDITOR) {
+										$this->optAuxiliarCasReplaceEditor = true;
+									} else {
+										if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISTEACHERANSWER) {
+											$this->optOpenAnswer = true;
+										} else {
+											if($className === com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISGRADINGFUNCTION) {
+												$this->optGradingFunction = true;
+											}
+										}
+									}
+								}
 							}
 						}
 					}
@@ -61,21 +69,37 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 			}
 		}
 	}}
+	public function add($sb, $className) {
+		$sb->add($className);
+		$sb->add(" ");
+	}
 	public function getClasses() {
 		$sb = new StringBuf();
-		$i = null;
-		{
-			$_g1 = 0; $_g = $this->configClasses->length;
-			while($_g1 < $_g) {
-				$i1 = $_g1++;
-				if($i1 > 0) {
-					$sb->add(" ");
-				}
-				$sb->add($this->configClasses[$i1]);
-				unset($i1);
-			}
+		if($this->tabCorrectAnswer) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISCORRECTANSWER);
 		}
-		return $sb->b;
+		if($this->tabValidation) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVALIDATION);
+		}
+		if($this->tabVariables) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISVARIABLES);
+		}
+		if($this->tabPreview) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISPREVIEW);
+		}
+		if($this->optOpenAnswer) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISTEACHERANSWER);
+		}
+		if($this->optAuxiliarCas) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCAS);
+		}
+		if($this->optAuxiliarCasReplaceEditor) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISAUXILIARCASREPLACEEDITOR);
+		}
+		if($this->optGradingFunction) {
+			$this->add($sb, com_wiris_quizzes_impl_HTMLGuiConfig::$WIRISGRADINGFUNCTION);
+		}
+		return trim($sb->b);
 	}
 	public function essayConfig() {
 		$this->multichoiceConfig();
@@ -101,7 +125,6 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 		$this->optAuxiliarCasReplaceEditor = false;
 		$this->optGradingFunction = false;
 	}
-	public $configClasses;
 	public $optGradingFunction;
 	public $optAuxiliarCasReplaceEditor;
 	public $optAuxiliarCas;
@@ -123,9 +146,13 @@ class com_wiris_quizzes_impl_HTMLGuiConfig {
 	static $WIRISMULTICHOICE = "wirismultichoice";
 	static $WIRISOPENANSWER = "wirisopenanswer";
 	static $WIRISESSAY = "wirisessay";
+	static $WIRISCORRECTANSWER = "wiriscorrectanswer";
 	static $WIRISVARIABLES = "wirisvariables";
 	static $WIRISVALIDATION = "wirisvalidation";
+	static $WIRISPREVIEW = "wirispreview";
+	static $WIRISTEACHERANSWER = "wiristeacheranswer";
 	static $WIRISAUXILIARCAS = "wirisauxiliarcas";
+	static $WIRISAUXILIARCASREPLACEEDITOR = "wirisauxiliarcasreplaceeditor";
 	static $WIRISGRADINGFUNCTION = "wirisgradingfunction";
 	function __toString() { return 'com.wiris.quizzes.impl.HTMLGuiConfig'; }
 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['coursename'] = '课程名';
 $string['detailedanalysis'] = '对试题回答的更多细致分析';
 $string['discrimination_index'] = '区分度指数';
 $string['discriminative_efficiency'] = '区分效率';
-$string['downloadeverything'] = '下载完整报告为';
+$string['downloadeverything'] = '下载完整报告 {$a->formatsmenu} {$a->downloadbutton}';
 $string['duration'] = '开放时长';
 $string['effective_weight'] = '实际权重';
 $string['errordeleting'] = '删除 {$a} 条旧记录出错。';
@@ -59,8 +59,12 @@ $string['firstattempts'] = '首次答题';
 $string['firstattemptsavg'] = '首次答题平均分';
 $string['firstattemptscount'] = '已完全评分的首次答题个数';
 $string['frequency'] = '频率';
+$string['highestattempts'] = '最高分数';
+$string['highestattemptsavg'] = '最高分数平均分';
 $string['intended_weight'] = '预期权重';
 $string['kurtosis'] = '分数分布峰度（{$a}）';
+$string['lastattempts'] = '最后的答题';
+$string['lastattemptsavg'] = '最后答题平均分';
 $string['lastcalculated'] = '{$a->lastcalculated}之前最后一次计算。此后又有{$a->count}份试卷。';
 $string['median'] = '成绩中值（{$a}）';
 $string['modelresponse'] = '回答模式';
@@ -72,6 +76,7 @@ $string['negcovar_help'] = '此题在此试卷集合中的成绩与测验中所�
 如果您编辑一个测验，让有负值协方差的题目的最高分为 0，那么这些题目的实际权重会是 0，其它题目的实际权重会按当前情况计算。';
 $string['nostudentsingroup'] = '此小组中还没有学生';
 $string['optiongrade'] = '得分比例';
+$string['partofquestion'] = '试题部分';
 $string['pluginname'] = '统计';
 $string['position'] = '题号';
 $string['positions'] = '位置';
@@ -87,6 +92,7 @@ $string['quizoverallstatistics'] = '测验整体统计';
 $string['quizstructureanalysis'] = '测验结构分析';
 $string['random_guess_score'] = '随机猜测得分';
 $string['recalculatenow'] = '立即重新计算';
+$string['reportsettings'] = '统计计算设置';
 $string['response'] = '回答';
 $string['skewness'] = '分数分布偏度（{$a}）';
 $string['standarddeviation'] = '标准偏差（{$a}）';

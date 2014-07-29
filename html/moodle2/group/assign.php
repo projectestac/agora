@@ -53,13 +53,19 @@ if ($frm = data_submitted() and confirm_sesskey()) {
 
     } else if (isset($frm->add) and !empty($frm->addselect)) {
         foreach ($frm->addselect as $groupid) {
-            groups_assign_grouping($grouping->id, (int)$groupid);
+            // Ask this method not to purge the cache, we'll do it ourselves afterwards.
+            groups_assign_grouping($grouping->id, (int)$groupid, null, false);
         }
+        // Invalidate the course groups cache seeing as we've changed it.
+        cache_helper::invalidate_by_definition('core', 'groupdata', array(), array($courseid));
 
     } else if (isset($frm->remove) and !empty($frm->removeselect)) {
         foreach ($frm->removeselect as $groupid) {
-            groups_unassign_grouping($grouping->id, (int)$groupid);
+            // Ask this method not to purge the cache, we'll do it ourselves afterwards.
+            groups_unassign_grouping($grouping->id, (int)$groupid, false);
         }
+        // Invalidate the course groups cache seeing as we've changed it.
+        cache_helper::invalidate_by_definition('core', 'groupdata', array(), array($courseid));
     }
 }
 
@@ -116,7 +122,7 @@ $straddgroupstogroupings = get_string('addgroupstogroupings', 'group');
 $groupingname = format_string($grouping->name);
 
 navigation_node::override_active_url(new moodle_url('/group/index.php', array('id'=>$course->id)));
-$PAGE->set_pagelayout('standard');
+$PAGE->set_pagelayout('admin');
 
 $PAGE->navbar->add($strparticipants, new moodle_url('/user/index.php', array('id'=>$courseid)));
 $PAGE->navbar->add($strgroups, new moodle_url('/group/index.php', array('id'=>$courseid)));

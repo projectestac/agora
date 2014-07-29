@@ -13,15 +13,18 @@ $CFG->center = array_key_exists('clientCode', $school_info) ? $school_info['clie
 $CFG->diskPercent = array_key_exists('diskPercent_moodle2', $school_info) ? $school_info['diskPercent_moodle2'] : 0;
 $CFG->userquota = 0;  // To avoid the private files area
 
-$CFG->legacyfilesinnewcourses=0;
-$CFG->updateautocheck = 0;
-$CFG->disableupdatenotifications=1;
+$CFG->legacyfilesinnewcourses = false;
+$CFG->updateautocheck = false;
+$CFG->disableupdatenotifications = true;
+$CFG->disableupdateautodeploy = true;
+$CFG->disableonclickaddoninstall = true;
 
 //Preconfiguration setting
 $CFG->alternateloginurl='';
-$CFG->mymoodleredirect=0;
-$CFG->enablestats=0;
-$CFG->themedesignermode=0;
+$CFG->mymoodleredirect = false;
+$CFG->enablestats = false;
+$CFG->themedesignermode = false;
+$CFG->cachejs = true;
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication

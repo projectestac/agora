@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['cronfrequency'] = 'Frequência de processamento';
 $string['deleteusers'] = 'Eliminar as contas de utilizador se isso for especificado nos dados IMS';
 $string['deleteusers_desc'] = 'Se esta configuração estiver ativa, o módulo de inscrição IMS Enterprise pode remover contas de utilizador se isso for especificado nos dados IMS (campo "recstatus" = 3). Como é procedimento habitual no Moodle, as contas não serão removidas da base de dados, mas marcadas como "apagadas".';
 $string['doitnow'] = 'executar uma importação IMS Enterprise';
+$string['emptyattribute'] = 'Deixar vazio';
 $string['filelockedmail'] = 'O ficheiro de texto que está a utilizar para inscrições IMS ({$a}) não pôde ser eliminado pelo processo cron. Normalmente, tal significa que as permissões não estão bem definidas. Por favor, ajuste as permissões de forma a que o Moodle possa eliminar o ficheiro; caso contrário, este será repetidamente processado.';
 $string['filelockedmailsubject'] = 'Erro importante: Ficheiro de inscrições';
 $string['fixcasepersonalnames'] = 'Escrever nomes próprios em maiúsculas';
@@ -67,6 +68,12 @@ $string['restricttarget_desc'] = 'Um ficheiro IMS Enterprise pode ser criado par
 
 Normalmente não terá que se preocupar com esta informação. Se deixar este campo em branco o Moodle fará sempre o processamento deste ficheiro, independentemente do destino indicado no ficheiro. Em alternativa, indique o nome do destino a processar que se encontra referido no ficheiro.';
 $string['roles'] = 'Papéis';
+$string['settingfullname'] = 'Descrição da etiqueta IMS para o nome completo da disciplina';
+$string['settingfullnamedescription'] = 'O nome completo é um campo obrigatório da disciplina e, por isso, tem de definir a descrição da etiqueta selecionada no seu ficheiro IMS da empresa';
+$string['settingshortname'] = 'Descrição da etiqueta IMS para o nome curto da disciplina';
+$string['settingshortnamedescription'] = 'O nome curto é um campo obrigatório da disciplina e, por isso, tem de definir a descrição da etiqueta selecionada no seu ficheiro IMS da empresa';
+$string['settingsummary'] = 'Tag de descrição IMS para o resumo disciplina';
+$string['settingsummarydescription'] = 'É um campo opcional, selecione \'Deixar vazio \' se não pretende especificar um resumo da disciplina';
 $string['sourcedidfallback'] = 'Utilizar <strong>sourcedid</strong> para o nome de utilizador caso o campo <strong>userid</strong> não seja encontrado';
 $string['sourcedidfallback_desc'] = 'Na informação IMS o campo <strong>sourcedid</strong> representa o identificador persistente de uma pessoa tal como é usado no sistema fonte. O campo <strong>userid</strong> é um campo distinto que deve conter o identificador usado pelo utilizador quando inicia uma sessão. Normalmente estes dois campos têm o mesmo valor, mas isso não é obrigatório.
 

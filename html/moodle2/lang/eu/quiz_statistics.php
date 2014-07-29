@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,6 +45,7 @@ $string['firstattempts'] = 'lehen saiakerak';
 $string['firstattemptsavg'] = 'Lehenbiziko saiakeraren batez besteko kalifikazioa';
 $string['firstattemptscount'] = 'Lehen saiakera-kopurua';
 $string['frequency'] = 'Maiztasuna';
+$string['lastattempts'] = 'azken saiakera';
 $string['nostudentsingroup'] = 'Oraindik ez dago ikaslerik talde honetan';
 $string['pluginname'] = 'Estatistikak';
 $string['position'] = 'Kokalekua';
@@ -66,4 +67,4 @@ $string['statistics'] = 'Estatistikak';
 $string['statistics:componentname'] = 'Galdetegiaren estatistiken txostena';
 $string['statisticsreport'] = 'Estatistiken txostean';
 $string['statistics:view'] = 'Estatistiken txostean ikusi';
-$string['statsfor'] = 'Galdetegiaren estatitstikak ({$a}-rentzat)';
+$string['statsfor'] = 'Galdetegiaren estatitstikak (({$a}-rentzat)';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,7 @@ $string['createtokenforuser'] = 'Créer un jeton pour un utilisateur';
 $string['createtokenforuserdescription'] = 'Créez un jeton pour l\'utilisateur web services.';
 $string['createuser'] = 'Créer un utilisateur spécifique';
 $string['createuserdescription'] = 'Vous devez créer un utilisateur services web pour représenter le système contrôlant Moodle.';
-$string['criteriaerror'] = 'Droits d\'accès manquants pour rechercher par critères.';
+$string['criteriaerror'] = 'Droits d\'accès manquants pour rechercher par critère.';
 $string['default'] = 'Défaut pour « {$a} »';
 $string['deleteaservice'] = 'Supprimer service';
 $string['deleteservice'] = 'Supprimer le service : {$a->name} (id: {$a->id})';
@@ -86,6 +86,14 @@ $string['errorcoursecontextnotvalid'] = 'Vous ne pouvez pas exécuter de focntio
 $string['errorinvalidparam'] = 'Le paramètre « {$a} » n\'est pas valide.';
 $string['errornotemptydefaultparamarray'] = 'Le paramètre de description « {$a} » du service web est une structure simple ou multiple. Le défaut ne peut être qu\'un tableau vide. Veuillez vérifier la description du service web.';
 $string['erroroptionalparamarray'] = 'Le paramètre de description « {$a} » du service web est une structure simple ou multiple. Il ne peut pas être défini comme VALUE_OPTIONAL. Veuillez vérifier la description du service web.';
+$string['event_webservice_function_called'] = 'Fonction Web service appelée';
+$string['event_webservice_login_failed'] = 'Connexion Web service échouée';
+$string['event_webservice_service_created'] = 'Service Web service créé';
+$string['event_webservice_service_updated'] = 'Service Web service modifié';
+$string['event_webservice_service_user_added'] = 'Utilisateur de service Web service ajouté';
+$string['event_webservice_service_user_removed'] = 'Utilisateur de service Web service supprimé';
+$string['event_webservice_token_created'] = 'Jeton Web service créé';
+$string['event_webservice_token_sent'] = 'Jeton Web service envoyé';
 $string['execute'] = 'Lancer';
 $string['executewarnign'] = '<b>Attention</b> : si vous lancez l\'exécution de la commande, votre base de données sera mise à jour et les modifications ne pourront pas être annulées automatiquement !';
 $string['externalservice'] = 'Service externe';
@@ -120,6 +128,7 @@ $string['missingusername'] = 'Nom d\'utilisateur manquant';
 $string['missingversionfile'] = 'Erreur de codage : le fichier version.php est manquant pour le composant {$a}';
 $string['mobilewsdisabled'] = 'Désactivé';
 $string['mobilewsenabled'] = 'Activé';
+$string['nocapabilitytouseparameter'] = 'L\'utilisateur n\'a pas la capacité requise pour utiliser le paramètre {$a}';
 $string['nofunctions'] = 'Ce service n\'a pas de fonction.';
 $string['norequiredcapability'] = 'Aucune capacité requise';
 $string['notoken'] = 'La liste des jetons est vide.';
@@ -188,6 +197,8 @@ $string['tokencreator'] = 'Créateur';
 $string['unknownoptionkey'] = 'Clef d\'option inconnue ({$a})';
 $string['unnamedstringparam'] = 'Un paramètre chaîne de caractère n\'a pas de nom.';
 $string['updateusersettings'] = 'Modifier';
+$string['uploadfiles'] = 'Autoriser le dépôt de fichiers';
+$string['uploadfiles_help'] = 'Si ce réglage est activé, les utilisateurs peuvent déposer des fichiers dans leur zone de fichiers privée ou dans un zone de fichiers brouillons en donnant leur clef de sécurité. Les quotas d\'espace disque seront respectés.';
 $string['userasclients'] = 'Utilisateurs en tant que clients avec jetons';
 $string['userasclientsdescription'] = 'Les étapes suivantes vous aident à configurer le service web Moodle pour des utilisateurs clients. Ils vous aident aussi à configurer la méthode d\'authentification par jeton (clefs de sécurité) recommandée. Dans ce cas, l\'utilisateur obtiendra sa clef de sécurité (jeton) sur la page Réglages de mon profil.';
 $string['usermissingcaps'] = 'Capacités manquantes : {$a}';

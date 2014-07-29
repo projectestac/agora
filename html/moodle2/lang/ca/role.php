@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'S\'està afegint un nou rol';
-$string['addingrolebycopying'] = 'S\'està afegint un nou rol basat en {$a}';
 $string['addrole'] = 'Afegeix un nou rol';
 $string['advancedoverride'] = 'Redefinició avançada de rols';
 $string['allow'] = 'Permet';
@@ -70,10 +69,22 @@ $string['backup:backuptargetimport'] = 'Còpia de seguretat de la importació';
 $string['backup:configure'] = 'Configura les opcions de còpia de seguretat';
 $string['backup:downloadfile'] = 'Descarregar fitxers de l\'àrea de còpies de seguretat';
 $string['backup:userinfo'] = 'Còpia de seguretat de les dades d\'usuari';
+$string['badges:awardbadge'] = 'Concedeix una insígnia a un usuari';
+$string['badges:configurecriteria'] = 'Configura/edita els criteris per guanyar una insígnia';
+$string['badges:configuredetails'] = 'Configura/edita els detalls de la insígnia';
+$string['badges:configuremessages'] = 'Configura els missatges de la insígnia';
+$string['badges:createbadge'] = 'Crea/duplica insígnies';
+$string['badges:deletebadge'] = 'Suprimeix insígnies';
+$string['badges:earnbadge'] = 'Guanya una insígnia';
+$string['badges:manageglobalsettings'] = 'Gestiona la configuració global de les insígnies';
+$string['badges:manageownbadges'] = 'Visualitza i gestiona les pròpies insígnies guanyades';
+$string['badges:viewawarded'] = 'Visualitza els usuaris que guanyaren una insígnia concreta sense que pogueren guanyar una insígnia';
+$string['badges:viewbadges'] = 'Visualitza les insígnies disponibles sense guanyar-les';
+$string['badges:viewotherbadges'] = 'Visualitza les insígnies públiques en els perfils d\'altres usuaris';
 $string['block:edit'] = 'Editar els paràmetres d\'un bloc';
 $string['block:view'] = 'Visualitzar un bloc';
-$string['blog:associatecourse'] = 'Associar entrades del blog amb cursos';
-$string['blog:associatemodule'] = 'Associar entrades del blog amb mòduls d\'activitat';
+$string['blog:associatecourse'] = 'Aquesta capacitat és obsoleta i no fa res.';
+$string['blog:associatemodule'] = 'Aquesta capacitat és obsoleta i no fa res.';
 $string['blog:create'] = 'Crear noves entrades del blog';
 $string['blog:manageentries'] = 'Editar i gestionar entrades';
 $string['blog:manageexternal'] = 'Editar i gestionar blogs externs';
@@ -151,6 +162,7 @@ $string['course:viewhiddensections'] = 'Veure seccions ocultes';
 $string['course:viewhiddenuserfields'] = 'Veure camps d\'usuari ocults';
 $string['course:viewparticipants'] = 'Veure participants';
 $string['course:viewscales'] = 'Veure escales';
+$string['course:viewsuspendedusers'] = 'Mostra els usuaris suspesos.';
 $string['course:visibility'] = 'Ocultar/mostrar cursos';
 $string['createrolebycopying'] = 'Crear un nou rol copiant {$a}';
 $string['createthisrole'] = 'Crear aquest rol';
@@ -176,9 +188,17 @@ $string['errorbadrolename'] = 'El nom del rol és incorrecte';
 $string['errorbadroleshortname'] = 'Nom curt de rol incorrecte';
 $string['errorexistsrolename'] = 'Aquest nom de rol ja existeix';
 $string['errorexistsroleshortname'] = 'El nom ja existeix';
+$string['eventroleallowassignupdated'] = 'Habilita l\'assignació de rol';
+$string['eventroleallowoverrideupdated'] = 'Habilita la sobreescritpura del rol';
+$string['eventroleallowswitchupdated'] = 'Habilita la commutació de rols';
+$string['eventroleassigned'] = 'Rol assignat';
+$string['eventrolecapabilitiesupdated'] = 'S\'han actualitzat les capacitats del rol';
+$string['eventroledeleted'] = 'Rol suprimit';
+$string['eventroleunassigned'] = 'Rol sense assignar';
 $string['existingadmins'] = 'Administradors actuals del lloc';
 $string['existingusers'] = '{$a} usuaris existents';
 $string['explanation'] = 'Explicació';
+$string['export'] = 'Exporta';
 $string['extusers'] = 'Usuaris existents';
 $string['extusersmatching'] = 'Usuaris existents que concordin amb «{$a}»';
 $string['filter:manage'] = 'Gestiona els paràmetres del filtre local';
@@ -210,6 +230,7 @@ $string['highlightedcellsshowinherit'] = 'Les cel·les ressaltades de la taula d
 $string['inactiveformorethan'] = 'inactiu més de {$a->timeperiod}';
 $string['ingroup'] = 'en el grup «{$a->group}»';
 $string['inherit'] = 'Hereta';
+$string['invalidpresetfile'] = 'Fitxer de definició de rol invàlid';
 $string['legacy:admin'] = 'ROL HERETAT: Administrador/a';
 $string['legacy:coursecreator'] = 'ROL HERETAT: Creador/a de cursos';
 $string['legacy:editingteacher'] = 'ROL HERETAT: Professor/a (edició)';
@@ -235,6 +256,7 @@ $string['neededroles'] = 'Rols amb permís';
 $string['nocapabilitiesincontext'] = 'No hi ha capacitats disponibles en aquest context';
 $string['noneinthisx'] = 'Cap en aquest {$a}';
 $string['noneinthisxmatching'] = 'No hi ha usuaris que concordin amb «{$a->search}» en aquest {$a->contexttype}';
+$string['norole'] = 'Sense rol';
 $string['noroleassignments'] = 'Aquest usuari no té cap rol assignat enlloc del web';
 $string['noroles'] = 'Sense rols';
 $string['notabletoassignroleshere'] = 'No esteu autoritzat a assignar rols aquí';
@@ -285,10 +307,8 @@ $string['rating:rate'] = 'Afegir puntuacions a ítems';
 $string['rating:view'] = 'Veure la puntuació total rebuda';
 $string['rating:viewall'] = 'Veure totes les puntuacions en brut subministrades pels particulars';
 $string['rating:viewany'] = 'Veure les puntuacions totals rebudes per qualsevol';
-$string['resetrole'] = 'Reinicia amb permisos per defecte';
-$string['resetrolenolegacy'] = 'Neteja permisos';
-$string['resetrolesure'] = 'Segur que voleu reiniciar el rol «{$a->name} ({$a->shortname})» als valors per defecte?<p></p>Els valors per defecte es prenen de l\'arquetipus seleccionat ({$a->legacytype}).';
-$string['resetrolesurenolegacy'] = 'Segur que voleu netejar tots els permisos definits en aquest rol "{$a->name} ({$a->shortname})"?';
+$string['resetrole'] = 'Reinicia';
+$string['resettingrole'] = 'S\'està reiniciant el rol \'{$a}\'';
 $string['restore:configure'] = 'Configurar les opcions de restauració';
 $string['restore:createuser'] = 'Crear usuaris en restaurar';
 $string['restore:restoreactivity'] = 'Restaurar activitats';
@@ -312,7 +332,11 @@ $string['role:manage'] = 'Crear i gestionar rols';
 $string['role:override'] = 'Redefinir els permisos d\'altri';
 $string['roleprohibitheader'] = 'Prohibeix el rol';
 $string['roleprohibitinfo'] = 'Escolliu un rol per tal d\'afegir-lo a la llista de rols prohibits en el context {$a->context}, capacitat {$a->cap}:';
+$string['rolerepreset'] = 'Utilitza el rol preconfigurat';
+$string['roleresetdefaults'] = 'Per defecte';
+$string['roleresetrole'] = 'Utilitza el rol o l\'arquetipus';
 $string['role:review'] = 'Revisar els permisos d\'altri';
+$string['rolerisks'] = 'Riscs del rol';
 $string['roles'] = 'Rols';
 $string['role:safeoverride'] = 'Redefinir els permisos segurs d\'altri';
 $string['roleselect'] = 'Escull un rol';
@@ -354,6 +378,7 @@ $string['tag:edit'] = 'Editar etiquetes existents';
 $string['tag:editblocks'] = 'Editar blocs en pàgines d\'etiquetes';
 $string['tag:flag'] = 'Marcar etiquetes com a inadequades';
 $string['tag:manage'] = 'Gestionar totes les etiquetes';
+$string['thisnewrole'] = 'Aquest rol nou';
 $string['thisusersroles'] = 'Rols assignats a aquest usuari';
 $string['unassignarole'] = 'Desassigna el rol {$a}';
 $string['unassignconfirm'] = 'Voleu realment desassignar el rol «{$a->role}» de l\'usuari «{$a->user}»?';

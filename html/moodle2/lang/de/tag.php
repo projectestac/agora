@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tag', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tag', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   tag
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,8 @@ $string['addedotag'] = '\'{$a}\' wurde als offizielles Schlagwort hinzugefügt.'
 $string['addotags'] = 'Offizielle Schlagworte hinzufügen';
 $string['addtagtomyinterests'] = '\'{$a}\' zu meinen Interessen hinzufügen';
 $string['alltagpages'] = 'Alle Schlagwortseiten';
-$string['changename'] = 'Schlagwort bearbeiten';
-$string['changetype'] = 'Schlagworttyp bearbeiten';
+$string['changename'] = 'Schlagwort ändern';
+$string['changetype'] = 'Schlagworttyp ändern';
 $string['count'] = 'Zählen';
 $string['delete'] = 'Löschen';
 $string['deleted'] = 'Gelöscht';

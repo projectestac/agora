@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,8 +48,13 @@ $string['choicetext'] = 'Keuzetekst';
 $string['chooseaction'] = 'Kies een actie...';
 $string['completionsubmit'] = 'Toon als voltooid wanneer de gebruiker een keuze maakt';
 $string['displayhorizontal'] = 'Toon horizontaal';
-$string['displaymode'] = 'Hoe tonen?';
+$string['displaymode'] = 'Toonmodus voor de opties';
 $string['displayvertical'] = 'Toon verticaal';
+$string['event_answer_created'] = 'Keuze gemaakt';
+$string['event_answer_updated'] = 'Keuze aangepast';
+$string['event_choice_viewed'] = 'Keuze bekeken';
+$string['event_instances_list_viewed'] = 'Instantielijst bekeken';
+$string['event_report_viewed'] = 'Keuzerapport bekeken';
 $string['expired'] = 'Sorry, deze activiteit is afgesloten op {$a} en is niet meer beschikbaar';
 $string['full'] = '(volledig)';
 $string['havetologin'] = 'Je moet aangemeld zijn voor je je keuze kunt insturen';
@@ -60,6 +65,7 @@ $string['limitanswers_help'] = '<p>Met deze optie is het mogelijk om het aantal 
 <p>Eens limieten ingeschakeld zijn, kan op elke optie een limiet gezet worden. Als de limiet bereikt is, kan niemand nog die optie kiezen. Als een limiet van nul gekozen wordt, dan kan niemand die optie kiezen.</p>
 
 <p>Als limieten niet ingeschakeld zijn, dan kan gelijk welk aantal deelnemers een bepaalde keuze selecteren.</p>';
+$string['limitno'] = 'Limiet {no}';
 $string['modulename'] = 'Keuze';
 $string['modulename_help'] = 'Met de keuzemodule kan de leraar een vraag stellen en een keuze van mogelijke antwoorden opgeven.
 
@@ -81,6 +87,8 @@ $string['notopenyet'] = 'Deze activiteit is niet beschikbaar tot {$a}';
 $string['numberofuser'] = 'Het aantal gebruikers';
 $string['numberofuserinpercentage'] = 'Het aantal gebruikers als percentage';
 $string['option'] = 'Optie';
+$string['optionno'] = 'Optie {no}';
+$string['options'] = 'Opties';
 $string['page-mod-choice-x'] = 'Keuzemodulepagina';
 $string['pluginadministration'] = 'Keuzebeheer';
 $string['pluginname'] = 'Keuze';
@@ -97,6 +105,7 @@ $string['removeresponses'] = 'Verwijder alle antwoorden';
 $string['responses'] = 'Antwoorden';
 $string['responsesresultgraphheader'] = 'Grafiek tonen';
 $string['responsesto'] = 'Antwoorden op  {$a}';
+$string['results'] = 'Resultaten';
 $string['savemychoice'] = 'Bewaar mijn antwoord';
 $string['showunanswered'] = 'Toon een kolom voor onbeantwoord';
 $string['skipresultgraph'] = 'Resultatengrafiek overslaan';

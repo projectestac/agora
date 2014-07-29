@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Aktion';
 $string['addanotherhint'] = 'Weiteren Hinweis hinzufügen';
 $string['addcategory'] = 'Kategorie hinzufügen';
+$string['addmorechoiceblanks'] = 'Leerfelder für {no} weitere Auswahlmöglichkeit(en)';
 $string['adminreport'] = 'Bericht zu möglichen Problemen mit Ihrer Fragen-Datenbank';
 $string['answer'] = 'Antwort';
+$string['answers'] = 'Antworten';
 $string['answersaved'] = 'Antwort gespeichert';
 $string['attemptfinished'] = 'Versuch beendet';
 $string['attemptfinishedsubmitting'] = 'Versuch abgeben';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'Es konnte kein Eintrag in der Datenbanktabelle für T
 $string['cannotcreatepath'] = 'Pfad {$a} konnte nicht erstellt werden';
 $string['cannotdeletebehaviourinuse'] = 'Sie können das Verhalten {$a} nicht löschen; es wird aktiv genutzt.';
 $string['cannotdeletecate'] = 'Kategorie konnte nicht gelöscht werden, weil sie für diesen Kontext die Standardkategorie darstellt.';
-$string['cannotdeletemissingbehaviour'] = 'Sie können das fehlende Verhalten nicht löschen. Ees wird vom System benötigt.';
-$string['cannotdeletemissingqtype'] = 'Sie dürfen den fehlenden Fragetyp nicht löschen. Er wird vom System benötigt.';
 $string['cannotdeleteneededbehaviour'] = 'Frageverhalten {$a} kann nicht gelöscht werden. es wird von anderen Verhalten benötigt.';
 $string['cannotdeleteqtypeinuse'] = 'Sie dürfen den Fragetyp \'{$a}\' nicht löschen. In der Fragedatenbank gibt es Fragen dieses Typs.';
 $string['cannotdeleteqtypeneeded'] = 'Sie dürfen den Fragetyp \'{$a}\' nicht löschen. Andere installierte Fragetypen sind davon abgeleitet.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'Diese Seite sollte nur angezeigt werden, wenn eine Ka
 $string['copy'] = 'Aus {$a} kopieren und Links ändern.';
 $string['correct'] = 'Richtig';
 $string['correctfeedback'] = 'Für jede richtige Antwort';
+$string['correctfeedbackdefault'] = 'Die Antwort ist richtig';
 $string['created'] = 'Erstellt';
 $string['createdby'] = 'Erstellt von';
 $string['createdmodifiedheader'] = 'Erstellt / Verändert';
@@ -111,13 +112,10 @@ $string['defaultfor'] = 'Standard für {$a}';
 $string['defaultinfofor'] = 'Standardkategorie für Fragen, die im Kontext \'{$a}\' freigegeben sind.';
 $string['defaultmark'] = 'Erreichbare Punkte';
 $string['defaultmarkmustbepositive'] = 'Die Standardbewertung muß ein positiver Wert sein.';
-$string['deletebehaviourareyousure'] = 'Möchten Sie das Verhalten \'{$a}\' wirklich löschen?';
-$string['deletebehaviourareyousuremessage'] = 'Sie wollen das Frageverhalten {$a} löschen. Damit werden alle damit verknüpften Einträge in der Datenbank gelöscht. Wollen Sie dies fortsetzen?';
 $string['deletecoursecategorywithquestions'] = 'In dieser Kurskategorie sind Fragen in der Testfragendatenbank hinterlegt. Wenn Sie nun fortfahren, werden diese gelöscht. Über die Testfragenverwaltung können diese  von Ihnen verschoben werden.';
-$string['deleteqtypeareyousure'] = 'Möchten Sie den Fragetyp \'{$a}\' wirklich löschen?';
-$string['deleteqtypeareyousuremessage'] = 'Sie löschen gerade den Fragetyp \'{$a}\' vollständig. Alle mit diesem Fragetyp verbundenen Daten werden aus der Datenbank gelöscht. Sind Sie sicher?';
 $string['deletequestioncheck'] = 'Sind Sie absolut sicher, die Sie \'{$a}\' löschen möchten?';
-$string['deletequestionscheck'] = 'Sind Sie absolut sicher, dass Sie die folgenden Fragen löschen wollen? <br /> <br />{$a}';
+$string['deletequestionscheck'] = '<p>Möchten Sie die folgenden Fragen wirklich löschen? </p>
+<p>{$a}</p>';
 $string['deletingbehaviour'] = 'Frageverhalten \'{$a}\' wird gelöscht';
 $string['deletingqtype'] = 'Fragetyp \'{$a}\' löschen';
 $string['didnotmatchanyanswer'] = '[Passt zu keiner Antwort]';
@@ -201,13 +199,15 @@ $string['getcategoryfromfile'] = 'Kategorie aus Datei holen';
 $string['getcontextfromfile'] = 'Kontext aus Datei holen';
 $string['hidden'] = 'Verborgen';
 $string['hintn'] = 'Hinweis {no}';
+$string['hintnoptions'] = '{no} Hinweis-Optionen';
 $string['hinttext'] = 'Verborgener Text';
 $string['howquestionsbehave'] = 'Frageverhalten';
-$string['howquestionsbehave_help'] = 'Fragen im Test können auf unterschiedliche Art und Weise angelegt sein.
+$string['howquestionsbehave_help'] = 'Fragen des Tests können beim Beantworten unterschiedliche Reaktionsweisen zeigen.
+Häufig müssen Teilnehmer erst den gesamtenTest bearbeiten bevor die Bewertung erfolgt und ein Feedback angezeigt wird. Das wäre die \'Spätere Auswertung\'
 
-Sollen zuerst alle Fragen beantwortet und der Test abgegeben werden, bevor es eine Bewertung oder eine Rückmeldung gibt, wäre dies der Modus \'Verzögerte Rückmeldung\'.
+Alternativ könnte nach der Beantwortung jeder einzelnen Frage eine sofortige  Rückmeldung gegeben werden. Bei falscher Beantwortung der Frage könnten sie  eine neue Antwort abgeben. Bei der dann richtigen Antwort könnte ein Punktabzug vom Höchstwert erfolgen (Mehrfachbeantwortung (mit Abzügen).
 
-Alternativ könnte nach der Beantwortung jeder Frage eine \'Sofortige  Rückmeldung\' gegeben werden. Bei falscher Beantwortung der Frage könnte eine neue Antwort versucht werden. Dieses Frageverhalten wäre der Modus \'Interaktiv mit mehreren Versuchen\'.';
+Dies sind die am Häufigsten genutzten Frageverhalten.';
 $string['ignorebroken'] = 'Ungültige Links ignorieren';
 $string['importcategory'] = 'Importkategorien';
 $string['importcategory_help'] = '<h2>Import von Kategorien</h2>
@@ -230,6 +230,7 @@ $string['impossiblechar'] = 'Unzulässiges Zeichen {$a} innerhalb der Klammern e
 $string['includesubcategories'] = 'Fragen aus Unterkategorien anzeigen';
 $string['incorrect'] = 'Falsch';
 $string['incorrectfeedback'] = 'Für jede falsche Antwort';
+$string['incorrectfeedbackdefault'] = 'Die Antwort ist falsch';
 $string['information'] = 'Information';
 $string['invalidanswer'] = 'Unvollständige Antwort';
 $string['invalidarg'] = 'Ungültige Argumente oder falsche Serverkonfiguration';
@@ -363,6 +364,7 @@ $string['parenthesisinproperstart'] = 'Die Klammer vor ** ist nicht richtig geö
 $string['parsingquestions'] = 'Fragen aus Importdatei einlesen';
 $string['partiallycorrect'] = 'Teilweise richtig';
 $string['partiallycorrectfeedback'] = 'Für jede teilweise richtige Antwort';
+$string['partiallycorrectfeedbackdefault'] = 'Die Antwort ist teilweise richtig.';
 $string['penaltyfactor'] = 'Abzugsfaktor';
 $string['penaltyfactor_help'] = '<h2>Höhe des Punktabzugs</h2>
 
@@ -377,8 +379,6 @@ $string['permissionsaveasnew'] = 'Diese Frage  als neue Frage speichern';
 $string['permissionto'] = 'Sie haben Rechte für :';
 $string['previewquestion'] = 'Vorschau Frage {$a}';
 $string['published'] = 'Freigegeben';
-$string['qbehaviourdeletefiles'] = 'Alle Daten in Verbindung mit dem Frageverhalten \'{$a->behaviour}\' wurden in der Datenbank gelöscht. Zum Abschluss des Löschvorgangs und um zu verhindern, dass sich das Frageverhalten erneut installiert, sollten Sie nun noch das Serververzeichnis {$a->directory} löschen.';
-$string['qtypedeletefiles'] = 'Alle Daten, die mit dem Fragetyp \'{$a->qtype}\' verbunden sind, wurden aus der Datenbank gelöscht. Um die Löschung abzuschließen (und eine automatische Wiederinstallation des Fragetyps zu verhindern), sollten Sie jetzt noch das Verzeichnis \'{$a->directory}\' von Ihrem Server entfernen.';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">Die Frage "{$a->name}" ({$a->qtype})</a> gehört zu dieser Fragenkategorie. Sie wird aber auch im <a href="{$a->qurl}">Test "{$a->quizname}"</a> innerhalb des Kurses "{$a->coursename}" benutzt.';
 $string['questionbank'] = 'Fragensammlung';
@@ -393,6 +393,8 @@ $string['questiondoesnotexist'] = 'Diese Frage gibt es nicht';
 $string['questionidmismatch'] = 'Frage-IDs können nicht zugeordnet werden';
 $string['questionname'] = 'Fragetitel';
 $string['questionno'] = 'Frage {$a}';
+$string['questionpreviewdefaults'] = 'Standardeinstellungen für die Fragenvorschau';
+$string['questionpreviewdefaults_desc'] = 'Diese Standardeinstellungen werden verwendet, wenn jemand eine Frage aus der Fragensammlung erstmalig anzeigt. Sobald eine Frage angezeigt wurde, werden die persönlichen Einstellungen gespeichert.';
 $string['questions'] = 'Fragen';
 $string['questionsaveerror'] = 'Fehler beim Speichern der Frage aufgetreten - ({$a})';
 $string['questionsinuse'] = '(*Fragen, die mit einem Sternchen versehen sind, werden in Tests eingesetzt. Die Fragen werden nicht aus dem Test gelöscht, jedoch in der Kategorienliste nicht angezeigt. )';
@@ -420,7 +422,7 @@ $string['selectacategory'] = 'Eine Kategorie wählen:';
 $string['selectaqtypefordescription'] = 'Wählen Sie einen Fragetypus um seine Beschreibung zu sehen.';
 $string['selectcategoryabove'] = 'Wählen Sie oben eine Kategorie';
 $string['selectquestionsforbulk'] = 'Mehrere Fragen auswählen';
-$string['settingsformultipletries'] = 'Einstellungen für Mehrfachversuche';
+$string['settingsformultipletries'] = 'Mehrfachversuche';
 $string['shareincontext'] = 'Im Kontext von {$a} freigeben';
 $string['showhidden'] = 'Auch alte Fragen anzeigen';
 $string['showmarkandmax'] = 'Punkte und Maximum zeigen';
@@ -443,6 +445,7 @@ $string['submitandfinish'] = 'Absenden und beenden';
 $string['submitted'] = 'Absenden: {$a}';
 $string['technicalinfo'] = 'Technische Information';
 $string['technicalinfo_help'] = 'Diese technische Information wendet sich ausschließlich an Entwickler von neuen Fragetypen. Sie kann auch für die Diagnose von Problemen mit Fragen verwendet werden.';
+$string['technicalinfomaxfraction'] = 'Größter Anteil: {$a}';
 $string['technicalinfominfraction'] = 'Kleinste Einheit: {$a}';
 $string['technicalinfoquestionsummary'] = 'Fragetext: {$a}';
 $string['technicalinforightsummary'] = 'Text für die richtige Antwort: {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['canntenrol'] = 'Aanmelding is uitgeschakeld of niet actief';
 $string['cohortnonmemberinfo'] = 'Enkel de leden van site-groep \'{$a}\' kunnen zelf aanmelden';
 $string['cohortonly'] = 'Enkel site-groepsleden';
 $string['cohortonly_help'] = 'Zelf aanmelden kan beperkt worden tot leden van een specifieke site-groep. Merk op dat het wijizgen van deze instelling geen effect heeft op bestaande aanmeldingen.';
@@ -37,7 +38,6 @@ Volgende plaatshouders kunnen gebruikt worden in het bericht:
 * Link naar profielpagina van de gebruiker {$a->profileurl}';
 $string['defaultrole'] = 'Standaard roltoewijzing';
 $string['defaultrole_desc'] = 'Kies de rol die moet toegewezen worden tijdens zelf aanmelden';
-$string['editenrolment'] = 'Bewerk aanmelding';
 $string['enrolenddate'] = 'Einddatum';
 $string['enrolenddate_help'] = 'Indien ingeschakeld kunnen nieuwe gebruikers zich slechts aanmelden tot deze datum';
 $string['enrolenddaterror'] = 'De einddatum van de aanmelding in je cursus kan niet voor de startdatum zijn';
@@ -72,6 +72,9 @@ $string['maxenrolled'] = 'Maxi aangemelde gebruikers';
 $string['maxenrolled_help'] = 'Bepaalt het maximale aantal gebruikers dat zich kunnen aanmelden in de cursus. 0 betekent geen limiet.';
 $string['maxenrolledreached'] = 'Maximale aantal gebruikers die zich mogen aanmelden was al bereikt.';
 $string['messageprovider:expiry_notification'] = 'Meldingen van vervallen zelfaanmelding';
+$string['newenrols'] = 'Nieuwe aanmeldingen toestaan';
+$string['newenrols_desc'] = 'Gebruikers toestaan zichzelf aan te melden in nieuwe cursussen';
+$string['newenrols_help'] = 'Deze instelling bepaalt of een gebruiker zich kan aanmelden in deze cursus';
 $string['nopassword'] = 'Geen aanmeldingssleutel nodig';
 $string['password'] = 'Aanmeldingssleutel';
 $string['password_help'] = 'Een aanmeldingssleutel beperkt de toegang tot een cursus tot diegenen die de sleutel kennen.
@@ -95,9 +98,9 @@ $string['sendcoursewelcomemessage'] = 'Stuur welkomstboodschap voor cursus';
 $string['sendcoursewelcomemessage_help'] = 'Indien ingeschakeld zullen gebruikers een welkomstboodschap via e-mail krijgen wanneer zij zichzelf aanmelden bij een cursus.';
 $string['showhint'] = 'Toon hint';
 $string['showhint_desc'] = 'Toon de eerste letter van de gast toegangssleutel';
-$string['status'] = 'Zelf aanmelden toestaan';
-$string['status_desc'] = 'Gebruikers standaard toestaan zichzelf aan te melden in een cursus';
-$string['status_help'] = 'Deze instelling bepaalt of een gebruiker zich kan aanmelden (en afmelden als ze de juiste rechten hebben) bij een cursus.';
+$string['status'] = 'Bestaande aanmeldingen inschakelen';
+$string['status_desc'] = 'Zelf aanmelden inschakelen in nieuwe cursussen.';
+$string['status_help'] = 'Indien uitgeschakeld zullen alle zelf aangemelde gebruikers geschorst worden en kunnen nieuwe gebruikers zich niet aanmelden.';
 $string['unenrol'] = 'Gebruiker afmelden';
 $string['unenrolselfconfirm'] = 'Wil je jezelf echt afmelden van cursus "{$a}"?';
 $string['unenroluser'] = 'Wil je echt gebruiker "{$a->user}" van cursus "{$a->course}"?';

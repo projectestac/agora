@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,32 +25,41 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['encoding'] = 'Codificação do ficheiro';
+$string['expiredaction'] = 'Ação de expiração de inscrição';
+$string['expiredaction_help'] = 'Selecione a ação a ser executada quando a inscrição do utilizador expira. Por favor, note que alguns dados e configurações do utilizador são removidos da disciplina durante o processo de desinscrição.';
 $string['filelockedmail'] = 'O script cron não conseguiu apagar do servidor o ficheiro de texto ({$a}) que está a ser utilizado na gestão de inscrições. O problema deverá estar relacionado com as permissões desse ficheiro. Enquanto esta questão não for resolvida, o ficheiro será processado consecutivamente por não ter sido removido durante o processamento.';
 $string['filelockedmailsubject'] = 'Erro importante: Ficheiro de inscrições';
+$string['flatfile:manage'] = 'Gerir inscrições do utilizador manualmente';
+$string['flatfile:unenrol'] = 'Desinscrever utilizadores da disciplina manualmente.';
 $string['location'] = 'Localização do ficheiro';
-$string['mailadmin'] = 'Notificar administradores por e-mail';
-$string['mailstudents'] = 'Notificar alunos por e-mail';
-$string['mailteachers'] = 'Notificar professores por e-mail';
-$string['mapping'] = 'Mapeamento do ficheiro de texto';
+$string['location_desc'] = 'Especifique o caminho completo para o ficheiro de inscrição. O ficheiro é automaticamente apagado após o processamento.';
+$string['mapping'] = 'Mapeamento do ficheiro de texto do papel';
 $string['messageprovider:flatfile_enrolment'] = 'Marcar ficheiro de inscrição';
+$string['notifyadmin'] = 'Notificar administrador';
+$string['notifyenrolled'] = 'Notificar utilizadores inscritos';
+$string['notifyenroller'] = 'Notificar utilizadores responsáveis pelas inscrições';
 $string['pluginname'] = 'Ficheiro de texto (CSV)';
 $string['pluginname_desc'] = 'Este módulo de inscrição verifica continuamente a existência de um ficheiro com informação de inscrições e fará o seu processamento sempre que encontrar esse ficheiro na localização indicada na configuração do módulo.
+
 O conteúdo deste ficheiro é constituído por linhas, cada uma com 4 ou 6 campos, separados por vírgulas:
-<br /><br />
+
 operation, role, idnumber (utilizador), idnumber(disciplina) [, starttime, endtime]
-<br /><br />em que:
-<br />- operation = admite os valores add ou del
-<br />- role = admite os valores student ou teacher ou teacheredit
-<br />- idnumber (utilizador) = campo "idnumber" da tabela de utilizadores, não usar o campo "id"
-<br />- idnumber (disciplina) = campo "idnumber" da tabela de disciplinas, não usar o campo "id"
-<br />- starttime = início da inscrição (contado em segundos desde 1-1-1970 - Unix timestamp) - opcional
-<br />- endtime =  fim da inscrição (contado em segundos desde 1-1-1970 - Unix timestamp) - opcional
-<br /><br />
-Exemplo:
-<br />
-<br />add, student, 5, CF101
-<br />add, teacher, 6, CF101
-<br />add, teacheredit, 7, CF101
-<br />del, student, 8, CF101
-<br />del, student, 17, CF101
-<br />add, student, 21, CF101, 1091115000, 1091215000';
+
+em que:
+*operation = admite os valores \'add\' ou \'del\';
+*role = admite os valores \'student\', \'teacher\' ou \'teacheredit\';
+*idnumber (utilizador) = campo "idnumber" da tabela de utilizadores, não usar o campo "id";
+*idnumber (disciplina) = campo "idnumber" da tabela de disciplinas, não usar o campo "id";
+*starttime = início da inscrição (em segundos e a partir de uma época) - opcional;
+*endtime =  fim da inscrição (em segundos e a partir de uma época) - opcional.
+
+Poderá assemelhar-se a algo como:
+<pre class="informationbox">
+   add, student, 5, CF101
+   add, teacher, 6, CF101
+   add, teacheredit, 7, CF101
+   del, student, 8, CF101
+   del, student, 17, CF101
+   add, student, 21, CF101, 1091115000, 1091215000
+</pre>';

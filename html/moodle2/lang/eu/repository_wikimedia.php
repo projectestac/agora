@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_wikimedia', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_wikimedia', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_wikimedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Wikimedia biltegi-motaren ezarpenak';
 $string['keyword'] = 'Bilatu';
+$string['maxheight'] = 'Irudiaren gehienezko altuera (px)';
+$string['maxwidth'] = 'Irudiaren gehienezko altuera (px)';
 $string['pluginname'] = 'Wikimedia';
 $string['wikimedia:view'] = 'Wikimedia biltegia ikusi';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'booktool_print', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'booktool_print', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   booktool_print
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_book_printed'] = '已打印图书';
+$string['event_chapter_printed'] = '已打印章节';
 $string['pluginname'] = '图书打印';
 $string['printbook'] = '打印图书';
 $string['printchapter'] = '打印本章节';

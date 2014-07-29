@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Afegeix esdeveniments';
 $string['advancedoptions'] = 'Opcions avançades';
 $string['allday'] = 'Tot el dia';
 $string['annually'] = 'Anual';
 $string['calendar'] = 'Calendari';
 $string['calendarheading'] = 'Calendari {$a}';
 $string['calendarpreferences'] = 'Preferències del calendari';
+$string['calendartypes'] = 'Tipus de calandari';
 $string['calendarurl'] = 'URL del calendari: {$a}';
 $string['clickhide'] = 'feu clic per ocultar';
 $string['clickshow'] = 'feu clic per mostrar';
@@ -44,14 +46,13 @@ $string['course'] = 'Curs';
 $string['courseevent'] = 'Esdeveniment de curs';
 $string['courseevents'] = 'Esdeveniments del curs';
 $string['courses'] = 'Cursos';
+$string['customexport'] = 'Rang personalitzat ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Diàriament';
-$string['dayview'] = 'Vista del dia';
 $string['dayviewtitle'] = 'Vista del dia: {$a}';
 $string['daywithnoevents'] = 'Aquest dia no té esdeveniments.';
 $string['default'] = 'Per defecte';
 $string['deleteevent'] = 'Suprimeix esdeveniment';
 $string['deleteevents'] = 'Suprimeix esdeveniments';
-$string['detailedmonthview'] = 'Visualització detallada del mes';
 $string['detailedmonthviewtitle'] = 'Vista detallada del mes: {$a}';
 $string['durationminutes'] = 'Durada en minuts';
 $string['durationnone'] = 'Sense durada';
@@ -93,6 +94,7 @@ $string['export'] = 'Exportació';
 $string['exportbutton'] = 'Exporta';
 $string['exportcalendar'] = 'Exporta calendari';
 $string['for'] = 'per a';
+$string['forcecalendartype'] = 'Força el calendari';
 $string['fri'] = 'dv';
 $string['friday'] = 'divendres';
 $string['generateurlbutton'] = 'Genera URL del calendari';
@@ -105,9 +107,9 @@ $string['groupevent'] = 'Esdeveniment de grup';
 $string['groupevents'] = 'Esdeveniments de grup';
 $string['hidden'] = 'ocult';
 $string['hidecourseevents'] = 'Amaga els esdeveniments de curs';
-$string['hideglobalevents'] = 'Oculta esdeveniments globals';
+$string['hideglobalevents'] = 'Amaga els esdeveniments globals';
 $string['hidegroupsevents'] = 'Amaga els esdeveniments de grup';
-$string['hideuserevents'] = 'Oculta esdeveniments de l\'usuari';
+$string['hideuserevents'] = 'Amaga els esdeveniments de l\'usuari';
 $string['hourly'] = 'Cada hora';
 $string['ical'] = 'iCal';
 $string['importcalendar'] = 'Importa calendari';
@@ -127,6 +129,7 @@ $string['monthly'] = 'Mensual';
 $string['monthlyview'] = 'Vista mensual';
 $string['monthnext'] = 'Més següent';
 $string['monththis'] = 'Aquest mes';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Mai';
 $string['newevent'] = 'Esdeveniment nou';
 $string['nocalendarsubscriptions'] = 'No teniu subscripcions a calendaris';
@@ -137,6 +140,7 @@ $string['pollinterval'] = 'Interval d\'atualització';
 $string['pollinterval_help'] = 'Amb quina freqüència us agradaria que el calendari s\'actualitzés amb nous esdeveniments.';
 $string['preferences'] = 'Preferències';
 $string['preferences_available'] = 'Preferències personals';
+$string['preferredcalendar'] = 'Calendari preferit';
 $string['pref_lookahead'] = 'Esdeveniments propers';
 $string['pref_lookahead_help'] = 'Això estableix el (màxim) nombre de dies futurs en què pot caure l\'inici d\'un esdeveniment per tal de mostrar-se com a esdeveniment proper. Els esdeveniments que comencin més enllà no es mostraran mai com a propers. Si us plau, pareu esment en què <strong>no hi ha cap garantia</strong> que els esdeveniments que comencin en aquest interval es mostrin; si n\'hi ha molts (més que els especificats al paràmetre "Nombre màxim d\'esdeveniments propers") aleshores els més distants no es mostraran.';
 $string['pref_maxevents'] = 'Nombre màxim d\'esdeveniments propers';
@@ -159,16 +163,17 @@ $string['repeatweeksr'] = 'esdeveniments';
 $string['sat'] = 'ds';
 $string['saturday'] = 'dissabte';
 $string['showcourseevents'] = 'Mostra els esdeveniments de curs.';
-$string['showglobalevents'] = 'Mostra esdeveniments globals';
+$string['showglobalevents'] = 'Mostra els esdeveniments globals.';
 $string['showgroupsevents'] = 'Mostra els esdeveniments de grup.';
 $string['shown'] = 'mostrat';
-$string['showuserevents'] = 'Mostra esdeveniments d\'usuari';
+$string['showuserevents'] = 'Mostra els esdeveniments de l\'usuari.';
 $string['siteevents'] = 'Esdeveniments del lloc.';
 $string['spanningevents'] = 'Esdeveniments en marxa';
 $string['subscriptionname'] = 'Nom del calendari';
 $string['subscriptionremoved'] = 'S\'ha suprimit la subscripció al calendari {$a}';
 $string['subscriptions'] = 'Subscripcions';
 $string['subscriptionupdated'] = 'S\'ha actualitzat la subscripció al calendari {$a}';
+$string['subsource'] = 'Font de l\'esdeveniment: {$a->name}';
 $string['sun'] = 'dg';
 $string['sunday'] = 'diumenge';
 $string['thu'] = 'dj';

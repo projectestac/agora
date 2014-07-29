@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multianswer', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multianswer', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multianswer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['confirmquestionsaveasedited'] = 'Confirmo que deseo que la pregunta se 
 $string['confirmsave'] = 'Confirmar y luego guardar {$a}';
 $string['correctanswer'] = 'Respuesta correcta';
 $string['correctanswerandfeedback'] = 'Respuesta correcta y Retroalimentación';
-$string['decodeverifyquestiontext'] = 'Decodificar y verificar el texto de la pregunta';
+$string['decodeverifyquestiontext'] = 'Decodificar y verificar el enunciado de la pregunta';
 $string['layout'] = 'Esquema';
 $string['layouthorizontal'] = 'Fila horizontal de botones';
 $string['layoutselectinline'] = 'Menú desplegable en línea en el texto';
@@ -60,6 +60,7 @@ $string['questiontypechangedcomment'] = 'Al menos un tipo de pregunta ha sido mo
 Puede continuar.';
 $string['questionusedinquiz'] = 'Esta pregunta es usada en {$a->nb_of_quiz} cuestionario(s), intento(s) total(es) : {$a->nb_of_attempts}';
 $string['storedqtype'] = 'Tipo de pregunta {$a} guardada';
+$string['subqresponse'] = 'parte {$a->i}: {$a->response}';
 $string['unknownquestiontypeofsubquestion'] = 'Tipo de pregunta desconocido: {$a->type} of question part # {$a->sub}';
 $string['warningquestionmodified'] = '<b>ADVERTENCIA</b>';
 $string['youshouldnot'] = '<b>USTED NO DEBERÍA</b>';

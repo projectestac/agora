@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,19 +32,18 @@ $string['auth_changepasswordhelp'] = 'Hjälp angående ändring av lösenord';
 $string['auth_changepasswordhelp_expl'] = 'Visa det förlorade lösenordet för dem som har blivit av med sitt {$a} lösenord. Det här kommer att visas antingen som, likaväl som, eller istället för <strong>Ändra lösenord URL</strong> eller för ändring av lösenord internt i Moodle.';
 $string['auth_changepasswordurl'] = 'Ändra lösenord URL';
 $string['auth_changepasswordurl_expl'] = 'Ange den url som Du vill skicka till de användare som har förlorat sina lösenord. Ställ in <strong>Använd standardsidan för att ändra lösenord</strong> till <strong>Nej</strong>.';
-$string['auth_changingemailaddress'] = 'Du har begärt en ändring av din e-postadress, från {$a->oldemail} till {$a->newemail}. Av säkerhetsskäl, skickar vi ett e-postmeddelande till den nya adressen för att bekräfta att den tillhör dig. Din e-postadress kommer att uppdateras så snart du har besökt webbadressen som skickas till dig i det meddelandet.';
+$string['auth_changingemailaddress'] = 'Du har begärt en ändring av e-postadress, från {$a->oldemail} till {$a->newemail}. Av säkerhetsskäl skickar vi dig ett e-postmeddelande till din nya adress för att försäkra att den tillhör dig. Din e-postadress kommer att uppdateras så snart du öppnar URL adressen som skickats till dig i det meddelandet.';
 $string['auth_common_settings'] = 'Vanliga inställningar';
 $string['auth_data_mapping'] = 'Kartor över data';
 $string['authenticationoptions'] = 'Autenticering tillval';
 $string['auth_fieldlock'] = 'Värde för låsningen';
 $string['auth_fieldlock_expl'] = '<p><b>Värde för låsningen:</b>Om detta är aktiverat så kommer det att hindra användare och administratörer av Moodle från att redigera detta fält direkt. Använd detta fält om Du underhåller dessa data i det externa systemet för autenticering.';
 $string['auth_fieldlocks'] = 'Låsning av användarfält';
-$string['auth_fieldlocks_help'] = 'Du kan låsa användarnas datafält. Detta är användbart för webbplatser där administratörerna underhåller användardata manuellt genom att redigera användarposter eller genom att använda komponenten "Ladda upp användare".  Om Du låser de fält som Moodle kräve ska Du säkerställa att Du fyller i dessa data när Du skapar användarkonton, annars kommer kontona att bli oanvändbara.
-Överväg om Du ska ställa in låsningsläget till "Olåst om fältet är tomt" för att undvika detta problem.';
-$string['authinstructions'] = 'Lämna fältet tomt för att visa standardinstruktionerna på inloggningssidan. Om du vill ange anpassade instruktioner för inloggning skriv de här.';
+$string['auth_fieldlocks_help'] = '<p>Du kan låsa användarnas datafält. Detta är användbart för webbplatser där administratörerna underhåller användardata manuellt genom att redigera användarposter eller genom att använda komponenten "Ladda upp användare".  Om Du låser de fält som Moodle kräver så ska Du säkerställa att Du fyller i dessa data när Du skapar användarkonton för annars kommer kontona att bli oanvändbara.</p><p>Överväg om Du ska ställa in låsningsläget till "Olåst om fältet är tomt" för att undvika detta problem.</p>';
+$string['authinstructions'] = 'Lämna detta tomt för att visa standardinloggningsinstruktioner på inloggningssidan. Om du vill tillhandahålla egna inloggningsinstruktioner, ange dem här.';
 $string['auth_invalidnewemailkey'] = 'Fel: om du försöker bekräfta ett byte av e-postadress kan du ha gjort ett misstag när du kopierat URL adressen vi skickade till dig med e-post. Vänligen kopiera adressen igen och försök på nytt.';
 $string['auth_multiplehosts'] = 'Du kan ange flera värdar(t ex host1.com;host2.com;host3.com)';
-$string['auth_outofnewemailupdateattempts'] = 'Du har förbrukat antalet tillåtna försök att uppdatera din e-postadress. Din uppdateringsförfrågan har blivit inställd.';
+$string['auth_outofnewemailupdateattempts'] = 'Fel: om du försöker bekräfta ett byte av e-postadress kan du ha gjort ett misstag när du kopierat URL adressen vi skickade till dig med e-post. Vänligen kopiera adressen igen och försök på nytt.';
 $string['auth_passwordisexpired'] = 'Ditt lösenord gäller inte längre. Vill Du ändra Ditt lösenord nu?';
 $string['auth_passwordwillexpire'] = 'Ditt lösenord kommer att upphöra att gälla om {$a} dagar. Vill Du ändra Ditt lösenord nu?';
 $string['auth_remove_delete'] = 'Komplett internt borttagande';
@@ -65,7 +64,13 @@ $string['auto_add_remote_users'] = 'Lägg till fjärranvändare automatiskt';
 $string['changepassword'] = 'URL   till sida för att ändra lösenord';
 $string['changepasswordhelp'] = 'Här kan Du specificera en plats där Dina användare kan återställa eller ändra sina användarnamn/lösenord om de har glömt det. Detta kommer att visas för användarna som en knapp på sidan för inloggning och på deras användarsidor. Om Du lämnar detta tomt kommer inte knappen att visas.';
 $string['chooseauthmethod'] = 'Välj en metod för autenticering:';
-$string['chooseauthmethod_help'] = 'Denna inställning bestämmer vilken autentiseringsmetod som används när användaren loggar in. Endast aktiverade autentiseringsplugins bör väljas, annars kommer användaren inte längre att kunna logga in. För att blockera användare från att logga in, välj &quot;Ingen inloggning&quot;.';
+$string['chooseauthmethod_help'] = '<p>Den h&auml;r menyn l&aring;ter Dig &auml;ndra metoden f&ouml;r autenticering
+   f&ouml;r den h&auml;r specifike/a anv&auml;ndaren.</p>
+<p>Var sn&auml;ll och l&auml;gg m&auml;rke till att detta i h&ouml;g grad beror  p&aring; vilken metod f&ouml;r autenticering
+som Du har valt f&ouml;r den h&auml;r webbplatsen och vilka inst&auml;llningar den anv&auml;nder.</p>
+<p>En felaktig &auml;ndring h&auml;r kan g&ouml;ra det om&ouml;jligt f&ouml;r anv&auml;ndare att logga in eller
+ t.o.m. ta bort deras konton helt och h&aring;llet s&aring; Du b&ouml;r bara genomf&ouml;ra detta om Du vet vad Du g&ouml;r.</p>';
+$string['createpassword'] = 'Generera lösenord och meddela användare';
 $string['createpasswordifneeded'] = 'Skapa  ett lösenord om så behövs';
 $string['emailchangecancel'] = 'Avbryt ändring av e-postadress';
 $string['emailchangepending'] = 'Aktivera ändringen av Din e-postadress. Öppna länken som Du har fått i {$a->preference_newemail}.';
@@ -79,13 +84,15 @@ $string['emailupdatesuccess'] = 'Användaren <em>{$a->fullname}</em>s e-postadre
 $string['emailupdatetitle'] = 'Bekräftelse av uppdatering av e-postadress vid {$a->site}';
 $string['enterthenumbersyouhear'] = 'Mat a in de tal du hör';
 $string['enterthewordsabove'] = 'Mata in de ovanstående orden';
-$string['errormaxconsecutiveidentchars'] = 'Lösenord måste ha högst {$a} på varandra följande identiska tecken.';
+$string['errormaxconsecutiveidentchars'] = 'Lösenord måste ha som mest {$a} på varandra följande identiska tecken.';
 $string['errorminpassworddigits'] = 'Lösenord måste innehålla minst {$a} siff/ror';
 $string['errorminpasswordlength'] = 'Lösenord måste innehålla minst {$a} tecken';
 $string['errorminpasswordlower'] = 'Lösenord måste innehålla minst {$a} små bokstäver';
 $string['errorminpasswordnonalphanum'] = 'Lösenord måste innehålla minst {$a} icke-alfanumeriska tecken.';
 $string['errorminpasswordupper'] = 'Lösenord måste innehålla minst {$a} stora bokstäver.';
 $string['errorpasswordupdate'] = 'Det uppstod ett fel i samband med uppdatering av lösenord, lösenordet ändrades inte.';
+$string['event_user_loggedin'] = 'Användaren har loggat in';
+$string['eventuserloggedinas'] = 'Användaren är inloggad som en annan användare';
 $string['forcechangepassword'] = 'Tvinga fram ändring av lösenord';
 $string['forcechangepasswordfirst_help'] = 'Tvinga användare att byta lösenord första gången som de loggar in på Moodle.';
 $string['forcechangepassword_help'] = 'Tvinga användare att byta lösenord nästa gång de loggar in på Moodle.';
@@ -129,13 +136,14 @@ $string['showguestlogin'] = 'Du kan gömma eller visa knappen för inloggning f�
 $string['stdchangepassword'] = 'Använd standardsidan för \'Ändra lösenord\'.';
 $string['stdchangepassword_expl'] = 'Om det externa systemet för autenticering tillåter ändring av lösenord via Moodle så ska Du ändra detta till \'Yes\' (Ja). Den här inställningen har förträde över inställningen \'URL till sida för att ändra lösenord\'.';
 $string['stdchangepassword_explldap'] = 'OBS! Vi rekommenderar att Du använder LDAP via en SSL-krypterad kanal (ldaps://) om Du använder en fjärrserver för LDAP.';
-$string['suspended'] = 'Spärra konto';
+$string['suspended'] = 'Avaktiverat konto';
 $string['suspended_help'] = 'Avaktiverade användarkonton kan inte användas för inloggning eller för att använda webbplatsen samt att alla utgående meddelanden förkastas.';
+$string['testsettings'] = 'testinställningar';
 $string['unlocked'] = 'Olåst';
 $string['unlockedifempty'] = 'Olåst om det är tomt';
 $string['update_never'] = 'Aldrig';
 $string['update_oncreate'] = 'Vid skapande';
 $string['update_onlogin'] = 'Vid varje inloggning';
 $string['update_onupdate'] = 'Vid uppdatering';
-$string['user_activatenotsupportusertype'] = 'auth: ldap user_activate() stöder inte vald användartyp: {$a}';
-$string['user_disablenotsupportusertype'] = 'auth: ldap user_activate() stöder inte vald användartyp (.. ännu)';
+$string['user_activatenotsupportusertype'] = 'auth: ldap user_activate() stödjer inte vald användartyp: {$a}';
+$string['user_disablenotsupportusertype'] = 'auth: ldap user_disable() stödjer inte vald användartyp (..ännu)';

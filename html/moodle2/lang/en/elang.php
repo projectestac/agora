@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'elang', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'elang', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   elang
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

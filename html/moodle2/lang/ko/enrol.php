@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,6 +38,7 @@ $string['defaultenrol'] = '기본 등록 방법';
 $string['defaultenrol_desc'] = '기본으로 이 플러그인을 모든 새 강좌에 추가할 수 있음';
 $string['deleteinstanceconfirm'] = '정말, {$a->users} 명이 등록처리된 "{$a->name}" 플러그인을 삭제하겠습니까?';
 $string['durationdays'] = '{$a} 일간';
+$string['editenrolment'] = '등록 편집';
 $string['enrol'] = '등록';
 $string['enrolcandidates'] = '등록 사용자 없음';
 $string['enrolcandidatesmatching'] = '일치하는 등록자 없음';
@@ -111,10 +112,6 @@ $string['unenrolconfirm'] = '정말, 사용자 "{$a->user}" 를  "{$a->course}" 
 $string['unenrolme'] = '{$a} 로부터 탈퇴';
 $string['unenrolnotpermitted'] = '강좌에서 이 사용자의 등록을 취소할 수 있는 권한이 없습니다.';
 $string['unenrolroleusers'] = '사용자 등록취소';
-$string['uninstallconfirm'] = '등록 플러그인 \'{$a}\'.를 완전히 삭제하고자 합니다. 이로 인해 데이터베이스에서 이 등록 유형과 연관된 모든 것이 삭제될 것입니다. 계속 하시겠습니까?';
-$string['uninstalldelete'] = '모든 등록을 삭제하고 설치 제거';
-$string['uninstalldeletefiles'] = '등록 플러그인 \'{$a->plugin}\'과 연관된 모든 데이터가 데이터베이스에서 삭제될 것입니다. 삭제를 완료하려면 (플러그인 재설치를 방지하려면), 서버에서 디렉토리 {$a->directory} 를 삭제해야 합니다.';
-$string['uninstallmigrate'] = '모든 등록을 유지하고 설치 제거';
 $string['uninstallmigrating'] = '"{$a}" 등록 이전';
 $string['unknowajaxaction'] = '알 수 없는 작동이 요구됨';
 $string['unlimitedduration'] = '무제한';

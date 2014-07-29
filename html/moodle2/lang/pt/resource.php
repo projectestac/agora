@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -84,7 +84,7 @@ $string['modulename_link'] = 'mod/resource/view';
 $string['modulenameplural'] = 'Ficheiros';
 $string['neverseen'] = 'Nunca visto';
 $string['notmigrated'] = 'O tipo de recurso herdado ({$a}) ainda não foi migrado.';
-$string['optionsheader'] = 'Opções';
+$string['optionsheader'] = 'Mostrar opções';
 $string['page-mod-resource-x'] = 'Qualquer ficheiro dos recursos';
 $string['pluginadministration'] = 'Administração do Ficheiro';
 $string['pluginname'] = 'Ficheiro';
@@ -94,8 +94,6 @@ $string['popupresource'] = 'Este documento deve aparecer numa janela de pop-up.'
 $string['popupresourcelink'] = 'Se tal não acontecer, clique aqui:  {$a}';
 $string['popupwidth'] = 'Largura da janela de pop-up (em píxeis)';
 $string['popupwidthexplain'] = 'Largura predefinida da janela de pop-up';
-$string['printheading'] = 'Mostrar nome do recurso';
-$string['printheadingexplain'] = 'Mostrar o nome do recurso por cima do conteúdo? Alguns modos de exibição não apresentam o nome do recurso, mesmo com esta configuração ativa.';
 $string['printintro'] = 'Mostrar descrição do recurso';
 $string['printintroexplain'] = 'Mostrar a descrição do recurso abaixo do conteúdo? Alguns modos de exibição não apresentam o nome do recurso, mesmo com esta configuração ativa.';
 $string['resource:addinstance'] = 'Adicionar um novo recurso';

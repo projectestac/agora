@@ -21,35 +21,27 @@ class qtype_wq extends question_type {
 
     public function save_question_options($question) {
         global $DB;
-        
-        //Multianswerwiris has his own save_question_options
-        //Other types can use the standard Moodle function
-        if ($question->qtype != 'multianswerwiris'){
-            $this->base->save_question_options($question);    
+        // We don't save another xml if we are in a cloze subquestion.
+        if (empty($question->parent)) {
+            $wiris = $DB->get_record('qtype_wq', array('question' => $question->id));
+            if (empty($wiris->id)) {
+                $wiris = new stdClass();
+                $wiris->question = $question->id;
+                $wiris->xml = $question->wirisquestion;
+                $wiris->hash = '';
+                $wiris->options = '';
+                $wiris->id = $DB->insert_record('qtype_wq', $wiris);
+            }
+            else {
+                $wiris->xml = $question->wirisquestion;
+                $wiris->hash = '';
+                $wiris->options = '';
+                $DB->update_record('qtype_wq', $wiris);     
+            }    
         }
-        
-        //We don't save another xml if we are in a cloze subquestion
-        if (isset($question->parent) && $question->parent > 0){
-            return true;
-        }
-        
-        $wiris = $DB->get_record('qtype_wq', array('question' => $question->id));
-        
-        if (empty($wiris->id)){
-            $wiris = new stdClass();
-            $wiris->question = $question->id;
-            $wiris->xml = $question->wirisquestion[0];
-            $wiris->hash = '';
-            $wiris->options = '';
-            $wiris->id = $DB->insert_record('qtype_wq', $wiris);
-        }else{
-            $wiris->xml = $question->wirisquestion[0];
-            $wiris->hash = '';
-            $wiris->options = '';
-            $DB->update_record('qtype_wq', $wiris);     
-        }
-
-        return true;
+        // Save question type options after wiris XML becaus if it fails we at
+        // least have saved the WIRIS part (relevant in multianswer case).
+        return $this->base->save_question_options($question);
     }    
     
     public function delete_question($questionid, $contextid) {
@@ -60,20 +52,87 @@ class qtype_wq extends question_type {
     }
 
     public function get_question_options($question) {
-        return $this->base->get_question_options($question);
-    }    
+        global $DB, $OUTPUT;
+        if($this->base->get_question_options($question) === false) {
+            return false;
+        }
+        // Load question XML from DB.
+        if(empty($question->parent)){
+            $record = $DB->get_record('qtype_wq', array('question' => $question->id), 'xml,options');
+            if($record !== false) {
+                $question->options->wirisquestion = $record->xml;
+                $question->options->wirisoptions = $record->options;
+            } else {
+                $OUTPUT->notification('Failed to load WIRIS quizzes XML definition for question id ' . $question->id . '.');
+                return false;
+            }
+        }
+        return true;
+    }
     
-    //Added $question->qtype = $this; to use shortanswerwiris
+    protected function make_question_instance($questiondata) {
+        question_bank::load_question_definition_classes($this->name());
+        $basequestion = $this->base->make_question_instance($questiondata);
+        $class = 'qtype_' . $this->name() . '_question';
+        return new $class($basequestion);
+    }
+    
     protected function initialise_question_instance(question_definition $question, $questiondata) {
-        $this->base->initialise_question_instance($question, $questiondata);
+        $this->base->initialise_question_instance($question->base, $questiondata);
+        
+        $question->id = &$question->base->id;
+        $question->category = &$question->base->category;
+        $question->contextid = &$question->base->contextid;
+        $question->parent = &$question->base->parent;
+        // Fix question type.
         $question->qtype = $this;
-    }    
+        $question->name = &$question->base->name;
+        $question->questiontext = &$question->base->questiontext;
+        $question->questiontextformat = &$question->base->questiontextformat;
+        $question->generalfeedback = &$question->base->generalfeedback;
+        $question->generalfeedbackformat = &$question->base->generalfeedbackformat;
+        $question->defaultmark = &$question->base->defaultmark;
+        $question->length = &$question->base->length;
+        $question->penalty = &$question->base->penalty;
+        $question->stamp = &$question->base->stamp;
+        $question->version = &$question->base->version;
+        $question->hidden = &$question->base->hidden;
+        $question->timecreated = &$question->base->timecreated;
+        $question->timemodified = &$question->base->timemodified;
+        $question->createdby = &$question->base->createdby;
+        $question->modifiedby = &$question->base->modifiedby;
+        $question->hints = &$question->base->hints;
+        
+        // Load question xml into WIRIS quizzes API question object.
+        if(empty($question->parent)){
+            $builder = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
+            $question->wirisquestion = $builder->readQuestion($questiondata->options->wirisquestion);
+        }
+    }
     
     //This method has to be overriden in each real question
     public function menu_name() {
+        // Include JavaScript Hack to modify question chooser.
+        global $CFG;
         global $PAGE;
-        $PAGE->requires->js('/question/type/wq/js/display.js',false);
+        if ($CFG->version < 2014051200) {
+            // Backwards compatibility.
+            $PAGE->requires->js('/question/type/wq/js/display.js',false);
+        }
+        else {
+            // New moodle-standard way.
+            $PAGE->requires->yui_module('moodle-qtype_wq-question_chooser', 'M.qtype_wq.question_chooser.init');
+        }
+        
+        
         return $this->local_name();
+    }
+    
+    public function display_question_editing_page($mform, $question, $wizardnow) {
+        //This method is used to load tiny_mce.js before quizzes.js
+        parent::display_question_editing_page($mform, $question, $wizardnow);
+        global $PAGE;
+        $PAGE->requires->js('/question/type/wq/quizzes/service.php?name=quizzes.js&service=resource');
     }
     
     public function export_to_xml($question, qformat_xml $format, $extra=null) {
@@ -121,7 +180,7 @@ class qtype_wq extends question_type {
     
     function wrsqz_getCASForComputations($data){
         global $CFG;
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
         
         $wirisquestion = '';
         if (isset($data['#']['wirisoptions'][0]['#']['wirisCASForComputations'])){
@@ -150,7 +209,7 @@ class qtype_wq extends question_type {
     
     function wrsqz_hiddenInitialCASValue($data){
         global $CFG;
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+        $wrap = com_wiris_system_CallWrapper::getInstance();
 
         $wirisquestion = '';
         if (isset($data['#']['wirisoptions'][0]['#']['hiddenInitialCASValue'])){
@@ -172,6 +231,7 @@ class qtype_wq extends question_type {
         $decodetable = array_flip($entitiestable);
         $xml = str_replace(array_keys($decodetable), array_values($decodetable), $xml);
         return $xml;
-    }       
+    }
+    
     
 }

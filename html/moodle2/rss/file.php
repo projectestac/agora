@@ -79,11 +79,7 @@ if ($token==="$inttoken") {
     if ($course = $DB->get_record('course', array('id' => $courseid))) {
         $modinfo = get_fast_modinfo($course);
 
-        if (!isset($modinfo->instances[$componentname])) {
-            $modinfo->instances[$componentname] = array();
-        }
-
-        foreach ($modinfo->instances[$componentname] as $modinstanceid=>$cm) {
+        foreach ($modinfo->get_instances_of($componentname) as $modinstanceid=>$cm) {
             if ($modinstanceid==$instanceid) {
                 $context = context_module::instance($cm->id, IGNORE_MISSING);
                 break;
@@ -132,7 +128,7 @@ $user = get_complete_user_data('id', $userid);
 // let enrol plugins deal with new enrolments if necessary
 enrol_check_plugins($user);
 
-session_set_user($user); //for login and capability checks
+\core\session\manager::set_user($user); //for login and capability checks
 
 try {
     $autologinguest = true;
@@ -148,8 +144,8 @@ try {
 }
 
 // Work out which component in Moodle we want (from the frankenstyle name)
-$componentdir = get_component_directory($componentname);
-list($type, $plugin) = normalize_component($componentname);
+$componentdir = core_component::get_component_directory($componentname);
+list($type, $plugin) = core_component::normalize_component($componentname);
 
 
 // Call the component to check/update the feed and tell us the path to the cached file

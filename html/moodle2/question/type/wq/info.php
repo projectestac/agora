@@ -87,7 +87,7 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
             </tr>
             <tr>
                 <?php
-                    @include_once 'version.php';				
+                    @include_once 'version.php';
                     $test_name = 'WIRIS quizzes version';
                     if (isset($plugin->wirisversion)){
                         $version = $plugin->wirisversion;
@@ -100,10 +100,10 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     $solution_link = 'http://www.wiris.com/quizzes/download';
                     echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
                 ?>
-            </tr>			
+            </tr>
             <tr>
                 <?php
-                    @include_once '../../../filter/wiris/version.php';				
+                    @include_once '../../../filter/wiris/version.php';
                     $test_name = 'WIRIS plugin version';
                     $link2plugininfo = '../../../filter/wiris/info.php';
                     $plugininfo = 'Check WIRIS plugin <a href="' . $link2plugininfo . '" target="_blank">info page</a>';
@@ -137,8 +137,8 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     }
                     $solution_link = '';
                     echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
-                ?>			
-            </tr-->	
+                ?>
+            </tr-->
             <tr>
                 <?php
                     @include_once '../../../version.php';
@@ -182,15 +182,15 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     }
                     if ($ok){
                             $condition = true;
-                            $report_text = 'All WIRIS question type folders are present.';						
+                            $report_text = 'All WIRIS question type folders are present.';
                     }else{
                             $condition = false;
-                            $report_text = 'One or more of WIRIS question type folders are missing.';											
+                            $report_text = 'One or more of WIRIS question type folders are missing.';
                     }
                     $solution_link = 'http://www.wiris.com/quizzes/download';
                     echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
                 ?>
-            </tr>			
+            </tr>
             <tr>
                 <?php
                     global $DB;
@@ -209,10 +209,10 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     }
                     if ($ok){
                             $condition = true;
-                            $report_text = 'All WIRIS tables are present.';						
+                            $report_text = 'All WIRIS tables are present.';
                     }else{
                             $condition = false;
-                            $report_text = 'One or more of WIRIS tables are missing.';											
+                            $report_text = 'One or more of WIRIS tables are missing.';
                     }
                     $solution_link = 'http://www.wiris.com/quizzes/download';
                     echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
@@ -226,14 +226,14 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     if ($quizzes_disabled){
                         $report_text = 'DISABLED';
                     }else{
-                        $report_text = 'ENABLED';    
+                        $report_text = 'ENABLED';
                     }
                     echo wrs_createTableRow($test_name, $report_text, $solution_link, !$quizzes_disabled);
                 ?>
-            </tr>            
+            </tr>
             <tr>
                 <?php
-                    $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+                    $wrap = com_wiris_system_CallWrapper::getInstance();
                     $test_name = 'Checking WIRIS configuration';
                     $solution_link = '';
                     $wrap->start();
@@ -242,12 +242,12 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     $report_text .= 'CACHE_DIR: ' . $configuration->get(com_wiris_quizzes_api_ConfigurationKeys::$CACHE_DIR) . '<br>';
                     $report_text .= 'SERVICE_URL: ' . $configuration->get(com_wiris_quizzes_api_ConfigurationKeys::$SERVICE_URL) . '<br>';
                     $wrap->stop();
-                    echo wrs_createTableRow($test_name, $report_text, $solution_link, true);                
+                    echo wrs_createTableRow($test_name, $report_text, $solution_link, true);
                 ?>
             </tr>
             <tr>
                 <?php
-                    $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+                    $wrap = com_wiris_system_CallWrapper::getInstance();
                     $test_name = 'Checking if WIRIS server is reachable';
                     $solution_link = '';
                     $wrap->start();
@@ -263,7 +263,7 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
             </tr>
             <tr>
                 <?php
-                    $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
+                    $wrap = com_wiris_system_CallWrapper::getInstance();
                     $test_name = 'WIRIS quizzes service';
                     $solution_link = '';
                     $wrap->start();
@@ -272,24 +272,59 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     $wrap->stop();
                     echo wrs_createTableRow($test_name, $report_text, $solution_link, true);
                 ?>
-            </tr>            
+            </tr>
+            <tr>
+                <?php
+                    $test_name = 'Max server connections';
+                    $wrap = com_wiris_system_CallWrapper::getInstance();
+                    $wrap->start();
+                    try {
+                        $p = new com_wiris_quizzes_impl_FilePersistentVariables();
+                        $p->lockVariable('wiris_maxconnections');
+                        $data = $p->getVariable('wiris_maxconnections');
+                        $connections = haxe_Unserializer::run($data);
+                        $stamp = Math::floor(haxe_Timer::stamp());
+                        $maxconnections = $connections->length;
+                        $configmaxconnections = com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()
+                          ->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$MAXCONNECTIONS);
+                        $count = 0;
+                        $it = $connections->iterator();
+                        while ($it->hasNext()) {
+                            $time = $it->next();
+                            if (($stamp - $time <= com_wiris_quizzes_impl_MaxConnectionsHttpImpl::$CONNECTION_TIMEOUT)
+                                    && ($stamp - $time >= 0)) {
+                                $count++;
+                            }
+                        }
+                        $p->unlockVariable('wiris_maxconnections');
+                        echo wrs_createTableRow($test_name, 'There are currently '
+                          . $count . ' active concurrent connections out of a maximum of '
+                          . $configmaxconnections . '. Greatest number of concurrent connections is ' . $maxconnections . '.', '', true);
+                    }
+                    catch (Exception $e) {
+                        echo wrs_createTableRow($test_name, 'Error with the maximum connections security system. See details: <br/><pre>'
+                          . $e->getTraceAsString() . '</pre>', '', false);
+                    }
+                    $wrap->stop();
+                ?>
+            </tr>
             <tr>
                 <?php
                     include_once $CFG->dirroot . '/lib/editor/tinymce/lib.php';
-                    $tinyEditor = new tinymce_texteditor();                    
-                    
+                    $tinyEditor = new tinymce_texteditor();
+
                     $wiris_api = $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $tinyEditor->version . '/plugins/tiny_mce_wiris/integration/api.php';
-                    
+
                     if (!file_exists($wiris_api)){
                         $wiris_api = $CFG->dirroot . '/lib/editor/tinymce/plugins/tiny_mce_wiris/integration/api.php';
                     }
-                    
+
                     @include_once $wiris_api;
 
                     $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
 
                     $question_xml = '<question><wirisCasSession>&lt;session lang=&quot;en&quot; version=&quot;2.0&quot;&gt;&lt;library closed=&quot;false&quot;&gt;&lt;mtext style=&quot;color:#ffc800&quot; xml:lang=&quot;es&quot;&gt;variables&lt;/mtext&gt;&lt;group&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;apply&gt;&lt;csymbol definitionURL=&quot;http://www.wiris.com/XML/csymbol&quot;&gt;repeat&lt;/csymbol&gt;&lt;mtable&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;random&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;random&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;&amp;ne;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;nbsp;&lt;/mo&gt;&lt;mo&gt;&amp;and;&lt;/mo&gt;&lt;mo&gt;&amp;nbsp;&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;&amp;ne;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;/apply&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;random&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;line&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;*&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;*&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;apply&gt;&lt;csymbol definitionURL=&quot;http://www.wiris.com/XML/csymbol&quot;&gt;repeat&lt;/csymbol&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;point&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mi&gt;random&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;random&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;&amp;cap;&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;==&lt;/mo&gt;&lt;mfenced close=&quot;}&quot; open=&quot;{&quot;&gt;&lt;mtable align=&quot;center&quot;&gt;&lt;mtr&gt;&lt;mtd/&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;/mfenced&gt;&lt;/mrow&gt;&lt;/apply&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;perpendicular&lt;/mi&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;plot&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;plot&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;label&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo&gt;&amp;nbsp;&lt;/mo&gt;&lt;mi&gt;show_label&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;true&lt;/mi&gt;&lt;mo&gt;}&lt;/mo&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/math&gt;&lt;/input&gt;&lt;/command&gt;&lt;/group&gt;&lt;/library&gt;&lt;group&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/math&gt;&lt;/input&gt;&lt;output&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mfenced&gt;&lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfenced&gt;&lt;/math&gt;&lt;/output&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/math&gt;&lt;/input&gt;&lt;output&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;*&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mfrac&gt;&lt;/math&gt;&lt;/output&gt;&lt;/command&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;/math&gt;&lt;/input&gt;&lt;output&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mfrac&gt;&lt;mo&gt;*&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;-&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;13&lt;/mn&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mfrac&gt;&lt;/math&gt;&lt;/output&gt;&lt;/command&gt;&lt;/group&gt;&lt;group&gt;&lt;command&gt;&lt;input&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;/&gt;&lt;/input&gt;&lt;/command&gt;&lt;/group&gt;&lt;/session&gt;</wirisCasSession><correctAnswers><correctAnswer>#s</correctAnswer></correctAnswers></question>';
-					
+
                     $q = $rb->readQuestion($question_xml);
                     $qi = $rb->newQuestionInstance();
 
@@ -299,7 +334,7 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     $vqr = $rb->newVariablesRequest($variables, $q, $qi);
                     $quizzes = $rb->getQuizzesService();
                     $vqs = $quizzes->execute($vqr);
-                    $qi->update($vqs);		
+                    $qi->update($vqs);
 
                     $function = $qi->expandVariables($function);
 
@@ -309,7 +344,7 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                     $function = format_text($function, FORMAT_HTML, array('noclean' => true));
                     $test_name = 'Checking WIRIS quizzes functionality (variable)';
                     $solution_link = '';
-                    echo wrs_createTableRow($test_name, $function, $solution_link, true);                    
+                    echo wrs_createTableRow($test_name, $function, $solution_link, true);
 
                 ?>
             </tr>
@@ -321,7 +356,7 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                             echo wrs_createTableRow($test_name, $plot, $solution_link, true);
                         ?>
                     </tr>
-        </table>    
+        </table>
 
         <br/>
 
@@ -330,7 +365,7 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                 <tr>
                         <th>Test</th>
                         <th>Status</th>
-                </tr>	                    
+                </tr>
                 <tr>
                         <td>mod_security1</td>
                         <td>
@@ -339,12 +374,12 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                                 $disabled = true;
                                 @$result = file_get_contents('http://' . $_SERVER['SERVER_NAME'] . '/?test=<>');
                                 if ($result == ''){
-                                        $disabled = false;    
+                                        $disabled = false;
                                 }
                                 echo wrs_assert_simple($disabled);
                             ?>
-                        </td>					
-                </tr>			
+                        </td>
+                </tr>
                 <tr>
                         <td>mod_security2</td>
                         <td>
@@ -352,15 +387,15 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
                                 $disabled = true;
                                 @$result = file_get_contents('http://' . $_SERVER['SERVER_NAME'] . '/?test=><');
                                 if ($result == ''){
-                                        $disabled = false;    
+                                        $disabled = false;
                                 }
                                 echo wrs_assert_simple($disabled);
                             ?>
-                        </td>					
-                </tr>			
-        </table>                
+                        </td>
+                </tr>
+        </table>
 
-		
+
 	<p>
         <br/>
         <span style="font-size:14px; font-weight:normal;">For more information or if you have any doubt contact WIRIS Support: (<a href="mailto:support@wiris.com">support@wiris.com</a>)</span>

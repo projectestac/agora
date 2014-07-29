@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_replace', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['disclaimer'] = '我明白这个操作的风险：';
+$string['excludedtables'] = '部分数据库表没有在替换中更新，这些表包括 configuration, log, events 和 session 表。';
 $string['notifyfinished'] = '……完成';
 $string['notifyrebuilding'] = '重建课程缓存……';
 $string['notimplemented'] = '对不起，这个功能仅适用于 MySQL 和 PostgreSQL 数据库。';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,12 @@ $string['customtitles_help'] = '通常、章題は自動的に目次 (TOC) お�
 「カスタムタイトル」チェックボックスがチェックされた場合、章題はコンテンツの上の見出しとしては表示されません。コンテンツの一部として、異なるタイトル (恐らく、章題よりも長いタイトル) を入力することができます。';
 $string['editingchapter'] = '章を編集';
 $string['errorchapter'] = 'ブックの章の読み込み中にエラーが発生しました。';
+$string['event_chapter_created'] = '章が作成されました。';
+$string['event_chapter_deleted'] = '章が削除されました。';
+$string['event_chapter_updated'] = '章が更新されました。';
+$string['event_chapter_viewed'] = '章が閲覧されました。';
+$string['event_course_module_viewed'] = 'コースモジュールが閲覧されました。';
+$string['event_instances_list_viewed'] = 'インスタンス一覧が閲覧されました。';
 $string['modulename'] = 'ブック';
 $string['modulename_help'] = 'ブックモジュールにおいて、教師は章および節のある本のような複数ページのリソースを作成することができます。ブックにはテキストおよびメディアファイルを含むことができ、セクションに分けた長い情報を表示するために有用です。
 

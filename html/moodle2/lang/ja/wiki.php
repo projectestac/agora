@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -144,6 +144,7 @@ $string['navigationfrom_help'] = 'このページへのWikiページリンク';
 $string['navigationto'] = 'このページのリンク先';
 $string['navigationto_help'] = '他のページへのリンク';
 $string['newpage'] = '新しいページ';
+$string['newpagehdr'] = '新しいページ';
 $string['newpagetitle'] = '新しいページタイトル';
 $string['noattachments'] = '<strong>添付ファイルなし</strong>';
 $string['nocomments'] = 'コメントはありません。';
@@ -191,6 +192,7 @@ $string['pluginadministration'] = 'Wiki管理';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'プリンタフレンドリーバージョン';
 $string['previewwarning'] = 'これはプレビューページです。まだ変更は保存されていません。';
+$string['print'] = '印刷';
 $string['rated'] = 'このページに対するあなたの評価: {$a}';
 $string['rating'] = '評価';
 $string['ratingmode'] = '評価モード';
@@ -241,7 +243,7 @@ $string['wikiboldtext'] = '太字テキスト';
 $string['wiki:createpage'] = '新しいWIkiページを作成する';
 $string['wiki:editcomment'] = 'ページにコメントを追加する';
 $string['wiki:editpage'] = 'Wikiページを保存する';
-$string['wikiexternalurl'] = '外部URI';
+$string['wikiexternalurl'] = '外部URL';
 $string['wikifiles'] = 'Wikiファイル';
 $string['wikifiletable'] = 'アップロード済みファイル一覧';
 $string['wikiheader'] = 'レベル {$a} ヘッダ';
@@ -264,7 +266,7 @@ $string['wikiorderedlist'] = '順序付きリスト';
 $string['wiki:overridelock'] = 'Wikiロックをオーバーライドする';
 $string['wikipages'] = 'Wikiページ';
 $string['wikisettings'] = 'Wiki設定';
-$string['wikiunorderedlist'] = '順序なしリスト';
+$string['wikiunorderedlist'] = '番号なしリスト';
 $string['wiki:viewcomment'] = 'ページコメントを表示する';
 $string['wiki:viewpage'] = 'Wikiページを表示する';
 $string['wrongversionlock'] = 'あなたが編集している間、別のユーザがこのページを編集しました。そのため、あなたのコンテンツは古くなりました。';

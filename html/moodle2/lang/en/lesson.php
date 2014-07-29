@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = 'After answering a question correctly
 * Show an unseen page - Pages are shown in a random order with no page shown twice
 * Show an unanswered page - Pages are shown in a random order, with pages containing unanswered questions shown again';
 $string['actions'] = 'Actions';
-$string['activitylink'] = 'Link to an activity';
+$string['activitylink'] = 'Link to next activity';
 $string['activitylink_help'] = 'To provide a link at the end of the lesson to another activity in the course, select the activity from the dropdown list.';
 $string['activitylinkname'] = 'Go to {$a}';
 $string['activityoverview'] = 'You have lessons that are due';
@@ -119,6 +119,7 @@ $string['continuetonextpage'] = 'Continue to next page.';
 $string['correctanswerjump'] = 'Correct answer jump';
 $string['correctanswerscore'] = 'Correct answer score';
 $string['correctresponse'] = 'Correct response';
+$string['createaquestionpage'] = 'Create a question page';
 $string['credit'] = 'Credit';
 $string['customscoring'] = 'Custom scoring';
 $string['customscoring_help'] = 'If enabled, then each answer may be given a numerical point value (positive or negative).';
@@ -135,18 +136,20 @@ $string['description'] = 'Description';
 $string['detailedstats'] = 'Detailed statistics';
 $string['didnotanswerquestion'] = 'Did not answer this question.';
 $string['didnotreceivecredit'] = 'Did not receive credit';
-$string['displaydefaultfeedback'] = 'Display default feedback';
+$string['displaydefaultfeedback'] = 'Use default feedback';
 $string['displaydefaultfeedback_help'] = 'If enabled, when a response is not found for a particular question, the default response of "That\'s the correct answer" or "That\'s the wrong answer" will be shown.';
 $string['displayhighscores'] = 'Display high scores';
 $string['displayinleftmenu'] = 'Display in left menu?';
-$string['displayleftif'] = 'Display left menu only if grade greater than';
+$string['displayleftif'] = 'Minimum grade to display menu';
 $string['displayleftif_help'] = 'This setting determines whether a student must obtain a certain grade before viewing the left menu. This forces the student to go through the entire lesson on their first attempt, then after obtaining the required grade they can use the left menu for review.';
 $string['displayleftmenu'] = 'Display left menu';
 $string['displayleftmenu_help'] = 'If enabled, a list of pages is displayed.';
 $string['displayofgrade'] = 'Display of grade (for students only)';
 $string['displayreview'] = 'Provide option to try a question again';
 $string['displayreview_help'] = 'If enabled, when a question is answered incorrectly, the student is given the option to try it again for no point credit, or continue with the lesson.';
-$string['displayscorewithessays'] = 'You earned {$a->score} out of {$a->tempmaxgrade} for the automatically graded questions.<br />Your {$a->essayquestions} essay question(s) will be graded and added<br />into your final score at a later date.<br /><br />Your current grade without the essay question(s) is {$a->score} out of {$a->grade}';
+$string['displayscorewithessays'] = '<p>You earned {$a->score} out of {$a->tempmaxgrade} for the automatically graded questions.</p>
+<p>Your {$a->essayquestions} essay question(s) will be graded and added into your final score at a later date.</p>
+<p>Your current grade without the essay question(s) is {$a->score} out of {$a->grade}.</p>';
 $string['displayscorewithoutessays'] = 'Your score is {$a->score} (out of {$a->grade}).';
 $string['edit'] = 'Edit';
 $string['editingquestionpage'] = 'Editing {$a} question page';
@@ -342,6 +345,7 @@ $string['postsuccess'] = 'Post successful';
 $string['practice'] = 'Practice lesson';
 $string['practice_help'] = 'A practice lesson does not appear in the gradebook.';
 $string['preprocesserror'] = 'Error occurred during pre-processing!';
+$string['prerequisitelesson'] = 'Prerequisite lesson';
 $string['preview'] = 'Preview';
 $string['previewlesson'] = 'Preview {$a}';
 $string['previouspage'] = 'Previous page';
@@ -377,6 +381,7 @@ $string['savechanges'] = 'Save changes';
 $string['savechangesandeol'] = 'Save all changes and go to the end of the lesson.';
 $string['savepage'] = 'Save page';
 $string['score'] = 'Score';
+$string['score_help'] = 'Score is only used when custom scoring is enabled. Each answer can then be given a numerical point value (positive or negative).';
 $string['scores'] = 'Scores';
 $string['secondpluswrong'] = 'Not quite.  Would you like to try again?';
 $string['selectaqtype'] = 'Select a question type';

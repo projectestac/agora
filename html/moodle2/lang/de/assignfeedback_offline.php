@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignfeedback_offline', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignfeedback_offline', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   assignfeedback_offline
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['default'] = 'Standardmäßig aktiviert';
 $string['default_help'] = 'Wenn diese Option legt fest, ob die Offline-Bewertung standardmäßig in allen neuen Aufgaben aktiviert wird.';
 $string['downloadgrades'] = 'Bewertungstabelle herunterladen';
 $string['enabled'] = 'Offline-Bewertungstabelle';
-$string['enabled_help'] = 'Wenn diese Option aktiviert wird, können Trainer/innen eine Bewertungstabelle herunterladen, offline alle Bewertungen für die Teilnehmer/innen ausfüllen und später die Bewertungstabelle wieder hochladen,';
+$string['enabled_help'] = 'Wenn diese Option aktiviert wird, können Trainer/innen eine Bewertungstabelle herunterladen, offline alle Bewertungen für die Teilnehmer/innen ausfüllen und später die Bewertungstabelle wieder hochladen.';
 $string['feedbackupdate'] = 'Feld \'{$a->field}\' für \'{$a->student}\' auf \'{$a->text}\' setzen';
 $string['gradelockedingradebook'] = 'Die Bewertungen wurden gesperrt für {$a}';
 $string['graderecentlymodified'] = 'Die Bewertung wurde von der Bewertungstabelle abweichend nachträglich geändert für {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddmarker', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddmarker', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddmarker
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -69,6 +69,7 @@ $string['marker'] = 'Marqueur';
 $string['marker_n'] = 'Marqueur {no}';
 $string['markers'] = 'Marqueurs';
 $string['nolabel'] = 'Pas d\'étiquette';
+$string['noofdrags'] = 'Nombre';
 $string['noquestionsfound'] = 'Aucune question trouvée à convertir ici.';
 $string['pleasedragatleastonemarker'] = 'Votre réponse est incomplète, vous devez placer au moins un marqueur sur l\'image.';
 $string['pluginname'] = 'Marqueurs à glisser-déposer';
@@ -77,7 +78,6 @@ $string['pluginnameediting'] = 'Modifier des marqueurs à glisser-déposer';
 $string['pluginname_help'] = 'Sélectionner un fichier pour l\'image de fond, entrez des labels pour les marqueurs et définissez des zones de dépôt pour ces marqueurs sur l\'image de fond.';
 $string['pluginname_link'] = 'question/type/ddmarker';
 $string['pluginnamesummary'] = 'Des marqueurs sont glissés et déposés sur une image de fond.';
-$string['previewarea'] = 'Zone de prévisualisation -';
 $string['previewareaheader'] = 'Aperçu';
 $string['previewareamessage'] = 'Sélectionner un fichier pour l\'image de fond, entrez des labels pour les marqueurs et définissez des zones de dépôt pour ces marqueurs sur l\'image de fond.';
 $string['refresh'] = 'Rafraîchir l\'aperçu';

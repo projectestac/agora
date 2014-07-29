@@ -8,13 +8,13 @@
 # @license http://www.gnu.org/licenses/gpl-2.0.txt
 ##
 
-Quaderns Virtuals [1] is a set of free software for the development of multimedia educational 
+Quaderns Virtuals [1] is a set of free software for the development of multimedia educational
 activities.
 
-This module allows the incorporation of Quaderns Virtuals (QV) in Moodle. Its main 
+This module allows the incorporation of Quaderns Virtuals (QV) in Moodle. Its main
 features are:
 - Allows embedding easily Quaderns Virtuals (virtual notebooks) in some Moodle course.
-- Facilitates students tracing because it stores the score, date, duration 
+- Facilitates students tracing because it stores the score, date, duration
 and state of the work made ​​by the students.
 
 -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program (in a file called COPYING); if not, go
-to http://www.gnu.org/copyleft/gpl.html or write to 
+to http://www.gnu.org/copyleft/gpl.html or write to
 
   Free Software Foundation, Inc.
   59 Temple Place - Suite 330
@@ -50,7 +50,7 @@ CREDITS
 Developers:
    Sara Arjona Tellez (sara.arjona@upcnet.es)
    Pau Ferrer Ocaña (pau.ferrer-ocana@upcnet.es)
-   
+
 With the support of:
     Education Government of Catalonia [2]
     Francesc Busquets Burguera (fbusquet@xtec.cat)
@@ -62,7 +62,7 @@ QV community support:
 
 
 Special Thanks:
-   Sandra Fernandez 
+   Sandra Fernandez
 
 
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_anomaly', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_anomaly', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_anomaly
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,6 +49,11 @@ $string['choosereadme'] = '<div class="clearfix">
 <p>Alle in Moodle enthaltenen Grunddesigns stehen unter der <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>.</p>
 </div>
 </div>';
+$string['configtitle'] = 'Anomaly Einstellungen';
+$string['customcss'] = 'CSS-Anpassungen';
+$string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden.';
 $string['pluginname'] = 'Anomaly';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';
+$string['tagline'] = 'Untertitel';
+$string['taglinedesc'] = 'Ein kurzer Untertitel, der unterhalb des Seitennamens auf der Hauptseite angezeigt wird';

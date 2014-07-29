@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_pmatch', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_pmatch', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_pmatch
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,11 +33,13 @@ $string['answer'] = 'Antwort: {$a}';
 $string['answeringoptions'] = 'Optionen für Antworten';
 $string['answermustbegiven'] = 'Sie müssen eine Antwort eingeben, wenn es eine Note oder Feedback gibt.';
 $string['answerno'] = 'Antwort {$a}';
+$string['answeroptions'] = 'Antwortmöglichkeiten';
 $string['anyotheranswer'] = 'Jede andere Antwort';
 $string['applydictionarycheck'] = 'Rechtschreibung des Teilnehmers überprüfen';
 $string['caseno'] = 'Nein, Groß- und Kleinschreibung ist unwichtig';
 $string['casesensitive'] = 'Groß- und Kleinschreibung';
 $string['caseyes'] = 'Ja, Groß- und Kleinschreibung muß stimmen';
+$string['combinedcontrolnamepmatch'] = 'Texteingabe';
 $string['converttospace'] = 'Folgende Zeichen in Leerzeichen umwandeln';
 $string['correctanswers'] = 'Richtige Antworten';
 $string['env_dictmissing'] = 'Sprachpacket  \'{$a->humanfriendlylang}\' ({$a->lang}) installiert, konnte aber das pspell dictionary ({$a->langforspellchecker}) nicht finden.';
@@ -48,6 +50,8 @@ $string['env_peclnormalisationmissing'] = 'PECL Package for Unicode Normalizer s
 $string['env_peclnormalisationok'] = 'PECL Package for Unicode Normalizer scheint korrekt installiert zu sein';
 $string['env_pspellmissing'] = 'Pspell library scheint nicht korrekt installiert zu sein';
 $string['env_pspellok'] = 'Pspell library scheint korrekt installiert zu sein';
+$string['errors'] = 'Beheben Sie bitte folgende Probleme: {$a}';
+$string['err_providepmatchexpression'] = 'Sie müssen hier einen pmatch-Ausdruck vorgeben.';
 $string['extenddictionary'] = 'Diese Worte dem Wörterbuch hinzufügen';
 $string['filloutoneanswer'] = 'Benutzen Sie die Musterabgleich-Syntax, um die richtige Antwort zu beschreiben. Sie müssen mindestens eine Antwort vorgeben. Leergelassene Antworten werden nicht verwendet. Die erste passende Antwort wird genommen und benutzt, um das Ergebnis und das Feedback zu bestimmen.';
 $string['forcelength'] = 'Wenn die Antwort länger als 20 Wörter ist';
@@ -71,11 +75,17 @@ $string['pluginnameediting'] = 'Musterabgleichs-Frage bearbeiten';
 $string['pluginname_help'] = 'Der Teilnehmende schreibt einen kurzen Satz als Antwort auf eine Frage (diese kann ein Bild enthalten). Es kann mehrere richtige Antworten geben, welche unterschiedlich gewertet werden. Wenn die Groß- und Kleinschreibungsoption ausgewählt ist, kann es verschiedene Wertungen für "Wort" oder "wort" geben.';
 $string['pluginnamesummary'] = 'Erlaubt eine kurze Antwort für einen oder mehrere Sätze, welche nach dem Abgleich mit mehreren Muster-Antworten (beschrieben durch die OU Musterabgleichs-Syntax) unterschiedlich bewertet werden können.';
 $string['repeatedword'] = 'Dieses Wort taucht mehrmals in der Synonymliste auf.';
+$string['spellcheckerenchant'] = 'Enchant';
+$string['spellcheckernull'] = 'Keine Rechtschreibprüfung verfügbar';
+$string['spellcheckerpspell'] = 'Pspell';
+$string['spellcheckertype'] = 'Bibliothek zur Rechtschreibprüfung';
+$string['spellcheckertype_desc'] = 'Welche Bibliothek zur Rechtschreibprüfung soll verwendet werden? Diese Einstellung sollte bei der Installation des Plugins automatisch auf den korrekten Wert gesetzt werden.';
 $string['spellingmistakes'] = 'Das folgende Wort ist nicht in unserem Wörterbuch: {$a}. Bitte korrigieren Sie Ihre Rechtschreibung.';
 $string['subsuponelineonly'] = 'Der Editor für hoch-/tiefgestellte Buchstaben kann nur in einer einzeiligen Eingabebox verwendet werden.';
 $string['synonym'] = 'Synonyme';
 $string['synonymcontainsillegalcharacters'] = 'Synonym enthält ungültige Zeichen';
 $string['synonymsheader'] = 'Synonyme für Wörter in der Antwort festlegen';
+$string['synonymsno'] = 'Synonyme {$a}';
 $string['toomanywords'] = 'Ihre Antwort ist zu lang. Bitte ändern Sie die Antwort auf weniger als 20 Worte.';
 $string['unparseable'] = 'Wir verstehen die Buchstaben oder Satzzeichen bei "{$a}" nicht.';
 $string['wordcontainsillegalcharacters'] = 'Wort enthält ungültige Zeichen.';

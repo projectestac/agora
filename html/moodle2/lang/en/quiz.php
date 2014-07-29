@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,8 @@ $string['addarandomquestion'] = 'Add a random question ...';
 $string['addarandomquestion_help'] = 'When a random question is added, it results in a randomly-chosen question from the category being inserted into the quiz. This means that different students are likely to get a different selection of questions, and when a quiz allows multiple attempts then each attempt is likely to contain a new selection of questions.';
 $string['adddescriptionlabel'] = 'Add description/label';
 $string['addingquestion'] = 'Adding a question';
-$string['addingquestions'] = 'This side of the page is where you manage your database of questions.  Questions are stored in categories to help you keep them organised, and can be used by any quiz in your course or even other courses if you choose to \'publish\' them. <br /><br />After you select or create a question category you will be able to create or edit questions.  You can select any of these questions to add to your quiz over on the other side of this page.';
+$string['addingquestions'] = '<p>This side of the page is where you manage your database of questions. Questions are stored in categories to help you keep them organised, and can be used by any quiz in your course or even other courses if you choose to \'publish\' them.</p>
+<p>After you select or create a question category you will be able to create or edit questions. You can select any of these questions to add to your quiz over on the other side of this page.</p>';
 $string['addmoreoverallfeedbacks'] = 'Add {no} more feedback fields';
 $string['addnewgroupoverride'] = 'Add group override';
 $string['addnewpagesafterselected'] = 'Add new pages after selected questions';
@@ -71,7 +72,6 @@ $string['answerhowmany'] = 'One or multiple answers?';
 $string['answers'] = 'Answers';
 $string['answersingleno'] = 'Multiple answers allowed';
 $string['answersingleyes'] = 'One answer only';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Answers with accepted error must be numeric';
 $string['answertoolong'] = 'Answer too long after line {$a} (255 char. max)';
 $string['aon'] = 'AON format';
 $string['areyousureremoveselected'] = 'Are you sure you want to remove all the selected questions?';
@@ -99,6 +99,8 @@ $string['attemptsonly'] = 'Show only students with attempts';
 $string['attemptstate'] = 'State';
 $string['attemptstillinprogress'] = 'Attempt still in progress';
 $string['attemptsunlimited'] = 'Unlimited attempts';
+$string['autosaveperiod'] = 'Auto-save period';
+$string['autosaveperiod_desc'] = 'Students\' responses can be saved automatically every few minutes during quiz attempts. This involves a trade-off: saving the responses increases the server load, but reduces the chance that students lose their work.';
 $string['back'] = 'Back to preview question';
 $string['backtocourse'] = 'Back to the course';
 $string['backtoquestionlist'] = 'Back to question list';
@@ -185,6 +187,12 @@ $string['confirmserverdelete'] = 'Are you sure you want to remove the server <b>
 $string['confirmstartattemptlimit'] = 'Number of attempts allowed:  {$a}. You are about to start a new attempt.  Do you wish to proceed?';
 $string['confirmstartattempttimelimit'] = 'This quiz has a time limit and is limited to {$a} attempt(s). You are about to start a new attempt.  Do you wish to proceed?';
 $string['confirmstarttimelimit'] = 'The quiz has a time limit. Are you sure that you wish to start?';
+$string['connectionerror'] = 'Network connection lost. (Autosave failed).
+
+Make a note of any responses entered on this page in the last few minutes, then try to re-connect.
+
+Once connection has been re-established, your responses should be saved and this message will disappear.';
+$string['connectionok'] = 'Network connection restored. You may continue safely.';
 $string['containercategorycreated'] = 'This category has been created to store all the original categories moved to site level due to the causes specified below.';
 $string['continueattemptquiz'] = 'Continue the last attempt';
 $string['continuepreview'] = 'Continue the last preview';
@@ -233,6 +241,7 @@ $string['deletingquestionattempts'] = 'Deleting question attempts';
 $string['description'] = 'Description';
 $string['disabled'] = 'Disabled';
 $string['displayoptions'] = 'Display options';
+$string['donotuseautosave'] = 'Do not use auto-save';
 $string['download'] = 'Click to download the exported category file';
 $string['downloadextra'] = '(file is also stored in the course files in the /backupdata/quiz folder)';
 $string['duplicateresponse'] = 'This submission has been ignored because you gave an equivalent answer earlier.';
@@ -298,6 +307,10 @@ $string['errornotnumbers'] = 'Error - answers must be numeric';
 $string['errorunexpectedevent'] = 'Unexpected event code {$a->event} found for question {$a->questionid} in attempt {$a->attemptid}.';
 $string['essay'] = 'Essay';
 $string['essayquestions'] = 'Questions';
+$string['eventquizattemptabandoned'] = 'Quiz attempt abandoned';
+$string['eventquizattemptstarted'] = 'Quiz attempt started';
+$string['eventquizattemptsubmitted'] = 'Quiz attempt submitted';
+$string['eventquizattempttimelimitexceeded'] = 'Quiz attempt time limit exceeded';
 $string['everynquestions'] = 'Every {$a} questions';
 $string['everyquestion'] = 'Every question';
 $string['everythingon'] = 'Everything on';
@@ -507,6 +520,7 @@ $string['numattemptsmade'] = '{$a} attempts made on this quiz';
 $string['numberabbr'] = '#';
 $string['numerical'] = 'Numerical';
 $string['numquestionsx'] = 'Questions: {$a}';
+$string['oneminute'] = '1 minute';
 $string['onlyteachersexport'] = 'Only teachers can export questions';
 $string['onlyteachersimport'] = 'Only teachers with editing rights can import questions';
 $string['onthispage'] = 'This page';
@@ -522,8 +536,8 @@ To arrange the questions over a number of pages, click the Repaginate button and
 $string['orderingquiz'] = 'Order and paging';
 $string['orderingquizx'] = 'Order and paging: {$a}';
 $string['outcomesadvanced'] = 'Outcomes are advanced settings';
-$string['outof'] = '{$a->grade} out of a maximum of {$a->maxgrade}';
-$string['outofpercent'] = '{$a->grade} out of a maximum of {$a->maxgrade} ({$a->percent}%)';
+$string['outof'] = '{$a->grade} out of {$a->maxgrade}';
+$string['outofpercent'] = '{$a->grade} out of {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
 $string['overallfeedback'] = 'Overall feedback';
 $string['overallfeedback_help'] = 'Overall feedback is text that is shown after a quiz has been attempted. By specifying additional grade boundaries (as a percentage or as a number), the text shown can depend on the grade obtained.';
@@ -544,7 +558,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'Overrides';
 $string['overrideuser'] = 'Override user';
 $string['overrideusereventname'] = '{$a->quiz} - Override';
+$string['page-mod-quiz-attempt'] = 'Attempt quiz page';
 $string['page-mod-quiz-edit'] = 'Edit quiz page';
+$string['page-mod-quiz-report'] = 'Any quiz report page';
+$string['page-mod-quiz-review'] = 'Review quiz attempt page';
+$string['page-mod-quiz-summary'] = 'Quiz attempt summary page';
+$string['page-mod-quiz-view'] = 'Quiz information page';
 $string['page-mod-quiz-x'] = 'Any quiz module page';
 $string['pagesize'] = 'Page size';
 $string['parent'] = 'Parent';
@@ -682,6 +701,7 @@ $string['reportregrade'] = 'Regrade attempts';
 $string['reportresponses'] = 'Detailed responses';
 $string['reports'] = 'Reports';
 $string['reportshowonly'] = 'Show only attempts';
+$string['reportshowonlyfinished'] = 'Show at most one finished attempt per user ({$a})';
 $string['reportsimplestat'] = 'Simple statistics';
 $string['reportusersall'] = 'all users who have attempted the quiz';
 $string['reportuserswith'] = 'enrolled users who have attempted the quiz';
@@ -767,9 +787,12 @@ $string['showdetailedmarks'] = 'Show mark details';
 $string['showeachpage'] = 'Show one page at a time';
 $string['showfeedback'] = 'After answering, show feedback?';
 $string['showinsecurepopup'] = 'Use a \'secure\' popup window for attempts';
+$string['showlargeimage'] = 'Large image';
 $string['shownoattempts'] = 'Show students with no attempts';
 $string['shownoattemptsonly'] = 'Show only students with no attempts';
+$string['shownoimage'] = 'No image';
 $string['showreport'] = 'Show report';
+$string['showsmallimage'] = 'Small image';
 $string['showteacherattempts'] = 'Show teacher attempts';
 $string['showuserpicture'] = 'Show the user\'s picture';
 $string['showuserpicture_help'] = 'If enabled, the student\'s name and picture will be shown on-screen during the attempt, and on the review screen, making it easier to check that the student is logged in as themself in an invigilated (proctored) exam.';

@@ -17,12 +17,11 @@
 /**
  * Capability definitions for the quiz module.
  *
- * @package    mod_questionnaire
- * @copyright
+ * @package    mod
+ * @subpackage questionnaire
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
@@ -46,7 +45,6 @@ $capabilities = array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
-            'guest' => CAP_ALLOW,
             'student' => CAP_ALLOW,
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
@@ -147,18 +145,6 @@ $capabilities = array(
         )
     ),
 
-    // Ability to copy template surveys (or private ones from within same course).
-    'mod/questionnaire:copysurveys' => array(
-
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_MODULE,
-        'legacy' => array(
-            'editingteacher' => CAP_ALLOW,
-            'coursecreator' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
-    ),
-
     // Ability to read own previous responses to questionnaires.
     'mod/questionnaire:readownresponses' => array(
 
@@ -180,7 +166,8 @@ $capabilities = array(
         'legacy' => array(
             'manager' => CAP_ALLOW,
             'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW
+            'editingteacher' => CAP_ALLOW,
+            'student' => CAP_ALLOW
         )
     ),
 
@@ -221,6 +208,20 @@ $capabilities = array(
                         'teacher' => CAP_ALLOW,
                         'editingteacher' => CAP_ALLOW
         )
+    ),
+
+    // Ability to message students from a questionnaire.
+    'mod/questionnaire:message' => array(
+
+        'riskbitmask' => RISK_SPAM,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_MODULE,
+        'archetypes' => array(
+                            'manager' => CAP_ALLOW,
+                            'teacher' => CAP_ALLOW,
+                            'editingteacher' => CAP_ALLOW
+        )
     )
 
 );
+

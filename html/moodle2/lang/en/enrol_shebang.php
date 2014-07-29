@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_shebang', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_shebang', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_shebang
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -110,6 +110,9 @@ $string['LBL_DISCLAIMER'] = 'License & Disclaimer';
 $string['LBL_DISCLAIMER_help'] = '<h4 style="width: 100%; text-align: center;">SHEBanG Enrollment Plugin</h4><p style="width: 100%; text-align: center;">Copyright &copy; 2010 Appalachian State University, Boone, NC</p><p style="text-align: justify">Distributed under the terms of the GNU General Public License version 3. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br /><br />This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.<br /><br />You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses/</a>.</p>';
 $string['LBL_ENROLL'] = 'Enrollment Role Mappings';
 $string['LBL_ENROLL_help'] = '<p>Enrollment mappings determine the Moodle role used when a role assignment is made in a course. For a given LMB/IMS role used in &lt;membership&gt; messages, select which Moodle role to use.</p>';
+$string['LBL_ENROLLMENTS'] = 'Enrollments';
+$string['LBL_ENROLLMENTS_DELETE_INACTIVE'] = 'Inactive same as delete';
+$string['LBL_ENROLLMENTS_help'] = '<p>These settings affect how &lt;membership&gt; (for persons) messages are handled.</p><ul><li>Inactive same as delete - When enabled enrollments will be deleted when the membership message has a role status indicating inactive</li></ul>';
 $string['LBL_ENROLL_ROLEMAP_01'] = 'Learner (01) to';
 $string['LBL_ENROLL_ROLEMAP_02'] = 'Instructor (02) to';
 $string['LBL_ENROLL_ROLEMAP_03'] = 'Content (03) to';

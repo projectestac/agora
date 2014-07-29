@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_database', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_database', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_database
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,9 @@ defined('MOODLE_INTERNAL') || die();
 $string['database:unenrol'] = 'Отчислять приостановленных пользователей';
 $string['dbencoding'] = 'Кодировка базы данных';
 $string['dbhost'] = 'Хост базы данных';
-$string['dbhost_desc'] = 'Сервер базы данных - IP-адрес или имя хоста';
+$string['dbhost_desc'] = 'IP-адрес или имя хоста сервера базы данных. Используйте имя системы DSN при применении ODBC.';
 $string['dbname'] = 'Имя базы данных';
+$string['dbname_desc'] = 'Оставьте пустым при использовании имени DSN сервера базы данных.';
 $string['dbpass'] = 'Пароль базы данных';
 $string['dbsetupsql'] = 'Команда создания базы данных';
 $string['dbsetupsql_desc'] = 'SQL-команда для создания специальной базы данных, часто используется с заданием кодировки - пример для MySQL и PostgreSQL: <em>SET NAMES \'utf8\'</em>';

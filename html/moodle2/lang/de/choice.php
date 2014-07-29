@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,6 +51,11 @@ $string['completionsubmit'] = 'Als abgeschlossen anzeigen, wenn die Abstimmung d
 $string['displayhorizontal'] = 'Horizontal anzeigen';
 $string['displaymode'] = 'Anzeigemodus';
 $string['displayvertical'] = 'Vertikal anzeigen';
+$string['event_answer_created'] = 'Abstimmung durchgeführt';
+$string['event_answer_updated'] = 'Abstimmung aktualisiert';
+$string['event_choice_viewed'] = 'Abstimmung angezeigt';
+$string['event_instances_list_viewed'] = 'Instanzenliste angezeigt';
+$string['event_report_viewed'] = 'Abstimmungsübersicht angezeigt';
 $string['expired'] = 'Diese Abstimmung ist seit {$a} beendet. Eine Auswahl ist nicht mehr möglich.';
 $string['full'] = '(Nicht verfügbar)';
 $string['havetologin'] = 'Sie müssen angemeldet sein, um sich an der Abstimmung beteiligen zu können.';
@@ -59,6 +64,7 @@ $string['limitanswers'] = 'Anzahl der Antworten bei den Abstimmungoptionen besch
 $string['limitanswers_help'] = 'Diese Option setzt die maximale Anzahl von möglichen Stimmabgaben für die betreffende Abstimmoption. Sobald diese Obergrenze erreicht ist, kann sich niemand mehr für diese Abstimmoption entscheiden.
 
 Wenn Obergrenzen deaktiviert sind, gibt es keine Beschränkungen bei der Abstimmung.';
+$string['limitno'] = 'Obergrenze {no}';
 $string['modulename'] = 'Abstimmung';
 $string['modulename_help'] = 'Mit der Abstimmung können Sie im Kurs eine Frage mit vordefinierten Antwortmöglichkeiten stellen.
 
@@ -74,6 +80,8 @@ $string['notopenyet'] = 'Aktivität ist ab {$a} verfügbar';
 $string['numberofuser'] = 'Teilnehmerzahl';
 $string['numberofuserinpercentage'] = 'Prozent der Teilnehmer/innen';
 $string['option'] = 'Abstimmoption';
+$string['optionno'] = 'Option {no}';
+$string['options'] = 'Optionen';
 $string['page-mod-choice-x'] = 'Jede Abstimmungsseite';
 $string['pluginadministration'] = 'Abstimmungs-Administration';
 $string['pluginname'] = 'Abstimmung';
@@ -90,6 +98,7 @@ $string['removeresponses'] = 'Alle Stimmabgaben löschen';
 $string['responses'] = 'Stimmabgaben';
 $string['responsesresultgraphheader'] = 'Grafische Darstellung';
 $string['responsesto'] = 'Antworten zu {$a}';
+$string['results'] = 'Ergebnisse';
 $string['savemychoice'] = 'Meine Auswahl speichern';
 $string['showunanswered'] = 'Teilnehmer/innen ohne Antwort anzeigen';
 $string['skipresultgraph'] = 'Ergebnisanzeige überspringen';

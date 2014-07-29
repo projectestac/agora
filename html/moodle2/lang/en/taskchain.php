@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'taskchain', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'taskchain', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   taskchain
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -787,6 +787,7 @@ $string['outputformat_hp_6_jmatch_xml_jmemori'] = 'JMemori from xml';
 $string['outputformat_hp_6_jmatch_xml_sort'] = 'JMatch Sort from xml';
 $string['outputformat_hp_6_jmatch_xml_v6'] = 'JMatch (v6) from xml';
 $string['outputformat_hp_6_jmatch_xml_v6_plus'] = 'JMatch (v6+) from xml';
+$string['outputformat_hp_6_jmatch_xml_v6_plus_duplicates'] = 'JMatch (v6+) from xml (allow duplicates)';
 $string['outputformat_hp_6_jmix_html'] = 'JQuiz (v6) from html';
 $string['outputformat_hp_6_jmix_xml_v6'] = 'JMix (v6) from xml';
 $string['outputformat_hp_6_jmix_xml_v6_plus'] = 'JMix (v6+) from xml';
@@ -795,6 +796,7 @@ $string['outputformat_hp_6_jmix_xml_v6_plus_keypress'] = 'JMix (v6+ with key pre
 $string['outputformat_hp_6_jquiz_xml_v6'] = 'JQuiz (v6) from xml';
 $string['outputformat_hp_6_jquiz_xml_v6_autoadvance'] = 'JQuiz (v6) from xml (Auto-advance)';
 $string['outputformat_hp_6_jquiz_xml_v6_exam'] = 'JQuiz (v6) from xml (Exam)';
+$string['outputformat_hp_6_jquiz_xml_v6_intro'] = 'JQuiz (v6) from xml (Intro)';
 $string['outputformat_hp_6_rhubarb_html'] = 'Rhubarb (v6) from html';
 $string['outputformat_hp_6_rhubarb_xml'] = 'Rhubarb (v6) from xml';
 $string['outputformat_hp_6_sequitur_html'] = 'Sequitur (v6) from html';

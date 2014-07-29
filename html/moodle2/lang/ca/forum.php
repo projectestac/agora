@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['attachment'] = 'Fitxer adjunt';
 $string['attachment_help'] = 'Podeu adjuntar un o més fitxers a cada missatge enviat al fòrum. Si adjunteu una imatge, es visualitzarà al final del missatge.';
 $string['attachmentnopost'] = 'No podeu exportar els adjunts sense l\'ID del missatge';
 $string['attachments'] = 'Fitxers adjunts';
+$string['attachmentswordcount'] = 'Comptador de fitxers adjunts i paraules';
 $string['blockafter'] = 'Llindar de missatges per blocar';
 $string['blockafter_help'] = 'Aquest paràmetre especifica el nombre màxim de missatges que un usuari pot enviar al fòrum en el període de temps establert. Aquest límit no afecta els usuaris amb privilegis mod/forum:postwithoutthrottling (usualment els administradors o professors).';
 $string['blockperiod'] = 'Període de temps per blocar';
@@ -58,7 +59,6 @@ $string['cannotaddsubscriber'] = 'No es pot afegir la subscripció de l\'usuari 
 $string['cannotaddteacherforumto'] = 'No s\'ha pogut agregar instància al fòrum del professor en la secció 0 del curs.';
 $string['cannotcreatediscussion'] = 'No s\'ha pogut obrir un nou debat';
 $string['cannotcreateinstanceforteacher'] = 'No s\'ha pogut crear instància del mòdul de nou curs al fòrum del professor.';
-$string['cannotdeleteforummodule'] = 'No esteu autoritzat a esborrar el mòdul de fòrums';
 $string['cannotdeletepost'] = 'No podeu esborrar aquest missatge';
 $string['cannoteditposts'] = 'No podeu modificar els missatges d\'altres usuaris';
 $string['cannotfinddiscussion'] = 'No s\'ha pogut trobar el debat en aquest fòrum';
@@ -102,6 +102,7 @@ $string['configmaxbytes'] = 'Mida màxima per defecte per a tots els fitxers adj
 $string['configoldpostdays'] = 'Nombre de dies que han de passar per a donar per llegit un missatge.';
 $string['configreplytouser'] = 'Quan s\'envia per correu un missatge d\'un fòrum, ha de portar l\'adreça de l\'usuari com a remitent de manera que els destinataris puguin contestar-li privadament per correu? Encara que s\'especifiqui així, els usuaris poden triar en el seu perfil de mantenir oculta l\'adreça de correu.';
 $string['configshortpost'] = 'Qualsevol missatge per sota d\'aquesta mida (exclòs l\'HTML) es considera massa breu.';
+$string['configtrackingtype'] = 'Configuració per defecte per al seguiment de la lectura.';
 $string['configtrackreadposts'] = 'Poseu \'sí\' per fer el seguiment dels missatges llegits/no llegits per cada usuari.';
 $string['configusermarksread'] = '\'Sí\' vol dir que l\'usuari ha de marcar el missatge com a llegit. \'No\' vol dir que en llegir un missatge es marca automàticament com a llegit.';
 $string['confirmsubscribe'] = 'Segur que voleu subscriure-us al fòrum «{$a}»?';
@@ -116,6 +117,7 @@ $string['deletedposts'] = 'Aquests missatges s\'han suprimit';
 $string['deletesure'] = 'Segur que voleu suprimir aquest missatge?';
 $string['deletesureplural'] = 'Segur que voleu suprimir aquest missatges i totes les seves respostes? ({$a} missatges)';
 $string['digestmailheader'] = 'Aquest és el vostre resum diari de missatges enviats als fòrums de {$a->sitename}. Si voleu canviar les vostres preferències de correu dels fòrums, aneu a {$a->userprefs}.';
+$string['digestmailpost'] = 'Canvia les vostres preferències de resum per al fòrum';
 $string['digestmailprefs'] = 'el vostre perfil d\'usuari';
 $string['digestmailsubject'] = 'Resum diari de missatges {$a}';
 $string['digestmailtime'] = 'Hora per a enviar el correu en format resum';
@@ -137,22 +139,43 @@ $string['displaymode'] = 'Mode de visualització';
 $string['displayperiod'] = 'Període de visualització';
 $string['displaystart'] = 'Inici de la visualització';
 $string['displaystart_help'] = 'Aquest paràmetre especifica si un missatge del fòrum s\'ha de mostrar només a partir d\'una data determinada. Els administradors, però, sempre podran veure els missatges.';
+$string['displaywordcount'] = 'Mostra el nombre de paraules';
+$string['displaywordcount_help'] = 'Aquest paràmetre especifica si el nombre de paraules de cada missatge s\'ha de mostrar o no.';
 $string['eachuserforum'] = 'Cada persona inicia un debat';
 $string['edit'] = 'Edita';
 $string['editedby'] = 'Editat per {$a->name} - Missatge original enviat el {$a->date}';
 $string['editedpostupdated'] = 'El missatge de {$a} s\'ha actualitzat';
 $string['editing'] = 'S\'està editant';
+$string['emaildigest_0'] = 'Rebreu un correu electrònic per cada missatge del fòrum.';
+$string['emaildigest_1'] = 'Rebreu un correu electrònic de resum al dia que contindrà els continguts complets dels missatges del fòrum.';
+$string['emaildigest_2'] = 'Rebreu un correu electrònic de resum al dia que contindrà l\'assumpte de cada missatge del fòrum.';
+$string['emaildigestcompleteshort'] = 'Missatges complets';
+$string['emaildigestdefault'] = 'Per defecte ({$a})';
+$string['emaildigestoffshort'] = 'Sense resum';
+$string['emaildigestsubjectsshort'] = 'Sols assumptes';
+$string['emaildigesttype'] = 'Opcions de resum del correu electrònic';
+$string['emaildigesttype_help'] = 'El tipus de notificacions que rebreu de cada fòrum.
+
+* Per defecte - mantindrà els paràmetres de resum trobats al vostre perfil. Si actualitzeu els vostre perfil el canvi es reflectirà també aquí.
+* Sense resum - missatges complets - rebreu un correu electrònic per cada missatge del fòrum.
+* Resum - missatges complets - rebreu un correu de resum al dia que contindrà els missatges complets del fòrum.
+* Resum - sols assumptes - rebreu un correu de resum al dia que contindrà només els assumptes del missatges del fòrum.';
+$string['emaildigestupdated'] = 'L\'opció de resum del correu electrònic ha estat canviada a  «{$a->maildigesttitle}» per al fòrum «{$a->forum}». {$a->maildigestdescription}';
+$string['emaildigestupdated_default'] = 'La configuració del vostre perfil per defecte de «{$a->maildigesttitle}» s\'ha usat al fòrum  «{$a->forum}». {$a->maildigestdescription}.';
 $string['emptymessage'] = 'El vostre missatge presentava algun problema. Potser l\'havíeu deixat en blanc, o el fitxer adjunt era massa gran. Els canvis NO s\'han desat.';
 $string['erroremptymessage'] = 'El missatge no pot estar buit';
 $string['erroremptysubject'] = 'La casella «Assumpte» no pot estar buida';
 $string['errorenrolmentrequired'] = 'Heu d\'estar inscrit/a en aquest curs per a poder accedir al contingut';
 $string['errorwhiledelete'] = 'S\'ha produït un error en esborrar el registre.';
+$string['event_assessable_uploaded'] = 'Algun contingut ha estat publicat.';
 $string['everyonecanchoose'] = 'Cadascú pot triar subscriure\'s';
 $string['everyonecannowchoose'] = 'A partir d\'ara cadascú pot triar subscriure\'s';
 $string['everyoneisnowsubscribed'] = 'Ara tothom està subscrit a aquest fòrum';
 $string['everyoneissubscribed'] = 'Tothom està subscrit a aquest fòrum';
 $string['existingsubscribers'] = 'Subscriptors actuals';
 $string['exportdiscussion'] = 'Exporta el debat sencer';
+$string['forcedreadtracking'] = 'Habilita el seguiment de lectura forçat';
+$string['forcedreadtracking_desc'] = 'Si habiliteu configurar els fòrums per seguir la lectura forçada, disminuireu el rendiment per a alguns usuaris, sobre tot en cursos amb molts fòrums i missatges. Si no ho habiliteu, qualsevol fòrum configurat prèviament com a forçat es tractarà com opcional.';
 $string['forcessubscribe'] = 'Aquest fòrum subscriu obligatòriament a tothom';
 $string['forum'] = 'Fòrum';
 $string['forum:addinstance'] = 'Afegeix un fòrum nou';
@@ -201,12 +224,14 @@ $string['forum:viewrating'] = 'Visualitzar la valoració total que he rebut';
 $string['forum:viewsubscribers'] = 'Veure els subscriptors';
 $string['generalforum'] = 'Fòrum estàndard per a ús general';
 $string['generalforums'] = 'Fòrums generals';
+$string['hiddenforumpost'] = 'Amaga el missatge al fòrum';
 $string['inforum'] = 'en {$a}';
 $string['introblog'] = 'Els missatges d\'alguns blogs d\'usuaris d\'aquest curs s\'han copiat automàticament en aquest fòrum perquè les entrades d\'aquests blogs ja no estan disponibles';
 $string['intronews'] = 'Anuncis i notícies generals';
 $string['introsocial'] = 'Un fòrum obert per xerrar sobre qualsevol cosa que es vulgui';
 $string['introteacher'] = 'Un fòrum per a notes i debats només del professorat';
 $string['invalidaccess'] = 'No s\'ha accedit correctament a aquesta pàgina';
+$string['invaliddigestsetting'] = 'Heu proporcionat un paràmetre invàlid de resum de correu';
 $string['invaliddiscussionid'] = 'L\'ID del debat és incorrecte o el debat s\'ha eliminat';
 $string['invalidforcesubscribe'] = 'El mode de subscripció obligatòria no és vàlid';
 $string['invalidforumid'] = 'L\'ID del fòrum és incorrecte';
@@ -261,7 +286,6 @@ $string['nopermissiontosubscribe'] = 'No teniu permís per a veure les subscripc
 $string['nopermissiontoview'] = 'No teniu permís per a veure aquest missatge';
 $string['nopostforum'] = 'No us és permès d\'escriure en aquest fòrum';
 $string['noposts'] = 'No hi ha missatges';
-$string['nopostscontaining'] = 'No s\'ha trobat cap missatge que contingui «{$a}»';
 $string['nopostsmadebyuser'] = '{$a} no ha enviat cap missatge';
 $string['nopostsmadebyyou'] = 'No heu enviat cap missatge';
 $string['noquestions'] = 'Encara no hi ha preguntes en aquest fòrum';
@@ -298,6 +322,7 @@ $string['pluginname'] = 'Fòrum';
 $string['postadded'] = 'S\'ha afegit el vostre missatge. <p>Teniu {$a} per editar-lo si voleu fer algun canvi.';
 $string['postaddedsuccess'] = 'S\'ha afegit correctament el vostre missatge.';
 $string['postaddedtimeleft'] = 'Teniu {$a} per a editar-lo si voleu fer-hi algun canvi.';
+$string['postbyuser'] = '{$a->post} de {$a->user}';
 $string['postincontext'] = 'Mostra aquest missatge en el seu context';
 $string['postmailinfo'] = 'Això és una còpia d\'un missatge enviat al lloc web {$a}.
 Per afegir la vostra resposta via web, feu clic en aquest enllaç:';
@@ -326,6 +351,7 @@ $string['repliesone'] = '{$a} resposta fins ara';
 $string['reply'] = 'Contesta';
 $string['replyforum'] = 'Contesta al fòrum';
 $string['replytouser'] = 'Utilitza l\'adreça de correu en la resposta';
+$string['resetdigests'] = 'Suprimeix totes les preferències de resum als fòrums de l\'usuari';
 $string['resetforums'] = 'Suprimeix els missatges de';
 $string['resetforumsall'] = 'Suprimeix tots els missatges';
 $string['resetsubscriptions'] = 'Suprimeix totes les subscripcions al fòrum';
@@ -377,6 +403,7 @@ $string['subscribersto'] = 'Subscriptors de \'{$a}\'';
 $string['subscribestart'] = 'Envia\'m còpia dels missatges d\'aquest fòrum per correu electrònic';
 $string['subscribestop'] = 'No vull rebre còpies per correu dels missatges d\'aquest fòrum';
 $string['subscription'] = 'Subscripció';
+$string['subscriptionandtracking'] = 'Subscripció i seguiment';
 $string['subscriptionauto'] = 'Subscripció inicial (l\'usuari la podrà canceŀlar)';
 $string['subscriptiondisabled'] = 'No es permet la subscripció';
 $string['subscriptionforced'] = 'Subscripció obligatòria';
@@ -401,12 +428,11 @@ $string['trackingoff'] = 'Inactiu';
 $string['trackingon'] = 'Actiu';
 $string['trackingoptional'] = 'Opcional';
 $string['trackingtype'] = 'Voleu fer el seguiment de missatges llegits en aquest fòrum?';
-$string['trackingtype_help'] = '<p>Si s\'habilita aquesta opció, els usuaris poden realitzar el seguiment dels missatges llegits i no llegits en el fòrum i en els debats. Hi ha tres possibilitats:</p>
-<ul>
-<li>Opcional: els estudiants poden triar si activen o no el seguiment, mitjançant un enllaç en el bloc d\'administració.</li>
-<li>Actiu: el seguiment està sempre actiu.</li>
-<li>Inactiu: no es fa seguiment de missatges llegits i no llegits.</li>
-</ul>';
+$string['trackingtype_help'] = 'Si s\'habilita, els participants poden realitzar el seguiment dels missatges llegits i no llegits en el fòrum i en els debats. Hi ha tres opcions:
+
+* Opcional: els participants poden triar si activen o desactiven el seguiment mitjançant un enllaç en el bloc d\'administració. El seguiment dels fòrums també ha d\'estar habilitat en els paràmetres del perfil d\'usuari.
+* Imposa: el seguiment està sempre actiu, independentment dels paràmetres de l\'usuari. Aquesta opció pot estar disponible o no segons els paràmetres d\'administració.
+* Inactiu: no es farà el seguiment de missatges llegits i no llegits.';
 $string['unread'] = 'No llegit';
 $string['unreadposts'] = 'Missatges no llegits';
 $string['unreadpostsnumber'] = '{$a} missatges no llegits';

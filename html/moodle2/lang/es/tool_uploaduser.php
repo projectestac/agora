@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['deleteerrors'] = 'Eliminar errores';
 $string['encoding'] = 'Codificación';
 $string['errors'] = 'Errores';
 $string['nochanges'] = 'Sin cambios';
-$string['pluginname'] = 'Subir usuario';
+$string['pluginname'] = 'Subida de usuario';
 $string['renameerrors'] = 'Errores de renombrado';
 $string['requiredtemplate'] = 'Exigido. Puede utilizar sintaxis de plantilla aquí (%l = lastname, %f = firstname, %u = username). Consulte la ayuda para ver detalles y ejemplos.';
 $string['rowpreviewnum'] = 'Previsualizar filas';

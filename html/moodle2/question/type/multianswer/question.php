@@ -39,7 +39,7 @@ require_once($CFG->dirroot . '/question/type/multichoice/question.php');
  * @copyright  2010 Pierre Pichet
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_multianswer_question extends question_graded_automatically {
+class qtype_multianswer_question extends question_graded_automatically_with_countback {
     /** @var array of question_graded_automatically. */
     public $subquestions = array();
 
@@ -112,6 +112,16 @@ class qtype_multianswer_question extends question_graded_automatically {
         return $fractionsum / $fractionmax;
     }
 
+    public function get_max_fraction() {
+        $fractionsum = 0;
+        $fractionmax = 0;
+        foreach ($this->subquestions as $i => $subq) {
+            $fractionmax += $subq->defaultmark;
+            $fractionsum += $subq->defaultmark * $subq->get_max_fraction();
+        }
+        return $fractionsum / $fractionmax;
+    }
+
     public function get_expected_data() {
         $expected = array();
         foreach ($this->subquestions as $i => $subq) {
@@ -138,6 +148,17 @@ class qtype_multianswer_question extends question_graded_automatically {
             }
         }
         return $right;
+    }
+
+    public function prepare_simulated_post_data($simulatedresponse) {
+        $postdata = array();
+        foreach ($this->subquestions as $i => $subq) {
+            $substep = $this->get_substep(null, $i);
+            foreach ($subq->prepare_simulated_post_data($simulatedresponse[$i]) as $name => $value) {
+                $postdata[$substep->add_prefix($name)] = $value;
+            }
+        }
+        return $postdata;
     }
 
     public function is_complete_response(array $response) {
@@ -261,6 +282,32 @@ class qtype_multianswer_question extends question_graded_automatically {
             }
         }
         return array($numright, count($this->subquestions));
+    }
+
+    public function compute_final_grade($responses, $totaltries) {
+        $fractionsum = 0;
+        $fractionmax = 0;
+        foreach ($this->subquestions as $i => $subq) {
+            $fractionmax += $subq->defaultmark;
+
+            $lastresponse = array();
+            $lastchange = 0;
+            $subfraction = 0;
+            foreach ($responses as $responseindex => $response) {
+                $substep = $this->get_substep(null, $i);
+                $subresp = $substep->filter_array($response);
+                if ($subq->is_same_response($lastresponse, $subresp)) {
+                    continue;
+                }
+                $lastresponse = $subresp;
+                $lastchange = $responseindex;
+                list($subfraction, $newstate) = $subq->grade_response($subresp);
+            }
+
+            $fractionsum += $subq->defaultmark * max(0, $subfraction - $lastchange * $this->penalty);
+        }
+
+        return $fractionsum / $fractionmax;
     }
 
     public function summarise_response(array $response) {

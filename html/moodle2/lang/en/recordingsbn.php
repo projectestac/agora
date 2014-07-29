@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'recordingsbn', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'recordingsbn', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   recordingsbn
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_recording_deleted'] = 'Recording deleted';
+$string['event_recording_published'] = 'Recording published';
+$string['event_recording_unpublished'] = 'Recording unpublished';
+$string['event_resource_page_viewed'] = 'RcordingsBN page viewed';
 $string['modulename'] = 'RecordingsBN';
 $string['modulename_help'] = 'Use the RecordingsBN module as a resource to provide access to the BigBlueButton recordings related to this course.';
 $string['modulename_link'] = 'RecordingsBN/view';

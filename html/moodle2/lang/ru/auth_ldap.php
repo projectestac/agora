@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -98,8 +98,11 @@ $string['auth_ldap_version_key'] = 'Версия';
 $string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = 'Выберите «Да» для осуществления попыток входа в систему по технологии NTLM SSO (Single Sign On) используя учетную запись, с которой пользователь вошел в домен. <strong>Примечание:</strong> для работы этой технологии требуются дополнительные настройки веб-сервера, см. <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Включить';
-$string['auth_ntlmsso_ie_fastpath'] = 'Выберите "Да" для быстрой проверки NTLM SSO (позволяет пропустить определенные шаги и работает только тогда, когда браузером клиента является Microsoft Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath'] = 'Выберите «Да» для быстрой проверки NTLM SSO (позволяет пропустить определенные шаги и работает только тогда, когда браузером клиента является Microsoft Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Нет, использовать долгую проверку NTLM во всех браузерах';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'Быстрая проверка в MS IE?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Да, а в остальных браузерах использовать долгую проверку NTLM';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Да, а во всех остальных браузерах использовать стандартную форму входа в систему';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'Невозможно определить логин пользователя из заголовка REMOTE_USER. Возможно, неверно настроен формат передаваемого логина.';
 $string['auth_ntlmsso_missing_username'] = 'В формате передаваемого логина необходимо обязательно использовать подстановку %username%';
 $string['auth_ntlmsso_remoteuserformat'] = 'При выборе типа аутентификации «NTLM» Вы можете указать здесь формат, в котором передается логин внешнего пользователя. Если оставить это поле пустым, то будет использоваться формат по умолчанию «ДОМЕНлогин». Вы можете использовать необязательную подстанову <b>%domain%</b>, чтобы указать положение названия домена, и обязательную подстановку <b>%username%</b>, чтобы указать положение логина пользоваеля.<br /><br />Некоторые широко используемые форматы: <tt>%domain%%username%</tt> (по умолчанию в MS Windows), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> или просто <tt>%username%</tt> (если нет доменной части).';
@@ -133,6 +136,8 @@ $string['pluginname'] = 'Сервер LDAP';
 $string['pluginnotenabled'] = 'Плагин не включен!';
 $string['renamingnotallowed'] = 'В LDAP переименования пользователей не допускаются';
 $string['rootdseerror'] = 'Ошибка запроса RootDSE для Active Directory';
+$string['start_tls'] = 'Использовать службу LDAP (порт 389) с шифрованием TLS';
+$string['start_tls_key'] = 'Использовать TLS';
 $string['updatepasserror'] = 'Ошибка в функции user_update_password(). Код ошибки: {$a->errno}; описание ошибки: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Ошибка в функции user_update_password() при чтении срока действия пароля. Код ошибки: {$a->errno}; описание ошибки: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Ошибка в функции user_update_password() при изменении срока действия пароля и/или задании возможности входа при просроченном пароле. Код ошибки: {$a->errno}; описание ошибки: {$a->errstring}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dataformview_grid', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'dataformview_grid', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dataformview_grid
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

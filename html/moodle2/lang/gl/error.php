@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'error', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -302,7 +302,7 @@ $string['invalidurl'] = 'URL incorrecto';
 $string['invaliduser'] = 'Usuario incorrecto';
 $string['invaliduserfield'] = 'Campo do usuario incorrecto: {$a}';
 $string['invaliduserid'] = 'ID do usuario incorrecto';
-$string['invalidusername'] = 'O nome de usuario dado conten caracteres incorrectos';
+$string['invalidusername'] = 'O nome de usuario dado contén caracteres incorrectos';
 $string['invalidxmlfile'] = '«{$a}» é un ficheiro XML incorrecto';
 $string['iplookupfailed'] = 'Non foi posíbel atopar información xeográfica sobre este enderezo IP {$a}';
 $string['ipmismatch'] = 'Os enderezos IP do cliente non coinciden';

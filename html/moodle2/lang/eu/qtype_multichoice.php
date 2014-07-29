@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multichoice', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = 'Zuriuneak aukera gehiagotarako {ez}';
 $string['answerhowmany'] = 'Erantzun bakarra ala anitza?';
 $string['answernumbering'] = 'Aukerak numeratu?';
 $string['answernumbering123'] = '1., 2., 3., ...';
@@ -39,7 +38,7 @@ $string['answersingleyes'] = 'Erantzun bakarra.';
 $string['choiceno'] = '{$a} aukera ';
 $string['choices'] = 'Eskura dauden aukerak';
 $string['clozeaid'] = 'Sartu galdutako hitza';
-$string['correctansweris'] = 'Erantzun zuzena ondokoa da: {$a}.';
+$string['correctansweris'] = 'Erantzun zuzena ondokoa da: {$a}';
 $string['correctfeedback'] = 'Edozein erantzun zuzenetarako';
 $string['errfractionsaddwrong'] = 'Aukeratutako kalifikazio positiboak ez dira % 100era iristen<br />%{$a} -ra bakarrik iristen dira.';
 $string['errfractionsnomax'] = 'Erantzunetako batek % 100 izan beharko luke eta horrela <br />posible izango litzateke galdera honetako gehienezko puntuazioa lortzea.';

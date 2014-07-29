@@ -67,19 +67,19 @@ class qv{
 	const STATE_CORRECTED = '2';
 	const STATE_PARTIALLY_DELIVERED = '1-';
 	const STATE_PARTIALLY_CORRECTED = '2-';
-	
+
 	function load($id){
 		global $DB;
 		if (!$record = $DB->get_record('qv', array('id'=>$id))) {
 			return false;
 		}
-		
+
 		if(empty($record->reference)){
 			global $CFG;
 			require_once("$CFG->dirroot/mod/qv/db/upgradelib.php");
 			qv_migrate_activity($record);
 		}
-		
+
 		$this->load_record($record);
 	}
 
@@ -90,7 +90,7 @@ class qv{
 		$this->intro = $record->intro;
 		$this->introformat = $record->introformat;
 		$this->reference = $record->reference;
-		$this->skin = $record->skin;
+		$this->skin = empty($record->skin) ? 'default' : $record->skin;
 		$this->assessmentlang = $record->assessmentlang;
 		$this->maxdeliver = $record->maxdeliver;
 		$this->showcorrection = $record->showcorrection;
@@ -102,12 +102,12 @@ class qv{
 		$this->width = $record->width;
 		$this->timeavailable = $record->timeavailable;
 		$this->timedue = $record->timedue;
-		
+
 		if($record->id){
 			$this->id = $record->id;
 			$this->cm = get_coursemodule_from_instance('qv', $record->id);
 			$this->context = context_module::instance($this->cm->id);
-			
+
 			$fs = get_file_storage();
 			$files = $fs->get_area_files($this->context->id, 'mod_qv', 'package', 0, 'sortorder', false);
 			if (count($files) == 1) {
@@ -120,24 +120,24 @@ class qv{
 
 	private function get_index_file($fs = false){
 		global $DB;
-		
+
 		if(!$fs) $fs = get_file_storage();
-		
+
 		if(!$fs->get_file($this->context->id, 'mod_qv', 'content', 0, '/', $this->reference.'.xml')){
 			//Repair reference
-			debugging('Repair reference');
+			//debugging('Repair reference');
 			$this->reference = extract_package($this->cm->id);
 			if($this->reference){
 				$DB->set_field('qv','reference',$this->reference,array('id'=>$this->id));
 			}
 		}
-		
+
 		return $fs->get_file($this->context->id, 'mod_qv', 'content', 0, '/html/', 'index.htm');
 	}
 
 	function get_url(){
         global $CFG;
-        
+
         if($this->filetype == QV_FILE_TYPE_EXTERNAL) {
             return $this->reference;
         } else if($indexfile = $this->get_index_file()){
@@ -154,7 +154,7 @@ class qv{
     * Compose the full assessment url
     *
     * @return string	full url composed with specified params
-     * 
+     *
     * @param object $assignment object with the assignment information
     * @param object $userid user identifier
     * @param object $fullname full name of the user
@@ -162,11 +162,11 @@ class qv{
     */
 	function get_full_url($assignment, $userid, $fullname, $isteacher=false){
 		global $CFG;
-		
+
 		if (!isset($assignment->id)) return false;
 
 		$qv_url = $this->get_url();
-		
+
 		if(!$qv_url) return false;
 
 		$params = array();
@@ -175,7 +175,7 @@ class qv{
 		$params['assignmentid'] = $assignment->id;
 		$params['userid'] = $userid;
 		$params['fullname'] = $fullname;
-		$params['skin'] = $this->skin;
+		$params['skin'] = empty($this->skin) ? 'default' : $this->skin;
 		$params['lang'] = $this->assessmentlang;
 		$params['showinteraction'] = $this->showinteraction;
 		$params['showcorrection'] = $this->showcorrection;
@@ -190,36 +190,36 @@ class qv{
 		if($assignment->itemorder>0 && $this->orderitems==1){
 			$params['item_order'] = $assignment->itemorder;
 		}
-		
+
 		if ($this->filetype != QV_HASH_ONLINE) {
 			$fs = get_file_storage();
 			if(!$fs->get_file($this->context->id, 'mod_qv', 'content', 0, '/html/appl/', 'qv_local.jar'))
-				$paramsnotescaped['appl'] = $CFG->qv_qvdistplugin_appl;
+				$paramsnotescaped['appl'] = $CFG->qv_distpluginappl;
 			if(!$fs->get_file($this->context->id, 'mod_qv', 'content', 0, '/html/css/', 'generic.css'))
-				$paramsnotescaped['css'] = $CFG->qv_qvdistplugin_css;
+				$paramsnotescaped['css'] = $CFG->qv_distplugincss;
 			if(!$fs->get_file($this->context->id, 'mod_qv', 'content', 0, '/html/scripts/', 'qv_local.js'))
-				$paramsnotescaped['js'] = $CFG->qv_qvdistplugin_scripts;
+				$paramsnotescaped['js'] = $CFG->qv_distpluginscripts;
 		} else {
 			$last = strrpos($qv_url, '/html/');
 			if ($last < strlen($qv_url)){
 				$base_file = substr($qv_url, 0, $last+1);
 				if (!qv_exists_url($base_file.'html/appl/qv_local.jar'))
-					$paramsnotescaped['appl'] = $CFG->qv_qvdistplugin_appl;
+					$paramsnotescaped['appl'] = $CFG->qv_distplugin_appl;
 				if (!qv_exists_url($base_file.'html/css/generic.css'))
-					$paramsnotescaped['css'] = $CFG->qv_qvdistplugin_css;
+					$paramsnotescaped['css'] = $CFG->qv_distplugincss;
 				if (!qv_exists_url($base_file.'html/scripts/qv_local.js'))
-					$paramsnotescaped['js'] = $CFG->qv_qvdistplugin_scripts;
+					$paramsnotescaped['js'] = $CFG->qv_distpluginscripts;
 			}
 		}
 
-		
+
 		//Hack
 		$url = new moodle_url($qv_url, $params);
 		$url = $url->out(false);
 		foreach ($paramsnotescaped as $key => $val) {
            $url .= '&'.$key.'='.$val;
         }
-		
+
 		return $url;
 	}
 
@@ -233,7 +233,7 @@ class qv{
         $timenow = time();
 
         $content = "";
-        
+
         $isopen = (empty($this->timeavailable) || $this->timeavailable < $timenow);
         if (!$isopen){
 			$content .= $OUTPUT->notify(get_string('notopenyet', 'qv', userdate($this->timeavailable)));
@@ -241,7 +241,7 @@ class qv{
 				return $content;
 			}
         }
-        
+
         $isclosed = (!empty($this->timedue) && $this->timedue < $timenow);
 		if ($isclosed ) {
             $content .= $OUTPUT->notify(get_string('expired', 'qv', userdate($this->timedue)));
@@ -249,10 +249,10 @@ class qv{
 				return $content;
 			}
         }
-        
+
 		$assignment = qv_get_assignment($this->id);
 		$url = $this->get_full_url($assignment, $user->id, "$user->firstname%20$user->lastname", $isteacher);
-		
+
 		if ($this->target == 'self'){
 			$params = array();
 			$params['width'] = empty($this->width)?'99%':$this->width;
@@ -269,13 +269,13 @@ class qv{
 			$params['menubar'] =  'no';
 			$params['copyhistory'] =  'no';
 			$params['directories'] =  'no';
-			
+
 			$params['scrollbars'] = 'yes';
 			$params['resizable'] = 'yes';
 			$params['width'] = $this->width;
 			$params['height'] = $this->height;
 			$fullscreen = empty($this->width)||$this->width=='100%'||empty($this->height) ? 'true':'false';
-			
+
 			//One more hack
 			$attributes = array();
 			$attributes['href'] = $url;
@@ -291,21 +291,21 @@ class qv{
 			//In moodle it should be like that but this make QV not work
 			//$action = new popup_action('click', $url, 'popup', $params);
 			//$content .= $OUTPUT->action_link($url, get_string('start', 'qv'), $action);
-						
+
 		}
 		$content .= $this->view_dates();
-		
+
 		if($isteacher){
 			$url = new moodle_url('/mod/qv/view.php', array('id' => $this->context->instanceid));
             $content .= $OUTPUT->box(html_writer::link($url->out(false), get_string('return_results', 'qv')));
 		}
-		
+
 		return $content;
     }
 
 	function print_results_table($course, $action){
         global $CFG, $DB, $OUTPUT, $PAGE;
-        
+
         // Preview link to QV activity
         $url = new moodle_url('/mod/qv/view.php', array('id' => $this->context->instanceid, 'action' => 'preview'));
         echo $OUTPUT->box('<a href="'.$url.'"  >'.get_string('preview', 'qv').'</a>','','qv-preview-link');
@@ -321,7 +321,7 @@ class qv{
         $currentgroup = groups_get_activity_group($this->cm, true);
 
         /// Get all ppl that are allowed to submit qv
-        list($esql, $params) = get_enrolled_sql($this->context, 'mod/qv:submit', $currentgroup); 
+        list($esql, $params) = get_enrolled_sql($this->context, 'mod/qv:submit', $currentgroup);
         $sql = "SELECT u.id FROM {user} u ".
                "LEFT JOIN ($esql) eu ON eu.id=u.id ".
                "WHERE u.deleted = 0 AND eu.id=u.id ";
@@ -351,7 +351,7 @@ class qv{
         foreach ($extrafields as $field) {
             $extrafieldnames[] = get_user_field_name($field);
         }
-        
+
         $tableheaders = array_merge(
                 array('', get_string('fullnameuser')),
                 $extrafieldnames,
@@ -387,12 +387,12 @@ class qv{
         $table->set_attribute('class', 'results generaltable generalbox');
         $table->set_attribute('width', '100%');
 
-        $table->no_sorting('state'); 
-        $table->no_sorting('unread'); 
-        $table->no_sorting('grade'); 
-        $table->no_sorting('delivers'); 
-        $table->no_sorting('time'); 
-        $table->no_sorting('actions'); 
+        $table->no_sorting('state');
+        $table->no_sorting('unread');
+        $table->no_sorting('grade');
+        $table->no_sorting('delivers');
+        $table->no_sorting('time');
+        $table->no_sorting('actions');
 
         // Start working -- this is necessary as soon as the niceties are over
         $table->setup();
@@ -434,11 +434,11 @@ class qv{
                     $extradata = array();
                     foreach ($extrafields as $field) {
                         $extradata[] = $auser->{$field};
-                    } 
-                    
+                    }
+
                     $assignment_summary = qv_get_assignment_summary($this->id, $auser->id);
                     $qv_full_url = $this->get_full_url($assignment_summary, $auser->id, $student_name, true);
-					
+
                     if(!empty($qv_full_url)){
 						$params = array();
 						$params['status'] = 0;
@@ -452,7 +452,7 @@ class qv{
 					} else {
 						$student_info = $student_name; //Albert
 					}
-					
+
                     $states = qv_print_states($assignment_summary->states);
                     if (isset($assignment_summary->id)){
 						$unread_messages = qv_assignment_messages($assignment_summary->id);
@@ -461,7 +461,7 @@ class qv{
 						}
 					}
                     else $unread_messages = 0;
-                    
+
                     $viewlink = '';
                     if (!empty($assignment_summary->id)){
 						$viewlink = html_writer::link($qv_full_url, get_string('view'), array('target'=>'_blank'));
@@ -469,7 +469,7 @@ class qv{
                     $row = array_merge(array($picture, $userlink), $extradata,
                             array($states, $unread_messages, $assignment_summary->pending_score, $assignment_summary->attempts, $assignment_summary->time, $viewlink));
                     $table->add_data($row);
-                    
+
                     // Forward iterator
                     $currentposition++;
                     $iterator->next();
@@ -492,7 +492,7 @@ class qv{
 					qv_print_state_icon(qv::STATE_PARTIALLY_CORRECTED));
 				echo html_writer::table($legendtable);
             }
-        }        
+        }
     }
 
 	/**
@@ -502,7 +502,7 @@ class qv{
      */
     function view_dates() {
         global $OUTPUT;
-        
+
         if (!$this->timeavailable && !$this->timedue) {
             return "";
         }
@@ -519,7 +519,7 @@ class qv{
         $content .=  $OUTPUT->box_end();
         return $content;
     }
-    
+
 }
 
 
@@ -548,7 +548,7 @@ class qv_package_file_info extends file_info_stored {
 function qv_get_skins(){
   global $CFG;
   return explode(',', $CFG->qv_skins);
-} 
+}
 
 /**
 * Get an array with the file types
@@ -561,7 +561,7 @@ function qv_get_file_types(){
 			QV_FILE_TYPE_EXTERNAL => get_string('filetypeexternal', 'qv')
 		);
 	return $filetypes;
-}    
+}
 
 
 function qv_get_filemanager_options(){
@@ -584,22 +584,22 @@ function qv_save_package($data) {
 	if ($draftitemid) {
 		file_save_draft_area_files($draftitemid, $context->id, 'mod_qv', 'package', 0, qv_get_filemanager_options());
 	}
-	
+
 	$reference = extract_package($cmid);
-	
+
 	return $reference;
 }
 
 /**
  * Extracts QV package, sets up all variables.
  * Called whenever qv changes
- * @param int $cmid 
+ * @param int $cmid
  * @param bool $force_extract force full update if true
  * @return void
  */
 function extract_package($cmid){
 	global $DB;
-	
+
 	$fs = get_file_storage();
 	$context = context_module::instance($cmid);
 	$files = $fs->get_area_files($context->id, 'mod_qv', 'package', 0, 'sortorder', false);
@@ -607,7 +607,7 @@ function extract_package($cmid){
 		// only one file attached, set it as main file automatically
 		$package = reset($files);
 		file_set_sortorder($context->id, 'mod_qv', 'package', 0, $package->get_filepath(), $package->get_filename(), 1);
-		
+
 		$packagename = qv_get_package_name($cmid, $fs);
 		//Content out of date or updating on demand
 		if($packagename){
@@ -645,16 +645,16 @@ function qv_get_package_name($cmid, $fs = false){
 
 
 
-        
+
 function qv_is_valid_external_url($url){
 	return preg_match('/(http:\/\/|https:\/\/|www).*\/*(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?$/i', $url);
 }
-    
-    
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Activity sessions                                                          //
 ////////////////////////////////////////////////////////////////////////////////
-    
+
     /**
     * Returns an object to represent a user assignment to an assessment.
     * If the ->id field is not set, then the object is written to the database.
@@ -664,7 +664,7 @@ function qv_is_valid_external_url($url){
     */
     function qv_get_assignment($qvid) {
         global $USER, $DB;
-        
+
         if (!$assignment = $DB->get_record('qv_assignments', array('qvid'=>$qvid, 'userid'=>$USER->id))){
             srand(time());
             $assignment = new stdClass();
@@ -675,12 +675,12 @@ function qv_is_valid_external_url($url){
             $assignment->itemorder = rand(1, 80);
 
             $assignment->id = $DB->insert_record('qv_assignments', $assignment);
-            // TODO: update gradebook functions 
-            //if (isset($assignment)) qv_update_gradebook(null, $qv);	
+            // TODO: update gradebook functions
+            //if (isset($assignment)) qv_update_gradebook(null, $qv);
         }
         return $assignment;
     }
-    
+
     /**
     * Get user assignment summary
     *
@@ -705,10 +705,10 @@ function qv_is_valid_external_url($url){
         $assignment_summary = new stdClass();
         if ($qv_assignment = $DB->get_record('qv_assignments', array('qvid'=> $qvid, 'userid'=>$userid))){
             if ($qv_sections = $DB->get_records('qv_sections', array('assignmentid'=>$qv_assignment->id))){
-				
+
                 foreach($qv_sections as $qv_section){
                     $section_summary = qv_get_section_summary($qv_section);
-                    
+
                     $score += $section_summary->score;
                     $pending_score += $section_summary->pending_score;//A
 
@@ -723,22 +723,22 @@ function qv_is_valid_external_url($url){
 
                 $num_sections = count($qv_sections);
                 // State
-                
+
                 if ($states[qv::STATE_CORRECTED] == $num_sections) $state = qv::STATE_CORRECTED;
                 else if ($states[qv::STATE_DELIVERED] == $num_sections) $state = qv::STATE_DELIVERED;
                 else if ($states[qv::STATE_STARTED] == $num_sections) $state = qv::STATE_STARTED;
                 else if ($states[qv::STATE_DELIVERED] > 0) $state = qv::STATE_PARTIALLY_DELIVERED;
                 else if ($states[qv::STATE_STARTED] > 0) $state = qv::STATE_PARTIALLY_CORRECTED;
                 else $state = qv::STATE_NOT_STARTED;
-                
+
                 $states['state'] = $state;
             }
-            
+
             $assignment_summary->id = $qv_assignment->id;
             $assignment_summary->sectionorder = $qv_assignment->sectionorder;//Albert
             $assignment_summary->itemorder = $qv_assignment->itemorder;//Albert
         }
-        
+
         $assignment_summary->score = $score;
         $assignment_summary->pending_score = $pending_score;//A
         $assignment_summary->attempts = $attempts;
@@ -747,7 +747,7 @@ function qv_is_valid_external_url($url){
 
         return $assignment_summary;
     }
-    
+
     /**
     * Get user section assignment summary
     *
@@ -788,8 +788,8 @@ function qv_is_valid_external_url($url){
           $exists = (@fopen($url,"r"))?true:false;
         }
         return $exists;
-    }    
-    
+    }
+
     /**
     * Print QV states.
     *
@@ -823,7 +823,7 @@ function qv_is_valid_external_url($url){
 				}
 			}
 		}
-        
+
         if (empty($statesimg)) return qv_print_state_icon(qv::STATE_NOT_STARTED,false);
         return $statesimg;
     }
@@ -831,7 +831,7 @@ function qv_is_valid_external_url($url){
 
 	function qv_print_state_icon($state, $text=true){
 		global $OUTPUT;
-		
+
 		switch($state){
 			case qv::STATE_NOT_STARTED:
 				$title  = get_string('statenotstarted', 'qv');
@@ -860,14 +860,14 @@ function qv_is_valid_external_url($url){
 			default:
 				return "";
 		}
-		
+
 		if($text){
 			return  $OUTPUT->pix_icon($pix, '','mod_qv').$title;
 		} else {
 			return $OUTPUT->pix_icon($pix, $title,'mod_qv');
 		}
-	}   
- 
+	}
+
     /**
      * Workaround to fix an Oracle's bug when inserting a row with date
      */
@@ -875,11 +875,11 @@ function qv_is_valid_external_url($url){
         global $CFG, $DB;
         if ($CFG->dbtype == 'oci'){
             $sql = "ALTER SESSION SET NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'";
-            $DB->execute($sql);                        
-        } 
-    } 
+            $DB->execute($sql);
+        }
+    }
 
-    
+
     function qv_add_time($time1, $time2){//Albert
 		$h1 = (int)substr($time1,0,2);
 		$m1 = (int)substr($time1,3,5);
@@ -932,6 +932,6 @@ function qv_is_valid_external_url($url){
 						AND (m.sid NOT IN (SELECT mr.sid FROM {qv_messages_read} mr WHERE mr.userid = :userid)
 						OR m.created>(SELECT MAX(timereaded) FROM {qv_messages_read} mr WHERE mr.userid = :userid2 ))',$params);
     }
-    
+
 
 

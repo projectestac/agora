@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_onlinetext', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_onlinetext', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_onlinetext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,8 @@ $string['allowonlinetextsubmissions'] = 'Gaituta';
 $string['default'] = 'Berez gaituta';
 $string['default_help'] = 'Ezarriz gero, bidalketa-metodo hau berez gaituko da zeregin berri guztietan';
 $string['enabled'] = 'On-line testua';
-$string['enabled_help'] = 'Gaituta, ikasleek, bidalketa egiterakoan, testu aberastua idatzi ahal izango dute zuzenean editorean.';
+$string['enabled_help'] = 'Ezarriz gero, ikasleek, bidalketa egiterakoan, testu aberastua idatzi ahal izango dute zuzenean editorean.';
+$string['event_assessable_uploaded'] = 'On-line testua ondo igo da.';
 $string['nosubmission'] = 'Zeregin honetan ez da ezer bidali';
 $string['numwords'] = '({$a} hitz)';
 $string['numwordsforlog'] = 'Bidalketaren hitz-kopurua: {$a} hitz';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Agregar un plugin de repositorio';
 $string['allowexternallinks'] = 'Permitir enlaces externos';
 $string['areacategoryintro'] = 'Introducción de la categoría';
 $string['areacourseintro'] = 'Introducción del curso';
+$string['areacourseoverviewfiles'] = 'Resumen de los archivos del curso';
 $string['areamainfile'] = 'Archivo principal';
 $string['arearoot'] = 'Sistema';
 $string['areauserbackup'] = 'Copia de seguridad del usuario';
@@ -90,6 +91,9 @@ $string['deleterepository'] = 'Eliminar este repositorio';
 $string['detailview'] = 'Ver detalles';
 $string['dimensions'] = 'Dimensiones';
 $string['disabled'] = 'Deshabilitado';
+$string['displaydetails'] = 'Mostrar la carpeta con el detalle de los archivos';
+$string['displayicons'] = 'Mostrar la carpeta con los iconos de los archivos';
+$string['displaytree'] = 'Mostrar la carpeta en forma de árbol de archivos';
 $string['download'] = 'Descargar';
 $string['downloadfolder'] = 'Descargar todo';
 $string['downloadsucc'] = 'Este archivo se ha descargado con éxito';
@@ -124,6 +128,7 @@ $string['folderexists'] = 'El nombre para la carpeta ya está empleado, por favo
 $string['foldernotfound'] = 'Carpeta no encontrada';
 $string['folderrecurse'] = 'La carpeta no puede moverse a su propia subcarpeta';
 $string['getfile'] = 'Seleccionar este archivo';
+$string['help'] = 'Ayuda';
 $string['hidden'] = 'Oculto';
 $string['iconview'] = 'Ver como iconos';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -193,6 +198,7 @@ $string['repositories'] = 'Repositorios';
 $string['repository'] = 'Repositorio';
 $string['repositorycourse'] = 'Repositorios del curso';
 $string['repositoryerror'] = 'El repositorio remoto devolvió un error: {$a}';
+$string['repositoryicon'] = 'Icono repositorio';
 $string['save'] = 'Guardar';
 $string['saveas'] = 'Guardar como';
 $string['saved'] = 'Guardado';
@@ -203,6 +209,7 @@ $string['searchrepo'] = 'Buscar repositorio';
 $string['sectionbackup'] = 'Copias de seguridad de la sección';
 $string['select'] = 'Seleccionar';
 $string['setmainfile'] = 'Configurar el archivo principal';
+$string['setmainfile_help'] = 'Si hay varios archivos en la carpeta, el archivo principal es el que aparece en la página. Otros archivos tales como imágenes o videos pueden ser incrustados en ella. En el administrador de archivos el archivo principal se muestra con el nombre en negrita.';
 $string['settings'] = 'Configuración';
 $string['setupdefaultplugins'] = 'Configuración de los plugins de repositorio predeterminados';
 $string['siteinstances'] = 'Ejemplos de repositorios del sitio';

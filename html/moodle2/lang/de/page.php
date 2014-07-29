@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,8 @@ $string['createpage'] = 'Neue Textseite anlegen';
 $string['displayoptions'] = 'Mögliche Anzeigeoptionen';
 $string['displayselect'] = 'Anzeigen';
 $string['displayselectexplain'] = 'Anzeigeart auswählen';
+$string['eventcoursemoduleviewed'] = 'Seitenressource angezeigt';
+$string['eventinstanceslistviewed'] = 'Seiteninstanzenliste angezeigt';
 $string['legacyfiles'] = 'Migration einer alten Kursdatei';
 $string['legacyfilesactive'] = 'Aktiv';
 $string['legacyfilesdone'] = 'Beendet';
@@ -53,7 +55,5 @@ $string['popupheight'] = 'Höhe des Popups (Pixel)';
 $string['popupheightexplain'] = 'Standardhöhe von Popup-Fenstern festlegen';
 $string['popupwidth'] = 'Breite des Popups (Pixel)';
 $string['popupwidthexplain'] = 'Standardbreite von Popup-Fenstern festlegen';
-$string['printheading'] = 'Seitenname anzeigen';
-$string['printheadingexplain'] = 'Soll der Seitenname über dem Inhalt angezeigt werden?';
 $string['printintro'] = 'Beschreibung über dem Seiteninhalt anzeigen';
 $string['printintroexplain'] = 'Soll die einleitende Beschreibung über dem Seiteninhalt angezeigt werden?';

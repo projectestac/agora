@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,9 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['filelockedmail'] = 'cron 进程无法删除您用于选课的文本文件({$a})。请设置好权限以便 Moodle 能删除这个文件，否则它将被重复处理。';
 $string['filelockedmailsubject'] = '严重错误：选课文件';
 $string['location'] = '文件位置';
-$string['mailadmin'] = '通过 Email 提醒管理员';
-$string['mailstudents'] = '通过 Email 提醒学生';
-$string['mailteachers'] = '通过 Email 提醒教师';
 $string['mapping'] = '文本文件映射';
 $string['messageprovider:flatfile_enrolment'] = '文本文件选课消息';
 $string['pluginname'] = '文本文件（CSV）';

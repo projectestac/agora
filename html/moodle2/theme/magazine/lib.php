@@ -162,11 +162,7 @@ function magazine_set_forumback($css, $forumback) {
     return $css;
 }
 
-function magazine_set_background($css, $background, $theme = null) {
-    global $OUTPUT;
-    if ($theme === null) {
-        $theme = $OUTPUT;
-    }
+function magazine_set_background($css, $background, $theme) {
     $tag = '[[setting:background]]';
     $replacement = $background;
     if (is_null($replacement)) {
@@ -176,11 +172,7 @@ function magazine_set_background($css, $background, $theme = null) {
     return $css;
 }
 
-function magazine_set_logo($css, $logo, $theme = null) {
-    global $OUTPUT;
-    if ($theme === null) {
-        $theme = $OUTPUT;
-    }
+function magazine_set_logo($css, $logo, $theme) {
     $tag = '[[setting:logo]]';
     $replacement = $logo;
     if (is_null($replacement)) {

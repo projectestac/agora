@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_dbuserrel', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'enrol_dbuserrel', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_dbuserrel
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,7 @@ $string['localrolefield'] = 'Local role field';
 $string['localrolefield_desc'] = 'The name of the field in the roles table that we are using to match entries in the remote database (eg shortname).';
 $string['localsubjectuserfield'] = 'Local subject field';
 $string['localsubjectuserfield_desc'] = 'The name of the field in the user table that we are using to match entries in the remote database (eg idnumber). for the <i>subject</i> role assignment';
-$string['pluginname'] = 'User role assignment';
+$string['pluginname'] = 'DB User role assignment';
 $string['pluginname_desc'] = 'You can use an external database (of nearly any kind) to control your mentor role. It is assumed your external database contains at least a field containing a student username, a mentor role, and a field containing a mentor username. These are compared against fields that you choose in the local role and user tables.';
 $string['remoteenroltable'] = 'Remote user enrolment table';
 $string['remoteenroltable_desc'] = 'Specify the name of the table that contains list of user enrolments. Empty means no user enrolment sync.';

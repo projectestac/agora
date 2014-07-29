@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_boxnet', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_boxnet', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_boxnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,17 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'API giltza';
-$string['boxnet:view'] = 'Box.net biltegia ikusi';
-$string['callbackurl'] = 'Berbideratu URLa';
-$string['callbackurltext'] = '1. Bisitatu<a href="http://www.box.net/developers/services">box.net guneko garatzaileak</a> berriz.
-2. Ziurta ezazu  atzera deiaren URL-aren ezarpena box.net zerbitzu honetarako: {$a}.';
-$string['configplugin'] = 'Box.net-en ezarpenak';
+$string['boxnet:view'] = 'Ikusi Box biltegia';
+$string['clientid'] = 'Bezeroaren IDa';
+$string['configplugin'] = 'Box-en ezarpenak';
+$string['filesourceinfo'] = 'Box ({$a->fullname}): {$a->filename}';
 $string['information'] = 'Lortu <a href="http://enabled.box.net/">Box.net-erako API giltza</a> zure Moodle gunerako. ';
 $string['invalidpassword'] = 'Pasahitzak ez du balio';
 $string['nullfilelist'] = 'Ez dago fitxategirik biltegian';
 $string['password'] = 'Pasahitza';
-$string['pluginname'] = 'Box.net';
-$string['pluginname_help'] = 'Biltegia Box.net-en';
-$string['saved'] = 'Box.net datuak gordeta';
+$string['pluginname'] = 'Box';
+$string['pluginname_help'] = 'Biltegia Box-en';
+$string['saved'] = 'Box-en datuak gordeta';
 $string['shareurl'] = 'URLa partekatu';
 $string['username'] = 'Box.net-erako erabiltzaile-izena';

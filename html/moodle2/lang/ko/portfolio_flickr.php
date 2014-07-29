@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_flickr', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_flickr', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_flickr
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['apikey'] = 'API 키';
 $string['contenttype'] = '내용 분류';
 $string['err_noapikey'] = 'API키 없음';
-$string['err_noapikey_help'] = '이 플러그인에 API 키가 설정되어 있지 않습니다. 키는 Flickr 서비서 페이지에서 얻을 수 있습니다';
+$string['err_noapikey_help'] = '본 플러그인에 API 키가 설정되어 있지 않음. http://flickr.com/services/api/keys/apply 에서 얻을 수 있음';
 $string['hidefrompublicsearches'] = '이미지 검색에서 노출되지 않게 할까요?';
 $string['isfamily'] = '가족에게 공개';
 $string['isfriend'] = '친구에게 공개';

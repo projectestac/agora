@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,6 @@ $string['activemethodinfonone'] = 'Ingen avancerad betygssättningsmetod är val
 $string['changeactivemethod'] = 'Ändra betygssättningsmetod till';
 $string['clicktoclose'] = 'klicka för att välja';
 $string['exc_gradingformelement'] = 'Kunde inte instansiera betygsformulärselement';
-$string['formnotavailable'] = 'Avancerade betygsmetoder valdes men betygsformuläret är inte tillgängligt ännu. Du kanske måste definiera detta först via en länk i blocket Inställningar.';
 $string['gradingformunavailable'] = 'Notera: formuläret för avancerad betygssättning är för närvarande inte klart. Enkel betygssättningsmetod kommer att användas tills formuläret har giltig status.';
 $string['gradingmanagement'] = 'Avancerad betygssättning';
 $string['gradingmanagementtitle'] = 'Avancerad betygssättning: {$a->component} ({$a->area})';

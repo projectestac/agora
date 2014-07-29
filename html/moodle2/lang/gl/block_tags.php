@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_tags', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_tags', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_tags
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,7 +59,11 @@ $string['moreshowmytags'] = 'As miñas etiquetas';
 $string['moreshowofficialtags'] = 'Etiquetas oficiais';
 $string['moretags'] = 'Amosar e filtrar máis etiquetas';
 $string['moretitle'] = 'Máis etiquetas';
-$string['morewelcome'] = 'Benvido á nube de etiquetas «Máis etiquetas». As etiquetas son ligazóns creadas polo usuario a cousas. As etiquetas permítenlle categorizar e ligar cousas como os seus cursos favoritos, os seus blogs ou o seu perfil coas súas propias palabras. Diferentes grupos de etiquetas pódense presentar xunto coas ligazóns na liña «Amosar», e poden reordenarse coas ligazóns na liña: «Ordenar».';
+$string['morewelcome'] = 'Benvido á nube de etiquetas «Máis etiquetas».
+As etiquetas son ligazóns creadas polo usuario a cousas. As etiquetas permítenlle categorizar
+e ligar cousas como os seus cursos favoritos, os seus blogs ou o seu perfil coas súas propias palabras.
+Diferentes grupos de etiquetas pódense presentar xunto coas ligazóns na liña «Amosar»,
+e poden reordenarse coas ligazóns na liña: «Ordenar».';
 $string['mycoursetags'] = 'Etiquetas do curso';
 $string['mytags'] = 'As miñas etiquetas';
 $string['notagsyet'] = 'Aínda sen etiquetas';

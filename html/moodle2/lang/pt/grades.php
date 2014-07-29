@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -186,6 +186,7 @@ $string['errornocategorisedid'] = 'Não foi possível obter um id não categoriz
 $string['errornocourse'] = 'Não foi possível obter informação da disciplina';
 $string['errorreprintheadersnonnumeric'] = 'Recebido valor não numérico para a reimpressão de cabeçalhos';
 $string['errorsavegrade'] = 'Não foi possível gravar a nota.';
+$string['errorsettinggrade'] = 'Erro ao gravar a nota de "{$a->itemname}"  para o utilizador {$a->userid}';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Ocorreu um erro ao atualizar a opção "Não incluir notas vazias" nas notas da categoria com o ID {$a->id}';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Ocorreu um erro ao atualizar a opção "Incluir competências no cálculo" nas notas da categoria com o ID {$a->id}';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Ocorreu um erro ao atualizar a opção "Incluir notas das subcategorias" nas notas da categoria com o ID {$a->id}';
@@ -197,8 +198,8 @@ $string['expand'] = 'Expandir categoria';
 $string['export'] = 'Exportar';
 $string['exportalloutcomes'] = 'Exportar todas as competências';
 $string['exportfeedback'] = 'Incluir comentários na exportação';
-$string['exportonlyactive'] = 'Necessita de uma incrição ativa';
-$string['exportonlyactive_help'] = 'Incluir apenas alunos na exportação cuja inscrição não tenha sido suspensa';
+$string['exportonlyactive'] = 'Excluir utilizadores suspensos';
+$string['exportonlyactive_help'] = 'Incluir na exportação apenas alunos cuja inscrição está ativa e que não tenha sido suspensa';
 $string['exportplugins'] = 'Módulos de exportação';
 $string['exportsettings'] = 'Definições de exportação';
 $string['exportto'] = 'Exportar para';
@@ -259,6 +260,7 @@ $string['gradehelp'] = 'Ajuda sobre Notas';
 $string['gradehistorylifetime'] = 'Manter histórico de notas durante';
 $string['gradehistorylifetime_help'] = 'Isto especifica o período de tempo que deseja manter o histórico das alterações nas tabelas relacionadas com a pauta. Recomenda-se que mantenha o maior tempo possível. Se tiver problemas de desempenho ou espaço limitado na base de dados, tente selecionar um valor inferior.';
 $string['gradeimport'] = 'Importar notas';
+$string['gradeimportfailed'] = 'Falha durante a importação das notas. Detalhes:';
 $string['gradeitem'] = 'Item de avaliação';
 $string['gradeitemaddusers'] = 'Excluir da avaliação';
 $string['gradeitemadvanced'] = 'Opções avançadas dos itens de avaliação';
@@ -548,7 +550,9 @@ $string['selectalloroneuser'] = 'Selecione todos ou um utilizador';
 $string['selectauser'] = 'Selecione um utilizador';
 $string['selectdestination'] = 'Selecionar destino de {$a}';
 $string['separator'] = 'Separador';
+$string['sepcolon'] = 'Vírgula';
 $string['sepcomma'] = 'Vírgula';
+$string['sepsemicolon'] = 'Ponto e vírgula';
 $string['septab'] = 'Tabulação';
 $string['setcategories'] = 'Definir categorias';
 $string['setcategorieserror'] = 'Tem que definir as categorias da disciplina antes de atribuir pesos às categorias';
@@ -592,6 +596,8 @@ $string['shownohidden'] = 'Totalmente oculto';
 $string['shownooutcomes'] = 'Ocultar competências';
 $string['shownumberofgrades'] = 'Mostrar número de notas usado nas médias';
 $string['shownumberofgrades_help'] = 'Se ativar esta opção, o número de notas utilizadas no cálculo da média é exibido entre parênteses após cada média.';
+$string['showonlyactiveenrol'] = 'Mostrar apenas as inscrições ativas';
+$string['showonlyactiveenrol_help'] = 'Esta definição determina se apenas os utilizadores inscritos e ativos serão visíveis no relatório da Pauta. Se ativar esta opção, os utilizadores suspensos não serão mostrados na Pauta.';
 $string['showpercentage'] = 'Mostrar percentagem';
 $string['showpercentage_help'] = 'Mostrar o valor da percentagem para cada item de avaliação?';
 $string['showquickfeedback'] = 'Mostrar feedback rápido';
@@ -660,6 +666,9 @@ $string['user'] = 'Utilizador';
 $string['userenrolmentsuspended'] = 'Inscrição de utilizadores suspenso';
 $string['usergrade'] = 'Utilizador {$a->fullname} ({$a->useridnumber}) on item {$a->gradeidnumber}';
 $string['userid'] = 'ID do utilizador';
+$string['usermappingerror'] = 'Erro de mapeamento de utilizador. Não foi possível encontrar o utilizador com {$a->field} de "{$a->value}".';
+$string['usermappingerrorcurrentgroup'] = 'O utilizador não é um membro do grupo atual.';
+$string['usermappingerrorusernotfound'] = 'Erro de mapeamento de utilizador. Não foi possível encontrar o utilizador.';
 $string['userpreferences'] = 'Preferências do utilizador';
 $string['useweighted'] = 'Usar ponderações';
 $string['verbosescales'] = 'Escalas alfabéticas';

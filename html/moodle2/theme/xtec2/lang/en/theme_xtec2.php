@@ -1,61 +1,93 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$string['pluginname'] = 'Xtec2';
-$string['region-side-post'] = 'Right';
-$string['region-side-pre'] = 'Left';
+/**
+ * Strings for component 'theme_xtec2', language 'en'
+ *
+ * @package   theme_xtec2
+ * @copyright 2013 Moodle, moodle.org
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 $string['choosereadme'] = 'Theme designed for XTEC\'s Agora-Moodle service';
 
-$string['notes'] = 'Theme notes';
-$string['notesdesc'] = '<p>To apply any settings simply press "Save Changes" at the bottom of this page. If you do not have Theme Designer Mode enabled you may need to visit the <a href="purgecaches.php">Purge All Caches</a> admin page to force the refresh.</p>';
+$string['configtitle'] = 'Xtec2';
 
-$string['headerinfo'] = 'Theme settings';
-
+$string['header_settings'] = 'Header settings';
 $string['logo'] = 'Image for the header';
-$string['logodesc'] = 'Upload an imatge with extension png, jpg or gif';
+$string['logodesc'] = 'Recommended height: 93px';
+$string['logo_color'] = 'Tint color for the image in the header';
+$string['logo_color_transparency'] = 'Transparency of the tint color';
+$string['top_menus'] = 'Show Main menu on top';
+$string['top_menus_description'] = 'Show Navigation and Settings menu on the navigation bar (experimental)';
 
+$string['disabled'] = 'Disabled';
+
+$string['layout_settings'] = 'Layout settings';
+$string['footnote'] = 'Footnote';
+$string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
+$string['block_layout'] = 'Blocks layout';
+$string['without_blocks'] = 'Without blocks';
+$string['blocks_left'] = 'All blocks on the left';
+$string['blocks_right'] = 'All blocks on the right';
+$string['blocks_both'] = 'Blocks on both sides (not in all site)';
+
+$string['color_settings'] = 'Color settings';
 $string['colorset'] = 'Color set';
-$string['colorsetdesc'] = '';
+$string['colorsetdesc'] = 'Choose the color set to use in the theme. You can modify the colors predefined.';
 
-$string['color1'] = 'Color 1';
-$string['color1desc'] = 'Description for color 1';
+$string['custom'] = 'Custom'; //Personalitzat
+$string['grana'] = 'Garnet (default)'; //'Grana (predefinit)'
+$string['coral'] = 'Coral Reef';//'Escull de coral'
+$string['or'] = 'Gold Rush'; //'Febre de l\'or'
+$string['llima'] = 'Fresh Lime'; //'Llima dolça'
+$string['tardor'] = 'Autumn'; //'Tardor'
+$string['nostalgia'] = 'Nostalgia'; //'Nostàlgia'
 
-$string['color2'] = 'Color 2';
-$string['color2desc'] = 'Description for color 2';
 
-$string['color3'] = 'Color 3';
-$string['color3desc'] = 'Description for color 3';
+$string['color2'] = 'Background of block headers';
+$string['color3'] = 'Font color of block headers';
+$string['color4'] = 'Titles font color';
+$string['color5'] = 'Links font color';
 
-$string['color4'] = 'Color 4';
-$string['color4desc'] = 'Description for color 4';
-
-$string['color5'] = 'Color 5';
-$string['color5desc'] = 'Description for color 5';
-
-$string['color6'] = 'Color 6';
-$string['color6desc'] = 'Description for color 6';
-
+$string['font_settings'] = 'Font settings';
 $string['fontsize'] = 'Font size';
-$string['fontsizedesc'] = '';
-$string['fontsizedesc1'] = '';
-$string['fontsizedesc2'] = '';
-$string['fontsizedesc3'] = '';
-$string['fontsizedesc4'] = '';
-$string['fontsizedesc5'] = '';
+$string['fontsizedesc'] = 'Choose the font size tu use as reference. All sizes will be realative to that.';
+$string['fontsizedesc1'] = 'Tiny';
+$string['fontsizedesc2'] = 'Small';
+$string['fontsizedesc3'] = 'Medium';
+$string['fontsizedesc4'] = 'Big';
+$string['fontsizedesc5'] = 'Huge';
 
 $string['fontstyle'] = 'Font style';
-$string['fontstyledesc'] = '';
-$string['fontstyledesc1'] = '';
-$string['fontstyledesc2'] = '';
-$string['fontstyledesc3'] = '';
+$string['fontstyledesc'] = 'Choose the font family to use';
+$string['fontstyledesc1'] = 'Normal font';
+$string['fontstyledesc2'] = 'Handscript font';
+$string['fontstyledesc3'] = 'Uppercase font';
 
-$string['iconset'] = 'Icon set';
-$string['iconsetdesc'] = '';
-$string['iconsetdesc1'] = '';
-$string['iconsetdesc2'] = '';
 
+$string['css_settings'] = 'CSS settings';
 $string['importcss'] = 'Import external CSS';
 $string['importcssdesc'] = 'Introduce an absolute URL to a CSS file. It will be loaded before theme styles';
 
 $string['customcss'] = 'Custom CSS';
-$string['customcssdesc'] = '<p>Input any custom CSS here.</p><p>CSS input here is the very last thing called on the page and should not be overwritten by any other rules.  If your rules are not displaying please try the following:<ol><li>check your syntax</li><li>add <code>!important</code> to your rule</li></ol></p>';
+$string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
+
+$string['pluginname'] = 'XTEC2';
+
+$string['region-side-post'] = 'Right';
+$string['region-side-pre'] = 'Left';
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_capture', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_capture', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_capture
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -51,10 +51,11 @@ $string['configplugin'] = 'Configuration for Capture plugin';
 $string['default_filename'] = 'Recording';
 $string['download'] = 'Download';
 $string['err_no_hardware'] = 'Camera or microphone is missing. Please connect your device and refresh the page (depending on your browser, you may need to restart your browser)';
-$string['err_record_ffmpeg_exec'] = 'Execution of this ffmpeg path failed. Please check the path and try again.';
+$string['err_record_ffmpeg_exec'] = 'Execution of the ffmpeg path failed. Please check the path and try again.';
 $string['err_record_file_not_exists'] = 'The recording does not exist. There is probably a problem with the server configuration. Verify that the temp folder is writable and that FFMPEG is properly installed.';
 $string['err_record_fps_range'] = 'Value must be between 10 - 60';
 $string['err_record_quality_range'] = 'Value must be between 20 - 100';
+$string['head_index'] = 'Capture';
 $string['pluginname'] = 'Capture';
 $string['pluginname_help'] = 'Record an audio or video directly in Moodle and upload it into the Moodle file system.';
 $string['radio_no'] = 'No';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,10 +45,13 @@ $string['deleteblock'] = '{$a} ブロックを削除する';
 $string['deleteblockcheck'] = '本当にタイトル「 {$a} 」のブロックを削除してもよろしいですか?';
 $string['deleteblockwarning'] = '<p>あなたは他の場所に表示されているブロックを削除しようとしています。</p><p>オリジナルブロックのロケーション: {$a->location}<br />表示されているページタイプ: {$a->pagetype}</p><p>本当に続けてもよろしいですか?</p>';
 $string['deletecheck'] = '{$a} ブロックを削除しますか?';
+$string['dockblock'] = '{$a} ブロックをドックする';
 $string['hideblock'] = '{$a} ブロックを隠す';
 $string['hidedockpanel'] = 'ドックパネルを隠す';
 $string['hidepanel'] = 'パネルを隠す';
 $string['moveblock'] = '{$a} ブロックを移動する';
+$string['moveblockafter'] = '{$a} ブロックの後にブロックを移動する';
+$string['moveblockbefore'] = '{$a} ブロックの前にブロックを移動する';
 $string['moveblockhere'] = 'ここにブロックを移動する';
 $string['movingthisblockcancel'] = 'このブロック ({$a}) を移動する';
 $string['onthispage'] = 'このページでの設定';
@@ -65,6 +68,7 @@ $string['showonfrontpageonly'] = 'フロントページのみに表示する';
 $string['subpages'] = 'ページを選択する';
 $string['thisspecificpage'] = 'このページ';
 $string['undockall'] = 'すべてをアンドックする';
+$string['undockblock'] = '{$a} ブロックをアンドックする';
 $string['undockitem'] = 'このアイテムをアンドックする';
 $string['visible'] = '可視性';
 $string['weight'] = '加重';

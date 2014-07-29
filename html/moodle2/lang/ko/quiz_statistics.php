@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['actualresponse'] = '실제 응답';
 $string['allattempts'] = '모든 시도';
 $string['allattemptsavg'] = '모든 시도의 평균값';
-$string['allattemptscount'] = '채점이 완료된 시도 총수';
+$string['allattemptscount'] = '총 시도의 수';
 $string['analysisofresponses'] = '응답분석';
 $string['analysisofresponsesfor'] = '{$a} 응답분석';
 $string['attempts'] = '시도';
@@ -43,7 +43,7 @@ $string['coursename'] = '강좌명';
 $string['detailedanalysis'] = '본 질문의 좀 더 자세한 응답 분석';
 $string['discrimination_index'] = '변별도 지수';
 $string['discriminative_efficiency'] = '변별 효율';
-$string['downloadeverything'] = '{$a->formatsmenu}로 모든 보고서 내려받기  {$a->downloadbutton}';
+$string['downloadeverything'] = '모든 보고서 내려받기';
 $string['duration'] = '개방 기간';
 $string['effective_weight'] = '유효 가중치';
 $string['errordeleting'] = '옛 {$a} 기록 삭제 중 오류';
@@ -57,7 +57,7 @@ $string['errorstatisticsquestions'] = '질문 성적의 통계를 계산하기 �
 $string['facility'] = '난이도';
 $string['firstattempts'] = '최초 시도';
 $string['firstattemptsavg'] = '최초 시도의 평균값';
-$string['firstattemptscount'] = '채점이 완료된 첫번째 시도 수';
+$string['firstattemptscount'] = '첫번째 시도의 돗수';
 $string['frequency'] = '빈도';
 $string['intended_weight'] = '의도한 가중치';
 $string['kurtosis'] = '({$a})득점분포 첨도';

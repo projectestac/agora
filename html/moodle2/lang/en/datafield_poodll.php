@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'datafield_poodll', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'datafield_poodll', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   datafield_poodll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['backimageurl'] = 'Whiteboard background image URL';
+$string['backimageurl_desc'] = 'Optional. Leave blank if unneeded.';
 $string['clicktoplay'] = 'Click to Play';
 $string['maxbytes'] = 'Maximum embedded file size (bytes)';
 $string['maxbytes_desc'] = 'If set to zero will be unlimited by default';

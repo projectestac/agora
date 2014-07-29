@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,6 +65,7 @@ $string['changepassword'] = 'URL para cambiar o contrasinal';
 $string['changepasswordhelp'] = 'Aquí pode especificar onde poden os seus usuarios recuperar ou cambiar o seu nome de usuario/contrasinal se o esqueceron. Para elo, aparecerá un botón na páxina de acceso. Se deixa isto en branco, non se amosará este botón.';
 $string['chooseauthmethod'] = 'Escolla un método de autenticación';
 $string['chooseauthmethod_help'] = 'Este axuste determina o método de autenticación empregado cando o usuario accede. Só debe escoller a activación do engadido de autenticación, senón o usuario xa non poderá acceder. Para bloquear o acceso de usuarios seleccione «Sen acceso»';
+$string['createpassword'] = 'Xerar o contrasinal e notificar ao usuario';
 $string['createpasswordifneeded'] = 'Crear un contrasinal se for preciso';
 $string['emailchangecancel'] = 'Cancelar o cambio de correo';
 $string['emailchangepending'] = 'Cambio pendente. Abra a ligazón enviada a {$a->preference_newemail}.';
@@ -86,6 +87,8 @@ $string['errorminpasswordlower'] = 'Os contrasinais deben ter polo menos {$a} le
 $string['errorminpasswordnonalphanum'] = 'Os contrasinais deben ter polo menos {$a} caracteres non alfanuméricos.';
 $string['errorminpasswordupper'] = 'Os contrasinais deben ter polo menos {$a} letra(s) maiúscula(s).';
 $string['errorpasswordupdate'] = 'Produciuse un erro ao actualizar o contrasnal. O contrasinal non cambiou';
+$string['event_user_loggedin'] = 'O usuario iniciou sesión';
+$string['eventuserloggedinas'] = 'O usuario accedeu como outro usuario';
 $string['forcechangepassword'] = 'Forzar o cambio de contrasinal';
 $string['forcechangepasswordfirst_help'] = 'Forzar que os usuarios cambien o contrasinal a primeira vez que accedan a Moodle.';
 $string['forcechangepassword_help'] = 'Forzar que os usuarios cambien o contrasinal a próxima vez que accedan a Moodle.';
@@ -132,6 +135,8 @@ $string['stdchangepassword_expl'] = 'Se o sistema externo de autenticación perm
 $string['stdchangepassword_explldap'] = 'NOTA: recomendase que empregue LDAP sobre un túnel cifrado SSL (ldaps://) se o servidor LDAP é remoto.';
 $string['suspended'] = 'Conta suspendida';
 $string['suspended_help'] = 'As contas de usuario suspendidas non poden acceder ou empregar os servizos web, e todas as mensaxes saíntes desbotaranse.';
+$string['testsettings'] = 'Proba das configuracións';
+$string['testsettingsheading'] = 'Proba da configuración da autenticación - {$a}';
 $string['unlocked'] = 'Desbloqueado';
 $string['unlockedifempty'] = 'Desbloqueado se está baleiro';
 $string['update_never'] = 'Nunca';

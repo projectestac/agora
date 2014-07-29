@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Ação';
 $string['addanotherhint'] = 'Adicionar outra ajuda';
 $string['addcategory'] = 'Adicionar categoria';
+$string['addmorechoiceblanks'] = 'Adicionar mais {no} campos de opções de resposta';
 $string['adminreport'] = 'Relatório de possíveis problemas na sua base de dados de perguntas.';
 $string['answer'] = 'Resposta';
+$string['answers'] = 'Respostas';
 $string['answersaved'] = 'Resposta guardada';
 $string['attemptfinished'] = 'Tentativa terminada';
 $string['attemptfinishedsubmitting'] = 'A submeter a tentativa terminada:';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'Não foi possível criar uma nova entrada na tabela q
 $string['cannotcreatepath'] = 'Não é possível criar o caminho: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'Não pode apagar o comportamento \'{$a}\'. Está a ser usado em tentativas de realização do teste.';
 $string['cannotdeletecate'] = 'Não pode apagar a categoria porque encontra-se como predefinida para este contexto.';
-$string['cannotdeletemissingbehaviour'] = 'Não pode desinstalar o comportamento desconhecido. É requerido pelo sistema.';
-$string['cannotdeletemissingqtype'] = 'Não pode desinstalar o tipo de pergunta desconhecida. É requerido pelo sistema.';
 $string['cannotdeleteneededbehaviour'] = 'Não pode apagar o comportamento da pergunta \'{$a}\'. Existem outros comportamentos instalados que dependem deste.';
 $string['cannotdeleteqtypeinuse'] = 'Não pode apagar o tipo de pergunta \'{$a}\'. Existem perguntas deste tipo na base de dados de perguntas.';
 $string['cannotdeleteqtypeneeded'] = 'Não pode apagar o tipo de pergunta {$a}. Existem outros tipos de perguntas que dependem deste.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'Não deveria ter chegado a este ponto se não está a
 $string['copy'] = 'Copiar de {$a} e alterar hiperligações.';
 $string['correct'] = 'Correto';
 $string['correctfeedback'] = 'Para qualquer resposta correta';
+$string['correctfeedbackdefault'] = 'A sua resposta está correta.';
 $string['created'] = 'Criado';
 $string['createdby'] = 'Criado por';
 $string['createdmodifiedheader'] = 'Criado / Atualizado pela última vez';
@@ -111,13 +112,9 @@ $string['defaultfor'] = 'Categoria predefinida de {$a}';
 $string['defaultinfofor'] = 'A categoria predefinida para perguntas partilhadas no contexto \'{$a}';
 $string['defaultmark'] = 'Nota predefinida';
 $string['defaultmarkmustbepositive'] = 'A nota predefinida deve ser positiva.';
-$string['deletebehaviourareyousure'] = 'Apagar comportamento {$a}: tem a certeza?';
-$string['deletebehaviourareyousuremessage'] = 'Está prestes a apagar completamente o comportamento de pergunta {$a}. Esta ação irá apagar completamente toda a informação associada a este comportamento na base de dados. Tem a certeza que deseja continuar?';
 $string['deletecoursecategorywithquestions'] = 'Existem perguntas na base de dados de perguntas associadas a esta categoria da disciplina. Se continuar, elas serão apagadas. Poderá primeiro movê-las para outras categorias usando a base de dados de perguntas.';
-$string['deleteqtypeareyousure'] = 'Apagar tipo de pergunta {$a}: tem a certeza?';
-$string['deleteqtypeareyousuremessage'] = 'Está prestes a apagar completamente o tipo de pergunta {$a}. Esta ação irá apagar completamente toda a informação na base de dados das perguntas associado a este comportamento. Tem a certeza que deseja continuar?';
 $string['deletequestioncheck'] = 'Tem a certeza absoluta que deseja apagar {$a}?';
-$string['deletequestionscheck'] = 'Tem a certeza absoluta que deseja apagar as seguintes perguntas?<br /><br />{$a}';
+$string['deletequestionscheck'] = '<p>Tem a certeza absoluta de que deseja apagar as seguintes perguntas?</p><p>{$a}</p>';
 $string['deletingbehaviour'] = 'A apagar o comportamento de pergunta {$a}';
 $string['deletingqtype'] = 'A apagar o tipo de pergunta {$a}';
 $string['didnotmatchanyanswer'] = '[Não corresponde nenhuma resposta]';
@@ -186,13 +183,14 @@ $string['flagthisquestion'] = 'Marcar esta pergunta';
 $string['formquestionnotinids'] = 'Formulário continha pergunta que não está nos ids das perguntas';
 $string['fractionsnomax'] = 'Uma das respostas deve ter a pontuação de 100% para que seja possível obter a nota máxima para esta pergunta.';
 $string['generalfeedback'] = 'Feedback geral';
-$string['generalfeedback_help'] = 'O feedback geral é exibido ao aluno depois deste ter concluído a resposta à pergunta. Ao contrário do feedback específico das opções de resposta, o qual depende da resposta selecionada pelo aluno, o feedback geral exibido é igual para todos os alunose suas respostas.
+$string['generalfeedback_help'] = 'O feedback geral é exibido ao aluno depois de ter concluído a pergunta. Ao contrário do feedback específico, que depende do tipo de pergunta e da resposta dada pelo aluno, o feedback geral exibido é igual para todos os alunos.
 
 Pode usar o feedback geral para dar ao aluno uma explicação completa da resposta e links para informação relevante para a sua compreensão.';
 $string['getcategoryfromfile'] = 'Obter categoria a partir de ficheiro';
 $string['getcontextfromfile'] = 'Obter contexto a partir de ficheiro';
 $string['hidden'] = 'Oculto';
 $string['hintn'] = 'Ajuda {no}';
+$string['hintnoptions'] = 'Opções da dica {no}';
 $string['hinttext'] = 'Texto de ajuda';
 $string['howquestionsbehave'] = 'Modo de comportamento das perguntas';
 $string['howquestionsbehave_help'] = 'Os alunos podem interagir com as perguntas do teste de várias formas diferentes. Por exemplo, pode configurar o teste de forma a que os alunos insiram uma resposta em cada pergunta e só após submeterem todo o teste obterão a sua nota e/ou feedbacks. (modo feedback diferido). Em alternativa, pode desejar que os alunos obtenham feedback imediato consoante vão submetendo as respostas a cada pergunta, e se não acertarem de imediato, possam responder de novo (modo interativo com múltiplas tentativas).';
@@ -211,10 +209,11 @@ $string['importquestions'] = 'Importar perguntas a partir do ficheiro';
 $string['importquestions_help'] = 'Esta função permite importar via ficheiro de texto uma variedade de formatos de perguntas. Note que o arquivo deverá usar a codificação UTF-8.';
 $string['importquestions_link'] = 'pergunta/importar';
 $string['importwrongfiletype'] = 'O tipo de ficheiro que selecionou ({$a->actualtype}) não corresponde ao tipo esperado neste formato de importação. ({$a->expectedtype}).';
-$string['impossiblechar'] = 'Foi detetado um carater como parêntesis, não compatível {$a}';
+$string['impossiblechar'] = 'Foi detetado um caráter como parêntesis, não compatível {$a}';
 $string['includesubcategories'] = 'Mostrar também as perguntas das subcategorias';
 $string['incorrect'] = 'Incorreto';
 $string['incorrectfeedback'] = 'Para qualquer resposta incorreta';
+$string['incorrectfeedbackdefault'] = 'A sua resposta está incorreta.';
 $string['information'] = 'Informação';
 $string['invalidanswer'] = 'Resposta incompleta';
 $string['invalidarg'] = 'Sem argumentos válidos fornecidos ou configuração do servidor incorreta';
@@ -239,10 +238,11 @@ $string['markoutofmax'] = 'Nota: {$a->mark} em {$a->max}';
 $string['marks'] = 'Nota';
 $string['matchgrades'] = 'Corresponder notas';
 $string['matchgradeserror'] = 'Exibir erro se a nota não estiver na lista';
-$string['matchgrades_help'] = 'As notas importadas devem corresponder a um dos valores válidos - 100, 90, 80, 75, 70, 66.666, 60, 50, 40, 33.333, 30, 25, 20, 16.666, 14.2857, 12.5, 11.111, 10, 5, 0 (incluindo valores negativos). Se não, existem duas opções:
+$string['matchgrades_help'] = 'As notas importadas devem corresponder a um dos valores válidos - 100, 90, 80, 75, 70, 66.666, 60, 50, 40, 33.333, 30, 25, 20, 16.666, 14.2857, 12.5, 11.111, 10, 5, 0 (incluindo valores negativos). Caso contrário, existem duas opções:
 
-*  Erro se a nota não está listada - Se a pergunta conter alguma nota não listada é mostrado um erro e a pergunta não é importada
-* Nota mais próxima se não está listada- Se a nota não corresponder a nenhuma valor da lista é alterada para o valor listado mais próximo';
+* Erro, caso a nota não esteja listada: Se a pergunta contiver alguma nota não listada será exibida uma mensagem de erro e a pergunta não será importada;
+
+* Nota mais próxima, caso não esteja listada: Se a nota não corresponder a nenhuma valor da lista será alterada para o valor listado mais próximo.';
 $string['matchgradesnearest'] = 'Nota mais próxima se não estiver na lista';
 $string['missingcourseorcmid'] = 'É necessário introduzir o id da disciplina ou cmid para print_question.';
 $string['missingcourseorcmidtolink'] = 'É necessário introduzir o id da disciplina ou cmid para get_question_edit_link.';
@@ -302,6 +302,7 @@ $string['parenthesisinproperstart'] = 'Os parênteses antes de ** não estão de
 $string['parsingquestions'] = 'A ler perguntas do ficheiro importado.';
 $string['partiallycorrect'] = 'Parcialmente correto';
 $string['partiallycorrectfeedback'] = 'Para qualquer resposta parcialmente correta';
+$string['partiallycorrectfeedbackdefault'] = 'A sua resposta está parcialmente correta.';
 $string['penaltyfactor'] = 'Fator de penalização';
 $string['penaltyfactor_help'] = 'Este campo determina a fração da nota obtida que será subtraída por cada resposta errada. Aplica-se unicamente nos testes que usem o modo adaptativo.
 
@@ -316,9 +317,7 @@ $string['permissionsaveasnew'] = 'Gravar como nova pergunta';
 $string['permissionto'] = 'Tem permissão para:';
 $string['previewquestion'] = 'Pré-visualizar pergunta';
 $string['published'] = 'partilhada';
-$string['qbehaviourdeletefiles'] = 'Todos os dados associados ao comportamento de pergunta {$a->behaviour} foram apagados da base de dados. Para terminar a remoção (e para prevenir que este tipo de comportamento se reinstale), deve apagar esta diretoria do seu servidor: {$a->directory}';
-$string['qtypedeletefiles'] = 'Todos os dados associados ao tipo de pergunta {$a->qtype} foram apagados da base de dados. Para terminar a remoção (e para prevenir que este tipo de pergunta se reinstale), deve apagar esta diretoria do seu servidor: {$a->directory}';
-$string['qtypeveryshort'] = 'T';
+$string['qtypeveryshort'] = 'Tipo de pergunta';
 $string['questionaffected'] = 'A <a href="{$a->qurl}">pergunta "{$a->name}" ({$a->qtype})</a> encontra-se nesta categoria, mas também está a ser usada no <a href="{$a->qurl}">teste "{$a->quizname}"</a> em outra disciplina "{$a->coursename}".';
 $string['questionbank'] = 'Base de dados de perguntas';
 $string['questionbehaviouradminsetting'] = 'Configurações do comportamento de pergunta';
@@ -332,6 +331,8 @@ $string['questiondoesnotexist'] = 'Esta pergunta não existe';
 $string['questionidmismatch'] = 'Incoerência nos ids da Pergunta';
 $string['questionname'] = 'Nome da pergunta';
 $string['questionno'] = 'Pergunta {$a}';
+$string['questionpreviewdefaults'] = 'Predefinições da pré-visualização da pergunta';
+$string['questionpreviewdefaults_desc'] = 'Estas configurações predefinidas são usadas quando o utilizador pré-visualiza pela primeira vez uma pergunta na Base de dados de perguntas. Assim que o utilizador tiver pré-visualizado a pergunta, as suas preferências pessoais serão guardadas como preferências do utilizador.';
 $string['questions'] = 'Perguntas';
 $string['questionsaveerror'] = 'Ocorreram erros ao gravar a pergunta - ({$a})';
 $string['questionsinuse'] = '(* Perguntas marcadas com asterisco estão ainda em uso em alguns testes. Essas perguntas não serão apagadas dos testes mas apenas da categoria.)';
@@ -349,7 +350,7 @@ $string['restart'] = 'Recomeçar';
 $string['restartwiththeseoptions'] = 'Recomeçar com estas opções';
 $string['reviewresponse'] = 'Rever respostas';
 $string['rightanswer'] = 'Resposta correta';
-$string['rightanswer_help'] = 'Informação sobre a resposta correta gerada automaticamente pelo Moodle. Pode desejar deativar esta opção quando prefere explicar qual a resposta correta à pergunta no feedback geral da mesma.';
+$string['rightanswer_help'] = 'Resumo da resposta correta gerada automaticamente pelo Moodle. Pode desativar esta opção e optar por explicar a solução correta à pergunta no respetivo feedback geral.';
 $string['save'] = 'Guardar';
 $string['saved'] = 'Guardado: {$a}';
 $string['saveflags'] = 'Guardar o estado das marcações';
@@ -357,7 +358,7 @@ $string['selectacategory'] = 'Selecione uma categoria:';
 $string['selectaqtypefordescription'] = 'Selecione um tipo de pergunta para ver a sua descrição';
 $string['selectcategoryabove'] = 'Selecione a categoria abaixo';
 $string['selectquestionsforbulk'] = 'Selecione perguntas para ações em massa';
-$string['settingsformultipletries'] = 'Configurações para múltiplas tentativas';
+$string['settingsformultipletries'] = 'Múltiplas tentativas';
 $string['shareincontext'] = 'Partilhar no contexto {$a}';
 $string['showhidden'] = 'Mostrar também perguntas antigas';
 $string['showmarkandmax'] = 'Mostrar nota e máxima';
@@ -380,6 +381,7 @@ $string['submitandfinish'] = 'Submeter e finalizar';
 $string['submitted'] = 'Submetido: {$a}';
 $string['technicalinfo'] = 'Informação técnica';
 $string['technicalinfo_help'] = 'A Informação técnica é provavelmente apenas necessária para os programadores que trabalham no novo tipo de perguntas. Pode ser útil para descobrirem problemas com as perguntas.';
+$string['technicalinfomaxfraction'] = 'Fração máxima: {$a}';
 $string['technicalinfominfraction'] = 'Fração mínima: {$a}';
 $string['technicalinfoquestionsummary'] = 'Resumo da pergunta: {$a}';
 $string['technicalinforightsummary'] = 'Resumo da resposta correta: {$a}';
@@ -390,7 +392,7 @@ $string['uninstallbehaviour'] = 'Desinstalar este comportamento da pergunta.';
 $string['uninstallqtype'] = 'Desinstalar este tipo de pergunta.';
 $string['unknown'] = 'Desconhecido(a)';
 $string['unknownbehaviour'] = 'Comportamento desconhecido: {$a}.';
-$string['unknownorunhandledtype'] = 'Tipo de questão não previsto ou des conhecido: {$a}';
+$string['unknownorunhandledtype'] = 'Tipo de questão não prevista ou desconhecida: {$a}';
 $string['unknownquestion'] = 'Pergunta desconhecida: {$a}.';
 $string['unknownquestioncatregory'] = 'Categoria desconhecida: {$a}.';
 $string['unknownquestiontype'] = 'Tipo de pergunta desconhecida: {$a}.';

@@ -91,15 +91,16 @@ class qformat_blackboard_six extends qformat_blackboard_six_base {
         }
         // We are importing a zip file.
         // Create name for temporary directory.
-        $unique_code = time();
-        $this->tempdir = make_temp_directory('bbquiz_import/' . $unique_code);
+        $uniquecode = time();
+        $this->tempdir = make_temp_directory('bbquiz_import/' . $uniquecode);
         if (is_readable($filename)) {
             if (!copy($filename, $this->tempdir . '/bboard.zip')) {
                 $this->error(get_string('cannotcopybackup', 'question'));
                 fulldelete($this->tempdir);
                 return false;
             }
-            if (unzip_file($this->tempdir . '/bboard.zip', '', false)) {
+            $packer = get_file_packer('application/zip');
+            if ($packer->extract_to_pathname($this->tempdir . '/bboard.zip', $this->tempdir)) {
                 $dom = new DomDocument();
 
                 if (!$dom->load($this->tempdir . '/imsmanifest.xml')) {
@@ -112,7 +113,7 @@ class qformat_blackboard_six extends qformat_blackboard_six_base {
 
                 // We starts from the root element.
                 $query = '//resources/resource';
-                $q_file = array();
+                $qfile = array();
 
                 $examfiles = $xpath->query($query);
                 foreach ($examfiles as $examfile) {
@@ -125,7 +126,7 @@ class qformat_blackboard_six extends qformat_blackboard_six_base {
                             $fileobj->filetype = self::FILETYPE_QTI;
                             $fileobj->filebase = $this->tempdir;
                             $fileobj->text = $content;
-                            $q_file[] = $fileobj;
+                            $qfile[] = $fileobj;
                         }
                     }
                     if ($examfile->getAttribute('type') == 'assessment/x-bb-pool') {
@@ -135,13 +136,13 @@ class qformat_blackboard_six extends qformat_blackboard_six_base {
                         if ($content = $this->get_filecontent($examfile->getAttribute('file'))) {
                             $fileobj->filetype = self::FILETYPE_POOL;
                             $fileobj->text = $content;
-                            $q_file[] = $fileobj;
+                            $qfile[] = $fileobj;
                         }
                     }
                 }
 
-                if ($q_file) {
-                    return $q_file;
+                if ($qfile) {
+                    return $qfile;
                 } else {
                     $this->error(get_string('cannotfindquestionfile', 'question'));
                     fulldelete($this->tempdir);
@@ -183,6 +184,14 @@ class qformat_blackboard_six extends qformat_blackboard_six_base {
             }
             $importer->set_filebase($fileobj->filebase);
             $questions = array_merge($questions, $importer->readquestions($fileobj->text));
+        }
+
+        // Give any unnamed categories generated names.
+        $unnamedcount = 0;
+        foreach ($questions as $question) {
+            if ($question->qtype == 'category' && $question->category == '') {
+                $question->category = get_string('importedcategory', 'qformat_blackboard_six', ++$unnamedcount);
+            }
         }
 
         return $questions;

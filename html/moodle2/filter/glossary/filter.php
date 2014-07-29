@@ -43,6 +43,7 @@ class filter_glossary extends moodle_text_filter {
                     'moodle-filter_glossary-autolinker',
                     'M.filter_glossary.init_filter_autolinking',
                     array(array('courseid' => 0)));
+            $page->requires->strings_for_js(array('ok'), 'moodle');
             $jsinitialised = true;
         }
     }
@@ -56,9 +57,12 @@ class filter_glossary extends moodle_text_filter {
 
         static $nothingtodo;         // To avoid processing if no glossaries / concepts are found
 
-        // Try to get current course
-        if (!$courseid = get_courseid_from_context($this->context)) {
+        // Try to get current course.
+        $coursectx = $this->context->get_course_context(false);
+        if (!$coursectx) {
             $courseid = 0;
+        } else {
+            $courseid = $coursectx->instanceid;
         }
 
         // Initialise/invalidate our trivial cache if dealing with a different context
@@ -132,7 +136,7 @@ class filter_glossary extends moodle_text_filter {
                     // Trim empty or unlinkable concepts
                     $currentconcept = trim(strip_tags($concept->concept));
 
-                    // Concept must be HTML-escaped, so do the same as print_string
+                    // Concept must be HTML-escaped, so do the same as format_string
                     // to turn ampersands into &amp;.
                     $currentconcept = replace_ampersands_not_followed_by_entity($currentconcept);
 

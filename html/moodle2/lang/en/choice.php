@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,8 +48,13 @@ $string['choicetext'] = 'Choice text';
 $string['chooseaction'] = 'Choose an action ...';
 $string['completionsubmit'] = 'Show as complete when user makes a choice';
 $string['displayhorizontal'] = 'Display horizontally';
-$string['displaymode'] = 'Display mode';
+$string['displaymode'] = 'Display mode for the options';
 $string['displayvertical'] = 'Display vertically';
+$string['event_answer_created'] = 'Choice made';
+$string['event_answer_updated'] = 'Choice updated';
+$string['event_choice_viewed'] = 'Choice viewed';
+$string['event_instances_list_viewed'] = 'Instances list viewed';
+$string['event_report_viewed'] = 'Choice report viewed';
 $string['expired'] = 'Sorry, this activity closed on {$a} and is no longer available';
 $string['full'] = '(Full)';
 $string['havetologin'] = 'You have to log in before you can submit your choice';
@@ -58,6 +63,7 @@ $string['limitanswers'] = 'Limit the number of responses allowed';
 $string['limitanswers_help'] = 'This option allows you to limit the number of participants that can select each choice option. When the limit is reached then no-one else can select that option.
 
 If limits are disabled then any number of participants can select each of the options.';
+$string['limitno'] = 'Limit {no}';
 $string['modulename'] = 'Choice';
 $string['modulename_help'] = 'The choice activity module enables a teacher to ask a single question and offer a selection of possible responses.
 
@@ -80,6 +86,8 @@ $string['notopenyet'] = 'Sorry, this activity is not available until {$a}';
 $string['numberofuser'] = 'Number of participants';
 $string['numberofuserinpercentage'] = 'Percentage of participants';
 $string['option'] = 'Option';
+$string['optionno'] = 'Option {no}';
+$string['options'] = 'Options';
 $string['page-mod-choice-x'] = 'Any choice module page';
 $string['pluginadministration'] = 'Choice administration';
 $string['pluginname'] = 'Choice';
@@ -96,6 +104,7 @@ $string['removeresponses'] = 'Remove all responses';
 $string['responses'] = 'Responses';
 $string['responsesresultgraphheader'] = 'Graph display';
 $string['responsesto'] = 'Responses to {$a}';
+$string['results'] = 'Results';
 $string['savemychoice'] = 'Save my choice';
 $string['showunanswered'] = 'Show column for unanswered';
 $string['skipresultgraph'] = 'Skip result graph';

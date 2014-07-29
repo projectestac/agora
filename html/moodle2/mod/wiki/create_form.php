@@ -35,7 +35,7 @@ class mod_wiki_create_form extends moodleform {
         $defaultformat = $this->_customdata['defaultformat'];
         $forceformat = $this->_customdata['forceformat'];
 
-        $mform->addElement('header', 'general', get_string('createpage', 'wiki'));
+        $mform->addElement('header', 'general', get_string('newpagehdr', 'wiki'));
 
         $textoptions = array();
         if (!empty($this->_customdata['disable_pagetitle'])) {
@@ -77,6 +77,7 @@ class mod_wiki_create_form extends moodleform {
                 $groupname = $groupinfo[$groupid];
                 $mform->addElement('static', 'groupdesciption', get_string('group'), $groupname);
                 $mform->addElement('hidden', 'groupinfo', $groupid);
+                $mform->setType('groupinfo', PARAM_INT);
             }
         }
 

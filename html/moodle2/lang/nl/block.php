@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,10 +45,13 @@ $string['deleteblock'] = 'Verwijder blok {$a}';
 $string['deleteblockcheck'] = 'Weet je zeker dat je het blok met de titel {$a} wil verwijderen?';
 $string['deleteblockwarning'] = '<p>Je gaat een blok verwijderen dat ergens anders verschijnt.</p><p>Oorspronkelijke bloklocatie: {$a->location}<br />Toon op paginatypes: {$a->pagetype}</p><p>Weet je zeker dat je verder wil gaan?</p>';
 $string['deletecheck'] = 'Verwijder blok {$a}?';
+$string['dockblock'] = 'Zet blok {$a} in het zijpaneel';
 $string['hideblock'] = 'Verberg blok {$a}';
 $string['hidedockpanel'] = 'Verberg het paneel';
 $string['hidepanel'] = 'Verberg paneel';
 $string['moveblock'] = 'Verplaats blok {$a}';
+$string['moveblockafter'] = 'Zet het blok na blok {$a}';
+$string['moveblockbefore'] = 'Zet het blok voor blok {$a}';
 $string['moveblockhere'] = 'Verplaats blok naar hier';
 $string['movingthisblockcancel'] = 'Dit blok aan het verplaatsen ({$a})';
 $string['onthispage'] = 'Op deze pagina';
@@ -65,6 +68,7 @@ $string['showonfrontpageonly'] = 'Toon enkel op de startpagina';
 $string['subpages'] = 'Selecteer pagina\'s';
 $string['thisspecificpage'] = 'Deze pagina';
 $string['undockall'] = 'Niets op paneel';
+$string['undockblock'] = 'Blok {$a} van paneel losmaken';
 $string['undockitem'] = 'Dit item niet op paneel';
 $string['visible'] = 'Zichtbaar';
 $string['weight'] = 'Weging';

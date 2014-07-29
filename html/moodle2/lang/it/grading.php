@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['activemethodinfonone'] = 'Non ci sono metodi di valutazione avanzata pe
 $string['changeactivemethod'] = 'Cambia il metodo di valutazione attivo in';
 $string['clicktoclose'] = 'click per chiudere';
 $string['exc_gradingformelement'] = 'Non è possibile istanziare lo schema di valutazione';
-$string['formnotavailable'] = 'E\' stato selezionato il metodo di valutazione avanzato ma lo schema di valutazione non è ancora pronto. Puoi prepararlo tramite il link nel blocco Impostazioni.';
+$string['formnotavailable'] = 'E\' stato selezionato il metodo di valutazione avanzato ma lo schema di valutazione non è ancora pronto. Puoi prepararlo tramite il link disponibile nel blocco Amministrazione';
 $string['gradingformunavailable'] = 'Attenzione: il metodo di valutazione avanzato non è ancora pronto all\'uso. Verrà utilizzata la valutazione semplice diretta finché non sarà disponibile uno schema di valutazione valido.';
 $string['gradingmanagement'] = 'Valutazione avanzata';
 $string['gradingmanagementtitle'] = 'Valutazione avanzata: {$a->component} ({$a->area})';
@@ -61,9 +61,9 @@ $string['searchownforms'] = 'includi i miei schemi';
 $string['searchtemplate'] = 'Ricerca schemi di valutazione';
 $string['searchtemplate_help'] = 'E\' possibile cercare uno schema di valutazione da usare come modello. Inserisci le parole da cercare nel nome degli schemi, nella descrizione o nel testo dello schema. Per cercare una frase, racchiudi le parole tra doppi apici.
 
-Per default i risultati della ricerca includeranno solo gli schemi salvati come modello. Se lo desideri, puoi includere nei risultati i tuoi schemi, in questo modo puoi riutilizzare facilmente i tuoi schemi senza doverli pubblicare. Possono essere riutilizzati solo gli schemi contrassegnati come "Pronti all\'uso" .';
+Per default i risultati della ricerca includeranno solo gli schemi salvati come modello. Se lo desideri, puoi includere nei risultati i tuoi schemi, in questo modo puoi riutilizzare facilmente i tuoi schemi senza doverli pubblicare. Possono essere riutilizzati solo gli schemi contrassegnati come "Pronto all\'uso" .';
 $string['statusdraft'] = 'Bozza';
-$string['statusready'] = 'Pronta all\'uso';
+$string['statusready'] = 'Pronto all\'uso';
 $string['templatedelete'] = 'Elimina';
 $string['templatedeleteconfirm'] = 'Stai per eliminare il modello pubblico {$a}\'. L\'eliminazione di un modello non influenzerà gli schemi di valutazione creati a partite da questo schema.';
 $string['templateedit'] = 'Modifica';

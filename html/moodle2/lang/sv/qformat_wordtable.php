@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_wordtable', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_wordtable', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_wordtable
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -53,10 +53,6 @@ $string['registrationpasswordsdonotmatch'] = 'Lösenorden matchar inte';
 $string['registrationsend'] = 'Skicka registrerings information till www.moodle2word.net';
 $string['registrationyes'] = 'Ja, vänligen meddela mig om viktiga frågor';
 $string['stylesheetunavailable'] = 'XSLT <b>{$a}</b> är inte tillgänglig';
-$string['subscription'] = 'Prenumerationstyp';
-$string['subtype_free'] = 'Fritt';
-$string['subtype_help'] = '(Inga begränsningar, men ingen support)';
-$string['subtype_unlimited'] = 'Betald';
 $string['tempfile'] = 'Temporär XML-fil: <b>{$a}</b>';
 $string['templateunavailable'] = 'Word-kompatibel XHTML-mall <b>{$a}</b> är inte tillgänglig';
 $string['transformationfailed'] = 'XSLT omformatering misslyckades <b>({$a})</b>';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_db', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_db', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_db
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,13 +35,14 @@ $string['auth_dbdescription'] = 'Este método emprega unha táboa dunha base de 
 $string['auth_dbextencoding'] = 'Codificación da base de datos externa';
 $string['auth_dbextencodinghelp'] = 'Codificación empregada na base de datos externa';
 $string['auth_dbextrafields'] = 'Estes campos son opcionais. Pode escoller encher algúns campos do usuario de Moodle con información desde os <b>campos da base de datos externa</b> que especifique aquí. <p>Se deixa isto en branco, tomaranse os valores predeterminados</p>.<p>En ambos casos, o usuario poderá editar todos estes campos despois de acceder</p>.';
-$string['auth_dbfieldpass'] = 'Nome do campo que conten os contrasinais';
+$string['auth_dbfieldpass'] = 'Nome do campo que contén os contrasinais';
 $string['auth_dbfieldpass_key'] = 'Campo de contrasinal';
-$string['auth_dbfielduser'] = 'Nome do campo que conten os nomes de usuario';
+$string['auth_dbfielduser'] = 'Nome do campo que contén os nomes de usuario';
 $string['auth_dbfielduser_key'] = 'Campo do nome de usuario';
 $string['auth_dbhost'] = 'O computador que aloxa o servidor da base de datos';
 $string['auth_dbhost_key'] = 'Anfitrión';
 $string['auth_dbinsertuser'] = 'Inserido o usuario {$a->name} ID {$a->id}';
+$string['auth_dbinsertuserduplicate'] = 'Produciuse un erro ao inserir o usuario {$a->username} - O usuario con ese nome xa foi creado mediante  o engadido «{$a->auth}».';
 $string['auth_dbinsertusererror'] = 'Produciuse un erro ao inserir o usuario {$a}';
 $string['auth_dbname'] = 'Nome da propia base de datos';
 $string['auth_dbname_key'] = 'Nome da BD';

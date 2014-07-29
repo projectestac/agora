@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Item toevoegen';
 $string['addmoreanswerblanks'] = 'Nog een lijn toevoegen';
-$string['addmoreunitblanks'] = 'Extra lijnen voor {$a} units';
 $string['addsets'] = 'Voeg sets toe';
+$string['answerdisplay'] = 'Toon antwoord';
+$string['answerformula'] = 'Antwoord  {$a} formule';
 $string['answerhdr'] = 'Antwoord';
 $string['answerstoleranceparam'] = 'Tolerantieparameters voor antwoorden';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -90,9 +91,7 @@ $string['minmax'] = 'Reeks met waarden';
 $string['missingformula'] = 'Ontbrekende formule';
 $string['missingname'] = 'Ontbrekende vraagnaam';
 $string['missingquestiontext'] = 'Ontbrekende vraagtekst';
-$string['mustbenumeric'] = 'Je moet hier een getal invoeren.';
 $string['mustenteraformulaorstar'] = 'Je moet een formule of \'*\' invoeren';
-$string['mustnotbenumeric'] = 'Dit kan geen getal zijn.';
 $string['newcategory1'] = 'zal een nieuwe gedeelde dataset gebruiken';
 $string['newcategory2'] = 'een bestand van een nieuwe set bestanden die ook gebruikt kunnen worden door andere vragen in deze categorie';
 $string['newcategory3'] = 'een link van een nieuwe set links die ook gebruikt kunnen worden door andere vragen in deze categorie';
@@ -134,6 +133,7 @@ $string['synchronizeno'] = 'Niet synchroniseren';
 $string['synchronizeyes'] = 'Synchroniseer';
 $string['synchronizeyesdisplay'] = 'Synchroniseer en toon de gedeelde datasetsnaam als voorvoegsel van de vraagnaam';
 $string['tolerance'] = 'Tolerantie';
+$string['tolerancetype'] = 'Type';
 $string['trueanswerinsidelimits'] = 'Juist antwoord: {$a->correct} binnen de limieten van waar-waarde {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">FOUT - Juist antwoord:{$a->correct} buiten limieten van waar-waarde {$a->true}</span';
 $string['uniform'] = 'Uniform';
@@ -153,5 +153,4 @@ $string['wildcardvalues'] = 'Jokerwaarden';
 $string['wildcardvaluesgenerated'] = 'Jokerwaarden gegenereerd';
 $string['youmustaddatleastoneitem'] = 'Je moet minstens één dataset item toevoegen voor je deze vraag kan bewaren.';
 $string['youmustaddatleastonevalue'] = 'Je moet minstens één set jokerwaarden toevoegen voor je deze vraag kan bewaren.';
-$string['youmustenteramultiplierhere'] = 'Je moet hier een vermenigvuldigtal opgeven.';
 $string['zerosignificantfiguresnotallowed'] = 'Het juiste antwoord kan geen 0 beduidende cijfers hebben!';

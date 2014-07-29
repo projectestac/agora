@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = '정답 공식에 적어도 한개의 와일드 
 $string['converttocalculated'] = '새로운 평범한 계산 질문으로 저장';
 $string['findwildcards'] = ' 올바른 답 공식에서 와일드카드 {x..}를 찾으십시요';
 $string['generatenewitemsset'] = '생성';
-$string['mustbenumeric'] = '여기에 번호 입력할 것';
-$string['mustnotbenumeric'] = '번호는 안됨';
 $string['newsetwildcardvalues'] = '새 와일드카드 값 집합';
 $string['pluginname'] = '단순 계산형 질문';
 $string['pluginnameadding'] = '단순 계산형  질문 추가';

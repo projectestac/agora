@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'La missatgeria està inhabilitada en aquest lloc
 $string['mostrecent'] = 'Missatges recents';
 $string['mostrecentconversations'] = 'Converses recents';
 $string['mostrecentnotifications'] = 'Notificacions recents';
-$string['mycontacts'] = 'Els meus contactes';
 $string['newonlymsg'] = 'Mostra només nous';
 $string['newsearch'] = 'Nova cerca';
 $string['noframesjs'] = 'Versió sense marcs ni Javascript';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Qualsevol pàgina del missatge';
 $string['pagerefreshes'] = 'Aquesta pàgina es refresca automàticament cada {$a} segons';
 $string['permitted'] = 'Permès';
 $string['private_config'] = 'Finestra de missatge emergent';
-$string['processordeleteconfirm'] = 'Ara suprimireu completament el missatge de sortida \'{$a}. Això eliminarà per complet qualsevol cosa de la base de dades relacionada amb aquesta sortida. Esteu SEGUR que voleu continuar?';
-$string['processordeletefiles'] = 'Totes les dades relacionades amb la sortida \'{$a->processor}\' s\'han suprimit de la base de dades. Per completar la supressió (i evitar que la sortida es torne a instal·lar a si mateixa), ara heu d\'eliminar aquest directori del servidor: {$a->directory}';
 $string['processortag'] = 'Destinació';
 $string['providers_config'] = 'Configura els mètodes de notificació per als missatges entrants';
 $string['providerstag'] = 'Font';

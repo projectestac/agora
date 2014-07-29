@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cohort', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cohort', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   cohort
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,6 +46,11 @@ $string['delconfirm'] = '本当にコーホート「 {$a} 」を削除しても�
 $string['description'] = '説明';
 $string['duplicateidnumber'] = '同一IDナンバーのコーホートがすでに存在します。';
 $string['editcohort'] = 'コーホートを編集する';
+$string['event_cohort_created'] = 'コーホートが作成されました。';
+$string['event_cohort_deleted'] = 'コーホートが削除されました。';
+$string['event_cohort_member_added'] = 'コーホートにユーザが追加されました。';
+$string['event_cohort_member_removed'] = 'コーホートからユーザが削除されました。';
+$string['event_cohort_updated'] = 'コーホートが更新されました。';
 $string['external'] = '外部コーホート';
 $string['idnumber'] = 'コーホートID';
 $string['memberscount'] = 'コーホート数';

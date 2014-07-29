@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,7 +40,7 @@ $string['allowcomments_help'] = 'De estar activado, todos os participantes con p
 $string['allowduplicatedentries'] = 'Permitidas as entradas duplicadas';
 $string['allowduplicatedentries_help'] = 'De estar activado, múltiplas entradas poden ter o mesmo nome de concepto.';
 $string['allowprintview'] = 'Permitir vista de impresión';
-$string['allowprintview_help'] = 'De estar activado, os estudantes teñen unha ligazón a unha versión apta para impresión do glosario. A ligazón está sempre dispoñíbel para os profesores.';
+$string['allowprintview_help'] = 'De estar activado, os alumnos teñen unha ligazón a unha versión apta para impresión do glosario. A ligazón está sempre dispoñíbel para os profesores.';
 $string['andmorenewentries'] = 'e {$a} máis novas entradas.';
 $string['answer'] = 'Resposta';
 $string['approvaldisplayformat'] = 'Formato de presentación da aprobación';
@@ -70,7 +70,7 @@ $string['categoryview'] = 'Ver por categoría';
 $string['changeto'] = 'cambiar a {$a}';
 $string['cnfallowcomments'] = 'Definir se un glosario aceptará comentarios nas entradas predeterminadas';
 $string['cnfallowdupentries'] = 'Definir se un glosario permitirá entradas duplicadas de modo predeterminado';
-$string['cnfapprovalstatus'] = 'Definir o estado de aprobación predeterminado dunha entrada remitida por un estudante';
+$string['cnfapprovalstatus'] = 'Definir o estado de aprobación predeterminado dunha entrada remitida por un alumno';
 $string['cnfcasesensitive'] = 'Definir se unha entrada, cando está ligada, diferencia maiúsculas de minúsculas de modo predeterminado';
 $string['cnfdefaulthook'] = 'Seleccionar a selección predeterminada para amosar cando o glosario se ve por vez primeira';
 $string['cnfdefaultmode'] = 'Seleccionar o marco predeterminado para amosar cando o glosario se ve por vez primeira.';
@@ -81,13 +81,13 @@ $string['cnfrelatedview'] = 'Seleccionar o formato de exhibición que se debe ut
 $string['cnfshowgroup'] = 'Especificar se a quebra de grupo tería que ser amosada ou non.';
 $string['cnfsortkey'] = 'Seleccionar a clave de ordenación predeterminada.';
 $string['cnfsortorder'] = 'Seleccionar a orde de ordenación predeterminada.';
-$string['cnfstudentcanpost'] = 'Decida se os estudantes poden ou non comentar entradas de modo predeterminado';
+$string['cnfstudentcanpost'] = 'Decida se os alumnos poden ou non comentar entradas de modo predeterminado';
 $string['comment'] = 'Comentario';
 $string['commentdeleted'] = 'Eliminouse o comentario.';
 $string['comments'] = 'Comentarios';
 $string['commentson'] = 'Comentarios en funcionamento';
 $string['commentupdated'] = 'Actualizouse o comentario.';
-$string['completionentries'] = 'O estudante debe crear entradas:';
+$string['completionentries'] = 'O alumno debe crear entradas:';
 $string['completionentriesgroup'] = 'Require entradas';
 $string['concept'] = 'Concepto';
 $string['concepts'] = 'Conceptos';
@@ -134,7 +134,7 @@ $string['displayformatssetup'] = 'Presentar a configuración dos formatos';
 $string['duplicatecategory'] = 'Duplicar categoría';
 $string['duplicateentry'] = 'Duplicar entrada';
 $string['editalways'] = 'Editar sempre';
-$string['editalways_help'] = 'Esta configuración especifica se as entradas son sempre editábeis ou se os estudantes soamente poden editar as entradas durante o tempo de edición configurado (adoita ser de 30 minutos)';
+$string['editalways_help'] = 'Esta configuración especifica se as entradas son sempre editábeis ou se os alumnos soamente poden editar as entradas durante o tempo de edición configurado (adoita ser de 30 minutos)';
 $string['editcategories'] = 'Editar categorías';
 $string['editentry'] = 'Editar entrada';
 $string['editingcomment'] = 'Editar comentario';
@@ -216,13 +216,13 @@ Un profesor pode permitir anexar ficheiros entradas do glosario. As imaxes anexa
 
 Se o filtro de autoligado automático está activo, as entradas estarán automaticamente ligadas cando os termos e/ou as frase aparezan no transcurso do curso.
 
-Un profesor pode permitir comentarios en entradas. As entradas tamén poden ser valoradas por profesores ou estudantes (avaliación por pares). Os índices de ponderación poden agregarse para conformar un grao final que se recolle no libro de grao.
+Un profesor pode permitir comentarios en entradas. As entradas tamén poden ser valoradas por profesores ou alumnos (avaliación por pares). Os índices de ponderación poden engadirse para conformar unha cualificación final que se recolle no libro de cualificacións.
 
-Os glosarios ten moitos usos, tales como
+Os glosarios teñen moitos usos, tales como
 
 * Unha base de datos de termos claves
-* Un espazo ‘para coñecerse\' onde os estudantes novos engaden o seu nome e detalles persoais
-* Un recurso con \'notas de man\' de boas prácticas en asuntos prácticos
+* Un espazo «para coñecerse» onde os alumnos novos engaden o seu nome e detalles persoais
+* Un recurso con «notas manuais» de boas prácticas en asuntos prácticos
 * Unha área de compartición de vídeos útiles, imaxes ou o ficheiros de son
 * Un recurso de revisión de actividades para lembrar';
 $string['modulename_link'] = 'mod/glossary/vista';
@@ -275,7 +275,7 @@ $string['sortbylastupdate'] = 'Por última actualización';
 $string['sortchronogically'] = 'Ordenar cronoloxicamente';
 $string['special'] = 'Especial';
 $string['standardview'] = 'Ver por alfabeto';
-$string['studentcanpost'] = 'Os estudantes poden engadir entradas';
+$string['studentcanpost'] = 'Os alumnos poden engadir entradas';
 $string['totalentries'] = 'Total de entradas';
 $string['usedynalink'] = 'Ligar automaticamente as entradas do glosario';
 $string['usedynalink_help'] = 'Se o autoligado do glosario global do sitio está activado por parte dun administrador e esta caixa de selección está activa, o formulario "Engadir unha nova entrada" inclúe a opción para ligar automaticamente a entrada cando os termos de frases do concepto aparezan entre o resto do curso.';

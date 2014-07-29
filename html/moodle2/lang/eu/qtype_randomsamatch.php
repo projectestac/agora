@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_randomsamatch', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_randomsamatch', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_randomsamatch
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,3 +30,5 @@ $string['notenoughsaincategory'] = '{$a->nosaquestions} erantzun laburreko galde
 $string['pluginname'] = 'Erantzun laburrak ausaz lotu';
 $string['pluginnameadding'] = 'Erantzun laburrak ausaz lotzeko galderak';
 $string['pluginnameediting'] = 'Erantzun laburrak ausaz lotzeko galderak';
+$string['randomsamatchnumber'] = 'Aukeratzeko galdera-kopurua';
+$string['subcats'] = 'azpikategoriak barne ditu';

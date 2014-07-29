@@ -17,15 +17,14 @@
 /**
  * Version details
  *
- * @package    auth
- * @subpackage ldap
+ * @package    auth_ldap
  * @author     Martin Dougiamas
- * @author     Iñaky Arenaza
+ * @author     Iñaki Arenaza
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2012112900;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2012112900;        // Requires this Moodle version
+$plugin->version   = 2013110500;        // The current plugin version (Date: YYYYMMDDXX)
+$plugin->requires  = 2013110500;        // Requires this Moodle version
 $plugin->component = 'auth_ldap';       // Full name of the plugin (used for diagnostics)

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['activemethodinfonone'] = 'Для области «{$a->area}» выбр
 $string['changeactivemethod'] = 'Изменить активный метод оценивания на';
 $string['clicktoclose'] = 'щелкните, чтобы закрыть';
 $string['exc_gradingformelement'] = 'Не удалось создать экземпляр элемента формы оценивания';
-$string['formnotavailable'] = 'Для использования был выбран передовой метод оценивания, но его форма оценивания еще не готова. Вы должны задать ее в первую очередь. Используйте ссылку в блоке «Настройки».';
+$string['formnotavailable'] = 'Для использования был выбран передовой метод оценивания, но его форма оценивания еще не готова. Вы должны задать ее в первую очередь. Используйте ссылку в блоке «Администрирование».';
 $string['gradingformunavailable'] = 'Пожалуйста, обратите внимание: форма передового оценивания не готова в данный момент. Пока форма не имеет необходимого статуса, будет использоваться простой метод оценивания.';
 $string['gradingmanagement'] = 'Передовое оценивание';
 $string['gradingmanagementtitle'] = 'Передовое оценивание:

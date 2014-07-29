@@ -26,11 +26,11 @@
 
 $string['pluginname'] = 'Avisos';
 $string['advices'] = 'Avisos';
+$string['message'] = 'Mesaje';
 $string['admin_advice'] = 'Aviso para administradores';
 $string['not_admin_advice'] = 'Aviso para todos';
 $string['advice_start_date'] = 'Fecha de inicio del aviso';
 $string['advice_stop_date'] = 'Fecha de finalización del aviso';
 $string['show_admins'] = 'Mensaje visualizado sólo por los administradores del sitio';
-$string['enabled'] = 'Activo';
 $string['advices:addinstance'] = 'Añadir un bloque de avisos nuevo';
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_skydrive', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_skydrive', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_skydrive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cachedef_foldername'] = 'Nombre de la carpeta caché';
 $string['clientid'] = 'ID del cliente';
 $string['configplugin'] = 'Configurar Microsoft Skydrive';
 $string['oauthinfo'] = '<p> Para utilizar esta extensión debe registrar su sitio <a href="https://manage.dev.live.com/Applications/Index">en Microsoft</a> . <p> Como parte del proceso de registro, tendrá que introducir la siguiente URL como "redireccionamiento de dominio": </p><p> {$a->callbackurl} </p> Una vez registrado, se le proporcionará un ID de cliente y la clave secreta con los que podrá acceder aquí. </p>';

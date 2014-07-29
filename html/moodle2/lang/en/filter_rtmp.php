@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_rtmp', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'filter_rtmp', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_rtmp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Streaming media filter (RTMP)';
 $string['rtmp_audio'] = 'Filter audio (.mp3)';
+$string['rtmp_defcc'] = 'Closed captions on by default';
 $string['rtmp_video'] = 'Filter video (.flv|.mp4|.f4v)';

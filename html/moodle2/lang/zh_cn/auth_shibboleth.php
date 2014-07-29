@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_shibboleth', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['auth_shib_auth_method'] = '身份认证方法名称';
 $string['auth_shib_auth_method_description'] = '给Shibboleth验证方法起一个用户熟悉的名字。可以是您的Shibboleth组织的名字，比如<tt>SWITCHaai 登陆</tt> 或者 <tt>InCommon 登陆</tt> 或者其他类似的名字。';
-$string['auth_shibboleth_contact_administrator'] = '万一您和给定的组织没有关系，并且又想访问服务器上的课程，那么请与我们联系';
 $string['auth_shibbolethdescription'] = '是用这个方法，用户的创建和验证是使用 <a href="http://shibboleth.internet2.edu/" target="_blank">Shibboleth</a> 进行的';
 $string['auth_shibboleth_errormsg'] = '请选择您所在的组织';
 $string['auth_shibboleth_login'] = 'Shibboleth 登录';
@@ -54,6 +53,7 @@ $string['auth_shib_only'] = '只用 Shibboleth';
 $string['auth_shib_only_description'] = '如果只是用 Shibboleth 认证方式，请设定此选项。';
 $string['auth_shib_username_description'] = '用在 Moodle 中当作用户名的 Shibboleth环 境变量名';
 $string['pluginname'] = 'Shibboleth';
+$string['shib_invalid_account_error'] = '您似乎在使用 Shibboleth 认证，但 Moodle 找不到您提供的用户名的有效账号。您的账号可能不存在，或者被禁用。';
 $string['shib_no_attributes_error'] = '您似乎正在使用 Shibboleth 认证，但是 Moodle 不接受用户的属性。请确认您的身份提供者激活了必要的属性({$a})，或者向这个服务器的网络管理员报表。';
 $string['shib_not_all_attributes_error'] = 'Moodle 需要 Shibboleth 属性，但是现在不存在这些属性。这些属性是: {$a}<br /> 请联系服务器的网络管理员或您的身份认证者。';
 $string['shib_not_set_up_error'] = 'Shibboleth 认证并没有正确地安装，因为在此页上并没有 Shibboleth 环境变量。请查阅 <a href="README.txt">README</a>获得更多的建议或联系安装此Moodle系统的网络管理员。';

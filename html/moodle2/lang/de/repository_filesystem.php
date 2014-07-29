@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_filesystem', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_filesystem', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_filesystem
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,9 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockedpath'] = 'Rootpfad geblockt';
-$string['configplugin'] = 'Einstellungen für Repository \'Dateisystem\'';
-$string['donotusesysdir'] = 'Verwenden Sie nicht das Systemverzeichnis für das Dateisystem verwenden, einschließlich';
-$string['enablecourseinstances'] = 'Admins erlauben, ein Dateisystem-Repository zu einem Kurs hinzuzufügen (kann nur von Admins konfiguriert werden)';
+$string['configplugin'] = 'Einstellungen für \'Dateisystem\'';
+$string['donotusesysdir'] = 'Verwenden Sie nicht das Systemverzeichnis als Repository, einschließlich';
+$string['enablecourseinstances'] = 'Administratoren erlauben, ein Repository \'Dateisystem\' zu einem Kurs hinzuzufügen (kann nur von Administratoren konfiguriert werden)';
 $string['enableuserinstances'] = 'Admins erlauben, ein Dateisystem-Repository im Nutzerkontext hinzuzufügen (kann nur von Admins konfiguriert werden)';
 $string['filesystem:view'] = 'Repository \'Dateisystem\'  sehen';
 $string['information'] = 'Diese Verzeichnisse liegen innerhalb von <b>{$a}</b>';
@@ -37,4 +37,6 @@ $string['nosubdir'] = 'Sie müssen innerhalb von <b>{$a}</b> mindestens ein Verz
 $string['path'] = 'Unterverzeichnis auswählen';
 $string['pluginname'] = 'Dateisystem';
 $string['pluginname_help'] = 'Repository aus lokalem Verzeichnis erzeugen';
+$string['relativefiles'] = 'Relative Dateilinks erlauben';
+$string['relativefiles_desc'] = 'Diese Option erlaubt, dass alle Dateien im Verzeichnis über relative Links adressierbar sind.';
 $string['root'] = 'Root';

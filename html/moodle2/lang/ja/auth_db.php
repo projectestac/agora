@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_db', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_db', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_db
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['auth_dbcantconnect'] = '指定された認証データベースに接続できませんでした ...';
-$string['auth_dbchangepasswordurl_key'] = 'パスワード変更URI';
+$string['auth_dbchangepasswordurl_key'] = 'パスワード変更URL';
 $string['auth_dbdebugauthdb'] = 'ADOdbデバッグ';
 $string['auth_dbdebugauthdbhelp'] = '外部データベースへのADOdbデバッグ接続 - ログイン時に空白ページが表示される場合、使用してください。実稼動サイトには適していません。';
 $string['auth_dbdeleteuser'] = '削除ユーザ {$a->name} id {$a->id}';

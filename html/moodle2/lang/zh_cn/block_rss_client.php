@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_rss_client', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,6 +68,7 @@ $string['rss_client:createprivatefeeds'] = '建立个人的 RSS 种子';
 $string['rss_client:createsharedfeeds'] = '建立共享的 RSS 种子';
 $string['rss_client:manageanyfeeds'] = '管理任意 RSS 种子';
 $string['rss_client:manageownfeeds'] = '管理自己的 RSS 种子';
+$string['rss_client:myaddinstance'] = '新增RSS种子版块';
 $string['seeallfeeds'] = '查看所有的种子';
 $string['sharedfeed'] = '共享种子';
 $string['shownumentrieslabel'] = '每个版块中最多显示几条。';

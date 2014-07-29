@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_responses', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_responses', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_responses
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['include'] = 'Incluir';
 $string['mustselectcols'] = 'Debe seleccionar algo.';
 $string['pagesize'] = 'Tamaño de página';
 $string['pluginname'] = 'Respuestas';
-$string['questiontext'] = 'texto de la pregunta';
+$string['questiontext'] = 'enunciado de la pregunta';
 $string['reportresponses'] = 'Respuestas detalladas';
 $string['response'] = 'respuesta';
 $string['responses'] = 'Respuestas detalladas';

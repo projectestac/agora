@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_my_grades', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_my_grades', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_my_grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,4 +30,6 @@ $string['blocktitle'] = 'My Grades';
 $string['gradetblheader_course'] = 'Course';
 $string['gradetblheader_grade'] = 'Grade';
 $string['my_grades'] = 'My Grades';
+$string['my_grades:addinstance'] = 'Add a new My Grades block';
+$string['my_grades:myaddinstance'] = 'Add a new My Grades block to My home';
 $string['pluginname'] = 'My Grades block';

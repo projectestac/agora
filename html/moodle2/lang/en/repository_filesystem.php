@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_filesystem', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_filesystem', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_filesystem
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,6 @@ $string['nosubdir'] = 'You need to create at least one folder inside the <b>{$a}
 $string['path'] = 'Select a subdirectory';
 $string['pluginname'] = 'File system';
 $string['pluginname_help'] = 'Create repository from local directory';
+$string['relativefiles'] = 'Allow relative files';
+$string['relativefiles_desc'] = 'This allows all files in the repository to be accessible using relative links.';
 $string['root'] = 'Root';

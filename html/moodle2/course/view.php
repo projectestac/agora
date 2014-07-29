@@ -4,7 +4,6 @@
 
     require_once('../config.php');
     require_once('lib.php');
-    require_once($CFG->dirroot.'/mod/forum/lib.php');
     require_once($CFG->libdir.'/conditionlib.php');
     require_once($CFG->libdir.'/completionlib.php');
 
@@ -18,7 +17,7 @@
     $section     = optional_param('section', 0, PARAM_INT);
     $move        = optional_param('move', 0, PARAM_INT);
     $marker      = optional_param('marker',-1 , PARAM_INT);
-    $switchrole  = optional_param('switchrole',-1, PARAM_INT);
+    $switchrole  = optional_param('switchrole',-1, PARAM_INT); // Deprecated, use course/switchrole.php instead.
     $modchooser  = optional_param('modchooser', -1, PARAM_BOOL);
     $return      = optional_param('return', 0, PARAM_LOCALURL);
 
@@ -50,7 +49,7 @@
     // Prevent caching of this page to stop confusion when changing page after making AJAX changes
     $PAGE->set_cacheable(false);
 
-    preload_course_contexts($course->id);
+    context_helper::preload_course($course->id);
     $context = context_course::instance($course->id, MUST_EXIST);
 
     // Remove any switched roles before checking login
@@ -220,8 +219,10 @@
         redirect($CFG->wwwroot .'/');
     }
 
+    $ajaxenabled = ajaxenabled();
+
     $completion = new completion_info($course);
-    if ($completion->is_enabled() && ajaxenabled()) {
+    if ($completion->is_enabled() && $ajaxenabled) {
         $PAGE->requires->string_for_js('completion-title-manual-y', 'completion');
         $PAGE->requires->string_for_js('completion-title-manual-n', 'completion');
         $PAGE->requires->string_for_js('completion-alt-manual-y', 'completion');
@@ -250,7 +251,7 @@
     $PAGE->set_heading($course->fullname);
     echo $OUTPUT->header();
 
-    if ($completion->is_enabled() && ajaxenabled()) {
+    if ($completion->is_enabled() && $ajaxenabled) {
         // This value tracks whether there has been a dynamic change to the page.
         // It is used so that if a user does this - (a) set some tickmarks, (b)
         // go to another page, (c) clicks Back button - the page will
@@ -283,6 +284,11 @@
     // inclusion we pass parameters around this way..
     $displaysection = $section;
 
+    //XTEC ************ AFEGIT - To show navlinks on the top of the course
+    //2014.06.26  @pferre22
+    agora_course_print_navlinks($course, $section);
+    //************ FI
+
     // Include the actual course format.
     require($CFG->dirroot .'/course/format/'. $course->format .'/format.php');
     // Content wrapper end.
@@ -290,10 +296,6 @@
     echo html_writer::end_tag('div');
 
     // Include course AJAX
-    if (include_course_ajax($course, $modnamesused)) {
-        // Add the module chooser
-        $renderer = $PAGE->get_renderer('core', 'course');
-        echo $renderer->course_modchooser(get_module_metadata($course, $modnames, $displaysection), $course);
-    }
+    include_course_ajax($course, $modnamesused);
 
     echo $OUTPUT->footer();

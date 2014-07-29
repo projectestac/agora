@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['createautomaticgrouping'] = 'Créer groupement automatique';
 $string['creategroup'] = 'Créer un groupe';
 $string['creategrouping'] = 'Créer un groupement';
 $string['creategroupinselectedgrouping'] = 'Créer un groupe dans le groupement';
-$string['createingrouping'] = 'Créer dans le groupement';
+$string['createingrouping'] = 'Groupement de groupes créés automatiquement';
 $string['createorphangroup'] = 'Créer un groupe orphelin';
 $string['databaseupgradegroups'] = 'La version des groupes est maintenant {$a}';
 $string['defaultgrouping'] = 'Groupement par défaut';
@@ -59,7 +59,10 @@ $string['deleteselectedgroup'] = 'Supprimer le groupe sélectionné';
 $string['editgroupingsettings'] = 'Modifier les réglages du groupement';
 $string['editgroupsettings'] = 'Modifier les réglages du groupe';
 $string['enrolmentkey'] = 'Clef d\'inscription';
-$string['enrolmentkey_help'] = 'Une clef d\'inscription permet de donner accès à un cours aux seuls utilisateurs la détenant. Si  une clef d\'inscription de groupe est spécifiée, non seulement cette clef permettra l\'accès au cours, mais elle définira simultanément l\'utilisateur utilisant cette clef comme membre de ce groupe.';
+$string['enrolmentkeyalreadyinuse'] = 'Cette clef d\'inscription est déjà utilisée pour un autre groupe.';
+$string['enrolmentkey_help'] = 'Une clef d\'inscription permet de donner accès à un cours aux seuls utilisateurs la détenant. Si  une clef d\'inscription de groupe est spécifiée, non seulement cette clef permettra l\'accès au cours, mais elle inscrira simultanément l\'utilisateur utilisant cette clef comme membre de ce groupe.
+
+Remarque : le réglage pour les clefs d\'inscription de groupe doit être également activé dans les réglages d\'auto-inscription, et une clef d\'inscription doit en outre être spécifiée pour le cours.';
 $string['erroraddremoveuser'] = 'Erreur lors de l\'ajout ou du retrait de l\'utilisateur {$a} du groupe';
 $string['erroreditgroup'] = 'Erreur lors de la création ou de la modification du groupe {$a}';
 $string['erroreditgrouping'] = 'Erreur lors de la création ou de la modification du groupement {$a}';
@@ -68,16 +71,26 @@ $string['errorremovenotpermitted'] = 'Vous n\'avez pas les droits d\'accès requ
 $string['errorselectone'] = 'Veuillez ne sélectionner qu\'un groupe avant de choisir cette option';
 $string['errorselectsome'] = 'Veuillez sélectionner un ou plusieurs groupes avant de choisir cette option';
 $string['evenallocation'] = 'Remarque : pour obtenir une répartition équilibrée des groupes, le nombre réel des membres par groupe a été adapté. Il différera du nombre que vous avez indiqué.';
+$string['event_group_created'] = 'Groupe créé';
+$string['event_group_deleted'] = 'Groupe supprimé';
+$string['event_grouping_created'] = 'Groupement créé';
+$string['event_grouping_deleted'] = 'Groupement supprimé';
+$string['event_grouping_updated'] = 'Groupement modifié';
+$string['event_group_member_added'] = 'Membre ajouté à un groupe';
+$string['event_group_member_removed'] = 'Membre retiré d\'un groupe';
+$string['event_group_updated'] = 'Groupe modifié';
 $string['existingmembers'] = 'Membres actuels : {$a}';
 $string['filtergroups'] = 'Filtrer les groupes par :';
 $string['group'] = 'Groupe';
 $string['groupaddedsuccesfully'] = 'Le groupe {$a} a été ajouté';
-$string['groupby'] = 'Indiquez';
+$string['groupaddedtogroupingsuccesfully'] = 'Groupe {$a->groupname} ajouté au groupement {$a->groupingname}';
+$string['groupby'] = 'Création automatique basée sur';
 $string['groupdescription'] = 'Description du groupe';
 $string['groupinfo'] = 'Information sur le groupe sélectionné';
 $string['groupinfomembers'] = 'Information sur les membres sélectionnés';
 $string['groupinfopeople'] = 'Information sur les personnes sélectionnées';
 $string['grouping'] = 'Groupement';
+$string['groupingaddedsuccesfully'] = 'Groupement {$a} ajouté';
 $string['groupingdescription'] = 'Description du groupement';
 $string['grouping_help'] = 'Un groupement est un ensemble de groupes dans un cours. Si un groupement est sélectionné, les utilisateurs dans les groupes du groupement pourront travailler ensemble.';
 $string['groupingname'] = 'Nom du groupement';
@@ -140,6 +153,7 @@ $string['newgrouping'] = 'Nouveau groupement';
 $string['newpicture'] = 'Nouvelle image';
 $string['newpicture_help'] = 'Sélectionnez une image en format JPG ou PNG.  L\'image sera redimensionnée en un carré de 100x100 pixels.';
 $string['noallocation'] = 'Pas d\'attribution';
+$string['nogrouping'] = 'Pas de groupement';
 $string['nogroups'] = 'Il n\'y a pas encore de groupes dans ce cours';
 $string['nogroupsassigned'] = 'Aucun groupe n\'a été attribué';
 $string['nopermissionforcreation'] = 'Impossible de créer le groupe « {$a} », car vous n\'avez pas les droits d\'accès requis';
@@ -160,7 +174,7 @@ $string['removegroupfromselectedgrouping'] = 'Retirer le groupe du groupement';
 $string['removegroupingsmembers'] = 'Retirer tous les groupes des groupements';
 $string['removegroupsmembers'] = 'Retirer tous les membres des groupes';
 $string['removeselectedusers'] = 'Retirer les utilisateurs sélectionnés';
-$string['selectfromrole'] = 'Sélectionnez des utilisateurs du rôle';
+$string['selectfromrole'] = 'Sélectionnez des utilisateurs avec le rôle';
 $string['showgroupsingrouping'] = 'Afficher les groupes du groupement';
 $string['showmembersforgroup'] = 'Afficher les membres du groupe';
 $string['toomanygroups'] = 'Il n\'y a pas assez d\'utilisateurs pour répartir ce nombre de groupes. Il n\'y a que {$a} utilisateurs ayant le rôle sélectionné.';

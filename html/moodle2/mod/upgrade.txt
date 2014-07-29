@@ -1,6 +1,20 @@
 This files describes API changes in /mod/* - activity modules,
 information provided here is intended especially for developers.
 
+=== 2.6 ===
+
+* Modules using the question bank MUST now declare their use of it with the xxx_supports()
+  flag FEATURE_USES_QUESTIONS.
+* xxx_get_types() module callback can now return subtypes that have
+  a custom help text set. Also instead of array it can now return
+  MOD_SUBTYPE_NO_CHILDREN. This is optional and still defaults to prior
+  behavior. See get_module_metadata() in course/lib.php for details.
+* shift_course_mod_dates() has been modified to accept optional mod instance id. If mod instance id is passed then
+  dates changed will happen only on specific module instance and not on all instances of that module in course.
+
+=== 2.5 ===
+
+* support for 'mod/*' filters was removed
 
 === 2.4 ===
 
@@ -39,7 +53,7 @@ optional - no changes needed:
 required changes in code:
 * fix missing parameter types in optional_param() and required_param()
 * use new optional_param_array(), required_param_array() or clean_param_array() when dealing with array parameters
-* textlib->asort() replaced by specialized collatorlib::asort()
+* core_text::asort() replaced by specialized core_collator::asort()
 * use new make_temp_directory() and make_cache_directory()
 
 

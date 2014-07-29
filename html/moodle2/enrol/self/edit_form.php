@@ -39,11 +39,17 @@ class enrol_self_edit_form extends moodleform {
         $mform->addElement('header', 'header', get_string('pluginname', 'enrol_self'));
 
         $mform->addElement('text', 'name', get_string('custominstancename', 'enrol'));
+        $mform->setType('name', PARAM_TEXT);
 
         $options = array(ENROL_INSTANCE_ENABLED  => get_string('yes'),
                          ENROL_INSTANCE_DISABLED => get_string('no'));
         $mform->addElement('select', 'status', get_string('status', 'enrol_self'), $options);
         $mform->addHelpButton('status', 'status', 'enrol_self');
+
+        $options = array(1 => get_string('yes'), 0 => get_string('no'));
+        $mform->addElement('select', 'customint6', get_string('newenrols', 'enrol_self'), $options);
+        $mform->addHelpButton('customint6', 'newenrols', 'enrol_self');
+        $mform->disabledIf('customint6', 'status', 'eq', ENROL_INSTANCE_DISABLED);
 
         $mform->addElement('passwordunmask', 'password', get_string('password', 'enrol_self'));
         $mform->addHelpButton('password', 'password', 'enrol_self');
@@ -140,6 +146,10 @@ class enrol_self_edit_form extends moodleform {
         $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'courseid');
         $mform->setType('courseid', PARAM_INT);
+
+        if (enrol_accessing_via_instance($instance)) {
+            $mform->addElement('static', 'selfwarn', get_string('instanceeditselfwarning', 'core_enrol'), get_string('instanceeditselfwarningtext', 'core_enrol'));
+        }
 
         $this->add_action_buttons(true, ($instance->id ? null : get_string('addinstance', 'enrol')));
 

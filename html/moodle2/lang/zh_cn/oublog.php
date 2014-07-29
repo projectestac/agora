@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'oublog', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'oublog', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   oublog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,18 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['accessdenied'] = '对不起：您有查看此页面的权限。';
 $string['addcomment'] = '添加评论';
 $string['addlink'] = '添加链接';
-$string['addpost'] = '添加博客文章';
 $string['allowcomments'] = '允许评论';
-$string['allowcomments_help'] = '‘是，来自注册用户’ 允许来自能登录到此博客的用户的评论。
-
-‘是，来自任何人’ 允许来自用户和广大公众的评论。您将接收到电子邮件来批准或拒绝来自没有登录的用户的评论。
-
-‘无’ 禁止任何人对此文章进行评论。';
 $string['atom'] = 'Atom';
 $string['atomfeed'] = 'Atom 订阅';
 $string['attachments'] = '附件';
 $string['attachments_help'] = '您可以选择性地附加一个或多个文件到一篇博客文章中。如果您附加一个图像，它会显示在消息后面。';
-$string['blogfeed'] = '博客源';
 $string['bloginfo'] = '博客信息';
 $string['blogname'] = '博客名称';
 $string['blogoptions'] = '博客选项';
@@ -63,10 +56,8 @@ $string['configmaxattachments'] = '默认每篇博客的最大附件数量。';
 $string['configmaxbytes'] = '网站默认博客的所有附件的最大大小。（受限于课程限制和其他本地设置）';
 $string['confirmdeletecomment'] = '您确定要删除此评论？';
 $string['confirmdeletelink'] = '您确定要删除此链接？';
-$string['confirmdeletepost'] = '您确定要删除此博客文章？';
 $string['couldnotaddcomment'] = '不能添加评论';
 $string['couldnotaddlink'] = '不能添加链接';
-$string['defaultpersonalblogname'] = '{$a} 的博客';
 $string['delete'] = '删除';
 $string['deletedby'] = '由 {$a->fullname} 删除于 {$a->timedeleted}';
 $string['details'] = '详情';
@@ -75,7 +66,6 @@ $string['downloadas'] = '数据下载为';
 $string['edit'] = '编辑';
 $string['editlink'] = '编辑链接';
 $string['editonsummary'] = '编辑于 {$a->editdate}';
-$string['editpost'] = '更新博客文章';
 $string['editsummary'] = '由 {$a->editby} 编辑于 {$a->editdate}';
 $string['error_alreadyapproved'] = '评论已批准或拒绝';
 $string['error_grouppubliccomments'] = '当博客是小组模式时，您不能允许公开评论';
@@ -84,20 +74,15 @@ $string['error_noconfirm'] = '在此框中按给出的完全一样地输入上�
 $string['error_toomanycomments'] = '在过去的一小时里您用此互联网地址发表了太多的博客评论。请等待一段时间后再次尝试。';
 $string['error_unspecified'] = '因为发生错误（{$a}），系统不能完成这个请求';
 $string['error_wrongkey'] = '评论的密钥不正确';
-$string['exportedpost'] = '导出的博客文章';
 $string['externaldashboardadd'] = '将博客添加到面板里';
 $string['externaldashboardremove'] = '将博客从面板里移除';
 $string['extranavolderposts'] = '更旧的文章：从 {$a->from} 到 {$a->to}';
 $string['extranavtag'] = '标签：{$a}';
 $string['feedhelp'] = '源';
-$string['feedhelp_help'] = '如果您使用订阅您可以添加 Atom 或 RSS 链接来跟上最新的博客。大部分的源阅读器支持 Atom 和 RSS。
-
-如果此博客允许评论，有&lsquo;仅评论&rsquo;的源。';
 $string['feeds'] = '源';
 $string['feedsnotenabled'] = '源没有开启';
 $string['foruser'] = '给 {$a} 的';
 $string['gradesupdated'] = '成绩已经更新';
-$string['guestblog'] = '如果您有此系统的帐号，请<a href=\'{$a}\'>登入以查看完整博客</a>。';
 $string['individualblogs'] = '个人博客';
 $string['invalidblog'] = '无效的博客 ID';
 $string['invalidblogdetails'] = '无法找到博客文章{$a}的细节';
@@ -117,7 +102,6 @@ $string['maxattachments_help'] = '此项设置指定可以附加到一篇博客�
 $string['maxattachmentsize'] = '最大附件大小';
 $string['maxattachmentsize_help'] = '此项设置指定可以附加到一篇博客文章的最大文件大小。';
 $string['maxvisibility'] = '最大的可见性';
-$string['maybehiddenposts'] = '此博客可能包含只有登录的用户可见或只有登录的用户可以评论的文章。如果您在此系统里有帐号，请 <a href=\'{$a}\'>登录以获得全部博客访问权限</a>。';
 $string['message'] = '信息';
 $string['moderated_addedcomment'] = '谢谢添加您的评论，评论已经成功收到。您的评论在被作者批准前不会显示在此文章后。';
 $string['moderated_approve'] = '批准这条评论';
@@ -144,13 +128,10 @@ $string['modulenameplural'] = 'OU 博客';
 $string['mustprovidepost'] = '必须提供文章 ID';
 $string['ncomments'] = '{$a} 条评论';
 $string['newblogposts'] = '新的博客文章';
-$string['newcomment'] = '新的博客评论';
 $string['newerposts'] = '更新的文章&gt;';
-$string['newpost'] = '新的博客文章';
 $string['no'] = '无';
 $string['noblogposts'] = '没有博客文章';
 $string['nocomments'] = '不允许评论';
-$string['noposts'] = '此博客里没有可以阅读的文章。';
 $string['notaddpost'] = '不能添加文章';
 $string['notaddpostnogroup'] = '不能添加没有类别的文章';
 $string['nousercomments'] = '此用户没有对这篇文章进行评论。';
@@ -204,16 +185,12 @@ $string['re'] = '回复：{$a}';
 $string['rss'] = 'RSS';
 $string['rssfeed'] = 'RSS 源';
 $string['savegrades'] = '保存成绩';
-$string['searchblogs'] = '搜索博客';
-$string['searchthisblog'] = '搜索此博客';
 $string['separateindividual'] = '单独的&nbsp;个人的';
 $string['separateindividualblogs'] = '单独的个人博客';
 $string['siteentries'] = '查看网站条目';
-$string['subscribefeed'] = '订阅源（需要适当的软件）来接收博客更新的通知。';
 $string['summary'] = '摘要';
 $string['tags'] = '标签';
 $string['tagsfield'] = '标签（用逗号分隔）';
-$string['tags_help'] = '标签是以帮助您查找和分类博客文章的标记。';
 $string['tagupdatefailed'] = '升级标签失败';
 $string['title'] = '标题';
 $string['unsupportedbrowser'] = '<p>您的浏览器不能直接显示 Atom 或 RSS 源。</p>
@@ -226,7 +203,6 @@ $string['viewallusersingroup'] = '查看小组里的所有用户';
 $string['viewblogdetails'] = '查看博客细节';
 $string['viewblogposts'] = '返回博客';
 $string['viewedit'] = '查看编辑';
-$string['views'] = '这个博客的总访问量：';
 $string['visibility'] = '谁可以阅读这个？';
 $string['visibleblogusers'] = '仅此博客的会员可见';
 $string['visiblecourseusers'] = '此课程的参与者可见';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -711,7 +711,7 @@ $string['style_dlg:top'] = 'Dalt';
 $string['style_dlg:visibility'] = 'Visibilitat';
 $string['style_dlg:width'] = 'Amplada';
 $string['style_dlg:zindex'] = 'Z-index';
-$string['subplugindeleteconfirm'] = 'Esteu a punt de suprimir completament el subconnector de TinyMCE \'{$a}\'. Això eliminarà completament de la base de dades qualsevol cosa associada amb aquest subconnector. Esteu SEGUR que voleu continuar?';
+$string['subplugintype_tinymce'] = 'Connector';
 $string['subplugintype_tinymce_plural'] = 'Connectors';
 $string['table:cell'] = 'Cel·la';
 $string['table:cell_desc'] = 'Propietats de la cel·la de la taula';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -128,6 +128,7 @@ $string['navigationfrom_help'] = 'Aquesta pàgina wiki enllaça a aquesta pàgin
 $string['navigationto'] = 'Aquesta pàgina va cap a';
 $string['navigationto_help'] = 'Llista les altres pàgines';
 $string['newpage'] = 'Nova';
+$string['newpagehdr'] = 'Pàgina nova';
 $string['newpagetitle'] = 'Títol de la pàgina nova';
 $string['noattachments'] = '<strong>Cap fitxer adjunt</strong>';
 $string['nocomments'] = 'No hi ha comentaris';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addmoreanswerblanks'] = 'Engadir outra resposta en branco.';
-$string['addmoreunitblanks'] = 'En branco para {$a} Unidades máis';
 $string['answerhdr'] = 'Resposta';
 $string['atleastoneanswer'] = 'Ten que fornecer polo menos unha resposta.';
 $string['correctanswershows'] = 'Móstrase a resposta correcta';
@@ -36,8 +35,6 @@ $string['keptcategory1'] = 'usará o mesmo conxunto de datos compartidos ca ante
 $string['keptlocal1'] = 'usará o mesmo conxunto de datos privado ca antes';
 $string['makecopynextpage'] = 'Páxina seguinte (nova pregunta)';
 $string['mandatoryhdr'] = 'Comodíns obrigatorios presentes nas respostas';
-$string['mustbenumeric'] = 'Introduza aquí un número.';
-$string['mustnotbenumeric'] = 'Isto non pode ser un número.';
 $string['newcategory1'] = 'usará un novo conxunto de datos compartido';
 $string['newlocal1'] = 'usará un novo conxunto de datos privado';
 $string['nextitemtoadd'] = 'Seguinte \'Elemento para engadir\'';
@@ -48,4 +45,3 @@ $string['possiblehdr'] = 'Posibles comodíns presentes só no texto da pregunta'
 $string['tolerance'] = 'Tolerancia &plusmn;';
 $string['updatecategory'] = 'Actualizar a categoría';
 $string['usedinquestion'] = 'Usada en Pregunta';
-$string['youmustenteramultiplierhere'] = 'Introduza aquí un multiplicador.';

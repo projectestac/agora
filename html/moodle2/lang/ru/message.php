@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,28 +34,28 @@ $string['allmine'] = 'В сообщениях ко мне и от меня';
 $string['allstudents'] = 'В сообщениях между студентами курса';
 $string['allusers'] = 'Во всех сообщениях всех пользователей';
 $string['backupmessageshelp'] = 'При включении этого параметра в автоматически создаваемые резервные копии сайта будут включаться отправленные сообщения.';
-$string['beepnewmessage'] = 'Звуковой сигнал при новом сообщении';
+$string['beepnewmessage'] = 'Звуковой сигнал при отображении всплывающего сообщения';
 $string['blockcontact'] = 'Блокировать сообщения от этого человека';
 $string['blockedmessages'] = 'Сообщений - {$a} от заблокированных пользователей (или для них)';
 $string['blockedusers'] = 'Заблокированные пользователи ({$a})';
 $string['blocknoncontacts'] = 'Не принимать сообщения от людей, которых нет в списке моих собеседников';
-$string['contactlistempty'] = 'Ваш список собеседников пуст';
+$string['contactlistempty'] = 'Список собеседников пуст';
 $string['contacts'] = 'Собеседники';
 $string['context'] = 'смотреть в контексте';
-$string['defaultmessageoutputs'] = 'Способ доставки сообщений по-умолчанию';
-$string['defaults'] = 'По умолчанию';
+$string['defaultmessageoutputs'] = 'Настройки значений по умолчанию для способов доставки сообщений';
+$string['defaults'] = 'Значения по умолчанию';
 $string['deletemessagesdays'] = 'Количество дней перед автоматическим удалением старых сообщений ';
 $string['disableall'] = 'Временно отключить уведомления';
 $string['disableall_help'] = 'Временно отключить все уведомления за исключением тех, которые отмечены администратором сайта как «принудительные».';
 $string['disabled'] = 'На этом сайте отключена система обмена сообщениями.';
-$string['disallowed'] = 'Не разрешено';
+$string['disallowed'] = 'Запрещено';
 $string['discussion'] = 'Дискуссия';
 $string['emailmessages'] = 'Дублировать приходящие мне сообщения по почте, если я вне сайта...';
 $string['emailtagline'] = 'Это письмо - копия сообщения, отправленного Вам на сайте «{$a->sitename}». Для ответа пройдите по ссылке {$a->url}.';
 $string['emptysearchstring'] = 'Вы не указали, что именно Вы ищете';
 $string['errorcallingprocessor'] = 'Ошибка вызова указанного способа доставки';
 $string['errortranslatingdefault'] = 'Ошибка перевода настроек по умолчанию для плагина, вместо них будут использоваться системные настройки';
-$string['forced'] = 'Принудительно';
+$string['forced'] = 'Установить принудительно';
 $string['formorethan'] = '... в течение последних';
 $string['gotomessages'] = 'Перейти к сообщениям';
 $string['guestnoeditmessage'] = 'Гость не может редактировать настройки обмена сообщениями';
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'На этом сайте отключена вн
 $string['mostrecent'] = 'Последние сообщения';
 $string['mostrecentconversations'] = 'Последние беседы';
 $string['mostrecentnotifications'] = 'Последние уведомления';
-$string['mycontacts'] = 'Мои собеседники';
 $string['newonlymsg'] = 'Показать только новые';
 $string['newsearch'] = 'Новый поиск';
 $string['noframesjs'] = 'Использовать простой интерфейс';
@@ -100,17 +99,15 @@ $string['onlinecontacts'] = 'Собеседники на сайте: ({$a})';
 $string['onlyfromme'] = 'В сообщениях от меня';
 $string['onlymycourses'] = 'Только в моих курсах';
 $string['onlytome'] = 'Только в сообщениях ко мне';
-$string['outputdisabled'] = 'Вывод отключен';
-$string['outputdoesnotexist'] = 'Место для вывода сообщений не создано';
-$string['outputenabled'] = 'Вывод включен';
+$string['outputdisabled'] = 'Способ доставки выключен';
+$string['outputdoesnotexist'] = 'Способ доставки сообщения не существует';
+$string['outputenabled'] = 'Способ доставки включен';
 $string['outputnotavailable'] = 'Недоступно';
 $string['outputnotconfigured'] = 'Не настроено';
 $string['page-message-x'] = 'Любая из страниц сообщений';
 $string['pagerefreshes'] = 'Эта страница обновляется автоматически, каждые {$a} секунд';
 $string['permitted'] = 'Разрешено';
 $string['private_config'] = 'Всплывающее окно сообщений';
-$string['processordeleteconfirm'] = 'Вы собираетесь полностью удалить вывод сообщений "{$a}" . Это полностью удалит из базы данных всё, что связано с таким выводом сообщений. Вы УВЕРЕНЫ, что хотите продолжить?';
-$string['processordeletefiles'] = 'Все данные, связанные с выводом сообщений "{$a->processor}" были удалены из базы данных. Для завершения удаления (и предотвращения самоустановки вывода сообщений), Вы должны удалить его со своего сервера: {$a->directory}.';
 $string['processortag'] = 'Назначение';
 $string['providers_config'] = 'Настроить способы уведомления о входящих сообщениях';
 $string['providerstag'] = 'Источник';
@@ -134,7 +131,7 @@ $string['strftimedaydatetime'] = '%A, %d %B %Y, %H:%M';
 $string['thisconversation'] = 'эта беседа';
 $string['timenosee'] = 'минут после моего выхода с сайта';
 $string['timesent'] = 'Время отправки';
-$string['touserdoesntexist'] = 'Вы не можете отправить сообщение пользователю с id ({$a}) - пользователь не существует';
+$string['touserdoesntexist'] = 'Вы не можете отправить сообщение несуществующему пользователю (id {$a}).';
 $string['unblockcontact'] = 'Разблокировать сообщения от этого собеседника';
 $string['unreadmessages'] = 'Непрочитанных сообщений: {$a}';
 $string['unreadnewmessage'] = 'Новое сообщение от пользователя {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_webct', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_webct', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_webct
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['errorsdetected'] = '{$a} fout(en) gevonden';
 $string['missinganswer'] = 'Te weinig :ANSWER, :Lx, Rx, bepalingen voor regel {$a}. Je moet minstens 2 mogelijke antwoorden geven';
 $string['missingquestion'] = 'Ontbrekend vraaglabel achter regel {$a}';
-$string['paragraphquestion'] = 'Alinea vraag';
 $string['pluginname'] = 'WebCT formaat';
 $string['pluginname_help'] = 'Met WebCT-formaat kun je meerkeuzevragen en kort antwoordvragen, bewaard in het WebCT tekstgebaseerd formaat importeren.';
 $string['questionnametoolong'] = 'Vraagnaam te lang op regel {$a}. (255 tekens maximum). Is ingekort.';

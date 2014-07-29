@@ -54,6 +54,10 @@ class qtype_shortanswer_edit_form extends question_edit_form {
         $this->add_interactive_settings();
     }
 
+    protected function get_more_choices_string() {
+        return get_string('addmoreanswerblanks', 'qtype_shortanswer');
+    }
+
     protected function data_preprocessing($question) {
         $question = parent::data_preprocessing($question);
         $question = $this->data_preprocessing_answers($question);
@@ -76,15 +80,15 @@ class qtype_shortanswer_edit_form extends question_edit_form {
                 }
             } else if ($data['fraction'][$key] != 0 ||
                     !html_is_blank($data['feedback'][$key]['text'])) {
-                $errors["answer[$key]"] = get_string('answermustbegiven', 'qtype_shortanswer');
+                $errors["answeroptions[$key]"] = get_string('answermustbegiven', 'qtype_shortanswer');
                 $answercount++;
             }
         }
         if ($answercount==0) {
-            $errors['answer[0]'] = get_string('notenoughanswers', 'qtype_shortanswer', 1);
+            $errors['answeroptions[0]'] = get_string('notenoughanswers', 'qtype_shortanswer', 1);
         }
         if ($maxgrade == false) {
-            $errors['fraction[0]'] = get_string('fractionsnomax', 'question');
+            $errors['answeroptions[0]'] = get_string('fractionsnomax', 'question');
         }
         return $errors;
     }

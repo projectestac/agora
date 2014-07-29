@@ -74,7 +74,7 @@ class restore_qv_activity_structure_step extends restore_activity_structure_step
         $data->qvid = $this->get_new_parentid('qv');
 
         $data->userid = $this->get_mappingid('user', $data->userid);
-        
+
         $newitemid = $DB->insert_record('qv_assignments', $data);
         $this->set_mapping('qv_assignments', $oldid, $newitemid);
     }
@@ -83,10 +83,10 @@ class restore_qv_activity_structure_step extends restore_activity_structure_step
         global $DB;
 
         $data = (object)$data;
-        
+
         $oldid = $data->id;
         $data->assignmentid = $this->get_new_parentid('qv_assignments');
-        
+
         $newitemid = $DB->insert_record('qv_sections', $data);
         $this->set_mapping('qv_sections', $oldid, $newitemid);
     }
@@ -99,21 +99,21 @@ class restore_qv_activity_structure_step extends restore_activity_structure_step
         $oldid = $data->id;
         $data->sid = $this->get_new_parentid('qv_sections');
         $data->userid = $this->get_mappingid('user', $data->userid);
-        
+
         $newitemid = $DB->insert_record('qv_messages', $data);
         $this->set_mapping('qv_messages', $oldid, $newitemid);
     }
-    
+
 	protected function process_qv_messages_read($data) {
         global $DB;
 
         $data = (object)$data;
-        
+
         $oldid = $data->id;
         $data->sid = $this->get_new_parentid('qv_sections');
         $data->userid = $this->get_mappingid('user', $data->userid);
         $data->timereaded = $this->apply_date_offset($data->timereaded);
-        
+
         $newitemid = $DB->insert_record('qv_messages_read', $data);
         $this->set_mapping('qv_messages_read', $oldid, $newitemid);
     }

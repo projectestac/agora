@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = 'Amministratori Moodle';
 $string['audienceeducators'] = 'Formatori';
 $string['audience_help'] = 'I destinatari per i quali è pensato il corso.';
 $string['audiencestudents'] = 'Studenti';
+$string['badgesnumber'] = 'Numero di badge ({$a})';
 $string['badurlformat'] = 'Formato URL errato';
 $string['cannotsearchcommunity'] = 'Spiacente, non hai privilegio per visualizzare questa pagina.';
 $string['community'] = 'Comunità';
@@ -77,7 +78,7 @@ $string['description'] = 'Descrizione';
 $string['description_help'] = 'La descrizione apparirà nell\'elenco dei corsi dell\'hub.';
 $string['detectednotexistingpublication'] = '{$a->hubname} elenca un corso che non esiste più. Informa l\'amministratore dell\'hub che la  pubblicazione numero {$a->id} va rimossa.';
 $string['downloadable'] = 'Scaricabile';
-$string['educationallevel'] = 'Livello formazione';
+$string['educationallevel'] = 'Livello formativo';
 $string['educationallevel_help'] = 'Il livello di formazione del corso.';
 $string['edulevelassociation'] = 'Associazione';
 $string['edulevelcorporate'] = 'Corporate';
@@ -109,6 +110,7 @@ $string['hub'] = 'Hub';
 $string['imageurl'] = 'URL immagine';
 $string['imageurl_help'] = 'L\'immagine verrà visualizzata nell\'hub. Deve essere sempre disponibile all\'hub e deve avere una dimensione massima di {$a->width} X {$a->height}';
 $string['information'] = 'Informazione';
+$string['issuedbadgesnumber'] = 'Numero di badge conferiti: ({$a})';
 $string['language'] = 'Lingua';
 $string['language_help'] = 'La lingua di questo corso';
 $string['lasttimechecked'] = 'Data controllo più recente';
