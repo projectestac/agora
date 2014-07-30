@@ -770,9 +770,17 @@ function initialise_fullme() {
         // Do not abuse this to try to solve lan/wan access problems!!!!!
 
     } else {
-        if (($rurl['host'] !== $wwwroot['host']) or
+		//XTEC ************ MODIFICAT - Permit softlinks on paths...
+		//2014.07.30 @pferre22
+		if (($rurl['host'] !== $wwwroot['host']) or
+                (!empty($wwwroot['port']) and $rurl['port'] != $wwwroot['port'])) {
+		//************ ORIGINAL
+		/*
+		if (($rurl['host'] !== $wwwroot['host']) or
                 (!empty($wwwroot['port']) and $rurl['port'] != $wwwroot['port']) or
                 (strpos($rurl['path'], $wwwroot['path']) !== 0)) {
+		*/
+		//************ FI
 
             // Explain the problem and redirect them to the right URL
             if (!defined('NO_MOODLE_COOKIES')) {
