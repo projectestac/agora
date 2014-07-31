@@ -27,3 +27,5 @@ $string['month_ago'] = 'fa {$a} mes';
 $string['months_ago'] = 'fa {$a} mesos';
 $string['year_ago'] = 'fa {$a} any';
 $string['years_ago'] = 'fa {$a} anys';
+
+$string['agora_scripts'] = 'Àgora Scripts';

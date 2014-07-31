@@ -27,3 +27,5 @@ $string['month_ago'] = '{$a} month ago';
 $string['months_ago'] = '{$a} months ago';
 $string['year_ago'] = '{$a} year ago';
 $string['years_ago'] = '{$a} years ago';
+
+$string['agora_scripts'] = 'Àgora Scripts';
