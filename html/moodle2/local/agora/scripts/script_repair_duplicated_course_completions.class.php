@@ -6,7 +6,7 @@ class script_repair_duplicated_course_completions extends agora_script_base{
 
 	public $title = 'Repair duplicated Course completions';
 	public $info = "Deletes Course completions by deleting the identic";
-	protected $cron = false;
+	public $cron = false;
 	protected $test = true;
 
 	protected function params(){
@@ -15,7 +15,7 @@ class script_repair_duplicated_course_completions extends agora_script_base{
 		return $params;
 	}
 
-	protected function _execute($params, $execute = true){
+	protected function _execute($params = array(), $execute = true){
 		global $DB;
 
 		$courseid = $params['courseid'];

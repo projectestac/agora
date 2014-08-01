@@ -6,7 +6,7 @@ class script_repair_duplicated_assign extends agora_script_base{
 
 	public $title = 'Repair duplicated Assignments';
 	public $info = "Deletes duplicate assignments merging into one";
-	protected $cron = false;
+	public $cron = false;
 	protected $test = true;
 
 	protected function params(){
@@ -15,7 +15,7 @@ class script_repair_duplicated_assign extends agora_script_base{
 		return $params;
 	}
 
-	protected function _execute($params, $execute = true){
+	protected function _execute($params = array(), $execute = true){
 		global $DB, $CFG;
 		require_once($CFG->dirroot.'/mod/assign/locallib.php');
 		require_once($CFG->dirroot.'/mod/assign/lib.php');

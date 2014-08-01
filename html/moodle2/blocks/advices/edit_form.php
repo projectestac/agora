@@ -8,8 +8,8 @@ class block_advices_edit_form extends block_edit_form {
 
             if($admin_field = block_advices::get_message_record(true)) {
                 $admin_msg = $admin_field->msg;
-                $admin_start = $admin_field->date_start;
-                $admin_stop = $admin_field->date_stop;
+                $admin_start = strtotime($admin_field->date_start);
+                $admin_stop = strtotime($admin_field->date_stop);
             }
             else{
                 $admin_msg = "";
@@ -19,8 +19,8 @@ class block_advices_edit_form extends block_edit_form {
 
             if($not_admin_field = block_advices::get_message_record(false)){
                 $not_admin_msg = $not_admin_field->msg;
-                $not_admin_start = $not_admin_field->date_start;
-                $not_admin_stop = $not_admin_field->date_stop;
+                $not_admin_start = strtotime($not_admin_field->date_start);
+                $not_admin_stop = strtotime($not_admin_field->date_stop);
             }
             else{
                 $not_admin_msg = "";

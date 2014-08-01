@@ -6,7 +6,7 @@ class script_repair_gradebook extends agora_script_base{
 
 	public $title = 'Repair gradebook';
 	public $info = "Repair gradebook with activities without gradeitems";
-	protected $cron = false;
+	public $cron = false;
 	protected $test = false;
 
 	protected function params(){
@@ -15,7 +15,7 @@ class script_repair_gradebook extends agora_script_base{
 		return $params;
 	}
 
-	protected function _execute($params, $execute = true){
+	protected function _execute($params = array(), $execute = true){
 		global $CFG, $DB;
 		require_once($CFG->libdir.'/gradelib.php');
 		require_once($CFG->dirroot.'/mod/assign/lib.php');

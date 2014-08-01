@@ -6,7 +6,7 @@ class script_repair_duplicated_quiz_attempts extends agora_script_base{
 
 	public $title = 'Repair duplicated quiz attempts';
 	public $info = "Repair duplicated quiz attempts";
-	protected $cron = false;
+	public $cron = false;
 	protected $test = false;
 
 	protected function params(){
@@ -15,7 +15,7 @@ class script_repair_duplicated_quiz_attempts extends agora_script_base{
 		return $params;
 	}
 
-	protected function _execute($params, $execute = true){
+	protected function _execute($params = array(), $execute = true){
 		global $DB;
 
 		$courseid = $params['courseid'];

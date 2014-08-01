@@ -4,7 +4,7 @@ class agora_script_base{
 
 	public $title = 'No title';
 	public $info = "";
-	protected $cron = false;
+	public $cron = false;
 	protected $test = true;
 
 	protected function params(){
@@ -12,7 +12,7 @@ class agora_script_base{
 		return $params;
 	}
 
-	function execute($action){
+	function execute_web($action){
 		global $OUTPUT;
 		echo $OUTPUT->heading($this->title,3);
 		echo $OUTPUT->box($this->info);
@@ -23,14 +23,21 @@ class agora_script_base{
 		if($action == 'test'){
 			echo $OUTPUT->notification('Testing...');
 			return $this->_execute($params, false);
-		} else if($action == 'execute'){
+		} else if($action == 'execute' && $this->can_be_executed($params)){
 			echo $OUTPUT->notification('Executing!!');
 			return $this->_execute($params);
 		}
 		return false;
 	}
 
-	protected function _execute($params, $execute = true){
+	function execute($params){
+		if($this->can_be_executed($params)){
+			return $this->_execute($params);
+		}
+		return false;
+	}
+
+	protected function _execute($params = array(), $execute = true){
 		return false;
 	}
 
@@ -60,13 +67,27 @@ class agora_script_base{
 	 * Function to be executed when cron runs
 	 */
 	function cron(){
-		if($this->cron){
-			return $this->_cron();
+		if($this->cron && $this->can_be_executed()){
+			mtrace('Script: '.$this->title);
+
+			$success = $this->_cron();
+
+			if($success){
+				mtrace('Done');
+			} else {
+				mtrace('Failed');
+			}
+
+			return $success;
 		}
 		return true;
 	}
 
-	function _cron(){
+	protected function _cron(){
+		return true;
+	}
+
+	protected function can_be_executed($params = array()){
 		return true;
 	}
 

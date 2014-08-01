@@ -67,7 +67,8 @@ class block_advices extends block_base {
     public static function get_message($admin = false){
         if($record = self::get_message_record($admin)){
             if (!empty($record->msg)) {
-                if (($record->date_start == 0 || time() >= $record->date_start) && ($record->date_stop == 0 || time() <= $record->date_stop)) {
+                $time = date("Ymd", time());
+                if (($record->date_start == 0 || $time >= $record->date_start) && ($record->date_stop == 0 || $time <= $record->date_stop)) {
                     return $record->msg;
                 }
             }
@@ -94,8 +95,8 @@ class block_advices extends block_base {
         $record = new StdClass();
         $record->msg = $data->admin_advice['text'];
         $record->show_only_admins = 1;
-        $record->date_start = isset($data->admin_start) && !empty($data->admin_start) ? $data->admin_start : 0;
-        $record->date_stop = isset($data->admin_stop) && !empty($data->admin_stop) ? $data->admin_stop : 0;
+        $record->date_start = isset($data->admin_start) && !empty($data->admin_start) ? date("Ymd", $data->admin_start) : 0;
+        $record->date_stop = isset($data->admin_stop) && !empty($data->admin_stop) ? date("Ymd", $data->admin_stop) : 0;
 
         if (!$instance = self::get_message_record(true)) {
             $result = $result && $DB->insert_record('block_advices', $record);
@@ -107,8 +108,8 @@ class block_advices extends block_base {
         $record = new StdClass();
         $record->msg = $data->not_admin_advice['text'];
         $record->show_only_admins = 0;
-        $record->date_start = isset($data->not_admin_start) && !empty($data->not_admin_start) ? $data->not_admin_start : 0;
-        $record->date_stop = isset($data->not_admin_stop) && !empty($data->not_admin_stop) ? $data->not_admin_stop : 0;
+        $record->date_start = isset($data->not_admin_start) && !empty($data->not_admin_start) ? date("Ymd", $data->not_admin_start) : 0;
+        $record->date_stop = isset($data->not_admin_stop) && !empty($data->not_admin_stop) ? date("Ymd", $data->not_admin_stop) : 0;
 
         if (!$instance = self::get_message_record(false)) {
             $result = $result && $DB->insert_record('block_advices', $record);
