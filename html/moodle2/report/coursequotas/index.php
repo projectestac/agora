@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /**
  * Coursequotas report
@@ -28,11 +28,6 @@ if (!get_protected_agora() && is_rush_hour()) {
         $diskInfo = getDiskInfo($CFG->dnscentre, 'moodle2');
         $diskSpace = round($diskInfo['diskSpace']); // In MB
         $diskConsume = round($diskInfo['diskConsume'] / 1024); // Originally in kB
-
-        // Variables for the language strings
-        $a = new stdClass();
-        $a->diskSpace = $diskSpace;
-        $a->diskConsume = $diskConsume;
     }
 
     $disaggregated = array();
@@ -100,6 +95,19 @@ if (!get_protected_agora() && is_rush_hour()) {
 
     // Content for first tab (general)
     if ($showDiskInfo) {
+        // If disk info is not avalaible...
+        if($diskConsume == 0){
+            foreach($disaggregated as $value){
+                $diskConsume += $value/(1024*1024);
+            }
+            $diskConsume = round($diskConsume);
+        }
+
+        // Variables for the language strings
+        $a = new stdClass();
+        $a->diskSpace = $diskSpace;
+        $a->diskConsume = $diskConsume;
+
         $generalContent = $OUTPUT->heading(get_string('total_description', 'report_coursequotas'),3);
         $generalContent .= report_coursequotas_printChart($disaggregated, $diskConsume, $diskSpace);
         $generalContent .= $OUTPUT->notification(get_string('disk_consume_explain', 'report_coursequotas', $a), 'notifysuccess');

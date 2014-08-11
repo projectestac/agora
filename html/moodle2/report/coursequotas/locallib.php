@@ -150,13 +150,12 @@ function report_coursequotas_addContextElemsToTree($categoryTree, $systemContext
             $courseId = $dbRecord->instanceid;
 
             // Calculate size of all the files inside the front page avoiding duplicates
-            $sql = "SELECT sum(c.total) as total FROM (
+            $sql = "SELECT sum(total) as total FROM (
                            SELECT DISTINCT f.contenthash, f.filesize as total
                            FROM {context} c, {files} f
                            WHERE f.contextid=c.id AND c.path like '" . $path . "%'
-                    ) as c";
-
-            $totalSize = $DB->get_record_sql($sql, null)->total;
+                    ) t";
+            $totalSize = $DB->get_record_sql($sql)->total;
 
             $categoryTree['0']['categorysize'] = $totalSize;
             $categoryTree['0']['courses'][$courseId]['coursesize'] = $totalSize;
@@ -178,12 +177,12 @@ function report_coursequotas_addContextElemsToTree($categoryTree, $systemContext
                 $courseId = $record->instanceid;
 
                 // Calculate size of all the files inside the course avoiding duplicates
-                $sql = "SELECT sum(c.total) as total FROM (
+                $sql = "SELECT sum(total) as total FROM (
                                SELECT DISTINCT f.contenthash, f.filesize as total
                                FROM {context} c, {files} f
                                WHERE f.contextid=c.id AND c.path like '" . $coursePath . "/%'
-                        ) as c";
-                $courseSize = $DB->get_record_sql($sql, null);
+                        ) t";
+                $courseSize = $DB->get_record_sql($sql);
 
                 $totalCourseSize = $courseSize->total;
                 $totalSize += $courseSize->total;
