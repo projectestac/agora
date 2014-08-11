@@ -2,6 +2,9 @@
 
 
 function get_marsupial_ws_client($publisher, $auth_content = false){
+    // This call must be included to ensure the WSDL loading
+    libxml_disable_entity_loader(false);
+
     $wsdl = $auth_content ? $publisher->urlwsauthentication : $publisher->urlwsbookstructure;
 
     $options = get_marsupial_soap_options();

@@ -53,6 +53,10 @@ function get_books_structure_publisher($publisher, $isbn = false) {
             echo '<ol>';
             foreach($books as $book) {
                 $book = rcommon_object_to_array_lower($book);
+
+                // Disable scorm import
+                if($book['formato'] == 'scorm') continue;
+
                 $cod_isbn = $book['isbn'];
 
                 // Si se ha especificado un isbn guarda el libro
