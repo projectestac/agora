@@ -68,8 +68,8 @@ class auth_plugin_db extends auth_plugin_base {
         } else{
             $this->config->passtype = 'plaintext';
         }
-        //************ FI 
-        
+        //************ FI
+
         if ($this->is_internal()) {
             // Lookup username externally, but resolve
             // password locally -- to support backend that
@@ -124,7 +124,7 @@ class auth_plugin_db extends auth_plugin_base {
             // 2013.07.02 @aginard
             if (is_agora()) {
                 global $school_info;
-                if (($this->config->passtype != 'plaintext') && array_key_exists('id_intranet', $school_info) && ($school_info['version_intranet'] != '128')) {
+                if (($this->config->passtype != 'plaintext') && array_key_exists('id_intranet', $school_info)) {
                     $extpassword = '1$$' . $extpassword;
                 }
             }
@@ -173,15 +173,9 @@ class auth_plugin_db extends auth_plugin_base {
                 $this->config->user = $agora['intranet']['username'];
                 $this->config->pass = $agora['intranet']['userpwd'];
                 $this->config->name = $agora['intranet']['userprefix'] . $school_info['id_intranet'];
-                if ($school_info['version_intranet'] == '128') {
-                    $this->config->table = 'zk_users';
-                    $this->config->fielduser = 'pn_uname';
-                    $this->config->fieldpass = 'pn_pass';
-                } else {
-                    $this->config->table = 'users';
-                    $this->config->fielduser = 'uname';
-                    $this->config->fieldpass = 'pass';
-                }
+                $this->config->table = 'users';
+                $this->config->fielduser = 'uname';
+                $this->config->fieldpass = 'pass';
             }
         }
 
