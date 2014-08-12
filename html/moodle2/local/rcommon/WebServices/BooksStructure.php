@@ -190,7 +190,7 @@ function save_book_structure($response, $book){
 
     if(!$units) return;
 
-    if (!isset($units[0])) {
+    if (!is_array($units)) {
         $units = array($units);
     }
 
@@ -211,7 +211,7 @@ function save_book_structure($response, $book){
 
         if(!$actividades) return;
 
-        if (!isset($actividades[0])) {
+        if (!is_array($actividades)) {
             $actividades = array($actividades);
         }
 
