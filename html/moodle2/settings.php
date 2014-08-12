@@ -103,12 +103,16 @@ $CFG->atriaFormUrl = 'https://www.atria.cat/_layouts/Renacimiento/LoginPageExt.a
 $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 
 if (isset($agora['server']['enviroment'])){
-    $CFG->eoicampus_wsdl_path = INSTALL_BASE. 'html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
+    $CFG->eoicampus_wsdl_path = dirname(__FILE__) . '/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
 
 // Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php).
 // This folder has to exists and to be writable
-$CFG->altcacheconfigpath = $agora['server']['root'].'html/moodle2/local/agora/muc/';
+$CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
+$CFG->siteidentifier = $CFG->dbuser;
+if(isset($agora['server']['root']) && !empty($agora['server']['root'])){
+	$CFG->agora_muc_path = $agora['server']['root'].'/cache_ins';
+}
 
 $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it

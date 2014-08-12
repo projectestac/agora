@@ -565,20 +565,18 @@ class cache_helper {
      * @return string The new site identifier.
      */
     public static function update_site_identifier($siteidentifier) {
-        //XTEC ************ ELIMINAT - Removed code to avoid update siteidentifier in cacheconfig.php file (because it's shared by all sites)
-        //2013.04.16 @sarjona        
-        /*
         global $CFG;
         // Include locallib.
         require_once($CFG->dirroot.'/cache/locallib.php');
         $factory = cache_factory::instance();
         $factory->updating_started();
         $config = $factory->create_config_instance(true);
-        $siteidentifier = $config->update_site_identifier($siteidentifier);
+        //XTEC ************ ELIMINAT - To have MUC configured
+        //2014.08.12 @pferre22
+        // $siteidentifier = $config->update_site_identifier($siteidentifier);
+        //************ FI
         $factory->updating_finished();
         cache_factory::reset();
-        */
-        //************ FI    
         return $siteidentifier;
     }
 
@@ -589,6 +587,12 @@ class cache_helper {
      */
     public static function get_site_identifier() {
         global $CFG;
+        //XTEC ************ ELIMINAT - To have MUC configured
+        //2014.08.12 @pferre22
+        if(isset($CFG->siteidentifier) && ! empty($CFG->siteidentifier)){
+            return md5((string)$CFG->siteidentifier);
+        }
+        //************ FI
         if (!is_null(self::$siteidentifier)) {
             return self::$siteidentifier;
         }

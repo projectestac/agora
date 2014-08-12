@@ -145,10 +145,20 @@ class cache_config {
         $this->configdefinitionmappings = array();
         $this->configlockmappings = array();
 
+        //XTEC ************ AFEGIT - To have MUC configured
+        //2014.08.12 @pferre22
+        if(isset($CFG->siteidentifier) && ! empty($CFG->siteidentifier)){
+            $siteidentifier = md5((string)$CFG->siteidentifier);
+        } else {
+        //************ FI
         $siteidentifier = 'unknown';
         if (array_key_exists('siteidentifier', $configuration)) {
             $siteidentifier = $configuration['siteidentifier'];
         }
+        //XTEC ************ AFEGIT - To have MUC configured
+        //2014.08.12 @pferre22
+        }
+        //************ FI
         $this->siteidentifier = $siteidentifier;
 
         // Filter the lock instances.
