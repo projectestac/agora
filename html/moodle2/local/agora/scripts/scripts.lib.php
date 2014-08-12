@@ -30,12 +30,7 @@ function scripts_execute_crons(){
 	if(!empty($scripts)){
 		mtrace('Executing Àgora Scripts crons...');
 		foreach ($scripts as $script) {
-			mtrace('Script: '.$script->title);
-			if($script->cron()){
-				mtrace('Done');
-			} else {
-				mtrace('Failed');
-			}
+			$script->cron();
 		}
 		mtrace('Àgora Scripts crons done!');
 	}
@@ -46,7 +41,7 @@ function scripts_execute_script($scriptclass){
 	require_once($scriptclass.'.class.php');
 	$script = new $scriptclass();
 	$action = optional_param('action',false,PARAM_TEXT);
-	return $script->execute($action);
+	return $script->execute_web($action);
 }
 
 function scripts_list_scripts(){

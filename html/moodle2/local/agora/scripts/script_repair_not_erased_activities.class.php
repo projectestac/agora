@@ -6,7 +6,7 @@ class script_repair_not_erased_activities extends agora_script_base{
 
 	public $title = 'Repair not erased activities';
 	public $info = "Erased activities that became orphaned in the past can be deleted";
-	protected $cron = false;
+	public $cron = false;
 	protected $test = true;
 
 	protected function params(){
@@ -15,7 +15,7 @@ class script_repair_not_erased_activities extends agora_script_base{
 		return $params;
 	}
 
-	protected function _execute($params, $execute = true){
+	protected function _execute($params = array(), $execute = true){
 		global $DB, $CFG;
 		require_once($CFG->dirroot.'/course/lib.php');
 
