@@ -100,10 +100,13 @@
 		}
 		else $courseid = $courseid.'&isTeacher=false';
 
-		$url = $CFG->eoicampus_server.'?username='.$USER->username.'&courseid='.$courseid.'&url='.$CFG->wwwroot;
         if(isset($USER->password)){
-            $url .= '&password='.$USER->password;
+            $password = $USER->password;
+        } else {
+            $password = $DB->get_field('user','password',array('id'=>$USER->id));
         }
+
+        $url = $CFG->eoicampus_server.'?username='.$USER->username.'&password='.$password.'&courseid='.$courseid.'&url='.$CFG->wwwroot;
         if ($eoicampus->pwlevel != '0' && isset($eoicampus->pwid) && $eoicampus->pwid != '' && $eoicampus->pwid != '-1' && $eoicampus->pwid != '0'){
             $url .= '&pway='.$eoicampus->pwid.'&pwtype='.$eoicampus->pwtype;
         }
