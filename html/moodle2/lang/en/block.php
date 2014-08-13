@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,10 +45,13 @@ $string['deleteblock'] = 'Delete {$a} block';
 $string['deleteblockcheck'] = 'Are you sure that you want to delete this block titled {$a}?';
 $string['deleteblockwarning'] = '<p>You are about to delete a block that appears elsewhere.</p><p>Original block location: {$a->location}<br />Display on page types: {$a->pagetype}</p><p>Are you sure you want to continue?</p>';
 $string['deletecheck'] = 'Delete {$a} block?';
+$string['dockblock'] = 'Dock {$a} block';
 $string['hideblock'] = 'Hide {$a} block';
 $string['hidedockpanel'] = 'Hide the dock panel';
 $string['hidepanel'] = 'Hide panel';
 $string['moveblock'] = 'Move {$a} block';
+$string['moveblockafter'] = 'Move block to after {$a} block';
+$string['moveblockbefore'] = 'Move block to before {$a} block';
 $string['moveblockhere'] = 'Move block here';
 $string['movingthisblockcancel'] = 'Moving this block ({$a})';
 $string['onthispage'] = 'On this page';
@@ -65,6 +68,7 @@ $string['showonfrontpageonly'] = 'Display on the front page only';
 $string['subpages'] = 'Select pages';
 $string['thisspecificpage'] = 'This specific page';
 $string['undockall'] = 'Undock all';
+$string['undockblock'] = 'Undock {$a} block';
 $string['undockitem'] = 'Undock this item';
 $string['visible'] = 'Visible';
 $string['weight'] = 'Weight';

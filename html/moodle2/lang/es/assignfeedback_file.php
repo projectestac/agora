@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignfeedback_file', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignfeedback_file', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   assignfeedback_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,7 @@ $string['enabled_help'] = 'Si está habilitado, el profesor, cuando evalúe las 
 $string['feedbackfileadded'] = 'Nuevo archivo de retroalimentación "{$a->filename}" para estudiante "{$a->student}"';
 $string['feedbackfileupdated'] = 'Archivo de retroalimentación modificado "{$a->filename}" para estudiante "{$a->student}"';
 $string['feedbackzip'] = 'Archivo ZIP con archivos de retroalimentación';
-$string['feedbackzip_help'] = 'Un archivo ZIP que contiene una lista de archivos de retroalimentación para uno o más estudiantes. Los archivos de retroalimentación serán asignados a los estudiantes basados en la ID del participante que debería ser la segunda parte de cada nombre de archivo inmediatamente después del nombre completo de los usuarios. Esta convención para los nombres se emplea al descargar envíos, de forma que Usted pueda descargar todos los envíos, añadirles comentarios a algunos archivos y después subir todos los archivos. Los archivos que no tengan cambios serán ignorados.';
+$string['feedbackzip_help'] = 'Un archivo ZIP que contiene una lista de archivos de retroalimentación para uno o más estudiantes. Los archivos de retroalimentación serán asignados a los estudiantes basándose en la ID del participante que debería ser la segunda parte de cada nombre de archivo inmediatamente después del nombre completo de los usuarios. Esta convención para los nombres se emplea al descargar las entregas, de tal forma que usted puede usar la opción "Descargar todas las entregas", realizar las correcciones a algunos archivos y después comprimir de nuevo los archivos y subirlos mediante esta opción. Los archivos que no tengan cambios serán ignorados.';
 $string['file'] = 'Archivos de retroalimentación';
 $string['filesadded'] = 'Archivos de retroalimentación añadidos: {$a}';
 $string['filesupdated'] = 'Archivos de retroalimentación actualizados: {$a}';

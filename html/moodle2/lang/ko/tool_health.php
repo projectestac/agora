@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_health', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_health', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_health
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,5 +29,5 @@ $string['healthnoproblemsfound'] = '안정성 문제가 발견되지 않았습�
 $string['healthproblemsdetected'] = '안정성 문제가 발견되었습니다!';
 $string['healthproblemsolution'] = '안정성 문제에 대한 해결책';
 $string['healthreturntomain'] = '계속';
-$string['healthsolution'] = '해결책';
+$string['healthsolution'] = '해법';
 $string['pluginname'] = '안정성 점검 센터';

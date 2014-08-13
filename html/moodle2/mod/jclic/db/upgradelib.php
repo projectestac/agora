@@ -31,12 +31,12 @@ require_once($CFG->dirroot . '/mod/jclic/locallib.php');
 
 /**
  * Migrate jclic package to new area if found
- * 
+ *
  * @return
  */
 function jclic_migrate_files() {
     global $CFG, $DB;
-    
+
     $fs = get_file_storage();
     $sqlfrom = "FROM {jclic} j
                 JOIN {modules} m ON m.name = 'jclic'
@@ -51,8 +51,8 @@ function jclic_migrate_files() {
             upgrade_set_timeout(180); // set up timeout, may also abort execution
             $pbar->update($i, $count, "Migrating jclic files - $i/$count.");
 
-            $context       = get_context_instance(CONTEXT_MODULE, $jclic->cmid);
-            $coursecontext = get_context_instance(CONTEXT_COURSE, $jclic->course);
+            $context       = context_module::instance($jclic->cmid);
+            $coursecontext = context_course::instance($jclic->course);
 
             if (!jclic_is_valid_external_url($jclic->url)) {
                 // first copy local files if found - do not delete in case they are shared ;-)

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mathslib', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mathslib', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   mathslib
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['illegalcharactergeneral'] = 'ongeldig teken \'{$a}\'';
 $string['illegalcharacterunderscore'] = 'ingeldig teken \'_\'';
 $string['implicitmultiplicationnotallowed'] = 'Operatier verwacht, impliciet vermenigvuldigen niet toegestaan.';
 $string['internalerror'] = 'interne fout';
+$string['operatorlacksoperand'] = 'operator \'{$a}\' mist een operand';
 $string['undefinedvariable'] = 'ongedefiniëerde variable \'{$a}\'';
 $string['undefinedvariableinfunctiondefinition'] = 'ongedefiniëerde variable \'{$a}\' in functiedefinitie';
 $string['unexpectedclosingbracket'] = 'onverwacht sluitend haakje';

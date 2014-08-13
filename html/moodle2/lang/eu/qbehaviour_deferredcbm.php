@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_deferredcbm', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_deferredcbm', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_deferredcbm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cbmgrades'] = 'CBM kalifikazioak';
+$string['certainty'] = 'Ziurtasuna';
 $string['certainty1'] = 'Ez handiegia (%67tik behera)';
 $string['certainty2'] = 'Dezentekoa (%67tik gora)';
 $string['certainty3'] = 'Handia (%80tik gora)';
+$string['certaintyshort1'] = 'C=1';
+$string['certaintyshort2'] = 'C=2';
+$string['certaintyshort3'] = 'C=3';
 $string['howcertainareyou'] = 'Zenbaiterainoko ziurtasuna duzu?{$a}';
+$string['judgementok'] = 'Ondo!';
 $string['pluginname'] = 'Beranduagoko feedbacka CBMrekin';

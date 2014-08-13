@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_editdates', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_editdates', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   report_editdates
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

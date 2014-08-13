@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Шаг 1';
+$string['incby1_help'] = 'Это шаг нумерации при отображении ссылок на разделы, начиная с 1.';
 $string['incby2'] = 'Шаг 2';
-$string['incbydesc1'] = 'Это шаг нумерации при отображении ссылок на разделы.';
-$string['incbydesc2'] = 'Это шаг нумерации при отображении ссылок на разделы.';
+$string['incby2_help'] = 'Это шаг нумерации при отображении ссылок на разделы.';
 $string['jumptocurrenttopic'] = 'Перейти к текущей теме';
 $string['jumptocurrentweek'] = 'Перейти к текущей неделе';
 $string['numsections1'] = 'Число разделов 1';
+$string['numsections1_help'] = 'Если число разделов в курсе достигало этого значения, то будут отображаться ссылки не на все разделы. Нумерация будет идти с шагом «Шаг 1».';
 $string['numsections2'] = 'Число разделов 2';
-$string['numsectionsdesc1'] = 'Если число разделов в курсе достигало этого значения, то будут отображаться ссылки не на все разделы. Нумерация будет идти с шагом "Шаг 1".';
-$string['numsectionsdesc2'] = 'Если число разделов в курсе достигало этого значения, то будут отображаться ссылки не на все разделы. Нумерация будет идти с шагом "Шаг 2".';
+$string['numsections2_help'] = 'Если число разделов в курсе достигало этого значения, то будут отображаться ссылки не на все разделы. Нумерация будет идти с шагом «Шаг 2».';
 $string['pluginname'] = 'Ссылки на разделы';
 $string['section_links:addinstance'] = 'Добавлять новый блок Ссылки на разделы';
 $string['topics'] = 'Темы';

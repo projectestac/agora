@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_url', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_url', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'URL Repositorytyp Konfiguration';
+$string['configplugin'] = 'Einstellungen für URL-Downloader';
 $string['download'] = 'Download';
 $string['pluginname'] = 'URL-Downloader';
 $string['rename'] = 'Name';

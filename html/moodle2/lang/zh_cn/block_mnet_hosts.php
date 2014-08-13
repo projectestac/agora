@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_mnet_hosts', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_mnet_hosts', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_mnet_hosts
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['error_authmnetneeded'] = '启用MNet验证插件才能看到MNet服务器列表';
 $string['error_localusersonly'] = '远程用户无法从这台主机跳转到其它MNet网络服务器';
 $string['error_roamcapabilityneeded'] = '用户需要‘通过MNet漫游到远程应用程序’的能力来查看MNet网络服务器列表';
+$string['mnet_hosts:addinstance'] = '新增网络服务器版块';
+$string['mnet_hosts:myaddinstance'] = '在我的首页新增网络服务器版块';
 $string['pluginname'] = '网络服务器';
 $string['server'] = '服务器';

@@ -740,6 +740,136 @@ function hpField(name, value) {
 };
 
 ///////////////////////////////////////////
+// cross-platform/device event API
+///////////////////////////////////////////
+
+/**
+ * HP_fix_event
+ *
+ * @param  string evt : the name of the event (without leading 'on')
+ * @return string
+ */
+function HP_fix_event(evt) {
+	if (typeof(document.body.ontouchstart)==='undefined') {
+		switch (evt) {
+			case 'tap'        : return 'click';
+			case 'touchstart' : return 'mousedown';
+			case 'touchmove'  : return 'mousemove';
+			case 'touchend'   : return 'mouseup';
+		}
+	} else {
+		switch (evt) {
+			case 'click'     : return 'tap';
+			case 'mousedown' : return 'touchstart';
+			case 'mousemove' : return 'touchmove';
+			case 'mouseup'   : return 'touchend';
+		}
+	}
+	return evt;
+}
+
+/**
+ * HP_add_listener
+ *
+ * @param  object obj : an HTML element
+ * @param  string evt : the name of the event (without leading 'on')
+ * @param  string fnc : the name of the event handler funtion
+ * @param  boolean useCapture (optional, default = false)
+ * @return void, but may add event handler to DOM
+ */
+function HP_add_listener(obj, evt, fnc, useCapture) {
+
+	if (typeof(fnc)=='string') {
+		fnc = new Function('event', fnc);
+	}
+
+	// transfer object's old event handler (if any)
+	var evt = HP_fix_event(evt);
+	var onevent = 'on' + evt;
+	if (obj[onevent]) {
+		var old_fnc = obj[onevent];
+		obj[onevent] = null;
+		HP_add_listener(obj, evt, old_fnc, useCapture);
+	}
+
+	if (obj.addEventListener) {
+		obj.addEventListener(evt, fnc, (useCapture ? true : false));
+	} else if (obj.attachEvent) {
+		obj.attachEvent(onevent, fnc);
+	} else { // old browser NS4, IE5 ...
+		if (! obj.evts) {
+			obj.evts = new Array();
+		}
+		if (obj.evts && ! obj.evts[onevent]) {
+			obj.evts[onevent] = new Array();
+		}
+		if (obj.evts && obj.evts[onevent] && ! obj.evts[onevent]) {
+			obj.evts[onevent][obj.evts[onevent].length] = fnc;
+			obj[onevent] = new Function('HP_handle_event(this, \"'+onevent+'\")');
+		}
+	}
+}
+
+/**
+ * HP_remove_listener
+ *
+ * @param  object obj : an HTML element
+ * @param  string evt : the name of the event (without leading 'on')
+ * @param  string fnc : the name of the event handler funtion
+ * @param  boolean useCapture (optional, default = false)
+ * @return void, but may remove event handler to DOM
+ */
+function HP_remove_listener(obj, evt, fnc, useCapture) {
+	var onevent = 'on' + evt;
+	if (obj.removeEventListener) {
+		obj.removeEventListener(evt, fnc, (useCapture ? true : false));
+	} else if (obj.attachEvent) {
+		obj.detachEvent(onevent, fnc);
+	} else if (obj.evts && obj.evts[onevent]) {
+		var i_max = obj.evts[onevent].length;
+		for (var i=(i_max - 1); i>=0; i--) {
+			if (obj.evts[onevent][i]==fnc) {
+				obj.evts[onevent].splice(i, 1);
+			}
+		}
+	}
+}
+
+/**
+ * HP_handle_event
+ *
+ * @param  object obj : an HTML element
+ * @param  string onevent : the name of the event
+ * @return void, but may execute event handler
+ */
+function HP_handle_event(obj, onevent) {
+	if (obj.evts[onevent]) {
+		var i_max = obj.evts[onevent].length
+		for (var i=0; i<i_max; i++) {
+			obj.evts[onevent][i]();
+		}
+	}
+}
+
+/**
+ * HP_disable_event
+ *
+ * @param  object evt : an javascript event object
+ * @return may return false (older browsers)
+ */
+function HP_disable_event(evt) {
+	if (evt==null) {
+		evt = window.event;
+	}
+	if (evt.preventDefault) {
+		evt.preventDefault();
+	} else { // IE <= 8
+		evt.returnValue = false;
+	}
+	return false;
+}
+
+///////////////////////////////////////////
 // handle quiz events and send results
 ///////////////////////////////////////////
 

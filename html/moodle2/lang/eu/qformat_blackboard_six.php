@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_blackboard_six
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['defaultname'] = 'Inportatutako galdera: {$a}';
+$string['importedcategory'] = 'Inportatutako kategoria: {$a}';
 $string['importnotext'] = 'XML fitxategian galderaren testua falta da';
-$string['pluginname'] = 'Blackboard V6+';
+$string['pluginname'] = 'Blackboard';

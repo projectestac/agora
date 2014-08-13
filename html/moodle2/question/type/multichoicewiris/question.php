@@ -1,79 +1,61 @@
 <?php
-require_once($CFG->dirroot . '/question/type/wq/lib.php');
+require_once($CFG->dirroot . '/question/type/wq/question.php');
 require_once($CFG->dirroot . '/question/type/multichoice/question.php');
 
-class qtype_multichoicewiris_multi_question extends qtype_multichoice_multi_question {
-
-    public function start_attempt(question_attempt_step $step, $variant) {
-        
-        parent::start_attempt($step, $variant);
-        
-        $correctAnswers = "";
-        foreach ($this->answers as $key => $value){
-            $correctAnswers .= " " . $value->answer . ' ' . $value->feedback;
-        }
-
-        $hints = "";
-        foreach ($this->hints as $value) {
-            $hints .= " " . $value->hint;
-        }
-
-        $qi = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $correctAnswers . ' ' . $this->generalfeedback . 
-        ' ' . $this->correctfeedback . ' ' . $this->incorrectfeedback . ' ' . $this->partiallycorrectfeedback . ' ' . $hints, null, $variant);
-        
-        $step->set_qt_var('_qi', $qi->serialize());
-    }          
+class qtype_multichoicewiris_question extends qtype_wq_question implements question_automatically_gradable_with_countback {
     
-    public function get_renderer(moodle_page $page) {
-        return $page->get_renderer('qtype_multichoicewiris', 'multi');
-    }   
+    //References to original multichoice question class.
+    public $answers;
+    public $shuffleanswers;
+    public $answernumbering;
+    public $layout;
+    public $correctfeedback;
+    public $correctfeedbackformat;
+    public $partiallycorrectfeedback;
+    public $partiallycorrectfeedbackformat;
+    public $incorrectfeedback;
+    public $incorrectfeedbackformat;
     
-    public function get_expected_data() {
+    public function join_all_text() { 
+        $text = parent::join_all_text();
+        // Choices and feedbacks
+        foreach ($this->base->answers as $key => $value) {
+            $text .= ' ' . $value->answer . ' ' . $value->feedback;
+        }
+        // Combined feedback
+        $text .= ' ' . $this->base->correctfeedback . ' ' . $this->base->partiallycorrectfeedback . ' ' . $this->base->incorrectfeedback;
+        
+        return $text;
+    }
+    /*public function get_expected_data() {
         $expected = parent::get_expected_data();
-        $expected['_sqi'] = PARAM_RAW_TRIMMED;
+        //Hack or MC inline in Cloze don't work.
+        if($this->parent != null && $this->layout == qtype_multichoice_base::LAYOUT_DROPDOWN){
+            foreach($expected as $name => $type){
+                $expected[$name] = PARAM_RAW;
+            }
+        }
         return $expected;        
-    }    
-}
-
-class qtype_multichoicewiris_single_question extends qtype_multichoice_single_question {
-
-    public function start_attempt(question_attempt_step $step, $variant) {
-        
-        parent::start_attempt($step, $variant);
-        
-        $correctAnswers = "";
-        foreach ($this->answers as $key => $value){
-            $correctAnswers .= " " . $value->answer . ' ' . $value->feedback;
-        }
-        
-        $hints = "";
-        foreach ($this->hints as $value) {
-            $hints .= " " . $value->hint;
-        }
-        
-        $qi = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $correctAnswers . ' ' . $this->generalfeedback . 
-        ' ' . $this->correctfeedback . ' ' . $this->incorrectfeedback . ' ' . $this->partiallycorrectfeedback . ' ' . $hints, null, $variant);
-        
-        $step->set_qt_var('_qi', $qi->serialize());
-    }      
-
+    }*/
     public function get_renderer(moodle_page $page) {
-        return $page->get_renderer('qtype_multichoicewiris', 'single');
-    }    
-    
-    public function summarise_response(array $response) {
-        if (isset($response['answer'])) {
-            return 'Student answer not previewable.';
-            //return $response['answer'];
+        if ($this->base instanceof qtype_multichoice_single_question) {
+            return $page->get_renderer('qtype_multichoicewiris', 'single');
         } else {
-            return null;
+            return $page->get_renderer('qtype_multichoicewiris', 'multi');
         }
-    }    
-    
-    public function get_expected_data() {
-        $expected = parent::get_expected_data();
-        $expected['_sqi'] = PARAM_RAW_TRIMMED;
-        return $expected;
-    }    
+        
+    }
+    public function get_response(question_attempt $qa){
+        return $this->base->get_response($qa);
+    }
+    public function get_order(question_attempt $qa) {
+        return $this->base->get_order($qa);
+    }
+    public function is_choice_selected($response, $value){
+        return $this->base->is_choice_selected($response, $value);
+    }
+    public function make_html_inline($html){
+        return $this->base->make_html_inline($html);
+    }
 }
 ?>

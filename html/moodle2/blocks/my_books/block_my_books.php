@@ -48,7 +48,6 @@ class block_my_books extends block_list {
         	$this->content->items[] = get_string('nobooks', 'block_my_books');
         	$this->content->icons[] = '';
         } else {
-
 	        foreach ($user_credentials as $user_credential){
 	        	/// load book data
 	        	if (!$book = $DB->get_record('rcommon_books', array('isbn' => $user_credential->isbn))){
@@ -134,14 +133,14 @@ class block_my_books extends block_list {
 					    if (! $add->coursemodule = add_course_module($add) ) {
 					        $this->content->items[] = get_string('error_loading_data', 'block_my_books');
 					        $this->content->icons[] = '<img src="'.$OUTPUT->pix_url('icon', 'rscorm').'" class="icon" alt="rscorm icon" />';
-                                                return $this->content;
+                            return $this->content;
 					    }
 
-                                            if ($CFG->branch < 24) {
-                                                $sectionid = add_mod_to_section($add);
-                                            } else {
-                                                $sectionid = course_add_cm_to_section($add->course, $add->module, $add->section);
-                                            }
+                        if ($CFG->branch < 24) {
+                            $sectionid = add_mod_to_section($add);
+                        } else {
+                            $sectionid = course_add_cm_to_section($add->course, $add->module, $add->section);
+                        }
 
 					    if (! $sectionid ) {
 					        $this->content->items[] = get_string('error_loading_data', 'block_my_books');
@@ -282,14 +281,13 @@ class block_my_books extends block_list {
         }
 // MARSUPIAL ************ AFEGIT -> EVO: credentials
 // 2012.07.06 @mmartinez
-		$bt = '';
+		$bt = "";
         $context = context_system::instance(); // pinned blocks do not have own context
-		if (has_capability('blocks/my_books:managecredentials', $context)){
-			$bt = '<a href="' . $CFG->wwwroot . '/blocks/my_books/manageKey.php" title="' . get_string('manage_button_title', 'block_my_books') . '"><button>' . get_string('manage_button', 'block_my_books') . '</button></a>';
+		if (has_capability('local/rcommon:managecredentials', $context)){
+			$bt = '<a href="' . $CFG->wwwroot . '/local/rcommon/users.php?action=manage&username='.$USER->username.'" title="' . get_string('manage_button_title', 'block_my_books') . '"><button>' . get_string('manage_button', 'block_my_books') . '</button></a>';
 		}
 		if ($CFG->mybooks_addkey){
-			$bt = !empty($bt)? $bt . ' ': '';
-			$bt .= '<a href="' . $CFG->wwwroot . '/blocks/my_books/addKey.php" title="' . get_string('addkey_button_title', 'block_my_books') . '"><button>' . get_string('addkey_button', 'block_my_books') . '</button></a>';
+			$bt .= '<a href="' . $CFG->wwwroot.'/local/rcommon/add_user_credential.php?username='.$USER->username.'" title="' . get_string('addkey_button_title', 'block_my_books') . '"><button>' . get_string('addkey_button', 'block_my_books') . '</button></a>';
 		}
 		$this->content->items[] = '<br>' . $bt;
 		$this->content->icons[] = '';

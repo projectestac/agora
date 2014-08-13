@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -210,7 +210,9 @@ $string['extracreditwarning'] = 'Oharra: Kategoriko elementu guztiak krediturik 
 $string['feedback'] = 'Feedbacka';
 $string['feedbackadd'] = 'Gehitu feedbacka';
 $string['feedbackedit'] = 'Editatu feedbacka';
+$string['feedbackforgradeitems'] = '{$a}-(r)entzako feedbacka';
 $string['feedback_help'] = 'Laukitxo honek aukera ematen du gahitutako kalifikazioari buruzko oharrak idazteko.';
+$string['feedbacks'] = 'Feedbackak';
 $string['feedbacksaved'] = 'Feedbacka gordeta';
 $string['feedbackview'] = 'Ikusi feedbacka';
 $string['finalgrade'] = 'Amaierako kalifikazioa';
@@ -317,7 +319,7 @@ $string['hidecalculations'] = 'Kalkuluak ezkutatu';
 $string['hidecategory'] = 'Ezkutuan';
 $string['hideeyecons'] = 'Ikonoak ezkutatu/erakutsi/ezkutatu';
 $string['hidefeedback'] = 'Ezkutatu feedbacka';
-$string['hideforcedsettings'] = 'Behartutako ezarpenak ezkautatu';
+$string['hideforcedsettings'] = 'Behartutako ezarpenak ezkutatu';
 $string['hideforcedsettings_help'] = 'UI kalifikatzean, ez erakutsi behartutako ezarpenak';
 $string['hidegroups'] = 'Ezkutatu taldeak';
 $string['hidelocks'] = 'Blokeoak ezkutatu';
@@ -438,6 +440,7 @@ $string['numberofgrades'] = 'Kalifikazio-kopurua';
 $string['onascaleof'] = '{$a->grademin} -tik {$a->grademax} -ra bitarteko eskalan';
 $string['operations'] = 'Eragiketak';
 $string['options'] = 'Aukerak';
+$string['others'] = 'Beste batzuk';
 $string['outcome'] = 'Helburua';
 $string['outcomeassigntocourse'] = 'Esleitu beste helburu bat ikastaro honetan';
 $string['outcomecategory'] = 'Helburuak kategorian sortu';
@@ -578,7 +581,7 @@ $string['simpleview'] = 'Ikuspegi sinplea';
 $string['sitewide'] = 'Gune osoa';
 $string['sort'] = 'ordenatu';
 $string['sortasc'] = 'Behetik gora sailkatu';
-$string['sortbyfirstname'] = 'Izenaren arabera ordenatu';
+$string['sortbyfirstname'] = 'Ordenatu izenaren arabera';
 $string['sortbylastname'] = 'Deituraren arabera ordenatu';
 $string['sortdesc'] = 'Goitik behera ordenatu';
 $string['standarddeviation'] = 'Desbiderapen estandarra';
@@ -620,8 +623,9 @@ $string['usenoscale'] = 'Ez erabili eskala';
 $string['usepercent'] = 'Portzentajea erabili';
 $string['user'] = 'Erabiltzailea';
 $string['usergrade'] = 'Erabiltzailea {$a->fullname} ({$a->useridnumber}) elementu honetan {$a->gradeidnumber}';
+$string['userid'] = 'Erabiltzailearen IDa';
 $string['userpreferences'] = 'Erabiltzailearen hobespenak';
-$string['useweighted'] = 'Neurketa erabili';
+$string['useweighted'] = 'Erabili ponderatua';
 $string['verbosescales'] = 'Ahozko eskalak';
 $string['viewbygroup'] = 'Taldea';
 $string['viewgrades'] = 'Ikusi kalifikazioak';

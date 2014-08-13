@@ -1,5 +1,5 @@
 <?php
-$string['truefalsewiris'] = 'True/False - math & science';
+$string['truefalsewiris'] = 'True/False - science';
 $string['truefalsewiris_help'] = 'Like the standard True/False, but you can deliver different question text by inserting random numbers, formulas or plots. You can dynamically define whether the correct answer is true or false. The feedback can also use the random values.';
 $string['editingtruefalsewiris'] = 'Editing a true/false - math & science question by WIRIS';
 $string['addingtruefalsewiris'] = 'Adding a true/false - math & science question by WIRIS';
@@ -14,7 +14,7 @@ $string['truefalsewiris_feedback_right_response'] = 'Feedback for the right resp
 $string['truefalsewiris_wiris_variables'] = 'WIRIS variables ';
 
 //From Moodle 2.3
-$string['pluginname'] = 'True/False - math & science';
+$string['pluginname'] = 'True/False - science';
 $string['pluginname_help'] = 'Like the standard True/False, but you can deliver different question text by inserting random numbers, formulas or plots. You can dynamically define whether the correct answer is true or false. The feedback can also use the random values.';
 $string['pluginnamesummary'] = 'Like the standard True/False, but you can deliver different question text by inserting random numbers, formulas or plots. You can dynamically define whether the correct answer is true or false. The feedback can also use the random values.';
 $string['pluginnameediting'] = 'Editing a true/false - math & science question by WIRIS';

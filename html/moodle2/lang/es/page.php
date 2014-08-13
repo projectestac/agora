@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configdisplayoptions'] = 'Seleccione todas las opciones que deben estar disponibles; los valores existentes no se modifican. Mantenga pulsada la tecla CTRL para seleccionar varios campos.';
 $string['content'] = 'Contenido de la página';
 $string['contentheader'] = 'Contenido';
-$string['createpage'] = 'Crear nueva página';
+$string['createpage'] = 'Crear nuevo recurso de página';
 $string['displayoptions'] = 'Opciones de visualización disponibles';
 $string['displayselect'] = 'Mostrar';
 $string['displayselectexplain'] = 'Seleccione el tipo de pantalla';
@@ -46,7 +46,7 @@ Una página puede ser utilizada para
 * Para incrustar varios vídeos o archivos de sonido, junto con un texto explicativo';
 $string['modulenameplural'] = 'Páginas';
 $string['neverseen'] = 'Nunca visto';
-$string['optionsheader'] = 'Opciones';
+$string['optionsheader'] = 'Mostrar opciones';
 $string['page:addinstance'] = 'Añadir un nuevo recurso de página';
 $string['page-mod-page-x'] = 'Cualquier página del recurso Página';
 $string['page:view'] = 'Mostrar contenido de la página';
@@ -56,7 +56,5 @@ $string['popupheight'] = 'Altura de las ventanas emergentes (en pixels)';
 $string['popupheightexplain'] = 'Especifica la altura predeterminada de ventanas emergentes.';
 $string['popupwidth'] = 'Anchura de las ventanas emergentes (en pixels)';
 $string['popupwidthexplain'] = 'Especifica la anchura por defecto de ventanas emergentes.';
-$string['printheading'] = 'Mostrar el nombre de la página';
-$string['printheadingexplain'] = '¿Mostrar el nombre de la página encima del contenido?';
 $string['printintro'] = 'Mostrar la descripción de la página';
 $string['printintroexplain'] = '¿Mostrar la descripción de la página encima del contenido?';

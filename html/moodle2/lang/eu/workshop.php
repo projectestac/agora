@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Sarbide-kontrola';
 $string['aggregategrades'] = 'Kalifikazoak birkalkulatu';
 $string['aggregation'] = 'Kalifikazioen agregazioa';
 $string['allocate'] = 'Esleitu bidalketak';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Kalifikatuta dagoeneko';
 $string['areaconclusion'] = 'Ondorio-testua';
 $string['areainstructauthors'] = 'Bidalketarako argibideak';
 $string['areainstructreviewers'] = 'Ebaluaziorako argibideak';
+$string['areaoverallfeedbackattachment'] = 'Feedback orokorraren eranskinak';
+$string['areaoverallfeedbackcontent'] = 'Feedback orokorraren testuak';
 $string['areasubmissionattachment'] = 'Bidalketaren eranskinak';
 $string['areasubmissioncontent'] = 'Bidalketaren testuak';
 $string['assess'] = 'Ebaluatu';
@@ -86,8 +87,9 @@ $string['configexamplesmode'] = 'Tailerretako ebaluazio-adibideen berezko modua'
 $string['configgrade'] = 'Berezko gehienezko kalifikazioa bidalketetarako tailerretan';
 $string['configgradedecimals'] = 'Berez puntuaren atzetik erakutsi behar diren zenbakiak kalifikazioak erakustean';
 $string['configgradinggrade'] = 'Berezko gehienezko kalifikazioa ebaluazioetarako tailerretan';
+$string['configmaxbytes'] = 'Guneko tailer guztietarako berezko bidalketetarako fitxategien gehienezko tamaina (ikastaroko eta bestelako ezarpen lokalen menpekoa)';
 $string['configstrategy'] = 'Berezko kalifikazio-estrategia tailerretan';
-$string['createsubmission'] = 'Bidali';
+$string['createsubmission'] = 'Hasi zure bidalketa prestatzen';
 $string['daysago'] = 'duela {$a} egun';
 $string['daysleft'] = '{$a} egun falta dira';
 $string['daystoday'] = 'gaur';
@@ -99,11 +101,13 @@ $string['editassessmentformstrategy'] = 'Editatu ({$a}) ebaluazio-formularioa';
 $string['editingassessmentform'] = 'Ebaluazio-formularioa editatzen';
 $string['editingsubmission'] = 'Bidalketa editatzen';
 $string['editsubmission'] = 'Bidalketa editatu';
+$string['err_multiplesubmissions'] = 'Formulario hau bete bitartean bidalketaren beste bertsio bat gorde da. Erabiltzaile bakoitzak bidalketa bakarra egin dezake.';
 $string['evaluategradeswait'] = 'Mesedez, itxaron ebaluazioak ebaluatu eta kalifikazioak kalkulatu arte';
 $string['evaluation'] = 'Ebaluazioa kalifikatzen';
 $string['evaluationmethod'] = 'Ebaluazioa kalifikatzeko metodoa';
-$string['evaluationmethod_help'] = 'Kalifikazioa ebaluatzeko metodoak zehazten du nola kalkulatzen den ebaluazioen kalifikazioa. Une honetan aukera bakarra dago - ebaluazio onenarekin konparatu.';
+$string['evaluationmethod_help'] = 'Kalifikazioa ebaluatzeko metodoak zehazten du nola kalkulatzen den ebaluazioen kalifikazioa. Kalifikazioak ezarpen ezberdinekin nahi beste aldiz berkalkulatu daitezke emaitzarekin ados egon arte.';
 $string['evaluationsettings'] = 'Kalifikazioa ebaluatzeko ezarpenak';
+$string['event_assessable_uploaded'] = 'Bidalketa igo da.';
 $string['example'] = 'Adibide motako bidalketa';
 $string['exampleadd'] = 'Gehitu adibide motako bidalketa';
 $string['exampleassess'] = 'Ebaluatu adibide motako bidalketa';
@@ -111,17 +115,22 @@ $string['exampleassessments'] = 'Ebaluatzeko adibide motako bidalketak';
 $string['exampleassesstask'] = 'Ebaluatu adibideak';
 $string['exampleassesstaskdetails'] = 'hainbeste espero dira: {$a->expected}<br />ebaluatutakoak: {$a->assessed}';
 $string['examplecomparing'] = 'Adibide motako bidalketen ebaluazioak alderatzen';
-$string['exampledelete'] = 'Adibidea ezabatu';
-$string['exampleedit'] = 'Adibidea editatu';
+$string['exampledelete'] = 'Ezabatu adibidea';
+$string['exampledeleteconfirm'] = 'Ziur al zaude adibide motako bidalketa hau ezabatu nahi duzula? \'Jarraitu\' botoia sakatu bidalketa hau ezabatzeko.';
+$string['exampleedit'] = 'Editatu adibidea';
 $string['exampleediting'] = 'Adibidea editatzen';
+$string['exampleneedassessed'] = 'Lehenengo adibidezko bidalketa guztiak ebaluatu behar dituzu.';
+$string['exampleneedsubmission'] = 'Lehenago zure lana bidali eta adibidezko bidalketa guztiak ebaluatu behar dituzu.';
 $string['examplesbeforeassessment'] = 'Adibideak eskuragarri daude norberaren bidalketa egin aurretik, eta berdinen arteko ebaluazioa egin aurretik ebaluatu behar dira';
 $string['examplesbeforesubmission'] = 'Norberaren bidalketa egin aurretik,  ebaluatu behar dira adibideak';
 $string['examplesmode'] = 'Ebaluazio-adibideen modua';
 $string['examplesubmissions'] = 'Adibide motako bidalketa';
 $string['examplesvoluntary'] = 'Adibide-bidalketen ebaluazioa borondatezkoa da';
 $string['feedbackauthor'] = 'Egilearentzako feedbacka';
+$string['feedbackauthorattachment'] = 'Eranskina';
 $string['feedbackby'] = 'Ondokoaren feedbacka: {$a}';
 $string['feedbackreviewer'] = 'Ebaluatzaileak emandako feedbacka';
+$string['feedbacksettings'] = 'Feedbacka';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -149,11 +158,12 @@ $string['iamsure'] = 'Bai, ziur nago';
 $string['info'] = 'Info';
 $string['instructauthors'] = 'Bidalketarako argibideak';
 $string['instructreviewers'] = 'Ebaluaziorako argibideak';
-$string['introduction'] = 'Sarrera';
+$string['introduction'] = 'Deskribapena';
 $string['latesubmissions'] = 'Azken orduko bidalketak';
 $string['latesubmissionsallowed'] = 'Azken orduko bidalketak baimenduta daude';
 $string['latesubmissions_desc'] = 'Baimendu epez kanpoko bidalketak';
-$string['maxbytes'] = 'Fitxategien gehienezko tamaina';
+$string['latesubmissions_help'] = 'Gaituz gero, egileek bidalketak epez kanpo edo ebaluazio-aldian egin ditzakete. Hala ere, berandu egindako bidalketak ezin dira editatu.';
+$string['maxbytes'] = 'Bidalketa eranskinaren gehienezko tamaina';
 $string['modulename'] = 'Tailerra';
 $string['modulename_help'] = 'Tailerra jarduerak ikasleen lanak jaso, berrikusi eta berdinen ebaluazioa egiteko aukera ematen du.
 
@@ -176,6 +186,14 @@ $string['notoverridden'] = 'Baliogabetu gabea';
 $string['noworkshops'] = 'Ez dago tailerrik ikastaro honetan';
 $string['noyoursubmission'] = 'Oraindik ez duzu lanik bidali';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Feedback orokorra';
+$string['overallfeedbackfiles'] = 'Feedback orokorraren gehienezko eranskin-kopurua';
+$string['overallfeedbackmaxbytes'] = 'Feedback orokorraren eranskinen gehienezko tamaina.';
+$string['overallfeedbackmode'] = 'Feedback orokorraren modua';
+$string['overallfeedbackmode_0'] = 'Desgaituta';
+$string['overallfeedbackmode_1'] = 'Gaituta eta hautazkoa';
+$string['overallfeedbackmode_2'] = 'Gaituta eta derrigorrezkoa';
+$string['overallfeedbackmode_help'] = 'Gaituz gero, ebaluazio-formularioaren beheko aldean testu-koadro bat erakutsiko da. Ebaluatzaileek bertan ebaluazio orokorra idatz edo euren ebaluazioaren azalpen gehigarria eman dezakete.';
 $string['page-mod-workshop-x'] = 'Tailerraren edozein orri';
 $string['participant'] = 'Partaidea';
 $string['participantrevierof'] = 'Partaidea ondokoen ebaluatzailea da';
@@ -184,6 +202,7 @@ $string['phaseassessment'] = 'Ebaluazio-aldia';
 $string['phaseclosed'] = 'Itxita';
 $string['phaseevaluation'] = 'Kalifikazioa ebaluatzeko aldia';
 $string['phasesetup'] = 'Ezarpenak zehazteko aldia';
+$string['phasesoverlap'] = 'Bidalketa-aldia eta ebaluazio-aldia ezin dira gainjarri';
 $string['phasesubmission'] = 'Bidalketa-aldia';
 $string['pluginadministration'] = 'Tailerraren kudeaketa';
 $string['pluginname'] = 'Tailerra';
@@ -191,6 +210,7 @@ $string['prepareexamples'] = 'Prestatu adibide motako bidalketak';
 $string['previewassessmentform'] = 'Aurreikusi';
 $string['publishedsubmissions'] = 'Argitaratutako bidalketak';
 $string['publishsubmission'] = 'Argitaratu bidalketa';
+$string['publishsubmission_help'] = 'Publikatutako bidalketak besteentzat eskuragarri egongo dira tailerra ixten denean';
 $string['reassess'] = 'Berriro ebaluatu';
 $string['receivedgrades'] = 'Jasotako kalifikazioak';
 $string['recentassessments'] = 'Tailerraren ebaluazioak:';
@@ -198,6 +218,7 @@ $string['recentsubmissions'] = 'Tailerraren bidalketak:';
 $string['saveandclose'] = 'Gorde eta itxi';
 $string['saveandcontinue'] = 'Gorde eta jarraitu editatzen';
 $string['saveandpreview'] = 'Gorde eta aurreikusi';
+$string['saveandshownext'] = 'Gorde eta erakutsi hurrengoa';
 $string['selfassessmentdisabled'] = 'Auto-ebaluazioa desgaituta';
 $string['showingperpage'] = '{$a} elementu erakusten orriko';
 $string['showingperpagechange'] = 'Aldatu...';
@@ -205,17 +226,31 @@ $string['someuserswosubmission'] = 'Gutxienez egileetako batek ez du lanik bidal
 $string['sortasc'] = 'Behetik gora ordenatu';
 $string['sortdesc'] = 'Goitik behera ordenatu';
 $string['strategy'] = 'Kalifikazio-estrategia';
+$string['strategy_help'] = 'Kalifikazioa estrategiak ebaluazio formularioa eta bidalketak kalifikatzeko metodoa zehazten ditu.
+
+* Metatutako kalifikazioa - Iruzkinak eta kalifikazio bat ematen dira zehaztutako arlo bakoitzean
+* Iruzkinak - Iruzkinak ematen dira zehaztutako arlo bakoitzean baina ez da kalifikaziorik ematen
+* Errore-kopurua - Iruzkinak eta Bai/Ez ebaluazioa egiten da zehaztutako baieztapen bakoitzean
+* Argibideak - Mailakatze-ebaluazioa egiten da zehaztutako irizpide bakoitzean';
 $string['submission'] = 'Bidalketa';
 $string['submissionattachment'] = 'Eranskina';
 $string['submissionby'] = '{$a} -ren bidalketa';
 $string['submissioncontent'] = 'Bidalketaren edukia';
-$string['submissionend'] = 'Bidalketen bukaera';
+$string['submissionend'] = 'Bidalketetarako azken eguna';
+$string['submissionendbeforestart'] = 'Bidalketak egiteko azken eguna ezin da bidalketak egiteko hasiera baino lehenagokoa izan.';
 $string['submissionenddatetime'] = 'Bidalketetarako azken eguna: {$a->daydatetime} ({$a->distanceday})';
+$string['submissionendevent'] = '{$a} (bidalketetarako azken eguna)';
+$string['submissionendswitch'] = 'Hurrengo aldira igaro bidalketetarako azken eguna igarotzean';
+$string['submissionendswitch_help'] = 'Bidalketak egiteko azken eguna zehaztuta badago eta aukera hau markatuta badago, tailerra hurrengo aldira automatikoki igaroko da azken eguna igarotzean.
+
+Aukera hau gaituz gero, esleipen automatikoa konfiguratzea gomendatzen da. Bidalketak ez badira esleitzen ezin da ebaluaziorik egin ebaluazio-aldian egon arren.';
 $string['submissiongrade'] = 'Bidalketaren kalifikazioa';
 $string['submissiongrade_help'] = 'Ezarpen honek bidalitako lanetan lor daitekeen gehienezko kalifikazioa zehazten du.';
 $string['submissiongradeof'] = 'Bidalketaren kalifikazioa ({$a}(e)tik)';
 $string['submissionsettings'] = 'Bidalketaren ezarpenak';
-$string['submissionstart'] = 'Bidalketen hasiera';
+$string['submissionstart'] = 'Bidalketetarako lehen eguna';
+$string['submissionstartdatetime'] = 'Bidalketetarako lehen eguna {$a->daydatetime} ({$a->distanceday})';
+$string['submissionstartevent'] = '{$a} (bidalketetarako lehen eguna)';
 $string['submissiontitle'] = 'Izenburua';
 $string['subplugintype_workshopallocation'] = 'Bidalketak esleitzeko metodoa';
 $string['subplugintype_workshopallocation_plural'] = 'Bidalketak esleitzeko metodoak';
@@ -225,27 +260,30 @@ $string['subplugintype_workshopform'] = 'Kalifikazio-estrategia';
 $string['subplugintype_workshopform_plural'] = 'Kalifikazio-estrategiak';
 $string['switchingphase'] = 'Aldaketa-aldia';
 $string['switchphase'] = 'Aldatu aldia';
-$string['switchphase10info'] = 'Tailerra <strong>Ezarpenak zehazteko aldi</strong>ra eramango duzu. Aldi honetan erabiltzaileek ezin dituzte aldatu euren bidalketak edo ebaluazioak.Tailerraren ezarpenak edota ebaluazio-formularioetan ezaritako kalifikazio-estrategiak aldatzeko erabil dezakete irakasleek aldi hau.';
+$string['switchphase10info'] = 'Tailerra <strong>Ezarpenak zehazteko aldi</strong>ra eramango duzu. Aldi honetan erabiltzaileek ezin dituzte aldatu euren bidalketak edo ebaluazioak.Tailerraren ezarpenak, ebaluazio-formularioetan ezarritako kalifikazio-estrategiak eta ebaluazio-formularioak aldatzeko erabil dezakete irakasleek aldi hau.';
 $string['switchphase20info'] = 'Tailerra <strong>Bidalketa-aldi</strong>ra eramango duzu. Aldi honetan ikasleek lanak bidal ditzakete (sarbide-kontrolerako epeen barruan, ezarpen hori ezarrita badago). Irakasleek aurkezpenak eslei ditzakete berrikusketarako.';
+$string['switchphase30auto'] = 'Tailerra ebaluazio-aldira automatikoki igaroko da {$a->daydatetime} ({$a->distanceday}) ondoren';
 $string['switchphase30info'] = 'Tailerra <strong>Ebaluazio-aldi</strong>ra eramango duzu. Aldi honetan ebaluatzaileek esleitu zaizkien lanak ebalua ditzakete (sarbide-kontrolerako epeen barruan, ezarpen hori ezarrita badago).';
 $string['switchphase40info'] = 'Tailerra <strong>Kalifikazioa ebaluatzeko aldi</strong>ra eramango duzu. Aldi honetan erabiltzaileek ezin dituzte beren bidalketa edo ebaluazioak aldatu. Irakasleek ebaluazio-tresnak erabil ditzakete azken kalifikazioak kalkulatzeko eta ebaluatzaileei feedbacka emateko.';
 $string['switchphase50info'] = 'Tailerra itxi egingo duzu. Horren ondorioz, kalkulatutako kalifikazioak kalifikazio-liburuan agertuko dira. Ikasleek beren bidalketak eta ebaluazioak ikus ditzakete.';
 $string['taskassesspeers'] = 'Ebaluatu kideak';
 $string['taskassesspeersdetails'] = 'denera: {$a->total}<br />bidali gabe: {$a->todo}';
 $string['taskassessself'] = 'Ebaluatu zeure burua';
+$string['taskconclusion'] = 'Eman itxiera bat jarduerari';
 $string['taskinstructauthors'] = 'Eman bidalketa egiteko argibideak';
 $string['taskinstructreviewers'] = 'Eman ebaluazioa egiteko argibideak';
-$string['taskintro'] = 'Zehaztu tailerraren sarrera';
+$string['taskintro'] = 'Zehaztu tailerraren deskribapena';
 $string['tasksubmit'] = 'Bidali zure lana';
 $string['toolbox'] = 'Tailerraren tresna-kutxa';
 $string['undersetup'] = 'Tailerra ez da oraindik abian jarri. Itxaron, mesedez, hurrengo aldira igaro arte.';
-$string['useexamples'] = 'Adibideak erabili';
+$string['useexamples'] = 'Erabili adibideak';
 $string['useexamples_desc'] = 'Ebaluazioa praktikatzeko adibideak eskainiko dira';
 $string['useexamples_help'] = 'Gaituz gero, erabiltzaileek ebaluazioa  adibide moldeko ebaluazio bat edo gehiagorekin proba dezakete eta beren ebaluazioa erreferentzia gisako beste batekin alderatu ahal dute. Kalifikazio hau ez da ebaluazioan kontuan hartuko.';
 $string['usepeerassessment'] = 'Erabili berdinen arteko ebaluazioa';
 $string['usepeerassessment_desc'] = 'Ikasleek beste batzuen lana ebalua dezakete';
 $string['usepeerassessment_help'] = 'Gaituz gero, erabiltzaile bat izenda daiteke beste batzuen ebaluazioa egiteko. Kalifikazio bat jasoko du ebaluazioa egiteko, bere aurkezpenerako kalifikazioaz gain.';
 $string['userdatecreated'] = 'noiz bidalia: <span>{$a}</span>';
+$string['userdatemodified'] = 'noiz aldatua: <span>{$a}</span>';
 $string['userplan'] = 'Tailerraren planifikazioa';
 $string['userplan_help'] = 'Tailerraren planifikazioak jardueraren aldiak erakusten ditu eta aldi bakoitzaren lanak zerrendatzen ditu. Uneko aldia nabarmenduta dago eta lanen osaketa marka batez adierazten da.';
 $string['useselfassessment'] = 'Erabili auto-ebaluazioa';
@@ -254,10 +292,12 @@ $string['useselfassessment_help'] = 'Gaituz gero, erabiltzaile bat izenda daitek
 $string['weightinfo'] = 'Pisua: {$a}';
 $string['withoutsubmission'] = 'Bidalketarik esleitu ez zaion ebaluatzailea';
 $string['workshop:addinstance'] = 'Gehitu beste tailer bat';
+$string['workshop:allocate'] = 'Esleitu bidalketak ebaluazioarako';
 $string['workshop:editdimensions'] = 'Editatu ebaluazio-formularioa';
-$string['workshopfeatures'] = 'Tailerraren ezaugarriak';
+$string['workshop:ignoredeadlines'] = 'Denbora mugak kontuan ez hartu';
 $string['workshop:manageexamples'] = 'Kudeatu adibide motako bidalketak';
 $string['workshopname'] = 'Tailerraren izena';
+$string['workshop:overridegrades'] = 'Gainidatzi kalkulaturiko kalifikazioak';
 $string['workshop:peerassess'] = 'Ebaluatutako kideak';
 $string['workshop:publishsubmissions'] = 'Argitaratu bidalketak';
 $string['workshop:submit'] = 'Bidali';
@@ -267,7 +307,9 @@ $string['workshop:viewallassessments'] = 'Ikusi ebaluazio guztiak';
 $string['workshop:viewallsubmissions'] = 'Ikusi bidalketa guztiak';
 $string['workshop:viewauthornames'] = 'Ikusi egileen izenak';
 $string['workshop:viewauthorpublished'] = 'Ikusi argitaratutako bidaldeten egileak';
+$string['workshopviewed'] = 'Tailerra ikusita';
 $string['workshop:viewpublishedsubmissions'] = 'Ikusi argitaratutako bidalketak';
 $string['workshop:viewreviewernames'] = 'Ikusi ebaluatzaileen izenak';
 $string['yourassessment'] = 'Zure ebaluazioa';
+$string['yourgrades'] = 'Zure kalifikazioak';
 $string['yoursubmission'] = 'Zure bidalketak';

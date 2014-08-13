@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_deferredcbm', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_deferredcbm', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_deferredcbm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,5 +30,4 @@ $string['certainty1'] = '매우는 아님( 67 %이하)';
 $string['certainty2'] = '꽤 (67 %이상)';
 $string['certainty3'] = '매우 (80 %이상)';
 $string['howcertainareyou'] = '얼마나 확신하십니까? {$a}';
-$string['markadjustment'] = '표시한 확실성에 근거하여 성적이 {$a->rawmark} 에서  {$a->mark} 로 조정되었습니다.';
 $string['pluginname'] = '확신도기반채점과 함께 지연된 피드백';

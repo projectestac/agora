@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -93,15 +93,6 @@ No entanto, não devem ser definidas regras demasiado exigentes, para que os uti
 $string['check_passwordpolicy_error'] = 'Devem ser definidas regras para as palavras-chaves.';
 $string['check_passwordpolicy_name'] = 'Regras para as senhas';
 $string['check_passwordpolicy_ok'] = 'Estão definidas regras para as palavras-chaves.';
-$string['check_passwordsaltmain_details'] = '<p>O roubo de senhas pode ser bastante reduzido se se definir um <em>salt</em> para as senhas.</p>
-<p>A definição de um <em>salt</em> é feita adicionando, no ficheiro <strong>config.php</strong>, a linha:</p>
-<p><strong>$CFG->passwordsaltmain = "uma sequência longa de texto aleatório";</strong></p>
-<p>O texto aleatório deve ser constituído por letras, números e outros carateres. Este texto deve ter um mínimo de 40 carateres.</p>
-<p>Para mais informação sobre este assunto, nomeadamente a alteração do <em>salt</em>, consulte a página <a href="{$a}" target="_blank">documentação sobre o  <em>salt</em> das senhas</a>. Uma vez definido um <em>salt</em> para as senhas, este não pode ser apagado do ficheiro de configuração, pois a sua remoção invalidará todas as senhas de todas as contas de utilizador.</p>';
-$string['check_passwordsaltmain_name'] = '<em>Salt</em> das senhas';
-$string['check_passwordsaltmain_ok'] = 'O <em>salt</em> das senhas está corretamente configurado.';
-$string['check_passwordsaltmain_warning'] = 'Não definido um <em>salt</em> para as senhas.';
-$string['check_passwordsaltmain_weak'] = 'O <em>salt</em> definido para as senhas é pouco seguro.';
 $string['check_riskadmin_detailsok'] = '<p>Verifique a lista de administradores do sistema:</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>Verifique a lista de administradores do sistema:</p>{$a->admins}
 <p>É recomendado que o papel de administrador apenas seja atribuído no contexto de sistema. Os seguintes utilizadores têm o papel de administrador  em outros contextos (não aconselhado):</p>{$a->unsupported}';

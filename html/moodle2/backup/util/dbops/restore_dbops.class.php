@@ -109,18 +109,34 @@ abstract class restore_dbops {
 
     /**
      * Load one inforef.xml file to backup_ids table for future reference
+     *
+     * @param string $restoreid Restore id
+     * @param string $inforeffile File path
+     * @param core_backup_progress $progress Progress tracker
      */
-    public static function load_inforef_to_tempids($restoreid, $inforeffile) {
+    public static function load_inforef_to_tempids($restoreid, $inforeffile,
+            core_backup_progress $progress = null) {
 
         if (!file_exists($inforeffile)) { // Shouldn't happen ever, but...
             throw new backup_helper_exception('missing_inforef_xml_file', $inforeffile);
         }
+
+        // Set up progress tracking (indeterminate).
+        if (!$progress) {
+            $progress = new core_backup_null_progress();
+        }
+        $progress->start_progress('Loading inforef.xml file');
+
         // Let's parse, custom processor will do its work, sending info to DB
         $xmlparser = new progressive_parser();
         $xmlparser->set_file($inforeffile);
         $xmlprocessor = new restore_inforef_parser_processor($restoreid);
         $xmlparser->set_processor($xmlprocessor);
+        $xmlparser->set_progress($progress);
         $xmlparser->process();
+
+        // Finish progress
+        $progress->end_progress();
     }
 
     /**
@@ -152,7 +168,7 @@ abstract class restore_dbops {
         $problems = array(); // To store warnings/errors
 
         // Get loaded roles from backup_ids
-        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'role'), '', 'itemid');
+        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'role'), '', 'itemid, info');
         foreach ($rs as $recrole) {
             // If the rolemappings->modified flag is set, that means that we are coming from
             // manually modified mappings (by UI), so accept those mappings an put them to backup_ids
@@ -163,13 +179,12 @@ abstract class restore_dbops {
             // Else, we haven't any info coming from UI, let's calculate the mappings, matching
             // in multiple ways and checking permissions. Note mapping to 0 means "skip"
             } else {
-                $role = (object)self::get_backup_ids_record($restoreid, 'role', $recrole->itemid)->info;
+                $role = (object)backup_controller_dbops::decode_backup_temp_info($recrole->info);
                 $match = self::get_best_assignable_role($role, $courseid, $userid, $samesite);
                 // Send match to backup_ids
                 self::set_backup_ids_record($restoreid, 'role', $recrole->itemid, $match);
                 // Build the rolemappings element for controller
                 unset($role->id);
-                unset($role->nameincourse);
                 unset($role->nameincourse);
                 $role->targetroleid = $match;
                 $rolemappings->mappings[$recrole->itemid] = $role;
@@ -401,18 +416,34 @@ abstract class restore_dbops {
 
     /**
      * Load the needed users.xml file to backup_ids table for future reference
+     *
+     * @param string $restoreid Restore id
+     * @param string $usersfile File path
+     * @param core_backup_progress $progress Progress tracker
      */
-    public static function load_users_to_tempids($restoreid, $usersfile) {
+    public static function load_users_to_tempids($restoreid, $usersfile,
+            core_backup_progress $progress = null) {
 
         if (!file_exists($usersfile)) { // Shouldn't happen ever, but...
             throw new backup_helper_exception('missing_users_xml_file', $usersfile);
         }
+
+        // Set up progress tracking (indeterminate).
+        if (!$progress) {
+            $progress = new core_backup_null_progress();
+        }
+        $progress->start_progress('Loading users into temporary table');
+
         // Let's parse, custom processor will do its work, sending info to DB
         $xmlparser = new progressive_parser();
         $xmlparser->set_file($usersfile);
         $xmlprocessor = new restore_users_parser_processor($restoreid);
         $xmlparser->set_processor($xmlprocessor);
+        $xmlparser->set_progress($progress);
         $xmlparser->process();
+
+        // Finish progress.
+        $progress->end_progress();
     }
 
     /**
@@ -673,20 +704,21 @@ abstract class restore_dbops {
         global $DB;
 
         $results = array();
-        $qcats = $DB->get_records_sql("SELECT itemid, parentitemid AS contextid
+        $qcats = $DB->get_recordset_sql("SELECT itemid, parentitemid AS contextid, info
                                          FROM {backup_ids_temp}
                                        WHERE backupid = ?
                                          AND itemname = 'question_category'", array($restoreid));
         foreach ($qcats as $qcat) {
             // If this qcat context haven't been acummulated yet, do that
             if (!isset($results[$qcat->contextid])) {
-                $temprec = self::get_backup_ids_record($restoreid, 'question_category', $qcat->itemid);
+                $info = backup_controller_dbops::decode_backup_temp_info($qcat->info);
                 // Filter by contextlevel if necessary
-                if (is_null($contextlevel) || $contextlevel == $temprec->info->contextlevel) {
-                    $results[$qcat->contextid] = $temprec->info->contextlevel;
+                if (is_null($contextlevel) || $contextlevel == $info->contextlevel) {
+                    $results[$qcat->contextid] = $info->contextlevel;
                 }
             }
         }
+        $qcats->close();
         // Sort by value (contextlevel from CONTEXT_SYSTEM downto CONTEXT_MODULE)
         asort($results);
         return $results;
@@ -700,15 +732,16 @@ abstract class restore_dbops {
         global $DB;
 
         $results = array();
-        $qcats = $DB->get_records_sql("SELECT itemid
+        $qcats = $DB->get_recordset_sql("SELECT itemid, info
                                          FROM {backup_ids_temp}
                                         WHERE backupid = ?
                                           AND itemname = 'question_category'
                                           AND parentitemid = ?", array($restoreid, $contextid));
         foreach ($qcats as $qcat) {
-            $temprec = self::get_backup_ids_record($restoreid, 'question_category', $qcat->itemid);
-            $results[$qcat->itemid] = $temprec->info;
+            $results[$qcat->itemid] = backup_controller_dbops::decode_backup_temp_info($qcat->info);
         }
+        $qcats->close();
+
         return $results;
     }
 
@@ -748,7 +781,7 @@ abstract class restore_dbops {
                  // Build the array of contexts we are going to look
                  $systemctx = context_system::instance();
                  $coursectx = context_course::instance($courseid);
-                 $parentctxs= get_parent_contexts($coursectx);
+                 $parentctxs = $coursectx->get_parent_context_ids();
                  foreach ($parentctxs as $parentctx) {
                      // Exclude system context
                      if ($parentctx == $systemctx->id) {
@@ -798,15 +831,15 @@ abstract class restore_dbops {
         global $DB;
 
         $results = array();
-        $qs = $DB->get_records_sql("SELECT itemid
+        $qs = $DB->get_recordset_sql("SELECT itemid, info
                                       FROM {backup_ids_temp}
                                      WHERE backupid = ?
                                        AND itemname = 'question'
                                        AND parentitemid = ?", array($restoreid, $qcatid));
         foreach ($qs as $q) {
-            $temprec = self::get_backup_ids_record($restoreid, 'question', $q->itemid);
-            $results[$q->itemid] = $temprec->info;
+            $results[$q->itemid] = backup_controller_dbops::decode_backup_temp_info($q->info);
         }
+        $qs->close();
         return $results;
     }
 
@@ -814,6 +847,9 @@ abstract class restore_dbops {
      * Given one component/filearea/context and
      * optionally one source itemname to match itemids
      * put the corresponding files in the pool
+     *
+     * If you specify a progress reporter, it will get called once per file with
+     * indeterminate progress.
      *
      * @param string $basepath the full path to the root of unzipped backup file
      * @param string $restoreid the restore job's identification
@@ -825,15 +861,17 @@ abstract class restore_dbops {
      * @param int|null $olditemid
      * @param int|null $forcenewcontextid explicit value for the new contextid (skip mapping)
      * @param bool $skipparentitemidctxmatch
+     * @param core_backup_progress $progress Optional progress reporter
      * @return array of result object
      */
-    public static function send_files_to_pool($basepath, $restoreid, $component, $filearea, $oldcontextid, $dfltuserid, $itemname = null, $olditemid = null, $forcenewcontextid = null, $skipparentitemidctxmatch = false) {
+    public static function send_files_to_pool($basepath, $restoreid, $component, $filearea,
+            $oldcontextid, $dfltuserid, $itemname = null, $olditemid = null,
+            $forcenewcontextid = null, $skipparentitemidctxmatch = false,
+            core_backup_progress $progress = null) {
         global $DB, $CFG;
-		// XTEC AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-		//2013.12.09 @pferre22
+
         $backupinfo = backup_general_helper::get_backup_information(basename($basepath));
         $includesfiles = $backupinfo->include_files;
-		//************ FI
 
         $results = array();
 
@@ -844,9 +882,11 @@ abstract class restore_dbops {
             $newcontextid = $forcenewcontextid;
         } else {
             // Get new context, must exist or this will fail
-            if (!$newcontextid = self::get_backup_ids_record($restoreid, 'context', $oldcontextid)->newitemid) {
+            $newcontextrecord = self::get_backup_ids_record($restoreid, 'context', $oldcontextid);
+            if (!$newcontextrecord || !$newcontextrecord->newitemid) {
                 throw new restore_dbops_exception('unknown_context_mapping', $oldcontextid);
             }
+            $newcontextid = $newcontextrecord->newitemid;
         }
 
         // Sometimes it's possible to have not the oldcontextids stored into backup_ids_temp->parentitemid
@@ -893,22 +933,34 @@ abstract class restore_dbops {
 
         $fs = get_file_storage();         // Get moodle file storage
         $basepath = $basepath . '/files/';// Get backup file pool base
+        // Report progress before query.
+        if ($progress) {
+            $progress->progress();
+        }
         $rs = $DB->get_recordset_sql($sql, $params);
         foreach ($rs as $rec) {
-            $file = (object)unserialize(base64_decode($rec->info));
+            // Report progress each time around loop.
+            if ($progress) {
+                $progress->progress();
+            }
+
+            $file = (object)backup_controller_dbops::decode_backup_temp_info($rec->info);
 
             // ignore root dirs (they are created automatically)
             if ($file->filepath == '/' && $file->filename == '.') {
                 continue;
             }
 
-
             // set the best possible user
             $mappeduser = self::get_backup_ids_record($restoreid, 'user', $file->userid);
             $mappeduserid = !empty($mappeduser) ? $mappeduser->newitemid : $dfltuserid;
 
-			// XTEC AFEGIT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-			//2013.12.09 @pferre22
+            // dir found (and not root one), let's create it
+            if ($file->filename == '.') {
+                $fs->create_directory($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $mappeduserid);
+                continue;
+            }
+
             // The file record to restore.
             $file_record = array(
                 'contextid'   => $newcontextid,
@@ -920,17 +972,11 @@ abstract class restore_dbops {
                 'timecreated' => $file->timecreated,
                 'timemodified'=> $file->timemodified,
                 'userid'      => $mappeduserid,
+                'source'      => $file->source,
                 'author'      => $file->author,
                 'license'     => $file->license,
                 'sortorder'   => $file->sortorder
             );
-			//************ FI
-
-            // dir found (and not root one), let's create it
-            if ($file->filename == '.') {
-                $fs->create_directory($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $mappeduserid);
-                continue;
-            }
 
             if (empty($file->repositoryid)) {
                 // If contenthash is empty then gracefully skip adding file.
@@ -943,100 +989,47 @@ abstract class restore_dbops {
                     continue;
                 }
                 // this is a regular file, it must be present in the backup pool
-				// XTEC MODIFICAT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-				//2013.12.09 @pferre22
-                // this is a regular file, it must be present in the backup pool
-                //$backuppath = $basepath . backup_file_manager::get_backup_content_file_location($file->contenthash);
+                $backuppath = $basepath . backup_file_manager::get_backup_content_file_location($file->contenthash);
 
-                // The file is not found in the backup.
-                //if (!file_exists($backuppath)) {
-                //    $result = new stdClass();
-                //    $result->code = 'file_missing_in_backup';
-                //    $result->message = sprintf('missing file %s%s in backup', $file->filepath, $file->filename);
-                //    $result->level = backup::LOG_WARNING;
-                //    $results[] = $result;
-                //    continue;
-                //}
+                // Some file types do not include the files as they should already be
+                // present. We still need to create entries into the files table.
+                if ($includesfiles) {
+                    // The file is not found in the backup.
+                    if (!file_exists($backuppath)) {
+                        $results[] = self::get_missing_file_result($file);
+                        continue;
+                    }
 
-                // create the file in the filepool if it does not exist yet
-                //if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
+                    // create the file in the filepool if it does not exist yet
+                    if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
 
-                    // If no license found, use default.
-                //    if ($file->license == null){
-                //        $file->license = $CFG->sitedefaultlicense;
-                //    }
+                        // If no license found, use default.
+                        if ($file->license == null){
+                            $file->license = $CFG->sitedefaultlicense;
+                        }
 
-                //    $file_record = array(
-                //        'contextid'   => $newcontextid,
-                //        'component'   => $component,
-                //        'filearea'    => $filearea,
-                //        'itemid'      => $rec->newitemid,
-                //        'filepath'    => $file->filepath,
-                //        'filename'    => $file->filename,
-                //        'timecreated' => $file->timecreated,
-                //        'timemodified'=> $file->timemodified,
-                //        'userid'      => $mappeduserid,
-                //        'author'      => $file->author,
-                //        'license'     => $file->license,
-                //        'sortorder'   => $file->sortorder
-                //    );
-                //    $fs->create_file_from_pathname($file_record, $backuppath);
-                //}
-				if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
-	                // this is a regular file, it must be present in the backup pool
-	                $backuppath = $basepath . backup_file_manager::get_backup_content_file_location($file->contenthash);
+                        $fs->create_file_from_pathname($file_record, $backuppath);
+                    }
+                } else {
+                    // This backup does not include the files - they should be available in moodle filestorage already.
 
-	                // Some file types do not include the files as they should already be
-	                // present. We still need to create entries into the files table.
-	                if ($includesfiles) {
-	                    // The file is not found in the backup.
-	                    if (!file_exists($backuppath)) {
-	                        $result = new stdClass();
-	                        $result->code = 'file_missing_in_backup';
-	                        $result->message = sprintf('missing file %s%s in backup', $file->filepath, $file->filename);
-	                        $result->level = backup::LOG_WARNING;
-	                        $results[] = $result;
-	                        continue;
-	                    }
+                    // Create the file in the filepool if it does not exist yet.
+                    if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
 
-	                    // create the file in the filepool if it does not exist yet
-	                    if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
-	                        // If no license found, use default.
-	                        if ($file->license == null){
-	                            $file->license = $CFG->sitedefaultlicense;
-	                        }
-
-	                        $fs->create_file_from_pathname($file_record, $backuppath);
-	                    }
-	                } else {
-	                    // This backup does not include the files - they should be available in moodle filestorage already.
-
-	                    // Even if a file has been deleted since the backup was made, the file metadata will remain in the
-	                    // files table, and the file will not be moved to the trashdir.
-	                    // Files are not cleared from the files table by cron until several days after deletion.
-	                    if ($foundfiles = $DB->get_records('files', array('contenthash' => $file->contenthash))) {
-	                        // Only grab one of the foundfiles - the file content should be the same for all entries.
-	                        $foundfile = reset($foundfiles);
-	                        $fs->create_file_from_storedfile($file_record, $foundfile->id);
-	                    } else {
-	                        // A matching existing file record was not found in the database.
-	                        $result = new stdClass();
-	                        $result->code = 'file_missing_in_backup';
-	                        $result->message = sprintf('missing file %s%s in backup', $file->filepath, $file->filename);
-	                        $result->level = backup::LOG_WARNING;
-	                        $results[] = $result;
-	                        continue;
-	                    }
-	                }
-            	} else {
-            		$result = new stdClass();
-            		$result->code = 'file_already_exist';
-            		$result->message = sprintf('file %s%s already exists', $file->filepath, $file->filename);
-            		$result->level = backup::LOG_INFO;
-            		$results[] = $result;
-            		continue;
-            	}
-				//************ FI
+                        // Even if a file has been deleted since the backup was made, the file metadata will remain in the
+                        // files table, and the file will not be moved to the trashdir.
+                        // Files are not cleared from the files table by cron until several days after deletion.
+                        if ($foundfiles = $DB->get_records('files', array('contenthash' => $file->contenthash), '', '*', 0, 1)) {
+                            // Only grab one of the foundfiles - the file content should be the same for all entries.
+                            $foundfile = reset($foundfiles);
+                            $fs->create_file_from_storedfile($file_record, $foundfile->id);
+                        } else {
+                            // A matching existing file record was not found in the database.
+                            $results[] = self::get_missing_file_result($file);
+                            continue;
+                        }
+                    }
+                }
 
                 // store the the new contextid and the new itemid in case we need to remap
                 // references to this file later
@@ -1053,24 +1046,7 @@ abstract class restore_dbops {
                     // oldfile holds the raw information stored in MBZ (including reference-related info)
                     $info->oldfile = $file;
                     // newfile holds the info for the new file_record with the context, user and itemid mapped
-					// XTEC MODIFICAT MDL-37761 Improve backup/restore within Moodle (e.g. course and activity duplication)
-					//2013.12.09 @pferre22
-                    //$info->newfile = (object)array(
-                    //    'contextid'   => $newcontextid,
-                    //    'component'   => $component,
-                    //    'filearea'    => $filearea,
-                    //    'itemid'      => $rec->newitemid,
-                    //    'filepath'    => $file->filepath,
-                    //    'filename'    => $file->filename,
-                    //    'timecreated' => $file->timecreated,
-                    //    'timemodified'=> $file->timemodified,
-                    //    'userid'      => $mappeduserid,
-                    //    'author'      => $file->author,
-                    //    'license'     => $file->license,
-                    //    'sortorder'   => $file->sortorder
-                    //);
-					$info->newfile = (object) $file_record;
-					//************ FI
+                    $info->newfile = (object) $file_record;
 
                     restore_dbops::set_backup_ids_record($restoreid, 'file_aliases_queue', $file->id, 0, null, $info);
                 }
@@ -1081,23 +1057,50 @@ abstract class restore_dbops {
     }
 
     /**
+     * Returns suitable entry to include in log when there is a missing file.
+     *
+     * @param stdClass $file File definition
+     * @return stdClass Log entry
+     */
+    protected static function get_missing_file_result($file) {
+        $result = new stdClass();
+        $result->code = 'file_missing_in_backup';
+        $result->message = 'Missing file in backup: ' . $file->filepath  . $file->filename .
+                ' (old context ' . $file->contextid . ', component ' . $file->component .
+                ', filearea ' . $file->filearea . ', old itemid ' . $file->itemid . ')';
+        $result->level = backup::LOG_WARNING;
+        return $result;
+    }
+
+    /**
      * Given one restoreid, create in DB all the users present
      * in backup_ids having newitemid = 0, as far as
      * precheck_included_users() have left them there
      * ready to be created. Also, annotate their newids
-     * once created for later reference
+     * once created for later reference.
+     *
+     * This function will start and end a new progress section in the progress
+     * object.
+     *
+     * @param string $basepath Base path of unzipped backup
+     * @param string $restoreid Restore ID
+     * @param int $userid Default userid for files
+     * @param core_backup_progress $progress Object used for progress tracking
      */
-    public static function create_included_users($basepath, $restoreid, $userid) {
+    public static function create_included_users($basepath, $restoreid, $userid,
+            core_backup_progress $progress) {
         global $CFG, $DB;
+        $progress->start_progress('Creating included users');
 
         $authcache = array(); // Cache to get some bits from authentication plugins
         $languages = get_string_manager()->get_list_of_translations(); // Get languages for quick search later
         $themes    = get_list_of_themes(); // Get themes for quick search later
 
         // Iterate over all the included users with newitemid = 0, have to create them
-        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'user', 'newitemid' => 0), '', 'itemid, parentitemid');
+        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'user', 'newitemid' => 0), '', 'itemid, parentitemid, info');
         foreach ($rs as $recuser) {
-            $user = (object)self::get_backup_ids_record($restoreid, 'user', $recuser->itemid)->info;
+            $progress->progress();
+            $user = (object)backup_controller_dbops::decode_backup_temp_info($recuser->info);
 
             // if user lang doesn't exist here, use site default
             if (!array_key_exists($user->lang, $languages)) {
@@ -1161,7 +1164,7 @@ abstract class restore_dbops {
 
                 // Most external plugins do not store passwords locally
                 if (!empty($userauth->preventpassindb)) {
-                    $user->password = 'not cached';
+                    $user->password = AUTH_PASSWORD_NOT_CACHED;
 
                 // If Moodle is responsible for storing/validating pwd and reset functionality is available, mark
                 } else if ($userauth->isinternal and $userauth->canresetpwd) {
@@ -1224,13 +1227,26 @@ abstract class restore_dbops {
                         $status = $DB->insert_record('user_preferences', $preference);
                     }
                 }
+                // Special handling for htmleditor which was converted to a preference.
+                if (isset($user->htmleditor)) {
+                    if ($user->htmleditor == 0) {
+                        $preference = new stdClass();
+                        $preference->userid = $newuserid;
+                        $preference->name = 'htmleditor';
+                        $preference->value = 'textarea';
+                        $status = $DB->insert_record('user_preferences', $preference);
+                    }
+                }
 
                 // Create user files in pool (profile, icon, private) by context
-                restore_dbops::send_files_to_pool($basepath, $restoreid, 'user', 'icon', $recuser->parentitemid, $userid);
-                restore_dbops::send_files_to_pool($basepath, $restoreid, 'user', 'profile', $recuser->parentitemid, $userid);
+                restore_dbops::send_files_to_pool($basepath, $restoreid, 'user', 'icon',
+                        $recuser->parentitemid, $userid, null, null, null, false, $progress);
+                restore_dbops::send_files_to_pool($basepath, $restoreid, 'user', 'profile',
+                        $recuser->parentitemid, $userid, null, null, null, false, $progress);
             }
         }
         $rs->close();
+        $progress->end_progress();
     }
 
     /**
@@ -1461,8 +1477,15 @@ abstract class restore_dbops {
      * for each one (mapping / creation) and returning one array
      * of problems in case something is wrong (lack of permissions,
      * conficts)
+     *
+     * @param string $restoreid Restore id
+     * @param int $courseid Course id
+     * @param int $userid User id
+     * @param bool $samesite True if restore is to same site
+     * @param core_backup_progress $progress Progress reporter
      */
-    public static function precheck_included_users($restoreid, $courseid, $userid, $samesite) {
+    public static function precheck_included_users($restoreid, $courseid, $userid, $samesite,
+            core_backup_progress $progress) {
         global $CFG, $DB;
 
         // To return any problem found
@@ -1485,10 +1508,16 @@ abstract class restore_dbops {
             $cancreateuser = true;
         }
 
+        // Prepare for reporting progress.
+        $conditions = array('backupid' => $restoreid, 'itemname' => 'user');
+        $max = $DB->count_records('backup_ids_temp', $conditions);
+        $done = 0;
+        $progress->start_progress('Checking users', $max);
+
         // Iterate over all the included users
-        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'user'), '', 'itemid');
+        $rs = $DB->get_recordset('backup_ids_temp', $conditions, '', 'itemid, info');
         foreach ($rs as $recuser) {
-            $user = (object)self::get_backup_ids_record($restoreid, 'user', $recuser->itemid)->info;
+            $user = (object)backup_controller_dbops::decode_backup_temp_info($recuser->info);
 
             // Find the correct mnethostid for user before performing any further check
             if (empty($user->mnethosturl) || $user->mnethosturl === $CFG->wwwroot) {
@@ -1523,8 +1552,11 @@ abstract class restore_dbops {
             } else { // Shouldn't arrive here ever, something is for sure wrong. Exception
                 throw new restore_dbops_exception('restore_error_processing_user', $user->username);
             }
+            $done++;
+            $progress->progress($done);
         }
         $rs->close();
+        $progress->end_progress();
         return $problems;
     }
 
@@ -1534,12 +1566,19 @@ abstract class restore_dbops {
      *
      * Just wrap over precheck_included_users(), returning
      * exception if any problem is found
+     *
+     * @param string $restoreid Restore id
+     * @param int $courseid Course id
+     * @param int $userid User id
+     * @param bool $samesite True if restore is to same site
+     * @param core_backup_progress $progress Optional progress tracker
      */
-    public static function process_included_users($restoreid, $courseid, $userid, $samesite) {
+    public static function process_included_users($restoreid, $courseid, $userid, $samesite,
+            core_backup_progress $progress = null) {
         global $DB;
 
         // Just let precheck_included_users() to do all the hard work
-        $problems = self::precheck_included_users($restoreid, $courseid, $userid, $samesite);
+        $problems = self::precheck_included_users($restoreid, $courseid, $userid, $samesite, $progress);
 
         // With problems, throw exception, shouldn't happen if prechecks were originally
         // executed, so be radical here.
@@ -1573,7 +1612,7 @@ abstract class restore_dbops {
         global $DB;
 
         // Store external files info in `info` field
-        $filerec->info     = base64_encode(serialize($filerec)); // Serialize the whole rec in info
+        $filerec->info     = backup_controller_dbops::encode_backup_temp_info($filerec); // Encode the whole record into info.
         $filerec->backupid = $restoreid;
         $DB->insert_record('backup_files_temp', $filerec);
     }
@@ -1588,7 +1627,7 @@ abstract class restore_dbops {
             $extrarecord['parentitemid'] = $parentitemid;
         }
         if ($info != null) {
-            $extrarecord['info'] = base64_encode(serialize($info));
+            $extrarecord['info'] = backup_controller_dbops::encode_backup_temp_info($info);
         }
 
         self::set_backup_ids_cached($restoreid, $itemname, $itemid, $extrarecord);
@@ -1597,8 +1636,9 @@ abstract class restore_dbops {
     public static function get_backup_ids_record($restoreid, $itemname, $itemid) {
         $dbrec = self::get_backup_ids_cached($restoreid, $itemname, $itemid);
 
+        // We must test if info is a string, as the cache stores info in object form.
         if ($dbrec && isset($dbrec->info) && is_string($dbrec->info)) {
-            $dbrec->info = unserialize(base64_decode($dbrec->info));
+            $dbrec->info = backup_controller_dbops::decode_backup_temp_info($dbrec->info);
         }
 
         return $dbrec;
@@ -1643,18 +1683,17 @@ abstract class restore_dbops {
         // Get the course context
         $coursectx = context_course::instance($courseid);
         // Get all the mapped roles we have
-        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'role'), '', 'itemid');
+        $rs = $DB->get_recordset('backup_ids_temp', array('backupid' => $restoreid, 'itemname' => 'role'), '', 'itemid, info, newitemid');
         foreach ($rs as $recrole) {
-            // Get the complete temp_ids record
-            $role = (object)self::get_backup_ids_record($restoreid, 'role', $recrole->itemid);
+            $info = backup_controller_dbops::decode_backup_temp_info($recrole->info);
             // If it's one mapped role and we have one name for it
-            if (!empty($role->newitemid) && !empty($role->info['nameincourse'])) {
+            if (!empty($recrole->newitemid) && !empty($info['nameincourse'])) {
                 // If role name doesn't exist, add it
                 $rolename = new stdclass();
-                $rolename->roleid = $role->newitemid;
+                $rolename->roleid = $recrole->newitemid;
                 $rolename->contextid = $coursectx->id;
                 if (!$DB->record_exists('role_names', (array)$rolename)) {
-                    $rolename->name = $role->info['nameincourse'];
+                    $rolename->name = $info['nameincourse'];
                     $DB->insert_record('role_names', $rolename);
                 }
             }

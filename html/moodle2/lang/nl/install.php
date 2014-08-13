@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'install', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,90 +52,11 @@ $string['configurationcomplete'] = 'De configuratie is volledig';
 $string['configurationcompletehead'] = 'Configuratie klaar';
 $string['configurationcompletesub'] = 'Moodle probeerde je configuratie te bewaren in een bestand in de root van je installatie.';
 $string['database'] = 'Databank';
-$string['databasecreationsettings'] = 'Nu moet je de databank configureren waar de meeste gegevens van Moodle bewaard zullen worden. Deze databank zal automatisch gecreëerd worden door de Moodle4Windows installatietechnologie met de onderstaande instellingen.<br />
-<br /> <br />
-<b>Type:</b> vastgezet op "mysql" door de installatie.<br />
-<b>Host:</b> vastgezet op "localhost" door de installatie.<br />
-<b>Naam:</b> naam voor de databank, bijvoorbeeld moodle<br />
-<b>Gebruiker:</b> vastgezet op "root" door de installatie.<br />
-<b>Wachtwoord:</b> jouw wachtwoord voor de databank.<br />
-<b>Tabelvoorvoegsel:</b> optionneel voorvoegsel om de naam van alle tabellen mee te beginnen.';
-$string['databasecreationsettingshead'] = 'Nu moet je de databankinstellingen configureren. In deze databank zullen de meeste gegevens van Moodle opgeslagen worden. De databank zal automatisch gemaakt worden door het installatiescript met volgende instellingen.';
-$string['databasecreationsettingssub'] = '<b>Type:</b> "mysql" gekozen door het installatiescript<br />
-<b>Host:</b> "localhost" gekozen door het installatiescript<br />
-<b>Naam:</b> database naam, bv moodle<br />
-<b>Gebruiker:</b> "root" gekozen door het installatiescript<br />
-<b>Wachtwoord:</b> het wachtwoord van jouw databank<br />
-<b>Tabelvoorvoegsel:</b> een voorvoegsel dat je wil gebruiken voor alle tabelnamen.';
-$string['databasecreationsettingssub2'] = '<b>Type:</b> ingesteld als "mysqli" door het installatiescript<br />
-<b>Host:</b> ingesteld als "localhost"  door het installatiescript<br />
-<b>Naam:</b> database naam, bv moodle<br />
-<b>Gebruiker:</b> ingesteld als "root"  door het installatiescript<br />
-<b>Wachtwoord:</b> het wachtwoord van jouw databank<br />
-<b>Tabelvoorvoegsel:</b> een voorvoegsel dat je wil gebruiken voor alle tabelnamen.';
 $string['databasehead'] = 'Databankinstellingen';
 $string['databasehost'] = 'Databank host:';
 $string['databasename'] = 'Datanbanknaam:';
 $string['databasepass'] = 'Databank wachtwoord:';
-$string['databasesettings'] = 'Nu moet je de databank voor de gegevens van Moodle configureren. Deze databank zou je al aangemaakt moeten hebben, samen met een gebruikersnaam en wachtwoord voor toegang tot die databank.<br />
-<br /> <br />
-<b>Type:</b> mysql of postgres7<br />
-<b>Host Server:</b> bv localhost of db.isp.com<br />
-<b>Naam:</b> databanknaam, bv moodle<br />
-<b>Gebruiker: de gebruikersnaam voor je databank<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b> een voorvoegsel dat je wil gebruiken voor alle tabelnamen';
-$string['databasesettingshead'] = 'Nu moet je de databank waarin Moodle geïnstalleerd zal worden, configureren. Deze databank moet al aangemaakt zijn en je hebt een gebruikersnaam en wachtwoord ervan nodig om Moodle toegang te geven.';
-$string['databasesettingssub'] = '<b>Type:</b> mysql of postgres7<br />
-<b>Host:</b> vb localhost of db.isp.com<br />
-<b>Naam:</b> database naam, vb moodle<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b> een voorvoegsel dat je wil gebruiken voor alle tabelnamen';
-$string['databasesettingssub_mssql'] = '<b>Type:</b> SQL*Server (geen UTF-8)<b><strong class="errormsg">Experimenteel! (niet voor gebruik op productiemachine)</strong></b><br />
-<b>Host:</b> vb localhost of db.isp.com<br />
-<b>Naam:</b> database naam, vb moodle<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b>voorvoegsel voor alle tabelnamen (verplicht)';
-$string['databasesettingssub_mssql_n'] = '<b>Type:</b> SQL*Server (UTF-8 ingeschakeld)<br />
-<b>Host:</b> vb localhost of db.isp.com<br />
-<b>Naam:</b> database naam, vb moodle<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b>voorvoegsel voor alle tabelnamen (verplicht)';
-$string['databasesettingssub_mysql'] = '<b>Type:</b> MYSQL<br />
-<b>Host:</b> vb localhost of db.isp.com<br />
-<b>Naam:</b> database naam, vb moodle<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b>een voorvoegsel dat je wil gebruiken voor alle tabelnamen (optioneel)';
-$string['databasesettingssub_mysqli'] = '<b>Type:</b> Improved MySQL<br />
-<b>Host:</b> vb localhost of db.isp.com<br />
-<b>Naam:</b> databank naam, vb moodle<br />
-<b>Gebruiker:</b> Gebruikersnaam van jouw databank<br />
-<b>Wachtwoord:</b> Wachtwoord voor jouw databank<br />
-<b>Tabelvoorvoegsel:</b> voorvoegsel voor alle tabelnamen (optioneel)';
-$string['databasesettingssub_oci8po'] = '<b>Type:</b> Oracle<br />
-<b>Host:</b>niet gebruikt - moet leeggelaten worden<br />
-<b>Naam:</b> database naam of de tnsnames.ora connection<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b>voorvoegsel voor alle tabelnamen (verplicht, 2 tekens maximum)';
-$string['databasesettingssub_odbc_mssql'] = '<b>Type:</b> SQL*Server (over ODBC)<br />
-<b><strong class="errormsg">Experimental! (not for use in production)</strong></b><br />
-<b>Host:</b>De naam van de DSN die je geeft in het ODBC controlescherm<br />
-<b>Naam:</b> database naam vb Moodle<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b>voorvoegsel voor alle tabelnamen (verplicht)';
-$string['databasesettingssub_postgres7'] = '<b>Type:</b> PostgreSQL<br />
-<b>Host:</b> vb localhost of db.isp.com<br />
-<b>Naam:</b> database naam vb Moodle<br />
-<b>Gebruiker:</b> de gebruikersnaam voor jouw database<br />
-<b>Wachtwoord:</b> het wachtwoord voor je databank<br />
-<b>Tabelvoorvoegsel:</b>voorvoegsel voor alle tabelnamen (verplicht)';
-$string['databasesettingswillbecreated'] = '<b>Opmerking:</b> het installatieprogramma zal proberen een databank te maken als die nog niet bestaat.';
+$string['databaseport'] = 'Databank poort';
 $string['databasesocket'] = 'Unix socket';
 $string['databasetypehead'] = 'Kies databankdriver';
 $string['databasetypesub'] = 'Moodle ondersteunt verschillende types databankservers. Contacteer je serverbeheerder als je niet weet welk type je moet gebruiken.';
@@ -151,10 +72,6 @@ $string['dbpass'] = 'Wachtwoord';
 $string['dbport'] = 'Poort';
 $string['dbprefix'] = 'Tabelvoorvoegsel';
 $string['dbtype'] = 'Type';
-$string['dbwrongencoding'] = 'De gekozen databank loopt niet onder Unicode (UTF8), maar onder een ongeschikte encodering ({$a}). Je kunt beter een Unicode (UTF8) databank gebruiken. Als je wil, kun je deze test overslaan door hieronder op "Negeer DB-encodingtest" te klikken, maar je zou hierdoor wel problemen kunnen krijgen.';
-$string['dbwronghostserver'] = 'Je moet de "Host" regels volgen zoals hierboven uitgelegd';
-$string['dbwrongnlslang'] = 'De NLS_LANG omgevingsvariable van je webserver moet de AL32UTF8 tekenset gebruiken. Zie ook je PHP documentatie over hoe OCI8 correct te configureren.';
-$string['dbwrongprefix'] = 'Je moet de "Tabel voorvoegselregels" volgen zoals hierboven beschreven';
 $string['directorysettings'] = '<p>Bevestig de verschillende lokaties voor deze Moodle-installatie.</p>
 
 <p><b>Webadres:</b>
@@ -196,21 +113,6 @@ $string['fileuploadshelp'] = '<p>Het lijkt er op dat het uploaden van bestanden 
 <p>Moodle kan verder geïnstalleerd worden, maar zonder deze mogelijkheid zul je geen cursusmateriaal of afbeeldingen voor de profielen van je gebruikers kunnen uploaden.</p>
 <p>Om het uploaden van bestanden in te schakelen moet je (of je systeembeheerder) php.ini op je systeem bewerken en volgende instelling wijzigen:
 <b>file_uploads</b> op \'1\' zetten.</p>';
-$string['gdversion'] = 'GD-versie';
-$string['gdversionerror'] = 'De GD-bibliotheek moet geïnstalleerd zijn om afbeeldingen te kunnen maken en verwerken';
-$string['gdversionhelp'] = '<p>Blijkbaar is GD niet geïnstalleerd op je server.</p>
-<p>PHP heeft de GD-bibliotheek nodig om afbeeldingen te kunnen maken (zoals de grafieken van de logbestanden) en te verwerken (zoals de profielbestanden van de gebruikers). Moodle zal werken zonder GD - alleen deze mogelijkheden zullen het niet doen.</p>
-<p>Om GD toe te voegen aan PHP op een Unixmachine moet je PHP compileren met de --with-gd parameter.</p>
-<p>Onder Windows kun je gewoonlijk php.ini bewerken en de commentaartekens voor de lijn met php_gd2.dll verwijderen.</p>';
-$string['globalsquotes'] = 'Onveilige behandeling van globals';
-$string['globalsquoteserror'] = 'Zet je PHP instellingen juist: schakel register_globals uit en/of schakel magic_quotes_gpc in';
-$string['globalsquoteshelp'] = '<p>De combinatie van uitgeschakelde Magic Quotes GPC en ingeschakelde Register Globals tegelijk wordt sterk afgeraden.</p>
-
-<p>De aanbevolen instelling is<b>magic_quotes_gpc = On</b> en <b>register_globals = Off</b> in je php.ini</p>
-
-<p>Als je geen toegang hebt tot php.ini, dan kun je misschien volgende lijn toevoegen in het bestand .htaccess in je Moodlemap:
-<blockquote><div>php_value magic_quotes_gpc On</div></blockquote>  <blockquote><div>php_value register_globals Off</div></blockquote>
-</p>';
 $string['inputdatadirectory'] = 'Data map:';
 $string['inputwebadress'] = 'Web adres:';
 $string['inputwebdirectory'] = 'Moodle map:';
@@ -235,13 +137,10 @@ Hierdoor kan Moodle zelf zijn geheugenlimiet instellen.
 <li>Op sommige PHP-servers kun je een .htaccess-bestand maken in de Moodle-map met volgende lijn: <p><blockquote>php_value memory_limit 40M</blockquote></p>
 <p>Opgelet: op sommige servers zal dit verhinderen dat <b>alle</b> PHP-bestanden uitgevoerd worden. (je zult foutmeldingen zien wanneer je naar php-pagina\'s kijkt) Je zult dan het .htaccess-bestand moeten verwijderen.</li>
 </ol>';
-$string['mssql'] = 'SQL*Server (mssql)';
 $string['mssqlextensionisnotpresentinphp'] = 'PHP is niet juist geconfigureerd met de MSSQL-extentie en kan niet communiceren met SQL*Server. Controleer je php.ini-bestand of hercompileer PHP';
-$string['mssql_n'] = 'SQL*Server met UTF-8 ingeschakeld (mssql_n)';
-$string['mysql'] = 'MySQL (mysql)';
-$string['mysqlextensionisnotpresentinphp'] = 'PHP is niet goed geconfigureerd met de MySQL-extentie om met MySQL te communiceren. Controleer je php.ini-bestand of hercompileer PHP.';
-$string['mysqli'] = 'Improved MySQL (mysqli)';
 $string['mysqliextensionisnotpresentinphp'] = 'PHP is niet goed geconfigureerd - het kan niet communiceren met MySQL. Controleer je php.ini bestand of hercompileer PHP. De MySQLi-extentie is niet beschikbaar voor PHP 4.';
+$string['nativemariadb'] = 'MariaDB (native/mariadb)';
+$string['nativemariadbhelp'] = 'Je moet nu de databank configureren. De databank zou kunnen automatisch aangemaakt worden als de opgegeven databankgebruiker de juiste rechten heeft. De gebruikersnaam en wachtwoord moeten al bestaan. het tabelprefix is optioneel.  Deze driver is niet compatibel met de verouderde MyISAM engine.';
 $string['nativemssql'] = 'SQL*Server FreeTDS (native/mssql)';
 $string['nativemssqlhelp'] = 'Nu moet je de databank waar de meeste gegevens van Moodle bewaard worden gaan configureren. Deze databank moet al gemaakt zijn en je moet een gebruikersnaam en wachtwoord hebben om er toegang toe te krijgen. Een tabelprefix is verplicht.';
 $string['nativemysqli'] = 'Improved MySQL (native/mysqli)';
@@ -258,10 +157,7 @@ $string['nativesqlsrv'] = 'SQL*Server Microsoft (native/sqlsrv)';
 $string['nativesqlsrvhelp'] = 'Nu moet je de databank waar de meeste gegevens van Moodle bewaard worden gaan configureren. Deze databank moet al gemaakt zijn en je moet een gebruikersnaam en wachtwoord hebben om er toegang toe te krijgen. Een tabelprefix is verplicht.';
 $string['nativesqlsrvnodriver'] = 'Microsoft Drivers voor SQL Server voor PHP zijn niet geïnstalleerd of niet goed geconfigureerd.';
 $string['nativesqlsrvnonwindows'] = 'Microsoft Drivers voor SQL Server voor PHP bestaan alleen voor het Windows OS';
-$string['oci8po'] = 'Oracle (oci8po)';
 $string['ociextensionisnotpresentinphp'] = 'PHP is niet juist geconfigureerd met de OCI8-extentie en kan niet communiceren met Oracle. Controleer je php.ini-bestand of hercompileer PHP.';
-$string['odbcextensionisnotpresentinphp'] = 'PHP is niet juist geïnstalleerd met de ODBC-extentie en kan niet communiceren met SQL*Server. Controleer je php.ini-bestand of hercompileer PHP.';
-$string['odbc_mssql'] = 'SQL*Server over ODBC (odbc_mssql)';
 $string['pass'] = 'OK';
 $string['paths'] = 'Paden';
 $string['pathserrcreatedataroot'] = 'Datamap ({$a->dataroot}) kan niet aangemaakt worden door het installatiescript';
@@ -280,7 +176,6 @@ $string['phpextension'] = '{$a} PHP-extentie';
 $string['phpversion'] = 'PHP-versie';
 $string['phpversionhelp'] = '<p>Moodle heeft minstens PHP-versie 4.3.0 of 5.1.0 nodig (5.0.x heeft veel bekende problemen).</p> <p>De huidige versie op je server is {$a}</p>
 <p>Je moet PHP upgraden of verhuizen naar een host met een nieuwere versie van PHP!<br />(Als je 5.0.x draait, kun je ook downgraden naar versie 4.4.x)</p>';
-$string['postgres7'] = 'PostgreSQL (postgres 7)';
 $string['releasenoteslink'] = 'Informatie over deze Moodleversie kun je vinden in de Release Notes op {$a}';
 $string['safemode'] = 'Safe Mode';
 $string['safemodeerror'] = 'Moodle kan bestanden niet juist behandelen met safe mode ingeschakeld';
@@ -291,7 +186,6 @@ $string['sessionautostart'] = 'Session Auto Start';
 $string['sessionautostarterror'] = 'Dit moet uitgeschakeld zijn';
 $string['sessionautostarthelp'] = '<p>Moodle heeft session support nodig en zal zonder niet werken.</p>
 <p>Sessies kunnen ingeschakeld worden in het php.ini-bestand ... zoek naar de session.auto_start parameter.</p>';
-$string['skipdbencodingtest'] = 'Negeer DB-encodingtest';
 $string['sqliteextensionisnotpresentinphp'] = 'PHP is niet juist geconfigureerd met de SQLite extentie. Controleer je php.ini-bestand of hercompileer PHP.';
 $string['upgradingqtypeplugin'] = 'Upgraden vraagtype plugin';
 $string['welcomep10'] = '{$a->installername} ({$a->installerversion})';

@@ -9,6 +9,49 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		$this->variables = null;
 		$this->checks = null;
 	}}
+	public function getAssertionChecks($correctAnswer, $studentAnswer) {
+		if($this->checks !== null) {
+			$answerChecks = $this->checks->get("" . _hx_string_rec($studentAnswer, ""));
+			if($answerChecks !== null) {
+				$res = new _hx_array(array());
+				$i = null;
+				{
+					$_g1 = 0; $_g = $answerChecks->length;
+					while($_g1 < $_g) {
+						$i1 = $_g1++;
+						$ca = _hx_array_get($answerChecks, $i1)->getCorrectAnswers();
+						$j = null;
+						{
+							$_g3 = 0; $_g2 = $ca->length;
+							while($_g3 < $_g2) {
+								$j1 = $_g3++;
+								if($ca[$j1] === $correctAnswer) {
+									$res->push($answerChecks[$i1]);
+								}
+								unset($j1);
+							}
+							unset($_g3,$_g2);
+						}
+						unset($j,$i1,$ca);
+					}
+				}
+				return $res;
+			}
+		}
+		return null;
+	}
+	public function getStudentAnswer($index) {
+		if($this->userData->answers !== null && $index < $this->userData->answers->length) {
+			$a = $this->userData->answers[$index];
+			if($a !== null) {
+				return $a->content;
+			}
+		}
+		return null;
+	}
+	public function setStudentAnswer($index, $answer) {
+		$this->userData->setUserAnswer($index, $answer);
+	}
 	public function setCasSession($session) {
 		if($session !== null && strlen(trim($session)) > 0) {
 			$this->setLocalData(com_wiris_quizzes_impl_LocalData::$KEY_CAS_SESSION, $session);
@@ -293,9 +336,6 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		}
 		return $n + 1;
 	}
-	public function normalizeGrade($g) {
-		return Math::ceil($g * 100.0) / 100.0;
-	}
 	public function isNumberPart($c) {
 		$parts = new _hx_array(array(".", "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"));
 		$i = null;
@@ -428,7 +468,7 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 				$grade = (($correct) ? 1.0 : 0.0);
 			}
 		}
-		return $this->normalizeGrade($grade);
+		return $grade;
 	}
 	public function isAnswerCorrect($answer) {
 		$correct = true;
@@ -456,8 +496,10 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 				while($_g1 < $_g) {
 					$i1 = $_g1++;
 					$c = $checks[$i1];
-					if($c->getCorrectAnswer() === $correctAnswer) {
-						$correct = $correct && $c->value === 1.0;
+					if(!(StringTools::startsWith($c->getAssertionName(), "syntax") && ($c->getAnswers()->length > 1 || $c->getCorrectAnswers()->length > 1))) {
+						if($c->getCorrectAnswer() === $correctAnswer) {
+							$correct = $correct && $c->value === 1.0;
+						}
 					}
 					unset($i1,$c);
 				}

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,22 +33,28 @@ $string['autocreation_settings'] = 'Ikastaroak era automatikoak sortzeko zehazta
 $string['bind_dn'] = 'Erabiltzaileak bilatzeko \'bin-user\' erabili nahi baduzu, zehaztu hemen. Horrelako zerbait \'cn=ldapuser,ou=public,o=org\'';
 $string['bind_pw'] = '\'Bind-user\'rentzako pasahitza';
 $string['bind_pw_key'] = 'Pasahitza';
+$string['bind_settings'] = 'Bind ezarpenak';
 $string['category'] = 'Era automatikoan sortutako ikastaroetarako kategoria';
 $string['category_key'] = 'Kategoria';
 $string['contexts'] = 'LDAP kontestuak';
 $string['course_fullname'] = 'Aukerakoa: LDAP eremua zeinetatik lortuko den izen osoa.';
 $string['course_fullname_key'] = 'Izen osoa';
+$string['course_fullname_updateonsync_key'] = 'Egunearatu izen osoa';
 $string['course_idnumber'] = 'Identikatzaile bakarraren mapa LADPn, ohikoena <em>cn</em> edo <em>uid</em>. Balorea blokeatzea gomendatzen da ikastaroa sortzeko era automatikoa erabiltzen ari bada.';
 $string['course_idnumber_key'] = 'ID zenbakia';
 $string['course_search_sub_key'] = 'Bilatu azpitestuinguruak';
 $string['course_settings'] = 'Ikastaroan matrikulatzeko ezarpenak';
 $string['course_shortname'] = 'Aukerakoa:  LDAP eremua zeinetatik lortuko den izen laburra.';
 $string['course_shortname_key'] = 'Izen laburra';
+$string['course_shortname_updateonsync_key'] = 'Eguneratu izen laburra';
 $string['course_summary'] = 'Aukerakoa:  LDAP eremua zeinetatik lortuko den laburpena.';
 $string['course_summary_key'] = 'Laburpena';
+$string['course_summary_updateonsync_key'] = 'Eguneratu laburpena';
+$string['creatingcourse'] = '\'{$a}\' ikastaroa sortzen...';
 $string['editlock'] = 'Balorea blokeatu';
 $string['enrolname'] = 'LDAP';
 $string['enroluser'] = 'Matrikulatu \'{$a->user_username}\' erabiltzailea \'{$a->course_shortname}\' ikastaroan (id {$a->course_id})';
+$string['extremovedsuspend'] = 'Desgaitutako matrikulazioa \'{$a->user_username}\' erabiltzailearentzat \'{$a->course_shortname}\' ikastaroan (id {$a->course_id})';
 $string['extremovedunenrol'] = 'Desmatrikulatu \'{$a->user_username}\' erabiltzailea \'{$a->course_shortname}\' ikastarotik (id {$a->course_id})';
 $string['failed'] = 'Kale egin du!';
 $string['general_options'] = 'Aukera orokorrak';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_cas', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_cas', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_cas
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,8 +35,8 @@ host.domaine.fr/CAS/에 응답한다면
 $string['auth_cas_baseuri_key'] = '기반 URI';
 $string['auth_cas_broken_password'] = '비밀번호 변경없이는 계속할 수 없습니다만, 비밀번호를 바꿀 방법이 없습니다. 무들 관리자에게 연락하기 바랍니다.';
 $string['auth_cas_cantconnect'] = 'CAS모듈의 LDAP 부분만으로는 {$a} 서버에 연결할 수 없습니다.';
-$string['auth_cas_casversion'] = 'CAS 프로토콜 버전';
-$string['auth_cas_certificate_check'] = '서버 인증서를 유효화하고자 하는 경우 \'예\'를 선택하십시오';
+$string['auth_cas_casversion'] = '판번호';
+$string['auth_cas_certificate_check'] = '서버 인증서의 유효성을 검사하려는 경우 \'예\'를 이것을 켜십시오';
 $string['auth_cas_certificate_check_key'] = '서버 인증';
 $string['auth_cas_certificate_path'] = '서버 인증서의 유효성을 검사하기 위한 CA 체인 파일(PEM 형식) 경로';
 $string['auth_cas_certificate_path_empty'] = '만일 서버 인증을 켜 놓으면 인증서 경로를 명시할 필요가 있습니다.';
@@ -49,23 +49,23 @@ $string['auth_cas_enabled'] = 'CAS인증을 사용하기 원한다면 이것을 
 $string['auth_cas_hostname'] = 'CAS서버의 호스트네임 <br />예: host.domain.fr';
 $string['auth_cas_hostname_key'] = '호스트명';
 $string['auth_cas_invalidcaslogin'] = '죄송합니다. 로그인 실패 - 당신은 인증받지 못했습니다.';
-$string['auth_cas_language'] = '인증페이지를 위한 언어를 선택하세요.';
+$string['auth_cas_language'] = '선택된 언어';
 $string['auth_cas_language_key'] = '언어';
 $string['auth_cas_logincas'] = '보안 연결 접속';
-$string['auth_cas_logoutcas'] = '무들에서 나올때 CAS에서도 로그아웃하려면 \'예\'를 선택하십시요.';
-$string['auth_cas_logoutcas_key'] = 'CAS 로그아웃 옵션';
+$string['auth_cas_logoutcas'] = '무들을 끝낼 때 CAS에서 로그아웃하려면 이 난을 \'예\'로 하시오';
+$string['auth_cas_logoutcas_key'] = 'CAS 로그아웃';
 $string['auth_cas_logout_return_url_key'] = '로그아웃 리턴 URL';
-$string['auth_cas_multiauth'] = '다중 인증(CAS+기타 인증)을 하려면  \'예\'를 선택하십시요';
+$string['auth_cas_multiauth'] = '다중 인증(CAS+기타 인증)을 하려면 이 난을 \'예\'로 하시오';
 $string['auth_cas_multiauth_key'] = '다중 인증';
 $string['auth_casnotinstalled'] = 'CAS인증을 사용할 수 없음. PHP의 LDAP모듈이 장착되지 않았음.';
 $string['auth_cas_port'] = 'CAS서버의 포트';
 $string['auth_cas_port_key'] = '포트';
-$string['auth_cas_proxycas'] = '프록시 모드에서 CAS를 사용하려면 \'예\'를 선택하십시요.';
+$string['auth_cas_proxycas'] = '프록시 모드에서 CAS를 사용하려면 이 난을 \'예\'로 하시오';
 $string['auth_cas_proxycas_key'] = '프록시 모드';
 $string['auth_cas_server_settings'] = 'CAS서버 설정';
 $string['auth_cas_text'] = '보안 연결';
 $string['auth_cas_use_cas'] = 'CAS 사용';
-$string['auth_cas_version'] = '사용할 CAS 프로토콜 버전';
+$string['auth_cas_version'] = 'CAS의 판번호';
 $string['CASform'] = '인증서 선택';
 $string['noldapserver'] = 'CAS를 위한 LDAP 서버가 구성되지 않았습니다. 동기화가 비활성화 되었습니다.';
 $string['pluginname'] = 'CAS서버(SSO) 사용';

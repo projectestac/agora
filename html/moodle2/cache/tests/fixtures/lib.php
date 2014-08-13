@@ -59,6 +59,14 @@ class cache_config_phpunittest extends cache_config_writer {
     }
 
     /**
+     * Removes a definition.
+     * @param string $name
+     */
+    public function phpunit_remove_definition($name) {
+        unset($this->configdefinitions[$name]);
+    }
+
+    /**
      * Removes the configured stores so that there are none available.
      */
     public function phpunit_remove_stores() {
@@ -250,9 +258,9 @@ class cache_phpunit_application extends cache_application {
      * @param string $key
      * @return false|mixed
      */
-    public function phpunit_get_directly_from_staticaccelerationarray($key) {
+    public function phpunit_static_acceleration_get($key) {
         $key = $this->parse_key($key);
-        return $this->get_from_persist_cache($key);
+        return $this->static_acceleration_get($key);
     }
 }
 

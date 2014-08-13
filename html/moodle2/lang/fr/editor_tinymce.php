@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -349,7 +349,7 @@ $string['contextmenu:right'] = 'Droite';
 $string['customconfig'] = 'Configuration personnalisée';
 $string['customconfig_desc'] = 'Configuration personnalisée avancée de TinyMCE en format JSON, par exemple : {"option1" : "valeur1", "option2" : "valeur2"}. Les options indiquées ici auront précédence sur les réglages standards et ceux des plugins.';
 $string['customtoolbar'] = 'Barre d\'édition';
-$string['customtoolbar_desc'] = 'Chaque ligne contient une liste de noms de boutons, séparés par des virgules. Le caractère « | » est utilisé comme séparateur de groupes. Les lignes vides sont ignorées. Voir sur <a href="{$a}" target="_blank">{$a}</a> la liste des boutons TinyMCE par défaut.';
+$string['customtoolbar_desc'] = 'Chaque ligne contient une liste de noms de boutons, séparés par des virgules. Le mot « wrap » doit être utilisé comme séparateur de groupes. Les lignes vides sont ignorées. Voir sur <a href="{$a}" target="_blank">{$a}</a> la liste des boutons TinyMCE par défaut.<br />La première rangée de boutons est toujours affichée, alors que la visibilité des deuxième et troisième rangées peut être activée ou non.';
 $string['directionality:ltr_desc'] = 'Écriture de gauche à droite';
 $string['directionality:rtl_desc'] = 'Écriture de droite à gauche';
 $string['emotions:delta_height'] = '';
@@ -715,7 +715,7 @@ $string['style_dlg:top'] = 'Haut';
 $string['style_dlg:visibility'] = 'Visibilité';
 $string['style_dlg:width'] = 'Largeur';
 $string['style_dlg:zindex'] = 'Z-index';
-$string['subplugindeleteconfirm'] = 'Vous êtes sur le point de supprimer le plugin additionnel « {$a} » de TinyMCE. Ceci supprimera totalement de la base de données tout ce qui est associé à ce composant. Voulez-vous vraiment continuer ?';
+$string['subplugintype_tinymce'] = 'Plugin';
 $string['subplugintype_tinymce_plural'] = 'Plugins';
 $string['table:cell'] = 'Cellule';
 $string['table:cell_desc'] = 'Propriétés de la cellule';
@@ -831,7 +831,7 @@ $string['template_dlg:months_short'] = 'Jan,Fév,Mar,Avr,Mai,Juin,Juil,Août,Sep
 $string['template_dlg:preview'] = 'Prévisualisation';
 $string['template_dlg:select'] = 'Choisir un modèle';
 $string['template_dlg:title'] = 'Modèles';
-$string['template_dlg:warning'] = 'Attention : Mettre à jour un modèle pour un autre peut entraîner une perte de données !';
+$string['template_dlg:warning'] = 'Attention : la modification d\'un modèle sur la base d\'un autre peut entraîner une perte de données !';
 $string['visualblocks:desc'] = 'Afficher/cacher les éléments blocs';
 $string['visualchars:desc'] = 'Afficher/cacher les caractères de mise en page.';
 $string['wordcount:words'] = 'Mots :';

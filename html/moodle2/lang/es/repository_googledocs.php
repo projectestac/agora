@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_googledocs', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_googledocs', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_googledocs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configurar extensión Google Docs';
-$string['googledocs:view'] = 'Ver repositorio Google Docs';
-$string['pluginname'] = 'Google Docs';
+$string['configplugin'] = 'Configurar extensión Google Drive';
+$string['googledocs:view'] = 'Ver repositorio Google Drive';
+$string['oauthinfo'] = '<p> Para utilizar este plugin, debe registrar su sitio en Google, como se describe en la documentación <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p> Como parte del proceso de registro, tendrá que introducir la siguiente URL como "Authorized Redirect URIs \': </p><p> {$a->callbackurl} </p> Una vez registrado, se le proporcionará un ID de cliente y el secreto que se puede utilizar para configurar los plugins de Google Drive y Picasa.</p><p>Tenga en cuenta que tiene que habilitar el servicio "Drive API".</p>';
+$string['pluginname'] = 'Google Drive';

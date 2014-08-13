@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_comments', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_comments', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_comments
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['comments:addinstance'] = '新增一个评论版块';
+$string['comments:myaddinstance'] = '在我的首页新增一个评论版块';
 $string['pluginname'] = '评论';

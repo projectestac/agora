@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -142,6 +142,7 @@ $string['navigationfrom_help'] = 'Страницы Вики, ссылающие�
 $string['navigationto'] = 'Эта страница ведет на';
 $string['navigationto_help'] = 'Ссылки на другие страницы.';
 $string['newpage'] = 'Новая';
+$string['newpagehdr'] = 'Новая страница';
 $string['newpagetitle'] = 'Заголовок новой страницы';
 $string['noattachments'] = '<strong>Не прикреплен ни один файл</strong>';
 $string['nocomments'] = 'Нет комментариев';
@@ -189,6 +190,7 @@ $string['pluginadministration'] = 'Управление вики';
 $string['pluginname'] = 'Вики';
 $string['prettyprint'] = 'Версия для печати';
 $string['previewwarning'] = 'Это только предварительный просмотр. Изменения пока не сохранены.';
+$string['print'] = 'Печать';
 $string['rated'] = 'Вы оценили эту страницу на {$a}';
 $string['rating'] = 'Рейтинг';
 $string['ratingmode'] = 'Метод рейтингования';

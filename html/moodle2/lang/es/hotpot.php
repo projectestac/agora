@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -289,7 +289,7 @@ $string['gradeweighting_help'] = 'Las calificaciones de esta actividad HotPot se
 $string['highestscore'] = 'Puntuación más alta';
 $string['hints'] = 'Ayudas';
 $string['hotpot:addinstance'] = 'Añadir una nueva actividad HotPot';
-$string['hotpot:attempt'] = 'Intentar realizar una actividad HotPot y enviar resultados';
+$string['hotpot:attempt'] = 'Contestar un cuestionario';
 $string['hotpot:deleteallattempts'] = 'Eliminar los intentos de usuario de las actividades HotPot';
 $string['hotpot:deletemyattempts'] = 'Eliminar sus propios intentos en una actividad HotPot';
 $string['hotpot:ignoretimelimits'] = 'Ignorar tiempos límites en una actividad HotPot';
@@ -298,7 +298,7 @@ $string['hotpotname'] = 'Nombre de la actividad HotPot';
 $string['hotpot:preview'] = 'Previsualizar una actividad HotPot';
 $string['hotpot:reviewallattempts'] = 'Ver los intentos de usuario de una actividad';
 $string['hotpot:reviewmyattempts'] = 'Ver sus propios intentos en una actividad HotPot';
-$string['hotpot:view'] = 'Ver la página de entrada de una actividad HotPot';
+$string['hotpot:view'] = 'Usar cuestionario';
 $string['ignored'] = 'Ignorado';
 $string['inprogress'] = 'En curso';
 $string['isgreaterthan'] = 'is mayor que';
@@ -323,7 +323,7 @@ Una actividad HotPot puede manejar ejercicios creados con los siguientes program
 * Xerte
 * iSpring
 * acualquier editor de HTML';
-$string['modulenameplural'] = 'HotPots';
+$string['modulenameplural'] = 'Hot Potatoes Quizzes';
 $string['nameadd'] = 'Nombre';
 $string['nameadd_help'] = 'El nombre puede ser un texto específico introducido por el profesor o puede ser generado de forma automática.
 
@@ -377,7 +377,7 @@ $string['noreviewbeforeclose'] = 'Lo sentimos, este cuestionario está ya cerrad
 $string['nosourcefilesettings'] = 'A este HotPot le falta la información de archivo';
 $string['notavailable'] = 'Lo sentimos, esta actividad no está actualmente isponible para usted.';
 $string['outputformat'] = 'Formato de salida';
-$string['outputformat_best'] = 'El mejor';
+$string['outputformat_best'] = 'el mejor posible';
 $string['outputformat_help'] = 'El formato de salida especifica cómo se presentará el contenido al estudiante.
 
 Los formatos de salida disponibles dependen del tipo de archivo de origen. Algunos tipos de archivos de origen tienen solo un formato de salida, mientras que otros tienen varios.
@@ -391,7 +391,7 @@ $string['overviewreport'] = 'Información general';
 $string['penalties'] = 'Penalizaciones';
 $string['percent'] = 'Porcentaje';
 $string['pluginadministration'] = 'Administración de HotPot';
-$string['pluginname'] = 'Módulo HotPot';
+$string['pluginname'] = 'Hot Potatoes Quiz';
 $string['pressoktocontinue'] = 'Presione OK para cotinuar, o Cancelar para permanecer en la página actual.';
 $string['questionshort'] = 'Q-{$a}';
 $string['quizname_help'] = 'texto de ayuda para el nombre del cuestionario';
@@ -453,8 +453,8 @@ $string['subplugintype_hotpotreport_plural'] = 'Informes';
 $string['subplugintype_hotpotsource'] = 'Archivo de origen';
 $string['subplugintype_hotpotsource_plural'] = 'Archivos de origen';
 $string['textsourcefile'] = 'Obtener del archivo de origen';
-$string['textsourcefilename'] = 'Usar nombre del archivo origen';
-$string['textsourcefilepath'] = 'Usar ruta del archivo origen';
+$string['textsourcefilename'] = 'Usar nombre de archivo';
+$string['textsourcefilepath'] = 'Usar ruta de archivo';
 $string['textsourcequiz'] = 'Obtener de cuestionario';
 $string['textsourcespecific'] = 'Texto específico';
 $string['timeclose'] = 'Disponible hasta';

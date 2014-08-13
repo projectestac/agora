@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_mail', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_mail', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   local_mail
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,18 +29,24 @@ $string['addbcc'] = 'Add Bcc';
 $string['addcc'] = 'Add Cc';
 $string['addrecipients'] = 'Add recipients';
 $string['addto'] = 'Add To';
+$string['advsearch'] = 'Advanced search';
 $string['all'] = 'All';
 $string['applychanges'] = 'Apply';
 $string['assigntonewlabel'] = 'Assign to a new label...';
 $string['attachments'] = 'Attachments';
 $string['attachnumber'] = '{$a} attachments';
 $string['bcc'] = 'Bcc';
+$string['bulkmessage'] = 'With selected users send a local mail...';
 $string['cancel'] = 'Cancel';
 $string['cannotcompose'] = 'You cannot compose messages because you are not enrolled in any courses.';
 $string['cc'] = 'Cc';
 $string['compose'] = 'Compose';
 $string['continue'] = 'Continue';
 $string['courses'] = 'Courses';
+$string['cronduration'] = 'Cron duration';
+$string['cronenabled'] = 'Cron enabled';
+$string['cronstart'] = 'Cron start';
+$string['cronstop'] = 'Cron stop';
 $string['delete'] = 'Delete';
 $string['discard'] = 'Discard';
 $string['draft'] = 'Draft';
@@ -53,7 +59,7 @@ $string['erroremptyrecipients'] = 'Please specifiy at least one recipient.';
 $string['erroremptysubject'] = 'Please specify a subject.';
 $string['errorinvalidcolor'] = 'Invalid color';
 $string['errorrepeatedlabelname'] = 'Label name already exists';
-$string['filterbydate'] = 'Date';
+$string['filterbydate'] = 'Date (up to the day):';
 $string['forward'] = 'Forward';
 $string['from'] = 'From';
 $string['inbox'] = 'Inbox';
@@ -63,6 +69,9 @@ $string['labelcolor'] = 'Color';
 $string['labeldeleteconfirm'] = 'You are about to completely delete the label \'{$a}';
 $string['labelname'] = 'Name';
 $string['labels'] = 'Labels';
+$string['mail:addinstance'] = 'Add a new mail';
+$string['mailupdater'] = 'Mail updater';
+$string['mail:usemail'] = 'Use mail';
 $string['markasread'] = 'Mark as read';
 $string['markasstarred'] = 'Mark as starred';
 $string['markasunread'] = 'Mark as unread';
@@ -102,6 +111,7 @@ $string['replyall'] = 'Reply all';
 $string['restore'] = 'Restore';
 $string['save'] = 'Save';
 $string['search'] = 'Search';
+$string['searchbyattach'] = 'Has attachment';
 $string['searchbyunread'] = 'Unread only';
 $string['send'] = 'Send';
 $string['sendmessage'] = 'Send a message';

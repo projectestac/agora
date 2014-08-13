@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,7 @@ $string['assessmentstartevent'] = '{$a} (aberto para avaliacións)';
 $string['editsubmission'] = 'Editar envío';
 $string['exampleneedsubmission'] = 'Debe enviar o seu traballo e avaliar todos os envíos de exemplo primeiro';
 $string['examplesubmissions'] = 'Envíos de exemplo';
+$string['feedbacksettings'] = 'Comentarios';
 $string['gradinggrade'] = 'Cualificación para avaliación';
 $string['info'] = 'Información';
 $string['latesubmissions_help'] = 'De estar activado, un autor pode entregar o seu traballo despois da data límite de entrega ou durante a fase de avaliación. As entregas posteriores non se poden editar.';

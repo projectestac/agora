@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_url', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_url', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'URIリポジトリタイプ設定';
+$string['configplugin'] = 'URLリポジトリタイプ設定';
 $string['download'] = 'ダウンロード';
-$string['pluginname'] = 'URIダウンローダ';
+$string['pluginname'] = 'URLダウンローダ';
 $string['rename'] = '名称';
-$string['url'] = 'URI';
-$string['url:view'] = 'ファイルピッカ内のURIダウンローダを使用する';
-$string['validfiletype'] = 'あなたはイメージファイルまたはイメージを含むページのURIを提供する必要があります。';
+$string['url'] = 'URL';
+$string['url:view'] = 'ファイルピッカ内のURLダウンローダを使用する';
+$string['validfiletype'] = 'あなたはイメージファイルまたはイメージを含むページのURLを提供する必要があります。';
 $string['validname'] = '有効なファイル名を入力してください。';

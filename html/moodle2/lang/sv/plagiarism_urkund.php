@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_urkund', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism_urkund', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_urkund
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,15 +40,15 @@ $string['savedconfigsuccess'] = 'Plagiarisminställningar sparade';
 $string['showwhenclosed'] = 'När aktiviteten stängde';
 $string['similarity'] = 'URKUND';
 $string['studentdisclosure'] = 'Elevavslöjande';
-$string['studentdisclosuredefault'] = 'Alla filer som laddas upp kommer att lämnas in för plagiarismsökning med URKUND, om du vill förhindra att ditt dokument används som källa för analys utanför denna webbplats av andra organisationer kan du använda hoppa av länken som visas efter att rapporten har genererats.';
+$string['studentdisclosuredefault'] = 'Alla filer som laddas upp kommer att lämnas in för plagiarismsökning med URKUND. Om du vill förhindra att ditt dokument används som källa för analys utanför denna webbplats av andra organisationer kan du använda hoppa av länken som visas efter att rapporten har genererats.';
 $string['studentdisclosure_help'] = 'Denna text kommer att visas för alla elever på filuppladdningssidan.';
 $string['studentemailcontent'] = 'Filen du skickade in till {$a->modulename} i {$a->coursename} har nu granskats av antiplagiarismverktyget URKUND. {$a->modulelink}
 
-Om du vill förhindra att ditt dokument används som en källa för analys utanför denna webbplats av andra organisationer kan du använda denna länk för att hoppa av:. {$a->optoutlink}';
-$string['studentemailsubject'] = 'Filen processad av URKUND';
+Om du vill förhindra att ditt dokument används som en källa för analys utanför denna webbplats av andra organisationer kan du använda denna länk för att hoppa av. {$a->optoutlink}';
+$string['studentemailsubject'] = 'Filen bearbetades av URKUND';
 $string['submitondraft'] = 'Skicka in fil vid första uppladdning';
 $string['submitonfinal'] = 'Skicka in fil när elev skickar in för betygsättning';
-$string['toolarge'] = 'Denna fil är för stor för att processas av URKUND';
+$string['toolarge'] = 'Denna fil är för stor för att bearbetas av URKUND';
 $string['unknownwarning'] = 'Ett fel inträffade vid försök att skicka denna fil till URKUND';
 $string['unsupportedfiletype'] = 'Denna filtyp stöds inte av URKUND';
 $string['urkund'] = 'URKUND instiksmodul mot plagiarism';
@@ -67,11 +67,11 @@ $string['urkund_receiver'] = 'Mottagaradress';
 $string['urkund_receiver_help'] = 'Detta är den unika adressen för läraren tillhandahållen av URKUND';
 $string['urkund:resetfile'] = 'Tillåt läraren att skicka filen till Urkund efter ett fel';
 $string['urkund_show_student_report'] = 'Visa likhetsrapport för elev';
-$string['urkund_show_student_report_help'] = 'Likhetsrapporten ger en nedbrytning av vilka delar av inskickningen som är plagiat och platsen där URKUND först såg detta innehåll';
+$string['urkund_show_student_report_help'] = 'Likhetsrapporten ger en uppdelning av vilka delar av inskickningen som är plagiat och platsen där URKUND först såg detta innehåll';
 $string['urkund_show_student_score'] = 'Visa likhetspoäng för elev';
 $string['urkund_show_student_score_help'] = 'Likhetspoäng är det procenttal av inskickningen som har matchats mot annat innehåll.';
 $string['urkund_studentemail'] = 'Skicka elev e-post';
-$string['urkund_studentemail_help'] = 'Detta kommer skicka ett e-postmeddelande till eleven när en fil har processats för att låta eleven veta att en rapport är tillgänglig, e-postmeddelandet inkluderar även opt-out länken.';
+$string['urkund_studentemail_help'] = 'Detta kommer att skicka ett e-postmeddelande till eleven när en fil har bearbetats för att låta dem veta att en rapport är tillgänglig. E-postmeddelandet innehåller även opt-out länken.';
 $string['urkund_username'] = 'Användarnamn';
 $string['urkund_username_help'] = 'Användarnamn tillhandahållet av URKUND för åtkomst till API:et';
 $string['urkund:viewreport'] = 'Tillåt läraren att se den fullständiga rapporten från URKUND';

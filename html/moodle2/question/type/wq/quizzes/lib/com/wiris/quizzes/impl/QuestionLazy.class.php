@@ -66,6 +66,24 @@ class com_wiris_quizzes_impl_QuestionLazy extends com_wiris_quizzes_impl_Questio
 			return $this->id !== null;
 		}
 	}
+	public function getAlgorithm() {
+		return $this->getImpl()->getAlgorithm();
+	}
+	public function setAlgorithm($session) {
+		$this->getImpl()->setAlgorithm($session);
+	}
+	public function getCorrectAnswer($index) {
+		return $this->getImpl()->getCorrectAnswer($index);
+	}
+	public function setCorrectAnswer($index, $answer) {
+		$this->getImpl()->setCorrectAnswer($index, $answer);
+	}
+	public function setAnswerFieldType($type) {
+		$this->getImpl()->setAnswerFieldType($type);
+	}
+	public function setOption($name, $value) {
+		$this->getImpl()->setOption($name, $value);
+	}
 	public function addAssertion($name, $correctAnswer, $studentAnswer, $parameters) {
 		$this->getImpl()->addAssertion($name, $correctAnswer, $studentAnswer, $parameters);
 	}

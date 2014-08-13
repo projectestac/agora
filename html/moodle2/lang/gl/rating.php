@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['allratingsforitem'] = 'Todas as puntuacións entregadas';
 $string['noratings'] = 'Non se entregaron puntuacións';
+$string['rolewarning_help'] = 'Para entregar puntuacións dos usuarios requírese a capacidade moodle/rating:rate e calquera módulo específico sobre capacidades. Os usuarios cos seguintes roles asignados deberían quen de puntuar ítems. A lista de roles pode engadirse por medio da ligazón de permisos no bloque de administración.';

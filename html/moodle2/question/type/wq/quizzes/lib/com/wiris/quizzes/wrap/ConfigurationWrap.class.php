@@ -4,7 +4,7 @@ class com_wiris_quizzes_wrap_ConfigurationWrap implements com_wiris_quizzes_api_
 	public function __construct($config) {
 		if(!php_Boot::$skip_constructor) {
 		$this->config = $config;
-		$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+		$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 	}}
 	public function get($key) {
 		try {

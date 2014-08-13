@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_description', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_description', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_description
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,9 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['informationtext'] = 'Texto informativo';
 $string['pluginname'] = 'Descrición';
-$string['pluginnameadding'] = 'Engadir unha descrición';
-$string['pluginnameediting'] = 'Editar unha descrición';
-$string['pluginname_help'] = 'Unha descrición non é realmente un tipo de pregunta. Simplemente permite que se presente texto sen requirir ningunha resposta, de modo semellante a unha lenda na páxina do curso.
+$string['pluginnameadding'] = 'Engadindo unha descrición';
+$string['pluginnameediting'] = 'Editando unha descrición';
+$string['pluginname_help'] = 'Unha descrición non é realmente un tipo de pregunta. Simplemente activa que se presente un texto sen requirir ningunha resposta, como se fose unha etiqueta na páxina do curso.
 
-O texto da pregunta preséntase xunto a ela durante o intento e na páxina de revisión. Calquera comentario xeral preséntase soamente na páxina de revisión.';
-$string['pluginnamesummary'] = 'Esta non é unha pregunta. Polo contrario, é unha maneira de engadir instrucións, rúbrica ou outro contido á actividade. É semellante á maneira en que as lendas se usan para engadir contido na páxina do curso.';
+O texto da pregunta preséntase tanto durante o intento coma na páxina de revisión. Calquera comentario xeral se presenta unicamente na páxina de revisión.';
+$string['pluginnamesummary'] = 'Esta non é actualmente unha pregunta. En lugar diso é unha maneira de engadir algunhas instrucións, sinaturas ou outro contido á actividade. Isto é semellante á maneira en se poden utilizar as etiquetas para engadir contido á páxina do curso.';

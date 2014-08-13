@@ -38,8 +38,6 @@ require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_adaptivenopenalty extends qbehaviour_adaptive {
-    const IS_ARCHETYPAL = true;
-
     protected function adjusted_fraction($fraction, $prevtries) {
         return $fraction;
     }

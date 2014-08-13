@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendance', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendance', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   attendance
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -89,6 +89,7 @@ $string['deletingstatus'] = 'Supprimer le staut pour le cours';
 $string['description'] = 'Description';
 $string['display'] = 'Affichage';
 $string['displaymode'] = 'Mode d\'affichage';
+$string['donotusepaging'] = 'Ne pas utiliser la pagination';
 $string['downloadexcel'] = 'Télécharger en format Excel';
 $string['downloadooo'] = 'Télécharger en format OpenOffice';
 $string['downloadtext'] = 'Télécharger en format texte';
@@ -117,13 +118,21 @@ Vous pouvez utiliser cette fonction pour cacher d\'anciennes sessions au lieu de
 $string['identifyby'] = 'Identifier l\'étudiant par';
 $string['includeall'] = 'Sélectionner toutes les sessions';
 $string['includenottaken'] = 'Inclure les sessions non renseignées';
+$string['includeremarks'] = 'Inclure des remarques';
 $string['indetail'] = 'Détails...';
+$string['invalidsessionenddate'] = 'La date de fin de session ne peut être antérieure à la date de début de session.';
 $string['jumpto'] = 'Aller à';
 $string['Lacronym'] = 'R';
 $string['Lfull'] = 'Retard';
 $string['modulename'] = 'Présence';
+$string['modulename_help'] = 'Le module d\'activité présence permet à un enseignant d\'enregistrer les présences aux cours et permet aux étudiants de visualiser leurs présences.
+
+L\'enseignant peut créer plusieurs sessions et noter les participations comme « Présent », « Absent », « Retard » ou « Excusé » et modifier les statuts si besoin.
+
+Les rapports sont disponibles pour la classe entière ou individuellement pour chaque étudiant.';
 $string['modulenameplural'] = 'Présences';
 $string['months'] = 'Mois';
+$string['moreattendance'] = 'Les présences ont bien été enregistrées';
 $string['myvariables'] = 'Mes Variables';
 $string['newdate'] = 'Nouvelle date';
 $string['newduration'] = 'Nouvelle durée';
@@ -146,11 +155,15 @@ $string['period'] = 'Fréquence';
 $string['Pfull'] = 'Présent';
 $string['pluginadministration'] = 'Administration de Présence';
 $string['pluginname'] = 'Présence';
+$string['remark'] = 'Remarques pour : {$a}';
 $string['remarks'] = 'Remarques';
 $string['report'] = 'Rapport';
+$string['required'] = 'Requis*';
 $string['resetdescription'] = 'Rappelez-vous que la suppression des données sur la fréquentation va effacer ces informations de base de données. Vous pouvez simplement cacher les anciennes sessions en changeant la date de début du cours !';
 $string['resetstatuses'] = 'Restaurer les statuts par défaut';
 $string['restoredefaults'] = 'Restaurer les valeurs par défaut';
+$string['resultsperpage'] = 'Résultats par page';
+$string['resultsperpage_desc'] = 'Nombre d\'étudiants affichés sur une page';
 $string['save'] = 'Enregistrer les présences';
 $string['session'] = 'Session';
 $string['sessionadded'] = 'Session ajoutée avec succès';

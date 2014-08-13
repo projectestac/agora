@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,8 +59,12 @@ $string['firstattempts'] = 'first attempts';
 $string['firstattemptsavg'] = 'Average grade of first attempts';
 $string['firstattemptscount'] = 'Number of complete graded first attempts';
 $string['frequency'] = 'Frequency';
+$string['highestattempts'] = 'highest graded attempt';
+$string['highestattemptsavg'] = 'Average grade of highest graded attempts';
 $string['intended_weight'] = 'Intended weight';
 $string['kurtosis'] = 'Score distribution kurtosis (for {$a})';
+$string['lastattempts'] = 'last attempt';
+$string['lastattemptsavg'] = 'Average grade of last attempts';
 $string['lastcalculated'] = 'Last calculated {$a->lastcalculated} ago there have been {$a->count} attempts since then.';
 $string['median'] = 'Median grade (for {$a})';
 $string['modelresponse'] = 'Model response';
@@ -88,6 +92,7 @@ $string['quizoverallstatistics'] = 'Quiz overall statistics';
 $string['quizstructureanalysis'] = 'Quiz structure analysis';
 $string['random_guess_score'] = 'Random guess score';
 $string['recalculatenow'] = 'Recalculate now';
+$string['reportsettings'] = 'Statistics calculation settings';
 $string['response'] = 'Response';
 $string['skewness'] = 'Score distribution skewness (for {$a})';
 $string['standarddeviation'] = 'Standard deviation (for {$a})';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = 'Administrateurs Moodle';
 $string['audienceeducators'] = 'Formateurs';
 $string['audience_help'] = 'Veuillez sélectionner le public cible de ce cours.';
 $string['audiencestudents'] = 'Étudiants';
+$string['badgesnumber'] = 'Nombre de badges ({$a})';
 $string['badurlformat'] = 'Format d\'URL non valide';
 $string['cannotsearchcommunity'] = 'Désolé, vous n\'avez pas les droits d\'accès requis pour voir cette page';
 $string['community'] = 'Communauté';
@@ -109,6 +110,7 @@ $string['hub'] = 'Serveur d\'échanges';
 $string['imageurl'] = 'URL de l\'image';
 $string['imageurl_help'] = 'Cette image sera affichée sur le serveur d\'échanges. Elle doit être accessible par le serveur à tout moment et sa taille maximale doit être de {$a->width} x {$a->height}';
 $string['information'] = 'Information';
+$string['issuedbadgesnumber'] = 'Nombre de badges remis ({$a})';
 $string['language'] = 'Langue';
 $string['language_help'] = 'Langue principale de ce cours';
 $string['lasttimechecked'] = 'Dernière vérification';
@@ -142,7 +144,7 @@ $string['privacy_help'] = 'Le serveur d\'échanges peut afficher une liste des s
 $string['private'] = 'Privé';
 $string['privatehuburl'] = 'URL du serveur d\'échanges';
 $string['publicationinfo'] = 'Information de publication du cours';
-$string['publichub'] = 'Serveur d\'échanges public';
+$string['publichub'] = 'Serveurs d\'échanges public';
 $string['publishcourse'] = 'Publier {$a}';
 $string['publishcourseon'] = 'Publier sur {$a}';
 $string['publishedon'] = 'Publié sur';

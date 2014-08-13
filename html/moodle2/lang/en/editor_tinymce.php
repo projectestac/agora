@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -348,7 +348,7 @@ $string['contextmenu:right'] = 'Right';
 $string['customconfig'] = 'Custom configuration';
 $string['customconfig_desc'] = 'Custom advanced TinyMCE configuration in JSON format, for example: {"option1" : "value2", "option2" : "value2"}. Any options specified here override standard and plugin settings.';
 $string['customtoolbar'] = 'Editor toolbar';
-$string['customtoolbar_desc'] = 'Each line contains a list of comma separated button names, use "|" as a group separator, empty lines are ignored. See <a href="{$a}" target="_blank">{$a}</a> for the list of default TinyMCE buttons.';
+$string['customtoolbar_desc'] = 'Each line contains a list of comma separated button names, use "wrap" as a group separator, empty lines are ignored. See <a href="{$a}" target="_blank">{$a}</a> for the list of default TinyMCE buttons.<br />The first row will always be shown, where as the visibility of second and third toolbars can be toggled.';
 $string['directionality:ltr_desc'] = 'Direction left to right';
 $string['directionality:rtl_desc'] = 'Direction right to left';
 $string['emotions:delta_height'] = '';
@@ -714,7 +714,7 @@ $string['style_dlg:top'] = 'Top';
 $string['style_dlg:visibility'] = 'Visibility';
 $string['style_dlg:width'] = 'Width';
 $string['style_dlg:zindex'] = 'Z-index';
-$string['subplugindeleteconfirm'] = 'You are about to completely delete TinyMCE subplugin \'{$a}\'. This will completely delete everything in the database associated with this subplugin. Are you SURE you want to continue?';
+$string['subplugintype_tinymce'] = 'Plugin';
 $string['subplugintype_tinymce_plural'] = 'Plugins';
 $string['table:cell'] = 'Cell';
 $string['table:cell_desc'] = 'Table cell properties';

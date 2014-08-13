@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,6 +46,7 @@ $string['attachment_help'] = '여러분은 선택적으로 포럼 게시글에 �
 ';
 $string['attachmentnopost'] = '게시 ID 없이 첨부물을 내보낼 수 없음';
 $string['attachments'] = '첨부물';
+$string['attachmentswordcount'] = '첨부 및 단어 수';
 $string['blockafter'] = '차단하기 전 게시 한도';
 $string['blockafter_help'] = '이 설정은 사용자가 주어진 기간안에 게시할 수 있는 최대 글의 갯수를 명시합니다. mod/forum:postwithoutthrottling 권한이 있는 사용자는 게시한계에서 제외됩니다.';
 $string['blockperiod'] = '차단 시간';
@@ -60,7 +61,6 @@ $string['cannotaddsubscriber'] = '이 포럼에 id {$a} 인 구독자를 추가�
 $string['cannotaddteacherforumto'] = '강좌의 섹션 0에 변환된 선생님의 포럼 인스턴스를 추가할 수 없었습니다.';
 $string['cannotcreatediscussion'] = '새 토론을 생성할 수 없음';
 $string['cannotcreateinstanceforteacher'] = '선생님 포럼을 위한 새 강좌모듈을 생성할 수 없음';
-$string['cannotdeleteforummodule'] = '포럼 모듈을 삭제할 수 없습니다.';
 $string['cannotdeletepost'] = '게시물을 삭제할 수 없음!';
 $string['cannoteditposts'] = '다른 사람의 게시물을 수정할 수 없음!';
 $string['cannotfinddiscussion'] = '이 포럼의 토론내용을 찾을 수 없음';
@@ -147,6 +147,7 @@ $string['displaystart_help'] = '<p>포럼의 게시물을 언제부터 언제까
 <p>시작/종료일을 표시하기 위해서는 불가능 옵션을 선택하지 않으면 됩니다.</p>
 
 <p>관리자로 접속하게 되면 언제 게시되었는 지 또 언제 종료되었는 지에 대한 메시지를 볼 수 있음을 유의하십시오.</p>';
+$string['displaywordcount'] = '단어 수 표시';
 $string['eachuserforum'] = '개인별 단독 포럼';
 $string['edit'] = '수정';
 $string['editedby'] = '{$a->name}에 의해 편집됨 -  원문 제출일 {$a->date} ';
@@ -254,7 +255,7 @@ $string['modeflatoldestfirst'] = '옛 답글부터 내용 보기';
 $string['modenested'] = '주제 중심으로 답글 보기';
 $string['modethreaded'] = '글타래 형태로 목록 보기';
 $string['modulename'] = '포럼';
-$string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/forum/icon.gif" /> <b> 포 럼 </b></p>
+$string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/forum/icon.gif" />&nbsp;<b> 포 럼 </b></p>
 <div class="indent">
 이 활동은 가장 중요할 것으로 여겨진다 - 이 활동을 통해 토론의 대부분이 이루어지게 된다.
 포럼은 다양한 방법으로 구성될 수 있으며, 개개인이 올린 문서에 대해 또래 평가를 하게 할 수도 있다.
@@ -275,7 +276,7 @@ $string['nameteacher'] = '선생님 포럼';
 $string['newforumposts'] = '새로운 게시물';
 $string['noattachments'] = '이 게시물에는 첨부물이 없음';
 $string['nodiscussions'] = '아직 토론 주제가 제시되지 않았음';
-$string['nodiscussionsstartedby'] = '{$a}는 어떤 토론도 시작하지 않았습니다.';
+$string['nodiscussionsstartedby'] = '이 사용자는 토론을 시작할 수 없음';
 $string['nodiscussionsstartedbyyou'] = '아직 토론을 시작하지 않았습니다.';
 $string['noguestpost'] = '죄송하지만, 손님 계정으로는 글을 올릴 수 없습니다.';
 $string['noguesttracking'] = '죄송합니다만, 손님은 경로 추적이 허용되지 않습니다.';
@@ -286,7 +287,6 @@ $string['nopermissiontosubscribe'] = '포럼 구독자를 볼 수 있는 권한�
 $string['nopermissiontoview'] = '이 게시물을 볼 수 있는 권한이 없음';
 $string['nopostforum'] = '미안합니다만, 이 포럼에 게시할 수 없습니다.';
 $string['noposts'] = '게시물 없음';
-$string['nopostscontaining'] = '\'{$a}\'를 포함하는 게시물이 없음';
 $string['nopostsmadebyuser'] = '{$a}는 올린 글이 없습니다.';
 $string['nopostsmadebyyou'] = '아무런 글도 올리지 않았습니다.';
 $string['noquestions'] = '포럼에 아직 질문이 없음';
@@ -300,9 +300,9 @@ $string['notrackforum'] = '게시물 추적 안함';
 $string['noviewdiscussionspermission'] = '이 포럼의 토론을 볼 수 있는 권한이 없음';
 $string['nowallsubscribed'] = '{$a}에 있는 모든 포럼을 구독합니다.';
 $string['nowallunsubscribed'] = '{$a}에 있는 모든 포럼을 구독해지합니다.';
-$string['nownotsubscribed'] = '{$a->name} 는 \'{$a->forum}\'의 새 글에 대해 통지받지 않을 것입니다.';
+$string['nownotsubscribed'] = '{$a->name} 는 이메일로 \'{$a->forum}\'의 사본을 받을 수 없게 됩니다.';
 $string['nownottracking'] = '{$a->name} 은 더이상 \'{$a->forum}\'의 경로를 추적을 하지 않습니다.';
-$string['nowsubscribed'] = '{$a->name} 는 \'{$a->forum}\'의 새 글에 대해 통지될 것입니다.';
+$string['nowsubscribed'] = '{$a->name} 는 \'{$a->forum}\'의 글을 이메일로 받아 볼 수 있습니다.';
 $string['nowtracking'] = '{$a->name} 이 \'{$a->forum}\'경로를 추적 중입니다.';
 $string['numposts'] = '{$a} 게시물';
 $string['olderdiscussions'] = '오래된 토론들';
@@ -311,8 +311,8 @@ $string['oldpostdays'] = '지난 기사 읽음 처리';
 $string['openmode0'] = '토론 및 답글 불가';
 $string['openmode1'] = '토론 없음, 답글 허용됨';
 $string['openmode2'] = '토론과 답글 허용됨';
-$string['overviewnumpostssince'] = '마지막 접속 후 {$a} 게시물';
-$string['overviewnumunread'] = '{$a} 읽지 않음';
+$string['overviewnumpostssince'] = '마지막 접속 후 게시물 수 : {$a}';
+$string['overviewnumunread'] = '읽지 않은 수 : {$a}';
 $string['page-mod-forum-discuss'] = '포럼 모듈 토론 쓰레드 페이지';
 $string['page-mod-forum-view'] = '포럼 모듈 메인 페이지';
 $string['page-mod-forum-x'] = '모든 포럼 모듈 페이지';
@@ -402,6 +402,7 @@ $string['subscribersto'] = '\'{$a}\' 을 이메일로 받아보기';
 $string['subscribestart'] = '이곳 게시물들은 계속 구독하겠음';
 $string['subscribestop'] = '이곳 게시물들은 구독하지 않음.';
 $string['subscription'] = '이메일로 구독';
+$string['subscriptionandtracking'] = '구독 및 추적';
 $string['subscriptionauto'] = '자동 구독';
 $string['subscriptiondisabled'] = '구독 불가능';
 $string['subscriptionforced'] = '강제 구독';

@@ -1,24 +1,12 @@
 <?php
 
-function moodle_connect($version = '2') {
+function moodle_connect() {
 
     global $CFG, $agora;
 
-    if ($version == '1') {
-        if (array_key_exists('user', $agora['moodle'])) {
-                $dbuser = $agora['moodle']['user'];
-                $dbpass = $agora['moodle']['userpwd'];
-                $dbname = $agora['moodle']['dbname'];
-        } else {
-                $dbuser = $CFG->dbuser;
-                $dbpass = $CFG->dbpass;
-                $dbname = $CFG->dbname;
-        }
-    } elseif ($version == '2') {
-        $dbuser = $CFG->dbuser;
-        $dbpass = $CFG->dbpass;
-        $dbname = $CFG->dbname;
-    }
+    $dbuser = $CFG->dbuser;
+    $dbpass = $CFG->dbpass;
+    $dbname = $CFG->dbname;
 
     $con = oci_pconnect($dbuser, $dbpass, $dbname);
 
@@ -36,8 +24,8 @@ function moodle_disconnect($con) {
 }
 
 /**
- * Replace $textOrig string to $new string at specified Moodle version
- * 
+ * Replace $textOrig string to $new string at Moodle
+ *
  * @param type $dns  schoold dns
  * @param type $school_id  schema identifier (X on usuX)
  * @param type $school_database database
@@ -45,12 +33,12 @@ function moodle_disconnect($con) {
  * @param type $textTarg new string
  * @return type Boolean
  */
-function replaceMoodle($version, $prefix, $textOrig, $textTarg) {
+function replaceMoodle($prefix, $textOrig, $textTarg) {
 
     echo "Replacing '<strong>$textOrig</strong>' by '<strong>$textTarg</strong>'<br />";
 
-    if (!($con = moodle_connect($version))) {
-        echo 'No s\'ha pogut connectar a la base de dades del Moodle ' . $version;
+    if (!($con = moodle_connect())) {
+        echo 'No s\'ha pogut connectar a la base de dades de Moodle';
         return false;
     }
 

@@ -24,38 +24,49 @@ html, body {
 }
 /** Header **/
 
+.pagelayout-frontpage #page-header {
+    border-bottom: 5px solid #697F55;
+}
 #page-header {
     background-color: #222;
     color: #FFF;
-    border-bottom: 5px solid #697F55;
     margin: 0;
     padding: 0;
     width: 100%;
 }
 h1.headermain {
-    float: left;
-    font-size: 2.3em;
-    margin: 15px;
-    line-height: 1;
+    font-size: 30px;
+    margin: 20px;
+    font-weight: 400;
 }
-#page-header .headermain span {
-    color: #C8C9C7;
+.pagelayout-frontpage h1.headermain,
+h2.tagline {
+    float: left;
+    line-height: 1;
+    padding: 0;
+}
+.pagelayout-frontpage h1.headermain {
+    margin-bottom: 0;
+}
+h2.tagline {
+    clear: left;
+    color: #bbb;
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 100%;
+    font-weight: normal;
 }
 
 /** Navbar **/
 
-.hasnavbar #page-header {
-    border-bottom-color: #3A4D28;
-    border-bottom-width: 3px;
-}
 #page-header .navbar {
     background-color: #697F55;
     width: 100%;
     margin: 0;
     padding: 0;
-}
-#page-header .navbar {
     color: #000;
+    padding-bottom: 5px;
 }
 #page-header .navbar a:link,
 #page-header .navbar a:visited {
@@ -63,7 +74,16 @@ h1.headermain {
 }
 #page-header .navbar .breadcrumb,
 #page-header .navbar .navbutton {
-    margin: 5px 1em;
+    line-height: 1.5;
+}
+#page-header .navbar .breadcrumb {
+    margin: 5px 5px 0 20px;
+}
+#page-header .navbar .navbutton {
+    margin: 3px 5px 3px;
+}
+#page-header .navbar .navbutton .singlebutton {
+    margin: 0;
 }
 
 /** Footer **/
@@ -71,6 +91,9 @@ h1.headermain {
 #page-footer {
     background-color: #222;
     color: #FFF;
+}
+#page-footer .helplink {
+    margin-top: 10px;
 }
 
 /** General **/
@@ -83,7 +106,11 @@ h1.headermain {
 .sitetopic {
     border-width: 0;
 }
-.headingblock {
+.navigationtitle,
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2 {
     margin-bottom: 10px;
     border-bottom: 1px solid #697F55;
     background-color: #E3E3E3;
@@ -96,22 +123,31 @@ h1.headermain {
     overflow: hidden;
     padding-bottom: 10px;
 }
-.coursebox .info {
+.coursebox.collapsed {
+    border-bottom: none;
+    margin: 0;
+    padding-bottom: 0;
+}
+.coursebox .content .teachers,
+.coursebox .content .courseimage,
+.coursebox .content .coursefile,
+.coursebox.remotecoursebox .remotecourseinfo {
     width: 35%;
-    float: left;
 }
-.coursebox .summary {
+.coursebox .content .summary,
+.coursebox .content .coursecat {
     width: 60%;
-    float: right;
 }
+.course_category_tree .paging.paging-morelink a {font-size:90%}
 
 .course-content ul.section {
     margin: 0;
 }
-
-.course-content .headingblock.outline {
-    margin-top: 0;
+#page-course-info .generalbox.info,
+#page-enrol-index .generalbox.info {
+    border:none;
 }
+
 .course-content .section.main {
     border:1px solid #E3E3E3;
     margin-bottom: 10px;
@@ -130,6 +166,9 @@ h1.headermain {
 }
 .course-content .section.main .content .section_add_menus {
     text-align: right;
+}
+#region-main .course-content .single-section .section-navigation h3 {
+    font-size: 1.3em;
 }
 #page-report-outline-user .section {
     border: 1px solid #DDD;
@@ -221,7 +260,6 @@ h1.headermain {
     border: 1px solid #C8C9C7;
     background-color: #E3E3E3;
     margin-bottom: 10px;
-    overflow: hidden;
 }
 .block h1,
 .block h2,
@@ -439,7 +477,7 @@ h1.headermain {
     padding-right: 10px;
 }
 .forumpost .content .shortenedpost a,
-.forumpost .content .shortenedpost span.post-word-count,
+.forumpost .content .post-word-count,
 .forumpost .commands,
 .forumpost .topic .author,
 .forumpost .options .link {
@@ -675,4 +713,13 @@ h1.headermain {
 
 /* Add Block
 -------------------------*/
-.block .content .singleselect form#add_block .select.menubui_addblock { width: 160px;}
+.block .content .singleselect form#add_block .select.menubui_addblock {
+    width: 160px;
+}
+
+/* Admin settings
+-------------------------*/
+#adminsettings .form-buttons {
+    margin: 0;
+    text-align: center;
+}

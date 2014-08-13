@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_simple_nav', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_simple_nav', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_simple_nav
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockstring'] = 'Field title';
+$string['displayoptions'] = 'Bullet point display options';
+$string['displayoptionsdesc'] = 'You can choose how the bullet points in the navigation tree look like: standard with icons, only ►, ► and ▪';
+$string['displaysingleicon'] = 'Display ► as the only icon for all bullet points';
+$string['displaytwoicons'] = 'Display ► for courses and course categories and ▪ modules';
+$string['displaywithicons'] = 'Display bullet point with standard Moodle-Theme icons';
 $string['pluginname'] = 'Simple navigation block';
 $string['simple_nav'] = 'Simple navigation';
 $string['simple_nav:addinstance'] = 'Add a new Simple Navigation block';

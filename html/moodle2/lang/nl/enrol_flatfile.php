@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['encoding'] = 'Bestandsencodering';
+$string['expiredaction'] = 'Actie bij verlopen van de aanmelding';
+$string['expiredaction_help'] = 'Kies een actie die moet gebeuren wanneer de aanmelding van een gebruiker verloopt. Merk op dat sommige gebruikersgegevens en instellingen worden verwijderd tijdens het afmelden uit een cursus.';
 $string['filelockedmail'] = 'Het tekstbestand dat je gebruikt voor bestandsgebaseerde inschrijvingen ({$a}) kan niet verwijderd worden door het cron-proces. Dit is gewoonlijk omdat de rechten op het bestand verkeerd ingesteld zijn. Zet aub de rechten zo dat Moodle het bestand kan verwijderen, anders wordt dat herhaaldelijk verwerkt.';
 $string['filelockedmailsubject'] = 'Belangrijke fout: aanmeldingsbestand';
+$string['flatfile:manage'] = 'Beheer aanmelding van gebruikers manueel';
+$string['flatfile:unenrol'] = 'Gebruikers manueel uit de cursus halen';
 $string['location'] = 'Bestandslokatie';
-$string['mailadmin'] = 'Verwittig de beheerder per e-mail';
-$string['mailstudents'] = 'Verwittig leerlingen per e-mail';
-$string['mailteachers'] = 'Verwittig leraren per e-mail';
-$string['mapping'] = 'koppeling tekstbestand';
+$string['location_desc'] = 'Geef het volledige pad voor het aanmeldingsbestand. Dit bestand wordt automatisch verwijderd nadat het verwerkt is.';
+$string['mapping'] = 'Rolkoppeling voor tekstbestand';
 $string['messageprovider:flatfile_enrolment'] = 'Aanmeldingsberichten tekstbestand aanmeldingen';
+$string['notifyadmin'] = 'Verwittig beheerders';
+$string['notifyenrolled'] = 'Verwittig aangemelde gebruikers';
+$string['notifyenroller'] = 'Verwittig de verantwoordelijke voor aanmeldingen';
 $string['pluginname'] = 'Tekstbestand (CSV)';
 $string['pluginname_desc'] = 'Deze methode zal regelmatig een tekstbestand controleren en verwerken dat op de plaats staat die je opgeeft.
 Het bestand is een kommagescheiden bestand dat vier tot zes velden per lijn heeft:

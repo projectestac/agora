@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_blackboard_six
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,9 +29,9 @@ $string['defaultname'] = 'インポート済み問題 {$a}';
 $string['errormanifest'] = 'IMSマニフェストドキュメントの構文解析中にエラーが発生しました。';
 $string['filenothandled'] = 'このアーカイブには現在インポートで処理できないファイル実体 {$a} の参照が含まれています。';
 $string['imagenotfound'] = 'インポート内にパス「 {$a} 」のファイルが見つかりませんでした。';
+$string['importedcategory'] = 'インポートカテゴリ {$a}';
 $string['importnotext'] = 'XMLファイル内に問題テキストが見つかりませんでした。';
 $string['notenoughtsubans'] = '少なくとも2問の問題および3つの答えを含む必要があるため、組み合わせ問題「 {$a} 」をインポートすることができません。';
-$string['pluginname'] = 'Blackboard V6+';
-$string['pluginname_help'] = 'Blackboard V6+フォーマットではBlackboardエクスポートフォーマットで保存された問題をdatまたはzipファイルによってインポートすることができます。ZIPファイルおよびイメージのインポートがサポートされます。';
+$string['pluginname'] = 'Blackboard V6';
+$string['pluginname_help'] = 'BlackboardフォーマットではBlackboardエクスポートフォーマットで保存された問題をdatまたはzipファイルによってインポートすることができます。ZIPファイルおよびイメージのインポートがサポートされます。';
 $string['unhandledpresblock'] = '未処理のプレゼンテーションブロック';
-$string['unknownorunhandledtype'] = '不明または未処理の問題タイプ: {$a}';

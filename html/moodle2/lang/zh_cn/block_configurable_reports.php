@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_configurable_reports', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_configurable_reports', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_configurable_reports
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['componenthelp'] = '组件帮助';
 $string['dbpass'] = '数据库密码';
+$string['filteruser'] = '当前课程用户';
+$string['filteruser_summary'] = '从当前用户中过滤用户（ID）';
+$string['includesubcats'] = '包含子类别';
+$string['previousdays'] = '前几天';
+$string['previousend'] = '上一个结束';
+$string['previousstart'] = '上一个开始';

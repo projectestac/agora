@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_afterburner', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['customcssdesc'] = 'Любые указанные здесь стили 
 $string['footnote'] = 'Сноска';
 $string['footnotedesc'] = 'Добавленное в текстовую область будет отображаться в нижней части каждой страницы.';
 $string['logo'] = 'Логотип';
-$string['logodesc'] = 'Добавьте URL-адрес нового логотипа, если Вы хотите заменить стандартный логотип этой темы. <br /> По умолчанию логотип - изображение JPG с размерами 320px (ширина) на 75px (высота).';
+$string['logodesc'] = 'Добавьте URL-адрес нового логотипа, если Вы хотите заменить стандартный логотип этой темы.<br />По умолчанию логотип - изображение JPG с размерами 320px (ширина) на 75px (высота).';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = 'Справа';
 $string['region-side-pre'] = 'Слева';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'admin', language 'ur', branch 'MOODLE_24_STABLE'
+ * Strings for component 'admin', language 'ur', branch 'MOODLE_26_STABLE'
  *
  * @package   admin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -142,7 +142,6 @@ $string['stickyblocksmymoodle'] = 'میرا موڈل';
 $string['therewereerrors'] = 'ڈیٹا میں خرابیاں ہیں';
 $string['upgradesettings'] = 'نئی تشکیلات';
 $string['upwards'] = 'اوپر کی جانب';
-$string['usehtmleditor'] = 'ایچ ٹی ایم ایل ایڈیٹر استعمال کریں';
 $string['user'] = 'استعمال کنندہ';
 $string['userbulk'] = 'ڈھیر سارے استعمال کنندگان پر کاروائیاں';
 $string['userlist'] = 'استعمال کننگان کی فہرست کھولیں';

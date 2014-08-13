@@ -45,12 +45,8 @@ require_once(dirname(__FILE__).'/lib.php');
 function report_log_print_graph($course, $userid, $type, $date=0) {
     global $CFG;
 
-    if (empty($CFG->gdversion)) {
-        echo "(".get_string("gdneed").")";
-    } else {
-        echo '<img src="'.$CFG->wwwroot.'/report/log/graph.php?id='.$course->id.
-             '&amp;user='.$userid.'&amp;type='.$type.'&amp;date='.$date.'" alt="" />';
-    }
+    echo '<img src="'.$CFG->wwwroot.'/report/log/graph.php?id='.$course->id.
+         '&amp;user='.$userid.'&amp;type='.$type.'&amp;date='.$date.'" alt="" />';
 }
 /**
  * This function is used to generate and display Mnet selector form
@@ -143,10 +139,12 @@ function report_log_print_mnet_selector_form($hostid, $course, $selecteduser=0, 
 
     // If looking at a different host, we're interested in all our site users
     if ($hostid == $CFG->mnet_localhost_id && $course->id != SITEID) {
-        $courseusers = get_enrolled_users($context, '', $selectedgroup, 'u.id, u.firstname, u.lastname, u.idnumber', null, $limitfrom, $limitnum);
+        $courseusers = get_enrolled_users($context, '', $selectedgroup, 'u.id, ' . get_all_user_name_fields(true, 'u'),
+                null, $limitfrom, $limitnum);
     } else {
         // this may be a lot of users :-(
-        $courseusers = $DB->get_records('user', array('deleted'=>0), 'lastaccess DESC', 'id, firstname, lastname, idnumber', $limitfrom, $limitnum);
+        $courseusers = $DB->get_records('user', array('deleted'=>0), 'lastaccess DESC', 'id, ' . get_all_user_name_fields(true),
+                $limitfrom, $limitnum);
     }
 
     if (count($courseusers) < COURSE_MAX_USERS_PER_DROPDOWN && !$showusers) {
@@ -223,34 +221,34 @@ function report_log_print_mnet_selector_form($hostid, $course, $selecteduser=0, 
     $activities = array();
     $selectedactivity = "";
 
-/// Casting $course->modinfo to string prevents one notice when the field is null
-    if ($modinfo = unserialize((string)$course->modinfo)) {
+    $modinfo = get_fast_modinfo($course);
+    if (!empty($modinfo->cms)) {
         $section = 0;
         $thissection = array();
-        foreach ($modinfo as $mod) {
-            if ($mod->mod == "label") {
+        foreach ($modinfo->cms as $cm) {
+            if (!$cm->uservisible || !$cm->has_view()) {
                 continue;
             }
-            if ($mod->section > 0 and $section <> $mod->section) {
+            if ($cm->sectionnum > 0 and $section <> $cm->sectionnum) {
                 $activities[] = $thissection;
                 $thissection = array();
             }
-            $section = $mod->section;
-            $mod->name = strip_tags(format_string($mod->name, true));
-            if (textlib::strlen($mod->name) > 55) {
-                $mod->name = textlib::substr($mod->name, 0, 50)."...";
+            $section = $cm->sectionnum;
+            $modname = strip_tags($cm->get_formatted_name());
+            if (core_text::strlen($modname) > 55) {
+                $modname = core_text::substr($modname, 0, 50)."...";
             }
-            if (!$mod->visible) {
-                $mod->name = "(".$mod->name.")";
+            if (!$cm->visible) {
+                $modname = "(".$modname.")";
             }
-            $key = get_section_name($course, $mod->section);
+            $key = get_section_name($course, $cm->sectionnum);
             if (!isset($thissection[$key])) {
                 $thissection[$key] = array();
             }
-            $thissection[$key][$mod->cm] = $mod->name;
+            $thissection[$key][$cm->id] = $modname;
 
-            if ($mod->cm == $modid) {
-                $selectedactivity = "$mod->cm";
+            if ($cm->id == $modid) {
+                $selectedactivity = "$cm->id";
             }
         }
         if (!empty($thissection)) {
@@ -454,7 +452,8 @@ function report_log_print_selector_form($course, $selecteduser=0, $selecteddate=
     $limitfrom = empty($showusers) ? 0 : '';
     $limitnum  = empty($showusers) ? COURSE_MAX_USERS_PER_DROPDOWN + 1 : '';
 
-    $courseusers = get_enrolled_users($context, '', $selectedgroup, 'u.id, u.firstname, u.lastname', null, $limitfrom, $limitnum);
+    $courseusers = get_enrolled_users($context, '', $selectedgroup, 'u.id, ' . get_all_user_name_fields(true, 'u'),
+            null, $limitfrom, $limitnum);
 
     if (count($courseusers) < COURSE_MAX_USERS_PER_DROPDOWN && !$showusers) {
         $showusers = 1;
@@ -485,34 +484,34 @@ function report_log_print_selector_form($course, $selecteduser=0, $selecteddate=
     $activities = array();
     $selectedactivity = "";
 
-/// Casting $course->modinfo to string prevents one notice when the field is null
-    if ($modinfo = unserialize((string)$course->modinfo)) {
+    $modinfo = get_fast_modinfo($course);
+    if (!empty($modinfo->cms)) {
         $section = 0;
         $thissection = array();
-        foreach ($modinfo as $mod) {
-            if ($mod->mod == "label") {
+        foreach ($modinfo->cms as $cm) {
+            if (!$cm->uservisible || !$cm->has_view()) {
                 continue;
             }
-            if ($mod->section > 0 and $section <> $mod->section) {
+            if ($cm->sectionnum > 0 and $section <> $cm->sectionnum) {
                 $activities[] = $thissection;
                 $thissection = array();
             }
-            $section = $mod->section;
-            $mod->name = strip_tags(format_string($mod->name, true));
-            if (textlib::strlen($mod->name) > 55) {
-                $mod->name = textlib::substr($mod->name, 0, 50)."...";
+            $section = $cm->sectionnum;
+            $modname = strip_tags($cm->get_formatted_name());
+            if (core_text::strlen($modname) > 55) {
+                $modname = core_text::substr($modname, 0, 50)."...";
             }
-            if (!$mod->visible) {
-                $mod->name = "(".$mod->name.")";
+            if (!$cm->visible) {
+                $modname = "(".$modname.")";
             }
-            $key = get_section_name($course, $mod->section);
+            $key = get_section_name($course, $cm->sectionnum);
             if (!isset($thissection[$key])) {
                 $thissection[$key] = array();
             }
-            $thissection[$key][$mod->cm] = $mod->name;
+            $thissection[$key][$cm->id] = $modname;
 
-            if ($mod->cm == $modid) {
-                $selectedactivity = "$mod->cm";
+            if ($cm->id == $modid) {
+                $selectedactivity = "$cm->id";
             }
         }
         if (!empty($thissection)) {

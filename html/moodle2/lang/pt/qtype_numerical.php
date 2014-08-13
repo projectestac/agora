@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = 'Erro aceite';
 $string['addmoreanswerblanks'] = 'Adicionar mais {no} campos de opção de resposta';
 $string['addmoreunitblanks'] = 'Adicionar mais {no} campos para unidades';
 $string['answercolon'] = 'Resposta:';
+$string['answererror'] = 'Erro';
 $string['answermustbenumberorstar'] = 'A resposta deve ser um número, por exemplo -1234 or 3e8,ou \'*\'.';
 $string['answerno'] = 'Resposta {$a}';
 $string['decfractionofquestiongrade'] = 'como parte decimal (0 a 1) da nota da pergunta';
@@ -80,7 +81,6 @@ $string['unitchoice'] = 'Escolha múltipla';
 $string['unitedit'] = 'Editar unidade';
 $string['unitgraded'] = 'A unidade deve ser introduzida e será avaliada.';
 $string['unithandling'] = 'Unidade a usar';
-$string['unithdr'] = 'Unidade {$a}';
 $string['unitincorrect'] = 'Não inseriu uma unidade correta.';
 $string['unitmandatory'] = 'Obrigatório';
 $string['unitmandatory_help'] = '* A resposta será avaliada de acordo com a unidade selecionada.
@@ -99,7 +99,9 @@ $string['unitpenalty_help'] = 'A penalização é aplicada se
 * Uma unidade inválida for inserida no campo de resposta da unidade ou
 * Um nome para a unidade for inserido no campo para o elemento numérico da resposta';
 $string['unitposition'] = 'Posição da unidade';
+$string['units'] = 'Unidades';
 $string['unitselect'] = 'Caixa de seleção';
+$string['unitx'] = 'Unidade  {no}';
 $string['validnumberformats'] = 'Formatos numéricos válidos';
 $string['validnumberformats_help'] = '* números regulares  13500.67 : 13 500.67 : 13500,67: 13 500,67
 
@@ -108,3 +110,6 @@ $string['validnumberformats_help'] = '* números regulares  13500.67 : 13 500.67
 * para formas exponenciais, por exemplo 1,350067 * 10<sup>4</sup>,  use
  1,350067 E4 : 1,350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 ou 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} tem de ser um número.';
+$string['xmustnotbenumeric'] = '{$a} não pode ser um número.';
+$string['youmustenteramultiplierhere'] = 'Tem que introduzir um multiplicador aqui';

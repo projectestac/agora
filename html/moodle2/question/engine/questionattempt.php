@@ -87,14 +87,24 @@ class question_attempt {
     /** @var int which variant of the question to use. */
     protected $variant;
 
-    /** @var number the maximum mark that can be scored at this question. */
+    /**
+     * @var float the maximum mark that can be scored at this question.
+     * Actually, this is only really a nominal maximum. It might be better thought
+     * of as the question weight.
+     */
     protected $maxmark;
 
     /**
-     * @var number the minimum fraction that can be scored at this question, so
+     * @var float the minimum fraction that can be scored at this question, so
      * the minimum mark is $this->minfraction * $this->maxmark.
      */
     protected $minfraction = null;
+
+    /**
+     * @var float the maximum fraction that can be scored at this question, so
+     * the maximum mark is $this->maxfraction * $this->maxmark.
+     */
+    protected $maxfraction = null;
 
     /**
      * @var string plain text summary of the variant of the question the
@@ -117,6 +127,12 @@ class question_attempt {
 
     /** @var array of {@link question_attempt_step}s. The steps in this attempt. */
     protected $steps = array();
+
+    /**
+     * @var question_attempt_step if, when we loaded the step from the DB, there was
+     * an autosaved step, we save a pointer to it here. (It is also added to the $steps array.)
+     */
+    protected $autosavedstep = null;
 
     /** @var boolean whether the user has flagged this attempt within the usage. */
     protected $flagged = false;
@@ -342,6 +358,21 @@ class question_attempt {
     }
 
     /**
+     * Get the number of real steps in this attempt.
+     * This is put as a hidden field in the HTML, so that when we receive some
+     * data to process, then we can check that it came from the question
+     * in the state we are now it.
+     * @return int a number that summarises the current state of this question attempt.
+     */
+    public function get_sequence_check_count() {
+        $numrealsteps = $this->get_num_steps();
+        if ($this->has_autosaved_step()) {
+            $numrealsteps -= 1;
+        }
+        return $numrealsteps;
+    }
+
+    /**
      * Get the number of steps in this attempt.
      * For internal/test code use only.
      * @return int the number of steps we currently have.
@@ -360,6 +391,14 @@ class question_attempt {
             return new question_null_step();
         }
         return end($this->steps);
+    }
+
+    /**
+     * @return boolean whether this question_attempt has autosaved data from
+     * some time in the past.
+     */
+    public function has_autosaved_step() {
+        return !is_null($this->autosavedstep);
     }
 
     /**
@@ -620,17 +659,30 @@ class question_attempt {
         return $fraction * $this->maxmark;
     }
 
-    /** @return number the maximum mark possible for this question attempt. */
+    /**
+     * @return float the maximum mark possible for this question attempt.
+     * In fact, this is not strictly the maximum, becuase get_max_fraction may
+     * return a number greater than 1. It might be better to think of this as a
+     * question weight.
+     */
     public function get_max_mark() {
         return $this->maxmark;
     }
 
-    /** @return number the maximum mark possible for this question attempt. */
+    /** @return float the maximum mark possible for this question attempt. */
     public function get_min_fraction() {
         if (is_null($this->minfraction)) {
-            throw new coding_exception('This question_attempt has not been started yet, the min fraction is not yet konwn.');
+            throw new coding_exception('This question_attempt has not been started yet, the min fraction is not yet known.');
         }
         return $this->minfraction;
+    }
+
+    /** @return float the maximum mark possible for this question attempt. */
+    public function get_max_fraction() {
+        if (is_null($this->maxfraction)) {
+            throw new coding_exception('This question_attempt has not been started yet, the max fraction is not yet known.');
+        }
+        return $this->maxfraction;
     }
 
     /**
@@ -793,6 +845,49 @@ class question_attempt {
     }
 
     /**
+     * Add an auto-saved step to this question attempt. We mark auto-saved steps by
+     * changing saving the step number with a - sign.
+     * @param question_attempt_step $step the new step.
+     */
+    protected function add_autosaved_step(question_attempt_step $step) {
+        $this->steps[] = $step;
+        $this->autosavedstep = $step;
+        end($this->steps);
+        $this->observer->notify_step_added($step, $this, -key($this->steps));
+    }
+
+    /**
+     * Discard any auto-saved data belonging to this question attempt.
+     */
+    public function discard_autosaved_step() {
+        if (!$this->has_autosaved_step()) {
+            return;
+        }
+
+        $autosaved = array_pop($this->steps);
+        $this->autosavedstep = null;
+        $this->observer->notify_step_deleted($autosaved, $this);
+    }
+
+    /**
+     * If there is an autosaved step, convert it into a real save, so that it
+     * is preserved.
+     */
+    protected function convert_autosaved_step_to_real_step() {
+        if ($this->autosavedstep === null) {
+            return;
+        }
+
+        $laststep = end($this->steps);
+        if ($laststep !== $this->autosavedstep) {
+            throw new coding_exception('Cannot convert autosaved step to real step, since other steps have been added.');
+        }
+
+        $this->observer->notify_step_modified($this->autosavedstep, $this, key($this->steps));
+        $this->autosavedstep = null;
+    }
+
+    /**
      * Use a strategy to pick a variant.
      * @param question_variant_selection_strategy $variantstrategy a strategy.
      * @return int the selected variant.
@@ -831,8 +926,9 @@ class question_attempt {
             $this->behaviour = new $class($this, $preferredbehaviour);
         }
 
-        // Record the minimum fraction.
+        // Record the minimum and maximum fractions.
         $this->minfraction = $this->behaviour->get_min_fraction();
+        $this->maxfraction = $this->behaviour->get_max_fraction();
 
         // Initialise the first step.
         $firststep = new question_attempt_step($submitteddata, $timestamp, $userid, $existingstepid);
@@ -869,7 +965,13 @@ class question_attempt {
      * @return array name => value pairs.
      */
     protected function get_resume_data() {
-        return $this->behaviour->get_resume_data();
+        $resumedata = $this->behaviour->get_resume_data();
+        foreach ($resumedata as $name => $value) {
+            if ($value instanceof question_file_loader) {
+                $resumedata[$name] = $value->get_question_file_saver();
+            }
+        }
+        return $resumedata;
     }
 
     /**
@@ -916,16 +1018,17 @@ class question_attempt {
      * @param array $postdata (optional, only inteded for testing use) take the
      *      data from this array, instead of from $_POST. At the moment, this
      *      behaves as if there were no files.
-     * @param string $text optional response text.
+     * @param string $text optional reponse text.
      * @return question_file_saver that can be used to save the files later.
      */
     protected function process_response_files($name, $draftidname, $postdata = null, $text = null) {
         if ($postdata) {
-            // There can be no files with test data (at the moment).
-            return null;
+            // For simulated posts, get the draft itemid from there.
+            $draftitemid = $this->get_submitted_var($draftidname, PARAM_INT, $postdata);
+        } else {
+            $draftitemid = file_get_submitted_draft_itemid($draftidname);
         }
 
-        $draftitemid = file_get_submitted_draft_itemid($draftidname);
         if (!$draftitemid) {
             return null;
         }
@@ -962,7 +1065,7 @@ class question_attempt {
             $postdata = $_POST;
         }
 
-        $pattern = '/^' . preg_quote($this->get_field_prefix()) . '[^-:]/';
+        $pattern = '/^' . preg_quote($this->get_field_prefix(), '/') . '[^-:]/';
         $prefixlen = strlen($this->get_field_prefix());
 
         $submitteddata = array();
@@ -1049,16 +1152,34 @@ class question_attempt {
      * Perform the action described by $submitteddata.
      * @param array $submitteddata the submitted data the determines the action.
      * @param int $timestamp the time to record for the action. (If not given, use now.)
-     * @param int $userid the user to attribute the aciton to. (If not given, use the current user.)
+     * @param int $userid the user to attribute the action to. (If not given, use the current user.)
+     * @param int $existingstepid used by the regrade code.
      */
     public function process_action($submitteddata, $timestamp = null, $userid = null, $existingstepid = null) {
         $pendingstep = new question_attempt_pending_step($submitteddata, $timestamp, $userid, $existingstepid);
+        $this->discard_autosaved_step();
         if ($this->behaviour->process_action($pendingstep) == self::KEEP) {
             $this->add_step($pendingstep);
             if ($pendingstep->response_summary_changed()) {
                 $this->responsesummary = $pendingstep->get_new_response_summary();
             }
         }
+    }
+
+    /**
+     * Process an autosave.
+     * @param array $submitteddata the submitted data the determines the action.
+     * @param int $timestamp the time to record for the action. (If not given, use now.)
+     * @param int $userid the user to attribute the action to. (If not given, use the current user.)
+     * @return bool whether anything was saved.
+     */
+    public function process_autosave($submitteddata, $timestamp = null, $userid = null) {
+        $pendingstep = new question_attempt_pending_step($submitteddata, $timestamp, $userid);
+        if ($this->behaviour->process_autosave($pendingstep) == self::KEEP) {
+            $this->add_autosaved_step($pendingstep);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -1071,6 +1192,7 @@ class question_attempt {
      * @param int $userid the user to attribute the aciton to. (If not given, use the current user.)
      */
     public function finish($timestamp = null, $userid = null) {
+        $this->convert_autosaved_step_to_real_step();
         $this->process_action(array('-finish' => 1), $timestamp, $userid);
     }
 
@@ -1163,11 +1285,32 @@ class question_attempt {
     }
 
     /**
-     * @return array subpartid => object with fields
-     *      ->responseclassid matches one of the values returned from quetion_type::get_possible_responses.
-     *      ->response the actual response the student gave to this part, as a string.
-     *      ->fraction the credit awarded for this subpart, may be null.
-     *      returns an empty array if no analysis is possible.
+     * This is used by the manual grading code, particularly in association with
+     * validation. If there is a comment submitted in the request, then use that,
+     * otherwise use the latest comment for this question.
+     * @return number the current mark for this question.
+     * {@link get_fraction()} * {@link get_max_mark()}.
+     */
+    public function get_current_manual_comment() {
+        $comment = $this->get_submitted_var($this->get_behaviour_field_name('comment'), PARAM_RAW);
+        if (is_null($comment)) {
+            return $this->get_manual_comment();
+        } else {
+            $commentformat = $this->get_submitted_var(
+                    $this->get_behaviour_field_name('commentformat'), PARAM_INT);
+            if ($commentformat === null) {
+                $commentformat = FORMAT_HTML;
+            }
+            return array($comment, $commentformat);
+        }
+    }
+
+    /**
+     * Break down a student response by sub part and classification.
+     * See also {@link question_type::get_possible_responses()}
+     * Used for response analysis.
+     *
+     * @return question_possible_response[] where keys are subpartid.
      */
     public function classify_response() {
         return $this->behaviour->classify_response();
@@ -1208,6 +1351,7 @@ class question_attempt {
         $qa->set_slot($record->slot);
         $qa->variant = $record->variant + 0;
         $qa->minfraction = $record->minfraction + 0;
+        $qa->maxfraction = $record->maxfraction + 0;
         $qa->set_flagged($record->flagged);
         $qa->questionsummary = $record->questionsummary;
         $qa->rightanswer = $record->rightanswer;
@@ -1216,6 +1360,7 @@ class question_attempt {
 
         $qa->behaviour = question_engine::make_behaviour(
                 $record->behaviour, $qa, $preferredbehaviour);
+        $qa->observer = $observer;
 
         // If attemptstepid is null (which should not happen, but has happened
         // due to corrupt data, see MDL-34251) then the current pointer in $records
@@ -1227,12 +1372,28 @@ class question_attempt {
         }
 
         $i = 0;
+        $autosavedstep = null;
+        $autosavedsequencenumber = null;
         while ($record && $record->questionattemptid == $questionattemptid && !is_null($record->attemptstepid)) {
-            $qa->steps[$i] = question_attempt_step::load_from_records($records, $record->attemptstepid);
-            if ($i == 0) {
-                $question->apply_attempt_state($qa->steps[0]);
+            $sequencenumber = $record->sequencenumber;
+            $nextstep = question_attempt_step::load_from_records($records, $record->attemptstepid, $qa->get_question()->get_type_name());
+
+            if ($sequencenumber < 0) {
+                if (!$autosavedstep) {
+                    $autosavedstep = $nextstep;
+                    $autosavedsequencenumber = -$sequencenumber;
+                } else {
+                    // Old redundant data. Mark it for deletion.
+                    $qa->observer->notify_step_deleted($nextstep, $qa);
+                }
+            } else {
+                $qa->steps[$i] = $nextstep;
+                if ($i == 0) {
+                    $question->apply_attempt_state($qa->steps[0]);
+                }
+                $i++;
             }
-            $i++;
+
             if ($records->valid()) {
                 $record = $records->current();
             } else {
@@ -1240,7 +1401,14 @@ class question_attempt {
             }
         }
 
-        $qa->observer = $observer;
+        if ($autosavedstep) {
+            if ($autosavedsequencenumber >= $i) {
+                $qa->autosavedstep = $autosavedstep;
+                $qa->steps[$i] = $qa->autosavedstep;
+            } else {
+                $qa->observer->notify_step_deleted($autosavedstep, $qa);
+            }
+        }
 
         return $qa;
     }
@@ -1286,6 +1454,7 @@ class question_attempt_with_restricted_history extends question_attempt {
         $this->question = $this->baseqa->question;
         $this->maxmark = $this->baseqa->maxmark;
         $this->minfraction = $this->baseqa->minfraction;
+        $this->maxfraction = $this->baseqa->maxfraction;
         $this->questionsummary = $this->baseqa->questionsummary;
         $this->responsesummary = $this->baseqa->responsesummary;
         $this->rightanswer = $this->baseqa->rightanswer;

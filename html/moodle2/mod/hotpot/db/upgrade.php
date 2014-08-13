@@ -410,14 +410,12 @@ function xmldb_hotpot_upgrade($oldversion) {
         $params = array('hotpot', '', '/%', 0);
         $orderby = 'h.course, h.id';
 
-        // get HotPot records to update
+        // get HotPot records that need to be updated
         if ($count = $DB->count_records_sql("SELECT COUNT('x') FROM $from WHERE $where", $params)) {
             $rs = $DB->get_recordset_sql("SELECT $select FROM $from WHERE $where ORDER BY $orderby", $params);
         } else {
             $rs = false;
         }
-
-        // loop through HotPot records that need to be updated
         if ($rs) {
             $i = 0;
             $bar = new progress_bar('hotpotmigratefiles', 500, true);
@@ -425,25 +423,35 @@ function xmldb_hotpot_upgrade($oldversion) {
             // get file storage object
             $fs = get_file_storage();
 
+            if (class_exists('context_course')) {
+                $sitecontext = context_course::instance(SITEID);
+            } else {
+                $sitecontext = get_context_instance(CONTEXT_COURSE, SITEID);
+            }
+
             $coursecontext = null;
+            $modulecontext = null;
             foreach ($rs as $hotpot) {
 
                 // apply for more script execution time (3 mins)
                 upgrade_set_timeout();
 
-                // set $courseid from $hotpot->sourcelocation
-                //   0 : HOTPOT_LOCATION_COURSEFILES
-                //   1 : HOTPOT_LOCATION_SITEFILES
-                //   2 : HOTPOT_LOCATION_WWW (not used)
-                if ($hotpot->sourcelocation) {
-                    $courseid = SITEID;
-                } else {
-                    $courseid = $hotpot->course;
+                // get course context for this $hotpot
+                if ($coursecontext===null || $coursecontext->instanceid != $hotpot->course) {
+                    if (class_exists('context_course')) {
+                        $coursecontext = context_course::instance($hotpot->course);
+                    } else {
+                        $coursecontext = get_context_instance(CONTEXT_COURSE, $hotpot->course);
+                    }
                 }
 
-                // get course context (only if we need to)
-                if (is_null($coursecontext) || $coursecontext->instanceid != $courseid) {
-                    $coursecontext  = get_context_instance(CONTEXT_COURSE, $courseid);
+                // get module context for this $hotpot/$task
+                if ($modulecontext===null || $modulecontext->instanceid != $hotpot->cmid) {
+                    if (class_exists('context_module')) {
+                        $modulecontext = context_module::instance($hotpot->cmid);
+                    } else {
+                        $modulecontext = get_context_instance(CONTEXT_MODULE, $hotpot->cmid);
+                    }
                 }
 
                 // actually there shouldn't be any urls in HotPot activities,
@@ -467,16 +475,36 @@ function xmldb_hotpot_upgrade($oldversion) {
                     $old_filepath = '/'.ltrim($old_filepath, '/'); // require leading slash
                     $old_filepath = rtrim($old_filepath, '/').'/'; // require trailing slash
                 }
-                $filehash = sha1('/'.$coursecontext->id.'/course/legacy/0'.$old_filepath.$old_filename);
 
-                // we might need the old file path, if the file has not been migrated
+                // update $hotpot->sourcefile, if necessary
+                if ($hotpot->sourcefile != $old_filepath.$old_filename) {
+                    $hotpot->sourcefile = $old_filepath.$old_filename;
+                    $DB->set_field('hotpot', 'sourcefile', $hotpot->sourcefile, array('id' => $hotpot->id));
+                }
+
+                // set $courseid and $contextid from $task->$location
+                // of where we expect to find the $file
+                //   0 : HOTPOT_LOCATION_COURSEFILES
+                //   1 : HOTPOT_LOCATION_SITEFILES
+                //   2 : HOTPOT_LOCATION_WWW (not used)
+                if ($hotpot->sourcelocation) {
+                    $courseid = SITEID;
+                    $contextid = $sitecontext->id;
+                } else {
+                    $courseid = $hotpot->course;
+                    $contextid = $coursecontext->id;
+                }
+
+                // we expect to need the $filehash to get a file that has been migrated
+                $filehash = sha1('/'.$contextid.'/course/legacy/0'.$old_filepath.$old_filename);
+
+                // we might also need the old file path, if the file has not been migrated
                 $oldfilepath = $CFG->dataroot.'/'.$courseid.$old_filepath.$old_filename;
 
                 // set parameters used to add file to filearea
                 // (sortorder=1 siginifies the "mainfile" in this filearea)
-                $context  = get_context_instance(CONTEXT_MODULE, $hotpot->cmid);
                 $file_record = array(
-                    'contextid'=>$context->id, 'component'=>'mod_hotpot', 'filearea'=>'sourcefile',
+                    'contextid'=>$modulecontext->id, 'component'=>'mod_hotpot', 'filearea'=>'sourcefile',
                     'sortorder'=>1, 'itemid'=>0, 'filepath'=>$old_filepath, 'filename'=>$old_filename
                 );
 
@@ -485,7 +513,7 @@ function xmldb_hotpot_upgrade($oldversion) {
                 $hotpot->sourcetype = '';
                 $hotpot->sourceitemid = 0;
 
-                if ($file = $fs->get_file($context->id, 'mod_hotpot', 'sourcefile', 0, $old_filepath, $old_filename)) {
+                if ($file = $fs->get_file($modulecontext->id, 'mod_hotpot', 'sourcefile', 0, $old_filepath, $old_filename)) {
                     // file already exists for this context - shouldn't happen !!
                     // maybe an earlier upgrade failed for some reason ?
                     // anyway we must do this check, so that create_file_from_xxx() does not abort
@@ -532,7 +560,7 @@ function xmldb_hotpot_upgrade($oldversion) {
                         case 'html':
                         default:
                             if ($file) {
-                                $pathnamehash = $fs->get_pathname_hash($context->id, 'mod_hotpot', 'sourcefile', 0, $old_filepath, $old_filename);
+                                $pathnamehash = $fs->get_pathname_hash($modulecontext->id, 'mod_hotpot', 'sourcefile', 0, $old_filepath, $old_filename);
                                 if ($contenthash = $DB->get_field('files', 'contenthash', array('pathnamehash'=>$pathnamehash))) {
                                     $l1 = $contenthash[0].$contenthash[1];
                                     $l2 = $contenthash[2].$contenthash[3];
@@ -806,7 +834,7 @@ function xmldb_hotpot_upgrade($oldversion) {
         upgrade_mod_savepoint(true, "$newversion", 'hotpot');
     }
 
-    $newversion = 2014021000;
+    $newversion = 2014070225;
     if ($oldversion < $newversion) {
         $empty_cache = true;
         upgrade_mod_savepoint(true, "$newversion", 'hotpot');

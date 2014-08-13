@@ -32,7 +32,7 @@ require_once($CFG->libdir.'/eventslib.php');
 $id   = required_param('id', PARAM_INT);             // Course Module ID
 $mode = optional_param('mode', 'display', PARAM_ALPHA);
 
-$cm = get_coursemodule_from_id('lesson', $id, 0, false, MUST_EXIST);;
+$cm = get_coursemodule_from_id('lesson', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
 $lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*', MUST_EXIST));
 
@@ -268,23 +268,12 @@ switch ($mode) {
                 $ufields = user_picture::fields('u');
                 list($sort, $sortparams) = users_order_by_sql('u');
                 $params = array_merge($params, $sortparams);
-                if (!empty($cm->groupingid)) {
-                    $params["groupingid"] = $cm->groupingid;
-                    $sql = "SELECT DISTINCT $ufields
-                            FROM {lesson_attempts} a
-                                INNER JOIN {user} u ON u.id = a.userid
-                                INNER JOIN {groups_members} gm ON gm.userid = u.id
-                                INNER JOIN {groupings_groups} gg ON gm.groupid = gg.groupid AND gg.groupingid = :groupingid
-                            WHERE a.lessonid = :lessonid
-                            ORDER BY $sort";
-                } else {
-                    $sql = "SELECT DISTINCT $ufields
-                            FROM {user} u,
-                                 {lesson_attempts} a
-                            WHERE a.lessonid = :lessonid and
-                                  u.id = a.userid
-                            ORDER BY $sort";
-                }
+                $sql = "SELECT DISTINCT $ufields
+                        FROM {user} u,
+                             {lesson_attempts} a
+                        WHERE a.lessonid = :lessonid and
+                              u.id = a.userid
+                        ORDER BY $sort";
                 if (!$users = $DB->get_records_sql($sql, $params)) {
                     $mode = 'none'; // not displaying anything
                     $lesson->add_message(get_string('noonehasanswered', 'lesson'));

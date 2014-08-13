@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cohort', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cohort', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   cohort
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,6 +46,11 @@ $string['delconfirm'] = 'Voulez-vous vraiment supprimer la cohorte « {$a} »?
 $string['description'] = 'Description';
 $string['duplicateidnumber'] = 'Une cohorte de même identifiant existe déjà';
 $string['editcohort'] = 'Modifier cohorte';
+$string['event_cohort_created'] = 'Cohorte créée';
+$string['event_cohort_deleted'] = 'Cohorte supprimée';
+$string['event_cohort_member_added'] = 'Utilisateur ajouté à une cohorte';
+$string['event_cohort_member_removed'] = 'Utilisateur retiré d\'une cohorte';
+$string['event_cohort_updated'] = 'Cohorte modifiée';
 $string['external'] = 'Cohorte externe';
 $string['idnumber'] = 'Identifiant cohorte';
 $string['memberscount'] = 'Effectif de la cohorte';

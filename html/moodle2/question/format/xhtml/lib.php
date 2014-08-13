@@ -38,14 +38,21 @@ defined('MOODLE_INTERNAL') || die();
  * @param bool $forcedownload.
  * @param array $options additional options affecting the file serving.
  */
-function qformat_xhtml_questiontext_preview_pluginfile($context, $questionid,
-        $args, $forcedownload, array $options = array()) {
+function qformat_xhtml_question_preview_pluginfile($previewcontext, $questionid,
+        $filecontext, $filecomponent, $filearea, $args, $forcedownload, $options = array()) {
     global $CFG;
 
-    list($context, $course, $cm) = get_context_info_array($context->id);
+    list($context, $course, $cm) = get_context_info_array($previewcontext->id);
     require_login($course, false, $cm);
 
     question_require_capability_on($questionid, 'view');
 
-    question_send_questiontext_file($questionid, $args, $forcedownload, $options);
+    $fs = get_file_storage();
+    $relativepath = implode('/', $args);
+    $fullpath = "/{$filecontext->id}/{$filecomponent}/{$filearea}/{$relativepath}";
+    if (!$file = $fs->get_file_by_hash(sha1($fullpath)) or $file->is_directory()) {
+        send_file_not_found();
+    }
+
+    send_stored_file($file, 0, 0, $forcedownload, $options);
 }

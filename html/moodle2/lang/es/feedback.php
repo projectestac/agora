@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = 'Añadir pregunta';
-$string['add_items'] = 'Añadir preguntas';
 $string['add_pagebreak'] = 'Añadir salto de página';
 $string['adjustment'] = 'Ajuste';
 $string['after_submit'] = 'Después del envío';
@@ -95,9 +94,8 @@ $string['dropdown_values'] = 'Valores de la lista desplegable';
 $string['drop_feedback'] = 'Eliminar de este curso';
 $string['edit_item'] = 'Editar pregunta';
 $string['edit_items'] = 'Editar preguntas';
-$string['emailnotification'] = 'Notificaciones email';
 $string['email_notification'] = 'Enviar notificaciones por correo electrónico';
-$string['emailnotification_help'] = 'Si está habilitado, los administradores recibirán notificaciones por correo electrónico al enviarse las respuestas a la encuesta.';
+$string['email_notification_help'] = 'Si está habilitado, los administradores recibirán notificaciones por correo electrónico al enviarse las respuestas a la encuesta.';
 $string['emailteachermail'] = '{$a->username} ha cumplimentado y enviado la encuesta: \'{$a->feedback}\'
 
 Puede verla aquí
@@ -110,7 +108,6 @@ $string['export_questions'] = 'Exportar preguntas';
 $string['export_to_excel'] = 'Exportar a Excel';
 $string['feedback:addinstance'] = 'Añadir una nueva encuesta';
 $string['feedbackclose'] = 'Cerrar la encuesta en';
-$string['feedbackcloses'] = 'La encuesta se cierra';
 $string['feedback:complete'] = 'Cumplimente la encuesta';
 $string['feedback:createprivatetemplate'] = 'Crear plantilla privada';
 $string['feedback:createpublictemplate'] = 'Crear plantilla pública';
@@ -121,8 +118,6 @@ $string['feedback_is_not_for_anonymous'] = 'la encuesta no es anónima';
 $string['feedback_is_not_open'] = 'La encuesta no está disponible';
 $string['feedback:mapcourse'] = 'Asignar cursos a encuestas globales';
 $string['feedbackopen'] = 'Abrir la encuesta en';
-$string['feedbackopens'] = 'La encuesta se abre';
-$string['feedback_options'] = 'Opciones de la encuesta';
 $string['feedback:receivemail'] = 'Recibir notificación por correo electrónico';
 $string['feedback:view'] = 'Ver una encuesta';
 $string['feedback:viewanalysepage'] = 'Ver página de análisis después del envío';
@@ -144,7 +139,6 @@ $string['insufficient_responses_help'] = 'El número de respuestas para este gru
 Para mantener los comentarios anónimos debe haber un mínimo de 2 respuestas realizadas.';
 $string['item_label'] = 'Etiqueta';
 $string['item_name'] = 'Pregunta';
-$string['items_are_required'] = 'Es obligatorio responder a las preguntas señaladas con un asterisco.';
 $string['label'] = 'Etiqueta';
 $string['line_values'] = 'Clasificación';
 $string['mapcourse'] = 'Asignar encuesta a cursos';
@@ -179,8 +173,7 @@ $string['multichoice'] = 'Elección múltiple';
 $string['multichoicerated'] = 'Elección múltiple (clasificadas)';
 $string['multichoicetype'] = 'Tipo elección múltiple';
 $string['multichoice_values'] = 'Valores elección múltiple';
-$string['multiplesubmit'] = 'Envíos múltiples';
-$string['multiple_submit'] = 'Envíos múltiples';
+$string['multiplesubmit'] = 'Permites múltiples envíos';
 $string['multiplesubmit_help'] = 'Si se habilita en las encuestas anónimas, los usuarios pueden enviar sus opinión un número ilimitado de veces.';
 $string['name'] = 'Nombre';
 $string['name_required'] = 'Nombre requerido';
@@ -221,6 +214,7 @@ $string['preview_help'] = 'En la vista previa se puede cambiar el orden de las p
 $string['previous_page'] = 'Página anterior';
 $string['public'] = 'Pública';
 $string['question'] = 'Pregunta';
+$string['questionandsubmission'] = 'Ajustes de pregunta y envío';
 $string['questions'] = 'Preguntas';
 $string['radio'] = 'Opción múltiple (una respuesta)';
 $string['radiobutton'] = 'Opción múltiple (una respuesta -botones-)';
@@ -274,14 +268,9 @@ $string['textfield_maxlength'] = 'Número máximo de caracteres';
 $string['textfield_size'] = 'Anchura del campo de texto';
 $string['there_are_no_settings_for_recaptcha'] = 'No se ha configurado el captcha';
 $string['this_feedback_is_already_submitted'] = 'Usted ya ha finalizado esta actividad.';
-$string['timeclose'] = 'Hora de cierre';
-$string['timeclose_help'] = 'Puede especificar el momento en que la encuesta es accesible para que los usuarios respondan a las preguntas. Si la casilla no está marcada, no existe un límite definido.';
-$string['timeopen'] = 'Hora de apertura';
-$string['timeopen_help'] = 'Puede especificar las horas en las que está disponible la encuesta para responder a las preguntas. Si la casilla de verificación no está marcada, no hay límite de tiempo definido.';
 $string['typemissing'] = 'valor ausente "type"';
 $string['update_item'] = 'Guardar cambios en la pregunta';
 $string['url_for_continue'] = 'URL para el botón Continuar';
-$string['url_for_continue_button'] = 'URL para el botón Continuar';
 $string['url_for_continue_help'] = 'De manera predeterminada, cuando se envía una encuesta, el botón Continuar lleva a la página del curso. Usted puede definir aquí otra dirección URL de destino para el botón Continuar.';
 $string['use_one_line_for_each_value'] = '<br>¡Use una línea por cada respuesta!';
 $string['use_this_template'] = 'Utilizar esta plantilla';

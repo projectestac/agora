@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mathslib', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mathslib', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   mathslib
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['anunexpectederroroccured'] = 'неожиданная ошибка';
+$string['anunexpectederroroccured'] = 'непредвиденная ошибка';
 $string['cannotassigntoconstant'] = 'невозможно назначить постоянной «{$a}»';
 $string['cannotredefinebuiltinfunction'] = 'Невозможно переопределить встроенные функции «{$a}()»';
 $string['divisionbyzero'] = 'деление на ноль';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,4 +56,4 @@ $string['ratinginvalid'] = '등급이 잘 못 되었습니다.';
 $string['ratings'] = '추천';
 $string['ratingtime'] = '이 기간내에만 항목에 등급을 주도록 제한';
 $string['rolewarning'] = '등급을 줄수 있는 권한이 있는 역할들';
-$string['rolewarning_help'] = '등급을 내보내기 하기 위해서는 사용자들은 moodle/rating:rate능력과 모듈에 특정적인 능력을 가져야 합니다. 다음 역할을 부여받은 사용자들은 항목들을 등급 매길 수 있을 것입니다. 역할 목록은 설정 블록의 사용권한 링크를 통해서 수정될 수 있습니다.';
+$string['rolewarning_help'] = '등급을 내보내기 하기 위해서는 사용자들은 moodle/rating:rate능력과 모듈에 특정적인 능력을 가져야 합니다. 다음 역할을 부여받은 사용자들은 항목들을 등급 매길 수 있을 것입니다. 역할 목록은 관리 블록의 사용권한 링크를 통해서 수정될 수 있습니다.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -73,14 +73,26 @@ $string['enablewsdescription'] = 'Webbtjänster måste aktiveras i Avancerade fu
 $string['entertoken'] = 'Ange en säkerhetsnyckel/token:';
 $string['error'] = 'Fel: {$a}';
 $string['errorcodes'] = 'Felmeddelande';
+$string['event_webservice_login_failed'] = 'Webbtjänstinloggning misslyckades';
+$string['function'] = 'Funktion';
+$string['functions'] = 'Funktion';
+$string['information'] = 'Information';
 $string['invalidiptoken'] = 'Ogiltig token - ditt IP stöds inte';
 $string['invalidtimedtoken'] = 'Ogiltig token - den har utgått';
 $string['invalidtoken'] = 'Ogiltig token - token hittades inte';
+$string['iprestriction'] = 'IP restriktion';
 $string['key'] = 'Nyckel/Kod';
+$string['manageprotocols'] = 'Hantera protokoll';
 $string['managetokens'] = 'Hantera token';
 $string['missingrequiredcapability'] = 'Förmågan {$a} krävs.';
+$string['mobilewsdisabled'] = 'Avaktiverat';
+$string['mobilewsenabled'] = 'Aktiverat';
+$string['nocapabilitytouseparameter'] = 'Användaren har inte den förmåga som krävs för att använda parametern {$a}';
 $string['norequiredcapability'] = 'Ingen förmåga krävs';
 $string['notoken'] = 'Tokenlistan är tom';
+$string['operation'] = 'Operation';
+$string['optional'] = 'Valfritt';
+$string['passwordisexpired'] = 'Lösenordet har gått ut.';
 $string['phpparam'] = 'XML-RPC (PHP struktur)';
 $string['phpresponse'] = 'XML-RPC (PHP struktur)';
 $string['postrestparam'] = 'PHP-kod för REST (POST-begäran)';
@@ -89,6 +101,7 @@ $string['potusersmatching'] = 'Icke auktoriserade användare som matchar';
 $string['print'] = 'Skriv ut allt';
 $string['protocol'] = 'Protokoll';
 $string['removefunction'] = 'Ta bort';
+$string['removefunctionconfirm'] = 'Vill du verkligen ta bort funktionen "{$a->function}" från tjänsten "{$a->service}"?';
 $string['requireauthentication'] = 'Denna metod kräver autentisering med xxx behörighet.';
 $string['required'] = 'Krävs';
 $string['requiredcapability'] = 'Förmåga som krävs';
@@ -125,5 +138,17 @@ $string['token'] = 'Token';
 $string['tokenauthlog'] = 'Token autentisering';
 $string['tokencreatedbyadmin'] = 'Kan endast återställas av Administratören (*)';
 $string['tokencreator'] = 'Skapare';
+$string['updateusersettings'] = 'Uppdatera';
 $string['userasclients'] = 'Användare som klienter med token';
+$string['usernameorid'] = 'Användarnamn / Användar-ID';
+$string['webservice'] = 'Webbtjänst';
+$string['webservices'] = 'Webbtjänst';
+$string['webservicesoverview'] = 'Översikt';
 $string['webservicetokens'] = 'Webbtjänst token';
+$string['wrongusernamepassword'] = 'Fel användarnamn eller lösenord';
+$string['wsclientdoc'] = 'Moodle webbtjänst klientdokumentation';
+$string['wsdocapi'] = 'API-dokumentation';
+$string['wsdocumentation'] = 'Webbtjänst dokumentation';
+$string['wsdocumentationdisable'] = 'Webbtjänst dokumentation är inaktiverad.';
+$string['wspassword'] = 'Webbtjänst lösenord';
+$string['wsusername'] = 'Webbtjänst användarnamn';

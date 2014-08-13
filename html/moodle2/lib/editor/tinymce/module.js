@@ -43,6 +43,8 @@ M.editor_tinymce.init_editor = function(Y, editorid, options) {
         };
 
         M.editor_tinymce.initialised = true;
+        M.util.js_pending('editors');
+        options.oninit = "M.editor_tinymce.init_callback";
     }
 
     M.editor_tinymce.editor_options[editorid] = options;
@@ -86,6 +88,10 @@ M.editor_tinymce.init_editor = function(Y, editorid, options) {
     }
 };
 
+M.editor_tinymce.init_callback = function() {
+    M.util.js_complete('editors');
+}
+
 M.editor_tinymce.init_filepicker = function(Y, editorid, options) {
     M.editor_tinymce.filepicker_options[editorid] = options;
 };
@@ -113,7 +119,7 @@ M.editor_tinymce.filepicker = function(target_id, url, type, win) {
         } else if (type == 'image') {
             // When image button clicked.
             options = M.editor_tinymce.filepicker_options[editor_id]['image'];
-        } 
+        }
 
         options.formcallback = M.editor_tinymce.filepicker_callback;
         options.editor_target = win.document.getElementById(target_id);

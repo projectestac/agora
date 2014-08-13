@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -118,6 +118,7 @@ $string['destination_help'] = 'Beim Import können Sie wählen, wo importierte G
 * Aktuelles Glossar - die Einträge werden zum aktuellen Glossar hinzugefügt
 * Neues Glossar - mit den Informationen der XML-Datei wird ein neues Glossar erstellt und die Einträge dahin übernommen
 ';
+$string['disapprove'] = 'Freigegebenen Eintrag sperren';
 $string['displayformat'] = 'Anzeigeformat';
 $string['displayformatcontinuous'] = 'Wörterbuch (ohne Synonyme)';
 $string['displayformatdefault'] = 'Standardmäßig wie das Anzeigeformat';
@@ -188,7 +189,7 @@ $string['filtername'] = 'Automatische Verlinkung zum Glossar';
 $string['fullmatch'] = 'Nur vollständige Worte';
 $string['fullmatch_help'] = 'Wenn diese Option aktiviert ist, wird ein Eintrag nur dann verlinkt, wenn ein vollständiges Wort im Text mit dem Eintrag im Glossar übereinstimmt. Dabei wird beispielsweise keine Verlinkung erzeugt, wenn ein im Glossar eingetragener Begriff "Konstrukt" lautet, aber im Text das Wort "Konstruktivität" vorkommt.';
 $string['glossary:addinstance'] = 'Glossar hinzufügen';
-$string['glossary:approve'] = 'Einträge freigeben';
+$string['glossary:approve'] = 'Einträge freigeben oder nicht freigegeben';
 $string['glossary:comment'] = 'Kommentare';
 $string['glossary:export'] = 'Einträge exportieren';
 $string['glossary:exportentry'] = 'Einzeleintrag exportieren';
@@ -253,6 +254,7 @@ $string['page-mod-glossary-x'] = 'Alle Glossarseiten';
 $string['pluginadministration'] = 'Glossar-Administration';
 $string['pluginname'] = 'Glossar';
 $string['popupformat'] = 'Popup-Format';
+$string['print'] = 'Drucken';
 $string['printerfriendly'] = 'Druckerfreundliche Version';
 $string['printviewnotallowed'] = 'Druckansicht ist nicht erlaubt.';
 $string['question'] = 'Frage';

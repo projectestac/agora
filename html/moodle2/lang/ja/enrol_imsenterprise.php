@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -71,6 +71,7 @@ $string['deleteusers_desc'] = '<p>この設定が有効にされた場合、IMS�
 
 <p>Moodleの標準どおり、実際にはユーザレコードはMoodleデータベースから削除されず、アカウントに削除フラグがセットされます。</p>';
 $string['doitnow'] = 'IMSエンタープライズインポート処理を実行してください。';
+$string['emptyattribute'] = '空白のままにする';
 $string['filelockedmail'] = 'あなたが使用しているIMSファイルベースのユーザ登録 ({$a}) のテキストファイルをcronプロセスで削除することができません。通常、これはファイルパーミッションが正しくないことを意味します。Moodleが削除できるよう、ファイルのパーミッションを変更してください。変更しない場合、この処理が繰り返し実行されます。';
 $string['filelockedmailsubject'] = 'インポートエラー: ユーザ登録ファイル';
 $string['fixcasepersonalnames'] = '個人名をタイトル文字にする';
@@ -93,6 +94,12 @@ $string['restricttarget_desc'] = '<p>IMSエンタープライズデータファ�
 
 <p>ほとんどの場合、このことを心配する必要はありません。設定欄を空白にすると、Moodleは常にデータを処理し、ターゲットが指定されているかどうか問わず、&lt;target&gt; タグの中に出力される的確な名称を書き込みます。</p>';
 $string['roles'] = 'ロール';
+$string['settingfullname'] = 'コースフルネームのIMS説明タグ';
+$string['settingfullnamedescription'] = 'コースフィールドにフルネームが必要であるため、あなたは選択された説明タグをIMSエンタープライズファイル内に定義する必要があります。';
+$string['settingshortname'] = 'コース省略名のIMS説明タグ';
+$string['settingshortnamedescription'] = 'コースフィールドに省略名が必要であるため、あなたは選択された説明タグをIMSエンタープライズファイル内に定義する必要があります。';
+$string['settingsummary'] = 'コース概要のIMS説明タグ';
+$string['settingsummarydescription'] = '任意フィールドです。あなたがコース概要を指定したくない場合、「空白のままにする」を選択してください。';
 $string['sourcedidfallback'] = '「userid」が見つからない場合、ユーザIDに「sourcedid」を使用する';
 $string['sourcedidfallback_desc'] = 'IMSデータでは <sourcedid> フィールドはソースシステムで使用される不変のユーザIDコードをあらわします。<userid> フィールドはユーザがログインするときに使用されるIDコードを含む別のフィールドです。多くの場合、これら2つのコードは同じです - しかし、必ずとは限りません。
 

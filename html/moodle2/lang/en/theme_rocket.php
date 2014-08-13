@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_rocket', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'theme_rocket', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   theme_rocket
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,14 +31,14 @@ $string['allmodules'] = 'All Modules';
 $string['allunits'] = 'All Units';
 $string['autohide'] = 'Autohide Functionality';
 $string['autohidedesc'] = 'Enabling this feature will change how moodle looks when editing mode is turned on. Edit icons only appear when hovering over a particular item or block. This makes the interface alot cleaner and less intimidating.';
-$string['banner'] = 'Banner';
-$string['bannerdesc'] = 'Change the banner on the frontpage by entering the URL to a new one (i.e., http://www.somesite/banner.png). As a reference, the default banner is 750px by 250px.';
 $string['bannerheight'] = 'Homepage Banner Height';
 $string['bannerheightdesc'] = 'If you are using the Banner location on the homepage you can change its defult height here. The max is 250px.';
+$string['bannerimage'] = 'Banner';
+$string['bannerimagedesc'] = 'Change the banner on the frontpage by entering the URL to a new one (i.e., http://www.somesite/banner.png). As a reference, the default banner is 750px by 250px.';
 $string['blocklinkcolor'] = 'Block Link Color';
 $string['blocklinkcolordesc'] = 'Change the color of the links in blocks';
 $string['bootstrap'] = 'Bootstrap Stying - BETA';
-$string['bootstrapdesc'] = 'This feature will enable new Bootstrap styling. This project for moodle is headed by <a href="http://moodle.org/user/view.php?id=3152&course=5">David Scotson</a> and introduced into Rocket as a Beta status. Bootstrap is a project from Twitter that provides "Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions." For more inofmration on Bootstrap <a href="http://twitter.github.com/bootstrap/">click here</a>.';
+$string['bootstrapdesc'] = 'This feature will enable new Bootstrap styling. This project for moodle is headed by <a href="http://moodle.org/user/view.php?id=3152&course=5">David Scotson</a> and introduced into Rocket as a Beta status. Bootstrap is a project from Twitter that provides "Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions." For more information on Bootstrap <a href="http://twitter.github.com/bootstrap/">click here</a>.';
 $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot">
 
 <h1>Rocket</h1>
@@ -103,11 +103,11 @@ $string['myunits'] = 'My Units';
 $string['navigation'] = 'navigation';
 $string['nobanner'] = 'Disable Banner';
 $string['pluginname'] = 'Rocket';
-$string['region-side-homeblock'] = 'Home Banner';
+$string['region-homeblock'] = 'Home Banner';
+$string['region-search'] = 'Search/Profile';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
-$string['region-side-search'] = 'Search/Profile';
-$string['region-side-toplinks'] = 'Top Links';
+$string['region-toplinks'] = 'Top Links';
 $string['screenwidth'] = 'Screen Width';
 $string['screenwidthdesc'] = 'This allows you to designate if this theme is displayed as a fixed with of 1000px or a variable width of 100%. <br> Please note that for design reasons the frontpage of the site will always remain fixed width';
 $string['sitename'] = 'Institution Name';

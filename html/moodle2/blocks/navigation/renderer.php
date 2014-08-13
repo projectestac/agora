@@ -68,6 +68,13 @@ class block_navigation_renderer extends plugin_renderer_base {
         // array of nested li elements
         $lis = array();
         foreach ($items as $item) {
+            //XTEC ************ AFEGIT - To delete some settings
+            //2014.05.22 @pferrer
+            static $delete_items = array('myprofile' => '');
+            if(isset($delete_items[$item->key]) || ($item->key == 'home' && !$item->has_children())){
+                continue;
+            }
+            //********* FI
             if (!$item->display && !$item->contains_active_node()) {
                 continue;
             }

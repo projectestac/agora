@@ -50,7 +50,7 @@ if ($id) {
 }
 
 require_login($course, true, $cm);
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 require_capability('mod/geogebra:view', $context);
 
 add_to_log($course->id, 'geogebra', 'result', "result.php?id={$cm->id}", $geogebra->name, $cm->id);
@@ -74,7 +74,7 @@ $completion->set_module_viewed($cm);
 
 $action = optional_param('action', '', PARAM_TEXT);
 geogebra_view_header($geogebra, $cm, $course);
-$cangrade = is_siteadmin() || has_capability('mod/geogebra:grade', $context, $USER->id, false);
+$cangrade = is_siteadmin() || has_capability('moodle/grade:edit', $context, $USER->id, false);
 geogebra_view_intro($geogebra, $cm, $cangrade, $action);
 
 if (!empty($action)){
@@ -109,7 +109,7 @@ if (!empty($action)){
         geogebra_view_results($geogebra, $context, $cm, $course, $action);
     } else{
         // Show GGB applet with last attempt
-        geogebra_view_applet($geogebra, $cm, $context);    
+        geogebra_view_applet($geogebra, $cm, $context);
     }
 }
 

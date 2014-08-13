@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mimetypes', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mimetypes', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   mimetypes
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,10 +25,22 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['application/epub_zip'] = 'Libro electrónico EPUB';
 $string['application/msword'] = 'Documento Word';
 $string['application/pdf'] = 'Documento PDF';
+$string['application/vnd.moodle.backup'] = 'Copia de seguranza de Moodle';
 $string['application/vnd.ms-excel'] = 'Folla de cálculo Excel';
 $string['application/vnd.ms-powerpoint'] = 'Presentación Powerpoint';
-$string['document/unknown'] = 'ficheiro';
-$string['text/plain'] = 'ficheiro de texto';
+$string['application/vnd.openxmlformats-officedocument.presentationml.presentation'] = 'Presentación Powerpoint';
+$string['application/vnd.openxmlformats-officedocument.presentationml.slideshow'] = 'Presentación en diapositivas Powerpoint';
+$string['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'] = 'Folla de cálculo Excel';
+$string['application/vnd.openxmlformats-officedocument.spreadsheetml.template'] = 'Modelo de Excel';
+$string['application/vnd.openxmlformats-officedocument.wordprocessingml.document'] = 'Documento Word';
+$string['archive'] = 'Ficheiro ({$a->EXT})';
+$string['audio'] = 'Ficheiro de son ({$a->EXT})';
+$string['default'] = '{$a->mimetype}';
+$string['document/unknown'] = 'Ficheiro';
+$string['image'] = 'Imaxe ({$a->MIMETYPE2})';
+$string['text/html'] = 'Documento HTML';
+$string['text/plain'] = 'Ficheiro de texto';
 $string['text/rtf'] = 'Documento RTF';

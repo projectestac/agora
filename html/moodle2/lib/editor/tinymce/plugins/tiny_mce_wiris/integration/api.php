@@ -173,6 +173,9 @@ class com_wiris_plugin_PluginAPI {
 				$sub = str_replace($this->TAGS->in_quote, $this->TAGS->out_quote, $sub);
 			}
 
+			// replace line breaks by spaces
+			$sub = str_replace("\n", " ", $sub);
+			
 			// generate the image code
 			$sub = $this->math_image($sub);                
 			

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -151,7 +151,7 @@ $string['customscoring'] = 'Egen utformning av resultat';
 $string['customscoring_help'] = '<p>Det här ger Dig möjlighet att ange ett numeriskt värde (en siffra) för varje svar.
 Svar kan antingen ha negativa eller positiva värden. Importerade frågor kommer att automatiskt
 tilldelas 1 poäng för rätt svar och 0 poäng för felaktiga svar. Detta kan Du dock ändra efter det att Du har importerat frågorna.</p>';
-$string['deadline'] = 'Stoppdatum/tid';
+$string['deadline'] = 'Slutdatum/tid';
 $string['defaultessayresponse'] = 'Din essä kommer att få ett betyg/omdöme av kursens distanslärare.';
 $string['deleteallattempts'] = 'Ta bot alla försök att genomföra lektionen';
 $string['deletedefaults'] = 'Tog bort {$a} x lektion standardinställning';
@@ -542,7 +542,7 @@ $string['numberofpagesviewed'] = 'Antal sidor som har visats:  {$a}';
 $string['numberofpagesviewednotice'] = 'Antal besvarade frågor: {$a->nquestions}; (Du bör besvara åtminstone: {$a->minquestions})';
 $string['numerical'] = 'Numerisk';
 $string['ongoing'] = 'Visa pågående resultat';
-$string['ongoingcustom'] = 'Du har uppnått {$a->score} poäng av {$a->currenthigh} poäng så hä långt.';
+$string['ongoingcustom'] = 'Du har uppnått {$a->score} poäng av {$a->currenthigh} poäng så här långt.';
 $string['ongoing_help'] = '<p>Om Du har aktiverat det här så kommer varje sida att visa det aktuella resultatet (så här långt) som andel av det möjliga sammanlagda resultatet.  Exempel:  Någon har besvarat 4 frågor värda 5 poäng vardera och besvarat en felaktigt. Det hittills ackumulerade resultatet skulle visa att vederbörande   att f.n. har uppnått 15/20 poäng.</p>';
 $string['ongoingnormal'] = 'Du har lämnat korrekt/a svar på {$a->correct} fråga/or av {$a->viewed} fråga/or.';
 $string['onpostperpage'] = 'Endast ett bidrag per betyg/omdöme';
@@ -663,15 +663,15 @@ $string['pleasematchtheabovepairs'] = 'Var god och matcha de ovanstående paren'
 $string['pluginadministration'] = 'Administration av lektion';
 $string['pluginname'] = 'Lektion';
 $string['pointsearned'] = 'Intjänade poäng';
-$string['postprocesserror'] = 'Ett fel uppstod i sb m bearbetning av bidrag';
+$string['postprocesserror'] = 'Fel uppstod under efterbearbetning!';
 $string['postsuccess'] = 'Inlägget har registrerats framgångsrikt';
 $string['practice'] = 'Övningslektion';
 $string['practice_help'] = '<p>En &ouml;vningslektion kommer inte att visas i betygskatalogen.</p>';
-$string['preprocesserror'] = 'Ett fel uppstod i sb m förbearbetning ';
+$string['preprocesserror'] = 'Fel uppstod under förbearbetning!';
 $string['preview'] = 'Förhandsgranska';
 $string['previewlesson'] = 'Förhandsgranska {$a}';
 $string['previouspage'] = 'Föregående sida';
-$string['processerror'] = 'Ett fel uppstod i sb m bearbetning ';
+$string['processerror'] = 'Fel uppstod under bearbetning!';
 $string['progressbar'] = 'Rad som visar hur något fortskrider';
 $string['progressbar_help'] = '<p>Detta visar längst ner på sidan en rad som visar hur processen fortgår.
 F.n. så är denna rad den som passar bäst ihop med en linjär Lektion.</p>

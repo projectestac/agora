@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_picasa', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_picasa', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_picasa
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,10 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'Client ID';
 $string['configplugin'] = 'Picasa repository configuration';
-$string['oauth2upgrade_message_content'] = 'As part of the upgrade to Moodle 2.3, the Picasa portfolio plugin has been disabled. To re-enable it, your Moodle site needs to be registered with Google, as described in the documentation {$a->docsurl}, in order to obtain a client ID and secret. The client ID and secret can then be used to configure all Google Docs and Picasa plugins.';
+$string['oauth2upgrade_message_content'] = 'As part of the upgrade to Moodle 2.3, the Picasa portfolio plugin has been disabled. To re-enable it, your Moodle site needs to be registered with Google, as described in the documentation {$a->docsurl}, in order to obtain a client ID and secret. The client ID and secret can then be used to configure all Google Drive and Picasa plugins.';
 $string['oauth2upgrade_message_small'] = 'This plugin has been disabled, as it requires configuration as described in the documentation Google OAuth 2.0 setup.';
 $string['oauth2upgrade_message_subject'] = 'Important information regarding Picasa repository plugin';
-$string['oauthinfo'] = '<p>To use this plugin, you must register your site with Google, as described in the documentation <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p>As part of the registration process, you will need to enter the following URL as \'Authorized Redirect URIs\':</p><p>{$a->callbackurl}</p>Once registered, you will be provided with a client ID and secret which can be used to configure all Google Docs and Picasa plugins.</p>';
+$string['oauthinfo'] = '<p>To use this plugin, you must register your site with Google, as described in the documentation <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p>As part of the registration process, you will need to enter the following URL as \'Authorized Redirect URIs\':</p><p>{$a->callbackurl}</p>Once registered, you will be provided with a client ID and secret which can be used to configure all Google Drive and Picasa plugins.</p>';
 $string['picasa:view'] = 'View picasa repository';
 $string['pluginname'] = 'Picasa web album';
 $string['secret'] = 'Secret';

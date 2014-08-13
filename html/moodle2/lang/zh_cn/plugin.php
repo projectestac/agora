@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,12 +29,27 @@ $string['actions'] = '动作';
 $string['availability'] = '可用性';
 $string['checkforupdates'] = '检查可用更新';
 $string['checkforupdateslast'] = '上次检查完成于{$a}';
+$string['detectedmisplacedplugin'] = '"{$a->component}" 错误的安装在 "{$a->current}", 应该安装在"{$a->expected}"';
 $string['displayname'] = '插件名';
+$string['err_response_curl'] = '末cURL错误 - 获取不到可用的更新数据。';
+$string['err_response_format_version'] = '末知的响应格式。请重新检查更新。';
+$string['err_response_http_code'] = '末知的HTTP响应状态码 - 获取不到可用的更新数据。';
+$string['filterall'] = '显示所有';
+$string['filtercontribonly'] = '只显示附件';
+$string['filtercontribonlyactive'] = '当前只显示附件';
+$string['filterupdatesonly'] = '只显示可更新的';
+$string['filterupdatesonlyactive'] = '当前只显示可更新的';
 $string['moodleversion'] = 'Moodle {$a}';
 $string['nonehighlighted'] = '当前没有需要留意的插件';
 $string['nonehighlightedinfo'] = '不管怎样，显示所有已安装插件列表';
 $string['noneinstalled'] = '没有安装任何此类型的插件';
+$string['notdownloadable'] = '无法下载包';
+$string['notdownloadable_help'] = '无法自动下载ZIP压缩包更新。请查看文档页面获取更多帮助。';
 $string['notes'] = '注释';
+$string['notwritable'] = '插件文件不可写';
+$string['notwritable_help'] = '你启用了自动更新部署，目前有一个可用的更新。但是web服务器无法写入插件文件，所以无法自动安装更新。
+
+你要将整个插件目录设置为可写这样才可以自动安装更新。';
 $string['numdisabled'] = '禁用：{$a}';
 $string['numextension'] = '贡献：{$a}';
 $string['numtotal'] = '已安装：{$a}';
@@ -119,9 +134,18 @@ $string['type_tool_plural'] = '管理工具';
 $string['type_webservice'] = 'Webservice协议';
 $string['type_webservice_plural'] = 'Webservice协议';
 $string['uninstall'] = '卸载';
+$string['uninstallconfirm'] = '你将要卸载<em>{$a->name}</em>插件。这会从数据库中删除所有关于该插件的数据，包括配置，日志记录，用户的文件等。删除是不可恢复的，Moodle也没创建任何备份。你确定要继续吗？';
+$string['uninstalldelete'] = '已经从数据库删除<em>{$a->name}</em>插件的所有相关数据。为防止<em>{$a->name}</em>插件自动安装，请手动把插件的<em>{$a->rootdir}</em>文件夹从服务器上删除。Moodle没有写权限所以无法删除此文件夹。';
+$string['uninstalldeleteconfirm'] = '已经从数据库删除<em>{$a->name}</em>插件的所有相关数据。为防止<em>{$a->name}</em>插件自动安装，插件的<em>{$a->rootdir}</em>文件夹必须要删除掉。你现在要删除掉插件文件夹吗？';
+$string['uninstalldeleteconfirmexternal'] = '系统显示这个插件是从版本控制系统{$a} checkout来的。如果你删除了插件文件夹，你可能会丢失掉你在本地所做的所有代码修改。你在继续删除之前确认。';
+$string['uninstalling'] = '正在卸载 {$a->name}';
 $string['updateavailable'] = '有新的版本 {$a} 可用！';
 $string['updateavailable_moreinfo'] = '更多信息……';
 $string['updateavailable_release'] = '版本 {$a}';
+$string['updatepluginconfirm'] = '插件更新确认';
+$string['updatepluginconfirmexternal'] = '系统显示这个插件是从版本控制系统{$a} checkout来的。如果你安装了更新文件，你可能会不能再从版本控制系统那边获取插件更新了。你在继续更新之前确认。';
+$string['updatepluginconfirminfo'] = '你将要安装插件<strong>{$a->name}</strong>的新版本。将从<a href="{$a->url}">{$a->url}</a>这里下载{$a->version}版本的压缩包并解压到你的Moodle安装目录，这样就升级了。';
+$string['updatepluginconfirmwarning'] = '注意Moodle不会在升级之前自动备份数据库。我们强烈建议你现在做一个完整的备份, 以应对新代码有BUG导致网站不能使用甚至崩溃。你可以冒险继续升级。';
 $string['version'] = '版本';
 $string['versiondb'] = '当前版本';
 $string['versiondisk'] = '新版本';

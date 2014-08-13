@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = '新しいロールを追加する';
-$string['addingrolebycopying'] = '{$a} をベースに新しいロールを追加する';
 $string['addrole'] = '新しいロールを追加する';
 $string['advancedoverride'] = '高度なロールオーバーライド';
 $string['allow'] = '許可';
@@ -70,10 +69,22 @@ $string['backup:backuptargetimport'] = 'インポートにバックアップす�
 $string['backup:configure'] = 'バックアップオプションを設定する';
 $string['backup:downloadfile'] = 'バックアップエリアよりファイルをダウンロードする';
 $string['backup:userinfo'] = 'ユーザデータをバックアップする';
+$string['badges:awardbadge'] = 'ユーザにバッジを授与する';
+$string['badges:configurecriteria'] = 'バッジ取得のクライテリアをセットアップ/編集する';
+$string['badges:configuredetails'] = 'バッジ詳細をセットアップ/編集する';
+$string['badges:configuremessages'] = 'バッジメッセージを設定する';
+$string['badges:createbadge'] = 'バッジを作成/複製する';
+$string['badges:deletebadge'] = 'バッジを削除する';
+$string['badges:earnbadge'] = 'バッジを取得する';
+$string['badges:manageglobalsettings'] = 'バッジグローバル設定を管理する';
+$string['badges:manageownbadges'] = '取得バッジを表示および管理する';
+$string['badges:viewawarded'] = 'バッジを授与されずに特定のバッジを取得したユーザを表示する';
+$string['badges:viewbadges'] = '利用可能なバッジを取得せずに表示する';
+$string['badges:viewotherbadges'] = '他のユーザプロファイル内のパブリックバッジを表示する';
 $string['block:edit'] = 'ブロック設定を編集する';
 $string['block:view'] = 'ブロックを表示する';
-$string['blog:associatecourse'] = 'ブログエントリとコースを関連付ける';
-$string['blog:associatemodule'] = 'ブログエントリと活動モジュールを関連付ける';
+$string['blog:associatecourse'] = 'このケイパビリティは廃止されたため、何もしません。';
+$string['blog:associatemodule'] = 'このケイパビリティは廃止されたため、何もしません。';
 $string['blog:create'] = '新しいブログエントリを作成する';
 $string['blog:manageentries'] = 'ブログエントリを編集および管理する';
 $string['blog:manageexternal'] = '外部ブログを編集および管理する';
@@ -151,6 +162,7 @@ $string['course:viewhiddensections'] = '非表示のセクションを表示す�
 $string['course:viewhiddenuserfields'] = '非表示のユーザフィールドを表示する';
 $string['course:viewparticipants'] = '参加者を表示する';
 $string['course:viewscales'] = '評価尺度を表示する';
+$string['course:viewsuspendedusers'] = '一時停止ユーザを表示する';
 $string['course:visibility'] = 'コースを表示/非表示する';
 $string['createrolebycopying'] = '{$a} をコピーして新しいロールを作成する';
 $string['createthisrole'] = 'このロールを作成する';
@@ -176,9 +188,17 @@ $string['errorbadrolename'] = 'ロール名が正しくありません。';
 $string['errorbadroleshortname'] = 'ロール省略名が正しくありません。';
 $string['errorexistsrolename'] = 'ロール名がすでに登録されています。';
 $string['errorexistsroleshortname'] = 'ロール名がすでに登録されています。';
+$string['eventroleallowassignupdated'] = 'ロール割り当てを許可する';
+$string['eventroleallowoverrideupdated'] = 'ロールオーバーライドを許可する';
+$string['eventroleallowswitchupdated'] = 'ロールスイッチを許可する';
+$string['eventroleassigned'] = 'ロール割り当てられました。';
+$string['eventrolecapabilitiesupdated'] = 'ロールケイパビリティ更新';
+$string['eventroledeleted'] = 'ロールが削除されました。';
+$string['eventroleunassigned'] = 'ロール割り当てが解除されました。';
 $string['existingadmins'] = '現在のサイト管理者';
 $string['existingusers'] = '割り当て済みユーザ: {$a}';
 $string['explanation'] = '説明';
+$string['export'] = 'エクスポート';
 $string['extusers'] = '既存のユーザ';
 $string['extusersmatching'] = '「 {$a} 」に合致する既存のユーザ';
 $string['filter:manage'] = 'ローカルフィルタ設定を管理する';
@@ -210,6 +230,7 @@ $string['highlightedcellsshowinherit'] = '下記にハイライトされたセ�
 $string['inactiveformorethan'] = '{$a->timeperiod} 以上活動していない';
 $string['ingroup'] = 'グループ「 {$a->group} 」に属している';
 $string['inherit'] = '継承';
+$string['invalidpresetfile'] = '無効なロール定義ファイル';
 $string['legacy:admin'] = 'レガシーロール: 管理者';
 $string['legacy:coursecreator'] = 'レガシーロール: コース作成者';
 $string['legacy:editingteacher'] = 'レガシーロール: 教師 (編集権限あり)';
@@ -235,6 +256,7 @@ $string['neededroles'] = 'ロールのパーミッション';
 $string['nocapabilitiesincontext'] = 'このコンテクストで利用できるケイパビリティはありません。';
 $string['noneinthisx'] = 'この {$a} にはありません。';
 $string['noneinthisxmatching'] = 'この {$a->contexttype} 内には、「 {$a->search} 」に合致するユーザはありません。';
+$string['norole'] = 'ロールなし';
 $string['noroleassignments'] = 'このユーザに関して、このサイト内でのロール割り当ては、どこにもありません。';
 $string['noroles'] = 'ロールなし';
 $string['notabletoassignroleshere'] = 'あなたは、ここでロールを割り当てることはできません。';
@@ -307,10 +329,8 @@ $string['rating:rate'] = 'アイテムに評価を追加する';
 $string['rating:view'] = 'あなたが受けた評価合計を表示する';
 $string['rating:viewall'] = '個々のユーザから与えられた実評価すべてを表示する';
 $string['rating:viewany'] = 'すべてのユーザが受けた評価合計を表示する';
-$string['resetrole'] = 'デフォルトにリセットする';
-$string['resetrolenolegacy'] = 'パーミッションをクリアする';
-$string['resetrolesure'] = '本当にロール「 {$a->name} ({$a->shortname}) 」をデフォルトにリセットしてもよろしいですか?</p><p>選択されたアーキタイプ ({$a->legacytype}) よりデフォルトが取得されます。';
-$string['resetrolesurenolegacy'] = '本当にこのロール「 {$a->name} ({$a->shortname}) 」で定義されたすべてのパーミッションをクリアしてもよろしいですか?';
+$string['resetrole'] = 'リセット';
+$string['resettingrole'] = 'ロール「 {$a} 」のリセット';
 $string['restore:configure'] = 'リストアオプションを設定する';
 $string['restore:createuser'] = 'リストア時、ユーザを作成する';
 $string['restore:restoreactivity'] = '活動をリストアする';
@@ -334,7 +354,11 @@ $string['role:manage'] = 'ロールを作成および管理する';
 $string['role:override'] = '他のパーミッションをオーバーライドする';
 $string['roleprohibitheader'] = 'ロールを禁止する';
 $string['roleprohibitinfo'] = 'コンテクスト {$a->context} およびケイパビリティ {$a->cap} において、拒否されるロールのリストに追加されるロールを選択してください:';
+$string['rolerepreset'] = 'ロールプリセットを使用する';
+$string['roleresetdefaults'] = 'デフォルト';
+$string['roleresetrole'] = 'ロールまたはアーキタイプを使用する';
 $string['role:review'] = '他のユーザのパーミッションをレビューする';
+$string['rolerisks'] = 'ロールリスク';
 $string['roles'] = 'ロール';
 $string['role:safeoverride'] = '他のセーフパーミッションをオーバーライドする';
 $string['roleselect'] = 'ロールを選択する';
@@ -405,6 +429,7 @@ $string['tag:edit'] = '既存のタグを編集する';
 $string['tag:editblocks'] = 'タグページのブロックを編集する';
 $string['tag:flag'] = '不適切な内容としてタグ付けする';
 $string['tag:manage'] = 'すべてのタグを管理する';
+$string['thisnewrole'] = 'この新しいロール';
 $string['thisusersroles'] = 'このユーザのロール割り当て';
 $string['unassignarole'] = 'ロール {$a} の割り当てを解除する';
 $string['unassignconfirm'] = '本当にユーザ「 {$a->user} 」のロール「 {$a->role} 」を割り当て解除してもよろしいですか?';
@@ -423,7 +448,7 @@ $string['user:manageownblocks'] = '自分のパブリックユーザプロファ
 $string['user:manageownfiles'] = 'プライベートファイルエリアのファイルを管理する';
 $string['user:managesyspages'] = 'パブリックユーザプロファイルのデフォルトページレイアウトを設定する';
 $string['user:readuserblogs'] = 'すべてのユーザブログを表示する';
-$string['user:readuserposts'] = 'すべてのユーザ投稿を表示する';
+$string['user:readuserposts'] = 'すべてのユーザフォーラム投稿を表示する';
 $string['usersfrom'] = '{$a} からのユーザ';
 $string['usersfrommatching'] = '「 {$a->search} 」に合致する {$a->contextname} からのユーザ';
 $string['usersinthisx'] = 'この {$a} 内のユーザ';

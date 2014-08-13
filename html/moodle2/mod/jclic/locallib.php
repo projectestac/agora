@@ -239,8 +239,8 @@ require_once("$CFG->libdir/filelib.php");
         $submitted = '';
         $urlbase = "{$CFG->wwwroot}/mod/jclic/";
 
-/*        $context = get_context_instance(CONTEXT_MODULE,$this->cm->id);
-        if (has_capability('mod/jclic:grade', $context)) {
+/*        $context = context_module::instance($this->cm->id);
+        if (has_capability('moodle/grade:viewall', $context)) {
             if ($allgroups and has_capability('moodle/site:accessallgroups', $context)) {
                 $group = 0;
             } else {
@@ -330,7 +330,7 @@ require_once("$CFG->libdir/filelib.php");
         $cmid = $data->coursemodule;
         $draftitemid = $data->url;
 
-        $context = get_context_instance(CONTEXT_MODULE, $cmid);
+        $context = context_module::instance($cmid);
         if ($draftitemid) {
             file_save_draft_area_files($draftitemid, $context->id, 'mod_jclic', 'content', 0, jclic_get_filemanager_options());
         }

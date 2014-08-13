@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dbtransfer', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,5 @@ $string['exportschemaexception'] = '当前数据库的结构不与所有的insta
 $string['importschemaexception'] = '当前数据库的结构不与所有的install.xml一致。<br /> {$a}';
 $string['importversionmismatchexception'] = '当前版本{$a->currentver}与导出的版本{$a->schemaver}不一致。';
 $string['malformedxmlexception'] = '遇到有错误的XML数据，无法继续。';
+$string['tablex'] = '表 {$a}:';
 $string['unknowntableexception'] = '在导出文件中发现未知的表{$a}。';

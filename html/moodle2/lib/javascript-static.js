@@ -770,6 +770,78 @@ M.util.init_block_hider = function(Y, config) {
 };
 
 /**
+ * @var pending_js - The keys are the list of all pending js actions.
+ * @type Object
+ */
+M.util.pending_js = [];
+M.util.complete_js = [];
+
+/**
+ * Register any long running javascript code with a unique identifier.
+ * Should be followed with a call to js_complete with a matching
+ * idenfitier when the code is complete. May also be called with no arguments
+ * to test if there is any js calls pending. This is relied on by behat so that
+ * it can wait for all pending updates before interacting with a page.
+ * @param String uniqid - optional, if provided,
+ *                        registers this identifier until js_complete is called.
+ * @return boolean - True if there is any pending js.
+ */
+M.util.js_pending = function(uniqid) {
+    if (uniqid !== false) {
+        M.util.pending_js.push(uniqid);
+    }
+
+    return M.util.pending_js.length;
+};
+
+/**
+ * Register listeners for Y.io start/end so we can wait for them in behat.
+ */
+M.util.js_watch_io = function() {
+    YUI.add('moodle-core-io', function(Y) {
+        Y.on('io:start', function(id) {
+            M.util.js_pending('io:' + id);
+        });
+        Y.on('io:end', function(id) {
+            M.util.js_complete('io:' + id);
+        });
+    });
+    YUI.applyConfig({
+        modules: {
+            'moodle-core-io': {
+                after: ['io-base']
+            },
+            'io-base': {
+                requires: ['moodle-core-io']
+            }
+        }
+    });
+
+};
+
+// Start this asap.
+M.util.js_pending('init');
+M.util.js_watch_io();
+
+/**
+ * Unregister any long running javascript code by unique identifier.
+ * This function should form a matching pair with js_pending
+ *
+ * @param String uniqid - required, unregisters this identifier
+ * @return boolean - True if there is any pending js.
+ */
+M.util.js_complete = function(uniqid) {
+    // Use the Y.Array.indexOf instead of the native because some older browsers do not support
+    // the native function. Y.Array polyfills the native function if it does not exist.
+    var index = Y.Array.indexOf(M.util.pending_js, uniqid);
+    if (index >= 0) {
+        M.util.complete_js.push(M.util.pending_js.splice(index, 1));
+    }
+
+    return M.util.pending_js.length;
+};
+
+/**
  * Returns a string registered in advance for usage in JavaScript
  *
  * If you do not pass the third parameter, the function will just return
@@ -1083,7 +1155,7 @@ function unmaskPassword(id) {
     // MDL-30438 - The capability to changing the value of input type is not supported by IE8 or lower.
     // Replacing existing child with a new one, removed all yui properties for the node.  Therefore, this
     // functionality won't work in IE8 or lower.
-    // This is a temporary fixed for 2.4 or lower branches to allow other browsers to function properly.
+    // This is a temporary fixed to allow other browsers to function properly.
     if (Y.UA.ie == 0 || Y.UA.ie >= 9) {
         if (chb.checked) {
             pw.type = "text";
@@ -1260,6 +1332,41 @@ function getElementsByClassName(oElm, strTagName, name) {
         }
     }
     return (arrReturnElements)
+}
+
+/**
+ * Increment a file name.
+ *
+ * @param string file name.
+ * @param boolean ignoreextension do not extract the extension prior to appending the
+ *                                suffix. Useful when incrementing folder names.
+ * @return string the incremented file name.
+ */
+function increment_filename(filename, ignoreextension) {
+    var extension = '';
+    var basename = filename;
+
+    // Split the file name into the basename + extension.
+    if (!ignoreextension) {
+        var dotpos = filename.lastIndexOf('.');
+        if (dotpos !== -1) {
+            basename = filename.substr(0, dotpos);
+            extension = filename.substr(dotpos, filename.length);
+        }
+    }
+
+    // Look to see if the name already has (NN) at the end of it.
+    var number = 0;
+    var hasnumber = basename.match(/^(.*) \((\d+)\)$/);
+    if (hasnumber !== null) {
+        // Note the current number & remove it from the basename.
+        number = parseInt(hasnumber[2], 10);
+        basename = hasnumber[1];
+    }
+
+    number++;
+    var newname = basename + ' (' + number + ')' + extension;
+    return newname;
 }
 
 /**
@@ -1506,131 +1613,27 @@ M.util.help_popups = {
     }
 }
 
+/**
+ * This code bas been deprecated and will be removed from Moodle 2.7
+ *
+ * Please see lib/yui/popuphelp/popuphelp.js for its replacement
+ */
 M.util.help_icon = {
-    Y : null,
-    instance : null,
     initialised : false,
-    setup : function(Y) {
-        if (this.initialised) {
-            // Exit early if we have already completed setup
-            return;
+    setup : function(Y, properties) {
+        this.add(Y, properties);
+    },
+    add : function(Y) {
+        if (M.cfg.developerdebug) {
+            Y.log("You are using a deprecated function call (M.util.help_icon.add). " +
+                    "Please look at rewriting your call to support lib/yui/popuphelp/popuphelp.js");
         }
-        this.Y = Y;
-        Y.one('body').delegate('click', this.display, 'span.helplink a.tooltip', this);
-        this.initialised = true;
-    },
-    add : function(Y, properties) {
-        this.setup(Y);
-    },
-    display : function(event) {
-        event.preventDefault();
-        if (M.util.help_icon.instance === null) {
-            var Y = M.util.help_icon.Y;
-            Y.use('overlay', 'io-base', 'event-mouseenter', 'node', 'event-key', 'escape', function(Y) {
-                var help_content_overlay = {
-                    helplink : null,
-                    overlay : null,
-                    init : function() {
-
-                        var strclose = Y.Escape.html(M.str.form.close);
-                        var footerbtn = Y.Node.create('<button class="closebtn">'+strclose+'</button>');
-                        // Create an overlay from markup
-                        this.overlay = new Y.Overlay({
-                            footerContent: footerbtn,
-                            bodyContent: '',
-                            id: 'helppopupbox',
-                            width:'400px',
-                            visible : false,
-                            constrain : true
-                        });
-                        this.overlay.render(Y.one(document.body));
-
-                        footerbtn.on('click', this.close, this);
-
-                        var boundingBox = this.overlay.get("boundingBox");
-
-                        //  Hide the menu if the user clicks outside of its content
-                        boundingBox.get("ownerDocument").on("mousedown", function (event) {
-                            var oTarget = event.target;
-                            var menuButton = this.helplink;
-
-                            if (!oTarget.compareTo(menuButton) &&
-                                !menuButton.contains(oTarget) &&
-                                !oTarget.compareTo(boundingBox) &&
-                                !boundingBox.contains(oTarget)) {
-                                this.overlay.hide();
-                            }
-                        }, this);
-                    },
-
-                    close : function(e) {
-                        e.preventDefault();
-                        this.helplink.focus();
-                        this.overlay.hide();
-                    },
-
-                    display : function(event) {
-                        var overlayPosition;
-                        this.helplink = event.target.ancestor('span.helplink a', true);
-                        if (Y.one('html').get('dir') === 'rtl') {
-                            overlayPosition = [Y.WidgetPositionAlign.TR, Y.WidgetPositionAlign.LC];
-                        } else {
-                            overlayPosition = [Y.WidgetPositionAlign.TL, Y.WidgetPositionAlign.RC];
-                        }
-
-                        this.overlay.set('bodyContent', Y.Node.create('<img src="'+M.cfg.loadingicon+'" class="spinner" />'));
-                        this.overlay.set("align", {node:this.helplink, points: overlayPosition});
-
-                        var cfg = {
-                            method: 'get',
-                            context : this,
-                            data : {
-                                ajax : 1
-                            },
-                            on: {
-                                success: function(id, o, node) {
-                                    this.display_callback(o.responseText);
-                                },
-                                failure: function(id, o, node) {
-                                    var debuginfo = o.statusText;
-                                    if (M.cfg.developerdebug) {
-                                        o.statusText += ' (' + ajaxurl + ')';
-                                    }
-                                    this.display_callback('bodyContent',debuginfo);
-                                }
-                            }
-                        };
-
-                        Y.io(this.helplink.get('href'), cfg);
-                        this.overlay.show();
-                    },
-
-                    display_callback : function(content) {
-                        var contentnode, heading;
-                        contentnode = Y.Node.create('<div role="alert">' + content + '</div>');
-                        this.overlay.set('bodyContent', contentnode);
-                        heading = contentnode.one('h1');
-                        if (heading) {
-                            heading.set('tabIndex', 0);
-                            heading.focus();
-                        }
-                    },
-
-                    hideContent : function() {
-                        help = this;
-                        help.overlay.hide();
-                    }
-                };
-                help_content_overlay.init();
-                M.util.help_icon.instance = help_content_overlay;
-                M.util.help_icon.instance.display(event);
+        if (!this.initialised) {
+            YUI().use('moodle-core-popuphelp', function() {
+                M.core.init_popuphelp([]);
             });
-        } else {
-            M.util.help_icon.instance.display(event);
         }
-    },
-    init : function(Y) {
-        this.Y = Y;
+        this.initialised = true;
     }
 };
 
@@ -1922,9 +1925,9 @@ M.util.load_flowplayer = function() {
             for(var i=0; i<M.util.video_players.length; i++) {
                 var video = M.util.video_players[i];
                 if (video.width > 0 && video.height > 0) {
-                    var src = {src: M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.14.swf', width: video.width, height: video.height};
+                    var src = {src: M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.18.swf', width: video.width, height: video.height};
                 } else {
-                    var src = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.14.swf';
+                    var src = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.18.swf';
                 }
                 flowplayer(video.id, src, {
                     plugins: {controls: controls},
@@ -2024,17 +2027,17 @@ M.util.load_flowplayer = function() {
                     controls.height = 25;
                     controls.time = true;
                 }
-                flowplayer(audio.id, M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.14.swf', {
-                    plugins: {controls: controls, audio: {url: M.cfg.wwwroot + '/lib/flowplayer/flowplayer.audio-3.2.10.swf'}},
+                flowplayer(audio.id, M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.18.swf', {
+                    plugins: {controls: controls, audio: {url: M.cfg.wwwroot + '/lib/flowplayer/flowplayer.audio-3.2.11.swf'}},
                     clip: {url: audio.fileurl, provider: "audio", autoPlay: false}
                 });
             }
         }
 
         if (M.cfg.jsrev == -1) {
-            var jsurl = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.11.js';
+            var jsurl = M.cfg.wwwroot + '/lib/flowplayer/flowplayer-3.2.13.js';
         } else {
-            var jsurl = M.cfg.wwwroot + '/lib/javascript.php?jsfile=/lib/flowplayer/flowplayer-3.2.11.min.js&rev=' + M.cfg.jsrev;
+            var jsurl = M.cfg.wwwroot + '/lib/javascript.php?jsfile=/lib/flowplayer/flowplayer-3.2.13.min.js&rev=' + M.cfg.jsrev;
         }
         var fileref = document.createElement('script');
         fileref.setAttribute('type','text/javascript');

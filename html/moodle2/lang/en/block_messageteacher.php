@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_messageteacher', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_messageteacher', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   block_messageteacher
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,15 +25,27 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['appendurl'] = 'Append Referring URL';
+$string['appendurldesc'] = 'When enabled, all messages send using the block will automatically contain the URL of the page from which the message was sent.';
 $string['enablegroups'] = 'Enable Group Support';
 $string['groupsdesc'] = 'When enabled, students will only see teachers in the same group as them';
 $string['includecoursecat'] = 'Include teachers from Course Category';
 $string['includecoursecatdesc'] = 'When enabled, users with the teacher roles in the course\'s parent category will be displayed, as well as those assigned in the course itself';
+$string['messagefailed'] = 'Message sending failed';
+$string['messagefrom'] = 'Message From {$a}';
+$string['messageheader'] = 'Enter your message for {$a}';
+$string['messageprovider:message'] = 'A message sent using the Message My Teacher block';
+$string['messagesent'] = 'Message Sent!';
+$string['messageteacher:addinstance'] = 'Add a new Message My Teacher block';
+$string['messagetext'] = 'Message text';
 $string['nogroupmembership'] = 'You\'re not a member of any group';
 $string['nogroupteachers'] = 'Teacher not yet assigned to your group';
+$string['norecipient'] = 'No recipient could be determined for userid {$a}';
 $string['pluginname'] = 'Message My Teacher';
 $string['pluginnameplural'] = 'Message My Teachers';
 $string['rolesdesc'] = 'Select all the roles which are teachers or people whom students may wish to ask for help';
+$string['send'] = 'Send';
+$string['sentfrom'] = 'This message was sent from {$a}';
 $string['showuserpictures'] = 'Show User Pictures';
 $string['showuserpicturesdesc'] = 'If enabled, teachers\' pictures will show alongside their name';
 $string['teachersinclude'] = 'Teachers include:';

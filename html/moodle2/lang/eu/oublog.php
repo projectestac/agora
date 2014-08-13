@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'oublog', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'oublog', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   oublog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addcomment'] = 'Gehitu iruzkina';
 $string['addlink'] = 'Gehitu esteka';
-$string['addpost'] = 'Gehitu blog-sarrera';
 $string['allowcomments'] = 'Baimendu iruzkinak';
 $string['atom'] = 'Atom';
 $string['blogname'] = 'Blogaren izena';

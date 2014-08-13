@@ -52,12 +52,19 @@ class restore_qtype_essay_plugin extends restore_qtype_plugin {
         $data = (object)$data;
         $oldid = $data->id;
 
-        // Detect if the question is created or mapped
+        if (!isset($data->responsetemplate)) {
+            $data->responsetemplate = '';
+        }
+        if (!isset($data->responsetemplateformat)) {
+            $data->responsetemplateformat = FORMAT_HTML;
+        }
+
+        // Detect if the question is created or mapped.
         $questioncreated = $this->get_mappingid('question_created',
                 $this->get_old_parentid('question')) ? true : false;
 
         // If the question has been created by restore, we need to create its
-        // qtype_essay too
+        // qtype_essay too.
         if ($questioncreated) {
             $data->questionid = $this->get_new_parentid('question');
             $newitemid = $DB->insert_record('qtype_essay_options', $data);
@@ -100,6 +107,8 @@ class restore_qtype_essay_plugin extends restore_qtype_plugin {
             $defaultoptions->attachments = 0;
             $defaultoptions->graderinfo = '';
             $defaultoptions->graderinfoformat = FORMAT_HTML;
+            $defaultoptions->responsetemplate = '';
+            $defaultoptions->responsetemplateformat = FORMAT_HTML;
             $DB->insert_record('qtype_essay_options', $defaultoptions);
         }
     }

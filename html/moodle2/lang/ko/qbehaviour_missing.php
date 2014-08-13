@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_missing', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_missing', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_missing
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = '누락된 작동';
+$string['pluginname'] = '누락된 질문 진행방식';
 $string['questionusedunknownmodel'] = '현재 사용할 수 없는 질문진행 방식으로 질문이 시도되었습니다. 질문을 보여주고자 하겠지만 문제가 있을 수 있습니다.';

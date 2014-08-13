@@ -25,7 +25,7 @@
  */
 
 $string['sectionname'] = 'Tema';
-$string['pluginname'] = 'Sencillo por temas';
+$string['pluginname'] = 'Formato sencillo por temas';
 $string['section0name'] = 'General';
 $string['page-course-view-topics'] = 'Todas las páginas principales de los cursos en el formato sencillo por temas';
 $string['page-course-view-topics-x'] = 'Todas las páginas de los cursos en el formato sencillo por temas';

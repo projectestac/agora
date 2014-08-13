@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -39,8 +38,7 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @package    theme
- * @subpackage formal_white
+ * @package    theme_formal_white
  * @copyright  Mediatouch 2000 (http://mediatouch.it/)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -79,10 +77,15 @@ function xmldb_theme_formal_white_upgrade($oldversion) {
     // Moodle v2.3.0 release upgrade line
     // Put any upgrade step following this
 
-
     // Moodle v2.4.0 release upgrade line
     // Put any upgrade step following this
 
+    // Moodle v2.5.0 release upgrade line.
+    // Put any upgrade step following this.
+
+
+    // Moodle v2.6.0 release upgrade line.
+    // Put any upgrade step following this.
 
     return true;
 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,14 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = '값에 의한 증가';
 $string['incby2'] = '대체 증가:';
-$string['incbydesc1'] = '이것은 섹션이 증가할때 값입니다. 섹션링크는 1부터 표시됩니다.';
-$string['incbydesc2'] = '이것은 섹션이 증가할때 값입니다. 섹션링크는 1부터 표시됩니다.';
 $string['jumptocurrenttopic'] = '현재 토픽으로 가기';
 $string['jumptocurrentweek'] = '이번주로 가기';
-$string['numsections1'] = '섹션 수';
-$string['numsections2'] = '섹션 대체 수';
-$string['numsectionsdesc1'] = '일단 강좌에서 섹션의 수가 이 숫자에 다다르면, 값에 의한 증가가 사용된다.';
-$string['numsectionsdesc2'] = '일단 강좌에서 섹션의 수가 이 숫자에 다다르면, 대안 값에 의한 증가가 사용된다.';
+$string['numsections1'] = '영역의 수';
+$string['numsections2'] = '영역의 예비 수';
 $string['pluginname'] = '섹션 링크';
 $string['section_links:addinstance'] = '섹션 링크 블록 추가';
 $string['topics'] = '토픽';

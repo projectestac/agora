@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Åtkomst kontrol';
 $string['aggregategrades'] = 'Ny betygsberäkning';
 $string['aggregation'] = 'Betygsaggregering';
 $string['allocate'] = 'Tilldela inskickningar';
@@ -34,7 +33,7 @@ $string['allocation'] = 'Fördelning av inlämningar';
 $string['allocationconfigured'] = 'Fördelning konfigurerad';
 $string['allocationdone'] = 'Fördelning utförd';
 $string['allocationerror'] = 'Fel vid fördelning';
-$string['allsubmissions'] = 'Alla inskickade uppgifter ({$a})';
+$string['allsubmissions'] = 'Alla inskickade uppgifter';
 $string['alreadygraded'] = 'Redan bedömd/betygssatt';
 $string['areaconclusion'] = 'Slutsatstext';
 $string['areainstructauthors'] = 'Instruktioner för inskickning av uppgifter';
@@ -48,8 +47,8 @@ $string['assessingexample'] = 'Bedömer/värderar/betygssätter inskickad exempe
 $string['assessingsubmission'] = 'Bedömer/värderar/betygssätter inskickad uppgift';
 $string['assessment'] = 'Bedömning';
 $string['assessmentby'] = 'av <a href="{$a->url}">{$a->name}</a>';
-$string['assessmentbyfullname'] = 'Bedömning av {$a}';
-$string['assessmentbyyourself'] = 'Bedömning av dig själv';
+$string['assessmentbyfullname'] = 'Bedömning/värdering/betygssättning av {$a}';
+$string['assessmentbyyourself'] = 'Bedömning/värdering/betygssättning av dig själv';
 $string['assessmentdeleted'] = 'Bedömning avallokerad';
 $string['assessmentend'] = 'Sluttid för bedömningar/värderingar/betygssättningar';
 $string['assessmentendbeforestart'] = 'Sista dag för bedömning kan inte vara innan datum för att öppna för bedömning';
@@ -89,7 +88,7 @@ $string['configgradedecimals'] = 'Förvalt antal siffror som ska visas efter dec
 $string['configgradinggrade'] = 'Förvalt maximalt betyg för bedömning i workshop';
 $string['configmaxbytes'] = 'Förvald maximal filstorlek för inlämningar i alla workshops på webbplatsen (med förbehåll för kursbegränsningar och andra lokala inställningar)';
 $string['configstrategy'] = 'Förvald betygsstrategi för workshops';
-$string['createsubmission'] = 'Börja förbereda din inlämning';
+$string['createsubmission'] = 'Skicka in';
 $string['daysago'] = 'för {$a} dagar sedan ';
 $string['daysleft'] = '{$a} dagar kvar';
 $string['daystoday'] = 'idag';
@@ -127,8 +126,10 @@ $string['examplesmode'] = 'Inställning för exempelbedömning';
 $string['examplesubmissions'] = 'Prov på inskickade uppgiftslösningar';
 $string['examplesvoluntary'] = 'Bedömning av exempelinlämning är frivillig';
 $string['feedbackauthor'] = 'Återkoppling för författaren';
+$string['feedbackauthorattachment'] = 'Bilaga';
 $string['feedbackby'] = 'Återkoppling från {$a}';
 $string['feedbackreviewer'] = 'Återkoppling för recensenten/utvärderaren';
+$string['feedbacksettings'] = 'Återkoppling';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -156,13 +157,12 @@ $string['iamsure'] = 'Ja, jag är säker';
 $string['info'] = 'Info';
 $string['instructauthors'] = 'Instruktioner för inskickning av uppgiftslösningar';
 $string['instructreviewers'] = 'Instruktioner för bedömning/värdering/betygssättning';
-$string['introduction'] = 'Beskrivning';
+$string['introduction'] = 'Introduktioon';
 $string['latesubmissions'] = 'Sent inskickade uppgiftslösningar';
 $string['latesubmissionsallowed'] = 'Sent inskickade uppgiftslösningar accepteras';
 $string['latesubmissions_desc'] = 'Tillåt inskickning av uppgiftslösningar efter sluttiden.';
 $string['latesubmissions_help'] = 'Om aktiverat kan en workshopdeltagare lämna in sitt arbete efter tidsfristen för inlämning eller under bedömningsfasen. För sent inlämnade arbeten kan däremot inte redigeras.';
 $string['maxbytes'] = 'Maximal filstorlek';
-$string['miscellaneoussettings'] = 'Diverse inställningar';
 $string['modulename'] = 'Workshop';
 $string['modulename_help'] = 'Aktiviteten Workshop möjliggör insamling, granskning och medarbetarbedömning av elevernas arbeten.
 
@@ -185,6 +185,7 @@ $string['notoverridden'] = 'Ej överskriden';
 $string['noworkshops'] = 'Det finns inga Workshops i den här kursen';
 $string['noyoursubmission'] = 'Du har inte skickat in Ditt arbete ännu';
 $string['nullgrade'] = '-';
+$string['overallfeedbackmaxbytes'] = 'Maximal filstorlek';
 $string['page-mod-workshop-x'] = 'Vilken sida som helst i workshopmodulen';
 $string['participant'] = 'Deltagare';
 $string['participantrevierof'] = 'Deltagaren är utvärderare av ';
@@ -209,6 +210,7 @@ $string['recentsubmissions'] = 'Workshop inlämningar';
 $string['saveandclose'] = 'Spara och stäng';
 $string['saveandcontinue'] = 'Spara och fortsätt att redigera';
 $string['saveandpreview'] = 'Spara och förhandsgranska';
+$string['saveandshownext'] = 'Spara och visa nästa';
 $string['selfassessmentdisabled'] = 'Självbedömning avaktiverad';
 $string['showingperpage'] = 'Visar {$a} objekt per sida';
 $string['showingperpagechange'] = 'Ändra ...';
@@ -283,7 +285,6 @@ $string['withoutsubmission'] = 'Granskare utan egen inlämnad uppgift';
 $string['workshop:addinstance'] = 'Lägg till en ny workshop';
 $string['workshop:allocate'] = 'Tilldela inlämningar för granskning';
 $string['workshop:editdimensions'] = 'Redigera bedömningsformulär';
-$string['workshopfeatures'] = 'Workshop funktioner';
 $string['workshop:ignoredeadlines'] = 'Ignorera tidsbegränsningar';
 $string['workshop:manageexamples'] = 'Hantera exempel inlämningar';
 $string['workshopname'] = 'Namn för Workshop';

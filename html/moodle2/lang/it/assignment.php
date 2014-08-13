@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,8 +46,8 @@ $string['assignmentmail'] = '{$a->teacher} ha commentato/valutato il tuo compito
 Per visualizzare il commento/voto al tuo compito:
 
 {$a->url}';
-$string['assignmentmailhtml'] = '{$a->teacher} ha commentato/valutato il tuo compito \'<i>{$a->assignment}</i>\'.<br />
-<br /><a href="{$a->url}">Visualizza il commento/voto al tuo compito</a>';
+$string['assignmentmailhtml'] = '<p>{$a->teacher} ha commentato/valutato il tuo compito \'<i>{$a->assignment}</i>\'.</p>
+<p><a href="{$a->url}">Visualizza il commento/voto al tuo compito</a>.</p>';
 $string['assignmentmailsmall'] = '{$a->teacher} ha commentato il tuo compito su \'{$a->assignment}\' . Puoi vedere il commento subito sotto il compito consegnato.';
 $string['assignmentname'] = 'Titolo del compito';
 $string['assignmentsubmission'] = 'Consegne compito';
@@ -86,8 +86,8 @@ $string['emailteachermail'] = '{$a->username} ha modificato la propria consegna 
 Il compito è disponibile al link:
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} ha modificato la propria consegna di <i>\'{$a->assignment} il {$a->timeupdated}</i>\'<br />
-<br />Il compito è disponibile a <a href="{$a->url}">questo link</a>.';
+$string['emailteachermailhtml'] = '<p>{$a->username} ha modificato la propria consegna di <i>\'{$a->assignment} il {$a->timeupdated}</i>\'.</p>
+<p>Il compito è disponibile a <a href="{$a->url}">questo link</a>.</p>';
 $string['emailteachers'] = 'Avvisi ai docenti via email';
 $string['emailteachers_help'] = 'I docenti possono essere avvisati via email ogni volta che gli studenti consegnano o modificano la consegna di un compito.
 

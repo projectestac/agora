@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'oublog', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'oublog', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   oublog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,13 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['accessdenied'] = 'Mágoa: Non ten acceso para ver esta páxina.';
 $string['addcomment'] = 'Engadir comentario';
 $string['addlink'] = 'Engadir ligazón';
-$string['addpost'] = 'Engadir artigo do blog';
 $string['allowcomments'] = 'Permitir comentarios';
 $string['atom'] = 'Atom';
 $string['atomfeed'] = 'Fonte Atom';
 $string['attachments'] = 'Anexos';
 $string['attachments_help'] = 'Opcionalmente, pode anexar un ou máis ficheiros a un artigo do blog. Se engade unha imaxe, amosarase despois da mensaxe.';
-$string['blogfeed'] = 'Fontes do blog';
 $string['bloginfo'] = 'información do blog';
 $string['blogname'] = 'Nome do blog';
 $string['blogoptions'] = 'Opcións do blog';
@@ -49,17 +47,14 @@ $string['completioncommentsgroup'] = 'Require comentarios';
 $string['completionpostsgroup'] = 'Require comentarios';
 $string['confirmdeletecomment'] = 'Confirma que quere eliminar este comentario?';
 $string['confirmdeletelink'] = 'Confirma que quere eliminar esta ligazón?';
-$string['confirmdeletepost'] = 'Confirma que quere eliminar este artigo do blog?';
 $string['couldnotaddcomment'] = 'Non foi posíbel engadir un comentario';
 $string['couldnotaddlink'] = 'Non foi posíbel engadir unha ligazón';
-$string['defaultpersonalblogname'] = 'Blog de {$a}';
 $string['delete'] = 'Eliminar';
 $string['deletedby'] = 'Eliminado por {$a->fullname}, {$a->timedeleted}';
 $string['details'] = 'Detalles';
 $string['displayversion'] = 'OU blog version: <strong>{$a}</strong>';
 $string['edit'] = 'Editar';
 $string['editlink'] = 'Editar ligazón';
-$string['editpost'] = 'Actualizar artigo do blog';
 $string['error_unspecified'] = 'Non é posíbel que o sistema complete esta solicitude porque se produciu un erro ({$a})';
 $string['externaldashboardadd'] = 'Engadir blog ao panel';
 $string['externaldashboardremove'] = 'Retirar blog do panel';
@@ -85,11 +80,8 @@ $string['moderated_confirm'] = 'Confirmación';
 $string['moderated_reject'] = 'Rexeitar este comentario';
 $string['ncomments'] = '{$a} comentarios';
 $string['newblogposts'] = 'Novos artigos do blog';
-$string['newcomment'] = 'Novo comentario do blog';
-$string['newpost'] = 'Novo artigo do blog';
 $string['no'] = 'Non';
 $string['nocomments'] = 'Non están permitidos os comentarios';
-$string['noposts'] = 'Non hai artigos visíbeis neste blog.';
 $string['notaddpost'] = 'Non foi posíbel engadir un artigo';
 $string['numposts'] = '{$a} comentarios';
 $string['oublog:exportownpost'] = 'Exportar o propio comentario';
@@ -107,7 +99,6 @@ $string['re'] = 'Re: {$a}';
 $string['rss'] = 'RSS';
 $string['rssfeed'] = 'Fonte RSS';
 $string['savegrades'] = 'Gardar cualificacións';
-$string['searchblogs'] = 'Buscar blogs';
 $string['siteentries'] = 'Ver entradas do sitio';
 $string['summary'] = 'Resumo';
 $string['tags'] = 'Etiquetas';
@@ -120,7 +111,6 @@ $string['viewallusers'] = 'Ver todos os usuarios';
 $string['viewallusersingroup'] = 'Ver todos os usuarios do grupo';
 $string['viewblogdetails'] = 'Ver detalles do blog';
 $string['viewblogposts'] = 'Volver ao blog';
-$string['views'] = 'Visitas totais para este blog:';
 $string['visibility'] = 'Quen pode ler isto?';
 $string['visibleblogusers'] = 'Só visíbel para os membros deste blog';
 $string['visiblecourseusers'] = 'Visíbel para os participantes neste curso';

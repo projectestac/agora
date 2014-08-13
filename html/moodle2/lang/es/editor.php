@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,6 @@ $string['createlink'] = 'Insertar enlace';
 $string['cut'] = 'Cortar selección';
 $string['cutpastemozilla'] = 'Desafortunadamente, no puede usar los atajos normales del teclado (ni tampoco el botón Pegar) para pegar texto en este editor. Esto se debe a cierta característica de seguridad incorporada a algunas versiones de los navegadores Mozilla y Firefox.<br /><br />Puede intentar una de estas tres cosas: <br /> (1) En lugar de CTRL-v, use MAYÚSCULAS-Insert <br /> (2) Use el menú Edición->Pegar de su navegador <br /> (3) Modifique las preferencias en su navegador editando el archivo user.js. <br /><br />Haga clic en el botón OK de abajo si desea más ayuda, o en Cancelar para regresar al editor.';
 $string['delete'] = 'Eliminar';
-$string['editordeleteconfirm'] = 'Estás a punto de borrar completamente la extensión del editor "{$a}"\'. Esto borrará completamente de la base de datos todo aquello asociado con esta extensión. ¿Está seguro de que desea continuar?';
 $string['editors'] = 'Editores de texto';
 $string['editorsettings'] = 'Gestionar editores';
 $string['enterurlfirst'] = 'Debe introducir antes una URL';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -57,7 +57,6 @@ $string['cut'] = 'Ebaki aukeratutakoa';
 $string['cutpastemozilla'] = 'Tamalez,linea bidezko editore honetan ezin dituzu teklatuko lasterbideak (ezta itsatsi botoia ere) erabili. Mozilla eta Firefox nabigatzaileek segurtasun-neurriak dituztelako gertatzen da.
 Badaude 3 zeharbide saiatzeko, nahi izanez gero: Ctrl-v ordez, erabili Shift-Insert. Erabili zure nabigatzaileko Editatu->Itsatsi botoiak. Aldatu zure nabigatzailearen aukerak; horretarako, editatu user.js fitxategia. Laguntza gehiago behar izanez gero, klikatu ONARTU botoia edo UTZI editorera itzultzeko.';
 $string['delete'] = 'Ezabatu';
-$string['editordeleteconfirm'] = '\'{$a}\' editore-plugina erabat ezabatzekotan zaude. Plugin honetan lotutako edozer ezabatuko du honek erabat datu-basetik. ZIUR al zaude aurrera egin nahi duzula?';
 $string['editors'] = 'Testu-editoreak';
 $string['editorsettings'] = 'Kudeatu editoreak';
 $string['enterurlfirst'] = 'Lehenik URL-a jarri behar duzu';
@@ -106,7 +105,7 @@ $string['minimize'] = 'Editorea minimizatu';
 $string['move'] = 'Mugitu';
 $string['multi'] = 'Multi';
 $string['mustenterurl'] = 'URL-a jarri behar duzu';
-$string['nolink'] = 'Eragotzi estekatze automatikoa';
+$string['nolink'] = 'Galarazi estekatze automatikoa';
 $string['normal'] = 'Normala';
 $string['notimage'] = 'Hautatutako artxiboa ez da irudi bat. Mesedez, hautatu irudia!';
 $string['notset'] = 'Ezarri gabe';
@@ -131,7 +130,7 @@ $string['replaceall'] = 'Ordeztu guztiak';
 $string['replacewith'] = 'Ordeztu';
 $string['right'] = 'Eskuina';
 $string['righttoleft'] = 'Eskuinetik ezkerrerako noranzkoa';
-$string['rows'] = 'Lerroak';
+$string['rows'] = 'Errenkadak';
 $string['searchandreplace'] = 'Bilatu eta ordeztu';
 $string['searchnotfound'] = 'Bilatutako katea ez da aurkitu!';
 $string['selectcolor'] = 'Aukera ezazu kolorea';

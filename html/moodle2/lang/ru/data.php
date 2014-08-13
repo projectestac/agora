@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Добавить комментарий';
 $string['addentries'] = 'Добавить записи';
 $string['addtemplate'] = 'Шаблон добавления';
 $string['advancedsearch'] = 'Расширенный поиск';
+$string['allowcomments'] = 'Разрешены комментарии по записям';
 $string['alttext'] = 'Альтернативный текст';
 $string['approve'] = 'Одобрить';
 $string['approved'] = 'Одобрено';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'Комментарии не разрешены';
 $string['configenablerssfeeds'] = 'Включенный параметр позволит делать рассылку RSS-лент для всех баз данных. Вы должны будете вручную настроить это для каждой базы данных.';
 $string['confirmdeletefield'] = 'Вы собираетесь удалить это поле, вы уверены?';
 $string['confirmdeleterecord'] = 'Вы уверены, что хотите удалить эту запись?';
+$string['confirmdeleterecords'] = 'Вы уверены, что хотите удалить эти записи?';
 $string['csstemplate'] = 'Шаблон CSS';
 $string['csvfailed'] = 'Не удается прочитать исходные данные из файла CSV';
 $string['csvfile'] = 'CSV файл';
@@ -81,7 +83,7 @@ $string['csvimport'] = 'Импорт CSV файла';
 $string['csvimport_help'] = 'Записи могут быть импортированы в простой текстовый файл со списком имен полей в первой строке. Данные размещаются в последующих строках, одна запись на строку.';
 $string['csvwithselecteddelimiter'] = '<acronym title="Comma Separated Values (Значения, разделенные запятыми)">CSV</acronym> - текст с выбранным разделителем:';
 $string['data:addinstance'] = 'Добавлять новую базу данных';
-$string['data:approve'] = 'Одобрять неодобренные записи';
+$string['data:approve'] = 'Одобрять записи или отменять одобрение.';
 $string['data:comment'] = 'Комментировать';
 $string['data:exportallentries'] = 'Экспортировать записи всех баз данных';
 $string['data:exportentry'] = 'Экспортировать запись базы данных';
@@ -104,6 +106,7 @@ $string['dateentered'] = 'Дата добавления';
 $string['defaultfielddelimiter'] = '(по умолчанию - запятая)';
 $string['defaultfieldenclosure'] = '(по умолчанию - нет)';
 $string['defaultsortfield'] = 'Поле сортировки по умолчанию';
+$string['delcheck'] = 'Массовое удаление флажков';
 $string['delete'] = 'Удалить';
 $string['deleteallentries'] = 'Удалить все записи';
 $string['deletecomment'] = 'Вы уверены, что хотите удалить этот комментарий?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = 'Удалить записи пользовате
 $string['deletewarning'] = 'Вы уверены что хотите удалить это заготовку?';
 $string['descending'] = 'По убыванию';
 $string['directorynotapreset'] = '{$a->directory} не найдено: отсутствующие файлы: {$a->missing_files}';
+$string['disapprove'] = 'Отменить одобрение';
 $string['download'] = 'Скачать';
 $string['edit'] = 'Редактировать';
 $string['editcomment'] = 'Редактировать комментарий';
@@ -266,7 +270,7 @@ $string['notapproved'] = 'Запись пока не одобрена.';
 $string['notinjectivemap'] = 'Не совпадающее сопоставление';
 $string['notopenyet'] = 'Извините, этот активный элемент не доступен до {$a}';
 $string['number'] = 'Число';
-$string['numberrssarticles'] = 'RSS-лента';
+$string['numberrssarticles'] = 'Записей в RSS-ленте';
 $string['numnotapproved'] = 'Ожидающие одобрения';
 $string['numrecords'] = '<strong>{$a}</strong> записей';
 $string['ods'] = '<acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -289,11 +293,12 @@ $string['presets'] = 'Предустановки';
 $string['radiobutton'] = 'Переключатели';
 $string['recordapproved'] = 'Запись одобрена';
 $string['recorddeleted'] = 'Запись удалена';
+$string['recorddisapproved'] = 'Снято одобрение записи';
 $string['recordsnotsaved'] = 'Ни одной записи не сохранено. Пожалуйста, проверьте формат загружаемого файла';
 $string['recordssaved'] = 'записи сохранены';
-$string['requireapproval'] = 'Требуется одобрение?';
+$string['requireapproval'] = 'Требуется одобрение';
 $string['requireapproval_help'] = 'При включенном параметре записи должны быть одобрены преподавателем, прежде чем они станут доступны всем для просмотра.';
-$string['requiredentries'] = 'Требуется записей';
+$string['requiredentries'] = 'Требуется записей для завершения';
 $string['requiredentries_help'] = 'Необходимое количество записей, которое должен внести студент, чтобы его участие в Базе данных считалось завершенным.';
 $string['requiredentriestoview'] = 'Требуется записей до разрешения просмотра';
 $string['requiredentriestoview_help'] = 'Количество записей, которые должен предоставить студент, прежде чем он сможет просматривать записи других студентов.

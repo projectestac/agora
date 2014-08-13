@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_lmb', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_lmb', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_lmb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -185,7 +185,7 @@ $string['never'] = 'Never';
 $string['nickname'] = 'Use nickname';
 $string['nicknamehelp'] = 'If the nickname is included XML, use it instead of the proper name first name.';
 $string['nomessage'] = 'No messages received from Luminis Message Broker';
-$string['nomessagefull'] = 'Moodle has not received a message from Luminis Message Broker in';
+$string['nomessagefull'] = 'Moodle has not received a message from Luminis Message Broker in {$a}.';
 $string['nonbizdowngrace'] = 'Message grace time during non business hours';
 $string['nonbizdowngracehelp'] = 'How many minutes can elapse since the last LMB message before warning emails are sent out during non-business hours. Set to 0 to disable checks during this period.';
 $string['none'] = 'None';

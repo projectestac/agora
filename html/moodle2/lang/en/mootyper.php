@@ -97,6 +97,7 @@ $string['vaccess0'] = 'All teachers';
 $string['vaccess1'] = 'Teacher inside this course';
 $string['vaccess2'] = 'Only me';
 $string['viewgrades'] = 'View all grades';
+$string['viewmygrades'] = 'View my grades';
 $string['visibility'] = 'Category visible to';
 $string['vmistakes'] = 'Mistakes';
 $string['wpm'] = 'WPM';

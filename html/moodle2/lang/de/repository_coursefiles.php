@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_coursefiles', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_coursefiles', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_coursefiles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Konfiguration für Kursdateienrepository';
+$string['configplugin'] = 'Einstellungen für \'Alte Kursdateien\'';
 $string['coursefiles:view'] = 'Kurs-Dateiverwaltung benutzen';
 $string['emptyfilelist'] = 'Es liegen keine Dateien vor';
 $string['notitle'] = 'Kein Titel';
-$string['pluginname'] = 'Kursdateien';
+$string['pluginname'] = 'Alte Kursdateien';
 $string['pluginname_help'] = 'Alte Kursdateien';
 $string['remember'] = 'Eingeloggt bleiben';

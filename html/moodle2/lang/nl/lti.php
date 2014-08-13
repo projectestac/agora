@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -148,6 +148,7 @@ $string['force_ssl_help'] = 'Door de keuze voor deze optie wordt  het gebruik va
 Bijkomend zullen ook alle web service verzoeken van de tool provider gebruik maken van SSL.
 
 Indien je voor deze optie kiest, ga dan eerst na of de Moodle site en de tool provider SSL ondersteunen.';
+$string['generaltool'] = 'Algemene tool';
 $string['global_tool_types'] = 'Tool types op server niveau';
 $string['grading'] = 'Cijferlijst routing';
 $string['icon_url'] = 'URL icoontje';
@@ -186,6 +187,7 @@ $string['lti:manage'] = 'Wordt leraar wanneer de tool wordt gestart';
 $string['lti:requesttooladd'] = 'Vraag om een tool site-breed te configureren';
 $string['lti_tool_request_added'] = 'Het verzoek tot tool configuratie werd succesvol ingediend. Het is misschien nodig om een beheerder  te contacteren om de toolconfiguratie te voltooien.';
 $string['lti_tool_request_existing'] = 'Een tool configuratie voor het tool domein werd al eerder ingediend.';
+$string['ltiunknownserviceapicall'] = 'LTI onbekende service API call';
 $string['lti:view'] = 'Start externe tool-activiteiten';
 $string['main_admin'] = 'Algemene hulp';
 $string['main_admin_help'] = 'Externe tools laten Moodle gebruikers toe om probleemloos om te gaan met leermiddelen die gehost worden op afstand.  Via een speciaal lanceringsprotocol zal de externe tool toegang hebben tot bepaalde algemene informatie over de gebruiker die de tool lanceert. Bijvoorbeeld de naam van de instelling, cursus ID, gebruikers ID, en andere informatie zoals de naam of het e-mailadres van de gebruiker.
@@ -211,7 +213,7 @@ Externe tool-activiteiten verschillen van URL-bronnen op verschillende manieren:
 *Externe tools zijn contextbewust - ze hebben toegang tot informatie over wie de tool gestart heeft, zoals instituut, cursus en naam
 * Externe tools ondersteunen lezen, aanpassen en verwijderen van cijfers die aan de activiteit gelinkt zijn
 * Externe tool configuraties maken een vertrouwensrelatie tussen jouw site en de tool provider, waardoor een beveiligde communicatie tussen de twee mogelijk is';
-$string['modulenameplural'] = 'Basis LTIs';
+$string['modulenameplural'] = 'Externe tool';
 $string['modulenamepluralformatted'] = 'LTI-exemplaren';
 $string['never'] = 'Nooit';
 $string['new_window'] = 'Nieuw venster';
@@ -318,7 +320,10 @@ In de meeste gevallen moet deze optie niet geselecteerd worden. Leraren kunnen d
 De enige reden waarom deze optie zou gekozen moeten worden, is wanneer de tool gebruikt wordt voor single sign on. Bijvoorbeeld, als elke start de gebruiker alleen maar naar een landingspagina brengt in plaats van naar een specifieke bron.';
 $string['size'] = 'Parameters afmetingen';
 $string['submission'] = 'Inzending';
+$string['submissions'] = 'Inzendingen';
 $string['submissionsfor'] = 'Inzendingen voor {$a}';
+$string['subplugintype_ltisource'] = 'LTI bron';
+$string['subplugintype_ltisource_plural'] = 'LTI bronnen';
 $string['toggle_debug_data'] = 'Debug-data aan-/uitschakelen';
 $string['tool_config_not_found'] = 'Tool-configuratie niet gevonden voor deze URL';
 $string['tool_settings'] = 'Tool instellingen';

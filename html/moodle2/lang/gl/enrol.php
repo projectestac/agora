@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -102,7 +102,6 @@ $string['unenrolconfirm'] = 'Confirma que quere desmatricular o usuario "{$a->us
 $string['unenrolme'] = 'Desmatricularme de {$a}';
 $string['unenrolnotpermitted'] = 'Non ten permiso ou non pode desmatricular este usuario do curso.';
 $string['unenrolroleusers'] = 'Desmatricular usuarios';
-$string['uninstalldeletefiles'] = 'Todos os datos asociados co complemento «{$a->plugin}» elimináronse da base de datos. Para completar a eliminación (e para evitar que o complemento se reinstale por si mesmo), debería eliminar este directorio do servidor: {$a->directory}';
 $string['unknowajaxaction'] = 'A acción solicitada é descoñecida';
 $string['unlimitedduration'] = 'Sen límite';
 $string['usersearch'] = 'Buscar';

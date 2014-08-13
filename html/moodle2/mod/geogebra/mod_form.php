@@ -43,7 +43,7 @@ class mod_geogebra_mod_form extends moodleform_mod {
      */
     public function definition() {
         global $CFG;
-        
+
         $mform = $this->_form;
 
         //-------------------------------------------------------------------------------
@@ -60,14 +60,14 @@ class mod_geogebra_mod_form extends moodleform_mod {
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
         //$mform->addHelpButton('name', 'name', 'geogebra');
-        
+
         // Adding the standard "intro" and "introformat" fields
         $this->add_intro_editor();
-        
-        
+
+
         $mform->addElement('date_time_selector', 'timeavailable', get_string('availabledate', 'geogebra'), array('optional'=>true));
         $mform->addElement('date_time_selector', 'timedue', get_string('duedate', 'geogebra'), array('optional'=>true));
-        
+
         //-------------------------------------------------------------------------------
         // Adding the rest of geogebra settings, spreeading all them into this fieldset
         $mform->addElement('header', 'header_geogebra', get_string('header_geogebra', 'geogebra'));
@@ -78,11 +78,11 @@ class mod_geogebra_mod_form extends moodleform_mod {
         $mform->setType('geogebraurl', PARAM_RAW);
         $mform->addHelpButton('geogebraurl', 'geogebraurl', 'geogebra');
         $mform->disabledIf('geogebraurl', 'filetype', 'eq', GEOGEBRA_FILE_TYPE_LOCAL);
-        
-        $mform->addElement('filemanager', 'geogebrafile', get_string('geogebrafile', 'geogebra'), array('optional'=>false), geogebra_get_filemanager_options());   
+
+        $mform->addElement('filemanager', 'geogebrafile', get_string('geogebrafile', 'geogebra'), array('optional'=>false), geogebra_get_filemanager_options());
         $mform->addHelpButton('geogebrafile', 'urledit', 'geogebra');
         $mform->disabledIf('geogebrafile', 'filetype', 'noteq', GEOGEBRA_FILE_TYPE_LOCAL);
-        
+
         $options = geogebra_get_languages();
         $mform->addElement('select', 'language', get_string('language', 'geogebra'), $options);
         $mform->setDefault('language', substr($CFG->lang, 0, -5));
@@ -90,11 +90,11 @@ class mod_geogebra_mod_form extends moodleform_mod {
         $mform->addElement('text', 'width', get_string('width', 'geogebra'), array('size'=>'5'));
         $mform->setType('width', PARAM_INT);
         $mform->setDefault('width', '800');
-        
+
         $mform->addElement('text', 'height', get_string('height', 'geogebra'), array('size'=>'5'));
         $mform->setType('height', PARAM_INT);
         $mform->setDefault('height', '600');
-        
+
         $functionalityoptionsgrp = array();
         $functionalityoptionsgrp[] = &$mform->createElement('checkbox', 'enableRightClick', '', get_string('enableRightClick', 'geogebra'));
         $functionalityoptionsgrp[] = &$mform->createElement('checkbox', 'enableLabelDrags', '', get_string('enableLabelDrags', 'geogebra'));
@@ -116,14 +116,14 @@ class mod_geogebra_mod_form extends moodleform_mod {
         $mform->setDefault('showToolBarHelp', 0);
         //$mform->setDefault('showAlgebraInput', 0);
         $mform->setAdvanced('interfaceoptionsgrp');
-        
+
         //-------------------------------------------------------------------------------
         $mform->addElement('header', 'header_score', get_string('header_score', 'geogebra'));
 
         $options = array(-1 => get_string('unlimited'), 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 10 => 10);
         $mform->addElement('select', 'maxattempts', get_string('maxattempts', 'geogebra'), $options);
         $mform->setDefault('maxattempts', '-1');
-        
+
         $options = array(
             GEOGEBRA_AVERAGE_GRADE => get_string('average', 'geogebra'),
             GEOGEBRA_HIGHEST_GRADE => get_string('highestattempt', 'geogebra'),
@@ -135,29 +135,29 @@ class mod_geogebra_mod_form extends moodleform_mod {
 
         $mform->addElement('advcheckbox', 'autograde', get_string('autograde', 'geogebra'));
         $mform->setDefault('autograde', 0);
-        
+
         //-------------------------------------------------------------------------------
 
         $this->standard_grading_coursemodule_elements();
-        
+
         // add standard elements, common to all modules
         $this->standard_coursemodule_elements();
         //-------------------------------------------------------------------------------
         // add standard buttons, common to all modules
         $this->add_action_buttons();
     }
-    
+
     function data_preprocessing(&$default_values) {
         if ($this->current->instance) {
             $draftitemid = file_get_submitted_draft_itemid('geogebrafile');
             file_prepare_draft_area($draftitemid, $this->context->id, 'mod_geogebra', 'content', 0, geogebra_get_filemanager_options());
             $default_values['geogebrafile'] = $draftitemid;
-        } 
+        }
     }
-    
+
     public function validation($data, $files) {
-        global $USER; 
-        
+        global $USER;
+
         $errors = parent::validation($data, $files);
 
         // Check open and close times are consistent.
@@ -165,10 +165,10 @@ class mod_geogebra_mod_form extends moodleform_mod {
             $data['timedue'] < $data['timeavailable']) {
             $errors['timedue'] = get_string('closebeforeopen', 'geogebra');
         }
-        
+
         $type = $data['filetype'];
         if ($type === GEOGEBRA_FILE_TYPE_LOCAL) {
-            $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+            $usercontext = context_user::instance($USER->id);
             $fs = get_file_storage();
             if (!$files = $fs->get_area_files($usercontext->id, 'user', 'draft', $data['geogebrafile'], 'sortorder, id', false)) {
                 $errors['geogebrafile'] = get_string('required');
@@ -187,8 +187,8 @@ class mod_geogebra_mod_form extends moodleform_mod {
         }
 
         return $errors;
-    }    
-    
+    }
+
     function set_data($default_values) {
         $default_values = (array)$default_values;
 
@@ -199,9 +199,9 @@ class mod_geogebra_mod_form extends moodleform_mod {
                 $default_values['geogebraurl'] = $default_values['url'];
             } else{
                 $default_values['filetype'] = GEOGEBRA_FILE_TYPE_LOCAL;
-                $default_values['geogebrafile'] = $default_values['url'];            
+                $default_values['geogebrafile'] = $default_values['url'];
             }
-            
+
             // Load attributes
             parse_str($default_values['attributes'], $attributes);
             $default_values['enableRightClick'] = isset($attributes['enableRightClick']) ? $attributes['enableRightClick'] : 0;
@@ -212,16 +212,16 @@ class mod_geogebra_mod_form extends moodleform_mod {
             $default_values['showToolBarHelp'] = isset($attributes['showToolBarHelp']) ? $attributes['showToolBarHelp'] : 0;
         }
         unset($default_values['url']);
-        
-        
-        
+
+
+
         $this->data_preprocessing($default_values);
         parent::set_data($default_values);
     }
-    
+
     function completion_rule_enabled($data) {
         return !empty($data['completionsubmit']);
     }
-    
-    
+
+
 }

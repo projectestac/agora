@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,4 +28,3 @@ defined('MOODLE_INTERNAL') || die();
 $string['filelockedmail'] = 'Den textfil som Du använder för filbaserade registreringar ({$a}) kan inte tas bort av cronprocessen. Detta innebär vanligtvis att det är något fel med rättigheterna på den. Var snäll och modifiera rättigheterna så att Moodle kan ta bort filen annars kan den komma att bli återkommande bearbetad.';
 $string['filelockedmailsubject'] = 'Viktigt fel: registreringsfilen';
 $string['location'] = 'Placering av fil';
-$string['mailadmin'] = 'Meddela admin via e-post';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'currencies', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'currencies', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   currencies
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -74,6 +74,7 @@ $string['FJD'] = 'Fijiko dolarra';
 $string['FKP'] = 'Falkland Irletako Libera';
 $string['GBP'] = 'Britaniako Libera';
 $string['GEL'] = 'Georgiako Laria';
+$string['GHS'] = 'Ghanako Cedia';
 $string['GIP'] = 'Gibraltarreko Libera';
 $string['GMD'] = 'Gambiako Dalasia';
 $string['GNF'] = 'Guineako frankoa';
@@ -114,14 +115,15 @@ $string['MVR'] = 'Maldivetako Errufiyaa';
 $string['MWK'] = 'Malawi-ko Kwacha';
 $string['MXN'] = 'Mexikoko Pesoa';
 $string['MYR'] = 'Malasyako Ringgita';
+$string['NAD'] = 'Namibiako Dolarra';
 $string['NGN'] = 'Nigeriako Naira';
-$string['NIO'] = 'Nikaraguako Cordoba';
+$string['NIO'] = 'Nikaraguako urrezko Cordoba';
 $string['NOK'] = 'Norbegiako Koroa';
 $string['NPR'] = 'Nepal-go Errupia';
 $string['NZD'] = 'Zelanda Berriko Dolarra';
 $string['OMR'] = 'Omango Erriala';
 $string['PAB'] = 'Panamako Balboa';
-$string['PEN'] = 'Nuevo Sol';
+$string['PEN'] = 'Peruko Nuevo Sol';
 $string['PGK'] = 'Papua Ginea Berriko Kina';
 $string['PHP'] = 'Filipinetako Pesoa';
 $string['PKR'] = 'Pakistango Errupia';
@@ -162,6 +164,8 @@ $string['UZS'] = 'Uzbekistango Suma';
 $string['VND'] = 'Vietnameko donga';
 $string['VUV'] = 'Vanuatuko vatua';
 $string['WST'] = 'Samoako Tala';
+$string['XCD'] = 'Karibe Ekialdeko Dolarra';
 $string['YER'] = 'Yemengo Riyala';
 $string['ZAR'] = 'Hego Afrikako randa';
 $string['ZMK'] = 'Zambiako Kwacha';
+$string['ZWL'] = 'Zimbabweko Dolarra';

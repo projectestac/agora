@@ -126,7 +126,7 @@ class format_simple extends format_topics {
                                     24 => '24px',
 				    32 => '32px',
 				    48 => '48px',
-                                    64 => '54px',
+                                    64 => '64px',
 				    72 => '72px',
                                     80 => '80px',
 				    96 => '96px',

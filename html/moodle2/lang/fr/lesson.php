@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = 'Après une réponse correcte, il y a
 * Afficher une page non vue : les pages sont affichées aléatoirement sans qu\'aucune page ne soit affichée deux fois
 * Afficher une page sans réponse : les pages sont affichées aléatoirement, certaines pages déjà vues par l\'étudiant lui étant montrée une nouvelle fois, s\'il n\'y a pas répondu ou s\'il y a répondu incorrectement';
 $string['actions'] = 'Actions';
-$string['activitylink'] = 'Lien vers une activité';
+$string['activitylink'] = 'Lien vers l\'activité suivante';
 $string['activitylink_help'] = '<!-- $Id$ -->
 
 
@@ -135,6 +135,7 @@ $string['continuetonextpage'] = 'Continuer vers la page suivante';
 $string['correctanswerjump'] = 'Lien après réponse correcte';
 $string['correctanswerscore'] = 'Score des réponses correctes';
 $string['correctresponse'] = 'Feedback réponse correcte';
+$string['createaquestionpage'] = 'Créer une page question';
 $string['credit'] = 'Crédit';
 $string['customscoring'] = 'Score personnalisé';
 $string['customscoring_help'] = '<!-- $Id$ -->
@@ -171,7 +172,7 @@ $string['description'] = 'Description';
 $string['detailedstats'] = 'Statistiques détaillées';
 $string['didnotanswerquestion'] = 'N\'a pas répondu à cette question';
 $string['didnotreceivecredit'] = 'N\'a pas reçu de point';
-$string['displaydefaultfeedback'] = 'Afficher le feedback par défaut';
+$string['displaydefaultfeedback'] = 'Utiliser le feedback par défaut';
 $string['displaydefaultfeedback_help'] = '<!-- $Id$ -->
 
 
@@ -180,17 +181,19 @@ $string['displaydefaultfeedback_help'] = '<!-- $Id$ -->
 <p>Réglé sur <strong>Non</strong>, ce paramètre n\'affiche aucun feedback s\'il n\'a pas été défini. Dans ce cas, l\'utilisateur est directement envoyé à la question suivante.</p>';
 $string['displayhighscores'] = 'Afficher les meilleurs résultats';
 $string['displayinleftmenu'] = 'Afficher dans le menu à gauche ?';
-$string['displayleftif'] = 'N\'afficher le menu de gauche que si la note est supérieure à';
+$string['displayleftif'] = 'Note minimale pour afficher le menu';
 $string['displayleftif_help'] = 'Ce réglage détermine si un participant doit obtenir une note minimale pour que le menu de gauche soit affiché. Ceci impose au participant de parcourir la totalité de la leçon lors de sa première tentative, puis lui permet d\'utiliser le menu pour sa relecture, s\'il a obtenu la note requise.';
 $string['displayleftmenu'] = 'Afficher le menu de gauche';
 $string['displayleftmenu_help'] = 'Si ce réglage est activé, une liste des pages est affichée.';
 $string['displayofgrade'] = 'Affichage de la note (pour l\'étudiant)';
 $string['displayreview'] = 'Offrir la possibilité de refaire une question';
 $string['displayreview_help'] = 'Si cette option est activée, lorsqu\'une question reçoit une réponse incorrecte, l\'étudiant a la possibilité de corriger celle-ci (sans obtenir de point) ou de continuer la leçon.';
-$string['displayscorewithessays'] = 'Vous avez obtenu un score de {$a->score} sur {$a->tempmaxgrade} aux questions notées automatiquement.<br />Les notes de votre(vos) {$a->essayquestions} composition(s) sera(ont) évaluée(s) et ajoutée(s)<br />au score final ultérieurement.<br /><br />Votre note actuelle sans la(les) composition(s) est de {$a->score} sur {$a->grade}.';
+$string['displayscorewithessays'] = '<p>Vous avez obtenu un score de {$a->score} sur {$a->tempmaxgrade} aux questions notées automatiquement.</p>
+<p>Les notes de votre(vos) {$a->essayquestions} composition(s) sera(ont) évaluée(s) et ajoutée(s) au score final ultérieurement.</p>
+<p>Votre note actuelle, sans la(les) composition(s), est de {$a->score} sur {$a->grade}.</p>';
 $string['displayscorewithoutessays'] = 'Votre score est de {$a->score} (sur {$a->grade}).';
 $string['edit'] = 'Modifier';
-$string['editingquestionpage'] = 'Modifier la page de question {$a}';
+$string['editingquestionpage'] = 'Modification de la page de question {$a}';
 $string['editlessonsettings'] = 'Modifier les réglages de la leçon';
 $string['editpage'] = 'Modifier le contenu de la page';
 $string['editpagecontent'] = 'Modifier le contenu de la page';
@@ -198,7 +201,7 @@ $string['email'] = 'Courriel';
 $string['emailallgradedessays'] = 'Envoyer par courriel TOUTES les compositions évaluées';
 $string['emailgradedessays'] = 'Envoyer par courriel les compositions évaluées';
 $string['emailsuccess'] = 'Envoi effectué avec succès';
-$string['emptypassword'] = 'Le mot de pass ne peut pas être vide';
+$string['emptypassword'] = 'Le mot de passe ne peut pas être vide';
 $string['endofbranch'] = 'Fin de branchement';
 $string['endofcluster'] = 'Fin du groupe';
 $string['endofclustertitle'] = 'Fin de groupe';
@@ -442,6 +445,7 @@ $string['postsuccess'] = 'Message envoyé avec succès';
 $string['practice'] = 'Leçon d\'entraînement';
 $string['practice_help'] = 'Le résultat d\'une leçon d\'entraînement n\'apparaîtra pas dans le carnet de notes.';
 $string['preprocesserror'] = 'Erreur lors du pré-traitement !';
+$string['prerequisitelesson'] = 'Leçon prérequise';
 $string['preview'] = 'Prévisualisation';
 $string['previewlesson'] = 'Prévisualiser {$a}';
 $string['previouspage'] = 'Page précédente';
@@ -477,6 +481,7 @@ $string['savechanges'] = 'Enregistrer les modifications';
 $string['savechangesandeol'] = 'Enregistrer tous les changements et aller à la fin de la leçon.';
 $string['savepage'] = 'Enregistrer la page';
 $string['score'] = 'Score';
+$string['score_help'] = 'Le score n\'est utilisé que si l\'évaluation personnalisée est activée. Chaque réponse peut alors recevoir un nombre de points (positif ou négatif).';
 $string['scores'] = 'Scores';
 $string['secondpluswrong'] = 'Pas tout à fait. Voulez-vous essayer à nouveau ?';
 $string['selectaqtype'] = 'Sélectionner un type de question';

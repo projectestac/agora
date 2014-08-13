@@ -102,8 +102,10 @@ class portfolio_plugin_flickr extends portfolio_plugin_push_base {
         $strrequired = get_string('required');
         $mform->addElement('text', 'apikey', get_string('apikey', 'portfolio_flickr'), array('size' => 30));
         $mform->addRule('apikey', $strrequired, 'required', null, 'client');
+        $mform->setType('apikey', PARAM_RAW_TRIMMED);
         $mform->addElement('text', 'sharedsecret', get_string('sharedsecret', 'portfolio_flickr'));
         $mform->addRule('sharedsecret', $strrequired, 'required', null, 'client');
+        $mform->setType('sharedsecret', PARAM_RAW_TRIMMED);
         $a = new stdClass();
         $a->applyurl = 'http://www.flickr.com/services/api/keys/apply/';
         $a->keysurl = 'http://www.flickr.com/services/api/keys/';
@@ -158,8 +160,11 @@ class portfolio_plugin_flickr extends portfolio_plugin_push_base {
 
     public function export_config_form(&$mform) {
         $mform->addElement('text', 'plugin_title', get_string('title', 'portfolio_flickr'));
+        $mform->setType('plugin_title', PARAM_TEXT);
         $mform->addElement('textarea', 'plugin_description', get_string('description'));
+        $mform->setType('plugin_description', PARAM_CLEANHTML);
         $mform->addElement('text', 'plugin_tags', get_string('tags'));
+        $mform->setType('plugin_tags', PARAM_TAGLIST);
         $mform->addElement('checkbox', 'plugin_is_public', get_string('ispublic', 'portfolio_flickr'));
         $mform->addElement('checkbox', 'plugin_is_family', get_string('isfamily', 'portfolio_flickr'));
         $mform->addElement('checkbox', 'plugin_is_friend', get_string('isfriend', 'portfolio_flickr'));

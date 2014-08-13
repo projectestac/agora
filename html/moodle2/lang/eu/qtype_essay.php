@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,3 +38,4 @@ $string['pluginname_help'] = 'Galderari erantzuteko (irudi bat izan dezakeena) i
 $string['pluginnamesummary'] = 'Pare bat esaldi edo paragrafoko erantzuna ematen uzten du. Hauek eskuz kalifikatu behar dira.';
 $string['responsefieldlines'] = 'Erantzuteko koadroaren tamaina';
 $string['responseformat'] = 'Ebazpenaren formatua';
+$string['responsetemplate'] = 'Erantzunetarako txantiloia';

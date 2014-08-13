@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -60,7 +60,7 @@ $string['entrybodyonlydesc'] = 'Περιγραφή δημοσίευσης';
 $string['entryerrornotyours'] = 'Αυτή η δημοσίευση δεν είναι δική σας';
 $string['entrysaved'] = 'Η δημοσίευσή σας έχει αποθηκευτεί';
 $string['entrytitle'] = 'Τίτλος δημοσίευσης';
-$string['entryupdated'] = 'Η δημοσίευση ενημερώθηκε';
+$string['evententryupdated'] = 'Η δημοσίευση ενημερώθηκε';
 $string['externalblogs'] = 'Εξωτερικά ιστολόγια';
 $string['filtertags'] = 'Φίλτρο ετικετών';
 $string['filtertags_help'] = 'Μπορείτε να χρησιμοποιήσετε αυτή τη δυνατότητα για να φιλτράρετε τις καταχωρήσεις που θέλετε να χρησιμοποιήσετε. Αν ορίσετε ετικέτες εδώ (χωρισμένες με κόμμα) τότε μόνο οι καταχωρήσεις με αυτές τις ετικέτες θα πρέπει να αντιγραφούν από το εξωτερικό ιστολόγιο.';

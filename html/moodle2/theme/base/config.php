@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -28,7 +27,7 @@
  * For full information about creating Moodle themes, see:
  *  http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   moodlecore
+ * @package   theme_base
  * @copyright 2009 Tim Hunt
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -175,3 +174,6 @@ $THEME->hidefromselector = true;
 /** List of javascript files that need to included on each page */
 $THEME->javascripts = array();
 $THEME->javascripts_footer = array();
+
+// Set this to the method you will use in your layout files for
+$THEME->blockrendermethod = 'blocks_for_region';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_compilatio', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism_compilatio', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_compilatio
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,16 +42,20 @@ $string['compilatio_api'] = 'Adresse de l\'API Compilatio';
 $string['compilatio_api_help'] = 'Il s\'agit de l\'adresse de l\'API Compilatio';
 $string['compilatiodefaults'] = 'Valeurs par défaut pour Compilatio';
 $string['compilatio_draft_submit'] = 'Quand le fichier doit être soumis à Compilatio';
+$string['compilatio:enable'] = 'Autoriser l\'enseignant à activer/désactiver Compilatio au sein d\'une activité';
 $string['compilatio_enableplugin'] = 'Activer Compilatio pour {$a}';
 $string['compilatioexplain'] = 'Pour obtenir des informations complémentaires sur ce plugin, voir : <a href="http://compilatio.net" target="_blank">http://compilatio.net</a>';
 $string['compilatio_password'] = 'Code établissement';
 $string['compilatio_password_help'] = 'Code établissement fourni par Compilatio pour accéder à l\'API';
+$string['compilatio:resetfile'] = 'Autoriser l\'enseignant à soumettre à nouveau le fichier à Compilatio après une erreur';
 $string['compilatio_show_student_report'] = 'Afficher le rapport d\'analyse de similarité à l\'étudiant';
 $string['compilatio_show_student_report_help'] = 'Le rapport de similitude donne une ventilation sur les parties de la présentation qui ont été plagiées et l\'emplacement où Compilatio a trouvé ce contenu la première fois';
 $string['compilatio_show_student_score'] = 'Afficher le score de similarité à l\'étudiant';
 $string['compilatio_show_student_score_help'] = 'Le score de similarité est le pourcentage de la soumission qui est commun avec un autre contenu.';
 $string['compilatio_studentemail'] = 'Envoyer un courriel à l\'étudiant';
 $string['compilatio_studentemail_help'] = 'Ceci enverra un courriel aux étudiants quand un fichier a été traité pour leur faire savoir que le rapport est disponible.';
+$string['compilatio:triggeranalysis'] = 'Autoriser l\'enseignant à déclencher manuellement l\'analyse';
+$string['compilatio:viewreport'] = 'Autoriser l\'enseignant à consulter le rapport complet depuis Compilatio';
 $string['defaultsdesc'] = 'Les paramètres suivants sont les paramètres par défaut définis lors de l\'activation de Compilatio au sein d\'un module d\'activité';
 $string['defaultupdated'] = 'Les valeurs par défaut ont été mises à jour';
 $string['enabledandworking'] = 'Le plugin Compilatio est actif et fonctionnel.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'survey', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -199,8 +199,8 @@ $string['downloadexcel'] = 'Télécharger les données en format Excel';
 $string['downloadinfo'] = 'Il vous est possible de télécharger l\'ensemble des données brutes de ce sondage dans un format utilisable par un tableur, SPSS ou d\'autres programmes.';
 $string['downloadresults'] = 'Télécharger les résultats';
 $string['downloadtext'] = 'Télécharger les données dans un format texte';
-$string['editingasurvey'] = 'Modifier une consultation';
-$string['guestsnotallowed'] = 'Les visiteurs anonymes ne peuvent pas participer à des consultations';
+$string['editingasurvey'] = 'Modification d\'une consultation';
+$string['guestsnotallowed'] = 'Seuls les utilisateurs inscrits peuvent participer à des consultations';
 $string['howlong'] = 'Combien de temps avez-vous mis pour répondre à cette consultation ?';
 $string['howlongoptions'] = 'Moins d\'1 min,1-2 min,2-3 min,3-4 min,4-5 min,5-10 min,Plus de 10 min';
 $string['ifoundthat'] = 'J\'ai trouvé que';

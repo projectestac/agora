@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = '접속 조정';
 $string['aggregategrades'] = '성적 재계산';
 $string['aggregation'] = '성적 집계';
 $string['allocate'] = '제출 배당';
@@ -34,11 +33,13 @@ $string['allocation'] = '할당';
 $string['allocationconfigured'] = '할당 구성';
 $string['allocationdone'] = '할당 완료';
 $string['allocationerror'] = '배당 오류';
-$string['allsubmissions'] = '모든 제출 ({$a})';
+$string['allsubmissions'] = '모든 제출';
 $string['alreadygraded'] = '이미 채점되었습니다.';
 $string['areaconclusion'] = '결론 문장';
 $string['areainstructauthors'] = '제출 요령';
 $string['areainstructreviewers'] = '평가 요령';
+$string['areaoverallfeedbackattachment'] = '전반적인 피드백 첨부파일';
+$string['areaoverallfeedbackcontent'] = '전반적인 피드백 문장';
 $string['areasubmissionattachment'] = '첨부물 제출';
 $string['areasubmissioncontent'] = '문서 제출';
 $string['assess'] = '평가';
@@ -48,8 +49,8 @@ $string['assessingexample'] = '예제 평가';
 $string['assessingsubmission'] = '제출물 평가';
 $string['assessment'] = '평가';
 $string['assessmentby'] = '평가자: <a href="{$a->url}">{$a->name}</a>';
-$string['assessmentbyfullname'] = '{$a}가 한 평가';
-$string['assessmentbyyourself'] = '당신의 평가';
+$string['assessmentbyfullname'] = '{$a} 에 근거한 평가';
+$string['assessmentbyyourself'] = '자체 평가';
 $string['assessmentdeleted'] = '제외된 평가';
 $string['assessmentend'] = '평가 마감일';
 $string['assessmentendbeforestart'] = '평가 마감일을 평가 개시일 이전으로 지정할 수 없습니다.';
@@ -126,8 +127,10 @@ $string['examplesmode'] = '예제 평가 모드';
 $string['examplesubmissions'] = '예제 제출';
 $string['examplesvoluntary'] = '예제 제출에 대한 평가는 자발적인 것임';
 $string['feedbackauthor'] = '저자에 대한 피드백';
+$string['feedbackauthorattachment'] = '첨부';
 $string['feedbackby'] = '{$a}에 의한 피드백';
 $string['feedbackreviewer'] = '평가자에 대한 피드백';
+$string['feedbacksettings'] = '과제평';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -160,7 +163,7 @@ $string['latesubmissions'] = '최근 제출물';
 $string['latesubmissionsallowed'] = '늦게 제출하는 것이 허용됨';
 $string['latesubmissions_desc'] = '마감일 이후 제출 허용';
 $string['latesubmissions_help'] = '활성화되면 저자는 제출 마감일후에 혹은 평가 단계에 자신의 일을 제출할 수도 있습니다. 하지만 늦는 제출은 편집할 수 없습니다.';
-$string['maxbytes'] = '파일의 최대 용량';
+$string['maxbytes'] = '최대 제출 첨부 크기';
 $string['modulename'] = '상호평가';
 $string['modulenameplural'] = '상호평가';
 $string['mysubmission'] = '내 제출물';
@@ -177,6 +180,13 @@ $string['noworkshops'] = '이 강좌에는 상호평가가 없음';
 $string['noyoursubmission'] = '아직 제출한 과제가 없음';
 $string['nullgrade'] = '	
 -';
+$string['overallfeedback'] = '전반적인 피드백';
+$string['overallfeedbackfiles'] = '전반적인 피드백에서의 첨부 파일의 최대 수';
+$string['overallfeedbackmaxbytes'] = '파일의 최대 용량';
+$string['overallfeedbackmode'] = '전반적인 피드백';
+$string['overallfeedbackmode_0'] = '비활성화 됨';
+$string['overallfeedbackmode_1'] = '활성화되고 선택적인';
+$string['overallfeedbackmode_2'] = '활성화되고 필수적인';
 $string['page-mod-workshop-x'] = '모든 워크샵 모듈 페이지';
 $string['participant'] = '참여자';
 $string['participantrevierof'] = '다음 사람의 검토자임';
@@ -201,6 +211,7 @@ $string['recentsubmissions'] = '상호평가 제출:';
 $string['saveandclose'] = '저장 및 종료';
 $string['saveandcontinue'] = '저장 후 편집 계속';
 $string['saveandpreview'] = '저장 후 미리보기';
+$string['saveandshownext'] = '저장하고 다음 보기';
 $string['selfassessmentdisabled'] = '자평이 불가능함';
 $string['showingperpage'] = '페이지당 {$a} 항목 보여주기';
 $string['showingperpagechange'] = '변경...';
@@ -274,7 +285,6 @@ $string['withoutsubmission'] = '제출물이 없는 검토자';
 $string['workshop:addinstance'] = '새 상호평가 추가';
 $string['workshop:allocate'] = '검토를 위한 제출물 배당';
 $string['workshop:editdimensions'] = '평가양식 편집';
-$string['workshopfeatures'] = '상호평가 기능';
 $string['workshop:ignoredeadlines'] = '시간 제한 무시';
 $string['workshop:manageexamples'] = '예제 제출물 관리';
 $string['workshopname'] = '상호평가 명칭';

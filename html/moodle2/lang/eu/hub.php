@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = 'Moodle kudeatzaileak';
 $string['audienceeducators'] = 'Irakasleak';
 $string['audience_help'] = 'Aukeratu ikastaro honentzako hartzaileak';
 $string['audiencestudents'] = 'Ikasleak';
+$string['badgesnumber'] = 'Domina-kopurua: ({$a})';
 $string['badurlformat'] = 'Okerreko URL formatua';
 $string['cannotsearchcommunity'] = 'Barkatu, ez duzu baimenik orri hau ikusteko';
 $string['community'] = 'Komunitatea';

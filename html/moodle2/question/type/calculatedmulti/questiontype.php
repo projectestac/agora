@@ -42,7 +42,10 @@ class qtype_calculatedmulti extends qtype_calculated {
         global $CFG, $DB;
         $context = $question->context;
 
-        // Calculated options
+        // Make it impossible to save bad formulas anywhere.
+        $this->validate_question_data($question);
+
+        // Calculated options.
         $update = true;
         $options = $DB->get_record('question_calculated_options',
                 array('question' => $question->id));
@@ -61,7 +64,7 @@ class qtype_calculatedmulti extends qtype_calculated {
         $options = $this->save_combined_feedback_helper($options, $question, $context, true);
         $DB->update_record('question_calculated_options', $options);
 
-        // Get old versions of the objects
+        // Get old versions of the objects.
         if (!$oldanswers = $DB->get_records('question_answers',
                 array('question' => $question->id), 'id ASC')) {
             $oldanswers = array();
@@ -71,11 +74,8 @@ class qtype_calculatedmulti extends qtype_calculated {
             $oldoptions = array();
         }
 
-        // Insert all the new answers
-        if (isset($question->answer) && !isset($question->answers)) {
-            $question->answers = $question->answer;
-        }
-        foreach ($question->answers as $key => $answerdata) {
+        // Insert all the new answers.
+        foreach ($question->answer as $key => $answerdata) {
             if (is_array($answerdata)) {
                 $answerdata = $answerdata['text'];
             }
@@ -94,12 +94,12 @@ class qtype_calculatedmulti extends qtype_calculated {
             }
 
             if (is_array($answerdata)) {
-                // Doing an import
+                // Doing an import.
                 $answer->answer = $this->import_or_save_files($answerdata,
                         $context, 'question', 'answer', $answer->id);
                 $answer->answerformat = $answerdata['format'];
             } else {
-                // Saving the form
+                // Saving the form.
                 $answer->answer = $answerdata;
                 $answer->answerformat = FORMAT_HTML;
             }
@@ -110,7 +110,7 @@ class qtype_calculatedmulti extends qtype_calculated {
 
             $DB->update_record("question_answers", $answer);
 
-            // Set up the options object
+            // Set up the options object.
             if (!$options = array_shift($oldoptions)) {
                 $options = new stdClass();
             }
@@ -121,17 +121,17 @@ class qtype_calculatedmulti extends qtype_calculated {
             $options->correctanswerlength = trim($question->correctanswerlength[$key]);
             $options->correctanswerformat = trim($question->correctanswerformat[$key]);
 
-            // Save options
+            // Save options.
             if (isset($options->id)) {
-                // reusing existing record
+                // Reusing existing record.
                 $DB->update_record('question_calculated', $options);
             } else {
-                // new options
+                // New options.
                 $DB->insert_record('question_calculated', $options);
             }
         }
 
-        // delete old answer records
+        // Delete old answer records.
         if (!empty($oldanswers)) {
             foreach ($oldanswers as $oa) {
                 $DB->delete_records('question_answers', array('id' => $oa->id));
@@ -154,6 +154,20 @@ class qtype_calculatedmulti extends qtype_calculated {
         }
 
         return true;
+    }
+
+    protected function validate_answer($answer) {
+        $error = qtype_calculated_find_formula_errors_in_text($answer);
+        if ($error) {
+            throw new coding_exception($error);
+        }
+    }
+
+    protected function validate_question_data($question) {
+        parent::validate_question_data($question);
+        $this->validate_text($question->correctfeedback['text']);
+        $this->validate_text($question->partiallycorrectfeedback['text']);
+        $this->validate_text($question->incorrectfeedback['text']);
     }
 
     protected function make_question_instance($questiondata) {
@@ -197,12 +211,9 @@ class qtype_calculatedmulti extends qtype_calculated {
         $answers = $question->options->answers;
 
         foreach ($answers as $key => $answer) {
-            if (is_string($answer)) {
-                $strheader .= $delimiter.$answer;
-            } else {
-                $strheader .= $delimiter.$answer->answer;
-            }
-            $delimiter = '<br/>';
+            $ans = shorten_text($answer->answer, 17, true);
+            $strheader .= $delimiter.$ans;
+            $delimiter = '<br/><br/>';
         }
         return $strheader;
     }
@@ -219,14 +230,14 @@ class qtype_calculatedmulti extends qtype_calculated {
         $errors = '';
         $delimiter = ': ';
         foreach ($answers as $key => $answer) {
-            $answer->answer = $this->substitute_variables($answer->answer, $data);
-            //evaluate the equations i.e {=5+4)
-            $qtext = '';
-            $qtextremaining = $answer->answer;
-            while (preg_match('~\{=([^[:space:]}]*)}~', $qtextremaining, $regs1)) {
-                $qtextsplits = explode($regs1[0], $qtextremaining, 2);
-                $qtext =$qtext.$qtextsplits[0];
-                $qtextremaining = $qtextsplits[1];
+            $anssubstituted = $this->substitute_variables($answer->answer, $data);
+            // Evaluate the equations i.e {=5+4).
+            $anstext = '';
+            $anstextremaining = $anssubstituted;
+            while (preg_match('~\{=([^[:space:]}]*)}~', $anstextremaining, $regs1)) {
+                $anstextsplits = explode($regs1[0], $anstextremaining, 2);
+                $anstext =$anstext.$anstextsplits[0];
+                $anstextremaining = $anstextsplits[1];
                 if (empty($regs1[1])) {
                     $str = '';
                 } else {
@@ -236,10 +247,10 @@ class qtype_calculatedmulti extends qtype_calculated {
                         eval('$str = '.$regs1[1].';');
                     }
                 }
-                $qtext = $qtext.$str;
+                $anstext = $anstext.$str;
             }
-            $answer->answer = $qtext.$qtextremaining;
-            $comment->stranswers[$key] = $answer->answer;
+            $anstext .= $anstextremaining;
+            $comment->stranswers[$key] = $anssubstituted.'<br/>'.$anstext;
         }
         return fullclone($comment);
     }

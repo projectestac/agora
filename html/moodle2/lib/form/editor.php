@@ -91,7 +91,29 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
         $this->_options['trusted'] = trusttext_trusted($this->_options['context']);
         parent::HTML_QuickForm_element($elementName, $elementLabel, $attributes);
 
+        // Note: for some reason the code using this setting does not like bools.
+        $this->_options['subdirs'] = (int)($this->_options['subdirs'] == 1);
+
         editors_head_setup();
+    }
+
+    /**
+     * Called by HTML_QuickForm whenever form event is made on this element
+     *
+     * @param string $event Name of event
+     * @param mixed $arg event arguments
+     * @param object $caller calling object
+     * @return bool
+     */
+    function onQuickFormEvent($event, $arg, &$caller)
+    {
+        switch ($event) {
+            case 'createElement':
+                $caller->setType($arg[0] . '[format]', PARAM_ALPHANUM);
+                $caller->setType($arg[0] . '[itemid]', PARAM_INT);
+                break;
+        }
+        return parent::onQuickFormEvent($event, $arg, $caller);
     }
 
     /**
@@ -205,7 +227,7 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
      * @param bool $allow true if sub directory can be created.
      */
     function setSubdirs($allow) {
-        $this->_options['subdirs'] = $allow;
+        $this->_options['subdirs'] = (int)($allow == 1);
     }
 
     /**
@@ -227,28 +249,10 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
     }
 
     /**
-     * Sets help button for editor
-     *
-     * @param mixed $_helpbuttonargs arguments to create help button
-     * @param string $function name of the callback function
-     * @deprecated since Moodle 2.0. Please do not call this function any more.
-     * @todo MDL-34508 this api will be removed.
-     * @see MoodleQuickForm::addHelpButton()
+     * @deprecated since Moodle 2.0
      */
     function setHelpButton($_helpbuttonargs, $function='_helpbutton') {
-        debugging('setHelpButton() is deprecated, please use $mform->addHelpButton() instead');
-        if (!is_array($_helpbuttonargs)) {
-            $_helpbuttonargs = array($_helpbuttonargs);
-        } else {
-            $_helpbuttonargs = $_helpbuttonargs;
-        }
-        //we do this to to return html instead of printing it
-        //without having to specify it in every call to make a button.
-        if ('_helpbutton' == $function){
-            $defaultargs = array('', '', 'moodle', true, false, '', true);
-            $_helpbuttonargs = $_helpbuttonargs + $defaultargs ;
-        }
-        $this->_helpbutton=call_user_func_array($function, $_helpbuttonargs);
+        throw new coding_exception('setHelpButton() can not be used any more, please see MoodleQuickForm::addHelpButton().');
     }
 
     /**
@@ -383,7 +387,7 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
         if (!is_null($this->getAttribute('onblur')) && !is_null($this->getAttribute('onchange'))) {
             $editorrules = ' onblur="'.htmlspecialchars($this->getAttribute('onblur')).'" onchange="'.htmlspecialchars($this->getAttribute('onchange')).'"';
         }
-        $str .= '<div><textarea id="'.$id.'" name="'.$elname.'[text]" rows="'.$rows.'" cols="'.$cols.'"'.$editorrules.'>';
+        $str .= '<div><textarea id="'.$id.'" name="'.$elname.'[text]" rows="'.$rows.'" cols="'.$cols.'" spellcheck="true"'.$editorrules.'>';
         $str .= s($text);
         $str .= '</textarea></div>';
 
@@ -403,7 +407,8 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
         if (!during_initial_install() && empty($CFG->adminsetuppending)) {
             // 0 means no files, -1 unlimited
             if ($maxfiles != 0 ) {
-                $str .= '<input type="hidden" name="'.$elname.'[itemid]" value="'.$draftitemid.'" />';
+                $str .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => $elname.'[itemid]',
+                        'value' => $draftitemid));
 
                 // used by non js editor only
                 $editorurl = new moodle_url("$CFG->wwwroot/repository/draftfiles_manager.php", array(

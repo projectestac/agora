@@ -34,14 +34,7 @@ if ($quizzes_disabled == '1'){
             set_config('wq_disabled', 1, 'question');
         }
     }    
-//XTEC ************ MODIFICAT - Avoid enable wiris quizzes by default
-//2013.10.04 @sarjona
-}else if ($quizzes_disabled == '0') {
-//************ ORIGINAL
-/*
 }else{
-*/
-//************ FI
     foreach($qtypes as $key => $value){
         if (get_config('question', $value . 'wiris_disabled') == 1){
             set_config($value . 'wiris_disabled', 0, 'question');
@@ -50,20 +43,13 @@ if ($quizzes_disabled == '1'){
     }    
 }
 
-//XTEC ************ MODIFICAT - Avoid enable wiris quizzes by default
-//2013.10.04 @sarjona
-$settings->add(new admin_setting_configcheckbox('question/wq_disabled', 'WIRIS quizzes', $output, '1', '0', '1'));
-//************ ORIGINAL
-/*
 $settings->add(new admin_setting_configcheckbox('question/wq_disabled', 'WIRIS quizzes', $output, '0', '0', '1'));
-*/
-//************ FI
 
 $wiris_plugin = dirname(__FILE__) . '/../../../filter/wiris/filter.php';
 $filter_installed = file_exists($wiris_plugin);
 
 if ($filter_installed){
-    $url = $CFG->wwwroot . '/admin/settings.php?section=filtersettingfilterwiris';
+    $url = $CFG->wwwroot . '/admin/settings.php?section=filtersettingwiris';
     $url = '<a href="' . $url . '">WIRIS filter settings</a>';
     $settings->add(new admin_setting_heading('filter_wirisfilterheading', $url, ''));
 }

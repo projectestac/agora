@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'Séparateur CSV';
 $string['defaultvalues'] = 'Valeurs par défaut';
 $string['deleteerrors'] = 'Erreurs lors de suppressions';
 $string['encoding'] = 'Encodage';
+$string['errormnetadd'] = 'Impossible d\'ajouter des utilisateurs distants';
 $string['errors'] = 'Erreurs';
 $string['nochanges'] = 'Aucune modification';
 $string['pluginname'] = 'Déposer des comptes utilisateurs';
@@ -52,14 +53,15 @@ $string['uploadpicture_usernotfound'] = 'Il n\'y a pas d\'utilisateur dont l\'at
 $string['uploadpicture_userskipped'] = 'Utilisateur {$a} ignoré (il possède déjà un avatar).';
 $string['uploadpicture_userupdated'] = 'Avatar de l\'utilisateur {$a} modifié.';
 $string['uploadusers'] = 'Importation d\'utilisateurs';
-$string['uploadusers_help'] = 'Il est possible d\'importer manuellement des comptes utilisateurs (et optionnellement les inscrire à des cours) à partir d\'un fichier texte. Ce fichier doit être formaté de la façon suivante :
+$string['uploadusers_help'] = 'Il est possible d\'importer manuellement des comptes utilisateurs (et optionnellement inscrits à des cours) à partir d\'un fichier texte, ce fichier doit être formaté de la façon suivante :
 
-* chaque ligne du fichier contient un enregistrement ;
-* les données de chaque enregistrement sont séparées par une virgule (ou un autre caractère de séparation) ;
-* le premier enregistrement contient le nom des champs qui composent les enregistrements, et détermine ainsi la structure de la suite du fichier ;
-* les champs requis sont username, password, firstname, lastname, email';
+* chaque ligne du fichier contient un enregistrement ;
+* les données de chaque enregistrement sont séparées par une virgule (ou un autre caractère de séparation) ;
+* le premier enregistrement contient le nom des champs qui composent les enregistrements, et détermine ainsi la structure de la suite du fichier ;
+* les champs requis sont username, password, firstname, lastname, email';
 $string['uploaduserspreview'] = 'Prévisualisation de la création d\'utilisateurs';
 $string['uploadusersresult'] = 'Résultats de la création d\'utilisateurs';
+$string['uploaduser:uploaduserpictures'] = 'Déposer des avatars';
 $string['useraccountupdated'] = 'Utilisateur modifié';
 $string['useraccountuptodate'] = 'Utilisateur à jour';
 $string['userdeleted'] = 'Utilisateur supprimé';

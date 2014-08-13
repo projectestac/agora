@@ -246,7 +246,8 @@ function rcontent_delete_attempt($userid, $rcontentid, $attemptid) {
  */
 function rcontent_get_user_data($userid) {
 	global $DB;
-    return $DB->get_record('user',array('id'=>$userid),'firstname, lastname, picture');
+    $namefields = get_all_user_name_fields(true);
+    return $DB->get_record('user',array('id'=>$userid), $namefields.', picture');
 }
 
 /**

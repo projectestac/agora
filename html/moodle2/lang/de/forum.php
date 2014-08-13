@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['attachment'] = 'Anhang';
 $string['attachment_help'] = 'Sie dürfen eine oder mehrere Dateien an einen Beitrag anhängen. Ein angehängtes Bild wird am Ende des Beitrags angezeigt.';
 $string['attachmentnopost'] = 'Ohne Nachrichten-ID können Anhänge nicht exportiert werden';
 $string['attachments'] = 'Anhänge';
+$string['attachmentswordcount'] = 'Anhänge und Wortzahl';
 $string['blockafter'] = 'Sperre';
 $string['blockafter_help'] = 'Diese Zahl legt fest, wie viele Beiträge pro Nutzer/in im angegebenen Zeitfenster maximal ins Forum eingetragen werden dürfen. Nutzer/innen mit der Berechtigung mod/forum:postwithoutthrottling sind von einer Sperre ausgenommen.';
 $string['blockperiod'] = 'Zeitfenster';
@@ -57,8 +58,7 @@ $string['cannotadddiscussionall'] = 'Sie dürfen kein neues Diskussionsthema fü
 $string['cannotaddsubscriber'] = 'Die ID {$a} konnte nicht zur Abonnentenliste hinzugefügt werden!';
 $string['cannotaddteacherforumto'] = 'Das konvertierte Trainerforum konnte nicht im Kursabschnitt 0 eingefügt werden.';
 $string['cannotcreatediscussion'] = 'Das neue Thema wurde leider nicht gespeichert.';
-$string['cannotcreateinstanceforteacher'] = 'Die neue Kursinstanz für das Trainerforum konnte nicht erstellt werden.';
-$string['cannotdeleteforummodule'] = 'Sie dürfen das Forenmodul nicht löschen.';
+$string['cannotcreateinstanceforteacher'] = 'Das neue Kursmodul für das Trainerforum konnte nicht erstellt werden.';
 $string['cannotdeletepost'] = 'Sie dürfen diesen Beitrag nicht löschen!';
 $string['cannoteditposts'] = 'Sie dürfen keine Beiträge anderer Nutzer/innen ändern!';
 $string['cannotfinddiscussion'] = 'Das Thema konnte im Forum nicht gefunden werden';
@@ -91,7 +91,7 @@ $string['completionreplies'] = 'Teilnehmer/in muss Antworten verfassen:';
 $string['completionrepliesgroup'] = 'Antworten erforderlich';
 $string['completionreplieshelp'] = 'Zum Beenden sind Antworten erforderlich';
 $string['configcleanreadtime'] = 'Ältere Beiträge werden täglich zu dieser Zeit (Stunde) als \'gelesen\' markiert.';
-$string['configdigestmailtime'] = 'Personen, die E-Mails als Zusammenfassung (Digest) eingerichtet haben, erhalten diese Zusammenfassung einmal täglich zu dem hier festgelegten Zeitpunkt zugesandt, und zwar bei der auf diesen Zeitpunkt folgenden Ausführung des Scripts cron.php.';
+$string['configdigestmailtime'] = 'Diese Option legt fest, wann die tägliche Zusammenfassung neuer Forumsbeiträge (Digest) erstellt und versendet wird.';
 $string['configdisplaymode'] = 'Standardanzeige für Themen, falls nichts eingestellt wurde.';
 $string['configenablerssfeeds'] = 'Diese Option aktiviert die Möglichkeit von RSS-Feeds für alle Foren. Jedes Forum muss einzeln für RSS-Feeds freigegeben werden.';
 $string['configenabletimedposts'] = 'Wenn diese Option aktiviert ist, dann lässt sich ein Zeitraum für Sichtbarkeit eines Forumsbeitrags festzulegen (experimentell und noch nicht umfassend getestet).';
@@ -102,6 +102,7 @@ $string['configmaxbytes'] = 'Voreinstellung für die Dateigröße von Anhängen 
 $string['configoldpostdays'] = 'Anzahl der Tage, nach denen eine neue Nachricht automatisch als gelesen gilt.';
 $string['configreplytouser'] = 'Wenn ein Forumsbeitrag per E-Mail verschickt wird, soll er die Teilnehmeradresse enthalten, damit der Empfänger persönlich antworten kann (statt über das Forum)? Wenn Sie "Ja" auswählen, können die Teilnehmer/innen in ihrem Profil festlegen, ob die E-Mail-Adresse veröffentlicht werden soll oder nicht.';
 $string['configshortpost'] = 'Jeder Beitrag wird als kurz eingestuft, wenn er kürzer als diese Zeichenzahl ist (ohne Berücksichtigung der HTML-Codierung).';
+$string['configtrackingtype'] = 'Standardeinstellungen zum Lesetracking';
 $string['configtrackreadposts'] = 'Wenn diese Option aktiviert ist, steht die Markierung gelesen/ungelesen für alle zur Verfügung.';
 $string['configusermarksread'] = 'Wenn diese Option aktiviert ist, müssen neue Nachrichten manuell als gelesen markiert werden. Andernfalls gilt eine Nachricht automatisch als gelesen, sobald sie einmal aufgerufen wurde.';
 $string['confirmsubscribe'] = 'Möchten Sie wirklich das Forum \'{$a}\' abonnieren?';
@@ -115,7 +116,8 @@ $string['deletedpost'] = 'Der Beitrag wurde gelöscht.';
 $string['deletedposts'] = 'Diese Beiträge wurden gelöscht.';
 $string['deletesure'] = 'Möchten Sie diesen Beitrag wirklich löschen?';
 $string['deletesureplural'] = 'Möchten Sie diesen Beitrag und alle Antworten wirklich löschen? ({$a} Beiträge)';
-$string['digestmailheader'] = 'Dies ist die tägliche Zusammenfassung (Digest) neuer Forumsbeiträge von {$a->sitename}. Sie können Ihre E-Mail-Einstellungen für Foren unter {$a->userprefs} abändern.';
+$string['digestmailheader'] = 'Sie erhalten die tägliche Zusammenfassung neuer Forumsbeiträge (Digest) von {$a->sitename}. Die Einstellungen zu den E-Mails aus Foren können Sie über {$a->userprefs} ändern.';
+$string['digestmailpost'] = 'Einstellungen zur Zusammenfassung (Digest) neuer Forenbeiträge ändern';
 $string['digestmailprefs'] = 'Ihr Profil';
 $string['digestmailsubject'] = '{$a}: Zusammenfassung des Forums';
 $string['digestmailtime'] = 'Termin für Foren- Zusammenfassungen';
@@ -137,22 +139,43 @@ $string['displaymode'] = 'Anzeigemodus';
 $string['displayperiod'] = 'Anzeigeperiode';
 $string['displaystart'] = 'Anzeigebeginn';
 $string['displaystart_help'] = 'Die Option legt fest, ob ein Forumsbeitrag erst ab einem bestimmten Datum angezeigt werden soll. Administrator/innen dürfen immer alle Beiträge sehen.';
+$string['displaywordcount'] = 'Wortzahl anzeigen';
+$string['displaywordcount_help'] = 'Die Einstellung legt fest, ob die Zahl der Worte für jeden Forenbeitrag angezeigt werden soll.';
 $string['eachuserforum'] = 'Jede Person darf genau ein Thema anlegen';
 $string['edit'] = 'Bearbeiten';
 $string['editedby'] = 'Bearbeitet von {$a->name} - Originaleintrag am {$a->date}';
 $string['editedpostupdated'] = 'Beitrag von {$a} wurde aktualisiert';
 $string['editing'] = 'Wird bearbeitet';
+$string['emaildigest_0'] = 'Sie erhalten zu jedem Foreneintrag eine E-Mail';
+$string['emaildigest_1'] = 'Sie werden eine tägliche E-Mail-Zusammenfassung gesendet bekommen, die den vollständigen Inhalt aller Forumsbeiträge enthält.';
+$string['emaildigest_2'] = 'Sie werden eine tägliche E-Mail-Zusammenfassung gesendet bekommen, die das Thema aller Forumsbeiträge enthält.';
+$string['emaildigestcompleteshort'] = 'Vollständige Beiträge';
+$string['emaildigestdefault'] = 'Standardmäßig ({$a})';
+$string['emaildigestoffshort'] = 'Keine Zusammenfassung';
+$string['emaildigestsubjectsshort'] = 'Nur die Themen';
+$string['emaildigesttype'] = 'Optionen für die E-Mail-Zusammenfassung';
+$string['emaildigesttype_help'] = 'Folgende Einstellungen stehen für die Benachrichtigung aus Foren zur Verfügung:
+
+* Standard - Es wird die Einstellung im individuellen Nutzerprofil verwandt. Eine Änderung im eigenen Profil wird auch hier angezeigt.
+* Keine Zusammenfassung - Sie erhalten für jeden Forenbeitrag eine E-Mail.
+- Zusammenfassung - vollständige Beiträge - Sie erhalten täglich eine E-Mail. Diese enthält alle Beiträge der Foren mit ihrem gesamten Inahalt.
+- Zusammenfassung - nur Überschriften - Sie erhalten tägliche eine E-Mail. Diese enthält nur die Themenüberschriften der Forenbeiträge.';
+$string['emaildigestupdated'] = 'Die E-Mail Optioon für Zusammenfassungen wurde geändert zu \'{$a->maildigesttitle}\' für das Forum \'{$a->forum}\'. {$a->maildigestdescription}';
+$string['emaildigestupdated_default'] = 'Ihr Standard Profilwert von \'{$a->maildigesttitle}\' wird für das Forum \'{$a->forum}\' verwendet. {$a->maildigestdescription}';
 $string['emptymessage'] = 'Bei Ihrem Beitrag ist ein Fehler aufgetreten. Eventuell haben Sie keinen Text eingegeben oder der Anhang war zu groß. Die Änderungen wurden nicht gespeichert.';
 $string['erroremptymessage'] = 'Die Mitteilung darf nicht leer sein.';
 $string['erroremptysubject'] = 'Der Betreff darf nicht leer sein.';
 $string['errorenrolmentrequired'] = 'Sie müssen in den Kurs eingeschrieben sein, um auf diesen Inhalt zugreifen zu können';
 $string['errorwhiledelete'] = 'Beim Löschen des Beitrags ist ein Fehler aufgetreten.';
+$string['event_assessable_uploaded'] = 'Inhalte wurden bereitgestellt';
 $string['everyonecanchoose'] = 'Alle dürfen entscheiden, ob sie das Forum abonnieren';
 $string['everyonecannowchoose'] = 'Alle dürfen jetzt entscheiden, ob sie das Forum abonnieren';
 $string['everyoneisnowsubscribed'] = 'Alle haben jetzt dieses Forum abonniert';
 $string['everyoneissubscribed'] = 'Alle haben dieses Forum abonniert';
 $string['existingsubscribers'] = 'Derzeitige Abonnenten';
 $string['exportdiscussion'] = 'Gesamte Diskussion exportieren';
+$string['forcedreadtracking'] = 'Vorgabe des Lesetrackings erlauben';
+$string['forcedreadtracking_desc'] = 'Ermöglicht bei Foren die Prüfung des Lesestatus für jeden Nutzer zu erzwingen.In Kursen mit sehr vielen Foren und Beiträgen wird das die Ladezeit der Seite deutlich erhöhen, da die Werte für jeden Nutzer neu berechnet werden müssen. Nach der Deaktivierung dieser Option wird bei jedem Forum, dass zuvor die Lesekennzeichnung erzwungen hat, dies zu einer optionalen Einstellung.';
 $string['forcessubscribe'] = 'Dieses Forum muss von allen abonniert werden';
 $string['forum'] = 'Forum';
 $string['forum:addinstance'] = 'Forum hinzufügen';
@@ -201,12 +224,14 @@ $string['forum:viewrating'] = 'Eigene Gesamtwertung sehen';
 $string['forum:viewsubscribers'] = 'Abonnentenliste sehen';
 $string['generalforum'] = 'Standardforum';
 $string['generalforums'] = 'Allgemeines Forum';
+$string['hiddenforumpost'] = 'Verborgener Forumsbeitrag';
 $string['inforum'] = 'in {$a}';
 $string['introblog'] = 'Die Beiträge in diesem Forum wurden automatisch aus Teilnehmerblogs des Kurses erstellt, weil die Blogeinträge nicht mehr verfügbar sind';
 $string['intronews'] = 'Nachrichten und Ankündigungen';
 $string['introsocial'] = 'Offenes Forum ohne Themeneinschränkung';
 $string['introteacher'] = 'Forum für Traineranmerkungen und -diskussionen';
 $string['invalidaccess'] = 'Seitenzugriff war nicht korrekt';
+$string['invaliddigestsetting'] = 'Eine ungültige Einstellung für Mail-Zusammenfassungen wurde bereitgestellt.';
 $string['invaliddiscussionid'] = 'Falsche Themen-ID';
 $string['invalidforcesubscribe'] = 'Falscher Modus beim Abonnement ';
 $string['invalidforumid'] = 'Falsche Foren-ID';
@@ -271,7 +296,6 @@ $string['nopermissiontosubscribe'] = 'Sie haben nicht das Recht, die Liste der A
 $string['nopermissiontoview'] = 'Sie haben nicht das Recht, diesen Beitrag anzuzeigen.';
 $string['nopostforum'] = 'Sie dürfen in diesem Forum keine Beiträge schreiben';
 $string['noposts'] = 'Keine Beiträge';
-$string['nopostscontaining'] = 'Keine Beiträge gefunden, die in denen \'{$a}\' enthaltenen ist';
 $string['nopostsmadebyuser'] = '\'{$a}\' hat keine Beiträge geschrieben';
 $string['nopostsmadebyyou'] = 'Sie haben noch keine Beiträge geschrieben';
 $string['noquestions'] = 'Keine Beiträge im Forum';
@@ -309,6 +333,7 @@ $string['pluginname'] = 'Forum';
 $string['postadded'] = '<p>Ihr Beitrag wurde erfolgreich hinzugefügt. </p><p>Wenn Sie etwas ändern möchten, haben Sie {$a} Zeit dafür.</p>';
 $string['postaddedsuccess'] = 'Der Beitrag wurde erfolgreich eingefügt.';
 $string['postaddedtimeleft'] = 'Wenn Sie etwas korrigieren möchten, haben Sie {$a} Zeit für diese Änderungen.';
+$string['postbyuser'] = '{$a->post} von {$a->user}';
 $string['postincontext'] = 'Diskussion im Forum zeigen';
 $string['postmailinfo'] = 'Diese Mitteilung wurde auf der Webseite \'{$a}\' eingetragen.
 
@@ -338,6 +363,7 @@ $string['repliesone'] = '{$a} Antwort bis jetzt';
 $string['reply'] = 'Antwort';
 $string['replyforum'] = 'Antwort ins Forum';
 $string['replytouser'] = 'E-Mail-Adresse in Antwort nutzen';
+$string['resetdigests'] = 'Alle nutzerspezifischen Einstellungen für Forenzusammenfassungen löschen.';
 $string['resetforums'] = 'Beiträge entfernen von';
 $string['resetforumsall'] = 'Alle Beiträge löschen';
 $string['resetsubscriptions'] = 'Alle Forumsabonnements entfernen';
@@ -382,6 +408,7 @@ $string['subscribersto'] = 'Abonnent/innen für \'{$a}\'';
 $string['subscribestart'] = 'Beiträge per E-Mail an mich senden';
 $string['subscribestop'] = 'Keine Beiträge als E-Mail an mich senden';
 $string['subscription'] = 'Abonnement';
+$string['subscriptionandtracking'] = 'Abonnement';
 $string['subscriptionauto'] = 'Automatisch';
 $string['subscriptiondisabled'] = 'Deaktiviert';
 $string['subscriptionforced'] = 'Verpflichtend';
@@ -389,16 +416,14 @@ $string['subscription_help'] = 'Wenn Sie ein Forum abonnieren, werden alle Beitr
 
 Normalerweise dürfen Sie auswählen, ob Sie dieses Abonnement wünschen. Manche Foren sind allerdings so eingestellt, dass ein Abonnement verpflichtend ist und jeder alle Beiträge per E-Mail bekommt.';
 $string['subscriptionmode'] = 'Abonnement';
-$string['subscriptionmode_help'] = 'Alle, die ein Forum abonnieren, bekommen die Beiträge dieses Forums per E-Mail zugesandt.
-
-Es gibt 4 Modi für ein Abonnement:
+$string['subscriptionmode_help'] = 'Alle Abonnent/innen dieses Forums bekommen die Beiträge per E-Mail zugesandt. Es gibt unterschiedliche Modi für ein Abonnement:
 
 * Optional - alle dürfen auswählen, ob sie das Forum abonnieren möchten oder nicht
 * Verpflichtend - alle haben das Forum abonniert und niemand kann es abbestellen
 * Automatisch - alle haben das Forum abonniert, dürfen es aber jederzeit abbestellen
 * Deaktiviert - Das Forum kann von niemandem abonniert werden
 
-Bei einer nachträglichen Änderung des Abonnementtyps, ist es erforderlich, manuell in der Abonnementliste  die Einstellungen für bestehende Nutzer zu ändern.';
+Änderungen des Abonnements haben nur Einfluss auf Nutzer/innen, die zukünftig in den Kurs eingeschrieben werden. Für bestehende Nutzer/innen muss die Abonnementliste manuell angepasst werden.';
 $string['subscriptionoptional'] = 'Optional';
 $string['subscriptions'] = 'Abonnements';
 $string['thisforumisthrottled'] = 'Für dieses Forum ist eine Höchstzahl von Beiträgen innerhalb eines bestimmten Zeitraums festgelegt worden. Dies gilt nach {$a->blockafter} Beiträgen innerhalb von {$a->blockperiod}';
@@ -407,16 +432,14 @@ $string['timestartenderror'] = 'Der Endtermin kann nicht vor dem Starttermin lie
 $string['trackforum'] = 'Ungelesene Beiträge markieren';
 $string['tracking'] = 'Markieren?';
 $string['trackingoff'] = 'Aus';
-$string['trackingon'] = 'An';
+$string['trackingon'] = 'Vorgegeben';
 $string['trackingoptional'] = 'Optional';
 $string['trackingtype'] = 'Lesetracking';
-$string['trackingtype_help'] = 'Wenn diese Option aktiviert ist, sehen Teilnehmer/innen gelesene und ungelesene Beiträge unterschiedlich markiert im Forum.
+$string['trackingtype_help'] = 'Wenn diese Option aktiviert ist, sehen Teilnehmer/innen gelesene und ungelesene Beiträge unterschiedlich markiert im Forum. Es stehen drei Optionen zur Verfügung:
 
-Es stehen drei Optionen zur Verfügung:
-
-* Optional - Die Markierung ist ein- und ausschaltbar
-* An  - Die Markierung ist immer an
-* Aus - Die Markierung ist immer aus';
+* Optional - Die Markierung ist ein- und ausschaltbar mit einem Link im Block Administration.
+* Verpflichtend/Erzwungen - Die Markierung ist immer an
+* Aus - Die Markierung ist immer aus. Gelesene und ungelesene Beiträge werden nicht erfasst.';
 $string['unread'] = 'Ungelesen';
 $string['unreadposts'] = 'Ungelesene Beiträge';
 $string['unreadpostsnumber'] = '{$a} ungelesene Beiträge';

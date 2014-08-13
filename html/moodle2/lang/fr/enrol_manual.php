@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Durée par défaut de l\'inscription';
 $string['defaultperiod_desc'] = 'Durée par défaut de la période durant laquelle l\'inscription est effective. Si 0 est indiqué, la durée sera illimitée par défaut.';
 $string['defaultperiod_help'] = 'Temps par défaut durant lequel l\'inscription est valable, à compter de l\'inscription de l\'utilisateur. Si l\'option est désactivée, la durée est par défaut illimitée.';
 $string['deleteselectedusers'] = 'Supprimer les inscriptions sélectionnées';
-$string['editenrolment'] = 'Modifier l\'inscription';
 $string['editselectedusers'] = 'Modifier les inscriptions sélectionnées';
 $string['enrolledincourserole'] = 'Inscrit au cours « {$a->course} » avec le rôle « {$a->role} »';
 $string['enrolusers'] = 'Inscrire des utilisateurs';

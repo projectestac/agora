@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_singleactivity', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_singleactivity', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   format_singleactivity
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['activitytype_help'] = 'Trieu el tipus d\'activitat o recurs per a utili
 $string['defactivitytype'] = 'Tipus d\'activitat per defecte';
 $string['defactivitytypedesc'] = 'Especifiqueu el tipus d\'activitat que se seleccionarà per defecte quan creeu un nou curs';
 $string['erroractivitytype'] = 'El tipus d\'activitat no està definit en els paràmetres del curs';
-$string['errornotsetup'] = 'Aquest curs no s\'ha configurat encara';
 $string['orphaned'] = 'Òrfena';
 $string['orphanedwarning'] = 'Els usuaris no podran arribar a aquestes activitats.';
 $string['pluginname'] = 'Format d\'activitat única';
+$string['warningchangeformat'] = 'Quan es canvia el format del curs actual a «activitat única» comproveu que heu suprimit totes les activitats extra del curs incloent el «Fòrum de noticies». Fixeu-vos que l\'estructura de les seccions pot haver-se modificat.';

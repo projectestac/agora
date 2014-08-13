@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_rolescapabilities', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_rolescapabilities', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   report_rolescapabilities
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allowed_authenticated_user'] = '(aber von der Rolle "Authentifizierter Nutzer" erlaubt)';
 $string['config_available_roles'] = 'Rollen, die im Berechtigungsbericht angezeigt werden';
 $string['desc_available_roles'] = 'Wählen Sie die Rollen aus, die einem Nutzer im Bericht angezeigt werden.';
+$string['duplicated_authenticated_user'] = '(zusätzlich zur Erlaubnis in der Rolle "Authentifizierter Nutzer")';
 $string['legend_title'] = 'Farbcodierung';
 $string['no_roles_available'] = 'Keine Rollen verfügbar';
-$string['no_roles_selected'] = 'Keine Rolle ausgewählt. Wählen Sie bitte mindestens eine Rolle aus um deren Berechtigungen anzuzeigen.';
+$string['no_roles_selected'] = 'Keine Rollen ausgewählt. Bitte wählen Sie mindestens eine Rolle aus, um die Berechtigungstabelle anzuzeigen.';
 $string['pluginname'] = 'Rollenberechtigungen';
 $string['repeat_each'] = 'Kopfzeile nach \'x\' Einträgen wiederholen';
 $string['rolescapabilities'] = 'Rollenberechtigungen';

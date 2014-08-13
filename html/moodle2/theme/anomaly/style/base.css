@@ -2,7 +2,7 @@
  * Core
  */
 
-h1, h2, h3, h4, h5 {
+h1, h1.headermain, h2, h2.tagline, h3, h4, h5 {
     font-family: Georgia,Times,"Times New Roman",serif;
 }
 
@@ -11,15 +11,6 @@ h1, h2, h3, h4, h5 {
     width: 94%;
     margin: 25px 3%;
     padding: 0;
-}
-
-h1.main,
-h2.main,
-h3.main,
-h4.main,
-h5.main,
-h6.main {
-    text-align: center;
 }
 
 .generalbox {
@@ -183,4 +174,16 @@ h6.main {
 
 .theme_description h2 {
     padding-top: 0.5em;
+}
+
+/* Moodle forms
+----------------*/
+
+.mform .btn-cancel {
+    color: #697F55;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #697F55;
+    text-decoration: underline;
 }

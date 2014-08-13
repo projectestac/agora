@@ -27,3 +27,5 @@ $string['keyword'] = 'Search for';
 $string['pluginname'] = 'Wikimedia';
 $string['wikimedia:view'] = 'View wikimedia repository';
 $string['configplugin'] = 'Wikimedia repository type configuration';
+$string['maxwidth'] = 'Max image width (px)';
+$string['maxheight'] = 'Max image height (px)';

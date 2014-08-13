@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,12 +38,10 @@ $string['course'] = 'Μάθημα';
 $string['courseevent'] = 'Γεγονός μαθήματος';
 $string['courseevents'] = 'Γεγονότα μαθήματος';
 $string['courses'] = 'Μαθήματα';
-$string['dayview'] = 'Προβολή ημέρας';
 $string['daywithnoevents'] = 'Δεν υπάρχουν γεγονότα για αυτή την ημέρα.';
 $string['default'] = 'Προεπιλογή';
 $string['deleteevent'] = 'Διαγραφή γεγονότος';
 $string['deleteevents'] = 'Διαγραφή γεγονότων';
-$string['detailedmonthview'] = 'Λεπτομέρειες γεγονότων μήνα';
 $string['durationminutes'] = 'Διάρκεια σε λεπτά';
 $string['durationnone'] = 'Χωρίς διάρκεια';
 $string['durationuntil'] = 'Μέχρι';

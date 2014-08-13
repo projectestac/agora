@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multichoice', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = '추가 선택을 위한 공백들';
 $string['answerhowmany'] = '정답의 갯수';
 $string['answernumbering'] = '답안 번호?';
 $string['answernumbering123'] = '1., 2., 3., ...';

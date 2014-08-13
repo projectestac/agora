@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_quickset', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_quickset', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_quickset
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,8 @@ $string['editingcoursesections'] = 'Editing sections for course: {$a}';
 $string['editsections'] = 'Edit sections';
 $string['moresettings'] = 'More settings';
 $string['pluginname'] = 'Quicksets';
+$string['quickset:addinstance'] = 'Add Quicksets block';
+$string['quickset:view'] = 'View Quicksets block';
 $string['removeselected'] = 'Remove selected/ save';
 $string['reordersections'] = 'Save changes, return to course';
 $string['returntocourse'] = 'Return to course, discard unsaved changes';

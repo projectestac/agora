@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['canntenrol'] = 'L\'inscription est désactivée';
 $string['cohortnonmemberinfo'] = 'Seuls les membres de la cohorte {$a} peuvent s\'inscrire eux-mêmes.';
 $string['cohortonly'] = 'Seulement les membres de la cohorte';
 $string['cohortonly_help'] = 'L\'auto-inscription peut être restreinte aux seuls membres d\'une cohorte spécifique. La modification de ce réglage n\'a pas d\'effet sur les inscriptions existantes.';
@@ -37,7 +38,6 @@ Les paramètres suivants peuvent être inclus dans le message :
 * lien vers le profil de l\'utilisateur {$a->profileurl}';
 $string['defaultrole'] = 'Rôle attribué par défaut';
 $string['defaultrole_desc'] = 'Sélectionner le rôle à attribuer aux utilisateurs lors de l\'auto-inscription';
-$string['editenrolment'] = 'Modifier l\'inscription';
 $string['enrolenddate'] = 'Date de fin';
 $string['enrolenddate_help'] = 'Si ce réglage est activé, les utilisateurs peuvent s\'inscrire jusqu\'à cette date seulement.';
 $string['enrolenddaterror'] = 'La date de la fin de l\'inscription ne peut être antérieure à celle du début';
@@ -72,6 +72,9 @@ $string['maxenrolled'] = 'Nombre maximum d\'utilisateurs inscrits';
 $string['maxenrolled_help'] = 'Spécifie le nombre maximum d\'utilisateurs pouvant s\'inscrire. Le nombre 0 signifie aucune limite.';
 $string['maxenrolledreached'] = 'Le nombre maximum d\'utilisateurs autorisés à s\'inscrire eux-mêmes est atteint.';
 $string['messageprovider:expiry_notification'] = 'Notifications d\'échéance d\'auto-inscription';
+$string['newenrols'] = 'Permettre de nouvelles inscriptions';
+$string['newenrols_desc'] = 'Permettre par défaut à des utilisateurs de s\'inscrire eux-mêmes à de nouveaux cours.';
+$string['newenrols_help'] = 'Ce réglage détermine si un utilisateur peut s\'inscrire lui-même à ce cours.';
 $string['nopassword'] = 'Aucune clef d\'inscription requise.';
 $string['password'] = 'Clef d\'inscription';
 $string['password_help'] = 'Une clef d\'inscription permet de restreindre l\'accès au cours aux seuls utilisateurs qui connaissent la clef.
@@ -94,9 +97,9 @@ $string['sendcoursewelcomemessage'] = 'Envoyer un message de bienvenue';
 $string['sendcoursewelcomemessage_help'] = 'Si ce réglage est activé, les utilisateurs recevront un message de bienvenue par courriel après qu\'ils se sont inscrits dans un cours.';
 $string['showhint'] = 'Afficher l\'indice';
 $string['showhint_desc'] = 'Afficher la première lettre de la clef d\'inscription.';
-$string['status'] = 'Permettre l\'auto-inscription';
-$string['status_desc'] = 'Permettre par défaut aux utilisateurs de s\'inscrire eux-mêmes dans les cours.';
-$string['status_help'] = 'Ce réglage détermine si un utilisateur peut s\'inscrire lui-même (et se désinscrire s\'il dispose de l\'autorisation appropriée) dans un cours.';
+$string['status'] = 'Activer les inscriptions existantes';
+$string['status_desc'] = 'Activer la méthode d\'auto-inscription dans les nouveaux cours.';
+$string['status_help'] = 'Si ce réglage est désactivé, toutes les auto-inscriptions sont suspendues et de nouveaux utilisateurs ne peuvent pas s\'inscrire.';
 $string['unenrol'] = 'Désinscrire l\'utilisateur';
 $string['unenrolselfconfirm'] = 'Voulez-vous vraiment vous désinscrire du cours « {$a} »?';
 $string['unenroluser'] = 'Voulez.vous vraiment désinscrire « {$a->user} » du cours « {$a->course} »?';

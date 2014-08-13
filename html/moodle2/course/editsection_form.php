@@ -21,6 +21,8 @@ class editsection_form extends moodleform {
         $mform  = $this->_form;
         $course = $this->_customdata['course'];
 
+        $mform->addElement('header', 'generalhdr', get_string('general'));
+
         $elementgroup = array();
         $elementgroup[] = $mform->createElement('text', 'name', '', array('size' => '30', 'maxlength' => '255'));
         $elementgroup[] = $mform->createElement('checkbox', 'usedefaultname', '', get_string('sectionusedefaultname'));
@@ -58,19 +60,21 @@ class editsection_form extends moodleform {
         $context = context_course::instance($course->id);
 
         if (!empty($CFG->enableavailability)) {
-            $mform->addElement('header', '', get_string('availabilityconditions', 'condition'));
+            $mform->addElement('header', 'availabilityconditions', get_string('availabilityconditions', 'condition'));
+            $mform->setExpanded('availabilityconditions', false);
             // String used by conditions more than once
             $strcondnone = get_string('none', 'condition');
             // Grouping conditions - only if grouping is enabled at site level
             if (!empty($CFG->enablegroupmembersonly)) {
                 $options = array();
-                $options[0] = get_string('none');
                 if ($groupings = $DB->get_records('groupings', array('courseid' => $course->id))) {
                     foreach ($groupings as $grouping) {
                         $options[$grouping->id] = format_string(
                                 $grouping->name, true, array('context' => $context));
                     }
                 }
+                core_collator::asort($options);
+                $options = array(0 => get_string('none')) + $options;
                 $mform->addElement('select', 'groupingid', get_string('groupingsection', 'group'), $options);
                 $mform->addHelpButton('groupingid', 'groupingsection', 'group');
             }
@@ -117,8 +121,10 @@ class editsection_form extends moodleform {
             $count = count($fullcs->conditionsgrade) + 1;
 
             // Grade conditions
-            $this->repeat_elements(array($group), $count, array(), 'conditiongraderepeats',
-                    'conditiongradeadds', 2, get_string('addgrades', 'condition'), true);
+            $this->repeat_elements(array($group), $count, array(
+                'conditiongradegroup[conditiongrademin]' => array('type' => PARAM_RAW),
+                'conditiongradegroup[conditiongrademax]' => array('type' => PARAM_RAW)
+                ), 'conditiongraderepeats', 'conditiongradeadds', 2, get_string('addgrades', 'condition'), true);
             $mform->addHelpButton('conditiongradegroup[0]', 'gradecondition', 'condition');
 
             // Conditions based on user fields
@@ -131,13 +137,13 @@ class editsection_form extends moodleform {
             $grouparray[] =& $mform->createElement('select', 'conditionfield', '', $useroptions);
             $grouparray[] =& $mform->createElement('select', 'conditionfieldoperator', '', $operators);
             $grouparray[] =& $mform->createElement('text', 'conditionfieldvalue');
-            $mform->setType('conditionfieldvalue', PARAM_RAW);
             $group = $mform->createElement('group', 'conditionfieldgroup', get_string('userfield', 'condition'), $grouparray);
 
             $fieldcount = count($fullcs->conditionsfield) + 1;
 
-            $this->repeat_elements(array($group), $fieldcount, array(), 'conditionfieldrepeats', 'conditionfieldadds', 2,
-                                   get_string('adduserfields', 'condition'), true);
+            $this->repeat_elements(array($group), $fieldcount,  array(
+                'conditionfieldgroup[conditionfieldvalue]' => array('type' => PARAM_RAW)),
+                'conditionfieldrepeats', 'conditionfieldadds', 2, get_string('adduserfields', 'condition'), true);
             $mform->addHelpButton('conditionfieldgroup[0]', 'userfield', 'condition');
 
             // Conditions based on completion

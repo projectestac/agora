@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddimageortext', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddimageortext', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddimageortext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,6 +33,7 @@ $string['correctansweris'] = 'Die richtige Antwort ist: {$a}';
 $string['draggableimage'] = 'Ziehbares Bild';
 $string['draggableitem'] = 'Ziehbares Objekt';
 $string['draggableitemheader'] = 'Ziehbares Objekt {$a}';
+$string['draggableitems'] = 'Ziehbare Objekte';
 $string['draggableitemtype'] = 'Art';
 $string['draggableword'] = 'Ziehbarer Text';
 $string['dropbackground'] = 'Hintergrundbild, auf das die Markierungen gezogen werden';
@@ -59,7 +60,6 @@ $string['pluginnameadding'] = '"Drag and Drop" auf Bild hinzufügen';
 $string['pluginnameediting'] = '"Drag and Drop" auf Bild bearbeiten';
 $string['pluginname_help'] = 'Wählen Sie ein Hintergrundbild, ziehbare Bilder oder geben Sie Text ein und definieren Ablegebereiche auf einem Hintergrundbild, auf die diese Objekte gezogen werden müssen.';
 $string['pluginnamesummary'] = 'Bilder oder Texte werden auf Ablegebereiche auf ein Hintergrundbild gezogen.';
-$string['previewarea'] = 'Vorschaubereich -';
 $string['previewareaheader'] = 'Vorschau';
 $string['previewareamessage'] = 'Wählen Sie eine Datei für ein Hintergrundbild und bestimmen Sie ziehbare Bilder oder Texte. Dann wählen Sie ein Objekt für jeden Ablegebereich und ziehen das Objekt dorthin, wo Teilnehmende es ablegen sollen';
 $string['refresh'] = 'Vorschau neu laden';

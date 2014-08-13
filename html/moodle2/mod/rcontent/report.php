@@ -104,38 +104,17 @@
 		                $optionsurl = "&id=$cm->id";
 // ********** FI
 		            } else {
-
-
-
-		            	// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
-		            	// 2012.12.18 @abertranb
 		                $PAGE->navbar->add($strscorms, new moodle_url($CFG->wwwroot.'/mod/rcontent/index.php?id='.$course->id), null, navigation_node::TYPE_CUSTOM, null);
 		                $PAGE->navbar->add(format_string($rcontent->name), new moodle_url($CFG->wwwroot.'/mod/rcontent/view.php?id='.$cm->id), null, navigation_node::TYPE_CUSTOM, null);
 		                $PAGE->navbar->add($strreport, new moodle_url($CFG->wwwroot.'/mod/rcontent/report.php?id='.$cm->id), null, navigation_node::TYPE_CUSTOM, null);
 		                $PAGE->navbar->add($bookname, null, null, navigation_node::TYPE_CUSTOM, null);
 		                $heading.=" > ".$bookname;
 		                echo $OUTPUT->header();
-		              	// ************ ORIGINAL
-		            	/*  $navlinks = array();
-		                $navlinks[] = array('name' => $strreport, 'link' => "report.php?id=$cm->id", 'type' => 'title');
-		                $navlinks[] = array('name' => $bookname, 'link' => '', 'type' => 'title');
-		                $navigation = build_navigation($navlinks, $cm);
 
-		                print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname,
-		                             $navigation, '', '', true);
-		                 $heading.=" > ".$bookname;
-		                */
-		            	// ************ FI
-
-// MARSUPIAL ********** AFEGIT -> Filter by status, set select options url destination
-// 2011.08.30 @mmartinez
 		                $optionsurl = "&a=$a&user=$user&attempt=$attempt";
-// ********** FI
 		            }
 		        } else {
 
-		        	// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
-		        	// 2012.12.18 @abertranb
 		            $PAGE->navbar->add($strscorms, new moodle_url($CFG->wwwroot.'/mod/rcontent/index.php?id='.$course->id), null, navigation_node::TYPE_CUSTOM, null);
 		            $PAGE->navbar->add(format_string($rcontent->name), new moodle_url($CFG->wwwroot.'/mod/rcontent/view.php?id='.$cm->id), null, navigation_node::TYPE_CUSTOM, null);
 		            $PAGE->navbar->add($strreport, new moodle_url($CFG->wwwroot.'/mod/rcontent/report.php?id='.$cm->id), null, navigation_node::TYPE_CUSTOM, null);
@@ -151,35 +130,10 @@
 
 		        	$heading.=" > ".$bookname." > ".$unitname;
 		        	echo $OUTPUT->header();
-		        	// ************ ORIGINAL
-		        	/*
-		        	$navlinks = array();
-		            $navlinks[] = array('name' => $strreport, 'link' => "report.php?id=$cm->id", 'type' => 'title');
-		            $navlinks[] = array('name' => $bookname, 'link' => "report.php?a=$a&amp;user=$user&amp;attempt=$attempt", 'type' => 'title');
-		            if($unitname=$DB->get_record_select('rcommon_books_units',"bookid=$rcontent->bookid AND id=$b",null,'name')){
-						   $unitname=$unitname->name;
-					}else{
-						$unitname=get_string('unit','rcontent').": ".$b;
-					}
-		            $navlinks[] = array('name' => $unitname, 'link' => '', 'type' => 'title');
-		            $navigation = build_navigation($navlinks, $cm);
 
-		            print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname, $navigation,
-		                     '', '', true);
-
-		            $heading.=" > ".$bookname." > ".$unitname;
-
-		        	*/
-		        	// ************ FI
-
-// MARSUPIAL ********** AFEGIT -> Filter by status, set select options url destination
-// 2011.08.30 @mmartinez
 		            $optionsurl = "&a=$a&b=$b&user=$user&attempt=$attempt";
-// ********** FI
 		        }
 			}else{
-				// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
-				// 2012.12.18 @abertranb
 				$PAGE->navbar->add($strscorms, new moodle_url($CFG->wwwroot.'/mod/rcontent/index.php?id='.$course->id), null, navigation_node::TYPE_CUSTOM, null);
 				$PAGE->navbar->add($bookname, new moodle_url($CFG->wwwroot.'/mod/rcontent/view.php?id='.$cm->id,array( 'a'=>$a, 'user'=>$user, 'attempt'=>$attempt)), null, navigation_node::TYPE_CUSTOM, null);
 				$PAGE->navbar->add($strreport);
@@ -198,40 +152,8 @@
 				$heading.=" > ".$bookname." > ".$unitname." > ".$activityname;
 				echo $OUTPUT->header();
 
-				// ************ ORIGINAL
-				/*
-				$navlinks = array();
-		        $navlinks[] = array('name' => $strreport, 'link' => "report.php?id=$cm->id", 'type' => 'title');
-		        $navlinks[] = array('name' => $bookname, 'link' => "report.php?a=$a&amp;user=$user&amp;attempt=$attempt", 'type' => 'title');
-		        if($unitname=$DB->get_record_select('rcommon_books_units',"bookid=$rcontent->bookid AND id=$b",null,'name')){
-					$unitname=$unitname->name;
-				}else{
-				    $unitname=get_string('unit','rcontent').": ".$b;
-				}
-		        $navlinks[] = array('name' => $unitname, 'link' => "report.php?a=$a&amp;b=$b&amp;user=$user&amp;attempt=$attempt", 'type' => 'title');
-			    if($activityname=$DB->get_record_select('rcommon_books_activities',"bookid=$rcontent->bookid AND unitid=$b AND id=$c",null,'name')){
-					$activityname=$activityname->name;
-				}else{
-				    $activityname=get_string('activity','rcontent').": ".$c;
-				}
-				$navlinks[] = array('name' => $activityname, 'link' => '', 'type' => 'title');
-		        $navigation = build_navigation($navlinks, $cm);
-
-		        print_header("$course->shortname: ".format_string($rcontent->name), $course->fullname, $navigation,
-		             '', '', true);
-		             $heading.=" > ".$bookname." > ".$unitname." > ".$activityname;
-		             */
-				// ************ FI
-
-
-
-// MARSUPIAL ********** AFEGIT -> Filter by status, set select options url destination
-// 2011.08.30 @mmartinez
 		        $optionsurl = "&a=$a&b=$b&c=$c&user=$user&attempt=$attempt";
-// ********** FI
 			}
-// MARSUPIAL ********** AFEGIT -> Filter by status, add select field
-// 2011.08.30 @mmartinez
             $optionsparam       = '';//&filterby=';
             $optionsurlandparam = $optionsurl.$optionsparam;
             //$filterbyindex     .= $filterby;
@@ -245,16 +167,7 @@
             $menu['POR_CORREGIR'] = get_string('POR_CORREGIR', 'rcontent');
             $menu['CORREGIDO']    = get_string('CORREGIDO', 'rcontent');
 
-// MARSUPIAL ********** MODIFICAT -> Deprected code Moodle 2.3
-// 2012.12.12 @abertranb
-            //$PAGE->set_heading($heading?$heading:$course->fullname);
-           // if (!empty($heading))
-           // 	echo $OUTPUT->heading($heading);
             echo $OUTPUT->single_select(new moodle_url('/mod/rcontent/report.php?'.$optionsurlandparam), 'filterby', $menu, $filterby);
-// ********** ORIGINAL
-			//popup_form('', $menu, 'choosestatefilter', $filterbyindex, get_string('chooseaction', 'rcontent'), '', '', false, 'self');
-            //print_heading($heading);
-// ********** FI
 	    }
 	    echo $OUTPUT->heading($heading);
 
@@ -1832,12 +1745,6 @@
 
 			    global $USER;
 		        $teacher = $USER;
-			    // Set up things for a HTML editor if it's needed
-				if ($usehtmleditor = can_use_html_editor()) {
-				    $defaultformat = FORMAT_HTML;
-				} else {
-				    $defaultformat = FORMAT_MOODLE;
-				}
 
 				//set strings
 				$struserfullname=fullname($userdata, true);
@@ -1859,12 +1766,9 @@
 
 				echo '<table cellspacing="0" class="feedback assignmentold" >';
 				    echo '<tr><td class="picture teacher">';
-    //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-    //2012.12.18 @abertranb
 				    echo $OUTPUT->user_picture($teacher, array('courseid'=>$course->id));
-    //********** ORIGINAL
-    //print_user_picture($teacher, $course->id, $teacher->picture);
-    //********** FI
+
+
 		            echo '</td>';
 		            echo '<td class="content">';
 			        echo '<form id="submitform" action="report.php?action=saveupdate" method="post">';
@@ -1905,15 +1809,8 @@
 
 				        //print editable fields
 				        echo '<label for="txtgrade">'.get_string('score','rcontent').'</label> <input type="text" id="txtgrade" name="txtgrade" value="'.$grade->justgrade.'" size="3">';
-				        print_textarea($usehtmleditor, 14, 58, 0, 0, 'submissioncomment', $grade->fullcomments, $course->id);
-					    if ($usehtmleditor) {
-			                echo '<input type="hidden" name="format" value="'.FORMAT_HTML.'" />';
-			            } else {
-			                echo '<div class="format">';
-			                choose_from_menu(format_text_menu(), "format", 1, "");
-			                helpbutton("textformat", get_string("helpformatting"));
-			                echo '</div>';
-			            }
+				        print_textarea(true, 14, 58, 0, 0, 'submissioncomment', $grade->fullcomments, $course->id);
+			            echo '<input type="hidden" name="format" value="'.FORMAT_HTML.'" />';
 
 			            // Print Buttons in Single Vie
 				        echo '<div class="buttons">';
@@ -1927,13 +1824,9 @@
 		            ///End of teacher info row, Start of student info row
 		            echo '<tr>';
 		            echo '<td class="picture user">';
-		            //MARSUPIAL ********** MODIFICAT -> Moodle 2.x deprectated code
-		            //2012.12.18 @abertranb
+
 		            $user_tmp = $DB->get_record('user', array('id' => $user));
 		            echo $OUTPUT->user_picture($user_tmp, array('courseid'=>$course->id));
-		            //********** ORIGINAL
-		            //print_user_picture($user, $course->id, $userdata->picture);
-		            //********** FI
 
 		            echo '</td>';
 		            echo '<td class="topic">';
@@ -1943,18 +1836,11 @@
 		            echo '</td>';
 		            echo '</tr>';
 				echo '</table>';
-				// MARSUPIAL *********** ELIMINAT -> Deprecated code
-				// 2011.08.30 @mmartinez
-			    /*if ($usehtmleditor) {
-                    use_html_editor();
-                }*/
-				// ********* END
 			}else{
 				notice(get_string('nodetails','rcontent'));
 			}
 		    if (empty($noheader)) {
 		    	echo $OUTPUT->footer($course);
-	           //print_footer($course);
 	        }
 		}else if($action=='saveupdate'){
 			//save data in bd

@@ -141,12 +141,14 @@ $searchterms = explode(' ', $searchterms);
 $searchform = forum_search_form($course, $search);
 
 $PAGE->navbar->add($strsearch, new moodle_url('/mod/forum/search.php', array('id'=>$course->id)));
-$PAGE->navbar->add(s($search, true));
+$PAGE->navbar->add($strsearchresults);
 if (!$posts = forum_search_posts($searchterms, $course->id, $page*$perpage, $perpage, $totalcount)) {
     $PAGE->set_title($strsearchresults);
     $PAGE->set_heading($course->fullname);
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string("nopostscontaining", "forum", $search));
+    echo $OUTPUT->heading($strforums, 2);
+    echo $OUTPUT->heading($strsearchresults, 3);
+    echo $OUTPUT->heading(get_string("noposts", "forum"), 4);
 
     if (!$individualparams) {
         $words = $search;
@@ -189,7 +191,8 @@ echo '<a href="search.php?id='.$course->id.
                          '">'.get_string('advancedsearch','forum').'...</a>';
 echo '</div>';
 
-echo $OUTPUT->heading("$strsearchresults: $totalcount");
+echo $OUTPUT->heading($strforums, 2);
+echo $OUTPUT->heading("$strsearchresults: $totalcount", 3);
 
 $url = new moodle_url('search.php', array('search' => $search, 'id' => $course->id, 'perpage' => $perpage));
 echo $OUTPUT->paging_bar($totalcount, $page, $perpage, $url);
@@ -293,10 +296,12 @@ echo $OUTPUT->paging_bar($totalcount, $page, $perpage, $url);
 echo $OUTPUT->footer();
 
 
-
-/**
- * @todo Document this function
- */
+ /**
+  * Print a full-sized search form for the specified course.
+  *
+  * @param stdClass $course The Course that will be searched.
+  * @return void The function prints the form.
+  */
 function forum_print_big_search_form($course) {
     global $CFG, $DB, $words, $subject, $phrase, $user, $userid, $fullwords, $notwords, $datefrom, $dateto, $PAGE, $OUTPUT;
 
@@ -418,12 +423,13 @@ function forum_print_big_search_form($course) {
 
 /**
  * This function takes each word out of the search string, makes sure they are at least
- * two characters long and returns an array containing every good word.
+ * two characters long and returns an string of the space-separated search
+ * terms.
  *
- * @param string $words String containing space-separated strings to search for
- * @param string $prefix String to prepend to the each token taken out of $words
- * @returns array
- * @todo Take the hardcoded limit out of this function and put it into a user-specified parameter
+ * @param string $words String containing space-separated strings to search for.
+ * @param string $prefix String to prepend to the each token taken out of $words.
+ * @return string The filtered search terms, separated by spaces.
+ * @todo Take the hardcoded limit out of this function and put it into a user-specified parameter.
  */
 function forum_clean_search_terms($words, $prefix='') {
     $searchterms = explode(' ', $words);
@@ -437,15 +443,16 @@ function forum_clean_search_terms($words, $prefix='') {
     return trim(implode(' ', $searchterms));
 }
 
-/**
- * @todo Document this function
- */
+ /**
+  * Retrieve a list of the forums that this user can view.
+  *
+  * @param stdClass $course The Course to use.
+  * @return array A set of formatted forum names stored against the forum id.
+  */
 function forum_menu_list($course)  {
-
     $menu = array();
 
     $modinfo = get_fast_modinfo($course);
-
     if (empty($modinfo->instances['forum'])) {
         return $menu;
     }
@@ -463,4 +470,3 @@ function forum_menu_list($course)  {
 
     return $menu;
 }
-

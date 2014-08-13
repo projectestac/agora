@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,4 +32,3 @@ $string['enableplagiarism'] = 'Activa connectors de plagi';
 $string['manageplagiarism'] = 'Gestionar plugins de plagi';
 $string['nopluginsinstalled'] = 'No hi ha cap connector de plagi instal·lat.';
 $string['plagiarism'] = 'Prevenció de plagi';
-$string['plagiarismplugindeleteconfirm'] = 'Esteu a punt de suprimir completament el connector de plagi \'{$a}\'. Això esborrarà completament de la base de dades qualsevol cosa relacionada amb aquest connector. SEGUR que voleu continuar?';

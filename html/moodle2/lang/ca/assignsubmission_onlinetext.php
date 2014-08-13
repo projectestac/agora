@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_onlinetext', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_onlinetext', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_onlinetext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['default'] = 'Habilitat per defecte';
 $string['default_help'] = 'Si està actiu, aquest mètode de tramesa s\'habilitarà per defecte per a totes les tasques noves.';
 $string['enabled'] = 'Text en línia';
 $string['enabled_help'] = 'Si està habilitat, l\'estudiantat podrà teclejar text enriquit directament en un camp d\'edició per a la seva tramesa.';
+$string['event_assessable_uploaded'] = 'S\'ha pujat un text en línia.';
 $string['nosubmission'] = 'No s\'ha tramès res per a aquesta tasca';
 $string['numwords'] = '({$a} paraules)';
 $string['numwordsforlog'] = 'Recompte de paraules per a la tramesa: {$a} paraules';

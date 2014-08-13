@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_trainingsessions', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_trainingsessions', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   report_trainingsessions
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['activitytime'] = 'Time in activities:';
 $string['activitytime_help'] = '<p>This time calculation considers all use time spent in course activities, letting course
-	layout times out of calculation. In certain cases (when using the (reworked) Checklist with
-	standard time allocation (http://github.com/vfremaux/moodle-mod_checklist.git), additional
+	layout times out of calculation. In certain cases (when using the Learning Time Check (non standard) with
+	standard time allocation (http://github.com/vfremaux/moodle-mod_learningtimecheck.git), additional
 	standard time are used rather than real extracted times from log.</p>';
 $string['advancement'] = 'Advancement';
 $string['allcourses'] = 'All courses';
@@ -36,10 +36,6 @@ $string['allgroups'] = 'All groups';
 $string['ashtml'] = 'HTML Format';
 $string['asxls'] = 'Download as Excel';
 $string['checklistadvice'] = 'Special side completion effects';
-$string['checklistadvice_help'] = '<p>When using a checklist module that enables teachers to validate activities without
-any student interaction in the course, some apparent information discrepancy may appear.</p>
-<p>This is a normal situation that reports consistant information regarding the effective
-	use of the platform</p>';
 $string['chooseagroup'] = 'Choose a group';
 $string['chooseaninstitution'] = 'Choose an institution';
 $string['connections'] = 'Connections';
@@ -47,19 +43,23 @@ $string['course'] = 'Course';
 $string['courseglobals'] = 'Course global areas';
 $string['coursename'] = 'Group name';
 $string['courseraw'] = 'Course Raw';
+$string['coursesessions'] = 'Working sessions in course (real guessed times)';
 $string['csvoutputtoiso'] = 'Iso CSV Output';
 $string['csvoutputtoiso_desc'] = 'If enabled, the course raw report will be generated in ISO-8859-1 encoding for old CSV compliant applications.';
 $string['done'] = 'Visited:';
 $string['duration'] = 'Duration';
 $string['elapsed'] = 'Total time';
+$string['elapsedadvice'] = 'Elapsed time can be different from sesion time range due to extra credit times on sessions breaks. Refer to the Use Stats block configuration.';
 $string['enddate'] = 'End date';
 $string['equlearningtime'] = 'Equivalent training time:';
 $string['equlearningtime_help'] = '<p>Equivalent learning time summarizes all time spent in course, including standard allocation times if
-	the reworked Checklist is used (http://github.com/vfremaux/moodle-mod_checklist.git).</p>';
+	the Learning Time Check checklist module is used (http://github.com/vfremaux/moodle-mod_learningtimecheck.git).</p>';
 $string['errorbadcoursestructure'] = 'Course structure error : bad id {$a}';
 $string['errorbadviewid'] = 'non existing report view';
 $string['errorcoursestructurefirstpage'] = 'Course structure error : failed getting first page';
 $string['errorcoursetoolarge'] = 'Course is too large. Choosing a group';
+$string['errornotingroup'] = 'You have not access to all users and do not have any group membership.';
+$string['firstaccess'] = 'First access';
 $string['firstconnection'] = 'First connection';
 $string['firstenrolldate'] = 'First enroll';
 $string['firstname'] = 'Firstname:';
@@ -73,10 +73,15 @@ $string['institutions'] = 'Institutions';
 $string['instructure'] = 'Time spent inside structure';
 $string['item'] = 'Item';
 $string['lastname'] = 'Lastname';
+$string['learningtimecheckadvice_help'] = '<p>When using a Learning Time Check module that enables teachers to validate activities without
+any student interaction in the course, some apparent information discrepancy may appear.</p>
+<p>This is a normal situation that reports consistant information regarding the effective
+	use of the platform</p>';
 $string['nodata'] = 'No course data';
 $string['nopermissiontoview'] = 'You have not enough permissions in this course to view this information.';
 $string['nosessions'] = 'No measurable session data';
 $string['nostructure'] = 'No measurable course structure detected';
+$string['nothing'] = 'Nothing';
 $string['outofgroup'] = 'Out of group';
 $string['outofstructure'] = 'Time spent out of structure';
 $string['over'] = 'over';

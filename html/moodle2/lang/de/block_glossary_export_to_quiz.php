@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_export_to_quiz', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_export_to_quiz', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_export_to_quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,9 +34,7 @@ $string['lastmodified'] = 'Neueste Einträge zuerst';
 $string['limitnum'] = 'Höchstzahl an Einträgen zum Exportieren';
 $string['multichoice'] = 'Multiple Choice';
 $string['noglossaries'] = 'Keine Wörterbücher in diesem Kurs';
-$string['notenoughentries'] = 'Es sind nicht genügend Einträge (<b>{$a->numentries}</b>) im <b>Wörterbuch</b> {$a->varnotenough} für Multichoice Fragen.';
 $string['notyetconfigured'] = 'Um ein Glossar für den Export auszuwählen, klicken Sie auf das Symbol in der Konfiguration oben.';
-$string['notyetconfiguredediting'] = 'Um ein Glossar für den Export auszuwählen, klicken Sie auf das Symbol in der Konfiguration oben.';
 $string['numentries'] = '[Exportiere {$a} Einträge]';
 $string['pluginname'] = 'Wörterbuch zum Test exportieren';
 $string['questiontype'] = 'Frage Typ:';

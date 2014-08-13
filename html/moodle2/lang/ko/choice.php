@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,7 +48,7 @@ $string['choicetext'] = '설문 내용';
 $string['chooseaction'] = '활동을 선택하십시요...';
 $string['completionsubmit'] = '사용자가 선택을 할때 완료된 것으로 보이기';
 $string['displayhorizontal'] = '수평으로 배치';
-$string['displaymode'] = '표시모드';
+$string['displaymode'] = '옵션 표시모드';
 $string['displayvertical'] = '수직으로 배치';
 $string['expired'] = '죄송합니다. 이 활동은 {$a} 에 종료되어서 더 이상 사용할 수 없습니다.';
 $string['full'] = '(마감됨)';
@@ -62,6 +62,7 @@ $string['limitanswers_help'] = '<p>이 옵션은 개별적 항목을 선택할 �
 한도를 0으로 두면 어느 누구도 그 항목을 고를 수 없음을 나타냅니다.</p>
 
 <p>만약 제한을 두지 않는다면 참여자 누구라도 선택항목의 어느 것이든 고를 수 있습니다.</p>';
+$string['limitno'] = '제한 {no}';
 $string['modulename'] = '간편설문';
 $string['modulename_help'] = '간편 설문 모듈은 선생님들이 질문을 작성하고, 복수의 답안을 제시하고 응답을 얻을 수 있게끔 도와준다.';
 $string['modulenameplural'] = '간편설문';
@@ -75,6 +76,8 @@ $string['notopenyet'] = '죄송합니다만, {$a} 까지는 이용할 수 없습
 $string['numberofuser'] = '사용자';
 $string['numberofuserinpercentage'] = '백분율로 환산한 사용자 수';
 $string['option'] = '선택사항';
+$string['optionno'] = '옵션 {no}';
+$string['options'] = '옵션';
 $string['page-mod-choice-x'] = '모든 간편 설문 모듈 페이지';
 $string['pluginadministration'] = '설문 관리';
 $string['pluginname'] = '간편설문';
@@ -91,6 +94,7 @@ $string['removeresponses'] = '모든 응답 제거';
 $string['responses'] = '응답';
 $string['responsesresultgraphheader'] = '그래프 표시';
 $string['responsesto'] = '{$a} 에 대한 응답';
+$string['results'] = '결과';
 $string['savemychoice'] = '응답내용 저장';
 $string['showunanswered'] = '응답 없는 항목 보기';
 $string['skipresultgraph'] = '도표 생략';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,3 +39,4 @@ $string['pluginname_help'] = '질문 (이미지 포함할 수 있음)에 답을 
 $string['pluginnamesummary'] = '몇 개의 문장 혹은 단락으로 응답하는 것을 허용합니다. 수동으로 채점되어야만 합니다.';
 $string['responsefieldlines'] = '입력 상자 크기';
 $string['responseformat'] = '응답 형식';
+$string['responsetemplate'] = '응답 템플릿';

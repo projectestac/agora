@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'media', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['flashvideo_desc'] = 'File con estensione *.flv e *.f4v. Esegue clip vid
 $string['html5audio'] = 'Audio HTML 5';
 $string['html5audio_desc'] = 'File audio con estensione *.ogg, *.acc ed altri. Compatibile solamente con i browser più recenti, sfortunatamente non esistono formati supportati da tutti i browser esistenti. Un modo per risolvere il problema è quello di specificare dei fallback separati dal carattere # (ad esempio http://example.org/audio.acc#http://example.org/audio.acc#http://example.org/audio.mp3#). Il player QuickTime viene utilizzato come fallback per i browser più antiquati ed il fallback può essere qualsiasi tipo di audio.';
 $string['html5video'] = 'Video HTML 5';
-$string['html5video_desc'] = 'File audio con estensione *.webm, *.m4v, *.ogv, *.mp4 ed altri. Compatibile solamente con i browser più recenti, sfortunatamente non esistono formati supportati da tutti i browser esistenti. Un modo per risolvere il problema è quello di specificare dei fallback separati dal carattere # (ad esempio http://example.org/video.m4v#http://example.org/video.acc#http://example.org/video.ogv#d=640x480). Il player QuickTime viene utilizzato come fallback per i browser più antiquati.';
+$string['html5video_desc'] = 'File video con estensione *.webm, *.m4v, *.ogv, *.mp4 ed altri. Compatibile solamente con i browser più recenti, sfortunatamente non esistono formati supportati da tutti i browser esistenti. Un modo per risolvere il problema è quello di specificare dei fallback separati dal carattere # (ad esempio http://example.org/video.m4v#http://example.org/video.acc#http://example.org/video.ogv#d=640x480). Il player QuickTime viene utilizzato come fallback per i browser più antiquati.';
 $string['legacyheading'] = 'Media player legacy';
 $string['legacyheading_desc'] = 'L\'uso dei formati che seguono è sconsigliato, di norma sono utilizzati in installazioni intranet con client gestiti centralmente.';
 $string['legacyquicktime'] = 'QuickTime player';

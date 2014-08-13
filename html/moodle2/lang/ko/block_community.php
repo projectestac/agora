@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,9 +68,11 @@ $string['enrollablecourses'] = '등록 가능한 강좌';
 $string['errorcourselisting'] = '선택된 허브에서 강좌 목록을 가져오는데 오류가 발생하였습니다. 다음에 다시 시도해 보십시요. ({$a})';
 $string['errorhublisting'] = 'Moodle.org 에서 허브 목록을 가져오는데 오류가 발생하였습니다. 다음에 다시 시도해 보십시요. ({$a})';
 $string['fileinfo'] = '언어: {$a->lang} - 사용허가: {$a->license} - 업데이트 시간: {$a->timeupdated}';
+$string['hideall'] = '허브 숨기기';
 $string['hub'] = '허브';
 $string['hubnottrusted'] = '인증 안됨';
 $string['hubtrusted'] = '이 허브는 Moodle.org에 의해 인증됨';
+$string['install'] = '내려받기';
 $string['keywords'] = '핵심어';
 $string['keywords_help'] = '강좌의 명칭이나 소개등에 특정 단어를 포함하는 강좌를 검색할 수 있음 ';
 $string['langdesc'] = '언어: {$a} -';
@@ -105,6 +107,7 @@ $string['searchcommunitycourse'] = '커뮤니티 강좌 검색';
 $string['searchcourse'] = '커뮤니티 강좌 검색';
 $string['selecthub'] = '허브 선택';
 $string['selecthub_help'] = '강좌를 검색할 허브 위치 선택';
+$string['showall'] = '모든 허브 보이기';
 $string['sites'] = '사이트';
 $string['subject'] = '주제';
 $string['subject_help'] = '특정 주제에 대한 강좌로 검색 범위를 좁히고, 이 목록에서 선택하세요.';

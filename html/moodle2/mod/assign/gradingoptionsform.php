@@ -25,9 +25,7 @@
 defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
 
 
-/** Include formslib.php */
-require_once ($CFG->libdir.'/formslib.php');
-/** Include locallib.php */
+require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot . '/mod/assign/locallib.php');
 
 /**
@@ -39,16 +37,16 @@ require_once($CFG->dirroot . '/mod/assign/locallib.php');
  */
 class mod_assign_grading_options_form extends moodleform {
     /**
-     * Define this form - called from the parent constructor
+     * Define this form - called from the parent constructor.
      */
-    function definition() {
+    public function definition() {
         $mform = $this->_form;
         $instance = $this->_customdata;
         $dirtyclass = array('class'=>'ignoredirty');
 
         $mform->addElement('header', 'general', get_string('gradingoptions', 'assign'));
-        // visible elements
-        $options = array(-1=>get_string('all'),10=>'10', 20=>'20', 50=>'50', 100=>'100');
+        // Visible elements.
+        $options = array(-1=>get_string('all'), 10=>'10', 20=>'20', 50=>'50', 100=>'100');
         $mform->addElement('select', 'perpage', get_string('assignmentsperpage', 'assign'), $options, $dirtyclass);
         $options = array('' => get_string('filternone', 'assign'),
                          ASSIGN_FILTER_SUBMITTED => get_string('filtersubmitted', 'assign'),
@@ -56,15 +54,29 @@ class mod_assign_grading_options_form extends moodleform {
         if ($instance['submissionsenabled']) {
             $mform->addElement('select', 'filter', get_string('filter', 'assign'), $options, $dirtyclass);
         }
-
-        // quickgrading
+        if (!empty($instance['markingallocationopt'])) {
+            $markingfilter = get_string('markerfilter', 'assign');
+            $mform->addElement('select', 'markerfilter', $markingfilter, $instance['markingallocationopt'], $dirtyclass);
+        }
+        if (!empty($instance['markingworkflowopt'])) {
+            $workflowfilter = get_string('workflowfilter', 'assign');
+            $mform->addElement('select', 'workflowfilter', $workflowfilter, $instance['markingworkflowopt'], $dirtyclass);
+        }
+        // Quickgrading.
         if ($instance['showquickgrading']) {
             $mform->addElement('checkbox', 'quickgrading', get_string('quickgrading', 'assign'), '', $dirtyclass);
             $mform->addHelpButton('quickgrading', 'quickgrading', 'assign');
             $mform->setDefault('quickgrading', $instance['quickgrading']);
         }
 
-        // hidden params
+        // Show active/suspended user option.
+        if ($instance['showonlyactiveenrolopt']) {
+            $mform->addElement('checkbox', 'showonlyactiveenrol', get_string('showonlyactiveenrol', 'grades'), '', $dirtyclass);
+            $mform->addHelpButton('showonlyactiveenrol', 'showonlyactiveenrol', 'grades');
+            $mform->setDefault('showonlyactiveenrol', $instance['showonlyactiveenrol']);
+        }
+
+        // Hidden params.
         $mform->addElement('hidden', 'contextid', $instance['contextid']);
         $mform->setType('contextid', PARAM_INT);
         $mform->addElement('hidden', 'id', $instance['cm']);
@@ -74,7 +86,7 @@ class mod_assign_grading_options_form extends moodleform {
         $mform->addElement('hidden', 'action', 'saveoptions');
         $mform->setType('action', PARAM_ALPHA);
 
-        // buttons
+        // Buttons.
         $this->add_action_buttons(false, get_string('updatetable', 'assign'));
     }
 }

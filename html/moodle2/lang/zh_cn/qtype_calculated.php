@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = '添加数据项';
 $string['addmoreanswerblanks'] = '添加另一个答案空白';
-$string['addmoreunitblanks'] = '再加{$a}个空单位';
 $string['addsets'] = '添加集合';
 $string['answerhdr'] = '答案';
 $string['answerstoleranceparam'] = '答案容错参数';
@@ -90,9 +89,7 @@ $string['minmax'] = '取值范围';
 $string['missingformula'] = '缺少公式';
 $string['missingname'] = '缺少题名';
 $string['missingquestiontext'] = '缺少题干';
-$string['mustbenumeric'] = '必须键入一个数字';
 $string['mustenteraformulaorstar'] = '您必须输入一个公式或“*”。';
-$string['mustnotbenumeric'] = '不能是一个数字';
 $string['newcategory1'] = '使用新的共享数据集';
 $string['newcategory2'] = '此类别中的其它题目也可使用的新文件集中的一个文件';
 $string['newcategory3'] = '此类别中的其它题目也可使用的新链接集中的一个链接';
@@ -153,5 +150,4 @@ $string['wildcardvalues'] = '通配符数值';
 $string['wildcardvaluesgenerated'] = '通配符数值以生成';
 $string['youmustaddatleastoneitem'] = '你至少要在数据集中添加一条数据才能保存此题目。';
 $string['youmustaddatleastonevalue'] = '保存此题目之前，您至少要先保存一个通配符数据集';
-$string['youmustenteramultiplierhere'] = '必须键入一个乘数';
 $string['zerosignificantfiguresnotallowed'] = '正确答案不能有 0 个有效数字！';

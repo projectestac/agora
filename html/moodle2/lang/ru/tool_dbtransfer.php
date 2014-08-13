@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_dbtransfer', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_dbtransfer', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,21 +25,21 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['clidriverlist'] = 'Доступные драйверы для перемещения базы данных';
-$string['cliheading'] = 'Перемещение базы данных - убедитесь, что никто не имеет доступа к серверу во время перемщения!';
-$string['climigrationnotice'] = 'Идет процесс перемещения базы данных. Подождите, пока не завершится перемещение и администратор обновит конфигурацию сервера и удалит файл $CFG->dataroot/climaintenance.html.';
-$string['convertinglogdisplay'] = 'Отображение действий преобразования журнала';
+$string['clidriverlist'] = 'Доступные драйверы для целевой базы данных';
+$string['cliheading'] = 'Перенос базы данных - убедитесь, что никто не имеет доступа к серверу во время переноса!';
+$string['climigrationnotice'] = 'Идет процесс перемещения базы данных. Подождите, пока не завершится перенос и администратор обновит конфигурацию сервера и удалит файл $CFG->dataroot/climaintenance.html.';
+$string['convertinglogdisplay'] = 'Преобразование отображаемых названий действий в журнале';
 $string['dbexport'] = 'Экспорт базы данных';
-$string['dbtransfer'] = 'Перемещение базы данных';
+$string['dbtransfer'] = 'Перенос базы данных';
 $string['enablemaintenance'] = 'Включить режим обслуживания';
 $string['enablemaintenance_help'] = 'Эта опция включает режим технического обслуживания во время и после переноса базы данных, при этом предотвращается доступ всех пользователей до завершения переноса. Обратите внимание, что администратор должен вручную удалить файл $CFG->dataroot/climaintenance.html и после обновления настроить файл config.php для возобновления нормальной работы.';
 $string['exportdata'] = 'Экспорт данных';
-$string['notargetconectexception'] = 'К сожалению, не удается подключиться к базе данных-получателю.';
+$string['notargetconectexception'] = 'К сожалению, не удается подключиться к целевой базе данных.';
 $string['options'] = 'Параметры';
-$string['pluginname'] = 'Передача базы данных';
-$string['targetdatabase'] = 'База данных - цель';
-$string['targetdatabasenotempty'] = 'База данных - цель не должна содержать таблицы с этим префиксом!';
-$string['transferdata'] = 'Передача данных';
-$string['transferdbintro'] = 'Этот скрипт служит для переноса всего содержимого этой базы данных на другой сервер баз данных. Он часто используется для перемещения данных в базу данных другого типа.';
-$string['transferdbtoserver'] = 'Перемещение этой базы данных Moodle на другой сервер';
-$string['transferringdbto'] = 'Перемещение этой базы данных в базу данных «{$a->dbname}» типа {$a->dbtype} на сервере {$a->dbhost}';
+$string['pluginname'] = 'Перенос базы данных';
+$string['targetdatabase'] = 'Целевая база данных';
+$string['targetdatabasenotempty'] = 'Целевая база данных не должна содержать таблицы с указанным префиксом!';
+$string['transferdata'] = 'Перенос данных';
+$string['transferdbintro'] = 'Этот скрипт служит для переноса всего содержимого этой базы данных на другой сервер баз данных. Он часто используется для переноса данных в базу данных другого типа.';
+$string['transferdbtoserver'] = 'Перенос этой базы данных Moodle на другой сервер';
+$string['transferringdbto'] = 'Перенос этой базы данных типа «{$a->dbtypefrom}» в базу данных «{$a->dbname}» типа «{$a->dbtype}» на сервере «{$a->dbhost}»';

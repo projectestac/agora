@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -60,12 +60,12 @@ $string['notopenyet'] = 'Esta actividade non estará dispoñible até {$a}';
 $string['pluginname'] = 'Escolla';
 $string['privacy'] = 'Privacidade dos resultados';
 $string['publish'] = 'Publicar resultados';
-$string['publishafteranswer'] = 'Mostrar resultados aos estudantes despois de que respondan';
-$string['publishafterclose'] = 'Mostrar resultados aos estudantes só despois de que a escolla estea fechada';
-$string['publishalways'] = 'Mostrar os resultados aos estudantes sempre';
-$string['publishanonymous'] = 'Publicar resultados de maneira anónima, sen mostrar os nomes dos estudantes';
+$string['publishafteranswer'] = 'Mostrar resultados aos alumnos despois de que respondan';
+$string['publishafterclose'] = 'Mostrar resultados aos alumnos só despois de que a escolla estea fechada';
+$string['publishalways'] = 'Mostrar os resultados aos alumnos sempre';
+$string['publishanonymous'] = 'Publicar resultados de maneira anónima, sen mostrar os nomes dos alumnos';
 $string['publishnames'] = 'Publicar os resultados completos, mostrando os nomes e as súas escollas';
-$string['publishnot'] = 'Non publicar resultados aos estudantes';
+$string['publishnot'] = 'Non publicar resultados aos alumnos';
 $string['responses'] = 'Respostas';
 $string['responsesto'] = 'Respostas a {$a}';
 $string['savemychoice'] = 'Gardar a miña escolla';

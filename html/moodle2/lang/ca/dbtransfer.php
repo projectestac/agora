@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dbtransfer', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dbtransfer', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   dbtransfer
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,4 +40,5 @@ $string['importversionmismatchexception'] = 'Aquesta versió
 no concorda amb la versió exportada
 {$a->schemaver}.';
 $string['malformedxmlexception'] = 'S\'ha trobat un XML malmès, no es pot continuar.';
+$string['tablex'] = 'Taula {$a}:';
 $string['unknowntableexception'] = 'S\'ha trobat una taula desconeguda {$a} al fitxer d\'exportació';

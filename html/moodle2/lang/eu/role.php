@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Rol berria gehitzen';
-$string['addingrolebycopying'] = '{$a}-n oinarritutako rol berria gehitzen';
 $string['addrole'] = 'Beste rol bat gehitu';
 $string['advancedoverride'] = 'Baliogabetu rol aurreratua';
 $string['allow'] = 'Baimendu';
@@ -70,10 +69,13 @@ $string['backup:backuptargetimport'] = 'Inportatzeko segurtasun-kopia egin';
 $string['backup:configure'] = 'Segurtasun-kopiaren aukerak konfiguratu';
 $string['backup:downloadfile'] = 'Fitxategiak segurtasun-kopien eremutik jaitsi';
 $string['backup:userinfo'] = 'Erabiltzaile-datuen segurtasun-kopia';
+$string['badges:createbadge'] = 'Dominak sortu/bikoiztu';
+$string['badges:deletebadge'] = 'Dominak ezabatu';
+$string['badges:manageglobalsettings'] = 'Kudeatu dominen ezarpen orokorrak';
 $string['block:edit'] = 'Blokearen ezarpenak editatu';
 $string['block:view'] = 'Blokea ikusi';
-$string['blog:associatecourse'] = 'Blog-sarrerak eta ikastaroak lotu';
-$string['blog:associatemodule'] = 'Blog-sarrerak eta jarduera-moduluak lotu';
+$string['blog:associatecourse'] = 'Gaitasun hau zaharkituta dago eta ez du ezer egiten.';
+$string['blog:associatemodule'] = 'Gaitasun hau zaharkituta dago eta ez du ezer egiten.';
 $string['blog:create'] = 'Blog-sarrera berriak sortu';
 $string['blog:manageentries'] = 'Sarrerak editatu eta kudeatu';
 $string['blog:manageexternal'] = 'Kanpoko blogak editatu eta kudeatu';
@@ -148,6 +150,7 @@ $string['course:viewhiddensections'] = 'Ezkutuko atalak ikusi';
 $string['course:viewhiddenuserfields'] = 'Ezkutuko erabiltzaile-eremuak ikusi';
 $string['course:viewparticipants'] = 'Partaideak ikusi';
 $string['course:viewscales'] = 'Eskalak ikusi';
+$string['course:viewsuspendedusers'] = 'Ikusi kontua etenda duten erabiltzaileak';
 $string['course:visibility'] = 'Ikastaroak ezkutatu/erakutsi';
 $string['createrolebycopying'] = 'Sortu rol berria {$a} kopiatuta';
 $string['createthisrole'] = 'Rol hau sortu';
@@ -171,9 +174,11 @@ $string['errorbadrolename'] = 'Rol-izen ezegokia';
 $string['errorbadroleshortname'] = 'Rol-izen labur ezegokia';
 $string['errorexistsrolename'] = 'Rol-izen hori dagoeneko badago';
 $string['errorexistsroleshortname'] = 'Rol-izen hori dagoeneko badago';
+$string['eventroledeleted'] = 'Rola ezabatu da';
 $string['existingadmins'] = 'Oraingo guneko kudeatzaileak';
 $string['existingusers'] = '{$a} erabiltzaile daude';
 $string['explanation'] = 'Azalpena';
+$string['export'] = 'Esportatu';
 $string['extusers'] = 'Dagoeneko dauden erabiltzaileak';
 $string['filter:manage'] = 'Iragazki lokalen ezarpenak kudeatu';
 $string['frontpageuser'] = 'Autentifikatutako erabiltzailea hasiera-orrian';
@@ -227,6 +232,7 @@ $string['neededroles'] = 'Baimena duten rolak';
 $string['nocapabilitiesincontext'] = 'Ez duzu horretarako baimenik testuinguru honetan';
 $string['noneinthisx'] = 'Bat ere ez {$a} honetan';
 $string['noneinthisxmatching'] = 'Ez dago \'{$a->search}\' erabiltzailerik {$a->contexttype} honetan';
+$string['norole'] = 'Rolik ez';
 $string['noroleassignments'] = 'Erabiltzaile honek ez du inongo rolik esleituta gune honetan.';
 $string['noroles'] = 'Ez dago rolik';
 $string['notabletoassignroleshere'] = 'Ez duzu baimenik hemen inongo rolik esleitzeko';
@@ -301,10 +307,7 @@ $string['rating:rate'] = 'Elementuei puntuazioak gehitu ';
 $string['rating:view'] = 'Denera jasotako kalifikazioak ikusi';
 $string['rating:viewall'] = 'Erabiltzaileek emandako kalifikazio guztiak ikusi';
 $string['rating:viewany'] = 'Besteren batek denera jasotako kalifikazioak ikusi';
-$string['resetrole'] = 'Berezko baloreetara ekarri';
-$string['resetrolenolegacy'] = 'Baimenak garbitu';
-$string['resetrolesure'] = 'Ziur al zaude "{$a->name} ({$a->shortname})" rola berezko baloreetara ekarri nahi duzula?<p></p>Aukeratutako ({$a->legacytype}) heredatutako gaitasunetik hartzen dira berezko baloreak';
-$string['resetrolesurenolegacy'] = 'Ziur al zaude "{$a->name} ({$a->shortname})" rolean definitutako baimen guztiak ezabatu nahi dituzula?';
+$string['resetrole'] = 'Berrezarri';
 $string['restore:configure'] = 'Berreskuratzeko aukerak konfiguratu';
 $string['restore:createuser'] = 'Erabiltzaileak sortu berreskuraketan';
 $string['restore:restoreactivity'] = 'Jarduerak berreskuratu';
@@ -323,7 +326,9 @@ $string['role:manage'] = 'Rolak sortu eta kudeatu';
 $string['role:override'] = 'Besteentzako baimenak baliogabetu';
 $string['roleprohibitheader'] = 'Rola debekatu';
 $string['roleprohibitinfo'] = 'Aukera ezazu rol bat debekatutako rol-zerrendara gehitzeko {$a->context} testuinguruan,  {$a->cap} gaitasunean:';
+$string['roleresetdefaults'] = 'Berezkoak';
 $string['role:review'] = 'Besteentzako baimenak berrikusi';
+$string['rolerisks'] = 'Rolaren arrikuskuak';
 $string['roles'] = 'Rolak';
 $string['role:safeoverride'] = 'Besteentzako baimen seguruak baliogabetu';
 $string['roleselect'] = 'Aukeratu rola';
@@ -339,7 +344,7 @@ $string['selectanotheruser'] = 'Aukeratu beste erabilztaile bat';
 $string['selectauser'] = 'Aukeratu erabiltzaile bat';
 $string['selectrole'] = 'Aukeratu rol bat';
 $string['showallroles'] = 'Erakutsi rol guztiak';
-$string['showthisuserspermissions'] = 'Erabiltzaile honen baimenak erakutsi';
+$string['showthisuserspermissions'] = 'Erakutsi erabiltzaile honen baimenak';
 $string['site:accessallgroups'] = 'Talde guztietarako sarbidea';
 $string['siteadministrators'] = 'Guneko kudeatzaileak';
 $string['site:approvecourse'] = 'Ikastaroak sortzeko baimena eman';
@@ -363,6 +368,7 @@ $string['tag:create'] = 'Beste etiketa batzuk sortu';
 $string['tag:edit'] = 'Dauden etiketak editatu';
 $string['tag:editblocks'] = 'Blokeak etiketa-orrietan editatu';
 $string['tag:manage'] = 'Etiketa guztiak kudeatu';
+$string['thisnewrole'] = 'Rol berri hau';
 $string['thisusersroles'] = 'Erabiltzaile honen rol-esleipenak';
 $string['unassignarole'] = 'Kendu {$a} rola';
 $string['unassignconfirm'] = 'Benetan kendu nahi al diozu "{$a->role}" rola "{$a->user}" erabiltzaileari?';
@@ -380,7 +386,7 @@ $string['user:manageownblocks'] = 'Norberaren erabiltzaile-profil publikoan blok
 $string['user:manageownfiles'] = 'Fitxategi pribatuan eremuan fitxategiak kudeatu';
 $string['user:managesyspages'] = 'Erabiltzaile-profil publikoetarako lehenetsitako orri-diseinua konfiguratu';
 $string['user:readuserblogs'] = 'Erabiltzaileen blog guztiak ikusi';
-$string['user:readuserposts'] = 'Erabiltzaileen mezu guztiak ikusi';
+$string['user:readuserposts'] = 'Erabiltzaileen foro-mezu guztiak ikusi';
 $string['usersfrom'] = 'Erabiltzaileak hemendik: {$a}';
 $string['usersinthisx'] = 'Erabiltzaileak {$a} honetan';
 $string['userswithrole'] = 'Rol hau duten erabiltzaile guztiak';

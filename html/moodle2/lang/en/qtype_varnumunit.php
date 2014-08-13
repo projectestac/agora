@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_varnumunit', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_varnumunit', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_varnumunit
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addmoreunits'] = 'Blanks for {no} more units';
 $string['anyotherunit'] = 'Any other unit';
 $string['correctansweris'] = 'The correct numerical part of the question is: {$a}.';
 $string['notenoughunits'] = 'You have not entered any expressions to match units. You must enter at least one expression to match
@@ -56,8 +57,10 @@ $string['unitduplicate'] = 'Same pmatch expression used more than once.';
 $string['unitmustbegiven'] = 'You have supplied a grade and / or feedback here but not specified an expression to match units with.
 Enter an expression or reset the grade to zero and remove feedback.';
 $string['unitno'] = 'Unit {$a}';
+$string['units'] = 'Units';
 $string['unitsfractionsnomax'] = 'One of the units should have a score of 100% so it is possible to get full marks for the unit
 part of the question.';
+$string['units_help'] = 'Use Pattern match syntax to describe matching units.';
 $string['unitweighting'] = 'Relative weightings of answer parts';
 $string['value'] = 'Value';
 $string['value_help'] = 'Enter values for \'Predefined variables\' here or you will see calculated values displayed here for a

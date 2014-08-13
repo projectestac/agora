@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+    die('Direct access to this script is forbidden.');    //  It must be included from a Moodle page.
 }
 
 require_once($CFG->dirroot.'/course/moodleform_mod.php');
@@ -23,16 +23,16 @@ require_once($CFG->dirroot.'/mod/scorm/locallib.php');
 
 class mod_scorm_mod_form extends moodleform_mod {
 
-    function definition() {
+    public function definition() {
         global $CFG, $COURSE, $OUTPUT;
-        $cfg_scorm = get_config('scorm');
+        $cfgscorm = get_config('scorm');
 
         $mform = $this->_form;
 
         if (!$CFG->slasharguments) {
             $mform->addElement('static', '', '', $OUTPUT->notification(get_string('slashargs', 'scorm'), 'notifyproblem'));
         }
-        //-------------------------------------------------------------------------------
+
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
         // Name.
@@ -48,28 +48,29 @@ class mod_scorm_mod_form extends moodleform_mod {
         // Summary.
         $this->add_intro_editor(true);
 
+        // Package.
+        $mform->addElement('header', 'packagehdr', get_string('packagehdr', 'scorm'));
+        $mform->setExpanded('packagehdr', true);
+
         // Scorm types.
         $scormtypes = array(SCORM_TYPE_LOCAL => get_string('typelocal', 'scorm'));
 
-        if ($cfg_scorm->allowtypeexternal) {
+        if ($cfgscorm->allowtypeexternal) {
             $scormtypes[SCORM_TYPE_EXTERNAL] = get_string('typeexternal', 'scorm');
         }
 
-        if ($cfg_scorm->allowtypelocalsync) {
+        if ($cfgscorm->allowtypelocalsync) {
             $scormtypes[SCORM_TYPE_LOCALSYNC] = get_string('typelocalsync', 'scorm');
         }
 
-        if (!empty($CFG->repositoryactivate) and $cfg_scorm->allowtypeimsrepository) {
-            $scormtypes[SCORM_TYPE_IMSREPOSITORY] = get_string('typeimsrepository', 'scorm');
-        }
-
-        if ($cfg_scorm->allowtypeexternalaicc) {
+        if ($cfgscorm->allowtypeexternalaicc) {
             $scormtypes[SCORM_TYPE_AICCURL] = get_string('typeaiccurl', 'scorm');
         }
 
         // Reference.
         if (count($scormtypes) > 1) {
             $mform->addElement('select', 'scormtype', get_string('scormtype', 'scorm'), $scormtypes);
+            $mform->setType('scormtype', PARAM_ALPHA);
             $mform->addHelpButton('scormtype', 'scormtype', 'scorm');
             $mform->addElement('text', 'packageurl', get_string('packageurl', 'scorm'), array('size'=>60));
             $mform->setType('packageurl', PARAM_RAW);
@@ -77,41 +78,46 @@ class mod_scorm_mod_form extends moodleform_mod {
             $mform->disabledIf('packageurl', 'scormtype', 'eq', SCORM_TYPE_LOCAL);
         } else {
             $mform->addElement('hidden', 'scormtype', SCORM_TYPE_LOCAL);
+            $mform->setType('scormtype', PARAM_ALPHA);
         }
 
+        // Update packages timing.
+        $mform->addElement('select', 'updatefreq', get_string('updatefreq', 'scorm'), scorm_get_updatefreq_array());
+        $mform->setType('updatefreq', PARAM_INT);
+        $mform->setDefault('updatefreq', $cfgscorm->updatefreq);
+        $mform->addHelpButton('updatefreq', 'updatefreq', 'scorm');
+
         // New local package upload.
-        $maxbytes = get_max_upload_file_size($CFG->maxbytes, $COURSE->maxbytes);
-        $mform->setMaxFileSize($maxbytes);
-        $mform->addElement('filepicker', 'packagefile', get_string('package', 'scorm'));
+        $filemanageroptions = array();
+        $filemanageroptions['accepted_types'] = array('.zip', '.xml');
+        $filemanageroptions['maxbytes'] = 0;
+        $filemanageroptions['maxfiles'] = 1;
+        $filemanageroptions['subdirs'] = 0;
+
+        $mform->addElement('filemanager', 'packagefile', get_string('package', 'scorm'), null, $filemanageroptions);
         $mform->addHelpButton('packagefile', 'package', 'scorm');
         $mform->disabledIf('packagefile', 'scormtype', 'noteq', SCORM_TYPE_LOCAL);
 
-        //-------------------------------------------------------------------------------
-        // Time restrictions.
-        $mform->addElement('header', 'timerestricthdr', get_string('timerestrict', 'scorm'));
-
-        $mform->addElement('date_time_selector', 'timeopen', get_string("scormopen", "scorm"), array('optional' => true));
-        $mform->addElement('date_time_selector', 'timeclose', get_string("scormclose", "scorm"), array('optional' => true));
-        //-------------------------------------------------------------------------------
         // Display Settings.
-        $mform->addElement('header', 'displaysettings', get_string('displaysettings', 'scorm'));
+        $mform->addElement('header', 'displaysettings', get_string('appearance'));
+
         // Framed / Popup Window.
         $mform->addElement('select', 'popup', get_string('display', 'scorm'), scorm_get_popup_display_array());
-        $mform->setDefault('popup', $cfg_scorm->popup);
-        $mform->setAdvanced('popup', $cfg_scorm->popup_adv);
+        $mform->setDefault('popup', $cfgscorm->popup);
+        $mform->setAdvanced('popup', $cfgscorm->popup_adv);
 
         // Width.
         $mform->addElement('text', 'width', get_string('width', 'scorm'), 'maxlength="5" size="5"');
-        $mform->setDefault('width', $cfg_scorm->framewidth);
+        $mform->setDefault('width', $cfgscorm->framewidth);
         $mform->setType('width', PARAM_INT);
-        $mform->setAdvanced('width', $cfg_scorm->framewidth_adv);
+        $mform->setAdvanced('width', $cfgscorm->framewidth_adv);
         $mform->disabledIf('width', 'popup', 'eq', 0);
 
         // Height.
         $mform->addElement('text', 'height', get_string('height', 'scorm'), 'maxlength="5" size="5"');
-        $mform->setDefault('height', $cfg_scorm->frameheight);
+        $mform->setDefault('height', $cfgscorm->frameheight);
         $mform->setType('height', PARAM_INT);
-        $mform->setAdvanced('height', $cfg_scorm->frameheight_adv);
+        $mform->setAdvanced('height', $cfgscorm->frameheight_adv);
         $mform->disabledIf('height', 'popup', 'eq', 0);
 
         // Window Options.
@@ -122,140 +128,129 @@ class mod_scorm_mod_form extends moodleform_mod {
         }
         $mform->addGroup($winoptgrp, 'winoptgrp', get_string('options', 'scorm'), '<br />', false);
         $mform->disabledIf('winoptgrp', 'popup', 'eq', 0);
-        $mform->setAdvanced('winoptgrp', $cfg_scorm->winoptgrp_adv);
+        $mform->setAdvanced('winoptgrp', $cfgscorm->winoptgrp_adv);
 
         // Skip view page.
         $skipviewoptions = scorm_get_skip_view_array();
-        if ($COURSE->format == 'scorm') { // Remove option that would cause a constant redirect.
+        if ($COURSE->format == 'singleactivity') { // Remove option that would cause a constant redirect.
             unset($skipviewoptions[SCORM_SKIPVIEW_ALWAYS]);
-            if ($cfg_scorm->skipview == SCORM_SKIPVIEW_ALWAYS) {
-                $cfg_scorm->skipview = SCORM_SKIPVIEW_FIRST;
+            if ($cfgscorm->skipview == SCORM_SKIPVIEW_ALWAYS) {
+                $cfgscorm->skipview = SCORM_SKIPVIEW_FIRST;
             }
         }
         $mform->addElement('select', 'skipview', get_string('skipview', 'scorm'), $skipviewoptions);
         $mform->addHelpButton('skipview', 'skipview', 'scorm');
-        $mform->setDefault('skipview', $cfg_scorm->skipview);
-        $mform->setAdvanced('skipview', $cfg_scorm->skipview_adv);
+        $mform->setDefault('skipview', $cfgscorm->skipview);
+        $mform->setAdvanced('skipview', $cfgscorm->skipview_adv);
 
         // Hide Browse.
         $mform->addElement('selectyesno', 'hidebrowse', get_string('hidebrowse', 'scorm'));
         $mform->addHelpButton('hidebrowse', 'hidebrowse', 'scorm');
-        $mform->setDefault('hidebrowse', $cfg_scorm->hidebrowse);
-        $mform->setAdvanced('hidebrowse', $cfg_scorm->hidebrowse_adv);
+        $mform->setDefault('hidebrowse', $cfgscorm->hidebrowse);
+        $mform->setAdvanced('hidebrowse', $cfgscorm->hidebrowse_adv);
 
         // Display course structure.
         $mform->addElement('selectyesno', 'displaycoursestructure', get_string('displaycoursestructure', 'scorm'));
         $mform->addHelpButton('displaycoursestructure', 'displaycoursestructure', 'scorm');
-        $mform->setDefault('displaycoursestructure', $cfg_scorm->displaycoursestructure);
-        $mform->setAdvanced('displaycoursestructure', $cfg_scorm->displaycoursestructure_adv);
+        $mform->setDefault('displaycoursestructure', $cfgscorm->displaycoursestructure);
+        $mform->setAdvanced('displaycoursestructure', $cfgscorm->displaycoursestructure_adv);
 
         // Toc display.
         $mform->addElement('select', 'hidetoc', get_string('hidetoc', 'scorm'), scorm_get_hidetoc_array());
         $mform->addHelpButton('hidetoc', 'hidetoc', 'scorm');
-        $mform->setDefault('hidetoc', $cfg_scorm->hidetoc);
-        $mform->setAdvanced('hidetoc', $cfg_scorm->hidetoc_adv);
+        $mform->setDefault('hidetoc', $cfgscorm->hidetoc);
+        $mform->setAdvanced('hidetoc', $cfgscorm->hidetoc_adv);
+        $mform->disabledIf('hidetoc', 'scormtype', 'eq', SCORM_TYPE_AICCURL);
 
-        // Hide Navigation panel.
-        $mform->addElement('selectyesno', 'hidenav', get_string('hidenav', 'scorm'));
-        $mform->setDefault('hidenav', $cfg_scorm->hidenav);
-        $mform->setAdvanced('hidenav', $cfg_scorm->hidenav_adv);
-        $mform->disabledIf('hidenav', 'hidetoc', 'noteq', 0);
+        // Navigation panel display.
+        $mform->addElement('select', 'nav', get_string('nav', 'scorm'), scorm_get_navigation_display_array());
+        $mform->addHelpButton('nav', 'nav', 'scorm');
+        $mform->setDefault('nav', $cfgscorm->nav);
+        $mform->setAdvanced('nav', $cfgscorm->nav_adv);
+        $mform->disabledIf('nav', 'hidetoc', 'noteq', SCORM_TOC_SIDE);
 
-        //-------------------------------------------------------------------------------
+        // Navigation panel position from left.
+        $mform->addElement('text', 'navpositionleft', get_string('fromleft', 'scorm'), 'maxlength="5" size="5"');
+        $mform->setDefault('navpositionleft', $cfgscorm->navpositionleft);
+        $mform->setType('navpositionleft', PARAM_INT);
+        $mform->setAdvanced('navpositionleft', $cfgscorm->navpositionleft_adv);
+        $mform->disabledIf('navpositionleft', 'hidetoc', 'noteq', SCORM_TOC_SIDE);
+        $mform->disabledIf('navpositionleft', 'nav', 'noteq', SCORM_NAV_FLOATING);
+
+        // Navigation panel position from top.
+        $mform->addElement('text', 'navpositiontop', get_string('fromtop', 'scorm'), 'maxlength="5" size="5"');
+        $mform->setDefault('navpositiontop', $cfgscorm->navpositiontop);
+        $mform->setType('navpositiontop', PARAM_INT);
+        $mform->setAdvanced('navpositiontop', $cfgscorm->navpositiontop_adv);
+        $mform->disabledIf('navpositiontop', 'hidetoc', 'noteq', SCORM_TOC_SIDE);
+        $mform->disabledIf('navpositiontop', 'nav', 'noteq', SCORM_NAV_FLOATING);
+
+        // Display attempt status.
+        $mform->addElement('select', 'displayattemptstatus', get_string('displayattemptstatus', 'scorm'),
+                           scorm_get_attemptstatus_array());
+        $mform->addHelpButton('displayattemptstatus', 'displayattemptstatus', 'scorm');
+        $mform->setDefault('displayattemptstatus', $cfgscorm->displayattemptstatus);
+        $mform->setAdvanced('displayattemptstatus', $cfgscorm->displayattemptstatus_adv);
+
+        // Availability.
+        $mform->addElement('header', 'availability', get_string('availability'));
+
+        $mform->addElement('date_time_selector', 'timeopen', get_string("scormopen", "scorm"), array('optional' => true));
+        $mform->addElement('date_time_selector', 'timeclose', get_string("scormclose", "scorm"), array('optional' => true));
+
         // Grade Settings.
-        $mform->addElement('header', 'gradesettings', get_string('gradesettings', 'scorm'));
+        $mform->addElement('header', 'gradesettings', get_string('grade'));
 
         // Grade Method.
         $mform->addElement('select', 'grademethod', get_string('grademethod', 'scorm'), scorm_get_grade_method_array());
         $mform->addHelpButton('grademethod', 'grademethod', 'scorm');
-        $mform->setDefault('grademethod', $cfg_scorm->grademethod);
-        $mform->setAdvanced('grademethod', $cfg_scorm->grademethod_adv);
+        $mform->setDefault('grademethod', $cfgscorm->grademethod);
 
         // Maximum Grade.
         for ($i=0; $i<=100; $i++) {
             $grades[$i] = "$i";
         }
         $mform->addElement('select', 'maxgrade', get_string('maximumgrade'), $grades);
-        $mform->setDefault('maxgrade', $cfg_scorm->maxgrade);
+        $mform->setDefault('maxgrade', $cfgscorm->maxgrade);
         $mform->disabledIf('maxgrade', 'grademethod', 'eq', GRADESCOES);
-        $mform->setAdvanced('maxgrade', $cfg_scorm->maxgrade_adv);
 
-        $mform->addElement('header', 'othersettings', get_string('othersettings', 'scorm'));
+        // Attempts management.
+        $mform->addElement('header', 'attemptsmanagementhdr', get_string('attemptsmanagement', 'scorm'));
 
         // Max Attempts.
         $mform->addElement('select', 'maxattempt', get_string('maximumattempts', 'scorm'), scorm_get_attempts_array());
         $mform->addHelpButton('maxattempt', 'maximumattempts', 'scorm');
-        $mform->setDefault('maxattempt', $cfg_scorm->maxattempt);
-        $mform->setAdvanced('maxattempt', $cfg_scorm->maxattempt_adv);
+        $mform->setDefault('maxattempt', $cfgscorm->maxattempt);
 
         // What Grade.
         $mform->addElement('select', 'whatgrade', get_string('whatgrade', 'scorm'),  scorm_get_what_grade_array());
         $mform->disabledIf('whatgrade', 'maxattempt', 'eq', 1);
         $mform->addHelpButton('whatgrade', 'whatgrade', 'scorm');
-        $mform->setDefault('whatgrade', $cfg_scorm->whatgrade);
-        $mform->setAdvanced('whatgrade', $cfg_scorm->whatgrade_adv);
-
-        // Display attempt status.
-        $mform->addElement('select', 'displayattemptstatus', get_string('displayattemptstatus', 'scorm'), scorm_get_attemptstatus_array());
-        $mform->addHelpButton('displayattemptstatus', 'displayattemptstatus', 'scorm');
-        $mform->setDefault('displayattemptstatus', $cfg_scorm->displayattemptstatus);
-        $mform->setAdvanced('displayattemptstatus', $cfg_scorm->displayattemptstatus_adv);
-
-        // Force completed.
-        $mform->addElement('selectyesno', 'forcecompleted', get_string('forcecompleted', 'scorm'));
-        $mform->addHelpButton('forcecompleted', 'forcecompleted', 'scorm');
-        $mform->setDefault('forcecompleted', $cfg_scorm->forcecompleted);
-        $mform->setAdvanced('forcecompleted', $cfg_scorm->forcecompleted_adv);
+        $mform->setDefault('whatgrade', $cfgscorm->whatgrade);
 
         // Force new attempt.
         $mform->addElement('selectyesno', 'forcenewattempt', get_string('forcenewattempt', 'scorm'));
         $mform->addHelpButton('forcenewattempt', 'forcenewattempt', 'scorm');
-        $mform->setDefault('forcenewattempt', $cfg_scorm->forcenewattempt);
-        $mform->setAdvanced('forcenewattempt', $cfg_scorm->forcenewattempt_adv);
+        $mform->setDefault('forcenewattempt', $cfgscorm->forcenewattempt);
 
         // Last attempt lock - lock the enter button after the last available attempt has been made.
         $mform->addElement('selectyesno', 'lastattemptlock', get_string('lastattemptlock', 'scorm'));
         $mform->addHelpButton('lastattemptlock', 'lastattemptlock', 'scorm');
-        $mform->setDefault('lastattemptlock', $cfg_scorm->lastattemptlock);
-        $mform->setAdvanced('lastattemptlock', $cfg_scorm->lastattemptlock_adv);
+        $mform->setDefault('lastattemptlock', $cfgscorm->lastattemptlock);
 
-        // Activation period.
-/*        $mform->addElement('static', '', '' ,'<hr />');
-        $mform->addElement('static', 'activation', get_string('activation','scorm'));
-        $datestartgrp = array();
-        $datestartgrp[] = &$mform->createElement('date_time_selector', 'startdate');
-        $datestartgrp[] = &$mform->createElement('checkbox', 'startdisabled', null, get_string('disable'));
-        $mform->addGroup($datestartgrp, 'startdategrp', get_string('from'), ' ', false);
-        $mform->setDefault('startdate', 0);
-        $mform->setDefault('startdisabled', 1);
-        $mform->disabledIf('startdategrp', 'startdisabled', 'checked');
+        // Compatibility settings.
+        $mform->addElement('header', 'compatibilitysettingshdr', get_string('compatibilitysettings', 'scorm'));
 
-        $dateendgrp = array();
-        $dateendgrp[] = &$mform->createElement('date_time_selector', 'enddate');
-        $dateendgrp[] = &$mform->createElement('checkbox', 'enddisabled', null, get_string('disable'));
-        $mform->addGroup($dateendgrp, 'dateendgrp', get_string('to'), ' ', false);
-        $mform->setDefault('enddate', 0);
-        $mform->setDefault('enddisabled', 1);
-        $mform->disabledIf('dateendgrp', 'enddisabled', 'checked');
-*/
+        // Force completed.
+        $mform->addElement('selectyesno', 'forcecompleted', get_string('forcecompleted', 'scorm'));
+        $mform->addHelpButton('forcecompleted', 'forcecompleted', 'scorm');
+        $mform->setDefault('forcecompleted', $cfgscorm->forcecompleted);
 
         // Autocontinue.
         $mform->addElement('selectyesno', 'auto', get_string('autocontinue', 'scorm'));
         $mform->addHelpButton('auto', 'autocontinue', 'scorm');
-        $mform->setDefault('auto', $cfg_scorm->auto);
-        $mform->setAdvanced('auto', $cfg_scorm->auto_adv);
+        $mform->setDefault('auto', $cfgscorm->auto);
 
-        if (count($scormtypes) > 1) {
-            // Update packages timing.
-            $mform->addElement('select', 'updatefreq', get_string('updatefreq', 'scorm'), scorm_get_updatefreq_array());
-            $mform->setDefault('updatefreq', $cfg_scorm->updatefreq);
-            $mform->setAdvanced('updatefreq', $cfg_scorm->updatefreq_adv);
-            $mform->addHelpButton('updatefreq', 'updatefreq', 'scorm');
-            $mform->disabledIf('updatefreq', 'scormtype', 'eq', SCORM_TYPE_LOCAL);
-        } else {
-            $mform->addElement('hidden', 'updatefreq', 0);
-        }
-        //-------------------------------------------------------------------------------
         // Hidden Settings.
         $mform->addElement('hidden', 'datadir', null);
         $mform->setType('datadir', PARAM_RAW);
@@ -268,128 +263,128 @@ class mod_scorm_mod_form extends moodleform_mod {
         $mform->addElement('hidden', 'redirecturl', null);
         $mform->setType('redirecturl', PARAM_RAW);
 
-        //-------------------------------------------------------------------------------
         $this->standard_coursemodule_elements();
-        //-------------------------------------------------------------------------------
+
         // Buttons.
         $this->add_action_buttons();
     }
 
-    function data_preprocessing(&$default_values) {
+    public function data_preprocessing(&$defaultvalues) {
         global $COURSE;
 
-        if (isset($default_values['popup']) && ($default_values['popup'] == 1) && isset($default_values['options'])) {
-            if (!empty($default_values['options'])) {
-                $options = explode(',', $default_values['options']);
+        if (isset($defaultvalues['popup']) && ($defaultvalues['popup'] == 1) && isset($defaultvalues['options'])) {
+            if (!empty($defaultvalues['options'])) {
+                $options = explode(',', $defaultvalues['options']);
                 foreach ($options as $option) {
                     list($element, $value) = explode('=', $option);
                     $element = trim($element);
-                    $default_values[$element] = trim($value);
+                    $defaultvalues[$element] = trim($value);
                 }
             }
         }
-        if (isset($default_values['grademethod'])) {
-            $default_values['grademethod'] = intval($default_values['grademethod']);
+        if (isset($defaultvalues['grademethod'])) {
+            $defaultvalues['grademethod'] = intval($defaultvalues['grademethod']);
         }
-        if (isset($default_values['width']) && (strpos($default_values['width'], '%') === false) && ($default_values['width'] <= 100)) {
-            $default_values['width'] .= '%';
+        if (isset($defaultvalues['width']) && (strpos($defaultvalues['width'], '%') === false)
+                                           && ($defaultvalues['width'] <= 100)) {
+            $defaultvalues['width'] .= '%';
         }
-        if (isset($default_values['width']) && (strpos($default_values['height'], '%') === false) && ($default_values['height'] <= 100)) {
-            $default_values['height'] .= '%';
+        if (isset($defaultvalues['width']) && (strpos($defaultvalues['height'], '%') === false)
+                                           && ($defaultvalues['height'] <= 100)) {
+            $defaultvalues['height'] .= '%';
         }
         $scorms = get_all_instances_in_course('scorm', $COURSE);
         $coursescorm = current($scorms);
 
         $draftitemid = file_get_submitted_draft_itemid('packagefile');
-        file_prepare_draft_area($draftitemid, $this->context->id, 'mod_scorm', 'package', 0);
-        $default_values['packagefile'] = $draftitemid;
+        file_prepare_draft_area($draftitemid, $this->context->id, 'mod_scorm', 'package', 0,
+            array('subdirs' => 0, 'maxfiles' => 1));
+        $defaultvalues['packagefile'] = $draftitemid;
 
-        if (($COURSE->format == 'scorm') && ((count($scorms) == 0) || ($default_values['instance'] == $coursescorm->id))) {
-            $default_values['redirect'] = 'yes';
-            $default_values['redirecturl'] = '../course/view.php?id='.$default_values['course'];
+        if (($COURSE->format == 'singleactivity') && ((count($scorms) == 0) || ($defaultvalues['instance'] == $coursescorm->id))) {
+            $defaultvalues['redirect'] = 'yes';
+            $defaultvalues['redirecturl'] = '../course/view.php?id='.$defaultvalues['course'];
         } else {
-            $default_values['redirect'] = 'no';
-            $default_values['redirecturl'] = '../mod/scorm/view.php?id='.$default_values['coursemodule'];
+            $defaultvalues['redirect'] = 'no';
+            $defaultvalues['redirecturl'] = '../mod/scorm/view.php?id='.$defaultvalues['coursemodule'];
         }
-        if (isset($default_values['version'])) {
-            $default_values['pkgtype'] = (substr($default_values['version'], 0, 5) == 'SCORM') ? 'scorm':'aicc';
+        if (isset($defaultvalues['version'])) {
+            $defaultvalues['pkgtype'] = (substr($defaultvalues['version'], 0, 5) == 'SCORM') ? 'scorm':'aicc';
         }
-        if (isset($default_values['instance'])) {
-            $default_values['datadir'] = $default_values['instance'];
+        if (isset($defaultvalues['instance'])) {
+            $defaultvalues['datadir'] = $defaultvalues['instance'];
         }
-        if (empty($default_values['timeopen'])) {
-            $default_values['timeopen'] = 0;
+        if (empty($defaultvalues['timeopen'])) {
+            $defaultvalues['timeopen'] = 0;
         }
-        if (empty($default_values['timeclose'])) {
-            $default_values['timeclose'] = 0;
+        if (empty($defaultvalues['timeclose'])) {
+            $defaultvalues['timeclose'] = 0;
         }
 
         // Set some completion default data.
-        if (!empty($default_values['completionstatusrequired']) && !is_array($default_values['completionstatusrequired'])) {
-            // Unpack values
+        if (!empty($defaultvalues['completionstatusrequired']) && !is_array($defaultvalues['completionstatusrequired'])) {
+            // Unpack values.
             $cvalues = array();
             foreach (scorm_status_options() as $key => $value) {
-                if (($default_values['completionstatusrequired'] & $key) == $key) {
+                if (($defaultvalues['completionstatusrequired'] & $key) == $key) {
                     $cvalues[$key] = 1;
                 }
             }
 
-            $default_values['completionstatusrequired'] = $cvalues;
+            $defaultvalues['completionstatusrequired'] = $cvalues;
         }
 
-        if (!isset($default_values['completionscorerequired']) || !strlen($default_values['completionscorerequired'])) {
-            $default_values['completionscoredisabled'] = 1;
+        if (!isset($defaultvalues['completionscorerequired']) || !strlen($defaultvalues['completionscorerequired'])) {
+            $defaultvalues['completionscoredisabled'] = 1;
         }
 
     }
 
-    function validation($data, $files) {
-        global $CFG;
+    public function validation($data, $files) {
+        global $CFG, $USER;
         $errors = parent::validation($data, $files);
 
         $type = $data['scormtype'];
 
         if ($type === SCORM_TYPE_LOCAL) {
-            if (!empty($data['update'])) {
-                // OK, not required.
-
-            } else if (empty($data['packagefile'])) {
+            if (empty($data['packagefile'])) {
                 $errors['packagefile'] = get_string('required');
 
             } else {
-                $files = $this->get_draft_files('packagefile');
+                $draftitemid = file_get_submitted_draft_itemid('packagefile');
+
+                file_prepare_draft_area($draftitemid, $this->context->id, 'mod_scorm', 'packagefilecheck', null,
+                    array('subdirs' => 0, 'maxfiles' => 1));
+
+                // Get file from users draft area.
+                $usercontext = context_user::instance($USER->id);
+                $fs = get_file_storage();
+                $files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'id', false);
+
                 if (count($files)<1) {
                     $errors['packagefile'] = get_string('required');
                     return $errors;
                 }
                 $file = reset($files);
-                $filename = $CFG->tempdir.'/scormimport/scrom_'.time();
-                make_temp_directory('scormimport');
-                $file->copy_content_to($filename);
-
-                $packer = get_file_packer('application/zip');
-
-                $filelist = $packer->list_files($filename);
-                if (!is_array($filelist)) {
-                    $errors['packagefile'] = 'Incorrect file package - not an archive'; //TODO: localise
-                } else {
-                    $manifestpresent = false;
-                    $aiccfound       = false;
-                    foreach ($filelist as $info) {
-                        if ($info->pathname == 'imsmanifest.xml') {
-                            $manifestpresent = true;
-                            break;
-                        }
-                        if (preg_match('/\.cst$/', $info->pathname)) {
-                            $aiccfound = true;
-                            break;
-                        }
-                    }
-                    if (!$manifestpresent and !$aiccfound) {
-                        $errors['packagefile'] = 'Incorrect file package - missing imsmanifest.xml or AICC structure'; //TODO: localise
-                    }
+                if (!$file->is_external_file() && !empty($data['updatefreq'])) {
+                    // Make sure updatefreq is not set if using normal local file.
+                    $errors['updatefreq'] = get_string('updatefreq_error', 'mod_scorm');
                 }
-                unlink($filename);
+                if (strtolower($file->get_filename()) == 'imsmanifest.xml') {
+                    if (!$file->is_external_file()) {
+                        $errors['packagefile'] = get_string('aliasonly', 'mod_scorm');
+                    } else {
+                        $repository = repository::get_repository_by_id($file->get_repository_id(), context_system::instance());
+                        if (!$repository->supports_relative_file()) {
+                            $errors['packagefile'] = get_string('repositorynotsupported', 'mod_scorm');
+                        }
+                    }
+                } else if (strtolower(substr($file->get_filename(), -3)) == 'xml') {
+                    $errors['packagefile'] = get_string('invalidmanifestname', 'mod_scorm');
+                } else {
+                    // Validate this SCORM package.
+                    $errors = array_merge($errors, scorm_validate_package($file));
+                }
             }
 
         } else if ($type === SCORM_TYPE_EXTERNAL) {
@@ -418,12 +413,6 @@ class mod_scorm_mod_form extends moodleform_mod {
                 }
             }
 
-        } else if ($type === SCORM_TYPE_IMSREPOSITORY) {
-            $reference = $data['packageurl'];
-            if (stripos($reference, '#') !== 0) {
-                $errors['packageurl'] = get_string('invalidurl', 'scorm');
-            }
-
         } else if ($type === SCORM_TYPE_AICCURL) {
             $reference = $data['packageurl'];
             // Syntax check.
@@ -443,35 +432,34 @@ class mod_scorm_mod_form extends moodleform_mod {
     }
 
     // Need to translate the "options" and "reference" field.
-    function set_data($default_values) {
-        $default_values = (array)$default_values;
+    public function set_data($defaultvalues) {
+        $defaultvalues = (array)$defaultvalues;
 
-        if (isset($default_values['scormtype']) and isset($default_values['reference'])) {
-            switch ($default_values['scormtype']) {
+        if (isset($defaultvalues['scormtype']) and isset($defaultvalues['reference'])) {
+            switch ($defaultvalues['scormtype']) {
                 case SCORM_TYPE_LOCALSYNC :
                 case SCORM_TYPE_EXTERNAL:
-                case SCORM_TYPE_IMSREPOSITORY:
                 case SCORM_TYPE_AICCURL:
-                    $default_values['packageurl'] = $default_values['reference'];
+                    $defaultvalues['packageurl'] = $defaultvalues['reference'];
             }
         }
-        unset($default_values['reference']);
+        unset($defaultvalues['reference']);
 
-        if (!empty($default_values['options'])) {
-            $options = explode(',', $default_values['options']);
+        if (!empty($defaultvalues['options'])) {
+            $options = explode(',', $defaultvalues['options']);
             foreach ($options as $option) {
                 $opt = explode('=', $option);
                 if (isset($opt[1])) {
-                    $default_values[$opt[0]] = $opt[1];
+                    $defaultvalues[$opt[0]] = $opt[1];
                 }
             }
         }
 
-        $this->data_preprocessing($default_values);
-        parent::set_data($default_values);
+        $this->data_preprocessing($defaultvalues);
+        parent::set_data($defaultvalues);
     }
 
-    function add_completion_rules() {
+    public function add_completion_rules() {
         $mform =& $this->_form;
         $items = array();
 

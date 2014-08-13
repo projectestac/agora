@@ -51,7 +51,16 @@ require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/page:view', $context);
 
-add_to_log($course->id, 'page', 'view', 'view.php?id='.$cm->id, $page->id, $cm->id);
+// Trigger module viewed event.
+$event = \mod_page\event\course_module_viewed::create(array(
+   'objectid' => $page->id,
+   'context' => $context,
+   'other' => array('content' => 'pageresourceview')
+));
+$event->add_record_snapshot('course_modules', $cm);
+$event->add_record_snapshot('course', $course);
+$event->add_record_snapshot('page', $page);
+$event->trigger();
 
 // Update 'viewed' state if required by completion system
 require_once($CFG->libdir . '/completionlib.php');
@@ -65,23 +74,14 @@ $options = empty($page->displayoptions) ? array() : unserialize($page->displayop
 if ($inpopup and $page->display == RESOURCELIB_DISPLAY_POPUP) {
     $PAGE->set_pagelayout('popup');
     $PAGE->set_title($course->shortname.': '.$page->name);
-    if (!empty($options['printheading'])) {
-        $PAGE->set_heading($page->name);
-    } else {
-        $PAGE->set_heading('');
-    }
-    echo $OUTPUT->header();
-
+    $PAGE->set_heading($course->fullname);
 } else {
     $PAGE->set_title($course->shortname.': '.$page->name);
     $PAGE->set_heading($course->fullname);
     $PAGE->set_activity_record($page);
-    echo $OUTPUT->header();
-
-    if (!empty($options['printheading'])) {
-        echo $OUTPUT->heading(format_string($page->name), 2, 'main', 'pageheading');
-    }
 }
+echo $OUTPUT->header();
+echo $OUTPUT->heading(format_string($page->name), 2);
 
 if (!empty($options['printintro'])) {
     if (trim(strip_tags($page->intro))) {

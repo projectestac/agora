@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'Scheidingsteken voor CSV';
 $string['defaultvalues'] = 'Standaardwaarden';
 $string['deleteerrors'] = 'Verwijder fouten';
 $string['encoding'] = 'Codering';
+$string['errormnetadd'] = 'Kan externe gebruikers niet toevoegen';
 $string['errors'] = 'Fouten';
 $string['nochanges'] = 'Geen wijzigingen';
 $string['pluginname'] = 'Gebruiker upload';
@@ -139,6 +140,7 @@ reznort, , , 1
 </code></p>';
 $string['uploaduserspreview'] = 'Voorbeeld uploaden gebruikers';
 $string['uploadusersresult'] = 'Resultaat uploaden gebruikers';
+$string['uploaduser:uploaduserpictures'] = 'Gebruikersfoto\'s uploaden';
 $string['useraccountupdated'] = 'Gebruiker geüpdatet';
 $string['useraccountuptodate'] = 'Gebruiker up-to-date';
 $string['userdeleted'] = 'Gebruiker verwijderd';

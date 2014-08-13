@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dataformfield_textarea', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'dataformfield_textarea', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dataformfield_textarea
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['cols'] = 'Columns';
 $string['pluginname'] = 'Text area';
 $string['rows'] = 'Rows';
-$string['wordcountmax'] = 'Maximum words';
-$string['wordcountmin'] = 'Minimum words';
-$string['wordcountshow'] = 'Show wordcount bar';
+$string['trusttext'] = 'Trust text';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_apply', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_apply', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_apply
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,16 +44,13 @@ $string['confirmmailcontent_desc'] = 'Please use special marks designated email 
 $string['confirmmailsubject'] = 'Confirm mail subject';
 $string['confirmusers'] = 'Enrol Confirm';
 $string['coursename'] = 'Course';
-$string['description'] = '';
 $string['editdescription'] = 'Textarea description';
 $string['enrolname'] = 'Course enrol confirmation';
 $string['enrolusers'] = 'Enrol users';
-$string['mailaddress'] = 'Send mail address';
-$string['mailpassword'] = 'Send mail password';
 $string['mailtoteacher_suject'] = 'New Enrollment request!';
-$string['mailusername'] = 'Send mail username';
 $string['notification'] = '<b>Enrollment Application successfully sent</b>. <br/><br/>You will be informed by email as soon as your enrollment has been confirmed. If you want to enroll to other courses, please click "course catalogue" in the top menu.';
 $string['pluginname'] = 'Course enrol confirmation';
+$string['pluginname_desc'] = 'With this plugin users can apply to a course and a teacher have to comfirm before the user gets enroled.';
 $string['sendmailtoteacher'] = 'Send email notification to teachers';
-$string['setting_edit'] = 'Edit';
 $string['status'] = 'Allow Course enrol confirmation';
+$string['status_desc'] = 'Allow course access of internally enrolled users.';

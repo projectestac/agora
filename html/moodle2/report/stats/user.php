@@ -49,11 +49,9 @@ if (!report_stats_can_access_user_report($user, $course, true)) {
     error('Can not access user statistics report');
 }
 
-add_to_log($course->id, 'course', 'report stats', "report/stats/user.php?id=$user->id&course=$course->id", $course->id);
-
 $stractivityreport = get_string('activityreport');
 
-$PAGE->set_pagelayout('admin');
+$PAGE->set_pagelayout('report');
 $PAGE->set_url('/report/stats/user.php', array('id'=>$user->id, 'course'=>$course->id));
 $PAGE->navigation->extend_for_user($user);
 $PAGE->navigation->set_userid_for_parent_checks($user->id); // see MDL-25805 for reasons and for full commit reference for reversal when fixed.
@@ -61,6 +59,13 @@ $PAGE->set_title("$course->shortname: $stractivityreport");
 $PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
 
+// Trigger a content view event.
+$event = \report_stats\event\content_viewed::create(array('courseid' => $course->id,
+                                                          'other'    => array('content' => 'user stats')));
+$event->set_page_detail();
+$event->set_legacy_logdata(array($course->id, 'course', 'report stats',
+        "report/stats/user.php?id=$user->id&course=$course->id", $course->id));
+$event->trigger();
 
 if (empty($CFG->enablestats)) {
     print_error('statsdisable', 'error');
@@ -113,9 +118,7 @@ if (empty($stats)) {
     print_error('nostatstodisplay', '', $CFG->wwwroot.'/course/user.php?id='.$course->id.'&user='.$user->id.'&mode=outline');
 }
 
-if (!empty($CFG->gdversion)) {
-    echo '<center><img src="'.$CFG->wwwroot.'/report/stats/graph.php?mode='.STATS_MODE_DETAILED.'&course='.$course->id.'&time='.$time.'&report='.STATS_REPORT_USER_VIEW.'&userid='.$user->id.'" alt="'.get_string('statisticsgraph').'" /></center>';
-}
+echo '<center><img src="'.$CFG->wwwroot.'/report/stats/graph.php?mode='.STATS_MODE_DETAILED.'&course='.$course->id.'&time='.$time.'&report='.STATS_REPORT_USER_VIEW.'&userid='.$user->id.'" alt="'.get_string('statisticsgraph').'" /></center>';
 
 // What the heck is this about?   -- MD
 $stats = stats_fix_zeros($stats,$param->timeafter,$param->table,(!empty($param->line2)),(!empty($param->line3)));

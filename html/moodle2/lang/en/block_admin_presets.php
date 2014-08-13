@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_admin_presets', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_admin_presets', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_admin_presets
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,12 +31,12 @@ $string['actiondelete'] = 'Delete preset';
 $string['actionexport'] = 'Export settings';
 $string['actionimport'] = 'Import settings';
 $string['actionload'] = 'Load settings';
-$string['actionrollback'] = 'Rollback';
+$string['actionrollback'] = 'Revert applied changes';
 $string['actualvalue'] = 'Actual value';
 $string['admin_presets:addinstance'] = 'Add a new admin presets block';
 $string['adminsettings'] = 'Admin settings';
 $string['author'] = 'Author';
-$string['autohidesensiblesettings'] = 'Auto exclude sensible settings';
+$string['autohidesensiblesettings'] = 'Auto exclude sensitive settings';
 $string['baseshow'] = 'list presets';
 $string['created'] = 'Created';
 $string['deleteexecute'] = 'execution';
@@ -82,14 +82,14 @@ $string['presetsettings'] = 'Preset settings';
 $string['preview'] = 'preview';
 $string['previewpreset'] = 'Preview preset';
 $string['renamepreset'] = 'Rename preset';
-$string['rollback'] = 'rollback';
+$string['rollback'] = 'revert';
 $string['rollbackexecute'] = 'return to previous state';
 $string['rollbackfailures'] = 'The following settings can not be restored, the actual values differs from the values applied by the preset';
 $string['rollbackresults'] = 'Settings successfully restored';
 $string['rollbackshow'] = 'preset applications list';
 $string['selectedvalues'] = 'setting selected values';
 $string['selectfile'] = 'Select file';
-$string['sensiblesettings'] = 'Sensible setting to skip if "Auto exclude sensible settings" is checked';
+$string['sensiblesettings'] = 'Sensitive setting to skip if "Auto exclude sensitive settings" is checked';
 $string['sensiblesettingstext'] = 'Add elements separating by \',\' and with format SETTINGNAME@@PLUGINNAME';
 $string['settingname'] = 'Setting name';
 $string['settingsapplied'] = 'Settings applied';

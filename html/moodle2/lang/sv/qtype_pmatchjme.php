@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_pmatchjme', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_pmatchjme', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_pmatchjme
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

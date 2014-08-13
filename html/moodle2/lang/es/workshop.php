@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Control de acceso';
 $string['aggregategrades'] = 'Recalcular las calificaciones';
 $string['aggregation'] = 'Agregación de calificaciones';
 $string['allocate'] = 'Asignar envíos';
-$string['allocatedetails'] = 'esperado: {$a->expected}<br />presentado: {$a->submitted}<br />to asignado: {$a->allocate}';
+$string['allocatedetails'] = 'esperado: {$a->expected}<br />presentado: {$a->submitted}<br />para asignar: {$a->allocate}';
 $string['allocation'] = 'Asignación de envíos';
 $string['allocationconfigured'] = 'Asignación configurada';
 $string['allocationdone'] = 'Asignación hecha';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Ya calificada';
 $string['areaconclusion'] = 'Texto de conclusión';
 $string['areainstructauthors'] = 'Instrucciones para el envío';
 $string['areainstructreviewers'] = 'Instrucciones para la evaluación';
+$string['areaoverallfeedbackattachment'] = 'Adjuntos de la realimentación global';
+$string['areaoverallfeedbackcontent'] = 'Textos de la realimentación global';
 $string['areasubmissionattachment'] = 'Adjuntos al envío';
 $string['areasubmissioncontent'] = 'Textos del envío';
 $string['assess'] = 'Evaluar';
@@ -107,6 +108,7 @@ $string['evaluation'] = 'Evaluación de calificaciones';
 $string['evaluationmethod'] = 'Método de evaluación de calificaciones';
 $string['evaluationmethod_help'] = 'El método de evaluación de calificaciones determina cómo se calculan las calificaciones en las evaluaciones. Usted puede permitir el re-cálculo posterior de calificaciones según diferentes configuraciones, a menos que ya estuviera satisfecho con el resultado.';
 $string['evaluationsettings'] = 'Ajustes de la evaluación de las calificaciones';
+$string['event_assessable_uploaded'] = 'Se ha realizado una entrega.';
 $string['example'] = 'Envío de ejemplo';
 $string['exampleadd'] = 'Agregar envío de ejemplo';
 $string['exampleassess'] = 'Evaluar envío de ejemplo';
@@ -126,8 +128,10 @@ $string['examplesmode'] = 'Modo de evaluación de ejemplos';
 $string['examplesubmissions'] = 'Envíos de ejemplo';
 $string['examplesvoluntary'] = 'La evaluación de envíos de ejemplo es voluntaria';
 $string['feedbackauthor'] = 'Retroalimentación para el autor';
+$string['feedbackauthorattachment'] = 'Adjunto';
 $string['feedbackby'] = 'Retroalimentación por {$a}';
 $string['feedbackreviewer'] = 'Retroalimentación para el revisor';
+$string['feedbacksettings'] = 'Comentario';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -155,13 +159,12 @@ $string['iamsure'] = 'Sí, estoy seguro';
 $string['info'] = 'Info';
 $string['instructauthors'] = 'Instrucciones para el envío';
 $string['instructreviewers'] = 'Instrucciones para la evaluación';
-$string['introduction'] = 'Introducción (descripción) del taller';
+$string['introduction'] = 'Descripción';
 $string['latesubmissions'] = 'Envíos de última hora';
 $string['latesubmissionsallowed'] = 'Se permiten envíos de última hora';
 $string['latesubmissions_desc'] = 'Permitir envíos fuera de plazo';
 $string['latesubmissions_help'] = 'Si está activada esta opción, un autor puede enviar su trabajo fuera de plazo o durante la fase de evaluación. Sin embargo, los envíos de última hora no se pueden editar.';
-$string['maxbytes'] = 'Tamaño máximo del archivo';
-$string['miscellaneoussettings'] = 'Configuraciones misceláneas';
+$string['maxbytes'] = 'Tamaño máximo del archivo de entrega';
 $string['modulename'] = 'Taller';
 $string['modulename_help'] = 'El módulo de actividad taller permite la recopilación, revisión y evaluación por pares del trabajo de los estudiantes.
 
@@ -184,6 +187,14 @@ $string['notoverridden'] = 'No anulado';
 $string['noworkshops'] = 'No hay talleres en este curso';
 $string['noyoursubmission'] = 'Usted aún no ha enviado su trabajo';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Realimentación global';
+$string['overallfeedbackfiles'] = 'Número máximo de adjuntos';
+$string['overallfeedbackmaxbytes'] = 'Tamaño máximo del archivo de retroalimentación';
+$string['overallfeedbackmode'] = 'Modo de realimentación global';
+$string['overallfeedbackmode_0'] = 'Deshabilitado';
+$string['overallfeedbackmode_1'] = 'Habilitado y opcional';
+$string['overallfeedbackmode_2'] = 'Habilitado y obligatorio';
+$string['overallfeedbackmode_help'] = 'Si se habilita, aparecerá un campo de texto en la parte inferior del formulario de evaluación. Los evaluadores podran poner en la evaluación general de la presentación allí, o proporcionar una explicación adicional de su evaluación.';
 $string['page-mod-workshop-x'] = 'Cualquier página del módulo Taller';
 $string['participant'] = 'Participante';
 $string['participantrevierof'] = 'El participante evalúa a';
@@ -208,6 +219,7 @@ $string['recentsubmissions'] = 'Envíos del Taller:';
 $string['saveandclose'] = 'Guardar y cerrar';
 $string['saveandcontinue'] = 'Guardar y continuar editando';
 $string['saveandpreview'] = 'Guardar y previsualizar';
+$string['saveandshownext'] = 'Guardar y mostrar el siguiente';
 $string['selfassessmentdisabled'] = 'Auto-evaluación deshabilitada';
 $string['showingperpage'] = 'Mostrando {$a} items por página';
 $string['showingperpagechange'] = 'Cambiar ...';
@@ -265,7 +277,7 @@ $string['taskassessself'] = 'Autoevaluarse';
 $string['taskconclusion'] = 'Proporcionar una conclusión de la actividad';
 $string['taskinstructauthors'] = 'Proporcione instrucciones para el envío';
 $string['taskinstructreviewers'] = 'Proporcione instrucciones para la evaluación';
-$string['taskintro'] = 'Defina la introducción al taller';
+$string['taskintro'] = 'Defina la descripción del taller';
 $string['tasksubmit'] = 'Enviar su trabajo';
 $string['toolbox'] = 'Caja de herramientas del Taller';
 $string['undersetup'] = 'El taller está siendo configurado. Por favor, espere hasta que cambie a la siguiente fase';
@@ -287,7 +299,6 @@ $string['withoutsubmission'] = 'Evaluador sin envío propio';
 $string['workshop:addinstance'] = 'Añadir un nuevo taller';
 $string['workshop:allocate'] = 'Asignar envíos para evaluar';
 $string['workshop:editdimensions'] = 'Editar formulario de evaluación';
-$string['workshopfeatures'] = 'Características del taller';
 $string['workshop:ignoredeadlines'] = 'Ignorar restricciones de tiempo';
 $string['workshop:manageexamples'] = 'Administrar los envíos de ejemplo';
 $string['workshopname'] = 'Nombre del taller';
@@ -301,6 +312,7 @@ $string['workshop:viewallassessments'] = 'Mostrar todas las evaluaciones';
 $string['workshop:viewallsubmissions'] = 'Ver todos los envíos';
 $string['workshop:viewauthornames'] = 'Ver el nombre de los autores';
 $string['workshop:viewauthorpublished'] = 'Ver los autores de los envíos publicados';
+$string['workshopviewed'] = 'Taller visto';
 $string['workshop:viewpublishedsubmissions'] = 'Ver los envíos publicados';
 $string['workshop:viewreviewernames'] = 'Ver los nombres de los evaluadores';
 $string['yourassessment'] = 'Su evaluación';

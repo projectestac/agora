@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'videofile', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'videofile', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   videofile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,8 @@ $string['filearea_videos'] = 'Videos';
 $string['height'] = 'Height';
 $string['height_explain'] = 'Specifies the default height of the video player.';
 $string['height_help'] = 'Enter the height of the video here (e.g. 500 for a height of 500 pixels).';
+$string['limitdimensions'] = 'Limit size in responsive mode?';
+$string['limitdimensions_explain'] = 'Specifies if width and height should be used as maximum size during responsive mode.';
 $string['modulename'] = 'Videofile';
 $string['modulename_help'] = 'Use the videofile module for adding html5 videos with flash fallback (using video.js). This module also allows for multi-language captions.';
 $string['modulenameplural'] = 'Videofiles';

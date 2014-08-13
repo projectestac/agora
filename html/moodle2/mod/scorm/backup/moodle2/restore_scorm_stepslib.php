@@ -195,11 +195,21 @@ class restore_scorm_activity_structure_step extends restore_activity_structure_s
         $scormid = $this->get_new_parentid('scorm');
         $scorm = $DB->get_record('scorm', array('id' => $scormid));
         $scorm->launch = $this->get_mappingid('scorm_sco', $scorm->launch, '');
+
+        if (!empty($scorm->launch)) {
+            // Check that this sco has a valid launch value.
+            $scolaunch = $DB->get_field('scorm_scoes', 'launch', array('id' => $scorm->launch));
+            if (empty($scolaunch)) {
+                // This is not a valid sco - set to empty so we can find a valid launch sco.
+                $scorm->launch = '';
+            }
+        }
+
         if (empty($scorm->launch)) {
             // This scorm has an invalid launch param - we need to calculate it and get the first launchable sco.
             $sqlselect = 'scorm = ? AND '.$DB->sql_isnotempty('scorm_scoes', 'launch', false, true);
             // We use get_records here as we need to pass a limit in the query that works cross db.
-            $scoes = $DB->get_records_select('scorm_scoes', $sqlselect, array($scormid), 'id', 'id', 0, 1);
+            $scoes = $DB->get_records_select('scorm_scoes', $sqlselect, array($scormid), 'sortorder', 'id', 0, 1);
             if (!empty($scoes)) {
                 $sco = reset($scoes); // We only care about the first record - the above query only returns one.
                 $scorm->launch = $sco->id;

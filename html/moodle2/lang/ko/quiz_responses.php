@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_responses', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_responses', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_responses
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,7 @@ $string['responsesdownload'] = '응답 내려받기';
 $string['responsesfilename'] = '응답';
 $string['responsesoptions'] = '응답 옵션';
 $string['responsesreport'] = '응답 보고';
-$string['responsestitle'] = '응답';
+$string['responsestitle'] = '응답 명세';
 $string['responsex'] = '응답 {$a}';
 $string['rightanswer'] = '정답';
 $string['rightanswerx'] = '정답 {$a}';

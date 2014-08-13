@@ -88,9 +88,6 @@ class qtype_multianswer_edit_form extends question_edit_form {
         $mform->removeElement('defaultmark');
         $this->confirm = optional_param('confirm', false, PARAM_BOOL);
 
-        // Make questiontext a required field for this question type.
-        $mform->addRule('questiontext', null, 'required', null, 'client');
-
         // Display the questions from questiontext.
         if ($questiontext = optional_param_array('questiontext', false, PARAM_RAW)) {
             $this->questiondisplay = fullclone(qtype_multianswer_extract_question($questiontext));
@@ -251,6 +248,7 @@ class qtype_multianswer_edit_form extends question_edit_form {
             $mform->setDefault('confirm', 0);
         } else {
             $mform->addElement('hidden', 'confirm', 0);
+            $mform->setType('confirm', PARAM_BOOL);
         }
 
         $this->add_interactive_settings(true, true);

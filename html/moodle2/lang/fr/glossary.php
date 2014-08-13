@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -141,6 +141,7 @@ $string['destination_help'] = '<!-- Version: $Id$ -->
 <li><strong>Nouveau glossaire :</strong> créera un nouveau glossaire à partir des informations trouvées dans le fichier sélectionné et y insérera les nouveaux articles.</li>
 
 </ul>';
+$string['disapprove'] = 'Retirer l\'approbation';
 $string['displayformat'] = 'Format d\'affichage';
 $string['displayformatcontinuous'] = 'Continu sans auteur';
 $string['displayformatdefault'] = 'Par défaut identique au format d\'affichage';
@@ -163,7 +164,7 @@ $string['displayformats'] = 'Formats d\'affichage';
 $string['displayformatssetup'] = 'Réglages des formats d\'affichage';
 $string['duplicatecategory'] = 'Doublon de catégorie';
 $string['duplicateentry'] = 'Doublon';
-$string['editalways'] = 'Toujours modifiable';
+$string['editalways'] = 'Toujours autoriser la modification';
 $string['editalways_help'] = '<!-- $Id$ -->
 
 
@@ -231,7 +232,7 @@ $string['fullmatch_help'] = '<!-- $Id$ -->
 
 <p>Par exemple, un article dénommé « terre » ne créera pas de lien dans le mot « terrestre ».</p>';
 $string['glossary:addinstance'] = 'Ajouter un glossaire';
-$string['glossary:approve'] = 'Approuver des articles';
+$string['glossary:approve'] = 'Approuver ou retirer l\'approbation d\'articles';
 $string['glossary:comment'] = 'Ajouter des commentaires';
 $string['glossary:export'] = 'Exporter des articles';
 $string['glossary:exportentry'] = 'Exporter un unique article';
@@ -315,6 +316,7 @@ $string['page-mod-glossary-x'] = 'Toute page du module glossaire';
 $string['pluginadministration'] = 'Administration du glossaire';
 $string['pluginname'] = 'Glossaire';
 $string['popupformat'] = 'Format des fenêtres surgissantes';
+$string['print'] = 'Imprimer';
 $string['printerfriendly'] = 'Version pour impression';
 $string['printviewnotallowed'] = 'L\'affichage pour impression n\'est pas autorisé';
 $string['question'] = 'Question';
@@ -352,7 +354,7 @@ $string['showall_help'] = '<!-- $Id$ -->
 <p><strong>Afficher l\'alphabet</strong> permet ou non la consultation directe des articles par ordre alphabétique.</p>
 
 <p><strong>Afficher le lien « Tout »</strong> permet ou non la consultation des tous les articles.</p>';
-$string['showalphabet'] = 'Afficher l\'alphabet';
+$string['showalphabet'] = 'Afficher les liens de l\'alphabet';
 $string['showalphabet_help'] = '<!-- $Id$ -->
 
 

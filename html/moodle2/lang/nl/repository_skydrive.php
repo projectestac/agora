@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_skydrive', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_skydrive', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_skydrive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cachedef_foldername'] = 'Mapnaam voor cache';
 $string['clientid'] = 'Client ID';
-$string['configplugin'] = 'Configureer Microsoft Skydrive';
+$string['configplugin'] = 'Configureer Microsoft OneDrive';
 $string['oauthinfo'] = '<p>Om deze plugin te kunnen gebruiken, moet je je site registreren <a href="https://manage.dev.live.com/Applications/Index">bij Microsoft</a>.<p>Als deel van het registratieproces zul je volgende URL als  \'Redirect domain\' moeten ingeven:</p><p>{$a->callbackurl}</p>Als je geregistreerd bent, zul e een client ID krijgen en een geheim dat je hier kan ingeven.</p>';
-$string['pluginname'] = 'Microsoft Skydrive';
+$string['pluginname'] = 'Microsoft OneDrive';
 $string['secret'] = 'Geheim';
-$string['skydrive:view'] = 'Bekijk Skydrive';
+$string['skydrive:view'] = 'Bekijk OneDrive';

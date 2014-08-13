@@ -17,9 +17,8 @@
 /**
  * Test helpers for the multianswer question type.
  *
- * @package    qtype
- * @subpackage multianswer
- * @copyright  2011 The Open University
+ * @package    qtype_multianswer
+ * @copyright  2013 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -33,12 +32,12 @@ require_once($CFG->dirroot . '/question/type/multianswer/question.php');
 /**
  * Test helper class for the multianswer question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2013 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_multianswer_test_helper extends question_test_helper {
     public function get_test_questions() {
-        return array('twosubq', 'fourmc', 'numericalzero');
+        return array('twosubq', 'fourmc', 'numericalzero', 'dollarsigns');
     }
 
     /**
@@ -171,7 +170,7 @@ class qtype_multianswer_test_helper extends question_test_helper {
         $mc->options->partiallycorrectfeedbackformat = 1;
         $mc->options->incorrectfeedback = '';
         $mc->options->incorrectfeedbackformat = 1;
-        $mc->options->answernumbering = '';
+        $mc->options->answernumbering = 0;
         $mc->options->shownumcorrect = 0;
 
         $mc->options->answers = array(
@@ -190,8 +189,65 @@ class qtype_multianswer_test_helper extends question_test_helper {
         );
 
         $qdata->hints = array(
-            new question_hint(0, 'Hint 1', FORMAT_HTML),
-            new question_hint(0, 'Hint 2', FORMAT_HTML),
+            new question_hint_with_parts(0, 'Hint 1', FORMAT_HTML, 0, 0),
+            new question_hint_with_parts(0, 'Hint 2', FORMAT_HTML, 0, 0),
+        );
+
+        return $qdata;
+    }
+
+    /**
+     * Makes a multianswer question onetaining one blank in some text.
+     * This question has no hints.
+     *
+     * @return object the question definition data, as it might be returned from
+     * get_question_options.
+     */
+    public function get_multianswer_question_data_dollarsigns() {
+        $qdata = new stdClass();
+        test_question_maker::initialise_question_data($qdata);
+
+        $qdata->name = 'Multianswer with $s';
+        $qdata->questiontext =
+                        'Which is the right order? {#1}';
+        $qdata->generalfeedback = '';
+
+        $qdata->defaultmark = 1.0;
+        $qdata->qtype = 'multianswer';
+
+        $mc = new stdClass();
+        test_question_maker::initialise_question_data($mc);
+
+        $mc->name = 'Multianswer with $s';
+        $mc->questiontext = '{1:MULTICHOICE:=y,y,$3~$3,y,y}';
+        $mc->generalfeedback = '';
+        $mc->penalty = 0.0;
+        $mc->qtype = 'multichoice';
+
+        $mc->options = new stdClass();
+        $mc->options->layout = 0;
+        $mc->options->single = 1;
+        $mc->options->shuffleanswers = 1;
+        $mc->options->correctfeedback = '';
+        $mc->options->correctfeedbackformat = 1;
+        $mc->options->partiallycorrectfeedback = '';
+        $mc->options->partiallycorrectfeedbackformat = 1;
+        $mc->options->incorrectfeedback = '';
+        $mc->options->incorrectfeedbackformat = 1;
+        $mc->options->answernumbering = 0;
+        $mc->options->shownumcorrect = 0;
+
+        $mc->options->answers = array(
+            23 => new question_answer(23, 'y,y,$3', 0, '', FORMAT_HTML),
+            24 => new question_answer(24, '$3,y,y', 0, '', FORMAT_HTML),
+        );
+
+        $qdata->options = new stdClass();
+        $qdata->options->questions = array(
+            1 => $mc,
+        );
+
+        $qdata->hints = array(
         );
 
         return $qdata;
@@ -204,16 +260,14 @@ class qtype_multianswer_test_helper extends question_test_helper {
      */
     public function get_multianswer_question_form_data_twosubq() {
         $formdata = new stdClass();
-        test_question_maker::initialise_question_form_data($formdata);
-
         $formdata->name = 'Simple multianswer';
-        $formdata->questiontext = 'Complete this opening line of verse: "The ' .
+        $formdata->questiontext = array('text' => 'Complete this opening line of verse: "The ' .
                 '{1:SHORTANSWER:Dog#Wrong, silly!~=Owl#Well done!~*#Wrong answer} ' .
                 'and the {1:MULTICHOICE:Bow-wow#You seem to have a dog obsessions!' .
                 '~Wiggly worm#Now you are just being ridiculous!~=Pussy-cat#Well done!}' .
-                ' went to sea".';
-        $formdata->generalfeedback = 'General feedback: It\'s from "The Owl and the Pussy-cat" ' .
-                'by Lear: "The owl and the pussycat went to sea';
+                ' went to sea".', 'format' => FORMAT_HTML);
+        $formdata->generalfeedback = array('text' => 'General feedback: It\'s from "The Owl and the Pussy-cat" ' .
+                'by Lear: "The owl and the pussycat went to sea', 'format' => FORMAT_HTML);
 
         $formdata->hint = array(
             0 => array('text' => 'Hint 1', 'format' => FORMAT_HTML, 'itemid' => 0),

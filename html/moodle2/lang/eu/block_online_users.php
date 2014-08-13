@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_online_users', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_online_users', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   block_online_users
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configtimetosee'] = 'Noiztik aurrera (minututan) ulertu behar da erabiltzaile bat offline dagoela?';
 $string['online_users:addinstance'] = 'Gehitu beste on-line erabiltzaileak bloke bat';
 $string['online_users:myaddinstance'] = 'Gehitu on-line erabiltzaileak bloke berria Nire hasieran';
-$string['online_users:viewlist'] = 'On-line erabiltzaileen zerrenda ikusi';
+$string['online_users:viewlist'] = 'Ikusi on-line erabiltzaileen zerrenda';
 $string['periodnminutes'] = 'azken {$a} minutuetan';
 $string['pluginname'] = 'On-line erabiltzaileak';
 $string['timetosee'] = 'Jardunik ez badago (minututan) ezabatu';

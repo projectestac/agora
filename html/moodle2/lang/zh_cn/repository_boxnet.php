@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_boxnet', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_boxnet', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_boxnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,14 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'API 密钥';
 $string['boxnet:view'] = '查看box.net 资源库';
-$string['callbackurl'] = '重定向 URL';
-$string['callbackurltext'] = '<ol>
-<li>请再次访问<a href="http://www.box.net/developers/services">box.net开发者网站</a>。</li>
-<li>确认您设置了box.net服务的回调链接为<strong>{$a}</strong></li></ol>';
-$string['callbackwarning'] = '<ol>
-<li>从box.net为此Moodle网站申请一个<a href="http://www.box.net/developers/services">box.net API</a> 。</li>
-<li>在此输入box.net api密钥，然后点击保存，再回到此页面。您会看到Moodle为您生成的回调链接。</li>
-<li>再到box.net网站编辑您的box.net详细信息，设置此回调URL。</li></ol>';
 $string['configplugin'] = 'Box.net配置';
 $string['information'] = '从<a href="http://www.box.net/developers/services">Box.net开发者页面</a>为您的Moodle网站申请一个API密钥';
 $string['invalidpassword'] = '无效的密码';

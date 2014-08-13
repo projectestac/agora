@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,12 +34,15 @@ $string['costorkey'] = 'Mesedez, aukera ezazu ondorengo matrikulatzeko eretako b
 $string['currency'] = 'Moneta';
 $string['defaultrole'] = 'Berezko rol-esleipena';
 $string['enrolenddate'] = 'Amaiera-data';
+$string['enrolenddate_help'] = 'Gaituz gero, erabiltzaileek matrikula egin dezakete data honetara arte bakarrik.';
 $string['enrolenddaterror'] = 'Matrikulatzeko amaiera-data ezin da izan hasiera-data baino lehenagokoa';
 $string['enrolperiod'] = 'Matrikulazioaren iraupena';
 $string['enrolstartdate'] = 'Hasiera-data';
+$string['expiredaction'] = 'Matrikulazio-amaieraren ekintza';
 $string['mailadmins'] = 'Jakinarazi kudeatzaileari';
 $string['mailstudents'] = 'Jakinarazi ikasleei';
 $string['mailteachers'] = 'Jakinarazi irakasleei';
+$string['messageprovider:paypal_enrolment'] = 'PayPal matikulazioaren mezuak';
 $string['paypalaccepted'] = 'Paypal ordainketak onartu dira';
 $string['paypal:config'] = 'PayPal matrikulazio-instantziak konfiguratu';
 $string['paypal:manage'] = 'Matrikulatutako erabiltzaileak kudeatu';

@@ -118,7 +118,7 @@ $string['discardchanges'] = 'Discard changes and return';
 /* Revision Moodle 2 */
 $string['modulename_help'] = '<p><a href="http://www.geogebra.org" target="_blank">GeoGebra</a> is a free and multi-platform dynamic mathematics software for all levels of education that joins geometry, algebra, tables, graphing, statistics and calculus in one easy-to-use package.</p>
 <p>Therefore, the <a href="http://www.gencat.cat/ensenyament/" target="_blank">Departament of Education of Catalonia</a> in collaboration with the <a href="http://acgeogebra.cat/" target="_blank">Catalan Association of GeoGebra</a> (ACG) and the GeoGeobra development team have implemented this module that allows the incorporation of GeoGebra activities in Moodle. Its main features are:
-<ul>  
+<ul>
     <li>Allows embedding easily GeoGebra activities in some Moodle course.</li>
     <li>Facilitates students tracing because it stores the score, date, duration and construction of each of the attempts made ​​by the users.</li>
     <li>Students can save the state of the activities to continue them later.</li>
@@ -136,7 +136,7 @@ $string['header_score']='Avaluation Settings';
 $string['filetype'] = 'Type';
 $string['filetype_help'] = 'This setting determines how the GeoGebra activity is included in the course. There are up to 2 options:
 
-* Uploaded GeoGebra - Enables a valid ".ggb" package to be chosen by the file picker. 
+* Uploaded GeoGebra - Enables a valid ".ggb" package to be chosen by the file picker.
 * External URL - Enables a URL to be specified. Note: The URL must start with http(s) or www and contain a valid ".ggb" file.';
 $string['filetypeexternal'] = 'External URL';
 $string['filetypelocal'] = 'Uploaded file';

@@ -17,6 +17,7 @@ class com_wiris_quizzes_impl_ConfigurationImpl implements com_wiris_quizzes_api_
 		$this->properties->set(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_PORT, com_wiris_quizzes_impl_ConfigurationImpl::$DEF_HTTPPROXY_PORT);
 		$this->properties->set(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_USER, com_wiris_quizzes_impl_ConfigurationImpl::$DEF_HTTPPROXY_USER);
 		$this->properties->set(com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_PASS, com_wiris_quizzes_impl_ConfigurationImpl::$DEF_HTTPPROXY_PASS);
+		$this->properties->set(com_wiris_quizzes_api_ConfigurationKeys::$REFERER_URL, com_wiris_quizzes_impl_ConfigurationImpl::$DEF_REFERER_URL);
 		if(!com_wiris_settings_PlatformSettings::$IS_JAVASCRIPT) {
 			try {
 				$ini = com_wiris_util_sys_IniFile::newIniFileFromFilename(com_wiris_quizzes_impl_ConfigurationImpl::$DEF_DIST_CONFIG_FILE);
@@ -36,7 +37,7 @@ class com_wiris_quizzes_impl_ConfigurationImpl implements com_wiris_quizzes_api_
 			if(!($className === "")) {
 				try {
 					$config = Type::createInstance(Type::resolveClass($className), new _hx_array(array()));
-					$keys = new _hx_array(array(com_wiris_quizzes_api_ConfigurationKeys::$WIRIS_URL, com_wiris_quizzes_api_ConfigurationKeys::$EDITOR_URL, com_wiris_quizzes_api_ConfigurationKeys::$SERVICE_URL, com_wiris_quizzes_api_ConfigurationKeys::$PROXY_URL, com_wiris_quizzes_api_ConfigurationKeys::$CACHE_DIR, com_wiris_quizzes_api_ConfigurationKeys::$MAXCONNECTIONS));
+					$keys = new _hx_array(array(com_wiris_quizzes_api_ConfigurationKeys::$WIRIS_URL, com_wiris_quizzes_api_ConfigurationKeys::$EDITOR_URL, com_wiris_quizzes_api_ConfigurationKeys::$SERVICE_URL, com_wiris_quizzes_api_ConfigurationKeys::$PROXY_URL, com_wiris_quizzes_api_ConfigurationKeys::$CACHE_DIR, com_wiris_quizzes_api_ConfigurationKeys::$MAXCONNECTIONS, com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_HOST, com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_PORT, com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_USER, com_wiris_quizzes_api_ConfigurationKeys::$HTTPPROXY_PASS, com_wiris_quizzes_api_ConfigurationKeys::$REFERER_URL));
 					$i = null;
 					{
 						$_g1 = 0; $_g = $keys->length;
@@ -91,6 +92,9 @@ class com_wiris_quizzes_impl_ConfigurationImpl implements com_wiris_quizzes_api_
 		$sb->add($prefix . "DEF_MAXCONNECTIONS" . " = \"" . $this->jsEscape($this->get(com_wiris_quizzes_api_ConfigurationKeys::$MAXCONNECTIONS)) . "\";\x0A");
 		return $sb->b;
 	}
+	public function set($key, $value) {
+		$this->properties->set($key, $value);
+	}
 	public function get($key) {
 		return $this->properties->get($key);
 	}
@@ -101,6 +105,10 @@ class com_wiris_quizzes_impl_ConfigurationImpl implements com_wiris_quizzes_api_
 			$this->properties->set($key, $props->get($key));
 			unset($key);
 		}
+	}
+	public function loadFile($file) {
+		$ini = com_wiris_util_sys_IniFile::newIniFileFromFilename($file);
+		$this->setAll($ini->getProperties());
 	}
 	public function load($text) {
 		$ini = com_wiris_util_sys_IniFile::newIniFileFromString($text);
@@ -127,13 +135,14 @@ class com_wiris_quizzes_impl_ConfigurationImpl implements com_wiris_quizzes_api_
 	static $DEF_WIRIS_URL = "http://www.wiris.net/demo/wiris";
 	static $DEF_EDITOR_URL = "http://www.wiris.net/demo/editor";
 	static $DEF_SERVICE_URL = "http://www.wiris.net/demo/quizzes";
-	static $DEF_PROXY_URL = "quizzes/service.php";
+	static $DEF_PROXY_URL = "quizzes/service";
 	static $DEF_CACHE_DIR = "/var/wiris/cache";
 	static $DEF_MAXCONNECTIONS = "20";
 	static $DEF_HTTPPROXY_HOST = "";
 	static $DEF_HTTPPROXY_PORT = "8080";
 	static $DEF_HTTPPROXY_USER = "";
 	static $DEF_HTTPPROXY_PASS = "";
+	static $DEF_REFERER_URL = "";
 	static $config;
 	static function getInstance() {
 		if(com_wiris_quizzes_impl_ConfigurationImpl::$config === null) {

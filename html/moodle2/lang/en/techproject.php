@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'techproject', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'techproject', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   techproject
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,8 @@ $string['abandoneddesc'] = 'Task is over whatever completion level it has. Resul
 $string['abstract'] = 'Abstract';
 $string['accepted'] = 'Accepted';
 $string['access'] = 'Access';
+$string['accesskey'] = 'Access key';
+$string['accesskey_help'] = 'Setting an access key allows external non registered people to access the project document';
 $string['adddeliv'] = 'Add root deliverable';
 $string['addmilestone'] = 'Add root milestone';
 $string['addrequ'] = 'Add root requirement';
@@ -54,6 +56,7 @@ $string['alsoapplyroot'] = 'Apply also root node';
 $string['analysing'] = 'Analysis';
 $string['analysingdesc'] = 'Solution (system) analysis and modelling tasks';
 $string['applytemplateselected'] = 'Apply selected template';
+$string['apr'] = 'Apr';
 $string['april'] = 'April';
 $string['asap'] = 'ASAP';
 $string['asapdesc'] = 'As soon as possible...';
@@ -70,6 +73,7 @@ $string['assignedto'] = 'Assigned to';
 $string['assignedwork'] = 'Work assigned:';
 $string['assignee'] = 'Assignee';
 $string['assigneeunloaded'] = 'This contributor has no scheduled work';
+$string['aug'] = 'Aug';
 $string['august'] = 'August';
 $string['autograde'] = 'Autograde';
 $string['autogradingenabled'] = 'Enable autograding';
@@ -126,6 +130,7 @@ $string['close'] = 'Close session';
 $string['code'] = 'Code';
 $string['coding'] = 'Programing';
 $string['codingdesc'] = 'Programing activities';
+$string['comment'] = 'Comment';
 $string['compatiblequalifiersfound'] = 'Compatible qualifier set was found';
 $string['compile'] = 'Compile all propagated values';
 $string['complete'] = 'Complete';
@@ -172,6 +177,7 @@ $string['datedued'] = 'Date dued';
 $string['days'] = 'Days';
 $string['deadline'] = 'Deadline';
 $string['deadlineenable'] = 'Enable deadline';
+$string['dec'] = 'Dec';
 $string['december'] = 'December';
 $string['default'] = 'Default';
 $string['delayed'] = 'Delayed';
@@ -272,6 +278,7 @@ $string['exportallforcurrentgroup'] = 'Export the entire project for the current
 $string['exportheadingtoXML'] = 'Export project description in XML';
 $string['exports'] = 'Export features';
 $string['features'] = 'Features';
+$string['feb'] = 'Feb';
 $string['february'] = 'February';
 $string['fix'] = 'Fixing';
 $string['fixdesc'] = 'Be carefull, this resource may contain known errors';
@@ -349,11 +356,12 @@ $string['haveuncompletedtasks'] = 'Has {$a} tasks(s) to complete';
 $string['headings'] = 'Headings elements';
 $string['heavy'] = 'Complex';
 $string['heavydesc'] = 'Will need a heavy work';
-$string['heavyness'] = 'Feasibility';
+$string['heavyness'] = 'Faisibility';
 $string['heavyness_help'] = '<p>The heavyness is the estimation of the difficulty to provide the requirement to the customer.</p>
 <p>This measurement is different of the complexity, that will provide factual information over the feature once
 the analysis is performed. The heavyness may not know exactly what solution is available that could fullfill the requirement,
 but will exprime the skill of estimation based on experience.</p>';
+$string['hideall'] = 'Hide all';
 $string['high'] = 'High';
 $string['highdesc'] = 'High';
 $string['horizontalscale'] = 'Horizontal scale factor';
@@ -398,7 +406,6 @@ $string['installing'] = 'Install/deployment';
 $string['installingdesc'] = 'Install/deployment';
 $string['introformat'] = 'Format';
 $string['introtechproject'] = 'Description';
-$string['invaliddates'] = 'Invalid Dates';
 $string['invalidobject'] = 'Invalid Object';
 $string['investigating'] = 'Investigation';
 $string['investigatingdesc'] = 'Investigating, getting information and foreseeing solution options';
@@ -409,8 +416,11 @@ will share the same criteria set definition.</p>
 
 <p>In step 1, only dated milestones are assessable. Step 2 will allow defining assessability for any entity unit.</p>';
 $string['itemevaluators'] = 'Item scope evaluators';
+$string['jan'] = 'Jan';
 $string['january'] = 'January';
+$string['jul'] = 'Jul';
 $string['july'] = 'July';
+$string['jun'] = 'Jun';
 $string['june'] = 'June';
 $string['label'] = 'Label';
 $string['label_help'] = '<p>The label defines the visible text in the GUI when criteria is displayed for users.</p>';
@@ -432,8 +442,9 @@ $string['loadcustomxslsheet'] = 'Load the XSL filter';
 $string['makedocument'] = 'Produire le document';
 $string['mandatory'] = 'Mandatory';
 $string['mandatorydesc'] = 'We cannot imagine the project without.';
+$string['mar'] = 'Mar';
 $string['march'] = 'March';
-$string['markasdoneselected'] = 'Mark as done (100%)';
+$string['markasdoneselected'] = 'Mark as done (100%%)';
 $string['markastemplate'] = 'Mark as template';
 $string['mastertasks'] = 'Master tasks';
 $string['may'] = 'May';
@@ -470,6 +481,7 @@ $string['needsworkdesc'] = 'Needs work to provide';
 $string['newvalueformfor'] = 'New value for {$a}';
 $string['next'] = 'Next';
 $string['noassignee'] = 'No assignee';
+$string['noassignees'] = 'No assignee';
 $string['nodelivassigned'] = 'No deliverable assigned.';
 $string['nodeliverables'] = 'No deliverable';
 $string['nogroup'] = 'Out of group (default)';
@@ -478,13 +490,14 @@ $string['nomilestones'] = 'No milestone';
 $string['none'] = 'None';
 $string['nonedesc'] = 'None';
 $string['noonetoassess'] = 'No students here in this group. No assessment to distribute.';
+$string['noprojects'] = 'There are no projects';
 $string['norequassigned'] = 'No requirement assigned.';
 $string['norequirements'] = 'No requirement';
 $string['noscale'] = 'No scale (numeric grading)';
 $string['nospecassigned'] = 'No specification assigned.';
 $string['nospecifications'] = 'No specification';
 $string['notaskassigned'] = 'No task assigned';
-$string['notasks'] = 'No task';
+$string['notasks'] = 'No task defined.';
 $string['notaskunassigned'] = 'No task unassigned';
 $string['notevaluated'] = 'Not evaluated';
 $string['notifynewdeliv'] = 'New project deliverable';
@@ -498,11 +511,13 @@ $string['notingroup'] = 'The settings of this module do not allow an ungrouped s
 $string['notprioritary'] = 'Not prioritary';
 $string['notprioritarydesc'] = 'Can be done after other works, but will help';
 $string['notsubmittedyet'] = 'Not submitted yet.';
+$string['nov'] = 'Nov';
 $string['novalidationsession'] = 'No validation session';
 $string['novaluesindomain'] = 'No values apply in this domain. Global shared values apply as a default. If you add a value here, all the shared values will be overriden.';
 $string['november'] = 'November';
 $string['obsolete'] = 'Obsolete';
 $string['obsoletedesc'] = 'This package or resource is or may be obsolete';
+$string['oct'] = 'Oct';
 $string['october'] = 'October';
 $string['of'] = 'of';
 $string['optional'] = 'Optional';
@@ -512,7 +527,7 @@ $string['oruploadfile'] = 'or upload some file';
 $string['other'] = 'Other';
 $string['otherdesc'] = 'Other task type';
 $string['outofreason'] = 'Out of reason';
-$string['outofreasondesc'] = 'Its feasible but pragmatically out of reason';
+$string['outofreasondesc'] = 'Its faisible but pragmatically out of reason';
 $string['over'] = 'over';
 $string['overdone'] = 'Overlap';
 $string['overoverdone'] = 'Overlapped...';
@@ -528,7 +543,6 @@ $string['phasestart'] = 'Project has not kicked off';
 $string['planned'] = 'Planned';
 $string['planneddesc'] = 'Task is not started but registered';
 $string['pluginadministration'] = 'Project parameters';
-$string['pluginname'] = 'Technical project';
 $string['plus'] = 'EXTRA';
 $string['plusdesc'] = 'Well, something that was\'nt expected at all, but so nice !!';
 $string['preparingrestore'] = 'Preparing restore';
@@ -568,6 +582,7 @@ $string['redirectingtoview'] = 'Redirecting to view';
 $string['refused'] = 'Refused';
 $string['regression'] = 'Regression';
 $string['requirement'] = 'Requirement';
+$string['requirementriskcalculation'] = 'Requirement risk calculation relies on both Strength and Heavyness qualifiers. A strong and heavy requirement pullsproject to danger zone, that is, a zone where the risk of not delivering can increase, du to the accumalation of defavorable factors. Requirements needing more information are ignored. A requirement "out of reason" increases drastically the risk on the heavyness axis.';
 $string['requirements'] = 'Requirements';
 $string['requirementsrate'] = 'Requirements covering rate';
 $string['requirementswithbindings'] = 'Requirements with bindings';
@@ -583,10 +598,12 @@ $string['restoringcriteria'] = 'Restauring criteria';
 $string['restoringdefaultprojectdata'] = 'Restoring default project data';
 $string['restoringqualifiers'] = 'Restoring local qualifiers';
 $string['restoringuserprojectdata'] = 'Restoring user project data';
+$string['review'] = 'Reviewing';
 $string['reviewing'] = 'Reviewing';
 $string['reviewingdesc'] = 'Reviewing code, resources, or docs. Harmonizing.';
 $string['right'] = 'Lower one level';
 $string['risk'] = 'Risk factor';
+$string['rootnode'] = '-- Root level';
 $string['save'] = 'Save';
 $string['savechanges'] = 'Save changes';
 $string['scale'] = 'Scale';
@@ -596,6 +613,7 @@ $string['seecapabilitysettings'] = 'See roles and capabilities settings';
 $string['seedetail'] = 'See detail';
 $string['selectall'] = 'Select all';
 $string['selectanobjectfirst'] = 'Select an object first';
+$string['sep'] = 'Sep';
 $string['september'] = 'September';
 $string['severity'] = 'Severity';
 $string['severity_help'] = '<p>This qualifier qualifies severity of a specification, i.e., the importance it will have in the final delivery.</p>
@@ -606,10 +624,14 @@ technical recommandation, out of care of the final customer.</p>
 
 <p>Less severe specifications will continue to be negotiable, although lack of them will always pull the final delivery to lower
 quality.</p>';
+$string['sharedocumentwithexterns'] = 'URL for sharing with non registered users: $a';
 $string['sharedscope'] = 'Global qualifers (shared as default)';
+$string['sharethisdocument'] = 'Share this document to external people giving the following url :</br> {$a}';
 $string['should'] = 'SHOULD';
 $string['shoulddesc'] = 'We would very like you have it, but it\'s still negociable';
+$string['showcost'] = 'Show cost quotes';
 $string['showdetails'] = 'Show details';
+$string['showrisk'] = 'Show risk evaluation';
 $string['simple'] = 'Simple';
 $string['simpledesc'] = 'A little work, but easy to do';
 $string['singularentries'] = 'Effective entries';
@@ -729,7 +751,7 @@ $string['taskmiddle'] = 'Middleway task';
 $string['tasks'] = 'Tasks';
 $string['taskstart'] = 'Master task';
 $string['taskstartdate'] = 'Task start date';
-$string['taskstartdate_help'] = '<p>A task can be assigned a start date. This date will be used for Gantt workmap generation (step 2) and feasibility checks (step 2
+$string['taskstartdate_help'] = '<p>A task can be assigned a start date. This date will be used for Gantt workmap generation (step 2) and faisibility checks (step 2
 either).</p>
 
 <p>In step 1, the start date will have some checks performed :</p>

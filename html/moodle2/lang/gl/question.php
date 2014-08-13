@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Acción';
 $string['addanotherhint'] = 'Engadir outra pista';
 $string['addcategory'] = 'Engadir categoría';
+$string['addmorechoiceblanks'] = 'En branco para {non} Máis Escollas';
 $string['adminreport'] = 'Informe sobre posíbeis problemas na súa base de datos de preguntas.';
 $string['answer'] = 'Resposta';
+$string['answers'] = 'Respostas';
 $string['answersaved'] = 'Resposta gardada';
 $string['attemptfinished'] = 'Intento finalizado';
 $string['attemptfinishedsubmitting'] = 'O intento finalizou entregado:';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'Non se puido crear unha nova entrada na táboa questi
 $string['cannotcreatepath'] = 'Non se puido crear a ruta: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'Non pode eliminar o comportamento \'{$a}\'. Úsase para intentos de preguntas.';
 $string['cannotdeletecate'] = 'Non pode eliminar esa categoría porque é a categoría predeterminada para este contexto.';
-$string['cannotdeletemissingbehaviour'] = 'Non pode desinstalar o comportamento en caso de perda. Requíreo o sistema.';
-$string['cannotdeletemissingqtype'] = 'Non pode desinstalar o tipo de pregunta perdida. Requíreo o sistema.';
 $string['cannotdeleteneededbehaviour'] = 'Non pode eliminar o comportamento da pregunta \'{$a}\'. Hai outros comportamentos instalados que dependen del.';
 $string['cannotdeleteqtypeinuse'] = 'Non pode eliminar o tipo de pregunta \'{$a}\'. Hai preguntas deste tipo no banco de preguntas.';
 $string['cannotdeleteqtypeneeded'] = 'Non pode eliminar o tipo de pregunta \'{$a}\'. Hai outros tipos de preguntas instalados que dependen del.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'Non debería ter chegado aquí se non estivese movend
 $string['copy'] = 'Copia de {$a} e cambiar ligazóns.';
 $string['correct'] = 'Corrixir';
 $string['correctfeedback'] = 'Cada resposta correcta';
+$string['correctfeedbackdefault'] = 'A súa resposta é correcta.';
 $string['created'] = 'Creada';
 $string['createdby'] = 'Creada por';
 $string['createdmodifiedheader'] = 'Creada / última gardada';
@@ -120,11 +121,7 @@ $string['decimalplacesingrades'] = 'Posicións decimais nas táboas';
 $string['defaultfor'] = 'Predeterminado/a para: {$a}';
 $string['defaultinfofor'] = 'A categoría predeterminada para preguntas compartidas no contexto \'{$a}\'.';
 $string['defaultmark'] = 'Marca predeterminada';
-$string['deletebehaviourareyousure'] = 'Eliminar comportamento {$a}: está seguro?';
-$string['deletebehaviourareyousuremessage'] = 'Está a piques de eliminar completamente o comportamento da pregunta {$a}. Esta acción eliminará toda a información da base de datos asociada con este comportamento de pregunta. CONFIRMA que quere continuar?';
 $string['deletecoursecategorywithquestions'] = 'Hai preguntas no banco de preguntas asociadas con esta categoría de curso. De proseguir, eliminaranse. Pode querer movelas primeiro, usando a interface do banco de preguntas.';
-$string['deleteqtypeareyousure'] = 'Eliminar o tipo de pregunta {$a}: está seguro?';
-$string['deleteqtypeareyousuremessage'] = 'Está a piques de eliminar completamente o tipo de pregunta {$a}. Esta acción eliminará toda a información da base de datos asociada con este tipo de pregunta. CONFIRMA que quere continuar?';
 $string['deletequestioncheck'] = 'Confirma definitivamente que quere eliminar \'{$a}\'?';
 $string['deletequestionscheck'] = 'Confirma definitivamente que quere eliminar as seguintes preguntas?<br /><br />{$a}';
 $string['deletingbehaviour'] = 'Eliminando o comportamento de pregunta \'{$a}';
@@ -327,8 +324,6 @@ $string['permissionsaveasnew'] = 'Gardar isto como unha nova pregunta';
 $string['permissionto'] = 'Ten permiso para:';
 $string['previewquestion'] = 'Previsualizar a pregunta: {$a}';
 $string['published'] = 'compartido';
-$string['qbehaviourdeletefiles'] = 'Todos os datos asociados coa comportamento \'{$a->behaviour}\' da pregunta elimináronse da base de datos. Para completar a eliminación (e evitar que o comportamento se reinstale de por si) debería de eliminar agora este cartafol do seu servidor: {$a->directory}';
-$string['qtypedeletefiles'] = 'Todos os datos asociados ao tipo de pregunta \'{$a->qtype}\' elimináronse da base de datos. Para completar a eliminación (e evitar que o tipo de pregunta se reinstale de por si), debería de eliminar agora este cartafol do seu servidor: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">Pregunta "{$a->name}" ({$a->qtype})</a> está nesta categoría pero tamén se usa na <a href="{$a->qurl}">proba "{$a->quizname}"</a> destoutro curso "{$a->coursename}".';
 $string['questionbank'] = 'Banco da pregunta';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_spamcleaner', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_spamcleaner', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_spamcleaner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,8 @@ $string['pluginname'] = 'Profile inspector';
 $string['spamauto'] = 'Cerca automaticamente parole tipiche da spammer';
 $string['spamcannotdelete'] = 'Non è possibile eliminare questo utente';
 $string['spamcannotfinduser'] = 'Non è stato trovato nessun utente che corrisponda ai criteri di ricerca';
-$string['spamcleanerintro'] = 'Questo script esegue ricerche nei profili utente per trovare ed eventualmente eliminare profili inappropriati o palesemente creati da spammer. E\' posisbile usare parole chiave multiple separandole da virgole (ad esempio: casino, porn)<br /><br />Moodle Docs fornisce maggiori informazioni sul tema: <a href="http://docs.moodle.org/en/Reducing_spam_in_Moodle">Reducing spam in Moodle</a>.';
+$string['spamcleanerintro'] = '<p>Questo script esegue ricerche nei profili utente per trovare ed eventualmente eliminare profili inappropriati o palesemente creati da spammer. E\' posisbile usare parole chiave multiple separandole da virgole (ad esempio: casino, porn).</p>
+<p>Moodle Docs fornisce maggiori informazioni sul tema: <a href="http://docs.moodle.org/en/Reducing_spam_in_Moodle">Reducing spam in Moodle</a>.</p>';
 $string['spamdeleteall'] = 'Elimina tutti questi account utente';
 $string['spamdeleteallconfirm'] = 'Sei sicuro di voler eliminare questo utente? Non è possibile tornare indietro.';
 $string['spamdeleteconfirm'] = 'Sei sicuro di voler eliminare questo record? Non è possibile tornare indietro.';

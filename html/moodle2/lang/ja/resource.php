@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -77,7 +77,7 @@ $string['modulename_help'] = 'ファイルモジュールにおいて、教師�
 $string['modulenameplural'] = 'ファイル';
 $string['neverseen'] = '未確認';
 $string['notmigrated'] = '申し訳ございません、このレガシーリソースタイプ ({$a}) は、まだ移行されていません。';
-$string['optionsheader'] = 'オプション';
+$string['optionsheader'] = '表示オプション';
 $string['page-mod-resource-x'] = 'すべてのファイルモジュールページ';
 $string['pluginadministration'] = 'リソース管理';
 $string['pluginname'] = 'リソース';
@@ -87,8 +87,6 @@ $string['popupresource'] = 'このリソースは、ポップアップウィン�
 $string['popupresourcelink'] = 'ウィンドウが表示されない場合はここをクリック： {$a}';
 $string['popupwidth'] = 'ポップアップ幅 (ピクセル)';
 $string['popupwidthexplain'] = 'ポップアップウィンドウのデフォルト幅を指定してください。';
-$string['printheading'] = 'ページ名を表示する';
-$string['printheadingexplain'] = 'コンテンツの上にページ名を表示しますか? 有効にしても、いくつかの表示タイプでは、リソース名を表示することができません。';
 $string['printintro'] = 'ページ説明を表示する';
 $string['printintroexplain'] = 'コンテンツの下にページ説明を表示しますか? 有効にしても、いくつかの表示タイプでは、説明を表示することができません。';
 $string['resource:addinstance'] = '新しいリソースを追加する';

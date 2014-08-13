@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_onlinetext', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_onlinetext', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_onlinetext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['default'] = 'Activado de xeito predeterminado';
 $string['default_help'] = 'Se establece, este método de comentarios será activado como predeterminado para todas as novas tarefas.';
 $string['enabled'] = 'Texto en liña';
 $string['enabled_help'] = 'Se está activado, os alumnos son quen de escribir texto enriquecido directamente nun campo do editor para a súa entrega.';
+$string['event_assessable_uploaded'] = 'Foi enviado un texto en liña.';
 $string['nosubmission'] = 'Non foi enviado nada para esta tarefa';
 $string['numwords'] = '({$a} palabras)';
 $string['numwordsforlog'] = 'Contador de palabras da entrega: {$a} palabras';

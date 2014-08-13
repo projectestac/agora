@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_objectives', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_objectives', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_objectives
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,7 @@ $string['objectives:editobjectives'] = 'Able to edit lesson objectives';
 $string['objectives:edittimetables'] = 'Able to edit timetables for lessons';
 $string['objectives:myaddinstance'] = 'Add new Objectives block';
 $string['objectives:viewobjectives'] = 'Able to view lesson objectives';
+$string['objectiveupdated'] = 'Objective updated';
 $string['pluginname'] = 'Lesson objectives';
 $string['prevweek'] = 'Previous week';
 $string['saveandcourse'] = 'Save and return to course';

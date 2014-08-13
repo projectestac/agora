@@ -25,6 +25,13 @@
  */
 
 require('../config.php');
+require_once($CFG->dirroot . '/user/editlib.php');
+
+// Try to prevent searching for sites that allow sign-up.
+if (!isset($CFG->additionalhtmlhead)) {
+    $CFG->additionalhtmlhead = '';
+}
+$CFG->additionalhtmlhead .= '<meta name="robots" content="noindex" />';
 
 if (empty($CFG->registerauth)) {
     print_error('notlocalisederrormessage', 'error', '', 'Sorry, you may not use this page.');
@@ -54,6 +61,11 @@ if ($mform_signup->is_cancelled()) {
     $user->mnethostid  = $CFG->mnet_localhost_id;
     $user->secret      = random_string(15);
     $user->auth        = $CFG->registerauth;
+    // Initialize alternate name fields to empty strings.
+    $namefields = array_diff(get_all_user_name_fields(), useredit_get_required_name_fields());
+    foreach ($namefields as $namefield) {
+        $user->$namefield = '';
+    }
 
     $authplugin->user_signup($user, true); // prints notice and link to login/index.php
     exit; //never reached

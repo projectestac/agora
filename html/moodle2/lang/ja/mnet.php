@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mnet', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -105,7 +105,7 @@ $string['invalidaccessparam'] = '無効なアクセスパラメータです。';
 $string['invalidactionparam'] = '無効なアクションパラメータです。';
 $string['invalidhost'] = '有効なホスト識別子を提供してください。';
 $string['invalidpubkey'] = '有効なSSLキーではありません ({$a})。';
-$string['invalidurl'] = '無効なURIパラメータです。';
+$string['invalidurl'] = '無効なURLパラメータです。';
 $string['ipaddress'] = 'IPアドレス';
 $string['is_in_range'] = 'IPアドレス <code>{$a}</code> は信頼できる有効なホストのIPアドレスです。';
 $string['ispublished'] = 'あなたのために {$a} Moodleがサービスを有効にしました。';

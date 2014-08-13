@@ -26,45 +26,45 @@
 
 require_once($CFG->dirroot . '/mod/geogebra/locallib.php'); // Because it exists (must)
 require_once($CFG->dirroot . '/mod/geogebra/backup/moodle2/backup_geogebra_stepslib.php'); // Because it exists (must)
- 
+
 /**
  * geogebra backup task that provides all the settings and steps to perform one
  * complete backup of the activity
  */
 class backup_geogebra_activity_task extends backup_activity_task {
- 
+
     /**
      * Define (add) particular settings this activity can have
      */
     protected function define_my_settings() {
         // No particular settings for this activity
     }
- 
+
     /**
      * Define (add) particular steps this activity can have
      */
     protected function define_my_steps() {
         geogebra_normalize_date();
-        $this->add_step(new backup_geogebra_activity_structure_step('geogebra_structure', 'geogebra.xml'));        
+        $this->add_step(new backup_geogebra_activity_structure_step('geogebra_structure', 'geogebra.xml'));
     }
- 
+
     /**
      * Code the transformations to perform in the activity in
      * order to get transportable (encoded) links
      */
     static public function encode_content_links($content) {
         global $CFG;
- 
+
         $base = preg_quote($CFG->wwwroot,"/");
- 
+
         // Link to the list of geogebras
         $search="/(".$base."\/mod\/geogebra\/index.php\?id\=)([0-9]+)/";
         $content= preg_replace($search, '$@geogebraINDEX*$2@$', $content);
- 
+
         // Link to geogebra view by moduleid
         $search="/(".$base."\/mod\/geogebra\/view.php\?id\=)([0-9]+)/";
         $content= preg_replace($search, '$@geogebraVIEWBYID*$2@$', $content);
- 
+
         return $content;
     }
 }

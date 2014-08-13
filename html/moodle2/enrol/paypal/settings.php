@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,8 +17,7 @@
 /**
  * Paypal enrolments plugin settings and presets.
  *
- * @package    enrol
- * @subpackage paypal
+ * @package    enrol_paypal
  * @copyright  2010 Eugene Venter
  * @author     Eugene Venter - based on code by Petr Skoda and others
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -40,6 +38,15 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configcheckbox('enrol_paypal/mailadmins', get_string('mailadmins', 'enrol_paypal'), '', 0));
 
+    // Note: let's reuse the ext sync constants and strings here, internally it is very similar,
+    //       it describes what should happen when users are not supposed to be enrolled any more.
+    $options = array(
+        ENROL_EXT_REMOVED_KEEP           => get_string('extremovedkeep', 'enrol'),
+        ENROL_EXT_REMOVED_SUSPENDNOROLES => get_string('extremovedsuspendnoroles', 'enrol'),
+        ENROL_EXT_REMOVED_UNENROL        => get_string('extremovedunenrol', 'enrol'),
+    );
+    $settings->add(new admin_setting_configselect('enrol_paypal/expiredaction', get_string('expiredaction', 'enrol_paypal'), get_string('expiredaction_help', 'enrol_paypal'), ENROL_EXT_REMOVED_SUSPENDNOROLES, $options));
+
     //--- enrol instance defaults ----------------------------------------------------------------------------
     $settings->add(new admin_setting_heading('enrol_paypal_defaults',
         get_string('enrolinstancedefaults', 'admin'), get_string('enrolinstancedefaults_desc', 'admin')));
@@ -51,13 +58,7 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configtext('enrol_paypal/cost', get_string('cost', 'enrol_paypal'), '', 0, PARAM_FLOAT, 4));
 
-    $paypalcurrencies = array('USD' => 'US Dollars',
-                              'EUR' => 'Euros',
-                              'JPY' => 'Japanese Yen',
-                              'GBP' => 'British Pounds',
-                              'CAD' => 'Canadian Dollars',
-                              'AUD' => 'Australian Dollars'
-                             );
+    $paypalcurrencies = enrol_get_plugin('paypal')->get_currencies();
     $settings->add(new admin_setting_configselect('enrol_paypal/currency', get_string('currency', 'enrol_paypal'), '', 'USD', $paypalcurrencies));
 
     if (!during_initial_install()) {

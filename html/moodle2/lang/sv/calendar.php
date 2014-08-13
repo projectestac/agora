@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Lägg till händelser';
 $string['advancedoptions'] = 'Avancerade inställningar';
 $string['allday'] = 'Hela dagen';
 $string['annually'] = 'Årligen';
 $string['calendar'] = 'Kalender';
 $string['calendarheading'] = '{$a} Kalender';
 $string['calendarpreferences'] = 'Preferenser för kalender';
+$string['calendartypes'] = 'Kalander typer';
 $string['calendarurl'] = 'Kalender URL: {$a}';
 $string['clickhide'] = 'Klicka för att dölja';
 $string['clickshow'] = 'Klicka för att visa';
@@ -44,14 +46,13 @@ $string['course'] = 'Kurs';
 $string['courseevent'] = 'Händelse i kurs';
 $string['courseevents'] = 'Händelser i kursen';
 $string['courses'] = 'Kurser';
+$string['customexport'] = 'Eget intervall ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Dagligen';
-$string['dayview'] = 'Vy över dag';
 $string['dayviewtitle'] = 'Vy över dag {$a}';
 $string['daywithnoevents'] = 'Det finns inga händelser för den här dagen';
 $string['default'] = 'Aktuell';
 $string['deleteevent'] = 'Ta bort händelse';
 $string['deleteevents'] = 'Ta bort händelser';
-$string['detailedmonthview'] = 'Detaljerad vy över månad';
 $string['detailedmonthviewtitle'] = 'Detaljerad vy över månad {$a}';
 $string['durationminutes'] = 'Varaktighet i minuter';
 $string['durationnone'] = 'Utan varaktighet';
@@ -74,7 +75,7 @@ $string['eventduration'] = 'Varaktighet';
 $string['eventendtime'] = 'Sluttid/datum';
 $string['eventinstanttime'] = 'Tid';
 $string['eventkind'] = 'Typ av händelse';
-$string['eventname'] = 'Händelsens titel';
+$string['eventname'] = 'Namn för händelse';
 $string['eventnone'] = 'Inga händelser';
 $string['eventrepeat'] = 'Upprepningar';
 $string['eventsall'] = 'Alla händelser';
@@ -127,6 +128,7 @@ $string['monthly'] = 'Månadsvis';
 $string['monthlyview'] = 'Vy över månad';
 $string['monthnext'] = 'Nästa månad';
 $string['monththis'] = 'Den här månaden';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Aldrig';
 $string['newevent'] = 'Ny händelse';
 $string['nocalendarsubscriptions'] = 'Du har inga kalender prenumerationer.';
@@ -138,6 +140,7 @@ $string['pollinterval_help'] = 'Hur ofta ska kalendern uppdateras med nya hände
 $string['preferences'] = 'Inställningar';
 $string['preferences_available'] = 'Dina personliga preferenser';
 $string['pref_lookahead'] = 'Visa kommande händelser';
+$string['pref_lookahead_help'] = 'Det antal dagar som en händelse måste starta inom för att visas som en kommande händelse. Händelser som startar bortom gränsen kommer inte visas som kommande. Vad god notera att det <strong>inte finns någon garanti</strong> för att alla händelser som startar inom tidsspannet visas; om det finns för många (mer än inställningen för "Maximalt antal kommande händelser") så visas inte de mest avlägsna händelserna.';
 $string['pref_maxevents'] = 'Max antal kommande händelser';
 $string['pref_maxevents_help'] = 'Detta ställer in maximalt antal kommande evenemang som kan visas. Om du väljer ett stort antal det möjligt att kommande evenemang kommer att ta upp mycket plats på skärmen.';
 $string['pref_persistflt'] = 'Kom ihåg inställningarna för filtret';
@@ -161,10 +164,14 @@ $string['showcourseevents'] = 'Visa kurshändelser';
 $string['showglobalevents'] = 'Visa globala händelser';
 $string['showgroupsevents'] = 'Visa grupphändelser';
 $string['shown'] = 'visad';
+$string['showuserevents'] = 'Visa användarhändelser';
+$string['siteevents'] = 'Händelser för webbplatsen';
 $string['spanningevents'] = 'Händelser på gång';
 $string['subscriptionname'] = 'Kalendernamn';
+$string['subscriptionremoved'] = 'Kalenderprenumeration {$a} borttagen';
 $string['subscriptions'] = 'Prenumerationer';
 $string['subscriptionupdated'] = 'Prenumeration på kalender {$a} uppdaterad';
+$string['subsource'] = 'Händelsekälla: {$a->name}';
 $string['sun'] = 'Sön';
 $string['sunday'] = 'Söndag';
 $string['thu'] = 'Tor';

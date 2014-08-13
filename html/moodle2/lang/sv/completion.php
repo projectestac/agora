@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'completion', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,6 @@ $string['achievinggrade'] = 'Uppnå resultat';
 $string['activities'] = 'Aktiviteter';
 $string['activitiescompleted'] = 'Fullföljda aktiviteter';
 $string['activitycompletion'] = 'Fullföljande av aktivitet';
-$string['afterspecifieddate'] = 'Efter angivet datum';
 $string['aggregationmethod'] = 'Metod för aggregation';
 $string['all'] = 'Allt';
 $string['any'] = 'Vilken/a som helst';
@@ -65,13 +64,10 @@ $string['completion_none'] = 'Indikera inte fullföljande av aktivitet.';
 $string['completionnotenabled'] = 'Fullföljning är inte aktiverad';
 $string['completionnotenabledforcourse'] = 'Fullföljning är inte aktiverad för den här kursen';
 $string['completionnotenabledforsite'] = 'Fullföljning är inte aktiverad för den här webbplatsen';
-$string['completiononunenrolment'] = 'Fullföljd då studenten avregistreras från kursen.';
 $string['completion-pass'] = 'Slutfört (uppnått godkänt betyg)';
 $string['completionsettingslocked'] = 'Alternativen för fullföljning är låsta';
-$string['completionstartonenrol'] = 'Spårning av fullföljning startar vid kursdeltagares registrering på kurssidan';
-$string['completionstartonenrolhelp'] = 'Börja spåra kursdeltagares fullföljning av kursen vid dennes registrering på kurssidan';
-$string['completion-title-manual-n'] = 'Markera som fullföjd';
-$string['completion-title-manual-y'] = 'Markera som inte fullföjd';
+$string['completion-title-manual-n'] = 'Markera som fullföjd: {$a}';
+$string['completion-title-manual-y'] = 'Markera som inte fullföjd: {$a}';
 $string['completionusegrade'] = 'Begär ett resultat';
 $string['completionusegrade_desc'] = 'Studenten måste få betyg för att slutföra denna verksamhet';
 $string['completionusegrade_help'] = 'Om denna inställning aktiveras anses aktiviteten fullföljd då kursdeltagare får ett resultat/betyg. Godkänd-/underkändsymboler visas om en godkänd-nivå är inställd.';
@@ -85,7 +81,6 @@ $string['coursecomplete'] = 'Kursens fullföljande';
 $string['coursecompleted'] = 'Kursen fullföljd';
 $string['coursegrade'] = 'Kursbetyg/omdöme';
 $string['coursesavailable'] = 'Tillgängliga kurser';
-$string['coursesavailableexplaination'] = 'Kriterier för fullföljande måste anges för att en kurs ska visas i den här listan.';
 $string['criteria'] = 'Kriterier';
 $string['criteriagroup'] = 'Kriterier för grupp';
 $string['criteriarequiredall'] = 'Alla kriterier är obligatoriska';
@@ -93,22 +88,22 @@ $string['criteriarequiredany'] = 'Alla kriterier nedan är obligatoriska';
 $string['csvdownload'] = 'Ladda ned som datafil (UTF-8 .csv)';
 $string['datepassed'] = 'Datum för godkännande';
 $string['days'] = 'Dagar';
-$string['daysafterenrolment'] = 'Dagar efter registrering';
-$string['durationafterenrolment'] = 'Varaktighet efter registrering';
+$string['daysoftotal'] = '{$a->days} av {$a->total}';
+$string['dependencies'] = 'Beroenden';
 $string['editcoursecompletionsettings'] = 'Redigera inställningar för fullföljande av kurs';
 $string['enablecompletion'] = 'Aktivera spårning av fullföljande';
 $string['enrolmentduration'] = 'Återstående dagar';
 $string['err_noactivities'] = 'Information om fullföljande är inte inställd för någon aktivitet, så ingen sådan kan visas. Du kan aktivera spårning av fullföljande via inställningarna för en aktivitet.';
 $string['err_nocourses'] = 'Spårning av fullföljande av kurs är inte aktiverad för någon annan kurs, så detta kan inte visas. Du kan aktivare spårning av fullföljande av kurs under kursens inställningar.';
 $string['err_nograde'] = 'Ett reultatkriterium/betyg för att anses ha fullföljt kursen har inte angivits. För att möjliggöra detta  måste du ange ett godkänd-kriterium/betyg för kursen.';
-$string['err_noroles'] = 'Det finns ingen roll med rättigheten \'moodle/course:markcomplete\' i den här kursen. Du kan tilldela denna rättigheten till en roll.';
+$string['err_noroles'] = 'Det finns inga roller med förmågan moodle/course:markcomplete i den här kursen.';
 $string['err_nousers'] = 'Det finns inga kursdeltagare i den här kursen eller gruppen för vilka genomförandeinformation visas. (Som förinställning visa genomförandeinformation bara för kursdeltagare, så om kursen inte har några deltagare ser du detta meddelande. Administratörer kan ändra den inställningen i administrationsgränssnittet.)';
 $string['err_settingslocked'] = 'En eller flera kursdeltagare har redan markerat denna aktivitet som fullföljd, därför har alternativen låsts. Ändringar av inställningarna tar bort dessa markeringar, vilket kan orsaka förvirring.';
 $string['err_system'] = 'Ett internt fel uppstod. Kontakta en systemadministratör. (System administrators can enable debugging information to see more detail.)';
 $string['excelcsvdownload'] = 'Ladda ned i Excelkompatibelt format (.csv)';
 $string['gradexrequired'] = '{$a} krävs';
 $string['inprogress'] = 'Pågår';
-$string['manualcompletionby'] = 'Manuellt markerad som fullföljd av';
+$string['manualcompletionbynote'] = 'Notera: Förmågan moodle/course:markcomplete måste tillåtas för att en roll ska synas i listan.';
 $string['manualselfcompletion'] = 'Studenten markerar själv som fullföljd';
 $string['markcomplete'] = 'Markera som fullföljd';
 $string['markedcompleteby'] = 'Markerad som fullföljd av {$a}';
@@ -118,7 +113,6 @@ $string['nocriteriaset'] = 'Inga kriterier för genomförande är satta för den
 $string['notcompleted'] = 'Inte slutfört';
 $string['notenroled'] = 'Du är inte registrerad i den här kursen';
 $string['notyetstarted'] = 'Har ännu inte påbörjats';
-$string['overallcriteriaaggregation'] = 'Övergripande kriterium';
 $string['pending'] = 'Avvaktar';
 $string['progress'] = 'Kursdeltagares progression';
 $string['progress-title'] = '{$a->user}, {$a->activity}: {$a->state} {$a->date}';

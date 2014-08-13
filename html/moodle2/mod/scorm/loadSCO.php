@@ -83,7 +83,7 @@ if (!empty($scoid)) {
                     'scorm_scoes',
                     'scorm = ? AND '.$DB->sql_isnotempty('scorm_scoes', 'launch', false, true).' AND id > ?',
                     array($scorm->id, $sco->id),
-                    'id ASC')) {
+                    'sortorder, id')) {
                 $sco = current($scoes);
             }
         }
@@ -97,7 +97,7 @@ if (!isset($sco)) {
         'scorm_scoes',
         'scorm = ? AND '.$DB->sql_isnotempty('scorm_scoes', 'launch', false, true),
         array($scorm->id),
-        'id ASC'
+        'sortorder, id'
     );
     $sco = current($scoes);
 }
@@ -148,23 +148,31 @@ if (scorm_external_link($sco->launch)) {
     //TODO: does this happen?
     $result = $launcher;
 } else if ($scorm->scormtype === SCORM_TYPE_EXTERNAL) {
-    // Remote learning activity
+    // Remote learning activity.
     $result = dirname($scorm->reference).'/'.$launcher;
-} else if ($scorm->scormtype === SCORM_TYPE_IMSREPOSITORY) {
-    // Repository
-    $result = $CFG->repositorywebroot.substr($scorm->reference, 1).'/'.$sco->launch;
+} else if ($scorm->scormtype === SCORM_TYPE_LOCAL && strtolower($scorm->reference) == 'imsmanifest.xml') {
+    // This SCORM content sits in a repository that allows relative links.
+    $result = "$CFG->wwwroot/pluginfile.php/$context->id/mod_scorm/imsmanifest/$scorm->revision/$launcher";
 } else if ($scorm->scormtype === SCORM_TYPE_LOCAL or $scorm->scormtype === SCORM_TYPE_LOCALSYNC) {
-    //note: do not convert this to use get_file_url() or moodle_url()
-    //SCORM does not work without slasharguments and moodle_url() encodes querystring vars
+    // Note: do not convert this to use get_file_url() or moodle_url()
+    // SCORM does not work without slasharguments and moodle_url() encodes querystring vars.
     $result = "$CFG->wwwroot/pluginfile.php/$context->id/mod_scorm/content/$scorm->revision/$launcher";
 }
 
 add_to_log($course->id, 'scorm', 'launch', 'view.php?id='.$cm->id, $result, $cm->id);
 
-// which API are we looking for
-$LMS_api = (scorm_version_check($scorm->version, SCORM_12) || empty($scorm->version)) ? 'API' : 'API_1484_11';
-
 header('Content-Type: text/html; charset=UTF-8');
+
+if ($sco->scormtype == 'asset') {
+    // HTTP 302 Found => Moved Temporarily.
+    header('Location: ' . $result);
+    // Provide a short feedback in case of slow network connection.
+    echo '<html><body><p>' . get_string('activitypleasewait', 'scorm'). '</p></body></html>';
+    exit;
+}
+
+// We expect a SCO: select which API are we looking for.
+$LMS_api = (scorm_version_check($scorm->version, SCORM_12) || empty($scorm->version)) ? 'API' : 'API_1484_11';
 
 ?>
 <html>

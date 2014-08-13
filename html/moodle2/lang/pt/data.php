@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Adicionar comentário';
 $string['addentries'] = 'Adicionar registos';
 $string['addtemplate'] = 'Adicionar registo';
 $string['advancedsearch'] = 'Pesquisa avançada';
+$string['allowcomments'] = 'Permitir comentários aos termos';
 $string['alttext'] = 'Texto alternativo';
 $string['approve'] = 'Aprovar';
 $string['approved'] = 'Aprovado';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'A opção de comentários não está ativa';
 $string['configenablerssfeeds'] = 'A ativação desta configuração permite a geração de listas RSS em todas as bases de dados, ao nível do site. Para utilizar esta funcionalidade numa base de dados específica deve ainda ativar a mesma na respectiva página de configuração.';
 $string['confirmdeletefield'] = 'Tem a certeza de que deseja apagar este campo?';
 $string['confirmdeleterecord'] = 'Tem a certeza de que deseja apagar este registo?';
+$string['confirmdeleterecords'] = 'Tem a certeza de que pretende apagar estes registos?';
 $string['csstemplate'] = 'CSS';
 $string['csvfailed'] = 'Não foi possível ler a informação existente no ficheiro CSV';
 $string['csvfile'] = 'Ficheiro CSV';
@@ -81,7 +83,7 @@ $string['csvimport'] = 'Importação de ficheiro CSV';
 $string['csvimport_help'] = 'Os registos podem ser importados através de um ficheiro de texto, indicando na primeira linha os nomes dos campos e nas linhas seguintes a respetiva informação, com um registo por linha.';
 $string['csvwithselecteddelimiter'] = 'Ficheiro <acronym title="Comma Separated Values">CSV</acronym> com delimitador';
 $string['data:addinstance'] = 'Adicionar nova Base de Dados';
-$string['data:approve'] = 'Aprovar registos pendentes';
+$string['data:approve'] = 'Aprovar e cancelar registos já aprovados';
 $string['data:comment'] = 'Escrever comentários';
 $string['data:exportallentries'] = 'Exportar todos os registos';
 $string['data:exportentry'] = 'Exportar um registo';
@@ -104,6 +106,7 @@ $string['dateentered'] = 'Data de criação';
 $string['defaultfielddelimiter'] = '(o valor predefinido é a vírgula)';
 $string['defaultfieldenclosure'] = '(não existe valor predefinido)';
 $string['defaultsortfield'] = 'Campo de ordenação predefinido';
+$string['delcheck'] = 'Caixa de verificação de exclusão em massa';
 $string['delete'] = 'Apagar';
 $string['deleteallentries'] = 'Apagar todos os registos';
 $string['deletecomment'] = 'Tem a certeza de que quer apagar este comentário?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = 'Apagar registos criados por utilizadores que nã
 $string['deletewarning'] = 'Tem a certeza de que quer apagar este protótipo?';
 $string['descending'] = 'Descendente';
 $string['directorynotapreset'] = '{$a->directory} Não é um protótipo: faltam os ficheiros: {$a->missing_files}';
+$string['disapprove'] = 'Anular aprovação';
 $string['download'] = 'Descarregar';
 $string['edit'] = 'Editar';
 $string['editcomment'] = 'Editar comentário';
@@ -205,7 +209,7 @@ $string['longitude'] = 'Longitude';
 $string['mapexistingfield'] = 'Mapear para {$a}';
 $string['mapnewfield'] = 'Criar novo campo';
 $string['mappingwarning'] = 'Todos os campos que não forem mapeados para novos campos serão apagados e a sua informação removida.';
-$string['maxentries'] = 'Nº máximo de registos';
+$string['maxentries'] = 'Número máximo de entradas';
 $string['maxentries_help'] = 'Número máximo de registos que um utilizador pode submeter nesta atividade.';
 $string['maxsize'] = 'Tamanho máximo';
 $string['menu'] = 'Menu';
@@ -263,7 +267,7 @@ $string['notapproved'] = 'O registo ainda não foi aprovado.';
 $string['notinjectivemap'] = 'Não é um mapa injetivo';
 $string['notopenyet'] = 'A atividade apenas será disponibilizada em <b>{$a}</b>';
 $string['number'] = 'Número';
-$string['numberrssarticles'] = 'Artigos RSS';
+$string['numberrssarticles'] = 'Entradas na Listagem de RSS';
 $string['numnotapproved'] = 'Pendente(s)';
 $string['numrecords'] = '<b>{$a}</b> registos';
 $string['ods'] = 'Ficheiro <acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -286,11 +290,12 @@ $string['presets'] = 'Protótipos';
 $string['radiobutton'] = 'Botões de rádio';
 $string['recordapproved'] = 'Registo aprovado';
 $string['recorddeleted'] = 'Registo apagado';
+$string['recorddisapproved'] = 'Entrada não aprovada';
 $string['recordsnotsaved'] = 'Não foram gravados registos. Verifique o formato do ficheiro enviado.';
 $string['recordssaved'] = 'os registos foram gravados';
-$string['requireapproval'] = 'Aprovação do professor';
+$string['requireapproval'] = 'Requer aprovação';
 $string['requireapproval_help'] = 'Se ativar esta opção os registos necessitam de aprovação do professor antes de ficarem visíveis para todos os utilizadores.';
-$string['requiredentries'] = 'Registos requeridos';
+$string['requiredentries'] = 'Registos requeridos para conclusão';
 $string['requiredentries_help'] = 'Número de registos que o aluno tem que submeter antes que a atividade seja considerada completa.';
 $string['requiredentriestoview'] = 'Registos requeridos antes de ser permitida a visualização';
 $string['requiredentriestoview_help'] = 'Número de registos que o aluno tem que submeter antes de poder ver os registos dos outros participantes.
@@ -340,7 +345,7 @@ $string['uploadrecords_help'] = 'Os registos podem ser inseridos através de um 
 * Cada registo tem um conjunto de valores para os diferentes campos, separados por vírgulas (ou outros carateres)
 * A primeira linha do ficheiro contém os nomes dos campos, definindo a ordem pela qual os mesmos são apresentados em todo o ficheiro
 
-O delimitador dos valores dos campos é um carater que marca o início e fim do valor de cada campo. Em geral pode deixar indefinido.';
+O delimitador dos valores dos campos é um caráter que marca o início e fim do valor de cada campo. Em geral pode deixar indefinido.';
 $string['uploadrecords_link'] = 'mod/data/import';
 $string['url'] = 'URL';
 $string['usedate'] = 'Incluir na pesquisa.';

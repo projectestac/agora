@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'form', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'form', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   form
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,6 +59,8 @@ $string['security'] = '보안';
 $string['selectallornone'] = '모두/없음 선택';
 $string['selected'] = '선택됨';
 $string['showadvanced'] = '고급 표시';
+$string['showless'] = '덜 보기';
+$string['showmore'] = '더 보기';
 $string['somefieldsrequired'] = '이 양식에는 {$a}로 표시된 필수 항목이 있습니다';
 $string['time'] = '시간';
 $string['timeunit'] = '시간 단위';

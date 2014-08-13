@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message_email', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message_email', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   message_email
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allowattachments'] = 'Baimendu eranskinak';
 $string['allowusermailcharset'] = 'Erabiltzaileari karakter-multzoa aldatzen utzi';
 $string['configallowusermailcharset'] = 'Aukera hau aktibatuta, guneko erabiltzaile guztiek ezarri ahal izango dute bere karakter-multzoa mezu elektronikoak idazteko.';
 $string['configmailnewline'] = 'E-posta mezuetan erabilitako karaktere berriak. RFC 822bis-en arabera, CRLF beharrezkoa da; zenbait zerbitzarik automatikoki bihurtzen dute LF-tik CRLF-ra, beste batzuk oker bihurtzen dute CRLF-tik CRCRLF-ra eta, azkenik, beste batzuk (qmail, kasu) LF hutsa duten mezuak baztertu egiten dituzte. Saiatu ezarpen hau aldatzen entregatu gabeko edo lerro bikoitz berriak dituzten mezuekin arazoak badituzu.';

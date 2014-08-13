@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_decaf', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_decaf', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_decaf
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,33 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['alwaysexpandsiteadmin'] = 'Always populate site administration menu';
+$string['alwaysexpandsiteadmindesc'] = 'Enabling this option will populate the Site Administration menu (if applicable), at the expense of performance.';
 $string['awesomebarsettings'] = 'Awesomebar / Navigation Settings';
 $string['awesomebarsettingsdesc'] = 'The "Awesomebar" is the black navigation bar that is fixed to the top of the browser window when using Decaf.<br>The following settings relate to the "Awesomebar" and other page navigation.';
 $string['backgroundcolor'] = 'Background colour';
 $string['backgroundcolordesc'] = 'This sets the background colour for the theme.';
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>Decaf</h2><img src="decaf/pix/screenshot.png" alt="Decaf screenshot" /><h3>Theme Discussion Forum:</h3><p><a href="http://moodle.org/mod/forum/view.php?id=46">http://moodle.org/mod/forum/view.php?id=46</a></p><h3>Theme Credits</h3><p><a href="http://docs.moodle.org/en/Theme_credits">http://docs.moodle.org/en/Theme_credits</a></p><h3>Theme Documentation:</h3><p><a href="http://docs.moodle.org/en/Themes">http://docs.moodle.org/en/Themes</a></p><h3>Report a bug:</h3><p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p></div><div class="theme_description"><h2>About</h2><p>Decaf is a three-column, fluid-width theme for Moodle that was created by <a href="http://moodle.org/user/view.php?id=390408">Lei Zhang</a>. It improves usability by shifting setting blocks to top of the page, so called "Moodle awesome bar". For developers, It transfers the performance info into a colorful floated bar at bottom of the page, which brings the performance awareness as well as improves usability.  </p>';
+$string['choosereadme'] = '<div class="clearfix">
+<div class="well">
+<h2>Decaf</h2>
+<p><img class=img-polaroid src="clean/pix/screenshot.jpg" /></p>
+</div>
+<div class="well">
+<h3>About</h3>
+<p>Clean is a modified Moodle bootstrap theme which inherits styles and renderers from its parent theme.</p>
+<h3>Parents</h3>
+<p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.5, with the help of:<br>
+Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans.</p>
+<h3>Theme Credits</h3>
+<p>Authors: Bas Brands, David Scotson, Mary Evans<br>
+Contact: bas@sonsbeekmedia.nl<br>
+Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
+</p>
+<h3>Report a bug:</h3>
+<p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p>
+<h3>More information</h3>
+<p><a href="clean/README.txt">How to copy and customise this theme.</a></p>
+</div></div>';
 $string['configtitle'] = 'Decaf theme settings';
 $string['coursesleafonly'] = 'Populate "Courses" menu';
 $string['coursesleafonlydesc'] = 'On sites with large numbers of courses, generating the full list of courses in the Awesomebar can cause performance issues.  Disable this setting (set it to "No") to prevent the list from being generated - the "Courses" node will remain as a quick way to reach the course list.';
@@ -42,7 +64,7 @@ $string['custommenuafterawesomebardesc'] = 'Places custom menu after Awesomebar 
 $string['custommenuinawesomebar'] = 'Add custom menu to Awesomebar';
 $string['custommenuinawesomebardesc'] = 'Moves the custom menu into the Awesomebar.  Otherwise, it will appear below the header.';
 $string['editingsettings'] = 'Editing Mode Settings';
-$string['editingsettingsdesc'] = 'The following settings relate to Editing Mode, and aim to make it tidier and easier to use.';
+$string['editingsettingsdesc'] = 'The following settings relate to Editing Mode, and aim to make it tidier and easier to use.<br />The "Use Edit Buttons" setting from previous versions of Decaf has been replaced by the "Activity editing menus" setting under Appearance / AJAX and Javascript ($CFG->modeditingmenu).';
 $string['expandtoactivities'] = 'Expand to show activities within sections';
 $string['expandtoactivitiesdesc'] = 'Enabling this option shows activities underneath the sections in the Awesomebar, but degrades performance - especially in courses with lots of activities/resources.';
 $string['footnote'] = 'Footnote';
@@ -52,7 +74,9 @@ $string['hidenavigationblockdesc'] = 'This setting removes the standard Navigati
 $string['hidesettingsblock'] = 'Hide Settings block';
 $string['hidesettingsblockdesc'] = 'This setting removes the standard Settings block from all pages.';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Enter the URL to an image to use as the logo for this site. Should be http://www.yoursite.com/path/to/logo.png';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
+If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
+a.logo {height: 100px;} or whatever height in pixels the logo is.';
 $string['persistentedit'] = 'Enable Persistent Editing Mode';
 $string['persistenteditdesc'] = 'Persistent Editing Mode keeps editing mode turned on permanently for users with editing privileges.<br />Block editing can still be turned on and off independently via the "Turn editing on/off" option under Course Administration.';
 $string['pluginname'] = 'Decaf';
@@ -60,10 +84,7 @@ $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 $string['regionwidth'] = 'Column width';
 $string['regionwidthdesc'] = 'This sets the width of the two block regions that form the left and right columns.';
-$string['searchsettings'] = 'Search settings...';
 $string['showuserpicture'] = 'Show user picture';
 $string['showuserpicturedesc'] = 'This setting add user picture in the page heading';
-$string['useeditbuttons'] = 'Use Edit Buttons';
-$string['useeditbuttonsdesc'] = 'Instead of rows of icons, small "Edit" buttons appear.  When clicked, a menu of editing options appears.';
 $string['usemodchoosertiles'] = 'Use Mod Chooser Tiles';
 $string['usemodchoosertilesdesc'] = 'In the Mod Chooser, mods will be shown as "tiles" (similar to icons on the desktop of most OSes).';

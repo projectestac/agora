@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -92,13 +92,13 @@ $string['formatcreole_help'] = 'Le format Creole est un langage de formatage wik
 Pour créer une nouvelle page, tapez le nom de la future nouvelle page entre des doubles crochets, par exemple [[Nouvelle page]].';
 $string['format_help'] = '* WYSIWYG : l\'éditeur WYSIWYG est disponible
 * Creole : un langage de formatage wiki répandu pour lequel une petite barre d\'édition est disponible
-* Nwiki : une syntaxe du type Mediawiki, utilisée dans le module tiers Nwiki';
+* Nwiki : une syntaxe du type Mediawiki, utilisée dans le module additionnel Nwiki';
 $string['formathtml'] = 'Format WYSIWYG';
 $string['formathtml_help'] = 'L\'éditeur WYSIWYG peut être utilisé pour formater le contenu.
 
 Pour créer une nouvelle page, tapez le nom de la future nouvelle page entre des doubles crochets, par exemple [[Nouvelle page]].';
 $string['formatnwiki'] = 'Format NWiki';
-$string['formatnwiki_help'] = 'Nwiki est une syntaxe du type Mediawiki, utilisée dans le module tiers Nwiki.
+$string['formatnwiki_help'] = 'Nwiki est une syntaxe du type Mediawiki, utilisée dans le module additionnel Nwiki.
 
 Pour créer une nouvelle page, tapez le nom de la future nouvelle page entre des doubles crochets, par exemple [[Nouvelle page]].';
 $string['history'] = 'Historique';
@@ -144,6 +144,7 @@ $string['navigationfrom_help'] = 'Les pages wiki ayant des liens vers cette page
 $string['navigationto'] = 'Liens depuis cette page';
 $string['navigationto_help'] = 'Liens vers d\'autres pages';
 $string['newpage'] = 'Nouveau';
+$string['newpagehdr'] = 'Nouvelle page';
 $string['newpagetitle'] = 'Titre de la nouvelle page';
 $string['noattachments'] = '<strong>Aucun fichier joint</strong>';
 $string['nocomments'] = 'Aucun commentaire';
@@ -191,6 +192,7 @@ $string['pluginadministration'] = 'Administration wiki';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'Version imprimable';
 $string['previewwarning'] = 'Ce texte n’est qu’une prévisualisation et n’a pas encore été enregistré.';
+$string['print'] = 'Imprimer';
 $string['rated'] = 'Vous avez évalué cette page avec un {$a}';
 $string['rating'] = 'Évaluation';
 $string['ratingmode'] = 'Mode d\'évaluation';

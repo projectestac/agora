@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_mrbs', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_mrbs', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_mrbs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -136,7 +136,7 @@ $string['rep_type_3'] = '월간';
 $string['rep_type_4'] = '연간';
 $string['rep_type_5'] = '월간, 해당일';
 $string['rep_type_6'] = '몇주간';
-$string['returncal'] = '달력 화면으로 돌아감';
+$string['returncal'] = '달력 보기로 돌아감';
 $string['returnprev'] = '이전 페이지로';
 $string['rights'] = '권한';
 $string['room'] = '회의실명';

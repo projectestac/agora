@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,8 +49,13 @@ $string['choicetext'] = '説明文';
 $string['chooseaction'] = '操作を選択する ...';
 $string['completionsubmit'] = 'ユーザが選択した場合、完了として表示する';
 $string['displayhorizontal'] = '水平に表示する';
-$string['displaymode'] = '表示モード';
+$string['displaymode'] = 'オプション表示モード';
 $string['displayvertical'] = '垂直に表示する';
+$string['event_answer_created'] = '投票が作成されました。';
+$string['event_answer_updated'] = '投票が更新されました。';
+$string['event_choice_viewed'] = '投票が閲覧されました。';
+$string['event_instances_list_viewed'] = 'インスタンス一覧が閲覧されました。';
+$string['event_report_viewed'] = '投票結果が閲覧されました。';
 $string['expired'] = '申し訳ございません、この活動は {$a} に終了しているため、これ以上利用することはできません。';
 $string['full'] = '(上限到達)';
 $string['havetologin'] = 'あなたは投票する前にログインする必要があります。';
@@ -59,6 +64,7 @@ $string['limitanswers'] = '投票可能数を制限する';
 $string['limitanswers_help'] = 'このオプションでは、あなたは参加者がそれぞれの投票選択肢を選択できる数を制限することができます。制限数に達した場合、その選択肢を選択できないようになります。
 
 制限が無効にされた場合、それぞれの選択肢に関して参加者何名でも投票することができます。';
+$string['limitno'] = '制限 {no}';
 $string['modulename'] = '投票';
 $string['modulename_help'] = '投票活動モジュールにおいて、教師は単一の質問を挙げること、複数の一連の回答を提供することができます。
 
@@ -80,6 +86,8 @@ $string['notopenyet'] = '申し訳ございません、この活動は {$a} ま�
 $string['numberofuser'] = '参加者数';
 $string['numberofuserinpercentage'] = '参加者数 (%)';
 $string['option'] = 'オプション';
+$string['optionno'] = 'オプション {no}';
+$string['options'] = 'オプション';
 $string['page-mod-choice-x'] = 'すべての投票モジュールページ';
 $string['pluginadministration'] = '投票管理';
 $string['pluginname'] = '投票';
@@ -96,6 +104,7 @@ $string['removeresponses'] = 'すべての投票結果を削除する';
 $string['responses'] = '投票結果';
 $string['responsesresultgraphheader'] = 'グラフ表示';
 $string['responsesto'] = '{$a} へ投票する';
+$string['results'] = '結果';
 $string['savemychoice'] = '私の投票を保存する';
 $string['showunanswered'] = '未投票のカラムを表示する';
 $string['skipresultgraph'] = '結果グラフをスキップする';

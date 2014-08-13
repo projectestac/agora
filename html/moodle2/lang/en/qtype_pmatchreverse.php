@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_pmatchreverse', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_pmatchreverse', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_pmatchreverse
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,9 +38,9 @@ $string['matchx'] = 'Match: {$a}';
 $string['pluginname'] = 'Reverse pattern match';
 $string['pluginnameadding'] = 'Adding a reverse pattern match question';
 $string['pluginnameediting'] = 'Editing a reverse pattern match question';
-$string['pluginname_help'] = 'With the pattern match question type, the sentence typed by the student is graded using pattern match rules entered by the teacer. The reverse pattern-match question type is designed to teach people how to create pattern match questions. Some example sentences entered by the teacher must be matched, or not, by a match expression entered by the student.';
+$string['pluginname_help'] = 'With the pattern match question type, the sentence typed by the student is graded using pattern match rules entered by the teacher. The reverse pattern-match question type is designed to teach people how to create pattern match questions. Some example sentences entered by the teacher must be matched, or not, by a match expression entered by the student.';
 $string['pluginname_link'] = 'question/type/pmatchreverse';
-$string['pluginnamesummary'] = 'With the pattern match question type, the sentence typed by the student is graded using pattern match rules entered by the teacer. The reverse pattern-match question type is designed to teach people how to create pattern match questions. Some example sentences entered by the teacher must be matched, or not, by a match expression entered by the student.';
+$string['pluginnamesummary'] = 'With the pattern match question type, the sentence typed by the student is graded using pattern match rules entered by the teacher. The reverse pattern-match question type is designed to teach people how to create pattern match questions. Some example sentences entered by the teacher must be matched, or not, by a match expression entered by the student.';
 $string['sentence'] = 'Sentence';
 $string['shouldmatch'] = 'Should match';
 $string['shouldnotmatch'] = 'Should not match';

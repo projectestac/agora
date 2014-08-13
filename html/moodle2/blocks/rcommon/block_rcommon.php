@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // MARSUPIAL *********** MODIFICAT -> Get the yui lib js version moodle 2.x
 // 2012.12.1 @abertranb
@@ -10,37 +10,28 @@
 class block_rcommon extends block_base {
 
     function init() {
-        $this->title   = get_string('rcommon', 'block_rcommon');
+        $this->title   = get_string('rcommon', 'local_rcommon');
     }
 
     function applicable_formats() {
        return array('none' => true);
-        
     }
     function instance_allow_multiple() {
         return false;
     }
 
     function get_content() {
-    	
-// MARSUPIAL *********** MODIFICAT -> Get the content of block
-// 2012.12.1 @abertranb    	
     	if ($this->content !== null) {
     		return $this->content;
     	}
-    	
     	$this->content         =  new stdClass;
-    	$this->content->text   = 'Marsupial block!';
+    	$this->content->text   = '';
     	$this->content->footer = '';
-    	
+
     	return $this->content;
-// *********** ORIGINAL
-    	//return '';
-// ********** FI
-    	
     }
-    
+
     function has_config() {
-        return true;
+        return false;
     }
 }

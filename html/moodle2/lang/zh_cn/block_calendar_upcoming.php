@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_calendar_upcoming', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_calendar_upcoming', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_calendar_upcoming
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['calendar_upcoming:addinstance'] = '新增一个即将到来事件版块';
+$string['calendar_upcoming:myaddinstance'] = '在我的首页新增一个即将到来事件版块';
 $string['pluginname'] = '即将到来事件';

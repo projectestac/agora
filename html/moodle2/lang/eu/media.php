@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'media', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,12 +32,13 @@ $string['html5audio'] = 'HTML 5 audioa';
 $string['html5video'] = 'HTML 5 bideoa';
 $string['legacyquicktime'] = 'QuickTime erreproduzitzailea';
 $string['legacyquicktime_desc'] = '*.mov, *.mp4, *.m4a, *.mp4 eta *.mpg. luzapenak dituzten fitxategiak. QuickTime erreproduzitzailea edo  kodekak behar dituzte.';
-$string['legacyreal'] = 'Real media player';
+$string['legacyreal'] = 'Media player erreproduzitzailea';
 $string['legacyreal_desc'] = '*.rm, *.ra, *.ram, *.rp eta *.rv luzapenak dituzten fitxategiak. RealPlayer behar dute.';
-$string['legacywmp'] = 'Windows media player';
+$string['legacywmp'] = 'Windows media erreproduzitzailea';
 $string['mediaformats'] = 'Eskura dauden erreproduzitzaileak';
 $string['mediasettings'] = 'Enbotatu media';
 $string['mp3audio'] = 'MP3 audioa';
 $string['sitevimeo'] = 'Vimeo';
 $string['sitevimeo_desc'] = 'Vimeo, bideoak partekatzeko gunea.';
 $string['siteyoutube'] = 'YouTube';
+$string['siteyoutube_desc'] = 'YouTube bideoak partekatzeko gunea, bideoa eta erreprodukzio-zerrenden estekak onartzen dira.';

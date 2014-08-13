@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'countries', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'countries', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   countries
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,7 +36,6 @@ $string['AG'] = 'Antigua y Barbuda';
 $string['AI'] = 'Anguila';
 $string['AL'] = 'Albania';
 $string['AM'] = 'Armenia';
-$string['AN'] = 'Antillas Holandesas';
 $string['AO'] = 'Angola';
 $string['AQ'] = 'Antártida';
 $string['AR'] = 'Argentina';
@@ -59,6 +58,7 @@ $string['BL'] = 'Saint Barthélemy';
 $string['BM'] = 'Bermuda';
 $string['BN'] = 'Brunei Darussalam';
 $string['BO'] = 'Bolivia';
+$string['BQ'] = 'Bonaire, San Eustaquio y Saba';
 $string['BR'] = 'Brasil';
 $string['BS'] = 'Bahamas';
 $string['BT'] = 'Bután';
@@ -81,6 +81,7 @@ $string['CO'] = 'Colombia';
 $string['CR'] = 'Costa Rica';
 $string['CU'] = 'Cuba';
 $string['CV'] = 'Cabo Verde';
+$string['CW'] = 'Curazao';
 $string['CX'] = 'Islas de Navidad';
 $string['CY'] = 'Chipre';
 $string['CZ'] = 'República Checa';
@@ -238,6 +239,7 @@ $string['SR'] = 'Surinam';
 $string['SS'] = 'Sudán del Sur';
 $string['ST'] = 'Santo Tomé y Príncipe';
 $string['SV'] = 'El Salvador';
+$string['SX'] = 'San Martín (parte holandesa)';
 $string['SY'] = 'Siria';
 $string['SZ'] = 'Swazilandia';
 $string['TC'] = 'Islas Turcas y Caicos';

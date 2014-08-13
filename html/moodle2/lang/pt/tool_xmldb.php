@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_xmldb', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -215,5 +215,5 @@ $string['wrongoraclesemantics'] = 'Semânticas BYTE do Oracle encontradas';
 $string['wrongreservedwords'] = 'Palavras reservadas utilizadas<br />(note que os nomes das tabelas não são importantes se usarem $CFG->prefix)';
 $string['yesmissingindexesfound'] = 'Foram encontrados índices em falta na sua BD. Aqui estão os detalhes e os comandos SQL de execução necessária com a sua interface SQL favorita para os criar todos (não se esqueça de fazer uma cópia de segurança da sua informação antes de o fazer).<br /><br />Depois de executar os comandos é altamente recomendado que execute esta funcionalidade novamente para verificar que não existem mais índices em falta.';
 $string['yeswrongdefaultsfound'] = 'Foram encontradas predefinições erradas na sua BD. Aqui estão os detalhes e os comandos SQL de execução necessária com a sua interface SQL favorita para os criar todos (não se esqueça de fazer uma cópia de segurança da sua informação antes de o fazer).<br /><br />Depois de executar os comandos é altamente recomendado que execute esta funcionalidade novamente para verificar que não existem mais predefinições erradas.';
-$string['yeswrongintsfound'] = 'Foram encontrados inteiros errados na sua BD. Aqui estão os detalhes e os comandos SQL de execução necessária com a sua interface SQL favorita para os criar todos (não se esqueça de fazer uma cópia de segurança da sua informação antes de o fazer).<br /><br />Depois de executar os comandos é altamente recomendado que execute esta funcionalidade novamente para verificar que não existem mais inteiros errados.';
-$string['yeswrongoraclesemanticsfound'] = 'Foram encontradas colunas Oracle usando semânticas BYTE na sua BD. Aqui estão os detalhes e os comandos SQL de execução necessária com a sua interface SQL favorita para os criar todos (não se esqueça de fazer uma cópia de segurança da sua informação antes de o fazer).<br /><br />Depois de executar os comandos é altamente recomendado que execute esta funcionalidade novamente para verificar que não existem colunas Oracle usando semânticas BYTE.';
+$string['yeswrongintsfound'] = 'Foram encontrados números inteiros errados na sua BD. Aqui estão os detalhes e os comandos SQL de execução necessária com a sua interface SQL favorita para os criar todos (não se esqueça de fazer uma cópia de segurança da sua informação antes de o fazer).<br /><br />Depois de executar os comandos é altamente recomendado que execute esta funcionalidade novamente para verificar que não existem mais números inteiros errados.';
+$string['yeswrongoraclesemanticsfound'] = 'Foram encontradas colunas Oracle usando semânticas BYTE na sua BD. Aqui estão os detalhes e os comandos SQL de execução necessária com a sua interface SQL favorita para os criar todos (não se esqueça de fazer uma cópia de segurança da sua informação antes de o fazer).<br /><br />Depois de executar os comandos é altamente recomendado que execute esta funcionalidade novamente para verificar que não existem mais semânticas erradas.';

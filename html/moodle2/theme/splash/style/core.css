@@ -185,6 +185,11 @@ body.lang-vi {
     padding:20px;
     text-align:center;
 }
+.mform .btn-cancel,
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #853650;
+    text-decoration: underline;
+}
 /* html editor fixed width
 -------------------------*/
 textarea#id_summary_editor {width:420px;}
@@ -286,18 +291,6 @@ textarea#id_message {width:420px;}
 .helplink img {
     margin-left:5px;
 }
-#helppopupbox {
-    padding:10px 0;
-}
-#helppopupbox p {
-    padding:0 0 5px;
-    margin:0;
-    line-height:1.3em;
-}
-#helppopupbox .helpheading {
-    font-size:1.2em;
-    padding-bottom:10px;
-}
 /* Icons
 -------------------------*/
 img.icon {
@@ -344,26 +337,19 @@ img.icon {
     padding:0;
     margin:0;
 }
-.categorybox .category {
-    font-size: 100%;
-    font-weight: normal;
-    padding: 0px 0px 0px 10px;
-}
 li.activity {
     padding-bottom:5px;
 }
-.categorylist {
-    padding-bottom:10px;
+.coursebox > .info > .coursename, #region-main .coursebox > .info > .coursename {
+    margin: 5px;
+    padding: 0;
 }
-.course {
-    padding-bottom:25px;
+#region-main .course_category_tree .category > .info > .categoryname {
+    padding: 2px 18px;
 }
-.course_category_tree .category .courses .course_link {
-    padding:10px 18px;
-    background-position: 0 5px;
-}
-.coursebox .summary{
-    padding: 10px 0;
+#region-main .course-content .single-section .section-navigation h3 {
+    font-size: 1.7em;
+    font-weight: bold;
 }
 .que .info{
     width: 10em;
@@ -373,7 +359,7 @@ li.activity {
 }
 /* Quiz
 -------------------------*/
-#page-mod-quiz-edit h2.main{
+#page-mod-quiz-edit h2{
     display: block;
 }
 #page-mod-quiz-edit div.question div.content div.questioncontrols{
@@ -446,7 +432,7 @@ li.activity {
 .section_add_menus {
     text-align:left;
 }
-#page-admin-course-category .generalbox td,
+#page-admin-course-manage .generalbox td,
 #attempts td,
 .editcourse td,
 .generaltable td,

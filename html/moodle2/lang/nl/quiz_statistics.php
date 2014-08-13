@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,8 +59,12 @@ $string['firstattempts'] = 'eerste pogingen';
 $string['firstattemptsavg'] = 'Gemiddelde cijfer voor eerste poging';
 $string['firstattemptscount'] = 'Aantal volledig beoordeelde eerste pogingen';
 $string['frequency'] = 'Frequentie';
+$string['highestattempts'] = 'hoogst beoordeelde poging';
+$string['highestattemptsavg'] = 'Gemiddeld cijfer van de hoogst beoordeelde pogingen';
 $string['intended_weight'] = 'Bedoelde weging';
 $string['kurtosis'] = 'Score distributiekurtosis (voor {$a})';
+$string['lastattempts'] = 'laatste poging';
+$string['lastattemptsavg'] = 'Gemiddeld cijfer van de laatste pogingen';
 $string['lastcalculated'] = 'Er zijn {$a->count} pogingen sinds de laatste berekening, {$a->lastcalculated} geleden.';
 $string['median'] = 'Mediaancijfer (voor {$a})';
 $string['modelresponse'] = 'Voorbeeldantwoord';
@@ -88,6 +92,7 @@ $string['quizoverallstatistics'] = 'Algemene teststatistieken';
 $string['quizstructureanalysis'] = 'Analyse teststructuur';
 $string['random_guess_score'] = 'Gok-score';
 $string['recalculatenow'] = 'Herbereken nu';
+$string['reportsettings'] = 'Instellingen statistische berekening';
 $string['response'] = 'Antwoord';
 $string['skewness'] = 'Score verdelingsscheefheid (voor {$a})';
 $string['standarddeviation'] = 'Standaarddeviatie (voor {$a})';

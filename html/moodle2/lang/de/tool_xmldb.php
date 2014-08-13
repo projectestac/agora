@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_xmldb', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -201,9 +201,9 @@ $string['wronglengthforenum'] = 'Falsche Feldlänge (enum)';
 $string['wrongnumberofreffields'] = 'Falsche Anzahl von Referenzfeldern';
 $string['wrongoraclesemantics'] = 'Falsche Orcale BYTE Semantic sgefunden';
 $string['wrongreservedwords'] = 'Derzeit verwendete reservierte Wörter <br />(die Tabellennamen sind nicht wichtig, wenn $CFG->prefix genutzt wird)';
-$string['yesmissingindexesfound'] = 'Einige fehlende Indizes wurden in Ihrer Datenbank gefunden. Es folgen genauere Einzelheiten und die nötigen SQL-Anweisungen, die Sie mit Ihrem bevorzugten SQL-Werkzeug ausführen müssen, um alle Indizes zu erzeugen.<br /><br />
-Es wird dringend empfohlen, die Suche nach fehlenden Indizes danach noch einmal auszuführen.';
-$string['yeswrongdefaultsfound'] = 'In der Datenbank wurden inkonsistente Standardwerte gefunden. Die nachfolgenden Details und die auszuführenden SQL Statements sollen Ihnen helfen, die Fehler in Ihrer Datenbank zu beheben. Vergessen Sie nicht eine Datenbanksicherung zu erstellen, bevor Sie diese Anweisungen ausführen.<br/> <br/>
-Nachdem Sie das jeweilige Statement ausgeführt haben, sollten Sie die Prüfung erneut durchführen, um wirklich alle Inkonsistenzen aufzudecken.';
-$string['yeswrongintsfound'] = 'In Ihrer Datenbank wurden mehrere ungültige Zahlenwerte gefunden. Es folgen die Details und die benötigten SQL-Befehle, die Sie in Ihrer bevorzugten SQL-Oberfläche ausführen müssen, um die Fehler zu beheben (vergessen Sie bitte nicht, vor der Korrektur eine Sicherungskopie Ihrer Daten anzulegen!!)<br /><br />Nach der Ausführung wird dringend empfohlen, dieses Werkzeug erneut aufzurufen, um sicher zu stellen, dass keine ungültige Zahlenwerte mehr gefunden werden.';
-$string['yeswrongoraclesemanticsfound'] = 'Es wurden einige Oracle Tabellenspalten gefunden, die BYTE Semantics verwenden. Sie finden hier weitere Details und die erforderlichen SQL statements, um alle weiteren zu erzeugen. Sie können dafür Ihre SQL Arbeitsumgebung verwenden. Bitte unbedingt zuvor alle Daten sichern.<br /<br />Nach der Umsetzung sollte dieser Suchprozess hier nochmals durchgeführt werden, um weitere Fehler zu finden.';
+$string['yesmissingindexesfound'] = '<p>Einige fehlende Indizes wurden in Ihrer Datenbank gefunden. Es folgen genauere Einzelheiten und die nötigen SQL-Anweisungen, die Sie mit Ihrem bevorzugten SQL-Werkzeug ausführen müssen, um alle Indizes zu erzeugen.</p><p>
+Es wird dringend empfohlen, die Suche nach fehlenden Indizes danach noch einmal auszuführen.</p>';
+$string['yeswrongdefaultsfound'] = '<p>In der Datenbank wurden inkonsistente Standardwerte gefunden. Die nachfolgenden Details und die auszuführenden SQL Statements sollen Ihnen helfen, die Fehler in Ihrer Datenbank zu beheben. Vergessen Sie nicht eine Datenbanksicherung zu erstellen, bevor Sie diese Anweisungen ausführen.</p> <p>
+Nachdem Sie das jeweilige Statement ausgeführt haben, sollten Sie die Prüfung erneut durchführen, um wirklich alle Inkonsistenzen aufzudecken.</p>';
+$string['yeswrongintsfound'] = '<p>In Ihrer Datenbank wurden mehrere ungültige Zahlenwerte gefunden. Es folgen die Details und die benötigten SQL-Befehle, die Sie in Ihrer bevorzugten SQL-Oberfläche ausführen müssen, um die Fehler zu beheben (vergessen Sie bitte nicht, vor der Korrektur eine Sicherungskopie Ihrer Daten anzulegen!!)</p><p>Nach der Ausführung wird dringend empfohlen, dieses Werkzeug erneut aufzurufen, um sicher zu stellen, dass keine ungültige Zahlenwerte mehr gefunden werden.</p>';
+$string['yeswrongoraclesemanticsfound'] = '<p>Es wurden einige Oracle Tabellenspalten in Ihrer Datenbank gefunden, die BYTE Semantics verwenden. Sie finden hier weitere Details und die erforderlichen SQL statements, um alle weiteren zu erzeugen. Sie können dafür Ihre SQL Arbeitsumgebung verwenden. Bitte unbedingt zuvor alle Daten sichern.</p><p>Nach der Umsetzung sollte dieser Suchprozess hier nochmals durchgeführt werden, um weitere Fehler zu finden.</p>';

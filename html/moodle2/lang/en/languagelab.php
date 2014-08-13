@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'languagelab', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'languagelab', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   languagelab
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -92,6 +92,8 @@ $string['error_grade_permission'] = 'You don\'t have the permission to grade a s
 $string['error_grade_user_notexists'] = 'This user not exists for this activity. Grade not saved';
 $string['error_insert_feedback_parent_notexists'] = 'The student recording does not exist, the feedback can not be inserted';
 $string['error_insert_feedback_permission'] = 'You don\'t have the permission to create a feedback';
+$string['error_missing_camera'] = 'No camera detected. Please, connect a camera and restart the browser.';
+$string['error_missing_microphone'] = 'No microphone detected. Please, connect a microphone and restart the browser.';
 $string['error_record_save'] = 'An error has occured, recording not saved';
 $string['errorTitle'] = 'Error';
 $string['error_user_max_attempts'] = 'You can\'t create anymore recordings. You have to delete one recording in order to create a new one';

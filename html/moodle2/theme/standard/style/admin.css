@@ -1,15 +1,13 @@
 /** Admin **/
 
-#page-admin-course-category .rolelink {text-align:right;padding:10px;}
+#page-admin-course-manage .rolelink {text-align:right;padding:10px;}
 
 #page-admin-lang .generalbox,
-#page-admin-course-index .singlebutton,
-#page-admin-course-index .addcategory,
-#page-admin-course-category .addcategory,
+#page-admin-course-manage .singlebutton,
+#page-admin-course-manage .addcategory,
 #page-admin-stickyblocks .generalbox,
 #page-admin-maintenance .buttons,
-#page-admin-course-index .buttons,
-#page-admin-course-category .buttons,
+#page-admin-course-manage .buttons,
 #page-admin-index .copyright,
 #page-admin-index .copyrightnotice,
 #page-admin-index .adminerror,
@@ -21,7 +19,8 @@
 #page-admin-index .adminerror,
 #page-admin-index .adminwarning {margin:20px;}
 
-#page-admin-index .maturitywarning {margin-left:auto;margin-right:auto;text-align:center;width:60%;background-color:#ffd3d9;}
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning {margin-left:auto;margin-right:auto;text-align:center;width:60%;background-color:#ffd3d9;}
 #page-admin-index .releasenoteslink {margin-left:auto;margin-right:auto;text-align:center;width:60%;}
 
 #page-admin-enrol .enrolplugintable {width:700px;margin:1em auto;}
@@ -95,7 +94,6 @@ table.flexible .r1 {background-color: #FAFAFA;}
 #adminsettings fieldset.error {border: 1px solid red;}
 #adminsettings fieldset.error legend {color: red;}
 #adminsettings .form-shortname {color: #888;}
-#adminsettings .form-overridden {background-color: #ff6;}
 #adminsettings .form-warning {background-color: #f88;}
 #adminsettings .form-defaultinfo {color: #888;}
 #adminsettings .form-item .pathok {color: green;}
@@ -128,7 +126,7 @@ table.flexible .r1 {background-color: #FAFAFA;}
 #page-admin-roles-manage .rolecap,
 #page-admin-roles-override .rolecap {border:none;border-bottom:1px solid #CECECE;}
 
-.path-admin .manageauthtable {width:90%;margin:0 auto;}
+.path-admin #manageauthtable {width:90%;margin:0 auto;}
 
 #explaincaps .rolecap.yes {background-color: #DDFFDD;}
 #explaincaps .rolecap.no {background-color: #FFDDDD;}

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'Teniu un xat nou';
 $string['ajax'] = 'Versió Ajax';
 $string['autoscroll'] = 'Desplaçament automàtic';
 $string['beep'] = 'bip';
+$string['bubble'] = 'Bombolla';
 $string['cantlogin'] = 'No s\'ha pogut entrar a la sala de xat';
 $string['chat:addinstance'] = 'Afegeix un xat nou';
 $string['chat:chat'] = 'Parlar en un xat';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Llegir registres de xat';
 $string['chatreport'] = 'Sessions de xat';
 $string['chat:talk'] = 'Participar en un xat';
 $string['chattime'] = 'Proper dia i hora de xat';
+$string['compact'] = 'Compacte';
 $string['composemessage'] = 'Redacta un missatge';
 $string['configmethod'] = 'El mètode normal de xat implica que els clients contactin regularment el servidor en cerca d\'actualitzacions. No necessita cap configuració i funciona enlloc, però pot crear una càrrega gran al servidor si s\'apleguen molts usuaris. Utilitzar un dimoni servidor requereix accés a l\'intèrpret d\'ordres d\'Unix, però comporta un entorn de xat ràpid i escalable.';
 $string['confignormalupdatemode'] = 'El refresc de la sala de xat se sol realitzar d\'una manera prou eficient per mitjà de la característica <em>Keep-Alive</em> de l\'HTTP 1.1, però això és bastant pesat per al servidor. Un mètode més avançat consisteix a utilitzar l\'estratègia <em>Corrent de dades</em> per enviar les actualitzacions als usuaris. L\'estratègia <em>Corrent de dades</em> és més escalable (similar al mètode chatd) però no funciona en tots els servidors.';
@@ -51,6 +53,7 @@ $string['configserverhost'] = 'El nom de l\'ordinador on hi ha el dimoni servido
 $string['configserverip'] = 'L\'adreça IP numèrica corresponent al mateix ordinador';
 $string['configservermax'] = 'Nombre màxim de clients permesos';
 $string['configserverport'] = 'Número del port que pot utilitzar el dimoni';
+$string['coursetheme'] = 'Tema del curs';
 $string['currentchats'] = 'Sessions de xat actives';
 $string['currentusers'] = 'Usuaris actuals';
 $string['deletesession'] = 'Suprimeix aquesta sessió';
@@ -59,6 +62,9 @@ $string['donotusechattime'] = 'No publiquis el dia i hora dels xats';
 $string['enterchat'] = 'Feu clic aquí per entrar al xat';
 $string['entermessage'] = 'Escriviu el vostre missatge';
 $string['errornousers'] = 'No s\'ha pogut trobar cap usuari!';
+$string['event_instances_list_viewed'] = 'S\'ha visualitzat la llista d\'instàncies';
+$string['event_message_sent'] = 'S\'ha enviat el missatge';
+$string['event_sessions_viewed'] = 'S\'han visualitzat les sessions';
 $string['explaingeneralconfig'] = 'Aquests paràmetres són efectius <strong>sempre</strong>';
 $string['explainmethoddaemon'] = 'Aquests paràmetres <strong>només</strong> compten si heu seleccionat "Dimoni servidor de chat" en chat_method';
 $string['explainmethodnormal'] = 'Aquests paràmetres <strong>només</strong> compten si heu seleccionat "Mètode normal" en chat_method';

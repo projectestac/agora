@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -60,3 +60,4 @@ Som tillägg, alla webservice förfrågningar från verktygsleverantören kommer
 Om detta alternativ används kontrollera att denna Moodleplats och verktygsleverantören stödjer SSL.';
 $string['global_tool_types'] = 'Globala verktygstyper';
 $string['return_to_course'] = 'Klicka <a href="{$a->link}" target="_top">here</a> för att återgå till kursen.';
+$string['submissions'] = 'Inskickningar';

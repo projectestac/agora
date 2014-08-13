@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,12 @@ $string['customtitles_help'] = 'Normally the chapter title is displayed in the t
 If the custom titles checkbox is ticked, the chapter title is NOT displayed as a heading above the content. A different title (perhaps longer than the chapter title) may be entered as part of the content.';
 $string['editingchapter'] = 'Editing chapter';
 $string['errorchapter'] = 'Error reading chapter of book.';
+$string['event_chapter_created'] = 'Chapter created';
+$string['event_chapter_deleted'] = 'Chapter deleted';
+$string['event_chapter_updated'] = 'Chapter updated';
+$string['event_chapter_viewed'] = 'Chapter viewed';
+$string['event_course_module_viewed'] = 'Course module viewed';
+$string['event_instances_list_viewed'] = 'Instances list viewed';
 $string['modulename'] = 'Book';
 $string['modulename_help'] = 'The book module enables a teacher to create a multi-page resource in a book-like format, with chapters and subchapters. Books can contain media files as well as text and are useful for displaying lengthy passages of information which can be broken down into sections.
 

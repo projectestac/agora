@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_merlot', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_merlot', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_merlot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Einstellungen für Merlot.org';
 $string['licensekey'] = 'Lizenzschlüssel';
-$string['merlot:view'] = 'Merlot-Repository anzeigen';
+$string['merlot:view'] = 'Repository \'Merlot.org\' anzeigen';
 $string['pluginname'] = 'Merlot.org';
 $string['pluginname_help'] = 'Merlot.org';

@@ -1,47 +1,47 @@
 <?php
-require_once($CFG->dirroot . '/question/type/wq/lib.php');
+require_once($CFG->dirroot . '/question/type/wq/question.php');
 require_once($CFG->dirroot . '/question/type/match/question.php');
 
-class qtype_matchwiris_question extends qtype_match_question {
+class qtype_matchwiris_question extends qtype_wq_question implements question_automatically_gradable_with_countback {
     
-    public function start_attempt(question_attempt_step $step, $variant) {
-        
-        parent::start_attempt($step, $variant);
-     
-        $stems = "";
+    // References to moodle's question object
+    public $shufflestems;
+    public $correctfeedback;
+    public $correctfeedbackformat;
+    public $partiallycorrectfeedback;
+    public $partiallycorrectfeedbackformat;
+    public $incorrectfeedback;
+    public $incorrectfeedbackformat;
+    public $stems;
+    public $stemformat;
+    public $choices;
+    public $right;
+    
+    public function join_all_text() {
+        $text = parent::join_all_text();
+        // Stems (matching left hand side)
         foreach ($this->stems as $key => $value){
-            $stems .= " " . $value;
+            $text .= ' ' . $value;
         }
-        
-        $choices = "";
+        // Choices (matching right hand side)
         foreach ($this->choices as $key => $value){
-            $choices .= " " . $value;
+            $text .= ' ' . $value;
         }
-
-        $hints = "";
-        foreach ($this->hints as $value) {
-            $hints .= " " . $value->hint;
-        }
-
-        $qi = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $stems .  ' ' . $choices . ' ' . $this->generalfeedback
-                 . ' ' .  $this->correctfeedback . ' ' . $this->incorrectfeedback . ' ' . $hints, null, $variant);
+        // Combined feedback
+        $text .= ' ' . $this->correctfeedback . ' ' . $this->partiallycorrectfeedback . ' ' . $this->incorrectfeedback;
         
-        $step->set_qt_var('_qi', $qi->serialize());
-    }    
+        return $text;
+    }
     
-    public function summarise_response(array $response) {
-        if (isset($response['answer'])) {
-            return 'Student answer not previewable.';
-            //return $response['answer'];
-        } else {
-            return null;
-        }
-    }    
-    
-    public function get_expected_data() {
-        $vars = parent::get_expected_data();
-        $vars['_sqi'] = PARAM_RAW_TRIMMED;
-        return $vars;        
-    }    
+    public function get_stem_order(){
+        return $this->base->get_stem_order();
+    }
+    public function get_choice_order(){
+        return $this->base->get_choice_order();
+    }
+    public function get_right_choice_for($stemid){
+        return $this->base->get_right_choice_for($stemid);
+    }
+      
 }
 ?>

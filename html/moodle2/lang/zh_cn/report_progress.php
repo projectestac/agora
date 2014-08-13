@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_progress', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_progress', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   report_progress
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['page-report-progress-index'] = '活动进度报告';
+$string['page-report-progress-user'] = '用户活动进度报告';
+$string['page-report-progress-x'] = '任何活动进度报告';
 $string['pluginname'] = '活动进度';
 $string['progress:view'] = '查看活动进度报告';

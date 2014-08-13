@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_participants', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_participants', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_participants
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['participants:addinstance'] = '新增通讯录版块';
 $string['pluginname'] = '通讯录';

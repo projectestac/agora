@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,7 @@ $string['cronfrequency'] = 'Häufigkeit des Prozesses';
 $string['deleteusers'] = 'Nutzerzugänge löschen, wenn in IMS-Daten definiert';
 $string['deleteusers_desc'] = 'Funktion: Mitden IMS Enterprise Einschreibungsdaten kann mann auch Nutzeraccounts löschen wenn der "recstatus" auf auf \'3\' gesetzt wird. In Moodle wird der Datensatz des Nutzers dann nicht gelöscht, sondern der Flag auf gelöscht gesetzt.';
 $string['doitnow'] = 'IMS Enterprise Import jetzt durchführen';
+$string['emptyattribute'] = 'Leer lassen';
 $string['filelockedmail'] = 'Die Textdatei ({$a}), die für das IMS-Datei-basierte Kurs-Anmeldeverfahren genutzt wird, konnte vom Cron-Prozess nicht gelöscht werden. Das bedeutet normalerweise, dass die Dateirechte fehlerhaft sind. Bitte prüfen Sie die Rechte, damit Moodle die Datei löschen kann. Andernfalls wird der Vorgang immer wiederholt.';
 $string['filelockedmailsubject'] = 'Wichtiger Fehler: Anmeldedatei';
 $string['fixcasepersonalnames'] = 'Namen am Anfang groß schreiben';
@@ -63,6 +64,12 @@ $string['restricttarget'] = 'Daten nur verarbeiten, wenn das folgende Ziel angeg
 $string['restricttarget_desc'] = 'Eine IMS Enterprise Datei kann für verschiedene Verwaltungssysteme eine Bildungseinrichtungen verwandt werden. Dazu wird in der IMS Enterprise Datei das Zielsystem im <target> Tag innerhalb des <properties> Tags festgelegt.
 Meistens brauchen Sie sich hierüber keine Gedanken zu machen. Lassen Sie den Eintrag leer und Moodle verarbeitet die alle Daten aus der Datei. Andernfalls tragen Sie hier den Wert ein, der in der IMS-Enterprise Datei als Wert für Moodle in <targtet> verwendet wird. ';
 $string['roles'] = 'Rollen';
+$string['settingfullname'] = 'IMS Beschreibungs-Tag für den vollständigen Kursnamen';
+$string['settingfullnamedescription'] = 'Der Langtitel des Kurses ist ein Pflichtfeld. Das diesen enthaltende Beschreibungsfeld inder IMS Enterprise-Datei ist festzulegen.';
+$string['settingshortname'] = 'IMS Beschreibungs-Tag für den kurzen Kursnamen';
+$string['settingshortnamedescription'] = 'Der Kurztitel des Kurses ist ein Pflichtfeld. Das diesen enthaltende Beschreibungsfeld inder IMS Enterprise-Datei ist festzulegen.';
+$string['settingsummary'] = 'IMS Beschreibungs-Tag für die Kursbeschreibung';
+$string['settingsummarydescription'] = 'Dies ist ein optionales Feld. Es kann auf Wunsch leer bleiben.';
 $string['sourcedidfallback'] = '"sourcedid" statt "userid" für die Nutzer-ID verwenden, wenn das Feld "userid" nicht gefunden wird';
 $string['sourcedidfallback_desc'] = 'Im IMS Datensatz wird im <sourceid> Feld die dauerhafte persönliche ID -Bezeichnung des Nutzers aus dem Ursprungssystem hinterlegt.  Das <userid> Feld ist ein zusätzliches Feld und enthält einen ID Code mit dem der Nutzer sich einloggen kann. Manchmal - jedoch nicht immer - sind die Einträge identisch.
 

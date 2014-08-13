@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Azione';
 $string['addanotherhint'] = 'Aggiungi un altro suggerimento';
 $string['addcategory'] = 'Aggiungi categoria';
+$string['addmorechoiceblanks'] = 'Spazi per altre {no} alternative';
 $string['adminreport'] = 'Report su possibili problemi nel tuo database di domande.';
 $string['answer'] = 'Risposta';
+$string['answers'] = 'Risposte';
 $string['answersaved'] = 'Risposta salvata';
 $string['attemptfinished'] = 'Tentativo terminato';
 $string['attemptfinishedsubmitting'] = 'Tentativo terminato inviando:';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'Impossibile creare un nuovo elemento nella tabella de
 $string['cannotcreatepath'] = 'Impossibile creare il path: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'Non è possibile eliminare il comportamento \'{$a}\' poiché è utilizzato da un tentativo.';
 $string['cannotdeletecate'] = 'Impossibile elimiare la categoria in quanto è quella default per questo contesto.';
-$string['cannotdeletemissingbehaviour'] = 'Non è possibile disinstallare il comportamento mancante poiché è necessario al sistema.';
-$string['cannotdeletemissingqtype'] = 'Non è possibile eliminare il tipo di domanda \'mancante\', poiché è necessaria al sistema.';
 $string['cannotdeleteneededbehaviour'] = 'Non è possibile eliminare il comportamento \'{$a}\' poiché esistono altri comportamenti che lo utilizzano.';
 $string['cannotdeleteqtypeinuse'] = 'Il tipo di domanda \'{$a}\' non può essere eliminato poiché nel deposito delle domande sono presenti domande di questo tipo.';
 $string['cannotdeleteqtypeneeded'] = 'Il tipo di domanda \'{$a}\' non può essere eliminato poiché sono presenti domande che dipendono da questo tipo.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'Non dovresti essere qui se non stai spostando una cat
 $string['copy'] = 'Copia da {$a} e cambia i link.';
 $string['correct'] = 'Risposta corretta';
 $string['correctfeedback'] = 'per ogni risposta corretta';
+$string['correctfeedbackdefault'] = 'Risposta corretta.';
 $string['created'] = 'Creazione';
 $string['createdby'] = 'Creata da';
 $string['createdmodifiedheader'] = 'Creazione/salvataggio più recente';
@@ -111,13 +112,10 @@ $string['defaultfor'] = 'Default per {$a}';
 $string['defaultinfofor'] = 'La categoria default per le domande condivise nel contesto \'{$a}\'.';
 $string['defaultmark'] = 'Punteggio di default';
 $string['defaultmarkmustbepositive'] = 'Il punteggi odi default deve essere positivo.';
-$string['deletebehaviourareyousure'] = 'Eliminazione comportamento {$a}: sei sicuro ?';
-$string['deletebehaviourareyousuremessage'] = 'Stai per rimuovere il comportamento {$a}.  Saranno anche eliminati tutti i dati presenti nel database relativi a questo comportamento delle domande. Se sicuro ?';
 $string['deletecoursecategorywithquestions'] = 'Ci sono domande nel deposito delle domande associate con questa categoria di corso. Se procedi, queste saranno eliminate. Puoi comunque spostarle prima, usando l\'interfaccia del deposito delle domande.';
-$string['deleteqtypeareyousure'] = 'Sei sicuro di voler eliminare il tipo di domanda \'{$a}\'';
-$string['deleteqtypeareyousuremessage'] = 'Stai per rimuovere il tipo di domanda \'{$a}\'. Saranno anche eliminati tutti i dati presenti nel database relativi a questo tipo di domanda. Sei sicuro ?';
 $string['deletequestioncheck'] = 'Sei proprio sicuro di voler eliminare \'{$a}\'?';
-$string['deletequestionscheck'] = 'Sei sicuro di eliminare le seguenti domande ?<br /><br />{$a}';
+$string['deletequestionscheck'] = '<p>Sei sicuro di eliminare le seguenti domande ?</p>
+<p>{$a}</p>';
 $string['deletingbehaviour'] = 'Eliminazione comportamento domanda \'{$a}\'';
 $string['deletingqtype'] = 'Eliminazione del tipo di domanda \'{$a}\'';
 $string['didnotmatchanyanswer'] = '[Non ha associato nessuna risposta]';
@@ -192,6 +190,7 @@ $string['getcategoryfromfile'] = 'Categoria da file';
 $string['getcontextfromfile'] = 'Contesto da file';
 $string['hidden'] = 'Nascosto';
 $string['hintn'] = 'Suggerimento {no}';
+$string['hintnoptions'] = 'Opzioni suggerimento {no}';
 $string['hinttext'] = 'Testo del suggerimento';
 $string['howquestionsbehave'] = 'Comportamento della domanda';
 $string['howquestionsbehave_help'] = 'Gli studenti possono interagire con le domande del quiz in vari modi. Ad esempio, puoi consentire agli studenti di dare una risposta ad ogni domanda e poi terminare il quiz prima di ricevere valutazioni o feedback: questo è la modalità "feedback differito".
@@ -217,6 +216,7 @@ $string['impossiblechar'] = 'Carattere sconosciuto {$a} rilevato al posto della 
 $string['includesubcategories'] = 'Visualizza anche le domande presenti nelle sotto categorie';
 $string['incorrect'] = 'Risposta errata';
 $string['incorrectfeedback'] = 'Per ciascuna risposta sbagliata';
+$string['incorrectfeedbackdefault'] = 'Risposta errata.';
 $string['information'] = 'Informazione';
 $string['invalidanswer'] = 'Risposta incompleta';
 $string['invalidarg'] = 'Argomenti non validi o configurazione server non corretta';
@@ -232,11 +232,11 @@ $string['linkedfiledoesntexist'] = 'Il file linkato {$a} non esiste';
 $string['makechildof'] = 'Fai figlio di \'{$a}\'';
 $string['makecopy'] = 'Duplica';
 $string['maketoplevelitem'] = 'Muovi al primo livello';
-$string['manualgradeoutofrange'] = 'la valutazione è al i fuori dell\'intervallo.';
+$string['manualgradeoutofrange'] = 'la valutazione è al di fuori dell\'intervallo.';
 $string['manuallygraded'] = 'Valutato manualmente {$a->mark} con il commento: {$a->comment}';
 $string['mark'] = 'Punteggio';
-$string['markedoutof'] = 'Punteggio ottenuto su';
-$string['markedoutofmax'] = 'Punteggio ottenuto su {$a}';
+$string['markedoutof'] = 'Punteggio massimo';
+$string['markedoutofmax'] = 'Punteggio max.: {$a}';
 $string['markoutofmax'] = 'Punteggio ottenuto {$a->mark} su {$a->max}';
 $string['marks'] = 'Punteggio';
 $string['matchgrades'] = 'Allinea voti';
@@ -336,6 +336,7 @@ $string['parenthesisinproperstart'] = 'La parentesi prima di ** non è aperta co
 $string['parsingquestions'] = 'Analisi domande presenti nel file di importazione.';
 $string['partiallycorrect'] = 'Parzialmente corretta';
 $string['partiallycorrectfeedback'] = 'Per ciascuna risposta parzialmente corretta';
+$string['partiallycorrectfeedbackdefault'] = 'Risposta parzialmente corretta.';
 $string['penaltyfactor'] = 'Fattore di penalità';
 $string['penaltyfactor_help'] = '<p>Per ogni risposta errata può essere definita la frazione di punteggio raggiunto che deve essere sottratta. Questo è significativo solamente se il quiz è eseguito in modo adattativo tale per cui allo studente è permesso di rispondere più volte alla domanda. Il fattore di penalità può essere un numero tra 0 e 1. Un fattore uguale a 1 significa che lo studente deve rispondere correttamente al primo tentativo se vuole ottenere qualche punto dalla domanda in questione. Un fattore uguale a 0 significa che lo studente può provare quante volte vuole e ancora aspirare al massimo punteggio per la stessa domanda.</p>';
 $string['penaltyforeachincorrecttry'] = 'Penalità per ciascuna scelta non corretta';
@@ -348,8 +349,6 @@ $string['permissionsaveasnew'] = 'Salvare questa domanda come nuova domanda';
 $string['permissionto'] = 'Sei autorizzato a:';
 $string['previewquestion'] = 'Anteprima domanda: {$a}';
 $string['published'] = 'condivise';
-$string['qbehaviourdeletefiles'] = 'Tutti i dati associati al comportamento \'{$a->behaviour}\' sono stati eliminati dal database. Per completare l\'eliminazione, evitando che il comportamento si installi di nuovo, devi anche eliminare la cartella {$a->directory} dal serevr.';
-$string['qtypedeletefiles'] = 'Tutti i dati associati al tipo di domanda  \'{$a->qtype}\' sono stati eliminati dal database. Per completare l\'eliminazione ed evitare che il tipo di domanda si re-installi automaticamente, devi eliminare anche la cartella {$a->directory} dal tuo server.';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">La domanda "{$a->name}" ({$a->qtype})</a> è in questa categoria ma è anche usata nel <a href="{$a->qurl}">quiz "{$a->quizname}"</a> nell\'altro corso "{$a->coursename}".';
 $string['questionbank'] = 'Deposito delle domande';
@@ -364,6 +363,8 @@ $string['questiondoesnotexist'] = 'Questa domanda non esiste';
 $string['questionidmismatch'] = 'Mancata corrispondenza delle id delle domande';
 $string['questionname'] = 'Nome della domanda';
 $string['questionno'] = 'Domanda {$a}';
+$string['questionpreviewdefaults'] = 'Default anteprima domanda';
+$string['questionpreviewdefaults_desc'] = 'I default vengono utilizzati quando un utente visualizza l\'anteprima di una domanda presente nel deposito delle domande. Dopo che la domanda è stata visualizzata in anteprima per la prima volta, le preferenze personali saranno memorizzate come preferenze dell\'utente.';
 $string['questions'] = 'Domande';
 $string['questionsaveerror'] = 'Si sono verificati errori durante il salvataggio della domanda - ({$a})';
 $string['questionsinuse'] = '(* Le domande contrassegnate da un asterisco sono quelle giù in uso in altri quiz. Tali domande non saranno eliminate da quei quiz ma solo dall\'elenco della categoria.)';
@@ -389,7 +390,7 @@ $string['selectacategory'] = 'Scegli una categoria:';
 $string['selectaqtypefordescription'] = 'Scegli un tipo di domanda per vederne la descrizione.';
 $string['selectcategoryabove'] = 'Scegli una delle categorie sopra elencate';
 $string['selectquestionsforbulk'] = 'Seleziona le domande per azioni su elenchi';
-$string['settingsformultipletries'] = 'Impostazioni per tentativi multipli';
+$string['settingsformultipletries'] = 'Tentativi multipli';
 $string['shareincontext'] = 'Condividi in contesto per {$a}';
 $string['showhidden'] = 'Visualizza anche le domande vecchie';
 $string['showmarkandmax'] = 'Visualizza punteggio e max.';
@@ -412,6 +413,7 @@ $string['submitandfinish'] = 'Invia e termina';
 $string['submitted'] = 'Invia: {$a}';
 $string['technicalinfo'] = 'Informazioni tecniche';
 $string['technicalinfo_help'] = 'In genere queste informazioni tecniche sono utili agli sviluppatori di nuovi tipi di domande. Possono anche risultare utili per diagnosticare eventuali problemi con le domande.';
+$string['technicalinfomaxfraction'] = 'Frazione massima: {$a}';
 $string['technicalinfominfraction'] = 'Frazione minima: {$a}';
 $string['technicalinfoquestionsummary'] = 'Sommario domanda: {$a}';
 $string['technicalinforightsummary'] = 'Sommario risposta corretta: {$a}';

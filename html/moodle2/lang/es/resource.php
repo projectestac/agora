@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,11 +44,12 @@ $string['contentheader'] = 'Contenido';
 $string['displayoptions'] = 'Opciones para mostrar disponibles';
 $string['displayselect'] = 'Mostrar';
 $string['displayselectexplain'] = 'Elegir tipo (desafortunadamente no todos los tipos funcionan en todos los archivos).';
-$string['displayselect_help'] = 'Este parámetro, junto con el tipo de archivo, y siempre que el navegador permita incorporar código, determina cómo se muestra el archivo.
+$string['displayselect_help'] = 'Este ajuste, junto con el tipo de archivo, y siempre que el navegador permita incrustar código, determina cómo se muestra el archivo.
 Las opciones pueden incluir:
+
 * Automático - Se selecciona de forma automática la mejor opción para visualizar el archivo
-* Incrustar - La URL se muestra dentro de la página debajo de la barra de navegación junto con la descripción y cualquier otro bloque
-* Forzar descarga - Se le pregunta al usuario si desea descargar el fichero.
+* Incrustar - el fichero se muestra dentro de la página debajo de la barra de navegación junto con la descripción y cualquier otro bloque
+* Forzar descarga - Se le pregunta al usuario si desea descargar el fichero
 * Abrir - Sólo se muestra la dirección en la ventana del navegador
 * En ventana emergente - La URL se muestra en una ventana nueva del navegador sin menús y sin barra de direcciones';
 $string['dnduploadresource'] = 'Crear recurso archivo';
@@ -75,7 +76,7 @@ Un Archivo puede utilizarse para
 $string['modulenameplural'] = 'Archivos';
 $string['neverseen'] = 'Nunca visto';
 $string['notmigrated'] = 'Este tipo de recurso heredado ({$a}) no ha sido trasladado aún.';
-$string['optionsheader'] = 'Opciones';
+$string['optionsheader'] = 'Mostrar opciones';
 $string['page-mod-resource-x'] = 'Cualquier página del módulo Archivo';
 $string['pluginadministration'] = 'Administración del módulo archivo';
 $string['pluginname'] = 'Recurso';
@@ -85,10 +86,9 @@ $string['popupresource'] = 'Este recurso debe aparecer en una ventana emergente'
 $string['popupresourcelink'] = 'Si no, haga clic aquí: {$a}';
 $string['popupwidth'] = 'Anchura (en píxels) de la ventana emergente';
 $string['popupwidthexplain'] = 'Especifica la anchura por defecto de las ventanas emergentes.';
-$string['printheading'] = 'Mostrar nombre del recurso';
-$string['printheadingexplain'] = '¿Mostrar nombre del recurso encima del contenido? Algunos tipos pueden no mostrar el nombre del recurso incluso aunque esté activado.';
 $string['printintro'] = 'Mostrar descripción del recurso';
-$string['printintroexplain'] = '¿Mostrar la descripción del recurso debajo del contenido? Algunos tipos pueden no mostrar la descripción incluso aunque esté activada esa opción.';
+$string['printintroexplain'] = '¿Mostrar la descripción del recurso debajo del contenido? Algunos tipos de visualización pueden no mostrar la descripción incluso aunque esté activada esa opción.';
+$string['resource:addinstance'] = 'Añadir un nuevo recurso';
 $string['resourcecontent'] = 'Archivos y subcarpetas';
 $string['resourcedetails_sizetype'] = '{$a->size} {$a->type}';
 $string['resource:exportresource'] = 'Exportar recurso';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_poodll', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'filter_poodll', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_poodll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,7 @@ $string['capturewidth'] = 'Enregistrement vidéo : Largeur';
 $string['datadir'] = 'Répertoire des données PoodLL';
 $string['datadirdetails'] = 'Sous-répertoire de Moodle, pour permettre l\'accès à certains composants et l\'accès aux fichiers de ressources multimédias comme avec Moodle 1.9. Ne doit être utilisé que pour des ressources multimédias non sensibles. PoodLL ne va pas créer ou gérer les droits d\'accès de ce dossier.';
 $string['defaultplayer'] = 'Lecteur Audio/vidéo par défaut';
+$string['defaultwhiteboard'] = 'Tableau blanc par défaut';
 $string['ffmpeg'] = 'Conversion des fichiers multimédia téléversés avec FFMPEG';
 $string['ffmpeg_details'] = 'FFMPEG doit être installé sur votre serveur Moodle avec désignation du chemin système. Il devra prendre en charge la conversion en MP3. Essayer d\'abord en ligne de commande. Par exemple ffmpeg-i somefile.flv somefile.mp3. C\'est encore « expérimental »';
 $string['filename'] = 'Nom de fichier par défaut';
@@ -78,23 +79,36 @@ $string['html5widgets'] = 'Widgets PoodLL HTML5';
 $string['journal_audio'] = 'Journal PoodLL : Audio ?';
 $string['journal_recording'] = 'Journal PoodLL : Activer les enregistrements audio-vidéo ?';
 $string['journal_video'] = 'Journal PoodLL : Vidéo ?';
+$string['miccanpause'] = 'Permettre la mise en pause (enregistreur MP3 uniquement)';
 $string['micecho'] = 'Echo du micro';
 $string['micgain'] = 'Gain du micro';
 $string['micloopback'] = 'Bouclage du micro';
 $string['micrate'] = 'Volume du micro';
 $string['micsilencelevel'] = 'Niveau du silence micro';
 $string['miniplayerwidth'] = 'Largeur du mini-lecteur';
+$string['mobile_os_version_warning'] = '<p>La version de votre système d\'exploitation est trop ancienne.</p>
+<ul>
+<li>Android : minimum version 4</li>
+<li>iOS : minimum version 6</li>
+</ul>';
+$string['mp3opts'] = 'Options de conversion MP3 de FFmpeg';
+$string['mp3opts_details'] = 'Laissez ceci vide si vous souhaitez laisser FFmpeg prendre les décisions. Tout ce que vous entrez ici apparaîtra entre [ffmpeg -i myfile.xx ] et [ myfile.mp3 ]';
+$string['mp4opts'] = 'Options de conversion MP4 de FFmpeg';
+$string['mp4opts_details'] = 'Laissez ceci vide si vous souhaitez laisser FFmpeg prendre les décisions. Tout ce que vous entrez ici apparaîtra entre [ffmpeg -i myfile.xx ] et [ myfile.mp4 ]';
 $string['newpairheight'] = 'Hauteur du Widget PairWork';
 $string['newpairwidth'] = 'Largeur du Widget PairWork';
 $string['nopoodllresource'] = '--- Sélection de la ressource PoodLL ---';
 $string['overwrite'] = 'Écraser aussi ?';
 $string['picqual'] = 'Cible Webcam qual. 1 - 10';
+$string['pluginname'] = 'Filtre PooodLL';
+$string['poodll:candownloadmedia'] = 'Peut télécharger des médias';
 $string['screencapturedevice'] = 'Nom du périphérique de capture d\'écran';
 $string['serverhttpport'] = 'Port du serveur PoodLL (HTTP)';
 $string['serverid'] = 'Identifiant du serveur PoodLL';
 $string['servername'] = 'Adresse de l\'hôte PoodLL';
 $string['serverport'] = 'Port du serveur PoodLL (RTMP)';
 $string['settings'] = 'Paramètres du fitre PoodLL';
+$string['showdownloadicon'] = 'Afficher l\'icône de téléchargement au-dessous des lecteurs';
 $string['showheight'] = 'Hauteur du lecteur de copie d\'écran';
 $string['showwidth'] = 'Largeur du lecteur de copie d\'écran';
 $string['smallgallheight'] = 'Hauteur de la galerie vidéo (petit)';
@@ -113,6 +127,9 @@ $string['videosplashdetails'] = 'L\'écran d\'accueil est seulement affiché pou
 $string['videotranscode'] = 'Conversion automatique en MP4';
 $string['videotranscodedetails'] = 'Conversion automatique des fichiers vidéo enregistrés ou téléversés au format MP4 avant de copier de nouveau dans Moodle. N\'utilisez cette fonctionnalité que lorsque vous utilisez tokyo.poodll.com comme serveur.';
 $string['videowidth'] = 'Largeur du lecteur vidéo';
+$string['wboardautosave'] = 'Enregistrement automatique (millisecondes)';
+$string['wboardautosave_details'] = 'Enregistrer le dessin lorsque l\'utilisateur s\'arrête de dessiner pendant au moins X millisecondes. 0 = pas d\'enregistrement automatique';
 $string['wboardheight'] = 'Hauteur du tableau blanc';
 $string['wboardwidth'] = 'Largeur du tableau blanc';
+$string['whiteboardsave'] = 'Enregistrer l\'image';
 $string['wordplayerfontsize'] = 'Taille du texte du lecteur';

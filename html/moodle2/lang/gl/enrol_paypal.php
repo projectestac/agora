@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = 'Período de tempo durante o que é válida a matr
 $string['enrolperiod_help'] = 'Tempo durante o que a matriculación é válida, comezando desde o momento en que o usuario se matricula. De estar desactivado, a duración da matriculación será ilimitada.';
 $string['enrolstartdate'] = 'Data de inicio';
 $string['enrolstartdate_help'] = 'De estar conectada, os usuarios soamente se poden matricular desde esta data en diante.';
+$string['expiredaction'] = 'Acción na expiración da matrícula';
+$string['expiredaction_help'] = 'Seleccione a acción que se realizar cando a matricula do usuario expire. Vexa que algúns datos do usuario e de configuración purgaranse do curso na desmatriculación.';
 $string['mailadmins'] = 'Notificarlle ao admin';
 $string['mailstudents'] = 'Notificarlle aos alumnos';
 $string['mailteachers'] = 'Notificarlle aos profesores';

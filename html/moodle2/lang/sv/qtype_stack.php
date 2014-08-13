@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_stack', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_stack', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_stack
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -250,7 +250,7 @@ $string['settingplatformmaximacommand_desc'] = 'Stack behöver veta hur Maxima s
 $string['settingplatformplotcommand'] = 'Kommando för grafritning';
 $string['settingplatformplotcommand_desc'] = 'Stack behöver veta hur gnuplot ska köras, och gör en kvalificerad gissning ifall fältet är tomt.';
 $string['settingplatformtype'] = 'Serverplattform';
-$string['settingplatformtype_desc'] = 'Stack behöver veta vilket operativsystem det körs på.';
+$string['settingplatformtype_desc'] = 'STACK behöver veta vilken typ av operativsystem det körs på. Server- och MaximaPool-alternativen ger bättre prestanda på bekostnad av att en ytterligare server behöver sättas upp. Alternativet "Linux (optimerad)" förklaras på sidan om optimering av Maxima i dokumentationen.';
 $string['settingplatformtypeserver'] = 'Server';
 $string['settingplatformtypeunix'] = 'Linux';
 $string['settingplatformtypewin'] = 'Windows';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = '무들 관리자';
 $string['audienceeducators'] = '교육자';
 $string['audience_help'] = '이 강좌에 참여하고자 하는 수강자를 선택하세요.';
 $string['audiencestudents'] = '학생';
+$string['badgesnumber'] = '뱃지 수 ({$a})';
 $string['badurlformat'] = '잘못된 URL 형식';
 $string['cannotsearchcommunity'] = '죄송합니다. 이 페이지를 볼 권한이 없습니다.';
 $string['community'] = '커뮤니티';
@@ -109,6 +110,7 @@ $string['hub'] = '허브';
 $string['imageurl'] = '이미지 URL';
 $string['imageurl_help'] = '이 이미지는 허브에 게시될 것입니다. 이 이미지는 항상 허브로부터 얻을 수 있어야 합니다. 이미지는 최대 크기 {$a->width} X {$a->height}를 가질 수 있습니다.';
 $string['information'] = '정보';
+$string['issuedbadgesnumber'] = '발행한 뱃지 수 ({$a})';
 $string['language'] = '언어';
 $string['language_help'] = '이 강좌의 주언어';
 $string['lasttimechecked'] = '체크한 마지막 시간';
@@ -157,7 +159,7 @@ $string['readvertiseon'] = ' {$a}에 홍보 정도를 업데이트';
 $string['registeredcourses'] = '등록된 강좌들';
 $string['registeredmoodleorg'] = '	
 Moodle.org ({$a})';
-$string['registeredon'] = '등록한 허브';
+$string['registeredon'] = '다음에 등록';
 $string['registeredsites'] = '등록된 사이트들';
 $string['registermoochtips'] = 'Moodle.net에 등록하기 위해서는 Moodle.org  에 등록되어 있어야 합니다.';
 $string['registersite'] = '{$a}에 등록';

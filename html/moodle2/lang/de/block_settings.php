@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_settings', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_settings', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   block_settings
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['enabledock'] = 'Blockverschieben ins Dock erlauben';
 $string['pluginname'] = 'Einstellungen';
-$string['settings:addinstance'] = 'Neuen Block \'Einstellungen\' hinzufügen';
+$string['settings:addinstance'] = 'Block \'Einstellungen\' hinzufügen';
 $string['settings:myaddinstance'] = 'Block \'Einstellungen\' für \'Meine Startseite\' hinzufügen';

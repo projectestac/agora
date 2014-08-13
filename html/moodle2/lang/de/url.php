@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -61,10 +61,9 @@ Legen Sie fest, ob die verlinkte Seite in einem neuen Fenster geöffnet oder in 
 Hinweis: Verlinkungen und URLs können mit dem Texteditor auch in jede andere Seite oder Aktivität integriert werden.';
 $string['modulenameplural'] = 'Links/URLs';
 $string['neverseen'] = 'Nie gesehen';
-$string['optionsheader'] = 'Optionen';
 $string['page-mod-url-x'] = 'Jede URL-Seite';
 $string['parameterinfo'] = '&amp;parameter=variable';
-$string['parametersheader'] = 'Parameter';
+$string['parametersheader'] = 'URL Variablen';
 $string['parametersheader_help'] = 'Einige interne Moodle-Variablen können automatisch an die URL angehängt werden. Tragen Sie den Parameternamen ein Textfeld ein und wählen Sie anschließend die entsprechend zu verknüpfende Variable.';
 $string['pluginadministration'] = 'URL-Administration';
 $string['pluginname'] = 'Link/URL';
@@ -72,8 +71,6 @@ $string['popupheight'] = 'Popup-Höhe (Pixel)';
 $string['popupheightexplain'] = 'Standardhöhe von Popup-Fenstern festlegen';
 $string['popupwidth'] = 'Popup-Breite (Pixel)';
 $string['popupwidthexplain'] = 'Standardbreite von Popup-Fenstern festlegen';
-$string['printheading'] = 'Name der URL anzeigen';
-$string['printheadingexplain'] = 'Name der URL über dem Inhalt anzeigen? Einige Anzeigetypen können den Namen der URL nicht anzeigen, selbst wenn dies aktiviert ist.';
 $string['printintro'] = 'Beschreibung anzeigen';
 $string['printintroexplain'] = 'Beschreibung unterhalb des Inhalts anzeigen? Einige Anzeigetypen können die Beschreibung nicht anzeigen, selbst wenn diese Option aktiviert ist.';
 $string['rolesinparams'] = 'Rollennamen als Parameter einbeziehen';

@@ -69,3 +69,9 @@
 ; HTTP proxy authentication password.
 
 ;quizzes.httpproxy.pass = "secret"
+
+;
+; Client's referer URL to be sent to quizzes service. Set to the client's
+; application domain so the services server can identify the client.
+
+;quizzes.referer.url = ""

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,18 +32,24 @@ moodle/course:changeidnumber moodle/course:changeshortname moodle/course:changef
 上で指定された4つのコースフィールド (ID number、shortname、fullnameおよびsummary) の修正を防ぐため、関連するロールより削除します。</p>';
 $string['autocreate_key'] = '自動作成';
 $string['autocreation_settings'] = 'コース自動作成設定';
+$string['autoupdate_settings'] = '自動コース更新設定';
+$string['autoupdate_settings_desc'] = '<p>同期スクリプト (enrol/ldap/cli/sync.php) 実行時に更新されるフィールドを選択してください。</p><p>少なくとも1つのフィールドが選択された場合、更新処理が実施されます。</p>';
 $string['bind_dn'] = 'あなたがバインドユーザをユーザ検索に使用したい場合、ここで指定してください。次のように指定します: cn=ldapuser,ou=public,o=org';
 $string['bind_dn_key'] = 'バインドユーザ識別名';
 $string['bind_pw'] = 'ユーザバインドのパスワードです。';
 $string['bind_pw_key'] = 'パスワード';
 $string['bind_settings'] = 'バインド設定';
 $string['cannotcreatecourse'] = 'コースを作成できません。LDAPレコードの必須データが不足しています!';
+$string['cannotupdatecourse'] = 'コースを更新できません: LDAPレコードからの必要なデータがありません! コースIDナンバー: {$a->idnumber}';
+$string['cannotupdatecourse_duplicateshortname'] = 'コースを更新できません: 省略名が重複しています。IDナンバー「 {$a->idnumber} 」のコースをスキップ ...';
 $string['category'] = '自動的に作成されるコースのカテゴリです。';
 $string['category_key'] = 'カテゴリ';
 $string['contexts'] = 'LDAPコンテクスト';
 $string['couldnotfinduser'] = 'ユーザ「 {$a} 」が見つかりませんでした。スキップします。';
 $string['course_fullname'] = '任意:「名称」を取得するLDAPフィールドです。';
 $string['course_fullname_key'] = '名称';
+$string['course_fullname_updateonsync'] = '同期スクリプトでフルネームを更新する';
+$string['course_fullname_updateonsync_key'] = 'フルネームを更新する';
 $string['course_idnumber'] = 'LDAPのユニークなIDにマップしてください。通常、<em>cn</em>または<em>uid</em>です。コース自動作成を使用する場合、設定値のロックをお勧めします。';
 $string['course_idnumber_key'] = 'IDナンバー';
 $string['coursenotexistskip'] = 'コース「 {$a} 」が存在しないか、自動作成が無効にされています。スキップします。';
@@ -52,8 +58,14 @@ $string['course_search_sub_key'] = 'サブコンテクストを検索する';
 $string['course_settings'] = 'コース登録設定';
 $string['course_shortname'] = '任意:「省略名」を取得するLDAPフィールドです。';
 $string['course_shortname_key'] = '省略名';
+$string['course_shortname_updateonsync'] = '同期スクリプトで省略名を更新する';
+$string['course_shortname_updateonsync_key'] = '省略名を更新する';
 $string['course_summary'] = '任意:「概要」を取得するLDAPフィールドです。';
 $string['course_summary_key'] = '概要';
+$string['course_summary_updateonsync'] = '同期スクリプトで概要を更新する';
+$string['course_summary_updateonsync_key'] = '概要を更新する';
+$string['courseupdated'] = 'IDナンバー「 {$a->idnumber} 」のコースが正常に更新されました。';
+$string['courseupdateskipped'] = 'IDナンバー「 {$a->idnumber} 」のコースは更新を必要としません。スキップ ...';
 $string['createcourseextid'] = '存在しないコース「 {$a->courseextid} 」に登録するユーザを作成します。';
 $string['createnotcourseextid'] = '存在しないコース「 {$a->courseextid} 」にユーザが登録されました。';
 $string['creatingcourse'] = 'コースの作成 {$a} ...';
@@ -72,8 +84,8 @@ $string['failed'] = '失敗!';
 $string['general_options'] = '一般オプション';
 $string['group_memberofattribute'] = 'ユーザまたはグループが属するグループの識別名です (例 memberOf、groupMembership等)。';
 $string['group_memberofattribute_key'] = 'メンバー属性';
-$string['host_url'] = '「ldap://ldap.myorg.com/」または「ldaps://ldap.myorg.com/」のようにLDAPホストをURIの形式で指定してください。';
-$string['host_url_key'] = 'ホストURI';
+$string['host_url'] = '「ldap://ldap.myorg.com/」または「ldaps://ldap.myorg.com/」のようにLDAPホストをURLの形式で指定してください。';
+$string['host_url_key'] = 'ホストURL';
 $string['idnumber_attribute'] = 'グループメンバーシップに識別名が含まれている場合、LDAP認証プラグインのユーザ「IDナンバー」マッピングで指定されている属性と同じ属性を指定してください。';
 $string['idnumber_attribute_key'] = 'IDナンバー属性';
 $string['ldap_encoding'] = 'LDAPサーバで使用するエンコーディングを指定してください。ほとんどの場合、UTF-8ですが、MS AD v2ユーザデフォルトプラットフォームのエンコーディングではcp1252、cp1250等のようになります。';

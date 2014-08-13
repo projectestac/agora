@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_file', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_file', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,12 +31,14 @@ $string['default'] = 'Ativo por predefinição';
 $string['default_help'] = 'Se ativar esta opção, este método estará ativo por predefinição para todos os novos trabalhos.';
 $string['enabled'] = 'Submissão de Ficheiros';
 $string['enabled_help'] = 'Se ativo, os alunos podem  submeter um ou mais ficheiros quando submetem o seu trabalho.';
+$string['event_assessable_uploaded'] = 'Um ficheiro foi carregado.';
 $string['file'] = 'Submissão de Ficheiros';
 $string['maxbytes'] = 'Tamanho máximo do ficheiro';
 $string['maxfilessubmission'] = 'Número máximo de ficheiros';
 $string['maxfilessubmission_help'] = 'Se a submissão de ficheiros estiver ativa, cada aluno poderá submeter um ou mais ficheiros.';
 $string['maximumsubmissionsize'] = 'Tamanho máximo dos ficheiros';
 $string['maximumsubmissionsize_help'] = 'Os ficheiros enviados pelos alunos não podem exceder este tamanho';
+$string['numfilesforlog'] = 'O número de ficheiro(s): {$a} ficheiro(s).';
 $string['pluginname'] = 'Submissão de ficheiros';
 $string['siteuploadlimit'] = 'Limite máximo do site';
 $string['submissionfilearea'] = 'Ficheiros submetidos';

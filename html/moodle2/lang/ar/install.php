@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'install', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,7 +68,6 @@ $string['environmenthead'] = 'يتم فحص البيئة';
 $string['fail'] = 'فشل';
 $string['fileuploads'] = 'تحميل ملف';
 $string['fileuploadserror'] = 'هذا يجب أن يكون نشط';
-$string['gdversion'] = 'أصدار جي دي';
 $string['inputdatadirectory'] = 'مجلد البيانات';
 $string['inputwebadress'] = 'عنوان الويب:';
 $string['inputwebdirectory'] = 'مجلد مودل';
@@ -90,6 +89,5 @@ $string['sessionautostart'] = 'البدء الآلي للجلسة';
 $string['sessionautostarterror'] = 'يجب أن يكون هذا معطل';
 $string['sessionautostarthelp'] = '<p> يتطلب مودل لدعم الجلسات وبدونها لا يستطع العمل.</p>
 <p>.يمكن تمكين الجلسات من خلال ملف php.in ...ابحث عن session.auto_start  </p>';
-$string['skipdbencodingtest'] = 'تخطى اختبار تشفير قاعدة البيانات';
 $string['wwwroot'] = 'WWW';
 $string['wwwrooterror'] = 'إعداد \'WWW\' غير صحيح';

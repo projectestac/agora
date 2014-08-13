@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = '少なくとも1つのワイルドカード <st
 $string['converttocalculated'] = '新しい標準的な計算問題として保存する';
 $string['findwildcards'] = '正解の公式に登録されているワイルドカード {x..} を探す';
 $string['generatenewitemsset'] = '生成';
-$string['mustbenumeric'] = 'あなたは、ここに数字を入力する必要があります。';
-$string['mustnotbenumeric'] = 'これは、数字ではありません。';
 $string['newsetwildcardvalues'] = 'セットの新しいワイルドカード値';
 $string['pluginname'] = 'シンプル計算問題';
 $string['pluginnameadding'] = 'シンプル計算問題を追加する';

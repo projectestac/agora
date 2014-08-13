@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,12 @@ $string['customtitles_help'] = 'I titoli dei capitoli di norma sono visualizzati
 Se è stata selezionata l\'impostazione Titoli personalizzati, allora il titolo del capitolo non verrà usato per l\'intestazione. In questo caso è possibile inserire una intestazione come parte del testo';
 $string['editingchapter'] = 'Modifica capitolo';
 $string['errorchapter'] = 'Si è verificato un errore durante la lettura di un capitolo del libro';
+$string['event_chapter_created'] = 'Creato capitolo';
+$string['event_chapter_deleted'] = 'Eliminato capitolo';
+$string['event_chapter_updated'] = 'Aggiornato capitolo';
+$string['event_chapter_viewed'] = 'Visualizzato capitolo';
+$string['event_course_module_viewed'] = 'Visualizzato modulo corso';
+$string['event_instances_list_viewed'] = 'Visualizzato elenco istanze';
 $string['modulename'] = 'Libro';
 $string['modulename_help'] = 'Il modulo libro consente ad un docente di creare risorse multi pagina componendole, similmente ad un libro, in capitoli e paragrafi.
 I libri possono contenere file multimediali e testi e sono indicati per contenuti corposi da suddividere in diverse sezioni.

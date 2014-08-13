@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_googledocs', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_googledocs', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_googledocs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['clientid'] = 'Bezeroaren IDa';
-$string['configplugin'] = 'Konfiguratu Google Docs plugina';
-$string['googledocs:view'] = 'Ikusi Google Docs biltegia';
+$string['configplugin'] = 'Konfiguratu Google Drive plugina';
+$string['googledocs:view'] = 'Ikusi Google Drive biltegia';
 $string['oauth2upgrade_message_subject'] = 'Google Docs biltegi-pluginari buruzko informazio garrantzitsua';
-$string['pluginname'] = 'Google Docs';
+$string['pluginname'] = 'Google Drive';
 $string['secret'] = 'Sekretua';

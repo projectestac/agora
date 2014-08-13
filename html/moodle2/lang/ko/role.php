@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = '역할 추가하기';
-$string['addingrolebycopying'] = '{$a} 를 기반으로 새 역할 추가하기';
 $string['addrole'] = '역할 추가';
 $string['advancedoverride'] = '고급 역할 덮어쓰기';
 $string['allow'] = '허용';
@@ -67,16 +66,26 @@ $string['backtoallroles'] = '역할 목록으로 되돌아 가기';
 $string['backup:anonymise'] = '백업시 사용자 데이터 익명화';
 $string['backup:backupactivity'] = '활동 백업';
 $string['backup:backupcourse'] = '강좌 백업';
-$string['backup:backupsection'] = '섹션 백업';
+$string['backup:backupsection'] = '영역 백업';
 $string['backup:backuptargethub'] = '허브 백업';
 $string['backup:backuptargetimport'] = '목적지 백업';
 $string['backup:configure'] = '백업 설정';
 $string['backup:downloadfile'] = '백업 영역에서 파일 내려받기';
 $string['backup:userinfo'] = '사용자 정보 백업';
+$string['badges:awardbadge'] = '사용자에게 뱃지 수여';
+$string['badges:configurecriteria'] = '뱃지 획득 기준 설정/편집';
+$string['badges:configuredetails'] = '뱃지 세부사항 설정/편집';
+$string['badges:configuremessages'] = '뱃지 메세지 구성';
+$string['badges:createbadge'] = '뱃지 생성/복제';
+$string['badges:deletebadge'] = '뱃지 삭제';
+$string['badges:earnbadge'] = '뱃지 획득';
+$string['badges:manageglobalsettings'] = '뱃지 전역 설정 관리';
+$string['badges:manageownbadges'] = '획득한 뱃지 보기 및 관리';
+$string['badges:viewotherbadges'] = '다른 사용자 개인정보에서 공개된 뱃지 보기';
 $string['block:edit'] = '블록 설정';
 $string['block:view'] = '블록 보기';
-$string['blog:associatecourse'] = '강좌와 블로그 게시물과 연계';
-$string['blog:associatemodule'] = '활동모듈과 블로그 게시물과 연계';
+$string['blog:associatecourse'] = '이 능력은 사용되지 않으며 아무것도 하지 않습니다.';
+$string['blog:associatemodule'] = '이 능력은 사용되지 않으며 아무것도 하지 않습니다.';
 $string['blog:create'] = '블로그 항목 생성';
 $string['blog:manageentries'] = '입력내용 관리';
 $string['blog:manageexternal'] = '외부 블로그 편집 및 관리';
@@ -140,18 +149,19 @@ $string['course:movesections'] = '섹션 이동';
 $string['course:publish'] = '허브에 강좌 공개';
 $string['course:request'] = '강좌 개설 요청';
 $string['course:reset'] = '강좌 초기화';
-$string['course:sectionvisibility'] = '섹션 보기 조정';
-$string['course:setcurrentsection'] = '현재 섹션 설정';
+$string['course:sectionvisibility'] = '영역 보기 조정';
+$string['course:setcurrentsection'] = '현재 영역 설정';
 $string['course:update'] = '강좌 설정 업데이트';
 $string['course:useremail'] = '이메일 활성화';
 $string['course:view'] = '참여하지 않고 강좌 보기';
 $string['course:viewcoursegrades'] = '강좌 성적 보기';
 $string['course:viewhiddenactivities'] = '비공개 활동 보기';
 $string['course:viewhiddencourses'] = '비공개 강좌 보기';
-$string['course:viewhiddensections'] = '비공개 섹션 보기';
+$string['course:viewhiddensections'] = '비공개 영역 보기';
 $string['course:viewhiddenuserfields'] = '비공개 사용자항목 보기';
 $string['course:viewparticipants'] = '참여자 보기';
 $string['course:viewscales'] = '척도 보기';
+$string['course:viewsuspendedusers'] = '유보된 사용자들을 볼 수 있습니다.';
 $string['course:visibility'] = '강좌 공개/비공개';
 $string['createrolebycopying'] = '{$a} 를 복사하여 새 역할 생성';
 $string['createthisrole'] = '역할 생성';
@@ -286,14 +296,11 @@ $string['rating:view'] = '얻은 총점 보기';
 $string['rating:viewall'] = '개인들이 부여한 점수 보기';
 $string['rating:viewany'] = '추천내역 보기';
 $string['resetrole'] = '역할 초기화';
-$string['resetrolenolegacy'] = '권한 취소';
-$string['resetrolesure'] = '정말 "{$a->name} ({$a->shortname})" 역할을 기본 역할로 초기화하겠습니까?<p></p>기본 역할은 선택된 원형({$a->legacytype})에서 가져옵니다.';
-$string['resetrolesurenolegacy'] = '정말 "{$a->name} ({$a->shortname})" 역할에 정의된  모든 권한을 제거하겠습니까?';
 $string['restore:configure'] = '복구 설정';
 $string['restore:createuser'] = '복구시 사용자 생성';
 $string['restore:restoreactivity'] = '활동 복구';
 $string['restore:restorecourse'] = '강좌 복구';
-$string['restore:restoresection'] = '섹션 복구';
+$string['restore:restoresection'] = '영역 복구';
 $string['restore:restoretargethub'] = '허브에서 파일 복구';
 $string['restore:restoretargetimport'] = '목적지에서 파일 복구';
 $string['restore:rolldates'] = '복원시에 활동 구성 일자를 회전 하는 것을 허용';
@@ -313,6 +320,7 @@ $string['role:override'] = '타인에 대한 권한 덮어쓰기';
 $string['roleprohibitheader'] = '금지 역할';
 $string['roleprohibitinfo'] = '문맥 {$a->context}, 능력 {$a->cap} 에서 금지된 역할 목록에 추가될 역할을 선택하십시요.';
 $string['role:review'] = '다른 사람에 대한 권한 검토';
+$string['rolerisks'] = '역할 위험';
 $string['roles'] = '역할들';
 $string['role:safeoverride'] = '타인에 대한 안전한 권한 덮어쓰기';
 $string['roleselect'] = '역할 선택';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -101,8 +101,11 @@ $string['auth_ldap_version_key'] = 'Version';
 $string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = 'Set to yes to attempt Single Sign On with the NTLM domain. <strong>Note:</strong> this requires additional setup on the webserver to work, see <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Enable';
-$string['auth_ntlmsso_ie_fastpath'] = 'Set to yes to enable the NTLM SSO fast path (bypasses certain steps and only works if the client\'s browser is MS Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath'] = 'Set to enable the NTLM SSO fast path (bypasses certain steps if the client\'s browser is MS Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Attempt NTLM with all browsers';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Yes, attempt NTLM other browsers';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Yes, all other browsers use standard login form';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'Unable to extract the username from the REMOTE_USER header. Is the configured format right?';
 $string['auth_ntlmsso_missing_username'] = 'You need to specify at least %username% in the remote username format';
 $string['auth_ntlmsso_remoteuserformat'] = 'If you have chosen \'NTLM\' in \'Authentication type\', you can specify the remote username format here. If you leave this empty, the default DOMAINusername format will be used. You can use the optional <b>%domain%</b> placeholder to specify where the domain name appears, and the mandatory <b>%username%</b> placeholder to specify where the username appears. <br /><br />Some widely used formats are <tt>%domain%%username%</tt> (MS Windows default), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> and just <tt>%username%</tt> (if there is no domain part).';
@@ -137,6 +140,8 @@ $string['pluginname'] = 'LDAP server';
 $string['pluginnotenabled'] = 'Plugin not enabled!';
 $string['renamingnotallowed'] = 'User renaming not allowed in LDAP';
 $string['rootdseerror'] = 'Error querying rootDSE for Active Directory';
+$string['start_tls'] = 'Use regular LDAP service (port 389) with TLS encryption';
+$string['start_tls_key'] = 'Use TLS';
 $string['updatepasserror'] = 'Error in user_update_password(). Error code: {$a->errno}; Error string: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Error in user_update_password() when reading password expiration time. Error code: {$a->errno}; Error string: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Error in user_update_password() when modifying expirationtime and/or gracelogins. Error code: {$a->errno}; Error string: {$a->errstring}';

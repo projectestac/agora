@@ -117,6 +117,18 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
     protected $ttl = 0;
 
     /**
+     * The maximum size for the store, or false if there isn't one.
+     * @var bool|int
+     */
+    protected $maxsize = false;
+
+    /**
+     * The number of items currently being stored.
+     * @var int
+     */
+    protected $storecount = 0;
+
+    /**
      * Constructs the store instance.
      *
      * Noting that this function is not an initialisation. It is used to prepare the store for use.
@@ -192,6 +204,12 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
         $this->storeid = $definition->generate_definition_hash();
         $this->store = &self::register_store_id($this->name.'-'.$definition->get_id());
         $this->ttl = $definition->get_ttl();
+        $maxsize = $definition->get_maxsize();
+        if ($maxsize !== null) {
+            // Must be a positive int.
+            $this->maxsize = abs((int)$maxsize);
+            $this->storecount = count($this->store);
+        }
         $this->check_ttl();
     }
 
@@ -220,8 +238,13 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
      */
     public function get($key) {
         if (isset($this->store[$key])) {
-            if ($this->ttl === 0) {
-                return $this->store[$key][0];
+            if ($this->ttl == 0) {
+                $value = $this->store[$key][0];
+                if ($this->maxsize !== false) {
+                    // Make sure the element is now in the end of array.
+                    $this->set($key, $value);
+                }
+                return $value;
             } else if ($this->store[$key][1] >= (cache::now() - $this->ttl)) {
                 return $this->store[$key][0];
             } else {
@@ -254,6 +277,10 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
             if (isset($this->store[$key])) {
                 if ($this->ttl == 0) {
                     $return[$key] = $this->store[$key][0];
+                    if ($this->maxsize !== false) {
+                        // Make sure the element is now in the end of array.
+                        $this->set($key, $return[$key], false);
+                    }
                 } else if ($this->store[$key][1] >= $maxtime) {
                     $return[$key] = $this->store[$key][0];
                 } else {
@@ -273,13 +300,27 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
      *
      * @param string $key The key to use.
      * @param mixed $data The data to set.
+     * @param bool $testmaxsize If set to true then we test the maxsize arg and reduce if required. If this is set to false you will
+     *      need to perform these checks yourself. This allows for bulk set's to be performed and maxsize tests performed once.
      * @return bool True if the operation was a success false otherwise.
      */
-    public function set($key, $data) {
+    public function set($key, $data, $testmaxsize = true) {
+        $testmaxsize = ($testmaxsize && $this->maxsize !== false);
+        $increment = $this->maxsize !== false && !isset($this->store[$key]);
+        if (($this->maxsize !== false && !$increment) || $this->ttl != 0) {
+            // Make sure the element is added to the end of $this->store array.
+            unset($this->store[$key]);
+        }
         if ($this->ttl === 0) {
             $this->store[$key] = array($data, 0);
         } else {
             $this->store[$key] = array($data, cache::now());
+        }
+        if ($increment) {
+            $this->storecount++;
+        }
+        if ($testmaxsize && $this->storecount > $this->maxsize) {
+            $this->reduce_for_maxsize();
         }
         return true;
     }
@@ -294,14 +335,28 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
      */
     public function set_many(array $keyvaluearray) {
         $count = 0;
+        $increment = 0;
         foreach ($keyvaluearray as $pair) {
             $key = $pair['key'];
             $data = $pair['value'];
             $count++;
+            if ($this->maxsize !== false || $this->ttl !== 0) {
+                // Make sure the element is added to the end of $this->store array.
+                $this->delete($key);
+                $increment++;
+            } else if (!isset($this->store[$key])) {
+                $increment++;
+            }
             if ($this->ttl === 0) {
                 $this->store[$key] = array($data, 0);
             } else {
                 $this->store[$key] = array($data, cache::now());
+            }
+        }
+        if ($this->maxsize !== false) {
+            $this->storecount += $increment;
+            if ($this->storecount > $this->maxsize) {
+                $this->reduce_for_maxsize();
             }
         }
         return $count;
@@ -378,6 +433,9 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
             return false;
         }
         unset($this->store[$key]);
+        if ($this->maxsize !== false) {
+            $this->storecount--;
+        }
         return true;
     }
 
@@ -388,13 +446,18 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
      * @return int The number of items successfully deleted.
      */
     public function delete_many(array $keys) {
-        // The number of items that have been successfully deleted.
-        $count = 0;
+        // The number of items that have actually being removed.
+        $reduction = 0;
         foreach ($keys as $key) {
+            if (isset($this->store[$key])) {
+                $reduction++;
+            }
             unset($this->store[$key]);
-            $count++;
         }
-        return $count;
+        if ($this->maxsize !== false) {
+            $this->storecount -= $reduction;
+        }
+        return $reduction;
     }
 
     /**
@@ -404,7 +467,32 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
      */
     public function purge() {
         $this->store = array();
+        // Don't worry about checking if we're using max size just set it as thats as fast as the check.
+        $this->storecount = 0;
         return true;
+    }
+
+    /**
+     * Reduces the size of the array if maxsize has been hit.
+     *
+     * This function reduces the size of the store reducing it by 10% of its maxsize.
+     * It removes the oldest items in the store when doing this.
+     * The reason it does this an doesn't use a least recently used system is purely the overhead such a system
+     * requires. The current approach is focused on speed, MUC already adds enough overhead to static/session caches
+     * and avoiding more is of benefit.
+     *
+     * @return int
+     */
+    protected function reduce_for_maxsize() {
+        $diff = $this->storecount - $this->maxsize;
+        if ($diff < 1) {
+            return 0;
+        }
+        // Reduce it by an extra 10% to avoid calling this repetitively if we are in a loop.
+        $diff += floor($this->maxsize / 10);
+        $this->store = array_slice($this->store, $diff, null, true);
+        $this->storecount -= $diff;
+        return $diff;
     }
 
     /**
@@ -427,7 +515,7 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
      * Generates an instance of the cache store that can be used for testing.
      *
      * @param cache_definition $definition
-     * @return false
+     * @return cachestore_session
      */
     public static function initialise_test_instance(cache_definition $definition) {
         // Do something here perhaps.
@@ -464,6 +552,9 @@ class cachestore_session extends session_data_store implements cache_is_key_awar
         if ($count) {
             // Remove first $count elements as they are expired.
             $this->store = array_slice($this->store, $count, null, true);
+            if ($this->maxsize !== false) {
+                $this->storecount -= $count;
+            }
         }
         return $count;
     }

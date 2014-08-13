@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = '添加评论';
 $string['addentries'] = '添加条目';
 $string['addtemplate'] = '添加模板';
 $string['advancedsearch'] = '高级查找';
+$string['allowcomments'] = '允许评论词条';
 $string['alttext'] = '可替代文本';
 $string['approve'] = '批准';
 $string['approved'] = '许可';
@@ -74,6 +75,7 @@ $string['commentsoff'] = '未启用评论功能';
 $string['configenablerssfeeds'] = '这个开关会使所有数据库都可以启用RSS种子。您仍需要手工在每个数据库的设置中打开种子功能。';
 $string['confirmdeletefield'] = '您要删除这个字段，确定吗？';
 $string['confirmdeleterecord'] = '您确定要删除这条记录？';
+$string['confirmdeleterecords'] = '您确定要删除这些记录？';
 $string['csstemplate'] = 'CSS 模板';
 $string['csvfailed'] = '无法从 CSV 文件中读取原始数据';
 $string['csvfile'] = 'CSV 文件';
@@ -86,6 +88,7 @@ $string['data:comment'] = '撰写评论';
 $string['data:exportallentries'] = '导出所有数据库条目';
 $string['data:exportentry'] = '导出一条数据库条目';
 $string['data:exportownentry'] = '导出自己的数据库条目';
+$string['data:exportuserinfo'] = '导出用户资料';
 $string['data:managecomments'] = '管理评论';
 $string['data:manageentries'] = '管理条目';
 $string['data:managetemplates'] = '管理模板';
@@ -103,6 +106,7 @@ $string['dateentered'] = '输入日期';
 $string['defaultfielddelimiter'] = '(缺省为逗号",")';
 $string['defaultfieldenclosure'] = '缺省为空';
 $string['defaultsortfield'] = '缺省排序字段';
+$string['delcheck'] = '批量删除筛选框';
 $string['delete'] = '删除';
 $string['deleteallentries'] = '删除所有条目';
 $string['deletecomment'] = '您确定要删除这条这注释吗？';
@@ -112,6 +116,7 @@ $string['deletenotenrolled'] = '删除未选课用户的条目';
 $string['deletewarning'] = '您确定删除这个预设吗？';
 $string['descending'] = '降序';
 $string['directorynotapreset'] = '{$a->directory} 没有预设：文件丢失{$a->missing_files}';
+$string['disapprove'] = '撤消审核';
 $string['download'] = '下载';
 $string['edit'] = '编辑';
 $string['editcomment'] = '编辑注释';
@@ -121,8 +126,8 @@ $string['editorenable'] = '可编辑';
 $string['emptyadd'] = '模板为空，按缺省模板生成...';
 $string['emptyaddform'] = '您未填写任何字段';
 $string['entries'] = '条目';
-$string['entrieslefttoadd'] = '在完成此活动前，您还需添加 {$a} 条目';
-$string['entrieslefttoaddtoview'] = '在查看其他参与者的条目前，您还需添加 {$a} 条目';
+$string['entrieslefttoadd'] = '在完成此活动前，您还需添加 {$a->entriesleft} 条目';
+$string['entrieslefttoaddtoview'] = '在查看其他参与者的条目前，您还需添加 {$a->entrieslefttoview} 条目';
 $string['entry'] = '条目';
 $string['entrysaved'] = '您的条目已保存';
 $string['errormustbeteacher'] = '只有教师能使用此页';
@@ -182,6 +187,9 @@ $string['headerrsstemplate'] = '定义条目在 RSS 种子中的表示';
 $string['headersingletemplate'] = '定义浏览独立条目的界面';
 $string['importentries'] = '导入条目';
 $string['importsuccess'] = '已成功采用了预设';
+$string['includeapproval'] = '包含审核状态';
+$string['includetime'] = '包含增加时间、修改时间';
+$string['includeuserdetails'] = '包含用户详情';
 $string['insufficiententries'] = '查看这个数据库需要更多的条目';
 $string['intro'] = '简介';
 $string['invalidaccess'] = '页面访问错误';
@@ -276,6 +284,7 @@ $string['presets'] = '预设';
 $string['radiobutton'] = '单选按钮';
 $string['recordapproved'] = '记录已核准';
 $string['recorddeleted'] = '记录已删除';
+$string['recorddisapproved'] = '不可进入';
 $string['recordsnotsaved'] = '没有记录被保存。请确认上传文件的安排。';
 $string['recordssaved'] = '记录已保存';
 $string['requireapproval'] = '是否需要批准';

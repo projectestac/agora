@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'Er moet minstens één joker <strong>{x..}</str
 $string['converttocalculated'] = 'Bewaar als een nieuwe gewone berekende vraag';
 $string['findwildcards'] = 'Zoek de jokers {x...} in je juiste antwoordformules';
 $string['generatenewitemsset'] = 'Genereer';
-$string['mustbenumeric'] = 'Je moet hier een getal invoeren.';
-$string['mustnotbenumeric'] = 'Dit kan geen getal zijn.';
 $string['newsetwildcardvalues'] = 'nieuwe set joker waarden';
 $string['pluginname'] = 'Berekend eenvoudig';
 $string['pluginnameadding'] = 'Een eenvoudige berekende vraag toevoegen';

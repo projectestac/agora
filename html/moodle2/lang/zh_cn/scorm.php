@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,6 @@ $string['aicchacptimeout'] = 'AICC HACP 超时';
 $string['allowapidebug'] = '激活 API 调试与跟踪（用 apidebugmask 设置捕获掩码）';
 $string['allowtypeaicchacp'] = '打开外部 AICC HACP';
 $string['allowtypeexternal'] = '启用外部包类型';
-$string['allowtypeimsrepository'] = '启用 IMS 包类型';
 $string['allowtypelocalsync'] = '启用可下载包类型';
 $string['apidebugmask'] = 'API 调试捕获掩码——对 &lt;username&gt;:&lt;activityname&gt; 使用简单的正则表达式。例如：admin:.* 会只调试管理员用户';
 $string['areacontent'] = '内容文件';
@@ -52,7 +51,6 @@ $string['autocontinuedesc'] = '此选项设置活动默认情况下是否会自�
 $string['autocontinue_help'] = '如果启用，后续的学习对象会被自动执行，否则必须使用“继续”按钮。';
 $string['averageattempt'] = '平均分';
 $string['badmanifest'] = 'Manifest 有错误：请看错误日志';
-$string['badpackage'] = '您指定的包或 Manifest 文件不合法。请检查并重试。';
 $string['browse'] = '预览';
 $string['browsed'] = '已浏览';
 $string['browsemode'] = '预览模式';
@@ -139,8 +137,6 @@ $string['hidebrowse'] = '禁用预览模式';
 $string['hidebrowsedesc'] = '活动默认是否允许预览模式';
 $string['hidebrowse_help'] = '预览模式允许学生在进入课件之前先进行浏览。如果预览模式被禁止，预览按钮会被隐藏';
 $string['hideexit'] = '隐藏退出链接';
-$string['hidenav'] = '隐藏导航按钮';
-$string['hidenavdesc'] = '活动面哦人是否显示导航按钮';
 $string['hidereview'] = '隐藏复习按钮';
 $string['hidetoc'] = '在播放器中显示课程结构';
 $string['hidetocdesc'] = '在 SCORM 播放器中默认显示还是隐藏课程结构（目录）';
@@ -150,10 +146,6 @@ $string['identifier'] = '问题标识符';
 $string['incomplete'] = '不完整';
 $string['info'] = '信息';
 $string['interactions'] = '交互';
-$string['interactionslearnerresponse'] = '学习者的回答';
-$string['interactionsresponse'] = '学生的回答';
-$string['interactionsresult'] = '基于学生的回答和<br/>正确结果';
-$string['interactionstype'] = '问题的类型';
 $string['invalidactivity'] = 'Scorm 活动不正确';
 $string['invalidhacpsession'] = '无效的 HACP 会话';
 $string['invalidmanifestresource'] = '警告：在您的 manifest 文件中描述了如下资源，但没有找到';
@@ -206,7 +198,6 @@ $string['optnoattemptsonly'] = '未学习过的用户';
 $string['organization'] = '组织';
 $string['organizations'] = '组织';
 $string['othersettings'] = '更多设置';
-$string['othertracks'] = '其它的跟踪记录';
 $string['package'] = '包文件';
 $string['packagedir'] = '文件系统错误：无法创建包目录';
 $string['packagefile'] = '未指定包文件';
@@ -233,7 +224,6 @@ $string['report'] = '报表';
 $string['reportcountallattempts'] = '{$a->nbusers} 名用户的 {$a->nbattempts} 次学习，共 {$a->nbresults} 个结果';
 $string['reportcountattempts'] = '{$a->nbresults} 个结果（{$a->nbusers} 名用户）';
 $string['reports'] = '报表';
-$string['resizable'] = '可以调整窗口大小';
 $string['result'] = '结果';
 $string['results'] = '结果';
 $string['review'] = '复习';
@@ -281,7 +271,6 @@ $string['suspended'] = '已暂停';
 $string['syntax'] = '语法错误';
 $string['tag_error'] = '未知标签 {$a->tag}，其内容为：{$a->value}';
 $string['time'] = '用时';
-$string['timerestrict'] = '课件的有效日期';
 $string['title'] = '标题';
 $string['toc'] = '目录';
 $string['toolbar'] = '显示工具栏';
@@ -289,10 +278,10 @@ $string['too_many_attributes'] = '标签 {$a->tag} 的属性太多了';
 $string['too_many_children'] = '标签 {$a->tag} 的子项太多了';
 $string['totaltime'] = '总时间';
 $string['trackingloose'] = '警告：此课件包的学习记录将会丢失。';
+$string['trackresult_help'] = '基于学生的回答和<br/>正确结果';
 $string['type'] = '类型';
 $string['typeaiccurl'] = '外部 AICC URL 地址';
 $string['typeexternal'] = '外部 SCORM manifest';
-$string['typeimsrepository'] = '本地 IMS 内容容器';
 $string['typelocal'] = '上传的课件';
 $string['typelocalsync'] = '下载的课件';
 $string['unziperror'] = '解压课件包时发生错误';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,33 +25,34 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Gehitu ekitaldiak';
 $string['advancedoptions'] = 'Aukera aurreratuak';
 $string['allday'] = 'Egun guztiak';
 $string['annually'] = 'Urtero';
 $string['calendar'] = 'Egutegia';
 $string['calendarheading'] = '{$a} egutegia';
 $string['calendarpreferences'] = 'Egutegiaren hobespenak';
+$string['calendartypes'] = 'Egutegi-motak';
 $string['calendarurl'] = 'Egutegiaren URLa: {$a}';
 $string['clickhide'] = 'Ezkutatu';
 $string['clickshow'] = 'Erakutsi';
 $string['colactions'] = 'Ekintzak';
 $string['colcalendar'] = 'Egutegia';
 $string['collastupdated'] = 'Azken eguneraketa';
-$string['colpoll'] = 'Eguneratu';
+$string['colpoll'] = 'eguneratu';
 $string['commontasks'] = 'Aukerak';
 $string['confirmeventdelete'] = 'Ziur al zaude ekitaldi hau ezabatu nahi duzula?';
 $string['course'] = 'Ikastaroa';
 $string['courseevent'] = 'Ikastaroko ekitaldia';
 $string['courseevents'] = 'Ikastaroko ekitaldiak';
 $string['courses'] = 'Ikastaroak';
+$string['customexport'] = 'Pertsonalizatutako tartea ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Egunero';
-$string['dayview'] = 'Eguneko ikuspegia';
 $string['dayviewtitle'] = 'Eguneko ikuspegia: {$a}';
 $string['daywithnoevents'] = 'Ekitaldirik ez egun honetan';
 $string['default'] = 'Lehenetsia';
 $string['deleteevent'] = 'Ezabatu ekitaldia';
 $string['deleteevents'] = 'Ezabatu ekitaldiak';
-$string['detailedmonthview'] = 'Hileko ikuspegi xehea';
 $string['detailedmonthviewtitle'] = 'Hileko ikuspegi xehea: {$a}';
 $string['durationminutes'] = 'Iraupena minututan';
 $string['durationnone'] = 'Iraupenik ez';
@@ -91,8 +92,9 @@ $string['expired'] = 'Iraungita';
 $string['explain_site_timeformat'] = 'Gune osoan datak zein formatutan (12 ala 24) ikusiko diren aukera dezakezu. Berezko aukera eginda, gunearen hizkuntzaren araberako formatua aukeratuko da automatikoki. Erabiltzailearen ezarpenak erabilita alde batera utzi ahal da ezarpen hau.';
 $string['export'] = 'Esportatu';
 $string['exportbutton'] = 'Esportatu';
-$string['exportcalendar'] = 'Egutegia esportatu';
+$string['exportcalendar'] = 'Esportatu egutegia';
 $string['for'] = 'Norentzat';
+$string['forcecalendartype'] = 'Behartu egutegia';
 $string['fri'] = 'Or';
 $string['friday'] = 'Ostirala';
 $string['generateurlbutton'] = 'Egutegiaren URLa lortu';
@@ -127,6 +129,7 @@ $string['monthly'] = 'Hilero';
 $string['monthlyview'] = 'Hileko ikuspegia';
 $string['monthnext'] = 'Hurrengo hilabetea';
 $string['monththis'] = 'Hilabete honetan';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Inoiz ez';
 $string['newevent'] = 'Ekitaldi berria';
 $string['nocalendarsubscriptions'] = 'Ez duzu egutegi-harpidetzarik';
@@ -137,6 +140,7 @@ $string['pollinterval'] = 'Eguneratu tartea';
 $string['pollinterval_help'] = 'Zenbatero eguneratu nahiko zenuke egutegia ekitaldi berriekin.';
 $string['preferences'] = 'Hobespenak';
 $string['preferences_available'] = 'Zure hobespenak';
+$string['preferredcalendar'] = 'Egutegi hobetsia';
 $string['pref_lookahead'] = 'Datozen ekitaldiei begira';
 $string['pref_lookahead_help'] = 'Honek ezartzen du gehienez zenbat egunen buruan hasi behar duen ekitaldi batek  datozen ekitaldietan agertzeko. Hori baino aurrerago hasten direnak ez dira agertuko datozenetan. Mesedez, ohartu <strong>honek ez duela ziurtatzen</strong> tarte horretan agertzen diren ekitaldi guztiak agertuko direnik; gehiegi badira ("Datozen ekitaldien gehienezko kopurua"n ezarritakoak baino gehiago) urrunen dauden ekitaldiak ez dira erakutsiko.';
 $string['pref_maxevents'] = 'Datozen ekitaldien gehienezko kopurua';
@@ -169,6 +173,7 @@ $string['subscriptionname'] = 'Egutegiaren izena';
 $string['subscriptionremoved'] = '{$a} egutegi-harpidetza ezabatuta';
 $string['subscriptions'] = 'Harpidetzak';
 $string['subscriptionupdated'] = '{$a} egutegi-harpidetza eguneratuta';
+$string['subsource'] = 'Ekitaldiaren iturria: {$a->name}';
 $string['sun'] = 'Ig';
 $string['sunday'] = 'Igandea';
 $string['thu'] = 'Og';

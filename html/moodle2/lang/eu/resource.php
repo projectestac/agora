@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -66,7 +66,7 @@ Fitxategia erabil daiteke
 $string['modulenameplural'] = 'Fitxategiak';
 $string['neverseen'] = 'Inoiz ez ikusia';
 $string['notmigrated'] = 'Heredatutako baliabide-mota hau ({$a}) ez da oraindik migratu, barkatu.';
-$string['optionsheader'] = 'Aukerak';
+$string['optionsheader'] = 'Erakusteko aukerak';
 $string['page-mod-resource-x'] = 'Fitxategia moduluaren edozein orri';
 $string['pluginadministration'] = 'Fitxategiaren kudeaketa';
 $string['pluginname'] = 'Fitxategia';
@@ -76,8 +76,6 @@ $string['popupresource'] = 'Baliabide hau popup leiho batean agertuko da';
 $string['popupresourcelink'] = 'Hala ez bada, sakatu hemen:  {$a}';
 $string['popupwidth'] = 'Popup-aren zabalera (pixeletan)';
 $string['popupwidthexplain'] = 'Zehaztu zabaltzen den leihoaren berezko zabalera.';
-$string['printheading'] = 'Baliabidearen izena erakutsi';
-$string['printheadingexplain'] = 'Baliabidearen izena edukiaren gainean erakutsi? Mota batzuek agian ez dute baliabidearen izena erakutsiko, nahiz aukera hori ezarrita egon.';
 $string['printintro'] = 'Baliabidearen deskribapena erakutsi';
 $string['printintroexplain'] = 'Baliabidearen deskribapena edukiaren azpian? Mota batzuek agian ez dute deskribapena erakutsiko, nahiz aukera hori ezarrita egon.';
 $string['resource:addinstance'] = 'Gehitu beste baliabide bat';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Ajouter un commentaire';
 $string['addentries'] = 'Ajouter des fiches';
 $string['addtemplate'] = 'Modèle nouvelle fiche';
 $string['advancedsearch'] = 'Recherche avancée';
+$string['allowcomments'] = 'Autoriser les commentaires';
 $string['alttext'] = 'Texte alternatif';
 $string['approve'] = 'Approuver';
 $string['approved'] = 'Approuvé';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'La fonctionnalité de commentaire n\'est pas activée'
 $string['configenablerssfeeds'] = 'Cette option permet l\'activation des flux RSS pour toutes les bases de données. Il est en outre nécessaire d\'activer manuellement les flux RSS dans les réglages de chaque base de données.';
 $string['confirmdeletefield'] = 'Vous êtes sur le point de supprimer ce champ. Voulez-vous continuer ?';
 $string['confirmdeleterecord'] = 'Voulez-vous vraiment supprimer cette fiche ?';
+$string['confirmdeleterecords'] = 'Voulez-vous vraiment supprimer ces enregistrements ?';
 $string['csstemplate'] = 'Modèle CSS';
 $string['csvfailed'] = 'Impossible de lire les données du fichier CSV';
 $string['csvfile'] = 'Fichier CSV';
@@ -81,7 +83,7 @@ $string['csvimport'] = 'Importation fichier CSV';
 $string['csvimport_help'] = 'Des fiches peuvent être importées à partir d\'un fichier texte pur, dont la première ligne contient la liste des noms des champs. Les lignes suivantes contiendront les données à importer, une fiche par ligne.';
 $string['csvwithselecteddelimiter'] = 'Texte <acronym title="Comma Separated Values">CSV</acronym> avec séparateur :';
 $string['data:addinstance'] = 'Ajouter une base de données';
-$string['data:approve'] = 'Approuver des fiches';
+$string['data:approve'] = 'Approuver ou retirer l\'approbation de fiches';
 $string['data:comment'] = 'Écrire des commentaires';
 $string['data:exportallentries'] = 'Export toutes les fiches d\'une base de données';
 $string['data:exportentry'] = 'Exporter des fiches de base de données';
@@ -104,6 +106,7 @@ $string['dateentered'] = 'Date de saisie';
 $string['defaultfielddelimiter'] = '(par défaut une virgule)';
 $string['defaultfieldenclosure'] = '(par défaut vide)';
 $string['defaultsortfield'] = 'Champ de tri par défaut';
+$string['delcheck'] = 'Case à cocher pour suppression en lots';
 $string['delete'] = 'Supprimer';
 $string['deleteallentries'] = 'Supprimer toutes les fiches';
 $string['deletecomment'] = 'Voulez-vous vraiment supprimer ce commentaire ?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = 'Supprimer les fiches des utilisateurs non inscri
 $string['deletewarning'] = 'Voulez-vous vraiment supprimer ce préréglage ?';
 $string['descending'] = 'Descendant';
 $string['directorynotapreset'] = '{$a->directory} n\'est pas un préréglage. Fichiers manquants : {$a->missing_files}';
+$string['disapprove'] = 'Retirer l\'approbation';
 $string['download'] = 'Télécharger';
 $string['edit'] = 'Modifier';
 $string['editcomment'] = 'Modifier le commentaire';
@@ -206,7 +210,7 @@ $string['longitude'] = 'Longitude';
 $string['mapexistingfield'] = 'Faire correspondre à {$a}';
 $string['mapnewfield'] = 'Créer un nouveau champ';
 $string['mappingwarning'] = 'Les anciens champs qui ne sont pas mis en correspondance avec un nouveau champ seront perdus, ainsi que toutes les données qu\'ils contiennent.';
-$string['maxentries'] = 'Nombre maximum de fiches';
+$string['maxentries'] = 'Nombre maximal de fiches';
 $string['maxentries_help'] = 'Le nombre maximum de fiches qu\'un participant peut remettre dans le cadre de cette activité.';
 $string['maxsize'] = 'Taille maximale';
 $string['menu'] = 'Menu déroulant';
@@ -266,7 +270,7 @@ $string['notapproved'] = 'La fiche n\'est pas encore approuvée.';
 $string['notinjectivemap'] = 'N\'est pas une application injective';
 $string['notopenyet'] = 'Cette activité n\'est pas disponible avant le {$a}';
 $string['number'] = 'Nombre';
-$string['numberrssarticles'] = 'Fiches RSS';
+$string['numberrssarticles'] = 'Fiches dans le flux RSS';
 $string['numnotapproved'] = 'En attente';
 $string['numrecords'] = '{$a} fiches';
 $string['ods'] = 'Document <acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -289,11 +293,12 @@ $string['presets'] = 'Préréglages';
 $string['radiobutton'] = 'Boutons radio';
 $string['recordapproved'] = 'Fiche approuvée';
 $string['recorddeleted'] = 'Fiche supprimée';
+$string['recorddisapproved'] = 'Fiche désapprouvée';
 $string['recordsnotsaved'] = 'Aucune fiche n\'a été importée. Veuillez vérifier le format du fichier déposé.';
 $string['recordssaved'] = 'fiches importées';
-$string['requireapproval'] = 'Nécessite une approbation ?';
+$string['requireapproval'] = 'Approbation requise';
 $string['requireapproval_help'] = 'Si vous désirez que les fiches soient approuvées par un enseignant avant de pouvoir être vues par les autres participants, activez cette option.';
-$string['requiredentries'] = 'Fiches requises';
+$string['requiredentries'] = 'Fiches requises pour achèvement';
 $string['requiredentries_help'] = 'Le nombre de fiches qu\'un participant a l\'obligation de créer dans cette activité pour qu\'elle soit considérée comme terminée.';
 $string['requiredentriestoview'] = 'Fiches requises avant consultation';
 $string['requiredentriestoview_help'] = 'Ce réglage indique le nombre de fiches qu\'un participant doit créer avant de pouvoir consulter les fiches d\'autres participants.

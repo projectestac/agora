@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_spamcleaner', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_spamcleaner', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_spamcleaner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['pluginname'] = 'Spam zoeker';
 $string['spamauto'] = 'Detecteer automatisch veel voorkomende spampatronen';
 $string['spamcannotdelete'] = 'Kan deze gebruiker niet verwijderen';
 $string['spamcannotfinduser'] = 'Geen gebruikers voldoen aan je zoekopdracht';
-$string['spamcleanerintro'] = 'Met dit script kun je gebruikersprofielen doorzoeken op bepaalde strings en dan die accounts, die duidelijk door spammers gemaakt zijn, verwijderen. Je kunt zoeken naar meerdere woorden door ze in een komma gescheiden lijst te zetten (vb casino,porn)<br /><br />In Moodledocs vind je meer informatie over <a href="http://docs.moodle.org/nl/Spam_vermijden_in_Moodle">Spam vermijden in Moodle</a>';
+$string['spamcleanerintro'] = '<p>Met dit script kun je gebruikersprofielen doorzoeken op bepaalde strings en dan die accounts, die duidelijk door spammers gemaakt zijn, verwijderen. Je kunt zoeken naar meerdere woorden door ze in een komma gescheiden lijst te zetten (vb casino,porn)</p><p>In Moodledocs vind je meer informatie over <a href="http://docs.moodle.org/nl/Spam_vermijden_in_Moodle">Spam vermijden in Moodle</a></p>';
 $string['spamdeleteall'] = 'Verwijder al deze accounts';
 $string['spamdeleteallconfirm'] = 'Ben je er zeker van dat je al deze accounts wil verwijderen? Je kan dit niet ongedaan maken.';
 $string['spamdeleteconfirm'] = 'Ben je er zeker van dat je dit wil verwijderen? Je kan dit niet ongedaan maken.';

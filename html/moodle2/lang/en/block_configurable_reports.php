@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_configurable_reports', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_configurable_reports', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_configurable_reports
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -224,6 +224,7 @@ $string['filteryearnumeric_summary'] = 'Filter is using numeric years (2013,...)
 $string['filteryears'] = 'Year (Numeric)';
 $string['filteryears_list'] = '2010,2011,2012,2013,2014,2015';
 $string['filteryears_summary'] = 'Filter by years (numeric representation, 2012...)';
+$string['finalgradeincurrentcourse'] = 'Final grade in current course';
 $string['fixeddate'] = 'Fixed date';
 $string['footer'] = 'Footer';
 $string['forcemidnight'] = 'Force midnight';
@@ -240,6 +241,8 @@ $string['includesubcats'] = 'Include subcategories';
 $string['jsordering'] = 'JavaScript Ordering';
 $string['jsordering_help'] = 'JavaScript Ordering allow you to order the report table without reloading the page';
 $string['lastexecutiontime'] = 'Execution time = {$a} (Sec)';
+$string['legacylognotenabled'] = 'Legacy logs must be enabled.
+ Go to Site administration / Plugins / Logging Enable the Legacy log and inside the log settings check Log legacy data';
 $string['line'] = 'Line graph';
 $string['linesummary'] = 'A line graph with multiple series of data';
 $string['listofsqlreports'] = 'Press F11 when cursor is in the editor to toggle full screen editing. Esc can also be used to exit full screen editing.<br/><br/><a href="http://docs.moodle.org/en/ad-hoc_contributed_reports" target="_blank">List of SQL Contributed reports</a>';
@@ -290,6 +293,8 @@ $string['report_categories'] = 'Categories report';
 $string['reportcolumn'] = 'Other report column';
 $string['report_courses'] = 'Courses report';
 $string['reportcreated'] = 'Report successfully created';
+$string['reportlimit'] = 'Report row limit';
+$string['reportlimitinfo'] = 'Limit the number of rows that are displayed in the report table (Default is 5000 rows. Better to have some limit, so users will not over load the DB engine)';
 $string['reports'] = 'Reports';
 $string['reportscapabilities'] = 'Report Capabilities';
 $string['reportscapabilities_summary'] = 'Users with the capability moodle/site:viewreports enabled';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Actions';
 $string['availability'] = 'Availability';
 $string['checkforupdates'] = 'Check for available updates';
 $string['checkforupdateslast'] = 'Last check done on {$a}';
+$string['detectedmisplacedplugin'] = 'Plugin "{$a->component}" is installed in incorrect location "{$a->current}", expected location is "{$a->expected}"';
 $string['displayname'] = 'Plugin name';
 $string['err_response_curl'] = 'Unable to fetch available updates data - unexpected cURL error.';
 $string['err_response_format_version'] = 'Unexpected version of the response format. Please try to re-check for available updates.';
@@ -57,7 +58,7 @@ $string['numtotal'] = 'Installed: {$a}';
 $string['numupdatable'] = 'Updates available: {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['pluginchecknotice'] = 'This page displays plugins that may require your attention during the upgrade. Highlighted items include new plugins that are about to be installed, updated plugins that are about to be upgraded and any missing plugins. Add-ons are also highlighted. It is recommended that you check whether there are more recent versions of add-ons available and update their source code before continuing with this Moodle upgrade.';
+$string['pluginchecknotice'] = 'This page displays plugins that may require your attention during the upgrade. Highlighted items include new plugins that are about to be installed, updated plugins that are about to be upgraded and any missing plugins. Add-ons are highlighted if there is an available update for them. It is recommended that you check whether there are more recent versions of add-ons available and update their source code before continuing with this Moodle upgrade.';
 $string['plugindisable'] = 'Disable';
 $string['plugindisabled'] = 'Disabled';
 $string['pluginenable'] = 'Enable';
@@ -90,6 +91,8 @@ $string['type_cachelock'] = 'Cache lock handler';
 $string['type_cachelock_plural'] = 'Cache lock handlers';
 $string['type_cachestore'] = 'Cache store';
 $string['type_cachestore_plural'] = 'Cache stores';
+$string['type_calendartype'] = 'Calendar type';
+$string['type_calendartype_plural'] = 'Calendar types';
 $string['type_coursereport'] = 'Course report';
 $string['type_coursereport_plural'] = 'Course reports';
 $string['type_editor'] = 'Editor';
@@ -116,8 +119,8 @@ $string['type_mnetservice'] = 'MNet service';
 $string['type_mnetservice_plural'] = 'MNet services';
 $string['type_mod'] = 'Activity module';
 $string['type_mod_plural'] = 'Activity modules';
-$string['type_plagiarism'] = 'Plagiarism prevention plugin';
-$string['type_plagiarism_plural'] = 'Plagiarism prevention plugins';
+$string['type_plagiarism'] = 'Plagiarism plugin';
+$string['type_plagiarism_plural'] = 'Plagiarism plugins';
 $string['type_portfolio'] = 'Portfolio';
 $string['type_portfolio_plural'] = 'Portfolios';
 $string['type_profilefield'] = 'Profile field type';
@@ -139,6 +142,14 @@ $string['type_tool_plural'] = 'Admin tools';
 $string['type_webservice'] = 'Webservice protocol';
 $string['type_webservice_plural'] = 'Webservice protocols';
 $string['uninstall'] = 'Uninstall';
+$string['uninstallconfirm'] = 'You are about to uninstall the plugin <em>{$a->name}</em>. This will completely delete everything in the database associated with this plugin, including its configuration, log records, user files managed by the plugin etc. There is no way back and Moodle itself does not create any recovery backup. Are you SURE you want to continue?';
+$string['uninstalldelete'] = 'All data associated with the plugin <em>{$a->name}</em> has been deleted from the database. To prevent the plugin re-installing itself, its folder <em>{$a->rootdir}</em> must be manually removed from your server now. Moodle itself cannot remove the folder due to write permissions.';
+$string['uninstalldeleteconfirm'] = 'All data associated with the plugin <em>{$a->name}</em> has been deleted from the database. To prevent the plugin re-installing itself, its folder <em>{$a->rootdir}</em> must be removed from your server. Do you want to remove the plugin folder now?';
+$string['uninstalldeleteconfirmexternal'] = 'It appears that the current version of the plugin has been obtained via source code management system ({$a}) checkout. If you remove the plugin folder, you may loose important local modifications of the code. Please ensure that you definitely want to remove the plugin folder before continuing.';
+$string['uninstallextraconfirmblock'] = 'There are {$a->instances} instances of this block.';
+$string['uninstallextraconfirmenrol'] = 'There are {$a->enrolments} user enrolments.';
+$string['uninstallextraconfirmmod'] = 'There are {$a->instances} instances of this module in {$a->courses} courses.';
+$string['uninstalling'] = 'Uninstalling {$a->name}';
 $string['updateavailable'] = 'There is a new version {$a} available!';
 $string['updateavailable_moreinfo'] = 'More info...';
 $string['updateavailable_release'] = 'Release {$a}';

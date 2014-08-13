@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_overview', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_overview', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,16 +32,17 @@ $string['attemptsonly'] = 'Saiakerak dituen {$a} baino ez erakutsi';
 $string['attemptsprepage'] = 'Orriko erakutsitako saiakerak';
 $string['deleteselected'] = 'Ezabatu aukeratutako saiakerak';
 $string['done'] = 'Egina';
+$string['err_failedtorecalculateattemptgrades'] = 'Kale egin du saiakeren kalifikazioak berriz kalkulatzean';
 $string['highlightinggraded'] = 'Erabiltzailearen azken kalifikaziorako erabiliko den saiakera nabarmenduta dago.';
 $string['needed'] = 'Derrigorrezkoa';
 $string['noattemptsonly'] = 'Saiakerarik ez duen {$a} baino ez erakutsi / jaitsi';
+$string['noattemptstoregrade'] = 'Ez da berriz kalifikatu beharreko saiakerarik';
 $string['nogradepermission'] = 'Ez duzu galdetegi hau kalifikatzeko baimenik.';
 $string['onlyoneattemptallowed'] = 'Galdetegi honetan erabiltzailearen saiakera bat baino ez da agertzen';
 $string['optallattempts'] = 'saiakera guztiak';
 $string['optallstudents'] = '\'{$a}\' guztiak';
 $string['optattemptsonly'] = 'Saiakerak dituzten \'{$a}\' baino ez';
 $string['optnoattemptsonly'] = 'Saiakerarik ez duten \'{$a}\' bakarrik';
-$string['optonlygradedattempts'] = 'erabiltzaile bakoitzarentzat kalifikatutako saiakera bakarrik ({$a})';
 $string['optonlyregradedattempts'] = 'berriz kalifikatutakoak /  berkalifikatu behar direlako markatuta daudenak';
 $string['overview'] = 'Kalifikazioak';
 $string['overviewdownload'] = 'Ikuspegi orokorra jaitsi';

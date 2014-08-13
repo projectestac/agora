@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendance', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendance', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   attendance
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -122,6 +122,11 @@ $string['jumpto'] = 'Saltar para';
 $string['Lacronym'] = 'A';
 $string['Lfull'] = 'Atrasado';
 $string['modulename'] = 'Assiduidade';
+$string['modulename_help'] = 'O módulo da actividade de assiduidade permite ao professor registar a presença dos alunos durante a aula e permite aos alunos verificar o seu registo de assiduidade.
+
+O professor pode criar múltiplas sessões e pode registar a assiduidade como "Presente", "Faltou", "Atrasado" ou "Dispensado" ou modificar os estados de acordo com a necessidade.
+
+Estão disponíveis relatórios de toda a turma ou de alunos individuais.';
 $string['modulenameplural'] = 'Assiduidades';
 $string['months'] = 'Meses';
 $string['myvariables'] = 'As minhas variáveis';

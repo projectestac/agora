@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'CSV delimiter';
 $string['defaultvalues'] = 'Default values';
 $string['deleteerrors'] = 'Delete errors';
 $string['encoding'] = 'Encoding';
+$string['errormnetadd'] = 'Can not add remote users';
 $string['errors'] = 'Errors';
 $string['nochanges'] = 'No changes';
 $string['pluginname'] = 'User upload';
@@ -60,6 +61,7 @@ $string['uploadusers_help'] = 'Users may be uploaded (and optionally enrolled in
 * Required fieldnames are username, password, firstname, lastname, email';
 $string['uploaduserspreview'] = 'Upload users preview';
 $string['uploadusersresult'] = 'Upload users results';
+$string['uploaduser:uploaduserpictures'] = 'Upload user pictures';
 $string['useraccountupdated'] = 'User updated';
 $string['useraccountuptodate'] = 'User up-to-date';
 $string['userdeleted'] = 'User deleted';

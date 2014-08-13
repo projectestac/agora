@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dataformfield_picture', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'dataformfield_picture', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dataformfield_picture
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,8 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['displaydimensions'] = 'Display dimensions (width x height)';
-$string['maxdimensions'] = 'Max dimensions (width x height)px';
+$string['displaydimensions'] = 'Display dimensions';
+$string['displaydimensions_help'] = 'The size of the displayed image. Aspect ratio is preserved if only width or height are specified.';
+$string['maxdimensions'] = 'Max size';
+$string['maxdimensions_help'] = 'The max size (in pixels) of the stored images. If specified, larger images will be cropped.';
 $string['pluginname'] = 'Picture';
 $string['resizingimages'] = 'Resizing image thumbnails...';
-$string['thumbdimensions'] = 'Thumb dimensions (width x height)px';
+$string['thumbdimensions'] = 'Thumb size';
+$string['thumbdimensions_help'] = 'The thumb size (in pixels of the stored images. If not specified, thumbs are not generated.';

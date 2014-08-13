@@ -40,7 +40,7 @@ raise_memory_limit(MEMORY_HUGE);
 
 require_login();
 admin_externalpage_setup('tooluploadcoursecategory');
-$context = get_system_context();
+$context = context_system::instance();
 require_capability('moodle/category:manage', $context);
 
 $strcoursecategoryrenamed             = get_string('coursecategoryrenamed', 'tool_uploadcoursecategory');
@@ -185,18 +185,18 @@ if ($formdata = $mform2->is_cancelled()) {
                 $upt->track($key, s($value), 'normal');
             }
         }
-        
+
         if (!isset($coursecategory->name)) {
             // prevent warnings bellow
             $coursecategory->name = '';
         }
-        
+
         // normalize name
         $originalname = $coursecategory->name;
         if ($standardnames) {
             $coursecategory->name = clean_param($coursecategory->name, PARAM_MULTILANG);
         }
-        
+
         // make sure we really have name
         if (empty($coursecategory->name)) {
             $upt->track('status', get_string('missingfield', 'error', 'name'), 'error');
@@ -204,7 +204,7 @@ if ($formdata = $mform2->is_cancelled()) {
             $coursecategorieserrors++;
             continue;
         }
-        
+
         // validate category parent
         $coursecategory->pathname = $coursecategory->name;
         $categories = explode('/', $coursecategory->name);
@@ -351,7 +351,7 @@ if ($formdata = $mform2->is_cancelled()) {
                 $renameerrors++;
                 continue;
             }
-            
+
             // validate category parent
             $categories = explode('/', $coursecategory->oldname);
             $coursecategory->oldparent = 0;
@@ -385,7 +385,7 @@ if ($formdata = $mform2->is_cancelled()) {
                 $oldname = $coursecategory->oldname;
             }
 
-            
+
             // no guessing when looking for old name, it must be exact match
             if ($oldcoursecategory = $DB->get_record('course_categories', array('name'=>trim($coursecategory->oldname), 'parent' => $coursecategory->oldparent))) {
                 $upt->track('id', $oldcoursecategory->id, 'normal', false);
@@ -452,7 +452,7 @@ if ($formdata = $mform2->is_cancelled()) {
         if ($skip) {
             continue;
         }
-        
+
         if ($existingcategory) {
             $coursecategory->id = $existingcategory->id;
             require_capability('moodle/category:manage', get_category_or_system_context((int)$existingcategory->parent));

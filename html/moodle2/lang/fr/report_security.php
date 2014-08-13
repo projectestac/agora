@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,11 +86,6 @@ $string['check_passwordpolicy_details'] = '<p>Il est recommandé de définir des
 $string['check_passwordpolicy_error'] = 'Règles pour les mots de passe non définies.';
 $string['check_passwordpolicy_name'] = 'Règles pour les mots de passe';
 $string['check_passwordpolicy_ok'] = 'Des règles sont définies pour les mots de passe.';
-$string['check_passwordsaltmain_details'] = '<p>La définition d\'un sel de mot de passe réduit considérablement les possibilités de vol de mot de passe.</p><p>Pour définir un sel de mot de passe, il suffit d\'ajouter la ligne ci-dessous à votre fichier config.php.</p><code>$CFG->passwordsaltmain = \'une_très_longue_chaîne_de_caractères_aléatoires\';</code><p>La chaîne de caractères aléatoires doit être un mélange de lettres, de chiffres et d\'autres caractères. Il est recommandé que sa longueur soit d\'au moins 40 caractères.</p><p>Veuillez vous référer à la <a href="{$a}" target="_blank">documentation sur le sel de mot de passe</a> si vous voulez changer le sel de mot de passe. Une fois le sel de mot de passe défini, ne le supprimez pas, sans quoi vous ne pourrez plus vous connecter à votre site.</p>';
-$string['check_passwordsaltmain_name'] = 'Sel de mot de passe';
-$string['check_passwordsaltmain_ok'] = 'Le sel de mot de passe est correctement défini';
-$string['check_passwordsaltmain_warning'] = 'Aucun sel de mot de passe n\'a été défini';
-$string['check_passwordsaltmain_weak'] = 'Le sel de mot de passe est faible';
 $string['check_riskadmin_detailsok'] = '<p>Veuillez vérifier la liste ci-dessous des administrateurs du système :</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>Veuillez vérifier la liste ci-dessous des administrateurs du système :</p>{$a->admins}<p>Il est recommandé de n\'attribuer le rôle d\'administrateur que dans le contexte Système. Les utilisateurs ci-dessous ont des attributions (non supportées) du rôle d\'administrateur dans d\'autres contextes :</p><p>{$a->unsupported}</p>';
 $string['check_riskadmin_name'] = 'Administrateurs';

@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * The most important attributes of a step are the state, which is one of the
  * {@link question_state} constants, the fraction, which may be null, or a
- * number bewteen the attempt's minfraction and 1.0, and the array of submitted
+ * number bewteen the attempt's minfraction and maxfraction, and the array of submitted
  * data, about which more later.
  *
  * A step also tracks the time it was created, and the user responsible for
@@ -76,7 +76,10 @@ class question_attempt_step {
      */
     private $state;
 
-    /** @var null|number the fraction (grade on a scale of minfraction .. 1.0) or null. */
+    /**
+     * @var null|number the fraction (grade on a scale of
+     * minfraction .. maxfraction, normally 0..1) or null.
+     */
     private $fraction = null;
 
     /** @var integer the timestamp when this step was created. */
@@ -106,7 +109,7 @@ class question_attempt_step {
         global $USER;
 
         if (!is_array($data)) {
-            echo format_backtrace(debug_backtrace());
+            throw new coding_exception('$data must be an array when constructing a question_attempt_step.');
         }
         $this->state = question_state::$unprocessed;
         $this->data = $data;
@@ -148,7 +151,8 @@ class question_attempt_step {
     }
 
     /**
-     * @return null|number the fraction (grade on a scale of minfraction .. 1.0)
+     * @return null|number the fraction (grade on a scale of
+     * minfraction .. maxfraction, normally 0..1),
      * or null if this step has not been marked.
      */
     public function get_fraction() {
@@ -291,7 +295,7 @@ class question_attempt_step {
     }
 
     /**
-     * @param string $name the name of an behaviour variable to look for in the submitted data.
+     * @param string $name the name of a behaviour variable to look for in the submitted data.
      * @return bool whether a variable with this name exists in the question type data.
      */
     public function has_behaviour_var($name) {
@@ -299,7 +303,7 @@ class question_attempt_step {
     }
 
     /**
-     * @param string $name the name of an behaviour variable to look for in the submitted data.
+     * @param string $name the name of a behaviour variable to look for in the submitted data.
      * @return string the requested variable, or null if the variable is not set.
      */
     public function get_behaviour_var($name) {
@@ -370,9 +374,11 @@ class question_attempt_step {
      * Create a question_attempt_step from records loaded from the database.
      * @param Iterator $records Raw records loaded from the database.
      * @param int $stepid The id of the records to extract.
+     * @param string $qtype The question type of which this is an attempt.
+     *      If not given, each record must include a qtype field.
      * @return question_attempt_step The newly constructed question_attempt_step.
      */
-    public static function load_from_records($records, $attemptstepid) {
+    public static function load_from_records($records, $attemptstepid, $qtype = null) {
         $currentrec = $records->current();
         while ($currentrec->attemptstepid != $attemptstepid) {
             $records->next();
@@ -384,6 +390,7 @@ class question_attempt_step {
         }
 
         $record = $currentrec;
+        $contextid = null;
         $data = array();
         while ($currentrec && $currentrec->attemptstepid == $attemptstepid) {
             if (!is_null($currentrec->name)) {
@@ -403,6 +410,22 @@ class question_attempt_step {
         if (!is_null($record->fraction)) {
             $step->fraction = $record->fraction + 0;
         }
+
+        // This next chunk of code requires getting $contextid and $qtype here.
+        // Somehow, we need to get that information to this point by modifying
+        // all the paths by which this method can be called.
+        // Can we only return files when it's possible? Should there be some kind of warning?
+        if (is_null($qtype)) {
+            $qtype = $record->qtype;
+        }
+        foreach (question_bank::get_qtype($qtype)->response_file_areas() as $area) {
+            if (empty($step->data[$area])) {
+                continue;
+            }
+
+            $step->data[$area] = new question_file_loader($step, $area, $step->data[$area], $record->contextid);
+        }
+
         return $step;
     }
 }
@@ -534,7 +557,7 @@ class question_attempt_step_subquestion_adapter extends question_attempt_step {
      * null if the extre prefix was not present.
      */
     public function remove_prefix($field) {
-        if (preg_match('~^(-?_?)' . preg_quote($this->extraprefix) . '(.*)$~', $field, $matches)) {
+        if (preg_match('~^(-?_?)' . preg_quote($this->extraprefix, '~') . '(.*)$~', $field, $matches)) {
             return $matches[1] . $matches[2];
         } else {
             return null;

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_regexp', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_regexp', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_regexp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,6 +33,7 @@ $string['answer1mustbegiven'] = 'La Réponse n° 1 ne peut pas être vide.';
 $string['answermustbegiven'] = 'Ce champ Réponse ne peut pas être vide si vous avez entré une valeur de Score ou un message de Feedback.';
 $string['answerno'] = 'Réponse {$a}';
 $string['bestcorrectansweris'] = '<strong>La meilleure réponse est :</strong><br />{$a}';
+$string['calculatealternate'] = '(Re-)calculer les réponses alternatives';
 $string['caseno'] = 'La casse des caractères indiffère';
 $string['casesensitive'] = 'Casse des caractères';
 $string['caseyes'] = 'La casse des caractères doit être respectée';
@@ -75,13 +76,12 @@ $string['regexp_link'] = 'question/type/regexp';
 $string['regexpsensitive'] = 'Utiliser les expressions régulières pour analyser les réponses';
 $string['regexpsummary'] = 'Question à réponse courte où les réponses de l\'étudiant sont basées sur des expressions régulières';
 $string['settingsformultipletries'] = 'Paramètres de pénalités pour les essais incorrects et l\'achat de lettres ou de mots';
-$string['showalternate'] = 'Afficher les réponses alternatives';
 $string['showhidealternate'] = 'Afficher/Masquer les réponses alternatives';
 $string['showhidealternate_help'] = 'Calculer et afficher toutes les réponses alternatives correctes sur cette page ? Cette opération peut surcharger votre serveur
 selon le nombre et la complexité des expressions régulières que vous avez créées dans les champs Réponse.
 
 Cependant, afficher ces réponses alternatives maintenant est la meilleure façon de vérifier que vos expressions régulières sont correctement rédigées.';
-$string['studentshowalternate'] = 'Montrer les réponses alternatives à l\'étudiant';
+$string['studentshowalternate'] = 'Montrer les réponses alternatives';
 $string['studentshowalternate_help'] = 'Montrer <strong>toutes</strong> les réponses alternatives correctes à l\'étudiant sur la page "Relecture" ? S\'il y a beaucoup de réponses alternatives générées automatiquement, la page peut devenir très longue...';
 $string['usehint'] = 'Mode d\'aide';
 $string['usehint_help'] = 'Si un mode d\'aide autre que <strong>Aucun</strong> est sélectionné, un bouton d\'aide sera affiché pour permettre à l\'étudiant d\'« acheter » une lettre ou un mot.

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_flickr_public', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_flickr_public', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_flickr_public
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['by-nc-nd'] = '帰属-非商用-派生禁止ライセンス (Attribution
 $string['by-nc-sa'] = '帰属-非商用-派生許可ライセンス (Attribution-NonCommercial-ShareAlike License)';
 $string['by-nd'] = '帰属-派生禁止ライセンス (Attribution-NoDerivs License)';
 $string['by-sa'] = '帰属-派生許可ライセンス (Attribution-ShareAlike License)';
-$string['callbackurl'] = 'コールバックURI';
+$string['callbackurl'] = 'コールバックURL';
 $string['commercialuse'] = '私の作品の商用利用を許可します';
 $string['configplugin'] = 'Flickrパブリック設定';
 $string['creativecommonscommercial'] = 'クリエイティブ・コモンズ商用 (creative commons commercial) のみ';

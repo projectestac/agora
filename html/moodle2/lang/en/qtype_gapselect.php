@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_gapselect', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_gapselect', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_gapselect
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,8 @@ $string['addmorechoiceblanks'] = 'Blanks for {no} more choices';
 $string['answer'] = 'Answer';
 $string['choices'] = 'Choices';
 $string['choicex'] = 'Choice {no}';
+$string['combinedcontrolnamegapselect'] = 'drop down box';
+$string['combinedcontrolnamegapselectplural'] = 'drop down boxes';
 $string['correctansweris'] = 'The correct answer is: {$a}';
 $string['errorblankchoice'] = 'Please check the Choices: Choice {$a} is empty.';
 $string['errormissingchoice'] = 'Please check the Question text: {$a} was not found in Choices! Only the choice numbers that exist in choices are allowed to be used a place holders.';

@@ -131,7 +131,7 @@ class cache_factory {
                 self::$instance = new cache_factory();
                 if (defined('CACHE_DISABLE_STORES') && CACHE_DISABLE_STORES !== false) {
                     // The cache stores have been disabled.
-                    self::$instance->set_state(self::STATE_STORES_DISABLED);;
+                    self::$instance->set_state(self::STATE_STORES_DISABLED);
                 }
             }
         }
@@ -183,7 +183,7 @@ class cache_factory {
      */
     public function create_cache_from_definition($component, $area, array $identifiers = array(), $aggregate = null) {
         $definitionname = $component.'/'.$area;
-        if (array_key_exists($definitionname, $this->cachesfromdefinitions)) {
+        if (isset($this->cachesfromdefinitions[$definitionname])) {
             $cache = $this->cachesfromdefinitions[$definitionname];
             $cache->set_identifiers($identifiers);
             return $cache;
@@ -308,7 +308,7 @@ class cache_factory {
 
     /**
      * Returns the cache instances that have been used within this request.
-     * @since 2.4.7
+     * @since 2.6
      * @return array
      */
     public function get_caches_in_use() {
@@ -386,7 +386,7 @@ class cache_factory {
         if ($aggregate) {
             $id .= '::'.$aggregate;
         }
-        if (!array_key_exists($id, $this->definitions)) {
+        if (!isset($this->definitions[$id])) {
             // This is the first time this definition has been requested.
             if ($this->is_initialising()) {
                 // We're initialising the cache right now. Don't try to create another config instance.

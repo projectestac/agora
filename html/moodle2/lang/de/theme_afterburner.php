@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_afterburner', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -55,7 +55,7 @@ $string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. 
 $string['footnote'] = 'Fußzeile';
 $string['footnotedesc'] = 'Fußnote oder Fußzeilentext einfügen';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Wenn Sie das Standardlogo ersetzen wollen, tragen Sie die URL zu Ihrer Logo-Datei ein. <br />Das Dateiformat des Standardlogos ist JPG und die Bildgröße beträgt 320 px (breit) und 75 px (hoch).';
+$string['logodesc'] = 'Wenn Sie das Standardlogo ersetzen möchten, laden Sie Ihre Logo-Datei hoch. <br />Das Standardlogos hat das Format .jpg und ist 320 Pixel breit und 75 Pixel hoch.';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';

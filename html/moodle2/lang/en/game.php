@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'game', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'game', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   game
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,6 +52,7 @@ $string['clearrepetitions'] = 'Clear statistics';
 $string['comment'] = 'Comment';
 $string['completedon'] = 'Completed on';
 $string['computerepetitions'] = 'Compute statistics again';
+$string['confighangmanimagesets'] = 'Configs how many set of images are used by hangman';
 $string['confighidebookquiz'] = 'Configs if the "Book with questions" game is shown to teachers or not';
 $string['confighidecross'] = 'Configs if the Crossword game is shown to teachers or not';
 $string['confighidecryptex'] = 'Configs if the Cryptex game is shown to teachers or not';
@@ -67,6 +68,7 @@ $string['cross_across'] = 'Across';
 $string['cross_checkbutton'] = 'Check crossword';
 $string['cross_correct'] = 'corrert character';
 $string['cross_corrects'] = 'correct characters';
+$string['cross_disabletransformuppercase'] = 'Disables text-transform:uppercase in CSS';
 $string['cross_down'] = 'Down';
 $string['cross_endofgamebutton'] = 'End of crossword game';
 $string['cross_error'] = 'wrong character';
@@ -92,6 +94,11 @@ $string['cryptex_options'] = 'Cryptex options';
 $string['deleteattemptcheck'] = 'Are you absolutely sure you want to completely delete these attempts?';
 $string['displayoptions'] = 'Display options';
 $string['downloadods'] = 'Download in ODS format';
+$string['eventgamecreated'] = 'Game created';
+$string['eventgamedeleted'] = 'Game deleted';
+$string['eventgameplayed'] = 'Game played';
+$string['eventgamesupdated'] = 'Game updated';
+$string['eventgameviewed'] = 'Game viewed';
 $string['export'] = 'Export';
 $string['export_to_html'] = 'Export to HTML';
 $string['export_to_javame'] = 'Export to Javame';
@@ -133,6 +140,7 @@ $string['hangman_correct_phrase'] = 'The correct phrase was:';
 $string['hangman_correct_word'] = 'The correct word was:';
 $string['hangman_gradeinstance'] = 'Grade in whole game';
 $string['hangman_imageset'] = 'Select the images of hangman';
+$string['hangmanimagesets'] = 'Number of image sets used by hangman';
 $string['hangman_language'] = 'Language of words';
 $string['hangman_letters'] = 'Letters:';
 $string['hangman_loose'] = '<BIG><B>Game over</B></BIG>';

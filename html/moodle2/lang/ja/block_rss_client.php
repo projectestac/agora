@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_rss_client', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addfeed'] = 'ニュースフィードURIを追加する:';
+$string['addfeed'] = 'ニュースフィードURLを追加する:';
 $string['addheadlineblock'] = 'RSSヘッドラインブロックを追加する';
 $string['addnew'] = 'RSSを追加する';
 $string['addnewfeed'] = '新しいフィードを追加する';
@@ -48,10 +48,10 @@ $string['editrssblock'] = 'RSSヘッドラインブロックを編集する';
 $string['enableautodiscovery'] = 'オートディスカバリを有効にしますか?';
 $string['enableautodiscovery_help'] = '<p>このオプションを有効にすることで、フィードのリンクが提供されていない場合、Moodleは自動的にウェブページからフィードを探します。</p>
 
-<p>例えば、Moodle DocsのURIを入力した場合:
+<p>例えば、Moodle DocsのURLを入力した場合:
 <pre>http://docs.moodle.org</pre>
 Moodleは購読するため、自動的に最新の変更に関するフィードを探します:
-<pre>http://docs.moodle.org/en/index.php?title=Special:RecentChanges&amp;feed=rss</pre>
+<pre>http://docs.moodle.org/en/index.php?title=Special:RecentChanges&feed=rss</pre>
 </p>';
 $string['errorloadingfeed'] = 'RSSフィード ({$a}) のローディング中にエラーが発生しました。';
 $string['feed'] = 'フィード';
@@ -62,7 +62,7 @@ $string['feedsaddedit'] = 'フィードを追加/編集する';
 $string['feedsconfigurenewinstance'] = 'このブロックがRSSフィードを表示するよう設定するには、ここをクリックしてください。';
 $string['feedsconfigurenewinstance2'] = 'このブロックがRSSフィードを表示できるようにするには、上の編集アイコンをクリックしてください。';
 $string['feedupdated'] = 'ニュースフィードが更新されました。';
-$string['feedurl'] = 'フィードURI';
+$string['feedurl'] = 'フィードURL';
 $string['findmorefeeds'] = 'さらにRSSフィードを探す';
 $string['managefeeds'] = 'マイフィードすべてを管理する';
 $string['nofeeds'] = 'このサイトに設定されたRSSフィードはありません。';
@@ -84,5 +84,5 @@ $string['submitters2'] = '配信者';
 $string['timeout'] = 'キャッシュ内のRSSフィードの有効期限が切れる時間 (分) です。この時間には有効期限の最短時間を設定します。有効期限後の次のcron実行により、キャッシュ内のRSSフィードがリフレッシュされます。推奨設定値は、30分またはそれ以上です。';
 $string['timeout2'] = 'タイムアウト';
 $string['timeoutdesc'] = 'RSSフィードキャッシュの保存期間 (分) です。';
-$string['updatefeed'] = 'ニュースフィードURIを更新する:';
+$string['updatefeed'] = 'ニュースフィードURLを更新する:';
 $string['viewfeed'] = 'フィードを表示する';

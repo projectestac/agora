@@ -39,6 +39,9 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     /** @var moodle_transaction */
     private $testdbtransaction;
 
+    /** @var int timestamp used for current time asserts */
+    private $currenttimestart;
+
     /**
      * Constructs a test case with the given name.
      *
@@ -73,13 +76,17 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
         }
 
         try {
+            $this->setCurrentTimeStart();
             parent::runBare();
             // set DB reference in case somebody mocked it in test
             $DB = phpunit_util::get_global_backup('DB');
 
             // Deal with any debugging messages.
-            phpunit_util::display_debugging_messages();
+            $debugerror = phpunit_util::display_debugging_messages();
             phpunit_util::reset_debugging();
+            if ($debugerror) {
+                trigger_error('Unenxpected debugging() call detected.', E_USER_NOTICE);
+            }
 
         } catch (Exception $e) {
             // cleanup after failed expectation
@@ -97,7 +104,7 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
                 phpunit_util::reset_all_database_sequences();
                 phpunit_util::$lastdbwrites = $DB->perf_get_writes(); // no db reset necessary
             }
-            phpunit_util::reset_all_data();
+            phpunit_util::reset_all_data(null);
 
         } else if ($this->resetAfterTest === false) {
             if ($this->testdbtransaction) {
@@ -248,7 +255,8 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     }
 
     /**
-     * Clear all previous debugging messages in current test.
+     * Clear all previous debugging messages in current test
+     * and revert to default DEVELOPER_DEBUG level.
      */
     public function resetDebugging() {
         phpunit_util::reset_debugging();
@@ -307,6 +315,62 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Assert that an event legacy data is equal to the expected value.
+     *
+     * @param mixed $expected expected data.
+     * @param \core\event\base $event the event object.
+     * @param string $message
+     * @return void
+     */
+    public function assertEventLegacyData($expected, \core\event\base $event, $message = '') {
+        $legacydata = phpunit_event_mock::testable_get_legacy_eventdata($event);
+        if ($message === '') {
+            $message = 'Event legacy data does not match expected value.';
+        }
+        $this->assertEquals($expected, $legacydata, $message);
+    }
+
+    /**
+     * Assert that an event legacy log data is equal to the expected value.
+     *
+     * @param mixed $expected expected data.
+     * @param \core\event\base $event the event object.
+     * @param string $message
+     * @return void
+     */
+    public function assertEventLegacyLogData($expected, \core\event\base $event, $message = '') {
+        $legacydata = phpunit_event_mock::testable_get_legacy_logdata($event);
+        if ($message === '') {
+            $message = 'Event legacy log data does not match expected value.';
+        }
+        $this->assertEquals($expected, $legacydata, $message);
+    }
+
+    /**
+     * Stores current time as the base for assertTimeCurrent().
+     *
+     * Note: this is called automatically before calling individual test methods.
+     * @return int current time
+     */
+    public function setCurrentTimeStart() {
+        $this->currenttimestart = time();
+        return $this->currenttimestart;
+    }
+
+    /**
+     * Assert that: start < $time < time()
+     * @param int $time
+     * @param string $message
+     * @return void
+     */
+    public function assertTimeCurrent($time, $message = '') {
+        $msg =  ($message === '') ? 'Time is lower that allowed start value' : $message;
+        $this->assertGreaterThanOrEqual($this->currenttimestart, $time, $msg);
+        $msg =  ($message === '') ? 'Time is in the future' : $message;
+        $this->assertLessThanOrEqual(time(), $time, $msg);
+    }
+
+    /**
      * Starts message redirection.
      *
      * You can verify if messages were sent or not by inspecting the messages
@@ -330,6 +394,19 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
      */
     public function redirectEmails() {
         return phpunit_util::start_phpmailer_redirection();
+    }
+
+    /**
+     * Starts event redirection.
+     *
+     * You can verify if events were triggered or not by inspecting the events
+     * array in the returned event sink instance. The redirection
+     * can be stopped by calling $sink->close();
+     *
+     * @return phpunit_event_sink
+     */
+    public function redirectEvents() {
+        return phpunit_util::start_event_redirection();
     }
 
     /**
@@ -375,7 +452,7 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
         unset($user->access);
         unset($user->preference);
 
-        session_set_user($user);
+        \core\session\manager::set_user($user);
     }
 
     /**
@@ -399,10 +476,50 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     /**
      * Get data generator
      * @static
-     * @return phpunit_data_generator
+     * @return testing_data_generator
      */
     public static function getDataGenerator() {
         return phpunit_util::get_data_generator();
+    }
+
+    /**
+     * Returns UTL of the external test file.
+     *
+     * The result depends on the value of following constants:
+     *  - TEST_EXTERNAL_FILES_HTTP_URL
+     *  - TEST_EXTERNAL_FILES_HTTPS_URL
+     *
+     * They should point to standard external test files repository,
+     * it defaults to 'http://download.moodle.org/unittest'.
+     *
+     * False value means skip tests that require external files.
+     *
+     * @param string $path
+     * @param bool $https true if https required
+     * @return string url
+     */
+    public function getExternalTestFileUrl($path, $https = false) {
+        $path = ltrim($path, '/');
+        if ($path) {
+            $path = '/'.$path;
+        }
+        if ($https) {
+            if (defined('TEST_EXTERNAL_FILES_HTTPS_URL')) {
+                if (!TEST_EXTERNAL_FILES_HTTPS_URL) {
+                    $this->markTestSkipped('Tests using external https test files are disabled');
+                }
+                return TEST_EXTERNAL_FILES_HTTPS_URL.$path;
+            }
+            return 'https://download.moodle.org/unittest'.$path;
+        }
+
+        if (defined('TEST_EXTERNAL_FILES_HTTP_URL')) {
+            if (!TEST_EXTERNAL_FILES_HTTP_URL) {
+                $this->markTestSkipped('Tests using external http test files are disabled');
+            }
+            return TEST_EXTERNAL_FILES_HTTP_URL.$path;
+        }
+        return 'http://download.moodle.org/unittest'.$path;
     }
 
     /**

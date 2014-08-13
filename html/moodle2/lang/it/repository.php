@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Attivazione repository plugin';
 $string['allowexternallinks'] = 'Consenti link esterni';
 $string['areacategoryintro'] = 'Introduzione alla categoria';
 $string['areacourseintro'] = 'Introduzione al corso';
+$string['areacourseoverviewfiles'] = 'File dell\'introduzione al corso';
 $string['areamainfile'] = 'File primario';
 $string['arearoot'] = 'Sistema';
 $string['areauserbackup'] = 'Backup utente';
@@ -87,6 +88,9 @@ $string['deleterepository'] = 'Elimina questo repository';
 $string['detailview'] = 'Dettagli';
 $string['dimensions'] = 'Dimensioni';
 $string['disabled'] = 'Disabilitato';
+$string['displaydetails'] = 'Visualizza dettagli';
+$string['displayicons'] = 'Visualizza icone';
+$string['displaytree'] = 'Visualizza alberatura';
 $string['download'] = 'Scarica';
 $string['downloadfolder'] = 'Scarica tutto';
 $string['downloadsucc'] = 'Il file è stato scaricato correttamente';
@@ -121,6 +125,7 @@ $string['folderexists'] = 'Il nome della cartella esiste già, per favore utiliz
 $string['foldernotfound'] = 'La cartella non è stata trovata';
 $string['folderrecurse'] = 'La cartella non può diventare una sotto cartella di se stessa';
 $string['getfile'] = 'Scegli questo file';
+$string['help'] = 'Aiuto';
 $string['hidden'] = 'Nascosto';
 $string['iconview'] = 'Visualizza icone';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -151,7 +156,7 @@ $string['manageurl'] = 'Gestisci';
 $string['manageuserrepository'] = 'Gestisci repository individuali';
 $string['moving'] = 'Spostamento in corso';
 $string['newfolder'] = 'Nuova cartella';
-$string['newfoldername'] = 'Nome cartella';
+$string['newfoldername'] = 'Nuovo nome cartella';
 $string['noenter'] = 'Non è stato inserito niente';
 $string['nofilesattached'] = 'Non sono presenti file allegati';
 $string['nofilesavailable'] = 'Non sono presenti file';
@@ -190,6 +195,7 @@ $string['repositories'] = 'Repository';
 $string['repository'] = 'Repository';
 $string['repositorycourse'] = 'Repository di corso';
 $string['repositoryerror'] = 'Il repository remoto ha restituito un errore: {$a}';
+$string['repositoryicon'] = 'Icona repository';
 $string['save'] = 'Salva';
 $string['saveas'] = 'Salva con nome';
 $string['saved'] = 'Salvato';
@@ -200,6 +206,7 @@ $string['searchrepo'] = 'Cerca nel repository';
 $string['sectionbackup'] = 'Backup sezione';
 $string['select'] = 'Scegli';
 $string['setmainfile'] = 'Imposta il file primario';
+$string['setmainfile_help'] = 'Se la cartella contiene più file, il file principale sarà quello visualizzato nella pagine e può incorporare altri file. Il file principale è evidenziato in grassetto.';
 $string['settings'] = 'Impostazioni';
 $string['setupdefaultplugins'] = 'Impostazione dei repository plugin di default';
 $string['siteinstances'] = 'Repository attivi nel sito';

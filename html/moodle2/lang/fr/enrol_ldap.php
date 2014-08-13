@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,18 +30,25 @@ $string['assignrolefailed'] = 'Échec de l\'attribution du rôle « {$a->role_s
 $string['autocreate'] = 'Des cours peuvent être créés automatiquement si des inscriptions existent pour un cours qui n\'existe pas encore dans Moodle.';
 $string['autocreate_key'] = 'Créer automatiquement';
 $string['autocreation_settings'] = 'Réglages de la création automatique de cours';
+$string['autoupdate_settings'] = 'Réglages de mise à jour automatique des cours';
+$string['autoupdate_settings_desc'] = '<p>Sélectionnez les champs à mettre à jour lorsque le script de synchronisation est lancé (enrol/ldap/cli/sync.php).</p>
+<p>Si un champ au moins est sélectionné, des mises à jour auront lieu.</p>';
 $string['bind_dn'] = 'Si vous voulez utiliser bind-user pour rechercher des utilisateurs, veuillez le spécifier ici, par exemple sous la forme « cn=ldapuser,ou=public,o=org »';
 $string['bind_dn_key'] = 'Nom complet du « Bind user »';
 $string['bind_pw'] = 'Mot de passe pour bind-user.';
 $string['bind_pw_key'] = 'Mot de passe';
 $string['bind_settings'] = 'Réglages bind';
 $string['cannotcreatecourse'] = 'Impossible de créer le cours : données requises manquantes dans l\'enregistrement LDAP !';
+$string['cannotupdatecourse'] = 'Impossible de mettre à jour le cours : données requises manquantes dans l\'enregistrement LDAP ! Identifiant du cours : {$a->idnumber}';
+$string['cannotupdatecourse_duplicateshortname'] = 'Impossible de mettre à jour le cours : nom abrégé déjà existant. Le cours d\'identifiant {$a->idnumber} a été sauté.';
 $string['category'] = 'Catégorie des cours créés automatiquement.';
 $string['category_key'] = 'Catégorie';
 $string['contexts'] = 'Contextes LDAP';
 $string['couldnotfinduser'] = 'Utilisateur « {$a} » introuvable, ignoré';
 $string['course_fullname'] = 'Facultatif : champ LDAP d\'où tirer le nom complet du cours.';
 $string['course_fullname_key'] = 'Nom complet';
+$string['course_fullname_updateonsync'] = 'Mise à jour du nom complet lors de la synchronisation';
+$string['course_fullname_updateonsync_key'] = 'Mise à jour du nom complet';
 $string['course_idnumber'] = 'Champ correspondant avec l\'identificateur unique LDAP, D\'habitude <em>cn</em> ou <em>uid</em>. On recommande de verrouiller cette valeur lors de l\'utilisation de la création automatique de cours.';
 $string['course_idnumber_key'] = 'Identifiant du cours';
 $string['coursenotexistskip'] = 'Le cours « {$a} » n\'existe pas et l\'auto-création des cours est désactivée, ignoré';
@@ -50,8 +57,14 @@ $string['course_search_sub_key'] = 'Rechercher dans les sous-contextes';
 $string['course_settings'] = 'Réglages de l\'inscription aux cours';
 $string['course_shortname'] = 'Facultatif : champ LDAP d\'où tirer le nom abrégé du cours.';
 $string['course_shortname_key'] = 'Nom abrégé';
+$string['course_shortname_updateonsync'] = 'Mise à jour du nom abrégé lors de la synchronisation';
+$string['course_shortname_updateonsync_key'] = 'Mise à jour du nom abrégé';
 $string['course_summary'] = 'Facultatif : champ LDAP d\'où tirer le résumé du cours.';
 $string['course_summary_key'] = 'Résumé';
+$string['course_summary_updateonsync'] = 'Mise à jour du résumé lors de la synchronisation';
+$string['course_summary_updateonsync_key'] = 'Mise à jour du résumé';
+$string['courseupdated'] = 'Le cours d\'identifiant {$a->idnumber} a été correctement mis à jour.';
+$string['courseupdateskipped'] = 'Le cours d\'identifiant {$a->idnumber} ne nécessite pas de mise à jour. Il a été sauté.';
 $string['createcourseextid'] = 'Utilisateur inscrit dans un cours inexistant « {$a->courseextid} »';
 $string['createnotcourseextid'] = 'Utilisateur inscrit dans un cours inexistant « {$a->courseextid} »';
 $string['creatingcourse'] = 'Création du cours « {$a} »';

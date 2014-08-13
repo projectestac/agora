@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_mentees', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_mentees', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_mentees
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configtitle'] = '版块名称';
 $string['configtitleblankhides'] = '版块标题（留空表示无标题）';
 $string['leaveblanktohide'] = '为空则隐藏名称';
+$string['mentees:addinstance'] = '新增一个新学员版块';
+$string['mentees:myaddinstance'] = '在我的首页新增一个新学员版块';
 $string['newmenteesblock'] = '（新学员版块）';
 $string['pluginname'] = '学员';

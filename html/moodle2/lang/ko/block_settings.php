@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_settings', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_settings', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_settings
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['enabledock'] = '사용자가 이 블록을 도킹하는 것을 허용';
-$string['pluginname'] = '설정';
+$string['pluginname'] = '관리';
+$string['settings:addinstance'] = '관리 블록 추가';
 $string['settings:myaddinstance'] = '내 공부방에 설정 블록 추가';

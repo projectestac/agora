@@ -30,12 +30,12 @@ require_once($CFG->dirroot.'/mod/lesson/view_form.php');
 require_once($CFG->libdir . '/completionlib.php');
 
 $id      = required_param('id', PARAM_INT);             // Course Module ID
-$pageid  = optional_param('pageid', NULL, PARAM_INT);   // Lesson Page ID
+$pageid  = optional_param('pageid', null, PARAM_INT);   // Lesson Page ID
 $edit    = optional_param('edit', -1, PARAM_BOOL);
 $userpassword = optional_param('userpassword','',PARAM_RAW);
 $backtocourse = optional_param('backtocourse', false, PARAM_RAW);
 
-$cm = get_coursemodule_from_id('lesson', $id, 0, false, MUST_EXIST);;
+$cm = get_coursemodule_from_id('lesson', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
 $lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*', MUST_EXIST));
 
@@ -479,7 +479,7 @@ if ($pageid != LESSON_EOL) {
         } else {
             if ($lesson->timed) {
                 if ($outoftime == 'normal') {
-                    $grade = new stdClass();;
+                    $grade = new stdClass();
                     $grade->lessonid = $lesson->id;
                     $grade->userid = $USER->id;
                     $grade->grade = 0;

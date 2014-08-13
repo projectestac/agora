@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_archaius', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_archaius', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_archaius
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activateSlideshow'] = 'Activate slideshow';
+$string['activateSlideshowdesc'] = 'You can activate or desactivate the frontpage slideshow, the slide could be, a image or just HTML. The maximun height of the slide is 300px.';
+$string['addSlide'] = 'Add new slide';
 $string['bgcolor'] = 'Background color';
 $string['bgcolordesc'] = 'Background color';
 $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><h2>Archaius</h2>
@@ -40,27 +43,37 @@ It is extremely flexible and very useful for people with some knowledge of web d
 then rename it before making your changes. This will prevent your customized theme from being overwritten by future Moodle upgrades, and you\'ll still have the original files if you make a mess.
 More information on modifying themes can be found in the <a href="http://docs.moodle.org/en/Theme">MoodleDocs</a>.</p>
 <h2>Credits</h2><p>This theme is based on anomaly themes, it was
-originally designed for Moodle 1.9 by Patrick Malley. archaius was created by Daniel Munera Sanchez using the open source libraries: jQuery, jQuerytools, PIE.js.
+originally designed for Moodle 1.9 by Patrick Malley. Archaius was created by Daniel Munera Sanchez using the open source libraries: jQuery, jQuerytools, PIE.js and responsiveslides.
  He can be contacted at dmunera119@gmail.com</p>
  <p>The logo was a contribution of Juan Pablo londono.</p>';
 $string['collapsibleTopics'] = 'Collapsible Topics effect';
 $string['collasibleTopicsdesc'] = 'Activate or desactivate the collapsible effect for course with topics format.';
 $string['currentcolor'] = 'Color of the current block tab';
 $string['currentcolordesc'] = 'Color of the current block tab';
-$string['currentcustommenucolor'] = 'Color of the current item of custom menu.';
+$string['currentcustommenucolor'] = 'Color of the current item in custom menu.';
 $string['currentcustommenucolordesc'] = 'Color of the current item of custom menu.';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'You can add new CSS rules';
 $string['customjs'] = 'Javascript';
-$string['customjsdesc'] = 'You can add new javascript code and desactive the course accordion effect(activateTopicsCourseMenu = false;)';
+$string['customjsdesc'] = 'You can add new javascript code, jQuery is available';
+$string['description'] = 'Insert the HTML to create the slide';
+$string['descriptionEditorException'] = 'We don\'t want an empty slide.';
+$string['errorPosition'] = '<span class =\'error\'>Position is not a number or is equal to 0, 0 is not a valid position</span>';
 $string['footnote'] = 'Foot Note';
 $string['footnotedesc'] = 'Foot Note';
 $string['headercolor'] = 'Tabs Color';
 $string['headercolordesc'] = 'Color for the tabs of the block';
+$string['hideShowBlocks'] = 'Activate hide and show blocks effect';
+$string['hideShowBlocksdesc'] = 'Activate or desactivate the hide and how blocks effect, which is useful to see the main content using the 100% of the space of the main container';
 $string['logo'] = 'logo';
 $string['logodesc'] = 'logo URL';
 $string['pluginname'] = 'Archaius';
+$string['position'] = 'Position in the slider';
+$string['positionException'] = 'Position is required and it must be higher than 0';
+$string['region-side-center-post'] = 'After center main content';
+$string['region-side-center-pre'] = 'Before center main content';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 $string['themecolor'] = 'Header and Footer color';
 $string['themecolordesc'] = 'You can choose the color for footer and header';
+$string['update_description'] = 'Update description';

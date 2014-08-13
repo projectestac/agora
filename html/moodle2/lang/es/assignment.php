@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -199,7 +199,7 @@ $string['submittedfiles'] = 'Archivos enviados';
 $string['subplugintype_assignment'] = 'Tipo de tarea';
 $string['subplugintype_assignment_plural'] = 'Tipos de tarea';
 $string['trackdrafts'] = 'Habilitar botón "Enviar para calificar"';
-$string['trackdrafts_help'] = '<p>El botón "Enviar para calificar" permite a los usuarios indicar a los calificadores que han terminado de trabajar en una tarea. Los evaluadores pueden elegir si devuelven la tarea al estado de borrador (por ejemplo, si necesita mejorar).</p>';
+$string['trackdrafts_help'] = '<p>El botón "Enviar para calificar" permite a los usuarios indicar a los calificadores que han terminado de trabajar en una tarea. Los calificadores pueden elegir si devuelven la tarea al estado de borrador (por ejemplo, si necesita mejorar).</p>';
 $string['typeblog'] = 'Mensaje de blog';
 $string['typeoffline'] = 'Actividad no en línea';
 $string['typeonline'] = 'Texto en línea';

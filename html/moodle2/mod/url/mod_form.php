@@ -51,9 +51,12 @@ class mod_url_mod_form extends moodleform_mod {
         //-------------------------------------------------------
         $mform->addElement('header', 'content', get_string('contentheader', 'url'));
         $mform->addElement('url', 'externalurl', get_string('externalurl', 'url'), array('size'=>'60'), array('usefilepicker'=>true));
+        $mform->setType('externalurl', PARAM_RAW_TRIMMED);
         $mform->addRule('externalurl', null, 'required', null, 'client');
+        $mform->setExpanded('content');
+
         //-------------------------------------------------------
-        $mform->addElement('header', 'optionssection', get_string('optionsheader', 'url'));
+        $mform->addElement('header', 'optionssection', get_string('appearance'));
 
         if ($this->current->instance) {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions), $this->current->display);
@@ -68,7 +71,6 @@ class mod_url_mod_form extends moodleform_mod {
         } else {
             $mform->addElement('select', 'display', get_string('displayselect', 'url'), $options);
             $mform->setDefault('display', $config->display);
-            $mform->setAdvanced('display', $config->display_adv);
             $mform->addHelpButton('display', 'displayselect', 'url');
         }
 
@@ -79,7 +81,6 @@ class mod_url_mod_form extends moodleform_mod {
             }
             $mform->setType('popupwidth', PARAM_INT);
             $mform->setDefault('popupwidth', $config->popupwidth);
-            $mform->setAdvanced('popupwidth', $config->popupwidth_adv);
 
             $mform->addElement('text', 'popupheight', get_string('popupheight', 'url'), array('size'=>3));
             if (count($options) > 1) {
@@ -87,31 +88,21 @@ class mod_url_mod_form extends moodleform_mod {
             }
             $mform->setType('popupheight', PARAM_INT);
             $mform->setDefault('popupheight', $config->popupheight);
-            $mform->setAdvanced('popupheight', $config->popupheight_adv);
         }
 
         if (array_key_exists(RESOURCELIB_DISPLAY_AUTO, $options) or
           array_key_exists(RESOURCELIB_DISPLAY_EMBED, $options) or
           array_key_exists(RESOURCELIB_DISPLAY_FRAME, $options)) {
-            $mform->addElement('checkbox', 'printheading', get_string('printheading', 'url'));
-            $mform->disabledIf('printheading', 'display', 'eq', RESOURCELIB_DISPLAY_POPUP);
-            $mform->disabledIf('printheading', 'display', 'eq', RESOURCELIB_DISPLAY_OPEN);
-            $mform->disabledIf('printheading', 'display', 'eq', RESOURCELIB_DISPLAY_NEW);
-            $mform->setDefault('printheading', $config->printheading);
-            $mform->setAdvanced('printheading', $config->printheading_adv);
-
             $mform->addElement('checkbox', 'printintro', get_string('printintro', 'url'));
             $mform->disabledIf('printintro', 'display', 'eq', RESOURCELIB_DISPLAY_POPUP);
             $mform->disabledIf('printintro', 'display', 'eq', RESOURCELIB_DISPLAY_OPEN);
             $mform->disabledIf('printintro', 'display', 'eq', RESOURCELIB_DISPLAY_NEW);
             $mform->setDefault('printintro', $config->printintro);
-            $mform->setAdvanced('printintro', $config->printintro_adv);
         }
 
         //-------------------------------------------------------
         $mform->addElement('header', 'parameterssection', get_string('parametersheader', 'url'));
         $mform->addElement('static', 'parametersinfo', '', get_string('parametersheader_help', 'url'));
-        $mform->setAdvanced('parametersinfo');
 
         if (empty($this->current->parameters)) {
             $parcount = 5;
@@ -130,7 +121,7 @@ class mod_url_mod_form extends moodleform_mod {
                 $mform->createElement('selectgroups', $variable, '', $options),
             );
             $mform->addGroup($group, $pargroup, get_string('parameterinfo', 'url'), ' ', false);
-            $mform->setAdvanced($pargroup);
+            $mform->setType($parameter, PARAM_RAW);
         }
 
         //-------------------------------------------------------
@@ -145,9 +136,6 @@ class mod_url_mod_form extends moodleform_mod {
             $displayoptions = unserialize($default_values['displayoptions']);
             if (isset($displayoptions['printintro'])) {
                 $default_values['printintro'] = $displayoptions['printintro'];
-            }
-            if (isset($displayoptions['printheading'])) {
-                $default_values['printheading'] = $displayoptions['printheading'];
             }
             if (!empty($displayoptions['popupwidth'])) {
                 $default_values['popupwidth'] = $displayoptions['popupwidth'];
@@ -177,15 +165,9 @@ class mod_url_mod_form extends moodleform_mod {
 
         // NOTE: do not try to explain the difference between URL and URI, people would be only confused...
 
-        if (empty($data['externalurl'])) {
-            $errors['externalurl'] = get_string('required');
-
-        } else {
-            $url = trim($data['externalurl']);
-            if (empty($url)) {
-                $errors['externalurl'] = get_string('required');
-
-            } else if (preg_match('|^/|', $url)) {
+        if (!empty($data['externalurl'])) {
+            $url = $data['externalurl'];
+            if (preg_match('|^/|', $url)) {
                 // links relative to server root are ok - no validation necessary
 
             } else if (preg_match('|^[a-z]+://|i', $url) or preg_match('|^https?:|i', $url) or preg_match('|^ftp:|i', $url)) {

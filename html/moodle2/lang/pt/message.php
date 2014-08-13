@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,7 @@ $string['blockcontact'] = 'Bloquear contacto';
 $string['blockedmessages'] = '{$a} mensagens de/para utilizadores bloqueados';
 $string['blockedusers'] = 'Utilizadores bloqueados ({$a})';
 $string['blocknoncontacts'] = 'Bloquear mensagens de pessoas que não estão na minha lista de contactos';
-$string['contactlistempty'] = 'A sua lista de contactos está vazia';
+$string['contactlistempty'] = 'Lista de contactos vazia';
 $string['contacts'] = 'Contactos';
 $string['context'] = 'contexto';
 $string['defaultmessageoutputs'] = 'Predefinições de envio de mensagens';
@@ -51,7 +51,7 @@ $string['disabled'] = 'O sistema de mensagens foi desativado neste site';
 $string['disallowed'] = 'Não permitido';
 $string['discussion'] = 'Discussão';
 $string['emailmessages'] = 'Enviar por e-mail quando não estou online';
-$string['emailtagline'] = 'Esta mensagem de correio é uma cópia de uma mensagem enviada para si em "{$a->sitename}". Vá a {$a->url} para responder.';
+$string['emailtagline'] = 'Este e-mail é uma cópia automática de uma mensagem enviada para si em "{$a->sitename}". Aceda a {$a->url} para responder.';
 $string['emptysearchstring'] = 'Tem que procurar por alguma coisa';
 $string['errorcallingprocessor'] = 'Erro ao chamar método de envio definido';
 $string['errortranslatingdefault'] = 'Ocorreu um erro na tradução dada pelo módulo, irá usar as configurações predefinidas do site.';
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'O sistema de mensagens encontra-se desativado ne
 $string['mostrecent'] = 'Mensagens recentes';
 $string['mostrecentconversations'] = 'Conversas recentes';
 $string['mostrecentnotifications'] = 'Notificações recentes';
-$string['mycontacts'] = 'Os meus contactos';
 $string['newonlymsg'] = 'Mostrar apenas os novos';
 $string['newsearch'] = 'Nova procura';
 $string['noframesjs'] = 'Usar interface mais acessível';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Qualquer página de mensagens';
 $string['pagerefreshes'] = 'Esta página é atualizada automaticamente a cada {$a} segundos';
 $string['permitted'] = 'Permitido';
 $string['private_config'] = 'Janela de mensagens pop-up';
-$string['processordeleteconfirm'] = 'Está prestes a apagar completamente a mensagem \'{$a}\'.  Isto irá apagar completamente toda a informação associada na base de dados. Tem a certeza que deseja continuar?';
-$string['processordeletefiles'] = 'Todos os dados associados ao output \'{$a->processor}\' foram apagados da base de dados.  Para completar a eliminação (e prevenir que o output não se volte a instalar), deve apagar esta diretoria do seu servidor: {$a->directory}';
 $string['processortag'] = 'Destino';
 $string['providers_config'] = 'Configurar métodos de notificação das mensagens recebidas';
 $string['providerstag'] = 'Fonte';

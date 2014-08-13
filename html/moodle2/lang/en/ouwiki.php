@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'ouwiki', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'ouwiki', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   ouwiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -72,6 +72,8 @@ cannot edit pages.
 <p>
 If you enable this option the wiki enters read-only mode from the given date onwards.
 </p>';
+$string['allowimport'] = 'Link to import pages';
+$string['allowimport_help'] = 'Checking the box will add the ability to \'import\' pages from other wikis in the course into the current wiki';
 $string['annotate'] = 'Annotate';
 $string['annotatingpage'] = 'Annotating page';
 $string['annotationmarker'] = 'Annotation marker';
@@ -86,6 +88,7 @@ $string['cancel'] = 'Cancel';
 $string['cannotlockpage'] = 'The page could not be locked, your changes have not been saved.';
 $string['changebutton'] = 'Change';
 $string['changedby'] = 'Changed by';
+$string['changedifferences'] = 'Change differences';
 $string['changes'] = 'changes';
 $string['changesnav'] = 'Changes';
 $string['collapseallannotations'] = 'Collapse annotations';
@@ -183,13 +186,53 @@ $string['feedtitle'] = '{$a->course} wiki: {$a->name} - {$a->subtitle}';
 $string['format_html'] = 'View online';
 $string['format_rtf'] = 'Download in word processor format';
 $string['format_template'] = 'Download as wiki template file';
-$string['format_template_file_warning'] = 'Note: this wiki contains attachments that will not be included in the template file.';
 $string['frompage'] = 'from {$a}';
 $string['frompages'] = 'from {$a}...';
 $string['gradesupdated'] = 'Grades updated';
 $string['hideannotationicons'] = 'Hide annotations';
 $string['historycompareaccessibility'] = 'Select {$a->lastdate} {$a->createdtime}';
 $string['historyfor'] = 'History for';
+$string['import'] = 'Import pages';
+$string['import_confirm'] = 'Confirm import';
+$string['import_confirm_conflicts'] = 'Page conflicts:';
+$string['import_confirm_conflicts_instruct'] = 'Page \'conflicts\' have been identified where the listed imported page names are the same as an existing page.';
+$string['import_confirm_conflicts_label'] = 'Merge setting:';
+$string['import_confirm_conflicts_locked'] = 'Page {$a} is locked';
+$string['import_confirm_conflicts_lockedwarn'] = 'A page to be overwritten is currently locked. Check you are able to edit this page before trying again.';
+$string['import_confirm_conflicts_notlocked'] = 'Page not locked';
+$string['import_confirm_conflicts_option1'] = 'Merge page content';
+$string['import_confirm_conflicts_option2'] = 'Replace existing page content';
+$string['import_confirm_from'] = 'Import from:';
+$string['import_confirm_infoheader'] = 'Import information';
+$string['import_confirm_linkfrom'] = 'Add links to new pages to:';
+$string['import_confirm_linkfrom_help'] = 'Select a page in which links to the top level of the new pages will be added.';
+$string['import_confirm_linkfrom_newpage'] = 'New page';
+$string['import_confirm_linkfrom_startpage'] = 'Use imported Start page:';
+$string['import_confirm_linkfrom_startpage1'] = 'Merge into existing Start page content';
+$string['import_confirm_linkfrom_startpage2'] = 'Create new page from imported Start page';
+$string['import_confirm_linkheader'] = 'Page links';
+$string['import_confirm_mergeheader'] = 'Page conflicts';
+$string['import_confirm_pages'] = 'Import pages:';
+$string['import_confirm_pages_help'] = 'Pages you selected to import, plus any additional pages linked from these.';
+$string['import_confirm_pages_none'] = 'No pages selected for import.';
+$string['importedfrom'] = 'Imported from:';
+$string['importedpages'] = 'Imported pages';
+$string['importedstartpage'] = 'Imported start page';
+$string['import_lockedpage'] = 'Page locked';
+$string['import_nocontent'] = 'This wiki activity contains no available content to import.';
+$string['import_process'] = 'Importing pages';
+$string['import_process_locked'] = 'A page that is to have content imported into is currently locked;
+Either permanently to prevent editing, or temporarily whilst another user is editing content.';
+$string['import_process_startpage_locked'] = 'The start page that is to have content imported into is currently locked;
+Either permanently to prevent editing, or temporarily whilst another user is editing content.';
+$string['import_process_summary'] = 'Summary';
+$string['import_process_summary_imported'] = 'Pages imported';
+$string['import_process_summary_success'] = 'The import completed successfully.';
+$string['import_process_summary_updated'] = 'Pages updated';
+$string['import_process_summary_warn'] = 'The import completed with warnings.';
+$string['import_selectsubwiki'] = 'Select wiki';
+$string['import_selectsubwiki_help'] = 'Choose from available wikis. Wikis that do not have any content will not be listed.';
+$string['import_selectwiki'] = 'Import from {$a}';
 $string['index'] = 'Wiki index';
 $string['jsajaxrequired'] = 'This Annotate page requires Javascript to be enabled in your browser and the AJAX and Javascript setting in your user profile to be set to Yes: use advanced web features.';
 $string['jsnotenabled'] = 'Javascript is not enabled in your browser.';
@@ -234,8 +277,10 @@ $string['orphanedannotations'] = 'Lost annotations';
 $string['orphanpages'] = 'Unlinked pages';
 $string['ouwiki:addinstance'] = 'Add a new OU wiki';
 $string['ouwiki:annotate'] = 'Allowed to annotate';
+$string['ouwiki:annotateothers'] = 'Annotate any sub-wiki that can be viewed';
 $string['ouwiki:deletepage'] = 'Delete wiki pages';
 $string['ouwiki:edit'] = 'Edit wiki pages';
+$string['ouwiki:editothers'] = 'Edit the content of any sub-wiki that can be viewed';
 $string['ouwiki:grade'] = 'Grade users who have have access to wiki';
 $string['ouwiki:lock'] = 'Allowed to lock and unlock pages';
 $string['ouwiki:overridelock'] = 'Override locked pages';
@@ -248,6 +293,7 @@ $string['overridelock'] = 'Override lock';
 $string['overviewnumentrysince'] = 'new wiki entries since last login.';
 $string['overviewnumentrysince1'] = 'new wiki entry since last login.';
 $string['page'] = 'Page';
+$string['pagecheckboxlabel'] = 'Import page, {$a}';
 $string['pagedeletedinfo'] = 'Some deleted versions are shown in the list below. These are visible only to users with permission to delete versions. Ordinary users do not see them at all.';
 $string['pagedoesnotexist'] = 'This page does not yet exist in the wiki.';
 $string['pageedits'] = 'Page edits';
@@ -263,6 +309,7 @@ $string['pagelockedtitle'] = 'This page is being edited by somebody else.';
 $string['pagenameisstartpage'] = 'The page name is the same as the start page. Use a different page name.';
 $string['pagenametoolong'] = 'The page name is too long. Use a shorter page name.';
 $string['pagescreated'] = 'Pages created';
+$string['pagesimported'] = 'Pages imported';
 $string['participation'] = 'Participation';
 $string['participationbyuser'] = 'Participation by user';
 $string['pluginadministration'] = 'OU wiki administration';
@@ -316,6 +363,7 @@ $string['showwordcounts_help'] = 'If switched on then word counts for the pages 
 $string['sizewarning'] = 'This wiki page is very large and may operate slowly.
 If possible, please split the content into logical chunks and
 place it on separate linked pages.';
+$string['startannotation'] = 'Start of annotation';
 $string['startpage'] = 'Start page';
 $string['startpagedoesnotexist'] = 'This wiki\'s start page has not yet been created.';
 $string['subwikiexist'] = 'Sub-wiki\'s have already been created. Adding a template file only affects
@@ -442,6 +490,7 @@ $string['timeout_none'] = 'No timeout';
 $string['tryagain'] = 'Try again';
 $string['typeinpagename'] = 'Type page name here';
 $string['typeinsectionname'] = 'Type section title here';
+$string['unabletoimport'] = 'No wiki\'s available to import from.';
 $string['undelete'] = 'Undelete';
 $string['unlockpage'] = 'Unlock page';
 $string['userdetails'] = 'Detail for {$a}';

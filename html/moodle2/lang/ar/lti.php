@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,3 +30,4 @@ $string['enableemailnotification'] = 'أرسل بريد تنبيه';
 $string['quickgrade'] = 'السماح بالتصحيح السريع';
 $string['saveallfeedback'] = 'احفظ جميع اجاباتي التقييمية';
 $string['send'] = 'إرسال';
+$string['submissions'] = 'تسليمات';

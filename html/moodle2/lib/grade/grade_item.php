@@ -437,11 +437,7 @@ class grade_item extends grade_object {
         }
 
         if ($this->itemtype == 'mod' and !$this->is_outcome_item()) {
-            //XTEC MODIFICAT MDL-39740 grade: Fix grade_item::add_idnumber strict type checking
-            //2014.04.11 @pferre22
             if ($this->itemnumber == 0) {
-            //if ($this->itemnumber === 0) {
-            // FI PATCH
                 // for activity modules, itemnumber 0 is synced with the course_modules
                 if (!$cm = get_coursemodule_from_instance($this->itemmodule, $this->iteminstance, $this->courseid)) {
                     return false;
@@ -1211,6 +1207,42 @@ class grade_item extends grade_object {
         $DB->execute($sql, $params);
 
         $this->set_sortorder($sortorder + 1);
+    }
+
+    /**
+     * Detect duplicate grade item's sortorder and re-sort them.
+     * Note: Duplicate sortorder will be introduced while duplicating activities or
+     * merging two courses.
+     *
+     * @param int $courseid id of the course for which grade_items sortorder need to be fixed.
+     */
+    public static function fix_duplicate_sortorder($courseid) {
+        global $DB;
+
+        $transaction = $DB->start_delegated_transaction();
+
+        $sql = "SELECT DISTINCT g1.id, g1.courseid, g1.sortorder
+                    FROM {grade_items} g1
+                    JOIN {grade_items} g2 ON g1.courseid = g2.courseid
+                WHERE g1.sortorder = g2.sortorder AND g1.id != g2.id AND g1.courseid = :courseid
+                ORDER BY g1.sortorder DESC, g1.id DESC";
+
+        // Get all duplicates in course highest sort order, and higest id first so that we can make space at the
+        // bottom higher end of the sort orders and work down by id.
+        $rs = $DB->get_recordset_sql($sql, array('courseid' => $courseid));
+
+        foreach($rs as $duplicate) {
+            $DB->execute("UPDATE {grade_items}
+                            SET sortorder = sortorder + 1
+                          WHERE courseid = :courseid AND
+                          (sortorder > :sortorder OR (sortorder = :sortorder2 AND id > :id))",
+                array('courseid' => $duplicate->courseid,
+                    'sortorder' => $duplicate->sortorder,
+                    'sortorder2' => $duplicate->sortorder,
+                    'id' => $duplicate->id));
+        }
+        $rs->close();
+        $transaction->allow_commit();
     }
 
     /**
@@ -2102,7 +2134,7 @@ class grade_item extends grade_object {
      * @return bool
      */
     public function can_control_visibility() {
-        if (get_plugin_directory($this->itemtype, $this->itemmodule)) {
+        if (core_component::get_plugin_directory($this->itemtype, $this->itemmodule)) {
             return !plugin_supports($this->itemtype, $this->itemmodule, FEATURE_CONTROLS_GRADE_VISIBILITY, false);
         }
         return parent::can_control_visibility();

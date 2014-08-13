@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'error', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['alreadyloggedin'] = 'Sei già collegato come {$a}, per collegarti come un utente diverso devi prima effettuare il logout.';
+$string['alreadyloggedin'] = 'Sei già autenticato come {$a}, per autenticarti con un altro account devi effettuare il logout.';
 $string['authnotexisting'] = 'Il plugin di autenticazione non esiste';
 $string['backupcontainexternal'] = 'Questo file di backup contiene host Moodle Network che non sono definiti in questo sito';
 $string['backuptablefail'] = 'Non è stato possibile impostare le tabelle del backup';
@@ -79,6 +79,7 @@ $string['cannoteditcommentexpired'] = 'Non puoi modificarlo. Il tempo è scaduto
 $string['cannoteditpostorblog'] = 'Non puoi inserire o modificare interventi nei blog';
 $string['cannoteditsiteform'] = 'Non puoi modificare il corso nella pagina home usando questo form';
 $string['cannotedityourprofile'] = 'Spiacente, non sei autorizzato a modificar eil tuo profilo';
+$string['cannotexecduringupgrade'] = 'Non può essere elaborato durante l\'aggiornamento';
 $string['cannotfindcategory'] = 'Non è possibile trovare nel database il record della categoria con ID - {$a}';
 $string['cannotfindcomponent'] = 'Non è possibile trovare il componente.';
 $string['cannotfindcontext'] = 'Non è possibile trovare il contesto';
@@ -110,6 +111,8 @@ $string['cannotmarktopic'] = 'Non è stato possibile contrassegnare quell\'argom
 $string['cannotmigratedatacomments'] = 'Non è possibile migrare i commenti del modulo database';
 $string['cannotmodulename'] = 'Non è possibile ottenere il nome del modulo per costruire la navigazione';
 $string['cannotmoduletype'] = 'Non è possibile ottenere l\'id del modulo per costruire la navigazione';
+$string['cannotmovecategory'] = 'Non è possibile spostare la categoria';
+$string['cannotmovecourses'] = 'Non è possibile spostare corsi dalla loro categoria ad un\'altra';
 $string['cannotmoverolewithid'] = 'Non è possibile spostare il ruolo con ID {$a}';
 $string['cannotopencsv'] = 'Non è possibile aprire il file CSV';
 $string['cannotopenfile'] = 'Non è possibile aprire il file ({$a})';
@@ -164,6 +167,8 @@ $string['cannotviewprofile'] = 'Non puoi vedere il profilo di questo utente.';
 $string['cannotviewreport'] = 'Non puoi visualizzare questo report';
 $string['cannotwritefile'] = 'Non è possibile scrivere sul file ({$a})';
 $string['categoryerror'] = 'Errore di categoria';
+$string['categoryidnumbertaken'] = 'Il Codice identificativo è già usato da un\'altra categoria';
+$string['categorynamerequired'] = 'Il nome della categoria è obbligatorio';
 $string['categorytoolong'] = 'Il nome della categoria è troppo lungo';
 $string['commentmisconf'] = 'l\'ID del commento è mal configurata';
 $string['componentisuptodate'] = 'Il componente è aggiornato.';
@@ -175,6 +180,7 @@ $string['coursedoesnotbelongtocategory'] = 'Il corso non appartiene a questa cat
 $string['courseformatnotfound'] = 'Il formato di corso \'{$a}\'  non esiste oppure non viene riconoscituo';
 $string['coursegroupunknown'] = 'Il corso corrisponde a un gruppo {$a} non specificato';
 $string['courseidnotfound'] = 'La id del corso non esiste';
+$string['courseidnumbertaken'] = 'Il codice identificativo è già usato dal un altro corso ({$a})';
 $string['coursemisconf'] = 'Il corso è mal configurato';
 $string['courserequestdisabled'] = 'Spiacente, i corsi a richiesta sono stati disabilitati dall\'amministratore';
 $string['csvcolumnduplicates'] = 'Sono state individuate colonne duplicate';
@@ -182,7 +188,7 @@ $string['csvemptyfile'] = 'Il file CSV è vuoto';
 $string['csvfewcolumns'] = 'Non ci sono abbastanza colonne, per favore controlla i delimitatori di campo.';
 $string['csvinvalidcols'] = '<b>File CVS non valido:</b> la prima riga deve contenere "Header fields" ed il file deve essere di tipo <br />"Expanded Fields/Comma Separated" <br />oppure<br /> "Expanded Fields with CAVV Result Code/Comma Separated"';
 $string['csvinvalidcolsnum'] = 'File CSV non valido - Ciascuna linea deve contenere 49 o 70 campi.';
-$string['csvloaderror'] = 'Si è verificato un errore durante il caricamento del file CSV!';
+$string['csvloaderror'] = 'Si è verificato un errore durante il caricamento del file: {$a}';
 $string['csvweirdcolumns'] = 'Il formato del file CSV non è valido - il numero delle colonne non è uniforme.';
 $string['dbconnectionfailed'] = '<p>Errore: la connessione al Database non è andata a buon fine</p>
 <p>E\' possibile che il database sia sovraccarico oppure non stia funzionando correttamente.</p>
@@ -190,8 +196,8 @@ $string['dbconnectionfailed'] = '<p>Errore: la connessione al Database non è an
 $string['dbdriverproblem'] = '<p>Errore: è stato rilevato un problema sui driver del database</p>
 <p>L\'amministratore del sito dovrebbe verificare la configurazione del server</p><p>{$a}</p>';
 $string['dbsessionbroken'] = 'E\' stato individuato un problema serio nelle database session.<br /><br />Per favore avvertite l\'amministratore del server.';
-$string['dbsessionhandlerproblem'] = 'L\'impostazione delle database session non è andato a buon fine.<br /><br />Per favore avvertite l\'amministratore del server.';
-$string['dbsessionmysqlpacketsize'] = 'E\' stato rilevato un errore di sessione grave.<br /><br />Per favore avvertite il vostro amministratore, probabilmente il problema è originato da un valore troppo piccolo per max_allowed_packet nelle impostazioni di MySQL.';
+$string['dbsessionhandlerproblem'] = 'L\'impostazione delle database session non è andato a buon fine. Per favore avverti l\'amministratore del server.';
+$string['dbsessionmysqlpacketsize'] = 'E\' stato rilevato un errore di sessione grave. Per favore avvertire l\'amministratore, probabilmente il problema è originato da un valore troppo piccolo per max_allowed_packet nelle impostazioni di MySQL.';
 $string['dbupdatefailed'] = 'L\'aggiornamento del Database non è andato a buon fine.';
 $string['ddldependencyerror'] = '{$a->targettype} "{$a->targetname}" non può essere modificato. E\' stata rilevata una dipendenza da {$a->offendingtype} "{$a->offendingname}"';
 $string['ddlexecuteerror'] = 'Si è verificato un errore durante l\'esecuzione di DDL sql';
@@ -226,6 +232,7 @@ $string['errorcreatingrole'] = 'Si è verificato un errore durante la creazione 
 $string['errorfetchingrssfeed'] = 'Si è verificato un errore durante la ricezione del feed RSS.';
 $string['erroronline'] = 'Si è verificato un errore alla linea {$a}';
 $string['errorparsingxml'] = 'Errore durante il parsing dell\'XML {$a->errorstring} alla linea {$a->errorline}, carattere {$a->errorchar}';
+$string['errorprocessingarchive'] = 'Si è verificato un errore durante l\'elaborazione del file archivio';
 $string['errorreadingfile'] = 'Si è verificato un errore leggendo il file "{$a}"';
 $string['errorsavingrequest'] = 'Si è verificato un errore durante il salvataggio della tua richiesta';
 $string['errorsettinguserpref'] = 'Si è verificato un errore durante l\'impostazione delle preferenze utente';
@@ -252,7 +259,9 @@ $string['groupexistforcourse'] = 'Il gruppo "{$a}" esiste già in questo corso';
 $string['groupexistforcoursewithidnumber'] = '{$a->problemgroup}: Il gruppo "{$a->name}" con il codice identificativo "{$a->idnumber}" è già presente in questo corso.';
 $string['grouphasidnumber'] = 'Il gruppo "{$a}" ha già un codice identificativo è potrebbe essere stato creato automaticamente da un sistema esterno. Non sei autorizzato a rimuoverlo.';
 $string['groupinghasidnumber'] = 'Il raggruppamento "{$a}" ha già un codice identificativo è potrebbe essere stato creato automaticamente da un sistema esterno. Non sei autorizzato a rimuoverlo.';
+$string['groupingnotaddederror'] = 'Il raggruppamento "{$a}" non è stato aggiunto';
 $string['groupnotaddederror'] = 'Il gruppo "{$a}" non è stato aggiunto';
+$string['groupnotaddedtogroupingerror'] = 'Il gruppo "{$a->groupname}"  non è stato aggiunto al raggruppamento "{$a->groupingname}"';
 $string['groupunknown'] = 'Il gruppo {$a} non è associato al corso specificato';
 $string['groupusernotmember'] = 'L\'utente non è un membro di questo gruppo.';
 $string['guestnocomment'] = 'Gli ospiti non sono autorizzati ad inserire commenti!';
@@ -263,7 +272,7 @@ $string['guestsarenotallowed'] = 'Gli ospito non sono autorizzati a fare questo'
 $string['hackdetected'] = 'E\' stato riscontrato un attacco hacker!';
 $string['hashpoolproblem'] = 'Contenuto {$a} del pool file errato';
 $string['headersent'] = 'Headers already sent';
-$string['idnumbertaken'] = 'Il codice identificativo è già stato usato da un altro corso';
+$string['idnumbertaken'] = 'Il codice identificativo è già usato';
 $string['idnumbertoolong'] = 'Il codice identificativo è troppo lungo';
 $string['importformatnotimplement'] = 'Spiacente, l\'importazione con questo formato non è stata ancora implementata!';
 $string['incorrectext'] = 'Il file ha una estensione errata';
@@ -277,7 +286,7 @@ $string['invalidadminsettingname'] = 'Impostazioni admin non valide ({$a})';
 $string['invalidargorconf'] = 'Non sono stati forniti argomenti validi oppure la configurazione del server è errata';
 $string['invalidarguments'] = 'Non sono stati forniti argomenti validi';
 $string['invalidblockinstance'] = 'Istanza non valida del blocco: {$a}';
-$string['invalidbulkenrolop'] = 'E\' stata richiesta una operazione di massa non valida.';
+$string['invalidbulkenrolop'] = 'E\' stata richiesta un\'operazione in massa non valida.';
 $string['invalidcategory'] = 'Categoria errata!';
 $string['invalidcategoryid'] = 'Id categoria errato!';
 $string['invalidcomment'] = 'Il commento è errato';
@@ -323,8 +332,8 @@ $string['invalidpasswordpolicy'] = 'Regole password non valide';
 $string['invalidpaymentmethod'] = 'Metodo di pagamento non valido: {$a}';
 $string['invalidqueryparam'] = 'ERRORE: numero errato di parametri della query. Parametri attesi {$a->expected}, parametri ricevuti {$a->actual}.';
 $string['invalidratingarea'] = 'Area di valutazione non valida';
-$string['invalidrecord'] = 'Non è possibile trovate il record di  dati nella tabella {$a}.';
-$string['invalidrecordunknown'] = 'Non è possibile trovate il record di  dati nel database.';
+$string['invalidrecord'] = 'Non è possibile trovare il record nella tabella {$a}.';
+$string['invalidrecordunknown'] = 'Non è possibile trovare il record nel database.';
 $string['invalidrequest'] = 'Richiesta non valida';
 $string['invalidrole'] = 'Ruolo non valido';
 $string['invalidroleid'] = 'ID Ruolo non valido';
@@ -354,8 +363,8 @@ $string['listupdatefail'] = 'Durante la modifica della gerarchia dell\'elenco l\
 $string['logfilenotavailable'] = 'I log non sono disponibili';
 $string['loginasnoenrol'] = 'Non si può usare "iscrivi" o "disiscrivi" se si è in una sessione "Login come".';
 $string['loginasonecourse'] = 'Non puoi entrare in questo corso.<br/>Devi prima terminare la sessione "Login come" prima di entrare in altri corsi.';
-$string['maxareabytes'] = 'Non c\'è abbastanza spazio per memorizzare questo file';
-$string['maxbytes'] = 'Il file è più grande della dimensione massima consentita';
+$string['maxareabytes'] = 'La dimensione del file eccede lo spazio rimasto disponibile in quest\'area.';
+$string['maxbytes'] = 'Il file eccede la dimensione massima consentita.';
 $string['messagingdisable'] = 'In questo sito il messaging è disabilitato';
 $string['mimetexisnotexist'] = 'Il tuo sistema non è configurato per eseguire mimeTEX. Devi scaricare l\'eseguibile adatto al tuo sistema operativo e versione PHP da <a href="http://moodle.org/download/mimetex/">http://moodle.org/download/mimetex/</a>, oppure ottenere il codice sorgente C da <a href="http://www.forkosh.com/mimetex.zip"> http://www.forkosh.com/mimetex.zip</a>, compilarlo e caricare l\'eseguibile risultante nella cartella moodle/filter/tex/.';
 $string['mimetexnotexecutable'] = 'Il mimetex personalizzato non è eseguibile!';
@@ -375,6 +384,9 @@ $string['moduledoesnotexist'] = 'Questo modulo non esiste';
 $string['moduleinstancedoesnotexist'] = 'L\'istanza di questo modulo non esiste';
 $string['modulemissingcode'] = 'Nel modulo {$a} manca il codice necessario per eseguire questa funzione';
 $string['movecatcontentstoroot'] = 'Non è consentito spostare il contenuto di una categoria al livello radice. Devi spostarlo in una categoria già esistente.';
+$string['movecategorynotpossible'] = 'Non è possibile spostare la categoria \'{$a}\' nella categoria selezionata.';
+$string['movecategoryownparent'] = 'Non è possibile rendere la categoria \'{$a}\' genitore di se stessa.';
+$string['movecategoryparentconflict'] = 'Non è possibile rendere la categoria \'{$a}\' sotto categoria di se stessa.';
 $string['multiplerecordsfound'] = 'Sono stati trovati molti record: se ne sarebbe dovuto trovare uno solo.';
 $string['multiplerestorenotallow'] = 'Non sono consentiti processi di ripristino multipli!';
 $string['mustbeloggedin'] = 'Devi essere autenticato per fare questo';
@@ -438,11 +450,13 @@ $string['prefixtoolong'] = '<p>Errore: il prefisso delle tabelle del database è
 <p>L\'amministratore del sito deve risolvere questo problema. La lunghezza massima del prefisso delle tabelle per {$a->dbfamily} è {$a->maxlength} caratteri.</p>';
 $string['processingstops'] = 'L\'elaborazione si è fermata qui. Rimangono dei record ignorati.';
 $string['protected_cc_not_supported'] = 'I cartridge protetti non sono supportati.';
+$string['querystringcannotbeempty'] = 'Il query string non può essere vuoto.';
 $string['redirecterrordetected'] = 'E\' stato indiviuato un redirect non supportato, l\'elaborazione dello script è stata interrotta';
 $string['refoundto'] = 'Può essere restituito a {$a}';
 $string['refoundtoorigi'] = 'Ammontare pagato restituito a {$a}';
-$string['remotedownloaderror'] = 'Lo scaricamento delle componenti non è andato a buon fine. Verificare le impostazioni del proxy. L\'estensione PHP cURL è fortemente consigliata.<br /><br />Devi scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" e decomprimerlo.';
-$string['remotedownloadnotallowed'] = 'Non è permesso scaricare i componenti su vostro server (allow_url_fopen è disabilitato). <br /><br /> È necessario scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" sul vostro server e scompattarlo la.';
+$string['remotedownloaderror'] = '<p>Lo scaricamento delle componenti non è andato a buon fine. Verificare le impostazioni del proxy. L\'estensione PHP cURL è fortemente consigliata.</p>
+<p>Devi scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" e decomprimerlo.</p>';
+$string['remotedownloadnotallowed'] = 'Non è permesso scaricare i componenti sul  server (allow_url_fopen è disabilitato). <br /><br /> È necessario scaricare manualmente il file <a href="{$a->url}">{$a->url}</a>, copiarlo in "{$a->dest}" sul server e scompattarlo.';
 $string['reportnotavailable'] = 'Questo tipo di report è disponibile solamente nel corso della pagina home';
 $string['requirecorrectaccess'] = 'URL o porta non valido';
 $string['requireloginerror'] = 'L\'accesso al corso o attività non è consentito.';
@@ -460,22 +474,26 @@ $string['sendmessage'] = 'Invia messaggio';
 $string['serverconnection'] = 'Si è verificato un errore durante la connessione al server';
 $string['servicedonotexist'] = 'Il servizio non esiste';
 $string['sessioncookiesdisable'] = 'E\' stato rilevato un uso errato di require_key_login() - i cookie di sessione devono essere disabilitati!';
-$string['sessiondiskfull'] = 'La partizione contenente le sessioni è piena. Al momento non è possibile autenticarsi.<br /><br />Per favore avvertite l\'amministratore del server.';
+$string['sessiondiskfull'] = 'La partizione contenente le sessioni è piena. Al momento non è possibile autenticarsi.
+Per favore avvertire l\'amministratore del server.';
 $string['sessionerroruser'] = 'La sessione è scaduta o è stato rilevato un errore. Si prega effettuare nuovamente il login.';
 $string['sessionerroruser2'] = 'È stato rilevato un errore sul server che ha compromesso la vostra sessione di autenticazione. Vi preghiamo di autenticarvi nuovamente o di far ripartire il browser.';
+$string['sessionhandlerproblem'] = 'Il session handler non è configurato correttamente';
 $string['sessionipnomatch'] = 'Spiacente, ma il tuo IP sembra essere cambiato da quando ti sei autenticao. Questa caratteristica previene il furto della vostra identità  da parte di hacker mentre sei collegato a questo sito. Gli utenti non dovrebbero vedere questo messaggio - chiedi aiuto all\'amministratore del sito.';
-$string['sessionipnomatch2'] = 'Spiacente ma il tuo indirizzo IP è cambiato da quando ti sei autenticato. Questa misura di sicurezza evita che cracker possano rubare la tua identità mentre sei collegato al sito. Questo errore potrebbe comparire se stai usando reti wireless oppure se stai muovendovi su reti diverse. Per ricevere aiuto, contatta il tuo amministratore.<br /><br />Se desideri continuare, premi il pulsante F5 per ricaricare questa pagina.';
+$string['sessionipnomatch2'] = '<p>Spiacente ma il tuo indirizzo IP è cambiato da quando ti sei autenticato. Questa misura di sicurezza evita che cracker possano rubare la tua identità mentre sei collegato al sito. L\'errore potrebbe comparire se stai usando reti wireless oppure se stai muovendovi su reti diverse. Per ricevere aiuto, contatta il tuo amministratore.</p>
+<p>Se desideri continuare, premi il pulsante F5 per ricaricare questa pagina.</p>';
 $string['sessionwaiterr'] = 'Si è verificato un timeout durante l\'attesa del session lock.<br />Attendi sino al termine della richiesta e riprova.';
-$string['shortnametaken'] = 'Il titolo abbreviato è già stato usato per un altro corso';
+$string['shortnametaken'] = 'Il titolo abbreviato è già stato usato per un altro corso ({$a})';
 $string['socksnotsupported'] = 'I proxy SOCKS5 non sono supportati nel PHP4';
 $string['spellcheckernotconf'] = 'Lo spell checker non è configurato';
 $string['sslonlyaccess'] = 'Spiacente, per motivi di sicurezza sono ammesse solo connessioni https.';
 $string['statscatchupmode'] = 'Le statistiche sono attualmente in modalità  raccolta dati. Sono già  stati elaborati {$a->daysdone} giorno(i) e {$a->dayspending} lo devono ancora essere. Ricontrollate presto!';
 $string['statsdisable'] = 'Le statistiche non sono abilitate';
 $string['statsnodata'] = 'Non ci sono dati disponibili per quella combinazione di corso e periodo di tempo';
+$string['storedfilecannotcreatefile'] = 'Non è possibile creare il pool locale dei file, verificare i permessi della dataroot e lo spazio disponibile sul disco.';
 $string['storedfilecannotcreatefiledirs'] = 'Non è possibile creare le cartelle per il pool dei file locali, verificate i permessi nella dataroot.';
 $string['storedfilecannotread'] = 'Non è possibile leggere il file, il file potrebbe non esistere oppure potrebbero esservi problemi nei permessi';
-$string['storedfilenotcreated'] = 'Non è possibile creare il file "{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}/{$a->filepath}/{$a->filename}"';
+$string['storedfilenotcreated'] = 'Non è possibile creare il file "{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}{$a->filepath}{$a->filename}"';
 $string['storedfileproblem'] = 'Si è verificata un exception sconosciuta riferita i file locali ({$a})';
 $string['tagdisabled'] = 'I tag non sono abilitati!';
 $string['tagnotfound'] = 'Il tag specificato non è stato trovato nel database';
@@ -498,6 +516,7 @@ $string['unknowncourse'] = 'Il corso di nome "{$a}" è sconosciuto';
 $string['unknowncourseidnumber'] = 'L\'ID del corso "{$a}" è sconosciuta';
 $string['unknowncourserequest'] = 'Richiesta di corso sconosciuta';
 $string['unknowncoursesection'] = 'Nel corso "{$a}" è presente una sezione sconosciuta';
+$string['unknownevent'] = 'Evento sconosciuto';
 $string['unknownfiletype'] = 'Errore - Filtro sconosciuto';
 $string['unknowngroup'] = 'Il gruppo "{$a}" è sconosciuto';
 $string['unknownhelp'] = 'L\'argomento di help {$a} è sconosciuto';

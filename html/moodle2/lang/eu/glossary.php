@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -133,6 +133,7 @@ $string['destination_help'] = '<p>Helbide-eremuan inportatutako sarrerak nora jo
 <li><strong>Oraingo glosategira: </strong>Sarrerak une horretan zabaldik duzun glosategira gaineratuko dira.</li>
 <li><strong>Glosategi berrira: </strong>Glosategi berria sortuko da inportatuko fitxategian aurkitutako informazioan oinarrituta. Bertan sartuko dira sarrera berriak).</li>
 </ul>';
+$string['disapprove'] = 'Ez onartu';
 $string['displayformat'] = 'Erakusteko modua';
 $string['displayformatcontinuous'] = 'Jarraian eta egilerik gabe';
 $string['displayformatdefault'] = 'Lehenetsia erakusteko modu berdina da';
@@ -171,7 +172,7 @@ $string['displayformats'] = 'Erakusteko moduak';
 $string['displayformatssetup'] = 'Aukeratu erakusteko modua';
 $string['duplicatecategory'] = 'Bikoiztu kategoria';
 $string['duplicateentry'] = 'Sarrera bikoiztu';
-$string['editalways'] = 'Beti editatu';
+$string['editalways'] = 'Baimendu beti editatzea';
 $string['editalways_help'] = '<P>Aukera honi esker erabaki dezakezu ikasleek sarrerak edozein momentutan edita ditzaketen ala ez.</p>
 
 <P>Bi aukera dituzu:</p>
@@ -311,6 +312,7 @@ $string['page-mod-glossary-x'] = 'Glosategiaren edozein orri';
 $string['pluginadministration'] = 'Glosategi kudeaketa';
 $string['pluginname'] = 'Glosategia';
 $string['popupformat'] = 'Popup formatua';
+$string['print'] = 'Inprimatu';
 $string['printerfriendly'] = 'Inprimatzeko bertsioa';
 $string['printviewnotallowed'] = 'Ezin inprimatzeko bertsioa aurkeztu';
 $string['question'] = 'Galdera';

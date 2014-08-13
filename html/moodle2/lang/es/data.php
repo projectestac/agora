@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Añadir comentario';
 $string['addentries'] = 'Añadir entradas';
 $string['addtemplate'] = 'Añadir plantilla';
 $string['advancedsearch'] = 'Búsqueda avanzada';
+$string['allowcomments'] = 'Permitir comentar las entradas';
 $string['alttext'] = 'Texto alternativo';
 $string['approve'] = 'Aprobar';
 $string['approved'] = 'Aprobado';

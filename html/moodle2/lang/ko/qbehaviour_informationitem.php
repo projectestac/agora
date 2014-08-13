@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_informationitem', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_informationitem', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_informationitem
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = '정보 항목에 대한 작동';
+$string['pluginname'] = '정보 항목들에 대한 질문 진행방식';
 $string['seen'] = '보여짐';

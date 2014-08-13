@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -79,7 +79,6 @@ $string['unitchoice'] = '多重选择';
 $string['unitedit'] = '编辑单位';
 $string['unitgraded'] = '必须提供单位，并且会被评分。';
 $string['unithandling'] = '单位处理';
-$string['unithdr'] = '单位 {$a}';
 $string['unitincorrect'] = '您没有给出正确的单位。';
 $string['unitmandatory'] = '强制';
 $string['unitmandatory_help'] = '* 答案会用写下的单位评分
@@ -105,3 +104,4 @@ $string['validnumberformats_help'] = '* 普通数字，13500.67、13 500.67、 1
 
 * 对对数形式，1.350067 * 10<sup>4</sup> 用 1.350067 E4 : 1.350067 E04 表示';
 $string['validnumbers'] = '13500.67、13 500.67、13,500.67、13500,67、13 500,67、1.350067 E4 或 1.350067 E04';
+$string['youmustenteramultiplierhere'] = '必须键入一个乘数';

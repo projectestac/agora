@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,6 @@ $string['createlink'] = 'Вставка ссылки';
 $string['cut'] = 'Вырезать выделение';
 $string['cutpastemozilla'] = 'К сожалению, Вы не можете использовать стандартные клавиатурные сокращения (или кнопку «Вставить») для вставки текста в этот online-редактор. Причина в настройках безопасности, встроенных в некоторые версии браузеров Mozilla и Firefox.<br /><br />Попробуйте воспользоваться одной из следующих рекомендаций:<br>(1) Вместо CTRL-v, используйте SHIFT-Insert<br>(2) Используйте меню Правка->Вставить в Вашем браузере (вверху экрана)<br>(3) Измените настройки Вашего браузера, отредактировав файл user.js.<br /><br />Нажмите кнопку «ОК» для подробной справки или «Отмена» для возврата к редактированию.';
 $string['delete'] = 'Удалить';
-$string['editordeleteconfirm'] = 'Вы собираетесь совсем удалить плагин редактора "{$a}". Это полностью удалит все данные из базы данных, которые связаны с этим плагином. Вы УВЕРЕНЫ, что хотите продолжить?';
 $string['editors'] = 'Текстовые редакторы';
 $string['editorsettings'] = 'Управление редакторами';
 $string['enterurlfirst'] = 'Нужно сначала ввести адрес';

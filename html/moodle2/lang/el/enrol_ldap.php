@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['autocreate'] = 'Μαθήματα μπορούν να δημιουργούνται αυτόματα εάν υπάρχουν εγγραφές σε ένα μάθημα το οποίο δεν υπάρχει ακόμα στο ΠΗΛΕΑΣ.';
+$string['autocreate'] = 'Μαθήματα μπορούν να δημιουργούνται αυτόματα εάν υπάρχουν εγγραφές σε ένα μάθημα το οποίο δεν υπάρχει ακόμα στο Moodle.';
 $string['autocreation_settings'] = 'Ρυθμίσεις αυτόματης δημιουργίας μαθημάτων';
 $string['bind_dn'] = 'Εάν θέλετε να χρησιμοποιήσετε το bind-user για αναζήτηση χρηστών, ορίστε το εδώ. Κάτι σαν \'cn=ldapuser,ou=public,o=org\'';
 $string['bind_pw'] = 'Κωδικός για το bind-user.';

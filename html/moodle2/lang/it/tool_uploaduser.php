@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'Delimitatore CSV';
 $string['defaultvalues'] = 'Valori di default';
 $string['deleteerrors'] = 'Elimina errori';
 $string['encoding'] = 'Codifica';
+$string['errormnetadd'] = 'Non è possibile aggiungere utenti remoti';
 $string['errors'] = 'Errori';
 $string['nochanges'] = 'Nessuna modifica';
 $string['pluginname'] = 'Caricamento utenti';
@@ -64,6 +65,7 @@ La prima riga del file è speciale e contiene le intestazioni con i nomi dei cam
 * I campi obbligatori sono username, password, firstname,  lastname, email';
 $string['uploaduserspreview'] = 'Anteprima importazione utenti';
 $string['uploadusersresult'] = 'Risultati importazione utenti';
+$string['uploaduser:uploaduserpictures'] = 'Importare immagini utenti';
 $string['useraccountupdated'] = 'Utente aggiornato';
 $string['useraccountuptodate'] = 'Utente aggiornato';
 $string['userdeleted'] = 'Utente Eliminato';
@@ -74,7 +76,7 @@ $string['usersrenamed'] = 'Utenti rinominati';
 $string['usersskipped'] = 'Utenti saltati';
 $string['usersupdated'] = 'Utenti aggiornati';
 $string['usersweakpassword'] = 'Utenti con password debole';
-$string['uubulk'] = 'Preseleziona per azioni su elenchi';
+$string['uubulk'] = 'Seleziona per azioni in massa';
 $string['uubulkall'] = 'Tutti gli utenti';
 $string['uubulknew'] = 'Nuovi utenti';
 $string['uubulkupdated'] = 'Utenti modificati';

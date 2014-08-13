@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Etiketa sortzea eskaintzen du ikastaroan media-fitxategiak hartu eta eraman egiten direnean';
+$string['configdndresizeheight'] = 'Hartu eta eramandako irudi batetik etiketa bat sortzen denean, egokitu tamaina pixel-kopuru hau baino altuagoa bada (0 tamaina ez egokitzeko)';
+$string['configdndresizewidth'] = 'Hartu eta eramandako irudi batetik etiketa bat sortzen denean, egokitu tamaina pixel-kopuru hau baino zabalagoa bada (0 tamaina ez egokitzeko)';
+$string['dndmedia'] = 'Hartu eta eraman media';
+$string['dndresizeheight'] = 'Egokitu hartu eta eraman altueran';
+$string['dndresizewidth'] = 'Egokitu hartu eta eraman zabaleran';
+$string['dnduploadlabel'] = 'Gehitu irudia ikastaroaren orrira';
+$string['dnduploadlabeltext'] = 'Gehitu etiketa ikastaroaren orrira';
 $string['label:addinstance'] = 'Gehitu beste etiketa bat';
 $string['labeltext'] = 'Etiketaren testua';
 $string['modulename'] = 'Etiketa';

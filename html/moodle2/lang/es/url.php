@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['chooseavariable'] = 'Escoja una variable';
-$string['clicktoopen'] = 'Haga clic en el enlace {$a} para abrir la URL.';
+$string['clicktoopen'] = 'Haga clic en el enlace {$a} para abrir el recurso.';
 $string['configdisplayoptions'] = 'Seleccione todas las opciones que deben estar disponibles; los valores existentes no se modifican. Mantenga pulsada la tecla CTRL para seleccionar varios campos.';
 $string['configframesize'] = 'Cuando una página web o un archivo subido se muestra dentro de un marco, este valor es la altura (en píxeles) del marco superior (el que contiene la barra de navegación).';
 $string['configrolesinparams'] = 'Activar si desea incluir los nombres de rol localizados en la lista de parámetros variables disponibles';
@@ -55,7 +55,6 @@ Hay una serie de opciones de visualización de la URL, como incrustada o abierta
 Tenga en cuenta que las URLs también pueden ser añadidas en otros recursos o actividades a través del editor de texto.';
 $string['modulenameplural'] = 'URLs';
 $string['neverseen'] = 'Nunca visto';
-$string['optionsheader'] = 'Opciones';
 $string['page-mod-url-x'] = 'Cualquier página del módulo URL';
 $string['parameterinfo'] = 'parámetro=variable';
 $string['parametersheader'] = 'Parámetros';
@@ -66,8 +65,6 @@ $string['popupheight'] = 'Altura de la ventanta emergente (en pixels)';
 $string['popupheightexplain'] = 'Especifica la altura por defecto de las ventanas emergentes.';
 $string['popupwidth'] = 'Anchura de la ventana emergente (en pixels)';
 $string['popupwidthexplain'] = 'Especifica la anchura por defecto de las ventanas emergentes.';
-$string['printheading'] = 'Mostrar el nombre de la URL';
-$string['printheadingexplain'] = '¿Mostrar el nombre de la URL encima del contenido? Algunos tipos de visualización no pueden mostrar el nombre de la URL, aun estando habilitada.';
 $string['printintro'] = 'Mostrar la descripción de la URL';
 $string['printintroexplain'] = '¿Mostrar la descripción URL debajo del contenido? Algunos tipos de visualización pueden no mostrar la descripción incluso aunque esté activada esa opción.';
 $string['rolesinparams'] = 'Incluye los nombres de rol en los parámetros';

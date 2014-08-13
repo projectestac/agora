@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -218,7 +218,7 @@ $string['dropxlowestwarning'] = '注意: 「下位X件の除外」を使用す�
 $string['duplicatescale'] = '尺度の複製';
 $string['edit'] = '編集';
 $string['editcalculation'] = '計算の編集';
-$string['editcalculationverbose'] = '{$a->category}$a->itemmodule {$a->itemname} の計算の編集';
+$string['editcalculationverbose'] = '{$a->category} {$a->itemmodule} {$a->itemname} の計算の編集';
 $string['editfeedback'] = 'フィードバックの編集';
 $string['editgrade'] = '評定の編集';
 $string['editgradeletters'] = '評定文字を編集する';
@@ -226,7 +226,7 @@ $string['editoutcome'] = 'アウトカムの編集';
 $string['editoutcomes'] = 'アウトカムの編集';
 $string['editscale'] = '評価尺度の編集';
 $string['edittree'] = 'カテゴリおよび評定項目';
-$string['editverbose'] = '{$a->category}$a->itemmodule {$a->itemname} の編集';
+$string['editverbose'] = '{$a->category} {$a->itemmodule} {$a->itemname} の編集';
 $string['enableajax'] = 'AJAXを有効にする';
 $string['enableajax_help'] = '一般的な操作を単純化および高速化するAJAX機能のレイヤーを評定者レポートに追加します。ユーザのブラウザレベルでJavaスクリプトが有効にされているかどうかに依存します。';
 $string['enableoutcomes'] = 'アウトカムを有効にする';
@@ -241,6 +241,7 @@ $string['errornocategorisedid'] = 'カテゴリなしIDを取得できません�
 $string['errornocourse'] = 'コース情報を取得できませんでした。';
 $string['errorreprintheadersnonnumeric'] = 'ヘッダの再表示の値が数値ではありません:';
 $string['errorsavegrade'] = '申し訳ございません、評定を保存できませんでした。';
+$string['errorsettinggrade'] = 'ユーザID「 {$a->userid} 」の「 {$a->itemname} 」評点保存中にエラーが発生しました。';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = '評定カテゴリID {$a->id} の「空白ではない評点のみ総計する」設定更新中にエラーが発生しました。';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = '評定カテゴリID {$a->id} の「総計にアウトカムを含む」設定更新中にエラーが発生しました。';
 $string['errorupdatinggradecategoryaggregatesubcats'] = '評定カテゴリID {$a->id} の「総計にサブカテゴリを含む」設定更新中にエラーが発生しました。';
@@ -252,8 +253,8 @@ $string['expand'] = 'カテゴリを展開する';
 $string['export'] = 'エクスポート';
 $string['exportalloutcomes'] = 'すべてのアウトカムをエクスポートする';
 $string['exportfeedback'] = 'エクスポートにフィードバックを含む';
-$string['exportonlyactive'] = '要受講登録';
-$string['exportonlyactive_help'] = '受講登録が停止されていない学生のみエクスポートに含みます。';
+$string['exportonlyactive'] = '一時停止ユーザを除く';
+$string['exportonlyactive_help'] = '受講登録が有効であり、一時停止されていない学生のみエクスポートに含みます。';
 $string['exportplugins'] = 'プラグインのエクスポート';
 $string['exportsettings'] = 'エクスポート設定';
 $string['exportto'] = 'エクスポート先';
@@ -310,6 +311,7 @@ $string['gradehelp'] = '評定ヘルプ';
 $string['gradehistorylifetime'] = '評定履歴の保存期間';
 $string['gradehistorylifetime_help'] = 'ここでは評定に関連するテーブル履歴の保存期間を指定します。可能な限り長い期間の保存をお勧めします。あなたがパフォーマンスに関する問題を経験した場合、またはデータベース領域が制限されている場合、この値を小さくしてください。';
 $string['gradeimport'] = '評定インポート';
+$string['gradeimportfailed'] = '実行中に評点インポートに失敗しました。詳細:';
 $string['gradeitem'] = '評定項目';
 $string['gradeitemaddusers'] = '評定から除外する';
 $string['gradeitemadvanced'] = '高度な評定項目オプション';
@@ -340,7 +342,7 @@ $string['gradepass_help'] = '<p>合格するために、同等またはそれ以
 $string['gradepreferences'] = '評定プリファレンス';
 $string['gradepreferenceshelp'] = '評定プリファレンスヘルプ';
 $string['gradepublishing'] = '公開を有効にする';
-$string['gradepublishing_help'] = 'エクスポートおよびインポートの公開を有効にします。Moodleサイトにログインせず、指定されたURIよりエクスポートされた評定にアクセスできます。また、そのようなURIにアクセスすることで、評定をインポートすることもできます (他のサイトで公開された評定をMoodleサイトがインポートできることを意味します)。デフォルトでは、この機能を管理者のみ使用することができます。必要なケイパビリティを他のロールに追加する前にユーザを教育してください (ブックマーク共有およびダウンロードアクセラレータの危険性、IP制限等)。';
+$string['gradepublishing_help'] = 'エクスポートおよびインポートの公開を有効にします。Moodleサイトにログインせず、指定されたURLよりエクスポートされた評定にアクセスできます。また、そのようなURLにアクセスすることで、評定をインポートすることもできます (他のサイトで公開された評定をMoodleサイトがインポートできることを意味します)。デフォルトでは、この機能を管理者のみ使用することができます。必要なケイパビリティを他のロールに追加する前にユーザを教育してください (ブックマーク共有およびダウンロードアクセラレータの危険性、IP制限等)。';
 $string['gradereport'] = '評定レポート';
 $string['graderreport'] = '評定者レポート';
 $string['grades'] = '評定';
@@ -587,7 +589,9 @@ $string['selectalloroneuser'] = 'すべてまたは1ユーザを選択する';
 $string['selectauser'] = 'ユーザを選択する';
 $string['selectdestination'] = '{$a} の移動先を選択する';
 $string['separator'] = 'セパレータ';
+$string['sepcolon'] = 'コロン';
 $string['sepcomma'] = 'カンマ';
+$string['sepsemicolon'] = 'セミコロン';
 $string['septab'] = 'タブ';
 $string['setcategories'] = 'カテゴリを設定する';
 $string['setcategorieserror'] = '加重を与える前にコースにカテゴリを設定してください。';
@@ -632,6 +636,8 @@ $string['shownohidden'] = '隠し評定項目を表示しない';
 $string['shownooutcomes'] = 'アウトカムを隠す';
 $string['shownumberofgrades'] = '平均に評定数を表示する';
 $string['shownumberofgrades_help'] = 'それぞれの平均に使用された評定数を隣の大括弧内に表示するかどうか指定してください。例: 45 (34)';
+$string['showonlyactiveenrol'] = '有効な登録のみ表示する';
+$string['showonlyactiveenrol_help'] = 'この設定では、評定表レポート内で有効な登録ユーザのみを表示するかどうか決定します。有効にした場合、一時停止したユーザは評定表内に表示されません。';
 $string['showpercentage'] = 'パーセンテージを表示する';
 $string['showpercentage_help'] = 'それぞれの評定項目に対して、パーセンテージを表示するかどうか指定してください。';
 $string['showquickfeedback'] = 'クイックフィードバックを表示する';
@@ -698,6 +704,9 @@ $string['user'] = 'ユーザ';
 $string['userenrolmentsuspended'] = 'ユーザ登録停止中';
 $string['usergrade'] = '評定項目 {$a->gradeidnumber} のユーザ {$a->fullname} ({$a->useridnumber})';
 $string['userid'] = 'ユーザID';
+$string['usermappingerror'] = 'ユーザマッピングエラー: 「 {$a->field} 」が「 {$a->value} 」のユーザを見つけることができませんでした。';
+$string['usermappingerrorcurrentgroup'] = 'ユーザは現在のグループのメンバーではありません。';
+$string['usermappingerrorusernotfound'] = 'ユーザマッピングエラー: ユーザを見つけることができませんでした。';
 $string['userpreferences'] = 'ユーザ属性';
 $string['useweighted'] = '加重を使用する';
 $string['verbosescales'] = '詳細尺度';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,9 +65,11 @@ $string['enrollablecourses'] = 'Kurser som tillåter registrering';
 $string['errorcourselisting'] = 'Det inträffade ett fel när listorna för kursen skulle hämtas från den valda hubben, var snäll och försök senare, ({$a})';
 $string['errorhublisting'] = 'Det inträffade ett fel när listorna för hubben skulle hämtas från moodle.org, var snäll och försök senare, ({$a})';
 $string['fileinfo'] = 'Språk: {$a->lang} - Licens: {$a->license} -  Tid för uppdatering: {$a->timeupdated}';
+$string['hideall'] = 'Dölj hubbar';
 $string['hub'] = 'hub';
 $string['hubnottrusted'] = 'Saknar förtroende';
 $string['hubtrusted'] = 'Den här hubben har förtroende hos moodle.org';
+$string['install'] = 'Ladda ner';
 $string['keywords'] = 'Nyckelord';
 $string['langdesc'] = 'Språk: {$a} -';
 $string['language'] = 'Språk';
@@ -100,6 +102,7 @@ $string['searchcommunitycourse'] = 'Sök efter en kurs för gemenskap/er';
 $string['searchcourse'] = 'Sök efter en kurs för gemenskap/er';
 $string['selecthub'] = 'Välj hub';
 $string['selecthub_help'] = 'Välj en hubb där Du vill söka efter kurser';
+$string['showall'] = 'Visa alla hubbar';
 $string['sites'] = 'Webbplatser';
 $string['subject'] = 'Ämne';
 $string['subject_help'] = 'För att begränsa Din sökning efter kurser till ett specifikt ämne så kan Du välja ett från den här listan';

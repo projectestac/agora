@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grading', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grading', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,14 +30,14 @@ $string['activemethodinfonone'] = 'Não existe um método de avaliação avança
 $string['changeactivemethod'] = 'Alterar o método de avaliação ativo para';
 $string['clicktoclose'] = 'clique para fechar';
 $string['exc_gradingformelement'] = 'Não é possível instanciar o elemento da grelha de avaliação';
-$string['formnotavailable'] = 'O método de avaliação avançado foi selecionado mas a grelha de avaliação não se encontra ainda definida. Pode precisar de defini-la primeiro através de um link no bloco Configurações.';
+$string['formnotavailable'] = 'O Método de avaliação avançado foi selecionado para ser usado no Trabalho mas a grelha de avaliação ainda não se encontra definida. Poderá ser necessário editá-la primeiro a partir da respetiva opção no bloco Administração.';
 $string['gradingformunavailable'] = 'Atenção: a grelha de avaliação ainda não se encontra configurada. Será usado o método de avaliação simples direta até que a grelha esteja configurada.';
 $string['gradingmanagement'] = 'Método de avaliação avançado';
 $string['gradingmanagementtitle'] = 'Método de avaliação avançado: {$a->component} ({$a->area})';
 $string['gradingmethod'] = 'Método de avaliação';
-$string['gradingmethod_help'] = 'Escolha o método de avaliação avançado que deve ser usado para calcular as notas no contexto dado.
+$string['gradingmethod_help'] = 'Escolha o método de avaliação avançado que deverá ser usado para calcular as notas neste contexto.
 
-Para desativar as avaliações avançadas e voltar ao método de avaliação predefinido,escolha \'Avaliação simples direta\'.';
+Para desativar a avaliação avançada e voltar ao método de avaliação predefinido, selecione a opção \'Avaliação simples direta\'.';
 $string['gradingmethodnone'] = 'Avaliação simples direta';
 $string['gradingmethods'] = 'Métodos de avaliação';
 $string['manageactionclone'] = 'Criar nova grelha de avaliação a partir de um modelo';
@@ -59,7 +59,7 @@ $string['noitemid'] = 'A avaliação não é possivel, o item de avaliação nã
 $string['nosharedformfound'] = 'Não foram encontrados modelos';
 $string['searchownforms'] = 'incluindo as minhas grelhas';
 $string['searchtemplate'] = 'Pesquisar grelhas de avaliação';
-$string['searchtemplate_help'] = 'Pode pesquisar por uma grelha de avaliação e usá-lo como modelo a partir da nova grelha de avaliação aqui. Basta inserir as palavras que devem aparecer em algum lugar no nome da grelha, na sua descrição ou no próprio corpo da grelha. Para pesquisar uma frase, insira a expressão inteira entre aspas.
+$string['searchtemplate_help'] = 'Pode pesquisar por uma grelha de avaliação e usá-la aqui como modelo a partir da nova grelha de avaliação. Basta inserir as palavras que devem aparecer em algum lugar no nome da grelha, na sua descrição ou no próprio corpo da grelha. Para pesquisar uma frase, insira a expressão inteira entre aspas.
 
 Por predefinição, apenas as grelhas de avaliação que foram guardados como modelos partilhados são incluídos nos resultados da pesquisa. Também pode incluir todas as suas grelhas nos resultados da pesquisa. Desta forma, pode simplesmente re-utilizar as suas grelhas de avaliação sem partilhá-los. Apenas as grelhas marcados como \'Pronto a usar\' podem ser usados desta forma.';
 $string['statusdraft'] = 'Rascunho';

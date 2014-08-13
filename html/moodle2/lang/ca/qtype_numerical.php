@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = 'Error acceptat';
 $string['addmoreanswerblanks'] = 'Blancs per a {no} preguntes més';
 $string['addmoreunitblanks'] = 'Blancs per a {no} unitats més';
 $string['answercolon'] = 'Resposta:';
+$string['answererror'] = 'Error';
 $string['answermustbenumberorstar'] = 'La resposta ha de ser un nombre, per exemple -1,234 o 3e8, o \'*\'.';
 $string['answerno'] = 'Resposta {$a}';
 $string['decfractionofquestiongrade'] = 'com una fracció decimal (0-1) de la qualificació de la pregunta';
@@ -79,7 +80,6 @@ $string['unitchoice'] = 'Opcions múltiples (botons/caixes de selecció)';
 $string['unitedit'] = 'Edita la unitat';
 $string['unitgraded'] = 'Es qualificarà la RESPOSTA NUMÈRICA i també LES UNITATS';
 $string['unithandling'] = 'Tractament de les unitats';
-$string['unithdr'] = 'Unitat {$a}';
 $string['unitincorrect'] = 'No heu posat la resposta correcta';
 $string['unitmandatory'] = 'Obligatori';
 $string['unitmandatory_help'] = '* La resposta serà qualificada utilitzant la resposta escrita.
@@ -97,7 +97,9 @@ $string['unitpenalty_help'] = 'La penalització s\'aplica si
 * la resposta errònia s\'entra en una entrada, o
 * una resposta s\'entra en una caixa d\'entrada de valors numèrics';
 $string['unitposition'] = 'Posició de les unitats';
+$string['units'] = 'Unitats';
 $string['unitselect'] = 'un menú desplegable';
+$string['unitx'] = 'Unitat {no}';
 $string['validnumberformats'] = 'Formats numèrics vàlids';
 $string['validnumberformats_help'] = '* números regulars 13500,67, 13 500,67, 13500,67 o 13 500,67
 
@@ -105,3 +107,6 @@ $string['validnumberformats_help'] = '* números regulars 13500,67, 13 500,67, 1
 
 * per a formes exponencials com el nombre 1,350067 * 10<sup>4</sup>, utilitzeu 1,350067 E4 : 1,350067 E04';
 $string['validnumbers'] = '13500.67 : 13 500.67 : 13,500.67 : 13500,67: 13 500,67 : 1.350067 E4 : 1.350067 E04';
+$string['xmustbenumeric'] = 'Cal que {$a} sigui un número.';
+$string['xmustnotbenumeric'] = '{$a} no pot ser un número.';
+$string['youmustenteramultiplierhere'] = 'Aquí heu d\'introduir un multiplicador';

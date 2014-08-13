@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['encoding'] = 'ファイルエンコーディング';
+$string['expiredaction'] = '登録期限切れ処理';
+$string['expiredaction_help'] = 'ユーザの登録期限が切れた場合、実行される処理を選択してください。コース登録解除中、一部のユーザデータおよび設定が削除されてしまうことに留意してください。';
 $string['filelockedmail'] = 'ファイルベースのユーザ登録で使用しているテキストファイル ({$a}) は、cronプロセスにより削除することができません。通常、これはファイルパーミッションが正しくないことを意味します。Moodleが削除できるよう、ファイルのパーミッションを変更してください。変更しない場合、この処理が繰り返し実行されます。';
 $string['filelockedmailsubject'] = '重大なエラー: エンロールメントファイル';
+$string['flatfile:manage'] = 'ユーザ登録を手動で管理する';
+$string['flatfile:unenrol'] = 'コースからユーザを手動で登録解除する';
 $string['location'] = 'ファイルロケーション';
-$string['mailadmin'] = '管理者にメール通知する';
-$string['mailstudents'] = '学生にメール通知する';
-$string['mailteachers'] = '教師にメール通知する';
-$string['mapping'] = 'フラットファイルマッピング';
+$string['location_desc'] = '登録ファイルのフルパスを指定してください。処理の後、ファイルは自動的に削除されます。';
+$string['mapping'] = 'フラットファイルロールマッピング';
 $string['messageprovider:flatfile_enrolment'] = 'フラットファイル登録メッセージ';
+$string['notifyadmin'] = '管理者に通知する';
+$string['notifyenrolled'] = '登録ユーザに通知する';
+$string['notifyenroller'] = '登録に責任のあるユーザに通知する';
 $string['pluginname'] = 'フラットファイル (CSV)';
 $string['pluginname_desc'] = 'この方法ではあなたが指定した場所に置いた特別にフォーマットされたテキストファイルを繰り返しチェックおよび処理します。ファイルはカンマ区切りのファイル、1行あたり4個または6個のフィールドを持つと想定されます:
 

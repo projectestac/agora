@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = '활동에 질문 추가';
-$string['add_items'] = '활동에 질문 추가';
 $string['add_pagebreak'] = '페이지 나눔 추가';
 $string['adjustment'] = '정돈';
 $string['after_submit'] = '제출 후';
@@ -56,7 +55,7 @@ $string['completed'] = '완료';
 $string['completed_feedbacks'] = '제출된 답';
 $string['complete_the_form'] = '질문에 답하세요';
 $string['completionsubmit'] = '피드백이 제출되면 완료된 것으로 보기';
-$string['configallowfullanonymous'] = '예로 설정하면 피드백은 로그온하지 않고도 완료될 수 있습니다. 홈페이지의 피드백에만 영향을 준다.';
+$string['configallowfullanonymous'] = '예로 설정하면 피드백은 로그온하지 않고도 완료될 수 있습니다. 누리집의 피드백에만 영향을 준다.';
 $string['confirmdeleteentry'] = '이 기록을 삭제하는 것이 맞습니까?';
 $string['confirmdeleteitem'] = '이 질문을 삭제하는 것이 맞습니까?';
 $string['confirmdeletetemplate'] = '이 질문지를 삭제하는 것이 맞습니까?';
@@ -100,17 +99,15 @@ $string['dropdown_values'] = '답안';
 $string['drop_feedback'] = '강좌에서 제거';
 $string['edit_item'] = '질문 편집';
 $string['edit_items'] = '질문 편집';
-$string['emailnotification'] = '이메일 통지';
 $string['email_notification'] = '이메일 통지';
-$string['emailnotification_help'] = '활성화가 되면, 관리자는 피드백 제출에 대해 이메일로 통지받게 됩니다.';
-$string['emailteachermail'] = '{$a->username} 이  \'{$a->feedback}\' 피드백 활동을 완료하였습니다. {$a->url} 에서 그것을 볼 수 있습니다.';
+$string['email_notification_help'] = '활성화가 되면, 관리자는 피드백 제출에 대해 이메일로 통지받게 됩니다.';
+$string['emailteachermail'] = '{$a->username} 가 \'{$a->feedback}\' 피드백 활동을 완료하였습니다. {$a->url} 에서 결과를 볼 수 있습니다.';
 $string['emailteachermailhtml'] = '{$a->username} 가 <i>\'{$a->feedback}\'</i><br/><br/> 피드백 활동을 완료하였습니다. <a href="{$a->url}">여기</a> 에서 결과를 볼 수 있습니다.';
 $string['entries_saved'] = '응답 저장됨. 감사합니다.';
 $string['export_questions'] = '질문 내보내기';
 $string['export_to_excel'] = '엑셀로 내보내기';
 $string['feedback:addinstance'] = '새 피드백 추가';
-$string['feedbackclose'] = '피드백 마감 시간';
-$string['feedbackcloses'] = '피드백 마감';
+$string['feedbackclose'] = '응답 허용';
 $string['feedback:complete'] = '피드백 완료';
 $string['feedback:createprivatetemplate'] = '개인 질문지 만들기';
 $string['feedback:createpublictemplate'] = '공용 질문지 만들기';
@@ -120,9 +117,7 @@ $string['feedback:edititems'] = '항목 편집';
 $string['feedback_is_not_for_anonymous'] = '익명사용자는 설문 응답을 못함';
 $string['feedback_is_not_open'] = '피드백이 아직 시작되지 않았음';
 $string['feedback:mapcourse'] = '강좌에 공용 피드백 배치';
-$string['feedbackopen'] = '피드백 공개 시간';
-$string['feedbackopens'] = '피드백 시작';
-$string['feedback_options'] = '피드백 선택사항';
+$string['feedbackopen'] = '답안 입력 시작 시간';
 $string['feedback:receivemail'] = '이메일 통지 받기';
 $string['feedback:view'] = '피드백 보기';
 $string['feedback:viewanalysepage'] = '제출 후 분석결과 보기';
@@ -144,11 +139,10 @@ $string['insufficient_responses_help'] = '모둠의 응답수 부족.
 피드백을 익명으로 처리하기 위해서는 최소 2명의 응답이 있어야만 한다.';
 $string['item_label'] = '표지';
 $string['item_name'] = '질문';
-$string['items_are_required'] = '별표표시된 질문은 반드시 응답해야 합니다.';
 $string['label'] = '표지';
 $string['line_values'] = '순위';
 $string['mapcourse'] = '피드백을 강좌와 연결';
-$string['mapcourse_help'] = '기본적으로 개인 홈페이지에서 생성된 피드백 양식은 사이트 전체에 거쳐 사용할 수 있으며 피드백 블록을 사용하는 모든 강좌에서 나타납니다. 여러분은 피드백 양식을 붙박이 블록으로 만들어 사용하도록 하거나, 아니면 강좌를 지정하여 특정된 강좌에서만 나타나게 할 수 있습니다.';
+$string['mapcourse_help'] = '기본적으로 개인 누리집에서 생성된 피드백 양식은 사이트 전체에 거쳐 사용할 수 있으며 피드백 블록을 사용하는 모든 강좌에서 나타납니다. 여러분은 피드백 양식을 붙박이 블록으로 만들어 사용하도록 하거나, 아니면 강좌를 지정하여 특정된 강좌에서만 나타나게 할 수 있습니다. ';
 $string['mapcourseinfo'] = '이것은 피드백 블록을 사용하는 모든 강좌에서 사용할 수 있는 사이트 공용 피드백입니다. 그러나 매핑을 통해 피드백이 표시될 수 있는 강좌를 제한할 수 있습니다. 강좌를 검색한 후 강좌를 이 피드백과 매핑하십시요.';
 $string['mapcoursenone'] = '아무 강좌도 연결되지 않았습니다. 피드백은 모든 강좌에서 사용가능합니다.';
 $string['mapcourses'] = '피드백을 강좌에 연결';
@@ -170,8 +164,7 @@ $string['multichoice'] = '복수 선택';
 $string['multichoicerated'] = '복수 선택(순위)';
 $string['multichoicetype'] = '복수 선택형';
 $string['multichoice_values'] = '복수 선택값';
-$string['multiplesubmit'] = '다중 제출';
-$string['multiple_submit'] = '중복 제출';
+$string['multiplesubmit'] = '다중 제출 허용';
 $string['multiplesubmit_help'] = '익명 설문조사를 가능하게 하면, 사용자는 설문에 무제한 응답할 수 있다.';
 $string['name'] = '이름';
 $string['name_required'] = '이름 필수';
@@ -197,7 +190,7 @@ $string['oldvalueswillbedeleted'] = '현재의 질문 및 사용자의 반응을
 $string['only_one_captcha_allowed'] = '피드백에 단 하나의 캡차만 허용됨';
 $string['overview'] = '요약';
 $string['page'] = '페이지';
-$string['page_after_submit'] = '제출 후 페이지';
+$string['page_after_submit'] = '완료 메세지';
 $string['pagebreak'] = '페이지 나누기';
 $string['page-mod-feedback-x'] = '모든 피드백 모듈 페이지';
 $string['parameters_missing'] = '파라메터가 없음';
@@ -212,6 +205,7 @@ $string['preview_help'] = '미리보기에서는 문제의 순서를 변경할 �
 $string['previous_page'] = '이전 페이지';
 $string['public'] = '공개';
 $string['question'] = '질문';
+$string['questionandsubmission'] = '질문 및 제출 설정';
 $string['questions'] = '질문들';
 $string['radio'] = '선다형-단답(라디오버튼)';
 $string['radiobutton'] = '선다형-단답 허용(라디오버튼)';
@@ -241,7 +235,7 @@ $string['send_message'] = '메시지 보내기';
 $string['separator_decimal'] = '.';
 $string['separator_thousand'] = ',';
 $string['show_all'] = '모두 보기';
-$string['show_analysepage_after_submit'] = '제출 후 분석 페이지 보기';
+$string['show_analysepage_after_submit'] = '분석 페이지 보기';
 $string['show_entries'] = '응답 보기';
 $string['show_entry'] = '응답 보기';
 $string['show_nonrespondents'] = '응답 안한 사람 보기';
@@ -265,14 +259,9 @@ $string['textfield_maxlength'] = '허용 최대 문자 수';
 $string['textfield_size'] = '입력창의 폭';
 $string['there_are_no_settings_for_recaptcha'] = '캡차 설정 없음';
 $string['this_feedback_is_already_submitted'] = '당신은 이미 이 활동을 완료하였습니다.';
-$string['timeclose'] = '종료 시각';
-$string['timeclose_help'] = '사람들이 질문에 답할 수 있게 접속을 종료하는 시각을 지정할 수 있다. 만일 체크박스에 기표되지 않으면 이러한 제한은 없게 된다. ';
-$string['timeopen'] = '공개 시각';
-$string['timeopen_help'] = '사람들이 질문에 답할 수 있게 접속을 시작하는 시각을 지정할 수 있다. 만일 체크박스에 기표되지 않으면 이러한 제한은 없게 된다. ';
 $string['typemissing'] = '"유형" 누락';
 $string['update_item'] = '변경사항 저장';
 $string['url_for_continue'] = '계속버튼의 URL';
-$string['url_for_continue_button'] = '계속버튼 URL';
 $string['url_for_continue_help'] = '기본적으로 피드백을 하고 난 후에 계속 버튼의 목적지는 강좌 페이지입니다. 이 계속 버튼에 다른 목적지 URL을 정의할 수도 있습니다.';
 $string['use_one_line_for_each_value'] = '<br />한 줄에 하나씩 답하세요!';
 $string['use_this_template'] = '이 질문지 사용';

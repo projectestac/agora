@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignfeedback_file', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignfeedback_file', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   assignfeedback_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['batchoperationconfirmuploadfiles'] = 'Enviar un ou máis ficheiros de c
 $string['batchuploadfiles'] = 'Enviar os ficheiros de comentarios para múltiplos usuarios';
 $string['batchuploadfilesforusers'] = 'Enviar os ficheiros de comentarios a {$a} usuario(s) seleccionado(s).';
 $string['configmaxbytes'] = 'Tamaño máximo do ficheiro';
+$string['confirmuploadzip'] = 'Confirmar a descarga do zip';
 $string['countfiles'] = '{$a} ficheiros';
 $string['default'] = 'Activado de xeito predeterminado';
 $string['default_help'] = 'Se establece, este método de comentarios será activado como predeterminado para todas as novas asignacións.';
@@ -37,6 +38,7 @@ $string['enabled_help'] = 'Se está activado, o profesor será quen de enviar fi
 $string['feedbackfileadded'] = 'Novo ficheiro de comentarios «{$a->filename}» para o alumno «{$a->student}»';
 $string['feedbackfileupdated'] = 'Modificouse o ficheiro de comentarios «{$a->filename}» para o alumno «{$a->student}»';
 $string['feedbackzip'] = 'Ficheiro zip cos ficheiros de comentarios';
+$string['feedbackzip_help'] = 'Un arquivo zip que contén unha lista de ficheiros de comentarios para un ou máis alumnos. Os ficheiros de comentarios serán asignados aos alumnos baseándose no ID do participante que debería ser a segunda parte de cada nome de ficheiro inmediatamente despois do nome completo dos usuarios. Esta convención para os nomes empregase ao descargar os envíos, de forma que vostede poida descargar todos os envíos, engadirlles comentarios a algúns ficheiros e despois enviar todos os ficheiros. Os ficheiros que non teñan cambios van seren ignorados.';
 $string['file'] = 'Ficheiros de comentarios';
 $string['filesadded'] = 'Ficheiros de comentarios engadidos: {$a}';
 $string['filesupdated'] = 'Ficheiros de comentarios actualizados: {$a}';

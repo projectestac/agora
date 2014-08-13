@@ -7,7 +7,7 @@
 body.has_dock {margin-left:30px;}
 
 /** For the dock itself */
-#dock {width:30px;position:fixed;top:0px;left:0px;height:100%;background-color:#FFF;border-right:1px solid #000;z-index:11000;}
+#dock {width:30px;position:fixed;top:0px;left:0px;height:100%;background-color:#FFF;border-right:1px solid #000;z-index:5000;}
 #dock.nothingdocked {visibility: hidden;display:none;}
 #dock .dockeditem .firstdockitem {margin-top:1em;}
 #dock .dockedtitle {border-bottom:1px solid #000;border-top:1px solid #000;cursor:pointer;}
@@ -45,3 +45,10 @@ body.dir-rtl.has_dock  {margin-left: 0px; margin-right: 30px}
 
 /* Test span used to calculate positioning of docked item labels */
 .transform-test-node { position:absolute;line-height:normal; }
+
+/* Hide the move icon for blocks which are docked */
+#dock .editing_move,
+#dock .moodle-core-dragdrop-draghandle {
+    display: none;
+}
+

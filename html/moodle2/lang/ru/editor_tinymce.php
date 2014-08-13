@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -338,7 +338,7 @@ $string['contextmenu:right'] = 'По правому краю';
 $string['customconfig'] = 'Пользовательские настройки';
 $string['customconfig_desc'] = 'Пользовательские расширенные настройки TinyMCE в формате JSON,например: {"option1" : "value2", "option2" : "value2"}. Любые указанные здесь параметры заменяют стандартные и настройки плагина.';
 $string['customtoolbar'] = 'Панель инструментов редактора';
-$string['customtoolbar_desc'] = 'Каждая строка содержит список разделенных запятыми имен кнопок, как разделитель групп используется "|", пустые строки игнорируются. См. список кнопок TinyMCE по умолчанию: <a href="{$a}" target="_blank">{$a}</a>.';
+$string['customtoolbar_desc'] = 'Каждая строка содержит список имен кнопок, разделенных запятыми; используйте "перенос строки" в качестве разделителя групп, пустые строки игнорируются. См. <a href="{$a}" target="_blank">{$a}</a> для списка кнопок TinyMCE по умолчанию. <br /> Первый ряд всегда будет показан, видимость второй и третьей панели инструментов можно переключать.';
 $string['directionality:ltr_desc'] = 'Направление слева направо';
 $string['directionality:rtl_desc'] = 'Направление справа налево';
 $string['emotions:delta_height'] = '';
@@ -698,7 +698,6 @@ $string['style_dlg:top'] = 'Сверху';
 $string['style_dlg:visibility'] = 'Видимость';
 $string['style_dlg:width'] = 'Ширина';
 $string['style_dlg:zindex'] = 'Z-индекс';
-$string['subplugindeleteconfirm'] = 'Вы собираетесь полностью удалить  плагин TinyMCE "{$a}". Это полностью удалит из базы данных всё, что связано с этим плагином. Вы УВЕРЕНЫ, что хотите продолжить?';
 $string['subplugintype_tinymce_plural'] = 'Плагины';
 $string['table:cell'] = 'Ячейка';
 $string['table:cell_desc'] = 'Свойства ячейки';

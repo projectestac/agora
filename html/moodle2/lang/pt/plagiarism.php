@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,10 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['availableplugins'] = 'Módulos disponíveis';
-$string['configenableplagiarism'] = 'Esta opção permite aos administradores configurar módulos antiplágio (se estiverem instalados)';
-$string['configplagiarismplugins'] = 'Escolha o módulo antiplágio que pretende configurar';
-$string['enableplagiarism'] = 'Ativar módulos antiplágio';
-$string['manageplagiarism'] = 'Gerir módulos antiplágio';
-$string['nopluginsinstalled'] = 'Não há nenhum módulo antiplágio instalado';
+$string['configenableplagiarism'] = 'Esta opção permite aos administradores configurar módulos anti-plágio (se estiverem instalados)';
+$string['configplagiarismplugins'] = 'Escolha o módulo anti-plágio que pretende configurar';
+$string['enableplagiarism'] = 'Ativar módulos anti-plágio';
+$string['manageplagiarism'] = 'Gerir módulos anti-plágio';
+$string['nopluginsinstalled'] = 'Não há nenhum módulo anti-plágio instalado';
 $string['plagiarism'] = 'Prevenção de plágio';
-$string['plagiarismplugindeleteconfirm'] = 'Está prestes a eliminar completamente o módulo Prevenção de plágio \'{$a}\'. Isto irá apagar completamente tudo o que existir na base de dados associado a este módulo. Tem a certeza que pretende continuar?';

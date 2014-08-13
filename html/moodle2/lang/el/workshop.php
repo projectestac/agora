@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Έλεγχος πρόσβασης';
 $string['allocation'] = 'Κατανομή υποβολής';
 $string['areainstructauthors'] = 'Οδηγίες για την υποβολή';
 $string['areainstructreviewers'] = 'Οδηγίες για την αξιολόγηση';
@@ -46,6 +45,7 @@ $string['examplesbeforeassessment'] = 'Τα παραδείγματα είναι 
 $string['examplesbeforesubmission'] = 'Τα παραδείγματα πρέπει να αξιολογούνται πριν την υποβολή μας';
 $string['examplesmode'] = 'Τρόπος αξιολόγησης παραδειγμάτων';
 $string['examplesvoluntary'] = 'Η αξιολόγηση στις υποβολές που είναι παραδείγματα είναι προαιρετική';
+$string['feedbacksettings'] = 'Επανατροφοδότηση';
 $string['gradedecimals'] = 'Θέσεις δεκαδικών στους βαθμούς';
 $string['gradinggrade'] = 'Βαθμός για την αξιολόγηση';
 $string['gradinggrade_help'] = 'Αυτή η ρύθμιση καθορίζει τον μέγιστο βαθμό που μπορεί να ληφθεί για την αξιολόγηση υποβολής.';
@@ -56,7 +56,6 @@ $string['instructreviewers'] = 'Οδηγίες για την αξιολόγησ�
 $string['latesubmissions'] = 'Καθυστερημένες υποβολές';
 $string['latesubmissions_desc'] = 'Επιτρέπονται υποβολές μετά την καταληκτική ημερομηνία';
 $string['latesubmissions_help'] = 'Αν είναι ενεργοποιημένο, ένας author μπορεί να υποβάλει την δουλειά του μετά την καταληκτική ημερομηνία υποβολών ή κατά τη διάρκεια της φάσης αξιολόγησης. Oι καθυστερημένες υποβολές δεν μπορούν να επεξεργαστούν.';
-$string['maxbytes'] = 'Μέγιστο μέγεθος αρχείου';
 $string['modulename'] = 'Εργαστήριο';
 $string['modulenameplural'] = 'Εργαστήρια';
 $string['mysubmission'] = 'Η υποβολή μου';
@@ -91,7 +90,6 @@ $string['useselfassessment_desc'] = 'Οι μαθητές μπορούν να α�
 $string['useselfassessment_help'] = 'Αν είναι ενεργοποιημένο, ένας χρήστης μπορεί να επιβλέψει την δική του υποβολή για να την αξιολογήσει και θα λάβει ένα βαθμό για αξιολόγηση που θα κάνει, εκτός του βαθμού για την δική του υποβολή.';
 $string['workshop:allocate'] = 'Εντοπισμός υποβολών προς αναθεώρηση';
 $string['workshop:editdimensions'] = 'Επεξεργασία φορμών αξιολόγησης';
-$string['workshopfeatures'] = 'Χαρακτηριστικά εργαστηρίου';
 $string['workshop:ignoredeadlines'] = 'Αγνόησε τους περιορισμούς χρόνου';
 $string['workshop:manageexamples'] = 'Διαχείριση παραδειγμάτων υποβολών';
 $string['workshopname'] = 'Όνομα εργαστηρίου';

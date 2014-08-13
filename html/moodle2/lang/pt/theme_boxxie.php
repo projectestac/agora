@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_boxxie', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_boxxie', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_boxxie
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

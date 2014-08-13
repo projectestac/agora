@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_replace', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_replace', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_replace
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['disclaimer'] = 'Sono consapevole dei rischi di questa operazione:';
+$string['cannotfit'] = 'La stringa da sostituire è più lunga dell\'originale e l\'accorciamento non è consentito. Non è possibile continuare.';
+$string['disclaimer'] = 'Sono consapevole dei rischi di questa operazione';
+$string['doit'] = 'Si, esegui l\'operazione';
+$string['excludedtables'] = 'Diverse tabelle non sono state aggiornate durante la sostituzione del testo, tra le quali tabelle di configurazione, log, eventi e sessioni.';
 $string['notifyfinished'] = '...completato';
 $string['notifyrebuilding'] = 'Ricostruzione della cache dei corsi...';
-$string['notimplemented'] = 'Siamo spiacenti, questa funzionalità è implementata solo per MySQL e PostgreSQL.';
+$string['notimplemented'] = 'Siamo spiacenti, questa funzionalità non è implementata per il driver database in uso.';
 $string['notsupported'] = 'Questo script non è supportato, esegui sempre un backup prima di lanciarlo!<br />L\'operazione non può essere annullata!';
 $string['pageheader'] = 'Ricerca e sostituzione nel database';
 $string['pluginname'] = 'Ricerca e sostituzione nel DB';
-$string['replacewith'] = 'Sostituisci con questa stringa:';
+$string['replacewith'] = 'Sostituisci con questa stringa';
 $string['replacewithhelp'] = 'in genere il precedente URL del server';
-$string['searchwholedb'] = 'Cerca in tutto il database la stringa:';
+$string['searchwholedb'] = 'Cerca in tutto il database la stringa';
 $string['searchwholedbhelp'] = 'in genere il nuovo URL del server';
+$string['shortenoversized'] = 'Accorcia il risultato se necessario';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_guide', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradingform_guide', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   gradingform_guide
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,10 +68,10 @@ $string['name'] = '名称';
 $string['needregrademessage'] = 'この学生が評定された後、評定ガイド定義が変更されています。あなたが評定ガイドを確認して評点を更新するまで、学生はこの評定ガイドを閲覧することができません。';
 $string['pluginname'] = '評定ガイド';
 $string['previewmarkingguide'] = '評定ガイドをプレビューする';
-$string['regrademessage1'] = 'あなたはすでに評定で使用されている評定ガイドの変更を保存しようとしています。既存の評点のレビューが必要な場合、表明してください。あなたがこれを設定した場合、学生のアイテムが最評定されるまで、評定ガイドは学生から非表示にされます。';
+$string['regrademessage1'] = 'あなたはすでに評定で使用されている評定ガイドの変更を保存しようとしています。既存の評点のレビューが必要な場合、表明してください。あなたがこれを設定した場合、学生のアイテムが再評定されるまで、評定ガイドは学生から非表示にされます。';
 $string['regrademessage5'] = 'あなたはすでに評定で使用されている評定ガイドの大幅な変更を保存しようとしています。評定表の値は変更されませんが、学生のアイテムが再評定されるまで、評定ガイドは学生から非表示にされます。';
-$string['regradeoption0'] = '最評定しない';
-$string['regradeoption1'] = '最評定する';
+$string['regradeoption0'] = '再評定しない';
+$string['regradeoption1'] = '再評定する';
 $string['restoredfromdraft'] = '注意: このユーザの前回の受験に関する評点が適切に保存されなかったため、下書きの評点がリストアされました。これらの変更をキャンセルしたい場合、下の「キャンセル」ボタンを使用してください。';
 $string['save'] = '保存';
 $string['saveguide'] = '評定ガイドを保存して利用可能な状態にする';

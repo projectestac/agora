@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_turnitin', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism_turnitin', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_turnitin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['file'] = 'Fitxategia';
-$string['module'] = 'Modulua';
-$string['name'] = 'Izena';
-$string['tii'] = 'Turnitin';
 $string['turnitin'] = 'Turnitin';
-$string['useturnitin'] = 'Gaitu Turnitin';

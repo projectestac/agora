@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_onlinetext', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_onlinetext', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_onlinetext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['default'] = 'Habilitado por defecto';
 $string['default_help'] = 'Si se activa la opción, este método de retroalimentación estará habilitado por omisión para todas las tareas nuevas.';
 $string['enabled'] = 'Texto en línea';
 $string['enabled_help'] = 'Si está habilitado, los estudiantes pueden escribir en su envió texto ampliado (text rich) directamente en el campo del editor.';
+$string['event_assessable_uploaded'] = 'Se ha subido un texto en línea.';
 $string['nosubmission'] = 'No se ha enviado nada para esta tarea';
 $string['numwords'] = '({$a} palabras)';
 $string['numwordsforlog'] = 'Número de palabras en el envío: {$a} palabras';

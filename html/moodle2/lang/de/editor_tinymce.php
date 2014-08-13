@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -98,8 +98,8 @@ $string['advanced_dlg:invalid_color_value'] = 'Ungültiger Farbwert';
 $string['advanced_dlg:link_is_email'] = 'Diese URL scheint eine E-Mail-Adresse zu sein. Möchten Sie das notwendige Prefix \'mailto:\' voranstellen?';
 $string['advanced_dlg:link_is_external'] = 'Diese URL scheint ein externer Link zu sein. Möchten Sie das notwendige Prefix \'http://\' voranstellen?';
 $string['advanced_dlg:link_list'] = 'Linkliste';
-$string['advanced_dlg:link_target'] = 'Fenster';
-$string['advanced_dlg:link_target_blank'] = 'Neues Fenster öffnen';
+$string['advanced_dlg:link_target'] = 'Ziel';
+$string['advanced_dlg:link_target_blank'] = 'In neuem Fenster öffnen';
 $string['advanced_dlg:link_target_same'] = 'Im selben Fenster öffnen';
 $string['advanced_dlg:link_title'] = 'Link einfügen/bearbeiten';
 $string['advanced_dlg:link_titlefield'] = 'Titel';
@@ -238,7 +238,7 @@ $string['advlink_dlg:popup_name'] = 'Name des Fensters';
 $string['advlink_dlg:popup_opts'] = 'Optionen';
 $string['advlink_dlg:popup_position'] = 'Position (X/Y)';
 $string['advlink_dlg:popup_props'] = 'Popup-Eigenschaften';
-$string['advlink_dlg:popup_resizable'] = 'Größenänderung des Fenster erlauben';
+$string['advlink_dlg:popup_resizable'] = 'Größe des Fenster änderbar';
 $string['advlink_dlg:popup_return'] = 'Link trotz Popup folgen';
 $string['advlink_dlg:popup_scrollbars'] = 'Scrollbalken anzeigen';
 $string['advlink_dlg:popup_size'] = 'Größe';
@@ -252,12 +252,12 @@ $string['advlink_dlg:rtl'] = 'Rechts nach links';
 $string['advlink_dlg:style'] = 'Format';
 $string['advlink_dlg:tabindex'] = 'Tabindex';
 $string['advlink_dlg:target'] = 'Fenster';
-$string['advlink_dlg:target_blank'] = 'Neues Fenster öffnen';
+$string['advlink_dlg:target_blank'] = 'In neuem Fenster öffnen';
 $string['advlink_dlg:target_langcode'] = 'Sprache';
 $string['advlink_dlg:target_name'] = 'Name der Zielseite';
 $string['advlink_dlg:target_parent'] = 'In übergeordnetem Fenster/Frame öffnen';
-$string['advlink_dlg:target_same'] = 'Im selben Fenster/Frame öffnen';
-$string['advlink_dlg:target_top'] = 'Im obersten Frame öffnen (ersetzt Frameset)';
+$string['advlink_dlg:target_same'] = 'In selbem Fenster/Frame öffnen';
+$string['advlink_dlg:target_top'] = 'In oberstem Frame öffnen (ersetzt Frameset)';
 $string['advlink_dlg:title'] = 'Link einfügen/bearbeiten';
 $string['advlink_dlg:titlefield'] = 'Titel';
 $string['advlink_dlg:url'] = 'Adresse';
@@ -344,9 +344,9 @@ $string['contextmenu:full'] = 'Blocksatz';
 $string['contextmenu:left'] = 'Linksbündig';
 $string['contextmenu:right'] = 'Rechtsbündig';
 $string['customconfig'] = 'Erweiterte Einstellungen';
-$string['customconfig_desc'] = 'Die erweiterte Einstellungen des TinyMCE Editors werden im in JSON Format angegeben, d.h. in der folgenden Form: {"option1" : "value2", "option2" : "value2"}. Alle hier gesetzten Optionen überschreiben die Standardeinstellungen.';
+$string['customconfig_desc'] = 'Die erweiterten Einstellungen des Texteditors TinyMCE werden im in JSON Format angegeben, d.h. in der folgenden Form: {"option1" : "value1", "option2" : "value2"}. Alle hier gesetzten Optionen überschreiben die Standard- und Plugineinstellungen.';
 $string['customtoolbar'] = 'Symbolleiste des Editors';
-$string['customtoolbar_desc'] = 'Jede Zeile enthält eine kommagetrennte Liste von Symbolnamen. "|" wird zur Trennung zwischen Gruppen verwendet. Leerzeilen werden ignoriert. <a href="{$a}" target="_blank">{$a}</a> zeigt die Liste der Standardsymbole des TinyMCE Editors.';
+$string['customtoolbar_desc'] = 'Jede Zeile enthält eine kommagetrennte Liste von Symbolnamen. \'warp\' dient als Gruppentrenner. Leerzeilen werden ignoriert. <a href="{$a}" target="_blank">{$a}</a> zeigt alle Standardsymbole des Texteditors TinyMCE.<br />Die erste Zeile wird immer angezeigt, die beiden weiteren Zeilen können ein- und ausgeblendet werden.';
 $string['directionality:ltr_desc'] = 'Schrift von links nach rechts';
 $string['directionality:rtl_desc'] = 'Schrift von rechts nach links';
 $string['emotions:delta_height'] = '0';
@@ -597,7 +597,7 @@ $string['paste:paste_word_desc'] = 'Als formatierten Text einfügen';
 $string['paste:plaintext_mode'] = 'Einfügemodus ist nun "Nur Text". Erneut klicken stellt den Normalmodus wieder her. Danach wird wieder in den regulären Einfüge-Modus umgeschaltet.';
 $string['paste:plaintext_mode_stick'] = 'Einfügemodus ist nun "Nur Text". Erneut klicken stellt den Normalmodus wieder her.';
 $string['paste:selectall_desc'] = 'Alles auswählen';
-$string['pluginname'] = 'TinyMCE Editor';
+$string['pluginname'] = 'Texteditor TinyMCE';
 $string['preview:preview_desc'] = 'Vorschau';
 $string['print:print_desc'] = 'Drucken';
 $string['save:cancel_desc'] = 'Alle Änderungen verwerfen';
@@ -712,7 +712,7 @@ $string['style_dlg:top'] = 'Oben';
 $string['style_dlg:visibility'] = 'Sichtbar';
 $string['style_dlg:width'] = 'Breite';
 $string['style_dlg:zindex'] = 'Z-Wert';
-$string['subplugindeleteconfirm'] = 'Sie sind dabei das TinyMCE-Plugin \'{$a}\' entfernen. Sie löschen auch alle damit verknüpften Einträge in der Datenbank. Sind Sie sicher?';
+$string['subplugintype_tinymce'] = 'Plugin';
 $string['subplugintype_tinymce_plural'] = 'Plugins';
 $string['table:cell'] = 'Zelle';
 $string['table:cell_desc'] = 'Eigenschaften der Zelle';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,3 +40,5 @@ $string['pluginname_link'] = 'question/type/essay';
 $string['pluginnamesummary'] = 'Allows a response of a few sentences or paragraphs. This must then be graded manually.';
 $string['responsefieldlines'] = 'Input box size';
 $string['responseformat'] = 'Response format';
+$string['responsetemplate'] = 'Response template';
+$string['responsetemplate_help'] = 'Any text entered here will be displayed in the response input box when a new attempt at the question starts.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multichoice', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = 'Espacios en blanco para  {no} opciones más';
 $string['answerhowmany'] = '¿Una o varias respuestas?';
 $string['answernumbering'] = '¿Numerar las elecciones?';
 $string['answernumbering123'] = '1., 2., 3., ...';
@@ -66,6 +65,6 @@ $string['pluginnamesummary'] = 'Permite la selección de una o varias respuestas
 $string['selectmulti'] = 'Seleccione una o más de una:';
 $string['selectone'] = 'Seleccione una:';
 $string['shuffleanswers'] = '¿Barajar respuestas?';
-$string['shuffleanswers_help'] = 'Si está activado, el orden de las respuestas varía de forma aleatoria en cada intento, siempre que "Barajar dentro de las preguntas" en la configuración del cuestionrio también esté habilitada.';
+$string['shuffleanswers_help'] = 'Si está activado, el orden de las respuestas varía de forma aleatoria en cada intento, siempre que "Barajar dentro de las preguntas" en la configuración del cuestionario también esté habilitada.';
 $string['singleanswer'] = 'Seleccione una respuesta.';
 $string['toomanyselected'] = 'Ha seleccionado demasiadas opciones.';

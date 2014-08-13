@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,4 +52,4 @@ $string['ratinginvalid'] = 'Betyget/omdömet är ogiltigt';
 $string['ratings'] = 'Betyg/omdömen';
 $string['ratingtime'] = 'Begränsa betygsättning till inlägg gjorda inom följande period:';
 $string['rolewarning'] = 'Roller som har tillstånd att sätta betyg/avge omdömen';
-$string['rolewarning_help'] = 'För att göra bedömning/betygssättning ska tillståndet moodle/rating:rate vara inställt, och eventuella modulspecifika inställningar. Användare med angivna roller ska kunna sätta betyg. Vilka roller som anges kan ändras under Tillstånd i menyn Inställningar.';
+$string['rolewarning_help'] = 'För att lämna betyg/omdömen så måste användare ha förmågan moodle/rating:rate samt alla eventuella modulspecifika förmågor. Användare som är tilldelade de följande rollerna bör kunna betygsätta/ge omdömen om objekt. Listan av roller kan ändras via rättighetslänken i administrationsblocket.';

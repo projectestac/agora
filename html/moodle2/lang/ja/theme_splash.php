@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_splash', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_splash', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_splash
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,7 +36,7 @@ $string['hide_tagline'] = 'タグラインを隠す';
 $string['hide_taglinedesc'] = 'ロゴの下にあるタグラインを隠すには、このチェックボックスをチェックしてください。';
 $string['loginhere'] = 'ログイン!';
 $string['logo'] = 'ロゴ';
-$string['logodesc'] = 'このサイトのロゴとして使用されるイメージのURIを入力してください。次のように入力します: http://www.yoursite.com/path/to/logo.png ロゴの最大幅は230pxにしてください。';
+$string['logodesc'] = 'このサイトのロゴとして使用されるイメージのURLを入力してください。次のように入力します: http://www.yoursite.com/path/to/logo.png ロゴの最大幅は230pxにしてください。';
 $string['pluginname'] = 'Splash';
 $string['region-side-post'] = '右';
 $string['region-side-pre'] = '左';

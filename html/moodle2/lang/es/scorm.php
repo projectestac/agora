@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,7 +41,6 @@ $string['allowtypeaicchacp_desc'] = 'Si se habilita permite comunicaciones exter
 $string['allowtypeexternal'] = 'Habilitar tipo de paquete externo';
 $string['allowtypeexternalaicc'] = 'Habilitar url AICC directa';
 $string['allowtypeexternalaicc_desc'] = 'Si se habilita permite una utl directa a un paquete simple AICC';
-$string['allowtypeimsrepository'] = 'Habilitar tipo de paquete IMS';
 $string['allowtypelocalsync'] = 'Habilitar tipo de paquete descargado';
 $string['apidebugmask'] = 'Máscara de captura de depuración API (regex simple en &lt;username&gt;:&lt;activityname&gt;)';
 $string['areacontent'] = 'Archivos de contenido';
@@ -51,6 +50,7 @@ $string['assetlaunched'] = 'Recurso - Visto';
 $string['attempt'] = 'Intento';
 $string['attempt1'] = '1 intento';
 $string['attempts'] = 'Intentos';
+$string['attemptsmanagement'] = 'Gestión de intentos';
 $string['attemptstatusall'] = 'Área personal y página de inicio';
 $string['attemptstatusentry'] = 'Solo página de inicio';
 $string['attemptstatusmy'] = 'Solo Área personal';
@@ -67,13 +67,15 @@ $string['autocontinue_help'] = '<p><strong>Autocontinuar</strong></p>
   para seguir.</p>';
 $string['averageattempt'] = 'Intentos promedio';
 $string['badmanifest'] = 'Errores de manifiesto: ver registro de errores';
-$string['badpackage'] = 'Hay problemas con el paquete/manifiesto. Compruébelo e inténtelo de nuevo.';
 $string['browse'] = 'Vista previa';
 $string['browsed'] = 'Navegado';
 $string['browsemode'] = 'Modo de presentación preliminar';
 $string['browserepository'] = 'Navegar por el repositorio';
 $string['cannotfindsco'] = 'No se ha encontrado SCO';
 $string['chooseapacket'] = 'Elegir o actualizar un paquete SCORM';
+$string['collapsetocwinsize'] = 'Contraer TOC cuando el tamaño de la ventana inferior';
+$string['collapsetocwinsizedesc'] = 'Este ajuste permite especificar el tamaño de la ventana inferior con el que el TOC se contrae automáticamente.';
+$string['compatibilitysettings'] = 'Configuración de compatibilidad';
 $string['completed'] = 'Finalizado';
 $string['completionscorerequired'] = 'Requiere puntuación mínima';
 $string['completionscorerequired_help'] = 'Al habilitar este parámetro se requerirá que el usuario tenga al menos la puntuación mínima registrada para que se marque la actividad SCORM como finalziada, así como cualquier otro requerimiento de Finalización de Actividad.';
@@ -109,7 +111,6 @@ $string['dnduploadscorm'] = 'Añadir paquete SCORM';
 $string['domxml'] = 'Librería externa DOMXML';
 $string['duedate'] = 'Vencimiento';
 $string['element'] = 'Elemento';
-$string['elementdefinition'] = 'Definición de elemento';
 $string['enter'] = 'Entrar';
 $string['entercourse'] = 'Introducir el curso SCORM';
 $string['errorlogs'] = 'Registro de errores';
@@ -137,6 +138,8 @@ $string['forcenewattempt_help'] = 'Si se activa, cada vez que un paquete SCORM s
 $string['found'] = 'Encontrado manifiesto';
 $string['frameheight'] = 'Esta preferencia determina la altura por defecto del marco o ventana SCO';
 $string['framewidth'] = 'Esta preferencia ajusta la anchura por defecto del marco o ventana SCO';
+$string['fromleft'] = 'Desde la izquierda';
+$string['fromtop'] = 'Desde arriba';
 $string['fullscreen'] = 'Llenar toda la pantalla';
 $string['general'] = 'Datos generales';
 $string['gradeaverage'] = 'Calificación promedio';
@@ -166,8 +169,6 @@ $string['hidebrowse_help'] = '<p>Si esta opción está ajustada a "Sí", el bot�
 
 <p>Cuando un objeto de aprendizaje es completado en modo previsualizar, es marcado con el icono de previsualizado (<img src="<?php echo $CFG->wwwroot.\'/mod/scorm/pix/browsed.gif\' ?>" alt="<?php print_string(\'browsed\',\'scorm\') ?>" title="<?php print_string(\'browsed\',\'scorm\') ?>" />).</p>';
 $string['hideexit'] = 'Ocultar enlace de salida';
-$string['hidenav'] = 'Ocultar botones de navegación';
-$string['hidenavdesc'] = 'Esta preferencia fija el valor por defecto sobre mostrar o no los botones de navegación';
 $string['hidereview'] = 'Ocultar botón de revisión';
 $string['hidetoc'] = 'Mostrar la estructura del curso en el reproductor';
 $string['hidetocdesc'] = 'Este ajuste especifica cómo se muestra la tabla de contenidos en el reproductor SCORM';
@@ -177,20 +178,6 @@ $string['identifier'] = 'Identificador de preguntas';
 $string['incomplete'] = 'Incompleto';
 $string['info'] = 'Info';
 $string['interactions'] = 'Interacciones';
-$string['interactionscorrectcount'] = 'Número de resultados correctos para la pregunta';
-$string['interactionsid'] = 'Id del elemento';
-$string['interactionslatency'] = 'Tiempo transucrrido entre el momento en que la se puso a disposición del alumno la interacción para respoder y el momento de la primera respuesta';
-$string['interactionslearnerresponse'] = 'Respuesa del alumno';
-$string['interactionspattern'] = 'Patrón de respuesta correcta';
-$string['interactionsresponse'] = 'Respuesta del estudiante';
-$string['interactionsresult'] = 'Resultado en base a la respuesta del alumno y el resultado correcto';
-$string['interactionsscoremax'] = 'Valor máximo en el rango de posible de puntuaciones';
-$string['interactionsscoremin'] = 'Valor mínimo en el rango de posible de puntuaciones';
-$string['interactionsscoreraw'] = 'Número que refleja el resultado del alumno en relación con el rango delimitado por los valores de mínimo y máximo';
-$string['interactionssuspenddata'] = 'proporciona espacio para almacenar y recuperar datos entre sesiones de aprendizaje';
-$string['interactionstime'] = 'Hora en la que se inició el intento';
-$string['interactionstype'] = 'Tipo de pregunta';
-$string['interactionsweight'] = 'Peso asigando al elemento';
 $string['invalidactivity'] = 'La actividad SCORM es incorrecta';
 $string['invalidhacpsession'] = 'Sesióm HACP no válida';
 $string['invalidmanifestresource'] = 'ADVERTENCIA: Los siguientes recursos son mencionados en el manifiesto, pero no se puden encontrar';
@@ -224,7 +211,18 @@ Las actividades SCORM se puede usar
 * Para la presentación de contenidos multimedia y animaciones
 * Como herramienta de evaluación';
 $string['modulenameplural'] = 'Paquetes SCORM';
+$string['nav'] = 'Mostrar navegación';
+$string['navdesc'] = 'Este ajuste especifica si se han de mostrar/esconder los botones de navegación y su posición.';
+$string['nav_help'] = 'Este ajuste especifica si se han de mostrar/esconder los botones de navegación y su posición.
+
+Hay tres opciones:
+
+* No - No mostrar los botones de navegación
+* Bajo el contenido - Mostrar los botones de navegación debajo del contenido del paquete SCORM
+* Flotantes - Permite especificar manualmente la posición de los botones de navegación desde la izquierda y desde arriba con respecto a la ventana.';
 $string['navigation'] = 'Navegación';
+$string['navpositionleft'] = 'Posición de los botones de navegación desde la izquierda en píxeles.';
+$string['navpositiontop'] = 'Posición de los botones de navegación desde arriba, en píxeles.';
 $string['newattempt'] = 'Comenzar un nuevo intento';
 $string['next'] = 'Continuar';
 $string['noactivity'] = 'Nada que informar';
@@ -251,7 +249,6 @@ $string['optnoattemptsonly'] = 'Sólo usuarios sin intentos';
 $string['organization'] = 'Organización';
 $string['organizations'] = 'Organizaciones';
 $string['othersettings'] = 'Ajustes adicionales';
-$string['othertracks'] = 'Otras pistas';
 $string['package'] = 'Paquete';
 $string['packagedir'] = 'Error de sistema: No se puede crear el directorio de paquetes';
 $string['packagefile'] = 'No se ha especificado paquete';
@@ -295,7 +292,6 @@ $string['report'] = 'Informe';
 $string['reportcountallattempts'] = '{$a->nbattempts} intentos de {$a->nbusers} usuarios, de un total de {$a->nbresults} resultados';
 $string['reportcountattempts'] = '{$a->nbresults} resultados ({$a->nbusers} users)';
 $string['reports'] = 'Informes';
-$string['resizable'] = 'Permitir el cambio de tamaño de la ventana';
 $string['result'] = 'Resultado';
 $string['results'] = 'Resultados';
 $string['review'] = 'Revisión';
@@ -343,18 +339,25 @@ $string['suspended'] = 'Suspendido';
 $string['syntax'] = 'Error de sintaxis';
 $string['tag_error'] = 'Marca desconocida ({$a->tag}) con este contenido: {$a->value}';
 $string['time'] = 'Hora';
-$string['timerestrict'] = 'Restringir la respuesta a este periodo de tiempo';
 $string['title'] = 'Título';
 $string['toc'] = 'TOC (Tabla de Contenidos)';
 $string['toolbar'] = 'Mostrar la barra de herramientas';
 $string['too_many_attributes'] = 'La marca {$a->tag} tiene demasiados atributos';
 $string['too_many_children'] = 'La marca {$a->tag} tiene demasiados hijos';
 $string['totaltime'] = 'Hora';
+$string['trackcorrectcount_help'] = 'Número de resultados correctos para la pregunta';
 $string['trackingloose'] = 'ATENCIÓN: ¡Los datos de rastreo de este paquete se perderán!';
+$string['tracklatency_help'] = 'Tiempo transucrrido entre el momento en que la se puso a disposición del alumno la interacción para respoder y el momento de la primera respuesta';
+$string['trackresult_help'] = 'Resultado en base a la respuesta del alumno y el resultado correcto';
+$string['trackscoremax_help'] = 'Valor máximo en el rango de posible de puntuaciones';
+$string['trackscoremin_help'] = 'Valor mínimo en el rango de posible de puntuaciones';
+$string['trackscoreraw_help'] = 'Número que refleja el resultado del alumno en relación con el rango delimitado por los valores de mínimo y máximo';
+$string['tracksuspenddata_help'] = 'proporciona espacio para almacenar y recuperar datos entre sesiones de aprendizaje';
+$string['tracktime_help'] = 'Hora en la que se inició el intento';
+$string['trackweight_help'] = 'Peso asigando al elemento';
 $string['type'] = 'Tipo';
 $string['typeaiccurl'] = 'URL AICC externa';
 $string['typeexternal'] = 'Manifiesto SCORM externo';
-$string['typeimsrepository'] = 'Repositorio de contenido IMS local';
 $string['typelocal'] = 'Paquete subido';
 $string['typelocalsync'] = 'Paquete bajado';
 $string['unziperror'] = 'Ha ocurrido un error durante la descompresión del paquete';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_loglive', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_loglive', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   report_loglive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['livelogs'] = 'Rexistros activos da última hora';
 $string['loglive:view'] = 'Ver os rexistros activos';
+$string['page'] = 'Páxina {$a}';
 $string['pluginname'] = 'Rexistros activos';

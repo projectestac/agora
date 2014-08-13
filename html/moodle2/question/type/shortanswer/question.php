@@ -97,12 +97,12 @@ class qtype_shortanswer_question extends question_graded_by_strategy
         $bits = preg_split('/(?<!\\\\)\*+/', $pattern);
 
         // Escape regexp special characters in the bits.
-        $excapedbits = array();
+        $escapedbits = array();
         foreach ($bits as $bit) {
-            $excapedbits[] = preg_quote(str_replace('\*', '*', $bit));
+            $escapedbits[] = preg_quote(str_replace('\*', '*', $bit), '|');
         }
         // Put it back together to make the regexp.
-        $regexp = '|^' . implode('.*', $excapedbits) . '$|u';
+        $regexp = '|^' . implode('.*', $escapedbits) . '$|u';
 
         // Make the match insensitive if requested to.
         if ($ignorecase) {
@@ -164,7 +164,7 @@ class qtype_shortanswer_question extends question_graded_by_strategy
         if ($component == 'question' && $filearea == 'answerfeedback') {
             $currentanswer = $qa->get_last_qt_var('answer');
             $answer = $this->get_matching_answer(array('answer' => $currentanswer));
-            $answerid = reset($args); // itemid is answer id.
+            $answerid = reset($args); // Itemid is answer id.
             return $options->feedback && $answer && $answerid == $answer->id;
 
         } else if ($component == 'question' && $filearea == 'hint') {

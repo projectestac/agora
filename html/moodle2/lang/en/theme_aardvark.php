@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_aardvark', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_aardvark', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_aardvark
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -97,5 +97,7 @@ $string['twitter'] = 'Twitter URL';
 $string['twitterdesc'] = 'Enter the URL of your Twitter feed. (i.e http://www.twitter.com/mycollege)';
 $string['website'] = 'Website URL';
 $string['websitedesc'] = 'Enter the URL of your main website. (i.e http://www.mycollege.ac.uk)';
+$string['wikipedia'] = 'Wikipedia URL';
+$string['wikipediadesc'] = 'Enter the URL of your Wikipedia page. (i.e http://en.wikipedia.org/wiki/mycollege)';
 $string['youtube'] = 'YouTube URL';
 $string['youtubedesc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/mycollege)';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,12 +40,10 @@ $string['course'] = '课程';
 $string['courseevent'] = '课程事件';
 $string['courseevents'] = '课程事件';
 $string['courses'] = '课程';
-$string['dayview'] = '日视图';
 $string['daywithnoevents'] = '该日并无事件。';
 $string['default'] = '缺省';
 $string['deleteevent'] = '删除事件';
 $string['deleteevents'] = '删除事件';
-$string['detailedmonthview'] = '详细的月视图';
 $string['durationminutes'] = '持续多少分钟';
 $string['durationnone'] = '不持续';
 $string['durationuntil'] = '直到';

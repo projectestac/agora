@@ -108,6 +108,7 @@ class core_webservice_external extends external_api {
                 $service = $DB->get_record_sql($servicesql, array($token, $USER->id));
 
                 $siteinfo['downloadfiles'] = $service->downloadfiles;
+                $siteinfo['uploadfiles'] = $service->uploadfiles;
 
                 if (!empty($service)) {
                     // Return the release and version number for web service users only.
@@ -134,7 +135,7 @@ class core_webservice_external extends external_api {
             if ($function->component == 'moodle' || $function->component == 'core') {
                 $version = $CFG->version; // Moodle version.
             } else {
-                $versionpath = get_component_directory($function->component).'/version.php';
+                $versionpath = core_component::get_component_directory($function->component).'/version.php';
                 if (is_readable($versionpath)) {
                     // We store the component version once retrieved (so we don't load twice the version.php).
                     if (!isset($componentversions[$function->component])) {
@@ -195,6 +196,8 @@ class core_webservice_external extends external_api {
                     ),
                 'downloadfiles'  => new external_value(PARAM_INT, '1 if users are allowed to download files, 0 if not',
                                                        VALUE_OPTIONAL),
+                'uploadfiles'  => new external_value(PARAM_INT, '1 if users are allowed to upload files, 0 if not',
+                                                       VALUE_OPTIONAL),
                 'release'  => new external_value(PARAM_TEXT, 'Moodle release number', VALUE_OPTIONAL),
                 'version'  => new external_value(PARAM_TEXT, 'Moodle version number', VALUE_OPTIONAL),
                 'mobilecssurl'  => new external_value(PARAM_URL, 'Mobile custom CSS theme', VALUE_OPTIONAL)
@@ -211,7 +214,6 @@ class core_webservice_external extends external_api {
  * @copyright  2011 Jerome Mouneyrac <jerome@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @deprecated Moodle 2.2 MDL-29106 - please do not use this class any more.
- * @todo MDL-31194 This will be deleted in Moodle 2.5.
  * @see core_webservice_external
  * @since Moodle 2.1
  */
@@ -222,7 +224,6 @@ class moodle_webservice_external extends external_api {
      *
      * @return external_function_parameters
      * @deprecated Moodle 2.2 - please do not use this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_webservice_external::get_site_info_parameters
      * @since Moodle 2.1
      */
@@ -238,7 +239,6 @@ class moodle_webservice_external extends external_api {
      * @param array $serviceshortnames of service shortnames - the functions of these services will be returned
      * @return array
      * @deprecated Moodle 2.2 - please do not use this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_webservice_external::get_site_info
      * @since Moodle 2.1
      */
@@ -251,7 +251,6 @@ class moodle_webservice_external extends external_api {
      *
      * @return external_single_structure
      * @deprecated Moodle 2.2 - please do not use this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_webservice_external::get_site_info_returns
      * @since Moodle 2.1
      */

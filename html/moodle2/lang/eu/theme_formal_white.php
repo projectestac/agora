@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_formal_white', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,10 +38,14 @@ $string['customlogourldesc'] = 'Idatzi gunearen logo gisa erabiliko den irudi ba
 $string['displayheading'] = 'Erakutsi orriaren izenburua';
 $string['displaylogo'] = 'Erakutsi Moodle-ren logoa';
 $string['footnote'] = 'Orripekoaren oharra';
+$string['frontpagelogourl'] = 'Pertsonalizatu hasiera-orriaren logoa';
 $string['headerbgc'] = 'Goiburuaren atzeko planoaren kolorea';
 $string['headercontent'] = 'Goiburuaren edukia';
 $string['lblockcolumnbgc'] = 'Ezkerreko zutabearen atzeko planoaren kolorea';
+$string['lemon'] = 'limoia';
 $string['noframe'] = 'Formal zuria 1.9 itxura';
+$string['orange'] = 'laranja';
+$string['peach'] = 'melotokoia';
 $string['pluginname'] = 'Formal zuria';
 $string['rblockcolumnbgc'] = 'Eskuineko zutabearen atzeko planoaren kolorea';
 $string['region-side-post'] = 'Eskuina';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,7 +58,6 @@ $string['answerhowmany'] = 'إجابة واحدة أم عدة إجابات؟';
 $string['answers'] = 'إجابات';
 $string['answersingleno'] = 'يسمح بتعدد الأسئلة';
 $string['answersingleyes'] = 'إجابة واحدة فقط';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'الاجابات المقبولة الخطاء لا بد أن تكون رقميه';
 $string['answertoolong'] = 'الجواب طويل جداً بعد السطر {$a} (الحد الاقصى 255 حرف)';
 $string['aon'] = 'تنسيق AON';
 $string['attempt'] = 'محاولة {$a}';

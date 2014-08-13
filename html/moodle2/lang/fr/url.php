@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -54,10 +54,9 @@ $string['modulename_help'] = 'Le module URL permet à l\'enseignant de fournir u
 De nombreuses possibilités d\'affichage sont offertes, par exemple l\'intégration dans une page ou l\'ouverture dans une nouvelle fenêtre. Des options avancées permettent si nécessaire de passer à l\'URL des informations telles que le nom du participant, par exemple.';
 $string['modulenameplural'] = 'URLs';
 $string['neverseen'] = 'Jamais consulté';
-$string['optionsheader'] = 'Options';
 $string['page-mod-url-x'] = 'Toute page du module URL';
 $string['parameterinfo'] = '&amp;parameter=variable';
-$string['parametersheader'] = 'Paramètres';
+$string['parametersheader'] = 'Variables d\'URL';
 $string['parametersheader_help'] = 'Certaines variables internes de Moodle sont parfois ajoutées automatiquement à l\'URL. Saisissez le nom de votre paramètre dans chaque champ, puis sélectionnez la variable correspondante.';
 $string['pluginadministration'] = 'Administration URL';
 $string['pluginname'] = 'URL';
@@ -65,8 +64,6 @@ $string['popupheight'] = 'Hauteur de la fenêtre (en pixels)';
 $string['popupheightexplain'] = 'Indique la hauteur par défaut des fenêtres surgissantes.';
 $string['popupwidth'] = 'Largeur de la fenêtre (en pixels)';
 $string['popupwidthexplain'] = 'Indique la largeur par défaut des fenêtres surgissantes.';
-$string['printheading'] = 'Afficher le nom de l\'URL';
-$string['printheadingexplain'] = 'Indique s\'il faut afficher le nom de l\'URL au-dessus du contenu. Certains types d\'affichage n\'afficheront toutefois pas ce nom, même lorsque l\'option est activée.';
 $string['printintro'] = 'Afficher la description de la ressource';
 $string['printintroexplain'] = 'Indique s\'il faut afficher la description de l\'URL en dessous du contenu. Certains types d\'affichage n\'afficheront toutefois pas cette description, même lorsque l\'option est activée.';
 $string['rolesinparams'] = 'Inclure les noms des rôles dans les paramètres';

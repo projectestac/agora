@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'コメントを追加する';
 $string['addentries'] = 'エントリを追加する';
 $string['addtemplate'] = '追加用テンプレート';
 $string['advancedsearch'] = '検索オプション';
+$string['allowcomments'] = 'エントリへのコメントを許可する';
 $string['alttext'] = '代替テキスト';
 $string['approve'] = '承認';
 $string['approved'] = '承認日時';
@@ -41,7 +42,7 @@ $string['atmaxentry'] = 'あなたは、許可された最大数のエントリ�
 $string['authorfirstname'] = '著者の名';
 $string['authorlastname'] = '著者の姓';
 $string['autogenallforms'] = 'すべてのデフォルトテンプレートを生成する';
-$string['autolinkurl'] = 'URIにオートリンクする';
+$string['autolinkurl'] = 'URLにオートリンクする';
 $string['availablefromdate'] = '開始日時';
 $string['availabletags'] = '利用可能なタグ';
 $string['availabletags_help'] = 'タグはエントリが編集または閲覧されるときに、フィールドや他のアイテムと置換されるテンプレート内の入れ物です。
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'コメント機能は有効にされていません。
 $string['configenablerssfeeds'] = 'ここではすべてのデータベースに関するRSSフィードを有効にします。さらに、あなたは手動で各データベースのRSSフィード設定を有効にする必要があります。';
 $string['confirmdeletefield'] = 'あなたは、このフィールドを削除しようとしています。よろしいですか?';
 $string['confirmdeleterecord'] = '本当にこのエントリを削除してもよろしいですか?';
+$string['confirmdeleterecords'] = '本当にこれらのエントリを削除してもよろしいですか?';
 $string['csstemplate'] = 'CSSテンプレート';
 $string['csvfailed'] = 'CSVファイルから生データを読み込めません。';
 $string['csvfile'] = 'CSVファイル';
@@ -81,7 +83,7 @@ $string['csvimport'] = 'CSVファイルインポート';
 $string['csvimport_help'] = 'エントリは最初の行にフィールド名の一覧、そして1行あたり1レコードのテキストファイルによってインポートすることができます。';
 $string['csvwithselecteddelimiter'] = '選択したデリミタによる<acronym title="カンマ区切り">CSV</acronym>テキスト:';
 $string['data:addinstance'] = '新しいデータベースを追加する';
-$string['data:approve'] = '未承認のエントリを承認する';
+$string['data:approve'] = 'エントリを承認または承認済みエントリを取り消す';
 $string['data:comment'] = 'コメントを追加する';
 $string['data:exportallentries'] = 'すべてのデータベースエントリをエクスポートする';
 $string['data:exportentry'] = 'データベースエントリをエクスポートする';
@@ -104,6 +106,7 @@ $string['dateentered'] = '入力日時';
 $string['defaultfielddelimiter'] = '(デフォルト: カンマ)';
 $string['defaultfieldenclosure'] = '(デフォルト: なし)';
 $string['defaultsortfield'] = 'デフォルトのフィールド並べ替え順';
+$string['delcheck'] = 'バルク削除チェックボックス';
 $string['delete'] = '削除';
 $string['deleteallentries'] = 'すべてのエントリを削除する';
 $string['deletecomment'] = '本当にこのコメントを削除してもよろしいですか?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = '登録されていないユーザのエントリ
 $string['deletewarning'] = '本当にこのプリセットを削除してもよろしいですか?';
 $string['descending'] = '降順';
 $string['directorynotapreset'] = '{$a->directory} はプリセットではありません。不明のファイル: {$a->missing_files} ファイル';
+$string['disapprove'] = '承認を取り消す';
 $string['download'] = 'ダウンロード';
 $string['edit'] = '編集';
 $string['editcomment'] = 'コメントを編集する';
@@ -194,7 +198,7 @@ $string['invalidfieldtype'] = 'フィールドタイプが正しくありませ�
 $string['invalidid'] = 'データIDが正しくありません。';
 $string['invalidpreset'] = '{$a} は、プリセットではありません。';
 $string['invalidrecord'] = 'レコードが正しくありません。';
-$string['invalidurl'] = '入力されたURIが正しくありません。';
+$string['invalidurl'] = '入力されたURLが正しくありません。';
 $string['jstemplate'] = 'Javaスクリプトテンプレート';
 $string['latitude'] = '経度';
 $string['latlong'] = '緯度/経度';
@@ -216,7 +220,7 @@ $string['menuchoose'] = '選択 ...';
 $string['missingdata'] = 'フィールドクラスには、データIDまたはオブジェクトを提供してください。';
 $string['missingfield'] = 'プログラミングエラー: フィールドクラスを定義するには、フィールドおよびデータを指定してください。';
 $string['modulename'] = 'データベース';
-$string['modulename_help'] = 'データベース活動モジュールにおいて、参加者は一連のエントリ (例 レコード) を作成、管理および検索することができます。エントリの構造は多くのフィールドとして、教師によって定義されます。フィールドタイプにはチェックボックス、ラジオボタン、ドロップダウンメニュー、テキストエリア、URI、写真およびアップロードファイルを含みます。
+$string['modulename_help'] = 'データベース活動モジュールにおいて、参加者は一連のエントリ (例 レコード) を作成、管理および検索することができます。エントリの構造は多くのフィールドとして、教師によって定義されます。フィールドタイプにはチェックボックス、ラジオボタン、ドロップダウンメニュー、テキストエリア、URL、写真およびアップロードファイルを含みます。
 
 一覧表示、閲覧またはデータベースエントリの編集時の視覚レイアウト情報はデーターベーステンプレートによりコントロールされます。データベース活動はコース間においてプリセットとして共有することができます。教師はデータベースエントリをインポートおよびエクスポートすることもできます。
 
@@ -230,7 +234,7 @@ $string['modulename_help'] = 'データベース活動モジュールにおい�
 * 学生による写真、ポスター、ウェブサイトまたは詩の展示用、またはピアコメントまたはピアレビュー用として';
 $string['modulenameplural'] = 'データベース';
 $string['more'] = '詳細';
-$string['moreurl'] = 'URI詳細';
+$string['moreurl'] = 'URL詳細';
 $string['movezipfailed'] = 'ZIPファイルを移動できません。';
 $string['multientry'] = '繰り返しエントリ';
 $string['multimenu'] = 'メニュー (複数選択)';
@@ -246,7 +250,7 @@ $string['namepicture'] = '画像フィールド';
 $string['nameradiobutton'] = 'ラジオボタンフィールド';
 $string['nametext'] = 'テキストフィールド';
 $string['nametextarea'] = 'テキストエリアフィールド';
-$string['nameurl'] = 'URIフィールド';
+$string['nameurl'] = 'URLフィールド';
 $string['newentry'] = '新しいエントリ';
 $string['newfield'] = '新しいフィールドを作成する';
 $string['newfield_help'] = 'フィールドにはデータを入力することができます。データベース活動内のそれぞれのエントリには参加者が年月日をドロップダウンメニューから選択することのできる日付フィールド、イメージをアップロードすることのできる写真フィールド、1つまたはそれ以上のオプションを選択することのできるチェックボックスフィールドのように、複数タイプのフィールドを配置することができます。
@@ -265,7 +269,7 @@ $string['notapproved'] = 'エントリは、まだ承認されていません。
 $string['notinjectivemap'] = 'エントリを追加できるマップではありません。';
 $string['notopenyet'] = '申し訳ございません、この活動は {$a} まで利用できません。';
 $string['number'] = '数値';
-$string['numberrssarticles'] = 'RSS記事';
+$string['numberrssarticles'] = 'RSSフィードエントリ';
 $string['numnotapproved'] = '保留';
 $string['numrecords'] = 'エントリ数: {$a}';
 $string['ods'] = '<acronym title="OpenDocumentスプレッドシート">ODS</acronym> (OpenOffice)';
@@ -288,11 +292,12 @@ $string['presets'] = 'プリセット';
 $string['radiobutton'] = 'ラジオボタン';
 $string['recordapproved'] = 'エントリが承認されました。';
 $string['recorddeleted'] = 'エントリが削除されました。';
+$string['recorddisapproved'] = 'エントリ未承認';
 $string['recordsnotsaved'] = 'エントリは保存されませんでした。アップロードファイルのフォーマットを確認してください。';
 $string['recordssaved'] = 'エントリが保存されました。';
-$string['requireapproval'] = '承認が必要ですか?';
+$string['requireapproval'] = '承認必要';
 $string['requireapproval_help'] = '有効にした場合、学生が閲覧できる前に、教師からエントリの承認を受ける必要があります。';
-$string['requiredentries'] = '必須エントリ数';
+$string['requiredentries'] = '完了のための必須エントリ数';
 $string['requiredentries_help'] = '活動が完了したとみなされるまでに、学生が送信する必要のあるエントリ数です。';
 $string['requiredentriestoview'] = '閲覧前に必要な入力エントリ数';
 $string['requiredentriestoview_help'] = 'このデータベースエントリの閲覧が許可されるまでに、参加者が登録する必要のある入力エントリ数です。
@@ -343,7 +348,7 @@ $string['uploadrecords_help'] = 'エントリはテキストファイル経由�
 * 最初のレコードにはファイル内の残りのレコードを定義するフィールド名一覧を含みます。
 
 フィールドエンクロージャはレコード内のフィールド囲む文字です。通常、設定する必要はありません。';
-$string['url'] = 'URI';
+$string['url'] = 'URL';
 $string['usedate'] = '検索に含む';
 $string['usestandard'] = 'プリセットを使用する';
 $string['usestandard_help'] = 'サイト全体でプリセットを使用できるようにするには、リストよりプリセットを選択してください (あなたが「プリセットとして保存する」を使用してライブラリに保存したプリセットは削除することもできます)。';

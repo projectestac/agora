@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -61,7 +61,6 @@ $string['cannotaddsubscriber'] = 'Δεν ήταν δυνατό να προστε
 $string['cannotaddteacherforumto'] = 'Δεν ήταν δυνατό να προστεθεί το στιγμιότυπο της αλλαγμένης ομάδας συζήτησης τύπου καθηγητή στο τμήμα 0 στο μάθημα';
 $string['cannotcreatediscussion'] = 'Δεν ήταν δυνατό να δημιουργηθεί η νέα συζήτηση';
 $string['cannotcreateinstanceforteacher'] = 'Δεν ήταν δυνατό να δημιουργηθεί το νέο στιγμιότυπο αρθρώματος μαθήματος για την ομάδα συζήτησης τύπου καθηγητή';
-$string['cannotdeleteforummodule'] = 'Δεν μπορείτε να διαγράψετε αυτό το άρθρωμα δημόσιας συζήτησης.';
 $string['cannotdeletepost'] = 'Δεν μπορείτε να διαγράψετε αυτή τη δημοσίευση!';
 $string['cannoteditposts'] = 'Δεν μπορείτε να επεξεργαστείτε τις δημοσιεύσεις άλλων χρηστών!';
 $string['cannotfinddiscussion'] = 'Δεν ήταν δυνατόν να βρεθεί η συζήτηση σε αυτή την ομάδα συζητήσεων';
@@ -290,7 +289,6 @@ $string['nopermissiontosubscribe'] = 'Δεν έχετε το δικαίωμα ν
 $string['nopermissiontoview'] = 'Δεν έχετε δικαίωμα να δείτε αυτή την δημοσίευση';
 $string['nopostforum'] = 'Συγνώμη, δεν μπορείτε να δημοσιεύσετε σε αυτή την ομάδα συζητήσεων';
 $string['noposts'] = 'Δεν βρέθηκαν μηνύματα';
-$string['nopostscontaining'] = 'Δεν βρέθηκαν μηνύματα που να περιέχουν \'{$a}\'';
 $string['nopostsmadebyyou'] = 'Δεν έχετε δημοσιεύσει κάποια απάντηση';
 $string['noquestions'] = 'Δεν υπάρχουν ερωτήσεις ακόμα σε αυτό την ομάδα συζητήσεων';
 $string['nosubscribers'] = 'Δεν υπάρχουν εγγεγραμμένοι ακόμα σε αυτή την ομάδα συζητήσεων';
@@ -314,7 +312,7 @@ $string['oldpostdays'] = 'Ανάγνωση μετά από ημέρες';
 $string['openmode0'] = 'Δεν επιτρέπονται συζητήσεις και απαντήσεις';
 $string['openmode1'] = 'Δεν επιτρέπονται συζητήσεις, αλλά επιτρέπονται απαντήσεις';
 $string['openmode2'] = 'Συζητήσεις και απαντήσεις επιτρέπονται';
-$string['overviewnumpostssince'] = 'δημοσιεύσεις από την τελευταία είσοδο';
+$string['overviewnumpostssince'] = '{$a} δημοσιεύσεις από την τελευταία είσοδο';
 $string['overviewnumunread'] = 'σύνολο μη αναγνωσμένων';
 $string['parent'] = 'Εμφάνιση γονέα';
 $string['parentofthispost'] = 'Γονέας αυτού του μηνύματος';
@@ -383,7 +381,7 @@ $string['searchphrase'] = 'Αυτή ακριβώς η φράση πρέπει ν
 $string['searchresults'] = 'Αναζήτηση στα αποτελέσματα';
 $string['searchsubject'] = 'Αυτές οι λέξεις θα πρέπει να εμφανίζονται στο θέμα';
 $string['searchuser'] = 'Αυτό το όνομα θα πρέπει να ταιριάζει με το συγγραφέα';
-$string['searchuserid'] = 'Το ΠΗΛΕΑΣ ID του συγγραφέα';
+$string['searchuserid'] = 'Το Moodle ID του συγγραφέα';
 $string['searchwhichforums'] = 'Επιλέξτε σε ποιά ομάδα συζητήσεων θα ψάξετε';
 $string['searchwords'] = 'Αυτές οι λέξεις μπορούν να εμφανίζονται οπουδήποτε στο μήνυμα';
 $string['seeallposts'] = 'Δείτε όλες τις δημοσιεύσεις από αυτόν το χρήστη';

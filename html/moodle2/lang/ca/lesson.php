@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -119,6 +119,7 @@ $string['continuetonextpage'] = 'Continua a la pàgina següent';
 $string['correctanswerjump'] = 'Salt de resposta correcta';
 $string['correctanswerscore'] = 'Puntuació de resposta correcta';
 $string['correctresponse'] = 'Resposta correcta';
+$string['createaquestionpage'] = 'Crea una pàgina de preguntes';
 $string['credit'] = 'Crèdit';
 $string['customscoring'] = 'Puntuació personalitzada';
 $string['customscoring_help'] = '<p>Aquesta opció us permetrà puntuar cada resposta amb un valor numèric. Les respostes poden tenir valors negatius o positius. A les preguntes importades se\'ls assignarà automàticament un punt per a les respostes correctes i zero per a les incorrectes, però podeu modificar aquests valors després de la importació. </p>';
@@ -345,6 +346,7 @@ $string['postsuccess'] = 'Missatge enviat correctament';
 $string['practice'] = 'Lliçó de pràctica';
 $string['practice_help'] = 'Una lliçó de pràctica no té reflex en el llibre de qualificacions';
 $string['preprocesserror'] = 'S\'ha produït un error durant el preprocessament';
+$string['prerequisitelesson'] = 'Prerequisits de la lliçó';
 $string['preview'] = 'Previsualització';
 $string['previewlesson'] = 'Previsualitza {$a}';
 $string['previouspage'] = 'Pàgina anterior';

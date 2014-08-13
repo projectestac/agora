@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'checklist', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'checklist', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   checklist
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -90,6 +90,11 @@ $string['emailoncomplete_help'] = 'When a checklist is complete, a notification 
 An administrator can control who receives this email using the capability \'mod:checklist/emailoncomplete\' - by default all teachers and non-editing teachers have this capability.';
 $string['emailoncompletesubject'] = 'User {$a->user} has completed checklist \'{$a->checklist}';
 $string['emailoncompletesubjectown'] = 'You have completed checklist \'{$a->checklist}';
+$string['eventchecklistcomplete'] = 'Checklist complete';
+$string['eventeditpageviewed'] = 'Edit page viewed';
+$string['eventreportviewed'] = 'Report viewed';
+$string['eventstudentchecksupdated'] = 'Student checks updated';
+$string['eventteacherchecksupdated'] = 'Teacher checks updated';
 $string['export'] = 'Export items';
 $string['forceupdate'] = 'Update checks for all automatic items';
 $string['gradetocomplete'] = 'Grade to complete:';
@@ -142,7 +147,9 @@ $string['teachermarkyes'] = 'Teacher states that you have completed this';
 $string['teachernoteditcheck'] = 'Student only';
 $string['teacheroverwritecheck'] = 'Teacher only';
 $string['theme'] = 'Checklist display theme';
+$string['togglecolumn'] = 'Toggle Column';
 $string['toggledates'] = 'Toggle names & dates';
+$string['togglerow'] = 'Toggle Row';
 $string['unindentitem'] = 'Unindent item';
 $string['updatecompletescore'] = 'Save completion grades';
 $string['updateitem'] = 'Update';

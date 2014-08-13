@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -102,7 +102,7 @@ $string['auth_ntlmsso_enabled_key'] = '활성화';
 $string['auth_ntlmsso_ie_fastpath'] = 'NTLM SSO fast path를 활성화하려면 예로 설정(MS 익스플로어를 브라우저로 사용할 경우에만 약간의 과정 건너 뜀)';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
 $string['auth_ntlmsso_remoteuserformat_key'] = '원격 사용자 이름 형식';
-$string['auth_ntlmsso_subnet'] = '설정되면 이 서브넷에 있는 클라이언트에 대해 SSO를 시도합니다.  포맷: xxx.xxx.xxx.xxx/bitmask. 다중 서브넷은 콤마 (,)로 분리하세요.';
+$string['auth_ntlmsso_subnet'] = '설정되면 이 서브넷에 있는 클라이언트에 대해 SSO를 시도합니다.  포맷: xxx.xxx.xxx.xxx/bitmask';
 $string['auth_ntlmsso_subnet_key'] = '서브넷';
 $string['auth_ntlmsso_type'] = '웹 서버에서 사용자 인증을 받기 위해 설정한 인증 방법(잘 모르겠으면, NTLM을 선택)';
 $string['auth_ntlmsso_type_key'] = '인증 형식';
@@ -130,6 +130,7 @@ $string['pluginname'] = 'LDAP서버의 사용';
 $string['pluginnotenabled'] = '플러그인을 쓸 수 없음!';
 $string['renamingnotallowed'] = 'LDAP에서는 이름변경이 허용되지 않음';
 $string['rootdseerror'] = '액티브 디렉토리에서 rootDSE 쿼리 실패';
+$string['start_tls_key'] = 'TLS 사용';
 $string['updatepasserror'] = 'user_update_password() 에서 오류. 오류 코드: {$a->errno};오류 문자열: {$a->errstring}';
 $string['updatepasserrorexpire'] = '암호 만료시간을 읽는 중에 user_update_password()에서 오류. 오류 코드: {$a->errno}; 오류 문자열: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = '만료시간을 수정하는 도중 혹은 그레이스 로그인 할때 user_update_password() 에서 오류. 오류 코드: {$a->errno}; 오류 문자열: {$a->errstring}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,7 +48,7 @@ $string['chooseicon'] = 'Scegli una icona da inserire';
 $string['close'] = 'Chiudi';
 $string['closeafterreplace'] = 'Chiudi dopo la sostituzione';
 $string['cols'] = 'Colonne';
-$string['configeditorplugins'] = 'E\' possibile attivare una o più plugin di Editor di testo, arrangiandole poi nell\'ordine di utilizzo desiderato.';
+$string['configeditorplugins'] = 'E\' possibile attivare uno o più plugin di Editor di testo, arrangiandoli poi nell\'ordine di utilizzo desiderato.';
 $string['copy'] = 'Copia selezione';
 $string['createanchor'] = 'Crea ancora';
 $string['createfolder'] = 'Crea cartella';
@@ -56,7 +56,6 @@ $string['createlink'] = 'Inserisci collegamento web';
 $string['cut'] = 'Taglia selezione';
 $string['cutpastemozilla'] = 'Sfortunatamente non è possibile utilizzare le normali scorciatoie da tastiera (o anche il pulsante Incolla) per Incollare testo in questo editor in linea. Questo perché una specifica di sicurezza che  è inclusa in alcune versioni di Mozilla e di Firefox.<br /></br>Ci sono tre alternative conosciute che è possibile provare:<br />(1) Invece di CTRL-v, utilizzare SHIFT-Ins(erisci)<br />(2) Utilizzare il menu Modifica->Incolla del browser<br />(3) Cambiare le impostazioni del browser modificando il file user.js.<br /><br />Cliccare il pulsante OK per ulteriore aiuto, o Cancella per tornare all\'editor.';
 $string['delete'] = 'Elimina';
-$string['editordeleteconfirm'] = 'Stai per rimuovere il plugin editor \'{$a}\'. Saranno anche eliminati tutti i dati presenti nel database relativi a questo plugin. Sei sicuro ?';
 $string['editors'] = 'Editor di testo';
 $string['editorsettings'] = 'Gestione editor';
 $string['enterurlfirst'] = 'È necessario inserire prima la URL';

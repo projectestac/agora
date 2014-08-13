@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'You have upcoming chat sessions';
 $string['ajax'] = 'Version using Ajax';
 $string['autoscroll'] = 'Auto scroll';
 $string['beep'] = 'Beep';
+$string['bubble'] = 'Bubble';
 $string['cantlogin'] = 'Could not log in to chat room!!';
 $string['chat:addinstance'] = 'Add a new chat';
 $string['chat:chat'] = 'Access a chat room';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Read chat logs';
 $string['chatreport'] = 'Chat sessions';
 $string['chat:talk'] = 'Talk in a chat';
 $string['chattime'] = 'Next chat time';
+$string['compact'] = 'Compact';
 $string['composemessage'] = 'Compose a message';
 $string['configmethod'] = 'The ajax chat method provide an ajax based chat interface, it contacts server regularly for update. The normal chat method involves the clients regularly contacting the server for updates. It requires no configuration and works everywhere, but it can create a large load on the server with many chatters.  Using a server daemon requires shell access to Unix, but it results in a fast scalable chat environment.';
 $string['confignormalupdatemode'] = 'Chatroom updates are normally served efficiently using the <em>Keep-Alive</em> feature of HTTP 1.1, but this is still quite heavy on the server. A more advanced method is to use the <em>Stream</em> strategy to feed updates to the users. Using <em>Stream</em> scales much better (similar to the chatd method) but may not be supported by your server.';
@@ -51,6 +53,7 @@ $string['configserverhost'] = 'The hostname of the computer where the server dae
 $string['configserverip'] = 'The numerical IP address that matches the above hostname';
 $string['configservermax'] = 'Max number of clients allowed';
 $string['configserverport'] = 'Port to use on the server for the daemon';
+$string['coursetheme'] = 'Course theme';
 $string['currentchats'] = 'Active chat sessions';
 $string['currentusers'] = 'Current users';
 $string['deletesession'] = 'Delete this session';
@@ -59,6 +62,9 @@ $string['donotusechattime'] = 'Don\'t publish any chat times';
 $string['enterchat'] = 'Click here to enter the chat now';
 $string['entermessage'] = 'Enter your message';
 $string['errornousers'] = 'Could not find any users!';
+$string['event_instances_list_viewed'] = 'Instances list viewed';
+$string['event_message_sent'] = 'Message sent';
+$string['event_sessions_viewed'] = 'Sessions viewed';
 $string['explaingeneralconfig'] = 'These settings are <strong>always</strong> used';
 $string['explainmethoddaemon'] = 'These settings matter <strong>only</strong> if you have selected "Chat server daemon" for chat_method';
 $string['explainmethodnormal'] = 'These settings matter <strong>only</strong> if you have selected "Normal method" for chat_method';
@@ -116,7 +122,7 @@ $string['refreshuserlist'] = 'Refresh user list';
 $string['removemessages'] = 'Remove all messages';
 $string['repeatdaily'] = 'At the same time every day';
 $string['repeatnone'] = 'No repeats - publish the specified time only';
-$string['repeattimes'] = 'Repeat sessions';
+$string['repeattimes'] = 'Repeat/publish session times';
 $string['repeatweekly'] = 'At the same time every week';
 $string['saidto'] = 'said to';
 $string['savemessages'] = 'Save past sessions';

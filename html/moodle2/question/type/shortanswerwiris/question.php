@@ -1,262 +1,235 @@
 <?php   
-require_once($CFG->dirroot . '/question/type/wq/lib.php');
-require_once($CFG->dirroot . '/question/type/wq/quizzes/quizzes.php');
+require_once($CFG->dirroot . '/question/type/wq/question.php');
 require_once($CFG->dirroot . '/question/type/wq/step.php');
 
-class qtype_shortanswerwiris_question extends qtype_shortanswer_question {
-
-    public function __construct() {
-        parent::__construct();
+class qtype_shortanswerwiris_question extends qtype_wq_question implements question_automatically_gradable, question_response_answer_comparer {
+    /**
+     * A link to last question attempt step and also a helper class for some 
+     * grading issues.
+     */
+    public $step;
+    
+    /**
+     * reference to Moodle's shortanswer question fields.
+     */
+    public $answers;
+    
+    public function __construct(question_definition $base = NULL) {
+        parent::__construct($base);
         $this->step = new qtype_wirisstep();
     }
-
     public function start_attempt(question_attempt_step $step, $variant) {
-        $correctAnswers = "";
-        foreach ($this->answers as $key => $value){
-            $correctAnswers .= " " . $value->answer . ' ' . $value->feedback;
-        }
-        
-        $hints = "";
-        foreach ($this->hints as $value) {
-            $hints .= " " . $value->hint;
-        }
-        
-        $qi = wrsqz_get_question_instance(null, 'mathml',  $this, $this->questiontext . ' ' . $correctAnswers . ' ' . $this->generalfeedback . ' ' . $hints, null, $variant);
-        $step->set_qt_var('_qi', $qi->serialize());
-
+        parent::start_attempt($step, $variant);
         $this->step->load($step);
-    }        
- 
-    public function grade_response(array $response) {
-        try {
-            global $DB;
-            $randomseed = $this->randomSeed;
-            $correctAnswers = "";
- 
-            // The same question should not be graded more than 2 times with failure
-            if ($this->step->is_attempt_limit_reached()) {
-                // Do not grade and tell teacher to do so...
-                return array(null,question_state::$needsgrading);
-            }
+    }
+    public function apply_attempt_state(question_attempt_step $step) {
+        parent::apply_attempt_state($step);
+        $this->step->load($step);
+        if ($this->step->is_first_step()) {
+            //This is a regrade because is the only case where this function is
+            //called with the first step instead of start_attempt. So invalidate
+            //cached matching answers.
+            $this->step->set_var('_response_hash', '0');
+        }
+    }
+    /**
+     * @return All the text of the question in a single string so WIRIS quizzes
+     * can extract the variable placeholders.
+     */
+    public function join_all_text() {
+        $text = parent::join_all_text();
+        // Answers and feedback.
+        foreach ($this->base->answers as $key => $value){
+            $text .= ' ' . $value->answer . ' ' . $value->feedback;
+        }
+        return $text;
+    }
 
-            // The following "if" is used only under unit-testing conditions
-            global $CFG;
-            $error = false;
-            if (isset($CFG->wq_fail_shortanswer_grade) && $CFG->wq_fail_shortanswer_grade) {
-                $fail = explode("@",$CFG->wq_fail_shortanswer_grade);
-                $attemptid = $DB->get_record('question_attempt_steps', array('id' => $this->step->step_id), 'questionattemptid')->questionattemptid;
-                $attemptid = $DB->get_record('question_attempts', array('id' => $attemptid), 'questionusageid')->questionusageid;
+    public function grade_response(array $response) {
+        $answer = $this->get_matching_answer($response);
+        if ($answer) {
+            $fraction = $answer->fraction;
+            // Multiply Moodle fraction by quizzes grade (due to custom function 
+            // grading or compound grade distribution).
+            $grade = $this->step->get_var('_matching_answer_grade');
+            if(!empty($grade)) {
+                $fraction = $fraction * $grade;
+            }
+            return array($fraction,
+                    question_state::graded_state_for_fraction($answer->fraction));
+        } else if($this->step->is_error()) {
+            // Do not grade and tell teacher to do so...
+            return array(null, question_state::$needsgrading);
+        } else {
+            return array(0, question_state::$gradedwrong);
+        }
+    }
+    /**
+     * Function used in unit testing environment. Throws an exception if it has
+     * been configured to do so.
+     * **/
+    public function get_matching_answer_fail_test(array $response) {
+        // BEGIN TEST
+        // The following "if" is used only under unit-testing conditions
+        global $CFG;
+        global $DB;
+        $error = false;
+        if (isset($CFG->wq_fail_shortanswer_grade) && $CFG->wq_fail_shortanswer_grade && $CFG->wq_fail_shortanswer_grade != 'false') {
+            $fail = explode("@",$CFG->wq_fail_shortanswer_grade);
+            $attemptid = $DB->get_record('question_attempt_steps', array('id' => $this->step->step_id), 'questionattemptid')->questionattemptid;
+            $attemptid = $DB->get_record('question_attempts', array('id' => $attemptid), 'questionusageid')->questionusageid;
+            $activity = $DB->get_field('question_usages', 'component', array('id' => $attemptid));
+            if($activity == 'mod_quiz') {
                 $attemptid = $DB->get_record('quiz_attempts', array('uniqueid' => $attemptid), 'id')->id;
-                if ($attemptid==$fail[0]) { // fail only the designated attempt
+                if ($attemptid == $fail[0]) { // fail only the designated attempt
                     if (count($fail)==1) {
                         $error = true;
                     } else {
                         // Check also the name
-                        if ($this->name==$fail[1]) {
+                        if ($this->name == $fail[1]) {
                             $error = true;
                         }
                     }
                 }
-                //throw new moodle_exception('Failed to grade 2!', 'qtype_wq');
             }
-            if (isset($CFG->wq_fail_shortanswer_grade) && $CFG->wq_fail_shortanswer_grade=='true' && $response['answer']=='error') {
-                // Only allow an explicit error if defined wq_fail_shortanswer_grade
-                $error = true;
+        }
+        if (isset($CFG->wq_fail_shortanswer_grade) && $CFG->wq_fail_shortanswer_grade=='true' && $response['answer']=='error') {
+            // Only allow an explicit error if defined wq_fail_shortanswer_grade
+            $error = true;
+        }
+        // Used to simulate a grade failure when doing tests!
+        if ($error) {
+            throw new moodle_exception('Failed to grade (testing-' . ($this->step->get_attempts()+1) . ')!', 'qtype_wq');
+        }
+        // END TEST    
+    }
+    
+    public function get_matching_answer(array $response) {
+        try {
+            // quick return if no answer given.
+            if(!isset($response['answer'])) {
+                return null;
             }
-            // Used to simulate a grade failure when doing tests!
-            if ($error) {
-                throw new moodle_exception('Failed to grade (testing-' . ($this->step->get_attempts()+1) . ')!', 'qtype_wq');
+            // Optimization in order to avoid a service call.
+            $responsehash = md5($response['answer']);
+            if ($this->step->get_var('_response_hash') == $responsehash) {
+                $matching_answer = $this->step->get_var('_matching_answer');
+                if(!empty($matching_answer)) {
+                    return $this->base->answers[$matching_answer];
+                }
+                else if(!is_null($matching_answer)) {
+                    return null;
+                }
             }
+            
+            // Security protection:
+            // The same question should not be graded more than N times with failure
+            if ($this->step->is_attempt_limit_reached()) {
+                return null;
+            }
+            
+            // Test code:
+            // Does nothing on production, may throw exception on test environment.
+            $this->get_matching_answer_fail_test($response);
 
-            foreach ($this->answers as $key => $value){
-                $correctAnswers .= " " . $value->answer . ' ' . $value->feedback;
-            }        
-
-            $qi_xml = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $correctAnswers . ' ' . $this->generalfeedback, null, $randomseed+100000);
-
+            //Use the WIRIS quizzes API to grade this response.
+            $builder = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
+            //Build array of correct answers.
+            $correctvalues = array();
             $correctanswers = array();
-            $answers = array();
+            foreach($this->base->answers as $answer){
+                $correctvalues[] = $answer->answer;
+                $correctanswers[] = $answer;
+            }
+            //Load instance
+            $qi = $this->wirisquestioninstance;
+            //Make call
+            $request = $builder->newEvalMultipleAnswersRequest($correctvalues, array($response['answer']), $this->wirisquestion, $qi);
+            $response = $this->call_wiris_service($request);
+            $qi->update($response);
 
-            $answers['def_wrong'] = new stdClass();
-            $answers['def_wrong']->fraction = '0.000000';
-            $answers['def_wrong']->feedback = '';
-            $answers['def_wrong']->feedbackformat = '1';
-
-            $currentanswers = array();
-            $fractions = array();
-            $fractions['def_wrong'] = '0.00000';
-
-            foreach ($this->answers as $key => $value){
-                array_push($correctanswers, $value->answer);
-                array_push($fractions, $value->fraction);
-                array_push($answers, $value);
-                //Cloze case, the wildcard is to give a default feedback when 
-                //the response doesn't match with the possible answers.
-                if ($value->answer == '*'){
-                    $answers['def_wrong']->feedback = $value->feedback;
-                }
-            }       
-
-            array_push($currentanswers, $response['answer']);
-
-            $qi = wrsqz_get_question_instance($qi_xml, 'eval', $this, $correctanswers, $currentanswers);
-
-            if (isset($this->parent) && $this->parent > 0){
-                $qid = $this->parent;
-            }else{
-                $qid = $this->id;
-            }        
-
-            $question_xml= $DB->get_record('qtype_wq', array('question' => $qid), 'xml')->xml;
-            $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
-            $q = $rb->readQuestion($question_xml);        
-
-            $correct = 'def_wrong';
-            $max_grade = 0;
-            foreach ($correctanswers as $key => $value) {
-                $grade = $qi->getAnswerGrade($key, 0, $q);
-                if ($grade > $max_grade){
-                    $max_grade = $grade;
-                    $correct = $key;
+            // Choose best answer.
+            $max = 0.0;
+            $answer = null;
+            for ($i = 0; $i < count($correctanswers); $i++) {
+                $grade = $qi->getAnswerGrade($i, 0, $this->wirisquestion);
+                if($grade > $max) {
+                    $max = $grade;
+                    $answer = $correctanswers[$i];
                 }
             }
-
-            $fraction = $fractions[$correct];
-            $answer = $answers[$correct];
-
-            $answer_arr = array($fraction*$max_grade, question_state::graded_state_for_fraction($fraction*$max_grade));
-            $answer_arr['answer'] = $answer;
-
-            //$this->reset_grade_counter(); // reset the number of grade attempts
-            // Backup fraction & feedback
-            $this->step->set_var('fraction', $answer_arr['answer']->fraction, true);
-            $this->step->set_var('feedback', $answer_arr['answer']->feedback, true);
+            // Backup matching answer.
+            $matchinganswerid = 0;
+            if (!empty($answer)) {
+                $matchinganswerid = $answer->id;
+                if ($max < 1.0) {
+                    $this->step->set_var('_matching_answer_grade', $max, true);
+                }
+            }
+            
+            $this->step->set_var('_matching_answer', $matchinganswerid, true);
+            $this->step->set_var('_response_hash', $responsehash, true);
             $this->step->reset_attempts();
-            return $answer_arr;
-        } catch (moodle_exception $ex) {
-            // Save fraction and feedback because are requested in the render
-            // form
-            $this->step->set_var('fraction', 0, true);
-            $this->step->set_var('feedback', '', true);
+
+            return $answer;
+        } catch(moodle_exception $e) {
             // Notify of the error
             $this->step->inc_attempts();
-            throw $ex;
+            throw $e;
         }
-    }    
-    
-    public function get_correct_response() {
-        $answer = $this->get_correct_answer();
-        if (!$answer) {
-            return array();
-        }
-        
-        global $DB;
-        if (isset($this->randomSeed)){
-            $randomseed = $this->randomSeed;
-        }else{
-            return array('answer' => $answer->answer);
-        }
-        
-        $correctAnswers = "";
-        
-        foreach ($this->answers as $value){
-            $correctAnswers .= " " . $value->answer . ' ' . $value->feedback;
-        }        
-        
-        $qi_xml = wrsqz_get_question_instance(null, 'mathml', $this, $this->questiontext . ' ' . $correctAnswers . ' ' . $this->generalfeedback, null, $randomseed+100000);
-        $qi = wrsqz_get_question_instance($qi_xml, null, $this);
-        
-        if (isset($this->parent) && $this->parent > 0){
-            $qid = $this->parent;
-        }else{
-            $qid = $this->id;
-        }        
-        
-        $question_xml= $DB->get_record('qtype_wq', array('question' => $qid), 'xml')->xml;
-        $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
-        $q = $rb->readQuestion($question_xml);
-       
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();        
-        $wrap->start();
-        $inputField = $q->question->getImpl()->getLocalData(com_wiris_quizzes_impl_LocalData::$KEY_OPENANSWER_INPUT_FIELD);
-        
-        if (isset($this->parent) && $this->parent > 0){
-            //This is the case we are in a Cloze question
-            //localdata is changed to launch expandTextVariables in next control
-            $inputField = com_wiris_quizzes_impl_LocalData::$VALUE_OPENANSWER_INPUT_FIELD_PLAIN_TEXT;
-        }
-        $isCompound = $q->question->getImpl()->getLocalData(com_wiris_quizzes_impl_LocalData::$KEY_OPENANSWER_COMPOUND_ANSWER);
-        
-        if ($inputField == com_wiris_quizzes_impl_LocalData::$VALUE_OPENANSWER_INPUT_FIELD_PLAIN_TEXT && $isCompound=='false'){
-            $correctanswer = $qi->expandVariablesText($answer->answer);
-        }else{
-            $correctanswer = $qi->expandVariablesMathML($answer->answer);
-        }
-        $wrap->stop();
-
-        return array('answer' => $correctanswer);
-    }    
-
-    public function get_matching_answer(array $response) {
-        // Optimization in order to avoid a grade_response invocation
-        if (isset($this->step)) {
-            $fraction = $this->step->get_var('fraction', true);
-            $feedback = $this->step->get_var('feedback', true);
-        } else {
-            $fraction = null;
-        }
-        if ($fraction!=null) {
-            return new question_answer(0, '', $fraction, $feedback, 1);
-        }
-
-        if (isset($this->step) && $this->step->is_error()) {
-            // In case of error, do not call grade_response because it will likely
-            // fail again with an ugly error...
-            return null;
-        }
-
-        if (isset($response['answer'])){
-            $answer = $this->grade_response($response);
-            return $answer['answer'];
-        }else{
-            return null;
-        }
-    }    
-    
-    public function get_expected_data() {
-        $expected = parent::get_expected_data();
-        $expected['_sqi'] = PARAM_RAW_TRIMMED;
-        return $expected;        
     }
     
     public function summarise_response(array $response) {
-        if (isset($response['answer'])) {
-            return 'Student answer not previewable.';
-            //return $response['answer'];
+        // This function must return plain text output. Since student response
+        // may be mathml and the conversion MathML => text made in 
+        // expand_variables_text() is not good, we prevent to show incorrect 
+        // data.
+        if (!$this->is_text_answer()) {
+            return get_string('contentnotviewable', 'qtype_shortanswerwiris');
         } else {
-            return null;
+            return parent::summarise_response($response);
         }
     }
-
-    public function apply_attempt_state(question_attempt_step $step) {
-        $this->step->load($step);
-        $this->randomSeed = $this->step->get_randomseed();
-    }
-
-    private function wrsqz_get_randomseed_from_xml($qi_xml){
-        $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
-        $qi = $rb->readQuestionInstance($qi_xml);
-
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
-        $wrap->start();
-        $randomseed = $qi->instance->userData->randomSeed;
-        $wrap->stop();
-
-        return $randomseed;
+    
+    public function get_right_answer_summary(){
+        return get_string('contentnotviewable', 'qtype_shortanswerwiris');
     }
     
-    public function wrsqz_set_random_seed($randomseed){
-        $this->randomSeed = $randomseed;
+    public function format_answer($text) {
+        if($this->is_text_answer() && !$this->is_compound_answer()){
+            $text = $this->expand_variables_text($text);
+        }
+        else {
+            $text = $this->expand_variables_mathml($text);
+        }
+        
+        return $text;
     }
- 
+    
+    private function is_text_answer() {
+        if (!empty($this->parent)) {
+            return true;
+        }
+        $wrap = com_wiris_system_CallWrapper::getInstance();
+        $wrap->start();
+        $inputField = $this->wirisquestion->question->getImpl()->getLocalData(com_wiris_quizzes_impl_LocalData::$KEY_OPENANSWER_INPUT_FIELD);
+        $inputText = ($inputField == com_wiris_quizzes_impl_LocalData::$VALUE_OPENANSWER_INPUT_FIELD_PLAIN_TEXT);
+        $wrap->stop();
+        
+        return $inputText;
+    }
+    
+    private function is_compound_answer() {
+        $wrap = com_wiris_system_CallWrapper::getInstance();
+        $wrap->start();
+        $isCompound = $this->wirisquestion->question->getImpl()->getLocalData(com_wiris_quizzes_impl_LocalData::$KEY_OPENANSWER_COMPOUND_ANSWER);
+        $wrap->stop();
+        return ($isCompound == 'true');
+    }
+    
+    public function get_correct_response() {
+        $correct = parent::get_correct_response();
+        $correct['answer'] = $this->format_answer($correct['answer']);
+        return $correct;
+    }
 }

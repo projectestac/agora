@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_forum_aggregator', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_forum_aggregator', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_forum_aggregator
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,10 +28,14 @@ defined('MOODLE_INTERNAL') || die();
 $string['blocktitle'] = 'Forum aggregator';
 $string['configtitle'] = 'Block title';
 $string['forum_aggregator'] = 'Forum aggregator';
+$string['forum_description'] = 'Forum description';
 $string['forum_selection'] = 'Forum selection';
+$string['forum_selection_help'] = 'If you want to show posts from this specific forum, then you have to check this box.';
 $string['max_num_of_posts'] = 'Maximum number of posts';
 $string['max_num_of_posts_help'] = 'Select maximum number of latest posts to be shown in block.';
 $string['noposts'] = 'No posts';
 $string['pluginname'] = 'Forum aggregator';
 $string['posted'] = 'Posted:';
 $string['posts'] = 'Posts';
+$string['unread_post_color'] = 'Unread color';
+$string['unread_post_color_description'] = 'Define the color background of unread posts.';

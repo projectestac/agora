@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Duração predefinida da inscrição';
 $string['defaultperiod_desc'] = 'Duração predefinida da inscrição.  Se for definida para zero, a validade da inscrição será ilimitada por predefinição.';
 $string['defaultperiod_help'] = 'Tempo predefinido durante o qual as inscrições são válidas a partir do momento em que o aluno é inscrito.';
 $string['deleteselectedusers'] = 'Apagar inscrições selecionadas';
-$string['editenrolment'] = 'Editar papel';
 $string['editselectedusers'] = 'Editar papéis dos utilizadores selecionados';
 $string['enrolledincourserole'] = 'Inscrito na disciplina "{$a->course}" como "{$a->role}"';
 $string['enrolusers'] = 'Inscrever utilizadores';
@@ -59,7 +58,7 @@ $string['manual:unenrol'] = 'Remover inscrições de utilizadores da disciplina'
 $string['manual:unenrolself'] = 'Remover a sua inscrição desta disciplina';
 $string['messageprovider:expiry_notification'] = 'Notificações de expiração de inscrições manuais';
 $string['pluginname'] = 'Inscrições manuais';
-$string['pluginname_desc'] = 'O módulo de inscrições manuais permite que os utilizadores sejam inscritos através de uma hiperligação no bloco Configurações > Administração da disciplina, por um utilizador com as permissões necessárias (ex: professor). Normalmente este módulo deve estar ativo, uma vez que alguns módulos de inscrição, como o de Autoinscrição, dependem deste módulo.';
+$string['pluginname_desc'] = 'O módulo de inscrições manuais permite que os utilizadores sejam inscritos através de link no bloco de configurações > Administração da disciplina, por um utilizador com as permissões necessárias (ex: professor). Normalmente este módulo deve estar ativo, uma vez que alguns módulos de inscrição, como o de auto-inscrição, dependem deste módulo.';
 $string['status'] = 'Ativar inscrições manuais';
 $string['status_desc'] = 'Permitir que os utilizadores inscritos internamente possam aceder à disciplina. Isto deve ser permitido na maior parte das situações.';
 $string['statusdisabled'] = 'Desativado';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'El servicio de mensajería está deshabilitado e
 $string['mostrecent'] = 'Mensajes recientes';
 $string['mostrecentconversations'] = 'Conversaciones recientes';
 $string['mostrecentnotifications'] = 'Notificaciones recientes';
-$string['mycontacts'] = 'Mis contactos';
 $string['newonlymsg'] = 'Mostrar sólo nuevos';
 $string['newsearch'] = 'Nueva búsqueda';
 $string['noframesjs'] = 'Usar interfaz más accesible';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Cualquier página de mensajes';
 $string['pagerefreshes'] = 'Esta página se actualiza automáticamente cada {$a} segundos';
 $string['permitted'] = 'Permitida';
 $string['private_config'] = 'Opciones de Mensajería Privada';
-$string['processordeleteconfirm'] = 'Esta a punto de eliminar completamente el mensaje de salida \'{$a}\'. En la base de datos se eliminará completamente toda la información asociada con este elemento. ¿Está seguro que quier continuar?';
-$string['processordeletefiles'] = 'Todos los datos asociados con la salida \'{$a->processor}\' han sido borrados de la base de datos. Para completar el borrado (y evitar que la salida se re-instale a sí misma), Usted debería de borrar este directorio de su servidor ahora: {$a->directory}';
 $string['processortag'] = 'Destino:';
 $string['providers_config'] = 'Configurar los métodos de notificación para los mensajes entrantes';
 $string['providerstag'] = 'Fuente:';

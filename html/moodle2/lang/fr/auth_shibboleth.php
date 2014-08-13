@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_shibboleth', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['auth_shib_auth_method'] = 'Nom de la méthode d\'authentification';
 $string['auth_shib_auth_method_description'] = 'Indiquez un nom familier pour vos utilisateurs pour la méthode d\'authentification Shibboleth. Ceci peut être le nom de votre fédération Shibboleth, par exemple <tt>SWITCHaai Login</tt> ou <tt>InCommon Login</tt>.';
-$string['auth_shibboleth_contact_administrator'] = 'Si vous n\'êtes pas associé avec les organisations mentionnées et avez besoin d\'accéder à un cours sur ce serveur, veuillez contacter';
 $string['auth_shibbolethdescription'] = 'Cette méthode permet de créer et d\'authentifier des utilisateurs par l\'intermédiaire d\'un serveur <a href="http://shibboleth.internet2.edu/">Shibboleth</a>.<br />Veuillez lire attentivement le fichier <a href="../auth/shibboleth/README.txt">README</a> pour apprendre comment configurer Moodle pour authentification Shibboleth';
 $string['auth_shibboleth_errormsg'] = 'Veuillez choisir l\'organisation dont vous êtes membre';
 $string['auth_shibboleth_login'] = 'Connexion Shibboleth';

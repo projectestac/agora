@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cache', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cache', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   cache
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,21 +27,40 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['actions'] = 'Acciones';
 $string['addinstance'] = 'Añadir instancia';
+$string['addlocksuccess'] = 'Nuevo bloqueo añadido con éxito';
+$string['addnewlockinstance'] = 'Añadir un nuevo bloqueo';
 $string['addstore'] = 'Añadir {$a} almacén';
 $string['addstoresuccess'] = 'Se añadió exitosamente un nuevo almacén de {$a}.';
 $string['area'] = 'Área';
 $string['cacheadmin'] = 'Administración de caché';
 $string['cacheconfig'] = 'Configuración';
+$string['cachedef_calendar_subscriptions'] = 'Suscripciones al calendario';
+$string['cachedef_config'] = 'Ajustes de configuración';
+$string['cachedef_coursecat'] = 'Listas de categorías de cursos para un usuario en particular';
+$string['cachedef_coursecatrecords'] = 'Registros de categorías de cursos';
+$string['cachedef_coursecattree'] = 'Árbol de categorías de cursos';
+$string['cachedef_coursecontacts'] = 'Lista de contactos del curso';
+$string['cachedef_coursemodinfo'] = 'Información acumulada sobre los módulos y secciones para cada curso';
 $string['cachedef_databasemeta'] = 'Meta Información de Base de Datos';
 $string['cachedef_eventinvalidation'] = 'Invalidación de evento';
+$string['cachedef_externalbadges'] = 'Insignias externas de un usuario concreto';
+$string['cachedef_gradecondition'] = 'Calificaciones del usuario en caché para la evaluación de la disponibilidad condicionada';
+$string['cachedef_groupdata'] = 'Información de grupos del curso';
 $string['cachedef_htmlpurifier'] = 'Depurador de HTML - Limpieza de contenido';
+$string['cachedef_langmenu'] = 'Lista de idiomas disponibles';
 $string['cachedef_locking'] = 'Bloqueando';
+$string['cachedef_observers'] = 'Observadores del evento';
+$string['cachedef_plugin_manager'] = 'Gestor de información del plugin';
 $string['cachedef_questiondata'] = 'Definiciones de preguntas';
+$string['cachedef_repositories'] = 'Datos de repositorios';
 $string['cachedef_string'] = 'Caché de cadenas de idioma';
+$string['cachedef_userselections'] = 'Información empleada para mantener las selecciones del usuario en Moodle';
+$string['cachedef_yuimodules'] = 'Definiciones de módulos YUI';
 $string['cachelock_file_default'] = 'Bloqueo de archivo por defecto';
 $string['cachestores'] = 'Almacenes de caché';
 $string['caching'] = 'Caché';
 $string['component'] = 'Componente';
+$string['confirmlockdeletion'] = 'Confirmar la eliminación del bloqueo';
 $string['confirmstoredeletion'] = 'Confirme borrado de almacén';
 $string['default_application'] = 'Almacén de aplicación por defecto';
 $string['defaultmappings'] = 'Almacenes usados cuando no hay mapeo presente';
@@ -52,13 +71,19 @@ $string['defaultstoreactions'] = 'Los almacenes por defecto no pueden modificars
 $string['definition'] = 'Definición';
 $string['definitionsummaries'] = 'Definiciones de caché conocidas';
 $string['delete'] = 'Eliminar';
+$string['deletelock'] = 'Eliminar bloqueo';
+$string['deletelockconfirmation'] = '¿Está seguro que quiere eliminar el bloqueo {$a} ?';
+$string['deletelockhasuses'] = 'No se puede eliminar este bloqueo porque se está utilizando en otro almacén.';
+$string['deletelocksuccess'] = 'Bloqueo eliminado con éxito.';
 $string['deletestore'] = 'Eliminar almacén';
 $string['deletestoreconfirmation'] = '¿Está seguro de querer eliminar el almacén  "{$a}" ?';
 $string['deletestorehasmappings'] = 'Usted no puede eliminar este almacén porque tiene mapeos. Por favor elimine todos los mapeos antes de eliminar el almacén.';
 $string['deletestoresuccess'] = 'Se eliminó exitosamente el almacén de caché';
 $string['editdefinitionmappings'] = 'Mapeos de almacén definiciones
 {$a}';
+$string['editdefinitionsharing'] = 'Editar la definición de compartición para {a}';
 $string['editmappings'] = 'Editar mapeos';
+$string['editsharing'] = 'Editar compartir';
 $string['editstore'] = 'Editar almacén';
 $string['editstoresuccess'] = 'Se editó exitosamente el almacén de caché';
 $string['ex_configcannotsave'] = 'No se pudo guardar la configuración del caché al archivo.';
@@ -67,13 +92,19 @@ $string['ex_unabletolock'] = 'No se pudo adquirir un bloqueo para cachear.';
 $string['ex_unmetstorerequirements'] = 'Usted no puede usar este almacén actualmente. Por favor, vea la documentación para determinar los requisitos.';
 $string['gethit'] = 'Obtener (Get) - Acierto (Hit)';
 $string['getmiss'] = 'Obtener (Get) - Falla (Miss)';
+$string['inadequatestoreformapping'] = 'Esta tienda no cumple con los requerimientos para todas las definiciones conocidas. A las definiciones para las que esta tienda sea inadecuada se les asignará el valor por defecto en lugar de la tienda seleccionada.';
+$string['invalidlock'] = 'Bloqueo no válido';
 $string['invalidplugin'] = 'Extensión no válida';
 $string['invalidstore'] = 'Almacén de caché proporcionado inválido';
 $string['lockdefault'] = 'Por defecto';
+$string['lockingmeans'] = 'Mecanismo de bloqueo';
 $string['lockmethod'] = 'Método de bloqueo';
 $string['lockmethod_help'] = 'Este es el método usado para bloquear cuando se requiera para este almacén.';
 $string['lockname'] = 'Nombre';
+$string['locknamedesc'] = 'El nombre debe ser único y sólo puede contener caracteres: a-z_A-Z';
+$string['locknamenotunique'] = 'El nombre elegido no es único. Elija un nombre diferente, por favor.';
 $string['locksummary'] = 'Resumen de instancias de bloqueos de caché';
+$string['locktype'] = 'Tipo';
 $string['lockuses'] = 'Usos';
 $string['mappingdefault'] = '(por defecto)';
 $string['mappingfinal'] = 'Almacén final';
@@ -89,11 +120,23 @@ $string['none'] = 'Ninguno';
 $string['plugin'] = 'Plugin';
 $string['pluginsummaries'] = 'Almacenes de caché instalados';
 $string['purge'] = 'Purgar';
+$string['purgedefinitionsuccess'] = 'Definición solicitada purgada con éxito.';
 $string['purgestoresuccess'] = 'Se purgó exitosamente el almacén solicitado.';
 $string['requestcount'] = 'Probar con {$a} solicitudes';
 $string['rescandefinitions'] = 'Volver a revisar definiciones';
 $string['result'] = 'Resultado';
 $string['set'] = 'Configurar';
+$string['sharing'] = 'Compartiendo';
+$string['sharing_all'] = 'Todo el mundo.';
+$string['sharing_help'] = 'Este ajuste le permite determinar cómo los datos de la caché se pueden compartir si tiene una configuración en clúster, o si tiene varios sitios configurados para el mismo almacén y desea compartir los datos. Esta es una opción avanzada, por favor asegúrese de que entiende su propósito antes de cambiarla.';
+$string['sharing_input'] = 'Clave personalizada (introducirla debajo)';
+$string['sharingrequired'] = 'Debe seleccionar al menos una opción de uso compartido.';
+$string['sharingselected_all'] = 'Todo el mundo.';
+$string['sharingselected_input'] = 'Clave personalizada';
+$string['sharingselected_siteid'] = 'Identificador del sitio';
+$string['sharingselected_version'] = 'Versión';
+$string['sharing_siteid'] = 'Sitios con el mismo ID de sitio.';
+$string['sharing_version'] = 'Sitios funcionando con la misma versión.';
 $string['storeconfiguration'] = 'Guardar configuración';
 $string['store_default_application'] = 'Almacén de archivo por defecto para los cachés de aplicación';
 $string['store_default_request'] = 'Almacén estático por defecto para los cachés de solicitudes';
@@ -123,3 +166,5 @@ $string['tested'] = 'Probado';
 $string['testperformance'] = 'Desempeño de prueba';
 $string['unsupportedmode'] = 'Modo no soportado';
 $string['untestable'] = 'No puede probarse';
+$string['userinputsharingkey'] = 'Clave personalizada para compartir';
+$string['userinputsharingkey_help'] = 'Escriba su propia clave privada aquí. Al configurar otros almacenes en otros sitios con los que desea compartir los datos debe asegurarse de que se establece la misma clave allí.';

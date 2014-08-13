@@ -17,7 +17,7 @@
 
 /**
  * Provides support for the conversion of moodle1 backup to the moodle2 format
- * 
+ *
  * @package    mod
  * @subpackage geogebra
  * @copyright  2011 Departament d'Ensenyament de la Generalitat de Catalunya
@@ -28,12 +28,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/geogebra/locallib.php');
- 
+
 /**
  * GeoGebra conversion handler
  */
 class moodle1_mod_geogebra_handler extends moodle1_mod_handler {
- 
+
     /**
      * Declare the paths in moodle.xml we are able to convert
      *
@@ -58,9 +58,9 @@ class moodle1_mod_geogebra_handler extends moodle1_mod_handler {
                     ),
                 )
             ),
-        );         
+        );
     }
- 
+
     /**
      * This is executed every time we have one /MOODLE_BACKUP/COURSE/MODULES/MOD/GEOGEBRA
      * data available
@@ -83,28 +83,28 @@ class moodle1_mod_geogebra_handler extends moodle1_mod_handler {
         // migrate geogebra package file
         $this->fileman->filearea = 'content';
         $this->fileman->itemid   = 0;
-        
+
         // Migrate file
         parse_str($data['url'], $parsedVarsURL);
         try{
-            $this->fileman->migrate_file('course_files/'.$parsedVarsURL['filename']);            
+            $this->fileman->migrate_file('course_files/'.$parsedVarsURL['filename']);
         } catch (Exception $e){
             echo 'Caught exception: ',  $e->getMessage(), ' File: \''.$parsedVarsURL['filename'].'\' (from URL \'',$data['url'], '\') on GeoGebra activity \''.$data['name'].'\' <br>';
         }
         // From Moodle 2, URL field only contains information about the GGB file location
         $data['url'] = $parsedVarsURL['filename'];
-        
+
         if (strrpos($data['url'], '/') !== FALSE) {
             // Remove folder path to leave only file name
             $data['url']= substr($data['url'], strrpos($data['url'], '/')+1);
         }
-        
+
         // Remove filename from parsedVarsURL array (to avoid save twice)
         unset($parsedVarsURL['filename']);
         // Store other attributes in the new param
         $data['attributes'] = http_build_query($parsedVarsURL, '', '&');
-        
-        
+
+
         // start writing geogebra.xml
         $this->open_xml_writer("activities/geogebra_{$this->moduleid}/geogebra.xml");
         $this->xmlwriter->begin_tag('activity', array('id' => $instanceid, 'moduleid' => $this->moduleid,
@@ -119,7 +119,7 @@ class moodle1_mod_geogebra_handler extends moodle1_mod_handler {
 
         return $data;
     }
- 
+
     /**
      * This is executed when we reach the closing </MOD> tag of our 'geogebra' path
      */

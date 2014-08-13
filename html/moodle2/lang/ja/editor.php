@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,10 +56,9 @@ $string['createlink'] = 'リンクを挿入する';
 $string['cut'] = '選択したものを切り取る';
 $string['cutpastemozilla'] = '大変残念ですが、現在通常のキーボードショートカット (ペーストボタンも) を使うことができません。これはMozillaおよびFirefoxブラウザのいくつかのバージョンに、セキュリティ機能が組み込まれたことが原因しています。<br /><br />これに関して3つの対処方法があります: <br /> (1) CTRL + v を使用する代わりに SHIFT + Insert を使用する。<br /> (2) ブラウザの 編集->貼り付け メニューを使う。<br /> (3) user.jsファイルを編集することでブラウザ設定を変更する。<br /><br />下記のOKボタンを押して詳細情報を閲覧するか、キャンセルを押してエディタに戻ってください。';
 $string['delete'] = '削除';
-$string['editordeleteconfirm'] = 'あなたはエディタプラグイン「 {$a} 」を完全に削除しようとしています。このプラグインに関連するすべてがデータベースから完全に削除されます。本当に続けてもよろしいですか?';
 $string['editors'] = 'テキストエディタ';
 $string['editorsettings'] = 'エディタ管理';
-$string['enterurlfirst'] = 'あなたは最初にURIを入力する必要があります。';
+$string['enterurlfirst'] = 'あなたは最初にURLを入力する必要があります。';
 $string['filebrowser'] = 'ファイルブラウザ';
 $string['findwhat'] = '検索';
 $string['fontname'] = 'フォント名';
@@ -73,7 +72,7 @@ $string['hilitecolor'] = '背景色';
 $string['horizontal'] = '水平';
 $string['horizontalrule'] = '水平線';
 $string['htmlmode'] = 'HTMLソースに切り替える';
-$string['imageurl'] = 'イメージURI';
+$string['imageurl'] = 'イメージURL';
 $string['indent'] = 'インデントを増やす';
 $string['insertchar'] = '特別文字を挿入する';
 $string['insertimage'] = 'イメージを挿入する';
@@ -98,13 +97,13 @@ $string['linktargetother'] = 'その他';
 $string['linktargetself'] = '同一フレーム';
 $string['linktargettop'] = '同一ウィンドウ';
 $string['linktitle'] = 'タイトル';
-$string['linkurl'] = 'URI';
+$string['linkurl'] = 'URL';
 $string['matchcase'] = '大文字小文字を区別する';
 $string['middle'] = '中央揃え';
 $string['minimize'] = 'エディタを最小化する';
 $string['move'] = '移動';
 $string['multi'] = '多言語';
-$string['mustenterurl'] = 'あなたはURIを入力する必要があります。';
+$string['mustenterurl'] = 'あなたはURLを入力する必要があります。';
 $string['nolink'] = '自動リンクを抑制する';
 $string['normal'] = 'ノーマル';
 $string['notimage'] = '選択されたファイルはイメージではありません。イメージを選択してください!';

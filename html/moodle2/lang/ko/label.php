@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['dndmedia'] = '미디어 드래그 드롭';
+$string['dndresizeheight'] = '드래그 드롭 높이 조정';
+$string['dndresizewidth'] = '드래그 드롭 폭 조정';
+$string['dnduploadlabel'] = '강좌 페이지에 이미지 추가';
+$string['dnduploadlabeltext'] = '강좌 페이지에 라벨 추가';
 $string['label:addinstance'] = '새 라벨 추가';
 $string['labeltext'] = '표지 내용';
 $string['modulename'] = '표지';

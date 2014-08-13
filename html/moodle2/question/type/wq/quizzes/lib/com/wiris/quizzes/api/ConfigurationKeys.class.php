@@ -12,5 +12,7 @@ class com_wiris_quizzes_api_ConfigurationKeys {
 	static $HTTPPROXY_PORT = "quizzes.httpproxy.port";
 	static $HTTPPROXY_USER = "quizzes.httpproxy.user";
 	static $HTTPPROXY_PASS = "quizzes.httpproxy.pass";
+	static $CONFIGURATION_FILE = "quizzes.configuration.file";
+	static $REFERER_URL = "quizzes.referer.url";
 	function __toString() { return 'com.wiris.quizzes.api.ConfigurationKeys'; }
 }

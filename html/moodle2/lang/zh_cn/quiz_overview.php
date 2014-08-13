@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_overview', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_overview', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,7 +44,6 @@ $string['optallattempts'] = '所有试卷';
 $string['optallstudents'] = '所有答或未答题的{$a}';
 $string['optattemptsonly'] = '已答题的{$a}';
 $string['optnoattemptsonly'] = '未答题的{$a}';
-$string['optonlygradedattempts'] = '每名用户都已评分的试卷（{$a}）';
 $string['optonlyregradedattempts'] = '已重新评分或标记为需要重新评分的试卷';
 $string['overview'] = '成绩';
 $string['overviewdownload'] = '下载概览';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddimageortext', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddimageortext', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddimageortext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,6 +33,7 @@ $string['correctansweris'] = 'La réponse correcte est : {$a}';
 $string['draggableimage'] = 'Image déplaçable';
 $string['draggableitem'] = 'Élément déplaçable';
 $string['draggableitemheader'] = 'Élément déplaçable {$a}';
+$string['draggableitems'] = 'Éléments déplaçables';
 $string['draggableitemtype'] = 'Type';
 $string['draggableword'] = 'Texte déplaçable';
 $string['dropbackground'] = 'Image de fond pouvant être recouverte de marqueurs déplaçables';
@@ -60,7 +61,6 @@ $string['pluginnameediting'] = 'Édition de glisser-déposer sur image';
 $string['pluginname_help'] = 'Sélectionnez un fichier image de fond, sélectionnez une ou plusieurs images déplaçables ou entrez un texte et définissez les zones de dépôt sur l\'image de fond sur lesquelles elles doivent être déposées.';
 $string['pluginname_link'] = 'question/type/ddimageortext';
 $string['pluginnamesummary'] = 'Les images ou les labels sont glissés et déposés dans des zones de dépôt sur une image de fond.';
-$string['previewarea'] = 'Zone de prévisualisation -';
 $string['previewareaheader'] = 'Aperçu';
 $string['previewareamessage'] = 'Sélectionnez un fichier image de fond et sélectionnez une ou plusieurs images déplaçables ou entrez simplement un texte qui sera rendu déplaçable. Puis choisissez un élément déplaçable pour chaque « zone de dépôt », et déplacez l\'élément jusqu\'à l\'endroit ou l\'étudiant devra le placer.';
 $string['refresh'] = 'Rafraîchir l\'aperçu';

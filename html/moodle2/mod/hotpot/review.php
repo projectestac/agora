@@ -42,7 +42,7 @@ if (! has_capability('mod/hotpot:reviewallattempts', $PAGE->context)) {
 $hotpot = hotpot::create($hotpot, $cm, $course, $PAGE->context, $attempt);
 
 // Log this request
-add_to_log($course->id, 'hotpot', 'review', 'view.php?id='.$cm->id, $hotpot->id, $cm->id);
+hotpot_add_to_log($course->id, 'hotpot', 'review', 'view.php?id='.$cm->id, $hotpot->id, $cm->id);
 
 // Set editing mode
 if ($PAGE->user_allowed_editing()) {

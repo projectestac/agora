@@ -76,7 +76,7 @@ class blog_entry implements renderable {
      * @param mixed $idorparams A blog entry id if INT, or data for a new entry if array
      */
     public function __construct($id=null, $params=null, $form=null) {
-        global $DB, $PAGE;
+        global $DB, $PAGE, $CFG;
 
         if (!empty($id)) {
             $object = $DB->get_record('post', array('id' => $id));
@@ -86,6 +86,18 @@ class blog_entry implements renderable {
         } else if (!empty($params) && (is_array($params) || is_object($params))) {
             foreach ($params as $var => $val) {
                 $this->$var = $val;
+            }
+        }
+
+        if (!empty($CFG->useblogassociations)) {
+            $associations = $DB->get_records('blog_association', array('blogid' => $this->id));
+            foreach ($associations as $association) {
+                $context = context::instance_by_id($association->contextid);
+                if ($context->contextlevel == CONTEXT_COURSE) {
+                    $this->courseassoc = $association->contextid;
+                } else if ($context->contextlevel == CONTEXT_MODULE) {
+                    $this->modassoc = $association->contextid;
+                }
             }
         }
 
@@ -227,7 +239,6 @@ class blog_entry implements renderable {
     /**
      * Inserts this entry in the database. Access control checks must be done by calling code.
      * TODO Set the publishstate correctly
-     * @param mform $form Used for attachments
      * @return void
      */
     public function add() {
@@ -247,20 +258,31 @@ class blog_entry implements renderable {
 
         if (!empty($CFG->useblogassociations)) {
             $this->add_associations();
-            add_to_log(SITEID, 'blog', 'add', 'index.php?userid='.$this->userid.'&entryid='.$this->id, $this->subject);
         }
 
         tag_set('post', $this->id, $this->tags);
+
+        // Trigger an event for the new entry.
+        $event = \core\event\blog_entry_created::create(array(
+            'objectid'      => $this->id,
+            'relateduserid' => $this->userid
+        ));
+        $event->set_blog_entry($this);
+        $event->trigger();
     }
 
     /**
      * Updates this entry in the database. Access control checks must be done by calling code.
      *
-     * @param mform $form Used for attachments
+     * @param array       $params            Entry parameters.
+     * @param moodleform  $form              Used for attachments.
+     * @param array       $summaryoptions    Summary options.
+     * @param array       $attachmentoptions Attachment options.
+     *
      * @return void
      */
     public function edit($params=array(), $form=null, $summaryoptions=array(), $attachmentoptions=array()) {
-        global $CFG, $USER, $DB, $PAGE;
+        global $CFG, $DB;
 
         $sitecontext = context_system::instance();
         $entry = $this;
@@ -279,11 +301,16 @@ class blog_entry implements renderable {
 
         $entry->lastmodified = time();
 
-        // Update record
+        // Update record.
         $DB->update_record('post', $entry);
         tag_set('post', $entry->id, $entry->tags);
 
-        add_to_log(SITEID, 'blog', 'update', 'index.php?userid='.$USER->id.'&entryid='.$entry->id, $entry->subject);
+        $event = \core\event\blog_entry_updated::create(array(
+            'objectid'      => $entry->id,
+            'relateduserid' => $entry->userid
+        ));
+        $event->set_blog_entry($entry);
+        $event->trigger();
     }
 
     /**
@@ -297,10 +324,18 @@ class blog_entry implements renderable {
         $this->delete_attachments();
         $this->remove_associations();
 
+        // Get record to pass onto the event.
+        $record = $DB->get_record('post', array('id' => $this->id));
         $DB->delete_records('post', array('id' => $this->id));
         tag_set('post', $this->id, array());
 
-        add_to_log(SITEID, 'blog', 'delete', 'index.php?userid='. $this->userid, 'deleted blog entry with entry id# '. $this->id);
+        $event = \core\event\blog_entry_deleted::create(array(
+            'objectid'      => $this->id,
+            'relateduserid' => $this->userid
+            ));
+        $event->add_record_snapshot("post", $record);
+        $event->set_blog_entry($this);
+        $event->trigger();
     }
 
     /**
@@ -568,8 +603,9 @@ class blog_listing {
             $userid = $USER->id;
         }
 
+        $allnamefields = get_all_user_name_fields(true, 'u');
         // The query used to locate blog entries is complicated.  It will be built from the following components:
-        $requiredfields = "p.*, u.firstname, u.lastname, u.email";  // the SELECT clause
+        $requiredfields = "p.*, $allnamefields, u.email";  // the SELECT clause
         $tables = array('p' => 'post', 'u' => 'user');   // components of the FROM clause (table_id => table_name)
         $conditions = array('u.deleted = 0', 'p.userid = u.id', '(p.module = \'blog\' OR p.module = \'blog_external\')');  // components of the WHERE clause (conjunction)
 
@@ -664,41 +700,26 @@ class blog_listing {
 
             if (empty($userid) || (!empty($userid) && $userid == $USER->id)) {
 
-                $canaddentries = true;
                 $courseid = optional_param('courseid', null, PARAM_INT);
-                if ($modid = optional_param('modid', null, PARAM_INT)) {
-                    if (!has_capability('moodle/blog:associatemodule', context_module::instance($modid))) {
-                        $canaddentries = false;
-                    }
-                } else if ($courseid) {
-                    if (!has_capability('moodle/blog:associatecourse', context_course::instance($courseid))) {
-                        $canaddentries = false;
-                    }
-                }
+                $modid = optional_param('modid', null, PARAM_INT);
 
-                if ($canaddentries) {
-                    $addurl = new moodle_url("$CFG->wwwroot/blog/edit.php");
-                    $urlparams = array('action' => 'add',
-                                       'userid' => $userid,
-                                       'courseid' => $courseid,
-                                       'groupid' => optional_param('groupid', null, PARAM_INT),
-                                       'modid' => $modid,
-                                       'tagid' => optional_param('tagid', null, PARAM_INT),
-                                       'tag' => optional_param('tag', null, PARAM_INT),
-                                       'search' => optional_param('search', null, PARAM_INT));
+                $addurl = new moodle_url("$CFG->wwwroot/blog/edit.php");
+                $urlparams = array('action' => 'add',
+                                   'userid' => $userid,
+                                   'courseid' => $courseid,
+                                   'groupid' => optional_param('groupid', null, PARAM_INT),
+                                   'modid' => $modid,
+                                   'tagid' => optional_param('tagid', null, PARAM_INT),
+                                   'tag' => optional_param('tag', null, PARAM_INT),
+                                   'search' => optional_param('search', null, PARAM_INT));
 
-                    foreach ($urlparams as $var => $val) {
-                        if (empty($val)) {
-                            unset($urlparams[$var]);
-                        }
-                    }
-                    $addurl->params($urlparams);
+                $urlparams = array_filter($urlparams);
+                $addurl->params($urlparams);
 
-                    $addlink = '<div class="addbloglink">';
-                    $addlink .= '<a href="'.$addurl->out().'">'. $blogheaders['stradd'].'</a>';
-                    $addlink .= '</div>';
-                    echo $addlink;
-                }
+                $addlink = '<div class="addbloglink">';
+                $addlink .= '<a href="'.$addurl->out().'">'. $blogheaders['stradd'].'</a>';
+                $addlink .= '</div>';
+                echo $addlink;
             }
         }
 

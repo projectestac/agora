@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'A mensaxería está desactivada neste sitio, env
 $string['mostrecent'] = 'Mensaxes recentes';
 $string['mostrecentconversations'] = 'Conversas recentes';
 $string['mostrecentnotifications'] = 'Notificacións recentes';
-$string['mycontacts'] = 'Os meus contactos';
 $string['newonlymsg'] = 'Amosar só as novas';
 $string['newsearch'] = 'Nova busca';
 $string['noframesjs'] = 'Usar unha interface máis accesíbel';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Calquera páxina de mensaxes';
 $string['pagerefreshes'] = 'Esta páxina actualizase automaticamente cada {$a} segundos';
 $string['permitted'] = 'Permitido';
 $string['private_config'] = 'Xanela emerxente de mensaxes';
-$string['processordeleteconfirm'] = 'Está a piques de eliminar completamente a mensaxe saínte «{$a}». Esta acción eliminará toda a información da base de datos asociada con esta saída. CONFIRMA que quere continuar?';
-$string['processordeletefiles'] = 'Todos os datos asociados coa saída «{$a->processor}» foron eliminados da base de datos. Para completar a eliminación (e para evitar que a saída se reinstale por si mesma), debería eliminar agora mesmo este directorio do servidor: {$a->directory}';
 $string['processortag'] = 'Destino';
 $string['providers_config'] = 'Configurar os métodos de notificación para as mensaxes entrantes';
 $string['providerstag'] = 'Orixe';

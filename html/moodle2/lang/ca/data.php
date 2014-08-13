@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Afegeix un comentari';
 $string['addentries'] = 'Afegeix entrades';
 $string['addtemplate'] = 'Plantilla d\'introducció';
 $string['advancedsearch'] = 'Cerca avançada';
+$string['allowcomments'] = 'Permeteu comentaris en les entrades?';
 $string['alttext'] = 'Text alternatiu';
 $string['approve'] = 'Aprova';
 $string['approved'] = 'Acceptat';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'No està habilitada la funció de comentaris';
 $string['configenablerssfeeds'] = 'Aquest commutador habilita la possibilitat de canals RSS de les bases de dades. Però cal activar manualment els canals en els paràmetres de cada base de dades.';
 $string['confirmdeletefield'] = 'Segur que voleu suprimir aquest camp?';
 $string['confirmdeleterecord'] = 'Segur que voleu suprimir aquesta entrada?';
+$string['confirmdeleterecords'] = 'Segur que voleu suprimir aquestes entrades?';
 $string['csstemplate'] = 'Plantilla CSS';
 $string['csvfailed'] = 'No es poden llegir les dades del fitxer CSV';
 $string['csvfile'] = 'Fitxer CSV:';
@@ -124,6 +126,7 @@ $string['dateentered'] = 'Data d\'introducció';
 $string['defaultfielddelimiter'] = '(per defecte és una coma)';
 $string['defaultfieldenclosure'] = '(per defecte no s\'utilitza)';
 $string['defaultsortfield'] = 'Camp d\'ordenació per defecte';
+$string['delcheck'] = 'Casella d\'eliminació massiva';
 $string['delete'] = 'Suprimeix';
 $string['deleteallentries'] = 'Suprimeix totes les entrades';
 $string['deletecomment'] = 'Segur que voleu suprimir aquest comentari?';
@@ -133,6 +136,7 @@ $string['deletenotenrolled'] = 'Suprimeix les entrades d\'usuaris no inscrits';
 $string['deletewarning'] = 'Segur que voleu suprimir aquest predefinit?';
 $string['descending'] = 'Descendent';
 $string['directorynotapreset'] = '{$a->directory} No és un predefinit: falten fitxers: {$a->missing_files}';
+$string['disapprove'] = 'Desfés l\'aprovació';
 $string['download'] = 'Baixa';
 $string['edit'] = 'Edita';
 $string['editcomment'] = 'Edita comentari';
@@ -309,13 +313,14 @@ $string['presets'] = 'Predefinits';
 $string['radiobutton'] = 'Botons d\'opció';
 $string['recordapproved'] = 'S\'ha aprovat l\'entrada';
 $string['recorddeleted'] = 'S\'ha suprimit l\'entrada';
+$string['recorddisapproved'] = 'Entrada no aprovada';
 $string['recordsnotsaved'] = 'No s\'ha desat cap entrada. Comproveu el format del fitxer.';
 $string['recordssaved'] = 'entrada/es';
 $string['requireapproval'] = 'Requereix aprovació?';
 $string['requireapproval_help'] = '<p align="center"><strong>Requerir aprovació</strong></p>
 
 <p>Cal que el professorat aprovi les entrades abans que l\'estudiantat pugui visualitzar-les? Això és útil per moderar continguts potencialment ofensius o inadequats.</p>';
-$string['requiredentries'] = 'Entrades requerides';
+$string['requiredentries'] = 'Entrades requerides per a la compleció';
 $string['requiredentries_help'] = '<p align="center"><strong>Entrades requerides</strong></p>
 
 <p>El nombre d\'entrades que cal que trameti cada participant. Als usuaris que no hagin tramès aquest nombre d\'entrades se\'ls mostrarà un recordatori quan visualitzin la base de dades.</p>

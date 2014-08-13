@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Engadir comentario';
 $string['addentries'] = 'Engadir entradas';
 $string['addtemplate'] = 'Engadir modelo';
 $string['advancedsearch'] = 'Busca avanzada';
+$string['allowcomments'] = 'Permitir comentarios nas entradas';
 $string['alttext'] = 'Texto alternativo';
 $string['approve'] = 'Aprobar';
 $string['approved'] = 'Aprobado';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'A funcionalidade de comentarios non está activa';
 $string['configenablerssfeeds'] = 'Este interruptor activará a posibilidade de fontes RSS para todas as bases de datos. Aínda será necesario acender as fontes manualmente na configuración de cada base de datos.';
 $string['confirmdeletefield'] = 'Vai eliminar este campo, confirma que o quere facer?';
 $string['confirmdeleterecord'] = 'Confirma que quere eliminar esta entrada?';
+$string['confirmdeleterecords'] = 'Confirma que quere eliminar estas entradas?';
 $string['csstemplate'] = 'Modelo CSS';
 $string['csvfailed'] = 'Non se pode ler os datos en bruto do ficheiro CSV';
 $string['csvfile'] = 'ficheiro CSV';
@@ -104,6 +106,7 @@ $string['dateentered'] = 'Data introducida';
 $string['defaultfielddelimiter'] = '(o predeterminado é o carácter coma)';
 $string['defaultfieldenclosure'] = '(o predeterminado é ningún)';
 $string['defaultsortfield'] = 'Campo de ordenación predeterminado';
+$string['delcheck'] = 'Caixa de verificación de eliminacións masivas';
 $string['delete'] = 'Eliminar';
 $string['deleteallentries'] = 'Eliminar todas as entradas';
 $string['deletecomment'] = 'Confirma que quere eliminar este comentario?';
@@ -113,6 +116,7 @@ $string['deletenotenrolled'] = 'Eliminar as entradas de usuarios non matriculado
 $string['deletewarning'] = 'Confirma que quere eliminar esta predefinición?';
 $string['descending'] = 'Descendente';
 $string['directorynotapreset'] = '{$a->directory} Non hai predefinición: faltan os ficheiros: {$a->missing_files}';
+$string['disapprove'] = 'Desfacer a aprobación';
 $string['download'] = 'Descargar';
 $string['edit'] = 'Editar';
 $string['editcomment'] = 'Editar comentario';
@@ -207,25 +211,25 @@ $string['mapexistingfield'] = 'Mapear a {$a}';
 $string['mapnewfield'] = 'Crear un novo campo';
 $string['mappingwarning'] = 'Todos os vellos campos non mapeados nun novo campo perderanse e todos os datos nese campo se eliminarán.';
 $string['maxentries'] = 'Entradas máximas';
-$string['maxentries_help'] = 'O número máximo de entradas que se lle permite remitir a un estudante para esta actividade.';
+$string['maxentries_help'] = 'O número máximo de entradas que se lle permite remitir a un alumno para esta actividade.';
 $string['maxsize'] = 'Tamaño máximo';
 $string['menu'] = 'Menú';
 $string['menuchoose'] = 'Escoller...';
 $string['missingdata'] = 'Debe fornecerse id dos datos ou do obxecto para o campo clase';
 $string['missingfield'] = 'Erro na programación: Debe especificar o campo e/ou datos ao definir o campo clase.';
 $string['modulename'] = 'Base de datos';
-$string['modulename_help'] = 'O módulo de actividade permítelles aos participantes crear, manter e buscar unha colección de entradas (i.e. rexistros). A estrutura das entradas defínea o profesor como un número de campos. Os tipos de campos como caixas de selección, botón de radio, menú despregábel, área de texto, URL, imaxe ou ficheiro subido.
+$string['modulename_help'] = 'O módulo de actividade permítelles aos participantes crear, manter e buscar unha colección de entradas (i.e. rexistros). A estrutura das entradas defínea o profesor como un número de campos. Os tipos de campos como caixas de selección, botón de opción, menú despregábel, área de texto, URL, imaxe ou ficheiro enviado.
 
 O deseño visual da información ao listar, ver ou editar as entradas da base de datos pode controlarse mediante modelos de bases de datos. As actividades da base de datos pode compartirse entre cursos como predefinicións e un profesor tamén pode importar e exportar entradas da base de datos.
 
 Se o filtro de autoligado de base de datos está activo, calquera entrada nunha base de datos ligarase automaticamente cando as palabras ou as frases aparezan dentro do curso.
 
-Un profesor pode permitir comentarios en entradas. As entradas tamén as poden ponderar os profesores ou os estudantes (avaliación por pares). As ponderacións poden agregarse para formar un grao final que se grava no libro de graos.
+Un profesor pode permitir comentarios en entradas. As entradas tamén as poden ponderar os profesores ou os alumnos (avaliación por pares). As ponderacións poden engadirse para formar un grao final que se grava no libro de graos.
 
 As actividades da base de datos teñen moitos usos, tales como
 
 * Unha colectión colectiva de ligazóns web, libros, resumos de libros, referencias xornalísticas, etc.
-* Para presentar fotos, carteis, sitios web ou poemas feitos por estudantes comentados e revisados por pares';
+* Para presentar fotos, carteis, sitios web ou poemas feitos por alumnos comentados e revisados por pares';
 $string['modulename_link'] = 'mod/chat/vista';
 $string['modulenameplural'] = 'Bases de datos';
 $string['more'] = 'Máis';
@@ -287,6 +291,7 @@ $string['presets'] = 'Predefinicións';
 $string['radiobutton'] = 'Botóns de radio';
 $string['recordapproved'] = 'Entrada aprobada';
 $string['recorddeleted'] = 'Entrada eliminada';
+$string['recorddisapproved'] = 'Entrada non aprobada';
 $string['recordsnotsaved'] = 'Non se gardou ningunha entrada. Comprobe o formato do ficheiro subido.';
 $string['recordssaved'] = 'entradas gardadas';
 $string['requireapproval'] = 'Solicita aprobación?';
@@ -294,9 +299,9 @@ $string['requireapproval_help'] = 'De estar activada, as entradas requiren a apr
 $string['requiredentries'] = 'Entradas solicitadas';
 $string['requiredentries_help'] = 'O número de entradas que se lle piden que envíe o alumno antes de que a actividade se poida considerar completada.';
 $string['requiredentriestoview'] = 'Entradas requiridas antes da visualización';
-$string['requiredentriestoview_help'] = 'O número de entradas que se lle pide que envíe un estudantes antes de que poida ver as entradas doutro estudantes.
+$string['requiredentriestoview_help'] = 'O número de entradas que se lle pide que envíe un alumno antes de que poida ver as entradas doutros alumnos.
 
-Nota: De requirir entradas antes da visualización, o filtro de autoligado da base de datos debería desactivarse. Isto é así porque o filtro de autoligado da base de datos non pode determinar cando un usuario enviou o número requirido de entradas.';
+Nota: De requirir entradas antes da vista previa, o filtro de autoligado da base de datos debería desactivarse. Isto é así porque o filtro de autoligado da base de datos non pode determinar cando un usuario enviou o número requirido de entradas.';
 $string['resetsettings'] = 'Reiniciar os filtros';
 $string['resettemplate'] = 'Reiniciar o modelo';
 $string['resizingimages'] = 'Redimensionando as miniaturas de imaxe...';

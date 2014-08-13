@@ -18,12 +18,12 @@ a:hover {text-decoration:underline;color:#FF0000;}
 /**
  * Headings
  */
-h1.main,
-h2.main,
-h3.main,
-h4.main,
-h5.main,
-h6.main {text-align:center;font-weight:bold;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {text-align:center;font-weight:bold;}
 
 th.header,
 td.header,
@@ -37,9 +37,16 @@ div.header,
 .informationbox,
 .noticebox,
 .tabledivider {border-color:#DDD;}
-.headingblock {border:1px solid #DDD;padding:5px;margin-top:0;}
-h2.headingblock {font-size:1.1em;}
-.headingblock .outline {border-color:#DDDDDD;}
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2 {border:1px solid #DDD;padding:5px;margin-top:0;}
+
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2,
+.navigationtitle,
 .header,
 .navbar {background-image:url([[pix:theme|hgradient]]);background-repeat: repeat-x;background-color:#e1e1df;}
 
@@ -219,6 +226,8 @@ form.popupform label {margin-right: 0.5em;}
 .mform .fitem fieldset.felement {margin-top:0;padding-top:0;margin-bottom:0;padding-bottom:0;}
 .mform .fpassword .unmask input {margin-left:5px;margin-right:3px;}
 #page-admin-register .mform .fsubmit {padding:20px;text-align:center;}
+.mform .btn-cancel {color: #0000ff;}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {color: #ff0000;}
 
 /**
  * Filters

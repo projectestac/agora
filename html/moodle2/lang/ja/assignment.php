@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,7 +46,7 @@ $string['assignmentmail'] = '{$a->teacher} があなたの提出課題「 {$a->a
 あなたの提出課題に追加されたフィードバックを閲覧することができます:
 
 {$a->url}';
-$string['assignmentmailhtml'] = '{$a->teacher} があなたの提出課題「 {$a->assignment} 」 に関するフィードバックを投稿しました。<br /><br />あなたの<a href="{$a->url}">提出課題</a>に追加されたフィードバックを閲覧することができます。';
+$string['assignmentmailhtml'] = '<p>{$a->teacher} があなたの提出課題「 {$a->assignment} 」 に関するフィードバックを投稿しました。</p><p>あなたの<a href="{$a->url}">提出課題</a>に追加されたフィードバックを閲覧することができます。</p>';
 $string['assignmentmailsmall'] = 'あなたが「 {$a->assignment} 」に提出した課題に {$a->teacher} がフィードバックを投稿しました。あなたの提出課題に付加されたコメントを閲覧することができます。';
 $string['assignmentname'] = '課題名';
 $string['assignmentsubmission'] = '提出課題';
@@ -85,8 +85,7 @@ $string['emailteachermail'] = '{$a->username} が「 {$a->assignment} 」の提�
 以下にて閲覧可能です:
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} が「 {$a->assignment} 」の提出課題を更新しました (更新日時: {$a->timeupdated} )。<br /><br />
-<a href="{$a->url}">ウェブサイトにて閲覧可能です</a>。';
+$string['emailteachermailhtml'] = '<p>{$a->username} が「 {$a->assignment} 」の提出課題を更新しました (更新日時: {$a->timeupdated} )。</p><p><a href="{$a->url}">ウェブサイトにて閲覧可能です</a>。</p>';
 $string['emailteachers'] = '教師にメール通知する';
 $string['emailteachers_help'] = '有効にした場合、学生が課題を提出または更新するといつでも短い通知メールが教師に送信されます。
 

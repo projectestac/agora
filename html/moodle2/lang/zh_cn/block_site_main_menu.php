@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_site_main_menu', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_site_main_menu', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_site_main_menu
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = '主菜单';
+$string['site_main_menu:addinstance'] = '新增主菜单版块';

@@ -33,7 +33,7 @@
  * @todo MDL-36050 improve capability check on stick blocks, so we can check user capability before sending images.
  */
 function block_html_pluginfile($course, $birecord_or_cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
-    global $DB, $CFG;
+    global $DB, $CFG, $USER;
 
     if ($context->contextlevel != CONTEXT_BLOCK) {
         send_file_not_found();
@@ -53,8 +53,11 @@ function block_html_pluginfile($course, $birecord_or_cm, $context, $filearea, $a
             if (!$category->visible) {
                 require_capability('moodle/category:viewhiddencategories', $parentcontext);
             }
+        } else if ($parentcontext->contextlevel === CONTEXT_USER && $parentcontext->instanceid != $USER->id) {
+            // The block is in the context of a user, it is only visible to the user who it belongs to.
+            send_file_not_found();
         }
-        // At this point there is no way to check SYSTEM or USER context, so ignoring it.
+        // At this point there is no way to check SYSTEM context, so ignoring it.
     }
 
     if ($filearea !== 'content') {
@@ -81,8 +84,10 @@ function block_html_pluginfile($course, $birecord_or_cm, $context, $filearea, $a
         $forcedownload = true;
     }
 
-    session_get_instance()->write_close();
-    send_stored_file($file, 60*60, 0, $forcedownload, $options);
+    // NOTE: it woudl be nice to have file revisions here, for now rely on standard file lifetime,
+    //       do not lower it because the files are dispalyed very often.
+    \core\session\manager::write_close();
+    send_stored_file($file, null, 0, $forcedownload, $options);
 }
 
 /**

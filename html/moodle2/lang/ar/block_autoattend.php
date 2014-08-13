@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_autoattend', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_autoattend', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   block_autoattend
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['Aacronymfull'] = 'كل الحضور';
 $string['about'] = 'حول';
 $string['acronym'] = 'الاختصار';
 $string['add'] = 'أضف';
@@ -92,7 +91,6 @@ $string['Dmethodfull'] = 'لم يُرصد';
 $string['downloadexcel'] = 'التحميل كملف إكسل';
 $string['downloadtext'] = 'التحميل كملف نصي';
 $string['Eacronym'] = 'عذ';
-$string['Eacronymfull'] = 'غياب بعذر';
 $string['editsession'] = 'تحرير المحاضرة';
 $string['endtime'] = 'وقت النهاية';
 $string['errorinaddingsession'] = 'حدث خطأ أثناء إضافة المحاضرة';
@@ -120,7 +118,6 @@ $string['keyerrattention'] = 'الكلمة المفتاحية للحضور غي�
 $string['keyerroccur'] = 'حدث خطأ في الكلمة المفتاحية للحضور.';
 $string['keyword'] = 'الكلمة المفتاحية';
 $string['Lacronym'] = 'ت';
-$string['Lacronymfull'] = 'متأخر';
 $string['minute'] = 'الدقيقة';
 $string['mismatchip'] = 'عنوان IP الخاص بك ليس من العناوين المسموح بها. عنوان IP الخاص بك هو';
 $string['mismatchkey'] = 'الكلمة المفتاحية غير متطابقة';
@@ -161,7 +158,6 @@ $string['Ostatefull'] = 'مفتوحة';
 $string['output_idnumber'] = 'إستخراج مُعرّفات الطلاب';
 $string['output_idnumber_desc'] = 'سيتم تضمين مُعرفات الطلاب في بيانات التحميل';
 $string['Pacronym'] = 'ح';
-$string['Pacronymfull'] = 'حاضر';
 $string['period'] = 'المدة';
 $string['pluginname'] = 'الحضور التلقائي';
 $string['refreshdata'] = 'تحديث';
@@ -238,7 +234,4 @@ $string['wiki_url'] = 'http://docs.moodle.org/25/en/Autoattendance_block';
 $string['wrongdatesselected'] = 'التاريخ المحدد خاطئ';
 $string['wrongtimesselected'] = 'الوقت المحدد خاطئ';
 $string['Xacronym'] = 'غ';
-$string['Xacronymfull'] = 'غائب';
 $string['Yacronym'] = 'ل';
-$string['Yacronymfull'] = 'لم تُرصد';
-$string['Zacronymfull'] = 'غائب أو لم ترصد';

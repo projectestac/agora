@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_multilangsecond', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'filter_multilangsecond', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_multilangsecond
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,3 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Mehrsprachiger Inhalt';
-$string['mode'] = 'HTML-Syntax nicht verwenden';
-$string['mode_desc'] = 'Wenn die HTML-Syntax nicht verwendet wird, kann folgender Texteintrag verwendet werden: {mlang en}English{mlang}{mlang bg}Bulgarian{mlang}. Die Auszeichnung erfolgt immer auf Absatzebene.
-Sonst wird das  lang="XX" Attribut für HTML Tags verwendet, um die Sprache zu identifieren:  &lt;p lang="en"&gt;English&lt;/p&gt;&lt;p lang="bg"&gt;Bulgarian&lt;/p&gt;.';

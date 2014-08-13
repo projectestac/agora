@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_status_tracker', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_status_tracker', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_status_tracker
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,6 @@ $string['module'] = 'Module';
 $string['name'] = 'Name';
 $string['pluginname'] = 'Course Status Tracker';
 $string['report_coursecompletion'] = 'Course Completion Report';
-$string['report_courseenrollment'] = 'Course Enrollment Report';
-$string['s_no'] = 'Serial No.';
+$string['report_courseenrollment'] = 'Course Enrolment Report';
+$string['s_no'] = 'Serial <abbr title="number">No.</abbr>';
 $string['undefined_coursecriteria'] = 'Undefined Course Criteria';

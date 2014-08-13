@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dataformfield_file', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'dataformfield_file', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dataformfield_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['alttext'] = 'Alt text';
 $string['clearcontent'] = 'Clear content';
+$string['filesseparator'] = 'Separator';
+$string['filesseparator_help'] = 'Select New line to display multiple files in separate lines.';
+$string['newline'] = 'New line';
 $string['pluginname'] = 'File';

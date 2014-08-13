@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignment', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignment', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   assignment
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,9 +46,8 @@ $string['assignmentmail'] = '{$a->teacher} a écrit un feedback concernant votre
 Vous pouvez le consulter en annexe à votre devoir :
 
 {$a->url}';
-$string['assignmentmailhtml'] = '{$a->teacher} a écrit un feedback concernant votre devoir rendu « <em>{$a->assignment}</em> »<br /><br />
-
-Vous pouvez le consulter en annexe à <a href=\'{$a->url}\'>votre devoir</a>.';
+$string['assignmentmailhtml'] = '<p>{$a->teacher} a écrit un feedback concernant votre devoir rendu « <em>{$a->assignment}</em> »</p>
+<p>Vous pouvez le consulter en annexe à <a href=\'{$a->url}\'>votre devoir</a>.</p>';
 $string['assignmentmailsmall'] = '{$a->teacher} a donné un feedback pour votre devoir remis « {$a->assignment} ». Vous pouvez le voir au-dessous de votre devoir remis';
 $string['assignmentname'] = 'Nom du devoir';
 $string['assignmentsubmission'] = 'Remises de devoirs';
@@ -75,7 +74,7 @@ $string['description'] = 'Description';
 $string['downloadall'] = 'Télécharger tous les devoirs en un fichier ZIP';
 $string['draft'] = 'Brouillon';
 $string['due'] = 'Délai de remise';
-$string['duedate'] = 'À rendre jusqu\'au';
+$string['duedate'] = 'À remettre jusqu\'au';
 $string['duedateno'] = 'Pas de date de retour';
 $string['early'] = 'En avance de {$a}';
 $string['editmysubmission'] = 'Modifier mon devoir';
@@ -87,7 +86,8 @@ $string['emailteachermail'] = '{$a->username} a modifié son travail remis pour 
 Ce travail est disponible ici :
 
 {$a->url}';
-$string['emailteachermailhtml'] = '{$a->username} a modifié son travail remis pour le devoir « <em>{$a->assignment}</em> » le {$a->timeupdated}.<br /><br />Le travail remis est <a href="{$a->url}">disponible sur le site web</a>.';
+$string['emailteachermailhtml'] = '<p>{$a->username} a modifié son travail remis pour le devoir « <em>{$a->assignment}</em> » le {$a->timeupdated}.</p>
+<p>Le travail remis est <a href="{$a->url}">disponible sur le site web</a>.</p>';
 $string['emailteachers'] = 'Envoyer aux enseignants les alertes par courriel';
 $string['emailteachers_help'] = 'Si cette option est activée, les enseignants reçoivent un bref message lorsque les étudiants ajoutent ou mettent à jour leur devoir en ligne.
 

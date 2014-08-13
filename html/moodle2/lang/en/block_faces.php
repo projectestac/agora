@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_faces', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_faces', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_faces
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,8 +31,10 @@ $string['faces'] = 'Faces';
 $string['faces:addinstance'] = 'Faces';
 $string['faces:myaddinstance'] = 'Faces';
 $string['faces:view'] = 'View';
+$string['filter'] = 'Filter';
 $string['firstname'] = 'First Name';
 $string['lastname'] = 'Last Name';
+$string['orderby'] = 'Order By';
 $string['pluginname'] = 'Faces';
 $string['print'] = 'Print Faces';
 $string['showallfaces'] = 'Show All Faces';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_mr', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_mr', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   local_mr
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,6 +46,14 @@ $string['oneday'] = '1 day';
 $string['onemonth'] = '1 month';
 $string['oneweek'] = '1 week';
 $string['oneyear'] = '1 year';
+$string['paginatorfirstlabel'] = 'first';
+$string['paginatorfirsttitle'] = 'First Page';
+$string['paginatorlastlabel'] = 'last';
+$string['paginatorlasttitle'] = 'Last Page';
+$string['paginatornextlabel'] = 'next';
+$string['paginatornexttitle'] = 'Next Page';
+$string['paginatorprevlabel'] = 'prev';
+$string['paginatorprevtitle'] = 'Previous Page';
 $string['pluginname'] = 'Moodlerooms Framework';
 $string['plugin-spreadsheet/excel'] = 'XLS';
 $string['plugin-spreadsheet/ods'] = 'ODS';
@@ -57,6 +65,8 @@ $string['reportsql'] = 'Report SQL';
 $string['reset'] = 'Reset';
 $string['rowsperpage'] = 'Rows per page';
 $string['standard'] = 'Standard';
+$string['tablesortedbyasc'] = 'Table sorted by {$a}, ascending.';
+$string['tablesortedbydesc'] = 'Table sorted by {$a}, descending.';
 $string['toomanyrows'] = 'The report would return {$a->total} rows, which is greater than the maximum allowed amount of {$a->max}.  If a filter is available, please use it to reduce the number of results.';
 $string['updatedactivity'] = 'Updated {$a->modname} by {$a->fullname}';
 $string['xdays'] = '{$a} days';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_masonry', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_masonry', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   format_masonry
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,8 @@ $string['colordisplay'] = 'Section background color';
 $string['colordisplay_help'] = '<ul><li>white</li><li>#FFF</li><li>#FFFFFF</li><li>rgb(200, 54, 54)</li><li>rgba(200, 54, 54, 0.2)</li>
 <li>transparent</li><li>currentColor</li><li>hsl(207,38%,47%)</li><li>hsla(207,38%,47%,0.8)<li>...</li></ul>';
 $string['currentsection'] = 'Current section';
+$string['defaultbordercolor'] = 'Default border color';
+$string['defaultbordercolordesc'] = 'The default border color.';
 $string['defaultcolor'] = 'Default background color';
 $string['defaultcolordesc'] = 'The default background color for the section.';
 $string['hidefromothers'] = 'Hide Topic';
@@ -39,6 +41,7 @@ $string['maximagesize'] = 'Maximum image size';
 $string['maximagesizedesc'] = 'The maximum size (in bytes) for the button images';
 $string['package'] = 'Masonry Topics';
 $string['pluginname'] = 'Masonry Topics format';
+$string['resetcolor'] = 'Reset color';
 $string['section0name'] = 'General';
 $string['sectionname'] = 'Topic';
 $string['showalltopics'] = 'Show all topics';

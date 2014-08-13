@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_myprofile', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_myprofile', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_myprofile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,5 +44,7 @@ $string['display_picture'] = '显示头像';
 $string['display_skype'] = '显示Skype';
 $string['display_un'] = '显示姓名';
 $string['display_yahoo'] = '显示Yahoo';
+$string['myprofile:addinstance'] = '新增已登录用户版块';
+$string['myprofile:myaddinstance'] = '在我的首页新增已登录用户版块';
 $string['myprofile_settings'] = '用户公开信息';
 $string['pluginname'] = '已登录用户';

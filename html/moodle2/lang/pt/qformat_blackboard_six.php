@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_blackboard_six
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,11 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['defaultname'] = 'Pergunta importada {$a}';
 $string['errormanifest'] = 'Erro durante a leitura do manifesto IMS';
-$string['filenothandled'] = 'Este arquivo contém referência a um material de ficheiro {$a} que de momento não é aceite na importação';
+$string['filenothandled'] = 'Este arquivo contém referência a um material de ficheiro {$a} que de momento não é aceite pela importação';
 $string['imagenotfound'] = 'O ficheiro de imagem {$a} não foi encontrado na importação.';
+$string['importedcategory'] = 'Categoria importada {$a}';
 $string['importnotext'] = 'Falta texto da pergunta no ficheiro XML';
 $string['notenoughtsubans'] = 'Não foi possível importar a pergunta de correspondência \'{$a}\' porque uma pergunta deste tipo deve conter pelo menos duas perguntas e três respostas.';
-$string['pluginname'] = 'Blackboard V6+';
-$string['pluginname_help'] = 'O formato Blackboard V6 + permite importar em formato zip ou dat perguntas gravadas em qualquer formato de exportação Blackboard. Nos ficheiros zip é suportada a importação de imagens.';
+$string['pluginname'] = 'Blackboard';
+$string['pluginname_help'] = 'O formato Blackboard permite importar, em ficheiro no formato ZIP ou dat, perguntas gravadas em qualquer formato de exportação Blackboard. Para os ficheiros ZIP, a importação de imagens é suportada.';
 $string['unhandledpresblock'] = 'Bloco de apresentação não aceite';
-$string['unknownorunhandledtype'] = 'Tipo de questão não previsto ou des conhecido: {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -45,10 +45,13 @@ $string['deleteblock'] = 'Eliminar bloque {$a}';
 $string['deleteblockcheck'] = '¿Seguro que desea eliminar el bloque {$a}?';
 $string['deleteblockwarning'] = '<p> Está a punto de borrar un bloque que aparece en otra parte. </p><p> La ubicación original del bloque es: {$a->location} <br /> Mostrar el tipo de página: {$a->pagetype} </p><p> ¿Está seguro que desea continuar? </p>';
 $string['deletecheck'] = '¿Eliminar el bloque {$a}?';
+$string['dockblock'] = 'Acoplar bloque {$a}';
 $string['hideblock'] = 'Ocultar bloque {$a}';
 $string['hidedockpanel'] = 'Esconder el panel desacoplado';
 $string['hidepanel'] = 'Esconder panel';
 $string['moveblock'] = 'Mover bloque {$a}';
+$string['moveblockafter'] = 'Mover bloque detrás del bloque {$a}';
+$string['moveblockbefore'] = 'Mover bloque delante del bloque {$a}';
 $string['moveblockhere'] = 'Mover el bloque aquí';
 $string['movingthisblockcancel'] = 'Moviendo este bloque ({$a})';
 $string['onthispage'] = 'En esta página';
@@ -65,6 +68,7 @@ $string['showonfrontpageonly'] = 'Mostrar sólo en la página principal';
 $string['subpages'] = 'Seleccionar páginas';
 $string['thisspecificpage'] = 'Esta página específica';
 $string['undockall'] = 'Desacoplar todo';
+$string['undockblock'] = 'Desacoplar bloque {$a}';
 $string['undockitem'] = 'Desacoplar este ítem';
 $string['visible'] = 'Visible';
 $string['weight'] = 'Peso';

@@ -113,9 +113,11 @@ class moodle1_mod_resource_handler extends moodle1_mod_handler {
             // use the version of the successor instead of the current mod/resource
             // beware - the version.php declares info via $module object, do not use
             // a variable of such name here
-            $module = new stdClass();
+            $plugin = new stdClass();
+            $plugin->version = null;
+            $module = $plugin;
             include $CFG->dirroot.'/mod/'.$successor->get_modname().'/version.php';
-            $cminfo['version'] = $module->version;
+            $cminfo['version'] = $plugin->version;
 
             // stash the new course module information for this successor
             $cminfo['modulename'] = $successor->get_modname();
@@ -145,7 +147,7 @@ class moodle1_mod_resource_handler extends moodle1_mod_handler {
         $resource['timemodified']    = $data['timemodified'];
 
         // populate display and displayoptions fields
-        $options = array('printheading' => 0, 'printintro' => 1);
+        $options = array('printintro' => 1);
         if ($data['options'] == 'frame') {
             $resource['display'] = RESOURCELIB_DISPLAY_FRAME;
 

@@ -30,7 +30,7 @@ require_once($CFG->dirroot . '/enrol/externallib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since Moodle 2.4
  */
-class core_enrol_external_testcase extends externallib_advanced_testcase {
+class core_enrol_externallib_testcase extends externallib_advanced_testcase {
 
     /**
      * Test get_enrolled_users
@@ -43,6 +43,8 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
         $course = self::getDataGenerator()->create_course();
         $user1 = self::getDataGenerator()->create_user();
         $user2 = self::getDataGenerator()->create_user();
+        $user3 = self::getDataGenerator()->create_user();
+        $this->setUser($user3);
 
         // Set the required capabilities by the external function.
         $context = context_course::instance($course->id);
@@ -50,18 +52,9 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
         $this->assignUserCapability('moodle/user:viewdetails', $context->id, $roleid);
 
         // Enrol the users in the course.
-        // We use the manual plugin.
-        $enrol = enrol_get_plugin('manual');
-        $enrolinstances = enrol_get_instances($course->id, true);
-        foreach ($enrolinstances as $courseenrolinstance) {
-            if ($courseenrolinstance->enrol == "manual") {
-                $instance = $courseenrolinstance;
-                break;
-            }
-        }
-        $enrol->enrol_user($instance, $user1->id, $roleid);
-        $enrol->enrol_user($instance, $user2->id, $roleid);
-        $enrol->enrol_user($instance, $USER->id, $roleid);
+        $this->getDataGenerator()->enrol_user($user1->id, $course->id, $roleid, 'manual');
+        $this->getDataGenerator()->enrol_user($user2->id, $course->id, $roleid, 'manual');
+        $this->getDataGenerator()->enrol_user($user3->id, $course->id, $roleid, 'manual');
 
         // Call the external function.
         $enrolledusers = core_enrol_external::get_enrolled_users($course->id);
@@ -69,8 +62,25 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
         // We need to execute the return values cleaning process to simulate the web service server.
         $enrolledusers = external_api::clean_returnvalue(core_enrol_external::get_enrolled_users_returns(), $enrolledusers);
 
-        // Check we retrieve the good total number of enrolled users.
+        // Check the result set.
         $this->assertEquals(3, count($enrolledusers));
+        $this->assertArrayHasKey('email', $enrolledusers[0]);
+
+        // Call the function with some parameters set.
+        $enrolledusers = core_enrol_external::get_enrolled_users($course->id, array(
+            array('name' => 'limitfrom', 'value' => 2),
+            array('name' => 'limitnumber', 'value' => 1),
+            array('name' => 'userfields', 'value' => 'id')
+        ));
+
+        // We need to execute the return values cleaning process to simulate the web service server.
+        $enrolledusers = external_api::clean_returnvalue(core_enrol_external::get_enrolled_users_returns(), $enrolledusers);
+
+        // Check the result set, we should only get the 3rd result, which is $user3.
+        $this->assertCount(1, $enrolledusers);
+        $this->assertEquals($user3->id, $enrolledusers[0]['id']);
+        $this->assertArrayHasKey('id', $enrolledusers[0]);
+        $this->assertArrayNotHasKey('email', $enrolledusers[0]);
 
         // Call without required capability.
         $this->unassignUserCapability('moodle/course:viewparticipants', $context->id, $roleid);
@@ -92,21 +102,13 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
 
         // Enrol $USER in the courses.
         // We use the manual plugin.
-        $enrol = enrol_get_plugin('manual');
         $roleid = null;
         foreach ($courses as $course) {
             $context = context_course::instance($course->id);
             $roleid = $this->assignUserCapability('moodle/course:viewparticipants',
                     $context->id, $roleid);
 
-            $enrolinstances = enrol_get_instances($course->id, true);
-            foreach ($enrolinstances as $courseenrolinstance) {
-                if ($courseenrolinstance->enrol == "manual") {
-                    $instance = $courseenrolinstance;
-                    break;
-                }
-            }
-            $enrol->enrol_user($instance, $USER->id, $roleid);
+            $this->getDataGenerator()->enrol_user($USER->id, $course->id, $roleid, 'manual');
         }
 
         // Call the external function.
@@ -127,6 +129,8 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
 
         $this->resetAfterTest(true);
 
+        $user1 = $this->getDataGenerator()->create_user();
+
         $coursedata['idnumber'] = 'idnumbercourse1';
         $coursedata['fullname'] = 'Lightwork Course 1';
         $coursedata['summary'] = 'Lightwork Course 1 description';
@@ -139,14 +143,20 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
         $manual_enrol_data['courseid'] = $course1->id;
         $enrolid = $DB->insert_record('enrol', $manual_enrol_data);
 
-        // Create the user and give them capabilities in the course context.
+        // Create the users and give them capabilities in the course context.
         $context = context_course::instance($course1->id);
         $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
 
-        // Create a student.
-        $student1  = self::getDataGenerator()->create_user();
+        // Create 2 students.
+        $student1 = self::getDataGenerator()->create_user();
+        $student2 = self::getDataGenerator()->create_user();
 
-        // Enrol both the user and the student in the course.
+        // Give the capability to student2.
+        assign_capability('moodle/course:viewparticipants', CAP_ALLOW, 3, $context->id);
+        role_assign(3, $student2->id, $context->id);
+        accesslib_clear_all_caches_for_unit_testing();
+
+        // Enrol both the user and the students in the course.
         $user_enrolment_data['status'] = 0;
         $user_enrolment_data['enrolid'] = $enrolid;
         $user_enrolment_data['userid'] = $USER->id;
@@ -157,8 +167,13 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
         $user_enrolment_data['userid'] = $student1->id;
         $DB->insert_record('user_enrolments', $user_enrolment_data);
 
-        $params = array("coursecapabilities" =>array
-        ('courseid' => $course1->id, 'capabilities' => array('moodle/course:viewparticipants')));
+        $user_enrolment_data['status'] = 0;
+        $user_enrolment_data['enrolid'] = $enrolid;
+        $user_enrolment_data['userid'] = $student2->id;
+        $DB->insert_record('user_enrolments', $user_enrolment_data);
+
+        $params = array("coursecapabilities" => array('courseid' => $course1->id,
+            'capabilities' => array('moodle/course:viewparticipants')));
         $options = array();
         $result = core_enrol_external::get_enrolled_users_with_capability($params, $options);
 
@@ -169,106 +184,92 @@ class core_enrol_external_testcase extends externallib_advanced_testcase {
         $expecteduserlist = $result[0];
         $this->assertEquals($course1->id, $expecteduserlist['courseid']);
         $this->assertEquals('moodle/course:viewparticipants', $expecteduserlist['capability']);
-        $this->assertEquals(1, count($expecteduserlist['users']));
+        $this->assertEquals(2, count($expecteduserlist['users']));
 
+        // Now doing the query again with options.
+        $params = array(
+            "coursecapabilities" => array(
+                'courseid' => $course1->id,
+                'capabilities' => array('moodle/course:viewparticipants')
+            )
+        );
+        $options = array(
+            array('name' => 'limitfrom', 'value' => 1),
+            array('name' => 'limitnumber', 'value' => 1),
+            array('name' => 'userfields', 'value' => 'id')
+        );
+
+        $result = core_enrol_external::get_enrolled_users_with_capability($params, $options);
+
+        // We need to execute the return values cleaning process to simulate the web service server.
+        $result = external_api::clean_returnvalue(core_enrol_external::get_enrolled_users_with_capability_returns(), $result);
+
+        // Check an array containing the expected user for the course capability is returned.
+        $expecteduserlist = $result[0]['users'];
+        $expecteduser = reset($expecteduserlist);
+        $this->assertEquals(1, count($expecteduserlist));
+        $this->assertEquals($student2->id, $expecteduser['id']);
     }
-}
-
-/**
- * Role external PHPunit tests
- *
- * @package    core_enrol
- * @category   external
- * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.4
- */
-class core_role_external_testcase extends externallib_advanced_testcase {
 
     /**
-     * Tests set up
+     * Test get_course_enrolment_methods
      */
-    protected function setUp() {
-        global $CFG;
-        require_once($CFG->dirroot . '/enrol/externallib.php');
-    }
-
-    /**
-     * Test assign_roles
-     */
-    public function test_assign_roles() {
-        global $USER;
+    public function test_get_course_enrolment_methods() {
+        global $DB;
 
         $this->resetAfterTest(true);
 
-        $course = self::getDataGenerator()->create_course();
+        // Get enrolment plugins.
+        $selfplugin = enrol_get_plugin('self');
+        $this->assertNotEmpty($selfplugin);
+        $manualplugin = enrol_get_plugin('manual');
+        $this->assertNotEmpty($manualplugin);
 
-        // Set the required capabilities by the external function.
-        $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/role:assign', $context->id);
-        $this->assignUserCapability('moodle/course:view', $context->id, $roleid);
+        $studentrole = $DB->get_record('role', array('shortname'=>'student'));
+        $this->assertNotEmpty($studentrole);
 
-        // Add manager role to $USER.
-        // So $USER is allowed to assign 'manager', 'editingteacher', 'teacher' and 'student'.
-        role_assign(1, $USER->id, context_system::instance()->id);
+        $course1 = self::getDataGenerator()->create_course();
+        $course2 = self::getDataGenerator()->create_course();
 
-        // Check the teacher role has not been assigned to $USER.
-        $users = get_role_users(3, $context);
-        $this->assertEquals(count($users), 0);
+        // Add enrolment methods for course.
+        $instanceid1 = $selfplugin->add_instance($course1, array('status' => ENROL_INSTANCE_ENABLED,
+                                                                'name' => 'Test instance 1',
+                                                                'customint6' => 1,
+                                                                'roleid' => $studentrole->id));
+        $instanceid2 = $selfplugin->add_instance($course1, array('status' => ENROL_INSTANCE_DISABLED,
+                                                                'name' => 'Test instance 2',
+                                                                'roleid' => $studentrole->id));
 
-        // Call the external function. Assign teacher role to $USER.
-        core_role_external::assign_roles(array(
-            array('roleid' => 3, 'userid' => $USER->id, 'contextid' => $context->id)));
+        $instanceid3 = $manualplugin->add_instance($course1, array('status' => ENROL_INSTANCE_ENABLED,
+                                                                'name' => 'Test instance 3'));
 
-        // Check the role has been assigned.
-        $users = get_role_users(3, $context);
-        $this->assertEquals(count($users), 1);
+        $enrolmentmethods = $DB->get_records('enrol', array('courseid' => $course1->id, 'status' => ENROL_INSTANCE_ENABLED));
+        $this->assertCount(2, $enrolmentmethods);
 
-        // Call without required capability.
-        $this->unassignUserCapability('moodle/role:assign', $context->id, $roleid);
-        $this->setExpectedException('moodle_exception');
-        $categories = core_role_external::assign_roles(
-            array('roleid' => 3, 'userid' => $USER->id, 'contextid' => $context->id));
-    }
+        // Check if information is returned.
+        $enrolmentmethods = core_enrol_external::get_course_enrolment_methods($course1->id);
+        // Enrolment information is currently returned by self enrolment plugin, so count == 1.
+        // This should be changed as we implement get_enrol_info() for other enrolment plugins.
+        $this->assertCount(1, $enrolmentmethods);
 
-    /**
-     * Test unassign_roles
-     */
-    public function test_unassign_roles() {
-        global $USER;
+        $enrolmentmethod = $enrolmentmethods[0];
+        $this->assertEquals($course1->id, $enrolmentmethod['courseid']);
+        $this->assertEquals('self', $enrolmentmethod['type']);
+        $this->assertTrue($enrolmentmethod['status']);
+        $this->assertFalse(isset($enrolmentmethod['wsfunction']));
 
-        $this->resetAfterTest(true);
+        $instanceid4 = $selfplugin->add_instance($course2, array('status' => ENROL_INSTANCE_ENABLED,
+                                                                'name' => 'Test instance 4',
+                                                                'roleid' => $studentrole->id,
+                                                                'customint6' => 1,
+                                                                'password' => 'test'));
+        $enrolmentmethods = core_enrol_external::get_course_enrolment_methods($course2->id);
+        $this->assertCount(1, $enrolmentmethods);
 
-        $course = self::getDataGenerator()->create_course();
-
-        // Set the required capabilities by the external function.
-        $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/role:assign', $context->id);
-        $this->assignUserCapability('moodle/course:view', $context->id, $roleid);
-
-        // Add manager role to $USER.
-        // So $USER is allowed to assign 'manager', 'editingteacher', 'teacher' and 'student'.
-        role_assign(1, $USER->id, context_system::instance()->id);
-
-        // Add teacher role to $USER on course context.
-        role_assign(3, $USER->id, $context->id);
-
-        // Check the teacher role has been assigned to $USER on course context.
-        $users = get_role_users(3, $context);
-        $this->assertEquals(count($users), 1);
-
-        // Call the external function. Assign teacher role to $USER.
-        core_role_external::unassign_roles(array(
-            array('roleid' => 3, 'userid' => $USER->id, 'contextid' => $context->id)));
-
-        // Check the role has been unassigned on course context.
-        $users = get_role_users(3, $context);
-        $this->assertEquals(count($users), 0);
-
-        // Call without required capability.
-        $this->unassignUserCapability('moodle/role:assign', $context->id, $roleid);
-        $this->setExpectedException('moodle_exception');
-        $categories = core_role_external::unassign_roles(
-            array('roleid' => 3, 'userid' => $USER->id, 'contextid' => $context->id));
+        $enrolmentmethod = $enrolmentmethods[0];
+        $this->assertEquals($course2->id, $enrolmentmethod['courseid']);
+        $this->assertEquals('self', $enrolmentmethod['type']);
+        $this->assertTrue($enrolmentmethod['status']);
+        $this->assertEquals('enrol_self_get_instance_info', $enrolmentmethod['wsfunction']);
     }
 }

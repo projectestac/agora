@@ -11,7 +11,7 @@ class com_wiris_quizzes_impl_ResultGetCheckAssertions extends com_wiris_quizzes_
 	public function onSerialize($s) {
 		$s->beginTag(com_wiris_quizzes_impl_ResultGetCheckAssertions::$tagName);
 		$this->onSerializeInner($s);
-		$this->checks = $s->serializeArray($this->checks, com_wiris_quizzes_impl_AssertionCheck::$tagName);
+		$this->checks = $s->serializeArray($this->checks, com_wiris_quizzes_impl_AssertionCheckImpl::$tagName);
 		$s->endTag();
 	}
 	public $checks;

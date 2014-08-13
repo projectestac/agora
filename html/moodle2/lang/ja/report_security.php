@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -91,15 +91,6 @@ $string['check_passwordpolicy_details'] = '<p>非常に多くの場合、不正�
 $string['check_passwordpolicy_error'] = 'パスワードポリシーが設定されていません。';
 $string['check_passwordpolicy_name'] = 'パスワードポリシー';
 $string['check_passwordpolicy_ok'] = 'パスワードポリシーが有効にされています。';
-$string['check_passwordsaltmain_details'] = '<p>パスワードSALTを設定することにより、パスワード盗難のリスクを大幅に減らすことができます。</p>
-<p>パスワードSALTを設定するには、あなたのconfig.phpファイルに次の行を追加してください: </p>
-<code>$CFG->passwordsaltmain = \'ここに沢山の半角文字を使って、ランダムな文字列を記述してください\';</code>
-<p>ランダム文字列は、数字および他の文字を混ぜた形で記述してください。ストリング長は、少なくとも40文字を推奨します。</p>
-<p>あなたがパスワードSALTを変更したい場合、<a href="http://docs.moodle.org/en/Password_salting" target="_blank">パスワードSALTドキュメンテーション</a>をご覧ください。一旦設定した場合、あなたのパスワードSALTを削除しないでください。パスワードSALTを削除した場合、あなたのサイトにログインできないようになります! </p>';
-$string['check_passwordsaltmain_name'] = 'パスワードSALT';
-$string['check_passwordsaltmain_ok'] = 'パスワードSALTは、OKです。';
-$string['check_passwordsaltmain_warning'] = 'パスワードSALTは、設定されていません。';
-$string['check_passwordsaltmain_weak'] = 'パスワードSALTの強度が不足しています。';
 $string['check_riskadmin_detailsok'] = '<p>以下の管理者リストを確認してください:</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>以下のシステム管理者リストを確認してください。:</p>{$a->admins}
 <p>システムコンテクストのみへの管理者ロール割り当てをお勧めします。以下のユーザは、サポートされない管理者ロールが他のコンテクスト内で割り当てられています:</p>{$a->unsupported}';

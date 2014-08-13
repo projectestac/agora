@@ -114,6 +114,8 @@ YUI.add('moodle-enrol-rolemanager', function(Y) {
                 event.detach();
                 var s = M.str.role, confirmation = {
                     lightbox :  true,
+                    visible  :  true,
+                    centered :  true,
                     title    :  s.confirmunassigntitle,
                     question :  s.confirmunassign,
                     yesLabel :  s.confirmunassignyes,
@@ -381,7 +383,11 @@ YUI.add('moodle-enrol-rolemanager', function(Y) {
             var roles = this.user.get(CONTAINER).one('.col_role .roles');
             var x = roles.getX() + 10;
             var y = roles.getY() + this.user.get(CONTAINER).get('offsetHeight') - 10;
-            this.get('elementNode').setStyle('left', x).setStyle('top', y);
+            if ( Y.one(document.body).hasClass('dir-rtl') ) {
+                this.get('elementNode').setStyle('right', x - 20).setStyle('top', y);
+            } else {
+                this.get('elementNode').setStyle('left', x).setStyle('top', y);
+            }
             this.get('elementNode').addClass('visible');
             this.escCloseEvent = Y.on('key', this.hide, document.body, 'down:27', this);
             this.displayed = true;

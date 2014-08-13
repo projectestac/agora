@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'openmeetings', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'openmeetings', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   openmeetings
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,6 +37,9 @@ $string['Moderation_TYPE_1'] = 'Participants need to wait till the teacher enter
 $string['Moderation_TYPE_2'] = 'Participants can already start (first User in room becomes moderator)';
 $string['Moderation_TYPE_3'] = 'Every participant is automatically moderator when he/she enters the room';
 $string['modulename'] = 'OpenMeetings';
+$string['modulename_help'] = 'OpenMeetings is a free browser-based software that allows you to set up instantly a conference in the Web. You can use your microphone and/or webcam, share documents on a white board, share your screen or record meetings.
+<br><br>This Moodle plugin uses Apache OpenMeetings.
+<br>You need your own Apache OpenMeetings instance running.<br><br>For more information see: <a href="http://openmeetings.apache.org">http://openmeetings.apache.org</a>';
 $string['modulenameplural'] = 'OpenMeetings';
 $string['openmeetings'] = 'openmeetings';
 $string['openmeetings:addinstance'] = 'Add instance of Openmeetings';
@@ -45,6 +48,8 @@ $string['openmeetingsAdminUserPass'] = 'OpenMeetings Admin User Password';
 $string['openmeetings:becomemoderator'] = 'Become moderator in an Openmeetings Room';
 $string['openmeetingsModuleKey'] = 'Advanced setting: OpenMeetings Module key (vary for multiple instances using same OpenMeetings Server)';
 $string['openmeetingsModuleKeyLabel'] = 'Module Key';
+$string['openmeetingsProtocol'] = 'Protocol';
+$string['openmeetingsProtocolDescription'] = 'Protocol to be used while constructing Openmeetings URLs (default: http)';
 $string['openmeetingsWebappnameDescription'] = 'Advanced setting: If you have renamed the OpenMeetings webapp you can enter your alternative name here.';
 $string['openmeetingsWebappnameLabel'] = 'OpenMeetings webapp name';
 $string['pluginadministration'] = 'OpenMeetings Administration';
@@ -64,3 +69,6 @@ $string['Wait_for_teacher'] = 'Moderation modus';
 $string['whiteboardfieldset'] = 'Custom example fieldset';
 $string['whiteboardintro'] = 'OpenMeetings Intro';
 $string['whiteboardname'] = 'Conference Name';
+$string['whole_window'] = 'Occupy the entire window';
+$string['whole_window_type_1'] = 'Display in frame';
+$string['whole_window_type_2'] = 'Occupy the entire window';

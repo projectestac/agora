@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'install', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -54,88 +54,11 @@ $string['configurationcomplete'] = 'S\'ha completat la configuració';
 $string['configurationcompletehead'] = 'S\'ha completat la configuració';
 $string['configurationcompletesub'] = 'Moodle ha intentat desar la configuració en un fitxer en l\'arrel de la vostra instal·lació de Moodle.';
 $string['database'] = 'Base de dades';
-$string['databasecreationsettings'] = 'Ara cal configurar els paràmetres de la base de dades on s\'emmagatzemarà la majoria de dades de Moodle. L\'instal·lador crearà automàticament aquesta base de dades amb els paràmetres que especifiqueu aquí.<br /><br /><br />
-<b>Tipus:</b> mysql (determinat per l\'instal·lador).<br />
-<b>Servidor:</b> localhost (determinat per l\'instal·lador.<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle.<br />
-<b>Usuari:</b> root (determinat per l\'instal·lador).<br />
-<b>Contrasenya</b>: la vostra contrasenya per a la base de dades.<br />
-<b>Prefix de les taules:</b>: prefix opcional per als noms de les taules.';
-$string['databasecreationsettingshead'] = 'Ara cal configurar els paràmetres de la base de dades on s\'emmagatzemarà la majoria de dades de Moodle. L\'instal·lador crearà automàticament aquesta base de dades amb els paràmetres que especifiqueu aquí.';
-$string['databasecreationsettingssub'] = '<b>Tipus:</b> fixat a "mysql" per l\'instal·lador<br />
-<b>Servidor:</b> fixat a "localhost" per l\'instal·lador<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> fixat a "root" per l\'instal·lador<br />
-<b>Contrasenya:</b> la contrasenya de l\'usuari "root" de la base de dades<br />
-<b>Prefix de les taules:</b> prefix opcional per utilitzar en els noms de totes les taules';
-$string['databasecreationsettingssub2'] = '<b>Tipus:</b> fixat a "mysqli" per l\'instal·lador<br />
-       <b>Servidor:</b> fixat a "localhost" per l\'instal·lador<br />
-       <b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-       <b>Usuari:</b> fixat a "root" per l\'instal·lador<br />
-       <b>Contrasenya:</b> la contrasenya de la base de dades<br />
-       <b>Prefix de taules:</b> prefix opcional per als noms de totes les taules';
 $string['databasehead'] = 'Paràmetres de la base de dades';
 $string['databasehost'] = 'Servidor de base de dades:';
 $string['databasename'] = 'Nom de la base de dades:';
 $string['databasepass'] = 'Contrasenya de la base de dades:';
-$string['databasesettings'] = 'Ara cal configurar la base de dades on s\'emmagatzemarà la majoria de dades de Moodle. Aquesta base de dades s\'ha d\'haver creat abans i cal tenir un nom d\'usuari i una contrasenya per accedir-hi.<br />
-<br /> <br />
-<b>Tipus:</b> mysql o postgres7<br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> nom de l\'usuari de la base de dades<br />
-<b>Contrasenya:</b> contrasenya de l\'usuari de la base de dades<br />
-<b>Prefix de les taules:</b> prefix opcional per utilitzar en els noms de totes les taules';
-$string['databasesettingshead'] = 'Ara cal configurar la base de dades on s\'emmagatzemarà la majoria de dades de Moodle. Aquesta base de dades s\'ha d\'haver creat abans i cal tenir un nom d\'usuari i una contrasenya per accedir-hi.';
-$string['databasesettingssub'] = '<b>Tipus:</b> mysql o postgres7<br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> nom de l\'usuari de la base de dades<br />
-<b>Contrasenya:</b> contrasenya de l\'usuari de la base de dades<br />
-<b>Prefix de les taules:</b> prefix opcional per utilitzar en els noms de totes les taules';
-$string['databasesettingssub_mssql'] = '<b>Tipus:</b> SQL*Server (no UTF-8) <b><strong  class="errormsg">Experimental! (no per a utilitzar en producció)</strong></b><br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (obligatori)';
-$string['databasesettingssub_mssql_n'] = '<b>Tipus:</b> SQL*Server (UTF-8 habilitat)<br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (obligatori)';
-$string['databasesettingssub_mysql'] = '<b>Tipus:</b> MySQL<br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (opcional)';
-$string['databasesettingssub_mysqli'] = '<b>Tipus:</b> MySQL Improved<br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (opcional)';
-$string['databasesettingssub_oci8po'] = '<b>Tipus:</b> Oracle<br />
-<b>Servidor:</b> no utilitzat, s\'ha de deixar en blanc<br />
-<b>Nom:</b> nom de la connexió tnsnames.ora<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (obligatori, màxim 2 caràcters)';
-$string['databasesettingssub_odbc_mssql'] = '<b>Tipus:</b> SQL*Server (sobre ODBC) <b><strong  class="errormsg">Experimental! (no per a utilitzar en producció)</strong></b><br />
-<b>Servidor:</b> nom del DSN al tauler de control de l\'ODBC<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (obligatori)';
-$string['databasesettingssub_postgres7'] = '<b>Tipus:</b> PostgreSQL<br />
-<b>Servidor:</b> p. ex. localhost o db.isp.com<br />
-<b>Nom:</b> nom de la base de dades, p. ex. moodle<br />
-<b>Usuari:</b> el vostre nom d\'usuari de la base de dades<br />
-<b>Contrasenya:</b> la vostra contrasenya de la base de dades<br />
-<b>Prefix de les taules:</b> prefix que cal anteposar als noms de totes les taules (obligatori)';
-$string['databasesettingswillbecreated'] = '<strong>Nota</strong >: l\'instal·lador intentarà crear automàticament la base de dades si no existeix.';
+$string['databaseport'] = 'Port de la base de dades';
 $string['databasesocket'] = 'Sòcol Unix';
 $string['databasetypehead'] = 'Trieu el controlador de la base de dades';
 $string['databasetypesub'] = 'Moodle funciona amb diversos tipus de servidors de base de dades. Contacteu amb l\'administrador de la base de dades si no sabeu quin tipus heu d\'utilitzar.';
@@ -151,10 +74,6 @@ $string['dbpass'] = 'Contrasenya';
 $string['dbport'] = 'Port';
 $string['dbprefix'] = 'Prefix de taules';
 $string['dbtype'] = 'Tipus';
-$string['dbwrongencoding'] = 'La base de dades que heu seleccionat està funcionant amb una codificació ({$a}) no recomanada. Seria millor utilitzar una base de dades amb codificació Unicode (UTF-8). De totes maneres, podeu deixar de banda aquesta prova si seleccioneu més avall "Omet la prova de codificació de la base de dades", però podríeu experimentar problemes en el futur.';
-$string['dbwronghostserver'] = 'Heu de seguir les regles referents al servidor, exposades més amunt.';
-$string['dbwrongnlslang'] = 'La variable d\'entorn NLS_LANG del vostre servidor web ha d\'utilitzar el joc de caràcters AL32UTF8. Consulteu la documentació de PHP sobre la configuració correcta d\'OCI8.';
-$string['dbwrongprefix'] = 'Heu de seguir les regles referents al prefix de les taules, exposades més amunt.';
 $string['directorysettings'] = '<p>Confirmeu les ubicacions d\'aquesta instal·lació de Moodle.</p>
 
 <p><b>Adreça web:</b>
@@ -195,25 +114,6 @@ $string['fileuploadshelp'] = '<p>Sembla que la càrrega de fitxers està inhabil
 <p>Moodle es pot instal·lar igualment, però sense aquesta capacitat no podreu penjar fitxers als cursos o imatges dels usuaris.</p>
 
 <p>Per habilitar la càrrega de fitxers cal editar el fitxer php.ini principal del sistema i posar el paràmetre <b>file_uploads</b> a \'1\'.</p>';
-$string['gdversion'] = 'Versió GD';
-$string['gdversionerror'] = 'La biblioteca GD hauria d\'estar present per processar i crear imatges';
-$string['gdversionhelp'] = '<p>Sembla que el vostre servidor no té instal·lat el GD.</p>
-
-<p>GD és una biblioteca requerida pel PHP per tal que Moodle pugui processar imatges (p. ex. les icones dels perfils d\'usuari) i crear imatges noves (p. ex. els gràfics dels registres d\'activitat). Moodle pot funcionar sense GD, però aquestes característiques no estaran disponibles.</p>
-
-<p>Per afegir GD al PHP en Unix, compileu el PHP amb el paràmetre --with-gd.</p>
-
-<p>En Windows generalment es pot editar el fitxer php.ini i treure el comentari de la línia que porti la referència a php_gd2.dll.</p>';
-$string['globalsquotes'] = 'Gestió insegura dels globals';
-$string['globalsquoteserror'] = 'Arregleu els paràmetres del vostre PHP: inhabiliteu register_globals i/o habiliteu magic_quotes_gpc';
-$string['globalsquoteshelp'] = '<p>No s\'aconsella tenir inhabilitat Magic Quotes GPC i tenir alhora habilitat Register Globals.</p>
-
-<p>La configuració recomanada és <b>magic_quotes_gpc = On</b> i <b>register_globals = Off</b> en el fitxer php.ini</p>
-
-<p>Si no teniu accés al php.ini, potser podreu afegir les línies següents en un fitxer anomenat .htaccess dins del directori Moodle:
-<blockquote>php_value magic_quotes_gpc On</blockquote>
-<blockquote>php_value register_globals Off</blockquote>
-</p>';
 $string['inputdatadirectory'] = 'Directori de dades:';
 $string['inputwebadress'] = 'Adreça web:';
 $string['inputwebdirectory'] = 'Directori de Moodle';
@@ -243,13 +143,12 @@ $string['memorylimithelp'] = '<p>El límit de memòria del PHP del vostre servid
 <p><blockquote>php_value memory_limit 40M</blockquote></p>
 <p>Tanmateix, en alguns servidors això farà que no funcioni <b>cap</b> pàgina PHP (es visualitzaran errors) en el qual cas hauríeu de suprimir el fitxer .htaccess.</p></li>
 </ol>';
-$string['mssql'] = 'SQL*Server (mssql)';
 $string['mssqlextensionisnotpresentinphp'] = 'El PHP no s\'ha configurat correctament amb l\'extensió MSSQL de manera que pugui comunicar-se amb SQL*Server. Reviseu el fitxer php.ini o recompileu PHP.';
-$string['mssql_n'] = 'SQL*Server amb UTF-8 (mssql_n)';
-$string['mysql'] = 'MySQL (mysql)';
-$string['mysqlextensionisnotpresentinphp'] = 'El PHP no s\'ha configurat correctament amb l\'extensió MySQL de manera que pugui comunicar-se amb MySQL. Reviseu el fitxer php.ini o recompileu el PHP.';
-$string['mysqli'] = 'MySQL Improved (mysqli)';
 $string['mysqliextensionisnotpresentinphp'] = 'El PHP no ha estat configurat adequadament amb l\'extensió MySQLi de manera que pugui comunicar-se amb MySQL. Reviseu el fitxer php.ini o recompileu el PHP. L\'extensió MySQLi no està disponible per a PHP 4.';
+$string['nativemariadb'] = 'MariaDB (native/MariaDB)';
+$string['nativemariadbhelp'] = 'Ara heu de configurar la base de dades on s\'emmagatzemaran les dades de Moodle.
+La base de dades es podrà crear si l\'usuari de la base de dades té els permisos necessaris i el nom d\'usuari i la contrasenya existeixen. El prefix de les taules és opcional.
+El controlador no és compatible amb el motor MyISAM heretat.';
 $string['nativemssql'] = 'SQL*Server FreeTDS (native/mssql)';
 $string['nativemssqlhelp'] = 'Heu de configurar la base de dades on s\'emmagatzemarà la majoria de dades de Moodle. La base de dades i un nom d\'usuari i contrasenya amb accés s\'han de crear abans. El prefix de les taules és obligatori.';
 $string['nativemysqli'] = 'Improved MySQL (native/mysqli)';
@@ -264,10 +163,7 @@ $string['nativesqlsrvhelp'] = 'Ara cal configurar els paràmetres de la base de 
 La base de dades i un nom d\'usuari i contrasenya amb accés s\'han de crear abans. El prefix de les taules és obligatori.';
 $string['nativesqlsrvnodriver'] = 'Els controladors Microsoft del SQL Server per a PHP no estan instal·lats o no s\'han configurat correctament.';
 $string['nativesqlsrvnonwindows'] = 'Els controladors Microsoft del SQL Server per a PHP només estan disponibles per a sistemes operatius Windows.';
-$string['oci8po'] = 'Oracle (oci8po)';
 $string['ociextensionisnotpresentinphp'] = 'El PHP no s\'ha configurat correctament amb l\'extensió OCI8 de manera que pugui comunicar-se amb Oracle. Reviseu el fitxer php.ini o recompileu el PHP.';
-$string['odbcextensionisnotpresentinphp'] = 'El PHP no s\'ha configurat correctament amb l\'extensió ODBC de manera que pugui comunicar-se amb Oracle. Reviseu el fitxer php.ini o recompileu el PHP.';
-$string['odbc_mssql'] = 'SQL*Server over ODBC (odbc_mssql)';
 $string['pass'] = 'Correcte';
 $string['paths'] = 'Camins';
 $string['pathserrcreatedataroot'] = 'L\'instal·lador no pot crear el directori de dades ({$a->dataroot}).';
@@ -290,7 +186,6 @@ $string['phpversion'] = 'Versió PHP';
 $string['phpversionhelp'] = '<p>Moodle necessita una versió de PHP 4.3.0 o 5.1.0 (les versions 5.0.x tenien uns quants problemes coneguts).</p>
 <p>A hores d\'ara esteu utilitzant la versió {$a}.</p>
 <p>Us cal actualitzar el PHP o traslladar Moodle a un ordinador amb una versió de PHP més recent.<br />(Si esteu utilitzant la versió 5.0.x, alternativament també podríeu tornar enrere a la 4.4.x)</p>';
-$string['postgres7'] = 'PostgreSQL (postgres7)';
 $string['releasenoteslink'] = 'Per a més informació sobre aquesta versió de Moodle, consulteu les notes de llançament en {$a}';
 $string['safemode'] = 'Mode segur';
 $string['safemodeerror'] = 'Moodle pot tenir problemes amb el mode segur activat';
@@ -304,7 +199,6 @@ $string['sessionautostarterror'] = 'Hauria d\'estar desactivat';
 $string['sessionautostarthelp'] = '<p>Moodle necessita suport per a sessions i no funcionarà sense.</p>
 
 <p>Les sessions es poden habilitar en el fitxer php.ini. Comproveu el paràmetre session.auto_start.</p>';
-$string['skipdbencodingtest'] = 'Omet la prova de codificació de la base de dades';
 $string['sqliteextensionisnotpresentinphp'] = 'El PHP no ha estat configurat correctament amb l\'extensió SQLite. Reviseu el fitxer php.ini o torneu a compilar el PHP.';
 $string['upgradingqtypeplugin'] = 'S\'està actualitzant el connector de tipus de preguntes';
 $string['welcomep10'] = '{$a->installername} ({$a->installerversion})';

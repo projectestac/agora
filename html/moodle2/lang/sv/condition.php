@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,7 +31,7 @@ $string['availabilityconditions'] = 'Begränsa tillgänglighet';
 $string['availablefrom'] = 'Tillgänglig fr o m';
 $string['availablefrom_help'] = 'Tillgänglighetsdatum anger när kursdeltagaren kan komma åt aktiviteten. Skillnaden mellan denna inställning och aktivitetens vanliga tillgänglighetsinställningar är att denna inställning helt förhindrar tillgång till aktiviteten, medan de vanliga inställningarna låter kursdeltagaren gå in och titta på aktiviteten.';
 $string['availableuntil'] = 'Tillgänglig t o m';
-$string['badavailabledates'] = 'Ogiltiga datum. Om du anger både start- och stopdatum, ska startdatumet ligga före stoppdatumet.';
+$string['badavailabledates'] = 'Ogiltiga datum. Om du anger både start- och slutdatum, ska startdatumet ligga före slutdatumet.';
 $string['completion_complete'] = 'måste vara markerad som fullföljd';
 $string['completioncondition'] = 'Villkor för fullflöljande av villkor';
 $string['completioncondition_help'] = 'Denna inställning avgör det/de villkor som som ska uppfyllas för att kursdeltagare ska komma åt aktiviteten.
@@ -60,10 +60,9 @@ $string['requires_completion_0'] = 'Bara tillgänglig innan aktiviteten <strong>
 $string['requires_completion_1'] = 'Ej tillgänglig innan aktiviteten  <strong>{$a}</strong> är markerad som genomförd.';
 $string['requires_completion_2'] = 'Ej tillgänglig innan aktiviteten <strong>{$a}</strong> är genomförd och godkänd.';
 $string['requires_completion_3'] = 'Bara tillgänglig om aktiviteten <strong>{$a}</strong> är genomförd och underkänd.';
-$string['requires_date'] = 'Tillgänglig fr o m {$a}';
-$string['requires_date_before'] = 'Tillgänglig t o m {$a}';
-$string['requires_date_both'] = 'Tillgänglig fr o m {$a->from} t o m
-{$a->until}. ';
+$string['requires_date'] = 'Tillgänglig från {$a}.';
+$string['requires_date_before'] = 'Tillgänglig till {$a}.';
+$string['requires_date_both'] = 'Tillgänglig från {$a->from} till {$a->until}.';
 $string['requires_date_both_single_day'] = 'Tillgänglig på {$a}.';
 $string['requires_grade_any'] = 'Bara tillgänglig då du har ett resultat för <strong>{$a}</strong>.';
 $string['requires_grade_max'] = 'Bara tillgänglig när du har uppnått tillräckligt resultat i <strong>{$a}</strong>.';
@@ -76,4 +75,4 @@ $string['showavailabilitysection_hide'] = 'Dölj avsnittet helt';
 $string['showavailability_show'] = 'Visa aktiviteten grå-tonad, med information om villkor för åtkomst.';
 $string['startswith'] = 'inleds med';
 $string['userrestriction_hidden'] = 'Begränsad tillgång (helt dold, gömd, inget meddelande): ‘{$a}’';
-$string['userrestriction_visible'] = 'Begränsad tillgång: ‘{$a}’';
+$string['userrestriction_visible'] = 'Begränsad tillgång: {$a}';

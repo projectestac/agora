@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'survey', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -192,6 +192,7 @@ $string['invalidtmptid'] = 'Неверный ID шаблона';
 $string['ipreferthat'] = 'Я предпочитаю';
 $string['modulename'] = 'Анкета';
 $string['modulename_help'] = 'Модуль Анкета обеспечивает три типа анкет для оценивания и стимулирования обучения в дистанционных курсах. Преподаватель может использовать их для сбора данных, которые помогут ему лучше узнать своих студентов и поразмышлять об эффективности обучения.
+
 Отметим, что эти анкеты содержат предварительно заданные вопросы, которые не редактируются. Преподаватели, которые хотят создать свои анкеты, могут использовать активный элемент «Обратная связь».';
 $string['modulenameplural'] = 'Анкеты';
 $string['name'] = 'Имя';

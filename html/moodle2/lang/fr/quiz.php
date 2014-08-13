@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,8 @@ $string['addarandomquestion'] = 'Ajouter une question aléatoire...';
 $string['addarandomquestion_help'] = 'Quand une question aléatoire est ajoutée, une question choisie au hasard dans la catégorie est insérée dans le test. Les étudiants auront une sélection de questions différentes. Quand un test permet plusieurs tentatives, chaque tentative pourra contenir une sélection différente de questions.';
 $string['adddescriptionlabel'] = 'Ajouter description/label';
 $string['addingquestion'] = 'Ajout d\'une question';
-$string['addingquestions'] = 'Vous gérez votre banque de questions dans cette partie de la page. Les questions sont réparties en catégories, afin de les organiser. Elles peuvent être utilisées dans n\'importe lequel de vos cours, ou même dans d\'autres cours si vous les « publiez ».<br /><br />Créez d\'abord une catégorie. Vous pourrez ensuite créer ou modifier des questions. Vous pouvez choisir une de ces questions pour l\'ajouter à votre test dans l\'autre partie de la page.';
+$string['addingquestions'] = '<p>Vous gérez votre banque de questions dans cette partie de la page. Les questions sont réparties en catégories, afin de les organiser. Elles peuvent être utilisées dans n\'importe lequel de vos cours, ou même dans d\'autres cours si vous les « publiez ».</p>
+<p>Créez d\'abord une catégorie. Vous pourrez ensuite créer ou modifier des questions. Vous pouvez choisir une de ces questions pour l\'ajouter à votre test dans l\'autre partie de la page.</p>';
 $string['addmoreoverallfeedbacks'] = 'Ajouter {no} champs de feedback';
 $string['addnewgroupoverride'] = 'Ajouter une dérogation de groupe';
 $string['addnewpagesafterselected'] = 'Ajouter de nouvelles pages après les questions sélectionnées';
@@ -71,7 +72,6 @@ $string['answerhowmany'] = 'Une ou plusieurs réponses :';
 $string['answers'] = 'Réponses';
 $string['answersingleno'] = 'Plusieurs choix possibles';
 $string['answersingleyes'] = 'Une seule réponse';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Les réponses avec erreur acceptée doivent être numériques';
 $string['answertoolong'] = 'Réponse trop longue après la ligne {$a} (255 caractères max.)';
 $string['aon'] = 'Format AON';
 $string['areyousureremoveselected'] = 'Voulez-vous vraiment retirer les questions sélectionnées ?';
@@ -99,6 +99,8 @@ $string['attemptsonly'] = 'N\'afficher que les étudiants ayant déjà effectué
 $string['attemptstate'] = 'État';
 $string['attemptstillinprogress'] = 'Tentative encore en cours';
 $string['attemptsunlimited'] = 'Nombre illimité de tentatives';
+$string['autosaveperiod'] = 'Période d\'enregistrement automatique';
+$string['autosaveperiod_desc'] = 'Durant les tests, les réponses des participants peuvent être enregistrées automatiquement toutes les quelques minutes. Il y a cependant une contrepartie : cet enregistrement augmente la charge sur le serveur. Elle réduit en revanche les risques de perte du travail des participants.';
 $string['back'] = 'Retour à la question précédente';
 $string['backtocourse'] = 'Retour au cours';
 $string['backtoquestionlist'] = 'Retour à la liste des questions';
@@ -185,6 +187,12 @@ $string['confirmserverdelete'] = 'Voulez-vous vraiment supprimer le serveur <b>{
 $string['confirmstartattemptlimit'] = 'Nombre de tentatives permises : {$a}. Vous allez commencer une nouvelle tentative. Voulez-vous continuer ?';
 $string['confirmstartattempttimelimit'] = 'Ce test a une limite de temps et est limité à {$a} tentative(s). Vous êtes sur le point de commencer une nouvelle tentative. Voulez-vous continuer ?';
 $string['confirmstarttimelimit'] = 'Le temps pour effectuer ce test est limité. Voulez-vous vraiment le commencer ?';
+$string['connectionerror'] = 'Connexion réseau perdue (échec de l\'enregistrement automatique).
+
+Veuillez prendre note de toutes les réponses que vous avez saisies sur cette page au cours des quelques dernières minutes, puis essayez de vous reconnecter.
+
+Une fois la connexion rétablie, vos réponses devraient être enregistrées et ce message disparaîtra.';
+$string['connectionok'] = 'Connexion réseau rétablie. Vous pouvez continuer.';
 $string['containercategorycreated'] = 'Cette catégorie a été créée pour y placer les catégories originales qui ont été déplacées au niveau du site pour les raisons spécifiées ci-dessous.';
 $string['continueattemptquiz'] = 'Continuer la dernière tentative';
 $string['continuepreview'] = 'Continuer la dernière prévisualisation';
@@ -239,6 +247,7 @@ $string['deletingquestionattempts'] = 'Suppression des tentatives de tests';
 $string['description'] = 'Description';
 $string['disabled'] = 'Désactivé';
 $string['displayoptions'] = 'Options d\'affichage';
+$string['donotuseautosave'] = 'Ne pas utiliser l\'enregistrement automatique';
 $string['download'] = 'Cliquer pour télécharger le fichier exporté';
 $string['downloadextra'] = '(le fichier est aussi déposé dans les fichiers du cours, dans le dossier /backupdata/quiz)';
 $string['duplicateresponse'] = 'Cet envoi a été ignoré, car vous avez déjà donné auparavant une réponse équivalente.';
@@ -247,7 +256,7 @@ $string['eachattemptbuildsonthelast_help'] = 'Lorsqu\'on autorise l\'étudiant �
 $string['editcategories'] = 'Modifier les catégories';
 $string['editcategory'] = 'Modifier la catégorie';
 $string['editcatquestions'] = 'Modifier les questions de la catégorie';
-$string['editingquestion'] = 'Modifier une question';
+$string['editingquestion'] = 'Modification d\'une question';
 $string['editingquiz'] = 'Modification du test';
 $string['editingquiz_help'] = 'Lors de la création d\'un test, les concepts principaux suivants sont à considérer :
 
@@ -296,6 +305,10 @@ $string['errornotnumbers'] = 'Erreur ! Les réponses doivent être numériques'
 $string['errorunexpectedevent'] = 'Code d\'événement {$a->event} inattendu trouvé pour la question {$a->questionid} dans la tentative {$a->attemptid}.';
 $string['essay'] = 'Composition';
 $string['essayquestions'] = 'Questions';
+$string['eventquizattemptabandoned'] = 'Tentative de test abandonnée';
+$string['eventquizattemptstarted'] = 'Tentative de test commencée';
+$string['eventquizattemptsubmitted'] = 'Tentative de test envoyée';
+$string['eventquizattempttimelimitexceeded'] = 'Durée limite de tentative de test dépassée';
 $string['everynquestions'] = 'Toutes les {$a} questions';
 $string['everyquestion'] = 'Chaque question';
 $string['everythingon'] = 'Tout activer';
@@ -518,6 +531,7 @@ $string['numattemptsmade'] = '{$a} tentatives de ce test effectuées';
 $string['numberabbr'] = 'No';
 $string['numerical'] = 'Numérique';
 $string['numquestionsx'] = 'Questions : {$a}';
+$string['oneminute'] = '1 minute';
 $string['onlyteachersexport'] = 'Seuls les enseignants peuvent exporter des questions';
 $string['onlyteachersimport'] = 'Seuls les enseignants avec droit d\'édition peuvent importer des questions';
 $string['onthispage'] = 'Cette page';
@@ -533,8 +547,8 @@ Pour organiser les questions sur plusieurs pages, cliquez sur le bouton « Repa
 $string['orderingquiz'] = 'Ordre et pagination';
 $string['orderingquizx'] = 'Ordre et pagination {$a}';
 $string['outcomesadvanced'] = 'Les objectifs sont des réglages avancés';
-$string['outof'] = '{$a->grade} sur un maximum de {$a->maxgrade}';
-$string['outofpercent'] = '{$a->grade} sur un maximum de {$a->maxgrade} ({$a->percent}%)';
+$string['outof'] = '{$a->grade} sur {$a->maxgrade}';
+$string['outofpercent'] = '{$a->grade} sur {$a->maxgrade} ({$a->percent}%)';
 $string['outofshort'] = '{$a->grade}/{$a->maxgrade}';
 $string['overallfeedback'] = 'Feedback global';
 $string['overallfeedback_help'] = 'Le feedback global est un texte qui montré à l\'étudiant lorsqu\'il a terminé une tentative d\'un test. En spécifiant des limites de notes supplémentaires (sous forme de nombre ou de pourcentage), le texte affiché peut différer suivant la note obtenue par l\'étudiant.';
@@ -554,7 +568,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'Dérogations';
 $string['overrideuser'] = 'Dérogation utilisateur';
 $string['overrideusereventname'] = '{$a->quiz} - Dérogation';
+$string['page-mod-quiz-attempt'] = 'Page de tentative de test';
 $string['page-mod-quiz-edit'] = 'Modifier la page du test';
+$string['page-mod-quiz-report'] = 'Toute page de rapport de test';
+$string['page-mod-quiz-review'] = 'Page de relecture de tentative de test';
+$string['page-mod-quiz-summary'] = 'Page de résumé de tentative de test';
+$string['page-mod-quiz-view'] = 'Page d\'information de test';
 $string['page-mod-quiz-x'] = 'Toute page du module test';
 $string['pagesize'] = 'Taille de page';
 $string['parent'] = 'Catégorie supérieure';
@@ -591,7 +610,7 @@ $string['qtypename'] = 'type, nom';
 $string['question'] = 'Libellé de la question';
 $string['questionbankcontents'] = 'Contenu de la banque de questions';
 $string['questionbankmanagement'] = 'Gestion banque de questions';
-$string['questionbehaviour'] = 'Comportement de la question';
+$string['questionbehaviour'] = 'Comportement des questions';
 $string['questioncats'] = 'Catégories de questions';
 $string['questiondeleted'] = 'Cette question a été supprimée. Veuillez contacter votre enseignant';
 $string['questioninuse'] = 'La question « {$a->questionname} » est actuellement utilisée dans<br />{$a->quiznames}<br />Elle ne sera pas retirée de ce(s) test(s), mais seulement de la catégorie.';
@@ -696,6 +715,7 @@ $string['reportregrade'] = 'Recalculer les notes';
 $string['reportresponses'] = 'Réponses détaillées';
 $string['reports'] = 'Rapports';
 $string['reportshowonly'] = 'Afficher selon les tentatives';
+$string['reportshowonlyfinished'] = 'Afficher au plus une tentative terminée par utilisateur ({$a})';
 $string['reportsimplestat'] = 'Statistique simple';
 $string['reportusersall'] = 'tous les utilisateurs ayant effectué le test';
 $string['reportuserswith'] = 'Les utilisateurs inscrits qui ont effectué le test';
@@ -806,9 +826,12 @@ $string['showdetailedmarks'] = 'Afficher le détail des points';
 $string['showeachpage'] = 'Afficher une page à la fois';
 $string['showfeedback'] = 'Après le test, afficher le feedback ?';
 $string['showinsecurepopup'] = 'Utiliser une fenêtre « sécurisée » pour les tentatives';
+$string['showlargeimage'] = 'Grande image';
 $string['shownoattempts'] = 'Afficher les étudiants sans tentative';
 $string['shownoattemptsonly'] = 'N\'afficher que les étudiants sans tentative';
+$string['shownoimage'] = 'Pas d\'image';
 $string['showreport'] = 'Afficher le rapport';
+$string['showsmallimage'] = 'Petite image';
 $string['showteacherattempts'] = 'Afficher les tentatives des enseignants';
 $string['showuserpicture'] = 'Afficher l\'avatar du participant';
 $string['showuserpicture_help'] = 'Si ce réglage est activé, le nom et l\'avatar de l\'étudiant s\'affichent durant le test et lors de la relecture. Cela permet aux surveillants d\'examen de vérifier plus facilement qu\'un étudiant est bien connecté dans son propre compte.';

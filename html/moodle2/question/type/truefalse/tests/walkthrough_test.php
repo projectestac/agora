@@ -50,11 +50,11 @@ class qtype_truefalse_walkthrough_test extends qbehaviour_walkthrough_test_base 
         $this->check_current_output(
                 $this->get_contains_question_text_expectation($tf),
                 $this->get_does_not_contain_feedback_expectation(),
-                new question_contains_tag_with_contents('h3',
+                new question_contains_tag_with_contents('h4',
                         get_string('questiontext', 'question')));
         $this->assertEquals(get_string('false', 'qtype_truefalse'),
                 $this->quba->get_right_answer_summary($this->slot));
-        $this->assertRegExp('/' . preg_quote($tf->questiontext) . '/',
+        $this->assertRegExp('/' . preg_quote($tf->questiontext, '/') . '/',
                 $this->quba->get_question_summary($this->slot));
         $this->assertNull($this->quba->get_response_summary($this->slot));
 
@@ -69,7 +69,7 @@ class qtype_truefalse_walkthrough_test extends qbehaviour_walkthrough_test_base 
                 $this->get_contains_tf_false_radio_expectation(false, false),
 
                 // In particular, check that the false feedback is not displayed.
-                new question_no_pattern_expectation('/' . preg_quote($tf->falsefeedback) . '/'));
+                new question_no_pattern_expectation('/' . preg_quote($tf->falsefeedback, '/') . '/'));
 
     }
 }

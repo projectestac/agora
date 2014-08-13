@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_file', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_file', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['maxbytes'] = '최대 파일 크기';
 $string['maxfilessubmission'] = '최대 업로드 파일 수';
 $string['maximumsubmissionsize'] = '최대 제출 크기';
 $string['maximumsubmissionsize_help'] = '학생들은 이 파일 크기까지 파일을 올릴 수 있습니다.';
+$string['numfilesforlog'] = '파일 수 : {$a} 파일';
 $string['pluginname'] = '파일 제출';
 $string['siteuploadlimit'] = '사이트 업로드 한계';
 $string['submissionfilearea'] = '올려진 제출 파일들';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,8 +87,6 @@ $string['popupheightexplain'] = 'Especifica a altura predeterminada das xanelas 
 $string['popupresource'] = 'Este recurso debe aparecer nunha xanela emerxente.';
 $string['popupresourcelink'] = 'Senón, prema aquí: {$a}';
 $string['popupwidthexplain'] = 'Especifica a largura predeterminada das xanelas emerxentes.';
-$string['printheading'] = 'Presentar o nome do recurso';
-$string['printheadingexplain'] = 'Presentar o nome do recurso por riba do contido? É posíbel que algúns tipos de pantalla non presenten o nome de recurso incluso aínda que estea activado.';
 $string['printintro'] = 'Presentar a descrición do recurso';
 $string['printintroexplain'] = 'Presentar a descrición do recurso baixo o contido? É posíbel que algúns tipos de pantalla non presenten a descrición incluso aínda que estea activado.';
 $string['resource:addinstance'] = 'Engadir un novo recurso';

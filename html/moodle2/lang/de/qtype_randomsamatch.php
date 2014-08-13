@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_randomsamatch', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_randomsamatch', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_randomsamatch
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['insufficientoptions'] = 'Die Auswahloptionen für diese Frage sind nicht richtig angelegt worden. Daher steht die Frage im Test nicht zur Verfügung. Informieren Sie bitte Ihre/n Trainer/in.';
 $string['nosaincategory'] = 'In der ausgewählten Kategorie \'{$a->catname}\' befinden sich keine Kurztextfragen. Wählen Sie eine andere Kategorie aus oder erstellen Sie Fragen in dieser Kategorie.';
 $string['notenoughsaincategory'] = 'In der ausgewählten Kategorie \'{$a->catname}\' befinden sich nur {$a->nosaquestions} Kurztextfragen. Wählen Sie eine andere Kategorie aus, erstellen Sie zusätzliche Kurztextfragen in dieser Kategorie oder reduzieren Sie die Zahl der auszuwählenden Kurztextfragen.';
 $string['pluginname'] = 'Zufällige Kurzantwortzuordnung';
@@ -32,3 +33,8 @@ $string['pluginnameadding'] = 'Zufällige Kurzantwort Zuordnungsfrage hinzufüge
 $string['pluginnameediting'] = 'Zufällige Kurzantwort Zuordnungsfrage bearbeiten';
 $string['pluginname_help'] = 'Aus Teilnehmeransicht scheint dies eine Zuordnungsfrage zu sein. Der Unterschied besteht darin, dass die Fragen und Antworten zufällig aus den Kurzantwortfragen der gewählten Kategorie genommen werden.Es müssen ausreichend noch nicht genutzte Kurzantwortfragen in der Kategorie abgelegt sein. Andernfalls erscheint eine Fehlernachricht.';
 $string['pluginnamesummary'] = 'Wie Zuordnungsfrage, jedoch zufällig aus Kurzantwortfragen der Kategorie erstellt.';
+$string['randomsamatch'] = 'Zufällige Kurzantwort-Zuordnung';
+$string['randomsamatchintro'] = 'Wählen Sie für jede der folgenden Fragen die passende Antwort aus dem Menu.';
+$string['randomsamatchnumber'] = 'Anzahl der Fragen zur Auswahl';
+$string['subcats'] = 'Unterkategorien einbeziehen';
+$string['subcats_help'] = 'Wenn Sie diese Option aktivieren, werden auch Fragen aus Unterkategorien verwendet.';

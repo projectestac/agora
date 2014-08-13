@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Lägger till en ny roll';
-$string['addingrolebycopying'] = 'Lägger till en ny roll baserad på {$a}';
 $string['addrole'] = 'Lägg till en ny roll';
 $string['advancedoverride'] = 'Avancerat överskridande av roll';
 $string['allow'] = 'Tillåt';
@@ -98,6 +97,18 @@ $string['backup:backuptargetimport'] = 'Säkerhetskopiering för import';
 $string['backup:configure'] = 'Konfigurera alternativ för säkerhetskopiering';
 $string['backup:downloadfile'] = 'Ladda ner filer från områden för säkerhetskopiering';
 $string['backup:userinfo'] = 'Säkerhetskopiera användardata';
+$string['badges:awardbadge'] = 'Tilldela ett märke till en användare';
+$string['badges:configurecriteria'] = 'Ställ in/redigera kriterier för att ta ett märke';
+$string['badges:configuredetails'] = 'Ställ in/redigera detaljer för märken';
+$string['badges:configuremessages'] = 'Konfigurera meddelanden för märken';
+$string['badges:createbadge'] = 'Skapa/duplicera märken';
+$string['badges:deletebadge'] = 'Ta bort märken';
+$string['badges:earnbadge'] = 'Ta märke';
+$string['badges:manageglobalsettings'] = 'Administrera globala inställningar för märken';
+$string['badges:manageownbadges'] = 'Visa och administrera egna tagna märken';
+$string['badges:viewawarded'] = 'Visa användare som tagit ett specifikt märke utan att kunna tilldela ett märke';
+$string['badges:viewbadges'] = 'Visa tillgängliga märken utan att ha tagit dem';
+$string['badges:viewotherbadges'] = 'Visa publika märken i andra användares profiler';
 $string['block:edit'] = 'Redigera inställningarna ett block';
 $string['block:view'] = 'Visa block';
 $string['blog:associatecourse'] = 'Koppla inlägg i bloggar till kurser';
@@ -160,6 +171,7 @@ $string['course:managegrades'] = 'Administrera betyg/omdömen';
 $string['course:managegroups'] = 'Administrera grupper';
 $string['course:managescales'] = 'Administrera skalor';
 $string['course:markcomplete'] = 'Markera användare som färdiga i dokumentation om kursens fullföljande';
+$string['course:movesections'] = 'Flytta sektioner';
 $string['course:publish'] = 'Publicera en kurs i en hubb';
 $string['course:request'] = 'Begär nya kurser';
 $string['course:reset'] = 'Återställ kurs';
@@ -197,9 +209,11 @@ $string['errorbadrolename'] = 'Felaktigt namn på roll';
 $string['errorbadroleshortname'] = 'Felaktigt kortnamn på roll';
 $string['errorexistsrolename'] = 'Namnet på rollen finns redan';
 $string['errorexistsroleshortname'] = 'Namnet på rollen finns redan';
+$string['eventroleallowassignupdated'] = 'Tillåt rolltilldelning';
 $string['existingadmins'] = 'Aktuella administratörer av webbplats';
 $string['existingusers'] = '{$a} befintliga användare';
 $string['explanation'] = 'Förklaring';
+$string['export'] = 'Exportera';
 $string['extusers'] = 'Befintliga användare';
 $string['extusersmatching'] = 'Befintliga användare som matchar {$a}';
 $string['filter:manage'] = 'Administrera lokala inställningar för filter';
@@ -380,11 +394,8 @@ $string['rating:view'] = 'Visa den sammanlagda bedömning som Du har fått';
 $string['rating:viewall'] = 'Visa alla \'råa\' bedömningar som har avgivits av individer';
 $string['rating:viewany'] = 'Visa de sammanlagda bedömningar som någon har fått';
 $string['resetrole'] = 'Återställ till standardvärden';
-$string['resetrolenolegacy'] = 'Återta tillstånd';
-$string['resetrolesure'] = 'Är Du säker på att Du vill återställa rollen "{$a->name} ({$a->shortname})" till standardvärdena? <br /> Standardvärdena är  tagna från den valda ärvda kapaciteten ({$a->legacytype}).';
-$string['resetrolesurenolegacy'] = 'Är Du säker på att Du vill återta alla tillstånd som har tilldelats till den här rollen "{$a->name} ({$a->shortname})"?';
 $string['restore:configure'] = 'Konfigurera alternativ för återställande';
-$string['restore:createuser'] = 'Skapa användare i sb m återställande';
+$string['restore:createuser'] = 'Skapa användare vid återställning';
 $string['restore:restoreactivity'] = 'Aktiviteter för återställande';
 $string['restore:restorecourse'] = 'Återställ kurser';
 $string['restore:restoresection'] = 'Återställ sektioner';
@@ -453,8 +464,8 @@ $string['site:doanything'] = 'Tillåten att göra allting';
 $string['site:doclinks'] = 'Visa länkar till dokument utanför webbplatsen';
 $string['site:import'] = 'Importera andra kurser i en kurs';
 $string['site:manageblocks'] = 'Administrera block på en sida';
-$string['site:mnetloginfromremote'] = 'Logga in från en annan instans av Moodle';
-$string['site:mnetlogintoremote'] = 'Flytta över till en annan instans av Moodle';
+$string['site:mnetloginfromremote'] = 'Logga in från en annan applikation via Mnet';
+$string['site:mnetlogintoremote'] = 'Flytta till en annan applikation via Mnet';
 $string['site:readallmessages'] = 'Läs alla meddelanden på webbplatsen';
 $string['site:restore'] = 'Återställ kurser';
 $string['site:sendmessage'] = 'Skicka meddelanden till vilken användare som helst';
@@ -476,7 +487,7 @@ $string['user:editprofile'] = 'Redigera användarprofil';
 $string['user:loginas'] = 'Logga in som andra användare';
 $string['user:manageblocks'] = 'Hantera block i användarprofil hos andra användare';
 $string['user:readuserblogs'] = 'Se alla användarbloggar';
-$string['user:readuserposts'] = 'Se alla inlägg från användare';
+$string['user:readuserposts'] = 'Se alla foruminlägg från användare';
 $string['user:update'] = 'Uppdatera användarprofiler';
 $string['user:viewdetails'] = 'Visa användarprofiler';
 $string['user:viewhiddendetails'] = 'Visa dolda detaljer angående användare';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -70,9 +70,11 @@ $string['enrollablecourses'] = 'Cursussen waar aanmelding mogelijk is';
 $string['errorcourselisting'] = 'Er is een fout opgetreden bij het ophalen van de cursuslijst van de geselecteerde hub. Probeer later opnieuw. ({$a})';
 $string['errorhublisting'] = 'Er is een fout opgetreden bij het ophalen van de lijst met hubs van Moodle.org. Probeer later opnieuw ({$a})';
 $string['fileinfo'] = 'Taal: {$a->lang} - Licentie: {$a->license} -  Tijd aangepast: {$a->timeupdated}';
+$string['hideall'] = 'Verberg hubs';
 $string['hub'] = 'hub';
 $string['hubnottrusted'] = 'Niet vertrouwd';
 $string['hubtrusted'] = 'Deze hub wordt vertrouwd door Moodle.org';
+$string['install'] = 'Download';
 $string['keywords'] = 'Sleutelwoorden';
 $string['keywords_help'] = 'Je kunt cursussen zoeken die bepaalde tekst bevatten in de naam, beschrijving of andere velden van de databank.';
 $string['langdesc'] = 'Taal: {$a} -';
@@ -107,6 +109,7 @@ $string['searchcommunitycourse'] = 'Zoek community-cursus';
 $string['searchcourse'] = 'Zoek community-cursus';
 $string['selecthub'] = 'Selecteer hub';
 $string['selecthub_help'] = 'Selecteer de hub waar je naar cursussen wil zoeken.';
+$string['showall'] = 'Toon alle hubs';
 $string['sites'] = 'Sites';
 $string['subject'] = 'Onderwerp';
 $string['subject_help'] = 'Kies een mogelijkheid uit de lijst om je zoekopdracht naar cursussen over dit onderwerp te verfijnen.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,6 +58,7 @@ $string['educationallevel_help'] = 'ما هو المستوى التعليمي ا
 $string['enroldownload'] = 'أبحث';
 $string['enrollable'] = 'مقررات لا استطيع التسجيل فيها';
 $string['hubnottrusted'] = 'غير موثوق فيه';
+$string['install'] = 'تنزيل';
 $string['keywords'] = 'كلمات مفتاحية';
 $string['langdesc'] = 'لغة: {$a} -';
 $string['language'] = 'لغة';

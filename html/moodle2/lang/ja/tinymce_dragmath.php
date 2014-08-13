@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_dragmath', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_dragmath', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_dragmath
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['dragmath:desc'] = '方程式を挿入する';
+$string['dragmath:desc'] = '数式を挿入する';
 $string['javaneeded'] = 'このページを使用するには、Javaを有効にしたブラウザが必要です。最新のJavaプラグインを {$a} からダウンロードしてください。';
-$string['pluginname'] = '方程式を追加する';
+$string['pluginname'] = '数式を追加する';
 $string['requiretex'] = 'TeXを必要とする';
 $string['requiretex_desc'] = '有効にした場合、エディタコンテクスト内でTexフィルタが有効にされている場合のみ、Dragmathボタンが表示されます。グローバルスコープ内で有効にされたカスタムTexフィルタがある場合、無効にしてください。';
-$string['title'] = 'DragMath方程式エディタ';
+$string['title'] = 'DragMath数式エディタ';

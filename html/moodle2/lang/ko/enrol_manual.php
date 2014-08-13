@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = '기본 등록 기간';
 $string['defaultperiod_desc'] = '기본 등록 기간 설정의 기본 시간(초).';
 $string['defaultperiod_help'] = '사용자가 등록한 후 등록이 유효한 기본 기간. 비활성화 되면 등록 유효기간은 기본적으로 제한이 없습니다.';
 $string['deleteselectedusers'] = '선택된 사용자 등록 삭제';
-$string['editenrolment'] = '등록 편집';
 $string['editselectedusers'] = '선택된 사용자 등록 편집';
 $string['enrolledincourserole'] = '"{$a->course}" 강좌에 "{$a->role}" 로 등록';
 $string['enrolusers'] = '사용자 등록';

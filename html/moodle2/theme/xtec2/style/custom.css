@@ -1,0 +1,308 @@
+[[setting:importcss]]
+
+@font-face {
+    font-family: Abecedario;
+    src: url('[[url]]/theme/xtec2/fonts/Abecedario.ttf');
+}
+
+@font-face {
+    font-family: Abecedario;
+    src: url('[[url]]/theme/xtec2/fonts/AbecedarioNegrita.ttf');
+    font-weight: bold;
+}
+
+body{
+	padding-top: 41px;
+	font-size: [[setting:fontsize]];
+    [[setting:fontstyle]]
+}
+
+
+h2,h3,h4{
+	color: [[setting:color4]];
+}
+
+.span0{
+	display: none !important;
+}
+
+.navbar .brand{
+	padding: 6px 20px;
+}
+
+.navbar .mainbrand{
+	line-height: 28px;
+}
+
+.navbar .brand.xtec{
+	padding-right: 40px;
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner{
+	border-bottom: 2px solid [[setting:color2]]; /* Color*/
+}
+
+#title-header{
+    position: relative;
+	height: 93px;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+	padding: 0  20px;
+}
+
+#logo-top{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url([[setting:logo]]);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-color: white;
+    z-index: -1;
+}
+
+#logo-top:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: [[setting:logo_color]];
+}
+
+#title-header h1 {
+	margin-top: 26px;
+	float: left;
+}
+
+#title-header h1 a {
+	color: white;
+	text-decoration: none;
+}
+
+#title-header h2 {
+	margin-top: 28px;
+	margin-left: 15px;
+	float: left;
+	color: #fff;
+}
+
+.block{
+	padding-top: 0px;
+}
+
+.block.no-header{
+	padding-top: 8px;
+}
+
+.block .header h2{
+	color: [[setting:color3]];
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+.block .header{
+	color: [[setting:color3]];
+	padding: 8px 0;
+	background-color: [[setting:color2]]; /* Color*/
+	border-radius: 4px 4px 0 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+}
+
+#page-navbar{
+	margin: 0 0 8px 0;
+}
+
+#main_navigation{
+	background-color: [[setting:color2]]; /* Color*/
+	color: [[setting:color3]];
+	height: auto;
+}
+
+#main_navigation .nav{
+	padding: 8px 15px;
+	margin: 0;
+	list-style: none;
+	background-color: transparent;
+	color: [[setting:color3]];
+	min-height: 20px;
+}
+
+#main_navigation .nav>li>a{
+	background-color: transparent;
+	color: [[setting:color3]];
+}
+
+#main_navigation .nav>li {
+	float: left;
+	line-height: 20px;
+	padding: 0 10px;
+	border-right: 1px solid [[setting:color3]];
+}
+
+#main_navigation .nav>li:last-child{
+	border-right: 0;
+}
+
+.dropdown-menu{
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+    color: [[setting:color3]];
+    background-color: [[setting:color2]];
+    background-image: none;
+}
+
+#main_navigation .nav .dropdown-toggle .caret {
+	border-top-color: [[setting:color3]];
+	border-bottom-color: [[setting:color3]];
+}
+
+#main_menu{
+	margin-right: 20px;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+	min-width: 100%;
+}
+
+.dropdown-submenu.pull-left {
+    min-width: 260px;
+}
+
+#main_menu .navbar-search{
+	margin-left: 15px;
+}
+
+.agora_navbar{
+	text-align: right;
+}
+.agora_navbar img{
+	margin-right: 5px;
+	vertical-align: top;
+}
+
+a {
+	color: [[setting:color5]]; /* Color*/
+}
+
+#page-footer{
+    border-top: 0;
+    padding: 0;
+}
+#page-footer-top{
+	background-color: [[setting:color2]]; /* Color*/
+	color: [[setting:color3]];
+    padding: 1em;
+}
+
+#page-footer-top a{
+	color: [[setting:color3]];
+	text-decoration: underline;
+}
+
+#page-footer-top a.btn, #page-footer-top .dropdown-menu a{
+	color: #333;
+	text-decoration: none;
+}
+#page-footer-top .dropdown-menu>li>a:hover{
+	color: white;
+}
+
+
+#page-footer-top a:hover{
+	text-decoration: none;
+}
+
+.footerlogos{
+	text-align: center;
+	margin: 8px 0;
+}
+
+#page{
+    padding: 8px 20px;
+}
+
+@media (max-width: 979px){
+	body{
+		padding-top: 0;
+	}
+	.navbar-fixed-top {
+		margin-bottom: 0;
+	}
+    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+        color: white;
+    }
+}
+
+@media (max-width: 767px){
+    #page{
+        padding: 8px 0 0 0;
+    }
+    #page-footer{
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+
+.logininfo img{
+	margin-right: 5px;
+}
+
+.img-circle.userpic {
+	border: 1px solid #DDD;
+}
+
+#message_notifier{
+	margin-right: 20px;
+	margin-top: 2px;
+}
+
+#message_notifier #message_contents>li:hover, #message_notifier #message_contents>li:hover .time{
+    color: [[setting:color3]];
+    background-color: [[setting:color2]];
+}
+
+
+.course-content .current {
+	background-color: #f5f5f5;
+}
+
+#newmessageoverlay{
+    display: none;
+}
+
+/* Animations */
+.block .content {
+	transition: all 0.5s ease;
+	visibility: visible;
+	opacity: 1;
+	max-height: 200000px;
+}
+
+.jsenabled .block.hidden .content {
+	visibility: hidden;
+	opacity: 0;
+	max-height: 0;
+	display: block;
+}
+
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus,
+.nav-tabs>.ui-state-active>a, .nav-tabs>.ui-state-active>a:hover, .nav-tabs>.ui-state-active>a:focus {
+	color: #555;
+	cursor: default;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+
+/* Custom CSS Settings
+-------------------------*/
+[[setting:customcss]]

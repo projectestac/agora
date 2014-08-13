@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -66,7 +66,6 @@ $string['answerhowmany'] = 'Μια ή πολλαπλές απαντήσεις;';
 $string['answers'] = 'Απαντήσεις';
 $string['answersingleno'] = 'Επιτρέπονται πολλαπλές απαντήσεις';
 $string['answersingleyes'] = 'Μια απάντηση μόνο';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Οι απαντήσεις με αποδεκτό σφάλμα πρέπει να είναι αριθμητικές';
 $string['answertoolong'] = 'Η απάντηση είναι πολύ μεγάλη μετά από τη γραμμή {$a} (255 χαρ. μέγιστο)';
 $string['aon'] = 'Μορφή AON';
 $string['areyousureremoveselected'] = 'Είστε σίγουρος/η πως θέλετε να αφαιρέσετε όλες τις επιλεγμένες ερωτήσεις;';

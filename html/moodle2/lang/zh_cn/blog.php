@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,7 @@ $string['entrybodyonlydesc'] = '文章描述';
 $string['entryerrornotyours'] = '这不是您的博客文章';
 $string['entrysaved'] = '您的文章已经被保存';
 $string['entrytitle'] = '文章标题';
-$string['entryupdated'] = '博客文章已更新';
+$string['evententryupdated'] = '博客文章已更新';
 $string['externalblogcrontime'] = '外部博客定时调度';
 $string['externalblogdeleteconfirm'] = '注销这个外部博客？';
 $string['externalblogdeleted'] = '外部博客已取消注册';
@@ -107,7 +107,6 @@ $string['invalidgroupid'] = '无效的组ID';
 $string['invalidurl'] = 'URL无法访问';
 $string['linktooriginalentry'] = '文章原始链接';
 $string['maxexternalblogsperuser'] = '每用户最多可有几个外部博客';
-$string['mustassociatecourse'] = '如果你要发布到课程或小组成员，你写的博客必须和这个课程有关联';
 $string['name'] = '博客名';
 $string['name_help'] = '输入您的外部博客的名字。（如果不提供名字，会直接使用外部博客的标题）。';
 $string['noentriesyet'] = '这里没有可见的文章';

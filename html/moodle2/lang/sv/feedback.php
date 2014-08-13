@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = 'Lägg till komponent';
-$string['add_items'] = 'Lägg till komponenter';
 $string['add_pagebreak'] = 'Lägg till en sidbrytning';
 $string['adjustment'] = 'Modifiering';
 $string['after_submit'] = 'Efter inskickning';
@@ -48,13 +47,13 @@ $string['cannotunmap'] = 'Problem med databasen, det går inte att gör om kartl
 $string['captcha'] = 'Captcha';
 $string['captchanotset'] = 'Captcha är inte inställt';
 $string['check'] = 'Flervalsfrågor - flera svar';
-$string['checkbox'] = 'Flervalsfrågor - flera tillåtna svar (kryssrutor)';
-$string['check_values'] = 'Kryssrutor - fyll i alternativ att välja mellan';
+$string['checkbox'] = 'Kryssruta';
+$string['check_values'] = 'Kryssruta - fyll i alternativ att välja bland';
 $string['choosefile'] = 'Välj en fil';
 $string['chosen_feedback_response'] = 'valt svar för Egen enkät';
-$string['completed'] = 'Fullföljd';
+$string['completed'] = 'Ifyllt';
 $string['completed_feedbacks'] = 'Fullgjorda Egna enkäter';
-$string['complete_the_form'] = 'Besvara enkäten';
+$string['complete_the_form'] = 'Fyll i hela formuläret';
 $string['completionsubmit'] = 'Visa som fullföljd om Egen enkät är inskickad/bekräftad/fullföljd';
 $string['configallowfullanonymous'] = 'Om det här alternativet är inställt till \'ja\' så går det att fullfölja Egen enkät utan att först logga in. Det påverkar bara förekomster av Egen enkät på ingångssidan.';
 $string['confirmdeleteentry'] = 'Är Du säker på att Du vill ta bort det här bidraget?';
@@ -65,56 +64,40 @@ $string['continue_the_form'] = 'Fortsätt formuläret';
 $string['count_of_nums'] = 'Räkning av tal';
 $string['courseid'] = 'kursID';
 $string['creating_templates'] = 'skapar mallar';
-$string['delete_entry'] = 'Ta bort detta svar';
+$string['delete_entry'] = 'Ta bort inlägg';
 $string['delete_item'] = 'Ta bort komponent';
 $string['delete_old_items'] = 'Ta bort gamla komponenter';
 $string['delete_template'] = 'Ta bort mall';
 $string['delete_templates'] = 'Ta bort mallar...';
 $string['depending'] = 'beroende komponenter';
-$string['depending_help'] = 'Möjligheten att använda "beroende komponenter" tillåter dig att visa olika komponenter som är beroende av varandra dvs. man kan styra frågorna beroende på inmatad svar.
-
-Börja med att skapa en komponent och definiera ett begrepp i fältet "Etikett" ( du kan sedan välja om efterföljande komponenter ska vara beroende av denna komponent)
-
-Lägg sedan till en sidbrytning.
-
-Skapa en ny komponent och ange sedan att komponenten ska vara beroende av värdet på en föregående komponent. (Välj ditt definierade etikett i dropdownlista "beroende komponent")
-
-Mata in det nödvändiga värde i i textrutan "beroende-värde".
-
-Strukturen bör se ut så här:
-
-Komponent 1
-(Fråga): Har Du en bil?
-(Svar): Ja / Nej
-(Etikett): Bil
-
-Komponent 2
-(Fråga): Vilken färg är din bil?
-(beroende komponent) : Bil
-(Beroende värde): Ja
-
-Komponent 3
-(Fråga): Varför har du ingen bil?
-(beroende komponent) : Bil
-(Beroende värde): Nej
-
-Väldigt viktig i sammanhanget är:
-*Följdfrågorna få inte vara obligatoriska
-*Beroende värdet måste skrivas exakt som det står i etiketten';
-$string['dependitem'] = 'Beroende objektet';
-$string['dependvalue'] = 'Beroende värde';
+$string['depending_help'] = 'Möjligheten att använda "beroende komponenter" tillåter Dig att visa olika komponenter eller vissa komponenter på olika sätt, detta beroende på andra, föregående, komponenters värden. <br /><strong)Här finns ett ett exempel på hur man kan använda detta:</strong><br /><ul><li>Börja med att skapa en komponent med värden som andra, efterföljande komponenter är beroende av.</li><li>Lägg sedan till en sidbrytning.</li><li>Ange sedan att den följande komponenten ska vara beroende av värdet på en föregående komponent.<br />
+Välj sedan, i formuläret för att skapa komponenter, denna komponent i listan över "beroende komponenter" och mata in det aktuella, nödvändiga värdet i i textrutan "beroende-värde".</li>
+</ul>
+<strong>Strukturen bör se ut så här:</strong>
+<ol>
+<li>Komponent 1 F(råga): Har Du en bil? S(var): Ja/Nej</li>
+<li>Sidbrytning</li>
+<li>Komponent 2 F: Vilken färg har Din bil?<br />
+(den här komponenten är beroende av att komponent 1 har värdet= Ja)</li>
+<li>Komponent 3 F: Varför har Du ingen bil?<br />
+(den här komponenten är beroende av att komponent 1 har värdet=Nej)</li>
+<li> ... övriga komponenter</li>
+</ol>
+Det är det hela. Mycket nöje!
+';
+$string['dependitem'] = 'beroende komponent';
+$string['dependvalue'] = 'beroende värde';
 $string['description'] = 'Beskrivning';
 $string['do_not_analyse_empty_submits'] = 'Analysera inte tomma inskickningar';
 $string['dropdown'] = 'Flervals-, kortsvar är tillåtna (nedrullningsmeny)';
-$string['dropdownlist'] = 'Flervalsfrågor - ett  svar (Nedrullningslista)';
+$string['dropdownlist'] = 'Nedrullningslista';
 $string['dropdownrated'] = 'Nedrullningsmeny';
-$string['dropdown_values'] = 'Svar';
+$string['dropdown_values'] = 'Nedrullning - fyll i alternativ att välja bland';
 $string['drop_feedback'] = 'Ta bort från den här kursen';
-$string['edit_item'] = 'Redigera fråga';
-$string['edit_items'] = 'Redigera frågor';
-$string['emailnotification'] = 'meddelanden via e-post';
-$string['email_notification'] = 'Skicka meddelande via e-post';
-$string['emailnotification_help'] = 'Om aktiverad får alla lärare i kursen e-post om att ett nytt svar har lagts in.';
+$string['edit_item'] = 'Redigera komponent';
+$string['edit_items'] = 'Redigera komponenter';
+$string['email_notification'] = 'Meddelande via e-post';
+$string['email_notification_help'] = 'Om aktiverad får administratorer e-post om att ett nytt svar har lagts in.';
 $string['emailteachermail'] = '{$a->username} har fullgjort en Egen enkät enligt: \'{$a->feedback}\'
 
 Du kan se den här:
@@ -126,8 +109,7 @@ $string['entries_saved'] = 'Inläggen har sparats';
 $string['export_questions'] = 'Exportera frågor';
 $string['export_to_excel'] = 'Exportera till Excel';
 $string['feedback:addinstance'] = 'Lägg till ny enkät';
-$string['feedbackclose'] = 'Stäng enkäten vid denna tid';
-$string['feedbackcloses'] = 'Enkät avslutas';
+$string['feedbackclose'] = 'Stäng Egen enkät vid denna tid';
 $string['feedback:complete'] = 'Fullfölj Egen enkät';
 $string['feedback:createprivatetemplate'] = 'Skapa en privat mall';
 $string['feedback:createpublictemplate'] = 'Skapa en offentlig mall';
@@ -135,19 +117,17 @@ $string['feedback:deletesubmissions'] = 'Ta bort fullföljda inskickningar';
 $string['feedback:deletetemplate'] = 'Ta bort mall';
 $string['feedback:edititems'] = 'Redigera komponenter';
 $string['feedback_is_not_for_anonymous'] = 'Denna Egen enkät tillåter inte anonymitet';
-$string['feedback_is_not_open'] = 'Enkäten är inte öppen';
+$string['feedback_is_not_open'] = 'Denna Egen enkät är inte öppen';
 $string['feedback:mapcourse'] = '"Mappa" kurser till förekomster av Egen enkät på global nivå';
-$string['feedbackopen'] = 'Öppna enkäten vid den här tiden';
-$string['feedbackopens'] = 'Enkät öppnas';
-$string['feedback_options'] = 'Alternativ för enkät';
+$string['feedbackopen'] = 'Öppna denna Egen enkät vid den här tiden';
 $string['feedback:receivemail'] = 'Ta emot meddelande via e-post';
-$string['feedback:view'] = 'Visa enkät';
+$string['feedback:view'] = 'Visa Egen enkät';
 $string['feedback:viewanalysepage'] = 'Visa sidan för analys efter det att Egen enkät har bekräftats/fullgjorts.';
 $string['feedback:viewreports'] = 'Visa rapporter';
 $string['file'] = 'Fil';
-$string['filter_by_course'] = 'Filtrera per kurs';
-$string['handling_error'] = 'Ett fel uppstod i enkätsmodulens hantering av händelser';
-$string['hide_no_select_option'] = 'Dölj alternativet "Inget svar"';
+$string['filter_by_course'] = 'Filtrera enligt kurs';
+$string['handling_error'] = 'Ett fel uppstod i modulen Egen enkäts hantering av händelser';
+$string['hide_no_select_option'] = 'Dölj alternativet "Inte vald/a"';
 $string['horizontal'] = 'horisontell';
 $string['importfromthisfile'] = 'Importera från den här filen';
 $string['import_questions'] = 'Importera frågor';
@@ -155,13 +135,12 @@ $string['import_successfully'] = 'Importen var framgångsrik';
 $string['info'] = 'Information';
 $string['infotype'] = 'Typ av information';
 $string['insufficient_responses'] = 'otillräckliga svar';
-$string['insufficient_responses_for_this_group'] = 'Det finns inte tillräckligt många svar för den här gruppen.';
+$string['insufficient_responses_for_this_group'] = 'Det finns otillräckliga svar för den här gruppen. ';
 $string['insufficient_responses_help'] = 'Svaren för den här gruppen är otillräckliga.
 
 För att bibehålla denna Egen enkät som anonym så måste minst 2 svar ha avlämnats.  ';
 $string['item_label'] = 'Etikett';
 $string['item_name'] = 'Namn på komponent';
-$string['items_are_required'] = 'Komponenter är obligatoriska';
 $string['label'] = 'Etikett';
 $string['line_values'] = 'Bedömning/värdering';
 $string['mapcourse'] = '"Mappa" Egen enkät till kurser';
@@ -177,7 +156,7 @@ $string['messageprovider:message'] = 'Enkät påminnelse';
 $string['messageprovider:submission'] = 'Meddelanden om Egen enkät';
 $string['mode'] = 'Läge';
 $string['modulename'] = 'Egen enkät';
-$string['modulename_help'] = 'Modulerna för Egen enkät gör det möjligt att utforma enkäter/utvärderingar så som man själv vill ha dem.';
+$string['modulename_help'] = 'Modulerna för Egen enkät gör det möjligt att utforma enkäter så som man själv vill ha dem.';
 $string['modulenameplural'] = 'Egen enkät';
 $string['movedown_item'] = 'Flytta komponenten neråt';
 $string['move_here'] = 'Flytta hit';
@@ -188,7 +167,6 @@ $string['multichoicerated'] = 'Flervals (betygssatt/bedömd)';
 $string['multichoicetype'] = 'Flerval - typ';
 $string['multichoice_values'] = 'Flerval - värden';
 $string['multiplesubmit'] = 'Ett flertal inskickningar';
-$string['multiple_submit'] = 'Tillåt upprepad inskickning';
 $string['multiplesubmit_help'] = 'Om det är aktiverat för anonyma enkäter kan användarna skicka svar ett obegränsat antal gånger.';
 $string['name'] = 'Namn';
 $string['name_required'] = 'Namn är obligatoriskt';
@@ -228,6 +206,7 @@ $string['preview_help'] = 'I förgranskningsläget kan du ändra ordningen på f
 $string['previous_page'] = 'Föregående sida';
 $string['public'] = 'Offentlig';
 $string['question'] = 'Fråga';
+$string['questionandsubmission'] = 'Inställningar för fråga och inlämning';
 $string['questions'] = 'Frågor';
 $string['radio'] = 'Flerval - ett enskilt svar';
 $string['radiobutton'] = 'Radioknapp';
@@ -281,15 +260,10 @@ $string['textfield_maxlength'] = 'Max. räkning av tecken';
 $string['textfield_size'] = 'Bredd på textfält';
 $string['there_are_no_settings_for_recaptcha'] = 'Det finns inga inställningar för captcha';
 $string['this_feedback_is_already_submitted'] = 'Du har redan fullföljt den här Egen enkät';
-$string['timeclose'] = 'Tid för att stänga';
-$string['timeclose_help'] = 'Du kan definiera tiden när enkäten är tillgänglig för att ta emot studenternas svar. Om kryssrutan inte är markerad finns ingen tidsgräns definierad.';
-$string['timeopen'] = 'Tid för att öppna';
-$string['timeopen_help'] = 'Du kan definiera tiden när enkäten är tillgänglig för att ta emot studenternas svar. Om kryssrutan inte är markerad finns ingen tidsgräns definierad.';
 $string['typemissing'] = 'det saknas ett värde "type"';
 $string['update_item'] = 'uppdatera komponent';
 $string['url_for_continue'] = 'URL för knappen "Fortsätt"';
-$string['url_for_continue_button'] = 'URL för knappen "Fortsätt"';
-$string['url_for_continue_help'] = 'När en enkät är besvarat är den som standard inställt att knappen "Fortsätt" leder en till kursens startsida. Du kan definiera här ett annat mål/länk för  knappen "Fortsät".';
+$string['url_for_continue_help'] = 'När enkäten är besvarat visas knappen "fortsätt" som leder till din institutions Moodle-hemsida. Du kan definiera här ett annat mål/länk för  knappen "Fortsätt".';
 $string['use_one_line_for_each_value'] = '<br />Använd en rad för varje alternativ!';
 $string['use_this_template'] = 'Använd den här mallen';
 $string['using_templates'] = 'Använder mallar';

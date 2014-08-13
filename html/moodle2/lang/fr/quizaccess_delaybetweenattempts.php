@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quizaccess_delaybetweenattempts', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quizaccess_delaybetweenattempts', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   quizaccess_delaybetweenattempts
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Délai entre les tentatives de test';
 $string['youcannotwait'] = 'Ce test se termine avant que vous ne puissiez effectuer une nouvelle tentative.';
-$string['youmustwait'] = 'Vous devez avant de pouvoir refaire une tentative de ce test. Vous pourrez effectuer une nouvelle tentative dans {$a}.';
+$string['youmustwait'] = 'Vous devez attendre avant de pouvoir refaire une tentative de ce test. Vous pourrez effectuer une nouvelle tentative dans {$a}.';

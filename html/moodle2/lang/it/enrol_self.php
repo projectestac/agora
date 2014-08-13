@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['canntenrol'] = 'Iscrizione disabilitata o non attiva';
 $string['cohortnonmemberinfo'] = 'Possono iscriversi spontaneamente solo gli appartenenti al gruppo globale \'{$a}\'';
 $string['cohortonly'] = 'Gruppo globale';
 $string['cohortonly_help'] = 'L\'iscrizione spontanea può essere limitata agli  appartenenti ad un determinato gruppo globale. Da notare che modificare questa impostazione non altera le iscrizioni già esistenti.';
@@ -36,7 +37,6 @@ E\' anche possibile utilizzare i seguenti segnaposto:
 * Titolo del corso {$a->coursename} * Link al profilo dell\'utente {$a->profileurl}';
 $string['defaultrole'] = 'Ruolo di default';
 $string['defaultrole_desc'] = 'Il ruolo di default da assegnare in caso di iscrizioni spontanee.';
-$string['editenrolment'] = 'Modifica iscrizione';
 $string['enrolenddate'] = 'Data di fine';
 $string['enrolenddate_help'] = 'Gli utenti potranno iscriversi solo entro la data impostata.';
 $string['enrolenddaterror'] = 'La data di fine delle iscrizioni non può essere antecedente la data di inizio';
@@ -71,6 +71,9 @@ $string['maxenrolled'] = 'Numero max. di iscrizioni';
 $string['maxenrolled_help'] = 'Il numero massimo di utenti che potranno iscriversi al corso. Usare 0 per non avere limiti.';
 $string['maxenrolledreached'] = 'E\' stato già raggiunto il numero massimo di iscrizioni.';
 $string['messageprovider:expiry_notification'] = 'Notifica scadenza iscrizione spontanea';
+$string['newenrols'] = 'Consenti nuove iscrizioni';
+$string['newenrols_desc'] = 'Per default gli utenti possono iscriversi ai corsi spontaneamente';
+$string['newenrols_help'] = 'L\'impostazione stabilisce se un utente può iscriversi spontaneamente al corso.';
 $string['nopassword'] = 'Non è necessaria una chiave di iscrizione';
 $string['password'] = 'Chiave di iscrizione';
 $string['password_help'] = 'Una chiave di accesso consente di regolare l\'iscrizione al corso consentendola ai soli utenti che ne sono in possesso.
@@ -93,9 +96,9 @@ $string['sendcoursewelcomemessage'] = 'Invia messaggio di benvenuto al corso';
 $string['sendcoursewelcomemessage_help'] = 'Se abilitato, gli utenti che si iscrivono spontaneamente in un corso riceveranno per email un messaggio di benvenuto.';
 $string['showhint'] = 'Visualizza suggerimento';
 $string['showhint_desc'] = 'Visualizza la prima lettera della chiave d\'accesso.';
-$string['status'] = 'Consenti iscrizioni spontanee';
-$string['status_desc'] = 'Consente per default l\'iscrizione spontanea ai corsi.';
-$string['status_help'] = 'L\'impostazione stabilisce se un utente ha la possibilità di iscriversi spontaneamente  (e anche di disiscriversi se ne hanno i privilegi).';
+$string['status'] = 'Abilita iscrizioni già esistenti.';
+$string['status_desc'] = 'Abilita il metodo di iscrizione spontanea ai corsi.';
+$string['status_help'] = 'Disabilitando l\'impostazione, tutte le iscrizioni spontanee saranno sospese e non saranno consentite nuove iscrizioni.';
 $string['unenrol'] = 'Cancella iscrizione utente';
 $string['unenrolselfconfirm'] = 'Sei certo di volerti disiscrivere dal corso "{$a}"?';
 $string['unenroluser'] = 'Sei certo di rimuovere l\'iscrizione di "{$a->user}" dal corso "{$a->course}"?';

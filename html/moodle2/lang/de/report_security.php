@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -91,14 +91,6 @@ $string['check_passwordpolicy_details'] = '<p>Kennwortregeln sollten unbedingt f
 $string['check_passwordpolicy_error'] = 'Die Kennwortregeln sind nicht eingerichtet.';
 $string['check_passwordpolicy_name'] = 'Kennwortregeln';
 $string['check_passwordpolicy_ok'] = 'Die Kennwortregeln sind aktiviert.';
-$string['check_passwordsaltmain_details'] = '<p>Die Kennwortverschlüsselung reduziert zuverlässig das Risiko von Kennwortdiebstahl.</p>
-<p>Um die Kennwortverschlüsselung zu konfigurieren, fügen Sie bitte die folgende Zeile in Ihre Datei config.php ein:</p>
-<code>$CFG->passwordsaltmain = \'some long random string here with lots of characters!A1234567890!\';</code>
-<p>Der Zufallstext sollte aus einem Mix von Buchstaben, Zahlen und Sonderzeichen bestehen und mindestens 40 Zeichen lang sein. Bitte beachten Sie die <a href="{$a}" target="_blank">Dokumentation zur Kennwortverschlüsselung</a>, falls Sie diesen Parameter verändern möchten. Löschen Sie auf keinen Fall den Kennwortschlüssel, sobald Sie ihn einmal verwendet haben - andernfalls können Sie sich auch als Admin nicht mehr in Ihrem eigenen Moodle einloggen!</p>';
-$string['check_passwordsaltmain_name'] = 'Kennwortverschlüsselung';
-$string['check_passwordsaltmain_ok'] = 'Die Kennwortverschlüsselung ist OK';
-$string['check_passwordsaltmain_warning'] = 'Die Kennwortverschlüsselung wurde nicht konfiguriert';
-$string['check_passwordsaltmain_weak'] = 'Die Kennwortverschlüsselung ist zu schwach';
 $string['check_riskadmin_detailsok'] = '<p>Bitte prüfen Sie die folgende Liste von Serveradministrator(en):</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>Bitte prüfen Sie die folgende Liste von Serveradministrator(en):</p>{$a->admins}
 <p>Es wird empfohlen, die Administratorenrolle nur auf Systemebene zu vergeben. Die folgenden Nutzer verfügen über nicht unterstützte Zuweisungen zur Administratorrolle:</p>{$a->unsupported}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,10 +39,10 @@ $string['blockcontact'] = 'Bloquer ce contact';
 $string['blockedmessages'] = '{$a} message(s) personnel(s) de/pour des utilisateurs bloqués';
 $string['blockedusers'] = 'Utilisateurs bloqués ({$a})';
 $string['blocknoncontacts'] = 'Empêcher les utilisateurs inconnus de m\'envoyer des messages personnels';
-$string['contactlistempty'] = 'Votre liste de contacts est vide';
+$string['contactlistempty'] = 'Liste de contacts vide';
 $string['contacts'] = 'Contacts';
 $string['context'] = 'Contexte';
-$string['defaultmessageoutputs'] = 'Output par défaut des messages';
+$string['defaultmessageoutputs'] = 'Notification par défaut des messages';
 $string['defaults'] = 'Défauts';
 $string['deletemessagesdays'] = 'Nombre de jours avant la suppression automatique des anciens messages personnels';
 $string['disableall'] = 'Désactiver temporairement les notifications';
@@ -53,13 +53,13 @@ $string['discussion'] = 'Discussion';
 $string['emailmessages'] = 'Envoyer par courriel les messages personnels quand je suis déconnecté';
 $string['emailtagline'] = 'Ce courriel est la copie d\'un message personnel qui vous a été envoyé sur « {$a->sitename} ». Pour y répondre, visitez {$a->url}.';
 $string['emptysearchstring'] = 'Vous devez saisir un critère de recherche';
-$string['errorcallingprocessor'] = 'Erreur lors de l\'appel de l\'output défini';
+$string['errorcallingprocessor'] = 'Erreur lors de l\'appel de la notification définie';
 $string['errortranslatingdefault'] = 'Erreur lors de la conversion d\'un réglage par défaut fourni par le plugin. Utilisation des réglages par défaut du système.';
 $string['forced'] = 'Imposé';
 $string['formorethan'] = 'Depuis plus de';
 $string['gotomessages'] = 'Vers les messages';
-$string['guestnoeditmessage'] = 'Les visiteurs anonymes ne peuvent pas modifier les options de messagerie personnelle';
-$string['guestnoeditmessageother'] = 'Les visiteurs anonymes ne peuvent pas modifier les options de messagerie personnelle des autres utilisateurs';
+$string['guestnoeditmessage'] = 'Les visiteurs anonymes ne peuvent pas modifier les réglages de notification des messages';
+$string['guestnoeditmessageother'] = 'Les visiteurs anonymes ne peuvent pas modifier les réglages de notification des messages des autres utilisateurs';
 $string['includeblockedusers'] = 'Inclure les utilisateurs bloqués';
 $string['incomingcontacts'] = 'Messages personnels arrivant ({$a})';
 $string['keywords'] = 'Mots clefs';
@@ -71,21 +71,20 @@ $string['loggedoff'] = 'Non connectés :';
 $string['loggedoffdescription'] = 'Quand je ne suis pas en ligne';
 $string['mailsent'] = 'Votre message personnel a été envoyé par courriel.';
 $string['managecontacts'] = 'Gérer mes contacts';
-$string['managemessageoutputs'] = 'Gérer l\'output des messages';
+$string['managemessageoutputs'] = 'Gérer la notification des messages';
 $string['maxmessages'] = 'Nombre maximal de messages personnels à afficher dans l\'historique des discussions';
 $string['message'] = 'Message personnel';
 $string['messagehistory'] = 'Historique des messages personnels';
 $string['messagehistoryfull'] = 'Tous les messages';
 $string['messagenavigation'] = 'Navigation messagerie';
-$string['messageoutputs'] = 'Output des messages';
+$string['messageoutputs'] = 'Notification des messages';
 $string['messages'] = 'Messages personnels';
-$string['messaging'] = 'Messagerie personnelle';
+$string['messaging'] = 'Notification des messages';
 $string['messagingblockednoncontact'] = '{$a} ne pourra pas répondre, car vous avez bloqué les messages des utilisateurs ne figurant pas dans vos contacts.';
 $string['messagingdisabled'] = 'La messagerie personnelle est désactivée. Ce message sera envoyé par courriel à ses destinataires';
 $string['mostrecent'] = 'Messages récents';
 $string['mostrecentconversations'] = 'Conversations récentes';
 $string['mostrecentnotifications'] = 'Notifications récentes';
-$string['mycontacts'] = 'Mes contacts';
 $string['newonlymsg'] = 'N\'afficher que les nouveaux';
 $string['newsearch'] = 'Nouvelle recherche';
 $string['noframesjs'] = 'Version plus accessible';
@@ -100,7 +99,7 @@ $string['onlinecontacts'] = 'Contacts en ligne ({$a})';
 $string['onlyfromme'] = 'Uniquement mes messages personnels envoyés';
 $string['onlymycourses'] = 'Uniquement dans mes cours';
 $string['onlytome'] = 'Uniquement mes messages personnels reçus';
-$string['outputdisabled'] = 'Output désactivé';
+$string['outputdisabled'] = 'Notifications désactivées';
 $string['outputdoesnotexist'] = 'L\'output du message n\'existe pas';
 $string['outputenabled'] = 'Output activé';
 $string['outputnotavailable'] = 'Non disponible';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Toute page de messagerie personnelle';
 $string['pagerefreshes'] = 'Cette page s\'actualise automatiquement toutes les {$a} secondes';
 $string['permitted'] = 'Autorisé';
 $string['private_config'] = 'Fenêtre surgissante';
-$string['processordeleteconfirm'] = 'Vous allez supprimer totalement l\'output « {$a} » des messages. Cela supprimera complètement de la base de données tout ce qui est associé à cet output. Voulez-vous vraiment continuer ?';
-$string['processordeletefiles'] = 'Toutes les données associées à l\'output « {$a->processor} » ont été supprimées de la base de données. Pour terminer la suppression et empêcher que l\'output se réinstalle automatiquement, veuillez supprimer ce dossier de votre serveur : {$a->directory}';
 $string['processortag'] = 'Destination';
 $string['providers_config'] = 'Configurer les méthodes de notification des messages personnels';
 $string['providerstag'] = 'Source';

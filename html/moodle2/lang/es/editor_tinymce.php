@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,7 +37,7 @@ $string['advanced:bold_desc'] = 'Negrita (Ctrl+B)';
 $string['advanced:bullist_desc'] = 'Insertar/eliminar lista con viñetas';
 $string['advanced:charmap_delta_height'] = '';
 $string['advanced:charmap_delta_width'] = '';
-$string['advanced:charmap_desc'] = 'Insertar caracteres especiales';
+$string['advanced:charmap_desc'] = 'Insertar caracteres Insertar caracteres especiales';
 $string['advanced:cleanup_desc'] = 'Limpiar código basura';
 $string['advanced:clipboard_msg'] = 'Copiar/Cortar/Pegar no se encuentran disponibles en Mozilla y Firefox. ¿Desea obtener más información acerca de este tema?';
 $string['advanced:code'] = 'Código';
@@ -129,7 +129,7 @@ $string['advanced:justifyright_desc'] = 'Alinear a la derecha';
 $string['advanced:link_delta_height'] = '';
 $string['advanced:link_delta_width'] = '';
 $string['advanced:link_desc'] = 'Insertar/editar hipervínculo';
-$string['advanced:more_colors'] = 'Más colores...';
+$string['advanced:more_colors'] = 'Más colores..';
 $string['advanced:newdocument'] = '¿Está seguro que desea limpiar todo el contenido?';
 $string['advanced:newdocument_desc'] = 'Nuevo documento';
 $string['advanced:numlist_desc'] = 'Insertar/eliminar lista numerada';
@@ -588,7 +588,7 @@ $string['media_dlg:wmode'] = 'WMode';
 $string['media_dlg:wmp_options'] = 'Opciones Windows media player';
 $string['media:edit'] = 'Editar medio embebido';
 $string['nonbreaking:nonbreaking_desc'] = 'Insertar caracter de espacio \'non-breaking\'';
-$string['pagebreak:desc'] = 'Insertar fin de página';
+$string['pagebreak:desc'] = 'Insertar fin de página para imprimir';
 $string['paste_dlg:text_linebreaks'] = 'Keep linebreaks';
 $string['paste_dlg:text_title'] = 'Use CTRL+V en su teclado para pegar el texto en la ventana.';
 $string['paste_dlg:word_title'] = 'Use CTRL+V en su teclado para pegar el texto en la ventana.';
@@ -711,7 +711,6 @@ $string['style_dlg:top'] = 'Arriba';
 $string['style_dlg:visibility'] = 'Visibilidad';
 $string['style_dlg:width'] = 'Ancho';
 $string['style_dlg:zindex'] = 'Z-index';
-$string['subplugindeleteconfirm'] = 'Estás a punto de borrar completamente la subextensión "{$a}" de TinyMCE. Esto borrará completamente de la base de datos todo aquello asociado con esta subextensión. ¿Está seguro de que desea continuar?';
 $string['subplugintype_tinymce_plural'] = 'Extensiones';
 $string['table:cell'] = 'Celda';
 $string['table:cell_desc'] = 'Propiedades de la celda';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,13 +25,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'イベントを追加する';
 $string['advancedoptions'] = '高度なオプション';
 $string['allday'] = '終日';
 $string['annually'] = '毎年';
 $string['calendar'] = 'カレンダー';
 $string['calendarheading'] = '{$a} カレンダー';
 $string['calendarpreferences'] = 'カレンダープリファレンス';
-$string['calendarurl'] = 'カレンダーURI: {$a}';
+$string['calendartypes'] = 'カレンダータイプ';
+$string['calendarurl'] = 'カレンダーURL: {$a}';
 $string['clickhide'] = '非表示';
 $string['clickshow'] = '表示';
 $string['colactions'] = '操作';
@@ -44,14 +46,15 @@ $string['course'] = 'コース';
 $string['courseevent'] = 'コースイベント';
 $string['courseevents'] = 'コースイベント';
 $string['courses'] = 'コース';
+$string['customexport'] = 'カスタム幅 ({$a->timestart} - {$a->timeend})';
 $string['daily'] = '毎日';
-$string['dayview'] = '1日分表示';
+$string['dayviewfor'] = '日表示:';
 $string['dayviewtitle'] = '日表示: {$a}';
 $string['daywithnoevents'] = 'この日にはイベントがありません。';
 $string['default'] = 'デフォルト';
 $string['deleteevent'] = 'イベントの削除';
 $string['deleteevents'] = 'イベントを削除する';
-$string['detailedmonthview'] = '詳細な月表示';
+$string['detailedmonthviewfor'] = '詳細月表示:';
 $string['detailedmonthviewtitle'] = '詳細月表示: {$a}';
 $string['durationminutes'] = '期間 (分)';
 $string['durationnone'] = '期間なし';
@@ -62,12 +65,12 @@ $string['errorbadsubscription'] = 'カレンダー購読が見つかりません
 $string['errorbeforecoursestart'] = 'コースの開始日以前にイベントを登録できません';
 $string['errorcannotimport'] = '現在、あなたはカレンダー購読を設定することはできません。';
 $string['errorinvaliddate'] = '日付が正しくありません';
-$string['errorinvalidicalurl'] = 'iCal URIが有効ではありません。';
+$string['errorinvalidicalurl'] = 'iCal URLが有効ではありません。';
 $string['errorinvalidminutes'] = '期間 (分) を1から999の間で指定してください。';
 $string['errorinvalidrepeats'] = 'イベント数を1から99の間で指定してください。';
 $string['errornodescription'] = '説明を入力してください';
 $string['errornoeventname'] = '名称を入力してください';
-$string['errorrequiredurlorfile'] = 'カレンダーのインポートに必要なURIまたはファイルです。';
+$string['errorrequiredurlorfile'] = 'カレンダーのインポートに必要なURLまたはファイルです。';
 $string['eventdate'] = '日付';
 $string['eventdescription'] = '説明';
 $string['eventduration'] = '期間';
@@ -93,9 +96,10 @@ $string['export'] = 'エクスポート';
 $string['exportbutton'] = 'エクスポート';
 $string['exportcalendar'] = 'カレンダーをエクスポートする';
 $string['for'] = '対象';
+$string['forcecalendartype'] = 'カレンダーの強制';
 $string['fri'] = '金';
 $string['friday'] = '金曜日';
-$string['generateurlbutton'] = 'カレンダーのURIを取得する';
+$string['generateurlbutton'] = 'カレンダーのURLを取得する';
 $string['global'] = 'グローバル';
 $string['globalevent'] = '全体のイベント';
 $string['globalevents'] = '全体のイベント';
@@ -114,8 +118,8 @@ $string['importcalendar'] = 'カレンダーをインポートする';
 $string['importcalendarfrom'] = 'インポート先';
 $string['importcalendarheading'] = 'カレンダーをインポートする ...';
 $string['importfromfile'] = 'カレンダーファイル (.ics)';
-$string['importfrominstructions'] = 'リモートカレンダーのURIを提供するか、ファイルをアップロードしてください。';
-$string['importfromurl'] = 'カレンダーURI';
+$string['importfrominstructions'] = 'リモートカレンダーのURLを提供するか、ファイルをアップロードしてください。';
+$string['importfromurl'] = 'カレンダーURL';
 $string['invalidtimedurationminutes'] = 'あなたが入力した期間は有効ではありません。ゼロよりも大きな期間を分で入力するか空白にしてください。';
 $string['invalidtimedurationuntil'] = 'あなたはイベント開始日時より前の終了日時を選択しました。処理を続行する前に訂正してください。';
 $string['iwanttoexport'] = 'エクスポート';
@@ -127,6 +131,7 @@ $string['monthly'] = '毎月';
 $string['monthlyview'] = '月表示';
 $string['monthnext'] = '来月';
 $string['monththis'] = '当月';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'なし';
 $string['newevent'] = '新しいイベント';
 $string['nocalendarsubscriptions'] = 'あなたにカレンダー購読はありません。';
@@ -137,6 +142,7 @@ $string['pollinterval'] = '更新間隔';
 $string['pollinterval_help'] = 'あなたが新しいイベントに関して、カレンダーを更新したい間隔です。';
 $string['preferences'] = '設定';
 $string['preferences_available'] = '個人設定';
+$string['preferredcalendar'] = '推奨カレンダー';
 $string['pref_lookahead'] = '直近イベントの日数範囲';
 $string['pref_lookahead_help'] = 'この設定では直近イベントとしてイベントを表示するための将来的な日数の範囲を指定します。この日数を超えるイベントは直近イベントとして表示されることはありません。この日数範囲内のすべてのイベントが表示されるという<strong>保証はありません</strong>。多くの直近イベント (「直近イベントの最大表示件数」以上) が登録されている場合、最も時間の離れたイベントは表示されません。';
 $string['pref_maxevents'] = '直近イベントの最大表示件数';
@@ -169,6 +175,7 @@ $string['subscriptionname'] = 'カレンダー名';
 $string['subscriptionremoved'] = 'カレンダー購読「 {$a} 」が削除されました。';
 $string['subscriptions'] = '購読';
 $string['subscriptionupdated'] = 'カレンダー購読「 {$a} 」が更新されました。';
+$string['subsource'] = 'イベントソース: {$a->name}';
 $string['sun'] = '日';
 $string['sunday'] = '日曜日';
 $string['thu'] = '木';
@@ -194,7 +201,8 @@ $string['typegroup'] = 'グループイベント';
 $string['typesite'] = 'サイトイベント';
 $string['typeuser'] = 'ユーザイベント';
 $string['upcomingevents'] = '直近イベント';
-$string['urlforical'] = 'iCalendarエクスポートおよびカレンダー購読のためのURI';
+$string['upcomingeventsfor'] = '直近イベント:';
+$string['urlforical'] = 'iCalendarエクスポートおよびカレンダー購読のためのURL';
 $string['user'] = 'ユーザ';
 $string['userevent'] = 'ユーザイベント';
 $string['userevents'] = 'ユーザイベント';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -70,6 +70,7 @@ $string['chooseauthmethod_help'] = '<p align="center"><b>Autentifikazio-metodoa 
 <p>Mesedez, kontuz ibili, ezarpen hori gunean definitutako autentifikazio-metodoen eta erabiltzen ari diren ezarpenen mendekoa baita.</p>
 
 <p>Aldaketa okerren bat egiten baduzu, erabiltzailea ezingo da zerbitzarira sartu; kontua erabat ezabatzea ere gerta daiteke. Beraz, aukera hau zer egiten ari zaren ondo badakizu bakarrik erabili.</p>';
+$string['createpassword'] = 'Sortu pasahitza eta jakinarazi erabiltzaileari';
 $string['createpasswordifneeded'] = 'Pasahitza sortu, beharrezkoa bada.';
 $string['emailchangecancel'] = 'Utzi e-postaren aldaketa';
 $string['emailchangepending'] = 'Egin gabeko aldaketa. Ireki bidalitako esteka hemen {$a->preference_newemail}.';
@@ -91,6 +92,8 @@ $string['errorminpasswordlower'] = 'Pasahitzak gutxienez {$a} letra xehe izan be
 $string['errorminpasswordnonalphanum'] = 'Pasahitzak gutxienez {$a} karaktere ez alfa-numeriko izan behar ditu.';
 $string['errorminpasswordupper'] = 'Pasahitzak gutxienez {$a} letra larri izan behar ditu.';
 $string['errorpasswordupdate'] = 'Errorea pasahitza eguneratzean, pasahitza ez da aldatu';
+$string['event_user_loggedin'] = 'Erabiltzailea hemen sartu da:';
+$string['eventuserloggedinas'] = 'Erabiltzailea beste erabiltzaile bat bezala sartu da';
 $string['forcechangepassword'] = 'Pasahitz aldaketa behartu';
 $string['forcechangepasswordfirst_help'] = 'Erabiltzaileak Moodle-n sartzen diren lehenengoan pasahitza aldatzera behartu.';
 $string['forcechangepassword_help'] = 'Erabiltzaileak Moodle-n sartzen diren hurrengoan pasahitza aldatzera behartu.';

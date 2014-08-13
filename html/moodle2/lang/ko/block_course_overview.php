@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,11 @@ $string['hiddencoursecount'] = '{$a} 숨겨진 강좌가 있습니다.';
 $string['hiddencoursecountplural'] = '{$a} 숨겨진 강좌가 있습니다.';
 $string['message'] = '메세지';
 $string['messages'] = '메세지';
+$string['moveafterhere'] = '{$a->movingcoursename} 강좌를 {$a->currentcoursename} 다음으로 옮김';
+$string['movecourse'] = '강좌  {$a} 이동';
 $string['movecoursehere'] = '여기로 강좌 옮김';
+$string['movetofirst'] = '{$a} 강좌를 맨 위로 이동';
+$string['movingcourse'] = '강좌 : {$a->fullname} 이동({$a->cancellink})';
 $string['numtodisplay'] = '표시할 강좌 수';
 $string['otherexpanded'] = '다른 강좌들 확장';
 $string['pluginname'] = '강좌 개요';

@@ -18,7 +18,7 @@
 /**
  *
  * Define all the restore steps that will be used by the restore_geogebra_activity_task
- * 
+ *
  * @package    mod
  * @subpackage geogebra
  * @copyright  2011 Departament d'Ensenyament de la Generalitat de Catalunya

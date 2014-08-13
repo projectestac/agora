@@ -4,7 +4,7 @@ class com_wiris_quizzes_wrap_QuestionWrap implements com_wiris_quizzes_api_Quest
 	public function __construct($question) {
 		if(!php_Boot::$skip_constructor) {
 		$this->question = $question;
-		$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+		$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 	}}
 	public function serialize() {
 		try {
@@ -12,6 +12,92 @@ class com_wiris_quizzes_wrap_QuestionWrap implements com_wiris_quizzes_api_Quest
 			$r = $this->question->serialize();
 			$this->wrapper->stop();
 			return $r;
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function getAlgorithm() {
+		try {
+			$this->wrapper->start();
+			$r = $this->question->getAlgorithm();
+			$this->wrapper->stop();
+			return $r;
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function setAlgorithm($session) {
+		try {
+			$this->wrapper->start();
+			$this->question->setAlgorithm($session);
+			$this->wrapper->stop();
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function getCorrectAnswer($index) {
+		try {
+			$this->wrapper->start();
+			$r = $this->question->getCorrectAnswer($index);
+			$this->wrapper->stop();
+			return $r;
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function setCorrectAnswer($index, $answer) {
+		try {
+			$this->wrapper->start();
+			$this->question->setCorrectAnswer($index, $answer);
+			$this->wrapper->stop();
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function setAnswerFieldType($type) {
+		try {
+			$this->wrapper->start();
+			$this->question->setAnswerFieldType($type);
+			$this->wrapper->stop();
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$e = $_ex_;
+			{
+				$this->wrapper->stop();
+				throw new HException($e);
+			}
+		}
+	}
+	public function setOption($name, $value) {
+		try {
+			$this->wrapper->start();
+			$this->question->setOption($name, $value);
+			$this->wrapper->stop();
 		}catch(Exception $»e) {
 			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
 			$e = $_ex_;

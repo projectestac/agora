@@ -60,6 +60,12 @@ class block_base {
     var $title         = NULL;
 
     /**
+     * The name of the block to be displayed in the block title area if the title is empty.
+     * @var string arialabel
+     */
+    var $arialabel         = NULL;
+
+    /**
      * The type of content that this block creates. Currently support options - BLOCK_TYPE_LIST, BLOCK_TYPE_TEXT
      * @var int $content_type
      */
@@ -224,7 +230,7 @@ class block_base {
         global $CFG;
 
         $bc = new block_contents($this->html_attributes());
-
+        $bc->attributes['data-block'] = $this->name();
         $bc->blockinstanceid = $this->instance->id;
         $bc->blockpositionid = $this->instance->blockpositionid;
 
@@ -240,8 +246,10 @@ class block_base {
         if (!$this->hide_header()) {
             $bc->title = $this->title;
         }
+
         if (empty($bc->title)) {
             $bc->arialabel = new lang_string('pluginname', get_class($this));
+            $this->arialabel = $bc->arialabel;
         }
 
         if ($this->page->user_is_editing()) {
@@ -261,6 +269,10 @@ class block_base {
             $bc->collapsible = block_contents::HIDDEN;
         } else {
             $bc->collapsible = block_contents::VISIBLE;
+        }
+
+        if ($this->instance_can_be_docked() && !$this->hide_header()) {
+            $bc->dockable = true;
         }
 
         $bc->annotation = ''; // TODO MDL-19398 need to work out what to say here.
@@ -404,6 +416,9 @@ class block_base {
             'class' => 'block_' . $this->name(). '  block',
             'role' => $this->get_aria_role()
         );
+        if ($this->hide_header()) {
+            $attributes['class'] .= ' no-header';
+        }
         if ($this->instance_can_be_docked() && get_user_preferences('docked_block_instance_'.$this->instance->id, 0)) {
             $attributes['class'] .= ' dock_on_load';
         }
@@ -427,9 +442,13 @@ class block_base {
         $this->specialization();
     }
 
+    /**
+     * Allows the block to load any JS it requires into the page.
+     *
+     * By default this function simply permits the user to dock the block if it is dockable.
+     */
     function get_required_javascript() {
         if ($this->instance_can_be_docked() && !$this->hide_header()) {
-            $this->page->requires->js_init_call('M.core_dock.init_genericblock', array($this->instance->id));
             user_preference_allow_ajax_update('docked_block_instance_'.$this->instance->id, PARAM_INT);
         }
     }

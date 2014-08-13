@@ -66,7 +66,7 @@ if (!empty($fromform) and confirm_sesskey()) {
     // Set to -1 all optional data marked as "don't send" by the admin.
     // The function get_site_info() will not calculate the optional data if config is set to -1.
     $inputnames = array('courses', 'users', 'roleassignments', 'posts', 'questions', 'resources',
-        'modulenumberaverage', 'participantnumberaverage');
+        'badges', 'issuedbadges', 'modulenumberaverage', 'participantnumberaverage');
     foreach ($inputnames as $inputname) {
         if (empty($fromform->{$inputname})) {
             $fromform->{$inputname} = -1;
@@ -95,6 +95,8 @@ if (!empty($fromform) and confirm_sesskey()) {
     set_config('site_postsnumber_' . $cleanhuburl, $fromform->posts, 'hub');
     set_config('site_questionsnumber_' . $cleanhuburl, $fromform->questions, 'hub');
     set_config('site_resourcesnumber_' . $cleanhuburl, $fromform->resources, 'hub');
+    set_config('site_badges_' . $cleanhuburl, $fromform->badges, 'hub');
+    set_config('site_issuedbadges_' . $cleanhuburl, $fromform->issuedbadges, 'hub');
     set_config('site_modulenumberaverage_' . $cleanhuburl, $fromform->modulenumberaverage, 'hub');
     set_config('site_participantnumberaverage_' . $cleanhuburl, $fromform->participantnumberaverage, 'hub');
 }
@@ -133,6 +135,8 @@ if (!empty($fromform) and empty($update) and confirm_sesskey()) {
         $fromform->posts = $siteinfo['posts'];
         $fromform->questions = $siteinfo['questions'];
         $fromform->resources = $siteinfo['resources'];
+        $fromform->badges = $siteinfo['badges'];
+        $fromform->issuedbadges = $siteinfo['issuedbadges'];
         $fromform->modulenumberaverage = $siteinfo['modulenumberaverage'];
         $fromform->participantnumberaverage = $siteinfo['participantnumberaverage'];
         $fromform->street = $siteinfo['street'];

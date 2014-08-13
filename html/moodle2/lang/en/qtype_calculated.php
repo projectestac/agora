@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Add item';
 $string['addmoreanswerblanks'] = 'Add another answer blank.';
-$string['addmoreunitblanks'] = 'Blanks for {$a} more units';
 $string['addsets'] = 'Add set(s)';
+$string['answerdisplay'] = 'Answer display';
+$string['answerformula'] = 'Answer  {$a} formula';
 $string['answerhdr'] = 'Answer';
 $string['answerstoleranceparam'] = 'Answers tolerance parameters';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -91,9 +92,7 @@ $string['minmax'] = 'Range of Values';
 $string['missingformula'] = 'Missing formula';
 $string['missingname'] = 'Missing question name';
 $string['missingquestiontext'] = 'Missing question text';
-$string['mustbenumeric'] = 'You must enter a number here.';
 $string['mustenteraformulaorstar'] = 'You must enter a formula or \'*\'.';
-$string['mustnotbenumeric'] = 'This can\'t be a number.';
 $string['newcategory1'] = 'will use a new shared dataset';
 $string['newcategory2'] = 'a file from a new set of files that may also be used by other questions in this category';
 $string['newcategory3'] = 'a link from a new set of links that may also be used by other questions in this category';
@@ -136,6 +135,7 @@ $string['synchronizeno'] = 'Do not synchronize';
 $string['synchronizeyes'] = 'Synchronize';
 $string['synchronizeyesdisplay'] = 'Synchronize and display the shared datasets name as prefix of the question name';
 $string['tolerance'] = 'Tolerance &plusmn;';
+$string['tolerancetype'] = 'Type';
 $string['trueanswerinsidelimits'] = 'Correct answer : {$a->correct} inside limits of true value {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">ERROR Correct answer : {$a->correct} outside limits of true value {$a->true}</span>';
 $string['uniform'] = 'Uniform';
@@ -155,5 +155,4 @@ $string['wildcardvalues'] = 'Wild card(s) values';
 $string['wildcardvaluesgenerated'] = 'Wild card(s) values generated';
 $string['youmustaddatleastoneitem'] = 'You must add at least one dataset item before you can save this question.';
 $string['youmustaddatleastonevalue'] = 'You must add at least one set of wild card(s) values before you can save this question.';
-$string['youmustenteramultiplierhere'] = 'You must enter a multiplier here.';
 $string['zerosignificantfiguresnotallowed'] = 'The correct answer cannot have zero significant figures!';

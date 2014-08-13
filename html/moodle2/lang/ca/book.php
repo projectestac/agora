@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,12 @@ $string['customtitles_help'] = 'Normalment el títol del capítol es mostra auto
 Si la casella de selecció dels títols està marcada, el títol del capítol NO es mostrarà com a capçalera damunt del contingut. Es pot introduir un títol diferent com a part del contingut (potser més llarg que el títol del capítol).';
 $string['editingchapter'] = 'S\'està editant el capítol';
 $string['errorchapter'] = 'S\'ha produït un error en llegir el capítol.';
+$string['event_chapter_created'] = 'S\'ha creat el capítol.';
+$string['event_chapter_deleted'] = 'S\'ha suprimit el capítol.';
+$string['event_chapter_updated'] = 'S\'ha actualitzat el capítol.';
+$string['event_chapter_viewed'] = 'S\'ha visualitzat el capítol.';
+$string['event_course_module_viewed'] = 'S\'ha visualitzat el mòdul del curs.';
+$string['event_instances_list_viewed'] = 'S\'ha visualitzat la llista d\'instàncies.';
 $string['modulename'] = 'Llibre';
 $string['modulename_help'] = 'El mòdul de llibre permet al professorat crear un recurs de diverses pàgines en un format de llibre, amb capítols i subcapítols. Els llibres poden contenir fitxers multimèdia, així com text, i són útils per a mostrar llargs passatges d\'informació que es poden dividir en seccions.
 

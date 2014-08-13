@@ -72,18 +72,6 @@ $capabilities = array(
         )
     ),
 
-    'mod/qv:grade' => array(
-        'riskbitmask' => RISK_XSS,
-
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_MODULE,
-        'archetypes' => array(
-            'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
-    ),
-
     'mod/qv:addinstance' => array(
         'riskbitmask' => RISK_XSS,
 
@@ -95,6 +83,4 @@ $capabilities = array(
         ),
         'clonepermissionsfrom' => 'moodle/course:manageactivities'
     ),
-    
-    
 );

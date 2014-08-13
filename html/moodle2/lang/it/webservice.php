@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,7 @@ $string['createtokenforuser'] = 'Crea un token per l\'utente';
 $string['createtokenforuserdescription'] = 'Crea un token per l\'utente web service';
 $string['createuser'] = 'Crea un utente specifico';
 $string['createuserdescription'] = 'E\' necessario creare un utente web service per il sistema che controllerà Moodle.';
-$string['criteriaerror'] = 'Manca l\'autorizzazione per ricerche basate su criteri';
+$string['criteriaerror'] = 'Manca l\'autorizzazione per ricerche basate su criteri.';
 $string['default'] = 'Default a "{$a}"';
 $string['deleteaservice'] = 'Servizio di default';
 $string['deleteservice'] = 'Elimina il servizio: {$a->name} (id: {$a->id})';
@@ -87,6 +87,14 @@ $string['errorcoursecontextnotvalid'] = 'Non puoi eseguire funzioni nel contesti
 $string['errorinvalidparam'] = 'Il parametro "{$a}" non è valido.';
 $string['errornotemptydefaultparamarray'] = 'Il parametro di descrizione web service di nome  \'{$a}\' è una struttura singola o multipla. Il default può essere solamente un array vuoto. Controlla la descrizione del web service.';
 $string['erroroptionalparamarray'] = 'Il parametro di descrizione web service di nome  \'{$a}\' è una struttura singola o multipla. Non è possibile impostarlo a VALUE_OPTIONAL. Controlla la descrizione del web service.';
+$string['event_webservice_function_called'] = 'Chiamata funzione web service';
+$string['event_webservice_login_failed'] = 'Fallita autenticazione web service';
+$string['event_webservice_service_created'] = 'Creato servizio web service';
+$string['event_webservice_service_updated'] = 'Aggiornato servizio web service';
+$string['event_webservice_service_user_added'] = 'Aggiornato utente servizio web service';
+$string['event_webservice_service_user_removed'] = 'Eliminato utente servizio web service';
+$string['event_webservice_token_created'] = 'Creato token web service';
+$string['event_webservice_token_sent'] = 'Inviato token web service';
 $string['execute'] = 'Esegui';
 $string['executewarnign'] = 'ATTENZIONE: premendo il pulsante Esegui il database sarà modificato e le modiche apportate non potranno essere annullate automaticamente!';
 $string['externalservice'] = 'Servizio';
@@ -121,6 +129,7 @@ $string['missingusername'] = 'Username mancante';
 $string['missingversionfile'] = 'Errore di programmazione: il file version.php non è presente per il componente {$a}';
 $string['mobilewsdisabled'] = 'Disabilitato';
 $string['mobilewsenabled'] = 'Abilitato';
+$string['nocapabilitytouseparameter'] = 'L\'utente non ha il privilegio necessario per usare il parametro {$a}';
 $string['nofunctions'] = 'Il servizio non ha funzioni.';
 $string['norequiredcapability'] = 'Nessun privilegio richiesto';
 $string['notoken'] = 'L\'elenco dei token è vuoto';
@@ -185,6 +194,8 @@ $string['tokencreator'] = 'Creatore';
 $string['unknownoptionkey'] = 'L\'option key ({$a}) è sconosciuta';
 $string['unnamedstringparam'] = 'Un parametro stringa è privo di nome.';
 $string['updateusersettings'] = 'Aggiorna';
+$string['uploadfiles'] = 'Caricamento file consentito';
+$string['uploadfiles_help'] = 'Tutti gli utenti potranno caricare file nei file privati o nei file draft usando la propria chiave di sicurezza. La quota utente rimane in effetto.';
 $string['userasclients'] = 'Utenti client tramite token';
 $string['userasclientsdescription'] = 'I passi che seguono chiariscono le impostazioni necessarie per l\'accesso dei web service di Moodle da parte di utenti client. I passi suggeriscono anche come impostare il metodo di autenticazione basato su token (chiavi di sicurezza). Gli utenti possono generare il proprio token nella pagina Chiavi di sicurezza presente nelle impostazioni del profilo.';
 $string['usermissingcaps'] = 'Privilegi mancanti: {$a}.';

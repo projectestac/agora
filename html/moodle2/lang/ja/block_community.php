@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,9 +68,11 @@ $string['enrollablecourses'] = '受講登録可能なコース';
 $string['errorcourselisting'] = '選択したハブからコース一覧の検索中にエラーが発生しました。後ほど再度お試しください。 ({$a})';
 $string['errorhublisting'] = 'Moodle.orgからハブ一覧の検索中にエラーが発生しました。後ほど再度お試しください。({$a})';
 $string['fileinfo'] = '言語: {$a->lang} - ライセンス: {$a->license} - 更新日時: {$a->timeupdated}';
+$string['hideall'] = 'ハブを隠す';
 $string['hub'] = 'ハブ';
 $string['hubnottrusted'] = '不信頼';
 $string['hubtrusted'] = 'このハブはMoodle.orgに信頼されています。';
+$string['install'] = 'ダウンロード';
 $string['keywords'] = 'キーワード';
 $string['keywords_help'] = 'あなたは指定したテキストをデータベース内のコース名、説明および他のフィールドに含むコースを検索することができます。';
 $string['langdesc'] = '言語: {$a} -';
@@ -105,6 +107,7 @@ $string['searchcommunitycourse'] = 'コミュニティコースを検索する';
 $string['searchcourse'] = 'コミュニティコースを検索する';
 $string['selecthub'] = 'ハブを選択する';
 $string['selecthub_help'] = 'コースを検索するためのハブを選択します。';
+$string['showall'] = 'すべてのハブを表示する';
 $string['sites'] = 'サイト';
 $string['subject'] = 'テーマ';
 $string['subject_help'] = '特定のテーマに関するあなたのコース検索の幅を狭めたい場合、このリストから選択してください。';

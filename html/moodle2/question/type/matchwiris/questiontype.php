@@ -10,23 +10,26 @@ class qtype_matchwiris extends qtype_wq {
         parent::__construct(new qtype_match());
     }    
 
-
     public function create_editing_form($submiturl, $question, $category, $contexts, $formeditable) {
         global $CFG;
         require_once($CFG->dirroot . '/question/type/matchwiris/edit_matchwiris_form.php');
         $wform = $this->base->create_editing_form($submiturl, $question, $category, $contexts, $formeditable);
         return new qtype_matchwiris_edit_form($wform, $submiturl, $question, $category, $contexts, $formeditable);
-    }    
-    
-    public function menu_name() {
-        return $this->local_name();
     }
-
-    public function display_question_editing_page($mform, $question, $wizardnow) {
-        //This method is used to load tiny_mce.js before quizzes.js
-        parent::display_question_editing_page($mform, $question, $wizardnow);
-        global $PAGE;
-        $PAGE->requires->js('/question/type/wq/quizzes/service.php?name=quizzes.js&service=resource');
+    
+    public function initialise_question_instance(question_definition $question, $questiondata) {
+        parent::initialise_question_instance($question, $questiondata);
+        $question->shufflestems = &$question->base->shufflestems;
+        $question->correctfeedback = &$question->base->correctfeedback;
+        $question->correctfeedbackformat = &$question->base->correctfeedbackformat;
+        $question->partiallycorrectfeedback = &$question->base->partiallycorrectfeedback;
+        $question->partiallycorrectfeedbackformat = &$question->base->partiallycorrectfeedbackformat;
+        $question->incorrectfeedback = &$question->base->incorrectfeedback;
+        $question->incorrectfeedbackformat = &$question->base->incorrectfeedbackformat;
+        $question->stems = &$question->base->stems;
+        $question->choices = &$question->base->choices;
+        $question->right = &$question->base->right;
+        $question->stemformat = &$question->base->stemformat;
     }
     
     public function export_to_xml($question, qformat_xml $format, $extra=null) {
@@ -73,13 +76,13 @@ class qtype_matchwiris extends qtype_wq {
             }            
             
             $wirisquestion .= '</question>';
-            $qo->wirisquestion[0] = $wirisquestion;
+            $qo->wirisquestion = $wirisquestion;
             return $qo;
         }else{
             //Moodle 2.x
             $qo = $format->import_match($data);
             $qo->qtype = 'matchwiris';
-            $qo->wirisquestion[0] = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
+            $qo->wirisquestion = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
             return $qo;
         }            
     }    

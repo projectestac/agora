@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = 'Standaard tijdsduur waarin de aanmelding geldig i
 $string['enrolperiod_help'] = 'Tijdsduur dat de aanmelding geldig is, beginnend van het ogenblik dat de gebruiker aangemeld is. Indien uitgeschakeld zal de aanmeldingsperiode onbeperkt zijn.';
 $string['enrolstartdate'] = 'Start datum';
 $string['enrolstartdate_help'] = 'Indien ingeschakeld zullen gebruikers pasvanaf deze datum kunnen aangemeld worden.';
+$string['expiredaction'] = 'Actie bij verlopen van de aanmelding';
+$string['expiredaction_help'] = 'Kies een actie die moet gebeuren wanneer de aanmelding van een gebruiker verloopt. Merk op dat sommige gebruikersgegevens en instellingen worden verwijderd tijdens het afmelden uit een cursus.';
 $string['mailadmins'] = 'Verwittig beheerder';
 $string['mailstudents'] = 'Verwittig leerlingen';
 $string['mailteachers'] = 'Verwittig leraren';

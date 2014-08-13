@@ -29,7 +29,7 @@
  * this.areamaxbytes, the maximum size of the area
  * this.filemanager, contains reference to filemanager Node
  * this.selectnode, contains referenct to select-file Node
- * this.selectui, YUI Panel to select the file
+ * this.selectui, M.core.dialogue to select the file
  *
  * FileManager options:
  * =====
@@ -109,16 +109,15 @@ M.form_filemanager.init = function(Y, options) {
             this.selectnode.generateID();
 
             var labelid = 'fm-dialog-label_'+ this.selectnode.get('id');
-            this.selectui = new Y.Panel({
+            this.selectui = new M.core.dialogue({
+                draggable    : true,
                 headerContent: '<span id="' + labelid +'">' + M.str.moodle.edit + '</span>',
-                srcNode      : this.selectnode,
-                zIndex       : 7600,
+                bodyContent  : this.selectnode,
                 centered     : true,
+                width        : '480px',
                 modal        : true,
-                close        : true,
-                render       : true
+                visible      : false
             });
-            this.selectui.plug(Y.Plugin.Drag,{handles:['#'+this.selectnode.get('id')+' .yui3-widget-hd']});
             Y.one('#'+this.selectnode.get('id')).setAttribute('aria-labelledby', labelid);
             this.selectui.hide();
             this.setup_select_file();
@@ -243,15 +242,13 @@ M.form_filemanager.init = function(Y, options) {
                 this.msg_dlg_node = Y.Node.createWithFilesSkin(M.form_filemanager.templates.message);
                 var nodeid = this.msg_dlg_node.generateID();
 
-                this.msg_dlg = new Y.Panel({
-                    srcNode      : this.msg_dlg_node,
-                    zIndex       : 8000,
+                this.msg_dlg = new M.core.dialogue({
+                    draggable    : true,
+                    bodyContent  : this.msg_dlg_node,
                     centered     : true,
                     modal        : true,
                     visible      : false,
-                    render       : true
                 });
-                this.msg_dlg.plug(Y.Plugin.Drag,{handles:['#'+nodeid+' .yui3-widget-hd']});
                 this.msg_dlg_node.one('.fp-msg-butok').on('click', function(e) {
                     e.preventDefault();
                     this.msg_dlg.hide();
@@ -308,30 +305,55 @@ M.form_filemanager.init = function(Y, options) {
                                 }
                             }
                         });
-                    }
+                    };
+                    var validate_folder_name = function() {
+                        var valid = false;
+                        var foldername = Y.one('#fm-newname-'+scope.client_id).get('value');
+                        if (foldername.length > 0) {
+                            valid = true;
+                        }
+                        var btn = Y.one('#fm-mkdir-butcreate-'+scope.client_id);
+                        if (btn) {
+                            btn.set('disabled', !valid);
+                        }
+                        return valid;
+                    };
                     if (!this.mkdir_dialog) {
                         var node = Y.Node.createWithFilesSkin(M.form_filemanager.templates.mkdir);
-                        this.mkdir_dialog = new Y.Panel({
-                            srcNode      : node,
-                            zIndex       : 8000,
+                        this.mkdir_dialog = new M.core.dialogue({
+                            draggable    : true,
+                            bodyContent  : node,
                             centered     : true,
                             modal        : true,
                             visible      : false,
-                            render       : true
                         });
-                        this.mkdir_dialog.plug(Y.Plugin.Drag,{handles:['.yui3-widget-hd']});
-                        node.one('.fp-dlg-butcreate').on('click', perform_action, this);
-                        node.one('input').set('id', 'fm-newname-'+this.client_id).
-                            on('keydown', function(e){
-                                if (e.keyCode == 13) {Y.bind(perform_action, this)(e);}
-                            }, this);
+                        node.one('.fp-dlg-butcreate').set('id', 'fm-mkdir-butcreate-'+this.client_id).on('click',
+                                perform_action, this);
+                        node.one('input').set('id', 'fm-newname-'+this.client_id).on('keydown', function(e) {
+                            var valid = Y.bind(validate_folder_name, this)();
+                            if (valid && e.keyCode === 13) {
+                                Y.bind(perform_action, this)(e);
+                            }
+                        }, this);
+                        node.one('#fm-newname-'+this.client_id).on(['keyup', 'change'], function(e) {
+                            Y.bind(validate_folder_name, this)();
+                        }, this);
+
                         node.one('label').set('for', 'fm-newname-' + this.client_id);
                         node.all('.fp-dlg-butcancel').on('click', function(e){e.preventDefault();this.mkdir_dialog.hide();}, this);
                         node.all('.fp-dlg-curpath').set('id', 'fm-curpath-'+this.client_id);
                     }
                     this.mkdir_dialog.show();
-                    Y.one('#fm-newname-'+scope.client_id).focus();
-                    Y.all('#fm-curpath-'+scope.client_id).setContent(Y.Escape.html(this.currentpath))
+
+                    // Default folder name:
+                    var foldername = M.str.repository.newfolder;
+                    while (this.has_folder(foldername)) {
+                        foldername = increment_filename(foldername, true);
+                    }
+                    Y.one('#fm-newname-'+scope.client_id).set('value', foldername);
+                    Y.bind(validate_folder_name, this)();
+                    Y.one('#fm-newname-'+scope.client_id).focus().select();
+                    Y.all('#fm-curpath-'+scope.client_id).setContent(this.currentpath);
                 }, this);
             } else {
                 this.filemanager.addClass('fm-nomkdir');
@@ -716,16 +738,14 @@ M.form_filemanager.init = function(Y, options) {
                 this.confirm_dlg_node = Y.Node.createWithFilesSkin(M.form_filemanager.templates.confirmdialog);
                 var node = this.confirm_dlg_node;
                 node.generateID();
-                this.confirm_dlg = new Y.Panel({
-                    srcNode      : node,
-                    zIndex       : 8000,
+                this.confirm_dlg = new M.core.dialogue({
+                    draggable    : true,
+                    bodyContent  : node,
                     centered     : true,
                     modal        : true,
                     visible      : false,
-                    render       : true,
                     buttons      : {}
                 });
-                this.confirm_dlg.plug(Y.Plugin.Drag,{handles:['#'+node.get('id')+' .yui3-widget-hd']});
                 var handle_confirm = function(ev) {
                     var dlgopt = this.confirm_dlg.dlgopt;
                     ev.preventDefault();
@@ -982,9 +1002,9 @@ M.form_filemanager.init = function(Y, options) {
                             if (obj.references) {
                                 node.reflist = '';
                                 for (var i in obj.references) {
-                                    node.reflist += '<li>'+obj.references[i]+'</li>';
+                                    node.reflist += '<li>'+Y.Escape.html(obj.references[i])+'</li>';
                                 }
-                                selectnode.one('.fp-reflist .fp-value').setContent(Y.Escape.html(node.reflist));
+                                selectnode.one('.fp-reflist .fp-value').setContent(node.reflist);
                             } else {
                                 selectnode.one('.fp-reflist .fp-value').setContent('');
                             }
@@ -1007,6 +1027,16 @@ M.form_filemanager.init = function(Y, options) {
         render: function() {
             this.print_path();
             this.view_files();
+        },
+        has_folder: function(foldername) {
+            var element;
+            for (var i in this.options.list) {
+                element = this.options.list[i];
+                if (element.type == 'folder' && element.fullname == foldername) {
+                    return true;
+                }
+            }
+            return false;
         }
     });
 

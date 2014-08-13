@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_onlinetext', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_onlinetext', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_onlinetext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,10 +30,11 @@ $string['default'] = 'Activé par défaut';
 $string['default_help'] = 'Si ce réglage est activé, cette méthode de remise de travaux sera activée par défaut pour tous les nouveaux devoirs.';
 $string['enabled'] = 'Texte en ligne';
 $string['enabled_help'] = 'Si ce réglage est activé, les participants pourront taper du texte directement dans le navigateur pour leur travail à remettre.';
+$string['event_assessable_uploaded'] = 'Un texte en ligne a été déposé.';
 $string['nosubmission'] = 'Aucun travail n\'a encore été remis pour ce devoir';
 $string['numwords'] = '({$a} mots)';
 $string['numwordsforlog'] = 'Nombre de mot du devoir : {$a} mots';
 $string['onlinetext'] = 'Texte en ligne';
-$string['onlinetextfilename'] = 'onlinetext.html';
+$string['onlinetextfilename'] = 'texteenligne.html';
 $string['onlinetextsubmission'] = 'Permettre la remise de texte en ligne';
 $string['pluginname'] = 'Remise de textes en ligne';

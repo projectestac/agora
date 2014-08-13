@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -126,15 +126,24 @@ $string['updatemethod'] = 'Metod för uppdatering';
 $string['updaterate'] = 'Så snabbt uppdateras direktsamtalet:';
 $string['userlist'] = 'Lista över användare';
 $string['usingchat'] = 'Använder direktsamtal';
-$string['usingchat_help'] = 'Modulen för chat innehåller några funktioner som ska göra det trevligare att chatta.
-
-* Smilies - Alla "smilies (emoticons) som Du kan skriva in på andra ställen i Moodle kan Du även skriva in här och de kommer att visas på ett korrekt sätt. T ex  :-)
-
-* Länkar - Internetadresser omvandlas automatiskt till länkar.
-
-* Att uttrycka känslor - Du kan inleda en rad med "/me" eller ":" för att uttrycka känslor. Om Du, till exempel, heter Lasse och skriver in ":skrattar" eller "/me skrattar!"  så kommer alla att se "Lasse skrattar!"
-
-* Pipsignaler - Du kan skicka ett ljud till andra genom att klicka på "pip"-länken bredvid deras namn. Du kan också skicka en signal till alla samtidigt genom att skriva "beep all".
-
-* HTML - Om Du kan lite HTML-kod så kan Du använda det i Din text för att lägga in bilder, spela upp ljud eller skapa text med olika färger och storlekar.';
+$string['usingchat_help'] = '<p>Modulen f&ouml;r chat inneh&aring;ller n&aring;gra funktioner som ska g&ouml;ra det trevligare
+att chatta.</p>
+<dl>
+	<dt><b>Smilies</b></dt>
+		<dd>Alla "smilies (emoticons) som Du kan skriva in p&aring; andra st&auml;llen
+		i Moodle kan Du &auml;ven skriva in h&auml;r och de kommer att visas p&aring;
+		ett korrekt s&auml;tt. T ex  :-) = <img src="pix/s/smiley.gif" alt="smiley" /></dd>
+	<dt><b>L&auml;nkar</b></dt>
+		<dd>Internetadresser omvandlas automatiskt till l&auml;nkar.</dd>
+	<dt><b>Att uttrycka k&auml;nslor</b></dt>
+		<dd>Du kan inleda en rad med "/me" eller ":" f&ouml;r att uttrycka k&auml;nslor.
+		Om Du, till exempel, heter Lasse och skriver in ":skrattar"
+		eller "/me skrattar!"  s&aring; kommer alla att se "Lasse skrattar!"</dd>
+	<dt><b>Pipsignaler</b></dt>
+		<dd>Du kan skicka ett ljud till andra genom att klicka p&aring; "pip"-l&auml;nken bredvid deras namn.
+		Du kan ocks&aring; skicka en signal till alla samtidigt genom att skriva "beep all".</dd>
+	<dt><b>HTML</b></dt>
+		<dd>Om Du kan lite HTML-kod s&aring; kan Du anv&auml;nda det i Din text f&ouml;r att l&auml;gga in bilder,
+		spela upp ljud eller skapa text med olika f&auml;rger och storlekar.</dd>
+</dl>';
 $string['viewreport'] = 'Visa  de senaste sessionerna för direktsamtal';

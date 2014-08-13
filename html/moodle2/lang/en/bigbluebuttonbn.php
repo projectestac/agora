@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'bigbluebuttonbn', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'bigbluebuttonbn', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   bigbluebuttonbn
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,14 +35,21 @@ $string['bbbrecordwarning'] = 'This session is being recorded.';
 $string['bbburl'] = 'The URL of your BigBlueButton server must end with /bigbluebutton/. (This default URL is for a BigBlueButton server provided by Blindside Networks that you can use for testing.)';
 $string['bigbluebuttonbn'] = 'BigBlueButton';
 $string['bigbluebuttonbn:addinstance'] = 'Add a new meeting';
-$string['bigbluebuttonbnfieldset'] = 'Custom example field set';
-$string['bigbluebuttonbnintro'] = 'BigBlueButton Intro';
 $string['bigbluebuttonbn:join'] = 'Join a meeting';
 $string['bigbluebuttonbn:moderate'] = 'Moderate a meeting';
 $string['bigbluebuttonbnSalt'] = 'BigBlueButton Shared Secret';
 $string['bigbluebuttonbnUrl'] = 'BigBlueButton Server URL';
 $string['bigbluebuttonbnWait'] = 'User has to wait';
 $string['configsecuritysalt'] = 'The security salt of your BigBlueButton server.  (This default salt is for a BigBlueButton server provided by Blindside Networks that you can use for testing.)';
+$string['event_activity_created'] = 'BigBlueButtonBN activity created';
+$string['event_activity_deleted'] = 'BigBlueButtonBN activity deleted';
+$string['event_activity_modified'] = 'BigBlueButtonBN activity modified';
+$string['event_activity_viewed'] = 'BigBlueButtonBN activity viewed';
+$string['event_activity_viewed_all'] = 'BigBlueButtonBN activity management viewed';
+$string['event_meeting_created'] = 'BigBlueButtonBN meeting created';
+$string['event_meeting_ended'] = 'BigBlueButtonBN meeting forcibly ended';
+$string['event_meeting_joined'] = 'BigBlueButtonBN meeting joined';
+$string['event_meeting_left'] = 'BigBlueButtonBN meeting left';
 $string['general_error_unable_connect'] = 'Unable to connect. Please check the url of the BigBlueButton server AND check to see if the BigBlueButton server is running.';
 $string['index_confirm_end'] = 'Do you wish to end the virtual class?';
 $string['index_disabled'] = 'disabled';
@@ -64,6 +71,7 @@ $string['index_warning_adding_meeting'] = 'Unable to assign a new meeting ID.';
 $string['mod_form_block_general'] = 'General settings';
 $string['mod_form_block_record'] = 'Record settings';
 $string['mod_form_block_schedule'] = 'Schedule for sessions';
+$string['mod_form_field_allmoderators'] = 'Allow all participants to be moderators';
 $string['mod_form_field_availabledate'] = 'Join open';
 $string['mod_form_field_description'] = 'Description of recorded session';
 $string['mod_form_field_duedate'] = 'Join closed';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,17 +25,42 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['encoding'] = 'Codifica file';
+$string['expiredaction'] = 'Azione alla scadenza dell\'iscrizione';
+$string['expiredaction_help'] = 'L\'azione da compiere quando scade l\'iscrizione di un partecipante. Da notare che alcuni dati verranno eliminati per effetto della disiscrizione.';
 $string['filelockedmail'] = 'Il file di testo ({$a}) che stai utilizzando per le iscrizioni  non può essere rimosso dal processo cron. Questo In genere a che i permessi sono sbagliati. Per favore orreggi i permessi in modo che Moodle possa eliminare il file, altrimenti sarà elaborato ripetutamente.';
 $string['filelockedmailsubject'] = 'Errore grave: file iscrizioni';
+$string['flatfile:manage'] = 'Gestire manualmente le iscrizioni degli utenti';
+$string['flatfile:unenrol'] = 'Disiscrivere manualmente gli utenti dai corsi';
 $string['location'] = 'Percorso del file';
-$string['mailadmin'] = 'Avverti l\'amministratore per email';
-$string['mailstudents'] = 'Avverti gli studenti per email';
-$string['mailteachers'] = 'Avverti i docenti per email';
-$string['mapping'] = 'Mappatura file';
+$string['location_desc'] = 'Il percorso completo del file delle iscrizioni. Il file verrà eliminato automaticamente al termine dell\'elaborazione';
+$string['mapping'] = 'Mappatura ruoli';
 $string['messageprovider:flatfile_enrolment'] = 'Messaggi di iscrizione File di testo';
+$string['notifyadmin'] = 'Avverti l\'amministratore';
+$string['notifyenrolled'] = 'Avverti gli utenti iscritti';
+$string['notifyenroller'] = 'Avverti l\'utente responsabile delle iscrizioni';
 $string['pluginname'] = 'File (CSV)';
-$string['pluginname_desc'] = 'Il plugin di iscrizione controlla ripetutamente la presenza di un file di testo nel percorso impostato, e se il file viene trovato,  verrà elaborato.
+$string['pluginname_desc'] = 'Il plugin di iscrizione IMS Enterprise controlla ripetutamente la presenza di un file di testo  opportunamente formattato nel percorso impostato. Se il file viene trovato, verrà elaborato.
 Il file, di tipo CSV, deve contenere da quattro a sei campi, come segue:
-<pre class="informationbox"> * operation, role, numero ID(utente), numero ID(corso) [, starttime, endtime] dove: * operation = add | del * role = student | teacher | teacheredit * numero ID (utente) = numero ID nella tabella user  user  Nota Bene: non si tratta della id  * numero ID(corso) = numero ID nella tabella corsi, Nota bene non si tratta della id id * starttime = inizio (in secondi a partire da epoch) - opzionale * endtime = fine (in secondi apartire da epoch) - opzionale </pre>
-Di seguito un esempio:
-<pre class="informationbox">  add, student, 5, CF101 add, teacher, 6, CF101 add, teacheredit, 7, CF101 del, student, 8, CF101 del, student, 17, CF101 add, student, 21, CF101, 1091115000, 1091215000 </pre>';
+
+
+operation, role, user idnumber, course idnumber [, starttime [, endtime]]
+
+dove:
+
+* operation - add | del
+* role - student | teacher | teacheredit
+* user idnumber - codice identificativo nella tabella user. Nota Bene: non si tratta del campo id
+* course idnumber - codice identificativo nella tabella corsi, Nota bene non si tratta del campo id
+* starttime - inizio (in secondi a partire da epoch) - opzionale
+* endtime - fine (in secondi a partire da epoch) - opzionale
+
+Esempio:
+<pre class="informationbox">
+add, student, 5, CF101
+add, teacher, 6, CF101
+add, teacheredit, 7, CF101
+del, student, 8, CF101
+del, student, 17, CF101
+add, student, 21, CF101, 1091115000, 1091215000
+</pre>';

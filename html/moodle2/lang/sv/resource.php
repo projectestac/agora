@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,8 +86,6 @@ $string['popupresource'] = 'Den här resursen bör dyka upp i ett snabbfönster.
 $string['popupresourcelink'] = 'Om den inte gjorde det, klicka här: {$a}';
 $string['popupwidth'] = 'Bredd på popup-fönster (i pixlar)';
 $string['popupwidthexplain'] = 'Anger standardbredden på "popup"-fönster.';
-$string['printheading'] = 'Visa namnet på resursen';
-$string['printheadingexplain'] = 'Vill Du visa namnet på resursen ovanför innehållet? En del visningstyper kommer inte att visa namnet även om detta är aktiverat.';
 $string['printintro'] = 'Visa beskrivning av resurs';
 $string['printintroexplain'] = 'Vill Du visa beskrivningen av resursen under innehållet? En del visningstyper kommer inte att visa beskrivningen även om detta är aktiverat.';
 $string['resource:addinstance'] = 'Lägg till en ny resurs';

@@ -119,7 +119,7 @@ class create_xml_file extends XMLDBAction {
         global $CFG;
         $dirpath = $CFG->dirroot.$dirpath;
         // Reverse order so that we get subplugin matches.
-        $plugintypes = array_reverse(get_plugin_types());
+        $plugintypes = array_reverse(core_component::get_plugin_types());
         foreach ($plugintypes as $plugintype => $pluginbasedir) {
             if (substr($dirpath, 0, strlen($pluginbasedir)) == $pluginbasedir) {
                 return $plugintype;

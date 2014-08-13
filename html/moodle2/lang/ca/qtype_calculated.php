@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Afegeix un element';
 $string['addmoreanswerblanks'] = 'Afegeix un altre espai en blanc per a resposta.';
-$string['addmoreunitblanks'] = 'Espais en blanc per a {$a} unitats més';
 $string['addsets'] = 'Afegeix conjunts';
+$string['answerdisplay'] = 'Visualització de la resposta';
+$string['answerformula'] = 'Fórmula {$a} de resposta';
 $string['answerhdr'] = 'Resposta';
 $string['answerstoleranceparam'] = 'Paràmetres de tolerància de la resposta';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -91,9 +92,7 @@ $string['minmax'] = 'Interval de valors';
 $string['missingformula'] = 'Fórmula desapareguda';
 $string['missingname'] = 'Nom de la pregunta desaparegut';
 $string['missingquestiontext'] = 'Text de la pregunta desaparegut';
-$string['mustbenumeric'] = 'Aquí heu d\'introduir un nombre';
 $string['mustenteraformulaorstar'] = 'Cal que escriviu una fórmula o \'*\'.';
-$string['mustnotbenumeric'] = 'No pot ser un nombre.';
 $string['newcategory1'] = 's\'usarà un nou conjunt de dades compartit';
 $string['newcategory2'] = 'un fitxer d\'un conjunt de fitxers que es poden utilitzar en altres preguntes d\'aquesta categoria';
 $string['newcategory3'] = 'un enllaç d\'un conjunt d\'enllaços que es poden utilitzar en altres preguntes d\'aquesta categoria';
@@ -136,6 +135,7 @@ $string['synchronizeno'] = 'No les sincronitzis';
 $string['synchronizeyes'] = 'Sincronitza-les';
 $string['synchronizeyesdisplay'] = 'Sincronitza i presenta els noms dels conjunts de dades com a prefix del nom de la pregunta';
 $string['tolerance'] = 'Tolerància &plusmn;';
+$string['tolerancetype'] = 'Tipus';
 $string['trueanswerinsidelimits'] = 'Resposta correcta: {$a->correct} dins dels límits de valors vàlids {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">ERROR Resposta correcta: : {$a->correct} fora dels límits de valors vàlids  {$a->true}</span>';
 $string['uniform'] = 'Uniforme';
@@ -155,5 +155,4 @@ $string['wildcardvalues'] = 'Valors del(s) comodí(ns)';
 $string['wildcardvaluesgenerated'] = 'S\'han generat els valors del(s) comodí(ns)';
 $string['youmustaddatleastoneitem'] = 'Cal que afegiu com a mínim un conjunt de dades abans de poder desar aquesta pregunta.';
 $string['youmustaddatleastonevalue'] = 'Cal que afegiu com a mínim un conjunt de comodins abans de poder desar aquesta pregunta.';
-$string['youmustenteramultiplierhere'] = 'Aquí heu d\'introduir un multiplicador';
 $string['zerosignificantfiguresnotallowed'] = 'La resposta correcta no pot tenir zero dígits significatius!';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Voeg een willekeurig woordenlijstite
 $string['intro'] = 'Zorg er voor dat deze cursus er minstens één woordenlijst bevat met minstens één item. Daarna kun je volgende instelllingen wijzigen';
 $string['invisible'] = '(wordt vervolgd)';
 $string['lastmodified'] = 'Laatst gewijzigd item';
+$string['nextalpha'] = 'Alfabetische volgorde';
 $string['nextone'] = 'Volgend item';
 $string['noentriesyet'] = 'Er zijn nog geen items in de gekozen woordenlijst.';
 $string['notyetconfigured'] = 'Configureer dit blok door op het wijzigen-pictogram te klikken.';

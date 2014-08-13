@@ -33,13 +33,18 @@ class tinymce_dragmath extends editor_tinymce_plugin {
         if ($this->get_config('requiretex', 1)) {
             // If TeX filter is disabled, do not add button.
             $filters = filter_get_active_in_context($context);
-            if (!array_key_exists('filter/tex', $filters)) {
+            if (!array_key_exists('tex', $filters)) {
                 return;
             }
         }
 
-        // Add button before 'nonbreaking' in advancedbuttons3.
-        $this->add_button_before($params, 3, 'dragmath', 'nonbreaking');
+        if ($row = $this->find_button($params, 'nonbreaking')) {
+            // Add button before 'nonbreaking'.
+            $this->add_button_before($params, $row, 'dragmath', 'nonbreaking');
+        } else {
+            // If 'nonbreaking' is not found, add button in the end of the last row:
+            $this->add_button_after($params, $this->count_button_rows($params), 'dragmath');
+        }
 
         // Add JS file, which uses default name.
         $this->add_js_plugin($params);

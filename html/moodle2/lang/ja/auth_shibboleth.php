@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_shibboleth', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['auth_shib_auth_method'] = '認証方法名';
 $string['auth_shib_auth_method_description'] = 'Shibboleth認証方法に関して、あなたのユーザに知られている名称を入力してください。あなたのシボレス連盟の名称を使用することもできます 例) <tt>SWITCHaai Login</tt>または<tt>InCommon Login</tt>または同様の名称。';
-$string['auth_shibboleth_contact_administrator'] = 'あなたが特定の組織と関係せず、このサーバのコースにアクセスする必要がある場合、Moodle管理者にご連絡ください:';
 $string['auth_shibbolethdescription'] = 'この方法を使用することで、<a href="http://shibboleth.internet2.edu/">Shibboleth</a>を使用して、ユーザが作成および認証されます。<br />あなたが使用しているMoodleにShibbolethを設定するには、<a href="../auth/shibboleth/README.txt">README</a> をご覧ください。';
 $string['auth_shibboleth_errormsg'] = 'あなたがメンバーになっている組織を選択してください!';
 $string['auth_shibboleth_login'] = 'Shibbolethログイン';
@@ -35,7 +34,7 @@ $string['auth_shibboleth_login_long'] = 'Shibboleth経由でMoodleにログイ�
 $string['auth_shibboleth_manual_login'] = '手動ログイン';
 $string['auth_shibboleth_select_member'] = '私は ...';
 $string['auth_shibboleth_select_organization'] = 'Shibboleth経由の認証のため、あなたの組織をドロップダウンリストから選択してください。';
-$string['auth_shib_changepasswordurl'] = 'パスワード変更URI';
+$string['auth_shib_changepasswordurl'] = 'パスワード変更URL';
 $string['auth_shib_contact_administrator'] = 'あなたが組織との関係がなく、このサーバのコースにアクセスする必要がある場合、<a href="mailto:{$a}">Moodle管理者</a>にご連絡ください。';
 $string['auth_shib_convert_data'] = 'データ修正API';
 $string['auth_shib_convert_data_description'] = 'あなたがShibbolethから提供されるデータを修正したい場合、このAPIを使用することができます。詳細は、<a href="../auth/shibboleth/README.txt">README</a>をご覧ください。';
@@ -46,10 +45,10 @@ $string['auth_shib_instructions'] = 'あなたの機関がShibbolethをサポー
 $string['auth_shib_instructions_help'] = 'Shibbolethに関して、あなたのユーザに提示する説明文です。 これはログインページの説明セクションに表示されます。Shibbolethユーザが簡単にログインできるよう、「<b>{$a}</b>」 のようなリンクを入れてください。';
 $string['auth_shib_integrated_wayf'] = 'Moodle WAYFサービス';
 $string['auth_shib_integrated_wayf_description'] = 'この設定を有効にした場合、Shibbolethで設定されたWAYFサービスを使用するのではなく、Moodleは独自のWAYFサービスを使用します。この代替ログインページのため、Moodleはユーザがアイデンティティプロバイダを選択できるドロップダウンリストを表示します。';
-$string['auth_shib_logout_return_url'] = '代替ログアウト戻りURI';
-$string['auth_shib_logout_return_url_description'] = 'ログアウト後、ShibbolethユーザがリダイレクトされるURIを入力してください。<br />空にした場合、ユーザはMoodleがリダイレクトする場所にリダイレクトされます。';
-$string['auth_shib_logout_url'] = 'ShibbolethサービスプロバイダのログアウトハンドラURI';
-$string['auth_shib_logout_url_description'] = 'ShibbolethサービスプロバイダのログアウトハンドラのURIを入力してください。一般的に、<tt>/Shibboleth.sso/Logout</tt>のようになります。';
+$string['auth_shib_logout_return_url'] = '代替ログアウト戻りURL';
+$string['auth_shib_logout_return_url_description'] = 'ログアウト後、ShibbolethユーザがリダイレクトされるURLを入力してください。<br />空にした場合、ユーザはMoodleがリダイレクトする場所にリダイレクトされます。';
+$string['auth_shib_logout_url'] = 'ShibbolethサービスプロバイダのログアウトハンドラURL';
+$string['auth_shib_logout_url_description'] = 'ShibbolethサービスプロバイダのログアウトハンドラのURLを入力してください。一般的に、<tt>/Shibboleth.sso/Logout</tt>のようになります。';
 $string['auth_shib_no_organizations_warning'] = 'あなたが統合WAYFサービスを利用したい場合、カンマで区切ったアイデンティティプロバイダのエンティティID、名称およびセッションイニシエータのリストを入力してください。';
 $string['auth_shib_only'] = 'Shibbolethのみ';
 $string['auth_shib_only_description'] = 'Shibboleth認証を強制する場合、このオプションをチェックしてください。';

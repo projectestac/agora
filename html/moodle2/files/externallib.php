@@ -47,13 +47,16 @@ class core_files_external extends external_api {
     public static function get_files_parameters() {
         return new external_function_parameters(
             array(
-                'contextid' => new external_value(PARAM_INT, 'context id'),
-                'component' => new external_value(PARAM_TEXT, 'component'),
-                'filearea'  => new external_value(PARAM_TEXT, 'file area'),
-                'itemid'    => new external_value(PARAM_INT, 'associated id'),
-                'filepath'  => new external_value(PARAM_PATH, 'file path'),
-                'filename'  => new external_value(PARAM_FILE, 'file name'),
-                'modified' => new external_value(PARAM_INT, 'timestamp to return files changed after this time.', VALUE_DEFAULT, null)
+                'contextid'    => new external_value(PARAM_INT, 'context id Set to -1 to use contextlevel and instanceid.'),
+                'component'    => new external_value(PARAM_TEXT, 'component'),
+                'filearea'     => new external_value(PARAM_TEXT, 'file area'),
+                'itemid'       => new external_value(PARAM_INT, 'associated id'),
+                'filepath'     => new external_value(PARAM_PATH, 'file path'),
+                'filename'     => new external_value(PARAM_FILE, 'file name'),
+                'modified'     => new external_value(PARAM_INT, 'timestamp to return files changed after this time.', VALUE_DEFAULT, null),
+                'contextlevel' => new external_value(PARAM_ALPHA, 'The context level for the file location.', VALUE_DEFAULT, null),
+                'instanceid'   => new external_value(PARAM_INT, 'The instance id for where the file is located.', VALUE_DEFAULT, null)
+
             )
         );
     }
@@ -63,27 +66,46 @@ class core_files_external extends external_api {
      *
      * @param int $contextid context id
      * @param int $component component
-     * @param int $filearea file aera
+     * @param int $filearea file area
      * @param int $itemid item id
      * @param string $filepath file path
      * @param string $filename file name
      * @param int $modified timestamp to return files changed after this time.
+     * @param string $contextlevel The context level for the file location.
+     * @param int $instanceid The instance id for where the file is located.
      * @return array
      * @since Moodle 2.2
      */
-    public static function get_files($contextid, $component, $filearea, $itemid, $filepath, $filename, $modified = null) {
-        global $CFG, $USER, $OUTPUT;
-        $fileinfo = self::validate_parameters(self::get_files_parameters(), array(
-                    'contextid'=>$contextid, 'component'=>$component, 'filearea'=>$filearea,
-                    'itemid'=>$itemid, 'filepath'=>$filepath, 'filename'=>$filename, 'modified'=>$modified));
+    public static function get_files($contextid, $component, $filearea, $itemid, $filepath, $filename, $modified = null,
+                                     $contextlevel = null, $instanceid = null) {
+
+        $parameters = array(
+            'contextid'    => $contextid,
+            'component'    => $component,
+            'filearea'     => $filearea,
+            'itemid'       => $itemid,
+            'filepath'     => $filepath,
+            'filename'     => $filename,
+            'modified'     => $modified,
+            'contextlevel' => $contextlevel,
+            'instanceid'   => $instanceid);
+        $fileinfo = self::validate_parameters(self::get_files_parameters(), $parameters);
 
         $browser = get_file_browser();
 
-        if (empty($fileinfo['contextid'])) {
-            $context  = get_system_context();
+        // We need to preserve backwards compatibility. Zero will use the system context and minus one will
+        // use the addtional parameters to determine the context.
+        // TODO MDL-40489 get_context_from_params should handle this logic.
+        if ($fileinfo['contextid'] == 0) {
+            $context = context_system::instance();
         } else {
-            $context  = context::instance_by_id($fileinfo['contextid']);
+            if ($fileinfo['contextid'] == -1) {
+                $fileinfo['contextid'] = null;
+            }
+            $context = self::get_context_from_params($fileinfo);
         }
+        self::validate_context($context);
+
         if (empty($fileinfo['component'])) {
             $fileinfo['component'] = null;
         }
@@ -104,6 +126,7 @@ class core_files_external extends external_api {
         $return['parents'] = array();
         $return['files'] = array();
         $list = array();
+
         if ($file = $browser->get_file_info(
             $context, $fileinfo['component'], $fileinfo['filearea'], $fileinfo['itemid'],
                 $fileinfo['filepath'], $fileinfo['filename'])) {
@@ -206,13 +229,17 @@ class core_files_external extends external_api {
     public static function upload_parameters() {
         return new external_function_parameters(
             array(
-                'contextid' => new external_value(PARAM_INT, 'context id'),
+                'contextid' => new external_value(PARAM_INT, 'context id', VALUE_DEFAULT, null),
                 'component' => new external_value(PARAM_COMPONENT, 'component'),
                 'filearea'  => new external_value(PARAM_AREA, 'file area'),
                 'itemid'    => new external_value(PARAM_INT, 'associated id'),
                 'filepath'  => new external_value(PARAM_PATH, 'file path'),
                 'filename'  => new external_value(PARAM_FILE, 'file name'),
-                'filecontent' => new external_value(PARAM_TEXT, 'file content')
+                'filecontent' => new external_value(PARAM_TEXT, 'file content'),
+                'contextlevel' => new external_value(PARAM_ALPHA, 'The context level to put the file in,
+                        (block, course, coursecat, system, user, module)', VALUE_DEFAULT, null),
+                'instanceid' => new external_value(PARAM_INT, 'The Instance id of item associated
+                         with the context level', VALUE_DEFAULT, null)
             )
         );
     }
@@ -220,22 +247,25 @@ class core_files_external extends external_api {
     /**
      * Uploading a file to moodle
      *
-     * @param int $contextid context id
-     * @param string $component component
-     * @param string $filearea file aera
-     * @param int $itemid item id
-     * @param string $filepath file path
-     * @param string $filename file name
-     * @param string $filecontent file content
+     * @param int    $contextid    context id
+     * @param string $component    component
+     * @param string $filearea     file area
+     * @param int    $itemid       item id
+     * @param string $filepath     file path
+     * @param string $filename     file name
+     * @param string $filecontent  file content
+     * @param string $contextlevel Context level (block, course, coursecat, system, user or module)
+     * @param int    $instanceid   Instance id of the item associated with the context level
      * @return array
      * @since Moodle 2.2
      */
-    public static function upload($contextid, $component, $filearea, $itemid, $filepath, $filename, $filecontent) {
+    public static function upload($contextid, $component, $filearea, $itemid, $filepath, $filename, $filecontent, $contextlevel, $instanceid) {
         global $USER, $CFG;
 
         $fileinfo = self::validate_parameters(self::upload_parameters(), array(
-            'contextid'=>$contextid, 'component'=>$component, 'filearea'=>$filearea, 'itemid'=>$itemid,
-            'filepath'=>$filepath, 'filename'=>$filename, 'filecontent'=>$filecontent));
+                'contextid' => $contextid, 'component' => $component, 'filearea' => $filearea, 'itemid' => $itemid,
+                'filepath' => $filepath, 'filename' => $filename, 'filecontent' => $filecontent, 'contextlevel' => $contextlevel,
+                'instanceid' => $instanceid));
 
         if (!isset($fileinfo['filecontent'])) {
             throw new moodle_exception('nofile');
@@ -256,6 +286,7 @@ class core_files_external extends external_api {
         }
 
         file_put_contents($savedfilepath, base64_decode($fileinfo['filecontent']));
+        @chmod($savedfilepath, $CFG->filepermissions);
         unset($fileinfo['filecontent']);
 
         if (!empty($fileinfo['filepath'])) {
@@ -264,25 +295,36 @@ class core_files_external extends external_api {
             $filepath = '/';
         }
 
+        // Only allow uploads to draft or private areas (private is deprecated but still supported)
+        if (!($fileinfo['component'] == 'user' and in_array($fileinfo['filearea'], array('private', 'draft')))) {
+            throw new coding_exception('File can be uploaded to user private or draft areas only');
+        } else {
+            $component = 'user';
+            $filearea = $fileinfo['filearea'];
+        }
+
+        $itemid = 0;
         if (isset($fileinfo['itemid'])) {
+            $itemid = $fileinfo['itemid'];
+        }
+        if ($filearea == 'draft' && $itemid <= 0) {
+            // Generate a draft area for the files.
+            $itemid = file_get_unused_draft_itemid();
+        } else if ($filearea == 'private') {
             // TODO MDL-31116 in user private area, itemid is always 0.
             $itemid = 0;
-        } else {
-            throw new coding_exception('itemid cannot be empty');
         }
 
-        if (!empty($fileinfo['contextid'])) {
-            $context = context::instance_by_id($fileinfo['contextid']);
-        } else {
-            $context = get_system_context();
+        // We need to preserve backword compatibility. Context id is no more a required.
+        if (empty($fileinfo['contextid'])) {
+            unset($fileinfo['contextid']);
         }
 
-        if (!($fileinfo['component'] == 'user' and $fileinfo['filearea'] == 'private')) {
-            throw new coding_exception('File can be uploaded to user private area only');
-        } else {
-            // TODO MDL-31116 hard-coded to use user_private area.
-            $component = 'user';
-            $filearea = 'private';
+        // Get and validate context.
+        $context = self::get_context_from_params($fileinfo);
+        self::validate_context($context);
+        if (($fileinfo['component'] == 'user' and $fileinfo['filearea'] == 'private')) {
+            debugging('Uploading directly to user private files area is deprecated. Upload to a draft area and then move the files with core_user::add_user_private_files');
         }
 
         $browser = get_file_browser();
@@ -340,7 +382,6 @@ class core_files_external extends external_api {
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since Moodle 2.0
  * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
- * @todo MDL-31194 This will be deleted in Moodle 2.5.
  * @see core_files_external
  */
 class moodle_file_external extends external_api {
@@ -351,7 +392,6 @@ class moodle_file_external extends external_api {
      * @return external_function_parameters
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_files_external::get_files_parameters()
      */
     public static function get_files_parameters() {
@@ -370,7 +410,6 @@ class moodle_file_external extends external_api {
      * @return array
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_files_external::get_files()
      */
     public static function get_files($contextid, $component, $filearea, $itemid, $filepath, $filename) {
@@ -383,7 +422,6 @@ class moodle_file_external extends external_api {
      * @return external_single_structure
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_files_external::get_files_returns()
      */
     public static function get_files_returns() {
@@ -396,7 +434,6 @@ class moodle_file_external extends external_api {
      * @return external_function_parameters
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_files_external::upload_parameters()
      */
     public static function upload_parameters() {
@@ -416,7 +453,6 @@ class moodle_file_external extends external_api {
      * @return array
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_files_external::upload()
      */
     public static function upload($contextid, $component, $filearea, $itemid, $filepath, $filename, $filecontent) {
@@ -429,7 +465,6 @@ class moodle_file_external extends external_api {
      * @return external_single_structure
      * @since Moodle 2.0
      * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
-     * @todo MDL-31194 This will be deleted in Moodle 2.5.
      * @see core_files_external::upload_returns()
      */
     public static function upload_returns() {

@@ -36,9 +36,8 @@ function xmldb_qtype_essay_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-
     // Moodle v2.2.0 release upgrade line
-    // Put any upgrade step following this
+    // Put any upgrade step following this.
 
     if ($oldversion < 2011102701) {
         $sql = "
@@ -47,7 +46,7 @@ function xmldb_qtype_essay_upgrade($oldversion) {
 
                  WHERE q.qtype = 'essay'
                    AND " . $DB->sql_isnotempty('question_answers', 'feedback', false, true);
-        // In Moodle <= 2.0 essay had both question.generalfeedback and question_answers.feedback.
+        // In Moodle <= 2.0 essay had both question.generalfeedback and question_answers.feedback
         // This was silly, and in Moodel >= 2.1 only question.generalfeedback. To avoid
         // dataloss, we concatenate question_answers.feedback onto the end of question.generalfeedback.
         $count = $DB->count_records_sql("
@@ -101,12 +100,49 @@ function xmldb_qtype_essay_upgrade($oldversion) {
     }
 
     // Moodle v2.3.0 release upgrade line
-    // Put any upgrade step following this
-
+    // Put any upgrade step following this.
 
     // Moodle v2.4.0 release upgrade line
-    // Put any upgrade step following this
+    // Put any upgrade step following this.
 
+    if ($oldversion < 2013011800) {
+        // Then we delete the old question_answers rows for essay questions.
+        $DB->delete_records_select('qtype_essay_options', "NOT EXISTS (
+                SELECT 1 FROM {question} WHERE qtype = 'essay' AND
+                    {question}.id = {qtype_essay_options}.questionid)");
+
+        // Essay savepoint reached.
+        upgrade_plugin_savepoint(true, 2013011800, 'qtype', 'essay');
+    }
+
+    if ($oldversion < 2013021700) {
+        // Create new fields responsetemplate and responsetemplateformat in qtyep_essay_options table.
+        $table = new xmldb_table('qtype_essay_options');
+        $field = new xmldb_field('responsetemplate', XMLDB_TYPE_TEXT, null, null,
+                    null, null, null, 'graderinfoformat');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        $field = new xmldb_field('responsetemplateformat', XMLDB_TYPE_INTEGER, '4',
+                null, XMLDB_NOTNULL, null, '0', 'responsetemplate');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        $DB->execute("UPDATE {qtype_essay_options} SET responsetemplate = '',
+                responsetemplateformat = " . FORMAT_HTML . " WHERE responsetemplate IS NULL");
+
+        // Essay savepoint reached.
+        upgrade_plugin_savepoint(true, 2013021700, 'qtype', 'essay');
+    }
+
+    // Moodle v2.5.0 release upgrade line.
+    // Put any upgrade step following this.
+
+
+    // Moodle v2.6.0 release upgrade line.
+    // Put any upgrade step following this.
 
     return true;
 }

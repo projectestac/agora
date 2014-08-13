@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'admin', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'admin', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   admin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessdenied'] = '访问被拒绝';
 $string['accounts'] = '帐户';
+$string['addcategory'] = '添加一个类别';
 $string['additionalhtml'] = '附加HTML';
 $string['additionalhtml_desc'] = '用此设置您可以指定一段HTML代码，它会被插入到每个页面中。您可以把HTML代码插入到页面的HEAD标签内，BODY标签刚开始的地方，或BODY标签结束之前。<br />通过这种方式，您可以在每个页面内都添加自定义的页头或页脚，也可以方便地支持Google Analytics之类的服务，并且和您选择的主题风格完全无关。';
 $string['additionalhtmlfooter'] = '在BODY关闭之前';
@@ -51,7 +52,7 @@ $string['allowediplist'] = '允许访问的IP列表';
 $string['allowemailaddresses'] = '允许的邮件域名';
 $string['allowframembedding'] = '允许嵌入框架';
 $string['allowframembedding_help'] = '允许将本站嵌入到外部网站的框架（frame）中。出于安全考量，不建议启用此特性。';
-$string['allowguestmymoodle'] = '允许访客访问我的 Moodle';
+$string['allowguestmymoodle'] = '允许访客访问我的主页';
 $string['allowobjectembed'] = '允许EMBED和OBJECT标记';
 $string['allowthemechangeonurl'] = '准许在URL中改变主题';
 $string['allowuserblockhiding'] = '允许用户隐藏版块';
@@ -71,15 +72,19 @@ $string['availableto'] = '可用到';
 $string['backgroundcolour'] = '透明色';
 $string['backups'] = '备份';
 $string['backup_shortname'] = '在备份文件名中使用课程名';
-$string['backup_shortnamehelp'] = '用课程名而不是课程ID做备份文件名的一部分。';
+$string['backup_shortnamehelp'] = '备份文件名中包含课程名。';
 $string['badwordsconfig'] = '输入以逗号(英文半角)分割的禁用词语列表。';
 $string['badwordsdefault'] = '如果自定义列表为空，则使用语言包提供的缺省列表。';
 $string['badwordslist'] = '自定义禁用词语列表';
 $string['blockediplist'] = '禁止访问的IP列表';
+$string['blockeditingmenu'] = '版块编辑菜单';
+$string['blockeditingmenu_desc'] = '若启用，在编辑状态下，版块的编辑图标将会显示到下拉菜单中。这样可以减少屏幕上显示的内容，让图标在用到时才显示。';
 $string['blockinstances'] = '实例';
 $string['blockmultiple'] = '多个';
-$string['blockprotect'] = '防止删除';
-$string['blockprotect_help'] = '被选择的版块实例不会在全站场景下被删除。这主要用来保护导航和设置版块。如果它们被意外删除，是很难找回来的。';
+$string['blockprotect'] = '保护实例';
+$string['blockprotect_help'] = '如果您锁定了特定类型的版块，那么别人就不能再添加或删除实例。（当然，你是可以的，只要在编辑前先解锁）
+
+此功能用来保护导航和设置这样的版块，它们如果被偶然删除，会很难再加回来。';
 $string['blocksettings'] = '管理版块';
 $string['blockunprotect'] = '取消保护';
 $string['bloglevel'] = '博客可见性';
@@ -88,16 +93,21 @@ $string['bookmarkalreadyexists'] = '您已经为此页设置了书签。';
 $string['bookmarkdeleted'] = '删除书签';
 $string['bookmarkthispage'] = '将此页加入书签';
 $string['cacheapplication'] = '应用程序缓存';
+$string['cacheapplicationhelp'] = '缓存的项目在所有用户中共享，在指定的 TTL 后过期。';
 $string['cachejs'] = '缓存Javascript';
 $string['cachejs_help'] = 'JavaScript的缓存和压缩能大大提高页面的加载速度。我们强烈建议正式运营的网站使用它。开发者可能需要禁用此功能。
 ';
 $string['cacherequest'] = '请求缓存';
+$string['cacherequesthelp'] = '用户特定缓存。当请求结束时自动过期，主要是用来替代那些我们使用静态存储保存缓存';
 $string['cachesession'] = '会话缓存';
+$string['cachesessionhelp'] = '用户特定缓存。当用户会话结束时自动过期，主要是用来缓解会话过多或滥用';
 $string['cachesettings'] = '缓存设置';
 $string['cachetext'] = '永久缓存数据';
 $string['caching'] = '缓存';
 $string['calendarexportsalt'] = '日历导出盐';
 $string['calendarsettings'] = '日历';
+$string['calendartype'] = '日历样式';
+$string['calendartype_desc'] = '为全站选择一个预设的日历样式。此设定可以被课程设定覆盖，也可以被用户在个人资料中的设定覆盖。';
 $string['calendar_weekend'] = '周末';
 $string['cannotdeletemodfilter'] = '您不能卸载“{$a->filter}”，因为它是“$a->module}”模块的一部分。';
 $string['cannotuninstall'] = '不能卸载{$a}。';
@@ -115,6 +125,7 @@ $string['cliincorrectvalueerror'] = '错误，将“{$a->option}”的值设为�
 $string['cliincorrectvalueretry'] = '不正确的值，请重试';
 $string['clistatusdisabled'] = '状态：禁止';
 $string['clistatusenabled'] = '状态：启用';
+$string['clistatusenabledlater'] = '状态：CLI 维护模式将会在 {$a} 启用';
 $string['clitypevalue'] = '输入值';
 $string['clitypevaluedefault'] = '输入值，按回车使用缺省值（{$a}）';
 $string['cliunknowoption'] = '错误选项：
@@ -129,7 +140,7 @@ $string['commonfiltersettings'] = '常见的过滤器设置
 $string['commonsettings'] = '通用设置';
 $string['componentinstalled'] = '组件已安装';
 $string['computedfromlogs'] = '从{$a}开始的日志中计算得出';
-$string['condifmodeditdefaults'] = '您在此设置的值将成为您新建活动时的缺省设置。您也可以配置哪些活动设置被看做是高级设置。';
+$string['condifmodeditdefaults'] = '创建新的活动或资源时使用的缺省设置值。';
 $string['confeditorhidebuttons'] = '请选择HTML编辑器中要隐藏的按钮。';
 $string['configallcountrycodes'] = '在很多地方都要使用这个国家/地区列表，例如用户个人资料。如果留空（缺省情况），那么会使用标准英文语言包中的countries.php（它来自ISO 3166-1）。否则，您可以输入用半角逗号分隔的代码列表，例如“GB,FT,ES”。如果要添加新的非标准代码，您必须先在en和您的语言包中添加它们。';
 $string['configallowassign'] = '您可以允许属于左边角色的用户将竖行中的部分角色分配给其它人';
@@ -137,6 +148,7 @@ $string['configallowblockstodock'] = '如果启用，且当前主题风格支持
 $string['configallowcategorythemes'] = '如果启用该功能，将可以在类别中使用主题。同时这将影响到所有的子类别和课程，除非子类别和课程中都设置了自己的主题。警告：启用类别主题可能影响系统性能！';
 $string['configallowcoursethemes'] = '如果启用，则允许每个课程设定自己的主题风格。课程的主题风格将覆盖其它位置(网站、用户或会话)的设定。';
 $string['configallowemailaddresses'] = '如果您希望将新的email地址限制在一定的域名范围内，把他们列在这里，域名之间以空格隔开。所有其它域名都会被拒绝。域名加上前缀“.”表示子域名亦可接受。例如<strong>ourcollege.edu.au .gov.au</strong>';
+$string['configallowguestmymoodle'] = '如果打开，游客可以访问我的首页，否则游客将被重定向到网站首页';
 $string['configallowobjectembed'] = '作为缺省的安全考量，普通用户是不能在网页文本中通过显示的EMBED或OBJECT标记嵌入多媒体(如Falsh)的(通过mediaplugins过滤器是比较安全的)。如果您希望允许用户使用上述标记，请启用此选项。';
 $string['configallowoverride'] = '允许属于左边角色的用户覆盖竖行中的某些角色';
 $string['configallowoverride2'] = '选择哪些角色可以被左侧栏中角色修改。<br />注意，这些设置仅适用于具有权moodle/role:override或moodle/role:safeoverride的用户。';
@@ -153,6 +165,7 @@ $string['configautolang'] = '通过浏览器设置检测缺省语言。如未设
 $string['configautologinguests'] = '当访问者进入允许访客访问的课程时，是否自动以访客身份登录？';
 $string['configbloglevel'] = '这项设定允许您限制哪个级别的用户可以在本网站浏览博客。注意，这里列出的是能浏览的用户的最大级别，而与发表者和博客类型无关。如果不需要博客功能，您也可以完全禁止它。';
 $string['configcachetext'] = '对于较大的或者启用了文本过滤器的网站，这个设置可以切实地提高速度。已经过滤过的文本副本会被保留指定的时间。如果将这个值设得太小会稍微降低速度，但设定得太大也会使文本刷新缓慢。';
+$string['configcalendarcustomexport'] = '使用自定义日期范围的日历';
 $string['configcalendarexportsalt'] = '此随机文本用来提高日历导出验证令牌的安全性。请注意，如果您修改了这个哈希盐，那么当前所令牌都会失效。';
 $string['configclamactlikevirus'] = '认为文件带病毒';
 $string['configclamdonothing'] = '认为文件没问题';
@@ -161,9 +174,12 @@ $string['configconvertformat'] = '如果<i>latex</i>、<i>dvips</i> 和 <i>conve
 $string['configcookiehttponly'] = '启用 PHP 5.2.0 新特性—让浏览器只在真正的 http 请求中发送 cookie，不允许脚本语言访问 cookies。目前不是所有浏览器都支持该功能，并且可能与当前的代码不完全兼容。但是它有助于阻止某些 XSS 类型的攻击。';
 $string['configcookiesecure'] = '如果当前服务器仅接收 https 连接方式，建议启用发送安全 cookies 功能。如果已启用，请确保 web 服务器不接受 http:// 地址或者设置了到 https:// 地址的永久重定向。当 <em>wwwroot</em> 地址不是以 https:// 开始时，此设置会自动关闭。';
 $string['configcountry'] = '如果在此处设定一个国家或地区，则他将被用于用户注册时的缺省选择。要强制用户自己选择一个国家或地区，保持此处为空白。';
+$string['configcourseoverviewfilesext'] = '课程摘要文件可以使用扩展名';
+$string['configcourseoverviewfileslimit'] = '课程摘要最多可以使用多少个附件';
 $string['configcourserequestnotify'] = '输入有新建课程申请时应当被通知的用户。';
 $string['configcourserequestnotify2'] = '有新建课程申请时会被通知的用户。只有拥有确认课程申请权限的用户才会被列出。';
-$string['configcoursesperpage'] = '输入在课程列表中每页显示的课程数。';
+$string['configcoursesperpage'] = '输入课程列表中每页显示的课程数。';
+$string['configcourseswithsummarieslimit'] = '当课程数量少于这个值时，显示带有摘要的课程列表。而当课程数量超过这个数值时，使用简单的课程列表';
 $string['configcronclionly'] = '如果启用，cron将只能在命令行中运行，不能通过web访问。此设置将覆盖下面的cron密码设置。';
 $string['configcronremotepassword'] = '这意味着cron.php脚本可以通过浏览器运行，而不需要通过URL地址：<pre>
 http://site.example.com/admin/cron.php?password=opensesame
@@ -174,12 +190,9 @@ $string['configcustommenuitems'] = '您可以在此自定义一个由主题显�
 Moodle社区|http://moodle.org
 -Moodle免费支持|http://moodle.org/support
 -Moodle开发|http://moodle.org/development
---Moodle跟踪器|http://tracker.moodle.org
 --Moodle文档|http://docs.moodle.org
--Moodle新闻|http://moodle.org/news
-Moodle公司
--Moodle商用虚拟主机|http://moodle.com/hosting
--Moodle商用支持|http://moodle.com/support
+--Moodle德文文档|http://docs.moodle.org/de|德文文档|de
+Moodle.com|http://moodle.com/
 </pre>';
 $string['configdbsessions'] = '如果启用，将会使用数据库保存当前的会话信息。这对于那些大的/繁忙的站点或是在集群上建立的网站是很有用的。对于多数网站，此选项应当保持关闭，即使用服务器硬盘保存会话信息。注意改变这个设定将会强制退出所有当前在线的用户（包括您）。如果你正在使用MySQL，请确认my.cnf (或my.ini)文件内的\'max_allowed_packet\'至少要设为4M。';
 $string['configdebug'] = '如果您打开这个选项，那么PHP的错误报表会增加，页面上会出现更多的警告信息。这只对开发人员有用。';
@@ -203,6 +216,7 @@ $string['configeditordictionary'] = '如果aspell没有为用户自己语言指�
 $string['configeditorfontlist'] = '选择应该出现在编辑器下拉列表中的字体。';
 $string['configemailchangeconfirmation'] = '更改Email后需要Email确认。';
 $string['configenableajax'] = '此项设置控制整个网站对 AJAX 的使用。某些功能，比如拖放，要求必须启用 AJAX 。';
+$string['configenableblogs'] = '此开关为全站用户提供一个个人博客';
 $string['configenablecalendarexport'] = '启用导出或订阅日历。';
 $string['configenablecomments'] = '启用评论';
 $string['configenablecourserequests'] = '启用这个选项，允许任何人申请创建新课程。';
@@ -227,9 +241,9 @@ $string['configfilteruploadedfiles'] = '使用该设置会让Moodle在显示上�
 $string['configforcelogin'] = '通常，不需要登录即可看到首页和课程列表(但不是课程)。如果您想要禁止在登录前做任何事，请使用此项设置。';
 $string['configforceloginforprofiles'] = '启用这个选项会强制访问者在查看用户信息页面时必须以真实(非访客)身份登录。如果您禁用了该选项，那么可能会有用户在个人信息中发布广告（垃圾信息）或其他不和谐的内容，这些全世界都可以看到。';
 $string['configfrontpage'] = '上面那些被选择的项将显示在网站的首页上。';
+$string['configfrontpagecourselimit'] = '最大课程数目';
 $string['configfrontpageloggedin'] = '当用户登陆后，上面那些被选择的项将显示在网站的首页上。';
 $string['configfullnamedisplay'] = '这里定义如何显示全名。对于中文网站来说，最符合习惯的设置是“语言”，意思是让当前的语言包来决定。当然，也可以选择其它设置。';
-$string['configgdversion'] = '指明已安装的GD版本。默认显示的版本号是自动探测的结果。不要轻易改变它，除非您清楚您在做什么。';
 $string['configgeoipfile'] = 'GeoIP City二进制文件位置。该文件不是Moodle发行版的一部分，需要单独从从<a href="http://www.maxmind.com/">MaxMind</a>获取。您可以购买商业版本或者使用免费版。<br />从<a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</a>下载并解压到服务器的"{$a}"目录中。';
 $string['configgetremoteaddrconf'] = '如果您的服务器在一个反向代理后，您可以设定此项以确定哪条 HTTP 头信息包含了访问者的 IP 地址。头信息按顺序读入，第一条出现的将被使用。';
 $string['configgradebookroles'] = '此设置允许您控制谁可以出现在成绩单上。用户至少需要在课程中具有这里的一种角色，才会在该课程的成绩单中显示他的成绩。';
@@ -263,6 +277,7 @@ $string['configminpasswordlength'] = '密码中至少要包含多少个字符。
 $string['configminpasswordlower'] = '密码中至少要包含多少小写字母。';
 $string['configminpasswordnonalphanum'] = '密码中至少包含多少个非字母和数字的字符。';
 $string['configminpasswordupper'] = '密码至少要包含多少个大写字母。';
+$string['configmobilecssurl'] = '用来修改手机界面的CSS文件';
 $string['configmodchooserdefault'] = '是否在默认情况下将该活动选择器显示给用户？';
 $string['configmycoursesperpage'] = '在用户课程列表中最多显示多少门课程';
 $string['configmymoodleredirect'] = '如果开启，则当非管理员用户登录时，直接跳转到/my，并用/my替换掉站点首页。';
@@ -276,6 +291,7 @@ $string['confignotloggedinroleid'] = '未登陆的用户将被当作此角色。
 $string['configopentogoogle'] = '如果使用该设置，Google将能够以访客的身份进入网站。通过Google搜索而来的访问者也可以以访客的身份登陆网站。这个选项仅对允许访客访问的课程有效。';
 $string['configoverride'] = '已在config.php中定义';
 $string['configpasswordpolicy'] = '启用该功能，Moodle将检查用户密码是否符合密码使用规则。选中将启用密码规则（选否将忽略密码规则）。';
+$string['configpasswordresettime'] = '在多长时间之内，用户必须验证重置密码请求，否则过期失效。通常设为30分钟。';
 $string['configpathtoclam'] = 'Clam AV的路径。通常是/usr/bin/clamscan或/usr/bin/clamdscan。设定了这个选项，Clam AV才能运行。';
 $string['configpathtodu'] = 'du的路径，如/usr/bin/du。如果您设定了这个选项，则那些显示目录内容的脚本在目录中有很多文件时，可以运行得稍快些。';
 $string['configperfdebug'] = '如果启用，在标准主题的页脚会显示性能信息。';
@@ -337,7 +353,6 @@ $string['configsupportpage'] = '当用户需要获得一般的帮助时，这个
 $string['configthemedesignermode'] = '通常为了提升性能，外观主题的所有图片和CSS都会在浏览器和服务器上缓存很长时间。如果您正在设计主题或编写代码，那么您可以需要关闭这个模式，这样您就能访问到最新的版本。警告：这会使所有用户的访问变慢！另外，您可以可以在主题选择页面手动重置主题缓存。';
 $string['configthemelist'] = '此项为空则用户可以使用所有的合法主题风格。如果您希望让可选的主题风格列表短一些，您可以在此指定一些（不要使用空格！）。譬如: standard,orangewhite。';
 $string['configtimezone'] = '您可以在此设定缺省时区。这是只是用于显示日期的缺省时区——每个用户都可以设定他自己的时区。此处的“服务器时间”让Moodle缺省情况下直接使用服务器上操作系统的设置，而用户个人设置中的“服务器时间”则表示缺省情况下使用此处的设定。';
-$string['configunzip'] = 'unzip程序的位置(仅针对Unix系统，可选)。如果指定了，将用它来解压服务器上的zip文件。如果留空，则Moodle使用内部函数解压。';
 $string['configuseblogassociations'] = '用户可以将博客与课程或课程活动关联吗？';
 $string['configuseexternalyui'] = '使用Yahoo服务器上的在线文件，而不是本地文件。警告：必须要能访问互联网，否则您网站上的AJAX会失效。此设置不兼容使用https的网站。';
 $string['configuserquota'] = '用户私人文件区的最大配额（单位：字节）。 {$a->bytes} 字节 == {$a->displaysize}';
@@ -348,7 +363,6 @@ $string['configverifychangedemail'] = '在修改email地址时也对域名进行
 $string['configvisiblecourses'] = '是否显示在隐藏的课程类别中的课程';
 $string['configwarning'] = '小心修改这些选项——不合法的值可能导致错误。';
 $string['configyuicomboloading'] = '此选项可以用合并文件的方式优化YUI库的加载。为提升性能，正式服务的网站应该开启这个选项。';
-$string['configzip'] = 'zip程序的位置(仅针对Unix系统，可选)。如果指定了，将用它来创建服务器上的zip文件。如果留空，则Moodle使用内部函数压缩。';
 $string['confirmation'] = '确认';
 $string['confirmdeletecomments'] = '您将删除评论，确定吗？';
 $string['confirmed'] = '已确认';
@@ -419,13 +433,9 @@ $string['defaulthomepage'] = '给用户的缺省主页';
 $string['defaultrequestcategory'] = '申请课程的默认类别';
 $string['defaultsettinginfo'] = '默认：{$a}';
 $string['defaultuserroleid'] = '所有用户的默认角色';
-$string['deletefilterareyousure'] = '您确定要删除过滤器“{$a}”吗';
-$string['deletefilterareyousuremessage'] = '您正要完全删除过滤器“{$a}”。您确信要卸载它吗？';
-$string['deletefilterfiles'] = '与过滤器“{$a->filter}”有关的所有数据都已从数据库删除。为了彻底删除（并阻止此过滤器自己重新安装），您现在应该在服务器上删除此目录：{$a->directory}';
 $string['deleteincompleteusers'] = '几天后删除资料不完整的用户';
 $string['deleteunconfirmed'] = '之后删除未完全配置好的用户';
 $string['deleteuser'] = '删除用户';
-$string['deletingfilter'] = '正在删除过滤器“{$a}”';
 $string['density'] = '密度';
 $string['denyemailaddresses'] = '禁止的邮件域名';
 $string['development'] = '开发';
@@ -484,6 +494,7 @@ $string['enablerecordcache'] = '允许记录缓存';
 $string['enablerssfeeds'] = '启用RSS种子';
 $string['enablesafebrowserintegration'] = '打开安全考试浏览器的集成';
 $string['enablestats'] = '启用统计';
+$string['enabletgzbackups_desc'] = '如果启用，将来的备份将以新的.mbz压缩格式（内部以.tar.gz文件格式存储）进行创建。这将移除4GB的备份大小限制，并可能提高性能。还原时支持多种格式，它们之间的区别应该对于用户透明。';
 $string['enabletrusttext'] = '启用可信内容';
 $string['enablewebservices'] = '启用网络服务';
 $string['enablewsdocumentation'] = '网络服务文档';
@@ -543,15 +554,10 @@ $string['frontpageroles'] = '首页角色';
 $string['frontpagesettings'] = '首页设置';
 $string['fullnamedisplay'] = '全名格式';
 $string['gdrecommended'] = 'GD扩展被用来转换图片。如果未激活它，像用户头像之类的功能将不可用。';
-$string['gdversion'] = 'GD版本';
+$string['gdrequired'] = 'Moodle 现在需要 GD 扩展来做图片转换。';
 $string['generalsettings'] = '一般设置';
 $string['geoipfile'] = 'GeoIP城市数据文件';
 $string['getremoteaddrconf'] = '被记录的IP地址来源于';
-$string['globalsquoteswarning'] = '<p><strong>安全警告</strong>：为了能够正常运行，Moodle需要您修改您当前的PHP设置。</p>
-
-<p>您<em>必须</em>至少设定<code>register_globals=off</code>和<code>magic_quotes_gpc=on</code>二者之一。如果有可能，您应当设定<code>register_globals=off</code>来提高服务器的整体安全性，同时我们也建议您设定<code>magic_quotes_gpc=on</code>。</p>
-
-<p>这些设定是由<code>php.ini</code>、Apache或IIS的配置文件或<code>.htaccess</code>来控制的。</p>';
 $string['globalswarning'] = '<p><strong>安全警告</strong>: 为了保证操作合理，Moodle需要 <br />您对当前的PHP做一些设置.<p/><p>您<em>必须</em>设置<code>register_globals=off</code>.<p>该设置在<code>php.ini</code>中修改, Apache/IIS <br />配置 or <code>.htaccess</code> 文件.</p>';
 $string['googlemapkey3'] = 'Google 地图的 API V3 密钥';
 $string['gotofirst'] = '转到第一个缺失字符处';
@@ -565,7 +571,6 @@ $string['groupenrolmentkeypolicy_desc'] = '打开此选项后，Moodle会按照�
 $string['guestroleid'] = '访客的角色';
 $string['guestroleid_help'] = '此角色被自动分配给访客用户。它也被临时分配给通过访客选课插件进入课程的未选课用户。';
 $string['helpadminseesall'] = '管理员可以看到日历中的所有事件还是只能看到与他们自己有关的事件？';
-$string['helpcalendarsettings'] = '设定Moodle中几个与日历和日期/事件相关的方面';
 $string['helpforcetimezone'] = '您可以允许用户选择他自己的时区或者让所有用户只能使用同一时区。';
 $string['helpsitemaintenance'] = '用于升级和其它需要的工作';
 $string['helpstartofweek'] = '在日历中一周的开始是哪一天?';
@@ -623,6 +628,7 @@ $string['localstringcustomization'] = '本地定制';
 $string['location'] = '位置';
 $string['locationsettings'] = '位置设置';
 $string['locked'] = '锁定';
+$string['lockoutemailsubject'] = '你在 {$a} 的账户被锁定';
 $string['log'] = '日志';
 $string['logguests'] = '日志包含访客的访问';
 $string['logguests_help'] = '此设置启用后，访客账号的行为会被记入日志。高知名度的网站出于性能考虑，可能要禁用此功能。建议正式使用的网站打开此功能。';
@@ -651,6 +657,7 @@ $string['maturitycorewarning'] = '您正要安装或升级的Moodle版本包含�
 $string['maxbytes'] = '上传文件大小的最大值';
 $string['maxconsecutiveidentchars'] = '连续相同字符数';
 $string['maxeditingtime'] = '编辑帖子的最大时间';
+$string['maxusersperpage'] = '每页的最大用户数';
 $string['mbstringrecommended'] = '我们强烈建议您安装时 MBSTRING 库，特别是您的站点使用非拉丁语系的语言时，它可以大大提升系统性能。';
 $string['mediapluginavi'] = '过滤.avi文件';
 $string['mediapluginflv'] = '过滤.flv文件';
@@ -668,6 +675,7 @@ $string['mediapluginswfnote'] = '按照缺省的安全标准，普通用户不�
 $string['mediapluginwmv'] = '过滤.wmv文件';
 $string['mediapluginyoutube'] = '打开YouTube链接过滤器';
 $string['messaging'] = '启用消息系统';
+$string['messagingallowemailoverride'] = '修改通知邮件';
 $string['messagingdeletereadnotificationsdelay'] = '删除已读通知';
 $string['messaginghidereadnotifications'] = '隐藏已读通知';
 $string['minpassworddigits'] = '数字';
@@ -681,18 +689,20 @@ $string['mnetrestore_extusers_admin'] = '<strong>注意：</strong>您选择的�
 $string['mnetrestore_extusers_mismatch'] = '<strong>注意：</strong> 这个备份文件来自一个不同的MOODLE站点，而且包括远程Moodle网络中的用户帐号，这个操作可能不支持。如果您确定在Moodle安装的时候已经创建好，或者您确定所有需要Moodle网路中主机已经配置完成，您才可以尝试恢复。';
 $string['mnetrestore_extusers_noadmin'] = '<strong>注意：</strong>您选择的备份文件貌似是来自另一个Moodle，且文件中包含远程Moodle网络用户账户。您不可以进行这种恢复。请联系网站管理员，或者不带用户信息（模块、文件等）恢复课程。';
 $string['mnetrestore_extusers_switchuserauth'] = '远程Moodle网络用户{$a->username}(来自{$a->mnethosturl}) 切换到本地{$a->auth}认证用户';
+$string['mobile'] = '手机';
 $string['mobilecssurl'] = 'CSS';
 $string['modchooserdefault'] = '缺省的活动选择器';
 $string['modeditdefaults'] = '活动设置缺省值';
 $string['modsettings'] = '管理活动';
 $string['modulesecurity'] = '模块安全';
+$string['moodleorghubname'] = 'Moodle.net';
 $string['multilangforceold'] = '强制旧版的多语言语法：没有 class="multilang" 的&lt;span&gt; 和 &lt;lang&gt;';
 $string['mustenablestats'] = '本站点的统计功能还未被开启。';
 $string['mycoursesperpage'] = '课程数';
 $string['mydashboard'] = '系统缺省仪表板';
 $string['mymoodle'] = '我的Moodle';
 $string['mymoodleredirect'] = '强制用户使用“我的Moodle”';
-$string['mypage'] = '缺省我的Moodle页面';
+$string['mypage'] = '我的缺省Moodle页面';
 $string['mypagelocked'] = '锁定缺省页面';
 $string['myprofile'] = '缺省个人资料页';
 $string['mysql416bypassed'] = '如果您的站点只使用 iso-8859-1 (latin) 语言，您可以使用您当前安装的 MySQL 4.1.12(或更高)。';
@@ -705,9 +715,12 @@ $string['navshowallcourses'] = '显示所有课程';
 $string['navshowcategories'] = '显示课程分类';
 $string['navshowfrontpagemods'] = '在导航中显示首页活动';
 $string['navshowfrontpagemods_help'] = '如果启用，导航版块的“网站页面”下会显示首页活动。';
+$string['navshowfullcoursenames'] = '显示课程全名';
+$string['navshowfullcoursenames_help'] = '如果打开这个开关，导航将使用课程的全称而不是简称';
 $string['navshowmycoursecategories'] = '显示我的课程类别';
 $string['navshowmycoursecategories_help'] = '如果启用，用户“我的课程”中的课程会显示在分类中。';
 $string['navsortmycoursessort'] = '排序我的课程';
+$string['navsortmycoursessort_help'] = '这决定在 “我的课程” 下是按设定的排序顺序罗列所有的课程（如，在网站管理 > 课程 > 管理课程和分类设定的排序顺序）还是按课程设置的字母顺序排序';
 $string['neverdeleteruns'] = '从不删除运行';
 $string['nobookmarksforuser'] = '您没有任何书签。';
 $string['nodatabase'] = '无数据库';
@@ -723,8 +736,7 @@ $string['notifyloginthreshold'] = '邮件通告的下限';
 $string['notloggedinroleid'] = '访问者的角色';
 $string['numberofmissingstrings'] = '缺失字符数：{$a}';
 $string['numberofstrings'] = '字符串总数：{$a->strings}<br />缺失：{$a->missing} ({$a->missingpercent}&nbsp;%)';
-$string['numcoursesincombo'] = '组合列表中最大课程数';
-$string['numcoursesincombo_help'] = '当课程数过大时，组合列表会表现欠佳。当网站的课程总数高于此设置时，将不会试图在首页显示所有课程，而是显示一个指向专门设计的课程列表的链接。';
+$string['opcacherecommended'] = 'PHP字节码缓存提高性能且降低对内存的要求。Moodle完全支持并建议使用OPC缓存扩展';
 $string['opensslrecommended'] = '要使用Moodle网络功能，强烈推荐安装OpenSSL库。';
 $string['opentogoogle'] = '向Google开放';
 $string['optionalmaintenancemessage'] = '可选的维护信息';
@@ -733,6 +745,7 @@ $string['order2'] = '第二';
 $string['order3'] = '第三';
 $string['order4'] = '第四';
 $string['passwordpolicy'] = '密码规则';
+$string['passwordresettime'] = '在多长时间内必须验证重置密码请求';
 $string['pathconvert'] = '<i>convert</i>程序的路径';
 $string['pathdvips'] = '<i>dvips</i>程序的路径';
 $string['pathlatex'] = '<i>latex</i>程序的路径';
@@ -746,8 +759,6 @@ $string['pathtopgdumpinvalid'] = 'pg_dump 路径无效──错误的路径或�
 $string['pathtopsql'] = 'psql 的路径';
 $string['pathtopsqldesc'] = '只有您的系统上有多个 psql 时您才需要指定这个选项(譬如您您安装了多个版本的 postgresql)。';
 $string['pathtopsqlinvalid'] = '无效的 psql 路径──错误的路径或无法执行';
-$string['pathtounzip'] = 'unzip的路径';
-$string['pathtozip'] = 'zip的路径';
 $string['pcreunicodewarning'] = '强烈建议使用兼容 Unicode 字符的 PCRE PHP扩展。';
 $string['perfdebug'] = '性能信息';
 $string['performance'] = '性能';
@@ -764,6 +775,7 @@ $string['pluginscheck'] = '插件依赖检查';
 $string['pluginscheckfailed'] = '{$a->pluginslist}依赖检查失败';
 $string['pluginschecktodo'] = '您必须先解决所有插件的需求，然后再继续安装此版本的Moodle！';
 $string['pluginsoverview'] = '插件概况';
+$string['pluginsoverviewsee'] = '点击 <a href="{$a->url}">插件预览</a>了解更多详细信息';
 $string['profilecategory'] = '类别';
 $string['profilecategoryname'] = '类别名（必填）';
 $string['profilecategorynamenotunique'] = '该类别名已经使用';
@@ -865,7 +877,6 @@ $string['registrationwarning'] = '您的网站还没有注册。';
 $string['releasenoteslink'] = '想更多了解此版本的 Moodle，请参考<a target="_new" href="{$a}">发行备忘录</a>。';
 $string['rememberusername'] = '记住用户名';
 $string['rememberusername_desc'] = '如果想在用户登录时用永久 cookie 保存用户名，启用此选项。未经用户同意而使用永久 cookie 可能会引发隐私问题。';
-$string['reportsdeleteconfirm'] = '您将要完全删除报告“{$a}”。数据库中所有与此插件相关的数据都会被完全删除。您确信要继续吗？';
 $string['reportsmanage'] = '管理报告';
 $string['requestcategoryselection'] = '启用类别选择';
 $string['requiredentrieschanged'] = '<strong>重要—请一定阅读<br/>（这条警告只会在升级过程中显示）</strong><br/>为了修复一个bug，使用了“必须完成的条目数”和“查看前必须完成的条目数”的数据库活动的设置将被更改。请查看<a href="http://moodle.org/mod/forum/discuss.php?d=110928" target="_blank">数据库模块讨论区</a>了解更多细节。还可以在<a href="http://docs.moodle.org/en/Adding/editing_a_database#Required_entries" target="_blank">Moodle文档</a>中了解这些设置的特性。<br/><br/>这个修改影响您系统中的下列数据库：（请马上保存此列表，并在升级结束后，检查这些活动是否仍按照教师期望的方式工作。）<br/><strong>{$a->text}</strong><br/>';
@@ -920,6 +931,7 @@ $string['sitemaintenance'] = '本站正在维护中，目前不能访问。';
 $string['sitemaintenancemode'] = '维护模式';
 $string['sitemaintenanceoff'] = '维护模式已关闭，网站已经重新正常运行';
 $string['sitemaintenanceon'] = '您的网站正处于维护模式(只有管理员可以登录或使用)。';
+$string['sitemaintenanceoncli'] = '你的站点当前处理CLI维护模式，不允许WEB访问';
 $string['sitemaintenancewarning'] = '您的网站目前处于维护模式(只有管理员可以登录)。要让网站回复到正常模式，请<a href="maintenance.php">关闭维护模式</a>。';
 $string['sitemaintenancewarning2'] = '您的网站目前处于维护模式（仅管理员可以登录）。要回复到正常模式，请<a href="{$a}">关闭维护模式</a>。';
 $string['sitepolicies'] = '网站策略';
@@ -971,19 +983,22 @@ $string['themeselect'] = '更改主题';
 $string['themeselector'] = '主题选择器';
 $string['themesettings'] = '主题设置';
 $string['therewereerrors'] = '在您的数据中有错误';
+$string['thirdpartylibrary'] = '开发库名称';
+$string['thirdpartylibrarylocation'] = '位置';
+$string['thirdpartylibs'] = '第三方库';
 $string['timezone'] = '默认时区';
 $string['timezoneforced'] = '站点管理员规定必须这样做';
 $string['timezoneisforcedto'] = '强制所有用户使用';
 $string['timezonenotforced'] = '用户可以选择自己的时区';
 $string['tokenizerrecommended'] = '为了改进Moodle网络功能，建议安装PHP Tokenizer扩展库。';
 $string['tools'] = '管理工具';
-$string['toolsdeleteconfirm'] = '您将要完全删除管理工具“{$a}”。数据库中所有与此插件相关的数据都会被完全删除。您确信要继续吗？';
 $string['toolsmanage'] = '管理管理工具';
 $string['unattendedoperation'] = '无人值守操作';
 $string['unbookmarkthispage'] = '删除此页面的书签';
 $string['unicoderecommended'] = '建议用Unicode（UTF-8）存储全部数据。全新安装必须安装在缺省字符集为Unicode的数据库中。如果正在升级，您应该执行UTF-8移植处理（请参考管理员页面）。';
 $string['unicoderequired'] = '您必须使用Unicode（UTF-8）存储全部数据。全新安装必须安装在缺省字符集为Unicode的数据库中。如果正在升级，您应该执行UTF-8移植处理（请参考管理员页面）。';
 $string['uninstallplugin'] = '卸载';
+$string['unlockaccount'] = '帐号解锁';
 $string['unsettheme'] = '取消主题';
 $string['unsupported'] = '不支持';
 $string['unsuspenduser'] = '激活用户账号';
@@ -1052,7 +1067,6 @@ $string['upgradingversion'] = '正在升级到新版本';
 $string['upwards'] = '以上';
 $string['useblogassociations'] = '启用关联';
 $string['useexternalyui'] = '使用在线的YUI库';
-$string['usehtmleditor'] = '使用HTML编辑器';
 $string['user'] = '用户';
 $string['userbulk'] = '批量处理';
 $string['userlist'] = '浏览用户';

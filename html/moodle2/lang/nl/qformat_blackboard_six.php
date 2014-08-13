@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_blackboard_six
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,9 +29,9 @@ $string['defaultname'] = 'Geïmporteerde vraag {$a}';
 $string['errormanifest'] = 'Fout bij het verwerken van het IMS manifest document';
 $string['filenothandled'] = 'Dit archief bevat een verwijzing naar een bestand {$a} dat nog niet kan verwerkt worden tijdens een import';
 $string['imagenotfound'] = 'Afbeeldingsbestand met pad {$a} is niet gevonden tijdens de import.';
+$string['importedcategory'] = 'Geïmporteerde categorie {$a}';
 $string['importnotext'] = 'Ontbrekende vraagtekst in XML-bestand';
 $string['notenoughtsubans'] = 'Kon koppelvraag \'{$a}\' niet importeren omdat een koppelvraag minstens twee vragen en drie antwoorden moet bevatten';
-$string['pluginname'] = 'Blackboard V6+';
-$string['pluginname_help'] = 'Blackboard V6+ opmaak maakt het mogelijk om vragen, bewaard in het exportformaat van Blackboard, te importeren via dat- of zip-bestand. Voor zip-bestanden wordt de import van afbeeldingen ook ondersteund.';
+$string['pluginname'] = 'Blackboard';
+$string['pluginname_help'] = 'Blackboard opmaak maakt het mogelijk om vragen, bewaard in het exportformaat van Blackboard, te importeren via dat- of zip-bestand. Voor zip-bestanden wordt de import van afbeeldingen ook ondersteund.';
 $string['unhandledpresblock'] = 'Presentatieblok niet behandeld';
-$string['unknownorunhandledtype'] = 'Onbekend of onbehandeld vraagtype: {$a}';

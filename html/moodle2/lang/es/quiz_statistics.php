@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,8 +58,12 @@ $string['firstattempts'] = 'primeros intentos';
 $string['firstattemptsavg'] = 'Promedio de los primeros intentos';
 $string['firstattemptscount'] = 'Número de primeros intentos';
 $string['frequency'] = 'Frecuencia';
+$string['highestattempts'] = 'intentos con mejores calificaciones';
+$string['highestattemptsavg'] = 'Calificación media de los mejores intentos';
 $string['intended_weight'] = 'Peso estimado';
 $string['kurtosis'] = 'Curtosis de la distribución de puntuaciones (para {$a})';
+$string['lastattempts'] = 'últimos intentos';
+$string['lastattemptsavg'] = 'Calificación media de los últimos intentos';
 $string['lastcalculated'] = 'Último cálculo realizado hace {$a->lastcalculated}. Se han realizado {$a->count} desde entonces.';
 $string['median'] = 'Calificación media (de {$a})';
 $string['modelresponse'] = 'Respuesta modelo';
@@ -81,6 +85,7 @@ $string['quizoverallstatistics'] = 'Estadísticas globales del cuestionario';
 $string['quizstructureanalysis'] = 'Análisis de la estructura del cuestionario';
 $string['random_guess_score'] = 'Calificación aleatoria estimada';
 $string['recalculatenow'] = 'Volver a calcular';
+$string['reportsettings'] = 'Configuración del cálculo de estadísticas';
 $string['response'] = 'Respuesta';
 $string['skewness'] = 'Asimetría de la distribución de puntuaciones (para {$a})';
 $string['standarddeviation'] = 'Desviación estándar (para {$a})';

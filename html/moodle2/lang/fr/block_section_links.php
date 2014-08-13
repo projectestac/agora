@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Augmenter de';
+$string['incby1_help'] = 'Chaque fois qu\'un lien de section est affiché, cette valeur est ajoutée au numéro de section, à partir de 1.';
 $string['incby2'] = 'Augmenter de (alternative)';
-$string['incbydesc1'] = 'Incrément du numéro de section.';
-$string['incbydesc2'] = 'Incrément du numéro de section.';
+$string['incby2_help'] = 'Chaque fois qu\'un lien de section est affiché, cette valeur est ajoutée au numéro de section, à partir de 1.';
 $string['jumptocurrenttopic'] = 'Section actuelle';
 $string['jumptocurrentweek'] = 'Semaine actuelle';
 $string['numsections1'] = 'Nombre de sections';
+$string['numsections1_help'] = 'Lorsque le nombre de section d\'un cours atteint ce nombre, la valeur d\'incrément est utilisée.';
 $string['numsections2'] = 'Nombre de sections (alternatif)';
-$string['numsectionsdesc1'] = 'Lorsque le nombre de sections du cours atteint cette valeur, l\'incrément est utilisé.';
-$string['numsectionsdesc2'] = 'Lorsque le nombre de sections du cours atteint cette valeur, l\'incrément alternatif est utilisé.';
+$string['numsections2_help'] = 'Lorsque le nombre de section d\'un cours atteint ce nombre, la valeur d\'incrément alternative est utilisée.';
 $string['pluginname'] = 'Liens vers sections';
 $string['section_links:addinstance'] = 'Ajouter un bloc liens vers sections';
 $string['topics'] = 'Sections';

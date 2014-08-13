@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mnet', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -64,7 +64,7 @@ $string['enterausername'] = 'Var snäll och mata in ett användarnamn, eller en 
 $string['error7020'] = 'Det felet inträffar normalt sett fjärrwebbplatsen har skapat en registrering för dig med felaktig wwwroot, t.ex. http://dinwebbplats.com istället för http://www.dinwebbplats.com. Du bör då kontakta administratören av fjärrwebbplatsen med din wwwroot (så som den har angivits i config.php) och be henne/honom uppdatera registreringen hos din värd.';
 $string['error7022'] = 'Det meddelande som du skickade till fjärrwebbplatsen krypterades korrekt med signerades inte. Detta var mycket oväntat; du bör förmodligen rapportera en bug om detta uppträder (glöm inte att lämna så mycket information som möjligt om den aktuella versionen av Moodle osv).';
 $string['error7023'] = 'Fjärrwebbplatsen har försökt att avläsa ditt krypterade meddelande med alla de nycklar som den har registrerat angående din webbplats. Ingen av nycklarna har fungerat. Du kanske kan ordna till detta genom att manuellt redigera nycklarna hos fjärrwebbplatsen. Det är osannolikt att detta ska hända om det inte är så att du inte har kommunicerat med webbplatsen på några månader.';
-$string['error7024'] = 'Du skickar ett okrypterat meddelande till den avlägsna webbplatsen med den accepterar inte okrypterad kommunikation från din webbplats. Detta är mycket oväntat; du borde antagligen rapportera en bug om detta inträffar. (lämna så mycket information som möjligt om den aktuella versionen av Moodle osv).';
+$string['error7024'] = 'Du kan skicka ett okrypterat meddelande till fjärrwebbplatsen med den accepterar inte okrypterad kommunikation från din webbplats. Detta är mycket oväntat; du borde antagligen rapportera en bug om detta inträffar. (glöm inte att lämna så mycket information som möjligt om den aktuella versionen av Moodle osv).';
 $string['error7026'] = 'Den nyckel som du har signerat ditt meddelande med skiljer sig ifrån den nyckel som fjärrvärden har registrerat på en fil för din server. Dessutom så har fjärvärden försökt att hämta din aktuella nyckel men misslyckats med detta. Var snäll och skriv in nyckeln manuellt hos fjärrvärden och försök igen.';
 $string['error709'] = 'Fjärrwebbplatsen har misslyckats med att få en SSL-nyckel från dig.';
 $string['expired'] = 'Giltighetstiden för den här nyckeln gick ut';
@@ -76,12 +76,12 @@ $string['failedaclwrite'] = 'Det gick inte att skriva till listan för kontroll 
 $string['forbidden-function'] = 'Den funktionen har inte aktiverats för RPC.';
 $string['forbidden-transport'] = 'Den transportmetod som Du försöker använda är inte tillåten.';
 $string['forcesavechanges'] = 'Tvinga fram sparande av ändringar';
-$string['helpnetworksettings'] = 'Konfigurera MNET kommunikation';
+$string['helpnetworksettings'] = 'Konfigurera kommunikationen mellan olika instanser av Moodle';
 $string['hidelocal'] = 'Dölj lokala användare';
 $string['hideremote'] = 'Dölj fjärranvändare';
 $string['host'] = 'värd';
 $string['hostcoursenotfound'] = 'Det gick inte att hitta värd eller kurs';
-$string['hostdeleted'] = 'Värden har tagits bort';
+$string['hostdeleted'] = 'OK - värden har tagits bort';
 $string['hostexists'] = 'Det finns redan en post för den där värden med det värdnamnet (det kan tas bort)<a href= "{$a}"> Klicka här </a> för att redigera den posten.';
 $string['hostlist'] = 'Lista över nätverkande värdar';
 $string['hostname'] = 'Värdnamn';
@@ -116,7 +116,7 @@ $string['last_connect_time_help'] = 'Det senaste tillfället som Du kontaktade d
 $string['last_transport_help'] = 'Den transport som Du använde för den senaste anslutningen till den här värden.';
 $string['leavedefault'] = 'Använd de förvalda standardinställningarna istället';
 $string['listservices'] = 'Lista tjänster';
-$string['loginlinkmnetuser'] = '<br />Om Du är en MNET fjärranvändare <a href="{$a}">bekräfta Din e-postadress här</a> Du blir omdirigerad till Din sida för inloggning.';
+$string['loginlinkmnetuser'] = '<br />Om Du är fjärranvändare av ett nätverk för Moodle och kan <a href="{$a}">bekräfta Din e-postadress här</a> så kan Dubli omdirigerad till Din sida för inloggning.';
 $string['logs'] = 'Loggar';
 $string['managemnetpeers'] = 'Administrera jämbördiga (peers)';
 $string['method'] = 'Metod';
@@ -134,7 +134,7 @@ $string['mnetlog'] = 'Loggar';
 $string['mnetpeers'] = '\'Peers\' jämbördiga partners';
 $string['mnetservices'] = 'Tjänster';
 $string['mnet_session_prohibited'] = 'Användare från Din hemserver har f.n. inte tillstånd att navigera vidare till {$a}.';
-$string['mnetsettings'] = 'MNET inställningar';
+$string['mnetsettings'] = 'Inställningar för nätverkande instanser av Moodle';
 $string['moodle_home_help'] = 'Sökvägen till ingångssidan (hem/första) för MNet-applikationen hos fjärrvärden, t.ex. /moodle/.';
 $string['name'] = 'Namn';
 $string['net'] = 'Nätverkande';
@@ -146,7 +146,7 @@ $string['nocurl'] = 'PHP Curl-biblioteket är inte installerat.';
 $string['nolocaluser'] = 'Det finns ingen lokal post för fjärranvändaren och det gick inte att skapa någon eftersom den här värden inte skapar användare automatiskt. Var snäll och kontakta Din administratör!';
 $string['nomodifyacl'] = 'Du har inte tillstånd att modifiera listan för kontroll av MNET-tillgänglighet.';
 $string['nonmatchingcert'] = 'Ämnet för certifikatet: <br /><em>{$a->subject}</em><br /> matchar inte värden som det kom från:<br /><em>{$a->host}</em>.';
-$string['nopubkey'] = 'Det uppstod ett problem i samband med att den publika nyckeln skulle hämtas.<br />Det kan hända att värden inte tillåter MNET eller nyckeln är ogiltig.';
+$string['nopubkey'] = 'Det uppstod ett problem i samband med att den publika nyckeln skulle återvinnas.<br />Det kan hända att värden inte tillåter nätverkande för Moodle eller att nyckeln är ogiltig.';
 $string['nosite'] = 'Det gick inte att hitta en kurs på webbplatsnivå';
 $string['nosuchfile'] = 'Filen/funktionen {$a} finns inte.';
 $string['nosuchfunction'] = 'Det gick inte att lokalisera funktionen eller också var funktionen blockerad för RPC.';
@@ -193,7 +193,7 @@ $string['requiresopenssl'] = 'Nätverkande kräver ett tillägg (extension) för
 $string['restore'] = 'Återställ';
 $string['returnvalue'] = 'Returvärde';
 $string['reviewhostdetails'] = 'Kontrollera detaljer angående värd';
-$string['reviewhostservices'] = 'Granska tjänster hos värd';
+$string['reviewhostservices'] = 'Kontrollera tjänster hos värd';
 $string['RPC_HTTP_PLAINTEXT'] = 'HTTP okrypterad';
 $string['RPC_HTTP_SELF_SIGNED'] = 'HTTP (själv-signerad)';
 $string['RPC_HTTPS_SELF_SIGNED'] = 'HTTPS (själv-signerad)';

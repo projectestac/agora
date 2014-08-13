@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['configdisplayoptions'] = 'Выберите все варианты, которые должны быть доступны; существующие параметры не изменяются. Для выбора нескольких полей удерживайте клавишу CTRL.';
 $string['content'] = 'Содержание страницы';
 $string['contentheader'] = 'Содержание';
-$string['createpage'] = 'Создать новую страницу';
+$string['createpage'] = 'Создать новый ресурс типа «Страница»';
 $string['displayoptions'] = 'Доступные опции отображения';
 $string['displayselect'] = 'Отображать';
 $string['displayselectexplain'] = 'Выберите тип отображения.';
@@ -46,7 +46,7 @@ $string['modulename_help'] = 'Модуль «Страница» позволяе
 * Для встраивания разных видео- или звуковых файлов в пояснительный текст.';
 $string['modulenameplural'] = 'Страницы';
 $string['neverseen'] = 'Не смотрел(а)';
-$string['optionsheader'] = 'Настройки';
+$string['optionsheader'] = 'Настройки отображения';
 $string['page:addinstance'] = 'Добавлять новую страницу';
 $string['page-mod-page-x'] = 'Любая страница модуля «Страница»';
 $string['page:view'] = 'Просматривать контент страницы';
@@ -56,7 +56,5 @@ $string['popupheight'] = 'Высота всплывающего окна ( в п
 $string['popupheightexplain'] = 'Определяет по умолчанию высоту всплывающего окна.';
 $string['popupwidth'] = 'Ширина всплывающего окна (в пикселях)';
 $string['popupwidthexplain'] = 'Определяет по умолчанию ширину всплывающего окна.';
-$string['printheading'] = 'Показывать название страницы';
-$string['printheadingexplain'] = 'Показывать название страницы перед содержимым?';
 $string['printintro'] = 'Показывать описание страницы';
 $string['printintroexplain'] = 'Показывать описание страницы перед содержимым?';

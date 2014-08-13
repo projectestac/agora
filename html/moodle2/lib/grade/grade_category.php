@@ -1184,7 +1184,7 @@ class grade_category extends grade_object {
             $sortorder = $item->sortorder;
 
             while (array_key_exists($categoryid, $cats)
-               && array_key_exists($sortorder, $cats[$categoryid]->children)) {
+                && array_key_exists($sortorder, $cats[$categoryid]->children)) {
 
                 $sortorder++;
             }

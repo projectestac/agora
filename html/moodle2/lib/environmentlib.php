@@ -70,6 +70,10 @@ defined('MOODLE_INTERNAL') || die();
     define('CUSTOM_CHECK_FUNCTION_MISSING',     14);
     /** XML Processing Error */
     define('NO_PHP_SETTINGS_NAME_FOUND',        15);
+    /** XML Processing Error */
+    define('INCORRECT_FEEDBACK_FOR_REQUIRED',   16);
+    /** XML Processing Error */
+    define('INCORRECT_FEEDBACK_FOR_OPTIONAL',   17);
 
 /// Define algorithm used to select the xml file
     /** To select the newer file available to perform checks */
@@ -958,7 +962,7 @@ function environment_check_database($version, $env_select) {
     }
 
 /// Now search the version we are using (depending of vendor)
-    $current_vendor = $DB->get_dbfamily();
+    $current_vendor = $DB->get_dbvendor();
 
     $dbinfo = $DB->get_server_info();
     $current_version = normalize_version($dbinfo['version']);
@@ -1066,6 +1070,8 @@ function process_environment_restrict($xml, &$result) {
  * This function will detect if there is some message available to be added to the
  * result in order to clarify enviromental details.
  *
+ * @uses INCORRECT_FEEDBACK_FOR_REQUIRED
+ * @uses INCORRECT_FEEDBACK_FOR_OPTIONAL
  * @param string xmldata containing the feedback data
  * @param object reult object to be updated
  */
@@ -1074,6 +1080,15 @@ function process_environment_messages($xml, &$result) {
 /// If there is feedback info
     if (is_array($xml['#']) && isset($xml['#']['FEEDBACK'][0]['#'])) {
         $feedbackxml = $xml['#']['FEEDBACK'][0]['#'];
+
+        // Detect some incorrect feedback combinations.
+        if ($result->getLevel() == 'required' and isset($feedbackxml['ON_CHECK'])) {
+            $result->setStatus(false);
+            $result->setErrorCode(INCORRECT_FEEDBACK_FOR_REQUIRED);
+        } else if ($result->getLevel() == 'optional' and isset($feedbackxml['ON_ERROR'])) {
+            $result->setStatus(false);
+            $result->setErrorCode(INCORRECT_FEEDBACK_FOR_OPTIONAL);
+        }
 
         if (!$result->status and $result->getLevel() == 'required') {
             if (isset($feedbackxml['ON_ERROR'][0]['@']['message'])) {
@@ -1108,7 +1123,7 @@ class environment_results {
      */
     var $part;
     /**
-     * @var bool
+     * @var bool true means the test passed and all is OK. false means it failed.
      */
     var $status;
     /**
@@ -1165,11 +1180,11 @@ class environment_results {
     /**
      * Set the status
      *
-     * @param boolean $status the status (true/false)
+     * @param bool $testpassed true means the test passed and all is OK. false means it failed.
      */
-    function setStatus($status) {
-        $this->status=$status;
-        if ($status) {
+    function setStatus($testpassed) {
+        $this->status = $testpassed;
+        if ($testpassed) {
             $this->setErrorCode(NO_ERROR);
         }
     }
@@ -1259,7 +1274,7 @@ class environment_results {
     /**
      * Get the status
      *
-     * @return boolean result
+     * @return bool true means the test passed and all is OK. false means it failed.
      */
     function getStatus() {
         return $this->status;

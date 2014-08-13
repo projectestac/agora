@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assign', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assign', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   assign
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,14 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['activityoverview'] = 'あなたには注意が必要な課題があります。';
+$string['addattempt'] = '別の提出を許可する';
+$string['addnewattempt'] = '新しい提出を追加する';
+$string['addnewattemptfromprevious'] = '前の提出を基に新しい提出を追加する';
+$string['addnewattemptfromprevious_help'] = 'ここではあなたの作業のため、前回提出のコンテンツを新しい提出にコピーします。';
+$string['addnewattempt_help'] = 'ここではあなたの作業のため、空の提出を作成します。';
 $string['addsubmission'] = '課題を追加する';
+$string['allocatedmarker'] = '割り当て採点者';
+$string['allocatedmarker_help'] = 'この提出に割り当てられた採点者';
 $string['allowsubmissions'] = 'この課題をユーザが継続して提出できるようにします。';
 $string['allowsubmissionsanddescriptionfromdatesummary'] = '課題詳細および提出フォームは <strong>{$a}</strong> から利用できます。';
 $string['allowsubmissionsfromdate'] = '開始日時';
@@ -42,39 +49,61 @@ $string['assignfeedback'] = 'フィードバックプラグイン';
 $string['assignfeedbackpluginname'] = 'フィードバックプラグイン';
 $string['assign:grade'] = '課題を評定する';
 $string['assign:grantextension'] = '延長を許可する';
+$string['assign:manageallocations'] = '提出に割り当てられた採点者を管理する';
+$string['assign:managegrades'] = '評点をレビューおよびリリースする';
 $string['assignmentisdue'] = '課題の提出期限が到来しました。';
 $string['assignmentmail'] = 'あなたの「 {$a->assignment} 」への提出課題に対して、{$a->grader} がフィードバックを投稿しました。
 
 あなたの提出課題に追加されたフィードバックをご覧ください:
 
     {$a->url}';
-$string['assignmentmailhtml'] = 'あなたの「 {$a->assignment} 」への提出課題に対して、{$a->grader} がフィードバックを投稿しました。
-<br />
-<br />
-あなたの<a href="{$a->url}">提出課題</a>に追加されたフィードバックをご覧ください。';
+$string['assignmentmailhtml'] = '<p>あなたの「 {$a->assignment} 」への提出課題に対して、{$a->grader} がフィードバックを投稿しました。</p>
+<p>あなたの<a href="{$a->url}">提出課題</a>に追加されたフィードバックをご覧ください。</p>';
 $string['assignmentmailsmall'] = 'あなたの「 {$a->assignment} 」への提出課題に対して、{$a->grader} がフィードバックを投稿しました。あなたの提出課題に追加されたフィードバックをご覧ください。';
 $string['assignmentname'] = '課題名';
 $string['assignmentplugins'] = '課題プラグイン';
 $string['assignmentsperpage'] = '1ページあたりの課題数';
+$string['assign:releasegrades'] = '評点をリリースする';
 $string['assign:revealidentities'] = '学生の個人情報を公開する';
+$string['assign:reviewgrades'] = '評点をレビューする';
 $string['assignsubmission'] = '提出プラグイン';
 $string['assignsubmissionpluginname'] = '提出プラグイン';
 $string['assign:submit'] = '課題を提出する';
 $string['assign:view'] = '課題を表示する';
+$string['attemptheading'] = '提出 {$a->attemptnumber}: {$a->submissionsummary}';
+$string['attempthistory'] = '前の提出';
+$string['attemptnumber'] = '提出回数';
+$string['attemptreopenmethod'] = '提出再オープン';
+$string['attemptreopenmethod_help'] = '学生の提出をどのように再オープンするか決定します。利用可能なオプションは下記のとおりです:
+<ul>
+<li>なし - 学生の提出を再オープンすることはできません。</li>
+<li>手動 - 学生の提出は教師により再オープンすることができます。</li>
+<li>合格するまで自動 - この課題に設定された評定表内 (「カテゴリおよび評定項目」セクション) の合格点に達するまで、学生の提出は自動的に再オープンされます。</li>
+</ul>';
+$string['attemptreopenmethod_manual'] = '手動';
+$string['attemptreopenmethod_none'] = 'なし';
+$string['attemptreopenmethod_untilpass'] = '合格するまで自動';
+$string['attemptsettings'] = '受験設定';
 $string['availability'] = '利用';
 $string['backtoassignment'] = '課題に戻る';
+$string['batchoperationconfirmaddattempt'] = '選択した提出に関して、別の提出を許可しますか?';
 $string['batchoperationconfirmgrantextension'] = '選択されたすべての提出に対して延長を許可しますか?';
 $string['batchoperationconfirmlock'] = '選択された提出すべてをロックしますか?';
 $string['batchoperationconfirmreverttodraft'] = '選択された提出を下書きに戻しますか?';
+$string['batchoperationconfirmsetmarkingallocation'] = '選択された提出すべてに対して、採点割り当てを設定しますか?';
+$string['batchoperationconfirmsetmarkingworkflowstate'] = '選択された提出すべてに対して、採点ワークフロー状況を設定しますか?';
 $string['batchoperationconfirmunlock'] = '選択された提出すべてをロック解除しますか?';
 $string['batchoperationlock'] = '提出をロックする';
 $string['batchoperationreverttodraft'] = '提出を下書きに戻す';
 $string['batchoperationsdescription'] = '選択した行に対して ...';
 $string['batchoperationunlock'] = '提出をロック解除する';
+$string['batchsetallocatedmarker'] = '選択された {$a} 名のユーザに対して、割り当て採点者を設定します。';
+$string['batchsetmarkingworkflowstateforusers'] = '選択された {$a} 名のユーザに対して、採点ワークフロー状況を設定します。';
 $string['blindmarking'] = 'ブラインド評定';
 $string['blindmarking_help'] = 'ブラインド評定は評定者に対して学生の個人情報を隠します。この課題に関して提出または評定された場合、ブラインド評定設定がロックされます。';
 $string['changegradewarning'] = 'この課題は評定済みであり、評点を変更することにより、既存の提出が自動的に再計算されることはありません。評点を変更したい場合、あなたは既存のすべての提出を再評定する必要があります。';
 $string['choosegradingaction'] = '評定操作';
+$string['choosemarker'] = '選択 ...';
 $string['chooseoperation'] = '処理を選択する';
 $string['comment'] = 'コメント';
 $string['completionsubmit'] = '完了するため、学生はこの活動を送信する必要があります。';
@@ -87,18 +116,17 @@ $string['couldnotconvertsubmission'] = 'ユーザ {$a} の提出課題をコン�
 $string['couldnotcreatecoursemodule'] = 'コースモジュールを作成できませんでした。';
 $string['couldnotcreatenewassignmentinstance'] = '新しい課題インスタンスを作成できませんでした。';
 $string['couldnotfindassignmenttoupgrade'] = 'アップグレードする古い課題インスタンスを見つけることができませんでした。';
+$string['currentattempt'] = 'これは {$a} 回目の提出です。';
+$string['currentattemptof'] = 'これは {$a->attemptnumber} 回目の提出です ( {$a->maxattempts} 回の提出が許可されています)。';
 $string['currentgrade'] = '評定表内の現在の評定';
 $string['cutoffdate'] = '遮断日時';
 $string['cutoffdatefromdatevalidation'] = '遮断日時は開始日時の後に設定する必要があります。';
 $string['cutoffdate_help'] = '設定した場合、この日時以降、延長なしでは提出を受け付けません。';
 $string['cutoffdatevalidation'] = '遮断日時は終了日時の前に設定することはできません。';
-$string['defaultplugins'] = 'デフォルト課題設定';
-$string['defaultplugins_help'] = 'これらの設定は新しい課題すべてのデフォルトを設定します。';
+$string['defaultsettings'] = 'デフォルト課題設定';
+$string['defaultsettings_help'] = 'これらの設定は新しい課題すべてのデフォルトを設定します。';
 $string['defaultteam'] = 'デフォルトグループ';
 $string['deleteallsubmissions'] = 'すべての提出を削除する';
-$string['deletepluginareyousure'] = '本当にプラグイン {$a} を削除してもよろしいですか?';
-$string['deletepluginareyousuremessage'] = 'あなたは課題プラグイン「 {$a} 」を完全に削除しようとしています。これにより、この課題プラグインに関連するデータベース内すべてのデータが完全削除されます。本当に続けてもよろしいですか?';
-$string['deletingplugin'] = 'プラグイン {$a}.の削除';
 $string['description'] = '課題説明';
 $string['downloadall'] = 'すべての提出をダウンロードする';
 $string['duedate'] = '終了日時';
@@ -107,12 +135,28 @@ $string['duedateno'] = '提出期限なし';
 $string['duedatereached'] = 'この課題の提出期限を過ぎました。';
 $string['duedatevalidation'] = '終了日は開始日以降に設定する必要があります。';
 $string['editaction'] = '操作 ...';
+$string['editattemptfeedback'] = '提出番号 {$a} の評点およびフィードバックを編集します。';
+$string['editingpreviousfeedbackwarning'] = 'あなたは前回の提出のフィードバックを編集しています。これは {$a->attemptnumber} / {$a->totalattempts} の提出です。';
 $string['editingstatus'] = '編集ステータス';
-$string['editsubmission'] = '私の提出を編集する';
+$string['editsubmission'] = '提出を編集する';
+$string['editsubmission_help'] = 'あなたの提出に変更を加えます。';
 $string['enabled'] = '有効';
 $string['errornosubmissions'] = 'ダウンロード可能な提出はありません。';
 $string['errorquickgradingvsadvancedgrading'] = '現在、この課題は高度な評定を使用しているため、評点は保存されませんでした。';
 $string['errorrecordmodified'] = 'あなたによるページの表示以降、他のユーザが1つまたはそれ以上のレコードを修正したため、評点は保存されませんでした。';
+$string['event_all_submissions_downloaded'] = 'すべての提出がダウンロードされました。';
+$string['event_assessable_submitted'] = '課題が提出されました。';
+$string['event_extension_granted'] = '延長が許可されました。';
+$string['event_identities_revealed'] = 'IDが公開されました。';
+$string['event_marker_updated'] = '割り当て済みマーカーが更新されました。';
+$string['event_statement_accepted'] = 'ユーザが提出同意書に同意しました。';
+$string['event_submission_duplicated'] = 'ユーザの提出が重複しました。';
+$string['event_submission_graded'] = '提出が評定されました。';
+$string['event_submission_locked'] = 'ユーザの提出がロックされました。';
+$string['event_submission_status_updated'] = '提出状況が更新されました。';
+$string['event_submission_unlocked'] = 'ユーザの提出がロック解除されました。';
+$string['event_submission_updated'] = 'ユーザが提出を保存しました。';
+$string['event_workflow_state_updated'] = 'ワークフロー状況が更新されました。';
 $string['extensionduedate'] = '延長提出期限';
 $string['extensionnotafterduedate'] = '延長日時は終了日時の後に設定する必要があります。';
 $string['extensionnotafterfromdate'] = '延長日時は開始日時の後に設定する必要があります。';
@@ -132,6 +176,7 @@ $string['feedbackpluginforgradebook'] = '評定表にコメントを送信する
 $string['feedbackpluginforgradebook_help'] = '1つの課題フィードバックプラグインのみ、評定表にフィードバックをプッシュすることができます。';
 $string['feedbackplugins'] = 'フィードバックプラグイン';
 $string['feedbacksettings'] = 'フィードバック設定';
+$string['feedbacktypes'] = 'フィードバックタイプ';
 $string['filesubmissions'] = 'ファイル提出';
 $string['filter'] = 'フィルタ';
 $string['filternone'] = 'フィルタなし';
@@ -139,6 +184,7 @@ $string['filterrequiregrading'] = '要評定';
 $string['filtersubmitted'] = '提出';
 $string['gradeabovemaximum'] = '評点は {$a} 以下になる必要があります。';
 $string['gradebelowzero'] = '評点はゼロまたはゼロより大きな値である必要があります。';
+$string['gradecanbechanged'] = '評点変更可';
 $string['graded'] = '評定済み';
 $string['gradedby'] = '評定者';
 $string['gradedon'] = '評定日時';
@@ -157,13 +203,15 @@ $string['gradersubmissionupdatedtext'] = '{$a->username} が「 {$a->assignment}
 $string['gradestudent'] = '学生を評定する: (id={$a->id}, フルネーム={$a->fullname})';
 $string['gradeuser'] = '{$a} を評定する';
 $string['grading'] = '評定';
+$string['gradingchangessaved'] = '評点の変更が保存されました。';
 $string['gradingmethodpreview'] = '評定クライテリア';
 $string['gradingoptions'] = 'オプション';
 $string['gradingstatus'] = '評定ステータス';
-$string['gradingstudentprogress'] = '学生の評定 {$a->index} / {$a->count}';
+$string['gradingstudent'] = '学生評定';
 $string['gradingsummary'] = '評定概要';
 $string['grantextension'] = '延長を許可する';
 $string['grantextensionforusers'] = '{$a} 名の学生に対して延長を許可する';
+$string['groupsubmissionsettings'] = 'グループ提出設定';
 $string['hiddenuser'] = '参加者';
 $string['hideshow'] = '非表示/表示';
 $string['instructionfiles'] = 'インストラクションファイル';
@@ -177,6 +225,29 @@ $string['locksubmissionforstudent'] = '学生によるこれ以上の提出を�
 $string['locksubmissions'] = '提出をロックする';
 $string['manageassignfeedbackplugins'] = '課題フィードバックプラグイン管理';
 $string['manageassignsubmissionplugins'] = '課題提出プラグイン管理';
+$string['marker'] = '採点者';
+$string['markerfilter'] = '採点者フィルタ';
+$string['markingallocation'] = '採点割り当てを使用する';
+$string['markingallocation_help'] = 'この設定および採点ワークフローを有効にした場合、個々の学生に採点者を割り当てることができるようになります。';
+$string['markingworkflow'] = '採点ワークフローを使用する';
+$string['markingworkflow_help'] = 'この設定を有効にした場合、学生にリリースされる前に、評点はワークフローステージに入ります。これにより、採点者が一連の評点を同じタイミングで学生すべてにリリースすることができます。';
+$string['markingworkflowstate'] = '採点ワークフロー状況';
+$string['markingworkflowstate_help'] = '使用可能なワークフロー状況は下記を含みます (あなたのパーミッションに依存します):
+
+* 未採点 - まだ採点者は開始していません。
+* 採点中 - 採点者は開始しましたが、まだ完了していません。
+* 採点完了 - 採点者は完了していますが、チェックおよび訂正が必要です。
+* レビュー中 - 採点者は教師と共にクオリティチェックしています。
+* リリース準備完了 - 担当教師は採点に満足していますが、学生に対して評点にアクセスさせる前に待機しています。
+* リリース - 学生は評点およびフィードバックにアクセスすることができます。';
+$string['markingworkflowstateinmarking'] = '採点中';
+$string['markingworkflowstateinreview'] = 'レビュー中';
+$string['markingworkflowstatenotmarked'] = '未採点';
+$string['markingworkflowstatereadyforrelease'] = 'リリース準備完了';
+$string['markingworkflowstatereadyforreview'] = '採点完了';
+$string['markingworkflowstatereleased'] = 'リリース';
+$string['maxattempts'] = '最大提出回数';
+$string['maxattempts_help'] = '学生が試みることのできる最大提出回数です。この提出回数に達した場合、学生の提出は再度開くことができないようになります。';
 $string['maxgrade'] = '最大評点';
 $string['messageprovider:assign_notification'] = '課題通知';
 $string['modulename'] = '課題';
@@ -186,8 +257,10 @@ $string['modulename_help'] = '課題活動モジュールにおいて、教師�
 
 課題をレビューする場合、評定した学生の提出物、コメントを付けたドキュメント、口語のオーディオフィードバックのようにフィードバックコメントを残したり、ファイルをアップロードすることができます。課題は数字またはカスタム評価尺度、ルーブリックのような高度な評定方法を使って評定することができます。最終評点は評定表に記録されます。';
 $string['modulenameplural'] = '課題';
+$string['moreusers'] = 'さらに {$a} 名 ...';
 $string['mysubmission'] = '私の提出:';
 $string['newsubmissions'] = '課題が提出されました';
+$string['noattempt'] = '未提出';
 $string['nofiles'] = 'ファイルなし';
 $string['nograde'] = '評点なし';
 $string['nolatesubmissions'] = '提出遅延は受け付けられません。';
@@ -209,6 +282,7 @@ $string['numberofteams'] = 'グループ';
 $string['offline'] = 'オンライン提出不要';
 $string['open'] = 'オープン';
 $string['outlinegrade'] = '評点: {$a}';
+$string['outof'] = '{$a->current} / {$a->total}';
 $string['overdue'] = '<font color="red">課題は次の時間を超過しています: {$a}</font>';
 $string['page-mod-assign-view'] = '課題モジュールメインページ';
 $string['page-mod-assign-x'] = 'すべての課題モジュールページ';
@@ -226,9 +300,7 @@ $string['recordid'] = 'ID';
 $string['requireallteammemberssubmit'] = 'グループメンバーすべての提出を必要とする';
 $string['requireallteammemberssubmit_help'] = '有効にした場合、グループ提出が提出されたとみなされるには、学生グループメンバーすべてが提出ボタンをクリックする必要があります。無効にした場合、学生グループのメンバーの誰かが提出ボタンをクリックした時点でグループ提出は提出したとみなされます。';
 $string['requiresubmissionstatement'] = '学生に提出同意書の承諾を求める';
-$string['requiresubmissionstatementassignment'] = '学生に提出同意書の承諾を求める';
-$string['requiresubmissionstatementassignment_help'] = 'この課題の提出すべてにおいて、学生は提出声明を承認する必要があります。';
-$string['requiresubmissionstatement_help'] = 'このMoodleの課題提出すべてにおいて、学生に提出同意書の承諾を求めます。この設定が有効にされない場合、それぞれの課題において提出同意書を有効または無効にすることができます。';
+$string['requiresubmissionstatement_help'] = 'この課題提出すべてにおいて、学生に提出同意書の承諾を求めます。';
 $string['revealidentities'] = '学生の個人情報を公開する';
 $string['revealidentitiesconfirm'] = 'この課題に関して、本当に学生の個人情報を公開してもよろしいですか。この処理を元に戻すことはできません。学生の個人情報が公開された場合、評点が評定表にリリースされます。';
 $string['reverttodraft'] = '提出を下書き状態に戻す';
@@ -237,30 +309,46 @@ $string['reverttodraftshort'] = '提出を下書きに戻す';
 $string['reviewed'] = 'レビュー済み';
 $string['saveallquickgradingchanges'] = 'すべてのクイック評定の変更を保存する';
 $string['savechanges'] = '変更を保存する';
+$string['savegradingresult'] = '評定';
 $string['savenext'] = '保存して次を表示する';
 $string['scale'] = '評価尺度';
+$string['selectedusers'] = '選択済みユーザ';
 $string['selectlink'] = '選択 ...';
 $string['selectuser'] = '{$a} を選択する';
 $string['sendlatenotifications'] = '提出遅延に関して、評定者に通知する';
 $string['sendlatenotifications_help'] = '有効にした場合、学生が課題提出に遅れた時点で、評定者 (通常は教師)  にメッセージが送信されます。メッセージ送信方法は設定することができます。';
 $string['sendnotifications'] = '評定者に提出を通知する';
 $string['sendnotifications_help'] = '有効にした場合、学生が課題を早く、時間どおりまたは遅く提出した時点で評定者 (通常教師) にメッセージが送信されます。メッセージ送信方法は設定することができます。';
+$string['sendstudentnotifications'] = '学生に通知する';
+$string['sendstudentnotifications_help'] = 'この設定を有効にした場合、評点の更新またはフィードバックに関して、学生にメッセージが送信されます。';
 $string['sendsubmissionreceipts'] = '学生に提出受領書を送信する';
 $string['sendsubmissionreceipts_help'] = 'この設定では、学生への提出受領書を有効にします。正常に課題が提出された場合、学生は毎回通知を受信します。';
+$string['setmarkerallocationforlog'] = '採点割り当てを設定する: (id={$a->id}, フルネーム={$a->fullname}, 採点者={$a->marker})';
+$string['setmarkingallocation'] = '割り当て採点者を設定する';
+$string['setmarkingworkflowstate'] = '採点ワークフロー状況を設定する';
+$string['setmarkingworkflowstateforlog'] = '採点ワークフロー状況を設定する: (id={$a->id}, フルネーム={$a->fullname}, 状況={$a->state})';
 $string['settings'] = '課題設定';
 $string['showrecentsubmissions'] = '最近の課題提出を表示する';
+$string['status'] = '状態';
 $string['submission'] = '提出課題';
+$string['submissioncopiedhtml'] = '<p>あなたは「 {$a->assignment} 」の前回の課題提出をコピーしました。</p>
+<p>あなたの<a href="{$a->url}">課題提出</a>に関するステータスを確認することができます。</p>';
+$string['submissioncopiedsmall'] = 'あなたは「 {$a->assignment} 」の前回の課題提出をコピーしました。';
+$string['submissioncopiedtext'] = 'あなたは「 {$a->assignment} 」の前回の課題提出をコピーしました。
+
+あなたの課題提出に関するステータスは下記で確認することができます:
+
+{$a->url}';
 $string['submissiondrafts'] = '学生に提出ボタンのクリックを求める';
 $string['submissiondrafts_help'] = '有効にした場合、学生は最終提出であると宣言するため、「提出」ボタンをクリックする必要があります。この設定により、学生はシステム上に下書きバージョンの課題を保持することができるようになります。学生の課題提出後、この設定が「No」から「Yes」に変更された場合、提出は最終提出として再評定されます。';
 $string['submissioneditable'] = '学生はこの提出を編集できます。';
 $string['submissionempty'] = '提出された課題はありません。';
+$string['submissionnotcopiedinvalidstatus'] = '再オープン後に編集されたため、提出はコピーされませんでした。';
 $string['submissionnoteditable'] = '学生はこの提出を編集できません。';
 $string['submissionnotready'] = 'この課題はまだ提出することができません:';
 $string['submissionplugins'] = '課題プラグイン';
-$string['submissionreceipthtml'] = 'あなたは課題「 {$a->assignment} 」への提出を送信しました。
-<br />
-<br />
-あなたの<a href="{$a->url}">提出課題</a>のステータスをご覧ください。';
+$string['submissionreceipthtml'] = '<p>あなたは課題「 {$a->assignment} 」への提出を送信しました。</p>
+<p>あなたの<a href="{$a->url}">提出課題</a>のステータスをご覧ください。</p>';
 $string['submissionreceipts'] = '提出受領書を送信する';
 $string['submissionreceiptsmall'] = 'あなたは課題「 {$a->assignment} 」への提出を送信しました。';
 $string['submissionreceipttext'] = 'あなたは課題「 {$a->assignment} 」への提出を送信しました。
@@ -284,8 +372,11 @@ $string['submissionstatus_draft'] = '下書き (未提出)';
 $string['submissionstatusheading'] = '提出ステータス';
 $string['submissionstatus_marked'] = '評定済み';
 $string['submissionstatus_new'] = '新しい提出';
+$string['submissionstatus_reopened'] = '再オープン';
 $string['submissionstatus_submitted'] = '評定のため提出';
+$string['submissionsummary'] = '{$a->status} - 最終更新日時: {$a->timemodified}';
 $string['submissionteam'] = 'グループ';
+$string['submissiontypes'] = '提出タイプ';
 $string['submitaction'] = '提出';
 $string['submitassignment'] = '課題を提出する';
 $string['submitassignment_help'] = 'この課題を提出した場合、あなたはこれ以上変更できないようになります。';
@@ -293,6 +384,10 @@ $string['submitted'] = '提出';
 $string['submittedearly'] = '課題は {$a} 日早く提出されました。';
 $string['submittedlate'] = '課題は {$a} 遅く提出されました。';
 $string['submittedlateshort'] = '{$a} 遅く提出';
+$string['subplugintype_assignfeedback'] = 'フィードバックプラグイン';
+$string['subplugintype_assignfeedback_plural'] = 'フィードバックプラグイン';
+$string['subplugintype_assignsubmission'] = '提出プラグイン';
+$string['subplugintype_assignsubmission_plural'] = '提出プラグイン';
 $string['teamsubmission'] = '学生がグループで提出する';
 $string['teamsubmissiongroupingid'] = '学生グループのグルーピング';
 $string['teamsubmissiongroupingid_help'] = 'これは課題が学生グループのグループを探すために使用されるグルーピングです。設定されない場合、一連のデフォルトのグループが使用されます。';
@@ -301,6 +396,8 @@ $string['teamsubmissionstatus'] = 'グループ提出ステータス';
 $string['textinstructions'] = '課題インストラクション';
 $string['timemodified'] = '最終更新日時';
 $string['timeremaining'] = '残り時間';
+$string['unlimitedattempts'] = '無制限';
+$string['unlimitedattemptsallowed'] = '無制限の提出が許可されました。';
 $string['unlocksubmissionforstudent'] = '学生の提出を許可する: (id={$a->id}, フルネーム={$a->fullname})';
 $string['unlocksubmissions'] = '提出をロック解除する';
 $string['updategrade'] = '評点を更新する';
@@ -309,6 +406,9 @@ $string['upgradenotimplemented'] = 'プラグイン ({$a->type} {$a->subtype}) �
 $string['userextensiondate'] = '次の日時まで延長が許可されました: {$a}';
 $string['usergrade'] = 'ユーザガイド';
 $string['userswhoneedtosubmit'] = '提出が必要なユーザ: {$a}';
+$string['validmarkingworkflowstates'] = '有効な採点ワークフロー状況';
+$string['viewbatchmarkingallocation'] = '採点割り当てページのバッチ設定を表示します。';
+$string['viewbatchsetmarkingworkflowstate'] = '採点ワークフロー状況ページのバッチ設定を表示します。';
 $string['viewfeedback'] = 'フィードバックを表示する';
 $string['viewfeedbackforuser'] = 'ユーザのフィードバックを表示する: {$a}';
 $string['viewfull'] = '詳細表示';
@@ -323,3 +423,4 @@ $string['viewsubmission'] = '提出を表示する';
 $string['viewsubmissionforuser'] = 'ユーザの提出を表示する: {$a}';
 $string['viewsubmissiongradingtable'] = '提出に関する評定表を閲覧しました。';
 $string['viewsummary'] = '概要表示';
+$string['workflowfilter'] = 'ワークフローフィルタ';

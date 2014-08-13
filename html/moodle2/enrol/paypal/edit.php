@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -19,8 +18,7 @@
  * Adds new instance of enrol_paypal to specified course
  * or edits current instance.
  *
- * @package    enrol
- * @subpackage paypal
+ * @package    enrol_paypal
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -49,6 +47,7 @@ $plugin = enrol_get_plugin('paypal');
 
 if ($instanceid) {
     $instance = $DB->get_record('enrol', array('courseid'=>$course->id, 'enrol'=>'paypal', 'id'=>$instanceid), '*', MUST_EXIST);
+    $instance->cost = format_float($instance->cost, 2, true);
 } else {
     require_capability('moodle/course:enrolconfig', $context);
     // no instance yet, we have to add new instance
@@ -69,7 +68,7 @@ if ($mform->is_cancelled()) {
 
         $instance->status         = $data->status;
         $instance->name           = $data->name;
-        $instance->cost           = $data->cost;
+        $instance->cost           = unformat_float($data->cost);
         $instance->currency       = $data->currency;
         $instance->roleid         = $data->roleid;
         $instance->enrolperiod    = $data->enrolperiod;
@@ -83,7 +82,7 @@ if ($mform->is_cancelled()) {
         }
 
     } else {
-        $fields = array('status'=>$data->status, 'name'=>$data->name, 'cost'=>$data->cost, 'currency'=>$data->currency, 'roleid'=>$data->roleid,
+        $fields = array('status'=>$data->status, 'name'=>$data->name, 'cost'=>unformat_float($data->cost), 'currency'=>$data->currency, 'roleid'=>$data->roleid,
                         'enrolperiod'=>$data->enrolperiod, 'enrolstartdate'=>$data->enrolstartdate, 'enrolenddate'=>$data->enrolenddate);
         $plugin->add_instance($course, $fields);
     }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addentry'] = 'Afegeix les teves cometes favorites!';
+$string['addentry'] = 'Afegeix una entrada nova';
 $string['askaddentry'] = 'Quan els usuaris puguin afegir entrades al glossari, mostra amb un enllaç aquest text.';
 $string['askinvisible'] = 'Quan els usuaris no puguin editar o veure el glossari, mostra aquest text (sense enllaç).';
 $string['askviewglossary'] = 'Quan els usuaris puguin veure el glossari però no afegir entrades, mostra un enllaç amb aquest text.';
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Afegir un bloc nou d\'entrada de glo
 $string['intro'] = 'Assegureu-vos de tenir almenys un glossari amb almenys una entrada per aquest curs. Llavors, podeu configurar els següents paràmetres';
 $string['invisible'] = '( continuarà )';
 $string['lastmodified'] = 'Darrera entrada modificada';
+$string['nextalpha'] = 'Ordre alfabètic';
 $string['nextone'] = 'Següent entrada';
 $string['noentriesyet'] = 'No hi ha entrades al glossari escollit.';
 $string['notyetconfigured'] = 'Si us plau configura aquest bloc utilitzant la icona d\'edició.';
@@ -45,5 +46,5 @@ $string['select_glossary'] = 'Agafa les entrades d\'aquest glossari';
 $string['showconcept'] = 'Mostra el concepte (capçalera) per cada entrada';
 $string['title'] = 'Títol ';
 $string['type'] = 'Com es selecciona una nova entrada';
-$string['viewglossary'] = 'Més cometes...';
+$string['viewglossary'] = 'Mostra totes les entrades';
 $string['whichfooter'] = 'Podeu mostrar els enllaços a les accions del glossari associat a aquest bloc. El bloc sols mostrarà enllaços a les accions que estiguin habilitades per a aquest glossari.';

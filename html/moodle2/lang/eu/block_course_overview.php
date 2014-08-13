@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,11 +29,13 @@ $string['alwaysshowall'] = 'Erakutsi beti guztiak';
 $string['course_overview:addinstance'] = 'Gehitu ikastaroaren ikuspegi orokorra blokea';
 $string['course_overview:myaddinstance'] = 'Gehitu ikastaroaren ikuspegi orokorra bloke berria Nire hasieran';
 $string['defaultmaxcourses'] = 'Berezko gehinenezko ikastaroak';
-$string['forcedefaultmaxcourses'] = 'Behartu gehienezko ikastaroak';
+$string['forcedefaultmaxcourses'] = 'behartu gehienezko ikastaroak';
 $string['hiddencoursecount'] = '{$a} ikastaro dituzu ezkutuan';
 $string['hiddencoursecountplural'] = '{$a} ikastaro dituzu ezkutuan';
+$string['hiddencoursecountwithshowallplural'] = '{$a->coursecount} ikastaro dituzu ezkutuan  ({$a->showalllink})';
 $string['message'] = 'mezua';
 $string['messages'] = 'mezuak';
+$string['movecourse'] = 'Mugitu ikastaroa: {$a}';
 $string['movecoursehere'] = 'Mugitu ikastaroa hona';
 $string['numtodisplay'] = 'Erakusteko ikastaro-kopurua:';
 $string['pluginname'] = 'Ikastaroaren ikuspegi orokorra';

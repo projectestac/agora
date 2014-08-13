@@ -1,6 +1,6 @@
 <?php
 
-require_once('repair.lib.php');
+require_once('scripts/scripts.lib.php');
 
 mtrace("Executing Agora cron...","\n");
 // 2013.07.02 @aginard - Removal of temp files and dirs older than one day
@@ -31,6 +31,6 @@ if (is_dir($tempdir)) {
     }
 }
 
-agora_assignments_upgrade();
+scripts_execute_crons();
 
 mtrace("Agora cron done.","\n");

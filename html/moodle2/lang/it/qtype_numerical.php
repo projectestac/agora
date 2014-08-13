@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = 'Errore accettato';
 $string['addmoreanswerblanks'] = 'Spazi per altre {no} risposte';
 $string['addmoreunitblanks'] = 'Spazi per altre {no} unità';
 $string['answercolon'] = 'Risposta:';
+$string['answererror'] = 'Errore';
 $string['answermustbenumberorstar'] = 'La risposta deve essere un numero, ad esempio -1.234 or 3e8, oppure \'*\'.';
 $string['answerno'] = 'Risposta {$a}';
 $string['decfractionofquestiongrade'] = 'come frazione decimale (0-1) della valutazione della domanda';
@@ -79,7 +80,6 @@ $string['unitchoice'] = 'selezione a scelta multipla';
 $string['unitedit'] = 'Modifica unità';
 $string['unitgraded'] = 'Le unità devono essere date e saranno oggetto di valutazione';
 $string['unithandling'] = 'Gestione unità';
-$string['unithdr'] = 'Unità {$a}';
 $string['unitincorrect'] = 'Non hai fornito l\'unità corretta.';
 $string['unitmandatory'] = 'Obbligatorio';
 $string['unitmandatory_help'] = '* La risposta sarà valutata in base all\'unità scritta
@@ -97,7 +97,9 @@ $string['unitpenalty_help'] = 'La penalità sarà applicata se
 * un nome unità errato viene inserito nello spazio previsto per l\'unità oppure
  * un\'unità viene inserita nello spazio previsto per il valore';
 $string['unitposition'] = 'Posizione unità';
+$string['units'] = 'Unità';
 $string['unitselect'] = 'menu a discesa';
+$string['unitx'] = 'Unità {no}';
 $string['validnumberformats'] = 'Formati numerici validi';
 $string['validnumberformats_help'] = '* numeri corretti: 13500.67 : 13 500.67 : 13500,67: 13 500,67
 
@@ -105,3 +107,6 @@ $string['validnumberformats_help'] = '* numeri corretti: 13500.67 : 13 500.67 : 
 
 * per i numeri con esponente del tipo: 1.350067 * 10<sup>4</sup>, usa la notazione  1.350067 E4 : 1.350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 or 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} deve essere un numero.';
+$string['xmustnotbenumeric'] = '{$a} non può essere un numero.';
+$string['youmustenteramultiplierhere'] = 'Deve essere inserito un moltiplicatore.';

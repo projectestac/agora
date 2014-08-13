@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_customlang', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_customlang', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_customlang
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,5 +56,5 @@ $string['placeholder_help'] = '占位符是字符串中的一些特定符号，�
 一定要保持它们本来的样子。不要翻译它们。';
 $string['placeholderwarning'] = '有占位符的字符串';
 $string['pluginname'] = '定制语言';
-$string['savecheckin'] = '将变化保存到语言包';
+$string['savecheckin'] = '将更改保存到语言包';
 $string['savecontinue'] = '生效变化并继续编辑';

@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -19,15 +18,12 @@
  * Web service auth plugin, reserves username, prevents normal login.
  * TODO: add IP restrictions and some other features - MDL-17135
  *
- * @package    moodlecore
- * @subpackage webservice
+ * @package    auth_webservice
  * @copyright  2008 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
-}
+defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
 
@@ -85,6 +81,9 @@ class auth_plugin_webservice extends auth_plugin_base {
      */
     function user_update_password($user, $newpassword) {
         $user = get_complete_user_data('id', $user->id);
+        // This will also update the stored hash to the latest algorithm
+        // if the existing hash is using an out-of-date algorithm (or the
+        // legacy md5 algorithm).
         return update_internal_user_password($user, $newpassword);
     }
 

@@ -17,7 +17,7 @@
 /**
  *
  * Define all the backup steps that will be used by the backup_qv_activity_task
- * 
+ *
  * @package    mod
  * @subpackage qv
  * @copyright  2011 Departament d'Ensenyament de la Generalitat de Catalunya
@@ -92,7 +92,7 @@ class backup_qv_activity_structure_step extends backup_activity_structure_step {
 			$message->annotate_ids('user', 'userid');
 			$message_read->annotate_ids('user', 'userid');
         }
-        
+
         // Define id annotations
         $qv->annotate_ids('scale', 'grade');
 
@@ -100,7 +100,7 @@ class backup_qv_activity_structure_step extends backup_activity_structure_step {
         // Define file annotations
         $qv->annotate_files('mod_qv', 'intro', null);     // This file area hasn't itemid
         $qv->annotate_files('mod_qv', 'package', null);   // This file area hasn't itemid
- 
+
         // Return the root element (qv), wrapped into standard activity structure
         return $this->prepare_activity_structure($qv);
     }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_googledocs', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_googledocs', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_googledocs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,12 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['clientid'] = 'ID клиента';
 $string['noauthtoken'] = 'От Google не получен ключ аутентификации. Пожалуйста, убедитесь, что Вы разрешили Moodle получить доступ к Вашей учетной записи Google.';
 $string['nooauthcredentials'] = 'Требуются учетные данные OAuth';
-$string['nooauthcredentials_help'] = 'Для использования плагина портфолио Google Docs необходимо настроить учетные данные OAuth в настройках портфолио.';
+$string['nooauthcredentials_help'] = 'Для использования плагина портфолио Google Drive необходимо настроить учетные данные OAuth в настройках портфолио.';
 $string['nosessiontoken'] = 'Отсутствующий ключ сеанса препятствует экспорту в Google.';
-$string['oauth2upgrade_message_content'] = 'При  обновлении до Moodle 2.3, плагин Google Docs был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google с получением ID клиента и секрета. Описание см. в документации {$a->docsurl}. ID клиента и секрет могут быть использованы для настройки всех плагинов Google Docs и Picasa.';
+$string['oauth2upgrade_message_content'] = 'При  обновлении до Moodle 2.3, плагин Google Drive был отключен. Чтобы снова включить его, Ваш сайт Moodle должен быть зарегистрирован в Google с получением ID клиента и секрета. Описание см. в документации {$a->docsurl}. ID клиента и секрет могут быть использованы для настройки всех плагинов Google Drive и Picasa.';
 $string['oauth2upgrade_message_small'] = 'Этот плагин был отключен, так как он требует настройки. См. описание в документации установки Google OAuth 2.0.';
-$string['oauth2upgrade_message_subject'] = 'Важные сведения о плагине портфолио Google Docs';
-$string['oauthinfo'] = '<p> Для использования этого плагина Вы должны зарегистрировать свой сайт с Google, как описано в документации <a href="{$a->docsurl}">Установка Google OAuth 2.0</a> . </p><p> При регистрации Вам нужно будет ввести следующий URL-адрес как «URL-адрес перенаправления авторизации»: </p><p> {$a->callbackurl} </p> После регистрации Вам будут предоставлены ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Docs и Picasa. </p>';
-$string['pluginname'] = 'Документы Google';
+$string['oauth2upgrade_message_subject'] = 'Важные сведения о плагине портфолио Google Drive';
+$string['oauthinfo'] = '<p> Для использования этого плагина Вы должны зарегистрировать свой сайт с Google, как описано в документации <a href="{$a->docsurl}">Установка Google OAuth 2.0</a> . </p><p> При регистрации Вам нужно будет ввести следующий URL-адрес как «URL-адрес перенаправления авторизации»: </p><p> {$a->callbackurl} </p> После регистрации Вам будут предоставлены ID клиента и ключ, которые могут быть использованы для настройки всех плагинов Google Drive и Picasa. </p>';
+$string['pluginname'] = 'Google Drive';
 $string['secret'] = 'Секрет';
 $string['sendfailed'] = 'Не удалось файл {$a}  передать Google';

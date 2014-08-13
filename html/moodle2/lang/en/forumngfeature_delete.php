@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forumngfeature_delete', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forumngfeature_delete', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   forumngfeature_delete
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,35 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['confirmdeletediscussion'] = 'Are you sure you want to delete this discussion?';
 $string['confirmundeletediscussion'] = 'Are you sure you want to undelete this discussion?';
+$string['deleteandemail'] = 'Delete and email';
 $string['deletediscussion'] = 'Delete discussion';
+$string['emailcontenthtml'] = 'This is a notification to advise you that a discussion you have
+started  with the following details has been deleted by \'{$a->firstname} {$a->lastname}\':<br />
+<br />
+Subject: {$a->subject}<br />
+Forum: {$a->forum}<br />
+Module: {$a->course}<br/>
+<br/>';
+$string['emailcontentplain'] = 'This is a notification to advise you that a discussion you have
+started with the following details has been deleted by \'{$a->firstname} {$a->lastname}\':
+
+Subject: {$a->subject}
+Forum: {$a->forum}
+Module: {$a->course}';
+$string['notifycontributors'] = 'Notify other contributors';
+$string['notifycontributorsemailcontenthtml'] = 'This is a notification to advise you that  a discussion you have contributed to
+with the following details has been deleted by \'{$a->firstname} {$a->lastname}\':<br />
+<br />
+Subject: {$a->subject}<br />
+Forum: {$a->forum}<br />
+Module: {$a->course}<br/>
+<br/>';
+$string['notifycontributorsemailcontentplain'] = 'This is a notification to advise you that a discussion you have contributed to
+with the following details has been deleted by \'{$a->firstname} {$a->lastname}\':
+
+Subject: {$a->subject}
+Forum: {$a->forum}
+Module: {$a->course}';
+$string['notifycontributors_help'] = 'Notify contributors who have posted or replied to posts';
 $string['pluginname'] = 'Delete/undelete discussion';
 $string['undeletediscussion'] = 'Undelete discussion';

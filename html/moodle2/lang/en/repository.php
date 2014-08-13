@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Add a repository plugin';
 $string['allowexternallinks'] = 'Allow external links';
 $string['areacategoryintro'] = 'Category introduction';
 $string['areacourseintro'] = 'Course introduction';
+$string['areacourseoverviewfiles'] = 'Course summary files';
 $string['areamainfile'] = 'Main file';
 $string['arearoot'] = 'System';
 $string['areauserbackup'] = 'User backup';
@@ -86,6 +87,9 @@ $string['deleterepository'] = 'Delete this repository';
 $string['detailview'] = 'View details';
 $string['dimensions'] = 'Dimensions';
 $string['disabled'] = 'Disabled';
+$string['displaydetails'] = 'Display folder with file details';
+$string['displayicons'] = 'Display folder with file icons';
+$string['displaytree'] = 'Display folder as file tree';
 $string['download'] = 'Download';
 $string['downloadfolder'] = 'Download all';
 $string['downloadsucc'] = 'The file has been downloaded successfully';
@@ -120,6 +124,7 @@ $string['folderexists'] = 'Folder name already being used, please use another na
 $string['foldernotfound'] = 'Folder not found';
 $string['folderrecurse'] = 'Folder can not be moved to it\'s own subfolder';
 $string['getfile'] = 'Select this file';
+$string['help'] = 'Help';
 $string['hidden'] = 'Hidden';
 $string['iconview'] = 'View as icons';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -150,7 +155,7 @@ $string['manageurl'] = 'Manage';
 $string['manageuserrepository'] = 'Manage individual repository';
 $string['moving'] = 'Moving';
 $string['newfolder'] = 'New folder';
-$string['newfoldername'] = 'New folder name:';
+$string['newfoldername'] = 'New folder name';
 $string['noenter'] = 'Nothing entered';
 $string['nofilesattached'] = 'No files attached';
 $string['nofilesavailable'] = 'No files available';
@@ -189,6 +194,7 @@ $string['repositories'] = 'Repositories';
 $string['repository'] = 'Repository';
 $string['repositorycourse'] = 'Course repositories';
 $string['repositoryerror'] = 'Remote repository returned error: {$a}';
+$string['repositoryicon'] = 'Repository icon';
 $string['save'] = 'Save';
 $string['saveas'] = 'Save as';
 $string['saved'] = 'Saved';
@@ -199,6 +205,7 @@ $string['searchrepo'] = 'Search repository';
 $string['sectionbackup'] = 'Section backups';
 $string['select'] = 'Select';
 $string['setmainfile'] = 'Set main file';
+$string['setmainfile_help'] = 'If there are multiple files in the folder, the main file is the one that appears on the view page. Other files such as images or videos may be embedded in it. In filemanager the main file is indicated with a title in bold.';
 $string['settings'] = 'Settings';
 $string['setupdefaultplugins'] = 'Setting up default repository plugins';
 $string['siteinstances'] = 'Repositories instances of the site';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'condition', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'condition', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   condition
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -54,7 +54,7 @@ $string['doesnotcontain'] = 'ne contient pas';
 $string['enableavailability'] = 'Activer la disponibilité conditionnelle';
 $string['endswith'] = 'se termine par';
 $string['fielddeclaredmultipletimes'] = 'Vous ne pouvez pas déclarer le même champ plus d\'une fois par activité.';
-$string['grade_atleast'] = 'doit être supérieur à';
+$string['grade_atleast'] = 'doit être au moins égal à';
 $string['gradecondition'] = 'Condition de note';
 $string['gradecondition_help'] = 'Ce réglage détermine les conditions sur les notes pour que l\'activité soit rendue disponible.
 
@@ -85,6 +85,7 @@ $string['requires_grade_any'] = 'Non disponible avant que vous receviez une note
 $string['requires_grade_max'] = 'Non disponible tant que vous n\'obtenez pas une note adéquate dans <strong>{$a}</strong>.';
 $string['requires_grade_min'] = 'Non disponible avant que vous obteniez une note requise dans <strong>{$a}</strong>.';
 $string['requires_grade_range'] = 'Non disponible tant que vous n\'obtenez pas une note spécifique dans <strong>{$a}</strong>.';
+$string['requires_grouping'] = 'Uniquement disponible pour le groupement <strong>{$a}</strong>.';
 $string['requires_user_field_contains'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne contienne <strong>{$a->value}</strong>.';
 $string['requires_user_field_doesnotcontain'] = 'Non disponible si votre <strong>{$a->field}</strong> contient <strong>{$a->value}</strong>.';
 $string['requires_user_field_endswith'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne se termine par <strong>{$a->value}</strong>.';
@@ -92,8 +93,8 @@ $string['requires_user_field_isempty'] = 'Non disponible à moins que votre <str
 $string['requires_user_field_isequalto'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne soit égal à <strong>{$a->value}</strong>.';
 $string['requires_user_field_isnotempty'] = 'Non disponible si votre <strong>{$a->field}</strong> est vide</strong>.';
 $string['requires_user_field_startswith'] = 'Non disponible à moins que votre <strong>{$a->field}</strong> ne se commence par <strong>{$a->value}</strong>.';
-$string['showavailability'] = 'Avant que l\'activité soit disponible';
-$string['showavailability_hide'] = 'Cacher complètement l\'activité';
+$string['showavailability'] = 'Tant que l\'accès est empêché';
+$string['showavailability_hide'] = 'Cacher complètement l\'activité dans le cours et le carnet de notes';
 $string['showavailabilitysection'] = 'Avant de pouvoir accéder à la section';
 $string['showavailabilitysection_hide'] = 'Cacher complètement la section';
 $string['showavailabilitysection_show'] = 'Griser la section, en indiquant les informations sur la restriction';
@@ -101,5 +102,5 @@ $string['showavailability_show'] = 'Afficher l\'activité en gris, avec une info
 $string['startswith'] = 'commence par';
 $string['userfield'] = 'Champ utilisateur';
 $string['userfield_help'] = 'Vous pouvez restreindre l\'accès en fonction de n\'importe quel champ du profil utilisateur.';
-$string['userrestriction_hidden'] = 'Restreinte (cachée complètement, pas de message) : « {$a} »';
-$string['userrestriction_visible'] = 'Restreinte : « {$a} »';
+$string['userrestriction_hidden'] = 'Accès restreint (section cachée complètement, sans message) : {$a}';
+$string['userrestriction_visible'] = 'Accès restreint : {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -70,7 +70,7 @@ $string['courseblog'] = 'Blog do curso: {$a}';
 $string['courseblogdisable'] = 'Os blogs de curso están desactivados';
 $string['courseblogs'] = 'Os usuarios só poden ver os blogs das persoas que comparten un curso';
 $string['deleteblogassociations'] = 'Eliminar as asociacións do blog';
-$string['deleteblogassociations_help'] = 'Si se marca esta opción, os artigos do blog quedarán desvinculados deste curso ou das actividades ou recursos do curso. Os artigos do blog non serán eliminados.';
+$string['deleteblogassociations_help'] = 'Se marca esta opción, os artigos do blog quedarán desvinculados deste curso ou das actividades ou recursos do curso. Os artigos do blog non serán eliminados.';
 $string['deleteexternalblog'] = 'Dar de baixa este blog externo';
 $string['deleteotagswarn'] = 'Confirma que quere eliminar estas etiquetas de todas as mensaxes do blog e retiralo do sistema?';
 $string['description'] = 'Descrición';
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Escriba a descrición';
 $string['entryerrornotyours'] = 'Este artigo non é seu';
 $string['entrysaved'] = 'Gardouse o seu artigo';
 $string['entrytitle'] = 'Título do artigo';
-$string['entryupdated'] = 'O artigo foi actualizado';
+$string['evententryadded'] = 'O artigo foi engadido';
+$string['evententrydeleted'] = 'O artigo foi eliminado';
+$string['evententryupdated'] = 'O artigo foi actualizado';
 $string['externalblogcrontime'] = 'Programa de cron do blog externo';
 $string['externalblogdeleteconfirm'] = 'Dar de baixa este blog externo?';
 $string['externalblogdeleted'] = 'Blog externo dado de baixa';

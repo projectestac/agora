@@ -17,10 +17,9 @@
 /**
  * Unit tests for the matching question definition class.
  *
- * @package    qtype
- * @subpackage match
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_match
+ * @copyright 2009 The Open University
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
@@ -29,13 +28,15 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 require_once($CFG->dirroot . '/question/type/match/questiontype.php');
+require_once($CFG->dirroot . '/question/type/edit_question_form.php');
+require_once($CFG->dirroot . '/question/type/match/edit_match_form.php');
 
 
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2009 The Open University
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_match_test extends advanced_testcase {
     /** @var qtype_match instance of the question type class to test. */
@@ -135,5 +136,54 @@ class qtype_match_test extends advanced_testcase {
                 17 => new question_possible_response('newt: insect', 0),
                 null => question_possible_response::no_response()),
         ), $this->qtype->get_possible_responses($q));
+    }
+
+
+    public function test_question_saving_foursubq() {
+        $this->resetAfterTest(true);
+        $this->setAdminUser();
+
+        $questiondata = test_question_maker::get_question_data('match');
+        $formdata = test_question_maker::get_question_form_data('match');
+
+        $generator = $this->getDataGenerator()->get_plugin_generator('core_question');
+        $cat = $generator->create_question_category(array());
+
+        $formdata->category = "{$cat->id},{$cat->contextid}";
+
+        qtype_match_edit_form::mock_submit((array)$formdata);
+
+        $form = qtype_match_test_helper::get_question_editing_form($cat, $questiondata);
+        $this->assertTrue($form->is_validated());
+
+        $fromform = $form->get_data();
+
+        $returnedfromsave = $this->qtype->save_question($questiondata, $fromform);
+        $actualquestionsdata = question_load_questions(array($returnedfromsave->id));
+        $actualquestiondata = end($actualquestionsdata);
+
+        foreach ($questiondata as $property => $value) {
+            if (!in_array($property, array('id', 'version', 'timemodified', 'timecreated', 'options', 'stamp'))) {
+                $this->assertAttributeEquals($value, $property, $actualquestiondata);
+            }
+        }
+
+        foreach ($questiondata->options as $optionname => $value) {
+            if ($optionname != 'subquestions') {
+                $this->assertAttributeEquals($value, $optionname, $actualquestiondata->options);
+            }
+        }
+
+        $this->assertObjectHasAttribute('subquestions', $actualquestiondata->options);
+
+        $subqpropstoignore = array('id');
+        foreach ($questiondata->options->subquestions as $subq) {
+            $actualsubq = array_shift($actualquestiondata->options->subquestions);
+            foreach ($subq as $subqproperty => $subqvalue) {
+                if (!in_array($subqproperty, $subqpropstoignore)) {
+                    $this->assertAttributeEquals($subqvalue, $subqproperty, $actualsubq);
+                }
+            }
+        }
     }
 }

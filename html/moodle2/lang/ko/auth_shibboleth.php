@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_shibboleth', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['auth_shib_auth_method'] = '인증 방법 이름';
 $string['auth_shib_auth_method_description'] = '사용자들이 익숙하게 쓸 수 있는 Shibboleth 인증 명칭을 제시. 이는 <tt>SWITCHaai Login</tt> 혹은 <tt>InCommon Login</tt>처럼 여러분의 Shibboleth 연맹의 명칭으로 여겨집니다.';
-$string['auth_shibboleth_contact_administrator'] = '제공된 기관에 소속되어 있지 않을 경우 이 서버를 통해 강좌에 접속해야 할 필요가 있으며 다음의 관리자에게 연락하기 바란다 :';
 $string['auth_shibbolethdescription'] = '이 방법을 사용하는 사용자는 <a href="http://shibboleth.internet2.edu/" target="_blank">Shibboleth</a>에 의해 생성되고 인증을 받은 사람들이다.
 <br>Shibboleth를 이용하여 무들을 설정하는 방법은 <a href="../auth/shibboleth/README.txt" target="_blank">README</a>를 읽어보기 바란다.';
 $string['auth_shibboleth_errormsg'] = '다음에서 자신이 소속되어 있는 기관을 선택하라!';

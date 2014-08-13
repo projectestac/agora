@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_profiling', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_profiling', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_profiling
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,12 @@ $string['comment'] = '코멘트';
 $string['cputime'] = 'CPU 시간';
 $string['differencesbetween2runsof'] = '{$a}의 두 실행사이의 차이';
 $string['executiontime'] = '실행시간';
+$string['export'] = '내보내기';
+$string['exportthis'] = '프로파일링 실행 내보내기';
+$string['import'] = '가져오기';
+$string['importok'] = '파일 "{$a}" 을 성공적으로 가져 왔습니다.';
+$string['importprefix'] = '가져오기 접두사';
+$string['importproblem'] = '파일 "{$a}" 을 가져오는데 문제가 발생하였습니다.';
 $string['lastrunof'] = '{$a}에 대한 마지막 실행 요약';
 $string['markreferencerun'] = '참조실행/코멘트로 표시';
 $string['memory'] = '사용된 메모리';

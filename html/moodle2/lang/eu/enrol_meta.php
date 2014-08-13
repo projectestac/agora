@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_meta', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_meta', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_meta
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,4 +31,5 @@ $string['meta:selectaslinked'] = 'Aukeratu ikastaroa meta-estekatu gisa';
 $string['meta:unenrol'] = 'Desmatrikulatu kontua etenda duten erabiltzaileak';
 $string['nosyncroleids'] = 'Sinkronizatu gabeko rolak';
 $string['pluginname'] = 'Ikastaroaren meta-esteka';
+$string['pluginname_desc'] = 'Ikastaroaren meta-esteka izeneko matrikulazio-pliginak bi ikastaro ezberdinetan matrikulazioak eta rolak sinkroninzatzen ditu.';
 $string['syncall'] = 'Sinkronizatu matrikulatutako erabiltzaile guztiak';

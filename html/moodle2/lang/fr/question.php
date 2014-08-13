@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Action';
 $string['addanotherhint'] = 'Ajouter un autre indice';
 $string['addcategory'] = 'Ajouter une catégorie';
+$string['addmorechoiceblanks'] = 'Emplacement pour {no} réponses supplémentaires';
 $string['adminreport'] = 'Rapport sur les problèmes possibles dans votre banque de questions.';
 $string['answer'] = 'Réponse';
+$string['answers'] = 'Réponses';
 $string['answersaved'] = 'Réponse enregistrée';
 $string['attemptfinished'] = 'Tentative terminée';
 $string['attemptfinishedsubmitting'] = 'Envoi des tentatives terminées :';
@@ -45,8 +47,6 @@ $string['cannotcreate'] = 'Impossible de créer un nouvel enregistrement dans la
 $string['cannotcreatepath'] = 'Impossible de créer le chemin {$a}';
 $string['cannotdeletebehaviourinuse'] = 'Vous ne pouvez pas supprimer le comportement « {$a}  ». Il est utilisé par des tentatives de test.';
 $string['cannotdeletecate'] = 'Vous ne pouvez pas supprimer cette catégorie, car c\'est la catégorie par défaut de ce contexte.';
-$string['cannotdeletemissingbehaviour'] = 'Vous ne pouvez pas désinstaller ce comportement. Il est requis par le système.';
-$string['cannotdeletemissingqtype'] = 'Vous ne pouvez pas supprimer le type manquant, qui est requis par le système.';
 $string['cannotdeleteneededbehaviour'] = 'Impossible de supprimer le comportement de question « {$a} ». D\'autres comportements installés se basent dessus.';
 $string['cannotdeleteqtypeinuse'] = 'Vous ne pouvez pas supprimer le type « {$a} », car il y a des questions de ce type dans la banque de questions.';
 $string['cannotdeleteqtypeneeded'] = 'Vous ne pouvez pas supprimer le type « {$a} », car d\'autres types de question installés en ont besoin.';
@@ -98,6 +98,7 @@ $string['contexterror'] = 'Vous ne devriez pas être arrivé ici si vous ne dép
 $string['copy'] = 'Copier depuis {$a} et modifier les liens.';
 $string['correct'] = 'Correct';
 $string['correctfeedback'] = 'Pour toutes réponses correctes';
+$string['correctfeedbackdefault'] = 'Votre réponse est correcte.';
 $string['created'] = 'Créée';
 $string['createdby'] = 'Créée par';
 $string['createdmodifiedheader'] = 'Créée / enregistrée';
@@ -110,13 +111,10 @@ $string['defaultfor'] = 'Défaut pour {$a}';
 $string['defaultinfofor'] = 'La catégorie par défaut pour les questions partagées dans le contexte « {$a} ».';
 $string['defaultmark'] = 'Note par défaut';
 $string['defaultmarkmustbepositive'] = 'La note par défaut doit être positive.';
-$string['deletebehaviourareyousure'] = 'Voulez-vous vraiment supprimer le comportement {$a} ?';
-$string['deletebehaviourareyousuremessage'] = 'Vous allez supprimer le comportement de question {$a}. Cette opération supprimera de la base de données tout ce qui est associé à ce comportement de question. Voulez-vous VRAIMENT continuer ?';
 $string['deletecoursecategorywithquestions'] = 'La banque de questions associée à cette catégorie contient des questions. Si vous continuez, ces questions seront supprimées. Si vous voulez les conserver, veuillez d\'abord les déplacer en utilisant l\'interface de la banque de questions.';
-$string['deleteqtypeareyousure'] = 'Voulez-vous vraiment supprimer le type de question type « {$a} »';
-$string['deleteqtypeareyousuremessage'] = 'Vous êtes sur le point de supprimer totalement le type de question « {$a} ». Voulez-vous vraiment désinstaller ce type de question ?';
 $string['deletequestioncheck'] = 'Voulez-vous vraiment supprimer « {$a} »?';
-$string['deletequestionscheck'] = 'Voulez-vous vraiment supprimer les questions ci-dessous ?<br /><br />{$a}';
+$string['deletequestionscheck'] = '<p>Voulez-vous vraiment supprimer les questions ci-dessous ?</p>
+<p>{$a}</p>';
 $string['deletingbehaviour'] = 'Suppression du comportement de question « {$a} »';
 $string['deletingqtype'] = 'Suppression du type de question « {$a} »';
 $string['didnotmatchanyanswer'] = '[Ne correspond à aucune réponse]';
@@ -136,8 +134,8 @@ Chaque catégorie a un contexte qui détermine où les questions peuvent être u
 
 Les catégories sont aussi utilisées pour les questions aléatoires, puisque les questions sont alors tirées dans une catégorie.';
 $string['editcategory'] = 'Modifier la catégorie';
-$string['editingcategory'] = 'Modifier une catégorie';
-$string['editingquestion'] = 'Modifier une question';
+$string['editingcategory'] = 'Modification d\'une catégorie';
+$string['editingquestion'] = 'Modification d\'une question';
 $string['editquestion'] = 'Modifier la question';
 $string['editquestions'] = 'Modifier les questions';
 $string['editthiscategory'] = 'Modifier cette catégorie';
@@ -190,6 +188,7 @@ $string['getcategoryfromfile'] = 'Obtenir la catégorie à partir du fichier';
 $string['getcontextfromfile'] = 'Obtenir le contexte à partir du fichier';
 $string['hidden'] = 'Caché';
 $string['hintn'] = 'Indice {no}';
+$string['hintnoptions'] = 'Options de l\'indice {no}';
 $string['hinttext'] = 'Texte de l\'indice';
 $string['howquestionsbehave'] = 'Comment se comportent les questions';
 $string['howquestionsbehave_help'] = 'Les participants peuvent agir avec les questions du test de différentes façons. Par exemple, vous pourriez souhaiter que les participants répondent à chaque question et envoient ensuite la totalité du test, avant que quoi que ce soit ne soit noté ou qu\'un feedback ne leur soit donné. Ce sera le mode « Feedback a posteriori ».
@@ -215,6 +214,7 @@ $string['impossiblechar'] = 'Caractère impossible {$a} détecté comme séparat
 $string['includesubcategories'] = 'Montrer aussi les questions des sous-catégories';
 $string['incorrect'] = 'Incorrect';
 $string['incorrectfeedback'] = 'Pour toute réponse incorrecte';
+$string['incorrectfeedbackdefault'] = 'Votre réponse est incorrecte.';
 $string['information'] = 'Description';
 $string['invalidanswer'] = 'Réponse incomplète';
 $string['invalidarg'] = 'Aucun paramètre valide fourni ou configuration du serveur incorrecte';
@@ -300,6 +300,7 @@ $string['parenthesisinproperstart'] = 'La parenthèse avant ** n\'est pas ouvert
 $string['parsingquestions'] = 'Analyse des questions du fichier d\'importation.';
 $string['partiallycorrect'] = 'Partiellement correct';
 $string['partiallycorrectfeedback'] = 'Pour toute réponse partiellement correcte';
+$string['partiallycorrectfeedbackdefault'] = 'Votre réponse est partiellement correcte.';
 $string['penaltyfactor'] = 'Facteur de pénalité';
 $string['penaltyfactor_help'] = '<!-- $Id$ -->
 
@@ -315,8 +316,6 @@ $string['permissionsaveasnew'] = 'Enregistrer ceci en tant que nouvelle question
 $string['permissionto'] = 'Vous avez les droits d\'accès requis pour :';
 $string['previewquestion'] = 'Prévisualisation de la question : {$a}';
 $string['published'] = 'partagée';
-$string['qbehaviourdeletefiles'] = 'Toutes les données associées au comportement de question « {$a->behaviour} » ont été supprimées de la base de données. Pour terminer la suppression (et éviter que le comportement se réinstalle), veuillez supprimer maintenant ce dossier de votre serveur : {$a->directory}';
-$string['qtypedeletefiles'] = 'Toutes les données associées au type de question « {$a->qtype} » ont été supprimées de la base de données. Pour achever la suppression (et éviter ainsi que le type de question se réinstalle automatiquement), vous devez maintenant supprimer de votre serveur le dossier {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = '<a href="{$a->qurl}">La question « {$a->name} » ({$a->qtype})</a> est dans cette catégorie, mais est aussi utilisée dans le <a href="{$a->qurl}">test « {$a->quizname} »</a> dans le cours « {$a->coursename} ».';
 $string['questionbank'] = 'Banque de questions';
@@ -331,6 +330,8 @@ $string['questiondoesnotexist'] = 'Cette question n\'existe pas';
 $string['questionidmismatch'] = 'Les identifiants de questions ne correspondent pas';
 $string['questionname'] = 'Nom de question';
 $string['questionno'] = 'Question {$a}';
+$string['questionpreviewdefaults'] = 'Réglages par défaut de la prévisualisation des questions';
+$string['questionpreviewdefaults_desc'] = 'Ces réglages sont utilisés lors de la première prévisualisation d\'une question dans la banque de questions. Lorsqu\'un utilisateur a prévisualisé une question, ses préférences personnelles sont enregistrées.';
 $string['questions'] = 'Questions';
 $string['questionsaveerror'] = 'Des erreurs sont survenues lors de l\'enregistrement de la question ({$a})';
 $string['questionsinuse'] = '(* Les questions marquées d\'un astérisque sont déjà utilisées dans d\'autres tests. Ces questions ne seront pas supprimées de ces tests, mais seulement de la liste des catégories.)';
@@ -356,7 +357,7 @@ $string['selectacategory'] = 'Choisir une catégorie';
 $string['selectaqtypefordescription'] = 'Choisir un type de question pour voir sa description.';
 $string['selectcategoryabove'] = 'Choisir une catégorie ci-dessus';
 $string['selectquestionsforbulk'] = 'Sélectionner des questions pour des actions en masse';
-$string['settingsformultipletries'] = 'Paramètres pour les essais multiples';
+$string['settingsformultipletries'] = 'Tentatives multiples';
 $string['shareincontext'] = 'Partager dans le contexte pour {$a}';
 $string['showhidden'] = 'Montrer aussi les anciennes questions';
 $string['showmarkandmax'] = 'Montrer la note et la note maximale';
@@ -379,6 +380,7 @@ $string['submitandfinish'] = 'Envoyer et terminer';
 $string['submitted'] = 'Envoyé : {$a}';
 $string['technicalinfo'] = 'Information technique';
 $string['technicalinfo_help'] = 'Cette information technique n\'est vraisemblablement utile que pour les développeurs travaillant sur de nouveaux types de questions. Elle peut aussi être utile pour diagnostiquer certains problèmes de certaines questions.';
+$string['technicalinfomaxfraction'] = 'Fraction maximale : {$a}';
 $string['technicalinfominfraction'] = 'Fraction minimale : {$a}';
 $string['technicalinfoquestionsummary'] = 'Résumé de la question : {$a}';
 $string['technicalinforightsummary'] = 'Résumé de la réponse correcte : {$a}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['configdisplayoptions'] = 'Välj alla de alternativ som ska vara tillgängliga, de befintliga inställningarna har inte modifierats. Håll nere CRTL-tangenten för att välja flera fält samtidigt.';
 $string['content'] = 'Innehåll för sida';
 $string['contentheader'] = 'Innehåll';
-$string['createpage'] = 'Skapa en ny sida';
 $string['displayoptions'] = 'Tillgängliga alternativ för visning';
 $string['displayselect'] = 'Visa';
 $string['displayselectexplain'] = 'Välj visningstyp';
@@ -47,7 +46,5 @@ $string['popupheight'] = 'Höjd på popup-fönster i pixlar';
 $string['popupheightexplain'] = 'Anger den standardmässiga höjden på popup-fönster ';
 $string['popupwidth'] = 'Bredd på popup-fönster i pixlar';
 $string['popupwidthexplain'] = 'Anger den standardmässiga bredden på popup-fönster ';
-$string['printheading'] = 'Visa namn på sida';
-$string['printheadingexplain'] = 'Visa sidans namn ovanför innehållet?';
 $string['printintro'] = 'Visa beskrivning för sida';
 $string['printintroexplain'] = 'Visa beskrivning för sida ovanför innehållet?';

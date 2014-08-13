@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Teilnahmedauer';
 $string['defaultperiod_desc'] = 'Die standardmäßige Teilnahmedauer ist die Zeitdauer, während der die Einschreibung gültig bleibt. Wenn dieser Wert 0 ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
 $string['defaultperiod_help'] = 'Die standardmäßige Teilnahmedauer ist die Zeitdauer, während der die Einschreibung gültig bleibt, beginnend mit dem Moment der Nutzereinschreibung. Wenn diese Option deaktiviert ist, ist die Teilnahmedauer standardmäßig unbegrenzt.';
 $string['deleteselectedusers'] = 'Ausgewählte Nutzereinschreibungen löschen';
-$string['editenrolment'] = 'Einschreibung bearbeiten';
 $string['editselectedusers'] = 'Ausgewählte Nutzereinschreibungen bearbeiten';
 $string['enrolledincourserole'] = 'In \'{$a->course}\' als \'{$a->role}\' eingeschrieben';
 $string['enrolusers'] = 'Nutzer/innen einschreiben';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -50,6 +50,7 @@ $string['deleteusers_desc'] = '<p>만일 이 설정이 켜져 있는 경우("rec
 
 <p>사용자 레코드는 무들 데이터베이스에서 실제 삭제되지 않습니다. 다만 계정이 삭제 되었다는 것을 표시하기 위해 플래그가 설정됩니다.</p>';
 $string['doitnow'] = '지금 IMS 엔터프라이즈 데이터 가져오기 실행';
+$string['emptyattribute'] = '비어있는 상태로 둠';
 $string['filelockedmail'] = 'IMS 파일기반 등록({$a})을 할 때 사용하는 문서 파일은 cron 프로세스에 의해 삭제될 수 없습니다. 이것은 파일에 대한 허가가 잘 못 되었음을 의미합니다. 허가를 바꾸면 무들이 파일을 삭제할 수 있습니다. 그렇지 않으면 반복적으로 처리될 것입니다.';
 $string['filelockedmailsubject'] = '중대 오류: 등록 파일';
 $string['fixcasepersonalnames'] = '개인 이름의 첫문자를 대문자로 변경';
@@ -76,6 +77,12 @@ IMS 엔터프라이즈 데이터 파일은 다수의 "목표 시스템"-학교�
 많은 경우에 당신은 이에 대해 걱정을 하지 않아도 됩니다. 설정을 공백으로 두면 목표시스템이 명시되건 되지 않건 간에 무들이 데이터 파일을 처리할 것입니다. 명시하고 싶으면 &lt;target&gt; 태그안에 출력될 정확한 이름을 채워 넣으십시요.
 </p>';
 $string['roles'] = '역할들';
+$string['settingfullname'] = '강좌 전체 이름에 IMS 설명 태그';
+$string['settingfullnamedescription'] = '강좌 전체이름은 필수항목입니다. IMS 엔터프라이즈 파일에 선택된 설명 태그를 정의해야 합니다.';
+$string['settingshortname'] = '강좌 짧은 이름으로 IMS 설명 태그';
+$string['settingshortnamedescription'] = '강좌 짧은 이름은 필수항목입니다. IMS 엔터프라이즈 파일에 선택된 설명 태그를 정의해야 합니다.';
+$string['settingsummary'] = '강좌 요약으로 IMS 설명 태그';
+$string['settingsummarydescription'] = '선택항목 입니다. 강좌 요약을 명시하기를 원하지 않으면 비워두어도 됩니다.';
 $string['sourcedidfallback'] = '만일 "userid" 항목이 발견되지 않으면 사용자 아이디에 "sourcedid" 사용';
 $string['sourcedidfallback_desc'] = 'IMS 데이터에서는 <sourcedid> 필드는 소스시스템에서 사용되는 사용자에 대한 퍼시스턴트 ID 코드를 나타냅니다. <userid> 필드는 로그인 할때 사용자가 사용하는 ID 코드를 포람하는 별도의 필드입니다. 많은 경우에 두 코드는 같지만 항상 그런 것은 아닙니다.
 

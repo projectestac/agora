@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,15 +43,19 @@ $string['deleteblock'] = 'Ezabatu {$a} blokea';
 $string['deleteblockcheck'] = 'Ziur al zaude {$a} izena duen blokea ezabatu nahi duzula?';
 $string['deleteblockwarning'] = '<p>Beste nonbait agertzen den blokea ezabatzekotan zaude.</p><p>Blokearen jatorrizko kokapena: {$a->location}<br />Orri-mota honetan erakusten da: {$a->pagetype}</p><p>Ziur al zaude aurrera egin nahi duzula?</p>';
 $string['deletecheck'] = 'Ezabatu {$a} blokea?';
+$string['dockblock'] = 'Mugitu ertzera {$a} blokea';
 $string['hideblock'] = 'Ezkutatu {$a} blokea';
+$string['hidepanel'] = 'Ezkatutatu panela';
 $string['moveblock'] = 'Mugitu {$a} blokea';
+$string['moveblockafter'] = 'Mugitu blokea {$a} blokearen atzera';
+$string['moveblockbefore'] = 'Mugitu blokea {$a} blokearen aurrera';
 $string['moveblockhere'] = 'Mugitu blokea hona';
 $string['movingthisblockcancel'] = 'Mugitu bloke hau ({$a})';
 $string['onthispage'] = 'Orri honetan';
 $string['pagetypes'] = 'Orri-motak';
 $string['region'] = 'Kokapena';
 $string['restrictpagetypes'] = 'Erakutsi orri-mota hauetan';
-$string['showblock'] = 'Erakutsi {$a} blokea';
+$string['showblock'] = 'Erakutsi{$a} blokea';
 $string['showoncontextandsubs'] = 'Erakutsi \'{$a}\'-n eta edozein orri bertan';
 $string['showoncontextonly'] = '\'{$a}\'-n baino ez erakutsi';
 $string['showonentiresite'] = 'Erakutsi gune osoa';
@@ -60,6 +64,7 @@ $string['showonfrontpageonly'] = 'Hasiera-orrian baino ez erakutsi';
 $string['subpages'] = 'Aukeratu orriak';
 $string['thisspecificpage'] = 'Orri zehatz hau';
 $string['undockall'] = 'Banatu guztia';
+$string['undockblock'] = 'Banatu {$a} blokea';
 $string['undockitem'] = 'Banatu elementu hau';
 $string['visible'] = 'Ikusteko moduan';
 $string['weight'] = 'Pisua';

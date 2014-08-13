@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'booktool_print', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'booktool_print', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   booktool_print
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_book_printed'] = 'Libro impreso';
+$string['event_chapter_printed'] = 'Capítulo impreso';
 $string['pluginname'] = 'Impresión de libros';
 $string['printbook'] = 'Imprimir libro';
 $string['printchapter'] = 'Imprimir este capítulo';

@@ -29,7 +29,7 @@ $string['about'] = '<p>AMOS bedeutet <b>Automated Manipulation Of Strings</b> un
 <p>AMOS ist das zentrale Repository für die Moodle-Texte. AMOS protokolliert alle Veränderungen bei den englischen Originaltexten und ermöglicht die Übersetzung in die jeweiligen Sprachen. AMOS koordiniert die gemeinschaftliche Übersetzung und erzeugt die offiziellen Sprachpakete automatisch.</p>
 <p>Weitere Informationen: <a href="http://docs.moodle.org/en/AMOS">AMOS documentation</a></p>';
 $string['amos'] = '<h1>AMOS - Werkzeug zur Moodle-Übersetzung</h1>';
-$string['amos:commit'] = 'Texte aus dem Arbeitsspeicher ins Sprachpaket übertragen';
+$string['amos:commit'] = 'Texte aus dem Arbeitsspeicher ins offizielle Sprachpaket übernehmen';
 $string['amos:execute'] = 'Vorgegebenes AMOScript ausführen';
 $string['amos:importfile'] = 'Übersetzung hochladen und im Arbeitsspeicher zeigen';
 $string['amos:importstrings'] = 'Übersetzte Texte (inclusive der englischen Originale) in das Hauptrepository importieren';
@@ -40,7 +40,7 @@ $string['amos:usegoogle'] = 'Mit Google übersetzen';
 $string['commitbutton'] = 'Übernehmen und Arbeitsspeicher leeren';
 $string['commitbutton2'] = 'Übernehmen und Arbeitsspeicher behalten';
 $string['commitmessage'] = 'Mitteilung';
-$string['commitstage'] = 'Arbeitsspeicher ins Sprachpaket übertragen';
+$string['commitstage'] = 'Arbeitsspeicher ins Sprachpaket übernehmen';
 $string['commitstage_help'] = 'Alle Übersetzungen werden aus dem Arbeitsspeicher in das AMOS Repository gespeichert und ins Sprachpaket übertragen. Alle übertragbaren Übersetzungen sind in der Übersicht grün unterlegt. Der Arbeitsspeicher wird anschließend geleert.';
 $string['committableall'] = 'Alle Sprachen';
 $string['committablenone'] = 'Keine Sprache zugewiesen - wenden Sie sich an den AMOS-Verwalter';
@@ -70,8 +70,8 @@ $string['contribclosedno'] = 'Erledigte Vorschläge verbergen';
 $string['contribclosedyes'] = 'Erledigte Vorschläge anzeigen';
 $string['contribcomponents'] = 'Komponenten';
 $string['contribid'] = 'ID';
-$string['contribincomingnone'] = 'Keine gegangenen Vorschläge';
-$string['contribincomingsome'] = 'Eingegangene Vorschläge ({$a})';
+$string['contribincomingnone'] = 'Keine eingereichten Vorschläge';
+$string['contribincomingsome'] = 'Eingereichte Vorschläge ({$a})';
 $string['contriblanguage'] = 'Sprache';
 $string['contribreject'] = 'Ablehnen';
 $string['contribresign'] = 'Abgeben';
@@ -84,18 +84,18 @@ $string['contribstatus0'] = 'Neu';
 $string['contribstatus10'] = 'In Bearbeitung';
 $string['contribstatus20'] = 'Abgelehnt';
 $string['contribstatus30'] = 'Angenommen';
-$string['contribstatus_help'] = 'Die Arbeitsphasen einer eingesandten Übersetzung sehen folgendermaßen aus:
+$string['contribstatus_help'] = 'Arbeitsphasen für eingereichte Übersetzungen:
 
-* Neu - der Vorschlag wurde eingereicht, wartet aber noch auf seine Überprüfung
-* In Bearbeitung - der Vorschlag wurde einem Betreuer des Sprachpakets zugewiesen und wird gerade bearbeitet
-* Abgelehnt - ein Betreuer des Sprachpakets hat den Vorschlag abgelehnt und wahrscheinlich einen klärenden Kommentar geschrieben
-* Angenommen - der Vorschlag wurde angenommen und ins Sprachpaket eingebunden';
+* Neu - Vorschlag wurde eingereicht, wartet aber noch auf seine Überprüfung
+* In Bearbeitung - Vorschlag wird von einem Betreuer des Sprachpakets bearbeitet
+* Abgelehnt - Vorschlag wurde von einem Betreuer des Sprachpakets abgelehnt
+* Angenommen - Vorschlag wurde ins Sprachpaket übernommen';
 $string['contribstrings'] = 'Texte';
 $string['contribstringseq'] = '{$a->orig} neu';
 $string['contribstringsnone'] = '{$a->orig} (alle Texte sind übersetzt)';
 $string['contribstringssome'] = '{$a->orig} (für {$a->same} Texte existiert eine neuere Übersetzung)';
 $string['contribsubject'] = 'Betreff';
-$string['contribsubmittednone'] = 'Keine eingesandten Vorschläge';
+$string['contribsubmittednone'] = 'Keine eingereichten Vorschläge';
 $string['contribsubmittedsome'] = 'Ihre Vorschläge ({$a})';
 $string['contribtimemodified'] = 'Geändert';
 $string['contributions'] = 'Vorschläge';
@@ -242,9 +242,9 @@ $string['presetcommitmessage'] = 'Übersetzung #{$a->id} von {$a->author}';
 $string['presetcommitmessage2'] = 'Fehlende Textzeilen von {$a->source} nach {$a->target} hinzugefügt';
 $string['presetcommitmessage3'] = 'Unterschiede zwischen {$a->versiona} und {$a->versionb} werden behoben';
 $string['privileges'] = 'Ihre Berechtigungen';
-$string['privilegesnone'] = 'Sie haben Leserecht für öffentliche Informationen.';
+$string['privilegesnone'] = 'Sie haben einen Lesezugriff für offene Informationen.';
 $string['propagate'] = 'Übersetzungen übertragen';
-$string['propagatednone'] = 'Keine Übersetzung übertragbar';
+$string['propagatednone'] = 'Keine Übersetzung in andere Versionen übertragbar';
 $string['propagatedsome'] = 'Übertragene Übersetzungen: {$a}';
 $string['propagaterun'] = 'Übertragen';
 $string['requestactions'] = 'Aktion';
@@ -268,7 +268,7 @@ $string['stagesubmit'] = 'An Betreuer senden';
 $string['stagetranslation'] = 'Übersetzung';
 $string['stageunstageall'] = 'Alle verwerfen';
 $string['stashactions'] = 'Aktionen in den Ablagen';
-$string['stashactions_help'] = 'Eine Ablage ist eine Momentaufnahme des aktuellen Arbeitsspeichers. Eine solche Ablage kann als Vorschlag an die Maintainer des Sprachpakets geschickt werden.';
+$string['stashactions_help'] = 'Eine Ablage ist eine Momentaufnahme des aktuellen Arbeitsspeichers. Eine solche Ablage kann als Vorschlag an die Betreuer des Sprachpakets gesendet werden.';
 $string['stashapply'] = 'Verwenden';
 $string['stashautosave'] = 'Automatische Sicherungsablage';
 $string['stashcomponents'] = '<span>Komponenten:</span> {$a}';
@@ -283,7 +283,7 @@ $string['stashsubmitdetails'] = 'Kurze Mitteilung';
 $string['stashsubmitmessage'] = 'Nachricht';
 $string['stashsubmitsubject'] = 'Betreff';
 $string['stashtitle'] = 'Name der Ablage';
-$string['stashtitledefault'] = 'In Bearbeitung {$a->time}';
+$string['stashtitledefault'] = 'Bearbeitung - {$a->time}';
 $string['stringhistory'] = 'Verlauf';
 $string['strings'] = 'Texte';
 $string['submitting'] = 'Vorschlag einreichen';

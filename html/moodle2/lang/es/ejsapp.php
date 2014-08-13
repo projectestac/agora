@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'ejsapp', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'ejsapp', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   ejsapp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,7 +39,6 @@ $string['custom_width_required'] = 'ATENCI&Oacute;N: La anchura del applet no fu
 $string['dailyslots'] = 'Horas de trabajo diarias';
 $string['dailyslots_help'] = 'Cantidad diaria de horas m&aacute;ximas que se le permitir&aacute; usar a cada alumno para trabajar con este laboratorio.';
 $string['default_communication_set'] = 'Opciones de comunicaci&oacute;n por defecto';
-$string['default_display_set'] = 'Opciones de visualizaci&oacute;n por defecto';
 $string['ejsapp'] = 'EJSApp';
 $string['ejsapp_error'] = 'La actividad EJSApp a la que est&aacute; tratando de acceder no existe.';
 $string['ejsappname'] = 'Nombre del laboratorio';

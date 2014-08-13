@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_search', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_search', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_search
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['course_search:addinstance'] = 'Add a new course search block';
+$string['course_search:myaddinstance'] = 'Add a new course search block';
 $string['new_search'] = 'New search';
 $string['no_result'] = 'No result';
 $string['pagetitle'] = 'Course search results';

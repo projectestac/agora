@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,6 +44,7 @@ $string['cronfrequency'] = 'Freqüència de processament';
 $string['deleteusers'] = 'Suprimeix comptes d\'usuari quan ho especifiquin les dades IMS';
 $string['deleteusers_desc'] = 'Si s\'habilita les dades d\'inscripció IMS Enterprise poden permetre la supressió de comptes d\'usuaris ( si la senyal «recstatus» és configura a l\'estat 3, que representa la supressió d\'un compte d\'usuari). Com que és un estàndard en Moodle, les dades de l\'usuari no es poden esborrar actualment de la base de dades de Moodle, però una senyal indica que el compte es pot suprimir.';
 $string['doitnow'] = 'executar ara una importació IMS Enterprise';
+$string['emptyattribute'] = 'Deixa-ho buit';
 $string['filelockedmail'] = 'El procés del cron no pot suprimir el fitxer que esteu utilitzant per a inscripcions basades en IMS Enterprise ({$a}). Generalment això vol dir que té permisos erronis. Arregleu els permisos de manera que Moodle pugui suprimir aquest fitxer, o en cas contrari podria processar-se repetidament.';
 $string['filelockedmailsubject'] = 'Error important: fitxer d\'inscripcions';
 $string['fixcasepersonalnames'] = 'Canvia a majúscules les inicials dels noms de persones';
@@ -66,6 +67,12 @@ $string['restricttarget_desc'] = 'Un fitxer de dades IMS Enterprise pot preveure
 
 En general no heu de preocupar-vos d\'això. Deixeu el paràmetre en blanc i Moodle processarà sempre les dades del fitxer, no patiu si una etiqueta està posada o no. Tanmateix, poseu el nom exacte que voleu que tingui l\'<target> etiqueta.';
 $string['roles'] = 'Rols';
+$string['settingfullname'] = 'Etiqueta de descripció IMS per al nom complet del curs';
+$string['settingfullnamedescription'] = 'El nom complet és un camp obligatori del curs, així que heu de definir l\'etiqueta de descripció seleccionada en el fitxer IMS Enterprise';
+$string['settingshortname'] = 'Etiqueta de descripció IMS per al nom curt del curs';
+$string['settingshortnamedescription'] = 'El nom curt és un camp obligatori del curs, així que heu de definir l\'etiqueta de descripció seleccionada en el fitxer IMS Enterprise';
+$string['settingsummary'] = 'Etiqueta de descripció IMS per al resum del curs';
+$string['settingsummarydescription'] = 'És un camp opcional, seleccioneu «Deixa-ho buit» si no voleu especificar un resum del curs.';
 $string['sourcedidfallback'] = 'Utilitza el "sourcedid" com a userid si el camp "userid" no hi és';
 $string['sourcedidfallback_desc'] = 'A les dades IMS, el camp <sourcedid> representa la identificació persistent per a una persona utilitzada per la font del sistema. El camp <userid> és un camp separat que conté el codi d\'identificació utilitzat per l\'usuari quan entra al sistema. En molt casos aquests dos codis poden ser el mateix - però no sempre és així.
 

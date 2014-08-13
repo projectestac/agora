@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -19,8 +18,7 @@
  * Adds new instance of enrol_paypal to specified course
  * or edits current instance.
  *
- * @package    enrol
- * @subpackage paypal
+ * @package    enrol_paypal
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -39,6 +37,7 @@ class enrol_paypal_edit_form extends moodleform {
         $mform->addElement('header', 'header', get_string('pluginname', 'enrol_paypal'));
 
         $mform->addElement('text', 'name', get_string('custominstancename', 'enrol'));
+        $mform->setType('name', PARAM_TEXT);
 
         $options = array(ENROL_INSTANCE_ENABLED  => get_string('yes'),
                          ENROL_INSTANCE_DISABLED => get_string('no'));
@@ -46,15 +45,10 @@ class enrol_paypal_edit_form extends moodleform {
         $mform->setDefault('status', $plugin->get_config('status'));
 
         $mform->addElement('text', 'cost', get_string('cost', 'enrol_paypal'), array('size'=>4));
-        $mform->setDefault('cost', $plugin->get_config('cost'));
+        $mform->setType('cost', PARAM_RAW); // Use unformat_float to get real value.
+        $mform->setDefault('cost', format_float($plugin->get_config('cost'), 2, true));
 
-        $paypalcurrencies = array('USD' => 'US Dollars',
-                                  'EUR' => 'Euros',
-                                  'JPY' => 'Japanese Yen',
-                                  'GBP' => 'British Pounds',
-                                  'CAD' => 'Canadian Dollars',
-                                  'AUD' => 'Australian Dollars'
-                                 );
+        $paypalcurrencies = $plugin->get_currencies();
         $mform->addElement('select', 'currency', get_string('currency', 'enrol_paypal'), $paypalcurrencies);
         $mform->setDefault('currency', $plugin->get_config('currency'));
 
@@ -80,7 +74,14 @@ class enrol_paypal_edit_form extends moodleform {
         $mform->addHelpButton('enrolenddate', 'enrolenddate', 'enrol_paypal');
 
         $mform->addElement('hidden', 'id');
+        $mform->setType('id', PARAM_INT);
+
         $mform->addElement('hidden', 'courseid');
+        $mform->setType('courseid', PARAM_INT);
+
+        if (enrol_accessing_via_instance($instance)) {
+            $mform->addElement('static', 'selfwarn', get_string('instanceeditselfwarning', 'core_enrol'), get_string('instanceeditselfwarningtext', 'core_enrol'));
+        }
 
         $this->add_action_buttons(true, ($instance->id ? null : get_string('addinstance', 'enrol')));
 
@@ -97,9 +98,9 @@ class enrol_paypal_edit_form extends moodleform {
             $errors['enrolenddate'] = get_string('enrolenddaterror', 'enrol_paypal');
         }
 
-        if (!is_numeric($data['cost'])) {
+        $cost = str_replace(get_string('decsep', 'langconfig'), '.', $data['cost']);
+        if (!is_numeric($cost)) {
             $errors['cost'] = get_string('costerror', 'enrol_paypal');
-
         }
 
         return $errors;

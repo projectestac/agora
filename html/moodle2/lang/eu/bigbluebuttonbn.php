@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'bigbluebuttonbn', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'bigbluebuttonbn', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   bigbluebuttonbn
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,20 +35,18 @@ $string['bbbrecordwarning'] = 'Saio hau grabatu egingo da.';
 $string['bbburl'] = 'Zure BigBlueButton zerbitzariaren URLa /bigbluetton/ amaiera izan behar du. (Lehenetsitako URLa Blindside Networks frogak egiteko eskaintzen duen BigBlueButton zerbitzari bati dagokio).';
 $string['bigbluebuttonbn'] = 'BigBlueButton';
 $string['bigbluebuttonbn:addinstance'] = 'Bilera-gela berri bat gehitu';
-$string['bigbluebuttonbnfieldset'] = 'Adibidezko fieldset pertsonalizatua';
-$string['bigbluebuttonbnintro'] = 'BigBlueButton Sarrera';
 $string['bigbluebuttonbn:join'] = 'Bilera-gela batera sartu';
 $string['bigbluebuttonbn:moderate'] = 'Bilera-gela bat moderatu';
 $string['bigbluebuttonbnSalt'] = 'BigBlueButton Partekatutako Sekretua';
 $string['bigbluebuttonbnUrl'] = 'BigBlueButton Zerbitzariaren URLa';
 $string['bigbluebuttonbnWait'] = 'Erabiltzaileak itxaron egin behar du';
-$string['configsecuritysalt'] = 'Zure BigBlueButton zerbitzariaren segurtasun gatza.  (Lehenetsitako gatza Blindside Networks frogak egiteko eskaintzen duen BigBlueButton zerbitzari bati dagokio).';
+$string['configsecuritysalt'] = 'Zure BigBlueButton zerbitzariaren segurtasun-eraldaketa.  (Berezko eraldaketa Blindside Networks frogak egiteko eskaintzen duen BigBlueButton zerbitzari bati dagokio).';
 $string['general_error_unable_connect'] = 'Konexioa ezin da ezarri. Mesedez egiaztatu BigBlueButton zerbitzariaren URLa eta ziurtatu BigBlueButton zerbitzaria martxan dagoela.';
 $string['index_confirm_end'] = 'Klase birtuala amaitu nahi duzu?';
 $string['index_disabled'] = 'desgaituta';
 $string['index_enabled'] = 'gaituta';
 $string['index_ending'] = 'Klase birtuala amaitzen ... itxaron mesedez';
-$string['index_error_checksum'] = 'Kontrolerako batura errorea. Mesedez egiaztatu segurtasun gatz egokia sartu duzula.';
+$string['index_error_checksum'] = 'Kontrolerako batura-errorea. Mesedez egiaztatu segurtasun-eraldaketa egokia egin duzula.';
 $string['index_error_forciblyended'] = 'Ezin izan da bilera-gelara sartu eskuz amaitua izan delako.';
 $string['index_error_unable_display'] = 'Ezin izan dira bilera-gelak pantailaratu. Mesedez egiaztatu BigBlueButton zerbitzariaren URLa eta ziurtatu BigBlueButton zerbitzaria martxan dagoela.';
 $string['index_heading'] = 'BigBlueButton gelak';

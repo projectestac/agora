@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_self', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_self', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_self
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,14 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['canntenrol'] = 'A inscrição está desativada ou inativa';
 $string['cohortnonmemberinfo'] = 'Apenas membros do grupo global \'{$a}\' se podem autoinscrever';
 $string['cohortonly'] = 'Apenas membros do grupo global';
-$string['cohortonly_help'] = 'A autoinscrição pode ser restrita apenas a membros de um grupo global específico. Note que a alteração desta configuração não terá efeito sobre as inscrições existentes.';
+$string['cohortonly_help'] = 'A autoinscrição pode ser restrita apenas a membros de um grupo global específico. Note que a alteração dessa configuração não tem efeito sobre as inscrições existentes.';
 $string['customwelcomemessage'] = 'Mensagem personalizada de boas-vindas';
 $string['customwelcomemessage_help'] = 'Pode definir uma mensagem personalizada em texto simples ou Autoformatação-Moodle, incluíndo código HTML e multi-lang tags. The following placeholders may be included in the message: * Course name {$a->coursename} * Link to user\'s profile page {$a->profileurl}';
 $string['defaultrole'] = 'Atribuição de papel predefinida';
 $string['defaultrole_desc'] = 'Selecione o papel que deve ser atribuído aos utilizadores durante a inscrição.';
-$string['editenrolment'] = 'Editar papel';
 $string['enrolenddate'] = 'Data de fim';
 $string['enrolenddate_help'] = 'Se ativo, os utilizadores podem inscrever-se apenas até esta data.';
 $string['enrolenddaterror'] = 'A data de fim de inscrição não pode ser anterior à data de início';
@@ -67,6 +67,9 @@ $string['maxenrolled'] = 'Número máximo de inscrições permitidas';
 $string['maxenrolled_help'] = 'Define o número de máximo de utilizadores que se podem inscrever autonomamente numa disciplina. Se o valor definido for zero não existe limite.';
 $string['maxenrolledreached'] = 'O número máximo de inscrições já foi atingido.';
 $string['messageprovider:expiry_notification'] = 'Notificações de expiração da autoinscrição';
+$string['newenrols'] = 'Permitir novas inscrições';
+$string['newenrols_desc'] = 'Permitir, por predefinição, que os utilizadores se auto-inscrevam nas novas disciplinas.';
+$string['newenrols_help'] = 'Esta configuração determina se o utilizador se pode inscrever nesta disciplina.';
 $string['nopassword'] = 'Não é pedida senha de inscrição';
 $string['password'] = 'Senha de inscrição';
 $string['password_help'] = 'A senha de inscrição permite restringir o acesso à disciplina apenas aos utilizadores que conheçam a senha de inscrição.
@@ -76,12 +79,12 @@ Se este campo não estiver preenchido, então qualquer utilizador poderá inscre
 Se for especificada uma senha, qualquer utilizador que tente aceder à disciplina terá que indicar essa senha. Este procedimento só acontece no momento da inscrição nas disciplinas, os acessos posteriores dos alunos inscritos dispensam a indicação desta senha.';
 $string['passwordinvalid'] = 'A senha de inscrição que indicou não é a correta, por favor, tente novamente';
 $string['passwordinvalidhint'] = 'A senha de inscrição que indicou não é a correta, por favor, tente novamente. Sugestão: A primeira letra é "{$a}"';
-$string['pluginname'] = 'Autoinscrição';
+$string['pluginname'] = 'Auto-inscrição';
 $string['pluginname_desc'] = 'Este módulo permite aos utilizadores decidir em que disciplinas se pretendem inscrever. As disciplinas podem ser protegidas por uma senha de inscrição. Internamente a inscrição é feita através do módulo de inscrições manuais, pelo que este módulo tem que estar igualmente ativo na disciplina.';
 $string['requirepassword'] = 'Pedir senha de inscrição';
 $string['requirepassword_desc'] = 'Esta configuração faz com que as novas disciplinas criadas peçam sempre senha de inscrição e evita que as disciplinas que já existem possam deixar de pedir essa senha.';
 $string['role'] = 'Atribuir papel';
-$string['self:config'] = 'Configurar instâncias de autoinscrição';
+$string['self:config'] = 'Configurar instâncias de auto-inscrição';
 $string['self:manage'] = 'Gerir utilizadores inscritos';
 $string['self:unenrol'] = 'Remover inscrições de alunos desta disciplina';
 $string['self:unenrolself'] = 'Remover a sua inscrição desta disciplina';
@@ -89,9 +92,9 @@ $string['sendcoursewelcomemessage'] = 'Enviar mensagem de boas-vindas';
 $string['sendcoursewelcomemessage_help'] = 'Se esta configuração estiver ativa os utilizadores que se inscreverem na disciplina receberão um e-mail com uma mensagem de boas-vindas.';
 $string['showhint'] = 'Mostrar sugestão';
 $string['showhint_desc'] = 'Se esta configuração estiver ativa será mostrada aos utilizadores a primeira letra da senha de inscrição.';
-$string['status'] = 'Permitir auto-inscrições';
-$string['status_desc'] = 'Se esta configuração estiver ativa os utilizadores terão a oportunidade de se inscreverem na disciplina de forma autónoma.';
-$string['status_help'] = 'Esta configuração define se um utilizar pode inscrever-se (e cancelar a sua inscrição se tiver a permissão necessária para isso) na disciplina.';
+$string['status'] = 'Ativar inscrições existentes';
+$string['status_desc'] = 'Ativar o método de autoinscrição nas novas disciplinas.';
+$string['status_help'] = 'Se esta opção estiver desativada, todas as auto-inscrições existentes serão suspensas e os novos utilizadores não poderão inscrever-se.';
 $string['unenrol'] = 'Cancelar inscrição do utilizador';
 $string['unenrolselfconfirm'] = 'Tem a certeza de que quer cancelar a sua inscrição na disciplina "{$a}"?';
 $string['unenroluser'] = 'Tem a certeza de que quer cancelar a sua inscrição de "{$a->user}" da disciplina "{$a->course}"?';

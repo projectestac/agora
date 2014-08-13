@@ -163,7 +163,7 @@
     text-align: center;
 }
 
-#page-mod-assignment-view h3.main {
+#page-mod-assignment-view h3 {
     padding-top: 1em;
 }
 
@@ -465,3 +465,7 @@
 .que {
     border-color: #eee;
 }
+
+/* SCORM Player
+-------------------------*/
+#page-mod-scorm-player div.singleselect {margin: -20px 0 0;}

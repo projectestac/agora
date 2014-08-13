@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_boxnet', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_boxnet', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_boxnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,9 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'Clau d\'API';
 $string['boxnet:view'] = 'Mostra el repositori box.net';
-$string['callbackurl'] = 'URL de retrocridada';
-$string['callbackurltext'] = '<ol> <li>Visiteu de nou <a href="http://www.box.net/developers/services">el lloc web box.net</a>.</li> <li>Comproveu que establiu l\'URL de la retrocridada d\'aquest servei box.net a <strong>{$a}</strong></li></ol>';
-$string['callbackwarning'] = '<ol><li>Obteniu l\'<a href="http://www.box.net/developers/services">API de box.net</a> per a aquest lloc Moodle des del lloc web de box.net.</li> <li>Entreu la clau de l\'API box.net aquí, després premeu Desa i torneu a aquesta pàgina. Podeu veure que Moodle ha generat una URL de la retrocridada per vós.</li> <li>Editeu els detalls de box.net al lloc web box.net de nou i establiu l\'URL de la retrocridada.</li></ol>';
 $string['configplugin'] = 'Configuració de box.net';
 $string['information'] = 'Obteniu una API de la <a href="http://www.box.net/developers/services">pàgina de desenvolupadors de Box.net</a> per al vostre lloc Moodle.';
 $string['invalidpassword'] = 'Contrasenya no vàlida';

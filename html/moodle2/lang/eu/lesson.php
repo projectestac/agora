@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = 'Galdera bati zuzen erantzun ondoren,
 * Erakutsi ikusi gabeko orri bat - Ausaz erakutsiko dira orriak bi aldiz erakutsi gabe
 * Erakutsi erantzun gabeko orri bat - Ausaz erakutsiko dira orriak, erantzun gabeko galderak dituzten orriak erreikatu gabe';
 $string['actions'] = 'Ekintzak';
-$string['activitylink'] = 'Jarduerarekiko lotura';
+$string['activitylink'] = 'Hurrengo jarduerarako esteka';
 $string['activitylink_help'] = 'Ikasgaiaren bukaeran ikastaroko beste jarduera baterako esteka eskaintzeko, aukeratu jarduera zabaltzen den menuan.';
 $string['activitylinkname'] = 'Joan hona: {$a}';
 $string['activityoverview'] = 'Egin gabeko ikasgaiak dituzu';
@@ -116,6 +116,7 @@ $string['continuetonextpage'] = 'Jarraitu hurrengo orrira.';
 $string['correctanswerjump'] = 'Erantzun zuzenerako jauzia';
 $string['correctanswerscore'] = 'Erantzun zuzenaren puntuazioa';
 $string['correctresponse'] = 'Erantzun zuzena';
+$string['createaquestionpage'] = 'Sortu galdera-orria';
 $string['credit'] = 'Kreditua';
 $string['customscoring'] = 'Puntuazio pertsonalizatua';
 $string['deadline'] = 'Amaiera-data';
@@ -130,10 +131,10 @@ $string['description'] = 'Deskribapena';
 $string['detailedstats'] = 'Estatistika zehatzak';
 $string['didnotanswerquestion'] = 'Galdera honi ez diozu erantzunik eman.';
 $string['didnotreceivecredit'] = 'Ez duzu krediturik jaso';
-$string['displaydefaultfeedback'] = 'Erakutsi berezko atzeraelikadura';
+$string['displaydefaultfeedback'] = 'Erabili berezko atzeraelikadura';
 $string['displayhighscores'] = 'Erakutsi puntuazio onenak';
 $string['displayinleftmenu'] = 'Ezker aldeko menuan erakutsi?';
-$string['displayleftif'] = 'Erakutsi ezkerreko menua puntuazioa ondorengo hau baino altuagoa bada bakarrik:';
+$string['displayleftif'] = 'Gutxieneko puntuazioa menua erakusteko';
 $string['displayleftmenu'] = 'Erakutsi ezker aldeko menua';
 $string['displayleftmenu_help'] = 'Gaituz gero, orri-zerrenda erakutsiko da.';
 $string['displayofgrade'] = 'Kalifikazioa erakutsi (ikasleentzat soilik)';
@@ -239,7 +240,7 @@ $string['maximumnumberofattemptsreached'] = 'Gehienezko saiakera-kopurura iritsi
 $string['maxtime'] = 'Denbora-muga (minututan)';
 $string['maxtimewarning'] = '{$a} minutu daukazu ikasgaia bukatzeko.';
 $string['mediaclose'] = 'Ixteko botoia erakutsi:';
-$string['mediafile'] = 'Pop-up-a fitxategi edo web-orrirako';
+$string['mediafile'] = 'Fitxategia popup-ean';
 $string['mediafilepopup'] = 'Klik egin hemen ikusteko ';
 $string['mediaheight'] = 'Popup leihoaren altuera:';
 $string['mediawidth'] = 'Popup leihoaren zabalera:';
@@ -340,6 +341,7 @@ $string['postsuccess'] = 'Mezu arrakastatsua';
 $string['practice'] = 'Praktikako ikasgaia';
 $string['practice_help'] = 'Praktikako ikasgaiak ez dira kalifikazio-liburuan erakustiko.';
 $string['preprocesserror'] = 'Errorea gertatu da aurre-prozesamenduan!';
+$string['prerequisitelesson'] = 'Aurretik egin beharreko ikasgaia';
 $string['preview'] = 'Aurreikusi';
 $string['previewlesson'] = 'Aurreikusi {$a}';
 $string['previouspage'] = 'Aurreko orria';
@@ -385,6 +387,7 @@ $string['skip'] = 'Ez hartu nabigazioa kontuan';
 $string['slideshow'] = 'Diaporama';
 $string['slideshowbgcolor'] = 'Diaporamaren atzeko kolorea';
 $string['slideshowheight'] = 'Diaporamaren altuera';
+$string['slideshow_help'] = 'Gaituz gero, ikasgaia diaporama gisa erakutsiko da, altuera eta zabalera finkoa duela.';
 $string['slideshowwidth'] = 'Diaporamaren zabalera';
 $string['startlesson'] = 'Ikasgaia hasi';
 $string['studentattemptlesson'] = '{$a->lastname}, {$a->firstname} (r)en {$a->attempt} saiakera';

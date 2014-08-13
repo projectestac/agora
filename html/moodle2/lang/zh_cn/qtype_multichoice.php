@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multichoice', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = '增加{no}个空白选项';
 $string['answerhowmany'] = '一个还是多个答案？';
 $string['answernumbering'] = '对选项编号？';
 $string['answernumbering123'] = '1., 2., 3., ...';

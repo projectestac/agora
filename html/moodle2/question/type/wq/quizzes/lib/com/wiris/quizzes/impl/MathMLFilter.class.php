@@ -1,8 +1,11 @@
 <?php
 
 class com_wiris_quizzes_impl_MathMLFilter implements com_wiris_quizzes_api_MathFilter{
-	public function __construct() { 
-	}
+	public function __construct() { if(!php_Boot::$skip_constructor) {
+		if(com_wiris_settings_PlatformSettings::$IS_FLASH || com_wiris_settings_PlatformSettings::$IS_JAVASCRIPT) {
+			throw new HException("MathFilter is only available in server technologies.");
+		}
+	}}
 	public function removeWirisPluginImages($html) {
 		$start = 0;
 		$end = 0;
@@ -25,10 +28,11 @@ class com_wiris_quizzes_impl_MathMLFilter implements com_wiris_quizzes_api_MathF
 		return $sb->b;
 	}
 	public function writeImage($mathml, $s) {
-		$h = new com_wiris_quizzes_impl_HttpImpl(com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$EDITOR_URL) . "/render");
+		$listener = new com_wiris_quizzes_impl_HttpSyncListener();
+		$h = new com_wiris_quizzes_impl_HttpImpl(com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$EDITOR_URL) . "/render", $listener);
 		$h->setParameter("mml", $mathml);
 		$h->request(true);
-		$response = $h->response;
+		$response = $listener->getData();
 		$b = haxe_io_Bytes::ofString($response);
 		$s->writeBinary($b->b);
 	}

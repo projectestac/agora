@@ -43,7 +43,7 @@ a:active {
     background: #333;
     color: #fff;
     height: 30px;
-    z-index: 99999;
+    z-index: 5000;
     position: relative;
 }
 
@@ -288,3 +288,14 @@ h1.headermain {
 
 /** Dock **/
 #dock .firstdockitem {margin-top: 30px;}
+
+/* Moodle forms
+----------------*/
+.mform .btn-cancel {
+    color: #428AB5;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #428AB5;
+    text-decoration: none;
+}

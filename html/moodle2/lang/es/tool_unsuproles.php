@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_unsuproles', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_unsuproles', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_unsuproles
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['confirmdelete'] = '¿Está seguro de que desea eliminar todas las asignaciones de funciones no compatibles para el rol "{$a->role}" en el nivel de contexto  "{$a->level}"?';
 $string['contextlevel'] = 'Nivel de contexto';
 $string['count'] = 'Número';
-$string['noprolbems'] = 'No se han encontrado tareas de rol no compatible';
-$string['pluginname'] = 'Tareas de rol no compatible';
+$string['noprolbems'] = 'No se han encontrado';
+$string['pluginname'] = 'Asignaciones de rol no permitidas';

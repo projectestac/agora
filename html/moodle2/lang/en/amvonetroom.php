@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'amvonetroom', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'amvonetroom', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   amvonetroom
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -63,6 +63,7 @@ $string['link_support'] = 'Support';
 $string['message_firewall_not_configured'] = 'Sorry, requested operation has been failed due to misconfiguration. You can find the most possible reasons and solutions by visiting {$a->kb_begin}THE FOLLOWING URL{$a->kb_end}. In the meantime please feel free to contact our {$a->support_begin}support{$a->support_end} if you need an assistance.';
 $string['moderator'] = 'Moderator';
 $string['modulename'] = 'AMVONET Room';
+$string['modulename_help'] = 'The AMVONET Room is used for the creation of webinars and creation of interactive presentations. You can also edit the recordings using this tool.';
 $string['modulenameplural'] = 'AMVONET Room';
 $string['name_live_this_session'] = 'Name of this room';
 $string['pluginadministration'] = 'AMVONET Room Administration';

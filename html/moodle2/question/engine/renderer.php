@@ -115,7 +115,7 @@ class core_question_renderer extends plugin_renderer_base {
         $output = '';
         $output .= $this->number($number);
         $output .= $this->status($qa, $behaviouroutput, $options);
-        $output .= $this->mark_summary($qa, $options);
+        $output .= $this->mark_summary($qa, $behaviouroutput, $options);
         $output .= $this->question_flag($qa, $options->flags);
         $output .= $this->edit_question_link($qa, $options);
         return $output;
@@ -138,7 +138,7 @@ class core_question_renderer extends plugin_renderer_base {
         if (!$numbertext) {
             return '';
         }
-        return html_writer::tag('h2', $numbertext, array('class' => 'no'));
+        return html_writer::tag('h3', $numbertext, array('class' => 'no'));
     }
 
     /**
@@ -150,7 +150,7 @@ class core_question_renderer extends plugin_renderer_base {
      */
     protected function add_part_heading($heading, $content) {
         if ($content) {
-            $content = html_writer::tag('h3', $heading, array('class' => 'accesshide')) . $content;
+            $content = html_writer::tag('h4', $heading, array('class' => 'accesshide')) . $content;
         }
         return $content;
     }
@@ -173,30 +173,59 @@ class core_question_renderer extends plugin_renderer_base {
     /**
      * Generate the display of the marks for this question.
      * @param question_attempt $qa the question attempt to display.
+     * @param qbehaviour_renderer $behaviouroutput the behaviour renderer, which can generate a custom display.
      * @param question_display_options $options controls what should and should not be displayed.
      * @return HTML fragment.
      */
-    protected function mark_summary(question_attempt $qa, question_display_options $options) {
+    protected function mark_summary(question_attempt $qa, qbehaviour_renderer $behaviouroutput, question_display_options $options) {
+        return html_writer::nonempty_tag('div',
+                $behaviouroutput->mark_summary($qa, $this, $options),
+                array('class' => 'grade'));
+    }
+
+    /**
+     * Generate the display of the marks for this question.
+     * @param question_attempt $qa the question attempt to display.
+     * @param question_display_options $options controls what should and should not be displayed.
+     * @return HTML fragment.
+     */
+    public function standard_mark_summary(question_attempt $qa, qbehaviour_renderer $behaviouroutput, question_display_options $options) {
         if (!$options->marks) {
             return '';
-        }
 
-        if ($qa->get_max_mark() == 0) {
-            $summary = get_string('notgraded', 'question');
+        } else if ($qa->get_max_mark() == 0) {
+            return get_string('notgraded', 'question');
 
         } else if ($options->marks == question_display_options::MAX_ONLY ||
                 is_null($qa->get_fraction())) {
-            $summary = get_string('markedoutofmax', 'question',
-                    $qa->format_max_mark($options->markdp));
+            return $behaviouroutput->marked_out_of_max($qa, $this, $options);
 
         } else {
-            $a = new stdClass();
-            $a->mark = $qa->format_mark($options->markdp);
-            $a->max = $qa->format_max_mark($options->markdp);
-            $summary = get_string('markoutofmax', 'question', $a);
+            return $behaviouroutput->mark_out_of_max($qa, $this, $options);
         }
+    }
 
-        return html_writer::tag('div', $summary, array('class' => 'grade'));
+    /**
+     * Generate the display of the available marks for this question.
+     * @param question_attempt $qa the question attempt to display.
+     * @param question_display_options $options controls what should and should not be displayed.
+     * @return HTML fragment.
+     */
+    public function standard_marked_out_of_max(question_attempt $qa, question_display_options $options) {
+        return get_string('markedoutofmax', 'question', $qa->format_max_mark($options->markdp));
+    }
+
+    /**
+     * Generate the display of the marks for this question out of the available marks.
+     * @param question_attempt $qa the question attempt to display.
+     * @param question_display_options $options controls what should and should not be displayed.
+     * @return HTML fragment.
+     */
+    public function standard_mark_out_of_max(question_attempt $qa, question_display_options $options) {
+        $a = new stdClass();
+        $a->mark = $qa->format_mark($options->markdp);
+        $a->max = $qa->format_max_mark($options->markdp);
+        return get_string('markoutofmax', 'question', $a);
     }
 
     /**
@@ -325,7 +354,7 @@ class core_question_renderer extends plugin_renderer_base {
         $output .= html_writer::empty_tag('input', array(
                 'type' => 'hidden',
                 'name' => $qa->get_control_field_name('sequencecheck'),
-                'value' => $qa->get_num_steps()));
+                'value' => $qa->get_sequence_check_count()));
         $output .= $qtoutput->formulation_and_controls($qa, $options);
         if ($options->clearwrong) {
             $output .= $qtoutput->clear_wrong($qa);
@@ -427,7 +456,7 @@ class core_question_renderer extends plugin_renderer_base {
             $table->data[] = $row;
         }
 
-        return html_writer::tag('h3', get_string('responsehistory', 'question'),
+        return html_writer::tag('h4', get_string('responsehistory', 'question'),
                 array('class' => 'responsehistoryheader')) . html_writer::tag('div',
                 html_writer::table($table, true), array('class' => 'responsehistoryheader'));
     }

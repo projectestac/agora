@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -125,6 +125,7 @@ $string['serviceusers'] = 'Baimendutako erabiltzaileak ';
 $string['serviceusersettings'] = 'Erabiltzailearen ezarpenak';
 $string['serviceusersmatching'] = 'Bat datozen baimendun erabiltzaileak';
 $string['step'] = 'Urratsa';
+$string['supplyinfo'] = 'Xehetasun gehiago';
 $string['testclient'] = 'Web-zerbitzuetarako proba-bezeroa';
 $string['testwithtestclient'] = 'Probatu zerbitzua';
 $string['token'] = 'Token-a';
@@ -133,6 +134,8 @@ $string['tokencreator'] = 'Sortzailea';
 $string['updateusersettings'] = 'Eguneratu';
 $string['userasclients'] = 'Erabiltzaileak token-a duten bezero gisa';
 $string['usermissingcaps'] = 'Gaitasunak falta dira: {$a}';
+$string['usernameorid'] = 'Erabiltzaile-izena / Erabiltzailearen IDa';
+$string['usernameorid_help'] = 'Idatzi erabiltzaile-izena edo erabiltzailearen IDa.';
 $string['usersettingssaved'] = 'Erabiltzailearen ezarpenak gordeta!';
 $string['validuntil'] = 'Noiz arte indarrean';
 $string['webservice'] = 'Web-zerbitzua';

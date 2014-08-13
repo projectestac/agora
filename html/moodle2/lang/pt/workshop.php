@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Controlo de acesso';
 $string['aggregategrades'] = 'Recalcular notas';
 $string['aggregation'] = 'Método de avaliação';
 $string['allocate'] = 'Atribuir trabalhos para avaliação';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Já avaliado';
 $string['areaconclusion'] = 'Texto de conclusão';
 $string['areainstructauthors'] = 'Instruções para o envio dos trabalhos';
 $string['areainstructreviewers'] = 'Instruções para avaliação';
+$string['areaoverallfeedbackattachment'] = 'Anexos de feedback global';
+$string['areaoverallfeedbackcontent'] = 'Textos de feedback global';
 $string['areasubmissionattachment'] = 'Anexos do trabalho';
 $string['areasubmissioncontent'] = 'Textos do trabalho';
 $string['assess'] = 'Avaliar';
@@ -88,7 +89,7 @@ $string['configgradedecimals'] = 'Número de casas decimais a exibir nas avalia�
 $string['configgradinggrade'] = 'Nota máxima para a avaliação, por predefinição';
 $string['configmaxbytes'] = 'Tamanho máximo dos ficheiros submetidos em todos os workshops do site, por predefinição (sujeito aos limites da disciplina e outras configurações locais)';
 $string['configstrategy'] = 'Tipo de grelha de avaliação, por predefinição';
-$string['createsubmission'] = 'Inicie a preparação da sua submissão';
+$string['createsubmission'] = 'Comece a preparar a sua submissão';
 $string['daysago'] = 'há {$a} dias';
 $string['daysleft'] = 'restam {$a} dias';
 $string['daystoday'] = 'hoje';
@@ -107,6 +108,7 @@ $string['evaluation'] = 'Avaliação dos avaliadores';
 $string['evaluationmethod'] = 'Método de avaliação dos avaliadores';
 $string['evaluationmethod_help'] = 'O método de avaliação determina como a nota de avaliação é calculada. Pode recalcular as notas várias vezes, usando diferentes configurações, até estar satisfeito com o resultado.';
 $string['evaluationsettings'] = 'Definições da classificação de avaliação';
+$string['event_assessable_uploaded'] = 'Foi feito o upload de uma submissão.';
 $string['example'] = 'Trabalho exemplo';
 $string['exampleadd'] = 'Adicionar trabalho exemplo';
 $string['exampleassess'] = 'Avaliar trabalho exemplo';
@@ -126,8 +128,10 @@ $string['examplesmode'] = 'Avaliação dos trabalhos exemplo';
 $string['examplesubmissions'] = 'Trabalhos exemplo';
 $string['examplesvoluntary'] = 'Avaliação dos trabalhos exemplo é opcional';
 $string['feedbackauthor'] = 'Comentário para o autor do trabalho';
+$string['feedbackauthorattachment'] = 'Anexo';
 $string['feedbackby'] = 'Feedback por {$a}';
 $string['feedbackreviewer'] = 'Comentário para o avaliador';
+$string['feedbacksettings'] = 'Feedback';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -160,8 +164,7 @@ $string['latesubmissions'] = 'Submissões após data limite';
 $string['latesubmissionsallowed'] = 'O envio de trabalhos após data limite é permitido';
 $string['latesubmissions_desc'] = 'Permitir a submissão de trabalhos após a data limite especificada';
 $string['latesubmissions_help'] = 'Se ativar esta opção, o aluno pode enviar os seus trabalhos após a data limite ou durante a fase de avaliação. Trabalhos submetidos tardiamente, não podem ser editados.';
-$string['maxbytes'] = 'Tamanho máximo do ficheiro';
-$string['miscellaneoussettings'] = 'Configurações diversas';
+$string['maxbytes'] = 'Tamanho máximo do anexo da submissão';
 $string['modulename'] = 'Workshop';
 $string['modulename_help'] = 'A atividade Workshop permite inserir, analisar e avaliar o trabalho dos alunos pelos seus colegas.
 
@@ -185,6 +188,14 @@ $string['notoverridden'] = 'Não substituir';
 $string['noworkshops'] = 'Não existem workshops nesta disciplina';
 $string['noyoursubmission'] = 'Ainda não submeteu o seu trabalho';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Feedback global';
+$string['overallfeedbackfiles'] = 'Número máximo de anexos de feedback global';
+$string['overallfeedbackmaxbytes'] = 'Tamanho máximo dos anexos de feedback global';
+$string['overallfeedbackmode'] = 'Modo de feedback global';
+$string['overallfeedbackmode_0'] = 'Inativo';
+$string['overallfeedbackmode_1'] = 'Ativo e opcional';
+$string['overallfeedbackmode_2'] = 'Ativo e obrigatório';
+$string['overallfeedbackmode_help'] = 'Se ativar esta opção, um campo de texto é exibido no rodapé do formulário de avaliação para os avaliadores colocarem a avaliação global da submissão ou para adicionarem algum esclarecimento relacionado com a mesma.';
 $string['page-mod-workshop-x'] = 'Qualquer página do Workshop';
 $string['participant'] = 'Participante';
 $string['participantrevierof'] = 'Participante é avaliador de';
@@ -209,6 +220,7 @@ $string['recentsubmissions'] = 'Trabalhos submetidos:';
 $string['saveandclose'] = 'Gravar e fechar';
 $string['saveandcontinue'] = 'Gravar e continuar edição';
 $string['saveandpreview'] = 'Gravar e pré-visualizar';
+$string['saveandshownext'] = 'Guardar e mostrar próximo';
 $string['selfassessmentdisabled'] = 'Autoavaliação desativada';
 $string['showingperpage'] = 'A mostrar {$a} items por página';
 $string['showingperpagechange'] = 'Alterar ...';
@@ -285,7 +297,6 @@ $string['withoutsubmission'] = 'Avaliador sem trabalho submetido';
 $string['workshop:addinstance'] = 'Adicionar novo Workshop';
 $string['workshop:allocate'] = 'Atribuir trabalhos para avaliação';
 $string['workshop:editdimensions'] = 'Editar grelhas de avaliação';
-$string['workshopfeatures'] = 'Opções do workshop';
 $string['workshop:ignoredeadlines'] = 'Ignorar restrições de prazo';
 $string['workshop:manageexamples'] = 'Gerir trabalhos exemplo';
 $string['workshopname'] = 'Nome do workshop';
@@ -299,6 +310,7 @@ $string['workshop:viewallassessments'] = 'Ver todas as avaliações';
 $string['workshop:viewallsubmissions'] = 'Ver todos os trabalhos';
 $string['workshop:viewauthornames'] = 'Ver nomes dos autores';
 $string['workshop:viewauthorpublished'] = 'Ver autores dos trabalhos submetidos';
+$string['workshopviewed'] = 'Workshop visualizado';
 $string['workshop:viewpublishedsubmissions'] = 'Ver trabalhos publicados';
 $string['workshop:viewreviewernames'] = 'Ver nomes dos avaliadores';
 $string['yourassessment'] = 'A sua avaliação';

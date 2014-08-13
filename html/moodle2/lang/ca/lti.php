@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -346,6 +346,7 @@ En molts casos, aquesta opció no cal que sigui seleccionada. Els professors pod
 El únic cas en el qual aquesta opció hauria de ser seleccionada és si la configuració de l\'eina es fa sols per una mostra. Per exemple, si tots els llançaments de l\'eina porten l\'usuari a una pàgina de prova en lloc de a un recurs especific.';
 $string['size'] = 'Mida dels parametres';
 $string['submission'] = 'Submissió';
+$string['submissions'] = 'Trameses';
 $string['toggle_debug_data'] = 'Commuta dades de depuració';
 $string['tool_config_not_found'] = 'La configuració de l\'eina no s\'ha trobat per aquesta URL';
 $string['tool_settings'] = 'Configuració de l\'eina';

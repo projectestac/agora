@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_onetopic', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_onetopic', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   format_onetopic
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['currentsection'] = 'This topic';
 $string['hidefromothers'] = 'Hide topic';
 $string['hidetabsbar'] = 'Hide tabs bar';
 $string['hidetabsbar_help'] = 'Hide tabs bar in the course page. The navigation is with the sections navbar.';
+$string['movesectionto'] = 'Move current topic to left/rigth of:';
 $string['page-course-view-topics'] = 'Any course main page in onetopic format';
 $string['page-course-view-topics-x'] = 'Any course page in onetopic format';
 $string['pluginname'] = 'Onetopic format';

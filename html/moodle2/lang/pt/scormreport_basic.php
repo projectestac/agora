@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scormreport_basic', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scormreport_basic', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   scormreport_basic
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

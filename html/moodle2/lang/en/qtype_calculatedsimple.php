@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'There must be at least one wild card <strong>{x
 $string['converttocalculated'] = 'Save as a new regular calculated question';
 $string['findwildcards'] = 'Find the wild cards {x..} present in the correct answer formulas';
 $string['generatenewitemsset'] = 'Generate';
-$string['mustbenumeric'] = 'You must enter a number here.';
-$string['mustnotbenumeric'] = 'This can\'t be a number.';
 $string['newsetwildcardvalues'] = 'new set(s) of wild card(s) values';
 $string['pluginname'] = 'Calculated simple';
 $string['pluginnameadding'] = 'Adding a Simple calculated question';

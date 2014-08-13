@@ -1,6 +1,127 @@
 This files describes API changes in /theme/* themes,
 information provided here is intended especially for theme designer.
 
+=== 2.6.3 ===
+
+Notes:
+* z-index on #dock has been adjusted from 11000 to 5000 to prevent overlapping issues with fullscreen TinyMCE in all affected themes.
+* z-index on #page-header has also been adjusted from 99999 to 5000 on Overlay.
+
+=== 2.6 ===
+
+Removed themes:
+* "My Mobile" theme has been removed (see MDL-40874).
+  During the upgrade process "My Mobile" theme will be uninstalled and all its settings will be deleted.
+  "My Mobile" theme and its extending themes will fallback to the mobile friendly "Clean" theme.
+  If you wish to keep "My Mobile" theme and its settings, BEFORE UPGRADING you can copy the files from the
+  unmaintained plugin into theme/mymobile.
+  The unmaintained plugin can be downloaded at https://moodle.org/plugins/pluginversion.php?id=4563
+Notes:
+* There have been several changes made to the classes used on headings throughout Moodle.
+  This was done as per the Moodle HTML guidelines. h1 and h2 elements should have no classes, h3 and lower headings
+  may have descriptive classes only (any classes must properly describe the relation between the header and its content).
+* The parameters value for the following functions have been modified: core_renderer::heading() and core_renderer::heading_with_help().
+  This means that headings using the default options will no longer have the class "main" which was the previous default.
+* The file picker and activity chooser have been converted to use M.core.dialogue. This means the styles
+  for these elements have changed in the base and bootstrapbase themes and you will need to copy the new styles
+  if you are not inheriting from either one of these themes.
+* For the themes based on bootstrapbase please also read theme/bootstrapbase/upgrade.txt
+* A new component action_menu is now used to display editing icons for courses and blocks within a drop down. If you have a theme that doesn't
+  extend base, canvas, or clean then you will need to style for this new component within your theme.
+* The maintenance layout now has a special renderer that extends the core_renderer in order to prevent some methods from interacting
+  with the database. Please be aware that for the maintenance layout some methods now always return an empty string.
+  This has been done because it is important that during maintenance routines we don't show any links, interact with the database,
+  or interact with caches as doing so may lead to errors,
+  Please see the maintenance renderer notes below for details on the functions affected.
+
+Renderer changes:
+* core_course_renderer::course_section_cm_edit_actions has two new optional arguments and now uses and action_menu component.
+* core_course_renderer::course_section_cm has been altered to call core_course_renderer::course_section_cm_edit_actions with the two new arguments.
+* core_renderer::block_controls has a new optional argument (the block id) and has been altered to use the new action_menu component.
+* core_renderer::block_header has been altered to give core_renderer::block_controls the new second argument, the block id.
+* core_renderer::action_link has a new argument, and optional icon that can be rendererd into the link.
+
+Selector changes:
+* Changes to the classes given to the header produced when rendering a single section within a course.
+  .section-navigation.header.headingblock => .section-navigation.navigationtitle
+* Changes to the classes used when producing the course information box that lists courses.
+  The name (h3|div} of both courses and categories used to have .name, for courses in the list this was changed to .coursename and for categories in the list this was changed to .categoryname.
+* Classes ".header and .headingblock" were removed from all front page content headings.
+* Classes ".headingblock .header .tag-header" were removed from the tag index page
+
+Maintenance renderer notes:
+When the maintenance layout is being used $OUTPUT will be an instance of core_renderer_maintenance.
+This renderer mimics the core_renderer except that the following functions always return an empty string.
+* core_renderer_maintenance::block
+* core_renderer_maintenance::blocks
+* core_renderer_maintenance::blocks_for_regions
+* core_renderer_maintenance::course_header
+* core_renderer_maintenance::course_footer
+* core_renderer_maintenance::course_content_header
+* core_renderer_maintenance::course_content_footer
+* core_renderer_maintenance::custom_menu
+* core_renderer_maintenance::file_picker
+* core_renderer_maintenance::htmllize_file_tree
+* core_renderer_maintenance::lang_menu
+* core_renderer_maintenance::login_info
+* core_renderer_maintenance::user_picture
+
+If you have overridden methods of the core_renderer in your theme and want those changes to be shown during times of maintenance you
+will also need to override the core_renderer_maintenance and copy your customisations from the core_renderer to that.
+
+=== 2.5.1 ===
+
+Notes:
+* Block drag and drop functionality has been improved so that it works regardless of what block regions you use
+  or how many block regions you have. In order to benefit from this improvement you must convert your calls from
+  $OUTPUT->blocks_for_region() to $OUTPUT->blocks.
+
+Optional changes:
+* Theme config can nominate block regions to swap if the user is using a rtl languages such as Hebrew.
+  $THEME->blockrtlmanipulations should be an associative array, the key is the original block region, and the
+  value should be where the blocks in that region should be displayed.
+* New $OUTPUT methods to replace code that was previously using $PAGE. Converting to these methods is optional
+  but highly recommended. Refer to the bootstrapbase layouts for examples.
+  - $OUTPUT->body_attributes() returns a string you can use for the body id and classes.
+  - $OUTPUT->blocks() returns HTML to display a block region and all of its blocks. This adds data attributes
+    that ensure drag and drop of blocks will work no matter what block regions or how many you have.
+  - $OUTPUT->page_heading() returns the page heading. Replaces $PAGE->heading.
+  - $OUTPUT->page_heading_button() returns the button to display with the heading. Replaces $page->button.
+  - $OUTPUT->page_doc_link() returns the link to moodle docs for the page. Replaces page_doc_link().
+  - $OUTPUT->page_heading_menu() returns the heading menu for the page. Replaces $PAGE->headingmenu.
+  - $OUTPUT->page_title() Returns the title to use for the head section.
+  - $OUTPUT->favicon() returns the URL to the favicon.
+
+Renderer changes:
+* core_renderer::navbar now returns an empty string if there are no navigation items to display.
+* core_renderer::custom_menu now adds a class "custom_menu" to the div that contains the HTML for the custom menu.
+
+=== 2.5 ===
+
+required changes:
+* Functions core_course_renderer::course_category_tree() and course_category_tree_category()
+  are deprecated
+* Significant changes in rendering of courses and categories listings, lots of CSS classes changed,
+  several functions such as print_courses(), print_whole_category_list(), print_category_info()
+  are moved to course renderer.
+  See http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+
+DOM changes:
+* changed the h1 title in the help popup to a h2.
+* new setting $THEME->yuicssmodules = array('cssreset', 'cssfonts', 'cssgrids', 'cssbase'); which
+  allows themes to use different CSS reset normalisers such as cssnormalize YUI module.
+* Re-wrote the user profile views to definition lists.
+* Re-wrote the table for the course completion status block to use html_table - added some CSS classes to
+  the table in the process (see MDL-35608).
+* Cancel buttons have the class btn-cancel.
+* Added a z-index for the div#dateselector-calendar-panel so that the calendar pop-up renders above
+  the filemanager when they overlap, ie. the course settings page (see MDL-39047).
+* Trivial change of CSS selectors used to display plugin status at the plugins overview
+  screen (#plugins-control-panel).
+
+Renderer changes:
+* Mymobile theme changed to support more verbose move-block-here descriptions.
+
 === 2.4 ===
 
 required changes:

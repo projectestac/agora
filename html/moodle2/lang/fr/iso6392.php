@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'iso6392', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'iso6392', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   iso6392
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -162,8 +162,8 @@ $string['fin'] = 'Finnois';
 $string['fiu'] = 'Langues finno-ougriennes';
 $string['fon'] = 'Fon';
 $string['fra'] = 'Français';
-$string['frm'] = 'Moyen français (1400-1600)';
-$string['fro'] = 'Ancien français (842-environ 1400)';
+$string['frm'] = 'Moyen français (1400–1600)';
+$string['fro'] = 'Ancien français (842–env. 1400)';
 $string['frr'] = 'Frison septentrional';
 $string['frs'] = 'Frison oriental';
 $string['fry'] = 'Frison occidental';

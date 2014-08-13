@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_afterburner', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_afterburner', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_afterburner
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -57,7 +57,7 @@ $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be 
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer of every page.';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Please add the URL to your new logo only if you want to replace the default logo for this theme.<br />For your information, the default logo is a JPG image 320px (wide) by 75px (high)';
+$string['logodesc'] = 'Please add your custom logo if you want to replace the default logo for this theme.<br />For your information, the default logo is a JPG image 320px (wide) by 75px (high)';
 $string['pluginname'] = 'Afterburner';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';

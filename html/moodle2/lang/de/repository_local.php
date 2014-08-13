@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_local', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_local', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_local
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Konfiguration für lokales Repository';
+$string['configplugin'] = 'Einstellungen für \'Dateien in Kursen\'';
 $string['currentusefiles'] = 'Aktuell genutzte Dateien';
 $string['emptyfilelist'] = 'Keine Dateien vorhanden';
 $string['local:view'] = 'Server-Dateiverzeichnis anzeigen';
 $string['notitle'] = 'unbenannt';
-$string['pluginname'] = 'Serverdateien';
+$string['pluginname'] = 'Dateien in Kursen';
 $string['pluginname_help'] = 'Repository für ein lokales Moodle';
 $string['remember'] = 'Eingeloggt bleiben';

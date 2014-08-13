@@ -1,4 +1,32 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Moodle's formal_white theme
+ *
+ * DO NOT MODIFY THIS THEME!
+ * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
+ *
+ * For full information about creating Moodle themes, see:
+ * http://docs.moodle.org/dev/Themes_2.0
+ *
+ * @package   theme_formal_white
+ * @copyright 2013 Mediatouch 2000, mediatouch.it
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -26,6 +54,14 @@ function formal_white_user_settings($css, $theme) {
         $framemargin = $theme->settings->framemargin;
     }
     $css = formal_white_set_framemargin($css, $framemargin);
+
+    // Set the images according to color trend
+    if (!isset($theme->settings->trendcolor)) {
+        $trendcolor = 'mink'; // default
+    } else {
+        $trendcolor = $theme->settings->trendcolor;
+    }
+    $css = formal_white_set_trendcolor($css, $trendcolor);
 
     // Set the page header background color
     if (empty($theme->settings->headerbgc)) {
@@ -86,8 +122,6 @@ function formal_white_user_settings($css, $theme) {
     return $css;
 }
 
-
-
 /**
  * Sets the link color variable in CSS
  *
@@ -107,6 +141,111 @@ function formal_white_set_framemargin($css, $framemargin) {
     $tag = '[[calculated:headermenumargin]]';
     $css = str_replace($tag, $calculated.'px', $css);
 
+    return $css;
+}
+
+function formal_white_set_trendcolor($css, $trendcolor) {
+    // __setting_trendcolor__ is part of URLS so it is already between double square bracket.
+    // I can not enclose it between double square bracket once again otherwise images path parser get confused.
+    $tag = urlencode('__setting_trendcolor__'); // urlencode is useless but it is correct to put it here
+    $css = str_replace($tag, $trendcolor, $css);
+
+    // of the basis of the general choosed trend, I need some colour definition.
+    switch ($trendcolor) {
+        case 'blueberry':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#CEE5FD', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#DAF1FF', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#CDE2F3', $css);
+            break;
+        case 'lemon':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#FFEA68', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#FFEB9A', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#F7DA41', $css);
+            break;
+        case 'lime':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#EBEDB1', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#F0F5BB', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#E2E499', $css);
+            break;
+        case 'mink':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#E3DFD4', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#EFEFEF', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#E3DFD4', $css);
+            break;
+        case 'orange':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#FFCF88', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#FFD46C', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#FDC06D', $css);
+            break;
+        case 'peach':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#FFCEB8', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#FCD3BC', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#F7C099', $css);
+            break;
+        case 'silver':
+            // .courses .coursebox
+            $tag = '[[setting:hovercolor]]';
+            $css = str_replace($tag, '#E0DFDD', $css);
+
+            // page background
+            $tag = '[[setting:pagebackground]]';
+            $css = str_replace($tag, '#EFF0F2', $css);
+
+            // block header background
+            $tag = '[[setting:blockheaderbackground]]';
+            $css = str_replace($tag, '#E0DFDD', $css);
+            break;
+        default:
+            debugging('It seems a colour has been added to the formal_white trend colours folder but was not fully managed. The code must be updated by a developer.');
+    }
     return $css;
 }
 
@@ -202,4 +341,28 @@ function formal_white_set_customcss($css, $customcss) {
     $tag = '[[setting:customcss]]';
     $css = str_replace($tag, $customcss, $css);
     return $css;
+}
+
+/**
+ * Serves formal white files.
+ *
+ * @param stdClass $course
+ * @param stdClass $cm
+ * @param context $context
+ * @param string $filearea
+ * @param type $args
+ * @param array $forcedownload
+ * @param array $options
+ * @return bool
+ */
+function theme_formal_white_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'customlogourl') {
+        $theme = theme_config::load('formal_white');
+        return $theme->setting_file_serve('customlogourl', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'frontpagelogourl') {
+        $theme = theme_config::load('formal_white');
+        return $theme->setting_file_serve('frontpagelogourl', $args, $forcedownload, $options);
+    } else {
+        send_file_not_found();
+    }
 }

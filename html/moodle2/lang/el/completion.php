@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'completion', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -77,8 +77,6 @@ $string['completionicons_help'] = '<p>
 </p>';
 $string['completion_manual'] = 'Κάθε χρήστης μπορεί χειροκίνητα να σημειώσει τη δραστηριότητα ως ολοκληρωμένη';
 $string['completion_none'] = 'Δεν τηρούνται στοιχεία για την ολοκλήρωση της δραστηριότητας';
-$string['completionstartonenrol'] = 'Παρακολούθηση ολοκλήρωσης αρχίζει με την εγγραφή στο μάθημα';
-$string['completionstartonenrolhelp'] = 'Ξεκινά η παρακολούθηση της προόδου του μαθητή στην ολοκλήρωση του μαθήματος μετά την εγγραφή του στο μάθημα';
 $string['completion-title-manual-n'] = 'Σημειώστε ως ολοκληρωμένο';
 $string['completion-title-manual-y'] = 'Σημειώστε ως μη ολοκληρωμένο';
 $string['completionusegrade'] = 'Απαιτείται βαθμός';

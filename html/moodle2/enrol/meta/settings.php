@@ -17,8 +17,7 @@
 /**
  * Meta enrolment plugin settings and presets.
  *
- * @package    enrol
- * @subpackage meta
+ * @package    enrol_meta
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -37,8 +36,10 @@ if ($ADMIN->fulltree) {
         $settings->add(new admin_setting_configcheckbox('enrol_meta/syncall', get_string('syncall', 'enrol_meta'), get_string('syncall_desc', 'enrol_meta'), 1));
 
         $options = array(
-            ENROL_EXT_REMOVED_UNENROL        => get_string('extremovedunenrol', 'enrol'),
-            ENROL_EXT_REMOVED_SUSPENDNOROLES => get_string('extremovedsuspendnoroles', 'enrol'));
-        $settings->add(new admin_setting_configselect('enrol_meta/unenrolaction', get_string('extremovedaction', 'enrol'), get_string('extremovedaction_help', 'enrol'), ENROL_EXT_REMOVED_UNENROL, $options));
+            ENROL_EXT_REMOVED_UNENROL        => get_string('extremovedunenrol', 'core_enrol'),
+            ENROL_EXT_REMOVED_SUSPEND        => get_string('extremovedsuspend', 'core_enrol'),
+            ENROL_EXT_REMOVED_SUSPENDNOROLES => get_string('extremovedsuspendnoroles', 'core_enrol'),
+        );
+        $settings->add(new admin_setting_configselect('enrol_meta/unenrolaction', get_string('extremovedaction', 'enrol'), get_string('extremovedaction_help', 'enrol'), ENROL_EXT_REMOVED_SUSPENDNOROLES, $options));
     }
 }

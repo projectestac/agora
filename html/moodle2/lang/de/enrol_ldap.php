@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,18 +30,24 @@ $string['assignrolefailed'] = 'Fehler beim Zuweisen der Rolle \'{$a->role_shortn
 $string['autocreate'] = '<p>Kurse können automatisch in Moodle angelegt werden, wenn es in LDAP Anmeldungen zu einem Kurs gibt, der in Moodle noch nicht existiert.</p><p>Wenn Sie die automatische Kurserstellung nutzen, wird empfohlen, die folgenden Fähigkeiten aus den relevanten Rollen zu entfernen: moodle/course:changeidnumber, moodle/course:changeshortname, moodle/course:changefullname and moodle/course:changesummary.</p>';
 $string['autocreate_key'] = 'Automatisches Erstellen';
 $string['autocreation_settings'] = 'Einstellungen für automatisch angelegte Kurse';
+$string['autoupdate_settings'] = 'Einstellungen für automatisch aktualisierte Kurse';
+$string['autoupdate_settings_desc'] = '<p>Wählen Sie Felder, die bei der Synchronisierung aktualisiert werden sollen (enrol/ldap/cli/sync.php)</p><p>Sobald mindestens ein Feld gewählt, wird die Aktualisierung durchgeführt.';
 $string['bind_dn'] = 'Wenn Sie einen sog. bind-user für die LDAP-Suche nach Nutzer/innen verwenden wollen, geben Sie diesen  hier an, z.B. \'cn=ldapuser,ou=public,o=org\'.';
 $string['bind_dn_key'] = 'Anmeldename des Bind Users';
 $string['bind_pw'] = 'Kennwort für den Bind-User';
 $string['bind_pw_key'] = 'Kennwort';
 $string['bind_settings'] = 'Bind-Einstellungen';
 $string['cannotcreatecourse'] = 'Kurs kann nicht angelegt werden: Notwendige Daten fehlen im LDAP-Datensatz!';
+$string['cannotupdatecourse'] = 'Kurs kann nicht aktualisiert werden: Notwendige Daten fehlen im LDAP-Datensatz! Kurs-ID \'{$a->idnumber}\'';
+$string['cannotupdatecourse_duplicateshortname'] = 'Kurs kann nicht aktualisiert werden: Doppelter kurzer Kursname! Der Kurs mit der Kurs-ID \'{$a->idnumber}\' wird übersprungen...';
 $string['category'] = 'Kursbereich für automatisch angelegte Kurse';
 $string['category_key'] = 'Kategorie';
 $string['contexts'] = 'LDAP Kontexte';
 $string['couldnotfinduser'] = 'Nutzer \'{$a}\' konnte nicht gefunden werden, überspringen';
 $string['course_fullname'] = 'Optional: LDAP-Feld für vollständigen Kursnamen';
 $string['course_fullname_key'] = 'Vollständiger Name';
+$string['course_fullname_updateonsync'] = 'Vollständigen Kursnamen bei der Synchronisierung aktualisieren';
+$string['course_fullname_updateonsync_key'] = 'Vollständigen Kursnamen aktualisieren';
 $string['course_idnumber'] = 'Bezeichner zur eindeutigen Identifizierung in LDAP, normalerweise <em>cn</em> oder <em>uid</em>. Es wird empfohlen, den Wert zu sperren, wenn Sie Kurse automatisiert anlegen wollen.';
 $string['course_idnumber_key'] = 'ID-Nummer';
 $string['coursenotexistskip'] = 'Der Kurs \'{$a}\' existiert nicht und die Autocreation ist deaktiviert, überspringen';
@@ -50,8 +56,14 @@ $string['course_search_sub_key'] = 'Subkontexte';
 $string['course_settings'] = 'Einstellungen für Kurse';
 $string['course_shortname'] = 'Optional: LDAP-Feld für die Kurzbezeichnung des Kurses';
 $string['course_shortname_key'] = 'Kurzname';
+$string['course_shortname_updateonsync'] = 'Kurzen Kursnamen bei der Synchronisierung aktualisieren';
+$string['course_shortname_updateonsync_key'] = 'Kurzen Kursnamen aktualisieren';
 $string['course_summary'] = 'Optional: LDAP-Feld für die Beschreibung des Kurses';
 $string['course_summary_key'] = 'Zusammenfassung';
+$string['course_summary_updateonsync'] = 'Beschreibung bei der Synchronisierung aktualisieren';
+$string['course_summary_updateonsync_key'] = 'Beschreibung aktualisieren';
+$string['courseupdated'] = 'Kurs mit der Kurs-ID \'{$a->idnumber}\' wurde erfolgreich aktualisiert.';
+$string['courseupdateskipped'] = 'Kurs mit der Kurs-ID \'{$a->idnumber}\' braucht keine Aktualisierung und wird übersprungen...';
 $string['createcourseextid'] = 'CREATE Nutzer sollte in einen nicht bestehenden Kurs eingetragen werden \'{$a->courseextid}';
 $string['createnotcourseextid'] = 'Nutzereinschreibung in einen nichtvorhandenen Kurs \'{$a->courseextid}\'';
 $string['creatingcourse'] = 'Kurs \'{$a}\' wird erstellt...';

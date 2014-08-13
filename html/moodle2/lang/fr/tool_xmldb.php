@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_xmldb', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_xmldb', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_xmldb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -69,7 +69,7 @@ Vous pouvez copier alors ces instructions et les lancer avec votre interface SQL
 Il est vivement recommandé d\'avoir la dernière version (version +) disponible pour votre version de Moodle avant de lancer la recherche des index manquants.
 
 Cette fonctionnalité n\'effectue aucune modification de la base de données (elle ne fait que la lire), et peut donc être lancée à tout instant.';
-$string['confirmcheckoraclesemantics'] = 'Cette fonctionnalité va rechercher des <a href="http://tracker.moodle.org/browse/MDL-29322">colonnes Oracle varchar2 utilisant la sémantique BYTE</a> sur votre serveur Moodle et générer automatiquement (sans les lancer !) les instructions SQL permettant de convertir ces colonnes de sorte qu\'elles utilisent la sémantique CHAR (meilleur pour la compatibilité et pouvant accepter des contenus de longueur plus grande).
+$string['confirmcheckoraclesemantics'] = 'Cette fonctionnalité va rechercher des <a href="http://tracker.moodle.org/browse/MDL-29322">colonnes Oracle varchar2 utilisant la sémantique BYTE</a> sur votre serveur Moodle et générer automatiquement (sans les lancer !) les instructions SQL permettant de convertir ces colonnes de sorte qu\'elles utilisent la sémantique CHAR (meilleur pour la compatibilité et pouvant accepter des contenus de longueur plus grande).
 
 Vous pourrez  copier ces instructions et les lancer depuis votre interface SQL préférée (n\'oubliez pas de sauvegarder vos données avant de le faire).
 
@@ -213,7 +213,11 @@ $string['wronglengthforenum'] = 'Longueur du champ énumération incorrecte';
 $string['wrongnumberofreffields'] = 'Nombre incorrect de champs de référence';
 $string['wrongoraclesemantics'] = 'Sémantiques Oracle BYTE incorrectes trouvées';
 $string['wrongreservedwords'] = 'Mots réservés utilisés actuellement<br />(les noms des tables ne sont pas importants si vous utilisez $CFG->prefix)';
-$string['yesmissingindexesfound'] = 'Des index manquants ont été trouvés dans votre base de données. Voici les détails et instructions SQL à exécuter avec votre interface SQL favorite pour les créer. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.<br /><br />Après les avoir exécutés, il vous est vivement recommandé de lancer cet utilitaire une nouvelle fois afin de vérifier qu\'il ne reste plus d\'index manquant.';
-$string['yeswrongdefaultsfound'] = 'Certaines valeurs par défaut incohérentes ont été trouvées dans votre base de données. Voici les détails et instructions SQL à exécuter avec votre interface SQL favorite pour les corriger. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.<br /><br />Après les avoir exécutées, il vous est vivement recommandé de lancer cet utilitaire une nouvelle fois afin de vérifier qu\'il ne reste plus de valeurs par défaut incohérentes.';
-$string['yeswrongintsfound'] = 'Des entiers incorrectement définis ont été trouvés dans votre base de données. Voici les détails et instructions SQL à exécuter avec votre interface SQL favorite pour les créer. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.<br /><br />Après les avoir exécutés, il vous est vivement recommandé de lancer cet utilitaire une nouvelle fois afin de vérifier qu\'il ne reste plus d\'entiers incorrectement définis.';
-$string['yeswrongoraclesemanticsfound'] = 'Des colonnes Oracle varchar2 utilisant la sémantique BYTE ont été trouvées dans votre base de données. Voici des détails et les instructions SQL à lancer depuis votre interface SQL préférée pour corriger ceci (n\'oubliez pas de sauvegarder vos données avant de le faire).<br /><br /> Il est vivement recommandé d\'effectuer une nouvelle fois cette recherche après avoir lancé ces commandes, afin de vous assurer qu\'il ne reste plus de sémantiques incorrectes.';
+$string['yesmissingindexesfound'] = '<p>Des index manquants ont été trouvés dans votre base de données. Voici les détails et instructions SQL à exécuter avec votre interface SQL favorite pour les créer. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.</p>
+<p>Après les avoir exécutés, il vous est vivement recommandé de lancer cet utilitaire une nouvelle fois afin de vérifier qu\'il ne reste plus d\'index manquant.</p>';
+$string['yeswrongdefaultsfound'] = '<p>Certaines valeurs par défaut incohérentes ont été trouvées dans votre base de données. Voici les détails et instructions SQL à exécuter avec votre interface SQL favorite pour les corriger. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.</p>
+<p>Après les avoir exécutées, il vous est vivement recommandé de lancer cet utilitaire une nouvelle fois afin de vérifier qu\'il ne reste plus de valeurs par défaut incohérentes.</p>';
+$string['yeswrongintsfound'] = '<p>Des entiers incorrectement définis ont été trouvés dans votre base de données. Voici les détails et instructions SQL à exécuter avec votre interface SQL favorite pour les créer. N\'oubliez pas d\'effectuer une sauvegarde de la base de données avant de lancer ces commandes.</p>
+<p>Après les avoir exécutés, il vous est vivement recommandé de lancer cet utilitaire une nouvelle fois afin de vérifier qu\'il ne reste plus d\'entiers incorrectement définis.</p>';
+$string['yeswrongoraclesemanticsfound'] = '<p>Des colonnes Oracle varchar2 utilisant la sémantique BYTE ont été trouvées dans votre base de données. Voici des détails et les instructions SQL à lancer depuis votre interface SQL préférée pour corriger ceci (n\'oubliez pas de sauvegarder vos données avant de le faire).</p>
+<p>Il est vivement recommandé d\'effectuer une nouvelle fois cette recherche après avoir lancé ces commandes, afin de vous assurer qu\'il ne reste plus de sémantiques incorrectes.</p>';

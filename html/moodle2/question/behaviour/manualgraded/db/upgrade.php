@@ -37,7 +37,7 @@ function xmldb_qbehaviour_manualgraded_upgrade($oldversion) {
     // Moodle v2.4.0 release upgrade line
     // Put any upgrade step following this
 
-    if ($oldversion < 2012112901) {
+    if ($oldversion < 2013050200) {
         // Hide the manualgraded behaviour from the list of behaviours that users
         // can select in the user-interface. If a user accidentally chooses manual
         // graded behaviour for a quiz, there is no way to get the questions automatically
@@ -56,10 +56,10 @@ function xmldb_qbehaviour_manualgraded_upgrade($oldversion) {
         }
 
         // Manual graded question behaviour savepoint reached.
-        upgrade_plugin_savepoint(true, 2012112901, 'qbehaviour', 'manualgraded');
+        upgrade_plugin_savepoint(true, 2013050200, 'qbehaviour', 'manualgraded');
     }
 
-    if ($oldversion < 2012112902) {
+    if ($oldversion < 2013050800) {
         // Also, fix any other admin settings that currently select manualgraded behaviour.
 
         // Work out a sensible default alternative to manualgraded.
@@ -83,8 +83,15 @@ function xmldb_qbehaviour_manualgraded_upgrade($oldversion) {
         }
 
         // Manual graded question behaviour savepoint reached.
-        upgrade_plugin_savepoint(true, 2012112902, 'qbehaviour', 'manualgraded');
+        upgrade_plugin_savepoint(true, 2013050800, 'qbehaviour', 'manualgraded');
     }
+
+    // Moodle v2.5.0 release upgrade line.
+    // Put any upgrade step following this.
+
+
+    // Moodle v2.6.0 release upgrade line.
+    // Put any upgrade step following this.
 
     return true;
 }

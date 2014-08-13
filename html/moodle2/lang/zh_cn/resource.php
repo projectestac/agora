@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -78,8 +78,6 @@ $string['popupresource'] = '该资源将出现在一个弹出窗口中.';
 $string['popupresourcelink'] = '若不行, 点击这里: {$a}';
 $string['popupwidth'] = '弹出窗口宽度（单位：像素）';
 $string['popupwidthexplain'] = '指定弹出窗口的缺省宽度。';
-$string['printheading'] = '显示资源名';
-$string['printheadingexplain'] = '在内容上方显示资源名？某些显示类型就算开启此选项也不会显示资源名。';
 $string['printintro'] = '显示资源描述';
 $string['printintroexplain'] = '在内容下方显示资源描述？某些显示类型就算开启此选项也不会显示描述。';
 $string['resourcecontent'] = '文件和子目录';

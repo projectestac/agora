@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -124,7 +124,7 @@ $string['passwordhandling'] = '비밀번호 처리';
 $string['plaintext'] = '단순 텍스트';
 $string['pluginnotenabled'] = '인증 플러그인 \'{$a}\'은 활성화되어 있지 않습니다.';
 $string['pluginnotinstalled'] = '인증 플러그인 \'{$a}\'은 설치되어 있지 않습니다.';
-$string['potentialidps'] = '다음 계정을 사용하여 로그인:';
+$string['potentialidps'] = '이전에 로그아웃한 곳과 다른 곳에서 접속을 자주하십니까?<br />다음 중 접속하는 곳의 위치를 선택하세요: ';
 $string['recaptcha'] = 'reCAPTCHA';
 $string['recaptcha_help'] = '<h2>설명</h2>
 <p>캡차(CAPTCHA)는 사용자가 사람인지 컴퓨터인지를 구별해 낼 수 있는 프로그램입니다. 대개 스팸을 생성해내는 "봇(bots)" 혹은 자동화된 프로그램에 의해 사이트의 오용을 막기 위해 많은 웹사이트에서 캡차를 이용합니다. 어떤 컴퓨터 프로그램도 왜곡되어 있는 문서를 사람처럼 읽어내지 못하기 때문에, 봇들은 캡차에 의해 보호된 사이트를 누비고 다닐 수 없게 됩니다.</p>

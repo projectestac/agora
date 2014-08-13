@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,6 +86,14 @@ $string['errorcoursecontextnotvalid'] = 'Não pode executar funções no context
 $string['errorinvalidparam'] = 'O parâmetro "{$a}" é inválido.';
 $string['errornotemptydefaultparamarray'] = 'O parâmetro de descrição do web service designado por "{$a}" é uma estrutura individual ou múltipla. O valor predefinido tem que ser um array vazio. Consulte a descrição do web service.';
 $string['erroroptionalparamarray'] = 'O parâmetro de descrição do web service designado por "{$a}" é uma estrutura indvidual ou múltipla. Não pode ser definido como VALUE_OPTIONAL. Consulte a descrição do web service.';
+$string['event_webservice_function_called'] = 'Função de web service chamada';
+$string['event_webservice_login_failed'] = 'O login do web service  falhou';
+$string['event_webservice_service_created'] = 'Web service criado';
+$string['event_webservice_service_updated'] = 'Web service atualizado';
+$string['event_webservice_service_user_added'] = 'Utilizador do web service atualizado';
+$string['event_webservice_service_user_removed'] = 'Utilizador do web service removido';
+$string['event_webservice_token_created'] = 'Token do web service criado';
+$string['event_webservice_token_sent'] = 'Token do web service enviado';
 $string['execute'] = 'Executar';
 $string['executewarnign'] = 'AVISO: Se carregar em "Executar" serão realizadas alterações irreversíveis na base de dados!';
 $string['externalservice'] = 'Serviço externo';
@@ -120,6 +128,7 @@ $string['missingusername'] = 'Não indicou o nome de utilizador';
 $string['missingversionfile'] = 'Erro de codificação: está em falta o ficheiro version.php no componente {$a}';
 $string['mobilewsdisabled'] = 'Desativado';
 $string['mobilewsenabled'] = 'Ativado';
+$string['nocapabilitytouseparameter'] = 'O utilizador não tem a capacidade necessária para usar o parâmetro {$a}';
 $string['nofunctions'] = 'Não existem funções no serviço';
 $string['norequiredcapability'] = 'Não é necessária nenhuma capacidade';
 $string['notoken'] = 'A lista de tokens está vazia.';
@@ -184,6 +193,8 @@ $string['tokencreator'] = 'Criador';
 $string['unknownoptionkey'] = 'Opção da chave desconhecida ({$a})';
 $string['unnamedstringparam'] = 'Um parâmetro da string está anónimo.';
 $string['updateusersettings'] = 'Atualizar';
+$string['uploadfiles'] = 'Pode fazer upload de ficheiros';
+$string['uploadfiles_help'] = 'Se ativar esta opção, qualquer utilizador pode fazer upload de ficheiros com as suas chaves de segurança para a sua própria área de ficheiros privados ou para uma área de temporária. Quaisquer quotas do ficheiro de utilizador se aplicam.';
 $string['userasclients'] = 'Utilizadores como clientes com token';
 $string['userasclientsdescription'] = 'Os passos seguintes mostram como configurar os web services para utilizadores como clientes. Estes passos ajudam também na configuração do método de autenticação das chaves de segurança (tokens) recomendado. Neste caso, o utilizador gerará o seu token a partir da página "Chaves de segurança", disponível nas configurações da página "O meu perfil".';
 $string['usermissingcaps'] = 'Capacidades em falta: {$a}';

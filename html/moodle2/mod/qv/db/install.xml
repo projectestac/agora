@@ -1,96 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/qv/db" VERSION="20130228" COMMENT="XMLDB file for Moodle mod/qv"
+<XMLDB PATH="mod/qv/db" VERSION="20140529" COMMENT="XMLDB file for Moodle mod/qv"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="qv" COMMENT="Main information about each assessment" NEXT="qv_assignments">
-		<FIELDS>
-			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="course"/>
-			<FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="name"/>
-			<FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="course" NEXT="intro"/>
-			<FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="name" NEXT="introformat"/>
-			<FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="text format of intro field" PREVIOUS="intro" NEXT="reference"/>
-			<FIELD NAME="reference" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="File or url referenced" PREVIOUS="introformat" NEXT="skin"/>
-			<FIELD NAME="skin" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" PREVIOUS="reference" NEXT="assessmentlang"/>
-			<FIELD NAME="assessmentlang" TYPE="char" LENGTH="10" NOTNULL="true" DEFAULT="ca" SEQUENCE="false" PREVIOUS="skin" NEXT="maxdeliver"/>
-			<FIELD NAME="maxdeliver" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="-1" SEQUENCE="false" PREVIOUS="assessmentlang" NEXT="showcorrection"/>
-			<FIELD NAME="showcorrection" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="maxdeliver" NEXT="showinteraction"/>
-			<FIELD NAME="showinteraction" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" PREVIOUS="showcorrection" NEXT="ordersections"/>
-			<FIELD NAME="ordersections" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="showinteraction" NEXT="orderitems"/>
-			<FIELD NAME="orderitems" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="ordersections" NEXT="target"/>
-			<FIELD NAME="target" TYPE="char" LENGTH="10" NOTNULL="true" DEFAULT="self" SEQUENCE="false" PREVIOUS="orderitems" NEXT="grade"/>
-			<FIELD NAME="grade" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="target" NEXT="width"/>
-			<FIELD NAME="width" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="grade" NEXT="height"/>
-			<FIELD NAME="height" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="width" NEXT="timeavailable"/>
-			<FIELD NAME="timeavailable" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="height" NEXT="timedue"/>
-			<FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timeavailable"/>
-		</FIELDS>
-		<KEYS>
-			<KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv"/>
-		</KEYS>
-		<INDEXES>
-			<INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
-		</INDEXES>
-	</TABLE>
-    <TABLE NAME="qv_assignments" COMMENT="Stores user assignments for each course" PREVIOUS="qv" NEXT="qv_sections">
+    <TABLE NAME="qv" COMMENT="Main information about each assessment">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="qvid"/>
-        <FIELD NAME="qvid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="userid"/>
-        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="qvid" NEXT="sectionorder"/>
-        <FIELD NAME="sectionorder" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="userid" NEXT="itemorder"/>
-        <FIELD NAME="itemorder" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="sectionorder" NEXT="idnumber"/>
-        <FIELD NAME="idnumber" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="" SEQUENCE="false" PREVIOUS="itemorder"/>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="text format of intro field"/>
+        <FIELD NAME="reference" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="File or url referenced"/>
+        <FIELD NAME="skin" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="assessmentlang" TYPE="char" LENGTH="10" NOTNULL="true" DEFAULT="ca" SEQUENCE="false"/>
+        <FIELD NAME="maxdeliver" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="-1" SEQUENCE="false"/>
+        <FIELD NAME="showcorrection" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="showinteraction" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="ordersections" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="orderitems" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="target" TYPE="char" LENGTH="10" NOTNULL="true" DEFAULT="self" SEQUENCE="false"/>
+        <FIELD NAME="grade" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="width" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="height" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timeavailable" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_assignments" NEXT="qv_assignments_qvid"/>
-        <KEY NAME="qv_assignments_qvid" TYPE="foreign" FIELDS="qvid" REFTABLE="qv" REFFIELDS="id" PREVIOUS="primary"/>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv"/>
       </KEYS>
       <INDEXES>
-        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid" />
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="qv_sections" COMMENT="Stores all user assignment sections" PREVIOUS="qv_assignments" NEXT="qv_messages">
+    <TABLE NAME="qv_assignments" COMMENT="Stores user assignments for each course">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="assignmentid"/>
-        <FIELD NAME="assignmentid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="sectionid"/>
-        <FIELD NAME="sectionid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="assignmentid" NEXT="responses"/>
-        <FIELD NAME="responses" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="sectionid" NEXT="scores"/>
-        <FIELD NAME="scores" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="responses" NEXT="pending_scores"/>
-        <FIELD NAME="pending_scores" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="scores" NEXT="attempts"/>
-        <FIELD NAME="attempts" TYPE="int" LENGTH="6" NOTNULL="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="pending_scores" NEXT="state"/>
-        <FIELD NAME="state" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="-1 not_started;0 started; 1 delivered;2 corrected" PREVIOUS="attempts" NEXT="time"/>
-        <FIELD NAME="time" TYPE="char" LENGTH="8" NOTNULL="true" DEFAULT="00:00:00" SEQUENCE="false" PREVIOUS="state"/>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="qvid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sectionorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="itemorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="idnumber" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_sections" NEXT="qv_sections_sectionid"/>
-        <KEY NAME="qv_sections_sectionid" TYPE="foreign" FIELDS="assignmentid" REFTABLE="qv_assignments" REFFIELDS="id" PREVIOUS="primary"/>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_assignments"/>
+        <KEY NAME="qv_assignments_qvid" TYPE="foreign" FIELDS="qvid" REFTABLE="qv" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="qv_sections" COMMENT="Stores all user assignment sections">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="assignmentid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sectionid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="responses" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="scores" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="pending_scores" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="attempts" TYPE="int" LENGTH="6" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="state" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="-1 not_started;0 started; 1 delivered;2 corrected"/>
+        <FIELD NAME="time" TYPE="char" LENGTH="8" NOTNULL="true" DEFAULT="00:00:00" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_sections"/>
+        <KEY NAME="qv_sections_sectionid" TYPE="foreign" FIELDS="assignmentid" REFTABLE="qv_assignments" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="qv_messages" COMMENT="Stores user messages for each assignment" PREVIOUS="qv_sections" NEXT="qv_messages_read">
+    <TABLE NAME="qv_messages" COMMENT="Stores user messages for each assignment">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="sid"/>
-        <FIELD NAME="sid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="sectionid" PREVIOUS="id" NEXT="itemid"/>
-        <FIELD NAME="itemid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="sid" NEXT="userid"/>
-        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="itemid" NEXT="created"/>
-        <FIELD NAME="created" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" NEXT="message"/>
-        <FIELD NAME="message" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="created" />
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="sid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="sectionid"/>
+        <FIELD NAME="itemid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="created" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="message" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_messages" NEXT="qv_messages_sid" />
-        <KEY NAME="qv_messages_sid" TYPE="foreign" FIELDS="sid" REFTABLE="qv_sections" REFFIELDS="id" PREVIOUS="primary"/>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_messages"/>
+        <KEY NAME="qv_messages_sid" TYPE="foreign" FIELDS="sid" REFTABLE="qv_sections" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="qv_messages_read" COMMENT="Stores user control access to messages" PREVIOUS="qv_messages" >
+    <TABLE NAME="qv_messages_read" COMMENT="Stores user control access to messages">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="sid"/>
-        <FIELD NAME="sid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="sectionid" PREVIOUS="id" NEXT="userid"/>
-        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="sid" NEXT="timereaded"/>
-        <FIELD NAME="timereaded" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="sid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="sectionid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timereaded" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_messages_read" NEXT="qv_messages_read_sid"/>
-        <KEY NAME="qv_messages_read_sid" TYPE="foreign" FIELDS="sid" REFTABLE="qv_sections" REFFIELDS="id" PREVIOUS="primary"/>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for qv_messages_read"/>
+        <KEY NAME="qv_messages_read_sid" TYPE="foreign" FIELDS="sid" REFTABLE="qv_sections" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
   </TABLES>

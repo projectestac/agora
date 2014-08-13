@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_dragmath', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_dragmath', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_dragmath
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 $string['dragmath:desc'] = '插入公式';
 $string['javaneeded'] = '若要使用此网页，你需要一个支持Java的浏览器。从{$a}下载最新的Java插件。
 ';
+$string['pluginname'] = '插入公式';
+$string['requiretex'] = '需要TeX过滤器';
+$string['requiretex_desc'] = '要先在网站管理-插件-过滤器-管理过滤器里启用TeX过滤器，才可看到Dragmath按鈕。若你已经有自己的TeX过滤器，且在整个Moodle网站上开启，就可以关闭它。';
 $string['title'] = 'DragMath公式编辑器
 ';

@@ -5,7 +5,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 		if(!php_Boot::$skip_constructor) {
 		parent::__construct();
 		try {
-			$this->wrapper = com_wiris_quizzes_wrap_Wrapper::getInstance();
+			$this->wrapper = com_wiris_system_CallWrapper::getInstance();
 			$this->wrapper->start();
 			$this->builder = com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance();
 			$this->wrapper->stop();
@@ -76,8 +76,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 				$instance = $iw->instance;
 			}
 			$this->wrapper->start();
-			$r = $this->builder->newEvalMultipleAnswersRequest($correctAnswers, $studentAnswers, $question, $instance);
-			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($r);
+			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($this->builder->newEvalMultipleAnswersRequest($correctAnswers, $studentAnswers, $question, $instance));
 			$this->wrapper->stop();
 			return $r;
 		}catch(Exception $»e) {
@@ -100,8 +99,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 				$instance = $iw->instance;
 			}
 			$this->wrapper->start();
-			$r = $this->builder->newEvalRequest($correctAnswer, $studentAnswer, $question, $instance);
-			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($r);
+			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($this->builder->newEvalRequest($correctAnswer, $studentAnswer, $question, $instance));
 			$this->wrapper->stop();
 			return $r;
 		}catch(Exception $»e) {
@@ -124,8 +122,7 @@ class com_wiris_quizzes_wrap_QuizzesBuilderWrap extends com_wiris_quizzes_api_Qu
 				$instance = $iw->instance;
 			}
 			$this->wrapper->start();
-			$r = $this->builder->newVariablesRequest($html, $question, $instance);
-			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($r);
+			$r = new com_wiris_quizzes_wrap_QuestionRequestWrap($this->builder->newVariablesRequest($html, $question, $instance));
 			$this->wrapper->stop();
 			return $r;
 		}catch(Exception $»e) {

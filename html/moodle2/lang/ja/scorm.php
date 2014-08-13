@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,13 +35,13 @@ $string['aicchacpkeepsessiondata'] = 'AICC HACPセッションデータ';
 $string['aicchacpkeepsessiondata_desc'] = '外部AICC HACPセッションデータを保持する日数です (設定値を高くすることで、テーブル内に古いデータが一杯になりますが、デバッグには有用です)。';
 $string['aicchacptimeout'] = 'AICC HACPタイムアウト';
 $string['aicchacptimeout_desc'] = '外部AICC HACPセッションをオープンしたままにできる最大時間 (分) です。';
+$string['aliasonly'] = 'リポジトリからimsmanifest.xml ファイルを選択する場合、あなたはこのファイルのエイリアス/ショートカットを使用する必要があります。';
 $string['allowapidebug'] = 'アクティブAPIデバッグおよびトレース (apidebugmaskでキャプチャマスクを設定する)';
 $string['allowtypeaicchacp'] = '外部AICC HACPを有効にする';
 $string['allowtypeaicchacp_desc'] = 'このオプションを有効にした場合、外部AICCパッケージからユーザログインのポストリクエストを必要とせずに、AICC HACP外部通信することができます。';
 $string['allowtypeexternal'] = '外部パッケージタイプを有効にする';
-$string['allowtypeexternalaicc'] = 'ダイレクトAICC URIを有効にする';
-$string['allowtypeexternalaicc_desc'] = 'このオプションを有効にした場合、シンプルAICCパッケージのダイレクトURIが許可されます。';
-$string['allowtypeimsrepository'] = 'IMSパッケージタイプを有効にする';
+$string['allowtypeexternalaicc'] = 'ダイレクトAICC URLを有効にする';
+$string['allowtypeexternalaicc_desc'] = 'このオプションを有効にした場合、シンプルAICCパッケージのダイレクトURLが許可されます。';
 $string['allowtypelocalsync'] = 'ダウンロード済みパッケージタイプを有効にする';
 $string['apidebugmask'] = 'APIデバッグキャプチャマスク - <username>:<activityname>  でシンプルなregexを使用します。例) 「admin:.*」は管理ユーザ (admin) のみのデバッグとなります。';
 $string['areacontent'] = 'コンテンツファイル';
@@ -51,6 +51,7 @@ $string['assetlaunched'] = 'アセット - 閲覧済み';
 $string['attempt'] = '受験';
 $string['attempt1'] = '受験 1';
 $string['attempts'] = '受験';
+$string['attemptsmanagement'] = '受験管理';
 $string['attemptstatusall'] = 'マイホームおよびエントリページ';
 $string['attemptstatusentry'] = 'エントリページのみ';
 $string['attemptstatusmy'] = 'マイホームのみ';
@@ -62,14 +63,19 @@ $string['autocontinue_help'] = '<p>自動継続を「Yes」にした場合、学
 
 <p>「No」にした場合、ユーザは次に進むため「続ける」ボタンをクリックする必要があります。</p>';
 $string['averageattempt'] = '平均評点';
+$string['badarchive'] = 'あなたは有効なZIPファイルを提供する必要があります。';
+$string['badimsmanifestlocation'] = 'imsmanifest.xmlファイルが見つかりましたが、あなたのZIPファイルのルートにありません。あなたのSCORMを再パッケージしてください。';
 $string['badmanifest'] = 'マニフェストエラー: エラーログをご覧ください。';
-$string['badpackage'] = '指定されたパッケージ/マニフェストは有効ではありません。確認した後、もう一度お試しください。';
 $string['browse'] = 'プレビュー';
 $string['browsed'] = '閲覧済み';
 $string['browsemode'] = 'プレビューモード';
 $string['browserepository'] = 'リポジトリの閲覧';
+$string['calculatedweight'] = '計算加重';
 $string['cannotfindsco'] = 'SCOを見つけることができませんでした。';
 $string['chooseapacket'] = 'パッケージの選択または更新';
+$string['collapsetocwinsize'] = '次のサイズ以下の場合、TOCを折りたたむ';
+$string['collapsetocwinsizedesc'] = 'ここではTOCを自動的に折りたたむウィンドウサイズを指定します。';
+$string['compatibilitysettings'] = '互換性設定';
 $string['completed'] = '完了';
 $string['completionscorerequired'] = '必要最小点数';
 $string['completionscorerequired_help'] = 'この設定を有効にすることで、ユーザがこのSCORM活動を完了するためには他の活動完了必要条件と同じく、少なくとも設定された最小点数に達する必要があります。';
@@ -105,7 +111,6 @@ $string['dnduploadscorm'] = 'SCORMパッケージを追加する';
 $string['domxml'] = 'DOMXML外部ライブラリ';
 $string['duedate'] = '終了日時';
 $string['element'] = 'エレメント';
-$string['elementdefinition'] = 'エレメント定義';
 $string['enter'] = '問題に入る';
 $string['entercourse'] = 'コースに入る';
 $string['errorlogs'] = 'エラーログ';
@@ -121,6 +126,7 @@ $string['finishscorm'] = 'あなたがこのリソースの閲覧を終了した
 $string['finishscormlinkname'] = 'ここをクリックしてコースに戻ってください。';
 $string['firstaccess'] = '最初のアクセス';
 $string['firstattempt'] = '最初の受験';
+$string['floating'] = 'フローティング';
 $string['forcecompleted'] = '完了を強制する';
 $string['forcecompleteddesc'] = 'ここでは完了の強制に関するデフォルト値を設定します。';
 $string['forcecompleted_help'] = 'I有効にした場合、現在の受験ステータスが強制的に「完了」とされます (SCORM 1.2のみに適用されます)。';
@@ -133,6 +139,8 @@ $string['forcenewattempt_help'] = 'このオプションを有効にした場合
 $string['found'] = 'マニフェストファイルが見つかりました。';
 $string['frameheight'] = 'ステージフレームまたはウィンドウのデフォルトの高さです。';
 $string['framewidth'] = 'ステージフレームまたはウィンドウのデフォルトの幅です。';
+$string['fromleft'] = '左から';
+$string['fromtop'] = 'トップから';
 $string['fullscreen'] = 'フルスクリーンモード';
 $string['general'] = '一般データ';
 $string['gradeaverage'] = '平均評点';
@@ -158,8 +166,6 @@ $string['hidebrowse'] = 'プレビューモードを無効にする';
 $string['hidebrowsedesc'] = 'プレビューモードでは、学生が受験の前に活動を閲覧することができます。';
 $string['hidebrowse_help'] = 'プレビューモードでは受験の前に、学生が活動を閲覧することができます。このオプションを有効にした場合、SCORM/AICCパッケージ活動ページのプレビューボタンは非表示にされます。';
 $string['hideexit'] = 'コースから抜けるボタンを隠す';
-$string['hidenav'] = 'ナビゲーションボタンを隠す';
-$string['hidenavdesc'] = 'ナビゲーションボタンの表示または非表示に関して設定します。';
 $string['hidereview'] = 'レビューボタンを隠す';
 $string['hidetoc'] = 'プレイヤーでコース構造を表示する';
 $string['hidetocdesc'] = 'ここではSCORMプレイヤーの目次表示方法を設定します。';
@@ -169,25 +175,12 @@ $string['identifier'] = '問題識別子';
 $string['incomplete'] = '不完全';
 $string['info'] = '情報';
 $string['interactions'] = 'インタラクション';
-$string['interactionscorrectcount'] = '問題の正解数';
-$string['interactionsid'] = 'エレメントID';
-$string['interactionslatency'] = 'インタクラクション間の経過時間は学習者のレスポンスおよび初回レスポンス時間に利用できます。';
-$string['interactionslearnerresponse'] = '学習者のレスポンス';
-$string['interactionspattern'] = '正しいレスポンスのパターン';
-$string['interactionsresponse'] = '学生のレスポンス';
-$string['interactionsresult'] = '学習者のレスポンスおよび正解をベースにした受験結果です。';
-$string['interactionsscoremax'] = '素点の範囲の最大値';
-$string['interactionsscoremin'] = '素点の範囲の最小値';
-$string['interactionsscoreraw'] = '学習者のパフォーマンスを反映する値です。最大値および最小値の範囲に制限されます。';
-$string['interactionssuspenddata'] = '学習者のセッション間において、データを保存および検索するためのスペースを提供します。';
-$string['interactionstime'] = '受験開始時間';
-$string['interactionstype'] = '問題タイプ';
-$string['interactionsweight'] = 'エレメントに割り当てられた加重';
 $string['invalidactivity'] = 'SCORM活動が正しくありません。';
 $string['invalidhacpsession'] = '無効なHACPセッションです。';
+$string['invalidmanifestname'] = 'imsmanifest.xml または.zipファイルのみ選択することができます。';
 $string['invalidmanifestresource'] = '警告: 次のリソースは、あなたのマニフェスト内で参照されていますが見つかりませんでした:';
-$string['invalidurl'] = '無効なURIが指定されました。';
-$string['invalidurlhttpcheck'] = '無効なURIが指定されました。デバッグメッセージ:<pre>{$a->cmsg}</pre>';
+$string['invalidurl'] = '無効なURLが指定されました。';
+$string['invalidurlhttpcheck'] = '無効なURLが指定されました。デバッグメッセージ:<pre>{$a->cmsg}</pre>';
 $string['last'] = '最新アクセス日時';
 $string['lastaccess'] = '最新のアクセス';
 $string['lastattempt'] = '最新の完了済み受験';
@@ -217,7 +210,18 @@ SCORM活動は下記のように使用することができます:
 * マルチメディアコンテンツおよびアニメーションの表示のため
 * 評価ツールとして';
 $string['modulenameplural'] = 'SCORMパッケージ';
+$string['nav'] = 'ナビゲーションを表示する';
+$string['navdesc'] = 'ここではナビゲーションボタンを表示/非表示およびポジションを設定します。';
+$string['nav_help'] = 'この設定では、ナビゲーションボタンの表示または非表示、そのポジションを指定します。
+
+以下3つのオプションがあります:
+
+* なし - ナビゲーションボタンを表示しません。
+* コンテンツの下 - SCORMパッケージコンテンツの下にナビゲーションボタンを表示します。
+* フロート - ナビゲーションボタンはパッケージによって決定されたトップおよび左からのポジションにフロート表示されます。';
 $string['navigation'] = 'ナビゲーション';
+$string['navpositionleft'] = '左からのナビゲーションボタンのポジション (ピクセル) です。';
+$string['navpositiontop'] = 'トップからのナビゲーションボタンのポジション (ピクセル) です。';
 $string['newattempt'] = '新しい受験を開始する';
 $string['next'] = '次へ進む';
 $string['noactivity'] = '報告内容はありません。';
@@ -226,7 +230,7 @@ $string['noattemptsmade'] = 'あなたの受験数';
 $string['no_attributes'] = 'タグ {$a->tag} にアトリビュートがありません。';
 $string['no_children'] = 'タグ {$a->tag} に子タグがありません。';
 $string['nolimit'] = '受験制限なし';
-$string['nomanifest'] = 'マニフェストファイルが見つかりませんでした。';
+$string['nomanifest'] = 'ファイルパッケージが正しくありません - imsmanifest.xmlまたはAICC構造がありません。';
 $string['noprerequisites'] = '申し訳ございません、あなたはこの活動にアクセスするための十分な必要条件に到達していません。';
 $string['noreports'] = '表示するレポートはありません。';
 $string['normal'] = 'ノーマル';
@@ -244,13 +248,13 @@ $string['optnoattemptsonly'] = '未受験のユーザ';
 $string['organization'] = '組織';
 $string['organizations'] = '組織';
 $string['othersettings'] = '追加設定';
-$string['othertracks'] = '他のトラック';
 $string['package'] = 'パッケージファイル';
 $string['packagedir'] = 'ファイルシステムエラー: パッケージディレクトリを作成できません。';
 $string['packagefile'] = 'パッケージファイルが指定されていません。';
+$string['packagehdr'] = 'パッケージ';
 $string['package_help'] = 'パッケージは有効なAICCまたはSCORMコース定義ファイルを含む、zip (または pif) 拡張子の付いたファイルです。';
-$string['packageurl'] = 'URI';
-$string['packageurl_help'] = 'この設定ではファイルピッカよりファイルを選択するのではなく、SCORMパッケージを指定するためのURIを有効にします。';
+$string['packageurl'] = 'URL';
+$string['packageurl_help'] = 'この設定ではファイルピッカよりファイルを選択するのではなく、SCORMパッケージを指定するためのURLを有効にします。';
 $string['page-mod-scorm-x'] = 'すべてのSCORMモジュールページ';
 $string['pagesize'] = 'ページサイズ';
 $string['passed'] = 'パス';
@@ -258,6 +262,7 @@ $string['php5'] = 'PHP 5 (DOMXMLネイティブライブラリ)';
 $string['pluginadministration'] = 'SCORMパッケージ管理';
 $string['pluginname'] = 'SCORMパッケージ';
 $string['popup'] = '新しいウィンドウ';
+$string['popuplaunched'] = 'SCORMパッケージはポップアップウィンドウに起動します。あなたがこのリソースを終了した場合、ここをクリックしてコースページに戻ってください。';
 $string['popupmenu'] = 'ドロップダウンメニュー';
 $string['popupopen'] = 'パッケージを新しいウィンドウで開く';
 $string['popupsblocked'] = 'ポップアップウィンドウがブロックされたため、SCORMモジュールの実行を停止します。再度開始する前、あなたのブラウザ設定を確認してください。';
@@ -271,11 +276,13 @@ $string['report'] = 'レポート';
 $string['reportcountallattempts'] = '受験回数: {$a->nbattempts} / ユーザ数: {$a->nbusers} (該当数: {$a->nbresults})';
 $string['reportcountattempts'] = '受験回数: {$a->nbresults} ({$a->nbusers} ユーザ)';
 $string['reports'] = 'レポート';
-$string['resizable'] = 'ウィンドウのリサイズを許可する';
+$string['repositorynotsupported'] = 'imsmanifest.xmlファイルに直接リンクする場合、ファイルシステムリポジトリのみサポートされます。';
+$string['response'] = 'レスポンス';
 $string['result'] = '結果';
 $string['results'] = '結果';
 $string['review'] = 'レビュー';
 $string['reviewmode'] = 'レビューモード';
+$string['rightanswer'] = '正解';
 $string['scoes'] = '学習オブジェクト';
 $string['score'] = '評点';
 $string['scorm:addinstance'] = '新しいSCORMパッケージを追加する';
@@ -293,10 +300,9 @@ $string['scormtype'] = 'タイプ';
 $string['scormtype_help'] = 'ここではパッケージがどのようにコースに含まれるか設定します。以下4つのオプションがあります:
 
 * アップロード済みパッケージ - SCORMパッケージをファイルピッカで選択できるようにします。
-* 外部SCORMマニフェスト - imsmanifest.xmlのURIを指定できるようにします。注意: URIがあなたのサイトと異なるドメインの場合、評定が保存されないため、「ダウンロード済みパッケージ」を選択することをお勧めします。
-* ダウンロード済みパッケージ - パッケージのURIを指定できるようにします。パッケージは解凍され、ローカルに保存されます。また、外部SCORMパッケージが更新された場合、ローカルに保存されたパッケージも更新されます。
-* ローカルIMSコンテンツパッケージ - IMSリポジトリ内のパッケージを選択できるようにします。
-* 外部AICC URI - このURIは単一のAICC活動起動用URIです。この周りに擬似パッケージが構築されます。';
+* 外部SCORMマニフェスト - imsmanifest.xmlのURLを指定できるようにします。注意: URLがあなたのサイトと異なるドメインの場合、評定が保存されないため、「ダウンロード済みパッケージ」を選択することをお勧めします。
+* ダウンロード済みパッケージ - パッケージのURLを指定できるようにします。パッケージは解凍され、ローカルに保存されます。また、外部SCORMパッケージが更新された場合、ローカルに保存されたパッケージも更新されます。
+* 外部AICC URL - このURLは単一のAICC活動起動用URLです。この周りに擬似パッケージが構築されます。';
 $string['scorm:viewreport'] = 'レポートを表示する';
 $string['scorm:viewscores'] = '評点を表示する';
 $string['scrollbars'] = 'ウィンドウのスクロールを許可する';
@@ -320,23 +326,49 @@ $string['suspended'] = '一時停止';
 $string['syntax'] = '構文エラー';
 $string['tag_error'] = 'コンテンツに不明なタグ ({$a->tag}) があります:  {$a->value}';
 $string['time'] = '時間';
-$string['timerestrict'] = '解答期間を制限する';
 $string['title'] = 'タイトル';
 $string['toc'] = 'TOC';
 $string['toolbar'] = 'ツールバーを表示する';
 $string['too_many_attributes'] = 'タグ {$a->tag} のアトリビュートが多すぎます。';
 $string['too_many_children'] = 'タグ {$a->tag} の子タグが多すぎます。';
 $string['totaltime'] = '時間';
+$string['trackcorrectcount'] = '正解数';
+$string['trackcorrectcount_help'] = '問題の正解数';
+$string['trackid'] = 'ID';
+$string['trackid_help'] = 'この問題に関して、あなたのSCORMパッケージに設定されたIDです。SCORM仕様では、完全な問題テキストの提供は許可されていません。';
 $string['trackingloose'] = '警告: このパッケージのトラッキングデータは消滅します!';
+$string['tracklatency'] = '待ち時間';
+$string['tracklatency_help'] = 'インタクラクション間の経過時間は学習者のレスポンスおよび初回レスポンス時間に利用できます。';
+$string['trackpattern'] = 'パターン';
+$string['trackpattern_help'] = 'この問題に対する正しい解答です。学習者のレスポンスは表示されません。';
+$string['trackresponse'] = 'レスポンス';
+$string['trackresponse_help'] = 'この問題に対する学習者のレスポンスです。';
+$string['trackresult'] = '結果';
+$string['trackresult_help'] = '学習者のレスポンスおよび正解をベースにした受験結果です。';
+$string['trackscoremax'] = '最大評点';
+$string['trackscoremax_help'] = '素点の範囲の最大値';
+$string['trackscoremin'] = '最小評点';
+$string['trackscoremin_help'] = '素点の範囲の最小値';
+$string['trackscoreraw'] = '素点';
+$string['trackscoreraw_help'] = '学習者のパフォーマンスを反映する値です。最大値および最小値の範囲に制限されます。';
+$string['tracksuspenddata'] = '保留データ';
+$string['tracksuspenddata_help'] = '学習者のセッション間において、データを保存および検索するためのスペースを提供します。';
+$string['tracktime'] = '時間';
+$string['tracktime_help'] = '受験開始時間';
+$string['tracktype'] = 'タイプ';
+$string['tracktype_help'] = '例えば、「投票」または「記述問題」のような問題タイプです。';
+$string['trackweight'] = '加重';
+$string['trackweight_help'] = 'エレメントに割り当てられた加重';
 $string['type'] = 'タイプ';
-$string['typeaiccurl'] = '外部AICC URI';
+$string['typeaiccurl'] = '外部AICC URL';
 $string['typeexternal'] = '外部SCORMマニフェスト';
-$string['typeimsrepository'] = 'ローカルIMSコンテンツリポジトリ';
 $string['typelocal'] = 'アップロード済みパッケージ';
 $string['typelocalsync'] = 'ダウンロード済みパッケージ';
+$string['undercontent'] = 'コンテンツの下';
 $string['unziperror'] = 'パッケージの解凍処理中にエラーが発生しました。';
 $string['updatefreq'] = '自動更新頻度';
 $string['updatefreqdesc'] = 'このプリファレンスでは、活動に対するデフォルトの自動更新頻度を設定します。';
+$string['updatefreq_error'] = 'パッケージファイルが外部に置かれている場合のみ、自動更新頻度を設定することができます。';
 $string['updatefreq_help'] = 'これにより、外部パッケージが自動的にダウンロードおよび更新されることになります。';
 $string['validateascorm'] = 'パッケージの確認';
 $string['validation'] = '確認結果';

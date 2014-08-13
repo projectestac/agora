@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_onetopic', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_onetopic', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   format_onetopic
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['currentsection'] = 'Oraingo gaia';
 $string['hidefromothers'] = 'Ezkutatu gaia';
 $string['hidetabsbar'] = 'Ezkutatu fitxa-barra';
 $string['hidetabsbar_help'] = 'Ezkutatu fitxa-barra ikastaroaren orrian. Nabigazioa gaien nabigazio barrarekin egin behar da.';
+$string['movesectionto'] = 'Oraingo gaia honen ezker/eskuinera mugitu:';
 $string['page-course-view-topics'] = 'Ikastaroko edozein hasiera-orri fitxetan';
 $string['page-course-view-topics-x'] = 'Ikastaroko edozein orri fitxetan';
 $string['pluginname'] = 'Gaiak fitxetan';

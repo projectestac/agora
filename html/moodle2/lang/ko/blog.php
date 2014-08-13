@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,7 @@ $string['entrybodyonlydesc'] = '게시물 설명';
 $string['entryerrornotyours'] = '이 게시물은 당신것이 아닙니다';
 $string['entrysaved'] = '입력사항이 저장되었습니다';
 $string['entrytitle'] = '게시물 제목';
-$string['entryupdated'] = '블로그 게시물이 업데이트되었습니다.';
+$string['evententryupdated'] = '블로그 게시물이 업데이트되었습니다.';
 $string['externalblogcrontime'] = '외부 블로그 크론 스케줄';
 $string['externalblogdeleteconfirm'] = '이 외부 블로그를 제명시키겠습니까?';
 $string['externalblogdeleted'] = '외부 블로그 제명됨';
@@ -107,7 +107,6 @@ $string['invalidgroupid'] = '쓸 수없는 모둠 ID';
 $string['invalidurl'] = '주소가 바르지 않음';
 $string['linktooriginalentry'] = '원본 블로그로 연결';
 $string['maxexternalblogsperuser'] = '사용자당 최대 외부 블로그 갯수';
-$string['mustassociatecourse'] = '강좌 혹은 모둠의 구성원에게 공개하려면, 이 항목으로 강좌를 연동하여야만 됨';
 $string['name'] = '이름';
 $string['name_help'] = '<p>외부에 있는 블로그의 이름. 이를 비워두면 외부 불로그의 명칭이 그대로 쓰이게 된다.</p>';
 $string['noentriesyet'] = '볼수있는 게시물이 없습니다.';
@@ -159,7 +158,7 @@ $string['tagtext'] = '태그문장';
 $string['timefetched'] = '최근 동기화 시각';
 $string['timewithin'] = '최근 사용한 태그 표시';
 $string['updateentrywithid'] = '게시물 업데이트';
-$string['url'] = 'RSS 피드 URL';
+$string['url'] = '웹 주소';
 $string['url_help'] = '외부 블로그의 RSS 피드 주소를 적으시오';
 $string['useblogassociations'] = '블로그 연동 활성화';
 $string['useexternalblogs'] = '외부 블로그 활성화';

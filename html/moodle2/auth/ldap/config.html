@@ -4,6 +4,9 @@
 if (!isset($config->host_url)) {
     $config->host_url = '';
 }
+if (!isset($config->start_tls)) {
+    $config->start_tls = false;
+}
 if (empty($config->ldapencoding)) {
     $config->ldapencoding = 'utf-8';
 }
@@ -103,6 +106,10 @@ if (!isset($config->ntlmsso_remoteuserformat)) {
 
 $yesno = array(get_string('no'), get_string('yes'));
 
+$fastpathoptions = array(AUTH_NTLM_FASTPATH_YESFORM => get_string('auth_ntlmsso_ie_fastpath_yesform', 'auth_ldap'),
+                         AUTH_NTLM_FASTPATH_YESATTEMPT => get_string('auth_ntlmsso_ie_fastpath_yesattempt', 'auth_ldap'),
+                         AUTH_NTLM_FASTPATH_ATTEMPT => get_string('auth_ntlmsso_ie_fastpath_attempt', 'auth_ldap'));
+
 $disabled = '';
 if (!ldap_paged_results_supported($config->ldap_version)) {
     $disabled = ' disabled="disabled"';
@@ -130,7 +137,7 @@ if (!ldap_paged_results_supported($config->ldap_version)) {
 </tr>
 <tr valign="top" class="required">
     <td align="right">
-        <label for="menuldap_version"><?php print_string('auth_ldap_version_key', 'auth_ldap') ?></label>
+        <label for="ldap_version"><?php print_string('auth_ldap_version_key', 'auth_ldap') ?></label>
     </td>
     <td>
         <?php
@@ -143,6 +150,17 @@ if (!ldap_paged_results_supported($config->ldap_version)) {
     </td>
     <td>
         <?php print_string('auth_ldap_version', 'auth_ldap') ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">
+        <label for="start_tls"><?php print_string('start_tls_key', 'auth_ldap') ?></label>
+    </td>
+    <td>
+        <?php echo html_writer::select($yesno, 'start_tls', $config->start_tls, false); ?>
+    </td>
+    <td>
+        <?php print_string('start_tls', 'auth_ldap') ?>
     </td>
 </tr>
 <tr valign="top" class="required">
@@ -548,7 +566,7 @@ if (!ldap_paged_results_supported($config->ldap_version)) {
         <label for="menuntlmsso_ie_fastpath"><?php print_string('auth_ntlmsso_ie_fastpath_key', 'auth_ldap') ?></label>
     </td>
     <td>
-        <?php echo html_writer::select($yesno, 'ntlmsso_ie_fastpath', $config->ntlmsso_ie_fastpath, false); ?>
+        <?php echo html_writer::select($fastpathoptions, 'ntlmsso_ie_fastpath', $config->ntlmsso_ie_fastpath, false); ?>
     </td>
     <td>
     <?php print_string('auth_ntlmsso_ie_fastpath', 'auth_ldap') ?>
@@ -590,6 +608,6 @@ $help .= get_string('auth_updateremote_expl', 'auth');
 $help .= '<hr />';
 $help .= get_string('auth_updateremote_ldap', 'auth');
 
-print_auth_lock_options($this->authtype, $user_fields, $help, true, true);
+print_auth_lock_options($this->authtype, $user_fields, $help, true, true, $this->get_custom_user_profile_fields());
 ?>
 </table>

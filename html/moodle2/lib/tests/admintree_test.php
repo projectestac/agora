@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -20,7 +19,7 @@
  * functionality.
  *
  * @package     core
- * @category    test
+ * @category    phpunit
  * @copyright   2013 David Mudrak <david@moodle.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -33,7 +32,120 @@ require_once($CFG->libdir.'/adminlib.php');
 /**
  * Provides the unit tests for admin tree functionality.
  */
-class admintree_testcase extends advanced_testcase {
+class core_admintree_testcase extends advanced_testcase {
+
+    /**
+     * Adding nodes into the admin tree.
+     */
+    public function test_add_nodes() {
+
+        $tree = new admin_root(true);
+        $tree->add('root', $one = new admin_category('one', 'One'));
+        $tree->add('root', new admin_category('three', 'Three'));
+        $tree->add('one', new admin_category('one-one', 'One-one'));
+        $tree->add('one', new admin_category('one-three', 'One-three'));
+
+        // Check the order of nodes in the root.
+        $map = array();
+        foreach ($tree->children as $child) {
+            $map[] = $child->name;
+        }
+        $this->assertEquals(array('one', 'three'), $map);
+
+        // Insert a node into the middle.
+        $tree->add('root', new admin_category('two', 'Two'), 'three');
+        $map = array();
+        foreach ($tree->children as $child) {
+            $map[] = $child->name;
+        }
+        $this->assertEquals(array('one', 'two', 'three'), $map);
+
+        // Non-existing sibling.
+        $tree->add('root', new admin_category('four', 'Four'), 'five');
+        $this->assertDebuggingCalled('Sibling five not found', DEBUG_DEVELOPER);
+
+        $tree->add('root', new admin_category('five', 'Five'));
+        $map = array();
+        foreach ($tree->children as $child) {
+            $map[] = $child->name;
+        }
+        $this->assertEquals(array('one', 'two', 'three', 'four', 'five'), $map);
+
+        // Insert a node into the middle of the subcategory.
+        $tree->add('one', new admin_category('one-two', 'One-two'), 'one-three');
+        $map = array();
+        foreach ($one->children as $child) {
+            $map[] = $child->name;
+        }
+        $this->assertEquals(array('one-one', 'one-two', 'one-three'), $map);
+
+        // Check just siblings, not parents or children.
+        $tree->add('one', new admin_category('one-four', 'One-four'), 'one');
+        $this->assertDebuggingCalled('Sibling one not found', DEBUG_DEVELOPER);
+
+        $tree->add('root', new admin_category('six', 'Six'), 'one-two');
+        $this->assertDebuggingCalled('Sibling one-two not found', DEBUG_DEVELOPER);
+
+        // Me! Me! I wanna be first!
+        $tree->add('root', new admin_externalpage('zero', 'Zero', 'http://foo.bar'), 'one');
+        $map = array();
+        foreach ($tree->children as $child) {
+            $map[] = $child->name;
+        }
+        $this->assertEquals(array('zero', 'one', 'two', 'three', 'four', 'five', 'six'), $map);
+    }
+
+    /**
+     * @expectedException coding_exception
+     */
+    public function test_add_nodes_before_invalid1() {
+        $tree = new admin_root(true);
+        $tree->add('root', new admin_externalpage('foo', 'Foo', 'http://foo.bar'), array('moodle:site/config'));
+    }
+
+    /**
+     * @expectedException coding_exception
+     */
+    public function test_add_nodes_before_invalid2() {
+        $tree = new admin_root(true);
+        $tree->add('root', new admin_category('bar', 'Bar'), '');
+    }
+
+    /**
+     * Testing whether a configexecutable setting is executable.
+     */
+    public function test_admin_setting_configexecutable() {
+        global $CFG;
+        $this->resetAfterTest();
+
+        $executable = new admin_setting_configexecutable('test1', 'Text 1', 'Help Path', '');
+
+        // Check for an invalid path.
+        $result = $executable->output_html($CFG->dirroot . '/lib/tests/other/file_does_not_exist');
+        $this->assertRegexp('/class="patherror"/', $result);
+
+        // Check for a directory.
+        $result = $executable->output_html($CFG->dirroot);
+        $this->assertRegexp('/class="patherror"/', $result);
+
+        // Check for a file which is not executable.
+        $result = $executable->output_html($CFG->dirroot . '/filter/tex/readme_moodle.txt');
+        $this->assertRegexp('/class="patherror"/', $result);
+
+        // Check for an executable file.
+        if ($CFG->ostype == 'WINDOWS') {
+            $filetocheck = 'mimetex.exe';
+        } else {
+            $filetocheck = 'mimetex.darwin';
+        }
+        $result = $executable->output_html($CFG->dirroot . '/filter/tex/' . $filetocheck);
+        $this->assertRegexp('/class="pathok"/', $result);
+
+        // Check for no file specified.
+        $result = $executable->output_html('');
+        $this->assertRegexp('/name="s__test1" value=""/', $result);
+    }
+
     /**
      * Saving of values.
      */
@@ -123,8 +235,12 @@ class admintree_testcase extends advanced_testcase {
                 $adminroot->errors[$fullname]->data  = $data[$fullname];
                 $adminroot->errors[$fullname]->id    = $setting->get_id();
                 $adminroot->errors[$fullname]->error = $error;
+            } else {
+                $setting->write_setting_flags($data);
             }
-            $count++;
+            if ($setting->post_write_settings($original)) {
+                $count++;
+            }
         }
 
         return $count;

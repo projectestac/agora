@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_topcoll', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_topcoll', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   format_topcoll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -55,6 +55,23 @@ $string['defaultlayoutelement_desc'] = 'Le réglage de la mise en page peut êtr
 - Pas de mot « Basculer », ni de « Sujet x » / « Semaine x » / « Jour x à basculer ».
 
 - Pas de mot « Basculer», ni de « Sujet x » / « Semaine x » / « Jour x à basculer », ni aucun numéro de section.';
+$string['defaultlayoutelement_descpositive'] = 'Le réglage de la mise en page peut être :
+
+- Mention de « Basculer », « Section x » / « Semaine x » / «  Jour x à basculer » et numéro de section.
+
+- Mention de « Basculer » et « Section x  » / « Semaine x » / « Jour x à basculer ».
+
+- Mention de « Basculer » et numéro de section.
+
+- Mention de « Sujet x » / « Semaine x » / « Jour x à basculer » et numéro de section.
+
+- Mention de « Basculer».
+
+- Mention de « Sujet x » / « Semaine x » / « Jour x à basculer ».
+
+- Mention du numéro de section.
+
+- Sans ajout';
 $string['defaultlayoutstructure'] = 'Configuration de la structure par défaut';
 $string['defaultlayoutstructure_desc'] = 'Le réglage de la structure peut être :
 
@@ -77,6 +94,8 @@ $string['defaulttogglealignment'] = 'Alignement du texte de la section réduite'
 $string['defaulttogglealignment_desc'] = '« Gauche », « Centré » ou « Droite »';
 $string['defaulttoggleallhover'] = 'Position flottante des icônes';
 $string['defaulttoggleallhover_desc'] = '« Non » ou « Oui »';
+$string['defaulttoggleiconposition'] = 'Position des icônes';
+$string['defaulttoggleiconposition_desc'] = 'Précise si les icônes doivent être à droite ou à gauche du mot « Basculer ».';
 $string['defaulttoggleiconset'] = 'Réglage par défaut des icônes';
 $string['defaulttoggleiconset_desc'] = '« Flèche » => Icône de flèche
 
@@ -130,6 +149,7 @@ $string['sectionname'] = 'Section';
 $string['setcolour'] = 'Réglages de la couleur';
 $string['setcolour_help'] = 'Contient les réglages pour paramétrer les couleurs du format sections réduites.';
 $string['setlayout'] = 'Paramètres de base';
+$string['setlayout_all'] = 'Mention de « Basculer », « Section x » / « Semaine x » / « Jour x à basculer » et numéro de section';
 $string['setlayoutcolumnorientation'] = 'Réglage de l’orientation des colonnes';
 $string['setlayoutcolumnorientation_help'] = 'Verticalement - Les sections s\'affichent de haut en bas
 
@@ -140,12 +160,14 @@ $string['setlayout_default'] = 'Par défaut';
 $string['setlayoutelements'] = 'Éléments';
 $string['setlayoutelements_help'] = 'Quelles informations souhaitez-vous afficher sur le bandeau ?';
 $string['setlayout_help'] = 'Contient les réglages pour paramétrer le format sections réduites.';
+$string['setlayout_no_additions'] = 'Pas d\'ajout';
 $string['setlayout_no_section_no'] = 'Pas de numéro de section';
 $string['setlayout_no_toggle_section_x'] = 'Pas de « section x à basculer »';
 $string['setlayout_no_toggle_section_x_section_no'] = 'Pas de « section x à basculer » ni de numéro de section';
 $string['setlayout_no_toggle_word'] = 'Pas de mot « Basculer »';
 $string['setlayout_no_toggle_word_toggle_section_x'] = 'Pas de mot « Basculer » ni de « section x à basculer »';
 $string['setlayout_no_toggle_word_toggle_section_x_section_no'] = 'Pas de mot, pas de section x ni de numéro de section à basculer';
+$string['setlayout_section_number'] = 'Nombre de sections';
 $string['setlayoutstructure'] = 'Structure';
 $string['setlayoutstructurecurrenttopicfirst'] = 'Section actuelle en premier';
 $string['setlayoutstructureday'] = 'Jour';
@@ -163,6 +185,11 @@ $string['setlayoutstructure_help'] = 'Structure et disposition de la page.  Vous
 $string['setlayoutstructurelatweekfirst'] = 'Dernière semaine en premier';
 $string['setlayoutstructuretopic'] = 'Section';
 $string['setlayoutstructureweek'] = 'Semaine';
+$string['setlayout_toggle_section_x'] = 'Mention de « Sujet x » / « Semaine x » / « Jour x à basculer »';
+$string['setlayout_toggle_section_x_section_number'] = 'Mention de « Sujet x » / « Semaine x » / « Jour x à basculer » et numéro de section';
+$string['setlayout_toggle_word'] = 'Mention de « Basculer»';
+$string['setlayout_toggle_word_section_number'] = 'Mention de « Basculer » et numéro de section';
+$string['setlayout_toggle_word_section_x'] = 'Mention de « Basculer » et « Section x  » / « Semaine x » / « Jour x à basculer »';
 $string['settogglealignment'] = 'Réglages de l\'alignement du texte';
 $string['settogglealignment_help'] = 'Définit l\'alignement du texte dans le bandeau de la section réduite';
 $string['settoggleallhover'] = 'Réglages de la position des icônes';
@@ -173,6 +200,8 @@ $string['settogglebackgroundhovercolour'] = 'Couleur du bandeau au survol de la 
 $string['settogglebackgroundhovercolour_help'] = 'Définit la couleur de la section réduite au passage de la souris.';
 $string['settoggleforegroundcolour'] = 'Couleur du premier plan (texte)';
 $string['settoggleforegroundcolour_help'] = 'Définit la couleur du texte de la section réduite.';
+$string['settoggleiconposition'] = 'Réglage de la position des icônes';
+$string['settoggleiconposition_help'] = 'Ce régl';
 $string['settoggleiconset'] = 'Réglages des icônes';
 $string['settoggleiconset_help'] = 'Définit le type d\'icônes dans le bandeau de la section réduite';
 $string['showfromothers'] = 'Afficher la section';

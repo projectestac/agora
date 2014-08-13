@@ -696,7 +696,7 @@ abstract class lesson_add_page_form_base extends moodleform {
         $mform = $this->_form;
         $editoroptions = $this->_customdata['editoroptions'];
 
-        $mform->addElement('header', 'qtypeheading', get_string('addaquestionpage', 'lesson', get_string($this->qtypestring, 'lesson')));
+        $mform->addElement('header', 'qtypeheading', get_string('createaquestionpage', 'lesson', get_string($this->qtypestring, 'lesson')));
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
@@ -722,6 +722,7 @@ abstract class lesson_add_page_form_base extends moodleform {
 
         if ($this->_customdata['edit'] === true) {
             $mform->addElement('hidden', 'edit', 1);
+            $mform->setType('edit', PARAM_BOOL);
             $this->add_action_buttons(get_string('cancel'), get_string('savepage', 'lesson'));
         } else if ($this->qtype === 'questiontype') {
             $this->add_action_buttons(get_string('cancel'), get_string('addaquestionpage', 'lesson'));
@@ -761,12 +762,20 @@ abstract class lesson_add_page_form_base extends moodleform {
         if ($label === null) {
             $label = get_string("score", "lesson");
         }
+
         if (is_int($name)) {
             $name = "score[$name]";
         }
         $this->_form->addElement('text', $name, $label, array('size'=>5));
+        $this->_form->setType($name, PARAM_INT);
         if ($value !== null) {
             $this->_form->setDefault($name, $value);
+        }
+        $this->_form->addHelpButton($name, 'score', 'lesson');
+
+        // Score is only used for custom scoring. Disable the element when not in use to stop some confusion.
+        if (!$this->_customdata['lesson']->custom) {
+            $this->_form->freeze($name);
         }
     }
 
@@ -774,12 +783,12 @@ abstract class lesson_add_page_form_base extends moodleform {
      * Convenience function: Adds an answer editor
      *
      * @param int $count The count of the element to add
-     * @param string $label, NULL means default
+     * @param string $label, null means default
      * @param bool $required
      * @return void
      */
-    protected final function add_answer($count, $label = NULL, $required = false) {
-        if ($label === NULL) {
+    protected final function add_answer($count, $label = null, $required = false) {
+        if ($label === null) {
             $label = get_string('answer', 'lesson');
         }
         $this->_form->addElement('editor', 'answer_editor['.$count.']', $label, array('rows'=>'4', 'columns'=>'80'), array('noclean'=>true));
@@ -792,12 +801,12 @@ abstract class lesson_add_page_form_base extends moodleform {
      * Convenience function: Adds an response editor
      *
      * @param int $count The count of the element to add
-     * @param string $label, NULL means default
+     * @param string $label, null means default
      * @param bool $required
      * @return void
      */
-    protected final function add_response($count, $label = NULL, $required = false) {
-        if ($label === NULL) {
+    protected final function add_response($count, $label = null, $required = false) {
+        if ($label === null) {
             $label = get_string('response', 'lesson');
         }
         $this->_form->addElement('editor', 'response_editor['.$count.']', $label, array('rows'=>'4', 'columns'=>'80'), array('noclean'=>true));
@@ -948,7 +957,10 @@ class lesson extends lesson_base {
         require_once($CFG->libdir.'/gradelib.php');
         require_once($CFG->dirroot.'/calendar/lib.php');
 
-        $DB->delete_records("lesson", array("id"=>$this->properties->id));;
+        $cm = get_coursemodule_from_instance('lesson', $this->properties->id, $this->properties->course);
+        $context = context_module::instance($cm->id);
+
+        $DB->delete_records("lesson", array("id"=>$this->properties->id));
         $DB->delete_records("lesson_pages", array("lessonid"=>$this->properties->id));
         $DB->delete_records("lesson_answers", array("lessonid"=>$this->properties->id));
         $DB->delete_records("lesson_attempts", array("lessonid"=>$this->properties->id));
@@ -963,7 +975,11 @@ class lesson extends lesson_base {
             }
         }
 
-        grade_update('mod/lesson', $this->properties->course, 'mod', 'lesson', $this->properties->id, 0, NULL, array('deleted'=>1));
+        // Delete files associated with this module.
+        $fs = get_file_storage();
+        $fs->delete_area_files($context->id);
+
+        grade_update('mod/lesson', $this->properties->course, 'mod', 'lesson', $this->properties->id, 0, null, array('deleted'=>1));
         return true;
     }
 
@@ -1817,6 +1833,12 @@ abstract class lesson_page extends lesson_base {
         // ..and the page itself
         $DB->delete_records("lesson_pages", array("id" => $this->properties->id));
 
+        // Delete files associated with this page.
+        $cm = get_coursemodule_from_instance('lesson', $this->lesson->id, $this->lesson->course);
+        $context = context_module::instance($cm->id);
+        $fs = get_file_storage();
+        $fs->delete_area_files($context->id, 'mod_lesson', 'page_contents', $this->properties->id);
+
         // repair the hole in the linkage
         if (!$this->properties->prevpageid && !$this->properties->nextpageid) {
             //This is the only page, no repair needed
@@ -1944,12 +1966,17 @@ abstract class lesson_page extends lesson_base {
 
                 $attempt->timeseen = time();
                 // if allow modattempts, then update the old attempt record, otherwise, insert new answer record
+                $userisreviewing = false;
                 if (isset($USER->modattempts[$this->lesson->id])) {
                     $attempt->retry = $nretakes - 1; // they are going through on review, $nretakes will be too high
+                    $userisreviewing = true;
                 }
 
-                if ($this->lesson->retake || (!$this->lesson->retake && $nretakes == 0)) {
-                    $DB->insert_record("lesson_attempts", $attempt);
+                // Only insert a record if we are not reviewing the lesson.
+                if (!$userisreviewing) {
+                    if ($this->lesson->retake || (!$this->lesson->retake && $nretakes == 0)) {
+                        $DB->insert_record("lesson_attempts", $attempt);
+                    }
                 }
                 // "number of attempts remaining" message if $this->lesson->maxattempts > 1
                 // displaying of message(s) is at the end of page for more ergonomic display
@@ -2116,6 +2143,7 @@ abstract class lesson_page extends lesson_base {
         if ($maxbytes === null) {
             $maxbytes = get_user_max_upload_file_size($context);
         }
+        $properties->timemodified = time();
         $properties = file_postupdate_standard_editor($properties, 'contents', array('noclean'=>true, 'maxfiles'=>EDITOR_UNLIMITED_FILES, 'maxbytes'=>$maxbytes), $context, 'mod_lesson', 'page_contents', $properties->id);
         $DB->update_record("lesson_pages", $properties);
 
@@ -2725,7 +2753,7 @@ class lesson_page_type_manager {
     public function load_all_pages(lesson $lesson) {
         global $DB;
         if (!($pages =$DB->get_records('lesson_pages', array('lessonid'=>$lesson->id)))) {
-            print_error('cannotfindpages', 'lesson');
+            return array(); // Records returned empty.
         }
         foreach ($pages as $key=>$page) {
             $pagetype = get_class($this->types[$page->qtype]);
@@ -2813,174 +2841,5 @@ class lesson_page_type_manager {
         }
 
         return $links;
-    }
-}
-
-/**
- * File browsing support class.
- *
- * @package    mod_lesson
- * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-class mod_lesson_file_info extends file_info {
-
-    /** @var stdClass Course object */
-    protected $course;
-    /** @var stdClass Course module object */
-    protected $cm;
-    /** @var array Available file areas */
-    protected $areas;
-    /** @var string File area to browse */
-    protected $filearea;
-
-    /**
-     * Constructor
-     *
-     * @param file_browser $browser file_browser instance
-     * @param stdClass $course course object
-     * @param stdClass $cm course module object
-     * @param stdClass $context module context
-     * @param array $areas available file areas
-     * @param string $filearea file area to browse
-     */
-    public function __construct($browser, $course, $cm, $context, $areas, $filearea) {
-        parent::__construct($browser, $context);
-        $this->course   = $course;
-        $this->cm       = $cm;
-        $this->areas    = $areas;
-        $this->filearea = $filearea;
-    }
-
-    /**
-     * Returns list of standard virtual file/directory identification.
-     * The difference from stored_file parameters is that null values
-     * are allowed in all fields
-     * @return array with keys contextid, filearea, itemid, filepath and filename
-     */
-    public function get_params() {
-        return array('contextid' => $this->context->id,
-                     'component' => 'mod_lesson',
-                     'filearea'  => $this->filearea,
-                     'itemid'    => null,
-                     'filepath'  => null,
-                     'filename'  => null);
-    }
-
-    /**
-     * Returns localised visible name.
-     * @return string
-     */
-    public function get_visible_name() {
-        return $this->areas[$this->filearea];
-    }
-
-    /**
-     * Can I add new files or directories?
-     * @return bool
-     */
-    public function is_writable() {
-        return false;
-    }
-
-    /**
-     * Is directory?
-     * @return bool
-     */
-    public function is_directory() {
-        return true;
-    }
-
-    /**
-     * Returns list of children.
-     * @return array of file_info instances
-     */
-    public function get_children() {
-        return $this->get_filtered_children('*', false, true);
-    }
-
-    /**
-     * Help function to return files matching extensions or their count
-     *
-     * @param string|array $extensions, either '*' or array of lowercase extensions, i.e. array('.gif','.jpg')
-     * @param bool|int $countonly if false returns the children, if an int returns just the
-     *    count of children but stops counting when $countonly number of children is reached
-     * @param bool $returnemptyfolders if true returns items that don't have matching files inside
-     * @return array|int array of file_info instances or the count
-     */
-    private function get_filtered_children($extensions = '*', $countonly = false, $returnemptyfolders = false) {
-        global $DB;
-
-        $params = array(
-            'contextid' => $this->context->id,
-            'component' => 'mod_lesson',
-            'filearea' => $this->filearea
-        );
-        $sql = 'SELECT DISTINCT itemid
-                  FROM {files}
-                 WHERE contextid = :contextid
-                   AND component = :component
-                   AND filearea = :filearea';
-
-        if (!$returnemptyfolders) {
-            $sql .= ' AND filename <> :emptyfilename';
-            $params['emptyfilename'] = '.';
-        }
-
-        list($sql2, $params2) = $this->build_search_files_sql($extensions);
-        $sql .= ' ' . $sql2;
-        $params = array_merge($params, $params2);
-
-        if ($countonly !== false) {
-            $sql .= ' ORDER BY itemid DESC';
-        }
-
-        $rs = $DB->get_recordset_sql($sql, $params);
-        $children = array();
-        foreach ($rs as $record) {
-            if (($child = $this->browser->get_file_info($this->context, 'mod_lesson', $this->filearea, $record->itemid))
-                    && ($returnemptyfolders || $child->count_non_empty_children($extensions))) {
-                $children[] = $child;
-            }
-            if ($countonly !== false && count($children) >= $countonly) {
-                break;
-            }
-        }
-        $rs->close();
-        if ($countonly !== false) {
-            return count($children);
-        }
-        return $children;
-    }
-
-    /**
-     * Returns list of children which are either files matching the specified extensions
-     * or folders that contain at least one such file.
-     *
-     * @param string|array $extensions, either '*' or array of lowercase extensions, i.e. array('.gif','.jpg')
-     * @return array of file_info instances
-     */
-    public function get_non_empty_children($extensions = '*') {
-        return $this->get_filtered_children($extensions, false);
-    }
-
-    /**
-     * Returns the number of children which are either files matching the specified extensions
-     * or folders containing at least one such file.
-     *
-     * @param string|array $extensions, for example '*' or array('.gif','.jpg')
-     * @param int $limit stop counting after at least $limit non-empty children are found
-     * @return int
-     */
-    public function count_non_empty_children($extensions = '*', $limit = 1) {
-        return $this->get_filtered_children($extensions, $limit);
-    }
-
-    /**
-     * Returns parent file_info instance
-     * @return file_info or null for root
-     */
-    public function get_parent() {
-        return $this->browser->get_file_info($this->context);
     }
 }

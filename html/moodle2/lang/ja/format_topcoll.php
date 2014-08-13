@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_topcoll', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_topcoll', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   format_topcoll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['instructions'] = '解説 : セクション名をクリックすることでセクションを展開したり折りたたんだりすることができます。';
 $string['topcollclosed'] = '全て折り畳む';
 $string['topcollopened'] = '全て展開する';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_quiz_results', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_quiz_results', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_quiz_results
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -47,6 +47,7 @@ $string['error_emptyquizid'] = '目前此版块配置有问题：您需要选择
 $string['error_emptyquizrecord'] = '目前此版块的配置有问题：已选择的测验似乎并不存在于数据库中。';
 $string['error_nogroupsexist'] = '目前此版块的配置有问题：它被配置为显示小组的成绩，但当前的课程并未定义小组。';
 $string['pluginname'] = '测验成绩';
+$string['quiz_results:addinstance'] = '新增测验成绩版块';
 $string['worstgrade'] = '最低分：';
 $string['worstgrades'] = '{$a} 个最低分：';
 $string['worstgroupgrade'] = '平均分最低的小组：';

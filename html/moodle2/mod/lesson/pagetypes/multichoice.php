@@ -353,7 +353,7 @@ class lesson_page_type_multichoice extends lesson_page {
 
         foreach ($answers as $answer) {
             if ($this->properties->qoption) {
-                if ($useranswer == NULL) {
+                if ($useranswer == null) {
                     $userresponse = array();
                 } else {
                     $userresponse = explode(",", $useranswer->useranswer);
@@ -362,7 +362,7 @@ class lesson_page_type_multichoice extends lesson_page {
                     // make checked
                     $data = "<input  readonly=\"readonly\" disabled=\"disabled\" name=\"answer[$i]\" checked=\"checked\" type=\"checkbox\" value=\"1\" />";
                     if (!isset($answerdata->response)) {
-                        if ($answer->response == NULL) {
+                        if ($answer->response == null) {
                             if ($useranswer->correct) {
                                 $answerdata->response = get_string("thatsthecorrectanswer", "lesson");
                             } else {
@@ -391,10 +391,10 @@ class lesson_page_type_multichoice extends lesson_page {
                     $data .= format_text($answer->answer,$answer->answerformat,$formattextdefoptions);
                 }
             } else {
-                if ($useranswer != NULL and $answer->id == $useranswer->answerid) {
+                if ($useranswer != null and $answer->id == $useranswer->answerid) {
                     // make checked
                     $data = "<input  readonly=\"readonly\" disabled=\"disabled\" name=\"answer[$i]\" checked=\"checked\" type=\"checkbox\" value=\"1\" />";
-                    if ($answer->response == NULL) {
+                    if ($answer->response == null) {
                         if ($useranswer->correct) {
                             $answerdata->response = get_string("thatsthecorrectanswer", "lesson");
                         } else {
@@ -449,9 +449,9 @@ class lesson_add_page_form_multichoice extends lesson_add_page_form_base {
 
         for ($i = 0; $i < $this->_customdata['lesson']->maxanswers; $i++) {
             $this->_form->addElement('header', 'answertitle'.$i, get_string('answer').' '.($i+1));
-            $this->add_answer($i, NULL, ($i<2));
+            $this->add_answer($i, null, ($i<2));
             $this->add_response($i);
-            $this->add_jumpto($i, NULL, ($i == 0 ? LESSON_NEXTPAGE : LESSON_THISPAGE));
+            $this->add_jumpto($i, null, ($i == 0 ? LESSON_NEXTPAGE : LESSON_THISPAGE));
             $this->add_score($i, null, ($i===0)?1:0);
         }
     }
@@ -496,6 +496,7 @@ class lesson_display_answer_form_multichoice_singleanswer extends moodleform {
         $i = 0;
         foreach ($answers as $answer) {
             $mform->addElement('html', '<div class="answeroption">');
+            $answer->answer = preg_replace('#>$#', '> ', $answer->answer);
             $mform->addElement('radio','answerid',null,format_text($answer->answer, $answer->answerformat, $options),$answer->id, $disabled);
             $mform->setType('answer'.$i, PARAM_INT);
             if ($hasattempt && $answer->id == $USER->modattempts[$lessonid]->answerid) {
@@ -553,11 +554,12 @@ class lesson_display_answer_form_multichoice_multianswer extends moodleform {
             if ($hasattempt && in_array($answer->id, $useranswers)) {
                 $answerid = 'answer_'.$answer->id;
                 $mform->addElement('hidden', 'answer['.$answer->id.']', $answer->answer);
-                $mform->setType('answer['.$answer->id.']', PARAM_TEXT);
+                $mform->setType('answer['.$answer->id.']', PARAM_NOTAGS);
                 $mform->setDefault($answerid, true);
                 $mform->setDefault('answer['.$answer->id.']', true);
             }
             // NOTE: our silly checkbox supports only value '1' - we can not use it like the radiobox above!!!!!!
+            $answer->answer = preg_replace('#>$#', '> ', $answer->answer);
             $mform->addElement('checkbox', $answerid, null, format_text($answer->answer, $answer->answerformat, $options), $disabled);
             $mform->setType($answerid, PARAM_INT);
 

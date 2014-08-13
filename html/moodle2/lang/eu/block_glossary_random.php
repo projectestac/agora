@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addentry'] = 'Gehitu beste sarrera bat';
+$string['addentry'] = 'Gehitu beste sarrera bat!';
 $string['askaddentry'] = 'Ikasleek glosategian sarrerak gehitzeko baimena badute testu hau duen esteka erakutsiko da';
 $string['askinvisible'] = 'Glosategia ikasleei ezkutatu nahi badiezu, ez da estekarik erakutsiko. Horren ordez, testu hau erakutsiko da.';
 $string['askviewglossary'] = 'Ikasleei soilik glosategiaren eduki osoa ikusteko baimena ematen bazaie, testu hau duen glosategirako esteka erakutsiko da.';
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Gehitu glosategiko ausazko sarrera b
 $string['intro'] = 'Ziurta ezazu ikastaro honetan gutxienez sarrera bat duen glosategia dagoela. Gero ezarpenak aldatu ahal izango dituzu.';
 $string['invisible'] = '(jarraituko du)';
 $string['lastmodified'] = 'Aldatutako azken sarrera';
+$string['nextalpha'] = 'Ordena alfabetikoa';
 $string['nextone'] = 'Hurrengo sarrera';
 $string['noentriesyet'] = 'Aukeratutako glosategian oraindik ez dago sarrerarik.';
 $string['notyetconfigured'] = 'Mesedez, konfigura ezazu bloke hau edizio-ikurra erabiliz.';

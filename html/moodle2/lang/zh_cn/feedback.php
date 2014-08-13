@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'feedback', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'feedback', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['add_item'] = '向活动添加问题';
-$string['add_items'] = '向活动添加问题';
 $string['add_pagebreak'] = '添加一个分页符';
 $string['adjustment'] = '调整';
 $string['after_submit'] = '提交后';
@@ -102,9 +101,8 @@ $string['dropdown_values'] = '答卷';
 $string['drop_feedback'] = '从此课程移除';
 $string['edit_item'] = '编辑问题';
 $string['edit_items'] = '编辑问题';
-$string['emailnotification'] = 'email通知';
 $string['email_notification'] = '发送email通知';
-$string['emailnotification_help'] = '如果激活，有反馈被提交后，管理员会收到email通知';
+$string['email_notification_help'] = '如果激活，有反馈被提交后，管理员会收到email通知';
 $string['emailteachermail'] = '{$a->username}已经填写反馈：“{$a->feedback}”
 
 您可以到这里查看结果：
@@ -117,7 +115,6 @@ $string['export_questions'] = '导出问题';
 $string['export_to_excel'] = '导出到Excel';
 $string['feedback:addinstance'] = '添加新反馈';
 $string['feedbackclose'] = '关闭此反馈时间';
-$string['feedbackcloses'] = '反馈关闭';
 $string['feedback:complete'] = '填写反馈';
 $string['feedback:createprivatetemplate'] = '建立私有模板';
 $string['feedback:createpublictemplate'] = '建立公共模板';
@@ -128,8 +125,6 @@ $string['feedback_is_not_for_anonymous'] = '此反馈不能匿名参加';
 $string['feedback_is_not_open'] = '此反馈未开放';
 $string['feedback:mapcourse'] = '向全局反馈映射课程';
 $string['feedbackopen'] = '开放此反馈时间';
-$string['feedbackopens'] = '反馈开启';
-$string['feedback_options'] = '反馈选项';
 $string['feedback:receivemail'] = '接收email通知';
 $string['feedback:view'] = '查看反馈活动';
 $string['feedback:viewanalysepage'] = '提交后查看分析页面';
@@ -151,7 +146,6 @@ $string['insufficient_responses_help'] = '此小组的回答数量不足。
 为了保证反馈的匿名性，至少需要两个以上的回答。';
 $string['item_label'] = '标签';
 $string['item_name'] = '问题';
-$string['items_are_required'] = '加星号的问题为必答题。';
 $string['label'] = '标签';
 $string['line_values'] = '评分';
 $string['mapcourse'] = '映射反馈到课程';
@@ -178,7 +172,6 @@ $string['multichoicerated'] = '选择题（可评分）';
 $string['multichoicetype'] = '选择题';
 $string['multichoice_values'] = '选项';
 $string['multiplesubmit'] = '多次提交';
-$string['multiple_submit'] = '多次提交';
 $string['multiplesubmit_help'] = '如果对匿名调查也启用，那么用户就可以无限次提交反馈。';
 $string['name'] = '名称';
 $string['name_required'] = '必须输入名称';
@@ -272,14 +265,9 @@ $string['textfield_maxlength'] = '最多可接受字符数';
 $string['textfield_size'] = '文本域宽度';
 $string['there_are_no_settings_for_recaptcha'] = '没有captcha的设置';
 $string['this_feedback_is_already_submitted'] = '您已经完成此活动。';
-$string['timeclose'] = '关闭时间';
-$string['timeclose_help'] = '您可以指定什么时间用户可以开始答题。如果不勾选复选框，就没有时间限制';
-$string['timeopen'] = '开放时间';
-$string['timeopen_help'] = '您可以指定什么时间用户可以开始答题。如果不勾选复选框，就没有时间限制';
 $string['typemissing'] = '缺少"type"值';
 $string['update_item'] = '保存对问题的修改';
 $string['url_for_continue'] = '继续按钮的URL';
-$string['url_for_continue_button'] = '继续按钮的URL';
 $string['url_for_continue_help'] = '提交反馈后，继续按钮的目标缺省是课程页面。您可以在这里定义另一个目标URL。';
 $string['use_one_line_for_each_value'] = '<br />每个选项只占一行！';
 $string['use_this_template'] = '使用此模板';

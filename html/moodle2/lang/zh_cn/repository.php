@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = '添加容器插件';
 $string['allowexternallinks'] = '允许外部链接';
 $string['areacategoryintro'] = '类别描述';
 $string['areacourseintro'] = '课程介绍';
+$string['areacourseoverviewfiles'] = '课程摘要文件';
 $string['areamainfile'] = '主文件';
 $string['arearoot'] = '系统';
 $string['areauserbackup'] = '用户备份';
@@ -86,6 +87,9 @@ $string['deleterepository'] = '删除此容器';
 $string['detailview'] = '查看详情';
 $string['dimensions'] = '大小';
 $string['disabled'] = '禁用';
+$string['displaydetails'] = '以文件详细信息显示文件夹内容';
+$string['displayicons'] = '以文件图标显示文件夹内容';
+$string['displaytree'] = '以文件树状结构显示文件夹内容';
 $string['download'] = '下载';
 $string['downloadfolder'] = '下载全部';
 $string['downloadsucc'] = '文件已成功下载';
@@ -99,10 +103,12 @@ $string['enter'] = '进入';
 $string['entername'] = '请输入文件夹名';
 $string['enternewname'] = '请输入新文件名';
 $string['error'] = '发生未知错误！';
+$string['errordoublereference'] = '该文件的快捷方式已经存在，无法以快捷方式或别名形式覆盖文件';
 $string['errornotyourfile'] = '您不能选择别人添加的文件';
 $string['errorpostmaxsize'] = '上传的文件大小超出了php.ini中允许的最大值（max_post_size）。';
 $string['erroruniquename'] = '容器实例名应该唯一';
-$string['errorwhiledownload'] = '下载文件 {$a} 时发生错误';
+$string['errorwhilecommunicatingwith'] = '错误！在访问容器"{$a}"时发生错误';
+$string['errorwhiledownload'] = '错误！在下载文件 {$a} 时发生错误';
 $string['existingrepository'] = '容器已经存在';
 $string['federatedsearch'] = '联合搜索';
 $string['fileexists'] = '文件名已被使用，请使用其它名字';
@@ -118,6 +124,7 @@ $string['folderexists'] = '文件夹的名称已被使用，请使用其他名�
 $string['foldernotfound'] = '找不到文件夹';
 $string['folderrecurse'] = '文件夹不能被移动到自己的子文件夹里';
 $string['getfile'] = '选择此文件';
+$string['help'] = '帮助';
 $string['hidden'] = '隐藏';
 $string['iconview'] = '图标查看';
 $string['imagesize'] = '{$a->width} x {$a->height} 像素';
@@ -147,6 +154,7 @@ $string['manage'] = '管理容器';
 $string['manageurl'] = '管理';
 $string['manageuserrepository'] = '管理个人容器';
 $string['moving'] = '移动中';
+$string['newfolder'] = '新文件夹';
 $string['newfoldername'] = '新文件夹名：';
 $string['noenter'] = '什么都没输入';
 $string['nofilesattached'] = '没有附件';
@@ -186,15 +194,18 @@ $string['repositories'] = '容器';
 $string['repository'] = '容器';
 $string['repositorycourse'] = '课程容器';
 $string['repositoryerror'] = '远程容器返回错误：{$a}';
+$string['repositoryicon'] = '容器图标';
 $string['save'] = '保存';
 $string['saveas'] = '另存为';
 $string['saved'] = '已保存';
 $string['saving'] = '保存中';
 $string['search'] = '搜索';
 $string['searching'] = '搜索';
+$string['searchrepo'] = '搜索容器';
 $string['sectionbackup'] = '小节备份';
 $string['select'] = '选择';
 $string['setmainfile'] = '设为主文件';
+$string['setmainfile_help'] = '若文件夹中存在多个文件，查看页面会显示一个主要文件，而其他如图片、视频文件可能会嵌入其中。在文件管理器中，主文件用黑体标题加以区分。';
 $string['settings'] = '设置';
 $string['setupdefaultplugins'] = '设置缺省容器插件';
 $string['siteinstances'] = '本站的容器实例';

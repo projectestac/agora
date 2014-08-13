@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['aftersaving...'] = 'Zehaztasunak gordetakoan, agian nahiko duzu';
 $string['allowunenrol'] = 'IMS datuei ikasleak/irakasleak <strong>desmatrikulatzen</strong> utzi';
-$string['basicsettings'] = 'Oinarrizko zehaztasunak';
+$string['basicsettings'] = 'Oinarrizko ezarpenak';
 $string['coursesettings'] = 'Ikastaroaren datuen aukerak';
 $string['createnewcategories'] = 'Ikastaroaren kategoria berriak (ezkutukoak) sortu Moodlen ez badaude';
 $string['createnewcourses'] = 'Ikastaro berriak (ezkutukoak) sortu Moodlen ez badaude';
@@ -35,6 +35,7 @@ $string['createnewusers'] = 'Oraindik Moodlen erregistratu ez diren erabiltzaile
 $string['cronfrequency'] = 'Prozesamendu-maiztasuna';
 $string['deleteusers'] = 'Erabiltzaile-kontuak ezabatu IMS datuetan zehazten denean';
 $string['doitnow'] = 'Exekutatu oraintxe bertan IMS Enterprise inportazioa';
+$string['emptyattribute'] = 'Utzi hutsik';
 $string['filelockedmail'] = 'IMS fitxategian oinarritutako matrikulazioetarako erabiltzen ari zaren testua ({$a})ezin da kron prozesuaren bitartez ezabatu. Horrek normalean prozesuak okerrekoak direla esan nahi izaten du. Mesedez, banatu baimenak Moodlek fitxategia ezabatu ahal izateko (bestela, behin eta berriz prozesatuko litzateke).';
 $string['filelockedmailsubject'] = 'Errore larria: Matrikulazio-fitxategia';
 $string['fixcasepersonalnames'] = 'Aldatu izen pertsonalak letra larrira.';
@@ -46,12 +47,15 @@ $string['location'] = 'Fitxategiaren kokapena';
 $string['logtolocation'] = 'Irteerako log fitxategiaren kokapena (utzi zuri ez badago erregistrorik)';
 $string['mailadmins'] = 'Kudeatzaileari e-postaz jakinarazi';
 $string['mailusers'] = 'Erabiltzaileei e-postaz jakinarazi';
+$string['messageprovider:imsenterprise_enrolment'] = 'IMS Enterprise matrikulazio-mezuak';
 $string['miscsettings'] = 'Denetarikoak';
 $string['pluginname'] = 'IMS Enterprise fitxategia';
 $string['processphoto'] = 'Profilari erabiltzailearen argazkia gaineratu';
 $string['processphotowarning'] = 'Kontuz: Irudiak prozesatzeak zerbitzariari lan karga nabarmen gaineratuko dio seguruenik. Aukera hau ez aktibatzeko gomendatzen da ikasle-kopuru altua prozesatzeko asmoa badago.';
 $string['restricttarget'] = 'Ondorengo helburua zehaztu bada bakarrik prozesatu datuak.';
 $string['roles'] = 'Rolak';
+$string['settingshortname'] = 'IMS deskribapen-etiketa ikastaroaren izen laburrerako';
+$string['settingsummary'] = 'IMS deskribapen-etiketa ikastaroaren laburpenerako';
 $string['sourcedidfallback'] = 'Userdid-erako "Sourcedid"a erabili, pertsona baten "userid" kanpoa aurkitzen ez bada.';
 $string['truncatecoursecodes'] = 'Ikataroaren kodeak luzera honetara moztu';
 $string['usecapitafix'] = 'Kutxa hau markatu "Capita" erabiltzen bada (XML formatua neurri batean okerra da)';

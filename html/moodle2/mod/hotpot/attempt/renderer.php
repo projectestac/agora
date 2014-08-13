@@ -1197,84 +1197,6 @@ class mod_hotpot_attempt_renderer extends mod_hotpot_renderer {
                 $allowpaste = 'false';
             }
             $str .= ''
-                ."function HP_add_listener(obj, evt, fnc, useCapture) {\n"
-                ."	// obj : an HTML element\n"
-                ."	// evt : the name of the event (without leading 'on')\n"
-                ."	// fnc : the name of the event handler funtion\n"
-                ."	// useCapture : boolean (default = false)\n"
-
-                ."	if (typeof(fnc)=='string') {\n"
-                ."		fnc = new Function(fnc);\n"
-                ."	}\n"
-
-                ."	// transfer object's old event handler (if any)\n"
-                ."	var onevent = 'on' + evt;\n"
-                ."	if (obj[onevent]) {\n"
-                ."		var old_fnc = obj[onevent];\n"
-                ."		obj[onevent] = null;\n"
-                ."		HP_add_listener(obj, evt, old_fnc, useCapture);\n"
-                ."	}\n"
-
-                ."	if (obj.addEventListener) {\n"
-                ."		obj.addEventListener(evt, fnc, (useCapture ? true : false));\n"
-                ."	} else if (obj.attachEvent) {\n"
-                ."		obj.attachEvent(onevent, fnc);\n"
-                ."	} else {\n" // old browser NS4, IE5 ...
-                ."		if (! obj.evts) {\n"
-                ."			obj.evts = new Array();\n"
-                ."		}\n"
-                ."		if (obj.evts && ! obj.evts[onevent]) {\n"
-                ."			obj.evts[onevent] = new Array();\n"
-                ."		}\n"
-                ."		if (obj.evts && obj.evts[onevent] && ! obj.evts[onevent]) {\n"
-                ."			obj.evts[onevent][obj.evts[onevent].length] = fnc;\n"
-                ."			obj[onevent] = new Function('HP_handle_event(this, \"'+onevent+'\")');\n"
-                ."		}\n"
-                ."	}\n"
-                ."}\n"
-
-                ."function HP_remove_listener(obj, evt, fnc, useCapture) {\n"
-                ."	// obj : an HTML element\n"
-                ."	// evt : the name of the event (without leading 'on')\n"
-                ."	// fnc : the name of the event handler funtion\n"
-                ."	// useCapture : boolean (default = false)\n"
-
-                ."	var onevent = 'on' + evt;\n"
-                ."	if (obj.removeEventListener) {\n"
-                ."		obj.removeEventListener(evt, fnc, (useCapture ? true : false));\n"
-                ."	} else if (obj.attachEvent) {\n"
-                ."		obj.detachEvent(onevent, fnc);\n"
-                ."	} else if (obj.evts && obj.evts[onevent]) {\n"
-                ."		var i_max = obj.evts[onevent].length;\n"
-                ."		for (var i=(i_max - 1); i>=0; i--) {\n"
-                ."			if (obj.evts[onevent][i]==fnc) {\n"
-                ."				obj.evts[onevent].splice(i, 1);\n"
-                ."			}\n"
-                ."		}\n"
-                ."	}\n"
-                ."}\n"
-
-                ."function HP_handle_event(obj, onevent) {\n"
-                ."	if (obj.evts[onevent]) {\n"
-                ."		var i_max = obj.evts[onevent].length\n"
-                ."		for (var i=0; i<i_max; i++) {\n"
-                ."			obj.evts[onevent][i]();\n"
-                ."		}\n"
-                ."	}\n"
-                ."}\n"
-
-                ."function HP_disable_event(evt) {\n"
-                ."	if (evt==null) {\n"
-                ."		evt = window.event;\n"
-                ."	}\n"
-                ."	if (evt.preventDefault) {\n"
-                ."		evt.preventDefault();\n"
-                ."	} else {\n" // IE <= 8
-                ."		evt.returnValue = false;\n"
-                ."	}\n"
-                ."	return false;\n"
-                ."}\n"
-
                 // By default, pasting of answers is NOT allowed.
                 // To allow it: window.allow_paste_input = true;
                 ."function HP_setup_input_and_textarea() {\n"
@@ -1548,7 +1470,7 @@ class mod_hotpot_attempt_renderer extends mod_hotpot_renderer {
     function convert_url_param($match)  {
         // make sure the param "name" attribute is one we know about
         $quote = $match[6];
-        $search = "/name\s*=\s*$quote(?:data|movie|src|FlashVars)$quote/i";
+        $search = "/name\s*=\s*$quote(?:data|movie|src|url|FlashVars)$quote/i";
         if (preg_match($search, $match[0])) {
             return $this->convert_url_relative($match);
         } else {

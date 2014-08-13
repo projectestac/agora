@@ -42,7 +42,7 @@ if ($id) {
 // Check login
 require_login($course, true, $cm);
 require_capability('mod/hotpot:attempt', $PAGE->context);
-add_to_log($course->id, 'hotpot', 'attempt', 'view.php?id='.$cm->id, $hotpot->id, $cm->id);
+hotpot_add_to_log($course->id, 'hotpot', 'attempt', 'view.php?id='.$cm->id, $hotpot->id, $cm->id);
 
 // Set editing mode
 if ($PAGE->user_allowed_editing()) {

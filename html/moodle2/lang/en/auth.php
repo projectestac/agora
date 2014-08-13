@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,6 +65,7 @@ $string['changepassword'] = 'Change password URL';
 $string['changepasswordhelp'] = 'Here you can specify a location at which your users can recover or change their username/password if they\'ve forgotten it. This will be provided to users as a button on the login page and their user page. If you leave this blank the button will not be printed.';
 $string['chooseauthmethod'] = 'Choose an authentication method';
 $string['chooseauthmethod_help'] = 'This setting determines the authentication method used when the user logs in. Only enabled authentication plugins should be chosen, otherwise the user will no longer be able to login. To block the user from logging in, select "No login".';
+$string['createpassword'] = 'Generate password and notify user';
 $string['createpasswordifneeded'] = 'Create password if needed';
 $string['emailchangecancel'] = 'Cancel email change';
 $string['emailchangepending'] = 'Change pending. Open the link sent to you at {$a->preference_newemail}.';
@@ -86,6 +87,8 @@ $string['errorminpasswordlower'] = 'Passwords must have at least {$a} lower case
 $string['errorminpasswordnonalphanum'] = 'Passwords must have at least {$a} non-alphanumeric character(s).';
 $string['errorminpasswordupper'] = 'Passwords must have at least {$a} upper case letter(s).';
 $string['errorpasswordupdate'] = 'Error updating password, password not changed';
+$string['event_user_loggedin'] = 'User has logged in';
+$string['eventuserloggedinas'] = 'User logged in as another user';
 $string['forcechangepassword'] = 'Force change password';
 $string['forcechangepasswordfirst_help'] = 'Force users to change password on their first login to Moodle.';
 $string['forcechangepassword_help'] = 'Force users to change password on their next login to Moodle.';
@@ -132,6 +135,8 @@ $string['stdchangepassword_expl'] = 'If the external authentication system allow
 $string['stdchangepassword_explldap'] = 'NOTE: It is recommended that you use LDAP over an SSL encrypted tunnel (ldaps://) if the LDAP server is remote.';
 $string['suspended'] = 'Suspended account';
 $string['suspended_help'] = 'Suspended user accounts cannot log in or use web services, and any outgoing messages are discarded.';
+$string['testsettings'] = 'Test settings';
+$string['testsettingsheading'] = 'Test authentication settings - {$a}';
 $string['unlocked'] = 'Unlocked';
 $string['unlockedifempty'] = 'Unlocked if empty';
 $string['update_never'] = 'Never';

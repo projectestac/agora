@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'dialogue', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'dialogue', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   dialogue
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,184 +25,165 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmynewentries'] = 'Add my New Entries';
-$string['addmynewentry'] = 'Submit entry';
-$string['addsubject'] = 'Add Subject';
-$string['addsubject_help'] = '<p>You can use this link to add a Subject to the dialogue. It\'s a
-    good idea to always have a subject for the dialogue, it keeps
-    the dialogue on track and focuses the replies on the topic.
-    If you want to start talking about another subject it is
-    better to close the current dialogue and start a new dialogue
-    on that topic.</p>';
-$string['allowmultiple'] = 'Allow more than one Dialogue with the same person';
-$string['allowmultiple_help'] = '<p>This option allows a person to start more than one dialogue with
-    someone else. The default is No, which only allows one (open)
-    dialogue between two people.</p>
-
-<p>Allowing multiple dialogues may result in an abuse of this
-    facility. Some people may be &quot;pestered&quot; by others
-    opening many unwanted dialogues with them.</p>';
-$string['allowstudentdialogues'] = 'Allow Student-to-Student Dialogues';
-$string['attachment'] = 'Attachment:';
-$string['cannotadd'] = 'Cannot Open a dialogue unless you are a member of this group';
-$string['cannotaddall'] = 'Cannot Open a dialogue with all participants';
-$string['close'] = 'Close';
+$string['actions'] = 'Actions';
+$string['ago'] = 'ago';
+$string['attachment'] = 'Attachment';
+$string['attachments'] = 'Attachments';
+$string['bulkopener'] = 'Bulk opener';
+$string['bulkopenrule'] = 'Bulk open rule';
+$string['bulkopenrulenotifymessage'] = '<strong>Note:</strong><br/>When using a bulk opener rule, conversations are not opened straight away. Conversations will be opened when the system\'s cron function is run, typically every 30 minutes.';
+$string['bulkopenrules'] = 'Bulk open rules';
+$string['cachedef_params'] = 'Params - user interface';
+$string['cachedef_participants'] = 'Participants id\'s (basic information)';
+$string['cachedef_unreadcounts'] = 'Users unread message counts in conversations';
+$string['cachedef_userdetails'] = 'User brief details, all enrolled users';
+$string['cannotclosedraftconversation'] = 'You cannot close a conversation that hasn\'t started!';
+$string['cannotdeleteopenconversation'] = 'You cannot delete a open conversation';
+$string['closeconversation'] = 'Close conversation';
 $string['closed'] = 'Closed';
-$string['closeddialogues'] = 'Closed Dialogues';
-$string['closedialogue'] = 'Close dialogue';
-$string['closedialogue_help'] = '<h1>Closing Dialogues</h1>
-<p>You can close a dialogue at any time. Closing a dialogue
-    stops the dialogue and removes it from your current list of dialogues. That is,
-    closed dialogues do not appear on this page. </p>
-
-<p>You will be able to view closed dialogues but you can not add to them.
-    However, closed dialogues may be deleted if you have updated the dialogue
-    and set a period other than zero days for dialogue deletions. After that point they
-    obviously will not be available even for viewing.</p>
-
-<p>If you do close this dialogue, then you will have to start a new dialogue
-    if you want to continue to &quot;talk&quot; with this person. That person
-    will re-appear in the list of people you can start dialogues with.</p>';
-$string['configmaxattachmentshelp'] = 'Maximum Attachments per Dialogue entry';
-$string['configtrackreadentries'] = 'Set to \'yes\' if you want to track read/unread for each user.';
-$string['confirmclosure'] = 'You are about to close a dialogue with {$a}. Closed dialogues cannot be reopened. If you close this dialogue you can view it but not add to it, and you will have to start another dialogue to contnue &quot;talking&quot; this person.<br /><br />Are you sure you want to close this dialogue?';
-$string['currentattachment'] = 'Current attachment:';
-$string['deleteafter'] = 'Delete Closed Dialogues after (Days)';
-$string['deleteafter_help'] = '<h1>Deletion of Dialogues</h1>
-<p>This option sets the time interval in days for the deletion of
-    dialogues. It only applies to CLOSED dialogues. </p>
-
-<p>If the time period is set to zero then dialogues are never
-deleted.</p>';
-$string['deleteattachment'] = 'Delete attachment';
-$string['dialogue:addinstance'] = 'Add a new dialogue';
-$string['dialoguebetween'] = 'Dialogue between {$a->sender} and {$a->recipient}';
-$string['dialogue:close'] = 'Close';
-$string['dialogueclosed'] = 'Dialogue Closed';
+$string['completed'] = 'Completed';
+$string['configmaxattachments'] = 'Default maximum number of attachments allowed per post.';
+$string['configmaxbytes'] = 'Default maximum size for all dialogue attachments on the site (subject to course limits and other local settings)';
+$string['configtrackunread'] = 'Track unread dialogue messages on course homepage';
+$string['configviewconversationsbyrole'] = 'Experimental: View conversations by role, order conversation listing by author\'s role';
+$string['configviewstudentconversations'] = 'Experimental: student list with conversations they are involved in';
+$string['conversationcloseconfirm'] = 'Are you sure you want to close conversation {$a} ?';
+$string['conversationclosed'] = 'Conversation {$a} has been closed';
+$string['conversationdeleteconfirm'] = 'Are you sure you want to delete conversation {$a}, this cannot be undone?';
+$string['conversationdeleted'] = 'Conversation {$a} has been deleted';
+$string['conversationdiscarded'] = 'Conversation discarded';
+$string['conversationlistdisplayheader'] = 'Displaying {$a->show} {$a->state} conversations {$a->groupname}';
+$string['conversationopened'] = 'Conversation has been opened';
+$string['conversationopenedcron'] = 'Conversations will be opened automatically';
+$string['conversationopenedwith'] = '<strong>1</strong> conversation opened with:';
+$string['conversations'] = 'Conversations';
+$string['conversationsopenedwith'] = '<strong>{$a}</strong> conversations opened with:';
+$string['cutoffdate'] = 'Cut off date';
+$string['datefullyear'] = '{$a->datefull} <small>({$a->time})</small>';
+$string['dateshortyear'] = '{$a->dateshort} <small>({$a->time})</small>';
+$string['deleteconversation'] = 'Delete conversation';
+$string['deletereply'] = 'Delete reply';
+$string['dialogue:addinstance'] = 'Add a Dialogue';
+$string['dialogue:bulkopenrulecreate'] = 'Create a bulk opener rule';
+$string['dialogue:bulkopenruleeditany'] = 'Allows user to edit any rule, useful for admin\'s etc';
+$string['dialogue:close'] = 'Close a conversation';
+$string['dialogue:closeany'] = 'Close any';
+$string['dialogue:delete'] = 'Delete own';
+$string['dialogue:deleteany'] = 'Delete any';
 $string['dialogueintro'] = 'Dialogue Introduction';
-$string['dialogue:manage'] = 'Manage';
-$string['dialoguemessage'] = '{$a->userfrom} has posted a new entry in your
-
-dialogue entry for \'{$a->dialogue}\'
-
-You can see it appended to your dialogue entry:
-
-    {$a->url}';
-$string['dialoguemessagehtml'] = '{$a->userfrom} has posted a new entry in your
-
-dialogue entry for \'<i>{$a->dialogue}</i>\'<br /><br />
-
-You can see it appended to your <a href="{$a->url}">dialogue</a>.';
-$string['dialoguemessageshort'] = '{$a->userfrom} posted a new entry for dialogue \'{$a->dialogue}\'.
-    See it at <a href="{$a->url}" />';
 $string['dialoguename'] = 'Dialogue name';
-$string['dialogue:open'] = 'Open';
-$string['dialogueopened'] = 'Dialogue opened with {$a->name}</p><p>You have $a->edittime mins to edit it if you want to make any changes.</p>';
-$string['dialogue:participate'] = 'Participate';
-$string['dialogue:participateany'] = 'Participate in any dialogue';
-$string['dialoguetype'] = 'Type of Dialogue';
-$string['dialoguetype_help'] = '<h1>Dialogue Types</h1>
-<p>There are three types of Dialogues.</p>
-
-<ol><li><p><b>Teacher to Student</b> This allows dialogues between
-    teachers and students. Dialogues can be started by either
-    teachers or students. In the lists of people, teachers only
-    see students and students only see teachers.</p></li>
-
-<li><p><b>Student to Student</b> This allows dialogues between
-    students. Teachers are <b>not</b> included at all in this type of
-    dialogue</p></li>
-
-<li><p><b>Everybody</b> This allows everybody in the Class to
-    start a dialogue with anybody else. Teachers can start
-    dialogues with other teachers and students, students can start
-    dialogues with other students and teachers. </p></li>
-</ol>';
-$string['dialogue:viewall'] = 'View any dialogue';
-$string['dialoguewith'] = 'Dialogue with {$a}';
-$string['edittime'] = 'Edit time (minutes)';
-$string['edittime_help'] = '<h1>Set Edit Time</h1>
-<p>This option controls how long a user has to edit a dialog entry after it has been submitted.</p>
-<p>After the edit time has elapsed the user will no longer be allowed to edit the post, and if allowed, an email notification of the post will be sent.</p>';
-$string['erroremptymessage'] = 'Error: empty message.';
-$string['everybody'] = 'Everybody';
-$string['firstentry'] = 'First Entry';
-$string['furtherinformation'] = 'Further Information';
-$string['lastentry'] = 'Last Entry';
-$string['maxattachments'] = 'Maximum Attachments';
+$string['dialogue:open'] = 'Open a conversation';
+$string['dialogue:receive'] = 'Receive, who can be the recipient when opening a conversation';
+$string['dialogue:reply'] = 'Reply';
+$string['dialogue:replyany'] = 'Reply any';
+$string['dialogueupgradehelper'] = 'Dialogue upgrade helper';
+$string['dialogue:viewany'] = 'View any';
+$string['dialogue:viewbyrole'] = 'View conversation listing by role, experimental';
+$string['displaybystudent'] = 'Display by student';
+$string['displayconversationsheading'] = 'Displaying {$a} conversations';
+$string['displaying'] = 'Displaying';
+$string['draft'] = 'Draft';
+$string['draftconversation'] = 'Draft conversation';
+$string['draftconversationtrashed'] = 'Draft conversation trashed';
+$string['draftlistdisplayheader'] = 'Displaying my drafts';
+$string['draftreply'] = 'Draft reply';
+$string['draftreplytrashed'] = 'Draft reply trashed';
+$string['drafts'] = 'Drafts';
+$string['errorcutoffdateinpast'] = 'Cut off date cannot be set in the past';
+$string['erroremptymessage'] = 'Message cannot be empty';
+$string['erroremptysubject'] = 'Subject cannot be empty.';
+$string['errornoparticipant'] = 'You must open a dialogue with somebody...';
+$string['everybody'] = 'Everybody (free for all)';
+$string['everyone'] = 'Everyone';
+$string['everyones'] = 'everyone\'s';
+$string['firstname'] = 'First name';
+$string['fullname'] = 'Full name';
+$string['groupmodenotifymessage'] = 'This activity is running in groupmode, this will affect who you can start a conversation with and what conversations are displayed.';
+$string['hasnotrun'] = 'Has not run yet';
+$string['includefuturemembers'] = 'Include future members';
+$string['ingroup'] = 'in group {$a}';
+$string['justmy'] = 'just my';
+$string['lastname'] = 'Last name';
+$string['lastranon'] = 'Last ran on';
+$string['latest'] = 'Latest';
+$string['legacy'] = 'Legacy';
+$string['listpaginationheader'] = '{$a->start}-{$a->end} of {$a->total}';
+$string['matchingpeople'] = 'Matching people ({$a})';
+$string['maxattachments'] = 'Maximum number of attachments';
+$string['maxattachments_help'] = 'This setting specifies the maximum number of files that can be attached to a dialogue post.';
+$string['maxattachmentsize'] = 'Maximum attachment size';
+$string['maxattachmentsize_help'] = 'This setting specifies the largest size of file that can be attached to a dialogue post.';
+$string['message'] = 'Message';
+$string['messageapibasicmessage'] = '<p>{$a->userfrom} posted a new message to a conversation you are participanting
+in with subject: <i>{$a->subject}</i>
+<br/><br/><a href="{$a->url}">View in Moodle</a></p>';
+$string['messageapismallmessage'] = '{$a} posted a new message to a conversation you are participating in';
 $string['messageprovider:post'] = 'Dialogue notifications';
+$string['messages'] = 'messages';
+$string['mine'] = 'Mine';
 $string['modulename'] = 'Dialogue';
+$string['modulename_help'] = 'Dialogues allow students or teachers to start two-way dialogues with another person. They are course activities that can be useful when the teacher wants a place to give private feedback to a student on their online activity. For example, if a student is participating in a language forum and made a grammatical error that the teacher wants to point out without embarassing the student, a dialogue is the perfect place. A dialogue activity would also be an excellent way for counsellors within an institution to interact with students - all activities are logged and email is not necessarily required';
 $string['modulenameplural'] = 'Dialogues';
-$string['multipleconversations'] = 'Allow more than one Dialogue with the same person';
-$string['multipleconversations_help'] = 'This option determines whether you can have more than one conversation with a given person within a dialogue tool.';
-$string['multiple_help'] = '<h1>Multiple Dialogues</h1>
-<p>This option allows a person to start more than one dialogue with
-    someone else. The default is No, which only allows one (open)
-    dialogue between two people.</p>
-
-<p>Allowing multiple dialogues may result in an abuse of this
-    facility. Some people may be &quot;pestered&quot; by others
-    opening many unwanted dialogues with them.</p>';
-$string['namehascloseddialogue'] = '{$a} has closed dialogue';
-$string['newdialogueentries'] = 'New dialogue entries';
-$string['newentry'] = 'New Entry';
-$string['noavailablepeople'] = 'There is no one available to have a Dialogue with.';
-$string['noentry'] = 'No entries';
-$string['nopersonchosen'] = 'No Person Chosen';
-$string['nosubject'] = 'No subject';
-$string['notavailable'] = 'Dialogues are not available to guest users';
-$string['notextentered'] = 'No Text Entered';
-$string['notifydefault'] = 'Notification of new entry';
-$string['notifydefault_help'] = '<h1>Set Notification for new entries</h1>
-<p>This option controls whether notification messages are sent. If this
-   option is set to &quot;Yes&quot; a message is sent to the recipient
-   of a new entry. The notification message does not contain the text of the entry,
-   simply a sentence to say a new entry has been added and a link to the
-   dialogue.</p>
-
-<p>You should also review your Messaing settings in your Profile. </p>
-
-<p>Note this option applies to all the dialogues active in the dialogue
-    instance. The option can be changed at anytime.</p>';
-$string['notstarted'] = 'You have not started this dialogue yet';
-$string['notyetseen'] = 'Not yet seen';
-$string['numberofentries'] = 'Number of entries';
-$string['numberofentriesadded'] = '<p>Number of entries added: {$a->number}</p><p>You have {$a->edittime} mins to edit it if you want to make any changes.</p>';
-$string['of'] = 'of';
-$string['onwrote'] = 'On {$a->timestamp} {$a->picture} {$a->author} wrote';
-$string['onyouwrote'] = 'On {$a->timestamp} {$a->picture} you wrote';
+$string['nobulkrulesfound'] = 'No bulk rules found!';
+$string['noconversationsfound'] = 'No conversations found!';
+$string['nodraftsfound'] = 'No drafts found!';
+$string['nomatchingpeople'] = 'No people match \'{$a}';
+$string['nopermissiontoclose'] = 'You do not have permission to close this conversation!';
+$string['nopermissiontodelete'] = 'You do not have permission to delete!';
+$string['nosubject'] = '[no subject]';
+$string['numberattachments'] = '{$a} attachments';
+$string['numberunread'] = '{$a} unread';
+$string['oldest'] = 'Oldest';
+$string['onlydraftscanbetrashed'] = 'Only drafts can be trashed';
 $string['open'] = 'Open';
-$string['openadialoguewith'] = 'Open a Dialogue with';
-$string['opendialogue'] = 'Submit dialogue';
-$string['opendialogueentries'] = 'Open dialogue entries';
-$string['opendialogues'] = 'Open Dialogues';
-$string['otherdialogues'] = 'Other dialogues';
-$string['pane0'] = 'Open a Dialogue';
-$string['pane1'] = '{$a} Current Open Dialogues';
-$string['pane1one'] = 'One Open Dialogue';
-$string['pane3'] = '{$a} Closed Dialogues';
-$string['pane3one'] = '1 Closed Dialogue';
+$string['openedbyfullyear'] = '<small>Opened by</small> <strong>{$a->fullname}</strong> <small>on</small> {$a->datefull} <small>({$a->time})</small>';
+$string['openedbyshortyear'] = '<small>Opened by</small> <strong>{$a->fullname}</strong> <small>on</small> {$a->dateshort} <small>({$a->time})</small>';
+$string['openedbytoday'] = '<small>Opened by</small> <strong>{$a->fullname}</strong> <small>at</small> {$a->time} <small>({$a->timepast}) ago</small>';
+$string['openwith'] = 'Open with';
+$string['participants'] = 'participants';
+$string['people'] = 'People';
 $string['pluginadministration'] = 'Dialogue administration';
 $string['pluginname'] = 'Dialogue';
-$string['posts'] = 'posts';
-$string['questions'] = 'Questions';
-$string['questions_help'] = 'Questions help';
-$string['replyupdated'] = 'Reply updated';
-$string['seen'] = 'Seen {$a} ago';
-$string['sendmailmessages'] = 'Send Mail Messages about my new entries';
-$string['status'] = 'Status';
-$string['studenttostudent'] = 'Student to Student';
+$string['repliedby'] = '<strong>{$a->fullname}</strong> <small>replied</small> {$a->timeago}';
+$string['repliedbyfullyear'] = '<strong>{$a->fullname}</strong> <small>replied on</small> {$a->datefull} <small>({$a->time})</small>';
+$string['repliedbyshortyear'] = '<strong>{$a->fullname}</strong> <small>replied on</small> {$a->dateshort} <small>({$a->time})</small>';
+$string['repliedbytoday'] = '<strong>{$a->fullname}</strong> <small>replied at</small> {$a->time} <small>({$a->timepast}) ago</small>';
+$string['reply'] = 'Reply';
+$string['replydeleteconfirm'] = 'Are you sure you want to this reply?';
+$string['replydeleted'] = 'Reply has been deleted';
+$string['replysent'] = 'Your reply has been sent';
+$string['runsuntil'] = 'Runs until';
+$string['savedraft'] = 'Save draft';
+$string['searchpotentials'] = 'Search potentials...';
+$string['send'] = 'Send';
+$string['senton'] = '<small><strong>Sent on: </strong></small>';
+$string['sortedby'] = 'Sorted by: {$a}';
+$string['studenttostudent'] = 'Student to student';
 $string['subject'] = 'Subject';
-$string['subjectadded'] = 'Subject Added';
-$string['teachertostudent'] = 'Teacher to Student';
-$string['trackdialogue'] = 'Track unread entries';
-$string['typefirstentry'] = 'Type the first entry here';
-$string['typefollowup'] = 'Type follow-up here';
-$string['typeofdialogue'] = 'Type of Dialogue';
-$string['typeofdialogue_help'] = 'Type of Dialogue Help';
-$string['typereply'] = 'Type reply here';
-$string['unread'] = 'Unread entries';
-$string['unreadnumber'] = '{$a} unread entries';
-$string['unreadone'] = '1 unread entry';
-$string['updated'] = '(Updated on, {$a})';
-$string['viewallentries'] = 'View {$a} Dialogue entries';
+$string['teachertostudent'] = 'Teacher to student';
+$string['trashdraft'] = 'Trash draft';
+$string['unread'] = 'Unread';
+$string['unreadmessages'] = 'Unread messages';
+$string['unreadmessagesnumber'] = '{$a} unread messages';
+$string['unreadmessagesone'] = '1 unread message';
+$string['upgrade'] = 'Upgrade';
+$string['upgradecheck'] = 'Upgrade dialogue {$a}?';
+$string['upgradedcount'] = 'Upgraded {$a} dialogues';
+$string['upgradeiscompleted'] = 'Upgrade is completed';
+$string['upgrademessage'] = 'This Dialogue needs to be upgraded! Please contact your Moodle administrator';
+$string['upgradenodialoguesselected'] = 'No dialogues selected';
+$string['upgradenoneedupgrade'] = '{$a} dialogues need to be upgraded';
+$string['upgradereport'] = 'List dialogues still to upgrade';
+$string['upgradereportdescription'] = 'This will show a report of all the dialogues on the system that still need to be upgraded to schema';
+$string['upgradeselected'] = 'Upgrade selected dialogues';
+$string['upgradeselectedcount'] = 'Upgrade {$a} selected dialogues?';
+$string['upgradingresultfailed'] = 'Result: Upgrade failed';
+$string['upgradingresultsuccess'] = 'Result: Upgrade successful';
+$string['upgradingsummary'] = 'Upgrading dialogue: {$a}';
+$string['usecoursegroups'] = 'Use course groups';
+$string['usecoursegroups_help'] = 'If the course has defined groups a further restriction will be added to who a dialogue can
+be opened with. Dialogues can only be opened between group members unless the person opening the dialogue has the "Access all groups"
+capability set.';
+$string['usesearch'] = 'Use search to find people to start a dialogue with';
+$string['viewconversations'] = 'View conversations';
+$string['viewconversationsbyrole'] = 'View conversations by role';

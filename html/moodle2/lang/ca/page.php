@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,7 +49,5 @@ $string['popupheight'] = 'Altura de la finestra emergent (en píxels)';
 $string['popupheightexplain'] = 'Especifica l\'altura per defecte de les finestres emergents.';
 $string['popupwidth'] = 'Amplada de la finestra emergent (en píxels)';
 $string['popupwidthexplain'] = 'Especifica l\'amplaria per defecte de les finestres emergents.';
-$string['printheading'] = 'Mostra el títol de la pàgina';
-$string['printheadingexplain'] = 'Mostra el títol de la pàgina en la part superior del contingut ?';
 $string['printintro'] = 'Mostra la descripció de la pàgina';
 $string['printintroexplain'] = 'Mostra la descripció de la pàgina en la part de dalt del contingut ?';

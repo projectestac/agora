@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -119,8 +119,9 @@ $string['continuetonextpage'] = 'Vai alla prossima pagina.';
 $string['correctanswerjump'] = 'In caso di risposta corretta, salta a';
 $string['correctanswerscore'] = 'Punteggio per risposta corretta';
 $string['correctresponse'] = 'Replica a risposta corretta';
+$string['createaquestionpage'] = 'Crea una pagina con domanda';
 $string['credit'] = 'Crediti';
-$string['customscoring'] = 'Punteggi personalizzati';
+$string['customscoring'] = 'Punteggio personalizzato';
 $string['customscoring_help'] = 'Consente l\'assegnazione di un punteggio numerico a ciascuna risposta (positivo o negativo).';
 $string['deadline'] = 'Fino al';
 $string['defaultessayresponse'] = 'Il tuo testo libero sarà valutato dal docente.';
@@ -136,18 +137,20 @@ $string['description'] = 'Descrizione';
 $string['detailedstats'] = 'Statistiche dettagliate';
 $string['didnotanswerquestion'] = 'Non è stata data risposta a questa domanda.';
 $string['didnotreceivecredit'] = 'Credito non ricevuto';
-$string['displaydefaultfeedback'] = 'Visualizza il feedback di default';
+$string['displaydefaultfeedback'] = 'Usa il feedback di default';
 $string['displaydefaultfeedback_help'] = 'Consente l\'utilizzo delle risposte di  default "Risposta corretta" o "Risposta sbagliata" quando non sono impostate risposte specifiche.';
 $string['displayhighscores'] = 'Visualizza i voti migliori';
 $string['displayinleftmenu'] = 'Visualizzare nel menu di sinistra?';
-$string['displayleftif'] = 'Visualizza il menu solo dopo una valutazione maggiore di:';
+$string['displayleftif'] = 'Valutazione minima per visualizzare il menu';
 $string['displayleftif_help'] = 'L\'impostazione determina il punteggio minimo che lo studente deve raggiungere prima di poter visualizzare il menu a sinistra. In pratica lo studente dovrà svolgere la lezione, ottenere un punteggio e solo in seguito potrà visualizzare il menu a sinistra per rivedere la lezione.';
 $string['displayleftmenu'] = 'Visualizza menu a sinistra';
 $string['displayleftmenu_help'] = 'Consente la visualizzazione di un elenco di pagine.';
 $string['displayofgrade'] = 'Visualizzazione voti (solo per studenti)';
 $string['displayreview'] = 'Consente di riprovare la risposta ad una domanda';
 $string['displayreview_help'] = 'Se la una risposta è errata verrà visualizzato un pulsante, consentendo allo studente di riprovare senza ricevere valutazione oppure di proseguire nella lezione.';
-$string['displayscorewithessays'] = 'Hai ottenuto {$a->score} su {$a->tempmaxgrade} per le domande valutate automaticamente.<br>Le tue {$a->essayquestions} domande a testo libero saranno valutate successivamente e il voto sarà aggiunto<br />al tuo punteggio finale.<br /><br />La tua valutazione senza le domande a testo libero è {$a->score} su {$a->grade}';
+$string['displayscorewithessays'] = '<p>Hai ottenuto {$a->score} su {$a->tempmaxgrade} per le domande valutate automaticamente.</p>
+<p>Le tue {$a->essayquestions} domande a testo libero saranno valutate successivamente e il voto sarà aggiunto<br />al tuo punteggio finale.</p>
+<p>La tua valutazione senza le domande a testo libero è {$a->score} su {$a->grade}.</p>';
 $string['displayscorewithoutessays'] = 'Il tuo punteggio è {$a->score} (su {$a->grade}).';
 $string['edit'] = 'Modifica';
 $string['editingquestionpage'] = 'Modifica pagina con domanda {$a}';
@@ -284,7 +287,7 @@ $string['nameapproved'] = 'Nome approvato';
 $string['namereject'] = 'Spiacente, il tuo nome è stato rifiutato dal filtro.<br />Prova con un altro nome.';
 $string['new'] = 'nuovo';
 $string['nextpage'] = 'Pagina successiva';
-$string['noanswer'] = 'Non è stata data nessuna risposta. Torna indietro e dai una risposta.';
+$string['noanswer'] = 'Non è stata data risposta ad una o più domande. Torna indietro e dai una risposta.';
 $string['noattemptrecordsfound'] = 'Non è stato trovato nessun tentativo: nessun voto è stato dato';
 $string['nobranchtablefound'] = 'Non è stata trovata nessuna pagina con contenuto';
 $string['nocommentyet'] = 'Ancora nessun commento.';
@@ -345,6 +348,7 @@ $string['postsuccess'] = 'Inviato con successo';
 $string['practice'] = 'Lezione di prova';
 $string['practice_help'] = 'Una lezione di prova non compare nel registro valutatore.';
 $string['preprocesserror'] = 'Si è verificato un errore durante la pre-elaborazione!';
+$string['prerequisitelesson'] = 'Lezione prerequisito';
 $string['preview'] = 'Anteprima';
 $string['previewlesson'] = 'Anteprima di {$a}';
 $string['previouspage'] = 'Pagina precedente';
@@ -380,6 +384,7 @@ $string['savechanges'] = 'Salva modifiche';
 $string['savechangesandeol'] = 'Salva tutte le modifiche e vai alla fine della lezione.';
 $string['savepage'] = 'Salva pagina';
 $string['score'] = 'Punteggio';
+$string['score_help'] = 'Il punteggio è utilizzato solo se è abilitato il punteggio personalizzato. Ciascuna domanda potrà quindi avere un punteggio numerico positivo o negativo.';
 $string['scores'] = 'Punteggi';
 $string['secondpluswrong'] = 'Non proprio. Vuoi riprovare?';
 $string['selectaqtype'] = 'Scegli il tipo di domanda';

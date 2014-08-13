@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_checklist', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'gradingform_checklist', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   gradingform_checklist
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,7 +29,7 @@ $string['addgroup'] = 'Add group';
 $string['alwaysshowdefinition'] = 'Allow users to preview checklist used in the module (otherwise checklist will only become visible after grading)';
 $string['backtoediting'] = 'Back to editing';
 $string['checked'] = 'Checked';
-$string['checkitem'] = 'Check this item';
+$string['checkitem'] = 'Mark full credit for "{$a}"';
 $string['checklist'] = 'Checklist';
 $string['checklistmapping'] = 'Score to grade mapping rules';
 $string['checklistmappingexplained'] = 'The minimum possible score for this checklist is <b>{$a->minscore} points</b> and it will be converted to the minimum grade available in this module (which is zero unless the scale is used).
@@ -57,27 +57,28 @@ $string['groupadditem'] = 'Add item';
 $string['groupdelete'] = 'Delete group';
 $string['groupdescription'] = 'Group description';
 $string['groupempty'] = 'Click to edit group';
-$string['groupfeedback'] = 'Group feedback';
+$string['groupfeedback'] = 'Group feedback for "{$a}"';
 $string['groupmovedown'] = 'Move down';
 $string['groupmoveup'] = 'Move up';
 $string['grouppoints'] = 'Group points';
-$string['groupremark'] = 'Group remark';
+$string['groupremark'] = 'Group remark for "{$a}"';
 $string['itemdefinition'] = 'Item definition';
 $string['itemdelete'] = 'Delete item';
 $string['itemempty'] = 'Click to edit item';
-$string['itemfeedback'] = 'Feedback';
-$string['itemremark'] = 'Item remark';
+$string['itemfeedback'] = 'Feedback for "{$a}"';
+$string['itemremark'] = 'Item remark for "{$a}"';
 $string['itemscore'] = 'Item score';
 $string['name'] = 'Name';
 $string['needregrademessage'] = 'The checklist definition was changed after this student had been graded. The student can not see this checklist until you review the checklist and update the grade.';
 $string['overallpoints'] = 'Overall points';
 $string['pluginname'] = 'Checklist';
 $string['previewchecklist'] = 'Preview checklist';
-$string['regrademessage1'] = 'You are about to save changes to a checklist that has already been used for grading. Please indicate if existing grades need to be reviewed. If you set this then the checklist will be hidden from students until their item is regraded.';
-$string['regrademessage5'] = 'You are about to save significant changes to a checklist that has already been used for grading. The gradebook value will be unchanged, but the checklist will be hidden from students until their item is regraded.';
+$string['regrademessage1'] = 'You are about to save changes to a checklist that has already been used for grading. Please
+indicate if existing grades need to be reviewed. If you set this then the checklist will be hidden from students until their items are regraded.';
+$string['regrademessage5'] = 'You are about to save significant changes to a checklist that has already been used for grading. The gradebook value will be unchanged, but the checklist will be hidden from students until their items are regraded.';
 $string['regradeoption0'] = 'Do not mark for regrade';
 $string['regradeoption1'] = 'Mark for regrade';
-$string['restoredfromdraft'] = 'NOTE: The last attempt to grade this person was not saved properly so draft grades have been restored. If you want to cancel these changes use the \'Cancel\' button below.';
+$string['restoredfromdraft'] = 'NOTE: The last attempt to grade this person was not saved properly so draft grades have been restored. If you want to cancel these changes, use the \'Cancel\' button below.';
 $string['save'] = 'Save';
 $string['savechecklist'] = 'Save checklist and make it ready';
 $string['savechecklistdraft'] = 'Save as draft';

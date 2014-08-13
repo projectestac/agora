@@ -45,7 +45,7 @@ $section    = $DB->get_record('course_sections', array('id' => $cm->section, 'co
 require_login($course);
 require_sesskey();
 require_capability('moodle/course:manageactivities', $context);
-// Require both target import caps to be able to duplicate, see make_editing_buttons()
+// Require both target import caps to be able to duplicate, see course_get_cm_edit_actions()
 require_capability('moodle/backup:backuptargetimport', $context);
 require_capability('moodle/restore:restoretargetimport', $context);
 
@@ -120,6 +120,10 @@ if ($newcmid) {
     $newcm = get_coursemodule_from_id('', $newcmid, $course->id, true, MUST_EXIST);
     moveto_module($newcm, $section, $cm);
     moveto_module($cm, $section, $newcm);
+
+    // Trigger course module created event. We can trigger the event only if we know the newcmid.
+    $event = \core\event\course_module_created::create_from_cm($newcm);
+    $event->trigger();
 }
 
 $rc->destroy();

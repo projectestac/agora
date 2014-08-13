@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,12 @@ $string['customtitles_help'] = 'Normalerweise werden die Kapitelüberschriften i
 Wenn diese Option aktiviert ist, werden die Kapitelüberschriften ausschließlich im Inhaltsverzeichnis benutzt. Die Buchseiten können dann eigene (eventuell auch längere) Kapitelüberschriften bekommen.';
 $string['editingchapter'] = 'Kapitel bearbeiten';
 $string['errorchapter'] = 'Fehler beim Lesen des Kapitels';
+$string['event_chapter_created'] = 'Kapitel angelegt';
+$string['event_chapter_deleted'] = 'Kapitel gelöscht';
+$string['event_chapter_updated'] = 'Kapitel aktualisiert';
+$string['event_chapter_viewed'] = 'Kapitel angezeigt';
+$string['event_course_module_viewed'] = 'Kursmodul angezeigt';
+$string['event_instances_list_viewed'] = 'Instanzenübersicht angezeigt';
 $string['modulename'] = 'Buch';
 $string['modulename_help'] = 'Statt endlos durch lange Texte am Bildschirm zu scrollen, teilen Sie Ihre Lerninhalte auf kurze Seiten innerhalb des Buchs auf.
 

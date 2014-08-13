@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'Es gibt einen angekündigten Chat.';
 $string['ajax'] = 'Chat mit Ajax';
 $string['autoscroll'] = 'Automatisch scrollen';
 $string['beep'] = 'Beep';
+$string['bubble'] = 'Bubble';
 $string['cantlogin'] = 'Anmeldung im Chat fehlgeschlagen!!';
 $string['chat:addinstance'] = 'Chat hinzufügen';
 $string['chat:chat'] = 'Chat betreten';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Chat-Logdaten sehen';
 $string['chatreport'] = 'Chat-Protokolle';
 $string['chat:talk'] = 'Im Chat sprechen';
 $string['chattime'] = 'Nächster Chat';
+$string['compact'] = 'Kompakt';
 $string['composemessage'] = 'Mitteilung schreiben';
 $string['configmethod'] = 'Die Methode \'Ajax-Chat\'  bietet eine ajaxbasierte Oberfläche, die sich regelmäßig mit dem Server zur Aktualisierung verbindet. Diese Methode funktioniert nur mit modernen Browsern und aktiviertem Ajax/JavaScript.
 <br />Bei der Methode \'Standard-Chat\' laden alle Clients regelmäßig die gesamte Chat-Seite neu vom Server, was zwar keine Konfiguration erfordert und immer funktioniert, aber durch dauernde Anfragen zu einer sehr hohen Serverbelastung führen kann.
@@ -53,6 +55,7 @@ $string['configserverhost'] = 'Hostname des Chat-Servers';
 $string['configserverip'] = 'IP-Adresse des Chat-Servers';
 $string['configservermax'] = 'Maximal erlaubte Nutzerzahl im Chat';
 $string['configserverport'] = 'Server-Port des Chat-Servers';
+$string['coursetheme'] = 'Kursdesign';
 $string['currentchats'] = 'Aktive Chat-Sitzungen';
 $string['currentusers'] = 'Aktuelle Nutzer/innen';
 $string['deletesession'] = 'Diese Sitzung löschen';
@@ -61,6 +64,9 @@ $string['donotusechattime'] = 'Keinen Termin anzeigen';
 $string['enterchat'] = 'Chat betreten';
 $string['entermessage'] = 'Schreiben Sie Ihre Nachricht.';
 $string['errornousers'] = 'Niemanden gefunden!';
+$string['event_instances_list_viewed'] = 'Instanzenliste angezeigt';
+$string['event_message_sent'] = 'Nachricht gesendet';
+$string['event_sessions_viewed'] = 'Sitzungen angezeigt';
 $string['explaingeneralconfig'] = 'Diese Einstellungen werden <strong>immer</strong> benutzt';
 $string['explainmethoddaemon'] = 'Diese Einstellungen sind <strong>nur erforderlich</strong>, wenn Sie die Methode \'Chat-Server-Daemon\' gewählt haben';
 $string['explainmethodnormal'] = 'Diese Einstellungen sind <strong>nur erforderlich</strong>, wenn Sie die Methode \'Standard-Chat\' gewählt haben.';

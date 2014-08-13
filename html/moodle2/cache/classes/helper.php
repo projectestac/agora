@@ -280,6 +280,11 @@ class cache_helper {
     /**
      * Purges the cache for a specific definition.
      *
+     * If you need to purge a definition that requires identifiers or an aggregate and you don't
+     * know the details of those please use cache_helper::purge_stores_used_by_definition instead.
+     * It is a more aggressive purge and will purge all data within the store, not just the data
+     * belonging to the given definition.
+     *
      * @todo MDL-36660: Change the signature: $aggregate must be added.
      *
      * @param string $component
@@ -427,12 +432,17 @@ class cache_helper {
      * Think twice before calling this method. It will purge **ALL** caches regardless of whether they have been used recently or
      * anything. This will involve full setup of the cache + the purge operation. On a site using caching heavily this WILL be
      * painful.
+     *
+     * @param bool $usewriter If set to true the cache_config_writer class is used. This class is special as it avoids
+     *      it is still usable when caches have been disabled.
+     *      Please use this option only if you really must. It's purpose is to allow the cache to be purged when it would be
+     *      otherwise impossible.
      */
-    public static function purge_all() {
-        $config = cache_config::instance();
-
+    public static function purge_all($usewriter = false) {
+        $factory = cache_factory::instance();
+        $config = $factory->create_config_instance($usewriter);
         foreach ($config->get_all_stores() as $store) {
-            self::purge_store($store['name']);
+            self::purge_store($store['name'], $config);
         }
     }
 
@@ -440,10 +450,13 @@ class cache_helper {
      * Purges a store given its name.
      *
      * @param string $storename
+     * @param cache_config $config
      * @return bool
      */
-    public static function purge_store($storename) {
-        $config = cache_config::instance();
+    public static function purge_store($storename, cache_config $config = null) {
+        if ($config === null) {
+            $config = cache_config::instance();
+        }
 
         $stores = $config->get_all_stores();
         if (!array_key_exists($storename, $stores)) {
@@ -464,13 +477,34 @@ class cache_helper {
 
         foreach ($config->get_definitions_by_store($storename) as $id => $definition) {
             $definition = cache_definition::load($id, $definition);
-            $instance = new $class($store['name'], $store['configuration']);
-            $instance->initialise($definition);
-            $instance->purge();
-            unset($instance);
+            $definitioninstance = clone($instance);
+            $definitioninstance->initialise($definition);
+            $definitioninstance->purge();
+            unset($definitioninstance);
         }
 
         return true;
+    }
+
+    /**
+     * Purges all of the stores used by a definition.
+     *
+     * Unlike cache_helper::purge_by_definition this purges all of the data from the stores not
+     * just the data relating to the definition.
+     * This function is useful when you must purge a definition that requires setup but you don't
+     * want to set it up.
+     *
+     * @param string $component
+     * @param string $area
+     */
+    public static function purge_stores_used_by_definition($component, $area) {
+        $factory = cache_factory::instance();
+        $config = $factory->create_config_instance();
+        $definition = $factory->create_definition($component, $area);
+        $stores = $config->get_stores_for_definition($definition);
+        foreach ($stores as $store) {
+            self::purge_store($store['name']);
+        }
     }
 
     /**
@@ -518,7 +552,7 @@ class cache_helper {
         global $CFG;
         // Include locallib.
         require_once($CFG->dirroot.'/cache/locallib.php');
-        // First update definitions.
+        // First update definitions
         cache_config_writer::update_definitions($coreonly);
         // Second reset anything we have already initialised to ensure we're all up to date.
         cache_factory::reset();
@@ -531,20 +565,18 @@ class cache_helper {
      * @return string The new site identifier.
      */
     public static function update_site_identifier($siteidentifier) {
-        //XTEC ************ ELIMINAT - Removed code to avoid update siteidentifier in cacheconfig.php file (because it's shared by all sites)
-        //2013.04.16 @sarjona        
-        /*
         global $CFG;
         // Include locallib.
         require_once($CFG->dirroot.'/cache/locallib.php');
         $factory = cache_factory::instance();
         $factory->updating_started();
         $config = $factory->create_config_instance(true);
-        $siteidentifier = $config->update_site_identifier($siteidentifier);
+        //XTEC ************ ELIMINAT - To have MUC configured
+        //2014.08.12 @pferre22
+        // $siteidentifier = $config->update_site_identifier($siteidentifier);
+        //************ FI
         $factory->updating_finished();
         cache_factory::reset();
-        */
-        //************ FI    
         return $siteidentifier;
     }
 
@@ -555,6 +587,12 @@ class cache_helper {
      */
     public static function get_site_identifier() {
         global $CFG;
+        //XTEC ************ ELIMINAT - To have MUC configured
+        //2014.08.12 @pferre22
+        if(isset($CFG->siteidentifier) && ! empty($CFG->siteidentifier)){
+            return md5((string)$CFG->siteidentifier);
+        }
+        //************ FI
         if (!is_null(self::$siteidentifier)) {
             return self::$siteidentifier;
         }
@@ -689,7 +727,8 @@ class cache_helper {
             return $stores;
         } else {
             $stores = self::get_cache_stores($definition);
-            if (count($stores) === 0) {
+            // If mappingsonly is set, having 0 stores is ok.
+            if ((count($stores) === 0) && (!$definition->is_for_mappings_only())) {
                 // No suitable stores we found for the definition. We need to come up with a sensible default.
                 // If this has happened we can be sure that the user has mapped custom stores to either the
                 // mode of the definition. The first alternative to try is the system default for the mode.

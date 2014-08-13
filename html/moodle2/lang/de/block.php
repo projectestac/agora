@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,11 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['addtodock'] = 'Block ins Dock bewegen';
 $string['anypagematchingtheabove'] = 'Jede zur obigen passende Seite';
 $string['appearsinsubcontexts'] = 'Erscheint in Subkontexten';
-$string['assignrolesinblock'] = 'Rollen für Block \'{$a}\' zuweisen';
+$string['assignrolesinblock'] = 'Rollen für \'{$a}\' zuweisen';
 $string['blocksettings'] = 'Blockeinstellungen';
 $string['bracketfirst'] = '{$a} (erstes)';
 $string['bracketlast'] = '{$a} (letztes)';
-$string['configureblock'] = 'Block \'{$a}\' konfigurieren';
+$string['configureblock'] = '\'{$a}\' konfigurieren';
 $string['contexts'] = 'Seitenkontext';
 $string['contexts_help'] = 'Kontexte sind spezifische Typen von Seiten, auf denen der Block angezeigt werden kann. Sie können den Block z.B. auf allen Forenseiten eines Kurses anzeigen lassen. Fügen Sie dazu den Block im Kurs ein, so dass er auf allen Unterseiten erscheint. Wählen Sie anschließend in einem Kursforum als Blockeinstellung, dass die Anzeige auf Forenseiten beschränkt wird.';
 $string['createdat'] = 'Normale Blockplatzierung';
@@ -41,22 +41,25 @@ $string['defaultregion'] = 'Standardbereich';
 $string['defaultregion_help'] = 'Designs können festlegen, dass Blöcke in einer oder mehreren Regionen angezeigt werden. Die Einstellung legt nun fest in welchen der Block als Grundeinstellung erscheint. Die Regionsfestlegung kann auf Unterseiten überschrieben werden.';
 $string['defaultweight'] = 'Standardgewichtung';
 $string['defaultweight_help'] = 'Die Grundeinstellung der Gewichtung ermöglicht festzulegen wo der Block üblicherweise innerhalb einer Region erscheint (als erster oder als letzter Block). Die Reihung wird errechnet aus allen Werten der Blöcke für die Region, da z.B. nur ein Block an erster Stelle stehen kann. Der eingestellte Wert kann für Unterseiten überschrieben werden.';
-$string['deleteblock'] = 'Block \'{$a}\' löschen';
+$string['deleteblock'] = '\'{$a}\' löschen';
 $string['deleteblockcheck'] = 'Möchten Sie den Block \'{$a}\' wirklich löschen?';
 $string['deleteblockwarning'] = '<p>Sie löschen einen Block, der an anderen Stellen angezeigt wird.</p><p>Originalblockpositionen: {$a->location}<br />Anzeige nach Seitentypen: {$a->pagetype}</p><p>Wolllen Sie wirklich fortsetzen?</p>';
-$string['deletecheck'] = 'Block \'{$a}\' löschen?';
-$string['hideblock'] = 'Block \'{$a}\' verbergen';
+$string['deletecheck'] = '\'{$a}\' löschen?';
+$string['dockblock'] = 'Block \'{$a} ins Dock';
+$string['hideblock'] = '\'{$a}\' verbergen';
 $string['hidedockpanel'] = 'Dock verbergen';
 $string['hidepanel'] = 'Steuerung verbergen';
-$string['moveblock'] = 'Block \'{$a}\' bewegen';
+$string['moveblock'] = '\'{$a}\' bewegen';
+$string['moveblockafter'] = 'Block hinter {$a]-Block bewegen';
+$string['moveblockbefore'] = 'Block vor {$a}-Block bewegen';
 $string['moveblockhere'] = 'Block hierhin verschieben';
 $string['movingthisblockcancel'] = 'Block bewegen ({$a})';
-$string['onthispage'] = 'Auf dieser Seite';
+$string['onthispage'] = 'Blockplatzierung auf dieser Seite';
 $string['pagetypes'] = 'Seitentypen';
 $string['pagetypewarning'] = 'Der zuvor angegebene Seitentyp kann nicht mehr ausgewählt werden. Wählen Sie den Typ, der am besten passt.';
 $string['region'] = 'Bereich';
 $string['restrictpagetypes'] = 'Auf diesen Seiten anzeigen';
-$string['showblock'] = 'Block \'{$a}\' anzeigen';
+$string['showblock'] = '\'{$a}\' anzeigen';
 $string['showoncontextandsubs'] = 'Auf \'{$a}\' und Unterseiten anzeigen';
 $string['showoncontextonly'] = 'Nur auf \'{$a}\' anzeigen';
 $string['showonentiresite'] = 'Überall auf der Website anzeigen';
@@ -65,7 +68,8 @@ $string['showonfrontpageonly'] = 'Nur auf der Startseite anzeigen';
 $string['subpages'] = 'Seiten auswählen';
 $string['thisspecificpage'] = 'Spezielle Seite';
 $string['undockall'] = 'Alles abdocken';
+$string['undockblock'] = '\'{$a}\' abdocken';
 $string['undockitem'] = 'Diesen Block abdocken';
 $string['visible'] = 'Sichtbar';
 $string['weight'] = 'Gewichtung';
-$string['wherethisblockappears'] = 'Wo dieser Block erscheint';
+$string['wherethisblockappears'] = 'Blockplatzierung';

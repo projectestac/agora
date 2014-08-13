@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Deskribapena idatzi';
 $string['entryerrornotyours'] = 'Sarrera hau ez da zurea';
 $string['entrysaved'] = 'Zure sarrera gorde da';
 $string['entrytitle'] = 'Izenburua idatzi';
-$string['entryupdated'] = 'Blog-sarrera eguneratuta';
+$string['evententryadded'] = 'Blog-sarrera gehituta';
+$string['evententrydeleted'] = 'Blog-sarrera ezabatuta';
+$string['evententryupdated'] = 'Blog-sarrera eguneratuta';
 $string['externalblogcrontime'] = 'Blog-sarrera eguneratuta';
 $string['externalblogdeleteconfirm'] = 'Kanpoko blog honi erregistroa kendu?';
 $string['externalblogdeleted'] = 'Kanpoko blog-ari erregistroa kenduta';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'Taldearen ID-a ez da egokia';
 $string['invalidurl'] = 'Ezin da aurkitu URL hau';
 $string['linktooriginalentry'] = 'Jatorrizko blog-sarrerarako esteka';
 $string['maxexternalblogsperuser'] = 'Gehinezko kanpoko blog-kopurua erabiltzaileko ';
-$string['mustassociatecourse'] = 'Ikastaro edo taldekideentzat argitaratzen ari bazara, ikastaro batekin lotu behar duzu sarrera hau';
 $string['name'] = 'Izena';
 $string['name_help'] = 'Idtzi zure kanpoko blog-erako izen adierazgarria. (Ez badiozu izenik ematen, zure kanpoko blog-aren izenburua erabiliko da).';
 $string['noentriesyet'] = 'Sarrerak ez daude ikusgai hemen';

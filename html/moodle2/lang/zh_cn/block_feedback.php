@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_feedback', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_feedback', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_feedback
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,5 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['feedback'] = '反馈';
+$string['feedback:addinstance'] = '添加一个反馈版块';
 $string['missing_feedback_module'] = '此版块依赖于反馈活动模块，但这个模块并不存在！';
 $string['pluginname'] = '反馈';

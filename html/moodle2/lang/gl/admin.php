@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'admin', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'admin', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   admin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -217,7 +217,6 @@ $string['configforceloginforprofiles'] = 'Este axuste obriga ás persoas a acced
 $string['configfrontpage'] = 'Os elementos seleccionados presentaranse na páxina principal do sitio.';
 $string['configfrontpageloggedin'] = 'Os elementos seleccionados presentaranse na páxina de portada do sitio cando un usuario está a iniciar a sesión.';
 $string['configfullnamedisplay'] = 'Isto define que nomes son mostrados na súa totalidade. Na maior parte dos sitios monolingües a definición máis eficiente é a que está por defecto "Nomes dados + Apelido", mais pode escoller ocultar os apelidos en conxunto, ou deixar que sexa o actual paquete de idioma quen decida (algúns idiomas teñen diferentes convencións).';
-$string['configgdversion'] = 'Indique a versión de GD que está instalada. A versión mostrada por defecto é a única que foi detectada automaticamente. Non modifique isto até saber realmente o que está a facer.';
 $string['configgeoipfile'] = 'Localización do ficheiro binario GeoIP City. Este ficheiro non forma parte da distribución de Moodle e debe obterse de forma independente en <a href="http://www.maxmind.com/">MaxMind</a>. Pode adquirir unha versión comercial ou optar pola versión de balde.<br />Simplemente descargue <a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</a> e extráao no directorio "{$a}" do seu servidor.';
 $string['configgetremoteaddrconf'] = 'Se o seu servidor está detrás dun proxy invertido, pode empregar este axuste para especificar en que cabeceiras HTTP pódese confiar que conteñan o enderezo IP remoto. As cabeceiras lense por orde, usando a primeira que estea dispoñíbel.';
 $string['configgradebookroles'] = 'Este axuste permite controlar quen aparece no libro de cualificacións. Os usuarios precisan polo menos un deses roles para seren amosados no libro de cualificacións dese curso.';
@@ -322,7 +321,6 @@ $string['configthemedesignermode'] = 'Habitualmente todas as imaxes do tema e fo
 $string['configthemelist'] = 'Deixe isto en branco para permitir que sexa utilizado calquera tema válido. Se desexa reducir o menú do tema, pode especificar aquí unha lista de nomes separados por comas (Non utilice espazos).
 Por exemplo: estándar,laranxabranco.';
 $string['configtimezone'] = 'Aquí pode definir o fuso horario predeterminado. Este é o único fuso horario PREDETERMINADO para presentar datas. Cada usuario pode modificalo, empregando o seu propio axuste no seu perfil. «Hora do servidor» fará que Moodle empregue o axuste predeterminado do sistema operativo do servidor, porén a hora do servidor fará que empregue o axuste predeterminado para este fuso horario no perfil do usuario. As tarefas cron que dependen dunha hora e día concreto para executarse rexeranse por este fuso horario.';
-$string['configunzip'] = 'Indique a localización do seu programa para descomprimir (só é opcional para Unix). Se é especificado, será utilizado para descomprimir ficheiros comprimidos no servidor. Se o deixa en branco, entón Moodle utilizará rutinas internas.';
 $string['configuseblogassociations'] = 'Deberían os usuarios poder organizar o seu blog asociando entradas cos cursos e cos módulos de curso?';
 $string['configuseexternalyui'] = 'No canto de empregar ficheiros locais, empregar ficheiros dispoñíbeis en liña en servidores de Yahoo. AVISO: Isto require duna conexión á Internet; doutro xeito, AJAX non funcionará no sitio. Este axuste non é compatíbel cos sitios que empreguen https.';
 $string['configuserquota'] = 'O número máximo de bytes que un usuario pode almacenar nos seus cartafoles de ficheiros privados. {$a->bytes} bytes == {$a->sisplaysize}';
@@ -333,7 +331,6 @@ $string['configverifychangedemail'] = 'Activa la verificación de enderezos de c
 $string['configvisiblecourses'] = 'Presentar normalmente os cursos de categorías agochadas';
 $string['configwarning'] = 'Teña coidado ao modificar esta configuración. Os valores estraños poden causar problemas.';
 $string['configyuicomboloading'] = 'Esta opción permite a optimización de carga de ficheiros de bibliotecas YUI. Este axuste debe estar activado nos centros de produción por razóns de rendemento.';
-$string['configzip'] = 'Indique a localización do seu programa para descomprimir (só é opcional para Unix). Se é especificado, será utilizado para descomprimir ficheiros no servidor. Se o deixa en branco, entón Moodle utilizará rutinas internas.';
 $string['confirmation'] = 'Confirmación';
 $string['confirmdeletecomments'] = 'Está a piques de eliminar comentarios, está seguro?';
 $string['confirmed'] = 'Confirmado';
@@ -407,13 +404,9 @@ $string['defaulthomepage'] = 'Páxina de inicio predeterminada para os usuarios'
 $string['defaultrequestcategory'] = 'Categoría predeterminada para solicitudes de curso';
 $string['defaultsettinginfo'] = 'Predeterminado/a: {$a}';
 $string['defaultuserroleid'] = 'Rol predeterminado para todos os usuarios';
-$string['deletefilterareyousure'] = 'Confirma que quere eliminar o filtro «{$a}»';
-$string['deletefilterareyousuremessage'] = 'Esta a piques de eliminar completamente o filtro«{$a}». Confirma que quere desinstalalo?';
-$string['deletefilterfiles'] = 'Todos os datos asociados co filtro «{$a->filter}» foron eliminados da base de datos. Para completar a eliminación (e para impedir que o filtro se reinstale por si mesmo), debería eliminar agora mesmo este directorio do servidor: {$a->directory}';
 $string['deleteincompleteusers'] = 'Eliminar usuarios sen completar despois de';
 $string['deleteunconfirmed'] = 'Eliminar usuarios sen confirmar despois de';
 $string['deleteuser'] = 'Eliminar usuario';
-$string['deletingfilter'] = 'Eliminando o filtro «{$a}»';
 $string['density'] = 'Densidade';
 $string['denyemailaddresses'] = 'Dominios de correo denegados';
 $string['development'] = 'Desenvolvemento';
@@ -531,11 +524,9 @@ $string['frontpagesettings'] = 'Configuración da páxina de portada';
 $string['fullnamedisplay'] = 'Formato de nome completo';
 $string['gdrecommended'] = 'A extensión GD empregase para a conversión de imaxes, algúnhas características tales como as imaxes de perfil de usuario no estarán dispoñíbeis se non se atopa.';
 $string['gdrequired'] = 'The GD extension is now required by Moodle for image conversion.';
-$string['gdversion'] = 'Versión GD';
 $string['generalsettings'] = 'Configuración xeral';
 $string['geoipfile'] = 'Ficheiro de datos GeoIP City';
 $string['getremoteaddrconf'] = 'Orixe de enderezos IP registrados';
-$string['globalsquoteswarning'] = '<p><strong>Avi so de seguranza</strong>: para funcionar adecuadamente, Moodle require<br />facer algúns cambios na configuración de PHP.<p/><p>Vostede <em>debe</em> estabelecer <code>register_globals=off</code> e/ou <code>magic_quotes_gpc=on</code>. <br />Se for posíbel, debería estabelecer <code>register_globals=off</code> para mellorar a seguranza <br /> xeral do servidor, tamén é recomendábel o axuste <code>magic_quotes_gpc=on</code>.<p/><p>Esta configuración faie editando o ficheiro <code>php.ini</code>, a configuración de <br />Apache/IIS ou o ficheiro <code>.htaccess</code>.</p>';
 $string['gotofirst'] = 'Ir a primeira cadea ausente';
 $string['gradebook'] = 'Libro de cualificacións';
 $string['gradebookroles'] = 'Roles cualificados';
@@ -545,7 +536,6 @@ $string['groupenrolmentkeypolicy_desc'] = 'Activando esta opción fará que Mood
 $string['guestroleid'] = 'Rol para convidados';
 $string['guestroleid_help'] = 'Este é o rol que se asigna automaticamente aos convidados. É tamén asignado, temporalmente, por medio do engadido de matriculación de invitados aos usuarios que non están matriculados nun curso.';
 $string['helpadminseesall'] = 'Poden os administradores ver todas as actividades do calendario ou só as que lles concirnen?';
-$string['helpcalendarsettings'] = 'Configurar varios aspectos de Moodle relacionados co calendario e as datas';
 $string['helpforcetimezone'] = 'Pode permitir que os usuarios seleccionen o seu fuso horario, ou forzalo para todos.';
 $string['helpsitemaintenance'] = 'Para anovacións e outras tarefas.';
 $string['helpstartofweek'] = 'Que día comeza a semana?';
@@ -636,6 +626,7 @@ versión dunha rama STABLE do código de Moodle. Vexa Moodle Docs para obter má
 $string['maxbytes'] = 'Tamaño máximo do ficheiro enviado';
 $string['maxconsecutiveidentchars'] = 'Caracteres consecutivos idénticos';
 $string['maxeditingtime'] = 'Tempo máximo para editar mensaxes';
+$string['maxusersperpage'] = 'Maximum users per page';
 $string['mbstringrecommended'] = 'É moi recomendábel instalar a biblioteca opcional MBSTRING coa fin de mellorar o rendemento do sitio, especialmente se o sitio inclúe idiomas non latinos.';
 $string['mediapluginavi'] = 'Activar o filtro .avi';
 $string['mediapluginflv'] = 'Activar o filtro .flv';
@@ -662,10 +653,10 @@ $string['minpasswordlower'] = 'Letras minúsculas';
 $string['minpasswordnonalphanum'] = 'Caracteres non-alfanuméricos';
 $string['minpasswordupper'] = 'Letras maiúsculas';
 $string['misc'] = 'Varios';
-$string['mnetrestore_extusers'] = '<strong>Nota:</strong> Esta copia de seguranza conten contas de usuario remoto da Rede Moodle que van seren recuperadas como parte do proceso.';
-$string['mnetrestore_extusers_admin'] = '<strong>Nota:</strong> Este ficheiro de copia de seguranza semella vir doutra instalación de Moodle e conten contas de usuario remoto da Rede Moodle. O proceso de restauración tentará facer coincidir os enderezos/máquina da Rede Moodle con todos os usuarios creados. Os que no coincidan conectaranse automaticamente mediante identificación interna (no canto da de mnet). O informe de restauración informarao ao respecto.';
-$string['mnetrestore_extusers_mismatch'] = '<strong>Nota:</strong> Aparentemente, esta copia de seguranza orixinouse nunha instalación diferente de Moodle e conten contas remotas da Rede Moodle que poden provocar fallos de recuperación. Esta operación non está admitida. Se está seguro de que foi creada nesta instalación de Moodle, ou pode asegurarse de que todos os enderezos/máquina da Rede Moodle necesarios están configurados, podería tentar a restauración.';
-$string['mnetrestore_extusers_noadmin'] = '<strong>Nota:</strong> Este ficheiro de copia de seguranza semella vir doutra instalación de Moodle e conten contas de usuario remoto da Rede Moodle. Non ten permisos para executar este tipo de restauración. Póñase en contacto co administrador do sitio ou ben, restaure este curso sen ningún tipo de información de usuario (módulos, ficheiros ...)';
+$string['mnetrestore_extusers'] = '<strong>Nota:</strong> Esta copia de seguranza contén contas de usuario remoto da Rede Moodle que van seren recuperadas como parte do proceso.';
+$string['mnetrestore_extusers_admin'] = '<strong>Nota:</strong> Este ficheiro de copia de seguranza semella vir doutra instalación de Moodle e contén contas de usuario remoto da Rede Moodle. O proceso de restauración tentará facer coincidir os enderezos/máquina da Rede Moodle con todos os usuarios creados. Os que no coincidan conectaranse automaticamente mediante identificación interna (no canto da de mnet). O informe de restauración informarao ao respecto.';
+$string['mnetrestore_extusers_mismatch'] = '<strong>Nota:</strong> Aparentemente, esta copia de seguranza orixinouse nunha instalación diferente de Moodle e contén contas remotas da Rede Moodle que poden provocar fallos de recuperación. Esta operación non está admitida. Se está seguro de que foi creada nesta instalación de Moodle, ou pode asegurarse de que todos os enderezos/máquina da Rede Moodle necesarios están configurados, podería tentar a restauración.';
+$string['mnetrestore_extusers_noadmin'] = '<strong>Nota:</strong> Este ficheiro de copia de seguranza semella vir doutra instalación de Moodle e contén contas de usuario remoto da Rede Moodle. Non ten permisos para executar este tipo de restauración. Póñase en contacto co administrador do sitio ou ben, restaure este curso sen ningún tipo de información de usuario (módulos, ficheiros ...)';
 $string['mnetrestore_extusers_switchuserauth'] = 'O usuario remoto da Rede Moodle {$a->username} (provinte de {$a->mnethosturl}) cambiou a usuario local autenticado {$a->auth}.';
 $string['mobile'] = 'Móbil';
 $string['mobilecssurl'] = 'CSS';
@@ -729,8 +720,6 @@ $string['pathtopgdumpinvalid'] = 'Ruta incorrecta a pg_dump: ou é errónea, ou 
 $string['pathtopsql'] = 'Ruta a psql';
 $string['pathtopsqldesc'] = 'Isto só é necesario para entrar se ten máis dun psql no seu sistema (por exemplo, se vostede ten instalada máis dunha versión de PostgreSQ)';
 $string['pathtopsqlinvalid'] = 'Ruta incorrecta a psql: ou é errónea, ou non é executábel';
-$string['pathtounzip'] = 'Camiño para unzip';
-$string['pathtozip'] = 'Camiño a zip';
 $string['pcreunicodewarning'] = 'Recomendase encarecidamente empregar a extensión PCRE PHP que é compatíbel con caracteres Unicode.';
 $string['perfdebug'] = 'Información de rendemento';
 $string['performance'] = 'Rendemento';
@@ -848,7 +837,6 @@ $string['registrationwarning'] = 'O seu sitio aínda non foi rexistrado.';
 $string['releasenoteslink'] = 'Para obter información sobre esta versión de Moodle, vexa as <a target="_blank" href="{$a}">Notas de publicación</a>';
 $string['rememberusername'] = 'Lembrar o nome de usuario';
 $string['rememberusername_desc'] = 'Actíveo se desexa almacenar as cookies permanentes con nomes de usuario durante o inicio de sesión. As cookies permanentes deben tratarse como un asunto de intimidade de empregarse sen consentimento.';
-$string['reportsdeleteconfirm'] = 'Está a piques de eliminar completamente o informe «{$a}». Esta acción eliminará toda a información da base de datos asociada con este engadido. CONFIRMA que quere continuar?';
 $string['reportsmanage'] = 'Xestionar os informes';
 $string['requestcategoryselection'] = 'Activar a selección de categorías';
 $string['requiredentrieschanged'] = '<strong>MOI IMPORTANTE; FAGA O FAVOR DE LER ISTO<br/>(Esta mensaxe de aviso só se presentará durante esta actualización)</strong><br/>Por mor do arranxo dun «bug», cambiará o comportamento das bases de datos de actividades que empregan a configuración «Entradas obrigatorias» e «Entradas obrigatorias antes de ver a configuración». Pode ver unha explicación máis detallada destes cambios no <a href="http://moodle.org/mod/forum/discuss.php?d=110928" target="_blank">foro do módulo base de datos</a>. O funcionamento agardado desta configuración pode consultarse tamén en <a href="http://docs.moodle.org/en/Adding/editing_a_database#Required_entries" target="_blank">Moodle Docs</a>.
@@ -958,7 +946,6 @@ $string['timezoneisforcedto'] = 'Forzar que todos os usuarios o utilicen';
 $string['timezonenotforced'] = 'Os usuarios poden escoller o seu  propio fuso horario';
 $string['tokenizerrecommended'] = 'É recomendábel a instalación da extensión opcional PHP Tokenizer. Mellora a funcionalidade de conexión da Rede Moodle';
 $string['tools'] = 'Ferramentas de administración';
-$string['toolsdeleteconfirm'] = 'Está a piques de eliminar completamente a ferramenta de administración «{$a}». Esta acción eliminará toda a información da base de datos asociada con este engadido. CONFIRMA que quere continuar?';
 $string['toolsmanage'] = 'Xestionar as ferramentas de administración';
 $string['unattendedoperation'] = 'Operación desatendida';
 $string['unbookmarkthispage'] = 'Eliminar marcador de páxina';
@@ -986,7 +973,7 @@ $string['updatenotifications'] = 'Notificacións de actualización';
 $string['updatenotificationsubject'] = 'As actualizacións de Moodle están dispoñíbeis ({$a->siteurl})';
 $string['updatenotifybuilds'] = 'Notificación de novas compilacións';
 $string['updatenotifybuilds_desc'] = 'Se está activado, a comprobación de actualizacións do código de Moodle tamén informa cando está dispoñíbel unha nova compilación da versión actual. Normalmente hai novas compilacións cada semana. Se está desactivado, informaráselle só cando se publique unha versión superior de Moodle. Comprobe que os engadidos non sexan afectados por este axuste.';
-$string['upgrade197notice'] = '<p>Moodle 1.9.7 conten unha serie de correccións de seguranza para os contrasinais de usuario e as copias de seguranza, para protexer os datos de usuario do seu sitio. Como resultado algúns elementos da súa configuración e permisos referentes ás copias de seguranza teñen cambiado<br />
+$string['upgrade197notice'] = '<p>Moodle 1.9.7 contén unha serie de correccións de seguranza para os contrasinais de usuario e as copias de seguranza, para protexer os datos de usuario do seu sitio. Como resultado algúns elementos da súa configuración e permisos referentes ás copias de seguranza teñen cambiado<br />
 Vexa as <a href="http://docs.moodle.org/19/es/Notas_de_Moodle_1.9.7" target="_blank">notas de Moodle 1.9.7 </a> para obter todos os detalles.</p>';
 $string['upgrade197noticesubject'] = 'Novas de seguranza da actualización a Moodle 1.9.7';
 $string['upgrade197salt'] = 'Para reducir o risco de roubo de contrasinais, recomendase estabelecer un contrasinal sal (salt). <br/> Vexa a href="{$a}" <a target="_blank">documentación sobre salgado (salting) de contrasinais</a> para obter máis detalles.';
@@ -1030,7 +1017,6 @@ $string['upgradingversion'] = 'Anovando á nova versión';
 $string['upwards'] = 'cara arriba';
 $string['useblogassociations'] = 'Activas as asociacións';
 $string['useexternalyui'] = 'Empregar bibliotecas YUI en liña';
-$string['usehtmleditor'] = 'Utilizar o editor HTML';
 $string['user'] = 'Usuario';
 $string['userbulk'] = 'Accións masivas de usuario';
 $string['userlist'] = 'Examinar a lista de usuarios';

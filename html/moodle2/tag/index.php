@@ -76,6 +76,7 @@ $PAGE->navbar->add($tagname);
 $PAGE->set_title($title);
 $PAGE->set_heading($COURSE->fullname);
 $PAGE->set_button($button);
+$courserenderer = $PAGE->get_renderer('core', 'course');
 echo $OUTPUT->header();
 
 // Manage all tags links
@@ -89,12 +90,12 @@ if ($tag->flag > 0 && has_capability('moodle/tag:manage', $systemcontext)) {
     $tagname =  '<span class="flagged-tag">' . $tagname . '</span>';
 }
 
-echo $OUTPUT->heading($tagname, 2, 'headingblock header tag-heading');
+echo $OUTPUT->heading($tagname, 2);
 tag_print_management_box($tag);
 tag_print_description_box($tag);
 // Check what type of results are avaialable
 require_once($CFG->dirroot.'/tag/coursetagslib.php');
-$courses = coursetag_get_tagged_courses($tag->id);
+$courses = $courserenderer->tagged_courses($tag->id);
 
 if (!empty($CFG->enableblogs) && has_capability('moodle/blog:view', $systemcontext)) {
     require_once($CFG->dirroot.'/blog/lib.php');
@@ -138,16 +139,10 @@ if ($countanchors == 0) {
 // Display courses tagged with the tag
 if (!empty($courses)) {
 
-    $totalcount = count( $courses );
     echo $OUTPUT->box_start('generalbox', 'tag-blogs'); //could use an id separate from tag-blogs, but would have to copy the css style to make it look the same
 
-    $heading = get_string('courses') . ' ' . get_string('taggedwith', 'tag', $tagname) .': '. $totalcount;
     echo "<a name='course'></a>";
-    echo $OUTPUT->heading($heading, 3);
-
-    foreach ($courses as $course) {
-        print_course($course);
-    }
+    echo $courses;
 
     echo $OUTPUT->box_end();
 }

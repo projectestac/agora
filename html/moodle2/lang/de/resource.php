@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,8 +86,6 @@ $string['popupresource'] = 'Das Material erscheint in einem Popup-Fenster.';
 $string['popupresourcelink'] = 'Falls es nicht klappt, klicken Sie hier: {$a}';
 $string['popupwidth'] = 'Breite des Popups (Pixel)';
 $string['popupwidthexplain'] = 'Standardbreite von Popup-Fenstern festlegen';
-$string['printheading'] = 'Dateiname anzeigen';
-$string['printheadingexplain'] = 'Soll der Dateiname oberhalb des Inhalts angezeigt werden? Einige Anzeigetypen können den Dateinamen nicht anzeigen, selbst wenn diese Option aktiviert ist.';
 $string['printintro'] = 'Beschreibung anzeigen';
 $string['printintroexplain'] = 'Beschreibung unterhalb des Inhalts anzeigen? Einige Anzeigetypen können die Beschreibung nicht anzeigen, selbst wenn diese Option aktiviert ist.';
 $string['resource:addinstance'] = 'Datei hinzufügen';

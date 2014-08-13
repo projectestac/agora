@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'langconfig', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'langconfig', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   langconfig
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,6 +49,7 @@ $string['strftimerecent'] = '%d %b %H:%M';
 $string['strftimerecentfull'] = '%a, %d %b %Y, %H:%M';
 $string['strftimetime'] = '%H:%M';
 $string['thisdirection'] = 'ltr';
+$string['thisdirectionvertical'] = 'снизу-вверх';
 $string['thislanguage'] = 'Русский';
 $string['thislanguageint'] = 'Russian';
 $string['thousandssep'] = '&nbsp;';

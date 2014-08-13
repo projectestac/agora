@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_googledocs', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_googledocs', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_googledocs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,3 +34,4 @@ $string['oauth2upgrade_message_subject'] = 'Informació important sobre el conne
 $string['oauthinfo'] = '<p>A fi d\'emprar aquest connector, heu de registrar el vostre lloc amb Google, tal i com es descriu en la documentació de <a href="{$a->docsurl}">configuració de Google OAuth 2.0</a>.</p><p>Com a part del procés de registre, necessitareu introduir la següent URL com a \'Autoritzat a redirigir URL\':</p><p>{$a->callbackurl}</p> Una vegada registrat, se us proporcionarà un ID de client secret que podeu emprar per a configurar tots els connectors de Google Docs i Picasa.</p>';
 $string['pluginname'] = 'Google Docs';
 $string['secret'] = 'Secret';
+$string['servicenotenabled'] = 'L\'accés no està configurat. Comproveu que el servei \'Drive API\' estigui habilitat.';

@@ -47,44 +47,4 @@ function xmldb_jclic_install() {
     foreach ($records as $record) {
         $DB->insert_record('jclic_settings', $record, false);
     }
-    
-/*    
-    $record = new stdClass();
-    $record->setting_key  = 'ALLOW_CREATE_GROUPS';
-    $record->setting_value = 'false';
-    $DB->insert_record('jclic_settings', $record);
-
-    $record = new stdClass();
-    $record->setting_key  = 'ALLOW_CREATE_USERS';
-    $record->setting_value = 'false';
-    $DB->insert_record('jclic_settings', $record);
-
-    $record = new stdClass();
-    $record->setting_key  = 'SHOW_GROUP_LIST';
-    $record->setting_value = 'false';
-    $DB->insert_record('jclic_settings', $record);
-
-    $record = new stdClass();
-    $record->setting_key  = 'SHOW_USER_LIST';
-    $record->setting_value = 'false';
-    $DB->insert_record('jclic_settings', $record);
-
-    $record = new stdClass();
-    $record->setting_key  = 'USER_TABLES';
-    $record->setting_value = 'true';
-    $DB->insert_record('jclic_settings', $record);
-
-    $record = new stdClass();
-    $record->setting_key  = 'TIME_LAP';
-    $record->setting_value = '10';
-    $DB->insert_record('jclic_settings', $record);
-*/    
-}
-
-/**
- * Post installation recovery procedure
- *
- * @see upgrade_plugins_modules()
- */
-function xmldb_jclic_install_recovery() {
 }

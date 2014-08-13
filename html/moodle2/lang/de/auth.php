@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,6 +65,7 @@ $string['changepassword'] = 'URL zur Kennwortänderung';
 $string['changepasswordhelp'] = 'Hier können Sie eine Adresse angeben, über die die Nutzer ihren Anmeldenamen erfahren und ihr Kennwort zurücksetzen können, sofern sie diese Daten vergessen haben. Diese Option wird als Schaltfläche auf der Anmeldungsseite angeboten. Wenn Sie dieses Feld leer lassen, wird die Option nicht angeboten.';
 $string['chooseauthmethod'] = 'Authentifizierung wählen';
 $string['chooseauthmethod_help'] = 'Diese Einstellung legt die Authentifizierung für das Nutzerkonto fest. Falls Sie hier eine deaktivierte Authentifizierung auswählen, kann sich diese Person nicht mehr anmelden. Um ein Nutzerkonto vorübergehend zu sperren, wählen Sie die Authentifizierung "Kein Login".';
+$string['createpassword'] = 'Kennwort erzeugen und Nutzer/in benachrichtigen';
 $string['createpasswordifneeded'] = 'Kennwort anlegen, falls erforderlich';
 $string['emailchangecancel'] = 'E-Mail-Änderung abbrechen';
 $string['emailchangepending'] = 'Die Änderung ist noch nicht abgeschlossen. Öffnen Sie den zugesandten Link in {$a->preference_newemail}';
@@ -86,6 +87,8 @@ $string['errorminpasswordlower'] = 'Kennworte müssen mindestens {$a} Kleinbuchs
 $string['errorminpasswordnonalphanum'] = 'Kennworte müssen mindestens {$a} Sonderzeichen enthalten, z.B. :#_!§-%&*+?@.';
 $string['errorminpasswordupper'] = 'Kennworte müssen mindestens {$a} Großbuchstaben enthalten.';
 $string['errorpasswordupdate'] = 'Fehler: Kennwort konnte nicht geändert werden!';
+$string['event_user_loggedin'] = 'Nutzer/in ist angemeldet';
+$string['eventuserloggedinas'] = 'Nutzer/in ist als andere Person angemeldet';
 $string['forcechangepassword'] = 'Kennwortänderung verlangen';
 $string['forcechangepasswordfirst_help'] = 'Nutzer/innen werden aufgefordert, ihr Kennwort beim ersten Login zu ändern';
 $string['forcechangepassword_help'] = 'Nutzer werden aufgefordert, ihr Kennwort beim nächsten Login zu ändern';
@@ -131,6 +134,8 @@ $string['stdchangepassword_expl'] = 'Stellen Sie \'Ja\' ein, wenn das externe Au
 $string['stdchangepassword_explldap'] = 'Achtung: Es wird dringend empfohlen, LDAP ausschließlich SSL-verschlüsselt zu benutzen (ldaps://), wenn ein externer LDAP-Server verwendet wird.';
 $string['suspended'] = 'Gesperrtes Nutzerkonto';
 $string['suspended_help'] = 'Gesperrte Nutzer/innen können sich nicht einloggen und auch keine Webservices benutzen. Alle ausgehenden Mitteilungen werden gelöscht.';
+$string['testsettings'] = 'Testeinstellungen';
+$string['testsettingsheading'] = 'Authentifizierungseinstellungen prüfen - {$a}';
 $string['unlocked'] = 'Bearbeitbar';
 $string['unlockedifempty'] = 'Bearbeitbar (wenn leer)';
 $string['update_never'] = 'Nie';

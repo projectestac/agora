@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendance', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendance', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   attendance
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -122,6 +122,11 @@ $string['jumpto'] = 'Saltar a';
 $string['Lacronym'] = 'R';
 $string['Lfull'] = 'Retraso';
 $string['modulename'] = 'Asistencia';
+$string['modulename_help'] = 'El módulo de actividad de asistencia permite a un profesor tomar asistencia en clase y a los estudiantes ver su propio registro de asistencia.
+
+El profesor puede crear múltiples sesiones y marcar el estado de asistencia como "Presente", "Ausente", "Retraso", o "Falta Justificada", o modificar dichos estados para que se ajusten a sus necesidades.
+
+Los reportes están disponibles para toda la clase o individualmente por estudiante.';
 $string['modulenameplural'] = 'Asistencias';
 $string['months'] = 'Mensual';
 $string['myvariables'] = 'Mis Variables';
@@ -188,7 +193,7 @@ $string['statuses'] = 'Estados';
 $string['strftimedm'] = '%d.%m';
 $string['strftimedmy'] = '%d.%m.%Y';
 $string['strftimedmyhm'] = '%d.%m.%Y %H.%M';
-$string['strftimedmyw'] = '%d.%m.%y (%a)';
+$string['strftimedmyw'] = '%d.%m.%y (%a)';
 $string['strftimehm'] = '%H:%M';
 $string['strftimeshortdate'] = '%d.%m.%Y';
 $string['studentid'] = 'ID de estudiante';

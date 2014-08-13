@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,12 +34,12 @@ $string['allmine'] = 'Tutti i messaggi inviati a me o inviati da me';
 $string['allstudents'] = 'Tutti i messaggi inviati tra studenti del corso';
 $string['allusers'] = 'Tutti i messaggi inviati da tutti gli utenti';
 $string['backupmessageshelp'] = 'Se abilitato, i messaggi istantanei saranno inclusi nel backup del sito.';
-$string['beepnewmessage'] = 'Suona quando arriva un messaggio';
+$string['beepnewmessage'] = 'Emetti un suono quando viene visualizzata la popup di notifica';
 $string['blockcontact'] = 'Blocca contatto';
 $string['blockedmessages'] = '{$a} messaggi da/per utenti bloccati';
 $string['blockedusers'] = 'Utenti bloccati ({$a})';
 $string['blocknoncontacts'] = 'Evita messaggi da parte di utenti che non fanno parte dei miei contatti';
-$string['contactlistempty'] = 'La tua lista di contatti è vuota';
+$string['contactlistempty'] = 'La lista dei contatti è vuota';
 $string['contacts'] = 'Contatti';
 $string['context'] = 'contesto';
 $string['defaultmessageoutputs'] = 'Instradamento di default dei messaggi';
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = 'I messaggi saranno inviati via email poiché la 
 $string['mostrecent'] = 'Messaggi recenti';
 $string['mostrecentconversations'] = 'Conversazioni recenti';
 $string['mostrecentnotifications'] = 'Notifiche recenti';
-$string['mycontacts'] = 'I miei contatti';
 $string['newonlymsg'] = 'Visualizza solo i nuovi';
 $string['newsearch'] = 'Nuova ricerca';
 $string['noframesjs'] = 'Versione accessibile';
@@ -109,8 +108,6 @@ $string['page-message-x'] = 'Qualsiasi pagina con messaggi';
 $string['pagerefreshes'] = 'Questa pagina si aggiorna ogni  {$a} secondi';
 $string['permitted'] = 'Consentito';
 $string['private_config'] = 'Finestra messaggi popup';
-$string['processordeleteconfirm'] = 'Stai per rimuovere l\'instradamento messaggi {$a}\'. Saranno anche eliminati tutti i dati presenti nel database relativi a questo instradamento. Sei sicuro ?';
-$string['processordeletefiles'] = 'I dati associati all\'instradamento \'{$a->processor}\' sono stati eliminati dal database. Per completare l\'eliminazione ed evitare che l\'instradamento si installi nuovamente, è necessario rimuovere dal server la cartella  {$a->directory}.';
 $string['processortag'] = 'Destinazione';
 $string['providers_config'] = 'Configurazione delle notifiche per i messaggi in arrivo';
 $string['providerstag'] = 'Sorgente';

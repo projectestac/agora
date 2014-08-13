@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'advmindmap', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'advmindmap', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   advmindmap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['advmindmap'] = 'Advance Mindmap';
+$string['advmindmap:addinstance'] = 'Advance Mindmap hinzufügen';
 $string['advmindmapfieldset'] = 'Benutzerdefiniertes Beispiel';
 $string['advmindmap:givecomment'] = 'Kommentieren';
 $string['advmindmapintro'] = 'Einführungstext';

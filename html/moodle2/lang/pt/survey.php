@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'survey', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -200,7 +200,7 @@ $string['downloadinfo'] = 'Pode descarregar os dados brutos deste inquérito num
 $string['downloadresults'] = 'Descarregar resultados';
 $string['downloadtext'] = 'Descarregar dados num ficheiro de texto';
 $string['editingasurvey'] = 'A editar um inquérito';
-$string['guestsnotallowed'] = 'Visitantes não têm permissões para submeter inquéritos';
+$string['guestsnotallowed'] = 'Apenas os utilizadores inscritos têm permissão para submeter inquéritos';
 $string['howlong'] = 'Quanto tempo demorou a preencher este inquérito?';
 $string['howlongoptions'] = 'Menos de 1 min, 1 a 2 min, 2 a 3 min, 3 a 4 min, 4 a 5 min, 5 a 10 min, mais de 10';
 $string['ifoundthat'] = 'Achei isso';

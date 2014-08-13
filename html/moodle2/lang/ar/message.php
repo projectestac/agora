@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -81,7 +81,6 @@ $string['messagingdisabled'] = 'المحادثات غير مفعلة على هذ
 $string['mostrecent'] = 'الرسائل الحديثة';
 $string['mostrecentconversations'] = 'المحادثات الأخيرة';
 $string['mostrecentnotifications'] = 'التنبيهات الاخيرة';
-$string['mycontacts'] = 'عناوين الاتصال الخاصة بي';
 $string['newonlymsg'] = 'عرض الجديد فقط';
 $string['newsearch'] = 'بحث جديد';
 $string['nomessages'] = 'لا يوجد رساله/رسائل جديدة';

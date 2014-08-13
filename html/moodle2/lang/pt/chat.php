@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'Tem sessões de Chat a decorrer em breve';
 $string['ajax'] = 'Versão com Ajax';
 $string['autoscroll'] = 'Scroll automático';
 $string['beep'] = 'Chamar';
+$string['bubble'] = 'Bolha';
 $string['cantlogin'] = 'Não foi possível entrar no chat!';
 $string['chat:addinstance'] = 'Adicionar novo chat';
 $string['chat:chat'] = 'Aceder a uma sala de chat';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Ler gravações do chat';
 $string['chatreport'] = 'Sessões de chat';
 $string['chat:talk'] = 'Submeter mensagens no chat';
 $string['chattime'] = 'Próxima sessão de chat';
+$string['compact'] = 'Compacto';
 $string['composemessage'] = 'Compor mensagem';
 $string['configmethod'] = 'O método de chat com ajax proporciona um inteface de chat baseado em ajax e contacta o servidor regularmente para atualização. O método normal do chat precisa que os clientes contactem regularmente o servidor para obter atualizações. Não precisa de nenhuma configuração e funciona em qualquer parte, mas poderá sobrecarregar um servidor quando há muitas pessoas no chat. A utilização dum servidor daemon requer acesso via shell ao Unix, mas o resultado é um ambiente de chat mais rápido e que escala melhor.';
 $string['confignormalupdatemode'] = 'Normalmente, as atualizações da sala de chat são feitas de forma eficiente usando o comando <em>Keep-Alive</em> do HTTP 1.1, mas esse método gera uma grande carga no servidor. Um método mais avançado consiste em usar a estratégia de  <em>Stream</em> para enviar atualizações para os utilizadores. A utilização do <em>Stream</em> tem uma escalabilidade melhor (semelhante à do método chat) mas o seu servidor poderá não suportar este método.';
@@ -51,6 +53,7 @@ $string['configserverhost'] = 'O nome do computador onde se encontra o servidor 
 $string['configserverip'] = 'O endereço IP do servidor acima.';
 $string['configservermax'] = 'Número máximo de participantes permitido';
 $string['configserverport'] = 'Porta a usar no servidor para o daemon';
+$string['coursetheme'] = 'Tema da disciplina';
 $string['currentchats'] = 'Sessões de chat ativas';
 $string['currentusers'] = 'Utilizadores no chat';
 $string['deletesession'] = 'Apagar sessão';
@@ -59,6 +62,9 @@ $string['donotusechattime'] = 'Sem hora definida';
 $string['enterchat'] = 'Clique aqui para entrar no chat';
 $string['entermessage'] = 'Introduza a sua mensagem';
 $string['errornousers'] = 'Não foi encontrado nenhum utilizador!';
+$string['event_instances_list_viewed'] = 'Lista de instâncias visualizada';
+$string['event_message_sent'] = 'Mensagem enviada';
+$string['event_sessions_viewed'] = 'Sessões visualizadas';
 $string['explaingeneralconfig'] = 'Estas configurações serão  <strong>sempre</strong> aplicadas.';
 $string['explainmethoddaemon'] = 'Estas configurações aplicam-se <strong>unicamente</strong> se tiver selecionado "Servidor daemon de Chat" na opção Método do Chat';
 $string['explainmethodnormal'] = 'Estas configurações aplicam-se <strong>unicamente</strong> se tiver selecionado o "Método Normal" na opção Método do Chat';
@@ -115,7 +121,7 @@ $string['refreshuserlist'] = 'Atualizar lista de utilizadores';
 $string['removemessages'] = 'Apagar todas as mensagens';
 $string['repeatdaily'] = 'Todos os dias à mesma hora';
 $string['repeatnone'] = 'Sem repetições - apenas à hora definida';
-$string['repeattimes'] = 'Tipo de chat';
+$string['repeattimes'] = 'Repetir/publicar horário das sessões';
 $string['repeatweekly'] = 'Todas as semanas à mesma hora';
 $string['saidto'] = 'disse a';
 $string['savemessages'] = 'Manter gravação de sessões anteriores durante';

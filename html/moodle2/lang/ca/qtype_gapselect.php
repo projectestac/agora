@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_gapselect', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_gapselect', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_gapselect
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,8 @@ $string['addmorechoiceblanks'] = 'Blancs per a {no} opcions més';
 $string['answer'] = 'Resposta';
 $string['choices'] = 'Opcions';
 $string['choicex'] = 'Opció {no}';
+$string['combinedcontrolnamegapselect'] = 'desplegable';
+$string['combinedcontrolnamegapselectplural'] = 'desplegables';
 $string['correctansweris'] = 'La resposta correcta és: {$a}';
 $string['errorblankchoice'] = 'Si us plau, comproveu les Opcions: l\'Opció {$a} està buida.';
 $string['errormissingchoice'] = 'Si us plau, comproveu el text de la pregunta: {$a} no es troba a cap de les Opcions! Només es poden utilitzar com a marcadors de posició, els números que hi ha a les Opcions.';

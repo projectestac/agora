@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_multichoice', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_multichoice', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_multichoice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmorechoiceblanks'] = 'Tomma utrymmen för {no} fler val';
 $string['answerhowmany'] = 'Ett eller flera svar?';
 $string['answernumbering'] = 'Numrera svarsalternativen?';
 $string['answernumbering123'] = '1., 2., 3., ...';
@@ -39,7 +38,7 @@ $string['answersingleyes'] = 'Endast ett svar';
 $string['choiceno'] = 'Val {$a}';
 $string['choices'] = 'Tillgängliga val';
 $string['clozeaid'] = 'Mata in det saknade ordet';
-$string['correctansweris'] = 'Rätta svaret är:{$a}';
+$string['correctansweris'] = 'Det rätta svaret är: {$a}';
 $string['correctfeedback'] = 'För vilket korrekt svar som helst';
 $string['errfractionsaddwrong'] = 'De positiva betygen Du har valt adderar inte till 100%.<br />Istället adderar de till {$a}%.';
 $string['errfractionsnomax'] = 'Ett av svaren borde bli 100% så att det blir möjligt att få ett komplett betyg/omdöme för den här frågan.';
@@ -51,7 +50,7 @@ $string['fractionsnomax'] = 'Ett av svaren borde bli 100% så att det blir<br />
 $string['incorrectfeedback'] = 'För vilket felaktigt felaktigt svar som helst';
 $string['notenoughanswers'] = 'Den här typen av fråga kräver åtminstone {$a} svar.';
 $string['overallcorrectfeedback'] = 'Återkoppling för vilket korrekt svar som helst.';
-$string['overallfeedback'] = 'övergripande återkoppling';
+$string['overallfeedback'] = 'Övergripande återkoppling';
 $string['overallincorrectfeedback'] = 'Återkoppling för vilket felaktigt svar som helst.';
 $string['overallpartiallycorrectfeedback'] = 'Återkoppling för vilket delvis felaktigt svar som helst.';
 $string['partiallycorrectfeedback'] = 'För vilket delvis korrekt svar som helst';

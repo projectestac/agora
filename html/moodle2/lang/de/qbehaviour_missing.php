@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_missing', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_missing', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_missing
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Fehlendes Frageverhalten';
+$string['pluginname'] = 'Gelöschtes Frageverhalten';
 $string['questionusedunknownmodel'] = 'Diese Frage wurde mit einem Frageverhalten verknüpft, welches aktuell nicht verfügbar ist. Es wird versucht die Frage so gut wie möglich anzuzeigen, es können jedoch Teile fehlen oder falsch angezeigt werden.';

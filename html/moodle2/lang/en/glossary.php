@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -111,6 +111,7 @@ $string['deletingnoneemptycategory'] = 'Deleting this category will not delete t
 $string['descending'] = 'descending';
 $string['destination'] = 'Destination of imported entries';
 $string['destination_help'] = 'Entries can either be imported and added to the current glossary or to a new glossary, in which case a new glossary will be created based on information in the XML file.';
+$string['disapprove'] = 'Undo approval';
 $string['displayformat'] = 'Display format';
 $string['displayformatcontinuous'] = 'Continuous without author';
 $string['displayformatdefault'] = 'Default to same as display format';
@@ -133,7 +134,7 @@ $string['displayformats'] = 'Display formats';
 $string['displayformatssetup'] = 'Display formats setup';
 $string['duplicatecategory'] = 'Duplicate category';
 $string['duplicateentry'] = 'Duplicate entry';
-$string['editalways'] = 'Edit always';
+$string['editalways'] = 'Always allow editing';
 $string['editalways_help'] = 'This setting specifies whether entries are always editable or whether students can only edit their entries during a configured editing time (usually 30 minutes).';
 $string['editcategories'] = 'Edit categories';
 $string['editentry'] = 'Edit entry';
@@ -176,7 +177,7 @@ $string['filtername'] = 'Glossary auto-linking';
 $string['fullmatch'] = 'Match whole words only';
 $string['fullmatch_help'] = 'This setting specifies whether only whole words will be linked, for example, a glossary entry named "construct" will not create a link inside the word "constructivism".';
 $string['glossary:addinstance'] = 'Add a new glossary';
-$string['glossary:approve'] = 'Approve unapproved entries';
+$string['glossary:approve'] = 'Approve and undo approved entries';
 $string['glossary:comment'] = 'Create comments';
 $string['glossary:export'] = 'Export entries';
 $string['glossary:exportentry'] = 'Export single entry';
@@ -249,6 +250,7 @@ $string['page-mod-glossary-x'] = 'Any glossary module page';
 $string['pluginadministration'] = 'Glossary administration';
 $string['pluginname'] = 'Glossary';
 $string['popupformat'] = 'Popup format';
+$string['print'] = 'Print';
 $string['printerfriendly'] = 'Printer-friendly version';
 $string['printviewnotallowed'] = 'Print view isn\'t allowed';
 $string['question'] = 'Question';
@@ -265,7 +267,7 @@ $string['searchindefinition'] = 'Search full text';
 $string['secondaryglossary'] = 'Secondary glossary';
 $string['showall'] = 'Show \'ALL\' link';
 $string['showall_help'] = 'If enabled, participants can browse all entries at once.';
-$string['showalphabet'] = 'Show alphabet';
+$string['showalphabet'] = 'Show alphabet links';
 $string['showalphabet_help'] = 'If enabled, participants can browse the glossary by letters of the alphabet.';
 $string['showspecial'] = 'Show \'Special\' link';
 $string['showspecial_help'] = 'If enabled, participants can browse the glossary by special characters, such as @ and #.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scheduler', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scheduler', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   scheduler
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['action'] = 'Action';
+$string['addappointment'] = 'Add another student';
 $string['addondays'] = 'Add appointments on';
 $string['addscheduled'] = 'Add scheduled student';
 $string['addscheduled_help'] = '<h3>Adding an appointment on slot setup</h3>
@@ -54,6 +55,7 @@ $string['appointmentmode_help'] = '<p>You may choose here some variants in the w
 </li>
 </ul>
 </p>';
+$string['appointmentno'] = 'Appointment {$a}';
 $string['appointmentnotes'] = 'Notes for appointment';
 $string['appointments'] = 'Appointments';
 $string['appointsolo'] = 'just me';
@@ -69,6 +71,8 @@ $string['availableslotsnotowned'] = 'Not owned';
 $string['availableslotsowned'] = 'Owned';
 $string['bookwithteacher'] = 'Teacher';
 $string['bookwithteacher_help'] = 'Choose a teacher for the appointment.';
+$string['break'] = 'Break between slots';
+$string['breaknotnegative'] = 'Length of the break must not be negative';
 $string['cancelledbystudent'] = '{$a} : Appointment cancelled or moved by a student';
 $string['cancelledbyteacher'] = '{$a} : Appointment cancelled by the teacher';
 $string['choice'] = 'Choice';
@@ -107,6 +111,7 @@ $string['dontforgetsaveadvice'] = 'You have changed the list of appointed people
 $string['downloadexcel'] = 'Exports to Excel';
 $string['downloads'] = 'Exports';
 $string['duration'] = 'Duration';
+$string['durationrange'] = 'Slot duration must be between {$a->min} and {$a->max} minutes.';
 $string['email_applied_html'] = '<p>An appointment has been applied for on {$a->date} at {$a->time},<br/>
 by the student <a href="{$a->attendee_url}">{$a->attendee}</a> for the course:
 
@@ -143,6 +148,7 @@ from <b>{$a->time}</b> to <b>{$a->endtime}</b><br/>
 with <b><a href="{$a->attendant_url}">{$a->attendant}</a></b>.</p>
 
 <p>Location: <b>{$a->location}</b></p>';
+$string['emailreminderondate'] = 'Email a reminder on';
 $string['email_reminder_plain'] = 'You have an upcoming appointment
 on {$a->date} from {$a->time} to {$a->endtime}
 with {$a->attendant}.
@@ -176,7 +182,7 @@ $string['exclusivity_help'] = '<p>You can set a limit on the amount of students 
 <p>If the slot is set to unlimited number (0), this slot will never be considered in constraints evaluation, even if other slots are exclusive or limited in the same time range.
 </p>';
 $string['exclusivitylockedto'] = 'You cannot change the slot mode when scheduling. The current limit of the destination slot will apply. If the slot is new, a default limit of 1 will apply.';
-$string['exclusivityoverload'] = '';
+$string['exclusivityoverload'] = 'The slot has {$a} appointed students, more than allowed by this setting.';
 $string['explaingeneralconfig'] = 'These options can only be setup at site level and will apply to all schedulers of this Moodle installation.';
 $string['exportinstructions'] = 'You should better save the generated export file on your hard drive before using it.';
 $string['finalgrade'] = 'Final grade';
@@ -192,17 +198,21 @@ deleting previous slots before the procedure can add new slots.</p>';
 $string['forcourses'] = 'Choose students in courses';
 $string['friday'] = 'Friday';
 $string['generalconfig'] = 'General configuration';
+$string['grade'] = 'Grade';
 $string['gradingstrategy'] = 'Grading strategy';
 $string['gradingstrategy_help'] = 'In a scheduler where students can have several appointments, select how grades are aggregated.
-The gradebook can show either <ul><li>the mean grade or</li><li>the maximum grade</li></ul> that the student has achieved.';
+    The gradebook can show either <ul><li>the mean grade or</li><li>the maximum grade</li></ul> that the student has achieved.';
 $string['group'] = 'group';
 $string['groupbreakdown'] = 'By group size';
 $string['groupscheduling'] = 'Enable group scheduling';
-$string['groupscheduling_desc'] = 'Allow entire groups to be scheduled at once. (Apart from the global option, the activity group mode must be set to "Visible groups" or "Separate groups" in order to enable this feature.)';
+$string['groupscheduling_desc'] = 'Allow entire groups to be scheduled at once.
+(Apart from the global option, the activity group mode must be set to "Visible groups" or "Separate groups" in order to enable this feature.)';
 $string['groupsession'] = 'Group session';
 $string['groupsize'] = 'Group size';
 $string['guestscantdoanything'] = 'Guests can\'t do anything here.';
 $string['howtoaddstudents'] = 'For adding students to a global scoped scheduler, use the role setting for the module.<br/>You may also use module role definitions to define the attenders of your students.';
+$string['ignoreconflicts'] = 'Ignore scheduling conflicts';
+$string['ignoreconflicts_help'] = 'If this box is ticked, then the slot will be moved to the requested date and time, even if other slots exist at the same time. This may lead to overlapping appointments for some teachers or students, and should therefore be used with care.';
 $string['incourse'] = 'in course';
 $string['introduction'] = 'Introduction';
 $string['invitation'] = 'Invitation';
@@ -215,6 +225,8 @@ $string['location_help'] = 'Specify the scheduled location of the meeting.';
 $string['markasseennow'] = 'Mark as seen now';
 $string['markseen'] = 'After you have had an appointment with a student please mark them as "Seen" by clicking the appropriate checkbox in the table above.';
 $string['maxgrade'] = 'Take the highest grade';
+$string['maxstudentlistsize'] = 'Maximum length of student list';
+$string['maxstudentlistsize_desc'] = 'The maximum length of the list of students who need to make an appointment, as shown in the teacher view of the scheduler. If there are more students than this, no list will be displayed.';
 $string['maxstudentsperslot'] = 'Maximum number of students per slot';
 $string['maxstudentsperslot_desc'] = 'Group slots / non-exclusive slots can have at most this number of students. Note that in addition, the setting "unlimited" can always be chosen for a slot.';
 $string['meangrade'] = 'Take the mean grade';
@@ -224,6 +236,7 @@ $string['mins'] = 'minutes';
 $string['minutes'] = 'minutes';
 $string['minutesperslot'] = 'minutes per slot';
 $string['missingstudents'] = '{$a} students still need to make an appointment';
+$string['missingstudentsmany'] = '{$a} students still need to make an appointment. No list is being displayed due to size.';
 $string['mode'] = 'Mode';
 $string['modulename'] = 'Scheduler';
 $string['modulename_help'] = 'The scheduler activity helps you in scheduling appointments with your students.
@@ -302,6 +315,7 @@ $string['schedule'] = 'Schedule';
 $string['scheduleappointment'] = 'Schedule appointment for {$a}';
 $string['schedulecancelled'] = '{$a} : Your appointment cancelled or moved';
 $string['schedulegroups'] = 'Schedule by group';
+$string['scheduleinnew'] = 'Schedule in a new slot';
 $string['scheduler'] = 'Scheduler';
 $string['scheduler:addinstance'] = 'Add a new scheduler';
 $string['scheduler:appoint'] = 'Appoint';
@@ -324,7 +338,7 @@ $string['slots'] = 'Slots';
 $string['slotsadded'] = '{$a} slots have been added';
 $string['slottype'] = 'Slot type';
 $string['slotupdated'] = '1 slot updated';
-$string['slotwarning'] = '<b>Warning: </b>Moving this slot to the selected time will require that the following slot(s) are removed...';
+$string['slotwarning'] = '<b>Warning: </b>Moving this slot to the selected time conflicts with the slot(s) listed below. Tick "Ignore scheduling conflicts" if you want to move the slot nevertheless.';
 $string['staffbreakdown'] = 'By {$a}';
 $string['staffmember'] = 'Member of Staff';
 $string['staffrolename'] = 'Role name of the teacher';
@@ -343,6 +357,7 @@ $string['student'] = 'Student';
 $string['studentbreakdown'] = 'By student';
 $string['studentcomments'] = 'Student\'s notes';
 $string['studentdetails'] = 'Student details';
+$string['studentmultiselect'] = 'Each student can be selected only once in this slot';
 $string['studentnotes'] = 'Your notes about the appointment';
 $string['students'] = 'Students';
 $string['sunday'] = 'Sunday';
@@ -366,7 +381,7 @@ $string['when'] = 'When?';
 $string['where'] = 'Where?';
 $string['who'] = 'With whom?';
 $string['whosthere'] = 'Who\'s there ?';
-$string['xdaysbefore'] = 'days before slot';
-$string['xweeksbefore'] = 'weeks before slot';
+$string['xdaysbefore'] = '{$a} days before slot';
+$string['xweeksbefore'] = '{$a} weeks before slot';
 $string['yourappointmentnote'] = 'Comments for your eyes';
 $string['yourslotnotes'] = 'Comments on the meeting';

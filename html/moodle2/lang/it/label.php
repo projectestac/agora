@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Quando viene caricato un file multimediale nel corso tramite trascina e rilascia, verrà proposto di creare un\'etichetta';
+$string['configdndresizeheight'] = 'Creando un\'etichetta con un\'immagine caricata tramite  trascina e rilascia, l\'altezza dell\'immagine verrà ridimensionata al valore in pixel impostato (0 per non ridimensionare l\'altezza).';
+$string['configdndresizewidth'] = 'Creando un\'etichetta con un\'immagine caricata tramite  trascina e rilascia, la larghezza dell\'immagine verrà ridimensionata al valore in pixel impostato (0 per non ridimensionare la larghezza).';
+$string['dndmedia'] = 'Trascina e rilascia di file multimediali';
+$string['dndresizeheight'] = 'Ridimensionamento altezza per trascina e rilascia';
+$string['dndresizewidth'] = 'Ridimensionamento larghezza per trascina e rilascia';
+$string['dnduploadlabel'] = 'Inserisci immagine nella home page del corso';
+$string['dnduploadlabeltext'] = 'Aggiungi un\'etichetta alla home page del corso';
 $string['label:addinstance'] = 'Aggiungere etichette';
 $string['labeltext'] = 'Testo visualizzato dall\'etichetta';
 $string['modulename'] = 'Etichetta';

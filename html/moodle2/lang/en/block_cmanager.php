@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_cmanager', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_cmanager', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_cmanager
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,6 +62,7 @@ $string['cmanagerDisplaySearchForm'] = 'Configure Request Form - Page 1';
 $string['cmanagerEnrolmentInstruction'] = 'Course Request Manager can generate an automatic enrolment key or you may choose to prompt the user for an enrolment key of their choice.';
 $string['cmanagerEnrolmentOption1'] = 'Automatically generated key';
 $string['cmanagerEnrolmentOption2'] = 'Prompt user for key';
+$string['cmanagerEnrolmentOption3'] = 'Do not ask for key';
 $string['cmanagerExstingTab'] = 'Existing Requests';
 $string['cmanagerHistoryTab'] = 'Request History';
 $string['cmanager:myaddinstance'] = 'Add Instance';

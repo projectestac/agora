@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -93,6 +93,8 @@ $string['pluginname'] = 'LDAP选课';
 $string['pluginname_desc'] = '<p>您可以使用LDAP服务器控制选课。这里假定您的LDAP树包含与课程映射的组，并且每个组/课程会有映射到学生的成员项。</p><p>这里假定在LDAP中课程被定义为组，每个组有多个成员字段（<em>member</em>或<em>memberUid</em>），包含用户的唯一标识。</p><p>要使用LDAP选课，您的用户<strong>必须</strong>都有一个有效的id字段。LDAP组中的成员字段必须有选修此课的学生的id。如果您已经使用LDAP认证，这通常会工作地很好。</p><p>当用户登录时会更新选课信息。您也可以运行一个的脚本来保持选课的同步。请参考 <em>enrol/ldap/enrol_ldap_sync.php</em>。</p><p>这个插件也可以在LDAP中有新组出现时自动创建课程。</p>';
 $string['pluginnotenabled'] = '插件未激活！';
 $string['role_mapping'] = '<p>对每一个您想从LDAP分配的角色，您需要指定这些角色的课程组位于哪些场景。用“;”分隔不同的场景。</p><p>您还需要指定您的LDAP服务器使用哪个属性保存组成员。通常是“member”或“memberUid”</p>';
+$string['role_mapping_attribute'] = '{$a}的 LDAP 成员属性';
+$string['role_mapping_context'] = '{$a} 的 LDAP 上下文';
 $string['role_mapping_key'] = '从LDAP映射角色';
 $string['roles'] = '角色映射';
 $string['server_settings'] = 'LDAP服务器设置';

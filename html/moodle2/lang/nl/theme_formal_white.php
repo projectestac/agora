@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_formal_white', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['blockcontentbgc'] = 'Blokinhoud achtergrondkleur';
 $string['blockcontentbgcdesc'] = 'Dit stelt de achtergrondkleur voor de inhoud van het blok in voor dit thema;';
 $string['blockpadding'] = 'Marge rond blokken';
 $string['blockpaddingdesc'] = 'Dit stelt de marge in rond elk blok en de kolom er in.';
+$string['blueberry'] = 'bosbes';
 $string['choosereadme'] = '<div class="clearfix">
 <div class="theme_screenshot">
 <h2>Formal White</h2>
@@ -84,10 +85,18 @@ $string['headercontent'] = 'Hoofding inhoud';
 $string['headercontentdesc'] = 'Kies om het moodle logo of de hoofding tekst in de hoofding te tonen';
 $string['lblockcolumnbgc'] = 'Linkerkolom achtergrondkleur';
 $string['lblockcolumnbgcdesc'] = 'Dit stelt de achtergrondkleur voor de linkerkolom voor dit thema in .';
+$string['lemon'] = 'citroen';
+$string['lime'] = 'limoen';
+$string['mink'] = 'nertskleur';
 $string['noframe'] = 'Formal white zoals 1.9';
 $string['noframedesc'] = 'Selecteer deze optie om je Moodlepagina er te laten uitzien als een 1.* alias, zonder het kader errond.';
+$string['orange'] = 'oranje';
+$string['peach'] = 'perzik';
 $string['pluginname'] = 'Formal white';
 $string['rblockcolumnbgc'] = 'Achtergrondkleur voor de rechterkolom';
 $string['rblockcolumnbgcdesc'] = 'Dit stelt de achtergrondkleur in van de rechterkolom voor dit thema. Als je dit leeg laat, dan zal de kleur voor de linkerkolom gebruikt worden.';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';
+$string['silver'] = 'zilver';
+$string['trendcolor'] = 'Trendkleur';
+$string['trendcolordesc'] = 'Kies de algemene trend voor de kleur van het thema';

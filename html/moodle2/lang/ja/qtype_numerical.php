@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = '受け入れることのできるエラー範囲';
 $string['addmoreanswerblanks'] = 'さらに {no} 件の答え入力欄を追加する';
 $string['addmoreunitblanks'] = 'さらに {no} 件の単位を追加する';
 $string['answercolon'] = '答え:';
+$string['answererror'] = 'エラー';
 $string['answermustbenumberorstar'] = '答えには「-1.234」「3e8」のような数値、または「*」を使用してください。';
 $string['answerno'] = '解答 {$a}';
 $string['decfractionofquestiongrade'] = '問題評点の小数 (0-1) として';
@@ -79,7 +80,6 @@ $string['unitchoice'] = '複数選択';
 $string['unitedit'] = '単位を編集する';
 $string['unitgraded'] = '単位は必須であり、評定されます。';
 $string['unithandling'] = '単位処理';
-$string['unithdr'] = '単位 {$a}';
 $string['unitincorrect'] = 'あなたは正しい単位を割り当てていません。';
 $string['unitmandatory'] = '必須';
 $string['unitmandatory_help'] = '* 入力された単位を使用して解答が評定されます。
@@ -96,7 +96,9 @@ $string['unitpenalty_help'] = '次の場合にペナルティが適用されま�
 * 単位入力ボックスに正しくない単位が入力された場合、または
 * 数字入力ボックスに単位が入力された場合';
 $string['unitposition'] = '単位の位置';
+$string['units'] = '単位';
 $string['unitselect'] = 'ドロップダウンメニュー';
+$string['unitx'] = '単位 {no}';
 $string['validnumberformats'] = '有効な数値フォーマット';
 $string['validnumberformats_help'] = '* 正則数 13500.67、13 500.67、13500,67または13 500,67
 
@@ -104,3 +106,6 @@ $string['validnumberformats_help'] = '* 正則数 13500.67、13 500.67、13500,6
 
 * 例えば、1.350067 * 10<sup>4</sup>のような指数の場合、1.350067 E4 : 1.350067 E04を使用してください。';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 または 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} は数字にする必要があります。';
+$string['xmustnotbenumeric'] = '{$a} を数字にすることはできません。';
+$string['youmustenteramultiplierhere'] = 'あなたは、ここに乗数を入力する必要があります。';

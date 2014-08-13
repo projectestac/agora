@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Добавить события';
 $string['advancedoptions'] = 'Дополнительные параметры';
 $string['allday'] = 'Все дни';
 $string['annually'] = 'Ежегодно';
 $string['calendar'] = 'Календарь';
 $string['calendarheading'] = '{$a} Календарь';
 $string['calendarpreferences'] = 'Настройки календаря';
+$string['calendartypes'] = 'Типы календаря';
 $string['calendarurl'] = 'URL-адрес календаря: {$a}';
 $string['clickhide'] = 'нажмите, чтобы скрыть';
 $string['clickshow'] = 'нажмите, чтобы показать';
@@ -44,14 +46,15 @@ $string['course'] = 'Курс';
 $string['courseevent'] = 'Событие курса';
 $string['courseevents'] = 'События курса';
 $string['courses'] = 'Курсы';
+$string['customexport'] = 'Пользовательский диапазон ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Ежедневно';
-$string['dayview'] = 'Дневной обзор';
+$string['dayviewfor'] = 'Дневной обзор для:';
 $string['dayviewtitle'] = 'Дневной обзор: {$a}';
 $string['daywithnoevents'] = 'В этот день не было никаких событий.';
 $string['default'] = 'По умолчанию';
 $string['deleteevent'] = 'Удалить событие';
 $string['deleteevents'] = 'Удалить события';
-$string['detailedmonthview'] = 'Детальный месячный обзор';
+$string['detailedmonthviewfor'] = 'Детальный месячный обзор для:';
 $string['detailedmonthviewtitle'] = 'Детальный месячный обзор: {$a}';
 $string['durationminutes'] = 'Продолжительность в минутах';
 $string['durationnone'] = 'Без продолжительности';
@@ -93,6 +96,7 @@ $string['export'] = 'Экспортировать';
 $string['exportbutton'] = 'Экспорт';
 $string['exportcalendar'] = 'Экспортировать события';
 $string['for'] = 'за';
+$string['forcecalendartype'] = 'Принудительный календарь';
 $string['fri'] = 'Пт';
 $string['friday'] = 'Пятница';
 $string['generateurlbutton'] = 'Получить адрес календаря';
@@ -127,6 +131,7 @@ $string['monthly'] = 'Ежемесячно';
 $string['monthlyview'] = 'Месячный обзор';
 $string['monthnext'] = 'Следующий месяц';
 $string['monththis'] = 'Этот месяц';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Никогда';
 $string['newevent'] = 'Новое событие';
 $string['nocalendarsubscriptions'] = 'Нет подписок на календари';
@@ -137,6 +142,7 @@ $string['pollinterval'] = 'Частота обновлений';
 $string['pollinterval_help'] = 'Как часто обновлять события в календаре';
 $string['preferences'] = 'Настройки';
 $string['preferences_available'] = 'Ваши личные настройки';
+$string['preferredcalendar'] = 'Предпочитаемый календарь';
 $string['pref_lookahead'] = 'Интервал отображения предстоящих событий';
 $string['pref_lookahead_help'] = 'Этот параметр устанавливает период в днях, которых будет использоваться при выводе предстоящих событий. События, наступающие позже указанного инетравала, не будут отображаться в списке приближающихся событий. Учтите, <strong>нет никаких гарантий</strong>, что будут выводиться все события, наступающие в указанный период времени. Если событий слишком много (больше, чем значение параметра «Максимальное число наступающих событий»), то будут отображаться только наиболее близкие события.';
 $string['pref_maxevents'] = 'Максимальное число предстоящих событий';
@@ -169,6 +175,7 @@ $string['subscriptionname'] = 'Название календаря';
 $string['subscriptionremoved'] = 'Подписка на календарь {$a} удалена';
 $string['subscriptions'] = 'Подписки';
 $string['subscriptionupdated'] = 'Подписка на календарь {$a} сохранена';
+$string['subsource'] = 'Источник события: {$a->name}';
 $string['sun'] = 'Вс';
 $string['sunday'] = 'Воскресенье';
 $string['thu'] = 'Чт';
@@ -194,6 +201,7 @@ $string['typegroup'] = 'Событие группы';
 $string['typesite'] = 'Событие сайта';
 $string['typeuser'] = 'Событие пользователя';
 $string['upcomingevents'] = 'Предстоящие события';
+$string['upcomingeventsfor'] = 'Предстоящие события для:';
 $string['urlforical'] = 'Ссылка для экспорта календаря, для подписки на календарь';
 $string['user'] = 'Пользователь';
 $string['userevent'] = 'Событие пользователя';

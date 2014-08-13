@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'checklist', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'checklist', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   checklist
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,10 +44,10 @@ $string['autoupdate_help'] = 'Mit dieser Einstellung können die Einträge in Ih
 Wenn die Abschlussverfolgung (Moodle 2.0) für eine Aktivität aktiviert ist, wird diese genutzt um die Aktivität in der Fortschrittsliste abzuhaken.<br />
 Bei Detailfragen, wann genau eine Aktivität als \'abgeschlossen\' markiert wird, bitten Sie bitte Ihren Administrator in die Datei \'mod/checklist/autoupdate.php\' zu sehen.<br />
 Hinweis: Es kann bis zu 60 Sekunden dauern bis die Aktivität in der Fortschrittsliste eines Teilnehmers abgehakt ist.';
-$string['autoupdatenote'] = 'Der Eintrag für "Teilnehmer" wird automatisch abgehakt - auf "Nur Lehrer"-Fortschrittslisten werden keine automatischen Änderungen vorgenommen';
-$string['autoupdatewarning_both'] = 'Auf dieser Fortschrittsliste sind Elemente, die automatisch abgehakt werden (wenn Teilnehmer die entsprechende Aktivität abschließen). Da dies aber eine \'Teilnehmer-Lehrer\'-Fortschrittsliste ist, wird der Fortschrittsbalken erst dann aktualisiert, wenn der Lehrer die Kennzeichnungen freigibt.';
+$string['autoupdatenote'] = 'Der Eintrag für "Teilnehmer" wird automatisch abgehakt - auf "Nur Trainer"-Fortschrittslisten werden keine automatischen Änderungen vorgenommen';
+$string['autoupdatewarning_both'] = 'Auf dieser Fortschrittsliste sind Elemente, die automatisch abgehakt werden (wenn Teilnehmer die entsprechende Aktivität abschließen). Da dies aber eine \'Teilnehmer-Trainer\'-Fortschrittsliste ist, wird der Fortschrittsbalken erst dann aktualisiert, wenn der Lehrer die Kennzeichnungen freigibt.';
 $string['autoupdatewarning_student'] = 'Auf dieser Fortschrittsliste sind Elemente, die automatisch abgehakt werden (wenn Teilnehmer die entsprechende Aktivität abschließen).';
-$string['autoupdatewarning_teacher'] = 'Das automatische Abhaken wurde für diese Fortschrittsliste aktiviert. Die Kennzeichnungen werden aber nicht angezeigt, es werden nur die Kennzeichnungen der Lehrer angezeigt.';
+$string['autoupdatewarning_teacher'] = 'Das automatische Abhaken wurde für diese Fortschrittsliste aktiviert. Die Kennzeichnungen werden aber nicht angezeigt, es werden nur die Kennzeichnungen der Trainer angezeigt.';
 $string['calendardescription'] = 'Dieses Ereignis wurde zu Ihrer Fortschrittsliste hinzugefügt: {$a}';
 $string['canceledititem'] = 'Abbrechen';
 $string['changetextcolour'] = 'Nächste Textfarbe';
@@ -89,6 +89,11 @@ $string['emailoncomplete_help'] = 'Sobald eine Fortschrittsliste erledigt ist, k
 Der Administrator kann über die Berechtigung \'mod:checklist/emailoncomplete\' beeinflussen, wer die E-Mail erhält - standardmäßig sind das alle Trainer/innen mit und ohne Bearbeitungsrecht.';
 $string['emailoncompletesubject'] = 'Benutzer {$a->user} hat die Fortschrittsliste \'{$a->checklist}\' erledigt';
 $string['emailoncompletesubjectown'] = 'Sie haben die Fortschrittsliste \'{$a->checklist}\' erledigt.';
+$string['eventchecklistcomplete'] = 'Fortschrittsliste abgeschlossen';
+$string['eventeditpageviewed'] = 'Bearbeiten-Seite angesehen';
+$string['eventreportviewed'] = 'Bericht angesehen';
+$string['eventstudentchecksupdated'] = 'Teilnehmer-Markierungen aktualisiert';
+$string['eventteacherchecksupdated'] = 'Trainer-Markierungen aktualisiert';
 $string['export'] = 'Einträge exportieren';
 $string['forceupdate'] = 'Kennzeichnungen für alle automatisch erstellten Einträge aktualisieren';
 $string['gradetocomplete'] = 'Für den Abschluss nötige Bewertung:';
@@ -141,7 +146,9 @@ $string['teachermarkyes'] = 'Trainer/innen tragen ein wenn Sie dieses Element er
 $string['teachernoteditcheck'] = 'Nur Teilnehmer';
 $string['teacheroverwritecheck'] = 'Nur Trainer/innen';
 $string['theme'] = 'Design der Fortschrittsliste';
+$string['togglecolumn'] = 'Spalten tauschen';
 $string['toggledates'] = 'Termine tauschen';
+$string['togglerow'] = 'Zeilen tauschen';
 $string['unindentitem'] = 'Element nicht mehr einrücken';
 $string['updatecompletescore'] = 'Bewertungen speichern';
 $string['updateitem'] = 'Aktualisieren';

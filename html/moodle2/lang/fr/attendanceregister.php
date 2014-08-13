@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendanceregister', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendanceregister', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   attendanceregister
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,7 +46,7 @@ $string['dayscertificable'] = 'Nombre de jours antérieurs';
 $string['dayscertificable_exceeded'] = 'Ne doit pas être supérieure à {$a} jours';
 $string['dayscertificable_help'] = 'Limites d\'ancienneté des sessions hors connexion. Un étudiant ne peut enregistrer une session hors ligne supérieure à ce nombre de jours.';
 $string['duration'] = 'Durée';
-$string['duration_hh_mm'] = '{$a->heure(s)} h, {$a->minutes} min';
+$string['duration_hh_mm'] = '{$a->hours} h, {$a->minutes} min';
 $string['duration_mm'] = '{$a->minutes} min';
 $string['enable_offline_sessions_certification'] = 'Activation des sessions hors ligne';
 $string['end'] = 'Fin';

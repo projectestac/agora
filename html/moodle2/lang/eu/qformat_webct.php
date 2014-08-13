@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_webct', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_webct', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_webct
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['errorsdetected'] = '{$a} errore atzemanda';
-$string['paragraphquestion'] = 'Paragrafoaren galdera';
 $string['pluginname'] = 'WebCT formatua';
-$string['unknowntype'] = 'Mota ezezaguna';
+$string['unknowntype'] = 'Galdera-mota ezezaguna {$a} lerroaren ondoren';
+$string['warningsdetected'] = '{$a} abisu atzeman dira';
+$string['wronggrade'] = 'Kalifikazio okerrak ({$a}) lerroaren ondoren):';

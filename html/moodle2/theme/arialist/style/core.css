@@ -21,6 +21,11 @@ h2,h3,h4,h5,h6 {
     font-weight: normal;
 }
 
+h2.helpheading {
+    color: #333;
+    font-weight: bold;
+}
+
 blockquote {
     border-left:1px solid #eee;
     padding-left:15px;
@@ -104,8 +109,10 @@ fieldset#general legend {
 
 /* Courses
 ----------------------------*/
-
-h2.headingblock {
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2 {
     font-weight: normal;
     color:#999;
     font-size: 1.5em;
@@ -117,21 +124,20 @@ h2.headingblock {
     border-color: #eee;
 }
 
-.coursebox .info {
+.coursebox .content .teachers,
+.coursebox .content .courseimage,
+.coursebox .content .coursefile,
+.coursebox.remotecoursebox .remotecourseinfo {
     width: 35%;
 }
-
-.coursebox .info .name {
-    margin-bottom: 0;
+.coursebox .content .summary,
+.coursebox .content .coursecat {
+    width: 60%;
 }
 
-.coursebox .info .teachers {
+.coursebox .content .teachers {
     font-size: 0.9em;
     color: #888;
-}
-
-.coursebox .summary {
-    width: 63%;
 }
 
 .course-content .section.main {
@@ -302,4 +308,16 @@ h2.headingblock {
 }
 #custommenu .custom_menu_submenu .custom_menu_submenu .yui3-menu-content {
     border-top:1px solid #DDD;
+}
+
+/* Moodle forms
+----------------*/
+
+.mform .btn-cancel {
+    color: #F25F0F;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #333333;
+    text-decoration: none;
 }

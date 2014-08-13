@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_tabtopics', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_tabtopics', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   format_tabtopics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,3 +37,7 @@ $string['sectionname'] = 'Topic';
 $string['showalltopics'] = 'Show all topics';
 $string['showfromothers'] = 'Show topic';
 $string['showtopicfromothers'] = 'Show topic';
+$string['tabtopics_remember_last_tab_session'] = 'Return user to previous selected tab';
+$string['tabtopics_remember_last_tab_session_help'] = 'If yes user will return to previous selected tab instead of the first tab.';
+$string['tabtopics_zero_as_tab'] = 'Zero Section As Tab';
+$string['tabtopics_zero_as_tab_help'] = 'Should section 0 of the course be a tab? If no, then it will be displayed at the top of the course at all times.';

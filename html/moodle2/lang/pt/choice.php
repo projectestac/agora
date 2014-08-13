@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'choice', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'choice', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   choice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,8 +48,13 @@ $string['choicetext'] = 'Questão da sondagem';
 $string['chooseaction'] = 'Selecione uma ação...';
 $string['completionsubmit'] = 'Mostrar como concluída após o aluno submeter a sua resposta';
 $string['displayhorizontal'] = 'Disposição horizontal';
-$string['displaymode'] = 'Disposição das opções de resposta';
+$string['displaymode'] = 'Modo de exibição para as opções';
 $string['displayvertical'] = 'Disposição vertical';
+$string['event_answer_created'] = 'Opção da Sondagem selecionada';
+$string['event_answer_updated'] = 'Opção da Sondagem atualizada';
+$string['event_choice_viewed'] = 'Sondagem visualizada';
+$string['event_instances_list_viewed'] = 'Lista de instâncias visualizada';
+$string['event_report_viewed'] = 'Relatório da Sondagem visualizado';
 $string['expired'] = 'Esta atividade terminou em {$a} e já não está disponível';
 $string['full'] = 'Completa';
 $string['havetologin'] = 'Tem que estar autenticado antes de submeter a sua resposta';
@@ -58,6 +63,7 @@ $string['limitanswers'] = 'Limitar o número de respostas permitidas';
 $string['limitanswers_help'] = 'Esta opção permite limitar o número máximo de participantes que podem escolher cada opção de resposta da sondagem. Uma vez definido o limite máximo de escolhas, quando o mesmo for alcançado numa opção de escolha, mais ninguém poderá escolher essa opção.
 
 Se desativar esta opção, não haverá número limite de respostas por opção.';
+$string['limitno'] = 'Limite {no}';
 $string['modulename'] = 'Sondagem';
 $string['modulename_help'] = 'A atividade Sondagem permite ao professor colocar uma pergunta e especificar múltiplas opções de resposta.
 
@@ -79,6 +85,8 @@ $string['notopenyet'] = 'Lamentamos mas esta atividade só estará disponível e
 $string['numberofuser'] = 'Número de participantes';
 $string['numberofuserinpercentage'] = 'Percentagem de participantes';
 $string['option'] = 'Opção de resposta';
+$string['optionno'] = 'Opção {no}';
+$string['options'] = 'Opções';
 $string['page-mod-choice-x'] = 'Qualquer página da sondagem';
 $string['pluginadministration'] = 'Administração da Sondagem';
 $string['pluginname'] = 'Sondagem';
@@ -95,6 +103,7 @@ $string['removeresponses'] = 'Apagar todas as respostas';
 $string['responses'] = 'Respostas';
 $string['responsesresultgraphheader'] = 'Gráfico';
 $string['responsesto'] = 'Respostas para {$a}';
+$string['results'] = 'Resultados';
 $string['savemychoice'] = 'Gravar a minha resposta';
 $string['showunanswered'] = 'Mostrar coluna com quem não respondeu';
 $string['skipresultgraph'] = 'Saltar gráfico de resultados';

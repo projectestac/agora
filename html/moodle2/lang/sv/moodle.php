@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'moodle', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'moodle', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   moodle
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,12 +62,13 @@ $string['addfilehere'] = 'Lägg till fil (er) här';
 $string['addinganew'] = 'Lägger till en ny {$a}';
 $string['addinganewto'] = 'Lägger till en ny {$a->what} till {$a->to}';
 $string['addingdatatoexisting'] = 'Lägger till nya data';
+$string['additionalnames'] = 'Ytterligare namn';
 $string['addlinkhere'] = 'Lägg till länk här';
 $string['addnewcategory'] = 'Lägg till en ny kategori';
 $string['addnewcourse'] = 'Lägg till en ny kurs';
 $string['addnewuser'] = 'Lägg till en ny användare';
 $string['addnousersrecip'] = 'Lägg till användare som inte har har besökt den här {$a} till listan över mottagare.';
-$string['addpagehere'] = 'Lägg till sida här';
+$string['addpagehere'] = 'Lägg till text här';
 $string['addresource'] = 'Lägg till en resurs...';
 $string['addresourceoractivity'] = 'Lägg till en aktivitet eller resurs';
 $string['addresourcetosection'] = 'Lägg till en resurs i avsnitt \'{$a}\'';
@@ -117,12 +118,15 @@ $string['administratorsandteachers'] = 'Administratörer och (distans)lärare';
 $string['advanced'] = 'Avancerad';
 $string['advancedfilter'] = 'Avancerade filter';
 $string['advancedsettings'] = 'Avancerade inställningar';
+$string['afterresource'] = 'Efter resurs "{$a}"';
+$string['aftersection'] = 'Efter sektion "{$a}"';
 $string['again'] = 'Igen';
 $string['aimid'] = 'AIM ID';
 $string['ajaxuse'] = 'AJAX och Javascript';
 $string['all'] = 'Alla';
 $string['allactions'] = 'Alla åtgärder';
 $string['allactivities'] = 'Alla aktiviteter';
+$string['allcategories'] = 'Alla kategorier';
 $string['allchanges'] = 'Alla ändringar';
 $string['alldays'] = 'Alla dagar';
 $string['allfieldsrequired'] = 'Alla fält krävs';
@@ -138,10 +142,12 @@ $string['allparticipants'] = 'Alla deltagare';
 $string['allteachers'] = 'Alla lärare';
 $string['alphanumerical'] = 'Kan endast innehålla alfanumeriska tecken, bindestreck (-) eller punkt (.)';
 $string['alreadyconfirmed'] = 'Registreringen har redan bekräftats.';
+$string['alternatename'] = 'Alternativt namn';
 $string['always'] = 'Alltid';
 $string['and'] = '{$a->one} och  {$a->two}';
 $string['answer'] = 'Svar';
 $string['any'] = 'Vilken/a som helst';
+$string['appearance'] = 'Utseende';
 $string['approve'] = 'Godkänn';
 $string['areyousuretorestorethis'] = 'Vill Du fortsätta?';
 $string['areyousuretorestorethisinfo'] = 'Senare i den här processen kommer Du att kunna välja om Du vill lägga till den här säkerhetskopieringen till en befintlig kurs eller om Du vill skapa en helt ny kurs.';
@@ -149,6 +155,7 @@ $string['asc'] = 'Stigande';
 $string['assessment'] = 'Rättning/bedömning/(ut)värdering/betygssättning/examination';
 $string['assignadmins'] = 'Registrera administratörer';
 $string['assigncreators'] = 'Registrera kursutvecklare';
+$string['assignedrolecount'] = '{$a->role}: {$a->count}';
 $string['assignsiteroles'] = 'Tilldela roller som är giltiga på webbplatsnivå.';
 $string['authenticateduser'] = 'Autenticerad användare';
 $string['authenticateduserdescription'] = 'Alla inloggade användare';
@@ -158,8 +165,6 @@ $string['autosubscribe'] = 'Automatisk prenumeration på forum';
 $string['autosubscribeno'] = 'Nej, jag vill inte bli automatiskt registrerad som prenumerant på forum.';
 $string['autosubscribeyes'] = 'Ja, registrera mig som prenumerant när jag gör ett inlägg i ett visst forum.';
 $string['availability'] = 'Tillgänglighet';
-$string['availability_help'] = 'Det här alternativet avgör om kursen visas på listan över kurser.Förutom (distans)-lärare och administratörer så får inga användare logga in på kursen.
-';
 $string['availablecourses'] = 'Tillgängliga kurser';
 $string['back'] = 'Tillbaka';
 $string['backto'] = 'Tillbaka till {$a}';
@@ -189,6 +194,7 @@ $string['backuploglaststatus'] = 'Den senaste loggen över genomförande.';
 $string['backupmissinguserinfoperms'] = 'Obs: Denna säkerhetskopia innehåller inga användardata. Övnings och Workshop aktiviteterna kommer inte att ingå i säkerhetskopian, eftersom dessa moduler inte är kompatibla med den här typen av säkerhetskopiering.';
 $string['backupnext'] = 'Nästa säkerhetskopiering';
 $string['backupnonisowarning'] = 'Varning: Den här säkerhetskopian kommer från en icke-Unicode version av Moodle (före 1.6) Om den här säkerhetskopian innehåller texter i icke-ISO-8859-1 då kan de bli FÖRVRÄNGDA om Du försöker återställa dem till den här Unicode versionen av Moodle. Se <a href="http://docs.moodle.org/en/Backup_FAQ">FAQ angående säkerhetskopior</a> om Du vill ha utförligare information om hur man kan återställa den här säkerhetskopian på ett korrekt sätt.';
+$string['backupnotyetrun'] = 'Avvaktar automatisk backup';
 $string['backuporiginalname'] = 'Namn på säkerhetskopian';
 $string['backuproleassignments'] = 'Säkerhetskopiera rolltilldelningarna för dessa roller';
 $string['backupsavetohelp'] = 'Hela sökvägen till katalogen där Du vill spara de säkerhetskopierade filerna <br /> Om Du vill spara dem i standardkatalogen så behöver Du inte fylla i något här.';
@@ -196,11 +202,10 @@ $string['backupsitefileshelp'] = 'Om detta är aktiverat så kommer de filer på
 $string['backuptakealook'] = 'Var snäll och kontrollera Din loggar för säkerhetskopiering i: {$a}';
 $string['backupuserfileshelp'] = 'Välj om Du vill ta med användarfiler (avatarer eller bilder ur profilen) i den automatiska säkerhetskopieringen.';
 $string['backupversion'] = 'Säkerhetskopians version';
+$string['badges'] = 'Badges';
 $string['block'] = 'Block';
 $string['blockconfiga'] = 'Konfigurerar ett {$a} block';
 $string['blockconfigbad'] = 'Det här blocket har inte implementerats på ett korrekt sätt och kan därför inte erbjuda något gränssnitt för konfiguration.';
-$string['blockdeleteconfirm'] = 'Du håller på att ta bort blocket \'{$a}\' helt och hållet. Det kommer att fullständigt ta bort allt i databasen som är kopplat till detta block. Är Du SÄKER på att Du vill fortsätta?';
-$string['blockdeletefiles'] = 'All data som var kopplad till blocket \'{$a->block}\' har tagits bort från databasen. För att komplettera borttagandet (och förhindra att blocket återinstallerar sig självt) så bör Du nu ta bort följande katalog från Din server: {$a->directory}';
 $string['blocks'] = 'Block';
 $string['blocksaddedit'] = 'Lägg till/Redigera block';
 $string['blockseditoff'] = 'Redigering av block är avaktiverat';
@@ -208,6 +213,9 @@ $string['blocksediton'] = 'Redigering av block är aktiverat';
 $string['blocksetup'] = 'Sätter upp tabeller för block';
 $string['blocksuccess'] = '{$a} tabeller har satts upp korrekt';
 $string['brief'] = 'Kortfattat';
+$string['bulkactions'] = 'Massåtgärder';
+$string['bulkactionselect'] = '{$a} bulk åtgärdsval';
+$string['bulkmovecoursessuccess'] = 'Framgångsrikt flyttat {$a->courses} kurser till {$a->category}';
 $string['bycourseorder'] = 'Ordna enligt kurser';
 $string['byname'] = 'av {$a}';
 $string['bypassed'] = 'Förbikopplad';
@@ -215,21 +223,17 @@ $string['cachecontrols'] = 'Kontroller av cache';
 $string['cancel'] = 'Återställ';
 $string['cancelled'] = 'Avbruten';
 $string['categories'] = 'Kurskategorier';
+$string['categoriesandcoures'] = 'Kurskategorier och kurser';
 $string['category'] = 'Kategori';
 $string['categoryadded'] = 'Kategorin \'{$a}\' lades till';
+$string['categorybulkaction'] = 'Bulk åtgärdsval för valda kategorier';
 $string['categorycontents'] = 'Underkategorier och kurser';
 $string['categorycurrentcontents'] = 'Innehåll i {$a}';
 $string['categorydeleted'] = 'Kategorin \'{$a}\' togs bort';
 $string['categoryduplicate'] = 'Kategorin \'{$a}\' finns redan!';
-$string['category_help'] = '<p>Din administratör av Moodle kan ha satt upp
-ett flertal kategorier av kurser.</p>
-<p>Till exempel, \'Naturvetenskap\', \'Humaniora\', \'Folkhälsa\' etc.</p>
-<p>Välj det som passar in bäst på Din kurs.
-Detta val kommer att påverka var i kurslistan Din kurs visas.
-Detta gör det lättare för de lärande att hitta Din kurs.
-</p>';
 $string['categorymodifiedcancel'] = 'Kategorin har modifierats! Var snäll och avbryt och prova igen.';
 $string['categoryname'] = 'Namn på kategori';
+$string['categorysubcategoryof'] = '{$a->category} - underkategori av {$a->parentcategory}';
 $string['categoryupdated'] = 'Kategorin \'{$a}\' uppdaterades';
 $string['changedpassword'] = 'Ändrat lösenord';
 $string['changepassword'] = 'Ändra lösenord';
@@ -273,7 +277,9 @@ $string['clickhere'] = 'Klicka här...';
 $string['clicktochangeinbrackets'] = '{$a} (Klicka för att förstora)';
 $string['clicktohideshow'] = 'Klicka för att expandera eller fälla ihop';
 $string['closewindow'] = 'Stäng detta fönster';
+$string['collapse'] = 'Fäll ihop';
 $string['collapseall'] = 'Fäll ihop all/t/a';
+$string['collapsecategory'] = 'Komprimera {$a}';
 $string['commentincontext'] = 'Hitta den här kommentaren i sitt sammanhang';
 $string['comments'] = 'Kommentarer';
 $string['commentsnotenabled'] = 'Kommentar funktionaliteten är inte aktiverad.';
@@ -284,6 +290,7 @@ $string['completereport'] = 'Komplett rapport';
 $string['configuration'] = 'Konfiguration';
 $string['confirm'] = 'Bekräfta';
 $string['confirmcheckfull'] = 'Är Du helt säker på att Du vill bekräfta {$a} ?';
+$string['confirmcoursemove'] = 'Är du säker på att du vill flytta den här kursen ({$a->course}) in i den här kategorin ({$a->category})?';
 $string['confirmed'] = 'Din registrering har blivit bekräftad.';
 $string['confirmednot'] = 'Din registrering har ännu inte blivit bekräftad.';
 $string['content'] = 'Innehåll';
@@ -331,9 +338,18 @@ $string['courseapprovedsubject'] = 'Din kurs har blivit godkänd!';
 $string['courseavailable'] = 'Den här kursen är öppen för studenter/elever/deltagare/lärande.';
 $string['courseavailablenot'] = 'Den här kursen är inte öppen för studenter/elever/deltagare/lärande.';
 $string['coursebackup'] = 'Säkerhetskopiering  av kurs';
+$string['coursebulkaction'] = 'Bulk åtgärdsval för valda kurser';
 $string['coursecategories'] = 'Kategori av kurs';
 $string['coursecategory'] = 'Kategorier av kurser';
 $string['coursecategorydeleted'] = 'Tog bort kurskategorin {$a}';
+$string['coursecategory_help'] = '<p>Din administratör av Moodle kan ha satt upp
+ett flertal kategorier av kurser.</p>
+<p>Till exempel, \'Naturvetenskap\', \'Humaniora\', \'Folkhälsa\' etc.</p>
+<p>Välj det som passar in bäst på Din kurs.
+Detta val kommer att påverka var i kurslistan Din kurs visas.
+Detta gör det lättare för de lärande att hitta Din kurs.
+</p>';
+$string['coursecatmanagement'] = 'Kurs- och kategoriadministration';
 $string['coursecompletion'] = 'Fullföljande av kurs';
 $string['coursecompletions'] = 'Fullföljande av kurser';
 $string['coursecreators'] = 'Kursutvecklare';
@@ -358,8 +374,8 @@ $string['coursehelpforce'] = 'Tvinga kursens gruppläge till varje aktivitet i k
 $string['coursehelpformat'] = 'Kursens ingångssida kommer att visas i detta format.';
 $string['coursehelphiddensections'] = 'Hur de dolda sektionerna i kursen ska visas för studenter/elever/deltagare/lärande.';
 $string['coursehelpmaximumupload'] = 'Ange en maximal storlek för de filer som kan laddas upp till den här kursen. Detta anger en begränsning som gäller för hela webbplatsen.';
-$string['coursehelpnewsitemsnumber'] = 'Anger det antal aktuella nyheter som ska visas i blocket för nyheter nere på höger sida på kursens ingångssida, <br /> (0 innebär att blocket inte kommer att visas alls)';
-$string['coursehelpnumberweeks'] = 'Det antal veckor/delämnen som ska visas på kursens ingångssida.';
+$string['coursehelpnewsitemsnumber'] = 'Antal senaste nyheter från nyhetsforumet som visas i blocket för senaste nyheter på kurssidan. Om satt till noll så visas inte blocket.';
+$string['coursehelpnumberweeks'] = 'Antal sektioner i kursen (enbart applicerbart på vissa kursformat).';
 $string['coursehelpshowgrades'] = 'Aktivera visning av betygskatalogen. Det förhindrar inte att betyg/omdöme visas inom ramen för de individuella aktiviteterna.';
 $string['coursehidden'] = 'Den här kursen är f.n. inte tillgänglig för studenter/elever/deltagare/lärande.';
 $string['courseinfo'] = 'Kursinformation';
@@ -373,6 +389,10 @@ $string['courselegacyfilesofcourse'] = 'Äldre kursfiler: {$a}';
 $string['coursemessage'] = 'Skicka meddelande användare av kursen.';
 $string['coursenotaccessible'] = 'Den här kursen tillåter inte offentligt tillträde.';
 $string['courseoverview'] = 'Översikt över kurser';
+$string['courseoverviewfiles'] = 'Filer för kurssammanfattning';
+$string['courseoverviewfilesext'] = 'Filändelser för kurssammanfattning';
+$string['courseoverviewfiles_help'] = 'Filer för kurssammanfattning, exempelvis bilder, visas i listan på kurser tillsammans med sammanfattningen.';
+$string['courseoverviewfileslimit'] = 'Maximalt antal filer för kurssammanfattning';
 $string['courseoverviewgraph'] = 'Grafisk översikt över kurs';
 $string['courseprofiles'] = 'Profiler för kurs';
 $string['coursereasonforrejecting'] = 'Orsaker till att Du avslår denna förfrågan';
@@ -389,7 +409,7 @@ $string['courserequestdetails'] = 'Detaljer angående den kurs Du efterfrågar';
 $string['courserequestfailed'] = 'Av samma anledning gick det inte att spara Din ansökan om en kurs.';
 $string['courserequestintro'] = 'Använd det här formuläret för att ansöka om att en kurs ska skapas för Dig.<br />Försök att fylla i så mycket information som möjligt för<br />att underlätta för administratörerna att förstå varför Du vill ha denna kurs.';
 $string['courserequestreason'] = 'Skäl för att Du vill ha den här kursen.';
-$string['courserequestsuccess'] = 'Din ansökan om en kurs har sparats framgångsrikt. Du kan förvänta Dig att det kommer ett e-postmeddelande med besked inom kort.';
+$string['courserequestsuccess'] = 'Din kursansökan har sparats. Du kommer få epost med information om ifall din ansökan godkändes.';
 $string['courserequestsupport'] = 'Kompletterande information för att underlätta för administratören att utvärdera denna förfrågan.';
 $string['courserestore'] = 'Återställ kurs';
 $string['courses'] = 'Kurser';
@@ -401,11 +421,15 @@ $string['coursestart'] = 'Startdatum för kurs';
 $string['coursesummary'] = 'Sammanfattning av kurs';
 $string['coursesummary_help'] = 'Kursen sammanfattning visas i listan över kurser. En kurs sökning söker text i kursen sammanfattning utöver kursnamnet.';
 $string['courseupdates'] = 'Kursuppdatering';
-$string['courseuploadlimit'] = 'Begränsning av storleken på uppladdade filer.';
 $string['create'] = 'Skapa';
 $string['createaccount'] = 'Skapa mitt nya konto';
 $string['createcategory'] = 'Skapa kategori';
 $string['createfolder'] = 'Skapa en mapp i {$a}';
+$string['createnew'] = 'Skapa ny';
+$string['createnewcategory'] = 'Skapa ny kategori';
+$string['createnewcourse'] = 'Skapa ny kurs';
+$string['createnewsubcategory'] = 'Skapa ny underkategori';
+$string['createsubcategoryof'] = 'Skapa underkategori till {$a}';
 $string['createuser'] = 'Skapa användare';
 $string['createuserandpass'] = 'Skapa ett nytt användarnamn och lösenord för att logga in med.';
 $string['createziparchive'] = 'Skapa ziparkiv';
@@ -417,7 +441,7 @@ $string['creatingcoursemodules'] = 'Skapar kursmoduler...';
 $string['creatingcourseroles'] = 'Skapar tilldelningar av, och överskridanden för, roller på kursnivå.';
 $string['creatingevents'] = 'Skapar händelser';
 $string['creatinggradebook'] = 'Skapar betygs/omdömeskatalog';
-$string['creatinggroupings'] = 'Skapar gruppkategoriseringar';
+$string['creatinggroupings'] = 'Skapar gruppindelningar';
 $string['creatinggroupingsgroups'] = 'Lägger till grupper till grupperingar';
 $string['creatinggroups'] = 'Skapar grupper';
 $string['creatinglogentries'] = 'Skapar log \'entries\'...';
@@ -465,6 +489,7 @@ $string['defaultcoursesummary'] = 'Här kan Du skriva ett kortfattat och intress
 $string['defaultcourseteacher'] = 'Distanslärare/<br />handledare/<br />coach etc';
 $string['defaultcourseteacherdescription'] = '(Distans)lärare/handledare/mentorer/coacher  osv kan göra vad som helst inom ramen för   en kurs, inklusive det att ändra aktiviteter och betygssätta/avge omdömen om studenter/elever/deltagare/lärande.';
 $string['defaultcourseteachers'] = 'Distanslärare/<br />handledare/<br />coacher etc';
+$string['defaulteditor'] = 'Standardredigerare';
 $string['delete'] = 'Ta bort';
 $string['deleteablock'] = 'Ta bort ett block';
 $string['deleteall'] = 'Ta bort alla';
@@ -508,10 +533,8 @@ $string['displayingfirst'] = 'Bara de första {$a->count} {$a->things} visas.';
 $string['displayingrecords'] = 'Visar {$a} poster';
 $string['displayingusers'] = 'Visar användare {$a->start} till {$a->end}';
 $string['displayonpage'] = 'Visa på sida';
-$string['dndenabled'] = 'Dra och släpp tillgänglig';
-$string['dndenabled_help'] = 'Du kan dra en eller flera filer från skrivbordet och släppa dem på rutan nedan för att ladda upp dem. <br /> Observera: detta kanske inte fungerar med andra webbläsare';
+$string['dndcourse'] = 'Du kan dra och släppa den här kursen för att ändra dess sortering eller för att flytta den till en annan kategori.';
 $string['dndenabled_inbox'] = 'Du kan dra och släppa filer här för att lägga till dem.';
-$string['dndenabled_insentence'] = 'dra och släpp tillgänglig';
 $string['dndnotsupported'] = 'Dra och släpp uppladdning stöds ej';
 $string['dndnotsupported_help'] = 'Din webbläsare stödjer inte dra och släpp för uppladdning.</br>Den här funktionen är tillgänglig i alla nyare versioner av Chrome, Firefox and Safari, samt Internet Explorer version 10 eller högre.';
 $string['dndnotsupported_insentence'] = 'Dra och släpp stöds ej';
@@ -524,6 +547,8 @@ $string['dndworkinglink'] = 'Dra och släpp länkar på kurssektioner för att l
 $string['dndworkingtext'] = 'Dra och släpp text på kursmoment att ladda upp den';
 $string['dndworkingtextlink'] = 'Dra och släpp text eller länkar på kursmoment för att ladda upp dem';
 $string['documentation'] = 'Dokumentation av Moodle';
+$string['dontsortcategories'] = 'Sortera inte kategorier';
+$string['dontsortcourses'] = 'Sortera inte kurser';
 $string['down'] = 'Ner';
 $string['download'] = 'Ladda ner';
 $string['downloadall'] = 'Ladda ner allt';
@@ -577,6 +602,7 @@ $string['edituser'] = 'Redigera användarkonton';
 $string['email'] = 'E-postadress';
 $string['emailactive'] = 'E-post är aktiverat';
 $string['emailagain'] = 'E-post (igen)';
+$string['emailalreadysent'] = 'Ett meddelande om lösenordsåterställning har redan skickats. Vänligen kontrollera din epost.';
 $string['emailcharset'] = 'Teckenuppsättning för e-post';
 $string['emailconfirm'] = 'Bekräfta Ditt konto';
 $string['emailconfirmation'] = 'Hej {$a->firstname}!
@@ -590,31 +616,25 @@ varmt välkommen att besöka följande webbadress:
 
 {$a->link}
 
-I de flesta e-postprogram kommer denna adress att
-visas som en blå länk som Du bara behöver klicka
-på. Om det inte fungerar, kan Du klippa ut adressen
-här och klistra in den i adressrutan på Din
-webbläsare.
+I de flesta e-postprogram kommer denna adress att visas som en blå länk som Du bara behöver klicka på. Om det inte fungerar, kan Du klippa ut adressen här och klistra in den i adressrutan på Din webbläsare.
 
-Klicka sedan på Gå eller tryck på radmatningen (Enter).
-
-OBS! Genom att Du bekräftar kontot så samtycker
-Du till databehandling enligt Personuppgiftslagen.
-Om Du är osäker på vad det innebär så kan Du hitta
-mer information här: \'http://www.foi.se/FOI/templates/Page____3714.aspx
-\'
 
 Om Du behöver hjälp så kan Du kontakta
 vår administratören för vår webbplats,
-{$a->admin}
-
-Med vänliga hälsningar från \'{$a->sitename}\'';
+{$a->admin}';
 $string['emailconfirmationsubject'] = '{$a}: bekräftelse av konto';
 $string['emailconfirmsent'] = '<p>Vi har skickat ett e-postbrev som Du bör ha fått<br /> till Din adress på <b>{$a}</b></p>
 <p>Det innehåller enkla instruktioner som hjälper Dig<br />att fullfölja Din registrering.</p>
 <p>Om Du stöter på problem, är Du välkommen att <br />kontakta den som ansvarar för webbplatsen.</p>';
 $string['emaildigest'] = 'Sammanfattande e-postmeddelande';
 $string['emaildigestcomplete'] = 'Komplett (dagliga e-postmeddelanden med hela inlägg).';
+$string['emaildigest_help'] = 'Det här är inställningen för dagliga sammandrag som forum kommer använda som standard.
+
+* Inget sammandrag - du kommer få ett epostmeddelande per foruminlägg;
+* Sammandrag - hela inlägg - du kommer få ett sammandrag per dag via epost med det fullständiga innehållet i varje foruminlägg;
+* Sammandrag - enbart titlar - du kommer få ett sammandrag per dag via epost som enbart innehåller titlarna på varje foruminlägg.
+
+Du kan också välja olika inställningar för varje forum om du så vill.';
 $string['emaildigestoff'] = 'Ingen sammanfattning (ett enskilt e-postmeddelande per inlägg i forum).';
 $string['emaildigestsubjects'] = 'Ämnen (dagliga e-postmeddelanden endast  innehållande ämnen).';
 $string['emaildisable'] = 'Den här e-postadressen är avaktiverad.';
@@ -698,6 +718,11 @@ kontakta den som är ansvarig för webbplatsen,
 {$a->admin}';
 $string['emailpasswordconfirmationsubject'] = '{$a}: bekräftelse av ändrat lösenord';
 $string['emailpasswordconfirmmaybesent'] = '<p>Om Du angav ett giltigt användarnamn eller adress så bör ett e-postmeddelande ha skickats till Dig.</p><p>Det innehåller enkla instruktioner för att bekräfta och fullfölja detta byte av lösenord. Om Du har fortsatta problem, vara snäll och kontakta den som är ansvarig för webbplatsen.</p>';
+$string['emailpasswordconfirmnoemail'] = '<p>Användarkontot du specificerade har ingen epostadress registrerad.</p>
+   <p>Vänligen kontakta webbplatsens administratör.</p>';
+$string['emailpasswordconfirmnotsent'] = '<p>Användardetaljen du tillhandahöll identifierar inte ett existerande användarkonto.</p>
+   <p>Vänligen kontrollera informationen du angav och försök sen igen.
+Om problemen fortsätter, kontakta webbplatsens administratör.</p>';
 $string['emailpasswordconfirmsent'] = 'Vi har skickat ett e-postbrev till Din adress på:
 <b>{$a}</b>
 
@@ -715,9 +740,28 @@ lösenordet till Din adress på:
 Det nya lösenordet har skapats automatiskt -
 och Du kanske vill <a href="{$a->link}">byta Ditt
 lösenord</a> till något som är lättare att komma ihåg.';
+$string['emailresetconfirmation'] = 'Hej {$a->firstname},
+
+en återställning av lösenord har begärts för ditt konto \'{$a->username}\' på {$a->sitename}.
+
+För att bekräfta den här begäran och sätta ett nytt lösenord för ditt konto, vänligen gå till följande adress:
+
+{$a->link}
+(Den här länken är giltig {$a->resetminutes} minuter från den tidpunkt då återställningen först begärdes)
+
+Om lösenordsåterställningen inte begärdes av dig så krävs ingen åtgärd.
+
+Om du behöver hjälp, vänligen kontakta webbplatsens administratör,
+{$a->admin}';
+$string['emailresetconfirmationsubject'] = '{$a}: Begäran om återställning av lösenord';
+$string['emailresetconfirmsent'] = 'Ett epostmeddelande har skickats till din adress <b>{$a}</b>.
+<br />Det innehåller enkla instruktioner för att bekräfta och slutföra det här bytet av lösenord.
+Om problemen fortsätter, kontakta webbplatsens administratör.';
+$string['emptydragdropregion'] = 'tom region';
 $string['enable'] = 'Aktivera';
 $string['encryptedcode'] = 'Krypterad kod';
 $string['english'] = 'Engelska';
+$string['enrolmentmethods'] = 'Inskrivningsmetoder';
 $string['entercourse'] = 'Klicka för att nå denna kurs';
 $string['enteremail'] = 'Mata in Din e-postadress';
 $string['enteremailaddress'] = 'Mata in Din e-postadress för att nollställa Ditt
@@ -728,11 +772,29 @@ $string['error'] = 'Fel';
 $string['errorcreatingactivity'] = 'Det gick inte att skapainstans av aktiviteten \'{$a}\'';
 $string['errorfiletoobig'] = 'Filen var större än gränsen på {$a} byte';
 $string['errornouploadrepo'] = 'Det finns ingen arkiv för uppladdning aktiverat för den här webbplatsen';
-$string['errortoomanylogins'] = 'Du har tyvärr försökt logga in för många gånger. Starta om Din webbläsare och försök igen.';
 $string['errorwhenconfirming'] = 'Du är inte bekräftad ännu eftersom det uppstod ett fel.
 Om Du klickade på en länk i ett e-postmeddelande för att
 komma hit så får Du kolla att raden med länken inte var uppdelad på två rader.
 Du kanske måste "klippa och klistra" för att forma länken på rätt sätt.';
+$string['eventcontentviewed'] = 'Innehåll visat';
+$string['eventcoursecategorydeleted'] = 'Kategori borttagen';
+$string['eventcoursecontentdeleted'] = 'Kursinnehåll borttaget';
+$string['eventcoursecreated'] = 'Kurs skapad';
+$string['eventcoursedeleted'] = 'Kurs borttagen';
+$string['eventcoursemodulecreated'] = 'Kursmodul skapad';
+$string['eventcoursemoduledeleted'] = 'Kursmodul borttagen';
+$string['eventcoursemoduleupdated'] = 'Kursmodul uppdaterad';
+$string['eventcourseresetended'] = 'Kursåterställning avslutad';
+$string['eventcourseresetstarted'] = 'Kursåterställning startad';
+$string['eventcourserestored'] = 'Kurs återskapad';
+$string['eventcoursesectionupdated'] = 'Kurssektion uppdaterad';
+$string['eventcourseupdated'] = 'Kurs uppdaterad';
+$string['eventusercreated'] = 'Användare skapad';
+$string['eventuserdeleted'] = 'Användare borttagen';
+$string['eventuserlistviewed'] = 'Användarlista visad';
+$string['eventuserloggedout'] = 'Användare loggade ut';
+$string['eventuserprofileviewed'] = 'Användarprofil visad';
+$string['eventuserupdated'] = 'Användare uppdaterad';
 $string['everybody'] = 'Alla';
 $string['executeat'] = 'Genomför vid';
 $string['existing'] = 'Finns';
@@ -743,7 +805,9 @@ $string['existingcoursedeleting'] = 'Befintlig kurs, tar först bort den';
 $string['existingcreators'] = 'Befintliga kursutvecklare';
 $string['existingstudents'] = 'Registrerade studenter/<br />elever/<br />deltagare/<br />lärande';
 $string['existingteachers'] = 'Befintliga distanslärare/<br />handledare/<br />coacher';
+$string['expand'] = 'Expandera';
 $string['expandall'] = 'Expandera allt';
+$string['expandcategory'] = 'Expandera {$a}';
 $string['explanation'] = 'Förklaring';
 $string['extendenrol'] = 'Förläng registrering (individuellt)';
 $string['extendperiod'] = 'Förlängd period';
@@ -754,22 +818,25 @@ $string['file'] = 'Fil';
 $string['fileexists'] = 'Det finns redan en fil med namnet {$a}';
 $string['filemissing'] = '{$a} saknas';
 $string['files'] = 'Filer';
+$string['filesanduploads'] = 'Filer och uppladdningar';
 $string['filesfolders'] = 'Filer/mappar';
 $string['filetoolarge'] = 'det är för stort för att ladda upp';
 $string['fileuploadwithcontent'] = 'Filuppladdningar bör inte inkludera innehållsparametrar';
 $string['filloutallfields'] = 'Var vänlig fyll i alla fält i detta formulär.';
 $string['filter'] = 'Filter';
 $string['findmorecourses'] = 'Sök fler kurser...';
+$string['first'] = 'Första';
 $string['firstaccess'] = 'Första åtkomst';
 $string['firstname'] = 'Förnamn';
+$string['firstnamephonetic'] = 'Förnamn - fonetiskt';
 $string['firsttime'] = 'Är det första gången Du är här?';
 $string['folder'] = 'Katalog';
 $string['folderclosed'] = 'Stängd katalog';
 $string['folderopened'] = 'Öppnad katalog';
 $string['followingoptional'] = 'Följande punkter är valfria';
 $string['followingrequired'] = 'Följande punkter krävs';
+$string['for'] = 'För';
 $string['force'] = 'Tvinga';
-$string['forcedmodeinbrackets'] = '{$a} (forcerat läge)';
 $string['forcelanguage'] = 'Tvingande språkval';
 $string['forceno'] = 'Tvinga inte';
 $string['forcepasswordchange'] = 'Framtvinga ändring av lösenord';
@@ -783,33 +850,12 @@ $string['forgotten'] = 'Har Du glömt Ditt användarnamn och lösenord?';
 $string['forgottenduplicate'] = 'Den här e-postadressen används i ett flertal konton, var snäll och ange ett användarnamn istället.';
 $string['forgotteninvalidurl'] = 'URL till återställning av ogiltigt lösenord.';
 $string['format'] = 'Format';
-$string['format_help'] = '<h2>LAMS kursformat</h2>
-<p class="indent">
-Det här formatet innebär att gränssnittet för "the Learning Activity Management System (LAMS)" blir centralt för kursen. LAMS-formatet måste ställas in av en administratör.</p>
+$string['format_help'] = 'Kursen formatet avgör layouten på kurssidan.
 
-<h2>SCORM-format</h2>
-<p class="indent">
-Det här formatet visar ett SCORM-paket i den första sektionen på kursens hemsida. (SCORM/AICC-modulen tillhandahåller en alternativ metod för att visa ett SCORM-paket i en kurs.)</p>
-
-<p><b>Veckoformat</b></p>
-<ul>
-<li>Den h&auml;r kursen &auml;r organiserad enligt en bunden veckoplanering
-med ett tydligt startdatum och ett slutdatum. Varje vecka inneh&aring;ller
-aktiviteter. En del av dessa, dagboken t ex kan ha f&ouml;nster som &auml;r &ouml;ppna,
-i s&auml;g, tv&aring; veckor - d&auml;refter &auml;r de inte l&auml;ngre tillg&auml;ngliga.</li>
-</ul>
-<p><b>Ämnesformat</b></p>
-<ul>
-<li>Detta liknar veckoformatet, bortsett fr&aring;n att \'veckan\' kallas \'&auml;mne\'.
-Ett &auml;mne &auml;r inte bundet av ett tidschema, studietakten &auml;r fri.</li>
-</ul>
-<p><b>Gemenskapsformat</b></p>
-<ul>
-<li>Det h&auml;r formatet &auml;r organiserat kring ett huvudforum, det sociala
-forumet som visas p&aring; kursens hemsida. Det &auml;r bra f&ouml;r situationer
-som kr&auml;ver en friare form. Det beh&ouml;ver inte ens vara en kurs. Det kan t ex vara
-en anslagstavla f&ouml;r en avdelning.</li>
-</ul>';
+* Enkel aktivitetsformat - För att visa en enskild aktivitet eller resurs (t.ex. en frågesport eller SCORM paket) på kurssidan
+* Socialformat - Ett forum visas på kurssidan
+* Ämnesformat - Kursen sidan är organiserad i ämnessektioner
+* Veckoformat - Kursens sidor är organiserade i veckosektioner, den första veckan börjar på kursen startdatum';
 $string['formathtml'] = 'HTML-format';
 $string['formatmarkdown'] = 'Markdown format';
 $string['formatplain'] = 'Ren text';
@@ -820,13 +866,14 @@ $string['from'] = 'Från';
 $string['frontpagecategorycombo'] = 'Kombinerad lista';
 $string['frontpagecategorynames'] = 'Visa en förteckning över kategorier';
 $string['frontpagecourselist'] = 'Visa en kursförteckning';
-$string['frontpagedescription'] = 'Beskrivning av ingångssidan';
-$string['frontpagedescriptionhelp'] = 'Den här beskrivningen av webbplatsen kommer att visas på ingångssidan (första/hem).';
+$string['frontpagecoursesearch'] = 'Sökruta för kurser';
+$string['frontpagedescription'] = 'Beskrivning på förstasidan';
+$string['frontpagedescriptionhelp'] = 'Den här beskrivningen kan visas på förstasidan genom att använda kursens/webbplatsens sammanfattningsblock eller genom att inkludera en ämnessektion på förstasidan.';
+$string['frontpageenrolledcourselist'] = 'Inskrivna kurser';
 $string['frontpageformat'] = 'Formatering av ingångssidan (första/hem).';
 $string['frontpageformatloggedin'] = 'Första sidan när man är inloggad';
 $string['frontpagenews'] = 'Visa alla nya element';
 $string['frontpagesettings'] = 'Inställningar för ingångssidan';
-$string['frontpagetopiconly'] = 'Visa godtycklig HTML eller aktiviteter (sektionen för ämnen)';
 $string['fulllistofcourses'] = 'Alla kurser';
 $string['fullname'] = 'Hela namnet';
 $string['fullnamecourse'] = 'Hela namnet';
@@ -836,10 +883,6 @@ $string['fullnameuser'] = 'Hela namnet';
 $string['fullprofile'] = 'Hela profilen';
 $string['fullsitename'] = 'Hela webbplatsnamnet';
 $string['functiondisabled'] = 'Den funktionaliteten är f.n. avaktiverad';
-$string['gd1'] = 'GD 1.x är installerat';
-$string['gd2'] = 'GD 2.x är installerat';
-$string['gdneed'] = 'GD måste vara installerat för att Du ska kunna se denna bild.';
-$string['gdnot'] = 'GD är inte installerat';
 $string['general'] = 'Allmänt';
 $string['geolocation'] = 'latitud - longitud';
 $string['gettheselogs'] = 'Hämta dessa loggar';
@@ -997,11 +1040,13 @@ $string['langltr'] = 'Språkriktning vänster-till-höger';
 $string['langrtl'] = 'Språkriktning höger-till-vänster';
 $string['language'] = 'Språk';
 $string['languagegood'] = 'Detta språkpaket är det senaste!  :-)';
+$string['last'] = 'Sista';
 $string['lastaccess'] = 'Senaste access';
 $string['lastedited'] = 'Senast redigerad';
 $string['lastlogin'] = 'Senaste login';
 $string['lastmodified'] = 'Senast modifierad';
 $string['lastname'] = 'Efternamn';
+$string['lastnamephonetic'] = 'Efternamn - fonetiskt';
 $string['lastyear'] = 'Det senaste året';
 $string['latestlanguagepack'] = 'Sök efter det senaste språkpaketet på moodle.org.';
 $string['layouttable'] = 'Tabell för layout';
@@ -1014,8 +1059,8 @@ $string['list'] = 'Lista';
 $string['listfiles'] = 'Lista över filer i {$a}';
 $string['listofallpeople'] = 'Lista över samtliga personer';
 $string['listofcourses'] = 'Lista över kurser';
+$string['loadinghelp'] = 'Laddar...';
 $string['local'] = 'Lokal';
-$string['localplugindeleteconfirm'] = 'Du är på väg att helt ta bort den lokala plugin \'{$a}\'. Detta kommer att helt ta bort allt i databasen som har med denna plugin att göra. Är du säker på att du vill fortsätta?';
 $string['localplugins'] = 'Lokala plugins';
 $string['localpluginsmanage'] = 'Hantera lokala plugins';
 $string['location'] = 'Plats';
@@ -1029,7 +1074,7 @@ $string['loginas'] = 'Logga in som';
 $string['loginaspasswordexplain'] = '<p>Du måste mata in det specifika "logga in som, lösenord" för att kunna utnyttja den här egenskapen.<br />Om Du inte kan lösenordet så får Du fråga Din serveradministratör</p>';
 $string['login_failure_logs'] = 'Loggar över misslyckade försök att logga in.';
 $string['loginguest'] = 'Logga in som gäst';
-$string['loginsite'] = 'Logga in till denna webbplats';
+$string['loginsite'] = 'Logga in på webbplatsen';
 $string['loginsteps'] = 'Hej!
 <br />
 Du måste bl.a. skapa ett nytt användarkonto på denna webbplats för att få tillgång till de kurser som Du vill delta i. Varje individuell kurs kan också ha en engångsnyckel "kursnyckel". Den behöver Du dock inte  förrän senare.
@@ -1069,9 +1114,8 @@ $string['loginstepsnone'] = 'Hej!
 <p>Det enda Du behöver göra är att skaffa ett användarnamn och lösenord och använda det i formuläret tilll vänster på denna sida!</p>
 <p>Om någon annan redan har valt Ditt användarnamn så får Du försöka igen med ett annat.</p>';
 $string['loginto'] = 'Logga in till {$a}';
-$string['loginusing'] = 'Logga in här med Ditt användarnamn och lösenord.';
 $string['logout'] = 'Logga ut';
-$string['logoutconfirm'] = 'Vill Du verkligen logga ut?';
+$string['logoutconfirm'] = 'Vill du verkligen logga ut?';
 $string['logs'] = 'Loggar';
 $string['logtoomanycourses'] = '[ <a href="{$a->url}">mer</a> ]';
 $string['logtoomanyusers'] = '[ <a href="{$a->url}">mer</a> ]';
@@ -1079,10 +1123,12 @@ $string['lookback'] = 'Se tillbaka';
 $string['mailadmins'] = 'Informera administratörer';
 $string['mailstudents'] = 'Informera studenter/elever/deltagare/lärande';
 $string['mailteachers'] = 'Informera (distans)lärare';
+$string['maincoursepage'] = 'Huvudsida för kurs';
 $string['makeafolder'] = 'Skapa en mapp';
 $string['makeeditable'] = 'Om Du gör \'{$a}\' redigerbar via webbservern (t.ex. apache) så kan Du redigera denna fil direkt från denna sida.';
 $string['makethismyhome'] = 'Gör detta till min sida standardsida';
 $string['manageblocks'] = 'Block';
+$string['managecategorythis'] = 'Administrera den här kategorin';
 $string['managecourses'] = 'Administrera kurser';
 $string['managedatabase'] = 'Databas';
 $string['manageeditorfiles'] = 'Hantera filer som används av editorn';
@@ -1092,6 +1138,8 @@ $string['manageroles'] = 'Roller och rättigheter';
 $string['markedthistopic'] = 'Det här ämnet är markerat som det just nu aktuella ämnet.';
 $string['markthistopic'] = 'Markera detta ämne som aktuellt  ämne.';
 $string['matchingsearchandrole'] = 'Matchande \'{$a->search} "och {$a->role}';
+$string['maxareabytesreached'] = 'Filen (eller den totala storleken av flera filer) är större än det kvarstående utrymmet i den här arean.';
+$string['maxbytesforfile'] = 'Filen {$a} är större än den maximalt tillåtna storleken.';
 $string['maxfilesize'] = 'Maximal storlek för nya filer: {$a}';
 $string['maxfilesreached'] = 'Det är tillåtet att bifoga högst {$a} fil (er) till det här objektet';
 $string['maximumchars'] = 'Maximum av {$a} tecken';
@@ -1105,8 +1153,8 @@ Det finns dock ocks&aring; en &ouml;vergripande inst&auml;llning f&ouml;r
 hela webbsajten som administrat&ouml;ren har angivit.</p>
 <p>Du kan ytterligare begr&auml;nsa denna storlek genom
 inst&auml;llningarna f&ouml;r varje aktivitetsmodul.</p>';
-$string['maxnumberweeks'] = 'Maximala antalet veckor/ämnen';
-$string['maxnumberweeks_desc'] = 'Detta styr det maximala värdet som visas i "Antal veckor/ämnen" inställningen för kurser.';
+$string['maxnumberweeks'] = 'Maximalt antal sektioner';
+$string['maxnumberweeks_desc'] = 'Det maximala värdet i rullgardinsmenyn för antalet sektioner (endast applicerbart på vissa kursformat).';
 $string['maxnumcoursesincombo'] = 'Bläddra <a href="{$a->link}">{$a->numberofcourses} kurser</a>';
 $string['maxsize'] = 'Max storlek: {$a}';
 $string['maxsizeandareasize'] = 'Maximal storlek för nya filer: {$a->size}, total gräns: {$a->areasize}';
@@ -1118,6 +1166,8 @@ $string['messagedselectedusers'] = 'Markerade användare har blivit informerade 
 $string['messagedselectedusersfailed'] = 'Något fel uppstod under det att markerade användare skulle informeras. En del har möjligen inte fått något e-postmeddelande.';
 $string['messageprovider:availableupdate'] = 'Meddelande om tillgängliga uppdateringar';
 $string['messageprovider:backup'] = 'Meddelanden om säkerhetskopiering';
+$string['messageprovider:badgecreatornotice'] = 'Märkesskapares anteckningar';
+$string['messageprovider:badgerecipientnotice'] = 'Märkesmottagares anteckningar';
 $string['messageprovider:courserequestapproved'] = 'Meddelande om godkänd begäran av ny kurs.';
 $string['messageprovider:courserequested'] = 'Meddelande om begäran av ny kurs.';
 $string['messageprovider:courserequestrejected'] = 'Meddelande om avvisad begäran av ny kurs.';
@@ -1129,6 +1179,7 @@ $string['messageprovider:notices'] = 'Meddelanden om mindre problem';
 $string['messageprovider:notices_help'] = 'Dessa är meddelanden som en administratör kan vara intresserad av att se.';
 $string['messageselect'] = 'Markera den här användaren som mottagare av  meddelanden.';
 $string['messageselectadd'] = 'Skicka meddelande';
+$string['middlename'] = 'Mellannamn';
 $string['migratinggrades'] = 'Migrerar (flyttar) betyg';
 $string['min'] = 'minut';
 $string['mins'] = 'minuter';
@@ -1163,11 +1214,10 @@ $string['modchooserdisable'] = 'Aktivitetsväljare av';
 $string['modchooserenable'] = 'Aktivitetsväljare på';
 $string['moddoesnotsupporttype'] = 'Aktiviteten {$a->modname} stöder inte uppladdning av filer av typen {$a->type}';
 $string['modified'] = 'Modifierad';
-$string['moduledeleteconfirm'] = 'Du håller på att ta bort modulen \'{$a}\' helt och hållet. Detta kommer att ta bort allting i databasen som är kopplat till den här aktivitetsmodulen fullständigt. Är Du SÄKER på att Du vill fortsätta?';
-$string['moduledeletefiles'] = 'Alla data som är kopplad till modulen \'{$a->module}\' har tagits bort från databasen. För att fullfölja borttagandet(och hindra modulen från att återinstallera sig själv) så bör Du nu ta bort den här katalogen från Din server: {$a->directory}';
 $string['moduleintro'] = 'Beskrivning';
 $string['modulesetup'] = 'Sätter upp modultabeller...';
 $string['modulesuccess'] = '{$a} tabeller har satts upp korrekt.';
+$string['modulesused'] = 'Använda moduler';
 $string['month'] = 'Månad';
 $string['months'] = 'Månader';
 $string['moodledocs'] = 'Extern dokumentation av Moodle.';
@@ -1180,9 +1230,16 @@ $string['moreinformation'] = 'Mer information om detta fel.';
 $string['moreprofileinfoneeded'] = 'Berätta mer om dig själv';
 $string['mostrecently'] = 'allra senaste';
 $string['move'] = 'Flytta';
+$string['movecategoriessuccess'] = 'Flyttade {$a->count} kategorier in i kategori \'{$a->to}\'';
+$string['movecategoriestotopsuccess'] = 'Flyttade framgångsrikt {$a->count} kategorier till högsta nivå';
 $string['movecategorycontentto'] = 'Flytta till';
+$string['movecategorysuccess'] = 'Flyttade kategori \'{$a->moved}\' in i kategori \'{$a->to}\'';
 $string['movecategoryto'] = 'Flytta kategori till:';
+$string['movecategorytotopsuccess'] = 'Flyttade framgångsrikt kategori {$a->count} till högsta nivå';
+$string['movecontent'] = 'Flytta {$a}';
 $string['movecontentstoanothercategory'] = 'Flytta innehåll till en annan kategori';
+$string['movecoursemodule'] = 'Flytta resurs';
+$string['movecoursesection'] = 'Flytta sektion';
 $string['movecourseto'] = 'Flytta kurs till:';
 $string['movedown'] = 'Flytta ner';
 $string['movefilestohere'] = 'Flytta filerna hit';
@@ -1191,6 +1248,7 @@ $string['movehere'] = 'Flytta hit:';
 $string['moveleft'] = 'Flytta till vänster';
 $string['moveright'] = 'Flytta till höger';
 $string['movesection'] = 'Flytta sektion {$a}';
+$string['moveselectedcategoriesto'] = 'Flytta valda kategorier till';
 $string['moveselectedcoursesto'] = 'Flytta valda kurser till...';
 $string['movetoanotherfolder'] = 'Flytta till en annan mapp';
 $string['moveup'] = 'Flytta upp';
@@ -1205,7 +1263,7 @@ $string['mymoodledashboard'] = 'Min Moodle panel';
 $string['myprofile'] = 'Min profil';
 $string['name'] = 'Namn';
 $string['nameforlink'] = 'Vad vill du kalla den här länken?';
-$string['nameforpage'] = 'Vad vill du kalla den här sidan?';
+$string['nameforpage'] = 'Namn';
 $string['navigation'] = 'Navigering';
 $string['needed'] = 'Nödvändig';
 $string['never'] = 'Aldrig';
@@ -1350,6 +1408,7 @@ $string['noreplybouncemessage'] = 'Du har skickat ett svar till e-postadress som
 Det nedanstående är innehållet i Ditt e-postmeddelande:';
 $string['noreplybouncesubject'] = '{$a} - returnerad e-post';
 $string['noreplyname'] = 'Svara inte på detta e-postmeddelande';
+$string['noresetrecord'] = 'Det finns inga uppgifter om den återställningbegäran. Vänligen starta en ny begäran om lösenordsåterställning.';
 $string['noresults'] = 'Inga resultat';
 $string['normal'] = 'Normal';
 $string['normalfilter'] = 'Normalt filter';
@@ -1383,7 +1442,7 @@ $string['novalidcourses'] = 'Inga giltiga kurser kommer att visas';
 $string['now'] = 'nu';
 $string['numattempts'] = '{$a} misslyckade försök att logga in.';
 $string['numberofcourses'] = 'Antal kurser';
-$string['numberweeks'] = 'Antalet veckor/teman';
+$string['numberweeks'] = 'Antalet sektioner';
 $string['numdays'] = '{$a} dagar';
 $string['numhours'] = '{$a} timmar';
 $string['numletters'] = '{$a} bokstäver';
@@ -1403,12 +1462,13 @@ $string['optional'] = 'Valfri';
 $string['options'] = 'alternativ';
 $string['order'] = 'Order';
 $string['originalpath'] = 'Original sökväg';
-$string['orphanedactivities'] = 'Övergivna aktiviteter';
+$string['orphanedactivitiesinsectionno'] = 'Föräldralösa aktiviteter (sektion {$a})';
 $string['other'] = 'Annat';
 $string['outline'] = 'Disposition';
 $string['outlinereport'] = 'Rapport ang disposition';
 $string['page'] = 'Sida';
-$string['pageheaderconfigablock'] = 'Konfigurerar ett block i %fullname%';
+$string['pagea'] = 'Sida {$a}';
+$string['pageheaderconfigablock'] = 'Konfigurerar ett block i {$a->fullname}';
 $string['pagepath'] = 'Sidans sökväg';
 $string['pageshouldredirect'] = 'Denna sida bör automatiskt omdirigeras. Om ingenting händer kan du använda Fortsätt länken nedan.';
 $string['parentcategory'] = 'Föräldrakategori';
@@ -1433,6 +1493,7 @@ $string['passwordsenttext'] = '<p>Vi har skickat ett e-postbrev till Din adress:
    <p><b>Läs e-postmeddelandet för att se Ditt nya lösenord</b></p>
    <p>Detta lösenord har skapats automatiskt och om Du vill kan Du<br />
    <a href="{$a->link}">ändra lösenordet</a>  till något som är lättare att komma ihåg.</p>';
+$string['passwordset'] = 'Ditt lösenord har satts.';
 $string['path'] = 'Sökväg';
 $string['pathnotexists'] = 'Sökvägen finns inte på Din server!';
 $string['pathslasherror'] = 'Sökvägar kan inte avslutas med snedstreck (slash)!!';
@@ -1444,6 +1505,8 @@ $string['paymentsorry'] = 'Tack för Din betalning! Tyvärr så har Din betalnin
 $string['paymentthanks'] = 'Tack för Din betalning! Du är nu registrerad på Din kurs: <br />"{$a}"';
 $string['pendingrequests'] = 'Väntande förfrågningar';
 $string['periodending'] = 'Perioden upphör ({$a})';
+$string['perpage'] = 'Per sida';
+$string['perpagea'] = 'Per sida: {$a}';
 $string['personal'] = 'Personlig';
 $string['personalprofile'] = 'Personlig profil';
 $string['phone'] = 'Telefon';
@@ -1475,6 +1538,7 @@ $string['preferences'] = 'De val Du föredrar';
 $string['preferredlanguage'] = 'Det språk Du föredrar att använda';
 $string['preferredtheme'] = 'Det tema Du föredrar att använda';
 $string['preprocessingbackupfile'] = 'Förbehandlar säkerhetskopian';
+$string['prev'] = 'Föreg';
 $string['preview'] = 'Förhandsgranska';
 $string['previewhtml'] = 'Förhandsgranskning av HTLM-format';
 $string['previeworchoose'] = 'Förhandsgranska eller välj ett tema';
@@ -1535,16 +1599,22 @@ $string['requestedcourses'] = 'Begärda kurser';
 $string['requestreason'] = 'Skäl för att ansöka om kurs';
 $string['required'] = 'Obligatorisk';
 $string['requirespayment'] = 'För att få tillgång till den här kursen måste Du betala.';
-$string['reset'] = 'Nollställ';
+$string['reset'] = 'Återställ';
 $string['resetcomponent'] = 'Komponent';
-$string['resetcourse'] = 'Nollställ kurs';
+$string['resetcourse'] = 'Återställ kurs';
 $string['resetinfo'] = 'Den här sidan låter Dig tömma en kurs på användardata samtidigt som aktiviteterna och andra inställningar bibehålls. Kom alltså ihåg att om Du väljer de nedanstående komponenterna och bekräftar Dina val på den här sidan så kommer Du, från den här kursen, permanent att ta bort de användardata som Du har valt.';
-$string['resetnotimplemented'] = 'Nollställning har inte implementerats';
-$string['resetstartdate'] = 'Startdatum för nollställning';
+$string['resetnotimplemented'] = 'Återställning har inte implementerats';
+$string['resetrecordexpired'] = 'Länken för lösenordsåterställning du använde är mer än {$a} minuter gammal och har löpt ut. Vänligen starta en ny lösenordsåterställning.';
+$string['resetstartdate'] = 'Startdatum för återställning';
 $string['resetstatus'] = 'Status';
 $string['resettask'] = 'Uppgift';
-$string['resettodefaults'] = 'Nollställ till standardvärden';
-$string['resortcoursesbyname'] = 'Sortera om kurserna efter namn.';
+$string['resettodefaults'] = 'Återställ till standardvärden';
+$string['resortbyfullname'] = 'Efter fullnamn';
+$string['resortbyidnumber'] = 'Efter idnummer';
+$string['resortbyshortname'] = 'Efter kortnamn';
+$string['resortcourses'] = 'Sortera kurser';
+$string['resortsubcategoriesbyidnumber'] = 'Sortera underkategorier på id nummer';
+$string['resortsubcategoriesbyname'] = 'Sortera underkategorier efter namn';
 $string['resource'] = 'Resurs';
 $string['resourcedisplayauto'] = 'Automatisk';
 $string['resourcedisplaydownload'] = 'Tvinga fram nedladdning';
@@ -1574,10 +1644,10 @@ $string['restoreusersprecheck'] = 'Kontrollerar användardata';
 $string['restoreusersprecheckerror'] = 'Några problem upptäcktes vid kontroll av användardata';
 $string['restricted'] = 'Begränsad';
 $string['returningtosite'] = 'Återvänder Du till den här webbplatsen?';
-$string['returntomaincoursepage'] = 'Återgå till kursens huvudsida';
 $string['returntooriginaluser'] = 'Återgå till {$a}';
 $string['revert'] = 'Återgå';
 $string['role'] = 'Roll';
+$string['roleassignments'] = 'Rolltilldelningar';
 $string['rolemappings'] = 'Kartläggning av roller';
 $string['rolerenaming'] = 'Byte av namn på roll';
 $string['rolerenaming_help'] = 'Denna inställning tillåter ändring av namnen för rollerna som används i kursen.
@@ -1663,6 +1733,7 @@ $string['sectionusedefaultname'] = 'Använd standardnamn för sektionen';
 $string['seealsostats'] = 'Se också: stats';
 $string['selctauser'] = 'Välj en användare';
 $string['select'] = 'Välj';
+$string['selectacategory'] = 'Vänligen välj en kategori';
 $string['selectacountry'] = 'Välj ett land';
 $string['selectacourse'] = 'Välj en kurs';
 $string['selectacoursesite'] = 'Välj en kurs eller site';
@@ -1670,14 +1741,20 @@ $string['selectagroup'] = 'Välj en grupp';
 $string['selectall'] = 'Välj alla';
 $string['selectamodule'] = 'Var snäll och välj en aktivitetsmodul';
 $string['selectanaction'] = 'Välj en åtgärd';
-$string['selectanoptions'] = 'Välj en alternativ';
+$string['selectanoptions'] = 'Välj ett alternativ';
 $string['selectaregion'] = 'Välj en region';
+$string['selectcategorysort'] = 'Vilka kategorier skulle du vilja att sortera?';
+$string['selectcategorysortby'] = 'Välj hur du vill sortera kategorier';
+$string['selectcoursesortby'] = 'Välj hur du vill sortera kurser';
 $string['selectdefault'] = 'Välj standardinställning';
+$string['selectedcategories'] = 'Valda kategorier';
 $string['selectedfile'] = 'Vald fil';
 $string['selectednowmove'] = '{$a} filer är markerade för att bli flyttade. Gå nu till destinationen och välj "Flytta valda filer hit".';
 $string['selectfiles'] = 'Välj filer';
-$string['selectmoduletoviewhelp'] = 'Välj en modul för att visa dess hjälp.';
-$string['selectnos'] = 'Markera alla som \'nej\'';
+$string['selectmoduletoviewhelp'] = 'Välj en aktivitet eller resurs för att visa dess hjälp.
+
+Dubbelklicka på namnet på en aktivitet eller resurs för att snabbt lägga till den.';
+$string['selectnos'] = 'Markera alla \'nej\'';
 $string['selectperiod'] = 'Välj period';
 $string['senddetails'] = 'Sänd mina uppgifter för inloggning via e-post.';
 $string['separate'] = 'Separat';
@@ -1686,6 +1763,8 @@ $string['separateandconnectedinfo'] = 'Skalan baseras på teorin om separat och 
 $string['servererror'] = 'Ett fel inträffade vid kommunikation med servern';
 $string['serverlocaltime'] = 'Serverns lokala tid';
 $string['setcategorytheme'] = 'Ställ tema för kategori';
+$string['setpassword'] = 'Sätt lösenord';
+$string['setpasswordinstructions'] = 'Var god ange och repetera ditt nya lösenord nedanför. Klicka sedan "Sätt lösenord". <br/>Ditt nya lösenord kommer sparas och du kommer loggas in.';
 $string['settings'] = 'Inställningar';
 $string['shortname'] = 'Kortnamn';
 $string['shortnamecollisionwarning'] = '[*] = det här kortnamnet används redan för en annan kurs så Du måste byta det om kursen blir godkänd.';
@@ -1706,10 +1785,11 @@ $string['showall'] = 'Visa alla {$a}';
 $string['showallcourses'] = 'Visa alla kurser';
 $string['showallusers'] = 'Visa alla användare';
 $string['showblockcourse'] = 'Visa en lista över kurser som innehåller block.';
+$string['showcategory'] = 'Visa {$a}';
 $string['showcomments'] = 'Visa/dölj kommentarer';
 $string['showcommentsnonjs'] = 'Visa kommentarer';
 $string['showdescription'] = 'Visa beskrivning på kurssidan';
-$string['showdescription_help'] = 'Om aktiverad, kommer introduktionen/beskrivningen ovan att visas på kurssidan strax under länken till aktiviteten/resursen.';
+$string['showdescription_help'] = 'Om aktiverad så kommer beskrivningen ovanför att visas på kurssidan strax under länken till aktiviteten eller resursen.';
 $string['showgrades'] = 'Visa betygskatalogen för studenter/deltagare/elever/lärande';
 $string['showgrades_help'] = '<p>M&aring;nga av aktiviteterna g&aring;r att betygss&auml;tta eller
 avge omd&ouml;men om.</p>
@@ -1723,6 +1803,8 @@ f&ouml;r de l&auml;rande s&aring; kan han/hon avaktivera denna visning
 i \'Inst&auml;llningar f&ouml;r kursen\'. Detta hindrar inte att man
 kan s&auml;tta betyg/avge omd&ouml;men p&aring; individuella aktiviteter.
 Det inneb&auml;r bara att de l&auml;rande inte f&aring;r se denna information.</p>';
+$string['showingacourses'] = 'Visar alla {$a} kurser';
+$string['showingxofycourses'] = 'Visar kurser {$a->start} till {$a->end} av {$a->total} kurser';
 $string['showlistofcourses'] = 'Visa lista på kurser';
 $string['showmodulecourse'] = 'Visa en lista över kurser som innehåller aktiviteter.';
 $string['showonly'] = 'Visa bara';
@@ -1760,6 +1842,7 @@ $string['sitefilesused'] = 'De filer på webbplatsen som används i den här kur
 $string['sitehome'] = 'Hem för webbplats';
 $string['sitelegacyfiles'] = 'Ärvda filer på webbplatsnivå';
 $string['sitelogs'] = 'Webbplatsloggar';
+$string['sitemessage'] = 'Meddelande användare';
 $string['sitenews'] = 'Webbplatsnyheter';
 $string['sitepages'] = 'Sidor på webbplatsen';
 $string['sitepartlist'] = 'Du har inte tillstånd att se förteckningen över deltagare.';
@@ -1775,13 +1858,23 @@ $string['sizegb'] = 'Gb';
 $string['sizekb'] = 'Kb';
 $string['sizemb'] = 'Mb';
 $string['skipped'] = 'Överhoppad';
+$string['skiptocategorylisting'] = 'Gå vidare till kategorilistor';
+$string['skiptocoursedetails'] = 'Gå vidare till den detaljerade kursinformationen';
+$string['skiptocourselisting'] = 'Gå vidare till kurslistor';
 $string['skypeid'] = 'Skype ID';
 $string['socialheadline'] = 'Gemenskapsforum - senaste tema';
 $string['someallowguest'] = 'Några kurser kan tillåta gäster';
 $string['someerrorswerefound'] = 'Några uppgifter saknades eller var felaktiga. Se nedan för detaljer.';
+$string['sort'] = 'Sortera';
 $string['sortby'] = 'Sortera enligt';
 $string['sortbyx'] = 'Sortera enligt {$a} stigande';
 $string['sortbyxreverse'] = 'Sortera enligt {$a} fallande';
+$string['sortcategoriesbyidnumber'] = 'Sortera kategorier efter ID-nummer';
+$string['sortcategoriesbyname'] = 'Sortera kategorier efter namn';
+$string['sortcoursesbyfullname'] = 'Sortera kurser med fullständiga namn';
+$string['sortcoursesbyidnumber'] = 'Sortera kurser efter ID-nummer';
+$string['sortcoursesbyshortname'] = 'Sortera kurser på kortnamn';
+$string['sorting'] = 'Sortering';
 $string['sourcerole'] = 'Källa för roll';
 $string['specifyname'] = 'Du måste ange ett  namn.';
 $string['standard'] = 'Standard';
@@ -1852,7 +1945,9 @@ $string['studentnotallowed'] = 'Tyvärr, men Du kan inte registrera Dig på denn
 $string['students'] = 'studenter/<br />elever/<br />deltagare/lärande';
 $string['studentsandteachers'] = 'Studenter/<br />elever/<br />deltagare/l<br />ärande och (distans)lärare';
 $string['subcategories'] = 'Underkategorier';
-$string['submit'] = 'Skicka';
+$string['subcategory'] = 'Underkategori';
+$string['subcategoryof'] = 'Underkategori till {$a}';
+$string['submit'] = 'Skicka in';
 $string['success'] = 'Framgång';
 $string['summary'] = 'Summering';
 $string['summary_help'] = '<p>Tanken med en sammanfattning av ett &auml;mne &auml;r att f&ouml;rbereda
@@ -1866,6 +1961,8 @@ Den f&ouml;rsta aktiviteten skulle t.ex. kunna vara en sida som kallas:
 <b>\'Om detta &auml;mne\'</b>.</p>';
 $string['summaryof'] = 'Summering av {$a}';
 $string['supplyinfo'] = 'Mer detaljer';
+$string['suspended'] = 'Spärrad';
+$string['suspendedusers'] = 'Spärrade användare';
 $string['switchdevicedefault'] = 'Växla till standard temat';
 $string['switchdevicerecommended'] = 'Växla till den rekommenderade temat för enheten';
 $string['switchrolereturn'] = 'Återgå till min normala roll';
@@ -1878,7 +1975,7 @@ $string['targetrole'] = 'Mål för roll';
 $string['teacheronly'] = 'för {$a} endast';
 $string['teacherroles'] = '{$a} roller';
 $string['teachers'] = 'Distanslärare/<br />handledare/<br />coacher';
-$string['textediting'] = 'När Du redigerar text';
+$string['textediting'] = 'Textredigerare';
 $string['texteditor'] = 'Använd vanliga webbformulär.';
 $string['textformat'] = 'Vanligt textformat';
 $string['thanks'] = 'Tack';
@@ -1887,10 +1984,12 @@ $string['themes'] = 'Layoutteman';
 $string['themesaved'] = 'Nytt layouttema sparat.';
 $string['therearecourses'] = 'Det finns {$a} kurser';
 $string['thereareno'] = 'Det finns inga {$a} i den här kursen';
+$string['thiscategory'] = 'Denna kategori';
 $string['thiscategorycontains'] = 'Den här kategorin innehåller';
 $string['time'] = 'Tid';
 $string['timezone'] = 'Tidszon';
 $string['to'] = 'Till';
+$string['tocontent'] = 'Till "{$a}"';
 $string['tocreatenewaccount'] = 'Hoppa vidare för att skapa ett nytt konto. ';
 $string['today'] = 'Idag';
 $string['todaylogs'] = 'Dagens loggar';
@@ -1905,7 +2004,9 @@ $string['topic'] = 'Tema';
 $string['topichide'] = 'Dölj detta ämne för {$a}';
 $string['topicoutline'] = 'Ämnesdisposition';
 $string['topicshow'] = 'Visa detta ämne för {$a}';
+$string['toplevelcategory'] = 'Toppnivåkategori';
 $string['total'] = 'Totalt';
+$string['totopofsection'] = 'Till toppen av avsnittet "{$a}"';
 $string['trackforums'] = 'Spårning av forum';
 $string['trackforumsno'] = 'Nej; spåra inte inlägg som jag har sett.';
 $string['trackforumsyes'] = 'Ja: markera nya inlägg åt mig.';
@@ -1944,6 +2045,7 @@ $string['uploadfailednotrecovering'] = 'Det gick inte att ladda upp Dina filer e
 $string['uploadfilelog'] = 'Logg för uppladdning av filen {$a}';
 $string['uploadformlimit'] = 'Den uppladdade filen var större än vad som är tillåtet.';
 $string['uploadlabel'] = 'Titel:';
+$string['uploadlimitwithsize'] = '{$a->contextname} uppladdningsgräns ({$a->displaysize})';
 $string['uploadnewfile'] = 'Ladda upp en ny fil';
 $string['uploadnofilefound'] = 'Hittade ingen fil - är Du säker på att Du valde en att ladda upp?';
 $string['uploadnotallowed'] = 'Det är inte tillåtet att ladda upp någonting.';
@@ -1980,7 +2082,7 @@ $string['userpic'] = 'Bild på användare';
 $string['users'] = 'Användare';
 $string['userselectorautoselectunique'] = 'Om endast en användare matchar sökningen väljer den automatiskt';
 $string['userselectorpreserveselected'] = 'Behåll utvalda användare, även om de inte längre matchar sökningen';
-$string['userselectorsearchanywhere'] = 'Matcha söktexten någonstans i användarens namn';
+$string['userselectorsearchanywhere'] = 'Matcha söktexten var som helst i de visade fälten';
 $string['usersnew'] = 'Nya användare';
 $string['usersnoaccesssince'] = 'Visa användare som har varit inaktiva i mer än';
 $string['userswithfiles'] = 'Användare med filer';
@@ -1994,7 +2096,10 @@ $string['version'] = 'Version';
 $string['view'] = 'Visa';
 $string['viewallcourses'] = 'Visa alla kurser';
 $string['viewallcoursescategories'] = 'Visa alla kurser och kategorier';
+$string['viewallsubcategories'] = 'Visa alla underkategorier';
 $string['viewfileinpopup'] = 'Visa fil i ett popup-fönster';
+$string['viewing'] = 'Tittar på {$a}';
+$string['viewmore'] = 'Visa mer';
 $string['viewprofile'] = 'Visa profil';
 $string['views'] = 'Vyer';
 $string['viewsolution'] = 'visa lösning';
@@ -2011,6 +2116,8 @@ $string['virusfoundsubject'] = '{$a}: Virus har hittats!';
 $string['virusfounduser'] = 'Den fil som Du laddade upp med namnet, {$a->filename}, har skannats med ett antivirusprogram och det visade sig att den innehöll ett virus! Din fil laddades INTE upp på rätt sätt.';
 $string['virusplaceholder'] = 'Den här filen som laddades upp visade sig innehålla ett virus. Den har flyttats eller tagits bort och användaren har meddelats.';
 $string['visible'] = 'Synlig';
+$string['visible_help'] = 'Det här alternativet avgör om kursen visas på listan över kurser.Förutom (distans)-lärare och administratörer så får inga användare logga in på kursen.
+';
 $string['visibletostudents'] = 'Synlig för {$a}';
 $string['warning'] = 'Varning';
 $string['warningdeleteresource'] = 'Varning: {$a} refereras i en resurs. Vill Du uppdatera resursen?';
@@ -2027,6 +2134,8 @@ En av de första sakerna Du bör göra är att ändra Din profilsida
 inuti kursen så att vi kan lära oss mer om Dig:
 
   {$a->profileurl}';
+$string['whatforlink'] = 'Vad vill du göra med länken?';
+$string['whatforpage'] = 'Vad vill du göra med texten?';
 $string['whattocallzip'] = 'Vad vill Du kalla  .zip-filen?';
 $string['whattodo'] = 'Saker att göra';
 $string['windowclosing'] = 'Detta fönster bör stängas automatiskt. Om inte, stäng den nu.';
@@ -2052,8 +2161,8 @@ $string['writingcoursedata'] = 'Skriver kursdata...';
 $string['writingeventsinfo'] = 'Skriver info om händelser...';
 $string['writinggeneralinfo'] = 'Skriver allmän information';
 $string['writinggradebookinfo'] = 'Skriver in info i betygs/omdömeskatalogen...';
-$string['writinggroupingsgroupsinfo'] = 'Skriver information om gruppkategorisering av grupper';
-$string['writinggroupingsinfo'] = 'Skriver information om gruppkategorisering';
+$string['writinggroupingsgroupsinfo'] = 'Skriver information om gruppindelningar av grupper';
+$string['writinggroupingsinfo'] = 'Skriver information om gruppindelningar';
 $string['writinggroupsinfo'] = 'Skriver info om grupper...';
 $string['writingheader'] = 'Skriver huvudrubrik...';
 $string['writingloginfo'] = 'Skriver info om loggar...';

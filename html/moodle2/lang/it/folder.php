@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'folder', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'folder', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   folder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['contentheader'] = 'Contenuto';
+$string['display'] = 'Visualizzazione del contenuto';
+$string['display_help'] = 'Scegliendo di visualizzare il contenuto del folder nella home page del corso, non sarà disponibile il link ad una pagina separata della risorsa. La descrizione sarà visualizzata solo se è stata selezionata l\'impostazione "Visualizza descrizione nella home del corso".<br />
+Da notare che con questa impostazione la visualizzazione della risorsa da parte dei partecipanti non potrà essere inserita nel log.';
+$string['displayinline'] = 'Nella home page del corso';
+$string['displaypage'] = 'In una pagina separata';
 $string['dnduploadmakefolder'] = 'Decomprimi i file e crea le cartelle';
 $string['folder:addinstance'] = 'Aggiungere cartelle';
 $string['foldercontent'] = 'File e sotto cartelle';
@@ -40,7 +45,10 @@ Una cartella può essere usata per:
 * fornire uno spazio comune dove i docenti possono caricare e condividere file del corso (tenendo la cartella nascosta agli studenti)';
 $string['modulenameplural'] = 'Cartelle';
 $string['neverseen'] = 'Mai acceduto';
+$string['noautocompletioninline'] = 'Il completamento automatico basato sulla visualizzazione dell\'attività non può essere selezionato se la visualizzazione del contenuto è impostata a "Nella home page del corso".';
 $string['page-mod-folder-view'] = 'Pagina principale modulo cartella';
 $string['page-mod-folder-x'] = 'Qualsiasi pagina con modulo cartella';
 $string['pluginadministration'] = 'Gestione cartella';
 $string['pluginname'] = 'Cartella';
+$string['showexpanded'] = 'Visualizza aperte le sotto cartelle';
+$string['showexpanded_help'] = 'Consente di visualizzare aperte le eventuali sotto cartelle, per default visualizzate chiuse.';

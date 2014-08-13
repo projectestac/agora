@@ -18,10 +18,9 @@
  * This file contains tests that walks a question through the interactive
  * behaviour.
  *
- * @package    qtype
- * @subpackage match
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_match
+ * @copyright 2010 The Open University
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
@@ -34,8 +33,8 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question type.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2010 The Open University
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_match_walkthrough_test extends qbehaviour_walkthrough_test_base {
 
@@ -361,7 +360,7 @@ class qtype_match_walkthrough_test extends qbehaviour_walkthrough_test_base {
                 '(1, 2] -> 1 < x ≤ 2; [1, 2] -> 1 ≤ x ≤ 2; [1, 2) -> 1 ≤ x < 2';
 
         $this->process_submission($rightresponse);
-        $this->process_submission(array('-finish' => 1));
+        $this->finish();
 
         $this->assertEquals($rightresponsesummary, $m->summarise_response($rightresponse));
 

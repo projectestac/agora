@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_wikimedia', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_wikimedia', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_wikimedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = '위키미디아 저장소 형식 설정';
 $string['keyword'] = '전체 문서';
+$string['maxheight'] = '최대 이미지 높이 (px)';
+$string['maxwidth'] = '최대 이미지 폭 (px)';
 $string['pluginname'] = '위키미디아';
 $string['wikimedia:view'] = '위키미디아 저장소 보기';

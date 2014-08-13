@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lesson', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lesson', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   lesson
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = '問題に正しく答えた後、ペ
 *未閲覧のページを表示する - ページがランダムに表示されます。同一ページが2度表示されることはありません。
 *未解答のページを表示する - ページがランダムに表示されます。未解答の問題を含むページは再度表示されます。';
 $string['actions'] = 'アクション';
-$string['activitylink'] = '活動にリンクする';
+$string['activitylink'] = '次の活動にリンクする';
 $string['activitylink_help'] = '<p>ドロップダウンメニューには、このコースのすべての活動が含まれています。活動の1つが選択された場合、その活動へのリンクがレッスンの最後に表示されます。</p>';
 $string['activitylinkname'] = '{$a} へ移動する';
 $string['activityoverview'] = 'あなたには有効期限の到来したレッスンがあります。';
@@ -119,6 +119,7 @@ $string['continuetonextpage'] = '続けて次のページに移動します。';
 $string['correctanswerjump'] = '正解のジャンプ先';
 $string['correctanswerscore'] = '正解の評点';
 $string['correctresponse'] = '正解に対するレスポンス';
+$string['createaquestionpage'] = '問題ページを作成する';
 $string['credit'] = '承認';
 $string['customscoring'] = 'カスタムスコア';
 $string['customscoring_help'] = '<p>ここではそれそれの答えに評点を設定することができます。評点には、マイナスまたはプラスの値を使用することができます。インポートされた問題には、自動的に正解に1点、不正解に0点が割り当てられますが、インポートの後で変更することができます。</p>';
@@ -135,19 +136,21 @@ $string['description'] = '説明';
 $string['detailedstats'] = '詳細統計';
 $string['didnotanswerquestion'] = 'この問題に答えていません。';
 $string['didnotreceivecredit'] = '承認なし';
-$string['displaydefaultfeedback'] = 'デフォルトフィードバックを表示する';
+$string['displaydefaultfeedback'] = 'デフォルトフィードバックを使用する';
 $string['displaydefaultfeedback_help'] = '<p>「<strong>Yes</strong>」を選択すると、問題のレスポンスが見つからない場合、デフォルトレスポンスの「正解です」および「不正解です」が使用されます。</p>
 <p>「<strong>No</strong>」を選択すると、 問題のレスポンスが見つからない場合、フィードバックは表示されません。レッスンを受験しているユーザは、自動的に次のレッスンページにリダイレクトされます。</p>';
 $string['displayhighscores'] = 'ハイスコアを表示する';
 $string['displayinleftmenu'] = '左メニューに表示しますか?';
-$string['displayleftif'] = '評点が次の評点より高い場合のみ左メニューを表示する:';
+$string['displayleftif'] = 'メニューを表示するための最小評点';
 $string['displayleftif_help'] = 'この設定では左側メニューが表示される前に、学生が特定の評点を取得する必要があるかどうか設定します。これにより最初の受験でレッスンすべてを通すことを学生に強制します。要求される評点を取得した後、学生はレビューのために左側メニューを使用することができます。';
 $string['displayleftmenu'] = '左メニューを表示する';
 $string['displayleftmenu_help'] = '有効にした場合、ページ一覧が表示されます。';
 $string['displayofgrade'] = '評点を表示する (学生のみ)';
 $string['displayreview'] = '問題の再受験オプションを提供する';
 $string['displayreview_help'] = '有効にした場合、問題が不正解のときに学生が評点なしで再受験する、またはレッスンを続けるオプションを提供します。';
-$string['displayscorewithessays'] = '自動評定によるあなたの評点は、{$a->tempmaxgrade} 点中 {$a->score} 点です。<br />作文問題 {$a->essayquestions} が評定され、後日あなたの最終評点に追加されます。<br /><br />作文問題を除くあなたの現在の評点は、{$a->grade} 点中 {$a->score} 点です。';
+$string['displayscorewithessays'] = '<p>自動評定によるあなたの評点は、{$a->tempmaxgrade} 点中 {$a->score} 点です。</p>
+<p> 作文問題 {$a->essayquestions} が評定され、後日あなたの最終評点に追加されます。</p>
+<p> 作文問題を除くあなたの現在の評点は、{$a->grade} 点中 {$a->score} 点です。</p>';
 $string['displayscorewithoutessays'] = 'あなたの評点は、 {$a->score} ({$a->grade} 点中)です。';
 $string['edit'] = '編集';
 $string['editingquestionpage'] = '{$a} 問題ページの編集';
@@ -459,6 +462,7 @@ $string['postsuccess'] = '正常に投稿されました。';
 $string['practice'] = '練習レッスン';
 $string['practice_help'] = '<p>練習レッスンは、評定表には表示されません。</p>';
 $string['preprocesserror'] = '前処理中にエラーが発生しました!';
+$string['prerequisitelesson'] = '必修レッスン';
 $string['preview'] = 'プレビュー';
 $string['previewlesson'] = '{$a} のプレビュー';
 $string['previouspage'] = '前のページ';
@@ -500,6 +504,7 @@ $string['savechanges'] = '変更を保存する';
 $string['savechangesandeol'] = 'すべての変更を保存してレッスンの最後に移動する。';
 $string['savepage'] = 'ページを保存する';
 $string['score'] = '評点';
+$string['score_help'] = '評点はカスタムスコアが有効にされた場合にのみ使用されます。それぞれの答えには数字による評点 (プラスまたはマイナス) を与えることができます。';
 $string['scores'] = '評点';
 $string['secondpluswrong'] = 'もう一度受験しますか?';
 $string['selectaqtype'] = '問題タイプを選択する';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_match', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_match', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_match
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmoreqblanks'] = 'Добавить {no} вопроса';
 $string['answer'] = 'Ответ {$a}';
 $string['availablechoices'] = 'Доступные варианты';
+$string['blanksforxmorequestions'] = 'Добавить {no} вопроса';
 $string['correctansweris'] = 'Правильный ответ: {$a}';
 $string['filloutthreeqsandtwoas'] = 'Вы должны указать по меньшей мере два вопроса и три ответа. Вы можете включить дополнительные неправильные ответы, создав ответ на пустой вопрос. Записи, где и вопрос и ответ пустые, будут игнорироваться';
 $string['nomatchinganswer'] = 'Вы должны указать ответ, соответствующий вопросу «{$a}».';

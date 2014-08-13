@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_paypal', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_paypal', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_paypal
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,6 +42,8 @@ $string['enrolperiod_desc'] = 'Продолжительность зачисле
 $string['enrolperiod_help'] = 'Продолжительность обучения, начинается с момента зачисления пользователя. Если параметр выключен, то продолжительность обучения не ограничена.';
 $string['enrolstartdate'] = 'Дата начала';
 $string['enrolstartdate_help'] = 'Если параметр включен, то пользователи могут обучаться только начиная с этой даты.';
+$string['expiredaction'] = 'Действие при истечении зачисления';
+$string['expiredaction_help'] = 'Выберите проводимое действие при истечении зачисления пользователя. Пожалуйста, обратите внимание, что некоторые пользовательские данные и настройки будут очищены из курса во время отчисления.';
 $string['mailadmins'] = 'Сообщение администратору';
 $string['mailstudents'] = 'Уведомить студентов';
 $string['mailteachers'] = 'Сообщение преподавателям';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_loglive', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_loglive', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   report_loglive
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,4 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['livelogs'] = '過去1時間のライブログ';
 $string['loglive:view'] = 'ライブログを表示する';
+$string['page'] = 'ページ {$a}';
 $string['pluginname'] = 'ライブログ';

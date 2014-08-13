@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,13 +27,15 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Gehitu elementua';
 $string['addmoreanswerblanks'] = 'Gehitu beste erantzun zuri bat';
-$string['addmoreunitblanks'] = 'Zuriuneak {$a} unitate gehiagotarako';
 $string['addsets'] = 'Gehitu multzoa(k)';
+$string['answerdisplay'] = 'Erakutsi erantzuna';
+$string['answerformula'] = '{$a} erantzunaren formula';
 $string['answerhdr'] = 'Erantzuna';
 $string['answerstoleranceparam'] = 'Erantzunetarako tolerantzia-parametroak';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
 $string['anyvalue'] = 'Edozein balore';
 $string['atleastoneanswer'] = 'Gutxienez erantzun bat eman behar duzu';
+$string['atleastonerealdataset'] = 'Gutxienez datu erreal multzo bat behar da galderaren testuan';
 $string['atleastonewildcard'] = 'Gutxienez komodin bat izan behar da erantzunaren formulan edo testuan';
 $string['calcdistribution'] = 'Banaketa';
 $string['calclength'] = 'Hamartar-kopurua';
@@ -44,6 +46,7 @@ $string['correctanswershows'] = 'Erantzun zuzena erakutsi';
 $string['correctanswershowsformat'] = 'Formatua';
 $string['correctfeedback'] = 'Edozein erantzun zuzenetarako';
 $string['datasetrole'] = 'Komodinak <strong>{x..}</strong>euren datu-multzoko zenbakizko balore batekin ordezkatuko dira.';
+$string['decimals'] = '{$a}-(r)ekin';
 $string['deleteitem'] = 'Ezabatu elementua';
 $string['deletelastitem'] = 'Ezabatu azken elementua';
 $string['existingcategory1'] = 'dagoeneko existitzen den datu-multzo konpartitua erabiliko du';
@@ -66,9 +69,7 @@ $string['minmax'] = 'Balore-tartea';
 $string['missingformula'] = 'Formula falta da';
 $string['missingname'] = 'Galderaren izena falta da';
 $string['missingquestiontext'] = 'Galderaren testua falta da';
-$string['mustbenumeric'] = 'Zenbaki bat idatzi behar duzu';
 $string['mustenteraformulaorstar'] = 'Formula edo asteriskoa (*) idatzi behar duzu.';
-$string['mustnotbenumeric'] = 'Ezin da zenbakia izan';
 $string['newcategory1'] = 'konpartitutako beste datu-multzo bat erabiliko du';
 $string['newlocal1'] = 'beste datu-multzo pribatu bat erabiliko du';
 $string['newsetwildcardvalues'] = 'Komodin(ar)en baloreen ezarpen berria(k)';
@@ -95,10 +96,12 @@ $string['sharedwildcard'] = 'Partekatutako komodina<strong>{$a}</strong>';
 $string['sharedwildcardname'] = 'Partekatutako komodina';
 $string['sharedwildcards'] = 'Partekatutako komodinak';
 $string['showitems'] = 'Erakutsi';
+$string['significantfigures'] = '{$a}-(r)ekin';
 $string['significantfiguresformat'] = 'Zenbaki esanguratsuak';
 $string['synchronizeno'] = 'Ez sinkronizatu';
 $string['synchronizeyes'] = 'Sinkronizatu';
 $string['tolerance'] = 'Tolerantzia &plusmn;';
+$string['tolerancetype'] = 'Mota';
 $string['trueanswerinsidelimits'] = 'Erantzun zuzena : {$a->correct}. Benetako balorearen mugen barruan: {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="errorea">ERROREA Erantzun zuzena : {$a->correct}. Benetako balorearen mugetatik kanpo: {$a->true}</span>';
 $string['uniform'] = 'Uniformea';
@@ -115,4 +118,3 @@ $string['wildcards'] = 'Komodinak {a}...{z}';
 $string['wildcardvalues'] = 'Komodin(ar)en baloreak';
 $string['wildcardvaluesgenerated'] = 'Komodin(ar)en baloreak sortu dira';
 $string['youmustaddatleastonevalue'] = 'Galdera hau gorde baino lehen, komodinetarako hainbat balore gehitu behar dituzu.';
-$string['youmustenteramultiplierhere'] = 'Biderkatzaile bat idatzi behar duzu';

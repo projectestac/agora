@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,11 +34,8 @@ $string['displayoptions'] = 'Διαθέσιμες επιλογές εμφάνι�
 $string['displayselect'] = 'Εμφάνιση';
 $string['externalurl'] = 'Εξωτερικό URL';
 $string['framesize'] = 'Ύψος πλαισίου';
-$string['optionsheader'] = 'Επιλογές';
-$string['parametersheader'] = 'Παράμετροι';
 $string['popupheightexplain'] = 'Καθορίζει το προεπιλεγμένο ύψος του αναδυόμενου παράθυρου.';
 $string['popupwidthexplain'] = 'Καθορίζει το προεπιλεγμένο πλάτος του αναδυόμενου παράθυρου.';
-$string['printheading'] = 'Εμφάνιση ονόματος URL';
 $string['printintro'] = 'Εμφάνιση περιγραφής URL';
 $string['rolesinparams'] = 'Συμπεριλάβετε τα ονόματα ρόλων στις παραμέτρους';
 $string['url:view'] = 'Εμφάνιση URL';

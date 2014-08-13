@@ -73,7 +73,7 @@ require_once($CFG->dirroot.'/calendar/lib.php');
 
 /**
  * Returns the information on whether the module supports a feature
- * 
+ *
  * @todo: review features before publishing the module
  *
  * @see plugin_supports() in lib/moodlelib.php
@@ -94,7 +94,7 @@ function qv_supports($feature) {
         case FEATURE_BACKUP_MOODLE2:          return true;
 //        case FEATURE_SHOW_DESCRIPTION:        return true;
 //        case FEATURE_ADVANCED_GRADING:        return true;
-        default:                        
+        default:
           if (defined('FEATURE_SHOW_DESCRIPTION') && $feature == FEATURE_SHOW_DESCRIPTION) return true;
           else return null;
     }
@@ -108,7 +108,7 @@ function qv_supports($feature) {
  * (defined by the form in mod_form.php) this function
  * will create a new instance and return the id number
  * of the new instance.
- * 
+ *
  *
  * @param object $qv An object from the form in mod_form.php
  * @param mod_qv_mod_form $mform
@@ -116,15 +116,15 @@ function qv_supports($feature) {
  */
 function qv_add_instance(stdClass $qv, mod_qv_mod_form $mform = null) {
     global $DB;
-        
+
     $qv->timecreated = time();
 	$filetype = $mform->get_data()->filetype;
     qv_before_add_or_update($qv, $filetype, $mform);
 
     $qv->id = $DB->insert_record('qv', $qv);
-    
+
 	qv_after_add_or_update($qv, $filetype);
-    return $qv->id;    
+    return $qv->id;
 }
 
 
@@ -146,7 +146,7 @@ function qv_update_instance(stdClass $qv, mod_qv_mod_form $mform = null) {
     $qv->id = $qv->instance;
     $filetype = $mform->get_data()->filetype;
     qv_before_add_or_update($qv, $filetype, $mform);
-    
+
     $result = $DB->update_record('qv', $qv);
 
 	qv_after_add_or_update($qv, $filetype);
@@ -158,7 +158,7 @@ function qv_before_add_or_update(&$qv, $filetype, $mform){
         $qv->reference = $mform->get_data()->qvfile;
     } else{
         $qv->reference = $qv->qvurl;
-    }  
+    }
 }
 
 function qv_after_add_or_update($qv, $filetype){
@@ -168,9 +168,9 @@ function qv_after_add_or_update($qv, $filetype){
     $cmid = $qv->coursemodule;
 	$DB->set_field('course_modules', 'instance', $qv->id, array('id'=>$cmid));
 	$context = context_module::instance($cmid);
-	
+
 	$fs = get_file_storage();
-     
+
 	if ($filetype === QV_FILE_TYPE_LOCAL) {
 		$filename = qv_save_package($qv);
         $qv->reference = $filename;
@@ -208,8 +208,8 @@ function qv_after_add_or_update($qv, $filetype){
         }
     } else {
         $DB->delete_records('event', array('modulename'=>'qv', 'instance'=>$qv->id));
-    }  
-    
+    }
+
     // get existing grade item
 	qv_grade_item_update($qv);
 
@@ -222,7 +222,7 @@ function qv_after_add_or_update($qv, $filetype){
  * Given an ID of an instance of this module,
  * this function will permanently delete the instance
  * and any data that depends on it.
- * 
+ *
  * @todo: delete event records (after adding this feature to the module)
  *
  * @param int $id Id of the module instance
@@ -234,7 +234,7 @@ function qv_delete_instance($id) {
     if (!$qv = $DB->get_record('qv', array('id'=>$id))) {
         return false;
     }
-    
+
     // Delete any dependent records
     $result = true;
     qv_delete_instance_userdata($id);
@@ -242,7 +242,7 @@ function qv_delete_instance($id) {
     if ($result && !$DB->delete_records('qv', array('id' => $id))) {
         $result = false;
     }
-    
+
     if ($result && !$DB->delete_records('event', array('modulename'=>'qv', 'instance'=>$qv->id))) {
         $result = false;
     }
@@ -277,12 +277,12 @@ function qv_delete_instance($id) {
  * @param object $qv
  * @return stdClass|null
  */
-function qv_user_outline($course, $user, $mod, $qv) {    
+function qv_user_outline($course, $user, $mod, $qv) {
     global $CFG;
-    
+
     require_once($CFG->libdir.'/gradelib.php');
     $result = null;
-    
+
     $grades = grade_get_grades($course->id, 'mod', 'qv', $qv->id, $user->id);
     if (!empty($grades->items[0]->grades)) {
         $grade = reset($grades->items[0]->grades);
@@ -296,13 +296,13 @@ function qv_user_outline($course, $user, $mod, $qv) {
             $result->time = $grade->datesubmitted;
         }
     }
-    return $result;    
+    return $result;
 }
 
 /**
  * Prints a detailed representation of what a user has done with
  * a given particular instance of this module, for user activity reports.
- * 
+ *
  * @todo: implement
  *
  * @return string HTML
@@ -315,7 +315,7 @@ function qv_user_complete($course, $user, $mod, $qv) {
  * Given a course and a time, this module should find recent activity
  * that has occurred in qv activities and print it out.
  * Return true if there was output, or false is there was none.
- * 
+ *
  * @todo: implement
  *
  * @return boolean
@@ -326,7 +326,7 @@ function qv_print_recent_activity($course, $viewfullnames, $timestart) {
 
 /**
  * Returns all activity in qvs since a given time
- * 
+ *
  * @todo: implement
  *
  * @param array $activities sequentially indexed array of objects
@@ -343,9 +343,9 @@ function qv_get_recent_mod_activity(&$activities, &$index, $timestart, $courseid
 
 /**
  * Prints single activity item prepared by {@see qv_get_recent_mod_activity()}
- * 
+ *
  * @todo: implement
- * 
+ *
  * @return void
  */
 function qv_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames) {
@@ -371,7 +371,7 @@ function qv_cron () {
  * independient of his role (student, teacher, admin...). The returned
  * objects must contain at least id property.
  * See other modules as example.
- * 
+ *
  * @param int $qvid ID of an instance of this module
  * @return boolean|array false if no participants, array of objects otherwise
  */
@@ -428,7 +428,7 @@ function qv_get_extra_capabilities() {
  */
 function qv_scale_used($qvid, $scaleid) {
     global $DB;
-    
+
     $return = false;
     $rec = $DB->get_record('qv', array('id'=>$qvid,'grade'=>-$scaleid));
     if (!empty($rec) && !empty($scaleid)) {
@@ -495,7 +495,7 @@ function qv_grade_item_update(stdClass $qv, $grades=NULL) {
         $params['reset'] = true;
         $grades = NULL;
     }
-    
+
     grade_update('mod/qv', $qv->courseid, 'mod', 'qv', $qv->id, 0, $grades, $params);
 
     return true;
@@ -520,7 +520,7 @@ function qv_grade_item_delete($qv) {
  *
  * @todo: implement userid=0 (all users)
  * @todo: optimize this function (to avoid call qv_get_sessions_summary or update only mandatory info)
- * 
+ *
  * @param object $qv object
  * @param int $userid optional user id, 0 means all users
  * @return array array of grades, false if none
@@ -537,7 +537,7 @@ function qv_get_user_grades($qv, $userid=0) {
     $grades[$userid]->userid = $userid;
     $grades[$userid]->attempts = $sessions_summary->attempts;
     $grades[$userid]->totaltime = $sessions_summary->totaltime;
-    $grades[$userid]->rawgrade = $sessions_summary->score;				
+    $grades[$userid]->rawgrade = $sessions_summary->score;
     return $grades;
 }
 
@@ -545,7 +545,7 @@ function qv_get_user_grades($qv, $userid=0) {
  * Update qv grades in the gradebook
  *
  * Needed by grade_update_mod_grades() in lib/gradelib.php
- * 
+ *
  * @todo: Fix some problems (this function is not working when is called from beans.php)
  *
  * @param stdClass $qv instance object with extra cmidnumber and modname property
@@ -573,7 +573,7 @@ function qv_update_grades(stdClass $qv, $userid = 0, $nullifnone=true) {
         $grade->userid   = $userid;
         $grade->rawgrade = NULL;
         qv_grade_item_update($qv, $grade);
-        
+
     } else {
         qv_grade_item_update($qv);
     }
@@ -598,7 +598,7 @@ function qv_get_file_areas($course, $cm, $context) {
     return array(
         'content'      => get_string('areacontent',  'qv'),
         'package'      => get_string('areapackage',  'qv')
-        
+
     );
 }
 
@@ -622,9 +622,9 @@ function qv_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $
         // students can not peak here!
         return null;
     }
-    
+
     // no writing for now!
-    
+
     $fs = get_file_storage();
 
 	if ($filearea === 'content') {
@@ -659,7 +659,7 @@ function qv_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $
         }
         return new file_info_stored($browser, $context, $storedfile, $urlbase, $areas[$filearea], false, true, false, false);
     }
-    
+
     // note: qv_intro handled in file_browser automatically
 
     return false;
@@ -679,7 +679,7 @@ function qv_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $
  */
 function mod_qv_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload=false, array $options=array()) {
     global $DB, $CFG;
-    
+
     if ($context->contextlevel != CONTEXT_MODULE) {
         return false;
     }
@@ -687,17 +687,17 @@ function mod_qv_pluginfile($course, $cm, $context, $filearea, $args, $forcedownl
     require_login($course, true, $cm);
 
 	$lifetime = isset($CFG->filelifetime) ? $CFG->filelifetime : 86400;
-    
+
     if ($filearea === 'content') {
 		if (!has_capability('mod/qv:view', $context)) {
 			return false;
 		}
         $revision = (int)array_shift($args); // prevents caching problems - ignored here
         $reference = (int)array_shift($args); //Hack to make foldername match with XML
-        
+
         $relativepath = implode('/', $args);
         $fullpath = "/$context->id/mod_qv/content/0/$relativepath";
-        
+
     } else if ($filearea === 'package') {
         if (!has_capability('moodle/course:manageactivities', $context)) {
             return false;
@@ -711,7 +711,7 @@ function mod_qv_pluginfile($course, $cm, $context, $filearea, $args, $forcedownl
     }
 
     $fs = get_file_storage();
-    
+
 	if (!$file = $fs->get_file_by_hash(sha1($fullpath)) or $file->is_directory()) {
 		if ($filearea === 'content') { //return file not found straight away to improve performance.
             send_header_404();
@@ -792,21 +792,21 @@ function qv_reset_userdata($data) {
 
     $componentstr = get_string('modulenameplural', 'choice');
     $status = array();
- 
+
     if (!empty($data->reset_qv_deleteallsessions)) {
 		$activities = $DB->get_fieldset_select('qv','id','course = :courseid',array('courseid'=>$data->courseid));
 		foreach($activities as $qvid){
 			qv_delete_instance_userdata($qvid);
 		}
-        
+
         // remove all grades from gradebook
         if (empty($data->reset_gradebook_grades)) {
             qv_reset_gradebook($data->courseid);
         }
-        
+
         $status[] = array('component'=>$componentstr, 'item'=>get_string('deleteallsessions', 'qv'), 'error'=>false);
     }
- 
+
    return $status;
 }
 
@@ -832,7 +832,7 @@ function qv_delete_instance_userdata($qvid){
 function qv_reset_course_form_definition(&$mform) {
     $mform->addElement('header', 'qvheader', get_string('modulenameplural', 'qv'));
     $mform->addElement('checkbox', 'reset_qv_deleteallsessions', get_string('deleteallsessions', 'qv'));
-    
+
 }
 
 /**

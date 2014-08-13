@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'backup', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'backup', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   backup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,8 +40,8 @@ $string['automatedstoragehelp'] = '백업이 자동으로 생성되는 경우 �
 $string['backupactivity'] = '활동 백업: {$a}';
 $string['backupcourse'] = '강좌 백업: {$a}';
 $string['backupcoursedetails'] = '강좌 개요';
-$string['backupcoursesection'] = '섹션: {$a}';
-$string['backupcoursesections'] = '강좌 섹션';
+$string['backupcoursesection'] = '영역: {$a}';
+$string['backupcoursesections'] = '강좌 영역';
 $string['backupdate'] = '백업날짜';
 $string['backupdetails'] = '백업 개요';
 $string['backupdetailsnonstandardinfo'] = '선택된 파일은 표준 무들 백업 파일이 아닙니다. 복구과정은 백업파일을 표준파일형식으로 변환한 다음 복구하는 것을 시도할 것입니다.';
@@ -58,7 +58,7 @@ $string['backupmode30'] = '허브';
 $string['backupmode40'] = '같은 사이트';
 $string['backupmode50'] = '자동화됨';
 $string['backupmode60'] = '변환됨';
-$string['backupsection'] = '백업 강좌 섹션: {$a}';
+$string['backupsection'] = '백업 강좌 영역: {$a}';
 $string['backupsettings'] = '백업 설정';
 $string['backupsitedetails'] = '사이트 개요';
 $string['backupstage16action'] = '계속';
@@ -106,7 +106,6 @@ $string['currentstage16'] = '이수';
 $string['currentstage2'] = '스키마 설정';
 $string['currentstage4'] = '확인 및 검토';
 $string['currentstage8'] = '백업 실시';
-$string['dependenciesenforced'] = '의존성 관계로 설정이 변경되었슴';
 $string['enterasearch'] = '검색어를 입력하세요.';
 $string['error_block_for_module_not_found'] = '강좌모듈(id: {$a->mid})의 고립된 블럭 인스턴스(id: {$a->bid})가 발견되었음. 이 블럭은 백업되지 않을 것임';
 $string['error_course_module_not_found'] = '고립된 강좌모듈(id: {$a})이 발견되었음. 이 모듈은 백업되지 않을 것임';
@@ -127,6 +126,7 @@ $string['filereferencessamesite'] = '같은 사이트로부터의 백업입니�
 $string['generalactivities'] = '활동 포함';
 $string['generalanonymize'] = '정보 익명화';
 $string['generalbackdefaults'] = '기본 백업 설정';
+$string['generalbadges'] = '뱃지 포함';
 $string['generalblocks'] = '블록 포함';
 $string['generalcomments'] = '덧글 포함';
 $string['generalfilters'] = '필터 포함';
@@ -149,11 +149,12 @@ $string['importcurrentstage2'] = '스키마 설정';
 $string['importcurrentstage4'] = '확인 및 검토';
 $string['importcurrentstage8'] = '가져오기 수행';
 $string['importfile'] = '백업파일 가져오기';
+$string['importgeneralsettings'] = '일반적인 가져오기 디폴트';
 $string['importsuccess'] = '가져오기 완료. 강좌로 돌아가기 위해서는 계속을 클릭하세요.';
 $string['includeactivities'] = '포함:';
 $string['includeditems'] = '포함된 항목들:';
 $string['includefilereferences'] = '외부 콘텐츠에 대한 파일 참조';
-$string['includesection'] = '섹션 {$a}';
+$string['includesection'] = '영역 {$a} ';
 $string['includeuserinfo'] = '사용자 자료';
 $string['locked'] = '잠김';
 $string['lockedbyconfig'] = '이 설정은 기본 백업 설정의 의해 잠겨있음';
@@ -182,7 +183,7 @@ $string['restorenewcourseshortname'] = '새강좌의 단축명';
 $string['restorenewcoursestartdate'] = '새로운 개시일';
 $string['restorerolemappings'] = '역할 배치 복구';
 $string['restorerootsettings'] = '복구 설정';
-$string['restoresection'] = '섹션 복구';
+$string['restoresection'] = '복구할 영역';
 $string['restorestage1'] = '확인';
 $string['restorestage16'] = '검토';
 $string['restorestage16action'] = '복구 실행';
@@ -211,6 +212,7 @@ $string['restoringcourseshortname'] = '복구';
 $string['rootenrolmanual'] = '수동 등록으로 복원';
 $string['rootsettingactivities'] = '활동 포함';
 $string['rootsettinganonymize'] = '사용자 정보 익명화';
+$string['rootsettingbadges'] = '뱃지 포함';
 $string['rootsettingblocks'] = '블록 포함';
 $string['rootsettingcalendarevents'] = '달력 일정 포함';
 $string['rootsettingcomments'] = '덧글 포함';

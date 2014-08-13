@@ -22,10 +22,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 // The current plugin version (Date: YYYYMMDDXX).
-$plugin->version   = 2013070500;
+$plugin->version   = 2014050600;
 // Required Moodle version.
 $plugin->requires  = 2012092700;
 $plugin->component = 'tinymce_tiny_mce_wiris';
 /*$plugin->dependencies = array (
-	 'filter_wiris' => 2013070500
+	 'filter_wiris' => 2014050600
 );*/

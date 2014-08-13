@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_rubric', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradingform_rubric', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   gradingform_rubric
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -55,7 +55,7 @@ $string['regrademessage1'] = 'Aldaketak egin behar dituzu kalifikatzeko erabili 
 $string['regrademessage5'] = 'Kalifikatzeko erabilia izan den errubrika batean aldaketa nabarmenak egin behar dituzu. Kalifikazio liburuaren balioa ez da aldatuko, baina errubrika ikasleei ezkutatuko zaie beren kalifikazioa berrikusi arte.';
 $string['regradeoption0'] = 'Ez markatu berriz kalifikatzeko';
 $string['regradeoption1'] = 'Markatu berriz kalifikatzeko';
-$string['restoredfromdraft'] = 'OHARRA: pertsona hau kalifikatzeko azken saiakera ez da ondo gorde, beraz, zirriborro kalifikazioak berreskuratu dira. Aldaketa hauek bertan behera utzi nahi badituzu, azpiko \'Utzi\' botoia erabili.';
+$string['restoredfromdraft'] = 'OHARRA: pertsona hau kalifikatzeko azken saiakera ez da ondo gorde, beraz, zirriborro-kalifikazioak berreskuratu dira. Aldaketa hauek bertan behera utzi nahi badituzu, erabili azpiko \'Utzi\' botoia.';
 $string['rubric'] = 'Errubrika';
 $string['rubricmapping'] = 'Puntuazioetatik kalifikazioetara mapaketa egiteko arauak';
 $string['rubricmappingexplained'] = 'Errubrika honentzako gutxieneko untuazioa  <b>{$a->minscore} puntu</b> da, eta moduluan erabilgarria den gutxieneko kalifikaziora bihurtuko da (eskalarik erabiltzen ez bada, zero izango da).

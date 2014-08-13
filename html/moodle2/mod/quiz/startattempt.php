@@ -48,6 +48,7 @@ $PAGE->set_url($quizobj->view_url());
 // Check login and sesskey.
 require_login($quizobj->get_course(), false, $quizobj->get_cm());
 require_sesskey();
+$PAGE->set_heading($quizobj->get_course()->fullname);
 
 // If no questions have been set up yet redirect to edit.php or display an error.
 if (!$quizobj->has_questions()) {
@@ -92,9 +93,7 @@ if ($lastattempt && ($lastattempt->state == quiz_attempt::IN_PROGRESS ||
     $quizobj->create_attempt_object($lastattempt)->handle_if_time_expired($timenow, true);
 
     // And, if the attempt is now no longer in progress, redirect to the appropriate place.
-    if ($lastattempt->state == quiz_attempt::OVERDUE) {
-        redirect($quizobj->summary_url($lastattempt->id));
-    } else if ($lastattempt->state != quiz_attempt::IN_PROGRESS) {
+    if ($lastattempt->state == quiz_attempt::ABANDONED || $lastattempt->state == quiz_attempt::FINISHED) {
         redirect($quizobj->review_url($lastattempt->id));
     }
 
@@ -144,7 +143,7 @@ if ($accessmanager->is_preflight_check_required($currentattemptid)) {
 
         // Form not submitted successfully, re-display it and stop.
         $PAGE->set_url($quizobj->start_attempt_url($page));
-        $PAGE->set_title(format_string($quizobj->get_quiz_name()));
+        $PAGE->set_title($quizobj->get_quiz_name());
         $accessmanager->setup_attempt_page($PAGE);
         if (empty($quizobj->get_quiz()->showblocks)) {
             $PAGE->blocks->show_only_fake_blocks();
@@ -158,7 +157,11 @@ if ($accessmanager->is_preflight_check_required($currentattemptid)) {
     $accessmanager->notify_preflight_check_passed($currentattemptid);
 }
 if ($currentattemptid) {
-    redirect($quizobj->attempt_url($currentattemptid, $page));
+    if ($lastattempt->state == quiz_attempt::OVERDUE) {
+        redirect($quizobj->summary_url($lastattempt->id));
+    } else {
+        redirect($quizobj->attempt_url($currentattemptid, $page));
+    }
 }
 
 // Delete any previous preview attempts belonging to this user.
@@ -169,113 +172,18 @@ $quba->set_preferred_behaviour($quizobj->get_quiz()->preferredbehaviour);
 
 // Create the new attempt and initialize the question sessions
 $timenow = time(); // Update time now, in case the server is running really slowly.
-$attempt = quiz_create_attempt($quizobj, $attemptnumber, $lastattempt, $timenow,
-        $quizobj->is_preview_user());
+$attempt = quiz_create_attempt($quizobj, $attemptnumber, $lastattempt, $timenow, $quizobj->is_preview_user());
 
 if (!($quizobj->get_quiz()->attemptonlast && $lastattempt)) {
-    // Starting a normal, new, quiz attempt.
-
-    // Fully load all the questions in this quiz.
-    $quizobj->preload_questions();
-    $quizobj->load_questions();
-
-    // Add them all to the $quba.
-    $idstoslots = array();
-    $questionsinuse = array_keys($quizobj->get_questions());
-    foreach ($quizobj->get_questions() as $i => $questiondata) {
-        if ($questiondata->qtype != 'random') {
-            if (!$quizobj->get_quiz()->shuffleanswers) {
-                $questiondata->options->shuffleanswers = false;
-            }
-            $question = question_bank::make_question($questiondata);
-
-        } else {
-            $question = question_bank::get_qtype('random')->choose_other_question(
-                    $questiondata, $questionsinuse, $quizobj->get_quiz()->shuffleanswers);
-            if (is_null($question)) {
-                throw new moodle_exception('notenoughrandomquestions', 'quiz',
-                        $quizobj->view_url(), $questiondata);
-            }
-        }
-
-        $idstoslots[$i] = $quba->add_question($question, $questiondata->maxmark);
-        $questionsinuse[] = $question->id;
-    }
-
-    // Start all the questions.
-    if ($attempt->preview) {
-        $variantoffset = rand(1, 100);
-    } else {
-        $variantoffset = $attemptnumber;
-    }
-    $quba->start_all_questions(
-            new question_variant_pseudorandom_no_repeats_strategy(
-                    $variantoffset, $attempt->userid, $quizobj->get_quizid()),
-            $timenow);
-
-    // Update attempt layout.
-    $newlayout = array();
-    foreach (explode(',', $attempt->layout) as $qid) {
-        if ($qid != 0) {
-            $newlayout[] = $idstoslots[$qid];
-        } else {
-            $newlayout[] = 0;
-        }
-    }
-    $attempt->layout = implode(',', $newlayout);
-
+    $attempt = quiz_start_new_attempt($quizobj, $quba, $attempt, $attemptnumber, $timenow);
 } else {
-    // Starting a subsequent attempt in each attempt builds on last mode.
-
-    $oldquba = question_engine::load_questions_usage_by_activity($lastattempt->uniqueid);
-
-    $oldnumberstonew = array();
-    foreach ($oldquba->get_attempt_iterator() as $oldslot => $oldqa) {
-        $newslot = $quba->add_question($oldqa->get_question(), $oldqa->get_max_mark());
-
-        $quba->start_question_based_on($newslot, $oldqa);
-
-        $oldnumberstonew[$oldslot] = $newslot;
-    }
-
-    // Update attempt layout.
-    $newlayout = array();
-    foreach (explode(',', $lastattempt->layout) as $oldslot) {
-        if ($oldslot != 0) {
-            $newlayout[] = $oldnumberstonew[$oldslot];
-        } else {
-            $newlayout[] = 0;
-        }
-    }
-    $attempt->layout = implode(',', $newlayout);
+    $attempt = quiz_start_attempt_built_on_last($quba, $attempt, $lastattempt);
 }
 
-// Save the attempt in the database.
 $transaction = $DB->start_delegated_transaction();
-question_engine::save_questions_usage_by_activity($quba);
-$attempt->uniqueid = $quba->get_id();
-$attempt->id = $DB->insert_record('quiz_attempts', $attempt);
 
-// Log the new attempt.
-if ($attempt->preview) {
-    add_to_log($course->id, 'quiz', 'preview', 'view.php?id=' . $quizobj->get_cmid(),
-            $quizobj->get_quizid(), $quizobj->get_cmid());
-} else {
-    add_to_log($course->id, 'quiz', 'attempt', 'review.php?attempt=' . $attempt->id,
-            $quizobj->get_quizid(), $quizobj->get_cmid());
-}
-
-// Trigger event.
-$eventdata = new stdClass();
-$eventdata->component = 'mod_quiz';
-$eventdata->attemptid = $attempt->id;
-$eventdata->timestart = $attempt->timestart;
-$eventdata->timestamp = $attempt->timestart;
-$eventdata->userid    = $attempt->userid;
-$eventdata->quizid    = $quizobj->get_quizid();
-$eventdata->cmid      = $quizobj->get_cmid();
-$eventdata->courseid  = $quizobj->get_courseid();
-events_trigger('quiz_attempt_started', $eventdata);
+$attempt = quiz_attempt_save_started($quizobj, $quba, $attempt);
+quiz_fire_attempt_started_event($attempt, $quizobj);
 
 $transaction->allow_commit();
 

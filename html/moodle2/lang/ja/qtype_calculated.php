@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'アイテムを追加する';
 $string['addmoreanswerblanks'] = 'さらに答え入力欄を追加する';
-$string['addmoreunitblanks'] = 'さらに {$a} 個の単位を追加する';
 $string['addsets'] = 'セットを追加する';
+$string['answerdisplay'] = '答え表示';
+$string['answerformula'] = '答え {$a} の公式';
 $string['answerhdr'] = '答え';
 $string['answerstoleranceparam'] = '答えの許容誤差パラメータ';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -90,9 +91,7 @@ $string['minmax'] = '値域';
 $string['missingformula'] = '公式がありません。';
 $string['missingname'] = '問題名がありません。';
 $string['missingquestiontext'] = '問題テキストがありません。';
-$string['mustbenumeric'] = 'ここには数字を入力してください。';
 $string['mustenteraformulaorstar'] = 'あなたは式または「*」を入力する必要があります。';
-$string['mustnotbenumeric'] = 'ここには数字を入力できません。';
 $string['newcategory1'] = '新しい共有データセットを使用する';
 $string['newcategory2'] = 'このカテゴリ内の他の問題でも使用される新しいファイルセットのファイル';
 $string['newcategory3'] = 'このカテゴリ内の他の問題でも使用される新しいリンクセットのリンク';
@@ -134,6 +133,7 @@ $string['synchronizeno'] = '同期しない';
 $string['synchronizeyes'] = '同期する';
 $string['synchronizeyesdisplay'] = '小テスト名を接頭辞にした共有データセット名を同期および表示する';
 $string['tolerance'] = '許容誤差 &plusmn;';
+$string['tolerancetype'] = 'タイプ';
 $string['trueanswerinsidelimits'] = '正解 : {$a->correct} - 範囲内の真の値: {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">エラー 正解 : {$a->correct} - 範囲外の真の値: {$a->true}</span>';
 $string['uniform'] = '一様分布';
@@ -154,5 +154,4 @@ $string['wildcardvaluesgenerated'] = 'ワイルドカード値が生成されま
 ';
 $string['youmustaddatleastoneitem'] = 'この問題を保存する前に、あなたは少なくとも1つのデータセットアイテムを追加する必要があります。';
 $string['youmustaddatleastonevalue'] = 'この問題を保存する前に、あなたは少なくとも1つのワイルドカード値を追加する必要があります。';
-$string['youmustenteramultiplierhere'] = 'あなたは、ここに乗数を入力する必要があります。';
 $string['zerosignificantfiguresnotallowed'] = '正解の有効数字にはゼロを設定できません!';

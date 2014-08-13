@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_urltolink', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'filter_urltolink', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_urltolink
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['embedimages'] = '埋め込みイメージ';
 $string['embedimages_desc'] = '選択されたテキストフォーマットに関して、イメージURLがイメージと置換されます。';
-$string['filtername'] = 'URIをリンクおよびイメージに変換する';
+$string['filtername'] = 'URLをリンクおよびイメージに変換する';
 $string['settingformats'] = 'フォーマットに適用する';
 $string['settingformats_desc'] = '選択されたフォーマットにオリジナルテキストが追加された場合のみフィルタが適用されます。';

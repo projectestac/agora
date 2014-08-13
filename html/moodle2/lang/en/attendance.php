@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendance', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendance', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   attendance
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -89,6 +89,7 @@ $string['deletingstatus'] = 'Deleting status for the course';
 $string['description'] = 'Description';
 $string['display'] = 'Display';
 $string['displaymode'] = 'Display mode';
+$string['donotusepaging'] = 'Do not use paging';
 $string['downloadexcel'] = 'Download in Excel format';
 $string['downloadooo'] = 'Download in OpenOffice format';
 $string['downloadtext'] = 'Download in text format';
@@ -117,13 +118,21 @@ You can use this feature to hide older sessions instead delete. Remember than on
 $string['identifyby'] = 'Identify student by';
 $string['includeall'] = 'Select all sessions';
 $string['includenottaken'] = 'Include not taken sessions';
+$string['includeremarks'] = 'Include remarks';
 $string['indetail'] = 'In detail...';
+$string['invalidsessionenddate'] = 'The session end date can not be earlier than the session start date';
 $string['jumpto'] = 'Jump to';
 $string['Lacronym'] = 'L';
 $string['Lfull'] = 'Late';
 $string['modulename'] = 'Attendance';
+$string['modulename_help'] = 'The attendance activity module enables a teacher to take attendance during class and students to view their own attendance record.
+
+The teacher can create multiple sessions and can mark the attendance status as "Present", "Absent", "Late", or "Excused" or modify the statuses to suit their needs.
+
+Reports are available for the entire class or individual students.';
 $string['modulenameplural'] = 'Attendances';
 $string['months'] = 'Months';
+$string['moreattendance'] = 'Attendance has been successfully taken for this page';
 $string['myvariables'] = 'My Variables';
 $string['newdate'] = 'New date';
 $string['newduration'] = 'New duration';
@@ -146,11 +155,15 @@ $string['period'] = 'Frequency';
 $string['Pfull'] = 'Present';
 $string['pluginadministration'] = 'Attendance administration';
 $string['pluginname'] = 'Attendance';
+$string['remark'] = 'Remark for: {a}';
 $string['remarks'] = 'Remarks';
 $string['report'] = 'Report';
+$string['required'] = 'Required*';
 $string['resetdescription'] = 'Remember that deleting attendance data will erase information from database. You can just hide older sessions having changed start date of course!';
 $string['resetstatuses'] = 'Reset statuses to default';
 $string['restoredefaults'] = 'Restore defaults';
+$string['resultsperpage'] = 'Results per page';
+$string['resultsperpage_desc'] = 'Number of students displayed on a page';
 $string['save'] = 'Save attendance';
 $string['session'] = 'Session';
 $string['sessionadded'] = 'Session successfully added';

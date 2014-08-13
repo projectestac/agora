@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'countries', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'countries', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   countries
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,6 @@ $string['AG'] = 'Antigua en Barbuda';
 $string['AI'] = 'Anguilla';
 $string['AL'] = 'Albanië';
 $string['AM'] = 'Armenië';
-$string['AN'] = 'Nederlandse Antillen';
 $string['AO'] = 'Angola';
 $string['AQ'] = 'Antarctica';
 $string['AR'] = 'Argentinië';
@@ -224,7 +223,7 @@ $string['SC'] = 'Seychellen';
 $string['SD'] = 'Soedan';
 $string['SE'] = 'Zweden';
 $string['SG'] = 'Singapore';
-$string['SH'] = 'St. Helena';
+$string['SH'] = 'Saint Helena';
 $string['SI'] = 'Slovenië';
 $string['SJ'] = 'Spitsbergen en Jan Mayeneilanden';
 $string['SK'] = 'Slovakije';

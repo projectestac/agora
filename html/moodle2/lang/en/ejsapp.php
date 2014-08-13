@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'ejsapp', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'ejsapp', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   ejsapp
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,38 +25,61 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['appletfile'] = 'Easy Java Simulation';
-$string['appletfile_help'] = 'Select the .jar file that encapsulates the Easy Java Simulation (EJS) application. The official website of EJS is http://fem.um.es/Ejs/';
-$string['appletfile_required'] = 'A .jar file must be selected';
+$string['active'] = 'Available';
+$string['active_help'] = 'Whether this remote lab is operative at the moment or not.';
+$string['appletfile'] = 'Easy Java(script) Simulation';
+$string['appletfile_help'] = 'Select the .jar or .zip file that encapsulates the Easy Java(script) Simulation (EJsS) application. The official website of EJsS is http://fem.um.es/Ejs/';
+$string['appletfile_required'] = 'A .jar or a .zip file must be selected';
 $string['applet_size_conf'] = 'Size the applet';
 $string['applet_size_conf_help'] = 'Three options: 1) "Preserve original size" will preserve the original size of the EJS applet, 2) "Let Moodle set the size" will resize the applet to take up all the possible space while mantaining the original aspect ratio, 3) "Let the user set the size" will let the user to set the size of the applet and select whether to preserve its original aspect ratio or not.';
 $string['appwording'] = 'Wording';
-$string['central_column_width'] = 'Central (main) column width';
-$string['central_column_width_description'] = 'Total width (px) occupied by the central or main column in your Moodle visual theme';
+$string['certificate_alias'] = 'Trust certificate alias';
+$string['certificate_alias_description'] = 'The alias given to the trust certificate';
+$string['certificate_password'] = 'Trust certificate password';
+$string['certificate_password_description'] = 'The password required for using the trust certificate';
+$string['certificate_path'] = 'Trust certificate file path';
+$string['certificate_path_description'] = 'The path in the Moodle server to the trust certificate file to be used for signing the Java applets';
 $string['check_bookings'] = 'Check your active bookings with the booking system.';
+$string['collab_access'] = 'However, you can still work in collaborative mode if you have been invited by a user with an active booking';
 $string['custom_height'] = 'Applet height (px)';
 $string['custom_height_required'] = 'WARNING: Applet height was not set. You must provide a different value.';
 $string['custom_width'] = 'Applet width (px)';
 $string['custom_width_required'] = 'WARNING: Applet width was not set. You must provide a different value.';
 $string['dailyslots'] = 'Daily hours of work';
 $string['dailyslots_help'] = 'Daily amount of maximum hours each student will be allowed to work with this lab.';
-$string['default_communication_set'] = 'Default communication settings';
-$string['default_display_set'] = 'Default display settings';
+$string['default_certificate_set'] = 'Trust certificate settings. (Only important if you want to automatically sign the applets uploaded with EJSApp)';
+$string['default_communication_set'] = 'Communication settings. (Only important if you are also using Sarlab)';
 $string['ejsapp'] = 'EJSApp';
+$string['ejsapp:accessremotelabs'] = 'Access to all the remote laboratories';
+$string['ejsapp:addinstance'] = 'Add a new EJSApp activity';
 $string['ejsapp_error'] = 'The EJSApp activity you are trying to access does not exist.';
 $string['ejsappfieldset'] = 'Custom example fieldset';
 $string['ejsappname'] = 'Lab name';
 $string['ejsappname_help'] = 'Name that will appear in the course for this laboratory';
+$string['ejsapp:requestinformation'] = 'Request information for third parties plugins';
+$string['ejsapp:view'] = 'View an EJSApp activity';
 $string['EJS_version'] = 'WARNING: The applet file was not generated with EJS 4.37 (build 121201), or higher. Recompile it with a newer version of EJS.';
+$string['event_book'] = 'Need to make a booking';
+$string['event_collab'] = 'Working with the EJSApp activity in collaborative mode';
+$string['event_inactive'] = 'Lab is inactive';
+$string['event_wait'] = 'Waiting for the lab to be free';
+$string['event_working'] = 'Working with the EJSApp activity';
+$string['experiment_file'] = '.exp file with the experiment to be run when this EJS lab loads';
+$string['exp_fail_msg'] = 'Error while trying to run the experiment';
+$string['expfile'] = 'Easy Java Simulation Experiment';
+$string['expfile_help'] = 'Select the .exp file with the experiment the Easy Java Simulation (EJS) application should run.';
+$string['exp_load_msg'] = 'An experiment for this lab is going to be run';
 $string['file_error'] = 'Can\'t open file from the server';
 $string['free_access'] = 'Free access';
 $string['free_access_help'] = 'Enable free access mode (no need to make a booking) for this remote lab.';
+$string['inactive_lab'] = 'The remote lab is inactive at this moment.';
 $string['ip_lab'] = 'IP address';
-$string['ip_lab_help'] = 'Esperimental system IP address. If you are using Sarlab, you dont have to worry about this parameter.';
+$string['ip_lab_help'] = 'Experimental system IP address. If you are using Sarlab, you don\'t have to worry about this parameter.';
 $string['ip_lab_required'] = 'WARNING: You need to provide a valid IP address.';
 $string['is_rem_lab'] = 'Remote experimental system?';
 $string['is_rem_lab_help'] = 'If this EJSApp connects to real remote resources AND you want the EJSApp Booking System to manage their access, select "yes". Otherwise, select "no".';
-$string['jar_file'] = '.jar file that encapsulates the  EJS lab';
+$string['jar_file'] = '.jar or .zip file that encapsulates the  EJsS lab';
+$string['lab_in_use'] = 'The lab is currently being used. Try again later.';
 $string['manifest_error'] = '> Can\'t find or open manifest .mf. Check the file you uploaded.';
 $string['max_value'] = 'Maximum value {no}';
 $string['max_value_help'] = 'Maximum value allowed for the variable.';
@@ -74,14 +97,15 @@ $string['modulenameplural'] = 'EJSApps';
 $string['moodle_resize'] = 'Let Moodle set the size';
 $string['more_text'] = 'Optional text after the applet';
 $string['no_booking'] = 'You do not have an active booking for this lab.';
+$string['noejsapps'] = 'There are no EJSApp activities in this course';
 $string['personalize_vars'] = 'Personalize variables of the EJS lab';
 $string['pluginadministration'] = 'EJSApp administration';
 $string['pluginname'] = 'EJSApp';
 $string['port'] = 'Port';
-$string['port_help'] = 'The port used to establish the communication. If you are using Sarlab, you dont have to worry about this parameter.';
+$string['port_help'] = 'The port used to establish the communication. If you are using Sarlab, you don\'t have to worry about this parameter.';
 $string['port_required'] = 'WARNING: You need to provide a valid port.';
-$string['practiceintro'] = 'Practice identifier in Sarlab';
-$string['practiceintro_help'] = 'Practices (separated by semicolons) configured in Sarlab for this experimental system.';
+$string['practiceintro'] = 'Practice identifier(s) in Sarlab';
+$string['practiceintro_help'] = 'The identifier of the practice(s), as configured in Sarlab, you want to use with this experimental system.';
 $string['practiceintro_required'] = 'WARNING: You need to specify at least one practice.';
 $string['preserve_applet_size'] = 'Preserve original size';
 $string['preserve_aspect_ratio'] = 'Preserve aspect ratio';
@@ -90,6 +114,8 @@ $string['rem_lab_conf'] = 'Remote lab configuration';
 $string['sarlab'] = 'Using Sarlab?';
 $string['sarlab_collab'] = 'Use collaborative access provided by Sarlab?';
 $string['sarlab_collab_help'] = 'Whether you want Sarlab to provide collaborative access to this remote laboratory or not.';
+$string['sarlab_enc_key'] = 'Encryption key to communicate with Sarlab';
+$string['sarlab_enc_key_description'] = 'If you are using Sarlab (a system that manages connections to remote laboratories resources), you need to provide the 16 characters long encryption key for encrypting/decrypting the communications with the Sarlab server (this key should be the same as configured in the Sarlab server). Otherwise, this value will not be used, so you can leave the default value.';
 $string['sarlab_help'] = 'Only select yes if you are using Sarlab; a system that manages connections to remote laboratories resources';
 $string['sarlab_instance'] = 'Sarlab server for this lab';
 $string['sarlab_instance_help'] = 'The order corresponds to the one used for the values in the sarlab_IP and sarlab_port variables configured at the ejsapp settings page';

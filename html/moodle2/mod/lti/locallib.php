@@ -360,7 +360,7 @@ function lti_get_tool_table($tools, $id) {
         ";
 
         foreach ($tools as $type) {
-            $date = userdate($type->timecreated);
+            $date = userdate($type->timecreated, get_string('strftimedatefullshort', 'core_langconfig'));
             $accept = get_string('accept', 'lti');
             $update = get_string('update', 'lti');
             $delete = get_string('delete', 'lti');
@@ -438,8 +438,8 @@ function lti_split_custom_parameters($customstr) {
         if ( $pos === false || $pos < 1 ) {
             continue;
         }
-        $key = trim(textlib::substr($line, 0, $pos));
-        $val = trim(textlib::substr($line, $pos+1, strlen($line)));
+        $key = trim(core_text::substr($line, 0, $pos));
+        $val = trim(core_text::substr($line, $pos+1, strlen($line)));
         $key = lti_map_keyname($key);
         $retval['custom_'.$key] = $val;
     }
@@ -455,7 +455,7 @@ function lti_split_custom_parameters($customstr) {
  */
 function lti_map_keyname($key) {
     $newkey = "";
-    $key = textlib::strtolower(trim($key));
+    $key = core_text::strtolower(trim($key));
     foreach (str_split($key) as $ch) {
         if ( ($ch >= 'a' && $ch <= 'z') || ($ch >= '0' && $ch <= '9') ) {
             $newkey .= $ch;
@@ -615,7 +615,7 @@ function lti_get_types_for_add_instance() {
     $admintypes = $DB->get_records_sql($query, array('siteid' => $SITE->id, 'courseid' => $COURSE->id, 'active' => LTI_TOOL_STATE_CONFIGURED));
 
     $types = array();
-    $types[0] = (object)array('name' => get_string('automatic', 'lti'), 'course' => $SITE->id);
+    $types[0] = (object)array('name' => get_string('automatic', 'lti'), 'course' => 0);
 
     foreach ($admintypes as $type) {
         $types[$type->id] = $type;
@@ -1145,12 +1145,12 @@ function lti_get_launch_container($lti, $toolconfig) {
         $launchcontainer = LTI_LAUNCH_CONTAINER_EMBED_NO_BLOCKS;
     }
 
-    $devicetype = get_device_type();
+    $devicetype = core_useragent::get_device_type();
 
     //Scrolling within the object element doesn't work on iOS or Android
     //Opening the popup window also had some issues in testing
     //For mobile devices, always take up the entire screen to ensure the best experience
-    if ($devicetype === 'mobile' || $devicetype === 'tablet' ) {
+    if ($devicetype === core_useragent::DEVICETYPE_MOBILE || $devicetype === core_useragent::DEVICETYPE_TABLET ) {
         $launchcontainer = LTI_LAUNCH_CONTAINER_REPLACE_MOODLE_WINDOW;
     }
 

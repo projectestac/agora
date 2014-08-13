@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'Hi ha d\'haver almenys un comodí <strong>{x..}
 $string['converttocalculated'] = 'Desa com a pregunta calculada simple';
 $string['findwildcards'] = 'Cerca els comodins {x..} a les fórmules de les respostes correctes';
 $string['generatenewitemsset'] = 'Genera';
-$string['mustbenumeric'] = 'Aquí heu d\'introduir un número.';
-$string['mustnotbenumeric'] = 'Això no pot ser un número.';
 $string['newsetwildcardvalues'] = 'conjunt(s) nou(s) valors de comodi(ns)';
 $string['pluginname'] = 'Calculada simple';
 $string['pluginnameadding'] = 'S\'està afegint una pregunta calculada simple.';

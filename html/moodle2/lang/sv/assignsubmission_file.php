@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_file', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_file', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_file
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['enabled_help'] = 'Om aktiverad, kan studenter ladda upp en eller flera 
 $string['file'] = 'Filinlämningar';
 $string['maxbytes'] = 'Maximal filstorlek';
 $string['maxfilessubmission'] = 'Maximalt antal uppladdade filer';
-$string['maxfilessubmission_help'] = 'Om uppladdning av filer är aktiverad, kommer varje student att kunna ladda upp till definierat antal filer för inlämnande';
+$string['maxfilessubmission_help'] = 'Om uppladdning av filer är aktiverad, kommer varje student att kunna ladda upp till definierad antal filer för inlämnande';
 $string['maximumsubmissionsize'] = 'Maximal inlämningsstorlek';
 $string['maximumsubmissionsize_help'] = 'Filer som laddas upp av studenter kan vara upp till denna storlek';
 $string['pluginname'] = 'Filinlämningar';

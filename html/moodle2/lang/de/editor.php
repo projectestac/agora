@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,6 @@ $string['createlink'] = 'Link einfügen';
 $string['cut'] = 'Auswahl ausschneiden';
 $string['cutpastemozilla'] = 'Leider können Sie mit diesem Editor die gewohnten Tastaturkürzel zum Einfügen von Text nicht nutzen. Ursache ist eine Sicherheitsfunktion in einigen Versionen von Mozilla und Firefox.<br /><br />Sie können mehrere Möglichkeiten ausprobieren: <br /> (1) An Stelle von Strg-V verwenden Sie SHIFT-Einfg <br /> (2) Sie nutzen das Menü Bearbeiten > Einfügen <br /> (3) Sie ändern die Browsereinstellungen in der Datei user.js. <br /><br />Mit dem "OK"-Button finden Sie weitere Informationen, mit dem Button "Abbrechen" gehen Sie zum Editor zurück.';
 $string['delete'] = 'Löschen';
-$string['editordeleteconfirm'] = 'Sie sind dabei, das Editor-Plugin \'{$a}\' zu löschen. Alle in der Datenbank mit diesem Plugin verbundenen Einträge gelöscht werden. Möchten Sie den Vorgang wirklich fortsetzen?';
 $string['editors'] = 'Texteditoren';
 $string['editorsettings'] = 'Übersicht';
 $string['enterurlfirst'] = 'Sie müssen zuerst eine URL eingeben';

@@ -22,11 +22,9 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/tablelib.php');
-
 
 /**
  * This table shows statistics about a particular question.
@@ -40,12 +38,15 @@ require_once($CFG->libdir . '/tablelib.php');
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class quiz_statistics_question_table extends flexible_table {
-    /** @var object this question with a _stats field. */
+    /** @var object full question object for this question. */
     protected $questiondata;
+
+    /** @var  int no of attempts. */
+    protected $s;
 
     /**
      * Constructor.
-     * @param $qid the id of the particular question whose statistics are being
+     * @param int $qid the id of the particular question whose statistics are being
      * displayed.
      */
     public function __construct($qid) {
@@ -53,16 +54,14 @@ class quiz_statistics_question_table extends flexible_table {
     }
 
     /**
-     * Set up the columns and headers and other properties of the table and then
-     * call flexible_table::setup() method.
-     *
-     * @param moodle_url $reporturl the URL to redisplay this report.
-     * @param object $question a question with a _stats field
-     * @param bool $hassubqs
+     * @param moodle_url $reporturl
+     * @param object     $questiondata
+     * @param integer    $s             number of attempts on this question.
+     * @param \core_question\statistics\responses\analysis_for_question $responseanalysis
      */
-    public function question_setup($reporturl, $questiondata,
-            quiz_statistics_response_analyser $responesstats) {
+    public function question_setup($reporturl, $questiondata, $s, $responseanalysis) {
         $this->questiondata = $questiondata;
+        $this->s = $s;
 
         $this->define_baseurl($reporturl->out());
         $this->collapsible(false);
@@ -72,16 +71,16 @@ class quiz_statistics_question_table extends flexible_table {
         $columns = array();
         $headers = array();
 
-        if ($responesstats->has_subparts()) {
+        if ($responseanalysis->has_subparts()) {
             $columns[] = 'part';
             $headers[] = get_string('partofquestion', 'quiz_statistics');
         }
 
-        if ($responesstats->has_response_classes()) {
+        if ($responseanalysis->has_multiple_response_classes()) {
             $columns[] = 'responseclass';
             $headers[] = get_string('modelresponse', 'quiz_statistics');
 
-            if ($responesstats->has_actual_responses()) {
+            if ($responseanalysis->has_actual_responses()) {
                 $columns[] = 'response';
                 $headers[] = get_string('actualresponse', 'quiz_statistics');
             }
@@ -133,14 +132,14 @@ class quiz_statistics_question_table extends flexible_table {
 
     /**
      * The frequency with which this response was given.
-     * @param object $response containst the data to display.
+     * @param object $response contains the data to display.
      * @return string contents of this table cell.
      */
     protected function col_frequency($response) {
-        if (!$this->questiondata->_stats->s) {
+        if (!$this->s) {
             return '';
         }
 
-        return $this->format_percentage($response->count / $this->questiondata->_stats->s);
+        return $this->format_percentage($response->count / $this->s);
     }
 }

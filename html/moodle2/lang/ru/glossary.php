@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -127,7 +127,7 @@ $string['deletenotenrolled'] = 'Удаление записей незареги
 $string['deletingcomment'] = 'Удаление комментария';
 $string['deletingnoneemptycategory'] = 'Удаление категории не удалит записи, которые к ней относились - они просто будут отмечены, как не относящиеся к категориям.';
 $string['descending'] = '(убывание)';
-$string['destination'] = 'Предназначение';
+$string['destination'] = 'Назначение импортируемых записей';
 $string['destination_help'] = '<h2>Размещение импортированных записей</h2>
 
 <p>Вы можете определить, куда будете импортировать записи:</p>
@@ -135,6 +135,7 @@ $string['destination_help'] = '<h2>Размещение импортирован
 <li><strong>Текущий глоссарий:</strong> Записи будут добавляться в открытый глоссарий.</li>
 <li><strong>Новый глоссарий:</strong> Будет создан новый глоссарий, построенный на информации, найденной в файле импорта, и записи вставлены в него.</li>
 </ul>';
+$string['disapprove'] = 'Отменить одобрение';
 $string['displayformat'] = 'Формат отображения';
 $string['displayformatcontinuous'] = 'Непрерывный, без автора';
 $string['displayformatdefault'] = 'Соответствует формату отображения';
@@ -157,7 +158,7 @@ $string['displayformats'] = 'Форматы отображения';
 $string['displayformatssetup'] = 'Настройка форматов отображения';
 $string['duplicatecategory'] = 'Дублировать категорию';
 $string['duplicateentry'] = 'Дублировать запись';
-$string['editalways'] = 'Редактировать можно всегда';
+$string['editalways'] = 'Всегда разрешать редактирование';
 $string['editalways_help'] = '<h2>Разрешить всегда редактировать</h2>
 
 <p>Эта опция позволяет вам разрешить ученикам редактировать их записи в любое время.</p>
@@ -224,7 +225,7 @@ $string['fullmatch_help'] = '<h2>Полное совпадение слов</h2>
 
 <p>Например, запись «конструктив» не создаст ссылку со словом «конструктивизм».</p>';
 $string['glossary:addinstance'] = 'Добавлять новый глоссарий';
-$string['glossary:approve'] = 'Одобрять записи';
+$string['glossary:approve'] = 'Одобрять записи или отменять их одобрение';
 $string['glossary:comment'] = 'Создавать комментарии';
 $string['glossary:export'] = 'Экспортировать записи';
 $string['glossary:exportentry'] = 'Экспортировать одиночную запись';
@@ -303,10 +304,13 @@ $string['notapproved'] = 'запись глоссария пока не одоб
 $string['notcategorised'] = 'Вне категорий';
 $string['numberofentries'] = 'Количество записей';
 $string['onebyline'] = '(по одной на строку)';
+$string['page-mod-glossary-edit'] = 'Страница добавления/редактирования записи глоссария';
+$string['page-mod-glossary-view'] = 'Страница просмотра записей глоссария';
 $string['page-mod-glossary-x'] = 'Любая страница модуля «Глоссарий»';
 $string['pluginadministration'] = 'Управление глоссарием';
 $string['pluginname'] = 'Глоссарий';
 $string['popupformat'] = 'Формат всплывающего окна';
+$string['print'] = 'Печать';
 $string['printerfriendly'] = 'Версия для печати';
 $string['printviewnotallowed'] = 'Версия для печати не предусмотрена';
 $string['question'] = 'Вопрос';

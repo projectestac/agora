@@ -54,9 +54,9 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
         $this->question = $question;
         $this->reload = optional_param('reload', false, PARAM_BOOL);
 
-        if (!$this->reload) { // use database data as this is first pass
+        if (!$this->reload) { // Use database data as this is first pass.
             if (isset($this->question->id)) {
-                // remove prefix #{..}# if exists
+                // Remove prefix #{..}# if exists.
                 $this->initialname = $question->name;
                 $regs= array();
                 if (preg_match('~#\{([^[:space:]]*)#~', $question->name , $regs)) {
@@ -72,28 +72,50 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
         $repeated = parent::get_per_answer_fields($mform, $label, $gradeoptions,
                 $repeatedoptions, $answersoption);
 
-        // 1 is the answer. 3 is tolerance.
-        $repeated[1]->setLabel(get_string('correctanswerformula', 'qtype_calculated') . '=');
-        $repeated[1]->setSize(55);
-        $repeated[3]->setLabel(get_string('tolerance', 'qtype_calculated') . '=');
+        // Reorganise answer options group. 0 is the answer. 1 is tolerance. 2 is Grade.
+        $answeroptions = $repeated[0]->getElements();
+        // Tolerance field will be part of its own group.
+        $tolerance = $answeroptions[1];
+
+        // Update Answer options group to contain only answer and grade fields.
+        $answeroptions[0]->setSize(55);
+        $answeroptions = array($answeroptions[0], $answeroptions[2]);
+        $repeated[0]->setElements($answeroptions);
+
+        // Update answer field and group label.
+        $repeated[0]->setLabel(get_string('answerformula', 'qtype_calculated', '{no}') . ' =');
+        $answeroptions[0]->setLabel(get_string('answerformula', 'qtype_calculated', '{no}') . ' =');
+
+        // Get feedback field to re append later.
+        $feedback = array_pop($repeated);
+
+        // Create tolerance group.
+        $answertolerance = array();
+        $tolerance->setLabel(get_string('tolerance', 'qtype_calculated') . '=');
+        $answertolerance[] = $tolerance;
+        $answertolerance[] = $mform->createElement('select', 'tolerancetype',
+                get_string('tolerancetype', 'qtype_calculated'), $this->qtypeobj->tolerance_types());
+        $repeated[] = $mform->createElement('group', 'answertolerance',
+                 get_string('tolerance', 'qtype_calculated'), $answertolerance, null, false);
         $repeatedoptions['tolerance']['default'] = 0.01;
 
-        $addrepeated = array();
-        $addrepeated[] = $mform->createElement('select', 'tolerancetype',
-                get_string('tolerancetype', 'qtype_numerical'), $this->qtypeobj->tolerance_types());
-
-        $addrepeated[] = $mform->createElement('select', 'correctanswerlength',
-                get_string('correctanswershows', 'qtype_calculated'), range(0, 9));
+        // Create display group.
+        $answerdisplay = array();
+        $answerdisplay[] = $mform->createElement('select', 'correctanswerlength',
+                get_string('answerdisplay', 'qtype_calculated'), range(0, 9));
         $repeatedoptions['correctanswerlength']['default'] = 2;
 
         $answerlengthformats = array(
             '1' => get_string('decimalformat', 'qtype_numerical'),
             '2' => get_string('significantfiguresformat', 'qtype_calculated')
         );
-        $addrepeated[] = $mform->createElement('select', 'correctanswerformat',
+        $answerdisplay[] = $mform->createElement('select', 'correctanswerformat',
                 get_string('correctanswershowsformat', 'qtype_calculated'), $answerlengthformats);
+        $repeated[] = $mform->createElement('group', 'answerdisplay',
+                 get_string('answerdisplay', 'qtype_calculated'), $answerdisplay, null, false);
 
-        array_splice($repeated, 4, 0, $addrepeated);
+        // Add feedback.
+        $repeated[] = $feedback;
 
         return $repeated;
     }
@@ -109,6 +131,7 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
         $mform->addElement('hidden', 'initialcategory', 1);
         $mform->addElement('hidden', 'reload', 1);
         $mform->setType('initialcategory', PARAM_INT);
+        $mform->setType('reload', PARAM_BOOL);
         $html2 = $this->qtypeobj->print_dataset_definitions_category($this->question);
         $mform->insertElementBefore(
                 $mform->createElement('static', 'listcategory', $label, $html2), 'name');
@@ -125,7 +148,7 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
                 $mform->createElement('submit', $addfieldsname, $addstring), 'listcategory');
         $mform->registerNoSubmitButton('createoptionbutton');
 
-        //editing as regular
+        // Editing as regular question.
         $mform->setType('single', PARAM_INT);
 
         $mform->addElement('hidden', 'shuffleanswers', '1');
@@ -142,7 +165,7 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
         $this->add_unit_fields($mform, $this);
         $this->add_interactive_settings();
 
-        // Hidden elements
+        // Hidden elements.
         $mform->addElement('hidden', 'synchronize', '');
         $mform->setType('synchronize', PARAM_INT);
         $mform->addElement('hidden', 'wizard', 'datasetdefinitions');
@@ -189,40 +212,43 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
         return 'calculated';
     }
 
+    /**
+     * Validate the equations in the some question content.
+     * @param array $errors where errors are being accumulated.
+     * @param string $field the field being validated.
+     * @param string $text the content of that field.
+     * @return array the updated $errors array.
+     */
+    protected function validate_text($errors, $field, $text) {
+        $problems = qtype_calculated_find_formula_errors_in_text($text);
+        if ($problems) {
+            $errors[$field] = $problems;
+        }
+        return $errors;
+    }
+
     public function validation($data, $files) {
-
-        // verifying for errors in {=...} in question text;
-        $qtext = "";
-        $qtextremaining = $data['questiontext']['text'];
-        $possibledatasets = $this->qtypeobj->find_dataset_names($data['questiontext']['text']);
-        foreach ($possibledatasets as $name => $value) {
-            $qtextremaining = str_replace('{'.$name.'}', '1', $qtextremaining);
-        }
-        while (preg_match('~\{=([^[:space:]}]*)}~', $qtextremaining, $regs1)) {
-            $qtextsplits = explode($regs1[0], $qtextremaining, 2);
-            $qtext = $qtext.$qtextsplits[0];
-            $qtextremaining = $qtextsplits[1];
-            if (!empty($regs1[1]) && $formulaerrors =
-                    qtype_calculated_find_formula_errors($regs1[1])) {
-                if (!isset($errors['questiontext'])) {
-                    $errors['questiontext'] = $formulaerrors.':'.$regs1[1];
-                } else {
-                    $errors['questiontext'] .= '<br/>'.$formulaerrors.':'.$regs1[1];
-                }
-            }
-        }
-
         $errors = parent::validation($data, $files);
+
+        // Verifying for errors in {=...} in question text.
+        $errors = $this->validate_text($errors, 'questiontext', $data['questiontext']['text']);
+        $errors = $this->validate_text($errors, 'generalfeedback', $data['generalfeedback']['text']);
 
         // Check that the answers use datasets.
         $answers = $data['answer'];
         $mandatorydatasets = array();
         foreach ($answers as $key => $answer) {
+            $problems = qtype_calculated_find_formula_errors($answer);
+            if ($problems) {
+                $errors['answeroptions['.$key.']'] = $problems;
+            }
             $mandatorydatasets += $this->qtypeobj->find_dataset_names($answer);
+            $errors = $this->validate_text($errors, 'feedback[' . $key . ']',
+                    $data['feedback'][$key]['text']);
         }
         if (empty($mandatorydatasets)) {
             foreach ($answers as $key => $answer) {
-                $errors['answer['.$key.']'] =
+                $errors['answeroptions['.$key.']'] =
                         get_string('atleastonewildcard', 'qtype_calculated');
             }
         }
@@ -233,7 +259,7 @@ class qtype_calculated_edit_form extends qtype_numerical_edit_form {
             if (trim($answer)) {
                 if ($data['correctanswerformat'][$key] == 2 &&
                         $data['correctanswerlength'][$key] == '0') {
-                    $errors['correctanswerlength['.$key.']'] =
+                    $errors['answerdisplay['.$key.']'] =
                             get_string('zerosignificantfiguresnotallowed', 'qtype_calculated');
                 }
             }

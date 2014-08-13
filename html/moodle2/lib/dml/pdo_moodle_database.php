@@ -129,15 +129,6 @@ abstract class pdo_moodle_database extends moodle_database {
     }
 
     /**
-     * Returns localised database description
-     * Note: can be used before connect()
-     * @return string
-     */
-    public function get_configuration_hints() {
-        return get_string('databasesettingssub_' . $this->get_dbtype() . '_pdo', 'install');
-    }
-
-    /**
      * Returns database server info array
      * @return array Array containing 'description' and 'version' info
      */
@@ -317,16 +308,17 @@ abstract class pdo_moodle_database extends moodle_database {
      * @return array of objects, or empty array if no records were found, or false if an error occurred.
      */
     public function get_records_sql($sql, array $params=null, $limitfrom=0, $limitnum=0) {
+        global $CFG;
+
         $rs = $this->get_recordset_sql($sql, $params, $limitfrom, $limitnum);
         if (!$rs->valid()) {
             $rs->close(); // Not going to iterate (but exit), close rs
             return false;
         }
         $objects = array();
-        $debugging = debugging('', DEBUG_DEVELOPER);
         foreach($rs as $value) {
             $key = reset($value);
-            if ($debugging && array_key_exists($key, $objects)) {
+            if ($CFG->debugdeveloper && array_key_exists($key, $objects)) {
                 debugging("Did you remember to make the first column something unique in your call to get_records? Duplicate value '$key' found in column first column of '$sql'.", DEBUG_DEVELOPER);
             }
             $objects[$key] = (object)$value;

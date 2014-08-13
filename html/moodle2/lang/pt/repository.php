@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Adicionar um módulo de repositório';
 $string['allowexternallinks'] = 'Permitir links externos';
 $string['areacategoryintro'] = 'Introdução da categoria';
 $string['areacourseintro'] = 'Introdução da disciplina';
+$string['areacourseoverviewfiles'] = 'Ficheiros de resumo da disciplina';
 $string['areamainfile'] = 'Ficheiro principal';
 $string['arearoot'] = 'Sistema';
 $string['areauserbackup'] = 'Cópia de segurança do utilizador';
@@ -86,6 +87,9 @@ $string['deleterepository'] = 'Apagar este repositório';
 $string['detailview'] = 'Ver detalhes';
 $string['dimensions'] = 'Dimensões';
 $string['disabled'] = 'Desativado';
+$string['displaydetails'] = 'Exibir pasta com detalhes dos ficheiros';
+$string['displayicons'] = 'Exibir pasta com ícones dos ficheiros';
+$string['displaytree'] = 'Exibir pasta no formato árvore de ficheiros';
 $string['download'] = 'Descarregar';
 $string['downloadfolder'] = 'Descarregar tudo';
 $string['downloadsucc'] = 'O ficheiro foi descarregado com sucesso';
@@ -120,6 +124,7 @@ $string['folderexists'] = 'Nome da pasta já está a ser usado, por favor use ou
 $string['foldernotfound'] = 'Pasta não encontrada';
 $string['folderrecurse'] = 'A pasta não pode ser movida para a sua própria subpasta';
 $string['getfile'] = 'Escolher este ficheiro';
+$string['help'] = 'Ajuda';
 $string['hidden'] = 'Oculto(a)';
 $string['iconview'] = 'Ver na forma de ícones';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -189,6 +194,7 @@ $string['repositories'] = 'Repositórios';
 $string['repository'] = 'Repositório';
 $string['repositorycourse'] = 'Repositórios da disciplina';
 $string['repositoryerror'] = 'O repositório remoto deu o erro: {$a}';
+$string['repositoryicon'] = 'Ícone do repositório';
 $string['save'] = 'Gravar';
 $string['saveas'] = 'Gravar como ';
 $string['saved'] = 'Gravado(a)';
@@ -199,6 +205,7 @@ $string['searchrepo'] = 'Pesquisar repositório';
 $string['sectionbackup'] = 'Cópias de segurança de secção';
 $string['select'] = 'Selecionar';
 $string['setmainfile'] = 'Definir como principal';
+$string['setmainfile_help'] = 'Se existirem vários ficheiros na pasta, o ficheiro principal será o que vai aparecer na página de visualização. Outros ficheiros, como imagens ou vídeos podem ser incorporados. No gestor de ficheiros o ficheiro principal é indicado com um título em negrito.';
 $string['settings'] = 'Configurações';
 $string['setupdefaultplugins'] = 'A configurar módulos de repositório predefinidos';
 $string['siteinstances'] = 'Instâncias de repositórios do site';

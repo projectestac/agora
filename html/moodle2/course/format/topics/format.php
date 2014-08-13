@@ -60,7 +60,7 @@ if ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE){
         $displaysection = 0;
     }
 }
-//************ FI                    
+//************ FI
 
 
 if (!empty($displaysection)) {

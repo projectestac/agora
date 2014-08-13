@@ -1,44 +1,59 @@
 YUI.add('moodle-course-toolboxes', function(Y) {
-    WAITICON = {'pix':"i/loading_small",'component':'moodle'};
-    // The CSS selectors we use
+
+    // The following properties contain common strings.
+    // We separate them out here because when this JS is minified the content is less as
+    // Variables get compacted to single/double characters and the full length of the string
+    // exists only once.
+
+    // The CSS classes we use.
     var CSS = {
-        ACTIVITYLI : 'li.activity',
-        COMMANDSPAN : 'span.commands',
-        SPINNERCOMMANDSPAN : 'span.commands',
-        CONTENTAFTERLINK : 'div.contentafterlink',
-        DELETE : 'a.editing_delete',
+        ACTIVITYINSTANCE : 'activityinstance',
+        AVAILABILITYINFODIV : 'div.availabilityinfo',
+        CONTENTWITHOUTLINK : 'contentwithoutlink',
+        CONDITIONALHIDDEN : 'conditionalhidden',
         DIMCLASS : 'dimmed',
         DIMMEDTEXT : 'dimmed_text',
-        EDITTITLE : 'a.editing_title',
-        EDITTITLECLASS : 'edittitle',
-        GENERICICONCLASS : 'iconsmall',
-        GROUPSNONE : 'a.editing_groupsnone',
-        GROUPSSEPARATE : 'a.editing_groupsseparate',
-        GROUPSVISIBLE : 'a.editing_groupsvisible',
-        HASLABEL : 'label',
+        EDITINSTRUCTIONS : 'editinstructions',
+        EDITINGTITLE: 'editor_displayed',
+        HIDE : 'hide',
+        MODINDENTCOUNT : 'mod-indent-',
+        MODINDENTHUGE : 'mod-indent-huge',
+        MODULEIDPREFIX : 'module-',
+        SECTIONHIDDENCLASS : 'hidden',
+        SECTIONIDPREFIX : 'section-',
+        SHOW : 'editing_show',
+        TITLEEDITOR : 'titleeditor'
+    },
+    // The CSS selectors we use.
+    SELECTOR = {
+        ACTIONAREA: '.actions',
+        ACTIONLINKTEXT : '.actionlinktext',
+        ACTIVITYACTION : 'a.cm-edit-action[data-action], a.editing_title',
+        ACTIVITYFORM : '.' + CSS.ACTIVITYINSTANCE + ' form',
+        ACTIVITYICON : 'img.activityicon',
+        ACTIVITYINSTANCE : '.' + CSS.ACTIVITYINSTANCE,
+        ACTIVITYLINK: '.' + CSS.ACTIVITYINSTANCE + ' > a',
+        ACTIVITYLI : 'li.activity',
+        ACTIVITYTITLE : 'input[name=title]',
+        COMMANDSPAN : '.commands',
+        CONTENTAFTERLINK : 'div.contentafterlink',
+        CONTENTWITHOUTLINK : 'div.contentwithoutlink',
+        EDITTITLE: 'a.editing_title',
         HIDE : 'a.editing_hide',
         HIGHLIGHT : 'a.editing_highlight',
         INSTANCENAME : 'span.instancename',
-        LIGHTBOX : 'lightbox',
-        MODINDENTCOUNT : 'mod-indent-',
-        MODINDENTDIV : 'div.mod-indent',
-        MODINDENTHUGE : 'mod-indent-huge',
-        MODULEIDPREFIX : 'module-',
-        MOVELEFT : 'a.editing_moveleft',
-        MOVELEFTCLASS : 'editing_moveleft',
-        MOVERIGHT : 'a.editing_moveright',
+        MODINDENTDIV : '.mod-indent',
+        MODINDENTOUTER : '.mod-indent-outer',
         PAGECONTENT : 'div#page-content',
-        RIGHTSIDE : '.right',
-        SECTIONHIDDENCLASS : 'hidden',
-        SECTIONIDPREFIX : 'section-',
         SECTIONLI : 'li.section',
-        SHOW : 'a.editing_show',
-        SHOWHIDE : 'a.editing_showhide',
-        CONDITIONALHIDDEN : 'conditionalhidden',
-        AVAILABILITYINFODIV : 'div.availabilityinfo',
-        SHOWCLASS : 'editing_show',
-        HIDECLASS : 'hide'
-    };
+        SHOW : 'a.'+CSS.SHOW,
+        SHOWHIDE : 'a.editing_showhide'
+    },
+    INDENTLIMITS = {
+        MIN: 0,
+        MAX: 16
+    },
+    BODY = Y.one(document.body);
 
     /**
      * The toolbox classes
@@ -49,75 +64,27 @@ YUI.add('moodle-course-toolboxes', function(Y) {
      */
     var TOOLBOX = function() {
         TOOLBOX.superclass.constructor.apply(this, arguments);
-    }
+    };
 
     Y.extend(TOOLBOX, Y.Base, {
         /**
-         * Toggle the visibility and availability for the specified
-         * resource show/hide button
-         */
-        toggle_hide_resource_ui : function(button) {
-            var element = button.ancestor(CSS.ACTIVITYLI);
-            var hideicon = button.one('img');
-
-            var dimarea;
-            var toggle_class;
-            if (this.is_label(element)) {
-                toggle_class = CSS.DIMMEDTEXT;
-                dimarea = element.all(CSS.MODINDENTDIV + ' > div').item(1);
-            } else {
-                toggle_class = CSS.DIMCLASS;
-                dimarea = element.one('a');
-            }
-
-            var status = '';
-            var value;
-            if (button.hasClass(CSS.SHOWCLASS)) {
-                status = 'hide';
-                value = 1;
-            } else {
-                status = 'show';
-                value = 0;
-            }
-            // Update button info.
-            var newstring = M.util.get_string(status, 'moodle');
-            hideicon.setAttrs({
-                'alt' : newstring,
-                'src'   : M.util.image_url('t/' + status)
-            });
-            button.set('title', newstring);
-            button.set('className', 'editing_'+status);
-
-            // If activity is conditionally hidden, then don't toggle.
-            if (!dimarea.hasClass(CSS.CONDITIONALHIDDEN)) {
-                // Change the UI.
-                dimarea.toggleClass(toggle_class);
-                // We need to toggle dimming on the description too.
-                element.all(CSS.CONTENTAFTERLINK).toggleClass(CSS.DIMMEDTEXT);
-            }
-            // Toggle availablity info for conditional activities.
-            var availabilityinfo = element.one(CSS.AVAILABILITYINFODIV);
-
-            if (availabilityinfo) {
-                availabilityinfo.toggleClass(CSS.HIDECLASS);
-            }
-            return value;
-        },
-        /**
          * Send a request using the REST API
          *
+         * @method send_request
          * @param data The data to submit
          * @param statusspinner (optional) A statusspinner which may contain a section loader
+         * @param {Function} success_callback The callback to use on success
          * @param optionalconfig (optional) Any additional configuration to submit
-         * @return response responseText field from responce
+         * @return response responseText field from response - please use success_callback instead
          */
-        send_request : function(data, statusspinner, optionalconfig) {
+        send_request : function(data, statusspinner, success_callback, optionalconfig) {
             // Default data structure
             if (!data) {
                 data = {};
             }
             // Handle any variables which we must pass back through to
-            var pageparams = this.get('config').pageparams;
+            var pageparams = this.get('config').pageparams,
+                varname;
             for (varname in pageparams) {
                 data[varname] = pageparams[varname];
             }
@@ -140,8 +107,14 @@ YUI.add('moodle-course-toolboxes', function(Y) {
                                 new M.core.ajaxException(responsetext);
                             }
                         } catch (e) {}
+
+                        // Run the callback if we have one.
+                        if (success_callback) {
+                            Y.bind(success_callback, this, responsetext)();
+                        }
+
                         if (statusspinner) {
-                            window.setTimeout(function(e) {
+                            window.setTimeout(function() {
                                 statusspinner.hide();
                             }, 400);
                         }
@@ -153,9 +126,8 @@ YUI.add('moodle-course-toolboxes', function(Y) {
                         new M.core.ajaxException(response);
                     }
                 },
-                context: this,
-                sync: true
-            }
+                context: this
+            };
 
             // Apply optional config
             if (optionalconfig) {
@@ -171,27 +143,6 @@ YUI.add('moodle-course-toolboxes', function(Y) {
             // Send the request
             Y.io(uri, config);
             return responsetext;
-        },
-        is_label : function(target) {
-            return target.hasClass(CSS.HASLABEL);
-        },
-        /**
-         * Return the module ID for the specified element
-         *
-         * @param element The <li> element to determine a module-id number for
-         * @return string The module ID
-         */
-        get_element_id : function(element) {
-            return element.get('id').replace(CSS.MODULEIDPREFIX, '');
-        },
-        /**
-         * Return the module ID for the specified element
-         *
-         * @param element The <li> element to determine a module-id number for
-         * @return string The module ID
-         */
-        get_section_id : function(section) {
-            return section.get('id').replace(CSS.SECTIONIDPREFIX, '');
         }
     },
     {
@@ -211,90 +162,178 @@ YUI.add('moodle-course-toolboxes', function(Y) {
     }
     );
 
-
+    /**
+     * Resource and activity toolbox class.
+     *
+     * This class is responsible for managing AJAX interactions with activities and resources
+     * when viewing a course in editing mode.
+     *
+     * @namespace M.course.toolbox
+     * @class ResourceToolbox
+     * @constructor
+     */
     var RESOURCETOOLBOX = function() {
         RESOURCETOOLBOX.superclass.constructor.apply(this, arguments);
     }
 
     Y.extend(RESOURCETOOLBOX, TOOLBOX, {
-        // Variables
+        /**
+         * No groups are being used.
+         * @static
+         * @const GROUPS_NONE
+         * @type Number
+         */
         GROUPS_NONE     : 0,
+        /**
+         * Separate groups are being used.
+         * @static
+         * @const GROUPS_SEPARATE
+         * @type Number
+         */
         GROUPS_SEPARATE : 1,
+        /**
+         * Visible groups are being used.
+         * @static
+         * @const GROUPS_VISIBLE
+         * @type Number
+         */
         GROUPS_VISIBLE  : 2,
+
+        /**
+         * Events that were added when editing a title.
+         * These should all be detached when editing is complete.
+         * @property edittitleevents
+         * @type {Event[]}
+         * @protected
+         */
+        edittitleevents : [],
 
         /**
          * Initialize the resource toolbox
          *
-         * Updates all span.commands with relevant handlers and other required changes
+         * For each activity the commands are updated and a reference to the activity is attached.
+         * This way it doesn't matter where the commands are going to called from they have a reference to the
+         * activity that they relate to.
+         * This is essential as some of the actions are displayed in an actionmenu which removes them from the
+         * page flow.
+         *
+         * This function also creates a single event delegate to manage all AJAX actions for all activities on
+         * the page.
+         *
+         * @method initializer
          */
-        initializer : function(config) {
-            this.setup_for_resource();
+        initializer : function() {
             M.course.coursebase.register_module(this);
-
-            var prefix = CSS.ACTIVITYLI + ' ' + CSS.COMMANDSPAN + ' ';
-            Y.delegate('click', this.edit_resource_title, CSS.PAGECONTENT, prefix + CSS.EDITTITLE, this);
-            Y.delegate('click', this.move_left, CSS.PAGECONTENT, prefix + CSS.MOVELEFT, this);
-            Y.delegate('click', this.move_right, CSS.PAGECONTENT, prefix + CSS.MOVERIGHT, this);
-            Y.delegate('click', this.delete_resource, CSS.PAGECONTENT, prefix + CSS.DELETE, this);
-            Y.delegate('click', this.toggle_hide_resource, CSS.PAGECONTENT, prefix + CSS.HIDE, this);
-            Y.delegate('click', this.toggle_hide_resource, CSS.PAGECONTENT, prefix + CSS.SHOW, this);
-            Y.delegate('click', this.toggle_groupmode, CSS.PAGECONTENT, prefix + CSS.GROUPSNONE, this);
-            Y.delegate('click', this.toggle_groupmode, CSS.PAGECONTENT, prefix + CSS.GROUPSSEPARATE, this);
-            Y.delegate('click', this.toggle_groupmode, CSS.PAGECONTENT, prefix + CSS.GROUPSVISIBLE, this);
+            BODY.delegate('key', this.handle_data_action, 'down:enter', SELECTOR.ACTIVITYACTION, this);
+            Y.delegate('click', this.handle_data_action, BODY, SELECTOR.ACTIVITYACTION, this);
         },
 
         /**
-         * Update any span.commands within the scope of the specified
-         * selector with AJAX equivelants
+         * Handles the delegation event. When this is fired someone has triggered an action.
          *
-         * @param baseselector The selector to limit scope to
-         * @return void
+         * Note not all actions will result in an AJAX enhancement.
+         *
+         * @protected
+         * @method handle_data_action
+         * @param {EventFacade} ev The event that was triggered.
+         * @returns {boolean}
          */
-        setup_for_resource : function(baseselector) {
-            if (!baseselector) {
-                var baseselector = CSS.PAGECONTENT + ' ' + CSS.ACTIVITYLI;
+        handle_data_action : function(ev) {
+            // We need to get the anchor element that triggered this event.
+            var node = ev.target;
+            if (!node.test('a')) {
+                node = node.ancestor(SELECTOR.ACTIVITYACTION);
             }
 
-            Y.all(baseselector).each(this._setup_for_resource, this);
-        },
-        _setup_for_resource : function(toolboxtarget) {
-            toolboxtarget = Y.one(toolboxtarget);
+            // From the anchor we can get both the activity (added during initialisation) and the action being
+            // performed (added by the UI as a data attribute).
+            var action = node.getData('action'),
+                activity = node.ancestor(SELECTOR.ACTIVITYLI);
 
-            // Set groupmode attribute for use by this.toggle_groupmode()
-            var groups;
-            groups = toolboxtarget.all(CSS.COMMANDSPAN + ' ' + CSS.GROUPSNONE);
-            groups.setAttribute('groupmode', this.GROUPS_NONE);
+            if (!node.test('a') || !action || !activity) {
+                // It wasn't a valid action node.
+                return;
+            }
+            Y.log(ev.type);
 
-            groups = toolboxtarget.all(CSS.COMMANDSPAN + ' ' + CSS.GROUPSSEPARATE);
-            groups.setAttribute('groupmode', this.GROUPS_SEPARATE);
+            // Switch based upon the action and do the desired thing.
+            switch (action) {
+                case 'edittitle' :
+                    // The user wishes to edit the title of the event.
+                    this.edit_title(ev, node, activity, action);
+                    break;
+                case 'moveleft' :
+                case 'moveright' :
+                    // The user changing the indent of the activity.
+                    this.change_indent(ev, node, activity, action);
+                    break;
+                case 'delete' :
+                    // The user is deleting the activity.
+                    this.delete_with_confirmation(ev, node, activity, action);
+                    break;
+                case 'duplicate' :
+                    // The user is duplicating the activity.
+                    this.duplicate(ev, node, activity, action);
+                    break;
+                case 'hide' :
+                case 'show' :
+                    // The user is changing the visibility of the activity.
+                    this.change_visibility(ev, node, activity, action);
+                    break;
+                case 'groupsseparate' :
+                case 'groupsvisible' :
+                case 'groupsnone' :
+                    // The user is changing the group mode.
+                    callback = 'change_groupmode';
+                    this.change_groupmode(ev, node, activity, action);
+                    break;
+                case 'move' :
+                case 'update' :
+                case 'duplicate' :
+                case 'assignroles' :
+                default:
+                    // Nothing to do here!
+                    break;
+            }
+        },
+        add_spinner: function(activity) {
+            var actionarea = activity.one(SELECTOR.ACTIONAREA);
+            return M.util.add_spinner(Y, actionarea);
+        },
 
-            groups = toolboxtarget.all(CSS.COMMANDSPAN + ' ' + CSS.GROUPSVISIBLE);
-            groups.setAttribute('groupmode', this.GROUPS_VISIBLE);
-        },
-        move_left : function(e) {
-            this.move_leftright(e, -1);
-        },
-        move_right : function(e) {
-            this.move_leftright(e, 1);
-        },
-        move_leftright : function(e, direction) {
+        /**
+         * Change the indent of the activity or resource.
+         *
+         * @protected
+         * @method change_indent
+         * @param {EventFacade} ev The event that was fired.
+         * @param {Node} button The button that triggered this action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @param {String} action The action that has been requested. Will be 'moveleft' or 'moveright'.
+         */
+        change_indent : function(ev, button, activity, action) {
             // Prevent the default button action
-            e.preventDefault();
+            ev.preventDefault();
 
-            // Get the element we're working on
-            var element = e.target.ancestor(CSS.ACTIVITYLI);
+            var direction = (action === 'moveleft') ? -1 : 1;
 
             // And we need to determine the current and new indent level
-            var indentdiv = element.one(CSS.MODINDENTDIV);
-            var indent = indentdiv.getAttribute('class').match(/mod-indent-(\d{1,})/);
+            var indentdiv = activity.one(SELECTOR.MODINDENTDIV),
+                indent = indentdiv.getAttribute('class').match(/mod-indent-(\d{1,})/),
+                oldindent = 0,
+                newindent;
 
             if (indent) {
-                var oldindent = parseInt(indent[1]);
-                var newindent = Math.max(0, (oldindent + parseInt(direction)));
+                oldindent = parseInt(indent[1], 10);
+            }
+            newindent = oldindent + parseInt(direction, 10);
+
+            if (newindent < INDENTLIMITS.MIN || newindent > INDENTLIMITS.MAX) {
+                return;
+            }
+
+            if (indent) {
                 indentdiv.removeClass(indent[0]);
-            } else {
-                var oldindent = 0;
-                var newindent = 1;
             }
 
             // Perform the move
@@ -303,16 +342,26 @@ YUI.add('moodle-course-toolboxes', function(Y) {
                 'class' : 'resource',
                 'field' : 'indent',
                 'value' : newindent,
-                'id'    : this.get_element_id(element)
+                'id'    : Y.Moodle.core_course.util.cm.getId(activity)
             };
-            var spinner = M.util.add_spinner(Y, element.one(CSS.SPINNERCOMMANDSPAN));
+            var spinner = this.add_spinner(activity);
             this.send_request(data, spinner);
 
-            // Handle removal/addition of the moveleft button
-            if (newindent == 0) {
-                element.one(CSS.MOVELEFT).remove();
-            } else if (newindent == 1 && oldindent == 0) {
-                this.add_moveleft(element);
+            var remainingmove;
+
+            // Handle removal/addition of the moveleft button.
+            if (newindent === INDENTLIMITS.MIN) {
+                button.addClass('hidden');
+                remainingmove = activity.one('.editing_moveright');
+            } else if (newindent > INDENTLIMITS.MIN && oldindent === INDENTLIMITS.MIN) {
+                button.ancestor('.menu').one('[data-action=moveleft]').removeClass('hidden');
+            }
+
+            if (newindent === INDENTLIMITS.MAX) {
+                button.addClass('hidden');
+                remainingmove = activity.one('.editing_moveleft');
+            } else if (newindent < INDENTLIMITS.MAX && oldindent === INDENTLIMITS.MAX) {
+                button.ancestor('.menu').one('[data-action=moveright]').removeClass('hidden');
             }
 
             // Handle massive indentation to match non-ajax display
@@ -322,27 +371,39 @@ YUI.add('moodle-course-toolboxes', function(Y) {
             } else if (newindent <= 15 && hashugeclass) {
                 indentdiv.removeClass(CSS.MODINDENTHUGE);
             }
+
+            if (ev.type && ev.type === "key" && remainingmove) {
+                remainingmove.focus();
+            }
         },
-        delete_resource : function(e) {
+
+        /**
+         * Deletes the given activity or resource after confirmation.
+         *
+         * @protected
+         * @method delete_with_confirmation
+         * @param {EventFacade} ev The event that was fired.
+         * @param {Node} button The button that triggered this action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @return Boolean
+         */
+        delete_with_confirmation : function(ev, button, activity) {
             // Prevent the default button action
-            e.preventDefault();
+            ev.preventDefault();
 
             // Get the element we're working on
-            var element   = e.target.ancestor(CSS.ACTIVITYLI);
+            var element   = activity
 
+            // Create confirm string (different if element has or does not have name)
             var confirmstring = '';
-            if (this.is_label(element)) {
-                // Labels are slightly different to other activities
-                var plugindata = {
-                    type : M.util.get_string('pluginname', 'label')
-                }
-                confirmstring = M.util.get_string('deletechecktype', 'moodle', plugindata)
-            } else {
-                var plugindata = {
-                    type : M.util.get_string('pluginname', element.getAttribute('class').match(/modtype_([^\s]*)/)[1]),
-                    name : element.one(CSS.INSTANCENAME).get('firstChild').get('data')
-                }
+            var plugindata = {
+                type : M.util.get_string('pluginname', element.getAttribute('class').match(/modtype_([^\s]*)/)[1])
+            }
+            if (Y.Moodle.core_course.util.cm.getName(element) != null) {
+                plugindata.name = Y.Moodle.core_course.util.cm.getName(element)
                 confirmstring = M.util.get_string('deletechecktypename', 'moodle', plugindata);
+            } else {
+                confirmstring = M.util.get_string('deletechecktype', 'moodle', plugindata)
             }
 
             // Confirm element removal
@@ -355,266 +416,396 @@ YUI.add('moodle-course-toolboxes', function(Y) {
             var data = {
                 'class' : 'resource',
                 'action' : 'DELETE',
-                'id'    : this.get_element_id(element)
+                'id'    : Y.Moodle.core_course.util.cm.getId(element)
             };
             this.send_request(data);
-        },
-        toggle_hide_resource : function(e) {
-            // Prevent the default button action
-            e.preventDefault();
-
-            // Return early if the current section is hidden
-            var section = e.target.ancestor(M.course.format.get_section_selector(Y));
-            if (section && section.hasClass(CSS.SECTIONHIDDENCLASS)) {
-                return;
+            if (M.core.actionmenu && M.core.actionmenu.instance) {
+                M.core.actionmenu.instance.hideMenu();
             }
+        },
+
+        /**
+         * Duplicates the activity
+         *
+         * @protected
+         * @method duplicate
+         * @param {EventFacade} ev The event that was fired.
+         * @param {Node} button The button that triggered this action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @return Boolean
+         */
+        duplicate : function(ev, button, activity) {
+            // Prevent the default button action
+            ev.preventDefault();
 
             // Get the element we're working on
-            var element = e.target.ancestor(CSS.ACTIVITYLI);
+            var element = activity;
 
-            var button = e.target.ancestor('a', true);
+            // Add the lightbox.
+            var section = activity.ancestor(M.course.format.get_section_selector(Y)),
+                lightbox = M.util.add_lightbox(Y, section).show();
 
-            var value = this.toggle_hide_resource_ui(button);
+            // Build and send the request.
+            var data = {
+                'class' : 'resource',
+                'field' : 'duplicate',
+                'id'    : Y.Moodle.core_course.util.cm.getId(element),
+                'sr'    : button.getData('sr')
+            };
+            this.send_request(data, lightbox, function(response) {
+                var newcm = Y.Node.create(response.fullcontent);
+
+                // Append to the section?
+                activity.insert(newcm, 'after');
+                Y.use('moodle-course-coursebase', function() {
+                    M.course.coursebase.invoke_function('setup_for_resource', newcm);
+                });
+                if (M.core.actionmenu && M.core.actionmenu.newDOMNode) {
+                    M.core.actionmenu.newDOMNode(newcm);
+                }
+            });
+        },
+
+        /**
+         * Changes the visibility of this activity or resource.
+         *
+         * @protected
+         * @method change_visibility
+         * @param {EventFacade} ev The event that was fired.
+         * @param {Node} button The button that triggered this action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @param {String} action The action that has been requested.
+         * @return Boolean
+         */
+        change_visibility : function(ev, button, activity, action) {
+            // Prevent the default button action
+            ev.preventDefault();
+
+            // Get the element we're working on
+            var element = activity;
+            var value = this.handle_resource_dim(button, activity, action);
 
             // Send the request
             var data = {
                 'class' : 'resource',
                 'field' : 'visible',
                 'value' : value,
-                'id'    : this.get_element_id(element)
+                'id'    : Y.Moodle.core_course.util.cm.getId(element)
             };
-            var spinner = M.util.add_spinner(Y, element.one(CSS.SPINNERCOMMANDSPAN));
+            var spinner = this.add_spinner(element);
             this.send_request(data, spinner);
             return false; // Need to return false to stop the delegate for the new state firing
         },
-        toggle_groupmode : function(e) {
-            // Prevent the default button action
-            e.preventDefault();
 
-            // Get the element we're working on
-            var element = e.target.ancestor(CSS.ACTIVITYLI);
+        /**
+         * Handles the UI aspect of dimming the activity or resource.
+         *
+         * @protected
+         * @method handle_resource_dim
+         * @param {Node} button The button that triggered the action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @param {String} action 'show' or 'hide'.
+         * @returns {number} 1 if we changed to visible, 0 if we were hiding.
+         */
+        handle_resource_dim : function(button, activity, action) {
+            var toggleclass = CSS.DIMCLASS,
+                dimarea = activity.one([
+                        SELECTOR.ACTIVITYLINK,
+                        SELECTOR.CONTENTWITHOUTLINK
+                    ].join(', ')),
+                availabilityinfo = activity.one(CSS.AVAILABILITYINFODIV),
+                nextaction = (action === 'hide') ? 'show' : 'hide',
+                buttontext = button.one('span'),
+                newstring = M.util.get_string(nextaction, 'moodle'),
+                buttonimg = button.one('img');
 
-            var button = e.target.ancestor('a', true);
-            var icon = button.one('img');
+            // Update button info.
+            buttonimg.setAttrs({
+                'src'   : M.util.image_url('t/' + nextaction)
+            });
+
+            if (Y.Lang.trim(button.getAttribute('title'))) {
+                button.setAttribute('title', newstring);
+            }
+
+            if (Y.Lang.trim(buttonimg.getAttribute('alt'))) {
+                buttonimg.setAttribute('alt', newstring);
+            }
+
+            button.replaceClass('editing_'+action, 'editing_'+nextaction);
+            button.setData('action', nextaction);
+            if (buttontext) {
+                buttontext.set('text', newstring);
+            }
+
+            if (activity.one(SELECTOR.CONTENTWITHOUTLINK)) {
+                dimarea = activity.one(SELECTOR.CONTENTWITHOUTLINK);
+                toggleclass = CSS.DIMMEDTEXT;
+            }
+
+            // If activity is conditionally hidden, then don't toggle.
+            if (!dimarea.hasClass(CSS.CONDITIONALHIDDEN)) {
+                // Change the UI.
+                dimarea.toggleClass(toggleclass);
+                // We need to toggle dimming on the description too.
+                activity.all(SELECTOR.CONTENTAFTERLINK).toggleClass(CSS.DIMMEDTEXT);
+            }
+            // Toggle availablity info for conditional activities.
+            if (availabilityinfo) {
+                availabilityinfo.toggleClass(CSS.HIDE);
+            }
+            return (action === 'hide') ? 0 : 1;
+        },
+
+        /**
+         * Changes the groupmode of the activity to the next groupmode in the sequence.
+         *
+         * @protected
+         * @method change_groupmode
+         * @param {EventFacade} ev The event that was fired.
+         * @param {Node} button The button that triggered this action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @param {String} action The action that has been requested.
+         * @return Boolean
+         */
+        change_groupmode : function(ev, button, activity, action) {
+            // Prevent the default button action.
+            ev.preventDefault();
 
             // Current Mode
-            var groupmode = button.getAttribute('groupmode');
-            groupmode++;
-            if (groupmode > 2) {
-                groupmode = 0;
-            }
-            button.setAttribute('groupmode', groupmode);
+            var groupmode = parseInt(button.getData('nextgroupmode'), 10),
+                newtitle = '',
+                iconsrc = '',
+                newtitlestr,
+                data,
+                spinner,
+                nextgroupmode = groupmode + 1,
+                buttonimg = button.one('img');
 
-            var newtitle = '';
-            var iconsrc = '';
-            switch (groupmode) {
-                case this.GROUPS_NONE:
-                    newtitle = 'groupsnone';
-                    iconsrc = M.util.image_url('t/groupn');
-                    break;
-                case this.GROUPS_SEPARATE:
-                    newtitle = 'groupsseparate';
-                    iconsrc = M.util.image_url('t/groups');
-                    break;
-                case this.GROUPS_VISIBLE:
-                    newtitle = 'groupsvisible';
-                    iconsrc = M.util.image_url('t/groupv');
-                    break;
+            if (nextgroupmode > 2) {
+                nextgroupmode = 0;
             }
-            newtitle = M.util.get_string('clicktochangeinbrackets', 'moodle',
-                    M.util.get_string(newtitle, 'moodle'));
+
+            if (groupmode === this.GROUPS_NONE) {
+                newtitle = 'groupsnone';
+                iconsrc = M.util.image_url('i/groupn', 'moodle');
+            } else if (groupmode === this.GROUPS_SEPARATE) {
+                newtitle = 'groupsseparate';
+                iconsrc = M.util.image_url('i/groups', 'moodle');
+            } else if (groupmode === this.GROUPS_VISIBLE) {
+                newtitle = 'groupsvisible';
+                iconsrc = M.util.image_url('i/groupv', 'moodle');
+            }
+            newtitlestr = M.util.get_string(newtitle, 'moodle'),
+            newtitlestr = M.util.get_string('clicktochangeinbrackets', 'moodle', newtitlestr);
 
             // Change the UI
-            icon.setAttrs({
-                'alt' : newtitle,
+            buttonimg.setAttrs({
                 'src' : iconsrc
             });
-            button.setAttribute('title', newtitle);
+            if (Y.Lang.trim(button.getAttribute('title'))) {
+                button.setAttribute('title', newtitlestr).setData('action', newtitle).setData('nextgroupmode', nextgroupmode);
+            }
+
+            if (Y.Lang.trim(buttonimg.getAttribute('alt'))) {
+                buttonimg.setAttribute('alt', newtitlestr);
+            }
 
             // And send the request
-            var data = {
+            data = {
                 'class' : 'resource',
                 'field' : 'groupmode',
                 'value' : groupmode,
-                'id'    : this.get_element_id(element)
+                'id'    : Y.Moodle.core_course.util.cm.getId(activity)
             };
-            var spinner = M.util.add_spinner(Y, element.one(CSS.SPINNERCOMMANDSPAN));
+
+            spinner = this.add_spinner(activity);
             this.send_request(data, spinner);
             return false; // Need to return false to stop the delegate for the new state firing
         },
-        /**
-         * Add the moveleft button
-         * This is required after moving left from an initial position of 0
-         *
-         * @param target The encapsulating <li> element
-         */
-        add_moveleft : function(target) {
-            var left_string = M.util.get_string('moveleft', 'moodle');
-            var moveimage = 't/left'; // ltr mode
-            if ( Y.one(document.body).hasClass('dir-rtl') ) {
-                moveimage = 't/right';
-            } else {
-                moveimage = 't/left';
-            }
-            var newicon = Y.Node.create('<img />')
-                .addClass(CSS.GENERICICONCLASS)
-                .setAttrs({
-                    'src'   : M.util.image_url(moveimage, 'moodle'),
-                    'alt'   : left_string
-                });
-            var moveright = target.one(CSS.MOVERIGHT);
-            var newlink = moveright.getAttribute('href').replace('indent=1', 'indent=-1');
-            var anchor = new Y.Node.create('<a />')
-                .setStyle('cursor', 'pointer')
-                .addClass(CSS.MOVELEFTCLASS)
-                .setAttribute('href', newlink)
-                .setAttribute('title', left_string);
-            anchor.appendChild(newicon);
-            moveright.insert(anchor, 'before');
-        },
+
         /**
          * Edit the title for the resource
+         *
+         * @protected
+         * @method edit_title
+         * @param {EventFacade} ev The event that was fired.
+         * @param {Node} button The button that triggered this action.
+         * @param {Node} activity The activity node that this action will be performed on.
+         * @param {String} action The action that has been requested.
+         * @return Boolean
          */
-        edit_resource_title : function(e) {
+        edit_title : function(ev, button, activity) {
             // Get the element we're working on
-            var element = e.target.ancestor(CSS.ACTIVITYLI);
-            var elementdiv = element.one('div');
-            var instancename  = element.one(CSS.INSTANCENAME);
-            var currenttitle = instancename.get('firstChild');
-            var oldtitle = currenttitle.get('data');
-            var titletext = oldtitle;
-            var editbutton = element.one('a.' + CSS.EDITTITLECLASS + ' img');
+            var activityid = Y.Moodle.core_course.util.cm.getId(activity),
+                instancename  = activity.one(SELECTOR.INSTANCENAME),
+                instance = activity.one(SELECTOR.ACTIVITYINSTANCE),
+                currenttitle = instancename.get('firstChild'),
+                oldtitle = currenttitle.get('data'),
+                titletext = oldtitle,
+                thisevent,
+                anchor = instancename.ancestor('a'),// Grab the anchor so that we can swap it with the edit form.
+                data = {
+                    'class'   : 'resource',
+                    'field'   : 'gettitle',
+                    'id'      : activityid
+                };
 
-            // Handle events for edit_resource_title
-            var listenevents = [];
-            var thisevent;
+            // Prevent the default actions.
+            ev.preventDefault();
 
-            // Grab the anchor so that we can swap it with the edit form
-            var anchor = instancename.ancestor('a');
+            this.send_request(data, null, function(response) {
+                if (M.core.actionmenu && M.core.actionmenu.instance) {
+                    M.core.actionmenu.instance.hideMenu();
+                }
 
-            var data = {
-                'class'   : 'resource',
-                'field'   : 'gettitle',
-                'id'      : this.get_element_id(element)
-            };
+                // Try to retrieve the existing string from the server
+                if (response.instancename) {
+                    titletext = response.instancename;
+                }
 
-            // Try to retrieve the existing string from the server
-            var response = this.send_request(data, editbutton);
-            if (response.instancename) {
-                titletext = response.instancename;
-            }
-
-            // Create the editor and submit button
-            var editor = Y.Node.create('<input />')
-                .setAttrs({
-                    'name'  : 'title',
+                // Create the editor and submit button
+                var editform = Y.Node.create('<form action="#" />');
+                var editinstructions = Y.Node.create('<span class="'+CSS.EDITINSTRUCTIONS+'" id="id_editinstructions" />')
+                    .set('innerHTML', M.util.get_string('edittitleinstructions', 'moodle'));
+                var editor = Y.Node.create('<input name="title" type="text" class="'+CSS.TITLEEDITOR+'" />').setAttrs({
                     'value' : titletext,
                     'autocomplete' : 'off',
                     'aria-describedby' : 'id_editinstructions',
                     'maxLength' : '255'
-                })
-                .addClass('titleeditor');
-            var editform = Y.Node.create('<form />')
-                .addClass('activityinstance')
-                .setAttribute('action', '#');
-            var editinstructions = Y.Node.create('<span />')
-                .addClass('editinstructions')
-                .setAttrs({'id' : 'id_editinstructions'})
-                .set('innerHTML', M.util.get_string('edittitleinstructions', 'moodle'));
-            var activityicon = element.one('img.activityicon').cloneNode();
+                });
 
-            // Clear the existing content and put the editor in
-            currenttitle.set('data', '');
-            editform.appendChild(activityicon);
-            editform.appendChild(editor);
-            anchor.replace(editform);
-            elementdiv.appendChild(editinstructions);
-            e.preventDefault();
+                // Clear the existing content and put the editor in
+                editform.appendChild(activity.one(SELECTOR.ACTIVITYICON).cloneNode());
+                editform.appendChild(editor);
+                editform.setData('anchor', anchor);
+                instance.insert(editinstructions, 'before');
+                anchor.replace(editform);
 
-            // Focus and select the editor text
-            editor.focus().select();
-
-            // Handle removal of the editor
-            var clear_edittitle = function() {
-                // Detach all listen events to prevent duplicate triggers
-                var thisevent;
-                while (thisevent = listenevents.shift()) {
-                    thisevent.detach();
+                // Force the editing instruction to match the mod-indent position.
+                var padside = 'left';
+                if (right_to_left()) {
+                    padside = 'right';
                 }
 
-                if (editinstructions) {
-                    // Convert back to anchor and remove instructions
-                    editform.replace(anchor);
-                    editinstructions.remove();
-                    editinstructions = null;
-                }
+                // We hide various components whilst editing:
+                activity.addClass(CSS.EDITINGTITLE);
+
+                // Focus and select the editor text
+                editor.focus().select();
+
+                // Cancel the edit if we lose focus or the escape key is pressed.
+                thisevent = editor.on('blur', this.edit_title_cancel, this, activity, false);
+                this.edittitleevents.push(thisevent);
+                thisevent = editor.on('key', this.edit_title_cancel, 'esc', this, activity, true);
+                this.edittitleevents.push(thisevent);
+
+                // Handle form submission.
+                thisevent = editform.on('submit', this.edit_title_submit, this, activity, oldtitle);
+                this.edittitleevents.push(thisevent);
+            });
+        },
+
+        /**
+         * Handles the submit event when editing the activity or resources title.
+         *
+         * @protected
+         * @method edit_title_submit
+         * @param {EventFacade} ev The event that triggered this.
+         * @param {Node} activity The activity whose title we are altering.
+         * @param {String} originaltitle The original title the activity or resource had.
+         */
+        edit_title_submit : function(ev, activity, originaltitle) {
+            // We don't actually want to submit anything
+            ev.preventDefault();
+
+            var newtitle = Y.Lang.trim(activity.one(SELECTOR.ACTIVITYFORM + ' ' + SELECTOR.ACTIVITYTITLE).get('value'));
+            this.edit_title_clear(activity);
+            var spinner = this.add_spinner(activity);
+            if (newtitle != null && newtitle != "" && newtitle != originaltitle) {
+                var data = {
+                    'class'   : 'resource',
+                    'field'   : 'updatetitle',
+                    'title'   : newtitle,
+                    'id'      : Y.Moodle.core_course.util.cm.getId(activity)
+                };
+                this.send_request(data, spinner, function(response) {
+                    if (response.instancename) {
+                        activity.one(SELECTOR.INSTANCENAME).setContent(response.instancename);
+                    }
+                });
+            }
+        },
+
+        /**
+         * Handles the cancel event when editing the activity or resources title.
+         *
+         * @protected
+         * @method edit_title_cancel
+         * @param {EventFacade} ev The event that triggered this.
+         * @param {Node} activity The activity whose title we are altering.
+         * @param {Boolean} preventdefault If true we should prevent the default action from occuring.
+         */
+        edit_title_cancel : function(ev, activity, preventdefault) {
+            if (preventdefault) {
+                ev.preventDefault();
+            }
+            this.edit_title_clear(activity);
+        },
+
+        /**
+         * Handles clearing the editing UI and returning things to the original state they were in.
+         *
+         * @protected
+         * @method edit_title_clear
+         * @param {Node} activity  The activity whose title we were altering.
+         */
+        edit_title_clear : function(activity) {
+            // Detach all listen events to prevent duplicate triggers
+            var thisevent;
+            while (thisevent = this.edittitleevents.shift()) {
+                thisevent.detach();
+            }
+            var editform = activity.one(SELECTOR.ACTIVITYFORM),
+                instructions = activity.one('#id_editinstructions');
+            if (editform) {
+                editform.replace(editform.getData('anchor'));
+            }
+            if (instructions) {
+                instructions.remove();
             }
 
-            // Handle cancellation of the editor
-            var cancel_edittitle = function(e) {
-                clear_edittitle();
+            // Remove the editing class again to revert the display.
+            activity.removeClass(CSS.EDITINGTITLE);
 
-                // Set the title and anchor back to their previous settings
-                currenttitle.set('data', oldtitle);
-            };
-
-            // Cancel the edit if we lose focus or the escape key is pressed
-            thisevent = editor.on('blur', cancel_edittitle);
-            listenevents.push(thisevent);
-            thisevent = Y.one('document').on('keydown', function(e) {
-                if (e.keyCode === 27) {
-                    e.preventDefault();
-                    cancel_edittitle(e);
-                }
+            // Refocus the link which was clicked originally so the user can continue using keyboard nav.
+            Y.later(100, this, function() {
+                activity.one(SELECTOR.EDITTITLE).focus();
             });
-            listenevents.push(thisevent);
-
-            // Handle form submission
-            thisevent = editform.on('submit', function(e) {
-                // We don't actually want to submit anything
-                e.preventDefault();
-
-                // Clear the edit title boxes
-                clear_edittitle();
-
-                // We only accept strings which have valid content
-                var newtitle = Y.Lang.trim(editor.get('value'));
-                if (newtitle != null && newtitle != "" && newtitle != titletext) {
-                    var data = {
-                        'class'   : 'resource',
-                        'field'   : 'updatetitle',
-                        'title'   : newtitle,
-                        'id'      : this.get_element_id(element)
-                    };
-                    var response = this.send_request(data, editbutton);
-                    if (response.instancename) {
-                        currenttitle.set('data', response.instancename);
-                    }
-                } else {
-                    // Invalid content. Set the title back to it's original contents
-                    currenttitle.set('data', oldtitle);
-                }
-            }, this);
-            listenevents.push(thisevent);
         },
+
         /**
          * Set the visibility of the current resource (identified by the element)
          * to match the hidden parameter (this is not a toggle).
          * Only changes the visibility in the browser (no ajax update).
+         *
+         * @public This method is used by other modules.
+         * @method set_visibility_resource_ui
          * @param args An object with 'element' being the A node containing the resource
-         *             and 'visible' being the state that the visiblity should be set to.
-         * @return void
+         *             and 'visible' being the state that the visibility should be set to.
          */
         set_visibility_resource_ui: function(args) {
-            var element = args.element;
-            var shouldbevisible = args.visible;
-            var buttonnode = element.one(CSS.SHOW);
-            var visible = (buttonnode === null);
+            var element = args.element,
+                shouldbevisible = args.visible,
+                buttonnode = element.one(SELECTOR.SHOW),
+                visible = (buttonnode === null),
+                action = 'show';
             if (visible) {
-                buttonnode = element.one(CSS.HIDE);
+                buttonnode = element.one(SELECTOR.HIDE);
+                action = 'hide';
             }
             if (visible != shouldbevisible) {
-                this.toggle_hide_resource_ui(buttonnode);
+                this.handle_resource_dim(buttonnode, element, action);
             }
         }
     }, {
@@ -644,9 +835,9 @@ YUI.add('moodle-course-toolboxes', function(Y) {
             M.course.coursebase.register_module(this);
 
             // Section Highlighting
-            Y.delegate('click', this.toggle_highlight, CSS.PAGECONTENT, CSS.SECTIONLI + ' ' + CSS.HIGHLIGHT, this);
+            Y.delegate('click', this.toggle_highlight, SELECTOR.PAGECONTENT, SELECTOR.SECTIONLI + ' ' + SELECTOR.HIGHLIGHT, this);
             // Section Visibility
-            Y.delegate('click', this.toggle_hide_section, CSS.PAGECONTENT, CSS.SECTIONLI + ' ' + CSS.SHOWHIDE, this);
+            Y.delegate('click', this.toggle_hide_section, SELECTOR.PAGECONTENT, SELECTOR.SECTIONLI + ' ' + SELECTOR.SHOWHIDE, this);
         },
         /**
          * Update any section areas within the scope of the specified
@@ -658,7 +849,7 @@ YUI.add('moodle-course-toolboxes', function(Y) {
         setup_for_section : function(baseselector) {
             // Left here for potential future use - not currently needed due to YUI delegation in initializer()
             /*if (!baseselector) {
-                var baseselector = CSS.PAGECONTENT;
+                var baseselector = SELECTOR.PAGECONTENT;
             }
 
             Y.all(baseselector).each(this._setup_for_section, this);*/
@@ -677,24 +868,26 @@ YUI.add('moodle-course-toolboxes', function(Y) {
 
             // The value to submit
             var value;
-            // The status text for strings and images
-            var status;
+            // The text for strings and images. Also determines the icon to display.
+            var action,
+                nextaction;
 
             if (!section.hasClass(CSS.SECTIONHIDDENCLASS)) {
                 section.addClass(CSS.SECTIONHIDDENCLASS);
                 value = 0;
-                status = 'show';
-
+                action = 'hide';
+                nextaction = 'show';
             } else {
                 section.removeClass(CSS.SECTIONHIDDENCLASS);
                 value = 1;
-                status = 'hide';
+                action = 'show';
+                nextaction = 'hide';
             }
 
-            var newstring = M.util.get_string(status + 'fromothers', 'format_' + this.get('format'));
+            var newstring = M.util.get_string(nextaction + 'fromothers', 'format_' + this.get('format'));
             hideicon.setAttrs({
                 'alt' : newstring,
-                'src'   : M.util.image_url('i/' + status)
+                'src'   : M.util.image_url('i/' + nextaction)
             });
             button.set('title', newstring);
 
@@ -702,28 +895,31 @@ YUI.add('moodle-course-toolboxes', function(Y) {
             var data = {
                 'class' : 'section',
                 'field' : 'visible',
-                'id'    : this.get_section_id(section.ancestor(M.course.format.get_section_wrapper(Y), true)),
+                'id'    : Y.Moodle.core_course.util.section.getId(section.ancestor(M.course.format.get_section_wrapper(Y), true)),
                 'value' : value
             };
 
             var lightbox = M.util.add_lightbox(Y, section);
             lightbox.show();
 
-            var response = this.send_request(data, lightbox);
+            this.send_request(data, lightbox, function(response) {
+                var activities = section.all(SELECTOR.ACTIVITYLI);
+                activities.each(function(node) {
+                    var button;
+                    if (node.one(SELECTOR.SHOW)) {
+                        button = node.one(SELECTOR.SHOW);
+                    } else {
+                        button = node.one(SELECTOR.HIDE);
+                    }
+                    var activityid = Y.Moodle.core_course.util.cm.getId(node);
 
-            var activities = section.all(CSS.ACTIVITYLI);
-            activities.each(function(node) {
-                if (node.one(CSS.SHOW)) {
-                    var button = node.one(CSS.SHOW);
-                } else {
-                    var button = node.one(CSS.HIDE);
-                }
-                var activityid = this.get_element_id(node);
-
-                if (Y.Array.indexOf(response.resourcestotoggle, activityid) != -1) {
-                    this.toggle_hide_resource_ui(button);
-                }
-            }, this);
+                    // NOTE: resourcestotoggle is returned as a string instead
+                    // of a Number so we must cast our activityid to a String.
+                    if (Y.Array.indexOf(response.resourcestotoggle, "" + activityid) !== -1) {
+                        M.course.resource_toolbox.handle_resource_dim(button, node, action);
+                    }
+                }, this);
+            });
         },
         toggle_highlight : function(e) {
             // Prevent the default button action
@@ -740,22 +936,22 @@ YUI.add('moodle-course-toolboxes', function(Y) {
 
             // Set the current highlighted item text
             var old_string = M.util.get_string('markthistopic', 'moodle');
-            Y.one(CSS.PAGECONTENT)
-                .all(M.course.format.get_section_selector(Y) + '.current ' + CSS.HIGHLIGHT)
+            Y.one(SELECTOR.PAGECONTENT)
+                .all(M.course.format.get_section_selector(Y) + '.current ' + SELECTOR.HIGHLIGHT)
                 .set('title', old_string);
-            Y.one(CSS.PAGECONTENT)
-                .all(M.course.format.get_section_selector(Y) + '.current ' + CSS.HIGHLIGHT + ' img')
+            Y.one(SELECTOR.PAGECONTENT)
+                .all(M.course.format.get_section_selector(Y) + '.current ' + SELECTOR.HIGHLIGHT + ' img')
                 .set('alt', old_string)
                 .set('src', M.util.image_url('i/marker'));
 
             // Remove the highlighting from all sections
-            var allsections = Y.one(CSS.PAGECONTENT).all(M.course.format.get_section_selector(Y))
+            var allsections = Y.one(SELECTOR.PAGECONTENT).all(M.course.format.get_section_selector(Y))
                 .removeClass('current');
 
             // Then add it if required to the selected section
             if (!togglestatus) {
                 section.addClass('current');
-                value = this.get_section_id(section.ancestor(M.course.format.get_section_wrapper(Y), true));
+                value = Y.Moodle.core_course.util.section.getId(section.ancestor(M.course.format.get_section_wrapper(Y), true));
                 var new_string = M.util.get_string('markedthistopic', 'moodle');
                 button
                     .set('title', new_string);
@@ -787,9 +983,10 @@ YUI.add('moodle-course-toolboxes', function(Y) {
     });
 
     M.course = M.course || {};
-
+    M.course.resource_toolbox = null;
     M.course.init_resource_toolbox = function(config) {
-        return new RESOURCETOOLBOX(config);
+        M.course.resource_toolbox = new RESOURCETOOLBOX(config);
+        return M.course.resource_toolbox;
     };
 
     M.course.init_section_toolbox = function(config) {
@@ -798,6 +995,6 @@ YUI.add('moodle-course-toolboxes', function(Y) {
 
 },
 '@VERSION@', {
-    requires : ['base', 'node', 'io', 'moodle-course-coursebase']
+    requires : ['base', 'event-key', 'node', 'io', 'moodle-course-coursebase', 'moodle-course-util']
 }
 );

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,7 +46,7 @@ $string['allowreview'] = 'Rückblick';
 $string['allowreview_help'] = 'Diese Einstellung legt fest, dass Teilnehmer/innen eigene Versuche erneut anschauen dürfen, nachdem das Quiz beendet wurde.';
 $string['analysisreport'] = 'Auswertung';
 $string['attemptlimit'] = 'Limit für Versuche';
-$string['attemptlimit_help'] = 'Diese Einstellung legt die maximale Anzahl von Versuchen für die Durchführung dieser HotPot-Aktivität fest. ';
+$string['attemptlimit_help'] = 'Diese Einstellung legt die maximale Anzahl von Versuchen für die Durchführung dieser HotPot-Aktivität fest.';
 $string['attemptnumber'] = 'Versuch Nr.';
 $string['attempts'] = 'Versuche';
 $string['attemptscore'] = 'Versuche';
@@ -73,7 +73,7 @@ $string['clues'] = 'Spurensuche';
 $string['completed'] = 'Beendet';
 $string['configbodystyles'] = 'Standardmäßig werden die Designeinstellungen von HotPot durch die Designeinstellungen von Moodle überschrieben. Alternativ können Sie hier auswählen, welche Designeinstellungen aus HotPot vorrangig behandelt werden sollen.';
 $string['configenablecache'] = 'Die Nutzung des HotPot-Caches kann die Quizbereitstellung entscheidend beschleunigen.';
-$string['configenablecron'] = 'Zu welchen Zeiten soll das HotPot-Cron-Script ausgeführt werden? ';
+$string['configenablecron'] = 'Zu welchen Zeiten soll das HotPot-Cron-Script ausgeführt werden?';
 $string['configenablemymoodle'] = 'Diese Option legt fest, ob HotPots auf \'Meine Startseite\' angezeigt werden.';
 $string['configenableobfuscate'] = 'Javascript verschleiern, um Mediadateien zu verbergen und Rückschlüsse auf deren Inhalte zu verhindern';
 $string['configenableswf'] = 'In Hotpots wird die Einbettung von SWF-Dateien erlaubt. Die Einstellung filter_mediaplugin_enable_swf wird überschrieben.';
@@ -81,8 +81,7 @@ $string['configfile'] = 'Konfigurationsdatei';
 $string['configframeheight'] = 'Wenn ein HotPot in einem Frame gezeigt wird, bestimmt diese Einstellung die Höhe (in Pixeln) des Top-Frames mit der Moodle-Navigation.';
 $string['configlocation'] = 'Pfad der Konfigurationsdatei';
 $string['configlockframe'] = 'Wenn der Navigationsframe sichtbar ist, wird er durch diese Option fixiert, d.h. er ist in seiner Größe unveränderbar und auch nicht scrollbar.';
-$string['configmaxeventlength'] = 'Falls ein HotPot eine Startzeit und eine Endzeit festlegt und die Zeitdauer größer als die hier angegebene Anzahl von Tagen ist, werden zwei Termine im Kurskalender eingetragen. Für eine kürzere Zeitdauer oder falls nur ein Zeitpunkt angegeben ist, wird nur ein Termin eingetragen. Falls keine Zeit festgelegt ist, wird kein Termin eingetragen.
-';
+$string['configmaxeventlength'] = 'Falls ein HotPot eine Startzeit und eine Endzeit festlegt und die Zeitdauer größer als die hier angegebene Anzahl von Tagen ist, werden zwei Termine im Kurskalender eingetragen. Für eine kürzere Zeitdauer oder falls nur ein Zeitpunkt angegeben ist, wird nur ein Termin eingetragen. Falls keine Zeit festgelegt ist, wird kein Termin eingetragen.';
 $string['configstoredetails'] = 'Wenn diese Option aktiviert ist, werden die XML-Details aller HotPot-Versuche in der Tabelle hotpot_details Tabelle gespeichert. Man kann damit Versuche neu einstufen und Veränderungen im HotPot-Bewertungssystem reflektieren. Die Aktivierung bewirkt allerdings in einem stark benutzen System, dass die Tabelle hotpot_details sehr schnell anwächst.';
 $string['confirmdeleteattempts'] = 'Sind Sie sicher, dass Sie diese Versuche wirklich löschen wollen?';
 $string['confirmstop'] = 'Sind sie sicher, dass Sie diese Seite verlassen wollen?';
@@ -157,8 +156,7 @@ $string['entryoptions_help'] = 'Diese Optionen beeinflussen die Anzeige von Elem
 : Wenn diese Option aktiviert ist, werden die Zeitpunkte für Start und Ende des HotPots gezeigt.
 
 **Versuche**
-: Wenn diese Option aktiviert ist, wird eine Tabelle mit den bisherigen Nutzerversuchen des HotPots erzeugt. Für Versuche, die fortgesetzt werden können, wird in der rechten Spalte eine Taste \'Fortsetzen\' gezeigt.
-';
+: Wenn diese Option aktiviert ist, wird eine Tabelle mit den bisherigen Nutzerversuchen des HotPots erzeugt. Für Versuche, die fortgesetzt werden können, wird in der rechten Spalte eine Taste \'Fortsetzen\' gezeigt.';
 $string['entrypage'] = 'Anfangsseite zeigen';
 $string['entrypagehdr'] = 'Anfangsseite';
 $string['entrypage_help'] = 'Soll den Teilnehmer/innen eine Anfangsseite gezeigt werden, bevor die HotPot-Aktivität beginnt?
@@ -238,8 +236,7 @@ $string['exit_links_help'] = 'Diese Optionen beeinflussen die Anzeige von Naviga
 : Wenn diese Option aktiviert ist, wird ein Link zur Moodle-Kurseite gezeigt.
 
 **Bewertungen**
-: Wenn diese Option aktiviert ist, wird ein Link zu den Moodle-Bewertungen gezeigt.
-';
+: Wenn diese Option aktiviert ist, wird ein Link zu den Moodle-Bewertungen gezeigt.';
 $string['exit_next'] = 'Weiter';
 $string['exit_next_text'] = 'Nächste Aktivität versuchen';
 $string['exit_noscore'] = 'Diese Aktivität wurde erfolgreich abgeschlossen!';
@@ -285,8 +282,7 @@ $string['grademethod_help'] = 'Diese Einstellung legt fest, wie sich die HotPot-
 : Die Bewertung wird auf den Wert gesetzt, der bei dieser HotPot-Aktivität im ersten Versuch erreicht wurde.
 
 **Letzter Versuch**
-: Die Bewertung wird auf den Wert gesetzt, der bei dieser HotPot-Aktivität im letzten Versuch erreicht wurde.
-';
+: Die Bewertung wird auf den Wert gesetzt, der bei dieser HotPot-Aktivität im letzten Versuch erreicht wurde.';
 $string['gradeweighting'] = 'Gewichtung';
 $string['gradeweighting_help'] = 'Wertungen der HotPot-Aktivität werden auf diesen Wert bezogen in der Moodle-Bewertung skaliert.';
 $string['highestscore'] = 'Bester Versuch';
@@ -310,8 +306,7 @@ $string['lastaccess'] = 'Letzter Zugriff';
 $string['lastattempt'] = 'Letzter Versuch';
 $string['lockframe'] = 'Frame sperren';
 $string['maxeventlength'] = 'Maximalzahl von Tagen pro Kalendereintrag';
-$string['mediafilter_hotpot'] = 'HotPot Mediafilter
-';
+$string['mediafilter_hotpot'] = 'HotPot Mediafilter';
 $string['mediafilter_moodle'] = 'Moodle Mediafilter';
 $string['migratingfiles'] = 'HotPot-Dateien umwandeln';
 $string['missingsourcetype'] = 'Im HotPot-Datensatz fehlt der Quelltyp';
@@ -385,7 +380,7 @@ $string['outputformat_help'] = 'Diese Einstellung legt das Format fest, um den I
 
 Die verfügbaren Ausgabeformate sind abhängig vom Typ der Quelldatei. Manche Dateitypen haben nur ein Ausgabeformat, während andere über mehrere Ausgabeformate verfügen.
 
-Die Einstellung "Optimal" zeigt den Inhalt jeweils angepasst für den verwendeten Browser an. ';
+Die Einstellung "Optimal" zeigt den Inhalt jeweils angepasst für den verwendeten Browser an.';
 $string['outputformat_hp_6_jcloze_html'] = 'JCloze (v6) html';
 $string['outputformat_hp_6_jcloze_xml_anctscan'] = 'JCloze HP6 xml: ANCT-Scan';
 $string['outputformat_hp_6_jcloze_xml_dropdown'] = 'JCloze HP6 xml: DropDown';
@@ -449,8 +444,7 @@ Normalerweise wurde die Quelldatei außerhalb von Moodle angelegt und in den Kur
 
 Die Quelldatei kann als Verzeichnis oder Dateipfad angegeben werden oder es kann eine URL beginnend mit http:// oder https:// sein, z.B. http://www.qedoc.net/library/ABCDE_123.zip
 
-Weitere Information zum Hochladen von Qedoc-Modulen finden Sie unter: <a href="http://www.qedoc.org/en/index.php?title=Uploading_modules">Qedoc documentation: Uploading_modules</a>
-';
+Weitere Information zum Hochladen von Qedoc-Modulen finden Sie unter: <a href="http://www.qedoc.org/en/index.php?title=Uploading_modules">Qedoc documentation: Uploading_modules</a>';
 $string['sourcefilenotfound'] = 'Quelldatei nicht gefunden (oder leer): {$a}';
 $string['status'] = 'Status';
 $string['stopbutton'] = 'Stopptaste';

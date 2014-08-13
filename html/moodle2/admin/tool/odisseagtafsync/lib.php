@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 function tool_odisseagtafsync_cron() {
     $settings = get_config('tool_odisseagtafsync');
-    
+
     if (empty($settings->ftphost)) {
         return;
     }

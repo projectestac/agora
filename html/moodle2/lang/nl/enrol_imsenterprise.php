@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_imsenterprise', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_imsenterprise', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_imsenterprise
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -64,6 +64,7 @@ $string['deleteusers_desc'] = '<p>Met IMS Enterprise aanmeldingsgegevens kun je 
 
 <p>Zoals het in Moodle standaard is, wordt de gebruikersrecord niet verwijderd, maar wordt er een vlag gezet om aan te geven dat de account verwijderd is.</p>';
 $string['doitnow'] = 'Doe nu een IMS Enterprise import';
+$string['emptyattribute'] = 'Laat het leeg';
 $string['filelockedmail'] = 'Het tekstbestand dat je gebruikt voor je IMS-bestand gebaseerde aanmeldingen ({$a}) kan door het cronproces niet verwijderd worden. Dit betekent gewoonlijk dat de rechten van dat bestand slecht ingesteld staan. Zet de rechten zo dat Moodle het bestand kan verwijderen, anders zal het herhaaldelijk verwerkt proberen te worden.';
 $string['filelockedmailsubject'] = 'Belangrijke fout: Aanmeldingsbestand';
 $string['fixcasepersonalnames'] = 'Begin namen met Hoofdletters';
@@ -88,6 +89,12 @@ $string['restricttarget_desc'] = '<p>Een IMS Enterprise data bestand kan voor me
 Anders geef je de exacte naam op in de &lt;target&gt; tag.
 </p>';
 $string['roles'] = 'Rollen';
+$string['settingfullname'] = 'IMS beschrijvingstag voor de volledige naam van de cursus';
+$string['settingfullnamedescription'] = 'De volledige naam is een vereist cursusveld. Je moet de geselecteerde beschrijvings-tag definiëren in je IMS Enterprise-bestand';
+$string['settingshortname'] = 'IMS beschrijvings-tag voor de korte cursusnaam';
+$string['settingshortnamedescription'] = 'De korte naam is een vereist cursusveld, dus je moet de geselecteerde beschrijvingstag definiëren in je IMS Enterprise-bestand';
+$string['settingsummary'] = 'IMS beschrijvingstag voor de cursussamenvatting';
+$string['settingsummarydescription'] = 'Dit is een optioneel veld. Selecteer \'laat dit leeg" als je geen cursussamenvatting wil geven.';
 $string['sourcedidfallback'] = 'Gebruik het "sourcedid" als gebruikersid als het "sourcedid"-veld niet gevonden kan worden';
 $string['sourcedidfallback_desc'] = 'IN IMS-gegevens stelt het veld  <sourcedid> de ID-code voor voor een persoon zoals gebruikt in het bronsysteem. Het veld <userid> is een apart veld dat de ID-code moet bevatten die de gebruiker nodig heeft om in te loggen. In veel gevallen zullen beide codes gelijk zijn, maar niet altijd.
 

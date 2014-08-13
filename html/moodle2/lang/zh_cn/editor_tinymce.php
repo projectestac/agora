@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,6 +58,9 @@ $string['advanced_dlg:about_plugin'] = '插件';
 $string['advanced_dlg:about_plugins'] = '插件';
 $string['advanced_dlg:about_title'] = '关于TinyMCE';
 $string['advanced_dlg:about_version'] = '版本';
+$string['advanced_dlg:accessibility_help'] = '使用帮助';
+$string['advanced_dlg:accessibility_usage_title'] = '一般使用';
+$string['advanced_dlg:anchor_invalid'] = '请指定有效的书签名称';
 $string['advanced_dlg:anchor_name'] = '书签名称';
 $string['advanced_dlg:anchor_title'] = '插入/编辑书签';
 $string['advanced_dlg:charmap_title'] = '插入特殊符号';
@@ -90,6 +93,7 @@ $string['advanced_dlg:image_list'] = '图片清单';
 $string['advanced_dlg:image_src'] = '图片URL';
 $string['advanced_dlg:image_title'] = '插入/编辑图片';
 $string['advanced_dlg:image_vspace'] = '垂直间距';
+$string['advanced_dlg:invalid_color_value'] = '无效的颜色值';
 $string['advanced_dlg:link_is_email'] = '您输入的URL是email地址，是否需要加上 mailto:前缀？';
 $string['advanced_dlg:link_is_external'] = '您输入的 URL 是一个外部超链接，是否要加上 http:// 前缀？';
 $string['advanced_dlg:link_list'] = '链接列表';
@@ -111,6 +115,7 @@ $string['advanced:h4'] = '四级标题
 $string['advanced:h5'] = '五级标题';
 $string['advanced:h6'] = '六级标题';
 $string['advanced:help_desc'] = '帮助';
+$string['advanced:help_shortcut'] = '按 ALT-F10 为工具栏，按 ALT-0 为帮助';
 $string['advanced:hr_desc'] = '插入水平标尺';
 $string['advanced:image_delta_height'] = '';
 $string['advanced:image_delta_width'] = '';
@@ -472,6 +477,7 @@ $string['media_dlg:play'] = '自动播放';
 $string['media_dlg:playcount'] = '播放次数';
 $string['media_dlg:playeveryframe'] = '逐格播放';
 $string['media_dlg:prefetch'] = '预载';
+$string['media_dlg:preload_none'] = '不要预加载';
 $string['media_dlg:preview'] = '预览';
 $string['media_dlg:progress'] = '进度';
 $string['media_dlg:qt_options'] = 'Quick Time 选项';
@@ -480,7 +486,9 @@ $string['media_dlg:qtsrcchokespeed'] = '阻塞速度';
 $string['media_dlg:qt_stream_warn'] = '流媒体rtsp资源应该在“高级”中的QT src域里添加。
 您同时也应该添加一个非流媒体资源到src域。';
 $string['media_dlg:quality'] = '品质';
+$string['media_dlg:quicktime'] = 'QuickTime';
 $string['media_dlg:rate'] = '比率';
+$string['media_dlg:realmedia'] = 'Real Media';
 $string['media_dlg:rmp_options'] = 'Real Media Player 选项';
 $string['media_dlg:salign'] = 'SAlign';
 $string['media_dlg:scale'] = '缩放';

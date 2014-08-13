@@ -89,7 +89,8 @@ class repository_youtube extends repository {
         $ret['list'] = $this->_get_collection($search_text, $start, $max, $sort);
         $ret['norefresh'] = true;
         $ret['nosearch'] = true;
-        $ret['pages'] = -1;
+        // If the number of results is smaller than $max, it means we reached the last page.
+        $ret['pages'] = (count($ret['list']) < $max) ? $ret['page'] : -1;
         return $ret;
     }
 
@@ -201,5 +202,14 @@ class repository_youtube extends repository {
      */
     public function supported_returntypes() {
         return FILE_EXTERNAL;
+    }
+
+    /**
+     * Is this repository accessing private data?
+     *
+     * @return bool
+     */
+    public function contains_private_data() {
+        return false;
     }
 }

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradingform_guide', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradingform_guide', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   gradingform_guide
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addcomment'] = 'Aggiungi commento di uso frequente';
-$string['addcriterion'] = 'Aggiungi crtierio';
+$string['addcriterion'] = 'Aggiungi criterio';
 $string['alwaysshowdefinition'] = 'Visualizza a definizione della valutazione guidata agli studenti';
 $string['backtoediting'] = 'Torna alla modifica';
 $string['clicktocopy'] = 'Click per copiare questo testo nel commento dei criteri';

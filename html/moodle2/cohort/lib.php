@@ -40,7 +40,6 @@ function cohort_add_cohort($cohort) {
         $cohort->idnumber = NULL;
     }
     if (!isset($cohort->description)) {
-        // sql_empty() does not belong here, this crazy Oracle hack is implemented in insert_record()!
         $cohort->description = '';
     }
     if (!isset($cohort->descriptionformat)) {
@@ -58,7 +57,12 @@ function cohort_add_cohort($cohort) {
 
     $cohort->id = $DB->insert_record('cohort', $cohort);
 
-    events_trigger('cohort_added', $cohort);
+    $event = \core\event\cohort_created::create(array(
+        'context' => context::instance_by_id($cohort->contextid),
+        'objectid' => $cohort->id,
+    ));
+    $event->add_record_snapshot('cohort', $cohort);
+    $event->trigger();
 
     return $cohort->id;
 }
@@ -77,7 +81,12 @@ function cohort_update_cohort($cohort) {
     $cohort->timemodified = time();
     $DB->update_record('cohort', $cohort);
 
-    events_trigger('cohort_updated', $cohort);
+    $event = \core\event\cohort_updated::create(array(
+        'context' => context::instance_by_id($cohort->contextid),
+        'objectid' => $cohort->id,
+    ));
+    $event->add_record_snapshot('cohort', $cohort);
+    $event->trigger();
 }
 
 /**
@@ -95,14 +104,19 @@ function cohort_delete_cohort($cohort) {
     $DB->delete_records('cohort_members', array('cohortid'=>$cohort->id));
     $DB->delete_records('cohort', array('id'=>$cohort->id));
 
-    events_trigger('cohort_deleted', $cohort);
+    $event = \core\event\cohort_deleted::create(array(
+        'context' => context::instance_by_id($cohort->contextid),
+        'objectid' => $cohort->id,
+    ));
+    $event->add_record_snapshot('cohort', $cohort);
+    $event->trigger();
 }
 
 /**
  * Somehow deal with cohorts when deleting course category,
  * we can not just delete them because they might be used in enrol
  * plugins or referenced in external systems.
- * @param  stdClass $category
+ * @param  stdClass|coursecat $category
  * @return void
  */
 function cohort_delete_category($category) {
@@ -142,7 +156,15 @@ function cohort_add_member($cohortid, $userid) {
     $record->timeadded = time();
     $DB->insert_record('cohort_members', $record);
 
-    events_trigger('cohort_member_added', (object)array('cohortid'=>$cohortid, 'userid'=>$userid));
+    $cohort = $DB->get_record('cohort', array('id' => $cohortid), '*', MUST_EXIST);
+
+    $event = \core\event\cohort_member_added::create(array(
+        'context' => context::instance_by_id($cohort->contextid),
+        'objectid' => $cohortid,
+        'relateduserid' => $userid,
+    ));
+    $event->add_record_snapshot('cohort', $cohort);
+    $event->trigger();
 }
 
 /**
@@ -155,7 +177,15 @@ function cohort_remove_member($cohortid, $userid) {
     global $DB;
     $DB->delete_records('cohort_members', array('cohortid'=>$cohortid, 'userid'=>$userid));
 
-    events_trigger('cohort_member_removed', (object)array('cohortid'=>$cohortid, 'userid'=>$userid));
+    $cohort = $DB->get_record('cohort', array('id' => $cohortid), '*', MUST_EXIST);
+
+    $event = \core\event\cohort_member_removed::create(array(
+        'context' => context::instance_by_id($cohort->contextid),
+        'objectid' => $cohortid,
+        'relateduserid' => $userid,
+    ));
+    $event->add_record_snapshot('cohort', $cohort);
+    $event->trigger();
 }
 
 /**

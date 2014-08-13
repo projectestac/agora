@@ -64,7 +64,7 @@ if (!$attemptobj->is_preview_user() && $messages) {
             $output->access_messages($messages));
 }
 if ($accessmanager->is_preflight_check_required($attemptobj->get_attemptid())) {
-    redirect($attemptobj->start_attempt_url(null, $page));
+    redirect($attemptobj->start_attempt_url(null));
 }
 
 $displayoptions = $attemptobj->get_display_options(false);
@@ -92,7 +92,7 @@ $regions = $PAGE->blocks->get_regions();
 $PAGE->blocks->add_fake_block($navbc, reset($regions));
 
 $PAGE->navbar->add(get_string('summaryofattempt', 'quiz'));
-$PAGE->set_title(format_string($attemptobj->get_quiz_name()));
+$PAGE->set_title($attemptobj->get_quiz_name());
 $PAGE->set_heading($attemptobj->get_course()->fullname);
 
 // Display the page.

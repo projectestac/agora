@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'debug', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'debug', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   debug
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,8 +37,8 @@ $string['configmoodle'] = '아직 무들이 설정되지 않았음. 우선 confi
 $string['erroroccur'] = '현재의 과정에서 오류가 발생함';
 $string['invalidarraysize'] = '{$a} 매개변수의 틀린 어레이 크기';
 $string['invalideventdata'] = '틀린 이벤트 자료 제시: {$a}';
-$string['invalidparameter'] = '잘못된 파라메터 값이 발견되었습니다.';
-$string['invalidresponse'] = '잘못된 응답 값이 발견되었습니다.';
+$string['invalidparameter'] = '매개 변수가 잘 못 되어 계속할 수 없습니다.';
+$string['invalidresponse'] = '되돌아온 값이 잘 못 되어 계속할 수 없습니다.';
 $string['missingconfigversion'] = '설정 테이블의 판번호 누락, 계속할 수 없습니다.';
 $string['modulenotexist'] = '{$a} 모듈이 없음';
 $string['morethanonerecordinfetch'] = 'fetch()에 중복 자료 발견!';

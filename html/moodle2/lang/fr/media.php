@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'media', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'media', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   media
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,12 +30,12 @@ $string['flashanimation_desc'] = 'Fichiers avec l\'extension .swf. Pour des rais
 $string['flashvideo'] = 'Vidéo Flash';
 $string['flashvideo_desc'] = 'Fichiers avec l\'extension .flv ou .f4v. Permet la lecture de séquences vidéos au moyen du lecteur Flowplayer, qui requiert le plugin Flash et l\'activation de Javascript. Si plusieurs sources sont spécifiées, utilise la vidéo en HTML5.';
 $string['html5audio'] = 'Audio HTML 5';
-$string['html5audio_desc'] = 'Fichiers audio avec l\'extension *.ogg, *.acc et autres. Ce plugin n\'est compatible qu\'avec les navigateurs les plus récents. Aucun format n\'est malheureusement supporté par tous les navigateurs.
+$string['html5audio_desc'] = 'Fichiers audio avec l\'extension *.ogg, *.acc et autres. Ce plugin n\'est compatible qu\'avec les navigateurs les plus récents. Aucun format n\'est malheureusement supporté par tous ces navigateurs.
 Pour contourner ce problème, on indiquera des fichiers alternatifs, séparés par # (exemple : http://exemple.fr/audio.ogg#http://exemple.fr/audio.acc#http://exemple.fr/audio.mp3#). Le lecteur QuickTime est utilisé comme solution de remplacement avec d\'anciens navigateurs. Les formats alternatifs peuvent être de n\'importe quel type de fichier audio.';
 $string['html5video'] = 'Vidéo HTML 5';
-$string['html5video_desc'] = 'Fichiers vidéos avec l\'extension *.webm, *.m4v, *.ogv, *.mp4 et autres. Ce plugin n\'est compatible qu\'avec les navigateurs les plus récents. Aucun format n\'est malheureusement supporté par tous les navigateurs. Pour contourner ce problème, on indiquera des fichiers alternatifs, séparés par # (exemple : http://exemple.fr/video.ogv#http://exemple.fr/video.m4v#http://exemple.fr/video.mp4#d=640x480). Le lecteur QuickTime est utilisé comme solution de remplacement avec d\'anciens navigateurs.';
+$string['html5video_desc'] = 'Fichiers vidéos avec l\'extension *.webm, *.m4v, *.ogv, *.mp4 et autres. Ce plugin n\'est compatible qu\'avec les navigateurs les plus récents. Aucun format n\'est malheureusement supporté par tous ces navigateurs. Pour contourner ce problème, on indiquera des fichiers alternatifs, séparés par # (exemple : http://exemple.fr/video.ogv#http://exemple.fr/video.m4v#http://exemple.fr/video.mp4#d=640x480). Le lecteur QuickTime est utilisé comme solution de remplacement avec d\'anciens navigateurs.';
 $string['legacyheading'] = 'Lecteurs média obsolètes';
-$string['legacyheading_desc'] = 'Les formats suivants ne sont pas recommandés pour un usage habituel. Ils sont plutôt utilisés dans des installations intranet avec des clients gérés de façon centralisée.';
+$string['legacyheading_desc'] = 'Les formats suivants ne sont pas recommandés pour un usage habituel. Ils sont plutôt utilisés dans des installation intranet avec des clients gérés de façon centralisée.';
 $string['legacyquicktime'] = 'Lecteur QuickTime';
 $string['legacyquicktime_desc'] = 'Fichiers avec l\'extension *.mov, *.mp4, *.m4a, *.mp4 ou *.mpg. Requier l\'installation du lecteur QuickTime ou de codecs.';
 $string['legacyreal'] = 'Lecteur Real media';

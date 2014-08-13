@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -72,6 +72,7 @@ $string['chooseauthmethod_help'] = '<p align="center"><b>改变认证方法</b><
 <p>请注意这依赖于这个网站已经安装能够使用的认证方法以及您对它们所进行的设置。</p>
 
 <p>此处的错误设置，可能会导致用户无法登录甚至删除其帐号，所以使用时请小心。</p>';
+$string['createpassword'] = '生成密码并通知用户';
 $string['createpasswordifneeded'] = '如果需要则创建密码';
 $string['emailchangecancel'] = '取消 email 变更';
 $string['emailchangepending'] = '变更进行中。访问向 {$a->preference_newemail} 发送的链接。';
@@ -93,6 +94,7 @@ $string['errorminpasswordlower'] = '密码中至少要有 {$a} 个小写字母�
 $string['errorminpasswordnonalphanum'] = '密码中至少要有 {$a} 个非字母、数字字符。';
 $string['errorminpasswordupper'] = '密码中至少要有 {$a} 个大写字母。';
 $string['errorpasswordupdate'] = '更新密码错误，密码没有更新。';
+$string['event_user_loggedin'] = '用户已登录';
 $string['forcechangepassword'] = '强制修改密码';
 $string['forcechangepasswordfirst_help'] = '强制用户在第一次登录时修改密码。';
 $string['forcechangepassword_help'] = '强制用户在下次登录时修改密码。';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,6 @@ $string['modulename_help'] = '该 URL 模块可以让老师提供一个 web 链�
 该 URL 有一些显示选项，如嵌入显示或者在新的窗口打开该 URL 的选项，以及向该 URL 传递诸如学生姓名信息的高级选项，如果需要的话。';
 $string['modulenameplural'] = 'URL';
 $string['neverseen'] = '从未查看';
-$string['optionsheader'] = '选项';
 $string['page-mod-url-x'] = '任意URL模块页面';
 $string['parameterinfo'] = '&amp;参数=变量';
 $string['parametersheader'] = '参数';
@@ -67,8 +66,6 @@ $string['popupheight'] = '弹出窗口高度（单位：像素）';
 $string['popupheightexplain'] = '指定弹出窗口的缺省高度。';
 $string['popupwidth'] = '弹出窗口宽度（单位：像素）';
 $string['popupwidthexplain'] = '指定弹出窗口的缺省宽度。';
-$string['printheading'] = '显示URL名';
-$string['printheadingexplain'] = '在内容上方显示URL名？某些显示类型就算开启此选项也不会显示URL名。';
 $string['printintro'] = '显示URL描述';
 $string['printintroexplain'] = '在内容下方显示 URL 描述？某些显示类型就算开启此选项也不会显示描述。';
 $string['rolesinparams'] = '在参数中包含角色名';

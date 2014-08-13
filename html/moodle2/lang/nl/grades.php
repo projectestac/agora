@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -219,7 +219,7 @@ $string['editoutcome'] = 'Bewerk competentie';
 $string['editoutcomes'] = 'Bewerk competenties';
 $string['editscale'] = 'Bewerk schaal';
 $string['edittree'] = 'Categorieën en items';
-$string['editverbose'] = 'Bewerk {$a->category}$a->itemmodule {$a->itemname}';
+$string['editverbose'] = 'Bewerk {$a->category} {$a->itemmodule} {$a->itemname}';
 $string['enableajax'] = 'AJAX inschakelen';
 $string['enableajax_help'] = 'Voegt een laagje AJAX functionaliteit toe aan het rapport, wat het bewerken ervan vereenvoudigd en versneld. Dit werkt alleen als Javascript is ingeschakeld in de browser van de gebruiker.';
 $string['enableoutcomes'] = 'Competenties inschakelen';
@@ -234,6 +234,7 @@ $string['errornocategorisedid'] = 'Kon geen id zonder categorie vinden';
 $string['errornocourse'] = 'Kon geen informatie over de cursus vinden';
 $string['errorreprintheadersnonnumeric'] = 'Niet-numerieke waarde ontvangen voor koppen herhalen';
 $string['errorsavegrade'] = 'Kon cijfer niet bewaren.';
+$string['errorsettinggrade'] = 'Fout bij het bewaren van het cijfer voor "{$a->itemname}" voor gebruikersid {$a->userid}';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Fout bij het updaten van de "Aggregeer alleen beoordeelde items"-instelling van cijfercategorie ID {$a->id}';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Fout bij het updaten van de "Aggregeer competenties"-instelling van de cijfercategorie ID {$a->id}';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Fout bij het updaten van de "Aggregeer sub-categorieën"-instelling van cijfercategorie ID {$a->id}';
@@ -245,8 +246,8 @@ $string['expand'] = 'Categorie uitbreiden';
 $string['export'] = 'Exporteer';
 $string['exportalloutcomes'] = 'Exporteer alle competenties';
 $string['exportfeedback'] = 'Feedback opnemen in export';
-$string['exportonlyactive'] = 'Actieve aanmelding vereist';
-$string['exportonlyactive_help'] = 'Enkel leerlingen in de export zetten van wie de aanmelding niet geschorst is';
+$string['exportonlyactive'] = 'Geschorste gebruikers uitsluiten';
+$string['exportonlyactive_help'] = 'Enkel leerlingen in de export zetten van wie de aanmelding actief en niet geschorst is';
 $string['exportplugins'] = 'Exporteerplugins';
 $string['exportsettings'] = 'Exporteer instellingen';
 $string['exportto'] = 'Exporteer naar';
@@ -307,6 +308,7 @@ $string['gradehelp'] = 'Hulp bij cijfers';
 $string['gradehistorylifetime'] = 'Levensduur van de cijfergeschiedenis';
 $string['gradehistorylifetime_help'] = 'Met deze instelling bepaal je hoelang je de geschiedenis van de wijzigingen aan de cijfertabellen wil bijhouden. Het is aangewezen dit zo lang mogelijk te doen. Als je performantieproblemen ondervindt of je hebt maar beperkte databaseruimte, dan kun je hier een lagere waarde instellen.';
 $string['gradeimport'] = 'Import beoordeling';
+$string['gradeimportfailed'] = 'Importeren cijfer mislukt tijdens het insturen. Details:';
 $string['gradeitem'] = 'Beoordelingsitem';
 $string['gradeitemaddusers'] = 'Niet meerekenen';
 $string['gradeitemadvanced'] = 'Geavanceerde opties';
@@ -592,7 +594,9 @@ $string['selectalloroneuser'] = 'Selecteer alle of één gebruiker';
 $string['selectauser'] = 'Kies een gebruiker';
 $string['selectdestination'] = 'Selecteer bestemming voor {$a}';
 $string['separator'] = 'Scheidingsteken';
+$string['sepcolon'] = 'Dubbele punt';
 $string['sepcomma'] = 'Komma';
+$string['sepsemicolon'] = 'Kommapunt';
 $string['septab'] = 'Tabulatie';
 $string['setcategories'] = 'Categorieën instellen';
 $string['setcategorieserror'] = 'Je moet eerst de categorieën voor je cursus instellen voor je er wegingen kan aan geven.';
@@ -636,6 +640,8 @@ $string['shownohidden'] = 'Niet tonen';
 $string['shownooutcomes'] = 'Verberg competenties';
 $string['shownumberofgrades'] = 'Toon het aantal cijfers in gemiddelden';
 $string['shownumberofgrades_help'] = 'Toont het aantal cijfers dat geaggregeerd wordt tussen haakjes naast elk gemiddelde. Voorbeeld 45(34)';
+$string['showonlyactiveenrol'] = 'Toon enkel actieve aanmeldingen';
+$string['showonlyactiveenrol_help'] = 'Deze instelling bepaalt of enkel actieve aangemelde gebruikers in het puntenboek zullen verschijnen. Indien ingeschakeld zullen geschorste gebruikers niet verschijnen.';
 $string['showpercentage'] = 'Toon percentage';
 $string['showpercentage_help'] = 'Het percentage van elk beoordelingsitem tonen?';
 $string['showquickfeedback'] = 'Toon formulier voor snelle feedback';
@@ -702,6 +708,9 @@ $string['user'] = 'Gebruiker';
 $string['userenrolmentsuspended'] = 'Aanmelding gebruiker geschorst';
 $string['usergrade'] = 'Gebruiker {$a->fullname} ({$a->useridnumber}) op item {$a->gradeidnumber}';
 $string['userid'] = 'GebruikersID';
+$string['usermappingerror'] = 'Fout in het koppelen van gebruikers: kon geen gebruiiker vinden met {$a->field} gelijk aan "{$a->value}".';
+$string['usermappingerrorcurrentgroup'] = 'Gebruiker is geen lid van huidige groep.';
+$string['usermappingerrorusernotfound'] = 'Probleem met koppelen van van gebruiker. Kon gebruiker niet vinden.';
 $string['userpreferences'] = 'Gebruikersvoorkeuren';
 $string['useweighted'] = 'Gebruik weging';
 $string['verbosescales'] = 'Schalen tonen';

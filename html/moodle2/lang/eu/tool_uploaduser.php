@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,18 +25,19 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['allowdeletes'] = 'Ezabatzea baimendu';
+$string['allowdeletes'] = 'Baimendu ezabatzea';
 $string['allowrenames'] = 'Izena aldatzea baimendu';
 $string['csvdelimiter'] = 'CSV bereizlea';
 $string['defaultvalues'] = 'Berezko baloreak';
-$string['deleteerrors'] = 'Erroreak ezabatu';
+$string['deleteerrors'] = 'Ezabatu erroreak';
 $string['encoding'] = 'Kodifikazioa';
+$string['errormnetadd'] = 'Ezin da urrutiko erabiltzailerik gehitu';
 $string['errors'] = 'Erroreak';
 $string['nochanges'] = 'Aldaketarik ez';
 $string['pluginname'] = 'Igo erabiltzailea';
 $string['renameerrors'] = 'Erroreak berrizendatu';
 $string['requiredtemplate'] = 'Beharrezkoa. Hemen txantiloi-sintasia erabil dezakezu (%l = abizena, %f = izena, %u = erabiltzaile-izena). Begiratu laguntzari zehaztasun gehiagorako eta adibideak ikusteko.';
-$string['rowpreviewnum'] = 'Lerroak aurreikusi';
+$string['rowpreviewnum'] = 'Aurreikusi errenkadak';
 $string['uploadpicture_baduserfield'] = 'Zehaztutako erabiltzaile-ezaugarriak ez du balio. Mesedez, saiatu berriz.';
 $string['uploadpicture_cannotmovezip'] = 'Ezin da zip fitxategia aldi baterako direktorio batera mugitu';
 $string['uploadpicture_cannotprocessdir'] = 'Ezin dira deskonprimatutako fitxategiak prozesatu.';

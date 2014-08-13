@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,46 +32,43 @@ $string['configframesize'] = 'フレーム内にウェブページやアップ�
 $string['configrolesinparams'] = 'ローカライズされたロール名を利用可能なパラメータ変数リストに含みたい場合、有効にしてください。';
 $string['configsecretphrase'] = 'このシークレットワードは、サーバにパラメータとして送信するための暗号コード値生成に使用されます。暗号コードは、current_users IPアドレスとシークレットワードを結びつけてmd5により生成されます。例) code = md5(IP.secretphrase)。これにより、転送先のリソースが、高度なセキュリティ認証を行うことができます。';
 $string['contentheader'] = 'コンテンツ';
-$string['createurl'] = 'URIを作成する';
+$string['createurl'] = 'URLを作成する';
 $string['displayoptions'] = '利用可能な表示オプション';
 $string['displayselect'] = '表示';
-$string['displayselectexplain'] = '表示タイプを選択してください。残念ですが、すべてのタイプが、すべてのURIに適しているということではありません。';
-$string['displayselect_help'] = 'URIファイルタイプおよびブラウザが埋め込みを許可するかどうかも含めて、この設定ではURIがどのように表示されるか決定します。以下のオプションを含みます:
+$string['displayselectexplain'] = '表示タイプを選択してください。残念ですが、すべてのタイプが、すべてのURLに適しているということではありません。';
+$string['displayselect_help'] = 'URLファイルタイプおよびブラウザが埋め込みを許可するかどうかも含めて、この設定ではURLがどのように表示されるか決定します。以下のオプションを含みます:
 
-* 自動- 選択されたURIタイプを自動的に検出する最良の表示オプションです。
-* 埋め込み - URIはナビゲーションバーの下にURI説明およびブロックとともに表示されます。
-* オープン - URIはブラウザウィンドウ内でのみ表示されます。
-* ポップアップ - URIはメニューまたはアドレスバーなしの新しいブラウザウィンドウに表示されます。
-* フレーム - URIはフレーム内のナビゲーションバーの下にURI説明およびブロックとともに表示されます。
-* 新しいウィンドウ - URIは新しいウィンドウ内にメニューおよびアドレスバーとともに表示されます。';
-$string['externalurl'] = '外部URI';
+* 自動- 選択されたURLタイプを自動的に検出する最良の表示オプションです。
+* 埋め込み - URLはナビゲーションバーの下にURL説明およびブロックとともに表示されます。
+* オープン - URLはブラウザウィンドウ内でのみ表示されます。
+* ポップアップ - URLはメニューまたはアドレスバーなしの新しいブラウザウィンドウに表示されます。
+* フレーム - URLはフレーム内のナビゲーションバーの下にURL説明およびブロックとともに表示されます。
+* 新しいウィンドウ - URLは新しいウィンドウ内にメニューおよびアドレスバーとともに表示されます。';
+$string['externalurl'] = '外部URL';
 $string['framesize'] = 'フレーム高';
-$string['invalidstoredurl'] = 'URIが無効のため、このリソースを表示できません。';
-$string['invalidurl'] = '入力されたURIが無効です。';
-$string['modulename'] = 'URI';
-$string['modulename_help'] = 'URIモジュールにおいて、教師はコースリソースとしてウェブリンクを提供することができます。ドキュメントまたはイメージのようにオンライン上にある無料のコンテンツをリンクすることができます。URIはウェブサイトのホームページ (トップページ) である必要はありません。特定のウェブページのURIはコピー＆ペーストすることができます。また、教師はファイルピッカを使用して、Flickr、YouTubeまたはWikimedia (サイト内でどのリポジトリが有効にされているかに依存します) からリンクを選択することができます。
+$string['invalidstoredurl'] = 'URLが無効のため、このリソースを表示できません。';
+$string['invalidurl'] = '入力されたURLが無効です。';
+$string['modulename'] = 'URL';
+$string['modulename_help'] = 'URLモジュールにおいて、教師はコースリソースとしてウェブリンクを提供することができます。ドキュメントまたはイメージのようにオンライン上にある無料のコンテンツをリンクすることができます。URLはウェブサイトのホームページ (トップページ) である必要はありません。特定のウェブページのURLはコピー＆ペーストすることができます。また、教師はファイルピッカを使用して、Flickr、YouTubeまたはWikimedia (サイト内でどのリポジトリが有効にされているかに依存します) からリンクを選択することができます。
 
-埋め込み、新しいウィンドウのオープン、必要であればURIに学生名のような情報を渡す高度なオプションのように、URIモジュールには数多くの表示オプションがあります。
+埋め込み、新しいウィンドウのオープン、必要であればURLに学生名のような情報を渡す高度なオプションのように、URLモジュールには数多くの表示オプションがあります。
 
-テキストエディタをとおして、URIでは他のリソースまたは活動タイプを追加できることに留意してください。';
-$string['modulenameplural'] = 'URI';
+テキストエディタをとおして、URLでは他のリソースまたは活動タイプを追加できることに留意してください。';
+$string['modulenameplural'] = 'URL';
 $string['neverseen'] = '未確認';
-$string['optionsheader'] = 'オプション';
-$string['page-mod-url-x'] = 'すべてのURIモジュールページ';
+$string['page-mod-url-x'] = 'すべてのURLモジュールページ';
 $string['parameterinfo'] = '&parameter=変数';
-$string['parametersheader'] = 'パラメータ';
-$string['parametersheader_help'] = 'いくつかの内部Moodle変数が自動的にURIに付加されます。あなたの変数名をテキストボックスに入力した後、必要なマッチング変数を選択してください。';
-$string['pluginadministration'] = 'URI管理';
-$string['pluginname'] = 'URI';
+$string['parametersheader'] = 'URL変数';
+$string['parametersheader_help'] = 'いくつかの内部Moodle変数が自動的にURLに付加されます。あなたの変数名をテキストボックスに入力した後、必要なマッチング変数を選択してください。';
+$string['pluginadministration'] = 'URL管理';
+$string['pluginname'] = 'URL';
 $string['popupheight'] = 'ポップアップ高 (ピクセル)';
 $string['popupheightexplain'] = 'ポップアップウィンドウのデフォルト高を指定してください。';
 $string['popupwidth'] = 'ポップアップ幅 (ピクセル)';
 $string['popupwidthexplain'] = 'ポップアップウィンドウのデフォルト幅を指定してください。';
-$string['printheading'] = 'URI名を表示する';
-$string['printheadingexplain'] = 'コンテンツの上にURI名を表示しますか? 有効にしても、いくつかの表示タイプでは、URI名を表示することができません。';
-$string['printintro'] = 'URI説明を表示する';
-$string['printintroexplain'] = 'コンテンツの下にURI説明を表示しますか? 有効にしても、いくつかの表示タイプでは、説明を表示することができません。';
+$string['printintro'] = 'URL説明を表示する';
+$string['printintroexplain'] = 'コンテンツの下にURL説明を表示しますか? 有効にしても、いくつかの表示タイプでは、説明を表示することができません。';
 $string['rolesinparams'] = 'パラメータにロール名を含む';
-$string['serverurl'] = 'サーバURI';
-$string['url:addinstance'] = '新しいURIリソースを追加する';
-$string['url:view'] = 'URIを表示する';
+$string['serverurl'] = 'サーバURL';
+$string['url:addinstance'] = '新しいURLリソースを追加する';
+$string['url:view'] = 'URLを表示する';

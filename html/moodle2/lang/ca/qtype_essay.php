@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,3 +39,5 @@ $string['pluginname_help'] = 'Com a resposta a la pregunta (que pot incloure una
 $string['pluginnamesummary'] = 'Permet una resposta consistent en poques frases o paràgrafs. Cal qualificar-la manualment.';
 $string['responsefieldlines'] = 'Dimensions del quadre d\'entrada';
 $string['responseformat'] = 'Format de la resposta';
+$string['responsetemplate'] = 'Plantilla de resposta';
+$string['responsetemplate_help'] = 'Qualsevol text introduït aquí es mostrarà en el quadre d\'entrada de la resposta quan s\'iniciï un nou intent de la pregunta.';

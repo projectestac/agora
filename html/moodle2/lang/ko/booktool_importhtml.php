@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'booktool_importhtml', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'booktool_importhtml', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   booktool_importhtml
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,10 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['doimport'] = '가져오기';
 $string['errornochapters'] = '선택한 파일에서 장을 찾을 수 없습니다.';
-$string['import'] = '장 가져오기';
+$string['import'] = '가져오기';
 $string['importhtml:import'] = '장 가져오기';
 $string['importing'] = '가져오기';
-$string['importingchapters'] = '전자 책으로 장들을 가져오기';
+$string['importingchapters'] = '책으로 장들을 가져오기';
 $string['pluginname'] = '전자 책의 장 가져오기';
 $string['relinking'] = '다시 링크';
 $string['type'] = '유형';

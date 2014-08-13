@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -91,15 +91,6 @@ $string['check_passwordpolicy_details'] = '<p>암호 추정은 종종 승인 안
 $string['check_passwordpolicy_error'] = '비밀번호 정책이 설정되지 않음';
 $string['check_passwordpolicy_name'] = '비밀번호 정책';
 $string['check_passwordpolicy_ok'] = '비밀번호 정책 활성화';
-$string['check_passwordsaltmain_details'] = '<p>암호에 보안을 강화하면 암호 누출을 크게 줄일 수 있습니다.</p>
-<p>보안을 강화하려면, config.php에 다음과 같은 명령줄울 추가합니다.</p>
-<code>$CFG->passwordsaltmain = \'40자 이상의 무작위 문자열\';</code>
-<p>무작위의 문자열은 문자나 숫자의 임의 조합이어야 한다. 이 때 문자열의 길이는 적어도 40자 이상이 권장됩니다.</p>
-<p>만일 암호 보안 문구를 변경하고 싶을 때에는,  <a href="{$a}" target="_blank">암호화 관련 문서</a>를 참고하시기 바랍니다. 일단 암호 보안 문구가 설정되면, 이를 삭제해서는 안 되며, 만일 이를 삭제하면 사이트에 더 이상 접속할 수 없게 됨을 유의하기 바랍니다!<.p>';
-$string['check_passwordsaltmain_name'] = '암호 보안';
-$string['check_passwordsaltmain_ok'] = '암호 보안 양호';
-$string['check_passwordsaltmain_warning'] = '암호 보안 설정 안되어 있음';
-$string['check_passwordsaltmain_weak'] = '암호 보안 미흡';
 $string['check_riskadmin_detailsok'] = '<p>다음의 관리자 목록을 확인하기 바람</p>{$a}';
 $string['check_riskadmin_detailswarning'] = '<p>다음의 관리자 목록을 확인하기 바랍니다</p> {$a->admins}
 <p>시스템 문맥에서 관리자 역할을 부여할 것을 권장합니다. 다음의 사용자들은 다른 문맥에서  (지원되지 않는) 관리자 역할을 부여받았습니다: </p>{$a->unsupported}';

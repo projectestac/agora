@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_match', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_match', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_match
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addmoreqblanks'] = '更多空白';
 $string['answer'] = '答案 {$a}';
 $string['availablechoices'] = '可选项';
+$string['blanksforxmorequestions'] = '更多空白';
 $string['correctansweris'] = '正确答案是：{$a}';
 $string['filloutthreeqsandtwoas'] = '您至少要提供两个问题和三个答案。只有答案而问题空白的题会被当做额外的错误答案。如果问题和答案都是空白，会被忽略。';
 $string['nomatchinganswer'] = '您必须指定一个与问题“{$a}”匹配的答案。';

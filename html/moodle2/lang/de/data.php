@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Kommentar hinzufügen';
 $string['addentries'] = 'Einträge hinzufügen';
 $string['addtemplate'] = 'Vorlage für neue Einträge';
 $string['advancedsearch'] = 'Erweiterte Suche';
+$string['allowcomments'] = 'Kommentare';
 $string['alttext'] = 'Alternativer Text';
 $string['approve'] = 'Zulassen';
 $string['approved'] = 'Bestätigt';
@@ -69,12 +70,13 @@ $string['comment'] = 'Kommentar';
 $string['commentdeleted'] = 'Kommentar gelöscht';
 $string['commentempty'] = 'Kommentar war leer';
 $string['comments'] = 'Kommentare';
-$string['commentsaved'] = 'Kommentare gespeichert';
+$string['commentsaved'] = 'Kommentare gesichert';
 $string['commentsn'] = '{$a} Kommentare';
 $string['commentsoff'] = 'Kommentare sind nicht aktiviert';
 $string['configenablerssfeeds'] = 'Mit dieser Funktion aktivieren Sie RSS-Feeds für alle Datenbanken. Nach der Aktivierung an dieser Stelle ist zusätzlich die Aktivierung in jeder einzelnen Datenbank innerhalb der Kursräume erforderlich.';
 $string['confirmdeletefield'] = 'Möchten Sie dieses Feld wirklich in der Datenbank löschen?';
 $string['confirmdeleterecord'] = 'Möchten Sie diesen Datensatz wirklich in der Datenbank löschen?';
+$string['confirmdeleterecords'] = 'Möchten Sie diese EInträge wirklich löschen?';
 $string['csstemplate'] = 'CSS für Vorlagen';
 $string['csvfailed'] = 'Die Daten aus der CSV-Datei konnten nicht gelesen werden.';
 $string['csvfile'] = 'CSV-Datei';
@@ -82,7 +84,7 @@ $string['csvimport'] = 'CSV-Dateiimport';
 $string['csvimport_help'] = 'Daten können über eine CSV-Datei importiert werden, wobei die erste Zeile eine Liste von Feldnamen enthalten muss, gefolgt von den Daten mit jeweils einem Datensatz pro Zeile.';
 $string['csvwithselecteddelimiter'] = '<acronym title="Komma getrennte Werte">CSV</acronym> mit diesem Trennzeichen:';
 $string['data:addinstance'] = 'Datenbank hinzufügen';
-$string['data:approve'] = 'Einträge freigeben';
+$string['data:approve'] = 'Einträge freigeben oder nicht freigegeben';
 $string['data:comment'] = 'Kommentare schreiben';
 $string['data:exportallentries'] = 'Alle Datenbankeinträge exportieren';
 $string['data:exportentry'] = 'Datenbankeintrag exportieren';
@@ -105,6 +107,7 @@ $string['dateentered'] = 'Daten eingetragen';
 $string['defaultfielddelimiter'] = '(Vorgabe: Komma)';
 $string['defaultfieldenclosure'] = '(Vorgabe: kein Zeichen)';
 $string['defaultsortfield'] = 'Standard-Sortierfeld';
+$string['delcheck'] = 'Checkbox zum Löschen (Bulk)';
 $string['delete'] = 'Löschen';
 $string['deleteallentries'] = 'Alle Einträge löschen';
 $string['deletecomment'] = 'Möchten Sie diesen Kommentar wirklich löschen?';
@@ -114,6 +117,7 @@ $string['deletenotenrolled'] = 'Einträge von abgemeldeten Nutzer/innen löschen
 $string['deletewarning'] = 'Möchten Sie diese Vorlage wirklich löschen?';
 $string['descending'] = 'Absteigend';
 $string['directorynotapreset'] = '{$a->directory} ist kein Vorlagensatz. Fehlende Dateien: {$a->missing_files}';
+$string['disapprove'] = 'Eintrag nicht freigegeben';
 $string['download'] = 'Herunterladen';
 $string['edit'] = 'Bearbeiten';
 $string['editcomment'] = 'Kommentar bearbeiten';
@@ -126,7 +130,7 @@ $string['entries'] = 'Einträge';
 $string['entrieslefttoadd'] = 'Sie müssen {$a->entriesleft} (weitere) Einträge vornehmen, um diese Aktivität zu beenden.';
 $string['entrieslefttoaddtoview'] = 'Sie müssen {$a->entrieslefttoview} (weitere) Einträge vornehmen, bevor Sie andere Teilnehmerbeiträge betrachten können.';
 $string['entry'] = 'Eintrag';
-$string['entrysaved'] = 'Ihr Eintrag wurde gespeichert';
+$string['entrysaved'] = 'Ihr Eintrag wurde gesichert';
 $string['errormustbeteacher'] = 'Diese Seite dürfen nur Trainer/innen benutzen!';
 $string['errorpresetexists'] = 'Es gibt bereits eine Vorlage mit dem gewählten Namen';
 $string['example'] = 'Datenbankbeispiel';
@@ -165,7 +169,7 @@ $string['fileencoding'] = 'Encoding';
 $string['filesnotgenerated'] = 'Es wurden nicht alle Dateien erzeugt: {$a}';
 $string['filtername'] = 'Automatische Verlinkung zur Datenbank';
 $string['footer'] = 'Fußzeile';
-$string['forcelinkname'] = 'Namenseintrag  für den Link erzwingen';
+$string['forcelinkname'] = 'Festgelegter Anzeigename für den Link';
 $string['foundnorecords'] = 'Keine Einträge gefunden (<a href="{$a->reseturl}">Filter zurücksetzen</a>)';
 $string['foundrecords'] = 'Einträge gefunden: {$a->num}/{$a->max} (<a href="{$a->reseturl}">Filter zurücksetzen</a>)';
 $string['fromfile'] = 'Import aus ZIP-Datei';
@@ -208,7 +212,7 @@ $string['longitude'] = 'Längengrad';
 $string['mapexistingfield'] = 'Verknüpfen mit {$a}';
 $string['mapnewfield'] = 'Neues Feld anlegen';
 $string['mappingwarning'] = 'Alle alten Felder, die keinem neuen Feld zugeordnet wurden, werden zusammen mit allen Daten aus diesen Feldern gelöscht.';
-$string['maxentries'] = 'Maximale Einträge';
+$string['maxentries'] = 'Maximal mögliche Einträge';
 $string['maxentries_help'] = 'Die maximale Zahl der Einträge begrenzt die Einträge, die ein/e Teilnehmer/in bei dieser Aktivität vornehmen darf.';
 $string['maxsize'] = 'Größe (max)';
 $string['menu'] = 'Menü';
@@ -281,6 +285,7 @@ $string['presets'] = 'Vorlagensätze';
 $string['radiobutton'] = 'Einfachauswahl';
 $string['recordapproved'] = 'Datensatz wurde angenommen';
 $string['recorddeleted'] = 'Datensatz gelöscht';
+$string['recorddisapproved'] = 'Eintrag nicht freigegeben';
 $string['recordsnotsaved'] = 'Kein Datensatz wurde gespeichert. Prüfen Sie bitte das Format der hochgeladenen Datei.';
 $string['recordssaved'] = 'Datensätze gespeichert';
 $string['requireapproval'] = 'Freigabe erforderlich?';
@@ -298,10 +303,10 @@ $string['rows'] = 'Zeilen';
 $string['rssglobaldisabled'] = 'Deaktiviert. Beachten Sie die Einstellungsseite für die Variablen.';
 $string['rsstemplate'] = 'Vorlage für RSS-Feed';
 $string['rsstitletemplate'] = 'Vorlage für RSS-Titelzeile';
-$string['save'] = 'Speichern';
-$string['saveandadd'] = 'Speichern und weitere hinzufügen';
-$string['saveandview'] = 'Speichern und anzeigen';
-$string['saveaspreset'] = 'Als Vorlagensatz speichern';
+$string['save'] = 'Sichern';
+$string['saveandadd'] = 'Sichern und weitere hinzufügen';
+$string['saveandview'] = 'Sichern und anzeigen';
+$string['saveaspreset'] = 'Als Vorlagensatz sichern';
 $string['saveaspreset_help'] = 'Die Option \'Als Vorlagensatz speichern\' veröffentlicht die Vorlagen und Felder als Vorlagensatz in einer Liste. Andere auf der Website können Ihren Vorlagensatz benutzen, wobei Sie jederzeit den Vorlagensatz wieder entfernen dürfen.';
 $string['savesettings'] = 'Einstellungen speichern';
 $string['savesuccess'] = 'Erfolgreich gespeichert. Ihr Vorlagensatz wird ab sofort überall in diesem Moodle nutzbar sein.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -135,6 +135,7 @@ $string['destination_help'] = '<p>エントリをどこにインポートした�
 <li><strong>現在の用語集:</strong> 現在開いている用語集に新しいエントリが追加されます。</li>
 <li><strong>新しい用語集:</strong> 選択されたインポートファイルの情報を元に、新しい用語集が作成され、新しいエントリが追加されます。</li>
 </ul>';
+$string['disapprove'] = '承認を取り消す';
 $string['displayformat'] = '表示フォーマット';
 $string['displayformatcontinuous'] = '連続、著者なし';
 $string['displayformatdefault'] = '表示フォーマットと同じデフォルトにする';
@@ -213,7 +214,7 @@ $string['fullmatch_help'] = '<p>「エントリを自動的にリンクさせる
 
 <p>例えば、用語集エントリの「construct」という単語は、内部に同じ単語が含まれた「constructivism」にはリンクされません。</p>';
 $string['glossary:addinstance'] = '新しい用語集を追加する';
-$string['glossary:approve'] = '未承認のエントリを承認する';
+$string['glossary:approve'] = 'エントリを承認または承認済みエントリを取り消す';
 $string['glossary:comment'] = 'コメントを作成する';
 $string['glossary:export'] = 'エントリをエクスポートする';
 $string['glossary:exportentry'] = '単一エントリをエクスポートする';
@@ -295,6 +296,7 @@ $string['page-mod-glossary-x'] = 'すべての用語集モジュールページ'
 $string['pluginadministration'] = '用語集管理';
 $string['pluginname'] = '用語集';
 $string['popupformat'] = 'ポップアップフォーマット';
+$string['print'] = '印刷';
 $string['printerfriendly'] = '印刷モード';
 $string['printviewnotallowed'] = '印刷モードは許可されていません。';
 $string['question'] = '質問';
@@ -327,7 +329,7 @@ $string['showall_help'] = '<p>ここではユーザが用語集を閲覧する�
 <p><b>アルファベットを表示する</b> アルファベットで閲覧するかどうか設定します。</p>
 
 <p><b>すべてのリンクを表示する</b> すべてのエントリを一度に表示するかどうか設定します。</p>';
-$string['showalphabet'] = 'アルファベットを表示する';
+$string['showalphabet'] = 'アルファベットリンクを表示する';
 $string['showalphabet_help'] = '<p>ここではユーザが用語集を閲覧する方法をカスタマイズすることができます。用語集は、常に閲覧および検索することができますが、下記の3つのオプションを設定することもできます:</p>
 
 <p><b>特別リンクを表示する</b> @、#のような特別な文字を表示するかどうか設定します。</p>

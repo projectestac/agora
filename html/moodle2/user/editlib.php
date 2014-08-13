@@ -129,22 +129,19 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
 
     $strrequired = get_string('required');
 
-    $nameordercheck = new stdClass();
-    $nameordercheck->firstname = 'a';
-    $nameordercheck->lastname  = 'b';
-    if (fullname($nameordercheck) == 'b a' ) {  // See MDL-4325
-        $mform->addElement('text', 'lastname',  get_string('lastname'),  'maxlength="100" size="30"');
-        $mform->addElement('text', 'firstname', get_string('firstname'), 'maxlength="100" size="30"');
-    } else {
-        $mform->addElement('text', 'firstname', get_string('firstname'), 'maxlength="100" size="30"');
-        $mform->addElement('text', 'lastname',  get_string('lastname'),  'maxlength="100" size="30"');
+    // Add the necessary names.
+    foreach (useredit_get_required_name_fields() as $fullname) {
+        $mform->addElement('text', $fullname,  get_string($fullname),  'maxlength="100" size="30"');
+        $mform->addRule($fullname, $strrequired, 'required', null, 'client');
+        $mform->setType($fullname, PARAM_NOTAGS);
     }
 
-    $mform->addRule('firstname', $strrequired, 'required', null, 'client');
-    $mform->setType('firstname', PARAM_NOTAGS);
-
-    $mform->addRule('lastname', $strrequired, 'required', null, 'client');
-    $mform->setType('lastname', PARAM_NOTAGS);
+    $enabledusernamefields = useredit_get_enabled_name_fields();
+    // Add the enabled additional name fields.
+    foreach ($enabledusernamefields as $addname) {
+        $mform->addElement('text', $addname,  get_string($addname), 'maxlength="100" size="30"');
+        $mform->setType($addname, PARAM_NOTAGS);
+    }
 
     // Do not show email field if change confirmation is pending
     if (!empty($CFG->emailchangeconfirmation) and !empty($user->preference_newemail)) {
@@ -155,6 +152,7 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     } else {
         $mform->addElement('text', 'email', get_string('email'), 'maxlength="100" size="30"');
         $mform->addRule('email', $strrequired, 'required', null, 'client');
+        $mform->setType('email', PARAM_EMAIL);
     }
 
     $choices = array();
@@ -188,6 +186,7 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     $choices['2'] = get_string('emaildigestsubjects');
     $mform->addElement('select', 'maildigest', get_string('emaildigest'), $choices);
     $mform->setDefault('maildigest', 0);
+    $mform->addHelpButton('maildigest', 'emaildigest');
 
     $choices = array();
     $choices['1'] = get_string('autosubscribeyes');
@@ -205,20 +204,25 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
 
     $editors = editors_get_enabled();
     if (count($editors) > 1) {
-        $choices = array();
-        $choices['0'] = get_string('texteditor');
-        $choices['1'] = get_string('htmleditor');
-        $mform->addElement('select', 'htmleditor', get_string('textediting'), $choices);
-        $mform->setDefault('htmleditor', 1);
+        $choices = array('' => get_string('defaulteditor'));
+        $firsteditor = '';
+        foreach (array_keys($editors) as $editor) {
+            if (!$firsteditor) {
+                $firsteditor = $editor;
+            }
+            $choices[$editor] = get_string('pluginname', 'editor_' . $editor);
+        }
+        $mform->addElement('select', 'preference_htmleditor', get_string('textediting'), $choices);
+        $mform->setDefault('preference_htmleditor', '');
     } else {
-        $mform->addElement('hidden', 'htmleditor');
-        $mform->setDefault('htmleditor', 1);
-        $mform->setType('htmleditor', PARAM_INT);
+        // Empty string means use the first chosen text editor.
+        $mform->addElement('hidden', 'preference_htmleditor');
+        $mform->setDefault('preference_htmleditor', '');
+        $mform->setType('preference_htmleditor', PARAM_PLUGIN);
     }
 
     $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="21"');
     $mform->setType('city', PARAM_TEXT);
-    $mform->addRule('city', $strrequired, 'required', null, 'client');
     if (!empty($CFG->defaultcity)) {
         $mform->setDefault('city', $CFG->defaultcity);
     }
@@ -226,7 +230,6 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     $choices = get_string_manager()->get_list_of_countries();
     $choices= array(''=>get_string('selectacountry').'...') + $choices;
     $mform->addElement('select', 'country', get_string('selectacountry'), $choices);
-    $mform->addRule('country', $strrequired, 'required', null, 'client');
     if (!empty($CFG->country)) {
         $mform->setDefault('country', $CFG->country);
     }
@@ -242,6 +245,14 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
 
     $mform->addElement('select', 'lang', get_string('preferredlanguage'), get_string_manager()->get_list_of_translations());
     $mform->setDefault('lang', $CFG->lang);
+
+    // Multi-Calendar Support - see MDL-18375.
+    $calendartypes = \core_calendar\type_factory::get_list_of_calendar_types();
+    // We do not want to show this option unless there is more than one calendar type to display.
+    if (count($calendartypes) > 1) {
+        $mform->addElement('select', 'calendartype', get_string('preferredcalendar', 'calendar'), $calendartypes);
+        $mform->setDefault('calendartype', $CFG->calendartype);
+    }
 
     if (!empty($CFG->allowuserthemes)) {
         $choices = array();
@@ -259,7 +270,7 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     $mform->setType('description_editor', PARAM_CLEANHTML);
     $mform->addHelpButton('description_editor', 'userdescription');
 
-    if (!empty($CFG->gdversion) and empty($USER->newadminuser)) {
+    if (empty($USER->newadminuser)) {
         $mform->addElement('header', 'moodle_picture', get_string('pictureofuser'));
 
         if (!empty($CFG->enablegravatar)) {
@@ -277,6 +288,16 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
         $mform->addElement('text', 'imagealt', get_string('imagealt'), 'maxlength="100" size="30"');
         $mform->setType('imagealt', PARAM_TEXT);
 
+    }
+
+    // Display user name fields that are not currenlty enabled here if there are any.
+    $disabledusernamefields = useredit_get_disabled_name_fields($enabledusernamefields);
+    if (count($disabledusernamefields) > 0) {
+        $mform->addElement('header', 'moodle_additional_names', get_string('additionalnames'));
+        foreach ($disabledusernamefields as $allname) {
+            $mform->addElement('text', $allname, get_string($allname), 'maxlength="100" size="30"');
+            $mform->setType($allname, PARAM_NOTAGS);
+        }
     }
 
     if (!empty($CFG->usetags) and empty($USER->newadminuser)) {
@@ -309,10 +330,10 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     $mform->addElement('text', 'idnumber', get_string('idnumber'), 'maxlength="255" size="25"');
     $mform->setType('idnumber', PARAM_NOTAGS);
 
-    $mform->addElement('text', 'institution', get_string('institution'), 'maxlength="40" size="25"');
+    $mform->addElement('text', 'institution', get_string('institution'), 'maxlength="255" size="25"');
     $mform->setType('institution', PARAM_TEXT);
 
-    $mform->addElement('text', 'department', get_string('department'), 'maxlength="30" size="25"');
+    $mform->addElement('text', 'department', get_string('department'), 'maxlength="255" size="25"');
     $mform->setType('department', PARAM_TEXT);
 
     $mform->addElement('text', 'phone1', get_string('phone'), 'maxlength="20" size="25"');
@@ -321,10 +342,84 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     $mform->addElement('text', 'phone2', get_string('phone2'), 'maxlength="20" size="25"');
     $mform->setType('phone2', PARAM_NOTAGS);
 
-    $mform->addElement('text', 'address', get_string('address'), 'maxlength="70" size="25"');
+    $mform->addElement('text', 'address', get_string('address'), 'maxlength="255" size="25"');
     $mform->setType('address', PARAM_TEXT);
 
 
+}
+
+/**
+ * Return required user name fields for forms.
+ *
+ * @return array required user name fields in order according to settings.
+ */
+function useredit_get_required_name_fields() {
+    global $CFG;
+
+    // Get the name display format.
+    $nameformat = $CFG->fullnamedisplay;
+
+    // Names that are required fields on user forms.
+    $necessarynames = array('firstname', 'lastname');
+    $languageformat = get_string('fullnamedisplay');
+
+    // Check that the language string and the $nameformat contain the necessary names.
+    foreach ($necessarynames as $necessaryname) {
+        $pattern = "/$necessaryname\b/";
+        if (!preg_match($pattern, $languageformat)) {
+            // If the language string has been altered then fall back on the below order.
+            $languageformat = 'firstname lastname';
+        }
+        if (!preg_match($pattern, $nameformat)) {
+            // If the nameformat doesn't contain the necessary name fields then use the languageformat.
+            $nameformat = $languageformat;
+        }
+    }
+
+    // Order all of the name fields in the postion they are written in the fullnamedisplay setting.
+    $necessarynames = order_in_string($necessarynames, $nameformat);
+    return $necessarynames;
+}
+
+/**
+ * Gets enabled (from fullnameformate setting) user name fields in appropriate order.
+ *
+ * @return array Enabled user name fields.
+ */
+function useredit_get_enabled_name_fields() {
+    global $CFG;
+
+    // Get all of the other name fields which are not ranked as necessary.
+    $additionalusernamefields = array_diff(get_all_user_name_fields(), array('firstname', 'lastname'));
+    // Find out which additional name fields are actually being used from the fullnamedisplay setting.
+    $enabledadditionalusernames = array();
+    foreach ($additionalusernamefields as $enabledname) {
+        if (strpos($CFG->fullnamedisplay, $enabledname) !== false) {
+            $enabledadditionalusernames[] = $enabledname;
+        }
+    }
+
+    // Order all of the name fields in the postion they are written in the fullnamedisplay setting.
+    $enabledadditionalusernames = order_in_string($enabledadditionalusernames, $CFG->fullnamedisplay);
+    return $enabledadditionalusernames;
+}
+
+/**
+ * Gets user name fields not enabled from the setting fullnamedisplay.
+ *
+ * @param array $enabledadditionalusernames Current enabled additional user name fields.
+ * @return array Disabled user name fields.
+ */
+function useredit_get_disabled_name_fields($enabledadditionalusernames = null) {
+    // If we don't have enabled additional user name information then go and fetch it (try to avoid).
+    if (!isset($enabledadditionalusernames)) {
+        $enabledadditionalusernames = useredit_get_enabled_name_fields();
+    }
+
+    // These are the additional fields that are not currently enabled.
+    $nonusednamefields = array_diff(get_all_user_name_fields(),
+            array_merge(array('firstname', 'lastname'), $enabledadditionalusernames));
+    return $nonusednamefields;
 }
 
 

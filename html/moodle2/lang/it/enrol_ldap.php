@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,18 +32,25 @@ $string['autocreate'] = '<p>I corsi possono essere creati automaticamente se in 
 moodle/course:changeidnumber, moodle/course:changeshortname, moodle/course:changefullname moodle/course:changesummary.</p>';
 $string['autocreate_key'] = 'Creazione automatica corsi';
 $string['autocreation_settings'] = 'Impostazioni per la creazione automatica dei corsi';
+$string['autoupdate_settings'] = 'Impostazioni aggiornamento automatico corsi';
+$string['autoupdate_settings_desc'] = '<p>Selezionare il campi da aggiornare durante l\'elaborazione dello script di sincronizzazione (enrol/ldap/cli/sync.php).</p><p>L\'aggiornamento avrà luogo selezionando almeno un campo.</p>';
 $string['bind_dn'] = 'Distinguished Name (dn) dell\'utente bind da utilizzare, ad esempio \'cn=ldapuser,ou=public,o=org\'';
 $string['bind_dn_key'] = 'Distinguished name utente bind';
 $string['bind_pw'] = 'Password per l\'utente bind';
 $string['bind_pw_key'] = 'Password';
 $string['bind_settings'] = 'Impostazioni bind';
 $string['cannotcreatecourse'] = 'Non è possibile creare il corso: mancano dati obbligatori nel record LDAP!';
+$string['cannotupdatecourse'] = 'Non è possibile aggiornare il corso: manca una dato obbligatorio nel record LDAP!
+Codice identificativo del corso: \'{$a->idnumber}\'';
+$string['cannotupdatecourse_duplicateshortname'] = 'Non è possibile aggiornare il corso: Titolo abbreviato duplicato. Il corso con codice identificativo \'{$a->idnumber}\' è stato saltato...';
 $string['category'] = 'Categoria dove aggiungere i corsi creati automaticamente';
 $string['category_key'] = 'Categoria';
 $string['contexts'] = 'Contesti LDAP';
 $string['couldnotfinduser'] = 'Non è stato possibile trovare l\'utente \'{$a}\', dati ignorati.';
 $string['course_fullname'] = 'Opzionale: atributo LDAP che contiene il titolo del corso.';
 $string['course_fullname_key'] = 'Titolo';
+$string['course_fullname_updateonsync'] = 'Aggiorna il titolo tramite script di sincronizzazione';
+$string['course_fullname_updateonsync_key'] = 'Aggiorna titolo';
 $string['course_idnumber'] = 'Attributo LDAP che contiene il codice identificativo del corso, ad esmepio \'cn\' o \'uid\'.';
 $string['course_idnumber_key'] = 'Codice identificativo';
 $string['coursenotexistskip'] = 'Il corso \'{$a}\'  non esiste e la creazione automatica è disabilitata; dati ignorati.';
@@ -52,8 +59,14 @@ $string['course_search_sub_key'] = 'Cerca nei sotto contesti';
 $string['course_settings'] = 'Impostazioni iscrizione corsi';
 $string['course_shortname'] = 'Opzionale: attributo LDAP che contiene il titolo abbreviato del corso.';
 $string['course_shortname_key'] = 'Titolo abbreviato';
+$string['course_shortname_updateonsync'] = 'Aggiorna il titolo abbreviato tramite script di sincronizzazione';
+$string['course_shortname_updateonsync_key'] = 'Aggiorna titolo abbreviato';
 $string['course_summary'] = 'Opzionale: attributo LDAP che contiene la descrizione del corso.';
 $string['course_summary_key'] = 'Descrizione';
+$string['course_summary_updateonsync'] = 'Aggiorna la descrizione tramite script di sincronizzazione';
+$string['course_summary_updateonsync_key'] = 'Aggiorna descrizione';
+$string['courseupdated'] = 'Il corso con codice identificativo  \'{$a->idnumber}\' è stato aggiornato correttamente.';
+$string['courseupdateskipped'] = 'Il corso con codice identificativo  \'{$a->idnumber}\' non richiede aggiornamento. Saltato...';
 $string['createcourseextid'] = 'L\'utente CREATE è iscritto ad un corso che non esiste \'{$a->courseextid}\'';
 $string['createnotcourseextid'] = 'L\'utente è iscritto ad un corso che non esiste \'{$a->courseextid}\'';
 $string['creatingcourse'] = 'Creazione del corso \'{$a}\'...';

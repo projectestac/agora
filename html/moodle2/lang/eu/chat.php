@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['activityoverview'] = 'Laster duzu txata';
 $string['ajax'] = 'Ajax erabiltzen duen bertsioa';
 $string['autoscroll'] = 'Korritze automatikoa';
-$string['beep'] = 'Abisatu';
+$string['beep'] = 'Abisua';
 $string['cantlogin'] = 'Ezin da sartu txat-gelan!!!';
 $string['chat:addinstance'] = 'Gehitu beste txat-gela bat';
 $string['chat:chat'] = 'Sartu txat-gelara';
@@ -51,6 +51,7 @@ $string['configserverhost'] = 'Zerbitzariaren \'daemnon\'a (egikaritza prozesu i
 $string['configserverip'] = '\'hostame\'aren (etxekoaren izena) baliokidea den IP zenbakizko helbidea';
 $string['configservermax'] = 'Gehinenezko erabiltzaile kopurua';
 $string['configserverport'] = 'Zerbitzariaren \'daemon\'ak erabiltzen duen portua';
+$string['coursetheme'] = 'Ikastaroaren itxura';
 $string['currentchats'] = 'Txat-txostenak martxan jarri';
 $string['currentusers'] = 'Oraingo erabiltzaileak';
 $string['deletesession'] = 'Ezabatu txosten hau';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Aumento di';
+$string['incby1_help'] = 'L\'aumento utilizzato quando viene visualizzato un link di collegamento alle sezioni a partire da 1.';
 $string['incby2'] = 'Aumento alternativo di';
-$string['incbydesc1'] = 'L\'intervallo di visualizzazione dei link alle sezioni, con inizio alla sezione 1.';
-$string['incbydesc2'] = 'L\'intervallo di visualizzazione alternativo dei link alle sezioni, con inizio alla sezione 1.';
+$string['incby2_help'] = 'L\'aumento utilizzato quando viene visualizzato un link di collegamento alle sezioni a partire da 1.';
 $string['jumptocurrenttopic'] = 'Salta all\'argomento corrente';
 $string['jumptocurrentweek'] = 'Salta alla settimana corrente';
 $string['numsections1'] = 'Numero di sezioni';
+$string['numsections1_help'] = 'Se il numero di sezioni presenti nel corso raggiunge il valore impostato, sarà usato il valore impostato per "Aumento di"';
 $string['numsections2'] = 'Numero di sezioni alternativo';
-$string['numsectionsdesc1'] = 'Se il numero di sezioni del corso raggiunge il valore impostato, verrà utilizzato l\'intervallo definito sotto.';
-$string['numsectionsdesc2'] = 'Se il numero di sezioni del corso raggiunge il valore impostato, verrà utilizzato l\'intervallo alternativo definito sotto.';
+$string['numsections2_help'] = 'Se il numero di sezioni presenti nel corso raggiunge il valore impostato, sarà usato il valore impostato per "Aumento alternativo di"';
 $string['pluginname'] = 'Collegamenti sezione';
 $string['section_links:addinstance'] = 'Aggiungere blocco Collegamenti sezione';
 $string['topics'] = 'Argomenti';

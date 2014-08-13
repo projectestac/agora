@@ -39,7 +39,6 @@ abstract class restore_search_base implements renderable {
      */
     static $VAR_SEARCH = 'search';
 
-    static $MAXRESULTS = 10;
     /**
      * The current search string
      * @var string|null
@@ -66,6 +65,11 @@ abstract class restore_search_base implements renderable {
      */
     private $requiredcapabilities = array();
     /**
+     * Max number of courses to return in a search.
+     * @var int
+     */
+    private $maxresults = null;
+    /**
      * Indicates if we have more than maxresults found.
      * @var boolean
      */
@@ -78,6 +82,7 @@ abstract class restore_search_base implements renderable {
     public function __construct(array $config=array()) {
 
         $this->search = optional_param($this->get_varsearch(), self::DEFAULT_SEARCH, PARAM_NOTAGS);
+        $this->maxresults = get_config('backup', 'import_general_maxresults');
 
         foreach ($config as $name=>$value) {
             $method = 'set_'.$name;
@@ -169,24 +174,22 @@ abstract class restore_search_base implements renderable {
         $this->totalcount = 0;
         $contextlevel = $this->get_itemcontextlevel();
         list($sql, $params) = $this->get_searchsql();
-        $blocksz = 5000;
-        $offs = 0;
-        // Get total number, to avoid some incorrect iterations
+        // Get total number, to avoid some incorrect iterations.
         $countsql = preg_replace('/ORDER BY.*/', '', $sql);
         $totalcourses = $DB->count_records_sql("SELECT COUNT(*) FROM ($countsql) sel", $params);
-        // User to be checked is always the same (usually null, get it form first element)
-        $firstcap = reset($this->requiredcapabilities);
-        $userid = isset($firstcap['user']) ? $firstcap['user'] : null;
-        // Extract caps to check, this saves us a bunch of iterations
-        $requiredcaps = array();
-        foreach ($this->requiredcapabilities as $cap) {
-            $requiredcaps[] = $cap['capability'];
-        }
-        // Iterate while we have records and haven't reached $this->maxresults.
-        while ($totalcourses > $offs and $this->totalcount < self::$MAXRESULTS) {
-            $resultset = $DB->get_records_sql($sql, $params, $offs, $blocksz);
+        if ($totalcourses > 0) {
+            // User to be checked is always the same (usually null, get it from first element).
+            $firstcap = reset($this->requiredcapabilities);
+            $userid = isset($firstcap['user']) ? $firstcap['user'] : null;
+            // Extract caps to check, this saves us a bunch of iterations.
+            $requiredcaps = array();
+            foreach ($this->requiredcapabilities as $cap) {
+                $requiredcaps[] = $cap['capability'];
+            }
+            // Iterate while we have records and haven't reached $this->maxresults.
+            $resultset = $DB->get_recordset_sql($sql, $params);
             foreach ($resultset as $result) {
-                context_instance_preload($result);
+                context_helper::preload_from_record($result);
                 $classname = context_helper::get_class_for_level($contextlevel);
                 $context = $classname::instance($result->id);
                 if (count($requiredcaps) > 0) {
@@ -195,7 +198,7 @@ abstract class restore_search_base implements renderable {
                     }
                 }
                 // Check if we are over the limit.
-                if ($this->totalcount+1 > self::$MAXRESULTS) {
+                if ($this->totalcount+1 > $this->maxresults) {
                     $this->hasmoreresults = true;
                     break;
                 }
@@ -203,7 +206,7 @@ abstract class restore_search_base implements renderable {
                 $this->totalcount++;
                 $this->results[$result->id] = $result;
             }
-            $offs += $blocksz;
+            $resultset->close();
         }
 
         return $this->totalcount;
@@ -272,8 +275,10 @@ class restore_course_search extends restore_search_base {
     protected function get_searchsql() {
         global $DB;
 
-        list($ctxselect, $ctxjoin) = context_instance_preload_sql('c.id', CONTEXT_COURSE, 'ctx');
+        $ctxselect = ', ' . context_helper::get_preload_record_columns_sql('ctx');
+        $ctxjoin = "LEFT JOIN {context} ctx ON (ctx.instanceid = c.id AND ctx.contextlevel = :contextlevel)";
         $params = array(
+            'contextlevel' => CONTEXT_COURSE,
             'fullnamesearch' => '%'.$this->get_search().'%',
             'shortnamesearch' => '%'.$this->get_search().'%',
             'siteid' => SITEID
@@ -321,8 +326,10 @@ class restore_category_search extends restore_search_base  {
     protected function get_searchsql() {
         global $DB;
 
-        list($ctxselect, $ctxjoin) = context_instance_preload_sql('c.id', CONTEXT_COURSECAT, 'ctx');
+        $ctxselect = ', ' . context_helper::get_preload_record_columns_sql('ctx');
+        $ctxjoin = "LEFT JOIN {context} ctx ON (ctx.instanceid = c.id AND ctx.contextlevel = :contextlevel)";
         $params = array(
+            'contextlevel' => CONTEXT_COURSECAT,
             'namesearch' => '%'.$this->get_search().'%',
         );
 

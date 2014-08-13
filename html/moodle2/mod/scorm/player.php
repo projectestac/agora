@@ -66,7 +66,7 @@ if (!empty($id)) {
 // If new attempt is being triggered set normal mode and increment attempt number.
 $attempt = scorm_get_last_attempt($scorm->id, $USER->id);
 
-// Check mode is correct and set mode/attempt (uses pass by reference).
+// Check mode is correct and set/validate mode/attempt/newattempt (uses pass by reference).
 scorm_check_mode($scorm, $newattempt, $attempt, $USER->id, $mode);
 
 $url = new moodle_url('/mod/scorm/player.php', array('scoid'=>$scoid, 'cm'=>$cm->id));
@@ -83,6 +83,13 @@ $PAGE->set_url($url);
 $forcejs = get_config('scorm', 'forcejavascript');
 if (!empty($forcejs)) {
     $PAGE->add_body_class('forcejavascript');
+}
+$collapsetocwinsize = get_config('scorm', 'collapsetocwinsize');
+if (empty($collapsetocwinsize)) {
+    // Set as default window size to collapse TOC.
+    $collapsetocwinsize = 767;
+} else {
+    $collapsetocwinsize = intval($collapsetocwinsize);
 }
 
 require_login($course, false, $cm);
@@ -174,6 +181,9 @@ $PAGE->requires->data_for_js('scormplayerdata', Array('launch' => false,
 $PAGE->requires->js('/mod/scorm/request.js', true);
 $PAGE->requires->js('/lib/cookies.js', true);
 echo $OUTPUT->header();
+if ($displaymode !== 'popup') {
+    echo $OUTPUT->heading(format_string($scorm->name));
+}
 
 $PAGE->requires->string_for_js('navigation', 'scorm');
 $PAGE->requires->string_for_js('toc', 'scorm');
@@ -245,7 +255,7 @@ if ($result->prerequisites) {
 ?>
     </div> <!-- SCORM page -->
 <?php
-$scoes = scorm_get_toc_object($USER, $scorm, "", $sco->id, $mode, $attempt);
+$scoes = scorm_get_toc_object($USER, $scorm, $currentorg, $sco->id, $mode, $attempt);
 $adlnav = scorm_get_adlnav_json($scoes['scoes']);
 
 if (empty($scorm->popup) || $displaymode == 'popup') {
@@ -257,7 +267,9 @@ if (empty($scorm->popup) || $displaymode == 'popup') {
         'fullpath' => '/mod/scorm/module.js',
         'requires' => array('json'),
     );
-    $PAGE->requires->js_init_call('M.mod_scorm.init', array($scorm->hidenav, $scorm->hidetoc, $result->toctitle, $name, $sco->id, $adlnav), false, $jsmodule);
+    $scorm->nav = intval($scorm->nav);
+    $PAGE->requires->js_init_call('M.mod_scorm.init', array($scorm->nav, $scorm->navpositionleft, $scorm->navpositiontop, $scorm->hidetoc,
+                                                            $collapsetocwinsize, $result->toctitle, $name, $sco->id, $adlnav), false, $jsmodule);
 }
 if (!empty($forcejs)) {
     echo $OUTPUT->box(get_string("forcejavascriptmessage", "scorm"), "generalbox boxaligncenter forcejavascriptmessage");

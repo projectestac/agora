@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddmarker', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddmarker', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddmarker
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -61,6 +61,7 @@ $string['marker'] = 'Marcador';
 $string['marker_n'] = 'Marcador {no}';
 $string['markers'] = 'Marcadors';
 $string['nolabel'] = 'No hi ha text a l\'etiqueta';
+$string['noofdrags'] = 'Número';
 $string['noquestionsfound'] = 'No s\'ha trobat cap pregunta per convertir.';
 $string['pleasedragatleastonemarker'] = 'La resposta no està completa, almenys heu de desplaçar un marcador sobre la imatge.';
 $string['pluginname'] = 'Arrossegar marcadors';

@@ -29,10 +29,17 @@
  */
 
 define('CLI_SCRIPT', true);
+define('CACHE_DISABLE_ALL', true);
 
 // extra execution prevention - we can not just require config.php here
 if (isset($_SERVER['REMOTE_ADDR'])) {
     exit(1);
+}
+
+// Force OPcache reset if used, we do not want any stale caches
+// when preparing test environment.
+if (function_exists('opcache_reset')) {
+    opcache_reset();
 }
 
 $help =
@@ -55,10 +62,10 @@ Example:
 ";
 
 // Check that PHP is of a sufficient version
-if (version_compare(phpversion(), "5.3.2") < 0) {
+if (version_compare(phpversion(), "5.3.3") < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN NOT move it after installib
-    fwrite(STDERR, "Moodle 2.1 or later requires at least PHP 5.3.2 (currently using version $phpversion).\n");
+    fwrite(STDERR, "Moodle 2.5 or later requires at least PHP 5.3.3 (currently using version $phpversion).\n");
     fwrite(STDERR, "Please upgrade your server software or install older Moodle version.\n");
     exit(1);
 }
@@ -160,9 +167,8 @@ if (!$envstatus) {
 }
 
 // Test plugin dependencies.
-require_once($CFG->libdir . '/pluginlib.php');
 $failed = array();
-if (!plugin_manager::instance()->all_plugins_ok($version, $failed)) {
+if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
     cli_problem(get_string('pluginscheckfailed', 'admin', array('pluginslist' => implode(', ', array_unique($failed)))));
     cli_error(get_string('pluginschecktodo', 'admin'));
 }

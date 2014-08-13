@@ -66,7 +66,7 @@ function note_list($courseid=0, $userid=0, $state = '', $author = 0, $order='las
  * Retrieves a note object based on its id.
  *
  * @param int    $note_id id of the note to retrieve
- * @return note object
+ * @return stdClass object
  */
 function note_load($note_id) {
     global $DB;
@@ -79,13 +79,13 @@ function note_load($note_id) {
  * Saves a note object. The note object is passed by reference and its fields (i.e. id)
  * might change during the save.
  *
- * @param note   $note object to save
+ * @param stdClass   $note object to save
  * @return boolean true if the object was saved; false otherwise
  */
 function note_save(&$note) {
     global $USER, $DB;
 
-    // setup & clean fields
+    // Setup & clean fields.
     $note->module       = 'notes';
     $note->lastmodified = time();
     $note->usermodified = $USER->id;
@@ -95,16 +95,38 @@ function note_save(&$note) {
     if (empty($note->publishstate)) {
         $note->publishstate = NOTES_STATE_PUBLIC;
     }
-    // save data
+    // Save data.
     if (empty($note->id)) {
-        // insert new note
+        // Insert new note.
         $note->created = $note->lastmodified;
         $id = $DB->insert_record('post', $note);
         $note = note_load($id);
+
+        // Trigger event.
+        $event = \core\event\note_created::create(array(
+            'objectid' => $note->id,
+            'courseid' => $note->courseid,
+            'relateduserid' => $note->userid,
+            'userid' => $note->usermodified,
+            'context' => context_course::instance($note->courseid),
+            'other' => array('publishstate' => $note->publishstate)
+        ));
+        $event->trigger();
     } else {
-        // update old note
+        // Update old note.
         $DB->update_record('post', $note);
         $note = note_load($note->id);
+
+        // Trigger event.
+        $event = \core\event\note_updated::create(array(
+            'objectid' => $note->id,
+            'courseid' => $note->courseid,
+            'relateduserid' => $note->userid,
+            'userid' => $note->usermodified,
+            'context' => context_course::instance($note->courseid),
+            'other' => array('publishstate' => $note->publishstate)
+        ));
+        $event->trigger();
     }
     unset($note->module);
     return true;
@@ -113,13 +135,33 @@ function note_save(&$note) {
 /**
  * Deletes a note object based on its id.
  *
- * @param int    $note_id id of the note to delete
+ * @param int|object    $note id of the note to delete, or a note object which is to be deleted.
  * @return boolean true if the object was deleted; false otherwise
  */
-function note_delete($noteid) {
+function note_delete($note) {
     global $DB;
+    if (is_int($note)) {
+        $noteid = $note;
+    } else {
+        $noteid = $note->id;
+    }
+    // Get the full record, note_load doesn't return everything.
+    $note = $DB->get_record('post', array('id' => $noteid), '*', MUST_EXIST);
+    $return = $DB->delete_records('post', array('id' => $note->id, 'module' => 'notes'));
 
-    return $DB->delete_records('post', array('id'=>$noteid, 'module'=>'notes'));
+    // Trigger event.
+    $event = \core\event\note_deleted::create(array(
+        'objectid' => $note->id,
+        'courseid' => $note->courseid,
+        'relateduserid' => $note->userid,
+        'userid' => $note->usermodified,
+        'context' => context_course::instance($note->courseid),
+        'other' => array('publishstate' => $note->publishstate)
+    ));
+    $event->add_record_snapshot('post', $note);
+    $event->trigger();
+
+    return $return;
 }
 
 /**

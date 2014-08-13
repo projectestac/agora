@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_blackboard_six
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,9 +29,9 @@ $string['defaultname'] = 'Импортированный вопрос {$a}';
 $string['errormanifest'] = 'Ошибка при разборе документа манифеста IMS';
 $string['filenothandled'] = 'Этот архив содержит ссылку на материал файла {$a}, который в настоящее время не обрабатывается при импорте';
 $string['imagenotfound'] = 'Путь {$a} к файлу изображения не был найден при импорте.';
+$string['importedcategory'] = 'Импортированные категории {$a}';
 $string['importnotext'] = 'Пропущен текст вопроса в XML-файле';
 $string['notenoughtsubans'] = 'Невозможно импортировать вопрос на соответствие «{$a}», потому что такой тип вопроса должен содержать по меньшей мере два вопроса и три ответа.';
-$string['pluginname'] = 'Формат Blackboard V6+';
-$string['pluginname_help'] = 'Формат Blackboard V6+  позволяет импортировать вопросы из ZIP-файла, сохранённого при экспорте во всех форматах Blackboard. Импорт изображений поддерживается.';
+$string['pluginname'] = 'Формат Blackboard';
+$string['pluginname_help'] = 'Формат Blackboard позволяет импортировать вопросы из ZIP-файла, сохраненного при экспорте в формате Blackboard. Поддерживается импорт изображений из ZIP-файла.';
 $string['unhandledpresblock'] = 'Необработанный блок презентации';
-$string['unknownorunhandledtype'] = 'Неизвестный или необработанный тип вопроса: {$a}';

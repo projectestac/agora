@@ -24,11 +24,9 @@
 
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');
-require_once($CFG->libdir.'/pluginlib.php');
 
 $action  = required_param('action', PARAM_ALPHANUMEXT);
 $formatname   = required_param('format', PARAM_PLUGIN);
-$confirm = optional_param('confirm', 0, PARAM_BOOL);
 
 $syscontext = context_system::instance();
 $PAGE->set_url('/admin/courseformats.php');
@@ -40,8 +38,7 @@ require_sesskey();
 
 $return = new moodle_url('/admin/settings.php', array('section' => 'manageformats'));
 
-$allplugins = plugin_manager::instance()->get_plugins();
-$formatplugins = $allplugins['format'];
+$formatplugins = core_plugin_manager::instance()->get_plugins_of_type('format');
 $sortorder = array_flip(array_keys($formatplugins));
 
 if (!isset($formatplugins[$formatname])) {
@@ -55,11 +52,13 @@ switch ($action) {
                 print_error('cannotdisableformat', 'error', $return);
             }
             set_config('disabled', 1, 'format_'. $formatname);
+            core_plugin_manager::reset_caches();
         }
         break;
     case 'enable':
         if (!$formatplugins[$formatname]->is_enabled()) {
             unset_config('disabled', 'format_'. $formatname);
+            core_plugin_manager::reset_caches();
         }
         break;
     case 'up':
@@ -80,52 +79,5 @@ switch ($action) {
             set_config('format_plugins_sortorder', implode(',', $seq));
         }
         break;
-    case 'uninstall':
-        echo $OUTPUT->header();
-        echo $OUTPUT->heading(get_string('courseformats', 'moodle'));
-
-        $coursecount = $DB->count_records('course', array('format' => $formatname));
-        if ($coursecount) {
-            // Check that default format is set. It will be used to convert courses
-            // using this format
-            $defaultformat = get_config('moodlecourse', 'format');
-            $defaultformat = $formatplugins[get_config('moodlecourse', 'format')];
-            if (!$defaultformat) {
-                echo $OUTPUT->error_text(get_string('defaultformatnotset', 'admin'));
-                echo $OUTPUT->footer();
-                exit;
-            }
-        }
-
-        $format = $formatplugins[$formatname];
-        $deleteurl = $format->get_uninstall_url();
-        if (!$deleteurl) {
-            // somebody was trying to cheat and type non-existing link
-            echo $OUTPUT->error_text(get_string('cannotuninstall', 'admin', $format->displayname));
-            echo $OUTPUT->footer();
-            exit;
-        }
-
-        if (!$confirm) {
-            if ($coursecount) {
-                $message = get_string('formatuninstallwithcourses', 'admin',
-                        (object)array('count' => $coursecount, 'format' => $format->displayname,
-                            'defaultformat' => $defaultformat->displayname));
-            } else {
-                $message = get_string('formatuninstallconfirm', 'admin', $format->displayname);
-            }
-            $deleteurl->param('confirm', 1);
-            echo $OUTPUT->confirm($message, $deleteurl, $return);
-        } else {
-            $a = new stdClass();
-            $a->plugin = $format->displayname;
-            $a->directory = $format->rootdir;
-            uninstall_plugin('format', $formatname);
-            echo $OUTPUT->notification(get_string('formatuninstalled', 'admin', $a), 'notifysuccess');
-            echo $OUTPUT->continue_button($return);
-        }
-
-        echo $OUTPUT->footer();
-        exit;
 }
 redirect($return);

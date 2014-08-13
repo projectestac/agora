@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_dragmath', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_dragmath', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_dragmath
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['dragmath:desc'] = 'Txertatu ekuazioa';
 $string['pluginname'] = 'Txertatu ekuazioa';
-$string['requiretex'] = 'Txertatu ekuazioa';
+$string['requiretex'] = 'TeX filter behar du';
 $string['title'] = 'DragMath ekuazio-editorea';

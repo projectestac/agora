@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_configurable_reports', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_configurable_reports', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   block_configurable_reports
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -189,7 +189,7 @@ $string['reportscapabilities'] = 'Txostenak ikusteko baimenak';
 $string['reportscapabilities_summary'] = 'moodle/site:viewreports baimena gaituta duten erabiltzaileak';
 $string['report_sql'] = 'SQL txostena';
 $string['reporttable'] = 'Txostenaren taula';
-$string['report_timeline'] = 'Denbora-lerro txostena';
+$string['report_timeline'] = 'Denbora tarte bati buruzko txostena';
 $string['report_users'] = 'Erabiltzaileen txostena';
 $string['role'] = 'Rola';
 $string['roleincourse'] = 'Aukeratutako rola/k txostenaren ikastaroan duen/dituen erabiltzailea';

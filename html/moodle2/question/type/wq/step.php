@@ -9,6 +9,14 @@
  *
  * @author dani
  */
+
+/**
+ * This class is useful for:
+ *  - No intentar avaluar una pregunta si ha fallat en 3 intents seguits
+ *    en les mateixes condicions. Útil en exàmens.
+ *  - Guardar info en un "step" durant l'avaluació, perquè en aquest moment
+ *    l'step és read-only.
+ * **/
 class qtype_wirisstep {
     public static $MAX_ATTEMPS_SHORTANSWER_WIRIS = 2;
     
@@ -19,7 +27,8 @@ class qtype_wirisstep {
     }
     
     public function load($step) {
-        if (!($step instanceof question_attempt_step_read_only)) {
+        if (!($step instanceof question_attempt_step_read_only) &&
+            !(($step instanceof question_attempt_step_subquestion_adapter) && ($step->realqas instanceof question_attempt_step_read_only) )) {
             $this->step = $step;
             // It is a regrade or the first attempt
             try {
@@ -57,9 +66,9 @@ class qtype_wirisstep {
      * @param type $quizBool whether it is question level or subquestion level
      * @throws dml_exception
      */
-    public function set_var($name, $value, $subquesBool) {
+    public function set_var($name, $value, $subquesBool = true) {
         if ($subquesBool && $this->step!=null) {
-            $this->step->set_qt_var('_'.$name,$value);
+            $this->step->set_qt_var($name,$value);
             return;
         }
 
@@ -84,16 +93,22 @@ class qtype_wirisstep {
         }
         
     }
-
+    public function get_qt_data() {
+        if ($this->step!=null) {
+            return $this->step->get_qt_data();
+        } else {
+            $DB=$this->get_db();
+        }
+    }
     /**
      * 
      * @param type $name
      * @param type $subquesBool whether the variable is from the subquestion or the parent (only cloze).
      * @return null
      */
-    public function get_var($name, $subquesBool) {
+    public function get_var($name, $subquesBool = true) {
         if ($subquesBool && $this->step!=null) {
-            return $this->step->get_qt_var('_'.$name);
+            return $this->step->get_qt_var($name);
         }
 
         if (!isset($this->step_id) || $this->step_id==0) {
@@ -119,9 +134,17 @@ class qtype_wirisstep {
         if ($subquesBool && strlen($this->extraprefix)>0) {
             // the prefix is needed when it is a subquestion of a cloze 
             // (multianswer) question type
-            return '_' . $this->extraprefix . $name;
+            if (substr($name, 0, 2) === '!_') {
+                return '-_' . $this->extraprefix . substr($name, 2);
+            } else if (substr($name, 0, 1) === '-') {
+                return '-' . $this->extraprefix . substr($name, 1);
+            } else if (substr($name, 0, 1) === '_') {
+                return '_' . $this->extraprefix . substr($name, 1);
+            } else {
+                return $this->extraprefix . $name;
+            }
         } else {
-            return '_' . $name;
+            return $name;
         }
     }
     
@@ -143,7 +166,7 @@ class qtype_wirisstep {
      * Returns whether the max number of attempts limit is reached
      */
     public function is_attempt_limit_reached() {
-        $c = $this->get_var('gc',true);
+        $c = $this->get_var('_gc', false);
         if (is_null($c)) {
             return false;
         }
@@ -154,18 +177,18 @@ class qtype_wirisstep {
      * Increment number of failed attempts
      */
     public function inc_attempts() {
-        $c = $this->get_var('gc',true);
+        $c = $this->get_var('_gc',false);
         if (is_null($c)) {
             $c = 0;
         }
-        $this->set_var('gc',$c+1,true);
+        $this->set_var('_gc',$c+1,false);
     }
 
     /**
      * Set number of failed attempts to zero
      */
     public function reset_attempts() {
-        $this->set_var('gc',0,true);
+        $this->set_var('_gc',0,false);
     }
 
     /**
@@ -173,7 +196,7 @@ class qtype_wirisstep {
      * @return boolean
      */
     public function is_error() {
-        $c = $this->get_var('gc',false); // false to look into the parent
+        $c = $this->get_var('_gc',false); // false to look into the parent
         if (!is_null($c) && $c>0) {
             return true;
         }
@@ -185,32 +208,20 @@ class qtype_wirisstep {
      * @return int 
      */
     public function get_attempts() {
-        $c = $this->get_var('gc',true);
+        $c = $this->get_var('_gc',false);
         if ($c==null) {
             return 0;
         }
         return $c;
     }
-
-    public function get_randomseed() {
-        // The issue here is that the randomseed was not stored properly in
-        // subquestions in old versions of quizzes. Thus, we get it from the 
-        // parent
-        $qi_xml = $this->get_var('qi',false); // get the seed from the parent!
-        if (is_null($qi_xml)) {
-            return null;
-        }
-        $rb = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
-        $qi = $rb->readQuestionInstance($qi_xml);
-
-        $wrap = com_wiris_quizzes_wrap_Wrapper::getInstance();
-        $wrap->start();
-        $randomseed = $qi->instance->userData->randomSeed;
-        $wrap->stop();
-
-        return $randomseed;
+    
+    public function is_first_step() {
+        // The original $step object is always a quetsion_attempt_stept_read_only
+        // object but in the first one of the steps sequence. In $this->load 
+        // method we save $this->step only if it isn't readonly, so in particular 
+        // only if it is the first step.
+        return (!is_null($this->step));
     }
-
 }
 
 ?>

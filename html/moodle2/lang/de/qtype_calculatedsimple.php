@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'Es muss in den Feldern für die richtigen Antwo
 $string['converttocalculated'] = 'Als gewöhnliche berechnete Frage speichern';
 $string['findwildcards'] = 'Ersatzzeichen {x..} suchen, die in den richtigen Antwortformeln vorkommen';
 $string['generatenewitemsset'] = 'Erzeugen';
-$string['mustbenumeric'] = 'Sie müssen hier eine Zahl eingeben.';
-$string['mustnotbenumeric'] = 'Dies darf keine Zahl sein.';
 $string['newsetwildcardvalues'] = 'Neuer Datensatz für Ersatzzeichen';
 $string['pluginname'] = 'Einfach berechnet';
 $string['pluginnameadding'] = 'Einfach berechnete Frage hinzufügen';

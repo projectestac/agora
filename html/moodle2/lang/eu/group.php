@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,16 +67,26 @@ $string['errorremovenotpermitted'] = 'Ez duzu automatikoki gehitutako {$a} talde
 $string['errorselectone'] = 'Mesedez, aukeratu talde bat aukera hau ezarri aurretik';
 $string['errorselectsome'] = 'Mesedez, aukeratu talde bat edo gehiago aukera hau ezarri aurretik';
 $string['evenallocation'] = 'Oharra: Taldeen ezarpena mantendu ahal izateko, oraingo taldeko kide-kopurua eta zuk zehaztutakoa ez datoz bat.';
+$string['event_group_created'] = 'Taldea sortu da';
+$string['event_group_deleted'] = 'Taldea ezabatu da';
+$string['event_grouping_created'] = 'Taldekatzea sortu da';
+$string['event_grouping_deleted'] = 'Taldekatzea ezabatu da';
+$string['event_grouping_updated'] = 'Taldekatzea eguneratu da';
+$string['event_group_member_added'] = 'Taldekidea gehitu da';
+$string['event_group_member_removed'] = 'Taldekidea ezabatu da';
+$string['event_group_updated'] = 'Taldea eguneratu da';
 $string['existingmembers'] = 'Dauden kideak: {$a}';
 $string['filtergroups'] = 'Taldeak honen arabera iragazi:';
 $string['group'] = 'Taldea';
 $string['groupaddedsuccesfully'] = 'Egoki gehitu da {$a} taldea';
+$string['groupaddedtogroupingsuccesfully'] = '{$a->groupname} taldea egoki gehituta {$a->groupingname} taldekatzera';
 $string['groupby'] = 'Espezifikoa';
 $string['groupdescription'] = 'Taldearen deskribapena';
 $string['groupinfo'] = 'Aukeratutako taldeari buruzko informazioa';
 $string['groupinfomembers'] = 'Aukeratutako partaideei buruzko informazioa';
 $string['groupinfopeople'] = 'Aukeratutako pertsonei buruzko informazioa';
 $string['grouping'] = 'Taldekatzea';
+$string['groupingaddedsuccesfully'] = '{$a} taldekatzea egoki gehituta';
 $string['groupingdescription'] = 'Taldekatzearen deskribapena';
 $string['grouping_help'] = 'Taldekatzea ikastaro bateko talde-multzoa. Taldekatzea aukeratuz gero, taldekatze baten barruko taldeetara esleitutako ikasleek elkarrekin lan egiteko aukera izango dute.';
 $string['groupingname'] = 'Taldekatzearen izena';
@@ -96,13 +106,13 @@ $string['groupmembersselected'] = 'Aukeratutako taldeko kideak';
 $string['groupmode'] = 'Talde-modua';
 $string['groupmodeforce'] = 'Behartu talde-modua';
 $string['groupmodeforce_help'] = 'Taldea modua behartuta badago, ikastaroko taldea modua aplikatuko zaio ikastaroko edozein jarduerari. Jarduera bakoitzeko taldea modua ezarpenari ez zaio jaramonik egingo.';
-$string['groupmode_help'] = 'Ezarpen honek hiru aukera ditu:
+$string['groupmode_help'] = 'Hiru aukera dago:
 
-*Talderik ez - Ez dago azpitalderik eta partaide guztiak batera ari dira talde bakarraren barruan</li>
-*Taldeek ezin elkar ikusi - Ikasle bakoitzak bere taldea baino ezin du ikusi; gainerakoak ezin ditu ikusi</li>
-*Taldeek elkar ikusten dute - Ikasle bakoitzak bere taldean egiten du lan baina gainerakoetan zertan ari diren ikusten du
+Talderik ez - Ez dago talderik eta partaide guztiak batera ari dira talde bakarrean
+Taldeek ezin elkar ikusi - Ikasle bakoitzak bere taldea baino ezin du ikusi; gainerakoak ezin ditu ikusi
+Taldeek elkar ikusten dute - Ikasle bakoitzak bere taldean egiten du lan baina gainerakoetan zertan ari diren ikusten du
 
-Ikastaro mailan ezarritako Taldeak modua izango da berezko modua ikastaroko jarduera guztietan. Taldeak onartzen dituen jarduera bakoitza bere taldeak modua propio izan dezake, baina ikastaro mailan taldeak modua behartuta badago, jarduera bakoitzeko taldeak modua ezarpenari ez zaio jaramonik egingo.';
+Ikastaro mailan definitutako taldea modua izango da berezko modua ikastaroko jarduera guztietan. Taldeak onartzen dituen jarduera bakoitzean ere ezar daiteke taldea modua, baina ikastaro mailan taldea modua behartzen bada, ez zaio jaramonik egingo jarduera bakoitzaren taldea modua ezarpenari.';
 $string['groupmy'] = 'Neure taldea';
 $string['groupname'] = 'Taldearen izena';
 $string['groupnameexists'] = 'Dagoeneko bada ikastaro honetan \'{$a}\' izeneko taldea; mesedez, aukeratu beste bat.';
@@ -129,6 +139,7 @@ $string['newpicture'] = 'Irudi berria';
 $string['newpicture_help'] = 'Aukera ezazu JPG edo PNG formatuko irudi bat. Irudia moztu eta 100x100 pixeleko lauki batean sartuko da.
 ';
 $string['noallocation'] = 'Esleitu gabe';
+$string['nogrouping'] = 'Taldekatzerik ez';
 $string['nogroups'] = 'Ikastaro honetan ez dago talderik ezarrita';
 $string['nogroupsassigned'] = 'Ez dago esleitutako talderik';
 $string['nopermissionforcreation'] = 'Ezin da "{$a}" taldea sortu: ez duzu horretarako baimenik.';
@@ -149,7 +160,7 @@ $string['removegroupfromselectedgrouping'] = 'Taldea aukeratutako taldekatzetik 
 $string['removegroupingsmembers'] = 'Kendu taldeak taldekatzeetatik';
 $string['removegroupsmembers'] = 'Kendu talde guztietako kideak';
 $string['removeselectedusers'] = 'Kendu aukeratutako erabiltzaileak';
-$string['selectfromrole'] = 'Kideak aukeratzeko rola';
+$string['selectfromrole'] = 'Aukeratu kideak rol honekin';
 $string['showgroupsingrouping'] = 'Erakutsi taldekatzean dauden taldeak';
 $string['showmembersforgroup'] = 'Erakutsi taldekideak';
 $string['toomanygroups'] = 'Ez dago erabiltzaile nahiko talde-kopuru hori betetzeko - aukeratutako rola duten {$a} erabiltzaile baino ez dago.';

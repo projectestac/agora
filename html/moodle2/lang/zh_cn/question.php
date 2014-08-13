@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = '动作';
 $string['addanotherhint'] = '再增加一个提示';
 $string['addcategory'] = '新建类别';
+$string['addmorechoiceblanks'] = '增加{no}个空白选项';
 $string['adminreport'] = '题库中潜在问题报告';
 $string['answer'] = '答案';
 $string['answersaved'] = '答案已保存';
@@ -44,8 +45,6 @@ $string['cannotcreate'] = '无法在question_attempts表中建新项';
 $string['cannotcreatepath'] = '无法建立路径：{$a}';
 $string['cannotdeletebehaviourinuse'] = '您不能删除行为“{$a}”。有试卷正使用它。';
 $string['cannotdeletecate'] = '这是本场景的缺省类别，您不能删除它。';
-$string['cannotdeletemissingbehaviour'] = '您不能卸载“丢失的行为”。系统依赖它。';
-$string['cannotdeletemissingqtype'] = '您不能删除缺失的题目类型。这是系统所需要的。';
 $string['cannotdeleteneededbehaviour'] = '不能删除题目行为“{$a}”。有其它已安装的行为依赖它。';
 $string['cannotdeleteqtypeinuse'] = '您不能删除题目类型\'“{$a}”。题库中有这种类型的题目。';
 $string['cannotdeleteqtypeneeded'] = '您不能删除题目类型\'“{$a}”。还有其他已经安装的题目类型依赖于它。';
@@ -97,6 +96,7 @@ $string['contexterror'] = '如果您正在将一个类别移动到其它场景�
 $string['copy'] = '从 {$a} 复制并且更改链接。';
 $string['correct'] = '正确';
 $string['correctfeedback'] = '给任意正确答案';
+$string['correctfeedbackdefault'] = '你的回答正确';
 $string['created'] = '创建';
 $string['createdby'] = '创建者';
 $string['createdmodifiedheader'] = '创建/最后保存';
@@ -108,11 +108,7 @@ $string['decimalplacesingrades'] = '成绩中小数点后位数';
 $string['defaultfor'] = '默认 {$a}';
 $string['defaultinfofor'] = '“{$a}”中共享题目的默认类型。';
 $string['defaultmark'] = '缺省分数';
-$string['deletebehaviourareyousure'] = '删除行为{$a}：您确信？';
-$string['deletebehaviourareyousuremessage'] = '您将完全删除题目行为“{$a}”。这会把数据库中与之有关的所有数据都完全删除。您确定要继续吗？';
 $string['deletecoursecategorywithquestions'] = '题库中有试题与本课程类别关联，如果继续，该试题将删除。你可以先使用题库界面移走它们。';
-$string['deleteqtypeareyousure'] = '您确信要删除题目类型“{$a}”';
-$string['deleteqtypeareyousuremessage'] = '您正要完全删除题目类型“{$a}”。您确信要卸载它吗？';
 $string['deletequestioncheck'] = '您非常确定要删除“{$a}”吗？';
 $string['deletequestionscheck'] = '您绝对确信您要删除下列题目吗？<br /><br />{$a}';
 $string['deletingbehaviour'] = '正删除题目行为“{$a}”';
@@ -213,6 +209,7 @@ $string['impossiblechar'] = '寻找括号字符时遇到不应该出现的字符
 $string['includesubcategories'] = '显示子类别的题目';
 $string['incorrect'] = '不正确';
 $string['incorrectfeedback'] = '给任意错误答案';
+$string['incorrectfeedbackdefault'] = '你的回答不正确';
 $string['information'] = '说明';
 $string['invalidanswer'] = '答案不完成';
 $string['invalidarg'] = '没有有效的参数，或服务器配置不正确';
@@ -269,6 +266,7 @@ $string['noquestions'] = '未找到可导出的题。请确认您要导出的类
 $string['noquestionsinfile'] = '导入文件中没有试题';
 $string['noresponse'] = '[未回答]';
 $string['notanswered'] = '未回答';
+$string['notchanged'] = '最后一次尝试后未改变';
 $string['notenoughanswers'] = '此种类型的题目要有至少 {$a} 个答案';
 $string['notenoughdatatoeditaquestion'] = '试题 id、类别 id 和试题类型都没指定。';
 $string['notenoughdatatomovequestions'] = '您需要提供要移动题目的 ID。';
@@ -297,6 +295,7 @@ $string['parenthesisinproperstart'] = '在 {$a}** 中，** 之前的括号没有
 $string['parsingquestions'] = '从导入文件解析题目。';
 $string['partiallycorrect'] = '部分正确';
 $string['partiallycorrectfeedback'] = '给任意部分正确答案';
+$string['partiallycorrectfeedbackdefault'] = '你的回答部分正确';
 $string['penaltyfactor'] = '惩罚因子';
 $string['penaltyfactor_help'] = '此设置决定每次错误的解答将从最终分数里扣除多少分。这只对允许学生多次做答的适应模式下的测验有效。
 
@@ -311,8 +310,6 @@ $string['permissionsaveasnew'] = '另存为新题目';
 $string['permissionto'] = '您有权限做：';
 $string['previewquestion'] = '预览题目：{$a}';
 $string['published'] = '共享';
-$string['qbehaviourdeletefiles'] = '所有与题目行为“{$a->behaviour}”有关的数据都已从数据库删除。要完成删除（阻止此行为再次自行安装），您应马上从服务器删除这个目录：{$a->directory}';
-$string['qtypedeletefiles'] = '与题目类型“{$a->filter}”有关的所有数据都已从数据库删除。为了彻底删除（并阻止此题目类型自己重新安装），您现在应该在服务器上删除此目录：{$a->directory}';
 $string['qtypeveryshort'] = '型';
 $string['questionaffected'] = '<a href="{$a->qurl}">题目“{$a->name}” ({$a->qtype})</a>在此题目类别中，但是正被另一课程“{$a->coursename}”的<a href="{$a->qurl}">测验“{$a->quizname}”</a>使用。';
 $string['questionbank'] = '题库';

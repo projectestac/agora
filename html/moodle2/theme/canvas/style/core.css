@@ -16,8 +16,10 @@ body {
 .sitetopic {
     border: none;
 }
-
-.headingblock {
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2 {
     border-bottom: 1px solid #ddd;
     font-size: 1.3em;
     color: #333;
@@ -262,6 +264,7 @@ body {
     margin-left: 110px;
     border: 1px solid #ddd;
     padding: 10px;
+    width: 80%;
 }
 
 .path-user .description {
@@ -269,18 +272,40 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.userprofile .list {
+.userprofile dl {
     margin-top: 10px;
+    display: inline-block;
 }
 
-.userprofile .list td {
+.userprofile dl dt, .userprofile dl dd {
     padding-top: 3px;
     padding-bottom: 3px;
+    float: left;
 }
 
-.userprofile .list .c0 {
+.dir-rtl .userprofile dl dt, .dir-rtl  .userprofile dl dd {
+    float: right;
+}
+
+.userprofile dl dt {
     padding-left: 0;
     font-weight: bold;
+    display: inline-block;
+    padding-right: 2%;
+    min-width: 100px;
+    width: 15%;
+    clear: both;
+}
+
+.dir-rtl .userprofile dl dt {
+    padding-left: 2%;
+    padding-right: 0;
+}
+
+.userprofile dl dd {
+    display: inline-block;
+    margin: 0px;
+    width: 75%;
 }
 
 #page-user-view .buttons {
@@ -416,7 +441,7 @@ body {
     text-align: right;
 }
 
-#page-tag-index .headingblock {
+#page-tag-index h2 {
     text-align: center;
     margin-bottom: 0;
 }
@@ -438,13 +463,6 @@ body {
     text-align: center;
     padding: 0 0 1em;
 }
-
-/* YUI overlays
-------------------------*/
-#helppopupbox {
-    z-index: 99999 !important;
-}
-
 
 /* Embedded Pages
 ------------------------*/
@@ -488,6 +506,15 @@ body {
     margin:0;
 }
 
+.mform .btn-cancel {
+    color: #0000EE;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #0000EE;
+    text-decoration: none;
+}
+
 /* Comments
 -----------------------*/
 
@@ -507,8 +534,13 @@ body {
     background: #ddd;
 }
 
-.gradestable .lastrow td.cell {
-    background: #eee !important;
+table#user-grades tr.avg td.cell,
+table#user-grades tr.avg th.cell {
+    background: #eee;
+}
+
+table#user-grades tr.avg td.vmarked {
+    background-color: #fc3;
 }
 
 .user-grade td.b1t,

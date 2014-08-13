@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'simplecertificate', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'simplecertificate', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   simplecertificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['allusers'] = 'Все пользователи';
-$string['awarded'] = 'Награжденые';
 $string['awardedto'] = 'Награждается';
 $string['bulkaction'] = 'Выберите групповую операцию';
 $string['bulkbuttonlabel'] = 'Отправить';
@@ -80,8 +79,6 @@ $string['codey'] = 'Положение QR-кода по вертикали';
 $string['completedusers'] = 'Пользователи, которые достигли целей курса';
 $string['completiondate'] = 'Курс завершен';
 $string['coursegrade'] = 'Оценка за курс';
-$string['coursehours'] = 'Объем курса в часах';
-$string['coursehours_help'] = 'Объем курса в часах';
 $string['coursename'] = 'Альтернативное название курса';
 $string['coursename_help'] = 'Альтернативное название курса';
 $string['coursetimereq'] = 'Требуется провести в курсе (минут)';

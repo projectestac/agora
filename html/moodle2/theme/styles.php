@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,7 +17,7 @@
 /**
  * This file is responsible for serving the one huge CSS of each theme.
  *
- * @package   moodlecore
+ * @package   core
  * @copyright 2009 Petr Skoda (skodak)  {@link http://skodak.org}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,6 +31,10 @@ define('NO_DEBUG_DISPLAY', true);
 define('ABORT_AFTER_CONFIG', true);
 require('../config.php'); // this stops immediately at the beginning of lib/setup.php
 require_once($CFG->dirroot.'/lib/csslib.php');
+
+if (!defined('THEME_DESIGNER_CACHE_LIFETIME')) {
+    define('THEME_DESIGNER_CACHE_LIFETIME', 4); // this can be also set in config.php
+}
 
 if ($slashargument = min_get_slash_argument()) {
     $slashargument = ltrim($slashargument, '/');
@@ -66,9 +69,13 @@ if ($slashargument = min_get_slash_argument()) {
     $usesvg    = (bool)min_optional_param('svg', '1', 'INT');
 }
 
-if (!in_array($type, array('all', 'ie', 'editor', 'plugins', 'parents', 'theme'))) {
-    header('HTTP/1.0 404 not found');
-    die('Theme was not found, sorry.');
+if ($type === 'editor') {
+    // The editor CSS is never chunked.
+    $chunk = null;
+} else if ($type === 'all') {
+    // We're fine.
+} else {
+    css_send_css_not_found();
 }
 
 if (file_exists("$CFG->dirroot/theme/$themename/config.php")) {
@@ -80,18 +87,15 @@ if (file_exists("$CFG->dirroot/theme/$themename/config.php")) {
     die('Theme was not found, sorry.');
 }
 
-if ($type === 'ie') {
-    css_send_ie_css($themename, $rev, $etag, !empty($slashargument));
-}
-
-$candidatedir = "$CFG->cachedir/theme/$themename/css";
-$etag = "$themename/$rev/$type";
+$candidatedir = "$CFG->localcachedir/theme/$rev/$themename/css";
+$etag = "$rev/$themename/$type";
 $candidatename = $type;
 if (!$usesvg) {
     // Add to the sheet name, one day we'll be able to just drop this.
     $candidatedir .= '/nosvg';
     $etag .= '/nosvg';
 }
+
 if ($chunk !== null) {
     $etag .= '/chunk'.$chunk;
     $candidatename .= '.'.$chunk;
@@ -120,43 +124,56 @@ require("$CFG->dirroot/lib/setup.php");
 $theme = theme_config::load($themename);
 $theme->force_svg_use($usesvg);
 
-$rev = theme_get_revision();
+$themerev = theme_get_revision();
 
-$etag = "$themename/$rev/$type";
-if (!$usesvg) {
-    // Add to the etag, one day we'll be able to just delete svg nonsense this.
-    $etag .= '/nosvg';
+$cache = true;
+if ($themerev <= 0 or $themerev != $rev) {
+    $rev = $themerev;
+    $cache = false;
+
+    $candidatedir = "$CFG->cachedir/theme/$rev/$themename/css";
+    $etag = "$rev/$themename/$type";
+    $candidatename = $type;
+    if (!$usesvg) {
+        // Add to the sheet name, one day we'll be able to just drop this.
+        $candidatedir .= '/nosvg';
+        $etag .= '/nosvg';
+    }
+
+    if ($chunk !== null) {
+        $etag .= '/chunk'.$chunk;
+        $candidatename .= '.'.$chunk;
+    }
+    $candidatesheet = "$candidatedir/$candidatename.css";
+    $etag = sha1($etag);
 }
-$etag = sha1($etag);
+
+make_localcache_directory('theme', false);
 
 if ($type === 'editor') {
     $cssfiles = $theme->editor_css_files();
-    css_store_css($theme, $candidatesheet, $cssfiles);
+    css_store_css($theme, "$candidatedir/editor.css", $cssfiles, false);
+
 } else {
-    // IE requests plugins/parents/theme instead of all at once.
-    $basedir = "$CFG->cachedir/theme/$themename/css";
-    if (!$usesvg) {
-        $basedir .= '/nosvg';
-    }
+    // Older IEs require smaller chunks.
     $css = $theme->css_files();
-    $allfiles = array();
     $relroot = preg_replace('|^http.?://[^/]+|', '', $CFG->wwwroot);
-    foreach ($css as $key=>$value) {
-        if (!empty($slashargument)) {
-            if ($usesvg) {
-                $chunkurl = "{$relroot}/theme/styles.php/{$themename}/{$rev}/{$key}";
-            } else {
-                $chunkurl = "{$relroot}/theme/styles.php/_s/{$themename}/{$rev}/{$key}";
-            }
+    if (!empty($slashargument)) {
+        if ($usesvg) {
+            $chunkurl = "{$relroot}/theme/styles.php/{$themename}/{$rev}/all";
         } else {
-            if ($usesvg) {
-                $chunkurl = "{$relroot}/theme/styles.php?theme={$themename}&rev={$rev}&type={$key}";
-            } else {
-                $chunkurl = "{$relroot}/theme/styles.php?theme={$themename}&rev={$rev}&type={$key}&svg=0";
-            }
+            $chunkurl = "{$relroot}/theme/styles.php/_s/{$themename}/{$rev}/all";
         }
-        $cssfiles = array();
-        foreach($value as $val) {
+    } else {
+        if ($usesvg) {
+            $chunkurl = "{$relroot}/theme/styles.php?theme={$themename}&rev={$rev}&type=all";
+        } else {
+            $chunkurl = "{$relroot}/theme/styles.php?theme={$themename}&rev={$rev}&type=all&svg=0";
+        }
+    }
+    $cssfiles = array();
+    foreach ($css as $key => $value) {
+        foreach ($value as $val) {
             if (is_array($val)) {
                 foreach ($val as $k=>$v) {
                     $cssfiles[] = $v;
@@ -165,18 +182,25 @@ if ($type === 'editor') {
                 $cssfiles[] = $val;
             }
         }
-        $cssfile = "$basedir/$key.css";
-        css_store_css($theme, $cssfile, $cssfiles, true, $chunkurl);
-        $allfiles = array_merge($allfiles, $cssfiles);
     }
-    $cssfile = "$basedir/all.css";
-    css_store_css($theme, $cssfile, $allfiles);
+    css_store_css($theme, "$candidatedir/all.css", $cssfiles, true, $chunkurl);
 }
 
 // verify nothing failed in cache file creation
 clearstatcache();
 if (!file_exists($candidatesheet)) {
-    css_send_css_not_found();
-}
+    // We need to send at least something, IE does not get it chunked properly but who cares.
+    $css = '';
+    foreach ($cssfiles as $file) {
+        $css .= file_get_contents($file)."\n";
+    }
+    css_send_uncached_css($css, false);
 
-css_send_cached_css($candidatesheet, $etag);
+} else if (!$cache) {
+    // Do not pollute browser caches if invalid revision requested.
+    css_send_uncached_css(file_get_contents($candidatesheet), false);
+
+} else {
+    // This is the expected result!
+    css_send_cached_css($candidatesheet, $etag);
+}

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,12 @@ $string['customtitles_help'] = 'Titels worden automatisch alleen in de inhoudsta
 Als het vinkje bij aangepaste titels is gezet, dan wordt de hoofdstuktitel niet als hoofding boven de inhoud gezet. Er kan een andere titel, misschien een langere, ingegeven worden als deel van de inhoud.';
 $string['editingchapter'] = 'Bewerk hoofdstuk';
 $string['errorchapter'] = 'Fout bij het lezen van het hoofdstuk';
+$string['event_chapter_created'] = 'Hoofdstuk gemaakt';
+$string['event_chapter_deleted'] = 'Hoofdstuk verwijderd';
+$string['event_chapter_updated'] = 'Hoofdstuk aangepast';
+$string['event_chapter_viewed'] = 'Hoofdstuk bekeken';
+$string['event_course_module_viewed'] = 'Cursusmodule bekeken';
+$string['event_instances_list_viewed'] = 'Instantielijst bekeken';
 $string['modulename'] = 'Boek';
 $string['modulename_help'] = 'Met de boekmodule kan een leraar bronnen maken met meerdere pagina\'s in een boek-stijl opmaak met hoofdstukken en subtitels. In de boekmodule kunnen mediabestanden en tekst gezet worden en is nuttig voor het tonen van lange passages tekst of informatie die opgedeeld kan worden in delen.
 

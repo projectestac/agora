@@ -3,6 +3,9 @@
 class com_wiris_quizzes_api_QuizzesBuilder {
 	public function __construct() { 
 	}
+	public function getQuizzesUIBuilder() {
+		return null;
+	}
 	public function getConfiguration() {
 		return null;
 	}

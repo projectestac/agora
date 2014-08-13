@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Neue Rolle wird hinzugefügt';
-$string['addingrolebycopying'] = 'Neue Rolle basierend auf {$a} wird hinzugefügt';
 $string['addrole'] = 'Neue Rolle hinzufügen';
 $string['advancedoverride'] = 'Erweiterte Rollenänderung';
 $string['allow'] = 'Erlauben';
@@ -70,10 +69,22 @@ $string['backup:backuptargetimport'] = 'Sicherung für den Import';
 $string['backup:configure'] = 'Sicherungsoptionen konfigurieren';
 $string['backup:downloadfile'] = 'Sicherungsdateien herunterladen';
 $string['backup:userinfo'] = 'Nutzerdaten sichern';
+$string['badges:awardbadge'] = 'Auszeichnung an Nutzer/in geben';
+$string['badges:configurecriteria'] = 'Kriterien für eine Auszeichnung aufstellen';
+$string['badges:configuredetails'] = 'Details für eine Auszeichnung aufstellen';
+$string['badges:configuremessages'] = 'Auszeichnungstexte schreiben';
+$string['badges:createbadge'] = 'Auszeichnungen verwalten';
+$string['badges:deletebadge'] = 'Auszeichnungen löschen';
+$string['badges:earnbadge'] = 'Auszeichnung erhalten';
+$string['badges:manageglobalsettings'] = 'Einstellungen zu Auszeichnungen verwalten';
+$string['badges:manageownbadges'] = 'Eigene Auszeichnungen anzeigen und verwalten';
+$string['badges:viewawarded'] = 'Nutzer/innen mit spezieller Auszeichnung anzeigen, die nicht fähig zum Empfang der Auszeichnung sind';
+$string['badges:viewbadges'] = 'Verfügbare Auszeichnungen sehen, ohne sie empfangen zu haben';
+$string['badges:viewotherbadges'] = 'Öffentliche Auszeichnungen in anderen Nutzerprofilen sehen';
 $string['block:edit'] = 'Blockeinstellungen ändern';
 $string['block:view'] = 'Block sehen';
-$string['blog:associatecourse'] = 'Blogeinträge mit Kursen verbinden';
-$string['blog:associatemodule'] = 'Blogeinträge mit Aktivitäten verbinden';
+$string['blog:associatecourse'] = 'Diese Funktion ist veraltet und tut nichts';
+$string['blog:associatemodule'] = 'Diese Funktion ist veraltet und tut nichts';
 $string['blog:create'] = 'Neue Blogeinträge erstellen';
 $string['blog:manageentries'] = 'Blogeinträge verwalten';
 $string['blog:manageexternal'] = 'Externe Blogs verwalten';
@@ -151,6 +162,7 @@ $string['course:viewhiddensections'] = 'Verborgene Kursabschnitte sehen';
 $string['course:viewhiddenuserfields'] = 'Verborgene Nutzerfelder sehen';
 $string['course:viewparticipants'] = 'Kursteilnehmer/innen sehen';
 $string['course:viewscales'] = 'Bewertungskalen sehen';
+$string['course:viewsuspendedusers'] = 'Gesperrte Nutzer/innen anzeigen';
 $string['course:visibility'] = 'Kurse anzeigen / verbergen';
 $string['createrolebycopying'] = 'Neue Rolle als Kopie von {$a} erzeugen';
 $string['createthisrole'] = 'Neue Rolle erzeugen';
@@ -177,9 +189,17 @@ $string['errorbadrolename'] = 'Ungültiger Rollenname';
 $string['errorbadroleshortname'] = 'Ungültiger Rollenkurzname';
 $string['errorexistsrolename'] = 'Rollenname existiert bereits';
 $string['errorexistsroleshortname'] = 'Rollenname existiert bereits';
+$string['eventroleallowassignupdated'] = 'Rollenzuweisung erlauben';
+$string['eventroleallowoverrideupdated'] = 'Rollenänderungen erlauben';
+$string['eventroleallowswitchupdated'] = 'Rollenwechsel erlauben';
+$string['eventroleassigned'] = 'Rolle zugewiesen';
+$string['eventrolecapabilitiesupdated'] = 'Rollenrechte aktualisiert';
+$string['eventroledeleted'] = 'Rolle gelöscht';
+$string['eventroleunassigned'] = 'Rolle entfernt';
 $string['existingadmins'] = 'Aktuelle Administrator/innen';
 $string['existingusers'] = '{$a} Nutzer/innen';
 $string['explanation'] = 'Erklärung';
+$string['export'] = 'Export';
 $string['extusers'] = 'Vorhandene Nutzer/innen';
 $string['extusersmatching'] = 'Nutzer/innen, die zu \'{$a}\' passen';
 $string['filter:manage'] = 'Lokale Filterinstellungen verwalten';
@@ -211,6 +231,7 @@ $string['highlightedcellsshowinherit'] = 'Die in der folgenden Tabelle markierte
 $string['inactiveformorethan'] = 'länger als {$a->timeperiod} inaktiv';
 $string['ingroup'] = 'in der Gruppe \'{$a->group}\'';
 $string['inherit'] = 'Vererben';
+$string['invalidpresetfile'] = 'Ungültige Rollendefinitionsdatei';
 $string['legacy:admin'] = 'Basisrolle: Administrator';
 $string['legacy:coursecreator'] = 'Basisrolle: Kursersteller/in';
 $string['legacy:editingteacher'] = 'Basisrolle: Trainer/in';
@@ -236,6 +257,7 @@ $string['neededroles'] = 'Rollen mit Rechten';
 $string['nocapabilitiesincontext'] = 'In diesem Kontext sind keine Fähigkeiten verfügbar';
 $string['noneinthisx'] = 'Nichts in dieser {$a}';
 $string['noneinthisxmatching'] = 'Keine Nutzer für die Suche nach \'{$a->search}\' im Kontext {$a->contexttype}\' gefunden';
+$string['norole'] = 'Keine Rolle';
 $string['noroleassignments'] = 'Diesem Nutzerkonto wurde systemweit keine Rolle zuwiesen.';
 $string['noroles'] = 'Keine Rollen';
 $string['notabletoassignroleshere'] = 'Sie dürfen hier keine Rollen zuweisen.';
@@ -286,10 +308,8 @@ $string['rating:rate'] = 'Bewertung hinzufügen';
 $string['rating:view'] = 'Eigene Gesamtwertung sehen';
 $string['rating:viewall'] = 'Alle Teilwertungen sehen';
 $string['rating:viewany'] = 'Alle Gesamtwertungen sehen';
-$string['resetrole'] = 'Grundeinstellungen wiederherstellen';
-$string['resetrolenolegacy'] = 'Rechte zurücksetzen';
-$string['resetrolesure'] = 'Sind Sie sicher, dass Sie die Rolle "{$a->name} ({$a->shortname})" auf die Standardwerte zurücksetzen möchten? <br />Alle Einstellungen werden entsprechend dem ausgewählten Basisrolle ({$a->legacytype}) belegt.';
-$string['resetrolesurenolegacy'] = 'Möchten Sie wirklich alle Rechte zurücksetzen, die für die Rolle \'{$a->name} ({$a->shortname})\' geändert bzw. hinzugefügt wurden?';
+$string['resetrole'] = 'Grundeinstellung wiederherstellen';
+$string['resettingrole'] = 'Rolle \'{$a}\' wird wiederhergestellt';
 $string['restore:configure'] = 'Wiederherstellung konfigurieren';
 $string['restore:createuser'] = 'Nutzerkonten beim Wiederherstellen anlegen';
 $string['restore:restoreactivity'] = 'Aktivitäten wiederherstellen';
@@ -313,7 +333,11 @@ $string['role:manage'] = 'Rollen erstellen und verwalten';
 $string['role:override'] = 'Rechte von anderen ändern';
 $string['roleprohibitheader'] = 'Nichterlaubte Rolle';
 $string['roleprohibitinfo'] = 'Wählen Sie eine Rolle aus, die in die Liste der nichterlaubten Rollen hinzugefügt werden soll - Kontext {$a->context}, Fähigkeit {$a->cap}:';
+$string['rolerepreset'] = 'Grundeinstellung benutzen';
+$string['roleresetdefaults'] = 'Grundeinstellungen';
+$string['roleresetrole'] = 'Rolle oder Basisrolle benutzen';
 $string['role:review'] = 'Rechte von anderen prüfen';
+$string['rolerisks'] = 'Rollenrisiken';
 $string['roles'] = 'Rollen';
 $string['role:safeoverride'] = 'Sichere Rechte von anderen ändern';
 $string['roleselect'] = 'Rolle aussuchen';
@@ -356,6 +380,7 @@ $string['tag:edit'] = 'Vorhandene Schlagworte bearbeiten';
 $string['tag:editblocks'] = 'Blöcke auf Schlagwortseiten bearbeiten';
 $string['tag:flag'] = 'Schlagworte als unangemessen markieren';
 $string['tag:manage'] = 'Schlagworte verwalten';
+$string['thisnewrole'] = 'Diese neue Rolle';
 $string['thisusersroles'] = 'Rollenzuweisungen für dieses Nutzerkonto';
 $string['unassignarole'] = 'Nicht zugewiesene Rolle {$a}';
 $string['unassignconfirm'] = 'Wollen Sie wirklich Teilnehmer/in "{$a->user}" die Rolle "{$a->role}" entziehen?';
@@ -373,8 +398,8 @@ $string['user:manageblocks'] = 'Blöcke im Nutzerprofil anderer Nutzer/innen ver
 $string['user:manageownblocks'] = 'Blöcke im eigenen öffentlichen Nutzerprofil verwalten';
 $string['user:manageownfiles'] = 'Dateien im Bereich \'Eigene Dateien\' verwalten';
 $string['user:managesyspages'] = 'Standardlayout für die öffentlichen Nutzerprofile konfigurieren';
-$string['user:readuserblogs'] = 'Alle Nutzerblogs sehen';
-$string['user:readuserposts'] = 'Alle Nutzerbeiträge sehen';
+$string['user:readuserblogs'] = 'Alle Nutzerblogs anzeigen';
+$string['user:readuserposts'] = 'Alle Nutzerbeiträge im Forum sehen';
 $string['usersfrom'] = 'Nutzer/innen von {$a}';
 $string['usersfrommatching'] = 'Nutzer/innen im Kontext {$a->contextname} passen zur Suche \'{$a->search}\'';
 $string['usersinthisx'] = 'Nutzer/innen in diesem {$a}';

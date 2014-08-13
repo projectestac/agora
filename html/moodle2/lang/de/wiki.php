@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -139,6 +139,7 @@ $string['navigationfrom_help'] = 'Zu dieser Seite verlinkte Wikiseiten';
 $string['navigationto'] = 'Diese Seite führt zu';
 $string['navigationto_help'] = 'Links zu anderen Websites';
 $string['newpage'] = 'Neu';
+$string['newpagehdr'] = 'Neue Seite';
 $string['newpagetitle'] = 'Titel für neue Seite
 ';
 $string['noattachments'] = '<strong>Keine verbundenen Dateien</strong>';
@@ -188,6 +189,7 @@ $string['pluginadministration'] = 'Wiki-Administration';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'Druckversion';
 $string['previewwarning'] = 'Dies ist eine Seitenvorschau - Ihre Änderungen wurden bisher noch nicht gespeichert';
+$string['print'] = 'Drucken';
 $string['rated'] = 'Ihre Bewertung der Seite: {$a}';
 $string['rating'] = 'Bewertung';
 $string['ratingmode'] = 'Bewertungsmodus';
@@ -211,8 +213,8 @@ $string['searchterms'] = 'Suchbegriffe';
 $string['searchwikis'] = 'Wiki durchsuchen';
 $string['special'] = 'Spezial';
 $string['tableofcontents'] = 'Inhaltsübersicht';
-$string['tagsdeleted'] = 'Wikischlagworte wurden gelöscht';
-$string['tagtitle'] = 'Siehe Schlagwort "{$a}"';
+$string['tagsdeleted'] = 'Wiki-Schlagworte wurden gelöscht';
+$string['tagtitle'] = 'Siehe Schlagwort \'{$a}\'';
 $string['teacherrating'] = 'Trainerwertung';
 $string['timesrating'] = 'Diese Seite wurde {$a->c}-mal bewertet, u.z. mit einem Mittelwert {$a->s}';
 $string['updatedpages'] = 'Aktualisierte Seiten';
@@ -253,7 +255,9 @@ $string['wiki:managefiles'] = 'Dateien im Wiki verwalten';
 $string['wiki:managewiki'] = 'Einstellungen des Wikis verwalten';
 $string['wikimode'] = 'Wikimodus';
 $string['wikimodecollaborative'] = 'Gemeinsames Wiki';
-$string['wikimode_help'] = 'Der Wikimodus bestimmt, ob alle ein gemeinsames Wiki bearbeiten oder ob jeder sein eigenes persönliches Wiki besitzt, das ausschießlich er alleine bearbeiten darf.';
+$string['wikimode_help'] = 'Der Wikimodus legt fest, wie damit gearbeitet werden kann. <ul>
+<li>gemeinsames Wiki - alle benutzen und bearbeiten das Wiki gemeinsam</li>
+<li>persönliches Wiki - jede Person hat ihr eigenes Wiki, das sie alleine bearbeitet</li></ul>';
 $string['wikimodeindividual'] = 'Persönliches Wiki';
 $string['wikiname'] = 'Name des Wikis';
 $string['wikinowikitext'] = 'Kein Wikitext';

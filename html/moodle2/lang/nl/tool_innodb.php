@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_innodb', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_innodb', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_innodb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   block
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,11 +46,13 @@ $string['defaultweight_help'] = '기본 가중치는 상단 혹은 하단 어디
 $string['deleteblock'] = '{$a} 블록 삭제';
 $string['deleteblockcheck'] = '제목이 {$a} 인 블록을 삭제하기를 원하십니까?';
 $string['deletecheck'] = '{$a} 블록을 삭제할까요?';
+$string['dockblock'] = '{$a} 블록 도킹';
 $string['hideblock'] = '{$a} 블록 숨기기';
 $string['hidedockpanel'] = '도킹 패널을 숨기기';
 $string['hidepanel'] = '패널 숨기기';
 $string['moveblock'] = '{$a} 블록 이동';
-$string['moveblockhere'] = '여기로 이동';
+$string['moveblockafter'] = '{$a} 블록 다음으로 블록 이동';
+$string['moveblockbefore'] = '{$a} 블록 앞으로 블록 이동';
 $string['movingthisblockcancel'] = '이 블록 ({$a}) 이동';
 $string['onthispage'] = '이 웹페이지에';
 $string['pagetypes'] = '화면 유형';
@@ -66,6 +68,7 @@ $string['showonfrontpageonly'] = '시작 페이지에만 표시';
 $string['subpages'] = '페이지 선택';
 $string['thisspecificpage'] = '이 특정 페이지';
 $string['undockall'] = '모두 도킹 해제';
+$string['undockblock'] = '{$a} 블록 잠금 해제';
 $string['undockitem'] = '이 항목 도킹 해제';
 $string['visible'] = '볼수 있음';
 $string['weight'] = '가중치';

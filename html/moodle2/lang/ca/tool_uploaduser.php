@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_uploaduser', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_uploaduser', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_uploaduser
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,7 @@ $string['csvdelimiter'] = 'Delimitador CSV';
 $string['defaultvalues'] = 'Valors per defecte';
 $string['deleteerrors'] = 'Suprimeix errors';
 $string['encoding'] = 'Codificació';
+$string['errormnetadd'] = 'No es poden afegir usuaris remots';
 $string['errors'] = 'Errors';
 $string['nochanges'] = 'Sense canvis';
 $string['pluginname'] = 'Càrrega d\'usuari';

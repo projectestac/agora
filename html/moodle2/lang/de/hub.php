@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hub', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hub', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   hub
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,6 +40,7 @@ $string['audienceadmins'] = 'Administrator/innen';
 $string['audienceeducators'] = 'Lehrende';
 $string['audience_help'] = 'Angestrebte Zielgruppe des Kurses';
 $string['audiencestudents'] = 'Lernende';
+$string['badgesnumber'] = 'Anzahl der Auszeichnungen ({$a})';
 $string['badurlformat'] = 'Falsches URL-Format';
 $string['cannotsearchcommunity'] = 'Entschuldigung, Sie haben nicht die nötigen Rechte, diese Seite zu sehen.';
 $string['community'] = 'Community';
@@ -110,6 +111,7 @@ $string['hub'] = 'Hub';
 $string['imageurl'] = 'Bild-URL';
 $string['imageurl_help'] = 'Das Bild wird auf dem Hub angezeigt. Dieses Bild muss vom Hub aus jederzeit erreichbar sein. Die maximale Göße sollte {$a->width} x {$a->height} Pixel sein.';
 $string['information'] = 'Information';
+$string['issuedbadgesnumber'] = 'Anzahl der erteilten Auszeichnungen ({$a})';
 $string['language'] = 'Sprache';
 $string['language_help'] = 'Hauptsprache dieses Kurses';
 $string['lasttimechecked'] = 'Letztes mal geprüft';

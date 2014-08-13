@@ -31,12 +31,12 @@ require_once($CFG->dirroot . '/mod/geogebra/locallib.php');
 
 /**
  * Migrate geogebra package to new area if found
- * 
+ *
  * @return
  */
 function geogebra_migrate_files() {
     global $CFG, $DB;
-    
+
     $fs = get_file_storage();
     $sqlfrom = "FROM {geogebra} j
                 JOIN {modules} m ON m.name = 'geogebra'
@@ -51,8 +51,8 @@ function geogebra_migrate_files() {
             upgrade_set_timeout(180); // set up timeout, may also abort execution
             $pbar->update($i, $count, "Migrating geogebra files - $i/$count.");
 
-            $context       = get_context_instance(CONTEXT_MODULE, $geogebra->cmid);
-            $coursecontext = get_context_instance(CONTEXT_COURSE, $geogebra->course);
+            $context       = context_module::instance($geogebra->cmid);
+            $coursecontext = context_course::instance($geogebra->course);
 
             if (!geogebra_is_valid_external_url($geogebra->url)) {
                 // first copy local files if found - do not delete in case they are shared ;-)

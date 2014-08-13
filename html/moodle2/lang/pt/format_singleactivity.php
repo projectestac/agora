@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_singleactivity', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_singleactivity', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   format_singleactivity
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,8 @@ $string['activitytype_help'] = 'Selecione o tipo de atividade ou recurso a usar 
 $string['defactivitytype'] = 'Tipo predefinido de atividade';
 $string['defactivitytypedesc'] = 'Especifique o tipo de atividade que será selecionado por predefinição quando criar uma nova disciplina';
 $string['erroractivitytype'] = 'O tipo de atividade não é definido nas configurações da Disciplina';
-$string['errornotsetup'] = 'Esta disciplina ainda não está configurada';
 $string['orphaned'] = 'Órfão';
 $string['orphanedwarning'] = 'Estas atividades não estão disponíveis para os utilizadores!';
 $string['pluginname'] = 'Formato Atividade Única';
+$string['sectionname'] = 'Nome da secção';
+$string['warningchangeformat'] = 'Ao alterar o atual formato da disciplina para o formato "Atividade Única" assegure-se de que removeu todas as restantes atividades da disciplina, incluindo o "Fórum Notícias". Note que a estrutura das secções poderá ser modificada.';

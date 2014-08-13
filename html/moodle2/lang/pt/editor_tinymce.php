@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor_tinymce', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor_tinymce', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   editor_tinymce
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -49,6 +49,7 @@ $string['advanced:custom1_desc'] = 'Insira aqui a sua descrição personalizada'
 $string['advanced:cut_desc'] = 'Cortar';
 $string['advanced:dd'] = 'Descrição da definição';
 $string['advanced:div'] = 'DIV';
+$string['advanced_dlg:'] = 'Configurações avançadas DLG';
 $string['advanced_dlg:about_author'] = 'Autor';
 $string['advanced_dlg:about_general'] = 'Sobre';
 $string['advanced_dlg:about_help'] = 'Ajuda';
@@ -138,7 +139,7 @@ $string['advanced:paragraph'] = 'Parágrafo';
 $string['advanced:paste_desc'] = 'Colar';
 $string['advanced:path'] = 'Endereço';
 $string['advanced:pre'] = 'Pré-formatado';
-$string['advanced:redo_desc'] = 'Refazer (Ctrl+Y)';
+$string['advanced:redo_desc'] = 'Refazer a ação anulada (Ctrl+Y)';
 $string['advanced:removeformat_desc'] = 'Remover formatação';
 $string['advanced:rich_text_area'] = 'Área de texto em formato RTF';
 $string['advanced:samp'] = 'Amostra de código';
@@ -150,7 +151,7 @@ $string['advanced:sup_desc'] = 'Superior à linha';
 $string['advanced:toolbar'] = 'Barra de ferramentas';
 $string['advanced:toolbar_focus'] = 'Atalho para as ferramentas: Alt+Q; Atalho  para o editor: Alt-Z; Atalho para o caminho do elemento: Alt-X.';
 $string['advanced:underline_desc'] = 'Sublinhado (Ctrl+U)';
-$string['advanced:undo_desc'] = 'Desfazer (Ctrl+Z)';
+$string['advanced:undo_desc'] = 'Anular a ação anterior (Ctrl+Z)';
 $string['advanced:unlink_desc'] = 'Remover hiperligação';
 $string['advanced:visualaid_desc'] = 'Mostrar/ocultar guias/elementos invisíveis';
 $string['advhr:advhr_desc'] = 'Inserir linha horizontal';
@@ -345,7 +346,7 @@ $string['contextmenu:right'] = 'Direita';
 $string['customconfig'] = 'Configuração personalizada';
 $string['customconfig_desc'] = 'Configuração personalizada avançada do TinyMCE no formato JSON, por exemplo: {"option1" : "value2", "option2" : "value2"}. Quaisquer opções especificadas aqui substituirão as definições predefinidas e as dos módulos.';
 $string['customtoolbar'] = 'Barra de ferramentas do Editor';
-$string['customtoolbar_desc'] = 'Cada linha contém uma lista de nomes de botões separados por vírgulas, use "|" como separador de grupo, as linhas vazias serão ignoradas. Ver <a href="{$a}" target="_blank">{$a}</a> para a lista de botões predefinidos do TintMCE.';
+$string['customtoolbar_desc'] = 'Cada linha contém uma lista de nomes de botões separados por vírgulas, use "|" como separador de grupo, as linhas vazias serão ignoradas. Ver <a href="{$a}" target="_blank">{$a}</a> para a lista de botões predefinidos do TinyMCE.';
 $string['directionality:ltr_desc'] = 'Da esquerda para direita';
 $string['directionality:rtl_desc'] = 'Da direita para esquerda';
 $string['emotions:delta_height'] = '';
@@ -625,10 +626,10 @@ $string['simple:bullist_desc'] = 'Inserir/remover lista com marcadores';
 $string['simple:cleanup_desc'] = 'Limpar código incorreto';
 $string['simple:italic_desc'] = 'Itálico (Ctrl+I)';
 $string['simple:numlist_desc'] = 'Inserir/remover lista com numerações';
-$string['simple:redo_desc'] = 'Refazer (Ctrl+Y)';
+$string['simple:redo_desc'] = 'Refazer a ação anulada (Ctrl+Y)';
 $string['simple:striketrough_desc'] = 'Riscado';
 $string['simple:underline_desc'] = 'Sublinhado (Ctrl+U)';
-$string['simple:undo_desc'] = 'Desfazer (Ctrl+Z)';
+$string['simple:undo_desc'] = 'Anular a ação anterior (Ctrl+Z)';
 $string['spellchecker:desc'] = 'Alternar corretor ortográfico';
 $string['spellchecker:ignore_word'] = 'Ignorar palavra';
 $string['spellchecker:ignore_words'] = 'Ignorar tudo';
@@ -710,7 +711,7 @@ $string['style_dlg:top'] = 'Topo';
 $string['style_dlg:visibility'] = 'Visibilidade';
 $string['style_dlg:width'] = 'Largura';
 $string['style_dlg:zindex'] = 'Z-index';
-$string['subplugindeleteconfirm'] = 'Está prestes a apagar completamente o submódulo \'{$a}\' do TinyMCE. Isto irá apagar completamente a base de dados associada a esta submódulo. Tem a certeza que quer continuar?';
+$string['subplugintype_tinymce'] = 'Módulo';
 $string['subplugintype_tinymce_plural'] = 'Módulos';
 $string['table:cell'] = 'Célula';
 $string['table:cell_desc'] = 'Propriedades das células';

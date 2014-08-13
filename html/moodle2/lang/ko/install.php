@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'install', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'install', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   install
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,82 +52,10 @@ $string['configurationcomplete'] = '초기 설정 완료';
 $string['configurationcompletehead'] = '초기 설정 완료';
 $string['configurationcompletesub'] = '무들이 설치 루트디렉토리에 있는 파일에 당신의 설정을 저장하도록 시도하였습니다.';
 $string['database'] = '데이타 베이스';
-$string['databasecreationsettings'] = '이제 모든 무들 데이터가 저장될 데이터베이스를 설정할 필요가 있습니다. 이 데이터베이스는 아래에 지정된 설정 내용으로 무들 프로그램에 의해 자동설치 될 것입니다.<br /> <br /> <br /> <b>종류:</b> 설치프로그램에 의해 "mysql" 로 고정됨 <br /> <b>호스트:</b> 설치프로그램에 의해 "localhost"로 고정됨<br /> <b>이름:</b> 데이터베이스 이름, 예: moodle<br /> <b>사용자:</b> 설치프로그램에 의해 "root" 로 고정됨 <br /> <b>암호:</b> 데이터베이스 암호 <br /> <b>테이블 접두어:</b> 모든 테이블에 사용할 선택적 접두어';
-$string['databasecreationsettingshead'] = '대부분의 무들 데이터가 저장될 데이터베이스를 설정해야 합니다. 설치프로그램에 의해 자동으로 아래에 명시된 설정대로 데이터베이스가 생성될 것입니다.';
-$string['databasecreationsettingssub'] = '<b>종류:</b> 설치프로그램에 의해 "mysql" 로 고정됨 <br />
-<b>호스트:</b>설치프로그램에 의해 "localhost"로 고정됨<br />
-<b>이름:</b>데이터베이스이름, 예:moodle<br />
-<b>사용자:</b> 설치프로그램에 의해 "root" 로 고정됨 <br />
-<b>암호:</b> 데이터베이스 암호 <br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 선택적 접두어';
-$string['databasecreationsettingssub2'] = '<b>종류:</b> 설치프로그램에 의해 "mysqli" 로 고정됨 <br />
-<b>호스트:</b>설치프로그램에 의해 "localhost"로 고정됨<br />
-<b>이름:</b>데이터베이스이름, 예:moodle<br />
-<b>사용자:</b> 설치프로그램에 의해 "root" 로 고정됨 <br />
-<b>암호:</b> 데이터베이스 암호 <br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 선택적 접두어';
 $string['databasehead'] = '데이터베이스 설정';
 $string['databasehost'] = '데이터베이스 호스트';
 $string['databasename'] = '데이터베이스 명칭';
 $string['databasepass'] = '데이터베이스 비밀번호';
-$string['databasesettings'] = '지금 대부분의 무들 정보가 저장될 데이터베이스를 설정할 필요가 있습니다. 이 데이터베이스는 미리 생성되어 있어야 하며, 데이터베이스에 접근하기위한 사용자명과 비밀번호가 등록되어 있어야만 합니다.<br />
-<br /> <br />
-<b>종류:</b> mysql 또는 postgres7<br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 선택적 접두어';
-$string['databasesettingshead'] = '모든 무들데이터가 저장되는 데이터베이스를 설정할 필요가 있습니다. 이 데이터베이스는 이미 만들어졌으며 이에 접근할 수 있는 사용자명과 암호가 등록되어 있어야만 합니다.';
-$string['databasesettingssub'] = '<b>종류:</b> mysql 또는 postgres7<br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 선택적 접두어';
-$string['databasesettingssub_mssql'] = '<b>종류:</b> SQL*Server (non UTF-8) <b><font color="red">실험적임! (상용 사이트에서는 쓰지 마시오.)</font></b><br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어 (필수)';
-$string['databasesettingssub_mssql_n'] = '<b>종류:</b> SQL*Server (UTF-8 설정)<br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어(필수)';
-$string['databasesettingssub_mysql'] = '<b>종류:</b> MySQL<br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어(선택사항)';
-$string['databasesettingssub_mysqli'] = '<b>종류:</b>향상된 MySQL<br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어(선택사항)';
-$string['databasesettingssub_oci8po'] = '<b>종류:</b>  Oracle<br />
-<b>호스트:</b> 사용되지 않음, 공백이어야 함<br />
-<b>이름:</b> tnsnames.ora 접속에 쓰는 이름<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어(필수, 2cc. max)';
-$string['databasesettingssub_odbc_mssql'] = '<b>종류:</b> SQL*Server (over ODBC) <b>실험적임! </b><br />
-<b>호스트:</b>ODBC조절패널의 DSN에서 부여한 이름<br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어(필수)';
-$string['databasesettingssub_postgres7'] = '<b>종류:</b>  포스트그레SQL<br />
-<b>호스트:</b>예: localhost 또는 db.isp.com <br />
-<b>이름:</b> 데이터베이스 이름, 예:moodle<br />
-<b>사용자:</b> 데이터베이스 사용자명<br />
-<b>암호:</b> 데이터베이스 암호<br />
-<b>테이블 접두어:</b> 모든 테이블에 사용할 접두어 (필수)';
-$string['databasesettingswillbecreated'] = '<b>알림:</b>만일 데이터베이스가 없다면 인스톨러가 데이터베이스를 만들려고 할 것입니다.';
 $string['databasesocket'] = '유닉스 소켓';
 $string['databasetypehead'] = '데이터베이스 드라이버 선택';
 $string['databasetypesub'] = '무들은 여러 종류의 데이터베이스 서버를 지원합니다. 어떤 서버를 사용해야 할 지 모르겠다면 서버 관리자에게 문의하기 바랍니다.';
@@ -143,10 +71,6 @@ $string['dbpass'] = '비밀번호';
 $string['dbport'] = '포트';
 $string['dbprefix'] = '테이블 접두어';
 $string['dbtype'] = '형태';
-$string['dbwrongencoding'] = '선택된 데이터베이스는 바람직하지 않은 인코딩 방법({$a})에 의해 동작하고 있습니다. 유니코드 (UTF-8)로 인코딩 되는 데이터베이스를 사용하는 것이 좋습니다. 아래의"DB 인코딩 테스트 건너뛰기"를 선택하여 이 테스트를 건너뛸 수 있지만 추후에 문제가 야기될 수 있습니다.';
-$string['dbwronghostserver'] = '이미 설명한 "호스트"의 규칙을 따라야만 합니다.';
-$string['dbwrongnlslang'] = '웹서버의 NLS_LANG 환경 변수들은 AL32UTF8 문자셋으로 작성되어야만 합니다. OCI8을 적절하게 설정하기 위한 PHP 문서를 참조하십시오.';
-$string['dbwrongprefix'] = '위에 설명한 대로 "테이블 접두어" 규칙을 따라야만 합니다.';
 $string['directorysettings'] = '<p>무들을 설치할 위치를 확인하십시요.</p>
 
 <p><b>웹주소:</b>
@@ -188,25 +112,6 @@ $string['fileuploadshelp'] = '<p>서버로 파일올리기가 불가능해 보�
 <p>무들은 설치될 수 있지만 파일을 업로딩 할 수 없는 상태에서는 강좌에 파일이나 사진을 올릴 수 없을 것입니다.</p>
 
 <p>파일 업로딩이 가능하게 하기 위해서는 당신(또는 당신의 시스템 관리자)가 php.ini 파일 속의  <b>file_upload</b>을 \'1\'로 설정해야 할 것입니다.</p>';
-$string['gdversion'] = 'GD 의 버전';
-$string['gdversionerror'] = '사진이나 그림을 처리하기 위해서 필수적으로 GD 라이브러리가 있어야만 함';
-$string['gdversionhelp'] = '<P>서버에 GD라이브러리가 설치되지 않은 것 같습니다.
-
-<P>GD는 무들이 (사용자 아이콘과 같은) 그림이나 (함수 그래프와 같은) 새로운 이미지를 생성,처리할 수 있도록 PHP에 의해서 요구되는 라이브러리 입니다. 하지만 무들은 GD없이도 작동되는데, 이 때는 GD가 제공하는 기능은 사용할 수 없을 것입니다.
-
-<p>유닉스 운영체제에서 PHP에 GD를 추가하기 위해서는 --with-gd 매개변수를 사용하여 PHP를 컴파일해야 합니다.</p>
-
-<p>윈도우즈 하에서는 일반적으로 php.ini 파일에서 php_gd2.dll 라인의 주석을 제거하여 활성화 시키면 됩니다.</p>';
-$string['globalsquotes'] = '전역변수에 대핸 안전하지 않은 취급';
-$string['globalsquoteserror'] = 'PHP.ini 속의 설정을 다음과 같이 고치십시오:  register_globals 및 enable magic_quotes_gpc 을 끄십시오(Off).';
-$string['globalsquoteshelp'] = '<p>magic quotes GPC를 비활성화하고 register globals를 동시에 활성화하는 것은 권장하지 않습니다.</p>
-
-<p>권장하는 php.ini 설정은 <b>magic_quotes_gpc = On</b> 과 <b>register_globals = Off</b> 입니다.</p>
-
-<p>만일 여러분이 php.ini 에 접근할 수 없다면, 무들 디렉토리안에 아래의 내용이 담긴 .htaccess 파일을 넣어 두십시오.
-<blockquote>php_value magic_quotes_gpc On</blockquote>
-<blockquote>php_value register_globals Off</blockquote>
-</p>';
 $string['inputdatadirectory'] = '데이터 디렉토리 :';
 $string['inputwebadress'] = '웹 주소 :';
 $string['inputwebdirectory'] = '무들 디렉토리 :';
@@ -237,12 +142,7 @@ $string['memorylimithelp'] = '<p>현재 서버의 PHP 메모리 사용량은 {$a
 <li>또 도저히 php.ini 안에 있는 값을 바꿀 수가 없다면 무들 디렉토리에 아래와 같은 내용을 포함하는 .htaccess 를 넣어두면 됩니다.
 <P><blockquote>php_value memory_limit 40M<blockquote></p>
 <p>그러나 어떤 서버에서는 이러한 기능이 모든 PHP페이지에 적용되어 버릴 수도 있게 되는 데 (당신이 페이지를 살펴보았을때 문제를 찾을 것이다) 이 때에는 .htaccess 를 제거해야 하고 다른 방안을 찾아봐야 할 것입니다.</p></li></ol>';
-$string['mssql'] = 'SQL* 서버 (mssql)';
 $string['mssqlextensionisnotpresentinphp'] = 'MSSQL확장자를 이용해 SQL*서버와 연동할 수 있도록 적절하게 설정되지 못했습니다. php.ini 파일을 점검해 보거나 PHP를 다시 컴파일 하십시오.';
-$string['mssql_n'] = 'UTF-8을 지원하는 SQL* 서버 (mssql_n)';
-$string['mysql'] = 'MySQL (mysql)';
-$string['mysqlextensionisnotpresentinphp'] = 'MySQL확장자를 이용해 서버와 연동할 수 있도록 적절하게 설정되지 못했습니다. php.ini 파일을 점검해 보거나 PHP를 다시 컴파일 하십시오.';
-$string['mysqli'] = '향상된 MySQL (mysqli)';
 $string['mysqliextensionisnotpresentinphp'] = 'PHP가 MySQLi확장자를 이용해 서버와 연동할 수 있도록 적절하게 설정되지 못해서 MySQL로 통신하게 되었습니다. php.ini 파일을 점검해 보거나 PHP를 다시 컴파일 하십시오.  MySQLi 확장자는 PHP 4에는 사용할 수 없습니다.';
 $string['nativemssql'] = 'FreeTDS SQL* 서버(원본/mssql)';
 $string['nativemssqlhelp'] = '이제 대부분의 무들 자료가 저장될 데이터베이스를 설정해야 합니다. 이 데이터베이스는 미리 생성되어 있어야 하며 사용자명과 비밀번호는 데이터베이스에 접속하는데 이용될 것입니다. 테이블 접두어는 필수입니다.';
@@ -256,10 +156,7 @@ $string['nativesqlsrv'] = '마이크로소프트 SQL* 서버(원본/sqlsrv)';
 $string['nativesqlsrvhelp'] = '이제 대부분의 무들 자료가 저장될 데이터베이스를 설정해야 합니다. 이 데이터베이스는 미리 생성되어 있어야 하며 사용자명과 비밀번호는 데이터베이스에 접속하는데 이용될 것입니다. 테이블 접두어는 필수입니다.';
 $string['nativesqlsrvnodriver'] = 'PHP를 위한 SQL서버 지원 마이크로소프트 드라이버가 설치되지 않았거나 제대로 설정되지 않았습니다.';
 $string['nativesqlsrvnonwindows'] = 'PHP를 위한 SQL서버 지원 마이크로소프트 드라이버는 윈도우즈 운영체제에만 쓸 수 있습니다.';
-$string['oci8po'] = '오라클 (oci8po)';
 $string['ociextensionisnotpresentinphp'] = 'OCI8 익스텐션으로 PHP가 오라클서버와 통신하도록 적절히 설정되지 않았습니다. php.ini 파일을 점검하거나 PHP를 다시 컴파일 하십시오.';
-$string['odbcextensionisnotpresentinphp'] = 'ODBC 익스텐션으로 PHP가 SQL*서버와 통신하도록 적절히 설정되지 않았습니다. php.ini 파일을 점검하거나 PHP를 다시 컴파일 하십시오.';
-$string['odbc_mssql'] = 'ODBC를 통한 SQL*Server (odbc_mssql)';
 $string['pass'] = '통과';
 $string['paths'] = '경로';
 $string['pathserrcreatedataroot'] = '데이터 디렉토리 ({$a->dataroot})가 설치스크립트에 의해 생성될 수 없습니다.';
@@ -281,7 +178,6 @@ $string['phpversion'] = 'php버젼';
 $string['phpversionhelp'] = '<p>무들은 적어도 PHP4.3.0 혹은 5.1.0. 이상 이어야합니다.(5.0.x는 버그가 있다고 알려져 있습니다)</p>
 <p>현재 구동되고 있는 PHP버전은 {$a} 입니다.</p>
 <p>PHP를 업그레이드 하시거나 새버전을 제공하는 웹호스팅 업체로 이전하기를 권합니다!<br />(만일 5.0.x버전을 사용 중이라면 4.4.x 버전으로 다운그레이드 할 수 있습니다)</p>';
-$string['postgres7'] = '포스트그레SQL (postgres7)';
 $string['releasenoteslink'] = '본 무들판에 대한 정보는 {$a} 에 있는 릴리즈 노트(Release Notes)를 참조하기 바랍니다.';
 $string['safemode'] = '안전모드';
 $string['safemodeerror'] = '아마 안전모드(Safe Mode)가 작동되어서 문제가 생겼을 것입니다.';
@@ -292,7 +188,6 @@ $string['sessionautostart'] = '세션 자동 시작';
 $string['sessionautostarterror'] = '이것은 꺼져 있어야(Off) 합니다.';
 $string['sessionautostarthelp'] = '<p>무들은 세션의 지원이 필요하고 그것 없이는 작동하지 않을 것 입니다.</p>
 <P>세션은 php.ini 파일 안에서 조정될 수 있습니다. session.auto_start 항목을 살펴보세요.</p>';
-$string['skipdbencodingtest'] = 'DB 엔코딩 테스트 생략';
 $string['sqliteextensionisnotpresentinphp'] = 'PHP가 SQLite 확장에 걸맞게 설정되지 않았습니다. php.ini 파일을 점검해 보거나 PHP를 다시 컴파일 하시기 바랍니다.';
 $string['upgradingqtypeplugin'] = '질문/유형 플러그인 업그레이드';
 $string['welcomep10'] = '{$a->installername} ({$a->installerversion})';

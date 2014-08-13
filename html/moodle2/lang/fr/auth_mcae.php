@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_mcae', language 'fr', branch 'MOODLE_23_STABLE'
+ * Strings for component 'auth_mcae', language 'fr', branch 'MOODLE_25_STABLE'
  *
  * @package   auth_mcae
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,10 +41,10 @@ $string['auth_fieldlocks_help'] = ' ';
 $string['auth_mainrule_fld'] = 'Modèle principal. Un modèle par ligne.';
 $string['auth_mcaedescription'] = 'Cette méthode permet d\'inscrire automatiquement des utilisateurs dans des cohortes.';
 $string['auth_profile_help'] = 'Modèles disponibles';
-$string['auth_replace_arr'] = 'Tabelle de remplacement. Une valeur par ligne. Format : ancienne_valeur|nouvelle_valeur';
+$string['auth_replace_arr'] = 'Table de remplacement. Une valeur par ligne. Format : ancienne_valeur|nouvelle_valeur';
 $string['auth_secondrule_fld'] = 'Champ texte vide';
 $string['auth_selectcohort'] = 'Choisir une cohorte...';
-$string['auth_tools_help'] = 'La fonction de désinscription ne fonction qu\'avec les cohortes associées à ce plugin. Vous pouvez convertir les cohortes avec <a href="{$a->url}" target="_blank">cet outil</a>.';
+$string['auth_tools_help'] = 'La fonction de désinscription ne fonctionne qu\'avec les cohortes associées à ce plugin. Vous pouvez convertir les cohortes avec <a href="{$a->url}" target="_blank">cet outil</a>.';
 $string['auth_total'] = 'Total';
 $string['auth_userlink'] = 'Voir les utilisateurs';
 $string['auth_username'] = 'Nom d\'utilisateur';

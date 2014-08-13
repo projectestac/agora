@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_onlinetext', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assignsubmission_onlinetext', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_onlinetext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,7 @@ $string['default'] = 'Standardmäßig aktiviert';
 $string['default_help'] = 'Die gewählte Methode für die Abgabe von Lösungen wird für alle neuen Aufgaben voreingestellt.';
 $string['enabled'] = 'Texteingabe online';
 $string['enabled_help'] = 'Diese Methode ermöglicht den Teilnehmer/innen die Lösung direkt in einem Texteingabefeld mit Editor einzutragen.';
+$string['event_assessable_uploaded'] = 'Onlinetext wurde hochgeladen';
 $string['nosubmission'] = 'Für diese Aufgabe wurde nichts eingereicht';
 $string['numwords'] = '({$a} Worte)';
 $string['numwordsforlog'] = 'Abgabe: {$a} Worte';

@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,8 +17,7 @@
 /**
  * This page shows all course enrolment options for current user.
  *
- * @package    core
- * @subpackage enrol
+ * @package    core_enrol
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -43,12 +41,16 @@ if ($course->id == SITEID) {
     redirect("$CFG->wwwroot/");
 }
 
+if (!$course->visible && !has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+    print_error('coursehidden');
+}
+
 $PAGE->set_course($course);
 $PAGE->set_pagelayout('course');
 $PAGE->set_url('/enrol/index.php', array('id'=>$course->id));
 
 // do not allow enrols when in login-as session
-if (session_is_loggedinas() and $USER->loginascontext->contextlevel == CONTEXT_COURSE) {
+if (\core\session\manager::is_loggedinas() and $USER->loginascontext->contextlevel == CONTEXT_COURSE) {
     print_error('loginasnoenrol', '', $CFG->wwwroot.'/course/view.php?id='.$USER->loginascontext->instanceid);
 }
 

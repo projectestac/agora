@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accessnoticesheader'] = 'Pode previsualizar esta proba mais se fose un intento real, sería bloqueado porque:';
+$string['accessnoticesheader'] = 'Pode facer unha vista previa desta proba mais se fose un intento real, sería bloqueado porque:';
 $string['action'] = 'Acción';
 $string['activityoverview'] = 'Ten probas pendentes';
 $string['adaptive'] = 'Modo adaptativo';
-$string['adaptive_help'] = 'No caso e estar activo, permítense respostas múltiplas como tentativa de resposta a unha cuestión da proba. Así, por exemplo, se se marca unha resposta como incorrecta, permíteselle ao alumno probar outra vez inmediatamente. No entanto, dependendo da configuración de "Penalizacións aplicadas", sufrirá a penalización de falta por cada tentativa errada.';
+$string['adaptive_help'] = 'No caso e estar activo, permítense respostas múltiplas como tentativa de resposta a unha cuestión da proba. Así, por exemplo, se se marca unha resposta como incorrecta, permíteselle ao alumno probar outra vez inmediatamente. No entanto, dependendo da configuración de «Penalizacións aplicadas», sufrirá a penalización de falta por cada tentativa errada.';
 $string['addaquestion'] = 'Engadir unha pregunta ...';
 $string['addarandomquestion'] = 'Engadir unha pregunta aleatoria ...';
 $string['addarandomquestion_help'] = 'Ao engadir unha pregunta aleatoria, prodúcese unha pregunta aleatoriamente escollida da categoría introducida na proba. Isto significa que cada alumno obterá unha selección diferente de preguntas e cando unha proba permite múltiplos intentos, cadanseu intento probablemente conterá unha nova selección de preguntas.';
@@ -71,7 +71,6 @@ $string['answerhowmany'] = 'Unha ou respostas múltiplas?';
 $string['answers'] = 'Respostas';
 $string['answersingleno'] = 'Permítense respostas múltiplas';
 $string['answersingleyes'] = 'Unha única resposta';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'As respostas con erros aceptados teñen que ser numéricas';
 $string['answertoolong'] = 'A resposta é demasiado longa a partir da liña {$a} (255 carác. máx)';
 $string['aon'] = 'Formato AON';
 $string['areyousureremoveselected'] = 'Confirma que quere retirar todas as preguntas seleccionadas?';
@@ -99,6 +98,8 @@ $string['attemptsonly'] = 'Amosar soamente os alumnos con intentos';
 $string['attemptstate'] = 'Estado';
 $string['attemptstillinprogress'] = 'Intento aínda en proceso';
 $string['attemptsunlimited'] = 'Intentos ilimitados';
+$string['autosaveperiod'] = 'Período de autogardado';
+$string['autosaveperiod_desc'] = 'As respostas dos alumnos pódense gardar automaticamente cada poucos minutos durante os intentos de exame. Isto implica unha alternativa: o gardado das respostas incrementa a carga do servidor pero reduce a posibilidade de que os alumnos perdan o seu traballo.';
 $string['back'] = 'Volver á pregunta previa';
 $string['backtocourse'] = 'Volver ao curso';
 $string['backtoquestionlist'] = 'Volver á lista de preguntas';
@@ -134,9 +135,9 @@ $string['cannotstartgradesmismatch'] = 'Non pode comezar un intento nesta proba.
 $string['cannotstartmissingquestion'] = 'Non se pode comezar un intento nesta proba. A definición da proba inclúe unha pregunta que non existe.';
 $string['cannotstartnoquestions'] = 'Non se pode comezar un intento nesta proba. A proba aínda non foi configurada. Non se lle engadiron preguntas.';
 $string['cannotwrite'] = 'Non se pode escribir no ficheiro de exportación ({$a})';
-$string['caseno'] = 'Non, o caso non é importante';
+$string['caseno'] = 'Non, distinguir as maiúsculas das minúsculas non é importante';
 $string['casesensitive'] = 'Distinguir maiúsculas de minúsculas';
-$string['caseyes'] = 'Si, a caixa da letra debe coincidir';
+$string['caseyes'] = 'Si, o tipo de caixa de letra debe coincidir';
 $string['categories'] = 'Categorías';
 $string['category'] = 'Categoría';
 $string['categoryadded'] = 'Foi engadida a categoría «{$a}»';
@@ -146,7 +147,7 @@ $string['categoryupdated'] = 'A categoría actualizouse correctamente';
 $string['close'] = 'Pechar esta xanela';
 $string['closebeforeopen'] = 'Non se pode actualizar a proba. Especificou unha data de peche anterior á data de apertura.';
 $string['closed'] = 'Pechada';
-$string['closepreview'] = 'Pechar a previsualización';
+$string['closepreview'] = 'Pechar a vista previa';
 $string['closereview'] = 'Pechar a revisión';
 $string['comment'] = 'Comentario';
 $string['commentorgrade'] = 'Facer un comentario ou sobrescribir a cualificación';
@@ -167,6 +168,7 @@ $string['configintro'] = 'Os valores que estabeleza aquí definen os valores pre
 $string['configmaximumgrade'] = 'A cualificación predeterminada que táboa de cualificacións considere fóra de escala.';
 $string['confignavmethod'] = 'Na navegación libre, as preguntas poden responderse en calquera orde usando a navegación. Na secuencial, as preguntas deben responderse en secuencia estrita.';
 $string['confignewpageevery'] = 'Ao engadir preguntas ás quebras da páxina da proba, inseriranse automaticamente segundo a configuración que escolla aquí.';
+$string['configoutcomesadvanced'] = 'Se esta opción está apagada, entón os resultados na edición do formulario do exame son unha configuración avanzada.';
 $string['configpenaltyscheme'] = 'A penalización contraída por cadansúa resposta en modo adaptativo.';
 $string['configpopup'] = 'Forzar o intento de abrir nunha xanela emerxente, e suar trucos de JavaScript para conseguir restrinxir o copia e pega, etc durante os intentos da proba.';
 $string['configrequirepassword'] = 'Os alumnos deben de introducir estre contrasinal antes de poderen intentar a proba.';
@@ -184,9 +186,15 @@ $string['confirmserverdelete'] = 'Confirma que quere retirar o servidor <b>{$a}<
 $string['confirmstartattemptlimit'] = 'Número de intentos permitido: {$a}. Vostede está a punto de comezar un novo intento. Quere proseguir?';
 $string['confirmstartattempttimelimit'] = 'Esta proba ten un límite de tempo e un número restrinxido de intentos,  {$a}. Vostede está a punto de comezar un novo intento. Quere proseguir?';
 $string['confirmstarttimelimit'] = 'A proba ten un límite de tempo. Confirma que quere comezar?';
+$string['connectionerror'] = 'Perdeuse a conexión de rede. (Fallou o gardado automático)
+
+Anote as respostas introducidas nesta páxina nos últimos minutos, e de seguido tente volver conectar.
+
+Unha vez se teña recuperada a conexión, debe gardar as súa respostas e desaparecerá esta mensaxe.';
+$string['connectionok'] = 'Recuperouse a conexión de rede. Pode continuar con seguridade.';
 $string['containercategorycreated'] = 'Esta categoría creouse para gardar todas as categorías orixinais movidas ao nivel do sitio debido ás seguintes causas.';
 $string['continueattemptquiz'] = 'Continuar o último intento';
-$string['continuepreview'] = 'Continuar a última previsualización';
+$string['continuepreview'] = 'Continuar a última vista previa';
 $string['copyingfrom'] = 'Creación dunha copia da pregunta «{$a}»';
 $string['copyingquestion'] = 'Copiando a pregunta';
 $string['correct'] = 'Corrixir';
@@ -213,6 +221,7 @@ $string['datasetnumber'] = 'Número';
 $string['daysavailable'] = 'Días dispoñíbeis';
 $string['decimaldigits'] = 'Díxitos decimais nas táboas';
 $string['decimalplaces'] = 'Posicións decimais nas táboas';
+$string['decimalplaces_help'] = 'Esta configuración especifica o número de díxitos que se amosa despois do punto decimal ao presentar as cualificacións. Soamente afecta á presentación de cualificacións, non ás cualificacións gardadas na base de datos, nin nos cálculos internos, que se fan á parte para unha precisión total.';
 $string['decimalplacesquestion'] = 'Posicións decimais nas táboas de preguntas';
 $string['decimalplacesquestion_help'] = 'Esta configuración especifica o número de díxitos que se amosa despois do punto decimal ao presentar as táboas para preguntas concretas.';
 $string['decimalpoints'] = 'Puntos decimais';
@@ -231,6 +240,7 @@ $string['deletingquestionattempts'] = 'Eliminando os intentos de preguntas';
 $string['description'] = 'Descrición';
 $string['disabled'] = 'Desactivado';
 $string['displayoptions'] = 'Opcións de presentación:';
+$string['donotuseautosave'] = 'Non utilizar o autogardado';
 $string['download'] = 'Premer para descargar o ficheiro da categoría exportada';
 $string['downloadextra'] = '(O ficheiro tamén se garda nos ficheiros do curso no cartafol /backupdata/quiz)';
 $string['duplicateresponse'] = 'Esta entrega ignorouse porque xa deu unha resposta equivalente anteriormente.';
@@ -246,7 +256,7 @@ $string['editingquiz_help'] = 'Ao crear unha proba, os conceptos principais son:
 * A proba, que contén preguntas sobre unha ou máis páxinas
 * O banco de preguntas, que garda copias de todas as preguntas organizadas en categorías
 * Preguntas aleatorias -  Un alumno obtén preguntas diferentes cada vez intenta a proba e diferentes alumnos poden obter preguntas diferentes';
-$string['editingquiz_link'] = 'mod/quiz/edit';
+$string['editingquiz_link'] = 'mod/quiz/editar';
 $string['editingquizx'] = 'Edición da proba: {$a}';
 $string['editoverride'] = 'Editar sobrescritura';
 $string['editqcats'] = 'Editar categorías de preguntas';
@@ -296,6 +306,10 @@ $string['errornotnumbers'] = 'Erro - as respostas deben de ser numéricas';
 $string['errorunexpectedevent'] = 'Atopouse un código de evento inesperado {$a->event} na pregunta {$a->questionid} no intento {$a->attemptid}.';
 $string['essay'] = 'Ensaio';
 $string['essayquestions'] = 'Preguntas';
+$string['eventquizattemptabandoned'] = 'Abandonouse o intento de proba';
+$string['eventquizattemptstarted'] = 'Iniciouse o intento de proba';
+$string['eventquizattemptsubmitted'] = 'Enviouse o intento de proba';
+$string['eventquizattempttimelimitexceeded'] = 'Excedeuse o tempo límite de intento de proba';
 $string['everynquestions'] = 'Cada {$a} preguntas';
 $string['everyquestion'] = 'Cada pregunta';
 $string['everythingon'] = 'Todo o que hai';
@@ -387,7 +401,7 @@ $string['incorrect'] = 'Incorrecto';
 $string['indivresp'] = 'As resposta de individuos a cada ítem';
 $string['info'] = 'Info';
 $string['infoshort'] = 'i';
-$string['inprogress'] = 'En progreso';
+$string['inprogress'] = 'Avanzando';
 $string['introduction'] = 'Descrición';
 $string['invalidattemptid'] = 'Non existe tal ID de intento';
 $string['invalidcategory'] = 'O ID da categoría non é correcto';
@@ -433,18 +447,18 @@ $string['modulename_help'] = 'A actividade da proba permítelle a un profesor cr
 
 O profesor pode permitir que a proba se intente múltiplas veces, coas preguntas baralladas ou aleatoriamente seleccionadas do banco de preguntas. Pode estabelecerse un límite de tempo.
 
-Cada intento márcase automaticamente, agás as preguntas de ensaio, e a cualificación gárdase no libro de cualificacións.
+Cada intento márcase automaticamente, agás as preguntas de ensaio e a cualificación gárdase no libro de cualificacións.
 
-O profesor pode escoller cando e se as pistas, os comentarios e as respostas correctas se lles amosarán ou non aos alumnos.
+O profesor pode escoller cando e como as pistas, a retroalimentación e as respostas correctas se lles amosarán aos alumnos.
 
-As probas pódense utilizar
+As probas poden usarse
 
 * Como exames de curso
-* Como minitests para tarefas de lectura ou ao final dun tema
+* Como miniprobas para ler deberes ou ao final dun tema
 * Como práctica de exame que utiliza preguntas de exames pasados
-* Para facer chegar comentarios inmediatos sobre o rendemento
+* Para entregar retroalimentación inmediata sobre rendemento
 * Para autoavaliación';
-$string['modulename_link'] = 'mod/quiz/view';
+$string['modulename_link'] = 'mod/quiz/vista';
 $string['modulenameplural'] = 'Probas';
 $string['moveselectedonpage'] = 'Mover as preguntas seleccionadas á páxina: {$a}';
 $string['multichoice'] = 'Escolla múltipla';
@@ -472,7 +486,7 @@ $string['nocommentsyet'] = 'Aínda sen comentarios.';
 $string['noconnection'] = 'Actualmente, non hai conexión con ningún servizo web que poida procesar esta pregunta. Contacte co administrador do seu sistema';
 $string['nodataset'] = 'nada - non é un comodín';
 $string['nodatasubmitted'] = 'Non se entregou ningún dato.';
-$string['noessayquestionsfound'] = 'Non se atoparon preguntas manualmente cualificadas';
+$string['noessayquestionsfound'] = 'Non se atoparon preguntas cualificadas manualmente';
 $string['nogradewarning'] = 'Esta proba non está cualificada, de modo que non pode estabelecer retroalimentación diferente segundo a cualificación';
 $string['nomoreattempts'] = 'Non se admiten máis intentos';
 $string['none'] = 'Ningún';
@@ -502,9 +516,10 @@ $string['notyourattempt'] = 'Este non é o seu intento!';
 $string['noview'] = 'Non se lle permite ao usuario con sesión activa ver esta proba';
 $string['numattempts'] = '{$a->studentnum} {$a->studentstring} fixo {$a->attemptnum} intentos';
 $string['numattemptsmade'] = '{$a} intentos feitos nesta proba';
-$string['numberabbr'] = '#';
+$string['numberabbr'] = 'núm.';
 $string['numerical'] = 'Numérico';
 $string['numquestionsx'] = 'Preguntas:{$a}';
+$string['oneminute'] = '1 minute';
 $string['onlyteachersexport'] = 'Soamente os profesores poden exportar preguntas';
 $string['onlyteachersimport'] = 'Soamente os profesores con permisos de edición poden importar preguntas';
 $string['onthispage'] = 'Esta páxina';
@@ -512,9 +527,9 @@ $string['open'] = 'Non respondida';
 $string['openclosedatesupdated'] = 'Actualizadas as datas de apertura e de remate da proba';
 $string['optional'] = 'opcional';
 $string['orderandpaging'] = 'Ordenación de paxinación';
-$string['orderandpaging_help'] = 'Os números 10, 20, 30, ... En fronte de cada pregunta indican a orde das preguntas. O aumento de números en pasos de 10 para deixar espazo para inserir preguntas adicionais. Para reordenar as preguntas, cambie os números e logo prema no botón "Reordenar preguntas".
+$string['orderandpaging_help'] = 'Os números 10, 20, 30, ... En fronte de cada pregunta indican a orde das preguntas. O aumento de números en pasos de 10 para deixar espazo para inserir preguntas adicionais. Para reordenar as preguntas, cambie os números e logo prema no botón «Reordenar preguntas».
 
-Para engadir quebras de páxina tras preguntas concretas, dea un toque na caixa de selección próxima á pregunta e logo prema o botón "Engadir páxinas novas tras seleccionar as preguntas".
+Para engadir quebras de páxina tras preguntas concretas, dea un toque na caixa de selección próxima á pregunta e logo prema o botón «Engadir páxinas novas tras seleccionar as preguntas».
 
 Para arranxar as preguntas nun número de páxinas, faga clic sobre o botón Repaxinar e seleccione o número de cuestións por páxina desexado.';
 $string['orderingquiz'] = 'Ordenación de paxinación';
@@ -542,7 +557,12 @@ $string['overridegroupeventname'] = '{$a->quiz} - {$a->group}';
 $string['overrides'] = 'Sobrescribe';
 $string['overrideuser'] = 'Sobrescribir usuario';
 $string['overrideusereventname'] = '{$a->quiz} - Sobrescribir';
+$string['page-mod-quiz-attempt'] = 'Intentar a páxina de proba';
 $string['page-mod-quiz-edit'] = 'Editar a páxina da proba';
+$string['page-mod-quiz-report'] = 'Calquera páxina do informe da proba';
+$string['page-mod-quiz-review'] = 'Revisión do intento da páxina de proba';
+$string['page-mod-quiz-summary'] = 'Páxina de resumo do intento de proba';
+$string['page-mod-quiz-view'] = 'Páxina de información da proba';
 $string['page-mod-quiz-x'] = 'Calquera páxina do modulo da proba';
 $string['pagesize'] = 'Tamaño da páxina';
 $string['parent'] = 'Pai';
@@ -561,10 +581,10 @@ $string['popupblockerwarning'] = 'Esta sección do exame está en modo seguro, i
 $string['popupnotice'] = 'Os alumnos verán esta proba nunha xanela segura';
 $string['preprocesserror'] = 'Produciuse un erro durante o pre-procesamento!';
 $string['preview'] = 'Vista previa';
-$string['previewquestion'] = 'Previsualizar a pregunta';
-$string['previewquiz'] = 'Previsualizar {$a}';
-$string['previewquiznow'] = 'Previsualizar a proba agora';
-$string['previous'] = 'Estado de previo';
+$string['previewquestion'] = 'Vista previa da pregunta';
+$string['previewquiz'] = 'Vista previa de {$a}';
+$string['previewquiznow'] = 'Facer agora unha vista previa da proba';
+$string['previous'] = 'Estado anterior';
 $string['publish'] = 'Publicar';
 $string['publishedit'] = 'Debe de ter permiso na publicación do curso para engadir ou editar preguntas nesta categoría';
 $string['qbrief'] = 'P. {$a}';
@@ -584,6 +604,7 @@ $string['questionnonav'] = '<span class="accesshide">Pregunta </span>{$a->number
 $string['questionnonavinfo'] = '<span class="accesshide">Información </span>{$a->number}<span class="accesshide"> {$a->attributes}</span>';
 $string['questionnotloaded'] = 'A pregunta {$a} da base de datos non se cargou';
 $string['questionorder'] = 'Orde de pregunta';
+$string['questionposition'] = 'Nova posición na orde para a a pregunta {$a}';
 $string['questions'] = 'Preguntas';
 $string['questionsinclhidden'] = 'Preguntas (agochadas incluídas)';
 $string['questionsinthisquiz'] = 'Preguntas nesta proba';
@@ -624,7 +645,7 @@ $string['quizopens'] = 'A proba abre';
 $string['quizopenwillclose'] = 'Esta proba está aberta, pecharase en {$a} de';
 $string['quizordernotrandom'] = 'A orde da proba non está barallada';
 $string['quizorderrandom'] = '* A orde da proba está barallada';
-$string['quiz:preview'] = 'Previsualizar probas';
+$string['quiz:preview'] = 'Vista previa das probas';
 $string['quiz:regrade'] = 'Recualificar os intentos da proba';
 $string['quiz:reviewmyattempts'] = 'Revisar os seus propios intentos';
 $string['quizsettings'] = 'Configuración da proba';
@@ -648,8 +669,8 @@ $string['regradecomplete'] = 'Recualificáronse todos os intentos';
 $string['regradecount'] = '{$a->changed} alén de {$a->attempt} cualificacións cambiaron';
 $string['regradedisplayexplanation'] = 'Os intentos que cambian durante a recualificación amósanse como hiperligazóns na xanela de revisión de pregunta';
 $string['regradenotallowed'] = 'Non ten permiso para recualificar esta proba';
-$string['regradingquestion'] = 'Recualificando "{$a}".';
-$string['regradingquiz'] = 'Recualificando a proba "{$a}"';
+$string['regradingquestion'] = 'Recualificando «{$a}».';
+$string['regradingquiz'] = 'Recualificando a proba «{$a}»';
 $string['remove'] = 'Retirar';
 $string['removeallquizattempts'] = 'Eliminar todos os intentos da proba';
 $string['removeemptypage'] = 'Retirar a páxina baleira';
@@ -686,7 +707,7 @@ $string['reportuserswithorwithout'] = 'usuarios matriculados que intentaran, ou 
 $string['reportuserswithout'] = 'usuarios matriculados que non intentaron a proba';
 $string['reportwhattoinclude'] = 'Que incluír no informe';
 $string['requirepassword'] = 'Require contrasinal';
-$string['requirepassword_help'] = 'De se especificar un contrasinal, un estudande debe de introducilo para intentar a proba.';
+$string['requirepassword_help'] = 'De se especificar un contrasinal, un alumno debe de introducilo para intentar a proba.';
 $string['requiresubnet'] = 'Requires enderezo de rede';
 $string['requiresubnet_help'] = 'O acceso á proba pode ser restrinxirse a subrredes particulares na LAN ou na Internet especificando unha lista separada por comas de parcial ou completo número de enderezo IP. Isto pode ser útil para unha proba sen vixilancia (proctored), co fin de asegurar que soamente as persoas nunha determinada localización poidan acceder á proba.';
 $string['response'] = 'Resposta';
@@ -705,7 +726,7 @@ $string['reviewduring'] = 'Durante o intento';
 $string['reviewimmediately'] = 'Inmediatamente despois do intento';
 $string['reviewnever'] = 'Nunca permitir a revisión';
 $string['reviewofattempt'] = 'Revisión do intento {$a}';
-$string['reviewofpreview'] = 'Revisión de previsualización';
+$string['reviewofpreview'] = 'Revisión de vista previa';
 $string['reviewopen'] = 'Despois, mentres a proba estea aínda aberta';
 $string['reviewoptions'] = 'Os alumnos poden revisar';
 $string['reviewoptionsheading'] = 'Opcións de revisión';
@@ -729,7 +750,7 @@ $string['sameasoverall'] = 'Igual ca para as cualificacións xerais';
 $string['save'] = 'Gardar';
 $string['saveandedit'] = 'Gardar cambios e editar preguntas';
 $string['saveattemptfailed'] = 'Produciuse un fallo ao gardar o actual intento de proba.';
-$string['savedfromdeletedcourse'] = 'Gardado do curso eliminado "{$a}"';
+$string['savedfromdeletedcourse'] = 'Gardado do curso eliminado «{$a}»';
 $string['savegrades'] = 'Gardar cualificacións';
 $string['savemyanswers'] = 'Gardar as miñas resposta';
 $string['savenosubmit'] = 'Gardar sen entregar';
@@ -764,9 +785,12 @@ $string['showdetailedmarks'] = 'Amosar detalles da puntuación';
 $string['showeachpage'] = 'Amosar soamente unha páxina de cada vez';
 $string['showfeedback'] = 'Despois de responder, amosar a retroalimentación?';
 $string['showinsecurepopup'] = 'Utilizar unha xanela emerxente \'segura\' para os intentos';
+$string['showlargeimage'] = 'Imaxe grande';
 $string['shownoattempts'] = 'Amosar alumnos sen intentos';
 $string['shownoattemptsonly'] = 'Amosar soamente os alumnos sen intentos';
+$string['shownoimage'] = 'Sen imaxe';
 $string['showreport'] = 'Amosar informe';
+$string['showsmallimage'] = 'Imaxe pequena';
 $string['showteacherattempts'] = 'Amosar intentos do profesor';
 $string['showuserpicture'] = 'Amosar a imaxe do usuario';
 $string['showuserpicture_help'] = 'De estar activado, o nome e a imaxe do alumno amosaranse en pantalla durante o intento, e tamén na pantalla de revisión, facendo máis doado comprobar que o alumno ten a sesión iniciada no sistema como si mesmo nun exame sen vixilancia (proctored).';
@@ -788,11 +812,11 @@ $string['specificquestionnotonquiz'] = 'A pregunta especificada non está na pro
 $string['startagain'] = 'Comezar outra vez';
 $string['startattempt'] = 'Comezar intento';
 $string['startedon'] = 'Arrancado o';
-$string['startnewpreview'] = 'Comezar unha nova previsualización';
+$string['startnewpreview'] = 'Comezar unha nova vista previa';
 $string['stateabandoned'] = 'Nunca entregada';
 $string['statefinished'] = 'Finalizada';
 $string['statefinisheddetails'] = 'Entregada {$a}';
-$string['stateinprogress'] = 'En progreso';
+$string['stateinprogress'] = 'Avanzando';
 $string['statenotloaded'] = 'O estado da pregunta {$a} non se cargou da base de datos';
 $string['stateoverdue'] = 'Atrasada';
 $string['stateoverduedetails'] = 'Debe entregada por {$a}';
@@ -800,7 +824,7 @@ $string['status'] = 'Estado';
 $string['stoponerror'] = 'Alto no erro';
 $string['submitallandfinish'] = 'Entregar todo e finalizar';
 $string['subneterror'] = 'Esta proba está bloqueada de modo que soamente é accesíbel desde certas localizacións. Actualmente o seu computador non é un dos admitidos para usar esta proba.';
-$string['subnetnotice'] = 'Esta proba bloqueouse de modo que soamente é accesíbel desde certas localizacións. O seu computador non está nunha subrrede admitida. Como profesor permíteselle a previsualización de todas maneiras.';
+$string['subnetnotice'] = 'Esta proba bloqueouse de modo que soamente é accesíbel desde certas localizacións. O seu computador non está nunha subrrede admitida. Como profesor permíteselle a vista previa de todas maneiras.';
 $string['subplugintype_quiz'] = 'Informe';
 $string['subplugintype_quizaccess'] = 'Regra de acceso';
 $string['subplugintype_quizaccess_plural'] = 'Regras de acceso';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Engadindo un novo rol';
-$string['addingrolebycopying'] = 'Engadindo un novo rol baseado en {$a}';
 $string['addrole'] = 'Engadir un novo rol';
 $string['advancedoverride'] = 'Anular rol avanzado';
 $string['allow'] = 'Permitir';
@@ -98,9 +97,9 @@ $string['checkpermissionsin'] = 'Comprobar permisos en {$a}';
 $string['checksystempermissionsfor'] = 'Comprobar os permisos de sistema para {$a->fullname}';
 $string['checkuserspermissionshere'] = 'Comprobar os permisos que {$a->fullname} ten neste {$a->contextlevel}';
 $string['chooseroletoassign'] = 'Escolla un rol a asignar';
-$string['cohort:assign'] = 'Engadir e eliminar membros de cohorte';
-$string['cohort:manage'] = 'Crear, eliminar e mover cohortes';
-$string['cohort:view'] = 'Ver cohortes de todo o sitio';
+$string['cohort:assign'] = 'Engadir e eliminar membros do círculo';
+$string['cohort:manage'] = 'Crear, eliminar e mover círculos';
+$string['cohort:view'] = 'Ver círculos de todo o sitio';
 $string['comment:delete'] = 'Eliminar comentarios';
 $string['comment:post'] = 'Publicar comentarios';
 $string['comment:view'] = 'Ler comentarios';
@@ -284,9 +283,6 @@ $string['rating:view'] = 'Ver a ponderación total que vostede reciba';
 $string['rating:viewall'] = 'Ver todas as puntuacións en bruto dadas por individuos';
 $string['rating:viewany'] = 'Ver as puntuacións totais que reciba calquera';
 $string['resetrole'] = 'Restabelecer ao predeterminado';
-$string['resetrolenolegacy'] = 'Limpar permisos';
-$string['resetrolesure'] = 'Confirma que quere restabelecer o rol «{$a->name} ({$a->shortname})» aos valores predeterminados?<p></p>Os valores predeterminados tómanse do arquetipo seleccionado ({$a->legacytype}).';
-$string['resetrolesurenolegacy'] = 'Confirma que quere limpar todos os permisos definidos neste rol «{$a->name} ({$a->shortname})»?';
 $string['restore:configure'] = 'Configurar as opcións de restauración';
 $string['restore:createuser'] = 'Crear usuarios na';
 $string['restore:restoreactivity'] = 'Restaurar actividades';

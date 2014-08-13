@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'pcast', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'pcast', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   pcast
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,10 +26,3 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['category'] = 'Categoría';
-$string['modulename_help'] = 'El módulo de actividad pcast le permite a los participantes crear un podcast y publicar episodios consistentes en archivos de audio y/o video.
-
-Los episodios pueden revisarse alfabéticamente o por categoría, fecha o autor. Los episodios pueden ser aprobados por defecto o pueden requerir de aprobación por un maestro antes de que sean visibles para todos.
-
-Un maestro puede permitir comentarios a los episodios. Los episodios también pueden ser valorados por maestros o alumnos (evaluación por pares). Las valoraciones se agregan para formar una calificación final que se graba en el libro de calificaciones.
-
-Los estudiantes pueden subscribirse al podcast empleando su navegador web favorito o una aplicación de audio como iTunes, Winamp, Windows Media Player o Media Monkey, y oirse en un reproductor portátil de MP3, como un iPod.';

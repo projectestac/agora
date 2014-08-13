@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_overview', language 'ur', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_overview', language 'ur', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,7 +38,6 @@ $string['optallattempts'] = 'تمام کوششیں';
 $string['optallstudents'] = 'تمام \'{$a}\'';
 $string['optattemptsonly'] = '\'{$a}\' صرف کوششوں کے ساتھ';
 $string['optnoattemptsonly'] = '\'{$a}\' صرف بخیر کسی کوشش کے';
-$string['optonlygradedattempts'] = 'صرف درجہ دی گئی استعمال کنندہ کی کوشش ({$a})';
 $string['overview'] = 'سرسری جائزہ';
 $string['overviewdownload'] = 'ڈاؤنلوڈ کا سرسری جائزہ';
 $string['overviewreportgraph'] = 'طالبعلموں کے حاصل کردہ مخصوص درجہ کا بار گراف';

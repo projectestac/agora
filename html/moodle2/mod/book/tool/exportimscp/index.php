@@ -27,7 +27,6 @@
 require(dirname(__FILE__).'/../../../../config.php');
 require_once(dirname(__FILE__).'/locallib.php');
 require_once($CFG->dirroot.'/mod/book/locallib.php');
-require_once($CFG->dirroot.'/backup/lib.php');
 require_once($CFG->libdir.'/filelib.php');
 
 $id = required_param('id', PARAM_INT);           // Course Module ID
@@ -44,7 +43,13 @@ $context = context_module::instance($cm->id);
 require_capability('mod/book:read', $context);
 require_capability('booktool/exportimscp:export', $context);
 
-add_to_log($course->id, 'book', 'exportimscp', 'tool/exportimscp/index.php?id='.$cm->id, $book->id, $cm->id);
+$params = array(
+    'context' => $context,
+    'objectid' => $book->id
+);
+$event = \booktool_exportimscp\event\book_exported::create($params);
+$event->add_record_snapshot('book', $book);
+$event->trigger();
 
 $file = booktool_exportimscp_build_package($book, $context);
 

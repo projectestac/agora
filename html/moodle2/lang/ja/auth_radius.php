@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_radius', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_radius', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_radius
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_radiuschangepasswordurl_key'] = 'パスワード変更URI';
+$string['auth_radiuschangepasswordurl_key'] = 'パスワード変更URL';
 $string['auth_radiusdescription'] = 'ここではユーザ名およびパスワードが有効であるか確認するため、<a href="http://en.wikipedia.org/wiki/RADIUS">RADIUS</a>サーバを使用します。';
 $string['auth_radiushost'] = 'RADIUSサーバのアドレス';
 $string['auth_radiushost_key'] = 'ホスト';

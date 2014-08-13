@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Periodo de matriculación por defecto';
 $string['defaultperiod_desc'] = 'Periodo de tiempo por defecto en el que la matricula es válida. Si se establece a cero, la matricula durará de forma ilimitada por defecto';
 $string['defaultperiod_help'] = 'Periodo de tiempo predeterminado durante el que el la matrícula es válida, a partir del momento en que se inscribe el usuario. Si está desactivado, la duración de la inscripción será, por defecto, ilimitada.';
 $string['deleteselectedusers'] = 'Eliminar las matrículas de usuario seleccionadas';
-$string['editenrolment'] = 'Editar matrículas';
 $string['editselectedusers'] = 'Editar las matrículas de usuario seleccionadas';
 $string['enrolledincourserole'] = 'Matriculado en "{$a->course}" as "{$a->role}"';
 $string['enrolusers'] = 'Matricular usuarios';

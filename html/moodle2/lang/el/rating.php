@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,4 +37,3 @@ $string['capabilitychecknotavailable'] = 'Η δυνατότητα ελέγχου
 $string['ratings'] = 'Βαθμοί';
 $string['ratingtime'] = 'Περιορισμός βαθμολογιών σε στοιχεία με ημερομηνίες σ΄αυτή την κατηγορία';
 $string['rolewarning'] = 'Ρόλοι αδειοδοτημένοι να βαθμολογούν';
-$string['rolewarning_help'] = 'Για την υποβολή βαθμολογιών χρηστών απαιτείται η χρήση της moodle/rating:rate λειτουργίας και οι άλλες καθορισμένες λειτουργίες του module. Οι χρήστες που τους ανατίθενται οι ακόλουθοι ρόλοι θα είναι σε θέση να βαθμολογούν. Η λίστα των ρόλων μπορεί να τροποποιηθεί μέσω του υπερσυνδέσμου δικαιωμάτων από το μπλοκ των ρυθμίσεων.';

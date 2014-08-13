@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_meta', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_meta', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_meta
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['linkedcourse'] = 'Ligar o curso';
 $string['meta:config'] = 'Configurar instancias de meta matriculación';
 $string['meta:selectaslinked'] = 'Seleccionar curso como meta ligado';
 $string['meta:unenrol'] = 'Desmatricular os usuarios suspensos';

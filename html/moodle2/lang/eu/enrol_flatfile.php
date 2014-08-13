@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_flatfile', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_flatfile', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_flatfile
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['filelockedmail'] = 'Cron prozesuak ezin du ezabatu matrikulazioak egiteko ({$a}) fitxategian oinarriturik erabiltzen ari zaren testu-fitxategia. Normalean honen zergatia zure baimenak desegokiak izatean datza. Baimenak ezar itzazu Moodle-k fitxategia ezabatu ahal izateko, mesedez. Bestela, prozesua errepikatu egingo da.';
 $string['filelockedmailsubject'] = 'Errore larria: Matrikulazio-fitxategia';
+$string['flatfile:manage'] = 'Kudeatu erabiltzaileen matrikulazioak eskuz';
+$string['flatfile:unenrol'] = 'Desmatrikulatu erabiltzaileak ikastarotik eskuz';
 $string['location'] = 'Fitxategiaren kokapena';
-$string['mailadmin'] = 'Kudeatzaileari e-postaz jakinarazi';
-$string['mailstudents'] = 'Ikasleei e-postaz jakinarazi';
-$string['mailteachers'] = 'Irakasleei e-postaz jakinarazi';
 $string['pluginname'] = 'Flat fitxategia (CSV)';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Incrementa en';
+$string['incby1_help'] = 'Aquest és el valor amb el qual s\'incrementa la secció cada vegada que es mostra un enllaç a secció, començant per 1.';
 $string['incby2'] = 'De forma alternativa incrementa en';
-$string['incbydesc1'] = 'Aquest és el valor d\'increment de la secció cada vegada que es mostra l\'enllaç de secció, començant amb 1.';
-$string['incbydesc2'] = 'Aquest és el valor d\'increment de la secció cada vegada que es mostra l\'enllaç de secció, començant amb 1.';
+$string['incby2_help'] = 'Aquest és el valor amb el qual s\'incrementa la secció cada vegada que es mostra un enllaç a secció, començant per 1.';
 $string['jumptocurrenttopic'] = 'Salta al tema actual';
 $string['jumptocurrentweek'] = 'Salta a la setmana actual';
 $string['numsections1'] = 'Nombre de seccions';
+$string['numsections1_help'] = 'Una vegada que el nombre de seccions del curs arriba a aquest valor s\'utilitza l\'increment per valor.';
 $string['numsections2'] = 'Nombre de seccions alternativament';
-$string['numsectionsdesc1'] = 'Un cop que la quantitat de seccions en el curs arriba a aquest nombre, s\'utilitza l\'increment del valor.';
-$string['numsectionsdesc2'] = 'Una vegada que el nombre de seccions del curs arriba a aquest valor llavors s\'utilitza l\'increment alternatiu per valor.';
+$string['numsections2_help'] = 'Una vegada que el nombre de seccions del curs arriba a aquest valor s\'utilitza l\'increment per valor.';
 $string['pluginname'] = 'Enllaç a la secció';
 $string['section_links:addinstance'] = 'Afegir un bloc nou d\'enllaços a les seccions';
 $string['topics'] = 'Temes';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_security', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_security', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   report_security
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,15 +86,6 @@ $string['check_passwordpolicy_details'] = '<p>Рекомендуется, что
 $string['check_passwordpolicy_error'] = 'Политика паролей не задана.';
 $string['check_passwordpolicy_name'] = 'Политика паролей';
 $string['check_passwordpolicy_ok'] = 'Политика паролей включена.';
-$string['check_passwordsaltmain_details'] = '<p>Установка зашумления паролей значительно снижает риск их хищения. </p>
-<p> Для установления зашумления пароля добавьте следующую строку в свой файл config.php: </p>
-<code>$CFG->passwordsaltmain=\'некоторая очень длинная строка состоящая из большого числа случайных символов\';</code>
-<p>Строка случайных символов должна состоять из букв, цифр и других символов. Рекомендуется строка длиной не менее 40 знаков. </p>
-<p> Пожалуйста, изучите <a href="{$a}" target="_blank">Документацию о зашумлении паролей</a>, если Вы захотите сменить параметр $CFG->passwordsaltmain. После установки НЕ удаляйте параметр $CFG->passwordsaltmain, иначе Вы больше не сможете зайти на сайт! </p>';
-$string['check_passwordsaltmain_name'] = 'Зашумление пароля';
-$string['check_passwordsaltmain_ok'] = 'Зашумление пароля настроено';
-$string['check_passwordsaltmain_warning'] = 'Зашумление пароля не установлено';
-$string['check_passwordsaltmain_weak'] = 'Ненадёжная последовательность для зашумления паролей';
 $string['check_riskadmin_detailsok'] = '<p> Пожалуйста, подтвердите следующий список администраторов системы: </p> {$a}';
 $string['check_riskadmin_detailswarning'] = '<p> Пожалуйста, подтвердите следующий список администраторов системы: </p> {$a->admins}.<p>Рекомендуется назначать роль администратора только в контексте системы. Следующим пользователям необоснованно назначены роли администратора в других контекстах: </p> {$a->unsupported}';
 $string['check_riskadmin_name'] = 'Администраторы';

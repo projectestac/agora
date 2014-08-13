@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -72,7 +72,6 @@ $string['answerhowmany'] = 'Una resposta o múltiples respostes';
 $string['answers'] = 'Solucions';
 $string['answersingleno'] = 'Es permeten múltiples respostes';
 $string['answersingleyes'] = 'Només una resposta';
-$string['answerswithacceptederrormarginmustbenumeric'] = 'Les respostes amb error acceptat han de ser numèriques';
 $string['answertoolong'] = 'La resposta és massa llarga després de la línia {$a} (màxim 255 caràcters)';
 $string['aon'] = 'Format AON';
 $string['areyousureremoveselected'] = 'Segur que voleu eliminar totes les preguntes seleccionades?';
@@ -100,6 +99,8 @@ $string['attemptsonly'] = 'Mostra només l\'estudiantat amb intents';
 $string['attemptstate'] = 'Estat';
 $string['attemptstillinprogress'] = 'Intent en progrés';
 $string['attemptsunlimited'] = 'Intents il·limitats';
+$string['autosaveperiod'] = 'Període d\'autodesat';
+$string['autosaveperiod_desc'] = 'Les respostes dels estudiants es poden desar automàticament cada pocs minuts durant els intents dels qüestionaris. Això implica un compromís: Desar les respostes augmenta la càrrega del servidor, però redueix la possibilitat que els estudiants perdin la feina.';
 $string['back'] = 'Torna a la previsualització de la pregunta';
 $string['backtocourse'] = 'Retorna al curs';
 $string['backtoquestionlist'] = 'Retorna a la llista de preguntes';
@@ -233,6 +234,7 @@ $string['deletingquestionattempts'] = 'S\'estan esborrant els intents de les pre
 $string['description'] = 'Descripció';
 $string['disabled'] = 'Desactivat';
 $string['displayoptions'] = 'Opcions de visualització';
+$string['donotuseautosave'] = 'No utilitzis autodesat.';
 $string['download'] = 'Feu clic per baixar el fitxer de categoria exportat';
 $string['downloadextra'] = '(el fitxer també s\'ha emmagatzemat amb els fitxers del curs a la carpeta /backupdata/quiz)';
 $string['duplicateresponse'] = 'S\'ha ignorat aquesta tramesa perquè ja vau donar anteriorment una resposta equivalent.';
@@ -512,6 +514,7 @@ $string['numattemptsmade'] = 'S\'han fet {$a} intents en aquest qüestionari';
 $string['numberabbr'] = 'n.';
 $string['numerical'] = 'Numèrica';
 $string['numquestionsx'] = 'Preguntes: {$a}';
+$string['oneminute'] = '1 minut';
 $string['onlyteachersexport'] = 'Només el professorat pot exportar preguntes';
 $string['onlyteachersimport'] = 'Només el professorat amb permís d\'edició pot importar preguntes';
 $string['onthispage'] = 'Aquesta pàgina';

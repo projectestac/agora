@@ -46,7 +46,7 @@ if (! has_capability('mod/hotpot:reviewallattempts', $PAGE->context)) {
     require_capability('mod/hotpot:reviewmyattempts', $PAGE->context);
 }
 
-add_to_log($course->id, 'hotpot', 'report', 'report.php?id='.$cm->id, $hotpot->id, $cm->id);
+hotpot_add_to_log($course->id, 'hotpot', 'report', 'report.php?id='.$cm->id, $hotpot->id, $cm->id);
 
 // Create an object to represent the current HotPot activity
 $hotpot = hotpot::create($hotpot, $cm, $course, $PAGE->context);

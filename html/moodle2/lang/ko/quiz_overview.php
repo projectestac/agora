@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_overview', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_overview', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -44,7 +44,6 @@ $string['optallattempts'] = '모든 시도';
 $string['optallstudents'] = '퀴즈 시도하거나 하지 않은 모든 {$a}';
 $string['optattemptsonly'] = '퀴즈를 시도한 {$a}';
 $string['optnoattemptsonly'] = '퀴즈를  시도하지 않은 {$a}';
-$string['optonlygradedattempts'] = '각 사용자 ({$a})에 대해 채점된 것';
 $string['optonlyregradedattempts'] = '재채점 완료/재채점 대상';
 $string['overview'] = '성적';
 $string['overviewdownload'] = '개요 내려받음';
@@ -68,9 +67,9 @@ $string['regradecomplete'] = '재채점이 성공적으로 완료되었습니다
 $string['regradeheader'] = '재채점';
 $string['regradeselected'] = '선택된 시도 재채점';
 $string['regradingattemptxofy'] = '시도 재채점 ({$a->done}/{$a->count})';
-$string['show'] = '보기/다운로드';
-$string['showattempts'] = '시도 보기/다운로드만';
-$string['showdetailedmarks'] = '각 질문에 대한 점수';
+$string['show'] = '포함';
+$string['showattempts'] = '시도 포함';
+$string['showdetailedmarks'] = '각 질문에 대한 채점';
 $string['showinggraded'] = '각 사용자에 대해 시도한 점수만 제시';
 $string['showinggradedandungraded'] = '사용자의 모든 시도를 제시. 채점이 된 시도는 강조됨. 퀴즈의 채점 방법은 {$a} 임.';
 $string['studentingroup'] = '\'{$a->groupname}\' 모둠의 \'{$a->coursestudent}\'';

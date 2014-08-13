@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'bigbluebuttonbn', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'bigbluebuttonbn', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   bigbluebuttonbn
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,8 +35,6 @@ $string['bbbrecordwarning'] = 'Cette session est enregistrée.';
 $string['bbburl'] = 'L\'URL de votre serveur BigBlueButton doit se terminer par /bigbluebutton/. (Cette URL par défaut est pour un serveur fourni par BigBlueButton Réseaux Blindside que vous pouvez utiliser pour les tests.)';
 $string['bigbluebuttonbn'] = 'BigBlueButton';
 $string['bigbluebuttonbn:addinstance'] = 'Ajouter une nouvelle conférence';
-$string['bigbluebuttonbnfieldset'] = 'Exemple de champ personnalisé';
-$string['bigbluebuttonbnintro'] = 'Introduction BigBlueButton';
 $string['bigbluebuttonbn:join'] = 'Joindre une conférence';
 $string['bigbluebuttonbn:moderate'] = 'Modérer une conférence';
 $string['bigbluebuttonbnSalt'] = 'Sel de sécurité';

@@ -13,9 +13,8 @@
 .course-content ul.simple {margin:0;}
 .course-content ul.simple li.section {
 	list-style: none;
-	margin:5px 0 0 0;
+	margin: 5px 0 0 0;
 	padding:0;
-	border: #DDD 1px solid;
 }
 .course-content ul.simple li.section .content {margin:0 40px;}
 .course-content ul.simple li.section .left {width:40px;float:left;text-align:center;}
@@ -35,11 +34,70 @@
 .course-content ul.simple .activity{
 	text-align:center;
 	float:left;
-	min-height: 210px;
 	margin: 20px 20px 0 20px;
-	width:175px;
 	clear: none;
+	width: 175px;
+	min-height: 210px;
 }
+
+.course-content ul.simple .activity.size_128{
+	width: 175px;
+	min-height: 210px;
+}
+
+.course-content ul.simple .activity.size_256{
+	width: 275px;
+	min-height: 270px;
+}
+
+.course-content ul.simple .activity .simple_image {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: block;
+	margin-bottom: 3px;
+	width: 100%;
+	min-width: 128px;
+}
+
+.course-content ul.simple .activity.size_24 .simple_image{
+	height: 24px;
+}
+
+.course-content ul.simple .activity.size_32 .simple_image{
+	height: 32px;
+}
+
+.course-content ul.simple .activity.size_48 .simple_image{
+	height: 48px;
+}
+
+.course-content ul.simple .activity.size_64 .simple_image{
+	height: 64px;
+}
+
+.course-content ul.simple .activity.size_72 .simple_image{
+	height: 72px;
+}
+
+.course-content ul.simple .activity.size_80 .simple_image{
+	height: 80px;
+}
+
+.course-content ul.simple .activity.size_96 .simple_image{
+	height: 96px;
+}
+
+.course-content ul.simple .activity.size_128 .simple_image{
+	height: 128px;
+}
+
+.course-content ul.simple .activity.size_256 .simple_image{
+	min-width: 256px;
+	height: 256px;
+}
+
+
 
 .course-content ul.simple .activity img.activityicon{
 	width:128px;
@@ -68,7 +126,7 @@
 }
 
 .simple-mod-list li {
-    float: none!important;
+    float: none !important;
     display: inline-block;
 }
 

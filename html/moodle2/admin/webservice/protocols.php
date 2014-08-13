@@ -40,7 +40,7 @@ $webservice = optional_param('webservice', '', PARAM_SAFEDIR);
 $confirm    = optional_param('confirm', 0, PARAM_BOOL);
 
 // get currently installed and enabled auth plugins
-$available_webservices = get_plugin_list('webservice');
+$available_webservices = core_component::get_plugin_list('webservice');
 if (!empty($webservice) and empty($available_webservices[$webservice])) {
     redirect($returnurl);
 }
@@ -60,9 +60,6 @@ if (!confirm_sesskey()) {
 }
 
 switch ($action) {
-    case 'uninstall':
-        die('TODO: not implemented yet');
-        break;
 
     case 'disable':
         // remove from enabled list

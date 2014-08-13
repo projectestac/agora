@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_missingtype', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_missingtype', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_missingtype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,10 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['answerno'] = 'Resposta {$a}';
-$string['deletedquestion'] = 'Pregunta que falta';
-$string['missing'] = 'Pregunta dun tipo que non está instalado no sistema';
-$string['missingqtypewarning'] = 'Esta pregunta é dun tipo que non está actualmente instalado neste sistema.
-Non poder facer nada con esa pregunta.';
-$string['pluginname'] = 'Tipo que falta';
-$string['pluginnameadding'] = 'Engadir unha pregunta dun tipo que non está instalado neste sistema';
-$string['pluginnameediting'] = 'Editar unha pregunta dun tipo que non está instalado neste sistema.';
+$string['cannotchangeamissingqtype'] = 'Non pode facer ningún cambio a unha pregunta dun tipo desaparecido.';
+$string['deletedquestion'] = 'Falta a pregunta';
+$string['deletedquestiontext'] = 'Falta esta pregunta. Non se pode presentar nada.';
+$string['missing'] = 'Unha pregunta dun tipo que non está instalado no sistema';
+$string['missingqtypewarning'] = 'Esta pregunta é dun tipo que non está actualmente instalado no sistema. Non poderá facer nada con esta pregunta.';
+$string['pluginname'] = 'Falta o tipo';
+$string['pluginnameadding'] = 'Engadindo unha pregunta dun tipo que non está instalado neste sistema';
+$string['pluginnameediting'] = 'Editando unha pregunta dun tipo que non está instalado neste sistema';
+$string['warningmissingtype'] = '<b>Esta pregunta é dun tipo que aínda non se instalou no seu Moodle.<br />Advírtallo ao seu administrador de Moodle.</b>';

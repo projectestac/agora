@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_statistics', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_statistics', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_statistics
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,9 +59,13 @@ $string['firstattempts'] = 'primi tentativi';
 $string['firstattemptsavg'] = 'Voto medio dei primi tentativi';
 $string['firstattemptscount'] = 'Numero di tentativi iniziali completati e valutati';
 $string['frequency'] = 'Frequenza';
+$string['highestattempts'] = 'tentativo migliore';
+$string['highestattemptsavg'] = 'Media delle valutazioni dei tentativi migliori';
 $string['intended_weight'] = 'Peso voluto';
 $string['kurtosis'] = 'Curtosi della distribuzione dei voti (per {$a})';
-$string['lastcalculated'] = 'Ultimo calcolo {$a->lastcalculated} fa. Ci sono stati {$a->count} tentativi da allora.';
+$string['lastattempts'] = 'ultimo tentativo';
+$string['lastattemptsavg'] = 'Media delle valutazioni degli ultimi tentativi';
+$string['lastcalculated'] = 'Calcolo più recente: {$a->lastcalculated} fa. Tentativi effettuati dopo il calcolo più recente: {$a->count}.';
 $string['median'] = 'Mediana dei voti (per {$a})';
 $string['modelresponse'] = 'Modello di risposta';
 $string['negcovar'] = 'Covarianza negativa del voto rispetto al voto del tentativo complessivo';
@@ -88,6 +92,7 @@ $string['quizoverallstatistics'] = 'Statistiche complessive quiz';
 $string['quizstructureanalysis'] = 'Analisi struttura quiz';
 $string['random_guess_score'] = 'Indice delle risposte date a caso';
 $string['recalculatenow'] = 'Ricalcola ora';
+$string['reportsettings'] = 'Impostazioni di calcolo delle statistiche';
 $string['response'] = 'Risposta data';
 $string['skewness'] = 'Asimmetria della distribuzione dei voti (per {$a})';
 $string['standarddeviation'] = 'Deviazione standard (per {$a})';

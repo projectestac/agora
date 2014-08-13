@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Eintrag hinzufügen';
 $string['addmoreanswerblanks'] = 'Weiteres Antwortfeld hinzufügen';
-$string['addmoreunitblanks'] = 'Leerfeld für {$a} weitere Abschnitte';
 $string['addsets'] = 'Datensatz/-sätze hinzufügen';
+$string['answerdisplay'] = 'Antwort anzeigen';
+$string['answerformula'] = 'Antwortformel {$a}';
 $string['answerhdr'] = 'Antwort';
 $string['answerstoleranceparam'] = 'Antworttoleranzen';
 $string['answerwithtolerance'] = '{$a->answer} (±{$a->tolerance} {$a->tolerancetype})';
@@ -90,9 +91,7 @@ $string['minmax'] = 'Wertebereich';
 $string['missingformula'] = 'Formel fehlt';
 $string['missingname'] = 'Fragename fehlt';
 $string['missingquestiontext'] = 'Fragetext fehlt';
-$string['mustbenumeric'] = 'Sie müssen hier eine Zahl eingeben.';
 $string['mustenteraformulaorstar'] = 'Sie müssen eine Formel oder \'*\' eingeben';
-$string['mustnotbenumeric'] = 'Dies darf keine Zahl sein.';
 $string['newcategory1'] = 'wird einen neuen gemeinsamen Datensatz verwenden';
 $string['newcategory2'] = 'eine Datei aus einen neuen Set von Dateien, die auch von anderen Fragen in dieser Kategorie verwendet werden kann. ';
 $string['newcategory3'] = 'ein Link aus einen neuen Set von Links, der auch von anderen Fragen in dieser Kategorie verwendet werden kann. ';
@@ -134,6 +133,7 @@ $string['synchronizeno'] = 'Nicht synchronisieren';
 $string['synchronizeyes'] = 'Synchronisieren';
 $string['synchronizeyesdisplay'] = 'Gemeinsam genutzte Datensatztitel als Prefix vor Fragetitel anzeigen und synchronisieren';
 $string['tolerance'] = 'Toleranz ±';
+$string['tolerancetype'] = 'Typ';
 $string['trueanswerinsidelimits'] = 'Richtige Antwort: {$a->correct} liegt innerhalb der Grenzen des wahren Wertes {$a->true}';
 $string['trueansweroutsidelimits'] = '<span class="error">Fehler in der richtigen Antwort: {$a->correct} liegt außerhalb der Grenzen des wahren Wertes {$a->true}</span>';
 $string['uniform'] = 'Einfach';
@@ -153,5 +153,4 @@ $string['wildcardvalues'] = 'Ersatzzeichenwerte';
 $string['wildcardvaluesgenerated'] = 'Ersatzzeichenwerte erzeugt';
 $string['youmustaddatleastoneitem'] = 'Sie müssen mindestens einen Datensatzelement hinzufügen, bevor Sie die Frage speichern können';
 $string['youmustaddatleastonevalue'] = 'Sie müssen mindestens einen Datensatz von Ersatzzeichenwerten hinzufügen, bevor Sie die Frage speichern können';
-$string['youmustenteramultiplierhere'] = 'Sie müssen hier einen Multiplikationsfaktor eingeben.';
 $string['zerosignificantfiguresnotallowed'] = 'Die richtige Antwort darf nicht aus Null signifikanten Zeichen bestehen!';

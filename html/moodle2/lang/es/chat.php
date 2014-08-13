@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'chat', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'chat', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   chat
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['activityoverview'] = 'Hay sesiones de chat programadas';
 $string['ajax'] = 'Versión usando Ajax';
 $string['autoscroll'] = 'Desplazamiento automático';
 $string['beep'] = 'Beep';
+$string['bubble'] = 'Burbuja';
 $string['cantlogin'] = 'No se pudo ingresar en la sala de chat';
 $string['chat:addinstance'] = 'Añadir un nuevo chat';
 $string['chat:chat'] = 'Acceder a la sala';
@@ -41,6 +42,7 @@ $string['chat:readlog'] = 'Leer registros de chat';
 $string['chatreport'] = 'Sesiones';
 $string['chat:talk'] = 'Hablar en un chat';
 $string['chattime'] = 'Próxima cita';
+$string['compact'] = 'Compacto';
 $string['composemessage'] = 'Escriba un mensaje';
 $string['configmethod'] = 'El método ajax del chat trabaja de forma interna contactando de forma regular con el servidor para llevar a cabo las actualizaciones.
 El método normal de chat implica que los usuarios contactan con el servidor de forma regular para llevar a cabo las actualizaciones. No requiere configuración y funciona en cualquier parte, pero puede ocasionar una sobrecarga en el servidor cuando hay muchos usuarios simultáneamente en la sala. Utilizar un \'daemon\' (i.e., proceso de ejecución independiente en segundo plano) en el servidor requiere acceso shell (de intérprete de comandos) a Unix, pero proporcionará  un servicio de chat más rápido y escalable.';
@@ -53,6 +55,7 @@ $string['configserverhost'] = '\'Hostname\' (nombre de anfitrión) del ordenador
 $string['configserverip'] = 'Dirección IP numérica equivalente al \'hostname\' (nombre de anfitrión)';
 $string['configservermax'] = 'Número máximo de usuarios';
 $string['configserverport'] = 'Puerto que usa el \'daemon\' en el servidor';
+$string['coursetheme'] = 'Plantilla del curso';
 $string['currentchats'] = 'Salas activas';
 $string['currentusers'] = 'Usuarios';
 $string['deletesession'] = 'Borrar esta sesión';
@@ -117,7 +120,7 @@ $string['refreshuserlist'] = 'Refrescar lista de usuarios';
 $string['removemessages'] = 'Eliminar todos los mensajes';
 $string['repeatdaily'] = 'A la misma hora todos los días';
 $string['repeatnone'] = 'Sin repeticiones, publicar sólo la hora especificada';
-$string['repeattimes'] = 'Repetir sesiones';
+$string['repeattimes'] = 'Repetir/publicar tiempo de las sesiones';
 $string['repeatweekly'] = 'A la misma hora todas las semanas';
 $string['saidto'] = 'dicho a';
 $string['savemessages'] = 'Guardar sesiones pasadas';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_opaque', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_opaque', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_opaque
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,6 +30,8 @@ $string['lCLEAR'] = 'Clear';
 $string['lENTERANSWER'] = 'Check';
 $string['lGIVEUP'] = 'Pass';
 $string['lNEXTQUESTION'] = 'Next';
+$string['lTRIES'] = 'tries';
+$string['lTRY'] = 'try';
 $string['lTRYAGAIN'] = 'Try again';
 $string['notcomplete'] = 'Not complete';
 $string['notcompletedmessage'] = 'You did not complete this question during the attempt. No review is possible.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'book', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'book', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   book
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,6 +41,12 @@ $string['customtitles_help'] = 'Los títulos de los capítulos se muestran autom
 Si se marca la opción "Títulos personalizados", el título del capítulo no se muestra como una cabecera encima del contenido. Se puede introducir un título diferente (puede que incluso más largo que el del capítulo) como parte del contenido.';
 $string['editingchapter'] = 'Edición de capítulo';
 $string['errorchapter'] = 'Error al leer el capítulo del libro.';
+$string['event_chapter_created'] = 'Capítulo creado';
+$string['event_chapter_deleted'] = 'Capítulo eliminado';
+$string['event_chapter_updated'] = 'Capítulo actualizado';
+$string['event_chapter_viewed'] = 'Capítulo visto';
+$string['event_course_module_viewed'] = 'Módulo de curso visto';
+$string['event_instances_list_viewed'] = 'Lista instancias vista';
 $string['modulename'] = 'Libro';
 $string['modulename_help'] = 'El módulo libro permite crear material de estudio de múltiples páginas en formato libro, con capítulos y subcapítulos. El libro puede incluir contenido multimedia así como texto y es útil para mostrar grandes volúmenes de información repartido en secciones.
 
@@ -50,7 +56,7 @@ Un libro puede usarse
 * Como un manual para el personal del departamento
 * Como un portafolio de trabajos de los estudiantes';
 $string['modulenameplural'] = 'Libros';
-$string['navexit'] = 'Salir del Libro';
+$string['navexit'] = 'Salir del libro';
 $string['navnext'] = 'Siguiente';
 $string['navprev'] = 'Anterior';
 $string['nocontent'] = 'Aún no se ha añadido contenido a este libro.';

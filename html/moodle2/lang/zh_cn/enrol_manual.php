@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = '缺省保持选课时长';
 $string['defaultperiod_desc'] = '选课有效的缺省时间长度（单位秒）。如果此时间设置为零，选课持续时间将会按默认不加以限制。';
 $string['defaultperiod_help'] = '默认的用户身份有效期长度，从用户自行加入课程之日算起。禁止此选项意味着默认用户身份永久有效。';
 $string['deleteselectedusers'] = '删除选中用户的选课记录';
-$string['editenrolment'] = '编辑选课';
 $string['editselectedusers'] = '编辑选中用户的选课';
 $string['enrolledincourserole'] = '以"{$a->role}"身份选修 "{$a->course}"。';
 $string['enrolusers'] = '加入用户';

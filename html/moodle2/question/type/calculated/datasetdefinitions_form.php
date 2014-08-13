@@ -71,7 +71,10 @@ class question_dataset_dependent_definitions_form extends question_wizard_form {
 
     protected function definition() {
         global $SESSION;
+
         $mform = $this->_form;
+        $mform->setDisableShortforms();
+
         $possibledatasets = $this->qtypeobj->find_dataset_names($this->question->questiontext);
         $mandatorydatasets = array();
         if (isset($this->question->options->answers)) {
@@ -89,7 +92,7 @@ class question_dataset_dependent_definitions_form extends question_wizard_form {
         $datadefscat  = $this->qtypeobj->get_dataset_definitions_category($this->question);
         $datasetmenus = array();
         $label = "<div class='mdl-align'>".get_string('datasetrole', 'qtype_calculated')."</div>";
-        // explaining the role of datasets so other strings can be shortened
+        // Explaining the role of datasets so other strings can be shortened.
         $mform->addElement('html', $label);
         $mform->addElement('header', 'mandatoryhdr',
                 get_string('mandatoryhdr', 'qtype_calculated'));
@@ -133,7 +136,7 @@ class question_dataset_dependent_definitions_form extends question_wizard_form {
                 $key++;
             }
         }
-        // temporary strings
+        // Temporary strings.
         $mform->addElement('header', 'synchronizehdr',
                 get_string('synchronize', 'qtype_calculated'));
         $mform->addElement('radio', 'synchronize', '',

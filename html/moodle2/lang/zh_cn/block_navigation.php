@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_navigation', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_navigation', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_navigation
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,6 +32,8 @@ $string['enabledockdesc'] = '允许用户停靠此版块';
 $string['everything'] = '全部';
 $string['expansionlimit'] = '生成对什么的导航';
 $string['linkcategoriesdesc'] = '以链接的方式显示类别';
+$string['navigation:addinstance'] = '新增导航版块';
+$string['navigation:myaddinstance'] = '在我的首页新增导航版块';
 $string['pluginname'] = '导航';
 $string['trimlength'] = '剪裁到只剩几个字符';
 $string['trimmode'] = '剪裁模式';

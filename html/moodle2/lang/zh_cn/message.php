@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'message', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'message', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   message
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,7 +85,6 @@ $string['messagingdisabled'] = '网站已禁用消息功能，将以email代替'
 $string['mostrecent'] = '最近消息';
 $string['mostrecentconversations'] = '最近会话';
 $string['mostrecentnotifications'] = '最近通知';
-$string['mycontacts'] = '我的联系人';
 $string['newonlymsg'] = '只显示新的';
 $string['newsearch'] = '新搜索';
 $string['noframesjs'] = '使用无障碍界面';

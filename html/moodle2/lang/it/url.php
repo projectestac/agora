@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'url', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'url', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   url
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,10 +56,9 @@ Sono disponibili molte opzioni di visualizzazione per aprire l\'URL, ad esempio 
 Da notare che è possibile aggiungere URL ad altri tipi di risorse o attività tramite l\'editor di testo.';
 $string['modulenameplural'] = 'URL';
 $string['neverseen'] = 'Mai acceduto';
-$string['optionsheader'] = 'Opzioni';
 $string['page-mod-url-x'] = 'Qualsiasi pagina con modulo URL';
-$string['parameterinfo'] = '&parameter=variable';
-$string['parametersheader'] = 'Parametri';
+$string['parameterinfo'] = '&amp;parametro=variabile';
+$string['parametersheader'] = 'Parametri URL';
 $string['parametersheader_help'] = 'E\' possibile posporre automaticamente all\'URL alcune variabili interne di Moodle. Inserisci un nome per il parametro e scegli la variabile corrispondente.';
 $string['pluginadministration'] = 'Gestione URL';
 $string['pluginname'] = 'URL';
@@ -67,8 +66,6 @@ $string['popupheight'] = 'Altezza popup (in pixel)';
 $string['popupheightexplain'] = 'Altezza di default per le finestre popup.';
 $string['popupwidth'] = 'Larghezza popup (in pixel)';
 $string['popupwidthexplain'] = 'Larghezza di default per le finestre popup.';
-$string['printheading'] = 'Visualizza il nome dell\'URL';
-$string['printheadingexplain'] = 'Consente di visualizzare il nome dell\'URL prima del contenuto.';
 $string['printintro'] = 'Visualizza la descrizione dell\'URL';
 $string['printintroexplain'] = 'Consente di visualizzare la descrizione dell\'URL sotto il contenuto. enere presente che alcuni tipi di visualizzazione potrebbero non rispettare questa impostazione.';
 $string['rolesinparams'] = 'Includi nei parametri i nomi dei ruoli';

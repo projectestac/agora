@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'attendance', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'attendance', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   attendance
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -89,6 +89,7 @@ $string['deletingstatus'] = 'コースのステータスを削除する';
 $string['description'] = '説明';
 $string['display'] = '表示';
 $string['displaymode'] = '表示モード';
+$string['donotusepaging'] = 'ページングを使用しない';
 $string['downloadexcel'] = 'Excelフォーマットでダウンロードする';
 $string['downloadooo'] = 'OpenOfficeフォーマットでダウンロードする';
 $string['downloadtext'] = 'テキストフォーマットでダウンロードする';
@@ -117,13 +118,21 @@ $string['hiddensessions_help'] = '日付よりセッション開始日が古い�
 $string['identifyby'] = '学生の識別';
 $string['includeall'] = 'すべてのセッションを選択する';
 $string['includenottaken'] = '出欠を取っていないセッションを含む';
+$string['includeremarks'] = '雑感を含む';
 $string['indetail'] = '詳細 ...';
+$string['invalidsessionenddate'] = 'セッション終了日をセッション開始日より早くすることはできません。';
 $string['jumpto'] = 'ジャンプ';
 $string['Lacronym'] = '遅';
 $string['Lfull'] = '遅刻';
 $string['modulename'] = '出欠';
+$string['modulename_help'] = '出欠活動モジュールにより、教師は授業中に出欠を取ることができます。学生は自分の出欠レコードを閲覧することができます。
+
+教師は複数セッションを作成することができます。また、出欠ステータスを「出席」「欠席」「遅刻」「早退」として記録、または必要に応じてをステータスを修正することができます。
+
+レポートはクラス全体または個別の学生に関して利用することができます。';
 $string['modulenameplural'] = '出欠';
 $string['months'] = '月';
+$string['moreattendance'] = 'このページで正常に出欠が取られました。';
 $string['myvariables'] = '変数設定';
 $string['newdate'] = '新出欠日';
 $string['newduration'] = '新しい継続時間';
@@ -146,11 +155,15 @@ $string['period'] = '頻度';
 $string['Pfull'] = '出席';
 $string['pluginadministration'] = '出欠管理';
 $string['pluginname'] = '出欠';
+$string['remark'] = '雑感: {a}';
 $string['remarks'] = '備考';
 $string['report'] = 'レポート';
+$string['required'] = '必須*';
 $string['resetdescription'] = '出欠データを削除することにより、データベースから情報が消去されることに留意してください。コース開始日を変更することにより、古いセッションを隠すことができます!';
 $string['resetstatuses'] = 'ステータスをデフォルトにリセットする';
 $string['restoredefaults'] = 'デフォルトをリストアする';
+$string['resultsperpage'] = '1ページあたりの結果';
+$string['resultsperpage_desc'] = '1ページに表示する学生数です。';
 $string['save'] = '出欠を保存する';
 $string['session'] = 'セッション';
 $string['sessionadded'] = 'セッションが正常に追加されました。';

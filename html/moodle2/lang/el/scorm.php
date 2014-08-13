@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,7 +31,6 @@ $string['activitypleasewait'] = 'Η δραστηριότητα φορτώνει,
 $string['advanced'] = 'Παράμετροι';
 $string['allowapidebug'] = 'Ενεργοποίηση API αποσφαλμάτωσης και παρακολούθησης (καθορίστε τη μάσκα καταγραφής με το apidebugmask)';
 $string['allowtypeexternal'] = 'Να επιτρέπονται τα πακέτα εξωτερικού τύπου';
-$string['allowtypeimsrepository'] = 'Να επιτρέπονται τα πακέτα τύπου IMS';
 $string['allowtypelocalsync'] = 'Να επιτρέπονται τα κατεβασμένα πακέτα';
 $string['apidebugmask'] = 'Μάσκα καταγραφής API αποσφαλμάτωσης (regex στα πεδία &lt;username&gt;:&lt;activityname&gt;)';
 $string['areacontent'] = 'Αρχεία περιεχομένου';
@@ -52,7 +51,6 @@ $string['autocontinue_help'] = '<p><b>Αυτόματη-συνέχεια</b></p>
 <p>Εάν ΟΧΙ, οι χρήστες πρέπει να πατήσουν το κουμπί "Συνέχεια".</p>';
 $string['averageattempt'] = 'Μέσος όρος προσπαθειών';
 $string['badmanifest'] = 'Υπήρξαν σφάλματα: δείτε τα αρχεία καταγραφής σφαλμάτων';
-$string['badpackage'] = 'Υπάρχουν μερικά προβλήματα με αυτό το πακέτο. Ελέγξτε το και προσπαθήστε ξανά.';
 $string['browse'] = 'Προεπισκόπιση';
 $string['browsed'] = 'Προβλήθηκε';
 $string['browsemode'] = 'Φάση Προεπισκόπισης';
@@ -123,8 +121,6 @@ $string['hidden'] = 'Κρυμμένο';
 $string['hidebrowse'] = 'Απενεργοποίηση προεπισκόπισης';
 $string['hidebrowsedesc'] = 'Η ρύθμιση αυτή χρησιμοποιείται σαν εξ\' ορισμού τιμή για την απενεργοποίηση προεπισκόπισης';
 $string['hideexit'] = 'Απόκρυψη συνδέσμου εξόδου';
-$string['hidenav'] = 'Απόκρυψη κουμπιών πλοήγησης';
-$string['hidenavdesc'] = 'Η ρύθμιση αυτή χρησιμοποιείται σαν εξ\' ορισμού τιμή για την απόκρυψη κουμπιών πλοήγησης';
 $string['hidereview'] = 'Απόκρυψη κουμπιού αναθεώρησης';
 $string['hidetoc'] = 'Εμφάνιση πίνακα περιεχομένων';
 $string['hidetocdesc'] = 'Η ρύθμιση αυτή χρησιμοποιείται σαν εξ\' ορισμού τιμή για την εμφάνιση πίνακα περιεχομένων';
@@ -175,7 +171,6 @@ $string['options'] = 'Επιλογές';
 $string['organization'] = 'Οργανισμός';
 $string['organizations'] = 'Οργανισμοί';
 $string['othersettings'] = 'Επιπλέον ρυθμίσεις';
-$string['othertracks'] = 'Άλλα Tracks';
 $string['package'] = 'Περιεχόμενο πακέτου';
 $string['packagedir'] = 'Σφάλμα αρχείων συστήματος: Δεν δημιουργήθηκε φάκελος πακέτου';
 $string['packagefile'] = 'Δεν καθορίστηκε αρχείο πακέτου';
@@ -209,7 +204,6 @@ $string['prev'] = 'Προηγούμενο';
 $string['raw'] = 'Ωμός βαθμός';
 $string['regular'] = 'Κανονικά αρχεία καταγραφής';
 $string['report'] = 'Αναφορά';
-$string['resizable'] = 'Δυνατότητα αλλαγής μεγέθους παραθύρου';
 $string['result'] = 'Αποτέλεσμα';
 $string['review'] = 'Ανασκόπηση';
 $string['reviewmode'] = 'Φάση ανασκόπησης';
@@ -241,7 +235,6 @@ $string['suspended'] = 'Αναστέλλεται';
 $string['syntax'] = 'Συντακτικό λάθος';
 $string['tag_error'] = 'Άγνωστη ετικέτα ({$a->tag}) με αυτό το περιεχόμενο: {$a->value}';
 $string['time'] = 'Χρόνος';
-$string['timerestrict'] = 'Περιορισμός απαντήσεων στην παρακάτω χρονική περίοδο';
 $string['title'] = 'Τίτλος';
 $string['toolbar'] = 'Δείξε την εργαλειοθήκη';
 $string['too_many_attributes'] = 'Η ετικέτα ({$a->tag}) έχει υπερβολικά πολλές ιδιότητες';
@@ -250,7 +243,6 @@ $string['totaltime'] = 'Συνολικός Χρόνος';
 $string['trackingloose'] = 'ΠΡΟΣΟΧΗ: Τα tracking δεδομένα αυτού του πακέτου θα χαθούν!';
 $string['type'] = 'Τύπος';
 $string['typeexternal'] = 'Εξωτερικό πακέτο SCORM';
-$string['typeimsrepository'] = 'Τοπικός χώρος αποθήκευσης IMS';
 $string['typelocal'] = 'Μεταφορτωμένο πακέτο';
 $string['typelocalsync'] = 'Κατεβασμένο πακέτο';
 $string['unziperror'] = 'Εμφανίστηκε σφάλμα κατά την αποσυμπίεση του πακέτου';

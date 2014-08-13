@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Add events';
 $string['advancedoptions'] = 'Advanced options';
 $string['allday'] = 'All day';
 $string['annually'] = 'Annually';
 $string['calendar'] = 'Calendar';
 $string['calendarheading'] = '{$a} Calendar';
 $string['calendarpreferences'] = 'Calendar preferences';
+$string['calendartypes'] = 'Calendar types';
 $string['calendarurl'] = 'Calendar URL: {$a}';
 $string['clickhide'] = 'click to hide';
 $string['clickshow'] = 'click to show';
@@ -44,14 +46,15 @@ $string['course'] = 'Course';
 $string['courseevent'] = 'Course event';
 $string['courseevents'] = 'Course events';
 $string['courses'] = 'Courses';
+$string['customexport'] = 'Custom range ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Daily';
-$string['dayview'] = 'Day view';
+$string['dayviewfor'] = 'Day view for:';
 $string['dayviewtitle'] = 'Day view: {$a}';
 $string['daywithnoevents'] = 'There are no events this day.';
 $string['default'] = 'Default';
 $string['deleteevent'] = 'Delete event';
 $string['deleteevents'] = 'Delete events';
-$string['detailedmonthview'] = 'Detailed month view';
+$string['detailedmonthviewfor'] = 'Detailed month view for:';
 $string['detailedmonthviewtitle'] = 'Detailed month view: {$a}';
 $string['durationminutes'] = 'Duration in minutes';
 $string['durationnone'] = 'Without duration';
@@ -93,6 +96,7 @@ $string['export'] = 'Export';
 $string['exportbutton'] = 'Export';
 $string['exportcalendar'] = 'Export calendar';
 $string['for'] = 'for';
+$string['forcecalendartype'] = 'Force calendar';
 $string['fri'] = 'Fri';
 $string['friday'] = 'Friday';
 $string['generateurlbutton'] = 'Get calendar URL';
@@ -127,6 +131,7 @@ $string['monthly'] = 'Monthly';
 $string['monthlyview'] = 'Monthly view';
 $string['monthnext'] = 'Next month';
 $string['monththis'] = 'This month';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Never';
 $string['newevent'] = 'New event';
 $string['nocalendarsubscriptions'] = 'You have no calendar subscriptions.';
@@ -137,6 +142,7 @@ $string['pollinterval'] = 'Update interval';
 $string['pollinterval_help'] = 'How often you would like the calendar to update with new events.';
 $string['preferences'] = 'Preferences';
 $string['preferences_available'] = 'Your personal preferences';
+$string['preferredcalendar'] = 'Preferred calendar';
 $string['pref_lookahead'] = 'Upcoming events look-ahead';
 $string['pref_lookahead_help'] = 'This sets the (maximum) number of days in the future that an event has to start in in order to be displayed as an upcoming event. Events that start beyond this will never be displayed as upcoming. Please note that <strong>there is no guarantee</strong> that all events starting in this time frame will be displayed; if there are too many (more than the "Maximum upcoming events" preference) then the most distant events will not be shown.';
 $string['pref_maxevents'] = 'Maximum upcoming events';
@@ -169,6 +175,7 @@ $string['subscriptionname'] = 'Calendar name';
 $string['subscriptionremoved'] = 'Calendar subscription {$a} removed';
 $string['subscriptions'] = 'Subscriptions';
 $string['subscriptionupdated'] = 'Calendar subscription {$a} updated';
+$string['subsource'] = 'Event source: {$a->name}';
 $string['sun'] = 'Sun';
 $string['sunday'] = 'Sunday';
 $string['thu'] = 'Thu';
@@ -194,6 +201,7 @@ $string['typegroup'] = 'Group event';
 $string['typesite'] = 'Site event';
 $string['typeuser'] = 'User event';
 $string['upcomingevents'] = 'Upcoming events';
+$string['upcomingeventsfor'] = 'Upcoming events for:';
 $string['urlforical'] = 'URL for iCalendar export, for subscribing to calendar';
 $string['user'] = 'User';
 $string['userevent'] = 'User event';

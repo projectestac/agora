@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'error', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'error', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   error
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -332,6 +332,7 @@ $string['invalidurl'] = '无效的 URL 地址';
 $string['invaliduser'] = '无效的用户';
 $string['invaliduserfield'] = '无效用户字段：{$a}';
 $string['invaliduserid'] = '无效的用户id';
+$string['invalidusername'] = '用户名包含无效字符';
 $string['invalidxmlfile'] = '“{$a}”不是合法的 XML 文件';
 $string['iplookupfailed'] = '无法找到关于 IP 地址 {$a} 的 geo 信息。';
 $string['iplookupprivate'] = '无法显示私有 IP 地址。';
@@ -436,6 +437,7 @@ $string['refoundtoorigi'] = '向原账户退款：{$a}';
 $string['remotedownloaderror'] = '下载组件至服务器失败，请校验代理设置，推荐安装 PHP cURL 扩展。<br /><br />您必须手动下载下载<a href="{$a->url}">{$a->url}</a> ，拷贝至服务器上的“{$a->dest}”并解压至此。';
 $string['remotedownloadnotallowed'] = '不允许为您的服务器下载组件(allow_url_fopen 被禁用)。<br /><br />您应该 <a href="{$a->url}">{$a->url}</a> 先手动的把它复制到“{$a->dest}” 您的服务器上然后解压。';
 $string['reportnotavailable'] = '该类型报告只对站点课程有效';
+$string['requirecorrectaccess'] = '无效链接或端口。';
 $string['requireloginerror'] = '不能访问课程或活动。';
 $string['restorechecksumfailed'] = '从您的会话恢复保存的信息时发生了一些错误。请检查你的PHP内存/数据库包大小限制。恢复停止。';
 $string['restore_path_element_missingmethod'] = '缺少恢复方法{$a}。它必须由开发者定义。';
@@ -466,7 +468,7 @@ $string['statsdisable'] = '统计功能未启用';
 $string['statsnodata'] = '对于该课程和时间段的组合没有可用数据';
 $string['storedfilecannotcreatefiledirs'] = '无法建立本地文件池目录，请检查dataroot的权限。';
 $string['storedfilecannotread'] = '不能读取文件，可能是文件不存在或是文件权限问题。';
-$string['storedfilenotcreated'] = '不能建立文件"{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}/{$a->filepath}/{$a->filename}"';
+$string['storedfilenotcreated'] = '不能创建文件"{$a->contextid}/{$a->component}/{$a->filearea}/{$a->itemid}{$a->filepath}{$a->filename}"';
 $string['storedfileproblem'] = '本地文件({$a})发生未知异常';
 $string['tagdisabled'] = '标签被禁用！';
 $string['tagnotfound'] = '在数据库中未发现指定的标签。';

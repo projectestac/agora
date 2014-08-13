@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Gehitu iruzkina';
 $string['addentries'] = 'Gehitu sarrerak';
 $string['addtemplate'] = 'Gehitu txantiloia';
 $string['advancedsearch'] = 'Bilaketa aurreratua';
+$string['allowcomments'] = 'Iruzkinak gehitu daitezke';
 $string['alttext'] = 'Ordezko testua';
 $string['approve'] = 'Onartu';
 $string['approved'] = 'Onartuta';
@@ -73,6 +74,7 @@ $string['commentsoff'] = 'Iruzkinak ez daude gaituta';
 $string['configenablerssfeeds'] = 'Honek datu-base osorako RSS jarioen aukera indarrean jarriko du. Datu-base bakoitzeko RSS jarioak eskuz gaitu beharko dituzu.';
 $string['confirmdeletefield'] = 'Eremu hau ezabatzear zaude, ziur al zaude?';
 $string['confirmdeleterecord'] = 'Ziur al zaude sarrera hau ezabatu nahi duzula?';
+$string['confirmdeleterecords'] = 'Ziur al zaude sarrera hauek ezabatu nahi dituzula?';
 $string['csstemplate'] = 'CSS txantiloia';
 $string['csvfailed'] = 'Ezin dira datu gordinak irakurri CSV fitxategi honetatik';
 $string['csvfile'] = 'CSV fitxategia';
@@ -131,6 +133,7 @@ $string['deletenotenrolled'] = 'Matrikulatu gabeko erabiltzaileen sarrerak ezaba
 $string['deletewarning'] = 'Ziur al zaude aurretiko ezarpen hau ezabatu nahi duzula?';
 $string['descending'] = 'Beheranzkoa';
 $string['directorynotapreset'] = '{$a->directory} Aurretiko ezarpenik ez: galdutako fitxategiak: {$a->missing_files}';
+$string['disapprove'] = 'Ez onartu';
 $string['download'] = 'Jaitsi';
 $string['edit'] = 'Editatu';
 $string['editcomment'] = 'Iruzkina editatu';
@@ -207,7 +210,7 @@ $string['headersingletemplate'] = 'Sarrera baterako nabigazio-itxura definitzen 
 $string['importentries'] = 'Sarrerak inportatu';
 $string['importsuccess'] = 'Aurretiko ezarpena egoki aplikatu da';
 $string['includeapproval'] = 'Sartu onarpen-egoera';
-$string['includetime'] = 'Sartu denbora gehituta/aldatuta';
+$string['includetime'] = 'Sartu denbora gehituta/aldatutaSartu denbora gehituta/aldatuta';
 $string['includeuserdetails'] = 'Sartu erabiltzaile-xehetasunak';
 $string['insufficiententries'] = 'datu-base hau ikusteko sarrera gehiago beharrezkoak dira';
 $string['intro'] = 'Deskribapena';
@@ -226,13 +229,13 @@ $string['latlongdownloadallhint'] = 'Sarrera guztietarako esteka KML gisa jaitsi
 $string['latlongkmllabelling'] = 'Nola etiketatu itemak KML fitxategietan (Google Earth)';
 $string['latlonglinkservicesdisplayed'] = 'Erakutsi beharreko zerbitzuak konektatu';
 $string['latlongotherfields'] = 'Bestelako eremuak';
-$string['list'] = 'Zerrenda ikusi';
+$string['list'] = 'Ikusi zerrenda';
 $string['listtemplate'] = 'Txantiloi-zerrenda';
 $string['longitude'] = 'Longitudea';
 $string['mapexistingfield'] = 'Mapatu {$a}-(e)ra';
 $string['mapnewfield'] = 'Beste eremu bat sortu';
 $string['mappingwarning'] = 'Eremu berrira mapeatu gabeko eremu zahar guztiak galdu egingo dira eta ezabatu egingo dira eremu horietako datuak';
-$string['maxentries'] = 'Gehienezko sarrera-kopurua';
+$string['maxentries'] = 'Gehieneko sarrera-kopurua';
 $string['maxentries_help'] = '<p>Jarduera honetan partaide bakoitzak bidal dezakeen gehienezko sarrera-kopurua.</p>';
 $string['maxsize'] = 'Gehienezko tamaina';
 $string['menu'] = 'Menua';
@@ -289,7 +292,7 @@ $string['notapproved'] = 'Sarrera ez da oraindik onartu';
 $string['notinjectivemap'] = 'Ez dago mapa injektiborik';
 $string['notopenyet'] = 'Barkatu, jarduera hau ez dago eskuragarri {$a} arte';
 $string['number'] = 'Zenbakia';
-$string['numberrssarticles'] = 'RSS artikuluak';
+$string['numberrssarticles'] = 'Sarrerak RSS jarioan';
 $string['numnotapproved'] = 'Onarpenaren zain';
 $string['numrecords'] = '{$a} sarrera(k)';
 $string['ods'] = '<acronym title="OpenDocument Spreadsheet">ODS</acronym> (OpenOffice)';
@@ -312,11 +315,12 @@ $string['presets'] = 'Aurretiko ezarpenak';
 $string['radiobutton'] = 'Aukera bakarreko botoia';
 $string['recordapproved'] = 'Sarrera onartu da';
 $string['recorddeleted'] = 'Sarrera ezabatu da';
+$string['recorddisapproved'] = 'Sarrera ez da onartu';
 $string['recordsnotsaved'] = 'Ez da sarrerarik gorde. Igotako fitxategiaren formatua aztertu, mesedez.';
 $string['recordssaved'] = 'sarrera(k) gordeta';
-$string['requireapproval'] = 'Onarpenik behar al da?';
+$string['requireapproval'] = 'Onarpenik behar da';
 $string['requireapproval_help'] = '<p>Ikasleek sarrerak ikusi aurretik, irakasleak onartu behar lituzke? Aukera hau erabilgarria izan daiteke moderazioa egiteko.</p>';
-$string['requiredentries'] = 'Gutxieneko sarrera-kopurua';
+$string['requiredentries'] = 'Onarpenik behar da';
 $string['requiredentries_help'] = '<p>Partaide bakoitzari bidaltzeko eskatzen zaion sarrera-kopurua. Erabiltzaileak eskatutako sarrera-kopurua bidali ez badu, hori gogorarazteko mezua agertuko zaio.</p>
 
 <p>Ez da jarduera amaitutzat emango erabiltzaileak behar duen sarrera-kopurua bidali arte.</p>';

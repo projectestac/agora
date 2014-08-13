@@ -74,7 +74,9 @@ a:hover {
     background: #aeb9c6 url([[pix:theme|breadcrumb]]) repeat-x 0 100%;
     padding: 5px;
 }
-
+.navbar a.dimmed_text {
+    color:#f2f2f2;
+}
 /* Blocks
 -------------------------*/
 
@@ -116,13 +118,19 @@ a:hover {
 
 /* Course
 ----------------------------*/
-
-.headingblock {
+#site-news-forum h2,
+#frontpage-course-list h2,
+#frontpage-category-names h2,
+#frontpage-category-combo h2,
+.course-content .single-section .section-navigation.navigationtitle {
     background: url([[pix:theme|headingblock]]) repeat-x 0 0;
     color: #fff;
     font-weight: normal;
     border: none;
     padding: 2px 5px;
+}
+.course-content .single-section .navigationtitle h3 {
+    color: #FFF;
 }
 
 .course-content .main {
@@ -309,4 +317,15 @@ body.has_dock {
 #page-mod-quiz-edit .questionbankwindow.block div.header {
     background-color: #9EB1BF;
     padding-top: 0;
+}
+
+/* Moodle forms
+----------------*/
+.mform .btn-cancel {
+    color: #336688;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #336688;
+    text-decoration: underline;
 }

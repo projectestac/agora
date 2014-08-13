@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_db', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_db', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_db
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,7 +62,7 @@ $string['auth_dbtable'] = 'Nom de la table dans la base de données';
 $string['auth_dbtable_key'] = 'Table';
 $string['auth_dbtype'] = 'Type de la base de données (pour plus de détails, voir la <a href="http://phplens.com/adodb/supported.databases.html" target="_blank">documentation de ADOdb</a>)';
 $string['auth_dbtype_key'] = 'Base de données';
-$string['auth_dbupdatinguser'] = 'Mise à jour de l\'utilisateur {$a->name} id {$a->id}';
+$string['auth_dbupdatinguser'] = 'Modification de l\'utilisateur {$a->name} id {$a->id}';
 $string['auth_dbuser'] = 'Compte avec accès en lecture à la base de données';
 $string['auth_dbuser_key'] = 'Utilisateur BDD';
 $string['auth_dbusernotexist'] = 'Impossible de modifier l\'utilisateur {$a}, qui n\'existe pas';

@@ -5,6 +5,21 @@ function is_agora(){
 	return isset($CFG->isagora) && $CFG->isagora;
 }
 
+function is_marsupial(){
+    global $CFG;
+    return isset($CFG->ismarsupial) && $CFG->ismarsupial;
+}
+
+function is_eoi(){
+    global $CFG;
+    return isset($CFG->iseoi) && $CFG->iseoi;
+}
+
+function is_portal(){
+    global $CFG;
+    return isset($CFG->isportal) && $CFG->isportal;
+}
+
 function is_xtecadmin($user=null){
 	global $USER;
     if (empty($user)) $user = $USER;
@@ -135,20 +150,6 @@ function run_cli_cron($background = true){
     return run_cli($command, $output_file, $append, $background);
 }
 
-function local_agora_extends_settings_navigation($settingsnav, $context) {
-    if(is_xtecadmin() || (!is_agora() && is_siteadmin())){
-        global $CFG;
-        if ($settingnode = $settingsnav->find('root', navigation_node::TYPE_SETTING)) {
-            $agora_node = $settingnode->add('Àgora');
-            if (isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1) {
-                $agora_node->add(get_string('disable') . ' ' . get_string('debug', 'admin'), $CFG->wwwroot . '/local/agora/debug.php?agora_debug=0');
-            } else {
-                $agora_node->add(get_string('enable') . ' ' . get_string('debug', 'admin'), $CFG->wwwroot . '/local/agora/debug.php?agora_debug=1');
-            }
-        }
-    }
-}
-
 /**
  * Check if the current time is considered rush hour in order to apply restrictions
  *
@@ -215,14 +216,53 @@ function is_rush_hour() {
  * @author sarjona
  **/
 function is_enabled_in_agora ($mod){
-    global $CFG;
-    if ( (isset($CFG->isagora) && $CFG->isagora) &&
-         (((!isset($CFG->ismarsupial) || !$CFG->ismarsupial) && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade') )
-         || ((!isset($CFG->iseoi) || !$CFG->iseoi) && ($mod=='eoicampus') )
-         || ((!isset($CFG->isportal) || !$CFG->isportal) && $mod == 'admin_service' )
-         || ( $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || (!$CFG->enabledevicedetection && $mod=='mymobile' )) )
-         || (!is_xtecadmin() && $mod == 'alfresco') ) {
-        return false;
+    if (is_agora()){
+        // Only enabled in marsupial Moodles
+        if (!is_marsupial() && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade')){
+            return false;
+        }
+        // Only enabled in EOI Moodles
+        if (!is_eoi() && ($mod=='eoicampus')){
+            return false;
+        }
+
+        // Only enabled in Portal Moodles
+        if (!is_portal() && ($mod=='admin_service')){
+            return false;
+        }
+
+        // Disabled in all Agora Moodles
+        if($mod=='clean' || $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || $mod=='chat' || $mod == 'alfresco'){
+            return false;
+        }
     }
     return true;
+}
+
+
+function agora_course_print_navlinks($course, $section = 0){
+    global $CFG, $OUTPUT;
+    $context = context_course::instance($course->id, MUST_EXIST);
+    echo '<div class="agora_navbar">';
+    //Show reports
+    $reportavailable = false;
+    if (has_capability('moodle/grade:viewall', $context)) {
+        $reportavailable = true;
+    } else if (!empty($course->showgrades)) {
+        if ($reports = core_component::get_plugin_list('gradereport')) {     // Get all installed reports
+            arsort($reports); // user is last, we want to test it first
+            foreach ($reports as $plugin => $pluginname) {
+                if (has_capability('gradereport/' . $plugin . ':view', $context)) {
+                    //stop when the first visible plugin is found
+                    $reportavailable = true;
+                    break;
+                }
+            }
+        }
+    }
+    if ($reportavailable) {
+        $icon=  $OUTPUT->pix_icon('i/grades', "");
+        echo html_writer::link($CFG->wwwroot.'/grade/report/index.php?id=' . $course->id ,$icon.get_string('grades'));
+    }
+    echo '</div>';
 }

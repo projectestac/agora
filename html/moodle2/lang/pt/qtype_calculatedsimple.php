@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculatedsimple', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculatedsimple', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculatedsimple
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,8 +29,6 @@ $string['atleastonewildcard'] = 'Deve existir pelo menos uma variável <strong>{
 $string['converttocalculated'] = 'Gravar como nova pergunta numérica com variáveis normal';
 $string['findwildcards'] = 'Encontrar as variáveis {x..} nas fórmulas das respostas';
 $string['generatenewitemsset'] = 'Gerar';
-$string['mustbenumeric'] = 'Deve introduzir um número';
-$string['mustnotbenumeric'] = 'Não pode ser um número.';
 $string['newsetwildcardvalues'] = 'novo(s) conjunto(s) de valore(s) das variáveis';
 $string['pluginname'] = 'Numérica com variáveis simples';
 $string['pluginnameadding'] = 'A adicionar pergunta numérica com variáveis simples';

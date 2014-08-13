@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assign', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'assign', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   assign
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,6 +59,7 @@ $string['previous'] = 'Προηγούμενο';
 $string['reviewed'] = 'Ελεγμένα';
 $string['savechanges'] = 'Αποθήκευση αλλαγών';
 $string['showrecentsubmissions'] = 'Προβολή πρόσφατων υποβολών';
+$string['status'] = 'Κατάσταση';
 $string['submission'] = 'Υποβολή';
 $string['submissions'] = 'Υποβολές';
 $string['submissionstatus_marked'] = 'Βαθμολογήθηκε';

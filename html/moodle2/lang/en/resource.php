@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -79,7 +79,7 @@ $string['modulename_link'] = 'mod/resource/view';
 $string['modulenameplural'] = 'Files';
 $string['neverseen'] = 'Never seen';
 $string['notmigrated'] = 'This legacy resource type ({$a}) was not yet migrated, sorry.';
-$string['optionsheader'] = 'Options';
+$string['optionsheader'] = 'Display options';
 $string['page-mod-resource-x'] = 'Any file module page';
 $string['pluginadministration'] = 'File module administration';
 $string['pluginname'] = 'File';
@@ -89,8 +89,6 @@ $string['popupresource'] = 'This resource should appear in a popup window.';
 $string['popupresourcelink'] = 'If it didn\'t, click here: {$a}';
 $string['popupwidth'] = 'Pop-up width (in pixels)';
 $string['popupwidthexplain'] = 'Specifies default width of popup windows.';
-$string['printheading'] = 'Display resource name';
-$string['printheadingexplain'] = 'Display resource name above content? Some display types may not display resource name even if enabled.';
 $string['printintro'] = 'Display resource description';
 $string['printintroexplain'] = 'Display resource description below content? Some display types may not display description even if enabled.';
 $string['resource:addinstance'] = 'Add a new resource';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   auth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -65,6 +65,7 @@ $string['changepassword'] = 'Endereço para alteração de senha';
 $string['changepasswordhelp'] = 'Aqui pode especificar um local onde os utilizadores podem recuperar ou alterar a sua senha e nome de utilizador caso se esqueçam dela. Será apresentado aos utilizadores um botão na página de entrada e na sua página de utilizador. Se deixar este espaço em branco o botão não aparecerá.';
 $string['chooseauthmethod'] = 'Escolha um método de autenticação:';
 $string['chooseauthmethod_help'] = 'Este menu permite alterar o método de autenticação usado para autenticar o utilizador. Deverão ser selecionados unicamente métodos de autenticação que tenham sido habilitados, para evitar que o utilizador deixe de poder aceder. Para impedir um utilizador de aceder ao servidor, selecione "Sem autenticação".';
+$string['createpassword'] = 'Gerar senha e notificar utilizador';
 $string['createpasswordifneeded'] = 'Criar senha se necessário';
 $string['emailchangecancel'] = 'Cancelar a mudança de e-mail';
 $string['emailchangepending'] = 'Atualização pendente. Abra o link que lhe foi enviado para {$a->preference_newemail}.';
@@ -88,6 +89,8 @@ $string['errorminpasswordlower'] = 'A senha deverá ter pelo menos {$a} letra(s)
 $string['errorminpasswordnonalphanum'] = 'A senha deverá ter pelo menos {$a} carateres(s) não alfanumérico(s).';
 $string['errorminpasswordupper'] = 'A senha deverá ter pelo menos {$a} letra(s) maiúscula(s).';
 $string['errorpasswordupdate'] = 'Erro na atualização da senha; senha não modificada';
+$string['event_user_loggedin'] = 'Utilizador autenticou-se';
+$string['eventuserloggedinas'] = 'Utilizador entrou como outro utilizador';
 $string['forcechangepassword'] = 'Obrigar a alterar senha';
 $string['forcechangepasswordfirst_help'] = 'Obrigar os utilizadores a alterar a senha na sua primeira entrada no Moodle.';
 $string['forcechangepassword_help'] = 'Obrigar os utilizadores a alterar a senha na sua próxima entrada no Moodle.';
@@ -100,9 +103,9 @@ $string['guestloginbutton'] = 'Botão de entrada como visitante';
 $string['incorrectpleasetryagain'] = 'Incorreto. Por favor, tente novamente.';
 $string['infilefield'] = 'Campo necessário no ficheiro';
 $string['informminpassworddigits'] = 'pelo menos {$a} dígito(s)';
-$string['informminpasswordlength'] = 'pelo menos {$a} carater(es)';
+$string['informminpasswordlength'] = 'pelo menos {$a} caráter(es)';
 $string['informminpasswordlower'] = 'pelo menos {$a} letra(s) minúscula(s)';
-$string['informminpasswordnonalphanum'] = 'pelo menos {$a} carater(es) alfanumérico(s)';
+$string['informminpasswordnonalphanum'] = 'pelo menos {$a} caráter(es) alfanumérico(s)';
 $string['informminpasswordupper'] = 'pelo menos {$a} letra(s) maiúscula(s)';
 $string['informpasswordpolicy'] = 'A senha tem que ter {$a}';
 $string['instructions'] = 'Instruções';
@@ -132,6 +135,8 @@ $string['stdchangepassword_expl'] = 'Se o sistema de autenticação externa perm
 $string['stdchangepassword_explldap'] = 'NOTA: É recomendado utilizar o LDAP sobre um túnel encriptado SSL (ldaps://) se o servidor LDAP for remoto.';
 $string['suspended'] = 'Conta suspensa';
 $string['suspended_help'] = 'Os utilizadores que tenham as suas contas suspensas não podem entrar no site nem usar os web services, e qualquer mensagem enviada para eles será descartada.';
+$string['testsettings'] = 'Configurações de teste';
+$string['testsettingsheading'] = 'Configurações da autenticação de teste - {$a}';
 $string['unlocked'] = 'Desbloqueado';
 $string['unlockedifempty'] = 'Desbloquear se vazio';
 $string['update_never'] = 'Nunca';

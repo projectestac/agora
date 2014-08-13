@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Du har {$a}s som behöver uppmärksammas';
+$string['activityoverview'] = '{$a}s att bevaka';
 $string['alwaysshowall'] = 'Alltid Visa alla';
 $string['collapseall'] = 'Dölj alla kurslistor';
 $string['course_overview:myaddinstance'] = 'Lägg till Kursöversikt till mitt Moodle';
@@ -36,7 +36,11 @@ $string['hiddencoursecount'] = 'Du har {$a} dold kurs';
 $string['hiddencoursecountplural'] = 'Du har {$a} en dolda kurser';
 $string['message'] = 'Meddelande';
 $string['messages'] = 'Meddelanden';
+$string['moveafterhere'] = 'Flytta {$a->movingcoursename} kurser efter {$a->currentcoursename}';
+$string['movecourse'] = 'Flytta kurs: {$a}';
 $string['movecoursehere'] = 'Flytta kurs hit';
+$string['movetofirst'] = 'Flytta{$a} kurs överst';
+$string['movingcourse'] = 'Du flyttar: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Antal kurser som ska visas:';
 $string['pluginname'] = 'Översikt över kurs';
 $string['shortnameprefix'] = 'Inkluderar {$a}';

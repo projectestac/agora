@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_arialist', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_arialist', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_arialist
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['customcssdesc'] = 'このテーマのカスタマイズを容易にす�
 $string['linkcolor'] = 'リンク色';
 $string['linkcolordesc'] = 'ここではテーマのリンク色を設定します。';
 $string['logo'] = 'ロゴ';
-$string['logodesc'] = 'このサイトのロゴとして使用されるイメージのURIを入力してください。次のように入力します: http://www.yoursite.com/path/to/logo.png';
+$string['logodesc'] = 'このサイトのロゴとして使用されるイメージのURLを入力してください。次のように入力します: http://www.yoursite.com/path/to/logo.png';
 $string['pluginname'] = 'Arialist';
 $string['region-side-post'] = '右';
 $string['region-side-pre'] = '左';

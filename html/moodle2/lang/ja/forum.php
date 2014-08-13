@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,13 +41,10 @@ $string['anyfile'] = 'すべてのファイル';
 $string['areaattachment'] = '添付ファイル';
 $string['areapost'] = 'メッセージ';
 $string['attachment'] = '添付ファイル';
-$string['attachment_help'] = '<p>あなたは、1つまたはそれ以上のファイルをフォーラム内のすぺての投稿に任意で添付することができます (ファイル数はフォーラム設定に依存します)。</p>
-
-<p>この機能は、例えば画像やワープロ文書を共有する場合に便利です。</p>
-
-<p>あなたは、どのような種類のファイルも使用できますが、Word文章 (.doc)、イメージ (.jpgまたは.png )のように3文字のインターネット拡張子をつけることを強くお勧めします。このことにより、他の人がブラウザを使ってあなたのファイルを閲覧およびダウンロードすることがより簡単になります。</p>';
+$string['attachment_help'] = 'あなたは、1つまたはそれ以上のファイルをフォーラム投稿に任意で添付することができます。あなたがイメージを添付した場合、メッセージの下に表示されます。';
 $string['attachmentnopost'] = 'あなたは、投稿IDなしで添付ファイルをエクスポートできません。';
 $string['attachments'] = '添付ファイル';
+$string['attachmentswordcount'] = '添付および文字カウント';
 $string['blockafter'] = 'ブロッキングまでの投稿閾値';
 $string['blockafter_help'] = 'この設定では指定された時間内にユーザが投稿できる記事数を指定します。ケイパビリティ「mod/forum:postwithoutthrottling」が割り当てられたユーザは投稿制限から除外されます。';
 $string['blockperiod'] = 'ブロッキング期間';
@@ -62,7 +59,6 @@ $string['cannotaddsubscriber'] = 'このフォーラムに、ID {$a} のメー�
 $string['cannotaddteacherforumto'] = 'コースのセクションゼロに対して、コンバートされた教師フォーラムインスタンスを追加できませんでした。';
 $string['cannotcreatediscussion'] = '新しいディスカッションを作成できませんでした。';
 $string['cannotcreateinstanceforteacher'] = '教師用フォーラムに対して、新しいコースモジュールインスタンスを作成できませんでした。';
-$string['cannotdeleteforummodule'] = 'あなたは、フォーラムモジュールを削除できません。';
 $string['cannotdeletepost'] = 'あなたはこの投稿を削除できません!';
 $string['cannoteditposts'] = 'あなたは、他のユーザの投稿を編集できません!';
 $string['cannotfinddiscussion'] = 'このフォーラムのディスカッションが見つかりませんでした。';
@@ -106,6 +102,7 @@ $string['configmaxbytes'] = 'すべてのフォーラムの添付ファイルに
 $string['configoldpostdays'] = '古い投稿を既読とする日数です。';
 $string['configreplytouser'] = 'フォーラムの投稿がメール送信される場合、受信者がフォーラムを介さず個人的に返信できるよう、メールにユーザのメールアドレスを表示しますか?　「Yes」に設定した場合でも、ユーザはプロファイルページで、メールアドレスを隠すよう設定することができます。';
 $string['configshortpost'] = 'この文字長以下の長さ (HTMLは含まない) は短いとみなされます (下記参照)。';
+$string['configtrackingtype'] = '未読管理のデフォルト設定';
 $string['configtrackreadposts'] = 'ユーザごとに未読管理したい場合、「Yes」を選択してください。';
 $string['configusermarksread'] = '「Yes」に設定した場合、ユーザは投稿を手動で既読にする必要があります。「No」に設定した場合、投稿が閲覧された時点で既読にされます。';
 $string['confirmsubscribe'] = '本当にフォーラム「 {$a} 」を購読してもよろしいですか?';
@@ -119,7 +116,8 @@ $string['deletedpost'] = '投稿が削除されました。';
 $string['deletedposts'] = '投稿が削除されました。';
 $string['deletesure'] = 'この投稿を削除してもよろしいですか?';
 $string['deletesureplural'] = 'この投稿およびすべての返信を削除してもよろしいですか? (投稿数 {$a})';
-$string['digestmailheader'] = 'これは、 {$a->sitename} フォーラムに投稿された内容のデイリーダイジェストです。メールアドレスを変更する場合は、 {$a->userprefs} にて設定してください。';
+$string['digestmailheader'] = 'これは {$a->sitename} フォーラムの新しい投稿に関するあなたのデイリーダイジェストです。あなたのデフォルトのフォーラムメールプリファレンスを変更するには、 {$a->userprefs} に移動してください。';
+$string['digestmailpost'] = 'あなたのフォーラムダイジェストプリファレンスを変更する';
 $string['digestmailprefs'] = 'ユーザプロファイル';
 $string['digestmailsubject'] = '{$a}: フォーラムダイジェスト';
 $string['digestmailtime'] = '要約メールを送信する時刻';
@@ -149,22 +147,45 @@ $string['displaystart_help'] = '<p>あなたの投稿が特定の日付から表
 <p>表示開始日付および/または終了日付を有効にするには、無効オプションを選択解除してください。</p>
 
 <p>管理者としてアクセスできるユーザは、表示開始日の前、および表示終了日の後に投稿内容を閲覧することができますので注意してください。</p>';
+$string['displaywordcount'] = '文字カウントを表示する';
+$string['displaywordcount_help'] = 'この設定では、それぞれの投稿の文字数を表示するかどうか指定します。';
 $string['eachuserforum'] = '各人が1件のディスカッションを投稿する';
 $string['edit'] = '編集';
 $string['editedby'] = '編集 {$a->name} - 最初の投稿日時 {$a->date}';
 $string['editedpostupdated'] = '{$a} の投稿が更新されました。';
 $string['editing'] = '編集';
+$string['emaildigest_0'] = 'あなたはフォーラム投稿ごとに1通のメールを受信します。';
+$string['emaildigest_1'] = 'あなたはそれぞれのフォーラム投稿に関する完全なコンテンツを含むメールダイジェストを1日1通受信します。';
+$string['emaildigest_2'] = 'あなたはそれぞれのフォーラム投稿に関する件名を含むメールダイジェストを1日1通受信します。';
+$string['emaildigestcompleteshort'] = '完全な投稿';
+$string['emaildigestdefault'] = 'デフォルト ({$a})';
+$string['emaildigestoffshort'] = 'ダイジェストなし';
+$string['emaildigestsubjectsshort'] = '件名のみ';
+$string['emaildigesttype'] = 'メールダイジェストオプション';
+$string['emaildigesttype_help'] = 'あなたがそれぞれの投稿に関して受信する通知タイプです。
+
+* デフォルト - あなたのプロファイルのダイジェスト設定に従います。あなたがプロファイルを更新した場合、ここで変更内容が反映されます。
+* ダイジェストなし - あなたはフォーラム投稿ごとに1通のメールを受信します。
+* ダイジェスト - 完全な投稿 - あなたはそれぞれのフォーラム投稿に関する完全なコンテンツを含むメールダイジェストを1日1通受信します。
+* ダイジェスト - 件名のみ - あなたはそれぞれのフォーラム投稿に関する件名を含むメールダイジェストを1日1通受信します。';
+$string['emaildigestupdated'] = 'フォーラム「 {$a->forum} 」に関して、メールダイジェストオプションが「 {$a->maildigesttitle} 」に変更されました。
+{$a->maildigestdescription}';
+$string['emaildigestupdated_default'] = 'あなたの「 {$a->maildigesttitle} 」のデフォルトプロファイル設定はフォーラム「 {$a->forum} 」に使用されました。
+{$a->maildigestdescription}';
 $string['emptymessage'] = 'あなたの投稿に問題があります。恐らく投稿が空白のままか、添付ファイルのサイズが大きすぎます。あなたの変更は保存されませんでした。';
 $string['erroremptymessage'] = '投稿メッセージを空にすることはできません。';
 $string['erroremptysubject'] = '件名を空にすることはできません。';
 $string['errorenrolmentrequired'] = 'このコンテンツにアクセスするには、あなたはこのコースに受講登録する必要があります。';
 $string['errorwhiledelete'] = 'レコードの削除中にエラーが発生しました。';
+$string['event_assessable_uploaded'] = 'コンテンツが投稿されました。';
 $string['everyonecanchoose'] = 'すべてのユーザはメール購読を選択できます。';
 $string['everyonecannowchoose'] = 'すべてのユーザはメール購読を選択できるようになりました。';
 $string['everyoneisnowsubscribed'] = 'すべてのユーザがこのフォーラムをメール購読するようになりました。';
 $string['everyoneissubscribed'] = 'すべてのユーザがこのフォーラムをメール購読します。';
 $string['existingsubscribers'] = 'メール購読ユーザ';
 $string['exportdiscussion'] = 'すべてのディスカッションをエクスポートする';
+$string['forcedreadtracking'] = '未読管理の強制を許可する';
+$string['forcedreadtracking_desc'] = 'フォーラムの未読管理の強制を許可します。特に多くのフォーラムおよび投稿があるコースに関して、ユーザのパフォーマンスが下がることになります。無効にした場合、前に強制が設定されたフォーラムは任意として扱われます。';
 $string['forcessubscribe'] = 'このフォーラムはメール購読が強制されています。';
 $string['forum'] = 'フォーラム';
 $string['forum:addinstance'] = '新しいフォーラムを追加する';
@@ -213,12 +234,14 @@ $string['forum:viewrating'] = 'あなたが受けた評価合計を表示する'
 $string['forum:viewsubscribers'] = 'メール購読ユーザを表示する';
 $string['generalforum'] = '一般利用のための標準フォーラム';
 $string['generalforums'] = '総合フォーラム';
+$string['hiddenforumpost'] = '非表示フォーラム投稿';
 $string['inforum'] = '{$a}';
 $string['introblog'] = '今後ブログエントリが利用できないため、このフォーラムの投稿はコース内のユーザブログから自動的にコピーされました。';
 $string['intronews'] = '一般ニュースとお知らせ';
 $string['introsocial'] = '投稿制限なしフォーラム';
 $string['introteacher'] = '教師専用フォーラム';
 $string['invalidaccess'] = 'このページは正しくアクセスされていません。';
+$string['invaliddigestsetting'] = '無効なメールダイジェストが設定されました。';
 $string['invaliddiscussionid'] = 'ディスカッションIDが正しくない、または存在しません。';
 $string['invalidforcesubscribe'] = '無効な強制購読モードです。';
 $string['invalidforumid'] = 'フォーラムIDが正しくありません。';
@@ -294,7 +317,6 @@ $string['nopermissiontosubscribe'] = 'あなたには、メール購読ユーザ
 $string['nopermissiontoview'] = 'あなたには、この投稿を閲覧するパーミッションがありません。';
 $string['nopostforum'] = '申し訳ございません、あなたはこのフォーラムに投稿できません。';
 $string['noposts'] = '投稿していません。';
-$string['nopostscontaining'] = '「 {$a} 」 が含まれる投稿は見つかりませんでした。';
 $string['nopostsmadebyuser'] = '{$a} の投稿はありません。';
 $string['nopostsmadebyyou'] = 'あなたの投稿はありません。';
 $string['noquestions'] = 'このフォーラムにはまだ質問がありません。';
@@ -332,6 +354,7 @@ $string['postadded'] = '<p>あなたの投稿が追加されました。</p>
 <p>あなたが内容を変更したい場合、 {$a} 編集できます。</p>';
 $string['postaddedsuccess'] = 'あなたの投稿が追加されました。';
 $string['postaddedtimeleft'] = '<p>あなたが内容を変更したい場合、 {$a} 編集できます。</p>';
+$string['postbyuser'] = '{$a->post} by {$a->user}';
 $string['postincontext'] = 'この投稿をコンテクスト内に表示する';
 $string['postmailinfo'] = 'これは ウェブサイト {$a} に投稿された記事のコピーです。
 
@@ -361,6 +384,7 @@ $string['repliesone'] = '返信数: {$a} 件';
 $string['reply'] = '返信';
 $string['replyforum'] = 'フォーラムに返信';
 $string['replytouser'] = '返信にメールアドレスを使用する';
+$string['resetdigests'] = 'すべてのユーザのフォーラムダイジェストプリファレンスを削除する';
 $string['resetforums'] = '次のフォーラムから投稿を削除する';
 $string['resetforumsall'] = 'すべての投稿を削除する';
 $string['resetsubscriptions'] = 'すべてのフォーラムのメール購読を解除する';
@@ -413,6 +437,7 @@ $string['subscribersto'] = '{$a} のメール購読ユーザ';
 $string['subscribestart'] = 'このフォーラムの投稿をメール購読する';
 $string['subscribestop'] = 'このフォーラムの投稿をメール購読しない';
 $string['subscription'] = 'メール購読';
+$string['subscriptionandtracking'] = '購読およびトラッキング';
 $string['subscriptionauto'] = '自動購読';
 $string['subscriptiondisabled'] = '購読停止';
 $string['subscriptionforced'] = '強制購読';
@@ -442,16 +467,14 @@ $string['timestartenderror'] = '表示終了日を表示開始日より先にす
 $string['trackforum'] = '投稿を未読管理する';
 $string['tracking'] = '未読管理';
 $string['trackingoff'] = 'Off';
-$string['trackingon'] = 'On';
+$string['trackingon'] = '強制';
 $string['trackingoptional'] = '任意';
 $string['trackingtype'] = '未読管理';
-$string['trackingtype_help'] = '有効にした場合、参加者はフォーラムおよびディスカッションのメッセージの既読および未読を管理することができます。設定には以下3つのオプションがあります:
+$string['trackingtype_help'] = 'この設定を有効にした場合、参加者はフォーラムおよびディスカッションの投稿の既読および未読を管理することができます。設定には以下3つのオプションがあります:
 
-任意: 参加者は管理ブロック内のリンクで未読管理をOnまたはOffにすることができます。
-On: 常に未読管理します。
-Off: 未読管理しません。
-
-メモ: ユーザプロファイル設定のフォーラムトラッキングは常に有効にしてください。';
+任意: 参加者は管理ブロック内のリンクで未読管理を有効または無効にすることができます。
+強制: ユーザ設定にかかわらず、常に未読管理します。管理設定により、利用できます。
+Off: 未読管理しません。';
 $string['unread'] = '未読';
 $string['unreadposts'] = '未読の投稿';
 $string['unreadpostsnumber'] = '未読件数 {$a}';

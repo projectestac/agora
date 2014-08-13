@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'forum', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'forum', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   forum
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,7 +58,6 @@ $string['cannotaddsubscriber'] = 'Non poderá engadir un subscritor co id {$a} n
 $string['cannotaddteacherforumto'] = 'Non poderá engadir unha instancia convertida de foro de profesores á sección 0 do curso';
 $string['cannotcreatediscussion'] = 'Non poderá crear unha nova discusión';
 $string['cannotcreateinstanceforteacher'] = 'Non poderá crear unha instancia de módulo de novo curso no foro de profesores';
-$string['cannotdeleteforummodule'] = 'Non pode eliminar o módulo do foro.';
 $string['cannotdeletepost'] = 'Non pode eliminar este comentario!';
 $string['cannoteditposts'] = 'Non pode editar os comentarios doutras persoas!';
 $string['cannotfinddiscussion'] = 'Non poderá atopar a discusión neste foro';
@@ -78,16 +77,16 @@ $string['cannotsubscribe'] = 'Desculpe, debe ser membro do grupo para se subscri
 $string['cannottrack'] = 'Non poderá deter o seguimento dese foro';
 $string['cannotunsubscribe'] = 'Non poderá cancelar a súa subscrición dese foro';
 $string['cannotupdatepost'] = 'Non pode actualizar este comentario';
-$string['cannotviewpostyet'] = 'Non pode ler aínda as preguntas doutros estudantes nesta discusión porque non comentou';
+$string['cannotviewpostyet'] = 'Non pode ler aínda as preguntas doutros alumnos nesta discusión porque non comentou';
 $string['cannotviewusersposts'] = 'Non hai comentarios feitos por este usuario que poida ver.';
 $string['cleanreadtime'] = 'Marcar os comentarios antigos como lidos na hora';
-$string['completiondiscussions'] = 'Os estudantes deben crear discusión:';
+$string['completiondiscussions'] = 'Os alumnos deben crear discusión:';
 $string['completiondiscussionsgroup'] = 'Requírese discusións';
 $string['completiondiscussionshelp'] = 'solicitando discusións para completar';
-$string['completionposts'] = 'O estudante debe comentar discusións ou respostas:';
+$string['completionposts'] = 'O alumno debe comentar discusións ou respostas:';
 $string['completionpostsgroup'] = 'Require comentarios';
 $string['completionpostshelp'] = 'solicitando discusións ou respostas para completar';
-$string['completionreplies'] = 'O estudante debe comentar respostas:';
+$string['completionreplies'] = 'O alumno debe comentar respostas:';
 $string['completionrepliesgroup'] = 'Require respostas';
 $string['completionreplieshelp'] = 'solicitando respostas para completar';
 $string['configcleanreadtime'] = 'A hora do día para limpar comentarios antigos da táboa \'lidos';
@@ -194,7 +193,7 @@ para uso xeral.<P><B>Cada persoa inicia un debate.</B> Cada persoa pode formular
 novo tema
 de debate (e todos/as poden responder). Esta modalidade é útil cando vostede
 quere
-que cada estudante comece, por exemplo, unha discusión sobre as súas reflexións sobre
+que cada alumno comece, por exemplo, unha discusión sobre as súas reflexións sobre
 o tema da semana, e que todos os demais lle respondan.';
 $string['forum:viewallratings'] = 'Ver todas as puntuacións en bruto dadas por individuos';
 $string['forum:viewanyrating'] = 'Ver as puntuacións totais que reciba calquera';
@@ -243,22 +242,22 @@ $string['modethreaded'] = 'Presentar respostas de forma arbórea';
 $string['modulename'] = 'Foro';
 $string['modulename_help'] = 'O módulo de actividade do foro actívalles aos participantes a posibilidade de teren discusións asíncronas p. ex. discusións que teñen lugar nun un período estendido de tempo.
 
-Hai varios tipos de foro para escoller, como un foro estándar onde calquera pode comezar unha discusión nova en calquera momento; un foro onde cada estudante pode comentar exactamente unha discusión; ou un foro de pregunta e resposta onde os estudantes teñen primeiro que facer un comentario antes de seren quen de veren os correos doutros estudantes. Un profesor pode permitir anexar ficheiros a comentarios do foro. As imaxes anexas preséntanse no comentario do foro.
+Hai varios tipos de foro para escoller, como un foro estándar onde calquera pode comezar unha discusión nova en calquera momento; un foro onde cada alumno pode comentar exactamente unha discusión; ou un foro de pregunta e resposta onde os alumnos teñen primeiro que facer un comentario antes de seren quen de veren os correos doutros alumnos. Un profesor pode permitir anexar ficheiros a comentarios do foro. As imaxes anexas preséntanse no comentario do foro.
 
-Os participantes poden subscribirse a un foro para recibir notificacións de novos comentarios no foro. Un profesor pode estabelecer o modo de subscrición como opcional, forzado ou automático ou prohibir a subscrición completamente. Se for requirido, aos estudantes pode bloqueárselles comentar máis dun determinado número de comentarios nun período de tempo dado; isto pode evitar que determinados individuos dominen as discusións.
+Os participantes poden subscribirse a un foro para recibir notificacións de novos comentarios no foro. Un profesor pode estabelecer o modo de subscrición como opcional, forzado ou automático ou prohibir a subscrición completamente. Se for requirido, aos alumnos pode bloqueárselles comentar máis dun determinado número de comentarios nun período de tempo dado; isto pode evitar que determinados individuos dominen as discusións.
 
-Os comentarios de foro poden ser ponderados por profesores ou estudantes (avaliación por pares). Os índices poden ser agregados acadar un grao final que se recolle no libro de grao ou \'gradebook\'.
+Os comentarios de foro poden ser ponderados por profesores ou alumnos (avaliación por pares). Os índices poden ser engadidos acadar un grao final que se recolle no libro de cualificacións ou «gradebook».
 
 Os foros teñen moitos usos, como
 
-* Un espazo social para estudantes para saber os uns dos outros
+* Un espazo social para alumnos para saber os uns dos outros
 * Para anuncios de curso (utilizando un foro de novas con subscrición forzada)
 * Para discutir contido de curso ou materiais de lectura
 * Para continuar en liña un asunto xurdido anteriormente nunha sesión presencial
 * Para discusión de só profesores (utilizando un foro agochado)
-* Un centro de axuda onde titores e estudantes poden dar consello
-* Un área de apoio directo personalizada para comunicacións privadas entre profesores e estudantes (utilizando un foro con grupos separados e cun estudante por grupo)
-* Para actividades de extensión, por exemplo ‘xogos mentais\' para ponderación de estudantes e suxestión de solucións';
+* Un centro de axuda onde titores e alumnos poden dar consello
+* Un área de apoio directo personalizada para comunicacións privadas entre profesores e alumnos (utilizando un foro con grupos separados e cun alumno por grupo)
+* Para actividades de extensión, por exemplo «xogos mentais» para ponderación de estudantes e suxestión de solucións';
 $string['modulename_link'] = 'mod/forum/view';
 $string['modulenameplural'] = 'Foros';
 $string['more'] = 'máis';
@@ -283,7 +282,6 @@ $string['nopermissiontosubscribe'] = 'Non ten permiso para ver subscritores de f
 $string['nopermissiontoview'] = 'Non ten permisos para ver este comentario';
 $string['nopostforum'] = 'Desculpe, non lle está permitido comentar neste foro';
 $string['noposts'] = 'Sen comentarios';
-$string['nopostscontaining'] = 'Non se encontraron mensaxes que conteñan \'{$a}\'';
 $string['nopostsmadebyuser'] = '{$a} non fixo ningún comentario';
 $string['nopostsmadebyyou'] = 'Vostede non fixo ningún comentario';
 $string['noquestions'] = 'Non hai temas de discusión aínda neste foro';
@@ -436,7 +434,7 @@ $string['unsubscribeshort'] = 'Cancelar a subscrición';
 $string['usermarksread'] = 'Marcado manual de mensaxe lida';
 $string['viewalldiscussions'] = 'Ver todas as discusións';
 $string['warnafter'] = 'Limiar de comentarios para aviso';
-$string['warnafter_help'] = 'Os estudantes poden ser advertidos cando se aproximen ao número máximo de comentarios permitidos nun período dado. Esta opción especifica tras cantos comentarios serán advertidos. Os usuarios coa capacidade mod/forum:postwithoutthrottling están exentos de límites de comentario.';
+$string['warnafter_help'] = 'Os alumnos poden ser advertidos cando se aproximen ao número máximo de comentarios permitidos nun período dado. Esta opción especifica tras cantos comentarios serán advertidos. Os usuarios coa capacidade mod/forum:postwithoutthrottling están exentos de límites de comentario.';
 $string['warnformorepost'] = 'Atención! Hai máis dunha discusión neste foro - usando a máis recente';
 $string['yournewquestion'] = 'A súa nova pregunta';
 $string['yournewtopic'] = 'O seu novo tema de discusión';

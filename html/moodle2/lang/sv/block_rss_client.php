@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_rss_client', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   block_rss_client
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -46,7 +46,7 @@ $string['editnewsfeeds'] = 'Redigera nyhetsinmatningar';
 $string['editrssblock'] = 'Redigera ett block med RSS rubriker';
 $string['enableautodiscovery'] = 'Aktivera automatisk upptäckt av flöden?';
 $string['enableautodiscovery_help'] = 'Om detta är aktiverat så kommer inflöden på webbsidor att hittas automatiskt. Om du t ex skriver in http://docs.moodle.org då kommer http://docs.moodle.org/en/index.php?title=Special:RecentChanges&feed=rss att hittas.';
-$string['errorloadingfeed'] = 'Fel i sb m laddning av det här RSS-flödet ({$a})';
+$string['errorloadingfeed'] = 'Fel vid laddning av det här RSS-flödet ({$a})';
 $string['feed'] = 'Inmatning';
 $string['feedadded'] = 'En nyhetsinmatning har lagts till';
 $string['feeddeleted'] = 'En nyhetsinmatning har tagits bort';

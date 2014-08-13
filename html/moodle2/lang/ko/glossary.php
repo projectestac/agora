@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'glossary', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'glossary', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   glossary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -234,7 +234,7 @@ $string['newglossaryentries'] = '새 용어집 입력항목들:';
 $string['nocomment'] = '덧글 없음';
 $string['nocomments'] = '(이 항목에 대한 덧글없음)';
 $string['noconceptfound'] = '정의되지 않음';
-$string['noentries'] = '이 섹션에는 찾는 항목이 없음';
+$string['noentries'] = '이 영역에는 찾는 항목이 없음';
 $string['noentry'] = '항목 없음';
 $string['nopermissiontodelcomment'] = '타인의 덧글을 삭제할 수 없음!';
 $string['nopermissiontodelinglossary'] = '본 용어집에 덧글을 쓸 수 없습니다!';

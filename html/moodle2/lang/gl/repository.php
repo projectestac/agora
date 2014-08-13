@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -118,6 +118,7 @@ $string['folderexists'] = 'Este nome de cartafol xa está empregado. empregue ou
 $string['foldernotfound'] = 'Non se atopou o cartafol';
 $string['folderrecurse'] = 'Non é posíbel mover un cartafol cara un subcartafol propio';
 $string['getfile'] = 'Seleccionar este ficheiro';
+$string['help'] = 'Axuda';
 $string['hidden'] = 'Agochado';
 $string['iconview'] = 'Ver como iconas';
 $string['imagesize'] = '{$a->width} x {$a->height} px';

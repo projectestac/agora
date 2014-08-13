@@ -72,10 +72,23 @@ if (!check_dir_exists($tmpdir, true, true)) {
 // choose the backup file from backup files tree
 if ($action == 'choosebackupfile') {
     if ($fileinfo = $browser->get_file_info($filecontext, $component, $filearea, $itemid, $filepath, $filename)) {
-        $filename = restore_controller::get_tempdir_name($course->id, $USER->id);
-        $pathname = $tmpdir . '/' . $filename;
-        $fileinfo->copy_to_pathname($pathname);
-        $restore_url = new moodle_url('/backup/restore.php', array('contextid'=>$contextid, 'filename'=>$filename));
+        if (is_a($fileinfo, 'file_info_stored')) {
+            // Use the contenthash rather than copying the file where possible,
+            // to improve performance and avoid timeouts with large files.
+            $fs = get_file_storage();
+            $params = $fileinfo->get_params();
+            $file = $fs->get_file($params['contextid'], $params['component'], $params['filearea'],
+                    $params['itemid'], $params['filepath'], $params['filename']);
+            $restore_url = new moodle_url('/backup/restore.php', array('contextid' => $contextid,
+                    'pathnamehash' => $file->get_pathnamehash(), 'contenthash' => $file->get_contenthash()));
+        } else {
+            // If it's some weird other kind of file then use old code.
+            $filename = restore_controller::get_tempdir_name($course->id, $USER->id);
+            $pathname = $tmpdir . '/' . $filename;
+            $fileinfo->copy_to_pathname($pathname);
+            $restore_url = new moodle_url('/backup/restore.php', array(
+                    'contextid' => $contextid, 'filename' => $filename));
+        }
         redirect($restore_url);
     } else {
         redirect($url, get_string('filenotfound', 'error'));
@@ -174,22 +187,5 @@ if (!empty($automatedbackups)) {
     echo $renderer->backup_files_viewer($treeview_options);
     echo $OUTPUT->container_end();
 }
-
-//XTEC ************ AFEGIT - To let import from Moodle 1.9
-//2012.07.13  @sarjona    
-require_once($CFG->dirroot.'/local/agora/lib.php');
-$import19lib = $CFG->dirroot.'/local/agora/import19/lib.php';
-if (file_exists($import19lib)) {
-    $showallcourses = optional_param('showallcourses', 0, PARAM_INT);
-    require_once($import19lib);
-    // Check presence of tables from Moodle 1.9
-    if (import19_check_moodle_tables()) {
-        echo $OUTPUT->heading_with_help(get_string('choosefilefrommoodle19', 'local_agora'), 'choosefilefrommoodle19', 'local_agora');
-        echo $OUTPUT->container_start();
-        echo import19_course_selector($contextid, $showallcourses);
-        echo $OUTPUT->container_end();
-    }
-}
-//************ FI
 
 echo $OUTPUT->footer();

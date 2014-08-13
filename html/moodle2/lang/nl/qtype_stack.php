@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_stack', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_stack', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_stack
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addanothernode'] = 'Voeg een node toe';
+$string['addanothernode'] = 'Voeg een knoop toe';
 $string['addanothertestcase'] = 'Voeg nog een testcase toe...';
 $string['addatestcase'] = 'Voeg een testcase toe...';
 $string['addingatestcase'] = 'Een testcase aan een vraag toevoegen {$a}';
@@ -96,7 +96,7 @@ $string['autosimplifyprt'] = 'Auto-vereenvoudig';
 $string['booleangotunrecognisedvalue'] = 'Ongeldige input.';
 $string['boxsize'] = 'Grootte inputbox';
 $string['boxsize_help'] = 'Breedte van het html-invulveld.';
-$string['branchfeedback'] = 'Knoop vertakking feedback';
+$string['branchfeedback'] = 'Knoopvertakking feedback';
 $string['branchfeedback_help'] = 'Deze CAS-tekst gebruik mag maken van alle vraagvariabelen, input-elementen of feedbackvariablen. Het wordt eerst geëvalueerd en dan weergegeven aan de student als deze vertakking wordt aangesproken.';
 $string['calc_chain_rule_name'] = 'De kettingregel';
 $string['calc_diff_linearity_rule_name'] = 'De kettingregel';
@@ -272,7 +272,7 @@ $string['teacheranswer'] = 'Leraarantwoord';
 $string['teachersanswer'] = 'Modelantwoord';
 $string['teachersanswer_help'] = 'De docent moet een modelantwoord opgeven voor elke input. Dit moet een geldige Maxima expressie zijn, waarbij gebruik gemaakt mag worden van de vraagvariabelen.';
 $string['testcasexresult'] = 'Testcase {$a->no}{$a->result}';
-$string['TEST_FAILED'] = 'De antwoordtest heeft niet juist gewerkt: attendeer je docent hierop. {$a->errors}';
+$string['TEST_FAILED'] = 'De antwoordcontrole heeft niet juist gewerkt: waarschuw je leraar. {$a->errors}';
 $string['testingquestion'] = 'Vraag aan het testen {$a}';
 $string['testinputs'] = 'Testinputs';
 $string['testinputsimpwarning'] = 'Let op dat de test inputs altijd <em>onvereenvoudigd</em> zijn, ongeacht de vraag- of PRT-optie-instellingen. Gebruik <tt>ev(....,simp)</tt> om een gedeelte of de gehele testinput te vereenvoudigen.';

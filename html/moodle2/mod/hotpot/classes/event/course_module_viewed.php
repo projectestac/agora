@@ -88,8 +88,8 @@ class course_module_viewed extends \core\event\content_viewed {
         global $USER;
 
         $hotpot = $this->get_record_snapshot('hotpot', $this->objectid);
-        $course   = $this->get_record_snapshot('course', $this->courseid);
-        $cm       = $this->get_record_snapshot('course_modules', $this->context->instanceid);
+        $course = $this->get_record_snapshot('course', $this->courseid);
+        $cm     = $this->get_record_snapshot('course_modules', $this->context->instanceid);
         $hotpot = new \hotpot($hotpot, $cm, $course);
         return (object)array('hotpot' => $hotpot, 'user' => $USER);
     }
@@ -97,7 +97,7 @@ class course_module_viewed extends \core\event\content_viewed {
     /**
      * replace add_to_log() statement.
      *
-     * @return array of parameters to be passed to legacy add_to_log() function.
+     * @return array of parameters to be passed to legacy hotpot_add_to_log() function.
      */
     protected function get_legacy_logdata() {
         $url = new \moodle_url('view.php', array('id' => $this->context->instanceid));

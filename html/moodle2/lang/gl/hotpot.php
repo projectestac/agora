@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -59,7 +59,7 @@ $string['penalties'] = 'Penalizacións';
 $string['pluginname'] = 'Exame Hot Potatoes';
 $string['questionshort'] = 'Q-{$a}';
 $string['score'] = 'Puntuación';
-$string['studentfeedback'] = 'Comentarios dos/das estudantes';
+$string['studentfeedback'] = 'Comentarios dos alumnos';
 $string['textsourcefilename'] = 'Utilizar o nome do ficheiro';
 $string['textsourcefilepath'] = 'Utilizar o camiño do ficheiro';
 $string['textsourcequiz'] = 'Obter do exame';

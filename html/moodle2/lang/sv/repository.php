@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -110,6 +110,7 @@ $string['folderexists'] = 'Mappnamn används redan, använd ett annat namn';
 $string['foldernotfound'] = 'Mapp hittades inte';
 $string['folderrecurse'] = 'Mapp kan inte flyttas till en egen undermapp';
 $string['getfile'] = 'Välj den här filen';
+$string['help'] = 'Hjälp';
 $string['hidden'] = 'Dold';
 $string['iconview'] = 'Visa som ikoner';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -137,6 +138,7 @@ $string['manage'] = 'Administrera arkiv';
 $string['manageurl'] = 'Administrera';
 $string['manageuserrepository'] = 'Administrera individuellt arkiv';
 $string['moving'] = 'Flytta';
+$string['newfolder'] = 'Ny mapp';
 $string['newfoldername'] = 'Nytt namn för mappen:';
 $string['noenter'] = 'Ingenting skrevs in';
 $string['nofilesattached'] = 'Det finns inga befogade filer';
@@ -182,6 +184,7 @@ $string['siteinstances'] = 'Instanser av arkiv på webbplatsen';
 $string['size'] = 'Storlek';
 $string['submit'] = 'Skicka in';
 $string['sync'] = 'Synk';
+$string['thumbview'] = 'Visa som ikoner';
 $string['title'] = 'Välj en fil...';
 $string['type'] = 'Typ';
 $string['typenotvisible'] = 'Typen är inte synlig';

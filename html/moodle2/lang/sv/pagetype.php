@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'pagetype', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'pagetype', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   pagetype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,7 +30,7 @@ $string['page-course-view-x'] = 'Vilken typ av ingångssida (för kurs) som hels
 $string['page-course-x'] = 'Vilken kurssida som helst';
 $string['page-mod-x'] = 'Vilken sida som helst för aktivitetsmodul';
 $string['page-mod-x-view'] = 'Vilken ingångssida som helst för aktivitetsmodul';
-$string['page-my-index'] = 'Användarnas *Min ingångssida\'';
+$string['page-my-index'] = 'Användarnas *Min hem\' sida';
 $string['page-site-index'] = 'Endast ingångssidan';
 $string['page-site-x'] = 'Vilken sida som helst på toppnivå på webbplatsen';
 $string['page-user-view'] = 'Endast sidor med användarnas profiler';

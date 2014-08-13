@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_formal_white', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -36,13 +36,13 @@ $string['configtitle'] = 'Тема оформления «Formal white»';
 $string['creditstomoodleorg'] = 'Отображать ссылку на moodle.org';
 $string['creditstomoodleorgdesc'] = 'Отображать ли привычный маленький логотип Moodle внизу страниц';
 $string['ctmo_ineverypage'] = 'на каждой странице';
-$string['ctmo_no'] = 'никогда';
+$string['ctmo_no'] = 'нигде';
 $string['ctmo_onfrontpageonly'] = 'только на главной странице';
 $string['customcss'] = 'Пользовательские CSS';
 $string['customcssdesc'] = 'Любые указанные здесь стили CSS будут добавляться на каждую страницу, что позволяет легко изменить эту тему. Например, можно изменить цвет ссылки добавлением одного или нескольких из приведенного:
 <pre>a:link, a:visited, a:hover, a:active, a:focus {color:blue;}</pre>. Измените примеры цвета и правила CSS на те, которые соответствуют Вашим желаниям.';
 $string['customlogourl'] = 'Пользовательский логотип';
-$string['customlogourldesc'] = 'Можно изменить логотип, используемый этой темой, указав URL нового (например: http://www.yoursite.tld/mylogo.png или ../path/to/your/logo.png). Как эталон, по умолчанию используется логотип шириной 200 и высотой 50 пикселей. Лучше использовать PNG-файл c прозрачным фоном.';
+$string['customlogourldesc'] = 'Можно изменить логотип, используемый в этой теме, указав полный или относительный URL-адрес нового (например: http://www.yoursite.tld/mylogo.png или ../path/to/your/logo.png). По умолчанию используется логотип шириной 200 и высотой 50 пикселей. Лучше использовать PNG-файл c прозрачным фоном.';
 $string['displayheading'] = 'Отображать заголовок страницы';
 $string['displaylogo'] = 'Показать логотип';
 $string['fontsizereference'] = 'Размер шрифта';
@@ -52,17 +52,25 @@ $string['footnotedesc'] = 'Этот текст будет отображатьс
 $string['framemargin'] = 'Поля фрейма';
 $string['framemargindesc'] = 'Пространство между фреймом и краем окна браузера. (Этот параметр будет игнорироваться, если запрашивается «{$a}»).';
 $string['frontpagelogourl'] = 'Собственный логотип главной страницы';
-$string['frontpagelogourldesc'] = 'Изменить логотип на главной странице Вашего сайта, можно введя полный или относительный URL к изображению, которое хотите использовать. Как эталон используется логотип шириной 300 и высотой 80 пикселей. Лучше использовать PNG-файл c прозрачным фоном.';
+$string['frontpagelogourldesc'] = 'Можно изменить логотип, отображаемый на главной странице сайта, указав полный или относительный URL-адрес нового (например: http://www.yoursite.tld/myfrontpagelogo.png или ../path/to/your/logo.png). По умолчанию используется логотип шириной 300 и высотой 80 пикселей. Лучше использовать PNG-файл c прозрачным фоном.';
 $string['headerbgc'] = 'Цвет фона заголовков блоков';
 $string['headerbgcdesc'] = 'Параметр задает цвет фона заголовков блоков для этой темы.';
 $string['headercontent'] = 'Содержимое заголовка';
 $string['headercontentdesc'] = 'Выберите, что отображать в заголовке страницы - логотип Moodle или текст заголовка.';
 $string['lblockcolumnbgc'] = 'Цвет фона левой колонки';
 $string['lblockcolumnbgcdesc'] = 'Параметр задает цвет фона левой колонки для этой темы.';
+$string['lemon'] = 'лимонный';
+$string['lime'] = 'цвет лайма';
+$string['mink'] = 'кофе с молоком';
 $string['noframe'] = 'Внешний вид как в «Formal white 1.9»';
 $string['noframedesc'] = 'Выберите эту параметр, чтобы страницы Moodle выглядели как в Moodle 1.*, без рамки.';
+$string['orange'] = 'оранжевый';
+$string['peach'] = 'персиковый';
 $string['pluginname'] = 'Formal white';
 $string['rblockcolumnbgc'] = 'Цвет фона правой колонки';
 $string['rblockcolumnbgcdesc'] = 'Параметр задает цвет фона правой колонки этой темы оформления. Если оставить поле пустым, то будет использоваться цвет фона левой колонки.';
 $string['region-side-post'] = 'Справа';
 $string['region-side-pre'] = 'Слева';
+$string['silver'] = 'серебряный';
+$string['trendcolor'] = 'Предпочтительный цвет';
+$string['trendcolordesc'] = 'Выберите предпочитаемый основной цвет темы.';

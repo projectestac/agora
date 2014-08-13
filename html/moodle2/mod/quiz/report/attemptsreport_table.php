@@ -121,12 +121,9 @@ abstract class quiz_attempts_report_table extends table_sql {
     public function col_picture($attempt) {
         global $OUTPUT;
         $user = new stdClass();
+        $additionalfields = explode(',', user_picture::fields());
+        $user = username_load_fields_from_object($user, $attempt, null, $additionalfields);
         $user->id = $attempt->userid;
-        $user->lastname = $attempt->lastname;
-        $user->firstname = $attempt->firstname;
-        $user->imagealt = $attempt->imagealt;
-        $user->picture = $attempt->picture;
-        $user->email = $attempt->email;
         return $OUTPUT->user_picture($user);
     }
 
@@ -345,13 +342,12 @@ abstract class quiz_attempts_report_table extends table_sql {
         $extrafields = get_extra_user_fields_sql($this->context, 'u', '',
                 array('id', 'idnumber', 'firstname', 'lastname', 'picture',
                 'imagealt', 'institution', 'department', 'email'));
+        $allnames = get_all_user_name_fields(true, 'u');
         $fields .= '
                 quiza.uniqueid AS usageid,
                 quiza.id AS attempt,
                 u.id AS userid,
-                u.idnumber,
-                u.firstname,
-                u.lastname,
+                u.idnumber, ' . $allnames . ',
                 u.picture,
                 u.imagealt,
                 u.institution,
@@ -375,7 +371,8 @@ abstract class quiz_attempts_report_table extends table_sql {
         $params = array('quizid' => $this->quiz->id);
 
         if ($this->qmsubselect && $this->options->onlygraded) {
-            $from .= " AND $this->qmsubselect";
+            $from .= " AND (quiza.state <> :finishedstate OR $this->qmsubselect)";
+            $params['finishedstate'] = quiz_attempt::FINISHED;
         }
 
         switch ($this->options->attempts) {

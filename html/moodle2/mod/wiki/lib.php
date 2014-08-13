@@ -279,7 +279,7 @@ function wiki_supports($feature) {
 function wiki_print_recent_activity($course, $viewfullnames, $timestart) {
     global $CFG, $DB, $OUTPUT;
 
-    $sql = "SELECT p.*, w.id as wikiid, sw.groupid
+    $sql = "SELECT p.id, p.timemodified, p.subwikiid, sw.wikiid, w.wikimode, sw.userid, sw.groupid
             FROM {wiki_pages} p
                 JOIN {wiki_subwikis} sw ON sw.id = p.subwikiid
                 JOIN {wiki} w ON w.id = sw.wikiid
@@ -288,48 +288,25 @@ function wiki_print_recent_activity($course, $viewfullnames, $timestart) {
     if (!$pages = $DB->get_records_sql($sql, array($timestart, $course->id))) {
         return false;
     }
-    $modinfo = get_fast_modinfo($course);
+    require_once($CFG->dirroot . "/mod/wiki/locallib.php");
 
     $wikis = array();
 
     $modinfo = get_fast_modinfo($course);
 
+    $subwikivisible = array();
     foreach ($pages as $page) {
-        if (!isset($modinfo->instances['wiki'][$page->wikiid])) {
-            // not visible
-            continue;
+        if (!isset($subwikivisible[$page->subwikiid])) {
+            $subwiki = (object)array('id' => $page->subwikiid, 'wikiid' => $page->wikiid,
+                'groupid' => $page->groupid, 'userid' => $page->userid);
+            $wiki = (object)array('id' => $page->wikiid, 'course' => $course->id, 'wikimode' => $page->wikimode);
+            $subwikivisible[$page->subwikiid] = wiki_user_can_view($subwiki, $wiki);
         }
-        $cm = $modinfo->instances['wiki'][$page->wikiid];
-        if (!$cm->uservisible) {
-            continue;
+        if ($subwikivisible[$page->subwikiid]) {
+            $wikis[] = $page;
         }
-        $context = context_module::instance($cm->id);
-
-        if (!has_capability('mod/wiki:viewpage', $context)) {
-            continue;
-        }
-
-        $groupmode = groups_get_activity_groupmode($cm, $course);
-
-        if ($groupmode) {
-            if ($groupmode == SEPARATEGROUPS and !has_capability('mod/wiki:managewiki', $context)) {
-                // separate mode
-                if (isguestuser()) {
-                    // shortcut
-                    continue;
-                }
-
-                if (is_null($modinfo->groups)) {
-                    $modinfo->groups = groups_get_user_groups($course->id); // load all my groups and cache it in modinfo
-                    }
-
-                if (!in_array($page->groupid, $modinfo->groups[0])) {
-                    continue;
-                }
-            }
-        }
-        $wikis[] = $page;
     }
+    unset($subwikivisible);
     unset($pages);
 
     if (!$wikis) {
@@ -462,13 +439,11 @@ function wiki_pluginfile($course, $cm, $context, $filearea, $args, $forcedownloa
             return false;
         }
 
-        $lifetime = isset($CFG->filelifetime) ? $CFG->filelifetime : 86400;
-
-        send_stored_file($file, $lifetime, 0, $options);
+        send_stored_file($file, null, 0, $options);
     }
 }
 
-function wiki_search_form($cm, $search = '') {
+function wiki_search_form($cm, $search = '', $subwiki = null) {
     global $CFG, $OUTPUT;
 
     $output = '<div class="wikisearch">';
@@ -479,6 +454,9 @@ function wiki_search_form($cm, $search = '') {
     $output .= '<input id="searchwiki" name="searchstring" type="text" size="18" value="' . s($search, true) . '" alt="search" />';
     $output .= '<input name="courseid" type="hidden" value="' . $cm->course . '" />';
     $output .= '<input name="cmid" type="hidden" value="' . $cm->id . '" />';
+    if (!empty($subwiki->id)) {
+        $output .= '<input name="subwikiid" type="hidden" value="' . $subwiki->id . '" />';
+    }
     $output .= '<input name="searchwikicontent" type="hidden" value="1" />';
     $output .= '<input value="' . get_string('searchwikis', 'wiki') . '" type="submit" />';
     $output .= '</fieldset>';

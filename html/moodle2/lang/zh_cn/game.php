@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'game', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'game', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   game
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -108,6 +108,7 @@ $string['hangman_showfirst'] = '刽子手游戏的第一个字母显示';
 $string['hangman_showlast'] = '刽子手游戏的最后一个字母显示';
 $string['hangman_showquestion'] = '问题显示 ?';
 $string['hangman_wrongnum'] = '出错了: %%d out of %%d';
+$string['helpbookquiz'] = '当学生回答正确，可以进入下一章。';
 $string['hiddenpicture_across'] = '水平单元';
 $string['hiddenpicture_down'] = '纵向单元';
 $string['hiddenpicture_height'] = '图片的高度设置';

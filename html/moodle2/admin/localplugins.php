@@ -33,67 +33,30 @@ require_once($CFG->libdir.'/tablelib.php');
 
 admin_externalpage_setup('managelocalplugins');
 
-$delete  = optional_param('delete', '', PARAM_PLUGIN);
-$confirm = optional_param('confirm', '', PARAM_BOOL);
-
-/// If data submitted, then process and store.
-
-if (!empty($delete) and confirm_sesskey()) {
-    echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('localplugins'));
-
-    if (!$confirm) {
-        if (get_string_manager()->string_exists('pluginname', 'local_' . $delete)) {
-            $strpluginname = get_string('pluginname', 'local_' . $delete);
-        } else {
-            $strpluginname = $delete;
-        }
-        echo $OUTPUT->confirm(get_string('localplugindeleteconfirm', '', $strpluginname),
-                                new moodle_url($PAGE->url, array('delete' => $delete, 'confirm' => 1)),
-                                $PAGE->url);
-        echo $OUTPUT->footer();
-        die();
-
-    } else {
-        uninstall_plugin('local', $delete);
-        $a = new stdclass();
-        $a->name = $delete;
-        $pluginlocation = get_plugin_types();
-        $a->directory = $pluginlocation['local'] . '/' . $delete;
-        echo $OUTPUT->notification(get_string('plugindeletefiles', '', $a), 'notifysuccess');
-        echo $OUTPUT->continue_button($PAGE->url);
-        echo $OUTPUT->footer();
-        die();
-    }
-}
-
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('localplugins'));
 
 /// Print the table of all installed local plugins
 
 $table = new flexible_table('localplugins_administration_table');
-$table->define_columns(array('name', 'version', 'delete'));
+$table->define_columns(array('name', 'version', 'uninstall'));
 //XTEC ************ MODIFICAT - To let access only to xtecadmin user
 //2012.08.20 @sarjona
-if (!get_protected_agora()) {
-    $strdelete = '';
-} else{
-    $strdelete = get_string('delete');
+if (get_protected_agora()) {
+	$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('uninstallplugin', 'core_admin')));    
+} else {
+	$table->define_headers(array(get_string('plugin'), get_string('version'), ""));
 }
-$table->define_headers(array(get_string('plugin'), get_string('version'), $strdelete));
 //************ ORIGINAL
-/*
-$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('delete')));
- */
+//$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('uninstallplugin', 'core_admin')));    
 //************ FI
 $table->define_baseurl($PAGE->url);
 $table->set_attribute('id', 'localplugins');
-$table->set_attribute('class', 'generaltable generalbox boxaligncenter boxwidthwide');
+$table->set_attribute('class', 'admintable generaltable');
 $table->setup();
 
 $plugins = array();
-foreach (get_plugin_list('local') as $plugin => $plugindir) {
+foreach (core_component::get_plugin_list('local') as $plugin => $plugindir) {
     if (get_string_manager()->string_exists('pluginname', 'local_' . $plugin)) {
         $strpluginname = get_string('pluginname', 'local_' . $plugin);
     } else {
@@ -101,18 +64,19 @@ foreach (get_plugin_list('local') as $plugin => $plugindir) {
     }
     $plugins[$plugin] = $strpluginname;
 }
-collatorlib::asort($plugins);
+core_collator::asort($plugins);
 
 foreach ($plugins as $plugin => $name) {
-    $delete = new moodle_url($PAGE->url, array('delete' => $plugin, 'sesskey' => sesskey()));
-    $delete = html_writer::link($delete, get_string('delete'));
-    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    $uninstall = '';
+    if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('local_'.$plugin, 'manage')) {
+        $uninstall = html_writer::link($uninstallurl, get_string('uninstallplugin', 'core_admin'));
+    }
+	//XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.08.20 @sarjona
     if (!get_protected_agora()) {
-        $delete = '';
+        $uninstall = "";
     }
     //************ FI
-
     $version = get_config('local_' . $plugin);
     if (!empty($version->version)) {
         $version = $version->version;
@@ -120,7 +84,7 @@ foreach ($plugins as $plugin => $name) {
         $version = '?';
     }
 
-    $table->add_data(array($name, $version, $delete));
+    $table->add_data(array($name, $version, $uninstall));
 }
 
 $table->print_html();

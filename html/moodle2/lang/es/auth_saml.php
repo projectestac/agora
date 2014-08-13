@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_saml', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_saml', language 'es', branch 'MOODLE_25_STABLE'
  *
  * @package   auth_saml
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

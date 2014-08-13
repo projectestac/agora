@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -86,6 +86,14 @@ $string['errorcoursecontextnotvalid'] = 'No puede ejecutar funciones en el conte
 $string['errorinvalidparam'] = 'El parámetro "{$a}" no es válido.';
 $string['errornotemptydefaultparamarray'] = 'El parámetro de descripción de servicio web llamado \'{$a}\' es una estructura sencilla o múltiple. Por defecto solamente puede ser un arreglo vacío. Revise la descripción del servicio web.';
 $string['erroroptionalparamarray'] = 'La descripción del parámetro de servicio web llamado \'{$a}\' es una estructura sencilla o múltiple. No puede configurarse como VALUE_OPTIONAL. Revise la descripción de los servicios web';
+$string['event_webservice_function_called'] = 'Llamada a la función de servicio web';
+$string['event_webservice_login_failed'] = 'Fallo en el login del servicio web';
+$string['event_webservice_service_created'] = 'Servicio de "web service" creado';
+$string['event_webservice_service_updated'] = 'Servicio de "web service" actualizado';
+$string['event_webservice_service_user_added'] = 'Usuario del servicio "web service" añadido';
+$string['event_webservice_service_user_removed'] = 'Usuario del servicio "web service" eliminado';
+$string['event_webservice_token_created'] = 'Token de "web service" creado';
+$string['event_webservice_token_sent'] = 'Token de "web service" enviado';
 $string['execute'] = 'Ejecutar';
 $string['executewarnign'] = 'ADVERTENCIA: Si pulsa "ejecutar" su base de datos será modificada. Los cambios no se puede revertir automáticamente';
 $string['externalservice'] = 'Servicio externo';
@@ -120,6 +128,7 @@ $string['missingusername'] = 'Falta nombre de usuario';
 $string['missingversionfile'] = 'Error de programación: falta el archivo version.php para el componente {$a}';
 $string['mobilewsdisabled'] = 'Deshabilitado';
 $string['mobilewsenabled'] = 'Habilitado';
+$string['nocapabilitytouseparameter'] = 'El usuario no tiene la capacidad necesaria para utilizar el parámetro {$a}';
 $string['nofunctions'] = 'Este servicio no tiene funciones.';
 $string['norequiredcapability'] = 'No se requiere permiso';
 $string['notoken'] = 'La lista de fichas (token) está vacía.';
@@ -184,6 +193,7 @@ $string['tokencreator'] = 'Creador';
 $string['unknownoptionkey'] = 'Clave de opción desconocida ({$a})';
 $string['unnamedstringparam'] = 'Un parámetro de tipo cadena está sin nombre.';
 $string['updateusersettings'] = 'Actualizar';
+$string['uploadfiles'] = 'Puede subir ficheros';
 $string['userasclients'] = 'Usuarios como clientes con ficha';
 $string['userasclientsdescription'] = 'Los siguientes pasos pueden ayudarle a configurar el servicio web Moodle para usuarios como clientes. Estos pasos también le ayudarán a configurar el método de autenticación basado en la ficha (token) recomendada (claves de seguridad) . En este caso, el usuario generará su ficha (token) a partir de la página de claves de seguridad via la configuración de Mi perfil.';
 $string['usermissingcaps'] = 'Permisos ausentes: {$a}';

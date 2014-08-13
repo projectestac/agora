@@ -18,22 +18,23 @@
  * Tests for messagelib.php.
  *
  * @package    core_message
+ * @category   phpunit
  * @copyright  2012 The Open Universtiy
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-class messagelib_testcase extends advanced_testcase {
+class core_messagelib_testcase extends advanced_testcase {
 
     public function test_message_get_providers_for_user() {
         global $CFG, $DB;
 
-        $this->resetAfterTest(true);
+        $this->resetAfterTest();
 
         $generator = $this->getDataGenerator();
 
-        // Create a course category and course
+        // Create a course category and course.
         $cat = $generator->create_category(array('parent' => 0));
         $course = $generator->create_course(array('category' => $cat->id));
         $quiz = $generator->create_module('quiz', array('course' => $course->id));
@@ -82,19 +83,19 @@ class messagelib_testcase extends advanced_testcase {
     public function test_message_get_providers_for_user_more() {
         global $DB;
 
-        $this->resetAfterTest(true);
+        $this->resetAfterTest();
 
-        // Create a course
+        // Create a course.
         $course = $this->getDataGenerator()->create_course();
         $coursecontext = context_course::instance($course->id);
 
         // It would probably be better to use a quiz instance as it has capability controlled messages
-        // however mod_quiz doesn't have a data generator
-        // Instead we're going to use backup notifications and give and take away the capability at various levels
+        // however mod_quiz doesn't have a data generator.
+        // Instead we're going to use backup notifications and give and take away the capability at various levels.
         $assign = $this->getDataGenerator()->create_module('assign', array('course'=>$course->id));
-        $modulecontext = context_module::instance($assign->id);
+        $modulecontext = context_module::instance($assign->cmid);
 
-        // Create and enrol a teacher
+        // Create and enrol a teacher.
         $teacherrole = $DB->get_record('role', array('shortname'=>'editingteacher'), '*', MUST_EXIST);
         $teacher = $this->getDataGenerator()->create_user();
         role_assign($teacherrole->id, $teacher->id, $coursecontext);
@@ -108,30 +109,30 @@ class messagelib_testcase extends advanced_testcase {
         }
         $enrolplugin->enrol_user($enrolinstance, $teacher->id);
 
-        // Make the teacher the current user
+        // Make the teacher the current user.
         $this->setUser($teacher);
 
-        // Teacher shouldn't have the required capability so they shouldn't be able to see the backup message
+        // Teacher shouldn't have the required capability so they shouldn't be able to see the backup message.
         $this->assertFalse(has_capability('moodle/site:config', $modulecontext));
         $providers = message_get_providers_for_user($teacher->id);
         $this->assertFalse($this->message_type_present('moodle', 'backup', $providers));
 
-        // Give the user the required capability in an activity module
-        // They should now be able to see the backup message
+        // Give the user the required capability in an activity module.
+        // They should now be able to see the backup message.
         assign_capability('moodle/site:config', CAP_ALLOW, $teacherrole->id, $modulecontext->id, true);
         accesslib_clear_all_caches_for_unit_testing();
-        $modulecontext = context_module::instance($assign->id);
+        $modulecontext = context_module::instance($assign->cmid);
         $this->assertTrue(has_capability('moodle/site:config', $modulecontext));
 
         $providers = message_get_providers_for_user($teacher->id);
         $this->assertTrue($this->message_type_present('moodle', 'backup', $providers));
 
-        // Prohibit the capability for the user at the course level
-        // This overrules the CAP_ALLOW at the module level
-        // They should not be able to see the backup message
+        // Prohibit the capability for the user at the course level.
+        // This overrules the CAP_ALLOW at the module level.
+        // They should not be able to see the backup message.
         assign_capability('moodle/site:config', CAP_PROHIBIT, $teacherrole->id, $coursecontext->id, true);
         accesslib_clear_all_caches_for_unit_testing();
-        $modulecontext = context_module::instance($assign->id);
+        $modulecontext = context_module::instance($assign->cmid);
         $this->assertFalse(has_capability('moodle/site:config', $modulecontext));
 
         $providers = message_get_providers_for_user($teacher->id);
@@ -140,8 +141,58 @@ class messagelib_testcase extends advanced_testcase {
         // $this->assertFalse($this->message_type_present('moodle', 'backup', $providers));
     }
 
+    public function test_message_attachment_send() {
+        global $CFG;
+        $this->preventResetByRollback();
+        $this->resetAfterTest();
+
+        // Set config setting to allow attachments.
+        $CFG->allowattachments = true;
+        unset_config('noemailever');
+
+        $user = $this->getDataGenerator()->create_user();
+        $context = context_user::instance($user->id);
+
+        // Create a test file.
+        $fs = get_file_storage();
+        $filerecord = array(
+                'contextid' => $context->id,
+                'component' => 'core',
+                'filearea'  => 'unittest',
+                'itemid'    => 99999,
+                'filepath'  => '/',
+                'filename'  => 'emailtest.txt'
+        );
+        $file = $fs->create_file_from_string($filerecord, 'Test content');
+
+        $message = new stdClass();
+        $message->component         = 'moodle';
+        $message->name              = 'instantmessage';
+        $message->userfrom          = get_admin();
+        $message->userto            = $user;
+        $message->subject           = 'message subject 1';
+        $message->fullmessage       = 'message body';
+        $message->fullmessageformat = FORMAT_MARKDOWN;
+        $message->fullmessagehtml   = '<p>message body</p>';
+        $message->smallmessage      = 'small message';
+        $message->attachment        = $file;
+        $message->attachname        = 'emailtest.txt';
+
+        // Make sure we are redirecting emails.
+        $sink = $this->redirectEmails();
+        $this->assertTrue(phpunit_util::is_redirecting_phpmailer());
+        message_send($message);
+
+        // Get the email that we just sent.
+        $emails = $sink->get_messages();
+        $email = reset($emails);
+        $this->assertTrue(strpos($email->body, 'Content-Disposition: attachment;') !== false);
+        $this->assertTrue(strpos($email->body, 'emailtest.txt') !== false);
+    }
+
     /**
      * Is a particular message type in the list of message types.
+     * @param string $component
      * @param string $name a message name.
      * @param array $providers as returned by message_get_providers_for_user.
      * @return bool whether the message type is present.

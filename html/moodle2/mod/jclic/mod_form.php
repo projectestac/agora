@@ -41,10 +41,10 @@ class mod_jclic_mod_form extends moodleform_mod {
     /**
      * Defines forms elements
      */
-    public function definition() {
+    function definition() {
         global $CFG;
-        
-        $mform = $this->_form;
+
+        $mform    =& $this->_form;
 
         //-------------------------------------------------------------------------------
         // Adding the "general" fieldset, where all the common settings are showed
@@ -55,19 +55,18 @@ class mod_jclic_mod_form extends moodleform_mod {
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
         } else {
-            $mform->setType('name', PARAM_CLEAN);
+            $mform->setType('name', PARAM_CLEANHTML);
         }
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        //$mform->addHelpButton('name', 'name', 'jclic');
-        
+
         // Adding the standard "intro" and "introformat" fields
         $this->add_intro_editor();
-        
-        
+
+
         $mform->addElement('date_time_selector', 'timeavailable', get_string('availabledate', 'jclic'), array('optional'=>true));
         $mform->addElement('date_time_selector', 'timedue', get_string('duedate', 'jclic'), array('optional'=>true));
-        
+
         //-------------------------------------------------------------------------------
         // Adding the rest of jclic settings, spreeading all them into this fieldset
         $mform->addElement('header', 'header_jclic', get_string('header_jclic', 'jclic'));
@@ -78,11 +77,11 @@ class mod_jclic_mod_form extends moodleform_mod {
         $mform->setType('jclicurl', PARAM_RAW);
         $mform->addHelpButton('jclicurl', 'jclicurl', 'jclic');
         $mform->disabledIf('jclicurl', 'filetype', 'eq', JCLIC_FILE_TYPE_LOCAL);
-        
-        $mform->addElement('filemanager', 'jclicfile', get_string('jclicfile', 'jclic'), array('optional'=>false), jclic_get_filemanager_options());   
+
+        $mform->addElement('filemanager', 'jclicfile', get_string('jclicfile', 'jclic'), array('optional'=>false), jclic_get_filemanager_options());
         $mform->addHelpButton('jclicfile', 'urledit', 'jclic');
         $mform->disabledIf('jclicfile', 'filetype', 'noteq', JCLIC_FILE_TYPE_LOCAL);
-        
+
         $mform->addElement('text', 'exiturl', get_string('exiturl', 'jclic'), array('size'=>75));
         $mform->addHelpButton('exiturl', 'exiturl', 'jclic');
         //$mform->setHelpButton('exiturl', array('exiturl',get_string('exiturl', 'jclic'), 'jclic'), false, 'helpbutton');
@@ -98,10 +97,12 @@ class mod_jclic_mod_form extends moodleform_mod {
 
         $mform->addElement('text', 'width', get_string('width', 'jclic'), array('size'=>'5'));
         $mform->setDefault('width', '800');
-        
+        $mform->setType('width', PARAM_TEXT);
+
         $mform->addElement('text', 'height', get_string('height', 'jclic'), array('size'=>'5'));
         $mform->setDefault('height', '600');
-        
+        $mform->setType('height', PARAM_TEXT);
+
         //-------------------------------------------------------------------------------
         $mform->addElement('header', 'header_score', get_string('header_score', 'jclic'));
 
@@ -116,7 +117,7 @@ class mod_jclic_mod_form extends moodleform_mod {
         $options = array(-1 => get_string('unlimited','jclic'), 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 10 => 10);
         $mform->addElement('select', 'maxattempts', get_string('maxattempts', 'jclic'), $options);
         $mform->setDefault('maxattempts', '-1');
-        
+
         $options = array('score' => get_string('avaluation_score','jclic'),'solved' => get_string('avaluation_solved','jclic'));
         $mform->addElement('select', 'avaluation', get_string('avaluation', 'jclic'), $options);
         $mform->setDefault('avaluation', '-1');
@@ -124,25 +125,25 @@ class mod_jclic_mod_form extends moodleform_mod {
         //-------------------------------------------------------------------------------
 
         $this->standard_grading_coursemodule_elements();
-        
+
         // add standard elements, common to all modules
         $this->standard_coursemodule_elements();
         //-------------------------------------------------------------------------------
         // add standard buttons, common to all modules
         $this->add_action_buttons();
     }
-    
+
     function data_preprocessing(&$default_values) {
         if ($this->current->instance) {
             $draftitemid = file_get_submitted_draft_itemid('jclicfile');
             file_prepare_draft_area($draftitemid, $this->context->id, 'mod_jclic', 'content', 0, jclic_get_filemanager_options());
             $default_values['jclicfile'] = $draftitemid;
-        } 
+        }
     }
-    
+
     public function validation($data, $files) {
-        global $USER; 
-        
+        global $USER;
+
         $errors = parent::validation($data, $files);
 
         // Check open and close times are consistent.
@@ -150,10 +151,10 @@ class mod_jclic_mod_form extends moodleform_mod {
             $data['timedue'] < $data['timeavailable']) {
             $errors['timedue'] = get_string('closebeforeopen', 'jclic');
         }
-        
+
         $type = $data['filetype'];
         if ($type === JCLIC_FILE_TYPE_LOCAL) {
-            $usercontext = get_context_instance(CONTEXT_USER, $USER->id);
+            $usercontext = context_user::instance($USER->id);
             $fs = get_file_storage();
             if (!$files = $fs->get_area_files($usercontext->id, 'user', 'draft', $data['jclicfile'], 'sortorder, id', false)) {
                 $errors['jclicfile'] = get_string('required');
@@ -172,8 +173,8 @@ class mod_jclic_mod_form extends moodleform_mod {
         }
 
         return $errors;
-    }    
-    
+    }
+
     // Need to translate the "url" field
     function set_data($default_values) {
         $default_values = (array)$default_values;
@@ -184,18 +185,18 @@ class mod_jclic_mod_form extends moodleform_mod {
                 $default_values['jclicurl'] = $default_values['url'];
             } else{
                 $default_values['filetype'] = JCLIC_FILE_TYPE_LOCAL;
-                $default_values['jclicfile'] = $default_values['url'];            
+                $default_values['jclicfile'] = $default_values['url'];
             }
         }
         unset($default_values['url']);
-        
+
         $this->data_preprocessing($default_values);
         parent::set_data($default_values);
     }
-    
+
     function completion_rule_enabled($data) {
         return !empty($data['completionsubmit']);
     }
-    
-    
+
+
 }

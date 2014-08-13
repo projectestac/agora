@@ -78,9 +78,13 @@ class mnet_review_host_form extends moodleform {
         $mnet_peer = $this->_customdata['peer'];
 
         $mform->addElement('hidden', 'last_connect_time');
+        $mform->setType('last_connect_time', PARAM_INT);
         $mform->addElement('hidden', 'id');
+        $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'applicationid');
+        $mform->setType('applicationid', PARAM_INT);
         $mform->addElement('hidden', 'oldpublickey');
+        $mform->setType('oldpublickey', PARAM_PEM);
 
         $mform->addElement('text', 'name', get_string('site'), array('maxlength' => 80, 'size' => 50));
         $mform->setType('name', PARAM_NOTAGS);
@@ -91,7 +95,7 @@ class mnet_review_host_form extends moodleform {
         $mform->addRule('wwwroot', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
         $themes = array('' => get_string('forceno'));
-        foreach (array_keys(get_plugin_list('theme')) as $themename) {
+        foreach (array_keys(core_component::get_plugin_list('theme')) as $themename) {
             $themes[$themename] = get_string('pluginname', 'theme_'.$themename);
         }
         $mform->addElement('select', 'theme', get_string('forcetheme'), $themes);
@@ -148,6 +152,7 @@ class mnet_review_host_form extends moodleform {
             $mform->addGroup($radioarray, 'radioar', get_string('deleted'), array(' ', ' '), false);
         } else {
             $mform->addElement('hidden', 'deleted');
+            $mform->setType('deleted', PARAM_BOOL);
         }
 
         // finished with static stuff, print save button

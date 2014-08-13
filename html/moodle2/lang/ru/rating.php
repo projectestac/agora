@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'rating', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'rating', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   rating
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,4 +56,4 @@ $string['ratinginvalid'] = 'Некорректная оценка';
 $string['ratings'] = 'Оценки';
 $string['ratingtime'] = 'Ограничить оценивание элементов диапазоном дат:';
 $string['rolewarning'] = 'Роли, которым дано право выставлять оценки';
-$string['rolewarning_help'] = 'Для выставления оценок пользователям нужно иметь право "moodle/rating:rate" и необходимые права в рамках конкретного модуля. Пользователи, которым назначены следующие роли, должны быть в состоянии оценивать элементы. Список ролей может быть изменён с помощью ссылки "Пользователи" - "Права" разрешений в блоке "Администрирование".';
+$string['rolewarning_help'] = 'Для выставления оценок пользователям нужно иметь право «moodle/rating:rate» и необходимые права в рамках конкретного модуля. Пользователи, которым назначены следующие роли, должны быть в состоянии оценивать элементы. Список ролей может быть изменен с помощью ссылки разрешений в блоке «Администрирование».';

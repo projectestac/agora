@@ -43,6 +43,7 @@ class core_calendar_renderer extends plugin_renderer_base {
      * @return string
      */
     public function basic_export_form($allowthisweek, $allownextweek, $allownextmonth, $userid, $authtoken) {
+        global $CFG;
 
         $output  = html_writer::tag('div', get_string('export', 'calendar'), array('class'=>'header'));
         $output .= html_writer::start_tag('fieldset');
@@ -84,8 +85,20 @@ class core_calendar_renderer extends plugin_renderer_base {
         $output .= html_writer::empty_tag('input', array('type'=>'radio', 'name'=>'preset_time', 'id'=>'pt_recupc', 'value'=>'recentupcoming'));
         $output .= html_writer::tag('label', get_string('recentupcoming', 'calendar'), array('for'=>'pt_recupc'));
         $output .= html_writer::empty_tag('br');
-        $output .= html_writer::end_tag('div');
 
+        if ($CFG->calendar_customexport) {
+            $a = new stdClass();
+            $now = time();
+            $time = $now - $CFG->calendar_exportlookback * DAYSECS;
+            $a->timestart = userdate($time, get_string('strftimedatefullshort', 'langconfig'));
+            $time = $now + $CFG->calendar_exportlookahead * DAYSECS;
+            $a->timeend = userdate($time, get_string('strftimedatefullshort', 'langconfig'));
+            $output .= html_writer::empty_tag('input', array('type' => 'radio', 'name' => 'preset_time', 'id' => 'pt_custom', 'value' => 'custom'));
+            $output .= html_writer::tag('label', get_string('customexport', 'calendar', $a), array('for' => 'pt_custom'));
+            $output .= html_writer::empty_tag('br');
+        }
+
+        $output .= html_writer::end_tag('div');
         $output .= html_writer::start_tag('div', array('class'=>'rightalign'));
         $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'cal_d', 'value'=>''));
         $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'cal_m', 'value'=>''));
@@ -153,21 +166,29 @@ class core_calendar_renderer extends plugin_renderer_base {
      * @return string
      */
     public function fake_block_threemonths(calendar_information $calendar) {
+        // Get the calendar type we are using.
+        $calendartype = \core_calendar\type_factory::get_calendar_instance();
 
-        list($prevmon, $prevyr) = calendar_sub_month($calendar->month, $calendar->year);
-        list($nextmon, $nextyr) = calendar_add_month($calendar->month, $calendar->year);
+        $date = $calendartype->timestamp_to_date_array($calendar->time);
 
-        $content  = html_writer::start_tag('div', array('class'=>'minicalendarblock'));
-        $content .= calendar_top_controls('display', array('id' => $calendar->courseid, 'm' => $prevmon, 'y' => $prevyr));
-        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, $prevmon, $prevyr);
+        $prevmonth = calendar_sub_month($date['mon'], $date['year']);
+        $prevmonthtime = $calendartype->convert_to_gregorian($prevmonth[1], $prevmonth[0], 1);
+        $prevmonthtime = make_timestamp($prevmonthtime['year'], $prevmonthtime['month'], $prevmonthtime['day'],
+            $prevmonthtime['hour'], $prevmonthtime['minute']);
+
+        $nextmonth = calendar_add_month($date['mon'], $date['year']);
+        $nextmonthtime = $calendartype->convert_to_gregorian($nextmonth[1], $nextmonth[0], 1);
+        $nextmonthtime = make_timestamp($nextmonthtime['year'], $nextmonthtime['month'], $nextmonthtime['day'],
+            $nextmonthtime['hour'], $nextmonthtime['minute']);
+
+        $content  = html_writer::start_tag('div', array('class' => 'minicalendarblock'));
+        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, false, false, 'display', $calendar->courseid, $prevmonthtime);
         $content .= html_writer::end_tag('div');
-        $content .= html_writer::start_tag('div', array('class'=>'minicalendarblock'));
-        $content .= calendar_top_controls('display', array('id' => $calendar->courseid, 'm' => $calendar->month, 'y' => $calendar->year));
-        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, $calendar->month, $calendar->year);
+        $content .= html_writer::start_tag('div', array('class' => 'minicalendarblock'));
+        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, false, false, 'display', $calendar->courseid, $calendar->time);
         $content .= html_writer::end_tag('div');
-        $content .= html_writer::start_tag('div', array('class'=>'minicalendarblock'));
-        $content .= calendar_top_controls('display', array('id' => $calendar->courseid, 'm' => $nextmon, 'y' => $nextyr));
-        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, $nextmon, $nextyr);
+        $content .= html_writer::start_tag('div', array('class' => 'minicalendarblock'));
+        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, false, false, 'display', $calendar->courseid, $nextmonthtime);
         $content .= html_writer::end_tag('div');
         return $content;
     }
@@ -189,24 +210,31 @@ class core_calendar_renderer extends plugin_renderer_base {
      * @param int $day
      * @param int $month
      * @param int $year
+     * @param int $time the unixtime, used for multiple calendar support. The values $day,
+     *     $month and $year are kept for backwards compatibility.
      * @return string
      */
-    protected function add_event_button($courseid, $day=null, $month=null, $year=null) {
+    protected function add_event_button($courseid, $day = null, $month = null, $year = null, $time = null) {
+        // If a day, month and year were passed then convert it to a timestamp. If these were passed
+        // then we can assume the day, month and year are passed as Gregorian, as no where in core
+        // should we be passing these values rather than the time. This is done for BC.
+        if (!empty($day) && !empty($month) && !empty($year)) {
+            if (checkdate($month, $day, $year)) {
+                $time = make_timestamp($year, $month, $day);
+            } else {
+                $time = time();
+            }
+        } else if (empty($time)) {
+            $time = time();
+        }
+
         $output = html_writer::start_tag('div', array('class'=>'buttons'));
-        $output .= html_writer::start_tag('form', array('action'=>CALENDAR_URL.'event.php', 'method'=>'get'));
+        $output .= html_writer::start_tag('form', array('action' => CALENDAR_URL . 'event.php', 'method' => 'get'));
         $output .= html_writer::start_tag('div');
-        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'action', 'value'=>'new'));
-        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'course', 'value'=>$courseid));
-        if ($day !== null) {
-            $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'cal_d', 'value'=>$day));
-        }
-        if ($month !== null) {
-            $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'cal_m', 'value'=>$month));
-        }
-        if ($year !== null) {
-            $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'cal_y', 'value'=>$year));
-        }
-        $output .= html_writer::empty_tag('input', array('type'=>'submit', 'value'=>get_string('newevent', 'calendar')));
+        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name' => 'action', 'value' => 'new'));
+        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name' => 'course', 'value' => $courseid));
+        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name' => 'time', 'value' => $time));
+        $output .= html_writer::empty_tag('input', array('type'=>'submit', 'value' => get_string('newevent', 'calendar')));
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
@@ -225,18 +253,16 @@ class core_calendar_renderer extends plugin_renderer_base {
             $returnurl = $this->page->url;
         }
 
-        $calendar->checkdate();
         $events = calendar_get_upcoming($calendar->courses, $calendar->groups, $calendar->users, 1, 100, $calendar->timestamp_today());
 
         $output  = html_writer::start_tag('div', array('class'=>'header'));
         if (calendar_user_can_add_event($calendar->course)) {
-            $output .= $this->add_event_button($calendar->course->id, $calendar->day, $calendar->month, $calendar->year);
+            $output .= $this->add_event_button($calendar->course->id, 0, 0, 0, $calendar->time);
         }
-        //$output .= html_writer::tag('label', get_string('dayview', 'calendar'), array('for'=>'cal_course_flt_jump'));
-        $output .= $this->course_filter_selector($returnurl, get_string('dayview', 'calendar'));
+        $output .= $this->course_filter_selector($returnurl, get_string('dayviewfor', 'calendar'));
         $output .= html_writer::end_tag('div');
         // Controls
-        $output .= html_writer::tag('div', calendar_top_controls('day', array('id' => $calendar->courseid, 'd' => $calendar->day, 'm' => $calendar->month, 'y' => $calendar->year)), array('class'=>'controls'));
+        $output .= html_writer::tag('div', calendar_top_controls('day', array('id' => $calendar->courseid, 'time' => $calendar->time)), array('class'=>'controls'));
 
         if (empty($events)) {
             // There is nothing to display today.
@@ -279,6 +305,8 @@ class core_calendar_renderer extends plugin_renderer_base {
      * @return string
      */
     public function event(calendar_event $event, $showactions=true) {
+        global $CFG;
+
         $event = calendar_add_event_metadata($event);
         $context = $event->context;
 
@@ -307,6 +335,16 @@ class core_calendar_renderer extends plugin_renderer_base {
         }
         if (!empty($event->courselink)) {
             $table->data[0]->cells[1]->text .= html_writer::tag('div', $event->courselink, array('class'=>'course'));
+        }
+        // Show subscription source if needed.
+        if (!empty($event->subscription) && $CFG->calendar_showicalsource) {
+            if (!empty($event->subscription->url)) {
+                $source = html_writer::link($event->subscription->url, get_string('subsource', 'calendar', $event->subscription));
+            } else {
+                // File based ical.
+                $source = get_string('subsource', 'calendar', $event->subscription);
+            }
+            $table->data[0]->cells[1]->text .= html_writer::tag('div', $source, array('class' => 'subscription'));
         }
         if (!empty($event->time)) {
             $table->data[0]->cells[1]->text .= html_writer::tag('span', $event->time, array('class'=>'date'));
@@ -355,6 +393,7 @@ class core_calendar_renderer extends plugin_renderer_base {
      * Displays a month in detail
      *
      * @param calendar_information $calendar
+     * @param moodle_url $returnurl the url to return to
      * @return string
      */
     public function show_month_detailed(calendar_information $calendar, moodle_url $returnurl  = null) {
@@ -364,34 +403,51 @@ class core_calendar_renderer extends plugin_renderer_base {
             $returnurl = $this->page->url;
         }
 
-        $date = usergetdate(time());
+        // Get the calendar type we are using.
+        $calendartype = \core_calendar\type_factory::get_calendar_instance();
 
+        // Store the display settings.
         $display = new stdClass;
-        $display->minwday = get_user_preferences('calendar_startwday', calendar_get_starting_weekday());
-        $display->maxwday = $display->minwday + 6;
-        $display->thismonth = ($date['mon'] == $calendar->month);
-        $display->maxdays = calendar_days_in_month($calendar->month, $calendar->year);
+        $display->thismonth = false;
 
-        $startwday = 0;
-        if (get_user_timezone_offset() < 99) {
-            // We 'll keep these values as GMT here, and offset them when the time comes to query the db
-            $display->tstart = gmmktime(0, 0, 0, $calendar->month, 1, $calendar->year); // This is GMT
-            $display->tend = gmmktime(23, 59, 59, $calendar->month, $display->maxdays, $calendar->year); // GMT
-            $startwday = gmdate('w', $display->tstart); // $display->tstart is already GMT, so don't use date(): messes with server's TZ
-        } else {
-            // no timezone info specified
-            $display->tstart = mktime(0, 0, 0, $calendar->month, 1, $calendar->year);
-            $display->tend = mktime(23, 59, 59, $calendar->month, $display->maxdays, $calendar->year);
-            $startwday = date('w', $display->tstart); // $display->tstart not necessarily GMT, so use date()
+        // Get the specified date in the calendar type being used.
+        $date = $calendartype->timestamp_to_date_array($calendar->time);
+        $thisdate = $calendartype->timestamp_to_date_array(time());
+        if ($date['mon'] == $thisdate['mon'] && $date['year'] == $thisdate['year']) {
+            $display->thismonth = true;
+            $date = $thisdate;
+            $calendar->time = time();
         }
 
+        // Get Gregorian date for the start of the month.
+        $gregoriandate = $calendartype->convert_to_gregorian($date['year'], $date['mon'], 1);
+        // Store the gregorian date values to be used later.
+        list($gy, $gm, $gd, $gh, $gmin) = array($gregoriandate['year'], $gregoriandate['month'], $gregoriandate['day'],
+            $gregoriandate['hour'], $gregoriandate['minute']);
+
+        // Get the starting week day for this month.
+        $startwday = dayofweek(1, $date['mon'], $date['year']);
+        // Get the days in a week.
+        $daynames = calendar_get_days();
+        // Store the number of days in a week.
+        $numberofdaysinweek = $calendartype->get_num_weekdays();
+
+        $display->minwday = calendar_get_starting_weekday();
+        $display->maxwday = $display->minwday + ($numberofdaysinweek - 1);
+        $display->maxdays = calendar_days_in_month($date['mon'], $date['year']);
+
+        // These are used for DB queries, so we want unixtime, so we need to use Gregorian dates.
+        $display->tstart = make_timestamp($gy, $gm, $gd, $gh, $gmin, 0);
+        $display->tend = $display->tstart + ($display->maxdays * DAYSECS) - 1;
+
         // Align the starting weekday to fall in our display range
+        // This is simple, not foolproof.
         if ($startwday < $display->minwday) {
-            $startwday += 7;
+            $startwday += $numberofdaysinweek;
         }
 
         // Get events from database
-        $events = calendar_get_events(usertime($display->tstart), usertime($display->tend), $calendar->users, $calendar->groups, $calendar->courses);
+        $events = calendar_get_events($display->tstart, $display->tend, $calendar->users, $calendar->groups, $calendar->courses);
         if (!empty($events)) {
             foreach($events as $eventid => $event) {
                 $event = new calendar_event($event);
@@ -405,60 +461,32 @@ class core_calendar_renderer extends plugin_renderer_base {
         }
 
         // Extract information: events vs. time
-        calendar_events_by_day($events, $calendar->month, $calendar->year, $eventsbyday, $durationbyday, $typesbyday, $calendar->courses);
+        calendar_events_by_day($events, $date['mon'], $date['year'], $eventsbyday, $durationbyday, $typesbyday, $calendar->courses);
 
         $output  = html_writer::start_tag('div', array('class'=>'header'));
         if (calendar_user_can_add_event($calendar->course)) {
-            $output .= $this->add_event_button($calendar->course->id, null, $calendar->month, $calendar->year);
+            $output .= $this->add_event_button($calendar->course->id, 0, 0, 0, $calendar->time);
         }
-        $output .= get_string('detailedmonthview', 'calendar').': '.$this->course_filter_selector($returnurl);
+        $output .= $this->course_filter_selector($returnurl, get_string('detailedmonthviewfor', 'calendar'));
         $output .= html_writer::end_tag('div', array('class'=>'header'));
         // Controls
-        $output .= html_writer::tag('div', calendar_top_controls('month', array('id' => $calendar->courseid, 'm' => $calendar->month, 'y' => $calendar->year)), array('class'=>'controls'));
-
-        $days = calendar_get_days();
+        $output .= html_writer::tag('div', calendar_top_controls('month', array('id' => $calendar->courseid, 'time' => $calendar->time)), array('class' => 'controls'));
 
         $table = new html_table();
         $table->attributes = array('class'=>'calendarmonth calendartable');
-        $time = make_timestamp($calendar->year, $calendar->month);
-        $table->summary = get_string('calendarheading', 'calendar', userdate($time, get_string('strftimemonthyear')));
+        $table->summary = get_string('calendarheading', 'calendar', userdate($calendar->time, get_string('strftimemonthyear')));
         $table->data = array();
 
-        $header = new html_table_row();
-        $header->attributes = array('class'=>'weekdays');
-        $header->cells = array();
+        // Get the day names as the header.
+        $header = array();
         for($i = $display->minwday; $i <= $display->maxwday; ++$i) {
-            // This uses the % operator to get the correct weekday no matter what shift we have
-            // applied to the $display->minwday : $display->maxwday range from the default 0 : 6
-            $cell = new html_table_cell(get_string($days[$i % 7], 'calendar'));
-            $cell->header = true;
-            $header->cells[] = $cell;
+            $header[] = $daynames[$i % $numberofdaysinweek]['shortname'];
         }
+        $table->head = $header;
 
         // For the table display. $week is the row; $dayweek is the column.
         $week = 1;
         $dayweek = $startwday;
-
-        // Create an array of all the week days.
-        $wdays = array(0 => '<strong>'. get_string('sunday', 'calendar'). '</strong>',
-                       1 => '<strong>'. get_string('monday', 'calendar'). '</strong>',
-                       2 => '<strong>'. get_string('tuesday', 'calendar'). '</strong>',
-                       3 => '<strong>'. get_string('wednesday', 'calendar'). '</strong>',
-                       4 => '<strong>'. get_string('thursday', 'calendar'). '</strong>',
-                       5 => '<strong>'. get_string('friday', 'calendar'). '</strong>',
-                       6 => '<strong>'. get_string('saturday', 'calendar'). '</strong>');
-
-        // Loop only if the day offset is greater than 0.
-        // This loop involves shifting the days around until the desired start day
-        // is at the start of the array.
-        $daycount = 0;
-        while ($display->minwday > $daycount++) {
-            $wdays_end = array_shift($wdays);
-            array_push($wdays, $wdays_end);
-        }
-
-        // Now we set the (modified) array to the table header to be displayed.
-        $table->head = $wdays;
 
         $row = new html_table_row(array());
 
@@ -475,7 +503,9 @@ class core_calendar_renderer extends plugin_renderer_base {
             $weekend = intval($CFG->calendar_weekend);
         }
 
-        for ($calendar->day = 1; $calendar->day <= $display->maxdays; ++$calendar->day, ++$dayweek) {
+        $daytime = $display->tstart - DAYSECS;
+        for ($day = 1; $day <= $display->maxdays; ++$day, ++$dayweek) {
+            $daytime = $daytime + DAYSECS;
             if($dayweek > $display->maxwday) {
                 // We need to change week (table row)
                 $table->data[] = $row;
@@ -486,36 +516,36 @@ class core_calendar_renderer extends plugin_renderer_base {
 
             // Reset vars
             $cell = new html_table_cell();
-            $dayhref = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view'=>'day', 'course'=>$calendar->courseid)), $calendar->day, $calendar->month, $calendar->year);
+            $dayhref = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'day', 'course' => $calendar->courseid)), 0, 0, 0, $daytime);
 
             $cellclasses = array();
 
-            if ($weekend & (1 << ($dayweek % 7))) {
+            if ($weekend & (1 << ($dayweek % $numberofdaysinweek))) {
                 // Weekend. This is true no matter what the exact range is.
                 $cellclasses[] = 'weekend';
             }
 
             // Special visual fx if an event is defined
-            if (isset($eventsbyday[$calendar->day])) {
-                if(count($eventsbyday[$calendar->day]) == 1) {
+            if (isset($eventsbyday[$day])) {
+                if(count($eventsbyday[$day]) == 1) {
                     $title = get_string('oneevent', 'calendar');
                 } else {
-                    $title = get_string('manyevents', 'calendar', count($eventsbyday[$calendar->day]));
+                    $title = get_string('manyevents', 'calendar', count($eventsbyday[$day]));
                 }
-                $cell->text = html_writer::tag('div', html_writer::link($dayhref, $calendar->day, array('title'=>$title)), array('class'=>'day'));
+                $cell->text = html_writer::tag('div', html_writer::link($dayhref, $day, array('title'=>$title)), array('class'=>'day'));
             } else {
-                $cell->text = html_writer::tag('div', $calendar->day, array('class'=>'day'));
+                $cell->text = html_writer::tag('div', $day, array('class'=>'day'));
             }
 
             // Special visual fx if an event spans many days
             $durationclass = false;
-            if (isset($typesbyday[$calendar->day]['durationglobal'])) {
+            if (isset($typesbyday[$day]['durationglobal'])) {
                 $durationclass = 'duration_global';
-            } else if (isset($typesbyday[$calendar->day]['durationcourse'])) {
+            } else if (isset($typesbyday[$day]['durationcourse'])) {
                 $durationclass = 'duration_course';
-            } else if (isset($typesbyday[$calendar->day]['durationgroup'])) {
+            } else if (isset($typesbyday[$day]['durationgroup'])) {
                 $durationclass = 'duration_group';
-            } else if (isset($typesbyday[$calendar->day]['durationuser'])) {
+            } else if (isset($typesbyday[$day]['durationuser'])) {
                 $durationclass = 'duration_user';
             }
             if ($durationclass) {
@@ -524,16 +554,16 @@ class core_calendar_renderer extends plugin_renderer_base {
             }
 
             // Special visual fx for today
-            if ($display->thismonth && $calendar->day == $date['mday']) {
+            if ($display->thismonth && $day == $date['mday']) {
                 $cellclasses[] = 'day today';
             } else {
                 $cellclasses[] = 'day nottoday';
             }
             $cell->attributes = array('class'=>join(' ',$cellclasses));
 
-            if (isset($eventsbyday[$calendar->day])) {
+            if (isset($eventsbyday[$day])) {
                 $cell->text .= html_writer::start_tag('ul', array('class'=>'events-new'));
-                foreach($eventsbyday[$calendar->day] as $eventindex) {
+                foreach($eventsbyday[$day] as $eventindex) {
                     // If event has a class set then add it to the event <li> tag
                     $attributes = array();
                     if (!empty($events[$eventindex]->class)) {
@@ -545,9 +575,9 @@ class core_calendar_renderer extends plugin_renderer_base {
                 }
                 $cell->text .= html_writer::end_tag('ul');
             }
-            if (isset($durationbyday[$calendar->day])) {
+            if (isset($durationbyday[$day])) {
                 $cell->text .= html_writer::start_tag('ul', array('class'=>'events-underway'));
-                foreach($durationbyday[$calendar->day] as $eventindex) {
+                foreach($durationbyday[$day] as $eventindex) {
                     $cell->text .= html_writer::tag('li', '['.format_string($events[$eventindex]->name,true).']', array('class'=>'events-underway'));
                 }
                 $cell->text .= html_writer::end_tag('ul');
@@ -660,8 +690,7 @@ class core_calendar_renderer extends plugin_renderer_base {
         if (calendar_user_can_add_event($calendar->course)) {
             $output .= $this->add_event_button($calendar->course->id);
         }
-        $output .= html_writer::tag('label', get_string('upcomingevents', 'calendar'), array('for'=>'cal_course_flt_jump'));
-        $output .= $this->course_filter_selector($returnurl);
+        $output .= $this->course_filter_selector($returnurl, get_string('upcomingeventsfor', 'calendar'));
         $output .= html_writer::end_tag('div');
 
         if ($events) {
@@ -684,7 +713,8 @@ class core_calendar_renderer extends plugin_renderer_base {
     /**
      * Displays a course filter selector
      *
-     * @param array $getvars
+     * @param moodle_url $returnurl The URL that the user should be taken too upon selecting a course.
+     * @param string $label The label to use for the course select.
      * @return string
      */
     protected function course_filter_selector(moodle_url $returnurl, $label=null) {
@@ -714,7 +744,9 @@ class core_calendar_renderer extends plugin_renderer_base {
         } else {
             $selected = '';
         }
-        $select = new single_select(new moodle_url(CALENDAR_URL.'set.php', array('return' => base64_encode($returnurl->out(false)), 'var' => 'setcourse', 'sesskey'=>sesskey())), 'id', $courseoptions, $selected, null);
+        $courseurl = new moodle_url($returnurl);
+        $courseurl->remove_params('course');
+        $select = new single_select($courseurl, 'course', $courseoptions, $selected, null);
         $select->class = 'cal_courses_flt';
         if ($label !== null) {
             $select->set_label($label);

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_ddimageortext', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_ddimageortext', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_ddimageortext
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -58,7 +58,6 @@ $string['pluginnameediting'] = 'Редактировать вопрос типа
 $string['pluginname_help'] = 'Выберите файл с фоновым изображением, выберите перетаскиваемое изображение или текст и задайте зоны, в которые необходимо переместить элементы.';
 $string['pluginname_link'] = 'question/type/ddimageortext';
 $string['pluginnamesummary'] = 'Изображение или текст необходимо перетащить в зону на фоновом изображении.';
-$string['previewarea'] = 'Просмотр зоны -';
 $string['previewareaheader'] = 'Предварительный просмотр';
 $string['previewareamessage'] = 'Выберите файл с фоновым изображением, выберите  перетаскиваемое изображение или введите текст, который нужно будет перетаскивать.
 Затем определите перетаскиваемые элементы для каждой зоны, в которые студент должен переместить элементы.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qbehaviour_deferredcbm', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qbehaviour_deferredcbm', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qbehaviour_deferredcbm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,10 @@ $string['assumingcertainty'] = 'No ha seleccionado un grado de certeza. Asumiend
 $string['certainty1'] = 'No mucho (menor a 67%)';
 $string['certainty2'] = 'Regular (más de 67%)';
 $string['certainty3'] = 'Muy (más de 80%)';
-$string['howcertainareyou'] = '¿Qué tan seguro estás? {$a}';
-$string['markadjustment'] = 'Sobre la base del grado de certeza que usted ha expresado, su marca de base de {$a->rawmark} se ha ajustado a {$a->mark}.';
+$string['certaintyshort1'] = 'C=1';
+$string['certaintyshort2'] = 'C=2';
+$string['certaintyshort3'] = 'C=3';
+$string['howcertainareyou'] = 'Grado de certeza{$a->help}: {$a->choices}';
+$string['judgementok'] = 'Ok';
+$string['noquestions'] = 'No hay respuestas';
 $string['pluginname'] = 'Retroalimentación diferida con CBM';

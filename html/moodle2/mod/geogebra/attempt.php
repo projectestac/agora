@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/locallib.php');
 
 $id = optional_param('id', 0, PARAM_INT);  // course_module ID, or
 $a = optional_param('n', 0, PARAM_INT);    // geogebra instance ID
-$f = optional_param('f', 1, PARAM_INT);    // finished 
+$f = optional_param('f', 1, PARAM_INT);    // finished
 $vars = optional_param('appletInformation', '', PARAM_RAW); // applet variables
 
 if ($id) {
@@ -20,7 +20,7 @@ if ($id) {
 } else {
     error('You must specify a course_module ID or an instance ID');
 }
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::::instance($cm->id);
 
 //Activity was sended before the applet was fully loaded
 parse_str($vars, $parsedVars);

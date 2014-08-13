@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_moodleemoticon', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_moodleemoticon', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_moodleemoticon
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,3 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['moodleemoticon:desc'] = '插入表情';
 $string['pluginname'] = '插入表情';
+$string['requireemoticon'] = '需要表情过滤器';
+$string['requireemoticon_desc'] = '需要先要在网站管理-插件-过滤器-管理过滤器里启用表情过滤器才能启用表情按钮。';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'role', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'role', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   role
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addinganewrole'] = 'Adicionar novo papel';
-$string['addingrolebycopying'] = 'Adicionar novo papel baseado em {$a}';
 $string['addrole'] = 'Adicionar novo papel';
 $string['advancedoverride'] = 'Redefinir papéis avançado';
 $string['allow'] = 'Permitir';
@@ -71,10 +70,22 @@ $string['backup:backuptargetimport'] = 'Fazer cópia de segurança para importa�
 $string['backup:configure'] = 'Configurar opções das cópias de segurança';
 $string['backup:downloadfile'] = 'Descarregar ficheiros das áreas de cópia de segurança';
 $string['backup:userinfo'] = 'Fazer cópia de segurança das informações dos utilizadores';
+$string['badges:awardbadge'] = 'Atribuir Medalha a um utilizador';
+$string['badges:configurecriteria'] = 'Configurar/editar critérios para atribuição de uma Medalha';
+$string['badges:configuredetails'] = 'Configurar/editar detalhes da Medalha';
+$string['badges:configuremessages'] = 'Configurar mensagens da Medalha';
+$string['badges:createbadge'] = 'Criar/duplicar Medalhas';
+$string['badges:deletebadge'] = 'Eliminar Medalhas';
+$string['badges:earnbadge'] = 'Receber Medalha';
+$string['badges:manageglobalsettings'] = 'Gerir configurações globais das Medalhas';
+$string['badges:manageownbadges'] = 'Ver e gerir as Medalhas recebidas';
+$string['badges:viewawarded'] = 'Ver utilizadores que ganharam uma Medalha específica mas cujo papel não lhes permite atribuir uma Medalha';
+$string['badges:viewbadges'] = 'Ver Medalhas disponíveis sem as ter';
+$string['badges:viewotherbadges'] = 'Ver Medalhas públicas no perfil de outros utilizadores';
 $string['block:edit'] = 'Alterar as configurações de um bloco';
 $string['block:view'] = 'Ver bloco';
-$string['blog:associatecourse'] = 'Associar mensagens dos blogues a disciplinas';
-$string['blog:associatemodule'] = 'Associar mensagens dos blogues a módulos de atividade';
+$string['blog:associatecourse'] = 'Esta capacidade foi descontinuada e não faz nada.';
+$string['blog:associatemodule'] = 'Esta capacidade foi descontinuada e não faz nada.';
 $string['blog:create'] = 'Criar novas entradas do blogue';
 $string['blog:manageentries'] = 'Editar e gerir entradas';
 $string['blog:manageexternal'] = 'Gerir e alterar blogues externos';
@@ -152,6 +163,7 @@ $string['course:viewhiddensections'] = 'Ver secções ocultas';
 $string['course:viewhiddenuserfields'] = 'Ver campos de utilizador ocultos';
 $string['course:viewparticipants'] = 'Ver participantes';
 $string['course:viewscales'] = 'Ver escalas';
+$string['course:viewsuspendedusers'] = 'Ver utilizadores suspensos';
 $string['course:visibility'] = 'Ocultar/mostrar disciplinas';
 $string['createrolebycopying'] = 'Criar um papel copiado de {$a}';
 $string['createthisrole'] = 'Criar este papel';
@@ -177,9 +189,17 @@ $string['errorbadrolename'] = 'Nome do papel incorreto';
 $string['errorbadroleshortname'] = 'Nome curto do papel incorreto';
 $string['errorexistsrolename'] = 'O nome do papel já existe';
 $string['errorexistsroleshortname'] = 'O nome do papel já existe';
+$string['eventroleallowassignupdated'] = 'Permitir atribuição de papel';
+$string['eventroleallowoverrideupdated'] = 'Permitir redefinir papel';
+$string['eventroleallowswitchupdated'] = 'Permitir trocar de papel';
+$string['eventroleassigned'] = 'Papel atribuído';
+$string['eventrolecapabilitiesupdated'] = 'Capacidades do papel atualizadas';
+$string['eventroledeleted'] = 'Papel eliminado';
+$string['eventroleunassigned'] = 'Papel não atribuído';
 $string['existingadmins'] = 'Administradores do site';
 $string['existingusers'] = '{$a} utilizadores existentes';
 $string['explanation'] = 'Explicação';
+$string['export'] = 'Exportar';
 $string['extusers'] = 'Utilizadores existentes';
 $string['extusersmatching'] = 'Utilizadores existentes que correspondem a \'{$a}';
 $string['filter:manage'] = 'Gerir configurações atuais do filtro';
@@ -211,6 +231,7 @@ $string['highlightedcellsshowinherit'] = 'As células em destaque na tabela abai
 $string['inactiveformorethan'] = 'sem atividade há mais de {$a->timeperiod}';
 $string['ingroup'] = 'no grupo {$a->group}';
 $string['inherit'] = 'Herdar';
+$string['invalidpresetfile'] = 'Ficheiro de definição de papel inválido';
 $string['legacy:admin'] = 'PAPEL LEGADO: Administrador';
 $string['legacy:coursecreator'] = 'PAPEL LEGADO: Criador de disciplina';
 $string['legacy:editingteacher'] = 'PAPEL LEGADO: Professor (editor)';
@@ -236,6 +257,7 @@ $string['neededroles'] = 'Papéis com permissão';
 $string['nocapabilitiesincontext'] = 'Não há capacidades disponíveis neste contexto';
 $string['noneinthisx'] = 'Nenhum(a) em {$a}';
 $string['noneinthisxmatching'] = 'Não existem utilizadores com correspondência a \'{$a->search}\' em {$a->contexttype}';
+$string['norole'] = 'Sem papel';
 $string['noroleassignments'] = 'Não foi atribuído nenhum papel a este utilizador neste site';
 $string['noroles'] = 'Sem papéis';
 $string['notabletoassignroleshere'] = 'Não tem permissão para atribuir papéis neste contexto';
@@ -287,10 +309,8 @@ $string['rating:rate'] = 'Adicionar notas aos itens';
 $string['rating:view'] = 'Ver a sua nota total';
 $string['rating:viewall'] = 'Ver as notas dadas individualmente';
 $string['rating:viewany'] = 'Ver as notas totais de um utilizador';
-$string['resetrole'] = 'Restaurar valores originais';
-$string['resetrolenolegacy'] = 'Apagar permissões';
-$string['resetrolesure'] = 'Tem a certeza de que quer repor os valores definidos por omissão para o papel "$a->name {$a->shortname}"?<p></p> As reposições são definidas em função do papel predefinido selecionado {$a->legacytype}.';
-$string['resetrolesurenolegacy'] = 'Tem a certeza de que quer eliminar todas as permissões para o papel "$a->name {$a->shortname}"?';
+$string['resetrole'] = 'Restaurar';
+$string['resettingrole'] = 'Restaurar papel \'{$a}\'';
 $string['restore:configure'] = 'Configurar opções de restauro';
 $string['restore:createuser'] = 'Criar utilizadores no restauro';
 $string['restore:restoreactivity'] = 'Restaurar atividades';
@@ -314,7 +334,11 @@ $string['role:manage'] = 'Criar e editar papéis';
 $string['role:override'] = 'Redefinir papéis';
 $string['roleprohibitheader'] = 'Proibir papel';
 $string['roleprohibitinfo'] = 'Selecione um papel a ser adicionado à lista de papéis proibidos no contexto {$a->context}, capacidade {$a->cap}:';
+$string['rolerepreset'] = 'Usar configurações predefinidas do papel';
+$string['roleresetdefaults'] = 'Configurações predefinidas';
+$string['roleresetrole'] = 'Usar papel ou modelo';
 $string['role:review'] = 'Rever permissões de outros';
+$string['rolerisks'] = 'Riscos do papel';
 $string['roles'] = 'Papéis';
 $string['role:safeoverride'] = 'Redefinir permissões seguras de outros';
 $string['roleselect'] = 'Selecionar papel';
@@ -357,6 +381,7 @@ $string['tag:edit'] = 'Editar palavras-chave existentes';
 $string['tag:editblocks'] = 'Editar blocos nas páginas de palavras-chave';
 $string['tag:flag'] = 'Marcar palavras-chave como inapropriadas';
 $string['tag:manage'] = 'Gerir todas as palavras-chave';
+$string['thisnewrole'] = 'Este novo papel';
 $string['thisusersroles'] = 'Papéis atribuídos a este utilizador';
 $string['unassignarole'] = 'Retirar o papel {$a}';
 $string['unassignconfirm'] = 'Deseja realmente retirar o papel "{$a->role}" ao utilizador "{$a->user}"?';
@@ -374,8 +399,8 @@ $string['user:manageblocks'] = 'Gerir blocos no perfil de utilizador de outros u
 $string['user:manageownblocks'] = 'Gerir blocos no seu perfil público de utilizador';
 $string['user:manageownfiles'] = 'Gerir ficheiros nas áreas de ficheiros privados';
 $string['user:managesyspages'] = 'Configurar o layout predefinido das páginas dos perfis de utilizadores públicas';
-$string['user:readuserblogs'] = 'Ver os blogs do utilizador';
-$string['user:readuserposts'] = 'Ver mensagens de Fórum do utilizador';
+$string['user:readuserblogs'] = 'Ver todos os blogues do utilizador';
+$string['user:readuserposts'] = 'Ver todos os tópicos de Fórum do utilizador';
 $string['usersfrom'] = 'Utilizadores de {$a}';
 $string['usersfrommatching'] = 'Utilizadores de {$a->contextname} correspondem a \'{$a->search}';
 $string['usersinthisx'] = 'Utilizadores deste {$a}';

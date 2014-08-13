@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'hotpot', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'hotpot', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   hotpot
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,8 +34,8 @@ $string['clues'] = 'Ίχνη';
 $string['completed'] = 'Ολοκληρωμένο';
 $string['correct'] = 'Σωστά';
 $string['feedbackformmail'] = 'Φόρμα ανάδρασης';
-$string['feedbackmoodleforum'] = 'Ομάδα συζήτησης ΠΗΛΕΑΣ';
-$string['feedbackmoodlemessaging'] = 'Μηνύματα ΠΗΛΕΑΣ';
+$string['feedbackmoodleforum'] = 'Ομάδα συζήτησης Moodle';
+$string['feedbackmoodlemessaging'] = 'Μηνύματα Moodle';
 $string['feedbacknone'] = 'Κανένα';
 $string['feedbackwebpage'] = 'Ιστοσελίδα';
 $string['forceplugins'] = 'Επιβολή των υπομονάδων λογισμικού για πολυμέσα';
@@ -48,7 +48,7 @@ $string['inprogress'] = 'Εκτελείται';
 $string['modulename'] = 'Το Hot Potatoes Κουίζ';
 $string['modulenameplural'] = 'Τα Hot Potatoes Κουίζ';
 $string['navigation'] = 'Πλοήγηση';
-$string['navigation_frame'] = 'Πλαίσιο πλοήγησης ΠΗΛΕΑΣ';
+$string['navigation_frame'] = 'Πλαίσιο πλοήγησης Moodle';
 $string['navigation_give_up'] = 'Ένα μοναδικό κουμπί "Εγκατάλλειψης"';
 $string['navigation_none'] = 'Καμία';
 $string['noactivity'] = 'Καμία δραστηριότητα';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = 'Incremento';
+$string['incby1_help'] = 'Este é o valor em que a secção é incrementada sempre que a hiperligação da secção é exibida, a começar em 1.';
 $string['incby2'] = 'Incremento alternativo';
-$string['incbydesc1'] = 'Valor do incremento entre os números consecutivos que são exibidos com link para as respetivas secções, a começar na secção 1.';
-$string['incbydesc2'] = 'Valor do incremento entre os números consecutivos que são exibidos com link para as respetivas secções, a começar na secção 1.';
+$string['incby2_help'] = 'Este é o valor em que a secção é incrementada sempre que a hiperligação da secção é exibida, a começar em 1.';
 $string['jumptocurrenttopic'] = 'Ir para o tópico atual';
 $string['jumptocurrentweek'] = 'Ir para a semana atual';
 $string['numsections1'] = 'Número de secções';
+$string['numsections1_help'] = 'Quando o número de secções na disciplina atinge este número será usado o incremento.';
 $string['numsections2'] = 'Número alternativo de secções';
-$string['numsectionsdesc1'] = 'Uma vez alcançado o número secções definido, então o incremento seguinte passará a ser usado.';
-$string['numsectionsdesc2'] = 'Uma vez alcançado o número secções definido, então o incremento alternativo seguinte passará a ser usado.';
+$string['numsections2_help'] = 'Quando o número de secções na disciplina atinge este número será usado o incremento alternativo.';
 $string['pluginname'] = 'Links de secção';
 $string['section_links:addinstance'] = 'Adicionar um novo bloco Links de secção';
 $string['topics'] = 'Tópicos';

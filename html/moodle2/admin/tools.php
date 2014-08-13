@@ -18,7 +18,7 @@
  * Provides an overview of installed admin tools
  *
  * Displays the list of found admin tools, their version (if found) and
- * a link to delete the admin tool.
+ * a link to uninstall the admin tool.
  *
  * The code is based on admin/localplugins.php by David Mudrak.
  *
@@ -33,67 +33,29 @@ require_once($CFG->libdir.'/tablelib.php');
 
 admin_externalpage_setup('managetools');
 
-$delete  = optional_param('delete', '', PARAM_PLUGIN);
-$confirm = optional_param('confirm', '', PARAM_BOOL);
-
-/// If data submitted, then process and store.
-
-if (!empty($delete) and confirm_sesskey()) {
-    echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('tools', 'admin'));
-
-    if (!$confirm) {
-        if (get_string_manager()->string_exists('pluginname', 'tool_' . $delete)) {
-            $strpluginname = get_string('pluginname', 'tool_' . $delete);
-        } else {
-            $strpluginname = $delete;
-        }
-        echo $OUTPUT->confirm(get_string('toolsdeleteconfirm', 'admin', $strpluginname),
-                                new moodle_url($PAGE->url, array('delete' => $delete, 'confirm' => 1)),
-                                $PAGE->url);
-        echo $OUTPUT->footer();
-        die();
-
-    } else {
-        uninstall_plugin('tool', $delete);
-        $a = new stdclass();
-        $a->name = $delete;
-        $pluginlocation = get_plugin_types();
-        $a->directory = $pluginlocation['tool'] . '/' . $delete;
-        echo $OUTPUT->notification(get_string('plugindeletefiles', '', $a), 'notifysuccess');
-        echo $OUTPUT->continue_button($PAGE->url);
-        echo $OUTPUT->footer();
-        die();
-    }
-}
-
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('tools', 'admin'));
 
 /// Print the table of all installed tool plugins
 
+$struninstall = get_string('uninstallplugin', 'core_admin');
+
 $table = new flexible_table('toolplugins_administration_table');
-$table->define_columns(array('name', 'version', 'delete'));
+$table->define_columns(array('name', 'version', 'uninstall'));
 //XTEC ************ MODIFICAT - To let access only to xtecadmin user
 //2012.08.20 @sarjona
 if (!get_protected_agora()) {
-    $strdelete = '';
-} else{
-    $strdelete = get_string('delete');
+    $struninstall = "";
 }
-$table->define_headers(array(get_string('plugin'), get_string('version'), $strdelete));
-//************ ORIGINAL
-/*
-$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('delete')));
- */
 //************ FI
+$table->define_headers(array(get_string('plugin'), get_string('version'), $struninstall));
 $table->define_baseurl($PAGE->url);
 $table->set_attribute('id', 'toolplugins');
-$table->set_attribute('class', 'generaltable generalbox boxaligncenter boxwidthwide');
+$table->set_attribute('class', 'admintable generaltable');
 $table->setup();
 
 $plugins = array();
-foreach (get_plugin_list('tool') as $plugin => $plugindir) {
+foreach (core_component::get_plugin_list('tool') as $plugin => $plugindir) {
     if (get_string_manager()->string_exists('pluginname', 'tool_' . $plugin)) {
         $strpluginname = get_string('pluginname', 'tool_' . $plugin);
     } else {
@@ -101,7 +63,7 @@ foreach (get_plugin_list('tool') as $plugin => $plugindir) {
     }
     $plugins[$plugin] = $strpluginname;
 }
-collatorlib::asort($plugins);
+core_collator::asort($plugins);
 
 $like = $DB->sql_like('plugin', '?', true, true, false, '|');
 $params = array('tool|_%');
@@ -116,12 +78,14 @@ foreach ($installed as $config) {
 }
 
 foreach ($plugins as $plugin => $name) {
-    $delete = new moodle_url($PAGE->url, array('delete' => $plugin, 'sesskey' => sesskey()));
-    $delete = html_writer::link($delete, get_string('delete'));
+    $uninstall = '';
+    if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('tool_'.$plugin, 'manage')) {
+        $uninstall = html_writer::link($uninstallurl, $struninstall);
+    }
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.08.20 @sarjona
     if (!get_protected_agora()) {
-        $delete = '';
+        $uninstall = "";
     }
     //************ FI
 
@@ -144,7 +108,7 @@ foreach ($plugins as $plugin => $name) {
         }
     }
 
-    $table->add_data(array($name, $version, $delete));
+    $table->add_data(array($name, $version, $uninstall));
 }
 
 $table->print_html();

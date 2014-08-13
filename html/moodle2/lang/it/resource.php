@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'resource', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'resource', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   resource
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -77,7 +77,7 @@ E\' possibile usare file per:
 $string['modulenameplural'] = 'File';
 $string['neverseen'] = 'Mai visualizzata';
 $string['notmigrated'] = 'Spiacente, ma questo tipo di risorsa legacy ({$a}) non è stato ancora migrata.';
-$string['optionsheader'] = 'Opzioni';
+$string['optionsheader'] = 'Opzioni di visualizzazione';
 $string['page-mod-resource-x'] = 'Qualsiasi pagina con modulo file';
 $string['pluginadministration'] = 'Gestione risorsa';
 $string['pluginname'] = 'Risorsa';
@@ -87,8 +87,6 @@ $string['popupresource'] = 'Questa risorsa dovrebbe apparire in una finestra pop
 $string['popupresourcelink'] = 'Se la popup non è apparsa, fai click qui: {$a}';
 $string['popupwidth'] = 'Larghezza popup (in pixel)';
 $string['popupwidthexplain'] = 'Larghezza di default per le finestre popup.';
-$string['printheading'] = 'Visualizza il nome della risorsa';
-$string['printheadingexplain'] = 'Consente di visualizzare il nome della risorsa prima del contenuto. Tenere presente che alcuni tipi di visualizzazione potrebbero non rispettare questa impostazione.';
 $string['printintro'] = 'Visualizza la descrizione della risorsa';
 $string['printintroexplain'] = 'Consente di visualizzare la descrizione della risorsa sotto il contenuto. Tenere presente che alcuni tipi di visualizzazione potrebbero non rispettare questa impostazione.';
 $string['resource:addinstance'] = 'Aggiungere risorse';

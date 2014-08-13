@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_blog_recent', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_blog_recent', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_blog_recent
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['blog_recent:addinstance'] = '新增一个博客文章版块';
 $string['norecentblogentries'] = '最近没有发表新博客';
 $string['numentriestodisplay'] = '显示几篇最近的博客文章';
 $string['pluginname'] = '最近博客更新';

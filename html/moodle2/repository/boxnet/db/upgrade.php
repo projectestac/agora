@@ -35,35 +35,44 @@ function xmldb_repository_boxnet_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    if ($oldversion < 2012112901) {
+    if ($oldversion < 2013110503) {
         // Delete old user preferences containing auth tokens.
         $DB->delete_records('user_preferences', array('name' => 'boxnet__auth_token'));
-        upgrade_plugin_savepoint(true, 2012112901, 'repository', 'boxnet');
+        upgrade_plugin_savepoint(true, 2013110503, 'repository', 'boxnet');
     }
 
-    if ($oldversion < 2012112902) {
+    if ($oldversion < 2013110700) {
         require_once($CFG->dirroot . '/repository/lib.php');
         require_once($CFG->dirroot . '/repository/boxnet/db/upgradelib.php');
 
-        $params = array();
-        $params['context'] = array();
-        $params['onlyvisible'] = false;
-        $params['type'] = 'boxnet';
-        $instances = repository::get_instances($params);
+        $clientid = get_config('boxnet', 'clientid');
+        $clientsecret = get_config('boxnet', 'clientsecret');
 
-        // Notify the admin about the migration process if they are using the repo.
-        if (!empty($instances)) {
-            repository_boxnet_admin_upgrade_notification();
+        // Only proceed if the repository hasn't been set for APIv2 yet.
+        if ($clientid === false && $clientsecret === false) {
+            $params = array();
+            $params['context'] = array();
+            $params['onlyvisible'] = false;
+            $params['type'] = 'boxnet';
+            $instances = repository::get_instances($params);
+
+            // Notify the admin about the migration process if they are using the repo.
+            if (!empty($instances)) {
+                repository_boxnet_admin_upgrade_notification();
+            }
+
+            // Hide the repository.
+            $repositorytype = repository::get_type_by_typename('boxnet');
+            if (!empty($repositorytype)) {
+                $repositorytype->update_visibility(false);
+            }
         }
 
-        // Hide the repository.
-        $repositorytype = repository::get_type_by_typename('boxnet');
-        if (!empty($repositorytype)) {
-            $repositorytype->update_visibility(false);
-        }
-
-        upgrade_plugin_savepoint(true, 2012112902, 'repository', 'boxnet');
+        upgrade_plugin_savepoint(true, 2013110700, 'repository', 'boxnet');
     }
+
+    // Moodle v2.6.0 release upgrade line.
+    // Put any upgrade step following this.
 
     return true;
 }

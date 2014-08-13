@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -69,9 +69,11 @@ $string['enrollablecourses'] = 'Cursos para matricularse';
 $string['errorcourselisting'] = 'Ha ocurrido un error al recuperar el listado de cursos del centro seleccionado. Por favor inténtelo de nuevo más tarde. ({$a})';
 $string['errorhublisting'] = 'Ha ocurrido un error al recuperar el listado de cursos de Moodle.org. Por favor inténtelo de nuevo más tarde. ({$a})';
 $string['fileinfo'] = 'Idioma: {$a->lang} - Licencia: {$a->license} - Hora de actualización: {$a->timeupdated}';
+$string['hideall'] = 'Ocultar hubs';
 $string['hub'] = 'centro';
 $string['hubnottrusted'] = 'No de confianza';
 $string['hubtrusted'] = 'Este centro está garantizado por Moodle.org';
+$string['install'] = 'Descargar';
 $string['keywords'] = 'Palabras clave';
 $string['keywords_help'] = 'Puede buscar cursos que contienen un texto específico en el nombre, la descripción y otros campos de la base de datos.';
 $string['langdesc'] = 'Idioma: {$a}';
@@ -106,6 +108,7 @@ $string['searchcommunitycourse'] = 'Buscar curso comunitario';
 $string['searchcourse'] = 'Buscar curso comunitario';
 $string['selecthub'] = 'Seleccionar centro';
 $string['selecthub_help'] = 'Seleccionar centro donde buscar los cursos.';
+$string['showall'] = 'Mostrar todos los hubs';
 $string['sites'] = 'Sitios';
 $string['subject'] = 'Materia';
 $string['subject_help'] = 'Para retringir su búsqueda de cursos sobre una materia particular, elija uno de esta lista.';

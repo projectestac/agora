@@ -48,7 +48,6 @@ if ($id !== false) {
 $PAGE->set_url($url);
 
 // set up some general variables
-$usehtmleditor = can_use_html_editor();
 
 
 if (($formdata = data_submitted()) AND !confirm_sesskey()) {
@@ -122,13 +121,16 @@ if ($item->id) {
 } else {
     $PAGE->navbar->add(get_string('add_item', 'feedback'));
 }
-$PAGE->set_heading(format_string($course->fullname));
-$PAGE->set_title(format_string($feedback->name));
+$PAGE->set_heading($course->fullname);
+$PAGE->set_title($feedback->name);
 echo $OUTPUT->header();
+
+// Print the main part of the page.
+echo $OUTPUT->heading(format_string($feedback->name));
+
 /// print the tabs
 require('tabs.php');
-/// Print the main part of the page
-echo $OUTPUT->heading(format_text($feedback->name));
+
 //print errormsg
 if (isset($error)) {
     echo $error;

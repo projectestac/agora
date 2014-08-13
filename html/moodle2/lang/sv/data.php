@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Lägg till kommentarer';
 $string['addentries'] = 'Lägg till bidrag';
 $string['addtemplate'] = 'Lägg till en mall';
 $string['advancedsearch'] = 'Avancerad sökning';
+$string['allowcomments'] = 'Tillåt kommentarer till bidrag';
 $string['alttext'] = 'Alternativ text';
 $string['approve'] = 'Godkänn';
 $string['approved'] = 'Godkänd';
@@ -206,7 +207,8 @@ $string['forcelinkname'] = 'Tvinga fram ett namn för länken';
 $string['foundnorecords'] = 'Inga poster funna (<a href="{$a->reseturl}">Filter för återställning</a>)';
 $string['foundrecords'] = 'Funna poster: {$a->num}/{$a->max} (<a href="{$a->reseturl}">Filter för återställning</a>)';
 $string['fromfile'] = 'Importera från .zip-fil.';
-$string['fromfile_help'] = 'Importera från zip-filen gör att du kan leta efter och ladda upp en förinställd zip-fil av mallar och fält.';
+$string['fromfile_help'] = '<p align=\'center\'><strong>Att importera förinställda mallar från Zip</strong></p>
+<p>Använd detta för att ladda upp förinställda mallar som har sparats  till din dator med hjälp av egenskapen exportera.</p>';
 $string['generateerror'] = 'Alla filer skapades inte!';
 $string['header'] = 'Sidhuvud';
 $string['headeraddtemplate'] = 'Definierar det gränssnitt som ska användas för att redigera bidrag';
@@ -222,7 +224,7 @@ $string['includeapproval'] = 'Ta med status ang acceptans';
 $string['includetime'] = 'Ange tidpunkt för tillägg/modifiering';
 $string['includeuserdetails'] = 'Ange även detaljinfo om användare';
 $string['insufficiententries'] = 'det behövs fler bidrag för att visa den här databasen';
-$string['intro'] = 'Beskrivning';
+$string['intro'] = 'Introduktion';
 $string['invalidaccess'] = 'Den här sidan visades inte på ett giltigt sätt';
 $string['invalidfieldid'] = 'Fält-ID är felaktigt';
 $string['invalidfieldname'] = 'Var snäll och välj ett annat namn för det här fältet';
@@ -245,7 +247,9 @@ $string['mapexistingfield'] = 'Kartlägg till {$a}';
 $string['mapnewfield'] = 'Skapa ett nytt fält';
 $string['mappingwarning'] = 'Alla gamla fält som inte är kartlagda till ett nytt fält kommer försvinna och alla data i det fältet kommer att tas bort.';
 $string['maxentries'] = 'Maximalt antal bidrag';
-$string['maxentries_help'] = 'Det maximala antalet bidrag som en deltagare kan skicka in för den här aktiviteten.';
+$string['maxentries_help'] = '<p align="center"><strong>Maximalt antal bidrag</strong></p>
+
+<p>Det maximala antalet bidrag som en deltagare kan skicka in för den här aktiviteten. </p>';
 $string['maxsize'] = 'Maximal storlek';
 $string['menu'] = 'Meny';
 $string['menuchoose'] = 'Välj...';

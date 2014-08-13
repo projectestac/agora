@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_summary', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_summary', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_summary
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,4 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = '课程简介';
+$string['course_summary:addinstance'] = '添加一个课程/网站描述版块';
 $string['pluginname'] = '课程/网站描述';

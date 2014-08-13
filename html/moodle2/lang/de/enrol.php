@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -33,12 +33,15 @@ $string['ajaxxusersfound'] = '{$a} Personen gefunden';
 $string['assignnotpermitted'] = 'Sie haben nicht das Recht, in diesem Kurs Rollen zuzuweisen.';
 $string['bulkuseroperation'] = 'Nutzerverarbeitung (Bulk)';
 $string['configenrolplugins'] = 'Aktivieren Sie bitte alle notwendigen Plugins und ordnen Sie sie in der bevorzugten Reihenfolge an.';
-$string['custominstancename'] = 'Angepasster Instanzenname';
+$string['custominstancename'] = 'Eigene Bezeichnung vergeben';
 $string['defaultenrol'] = 'Plugin zu neuen Kursen hinzufügen';
 $string['defaultenrol_desc'] = 'Es ist möglich, dieses Plugin standardmäßig zu allen neuen Kursen hinzuzufügen.';
 $string['deleteinstanceconfirm'] = 'Möchten Sie die Einschreibemethode \'{$a->name}\' und alle verbundenen Daten wirklich aus der Datenbank löschen? Alle {$a->users} Eingeschreibungen werden ausgetragen und deren Bewertungen, Mitgliedschaft in Gruppen, Forumsabonnements sowie kursbezogene Daten gelöscht.';
+$string['deleteinstanceconfirmself'] = 'Möchten Sie wirklich die Instanz \'{$a->name}\' löschen, mit der Sie Zugriff auf den Kurs haben? Es könnte sein, dass Sie danach keinen Zugriff mehr haben.';
 $string['deleteinstancenousersconfirm'] = 'Möchten Sie die Einschreibemethode \'{$a->name}\' wirklich löschen?';
+$string['disableinstanceconfirmself'] = 'Möchten Sie wirklich die Instanz \'{$a->name}\' deaktivieren, mit der Sie Zugriff auf den Kurs haben? Es könnte sein, dass Sie danach keinen Zugriff mehr haben.';
 $string['durationdays'] = '{$a} Tage';
+$string['editenrolment'] = 'Einschreibung bearbeiten';
 $string['enrol'] = 'Einschreiben';
 $string['enrolcandidates'] = 'Nichteingeschriebene Nutzer/innen';
 $string['enrolcandidatesmatching'] = 'Passende nichteingeschriebene Nutzer/innen';
@@ -67,6 +70,9 @@ $string['errorenrolcohort'] = 'Fehler bei der Einschreibesynchronisation von glo
 $string['errorenrolcohortusers'] = 'Fehler bei der Einschreibung von globalen Gruppen in diesem Kurs';
 $string['errorthresholdlow'] = 'Die Benachrichtigung muss mindestens einen Tag vor Teilnahmeende erfolgen';
 $string['errorwithbulkoperation'] = 'Fehler bei der Nutzerverarbeitung (Bulk)';
+$string['eventuserenrolmentcreated'] = 'Nutzer/in in Kurs eingeschrieben';
+$string['eventuserenrolmentdeleted'] = 'Nutzer/in aus Kurs abgemeldet';
+$string['eventuserenrolmentupdated'] = 'Nutzereinschreibung aktualisiert';
 $string['expirynotify'] = 'Benachrichtigung bevor Teilnahme endet';
 $string['expirynotifyall'] = 'Einschreibender und eingeschriebene Nutzer/innen';
 $string['expirynotifyenroller'] = 'Nur Einschreibender';
@@ -81,10 +87,13 @@ $string['extremovedsuspend'] = 'Kurseinschreibung deaktivieren';
 $string['extremovedsuspendnoroles'] = 'Kurseinschreibung deaktivieren und Rollen entfernen';
 $string['extremovedunenrol'] = 'Nutzer/in aus dem Kurs abmelden';
 $string['finishenrollingusers'] = 'Nutzereinschreibung beenden';
+$string['instanceeditselfwarning'] = 'Warnung:';
+$string['instanceeditselfwarningtext'] = 'Sie sind über diese Einschreibemethode in den Kurs eingeschrieben. Änderungen könnten sich auf Ihren Zugriff zum Kurs auswirken.';
 $string['invalidenrolinstance'] = 'Falsche Einschreibung';
 $string['invalidrole'] = 'Falsche Rolle';
 $string['manageenrols'] = 'Übersicht';
 $string['manageinstance'] = 'Verwalten';
+$string['migratetomanual'] = 'Auf manuelle Einschreibung ändern';
 $string['nochange'] = 'Ohne Änderung';
 $string['noexistingparticipants'] = 'Keine existierenden Teilnehmer/innen';
 $string['noguestaccess'] = 'Gäste dürfen nicht auf diesen Kurs zugreifen. Bitte versuchen Sie sich anzumelden.';
@@ -94,7 +103,7 @@ $string['notenrolledusers'] = 'Weitere Nutzer/innen';
 $string['otheruserdesc'] = 'Folgende Nutzer/innen sind nicht in diesem Kurs eingeschrieben, aber sie besitzen hier zugewiesene oder vererbte Rollen. ';
 $string['participationactive'] = 'Aktiv';
 $string['participationstatus'] = 'Status';
-$string['participationsuspended'] = 'beurlaubt';
+$string['participationsuspended'] = 'Inaktiv';
 $string['periodend'] = 'bis {$a}';
 $string['periodnone'] = 'eingeschrieben {$a}';
 $string['periodstart'] = 'von {$a}';
@@ -106,6 +115,8 @@ $string['rolefromsystem'] = '{$a->role} (zugewiesen für die Website)';
 $string['rolefromthiscourse'] = '{$a->role} (zugewiesen in diesem Kurs)';
 $string['startdatetoday'] = 'Heute';
 $string['synced'] = 'synchronisiert';
+$string['testsettings'] = 'Einstellungen prüfen';
+$string['testsettingsheading'] = 'Einschreibeeinstellungen prüfen - {$a}';
 $string['totalenrolledusers'] = '{$a} eingeschriebene Nutzer/innen';
 $string['totalotherusers'] = '{$a} weitere Nutzer/innen';
 $string['unassignnotpermitted'] = 'Sie haben nicht das Recht, in diesem Kurs Rollenzuweisungen zu ändern.';
@@ -114,10 +125,6 @@ $string['unenrolconfirm'] = 'Möchten Sie wirklich "{$a->user}" aus dem Kurs "{$
 $string['unenrolme'] = 'Abmelden aus \'{$a}\'';
 $string['unenrolnotpermitted'] = 'Sie haben nicht das Recht, diese/n Nutzer/in aus dem Kurs abzumelden';
 $string['unenrolroleusers'] = 'Nutzer/innen abmelden';
-$string['uninstallconfirm'] = 'Möchten Sie die Einschreibemethode und alle verbundenen Daten wirklich aus der Datenbank löschen? Dadurch werden u.a. Bewertungen, Mitgliedschaft in Gruppen, Forumsabonnements sowie kursbezogene Daten gelöscht.';
-$string['uninstalldelete'] = 'Alle Einschreibungen löschen und deinstallieren';
-$string['uninstalldeletefiles'] = 'Alle dem Einschreibeplugin \'{$a->plugin}\' zugeordneten Daten wurden vollständig aus der Datenbank gelöscht. Um das Löschen zu beenden (und die automatische Neuinstallation des Plugins zu unterbinden) müssen Sie noch das Verzeichnis \'{$a->directory}\' von Ihrem Server löschen.';
-$string['uninstallmigrate'] = 'Deinstallieren, aber Einschreibungen erhalten';
 $string['uninstallmigrating'] = '"{$a}" Einschreibungen werden übertragen';
 $string['unknowajaxaction'] = 'Unbekannter Funktionsaufruf';
 $string['unlimitedduration'] = 'Unbegrenzt';

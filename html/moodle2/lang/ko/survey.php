@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'survey', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'survey', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   survey
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -72,7 +72,7 @@ $string['attls7'] = '나는 나와 의견이 맞지 않는 사람들과 논쟁�
 $string['attls7short'] = '토론하며 주장하기';
 $string['attls8'] = '나는 왜 사람들이 그들이 하는 것처럼 말하고 믿는 것을 아는것에 항상 흥미를 느낀다';
 $string['attls8short'] = '사람들이 왜 하는지 알기';
-$string['attls9'] = '나는 내가 읽는 책에서 저자들이 틀린 것을 논리적으로 찾으려 애쓰며 저자들과 논쟁하는 자신을 발견하게 됩니다.';
+$string['attls9'] = '나는 내가 읽은 책의 저자들과 논의하면서 내 자신을 찾는다, 논리적으로 왜 그들이 틀렸는지 이해하려고 노력한다';
 $string['attls9short'] = '작가와 논쟁하기';
 $string['attlsintro'] = '이 설문의 목적은 우리가 생각과 배움에 관한 당신의 태도를 평가하는데  도움을 주기 위해서입니다.
 

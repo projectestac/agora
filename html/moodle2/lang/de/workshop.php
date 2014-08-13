@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'workshop', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'workshop', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   workshop
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['accesscontrol'] = 'Zugriffssteuerung';
 $string['aggregategrades'] = 'Bewertungen neu berechnen';
 $string['aggregation'] = 'Punkteberechnung';
 $string['allocate'] = 'Einreichungen zuordnen';
@@ -39,6 +38,8 @@ $string['alreadygraded'] = 'Bereits bewertet';
 $string['areaconclusion'] = 'Abschlusstext';
 $string['areainstructauthors'] = 'Anleitung zum Einreichen';
 $string['areainstructreviewers'] = 'Anleitung zum Beurteilen';
+$string['areaoverallfeedbackattachment'] = 'Gesamtfeedback Anhänge';
+$string['areaoverallfeedbackcontent'] = 'Gesamtfeedback Texte';
 $string['areasubmissionattachment'] = 'Dateianhänge zur Einreichung';
 $string['areasubmissioncontent'] = 'Einreichungstexte';
 $string['assess'] = 'Beurteilen';
@@ -107,6 +108,7 @@ $string['evaluation'] = 'Bewertung';
 $string['evaluationmethod'] = 'Bewertungsmethode';
 $string['evaluationmethod_help'] = 'Das Auswertungsverfahren bestimmt, wie die Punkte für die Beurteilung berechnet wird. Im Augenblick gibt es nur eine Option: Vergleich mit der besten Bewertung.';
 $string['evaluationsettings'] = 'Einstellungen für rechnerische Bewertungen';
+$string['event_assessable_uploaded'] = 'Lösung wurde hochgeladen';
 $string['example'] = 'Beispieleinreichung';
 $string['exampleadd'] = 'Beispieleinreichung hinzufügen';
 $string['exampleassess'] = 'Beurteilen einer Beispieleinreichung';
@@ -126,8 +128,10 @@ $string['examplesmode'] = 'Modus Verfahren Beispieleinreichung';
 $string['examplesubmissions'] = 'Beispieleinreichung/en';
 $string['examplesvoluntary'] = 'Die Beurteilung der Beispieleinreichung ist freiwillig';
 $string['feedbackauthor'] = 'Rückmeldung an den / die Autor/in';
+$string['feedbackauthorattachment'] = 'Dateianhang';
 $string['feedbackby'] = 'Beurteilung von {$a}';
 $string['feedbackreviewer'] = 'Rückmeldung an den/die Beurteiler/in';
+$string['feedbacksettings'] = 'Feedback';
 $string['formataggregatedgrade'] = '{$a->grade}';
 $string['formataggregatedgradeover'] = '<del>{$a->grade}</del><br /><ins>{$a->over}</ins>';
 $string['formatpeergrade'] = '<span class="grade">{$a->grade}</span> <span class="gradinggrade">({$a->gradinggrade})</span>';
@@ -161,7 +165,6 @@ $string['latesubmissionsallowed'] = 'Verspätete Einreichungen sind zugelassen';
 $string['latesubmissions_desc'] = 'Erlaube verspätete Einreichungen';
 $string['latesubmissions_help'] = 'Mit dieser Funktion kann eine Einreichung auch nach dem festgelegten Abgabezeitpunkt noch abgegeben werden. Diese können danach jedoch nicht mehr bearbeitet werden. ';
 $string['maxbytes'] = 'Maximale Dateigröße';
-$string['miscellaneoussettings'] = 'Weitere Einstellungen';
 $string['modulename'] = 'Workshop';
 $string['modulename_help'] = 'Der Workshop ist ein besonderer mehrstufiger Aufgabentyp:
 
@@ -188,6 +191,14 @@ $string['notoverridden'] = 'Nicht überschrieben';
 $string['noworkshops'] = 'Es gibt keine Workshops in diesem Kurs';
 $string['noyoursubmission'] = 'Sie haben bisher Ihre Einreichung nicht übermittelt';
 $string['nullgrade'] = '-';
+$string['overallfeedback'] = 'Gesamtfeedback';
+$string['overallfeedbackfiles'] = 'Höchstzahl der Dateianhänge an Gesamtfeedback';
+$string['overallfeedbackmaxbytes'] = 'Maximale Gesamtgröße';
+$string['overallfeedbackmode'] = 'Gesamtfeedbackmodus';
+$string['overallfeedbackmode_0'] = 'Deaktiviert';
+$string['overallfeedbackmode_1'] = 'Aktiviert (optional)';
+$string['overallfeedbackmode_2'] = 'Aktiviert (notwendig)';
+$string['overallfeedbackmode_help'] = 'Wenn aktiviert, wird ein Textfeld unter dem Aufgabenformular angezeigt. Bewertende können dort eine zusammenfassende Bewertung/Kommentierung der Einrreichung vornehmen und  zusätzliche Erläuterungen geben.';
 $string['page-mod-workshop-x'] = 'Jede Workshop-Seite';
 $string['participant'] = 'Teilnehmer/in';
 $string['participantrevierof'] = 'Teilnehmer/in ist Beurteiler/in von';
@@ -212,6 +223,7 @@ $string['recentsubmissions'] = 'Workshop-Einreichungen';
 $string['saveandclose'] = 'Speichern und schließen';
 $string['saveandcontinue'] = 'Speichern und weiter bearbeiten';
 $string['saveandpreview'] = 'Speichern und Vorschau';
+$string['saveandshownext'] = 'Sichern und weiter';
 $string['selfassessmentdisabled'] = 'Selbstbeurteilung deaktiviert';
 $string['showingperpage'] = '{$a} Einträge pro Seite';
 $string['showingperpagechange'] = 'Ändern...';
@@ -289,7 +301,6 @@ $string['withoutsubmission'] = 'Beurteiler ohne eigene Einreichung';
 $string['workshop:addinstance'] = 'Workshop hinzufügen';
 $string['workshop:allocate'] = 'Beurteiler/innen zuordnen';
 $string['workshop:editdimensions'] = 'Beurteilungsbögen bearbeiten';
-$string['workshopfeatures'] = 'Workshop-Phasen';
 $string['workshop:ignoredeadlines'] = 'Zeitvorgaben ignorieren';
 $string['workshop:manageexamples'] = 'Beispieleinreichung organisieren';
 $string['workshopname'] = 'Workshop-Titel';
@@ -303,6 +314,7 @@ $string['workshop:viewallassessments'] = 'Alle Beurteilungen betrachten';
 $string['workshop:viewallsubmissions'] = 'Alle Einreichungen betrachten';
 $string['workshop:viewauthornames'] = 'Autorennamen betrachten';
 $string['workshop:viewauthorpublished'] = 'Autor/innen von veröffentlichten Beiträgen ansehen';
+$string['workshopviewed'] = 'Workshop angezeigt';
 $string['workshop:viewpublishedsubmissions'] = 'Veröffentlichte Einreichungen betrachten';
 $string['workshop:viewreviewernames'] = 'Beurteilernamen anzeigen';
 $string['yourassessment'] = 'Ihre Beurteilung';

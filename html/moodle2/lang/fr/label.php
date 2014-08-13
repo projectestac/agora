@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Offrir la possibilité de créer une étiquette lorsque des fichiers média sont glissés et déposés sur la page d\'un cours';
+$string['configdndresizeheight'] = 'Lorsqu\'une étiquette est créée à partir d\'une image glissée et déposée, la redimensionner si elle est plus haute que ce nombre de pixels (0 pour désactiver le redimensionnement)';
+$string['configdndresizewidth'] = 'Lorsqu\'une étiquette est créée à partir d\'une image glissée et déposée, la redimensionner si elle est plus large que ce nombre de pixels (0 pour désactiver le redimensionnement)';
+$string['dndmedia'] = 'Glisser-déposer de médias';
+$string['dndresizeheight'] = 'Hauteur de redimensionnement par glisser-déposer';
+$string['dndresizewidth'] = 'Largeur de redimensionnement par glisser-déposer';
+$string['dnduploadlabel'] = 'Ajouter une image à la page de cours';
+$string['dnduploadlabeltext'] = 'Ajouter une étiquette sur la page du cours';
 $string['label:addinstance'] = 'Ajouter une étiquette';
 $string['labeltext'] = 'Contenu de l\'étiquette';
 $string['modulename'] = 'Étiquette';

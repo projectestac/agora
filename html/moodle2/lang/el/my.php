@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'my', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'my', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   my
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['mymoodle'] = 'Προβολή των μαθημάτων μου';
 $string['nocourses'] = 'Δεν υπάρχει πληροφορία του μαθήματος για προβολή.';
 $string['noguest'] = 'Η σελίδα \'Επισκόπιση Μαθήματος\' δεν είναι διαθέσιμη σε guest χρήστες';
-$string['pinblocks'] = 'Διαμόρφωση blocks με πινέζα για τη σελίδα my ΠΗΛΕΑΣ';
-$string['pinblocksexplan'] = 'Οι ρυθμίσεις των μπλοκ που θα κάνετε εδώ θα είναι εμφανείς (και μη επεξεργάσιμες) σε κάθε χρήστη του ΠΗΛΕΑΣ στη \'my ΠΗΛΕΑΣ\' σελίδα τους.';
+$string['pinblocks'] = 'Διαμόρφωση blocks με πινέζα για τη σελίδα my Moodle';
+$string['pinblocksexplan'] = 'Οι ρυθμίσεις των μπλοκ που θα κάνετε εδώ θα είναι εμφανείς (και μη επεξεργάσιμες) σε κάθε χρήστη του Moodle στη \'my Moodle\' σελίδα τους.';

@@ -6,6 +6,7 @@ function xmldb_qtype_wq_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
     
+    //Make qtype_wq xml field bigger.
     if ($oldversion < 2012062201) {
 
         $table = new xmldb_table('qtype_wq');
@@ -17,6 +18,7 @@ function xmldb_qtype_wq_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2012062201, 'qtype', 'wq');
     }
     
+    //Fix an encoding bug in qtype_wq xml field.
     if ($oldversion < 2013012100) {
         $xml = $DB->get_records('qtype_wq', null, '', '*');
         
@@ -28,9 +30,8 @@ function xmldb_qtype_wq_upgrade($oldversion) {
                 $r = $DB->update_record('qtype_wq', $xml[$key]);
             }
         }
-		
-		/// wq savepoint reached
-		upgrade_plugin_savepoint(true, 2013012100, 'qtype', 'wq');
+	/// wq savepoint reached
+	upgrade_plugin_savepoint(true, 2013012100, 'qtype', 'wq');
     }
     
     return true;

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'editor', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'editor', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   editor
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,12 +38,12 @@ $string['anchors'] = 'Rótulos';
 $string['baseline'] = 'Linha de base';
 $string['bold'] = 'Negrito';
 $string['borderthickness'] = 'Espessura do limite';
-$string['bottom'] = 'Fundo';
+$string['bottom'] = 'Abaixo';
 $string['browse'] = 'Explorar';
 $string['cancel'] = 'Cancelar';
 $string['cellpadding'] = 'Margem interna das células';
 $string['cellspacing'] = 'Espaço entre células';
-$string['choosechar'] = 'Selecione o carater';
+$string['choosechar'] = 'Selecione o caráter';
 $string['chooseicon'] = 'Selecione o ícone a inserir';
 $string['close'] = 'Fechar';
 $string['closeafterreplace'] = 'Fechar depois de substituir';
@@ -58,7 +58,6 @@ $string['cutpastemozilla'] = 'Infelizmente, neste momento, não é possível uti
 />(1) Em vez de CTRL-V, utilize SHIFT-Insert <br /> (2) Utilize o menu Editar-Colar do browser <br />(3) Altere as preferências do seu browser editando o ficheiro user.js<br /><br />Clique no botão OK abaixo para mais ajuda, ou Cancelar
 para voltar ao editor';
 $string['delete'] = 'Apagar';
-$string['editordeleteconfirm'] = 'Está prestes a eliminar completamente o módulo do editor \'{$a}\'. Isto eliminará completamente tudo o que estiver na base de dados associado a este módulo. Tem a certeza que pretende continuar?';
 $string['editors'] = 'Editores de texto';
 $string['editorsettings'] = 'Gerir editores';
 $string['enterurlfirst'] = 'Tem de introduzir um URL primeiro';
@@ -124,7 +123,7 @@ $string['popupeditor'] = 'Ampliar o editor';
 $string['preformatted'] = 'pré-formatado';
 $string['preview'] = 'Pré-visualização';
 $string['properties'] = 'Propriedades';
-$string['redo'] = 'Refazer a sua última ação';
+$string['redo'] = 'Refazer a ação anulada';
 $string['regularexpressions'] = 'Usar expressões regulares';
 $string['removelink'] = 'Remover hiperligação';
 $string['rename'] = 'Renomear';
@@ -146,7 +145,7 @@ $string['superscript'] = 'Superíndice';
 $string['textindicator'] = 'Estilo atual';
 $string['textmode'] = 'Encontra-se em MODO TEXTO. Use o botão [<>] para voltar ao MODO WYSIWIG.';
 $string['texttop'] = 'Topo do Texto';
-$string['top'] = 'Topo';
+$string['top'] = 'Acima';
 $string['type'] = 'Tipo';
 $string['underline'] = 'Sublinhado';
 $string['undo'] = 'Anular a sua última ação';

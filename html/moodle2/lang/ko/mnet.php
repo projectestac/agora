@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mnet', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -83,7 +83,7 @@ $string['hidelocal'] = '로컬 사용자 감추기';
 $string['hideremote'] = '원격 사용자 감추기';
 $string['host'] = '호스트';
 $string['hostcoursenotfound'] = '호스트나 강좌를 찾을 수 없음';
-$string['hostdeleted'] = '호스트가 삭제되었습니다.';
+$string['hostdeleted'] = '호스트 삭제 성공';
 $string['hostexists'] = '그 호스트 이름의 호스트에 대해 이미 기록이 존재합니다.(삭제되었을지 모릅니다). 기록을 편집하려면 <a href="{$a}">여기를 클릭</a>하세요.';
 $string['hostlist'] = '네트워킹된 호스트 목록';
 $string['hostname'] = '호스트명';
@@ -138,7 +138,7 @@ $string['mnetpeers'] = '무들네트웍 환경';
 $string['mnetservices'] = '서비스';
 $string['mnet_session_prohibited'] = '홈 서버의 사용자는 현재 {$a} 로 방문할 수 있도록 허용되지 않았습니다.';
 $string['mnetsettings'] = 'MNET설정';
-$string['moodle_home_help'] = '원격 호스트에서 MNet 어플리케이션 홈페이지 경로, 예: /moodle/';
+$string['moodle_home_help'] = '원격 호스트에서 MNet 어플리케이션 누리집 경로, 예: /moodle/';
 $string['name'] = '이름';
 $string['net'] = '네트웍';
 $string['networksettings'] = '네트웍 설정';

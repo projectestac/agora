@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,26 +26,32 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['activityoverview'] = 'Ci sono {$a} che richiedono attenzione';
-$string['alwaysshowall'] = 'Tutti';
-$string['collapseall'] = 'Elenchi corsi minimizzati';
-$string['configotherexpanded'] = 'L\'elenco Altri corsi sarà espanso per default a meno che l\'utente non cambi le proprie preferenze.';
+$string['alwaysshowall'] = 'Visualizza sempre tutti i corsi';
+$string['collapseall'] = 'Minimizza tutti gli elenchi corsi';
+$string['configotherexpanded'] = 'Gli altri corsi saranno espansi per default a meno che l\'utente non cambi le proprie preferenze.';
 $string['configpreservestates'] = 'Consente la memorizzazione e il riutilizzo dello stato minimizzato/espanso impostato dall\'utente.';
 $string['course_overview:addinstance'] = 'Aggiungere blocco Panoramica corsi';
 $string['course_overview:myaddinstance'] = 'Aggiungere blocco Panoramica corsi nella pagina My home';
 $string['defaultmaxcourses'] = 'Numero massimo di corsi di default';
 $string['defaultmaxcoursesdesc'] = 'Il numero massimo di corsi da visualizzare nel blocco Panoramica corsi. Impostare a 0 per visualizzare tutti i corsi.';
-$string['expandall'] = 'Elenchi corsi espansi';
+$string['expandall'] = 'Espandi tutti gli elenchi corsi';
 $string['forcedefaultmaxcourses'] = 'Forza numero massimo di corsi';
 $string['forcedefaultmaxcoursesdesc'] = 'Gli utenti non potranno personalizzare il numero massimo di corsi visualizzati nel blocco';
 $string['hiddencoursecount'] = 'Hai {$a} corso nascosto';
 $string['hiddencoursecountplural'] = 'Hai {$a} corsi nascosti';
+$string['hiddencoursecountwithshowall'] = 'Hai {$a->coursecount} corso nascosto ({$a->showalllink})';
+$string['hiddencoursecountwithshowallplural'] = 'Hai {$a->coursecount} corsi nascosti ({$a->showalllink})';
 $string['message'] = 'messaggio';
 $string['messages'] = 'messaggi';
+$string['moveafterhere'] = 'Sposta corso {$a->movingcoursename} dopo {$a->currentcoursename}';
+$string['movecourse'] = 'Sposta corso: {$a}';
 $string['movecoursehere'] = 'Sposta il corso qui';
+$string['movetofirst'] = 'Sposta corso {$a} all\'inizio';
+$string['movingcourse'] = 'Stai spostando: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Numero di corsi da visualizzare';
-$string['otherexpanded'] = 'Esapndi Altri corsi';
+$string['otherexpanded'] = 'Espandi altri corsi';
 $string['pluginname'] = 'Panoramica corsi';
-$string['preservestates'] = 'Mantieni stato espanso';
+$string['preservestates'] = 'Mantieni stati espansi';
 $string['shortnameprefix'] = 'Includi {$a}';
 $string['shortnamesufixprural'] = '(e {$a} altri)';
 $string['shortnamesufixsingular'] = '(e {$a} altri)';

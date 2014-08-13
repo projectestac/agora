@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Engadir un novo bloque de entrada al
 $string['intro'] = 'Asegúrese de que ten polo menos un glosario cunha entrada. Entón poderá determinar a seguinte configuración';
 $string['invisible'] = '(continuará)';
 $string['lastmodified'] = 'Última entrada modificada';
+$string['nextalpha'] = 'Orde alfabética';
 $string['nextone'] = 'Seguinte entrada';
 $string['noentriesyet'] = 'Aínda non hai entradas no glosario escollido.';
 $string['notyetconfigured'] = 'Configure este bloque empregando a icona de edición.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -100,7 +100,10 @@ $string['auth_ntlmsso'] = 'Autenticació única per NTLM';
 $string['auth_ntlmsso_enabled'] = 'Si l\'habiliteu s\'intentarà l\'autenticació única dins del domini NTLM. <strong>Nota:</strong> per a funcionar requereix configuració addicional del servidor web. Vg. <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Habilita';
 $string['auth_ntlmsso_ie_fastpath'] = 'Habiliteu aquesta opció per activar el camí ràpid NTLM SSO ( obviareu certs passos i sols treballarà si el client és MS Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Proveu NTLM amb tots els navegadors.';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'Camí ràpid MS IE ?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Sí, proveu NTLM amb altres navegadors';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Sí, tots els altres navegadors utilitzen formulari d\'entrada estàndard';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'No ha estat possible extreure el nom d\'usuari de la capçalera REMOTE_USER. És correcte el format configurat?';
 $string['auth_ntlmsso_missing_username'] = 'Heu d\'especificar almenys l\'%username% en el format de nom d\'usuari remot';
 $string['auth_ntlmsso_remoteuserformat'] = 'Si heu escollit «NTLM» en el «Tipus d\'autencaticació», podeu especificar aquí el format del nom d\'usuari remot. Si deixeu aquest camp buit, s\'utilitzarà el format per defecte DOMAINusername. Podeu utilitzar el text variable optatiu <b>%domain%</b> per especificar on apareix el nom de domini, i l\'obligatori <b>%username%</b> per especificar on apareix el nom d\'usuari.<br /><br />Alguns formats molt utilitzats són <tt>%domain%%username%</tt> (per defecte en MS Windows), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> i simplement <tt>%username%</tt> (si no hi ha la part de domini).';
@@ -135,6 +138,8 @@ $string['pluginname'] = 'Servidor LDAP';
 $string['pluginnotenabled'] = 'Connector no habilitat!';
 $string['renamingnotallowed'] = 'No està permés en LDAP canviar el nom a l\'usuari';
 $string['rootdseerror'] = 'Error de consulta rootDSE per al directori actiu.';
+$string['start_tls'] = 'Usa el servei LDAP regular (port 389) amb xifrat TLS';
+$string['start_tls_key'] = 'Usa TLS';
 $string['updatepasserror'] = 'Error en user_update_password(). Codi d\'error: {$a->errno}; Cadena d\'error: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Error en user_update_password() quan es llegia el temps d\'expiració de la contrasenya. Codi d\'error: {$a->errno}; Cadena d\'error: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Error en user_update_password() quan s\'estava modificant el temps d\'expiració i/o el nom d\'usuari. Codi d\'error: {$a->errno}; Cadena d\'error: {$a->errstring}';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -75,7 +75,7 @@ $string['deleteexternalblog'] = 'Elimina la registrazione di questo blog esterno
 $string['deleteotagswarn'] = 'Sei sicuro di voler rimuovere questi tag da tutti gli interventi di blog e dal sistema?';
 $string['description'] = 'Descrizione';
 $string['description_help'] = 'Inserisci una frase descrittiva dei contenuti del tuo blog esterno. (Se non inserisci nessuna descrizione, verrà utilizzata la descrizione presa dal blog esterno).';
-$string['donothaveblog'] = 'Spiacente, ma non avete un vostro blog.';
+$string['donothaveblog'] = 'Spiacente, ma non hai un tuo blog.';
 $string['editentry'] = 'Modifica un intervento blog';
 $string['editexternalblog'] = 'Modifica questo blog esterno';
 $string['emptybody'] = 'Il testo di un intervento di blog non può essere vuoto';
@@ -84,10 +84,12 @@ $string['emptytitle'] = 'Il titolo di un intervento di blog non può essere vuot
 $string['emptyurl'] = 'Devi inserire una URL di un feed RSS valido';
 $string['entrybody'] = 'Testo dell\'intervento';
 $string['entrybodyonlydesc'] = 'Descrizione intervento';
-$string['entryerrornotyours'] = 'Questo intervento non è vostro';
+$string['entryerrornotyours'] = 'Questo intervento non ti appartiene';
 $string['entrysaved'] = 'Il tuo intervento è stato salvato';
 $string['entrytitle'] = 'Titolo intervento';
-$string['entryupdated'] = 'Intervento del blog aggiornato';
+$string['evententryadded'] = 'Inserito intervento blog';
+$string['evententrydeleted'] = 'Eliminato intervento blog';
+$string['evententryupdated'] = 'Intervento del blog aggiornato';
 $string['externalblogcrontime'] = 'Frequenza controllo blog esterni tramite cron';
 $string['externalblogdeleteconfirm'] = 'Eliminare la registrazione al blog esterno?';
 $string['externalblogdeleted'] = 'La registrazione al blog esterno è stata eliminata';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'ID gruppo non valida';
 $string['invalidurl'] = 'L\'URL non è raggiungibile';
 $string['linktooriginalentry'] = 'Collegamento all\'intervento originale';
 $string['maxexternalblogsperuser'] = 'Numero massimo di blog esterni per ciascun utente';
-$string['mustassociatecourse'] = 'Sei stai pubblicando in un corso o verso membri di un gruppo, devia anche associare l\'intervento con un corso';
 $string['name'] = 'Nome';
 $string['name_help'] = 'Inserisci un nome che descriva il tuo blog esterno. (Se non inserisci nessun nome, verrà utilizzato il titolo del blog esterno).';
 $string['noentriesyet'] = 'Non ci sono interventi visibili';

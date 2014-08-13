@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Ações';
 $string['availability'] = 'Disponibilidade';
 $string['checkforupdates'] = 'Verificar atualizações disponíveis';
 $string['checkforupdateslast'] = 'Última verificação em {$a}';
+$string['detectedmisplacedplugin'] = 'O módulo "{$a->component}" está instalado numa localização incorreta "{$a->current}", a localização esperada é "{$a->expected}"';
 $string['displayname'] = 'Nome do módulo';
 $string['err_response_curl'] = 'Não é possível descarregar dados de atualizações disponíveis - erro cURL inesperado.';
 $string['err_response_format_version'] = 'Versão inesperada do formato de resposta. Por favor, verifique novamente se existem atualizações disponíveis.';
@@ -55,8 +56,9 @@ $string['numtotal'] = 'Instalado: {$a}';
 $string['numupdatable'] = 'Atualizações disponíveis: {$a}';
 $string['otherplugin'] = '{$a->component}';
 $string['otherpluginversion'] = '{$a->component} ({$a->version})';
-$string['pluginchecknotice'] = 'Esta página exibe módulos que podem exigir a sua atenção durante a atualização. Os itens destacados incluem novos módulos que estão prestes a ser instalados, os módulos atualizados que estão prestes a ser melhorados e todos os módulos em falta. Os módulos com contributos também estão destacados.
-É recomendado que verifique se existem versões mais recentes do módulo e atualize o seu código-fonte antes de continuar com esta atualização do Moodle';
+$string['pluginchecknotice'] = 'Esta página exibe módulos que podem exigir a sua atenção durante a atualização. Os itens destacados incluem novos módulos que estão prestes a ser instalados, os módulos que estão prestes a ser atualizados e quaisquer módulos em falta. Os módulos para os quais existem atualizações disponíveis estão destacados.
+
+É recomendado que verifique se existem versões mais recentes dos módulos instalados e atualize o seu código-fonte antes de continuar com esta atualização do Moodle.';
 $string['plugindisable'] = 'Desativar';
 $string['plugindisabled'] = 'Desativado';
 $string['pluginenable'] = 'Ativar';
@@ -89,6 +91,8 @@ $string['type_cachelock'] = 'Gestor de bloqueio da cache';
 $string['type_cachelock_plural'] = 'Gestores de bloqueio da cache';
 $string['type_cachestore'] = 'Unidade de armazenamento da cache';
 $string['type_cachestore_plural'] = 'Unidades de armazenamento da cache';
+$string['type_calendartype'] = 'Tipo de calendário';
+$string['type_calendartype_plural'] = 'Tipos de calendário';
 $string['type_coursereport'] = 'Relatório da disciplina';
 $string['type_coursereport_plural'] = 'Relatórios da disciplina';
 $string['type_editor'] = 'Editor';
@@ -138,8 +142,16 @@ $string['type_tool_plural'] = 'Ferramentas de administração';
 $string['type_webservice'] = 'Protocolo Webservice';
 $string['type_webservice_plural'] = 'Protocolos Webservice';
 $string['uninstall'] = 'Desinstalar';
+$string['uninstallconfirm'] = 'Está prestes a desinstalar o módulo <em>{$a->name}</em>. Isto irá apagar completamente tudo o que existe na base de dados associado a este módulo, incluindo a sua configuração, registos de atividade, ficheiros do utilizador geridos pelo módulo, etc. Esta operação é irreversível e o Moodle não cria qualquer cópia de segurança para recuperação. Tem a certeza de que deseja continuar?';
+$string['uninstalldelete'] = 'Todos os dados associados ao módulo <em>{$a->name}</em> foram eliminados da base de dados. Para evitar que o módulo se reinstale, a respetiva pasta <em>{$a->rootdir}</em> deve ser agora removida manualmente a partir do seu servidor. O Moodle por si só não pode remover a pasta devido a permissões de escrita.';
+$string['uninstalldeleteconfirm'] = 'Todos os dados associados ao módulo <em>{$a->name}</em> foram eliminados da base de dados. Para evitar que o módulo se reinstale, a respetiva pasta <em>{$a->rootdir}</em> tem de ser removida do seu servidor. Pretende remover a pasta do módulo agora?';
+$string['uninstalldeleteconfirmexternal'] = 'Aparentemente, a versão atual do módulo foi obtida através de um sistema de gestão do código fonte ({$a}). Se remover a pasta do módulo, pode perder importantes modificações locais do código. Certifique-se de que deseja remover definitivamente a pasta do módulo antes de continuar.';
+$string['uninstallextraconfirmblock'] = 'Existem {$a->instances} instâncias deste bloco.';
+$string['uninstallextraconfirmenrol'] = 'Existem {$a->enrolments} inscrições do utilizador.';
+$string['uninstallextraconfirmmod'] = 'Existem {$a->instances} instâncias deste módulo em {$a->courses} disciplinas.';
+$string['uninstalling'] = 'A desinstalar {$a->name}';
 $string['updateavailable'] = 'Existe uma nova versão {$a} disponível!';
-$string['updateavailable_moreinfo'] = 'Mais info…';
+$string['updateavailable_moreinfo'] = 'Mais informação...';
 $string['updateavailable_release'] = 'Lançamento {$a}';
 $string['updatepluginconfirm'] = 'Confirmação da atualização do módulo';
 $string['updatepluginconfirmexternal'] = 'Aparentemente, a versão atual do módulo foi obtida através do sistema de gestão de verificação do código-fonte ({$a}). Se instalar esta atualização, não será possível obter atualizações de módulos do sistema de gestão do código fonte. Certifique-se que pretende mesmo atualizar o módulo antes de continuar.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_ldap', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_ldap', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -30,18 +30,24 @@ $string['assignrolefailed'] = 'Rol \'{$a->role_shortname}\' toewijzen aan gebrui
 $string['autocreate'] = 'Vakken kunnen automatisch aangemaakt worden als er aanmeldingen zijn bij een cursus die in Moodle nog niet bestaat.';
 $string['autocreate_key'] = 'Automatisch aanmaken';
 $string['autocreation_settings'] = 'Instellingen voor het automatisch aanmaken van cursussen.';
+$string['autoupdate_settings'] = 'Automatische cursus update-instellingen';
+$string['autoupdate_settings_desc'] = '<p>Selecteer de aan te passen velden wanneer het synchronisatiescript loopt (enrol/ldap/cli/sync.php).</p><p>Wanneer er minstens één veld geselecteerd is zal een aanpassing gebeuren.</p>';
 $string['bind_dn'] = 'Als je bind-user wil gebruikern om gebruikers te zoeken, dan moet je dat hier specifiëren. Bijvoorbeeld  \'cn=ldapuser,ou=public,o=org\'';
 $string['bind_dn_key'] = 'Bind user distinguished name';
 $string['bind_pw'] = 'Wachtwoord voor bind-user';
 $string['bind_pw_key'] = 'Wachtwoord';
 $string['bind_settings'] = 'Bind instellingen';
 $string['cannotcreatecourse'] = 'Kan geen cursus maken: vereiste data ontbreken in het LDAP record!';
+$string['cannotupdatecourse'] = 'aKan de cursus niet aanpassen: er ontbreken vereiste gegevens in het LDAP-record! Cursus IDnummer \'{$a->idnumber}\'';
+$string['cannotupdatecourse_duplicateshortname'] = 'Kan de cursus niet aanpassen: dubbele korte naam. De cursus met IDnummer \'{$a->idnumber}\' wordt overgeslagen.';
 $string['category'] = 'De categorie voor automatisch gemaakte cursussen';
 $string['category_key'] = 'Categorie';
 $string['contexts'] = 'LDAP contexten';
 $string['couldnotfinduser'] = 'Kon gebruiker {$a} niet vinden, overgeslagen.';
 $string['course_fullname'] = 'Optioneel: LDAP-veld waaruit de volledige naam gehaald moet worden.';
 $string['course_fullname_key'] = 'Volledige naam';
+$string['course_fullname_updateonsync'] = 'Update volledige naam met synchronisatiescript';
+$string['course_fullname_updateonsync_key'] = 'Update volledige naam';
 $string['course_idnumber'] = 'Pad naar de unique identifier in LDAP, gewoonlijk  <em>cn</em> of <em>uid</em>. Het is aangewezen de waarde vast te zetten als je automatisch aanmaken van cursussenn gebruikt.';
 $string['course_idnumber_key'] = 'ID nummer';
 $string['coursenotexistskip'] = 'Cursus {$a} bestaat niet en autocreatie is uitgeschakeld, overgeslagen';
@@ -50,8 +56,14 @@ $string['course_search_sub_key'] = 'Doorzoek subcontexts';
 $string['course_settings'] = 'Instellingen voor het aanmelden bij cursussen';
 $string['course_shortname'] = 'Optioneel: LDAP-veld om de korte cursusnaam uit te halen';
 $string['course_shortname_key'] = 'Korte naam';
+$string['course_shortname_updateonsync'] = 'Update korte naam met synchronisatiescript';
+$string['course_shortname_updateonsync_key'] = 'Update korte naam';
 $string['course_summary'] = 'Optioneel: LDAP-veld om de beschrijving uit te halen';
 $string['course_summary_key'] = 'Samenvatting';
+$string['course_summary_updateonsync'] = 'Update samenvatting met synchronisatiescript';
+$string['course_summary_updateonsync_key'] = 'Update samenvatting';
+$string['courseupdated'] = 'Aanpassen cursus met IDnummer \'{$a->idnumber}\'  is gelukt.';
+$string['courseupdateskipped'] = 'Cursus met IDnummer \'{$a->idnumber}\' moet niet aangepast worden. Sla over...';
 $string['createcourseextid'] = 'CREATE gebruiker aangemeld in een onbestaande cursus \'{$a->courseextid}\'';
 $string['createnotcourseextid'] = 'Gebruiker aangemeld in een onbestaande cursus \'{$a->courseextid}\'';
 $string['creatingcourse'] = 'Cursus {$a} wordt gemaakt...';

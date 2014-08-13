@@ -260,7 +260,7 @@ class comment {
             throw new coding_exception('You cannot change the component of a comment once it has been set');
         }
         $this->component = $component;
-        list($this->plugintype, $this->pluginname) = normalize_component($component);
+        list($this->plugintype, $this->pluginname) = core_component::normalize_component($component);
     }
 
     /**
@@ -526,13 +526,14 @@ class comment {
             $c->content     = $u->ccontent;
             $c->format      = $u->cformat;
             $c->timecreated = $u->ctimecreated;
-            $c->strftimeformat = get_string('strftimerecent', 'langconfig');
+            $c->strftimeformat = get_string('strftimerecentfull', 'langconfig');
             $url = new moodle_url('/user/view.php', array('id'=>$u->id, 'course'=>$this->courseid));
-            $c->profileurl = $url->out(true);
+            $c->profileurl = $url->out(false); // URL should not be escaped just yet.
             $c->fullname = fullname($u);
             $c->time = userdate($c->timecreated, $c->strftimeformat);
             $c->content = format_text($c->content, $c->format, $formatoptions);
             $c->avatar = $OUTPUT->user_picture($u, array('size'=>18));
+            $c->userid = $u->id;
 
             $candelete = $this->can_delete($c->id);
             if (($USER->id == $u->id) || !empty($candelete)) {
@@ -684,7 +685,7 @@ class comment {
         global $DB;
         $contexts = array();
         $contexts[] = $context->id;
-        $children = get_child_contexts($context);
+        $children = $context->get_child_contexts();
         foreach ($children as $c) {
             $contexts[] = $c->id;
         }

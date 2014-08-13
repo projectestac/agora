@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_youtube', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_youtube', language 'sv', branch 'MOODLE_25_STABLE'
  *
  * @package   tinymce_youtube
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

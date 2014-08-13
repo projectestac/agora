@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_shibboleth', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_shibboleth', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_shibboleth
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['auth_shib_auth_method'] = 'Authentication Method Name';
 $string['auth_shib_auth_method_description'] = 'Provide a name for the Shibboleth authentication method that is familiar to your users. This could be the name of your Shibboleth federation, e.g. <tt>SWITCHaai Login</tt> or <tt>InCommon Login</tt> or similar.';
-$string['auth_shibboleth_contact_administrator'] = 'In case you are not associated with the given organizations and you need access to a course on this server, please contact the';
-$string['auth_shibbolethdescription'] = 'Με αυτήν την μέθοδο οι χρήστες δημιουργούνται και πιστοποιούνται χρησιμοποιώντας <a href="http://shibboleth.internet2.edu/" target="_blank">Shibboleth</a>.<br> Διαβάστε το a href="../auth/shibboleth/README.txt" target="_blank">README</a>  σχετικά με το πως να ρυθμίσετε το ΠΗΛΕΑΣ με το Shibboleth.';
+$string['auth_shibbolethdescription'] = 'Με αυτήν την μέθοδο οι χρήστες δημιουργούνται και πιστοποιούνται χρησιμοποιώντας <a href="http://shibboleth.internet2.edu/" target="_blank">Shibboleth</a>.<br> Διαβάστε το a href="../auth/shibboleth/README.txt" target="_blank">README</a>  σχετικά με το πως να ρυθμίσετε το Moodle με το Shibboleth.';
 $string['auth_shibboleth_errormsg'] = 'Please select the organization you are member of!';
 $string['auth_shibboleth_login'] = 'Είσοδος Shibboleth';
 $string['auth_shibboleth_login_long'] = 'Login to Moodle via Shibboleth';
@@ -52,8 +51,8 @@ $string['auth_shib_logout_url_description'] = 'Provide the URL to the Shibboleth
 $string['auth_shib_no_organizations_warning'] = 'If you want to use the integrated WAYF service, you must provide a coma-separated list of Identity Provider entityIDs, their names and optionally a session initiator.';
 $string['auth_shib_only'] = 'Μόνο Shibboleth';
 $string['auth_shib_only_description'] = 'Ενεργοποιήστε αυτήν την ρύθμιση εάν πρέπει να επιβληθεί πιστοποίηση Shibboleth';
-$string['auth_shib_username_description'] = 'Όνομα της Shibboleth webserver μεταβλητής περιβάλλοντος που θα χρησιμοποιηθεί ως όνομα χρήστη στο ΠΗΛΕΑΣ.';
+$string['auth_shib_username_description'] = 'Όνομα της Shibboleth webserver μεταβλητής περιβάλλοντος που θα χρησιμοποιηθεί ως όνομα χρήστη στο Moodle.';
 $string['pluginname'] = 'Shibboleth';
-$string['shib_no_attributes_error'] = 'Φαίνεται πως έχετε πιστοποιηθεί με το Shibboleth  αλλά το ΠΗΛΕΑΣ δεν έλαβε κάποια χαρακτηριστικά χρήστη. Παρακαλώ ελέγξτε ότι ο Identity Provider απελευθερώνει τα αναγκαία χαρακτηριστικά ({$a}) στο Service Provider στον οποίο εκτελείται το ΠΗΛΕΑΣ ή ενημερώστε το διαχειριστή του server αυτού.';
-$string['shib_not_all_attributes_error'] = 'Το ΠΗΛΕΑΣ χρειάζεται συγκεκριμένα χαρακτηριστικά του Shibboleth τα οποία δεν είναι παρόντα στην περίπτωσή σας. Τα χαρακτηριστικά είναι: {$a}<br /> Παρακαλώ ενημερώστε το διαχειριστή του server ή τον Identity Provider σας.';
-$string['shib_not_set_up_error'] = 'Η πιστοποίηση Shibboleth δεν έχει εγκατασταθεί σωστά επειδή δεν είναι παρούσες οι μεταβλήτές περιβάλλοντος του Shibboleth για αυτή τη σελίδα. Παρακαλώ κοιτάξτε το <a href="README.txt">README</a> για περισσότερες οδηγίες σχετικά με το πως να εγκαταστήσετε τη Shibboleth πιστοποίηση ή επικοινωνήστε με το διαχειριστή του ΠΗΛΕΑΣ.';
+$string['shib_no_attributes_error'] = 'Φαίνεται πως έχετε πιστοποιηθεί με το Shibboleth  αλλά το Moodle δεν έλαβε κάποια χαρακτηριστικά χρήστη. Παρακαλώ ελέγξτε ότι ο Identity Provider απελευθερώνει τα αναγκαία χαρακτηριστικά ({$a}) στο Service Provider στον οποίο εκτελείται το Moodle ή ενημερώστε το διαχειριστή του server αυτού.';
+$string['shib_not_all_attributes_error'] = 'Το Moodle χρειάζεται συγκεκριμένα χαρακτηριστικά του Shibboleth τα οποία δεν είναι παρόντα στην περίπτωσή σας. Τα χαρακτηριστικά είναι: {$a}<br /> Παρακαλώ ενημερώστε το διαχειριστή του server ή τον Identity Provider σας.';
+$string['shib_not_set_up_error'] = 'Η πιστοποίηση Shibboleth δεν έχει εγκατασταθεί σωστά επειδή δεν είναι παρούσες οι μεταβλήτές περιβάλλοντος του Shibboleth για αυτή τη σελίδα. Παρακαλώ κοιτάξτε το <a href="README.txt">README</a> για περισσότερες οδηγίες σχετικά με το πως να εγκαταστήσετε τη Shibboleth πιστοποίηση ή επικοινωνήστε με το διαχειριστή του Moodle.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_wikimedia', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_wikimedia', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_wikimedia
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,5 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['configplugin'] = 'Wikimediaリポジトリタイプ設定';
 $string['keyword'] = '検索';
+$string['maxheight'] = '最大イメージ高 (px)';
+$string['maxwidth'] = '最大イメージ幅 (px)';
 $string['pluginname'] = 'Wikiメディア';
 $string['wikimedia:view'] = 'Wikiメディアリポジトリを表示する';

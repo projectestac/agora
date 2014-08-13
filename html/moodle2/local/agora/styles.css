@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+/*************** MESSAGE NOTIFIER **************/
+#message_notifier, #message_notif_click{
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+#message_notif_click{
+	cursor: pointer;
+}
+
+#message_notif_click img{
+	padding: 4px;
+}
+
+#message_notif_click .num_overlay{
+	background-color: red;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 2px;
+	line-height: 12px;
+	border-radius: 30%;
+
+	min-width: 12px;
+	text-align: center;
+
+	position: absolute;
+	top: 1px;
+	right: 1px;
+}
+
+#message_contents{
+	color: black;
+	text-transform: none;
+	position: absolute;
+    right: 0px;
+    width: 300px;
+    background-color: white;
+    padding: 3px;
+    z-index: 1000;
+}
+
+#message_contents .viewall{
+	text-align: center;
+}
+
+#message_contents .message{
+	border-bottom: 1px solid black;
+	cursor: pointer;
+}
+
+#messagePanel .picture, #message_contents .picture{
+	padding: 3px;
+	float: left;
+}
+
+#messagePanel .userfrom, #message_contents .userfrom{
+	font-weight: bold;
+	display: block;
+}
+#messagePanel>.subject, #message_contents>.subject{
+	float: left;
+}
+
+#messagePanel .message_content, #message_contents .message_content{
+	margin-left: 43px;
+	clear: both;
+}
+
+#messagePanel .time, #message_contents .time{
+	float: right;
+	color: #999;
+}

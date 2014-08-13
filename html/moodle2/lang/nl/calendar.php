@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,12 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addevent'] = 'Voeg gebeurtenissen toe';
 $string['advancedoptions'] = 'Geavanceerde opties';
 $string['allday'] = 'Hele dag';
 $string['annually'] = 'Jaarlijks';
 $string['calendar'] = 'Kalender';
 $string['calendarheading'] = '{$a} Kalender';
 $string['calendarpreferences'] = 'Agendavoorkeuren';
+$string['calendartypes'] = 'Kalendertypes';
 $string['calendarurl'] = 'Kalender-URL: {$a}';
 $string['clickhide'] = 'Verberg';
 $string['clickshow'] = 'Toon';
@@ -44,14 +46,15 @@ $string['course'] = 'Cursus';
 $string['courseevent'] = 'Cursusactiviteit';
 $string['courseevents'] = 'Cursusactiviteiten';
 $string['courses'] = 'Cursussen';
+$string['customexport'] = 'Aangepast bereik ({$a->timestart} - {$a->timeend})';
 $string['daily'] = 'Dagelijks';
-$string['dayview'] = 'Per dag';
+$string['dayviewfor'] = 'Dagweergave voor:';
 $string['dayviewtitle'] = 'Bekijk dag: {$a}';
 $string['daywithnoevents'] = 'Vandaag geen activiteiten';
 $string['default'] = 'Standaard';
 $string['deleteevent'] = 'Wis activiteit';
 $string['deleteevents'] = 'Verwijder gebeurtenissen';
-$string['detailedmonthview'] = 'Gedetaileerd maandoverzicht';
+$string['detailedmonthviewfor'] = 'Gedetailleerde maandweergave voor:';
 $string['detailedmonthviewtitle'] = 'Gedetailleerd maandoverzicht: {$a}';
 $string['durationminutes'] = 'Duur in minuten';
 $string['durationnone'] = 'Geen tijdsduur';
@@ -93,6 +96,7 @@ $string['export'] = 'Exporteer';
 $string['exportbutton'] = 'Exporteer';
 $string['exportcalendar'] = 'Exporteer kalender';
 $string['for'] = 'voor';
+$string['forcecalendartype'] = 'Verplicht kalender';
 $string['fri'] = 'Vr';
 $string['friday'] = 'Vrijdag';
 $string['generateurlbutton'] = 'Haal URL kalender';
@@ -127,6 +131,7 @@ $string['monthly'] = 'Maandelijks';
 $string['monthlyview'] = 'Per maand';
 $string['monthnext'] = 'Volgende maand';
 $string['monththis'] = 'Deze maand';
+$string['namewithsource'] = '{$a->name}({$a->source})';
 $string['never'] = 'Nooit';
 $string['newevent'] = 'Nieuwe activiteit';
 $string['nocalendarsubscriptions'] = 'Je hebt geen kalenderinschrijvingen';
@@ -137,6 +142,7 @@ $string['pollinterval'] = 'Update-interval';
 $string['pollinterval_help'] = 'Hoe dikwijls wil je de kalender updaten met nieuwe gebeurtenissen';
 $string['preferences'] = 'Voorkeuren';
 $string['preferences_available'] = 'Persoonlijke voorkeuren';
+$string['preferredcalendar'] = 'Voorkeurskalender';
 $string['pref_lookahead'] = 'Aantal dagen vooruit kijken naar komende activiteiten om in het blok "Binnenkort" te tonen';
 $string['pref_lookahead_help'] = 'Dit stelt het (maximale) aantal dagen in de toekomst in dat een gebeurtenis moet beginnen om opgenomen te worden als een aankomende gebeurtenis. Gebeurtenissen die na deze tijdsspanne starten zullen niet als aankomende gebeurtenis getoond worden. Merk op dat <strong>er geen garantie is</strong> dat alle gebeurtenissen die in dit tijdsframe starten getoond worden: als er teveel zijn (meer dan de instelling Maximale aantal aankomende gebeurtenissen) dan zullen de gebeurtenissen het verst in de toekomst niet getoond worden.';
 $string['pref_maxevents'] = 'Maximale aantal getoonde activiteiten';
@@ -169,6 +175,7 @@ $string['subscriptionname'] = 'Kalendernaam';
 $string['subscriptionremoved'] = 'Kalenderinschrijving {$a} verwijderd';
 $string['subscriptions'] = 'Inschrijvingen';
 $string['subscriptionupdated'] = 'Kalenderinschrijving {$a} aangepast';
+$string['subsource'] = 'Gebeurtenisbron: {$a->name}';
 $string['sun'] = 'Zo';
 $string['sunday'] = 'Zondag';
 $string['thu'] = 'Do';
@@ -194,6 +201,7 @@ $string['typegroup'] = 'Groep';
 $string['typesite'] = 'Site';
 $string['typeuser'] = 'Persoonlijk';
 $string['upcomingevents'] = 'Binnenkort';
+$string['upcomingeventsfor'] = 'Komende gebeurtenissen voor:';
 $string['urlforical'] = 'URL voor iCalendar export, voor het inschrijven op de calender';
 $string['user'] = 'Gebruiker';
 $string['userevent'] = 'Persoonliljke activiteit';

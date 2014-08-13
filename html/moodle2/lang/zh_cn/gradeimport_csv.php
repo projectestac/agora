@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'gradeimport_csv', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'gradeimport_csv', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   gradeimport_csv
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

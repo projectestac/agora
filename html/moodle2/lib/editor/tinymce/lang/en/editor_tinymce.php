@@ -30,11 +30,11 @@ $string['availablebuttons'] = 'Available buttons';
 $string['customconfig'] = 'Custom configuration';
 $string['customconfig_desc'] = 'Custom advanced TinyMCE configuration in JSON format, for example: {"option1" : "value2", "option2" : "value2"}. Any options specified here override standard and plugin settings.';
 $string['customtoolbar'] = 'Editor toolbar';
-$string['customtoolbar_desc'] = 'Each line contains a list of comma separated button names, use "|" as a group separator, empty lines are ignored. See <a href="{$a}" target="_blank">{$a}</a> for the list of default TinyMCE buttons.';
+$string['customtoolbar_desc'] = 'Each line contains a list of comma separated button names, use "wrap" as a group separator, empty lines are ignored. See <a href="{$a}" target="_blank">{$a}</a> for the list of default TinyMCE buttons.<br />The first row will always be shown, where as the visibility of second and third toolbars can be toggled.';
 $string['fontselectlist'] = 'Available fonts list';
 $string['pluginname'] = 'TinyMCE HTML editor';
 $string['settings'] = 'General settings';
-$string['subplugindeleteconfirm'] = 'You are about to completely delete TinyMCE subplugin \'{$a}\'. This will completely delete everything in the database associated with this subplugin. Are you SURE you want to continue?';
+$string['subplugintype_tinymce'] = 'Plugin';
 $string['subplugintype_tinymce_plural'] = 'Plugins';
 
 
@@ -289,7 +289,7 @@ $string['advlist:types'] = 'Types';
 $string['advlist:upper_alpha'] = 'Upper alpha';
 $string['advlist:upper_roman'] = 'Upper roman';
 $string['aria:rich_text_area'] = 'Rich text area';
-$string['autosave:restore_content'] = 'Restore auto-saved content';
+/* $string['autosave:restore_content'] = 'Restore auto-saved content.'; */
 $string['autosave:unload_msg'] = 'The changes you made will be lost if you navigate away from this page.';
 $string['autosave:warning_message'] = 'If you restore the saved content, you will lose all the content that is currently in the editor.
 
@@ -893,3 +893,4 @@ $string['advanced:copy_desc'] = 'Copy';
 $string['advanced:cut_desc'] = 'Cut';
 $string['advanced:paste_desc'] = 'Paste';
 $string['advanced:shortcuts_desc'] = 'Accessibility help';
+$string['autosave:restore_content'] = 'Restore auto-saved content';

@@ -137,6 +137,11 @@ h2,h3,h4,h5,h6 {
     font-weight: normal;
 }
 
+h2.helpheading {
+    color: #333;
+    font-weight: bold;
+}
+
 blockquote {
     border-left: 1px solid #eee;
     padding-left: 15px;
@@ -156,6 +161,14 @@ blockquote {
     background: #fff;
 }
 
+.mform .btn-cancel {
+    color: #06365B;
+    text-decoration: none;
+}
+.mform .btn-cancel:hover, .mform .btn-cancel:focus {
+    color: #5487AD;
+    text-decoration: none;
+}
 
 div.navbar {
     border-bottom: 1px solid #eee;
@@ -238,7 +251,7 @@ div.block.hidden div.header {
     padding: 4px;
 }
 
-.block div.content h1, .block div.content h2.main, .block div.content h3.main {
+.block div.content h1, .block div.content h2, .block div.content h3 {
     font-size: 13px;
     background-image: none;
 }
@@ -259,8 +272,8 @@ div.block.hidden div.header {
 
 /** main headings **/
 
-.generalbox h2,h3.sectionname, h2.headingblock,h2.main,h3.main, h2.main a, h3.main a, div.loginpanel h2, div.signuppanel h2 {
-    font-weight: 600;
+.generalbox h2, h3.sectionname, div.loginpanel h2, div.signuppanel h2,  div.userprofile h2,
+#site-news-forum h2, #frontpage-course-list h2, #frontpage-category-names h2, #frontpage-category-combo h2 {
     letter-spacing: -1px;
     line-height: 1.3em;
     font-size: 28px;
@@ -270,7 +283,7 @@ div.block.hidden div.header {
     background-position: 0% 100%;
 }
 
-.generalbox h2, #page-course-info h2.main, h3.sectionname, h2.main a, h3.main a, div.loginpanel h2, div.signuppanel h2, div.hd h3.main {
+.generalbox h2, h3.sectionname, div.loginpanel h2, div.signuppanel h2, div.hd h3 {
     font-size: 22px;
     background: none;
 }
@@ -284,21 +297,21 @@ div.block.hidden div.header {
     border-color: #eee;
 }
 
-.coursebox .info {
+.coursebox .content .teachers,
+.coursebox .content .courseimage,
+.coursebox .content .coursefile,
+.coursebox.remotecoursebox .remotecourseinfo {
     width: 35%;
 }
 
-.coursebox .info .name {
-    margin-bottom: 0;
-}
-
-.coursebox .info .teachers {
+.coursebox .content .teachers {
     font-size: 0.9em;
     color: #888;
 }
 
-.coursebox .summary {
-    width: 63%;
+.coursebox .content .summary,
+.coursebox .content .coursecat {
+    width: 61%;
 }
 
 .course-content .section.main {

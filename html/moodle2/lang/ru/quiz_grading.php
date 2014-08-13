@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_grading', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_grading', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_grading
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,9 @@ $string['attemptstograde'] = 'Оцениваемые попытки';
 $string['automaticallygraded'] = 'Автоматически оцененные';
 $string['backtothelistofquestions'] = 'Назад к списку вопросов';
 $string['bydate'] = 'По дате';
+$string['bystudentfirstname'] = 'По имени студента';
 $string['bystudentidnumber'] = 'По ID студента';
+$string['bystudentlastname'] = 'По фамилии студента';
 $string['cannotgradethisattempt'] = 'Эта попытка не оценена';
 $string['cannotloadquestioninfo'] = 'Невозможно загрузить специфическую информацию о типе вопроса ';
 $string['changeoptions'] = 'Изменить параметры';

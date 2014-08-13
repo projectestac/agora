@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'stampcoll', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'stampcoll', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   stampcoll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -67,6 +67,8 @@ $string['stampcoll:managestamps'] = 'Manage stamps';
 $string['stampcoll:view'] = 'View the activity';
 $string['stampcoll:viewotherstamps'] = 'View others\' stamps';
 $string['stampcoll:viewownstamps'] = 'View own stamps';
+$string['stampgivenby'] = 'Given by';
+$string['stampgivenon'] = 'Given on';
 $string['stampimage'] = 'Custom stamp image';
 $string['stampimage_help'] = 'Recommended size is 35x35 pixels. If left empty, the default image will be used.';
 $string['stamptext'] = 'Text';

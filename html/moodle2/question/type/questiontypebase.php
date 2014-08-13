@@ -333,16 +333,19 @@ class question_type {
         // This default implementation is suitable for most
         // question types.
 
-        // First, save the basic question itself
+        // First, save the basic question itself.
         $question->name = trim($form->name);
         $question->parent = isset($form->parent) ? $form->parent : 0;
         $question->length = $this->actual_number_of_questions($question);
         $question->penalty = isset($form->penalty) ? $form->penalty : 0;
 
-        if (empty($form->questiontext['text'])) {
+        // The trim call below has the effect of casting any strange values received,
+        // like null or false, to an appropriate string, so we only need to test for
+        // missing values. Be careful not to break the value '0' here.
+        if (!isset($form->questiontext['text'])) {
             $question->questiontext = '';
         } else {
-            $question->questiontext = trim($form->questiontext['text']);;
+            $question->questiontext = trim($form->questiontext['text']);
         }
         $question->questiontextformat = !empty($form->questiontext['format']) ?
                 $form->questiontext['format'] : 0;
@@ -372,7 +375,7 @@ class question_type {
 
         // If the question is new, create it.
         if (empty($question->id)) {
-            // Set the unique code
+            // Set the unique code.
             $question->stamp = make_unique_id_code();
             $question->createdby = $USER->id;
             $question->timecreated = time();
@@ -381,7 +384,7 @@ class question_type {
 
         // Now, whether we are updating a existing question, or creating a new
         // one, we have to do the files processing and update the record.
-        /// Question already exists, update.
+        // Question already exists, update.
         $question->modifiedby = $USER->id;
         $question->timemodified = time();
 
@@ -398,13 +401,13 @@ class question_type {
         }
         $DB->update_record('question', $question);
 
-        // Now to save all the answers and type-specific options
+        // Now to save all the answers and type-specific options.
         $form->id = $question->id;
         $form->qtype = $question->qtype;
         $form->category = $question->category;
         $form->questiontext = $question->questiontext;
         $form->questiontextformat = $question->questiontextformat;
-        // current context
+        // Current context.
         $form->context = $context;
 
         $result = $this->save_question_options($form);
@@ -422,7 +425,7 @@ class question_type {
                     '$result->noticeyesno no longer supported in save_question.');
         }
 
-        // Give the question a unique version stamp determined by question_hash()
+        // Give the question a unique version stamp determined by question_hash().
         $DB->set_field('question', 'version', question_hash($question),
                 array('id' => $question->id));
 
@@ -473,25 +476,8 @@ class question_type {
         $oldhints = $DB->get_records('question_hints',
                 array('questionid' => $formdata->id), 'id ASC');
 
-        if (!empty($formdata->hint)) {
-            $numhints = max(array_keys($formdata->hint)) + 1;
-        } else {
-            $numhints = 0;
-        }
 
-        if ($withparts) {
-            if (!empty($formdata->hintclearwrong)) {
-                $numclears = max(array_keys($formdata->hintclearwrong)) + 1;
-            } else {
-                $numclears = 0;
-            }
-            if (!empty($formdata->hintshownumcorrect)) {
-                $numshows = max(array_keys($formdata->hintshownumcorrect)) + 1;
-            } else {
-                $numshows = 0;
-            }
-            $numhints = max($numhints, $numclears, $numshows);
-        }
+        $numhints = $this->count_hints_on_form($formdata, $withparts);
 
         for ($i = 0; $i < $numhints; $i += 1) {
             if (html_is_blank($formdata->hint[$i]['text'])) {
@@ -503,8 +489,7 @@ class question_type {
                 $shownumcorrect = !empty($formdata->hintshownumcorrect[$i]);
             }
 
-            if (empty($formdata->hint[$i]['text']) && empty($clearwrong) &&
-                    empty($shownumcorrect)) {
+            if ($this->is_hint_empty_in_form_data($formdata, $i, $withparts)) {
                 continue;
             }
 
@@ -524,6 +509,7 @@ class question_type {
                 $hint->clearwrong = $clearwrong;
                 $hint->shownumcorrect = $shownumcorrect;
             }
+            $hint->options = $this->save_hint_options($formdata, $i, $withparts);
             $DB->update_record('question_hints', $hint);
         }
 
@@ -533,6 +519,65 @@ class question_type {
             $fs->delete_area_files($context->id, 'question', 'hint', $oldhint->id);
             $DB->delete_records('question_hints', array('id' => $oldhint->id));
         }
+    }
+
+    /**
+     * Count number of hints on the form.
+     * Overload if you use custom hint controls.
+     * @param object $formdata the data from the form.
+     * @param bool $withparts whether to take into account clearwrong and shownumcorrect options.
+     * @return int count of hints on the form.
+     */
+    protected function count_hints_on_form($formdata, $withparts) {
+        if (!empty($formdata->hint)) {
+            $numhints = max(array_keys($formdata->hint)) + 1;
+        } else {
+            $numhints = 0;
+        }
+
+        if ($withparts) {
+            if (!empty($formdata->hintclearwrong)) {
+                $numclears = max(array_keys($formdata->hintclearwrong)) + 1;
+            } else {
+                $numclears = 0;
+            }
+            if (!empty($formdata->hintshownumcorrect)) {
+                $numshows = max(array_keys($formdata->hintshownumcorrect)) + 1;
+            } else {
+                $numshows = 0;
+            }
+            $numhints = max($numhints, $numclears, $numshows);
+        }
+        return $numhints;
+    }
+
+    /**
+     * Determine if the hint with specified number is not empty and should be saved.
+     * Overload if you use custom hint controls.
+     * @param object $formdata the data from the form.
+     * @param int $number number of hint under question.
+     * @param bool $withparts whether to take into account clearwrong and shownumcorrect options.
+     * @return bool is this particular hint data empty.
+     */
+    protected function is_hint_empty_in_form_data($formdata, $number, $withparts) {
+        if ($withparts) {
+            return empty($formdata->hint[$number]['text']) && empty($formdata->hintclearwrong[$number]) &&
+                    empty($formdata->hintshownumcorrect[$number]);
+        } else {
+            return  empty($formdata->hint[$number]['text']);
+        }
+    }
+
+    /**
+     * Save additional question type data into the hint optional field.
+     * Overload if you use custom hint information.
+     * @param object $formdata the data from the form.
+     * @param int $number number of hint to get options from.
+     * @param bool $withparts whether question have parts.
+     * @return string value to save into the options field of question_hints table.
+     */
+    protected function save_hint_options($formdata, $number, $withparts) {
+        return null;    // By default, options field is unused.
     }
 
     /**
@@ -679,12 +724,12 @@ class question_type {
         $question->createdby = $questiondata->createdby;
         $question->modifiedby = $questiondata->modifiedby;
 
-        //Fill extra question fields values
+        // Fill extra question fields values.
         $extraquestionfields = $this->extra_question_fields();
         if (is_array($extraquestionfields)) {
-            //omit table name
+            // Omit table name.
             array_shift($extraquestionfields);
-            foreach($extraquestionfields as $field) {
+            foreach ($extraquestionfields as $field) {
                 $question->$field = $questiondata->options->$field;
             }
         }
@@ -805,7 +850,7 @@ class question_type {
      *                         Question type specific information is included.
      */
     public function actual_number_of_questions($question) {
-        // By default, each question is given one number
+        // By default, each question is given one number.
         return 1;
     }
 
@@ -885,11 +930,11 @@ class question_type {
      * @return bool      Whether the wizard's last page was submitted or not.
      */
     public function finished_edit_wizard($form) {
-        //In the default case there is only one edit page.
+        // In the default case there is only one edit page.
         return true;
     }
 
-    /// IMPORT/EXPORT FUNCTIONS /////////////////
+    // IMPORT/EXPORT FUNCTIONS --------------------------------- .
 
     /*
      * Imports question from the Moodle XML format
@@ -908,7 +953,7 @@ class question_type {
             return false;
         }
 
-        //omit table name
+        // Omit table name.
         array_shift($extraquestionfields);
         $qo = $format->import_headers($data);
         $qo->qtype = $question_type;
@@ -917,7 +962,7 @@ class question_type {
             $qo->$field = $format->getpath($data, array('#', $field, 0, '#'), '');
         }
 
-        // run through the answers
+        // Run through the answers.
         $answers = $data['#']['answer'];
         $a_count = 0;
         $extraanswersfields = $this->extra_answer_fields();
@@ -956,7 +1001,7 @@ class question_type {
             return false;
         }
 
-        //omit table name
+        // Omit table name.
         array_shift($extraquestionfields);
         $expout='';
         foreach ($extraquestionfields as $field) {

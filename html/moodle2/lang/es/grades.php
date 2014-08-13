@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'grades', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'grades', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   grades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -209,6 +209,7 @@ $string['errornocategorisedid'] = 'No se ha podido conseguir una ID no categoriz
 $string['errornocourse'] = 'No se pudo obtener información del curso';
 $string['errorreprintheadersnonnumeric'] = 'Recibido valor no numérico para cabeceras de reimpresión';
 $string['errorsavegrade'] = 'Lo sentimos, no se pudo guardar la calificación.';
+$string['errorsettinggrade'] = 'Error al guardar la calificación de "{$a->itemname}" para el usuario {$a->userid}';
 $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Error al actualizar el ajuste "Agregar sólo ítems calificados" de la categoría de calificación ID {$a->id}';
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Error al actualizar el ajuste "Agregar resultados" de la categoría de calificación ID {$a->id}';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Error al actualizar el ajuste "Agregar subcategorías" de la categoría de calificación ID {$a->id}';
@@ -220,8 +221,8 @@ $string['expand'] = 'Expandir categoría';
 $string['export'] = 'Exportar';
 $string['exportalloutcomes'] = 'Exportar todos los resultados';
 $string['exportfeedback'] = 'Incluir retroalimentación en la exportación';
-$string['exportonlyactive'] = 'Requiere una matrícula activa';
-$string['exportonlyactive_help'] = 'Solo incluye en la exportación, aquellos estudiantes cuya matrícula no haya sido suspendida';
+$string['exportonlyactive'] = 'Excluir usuarios suspendidos';
+$string['exportonlyactive_help'] = 'Solo incluye en la exportación aquellos estudiantes cuya matrícula esté activa y no haya sido suspendida';
 $string['exportplugins'] = 'Conectores de exportación';
 $string['exportsettings'] = 'Exportar ajustes';
 $string['exportto'] = 'Exportar a';
@@ -282,6 +283,7 @@ $string['gradehelp'] = 'Ayuda sobre las calificaciones';
 $string['gradehistorylifetime'] = 'Duración del historial de calificaciones';
 $string['gradehistorylifetime_help'] = 'Esta opción especifica durante cuánto tiempo desea mantener el historial de cambios en las tablas de calificaciones relacionadas. Se recomienda mantenerlo todo el tiempo posible. Si experimenta problemas de funcionamiento o tiene un espacio limitado en la base de datos, pruebe con un valor más bajo.';
 $string['gradeimport'] = 'Importar calificaciones';
+$string['gradeimportfailed'] = 'Se ha producido un fallo en la importación de las calificaciones. Más detalles:';
 $string['gradeitem'] = 'Ítem de calificación';
 $string['gradeitemaddusers'] = 'Excluir de calificación';
 $string['gradeitemadvanced'] = 'Opciones avanzadas de ítems de calificación';
@@ -580,7 +582,9 @@ $string['selectalloroneuser'] = 'Seleccionar todos o un usuario';
 $string['selectauser'] = 'Seleccionar un usuario';
 $string['selectdestination'] = 'Seleccionar destino de {$a}';
 $string['separator'] = 'Separador';
+$string['sepcolon'] = 'Dos puntos';
 $string['sepcomma'] = 'Coma';
+$string['sepsemicolon'] = 'Punto y coma';
 $string['septab'] = 'Tabulador';
 $string['setcategories'] = 'Ajusstar categorías';
 $string['setcategorieserror'] = 'Debe ajustar las categorías del curso antes de poder asignarles ponderaciones.';
@@ -624,6 +628,8 @@ $string['shownohidden'] = 'No mostrar';
 $string['shownooutcomes'] = 'Ocultar resultados';
 $string['shownumberofgrades'] = 'Mostrar número de calificaciones en los promedios';
 $string['shownumberofgrades_help'] = 'Muestra el número de calificaciones que se están agregando junto a cada promedio, entre paréntesis. Ejemplo: 45 (34).';
+$string['showonlyactiveenrol'] = 'Mostrar solamente matriculaciones activas';
+$string['showonlyactiveenrol_help'] = 'Este ajuste determina si sólo los usuarios activos serán visibles en el informe del libro de calificaciones. Si se activa, los usuarios suspendidos no se mostrarán en el libro de calificaciones.';
 $string['showpercentage'] = 'Mostrar porcentaje';
 $string['showpercentage_help'] = '¿Mostrar el porcentaje de cada ítem de calificación.?';
 $string['showquickfeedback'] = 'Mostrar retroalimentación rápida';
@@ -690,6 +696,9 @@ $string['user'] = 'Usuario';
 $string['userenrolmentsuspended'] = 'Matriculación de usuarios suspendida';
 $string['usergrade'] = 'Usuario {$a->fullname} ({$a->useridnumber}) en el ítem {$a->gradeidnumber}';
 $string['userid'] = 'ID de usuario';
+$string['usermappingerror'] = 'Error de asignación: No se pudo encontrar al usuario con {$a->field} de "{$a->value}".';
+$string['usermappingerrorcurrentgroup'] = 'El usuario no es miembro del grupo actual.';
+$string['usermappingerrorusernotfound'] = 'Error de asignación. No se pudo encontrar al usuario.';
 $string['userpreferences'] = 'Preferencias del usuario';
 $string['useweighted'] = 'Usar ponderación';
 $string['verbosescales'] = 'Escalas de texto';

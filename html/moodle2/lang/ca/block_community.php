@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_community', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_community', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   block_community
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -68,9 +68,11 @@ $string['enrollablecourses'] = 'Cursos que admeten inscripcions';
 $string['errorcourselisting'] = 'S\'ha produït un error mentre es recuperava la llista de cursos de la col·lectivitat escollida; si us plau, torneu-ho a intentar més tard. ({$a})';
 $string['errorhublisting'] = 'S\'ha produït un erro mentre es recuperava la llista de la col·lectivitat a Moodle.org, si us plau; torneu-ho a intentar més tard. ({$a})';
 $string['fileinfo'] = 'Idioma: {$a->lang} - Llicència: {$a->license} - Darrera revisió: {$a->timeupdated}';
+$string['hideall'] = 'Amaga els hubs';
 $string['hub'] = 'col·lectivitat';
 $string['hubnottrusted'] = 'No és de confiança';
 $string['hubtrusted'] = 'Moodle.org confia en aquest hub';
+$string['install'] = 'Descarrega';
 $string['keywords'] = 'Paraules clau';
 $string['keywords_help'] = 'Podeu cercar cursos que tinguin un text específic al nom, la descripció o altres camps de la base de dades.';
 $string['langdesc'] = 'Idioma: {$a}';
@@ -105,6 +107,7 @@ $string['searchcommunitycourse'] = 'Cerca un curs de la comunitat';
 $string['searchcourse'] = 'Cerca un curs de la comunitat';
 $string['selecthub'] = 'Trieu un hub';
 $string['selecthub_help'] = 'Trieu un hub a on cercar els cursos';
+$string['showall'] = 'Mostra tots els hubs';
 $string['sites'] = 'Llocs';
 $string['subject'] = 'Tema';
 $string['subject_help'] = 'Per limitar la vostra cerca a cursos d\'una temàtica particular, escolliu-ne una de la llista següent.';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_section_links', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_section_links', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   block_section_links
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,15 +26,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['incby1'] = '増分値';
+$string['incby1_help'] = 'この値は毎回セクションリンクが1から開始される場合に増分されるセクションです。';
 $string['incby2'] = '代替増分値';
-$string['incbydesc1'] = 'ここでは、セクションリンクが表示されるときの、1から始まるセクション値の増分を設定します。';
-$string['incbydesc2'] = 'ここでは、セクションリンクが表示されるときの、1から始まるセクション値の増分を設定します。';
+$string['incby2_help'] = 'この値は毎回セクションリンクが1から開始される場合に増分されるセクションです。';
 $string['jumptocurrenttopic'] = '現在のトピックへ移動する';
 $string['jumptocurrentweek'] = '現在の週へ移動する';
 $string['numsections1'] = 'セクション数';
+$string['numsections1_help'] = 'この値にコース内セクション数が到達した場合、増分値が使用されます。';
 $string['numsections2'] = '代替セクション数';
-$string['numsectionsdesc1'] = 'コース内のセクション数が、この値に達した場合、増分値が使用されます。';
-$string['numsectionsdesc2'] = 'コース内のセクション数が、この値に達した場合、代替増分値が使用されます。';
+$string['numsections2_help'] = 'この値にコース内セクション数が到達した場合、増分値が使用されます。';
 $string['pluginname'] = 'セクションリンク';
 $string['section_links:addinstance'] = '新しいセクションリンクブロックを追加する';
 $string['topics'] = 'トピック';

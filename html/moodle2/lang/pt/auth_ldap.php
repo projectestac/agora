@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'auth_ldap', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'auth_ldap', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   auth_ldap
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -97,8 +97,11 @@ $string['auth_ldap_version_key'] = 'Versão';
 $string['auth_ntlmsso'] = 'NTLM SSO';
 $string['auth_ntlmsso_enabled'] = 'Selecione o valor "Sim" para tentar SSO com o domínio NTLM. <strong>Nota:</strong> Para colocar em funcionamento esta opção é necessário alterar a configuração habitual do servidor web. Consulte a página <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a> para mais informações';
 $string['auth_ntlmsso_enabled_key'] = 'Ativar';
-$string['auth_ntlmsso_ie_fastpath'] = 'Selecione o valor "Sim" para ativar o atalho NTLM SSO (algumas fases são ignoradas e só funciona se o browser do utilizador for o IE da MS).';
+$string['auth_ntlmsso_ie_fastpath'] = 'Selecione o valor "Sim" para ativar o atalho NTLM SSO (algumas fases são ignoradas e só funciona se o browser do utilizador for o MS Internet Explorer).';
+$string['auth_ntlmsso_ie_fastpath_attempt'] = 'Tentativa NTLM com todos os navegadores';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'Atalho para o IE da MS?';
+$string['auth_ntlmsso_ie_fastpath_yesattempt'] = 'Sim, tentar NTLM com outros navegadores';
+$string['auth_ntlmsso_ie_fastpath_yesform'] = 'Sim, todos os outros navegadores usam um formulário de login padrão';
 $string['auth_ntlmsso_maybeinvalidformat'] = 'Não foi possível extrair o nome de utilizador a partir do cabeçalho do UTILIZADOR_REMOTO. O formato está configurado corretamente?';
 $string['auth_ntlmsso_missing_username'] = 'Tem de especificar pelo menos o %nome de utilizador% no formato nome de utilizador remoto';
 $string['auth_ntlmsso_remoteuserformat'] = 'Se escolheu \'NTLM\' em \'Tipo de autenticação\', pode especificar aqui o formato do nome do utilizador remoto. Se este campo ficar por preencher, será utilizado o formato DOMAINusername padrão. Pode utilizar a expressão especial opcional <b>%domain%</b> para especificar onde o nome do domínio aparece, e a expressão especial obrigatória <b>%username%</b> para especificar onde o nome de utilizador aparece. <br /><br /> Alguns formatos utilizados são <tt>%domain%%username%</tt> (MS Windows default), <tt>%domain%/%username%</tt>, <tt>%domain%+%username%</tt> and just <tt>%username%</tt> (se não existe nenhuma parte do domínio).';
@@ -133,6 +136,8 @@ $string['pluginname'] = 'Servidor LDAP';
 $string['pluginnotenabled'] = 'O módulo não está ativo!';
 $string['renamingnotallowed'] = 'Não é permitida a alteração do nome dos utilizadores no servidor LDAP';
 $string['rootdseerror'] = 'Erro ao comunicar com rootDSE para Ative Directory';
+$string['start_tls'] = 'Usar o serviço LDAP normal (porta 389) com encriptação TLS';
+$string['start_tls_key'] = 'Usar TLS';
 $string['updatepasserror'] = 'Erro na função user_update_password() com código  {$a->errno} e mensagem " {$a->errstring} "';
 $string['updatepasserrorexpire'] = 'Erro na função user_update_password() ao ler o intervalo de expiração da senha. Código do erro: {$a->errno}; Mensagem do erro: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Erro na função user_update_password() ao modificar os parâmetros expirationtime e/ou gracelogins. Código do erro: {$a->errno}; Mensagem do erro: {$a->errstring}';

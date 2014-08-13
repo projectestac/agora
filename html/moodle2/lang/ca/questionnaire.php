@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'questionnaire', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'questionnaire', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   questionnaire
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -62,16 +62,12 @@ $string['couldnotdelresp'] = 'No es pot esborrar la resposta';
 $string['createcontent'] = 'Defineix el contingut nou';
 $string['createcontent_help'] = 'Trieu un botó d\'opció. "Crea" és el valor predefinit.';
 $string['createnew'] = 'Crea';
-$string['crossanalyze'] = 'Anàlisi creuada';
-$string['crosstabulate'] = 'Tabulació creuada';
-$string['crosstabulation'] = 'Tabulació creuada';
 $string['date'] = 'Data';
 $string['dateformatting'] = 'Utilitzeu el format dia/mes/any, per exemple, per l\'11 de setembre de 1714, <strong>11/9/1714</strong>';
 $string['date_help'] = 'Utilitzeu aquest tipus de pregunta si espereu que la resposta sigui una data amb el format correcte.';
 $string['deleteallresponses'] = 'Esborra TOTES les respostes';
 $string['deletecurrentquestion'] = 'Esborra la pregunta {$a}';
 $string['deletedallgroupresp'] = 'S\'han esborrat totes les respostes del grup {$a}';
-$string['deletedallresp'] = 'S\'han esborrat TOTES les respostes';
 $string['deletedresp'] = 'S\'ha esborrat la resposta';
 $string['deleteresp'] = 'Esborra aquesta resposta';
 $string['deletingresp'] = 'Esborrant la resposta';
@@ -87,7 +83,6 @@ $string['editingquestionnaire'] = 'Edita els paràmetres del qüestionari';
 $string['editquestion'] = 'Edita la pregunta {$a}';
 $string['email'] = 'Correu electrònic';
 $string['errnewname'] = 'Aquest nom ja es fa servir; si us plau, trieu-ne un altre.';
-$string['errorcross'] = 'Error de l\'anàlisi creuada. La pregunta no és d\'un tipus vàlid.';
 $string['erroropening'] = 'Error d\'obertura del qüestionari.';
 $string['errortable'] = 'Error de corrupció de la taula.';
 $string['essaybox'] = 'Quadre d\'edició llarg';
@@ -112,7 +107,6 @@ $string['invalidresponse'] = 'La resposta especificada és incorrecta.';
 $string['invalidresponserecord'] = 'El registre de la resposta indicat és incorrecte';
 $string['invalidsurveyid'] = 'L\'identificador de l\'enquesta és incorrecte.';
 $string['kindofratescale'] = 'Tipus d\'escala de valoració';
-$string['kindofratescale_help'] = 'Vegeu la documentació Moodle';
 $string['length'] = 'Longitud';
 $string['maxdigitsallowed'] = 'Màxim nombre de dígits permès';
 $string['maxdigitsallowed_help'] = 'Si utilitzeu els paràmetres de màxim nombre de dígits permès i el nombre de dígits decimals, podeu indicar la longitud i el nombre de decimals demanats.';
@@ -122,15 +116,9 @@ $string['minforcedresponses'] = 'Nombre mínim obligatori de respostes';
 $string['minforcedresponses_help'] = 'Utilitzeu aquests paràmetres per forçar als alumnes a marcar un mínim i un màxim de quadres de selecció. Per forçar un nombre exacte de seleccions, establiu el mínim i el màxim en el mateix valor. Si només voleu un mínim o un màxim, establiu-ne el valor i deixeu l\'altre a **0**.
 Si establiu el mínim i/o el màxim de quadres marcats i la resposta no s\'ajusta a aquests marges, s\'emet un missatge d\'avís. Òbviament és millor que les persones que respondran l\'enquesta coneguin per endavant les condicions de resposta.';
 $string['misconfigured'] = 'El curs no està ben configurat';
-$string['missingquestion'] = 'Si us plau, responeu la pregunta';
-$string['missingquestions'] = 'Si us plau, responeu les preguntes:';
 $string['modulename'] = 'Questionnaire';
 $string['modulename_help'] = 'El mòdul Questionnaire permet construir enquestes utilitzant diferents tipologies de preguntes, amb la finalitat de recopilar dades dels usuaris.';
 $string['modulenameplural'] = 'Questionnaires';
-$string['move'] = 'Desplaça aquesta pregunta';
-$string['movedn'] = 'Desplaça la pregunta avall';
-$string['movehere'] = 'Desplaça la pregunta aquí';
-$string['moveup'] = 'Desplaça la pregunta amunt';
 $string['myresponses'] = 'Totes les respostes';
 $string['myresponsetitle'] = 'Les vostres {$a} respostes';
 $string['myresults'] = 'Els vostres resultats';
@@ -140,7 +128,6 @@ $string['nextpage'] = 'Pàgina següent';
 $string['noanswer'] = 'Sense resposta';
 $string['nodata'] = 'No s\'ha enviat informació';
 $string['noduplicates'] = 'No hi ha opcions duplicades';
-$string['noneinuse'] = 'No hi ha contingut definit';
 $string['nopublicsurveys'] = 'No hi ha enquestes públiques';
 $string['noresponsedata'] = 'No hi ha cap resposta per a aquesta pregunta';
 $string['noresponses'] = 'No hi ha cap resposta';
@@ -194,10 +181,8 @@ $string['pluginadministration'] = 'Administració del Questionnaire';
 $string['pluginname'] = 'Questionnaire';
 $string['possibleanswers'] = 'Respostes possibles';
 $string['posteddata'] = 'S\'ha obtingut una pàgina amb dades:';
-$string['preview'] = 'Aquí teniu una vista prèvia de l\'enquesta. Quan hàgiu acabat, feu clic a <strong>Tanca</strong>, al botó que trobareu al final d\'aquesta pàgina.';
 $string['previewing'] = 'Vista prèvia de l\'enquesta';
 $string['preview_label'] = 'Vista prèvia';
-$string['preview_questionnaire'] = '- Vista prèvia de l\'enquesta';
 $string['previous'] = 'Prèvia';
 $string['previouspage'] = 'Pàgina anterior';
 $string['print'] = 'Imprimeix aquesta resposta';
@@ -248,16 +233,12 @@ $string['realm_help'] = '* **Hi ha tres tipus d\'enquestes:**
 * Públiques: es poden compartir entre cursos.';
 $string['redirecturl'] = 'La URL cap a on es redirecciona l\'usuari/ària després de completar l\'enquesta';
 $string['remove'] = 'Esborra';
-$string['required'] = 'Cal una resposta';
 $string['required_help'] = 'Si marqueu ***Sí***, es requerirà una resposta a aquesta pregunta, és a dir, no es podrà trametre l\'enquesta fins que s\'hagi respost a aquesta pregunta';
 $string['requiredparameter'] = 'S\'ha deixat en blanc algun paràmetre obligatori.';
 $string['reset'] = 'Reinicia';
 $string['respeligiblerepl'] = '(substituït per les excepcions dels rols)';
 $string['respondent'] = 'Enquestat/enquestada';
-$string['respondenteligible'] = 'Opcions de l\'enquestat/da';
 $string['respondenteligibleall'] = 'tot';
-$string['respondenteligible_help'] = 'Estableix si qualsevol persona pot respondre o si es restringeix a les respostes de tutors o d\'estudiants.
-A les opcions d\'accés restringit heu d\'assignar els rols corresponents a nivell de curs o d\'activitat. Per exemple, si teniu una enquesta a la pàgina inicial només per al professorat, haureu de configurar al Moodle quins usuaris són professorat.';
 $string['respondenteligiblestudents'] = 'només estudiants';
 $string['respondenteligibleteachers'] = 'només professorat';
 $string['respondents'] = 'Enquestats';
@@ -282,7 +263,6 @@ $string['resumesurvey'] = 'Recupera l\'enquesta';
 $string['return'] = 'Torna';
 $string['save'] = 'Desa';
 $string['saveasnew'] = 'Desa com a pregunta nova';
-$string['savedprogress'] = 'S\'han desat les respostes que heu fet fins ara. Podeu tornar un altre moment per completar l\'enquesta. Per fer-ho només cal que marqueu l\'enllaç {$a} de sota. Pot ser que us demani el vostre nom d\'usuari/ària i la contrasenya per completar l\'enquesta.';
 $string['saveeditedquestion'] = 'Desa la pregunta {$a}';
 $string['savesettings'] = 'Desa els paràmetres';
 $string['section'] = 'Descripció';
@@ -341,13 +321,10 @@ $string['viewallresponses'] = 'Mostra totes les respostes';
 $string['viewallresponses_help'] = 'Si l\'enquesta s\'estableix a **Mode de grup**: *Grups visibles*, o a *Grups separats* i l\'usuari/ària té el permís *moodle/site:accessallgroups* (en el context actual); i s\'han establert grups al curs, aleshores l\'usuari/ària podrà accedir a una llista desplegable de grups.
 Aquesta llista permet que l\'usuari "filtri" les respostes per grups.
 Si el paràmetre és **Mode de grup**: *Grups separats*, els usuaris que no tinguin el permís *moodle/site:accessallgroups* (habitualment estudiants o professorat no-editor) no podran veure les respostes del(s) grup(s) als quals pertanyen.';
-$string['viewbyresponse'] = 'Mostra per resposta';
 $string['viewresponses'] = 'Totes les respostes ({$a})';
 $string['viewyourresponses'] = 'Les vostres respostes - mostra {$a}';
 $string['warning'] = 'Atenció, s\'ha trobat un error!';
 $string['wrongdateformat'] = 'La data que introduïda: <strong>{$a}</strong> no es correspon amb el format que mostra l\'exemple.';
 $string['wrongdaterange'] = 'Atenció: l\'any ha d\'estar en el rang de 1902 a 2037.';
-$string['wrongformat'] = 'Hi ha alguna cosa malament en aquesta pregunta.';
-$string['wrongformats'] = 'Hi ha alguna cosa malament amb les preguntes:';
 $string['yesno'] = 'Sí/No';
 $string['yesno_help'] = 'Pregunta simple de Sí o No';

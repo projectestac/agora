@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_webct', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qformat_webct', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   qformat_webct
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['errorsdetected'] = 'Обнаружено ошибок: {$a}';
 $string['missinganswer'] = 'Слишком мало утверждений :ANSWER, :Lx, :Rx для вопроса в строке {$a}. Вы должны четко определить по крайней мере два возможных ответа';
 $string['missingquestion'] = 'Отсутствие метки вопроса после строки {$a}';
-$string['paragraphquestion'] = 'Часть вопроса';
 $string['pluginname'] = 'Формат WebCT';
 $string['pluginname_help'] = 'Формат WebCT позволяет вопросы Множественного выбора и Короткие ответы сохранить в текстовом формате WebCT для дальнейшего импорта.';
 $string['questionnametoolong'] = 'Название вопроса слишком длинное на строке {$a} (255 символов максимум). Название будет обрезано.';

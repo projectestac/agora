@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'format_flexpage', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'format_flexpage', language 'en', branch 'MOODLE_25_STABLE'
  *
  * @package   format_flexpage
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -126,6 +126,7 @@ $string['navigation_help'] = 'Used to display next and/or previous buttons on th
 $string['navnext'] = 'Next flexpage only';
 $string['navnone'] = 'No navigation';
 $string['navprev'] = 'Previous flexpage only';
+$string['next'] = 'Next';
 $string['nextpage'] = 'Next >';
 $string['nomoveoptionserror'] = 'You cannot move this flexpage because there are no available positions to place this flexpage.  Try adding new flexpages before or after this flexpage.';
 $string['page'] = 'Flexpage';
@@ -136,12 +137,15 @@ $string['pagenotfound'] = 'The flexpage with id = {$a} does not exist in this co
 $string['pagexnotavailable'] = '{$a} is not available';
 $string['pluginname'] = 'Flexpage format';
 $string['preventactivityview'] = 'You cannot access this activity yet because it is on a flexpage that is currently not available to you.';
+$string['previous'] = 'Previous';
 $string['previouspage'] = '< Previous';
 $string['regionwidths'] = 'Block region widths';
 $string['regionwidths_help'] = 'One can specify how wide each region of blocks can be in pixels.  An example would be to set left to 200, main to 500 and right to 200.  Please note though that available regions and their names can change from theme to theme.';
 $string['sectionname'] = 'Section';
 $string['showavailability'] = 'Before this can be accessed';
 $string['showavailability_help'] = 'If the flexpage is unavailable to the user, this setting determines if this flexpage\'s restriction information is displayed or nothing at all.';
+$string['showavailability_hide'] = 'Hide flexpage entirely';
+$string['showavailability_show'] = 'Show flexpage greyed-out, with restriction information';
 $string['showfromothers'] = 'Show flexpage';
 $string['themelayoutmissing'] = 'Your current theme does not support Flexpage.  Please change the theme (or if enabled, the course theme or your preferred theme in your profile) to one that has a "{$a}" layout.';
 $string['warning'] = 'Warning';

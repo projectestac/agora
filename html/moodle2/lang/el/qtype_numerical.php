@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'el', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'el', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -56,7 +56,7 @@ $string['tolerancetype'] = 'Τύπος ανοχής';
 $string['unitchoice'] = 'πολλαπλές επιλογές';
 $string['unitgraded'] = 'Η μονάδα πρέπει να δίνεται και θα βαθμολογείται.';
 $string['unithandling'] = 'Χειρισμός μονάδας μέτρησης';
-$string['unithdr'] = 'Μονάδα {$a}';
 $string['unitpenalty'] = 'Ποινή μονάδας';
 $string['unitpenalty_help'] = 'Η ποινή εφαρμόζεται αν * το λάθος όνομα μονάδας εισαχθεί στην καταχώρηση μονάδας, ή * η μονάδα εισαχθεί στο κουτί καταχώρησης της τιμής';
 $string['unitselect'] = 'ένα drop-down μενού';
+$string['youmustenteramultiplierhere'] = 'Πρέπει να εισάγετε έναν πολλαπλασιαστή εδώ.';

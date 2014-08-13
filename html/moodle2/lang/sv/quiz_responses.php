@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz_responses', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'quiz_responses', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   quiz_responses
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,17 +28,17 @@ defined('MOODLE_INTERNAL') || die();
 $string['cannotloadoptions'] = 'Kunde inta ladda frågealternativ';
 $string['include'] = 'Inkludera';
 $string['mustselectcols'] = 'Du måste inkludera någonting.';
-$string['pagesize'] = 'Sidstorlek';
+$string['pagesize'] = 'Försök per sida';
 $string['pluginname'] = 'Svar';
 $string['questiontext'] = 'Frågetest';
-$string['reportresponses'] = 'Svaren';
+$string['reportresponses'] = 'Detaljerade responser';
 $string['response'] = 'svar';
-$string['responses'] = 'Svar';
+$string['responses'] = 'Detaljerade responser';
 $string['responsesdownload'] = 'Ladda ner svaren';
 $string['responsesfilename'] = 'svaren';
 $string['responsesoptions'] = 'Alternativ för responser';
 $string['responsesreport'] = 'Svarsrapport';
-$string['responsestitle'] = 'Svaren';
+$string['responsestitle'] = 'Detaljerade responser';
 $string['responsex'] = 'Svar {$a}';
 $string['rightanswer'] = 'rätt svar';
 $string['rightanswerx'] = 'Rätt svar {$a}';

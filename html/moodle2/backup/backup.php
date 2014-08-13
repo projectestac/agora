@@ -79,6 +79,10 @@ switch ($type) {
         print_error('unknownbackuptype');
 }
 
+// Backup of large courses requires extra memory. Use the amount configured
+// in admin settings.
+raise_memory_limit(MEMORY_EXTRA);
+
 //XTEC ************ AFEGIT - Control backup hours
 //2012.06.04 @aginard
 if (!get_protected_agora() && is_rush_hour()) {
@@ -98,24 +102,81 @@ if (!($bc = backup_ui::load_controller($backupid))) {
                             backup::INTERACTIVE_YES, backup::MODE_GENERAL, $USER->id);
 }
 $backup = new backup_ui($bc);
+
+$PAGE->set_title($heading);
+$PAGE->set_heading($heading);
+
+$renderer = $PAGE->get_renderer('core','backup');
+echo $OUTPUT->header();
+
+// Prepare a progress bar which can display optionally during long-running
+// operations while setting up the UI.
+$slowprogress = new core_backup_display_progress_if_slow(get_string('preparingui', 'backup'));
+
+$previous = optional_param('previous', false, PARAM_BOOL);
+if ($backup->get_stage() == backup_ui::STAGE_SCHEMA && !$previous) {
+    // After schema stage, we are probably going to get to the confirmation stage,
+    // The confirmation stage has 2 sets of progress, so this is needed to prevent
+    // it showing 2 progress bars.
+    $twobars = true;
+    $slowprogress->start_progress('', 2);
+} else {
+    $twobars = false;
+}
+$backup->get_controller()->set_progress($slowprogress);
 $backup->process();
+
+if ($backup->enforce_changed_dependencies()) {
+    debugging('Your settings have been altered due to unmet dependencies', DEBUG_DEVELOPER);
+}
+
+$loghtml = '';
 if ($backup->get_stage() == backup_ui::STAGE_FINAL) {
+    // Display an extra backup step bar so that we can show the 'processing' step first.
+    echo html_writer::start_div('', array('id' => 'executionprogress'));
+    echo $renderer->progress_bar($backup->get_progress_bar());
+    $backup->get_controller()->set_progress(new core_backup_display_progress());
+
+    // Prepare logger and add to end of chain.
+    $logger = new core_backup_html_logger($CFG->debugdeveloper ? backup::LOG_DEBUG : backup::LOG_INFO);
+    $backup->get_controller()->add_logger($logger);
+
+    // Carry out actual backup.
     $backup->execute();
+
+    // Backup controller gets saved/loaded so the logger object changes and we
+    // have to retrieve it.
+    $logger = $backup->get_controller()->get_logger();
+    while (!is_a($logger, 'core_backup_html_logger')) {
+        $logger = $logger->get_next();
+    }
+
+    // Get HTML from logger.
+    $loghtml = $logger->get_html();
+
+    // Hide the progress display and first backup step bar (the 'finished' step will show next).
+    echo html_writer::end_div();
+    echo html_writer::script('document.getElementById("executionprogress").style.display = "none";');
 } else {
     $backup->save_controller();
 }
 
-$PAGE->set_title($heading.': '.$backup->get_stage_name());
-$PAGE->set_heading($heading);
-$PAGE->navbar->add($backup->get_stage_name());
-
-$renderer = $PAGE->get_renderer('core','backup');
-echo $OUTPUT->header();
-if ($backup->enforce_changed_dependencies()) {
-    debugging('Your settings have been altered due to unmet dependencies', DEBUG_DEVELOPER);
+// Displaying UI can require progress reporting, so do it here before outputting
+// the backup stage bar (as part of the existing progress bar, if required).
+$ui = $backup->display($renderer);
+if ($twobars) {
+    $slowprogress->end_progress();
 }
+
 echo $renderer->progress_bar($backup->get_progress_bar());
-echo $backup->display($renderer);
+
+echo $ui;
 $backup->destroy();
 unset($backup);
+
+// Display log data if there was any.
+if ($loghtml != '') {
+    echo $renderer->log_display($loghtml);
+}
+
 echo $OUTPUT->footer();

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_calculated', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_calculated', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_calculated
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['additem'] = 'Lägg till objekt';
 $string['addmoreanswerblanks'] = 'Lägg till ytterligare ett tomt svar';
-$string['addmoreunitblanks'] = 'Tomma för ytterligare {$a} enheter';
 $string['addsets'] = 'Lägg till datamängd';
 $string['answerhdr'] = 'Svar';
 $string['answerstoleranceparam'] = 'Tolerans parametrar för svar';
@@ -90,9 +89,7 @@ $string['minmax'] = 'Värdeområde';
 $string['missingformula'] = 'Saknad formel';
 $string['missingname'] = 'Saknat frågenamn';
 $string['missingquestiontext'] = 'Saknad frågetest';
-$string['mustbenumeric'] = 'Du måste ange ett (an)tal här';
 $string['mustenteraformulaorstar'] = 'Du måste skriva in en formel eller \'*\' (ett wildcard)';
-$string['mustnotbenumeric'] = 'Det här kan inte vara ett (an)tal';
 $string['newcategory1'] = 'kommer att använda ett nytt gemensamt dataset.';
 $string['newcategory2'] = 'en fil från en ny uppsättning filer som också kan användas av andra frågor i denna kategori';
 $string['newcategory3'] = 'en länk från en ny uppsättning länkar som också kan användas av andra frågor i denna kategori';
@@ -153,5 +150,4 @@ $string['wildcardvalues'] = 'Värden för jokertecken';
 $string['wildcardvaluesgenerated'] = 'Värden genererade för jokertecken';
 $string['youmustaddatleastoneitem'] = 'Du måste lägga till minst ett objekt till datasetet innan du kan spara den här frågan.';
 $string['youmustaddatleastonevalue'] = 'Du måste lägga till minst en uppsättning av jokertecken värden innan du kan spara den här frågan.';
-$string['youmustenteramultiplierhere'] = 'Du måste ange en multiplikator här';
 $string['zerosignificantfiguresnotallowed'] = 'Rätt svar kan inte ha noll signifikanta siffror!';

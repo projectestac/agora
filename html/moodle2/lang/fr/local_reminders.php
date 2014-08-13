@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_reminders', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_reminders', language 'fr', branch 'MOODLE_25_STABLE'
  *
  * @package   local_reminders
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -47,7 +47,6 @@ $string['explaindueheading'] = 'Paramètres de rappel pour les événements lié
 $string['explaingroupheading'] = 'Paramètres de rappel pour les événements liés au groupe. Ces événements ne concernent qu\'un groupe spécifique.';
 $string['explaingroupshowname'] = 'Indique si le nom du groupe doit être inclus dans le message à envoyer ou non.';
 $string['explainsendactivityreminders'] = 'Indique pour quel(s) état(s) de l\'activité les rappels doivent être envoyés.';
-$string['explainsiteheading'] = 'Paramètres de rappel pour les événements liés au site. Ces événements concernent tous les utilisateurs du site.';
 $string['explainuserheading'] = 'Paramètres de rappel pour les événements liés à l\'utilisateur. Ces événements sont propres à chaque utilisateur.';
 $string['filterevents'] = 'Filtre des événements du calendrier :';
 $string['filtereventsdescription'] = 'Choix des événements du calendrier à filtrer pour les rappels.';
@@ -55,7 +54,6 @@ $string['filtereventsonlyhidden'] = 'Seulement les événements masqués du cale
 $string['filtereventsonlyvisible'] = 'Seulement les événements visibles du calendrier';
 $string['filtereventssendall'] = 'Tous les &#233;v&#233;nements';
 $string['groupheading'] = 'Rappels d\'événement de groupe';
-$string['groupshowname'] = 'Affiche le nom du groupe dans le message';
 $string['messageprovider:reminders_course'] = 'Notifications de rappels d\'événement de cours';
 $string['messageprovider:reminders_due'] = 'Notifications de rappels d\'événement liés à des activités d\'un cours';
 $string['messageprovider:reminders_group'] = 'Notifications de rappels d\'événement de groupe';

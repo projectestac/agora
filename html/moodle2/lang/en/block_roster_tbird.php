@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_roster_tbird', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_roster_tbird', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_roster_tbird
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['blocktitle'] = 'Roster';
 $string['configflagdescription'] = 'Show Full Details And Description Link';
 $string['configflagfull'] = 'Show Full Details Link';
 $string['configflagnames'] = 'Show Names and Email Link';
+$string['configflagpictures'] = 'Show Picture and Names';
 $string['configflagusermanagement'] = 'Show Sort &amp; Filter Users Link';
 $string['department'] = 'Department';
 $string['description'] = 'Description';
@@ -41,16 +42,24 @@ $string['lastname'] = 'Last Name';
 $string['linkdescription'] = 'Descriptions';
 $string['linkdetails'] = 'Full Details';
 $string['linknames'] = 'Names';
+$string['linkpictures'] = 'Pictures';
 $string['linkusermanagement'] = 'Filter &amp; Sort';
 $string['listdescriptions'] = 'Show list of full details including profile descriptions';
 $string['listdetails'] = 'Show list of names, emails and pictures';
 $string['listenrolments'] = 'Sort all enrolled users';
 $string['listnames'] = 'Show list of names and emails';
+$string['listpictures'] = 'Show list of pictures and names';
 $string['nopeopleincourse'] = 'There are no people in';
 $string['peopleincourse'] = 'People in';
 $string['phone1'] = 'Phone';
+$string['picsize'] = 'Picture size';
+$string['picsizedescr'] = 'Picture size in pixels';
+$string['picsperrow'] = '# pictures per row';
+$string['picsperrowdescr'] = 'Number of pictures per row in Picture view';
 $string['picture'] = 'User Picture';
 $string['pluginname'] = 'Roster';
+$string['removelastaccessed'] = 'Remove Last Accessed';
+$string['removelastaccesseddescr'] = 'If checked, remove \'Last Accessed\' from all roster pages';
 $string['rolestoshow'] = 'Roles to show';
 $string['rolestoshowdescription'] = 'Select which roles to show in roster reports';
 $string['roster'] = 'Roster';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_equella', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository_equella', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository_equella
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,14 +26,14 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['breadcrumb'] = 'EQUELLA';
-$string['configplugin'] = 'Konfiguration für EQUELLA Repository';
+$string['configplugin'] = 'Einstellungen für EQUELLA';
 $string['equellaaction'] = 'EQUELLA Aktion';
 $string['equellaoptions'] = 'EQUELLA Optionen';
 $string['equellaurl'] = 'EQUELLA URL';
-$string['equella:view'] = 'EQUELLA Repository anzeigen';
+$string['equella:view'] = 'EQUELLA anzeigen';
 $string['group'] = '{$a} Rolleneinstellungen';
 $string['groupdefault'] = 'Grundeinstellung';
-$string['pluginname'] = 'EQUELLA Repository';
+$string['pluginname'] = 'EQUELLA';
 $string['restrictionattachmentsonly'] = 'Nur zugeordnete Materialien';
 $string['restrictionitemsonly'] = 'Nur Werte-Zusammenfassung';
 $string['restrictionnone'] = 'Keine Beschränkung';

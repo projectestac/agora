@@ -166,22 +166,128 @@ function upgrade_mysql_fix_unsigned_and_lob_columns() {
 }
 
 /**
+ * Migrate NTEXT to NVARCHAR(MAX).
+ */
+function upgrade_mssql_nvarcharmax() {
+    global $DB;
+
+    if ($DB->get_dbfamily() !== 'mssql') {
+        return;
+    }
+
+    $pbar = new progress_bar('mssqlconvertntext', 500, true);
+
+    $prefix = $DB->get_prefix();
+    $tables = $DB->get_tables(false);
+
+    $tablecount = count($tables);
+    $i = 0;
+    foreach ($tables as $table) {
+        $i++;
+
+        $columns = array();
+
+        $sql = "SELECT column_name
+                  FROM INFORMATION_SCHEMA.COLUMNS
+                 WHERE table_name = '{{$table}}' AND UPPER(data_type) = 'NTEXT'";
+        $rs = $DB->get_recordset_sql($sql);
+        foreach ($rs as $column) {
+            $columns[] = $column->column_name;
+        }
+        $rs->close();
+
+        if ($columns) {
+            // Set appropriate timeout - 1 minute per thousand of records should be enough, min 60 minutes just in case.
+            $count = $DB->count_records($table, array());
+            $timeout = ($count/1000)*60;
+            $timeout = ($timeout < 60*60) ? 60*60 : (int)$timeout;
+            upgrade_set_timeout($timeout);
+
+            $updates = array();
+            foreach ($columns as $column) {
+                // Change the definition.
+                $sql = "ALTER TABLE {$prefix}$table ALTER COLUMN $column NVARCHAR(MAX)";
+                $DB->change_database_structure($sql);
+                $updates[] = "$column = $column";
+            }
+
+            // Now force the migration of text data to new optimised storage.
+            $sql = "UPDATE {{$table}} SET ".implode(', ', $updates);
+            $DB->execute($sql);
+        }
+
+        $pbar->update($i, $tablecount, "Converted NTEXT to NVARCHAR(MAX) columns in MS SQL Server database - $i/$tablecount.");
+    }
+}
+
+/**
+ * Migrate IMAGE to VARBINARY(MAX).
+ */
+function upgrade_mssql_varbinarymax() {
+    global $DB;
+
+    if ($DB->get_dbfamily() !== 'mssql') {
+        return;
+    }
+
+    $pbar = new progress_bar('mssqlconvertimage', 500, true);
+
+    $prefix = $DB->get_prefix();
+    $tables = $DB->get_tables(false);
+
+    $tablecount = count($tables);
+    $i = 0;
+    foreach ($tables as $table) {
+        $i++;
+
+        $columns = array();
+
+        $sql = "SELECT column_name
+                  FROM INFORMATION_SCHEMA.COLUMNS
+                 WHERE table_name = '{{$table}}' AND UPPER(data_type) = 'IMAGE'";
+        $rs = $DB->get_recordset_sql($sql);
+        foreach ($rs as $column) {
+            $columns[] = $column->column_name;
+        }
+        $rs->close();
+
+        if ($columns) {
+            // Set appropriate timeout - 1 minute per thousand of records should be enough, min 60 minutes just in case.
+            $count = $DB->count_records($table, array());
+            $timeout = ($count/1000)*60;
+            $timeout = ($timeout < 60*60) ? 60*60 : (int)$timeout;
+            upgrade_set_timeout($timeout);
+
+            foreach ($columns as $column) {
+                // Change the definition.
+                $sql = "ALTER TABLE {$prefix}$table ALTER COLUMN $column VARBINARY(MAX)";
+                $DB->change_database_structure($sql);
+            }
+
+            // Binary columns should not be used, do not waste time optimising the storage.
+        }
+
+        $pbar->update($i, $tablecount, "Converted IMAGE to VARBINARY(MAX) columns in MS SQL Server database - $i/$tablecount.");
+    }
+}
+
+/**
  * This upgrade script fixes the mismatches between DB fields course_modules.section
  * and course_sections.sequence. It makes sure that each module is included
- * in the sequence of only one section and that course_modules.section points back to it.
- *
- * Orphaned modules (modules that were not included in any section sequence in this course)
- * will be added to their sections (or 0-section if their section is not found) and
- * made invisible since they were not accessible at all before this upgrade script.
- *
- * Note that this script does not remove non-existing modules from section sequences since
- * such operation would require much more time.
+ * in the sequence of at least one section.
+ * Note that this script is different from admin/cli/fix_course_sortorder.php
+ * in the following ways:
+ * 1. It does not fix the cases when module appears several times in section(s) sequence(s) -
+ *    it will be done automatically on the next viewing of the course.
+ * 2. It does not remove non-existing modules from section sequences - administrator
+ *    has to run the CLI script to do it.
+ * 3. When this script finds an orphaned module it adds it to the section but makes hidden
+ *    where CLI script does not change the visiblity specified in the course_modules table.
  */
 function upgrade_course_modules_sequences() {
     global $DB;
 
-    $affectedcourses = array();
-    // Step 1. Find all modules that point to the section which does not point back to this module.
+    // Find all modules that point to the section which does not point back to this module.
     $sequenceconcat = $DB->sql_concat("','", "s.sequence", "','");
     $moduleconcat = $DB->sql_concat("'%,'", "m.id", "',%'");
     $sql = "SELECT m.id, m.course, m.section, s.sequence
@@ -204,7 +310,6 @@ function upgrade_course_modules_sequences() {
                         $newsection + array('course' => $cm->course, 'summary' => '', 'summaryformat' => FORMAT_HTML));
                 $sections[$cm->course] = array($newsection['id'] => (object)$newsection);
             }
-            $affectedcourses[$cm->course] = true;
         }
         // Attempt to find the section that has this module in it's sequence.
         // If there are several of them, pick the last because this is what get_fast_modinfo() does.
@@ -241,70 +346,25 @@ function upgrade_course_modules_sequences() {
     $rs->close();
     unset($sections);
 
-    // Step 2. Find all modules that are listed in sequence of another section or listed in sequence of their section twice.
-    $sequenceconcat = $DB->sql_concat("','", "s.sequence", "','");
-    $moduleconcat = $DB->sql_concat("'%,'", "m.id", "',%'");
-    $moduleconcatdup1 = $DB->sql_concat("'%,'", "m.id", "','", "m.id", "',%'");
-    $moduleconcatdup2 = $DB->sql_concat("'%,'", "m.id", "',%,'", "m.id", "',%'");
-    $sql = "SELECT m.id, m.course, m.section AS modulesectionid,
-            s.id AS sectionid, s.sequence AS sectionsequence, s.section AS sectionsectionnum,
-            ms.section AS modulesectionnum, ms.sequence AS modulesectionsequence
-        FROM {course_modules} m JOIN {course_sections} s
-        ON m.course = s.course AND
-        (
-            (m.section <> s.id AND $sequenceconcat LIKE $moduleconcat)
-            OR
-            (m.section = s.id AND $sequenceconcat LIKE $moduleconcatdup1)
-            OR
-            (m.section = s.id AND $sequenceconcat LIKE $moduleconcatdup2)
-        )
-        JOIN {course_sections} ms ON ms.id = m.section
-        ORDER BY m.course, m.id, m.section DESC";
-    $rs = $DB->get_recordset_sql($sql);
-    $updatedsequences = array();
-    $correctmodulesections = array();
-    foreach ($rs as $cm) {
-        $incorrectsectionid = $cm->sectionid;
-        $incorrectsequence = $cm->sectionsequence;
-        if (!isset($correctmodulesections[$cm->id])) {
-            // Function get_fast_modinfo() believes that the section with the biggest sectionnum is the correct one.
-            // Let's correct everything else to match with how course is displayed to the students.
-            if ($cm->modulesectionnum > $cm->sectionsectionnum) {
-                $correctmodulesections[$cm->id] = $cm->modulesectionid;
-            } else {
-                $correctmodulesections[$cm->id] = $cm->sectionid;
-                // oops our module points to the wrong section.
-                $DB->update_record('course_modules', array('id' => $cm->id,
-                    'section' => $correctmodulesections[$cm->id]));
-                $incorrectsectionid = $cm->modulesectionid;
-                $incorrectsequence = $cm->modulesectionsequence;
-            }
-        }
-        if (isset($updatedsequences[$incorrectsectionid])) {
-            $sequence = $updatedsequences[$incorrectsectionid];
-        } else {
-            $sequence = preg_split('/,/', $incorrectsequence);
-        }
-        if ($correctmodulesections[$cm->id] <> $incorrectsectionid) {
-            // Remove all occurences of module id from section sequence.
-            $sequence = array_diff($sequence, array($cm->id));
-        } else {
-            // Remove all occurences of module id from section sequence except for the first one.
-            if (($idx = array_search($cm->id, $sequence)) !== false) {
-                $firstchunk = array_splice($sequence, 0, $idx+1);
-                $sequence = array_merge($firstchunk, array_diff($sequence, array($cm->id)));
-            }
-        }
-        $updatedsequences[$incorrectsectionid] = array_values($sequence);
-        $DB->update_record('course_sections', array('id' => $incorrectsectionid,
-            'sequence' => join(',', $sequence)));
-        $affectedcourses[$cm->course] = true;
-    }
-    $rs->close();
+    // Note that we don't need to reset course cache here because it is reset automatically after upgrade.
+}
 
-    // Reset course cache for affected courses.
-    if (!empty($affectedcourses)) {
-        list($sql, $params) = $DB->get_in_or_equal(array_keys($affectedcourses));
-        $DB->execute("UPDATE {course} SET modinfo = null WHERE id ".$sql, $params);
+/**
+ * Updates the mime-types for files that exist in the database, based on their
+ * file extension.
+ *
+ * @param array $filetypes Array with file extension as the key, and mimetype as the value
+ */
+function upgrade_mimetypes($filetypes) {
+    global $DB;
+    $select = $DB->sql_like('filename', '?', false);
+    foreach ($filetypes as $extension=>$mimetype) {
+        $DB->set_field_select(
+            'files',
+            'mimetype',
+            $mimetype,
+            $select,
+            array($extension)
+        );
     }
 }

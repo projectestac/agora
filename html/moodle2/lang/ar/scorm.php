@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'scorm', language 'ar', branch 'MOODLE_24_STABLE'
+ * Strings for component 'scorm', language 'ar', branch 'MOODLE_26_STABLE'
  *
  * @package   scorm
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -76,7 +76,6 @@ $string['height'] = 'أرتفاع';
 $string['hidden'] = 'مخفي';
 $string['hidebrowse'] = 'عطل وضع المعاينة';
 $string['hideexit'] = 'اخفاء رابط الخروج';
-$string['hidenav'] = 'اخفاء أزارير التنقل';
 $string['hidereview'] = 'اخفاء أزرار المعاينة';
 $string['hidetoc'] = 'عرض ترتيب المقرر الدراسي';
 $string['highestattempt'] = 'أعلى محاولة';
@@ -116,7 +115,6 @@ $string['popup'] = 'نافذه جديدة';
 $string['preferencesuser'] = 'تفضيلات لهذا التقرير';
 $string['prev'] = 'السابق';
 $string['report'] = 'تقرير';
-$string['resizable'] = 'السماح للتحكم في مقاس النافذة';
 $string['result'] = 'نتيجة';
 $string['results'] = 'نتائج';
 $string['review'] = 'معاينه';

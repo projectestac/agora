@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plugin', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plugin', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   plugin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['actions'] = 'Ekintzak';
 $string['availability'] = 'Eskuragarritasuna';
 $string['checkforupdates'] = 'Egiaztatu zein eguneraketa dagoen eskuragarri';
 $string['checkforupdateslast'] = 'Egindako azken egiaztatzea: {$a}';
+$string['detectedmisplacedplugin'] = '"{$a->component}" plugina kokapen okerrean "{$a->current}" instalatu da. Hemen behar luke: "{$a->expected}"';
 $string['displayname'] = 'Pluginaren izena';
 $string['filterall'] = 'Erakutsi guztiak';
 $string['filtercontribonly'] = 'Erakutsi gehigarriak bakarrik';
@@ -74,6 +75,8 @@ $string['type_block'] = 'Blokea';
 $string['type_block_plural'] = 'Blokeak';
 $string['type_cachestore'] = 'Cache-biltegia';
 $string['type_cachestore_plural'] = 'Cache-biltegiak';
+$string['type_calendartype'] = 'Egutegi-mota';
+$string['type_calendartype_plural'] = 'Egutegi-motak';
 $string['type_coursereport'] = 'Ikastaroaren txostena';
 $string['type_coursereport_plural'] = 'Ikastaroaren txostenak';
 $string['type_editor'] = 'Editorea';
@@ -123,6 +126,7 @@ $string['type_tool_plural'] = 'Kudeaketa-tresnak';
 $string['type_webservice'] = 'Web-zerbitzuen protokoloa';
 $string['type_webservice_plural'] = 'Web-zerbitzuen protokoloak';
 $string['uninstall'] = 'Desinstalatu';
+$string['uninstalling'] = '{$a->name} desinstalatzen';
 $string['updateavailable'] = 'Bada bertsio berri bat eskura {$a}!';
 $string['updateavailable_moreinfo'] = 'Informazio gehiago...';
 $string['updateavailable_release'] = 'Bertsioa: {$a}';

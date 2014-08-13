@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cohort', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cohort', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   cohort
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,37 +25,42 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addcohort'] = 'Engadir unha nova cohorte';
+$string['addcohort'] = 'Engadir un novo círculo';
 $string['anycohort'] = 'Calquera';
 $string['assign'] = 'Asignar';
-$string['assignto'] = 'Cohorte «{$a}» membros';
-$string['backtocohorts'] = 'Volver á cohortes';
-$string['bulkadd'] = 'Engadir á cohorte';
-$string['bulknocohort'] = 'Non se atoparon cohortes dispoñíbeis';
-$string['cohort'] = 'Cohorte';
-$string['cohort:assign'] = 'Asignar membros á cohorte';
-$string['cohort:manage'] = 'Xestionar as cohortes';
-$string['cohorts'] = 'Cohortes';
-$string['cohortsin'] = '{$a}: cohortes dispoñíbeis';
-$string['cohort:view'] = 'Empregue cohorte e a vista de membros';
+$string['assignto'] = 'Círculo «{$a}» membros';
+$string['backtocohorts'] = 'Volver aos círculos';
+$string['bulkadd'] = 'Engadir ao círculo';
+$string['bulknocohort'] = 'Non se atoparon círculos dispoñíbeis';
+$string['cohort'] = 'Círculo';
+$string['cohort:assign'] = 'Asignar membros ao círculo';
+$string['cohort:manage'] = 'Xestionar os círculos';
+$string['cohorts'] = 'Círculos';
+$string['cohortsin'] = '{$a}: círculos dispoñíbeis';
+$string['cohort:view'] = 'Empregue circulos e a vista de membros';
 $string['component'] = 'Orixe';
 $string['currentusers'] = 'Usuarios actuais';
 $string['currentusersmatching'] = 'Usuarios actuais coincidentes';
-$string['delcohort'] = 'Eliminar a cohorte';
-$string['delconfirm'] = 'Está seguro de querer eliminar a cohorte «{$a}»?';
+$string['delcohort'] = 'Eliminar o círculo';
+$string['delconfirm'] = 'Confirma que quere eliminar o círculo «{$a}»?';
 $string['description'] = 'Descrición';
-$string['duplicateidnumber'] = 'Xa existe unha cohorte co mesmo número ID';
-$string['editcohort'] = 'Editar a cohorte';
-$string['external'] = 'Cohorte externa';
-$string['idnumber'] = 'ID da cohorte';
-$string['memberscount'] = 'Tamaño da cohorte';
+$string['duplicateidnumber'] = 'Xa existe un círculo co mesmo número ID';
+$string['editcohort'] = 'Editar o círculo';
+$string['event_cohort_created'] = 'Círculo creado';
+$string['event_cohort_deleted'] = 'Círculo eliminado';
+$string['event_cohort_member_added'] = 'Usuario engadido a un círculo';
+$string['event_cohort_member_removed'] = 'Usuario eliminado dun círculo';
+$string['event_cohort_updated'] = 'Círculo actualizado';
+$string['external'] = 'Círculo externo';
+$string['idnumber'] = 'ID do círculo';
+$string['memberscount'] = 'Tamaño do círculo';
 $string['name'] = 'Nome';
 $string['nocomponent'] = 'Creada manualmente';
 $string['potusers'] = 'Usuarios potenciais';
 $string['potusersmatching'] = 'Usuarios potenciais coincidentes';
-$string['removeuserwarning'] = 'A retirada dos usuarios dunha cohorte pode resultar nunha des-matriculación de usuarios de múltiplos cursos, o que inclúe a eliminación da configuración do usuario, as cualificacións, a pertenza a grupos e outra información dos usuarios dos cursos afectados.';
+$string['removeuserwarning'] = 'A retirada dos usuarios dun círculo pode resultar nunha desmatriculación de usuarios de múltiplos cursos, o que inclúe a eliminación da configuración do usuario, as cualificacións, a pertenza a grupos e outra información dos usuarios dos cursos afectados.';
 $string['search'] = 'Buscar';
-$string['searchcohort'] = 'Buscar unha cohorte';
-$string['selectfromcohort'] = 'Seleccionar os membros da cohorte';
-$string['unknowncohort'] = 'Cohorte ({$a}) descoñecida';
-$string['useradded'] = 'Usuario «{$a}» engadido á cohorte';
+$string['searchcohort'] = 'Buscar un círculo';
+$string['selectfromcohort'] = 'Seleccionar os membros do círculo';
+$string['unknowncohort'] = 'Círculo ({$a}) descoñecido';
+$string['useradded'] = 'Usuario «{$a}» engadido ao círculo';

@@ -61,24 +61,24 @@ class backup_hotpot_activity_structure_step extends backup_activity_structure_st
         if ($userinfo) {
 
             // attempts at hotpots
+            $attempts   = new backup_nested_element('attempts');
             $fieldnames = $this->get_fieldnames('hotpot_attempts', array('id', 'hotpotid'));
             $attempt    = new backup_nested_element('attempt', array('id'), $fieldnames);
-            $attempts   = new backup_nested_element('attempts');
 
             // questions in hotpots
+            $questions  = new backup_nested_element('questions');
             $fieldnames = $this->get_fieldnames('hotpot_questions', array('id', 'hotpotid', 'md5key'));
             $question   = new backup_nested_element('question', array('id'), $fieldnames);
-            $questions  = new backup_nested_element('questions');
 
             // responses to questions
+            $responses  = new backup_nested_element('responses');
             $fieldnames = $this->get_fieldnames('hotpot_responses', array('id', 'questionid'));
             $response   = new backup_nested_element('response', array('id'), $fieldnames);
-            $responses  = new backup_nested_element('responses');
 
              // strings used in questions and responses
+            $strings    = new backup_nested_element('strings');
             $fieldnames = $this->get_fieldnames('hotpot_strings', array('id', 'md5key'));
             $string     = new backup_nested_element('string', array('id'), $fieldnames);
-            $strings    = new backup_nested_element('strings');
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -86,6 +86,10 @@ class backup_hotpot_activity_structure_step extends backup_activity_structure_st
         ////////////////////////////////////////////////////////////////////////
 
         if ($userinfo) {
+
+            // strings
+            $hotpot->add_child($strings);
+            $strings->add_child($string);
 
             // attempts
             $hotpot->add_child($attempts);
@@ -96,12 +100,8 @@ class backup_hotpot_activity_structure_step extends backup_activity_structure_st
             $questions->add_child($question);
 
             // responses
-            $questions->add_child($responses);
+            $question->add_child($responses);
             $responses->add_child($response);
-
-            // strings
-            $hotpot->add_child($strings);
-            $strings->add_child($string);
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -134,6 +134,9 @@ class backup_hotpot_activity_structure_step extends backup_activity_structure_st
         // id annotations (foreign keys on non-parent tables)
         ////////////////////////////////////////////////////////////////////////
 
+        $hotpot->annotate_ids('course_modules', 'entrycm');
+        $hotpot->annotate_ids('course_modules', 'exitcm');
+
         if ($userinfo) {
             $attempt->annotate_ids('user', 'userid');
             $response->annotate_ids('hotpot_attempts', 'attemptid');
@@ -161,8 +164,7 @@ class backup_hotpot_activity_structure_step extends backup_activity_structure_st
     protected function get_fieldnames($tablename, array $excluded_fieldnames)   {
         global $DB;
         $fieldnames = array_keys($DB->get_columns($tablename));
-        $search = '/^'.implode('|', $excluded_fieldnames).'$/';
-        return preg_grep($search, $fieldnames, PREG_GREP_INVERT);
+        return array_diff($fieldnames, $excluded_fieldnames);
     }
 
     /**

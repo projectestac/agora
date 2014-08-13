@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'search', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'search', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   search
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -74,7 +74,7 @@ $string['thesewordsmustappear'] = 'De här orden måste visa sig';
 $string['thesewordsmustnotappear'] = 'De här orden får inte visa sig';
 $string['title'] = 'Titel';
 $string['tofetchtheseresults'] = 'för att hämta dessa resultat';
-$string['totalsize'] = 'Samlad storlek';
+$string['totalsize'] = 'Totalstorlek';
 $string['type'] = 'Typ';
 $string['uncompleteindexingerror'] = 'Indexeringen avslutades inte fullständigt, var snäll och starta om den.';
 $string['versiontoolow'] = 'Global sökning kräver tyvärr PHP 5.0.0+ (använder f.n. version)';

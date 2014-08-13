@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'local_userenrols', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'local_userenrols', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   local_userenrols
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -108,7 +108,7 @@ $string['LBL_FILE_OPTIONS'] = 'Import File';
 $string['LBL_GROUP'] = 'Assign to groups:';
 $string['LBL_GROUP_CREATE'] = 'Create groups:';
 $string['LBL_GROUP_CREATE_help'] = 'If groups in import file do not exist, create new ones as needed, otherwise only assign users to groups if the group name specified already exists.';
-$string['LBL_GROUP_help'] = 'Make groups assignments, either based on file input, or a selected group. This option is disabled if the course\'s "Group mode" setting is "No groups".';
+$string['LBL_GROUP_help'] = 'Make groups assignments, either based on file input, or a selected group.';
 $string['LBL_GROUP_ID'] = 'Use group:';
 $string['LBL_GROUP_ID_help'] = 'Choose to use the group name in input file, if supplied, or select an existing group and ignore the input data.';
 $string['LBL_GROUP_OPTIONS'] = 'Group Options';

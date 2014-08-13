@@ -19,26 +19,20 @@ class qtype_multichoicewiris extends qtype_wq {
         return new qtype_multichoicewiris_edit_form($wform, $submiturl, $question, $category, $contexts, $formeditable);
     }
     
-    public function menu_name() {
-        return $this->local_name();
+    public function initialise_question_instance(question_definition $question, $questiondata) {
+        parent::initialise_question_instance($question, $questiondata);
+        
+        $question->shuffleanswers = &$question->base->shuffleanswers;
+        $question->answernumbering = &$question->base->answernumbering;
+        $question->layout = &$question->base->layout;
+        $question->correctfeedback = &$question->base->correctfeedback;
+        $question->correctfeedbackformat = &$question->base->correctfeedbackformat;
+        $question->partiallycorrectfeedback = &$question->base->partiallycorrectfeedback;
+        $question->partiallycorrectfeedbackformat = &$question->base->partiallycorrectfeedbackformat;
+        $question->incorrectfeedback = &$question->base->incorrectfeedback;
+        $question->incorrectfeedbackformat = &$question->base->incorrectfeedbackformat;
+        $question->answers = &$question->base->answers;
     }
-
-    public function display_question_editing_page($mform, $question, $wizardnow) {
-        //This method is used to load tiny_mce.js before quizzes.js
-        parent::display_question_editing_page($mform, $question, $wizardnow);
-        global $PAGE;
-        $PAGE->requires->js('/question/type/wq/quizzes/service.php?name=quizzes.js&service=resource');
-    }
-    
-    protected function make_question_instance($questiondata) {
-        question_bank::load_question_definition_classes($this->name());
-        if ($questiondata->options->single) {
-            $class = 'qtype_multichoicewiris_single_question';
-        } else {
-            $class = 'qtype_multichoicewiris_multi_question';
-        }
-        return new $class();
-    }    
     
     public function export_to_xml($question, qformat_xml $format, $extra=null) {
         $expout = "    <single>" . $format->get_single($question->options->single) .
@@ -90,13 +84,13 @@ class qtype_multichoicewiris extends qtype_wq {
             }
             
             $wirisquestion .= '</question>';
-            $qo->wirisquestion[0] = $wirisquestion;
+            $qo->wirisquestion = $wirisquestion;
             return $qo;
         }else{
             //Moodle 2.x
             $qo = $format->import_multichoice($data);
             $qo->qtype = 'multichoicewiris';
-            $qo->wirisquestion[0] = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
+            $qo->wirisquestion = trim($this->decode_html_entities($data['#']['wirisquestion'][0]['#']));
             return $qo;
         }            
     }

@@ -308,7 +308,7 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         // there is no explicit specification of the user fields because they cause
         // an error on MS-SQL: Column 'mdl_user.id' is invalid in the select list
         // because it is not contained in either an aggregate function or the GROUP BY clause.
-        // $userfields = ', u.id AS userid, u.firstname, u.lastname, u.picture, u.imagealt, u.email';
+        // $userfields = ', '.$this->get_userfields('u', null, 'userid');
         $userfields = '';
 
         return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
@@ -341,12 +341,10 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
         $params = array('hotpotid' => $this->hotpot->id);
 
         // Note: we don't need "u.id AS userid" because we already have ha.userid
-        //$userfields = ', u.firstname, u.lastname, u.picture, u.imagealt, u.email';
-
-        //XTEC ************ CODI MODIFICAT CONTRIB-4910 ORA-00918 in hotpot reporting
-        //$userfields = ', '.$this->get_userfields('u', null, 'userid');
-        $userfields = ', '.$this->get_userfields('u', null, 'userid2');
-        //FI
+        // and it causes Debug info: ORA-00918: column ambiguously defined (CONTRIB-4910)
+        $userfields = ','.$this->get_userfields('u', null, 'userid');
+        $userfields = str_replace('u.id AS userid,', '', $userfields);
+        //$userfields = ',u.firstname,u.lastname,u.picture,u.imagealt,u.email';
         return $this->add_filter_params($userfields, $userid, $attemptid, $select, $from, $where, $params);
     }
 
@@ -495,7 +493,7 @@ class mod_hotpot_report_renderer extends mod_hotpot_renderer {
      * @param string $fieldprefix prefix to add to all columns in their aliases, does not apply to 'id'
      * @return string
      */
-     function get_userfields($tableprefix = '', array $extrafields = NULL, $idalias = 'id', $fieldprefix = '') {
+     function get_userfields($tableprefix = '', array $extrafields = null, $idalias = 'id', $fieldprefix = '') {
         if (class_exists('user_picture')) { // Moodle >= 2.6
             return user_picture::fields($tableprefix, $extrafields, $idalias, $fieldprefix);
         }

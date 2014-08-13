@@ -15,7 +15,7 @@
     padding: 10px;
 }
 
-#page-admin-index h2.main {
+#page-admin-index h2 {
     padding: 1em 0;
 }
 
@@ -62,7 +62,7 @@
     margin: 0;
 }
 
-#page-admin-course-category .generalbox {
+#page-admin-course-manage .generalbox {
     margin-bottom: 0;
 }
 

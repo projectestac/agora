@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_autoattend', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_autoattend', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   block_autoattend
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,7 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['Aacronymfull'] = 'Toutes les présences';
 $string['about'] = 'à propos';
 $string['acronym'] = 'Acronyme';
 $string['add'] = 'Ajouter';
@@ -91,7 +90,6 @@ $string['Dmethodfull'] = 'Sans méthode';
 $string['downloadexcel'] = 'Télécharger en format Excel';
 $string['downloadtext'] = 'Télécharger en format texte';
 $string['Eacronym'] = 'E';
-$string['Eacronymfull'] = 'Excusé';
 $string['editsession'] = 'Modifier la session';
 $string['endtime'] = 'Heure de fin';
 $string['errorinaddingsession'] = 'Une erreur s\'est produite à l\'ajout d\'une session';
@@ -118,7 +116,6 @@ $string['keyerrattention'] = 'Le mot-clé pour la présence n\'est pas le bon. M
 $string['keyerroccur'] = 'Une erreur de mot-clé de présence s\'est produite';
 $string['keyword'] = 'Mot-clé';
 $string['Lacronym'] = 'R';
-$string['Lacronymfull'] = 'Retard';
 $string['minute'] = 'Minute';
 $string['mismatchip'] = 'Votre IP ne correspond pas aux IP autorisées. Votre IP est';
 $string['mismatchkey'] = 'Le mot-clé ne correspond pas';
@@ -167,7 +164,6 @@ $string['Ostatefull'] = 'Ouvert';
 $string['output_idnumber'] = 'Export des numéros d\'identification des étudiants';
 $string['output_idnumber_desc'] = 'Les numéros d\'identification des étudiants sont inclus dans le fichier téléversé.';
 $string['Pacronym'] = 'P';
-$string['Pacronymfull'] = 'Présent';
 $string['period'] = 'Période';
 $string['pluginname'] = 'Présence automatique';
 $string['refreshdata'] = 'Actualiser';
@@ -260,7 +256,4 @@ $string['wiki_url'] = 'http://docs.moodle.org/25/en/Autoattendance_block';
 $string['wrongdatesselected'] = 'Mauvaise date sélectionnée';
 $string['wrongtimesselected'] = 'Mauvaise heure sélectinonée';
 $string['Xacronym'] = 'A';
-$string['Xacronymfull'] = 'Absent';
 $string['Yacronym'] = 'S';
-$string['Yacronymfull'] = 'Sans méthode';
-$string['Zacronymfull'] = 'Absent ou sans méthode';

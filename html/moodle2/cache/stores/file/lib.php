@@ -336,6 +336,7 @@ class cachestore_file extends cache_store implements cache_is_key_aware, cache_i
         $filename = $key.'.cache';
         $file = $this->file_path_for_key($key);
         $ttl = $this->definition->get_ttl();
+        $maxtime = 0;
         if ($ttl) {
             $maxtime = cache::now() - $ttl;
         }
@@ -718,6 +719,7 @@ class cachestore_file extends cache_store implements cache_is_key_aware, cache_i
 
         // Finally rename the temp file to the desired file, returning the true|false result.
         $result = rename($tempfile, $file);
+        @chmod($file, $this->cfg->filepermissions);
         if (!$result) {
             // Failed to rename, don't leave files lying around.
             @unlink($tempfile);

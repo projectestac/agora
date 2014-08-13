@@ -54,6 +54,8 @@ body.path-course-view div.hotpotrecentactivity ul {font-size: 0.8em; margin: 0em
 #page-mod-hotpot-attempt div.hotpotstopbutton .FuncButton,
 #page-mod-hotpot-attempt div.hotpotstopbutton .FuncButtonUp,
 #page-mod-hotpot-attempt div.hotpotstopbutton .FuncButtonDown {margin-right: 18px;}
+#page-mod-hotpot-attempt input,
+#page-mod-hotpot-attempt textarea {width: auto;}
 
 /** mod hotpot submit **/
 #page-mod-hotpot-submit .region-content {text-align: center;}

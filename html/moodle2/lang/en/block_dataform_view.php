@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_dataform_view', language 'en', branch 'MOODLE_23_STABLE'
+ * Strings for component 'block_dataform_view', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_dataform_view
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['dataform_view:addinstance'] = 'Add a new Dataform View';
 $string['intro'] = 'Make sure you have at least one dataform with at least one entry in this course. Then you can adjust the following settings';
 $string['missingview'] = 'You must select a view or clear the dataform selection';
 $string['nodataforms'] = 'No dataforms are found in this course';

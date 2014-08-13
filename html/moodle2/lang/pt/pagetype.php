@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'pagetype', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'pagetype', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   pagetype
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,7 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['page-admin-current'] = 'A página atual de administração do Site';
 $string['page-admin-x'] = 'Qualquer página de administração';
+$string['page-course-index'] = 'Página de visualização da categoria de topo';
+$string['page-course-index-category'] = 'Página de visualização da categoria atual';
+$string['page-course-index-x'] = 'Página de visualização de qualquer categoria';
 $string['page-course-report-x'] = 'Qualquer relatório da disciplina';
+$string['page-course-search'] = 'Página de pesquisa de disciplinas';
 $string['page-course-view-x'] = 'Qualquer página principal de disciplina';
 $string['page-course-x'] = 'Qualquer página da disciplina';
 $string['page-mod-x'] = 'Qualquer página da atividade';

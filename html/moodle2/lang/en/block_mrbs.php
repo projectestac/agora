@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_mrbs', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_mrbs', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_mrbs
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -115,7 +115,7 @@ $string['config_mail_recipients2'] = 'Set the recipient email. You can define mo
 $string['config_mail_room_admin_on_bookings'] = 'Mail room admin';
 $string['config_mail_room_admin_on_bookings2'] = 'Send email to room admin notifying of a new booking';
 $string['config_max_advance_days'] = 'Maximum advance booking';
-$string['config_max_advance_days2'] = 'The maximum days in advance you can make a booking (-1) to disable';
+$string['config_max_advance_days2'] = 'The maximum days in advance you can make a booking (-1) to disable. Users with capability \'mrbs:ignoremaxadvancedays\' (by default, site or mrbs admins) will still be able to make bookings further in advance than this.';
 $string['config_max_rep_entrys'] = 'Max. Rep Entries';
 $string['config_max_rep_entrys2'] = 'Maximum repeating entrys (max needed +1)';
 $string['config_monthly_view_entries_details'] = 'View monthly details';
@@ -184,6 +184,8 @@ $string['entryid'] = 'Entry ID';
 $string['error_area'] = 'Error: area';
 $string['error_room'] = 'Error: room';
 $string['error_send_email'] = 'Error: Problem sending email to: {$a}';
+$string['eventbookingcreated'] = 'Booking created';
+$string['eventbookingupdated'] = 'Booking updated';
 $string['external'] = 'Non-class';
 $string['failed_connect_db'] = 'Fatal Error: Failed to connect to database';
 $string['failed_to_acquire'] = 'Failed to acquire exclusive database access';
@@ -239,18 +241,19 @@ $string['mrbs'] = 'Meeting Room Booking System';
 $string['mrbs:addinstance'] = 'Add MRBS block to My Moodle page';
 $string['mrbsadmin'] = 'MRBS administrator';
 $string['mrbsadmin_desc'] = 'Users with this role (at the system level) can fully configure an MRBS timetable: create areas and rooms, edit other people\'s bookings, force bookings and double-book rooms';
-$string['mrbs:administermrbs'] = 'Access MRBS (Read / Write / Admin)';
+$string['mrbs:administermrbs'] = 'Modify MRBS rooms + settings';
 $string['mrbs:doublebook'] = 'Double Book Rooms';
-$string['mrbs:editmrbs'] = 'Access MRBS (Read / Write)';
+$string['mrbs:editmrbs'] = 'Edit MRBS bookings';
 $string['mrbs:editmrbsunconfirmed'] = 'Only create \'unconfirmed\' bookings (overriden by \'editmrbs\')';
 $string['mrbseditor'] = 'MRBS editor';
 $string['mrbseditor_desc'] = 'Users with this role (at the system level) can make bookings using MRBS and edit their own bookings';
 $string['mrbs:forcebook'] = 'Force Book Rooms (auto move existing bookings)';
+$string['mrbs:ignoremaxadvancedays'] = 'Ignore the \'max_advance_days\' setting';
 $string['mrbs:myaddinstance'] = 'Add new MRBS block';
 $string['mrbs:viewalltt'] = 'View All Users\' Timetables';
 $string['mrbsviewer'] = 'MRBS viewer';
 $string['mrbsviewer_desc'] = 'Users with this role (at the system level) can view the MRBS timetable, but cannot make any changes';
-$string['mrbs:viewmrbs'] = 'Access MRBS (Read only)';
+$string['mrbs:viewmrbs'] = 'View MRBS bookings';
 $string['mustlogin'] = 'You must be logged in to Moodle before you can access the MRBS calendar block';
 $string['must_set_description'] = 'You must set a description';
 $string['must_set_name'] = 'You must set a name';

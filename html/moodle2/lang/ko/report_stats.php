@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_stats', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'report_stats', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   report_stats
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,5 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['page-report-stats-index'] = '강좌 통계 보고서';
 $string['page-report-stats-user'] = '사용자 강좌 통계 보고서';
 $string['page-report-stats-x'] = '모든 통계 보고서';
-$string['pluginname'] = '통계';
+$string['pluginname'] = '강좌 통계';
 $string['stats:view'] = '통계 보고서 보기';

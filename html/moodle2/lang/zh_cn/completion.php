@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'completion', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'completion', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   completion
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,9 +27,12 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['achievinggrade'] = '完成的成绩';
 $string['activities'] = '活动';
-$string['activitiescompleted'] = '活动已完成';
+$string['activitiescompleted'] = '活动完成情况';
+$string['activitiescompletednote'] = '提醒：只有启用进度跟踪的活动才会出现在上面的列表之中。';
+$string['activityaggregation'] = '条件满足情形';
+$string['activityaggregation_all'] = '所有选中的活动都必须完成。';
+$string['activityaggregation_any'] = '至少完成一个选中的活动。';
 $string['activitycompletion'] = '活动进度';
-$string['afterspecifieddate'] = '指定日期后';
 $string['aggregationmethod'] = '汇总方法';
 $string['all'] = '全部';
 $string['any'] = '任意';
@@ -72,11 +75,10 @@ $string['completion_none'] = '不标示活动完成状态';
 $string['completionnotenabled'] = '进度跟踪功能未启用';
 $string['completionnotenabledforcourse'] = '本课程未开启进度跟踪功能';
 $string['completionnotenabledforsite'] = '本站未开启进度跟踪功能';
-$string['completiononunenrolment'] = '撤销选课时记为完成';
+$string['completionondate'] = '日期';
+$string['completionondatevalue'] = '用户必须在此日期之前一直保持选课';
 $string['completion-pass'] = '已完成（及格）';
 $string['completionsettingslocked'] = '完成设置已锁定';
-$string['completionstartonenrol'] = '在选课时开始跟踪进度';
-$string['completionstartonenrolhelp'] = '在选课后开始跟踪学生在课程中的进度';
 $string['completion-title-manual-n'] = '标记为完成：{$a}';
 $string['completion-title-manual-y'] = '标记为未完成：{$a}';
 $string['completionusegrade'] = '必须有成绩';
@@ -87,26 +89,31 @@ $string['completionview_desc'] = '学生必须浏览此活动，才能完成它'
 $string['completion-y'] = '已完成';
 $string['configenablecompletion'] = '启用后，您就可以在课程级别使用进度跟踪功能。';
 $string['confirmselfcompletion'] = '确认自设完成';
+$string['courseaggregation'] = '条件满足情形';
+$string['courseaggregation_all'] = '所有选中的课程都必须完成。';
+$string['courseaggregation_any'] = '至少完成一个选中的课程。';
 $string['coursealreadycompleted'] = '你已经完成了这门课程';
 $string['coursecomplete'] = '课程进度';
 $string['coursecompleted'] = '课程已完成';
+$string['coursecompletion'] = '课程进度跟踪';
+$string['coursecompletioncondition'] = '满足条件: {$a}';
 $string['coursegrade'] = '课程成绩';
 $string['coursesavailable'] = '可用的课程';
-$string['coursesavailableexplaination'] = '<i>课程完成条件必须先设置，才能出现在此列表中</i>';
+$string['coursesavailableexplaination'] = '注意：课程必须先启用进度跟踪，才能出现在上面列表中。';
 $string['criteria'] = '条件';
-$string['criteriagradenote'] = '请注意，更新这里的及格线不会改变此课程的及格线。';
 $string['criteriagroup'] = '条件组';
 $string['criteriarequiredall'] = '必须满足以下条件';
 $string['criteriarequiredany'] = '必须满足下列任一条件';
 $string['csvdownload'] = '以电子表格格式（UTF-8.csv）下载';
 $string['datepassed'] = '通过日期';
 $string['days'] = '天数';
-$string['daysafterenrolment'] = '选课后天数';
 $string['deletecompletiondata'] = '删除已完成数据';
-$string['durationafterenrolment'] = '选课后期限';
+$string['dependenciescompleted'] = '完成其它课程';
 $string['editcoursecompletionsettings'] = '编辑课程进度跟踪设置';
 $string['enablecompletion'] = '启用进度跟踪';
-$string['enrolmentduration'] = '剩余天数';
+$string['enablecompletion_help'] = '如果启用，进度跟踪设置将在进度跟踪页面以及活动设置页面显示。';
+$string['enrolmentduration'] = '选课持续时间';
+$string['enrolmentdurationlength'] = '用户必须持续选课至少';
 $string['err_noactivities'] = '没有任何活动启用了完成信息，所以什么都不能显示。您可以通过修改活动设置来启用完成信息。';
 $string['err_nocourses'] = '没有其它课程启用课程进度跟踪功能，所以没有可显示的。您可以在课程设置中启用课程进度跟踪功能。';
 $string['err_nograde'] = '此课程还未设置及格分数线。要想启用这种策略，您必须先为此课程创建及格数线。';
@@ -120,7 +127,9 @@ $string['graderequired'] = '及格线';
 $string['gradexrequired'] = '至少得 {$a}';
 $string['inprogress'] = '处理中';
 $string['manualcompletionby'] = '可手动标记完成';
+$string['manualcompletionbynote'] = '提醒：只有具备 moodle/course:markcomplete 权限的角色才会出现在此列表中。';
 $string['manualselfcompletion'] = '手动自设完成';
+$string['manualselfcompletionnote'] = '提醒：如果启用手动自设完成，则应当在课程版块中将“自设完成”版块添加上。';
 $string['markcomplete'] = '标为完成';
 $string['markedcompleteby'] = '由{$a}标记为完成';
 $string['markingyourselfcomplete'] = '标记您自己为完成';
@@ -130,7 +139,9 @@ $string['notcompleted'] = '未完成';
 $string['notenroled'] = '您没有加入此课程';
 $string['nottracked'] = '在此课程中当前没有关于您的进度跟踪信息';
 $string['notyetstarted'] = '还未开始';
-$string['overallcriteriaaggregation'] = '所有条件类型汇总';
+$string['overallaggregation'] = '完成条件';
+$string['overallaggregation_all'] = '当所有的条件全都满足视为课程已经完成';
+$string['overallaggregation_any'] = '任意条件满足视为课程已完成';
 $string['pending'] = '等待中';
 $string['periodpostenrolment'] = '选课后';
 $string['progress'] = '学生进度';
@@ -142,6 +153,9 @@ $string['remainingenroleduntildate'] = '在指定日期前保持选课';
 $string['reportpage'] = '显示从{$a->from}到{$a->to}的用户（共{$a->total}人）。';
 $string['requiredcriteria'] = '必备条件';
 $string['restoringcompletiondata'] = '写入进度数据';
+$string['roleaggregation'] = '条件满足情形';
+$string['roleaggregation_all'] = '所有选中的角色标记才算条件符合';
+$string['roleaggregation_any'] = '任一选中的角色标记就算条件符合';
 $string['saved'] = '保存';
 $string['seedetails'] = '查看细节';
 $string['self'] = '自己';

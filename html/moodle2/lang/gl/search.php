@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'search', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'search', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   search
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -48,12 +48,12 @@ $string['documentsfor'] = 'Documentos para';
 $string['documentsindatabase'] = 'Documentos na base de datos';
 $string['documentsinindex'] = 'Documentos no índice';
 $string['duration'] = 'Duración';
-$string['emptydatabaseerror'] = 'Non está presente a táboa da base de datos ou non conten rexistros do índice.';
+$string['emptydatabaseerror'] = 'Non está presente a táboa da base de datos ou non contén rexistros do índice.';
 $string['enteryoursearchquery'] = 'Escriba a súa consulta de busca';
 $string['errors'] = 'Erros';
 $string['filesinindexdirectory'] = 'Ficheiros no directorio do índice';
 $string['globalsearchdisabled'] = 'Non está activada a busca global.';
-$string['invalidindexerror'] = 'O índice do directorio, ou conten un índice incorrecto, ou non contén nada.';
+$string['invalidindexerror'] = 'O índice do directorio, ou contén un índice incorrecto, ou non contén nada.';
 $string['ittook'] = 'Levoulle';
 $string['next'] = 'Seguinte';
 $string['noindexmessage'] = 'Admin: Semella que non hai ningún índice de busca.';

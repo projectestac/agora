@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'マイホームに新しいランダ
 $string['intro'] = '少なくとも1つ以上のエントリが登録されている用語集がコースに追加される必要があります。';
 $string['invisible'] = '(続く)';
 $string['lastmodified'] = '最新の更新';
+$string['nextalpha'] = 'アルファベット順';
 $string['nextone'] = '順次';
 $string['noentriesyet'] = '選択された用語集には、エントリが登録されていません。';
 $string['notyetconfigured'] = '編集アイコンをクリックして、ブロックを設定してください。';

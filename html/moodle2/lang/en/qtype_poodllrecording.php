@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_poodllrecording', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_poodllrecording', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_poodllrecording
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,7 +42,7 @@ $string['pluginnameadding'] = 'Adding a PoodLL recording question';
 $string['pluginnameediting'] = 'Editing a PoodLL recording question';
 $string['pluginname_help'] = 'In response to a question (that may include an image) the respondent records an answer. The poodllrecording question will not be assigned a grade until it has been reviewed by a teacher and manually graded.';
 $string['pluginname_link'] = 'question/type/poodllrecording';
-$string['pluginnamesummary'] = 'Allows a recorded audio or video response. This must then be graded manually.';
+$string['pluginnamesummary'] = 'Allows an audio recording, video recording, webcam snapshot or whiteboard drawing response. This must then be graded manually.';
 $string['poodllrecording'] = 'PoodLL Recording';
 $string['responsefieldlines'] = 'Input box size';
 $string['responseformat'] = 'Response format';

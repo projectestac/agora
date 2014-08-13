@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'blog', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'blog', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   blog
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -87,7 +87,9 @@ $string['entrybodyonlydesc'] = 'Descrição da mensagem';
 $string['entryerrornotyours'] = 'Esta mensagem não é da sua autoria';
 $string['entrysaved'] = 'A sua mensagem foi gravada';
 $string['entrytitle'] = 'Título da mensagem';
-$string['entryupdated'] = 'A mensagem do blogue foi atualizada';
+$string['evententryadded'] = 'Entrada de blogue adicionada';
+$string['evententrydeleted'] = 'Entrada de blogue eliminada';
+$string['evententryupdated'] = 'A mensagem do blogue foi atualizada';
 $string['externalblogcrontime'] = 'Agendar cron do blogue externo';
 $string['externalblogdeleteconfirm'] = 'Cancelar o registo deste blogue externo?';
 $string['externalblogdeleted'] = 'O blogue externo foi cancelado';
@@ -107,7 +109,6 @@ $string['invalidgroupid'] = 'ID de grupo inválido';
 $string['invalidurl'] = 'O URL não está disponível';
 $string['linktooriginalentry'] = 'Ligar à mensagem original';
 $string['maxexternalblogsperuser'] = 'Número máximo de blogues externos por utilizador';
-$string['mustassociatecourse'] = 'Se está a publicar para a disciplina ou membros do grupo, tem de associar uma disciplina a esta mensagem';
 $string['name'] = 'Nome';
 $string['name_help'] = 'Insira um nome descritivo para o seu blogue externo. (Se não inserir nenhum nome, será usado o título do blogue).';
 $string['noentriesyet'] = 'Não existem mensagens visíveis';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'group', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'group', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   group
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,7 +43,7 @@ $string['createautomaticgrouping'] = '自動グルーピングを作成する';
 $string['creategroup'] = 'グループを作成する';
 $string['creategrouping'] = 'グルーピングを作成する';
 $string['creategroupinselectedgrouping'] = 'グルーピングにグループを作成する';
-$string['createingrouping'] = 'グルーピングに作成する';
+$string['createingrouping'] = '自動作成グループのグルーピング';
 $string['createorphangroup'] = '迷子グループを作成する';
 $string['databaseupgradegroups'] = '現在のグループバージョン: {$a}';
 $string['defaultgrouping'] = 'デフォルトグルーピング';
@@ -59,7 +59,10 @@ $string['deleteselectedgroup'] = '選択したグループを削除する';
 $string['editgroupingsettings'] = 'グルーピング設定を編集する';
 $string['editgroupsettings'] = 'グループ設定を編集する';
 $string['enrolmentkey'] = '登録キー';
-$string['enrolmentkey_help'] = '登録キーにより、キーを知っているユーザのみに限定してコースへのアクセスを許可することができます。グループ登録キーが指定された場合、そのキーによりユーザがコースに入ることができるようになるだけではなく、自動的にこのグループのメンバーとして登録されます。';
+$string['enrolmentkeyalreadyinuse'] = 'この登録キーはすでに別のグループで使用されています。';
+$string['enrolmentkey_help'] = '登録キーにより、キーを知っているユーザのみに限定してコースへのアクセスを許可することができます。グループ登録キーが指定された場合、そのキーによりユーザがコースに入ることができるようになるだけではなく、自動的にこのグループのメンバーとして登録されます。
+
+注意: 自己登録設定において、グループ登録キーを有効にする必要があります。同時にコース登録キーも指定する必要があります。';
 $string['erroraddremoveuser'] = 'ユーザ {$a} のグループ登録/削除中にエラーが発生しました。';
 $string['erroreditgroup'] = 'グループ {$a} の作成/更新中にエラーが発生しました。';
 $string['erroreditgrouping'] = 'グルーピング {$a} の作成/更新中にエラーが発生しました。';
@@ -68,16 +71,26 @@ $string['errorremovenotpermitted'] = 'あなたには自動的に追加された
 $string['errorselectone'] = 'このオプションを選択する前に単一グループを選択してください。';
 $string['errorselectsome'] = 'このオプションを選択する前に1つまたはそれ以上のグループを選択してください。';
 $string['evenallocation'] = '注意: 割り当てを均等にするため、グループごとの実際のメンバー数は、あなたが指定した数と異なります。';
+$string['event_group_created'] = 'グループが作成されました。';
+$string['event_group_deleted'] = 'グループが削除されました。';
+$string['event_grouping_created'] = 'グルーピングが作成されました。';
+$string['event_grouping_deleted'] = 'グルーピングが削除されました。';
+$string['event_grouping_updated'] = 'グルーピングが更新されました。';
+$string['event_group_member_added'] = 'グループメンバーが追加されました。';
+$string['event_group_member_removed'] = 'グループメンバーが削除されました。';
+$string['event_group_updated'] = 'グループが更新されました。';
 $string['existingmembers'] = '登録済みメンバー: {$a}';
 $string['filtergroups'] = 'グループをフィルタする:';
 $string['group'] = 'グループ';
 $string['groupaddedsuccesfully'] = 'グループ「 {$a} 」が正常に追加されました。';
-$string['groupby'] = '次の数に基づいてグループを作成する';
+$string['groupaddedtogroupingsuccesfully'] = 'グループ「 {$a->groupname} 」がグルーピング「 {$a->groupingname} 」に正常に追加されました。';
+$string['groupby'] = '次の数に基づいて自動作成する';
 $string['groupdescription'] = 'グループ説明';
 $string['groupinfo'] = '選択したグループの情報';
 $string['groupinfomembers'] = '選択したメンバーの情報';
 $string['groupinfopeople'] = '選択した人の情報';
 $string['grouping'] = 'グルーピング';
+$string['groupingaddedsuccesfully'] = 'グルーピング「 {$a} 」が正常に追加されました。';
 $string['groupingdescription'] = 'グルーピング説明';
 $string['grouping_help'] = 'グルーピングはコース内のグループ群です。グルーピングが選択された場合、グルーピング内のグループに割り当てられた学生は共同で作業することができます。';
 $string['groupingname'] = 'グルーピング名';
@@ -152,6 +165,7 @@ $string['newpicture_help'] = '<p>あなたのコンピュータから、この�
 <p>そして「プロファイルを更新する」ボタンをクリックしてください。 イメージが取り込まれて、100×100ピクセルにリサイズされます。</p>
 <p>プロファイルページに戻ってもイメージが表示されなかったり、変更されない場合、あなたのブラウザの「更新」ボタンをクリックしてください。</p>';
 $string['noallocation'] = '割り当てなし';
+$string['nogrouping'] = 'グルーピングなし';
 $string['nogroups'] = 'このコースにはまだグループが割り当てられていません。';
 $string['nogroupsassigned'] = 'グループが割り当てられていません。';
 $string['nopermissionforcreation'] = 'あなたには必要なパーミッションがないため、グループ「 {$a} 」を作成することはできません。';

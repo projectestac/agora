@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnet', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mnet', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   mnet
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -157,6 +157,7 @@ $string['remotehost'] = 'Urrutiko ostalaria';
 $string['remotehosts'] = 'Urrutiko ostalariak';
 $string['requiresopenssl'] = 'Sareak OpenSSL luzapena behar du';
 $string['restore'] = 'Berreskuratu';
+$string['returnvalue'] = 'Itzulera-balioa';
 $string['reviewhostdetails'] = 'Berrikusi ostalariaren xehetasunak';
 $string['reviewhostservices'] = 'Berrikusi ostalariaren zerbitzuak';
 $string['RPC_HTTP_PLAINTEXT'] = 'HTTP enkriptatu gabea';
@@ -172,8 +173,8 @@ $string['servicesavailableonhost'] = 'Eskura dauden zerbitzuak hemen: {$a}';
 $string['settings'] = 'Ezarpenak';
 $string['showlocal'] = 'Erakutsi erabiltzaile lokalak';
 $string['showremote'] = 'Erakutsi urrutiko erabiltzaileak';
-$string['ssl_acl_allow'] = 'SSO ACL: Baimendu {$a->user} erabiltzailea hemendik: {$a->host}';
-$string['ssl_acl_deny'] = 'SSO ACL: Ukatu {$a->user} erabiltzailea hemendik: {$a->host}';
+$string['ssl_acl_allow'] = 'SSO ACL: Baimendu \'{$a->user}\' erabiltzailea hemendik: \'{$a->host}\'';
+$string['ssl_acl_deny'] = 'SSO ACL: Ukatu \'{$a->user}\' erabiltzailea hemendik: \'{$a->host}\'';
 $string['ssoaccesscontrol'] = 'SSO sarbide-kontrola';
 $string['strict'] = 'Zorrotza';
 $string['subscribe'] = 'Harpidetu';

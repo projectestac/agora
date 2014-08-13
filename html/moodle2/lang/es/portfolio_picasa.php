@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'portfolio_picasa', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'portfolio_picasa', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   portfolio_picasa
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['noauthtoken'] = 'No se ha recibido de google una ficha de autenticación. Por favor, asegúrese de que está permitiendo que moodle acceda a su cuenta en google';
-$string['oauthinfo'] = '<p> Para utilizar este plugin, debe registrar su sitio en Google, como se describe en la documentación <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p> Como parte del proceso de registro, tendrá que introducir la siguiente URL como "Authorized Redirect URIs \': </p><p> {$a->callbackurl} </p> Una vez registrado, se le proporcionará un ID de cliente y el secreto que se puede utilizar para configurar los Google Docs y Picasa plugins. </p>';
+$string['oauthinfo'] = '<p> Para utilizar este plugin, debe registrar su sitio en Google, como se describe en la documentación <a href="{$a->docsurl}">Google OAuth 2.0 setup</a>.</p><p> Como parte del proceso de registro, tendrá que introducir la siguiente URL como "Authorized Redirect URIs \': </p><p> {$a->callbackurl} </p> Una vez registrado, se le proporcionará un ID de cliente y el secreto que se puede utilizar para configurar los plugins de Google Drive y Picasa. </p>';
 $string['pluginname'] = 'Picasa';
 $string['sendfailed'] = 'No se ha podido transferir el archivo {$a} a Picasa';

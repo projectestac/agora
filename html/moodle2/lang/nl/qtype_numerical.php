@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['acceptederror'] = 'Aanvaardbare afwijking';
 $string['addmoreanswerblanks'] = 'Lege lijnen voor {no} meer antwoorden';
-$string['addmoreunitblanks'] = 'Lege ruimten voor {no} meer units';
+$string['addmoreunitblanks'] = 'Lege ruimten voor {no} meer eenheden';
 $string['answercolon'] = 'Antwoord:';
+$string['answererror'] = 'Fout';
 $string['answermustbenumberorstar'] = 'Het antwoord moet een getal zijn, bijvoorbeeld 1,234 of 3e8 of * .';
 $string['answerno'] = 'Antwoord {$a}';
 $string['decfractionofquestiongrade'] = 'als een deel (0-1) van het cijfer voor de vraag';
@@ -79,7 +80,6 @@ $string['unitchoice'] = 'een meerkeuze selectie';
 $string['unitedit'] = 'Bewerk eenheid';
 $string['unitgraded'] = 'De eenheid moet gegeven worden en zal beoordeeld worden.';
 $string['unithandling'] = 'Behandeling van eenheden';
-$string['unithdr'] = 'Unit {$a}';
 $string['unitincorrect'] = 'Je hebt de juiste eenheid niet gegeven';
 $string['unitmandatory'] = 'Verplicht';
 $string['unitmandatory_help'] = '* Het antwoord wordt beoordeeld met de geschreven eenheid.
@@ -97,7 +97,9 @@ $string['unitpenalty_help'] = 'Dit strafpunt wordt toegepast als
 * de foute eenheidsnaam is ingegeven in het veld voor de eenheid, of
 * als er een eenheid is ingegeven in het veld voor de waarde';
 $string['unitposition'] = 'Waar eenheden staan';
+$string['units'] = 'Eenheden';
 $string['unitselect'] = 'een rolmenu';
+$string['unitx'] = 'Eenheid {no}';
 $string['validnumberformats'] = 'Geldige getalopmaak';
 $string['validnumberformats_help'] = '* gewone getallen 13500.67, 13 500.67, 13500,67 of 13 500,67
 
@@ -105,3 +107,6 @@ $string['validnumberformats_help'] = '* gewone getallen 13500.67, 13 500.67, 135
 
 * voor exponenten zoals 1.350067 * 10<sup>4</sup>, gebruik je 1.350067 E4 : 1.350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 of 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} moet een getal zijn.';
+$string['xmustnotbenumeric'] = '{$a} kan geen getal zijn.';
+$string['youmustenteramultiplierhere'] = 'Je moet hier een vermenigvuldigtal opgeven.';

@@ -49,7 +49,7 @@ if ($id) {
 }
 
 require_login($course, true, $cm);
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id);
 require_capability('mod/jclic:view', $context);
 
 add_to_log($course->id, 'jclic', 'view', "view.php?id={$cm->id}", $jclic->name, $cm->id);
@@ -75,16 +75,16 @@ jclic_view_header($jclic, $cm, $course);
 jclic_view_intro($jclic, $cm);
 
 $action = optional_param('action', '', PARAM_TEXT);
-if (has_capability('mod/jclic:grade', $context, $USER->id, false)){    
+if (has_capability('moodle/grade:viewall', $context, $USER->id)){
     if ($action == 'preview'){
         jclic_view_applet($jclic, $context, true);
     } else{
         jclic_view_dates($jclic, $cm);
         jclic_print_results_table($jclic, $context, $cm, $course, $action);
     }
-    
+
 } else{
-    jclic_view_applet($jclic, $context);    
+    jclic_view_applet($jclic, $context);
 }
 
 jclic_view_footer();

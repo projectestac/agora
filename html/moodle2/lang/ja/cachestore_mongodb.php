@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'cachestore_mongodb', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'cachestore_mongodb', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   cachestore_mongodb
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,7 +35,7 @@ $string['pluginname'] = 'MongoDB';
 $string['replicaset'] = 'レプリカセット';
 $string['replicaset_help'] = '接続するレプリカセット名です。この名称が設定された場合、シードのismasterデータベースコマンドを使ってマスタが決定されます。そのため、リスト内に存在しないサーバであっても、ドライバは接続することができます。';
 $string['server'] = 'サーバ';
-$string['server_help'] = 'これはあなたが使用したいサーバへの接続ストリングです。カンマで分離することで、複数サーバを指定することができます。';
+$string['server_help'] = 'これはあなたが使用したいサーバへの接続ストリングです。カンマで区切ることにより、複数サーバを指定することができます。';
 $string['testserver'] = 'テストサーバ';
 $string['testserver_desc'] = 'これはあなたが使用したいテストサーバへの接続ストリングです。テストサーバは完全に任意です。テストサーバを指定することで、あなたはこのストアに関するPHPunitテストおよびパフォーマンステストを実行することができます。';
 $string['username'] = 'ユーザ名';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'datafield_checkbox', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'datafield_checkbox', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   datafield_checkbox
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

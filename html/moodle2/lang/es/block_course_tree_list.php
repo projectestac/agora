@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_tree_list', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_tree_list', language 'es', branch 'MOODLE_25_STABLE'
  *
  * @package   block_course_tree_list
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

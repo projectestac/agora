@@ -3,8 +3,9 @@
     display: block;
 }
 
-.que.ddmarker div.droparea img, form.mform fieldset#previewareaheader div.droparea img  {
+.que.ddmarker div.droparea img, form.mform fieldset#id_previewareaheader div.droparea img  {
     border: 1px solid #000000;
+    max-width: none;
 }
 
 .que.ddmarker .draghome img, .que.ddmarker .draghome span {
@@ -25,22 +26,22 @@
 .que.ddmarker .dragitems.readonly .dragitem {
     cursor: auto;
 }
-.que.ddmarker div.ddarea, form.mform fieldset#previewareaheader div.ddarea {
+.que.ddmarker div.ddarea, form.mform fieldset#id_previewareaheader div.ddarea {
     text-align : center;
 }
-.que.ddmarker .dropbackground, form.mform fieldset#previewareaheader .dropbackground {
+.que.ddmarker .dropbackground, form.mform fieldset#id_previewareaheader .dropbackground {
     margin:0 auto;
 }
 
 .que.ddmarker div.dragitems div.draghome, .que.ddmarker div.dragitems div.dragitem,
-form.mform fieldset#previewareaheader div.draghome, form.mform fieldset#previewareaheader div.drag {
+form.mform fieldset#id_previewareaheader div.draghome, form.mform fieldset#id_previewareaheader div.drag {
     font:13px/1.231 arial,helvetica,clean,sans-serif;
     *font-size:small; /* for IE */
     *font:x-small; /* for IE in quirks mode */
 }
 .que.ddmarker div.dragitems span.markertext,
 .que.ddmarker div.markertexts span.markertext,
-form.mform fieldset#previewareaheader div.markertexts span.markertext {
+form.mform fieldset#id_previewareaheader div.markertexts span.markertext {
     margin: 5px;
     z-index: 3;
     background-color: white;
@@ -60,13 +61,13 @@ form.mform fieldset#previewareaheader div.markertexts span.markertext {
     background-color: yellow;
     border-style : solid;
     border-width : 2px;
-    border-colour : khaki;
+    border-color : khaki;
 }
 .que.ddmarker span.wrongpart {
     background-color: yellow;
     border-style : solid;
     border-width : 2px;
-    border-colour : khaki;
+    border-color : khaki;
     padding: 5px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -101,4 +102,43 @@ form.mform fieldset#previewareaheader div.markertexts span.markertext {
 #page-question-type-ddmarker .ddarea .grid {
     position: absolute;
     background: url([[pix:qtype_ddmarker|grid]]) repeat scroll 0 0;
+}
+/* Editing form. Style repeated elements*/
+/*Top*/
+body#page-question-type-ddmarker div[id^=fitem_id_][id*=hint_] {
+    background: #EEE;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 1px solid #BBB;
+    border-bottom: 0;
+}
+body#page-question-type-ddmarker div[id^=fitem_id_][id*=hint_] .fitemtitle {
+    font-weight: bold;
+}
+/* Middle */
+body#page-question-type-ddmarker div[id^=fitem_id_][id*=hintoptions_],
+body#page-question-type-ddmarker div[id^=fitem_id_][id*=hintshownumcorrect_] {
+    background: #EEE;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 1px solid #BBB;
+    border-top: 0;
+    border-bottom: 0;
+}
+/* Bottom */
+body#page-question-type-ddmarker div[id^=fitem_id_][id*=hintclearwrong_] {
+    background: #EEE;
+    margin-bottom: 2em;
+    margin-top: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 1px solid #BBB;
+    border-top: 0;
+}
+body#page-question-type-ddmarker #fitem_id_penalty {
+    margin-bottom: 2em;
 }

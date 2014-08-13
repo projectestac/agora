@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Продолжительность обучения 
 $string['defaultperiod_desc'] = 'Продолжительность обучения по умолчанию. Если установлен ноль, то по умолчанию продолжительность будет неограниченной.';
 $string['defaultperiod_help'] = 'По умолчанию, продолжительность времени обучения начинается с момента записи пользователя. Если отключено, то, по умолчанию, продолжительность обучения не будет ограничена.';
 $string['deleteselectedusers'] = 'Отчислить выбранных пользователей';
-$string['editenrolment'] = 'Изменить зачисление';
 $string['editselectedusers'] = 'Изменить зачисления выбранных пользователей';
 $string['enrolledincourserole'] = 'Записан на курс «{$a->course}» как «{$a->role}»';
 $string['enrolusers'] = 'Запись пользователей на курс';

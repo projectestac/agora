@@ -51,7 +51,7 @@ $string['expired'] = 'Sorry, this activity was closed on {$a} and is no longer a
 $string['filetype'] = 'Type';
 $string['filetype_help'] = 'This setting determines how the QV activity is included in the course. There are up to 2 options:
 
-* Uploaded QV - Enables a valid ZIP package to be chosen by the file picker. 
+* Uploaded QV - Enables a valid ZIP package to be chosen by the file picker.
 * External URL - Enables a URL to be specified. Note: The URL must start with http(s) or www and contain a valid HTML QV file.';
 $string['filetypeexternal'] = 'External URL';
 $string['filetypelocal'] = 'Uploaded QV';
@@ -60,9 +60,9 @@ $string['invalidqvfile'] = 'Invalid QV specified. It must have the ".zip" extens
 $string['invalidurl'] = 'Invalid URL specified. It must start with http(s).';
 $string['msg_not_read'] = 'There are messages pending to read';
 $string['modulename'] = 'Quadern Virtual';
-$string['modulename_help'] = '<a href="http://clic.xtec.cat/qv_web" target="_blank">Quaderns Virtuals</a> is a project of the Catalan Ministry of Education. 
-    It consists of a set of open source software applications that allow the creation of several types of multimedia educational activities: puzzles, association games, text activities, crosswords, wordsearch games and more. 
-    Besides, the <a href="http://clic.xtec.cat/qv_biblio" target="_blank">QV database</a> offers a repository where more than hundred activities are displayed. 
+$string['modulename_help'] = '<a href="http://clic.xtec.cat/qv_web" target="_blank">Quaderns Virtuals</a> is a project of the Catalan Ministry of Education.
+    It consists of a set of open source software applications that allow the creation of several types of multimedia educational activities: puzzles, association games, text activities, crosswords, wordsearch games and more.
+    Besides, the <a href="http://clic.xtec.cat/qv_biblio" target="_blank">QV database</a> offers a repository where more than hundred activities are displayed.
     It has been created by teachers and other professionals who want to share their work with others.
 
 This module allows teachers to add QV activities to any course and to track pupils\' results (time spent on each of the activities, number of tries, score...).';
@@ -90,7 +90,6 @@ $string['qvurl'] = 'URL';
 $string['qvurl_help'] = 'This setting enables a URL for the QV to be specified, rather than choosing a file via the file picker.';
 $string['qv:view'] = 'View QV';
 $string['qv:submit'] = 'Submit QV';
-$string['qv:grade'] = 'Grade QV';
 $string['qv:addinstance'] = 'Add QV';
 $string['return_results'] = 'Return to results';
 $string['score'] = 'Score';

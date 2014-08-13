@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_turnitin', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism_turnitin', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_turnitin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,15 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['adminlogin'] = 'Se connecter à Turnitin en tant qu\'administrateur';
-$string['compareinstitution'] = 'Comparer les fichiers déposés avec des travaux remis dans le cadre de cette institution';
-$string['compareinstitution_help'] = 'Cette option n\'est disponible que si vous avez acquis et configuré un noeud personnalisé. Elle doit être réglée sur Non en cas d\'incertitude.';
-$string['compareinternet'] = 'Comparer les fichiers déposés avec Internet';
-$string['file'] = 'Fichier';
-$string['module'] = 'Module';
-$string['name'] = 'Nom';
-$string['percentage'] = 'Pourcentage';
-$string['similarity'] = 'Similarité';
-$string['status'] = 'Statut';
-$string['tii'] = 'Turnitin';
 $string['turnitin'] = 'Turnitin';

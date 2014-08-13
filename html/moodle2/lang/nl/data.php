@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'data', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'data', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   data
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['addcomment'] = 'Voeg notitie toe';
 $string['addentries'] = 'Items goedkeuren';
 $string['addtemplate'] = 'Item toevoegen';
 $string['advancedsearch'] = 'Geavanceerd zoeken';
+$string['allowcomments'] = 'Commentaar toevoegen toelaten';
 $string['alttext'] = 'Alternatieve tekst';
 $string['approve'] = 'Goedkeuren';
 $string['approved'] = 'Goedgekeurd';
@@ -74,6 +75,7 @@ $string['commentsoff'] = 'De commentaarfunctie is niet ingeschakeld.';
 $string['configenablerssfeeds'] = 'Met deze knop kun je RSS-feeds toelaten voor alle databanken. Je zult nog wel manueel de RSS-feeds moeten inschakelen voor elke databank.';
 $string['confirmdeletefield'] = 'Je gaat dit veld verwijderen. Ben je zeker?';
 $string['confirmdeleterecord'] = 'Je gaat deze record verwijderen. Ben je zeker?';
+$string['confirmdeleterecords'] = 'Weet je zeker dat je deze items wil verwijderen?';
 $string['csstemplate'] = 'CSS';
 $string['csvfailed'] = 'Kon de gegevens niet ut het CSV-bestand halen';
 $string['csvfile'] = 'CSV-bestand';
@@ -101,7 +103,7 @@ $string['csvimport_help'] = '<p align="center"><strong>Importeren met een CSV be
 <p>Waarschuwing: sommige veldtypes worden niet ondersteund.</p>';
 $string['csvwithselecteddelimiter'] = '<acronym title="Comma Separated Values">CSV</acronym> tekst met het gekozen scheidingsteken:';
 $string['data:addinstance'] = 'Voeg een nieuwe databank toe';
-$string['data:approve'] = 'Keur nieuwe items goed';
+$string['data:approve'] = 'Keur nieuwe items goed of verwerp goedgekeurde items';
 $string['data:comment'] = 'Schrijf commentaar';
 $string['data:exportallentries'] = 'Exporteer alle databankitems';
 $string['data:exportentry'] = 'Exporteer een databankitem';
@@ -124,6 +126,7 @@ $string['dateentered'] = 'Datum';
 $string['defaultfielddelimiter'] = '(standaardinstelling is een komma)';
 $string['defaultfieldenclosure'] = '(standaardinstelling is geen)';
 $string['defaultsortfield'] = 'Standaard sorteerveld';
+$string['delcheck'] = 'Selectievakje voor bulk verwijderen';
 $string['delete'] = 'Verwijder';
 $string['deleteallentries'] = 'Verwijder alle items';
 $string['deletecomment'] = 'Weet je zeker dat je deze commentaar wil verwijderen?';
@@ -134,6 +137,7 @@ $string['deletewarning'] = 'Ben je zeker dat je deze sjabloonset wil verwijderen
 $string['descending'] = 'Aflopend';
 $string['directorynotapreset'] = '{$a->directory} Geen sjabloon: bestanden ontbreeken:
 {$a->missing_files}';
+$string['disapprove'] = 'Verwerp';
 $string['download'] = 'Download';
 $string['edit'] = 'Bewerk';
 $string['editcomment'] = 'Bewerk commentaar';
@@ -290,7 +294,7 @@ $string['notapproved'] = 'Item is nog niet goedgekeurd';
 $string['notinjectivemap'] = 'Geen injectieve koppeling';
 $string['notopenyet'] = 'Deze actieviteit is niet beschikbaar tot {$a}';
 $string['number'] = 'Getal';
-$string['numberrssarticles'] = 'RSS-artikels';
+$string['numberrssarticles'] = 'Items in de RSS-feed';
 $string['numnotapproved'] = 'Wachtend';
 $string['numrecords'] = '{$a} records';
 $string['ods'] = '<acronym title="OpenDocument SRekenblad">ODS</acronym> (OpenOffice)';
@@ -313,13 +317,14 @@ $string['presets'] = 'Sjabloonsets';
 $string['radiobutton'] = 'Keuzeknoppen';
 $string['recordapproved'] = 'Item goedgekeurd';
 $string['recorddeleted'] = 'Record verwijderd';
+$string['recorddisapproved'] = 'Item verworpen';
 $string['recordsnotsaved'] = 'Er werd geen record bewaard. Controleer de opmaak van het geüploade bestand.';
 $string['recordssaved'] = 'record(s) bewaard';
-$string['requireapproval'] = 'Goedkeuring nodig?';
+$string['requireapproval'] = 'Goedkeuring nodig';
 $string['requireapproval_help'] = '<p align="center"><strong>Goedkeuring vereist</strong></p>
 
 <p>Moeten toegevoegde items eerst door een leraar goedgekeurd worden voor ze gezien kunnen worden door leerlingen? Dit kan nuttig zijn om inhoud te modereren die misschien beledigend of ongeschikt is.</p>';
-$string['requiredentries'] = 'Vereiste items';
+$string['requiredentries'] = 'Vereiste items voor voltooien';
 $string['requiredentries_help'] = 'Het aantal items die een student verplicht moet invoeren vóór de activiteit als voltooid wordt beschouwd.';
 $string['requiredentriestoview'] = 'Items vereist voor bekijken';
 $string['requiredentriestoview_help'] = '<p align="center"><strong>Vereist aantal items voor bekijken</strong></p>

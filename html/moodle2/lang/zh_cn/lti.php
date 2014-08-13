@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'lti', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'lti', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   lti
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['accept'] = '接受';
+$string['accept_grades'] = '接受此工具的成绩';
+$string['accept_grades_admin'] = '接受此工具的成绩';
 $string['action'] = '动作';
 $string['active'] = '激活';
 $string['activity'] = '活动';
@@ -203,6 +205,7 @@ $string['share_email_admin'] = '使用工具分享启动者的名字';
 $string['share_name'] = '使用此工具分享启动者的名字';
 $string['share_name_admin'] = '使用工具分享启动者的名字';
 $string['show_in_course'] = '建立工具实例时显示工具类型';
+$string['submissions'] = '提交';
 $string['tool_settings'] = '工具设置';
 $string['toolsetup'] = '外部工具配置';
 $string['toolurl'] = '工具基地址';

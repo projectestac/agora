@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'question', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   question
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,8 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 $string['action'] = 'Acció';
 $string['addanotherhint'] = 'Afegeix una altra pista';
 $string['addcategory'] = 'Afegeix una categoria';
+$string['addmorechoiceblanks'] = 'Blancs per a {no} preguntes més';
 $string['adminreport'] = 'Informe sobre possibles problemes en la vostra base de dades de preguntes';
 $string['answer'] = 'Resposta';
+$string['answers'] = 'Respostes';
 $string['answersaved'] = 'Resposta desada';
 $string['attemptfinished'] = 'Intent acabat';
 $string['attemptfinishedsubmitting'] = 'Envia l\'intent acabat';
@@ -48,8 +50,6 @@ $string['cannotcreate'] = 'No s\'ha pogut crear una altra entrada a la taula d\'
 $string['cannotcreatepath'] = 'No es pot crear el camí: {$a}';
 $string['cannotdeletebehaviourinuse'] = 'No podeu esborrar aquest comportament \'{$a}\'. L\'utilitzen algunes preguntes.';
 $string['cannotdeletecate'] = 'No podeu esborrar aquesta categoria, és la categoria per defecte en aquest context.';
-$string['cannotdeletemissingbehaviour'] = 'No podeu desinstal·lar el comportament perdut. És requerit pel sistema.';
-$string['cannotdeletemissingqtype'] = 'No podeu suprimir el tipus de pregunta que manca. Li cal al sistema.';
 $string['cannotdeleteneededbehaviour'] = 'No es pot esborrar el comportament de la pregunta \'{$a}\'. Hi ha altres comportaments instal·lats que depenen d\'ell.';
 $string['cannotdeleteqtypeinuse'] = 'No podeu esborrar el tipus de pregunta \'{$a}\'. Encara hi ha preguntes d\'aquest tipus al banc de preguntes.';
 $string['cannotdeleteqtypeneeded'] = 'No podeu esborrar el tipus de pregunta \'{$a}\'. Hi ha altres tipus de preguntes que s\'hi basen.';
@@ -101,6 +101,7 @@ $string['contexterror'] = 'No haurieu d\'haver arribat aquí fora que mogueu una
 $string['copy'] = 'Copia des de: {$a} i canvia enllaços';
 $string['correct'] = 'Correcte';
 $string['correctfeedback'] = 'Per a qualsevol resposta correcta';
+$string['correctfeedbackdefault'] = 'La teva resposta és correcta.';
 $string['created'] = 'Creació';
 $string['createdby'] = 'Creada per ';
 $string['createdmodifiedheader'] = 'Creació / darrera modificació';
@@ -114,11 +115,7 @@ $string['defaultfor'] = 'Categoria per defecte en {$a}';
 $string['defaultinfofor'] = 'La categoria per defecte per a preguntes compartides en el context \'{$a}\'';
 $string['defaultmark'] = 'Puntuació per defecte';
 $string['defaultmarkmustbepositive'] = 'La puntuació per defecte ha de ser positiva.';
-$string['deletebehaviourareyousure'] = 'Esborra el comportament {$a}: segur?';
-$string['deletebehaviourareyousuremessage'] = 'Esteu a punt de suprimir completament el comportament de la pregunta {$a}. Això suprimirà a la base de dades tot allò relacionat amb el comportament de la pregunta. SEGUR que voleu continuar?';
 $string['deletecoursecategorywithquestions'] = ' Hi ha preguntes del banc de preguntes associades amb aquesta categoria del curs. Si procediu, s\'esborraran. Podeu desplaçar-les abans de continuar des de la interfície del banc de preguntes.';
-$string['deleteqtypeareyousure'] = 'Segur que voleu esborrar el tipus de pregunta \'{$a}\'';
-$string['deleteqtypeareyousuremessage'] = 'Esteu a punt d\'esborrar el tipus de pregunta \'{$a}\'. Segur que voleu desinstal·lar-lo?';
 $string['deletequestioncheck'] = 'Segur que voleu esborrar \'{$a}\'?';
 $string['deletequestionscheck'] = 'Segur que voleu esborrar aquestes preguntes?
 <br /><br />{$a}';
@@ -194,6 +191,7 @@ $string['getcategoryfromfile'] = 'Agafa la categoria del fitxer';
 $string['getcontextfromfile'] = 'Agafa el context del fitxer';
 $string['hidden'] = 'Amagada';
 $string['hintn'] = 'Pista {no}';
+$string['hintnoptions'] = 'Opcions de la pista {no}';
 $string['hinttext'] = 'Text de la pista';
 $string['howquestionsbehave'] = 'Com es comporten les preguntes';
 $string['howquestionsbehave_help'] = 'L\'estudiantat pot interactuar amb les preguntes del qüestionari de diverses maneres. Per exemple, potser vulgueu que l\'estudiantat doni una resposta a cada pregunta i després enviï el qüestionari complet, abans que sigui qualificat o rebi retroacció. Aquest mode és la \'retroacció diferida\'.
@@ -219,6 +217,7 @@ $string['impossiblechar'] = 'Un caràcter inviable {$a} detectat com a caràcter
 $string['includesubcategories'] = 'Mostra també les preguntes de les subcategories.';
 $string['incorrect'] = 'Incorrecte';
 $string['incorrectfeedback'] = 'Per a qualsevol resposta incorrecta';
+$string['incorrectfeedbackdefault'] = 'La teva resposta és incorrecta.';
 $string['information'] = 'Informació';
 $string['invalidanswer'] = 'Resposta incompleta';
 $string['invalidarg'] = 'Arguments proporcionats invàlids o configuració incorrecta del servidor';
@@ -305,6 +304,7 @@ $string['parenthesisinproperstart'] = 'El parèntesi de després de ** no queda 
 $string['parsingquestions'] = 'Analitza i inclou preguntes d\'un fitxer d\'importació.';
 $string['partiallycorrect'] = 'Parcialment correcte';
 $string['partiallycorrectfeedback'] = 'Per a qualsevol resposta parcialment correcta';
+$string['partiallycorrectfeedbackdefault'] = 'La teva resposta és parcialment correcta.';
 $string['penaltyfactor'] = 'Factor de penalització';
 $string['penaltyfactor_help'] = '<p>Podeu especificar quina fracció de la puntuació aconseguida cal restar per cada resposta incorrecta. Això només és rellevant si el qüestionari funciona en mode adaptatiu, de manera que l\'estudiant pugui donar respostes repetides a una pregunta. El factor de penalització ha de ser un número entre 0 i 1. Un factor de penalització d\'1 vol dir que l\'estudiant ha d\'aconseguir la resposta correcta la primera vegada per tal d\'obtenir-hi crèdit. Un factor de penalització de 0 vol dir que l\'estudiant pot provar tantes vegades com vulgui i encara obté la puntuació completa.
 </p';
@@ -318,8 +318,6 @@ $string['permissionsaveasnew'] = 'Desa com a pregunta nova';
 $string['permissionto'] = 'Teniu permís per a:';
 $string['previewquestion'] = 'Previsualitza la pregunta: {$a}';
 $string['published'] = 'pública';
-$string['qbehaviourdeletefiles'] = 'Totes les dades associades amb el comportament de la pregunta s\'han esborrat de la base de dades. Per completar la supressió (i per prevenir que el comportament es torni a instal·lar tot sol), heu d\'esborrar aquest directori del vostre servidor: {$a->directory}';
-$string['qtypedeletefiles'] = 'Totes les dades associades amb el tipus de qüestió \'{$a->qtype}\' s\'han esborrat de la base de dades. Per completar l\'esborrat (i prevenir la reinstal·lació d\'aquest tipus de qüestió), hauríeu de suprimir aquest directori del vostre servidor: {$a->directory}';
 $string['qtypeveryshort'] = 'T';
 $string['questionaffected'] = 'La pregunta <a href="{$a->qurl}">"{$a->name}" ({$a->qtype})</a> es troba en aquesta categoria, però també és utilitzada al qüestionari <a href="{$a->qurl}">"{$a->quizname}"</a> d\'un altre curs ("{$a->coursename}").';
 $string['questionbank'] = 'Banc de preguntes';
@@ -334,6 +332,8 @@ $string['questiondoesnotexist'] = 'Aquesta pregunta no existeix';
 $string['questionidmismatch'] = 'Identificadors de preguntes desajustats';
 $string['questionname'] = 'Nom de la pregunta';
 $string['questionno'] = 'Pregunta {$a}';
+$string['questionpreviewdefaults'] = 'Valors per defecte de la previsualització de les preguntes';
+$string['questionpreviewdefaults_desc'] = 'Aquests valors per defecte s\'utilitzen quan un usuari primer visualitza una pregunta al banc de preguntes. Una vegada que un usuari ha previsualitzat una pregunta, les seves preferències personals s\'emmagatzemen com preferències d\'usuari.';
 $string['questions'] = 'Preguntes';
 $string['questionsaveerror'] = 'Error en desar la pregunta - {{$a}}';
 $string['questionsinuse'] = '(* Les preguntes marcades amb un asterisc s\'utilitzen en algun qüestionari. No s\'hi poden eliminar, només es poden treure de la llista de la categoria.)';
@@ -382,6 +382,7 @@ $string['submitandfinish'] = 'Envia i acaba';
 $string['submitted'] = 'Envia: {$a}';
 $string['technicalinfo'] = 'Informació tècnica';
 $string['technicalinfo_help'] = 'Aquesta informació tècnica és, probablement, només útil per a desenvolupadors que treballen en nous tipus de pregunta. També pot ser útil quan es tracta de diagnosticar problemes amb les preguntes.';
+$string['technicalinfomaxfraction'] = 'Fracció màxima: {$a}';
 $string['technicalinfominfraction'] = 'Fracció mínima: {$a}';
 $string['technicalinfoquestionsummary'] = 'Resum de la pregunta: {$a}';
 $string['technicalinforightsummary'] = 'Resum de la resposta correcta: {$a}';

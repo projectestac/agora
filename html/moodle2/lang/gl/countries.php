@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'countries', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'countries', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   countries
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,6 @@ $string['AG'] = 'Antigua e Barbuda';
 $string['AI'] = 'Anguila';
 $string['AL'] = 'Albania';
 $string['AM'] = 'Armenia';
-$string['AN'] = 'Antillas Holandesas';
 $string['AO'] = 'Angola';
 $string['AQ'] = 'Antártida';
 $string['AR'] = 'Arxentina';
@@ -55,6 +54,7 @@ $string['BL'] = 'San Bartolomeu';
 $string['BM'] = 'Bermudas';
 $string['BN'] = 'Sultanato de Brunei';
 $string['BO'] = 'Bolivia';
+$string['BQ'] = 'Bonaire, San Eustaquio e Saba';
 $string['BR'] = 'Brasil';
 $string['BS'] = 'Bahamas';
 $string['BT'] = 'Bután';
@@ -77,6 +77,7 @@ $string['CO'] = 'Colombia';
 $string['CR'] = 'Costa Rica';
 $string['CU'] = 'Cuba';
 $string['CV'] = 'Cabo Verde';
+$string['CW'] = 'Curaçao';
 $string['CX'] = 'Illa Christmas';
 $string['CY'] = 'Chipre';
 $string['CZ'] = 'República Checa';
@@ -104,6 +105,7 @@ $string['GB'] = 'Reino Unido';
 $string['GD'] = 'Granada';
 $string['GE'] = 'Xeorxia';
 $string['GF'] = 'Guaiana Francesa';
+$string['GG'] = 'Guernsey';
 $string['GH'] = 'Ghana';
 $string['GI'] = 'Xibraltar';
 $string['GL'] = 'Grenlandia';
@@ -133,6 +135,7 @@ $string['IQ'] = 'Iraq';
 $string['IR'] = 'Irán, República Islámica de';
 $string['IS'] = 'Islandia';
 $string['IT'] = 'Italia';
+$string['JE'] = 'Xersei';
 $string['JM'] = 'Xamaica';
 $string['JO'] = 'Xordania';
 $string['JP'] = 'Xapón';
@@ -162,6 +165,7 @@ $string['MA'] = 'Marrocos';
 $string['MC'] = 'Mónaco';
 $string['MD'] = 'Moldavia, República da';
 $string['ME'] = 'Montenegro';
+$string['MF'] = 'San Martín (parte francesa)';
 $string['MG'] = 'Madagascar';
 $string['MH'] = 'Illas Marshall';
 $string['MK'] = 'Macedonia, Antiga República Iugoslava De';
@@ -228,8 +232,10 @@ $string['SM'] = 'San Mariño';
 $string['SN'] = 'Senegal';
 $string['SO'] = 'Somalia';
 $string['SR'] = 'Suriname';
+$string['SS'] = 'Sudán do sur';
 $string['ST'] = 'San Tomé e Príncipe';
 $string['SV'] = 'O Salvador';
+$string['SX'] = 'San Martín (parte holandesa)';
 $string['SY'] = 'República Árabe de Siria';
 $string['SZ'] = 'Suazilandia';
 $string['TC'] = 'Illas Turks e Caicos';

@@ -24,62 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once("$CFG->libdir/pluginlib.php");
-
-
-/**
- * Editor subplugin info class.
- *
- * @package   editor_tinymce
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-class plugininfo_tinymce extends plugininfo_base {
-    public function get_uninstall_url() {
-        return new moodle_url('/lib/editor/tinymce/subplugins.php', array('delete' => $this->name, 'sesskey' => sesskey()));
-    }
-
-    public function get_settings_section_name() {
-        return 'tinymce'.$this->name.'settings';
-    }
-
-    public function load_settings(part_of_admin_tree $adminroot, $parentnodename, $hassiteconfig) {
-        global $CFG, $USER, $DB, $OUTPUT, $PAGE; // in case settings.php wants to refer to them
-        $ADMIN = $adminroot; // may be used in settings.php
-
-        $settings = null;
-        if ($hassiteconfig && file_exists($this->full_path('settings.php'))) {
-            $section = $this->get_settings_section_name();
-            $settings = new admin_settingpage($section, $this->displayname,
-                    'moodle/site:config', $this->is_enabled() === false);
-            include($this->full_path('settings.php')); // this may also set $settings to null
-        }
-        if ($settings) {
-            $ADMIN->add($parentnodename, $settings);
-        }
-    }
-
-    public function is_enabled() {
-        static $disabledsubplugins = null; // TODO: MDL-34344 remove this once get_config() is cached via MUC!
-
-        if (is_null($disabledsubplugins)) {
-            $disabledsubplugins = array();
-            $config = get_config('editor_tinymce', 'disabledsubplugins');
-            if ($config) {
-                $config = explode(',', $config);
-                foreach ($config as $sp) {
-                    $sp = trim($sp);
-                    if ($sp !== '') {
-                        $disabledsubplugins[$sp] = $sp;
-                    }
-                }
-            }
-        }
-
-        return !isset($disabledsubplugins[$this->name]);
-    }
-}
-
 
 /**
  * Special class for TinyMCE subplugin administration.
@@ -134,14 +78,14 @@ class tiynce_subplugins_settings extends admin_setting {
             return true;
         }
 
-        $subplugins = get_plugin_list('tinymce');
+        $subplugins = core_component::get_plugin_list('tinymce');
         foreach ($subplugins as $name=>$dir) {
             if (stripos($name, $query) !== false) {
                 return true;
             }
 
             $namestr = get_string('pluginname', 'tinymce_'.$name);
-            if (strpos(textlib::strtolower($namestr), textlib::strtolower($query)) !== false) {
+            if (strpos(core_text::strtolower($namestr), core_text::strtolower($query)) !== false) {
                 return true;
             }
         }
@@ -158,10 +102,9 @@ class tiynce_subplugins_settings extends admin_setting {
     public function output_html($data, $query='') {
         global $CFG, $OUTPUT, $PAGE;
         require_once("$CFG->libdir/editorlib.php");
-        require_once("$CFG->libdir/pluginlib.php");
         require_once(__DIR__.'/lib.php');
         $tinymce = new tinymce_texteditor();
-        $pluginmanager = plugin_manager::instance();
+        $pluginmanager = core_plugin_manager::instance();
 
         // display strings
         $strbuttons = get_string('availablebuttons', 'editor_tinymce');
@@ -169,10 +112,10 @@ class tiynce_subplugins_settings extends admin_setting {
         $strenable = get_string('enable');
         $strname = get_string('name');
         $strsettings = get_string('settings');
-        $struninstall = get_string('uninstallplugin', 'admin');
+        $struninstall = get_string('uninstallplugin', 'core_admin');
         $strversion = get_string('version');
 
-        $subplugins = get_plugin_list('tinymce');
+        $subplugins = core_component::get_plugin_list('tinymce');
 
         $return = $OUTPUT->heading(get_string('subplugintype_tinymce_plural', 'editor_tinymce'), 3, 'main', true);
         $return .= $OUTPUT->box_start('generalbox tinymcesubplugins');
@@ -181,7 +124,7 @@ class tiynce_subplugins_settings extends admin_setting {
         $table->head  = array($strname, $strbuttons, $strversion, $strenable, $strsettings, $struninstall);
         $table->align = array('left', 'left', 'center', 'center', 'center', 'center');
         $table->data  = array();
-        $table->width = '100%';
+        $table->attributes['class'] = 'admintable generaltable';
 
         // Iterate through subplugins.
         foreach ($subplugins as $name => $dir) {
@@ -194,6 +137,7 @@ class tiynce_subplugins_settings extends admin_setting {
             $plugininfo = $pluginmanager->get_plugin_info('tinymce_'.$name);
 
             // Add hide/show link.
+            $class = '';
             if (!$version) {
                 $hideshow = '';
                 $displayname = html_writer::tag('span', $name, array('class'=>'error'));
@@ -201,12 +145,13 @@ class tiynce_subplugins_settings extends admin_setting {
                 $url = new moodle_url('/lib/editor/tinymce/subplugins.php', array('sesskey'=>sesskey(), 'return'=>'settings', 'disable'=>$name));
                 $hideshow = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/hide'), 'class'=>'iconsmall', 'alt'=>$strdisable));
                 $hideshow = html_writer::link($url, $hideshow);
-                $displayname = html_writer::tag('span', $namestr);
+                $displayname = $namestr;
             } else {
                 $url = new moodle_url('/lib/editor/tinymce/subplugins.php', array('sesskey'=>sesskey(), 'return'=>'settings', 'enable'=>$name));
                 $hideshow = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/show'), 'class'=>'iconsmall', 'alt'=>$strenable));
                 $hideshow = html_writer::link($url, $hideshow);
-                $displayname = html_writer::tag('span', $namestr, array('class'=>'dimmed_text'));
+                $displayname = $namestr;
+                $class = 'dimmed_text';
             }
 
             if ($PAGE->theme->resolve_image_location('icon', 'tinymce_' . $name, false)) {
@@ -230,15 +175,17 @@ class tiynce_subplugins_settings extends admin_setting {
             }
 
             // Add uninstall info.
-            if ($version) {
-                $url = new moodle_url($plugininfo->get_uninstall_url(), array('return'=>'settings'));
-                $uninstall = html_writer::link($url, $struninstall);
-            } else {
-                $uninstall = '';
+            $uninstall = '';
+            if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('tinymce_' . $name, 'manage')) {
+                $uninstall = html_writer::link($uninstallurl, $struninstall);
             }
 
             // Add a row to the table.
-            $table->data[] = array($displayname, $buttons, $version, $hideshow, $settings, $uninstall);
+            $row = new html_table_row(array($displayname, $buttons, $version, $hideshow, $settings, $uninstall));
+            if ($class) {
+                $row->attributes['class'] = $class;
+            }
+            $table->data[] = $row;
         }
         $return .= html_writer::table($table);
         $return .= html_writer::tag('p', get_string('tablenosave', 'admin'));

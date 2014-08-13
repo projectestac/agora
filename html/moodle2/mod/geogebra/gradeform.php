@@ -46,20 +46,20 @@ class mod_geogebra_grade_form extends moodleform {
      */
     function definition() {
         global $CFG;
-        
+
         $mform = $this->_form;
-        
+
         list($geogebra, $data, $params) = $this->_customdata;
         // visible elements
-        $this->geogebra = $geogebra;        
-        
+        $this->geogebra = $geogebra;
+
         $attemptelement = $mform->addElement('text', 'attempt', get_string('attempt', 'geogebra'), array('style' => 'border:none'));
         $attemptelement->freeze();
 
         $durationelement = $mform->addElement('text', 'duration', get_string('duration', 'geogebra'), array('style' => 'border:none'));
         $durationelement->freeze();
 
-        
+
         if ($geogebra->grade > 0) {
             $gradingelement = $mform->addElement('text', 'grade', get_string('grade', 'geogebra'));
             $mform->setType('grade', PARAM_TEXT);
@@ -77,9 +77,9 @@ class mod_geogebra_grade_form extends moodleform {
             }
         }
 
-        $mform->addElement('editor', 'comment_editor', get_string('comment', 'geogebra'), null, null); 
-        $mform->setType('comment_editor', PARAM_RAW);        
-        
+        $mform->addElement('editor', 'comment_editor', get_string('comment', 'geogebra'), null, null);
+        $mform->setType('comment_editor', PARAM_RAW);
+
         // Hidden parameters
         $mform->addElement('hidden', 'id', $data->id);
         $mform->setType('id', PARAM_INT);
@@ -101,7 +101,7 @@ class mod_geogebra_grade_form extends moodleform {
         if (!empty($buttonarray)) {
             $mform->addGroup($buttonarray, 'navar', '', array(' '), false);
         }
-        
+
         if ($data) {
             $this->set_data($data);
         }
@@ -139,7 +139,7 @@ class mod_geogebra_grade_form extends moodleform {
                 }
             }
         }
-        
+
         return $errors;
     }
 

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'calendar', language 'ur', branch 'MOODLE_24_STABLE'
+ * Strings for component 'calendar', language 'ur', branch 'MOODLE_26_STABLE'
  *
  * @package   calendar
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -38,12 +38,10 @@ $string['course'] = 'کورس';
 $string['courseevent'] = 'کورس کا واقعہ';
 $string['courseevents'] = 'کورس کا واقعات';
 $string['courses'] = 'کورسز';
-$string['dayview'] = 'روز وار';
 $string['daywithnoevents'] = 'آج کوءی واقع نہیں ہے۔';
 $string['default'] = 'بنیادی';
 $string['deleteevent'] = 'واقعہ مٹاءیں';
 $string['deleteevents'] = 'واقعات مٹاءیں';
-$string['detailedmonthview'] = 'تفصیلًا ماہ وار';
 $string['durationminutes'] = 'مدت، منٹوں میں';
 $string['durationnone'] = 'مدت کے پغیر';
 $string['durationuntil'] = 'تاوقتیکہ';

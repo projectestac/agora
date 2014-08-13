@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_profiling', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tool_profiling', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   tool_profiling
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,9 @@ $string['calls'] = 'Llamadas de función';
 $string['comment'] = 'Comentario';
 $string['cputime'] = 'Tiempo de CPU';
 $string['executiontime'] = 'Tiempo de ejecución';
+$string['export'] = 'Exportar';
+$string['import'] = 'Importar';
+$string['importproblem'] = 'Ha habido algunos problemas importando el archivo "{$a}"';
 $string['lastrunof'] = 'Resumen de la última ejecución de {$a}';
 $string['memory'] = 'Memoria utilizada';
 $string['runid'] = 'Ejecutar ID';

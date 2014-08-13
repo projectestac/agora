@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_varnumericset', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_varnumericset', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_varnumericset
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -92,6 +92,7 @@ $string['syserrorpenalty'] = 'For each error deduct';
 $string['unspecified'] = 'Unspecified';
 $string['usesuperscript'] = 'Use superscript entry';
 $string['varheader'] = 'Variable {no}';
+$string['variables'] = 'Variables';
 $string['variant'] = 'Value for variant {$a}';
 $string['variants'] = 'Value for variants';
 $string['variants_help'] = 'Enter values for \'Predefined variables\' here OR if this is a \'Calculated variable\' you will see calculated values displayed here.

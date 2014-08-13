@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_essay', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_essay', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_essay
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -39,3 +39,5 @@ $string['pluginname_help'] = 'Teilnehmer/innen erstellen zur Beantwortung der Fr
 $string['pluginnamesummary'] = 'Erlaubt eine Antwort von einigen Sätzen oder Absätzen. Diese muss manuell bewertet werden.';
 $string['responsefieldlines'] = 'Größe des Eingabefeldes';
 $string['responseformat'] = 'Antwortformat';
+$string['responsetemplate'] = 'Antwortvorlage';
+$string['responsetemplate_help'] = 'Der hier eingegebene Text wird in Textfeld für die Antwort angehe';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'wiki', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'wiki', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   wiki
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -142,6 +142,7 @@ $string['navigationfrom_help'] = 'Páginas wiki enlazadas a esta página';
 $string['navigationto'] = 'Está página lleva hacia';
 $string['navigationto_help'] = 'Enlaces a otras páginas';
 $string['newpage'] = 'Nuevo';
+$string['newpagehdr'] = 'Págin nueva';
 $string['newpagetitle'] = 'Título nuevo de la página';
 $string['noattachments'] = '<strong>no hay archivos adjuntos </strong>';
 $string['nocomments'] = 'No hay comentarios';
@@ -189,6 +190,7 @@ $string['pluginadministration'] = 'Administración wiki';
 $string['pluginname'] = 'Wiki';
 $string['prettyprint'] = 'Versión imprimible';
 $string['previewwarning'] = 'Esta es una vista previa. Los cambios aún no se han guardado.';
+$string['print'] = 'Imprimir';
 $string['rated'] = 'Usted clasificó esta página como {$a}';
 $string['rating'] = 'Clasificación';
 $string['ratingmode'] = 'Modo de clasificación';

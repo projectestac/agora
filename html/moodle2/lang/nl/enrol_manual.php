@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'enrol_manual', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'enrol_manual', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   enrol_manual
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,6 @@ $string['defaultperiod'] = 'Standaard aanmeldingsduur';
 $string['defaultperiod_desc'] = 'Standaard tijdsduur waarvoor de aanmelding geldig is. Indien ingesteld op 0, dan wordt de aanmeldingsduur automatisch onbeperkt.';
 $string['defaultperiod_help'] = 'Standaard tijdsduur waarvoor de aanmelding geldig is, vanaf het moment waarop de gebruiker is aangemeld. Indien uitgeschakeld, dan wordt de aanmeldingsduur automatisch onbeperkt.';
 $string['deleteselectedusers'] = 'Verwijder gebruikersaanmeldingen';
-$string['editenrolment'] = 'Bewerk aanmelding';
 $string['editselectedusers'] = 'Bewerk geselecteerde gebruikersaanmelding';
 $string['enrolledincourserole'] = 'Aangemeld in "{$a->course}" als "{$a->role}"';
 $string['enrolusers'] = 'Gebruikers aanmelden';

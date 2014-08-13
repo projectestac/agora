@@ -279,7 +279,7 @@ class data_field_base {     // Base class for Database Field Types (see field/*/
         echo '<input type="hidden" name="type" value="'.$this->type.'" />'."\n";
         echo '<input name="sesskey" value="'.sesskey().'" type="hidden" />'."\n";
 
-        echo $OUTPUT->heading($this->name());
+        echo $OUTPUT->heading($this->name(), 3);
 
         require_once($CFG->dirroot.'/mod/data/field/'.$this->type.'/mod.html');
 
@@ -518,12 +518,12 @@ function data_generate_default_template(&$data, $template, $recordid=0, $form=fa
             );
         }
         if ($template == 'listtemplate') {
-            $cell = new html_table_cell('##edit##  ##more##  ##delete##  ##approve##  ##export##');
+            $cell = new html_table_cell('##edit##  ##more##  ##delete##  ##approve##  ##disapprove##  ##export##');
             $cell->colspan = 2;
             $cell->attributes['class'] = 'controls';
             $table->data[] = new html_table_row(array($cell));
         } else if ($template == 'singletemplate') {
-            $cell = new html_table_cell('##edit##  ##delete##  ##approve##  ##export##');
+            $cell = new html_table_cell('##edit##  ##delete##  ##approve##  ##disapprove##  ##export##');
             $cell->colspan = 2;
             $cell->attributes['class'] = 'controls';
             $table->data[] = new html_table_row(array($cell));
@@ -536,7 +536,13 @@ function data_generate_default_template(&$data, $template, $recordid=0, $form=fa
             $table->data[] = $row;
         }
 
-        $str  = html_writer::start_tag('div', array('class' => 'defaulttemplate'));
+        $str = '';
+        if ($template == 'listtemplate'){
+            $str .= '##delcheck##';
+            $str .= html_writer::empty_tag('br');
+        }
+
+        $str .= html_writer::start_tag('div', array('class' => 'defaulttemplate'));
         $str .= html_writer::table($table);
         $str .= html_writer::end_tag('div');
         if ($template == 'listtemplate'){
@@ -1160,6 +1166,7 @@ function data_grade_item_delete($data) {
  */
 function data_print_template($template, $records, $data, $search='', $page=0, $return=false) {
     global $CFG, $DB, $OUTPUT;
+
     $cm = get_coursemodule_from_instance('data', $data->id);
     $context = context_module::instance($cm->id);
 
@@ -1200,10 +1207,12 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
             $replacement[] = highlight($search, $field->display_browse_field($record->id, $template));
         }
 
+        $canmanageentries = has_capability('mod/data:manageentries', $context);
+
     // Replacing special tags (##Edit##, ##Delete##, ##More##)
         $patterns[]='##edit##';
         $patterns[]='##delete##';
-        if (has_capability('mod/data:manageentries', $context) || (!$readonly && data_isowner($record->id))) {
+        if ($canmanageentries || (!$readonly && data_isowner($record->id))) {
             $replacement[] = '<a href="'.$CFG->wwwroot.'/mod/data/edit.php?d='
                              .$data->id.'&amp;rid='.$record->id.'&amp;sesskey='.sesskey().'"><img src="'.$OUTPUT->pix_url('t/edit') . '" class="iconsmall" alt="'.get_string('edit').'" title="'.get_string('edit').'" /></a>';
             $replacement[] = '<a href="'.$CFG->wwwroot.'/mod/data/view.php?d='
@@ -1224,6 +1233,13 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
 
         $patterns[]='##moreurl##';
         $replacement[] = $moreurl;
+
+        $patterns[]='##delcheck##';
+        if ($canmanageentries) {
+            $replacement[] = html_writer::checkbox('delcheck[]', $record->id, false, '', array('class' => 'recordcheckbox'));
+        } else {
+            $replacement[] = '';
+        }
 
         $patterns[]='##user##';
         $replacement[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$record->userid.
@@ -1254,9 +1270,20 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
         if (has_capability('mod/data:approve', $context) && ($data->approval) && (!$record->approved)) {
             $approveurl = new moodle_url('/mod/data/view.php',
                     array('d' => $data->id, 'approve' => $record->id, 'sesskey' => sesskey()));
-            $approveicon = new pix_icon('t/approve', get_string('approve'), '', array('class' => 'iconsmall'));
+            $approveicon = new pix_icon('t/approve', get_string('approve', 'data'), '', array('class' => 'iconsmall'));
             $replacement[] = html_writer::tag('span', $OUTPUT->action_icon($approveurl, $approveicon),
                     array('class' => 'approve'));
+        } else {
+            $replacement[] = '';
+        }
+
+        $patterns[]='##disapprove##';
+        if (has_capability('mod/data:approve', $context) && ($data->approval) && ($record->approved)) {
+            $disapproveurl = new moodle_url('/mod/data/view.php',
+                    array('d' => $data->id, 'disapprove' => $record->id, 'sesskey' => sesskey()));
+            $disapproveicon = new pix_icon('t/block', get_string('disapprove', 'data'), '', array('class' => 'iconsmall'));
+            $replacement[] = html_writer::tag('span', $OUTPUT->action_icon($disapproveurl, $disapproveicon),
+                    array('class' => 'disapprove'));
         } else {
             $replacement[] = '';
         }
@@ -1877,9 +1904,8 @@ function data_get_available_presets($context) {
     $presets = array();
 
     // First load the ratings sub plugins that exist within the modules preset dir
-    if ($dirs = get_list_of_plugins('mod/data/preset')) {
-        foreach ($dirs as $dir) {
-            $fulldir = $CFG->dirroot.'/mod/data/preset/'.$dir;
+    if ($dirs = core_component::get_plugin_list('datapreset')) {
+        foreach ($dirs as $dir=>$fulldir) {
             if (is_directory_a_preset($fulldir)) {
                 $preset = new stdClass();
                 $preset->path = $fulldir;
@@ -1971,9 +1997,10 @@ function data_print_header($course, $cm, $data, $currenttab='') {
 
     $PAGE->set_title($data->name);
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(format_string($data->name));
+    echo $OUTPUT->heading(format_string($data->name), 2);
+    echo $OUTPUT->box(format_module_intro('data', $data, $cm->id), 'generalbox', 'intro');
 
-// Groups needed for Add entry tab
+    // Groups needed for Add entry tab
     $currentgroup = groups_get_activity_group($cm);
     $groupmode = groups_get_activity_groupmode($cm);
 
@@ -3547,12 +3574,14 @@ function data_get_recordids($alias, $searcharray, $dataid, $recordids) {
  */
 function data_get_advanced_search_sql($sort, $data, $recordids, $selectdata, $sortorder) {
     global $DB;
+
+    $namefields = get_all_user_name_fields(true, 'u');
     if ($sort == 0) {
-        $nestselectsql = 'SELECT r.id, r.approved, r.timecreated, r.timemodified, r.userid, u.firstname, u.lastname
+        $nestselectsql = 'SELECT r.id, r.approved, r.timecreated, r.timemodified, r.userid, ' . $namefields . '
                         FROM {data_content} c,
                              {data_records} r,
                              {user} u ';
-        $groupsql = ' GROUP BY r.id, r.approved, r.timecreated, r.timemodified, r.userid, u.firstname, u.lastname ';
+        $groupsql = ' GROUP BY r.id, r.approved, r.timecreated, r.timemodified, r.userid, u.firstname, u.lastname, ' . $namefields;
     } else {
         // Sorting through 'Other' criteria
         if ($sort <= 0) {
@@ -3579,12 +3608,13 @@ function data_get_advanced_search_sql($sort, $data, $recordids, $selectdata, $so
             $sortcontentfull = $sortfield->get_sort_sql($sortcontent);
         }
 
-        $nestselectsql = 'SELECT r.id, r.approved, r.timecreated, r.timemodified, r.userid, u.firstname, u.lastname, ' . $sortcontentfull . '
+        $nestselectsql = 'SELECT r.id, r.approved, r.timecreated, r.timemodified, r.userid, ' . $namefields . ',
+                                 ' . $sortcontentfull . '
                               AS sortorder
                             FROM {data_content} c,
                                  {data_records} r,
                                  {user} u ';
-        $groupsql = ' GROUP BY r.id, r.approved, r.timecreated, r.timemodified, r.userid, u.firstname, u.lastname, ' .$sortcontentfull;
+        $groupsql = ' GROUP BY r.id, r.approved, r.timecreated, r.timemodified, r.userid, ' . $namefields . ', ' .$sortcontentfull;
     }
 
     // Default to a standard Where statement if $selectdata is empty.
@@ -3629,4 +3659,42 @@ function data_user_can_delete_preset($context, $preset) {
         }
         return $candelete;
     }
+}
+
+/**
+ * Delete a record entry.
+ *
+ * @param int $recordid The ID for the record to be deleted.
+ * @param object $data The data object for this activity.
+ * @param int $courseid ID for the current course (for logging).
+ * @param int $cmid The course module ID.
+ * @return bool True if the record deleted, false if not.
+ */
+function data_delete_record($recordid, $data, $courseid, $cmid) {
+    global $DB, $CFG;
+
+    if ($deleterecord = $DB->get_record('data_records', array('id' => $recordid))) {
+        if ($deleterecord->dataid == $data->id) {
+            if ($contents = $DB->get_records('data_content', array('recordid' => $deleterecord->id))) {
+                foreach ($contents as $content) {
+                    if ($field = data_get_field_from_id($content->fieldid, $data)) {
+                        $field->delete_content($content->recordid);
+                    }
+                }
+                $DB->delete_records('data_content', array('recordid'=>$deleterecord->id));
+                $DB->delete_records('data_records', array('id'=>$deleterecord->id));
+
+                add_to_log($courseid, 'data', 'record delete', "view.php?id=$cmid", $data->id, $cmid);
+
+                // Delete cached RSS feeds.
+                if (!empty($CFG->enablerssfeeds)) {
+                    require_once($CFG->dirroot.'/mod/data/rsslib.php');
+                    data_rss_delete_file($data);
+                }
+
+                return true;
+            }
+        }
+    }
+    return false;
 }

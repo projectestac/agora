@@ -53,6 +53,10 @@ $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST)
 $context = context_module::instance($cm->id);
 
 require_login($course, true, $cm);
+
+if (!wiki_user_can_view($subwiki, $wiki)) {
+    print_error('cannotviewpage', 'wiki');
+}
 require_capability('mod/wiki:managefiles', $context);
 
 if (empty($returnurl)) {
@@ -70,7 +74,7 @@ $url = new moodle_url('/mod/wiki/filesedit.php', array('subwiki'=>$subwiki->id, 
 $PAGE->set_url($url);
 $PAGE->set_context($context);
 $PAGE->set_title($title);
-$PAGE->set_heading($title);
+$PAGE->set_heading($course->fullname);
 $PAGE->navbar->add(format_string(get_string('wikifiles', 'wiki')), $CFG->wwwroot . '/mod/wiki/files.php?pageid=' . $pageid);
 $PAGE->navbar->add(format_string($title));
 
@@ -91,6 +95,8 @@ if ($mform->is_cancelled()) {
 }
 
 echo $OUTPUT->header();
+echo $OUTPUT->heading($wiki->name);
+echo $OUTPUT->box(format_module_intro('wiki', $wiki, $PAGE->cm->id), 'generalbox', 'intro');
 echo $OUTPUT->box_start('generalbox');
 $mform->display();
 echo $OUTPUT->box_end();

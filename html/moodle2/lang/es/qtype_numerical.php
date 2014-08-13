@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_numerical', language 'es', branch 'MOODLE_24_STABLE'
+ * Strings for component 'qtype_numerical', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   qtype_numerical
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -29,6 +29,7 @@ $string['acceptederror'] = 'Margen de error';
 $string['addmoreanswerblanks'] = 'Espacios en blanco para {no} opciones más';
 $string['addmoreunitblanks'] = 'Espacios en blanco para {no} unidades más';
 $string['answercolon'] = 'Respuesta:';
+$string['answererror'] = 'Error';
 $string['answermustbenumberorstar'] = 'La respuesta debe ser un número, o \'*\'.';
 $string['answerno'] = 'Respuesta {$a}';
 $string['decfractionofquestiongrade'] = 'como fracción decimal (0-1) de la calificación de de la pregunta';
@@ -71,16 +72,16 @@ $string['studentunitanswer'] = 'RESPUESTA-UNIDAD mostrada como una';
 $string['tolerancetype'] = 'Tipo de tolerancia';
 $string['unit'] = 'Unidad';
 $string['unitappliedpenalty'] = 'Estas marcas incluyen una penalización de {$a} por unidad incorrecta';
-$string['unitchoice'] = 'Elección múltiple';
+$string['unitchoice'] = 'una elección múltiple';
 $string['unitedit'] = 'Editar unidad';
-$string['unitgraded'] = 'La RESPUESTA-NUMÉRICA y las UNIDADES se calificarán';
+$string['unitgraded'] = 'Se debe indicar la unidad, y se tendrá en cuenta en la calificación.';
 $string['unithandling'] = 'Tratamiento de las unidades';
-$string['unithdr'] = 'Unidad {$a}';
 $string['unitincorrect'] = 'No proporcionó la unidad correcta';
 $string['unitmandatory'] = 'Obligatorio';
-$string['unitmandatory_help'] = '* La respuesta se calificará usando la unidad escrita.
-<br> * La penalización se aplicará si el campo de la unidad está vacío';
-$string['unitnotselected'] = 'No se ha seleccionado unidad';
+$string['unitmandatory_help'] = '* La respuesta se calificará usando la unidad numérica indicada.
+
+* Se aplicará penalización si el campo de la unidad está vacío';
+$string['unitnotselected'] = 'Debe seleccionar una unidad.';
 $string['unitonerequired'] = 'Debe introducir almenos una unidad';
 $string['unitoptional'] = 'Unidad opcional';
 $string['unitoptional_help'] = '* Si el campo de unidad no está vacío, la respuesta será calificada considerando también la unidad.
@@ -90,7 +91,9 @@ $string['unitpenalty_help'] = 'La penalización se aplica si
 * Se escribe un nombre de unidad sin definir en el campo de respuesta-unidad o
 * Se escribe un nombre de unidad en el campo de respuesta-numérica';
 $string['unitposition'] = 'Posición de unidad';
+$string['units'] = 'Unidades';
 $string['unitselect'] = 'menú emergente';
+$string['unitx'] = 'Unidad {no}';
 $string['validnumberformats'] = 'Formatos de número válidos';
 $string['validnumberformats_help'] = '* números regulares 13500.67, 13 500.67, 13500,67 or 13 500,67
 
@@ -100,3 +103,6 @@ $string['validnumberformats_help'] = '* números regulares 13500.67, 13 500.67, 
 * para la forma exponencial, digamos 1.350067 * 10<sup>4</sup>, utilice
  1.350067 E4 : 1.350067 E04';
 $string['validnumbers'] = '13500.67, 13 500.67, 13,500.67, 13500,67, 13 500,67, 1.350067 E4 or 1.350067 E04';
+$string['xmustbenumeric'] = '{$a} debe ser un número.';
+$string['xmustnotbenumeric'] = '{$a} no puede ser un número.';
+$string['youmustenteramultiplierhere'] = 'Debe escribir un multiplicador aquí.';

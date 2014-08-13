@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'mnetservice_enrol', language 'ja', branch 'MOODLE_24_STABLE'
+ * Strings for component 'mnetservice_enrol', language 'ja', branch 'MOODLE_26_STABLE'
  *
  * @package   mnetservice_enrol
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,7 +32,7 @@ $string['clientname_help'] = 'ユーザ登録および登録抹消が許可さ�
 $string['editenrolments'] = '登録を編集する';
 $string['hostappname'] = 'アプリケーション';
 $string['hostname'] = 'ホスト名';
-$string['hosturl'] = 'リモートホストURI';
+$string['hosturl'] = 'リモートホストURL';
 $string['nopublishers'] = '利用できるリモートピアはありません。';
 $string['noroamingusers'] = 'リモートコースに受講登録するには、ユーザはシステムコンテクスト内にケイパビリティ「 {$a} 」を必要とします。現在、このケイパビリティを持ったユーザ存在しません。「続ける」ボタンをクリックすることで、あなたのサイトの1つまたはそれ以上のロールに必要なケイパビリティを割り当てます。';
 $string['otherenrolledusers'] = '他の登録ユーザ';

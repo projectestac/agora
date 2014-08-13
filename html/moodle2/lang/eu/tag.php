@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tag', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tag', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   tag
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,7 +34,7 @@ $string['changetype'] = 'Aldatu etiketa-mota';
 $string['count'] = 'Zenbatu';
 $string['delete'] = 'Ezabatu';
 $string['deleted'] = 'Ezabatuta';
-$string['deletedcoursetags'] = 'Ezabatuta - ikastaro-etiketak';
+$string['deletedcoursetags'] = 'Ezabatuta - Ikastaro-etiketak';
 $string['description'] = 'Deskribapena';
 $string['edittag'] = 'Etiketa hau editatu';
 $string['entertags'] = 'Idatzi etiketak komaz banatuta';
@@ -81,7 +81,7 @@ $string['tagsaredisabled'] = 'Etiketak ez daude gaituta';
 $string['tagtype'] = 'Etiketa-mota';
 $string['tagtype_default'] = 'Berezko balorea';
 $string['tagtype_official'] = 'Ofiziala';
-$string['thingstaggedwith'] = '"{$a->mane}" {$a->count} aldiz erabili da';
+$string['thingstaggedwith'] = '"{$a->name}" {$a->count} aldiz erabili da';
 $string['thingtaggedwith'] = '"{$a->name}" behin erabili da';
 $string['thistaghasnodesc'] = 'Etiketa honek ez du deskribapenik une honetan';
 $string['timemodified'] = 'Aldatuta';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_course_overview', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_course_overview', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   block_course_overview
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['activityoverview'] = 'Есть {$a}, которые требуют Вашего внимания';
 $string['alwaysshowall'] = 'Всегда показывать все';
 $string['collapseall'] = 'Свернуть весь список курсов';
-$string['configotherexpanded'] = 'При включенном параметре "Другие курсы" будут развернуты по умолчанию, за исключением переопределения выбором пользователя.';
+$string['configotherexpanded'] = 'При включенном параметре «Другие курсы» будут развернуты по умолчанию, за исключением переопределения выбором пользователя.';
 $string['configpreservestates'] = 'При включенном параметре сохраняется выбранное пользователем состояние «свернуто/развернуто» и используется при каждой загрузке.';
 $string['course_overview:addinstance'] = 'Добавлять новый блок Обзор курса';
 $string['course_overview:myaddinstance'] = 'Добавлять новый блок Обзор курса в Мой Moodle';
@@ -39,9 +39,15 @@ $string['forcedefaultmaxcourses'] = 'Принудительный максиму
 $string['forcedefaultmaxcoursesdesc'] = 'При установленном параметре пользователь не сможет изменить свою личную настройку';
 $string['hiddencoursecount'] = 'У Вас есть скрытые курсы - {$a}';
 $string['hiddencoursecountplural'] = 'У Вас есть скрытые курсы - {$a}';
+$string['hiddencoursecountwithshowall'] = 'У Вас есть {$a->coursecount} скрытый курс ({$a->showalllink})';
+$string['hiddencoursecountwithshowallplural'] = 'У Вас есть скрытые курсы ({$a->coursecount}) - ({$a->showalllink})';
 $string['message'] = 'сообщение';
 $string['messages'] = 'сообщения';
+$string['moveafterhere'] = 'Переместить {$a->movingcoursename} после курса {$a->currentcoursename}';
+$string['movecourse'] = 'Переместить курс: {$a}';
 $string['movecoursehere'] = 'Переместить курс сюда';
+$string['movetofirst'] = 'Переместить курс {$a} вверх';
+$string['movingcourse'] = 'Вы перемещаете: {$a->fullname} ({$a->cancellink})';
 $string['numtodisplay'] = 'Количество отображаемых курсов:';
 $string['otherexpanded'] = 'Другие курсы развернуты';
 $string['pluginname'] = 'Обзор курса';

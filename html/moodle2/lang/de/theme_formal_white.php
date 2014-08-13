@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_formal_white', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'theme_formal_white', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_formal_white
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -31,6 +31,7 @@ $string['blockcontentbgc'] = 'Hintergrundfarbe Blöcke';
 $string['blockcontentbgcdesc'] = 'Diese Option legt die Hintergrundfarbe für die Blockinhalte fest.';
 $string['blockpadding'] = 'Seitenabstand der Blöcke';
 $string['blockpaddingdesc'] = 'Diese Option legt den Abstand zwischen den Blöcken und zum Spaltenrand fest.';
+$string['blueberry'] = 'Blueberry';
 $string['choosereadme'] = '<div class="clearfix">
 <div class="theme_screenshot">
 <h2>Formal White</h2>
@@ -65,7 +66,7 @@ $string['customcss'] = 'CSS-Anpassungen';
 $string['customcssdesc'] = 'Die CSS-Anpassungen werden auf jeder Seite benutzt. Das Design kann so einfach geändert werden. Wenn Sie z.B. die Farbe der Links ändern möchten, geben Sie folgenden Code ein:
 <pre>a:link, a:visited, a:hover, a:active, a:focus {color:blue;}</pre>';
 $string['customlogourl'] = 'Eigenes Logo';
-$string['customlogourldesc'] = 'Wenn Sie das Logo für alle Seiten ändern möchten, geben Sie eine URL zum Logo an, z.B. http://www.meinserver.de/verzeichnis/logo.png oder ../pfad/logo.png. Das Standardlogo hat das Format PNG und ist transparent, 200px breit und 50px hoch.';
+$string['customlogourldesc'] = 'Wenn Sie das Logo ändern möchten, geben Sie eine URL zum Logo an, z.B. http://www.meinserver.de/verzeichnis/logo.png oder ../pfad/logo.png. Das Standardlogo hat das Format .png und ist transparent, 200px breit und 50px hoch.';
 $string['displayheading'] = 'Kopfzeilentext anzeigen';
 $string['displaylogo'] = 'Logo anzeigen';
 $string['fontsizereference'] = 'Textgröße';
@@ -75,17 +76,25 @@ $string['footnotedesc'] = 'Der Inhalt dieses Feldes wird auf jeder Seite als Fu�
 $string['framemargin'] = 'Rahmenabstand';
 $string['framemargindesc'] = 'Abstand zwischen dem Rahmen und dem Rand des Browserfensters. Die Option wird ignoriert, wenn \'{$a}\' eingestellt ist.';
 $string['frontpagelogourl'] = 'Eigenes Logo für die Startseite';
-$string['frontpagelogourldesc'] = 'Wenn Sie das Logo der Startseite ändern möchten, geben Sie eine URL zum Logo an, z.B. http://www.meinserver.de/verzeichnis/logo.png oder ../pfad/logo.png. Das Standardlogo der Startseite hat das Format PNG und ist transparent, 300px breit und 80px hoch.';
+$string['frontpagelogourldesc'] = 'Wenn Sie das Logo der Startseite ändern möchten, geben Sie eine URL zum Logo an, z.B. http://www.meinserver.de/verzeichnis/logo.png oder ../pfad/logo.png. Das Standardlogo der Startseite hat das Format .png und ist transparent, 300px breit und 80px hoch.';
 $string['headerbgc'] = 'Hintergrundfarbe Kopfbereich';
 $string['headerbgcdesc'] = 'Diese Option legt die Hintergrundfarbe für den Kopfbereich fest.';
 $string['headercontent'] = 'Kopfbereich';
 $string['headercontentdesc'] = 'Wählen Sie, ob im Kopfbereich das Logo oder der Kopfzeilentext angezeigt werden soll.';
 $string['lblockcolumnbgc'] = 'Hintergrundfarbe links';
 $string['lblockcolumnbgcdesc'] = 'Diese Option legt die Hintergrundfarbe für die linke Spalte fest.';
+$string['lemon'] = 'Lemon';
+$string['lime'] = 'Lime';
+$string['mink'] = 'Mink';
 $string['noframe'] = 'Kein äußerer Rahmen';
 $string['noframedesc'] = 'Wenn diese Option aktiviert ist, wird das Design ohne den umgebenden äußeren Rahmen angezeigt, also wie in Moodle 1.9.';
+$string['orange'] = 'Orange';
+$string['peach'] = 'Peach';
 $string['pluginname'] = 'Formal White';
 $string['rblockcolumnbgc'] = 'Hintergrundfarbe rechts';
 $string['rblockcolumnbgcdesc'] = 'Diese Option legt die Hintergrundfarbe für die rechte Spalte fest. Wenn Sie dieses Feld leer lassen, wird hier ebenfalls die Farbe für die linke Spalte benutzt.';
 $string['region-side-post'] = 'Rechts';
 $string['region-side-pre'] = 'Links';
+$string['silver'] = 'Silver';
+$string['trendcolor'] = 'Farbeindruck';
+$string['trendcolordesc'] = 'Wählen Sie die Farbrichtung des Designs.';

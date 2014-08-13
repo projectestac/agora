@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'page', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'page', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   page
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,10 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['configdisplayoptions'] = 'Selecione todas as opções que devem estar disponíveis, as definições existentes não serão alteradas. Prima a tecla CTRL para selecionar múltiplas opções.';
 $string['content'] = 'Conteúdo da página';
 $string['contentheader'] = 'Conteúdo';
-$string['createpage'] = 'Criar nova página';
+$string['createpage'] = 'Criar um novo recurso do tipo Página';
 $string['displayoptions'] = 'Opções de visualização disponíveis';
 $string['displayselect'] = 'Exibir em';
 $string['displayselectexplain'] = 'Escolha a forma de exibição.';
+$string['eventcoursemoduleviewed'] = 'Recurso do tipo Página visualizada';
+$string['eventinstanceslistviewed'] = 'Página da lista de instâncias visualizada';
 $string['legacyfiles'] = 'Migração de ficheiro de disciplina antiga';
 $string['legacyfilesactive'] = 'Ativo';
 $string['legacyfilesdone'] = 'Terminado';
@@ -47,7 +49,7 @@ Uma página pode ser utilizada para:
 $string['modulename_link'] = 'mod/page/view';
 $string['modulenameplural'] = 'Páginas';
 $string['neverseen'] = 'Nunca visto';
-$string['optionsheader'] = 'Opções';
+$string['optionsheader'] = 'Mostrar opções';
 $string['page:addinstance'] = 'Adicionar nova Página';
 $string['page-mod-page-x'] = 'Qualquer página do recurso página';
 $string['page:view'] = 'Ver conteúdo da página';
@@ -57,7 +59,5 @@ $string['popupheight'] = 'Altura da janela de pop-up (em píxeis)';
 $string['popupheightexplain'] = 'Especifique a altura pré-definida da janela de pop-up';
 $string['popupwidth'] = 'Largura da janela de pop-up (em píxeis)';
 $string['popupwidthexplain'] = 'Especifique a largura pré-definida quando abre numa janela de pop-up';
-$string['printheading'] = 'Mostrar nome da Página';
-$string['printheadingexplain'] = 'Mostrar nome da Página por cima do conteúdo?';
 $string['printintro'] = 'Mostrar descrição da Página';
 $string['printintroexplain'] = 'Mostrar descrição da Página por cima do conteúdo?';

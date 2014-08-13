@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism', language 'ru', branch 'MOODLE_24_STABLE'
+ * Strings for component 'plagiarism', language 'ru', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,4 +32,3 @@ $string['enableplagiarism'] = 'Включить плагины антиплаг�
 $string['manageplagiarism'] = 'Управление плагинами антиплагиата';
 $string['nopluginsinstalled'] = 'Плагины антиплагиата не установлены';
 $string['plagiarism'] = 'Предотвращение плагиата';
-$string['plagiarismplugindeleteconfirm'] = 'Вы собираетесь полностью удалить плагин антиплагиата "{$a}". Это полностью удалит из базы данных всё, что связано с этим плагином. Вы уверены, что хотите продолжить?';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'webservice', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'webservice', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   webservice
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -91,6 +91,14 @@ $string['errorcoursecontextnotvalid'] = 'Je kunt geen functies uitvoeren in de c
 $string['errorinvalidparam'] = 'De param "{$a}" is ongeldig';
 $string['errornotemptydefaultparamarray'] = 'De webservice beschrijvingsparameter met als naam \'{$a}\' is een enkele of meervoudige structuur. De standaard kan enkel een lege array zijn. Controleer je webservice beschrijving.';
 $string['erroroptionalparamarray'] = 'De webservice beschrijvingsparameter met als naam \'{$a}\' is een enkele of meervoudige structuur. Dit kan niet ingesteld worden als VALUE_OPTIONAL. Controleer de webservice beschrijving.';
+$string['event_webservice_function_called'] = 'Webservice-functie aangeroepen';
+$string['event_webservice_login_failed'] = 'Webservice login mislukt';
+$string['event_webservice_service_created'] = 'Webservice service gemaakt';
+$string['event_webservice_service_updated'] = 'Webservice service aangepast';
+$string['event_webservice_service_user_added'] = 'Webservice service gebruiker toegevoegd';
+$string['event_webservice_service_user_removed'] = 'Webservice service gebruiker verwijderd';
+$string['event_webservice_token_created'] = 'Webservice token gemaakt';
+$string['event_webservice_token_sent'] = 'Webservice token verstuurd';
 $string['execute'] = 'Voer uit';
 $string['executewarnign'] = 'WAARSCHUWING: als je op uitvoeren drukt, dan zal je databank aangepast worden en die wijzigingen kunnen niet automatisch ongedaan gemaakt worden!';
 $string['externalservice'] = 'Externe service';
@@ -125,6 +133,7 @@ $string['missingusername'] = 'Gebruikersnaam ontbreekt';
 $string['missingversionfile'] = 'Codefout: version.php ontbreekt voor component {$a}';
 $string['mobilewsdisabled'] = 'Uitgeschakeld';
 $string['mobilewsenabled'] = 'Ingeschakeld';
+$string['nocapabilitytouseparameter'] = 'De gebruiker heeft de vereiste mogelijkheid niet om parameter {$a} te gebruiken.';
 $string['nofunctions'] = 'Deze service heeft geen functies.';
 $string['norequiredcapability'] = 'Geen vereiste mogelijkheid';
 $string['notoken'] = 'De tokenlijst is leeg';
@@ -189,6 +198,8 @@ $string['tokencreator'] = 'Aanmaker';
 $string['unknownoptionkey'] = 'Onbekende optiesleutel ({$a})';
 $string['unnamedstringparam'] = 'Een stringparameter heeft geen naam.';
 $string['updateusersettings'] = 'Update';
+$string['uploadfiles'] = 'Kan bestanden uploaden';
+$string['uploadfiles_help'] = 'Indien ingeschakeld kan een gebruiker bestanden uplaoden met zijn beveiligingssleutels naar de eigen privé bestanden zone of naar de klad zone. Gebruikersquota gelden.';
 $string['userasclients'] = 'Gebruikers als clients met token';
 $string['userasclientsdescription'] = 'Volgende stappen helpen je met het configureren van Moodle webservices voor gebruikers als clients. Deze stappen helpen je ook om de aangeraden token authenticatiemethode  (met veiligheidssleutesl)  te configureren. Als je webservices zo gebruikt, dan zal de gebruiker zijn teken genereren van zijn Mijn profielpagina.';
 $string['usermissingcaps'] = 'Ontbrekende mogelijkheden: {$a}';

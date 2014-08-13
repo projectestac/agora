@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_poodll', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'tinymce_poodll', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_poodll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['drawtheninsert'] = 'After drawing, press "Save Picture", then "Insert."';
-$string['pluginname'] = 'PoodLL Anywhere';
+$string['pluginname'] = 'PoodLL Anywhere(TinyMCE)';
 $string['poodll:allowaudiomp3'] = 'Allow MP3 Recording';
 $string['poodll:allowaudiored5'] = 'Allow Audio(Red5) Recording';
 $string['poodll:allowsnapshot'] = 'Allow Snapshot';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'table', language 'eu', branch 'MOODLE_24_STABLE'
+ * Strings for component 'table', language 'eu', branch 'MOODLE_26_STABLE'
  *
  * @package   table
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -26,9 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['downloadas'] = 'Jaitsi honela datu-taula: {$a->formatsmenu} {$a->downloadbutton}';
-$string['downloadcsv'] = 'Komaz banatutako baloreak dituen testu-fitxategia';
+$string['downloadcsv'] = 'komek banatutako baloreak dituen testu-fitxategia';
 $string['downloadexcel'] = 'Excel kalkulu-orria';
 $string['downloadods'] = 'OpenDocument kalkulu-orria';
 $string['downloadoptions'] = 'Aukeratu jaisteko aukerak';
-$string['downloadtsv'] = 'Tabuladorez banatutako baloreak dituen testu-fitxategia';
+$string['downloadtsv'] = 'tabuladoreek banatutako baloreak dituen testu-fitxategia';
 $string['downloadxhtml'] = 'Orrikatu gabeko XHTML dokumentua';

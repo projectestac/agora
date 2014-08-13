@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'label', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'label', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   label
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,6 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configdndmedia'] = 'Het maken van een label aanbieden wanneer mediabestanden in een cursus gesleept worden.';
+$string['configdndresizeheight'] = 'Wanneer een label gemaakt wordt van een naar de cursus gesleepte afbeelding, herschaal die dan als ze hoger is dan dit aantal pixels (0 voor niet herschalen).';
+$string['configdndresizewidth'] = 'Wanneer een label gemaakt wordt van een naar de cursus gesleepte afbeelding, herschaal die dan als ze breder is dan dit aantal pixels (0 voor niet herschalen).';
+$string['dndmedia'] = 'Media slepen en neerzetten';
+$string['dndresizeheight'] = 'Herschalen hoogte bij slepen en neerzetten';
+$string['dndresizewidth'] = 'Herschalen breedte bij slepen en neerzetten';
+$string['dnduploadlabel'] = 'Afbeelding toevoegen aan de cursuspagina';
+$string['dnduploadlabeltext'] = 'Voeg tekst toe aan de cursuspagina';
 $string['label:addinstance'] = 'Voeg een nieuw label toe';
 $string['labeltext'] = 'Label tekst';
 $string['modulename'] = 'Label';

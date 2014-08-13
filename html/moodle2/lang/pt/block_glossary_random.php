@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_glossary_random', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'block_glossary_random', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   block_glossary_random
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -34,6 +34,7 @@ $string['glossary_random:myaddinstance'] = 'Adicionar um novo bloco Termo aleat�
 $string['intro'] = 'Verifique que esta disciplina tem pelo menos um glossário, com pelo menos um termo. Depois, poderá ajustar as configurações seguintes';
 $string['invisible'] = '(continua...)';
 $string['lastmodified'] = 'Último termo criado/modificado';
+$string['nextalpha'] = 'Ordem alfabética';
 $string['nextone'] = 'Termo seguinte';
 $string['noentriesyet'] = 'O glossário selecionado não contém qualquer termo.';
 $string['notyetconfigured'] = 'Configure este bloco clicando no ícone de edição';

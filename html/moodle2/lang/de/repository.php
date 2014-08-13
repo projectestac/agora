@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'repository', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   repository
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,6 +35,7 @@ $string['addplugin'] = 'Dateiverwaltung hinzufügen';
 $string['allowexternallinks'] = 'Externe Links erlauben';
 $string['areacategoryintro'] = 'Kategorieeinleitung';
 $string['areacourseintro'] = 'Kurseinleitung';
+$string['areacourseoverviewfiles'] = 'Dateien in der Kursbeschreibung';
 $string['areamainfile'] = 'Hauptdatei';
 $string['arearoot'] = 'System';
 $string['areauserbackup'] = 'Nutzersicherung';
@@ -56,13 +57,13 @@ $string['cannotdownload'] = 'Datei kann nicht herunter geladen werden';
 $string['cannotdownloaddir'] = 'Verzeichnis kann nicht herunter geladen werden';
 $string['cannotinitplugin'] = 'Aufruf plugin_init fehlgeschlagen';
 $string['choosealink'] = 'Link wählen...';
-$string['chooselicense'] = 'Lizenz wählen';
+$string['chooselicense'] = 'Lizenz';
 $string['cleancache'] = 'Cache-Dateien löschen';
 $string['close'] = 'Schließen';
-$string['commonrepositorysettings'] = 'Konfiguration';
+$string['commonrepositorysettings'] = 'Einstellungen';
 $string['configallowexternallinks'] = 'Diese Option erlaubt allen Nutzer/innen zu entscheiden, ob externe Medien als Kopie in das Moodle kopiert werden sollen oder nicht. Wenn die Option ausgeschaltet ist, werden Medien immer in das Moodle hinein kopiert, was für die Datenintegrität und Sicherheit am besten wäre. Wenn die Option eingeschaltet ist, dann dürfen die Nutzer/innen beim Einfügen von Medien selber wählen.';
 $string['configcacheexpire'] = 'Zeitdauer in der Dateilisten aus externen Dateiverwaltungen im lokalen Cache zwischen gespeichert werden (in Sekunden).';
-$string['configsaved'] = 'Konfiguration gespeichert';
+$string['configsaved'] = 'Einstellungen gespeichert';
 $string['confirmdelete'] = 'Sind Sie sicher, dass Sie das Repository {$a} löschen möchten? Wenn Sie \'Fortsetzen und Download\' wählen, werden die verknüpften Dateien nach Moodle heruntergeladen und in Moodle gespeichert. Dieser Prozesss kann viel Zeit in Anspruch nehmen.';
 $string['confirmdeletefile'] = 'Möchten Sie diese Datei wirklich löschen?';
 $string['confirmdeletefilewithhref'] = 'Sind Sie sicher, dass Sie diese Datei löschen wollen? Zu dieser Datei gibt es {$a} Aliase/Verknüpfungen. Wenn Sie den Vorgang fortsetzen, werden die Aliase in Kopien umgewandelt.';
@@ -87,6 +88,9 @@ $string['deleterepository'] = 'Dateiverwaltungstyp löschen';
 $string['detailview'] = 'Details anzeigen';
 $string['dimensions'] = 'Größe';
 $string['disabled'] = 'Deaktiviert';
+$string['displaydetails'] = 'Verzeichnis mit Dateidetails anzeigen';
+$string['displayicons'] = 'Verzeichnis mit Dateisymbolen anzeigen';
+$string['displaytree'] = 'Verzeichnis hierarchisch anzeigen';
 $string['download'] = 'Download';
 $string['downloadfolder'] = 'Alles herunterladen';
 $string['downloadsucc'] = 'Download erfolgreich!';
@@ -121,6 +125,7 @@ $string['folderexists'] = 'Der Verzeichnisname wird bereits verwendet. Bitte ver
 $string['foldernotfound'] = 'Verzeichnis nicht gefunden';
 $string['folderrecurse'] = 'Ein Verzeichnis kann nicht in ein eigenes Unterverzeichnis verschoben werden';
 $string['getfile'] = 'Datei auswählen';
+$string['help'] = 'Hilfe';
 $string['hidden'] = 'Verborgen';
 $string['iconview'] = 'Symbolansicht';
 $string['imagesize'] = '{$a->width} x {$a->height} px';
@@ -151,7 +156,7 @@ $string['manageurl'] = 'Verwalten';
 $string['manageuserrepository'] = 'Eigene Dateiverwaltungstypen verwalten';
 $string['moving'] = 'Verschieben';
 $string['newfolder'] = 'Neues Verzeichnis';
-$string['newfoldername'] = 'Neuer Verzeichnisname:';
+$string['newfoldername'] = 'Neuer Verzeichnisname';
 $string['noenter'] = 'Nichts eingegeben';
 $string['nofilesattached'] = 'Keine Datei';
 $string['nofilesavailable'] = 'Keine Dateien vorhanden';
@@ -190,8 +195,9 @@ $string['repositories'] = 'Repositories';
 $string['repository'] = 'Dateiverwaltung';
 $string['repositorycourse'] = 'Kurs-Dateiverwaltungen';
 $string['repositoryerror'] = 'Fehler aus einer verbundenen Dateiverwaltung: {$a}';
+$string['repositoryicon'] = 'Repository-Symbol';
 $string['save'] = 'Speichern';
-$string['saveas'] = 'Speichern unter ...';
+$string['saveas'] = 'Speichern unter';
 $string['saved'] = 'Gespeichert';
 $string['saving'] = 'Wird gespeichert ...';
 $string['search'] = 'Suchen';
@@ -200,6 +206,7 @@ $string['searchrepo'] = 'Repository durchsuchen';
 $string['sectionbackup'] = 'Abschnittssicherung';
 $string['select'] = 'Wählen Sie';
 $string['setmainfile'] = 'Hauptdatei setzen';
+$string['setmainfile_help'] = 'Falls mehrere Dateien im Verzeichnis liegen, ist die Hauptdatei diejenige Datei, die angezeigt wird. Die übrigen Dateien (z.B. Bilder oder Videos) können in die Hauptdatei eingebettet sein. In der Dateiverwaltung wird der Dateiname der Hauptdatei in fetter Schrift dargestellt.';
 $string['settings'] = 'Einstellungen';
 $string['setupdefaultplugins'] = 'Einrichten der Standard Dateiverwaltungs-Plugins';
 $string['siteinstances'] = 'Dateiverwaltungsinstanzen der Website';

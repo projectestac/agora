@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'backup', language 'sv', branch 'MOODLE_24_STABLE'
+ * Strings for component 'backup', language 'sv', branch 'MOODLE_26_STABLE'
  *
  * @package   backup
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -52,6 +52,7 @@ $string['backupformatimscc11'] = 'IMS Common Cartridge 1.1';
 $string['backupformatmoodle1'] = 'Moodle 1';
 $string['backupformatmoodle2'] = 'Moodle 2';
 $string['backupformatunknown'] = 'Okänt format';
+$string['backuplog'] = 'Teknisk information och varningar';
 $string['backupmode'] = 'Läge';
 $string['backupmode10'] = 'Allmänt';
 $string['backupmode20'] = 'Importera';
@@ -107,13 +108,12 @@ $string['currentstage16'] = 'Komplett';
 $string['currentstage2'] = 'Inställningar för schema';
 $string['currentstage4'] = 'Bekräftelse och förnyad kontroll';
 $string['currentstage8'] = 'Utför säkerhetskopiering';
-$string['dependenciesenforced'] = 'Dina inställningar har ändrats på grund av otillfredsställda beroenden';
 $string['enterasearch'] = 'Ange en sökning';
 $string['error_block_for_module_not_found'] = 'Den övergivna block-instansen (ID: {$a->bid}) för delkurs (ID: {$a->mid}) hittades. Detta block kommer inte att säkerhetskopieras';
 $string['error_course_module_not_found'] = 'Den övergivna kursen (ID: {$a}) hittades. Denna modul kommer inte att säkerhetskopieras.';
 $string['errorfilenamemustbezip'] = 'Filnamnet du anger måste vara en ZIP-fil och har .mbz förlängning';
 $string['errorfilenamerequired'] = 'Du måste ange ett giltigt filnamn för denna säkerhetskopia';
-$string['errorinvalidformat'] = 'Okänd format för säkerhetskopiering';
+$string['errorinvalidformat'] = 'Okänd backup format';
 $string['errorinvalidformatinfo'] = 'Den valda filen är inte en giltig Moodle backupfil och kan inte återställas.';
 $string['errorminbackup20version'] = 'Denna säkerhetskopia har skapats med en utvecklingsversion av Moodle backup ({$a->backup}). Minimikravet är {$a->min}. Säkerhetskopian kan inte återställas.';
 $string['errorrestorefrontpage'] = 'Återställning över ingångssidan är inte tillåtet.';
@@ -128,6 +128,7 @@ $string['filereferencessamesite'] = 'Säkerhetskopian är från samma webbplats,
 $string['generalactivities'] = 'Ta med aktiviteter';
 $string['generalanonymize'] = 'Anonymisera informationen';
 $string['generalbackdefaults'] = 'Allmänna standardvärden för säkerhetskopieringar';
+$string['generalbadges'] = 'Inkludera märken';
 $string['generalblocks'] = 'Ta med block';
 $string['generalcomments'] = 'Ta med kommentarer';
 $string['generalfilters'] = 'Ta med filter';
@@ -163,11 +164,15 @@ $string['lockedbypermission'] = 'Du har inte tillräckliga behörigheter för at
 $string['loglifetime'] = 'Behåll loggar för';
 $string['managefiles'] = 'Administrera säkerhetskopierade filer';
 $string['missingfilesinpool'] = 'Vissa filer kunde inte sparas under säkerhetskopieringen, det kommer inte att vara möjligt att återställa dem.';
+$string['module'] = 'Modul';
 $string['moodleversion'] = 'Version av Moodle';
+$string['morecoursesearchresults'] = 'Hittade mer än {$a} kurser, visar första {$a} resultat';
 $string['moreresults'] = 'Det finns för många resultat, ange en mer specifik sökning.';
 $string['nomatchingcourses'] = 'Det finns inga kurser att visa';
 $string['norestoreoptions'] = 'Det finns inga kategorier eller befintliga kurser du kan återställa till.';
 $string['originalwwwroot'] = 'URL till säkerhetskopia';
+$string['preparingdata'] = 'Förbereder data';
+$string['preparingui'] = 'Förbereder att visa sidan';
 $string['previousstage'] = 'Föregående';
 $string['qcategory2coursefallback'] = 'Fråge kategorin "{$a->name}", ursprungligen på system/kursnivå i säkerhetskopian, kommer att skapas på kursnivå vid återställningen';
 $string['qcategorycannotberestored'] = 'Frågekategorin &quot;{$a->name}&quot; kan inte skapas av återställningprocessen';
@@ -212,6 +217,7 @@ $string['restoringcourseshortname'] = 'återställer';
 $string['rootenrolmanual'] = 'Återställ med manuell inskrivning';
 $string['rootsettingactivities'] = 'Ta med aktiviteter';
 $string['rootsettinganonymize'] = 'Anonymisera information om användare';
+$string['rootsettingbadges'] = 'Inkludera märken';
 $string['rootsettingblocks'] = 'Ta med block';
 $string['rootsettingcalendarevents'] = 'Inkludera kalenderhändelser';
 $string['rootsettingcomments'] = 'Ta med kommentarer';
@@ -244,5 +250,8 @@ $string['skipmodifprevhelp'] = 'Välj om du vill hoppa över kurser som inte har
 $string['storagecourseandexternal'] = 'Filarea för kursens säkerhetskopian och den angivna katalogen';
 $string['storagecourseonly'] = 'Filarea för kursens säkerhetskopia';
 $string['storageexternalonly'] = 'Specificerad katalog för automatiska säkerhetskopieringar';
+$string['title'] = 'Titel';
 $string['totalcategorysearchresults'] = 'Summa kategorier: {$a}';
 $string['totalcoursesearchresults'] = 'Summa kurser: {$a}';
+$string['unnamedsection'] = 'Namnlös sektion';
+$string['userinfo'] = 'Användarinformation';
