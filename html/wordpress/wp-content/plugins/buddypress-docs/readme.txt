@@ -3,8 +3,8 @@ Contributors: boonebgorges, cuny-academic-commons
 Donate link: http://teleogistic.net/donate
 Tags: buddypress, docs, wiki, documents, collaboration
 Requires at least: WordPress 3.3, BuddyPress 1.5
-Tested up to: WordPress 3.9, BuddyPress 2.0.0
-Stable tag: 1.7.0
+Tested up to: WordPress 3.9.1, BuddyPress 2.0.1
+Stable tag: 1.8.1
 
 Adds collaborative Docs to BuddyPress.
 
@@ -32,6 +32,28 @@ This plugin is in active development. For feature requests and bug reports, visi
 1. Sit back and watch the jack roll in
 
 == Changelog ==
+
+= 1.8.1 =
+* Replace the missing Link feature in the rich text editor with WP's custom link plugin
+* Fix bug that could allow non-authenticated user to access /edit page in some cases
+* Ensure that the 'js' and 'no-js' body classes work properly across themes
+
+= 1.8.0 =
+* Settings boxes default to closed on existing Docs, simplifying the interface, especially on mobile devices
+* Improved handling of permissions for uploading attachments
+* Overhauled internal capabilities system, for better reliability and customization
+* Use submitted values to rerender page after a failed create/edit action
+* Better protection against comment spam
+* Better suggestions for default access settings when changing Doc group associations
+* Fix wikitext-style [[links]] when pointing to non-existent Docs
+* Better localization for some strings as used in Javascript
+
+= 1.7.1 =
+* Don't run document protection check on AJAX calls
+* Fix PHP notice when compiling group terms
+* Force theme compatibility mode on User tabs for themes that don't use it for other Docs template
+* Fix bug that caused Admins not to meet the "Moderator" minimum role
+* Fix potential bug related to overwriting autosave drafts
 
 = 1.7.0 =
 * Fix incorrect function usage when generating htaccess files
