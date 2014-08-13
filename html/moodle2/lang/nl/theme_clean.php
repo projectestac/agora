@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['choosereadme'] = '<div class="clearfix"><div class="well"><h2> Clean </h2><p><img class=img-polaroid src="clean/pix/screenshot.jpg" /></p></div><div class="well"><h3> Over </h3><p> Clean is een gemodificeerde Moodle bootstrap thema dat stijlen en renderers erft van zijn bovenliggend thema. </p><h3> Bovenliggend </h3><p> Dit thema is gebaseerd op de Bootstrap thema, dat is gemaakt voor Moodle 2.5, met de hulp van: <br> Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans. </p><h3> Thema Credits </h3><p> Auteurs: Bas Brands, David Scotson, Mary Evans <br> Contact: bas@sonsbeekmedia.nl <br> Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a> </p><h3> Een bug melden: </h3><p> <a href="http://tracker.moodle.org">http://tracker.moodle.org</a> </p><h3> Meer informatie </h3><p> <a href="clean/README.txt">Hoe dit thema kopiëren en aan te passen.</a> </p></div></div>';
 $string['configtitle'] = 'Clean';
 $string['customcss'] = 'Aangepaste CSS';
 $string['customcssdesc'] = 'Alle CSS-regels die je in deze tekstzone zet, zullen toegepast worden op elke pagina, wat een makkelijke aanpassing van dit thema mogelijk maakt.';

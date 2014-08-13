@@ -34,6 +34,7 @@ $string['moreinfoin'] = 'Meer info op {$a}';
 $string['newstepsinfo'] = 'Lees {$a} voor info over hoe je nieuwe definitiestappen kunt toevoegen';
 $string['newtestsinfo'] = 'Lees {$a} voor informatie over hoe nieuwe testen geschreven moeten worden.';
 $string['nostepsdefinitions'] = 'Er zijn geen stappendefinities die overeenkomen met deze filters.';
+$string['pluginname'] = 'Acceptatietesten';
 $string['stepsdefinitionscomponent'] = 'Zone';
 $string['stepsdefinitionscontains'] = 'Bevat';
 $string['stepsdefinitionsfilters'] = 'Stappendefinitie';

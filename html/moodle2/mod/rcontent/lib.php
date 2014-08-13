@@ -312,4 +312,27 @@ function rcontent_supports($feature) {
 	}
 }
 //********** FI
-?>
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Navigation API                                                             //
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Extends the global navigation tree by adding qv nodes if there is a relevant content
+ *
+ * This can be called by an AJAX request so do not rely on $PAGE as it might not be set up properly.
+ *
+ * @param navigation_node $navref An object representing the navigation tree node of the qv module instance
+ * @param stdClass $course
+ * @param stdClass $module
+ * @param cm_info $cm
+ */
+function rcontent_extend_navigation(navigation_node $navref, stdclass $course, stdclass $module, cm_info $cm) {
+    global $CFG, $OUTPUT, $USER, $DB;
+
+    if(file_exists($CFG->dirroot.'/blocks/rgrade/rgrade_table.php')){
+        $navref->add(get_string('rgrade', 'block_rgrade'), new moodle_url('/blocks/rgrade/rgrade_table.php',
+         array('courseid'=>$course->id, 'bookid'=>$module->bookid)));
+    }
+}

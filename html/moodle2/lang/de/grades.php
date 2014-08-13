@@ -154,9 +154,7 @@ $string['aggregation_help'] = '<h2>Category aggregation</h2><b>ToDo</b>
 
 </table>';
 $string['aggregationposition'] = 'Anzeige des Gesamtergebnisses';
-$string['aggregationposition_help'] = '<h2>Anzeigeposition des Gesamtergebnisses</h2>
-<p>Legt fest an welcher Stelle der Tabelle das Gesamtergebnis angezeigt wird.
-</p>';
+$string['aggregationposition_help'] = 'Die Option legt fest, an welcher Stelle der Tabelle das Gesamtergebnis angezeigt wird.';
 $string['aggregationsvisible'] = 'Mögliche Summierungsarten';
 $string['aggregationsvisiblehelp'] = 'Wählen Sie alle Summierungsarten, die nutzbar sein sollen. Benutzen Sie <strg> bzw. <ctrl>, um mehrere Arten zu markieren.';
 $string['allgrades'] = 'Alle Bewertungen nach Kategorien';

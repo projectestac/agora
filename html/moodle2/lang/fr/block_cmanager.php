@@ -265,7 +265,6 @@ $string['sureDeleteAll'] = 'Voulez-vous vraiment supprimer l\'historique au comp
 $string['totalRequests'] = 'Nombre total de demandes';
 $string['update'] = 'Mettre à jour';
 $string['view'] = 'Voir';
-$string['viewMore'] = 'Voir plus';
 $string['viewsummary'] = 'Voir le résumé';
 $string['withselectedrequests'] = 'avec les demandes selectionnées';
 $string['yesDeleteRecords'] = 'Oui, effacer';

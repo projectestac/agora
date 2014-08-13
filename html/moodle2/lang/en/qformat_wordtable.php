@@ -27,7 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['cannotopentempfile'] = 'Cannot open temporary file <b>{$a}</b>';
 $string['cannotwritetotempfile'] = 'Cannot write to temporary file <b>{$a}</b>';
+$string['cloze_distractor_column_label'] = 'Distractors';
 $string['cloze_instructions'] = 'Use <strong>bold</strong> for dropdown menu items and <em>italic</em> for text field items.';
+$string['cloze_mcformat_label'] = 'Orientation (D = dropdown; V = vertical, H = horizontal radio buttons):';
 $string['conversionfailed'] = 'Question import failed';
 $string['conversionsucceeded'] = 'Question import <b>succeeded</b>, <br>click the <b>\'Close\'</b> button to continue.';
 $string['conversionsucceeded2'] = 'Question import <b>succeeded</b>, <br>click the \'Continue\' button to continue.';

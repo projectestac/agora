@@ -683,10 +683,10 @@ $string['emailpasswordconfirmationsubject'] = '{$a}: Kennwort-Änderung bestäti
 $string['emailpasswordconfirmmaybesent'] = '<p>Wenn Sie Ihren Anmeldenamen bzw. Ihre E-Mail-Adresse richtig angegeben haben, wird eine automatische E-Mail an Sie gesendet.</p><p>Die Mitteilung enthält eine Anleitung, wie Sie das Zurücksetzen des Kennwortes abschließen.</p>';
 $string['emailpasswordconfirmnoemail'] = 'Das von Ihnen angegebene Nutzerkonto hat keine eingetragene E-Mail-Adresse. Wenden Sie sich bitte an den Administrator.';
 $string['emailpasswordconfirmnotsent'] = 'Das von Ihnen angegebene Nutzerdetail passt zu keinem vorhandenen Nutzerkonto. Bitte prüfen Sie die eingegebenen Informationen und versuchen Sie es dann noch einmal. Wenn Sie Schwierigkeiten haben, wenden Sie sich bitte an den Administrator.';
-$string['emailpasswordconfirmsent'] = '<p>Eine E-Mail zur Bestätigung der Kennwortänderung sollte an Ihre Adresse <b>{$a}</b> gesendet worden sein. <br />Sie enthält eine Anleitung, wie Sie Ihre Kennwortänderung bestätigen und abschließen.</p>';
+$string['emailpasswordconfirmsent'] = 'Eine E-Mail zur Bestätigung der Kennwortänderung wurde an Ihre Adresse <b>{$a}</b> gesendet. <br />Die E-Mail enthält eine Anleitung, wie Sie Ihre Kennwortänderung bestätigen und abschließen.';
 $string['emailpasswordsent'] = 'Danke für die Bestätigung der Kennwortänderung.
 Eine E-Mail mit Ihrem neuen Kennwort wurde an Ihre Adresse <b>{$a->email}</b> gesendet.
-Das Kennwort wurde automatisch generiert. Sie können dieses <a href="{$a->link}">Kennwort ändern</a>, um es sich besser merken können.';
+Das neue Kennwort wurde automatisch generiert. Sie können dieses <a href="{$a->link}">Kennwort ändern</a>, um es sich besser merken können.';
 $string['emailresetconfirmation'] = 'Guten Tag {$a->firstname},
 
 jemand (wahrscheinlich Sie) hat bei \'{$a->sitename}\' das Zurücksetzen des Kennwortes für das Nutzerkonto \'{$a->username}\' angefordert.
@@ -784,10 +784,10 @@ $string['for'] = 'Für';
 $string['force'] = 'Übergreifend';
 $string['forcelanguage'] = 'Sprache im Kurs';
 $string['forceno'] = 'Nicht festgelegt';
-$string['forcepasswordchange'] = 'Kennwortänderung';
-$string['forcepasswordchangecheckfull'] = 'Sind Sie absolut sicher, dass Sie {$a} zur Kennwortänderung auffordern möchten?';
+$string['forcepasswordchange'] = 'Kennwortänderung einfordern';
+$string['forcepasswordchangecheckfull'] = 'Möchten Sie wirklich eine Kennwortänderung einfordern von {$a}?';
 $string['forcepasswordchange_help'] = 'Wenn diese Option aktiviert ist, muss das Kennwort beim nächsten Login geändert werden';
-$string['forcepasswordchangenot'] = 'Die Kennwortänderung für {$a} konnte nicht angefordert werden';
+$string['forcepasswordchangenot'] = 'Die Kennwortänderung konnte nicht eingefordert werden von {$a}';
 $string['forcepasswordchangenotice'] = 'Bitte ändern Sie Ihr Kennwort, bevor Sie weiterarbeiten';
 $string['forcetheme'] = 'Design festlegen';
 $string['forgotaccount'] = 'Kennwort vergessen?';

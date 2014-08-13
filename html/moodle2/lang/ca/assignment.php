@@ -136,7 +136,7 @@ $string['late'] = '{$a} tard';
 $string['maximumgrade'] = 'Nota màxima';
 $string['maximumsize'] = 'Mida màxima';
 $string['maxpublishstate'] = 'Màxima visibilitat de la entrada del blog abans de la data de venciment';
-$string['messageprovider:assignment_updates'] = 'Notificacions de tasques';
+$string['messageprovider:assignment_updates'] = 'Notificacions de tasques (2.2)';
 $string['modulename'] = 'Tasca (2.2)';
 $string['modulename_help'] = '<p><img alt="" src="<?php echo $CFG->wwwroot?>/mod/assignment/icon.gif" />&nbsp;<b>Tasques</b></p>
 

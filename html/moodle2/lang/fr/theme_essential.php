@@ -171,7 +171,6 @@ $string['hideonphone'] = 'Diaporama sur les mobiles';
 $string['hideonphonedesc'] = 'Choisissez si vous souhaitez que le diaporama s\'affiche sur les mobiles ou non';
 $string['hideontablet'] = 'Cacher le diaporama sur les tablettes';
 $string['hideontabletdesc'] = 'Choisissez si vous souhaitez désactiver le diaporama sur les tablettes.';
-$string['ie7message'] = '<p id="ie7message">Désolé, ce site requiert <strong>Internet Explorer 8</strong> ou plus récent pour s\'afficher et fonctionner correctement. SVP, mettez à jour votre navigateur via Windows Update, ou <a href="http://windows.microsoft.com/fr-fr/internet-explorer/download-ie" target="_blank">téléchargez la dernière version ici</a>. Sinon, vous pouvez essayer d\'installer <a href="http://www.google.com/chromeframe" target="_blank">le plugin ChromeFrame</a> qui peut résoudre certains des problèmes rencontrés avec les navigateurs anciens. Si vous utilisez IE8 ou plus récent peut-être le mode de compatibilité est-il activé, désactivez ce mode pour afficher le site correctement. Si vous continuez à avoir des problèmes pour l\'accès à ce site ou pour les mises à jour mentionnées ci-dessus, s\'il vous plait contactez votre Helpdesk pour plus d\'assistance.</p>';
 $string['instagram'] = 'URL Instagram';
 $string['instagramdesc'] = 'Entrez l\'URL de votre page Instagram. (ex. http://instagram.com/mycollege)';
 $string['invert'] = 'Inverser la barre de navigation';

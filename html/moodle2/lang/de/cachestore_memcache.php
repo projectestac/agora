@@ -40,5 +40,6 @@ server.url.com
 ipaddress:port
 servername:port:weight
 </pre>';
+$string['sessionhandlerconflict'] = 'Warnung: Eine Memcache Instanz ({$a}) ist so konfiguriert, dass sie den gleichen Memcached Server wie Sessons verwendet. Das Löschen aller Caches wird gleichzeitig auch alle Sessions löschen.';
 $string['testservers'] = 'Testserver';
 $string['testservers_desc'] = 'Testserver werden für Unit-Tests und Performace-Tests verwandt. Es ist gänzlich optional Testserver zu verwenden. Schreiben Sie einen Server pro Zeile. Tragen Sie die Serveradresse, den Port (optonal) und die Gewichtung ein  Wird kein Port eingetragen wird als Standard der Port 11211 verwendet.';

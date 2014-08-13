@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+#page-header .headermain{
+	font-size: 22px;
+}
+
+.hide-print, #page-header .logininfo, #page-header .navbar, .blocks-rgrade .performanceinfo{
+	display:none;
+}
+
+#rgrade_table #combo, .blocks-rgrade.student #rgrade_table #combo  {
+	width: 100%;
+}

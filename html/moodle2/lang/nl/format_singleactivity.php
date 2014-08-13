@@ -33,4 +33,5 @@ $string['erroractivitytype'] = 'Activiteitstype is niet ingesteld in cursusinste
 $string['orphaned'] = 'Verweesd';
 $string['orphanedwarning'] = 'Deze activiteiten kunnen door gebruikers niet bereikt worden!';
 $string['pluginname'] = 'Eén activiteit format';
+$string['sectionname'] = '';
 $string['warningchangeformat'] = 'Wanneer je de bestaande curus format wijzigt naar "Eén activiteit-format", zorg er dan voor dat je eerst alle bestaande activiteiten, Nieuwsforum inbegrepen, verwijdert. Ook de sectiestructuur kan gewijzigd worden.';

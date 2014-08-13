@@ -55,6 +55,7 @@ $string['cachedef_plugin_manager'] = 'Plugin de gestão de informação';
 $string['cachedef_questiondata'] = 'Definições da pergunta';
 $string['cachedef_repositories'] = 'Dados de instância de repositórios';
 $string['cachedef_string'] = 'Cache do pacote linguístico';
+$string['cachedef_suspended_userids'] = 'Lista de utilizadores suspensos por curso';
 $string['cachedef_userselections'] = 'Dados usados para fazer prevalecer as seleções do utilizador em todo o Moodle';
 $string['cachedef_yuimodules'] = 'Definições do Módulo YUI';
 $string['cachelock_file_default'] = 'Bloqueio de ficheiro predefinido';

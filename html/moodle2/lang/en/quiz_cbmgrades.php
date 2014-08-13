@@ -26,27 +26,31 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['accy'] = 'Accuracy';
-$string['accychosen'] = 'Accuracy **';
 $string['cbm_accy'] = 'Acc\'y + Bonus';
 $string['cbm_av'] = 'CBM Avg';
-$string['cbm_avchosen'] = 'CBM Avg **';
 $string['cbm_bonus'] = 'CBM Bonus';
 $string['cbmexplanations'] = 'CBM Explanations:';
+$string['cbmgrade'] = 'CBM Grade';
 $string['cbmgrades'] = 'CBM Grades';
 $string['cbmgradesdownload'] = 'CBM download';
 $string['cbmgradesfilename'] = 'cbmgrades';
 $string['cbmgrades_help'] = 'All correct at C=1 would give the same grade as the maximum without CBM. Grades with CBM can be up to 3 times this.<br><br>
-CBM Average (&le; 3.0) and Accuracy (&le; 100% correct - ignoring certainty) are calculated by weighting questions according to \'max marks\' if settings vary within the quiz.
-They can be expressed relative to the entire quiz, or to just those questions the student responsed to. When a student is doing a self-test on selected parts of a quiz,
- the scores based on responses are more instructive.<br><br>
-A positive CBM bonus means certainty ratings were employed successfully to distinguish between reliable and uncertain answers.
-Accuracy + Bonus gives a more reliable measure of knowledge and predictor of future performance than simple accuracy.<br><br>
-CBM scores can be negative, indicating that the student has misconceptions (confident errors) and has done worse than if he or she acknowledged uncertainty and simply guessed.';
+        Other scores (Average CB Mark, Accuracy (= % correct), CB Bonus and
+        CB Accuracy (= Accuracy + Bonus) can be displayed for the whole quiz, or relative to just those questions where the student has
+        chosen to enter a response. Thus if a student has chosen 50% of the questions and got 80% of these right, the accuracy could
+        be shown either as 40% or 80%. The first would be appropriate for an exam assessment, the second could be more appropriate
+        for self-testing.<br><br>
+        In calculating overall scores, individual scores (up to 3 for CBM, up to 100% correct for simple marking) are weighted in
+        proportion to the maximum mark or \'weight\' set for each question (usually simply 1).<br><br>
+        The CBM bonus shows how much your CBM mark total benefitted from successfull identification of reliable and uncertain answers.
+        This is added to the simple accuracy to give your CB Accuracy. This is a more reliable measure of knowledge and predictor of
+        future performance than simple accuracy. A negative bonus indicates that the student has misconceptions (confident errors) or
+        poor judgement of the reliability or unreliability of their answers.';
 $string['cbmgrades_link'] = 'qbehaviour/deferredcbm/certaintygrade';
 $string['cbmgradesoptions'] = 'CBM Grades options';
 $string['cbmgradesreport'] = 'CBM report';
 $string['cbmgradestitle'] = 'CBM Grades';
-$string['chosenresps'] = 'Show scores based on chosen responses rather than the whole quiz. &nbsp;';
+$string['chosenresps'] = 'Show scores based on chosen questions rather than the whole quiz. &nbsp;';
 $string['grade'] = 'Grade';
 $string['marks'] = 'Marks';
 $string['pagesize'] = 'Page size';
@@ -55,6 +59,6 @@ $string['qdata'] = 'Show data for each Q';
 $string['qx'] = 'Q{$a}';
 $string['responses'] = 'Responses';
 $string['responsex'] = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Q{$a}';
-$string['scoreschosenrs'] = '** NB Showing scores based on only the Qs that the student responded to.';
-$string['scoreswhole'] = 'Showing scores based on the whole quiz.';
+$string['scoreschosenrs'] = 'CBM SCORES: ** NB Scores marked ** are based on the student\'s chosen responses, not on the whole quiz.';
+$string['scoreswhole'] = 'CBM GRADE & SCORES: Showing scores based on the whole quiz.';
 $string['showthe'] = 'Options:';

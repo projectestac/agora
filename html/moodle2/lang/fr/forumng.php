@@ -63,6 +63,7 @@ $string['attachmentmaxbytes'] = 'Taille maximale de l\'annexe';
 $string['attachmentmaxbytes_help'] = 'Il est possible de limiter la taille des annexes. Cette limite est fixée par la personne qui met en place le forum.';
 $string['attachmentnum'] = 'Annexe {$a}';
 $string['attachments'] = 'Annexes';
+$string['author'] = 'auteur : « {$a} »';
 $string['authorname'] = 'Nom de l\'auteur';
 $string['authorname_help'] = 'Vous pouvez taper un prénom (Michel), un nom de famille (Dupont), le nom complet (Michel Dupont), ou la première partie de l\'un de ces éléments (Mic, dup, Michel D). La recherches est insensible à la casse.
 

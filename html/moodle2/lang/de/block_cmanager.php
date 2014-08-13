@@ -291,7 +291,6 @@ $string['sureOnlyArch'] = 'Sind Sie sicher, dass Sie nur alle archivierten Eintr
 $string['totalRequests'] = 'Gesamte Anzahl von Anfragen';
 $string['update'] = 'Aktualisieren';
 $string['view'] = 'Ansicht';
-$string['viewMore'] = 'Mehr ansehen';
 $string['viewsummary'] = 'Zusammenfassung ansehen';
 $string['withselectedrequests'] = 'mit ausgewählten Anfragen';
 $string['yesDeleteRecords'] = 'Ja, löschen!';

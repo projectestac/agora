@@ -243,7 +243,10 @@ $string['configforceloginforprofiles'] = '启用这个选项会强制访问者�
 $string['configfrontpage'] = '上面那些被选择的项将显示在网站的首页上。';
 $string['configfrontpagecourselimit'] = '最大课程数目';
 $string['configfrontpageloggedin'] = '当用户登陆后，上面那些被选择的项将显示在网站的首页上。';
-$string['configfullnamedisplay'] = '这里定义如何显示全名。对于中文网站来说，最符合习惯的设置是“语言”，意思是让当前的语言包来决定。当然，也可以选择其它设置。';
+$string['configfullnamedisplay'] = '本项定义如何完整显示姓名。默认值是“language（语言）”，由当前语言包中的“全名显示”字符串来决定。不同语言常常有不同的姓名显示习惯。
+
+对大多数单一语言网站而言，最简单的设置是“firstname lastname（名 姓）”（中文网站，则大多数选择"语言"），但也完全可以选择隐藏“姓”。
+可用设置项有：firstname, lastname, firstnamephonetic, lastnamephonetic, middlename, and alternatename（名，姓，名拼音，姓拼音，中间名，和别名）。';
 $string['configgeoipfile'] = 'GeoIP City二进制文件位置。该文件不是Moodle发行版的一部分，需要单独从从<a href="http://www.maxmind.com/">MaxMind</a>获取。您可以购买商业版本或者使用免费版。<br />从<a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</a>下载并解压到服务器的"{$a}"目录中。';
 $string['configgetremoteaddrconf'] = '如果您的服务器在一个反向代理后，您可以设定此项以确定哪条 HTTP 头信息包含了访问者的 IP 地址。头信息按顺序读入，第一条出现的将被使用。';
 $string['configgradebookroles'] = '此设置允许您控制谁可以出现在成绩单上。用户至少需要在课程中具有这里的一种角色，才会在该课程的成绩单中显示他的成绩。';
@@ -268,6 +271,7 @@ $string['configmaxbytes'] = '限制整个站点内上传文件的最大尺寸。
 $string['configmaxconsecutiveidentchars'] = '密码中连续相同字符的个数不能超过此值。使用0会禁用这项检查。';
 $string['configmaxeditingtime'] = '此参数指定用户在多长时间内可以重新编辑讨论区的贴子。通常30分钟比较合适。';
 $string['configmaxevents'] = '向前查找的事件数';
+$string['configmaxusersperpage'] = '课程、小组、群组、网站服务等设置中，选择用户时显示的最多显示多少个用户。';
 $string['configmessaging'] = '是否应当启用在站点用户之间发送消息的功能?';
 $string['configmessagingallowemailoverride'] = '允许用户将电子邮件通知发送到个人资料中的电子邮件地址之外的地址。';
 $string['configmessagingdeletereadnotificationsdelay'] = '可以删除已读的通知，以节约空间。通知被阅读多久后可以被删除？';
@@ -374,7 +378,7 @@ $string['coursecontact'] = '课程联系人';
 $string['coursecontact_desc'] = '此设置允许您控制谁会出现在课程描述中。用户必须至少是这些角色中的一个，才能被显示在该课程的课程描述中。';
 $string['courselistshortnames'] = '显示扩展课程名称';
 $string['courselistshortnames_desc'] = '显示课程列表或者在管理界面标识课程时，同时显示课程简称和全称。实际上，当您启用此项功能时， 会使用“courseextendednamedisplay”语言字符串，所以您可以通过语言自定义更改显示的内容。';
-$string['coursemgmt'] = '添加/修改课程';
+$string['coursemgmt'] = '管理课程和分类';
 $string['courseoverview'] = '课程概述';
 $string['courserequestnotify'] = '创建课程申请通知';
 $string['courserequestnotifyemail'] = '用户{$a->user}申请创建一个新课程，地址为{$a->link}';
@@ -485,6 +489,7 @@ $string['enablecalendarexport'] = '启用日历导出';
 $string['enablecomments'] = '启用评论';
 $string['enablecourserequests'] = '可以课程申请';
 $string['enablecssoptimiser'] = '启用 CSS 优化器';
+$string['enabled'] = '启用';
 $string['enabledevicedetection'] = '启用设备检测';
 $string['enablegravatar'] = '启用Gravatar';
 $string['enablegravatar_help'] = '启用后，如果用户未上传头像，Moodle会尝试从Gravatar获取用户头像。';
@@ -494,6 +499,7 @@ $string['enablerecordcache'] = '允许记录缓存';
 $string['enablerssfeeds'] = '启用RSS种子';
 $string['enablesafebrowserintegration'] = '打开安全考试浏览器的集成';
 $string['enablestats'] = '启用统计';
+$string['enabletgzbackups'] = '启用新备份格式';
 $string['enabletgzbackups_desc'] = '如果启用，将来的备份将以新的.mbz压缩格式（内部以.tar.gz文件格式存储）进行创建。这将移除4GB的备份大小限制，并可能提高性能。还原时支持多种格式，它们之间的区别应该对于用户透明。';
 $string['enabletrusttext'] = '启用可信内容';
 $string['enablewebservices'] = '启用网络服务';
@@ -617,6 +623,8 @@ $string['languagesettings'] = '语言设置';
 $string['latexpreamble'] = 'LaTeX前缀';
 $string['latexsettings'] = 'LaTeX渲染器设置';
 $string['latinexcelexport'] = 'Excel编码方式';
+$string['legacyfilesaddallowed'] = '允许在旧版本课程文件中添加';
+$string['legacyfilesaddallowed_help'] = '如果课程有旧版本课程文件，则允许在其中添加新文件和文件夹。';
 $string['legacyfilesinnewcourses'] = '新课程使用旧版课程文件';
 $string['legacyfilesinnewcourses_help'] = '缺省情况下，旧版本课程文件只在升级过来的课程中存在。请注意，某些特性，比如单个活动的备份/恢复，和此设置不兼容。';
 $string['licensesettings'] = '许可证设置';
@@ -628,7 +636,24 @@ $string['localstringcustomization'] = '本地定制';
 $string['location'] = '位置';
 $string['locationsettings'] = '位置设置';
 $string['locked'] = '锁定';
+$string['lockoutduration'] = '帐号锁定期限';
+$string['lockoutduration_desc'] = '到设置的期限锁定的帐号自动解除锁定。';
+$string['lockoutemailbody'] = '因多次无效的登录尝试，你的用户名为 {$a->username}的帐号在 \'{$a->sitename}\'网站上已被锁定。
+
+如需立即解锁帐号请访问以下地址：
+
+{$a->link}
+
+对于大多数邮件客户端，这儿会出现蓝色链接，你只需点击即可。如果点击无效，则需复制、粘帖地址到你的网页浏览器窗口顶部的地址栏里面。
+
+如需帮助，请联系网站管理员，
+{$a->admin}';
 $string['lockoutemailsubject'] = '你在 {$a} 的账户被锁定';
+$string['lockouterrorunlock'] = '提供的帐号解锁信息无效。';
+$string['lockoutthreshold'] = '帐号锁定阀值';
+$string['lockoutthreshold_desc'] = '设定一个数值，达到多少次登录尝试失败则帐号锁定。这一选项可以防范网络攻击。';
+$string['lockoutwindow'] = '帐号锁定监视窗';
+$string['lockoutwindow_desc'] = '为帐号锁定阀值设置的监视时间，如果到设置的时间没有失败的尝试，则阀值计数器归零。';
 $string['log'] = '日志';
 $string['logguests'] = '日志包含访客的访问';
 $string['logguests_help'] = '此设置启用后，访客账号的行为会被记入日志。高知名度的网站出于性能考虑，可能要禁用此功能。建议正式使用的网站打开此功能。';

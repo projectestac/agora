@@ -54,6 +54,7 @@ Esempio:
 ipaddress:porta
 nomeserver:porta:peso
 </pre>';
+$string['sessionhandlerconflict'] = 'Attenzione: l\'istanza memcached ({$a}) è stata configurata per usare lo stesso server memcached usato per le sessioni. Lo svuotamento delle cache provocherà anche l\'eliminazione delle sessioni.';
 $string['testservers'] = 'Test server';
 $string['testservers_desc'] = 'I server di test vengono utilizzati per gli unit test e per test di prestazioni. La loro impostazione è opzionale. I server devono essere definiti usando una linea per ciascun server contenente obbligatoriamente l\'indirizzo e opzionalmente la porta ed il peso. In assenza di indicazione sulla porta da usare sarà utilizzata la porta di default (11211).';
 $string['usecompression'] = 'Usa compressione';

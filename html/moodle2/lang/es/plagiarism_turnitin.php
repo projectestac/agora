@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'plagiarism_turnitin', language 'es', branch 'MOODLE_22_STABLE'
+ * Strings for component 'plagiarism_turnitin', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   plagiarism_turnitin
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['tiiemailprefix_help'] = 'Debe establecer esta opción si no desea que los estudiantes puedan iniciar sesión en el sitio turnitin.com y ver los informes completos.';
+$string['pluginname'] = 'Plugin de control antiplagio Turnitin';
+$string['turnitin'] = 'Turnitin';
+$string['turnitin:enable'] = 'Habilitar Turnitin';
+$string['turnitin:viewfullreport'] = 'Ver informe de originalidad';
+$string['turnitin:viewsimilarityscore'] = 'Ver grado de similaridad';

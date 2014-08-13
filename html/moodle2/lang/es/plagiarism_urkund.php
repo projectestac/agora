@@ -25,6 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cronwarning'] = 'El script de mantenimiento <a href="../../admin/cron.php">cron.php</a> no ha sido ejecutado desde al menos  30 minutos - Debe configurar cron para permitir que URKUND funcione correctamente.';
+$string['defaultsdesc'] = 'Los siguientes parámetros se establecen por defecto al habilitar URKUND en un Módulo de Actividad.';
+$string['defaultupdated'] = 'Valores por defecto actualizados';
+$string['deletedwarning'] = 'Este archivo no ha sido encontrado - pudo haber sido borrado por el usuario';
+$string['explainerrors'] = 'Esta página muestra los archivos actualmente en estado de error.  <br/>Los archivos eliminados en esta página no serán reenviados y los errores dejarán de ser mostrados a profesores y estudiantes';
+$string['file'] = 'Archivo';
+$string['filedeleted'] = 'Archivo eliminado de la cola';
 $string['urkund_lang_help'] = 'Código de lenguaje proporcionado por URKUND';
 $string['urkund_password'] = 'Contraseña';
 $string['urkund_password_help'] = 'Contraseña proporcionada por URKUND para acceder a API';

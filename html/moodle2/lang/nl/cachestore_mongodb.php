@@ -28,10 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['database'] = 'Databank';
 $string['database_help'] = 'De naam van de te gebruiken databank';
 $string['extendedmode'] = 'Gebruik externe sleutels';
+$string['extendedmode_help'] = 'Indien ingeschakeld worden volledige sleutel sets gebruikt bij het werken met de plugin. Dit wordt intern nog niet gebruikt, maar laat je toe om gemakkelijk met de MongoDB plugin te zoeken en onderzoeken. Als je dit inschakelt voegt dit een kleine belasting toe, dus je mag dit alleen doen als je dit nodig hebt.';
 $string['password'] = 'Wachtwoord';
 $string['password_help'] = 'Het wachtwoord van de gebruiker dat voor de connectie gebruikt wordt.';
 $string['pluginname'] = 'MongoDB';
 $string['replicaset'] = 'Replicaset';
+$string['replicaset_help'] = 'De naam van de replicaset waarmee je wil verbinden. Als dit gegeven is, wordt de master bepaalt door het gebruik van de ismaster databank opdracht op de invoer, zodat de driver kan verbinden met een server die zelfs niet voorkomt in de lijst.';
 $string['server'] = 'Server';
 $string['server_help'] = 'Dit is de connectiestring voor de server die je wil gebruiken. Meerder servers kunnen opgegeven worden door ze te scheiden met komma\'s.';
 $string['testserver'] = 'Testserver';
@@ -41,3 +43,4 @@ $string['username_help'] = 'De gebruikersnaam die je gebruikt om connectie te ma
 $string['usesafe'] = 'Veilig gebruiken';
 $string['usesafe_help'] = 'Indien ingeschakeld wordt de usesafe-optie gerbruikt tijdens een insert, get en remove-operatie. Als je met een replicaset werkt, dan zal dit verplicht ingeschakeld zijn.';
 $string['usesafevalue'] = 'Gebruik veilige waarde';
+$string['usesafevalue_help'] = 'Je kunt veilig kiezen om een specifieke waarde op te geven. Dit zal het aantal servers bepalen waarop de operaties moet worden voltooid voordat ze geacht wordt voltooid te zijn.';

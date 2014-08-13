@@ -158,7 +158,6 @@ $string['headerprofilepic'] = 'Toon afbeelding van gebruiker';
 $string['headerprofilepicdesc'] = 'Indien ingeschakeld wordt de afbeelding van de gebruiker getoond.';
 $string['hideonphone'] = 'Verberg slideshow op telefoons';
 $string['hideonphonedesc'] = 'Kies hier of je de slideshow wil uitschakelen op telefoons.';
-$string['ie7message'] = '<p id="ie7message">Sorry, deze site vereist minimaal <strong>Internet Explorer 8</strong>. Update je browser via Windows Update.  Als je IE8 of hoger gebruik staat mogelijk Compatibility Modus aan, om deze site correct weer te geven moet dit uitgeschakeld staan.</p>';
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Link naar je Instagram feed. (bvb. http://instagram.com/mijnorganisatie)';
 $string['invert'] = 'Navigatie in negatief';

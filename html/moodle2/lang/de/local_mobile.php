@@ -25,12 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['cannotcreatetoken'] = 'Automatische Tokens sind für Administratoren nicht verfügbar. Administratoren müssen manuell ein Token auf der Website anlegen.';
-$string['local_mobiledescription'] = 'Plugin, das den mobilen Webservice erweitert';
+$string['cannotcreatetoken'] = 'Die Tokens werden für Administratoren nicht automatisch generiert, sondern sie müssen manuell auf der Website angelegt werden.';
+$string['local_mobiledescription'] = 'Das Plugin erweitert den mobilen Webservice.';
 $string['local_mobilesettings'] = 'Einstellungen';
-$string['local_mobiletypeoflogin'] = 'Wählen Sie eine Art der Anmeldung.';
+$string['local_mobiletypeoflogin'] = 'Wählen Sie die Art der Anmeldung.';
 $string['local_mobiletypeoflogin_key'] = 'Art der Anmeldung';
-$string['loginintheapp'] = 'Über die App';
-$string['logininthebrowser'] = 'Über ein Browserfenster (für SSO Plugins)';
+$string['loginintheapp'] = 'Mit der App';
+$string['logininthebrowser'] = 'Mit dem Browser (für SSO Plugins)';
 $string['pluginname'] = 'Moodle Mobile - Zusatzfeatures';
 $string['pluginnotenabledorconfigured'] = 'Das Plugin Moodle Mobile muss aktiviert und konfiguriert sein, um die App zu starten';

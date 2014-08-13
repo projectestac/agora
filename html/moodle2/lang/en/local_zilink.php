@@ -42,6 +42,7 @@ $string['done'] = 'Done';
 $string['enabled'] = 'Enabled';
 $string['general'] = 'General';
 $string['holiday'] = 'Holiday';
+$string['homework'] = 'Homework';
 $string['information'] = 'Information';
 $string['late'] = 'Late';
 $string['level'] = 'Level';

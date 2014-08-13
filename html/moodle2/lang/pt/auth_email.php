@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_emaildescription'] = 'O Autoregisto com confirmação por e-mail permite ao utilizador criar a sua própria conta através do botão \'Criar nova conta\' na página de entrada. Em seguida é enviado ao utilizador um e-mail de confirmação contendo um link seguro para uma página que permite ao utilizador confirmar a sua conta. Após esta confirmação, em futuros acessos deste utilizador, apenas será verificado se os dados de acesso (nome de utilizador e senha) coincidem com os existentes na base de dados do Moodle.
-<br/><br/>Nota: Para além de ativar o módulo, deve ainda selecionar Autoregisto com confirmação por e-mail na configuração Autoregisto na página Gerir Autenticação';
+$string['auth_emaildescription'] = 'O Autorregisto com confirmação por e-mail permite ao utilizador criar a sua própria conta através do botão \'Criar nova conta\' na página de entrada. Em seguida é enviado ao utilizador um e-mail de confirmação contendo um link seguro para uma página que permite ao utilizador confirmar a sua conta. Após esta confirmação, em futuros acessos deste utilizador, apenas será verificado se os dados de acesso (nome de utilizador e senha) coincidem com os existentes na base de dados do Moodle.
+<br/><br/>Nota: Para além de ativar o módulo, deve ainda selecionar Autorregisto com confirmação por e-mail na configuração Autorregisto na página Gerir Autenticação';
 $string['auth_emailnoemail'] = 'Não foi possível enviar um e-mail para o endereço especificado.';
-$string['auth_emailrecaptcha'] = 'Esta configuração adiciona um elemento de confirmação visual/áudio à página de autoregisto. Esta funcionalidade protege o site de spammers e contribui para uma boa causa. <br />Consulte a página http://recaptcha.net/learnmore.html para mais informações. <br /><em>A extensão cURL do PHP é necessária para o funcionamento desta opção.</em>';
+$string['auth_emailrecaptcha'] = 'Esta configuração adiciona um elemento de confirmação visual/áudio à página de autorregisto. Esta funcionalidade protege o site de spammers e contribui para uma boa causa. <br />Consulte a página http://recaptcha.net/learnmore.html para mais informações. <br /><em>A extensão cURL do PHP é necessária para o funcionamento desta opção.</em>';
 $string['auth_emailrecaptcha_key'] = 'Ativar a utilização de reCAPTCHA';
 $string['auth_emailsettings'] = 'Configurações';
-$string['pluginname'] = 'Autoregisto com confirmação por e-mail';
+$string['pluginname'] = 'Autorregisto com confirmação por e-mail';

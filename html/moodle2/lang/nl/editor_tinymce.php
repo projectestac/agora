@@ -50,6 +50,7 @@ $string['advanced:custom1_desc'] = 'Uw eigen beschrijving hier';
 $string['advanced:cut_desc'] = 'Knippen';
 $string['advanced:dd'] = 'Definitiebeschrijving';
 $string['advanced:div'] = 'DIV';
+$string['advanced_dlg:'] = '';
 $string['advanced_dlg:about_author'] = 'Auteur';
 $string['advanced_dlg:about_general'] = 'Info';
 $string['advanced_dlg:about_help'] = 'Help';

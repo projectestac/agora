@@ -53,7 +53,7 @@ $string['generatefeedback'] = 'Genera feedback PDF';
 $string['generatingpdf'] = 'Generazione PDF in corso...';
 $string['gotopage'] = 'Vai a pagina';
 $string['green'] = 'Verde';
-$string['gspath'] = 'Percorso ghostscript';
+$string['gspath'] = 'Percorso per ghostscript';
 $string['gspath_help'] = 'In ambienti Linux in genere il percorso è \'/usr/bin/gs\'.
 In ambienti Windows il percorso può essere \'c:gsbingswin32c.exe\'. (accertarsi che non ci siano spazi bianchi nel percorso - se necessario copiare i file \'gswin32c.exe\' e \'gsdll32.dll\' in una cartella dove non sono presenti spazi bianchi nel percorso)';
 $string['highlight'] = 'Evidenziato';

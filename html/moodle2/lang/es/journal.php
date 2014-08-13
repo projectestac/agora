@@ -25,4 +25,33 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['modulename_help'] = 'La actividad de revista (journal) les permite a los profesores obtener retroalimentación de estudiantes sobre un tema específico';
+$string['accessdenied'] = 'Acceso negado';
+$string['alwaysopen'] = 'Siempre abierto';
+$string['blankentry'] = 'Entrada en blanco';
+$string['daysavailable'] = 'Días disponible';
+$string['editingended'] = 'El período de edición ha terminado';
+$string['editingends'] = 'El período de edición termina';
+$string['entries'] = 'Entradas';
+$string['gradeingradebook'] = 'Calificación actual en el libro de calificaciones';
+$string['journal:addentries'] = 'Agregar entradas al Diario';
+$string['journal:manageentries'] = 'Administrar las entradas del Diario';
+$string['journalname'] = 'Nombre del Diario';
+$string['journalquestion'] = 'Pregunta del Diario';
+$string['mailsubject'] = 'Retroalimentación del Diario';
+$string['modulename'] = 'Diario';
+$string['modulename_help'] = 'La actividad Diario permite a los profesores obtener retroalimentación de los estudiantes sobre un tema específico';
+$string['modulenameplural'] = 'Diarios';
+$string['newjournalentries'] = 'Nuevas entradas en el Diario';
+$string['noentriesmanagers'] = 'No hay profesores';
+$string['noentry'] = 'No hay entrada';
+$string['notopenuntil'] = 'Este Diario no estará abierto hasta';
+$string['notstarted'] = 'Usted no ha iniciado todavía este Diario';
+$string['pluginadministration'] = 'Administración de la extensión Diario';
+$string['pluginname'] = 'Diario';
+$string['rate'] = 'Calificar';
+$string['removeentries'] = 'Borrar todas las entradas';
+$string['saveallfeedback'] = 'Grabar todas mis retroalimentaciones';
+$string['showoverview'] = 'Mostrar un resumen de los Diarios en mi Moodle';
+$string['showrecentactivity'] = 'Mostrar la actividad reciente';
+$string['startoredit'] = 'Iniciar o editar mi entrada en el Diario';
+$string['viewentries'] = 'Ver las entradas';

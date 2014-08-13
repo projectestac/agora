@@ -40,6 +40,7 @@ server.url.com
 ipadres:poort
 servernaam:poort:weging
 </pre>';
+$string['sessionhandlerconflict'] = 'Waarschuwing: een memcache instantie ({$a}) is geconfigureerd om dezelfde memcached server te gebruiken voor sessies. Het leegmaken van alle caches zal er voor zorgen dat ook sessies worden verwijderd.';
 $string['testservers'] = 'Testservers';
 $string['testservers_desc'] = 'De testservers worden gebruikt voor unit tests en voor performatietests. Het opstellen van testservers is helemaal optioneel. Servers moeten één per regel gedefiniëerd worden en moeten een serveradres en optioneel een poort en weging bevatten.
 Als er geen poort opgegeven wordt, dan wordt de standaardpoort (11211) gebruikt.';

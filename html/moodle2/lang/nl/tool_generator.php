@@ -26,6 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['bigfile'] = 'Groot bestand {$a}';
+$string['courseexplanation'] = 'Deze tool maakt standaard testcursussen die vele secties, activiteiten en bestanden bevatten.
+
+Dit is bedoeld om een gestandaardiseerde maatstaf voor het controleren van de betrouwbaarheid en de prestaties van de verschillende onderdelen van het systeem (zoals backup en restore).
+
+Deze test is belangrijk omdat er vroeger veel gevallen geweest zijn waar, geconfronteerd met real-life use cases (bijvoorbeeld een cursus met 1.000 activiteiten),  het systeem niet werkte.
+
+Cursussen die met deze functie gecreëerd worden, kunnen een grote hoeveelheid database-en bestandssysteem ruimte (tientallen gigabytes) bezetten. Je moet de cursussen verwijderen (en wachten tot diverse opruimrondes gebeurd zijn) om deze ruimte weer vrij te krijgen.
+
+ ** Gebruik deze functie niet gebruiken op een live systeem **. Gebruik alleen op een ontwikkelserver.
+(Om toevallig gebruik te voorkomen, is deze functie uitgeschakeld, tenzij u ook ontwikkelaar debug-niveau hebt geselecteerd.)';
 $string['coursesize_0'] = 'XS (~10KB; gemaakt in ~1 seconde)';
 $string['coursesize_1'] = 'S (~10MB; gemaakt in ~30 seconden)';
 $string['coursesize_2'] = 'M (~100MB; gemaakt in ~5 minuten)';
@@ -78,6 +88,21 @@ $string['sitesize_5'] = 'XXL (~20GB; 4177 cursussen, gemaakt in ~10 uur)';
 $string['size'] = 'Grootte van de cursus';
 $string['smallfiles'] = 'Kleine bestanden';
 $string['targetcourse'] = 'Test doelcursus';
+$string['testplanexplanation'] = 'Deze tool maakt een JMeter testplan bestand samen met het gebruikersgegevens bestand.
+
+Dit testplan is ontworpen om samen te werken met {$a}, wat het makkelijker maakt om het testplan uit te voeren in een specifieke Moodle omgeving, informatie te verzamelen over de testen en de resultaten te vergelijken. Je moet het  dus downloaden en het script test_runner.sh gebruiken of de installatie-en gebruiksinstructies volgen.
+
+Je moet een wachtwoord voor de gebruikers van de cursus in config.php (bijv. $CFG->tool_generator_users_password = \'Moodle\' ;) ingestellen. Er is geen standaardwaarde voor dit wachtwoord om onbedoeld gebruik van de tool te voorkomen. U moet de update-optie voor wachtwoorden gebruiken in het geval dat uw cursus gebruikers heeft met andere wachtwoorden of wanneer ze werden gegenereerd door tool_generator maar zonder een$ CFG>tool_generator_users_password waarde.
+
+Het is een onderdeel van tool_generator, dus het werkt goed samen met de door de cursus- en de site-generatoren gemaakte cursussen. Het kan het ook gebruikt worden met elke cursus die, bevat ten minste het volgende bevat:
+
+* Genoeg ingeschreven gebruikers (afhankelijk van het testplan dat je kiest) met het wachtwoord opnieuw ingesteld naar \'Moodle\'
+* Een pagina module
+* Een forum module met ten minste één discussie en één antwoord.
+
+Je wil misschien uw servercapaciteit bekijken bij het uitvoeren van grote testplannen omdat de serverbelasting, gegenereerd door JMeter erg groot kan zijn. De opstartperiode is aangepast aan het aantal draden (gebruikers) om dit soort problemen te verminderen maar de belasting is nog steeds enorm.
+
+** Loop het testplan niet op een live systeem **. Deze functie creëert alleen de bestanden om JMeter mee te laten lopen, dus ze is niet gevaarlijk op zich, maar je moet **NOOIT ** dit testplan laten lopen in een productieomgeving.';
 $string['testplansize_0'] = 'XS ({$a->users} gebruikers, {$a->loops} keer doorlopen en {$a->rampup} opstartperiode)';
 $string['testplansize_1'] = 'S ({$a->users} gebruikers, {$a->loops} keer doorlopen en {$a->rampup} opstartperiode)';
 $string['testplansize_2'] = 'M ({$a->users} gebruikers, {$a->loops} keer doorlopen en {$a->rampup} opstartperiode)';
@@ -85,3 +110,4 @@ $string['testplansize_3'] = 'L ({$a->users} gebruikers, {$a->loops} keer doorlop
 $string['testplansize_4'] = 'XL ({$a->users} gebruikers, {$a->loops} keer doorlopen en {$a->rampup} opstartperiode)';
 $string['testplansize_5'] = 'XXL ({$a->users} gebruikers, {$a->loops} keer doorlopen en {$a->rampup} opstartperiode)';
 $string['updateuserspassword'] = 'Wachtwoord van cursusgebruikers aanpassen';
+$string['updateuserspassword_help'] = 'JMeter moet inloggen als cursusgebruikers. U kunt  het gebruikerswachtwoord instellen met $CFG->tool_generator_users_password in config.php; deze instelling past het wachtwoord van de cursus gebruiker aan volgens $CFG->tool_generator_users_password. Dit kan nuttig zijn als je gebruik maakt van een cursus die niet gegenereerd is door tool_generator of $CFG->tool_generator_users_password was niet ingesteld toen u de testcursussen maakte.';

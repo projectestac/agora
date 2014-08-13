@@ -46,7 +46,7 @@ $string['assess'] = 'Valuta';
 $string['assessedexample'] = 'Consegna di esempio valutata';
 $string['assessedsubmission'] = 'Valutazione consegna';
 $string['assessingexample'] = 'Valutazione consegna di esempio';
-$string['assessingsubmission'] = 'Valutazione consega';
+$string['assessingsubmission'] = 'Valutazione consegna';
 $string['assessment'] = 'Valutazione';
 $string['assessmentby'] = 'di <a href="{$a->url}">{$a->name}</a>';
 $string['assessmentbyfullname'] = 'Valutazione di {$a}';

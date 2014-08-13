@@ -695,6 +695,7 @@ $string['reportregrade'] = 'Reclassificar tentativas';
 $string['reportresponses'] = 'Respostas detalhadas';
 $string['reports'] = 'Relatórios';
 $string['reportshowonly'] = 'Mostrar apenas tentativas';
+$string['reportshowonlyfinished'] = 'Mostrar, no máximo, uma tentativa terminada por utilizador ({$a})';
 $string['reportsimplestat'] = 'Estatísticas simples';
 $string['reportusersall'] = 'todos os alunos que responderam ao teste';
 $string['reportuserswith'] = 'utilizadores inscritos que responderam ao teste';

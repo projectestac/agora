@@ -93,6 +93,7 @@ $string['ex_unabletolock'] = 'Kon geen blokkering verkrijgen voor cache';
 $string['ex_unmetstorerequirements'] = 'Je kunt deze opslag nu niet gebruiken. Bekijk de documentatie om de vereisten te bepalen.';
 $string['gethit'] = 'Get - gevonden';
 $string['getmiss'] = 'Get - niet gevonden';
+$string['inadequatestoreformapping'] = 'Deze opslagruimte voldoet niet aan de vereisten van alle bekende definities. De definities waarvoor deze ruimte niet geschikt is, zullen de oorspronkelijke standaardopslagruimte toegewezen krijgen in plaats van de geselecteerde opslagruimte.';
 $string['invalidlock'] = 'Ongeldige blokkering';
 $string['invalidplugin'] = 'Ongeldige plugin';
 $string['invalidstore'] = 'Ongeldige cache opslag gegeven';

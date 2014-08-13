@@ -72,11 +72,11 @@ $string['attemptheading'] = 'Tentative {$a->attemptnumber}&nbsp;: {$a->submissio
 $string['attempthistory'] = 'Tentatives précédentes';
 $string['attemptnumber'] = 'Numéro de tentative';
 $string['attemptreopenmethod'] = 'Réouverture des travaux remis';
-$string['attemptreopenmethod_help'] = 'Détermine comment les travaux remis des étudiants sont réouverts. Les options disponibles sont&nbsp;:
+$string['attemptreopenmethod_help'] = 'Détermine comment les travaux remis par les étudiants sont rouverts. Les options disponibles sont :
 <ul>
-<li>Jamais - Le travail de l\'étudiant ne peut pas être réouvert.</li>
-<li>Manuellement - Le travail de l\'étudiant peut être réouvert par un enseignant.</li>
-<li>Automatiquement jusqu\'à réussite - Le travail de l\'étudiant est réouvert automatiquement jusqu\'à ce qu\'il atteigne la note nécessaire pour réussir le devoir, indiquée dans le carnet de note (section Catégories et éléments).</li>
+<li>Jamais - Le travail de l\'étudiant ne peut pas être rouvert.</li>
+<li>Manuellement - Le travail de l\'étudiant peut être rouvert par un enseignant.</li>
+<li>Automatiquement jusqu\'à réussite - Le travail est rouvert automatiquement jusqu\'à ce que l\'étudiant atteigne la note nécessaire pour réussir le devoir ; cette note est indiquée dans le carnet de note (section Catégories et éléments).</li>
 </ul>';
 $string['attemptreopenmethod_manual'] = 'Manuellement';
 $string['attemptreopenmethod_none'] = 'Jamais';
@@ -239,7 +239,7 @@ $string['markingworkflowstatereadyforrelease'] = 'Prêt pour publication';
 $string['markingworkflowstatereadyforreview'] = 'Évaluation terminée';
 $string['markingworkflowstatereleased'] = 'Publié';
 $string['maxattempts'] = 'Nombre maximal de tentatives';
-$string['maxattempts_help'] = 'Le nombre maximal de tentatives de remise pouvant être effectuées par un étudiant. Une fois ce nombre atteint, le travail remis ne pourra plus être réouvert.';
+$string['maxattempts_help'] = 'Le nombre maximal de tentatives de remise pouvant être effectuées par un étudiant. Une fois ce nombre atteint, le travail remis ne pourra plus être rouvert.';
 $string['maxgrade'] = 'Note maximale';
 $string['messageprovider:assign_notification'] = 'Notifications de devoirs';
 $string['modulename'] = 'Devoir';
@@ -362,7 +362,7 @@ $string['submissionstatus_draft'] = 'Brouillon (non remis)';
 $string['submissionstatusheading'] = 'État du travail remis';
 $string['submissionstatus_marked'] = 'Noté';
 $string['submissionstatus_new'] = 'Nouveau travail remis';
-$string['submissionstatus_reopened'] = 'Réouvert';
+$string['submissionstatus_reopened'] = 'Rouvert';
 $string['submissionstatus_submitted'] = 'Remis pour évaluation';
 $string['submissionsummary'] = '{$a->status}. Dernière modification le {$a->timemodified}';
 $string['submissionteam'] = 'Groupe';
