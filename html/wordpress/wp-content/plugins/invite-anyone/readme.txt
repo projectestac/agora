@@ -4,7 +4,7 @@ Donate link: http://teleogistic.net/donate
 Tags: buddypress, invitations, group, invite, friends, members
 Requires at least: WP 3.2, BuddyPress 1.2.9
 Tested up to: WP 3.9.1, BuddyPress 2.0.1
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 Makes BuddyPress's invitation features more powerful.
 
@@ -48,6 +48,9 @@ Additional details about the plugin can be found in the following languages:
 * Serbo-Croatian: <a href="http://science.webhostinggeeks.com/teleogistic">http://science.webhostinggeeks.com/teleogistic</a>
 
 == Changelog ==
+
+= 1.3.1 =
+* CloudSponge integration now has access to LinkedIn and Facebook address books
 
 = 1.3 =
 * Improved behavior after redirects

@@ -1,6 +1,7 @@
 var csPageOptions = {
 	domain_key: ia_cloudsponge.domain_key,
 	referrer: 'invite-anyone',
+	sources: [ 'facebook', 'linkedin', 'yahoo', 'gmail', 'windowslive', 'aol', 'plaxo', 'addressbook', 'outlook' ],
 	afterSubmitContacts:function(contacts) {
 		var emails = [];
 		var contact, name, email;
