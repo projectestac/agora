@@ -9,6 +9,7 @@ GENERAL:
 - config.php: Added param for nodes
 
 PORTAL
+- Upgraded to Zikula 1.3.8
 - Blocks only appear at home page
 - Agoraportal: Updated services logos
 - Agoraportal: Added ability to customize WordPress info when activating a site
