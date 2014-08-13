@@ -5,6 +5,10 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+WORDPRESS
+- Added initial catalan translation for BuddyPress, bbpress, Google Calendar and Slideshow
+
+
 
 Changes 14.08.19
 ---------------------------------------------------------------------------------------
@@ -65,6 +69,7 @@ A memory lasts forever, never will it die... true friends stay together and neve
 
 ZIKULA Deleted Zikula 1.2 version.
 Goodbyes are not forever. Goodbyes are not the end. They simply mean I'll miss you until we meet again.
+
 
 Changes 14.07.04
 ---------------------------------------------------------------------------------------

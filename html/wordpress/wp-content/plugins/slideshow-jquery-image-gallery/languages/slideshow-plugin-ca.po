@@ -1,0 +1,876 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Slideshow Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 20:34+0100\n"
+"PO-Revision-Date: 2014-08-07 09:58+0100\n"
+"Last-Translator: Mònica Grau <mgrau226@xtec.cat>\n"
+"Language-Team: Stefan Boonstra <wordpress@stefanboonstra.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.6.7\n"
+"Language: ca\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/SlideshowPluginGeneralSettings.php:82
+#: classes/SlideshowPluginGeneralSettings.php:83
+#: views/SlideshowPluginGeneralSettings/general-settings.php:14
+msgid "General Settings"
+msgstr "Configuració general"
+
+#: classes/SlideshowPluginGeneralSettings.php:150
+msgid "New"
+msgstr "Nou"
+
+#: classes/SlideshowPluginGeneralSettings.php:151
+msgid "Are you sure you want to delete this custom style?"
+msgstr "Esteu segurs que voleu eliminar aquest estil personalitzat?"
+
+#: classes/SlideshowPluginGeneralSettings.php:196
+#: classes/SlideshowPluginInstaller.php:803
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:6
+msgid "Light"
+msgstr "Clar"
+
+#: classes/SlideshowPluginGeneralSettings.php:197
+#: classes/SlideshowPluginInstaller.php:803
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:7
+msgid "Dark"
+msgstr "Fosc"
+
+#: classes/SlideshowPluginGeneralSettings.php:353
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:57
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:143
+msgid "Untitled"
+msgstr "Sense nom"
+
+#: classes/SlideshowPluginInstaller.php:800
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:472
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:111
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:43
+msgid "Yes"
+msgstr "Sí"
+
+#: classes/SlideshowPluginInstaller.php:801
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:473
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:112
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:44
+msgid "No"
+msgstr "No"
+
+#: classes/SlideshowPluginInstaller.php:803
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:610
+msgid "The style used for this slideshow"
+msgstr "Estil utilitzat per a aquesta presentació de diapositives"
+
+#: classes/SlideshowPluginInstaller.php:803
+msgid "Custom"
+msgstr "Personalitzat"
+
+#: classes/SlideshowPluginInstaller.php:804
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:126
+msgid "Custom style editor"
+msgstr "Editor d'estils personalitzats"
+
+#: classes/SlideshowPluginInstaller.php:805
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:518
+msgid "Animation used for transition between slides"
+msgstr "Animació que es mostra a la transisicó de diapositives"
+
+#: classes/SlideshowPluginInstaller.php:805
+msgid "Slide"
+msgstr "Llisca"
+
+#: classes/SlideshowPluginInstaller.php:805
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Fade"
+msgstr "Dissol"
+
+#: classes/SlideshowPluginInstaller.php:805
+#: classes/SlideshowPluginInstaller.php:806
+#: classes/SlideshowPluginInstaller.php:807
+#: classes/SlideshowPluginInstaller.php:808
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:548
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:549
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:550
+msgid "Animation"
+msgstr "Animació"
+
+#: classes/SlideshowPluginInstaller.php:806
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:519
+msgid "Number of seconds the slide takes to slide in"
+msgstr "Nombre de segons que la diapositiva necessita per canviar"
+
+#: classes/SlideshowPluginInstaller.php:807
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:520
+msgid "Number of seconds the description takes to slide in"
+msgstr "Nombre de segons que la descripció necessita per canviar"
+
+#: classes/SlideshowPluginInstaller.php:808
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:521
+msgid "Seconds between changing slides"
+msgstr "Segons entre el canvi de diapositives"
+
+#: classes/SlideshowPluginInstaller.php:809
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:522
+msgid "Number of slides to fit into one slide"
+msgstr "Nombre de diapositives per incloure en una diapositiva "
+
+#: classes/SlideshowPluginInstaller.php:809
+#: classes/SlideshowPluginInstaller.php:810
+#: classes/SlideshowPluginInstaller.php:811
+#: classes/SlideshowPluginInstaller.php:812
+#: classes/SlideshowPluginInstaller.php:813
+#: classes/SlideshowPluginInstaller.php:814
+#: classes/SlideshowPluginInstaller.php:815
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:551
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:552
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:553
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:554
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:555
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:556
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:557
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:558
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:559
+msgid "Display"
+msgstr "Visualització"
+
+#: classes/SlideshowPluginInstaller.php:810
+msgid "Width of the slideshow, set to parent&#39;s width on 0"
+msgstr ""
+"Amplada de la presentació de diapositives, deixeu parent&#39;s amplada a 0"
+
+#: classes/SlideshowPluginInstaller.php:811
+msgid "Height of the slideshow"
+msgstr "Alçada de la presentació de diapositivies"
+
+#: classes/SlideshowPluginInstaller.php:812
+msgid "Height of the description boxes"
+msgstr "Alçada de les caixes de descripció"
+
+#: classes/SlideshowPluginInstaller.php:813
+msgid "Fit image into slide (stretching it)"
+msgstr "Ajusta la imatge a la diapositiva (estirant-la)"
+
+#: classes/SlideshowPluginInstaller.php:814
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:529
+msgid "Show title and description"
+msgstr "Mostra el títol i la descripció"
+
+#: classes/SlideshowPluginInstaller.php:815
+msgid "Hide description box, it will pop up when a mouse hovers over the slide"
+msgstr "Amaga la caixa de la descripció"
+
+#: classes/SlideshowPluginInstaller.php:816
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:531
+msgid "Automatically slide to the next slide"
+msgstr "Llisca automàticament sobre la diapositiva següent"
+
+#: classes/SlideshowPluginInstaller.php:816
+#: classes/SlideshowPluginInstaller.php:817
+#: classes/SlideshowPluginInstaller.php:818
+#: classes/SlideshowPluginInstaller.php:819
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:560
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:561
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:562
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:563
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:564
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:565
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:566
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:567
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:568
+msgid "Control"
+msgstr "Control"
+
+#: classes/SlideshowPluginInstaller.php:817
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:532
+msgid "Return to the beginning of the slideshow after last slide"
+msgstr "Torna a l'inici de la presentació després de la darrera diapositiva"
+
+#: classes/SlideshowPluginInstaller.php:818
+msgid "Activate buttons (so the user can scroll through the slides)"
+msgstr ""
+"Activa els botons (l'usuari/ària podrà desplaçar-se a través de les "
+"diapositives)"
+
+#: classes/SlideshowPluginInstaller.php:819
+msgid "Show control panel (play and pause button)"
+msgstr "Mostra el tauler de control (bontons de reproducció i pausa)"
+
+#: classes/SlideshowPluginPostType.php:45
+msgid "Slideshows"
+msgstr "Presentacions de diapositives"
+
+#: classes/SlideshowPluginPostType.php:46
+#: views/SlideshowPluginWidget/form.php:7
+msgid "Slideshow"
+msgstr "Presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:47
+msgid "Add New Slideshow"
+msgstr "Afegeix una presntació de diapositives nova"
+
+#: classes/SlideshowPluginPostType.php:48
+msgid "Edit slideshow"
+msgstr "Edita la presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:49
+msgid "New slideshow"
+msgstr "Presentació de diapositives nova"
+
+#: classes/SlideshowPluginPostType.php:50
+msgid "View slideshow"
+msgstr "Visualitza la presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:51
+msgid "Search slideshows"
+msgstr "Cerca presentacions de diapositives"
+
+#: classes/SlideshowPluginPostType.php:52
+#: classes/SlideshowPluginPostType.php:53
+msgid "No slideshows found"
+msgstr "No s'ha trobat cap presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:98
+msgid "Information"
+msgstr "Informació"
+
+#: classes/SlideshowPluginPostType.php:107
+msgid "Slides List"
+msgstr "Llista de diapositives"
+
+#: classes/SlideshowPluginPostType.php:116
+msgid "Slideshow Style"
+msgstr "Estil de la presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:125
+msgid "Slideshow Settings"
+msgstr "Configuració de la presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:173
+msgid "Slideshow created"
+msgstr "S'ha creat la presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:177
+msgid "Slideshow updated"
+msgstr "S'ha actualitzat la presentació de diapositives"
+
+#: classes/SlideshowPluginPostType.php:224
+#: classes/SlideshowPluginSlideInserter.php:238
+#: views/SlideshowPluginPostType/slides.php:2
+msgid "Insert"
+msgstr "Insereix"
+
+#: classes/SlideshowPluginPostType.php:232
+msgid "Open all"
+msgstr "Obre-ho tot"
+
+#: classes/SlideshowPluginPostType.php:234
+msgid "Close all"
+msgstr "Tanca-ho tot"
+
+#: classes/SlideshowPluginPostType.php:240
+#: views/SlideshowPluginPostType/slides.php:10
+msgid "Add slides to this slideshow by using one of the buttons above."
+msgstr ""
+"Afegeix diapositives a aquesta presentació mitjançant l'ús d'un dels botons "
+"de dalt."
+
+#: classes/SlideshowPluginPostType.php:320
+msgid "Duplicate"
+msgstr "Duplica"
+
+#: classes/SlideshowPluginPostType.php:371
+msgid "Copy"
+msgstr "Copia"
+
+#: classes/SlideshowPluginShortcode.php:148
+msgid "No slideshow selected."
+msgstr "No s'ha seleccionat cap presentació de diapositives"
+
+#: classes/SlideshowPluginSlideInserter.php:194
+msgid "More results loaded"
+msgstr "S'han carregat més resultats"
+
+#: classes/SlideshowPluginSlideInserter.php:249
+msgid "Load more results"
+msgstr "Carrega més resultats"
+
+#: classes/SlideshowPluginSlideInserter.php:260
+msgid "No images were found, click here to upload some."
+msgstr "No s'ha trobat cap imatge, feu clic aquí per pujar-ne alguna."
+
+#: classes/SlideshowPluginSlideInserter.php:332
+msgid "Are you sure you want to delete this slide?"
+msgstr "Esteu segurs que voleu eliminar aquesta diapositiva?"
+
+#: classes/SlideshowPluginSlideInserter.php:333
+msgid "Insert image slide"
+msgstr "Insereix imatge de diapositiva"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:523
+msgid "Maximum width. When maximum width is 0, maximum width is ignored"
+msgstr ""
+"Amplada màxima. Quan l'amplada màxima sigui 0, aquesta amplada màxima serà "
+"ignorada"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:524
+msgid "http://en.wikipedia.org/wiki/Aspect_ratio_(image)"
+msgstr "http://ca.wikipedia.org/wiki/Aspect_ratio_(image)"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:524
+msgid "More info"
+msgstr "Més informació"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:524
+#, php-format
+msgid ""
+"Proportional relationship%s between slideshow's width and height (width:"
+"height)"
+msgstr ""
+"Relació proporcional%s entre l'amplada i l'alçada de la presentació de "
+"diapositives (amplada:alçada)"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:525
+msgid "Slideshow's height"
+msgstr "Alçada de la presentació de diapositives"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:526
+msgid "Image behaviour"
+msgstr "Comportament de la imatge"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:527
+msgid "Shrink slideshow's height when width shrinks"
+msgstr "Redueix l'alçada de les diapositives quan l'ample encongeix"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:528
+msgid ""
+"Enable responsiveness (Shrink slideshow's width when page's width shrinks)"
+msgstr ""
+"Habilita la capacitat de resposta (Redueix l'ample de les diapositives quan "
+"l'ample de la pàgina es redueix)"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:530
+msgid "Hide description box, pop up when mouse hovers over"
+msgstr ""
+"Amaga la caixa de la descripció, obre una finestra emergent quan el ratolí "
+"hi passa per sobre"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:533
+msgid "Pause slideshow when mouse hovers over"
+msgstr "Pausa la presentació de diapositives quan el ratolí passa per sobre"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:534
+msgid "Activate navigation buttons"
+msgstr "Activa els botons de navegació"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:535
+msgid "Hide navigation buttons, show when mouse hovers over"
+msgstr ""
+"Amaga els botons de navegació, mostra'ls quan el ratolí passi per sobre"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:536
+msgid "Activate pagination"
+msgstr "Activa la paginació"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:537
+msgid "Hide pagination, show when mouse hovers over"
+msgstr "Amaga la paginació, mostra-la quan el ratolí passi per sobre"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:538
+msgid "Activate control panel (play and pause button)"
+msgstr "Activa el tauler de control (botó de reproducció i pausa)"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:539
+msgid "Hide control panel, show when mouse hovers over"
+msgstr "Amaga el tauler de control, mostra'l quan el ratolí passi per sobre"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:540
+msgid "Wait until the next slide has loaded before showing it"
+msgstr ""
+"Espera fins que la diapositiva següent s'hagi carregat abans de mostrar-la"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:541
+msgid "Show a loading icon until the first slide appears"
+msgstr "Mostra una icona de càrrega fins que la diapositiva aparegui"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:542
+msgid "Randomize slides"
+msgstr "Diapositives aleatòries"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:543
+#, php-format
+msgid "Avoid content filter (disable if '%s' is shown)"
+msgstr "Evita el filtre de continguts (deshabilita si '%s' es mostra)"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Slide Left"
+msgstr "Llisca a l'esquerra"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Slide Right"
+msgstr "Llisca a la dreta"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Slide Up"
+msgstr "Llisca cap amunt"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Slide Down"
+msgstr "Llisca cap avall"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Direct Fade"
+msgstr "Dissol directe"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:547
+msgid "Random Animation"
+msgstr "Animació al·leatòria"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:555
+msgid "Natural and centered"
+msgstr "Neutral i centrat"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:555
+msgid "Crop to fit"
+msgstr "Retalla per ajustar"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:555
+msgid "Stretch to fit"
+msgstr "Estira per ajustar"
+
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:569
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:570
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:571
+#: classes/SlideshowPluginSlideshowSettingsHandler.php:572
+msgid "Miscellaneous"
+msgstr "Miscel·lània"
+
+#: classes/SlideshowPluginWidget.php:23
+msgid "Enables you to show your slideshows in the widget area of your website."
+msgstr ""
+"Permet mostrar les presentacions de diapositives a l'àrea de ginys de la "
+"pàgina."
+
+#: classes/SlideshowPluginWidget.php:29
+msgid "Slideshow Widget"
+msgstr "Giny de presentació de diapositives"
+
+#: views/SlideshowPlugin/slideshow.php:23
+msgid "Play"
+msgstr "Visualitza"
+
+#: views/SlideshowPlugin/slideshow.php:23
+msgid "Pause"
+msgstr "Atura"
+
+#: views/SlideshowPlugin/slideshow.php:25
+msgid "Previous"
+msgstr "Anterior"
+
+#: views/SlideshowPlugin/slideshow.php:26
+msgid "Next"
+msgstr "Següent"
+
+#: views/SlideshowPlugin/slideshow.php:28
+msgid "Go to slide"
+msgstr "Vés a la dapositiva"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:46
+msgid "Default stylesheets"
+msgstr "Fulls d'estils per defecte"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:60
+msgid "Create a new custom style from this style"
+msgstr "Crea un full d'estils nou a partir d'aquest estil"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:62
+msgid "Customize"
+msgstr "Personalitza"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:76
+msgid "Custom stylesheets"
+msgstr "Fulls d'estils personalitzats"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:89
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:172
+msgid "Edit this style"
+msgstr "Edita aquest estil"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:91
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:174
+#: views/SlideshowPluginPostType/slides.php:138
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:112
+msgid "Edit"
+msgstr "Edita"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:98
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:181
+msgid "Delete this style"
+msgstr "Esborra aquest estil"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:100
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:183
+msgid "Delete"
+msgstr "Esborra"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:110
+msgid "Click 'Customize' to create a new custom stylesheet."
+msgstr "Feu clic a 'Personalitza' per crear un full d'estils nou."
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:130
+msgid "Select a stylesheet to start customizing it."
+msgstr "Seleccioneu un full d'estils per començar a personalitzar-lo."
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:139
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:192
+#: views/SlideshowPluginPostType/slides.php:59
+#: views/SlideshowPluginPostType/slides.php:144
+#: views/SlideshowPluginPostType/slides.php:196
+#: views/SlideshowPluginPostType/slides.php:264
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:120
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:18
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:150
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:80
+#: views/SlideshowPluginWidget/form.php:2
+msgid "Title"
+msgstr "Títol"
+
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:148
+#: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:200
+msgid "Style"
+msgstr "Estil"
+
+#: views/SlideshowPluginGeneralSettings/default-slideshow-settings-tab.php:11
+msgid "Note"
+msgstr "Nota"
+
+#: views/SlideshowPluginGeneralSettings/default-slideshow-settings-tab.php:18
+#, php-format
+msgid ""
+"The settings set on this page apply only to newly created slideshows and "
+"therefore do not alter any existing ones. To adapt a slideshow's settings, "
+"%sclick here.%s"
+msgstr ""
+"La configuració definida en aquesta pàgina afecta només a les presentacions "
+"de diapositives noves i per tant, no altera cap de les existents. Per "
+"adaptar la configuració de la presentació de diapositvies, %sfeu clic aquí.%s"
+
+#: views/SlideshowPluginGeneralSettings/default-slideshow-settings-tab.php:29
+#: views/SlideshowPluginGeneralSettings/general-settings.php:15
+msgid "Default Slideshow Settings"
+msgstr "Paràmetres de configuració per defecte"
+
+#: views/SlideshowPluginGeneralSettings/default-slideshow-settings-tab.php:41
+#: views/SlideshowPluginPostType/settings.php:12
+msgid "settings"
+msgstr "configuració"
+
+#: views/SlideshowPluginGeneralSettings/default-slideshow-settings-tab.php:77
+msgid "Default Slideshow Stylesheet"
+msgstr "Full d'estils per defecte"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:11
+msgid "Add slideshows"
+msgstr "Afegeix presentació de diapositives"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:12
+msgid "Edit slideshows"
+msgstr "Edita presentació de diapositives"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:13
+msgid "Delete slideshows"
+msgstr "Esborra presentació de diapositives"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:20
+msgid "User Capabilities"
+msgstr "Permisos d'usuari/ària"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:22
+msgid "Select the user roles that will able to perform certain actions."
+msgstr ""
+"Seleccioneu els rols d'usuari/ària que podran realitzar certes accions."
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:38
+msgid "Untitled role"
+msgstr "Rol sense nom"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:65
+msgid "Settings"
+msgstr "Configuració"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:69
+msgid "Stylesheet location"
+msgstr "Ubicació del full d'estils"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:72
+msgid "top"
+msgstr "amunt"
+
+#: views/SlideshowPluginGeneralSettings/general-settings-tab.php:73
+msgid "bottom"
+msgstr "avall"
+
+#: views/SlideshowPluginGeneralSettings/general-settings.php:16
+msgid "Custom Styles"
+msgstr "Estils personalitzats"
+
+#: views/SlideshowPluginPostType/information.php:1
+msgid ""
+"To use this slideshow in your website either add this piece of shortcode to "
+"your posts or pages"
+msgstr ""
+"Per fer servri aquesta presentació de diapositives al vostre lloc web, "
+"afegiu aquest codi curt als vostres articles o pàgines"
+
+#: views/SlideshowPluginPostType/information.php:5
+msgid ""
+"Or add this piece of code to where ever in your website you want to place "
+"the slideshow"
+msgstr ""
+"O afegiu aquest codi curt a qualsevol lloc del vostre lloc web on volgueu "
+"posar una presentació de diapositives"
+
+#: views/SlideshowPluginPostType/information.php:9
+#, php-format
+msgid "Or go to the %swidgets page%s and show the slideshow as a widget."
+msgstr ""
+"O aneu a la %spàgina de ginys%s i afegiu la presentació de diapositives com "
+"a giny."
+
+#: views/SlideshowPluginPostType/settings.php:26
+#: views/SlideshowPluginPostType/style-settings.php:11
+msgid "Default"
+msgstr "Per defecte"
+
+#: views/SlideshowPluginPostType/slides.php:54
+#: views/SlideshowPluginPostType/slides.php:191
+#: views/SlideshowPluginSlideInserter/insert-text-button.php:2
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:9
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:69
+msgid "Text slide"
+msgstr "Diapositiva de text"
+
+#: views/SlideshowPluginPostType/slides.php:61
+#: views/SlideshowPluginPostType/slides.php:150
+#: views/SlideshowPluginPostType/slides.php:198
+#: views/SlideshowPluginPostType/slides.php:270
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:135
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:33
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:165
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:95
+msgid "Description"
+msgstr "Descripció"
+
+#: views/SlideshowPluginPostType/slides.php:63
+#: views/SlideshowPluginPostType/slides.php:200
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:51
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:113
+msgid "Background color"
+msgstr "Color de fons"
+
+#: views/SlideshowPluginPostType/slides.php:68
+#: views/SlideshowPluginPostType/slides.php:155
+#: views/SlideshowPluginPostType/slides.php:205
+#: views/SlideshowPluginPostType/slides.php:275
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:150
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:59
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:180
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:121
+msgid "URL"
+msgstr "URL"
+
+#: views/SlideshowPluginPostType/slides.php:70
+#: views/SlideshowPluginPostType/slides.php:157
+#: views/SlideshowPluginPostType/slides.php:207
+#: views/SlideshowPluginPostType/slides.php:277
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:153
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:62
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:183
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:124
+msgid "Open URL in"
+msgstr "Obre l'URL a"
+
+#: views/SlideshowPluginPostType/slides.php:72
+#: views/SlideshowPluginPostType/slides.php:159
+#: views/SlideshowPluginPostType/slides.php:209
+#: views/SlideshowPluginPostType/slides.php:279
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:155
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:64
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:185
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:126
+msgid "Same window"
+msgstr "la mateixa finestra"
+
+#: views/SlideshowPluginPostType/slides.php:73
+#: views/SlideshowPluginPostType/slides.php:160
+#: views/SlideshowPluginPostType/slides.php:210
+#: views/SlideshowPluginPostType/slides.php:280
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:156
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:65
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:186
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:127
+msgid "New window"
+msgstr "una finestra nova"
+
+#: views/SlideshowPluginPostType/slides.php:90
+#: views/SlideshowPluginPostType/slides.php:230
+#: views/SlideshowPluginSlideInserter/insert-video-button.php:2
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:94
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:26
+msgid "Video slide"
+msgstr "Diapositiva de vídeo"
+
+#: views/SlideshowPluginPostType/slides.php:95
+#: views/SlideshowPluginPostType/slides.php:235
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:103
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:35
+msgid "Youtube Video ID"
+msgstr "ID del Youtube"
+
+#: views/SlideshowPluginPostType/slides.php:133
+#: views/SlideshowPluginPostType/slides.php:255
+#: views/SlideshowPluginSlideInserter/insert-image-button.php:2
+#: views/SlideshowPluginSlideInserter/insert-image-button.php:4
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:101
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:135
+msgid "Image slide"
+msgstr "Diaposivita d'imatge"
+
+#: views/SlideshowPluginPostType/slides.php:171
+msgid ""
+"An error occurred while loading this slide, and it will not be present in "
+"the slideshow"
+msgstr ""
+"S'ha produït un error en carregar la diapositiva i no es mostrarà en la "
+"presentació de diapositives"
+
+#: views/SlideshowPluginPostType/slides.php:177
+#: views/SlideshowPluginPostType/slides.php:218
+#: views/SlideshowPluginPostType/slides.php:243
+#: views/SlideshowPluginPostType/slides.php:289
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:174
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:76
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:117
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:203
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:138
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:49
+msgid "Delete slide"
+msgstr "Esborra la diapositiva"
+
+#: views/SlideshowPluginPostType/style-settings.php:22
+#, php-format
+msgid "Custom styles can be created and customized %shere%s."
+msgstr "Podeu crear i personalitzar estils %saquí%s."
+
+#: views/SlideshowPluginPostType/support-plugin.php:3
+msgid "Help to keep this plugin free!"
+msgstr "Ajuda a mantenir aquest giny lliure!"
+
+#: views/SlideshowPluginPostType/support-plugin.php:6
+msgid ""
+"In order to keep you provided with the newest features, updates and bug "
+"fixes, a lot of motivation is required. Therefore I'm kindly asking you to "
+"consider making a small donation to the plugin or rating it as 5-stars on "
+"Wordpress.org. Thank you in advance!"
+msgstr ""
+
+#: views/SlideshowPluginPostType/support-plugin.php:15
+msgid "Rate on Wordpress.org"
+msgstr ""
+
+#: views/SlideshowPluginPostType/support-plugin.php:24
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "Preguntes més freqüesnts (PMF)"
+
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:4
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:9
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:18
+msgid "Insert a Slideshow"
+msgstr "Insereix una Presentació de diapositives"
+
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:12
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:51
+msgid "Insert Slideshow"
+msgstr "Insereix Presentació de diapositives"
+
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:27
+msgid "Select a slideshow"
+msgstr "Selecciona una presentació de diapositives"
+
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:36
+#: views/SlideshowPluginWidget/form.php:12
+msgid "Untitled slideshow"
+msgstr "Presentació de diapositives sense nom"
+
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:56
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: views/SlideshowPluginShortcode/shortcode-inserter.php:67
+#, php-format
+msgid ""
+"It seems you haven't created any slideshows yet. %sYou can create a "
+"slideshow here!%s"
+msgstr ""
+"Encara no heu creat una presentació de diapositives. %sPodeu crear una "
+"presentació de diapositives aquí!%s"
+
+#: views/SlideshowPluginSlideInserter/search-popup.php:6
+msgid "Search"
+msgstr "Cerca"
+
+#: views/SlideshowPluginSlideInserter/search-popup.php:7
+msgid "Search images by title or ID"
+msgstr "Cerca imatges per titol o ID"
+
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:90
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:4
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:89
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:130
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:58
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:21
+msgid "Click to toggle"
+msgstr "Feu clic per alternar"
+
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:160
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:69
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:190
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:131
+msgid "Don't let search engines follow link"
+msgstr "No deixis als motors de cerca seguir l'enllaç"
+
+#: views/SlideshowPluginSlideshowSlide/backend_attachment.php:168
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:197
+msgid "Alternative text"
+msgstr "Text alternatiu"
+
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:48
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:110
+msgid "Text color"
+msgstr "Color del text"
+
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:53
+#: views/SlideshowPluginSlideshowSlide/backend_text.php:115
+msgid "(Leave empty for a transparent background)"
+msgstr "(Deixeu buit perquè el color de fons sigui transparent)"
+
+#: views/SlideshowPluginSlideshowSlide/backend_templates.php:110
+#: views/SlideshowPluginSlideshowSlide/backend_video.php:42
+msgid "Show related videos"
+msgstr "Mostra vídeos relacionats"
+
+#: views/SlideshowPluginUpload/upload-button.php:1
+msgid "Upload/Manage Images"
+msgstr "Puja/gestiona imatges"
+
+#: views/SlideshowPluginWidget/form.php:9
+msgid "Random Slideshow"
+msgstr "Presentació de diapositives al·leatoria"
+
+#~ msgid "Leave any field open to use default value."
+#~ msgstr "Een veld dat open wordt gelaten neemt de standaardwaarde aan."

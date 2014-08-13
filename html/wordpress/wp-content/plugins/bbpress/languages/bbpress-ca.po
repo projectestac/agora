@@ -1,0 +1,4894 @@
+# Translation of Development in Catalan
+# This file is distributed under the same license as the Development package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2014-08-08 11:37+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Development\n"
+"POT-Creation-Date: \n"
+"Last-Translator: mgrau <mgrau226@xtec.cat>\n"
+"Language-Team: \n"
+
+#: src/includes/topics/template.php:3380
+msgid "Separate topic tags with commas"
+msgstr "Separeu amb comes les etiquetas del tema"
+
+#: src/includes/admin/tools.php:122
+msgid "There is more detailed information available on the bbPress and BuddyPress codex for the following:"
+msgstr "Hi ha informació més detallada disponible al còdex bbPress i BuddyPress pel següent"
+
+#: src/includes/admin/tools.php:125
+msgid "BuddyPress Group Forums: <a href=\"http://codex.buddypress.org/getting-started/installing-group-and-sitewide-forums/\">Installing Group and Sitewide Forums</a> and <a href=\"http://codex.buddypress.org/getting-started/guides/migrating-from-old-forums-to-bbpress-2/\">Migrating from old forums to bbPress 2.2+</a>."
+msgstr "BuddyPress Grup-fòrums: <a href=\"http://codex.buddypress.org/getting-started/installing-group-and-sitewide-forums/\">Instal·anció de grups i f`roums en tot el lloc</a> i <a href=\"http://codex.buddypress.org/getting-started/guides/migrating-from-old-forums-to-bbpress-2/\">Migració de fòrums antics a bbPress 2.2+</a>."
+
+#: src/includes/admin/tools.php:126
+msgid "bbPress roles: <a href=\"http://codex.bbpress.org/bbpress-user-roles-and-capabilities/\" target=\"_blank\">bbPress User Roles and Capabilities</a>"
+msgstr "Rols de bbPress: <a href=\"http://codex.bbpress.org/bbpress-user-roles-and-capabilities/\" target=\"_blank\">Rols d'usuari bbPress i capacitats</a>"
+
+#: src/includes/admin/tools.php:129
+msgid "Also see <a href=\"http://codex.bbpress.org/repair-forums/\">bbPress: Repair Forums</a>."
+msgstr "Vegeu també <a href=\"http://codex.bbpress.org/repair-forums/\">bbPress: Reparar Fòrums</a>."
+
+#: src/includes/admin/tools.php:160
+msgid "Also see <a href=\"http://codex.bbpress.org/reset-forums//\">bbPress: Reset Forums</a>."
+msgstr "Vegeu també <a href=\"http://codex.bbpress.org/reset-forums//\">bbPress: Resetejar Fòrums</a>."
+
+#: src/includes/admin/tools.php:191
+msgid "This screen provides access to all of the bbPress Import Forums settings and resources."
+msgstr "Aquesta pantalla proporciona accés a totes les importancions bbPress de configuració de fòrums i recursos. "
+
+#: src/includes/admin/tools.php:192
+msgid "Please see the additional help tabs for more information on each individual section."
+msgstr "Consulteu les fitxes d'ajuda addicional per més informació sobre cada secció individual."
+
+#: src/includes/admin/tools.php:193
+msgid "Also see the main article on the bbPress codex <a href=\"http://codex.bbpress.org/import-forums/\">bbPress: Import Forums</a>."
+msgstr "Vegeu també l'article principal en el codex de bbPress <a href=\"http://codex.bbpress.org/import-forums/\">bbPress: Importar fòrums</a>."
+
+#: src/includes/admin/tools.php:200
+msgid "In the Database Settings you have a number of options:"
+msgstr "En la configuració de base de dades teniu un nombre d'opcions:"
+
+#: src/includes/admin/tools.php:203
+msgid "The settings in this section refer to the database connection strings used by your old forum software. The best way to determine the exact settings you need is to copy them from your legacy forums configuration file or contact your web hosting provider."
+msgstr ""
+
+#: src/includes/admin/tools.php:211
+msgid "Importer Options"
+msgstr "Opcions d'importació"
+
+#: src/includes/admin/tools.php:212
+msgid "In the Options you have a number of options:"
+msgstr "En les opcions teniu un nombre d'opcions:"
+
+#: src/includes/admin/tools.php:215
+msgid "Depending on your MySQL configuration you can tweak the \"Rows Limit\" and \"Delay Time\" that may help to improve the overall time it takes to perform a complete forum import."
+msgstr ""
+
+#: src/includes/admin/tools.php:216
+msgid "\"Convert Users\" will import your legacy forum members as WordPress Users."
+msgstr ""
+
+#: src/includes/admin/tools.php:217
+msgid "\"Start Over\" will start the importer fresh, if your import failed for any reason leaving this setting unchecked the importer will begin from where it left off."
+msgstr "\"Comença de nou\" s'iniciarà l'importador de nou, si la seva importació ha fallat per algun motiu deixant aquest ajust sense seleccionar l'importador s'iniciarà des d'on el va deixar."
+
+#: src/includes/admin/tools.php:218
+msgid "\"Purge Previous Import\" will remove data imported from a failed import without removing your existing forum data."
+msgstr "\"Neteja una importació prèvia\" esborrarà les dades importades d'una improtació fallida sense esborra les dades existents als fòrums."
+
+#: src/templates/default/bbpress/form-topic-tag.php:45
+msgid "Description:"
+msgstr "Descripció:"
+
+#: src/includes/admin/metaboxes.php:28
+msgid "%d Forum"
+msgid_plural "%d Forums"
+msgstr[0] "%d Fòrum"
+msgstr[1] "%d Fòrums"
+
+#: src/includes/admin/metaboxes.php:35
+msgid "%d Topic"
+msgid_plural "%d Topics"
+msgstr[0] "%d Tema"
+msgstr[1] "%d Temes"
+
+#: src/includes/admin/metaboxes.php:42
+msgid "%d Reply"
+msgid_plural "%d Replies"
+msgstr[0] "%d Resposta"
+msgstr[1] "%d Respostes"
+
+#: src/includes/admin/metaboxes.php:49
+msgid "%d Topic Tags"
+msgid_plural "%d Topic Tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/includes/admin/forums.php:434
+msgid "The forum was not found!"
+msgstr "No s'ha trobat el fòrum!"
+
+#: src/includes/admin/forums.php:513
+msgid "There was a problem opening the forum \"%1$s\"."
+msgstr "Hi ha hagut un problema obrint el fòrum \"%1$s\"."
+
+#: src/includes/admin/forums.php:515
+msgid "Forum \"%1$s\" successfully opened."
+msgstr "El fòrum \"%1$s\" s'ha obert correctament."
+
+#: src/includes/admin/forums.php:521
+msgid "There was a problem closing the forum \"%1$s\"."
+msgstr "Hi ha hagut un problema tancant el fòrum \"%1$s\"."
+
+#: src/includes/admin/forums.php:523
+msgid "Forum \"%1$s\" successfully closed."
+msgstr "El fòrum \"%1$s\" s'ha tancat correctament."
+
+#: src/includes/admin/forums.php:655
+msgid "Close this forum"
+msgstr "Tanca aquest fòrum"
+
+#: src/includes/admin/forums.php:655
+msgctxt "Close a Forum"
+msgid "Close"
+msgstr "Tanca"
+
+#: src/includes/admin/forums.php:657
+msgid "Open this forum"
+msgstr "Obre aquest fòrum"
+
+#: src/includes/admin/forums.php:657
+msgctxt "Open a Forum"
+msgid "Open"
+msgstr "Obre"
+
+#: src/includes/common/template.php:2598
+msgctxt "User viewing another users profile"
+msgid "%s's"
+msgstr "%s"
+
+#: src/includes/common/template.php:2603
+msgid "%s Topics"
+msgstr "Temes de %s"
+
+#: src/includes/common/template.php:2607
+msgid "%s Replies"
+msgstr "Respostes de %s"
+
+#: src/includes/common/template.php:2611
+msgid "%s Favorites"
+msgstr "Preferits de %s"
+
+#: src/includes/common/template.php:2615
+msgid "%s Subscriptions"
+msgstr "Suscripcions de %s"
+
+#: src/includes/common/template.php:2619
+msgid "%s Profile"
+msgstr "Perfil de %s"
+
+#: src/includes/admin/admin.php:633
+msgctxt "admin color scheme"
+msgid "Mint"
+msgstr "Mint"
+
+#: src/includes/admin/admin.php:642
+msgctxt "admin color scheme"
+msgid "Evergreen"
+msgstr "Evergreen"
+
+#: src/includes/admin/settings.php:581
+msgid "Allow users to subscribe to forums and topics"
+msgstr "Permet als usuaris subscriure's a fòrums i temes"
+
+#: src/includes/admin/admin.php:771
+msgid "Converters"
+msgstr "Convertidors"
+
+#: src/includes/admin/admin.php:775
+msgid "We&#8217;re all abuzz about the hive of new importers, AEF, Drupal, FluxBB, Kunena Forums for Joomla, MyBB, Phorum, PHPFox, PHPWind, PunBB, SMF, Xenforo and XMB. Existing importers are now sweeter than honey with improved importing stickies, topic tags, forum categories and the sting is now gone if you need to remove imported users."
+msgstr "Sempre intentem captar nous importadors, AEF, Drupal, FluxBB,Kunena Forums for Joomla, MyBB, Phorum, PHPFox, PHPWind, PunBB, SMF, Xenforo i XMB. Els importadors existents són ara més dolços que la mel amb la millorada importació de stickies, etiquetes de temes, categories de fòrum i la picada s'ha anat si cal eliminar usuaris importats."
+
+#: src/includes/admin/admin.php:787
+msgid "bbPress fully supports automatic translation updates."
+msgstr "bbPress suporta completament les actualitzacions automàtiques d'idiomes."
+
+#: src/includes/extend/buddypress/notifications.php:55
+msgid "You have %d new reply to %2$s from %3$s"
+msgstr "Tens %d noves respostes a %2$s de %3$s"
+
+#: src/includes/extend/buddypress/notifications.php:165
+msgid "<strong>ERROR</strong>: You do not have permission to mark notifications for that user."
+msgstr "<strong>ERRADA</strong>: No tens permís per marcar notificacions per aquest usuari."
+
+#: src/includes/admin/admin.php:743
+msgid "Thank you for updating! bbPress %s is bundled up and ready to weather the storm of users in your community!"
+msgstr "Gràcies per actualitzar! bbPress %s s'empeny cap amunt i està preparat per capejar el temporal dels usuaris en la seva comunitat!"
+
+#: src/includes/admin/admin.php:755
+msgid "Forum Subscriptions"
+msgstr "Subscripcions als Fòrums"
+
+#: src/includes/admin/admin.php:759
+msgid "Subscribe to Forums"
+msgstr "Subscriure's als Fòrums"
+
+#: src/includes/admin/admin.php:760
+msgid "Now your users can subscribe to new topics in specific forums."
+msgstr "Ara els teus usuaris es poden subscriure's a nous temes en fòrums específics."
+
+#: src/includes/admin/admin.php:764
+msgid "Manage Subscriptions"
+msgstr "Gestiona les subscripcions"
+
+#: src/includes/admin/admin.php:765
+msgid "Your users can manage all of their subscriptions in one convenient location."
+msgstr "Els teus usuaris poden gestionar totes les seves subscripcions a un lloc únic."
+
+#: src/includes/admin/admin.php:781
+msgid "Theme Compatibility"
+msgstr "Compatibilitat del tema"
+
+#: src/includes/admin/admin.php:782
+msgid "Better handling of styles and scripts in the template stack."
+msgstr "Millor gestió d'estils i scripts a la pila de plantilla."
+
+#: src/includes/admin/admin.php:871
+msgid "Core Contributors to bbPress 2.5"
+msgstr "Col·laboradors del Nucli de bbPress 2.5"
+
+#: src/includes/admin/tools.php:1326
+msgid "Delete imported users?"
+msgstr "Elimina els usuaris importats"
+
+#: src/includes/admin/tools.php:1330
+msgid "This option will delete all previously imported users, and cannot be undone."
+msgstr "Aquesta opció eliminarà tots els usuaris importats prèviament i no es podrà desfer."
+
+#: src/includes/admin/tools.php:1331
+msgid "Note: Resetting without this checked will delete the meta-data necessary to delete these users."
+msgstr "Nota: Restablir sense activar el comprovant suprimirà les meta-dades necessàries per eliminar aquests usuaris."
+
+#: src/includes/admin/tools.php:1341
+msgid "Human sacrifice, dogs and cats living together... mass hysteria!"
+msgstr "Sacrifici humà, gossos i gats que viuen junts... massa histèria!"
+
+#: src/includes/admin/tools.php:1435
+msgid "Deleting User&hellip; %s"
+msgstr "Esborrant Usuari&hellip; %s"
+
+#: src/includes/admin/converter.php:446
+msgid "No stickies to stick"
+msgstr "Cap destacat per destacar"
+
+#: src/includes/admin/converter.php:450
+msgid "Calculating topic stickies (%1$s - %2$s)"
+msgstr "Calculant destacats de temes (%1$s - %2$s)"
+
+#: src/includes/admin/converter.php:461
+msgid "No super stickies to stick"
+msgstr "No hi ha super-destacats per destacar"
+
+#: src/includes/admin/converter.php:465
+msgid "Calculating topic super stickies (%1$s - %2$s)"
+msgstr "Calculant super-destacats de temes (%1$s - %2$s)"
+
+#: src/includes/admin/admin.php:537
+msgid "About bbPress"
+msgstr "Quant al bbPress"
+
+#: src/includes/admin/admin.php:820
+msgid "Thank you for updating! bbPress %s is waxed, polished, and ready for you to take it for a lap or two around the block!"
+msgstr "Gràcies per actualitzar! bbPress %s està encerat, polit i llest per a portar-lo a fer una volta o dos pel carrer!"
+
+#: src/includes/admin/admin.php:786
+msgid "Polyglot support"
+msgstr "Suport al Polyglot"
+
+#: src/includes/admin/admin.php:791
+msgid "User capabilities"
+msgstr "Capacitats d'usuari"
+
+#: src/includes/admin/admin.php:792
+msgid "Roles and capabilities have been swept through, cleaned up, and simplified."
+msgstr "Les funcions i capacitats han estat arrasades, netejades i simplificades."
+
+#: src/includes/admin/admin.php:848
+#: src/includes/admin/admin.php:867
+msgid "Feature Developer"
+msgstr "Desenvolupador de funcionalitats"
+
+#: src/includes/admin/admin.php:853
+msgid "Converter Specialist"
+msgstr "Especialista en convertidors"
+
+#: src/includes/admin/admin.php:862
+msgid "Bug Testing"
+msgstr "Provador d'errors"
+
+#: src/includes/admin/converter.php:506
+msgid "No reply_to parents to convert"
+msgstr "No hi ha pares de reply_to per convertir"
+
+#: src/includes/admin/converter.php:510
+msgid "Calculating reply_to parents (%1$s - %2$s)"
+msgstr "Calculant pares de reply_to (%1$s - %2$s)"
+
+#: src/includes/admin/metaboxes.php:414
+msgid "Select whether to open or close the topic."
+msgstr "Seleccioneu si voleu obrir o tancar el tema."
+
+#: src/includes/admin/tools.php:301
+msgid "Remove trashed forums from user subscriptions"
+msgstr "Suprimeix fòrums eliminats de les subscripcions d'usuari/ària"
+
+#: src/includes/admin/tools.php:869
+msgid "Removing trashed forums from user subscriptions&hellip; %s"
+msgstr "Eliminant es fòrums eliminats de les subscripcions d'usuaris&hellip; %s"
+
+#: src/includes/admin/tools.php:1305
+msgid "Revert your forums back to a brand new installation. This process cannot be undone."
+msgstr "Torneu els fòrums a la instal·lació original. Aquest procés no es pot desfer."
+
+#: src/includes/admin/tools.php:1306
+msgid "Backup your database before proceeding."
+msgstr "Feu una còpia de seguretat de la base de dades abans de continuar."
+
+#: src/includes/admin/topics.php:801
+#: src/includes/topics/template.php:2751
+msgid "(to front)"
+msgstr "(al davant)"
+
+#: src/includes/common/functions.php:1208
+msgid ""
+"%1$s wrote:\n"
+"\n"
+"%2$s\n"
+"\n"
+"Topic Link: %3$s\n"
+"\n"
+"-----------\n"
+"\n"
+"You are receiving this email because you subscribed to a forum.\n"
+"\n"
+"Login and visit the topic to unsubscribe from these emails."
+msgstr ""
+"%1$s ha escrit:\n"
+"\n"
+"%2$s\n"
+"\n"
+"Enllaç al tema: %3$s\n"
+"\n"
+"-----------\n"
+"\n"
+"Has rebut aquest missatge perquè estàs subscrit al fòrum.\n"
+"\n"
+"Accedeix o visita el tema per desubscriure't d'aquests correus."
+
+#: src/includes/common/template.php:2594
+msgctxt "User viewing his/her own profile"
+msgid "Your"
+msgstr "El teu"
+
+#: src/includes/extend/buddypress/notifications.php:48
+msgid "Topic Replies"
+msgstr "Respostes a temes"
+
+#: src/includes/extend/buddypress/notifications.php:51
+msgid "You have %d new replies"
+msgstr "Tens %d noves respostes"
+
+#: src/includes/extend/buddypress/notifications.php:57
+msgid "You have %d new reply to %s"
+msgstr "Tens %d noves respostes a %s"
+
+#: src/includes/forums/functions.php:1615
+msgctxt "Open the forum"
+msgid "Open"
+msgstr "Obert"
+
+#: src/includes/forums/functions.php:1616
+msgctxt "Close the forum"
+msgid "Closed"
+msgstr "Tancat"
+
+#: src/includes/forums/functions.php:1629
+msgctxt "Forum accepts new topics"
+msgid "Forum"
+msgstr "Fòrum"
+
+#: src/includes/forums/functions.php:1630
+msgctxt "Forum is a category"
+msgid "Category"
+msgstr "Categoria"
+
+#: src/includes/forums/functions.php:1643
+msgctxt "Make forum public"
+msgid "Public"
+msgstr "Públic"
+
+#: src/includes/forums/functions.php:1644
+msgctxt "Make forum private"
+msgid "Private"
+msgstr "Privat"
+
+#: src/includes/forums/functions.php:1645
+msgctxt "Make forum hidden"
+msgid "Hidden"
+msgstr "Ocult"
+
+#: src/includes/topics/functions.php:1966
+msgctxt "Open the topic"
+msgid "Open"
+msgstr "Obert"
+
+#: src/includes/topics/functions.php:1967
+msgctxt "Close the topic"
+msgid "Closed"
+msgstr "Tancat"
+
+#: src/includes/topics/functions.php:1968
+msgctxt "Spam the topic"
+msgid "Spam"
+msgstr "Tema brossa"
+
+#: src/includes/topics/functions.php:1969
+msgctxt "Trash the topic"
+msgid "Trash"
+msgstr "Escombraries"
+
+#: src/includes/topics/functions.php:1970
+msgctxt "Mark topic as pending"
+msgid "Pending"
+msgstr "Pendent"
+
+#: src/includes/topics/functions.php:1983
+msgctxt "Unstick a topic"
+msgid "Normal"
+msgstr "Normal"
+
+#: src/includes/topics/functions.php:1984
+msgctxt "Make topic sticky"
+msgid "Sticky"
+msgstr "Destacat"
+
+#: src/includes/topics/functions.php:1985
+msgctxt "Make topic super sticky"
+msgid "Super Sticky"
+msgstr "Super-Destacat"
+
+#: src/includes/topics/template.php:1894
+msgid "Unfavorite"
+msgstr "Cancel·la preferit"
+
+#: src/includes/users/functions.php:1120
+msgid "<strong>ERROR</strong>: No forum was found! Which forum are you subscribing/unsubscribing to?"
+msgstr "<strong>ERRADA</strong>: No s'ha trobat cap fòrum! De quin fòrum vols subscriure't/desubscriure't?"
+
+#: src/includes/users/functions.php:1173
+msgid "<strong>ERROR</strong>: There was a problem unsubscribing from that forum!"
+msgstr "<strong>ERRADA</strong>: Ha hagut un problema desubscrivint-te d'aquest fòrum!"
+
+#: src/includes/users/functions.php:1175
+msgid "<strong>ERROR</strong>: There was a problem subscribing to that forum!"
+msgstr "<strong>ERRADA</strong>: Ha hagut un problema subscrivint-te a aquest fòrum! "
+
+#: src/templates/default/bbpress/form-topic.php:145
+msgid "Topic Status:"
+msgstr "Estat del tema:"
+
+#: src/templates/default/bbpress/user-subscriptions.php:19
+msgid "Subscribed Forums"
+msgstr "Fòrums subscrits"
+
+#: src/templates/default/bbpress/user-subscriptions.php:28
+msgid "You are not currently subscribed to any forums."
+msgstr "No estàs subscrit a cap fòrum."
+
+#: src/templates/default/bbpress/user-subscriptions.php:28
+msgid "This user is not currently subscribed to any forums."
+msgstr "Aquest usuari no està actualment subscrit a cap fòrum."
+
+#: src/templates/default/bbpress-functions.php:285
+msgid "Please login to subscribe to this forum."
+msgstr "Per favor, accedeix per subscriure't a aquest fòrum."
+
+#: src/templates/default/bbpress-functions.php:302
+msgid "The forum could not be found."
+msgstr " No s'ha trobat el fòrum."
+
+#: src/includes/extend/akismet.php:474
+msgid "Akismet cleared this post as not spam"
+msgstr "Akismet ha aclarit aquesta entrada com a missatge no brossa"
+
+#: src/includes/extend/akismet.php:739
+#: src/includes/extend/akismet.php:749
+msgid "Akismet History"
+msgstr "Historial d'Akismet"
+
+#: src/includes/extend/akismet.php:797
+msgid "No recorded history. Akismet has not checked this post."
+msgstr "No hi ha historial. Akismet no ha pogut No recorded history. Akismet no ha revisat aquest missatge."
+
+#: src/includes/admin/metaboxes.php:562
+msgid "ID:"
+msgstr "ID:"
+
+#: src/includes/admin/metaboxes.php:563
+msgid "ID"
+msgstr "ID"
+
+#: src/includes/common/template.php:2549
+msgid "Forum Edit: %s"
+msgstr "Edita el fòrum: %s"
+
+#: src/includes/common/template.php:2554
+msgid "Topic Edit: %s"
+msgstr "Edita tema: %s"
+
+#: src/includes/common/template.php:2559
+msgid "Reply Edit: %s"
+msgstr "Edita resposta: %s"
+
+#: src/includes/common/template.php:2564
+msgid "Topic Tag Edit: %s"
+msgstr "Edita etiqueta de tema: %s"
+
+#: src/includes/replies/functions.php:168
+msgid "<strong>ERROR</strong>: Topic ID cannot be a negative number."
+msgstr "<strong>ERROR</strong>: L'ID del tema no pot ser un número negatiu."
+
+#: src/includes/replies/functions.php:158
+msgid "<strong>ERROR</strong>: Topic ID must be a number."
+msgstr "<strong>ERROR</strong>: L'ID del tema ha de ser un número."
+
+#: src/includes/replies/functions.php:172
+msgid "<strong>ERROR</strong>: Topic does not exist."
+msgstr "<strong>ERROR</strong>: El tema no existeix."
+
+#: src/includes/replies/functions.php:195
+#: src/includes/topics/functions.php:200
+msgid "<strong>ERROR</strong>: Forum ID must be a number."
+msgstr "<strong>ERROR</strong>: L'ID del fòrum ha de ser un número."
+
+#: src/includes/replies/functions.php:209
+#: src/includes/topics/functions.php:214
+msgid "<strong>ERROR</strong>: Forum ID cannot be a negative number."
+msgstr "<strong>ERROR</strong>: L'ID del fòrum no pot ser un número negatiu."
+
+#: src/includes/replies/functions.php:213
+#: src/includes/topics/functions.php:218
+msgid "<strong>ERROR</strong>: Forum does not exist."
+msgstr "<strong>ERROR</strong>: El fòrum no existeix."
+
+#: src/includes/admin/settings.php:613
+msgid "Allow forum wide search"
+msgstr "Permet cercar als fòrums"
+
+#: src/includes/admin/settings.php:24
+msgid "Forum User Settings"
+msgstr "Configuració dels usuaris dels fòrums"
+
+#: src/includes/admin/settings.php:29
+msgid "Forum Features"
+msgstr "Característiques del fòrums"
+
+#: src/includes/admin/settings.php:174
+msgid "Post Formatting"
+msgstr "Format de l'entrada"
+
+#: src/includes/admin/settings.php:450
+msgid "Setting time limits and other user posting capabilities"
+msgstr "Fixa límits de temps i d'altres funcions d'edició d'usuari/ària"
+
+#: src/includes/admin/settings.php:549
+msgid "Forum features that can be toggled on and off"
+msgstr "Característiques dels fòrums que poden ser activades i desactivades"
+
+#: src/includes/admin/settings.php:685
+msgid "Add toolbar & buttons to textareas to help with HTML formatting"
+msgstr "Afegeix una barra d'eines i botons a les àrees de text per ajudar amb la formatació HTML"
+
+#: src/includes/admin/settings.php:533
+msgid "Automatically give registered visitors the %s forum role"
+msgstr "Dona automàticament als visitants registrats el rol de %s al fòrum"
+
+#: src/includes/admin/settings.php:652
+msgid "Enable threaded (nested) replies %s levels deep"
+msgstr "Activa les respostes niades als fils fins a %s nivells"
+
+#: src/includes/admin/settings.php:190
+msgid "Reply Threading"
+msgstr "Fils de resposta"
+
+#: src/includes/admin/settings.php:1749
+msgid "Possible %1$s conflict: %2$s"
+msgstr "Possible conflicte %1$s: %2$s"
+
+#: src/includes/replies/functions.php:234
+#: src/includes/replies/functions.php:581
+msgid "<strong>ERROR</strong>: This forum has been closed to new replies."
+msgstr "<strong>ERROR</strong>: Aquest fòrum està tancat a noves respostes."
+
+#: src/includes/replies/functions.php:227
+#: src/includes/replies/functions.php:574
+msgid "<strong>ERROR</strong>: This forum is a category. No replies can be created in this forum."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és una categoria. No s'hi poden crear respostes."
+
+#: src/includes/admin/metaboxes.php:509
+msgid "Reply To:"
+msgstr "Respondre a:"
+
+#: src/includes/admin/metaboxes.php:510
+msgid "Reply To"
+msgstr "Respondre a"
+
+#: src/includes/admin/replies.php:223
+msgid "<strong>Reply To</strong> determines the threading of the reply."
+msgstr "<strong>Respondre a</strong> determina el niat de la resposta."
+
+#: src/includes/admin/settings.php:34
+msgid "Forum Theme Packages"
+msgstr "Temes del fòrum"
+
+#: src/includes/admin/settings.php:39
+msgid "Topics and Replies Per Page"
+msgstr "Temes i respostes per pàgina"
+
+#: src/includes/admin/settings.php:44
+msgid "Topics and Replies Per RSS Page"
+msgstr "Temes i respostes per pàgina RSS"
+
+#: src/includes/admin/settings.php:49
+msgid "Forum Root Slug"
+msgstr "URLs personalitzats de l'arrel del fòrum"
+
+#: src/includes/admin/settings.php:54
+msgid "Single Forum Slugs"
+msgstr "URLs personalitzats per a fòrums simples"
+
+#: src/includes/admin/settings.php:59
+msgid "Forum User Slugs"
+msgstr "URLs personalitzats per als usuaris"
+
+#: src/includes/admin/settings.php:64
+msgid "BuddyPress Integration"
+msgstr "Integració amb BuddyPress"
+
+#: src/includes/admin/settings.php:69
+msgid "Akismet Integration"
+msgstr "Integració amb Akismet"
+
+#: src/includes/admin/settings.php:264
+msgid "Forum Root"
+msgstr "Arrel del fòrum"
+
+#: src/includes/admin/settings.php:280
+msgid "Forum root should show"
+msgstr "L'arrel del fòrum s'ha de mostrar"
+
+#: src/includes/admin/settings.php:317
+msgid "Topic View"
+msgstr "Vista de temes"
+
+#: src/includes/admin/settings.php:346
+msgid "User Base"
+msgstr "Base d'usuari/ària"
+
+#: src/includes/admin/settings.php:378
+msgid "Topic Subscriptions"
+msgstr "Subscripcions a temes"
+
+#: src/includes/admin/settings.php:860
+msgid "Customize your Forums root. Partner with a WordPress Page and use Shortcodes for more flexibility."
+msgstr "Personalitzeu l'URL de l'arrel dels fòrums. Enllaceu-lo a una pàgina Wordpress i feu servir els codis curts per a una major flexibilitat."
+
+#: src/includes/admin/settings.php:893
+msgid "Prefix all forum content with the Forum Root slug (Recommended)"
+msgstr "Prefixa tot el contingut dels fòrums amb l'URL personalitzat de l'arrel del fòrum (recomanat)"
+
+#: src/includes/admin/settings.php:913
+msgid "Forum Index"
+msgstr "Índex del fòrum"
+
+#: src/includes/admin/settings.php:916
+msgid "Topics by Freshness"
+msgstr "Temes per antinguitat"
+
+#: src/includes/admin/settings.php:943
+msgid "Customize your user profile slugs."
+msgstr "Personalitzeu les icones de perfil d'usuari/ària"
+
+#: src/includes/admin/settings.php:1043
+msgid "Custom slugs for single forums, topics, replies, tags, views, and search."
+msgstr "Personalitzeu l'URL per a fòrums individuals, temes, respostes, etiquetes, vistes i cerca."
+
+#: src/includes/replies/functions.php:320
+msgid "<strong>ERROR</strong>: Topic is closed."
+msgstr "<strong>ERROR</strong>: El tema està tancat."
+
+#: src/includes/replies/template.php:1693
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: src/includes/replies/template.php:2341
+msgid "Viewing %1$s reply thread"
+msgid_plural "Viewing %1$s reply threads"
+msgstr[0] "Visualitzant el fil de respostes de %1$s "
+msgstr[1] "Mostrant els fils de respostes de %1$s "
+
+#: src/includes/extend/buddypress/groups.php:271
+#: src/includes/extend/buddypress/groups.php:274
+msgid "Group Forum Settings"
+msgstr "Configuració del fòrum del node"
+
+#: src/includes/admin/converter.php:386
+msgid "Delete users WordPress default passwords (%1$s - %2$s)"
+msgstr "Esborra les contrasenyes d'usuari/ària predeterminades de WordPress (%1$s - %2$s)"
+
+#: src/includes/common/widgets.php:916
+msgid "Recent Topics"
+msgstr "Temes recents"
+
+#: src/includes/common/widgets.php:1050
+msgid "Forum Statistics"
+msgstr "Estadístiques del fòrum"
+
+#: src/includes/common/widgets.php:1254
+msgid "Recent Replies"
+msgstr "Respostes recents"
+
+#: src/includes/extend/buddypress/groups.php:287
+msgid "Group Forum:"
+msgstr "Fòrum del grup"
+
+#: src/includes/extend/buddypress/groups.php:295
+msgid "Network administrators can reconfigure which forum belongs to this group."
+msgstr "Els administradors del lloc poden reconfigurar quin fòrum pertany a aquest node."
+
+#: src/includes/extend/buddypress/groups.php:433
+msgctxt "group admin edit screen"
+msgid "Discussion Forum"
+msgstr "Fòrum de discussió"
+
+#: src/includes/extend/buddypress/groups.php:771
+msgid "This group does not currently have a forum."
+msgstr "Aquest grup no té cap fòrum actualment."
+
+#: src/bbpress.php:681
+msgid "Most popular topics"
+msgstr "Temes més populars"
+
+#: src/templates/default/bbpress/feedback-no-search.php:13
+msgid "Oh bother! No search results were found here!"
+msgstr "No s'han trobat resultats aquí!"
+
+#: src/bbpress.php:574
+msgctxt "post"
+msgid "Closed <span class=\"count\">(%s)</span>"
+msgid_plural "Closed <span class=\"count\">(%s)</span>"
+msgstr[0] "Tancat <span class=\"count\">(%s)</span>"
+msgstr[1] "Tancats <span class=\"count\">(%s)</span>"
+
+#: src/bbpress.php:585
+msgctxt "post"
+msgid "Spam <span class=\"count\">(%s)</span>"
+msgid_plural "Spam <span class=\"count\">(%s)</span>"
+msgstr[0] "Brossa <span class=\"count\">(%s)</span>"
+msgstr[1] "Brossa <span class=\"count\">(%s)</span>"
+
+#: src/bbpress.php:598
+msgctxt "post"
+msgid "Orphan <span class=\"count\">(%s)</span>"
+msgid_plural "Orphans <span class=\"count\">(%s)</span>"
+msgstr[0] "Orfe <span class=\"count\">(%s)</span>"
+msgstr[1] "Orfes <span class=\"count\">(%s)</span>"
+
+#: src/bbpress.php:611
+msgctxt "post"
+msgid "Hidden <span class=\"count\">(%s)</span>"
+msgid_plural "Hidden <span class=\"count\">(%s)</span>"
+msgstr[0] "Ocult <span class=\"count\">(%s)</span>"
+msgstr[1] "Ocults <span class=\"count\">(%s)</span>"
+
+#: src/includes/admin/tools.php:290
+msgid "Recalculate the sticky relationship of each topic"
+msgstr "Recalcula la relació de destacats de cada tema."
+
+#: src/includes/admin/tools.php:550
+msgid "group-forums"
+msgstr "fòrums de grup"
+
+#: src/includes/admin/tools.php:566
+msgid "Complete! %s groups updated; %s forums updated; %s forum statuses synced."
+msgstr "Fet! %s grups actualitzats; %s fòrums actualitzats; %s estat de fòrum sincronitzat."
+
+#: src/includes/admin/tools.php:1109
+msgid "Repairing the sticky topic to the parent forum relationships&hellip; %s"
+msgstr "Corregint les relacions de temes destacats amb els fòrums pare&hellip; %s"
+
+#: src/includes/admin/tools.php:1420
+msgid "Deleting Topic Tags&hellip; %s"
+msgstr "Esborrant etiquetes de tema&hellip; %s"
+
+#: src/includes/admin/users.php:96
+#: src/includes/admin/users.php:100
+#: src/includes/users/template.php:1290
+msgid "&mdash; No role for these forums &mdash;"
+msgstr "&mdash; No hi ha rol per aquests fòrums &mdash;"
+
+#: src/includes/common/functions.php:1068
+msgid ""
+"%1$s wrote:\n"
+"\n"
+"%2$s\n"
+"\n"
+"Post Link: %3$s\n"
+"\n"
+"-----------\n"
+"\n"
+"You are receiving this email because you subscribed to a forum topic.\n"
+"\n"
+"Login and visit the topic to unsubscribe from these emails."
+msgstr ""
+"%1$s ha escrit:\n"
+"\n"
+"%2$s\n"
+"\n"
+"Enllaç al missatge: %3$s\n"
+"\n"
+"-----------\n"
+"\n"
+"Heu rebut aquest missatge perquè esteu subscrit al tema del fòrum.\n"
+"\n"
+"Accediu o visiteu el tema per cancel·lar la subscrpciót d'aquests correus."
+
+#: src/includes/admin/settings.php:166
+#: src/includes/admin/settings.php:333
+#: src/includes/common/template.php:2324
+#: src/includes/search/template.php:225
+#: src/templates/default/bbpress/form-search.php:17
+msgid "Search"
+msgstr "Cerca"
+
+#: src/includes/common/widgets.php:384
+msgid "The bbPress forum search form."
+msgstr "Formulari de cerca dels fòrums de bbPress."
+
+#: src/includes/common/widgets.php:387
+msgid "(bbPress) Forum Search Form"
+msgstr "(bbPress) Formulari de cerca de fòrums"
+
+#: src/includes/common/widgets.php:950
+msgid "Some statistics from your forum."
+msgstr "Algunes estadístiques del vostre fòrum."
+
+#: src/includes/common/widgets.php:953
+msgid "(bbPress) Statistics"
+msgstr "(bbPress) Estadístiques"
+
+#: src/includes/core/sub-actions.php:147
+msgid "The current user is being initialized without using $wp->init()."
+msgstr "L'usuari/ària actual està sent carregat sense utilitzar $wp->init()."
+
+#: src/includes/extend/buddypress/activity.php:195
+msgid "New forum topic"
+msgstr "Tema nou al fòrum"
+
+#: src/includes/extend/buddypress/activity.php:196
+msgid "New forum reply"
+msgstr "Resposta nova al fòrum"
+
+#: src/includes/replies/functions.php:1222
+msgid "<strong>ERROR</strong>: Reply ID to move not found!"
+msgstr "<strong>ERRADA</strong>: L'ID de la resposta a moure no s'ha trobat!"
+
+#: src/includes/replies/functions.php:1231
+msgid "<strong>ERROR</strong>: The reply you want to move was not found."
+msgstr "<strong>ERRADA</strong>: La resposta que voleu moure no s'ha trobat."
+
+#: src/includes/replies/functions.php:1240
+msgid "<strong>ERROR</strong>: The topic you want to move from was not found."
+msgstr "<strong>ERRADA</strong>: El tema que voleu moure no s'ha trobat."
+
+#: src/includes/replies/functions.php:1261
+msgid "<strong>ERROR</strong>: You need to choose a valid move option."
+msgstr "<strong>ERRADA</strong>: Heu de seleccionar una opció per moure vàlida."
+
+#: src/includes/replies/functions.php:1284
+msgid "<strong>ERROR</strong>: The topic you want to move to was not found!"
+msgstr "<strong>ERRADA</strong>: El tema que voleu moure no s'ha trobat."
+
+#: src/includes/replies/template.php:2167
+msgid "Move"
+msgstr "Mou"
+
+#: src/includes/replies/template.php:2168
+msgid "Move this reply"
+msgstr "Mou aquesta resposta"
+
+#: src/includes/search/template.php:229
+msgid "Search Results for '%s'"
+msgstr "Resultats de cerca per '%s'"
+
+#: src/includes/search/template.php:401
+msgid "Viewing %1$s result"
+msgid_plural "Viewing %1$s results"
+msgstr[0] "Veient %1$s resultat"
+msgstr[1] "Veient %1$s resultats"
+
+#: src/includes/search/template.php:405
+msgid "Viewing %2$s results (of %4$s total)"
+msgid_plural "Viewing %1$s results - %2$s through %3$s (of %4$s total)"
+msgstr[0] "Veient %2$s resultats (d'un total de %4$s)"
+msgstr[1] "Veient %1$s resultats - %2$s a través de %3$s (d'un total de %4$s)"
+
+#: src/includes/topics/template.php:1893
+#: src/includes/users/template.php:894
+msgid "Favorite"
+msgstr "Preferit"
+
+#: src/includes/users/template.php:895
+msgid "Favorited"
+msgstr "Marcat com a preferit"
+
+#: src/templates/default/bbpress/form-reply-move.php:24
+msgid "Move reply \"%s\""
+msgstr "Mou resposta \"%s\""
+
+#: src/templates/default/bbpress/form-reply-move.php:29
+msgid "You can either make this reply a new topic with a new title, or merge it into an existing topic."
+msgstr "Tampoc podeu fer aquesta resposta com a tema nou amb un nou títol o fusionar-la en un tema existent."
+
+#: src/templates/default/bbpress/form-reply-move.php:33
+msgid "If you choose an existing topic, replies will be ordered by the time and date they were created."
+msgstr "Si escolliu un tema existent, les respostes s'ordenaran pel dia i hora que van ser creades."
+
+#: src/templates/default/bbpress/form-reply-move.php:37
+msgid "Move Method"
+msgstr "Mou mètode"
+
+#: src/templates/default/bbpress/form-reply-move.php:42
+msgid "Moved: %s"
+msgstr "Mogut: %s"
+
+#: src/templates/default/bbpress/form-reply-move.php:85
+msgid "You do not have the permissions to edit this reply!"
+msgstr "No teniu permís per modificar aquesta resposta!"
+
+#: src/templates/default/bbpress/form-reply-move.php:85
+msgid "You cannot edit this reply."
+msgstr "No podeu modificar aquesta resposta."
+
+#: src/templates/default/bbpress/form-search.php:14
+msgid "Search for:"
+msgstr "Cercar per:"
+
+#: src/templates/default/bbpress/loop-search-forum.php:16
+msgid "Last updated %s"
+msgstr "Última actualització %s"
+
+#: src/templates/default/bbpress/loop-search-forum.php:26
+msgid "Forum: "
+msgstr "Fòrum:"
+
+#: src/templates/default/bbpress/loop-search-reply.php:24
+msgid "In reply to: "
+msgstr "En resposta a:"
+
+#: src/templates/default/bbpress/loop-search-topic.php:26
+msgid "Topic: "
+msgstr "Tema:"
+
+#: src/templates/default/bbpress/loop-search-topic.php:33
+msgid "in group forum "
+msgstr "al grup del fòrum"
+
+#: src/templates/default/bbpress/loop-search-topic.php:37
+msgid "in forum "
+msgstr "al fòrum"
+
+#: src/templates/default/bbpress/loop-search.php:22
+#: src/templates/default/bbpress/loop-search.php:44
+msgid "Search Results"
+msgstr "Resultats de la cerca"
+
+#: src/templates/default/bbpress-functions.php:243
+#: src/templates/default/bbpress-functions.php:252
+msgid "Something went wrong. Refresh your browser and try again."
+msgstr "Hi ha un problema. Recarregueu el vostre navagador i torneu a provar de nou."
+
+#: src/templates/default/bbpress-functions.php:348
+msgid "Favorites are no longer active."
+msgstr "Els preferits ja no estàn actius."
+
+#: src/templates/default/bbpress-functions.php:353
+msgid "Please login to make this topic a favorite."
+msgstr "Accediu per marcar aquest tema com a preferit."
+
+#: src/templates/default/bbpress-functions.php:294
+#: src/templates/default/bbpress-functions.php:362
+#: src/templates/default/bbpress-functions.php:430
+msgid "You do not have permission to do this."
+msgstr "No teniu permís per fer aixó."
+
+#: src/templates/default/bbpress-functions.php:370
+#: src/templates/default/bbpress-functions.php:438
+msgid "The topic could not be found."
+msgstr "No s'ha trobat el tema."
+
+#: src/templates/default/bbpress-functions.php:307
+#: src/templates/default/bbpress-functions.php:375
+#: src/templates/default/bbpress-functions.php:443
+msgid "Are you sure you meant to do that?"
+msgstr "Esteu segurs que voleu fer això?"
+
+#: src/templates/default/bbpress-functions.php:315
+#: src/templates/default/bbpress-functions.php:383
+#: src/templates/default/bbpress-functions.php:451
+msgid "The request was unsuccessful. Please try again."
+msgstr "La petició ha fallat. Torneu-ho a provar de nou."
+
+#: src/templates/default/bbpress-functions.php:280
+#: src/templates/default/bbpress-functions.php:416
+msgid "Subscriptions are no longer active."
+msgstr "Les subscripcions ja no estàn disponibles."
+
+#: src/templates/default/bbpress-functions.php:421
+msgid "Please login to subscribe to this topic."
+msgstr "Accediu per subscriure-us a aquest tema."
+
+#: src/templates/default/bbpress/user-replies-created.php:15
+msgid "Forum Replies Created"
+msgstr "Respostes creades al fòrum"
+
+#: src/templates/default/bbpress/user-details.php:48
+msgid "%s's Favorites"
+msgstr "%s Preferits"
+
+#: src/templates/default/bbpress/user-details.php:35
+msgid "%s's Topics Started"
+msgstr "S'han començat %s temes"
+
+#: src/templates/default/bbpress/loop-single-reply.php:21
+msgid "in reply to: "
+msgstr "En resposta a:"
+
+#: src/templates/default/bbpress/form-user-edit.php:143
+#: src/templates/default/bbpress/form-user-edit.php:146
+msgid "User Role"
+msgstr "Rol de l'usuari/ària"
+
+#: src/templates/default/bbpress/form-user-edit.php:39
+msgid "Display Name"
+msgstr "Mostra el nom"
+
+#: src/templates/default/bbpress/user-details.php:41
+msgid "%s's Replies Created"
+msgstr "S'han creat %s respostes"
+
+#: src/includes/core/capabilities.php:523
+msgid "Editable forum roles no longer exist."
+msgstr "Els rols editables ja no existeixen."
+
+#: src/includes/extend/akismet.php:404
+msgid "No response"
+msgstr "Cap resposta"
+
+#: src/includes/admin/admin.php:700
+#: src/includes/admin/admin.php:724
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: src/includes/admin/metaboxes.php:360
+#: src/includes/admin/metaboxes.php:440
+#: src/includes/admin/metaboxes.php:494
+msgid "&mdash; No parent &mdash;"
+msgstr "&mdash; Sense pare &mdash;"
+
+#: src/includes/admin/metaboxes.php:548
+msgid "Email:"
+msgstr "Correu electrònic:"
+
+#: src/includes/admin/settings.php:99
+msgid "Throttle posting every"
+msgstr "Temps entre entrades cada"
+
+#: src/includes/admin/metaboxes.php:570
+msgid "IP:"
+msgstr "IP:"
+
+#: src/includes/admin/settings.php:91
+msgid "Disallow editing after"
+msgstr "No permetis modificar desprès de"
+
+#: src/includes/admin/settings.php:732
+msgid "No template packages available."
+msgstr "No hi ha paquets de plantilla disponibles."
+
+#: src/includes/admin/settings.php:1544
+msgid "This screen provides access to all of the Forums settings."
+msgstr "Aquesta pàgina permet accedir a totes les configuracions del fòrums."
+
+#: src/includes/admin/tools.php:291
+msgid "Repair BuddyPress Group Forum relationships"
+msgstr "Repara les relacions del fòrum de grup del BuddyPress"
+
+#: src/includes/admin/tools.php:302
+msgid "Remap existing users to default forum roles"
+msgstr "Reassigna els usuaris existents amb els rols per defecte del fòrum."
+
+#: src/includes/core/capabilities.php:404
+msgid "Blocked"
+msgstr "Blocat"
+
+#: src/includes/core/capabilities.php:398
+msgid "Spectator"
+msgstr "Espectador"
+
+#: src/includes/core/capabilities.php:392
+msgid "Participant"
+msgstr "Participant"
+
+#: src/includes/users/template.php:507
+msgid "Inactive"
+msgstr "Inactiu"
+
+#: src/templates/default/bbpress/form-forum.php:169
+msgid "You cannot create new forums."
+msgstr "No podeu crear fòrums nous."
+
+#: src/templates/default/bbpress/user-replies-created.php:28
+msgid "This user has not replied to any topics."
+msgstr "Aquest usuari/ària no ha respost a cap tema."
+
+#: src/templates/default/bbpress/user-replies-created.php:28
+msgid "You have not replied to any topics."
+msgstr "No heu respost a cap tema."
+
+#: src/templates/default/bbpress/form-topic.php:234
+msgid "You cannot create new topics."
+msgstr "No podeu crear temes nous."
+
+#: src/templates/default/bbpress/user-profile.php:26
+msgid "Replies Created: %s"
+msgstr "Respostes creades: %s"
+
+#: src/templates/default/bbpress/user-details.php:58
+msgid "%s's Subscriptions"
+msgstr "Subscripció de %s "
+
+#: src/templates/default/bbpress/form-user-edit.php:153
+msgid "Network Role"
+msgstr "Rol de la xarxa"
+
+#: src/templates/default/bbpress/form-user-edit.php:133
+msgid "Your password should be at least ten characters long. Use upper and lower case letters, numbers, and symbols to make it even stronger."
+msgstr ""
+
+#: src/templates/default/bbpress/form-user-roles.php:13
+msgid "Blog Role"
+msgstr "Rol del blog"
+
+#: src/templates/default/bbpress/user-details.php:29
+#: src/templates/default/bbpress/user-profile.php:15
+msgid "Profile"
+msgstr "Perfil"
+
+#: src/templates/default/bbpress/user-profile.php:25
+msgid "Topics Started: %s"
+msgstr "Temes començats: %s"
+
+#: src/templates/default/bbpress/user-profile.php:24
+msgid "Forum Role: %s"
+msgstr "Rol del fòrum: %s"
+
+#: src/templates/default/bbpress/user-topics-created.php:15
+msgid "Forum Topics Started"
+msgstr "Temes del fòrum marcats com a preferits"
+
+#: src/includes/core/capabilities.php:380
+msgid "Keymaster"
+msgstr "Clau mestra"
+
+#: src/includes/admin/admin.php:831
+msgid "bbPress is created by a worldwide swarm of busy, busy bees."
+msgstr ""
+
+#: src/includes/admin/admin.php:833
+msgid "Project Leaders"
+msgstr "Líders dels projecte"
+
+#: src/includes/admin/admin.php:838
+msgid "Founding Developer"
+msgstr ""
+
+#: src/includes/admin/admin.php:843
+msgid "Lead Developer"
+msgstr ""
+
+#: src/includes/admin/admin.php:857
+msgid "Contributing Developers"
+msgstr ""
+
+#: src/includes/admin/settings.php:158
+msgid "Topic tags"
+msgstr "Etiquetes del tema"
+
+#: src/includes/admin/settings.php:107
+msgid "Anonymous posting"
+msgstr "Publicació anònima"
+
+#: src/includes/admin/settings.php:115
+msgid "Auto role"
+msgstr ""
+
+#: src/includes/admin/settings.php:182
+msgid "Auto-embed links"
+msgstr "Continguts incrustats"
+
+#: src/includes/admin/settings.php:1194
+msgid "&mdash; Forum root &mdash;"
+msgstr "&mdash; Arrel del fòrum &mdash;"
+
+#: src/includes/admin/settings.php:1255
+msgid "Forums Settings"
+msgstr "Paràmetres dels fòrums"
+
+#: src/includes/admin/tools.php:447
+msgid "Repairing BuddyPress group-forum relationships&hellip; %s"
+msgstr "Reparació de relacions BuddyPress de grups-fòrums&hellip; %s"
+
+#: src/includes/admin/tools.php:932
+msgid "Remapping forum role for each user on this site&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:970
+msgid "Complete! %s users updated."
+msgstr "Completat! %s usuaris actualitzats."
+
+#: src/includes/admin/topics.php:145
+msgid "You can filter the list of topics by topic status using the text links in the upper left to show All, Published, or Trashed topics. The default view is to show all topics."
+msgstr "Podeu filtrar la llista de temes pel seu estat fent servir els enllaços de la part superior esquerra per mostrar o be Tots, o els Publicats, o els temes de la Paperera. La visualització per defecte és mostrar tots els temes. "
+
+#: src/includes/admin/topics.php:146
+msgid "You can refine the list to show only topics from a specific month by using the dropdown menus above the topics list. Click the Filter button after making your selection. You also can refine the list by clicking on the topic creator in the topics list."
+msgstr "Podeu refinar la llista per mostrar solament els temes d'un mes específic si feu servir els menús desplegables que hi ha a la part superior de la llista de temes. Premeu el botó Filtre després de fer la selecció. També podeu refinar la llista fent clic al nom del creador del tema de la llista de temes. "
+
+#: src/includes/admin/topics.php:161
+msgid "<strong>Close</strong> will mark the selected topic as &#8217;closed&#8217; and disable the option to post new replies to the topic."
+msgstr "<strong>Tanca</strong> marcarà el tema sel·leccionat com &#8217;tancat&#8217; i deshabilitarà l'opció d'afegir respostes noves al tema."
+
+#: src/includes/admin/topics.php:162
+msgid "<strong>Stick</strong> will keep the selected topic &#8217;pinned&#8217; to the top the parent forum topic list."
+msgstr ""
+
+#: src/includes/admin/topics.php:163
+msgid "<strong>Stick <em>(to front)</em></strong> will keep the selected topic &#8217;pinned&#8217; to the top of ALL forums and be visable in any forums topics list."
+msgstr ""
+
+#: src/includes/admin/users.php:87
+#: src/includes/admin/users.php:213
+#: src/templates/default/bbpress/form-user-roles.php:20
+msgid "Forum Role"
+msgstr "Rols del fòrum"
+
+#: src/includes/admin/users.php:138
+#: src/includes/admin/users.php:140
+msgid "Change forum role to&hellip;"
+msgstr "Canviar el rol del fòrum a&hellip; "
+
+#: src/includes/admin/users.php:144
+msgid "Change"
+msgstr "Canvia"
+
+#: src/includes/admin/users.php:212
+msgid "Site Role"
+msgstr "Rol del lloc"
+
+#: src/includes/extend/buddypress/groups.php:282
+msgid "Saying no will not delete existing forum content."
+msgstr "Dient no, no s'esborrarà el contingut del fòrum existent."
+
+#: src/includes/extend/buddypress/groups.php:300
+msgid "Save Settings"
+msgstr "Desa la configuració"
+
+#: src/includes/extend/buddypress/groups.php:474
+msgid "Group Forum"
+msgstr "Fòrum del grup"
+
+#: src/includes/admin/settings.php:362
+#: src/includes/extend/buddypress/loader.php:207
+#: src/includes/extend/buddypress/loader.php:277
+#: src/templates/default/bbpress/user-details.php:41
+msgid "Replies Created"
+msgstr "Respostes creades"
+
+#: src/includes/admin/settings.php:1396
+msgid "Some optional parameters to help tune the conversion process."
+msgstr "Alguns paràmetres opcionals per ajudar-vos a ajustar el procés de conversió."
+
+#: src/includes/admin/settings.php:1470
+msgid "Use this if an import failed and you want to remove that incomplete data."
+msgstr "Feu-la servir si una importació ha fallat i voleu eliminar aquesta informació incompleta."
+
+#: src/includes/admin/settings.php:1455
+msgid "You should clean old conversion information before starting over."
+msgstr "Hauríeu de netejar la informació de la conversió antiga i començar de nou."
+
+#: src/includes/admin/settings.php:1454
+msgid "Start a fresh conversion from the beginning"
+msgstr "Inicia una conversió nova desde el començament"
+
+#: src/includes/admin/topics.php:172
+msgid "You can also edit or move multiple topics to the trash at once. Select the topics you want to act on using the checkboxes, then select the action you want to take from the Bulk Actions menu and click Apply."
+msgstr "També podeu editar o enviar a la paperera varis temes al mateix temps. Seleccioneu els temes sobre els que voleu actuar fent servir les caselles de selecció. A continuació, escolliu l'acció que voleu fer del menú d'Accions en Massa i feu clic a Aplica. "
+
+#: src/includes/admin/topics.php:134
+msgid "This screen displays the individual topics on your site. You can customize the display of this screen to suit your workflow."
+msgstr ""
+
+#: src/includes/admin/settings.php:1559
+msgid "Topic-Tags allow users to filter topics between forums. This is enabled by default."
+msgstr ""
+
+#: src/includes/admin/tools.php:288
+msgid "Recalculate private and hidden forums"
+msgstr "Recalcula els fòrums privats i ocults"
+
+#: src/includes/admin/tools.php:1163
+msgid "Recalculating forum visibility &hellip; %s"
+msgstr "Recalculant la visibilitat del fòrum &hellip; %s"
+
+#: src/includes/admin/topics.php:173
+msgid "When using Bulk Edit, you can change the metadata (categories, author, etc.) for all selected topics at once. To remove a topic from the grouping, just click the x next to its name in the Bulk Edit area that appears."
+msgstr "Quan useu l'Edició en Massa, podeu canviar les metadades (categories, autor/a, etc.) al mateix temps per a tots els temes seleccionats. Per suprimir un tema del grup, simplement feu clic a la x que hi ha al costat del seu nom en l'àrea d'Edició en Massa. "
+
+#: src/includes/common/widgets.php:817
+msgctxt "widgets"
+msgid "by %1$s"
+msgstr "per %s"
+
+#: src/includes/common/widgets.php:892
+msgid "Show topic author:"
+msgstr "Mostra l'autor/a del tema:"
+
+#: src/includes/common/widgets.php:895
+msgid "Order By:"
+msgstr "Ordenats per:"
+
+#: src/includes/common/widgets.php:897
+msgid "Newest Topics"
+msgstr "Temes més nous"
+
+#: src/includes/common/widgets.php:899
+msgid "Topics With Recent Replies"
+msgstr "Temes amb respotes recents"
+
+#: src/includes/common/widgets.php:1168
+msgctxt "widgets"
+msgid "%1$s on %2$s %3$s"
+msgstr "%1$s el %2$s %3$s"
+
+#: src/includes/common/widgets.php:1174
+msgctxt "widgets"
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#: src/includes/common/widgets.php:1186
+msgctxt "widgets"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: src/includes/common/widgets.php:1239
+msgid "Show reply author:"
+msgstr "Mostra l'autor/a de la resposta"
+
+#: src/includes/extend/buddypress/groups.php:335
+#: src/includes/extend/buddypress/groups.php:494
+#: src/includes/extend/buddypress/notifications.php:161
+#: src/includes/forums/functions.php:118
+#: src/includes/forums/functions.php:395
+#: src/includes/replies/functions.php:116
+#: src/includes/replies/functions.php:518
+#: src/includes/replies/functions.php:1245
+#: src/includes/topics/functions.php:122
+#: src/includes/topics/functions.php:520
+#: src/includes/topics/functions.php:1153
+#: src/includes/topics/functions.php:1456
+#: src/includes/topics/functions.php:1820
+#: src/includes/topics/functions.php:1860
+#: src/includes/topics/functions.php:1917
+#: src/includes/users/functions.php:409
+#: src/includes/users/functions.php:1124
+#: src/includes/users/functions.php:1230
+#: src/includes/users/functions.php:1357
+#: src/includes/users/functions.php:1363
+msgid "<strong>ERROR</strong>: Are you sure you wanted to do that?"
+msgstr "<strong>ERROR</strong>: Segur que voleu fer això?"
+
+#: src/includes/replies/template.php:706
+#: src/includes/topics/template.php:811
+msgctxt "date at time"
+msgid "%1$s at %2$s"
+msgstr "%1$s a les %2$s"
+
+#: src/includes/admin/admin.php:798
+#: src/includes/admin/admin.php:902
+msgid "Go to Forum Settings"
+msgstr "Vés a la configuració del fòrum"
+
+#: src/includes/admin/admin.php:742
+#: src/includes/admin/admin.php:819
+msgid "Welcome to bbPress %s"
+msgstr "Benvinguts al bbPress %s!"
+
+#: src/includes/admin/admin.php:750
+#: src/includes/admin/admin.php:827
+msgid "Credits"
+msgstr "Crèdits"
+
+#: src/includes/admin/admin.php:258
+#: src/includes/admin/admin.php:259
+#: src/includes/admin/admin.php:267
+#: src/includes/admin/admin.php:268
+msgid "Welcome to bbPress"
+msgstr "Benvinguts al bbPress"
+
+#: src/includes/admin/forums.php:168
+#: src/includes/admin/forums.php:227
+#: src/includes/admin/replies.php:178
+#: src/includes/admin/replies.php:235
+#: src/includes/admin/settings.php:1590
+#: src/includes/admin/tools.php:135
+#: src/includes/admin/tools.php:166
+#: src/includes/admin/tools.php:225
+#: src/includes/admin/topics.php:179
+#: src/includes/admin/topics.php:235
+msgid "<a href=\"http://codex.bbpress.org\" target=\"_blank\">bbPress Documentation</a>"
+msgstr "<a href=\"http://codex.bbpress.org\" target=\"_blank\">Documentació de bbPress</a>"
+
+#: src/includes/admin/forums.php:162
+msgid "When using Bulk Edit, you can change the metadata (categories, author, etc.) for all selected forums at once. To remove a forum from the grouping, just click the x next to its name in the Bulk Edit area that appears."
+msgstr "Quan useu l'Edició en Massa, podeu canviar les metadades (categories, autor, etc.) al mateix temps per a tots els fòrums seleccionats. Per suprimir un fòrum del grup, simplement feu clic a la x que hi ha al costat del seu nom en l'àrea d'Edició en Massa. "
+
+#: src/includes/admin/admin.php:748
+#: src/includes/admin/admin.php:825
+msgid "What&#8217;s New"
+msgstr "Què és nou"
+
+#: src/includes/admin/forums.php:152
+msgid "<strong>View</strong> will show you what your draft forum will look like if you publish it. View will take you to your live site to view the forum. Which link is available depends on your forum&#8217;s status."
+msgstr "<strong>Mostra</strong> us ensenyarà com es veuria l'esborrany del fòrum si el publiquéssiu. Mostra us portarà al vostre lloc web per veure el fòrum. Quin enllaç està disponible depèn de l'estat del vostre fòrum. "
+
+#: src/includes/admin/forums.php:127
+msgid "This screen displays the individual forums on your site. You can customize the display of this screen to suit your workflow."
+msgstr "Aquesta pantalla mostra els fòrums individuals del vostre lloc web. Podeu personalitzar el que es visualitza en aquesta pantalla per adaptar-la al vostre flux de treball."
+
+#: src/includes/admin/converter.php:134
+msgid "Purge Previous Import"
+msgstr "Neteja una importació prèvia"
+
+#: src/includes/admin/converter.php:130
+msgid "Start Over"
+msgstr "Comença de nou"
+
+#: src/includes/admin/converter.php:84
+#: src/includes/admin/tools.php:199
+msgid "Database Settings"
+msgstr "Configuració de la base de dades"
+
+#: src/includes/admin/forums.php:161
+msgid "You can also edit or move multiple forums to the trash at once. Select the forums you want to act on using the checkboxes, then select the action you want to take from the Bulk Actions menu and click Apply."
+msgstr "També podeu editar o enviar a la paperera diversos fòrums al mateix temps. Seleccioneu els fòrums sobre els que voleu actuar fent servir les caselles de selecció. A continuació, escolliu l'acció que voleu fer del menú d'Accions en Massa i feu clic a Aplica. "
+
+#: src/includes/admin/settings.php:748
+msgid "Embed media (YouTube, Twitter, Flickr, etc...) directly into topics and replies"
+msgstr "Incrusta continguts multimèdia (YouTube, Twitter, Flickr, etc...) directament als temes i respostes"
+
+#: src/includes/admin/settings.php:597
+msgid "Allow topics to have tags"
+msgstr "Permet que els temes tinguin etiquetes"
+
+#: src/includes/admin/forums.php:212
+msgid "<strong>Status</strong> allows you to close a forum to new topics and forums."
+msgstr "<strong>Estat</strong> us permet tancar un fòrum a temes i fòrums nous."
+
+#: src/includes/admin/converter.php:223
+msgid "Starting Conversion"
+msgstr "S'ha iniciat la conversió"
+
+#: src/includes/admin/admin.php:516
+msgid "About"
+msgstr "Quant a"
+
+#: src/includes/admin/converter.php:346
+msgid "Deleting previously converted data (%1$s - %2$s)"
+msgstr ""
+
+#: src/includes/admin/converter.php:366
+msgid "Converting users (%1$s - %2$s)"
+msgstr "S'estan convertint els usuaris (%1$s - %2$s)"
+
+#: src/includes/admin/converter.php:405
+msgid "Converting forums (%1$s - %2$s)"
+msgstr "S'estan convertint fòrums (%1$s - %2$s)"
+
+#: src/includes/admin/converter.php:420
+msgid "Calculating forum hierarchy (%1$s - %2$s)"
+msgstr "S'està calculant la jerarquia del fòrum (%1$s - %2$s)"
+
+#: src/includes/admin/converter.php:435
+msgid "Converting topics (%1$s - %2$s)"
+msgstr "S'estan convertint els temes (%1$s - %2$s)"
+
+#: src/includes/admin/converter.php:480
+msgid "Converting topic tags (%1$s - %2$s)"
+msgstr "S'estan convertint les etiquetes del tema (%1$s - %2$s)"
+
+#: src/includes/admin/converter.php:495
+msgid "Converting replies (%1$s - %2$s)"
+msgstr "S'estan convertint les respostes (%1$s - %2$s)"
+
+#: src/templates/default/bbpress/feedback-no-replies.php:13
+msgid "Oh bother! No replies were found here!"
+msgstr "No s'ha trobat cap resposta!"
+
+#: src/includes/admin/tools.php:652
+msgid "Counting the number of topics each user has created&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:297
+msgid "Count topics for each user"
+msgstr "Compta els temes de cada usuari/ària"
+
+#: src/includes/admin/tools.php:1312
+msgid "The following data will be removed:"
+msgstr "Les dades següents seran eliminades:"
+
+#: src/includes/admin/tools.php:1317
+msgid "All Topic Tags"
+msgstr "Totes les etiquetes del tema"
+
+#: src/includes/admin/tools.php:1318
+msgid "Related Meta Data"
+msgstr "Metadades relacionades"
+
+#: src/includes/admin/tools.php:1319
+msgid "Forum Settings"
+msgstr "Configuració del fòrum"
+
+#: src/includes/admin/tools.php:1320
+msgid "Forum Activity"
+msgstr "Activitat del fòrum"
+
+#: src/includes/admin/tools.php:1321
+msgid "Forum User Roles"
+msgstr "Rols d'usuari/ària del fòrum"
+
+#: src/includes/admin/tools.php:1322
+msgid "Importer Helper Data"
+msgstr "Dades d'ajuda a la importació"
+
+#: src/includes/admin/tools.php:1336
+msgid "Are you sure you want to do this?"
+msgstr "Esteu segurs que vol fer això?"
+
+#: src/includes/admin/tools.php:1329
+#: src/includes/admin/tools.php:1339
+msgid "Say it ain't so!"
+msgstr ""
+
+#: src/includes/admin/tools.php:1340
+msgid "This process cannot be undone."
+msgstr "Aquest procés no pot ser desfet."
+
+#: src/includes/admin/tools.php:1349
+msgid "Reset bbPress"
+msgstr "Reinicia el bbPress"
+
+#: src/includes/admin/tools.php:1385
+msgid "Failed"
+msgstr "Ha fallat"
+
+#: src/includes/admin/tools.php:1386
+msgid "Success!"
+msgstr "Correcte!"
+
+#: src/includes/admin/tools.php:1398
+msgid "Deleting Posts&hellip; %s"
+msgstr "Eliminant entrades&helip; %s"
+
+#: src/includes/admin/tools.php:1411
+msgid "Deleting Post Meta&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:1440
+#: src/includes/admin/tools.php:1448
+msgid "Deleting User Meta&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:1456
+msgid "Deleting Conversion Table&hellip; %s"
+msgstr "Eliminant Taula de conversió&hellip; %s"
+
+#: src/includes/admin/tools.php:1468
+msgid "Deleting Settings&hellip; %s"
+msgstr "Eliminant configuració&hellip; %s"
+
+#: src/includes/admin/tools.php:1474
+msgid "Deleting Roles and Capabilities&hellip; %s"
+msgstr "Eliminant rols i permisos&hellip; %s"
+
+#: src/includes/admin/converters/AEF.php:688
+#: src/includes/admin/converters/FluxBB.php:643
+#: src/includes/admin/converters/Invision.php:525
+#: src/includes/admin/converters/Kunena1.php:543
+#: src/includes/admin/converters/Kunena2.php:585
+#: src/includes/admin/converters/Kunena3.php:812
+#: src/includes/admin/converters/PHPFox3.php:649
+#: src/includes/admin/converters/PunBB.php:677
+#: src/includes/admin/converters/SMF.php:656
+#: src/includes/admin/converters/SimplePress5.php:537
+#: src/includes/admin/converters/Vanilla.php:535
+#: src/includes/admin/converters/XMB.php:705
+#: src/includes/admin/converters/XenForo.php:722
+#: src/includes/admin/converters/bbPress1.php:636
+#: src/includes/admin/converters/phpBB.php:816
+#: src/includes/admin/converters/vBulletin.php:652
+#: src/includes/admin/converters/vBulletin3.php:652
+msgid "Re: "
+msgstr "Re: "
+
+#: src/includes/admin/admin.php:200
+msgid "Forum Repair"
+msgstr "Repara el fòrum"
+
+#: src/includes/admin/admin.php:210
+msgid "Forum Import"
+msgstr "Importa el fòrum"
+
+#: src/includes/admin/admin.php:219
+#: src/includes/admin/functions.php:251
+#: src/includes/admin/tools.php:159
+#: src/includes/admin/tools.php:1304
+msgid "Reset Forums"
+msgstr "Reinicia els fòrums"
+
+#: src/includes/admin/admin.php:220
+msgid "Forum Reset"
+msgstr "Reinicia el fòrum"
+
+#: src/templates/default/bbpress/form-user-lost-pass.php:27
+msgid "Reset My Password"
+msgstr "Reinicia la contrasenya"
+
+#: src/includes/admin/tools.php:33
+msgid "bbPress keeps track of relationships between forums, topics, replies, and topic tags, and users. Occasionally these relationships become out of sync, most often after an import or migration. Use the tools below to manually recalculate these relationships."
+msgstr "bbPress realitza un seguiment de diverses relacions entre els fòrums, temes, respostes i etiquetes. De vegades, aquestes relacions queden fora de la sincronització, normalment després d'una importació, actualització o migració. Feu servir les eines de sota per recalcular de forma manual aquestes relacions. "
+
+#: src/includes/admin/tools.php:34
+msgid "Some of these tools create substantial database overhead. Avoid running more than 1 repair job at a time."
+msgstr "Algunes d'aquestes eines poden crear una sobrecàrrega important base de dades. Eviteu executar més d'un treball de reparació alhora."
+
+#: src/includes/admin/tools.php:40
+msgid "Relationships to Repair:"
+msgstr "Reparació de relacions:"
+
+#: src/includes/admin/converter.php:107
+msgid "Database Password"
+msgstr "Contrasenya de la base de dades"
+
+#: src/includes/admin/tools.php:43
+msgid "Repair"
+msgstr "Repara"
+
+#: src/includes/admin/admin.php:199
+#: src/includes/admin/functions.php:243
+#: src/includes/admin/tools.php:31
+#: src/includes/admin/tools.php:121
+msgid "Repair Forums"
+msgstr "Repara els fòrums"
+
+#: src/includes/admin/admin.php:209
+#: src/includes/admin/functions.php:247
+#: src/includes/admin/settings.php:1503
+msgid "Import Forums"
+msgstr "Importa els fòrums"
+
+#: src/includes/admin/settings.php:1327
+msgid "IP or hostname"
+msgstr "IP o nom del host"
+
+#: src/includes/admin/settings.php:1341
+msgid "Use default 3306 if unsure"
+msgstr "Utilitzeu el 3306 com a valor predeterminat si no esteu segurs"
+
+#: src/includes/admin/settings.php:1355
+msgid "User for your database connection"
+msgstr "Usuari/ària de la vostra conexió a base de dades"
+
+#: src/includes/admin/settings.php:1369
+msgid "Password to access the database"
+msgstr "Contrasenya per accedir a la base de dades"
+
+#: src/includes/admin/settings.php:1383
+msgid "Name of the database with your old forum data"
+msgstr "Nom de la base de dades amb les dades del fòrum antic"
+
+#: src/includes/admin/settings.php:1424
+msgid "rows to process at a time"
+msgstr "fitxers a processar a la vegada"
+
+#: src/includes/admin/settings.php:1425
+msgid "Keep this low if you experience out-of-memory issues."
+msgstr "Mantingueu aquest valor baix si experimenteu problemes de memòria."
+
+#: src/includes/admin/settings.php:1439
+msgid "second(s) delay between each group of rows"
+msgstr "segon(s) de retràs entra cada grup de files"
+
+#: src/includes/admin/settings.php:1440
+msgid "Keep this high to prevent too-many-connection issues."
+msgstr "Mantingueu aquest paràmetre alt per evitar problemes amb massa connexions."
+
+#: src/includes/admin/settings.php:1469
+msgid "Purge all information from a previously attempted import"
+msgstr "Netejeu tota la informació d'un intent d'importació previ."
+
+#: src/includes/admin/settings.php:1485
+msgid "Non-bbPress passwords cannot be automatically converted. They will be converted as each user logs in."
+msgstr "Les contrasenyes del bbPress no es poden convertir de forma automàtica. Es convertiran en el moment que els usuaris s'autentiquin."
+
+#: src/includes/admin/tools.php:58
+msgid "Repair Items"
+msgstr "Repara els elements"
+
+#: src/includes/admin/tools.php:286
+msgid "Recalculate the parent topic for each post"
+msgstr "Recalcula el tema pare de cada entrada"
+
+#: src/includes/admin/tools.php:287
+msgid "Recalculate the parent forum for each post"
+msgstr "Recalcula el fòrum pare de cada entrada"
+
+#: src/includes/admin/tools.php:1190
+msgid "Recalculating the forum for each post &hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:1251
+msgid "Recalculating the topic for each post &hellip; %s"
+msgstr ""
+
+#: src/includes/admin/converter.php:115
+msgid "Options"
+msgstr "Opcions"
+
+#: src/includes/admin/settings.php:1283
+msgid "Information about your previous forums database so that they can be converted. <strong>Backup your database before proceeding.</strong>"
+msgstr ""
+
+#: src/includes/admin/converter.php:416
+msgid "No forum parents to convert"
+msgstr "No hi ha fòrums pare per convertir"
+
+#: src/includes/admin/converter.php:491
+msgid "No replies to convert"
+msgstr ""
+
+#: src/includes/admin/converter.php:248
+#: src/includes/admin/converter.php:520
+msgid "Conversion Complete"
+msgstr "Conversió completada"
+
+#: src/includes/users/template.php:503
+msgid "Guest"
+msgstr "Convidat/da"
+
+#: src/includes/users/template.php:517
+msgid "Member"
+msgstr "Membre"
+
+#: src/includes/core/capabilities.php:386
+msgid "Moderator"
+msgstr "Moderador/a"
+
+#: src/includes/forums/template.php:1994
+msgid "This category contains %1$s, and was last updated by %2$s %3$s."
+msgstr "Aquesta categoria conté %1$s, i l'última actualització la va fer %2$s %3$s."
+
+#: src/includes/forums/template.php:1996
+msgid "This forum contains %1$s, and was last updated by %2$s %3$s."
+msgstr "Aquest fòrum conté %1$s, i l'última actualització la va fer %2$s %3$s."
+
+#: src/includes/forums/template.php:2016
+msgid "This category contains %1$s."
+msgstr "Aquesta categoria conté %1$s."
+
+#: src/includes/forums/template.php:2018
+msgid "This forum contains %1$s."
+msgstr "Aquest fòrum conté %1$s."
+
+#: src/includes/forums/template.php:2022
+msgid "This forum is empty."
+msgstr "Aquest fòrum està buit."
+
+#: src/includes/topics/template.php:3324
+msgid "This topic has no replies."
+msgstr "Aquest tema no té respostes."
+
+#: src/includes/forums/template.php:1986
+msgid "This category contains %1$s and %2$s, and was last updated by %3$s %4$s."
+msgstr "Aquesta categoria conté %1$s i %2$s, i l'última que va ser actualitzat ho va fer %3$s %4$s."
+
+#: src/includes/forums/template.php:1988
+msgid "This forum contains %1$s and %2$s, and was last updated by %3$s %4$s."
+msgstr "Aquest fòrum conté %1$s i %2$s, i l'última vegada que va ser actualitzat ho va fer %3$s %4$s."
+
+#: src/includes/replies/template.php:804
+msgid "This reply was modified %1$s by %2$s. Reason: %3$s"
+msgstr "Aquesta resposta va ser modificada %1$s per %2$s. La raó: %3$s"
+
+#: src/includes/replies/template.php:806
+msgid "This reply was modified %1$s by %2$s."
+msgstr "La resposta va ser modificada %1$s per %2$s."
+
+#: src/includes/topics/template.php:993
+msgid "This topic was modified %1$s by %2$s. Reason: %3$s"
+msgstr "Aquest tema ha estat modificat %1$s per %2$s. La raó: %3$s"
+
+#: src/includes/topics/template.php:995
+msgid "This topic was modified %1$s by %2$s."
+msgstr "Aquest tema ha estat modificat %1$s per %2$s."
+
+#: src/includes/topics/template.php:3316
+msgid "This topic contains %1$s, has %2$s, and was last updated by %3$s %4$s."
+msgstr "Aquest tema conté %1$s, té %2$s, i l'última actualització la va fer %3$s %4$s."
+
+#: src/includes/common/functions.php:112
+msgid "sometime"
+msgstr "fa una estona"
+
+#: src/includes/common/functions.php:113
+msgid "right now"
+msgstr "ara mateix"
+
+#: src/includes/common/functions.php:118
+msgid "year"
+msgstr "any"
+
+#: src/includes/common/functions.php:118
+msgid "years"
+msgstr "anys"
+
+#: src/includes/common/functions.php:119
+msgid "month"
+msgstr "mes"
+
+#: src/includes/common/functions.php:119
+msgid "months"
+msgstr "mesos"
+
+#: src/includes/common/functions.php:120
+msgid "week"
+msgstr "setmana"
+
+#: src/includes/common/functions.php:120
+msgid "weeks"
+msgstr "setmanes"
+
+#: src/includes/common/functions.php:121
+msgid "day"
+msgstr "dia"
+
+#: src/includes/common/functions.php:121
+msgid "days"
+msgstr "dies"
+
+#: src/includes/common/functions.php:122
+msgid "hour"
+msgstr "hora"
+
+#: src/includes/common/functions.php:122
+msgid "hours"
+msgstr "hores"
+
+#: src/includes/common/functions.php:123
+msgid "minute"
+msgstr "minut"
+
+#: src/includes/common/functions.php:124
+msgid "second"
+msgstr "segon"
+
+#: src/includes/common/functions.php:179
+msgctxt "Separator in time since"
+msgid ","
+msgstr ", "
+
+#: src/includes/extend/buddypress/loader.php:105
+msgid "Search Forums..."
+msgstr "Cerca als fòrums..."
+
+#: src/includes/admin/settings.php:354
+#: src/includes/extend/buddypress/loader.php:196
+#: src/includes/extend/buddypress/loader.php:269
+#: src/templates/default/bbpress/user-details.php:35
+msgid "Topics Started"
+msgstr "Temes marcats com a preferits"
+
+#: src/includes/admin/settings.php:142
+#: src/includes/extend/buddypress/loader.php:218
+#: src/templates/default/bbpress/user-details.php:48
+msgid "Favorites"
+msgstr "Preferits"
+
+#: src/includes/admin/settings.php:150
+#: src/includes/extend/buddypress/loader.php:230
+#: src/templates/default/bbpress/user-details.php:58
+msgid "Subscriptions"
+msgstr "Subscripcions"
+
+#: src/includes/admin/settings.php:370
+#: src/includes/extend/buddypress/loader.php:285
+msgid "Favorite Topics"
+msgstr "Temes preferits"
+
+#: src/includes/extend/buddypress/loader.php:293
+#: src/templates/default/bbpress/user-subscriptions.php:34
+msgid "Subscribed Topics"
+msgstr "Temes subscrits"
+
+#: src/includes/admin/tools.php:549
+msgid "Group Forums"
+msgstr "Fòrums de grup"
+
+#: src/includes/extend/buddypress/groups.php:275
+#: src/includes/extend/buddypress/groups.php:476
+msgid "Create a discussion forum to allow members of this group to communicate in a structured, bulletin-board style fashion."
+msgstr "Creeu un fòrum de discussió per permetre als membres d'aquest node comunicarse d'una forma estructurada i amb estil."
+
+#: src/includes/extend/buddypress/groups.php:279
+#: src/includes/extend/buddypress/groups.php:479
+msgid "Yes. I want this group to have a forum."
+msgstr "Sí. Vull que aquest node tingui un fòrum."
+
+#: src/includes/forums/functions.php:131
+msgid "<strong>ERROR</strong>: You do not have permission to create new forums."
+msgstr "<strong>ERROR</strong>: No teniu permisos per crear fòrums nous."
+
+#: src/includes/forums/functions.php:155
+#: src/includes/forums/functions.php:455
+msgid "<strong>ERROR</strong>: Your forum needs a title."
+msgstr "<strong>ERROR</strong>: El fòrum necessita un títol."
+
+#: src/includes/forums/functions.php:167
+#: src/includes/forums/functions.php:467
+msgid "<strong>ERROR</strong>: Your forum description cannot be empty."
+msgstr "<strong>ERROR</strong>: La descripció del fòrum no pot estar buida."
+
+#: src/includes/forums/functions.php:181
+msgid "<strong>ERROR</strong>: Your forum must have a parent."
+msgstr "<strong>ERROR</strong>: El fòrum ha de tenir un pare."
+
+#: src/includes/forums/functions.php:188
+msgid "<strong>ERROR</strong>: This forum is a category. No forums can be created in this forum."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és una categoria, No es poden crear fòrums en aquest fòrum."
+
+#: src/includes/forums/functions.php:193
+#: src/includes/forums/functions.php:431
+msgid "<strong>ERROR</strong>: This forum has been closed to new forums."
+msgstr "<strong>ERROR</strong>: Aquest fòrum s'ha tancat per a fòrums nous."
+
+#: src/includes/forums/functions.php:198
+#: src/includes/forums/functions.php:436
+msgid "<strong>ERROR</strong>: This forum is private and you do not have the capability to read or create new forums in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és privat i no teniu  permisos per llegir-lo o crear-hi fòrum nous."
+
+#: src/includes/forums/functions.php:203
+#: src/includes/forums/functions.php:441
+msgid "<strong>ERROR</strong>: This forum is hidden and you do not have the capability to read or create new forums in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum està ocult i no teniu  permisos per llegir-lo o crear-hi fòrum nous."
+
+#: src/includes/forums/functions.php:215
+msgid "<strong>ERROR</strong>: This forum already exists."
+msgstr "<strong>ERROR</strong>: aquest fòrum ja existeix."
+
+#: src/includes/forums/functions.php:220
+msgid "<strong>ERROR</strong>: Your forum cannot be created at this time."
+msgstr "<strong>ERROR</strong>: El vostre fòrum no es pot craar en aquest moment."
+
+#: src/includes/forums/functions.php:384
+msgid "<strong>ERROR</strong>: Forum ID not found."
+msgstr "<strong>ERROR</strong>: No s'ha torbat l'ID del fòrum."
+
+#: src/includes/forums/functions.php:400
+msgid "<strong>ERROR</strong>: The forum you want to edit was not found."
+msgstr "<strong>ERROR</strong>: no s'ha trobat el fòrum que voleu editar."
+
+#: src/includes/forums/functions.php:405
+msgid "<strong>ERROR</strong>: You do not have permission to edit that forum."
+msgstr "<strong>ERROR</strong>: No teniu permisos per editar aquest fòrum."
+
+#: src/includes/forums/functions.php:472
+msgid "<strong>ERROR</strong>: Your forum cannot be edited at this time."
+msgstr "<strong>ERROR</strong>: El vostre fòrum no es pot editar en aquest moment."
+
+#: src/includes/replies/template.php:2352
+msgid "Viewing %2$s replies (of %4$s total)"
+msgid_plural "Viewing %1$s replies - %2$s through %3$s (of %4$s total)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/includes/replies/template.php:2364
+msgid "Viewing %2$s post (of %4$s total)"
+msgid_plural "Viewing %1$s posts - %2$s through %3$s (of %4$s total)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/includes/topics/template.php:2689
+msgctxt "Topic Status"
+msgid "Close"
+msgstr "Tanca"
+
+#: src/includes/topics/template.php:2690
+msgctxt "Topic Status"
+msgid "Open"
+msgstr "Obre"
+
+#: src/includes/topics/template.php:2985
+msgid "Viewing topic %2$s (of %4$s total)"
+msgid_plural "Viewing %1$s topics - %2$s through %3$s (of %4$s total)"
+msgstr[0] "Veient el tema %2$s (de %4$s total)"
+msgstr[1] "Veient %1$s temes - %2$s de %3$s (de %4$s en total)"
+
+#: src/includes/topics/template.php:3320
+msgid "This topic contains %1$s and has %2$s."
+msgstr "Aquest tema conté %1$s i té %2$s."
+
+#: src/templates/default/bbpress/form-forum.php:37
+msgid "Create New Forum in &ldquo;%s&rdquo;"
+msgstr "Crea un fòrum nou a &ldquo;%s&rdquo;"
+
+#: src/templates/default/bbpress/form-forum.php:47
+msgid "This forum is closed to new content, however your account still allows you to do so."
+msgstr "Aquest fòrum no permet afegir temes nous, no obstant el vostre compte té permís per fer-ho."
+
+#: src/templates/default/bbpress/form-forum.php:67
+msgid "Forum Name (Maximum Length: %d):"
+msgstr "Nom del fòrum (Longitud màxima: %d):"
+
+#: src/templates/default/bbpress/form-forum.php:91
+msgid "Forum Type:"
+msgstr "Tipus de fòrum:"
+
+#: src/templates/default/bbpress/form-forum.php:161
+msgid "The forum &#8216;%s&#8217; is closed to new content."
+msgstr "El fòrum &#8216;%s&#8217; no permet afegir temes nous."
+
+#: src/templates/default/bbpress/form-forum.php:169
+msgid "You must be logged in to create new forums."
+msgstr "Heu d'haver entrat per crear fòrums nous."
+
+#: src/bbpress.php:133
+#: src/bbpress.php:140
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: src/bbpress.php:408
+#: src/templates/default/bbpress-functions.php:51
+msgid "bbPress Default"
+msgstr ""
+
+#: src/includes/admin/admin.php:281
+#: src/includes/admin/admin.php:282
+#: src/includes/admin/admin.php:303
+#: src/includes/admin/admin.php:304
+#: src/includes/admin/admin.php:976
+#: src/includes/admin/admin.php:1063
+msgid "Update Forums"
+msgstr "Actualitza els fòrums"
+
+#: src/includes/admin/settings.php:209
+msgid "Current Package"
+msgstr "Paquet actual"
+
+#: src/includes/admin/settings.php:391
+msgid "Enable Group Forums"
+msgstr "Habilita fòrums als nodes"
+
+#: src/includes/admin/settings.php:399
+msgid "Group Forums Parent"
+msgstr "Fòrum principal dels nodes"
+
+#: src/includes/admin/settings.php:412
+msgid "Use Akismet"
+msgstr "Utilitza l'Akismet"
+
+#: src/includes/admin/admin.php:928
+#: src/includes/admin/admin.php:950
+msgid "Update Forum"
+msgstr "Actualitza el fòrum"
+
+#: src/includes/admin/admin.php:939
+#: src/includes/admin/admin.php:993
+msgid "All done!"
+msgstr "Tot fet!"
+
+#: src/includes/admin/admin.php:949
+msgid "You can update your forum through this page. Hit the link below to update."
+msgstr "Podeu actualitzar el vostre fòrum mitjançant aquesta pàgina. Premeu a l'enllaç de sota per actualitzar."
+
+#: src/includes/admin/admin.php:1019
+msgid "Warning! Problem updating %1$s. Your server may not be able to connect to sites running on it. Error message: <em>%2$s</em>"
+msgstr ""
+
+#: src/includes/admin/admin.php:1043
+msgid "If your browser doesn&#8217;t start loading the next page automatically, click this link:"
+msgstr ""
+
+#: src/includes/admin/admin.php:1044
+msgid "Next Forums"
+msgstr "Fòrums següents"
+
+#: src/includes/admin/admin.php:1062
+msgid "You can update all the forums on your network through this page. It works by calling the update script of each site automatically. Hit the link below to update."
+msgstr ""
+
+#: src/includes/admin/converter.php:87
+msgid "Select Platform"
+msgstr "Seleccioneu una plataforma"
+
+#: src/includes/admin/converter.php:91
+msgid "Database Server"
+msgstr "Servidor de la base de dades"
+
+#: src/includes/admin/converter.php:95
+msgid "Database Port"
+msgstr "Port de la base de dades"
+
+#: src/includes/admin/converter.php:103
+msgid "Database User"
+msgstr "Usuari/ària de la base de dades"
+
+#: src/includes/admin/converter.php:99
+msgid "Database Name"
+msgstr "Nom de la base de dades"
+
+#: src/includes/admin/converter.php:111
+msgid "Table Prefix"
+msgstr "Prefix de la taula"
+
+#: src/includes/admin/converter.php:118
+msgid "Rows Limit"
+msgstr "Límit de files"
+
+#: src/includes/admin/converter.php:122
+msgid "Delay Time"
+msgstr ""
+
+#: src/includes/admin/converter.php:126
+msgid "Convert Users"
+msgstr "Converteix els usuaris"
+
+#: src/includes/admin/converter.php:342
+msgid "No data to clean"
+msgstr "No hi ha cap dada per netejar"
+
+#: src/includes/admin/converter.php:362
+msgid "No users to convert"
+msgstr "No hi ha cap usuari per convertir"
+
+#: src/includes/admin/converter.php:382
+msgid "No passwords to clear"
+msgstr ""
+
+#: src/includes/admin/converter.php:401
+msgid "No forums to convert"
+msgstr ""
+
+#: src/includes/admin/converter.php:431
+msgid "No topics to convert"
+msgstr "No hi ha temes per convertir"
+
+#: src/includes/admin/converter.php:476
+msgid "No tags to convert"
+msgstr "No hi ha etiquetes per convertir"
+
+#: src/includes/admin/forums.php:125
+#: src/includes/admin/replies.php:132
+#: src/includes/admin/settings.php:1543
+#: src/includes/admin/tools.php:190
+#: src/includes/admin/topics.php:132
+msgid "Overview"
+msgstr "Resum"
+
+#: src/includes/admin/replies.php:134
+msgid "This screen provides access to all of your replies. You can customize the display of this screen to suit your workflow."
+msgstr "Aquesta pantalla proporciona accés a totes les vostres respostes. Podeu personalitzar-ne la visualització per adaptar-la al vostre flux de treball. "
+
+#: src/includes/admin/forums.php:133
+#: src/includes/admin/replies.php:140
+#: src/includes/admin/topics.php:140
+msgid "Screen Content"
+msgstr "Contingut de la pantalla"
+
+#: src/includes/admin/forums.php:135
+#: src/includes/admin/replies.php:142
+#: src/includes/admin/topics.php:142
+msgid "You can customize the display of this screen&#8217;s contents in a number of ways:"
+msgstr "Podeu personalitzar la visualització dels continguts d'aquesta pantalla de diverses maneres: "
+
+#: src/includes/admin/replies.php:144
+msgid "You can hide/display columns based on your needs and decide how many replies to list per screen using the Screen Options tab."
+msgstr "Podeu amagar/mostrar les columnes segons les vostres necessitats i decidir quantes respostes llistar per pantalla fent servir la pestanya Opcions de Pantalla. "
+
+#: src/includes/admin/forums.php:146
+#: src/includes/admin/replies.php:154
+#: src/includes/admin/topics.php:153
+msgid "Available Actions"
+msgstr "Accions disponibles "
+
+#: src/includes/admin/forums.php:150
+msgid "<strong>Edit</strong> takes you to the editing screen for that forum. You can also reach that screen by clicking on the forum title."
+msgstr "<strong>Edita</strong> us portarà a la pantalla d'edició del fòrum. Podeu també anar a aquesta pantalla fent clic al títol del fòrum. "
+
+#: src/includes/admin/forums.php:151
+msgid "<strong>Trash</strong> removes your forum from this list and places it in the trash, from which you can permanently delete it."
+msgstr "<strong>Paperera</strong> suprimeix el fòrum d'aquesta llista i el posa a la paperera, des d'on podeu suprimir-lo permanentment. "
+
+#: src/includes/admin/forums.php:159
+#: src/includes/admin/replies.php:169
+#: src/includes/admin/topics.php:170
+msgid "Bulk Actions"
+msgstr "Accions en massa"
+
+#: src/includes/admin/replies.php:171
+msgid "You can also edit or move multiple replies to the trash at once. Select the replies you want to act on using the checkboxes, then select the action you want to take from the Bulk Actions menu and click Apply."
+msgstr "També podeu editar o enviar a la paperera diverses respostes al mateix temps. Seleccioneu les repostes sobre les que voleu actuar fent servir les caselles de selecció. A continuació, escolliu l'acció que voleu fer del menú d'Accions en Massa i feu clic a Aplica. "
+
+#: src/includes/admin/forums.php:167
+#: src/includes/admin/forums.php:226
+#: src/includes/admin/replies.php:177
+#: src/includes/admin/replies.php:234
+#: src/includes/admin/settings.php:1589
+#: src/includes/admin/tools.php:134
+#: src/includes/admin/tools.php:165
+#: src/includes/admin/tools.php:224
+#: src/includes/admin/topics.php:178
+#: src/includes/admin/topics.php:234
+msgid "For more information:"
+msgstr "Per a més informació:"
+
+#: src/includes/admin/forums.php:169
+#: src/includes/admin/forums.php:228
+#: src/includes/admin/replies.php:179
+#: src/includes/admin/replies.php:236
+#: src/includes/admin/settings.php:1591
+#: src/includes/admin/tools.php:136
+#: src/includes/admin/tools.php:167
+#: src/includes/admin/tools.php:226
+#: src/includes/admin/topics.php:180
+#: src/includes/admin/topics.php:236
+msgid "<a href=\"http://bbpress.org/forums/\" target=\"_blank\">bbPress Support Forums</a>"
+msgstr "<a href=\"http://bbpress.org/forums/\" target=\"_blank\">Fòrums de suport del bbPress</a>"
+
+#: src/includes/admin/forums.php:183
+msgid "The title field and the big forum editing Area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen."
+msgstr "El camp del títol i la gran àrea d'edició del fòrum són fixes, però podeu canviar la posició de totes les altres caixes arrossegant-les i deixant-les anar. També podeu minimitzar-les o ampliar-les fent clic sobre la barra del títol de cada caixa. Feu servir la pestanya d'Opcions de Pantalla per mostrar més caixes (Resum, Envia Retroenllaços, Camps Personalitzats, Discussió, URL, Autor) o per triar un format d'1 o 2 columnes per a aquesta pantalla."
+
+#: src/includes/admin/forums.php:187
+#: src/includes/admin/replies.php:197
+#: src/includes/admin/topics.php:198
+msgid "Customizing This Display"
+msgstr "S'està personalitzant aquesta pantalla"
+
+#: src/includes/admin/forums.php:193
+msgid "Title and Forum Editor"
+msgstr "Títol i editor del fòrum"
+
+#: src/includes/admin/forums.php:195
+msgid "<strong>Title</strong> - Enter a title for your forum. After you enter a title, you&#8217;ll see the permalink below, which you can edit."
+msgstr "<strong>Títol</strong> - Introduïu un títol per al fòrum. Una vegada introduït veureu, a sota, l'enllaç permanent que podreu editar. "
+
+#: src/includes/admin/forums.php:196
+msgid "<strong>Forum Editor</strong> - Enter the text for your forum. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The HTML mode allows you to enter raw HTML along with your forum text. You can insert media files by clicking the icons above the forum editor and following the directions. You can go to the distraction-free writing screen via the Fullscreen icon in Visual mode (second to last in the top row) or the Fullscreen button in HTML mode (last in the row). Once there, you can make buttons visible by hovering over the top area. Exit Fullscreen back to the regular forum editor."
+msgstr "<strong>Editor del Fòrum</strong> - Introduïu el text del vostre fòrum. Hi ha dos modes d'edició: Visual i HTML. Trieu el mode prement a la pestanya adequada. El mode Visual us proporciona un editor WYSIWYG. Feu clic a la darrera icona de la fila per obrir una segona fila de controls. El mode HTML us permet introduir codi HTML en el text del fòrum. Podeu inserir fitxers multimèdia si feu clic en les icones a sobre l'editor del fòrum i seguiu les instruccions. Podeu anar a una pantalla sense distraccions amb la icona de Pantalla Completa del mode Visual (la penúltima icona de la fila superior) o el botó de Pantalla Completa en el mode HTML (la darrera icona de la fila). Una vegada esteu a pantalla completa, podeu fer visibles els botons en passar el cursor per sobre de la part superior de l'àrea. Sortiu de la Pantalla Completa per tornar a l'editor normal. "
+
+#: src/includes/admin/forums.php:199
+msgid "<strong>Publish</strong> - You can set the terms of publishing your forum in the Publish box. For Status, Visibility, and Publish (immediately), click on the Edit link to reveal more options. Visibility includes options for password-protecting a forum or making it stay at the top of your blog indefinitely (sticky). Publish (immediately) allows you to set a future or past date and time, so you can schedule a forum to be published in the future or backdate a forum."
+msgstr "<strong>Publica</strong> - Podeu establir les condicions de publicació del vostre fòrum a la Caixa de Publicació. Per a l'Estat, la Visibilitat i Publica (immediatament), premeu l'enllaç Edita per mostrar més opcions. La visibilitat inclou opcions per protegir un fòrum amb contrasenya o fer-lo romandre a dalt de tot del bloc indefinidament (destacat). Publica (immediatament) us permet definir una data i hora futura o passada per tal de poder programar un fòrum i que es publiqui en el futur o retrocedir a una data determinada. "
+
+#: src/includes/admin/forums.php:202
+msgid "<strong>Featured Image</strong> - This allows you to associate an image with your forum without inserting it. This is usually useful only if your theme makes use of the featured image as a forum thumbnail on the home page, a custom header, etc."
+msgstr "<strong>Imatge destacada</strong> - Permet associar una imatge al fòrum sense haver d'inserir-la. Sol ser útil només si el tema fa servir la característica d'imatge destacada com a miniatura a la pàgina principal, en una capçalera personalitzada..."
+
+#: src/includes/admin/forums.php:209
+msgid "Select the attributes that your forum should have:"
+msgstr ""
+
+#: src/includes/admin/forums.php:211
+msgid "<strong>Type</strong> indicates if the forum is a category or forum. Categories generally contain other forums."
+msgstr "<strong>Tipus</strong> indica si el fòrum és una categoria o un fòrum. En general, les categories contenen altres fòrums."
+
+#: src/includes/admin/forums.php:213
+msgid "<strong>Visibility</strong> lets you pick the scope of each forum and what users are allowed to access it."
+msgstr "<strong>Visibilitat</strong> us permet triar l'abast de cada fòrum i quins usuaris el poden accedir."
+
+#: src/includes/admin/forums.php:214
+msgid "<strong>Parent</strong> dropdown determines the parent forum. Select the forum or category from the dropdown, or leave the default (No Parent) to create the forum at the root of your forums."
+msgstr "<strong>Pare</strong> aquest desplegable determina el fòrum pare. Selecciona un fòrum o categoria de la llista desplegable o deixa el valor predeterminat (Sense Pare) per crear el fòrum a l'arrel dels vostres fòrums."
+
+#: src/includes/admin/forums.php:215
+msgid "<strong>Order</strong> allows you to order your forums numerically."
+msgstr "<strong>Ordre</strong> us permet ordenar els fòrums numèricament."
+
+#: src/includes/admin/forums.php:221
+#: src/includes/admin/replies.php:229
+#: src/includes/admin/topics.php:229
+msgid "Publish Box"
+msgstr "Caixa de Publicació"
+
+#: src/includes/admin/metaboxes.php:402
+msgid "Topic Type"
+msgstr "Tipus de tema"
+
+#: src/includes/admin/replies.php:145
+msgid "You can filter the list of replies by reply status using the text links in the upper left to show All, Published, Draft, or Trashed replies. The default view is to show all replies."
+msgstr "Podeu filtrar la llista de respostes pel seu estat fent servir els enllaços de la part superior esquerra per mostrar Totes, les Publicades o les respostes de la Paperera. La visualització per defecte mostra totes les respostes. "
+
+#: src/includes/admin/replies.php:147
+msgid "You can refine the list to show only replies in a specific category or from a specific month by using the dropdown menus above the replies list. Click the Filter button after making your selection. You also can refine the list by clicking on the reply author, category or tag in the replies list."
+msgstr "Podeu refinar la llista per mostrar solament les respostes d'una categoria o d'un mes en particular si feu servir els menús desplegables que hi ha a la part superior de la llista de fòrums. Premeu el botó Filtre després de fer la selecció. També podeu refinar la llista fent clic al nom de l'autor, la categoria o l'etiqueta de la resposta de la llista de respostes. "
+
+#: src/includes/admin/replies.php:158
+msgid "<strong>Edit</strong> takes you to the editing screen for that reply. You can also reach that screen by clicking on the reply title."
+msgstr "<strong>Edita</strong> us portarà a la pantalla d'edició de la resposta. També podeu anar a aquesta pantalla fent clic al títol de la resposta. "
+
+#: src/includes/admin/replies.php:160
+msgid "<strong>Trash</strong> removes your reply from this list and places it in the trash, from which you can permanently delete it."
+msgstr "<strong>Paperera</strong> suprimeix la resposta d'aquesta llista i la posa a la paperera, des d'on podeu suprimir-la permanentment. "
+
+#: src/includes/admin/replies.php:161
+msgid "<strong>Spam</strong> removes your reply from this list and places it in the spam queue, from which you can permanently delete it."
+msgstr "<strong>Brossa</strong> suprimeix la resposta d'aquesta llista i la posa a la cua de la brossa, des d'on podeu suprimir-la permanentment. "
+
+#: src/includes/admin/replies.php:162
+msgid "<strong>Preview</strong> will show you what your draft reply will look like if you publish it. View will take you to your live site to view the reply. Which link is available depends on your reply&#8217;s status."
+msgstr "<strong>Previsualitza</strong> us ensenyarà com es veurà l'esborrany de la resposta si la publiqueu. <strong>Visualitza</strong> us portarà al web per veure la resposta. Aquest enllaç és disponible depenent de l'estat de la resposta. "
+
+#: src/includes/admin/replies.php:172
+msgid "When using Bulk Edit, you can change the metadata (categories, author, etc.) for all selected replies at once. To remove a reply from the grouping, just click the x next to its name in the Bulk Edit area that appears."
+msgstr "Quan useu l'Edició en Massa, podeu canviar les metadades (categories, autor, etc.) al mateix temps per a totes les respostes seleccionades. Per suprimir una resposta del grup, simplement feu clic a la x que hi ha al costat del seu nom en l'àrea d'Edició en Massa. "
+
+#: src/includes/admin/replies.php:193
+msgid "The title field and the big reply editing Area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen."
+msgstr ""
+
+#: src/includes/admin/replies.php:203
+msgid "Title and Reply Editor"
+msgstr ""
+
+#: src/includes/admin/replies.php:205
+msgid "<strong>Title</strong> - Enter a title for your reply. After you enter a title, you&#8217;ll see the permalink below, which you can edit."
+msgstr "<strong>Títol</strong> - Introduïu un títol per a la vostra resposta. Una vegada introduït veureu, a sota, l'enllaç permanent que podreu editar. "
+
+#: src/includes/admin/replies.php:206
+msgid "<strong>Reply Editor</strong> - Enter the text for your reply. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The HTML mode allows you to enter raw HTML along with your reply text. You can insert media files by clicking the icons above the reply editor and following the directions. You can go to the distraction-free writing screen via the Fullscreen icon in Visual mode (second to last in the top row) or the Fullscreen button in HTML mode (last in the row). Once there, you can make buttons visible by hovering over the top area. Exit Fullscreen back to the regular reply editor."
+msgstr ""
+
+#: src/includes/admin/replies.php:209
+msgid "<strong>Publish</strong> - You can set the terms of publishing your reply in the Publish box. For Status, Visibility, and Publish (immediately), click on the Edit link to reveal more options. Visibility includes options for password-protecting a reply or making it stay at the top of your blog indefinitely (sticky). Publish (immediately) allows you to set a future or past date and time, so you can schedule a reply to be published in the future or backdate a reply."
+msgstr "<strong>Publica</strong> - Podeu establir les condicions de publicació de la vostra resposta a la Caixa de Publicació. Per a l'Estat, la Visibilitat i Publica (immediatament), premeu l'enllaç Edita per a mostrar més opcions. La visibilitat inclou opcions per protegir una resposta amb contrasenya o fer-la romandre a dalt de tot del bloc indefinidament (destacat). Publica (immediatament) us permet definir una data i hora futura o passada per tal de poder programar una resposta i que es publiqui en el futur o retrocedir a una data determinada. "
+
+#: src/includes/admin/replies.php:212
+msgid "<strong>Featured Image</strong> - This allows you to associate an image with your reply without inserting it. This is usually useful only if your theme makes use of the featured image as a reply thumbnail on the home page, a custom header, etc."
+msgstr "<strong>Imatge destacada</strong> - Permet associar una imatge a la resposta sense haver d'inserir-la. Sol ser útil només si el tema fa servir la característica d'imatge destacada com a miniatura a la pàgina principal, en una capçalera personalitzada..."
+
+#: src/includes/admin/replies.php:219
+msgid "Select the attributes that your reply should have:"
+msgstr ""
+
+#: src/includes/admin/replies.php:221
+msgid "<strong>Forum</strong> dropdown determines the parent forum that the reply belongs to. Select the forum, or leave the default (Use Forum of Topic) to post the reply in forum of the topic."
+msgstr ""
+
+#: src/includes/admin/replies.php:222
+msgid "<strong>Topic</strong> determines the parent topic that the reply belongs to."
+msgstr ""
+
+#: src/includes/admin/settings.php:565
+msgid "Allow users to mark topics as favorites"
+msgstr "Permet als usuaris marcar temes com a preferits"
+
+#: src/includes/admin/settings.php:698
+msgid "How your forum content is displayed within your existing theme."
+msgstr "Com es mostrarà el contingut del vostre fòrum sense tenir un tema propi."
+
+#: src/includes/admin/settings.php:722
+msgid "%1$s - %2$s"
+msgstr "%1$s - %2$s"
+
+#: src/includes/admin/settings.php:728
+msgid "will serve all bbPress templates"
+msgstr ""
+
+#: src/includes/admin/settings.php:763
+msgid "How many topics and replies to show per page"
+msgstr "Quants temes i respostes s'han de mostrar a cada pàgina"
+
+#: src/includes/admin/settings.php:810
+msgid "How many topics and replies to show per RSS page"
+msgstr "Quants temes i respostes s'han de mostrar a cada pàgina de RSS"
+
+#: src/includes/admin/settings.php:1161
+msgid "Forum settings for BuddyPress"
+msgstr "Configureu els fòrums per a BuddyPress"
+
+#: src/includes/admin/settings.php:1177
+msgid "Allow BuddyPress Groups to have their own forums"
+msgstr "Permet als nodes de BuddyPress tenir els seus propìs fòrums"
+
+#: src/includes/admin/settings.php:1202
+msgid "is the parent for all group forums"
+msgstr "És el pare per a tots els fòrums de nodes"
+
+#: src/includes/admin/settings.php:1203
+msgid "Using the Forum Root is not recommended. Changing this does not move existing forums."
+msgstr "No es recomana fer servir l'arrel dels fòrums. Canviar això no vol dir que es canviaran els fòrums que ja existeixen."
+
+#: src/includes/admin/settings.php:1218
+msgid "Forum settings for Akismet"
+msgstr ""
+
+#: src/includes/admin/settings.php:1235
+msgid "Allow Akismet to actively prevent forum spam."
+msgstr ""
+
+#: src/includes/admin/settings.php:1313
+msgid "is the previous forum software"
+msgstr "és el programari del fòrum anterior"
+
+#: src/includes/admin/settings.php:1410
+msgid "(If converting from BuddyPress Forums, use \"wp_bb_\" or your custom prefix)"
+msgstr "(Si esteu convertint dels fòrums de BuddyPress, feu servir \"wp_bb_\" o el vostre prefix habitual)"
+
+#: src/includes/admin/settings.php:1484
+msgid "Attempt to import user accounts from previous forums"
+msgstr "Intenta importar els comptes d'usuari/ària dels fòrums anteriors"
+
+#: src/includes/admin/settings.php:1512
+msgid "Start"
+msgstr "Inicia"
+
+#: src/includes/admin/settings.php:1513
+msgid "Stop"
+msgstr "Atura"
+
+#: src/includes/admin/settings.php:1545
+msgid "Please see the additional help tabs for more information on each indiviual section."
+msgstr ""
+
+#: src/includes/admin/settings.php:1557
+msgid "Favorites are a way for users to save and later return to topics they favor. This is enabled by default."
+msgstr ""
+
+#: src/includes/admin/settings.php:1558
+msgid "Subscriptions allow users to subscribe for notifications to topics that interest them. This is enabled by default."
+msgstr ""
+
+#: src/includes/admin/settings.php:1560
+msgid "\"Anonymous Posting\" allows guest users who do not have accounts on your site to both create topics as well as replies."
+msgstr ""
+
+#: src/includes/admin/settings.php:1561
+msgid "The Fancy Editor brings the luxury of the Visual editor and HTML editor from the traditional WordPress dashboard into your theme."
+msgstr ""
+
+#: src/includes/admin/settings.php:1562
+msgid "Auto-embed will embed the media content from a URL directly into the replies. For example: links to Flickr and YouTube."
+msgstr ""
+
+#: src/includes/admin/settings.php:1572
+msgid "Per Page settings allow you to control the number of topics and replies appear on each page."
+msgstr ""
+
+#: src/includes/admin/settings.php:1573
+msgid "This is comparable to the WordPress \"Reading Settings\" page, where you can set the number of posts that should show on blog pages and in feeds."
+msgstr ""
+
+#: src/includes/admin/settings.php:1574
+msgid "These are broken up into two separate groups: one for what appears in your theme, another for RSS feeds."
+msgstr ""
+
+#: src/includes/admin/settings.php:1580
+msgid "Slugs"
+msgstr "URLs personalitzats"
+
+#: src/includes/admin/settings.php:1581
+msgid "The Slugs section allows you to control the permalink structure for your forums."
+msgstr "La secció d'URLs personalitzats permet controlar l'estructura de l'enllaç permanent dels fòrums."
+
+#: src/includes/admin/settings.php:1582
+msgid "\"Archive Slugs\" are used as the \"root\" for your forums and topics. If you combine these values with existing page slugs, bbPress will attempt to output the most correct title and content."
+msgstr ""
+
+#: src/includes/admin/settings.php:1583
+msgid "\"Single Slugs\" are used as a prefix when viewing an individual forum, topic, reply, user, or view."
+msgstr ""
+
+#: src/includes/admin/settings.php:1584
+msgid "In the event of a slug collision with WordPress or BuddyPress, a warning will appear next to the problem slug(s)."
+msgstr ""
+
+#: src/includes/admin/topics.php:157
+msgid "<strong>Edit</strong> takes you to the editing screen for that topic. You can also reach that screen by clicking on the topic title."
+msgstr "<strong>Edita</strong> us portarà a la pantalla d'edició del tema. També podeu anar a aquesta pantalla fent clic al títol del tema. "
+
+#: src/includes/admin/topics.php:158
+msgid "<strong>Trash</strong> removes your topic from this list and places it in the trash, from which you can permanently delete it."
+msgstr "<strong>Paperera</strong> suprimeix el tema de la llista i el posa a la paperera, des d'on podeu suprimir-lo permanentment. "
+
+#: src/includes/admin/topics.php:159
+msgid "<strong>Spam</strong> removes your topic from this list and places it in the spam queue, from which you can permanently delete it."
+msgstr "<strong>Brossa</strong> suprimeix el tema d'aquesta llista i el posa a la cua de la brossa, des d'on podeu suprimir-lo permanentment."
+
+#: src/includes/admin/topics.php:160
+msgid "<strong>Preview</strong> will show you what your draft topic will look like if you publish it. View will take you to your live site to view the topic. Which link is available depends on your topic&#8217;s status."
+msgstr "<strong>Previsualitza</strong> us ensenyarà com es veurà l'esborrany del tema si el publiqueu. <strong>Visualitza</strong> us portarà al web per veure el tema. Aquest enllaç és disponible depenent de l'estat del tema. "
+
+#: src/includes/admin/topics.php:194
+msgid "The title field and the big topic editing Area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen."
+msgstr ""
+
+#: src/includes/admin/topics.php:204
+msgid "Title and Topic Editor"
+msgstr "Editor de títol i tema"
+
+#: src/includes/admin/topics.php:206
+msgid "<strong>Title</strong> - Enter a title for your topic. After you enter a title, you&#8217;ll see the permalink below, which you can edit."
+msgstr "<strong>Títol</strong> - Introduïu un títol per al tema. Una vegada introduït veureu a sota, l'enllaç permanent que podreu editar. "
+
+#: src/includes/admin/topics.php:207
+msgid "<strong>Topic Editor</strong> - Enter the text for your topic. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The HTML mode allows you to enter raw HTML along with your topic text. You can insert media files by clicking the icons above the topic editor and following the directions. You can go to the distraction-free writing screen via the Fullscreen icon in Visual mode (second to last in the top row) or the Fullscreen button in HTML mode (last in the row). Once there, you can make buttons visible by hovering over the top area. Exit Fullscreen back to the regular topic editor."
+msgstr ""
+
+#: src/includes/admin/topics.php:210
+msgid "<strong>Publish</strong> - You can set the terms of publishing your topic in the Publish box. For Status, Visibility, and Publish (immediately), click on the Edit link to reveal more options. Visibility includes options for password-protecting a topic or making it stay at the top of your blog indefinitely (sticky). Publish (immediately) allows you to set a future or past date and time, so you can schedule a topic to be published in the future or backdate a topic."
+msgstr "<strong>Publica</strong> - Podeu establir les condicions de publicació del vostre tema a la Caixa de Publicació. Per a l'Estat, la Visibilitat i Publica (immediatament), premeu l'enllaç Edita per a mostrar més opcions. La Visibilitat inclou opcions per protegir un tema amb contrasenya o fer-lo romandre a dalt de tot del bloc indefinidament (destacat). Publica (immediatament) us permet definir una data i hora futura o passada per tal de poder programar un tema i que es publiqui en el futur o retrocedir a una data determinada. "
+
+#: src/includes/admin/topics.php:213
+msgid "<strong>Featured Image</strong> - This allows you to associate an image with your topic without inserting it. This is usually useful only if your theme makes use of the featured image as a topic thumbnail on the home page, a custom header, etc."
+msgstr "<strong>Imatge destacada</strong> - Permet associar una imatge al tema sense haver d'inserir-la. Sol ser útil només si el tema fa servir la característica d'imatge destacada com a miniatura a la pàgina principal, en una capçalera personalitzada..."
+
+#: src/includes/admin/topics.php:220
+msgid "Select the attributes that your topic should have:"
+msgstr ""
+
+#: src/includes/admin/topics.php:222
+msgid "<strong>Forum</strong> dropdown determines the parent forum that the topic belongs to. Select the forum or category from the dropdown, or leave the default (No Forum) to post the topic without an assigned forum."
+msgstr ""
+
+#: src/includes/admin/topics.php:223
+msgid "<strong>Topic Type</strong> dropdown indicates the sticky status of the topic. Selecting the super sticky option would stick the topic to the front of your forums, i.e. the topic index, sticky option would stick the topic to its respective forum. Selecting normal would not stick the topic anywhere."
+msgstr ""
+
+#: src/includes/admin/topics.php:787
+msgctxt "Close a Topic"
+msgid "Close"
+msgstr "Tanca"
+
+#: src/includes/admin/topics.php:789
+msgctxt "Open a Topic"
+msgid "Open"
+msgstr "Obre"
+
+#: src/includes/core/update.php:186
+msgid "General"
+msgstr "General"
+
+#: src/includes/core/update.php:187
+msgid "General chit-chat"
+msgstr ""
+
+#: src/includes/core/update.php:188
+msgid "Hello World!"
+msgstr "Hola, món!"
+
+#: src/includes/core/update.php:189
+msgid "I am the first topic in your new forums."
+msgstr "Sóc el primer tema dels fòrums nous."
+
+#: src/includes/core/update.php:190
+msgid "Re: Hello World!"
+msgstr "Re: Hola món!"
+
+#: src/includes/core/update.php:191
+msgid "Oh, and this is what a reply looks like."
+msgstr ""
+
+#: src/includes/common/widgets.php:39
+msgid "A simple login form with optional links to sign-up and lost password pages."
+msgstr ""
+
+#: src/includes/common/widgets.php:42
+msgid "(bbPress) Login Widget"
+msgstr ""
+
+#: src/includes/common/widgets.php:243
+msgid "A list of registered optional topic views."
+msgstr ""
+
+#: src/includes/common/widgets.php:246
+msgid "(bbPress) Topic Views List"
+msgstr ""
+
+#: src/includes/common/widgets.php:512
+msgid "A list of forums with an option to set the parent."
+msgstr ""
+
+#: src/includes/common/widgets.php:515
+msgid "(bbPress) Forums List"
+msgstr "(bbPress) Llista de fòrums"
+
+#: src/includes/common/widgets.php:695
+msgid "(bbPress) Recent Topics"
+msgstr "(bbPress) Temes recents"
+
+#: src/includes/common/widgets.php:1080
+msgid "A list of the most recent replies."
+msgstr "Una llista de les respostes més recents."
+
+#: src/includes/common/widgets.php:1083
+msgid "(bbPress) Recent Replies"
+msgstr "(bbPress) Respostes recents"
+
+#: src/includes/common/widgets.php:1180
+msgctxt "widgets"
+msgid "%1$s on %2$s"
+msgstr "%1$s en %2$s"
+
+#: src/includes/admin/settings.php:669
+msgid "Allow topic and reply revision logging"
+msgstr "Permet revisions de temes i respostes"
+
+#: src/templates/default/bbpress/form-reply.php:158
+msgid "The topic &#8216;%s&#8217; is closed to new replies."
+msgstr ""
+
+#: src/includes/common/widgets.php:640
+#: src/includes/common/widgets.php:882
+msgid "Parent Forum ID:"
+msgstr "ID del fòrum pare:"
+
+#: src/includes/common/widgets.php:103
+msgid "Remember Me"
+msgstr "Recorda'm"
+
+#: src/includes/common/widgets.php:190
+msgid "Register URI:"
+msgstr "Registra URI:"
+
+#: src/templates/default/bbpress/form-forum.php:35
+#: src/templates/default/bbpress/form-topic.php:41
+msgid "Now Editing &ldquo;%s&rdquo;"
+msgstr "Ara s'està editant &ldquo;%s&rdquo;"
+
+#: src/includes/admin/metaboxes.php:173
+msgid "Users &amp; Moderation"
+msgstr "Moderació d'usuaris"
+
+#: src/includes/common/widgets.php:195
+msgid "Lost Password URI:"
+msgstr ""
+
+#: src/includes/common/widgets.php:646
+#: src/includes/common/widgets.php:888
+msgid "\"0\" to show only root - \"any\" to show all"
+msgstr ""
+
+#: src/includes/admin/settings.php:1730
+msgid "%s page"
+msgstr "pàgina %s"
+
+#: src/includes/replies/functions.php:379
+#: src/includes/replies/functions.php:701
+msgid "<strong>ERROR</strong>: There was a problem adding the tags to the topic."
+msgstr "<strong>ERROR</strong>: Hi ha hagut problemes afegint les etiquetes al tema."
+
+#: src/includes/topics/functions.php:270
+msgid "<strong>ERROR</strong>: Your topic cannot be created at this time."
+msgstr "<strong>ERROR</strong>: El vostre tema no pot ser creat en aquest moment."
+
+#: src/includes/topics/functions.php:602
+msgid "<strong>ERROR</strong>: Your topic cannot be edited at this time."
+msgstr "<strong>ERROR</strong>: El vostre tema no pot ser editat en aquest moment."
+
+#: src/templates/default/bbpress/form-topic.php:43
+msgid "Create New Topic in &ldquo;%s&rdquo;"
+msgstr "Crea un tema nou a &ldquo;%s&rdquo;"
+
+#: src/includes/replies/functions.php:622
+msgid "<strong>ERROR</strong>: Your reply cannot be edited at this time."
+msgstr "<strong>ERROR</strong>: la vostra resposta no es pot editar en aquest moment."
+
+#: src/includes/replies/functions.php:303
+msgid "<strong>ERROR</strong>: Your reply cannot be created at this time."
+msgstr "<strong>ERROR</strong>: La vostra resposta no pot ser creada en aquest moment."
+
+#: src/includes/extend/buddypress/activity.php:420
+msgid "%1$s started the topic %2$s in the forum %3$s"
+msgstr "%1$s ha començat %2$s tema en el fòrum %3$s"
+
+#: src/templates/default/bbpress/form-reply.php:166
+#: src/templates/default/bbpress/form-topic.php:226
+msgid "The forum &#8216;%s&#8217; is closed to new topics and replies."
+msgstr "El fòrum &#8216;%s&8217; està tancat a nous temes i respostes."
+
+#: src/includes/extend/buddypress/activity.php:565
+msgid "%1$s replied to the topic %2$s in the forum %3$s"
+msgstr "%1$s respostes al tema %2$s en el fòrum %3$s"
+
+#: src/includes/forums/template.php:2008
+msgid "This forum contains %1$s and %2$s."
+msgstr "Aquest fòrum conté %1$s i %2$s."
+
+#: src/templates/default/bbpress/feedback-logged-in.php:13
+msgid "You are already logged in."
+msgstr "Ja esteu connectat."
+
+#: src/templates/default/bbpress/form-topic.php:75
+msgid "Topic Title (Maximum Length: %d):"
+msgstr "Títol del tema (Longitud màxima: %d):"
+
+#: src/includes/admin/tools.php:1314
+#: src/includes/forums/template.php:50
+msgid "All Forums"
+msgstr "Tots els fòrums"
+
+#: src/includes/forums/template.php:1255
+#: src/includes/topics/template.php:2122
+msgid " (+ %d hidden)"
+msgstr " (+ %d ocults)"
+
+#: src/includes/topics/template.php:3379
+msgid "View Topic Tag"
+msgstr "Mostra l'etiqueta del tema"
+
+#: src/templates/default/bbpress/form-forum.php:55
+#: src/templates/default/bbpress/form-reply.php:44
+#: src/templates/default/bbpress/form-topic.php:61
+msgid "Your account has the ability to post unrestricted HTML content."
+msgstr "El vostre compte té el permís per afegir temes amb contingut HTML sense restriccions"
+
+#: src/includes/forums/template.php:2006
+msgid "This category contains %1$s and %2$s."
+msgstr "Aquesta categoria conté %1$s i %2$s."
+
+#: src/includes/admin/settings.php:1683
+msgid "Pages"
+msgstr "Pàgines"
+
+#: src/includes/common/template.php:2227
+msgid "&lsaquo;"
+msgstr ""
+
+#: src/includes/admin/replies.php:780
+#: src/includes/admin/topics.php:850
+msgid "Empty Spam"
+msgstr "Buida la brossa"
+
+#: src/includes/admin/settings.php:1686
+msgid "Menus"
+msgstr "Menús"
+
+#: src/includes/admin/settings.php:134
+#: src/includes/admin/settings.php:1684
+msgid "Revisions"
+msgstr "Revisions"
+
+#: src/includes/admin/replies.php:652
+#: src/includes/admin/replies.php:667
+#: src/includes/admin/topics.php:688
+msgid "No Forum"
+msgstr "No hi ha cap fòrum"
+
+#: src/includes/extend/akismet.php:466
+#: src/includes/extend/akismet.php:481
+msgid "Post status was changed to %s"
+msgstr ""
+
+#: src/includes/common/template.php:2132
+msgid "Home"
+msgstr "Inici"
+
+#: src/includes/admin/settings.php:1697
+msgid "Forums base"
+msgstr "Base dels fòrums"
+
+#: src/includes/admin/settings.php:1700
+msgid "Topics base"
+msgstr "Base dels temes"
+
+#: src/includes/extend/akismet.php:462
+msgid "Akismet caught this post as spam"
+msgstr ""
+
+#: src/includes/common/template.php:2227
+msgid "&rsaquo;"
+msgstr "&rsaquo;"
+
+#: src/includes/extend/akismet.php:316
+msgid "%1$s reported this %2$s as not spam"
+msgstr ""
+
+#: src/includes/admin/replies.php:658
+msgid "(Mismatch)"
+msgstr "(No coincideixen)"
+
+#: src/includes/admin/replies.php:626
+#: src/includes/admin/replies.php:634
+msgid "No Topic"
+msgstr "Sense tema"
+
+#: src/includes/extend/akismet.php:309
+msgid "%1$s reported this %2$s as spam"
+msgstr "%1$s ha reportat %2$s com a no desitjat"
+
+#: src/includes/extend/akismet.php:488
+msgid "Akismet was unable to check this post (response: %s), will automatically retry again later."
+msgstr ""
+
+#: src/includes/admin/settings.php:1692
+msgid "Category base"
+msgstr "Categoria base"
+
+#: src/includes/admin/settings.php:1689
+msgid "Tag base"
+msgstr "Etiqueta base"
+
+#: src/includes/common/functions.php:513
+#: src/includes/common/functions.php:545
+msgid "Spammed: %s"
+msgstr "Marcat com a brossa: %s"
+
+#: src/includes/common/functions.php:512
+#: src/includes/common/functions.php:544
+msgid "Private: %s"
+msgstr "Privat: %s"
+
+#: src/includes/admin/settings.php:1685
+msgid "Attachments"
+msgstr "Adjunts"
+
+#: src/includes/admin/topics.php:155
+msgid "Hovering over a row in the topics list will display action links that allow you to manage your topic. You can perform the following actions:"
+msgstr "En passar el cursor per sobre d'una fila a la llista de temes es mostraran els enllaços d'accions que us permetran gestionar el tema. Podeu realitzar les accions següents: "
+
+#: src/includes/admin/topics.php:218
+#: src/includes/admin/topics.php:255
+msgid "Topic Attributes"
+msgstr "Atributs del tema"
+
+#: src/includes/admin/topics.php:485
+msgid "The topic was not found!"
+msgstr "No s'ha trobat el tema!"
+
+#: src/includes/admin/topics.php:575
+msgid "There was a problem opening the topic \"%1$s\"."
+msgstr "S'ha produït un problema en obrir el tema \"%1$s\"."
+
+#: src/includes/admin/topics.php:575
+msgid "Topic \"%1$s\" successfully opened."
+msgstr "El tema \"%1$s\" s'ha obert correctament."
+
+#: src/includes/admin/topics.php:579
+msgid "There was a problem closing the topic \"%1$s\"."
+msgstr "S'ha produït un problema en tancar el tema \"%1$s\"."
+
+#: src/includes/admin/topics.php:579
+msgid "Topic \"%1$s\" successfully closed."
+msgstr "El tema \"%1$s\" s'ha tancat correctament."
+
+#: src/includes/admin/topics.php:583
+msgid "There was a problem sticking the topic \"%1$s\" to front."
+msgstr "Hi ha hagut un problema en enganxar el tema \"%1$s\" al capdavant."
+
+#: src/includes/admin/topics.php:583
+msgid "Topic \"%1$s\" successfully sticked to front."
+msgstr "El tema \"%1$s\" s'ha enganxat correctament al capdavant."
+
+#: src/includes/admin/topics.php:587
+msgid "There was a problem sticking the topic \"%1$s\"."
+msgstr "S'ha produït un problema en enganxar el tema \"%1$s\"."
+
+#: src/includes/admin/topics.php:587
+msgid "Topic \"%1$s\" successfully sticked."
+msgstr "El tema \"%1$s\" s'ha enganxat correctament."
+
+#: src/includes/admin/topics.php:591
+msgid "There was a problem unsticking the topic \"%1$s\"."
+msgstr "S'ha produït un problema en desenganxar el tema \"%1$s\"."
+
+#: src/includes/admin/topics.php:591
+msgid "Topic \"%1$s\" successfully unsticked."
+msgstr "El tema \"%1$s\" s'ha desenganxat correctament."
+
+#: src/includes/admin/topics.php:595
+msgid "There was a problem marking the topic \"%1$s\" as spam."
+msgstr "HI ha hagut un problema marcant el tema \"%1$s\"  com a no desitjat."
+
+#: src/includes/admin/topics.php:595
+msgid "Topic \"%1$s\" successfully marked as spam."
+msgstr "El tema \"%1$s\" s s'ha marcat com a brossa correctament."
+
+#: src/includes/admin/topics.php:599
+msgid "There was a problem unmarking the topic \"%1$s\" as spam."
+msgstr "Hi ha hagut un problema al desmarcar el tema \"%1$a\" com a no desitjat."
+
+#: src/includes/admin/topics.php:599
+msgid "Topic \"%1$s\" successfully unmarked as spam."
+msgstr "El tema \"%1$s\" s'ha desmarcat correctament com a no desitjat."
+
+#: src/includes/admin/topics.php:787
+msgid "Close this topic"
+msgstr "Tanca aquest tema"
+
+#: src/includes/admin/topics.php:789
+msgid "Open this topic"
+msgstr "Obre aquest tema"
+
+#: src/includes/admin/topics.php:798
+msgid "Unstick this topic"
+msgstr "Desenganxa aquest tema."
+
+#: src/includes/admin/topics.php:801
+msgid "Stick this topic to its forum"
+msgstr "Enganxa aquest tema al seu fòrum"
+
+#: src/includes/admin/topics.php:801
+msgid "Stick this topic to front"
+msgstr "Fixa aquest tema a la pàgina principal"
+
+#: src/includes/admin/topics.php:808
+msgid "Mark the topic as not spam"
+msgstr ""
+
+#: src/includes/admin/topics.php:810
+msgid "Mark this topic as spam"
+msgstr "Marca aquest tema com a brossa"
+
+#: src/includes/admin/topics.php:921
+msgid "Topic updated. <a href=\"%s\">View topic</a>"
+msgstr "Tema actualitzat. <a href=\"%s\">Visualitza el tema</a>"
+
+#: src/includes/admin/topics.php:930
+msgid "Topic updated."
+msgstr "S'ha actualitzat el tema."
+
+#: src/includes/admin/topics.php:935
+msgid "Topic restored to revision from %s"
+msgstr "S'ha restaurat el tema per a revisió des de %s "
+
+#: src/includes/admin/topics.php:939
+msgid "Topic created. <a href=\"%s\">View topic</a>"
+msgstr "Tema creat. <a href=\"%s\">Visualitza el tema</a>"
+
+#: src/includes/admin/topics.php:942
+msgid "Topic saved."
+msgstr "S'ha desat el tema."
+
+#: src/includes/admin/topics.php:945
+msgid "Topic submitted. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "Tema enviat. <a target=\"_blank\" href=\"%s\">Previsualitza el tema</a>"
+
+#: src/includes/admin/topics.php:948
+msgid "Topic scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview topic</a>"
+msgstr "S'ha programat el tema per a: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Previsualitza el tema </a> "
+
+#: src/includes/admin/topics.php:955
+msgid "Topic draft updated. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "S'ha actualitzat l'esborrany del fòrum. <a target=\"_blank\" href=\"%s\">Previsualitza el tema</a>"
+
+#: src/includes/common/widgets.php:97
+#: src/templates/default/bbpress/form-user-login.php:22
+msgid "Password"
+msgstr "Contrasenya"
+
+#: src/templates/default/bbpress/form-user-login.php:28
+msgid "Keep me signed in"
+msgstr ""
+
+#: src/templates/default/bbpress/form-user-edit.php:130
+msgid "Type your new password again."
+msgstr "Introïu la contrasenya nouva una altra vegada."
+
+#: src/templates/default/bbpress/form-user-edit.php:29
+msgid "Last Name"
+msgstr "Cognom"
+
+#: src/templates/default/bbpress/form-user-edit.php:24
+msgid "First Name"
+msgstr "Nom"
+
+#: src/templates/default/bbpress/form-reply.php:114
+#: src/templates/default/bbpress/form-topic.php:184
+msgid "Keep a log of this edit:"
+msgstr ""
+
+#: src/includes/admin/topics.php:801
+#: src/includes/topics/template.php:2749
+msgid "Stick"
+msgstr "Enganxa"
+
+#: src/templates/default/bbpress/form-topic-split.php:37
+msgid "Split Method"
+msgstr ""
+
+#: src/includes/common/widgets.php:92
+#: src/templates/default/bbpress/form-user-edit.php:98
+#: src/templates/default/bbpress/form-user-login.php:17
+#: src/templates/default/bbpress/form-user-register.php:24
+msgid "Username"
+msgstr "Nom d'usuari/ària"
+
+#: src/templates/default/bbpress/form-topic-split.php:33
+msgid "If you use the existing topic option, replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted."
+msgstr ""
+
+#: src/templates/default/bbpress/form-reply-move.php:41
+#: src/templates/default/bbpress/form-topic-split.php:41
+msgid "New topic in <strong>%s</strong> titled:"
+msgstr ""
+
+#: src/templates/default/bbpress/form-topic-tag.php:100
+msgid "Any links to this tag will no longer function."
+msgstr ""
+
+#: src/templates/default/bbpress/user-favorites.php:28
+msgid "This user has no favorite topics."
+msgstr "Aquest usuari/ària no té temes preferits."
+
+#: src/templates/default/bbpress/user-favorites.php:15
+msgid "Favorite Forum Topics"
+msgstr "Temes preferits en el fòrum"
+
+#: src/templates/default/bbpress/user-favorites.php:28
+msgid "You currently have no favorite topics."
+msgstr "Actualment no teniu temes preferits."
+
+#: src/includes/replies/template.php:2360
+msgid "Viewing %1$s post"
+msgid_plural "Viewing %1$s posts"
+msgstr[0] "Mostra %1$s entrada"
+msgstr[1] "Mostra %1$s entrades"
+
+#: src/templates/default/bbpress/user-subscriptions.php:47
+msgid "This user is not currently subscribed to any topics."
+msgstr "Aquest usuari/ària no està subscrit a cap tema actualment."
+
+#: src/templates/default/bbpress/user-subscriptions.php:47
+msgid "You are not currently subscribed to any topics."
+msgstr "No esteu subscrit a cap tema."
+
+#: src/templates/default/bbpress/form-reply.php:118
+#: src/templates/default/bbpress/form-topic.php:188
+msgid "Optional reason for editing:"
+msgstr "Motius opcionals per a l'edició"
+
+#: src/includes/common/widgets.php:89
+#: src/includes/common/widgets.php:110
+#: src/templates/default/bbpress/form-user-login.php:14
+#: src/templates/default/bbpress/form-user-login.php:35
+msgid "Log In"
+msgstr "Entra"
+
+#: src/includes/common/widgets.php:185
+#: src/includes/common/widgets.php:337
+#: src/includes/common/widgets.php:465
+#: src/includes/common/widgets.php:634
+#: src/includes/common/widgets.php:878
+#: src/includes/common/widgets.php:1032
+#: src/includes/common/widgets.php:1236
+msgid "Title:"
+msgstr "Títol:"
+
+#: src/templates/default/bbpress/form-forum.php:138
+#: src/templates/default/bbpress/form-reply-move.php:72
+#: src/templates/default/bbpress/form-reply.php:135
+#: src/templates/default/bbpress/form-topic-merge.php:94
+#: src/templates/default/bbpress/form-topic-split.php:98
+#: src/templates/default/bbpress/form-topic.php:203
+msgid "Submit"
+msgstr "Envia"
+
+#: src/templates/default/bbpress/form-user-lost-pass.php:18
+msgid "Username or Email"
+msgstr "Nom d'usuari/ària o correu electrònic"
+
+#: src/includes/common/widgets.php:128
+#: src/templates/default/bbpress/form-user-lost-pass.php:14
+msgid "Lost Password"
+msgstr "Contrasenya perduda"
+
+#: src/templates/default/bbpress/form-reply.php:174
+msgid "You must be logged in to reply to this topic."
+msgstr "Heu d'estar connectats per respondre en aquest tema."
+
+#: src/includes/admin/metaboxes.php:543
+#: src/templates/default/bbpress/form-user-edit.php:14
+#: src/templates/default/bbpress/form-user-edit.php:19
+msgid "Name"
+msgstr "Nom"
+
+#: src/templates/default/bbpress/form-topic-tag.php:106
+msgid "Are you sure you want to delete the \"%s\" tag? This is permanent and cannot be undone."
+msgstr ""
+
+#: src/templates/default/bbpress/form-topic-merge.php:65
+#: src/templates/default/bbpress/form-topic-split.php:69
+msgid "Topic Extras"
+msgstr "Temes extres"
+
+#: src/templates/default/bbpress/form-topic-split.php:42
+msgid "Split: %s"
+msgstr "Divideix: %s"
+
+#: src/templates/default/bbpress/form-reply-move.php:49
+#: src/templates/default/bbpress/form-topic-split.php:49
+msgid "Use an existing topic in this forum:"
+msgstr "Utilitzeu un tema existent en aquest fòrum:"
+
+#: src/templates/default/bbpress/loop-single-topic.php:60
+msgid "Started by: %1$s"
+msgstr "Iniciat per: %1$s"
+
+#: src/includes/admin/topics.php:635
+#: src/templates/default/bbpress/loop-topics.php:20
+msgid "Voices"
+msgstr "Opinions"
+
+#: src/templates/default/bbpress/user-topics-created.php:28
+msgid "This user has not created any topics."
+msgstr "Aquest usuari/ària no ha creat cap tema."
+
+#: src/templates/default/bbpress/user-topics-created.php:28
+msgid "You have not created any topics."
+msgstr "No heu creat cap tema."
+
+#: src/includes/admin/metaboxes.php:554
+#: src/templates/default/bbpress/form-anonymous.php:32
+msgid "Website:"
+msgstr "Pàgina web:"
+
+#: src/templates/default/bbpress/form-user-edit.php:115
+msgid "There is a pending email address change to <code>%1$s</code>. <a href=\"%2$s\">Cancel</a>"
+msgstr ""
+
+#: src/templates/default/bbpress/form-user-edit.php:127
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr "Si voleu cambiar la paraula de pas, escriviu una de nova. En cas contrari deixeu el camp em blanc."
+
+#: src/templates/default/bbpress/form-user-edit.php:124
+msgid "New Password"
+msgstr "Contrasenya nova"
+
+#: src/templates/default/bbpress/form-user-edit.php:90
+#: src/templates/default/bbpress/form-user-edit.php:93
+msgid "Account"
+msgstr "Compte"
+
+#: src/templates/default/bbpress/form-user-edit.php:34
+msgid "Nickname"
+msgstr "Sobrenom"
+
+#: src/templates/default/bbpress/form-user-edit.php:49
+#: src/templates/default/bbpress/form-user-edit.php:52
+msgid "Contact Info"
+msgstr "Informació de contacte"
+
+#: src/includes/admin/metaboxes.php:555
+#: src/templates/default/bbpress/form-user-edit.php:57
+msgid "Website"
+msgstr "Pàgina web"
+
+#: src/templates/default/bbpress/form-user-edit.php:74
+#: src/templates/default/bbpress/form-user-edit.php:77
+msgid "About Yourself"
+msgstr "Quant a vós"
+
+#: src/templates/default/bbpress/form-user-edit.php:74
+#: src/templates/default/bbpress/form-user-edit.php:77
+msgid "About the user"
+msgstr "Quant a l'usuari/ària"
+
+#: src/templates/default/bbpress/form-user-edit.php:82
+msgid "Biographical Info"
+msgstr "Informació biogràfica"
+
+#: src/includes/admin/replies.php:750
+#: src/includes/admin/topics.php:820
+#: src/includes/replies/template.php:2047
+#: src/includes/topics/template.php:2634
+msgid "Move this item to the Trash"
+msgstr "Moure aquest element a la paperera "
+
+#: src/includes/common/template.php:2202
+msgid "(Edit)"
+msgstr "(Edita)"
+
+#: src/includes/common/functions.php:514
+#: src/includes/common/functions.php:546
+msgid "Trashed: %s"
+msgstr "A la paperera: %s"
+
+#: src/includes/common/functions.php:624
+msgid "<strong>ERROR</strong>: Invalid author name submitted!"
+msgstr ""
+
+#: src/includes/common/functions.php:628
+msgid "<strong>ERROR</strong>: Invalid email address submitted!"
+msgstr "<strong>ERROR</strong>: El correu electrònic enviat és invàlid."
+
+#: src/includes/replies/template.php:1210
+#: src/includes/topics/template.php:1483
+#: src/includes/users/template.php:1651
+msgid "View %s's profile"
+msgstr "Visualitza el perfil de %s"
+
+#: src/templates/default/bbpress/form-reply.php:97
+#: src/templates/default/bbpress/form-topic.php:168
+msgid "Notify me of follow-up replies via email"
+msgstr "Notifica'm les respostes al tema per correu electrònic"
+
+#: src/templates/default/bbpress/form-reply.php:93
+#: src/templates/default/bbpress/form-topic.php:164
+msgid "Notify the author of follow-up replies via email"
+msgstr ""
+
+#: src/templates/default/bbpress/form-topic.php:133
+msgid "Topic Type:"
+msgstr "Tipus de tema:"
+
+#: src/templates/default/bbpress/form-topic.php:101
+msgid "Topic Tags:"
+msgstr "Etiquetes del tema:"
+
+#: src/templates/default/bbpress/form-forum.php:82
+#: src/templates/default/bbpress/form-reply.php:64
+#: src/templates/default/bbpress/form-topic.php:90
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
+msgstr "Podeu fer servir aquestes etiquetes i atributs <abbr title=\"HyperText Markup Language\">HTML</abbr>:"
+
+#: src/templates/default/bbpress/form-topic.php:53
+msgid "This forum is marked as closed to new topics, however your posting capabilities still allow you to do so."
+msgstr "Aquest fòrum està marcat com a tancat per a temes nous, però els vostres permisos de publicació permeten que ho feu."
+
+#: src/templates/default/bbpress/feedback-no-forums.php:13
+msgid "Oh bother! No forums were found here!"
+msgstr "No s'ha trobat cap fòrum aquí!"
+
+#: src/templates/default/bbpress/feedback-no-topics.php:13
+msgid "Oh bother! No topics were found here!"
+msgstr "No s'ha trobat cap tema aquí!"
+
+#: src/includes/admin/settings.php:1682
+#: src/templates/default/bbpress/loop-forums.php:21
+#: src/templates/default/bbpress/loop-replies.php:24
+#: src/templates/default/bbpress/loop-replies.php:66
+#: src/templates/default/bbpress/loop-topics.php:21
+msgid "Posts"
+msgstr "Entrades"
+
+#: src/includes/admin/forums.php:562
+#: src/includes/admin/topics.php:638
+#: src/templates/default/bbpress/loop-forums.php:22
+#: src/templates/default/bbpress/loop-topics.php:22
+msgid "Freshness"
+msgstr "Més recents"
+
+#: src/includes/admin/replies.php:572
+#: src/includes/admin/topics.php:636
+#: src/templates/default/bbpress/loop-replies.php:18
+#: src/templates/default/bbpress/loop-replies.php:60
+#: src/templates/default/bbpress/loop-search.php:18
+#: src/templates/default/bbpress/loop-search.php:40
+msgid "Author"
+msgstr "Autor/a"
+
+#: src/includes/common/widgets.php:898
+#: src/templates/default/extras/page-forum-statistics.php:34
+msgid "Popular Topics"
+msgstr "Temes més comuns"
+
+#: src/templates/default/bbpress/content-statistics.php:64
+msgid "Hidden Replies"
+msgstr "Respostes ocultes"
+
+#: src/templates/default/bbpress/content-statistics.php:53
+msgid "Hidden Topics"
+msgstr "Temes ocults"
+
+#: src/templates/default/bbpress/content-statistics.php:44
+msgid "Empty Topic Tags"
+msgstr "Etiquetes de tema buides"
+
+#: src/templates/default/bbpress/content-statistics.php:17
+msgid "Registered Users"
+msgstr "Usuaris registrats"
+
+#: src/templates/default/extras/page-forum-statistics.php:22
+msgid "<p>Here are the statistics and popular topics of our forums.</p>"
+msgstr "<p>Aquí hi ha les estadístiques i els temes populars dels fòrums.</p>"
+
+#: src/bbpress.php:694
+msgid "Topics with no replies"
+msgstr "Temes sense resposta"
+
+#: src/includes/topics/template.php:3378
+msgid "New Tag Name"
+msgstr "Nou nom d'etiqueta"
+
+#: src/includes/topics/template.php:3377
+msgid "Add New Tag"
+msgstr "Afegeix una etiqueta nova"
+
+#: src/includes/topics/template.php:3374
+msgid "All Tags"
+msgstr "Totes les etiquetes"
+
+#: src/includes/topics/template.php:3375
+msgid "Edit Tag"
+msgstr "Edita l'etiqueta"
+
+#: src/includes/topics/template.php:3372
+msgid "Search Tags"
+msgstr "Cerca etiquetes"
+
+#: src/includes/topics/template.php:3376
+msgid "Update Tag"
+msgstr "Actualitza l'etiqueta"
+
+#: src/includes/topics/template.php:3373
+msgid "Popular Tags"
+msgstr "Etiquetes més comunes"
+
+#: src/includes/admin/metaboxes.php:149
+#: src/includes/admin/settings.php:309
+#: src/includes/topics/template.php:3371
+msgid "Topic Tag"
+msgid_plural "Topic Tags"
+msgstr[0] "Etiqueta del tema"
+msgstr[1] "Etiquetes del tema"
+
+#: src/includes/topics/template.php:3370
+#: src/templates/default/bbpress/content-statistics.php:37
+msgid "Topic Tags"
+msgstr "Etiquetes del tema"
+
+#: src/bbpress.php:610
+msgctxt "post"
+msgid "Hidden"
+msgstr "Ocult"
+
+#: src/bbpress.php:597
+msgctxt "post"
+msgid "Orphan"
+msgstr "Orfe"
+
+#: src/bbpress.php:584
+msgctxt "post"
+msgid "Spam"
+msgstr "Brossa"
+
+#: src/bbpress.php:573
+msgctxt "post"
+msgid "Closed"
+msgstr "Tancat"
+
+#: src/bbpress.php:538
+msgid "bbPress Replies"
+msgstr "Respostes del bbPress"
+
+#: src/includes/replies/template.php:60
+msgid "No replies found in Trash"
+msgstr "No s'ha trobat cap resposta a la paperera."
+
+#: src/includes/admin/metaboxes.php:503
+#: src/includes/replies/template.php:61
+msgid "Topic:"
+msgstr "Tema:"
+
+#: src/includes/replies/template.php:59
+msgid "No replies found"
+msgstr "No s'ha trobat cap resposta."
+
+#: src/includes/replies/template.php:58
+msgid "Search Replies"
+msgstr "Cerca a les respostes"
+
+#: src/includes/replies/template.php:56
+#: src/includes/replies/template.php:57
+msgid "View Reply"
+msgstr "Mostra la resposta"
+
+#: src/includes/replies/template.php:54
+msgid "Edit Reply"
+msgstr "Edita la resposta"
+
+#: src/includes/admin/metaboxes.php:130
+#: src/includes/admin/settings.php:325
+#: src/includes/replies/template.php:49
+#: src/includes/replies/template.php:1619
+#: src/includes/topics/template.php:2925
+msgid "Reply"
+msgid_plural "Replies"
+msgstr[0] "Respon"
+msgstr[1] "Respostes"
+
+#: src/includes/replies/template.php:51
+#: src/includes/replies/template.php:55
+msgid "New Reply"
+msgstr "Resposta nova"
+
+#: src/includes/replies/template.php:52
+msgid "Create New Reply"
+msgstr "Crea una resposta nova"
+
+#: src/includes/admin/admin.php:234
+#: src/includes/admin/admin.php:235
+#: src/includes/admin/admin.php:245
+#: src/includes/admin/admin.php:246
+#: src/includes/admin/users.php:82
+#: src/includes/common/widgets.php:662
+#: src/includes/extend/buddypress/loader.php:42
+#: src/includes/extend/buddypress/loader.php:175
+#: src/includes/extend/buddypress/loader.php:261
+#: src/includes/extend/buddypress/loader.php:312
+#: src/includes/forums/template.php:47
+#: src/includes/forums/template.php:48
+#: src/templates/default/bbpress/content-statistics.php:22
+msgid "Forums"
+msgstr "Fòrums"
+
+#: src/includes/admin/forums.php:557
+#: src/includes/admin/metaboxes.php:96
+#: src/includes/admin/metaboxes.php:426
+#: src/includes/admin/metaboxes.php:480
+#: src/includes/admin/replies.php:570
+#: src/includes/admin/settings.php:293
+#: src/includes/admin/topics.php:633
+#: src/includes/extend/buddypress/groups.php:52
+#: src/includes/extend/buddypress/groups.php:53
+#: src/includes/forums/template.php:49
+#: src/templates/default/bbpress/loop-forums.php:19
+msgid "Forum"
+msgstr "Fòrum"
+
+#: src/includes/forums/template.php:51
+#: src/includes/forums/template.php:55
+msgid "New Forum"
+msgstr "Fòrum nou"
+
+#: src/includes/forums/template.php:52
+#: src/templates/default/bbpress/form-forum.php:37
+msgid "Create New Forum"
+msgstr "Crea un nou fòrum"
+
+#: src/includes/common/template.php:2210
+#: src/includes/forums/template.php:53
+#: src/includes/replies/template.php:53
+#: src/includes/replies/template.php:1908
+#: src/includes/topics/template.php:53
+#: src/includes/topics/template.php:2495
+#: src/templates/default/bbpress/user-details.php:65
+msgid "Edit"
+msgstr "Edita"
+
+#: src/includes/forums/template.php:54
+msgid "Edit Forum"
+msgstr "Edita el fòrum"
+
+#: src/includes/forums/template.php:56
+#: src/includes/forums/template.php:57
+msgid "View Forum"
+msgstr "Mostra el fòrum"
+
+#: src/includes/common/widgets.php:483
+#: src/includes/forums/template.php:58
+msgid "Search Forums"
+msgstr "Cerca als fòrums..."
+
+#: src/includes/forums/template.php:59
+msgid "No forums found"
+msgstr "No s'han trobat fòrums"
+
+#: src/includes/forums/template.php:60
+msgid "No forums found in Trash"
+msgstr "No s'ha trobat cap fòrum a la paperera"
+
+#: src/includes/forums/template.php:61
+#: src/templates/default/bbpress/form-forum.php:118
+msgid "Parent Forum:"
+msgstr "Fòrum pare:"
+
+#: src/bbpress.php:488
+msgid "bbPress Forums"
+msgstr "Fòrums del bbPress"
+
+#: src/includes/admin/forums.php:558
+#: src/includes/admin/settings.php:222
+#: src/includes/admin/settings.php:243
+#: src/includes/admin/topics.php:632
+#: src/includes/extend/buddypress/activity.php:354
+#: src/includes/forums/template.php:2602
+#: src/includes/topics/template.php:47
+#: src/includes/topics/template.php:48
+#: src/templates/default/bbpress/content-statistics.php:27
+#: src/templates/default/bbpress/loop-forums.php:20
+msgid "Topics"
+msgstr "Temes"
+
+#: src/includes/admin/metaboxes.php:113
+#: src/includes/admin/metaboxes.php:504
+#: src/includes/admin/replies.php:571
+#: src/includes/admin/settings.php:301
+#: src/includes/topics/template.php:49
+#: src/templates/default/bbpress/content-single-topic-lead.php:22
+#: src/templates/default/bbpress/content-single-topic-lead.php:94
+#: src/templates/default/bbpress/loop-topics.php:19
+msgid "Topic"
+msgid_plural "Topics"
+msgstr[0] "Tema"
+msgstr[1] "Temes"
+
+#: src/includes/topics/template.php:51
+#: src/includes/topics/template.php:55
+msgid "New Topic"
+msgstr "Tema nou"
+
+#: src/includes/topics/template.php:52
+#: src/templates/default/bbpress/form-topic.php:43
+msgid "Create New Topic"
+msgstr "Crea un tema nou"
+
+#: src/includes/topics/template.php:54
+msgid "Edit Topic"
+msgstr "Edita el tema"
+
+#: src/includes/topics/template.php:56
+#: src/includes/topics/template.php:57
+msgid "View Topic"
+msgstr "Mostra el tema"
+
+#: src/includes/topics/template.php:58
+msgid "Search Topics"
+msgstr "Cerca als temes"
+
+#: src/includes/topics/template.php:59
+msgid "No topics found"
+msgstr "No s'ha trobat cap tema"
+
+#: src/includes/topics/template.php:60
+msgid "No topics found in Trash"
+msgstr "No s'ha trobat cap tema a la paperera"
+
+#: src/includes/admin/metaboxes.php:425
+#: src/includes/admin/metaboxes.php:479
+#: src/includes/extend/buddypress/groups.php:1038
+#: src/includes/topics/template.php:61
+#: src/templates/default/bbpress/form-topic.php:114
+msgid "Forum:"
+msgstr "Fòrum:"
+
+#: src/bbpress.php:513
+msgid "bbPress Topics"
+msgstr "Temes del bbPress"
+
+#: src/includes/admin/forums.php:559
+#: src/includes/admin/settings.php:230
+#: src/includes/admin/settings.php:251
+#: src/includes/admin/topics.php:634
+#: src/includes/core/theme-compat.php:646
+#: src/includes/extend/buddypress/activity.php:355
+#: src/includes/forums/template.php:2666
+#: src/includes/replies/template.php:47
+#: src/includes/replies/template.php:48
+#: src/templates/default/bbpress/content-statistics.php:32
+#: src/templates/default/bbpress/loop-forums.php:21
+#: src/templates/default/bbpress/loop-replies.php:32
+#: src/templates/default/bbpress/loop-replies.php:70
+#: src/templates/default/bbpress/loop-topics.php:21
+msgid "Replies"
+msgstr "Respostes"
+
+#: src/templates/default/bbpress/form-topic-split.php:29
+msgid "When you split a topic, you are slicing it in half starting with the reply you just selected. Choose to use that reply as a new topic with a new title, or merge those replies into an existing topic."
+msgstr ""
+
+#: src/templates/default/bbpress/form-topic-split.php:24
+msgid "Split topic \"%s\""
+msgstr "Divideix el tema \"%s\""
+
+#: src/templates/default/bbpress/form-user-edit.php:178
+msgid "Update User"
+msgstr "Actualitza l'usuari/ària"
+
+#: src/templates/default/bbpress/form-user-edit.php:156
+msgid "Grant this user super admin privileges for the Network."
+msgstr "Concedeix a aquest usuari/ària privilegis de super-administrador de la xarxa."
+
+#: src/includes/admin/settings.php:1264
+#: src/templates/default/bbpress/form-user-edit.php:173
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: src/templates/default/bbpress/form-user-edit.php:178
+msgid "Update Profile"
+msgstr "Actualitza el perfil"
+
+#: src/includes/admin/replies.php:739
+#: src/includes/admin/topics.php:810
+#: src/includes/replies/template.php:2103
+#: src/includes/topics/template.php:2876
+msgid "Spam"
+msgstr "Brossa"
+
+#: src/includes/replies/template.php:2051
+#: src/includes/topics/template.php:2638
+msgid "Are you sure you want to delete that permanently?"
+msgstr "Esteu segurs que voleu eliminar això de forma permanent?"
+
+#: src/includes/admin/replies.php:754
+#: src/includes/admin/topics.php:824
+#: src/includes/replies/template.php:2051
+#: src/includes/topics/template.php:2638
+msgid "Delete this item permanently"
+msgstr "Elimina aquest element permanentment"
+
+#: src/templates/default/bbpress/form-user-register.php:14
+msgid "Create an Account"
+msgstr "Crea un compte"
+
+#: src/templates/default/bbpress/form-user-register.php:19
+msgid "Your username must be unique, and cannot be changed later."
+msgstr "El vostre nom d'usuari/ària ha de ser únic, i no es podrà canviar més endavant."
+
+#: src/templates/default/bbpress/form-user-register.php:20
+msgid "We use your email address to email you a secure password and verify your account."
+msgstr "Farem servir la vostra adreça de correu electrònic per enviar-vos una contrasenya segura i verificar el vostre compte."
+
+#: src/includes/common/widgets.php:122
+#: src/templates/default/bbpress/form-user-register.php:37
+msgid "Register"
+msgstr "Registre"
+
+#: src/templates/default/extras/page-topic-tags.php:22
+msgid "<p>This is a collection of tags that are currently popular on our forums.</p>"
+msgstr ""
+
+#: src/includes/common/template.php:2206
+#: src/includes/common/template.php:2320
+#: src/includes/common/template.php:2585
+#: src/includes/core/theme-compat.php:739
+#: src/templates/default/extras/taxonomy-topic-tag-edit.php:17
+#: src/templates/default/extras/taxonomy-topic-tag.php:17
+msgid "Topic Tag: %s"
+msgstr "Etiqueta del tema: %s"
+
+#: src/includes/replies/template.php:2348
+msgid "Viewing %1$s reply"
+msgid_plural "Viewing %1$s replies"
+msgstr[0] "Visualitzant %1$s resposta"
+msgstr[1] "Visualitzant %1$s respostes"
+
+#: src/includes/replies/template.php:2235
+msgid "Split the topic from this reply"
+msgstr "Divideix el tema d'aquesta resposta"
+
+#: src/includes/replies/template.php:2234
+msgid "Split"
+msgstr "Divideix"
+
+#: src/includes/replies/template.php:2104
+#: src/includes/topics/template.php:2877
+msgid "Unspam"
+msgstr "No brossa"
+
+#: src/includes/common/functions.php:1950
+msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
+msgstr ""
+
+#: src/includes/forums/template.php:840
+#: src/includes/topics/template.php:1848
+#: src/includes/users/template.php:1058
+msgid "Subscribe"
+msgstr "Subscriu-me"
+
+#: src/includes/forums/template.php:841
+#: src/includes/topics/template.php:1849
+#: src/includes/users/template.php:1059
+msgid "Unsubscribe"
+msgstr "Cancel·la la subscripció"
+
+#: src/templates/default/bbpress/feedback-no-access.php:13
+msgid "Private"
+msgstr "Privat"
+
+#: src/templates/default/bbpress/feedback-no-access.php:16
+msgid "You do not have permission to view this forum."
+msgstr "No teniu permís per veure aquest fòrum."
+
+#: src/templates/default/bbpress/form-topic-split.php:76
+msgid "Copy subscribers to the new topic"
+msgstr "Copia els subscriptors al tema nou"
+
+#: src/templates/default/bbpress/form-topic-split.php:81
+msgid "Copy favoriters to the new topic"
+msgstr "Copia els preferits a aquest tema nou"
+
+#: src/templates/default/bbpress/form-topic-split.php:86
+msgid "Copy topic tags to the new topic"
+msgstr "Copia les etiquetes al tema nou"
+
+#: src/templates/default/bbpress/form-reply-move.php:68
+#: src/templates/default/bbpress/form-topic-merge.php:90
+#: src/templates/default/bbpress/form-topic-split.php:94
+msgid "<strong>WARNING:</strong> This process cannot be undone."
+msgstr "<strong>PRECAUCIÓ:</strong> Aquest procés no podrà ser desfet."
+
+#: src/templates/default/bbpress/form-topic-merge.php:107
+#: src/templates/default/bbpress/form-topic-split.php:111
+msgid "You do not have the permissions to edit this topic!"
+msgstr "No teniu permisos per editar aquest tema!"
+
+#: src/templates/default/bbpress/form-topic-merge.php:107
+#: src/templates/default/bbpress/form-topic-split.php:111
+msgid "You cannot edit this topic."
+msgstr "No podeu editar aquest tema."
+
+#: src/templates/default/bbpress/form-topic-merge.php:24
+msgid "Merge topic \"%s\""
+msgstr "Fusiona el tema \"%s\""
+
+#: src/templates/default/bbpress/form-topic-merge.php:29
+msgid "Select the topic to merge this one into. The destination topic will remain the lead topic, and this one will change into a reply."
+msgstr "Seleccioneu el tema de fusionar aquest en. El tema de destinació seguirà sent el tema principal, i aquest es convertirà en una resposta."
+
+#: src/templates/default/bbpress/form-topic-merge.php:30
+msgid "To keep this topic as the lead, go to the other topic and use the merge tool from there instead."
+msgstr "Per mantenir aquest tema com a principal, aneu a l'altre tema i feu servir l'eina de fusionar des d'allà."
+
+#: src/templates/default/bbpress/form-topic-merge.php:34
+msgid "All replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted. If the destination topic was created after this one, it's post date will be updated to second earlier than this one."
+msgstr "Totes les respostes dins dels dos temes es combinaran cronològicament. L'ordre de les respostes combinades es basa en el temps i la data en què van ser publicades. Si el tema de destinació s'ha creat després d'aquest, la data s'actualitzarà en un segon abans."
+
+#: src/templates/default/bbpress/form-topic-merge.php:38
+msgid "Destination"
+msgstr "Destinació "
+
+#: src/templates/default/bbpress/form-topic-merge.php:42
+msgid "Merge with this topic:"
+msgstr "Fusiona amb aquest tema:"
+
+#: src/templates/default/bbpress/form-topic-merge.php:57
+msgid "There are no other topics in this forum to merge with."
+msgstr "No hi ha cap altre tema en aquest fòrum per fusiar amb aquest."
+
+#: src/templates/default/bbpress/form-topic-merge.php:72
+msgid "Merge topic subscribers"
+msgstr "Fusionar els subscriptors del tema"
+
+#: src/templates/default/bbpress/form-topic-merge.php:77
+msgid "Merge topic favoriters"
+msgstr "Fusionar els preferits del tema"
+
+#: src/templates/default/bbpress/form-topic-merge.php:82
+msgid "Merge topic tags"
+msgstr "Fusionar les etiquetes del tema"
+
+#: src/includes/admin/forums.php:560
+#: src/templates/default/bbpress/content-single-topic-lead.php:18
+#: src/templates/default/bbpress/content-single-topic-lead.php:90
+msgid "Creator"
+msgstr "Creador/a"
+
+#: src/includes/topics/template.php:2299
+msgid "Tagged:"
+msgstr "Etiqueta:"
+
+#: src/includes/forums/template.php:1966
+#: src/includes/topics/template.php:2106
+msgid "%s reply"
+msgid_plural "%s replies"
+msgstr[0] "%s resposta"
+msgstr[1] "%s respostes"
+
+#: src/includes/admin/topics.php:730
+#: src/includes/topics/template.php:2066
+msgid "No Replies"
+msgstr "Sense respostes"
+
+#: src/includes/common/widgets.php:1237
+msgid "Maximum replies to show:"
+msgstr "Nombre màxim de respostes a mostrar:"
+
+#: src/includes/common/widgets.php:891
+#: src/includes/common/widgets.php:1238
+msgid "Show post date:"
+msgstr "Mostra la data de les entrades:"
+
+#: src/includes/common/widgets.php:879
+msgid "Maximum topics to show:"
+msgstr "Nombre màxim de temes a mostrar:"
+
+#: src/includes/common/widgets.php:692
+msgid "A list of recent topics, sorted by popularity or freshness."
+msgstr "Una llista de temes recents, ordenats per popularitat i data."
+
+#: src/includes/replies/template.php:1210
+#: src/includes/topics/template.php:1483
+#: src/includes/users/template.php:1651
+msgid "Visit %s's website"
+msgstr "Visita el web de %s"
+
+#: src/includes/admin/replies.php:750
+#: src/includes/admin/topics.php:820
+#: src/includes/replies/template.php:2032
+#: src/includes/topics/template.php:2619
+msgid "Trash"
+msgstr "Paperera"
+
+#: src/includes/admin/replies.php:748
+#: src/includes/admin/topics.php:818
+#: src/includes/replies/template.php:2033
+#: src/includes/topics/template.php:2620
+msgid "Restore"
+msgstr "Restaura"
+
+#: src/includes/admin/replies.php:748
+#: src/includes/admin/topics.php:818
+#: src/includes/replies/template.php:2045
+#: src/includes/topics/template.php:2632
+msgid "Restore this item from the Trash"
+msgstr "Restaura aquest ítem de la Paperera."
+
+#: src/templates/default/bbpress/form-reply.php:174
+msgid "You cannot reply to this topic."
+msgstr "No podeu respondre a aques tema."
+
+#: src/templates/default/bbpress/form-reply.php:75
+msgid "Tags:"
+msgstr "Etiquetes:"
+
+#: src/templates/default/bbpress/form-reply.php:36
+msgid "This topic is marked as closed to new replies, however your posting capabilities still allow you to do so."
+msgstr "Aquest tema s'ha marcat com a tancat per a respostes noves, però els vostres permisos de publicació permeten que ho feu."
+
+#: src/templates/default/bbpress/form-topic.php:234
+msgid "You must be logged in to create new topics."
+msgstr "Heu d'haver entrat per crear temes nous."
+
+#: src/templates/default/bbpress/form-anonymous.php:27
+msgid "Mail (will not be published) (required):"
+msgstr "Correu electrònic (no es publicarà) (necessari):"
+
+#: src/templates/default/bbpress/form-anonymous.php:22
+msgid "Name (required):"
+msgstr "Nom (necessari):"
+
+#: src/templates/default/bbpress/form-anonymous.php:17
+msgid "Your information:"
+msgstr "La vostra informació:"
+
+#: src/templates/default/bbpress/form-topic-tag.php:18
+msgid "Manage Tag: \"%s\""
+msgstr "Gestiona l'etiqueta: \"%s\""
+
+#: src/templates/default/bbpress/form-protected.php:14
+msgid "Protected"
+msgstr "Protegit"
+
+#: src/templates/default/bbpress/loop-single-topic.php:68
+msgid "in: <a href=\"%1$s\">%2$s</a>"
+msgstr "en: <a href=\"%1$s\">%2$s</a>"
+
+#: src/includes/admin/metaboxes.php:542
+#: src/templates/default/bbpress/form-topic-tag.php:35
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/templates/default/bbpress/form-topic-tag.php:22
+msgid "Rename"
+msgstr "Canvia el nom"
+
+#: src/templates/default/bbpress/form-topic-tag.php:25
+msgid "Leave the slug empty to have one automatically generated."
+msgstr "Deixa l'URL personalitzat buit si voleu que es generi automàticament."
+
+#: src/templates/default/bbpress/form-topic-tag.php:29
+msgid "Changing the slug affects its permalink. Any links to the old slug will stop working."
+msgstr "El canvi d'URL personalitzat afecta als enllaços permanents. Qualsevol enllaç a l'antic URL personalitzat deixarà de funcionar."
+
+#: src/templates/default/bbpress/form-topic-tag.php:99
+msgid "Deleting a tag cannot be undone."
+msgstr "La eliminació d'una etiqueta no es pot desfer."
+
+#: src/templates/default/bbpress/form-topic-tag.php:96
+msgid "This does not delete your topics. Only the tag itself is deleted."
+msgstr "Això no esborrarà els vostres temes. Només s'esoborrarà l'etiqueta que té associada."
+
+#: src/includes/replies/template.php:2034
+#: src/includes/topics/template.php:2621
+#: src/templates/default/bbpress/form-topic-tag.php:93
+#: src/templates/default/bbpress/form-topic-tag.php:106
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: src/templates/default/bbpress/form-topic-tag.php:78
+msgid "Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr "Esteu segurs que voleu fusionar l'etiqueta \"%s\" en l'etiqueta que heu especificat?"
+
+#: src/templates/default/bbpress/form-topic-tag.php:73
+msgid "Existing tag:"
+msgstr "Etiqueta existent:"
+
+#: src/templates/default/bbpress/form-topic-tag.php:67
+msgid "Merging tags together cannot be undone."
+msgstr "La fusió d'etiquetes no es pot desfer."
+
+#: src/includes/topics/template.php:2820
+#: src/templates/default/bbpress/form-topic-tag.php:64
+#: src/templates/default/bbpress/form-topic-tag.php:78
+msgid "Merge"
+msgstr "Combina"
+
+#: src/templates/default/bbpress/form-topic-tag.php:50
+msgid "Update"
+msgstr "Actualitza"
+
+#: src/templates/default/bbpress/form-topic-tag.php:40
+msgid "Slug:"
+msgstr "URL"
+
+#: src/includes/admin/topics.php:798
+#: src/includes/topics/template.php:2750
+msgid "Unstick"
+msgstr "Desenganxa"
+
+#: src/includes/topics/template.php:2981
+msgid "Viewing %1$s topic"
+msgid_plural "Viewing %1$s topics"
+msgstr[0] "Visualitzant le tema %1$s "
+msgstr[1] "Viewing els temes %1$s"
+
+#: src/includes/topics/template.php:3045
+msgid "This topic is marked as spam."
+msgstr "Aquest tema està marcat com a brossa."
+
+#: src/includes/topics/template.php:3050
+msgid "This topic is in the trash."
+msgstr "Aquest tema està a la paperera."
+
+#: src/includes/topics/template.php:3310
+msgid "%s voice"
+msgid_plural "%s voices"
+msgstr[0] "%s opinió\t"
+msgstr[1] "%s opinions"
+
+#: src/includes/common/template.php:1451
+msgid "No topics available"
+msgstr "No hi ha temes disponibles"
+
+#: src/includes/common/template.php:1456
+msgid "No forums available"
+msgstr "No hi ha fòrums disponibles"
+
+#: src/includes/common/template.php:1461
+msgid "None available"
+msgstr "Cap disponible"
+
+#: src/includes/replies/functions.php:1298
+#: src/includes/replies/template.php:571
+#: src/includes/topics/functions.php:1294
+#: src/includes/topics/functions.php:1652
+#: src/templates/default/bbpress/form-reply.php:29
+msgid "Reply To: %s"
+msgstr "Resposta a: %s"
+
+#: src/includes/common/template.php:2495
+msgid "Log Out"
+msgstr "Surt"
+
+#: src/templates/default/bbpress/user-details.php:29
+msgid "%s's Profile"
+msgstr "Perfil de %s"
+
+#: src/includes/common/template.php:2627
+msgid "Edit Your Profile"
+msgstr "Edita el perfil"
+
+#: src/includes/common/template.php:2632
+#: src/templates/default/bbpress/user-details.php:65
+msgid "Edit %s's Profile"
+msgstr "Edita el perfil de %s"
+
+#: src/includes/common/template.php:2571
+msgid "Forum: %s"
+msgstr "Fòrum: %s"
+
+#: src/includes/common/template.php:2576
+msgid "Topic: %s"
+msgstr "Tema: %s"
+
+#: src/includes/common/template.php:2640
+msgid "View: %s"
+msgstr "Mostra: %s"
+
+#: src/includes/replies/functions.php:142
+msgid "<strong>ERROR</strong>: You do not have permission to reply."
+msgstr "<strong>ERROR</strong>: no teniu permís per respondre."
+
+#: src/includes/replies/functions.php:154
+msgid "<strong>ERROR</strong>: Topic ID is missing."
+msgstr "<strong>ERROR</strong>: falta l'ID del tema."
+
+#: src/includes/replies/functions.php:191
+#: src/includes/replies/functions.php:205
+#: src/includes/topics/functions.php:196
+#: src/includes/topics/functions.php:210
+#: src/includes/topics/functions.php:535
+msgid "<strong>ERROR</strong>: Forum ID is missing."
+msgstr "<strong>ERROR</strong>: falta l'ID del fòrum."
+
+#: src/includes/replies/functions.php:288
+#: src/includes/replies/functions.php:617
+msgid "<strong>ERROR</strong>: Your reply cannot be empty."
+msgstr "<strong>ERROR</strong>: la resposta no pot estar buida."
+
+#: src/includes/forums/functions.php:210
+#: src/includes/replies/functions.php:293
+#: src/includes/topics/functions.php:260
+msgid "<strong>ERROR</strong>: Slow down; you move too fast."
+msgstr "<strong>ERROR</strong>: calma, aneu massa ràpid."
+
+#: src/includes/replies/functions.php:298
+msgid "<strong>ERROR</strong>: Duplicate reply detected; it looks as though you&#8217;ve already said that!"
+msgstr "<strong>ERROR</strong>: S'ha detectat una resposta duplicada; sembla que ja heu dit això!"
+
+#: src/includes/replies/functions.php:507
+msgid "<strong>ERROR</strong>: Reply ID not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat l'ID de resposta"
+
+#: src/includes/replies/functions.php:524
+msgid "<strong>ERROR</strong>: The reply you want to edit was not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat la respotsa que voleu editar."
+
+#: src/includes/replies/functions.php:535
+msgid "<strong>ERROR</strong>: You do not have permission to edit that reply."
+msgstr "<strong>ERROR</strong>: No teniu permisos per editar aquesta resposta."
+
+#: src/includes/replies/functions.php:240
+#: src/includes/replies/functions.php:587
+msgid "<strong>ERROR</strong>: This forum is private and you do not have the capability to read or create new replies in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és privat i no teniu permisos per llegir-lo o crear-hi respostes noves."
+
+#: src/includes/replies/functions.php:246
+#: src/includes/replies/functions.php:593
+msgid "<strong>ERROR</strong>: This forum is hidden and you do not have the capability to read or create new replies in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum està ocult i no teniu permisos per llegir-lo o crear-hi respostes noves."
+
+#: src/includes/replies/functions.php:1531
+msgid "<strong>ERROR:</strong> You do not have the permission to do that!"
+msgstr "<strong>ERROR:</strong> No teniu permisos per fer això!"
+
+#: src/includes/replies/functions.php:1544
+msgid "<strong>ERROR</strong>: There was a problem unmarking the reply as spam!"
+msgstr "<strong>ERROR</strong>:  Hi ha hagut un problema desmarcant de la brossa la reposta!"
+
+#: src/includes/replies/functions.php:1544
+msgid "<strong>ERROR</strong>: There was a problem marking the reply as spam!"
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema marcant al resposta com a brossa."
+
+#: src/includes/replies/functions.php:1563
+msgid "<strong>ERROR</strong>: There was a problem trashing the reply!"
+msgstr "<strong>ERROR</strong>: HI ha hagut un problema enviant a la paperera la resposta!"
+
+#: src/includes/replies/functions.php:1571
+msgid "<strong>ERROR</strong>: There was a problem untrashing the reply!"
+msgstr "<strong>ERROR</strong>: HI ha hagut un problema restaurant a la paperera la resposta!"
+
+#: src/includes/replies/functions.php:1579
+msgid "<strong>ERROR</strong>: There was a problem deleting the reply!"
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema eliminant la resposta!"
+
+#: src/includes/replies/functions.php:1993
+msgid "All Posts"
+msgstr "Totes les entrades"
+
+#: src/includes/admin/tools.php:1316
+#: src/includes/replies/functions.php:1995
+#: src/includes/replies/template.php:50
+msgid "All Replies"
+msgstr "Totes les respostes"
+
+#: src/includes/replies/functions.php:2035
+#: src/includes/topics/functions.php:3466
+msgid "Replies: %s"
+msgstr "Respostes: %s"
+
+#: src/includes/replies/template.php:1098
+#: src/includes/topics/template.php:1370
+#: src/includes/users/template.php:184
+msgid "Anonymous"
+msgstr "Anònim/a"
+
+#: src/includes/users/template.php:557
+msgid "Admin"
+msgstr "Administrador/a"
+
+#: src/includes/users/template.php:1163
+msgid "User updated."
+msgstr "S'ha actualitzat l'usuari/ària."
+
+#: src/includes/users/template.php:1188
+msgid "You have super admin privileges."
+msgstr "Teniu privilegis de super-administrador/a."
+
+#: src/includes/users/template.php:1188
+msgid "This user has super admin privileges."
+msgstr "Aquest usuari té privilegis de super-administrador/a."
+
+#: src/includes/users/template.php:1255
+msgid "&mdash; No role for this site &mdash;"
+msgstr ""
+
+#: src/includes/users/template.php:1453
+msgid "You are now logged out."
+msgstr "L'usuari/ària s'ha desconnectat."
+
+#: src/includes/users/template.php:1457
+msgid "New user registration is currently not allowed."
+msgstr "El registre d'usuaris nous no està permès actualment."
+
+#: src/includes/users/template.php:1466
+msgid "Check your e-mail for the confirmation link."
+msgstr "Comproveu si heu rebut per correu electrònic l'enllaç de confirmació."
+
+#: src/includes/users/template.php:1471
+msgid "Check your e-mail for your new password."
+msgstr "Comproveu si heu rebut per correu electrònic la contrasenya nova."
+
+#: src/includes/users/template.php:1476
+msgid "Registration complete. Please check your e-mail."
+msgstr "Registre complet. , Comproveu el correu electrònic."
+
+#: src/includes/users/functions.php:413
+#: src/includes/users/functions.php:1128
+#: src/includes/users/functions.php:1234
+msgid "<strong>ERROR</strong>: You don't have the permission to edit favorites of that user!"
+msgstr "<strong>ERROR</strong>: No teniu permisos per editar els preferits d'aquest usuari/ària"
+
+#: src/includes/users/functions.php:405
+msgid "<strong>ERROR</strong>: No topic was found! Which topic are you marking/unmarking as favorite?"
+msgstr "<strong>ERROR</strong>: No s'ha trobat cap tema! quin tema esteu marcant/desmarcant com a preferit?"
+
+#: src/includes/users/functions.php:456
+msgid "<strong>ERROR</strong>: There was a problem removing that topic from favorites!"
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema eliminant aquest tema dels preferits!"
+
+#: src/includes/users/functions.php:458
+msgid "<strong>ERROR</strong>: There was a problem favoriting that topic!"
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema marcant com a preferit aquest tema!"
+
+#: src/includes/users/functions.php:1226
+msgid "<strong>ERROR</strong>: No topic was found! Which topic are you subscribing/unsubscribing to?"
+msgstr "<strong>ERROR</strong>: No s'ha trobat cap tema! A quin tema us esteu subscribint o cancel·lant la subscripció?"
+
+#: src/includes/users/functions.php:1279
+msgid "<strong>ERROR</strong>: There was a problem unsubscribing from that topic!"
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema cancel·lant la subscripció d'aquest tema!"
+
+#: src/includes/users/functions.php:1281
+msgid "<strong>ERROR</strong>: There was a problem subscribing to that topic!"
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema subscrivint-vos a aquest tema!"
+
+#: src/includes/topics/functions.php:150
+msgid "<strong>ERROR</strong>: You do not have permission to create new topics."
+msgstr "<strong>ERROR</strong>: No teniu permisos per crear temes nous."
+
+#: src/includes/topics/functions.php:175
+#: src/includes/topics/functions.php:585
+msgid "<strong>ERROR</strong>: Your topic needs a title."
+msgstr "<strong>ERROR</strong>: El tema necessita un títol."
+
+#: src/includes/topics/functions.php:187
+#: src/includes/topics/functions.php:597
+msgid "<strong>ERROR</strong>: Your topic cannot be empty."
+msgstr "<strong>ERROR</strong>: El tema no pot estar buit."
+
+#: src/includes/topics/functions.php:232
+msgid "<strong>ERROR</strong>: This forum is a category. No topics can be created in this forum."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és una categoria No es poden crear temes en aquest fòrum."
+
+#: src/includes/topics/functions.php:239
+#: src/includes/topics/functions.php:557
+msgid "<strong>ERROR</strong>: This forum has been closed to new topics."
+msgstr "<strong>ERROR</strong>: Aquest fòrum està tancan i no es poden afegir temes nous."
+
+#: src/includes/topics/functions.php:245
+#: src/includes/topics/functions.php:563
+msgid "<strong>ERROR</strong>: This forum is private and you do not have the capability to read or create new topics in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és privat i no teniu permisos per llegir-lo o crear-hi temes nous."
+
+#: src/includes/topics/functions.php:251
+#: src/includes/topics/functions.php:569
+msgid "<strong>ERROR</strong>: This forum is hidden and you do not have the capability to read or create new topics in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és ocult i no teniu permisos per llegir-lo o crear-hi temes nous."
+
+#: src/includes/topics/functions.php:265
+msgid "<strong>ERROR</strong>: Duplicate topic detected; it looks as though you&#8217;ve already said that!"
+msgstr "<strong>ERROR</strong>: S'ha detectat un tema duplicat; sembla que això ja ho heu dit!"
+
+#: src/includes/topics/functions.php:482
+#: src/includes/topics/functions.php:1146
+msgid "<strong>ERROR</strong>: Topic ID not found."
+msgstr "<strong>ERROR</strong>: no s'ha trobat l'ID del tema."
+
+#: src/includes/topics/functions.php:493
+msgid "<strong>ERROR</strong>: The topic you want to edit was not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat el tema que voleu editar."
+
+#: src/includes/topics/functions.php:504
+msgid "<strong>ERROR</strong>: You do not have permission to edit that topic."
+msgstr "<strong>ERROR</strong>: No teniu permisos per edtiar aquest tema."
+
+#: src/includes/topics/functions.php:550
+msgid "<strong>ERROR</strong>: This forum is a category. No topics can be created in it."
+msgstr "<strong>ERROR</strong>: Aquest fòrum és una categoria. No s'hi poden crar temes."
+
+#: src/includes/topics/functions.php:1158
+msgid "<strong>ERROR</strong>: The topic you want to merge was not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat el tema que voleu unificar."
+
+#: src/includes/replies/functions.php:1251
+#: src/includes/topics/functions.php:1164
+#: src/includes/topics/functions.php:1462
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the source topic."
+msgstr "<strong>ERROR</strong>: No teniu permisos per editar el tema inicial."
+
+#: src/includes/topics/functions.php:1172
+msgid "<strong>ERROR</strong>: Destination topic ID not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat l'ID del tema."
+
+#: src/includes/topics/functions.php:1178
+msgid "<strong>ERROR</strong>: The topic you want to merge to was not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat el tema que voleu unificar."
+
+#: src/includes/topics/functions.php:1182
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the destination topic."
+msgstr "<strong>ERROR</strong>: No teniu permisos per edtiar el tema de destinació."
+
+#: src/includes/topics/functions.php:1435
+msgid "<strong>ERROR</strong>: Reply ID to split the topic from not found!"
+msgstr "<strong>ERROR</strong>: No s'ha trobat l'ID  de la resposta que voleu dividir!"
+
+#: src/includes/topics/functions.php:1443
+msgid "<strong>ERROR</strong>: The reply you want to split from was not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat la resposta que voleu dividir."
+
+#: src/includes/topics/functions.php:1452
+msgid "<strong>ERROR</strong>: The topic you want to split was not found."
+msgstr "<strong>ERROR</strong>: No s'ha trobat el tema que voleu dividir."
+
+#: src/includes/topics/functions.php:1470
+msgid "<strong>ERROR</strong>: You need to choose a valid split option."
+msgstr "<strong>ERROR</strong>: Heu de triar una opció vàlida de divisió."
+
+#: src/includes/replies/functions.php:1274
+#: src/includes/topics/functions.php:1483
+msgid "<strong>ERROR</strong>: Destination topic ID not found!"
+msgstr "<strong>ERROR</strong>: No s'ha trobat l'ID del tema de destinació!"
+
+#: src/includes/topics/functions.php:1492
+msgid "<strong>ERROR</strong>: The topic you want to split to was not found!"
+msgstr "<strong>ERROR</strong>: No s'ha trobat el tema que voleu dividir!"
+
+#: src/includes/replies/functions.php:1289
+#: src/includes/topics/functions.php:1496
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the destination topic!"
+msgstr "<strong>ERROR</strong>: No teniu permiso per editar el tema de destinació!"
+
+#: src/includes/replies/functions.php:1343
+#: src/includes/topics/functions.php:1533
+msgid "<strong>ERROR</strong>: There was a problem converting the reply into the topic. Please try again."
+msgstr "<strong>ERROR</strong>: Hi ha hagut un problema convertint la resposta en un tema. Toneu-ho a intentar-ho de nou."
+
+#: src/includes/replies/functions.php:1348
+#: src/includes/topics/functions.php:1538
+msgid "<strong>ERROR</strong>: You do not have the permissions to create new topics. The reply could not be converted into a topic."
+msgstr "<strong>ERROR</strong>: No teniu permisos per crear temes nous. La resposta no es pot convertir en un tema."
+
+#: src/includes/topics/functions.php:1808
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while getting the tag: %s"
+msgstr "<strong>ERROR</strong>: S'ha trobat el problema/es següents en obtenir l'etiqueta: %s"
+
+#: src/includes/topics/functions.php:1826
+#: src/includes/topics/functions.php:1866
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the topic tags."
+msgstr "<strong>ERROR</strong>: No teniu permisos per editar les estiquetes del tema."
+
+#: src/includes/topics/functions.php:1832
+#: src/includes/topics/functions.php:1872
+msgid "<strong>ERROR</strong>: You need to enter a tag name."
+msgstr "<strong>ERROR</strong>: Heu de posar un nom d'etiqueta."
+
+#: src/includes/topics/functions.php:1843
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while updating the tag: %s"
+msgstr "<strong>ERROR</strong>: S'ha trobat el problema/es següents en actualitzar-se l'etiqueta: %s"
+
+#: src/includes/topics/functions.php:1882
+#: src/includes/topics/functions.php:1900
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while merging the tags: %s"
+msgstr "<strong>ERROR</strong>: S'ha trobat el problema/es següents en fusionar les etiquetes: %s"
+
+#: src/includes/topics/functions.php:1891
+msgid "<strong>ERROR</strong>: The tags which are being merged can not be the same."
+msgstr "<strong>ERROR</strong>: Les etiquetes que s'han de fusionar no poden ser iguals."
+
+#: src/includes/topics/functions.php:1923
+msgid "<strong>ERROR</strong>: You do not have the permissions to delete the topic tags."
+msgstr "<strong>ERROR</strong>: No teniu permisos per esborrar les etiquetes del tema."
+
+#: src/includes/topics/functions.php:1932
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while deleting the tag: %s"
+msgstr "<strong>ERROR</strong>: S'ha trobat el problema/es següents en esborrar l'etiqueta: %s"
+
+#: src/includes/topics/functions.php:2091
+msgid "<strong>ERROR:</strong> You do not have the permission to do that."
+msgstr "<strong>ERROR</strong>: No teniu permisos per fer això."
+
+#: src/includes/topics/functions.php:2104
+msgid "<strong>ERROR</strong>: There was a problem closing the topic."
+msgstr "<strong>ERROR</strong>: s'ha produït un problema en tancar el tema."
+
+#: src/includes/topics/functions.php:2104
+msgid "<strong>ERROR</strong>: There was a problem opening the topic."
+msgstr "<strong>ERROR</strong>: s'ha produït un problema en obrir el tema."
+
+#: src/includes/topics/functions.php:2115
+msgid "<strong>ERROR</strong>: There was a problem unsticking the topic."
+msgstr "<strong>ERROR</strong>: s'ha produït un problema en desenganxar el tema."
+
+#: src/includes/topics/functions.php:2115
+msgid "<strong>ERROR</strong>: There was a problem sticking the topic."
+msgstr "<strong>ERROR</strong>: S'ha trobat un problema marcant com a destacat un tema."
+
+#: src/includes/topics/functions.php:2125
+msgid "<strong>ERROR</strong>: There was a problem unmarking the topic as spam."
+msgstr "<strong>ERROR</strong>: S'ha trobat un problema marcant un tema coma no brossa."
+
+#: src/includes/topics/functions.php:2125
+msgid "<strong>ERROR</strong>: There was a problem marking the topic as spam."
+msgstr "<strong>ERROR</strong>: S'ha trobat un problema marcant un tema com a brossa."
+
+#: src/includes/topics/functions.php:2144
+msgid "<strong>ERROR</strong>: There was a problem trashing the topic."
+msgstr "<strong>ERROR</strong>: S'ha trobat un problema eliminant aquest tema."
+
+#: src/includes/topics/functions.php:2152
+msgid "<strong>ERROR</strong>: There was a problem untrashing the topic."
+msgstr "<strong>ERROR</strong>: S'ha trobat un problema recuperant de la paperera aqeust tema."
+
+#: src/includes/topics/functions.php:2160
+msgid "<strong>ERROR</strong>: There was a problem deleting the topic."
+msgstr "<strong>ERROR</strong>: s'ha produït un problema en eliminar el tema."
+
+#: src/includes/admin/tools.php:1315
+#: src/includes/topics/functions.php:3441
+#: src/includes/topics/template.php:50
+msgid "All Topics"
+msgstr "Tots els temes"
+
+#: src/includes/admin/forums.php:611
+#: src/includes/forums/template.php:601
+msgid "No Topics"
+msgstr "Sense temes"
+
+#: src/includes/forums/template.php:1239
+#: src/includes/forums/template.php:1977
+msgid "%s topic"
+msgid_plural "%s topics"
+msgstr[0] "%s tema"
+msgstr[1] "% temes"
+
+#: src/includes/admin/metaboxes.php:88
+msgid "Discussion"
+msgstr "Discussió "
+
+#: src/includes/admin/metaboxes.php:181
+msgid "User"
+msgid_plural "Users"
+msgstr[0] "Usuari/ària"
+msgstr[1] "Usuaris"
+
+#: src/includes/admin/metaboxes.php:200
+msgid "Hidden Topic"
+msgid_plural "Hidden Topics"
+msgstr[0] "Tema ocult"
+msgstr[1] "Temes ocults"
+
+#: src/includes/admin/metaboxes.php:222
+msgid "Hidden Reply"
+msgid_plural "Hidden Replies"
+msgstr[0] "Resposta oculta"
+msgstr[1] "Respostes ocultes"
+
+#: src/includes/admin/metaboxes.php:244
+msgid "Empty Topic Tag"
+msgid_plural "Empty Topic Tags"
+msgstr[0] "Etiqueta de tema buida"
+msgstr[1] "Etiquetes de tema buides"
+
+#: src/includes/admin/metaboxes.php:268
+msgid "You are using <span class=\"b\">bbPress %s</span>."
+msgstr "Esteu utilitzant el  <span class=\"b\">bbPress %s</span>."
+
+#: src/includes/admin/metaboxes.php:307
+#: src/includes/admin/metaboxes.php:308
+#: src/includes/admin/metaboxes.php:401
+msgid "Type:"
+msgstr "Tipus:"
+
+#: src/includes/admin/metaboxes.php:319
+#: src/includes/admin/metaboxes.php:320
+#: src/includes/admin/metaboxes.php:413
+#: src/templates/default/bbpress/form-forum.php:100
+msgid "Status:"
+msgstr "Estat:"
+
+#: src/includes/admin/metaboxes.php:331
+#: src/includes/admin/metaboxes.php:332
+#: src/templates/default/bbpress/form-forum.php:109
+msgid "Visibility:"
+msgstr "Visibilitat:"
+
+#: src/includes/admin/metaboxes.php:345
+msgid "Parent:"
+msgstr "Pare:"
+
+#: src/includes/admin/metaboxes.php:346
+msgid "Forum Parent"
+msgstr "Fòrum pare"
+
+#: src/templates/default/bbpress/form-forum.php:123
+msgid "(No Parent)"
+msgstr "(Sense pare)"
+
+#: src/includes/admin/metaboxes.php:367
+msgid "Order:"
+msgstr "Ordre:"
+
+#: src/includes/admin/metaboxes.php:368
+msgid "Forum Order"
+msgstr "Ordre del fòrum"
+
+#: src/includes/admin/topics.php:695
+#: src/includes/extend/buddypress/groups.php:291
+#: src/templates/default/bbpress/form-topic.php:117
+msgid "(No Forum)"
+msgstr "(Cap fòrum)"
+
+#: src/includes/admin/metaboxes.php:549
+#: src/templates/default/bbpress/form-user-edit.php:103
+#: src/templates/default/bbpress/form-user-register.php:29
+msgid "Email"
+msgstr "Correu electrònic"
+
+#: src/includes/admin/metaboxes.php:571
+msgid "IP Address"
+msgstr "Adreça IP"
+
+#: src/includes/admin/settings.php:1551
+msgid "Main Settings"
+msgstr "Configuració principal"
+
+#: src/includes/admin/settings.php:1571
+msgid "Per Page"
+msgstr "Per pàgina"
+
+#: src/includes/admin/settings.php:272
+msgid "Forum Prefix"
+msgstr "Prefix del fòrum"
+
+#: src/includes/admin/settings.php:1703
+msgid "Forum slug"
+msgstr "URL personalitzat del fòrum"
+
+#: src/includes/admin/settings.php:1706
+msgid "Topic slug"
+msgstr "URL personalitzat del tema"
+
+#: src/includes/admin/settings.php:1718
+msgid "Topic tag slug"
+msgstr "URL personalitzat de l'etiqueta del tema"
+
+#: src/includes/admin/settings.php:1709
+msgid "Reply slug"
+msgstr "URL personalitzat de resposta"
+
+#: src/includes/admin/settings.php:1712
+msgid "User base"
+msgstr "Usuari/ària base"
+
+#: src/includes/admin/settings.php:1715
+msgid "View base"
+msgstr ""
+
+#: src/includes/admin/admin.php:511
+msgid "Settings"
+msgstr "Configuració"
+
+#: src/includes/admin/admin.php:940
+#: src/includes/admin/admin.php:994
+msgid "Go Back"
+msgstr "Enrere"
+
+#: src/includes/admin/settings.php:467
+#: src/includes/common/functions.php:123
+msgid "minutes"
+msgstr "minuts"
+
+#: src/includes/admin/settings.php:483
+#: src/includes/common/functions.php:124
+msgid "seconds"
+msgstr "segons"
+
+#: src/includes/admin/settings.php:499
+msgid "Allow guest users without accounts to create topics and replies"
+msgstr "Permet als usuaris anònims crear temes nous i respostes"
+
+#: src/includes/admin/settings.php:779
+#: src/includes/admin/settings.php:795
+#: src/includes/admin/settings.php:826
+#: src/includes/admin/settings.php:842
+msgid "per page"
+msgstr "per pàgina"
+
+#: src/includes/admin/settings.php:1552
+msgid "In the Main Settings you have a number of options:"
+msgstr "A les preferències generals teniu algunes opcions:"
+
+#: src/includes/admin/settings.php:1555
+msgid "You can choose to lock a post after a certain number of minutes. \"Locking post editing\" will prevent the author from editing some amount of time after saving a post."
+msgstr "Podeu triar bloquejar un tema després de cert nombre de minuts. \"Bloqueig d'edició del tema\" impedirà que l'autor/a editi un tema desrpés d'un tems determinat."
+
+#: src/includes/admin/settings.php:1556
+msgid "\"Throttle time\" is the amount of time required between posts from a single author. The higher the throttle time, the longer a user will need to wait between posting to the forum."
+msgstr "\"Temps entre entrades \" és la quantitat de temps necessari entre entrades d'un sol autor. Com més gran sigui el temps d'acceleració, més temps haurà d'esperar l'usuari/ària entre entrades."
+
+#: src/includes/admin/settings.php:1565
+msgid "You must click the Save Changes button at the bottom of the screen for new settings to take effect."
+msgstr "És necessari fer clic al botó Desa els canvis a la part inferior de la pantalla perquè els canvis tinguin efecte."
+
+#: src/includes/admin/forums.php:137
+msgid "You can hide/display columns based on your needs and decide how many forums to list per screen using the Screen Options tab."
+msgstr "Podeu amagar/mostrar les columnes segons les vostres necessitats i decidir quants fòrums llistar per pantalla fent servir la pestanya Opcions de Pantalla. "
+
+#: src/includes/admin/forums.php:138
+msgid "You can filter the list of forums by forum status using the text links in the upper left to show All, Published, or Trashed forums. The default view is to show all forums."
+msgstr "Podeu filtrar la llista de fòrums pel seu estat fent servir els enllaços de la part superior esquerra per mostrar o be Tots, o els Publicats, o els fòrums de la Paperera. La visualització per defecte mostra tots els fòrums. "
+
+#: src/includes/admin/forums.php:139
+msgid "You can refine the list to show only forums from a specific month by using the dropdown menus above the forums list. Click the Filter button after making your selection. You also can refine the list by clicking on the forum creator in the forums list."
+msgstr "Podeu refinar la llista per mostrar solament els fòrums d'un mes específic si feu servir els menús desplegables que hi ha a la part superior de la llista de fòrums. Feu clic al botó Filtre després de fer la selecció. També podeu refinar la llista fent clic al nom del creador del fòrum de la llista de fòrums."
+
+#: src/includes/admin/forums.php:148
+msgid "Hovering over a row in the forums list will display action links that allow you to manage your forum. You can perform the following actions:"
+msgstr "En passar el cursor per sobre d'una fila a la llista de fòrums es mostraran els enllaços d'accions que us permetran gestionar el fòrum. Podeu realitzar les accions següents:"
+
+#: src/includes/admin/forums.php:207
+#: src/includes/admin/forums.php:247
+msgid "Forum Attributes"
+msgstr "Atributs del fòrum"
+
+#: src/includes/admin/forums.php:561
+#: src/includes/admin/replies.php:573
+#: src/includes/admin/topics.php:637
+msgid "Created"
+msgstr "Creat"
+
+#: src/includes/common/functions.php:114
+msgid "%s ago"
+msgstr "fa %s"
+
+#: src/includes/admin/forums.php:699
+msgid "Forum updated. <a href=\"%s\">View forum</a>"
+msgstr "S'ha actualitzat el fòrum. <a href=\"%s\">Visualitza el fòrum</a> "
+
+#: src/includes/admin/forums.php:702
+#: src/includes/admin/replies.php:854
+#: src/includes/admin/topics.php:924
+msgid "Custom field updated."
+msgstr "S'ha actualitzat el camp personalitzat."
+
+#: src/includes/admin/forums.php:705
+#: src/includes/admin/replies.php:857
+#: src/includes/admin/topics.php:927
+msgid "Custom field deleted."
+msgstr "S'ha eliminat el camp personalitzat."
+
+#: src/includes/admin/forums.php:708
+msgid "Forum updated."
+msgstr "S'ha actualitzat el fòrum."
+
+#: src/includes/admin/forums.php:713
+msgid "Forum restored to revision from %s"
+msgstr "S'ha restaurat el fòrum per a revisió des de %s"
+
+#: src/includes/admin/forums.php:717
+msgid "Forum created. <a href=\"%s\">View forum</a>"
+msgstr "S'ha creat el fòrum. <a href=\"%s\">Visualitza el fòrum</a> "
+
+#: src/includes/admin/forums.php:720
+msgid "Forum saved."
+msgstr "S'ha desat el fòrum."
+
+#: src/includes/admin/forums.php:723
+msgid "Forum submitted. <a target=\"_blank\" href=\"%s\">Preview forum</a>"
+msgstr "S'ha enviat el fòrum. <a target=\"_blank\" href=\"%s\">Previsualitza el fòrum</a> "
+
+#: src/includes/admin/forums.php:726
+msgid "Forum scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview forum</a>"
+msgstr "S'ha programat el fòrum per a: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Previsualitza el fòrum </a> "
+
+#: src/includes/admin/forums.php:728
+#: src/includes/admin/replies.php:880
+#: src/includes/admin/topics.php:950
+msgid "M j, Y @ G:i"
+msgstr "d-m-Y \\a \\l\\e\\s G:i "
+
+#: src/includes/admin/forums.php:733
+msgid "Forum draft updated. <a target=\"_blank\" href=\"%s\">Preview forum</a>"
+msgstr "S'ha actualitzat l'esborrany del fòrum. <a target=\"_blank\" href=\"%s\">Previsualitza el fòrum</a>"
+
+#: src/includes/admin/replies.php:146
+msgid "You can view replies in a simple title list or with an excerpt. Choose the view you prefer by clicking on the icons at the top of the list on the right."
+msgstr "Podeu veure les respostes en una simple llista de títols o en un extracte. Trieu la vista que preferiu fent clic a les icones que hi ha a la part de dalt a la dreta. "
+
+#: src/includes/admin/replies.php:156
+msgid "Hovering over a row in the replies list will display action links that allow you to manage your reply. You can perform the following actions:"
+msgstr "En passar el cursor per sobre d'una fila a la llista de respostes es mostraran els enllaços d'accions que us permetran gestionar la vostra resposta. Podeu realitzar les accions següents: "
+
+#: src/includes/admin/replies.php:217
+#: src/includes/admin/replies.php:255
+msgid "Reply Attributes"
+msgstr ""
+
+#: src/includes/admin/replies.php:347
+#: src/includes/admin/topics.php:363
+#: src/templates/default/bbpress/form-anonymous.php:17
+msgid "Author Information"
+msgstr "Informació de l'autor/a"
+
+#: src/includes/admin/replies.php:461
+msgid "The reply was not found!"
+msgstr "No s'ha trobat la resposta!"
+
+#: src/includes/admin/forums.php:439
+#: src/includes/admin/replies.php:464
+#: src/includes/admin/topics.php:488
+msgid "You do not have the permission to do that!"
+msgstr "No teniu permisos per fer això!"
+
+#: src/includes/admin/replies.php:532
+msgid "There was a problem marking the reply \"%1$s\" as spam."
+msgstr "S'ha trobat un problema marcant la resposta \"%1$s\" com a brossa."
+
+#: src/includes/admin/replies.php:532
+msgid "Reply \"%1$s\" successfully marked as spam."
+msgstr "La resposta \"%1$s\" s'ha marcat correctament com a brossa."
+
+#: src/includes/admin/replies.php:536
+msgid "There was a problem unmarking the reply \"%1$s\" as spam."
+msgstr "S'ha trobat un problema marcant la resposta \"%1$s\" com a no brossa."
+
+#: src/includes/admin/replies.php:536
+msgid "Reply \"%1$s\" successfully unmarked as spam."
+msgstr "La resposta \"%1$s\" s'ha marcat correctament com a no brossa."
+
+#: src/includes/admin/replies.php:569
+msgid "Title"
+msgstr "Títol"
+
+#: src/includes/admin/replies.php:726
+#: src/includes/admin/topics.php:777
+msgid "View"
+msgstr "Visualitza"
+
+#: src/includes/admin/replies.php:726
+#: src/includes/admin/topics.php:777
+msgid "View &#8220;%s&#8221;"
+msgstr "Visualitza &#8220;%s&#8221;"
+
+#: src/includes/admin/replies.php:737
+msgid "Mark the reply as not spam"
+msgstr "Marca la resposta com a no brossa"
+
+#: src/includes/admin/replies.php:737
+#: src/includes/admin/topics.php:808
+msgid "Not spam"
+msgstr "No és brossa"
+
+#: src/includes/admin/replies.php:739
+msgid "Mark this reply as spam"
+msgstr "Marca aquesta resposta com a brossa"
+
+#: src/includes/admin/replies.php:754
+#: src/includes/admin/topics.php:824
+msgid "Delete Permanently"
+msgstr "Suprimeix definitivament"
+
+#: src/includes/admin/replies.php:790
+#: src/includes/admin/topics.php:860
+msgid "In all forums"
+msgstr "A tots els fòrums"
+
+#: src/includes/admin/replies.php:851
+msgid "Reply updated. <a href=\"%s\">View topic</a>"
+msgstr "S'ha actualitzat la resposta. <a href=\"%s\">Visualitza</a>"
+
+#: src/includes/admin/replies.php:860
+msgid "Reply updated."
+msgstr "S'ha actualitzat la resposta."
+
+#: src/includes/admin/replies.php:865
+msgid "Reply restored to revision from %s"
+msgstr "S'ha restaurat la resposta per a revisió des de %s "
+
+#: src/includes/admin/replies.php:869
+msgid "Reply created. <a href=\"%s\">View topic</a>"
+msgstr "S'ha creat la resposta. <a href=\"%s\">Visualitza</a>"
+
+#: src/includes/admin/replies.php:872
+msgid "Reply saved."
+msgstr "S'ha desat la resposta."
+
+#: src/includes/admin/replies.php:875
+msgid "Reply submitted. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "S'ha tramès la resposta. <a target=\"_blank\" href=\"%s\">Previsualitza</a>"
+
+#: src/includes/admin/replies.php:878
+msgid "Reply scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview topic</a>"
+msgstr "S'ha programat la resposta per a: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Previsualitza la resposta </a> "
+
+#: src/includes/admin/replies.php:885
+msgid "Reply draft updated. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "S'ha actualitzat l'esborrany de la resposta. <a target=\"_blank\" href=\"%s\">Previsualitza el tema</a>"
+
+#: src/includes/admin/tools.php:292
+msgid "Count topics in each forum"
+msgstr "Compta els temes de cada fòrum"
+
+#: src/includes/admin/tools.php:293
+msgid "Count replies in each forum"
+msgstr "Compta respostes de cada fòrum"
+
+#: src/includes/admin/tools.php:294
+msgid "Count replies in each topic"
+msgstr "Compta respostes de cada tema"
+
+#: src/includes/admin/tools.php:295
+msgid "Count voices in each topic"
+msgstr "Compta les veus de cada tema"
+
+#: src/includes/admin/tools.php:296
+msgid "Count spammed & trashed replies in each topic"
+msgstr "Compta les respostes marcades com a brossa o enviades a la paperera en cadascun dels temes"
+
+#: src/includes/admin/tools.php:298
+msgid "Count replies for each user"
+msgstr "Compta les respostes de cada usuari/ària"
+
+#: src/includes/admin/tools.php:299
+msgid "Remove trashed topics from user favorites"
+msgstr "Suprimeix els temes de la paperera dels preferits de l'usuari/ària"
+
+#: src/includes/admin/tools.php:300
+msgid "Remove trashed topics from user subscriptions"
+msgstr "Suprimeix de la paperera les subscripcions dels usuaris"
+
+#: src/includes/admin/tools.php:289
+msgid "Recalculate last activity in each topic and forum"
+msgstr "Recalcula la darrera activitat en cadascun dels temes i fòrums"
+
+#: src/includes/admin/tools.php:325
+msgid "Counting the number of replies in each topic&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:326
+#: src/includes/admin/tools.php:372
+#: src/includes/admin/tools.php:417
+#: src/includes/admin/tools.php:468
+#: src/includes/admin/tools.php:586
+#: src/includes/admin/tools.php:620
+#: src/includes/admin/tools.php:653
+#: src/includes/admin/tools.php:699
+#: src/includes/admin/tools.php:745
+#: src/includes/admin/tools.php:808
+#: src/includes/admin/tools.php:870
+#: src/includes/admin/tools.php:939
+#: src/includes/admin/tools.php:993
+#: src/includes/admin/tools.php:1110
+#: src/includes/admin/tools.php:1167
+#: src/includes/admin/tools.php:1191
+#: src/includes/admin/tools.php:1252
+msgid "Failed!"
+msgstr "Ha fallat!"
+
+#: src/includes/admin/tools.php:352
+#: src/includes/admin/tools.php:398
+#: src/includes/admin/tools.php:432
+#: src/includes/admin/tools.php:601
+#: src/includes/admin/tools.php:635
+#: src/includes/admin/tools.php:681
+#: src/includes/admin/tools.php:727
+#: src/includes/admin/tools.php:790
+#: src/includes/admin/tools.php:852
+#: src/includes/admin/tools.php:914
+#: src/includes/admin/tools.php:1089
+#: src/includes/admin/tools.php:1151
+#: src/includes/admin/tools.php:1171
+#: src/includes/admin/tools.php:1234
+#: src/includes/admin/tools.php:1285
+msgid "Complete!"
+msgstr "Completada!"
+
+#: src/includes/admin/tools.php:371
+msgid "Counting the number of voices in each topic&hellip; %s"
+msgstr "S'està comptant el nombre d'opinions de cada tema&hellip; %s"
+
+#: src/includes/admin/tools.php:416
+msgid "Counting the number of spammed and trashed replies in each topic&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:585
+msgid "Counting the number of topics in each forum&hellip; %s"
+msgstr "S'està comptant el nombre de temes de cada fòrum&hellip; %s"
+
+#: src/includes/admin/tools.php:619
+msgid "Counting the number of replies in each forum&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:698
+msgid "Counting the number of topics to which each user has replied&hellip; %s"
+msgstr "S'està comptant el nombre de temes en què cada usuari ha respost&hellip; %s"
+
+#: src/includes/admin/tools.php:744
+msgid "Removing trashed topics from user favorites&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:774
+#: src/includes/admin/tools.php:836
+#: src/includes/admin/tools.php:898
+msgid "Nothing to remove!"
+msgstr "No hi ha res a suprimir!"
+
+#: src/includes/admin/tools.php:807
+msgid "Removing trashed topics from user subscriptions&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/tools.php:992
+msgid "Recomputing latest post in every topic and forum&hellip; %s"
+msgstr ""
+
+#: src/includes/admin/topics.php:144
+msgid "You can hide/display columns based on your needs and decide how many topics to list per screen using the Screen Options tab."
+msgstr "Podeu amagar/mostrar les columnes segons les vostres necessitats i decidir quants temes llistar per pantalla fent servir la pestanya Opcions de Pantalla. "
+
