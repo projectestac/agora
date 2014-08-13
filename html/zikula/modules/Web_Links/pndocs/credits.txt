@@ -1,7 +1,0 @@
-This module is based on an original creation by Francisco Burzi.
-License is GPL, please see license page.
-
-Many thanks to Carsten Volmer aka Herr.Vorragend (http://www.carsten-volmer.de) for his great work in the templates and css.
-
-Thanks to all who helped me with ideas and bugfixes...
-(Landseer, gf, quan, Herr.Vorragend, Guite, slam, Teb, dmm... if I have forget someone, please excuse me)

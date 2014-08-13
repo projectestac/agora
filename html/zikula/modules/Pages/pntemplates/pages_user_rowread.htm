@@ -1,8 +1,0 @@
-<!--[*  $Id: pages_user_rowread.htm 411 2010-04-23 16:02:49Z yokav $  *]-->
-
-<!--[if $enablecategorization and $shorturls and $shorturlstype eq 0 and $addcategorytitletopermalink]-->
-<!--[assign var='prop' value=$properties.0]-->
-<a href="<!--[pnmodurl modname='Pages' func='display' pageid=$pageid cat=$__CATEGORIES__.$prop.path_relative]-->"><!--[$title|pnvarprephtmldisplay]--></a>
-<!--[else]-->
-<a href="<!--[pnmodurl modname='Pages' func='display' pageid=$pageid]-->"><!--[$title|pnvarprephtmldisplay]--></a>
-<!--[/if]-->

@@ -1,6 +1,0 @@
-admin messages to do list
-
-adstraction of html - uses pnhtml currently
-review message expiry
-review permissions
-identify upgrade requirements

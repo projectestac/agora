@@ -1,7 +1,0 @@
-$Id: install.txt 732 2010-06-02 08:27:20Z herr.vorragend $
-
-Please take a look at the project's wiki at
-http://code.zikula.org/ezcomments/wiki/documentation
-http://code.zikula.org/ezcomments/wiki/
-
-Installation and usage information will no longer be included in EZComments releases

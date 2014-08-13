@@ -1,9 +1,0 @@
-Installation Notes
-
-New installation
-Nothing special.
-
-Upgrades
-
-Please note that, due to the way in which the stats are collected, upgrades will present skewed information for browsers and platforms that have been added in this release. The stats module detectes the browser and increments it's count by 1. For browsers that were not supported in earlier releases each access will have been logged into either another browser (netscape for mozilla and firefox/firebird) or the other field (e.g. camino, galeon etc.).
-

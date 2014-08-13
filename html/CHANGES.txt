@@ -58,6 +58,13 @@ MOODLE 2
 - Deleted support for rscorm activities
 - Renewed XTEC2 theme with layout settings, configuration menus and bootstrap support
 
+Time to say Goodbyes...
+-----------------------
+MOODLE Deleted 1.9 version.
+A memory lasts forever, never will it die... true friends stay together and never say goodbye...
+
+ZIKULA Deleted Zikula 1.2 version.
+Goodbyes are not forever. Goodbyes are not the end. They simply mean I'll miss you until we meet again.
 
 Changes 14.07.04
 ---------------------------------------------------------------------------------------

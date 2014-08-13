@@ -1,5 +1,0 @@
------------------------------
-This is a list of known bugs
------------------------------
-
-Please report bugs to : mikegoldfinger@linuxmail.org

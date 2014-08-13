@@ -1,9 +1,0 @@
-ToDo-List
----------
-
-- (xinha) ImageManager/EFM-Settings in Administration
-
-- (xinha) only buttons for allowed html-tags shown
-
-- (xinha) Plugins for linking pnForum and News
-

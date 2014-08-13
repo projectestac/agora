@@ -1,7 +1,0 @@
-Mòdul: iw_booksres
-
-Versió: 1.0
-
-Revisió: 4
-
-Fitxer comprimit: iw_booksres_1.0.4.zip

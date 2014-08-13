@@ -1,5 +1,0 @@
-This is a list of planned fixes in the near future
-
-Change the "Add new Users to Group" input field to a dropdown Menu listing all groups.
-Move all group and user management code to calls to the users and groups module APIs once
-these modules are API compliant.

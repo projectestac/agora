@@ -1,7 +1,0 @@
-Version 2.0
-- fully templated using pnRender
-- some stuff were killed (Votes, Comments, Editorial)
-- supports the Rating-Hook and EZComments-Hook, I think any other too
-- it is possible to set a setting in the configuration for open links in a new window
-- you can aktivate the last and the best links at the module main site (Featured Link-Box)
-

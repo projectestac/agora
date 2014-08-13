@@ -1,5 +1,0 @@
-<?php
-
-$string['feedback'] = 'Feedback';
-
-?>

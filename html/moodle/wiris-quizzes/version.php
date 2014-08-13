@@ -1,1 +1,0 @@
-<?php echo "WIRIS quizzes version: 1.4.5.39" ?>

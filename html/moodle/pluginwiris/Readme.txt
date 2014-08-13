@@ -1,1 +1,0 @@
-You can find the installation documentation at /pluginwiris/doc/install.html
