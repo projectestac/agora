@@ -25,10 +25,9 @@ if ( is_admin() && ! empty( $_REQUEST['page'] ) && 'bp-activity' == $_REQUEST['p
  *
  * @since BuddyPress (1.6)
  */
-
 function bp_activity_add_admin_menu() {
 
-    // Add our screen
+	// Add our screen
 	$hook = add_menu_page(
 		__( 'Activity', 'buddypress' ),
 		__( 'Activity', 'buddypress' ),

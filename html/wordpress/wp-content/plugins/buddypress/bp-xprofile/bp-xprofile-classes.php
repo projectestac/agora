@@ -1189,10 +1189,12 @@ class BP_XProfile_ProfileData {
 				// If no value was found, cache an empty item
 				// to avoid future cache misses
 				} else {
-					$d           = new stdClass;
-					$d->id       = '';
-					$d->field_id = $field_id;
-					$d->value    = '';
+					$d               = new stdClass;
+					$d->id           = '';
+					$d->user_id      = '';
+					$d->field_id     = $field_id;
+					$d->value        = '';
+					$d->last_updated = '';
 
 					wp_cache_set( $field_id, $d, $cache_group );
 				}
@@ -1547,8 +1549,9 @@ class BP_XProfile_Field_Type_Datebox extends BP_XProfile_Field_Type {
 	 * @since BuddyPress (2.0.0)
 	 */
 	public function edit_field_options_html( array $args = array() ) {
-		$options = $this->field_obj->get_children();
-		$date    = BP_XProfile_ProfileData::get_value_byid( $this->field_obj->id, $args['user_id'] );
+		$options    = $this->field_obj->get_children();
+		$date       = BP_XProfile_ProfileData::get_value_byid( $this->field_obj->id, $args['user_id'] );
+		$eng_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
 
 		$day   = 0;
 		$month = 0;
@@ -1579,12 +1582,17 @@ class BP_XProfile_Field_Type_Datebox extends BP_XProfile_Field_Type {
 		}
 
 		if ( ! empty( $_POST['field_' . $this->field_obj->id . '_month'] ) ) {
-			$new_month = (int) $_POST['field_' . $this->field_obj->id . '_month'];
-			$month     = ( $month != $new_month ) ? $new_month : $month;
+			if ( in_array( $_POST['field_' . $this->field_obj->id . '_month'], $eng_months ) ) {
+				$new_month = $_POST['field_' . $this->field_obj->id . '_month'];
+			} else {
+				$new_month = $month;
+			}
+
+			$month = ( $month !== $new_month ) ? $new_month : $month;
 		}
 
 		if ( ! empty( $_POST['field_' . $this->field_obj->id . '_year'] ) ) {
-			$new_year = date( 'j', (int) $_POST['field_' . $this->field_obj->id . '_year'] );
+			$new_year = (int) $_POST['field_' . $this->field_obj->id . '_year'];
 			$year     = ( $year != $new_year ) ? $new_year : $year;
 		}
 
@@ -1599,8 +1607,6 @@ class BP_XProfile_Field_Type_Datebox extends BP_XProfile_Field_Type {
 			break;
 
 			case 'month':
-				$eng_months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
-
 				$months = array(
 					__( 'January', 'buddypress' ),
 					__( 'February', 'buddypress' ),
@@ -2830,9 +2836,14 @@ abstract class BP_XProfile_Field_Type {
 
 						<p class="sortable">
 							<span>&nbsp;&Xi;&nbsp;</span>
-							<input type="text" name="<?php echo esc_attr( "{$type}_option[{$j}]" ); ?>" id="<?php echo esc_attr( "{$type}_option{$j}" ); ?>" value="<?php echo esc_attr( $options[$i]->name ); ?>" />
+							<input type="text" name="<?php echo esc_attr( "{$type}_option[{$j}]" ); ?>" id="<?php echo esc_attr( "{$type}_option{$j}" ); ?>" value="<?php echo esc_attr( stripslashes( $options[$i]->name ) ); ?>" />
 							<input type="<?php echo esc_attr( $control_type ); ?>" name="<?php echo esc_attr( "isDefault_{$type}_option{$default_name}" ); ?>" <?php checked( $options[$i]->is_default_option, true ); ?> value="<?php echo esc_attr( $j ); ?>" />
 							<span><?php _e( 'Default Value', 'buddypress' ); ?></span>
+
+							<?php if ( 1 <= $i ) : ?>
+								<a href="<?php echo esc_url( 'users.php?page=bp-profile-setup&amp;mode=delete_option&amp;option_id=' . $options[$i]->id ); ?>" class="ajax-option-delete" id="delete-<?php echo esc_attr( $options[$i]->id ); ?>">[x]</a>
+							<?php endif ;?>
+							
 						</p>
 					<?php endfor; ?>
 
