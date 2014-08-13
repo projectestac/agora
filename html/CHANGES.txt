@@ -14,6 +14,7 @@ PORTAL
 - Agoraportal: Updated services logos
 - Agoraportal: Added ability to customize WordPress info when activating a site
 - Agoraportal: Service 'nodes' can be activated
+- Added logos of XTEC services in images/importat/
 
 WORDPRESS
 - Added Widget Visibility Without Jetpack 0.4
