@@ -40,7 +40,7 @@ class block_my_books extends block_list {
 
         /// load user books
         $sql = "SELECT * FROM {rcommon_user_credentials} RUC
-            INNER JOIN {rcommon_books} RB ON RB.isbn = RUC.isbn
+            INNER JOIN {rcommon_books} RB ON RB.isbn = RUC.isbn AND RB.format != 'scorm'
             WHERE RUC.euserid = $USER->id
             ORDER BY RB.name";
 
