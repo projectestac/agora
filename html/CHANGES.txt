@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+Changes 14.08.19
+---------------------------------------------------------------------------------------
 GENERAL:
 - config.php: Added param for nodes
 
@@ -49,7 +52,11 @@ ZIKULA 2
 - IWagendas: Fixed javascript loading in blocks
 
 MOODLE 2
+- Moodle 2 Updated to 2.6.4 version
 - Fixed CLOB error with events when restoring courses with events
+- Updated version of all thirdparty modules
+- Deleted support for rscorm activities
+- Renewed XTEC2 theme with layout settings, configuration menus and bootstrap support
 
 
 Changes 14.07.04
