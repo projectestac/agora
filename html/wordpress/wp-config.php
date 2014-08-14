@@ -93,6 +93,11 @@ define('SCRIPT_DEBUG', false);
 // Set to true and uncomment code in theme exray in footer.php to use it.
 define('SAVEQUERIES', false); 
 
+/**
+ * Default blog creation theme.
+ */
+define('WP_DEFAULT_THEME', 'exray');
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
