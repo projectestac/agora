@@ -231,7 +231,7 @@ function report_coursequotas_printCategoryData($data) {
         if ($category['id'] == 0) {
             $content .= $category['name'];
         } else {
-            $content .= '<a href="../../course/category.php?id=' . $category['id'] . '" target="_blank">' . $category['name'] . '</a>';
+            $content .= '<a href="../../course/index.php?categoryid=' . $category['id'] . '" target="_blank">' . $category['name'] . '</a>';
         }
         $content .= ' - ' . number_format($size['figure'], 2, ',', '.') . ' ' . $size['unit'] . '</li>';
 
@@ -287,7 +287,7 @@ function report_coursequotas_printCoursesData($data) {
         if ($course['categoryId'] == 0) {
             $row[] = $course['categoryName'];
         } else {
-            $row[] = '<a href="../../course/category.php?id=' . $course['categoryId'] . '" target="_blank">' . $course['categoryName'] . '</a>';
+            $row[] = '<a href="../../course/index.php?categoryid=' . $course['categoryId'] . '" target="_blank">' . $course['categoryName'] . '</a>';
         }
         $row[] = number_format($course['courseSize'], 2, ',', '.') . ' ' . $course['courseSizeUnit'];
         $table->data[] = $row;
