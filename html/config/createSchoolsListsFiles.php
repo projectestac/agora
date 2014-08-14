@@ -37,7 +37,7 @@ if (isset($_REQUEST['update'])) {
     $schools_var = '';
     foreach ($schools as $school) {
         if ($new_version) {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca\n";
+            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
         }
         for ($i = 0; $i < $num_exec; $i++) {
             $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?lang=ca&autopilot=1\n";
