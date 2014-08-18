@@ -44,21 +44,7 @@
     // Get the correct domain for the school (it's different if the school uses marsupial modules)
     $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
 
-    if (isset($CFG->ismarsupial) && $CFG->ismarsupial) {
-        $moodle_wwwserver = $agora['server']['marsupial'];
-    } else {
-        $moodle_wwwserver = $agora['server']['server'];
-    }
-
-    $moodle_wwwroot = $moodle_wwwserver . $agora['server']['base'];
-
-    // Check if the domain is not the correct one and move if it isn't
-    if (endsWith($moodle_wwwserver, $_SERVER['HTTP_HOST']) === false) {
-        $location = $moodle_wwwserver.$_SERVER['REQUEST_URI'];
-        header ('HTTP/1.1 301 Moved Permanently');
-        header ('Location: '.$location);
-        exit;
-    }
+    $moodle_wwwroot = $agora['server']['server'] . $agora['server']['base'];
 
     $moodle_dirroot = getMoodleDirrot($school_info, 'moodle2');
     if (!empty($school_info['new_dns'])) {
@@ -83,6 +69,6 @@
     $CFG->dbname    = $school_info['database_moodle2'];
     $CFG->dbuser    = $agora['moodle']['username'] . $school_info['id_moodle2'];
     $CFG->wwwroot   = $moodle_wwwroot.$centre . '/' . $moodle_dirroot;
-    $CFG->wwwroot19 = $moodle_wwwroot.$centre . '/' . getMoodleDirrot($school_info, 'moodle');
+    //$CFG->wwwroot19 = $moodle_wwwroot.$centre . '/' . getMoodleDirrot($school_info, 'moodle');
     $CFG->dataroot  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle']['username'] . $school_info['id_moodle2'];
     $CFG->dnscentre = $centre;
