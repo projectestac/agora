@@ -646,28 +646,6 @@ function getServicesToTest($service) {
     return $schools;
 }
 
-
-/**
- * Get dirroot for specified service (depending on the Moodle services actived)
- * @param type $school_info
- * @param type $service
- * @return string 
- */
-function getMoodleDirrot($school_info, $service='moodle') {
-    $moodle_dirroot = 'moodle';
-    switch ($service) {
-        case 'moodle':
-            $moodle_dirroot = 'copiaseg';
-            break;
-        case 'moodle2':
-            // If client has param 'extraFunc' with value 'moodle2', changes $moodle_dirroot 
-            $moodle_dirroot = (checkExtraFunc(transformClientCode($school_info['clientCode'], 'num2letter'))) ? 'moodle2' : 'moodle';
-            break;
-    }
-    return $moodle_dirroot;
-}
-
-
 /**
  * Checks param extraFunc, associated to a client. Returns true if value 
  * is 'moodle2' and false otherwise.
