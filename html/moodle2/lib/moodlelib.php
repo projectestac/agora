@@ -4034,6 +4034,8 @@ function create_user_record($username, $password, $auth = 'manual') {
     //2012.06.20 @sarjona
     if ($auth == 'odissea' && !empty($newuser->username)){
         $newuser->username = mb_convert_case($newuser->username, MB_CASE_LOWER, 'UTF-8');
+    } else {
+        $newuser->username = $username;
     }
     //************ ORIGINAL
     /*

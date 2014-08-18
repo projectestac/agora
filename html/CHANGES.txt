@@ -5,7 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL:
+- Deleted support for educat1x1.cat domain
 
+MOODLE2:
+- Added Google Auth2 Auth method
 
 
 Changes 14.08.19 codename mgrau
