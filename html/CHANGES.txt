@@ -43,6 +43,7 @@ WORDPRESS
 - Added Slideshow 2.2.21
 - xtec-mail: Fixed HTML format in e-mail
 - Added initial catalan translation for BuddyPress, bbpress, Google Calendar and Slideshow
+- Added first alpha version of the reactor-primaria-1 theme
 
 ZIKULA 2
 - Upgraded to Zikula 1.3.8
