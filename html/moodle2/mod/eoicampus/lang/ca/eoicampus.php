@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['choose_group'] = 'Si us plau, tria un grup';
 $string['description'] = 'Descripci&oacute;';
 // XTEC *********** AFEGIT -> Text string for the new eoicampus settings vars
-// 2011.07.26 @mmartinez 
+// 2011.07.26 @mmartinez
 $string['eoicampus_server'] = 'Adre&ccedil;a web de l\'eoicampus';
 $string['eoicampus_server_text'] = 'Adre&ccedil;a web on es troba l\'acc&eacute;s a l\'eoicampus';
 // ********** FI
@@ -62,5 +62,3 @@ $string['eoicampus:addinstance'] = 'Afegir EOICampus';
 $string['eoicampus:view'] = 'Veure EOICampus';
 $string['eoicampus:submit'] = 'Trametre EOICampus';
 // ********** FI
-
-?>

@@ -1,9 +1,9 @@
 <?php
 /// This page prints a particular instance of eoicampus
 
-    require_once("../../config.php");
-    require_once("lib.php");
-    require_once('../../lib/filelib.php');
+require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
+require_once(dirname(__FILE__).'/lib.php');
+require_once('../../lib/filelib.php');
 
     $id = required_param('id', PARAM_INT);             // Course Module ID
 

@@ -5,7 +5,7 @@ get_debug();
 
 // Force general preferences. Prevailes over database params.
 $CFG->isagora = 1;
-//$CFG->iseoi = false;  /* Set in database */
+$CFG->iseoi = false;
 $CFG->isportal = false;
 $CFG->center = array_key_exists('clientCode', $school_info) ? $school_info['clientCode'] : $school_info['id_moodle2'];
 
@@ -35,11 +35,19 @@ $CFG->recaptchaprivatekey='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 $CFG->smtpmaxbulk = 20;
 //$CFG->noreplyaddress = "noreply@agora.xtec.cat";
 $CFG->digestmailtime = 1;
-$CFG->mailheader = '[Àgora]';
+if($CFG->iseoi){
+	$CFG->mailheader = '[Àgora-EOI]';
+} else {
+	$CFG->mailheader = '[Àgora]';
+}
 
 //Cleanup
 $CFG->disablegradehistory = 1;
-$CFG->loglifetime = 0;
+if($CFG->iseoi){
+	$CFG->loglifetime = 365;
+} else {
+	$CFG->loglifetime = 0;
+}
 
 //Rules
 $CFG->forceloginforprofiles = 1;
@@ -60,8 +68,13 @@ $CFG->sessiontimeout=3600;
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
 // This param (hour_restrictions) can be serialized. This is useful for setting it in database
 // Values for days: 0 = sunday, 1 = monday, ..., 6 = saturday
-$CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
+if($CFG->iseoi){
+	$CFG->hour_restrictions = array(array('start' => '16:00', 'end' => '23:59', 'days' => '1|2|3|4|5'),
+                                array('start' => '00:00', 'end' => '23:59', 'days' => '0|6'));
+} else {
+	$CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
                                 array('start' => '15:00', 'end' => '16:59', 'days' => '1|2|3|4|5'));
+}
 
 // These variable define DEFAULT block variables for new courses
 $CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
@@ -72,10 +85,16 @@ $CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
 //$CFG->apligestlogdebug = 0;		/* Set in database */
 $CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
 $CFG->apligestenv = $agora['server']['enviroment'];
-$CFG->apligestaplic = 'AGORA';
+if($CFG->iseoi){
+	$CFG->apligestaplic = 'AGORAEOI';
+} else {
+	$CFG->apligestaplic = 'AGORA';
+}
 
 // Only allow some of the languages
-$CFG->langlist = 'ca,en,es,fr,de';
+if($CFG->iseoi){
+	$CFG->langlist = 'ca,en,es,fr,de';
+}
 
 // Àtria-marsupial information
 //$CFG->center = '08929684';

@@ -24,15 +24,7 @@ class mod_eoicampus_mod_form extends moodleform_mod {
         $mform->addElement('htmleditor', 'description', get_string('description'));
         $mform->setType('description', PARAM_RAW);
         $mform->addHelpButton('description', 'description', 'eoicampus');
-        //extra info
-        if(isset($CFG->eoicampus_wsdl_path)){
-            echo "<script>
-                function set_pvars(){
-    	            setHost('{$CFG->eoicampus_wsdl_path}');
-    	            setMoodleServer('{$CFG->wwwroot}/mod/eoicampus/action/servlets.php');
-                }
-            </script>";
-        }
+
 
         //get row info if its updating
         if ($id = optional_param("update", false, PARAM_INT)){
@@ -82,8 +74,14 @@ class mod_eoicampus_mod_form extends moodleform_mod {
         	$opts[$i] = $i;
         }
         $mform->addElement('select', 'pwid', get_string("pathway", "eoicampus"), $opts);
-        $html = '<script type="text/javascript">getPathways("'.$selected_pwlevel.'", "'.$selected_pwid.'");</script>';
-        $mform->addElement('html', $html);
+        $script = 'getPathways("'.$selected_pwlevel.'", "'.$selected_pwid.'");';
+        if(isset($CFG->eoicampus_wsdl_path)){
+            $script = "function set_pvars(){
+                    setHost('{$CFG->eoicampus_wsdl_path}');
+                    setMoodleServer('{$CFG->wwwroot}/mod/eoicampus/action/servlets.php');
+                }". $script;
+        }
+        $mform->addElement('html', '<script type="text/javascript">'.$script.'</script>');
 
         $this->standard_coursemodule_elements();
         // buttons
@@ -92,4 +90,3 @@ class mod_eoicampus_mod_form extends moodleform_mod {
 
 
 }
-?>

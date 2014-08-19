@@ -70,7 +70,7 @@ $capabilities = array(
             'student' => CAP_ALLOW
         )
     ),
-    
+
 	'mod/eoicampus:addinstance' => array(
         'riskbitmask'  => RISK_XSS,
         'captype'      => 'write',

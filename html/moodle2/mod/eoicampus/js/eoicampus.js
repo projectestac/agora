@@ -18,14 +18,12 @@ function setMoodleServer(t) {
     p_moodle = t;
 }
 
-set_pvars();
-
 function changeType(elem) {
     getPathways(null, null);
 }
 
 function getPathways(level, pwid) {
-
+    set_pvars();
 //XTEC ************ AFEGIT - yui2 to yui 2in3 conversion. Open function.
 //2013.01.14 @aginard
     YUI().use('yui2-dom', function (Y) {
