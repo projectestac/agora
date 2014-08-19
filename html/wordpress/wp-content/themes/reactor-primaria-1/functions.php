@@ -518,6 +518,17 @@ function custom_excerpt_length( $length ) {
 
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+function my_home_category( $query ) {
+    $catId = reactor_option('frontpage_post_category', '1');
+
+    if ( $query->is_home() ) {
+        $query->set('cat',$catId);
+    }
+}
+add_action( 'pre_get_posts', 'my_home_category' );
+
+
+
 /*
 function improved_trim_excerpt($text) {
         global $post;

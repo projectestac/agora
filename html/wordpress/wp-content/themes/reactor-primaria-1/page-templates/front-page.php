@@ -59,10 +59,26 @@ $slider_category = reactor_option('frontpage_slider_category', ''); ?>
             
 	            <?php reactor_inner_content_before(); ?>
 				
-				<?php // get the page
-					if (  strlen(  trim(get_the_content()) ) > 0)  {
-	                		get_template_part('loops/loop', 'page'); 
-					} ?>
+			<?php // get the page
+				if (  strlen(  trim(get_the_content()) ) > 0)  {
+                		get_template_part('loops/loop', 'page'); 
+				} ?>
+
+			<?php			
+				$number_posts = reactor_option('frontpage_number_posts', 10);
+				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+				$args = array( 
+							'post_type'           => 'post',
+							'posts_per_page'      => $number_posts,
+							'paged'               => $paged );
+						
+				global $frontpage_query;
+		            	
+				$frontpage_query = new WP_Query( $args ); 		
+
+			?>
+
+
 			<div class="row fila1">
 				<?php	// get the row 1, fixed height cards
 				 	get_template_part('loops/loop', 'frontpage-fila-1'); ?>

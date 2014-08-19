@@ -39,39 +39,23 @@ if ($posts_fila1==33 || $posts_fila1==66)
 
 ?>
 
-
-
-
 <?php // get the options
 $post_category = reactor_option('frontpage_post_category', '');
 if ( -1 == $post_category ) { $post_category = ''; } // fix customizer -1
 
-$number_posts = reactor_option('frontpage_number_posts', 3);
 $post_columns = reactor_option('frontpage_post_columns', 3);
 $page_links = reactor_option('frontpage_page_links', 0); 
 
+global $frontpage_query;
+
 ?>
-
-
-		<?php // start the loop
-		 	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-                 	$args = array( 
-						'post_type'           => 'post',
-						'cat'                 => $post_category,
-						'posts_per_page'      => $posts_fila1,
-						'paged'               => $paged );
-			global $frontpage_query;
-                    	
-			$frontpage_query = new WP_Query( $args ); 
-		
-		?>
-
+	
 		    <?php if ( $frontpage_query->have_posts() ) : ?>
 
                     	<?php reactor_loop_before(); ?>
 
                             <?php while ( $frontpage_query->have_posts() ) : $frontpage_query->the_post(); global $more; $more = 0; ?>
-
+			
                             	<?php $layout=array_pop($aLayout); ?>
 
   		                <?php reactor_post_before(); ?>
@@ -87,10 +71,10 @@ $page_links = reactor_option('frontpage_page_links', 0);
 		
 		   <?php echo "<div style='clear:both'></div>"; ?>
 
-                    <?php // if no posts are found
+		   <?php // if no posts are found
 			else : reactor_loop_else(); ?>
 
-                    <?php endif; // end have_posts() check ?>
+		   <?php endif; // end have_posts() check ?>
 
 
 
