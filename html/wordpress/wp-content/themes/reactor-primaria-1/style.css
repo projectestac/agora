@@ -192,7 +192,6 @@ Header
 }
 
 .icon-graella{   
-    /*background-color: white;*/
     background-color: #ff5a26;
     height: 5.6em;
     width: 4.3em;
@@ -202,10 +201,10 @@ Header
     float: left;
     display: table-cell;
     vertical-align: middle;
-    /*border: 1px solid #41d1d1;
+    /*border: 1px solid silver;
     border-right: 0px;
-    border-top: 0px;
-    */
+    border-top: 0px;*/
+    
 }
 
 
@@ -240,6 +239,7 @@ Header
     font-size:2em;
     /*color:#2c8f8f;*/
     color:white;
+border-bottom:0 !important;
 }
 
 
@@ -249,6 +249,7 @@ Header
     font-size:2em;
     /*color:#2c8f8f;*/
     color:white;
+border-bottom:0 !important;
 }
 
 #icon-22:before {
@@ -257,6 +258,7 @@ Header
     font-size:2em;
     /*color:#2c8f8f;*/
     color:white;
+border-bottom:0 !important;
 }
 
 #icon-23:before {
@@ -275,6 +277,7 @@ Header
     /*color:#2c8f8f;*/
     color:white;
     width:100%;
+ 
 }
 
 .slideshow_container_slideshow-jquery-image-gallery-custom-styles_1 .slideshow_slide {

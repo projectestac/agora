@@ -25,7 +25,7 @@
 
 <!-- Include the plug-in -->
 
-<!--jmeler mateixa alçada -->
+<!-- jmeler mateixa alçada -->
 <script>
 
 jQuery(document).ready(function() {
@@ -51,7 +51,8 @@ jQuery(document).ready(function() {
 
 </script>
 
-<script src="wp-content/themes/reactor-primaria-1/masonry.pkgd.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/masonry.pkgd.min.js"></script>
+
 <script>
 var container = document.querySelector('#graella');
 var msnry = new Masonry( container, {

@@ -518,6 +518,8 @@ function custom_excerpt_length( $length ) {
 
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+
+//Filtre categoria 
 function my_home_category( $query ) {
     $catId = reactor_option('frontpage_post_category', '1');
 
@@ -528,25 +530,32 @@ function my_home_category( $query ) {
 add_action( 'pre_get_posts', 'my_home_category' );
 
 
-
-/*
+// Permet algunes etiquetes html al extracte d'un post
 function improved_trim_excerpt($text) {
         global $post;
+	$allowed_tags='<a>,<ul>,<li>,<ol>';
+
         if ( '' == $text ) {
                 $text = get_the_content('');
                 $text = apply_filters('the_content', $text);
                 $text = str_replace('\]\]\>', ']]&gt;', $text);
                 $text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
-                $text = strip_tags($text, '<a>');
+                $text = strip_tags($text,$allowed_tags);
                 $excerpt_length = 45;
+
+		$excerpt_more = reactor_option('post_readmore','Llegir més');
+   		$excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_more);
+    
                 $words = explode(' ', $text, $excerpt_length + 1);
                 if (count($words)> $excerpt_length) {
                         array_pop($words);
                         $text = implode(' ', $words);
                 }
         }
-        return $text;
+        return $text . $excerpt_more;
 }
 
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-add_filter('get_the_excerpt', 'improved_trim_excerpt');*/
+add_filter('get_the_excerpt', 'improved_trim_excerpt');
+
+
