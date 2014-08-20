@@ -28,7 +28,7 @@ $string['configtitle'] = 'Xtec2';
 
 $string['header_settings'] = 'Paràmetres de la capçalera';
 $string['logo'] = 'Imatge de la capçalera';
-$string['logodesc'] = 'Alçada recomenada: 93px';
+$string['logodesc'] = 'Alçada recomanada: 93px';
 $string['logo_color'] = 'Color del tint per a la imatge de la capçalera';
 $string['logo_color_transparency'] = 'Transparència del tint';
 $string['top_menus'] = 'Mostra el menú principal a la barra de navegació';
@@ -41,8 +41,8 @@ $string['footnote'] = 'Nota a peu de pàgina';
 $string['footnotedesc'] = 'Qualsevol cosa que escriviu en aquesta àrea de text es mostrarà al peu de pàgina al vostre lloc Moodle.';
 $string['block_layout'] = 'Disposició dels blocs';
 $string['without_blocks'] = 'Sense blocs';
-$string['blocks_left'] = 'Tots els blocks a l\'esquerra';
-$string['blocks_right'] = 'Tots els blocks a la dreat';
+$string['blocks_left'] = 'Tots els blocs a l\'esquerra';
+$string['blocks_right'] = 'Tots els blocs a la dreta';
 $string['blocks_both'] = 'Blocs als dos laterals (No aplica a tot el lloc)';
 
 $string['color_settings'] = 'Paràmetres de color';
