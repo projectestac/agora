@@ -1,8 +1,0 @@
-Changes in progress
-------------------------------------------- 
-
-
-
-PENDING:
-- How often has to be executed the cron (in Moodle 1.9 each 8 hours)?
-
