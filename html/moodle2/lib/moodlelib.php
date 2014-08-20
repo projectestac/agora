@@ -4030,11 +4030,12 @@ function create_user_record($username, $password, $auth = 'manual') {
     }
 
     $newuser->auth = $auth;
-    $newuser->username = $username;
     //XTEC ************ AFEGIT - To change username if auth method has another different (for Odissea)
     //2012.06.20 @sarjona
-    if ($auth == 'odissea' && !empty($newuser->username)){
-        $newuser->username = mb_convert_case($newuser->username, MB_CASE_LOWER, 'UTF-8');
+    if ($auth == 'odissea' && !empty($newinfo['username'])){
+        $newuser->username = mb_convert_case($newinfo['username'], MB_CASE_LOWER, 'UTF-8');
+    } else {
+    	$newuser->username = $username;
     }
     //************ FI
 
@@ -4050,17 +4051,17 @@ function create_user_record($username, $password, $auth = 'manual') {
     $newuser->timemodified = $newuser->timecreated;
     $newuser->mnethostid = $CFG->mnet_localhost_id;
 
-    $newuser->id = user_create_user($newuser, false, false);
-
     //XTEC ************ AFEGIT - To change username if auth method has another different (for Odissea)
     //2013.06.21 @sarjona
     if ($auth == 'odissea' && $newuser->username != $username){
-	if ($user = get_complete_user_data('username', $newuser->username, $CFG->mnet_localhost_id)) {
+		if ($user = get_complete_user_data('username', $newuser->username, $CFG->mnet_localhost_id)) {
             // User exists, so it's not necessary create it (because the username is not the one specified for the user in the form)
             return $user;
         }
     }
     //************ FI
+
+    $newuser->id = user_create_user($newuser, false, false);
 
     // Save user profile data.
     profile_save_data($newuser);
