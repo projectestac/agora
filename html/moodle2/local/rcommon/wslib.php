@@ -92,7 +92,8 @@ function rcommon_get_wsdl($urlwdsl){
  */
 function rcommond_get_wsdl_namespace($urlwdsl) {
     try{
-        $xml = simplexml_load_file($urlwdsl);
+        $wsdlcontents = rcommon_get_wsdl($urlwdsl);
+        $xml = simplexml_load_string($wsdlcontents);
         return (string)$xml['targetNamespace'];
     }catch (Exception $e){
         return false;
