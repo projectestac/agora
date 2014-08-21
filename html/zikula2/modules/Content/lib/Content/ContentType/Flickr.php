@@ -4,7 +4,7 @@
  * Content flickr plugin
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 require_once 'modules/Content/lib/vendor/phpFlickr-3.1/phpFlickr.php';

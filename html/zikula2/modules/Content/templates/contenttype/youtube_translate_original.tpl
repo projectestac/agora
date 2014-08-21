@@ -1,9 +1,8 @@
-<div class="z-formrow">
-    <label>{gt text="URL to the video clip"}</label>
-    <span>{$data.url}</span>
-</div>
+<label>{gt text="URL to the video clip"}:</label>
+<span>{$data.url}</span>
 
-<div class="z-formrow">
-    <label>{gt text="Video description"}</label>
-    <span>{$data.text}</span>
-</div>
+<label>{gt text="VideoID of the video clip"}:</label>
+<span>{$data.videoId}</span>
+
+<label>{gt text="Video description"}:</label>
+<span>{$data.text}</span>

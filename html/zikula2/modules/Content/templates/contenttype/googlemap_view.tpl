@@ -1,9 +1,5 @@
 {ajaxheader modname='Content'}
 
-<script type="text/javascript" 
-    src="http://maps.google.com/maps/api/js?v=3&language={$language}&sensor=false">
-</script> 
-
 {* This code is for displaying directions directly into the inline map
 <div class="z-formrow">
     <label for="routestart">{gt text="Get directions from start address"}</label>
@@ -30,52 +26,52 @@
 <script type="text/javascript">
     //<![CDATA[
 {{* This code is for displaying directions directly into the inline map
-    var directionsService = new google.maps.DirectionsService();
-    var directionsDisplay;
+    var directionsService{{$contentId}} = new google.maps.DirectionsService();
+    var directionsDisplay{{$contentId}};
 *}}    
-    var map;
-    var myLatlng = new google.maps.LatLng({{$latitude|safetext}}, {{$longitude|safetext}}); 
+    var map{{$contentId}};
+    var myLatlng{{$contentId}} = new google.maps.LatLng({{$latitude|safetext}}, {{$longitude|safetext}}); 
     Event.observe(window, 'load',
         function() { 
-            var myMapOptions = { 
+            var myMapOptions{{$contentId}} = { 
                 zoom: {{$zoom|safetext}},
-                center: myLatlng,
+                center: myLatlng{{$contentId}},
                 scaleControl: true,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 streetViewControl: {{if $streetviewcontrol}}true{{else}}false{{/if}}
             }; 
-            map = new google.maps.Map($('googlemap{{$contentId}}'), myMapOptions); 
+            map{{$contentId}} = new google.maps.Map($('googlemap{{$contentId}}'), myMapOptions{{$contentId}}); 
             
             {{* This code is for displaying directions directly into the inline map
-            directionsDisplay = new google.maps.DirectionsRenderer();
+            directionsDisplay{{$contentId}} = new google.maps.DirectionsRenderer();
             *}}
             
             // add a marker to the map
-            var marker = new google.maps.Marker({ 
-                position: myLatlng, 
-                map: map, 
+            var marker{{$contentId}} = new google.maps.Marker({ 
+                position: myLatlng{{$contentId}}, 
+                map: map{{$contentId}}, 
                 title: '{{$text|strip_tags|truncate:200|safetext}}'
             }); 
 
             // display an infowindow when clicking on the marker
-            var contentString = '{{$infotext|strip|safehtml}}';
-            var infowindow = new google.maps.InfoWindow({ 
-                content: contentString
+            var contentString{{$contentId}} = '{{$infotext|strip|safehtml}}';
+            var infowindow{{$contentId}} = new google.maps.InfoWindow({ 
+                content: contentString{{$contentId}}
             }); 
-            google.maps.event.addListener(marker, 'click', function() { 
-                infowindow.open(map, marker); 
+            google.maps.event.addListener(marker{{$contentId}}, 'click', function() { 
+                infowindow{{$contentId}}.open(map{{$contentId}}, marker{{$contentId}}); 
             });
 
             {{* This code is for displaying an traffic and/or bicycle overlay
             // overlay the map with a traficlayer if available in your region:
             // http://code.google.com/apis/maps/documentation/javascript/overlays.html#TrafficLayer
-            var trafficLayer = new google.maps.TrafficLayer();
-            trafficLayer.setMap(map);
+            var trafficLayer{{$contentId}} = new google.maps.TrafficLayer();
+            trafficLayer{{$contentId}}.setMap(map{{$contentId}});
 
             // overlay the map with a bicyclelayer (currently ony in the US)
             // http://code.google.com/apis/maps/documentation/javascript/overlays.html#BicyclingLayer
-            var bikeLayer = new google.maps.BicyclingLayer();
-            bikeLayer.setMap(map);
+            var bikeLayer{{$contentId}} = new google.maps.BicyclingLayer();
+            bikeLayer{{$contentId}}.setMap(map{{$contentId}});
             *}}
         }
     );
@@ -84,27 +80,27 @@
         var start = $F("routestart");
         var request = {
             origin: start, 
-            destination: myLatlng,
+            destination: myLatlng{{$contentId}},
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
-        directionsService.route(request, function(result, status) {
+        directionsService{{$contentId}}.route(request, function(result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 // adjust the width of the map and directions panel
                 $('googlemap{{$contentId}}').setStyle({width: '50%', height: '600px'});
                 $('directions{{$contentId}}').setStyle({width: '50%', height: '600px'});
-                directionsDisplay.setDirections(result);
-                directionsDisplay.setMap(map);
-                directionsDisplay.setPanel($('directions{{$contentId}}'));
+                directionsDisplay{{$contentId}}.setDirections(result);
+                directionsDisplay{{$contentId}}.setMap(map{{$contentId}});
+                directionsDisplay{{$contentId}}.setPanel($('directions{{$contentId}}'));
             }
         });
     }
     function clearRoute() {
         $('googlemap{{$contentId}}').setStyle({width: '100%', height: '{{$height}}px'});
         $('directions{{$contentId}}').setStyle({width: '0%', height: '{{$height}}px'});
-        map.setCenter(myLatlng);
-        directionsDisplay.setMap(null);
-        directionsDisplay.setPanel(null);
-        directionsDisplay.setDirections(null);
+        map{{$contentId}}.setCenter(myLatlng{{$contentId}});
+        directionsDisplay{{$contentId}}.setMap(null);
+        directionsDisplay{{$contentId}}.setPanel(null);
+        directionsDisplay{{$contentId}}.setDirections(null);
     }
 *}}
     //]]>

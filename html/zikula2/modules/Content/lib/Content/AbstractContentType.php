@@ -10,7 +10,6 @@
  */
 abstract class Content_AbstractContentType extends Content_AbstractType
 {
-
     protected $pageId;
     protected $contentAreaIndex;
     protected $position;
@@ -326,12 +325,8 @@ abstract class Content_AbstractContentType extends Content_AbstractType
         // setting the cacheid!
         $this->view->setCacheId($this->contentId);
         $template = 'contenttype/' . strtolower($this->getName()) . '_view.tpl';
-
-        if ($this->view->template_exists($template)) {
-            return $template;
-        } else {
-            return 'contenttype/blank.tpl';
-        }
+        // all plugins within Content have a _view template, so existence check is not needed
+        return $template;
     }
 
     /**
@@ -343,13 +338,19 @@ abstract class Content_AbstractContentType extends Content_AbstractType
      */
     public function getEditTemplate()
     {
-        $filepath = getcwd() . "/modules/" . $this->modname . "/templates/contenttype/" . strtolower($this->getName()) . '_edit.tpl';
-        if (file_exists($filepath)) {
-            $template = "file:" . $filepath;
+        // $this->modname can be other module then Content
+        // For plugins within Content use normal relative template notation
+        if ($this->modname == 'Content') {
+            $template = 'contenttype/' . strtolower($this->getName()) . '_edit.tpl';
+            // all plugins within Content have a _edit template, so existence check is not needed
         } else {
-            $template = "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl";
+            $template = getcwd() . '/modules/' . $this->modname . '/templates/contenttype/' . strtolower($this->getName()) . '_edit.tpl';
+            if (file_exists($template)) {
+                $template = 'file:' . $template;
+            } else {
+                $template = "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl";
+            }
         }
-
         return $template;
     }
 
@@ -359,22 +360,44 @@ abstract class Content_AbstractContentType extends Content_AbstractType
      */
     public function getTranslationTemplates()
     {
-        $templates = array(
-            'original' => "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl",
-            'new' => "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl");
-        $filepath_translate_original = getcwd() . "/modules/" . $this->modname . "/templates/contenttype/" . strtolower($this->getName()) . '_translate_original.tpl';
-        $filepath_translate_new = getcwd() . "/modules/" . $this->modname . "/templates/contenttype/" . strtolower($this->getName()) . '_translate_new.tpl';
+        if ($this->modname == 'Content') {
+            // For plugins within Content use normal relative template notation
+            $templates = array(
+                'original' => 'contenttype/blank.tpl',
+                'new' => 'contenttype/blank.tpl');
+            $filepath_translate_original = 'contenttype/' . strtolower($this->getName()) . '_translate_original.tpl';
+            $filepath_translate_new = 'contenttype/' . strtolower($this->getName()) . '_translate_new.tpl';
 
-        if (file_exists($filepath_translate_original)) {
-            $templates['original'] = "file:" . $filepath_translate_original;
-        } else {
-            $this->view->registerError(LogUtil::registerError($this->__('Unable to locate original translation template.')));
-        }
+            if ($this->view->template_exists($filepath_translate_original)) {
+                $templates['original'] = $filepath_translate_original;
+            } else {
+                $this->view->registerError(LogUtil::registerError($this->__('Unable to locate original translation template.')));
+            }
 
-        if (file_exists($filepath_translate_new)) {
-            $templates['new'] = "file:" . $filepath_translate_new;
+            if ($this->view->template_exists($filepath_translate_new)) {
+                $templates['new'] = $filepath_translate_new;
+            } else {
+                $this->view->registerError(LogUtil::registerError($this->__('Unable to locate new translation template.')));
+            }
         } else {
-            $this->view->registerError(LogUtil::registerError($this->__('Unable to locate new translation template.')));
+            // plugins outside Content use the absolute path with explicit file: templateresource
+            $templates = array(
+                'original' => "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl",
+                'new' => "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl");
+            $filepath_translate_original = getcwd() . "/modules/" . $this->modname . "/templates/contenttype/" . strtolower($this->getName()) . '_translate_original.tpl';
+            $filepath_translate_new = getcwd() . "/modules/" . $this->modname . "/templates/contenttype/" . strtolower($this->getName()) . '_translate_new.tpl';
+
+            if (file_exists($filepath_translate_original)) {
+                $templates['original'] = "file:" . $filepath_translate_original;
+            } else {
+                $this->view->registerError(LogUtil::registerError($this->__('Unable to locate original translation template.')));
+            }
+
+            if (file_exists($filepath_translate_new)) {
+                $templates['new'] = "file:" . $filepath_translate_new;
+            } else {
+                $this->view->registerError(LogUtil::registerError($this->__('Unable to locate new translation template.')));
+            }
         }
         return $templates;
     }

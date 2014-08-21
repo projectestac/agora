@@ -1,5 +1,5 @@
 <div class="z-formrow">
-    {formlabel for='text' __text='Text'}
+    {formlabel for='text' __text='Quote text'}
     {formtextinput id='text' textMode='multiline' group='data' cols='60' rows='20'}
 </div>
 

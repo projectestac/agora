@@ -11,9 +11,9 @@
 class Content_TaggedObjectMeta_Content extends Tag_AbstractTaggedObjectMeta
 {
 
-    function __construct($objectId, $areaId, $module, $objectUrl)
+    function __construct($objectId, $areaId, $module, $urlString = null, Zikula_ModUrl $urlObject = null)
     {
-        parent::__construct($objectId, $areaId, $module, $objectUrl);
+        parent::__construct($objectId, $areaId, $module, $urlString, $urlObject);
 
         $perm = SecurityUtil::checkPermission('Content:page:', $objectId . '::', ACCESS_READ);
         if ($perm) {
@@ -26,8 +26,6 @@ class Content_TaggedObjectMeta_Content extends Tag_AbstractTaggedObjectMeta
                 $this->setObjectAuthor($page['uname']);
                 $this->setObjectDate($page['cr_date']);
                 $this->setObjectTitle(html_entity_decode($page['title']));
-                // do not use default objectURL to compensate for shortUrl handling
-                $this->setObjectUrl(ModUtil::url('Content', 'user', 'view', array('pid' => $this->getObjectId())));
             }
         }
     }

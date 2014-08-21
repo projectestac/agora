@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Controller_Admin extends Zikula_AbstractController
@@ -51,7 +51,7 @@ class Content_Controller_Admin extends Zikula_AbstractController
     public function editpage($args)
     {
         $view = FormUtil::newForm('Content', $this);
-        return $view->execute('admin/editpage.tpl', new Content_Form_Handler_Admin_Page($args));
+        return $view->execute('admin/editpage.tpl', new Content_Form_Handler_Admin_EditPage($args));
     }
 
     /**

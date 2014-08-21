@@ -25,6 +25,14 @@
         {formdropdownlist id='newPageState' items=$activeoptions group="config"}
     </div>
     <div class="z-formrow">
+        {formlabel for='pageinfoLocation' __text='Location of the page info icon'}
+        {formdropdownlist id='pageinfoLocation' items=$pageinfolocationoptions group="config"}
+    </div>
+    <div class="z-formrow">
+        {formlabel for='overrideTitle' __text='Override page title with the Content page title'}
+        {formcheckbox id='overrideTitle' group="config"}
+    </div>
+    <div class="z-formrow">
         {formlabel for='countViews' __text='Count page views'}
         {formcheckbox id='countViews' group="config"}
         <em class="z-sub z-formnote">{gt text='Page views are only counted when not in preview or edit mode and only when the user has no edit access.'}</em>
@@ -32,20 +40,13 @@
     <div class="z-formrow">
         {formlabel for='googlemapApiKey' __text='Google maps API key'}
         {formtextinput id='googlemapApiKey' group="config" maxLength='255'}
-        <em class="z-sub z-formnote">{gt text='A Google Maps API key is no longer needed for including maps with the Javascript API v3. More information at <a href="http://code.google.com/apis/maps/documentation/javascript/basics.html">Google</a>.'}</em>
+        <em class="z-sub z-formnote">{gt text='A Google Maps API key is not required for including maps with the Javascript API v3.<br />However an APIs Console key is encouraged by Google. More information at <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key">Google</a>.'}</em>
     </div>
     <div class="z-formrow">
         {formlabel for='flickrApiKey' __text='Flickr API key'}
         {formtextinput id='flickrApiKey' group="config" maxLength='255'}
         <em class="z-sub z-formnote">{gt text='If your want to add Flickr photos to your content then you need a Flickr API key. You can get this from <a href="http://www.flickr.com/api">flickr.com</a>.'}</em>
     </div>
-    {if isset($editors)}
-    <div class="z-formrow">
-        {formlabel for='scribiteEditor' __text='Scribite editor'}
-        {formdropdownlist id='scribiteEditor' items=$editors group="config"}
-        <em class="z-sub z-formnote">{gt text='Selecting "-" here will use the scribite default editor. If no default editor is set in scribite, then no editor will display.'}<br />{gt text='Creating Content-specific module settings in the Scribite settings will have no effect.'}</em>
-    </div>
-    {/if}
     <div class="z-formrow">
         {formlabel for='enableRawPlugin' __text='Enable the unfiltered raw text plugin'}
         {formcheckbox id='enableRawPlugin' group="config"}
@@ -122,7 +123,5 @@
 </div>
 
 {/contentformframe}
-
 {/form}
-
 {adminfooter}

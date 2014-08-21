@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Util
@@ -107,7 +107,9 @@ class Content_Util
         $types->add('Content_ContentType_Breadcrumb');
         $types->add('Content_ContentType_Camtasia');
         $types->add('Content_ContentType_ComputerCode');
+        $types->add('Content_ContentType_ContentItem');
         $types->add('Content_ContentType_TableOfContents');
+        $types->add('Content_ContentType_FlashMovie');
         $types->add('Content_ContentType_Flickr');
         $types->add('Content_ContentType_GoogleMap');
         $types->add('Content_ContentType_Heading');

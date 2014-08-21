@@ -34,8 +34,6 @@
 {formbutton class="z-bt-icon con-bt-clone" commandName="clonePage" __text="Clone"}
 {formbutton class="z-bt-cancel" commandName="cancel" __text="Cancel"}
 </div>
-
 {/contentformframe}
-
 {/form}
 {adminfooter}

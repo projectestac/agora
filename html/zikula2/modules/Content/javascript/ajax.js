@@ -2,7 +2,7 @@
  * Content ajax script
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 
@@ -37,7 +37,6 @@ content.addDraggablePage = function(id)
 
 
 /*=[ Drag/drop content, see also portal.js ]=====================================*/
-
 content.items = new Array();
 
 content.editPageOnLoad = function()
@@ -64,10 +63,13 @@ content.editPageOnLoad = function()
             content.portal.add(widget, e.column); 
         }
     );
+
+    // enable ajax state led buttons
+    initcontentactivationbuttons();
 }
 
 
-// Called by portal when a content item has been moved
+// Called by portal when a Content item has been moved
 content.editPageHandleUpdate = function(portal, widget)
 {
     var contentArea = widget.parentNode;
@@ -101,8 +103,9 @@ content.editPageHandleUpdate = function(portal, widget)
         cai: contentAreaIndex,
         pos: position
     };
+    // Zikula 14x needs index.php?module=Content&type=ajax&func=.. , but doesn't work in 13x
     new Zikula.Ajax.Request(
-        "ajax.php?module=Content&func=dragContent",
+        Zikula.Config.baseURL + 'ajax.php?module=Content&type=ajax&func=dragContent',
         {
             parameters: pars,
             onComplete: content.handleDragContentOk
@@ -125,7 +128,6 @@ content.handleDragContentOk = function(req)
 }
 
 /*=[ preview a page ]============================================================*/
-
 content.popupPreviewWindow = function(commandArgument)
 {
     url = content.previewUrl.replace('__PID__', commandArgument);
@@ -134,7 +136,6 @@ content.popupPreviewWindow = function(commandArgument)
 
 
 /*=[ Select content type ]=======================================================*/
-
 content.handleContenTypeSelected = function(id)
 {
     var dropdownElement = $(id);
@@ -144,7 +145,6 @@ content.handleContenTypeSelected = function(id)
 
 
 /*=[ Page info ]=================================================================*/
-
 content.pageInfo = {};
 content.pageInfo.clearTimer = null;
 
@@ -153,15 +153,13 @@ content.pageInfo.toggle = function(id)
     $('contentPageInfo-'+id).toggle();
     return false;
 }
-
-content.pageInfo.mouseover = function()
+content.pageInfo.mouseover = function(id)
 {
     clearTimeout(content.pageInfo.clearTimer);
 }
-
-content.pageInfo.mouseout = function()
+content.pageInfo.mouseout = function(id)
 {
-    content.pageInfo.clearTimer = setTimeout(function() { $('contentPageInfo').hide(); } , 500);
+    content.pageInfo.clearTimer = setTimeout(function() { $('contentPageInfo-'+id).hide(); } , 500);
 }
 
 
@@ -181,7 +179,6 @@ function initcontentactivationbuttons()
  *
  *@params page id;
  *@return none;
- *@author Erik Spaan & Sven Strickroth
  */
 function togglepagestate(id)
 {
@@ -189,8 +186,9 @@ function togglepagestate(id)
         id: id,
         active: $('active_' + id).visible()
     };
+    // Zikula 14x needs index.php?module=Content&type=ajax&func=.. , but doesn't work in 13x
     new Zikula.Ajax.Request(
-        "ajax.php?module=Content&func=togglePageState",
+        Zikula.Config.baseURL + 'ajax.php?module=Content&type=ajax&func=togglePageState',
         {
             parameters: pars,
             onComplete: togglepagestate_response
@@ -198,11 +196,10 @@ function togglepagestate(id)
 }
 
 /**
- * Ajax response function for updating block status: cleanup
+ * Ajax response function for updating page status: cleanup
  *
  *@params none;
  *@return none;
- *@author Erik Spaan
  */
 function togglepagestate_response(req)
 {
@@ -211,7 +208,7 @@ function togglepagestate_response(req)
         return;
     }
     var data = req.getData();
-
+	
     // switch the leds and adapt the text
     $('active_' + data.id).toggle();
     $('inactive_' + data.id).toggle();
@@ -223,7 +220,6 @@ function togglepagestate_response(req)
  *
  *@params page id;
  *@return none;
- *@author Erik Spaan & Sven Strickroth
  */
 function togglepageinmenu(id)
 {
@@ -231,8 +227,9 @@ function togglepageinmenu(id)
         id: id,
         inMenu:  $('inmenu_' + id).visible()
     };
+    // Zikula 14x needs index.php?module=Content&type=ajax&func=.. , but doesn't work in 13x
     new Zikula.Ajax.Request(
-        "ajax.php?module=Content&func=togglePageInMenu",
+        Zikula.Config.baseURL + 'ajax.php?module=Content&type=ajax&func=togglePageInMenu',
         {
             parameters: pars,
             onComplete: togglepageinmenu_response
@@ -240,11 +237,10 @@ function togglepageinmenu(id)
 }
 
 /**
- * Ajax response function for updating block status: cleanup
+ * Ajax response function for updating page inmenu status: cleanup
  *
  *@params none;
  *@return none;
- *@author Erik Spaan
  */
 function togglepageinmenu_response(req)
 {
@@ -259,3 +255,47 @@ function togglepageinmenu_response(req)
     $('outmenu_' + data.id).toggle();
     $('menustatus_' + data.id).update((($('menustatus_' + data.id).innerHTML == Zikula.__('Out','module_Content')) ? Zikula.__('In','module_Content') : Zikula.__('Out','module_Content')));
 }
+
+/**
+ * Toggle a content item active/inactive status
+ *
+ *@params content id;
+ *@return none;
+ */
+function togglecontentstate(id)
+{
+    var pars = {
+        id: id,
+        active: $('activecid_' + id).visible()
+    };
+    // Zikula 14x needs index.php?module=Content&type=ajax&func=.. , but doesn't work in 13x
+    new Zikula.Ajax.Request(
+        Zikula.Config.baseURL + 'ajax.php?module=Content&type=ajax&func=toggleContentState',
+        {
+            parameters: pars,
+            onComplete: togglecontentstate_response
+        });
+}
+
+/**
+ * Ajax response function for updating content item status: cleanup
+ *
+ *@params none;
+ *@return none;
+ */
+function togglecontentstate_response(req)
+{
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    var data = req.getData();
+	
+    // switch the leds and adapt the text
+    $('activecid_' + data.id).toggle();
+    $('inactivecid_' + data.id).toggle();
+    $('activitycid_' + data.id).update((($('activitycid_' + data.id).innerHTML == Zikula.__('Inactive','module_Content')) ? '' : Zikula.__('Inactive','module_Content')));
+	// toggle the widget class to inactive 
+	$('content_widget_' + data.id).toggleClassName('widget_inactive');
+}
+

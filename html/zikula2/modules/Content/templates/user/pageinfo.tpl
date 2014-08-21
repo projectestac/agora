@@ -1,11 +1,10 @@
-{insert name="getstatusmsg"}
 {nocache}
 {if $access.pageEditAllowed && !$preview}
 {ajaxheader modname='Content' filename='ajax.js'}
 {modapifunc modname='Content' type='History' func='getPageVersionNo' pageId=$page.id assign='versionNo'}
 <div class="content-pageinfo">
     <a href="#" onclick="return content.pageInfo.toggle({$page.id})" style="float: left; padding: 5px 3px;">{img src='info.png' modname='core' set='icons/extrasmall' __alt='Properties' }</a>
-    <div class="content" id="contentPageInfo-{$page.id}" style="display: none" onmouseover="content.pageInfo.mouseover()" onmouseout="content.pageInfo.mouseout()">
+    <div class="content" id="contentPageInfo-{$page.id}" style="display: none" onmouseover="content.pageInfo.mouseover({$page.id})" onmouseout="content.pageInfo.mouseout({$page.id})">
         <h4>{$page.title|truncate:200|safetext} [{$page.id}]</h4>
         <ul>
             {if $editmode}

@@ -4,7 +4,7 @@
  * Content camtasia plugin
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_ContentType_Camtasia extends Content_AbstractContentType
@@ -154,8 +154,8 @@ class Content_ContentType_Camtasia extends Content_AbstractContentType
 
     function displayEditing()
     {
-        $output = '<div style="background-color:Lavender; width:320px; height:200px; margin:0 auto; padding:10px;">'.__f('Flash Video-Path: %1$s<br>Size in pixels: %2$s', array($this->folder.'/'.$this->videoPath, $this->width.'x'.$this->height)) . '<img width="300" height="140" src="'.$this->folder.'/'.$this->videoPath.'/FirstFrame.png" alt="" /></div>';
-        $output .= '<p style="width:320px; margin:0 auto;">' . __f('Video description: %s', DataUtil::formatForDisplay($this->text)) . '</p>';
+        $output = '<div style="background-color:Lavender; width:320px; height:200px; margin:0 auto; padding:10px;">'.$this->__f('Flash Video-Path: %1$s<br>Size in pixels: %2$s', array($this->folder.'/'.$this->videoPath, $this->width.'x'.$this->height)) . '<img width="300" height="140" src="'.$this->folder.'/'.$this->videoPath.'/FirstFrame.png" alt="" /></div>';
+        $output .= '<p style="width:320px; margin:0 auto;">' . $this->__f('Video description: %s', DataUtil::formatForDisplay($this->text)) . '</p>';
         return $output;
     }
 

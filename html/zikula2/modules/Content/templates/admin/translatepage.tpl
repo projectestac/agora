@@ -10,7 +10,6 @@
 {formsetinitialfocus inputId='title'}
 
 {contentformframe}
-
 <fieldset id="contentTranslateOriginal">
     <legend>{gt text="Original content"}</legend>
     <div class="z-formrow">
@@ -50,8 +49,6 @@
     {formbutton class="z-bt-delete z-btred" commandName="delete" __text="Delete" __confirmMessage='Delete page translation AND all content translations'}
     {formbutton class="z-bt-cancel" commandName="cancel" __text="Cancel"}
 </div>
-
 {/contentformframe}
-
 {/form}
 {adminfooter}

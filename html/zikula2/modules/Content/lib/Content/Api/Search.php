@@ -4,15 +4,18 @@
  * Search plugin info
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Api_Search extends Zikula_AbstractApi
 {
-
+    /**
+     * Search plugin info
+     **/
     public function info()
     {
-        return array('title' => 'Content', 'functions' => array('Content' => 'search'));
+        return array('title' => 'Content', 
+				'functions' => array('Content' => 'search'));
     }
 
     /**
@@ -22,16 +25,18 @@ class Content_Api_Search extends Zikula_AbstractApi
     {
         if (SecurityUtil::checkPermission('Content::', '::', ACCESS_READ)) {
             $render = Zikula_View::getInstance('Content');
-            $render->assign('active', (isset($args['active']) && isset($args['active']['content'])) || (!isset($args['active'])));
+            $render->assign('active', (isset($args['active']) && isset($args['active']['Content'])) || (!isset($args['active'])));
             return $render->fetch('search/options.tpl');
         }
 
         return '';
     }
 
+    /**
+     * Search plugin main function
+     **/
     public function search($args)
     {
-        ModUtil::dbInfoLoad('Content');
         ModUtil::dbInfoLoad('Search');
         $dbtables = DBUtil::getTables();
 
@@ -46,9 +51,14 @@ class Content_Api_Search extends Zikula_AbstractApi
 
         $sessionId = session_id();
 
-        $where = search_construct_where($args, array($contentSearchColumn['text']), null);
-        $wheretitle = search_construct_where($args, array($pageColumn['title']), null);
+        $where = Search_Api_User::construct_where($args, 
+				array($contentSearchColumn['text']), null);
+        $wheretitle = Search_Api_User::construct_where($args, 
+				array($pageColumn['title']), $pageColumn['language']);
 
+		// Direct SQL way of searching in titles and searchable content items 
+		// for Pages and Content items that are visible/active
+		// Optimization and conversion into DBUtil calls should be done
         $sql = "INSERT INTO $searchTable
             ($searchColumn[title],
             $searchColumn[text],
@@ -58,7 +68,7 @@ class Content_Api_Search extends Zikula_AbstractApi
             $searchColumn[session])
             SELECT DISTINCT $pageColumn[title],
             $contentSearchColumn[text],
-            'content',
+            'Content',
             $pageColumn[id],
             $pageColumn[cr_date] AS createdDate,
             '" . DataUtil::formatForStore($sessionId) . "'
@@ -71,19 +81,23 @@ class Content_Api_Search extends Zikula_AbstractApi
 
         $dbresult = DBUtil::executeSQL($sql);
         if (!$dbresult) {
-            $dom = ZLanguage::getModuleDomain('Content');
-            return LogUtil::registerError(__('Error! Could not load items.', $dom));
+            return LogUtil::registerError($this->__('Error! Could not load any Content pages or items.'));
         }
         return true;
     }
 
-    public function search_check(&$args)
+    /**
+     * Do last minute access checking and assign URL to items
+     *
+     * Access checking is ignored since access check has
+     * already been done. But we do add a URL to the found user
+     */
+    public function search_check($args)
     {
         $datarow = &$args['datarow'];
-        $pageId = (int) $datarow['extra'];
-
+        $pageId = $datarow['extra'];
         $datarow['url'] = ModUtil::url('Content', 'user', 'view', array('pid' => $pageId));
 
         return true;
-    }
+	}
 }

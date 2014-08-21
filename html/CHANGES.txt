@@ -14,6 +14,9 @@ MOODLE2:
 WORDPRESS
 - Allow access to WordPress without /nodes in the URL
 
+ZIKULA2
+- Upgraded Content module to 4.1.1 version to fix some bugs
+ 
 
 Changes 14.08.19 codename mgrau
 ---------------------------------------------------------------------------------------

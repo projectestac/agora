@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Api_Page extends Zikula_AbstractApi
@@ -80,8 +80,8 @@ class Content_Api_Page extends Zikula_AbstractApi
         $dbtables = DBUtil::getTables();
         $pageTable = $dbtables['content_page'];
         $pageColumn = $dbtables['content_page_column'];
-        $pageCategoryTable = $dbtables['content_pagecategory'];
-        $pageCategoryColumn = $dbtables['content_pagecategory_column'];
+        //$pageCategoryTable = $dbtables['content_pagecategory'];
+        //$pageCategoryColumn = $dbtables['content_pagecategory_column'];
         $translatedTable = $dbtables['content_translatedpage'];
         $translatedColumn = $dbtables['content_translatedpage_column'];
         $userTable = $dbtables['users'];
@@ -108,12 +108,16 @@ class Content_Api_Page extends Zikula_AbstractApi
         $cols = DBUtil::_getAllColumns('content_page');
         $ca   = DBUtil::getColumnsArray('content_page');
         $ca[] = 'translatedTitle';
+        $ca[] = 'translatedMetaDescription';
+        $ca[] = 'translatedMetaKeywords';
         $ca[] = 'uname';
 
         $sql = "
             SELECT DISTINCT
             $cols,
             $translatedColumn[title],
+            $translatedColumn[metadescription],
+            $translatedColumn[metakeywords],
             $userColumn[uname]
             FROM $pageTable
             LEFT JOIN $translatedTable t
@@ -141,7 +145,7 @@ class Content_Api_Page extends Zikula_AbstractApi
 
         for ($i = 0, $cou = count($pages); $i < $cou; ++$i) {
             $p = &$pages[$i];
-            $p['translated'] = array('title' => $p['translatedTitle']);
+            $p['translated'] = array('title' => $p['translatedTitle'], 'metadescription' => $p['translatedMetaDescription'], 'metakeywords' => $p['translatedMetaKeywords']);
             if ($includeLayout) {
                 $p['layoutData'] = ModUtil::apiFunc('Content', 'Layout', 'getLayout',
                                                     array('layout' => $p['layout']));
@@ -158,6 +162,7 @@ class Content_Api_Page extends Zikula_AbstractApi
             if ($includeVersionNo) {
                 $p['versionNo'] = ModUtil::apiFunc('Content', 'History', 'getPageVersionNo', array('pageId' => $p['id']));
             }
+
             if (!empty($p['translatedTitle'])) {
                 if ($translate) {
                     $p = array_merge($p, $p['translated']);
@@ -363,6 +368,7 @@ class Content_Api_Page extends Zikula_AbstractApi
             return LogUtil::registerError($this->__("Error! Cannot create sub-page without parent page ID"));
         }
 
+        // check for parent page
         if ($pageId > 0) {
             $sourcePageData = $this->getPage(array('id' => $pageId, 'includeContent' => false));
             if ($sourcePageData === false) {
@@ -372,12 +378,15 @@ class Content_Api_Page extends Zikula_AbstractApi
             $sourcePageData = null;
         }
 
+        // language set to active language
         $pageData['language'] = ZLanguage::getLanguageCode();
-
+        
         if ($location == 'sub' || $pageId == 0) {
             $pageData['position'] = $this->contentGetLastSubPagePosition($pageId) + 1;
             $pageData['parentPageId'] = $pageId;
             $pageData['level'] = ($sourcePageData == null ? 0 : $sourcePageData['level'] + 1);
+            // copy first category from parent to new subpage
+            $pageData['categoryId'] = ($sourcePageData == null ? 0 : $sourcePageData['categoryId']);
         } else {
             $pageData['position'] = $this->contentGetLastPagePosition($pageId) + 1;
             $pageData['parentPageId'] = ($sourcePageData == null ? 0 : $sourcePageData['parentPageId']);
@@ -536,15 +545,12 @@ class Content_Api_Page extends Zikula_AbstractApi
     protected function contentDeletePageRelations($pageId)
     {
         $dbtables = DBUtil::getTables();
-        $pageCategoryTable = $dbtables['content_pagecategory'];
         $pageCategoryColumn = $dbtables['content_pagecategory_column'];
         $pageId = (int) $pageId;
 
-        $sql = "
-            DELETE FROM $pageCategoryTable
-            WHERE $pageCategoryColumn[pageId] = $pageId";
-
-        DBUtil::executeSQL($sql);
+        // Delete optional existing translation
+        $where = "$pageCategoryColumn[pageId] = $pageId";
+        DBUtil::deleteWhere('content_pagecategory', $where);
 
         return true;
     }
@@ -552,22 +558,12 @@ class Content_Api_Page extends Zikula_AbstractApi
     protected function contentGetPageCategories($pageId)
     {
         $dbtables = DBUtil::getTables();
-        $pageCategoryTable = $dbtables['content_pagecategory'];
         $pageCategoryColumn = $dbtables['content_pagecategory_column'];
         $pageId = (int) $pageId;
 
-        $sql = "
-            SELECT $pageCategoryColumn[categoryId]
-            FROM $pageCategoryTable
-            WHERE $pageCategoryColumn[pageId] = $pageId";
+        $where = "$pageCategoryColumn[pageId] = $pageId";
+        $categories = DBUtil::selectObjectArray('content_pagecategory', $where, '', -1, -1, '', null, null, array('categoryId'));
 
-        $result = DBUtil::executeSQL($sql);
-        $objectArray = DBUtil::marshallObjects($result);
-
-        $categories = array();
-        foreach ($objectArray as $object) {
-            $categories[] = (int) $object['con_categoryid'];
-        }
         return $categories;
     }
 
@@ -589,7 +585,7 @@ class Content_Api_Page extends Zikula_AbstractApi
         DBUtil::deleteWhere('content_translatedpage', $where);
 
         // Insert new
-        $translatedData = array('pageId' => $pageId, 'language' => $language, 'title' => $translated['title']);
+        $translatedData = array('pageId' => $pageId, 'language' => $language, 'title' => $translated['title'], 'metadescription' => $translated['metadescription'], 'metakeywords' => $translated['metakeywords']);
         DBUtil::insertObject($translatedData, 'content_translatedpage');
 
         if ($addVersion) {
@@ -860,17 +856,6 @@ class Content_Api_Page extends Zikula_AbstractApi
 
         return $pos === null ? -1 : (int) $pos;
     }
-
-    // could not find usage of this method in the module
-//    public function updateNestedSetValues($args = null)
-//    {
-//        $count = -1;
-//        $level = -1;
-//
-//        $ok = $this->contentUpdateNestedSetValues_Rec(0, $level, $count);
-//
-//        return $ok;
-//    }
 
     protected function contentUpdateNestedSetValues_Rec($pageId, $level, &$count)
     {

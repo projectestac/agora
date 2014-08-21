@@ -143,4 +143,12 @@ abstract class Content_AbstractType implements Zikula_TranslatableInterface
     {
         unset($this->view);
     }
+
+    /**
+     * Sets the view
+     */
+    public function setView(Zikula_View $view)
+    {
+        $this->view = $view;
+    }
 }

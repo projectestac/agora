@@ -1,6 +1,6 @@
-{formsetinitialfocus inputId='text'}
+{formsetinitialfocus inputId='blockid'}
 
 <div class="z-formrow">
-    {formlabel for='text' __text='Please enter the Block-ID'}
-    {formtextinput id='blockid' maxLength='255' group='data'}
+    {formlabel for='blockid' __text='Please choose a block to display'}
+    {formdropdownlist id="blockid" items=$blockoptions group="data"}
 </div>

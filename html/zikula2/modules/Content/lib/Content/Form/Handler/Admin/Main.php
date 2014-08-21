@@ -13,6 +13,7 @@ class Content_Form_Handler_Admin_Main extends Zikula_Form_AbstractHandler
             throw new Zikula_Exception_Forbidden(LogUtil::getErrorMsgPermission());
         }
 
+        // Include categories only when 2nd category enabled in settings
         $pages = ModUtil::apiFunc('Content', 'Page', 'getPages', array(
             'editing' => true,
             'filter' => array(
@@ -21,9 +22,28 @@ class Content_Form_Handler_Admin_Main extends Zikula_Form_AbstractHandler
             'enableEscape' => true,
             'translate' => false,
             'includeLanguages' => true,
+            'includeCategories' => ($this->getVar('categoryUsage') < 3),
             'orderBy' => 'setLeft'));
         if ($pages === false) {
             return $this->view->registerError(null);
+        }
+
+        // Get categories names if enabled
+        if ($this->getVar('$categoryUsage') < 4) {
+            $lang = ZLanguage::getLanguageCode();
+            $categories = array();
+            foreach ($pages as $page) {
+                $cat = CategoryUtil::getCategoryByID($page['categoryId']);
+                $categories[$page['id']] = array();
+                $categories[$page['id']][] = isset($cat['display_name'][$lang]) ? $cat['display_name'][$lang] : $cat['name'];
+                if (isset($page['categories']) && is_array($page['categories'])) {
+                    foreach ($page['categories'] as $pageCat) {
+                        $cat = CategoryUtil::getCategoryByID($pageCat['categoryId']);
+                        $categories[$page['id']][] = isset($cat['display_name'][$lang]) ? $cat['display_name'][$lang] : $cat['name'];
+                    }
+                }
+            }
+            $this->view->assign('categories', $categories);
         }
 
         PageUtil::setVar('title', $this->__('Page list and content structure'));

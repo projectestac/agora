@@ -3,7 +3,7 @@
  * Content google map plugin
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 
@@ -142,11 +142,19 @@ class Content_ContentType_GoogleMap extends Content_AbstractContentType
         $this->view->assign('contentId', $this->contentId);
         $this->view->assign('language', ZLanguage::getLanguageCode());
 
+        // Load the Google Maps JS api v3
+        $apiKey = ModUtil::getVar('Content', 'googlemapApiKey');
+        if (!empty($apiKey)) {
+            PageUtil::addVar('javascript', 'https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&language=' . ZLanguage::getLanguageCode() . '&sensor=false');
+        } else {
+            PageUtil::addVar('javascript', 'https://maps.googleapis.com/maps/api/js?language=' . ZLanguage::getLanguageCode() . '&sensor=false');
+        }
+
         return $this->view->fetch($this->getTemplate());
     }
     function displayEditing()
     {
-        return DataUtil::formatForDisplay($this->text);
+        return $this->__f('Map at longitude: %1$s, lattitude: %2$s, description: %3$s', array(substr($this->longitude,0,6).'...', substr($this->latitude,0,6).'...', DataUtil::formatForDisplay($this->text)));
     }
     function getDefaultData()
     {

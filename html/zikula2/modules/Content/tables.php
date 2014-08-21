@@ -3,7 +3,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 
@@ -34,7 +34,10 @@ function content_tables()
         'level'             => 'page_level',            // Nested set level
         'setLeft'           => 'page_setleft',          // Nested set left
         'setRight'          => 'page_setright',         // Nested set right
-        'language'          => 'page_language'          // Language of initial version
+        'language'          => 'page_language',         // Language of initial version
+        'optionalString1'   => 'page_optString1',       // Optional Information
+        'optionalString2'   => 'page_optString2',       // Optional Information
+        'optionalText'      => 'page_optText'           // Optional Information
     );
     $tables['content_page_column_def'] = array(
         'id'                => "I NOTNULL AUTO PRIMARY",
@@ -56,7 +59,10 @@ function content_tables()
         'level'             => 'I NOTNULL DEFAULT 0',
         'setLeft'           => 'I NOTNULL DEFAULT 0',
         'setRight'          => 'I NOTNULL DEFAULT 0',
-        'language'          => 'C(10)'
+        'language'          => 'C(10)',
+        'optionalString1'   => "C(255) NOTNULL DEFAULT ''",
+        'optionalString2'   => "C(255) NOTNULL DEFAULT ''",
+        'optionalText'      => "X NOTNULL DEFAULT ''"
     );
     $tables['content_page_primary_key_column'] = 'id';
     // add standard data fields

@@ -3,7 +3,7 @@
  * Content YouTube plugin
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 
@@ -123,8 +123,16 @@ class Content_ContentType_YouTube extends Content_AbstractContentType
         $r = '/\?v=([-a-zA-Z0-9_]+)(&|$)/';
         if (preg_match($r, $data['url'], $matches)) {
             $this->videoId = $data['videoId'] = $matches[1];
-            return true;
         }
-        return false;
+        if (empty($this->videoId)) {
+            return $this->view->setPluginErrorMsg('url', 'Value of url not valid');
+        }
+        if (empty($data['width']) || !is_numeric($data['width'])) {
+            return $this->view->setPluginErrorMsg('width', 'Value of width not valid');
+        }
+        if (empty($data['height']) || !is_numeric($data['height'])) {
+            return $this->view->setPluginErrorMsg('width', 'Value of height not valid');
+        }
+        return true;
     }
 }

@@ -1,5 +1,5 @@
 <ul class="content-menu">
-    {foreach from=$subPages item=page}
-    {include file="block/menuitem.tpl page=$page}
-    {/foreach}
+{foreach item='page' from=$subPages}
+    {include file='block/menuitem.tpl' page=$page}
+{/foreach}
 </ul>

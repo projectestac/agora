@@ -17,6 +17,9 @@
     //]]>
 </script>
 
+{gt text="Click to activate this item" assign='activate'}
+{gt text="Click to deactivate this item" assign='deactivate'}
+
 {adminheader}
 <div class="z-admin-content-pagetitle">
     {icon type="edit" size="small"}
@@ -48,9 +51,7 @@
 {modurl modname='Content' type='admin' func='editcontent' cid="commandArgument" assign='editUrl'}
 
 {formerrormessage id='error'}
-
 {contentformframe}
-
 {formtabbedpanelset}
 
 {if $enableVersioning}
@@ -60,11 +61,11 @@
 {/if}
 
 {formtabbedpanel __title='Content'}
-<p>{gt text="Here you manage the content of this page. You can add/edit/delete content as well as drag the content boxes around to get the layout right. Click on the icon next to the title for the options of that content item."}</p>
+<p>{gt text="Here you manage the content of this page. You can add/edit/delete content as well as drag the content boxes around to get the layout right.<br />Click on the <strong>arrow next to the title</strong> for the actions on that content item or click on the <strong>red/green leds</strong> to activate/deactivate that content item."}</p>
 {include file=$layoutTemplate}
 {/formtabbedpanel}
 
-{formtabbedpanel __title='Options'}
+{formtabbedpanel __title='Settings & Metadata'}
 <fieldset>
     <legend>{gt text="Page settings"}</legend>
     <div class="z-formrow">
@@ -94,6 +95,32 @@
         {formcheckbox id='nohooks' group='page'}
         {contentlabelhelp __text='Checking this option will just ignore all the hooks for this page, it does not replace permissions.'}
     </div>
+	{if $categoryUsage eq 3}
+	<div class="z-formrow">
+		{formlabel for='categoryId' __text='Category'}
+		<div>
+			{formcategoryselector id='categoryId' group='page' category=$mainCategory includeEmptyElement='1'}
+		</div>
+	</div>
+	{elseif $categoryUsage lt 3}
+	<div class="z-formrow">
+		{formlabel for='categoryId' __text='Primary category'}
+		<div>
+			{formcategoryselector id='categoryId' group='page' category=$mainCategory includeEmptyElement='1'}
+		</div>
+	</div>
+	<div class="z-formrow">
+		{if $categoryUsage eq 2}
+		<label>{gt text="Secondary category"}</label>
+		<div>
+			{formcategoryselector id='categories' group='page' category=$secondCategory selectedValue=$page.categories.0.categoryId includeEmptyElement='1'}
+		</div>
+		{else}
+		<label>{gt text="Secondary categories"}</label>
+		{formcategorycheckboxlist id='categories' group='page' category=$secondCategory repeatColumns='0'}
+		{/if}
+	</div>
+	{/if}
 </fieldset>
 
 <fieldset>
@@ -139,40 +166,21 @@
         </span>
     </div>
 </fieldset>
-
-{if $categoryUsage lt 4}
 <fieldset>
-    {if $categoryUsage eq 3}
-    <legend>{gt text="Category"}</legend>
+    <legend>{gt text='Optional Fields'}</legend>
     <div class="z-formrow">
-        {formlabel for='categoryId' __text='Category'}
-        <div>
-            {formcategoryselector id='categoryId' group='page' category=$mainCategory includeEmptyElement='1'}
-        </div>
-    </div>
-    {else}
-    <legend>{gt text="Categories"}</legend>
-    <div class="z-formrow">
-        {formlabel for='categoryId' __text='Primary category'}
-        <div>
-            {formcategoryselector id='categoryId' group='page' category=$mainCategory includeEmptyElement='1'}
-        </div>
+        {formlabel for='optionalString1' __text='Optional String 1'}
+        {formtextinput id='optionalString1' mandatory=false maxLength='255' group='page'}
     </div>
     <div class="z-formrow">
-        {if $categoryUsage eq 2}
-        <label>{gt text="Secondary category"}</label>
-        <div>
-            {formcategoryselector id='categories' group='page' category=$secondCategory selectedValue=$page.categories.0 includeEmptyElement='1'}
-        </div>
-        {else}
-        <label>{gt text="Secondary categories"}</label>
-        {formcategorycheckboxlist id='categories' group='page' category=$secondCategory repeatColumns='0'}
-        {/if}
+        {formlabel for='optionalString2' __text='Optional String 2'}
+        {formtextinput id='optionalString2' mandatory=false maxLength='255' group='page'}
     </div>
-    {/if}
+    <div class="z-formrow">
+        {formlabel for='optionalText' __text='Optional Text'}
+        {formtextinput id='optionalText' mandatory=false textMode='multiline' rows='4' cols='50' group='page'}
+    </div>
 </fieldset>
-{/if}
-
 {/formtabbedpanel}
 
 {formtabbedpanel __title='Layout'}
@@ -190,19 +198,17 @@
     </div>
     <p id="layout_preview_desc" class="z-formnote">{$pagelayout.description}</p>
 </fieldset>
-
 {/formtabbedpanel}
-
 {/formtabbedpanelset}
 
 <div class="z-buttons">
-    <input type="submit" class="z-bt-icon con-bt-view" value="{gt text="Preview"}" onclick="window.open('{modurl modname='Content' type='user' func='view' preview=1 pid=$page.id}')" />
+    <input type="submit" class="z-bt-icon con-bt-view" value="{gt text='Preview'}" onclick="window.open('{modurl modname='Content' type='user' func='view' preview=1 pid=$page.id}')" />
     {formbutton class="z-bt-save z-btgreen" commandName="save" __text="Save"}
     {if $page.isOnline}
     {formbutton class="z-bt-save z-btgreen" commandName="saveAndView" __text="Save & View"}
     {/if}
     {if $access.pageDeleteAllowed}
-    {formbutton class="z-bt-delete z-btred" commandName="deletePage" __text="Delete" __confirmMessage='Delete'}
+    {formbutton class="z-bt-delete z-btred" commandName="deletePage" __text="Delete" __confirmMessage="Delete"}
     {/if}
     {if $multilingual==1}
     {formbutton class="z-bt-icon con-bt-translate" commandName="translate" __text="Translate"}
@@ -211,6 +217,5 @@
 </div>
 
 {/contentformframe}
-
 {/form}
 {adminfooter}

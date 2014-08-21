@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Api_User extends Zikula_AbstractApi
@@ -14,7 +14,7 @@ class Content_Api_User extends Zikula_AbstractApi
      *
      * @return array array of admin links
      */
-    public function getlinks()
+    public function getLinks()
     {
         $links = array();
 
@@ -88,20 +88,17 @@ class Content_Api_User extends Zikula_AbstractApi
         if (isset($args['args']['cat']) && !empty($args['args']['cat'])) {
             $cat = CategoryUtil::getCategoryByID($args['args']['cat']);
             unset($args['args']['cat']);
-            if (count($args['args'] > 0)) {
+            if (count($args['args']) > 0) {
                 return '';
             }
             return $args['modname'] . '/' . DataUtil::formatForURL($cat['name']);
         }
 
-        if (isset($args['args']['pid']) && !empty($args['args']['pid']))
-        {
-            $url = ModUtil::apiFunc('Content', 'Page', 'getURLPath', array('pageId' => $args['args']['pid']));
+        if (isset($args['args']['pid']) && !empty($args['args']['pid'])) {
+            $url = ModUtil::apiFunc('Content', 'page', 'getURLPath', array('pageId' => $args['args']['pid']));
             if (strtolower($args['func']) == 'view') {
-                $suffix = $this->getVar('shorturlsuffix');
-                $url .= $suffix;
+                $url .= $this->getVar('shorturlsuffix');
             }
-
             return $args['modname'] . '/' . $url;
         }
 
@@ -148,11 +145,13 @@ class Content_Api_User extends Zikula_AbstractApi
         }
 
         if (!isset($args['vars'][3]) || empty($args['vars'][3])) {
-            $mainCategory = CategoryRegistryUtil::getRegisteredModuleCategory('Content', 'page', 'primary', 30); // 30 == /__SYSTEM__/Modules/Global
-            $cats = CategoryUtil::getCategoriesByParentID($mainCategory);
+            $mainCategory = CategoryRegistryUtil::getRegisteredModuleCategory('Content', 'content_page', $this->getVar('categoryPropPrimary'), 30); // 30 == /__SYSTEM__/Modules/Global
+            //$cats = CategoryUtil::getCategoriesByParentID($mainCategory);
+            $cats = CategoryUtil::getSubCategories($mainCategory);
+
             foreach ($cats as $cat) {
                 if ($args['vars'][2] == $cat['name'] || $args['vars'][2] == DataUtil::formatForURL($cat['name'])) {
-                    System::queryStringSetVar('func', 'list');
+                    System::queryStringSetVar('func', 'listpages');
                     System::queryStringSetVar('cat', $cat['id']);
                     return true;
                 }

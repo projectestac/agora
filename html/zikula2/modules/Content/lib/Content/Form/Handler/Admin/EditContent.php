@@ -89,6 +89,7 @@ class Content_Form_Handler_Admin_EditContent extends Zikula_Form_AbstractHandler
 
         $editTemplate = "file:" . getcwd() . "/modules/Content/templates/contenttype/blank.tpl";
         if (isset($content['plugin'])) {
+            $this->contentType['plugin']->setView($view);
             $this->contentType['plugin']->startEditing();
             $editTemplate = $this->contentType['plugin']->getEditTemplate();
         }
@@ -141,15 +142,24 @@ class Content_Form_Handler_Admin_EditContent extends Zikula_Form_AbstractHandler
                 return false;
             }
             $contentData = $this->view->getValues();
-
+            
             $message = null;
             if (!$this->contentType['plugin']->isValid($contentData['data'], $message)) {
-                $errorPlugin = &$this->view->getPluginById('error');
+                $errorPlugin = $this->view->getPluginById('error');
                 $errorPlugin->message = $message;
                 return false;
             }
 
             $this->contentType['plugin']->loadData($contentData['data']);
+
+            if (strtolower($this->contentType['name']) == 'html') {
+                // special hook for Html Contenttype must be processed here.
+                $hook = new Zikula_ValidationHook('content.ui_hooks.htmlcontenttype.validate_edit', new Zikula_Hook_ValidationProviders());
+                $this->notifyHooks($hook);
+                if ($hook->getValidators()->hasErrors()) {
+                    return $this->view->registerError($this->__('Error validating hooked content.'));
+                }
+            }
 
             $ok = ModUtil::apiFunc('Content', 'Content', 'updateContent', array(
                 'content' => $contentData + $contentData['content'],
@@ -158,15 +168,37 @@ class Content_Form_Handler_Admin_EditContent extends Zikula_Form_AbstractHandler
             if ($ok === false) {
                 return $this->view->registerError(null);
             }
+            
+            if (strtolower($this->contentType['name']) == 'html') {
+                // special hook for Html Contenttype must be processed here.
+                // notify any hooks they may now commit the as the original form has been committed.
+                $objectUrl = new Zikula_ModUrl('Content', 'user', 'view', ZLanguage::getLanguageCode(), array('pid' => $this->pageId));
+                $this->notifyHooks(new Zikula_ProcessHook('content.ui_hooks.htmlcontenttype.process_edit', $this->contentId, $objectUrl));
+            }
+            
             if ($args['commandName'] == 'translate') {
                 $url = ModUtil::url('Content', 'admin', 'translatecontent', array(
                     'cid' => $this->contentId,
                     'back' => 1));
             }
         } else if ($args['commandName'] == 'delete') {
+            if (strtolower($contentData['type'] == 'html')) {
+                // special hook for Html Contenttype must be processed here.
+                $hook = new Zikula_ValidationHook('content.ui_hooks.htmlcontenttype.validate_delete', new Zikula_Hook_ValidationProviders());
+                $this->notifyHooks($hook);
+                if ($hook->getValidators()->hasErrors()) {
+                    return $this->view->registerError($this->__('Error validating hooked content.'));
+                }
+            }
+
             $ok = ModUtil::apiFunc('Content', 'Content', 'deleteContent', array('contentId' => $this->contentId));
             if ($ok === false) {
                 return $this->view->registerError(null);
+            }
+            if (strtolower($contentData['type'] == 'html')) {
+                // special hook for Html Contenttype must be processed here.
+                // notify any hooks they may now commit the as the original form has been committed.
+                $this->notifyHooks(new Zikula_ProcessHook('content.ui_hooks.htmlcontenttype.process_delete', $this->contentId));
             }
         } else if ($args['commandName'] == 'cancel') {
         }

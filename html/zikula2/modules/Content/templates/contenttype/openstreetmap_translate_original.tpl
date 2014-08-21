@@ -1,3 +1,2 @@
-<div class="z-formrow">
-  <label>{gt text="Description"}</label> {$data.text}
-</div>
+<label>{gt text="Description to be shown below the map"}:</label>
+<span>{$data.text}</span>

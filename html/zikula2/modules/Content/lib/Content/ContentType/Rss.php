@@ -3,7 +3,7 @@
  * Content RSS plugin
  *
  * @copyright (C) 2007, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_ContentType_Rss extends Content_AbstractContentType

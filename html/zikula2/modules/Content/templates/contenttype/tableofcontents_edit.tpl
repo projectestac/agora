@@ -15,14 +15,14 @@
 </div>
 
 <div class="z-formrow">
-    {formlabel for='includeHeading' __text='Include headings'}
+    {formlabel for='includeHeading' __text='Include heading items on pages'}
     {formdropdownlist id="includeHeading" items=$includeHeadingItems group="data"}
 </div>
 
 <div class="z-formrow" id="selectHeadingLevel">
-    {formlabel for='includeHeadingLevel' __text='Include headings up to level'}
+    {formlabel for='includeHeadingLevel' __text='Include heading items up to page level'}
     {formtextinput id="includeHeadingLevel" maxLength='10' group="data"}
-    {contentlabelhelp __text='if headings are included and not unlimited; select 0 to include menu only for the selected page'}
+    {contentlabelhelp __text='if heading items are included and not unlimited; select 0 to include the headings only for the selected page'}
 </div>
 
 <div class="z-formrow">

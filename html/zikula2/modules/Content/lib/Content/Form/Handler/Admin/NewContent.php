@@ -72,7 +72,13 @@ class Content_Form_Handler_Admin_NewContent extends Zikula_Form_AbstractHandler
             $contentData['type'] = $type;
             unset($contentData['contentType']);
             $contentData['language'] = null;
-
+            
+            /**
+             * It should be noted here that the content item is created with default data
+             * immediately and then sent to the editcontent function for processing.
+             * If the user the clicks 'cancel' the contentitem is left in existence and
+             * not deleted which seems counter-intuitive.
+             */
             $id = ModUtil::apiFunc('Content', 'Content', 'newContent', array('content' => $contentData, 'pageId' => $this->pageId, 'contentAreaIndex' => $this->contentAreaIndex, 'position' => $this->position));
             if ($id === false) {
                 return $this->view->registerError(null);

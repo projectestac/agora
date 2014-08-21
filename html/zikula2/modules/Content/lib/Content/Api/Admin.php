@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Api_Admin extends Zikula_AbstractApi
@@ -15,7 +15,7 @@ class Content_Api_Admin extends Zikula_AbstractApi
      *
      * @return array array of admin links
      */
-    public function getlinks()
+    public function getLinks()
     {
         $links = array();
 

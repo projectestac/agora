@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Api_Content extends Zikula_AbstractApi
@@ -13,7 +13,6 @@ class Content_Api_Content extends Zikula_AbstractApi
 
     public function getContent($args)
     {
-
         $id = (int) $args['id'];
         $language = (array_key_exists('language', $args) ? $args['language'] : ZLanguage::getLanguageCode());
         $translate = (array_key_exists('translate', $args) ? $args['translate'] : true);
@@ -336,9 +335,33 @@ class Content_Api_Content extends Zikula_AbstractApi
         return true;
     }
 
+    /**
+     * Update the status of the item
+     *
+     * @param int contentId
+     * @param string active (optional)
+     * @param string inMenu (optional)
+     *
+     * @return true
+     */
+    public function updateState($args)
+    {
+        // Argument check
+        if (!isset($args['contentId'])) {
+            return LogUtil::registerArgsError();
+        }
+
+        $content = array('id' => $args['contentId']);
+        if (isset($args['active'])) {
+            $content['active'] = ($args['active'] == 'true') ? 0 : 1;
+        }
+
+        DBUtil::updateObject($content, 'content_content');
+        return true;
+    }
+
     protected function contentUpdateSearchableText($contentId, $text)
     {
-
         // We delete first then insert, since it may not already exist.
         DBUtil::deleteObjectByID('content_searchable', $contentId, 'contentId');
 
@@ -401,10 +424,11 @@ class Content_Api_Content extends Zikula_AbstractApi
             return false;
         }
         $contentType = $this->getContentType($content);
-        if ($contentType === false) {
-            return false;
+        if ($contentType !== false) {
+            $contentType['plugin']->delete();
+        } else {
+            // Plugin probably disabled, plugin delete will not work
         }
-        $contentType['plugin']->delete();
 
         if (!$this->contentRemoveContent($contentId)) {
             return false;
@@ -458,8 +482,12 @@ class Content_Api_Content extends Zikula_AbstractApi
         $addVersion = isset($args['addVersion']) ? $args['addVersion'] : true;
 
         // Delete optional existing translation
+        $table = DBUtil::getTables();
+        $translatedColumn = $table['content_translatedcontent_column'];
+        $where = $translatedColumn['contentId'] . ' = \'' . DataUtil::formatForStore($contentId) . '\' AND ' . $translatedColumn['language'] . ' = \'' . DataUtil::formatForStore($language) . '\'';
+        DBUtil::deleteObject(array(), 'content_translatedcontent', $where, 'contentId');
+
         $translatedData = array('contentId' => $contentId, 'language' => $language);
-        DBUtil::deleteObject($translatedData, 'content_translatedcontent', '', 'contentId');
 
         // Insert new
         $translatedData['data'] = serialize($translated);
@@ -602,8 +630,9 @@ class Content_Api_Content extends Zikula_AbstractApi
                 $nextContentId = $translatableItems[0]['id'];
             }
         }
+		$curContentId = $translatableItems[$currentIndex]['id'];
 
-        return array('items' => $translationItems, 'nextContentId' => $nextContentId, 'prevContentId' => $prevContentId);
+        return array('items' => $translationItems, 'curContentId' => $curContentId, 'nextContentId' => $nextContentId, 'prevContentId' => $prevContentId);
     }
 
     public function getTranslations($args)
@@ -627,7 +656,6 @@ class Content_Api_Content extends Zikula_AbstractApi
             WHERE c.$contentColumn[pageId] = $pageId";
 
         $dbresult = DBUtil::executeSQL($sql);
-
         $translations = DBUtil::marshallObjects($dbresult, $ca);
 
         return $translations;
@@ -645,10 +673,12 @@ class Content_Api_Content extends Zikula_AbstractApi
         $contentId = (int) $args['contentId'];
         $contentAreaIndex = (int) $args['contentAreaIndex'];
         $position = (int) $args['position'];
-
+		
+		// This will remove the content item from the content Area, but no deletion 
         if (!$this->contentRemoveContent($contentId)) {
             return false;
         }
+		// Insert the removed content item into the new location
         if (!$this->contentInsertContent($contentId, $position, $contentAreaIndex, $pageId)) {
             return false;
         }
@@ -754,21 +784,32 @@ class Content_Api_Content extends Zikula_AbstractApi
     }
 
     // the passed $view argument is a Zikula_Form_View passed from the EditContent Form Handler
-    public function getContentPlugin($args, $view = null)
+    public function getContentPlugin($args, Zikula_Form_View $view = null)
     {
         $classname = $args['module'] . "_ContentType_" . $args['type'];
         if (!class_exists($classname)) {
             return LogUtil::registerError($this->__f('Error! Unable to load plugin [%1$s] in module [%2$s] since the class is not defined. Upgrade of %2$s module required.', array($args['type'], $args['module'])));
         }
+
+        if (!ModUtil::available($args['module'])) {
+            return LogUtil::registerError($this->__f('Error! Unable to load plugin [%1$s] in module [%2$s] since the module is not available.', array($args['type'], $args['module'])));
+        }
+
         $type = strtolower(FormUtil::getPassedValue('type', 'user'));
         if ($type == 'user') {
             $view = Zikula_View::getInstance($args['module']);
         } elseif ($type == 'admin' && $view == null) {
             $view = new Zikula_Form_View($this->getServiceManager(), $args['module']);
+        } else {
+            $view = Zikula_View::getInstance($args['module']);
+		}
+		
+        if ($args['module'] != $view->getModuleName()) {
+            $modinfo = ModUtil::getInfoFromName($args['module']);
+            $modpath = $modinfo['type'] == ModUtil::TYPE_MODULE ? 'modules' : 'system';
+            $view->addPluginDir("$modpath/{$modinfo['directory']}/templates/plugins");
         }
-        if (!ModUtil::available($args['module'])) {
-            return LogUtil::registerError($this->__f('Error! Unable to load plugin [%1$s] in module [%2$s] since the module is not available.', array($args['type'], $args['module'])));
-        }
+
         $plugin = new $classname($view);
         if (empty($plugin)) {
             return LogUtil::registerError($this->__f('Error! Unable to load plugin [%1$s] in module [%2$s] for some unknown reason.', array($args['type'], $args['module'])));

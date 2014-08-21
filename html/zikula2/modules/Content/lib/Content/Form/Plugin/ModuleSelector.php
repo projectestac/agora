@@ -11,7 +11,7 @@ class Content_Form_Plugin_ModuleSelector extends Zikula_Form_Plugin_DropdownList
     {
         if (!$view->isPostBack()) {
             // Find the active modules
-            $moduleList = ModUtil::apiFunc('Modules', 'Admin', 'listmodules', array('state' => ModUtil::STATE_ACTIVE));
+            $moduleList = ModUtil::apiFunc('Extensions', 'admin', 'listmodules', array('state' => ModUtil::STATE_ACTIVE));
             $modules = array();
             // Only list modules that have a User view
             foreach ($moduleList as $module) {

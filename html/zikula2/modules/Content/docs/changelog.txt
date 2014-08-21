@@ -1,7 +1,32 @@
-Content (C) 2007-2011, Content Development Team
+Content (C) 2007-2013, Content Development Team
 ---------------------------
-http://code.zikula.org/content
 http://github.com/zikula-modules/Content
+
+Version 4.1.0
+-------------
+
+Summary of changes:
+- Several small bugs solved
+- Updated google maps content plugin to enable > 1 map on a page and updated JS api
+- Updated Vimeo content plugin
+- Added variable for the pageinfo icon location being top/bottom
+- Added PageTitle as option to the heading content item #127
+- Fixed Search not working on Content pages #123
+- Block subpages fixed #116
+- Added ajax activating/de-activating of content items inside editpage
+- Added override title setting #78
+- Content from disabled plugins can now be deleted #85
+
+
+Version 4.0.1
+-------------
+
+Summary of changes:
+- Several bugs are solved
+- added validation checks for YouTube contenttype
+- Implemented hooks for Html Contenttype (reinstalls ALL hooks on upgrade!) 
+- removed all direct connection with Scribite module (uses hooks instead)
+
 
 Version 4.0.0
 -------------

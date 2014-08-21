@@ -4,12 +4,11 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Controller_Ajax extends Zikula_Controller_AbstractAjax
 {
-
     /**
      * dragContent
      * This function stores the moving of content items in the edit page mode
@@ -20,6 +19,7 @@ class Content_Controller_Ajax extends Zikula_Controller_AbstractAjax
      */
     public function dragContent($args)
     {
+        $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content::', '::', ACCESS_EDIT), LogUtil::getErrorMsgPermission());
 
         $ok = ModUtil::apiFunc('Content', 'Content', 'dragContent',
@@ -44,9 +44,10 @@ class Content_Controller_Ajax extends Zikula_Controller_AbstractAjax
      */
     public function togglePageState($args)
     {
+        $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content::', '::', ACCESS_EDIT), LogUtil::getErrorMsgPermission());
 
-        $id = (int) $this->request->getPost()->get('id', -1);
+        $id = (int)$this->request->getPost()->get('id', -1);
         $active = $this->request->getPost()->get('active', null);
         if ($id == -1) {
             AjaxUtil::error(LogUtil::registerError($this->__('Error! No page ID passed.')));
@@ -54,7 +55,7 @@ class Content_Controller_Ajax extends Zikula_Controller_AbstractAjax
 
         $ok = ModUtil::apiFunc('Content', 'Page', 'updateState', array('pageId' => $id, 'active' => $active));
         if (!$ok) {
-            AjaxUtil::error(LogUtil::registerError($this->__('Error! Could not update state.')));
+            AjaxUtil::error(LogUtil::registerError($this->__('Error! Could not update page state.')));
         }
         return new Zikula_Response_Ajax(array('id' => $id));
     }
@@ -70,9 +71,10 @@ class Content_Controller_Ajax extends Zikula_Controller_AbstractAjax
      */
     public function togglePageInMenu($args)
     {
+        $this->checkAjaxToken();
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content::', '::', ACCESS_EDIT), LogUtil::getErrorMsgPermission());
 
-        $id = (int) $this->request->getPost()->get('id', -1);
+        $id = (int)$this->request->getPost()->get('id', -1);
         $inMenu = $this->request->getPost()->get('inMenu', null);
         if ($id == -1) {
             AjaxUtil::error(LogUtil::registerError($this->__('Error! No page ID passed.')));
@@ -80,7 +82,33 @@ class Content_Controller_Ajax extends Zikula_Controller_AbstractAjax
 
         $ok = ModUtil::apiFunc('Content', 'Page', 'updateState', array('pageId' => $id, 'inMenu' => $inMenu));
         if (!$ok) {
-            AjaxUtil::error(LogUtil::registerError($this->__('Error! Could not update state.')));
+            AjaxUtil::error(LogUtil::registerError($this->__('Error! Could not update page in menu state.')));
+        }
+        return new Zikula_Response_Ajax(array('id' => $id));
+    }
+
+	/**
+     * toggleContentState
+     * This function toggles active/inactive for content items
+     *
+     * @param id int  id of content item to toggle
+     * @param active  string "true"/"false"
+     * @return mixed true or Ajax error
+     */
+    public function toggleContentState($args)
+    {
+        $this->checkAjaxToken();
+        $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content::', '::', ACCESS_EDIT), LogUtil::getErrorMsgPermission());
+
+        $id = (int)$this->request->getPost()->get('id', -1);
+        $active = $this->request->getPost()->get('active', null);
+        if ($id == -1) {
+            AjaxUtil::error(LogUtil::registerError($this->__('Error! No content ID passed.')));
+        }
+
+        $ok = ModUtil::apiFunc('Content', 'Content', 'updateState', array('contentId' => $id, 'active' => $active));
+        if (!$ok) {
+            AjaxUtil::error(LogUtil::registerError($this->__('Error! Could not update content item state.')));
         }
         return new Zikula_Response_Ajax(array('id' => $id));
     }

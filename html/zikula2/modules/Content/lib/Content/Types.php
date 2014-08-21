@@ -25,7 +25,7 @@ class Content_Types
     public function add($classname) {
         if (is_string($classname)) {
             $parts = explode('_', $classname);
-            if (count($parts == 3)) {
+            if (count($parts) == 3) {
                 $this->types[$parts[1]][] = array(
                     'module' => $parts[0],
                     'name' => $parts[2],

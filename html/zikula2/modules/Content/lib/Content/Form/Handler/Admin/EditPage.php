@@ -1,6 +1,6 @@
 <?php
 
-class Content_Form_Handler_Admin_Page extends Zikula_Form_AbstractHandler
+class Content_Form_Handler_Admin_EditPage extends Zikula_Form_AbstractHandler
 {
     var $pageId;
     var $backref;

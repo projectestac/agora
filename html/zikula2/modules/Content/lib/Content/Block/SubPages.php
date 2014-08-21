@@ -3,7 +3,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Block_SubPages extends Zikula_Controller_AbstractBlock
@@ -52,7 +52,8 @@ class Content_Block_SubPages extends Zikula_Controller_AbstractBlock
         $this->view->setCaching($vars['usecaching']);
 
         if (!$vars['usecaching'] || ($vars['usecaching'] && !$this->view->is_cached('block/subpages.tpl'))) {
-            if ((strtolower($query['module']) == 'content') && (strtolower($query['func']) == 'view') && ($query['pid'] > 0)) {
+            $modinfo = ModUtil::getInfoFromName('content');	
+            if ((strtolower($query['module']) == $modinfo['url']) && (strtolower($query['func']) == 'view') && ($query['pid'] > 0)) {
                 $options = array(
                     'orderBy' => 'setLeft',
                     'makeTree' => true,

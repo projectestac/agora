@@ -4,7 +4,7 @@
  *
  * @copyright (C) 2007-2010, Content Development Team
  * @copyright (C) 2010-2011, Sven Strickroth <email@cs-ware.de>
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 
@@ -88,19 +88,22 @@ class Content_ContentType_TableOfContents extends Content_AbstractContentType
         $this->includeNotInMenu = $includeNotInMenu;
     }
 
-    function getTitle()
+    public function getTitle()
     {
         return $this->__('Table of contents');
     }
-    function getDescription()
+    
+    public function getDescription()
     {
         return $this->__('A table of contents of headings and subpages (built from the available Content pages).');
     }
-    function isTranslatable()
+    
+    public function isTranslatable()
     {
         return false;
     }
-    function loadData(&$data)
+    
+    public function loadData(&$data)
     {
         $this->pid = $data['pid'];
         $this->includeSelf = ((bool) $data['includeSelf']);
@@ -110,19 +113,23 @@ class Content_ContentType_TableOfContents extends Content_AbstractContentType
         $this->includeSubpage = $data['includeSubpage'];
         $this->includeSubpageLevel = 0;
         if ($this->includeHeading && $data['includeHeadingLevel'] >= 0) {
-            $this->includeHeadingLevel = (int) $data['includeHeadingLevel'];
+            $this->includeHeadingLevel = (int)$data['includeHeadingLevel'];
         }
         if ($this->includeSubpage && $data['includeSubpageLevel'] > 0) {
-            $this->includeSubpageLevel = (int) $data['includeSubpageLevel'];
+            $this->includeSubpageLevel = (int)$data['includeSubpageLevel'];
         }
     }
-    function display()
+    
+    public function display()
     {
-        $pntable = pnDBGetTables();
-        $pageColumn = $pntable['content_page_column'];
+        $tables = DBUtil::getTables();
+        $pageColumn = $tables['content_page_column'];
 
         $options = array('makeTree' => true, 'expandContent' => false);
         $options['orderBy'] = 'setLeft';
+
+        // get the current active page where this contentitem is in
+        $curPage = ModUtil::apiFunc('Content', 'page', 'getPage', array('id' => $this->pageId, 'makeTree' => false, 'includeContent' => false));
 
         if ($this->pid == 0 && $this->includeSubpage) {
             if ($this->includeSubpage == 2) {
@@ -131,7 +138,7 @@ class Content_ContentType_TableOfContents extends Content_AbstractContentType
         } else {
             if ($this->includeSubpage) {
                 if ($this->includeSubpage == 2 && $this->includeSubpageLevel > 0) {
-                    $page = ModUtil::apiFunc('content', 'page', 'getPage', array('id' => $this->pid));
+                    $page = ModUtil::apiFunc('Content', 'page', 'getPage', array('id' => $this->pid));
                     if ($page === false) {
                         return '';
                     }
@@ -160,20 +167,22 @@ class Content_ContentType_TableOfContents extends Content_AbstractContentType
             }
         }
 
+        $this->view->assign('page', $curPage);
         $this->view->assign('toc', $toc);
         $this->view->assign('contentId', $this->contentId);
         return $this->view->fetch($this->getTemplate());
     }
-    function _genTocRecursive(&$pages)
+    
+    protected function _genTocRecursive(&$pages, $level)
     {
         $toc = array();
         $pageurl = ModUtil::url('Content', 'user', 'view', array('pid' => $pages['id']));
-        if ($pages['content'] && ($this->includeHeading == 1 || $this->includeHeadingLevel-$level >= 0)) {
+        if ($pages['content'] && ($this->includeHeading == 1 || $this->includeHeadingLevel - $level >= 0)) {
             foreach (array_keys($pages['content']) as $area) {
                 foreach (array_keys($pages['content'][$area]) as $id) {
                     $plugin = &$pages['content'][$area][$id];
-                    if ($plugin['plugin']!= null && $plugin['plugin']->getModule() == 'Content' && $plugin['plugin']->getName() == 'heading') {
-                        $toc[] = array('title' => $plugin['data']['text'], 'url' => $pageurl . "#heading_" . $plugin['id'], 'level' => $level, 'css' => 'content-toc-heading');
+                    if ($plugin['plugin'] != null && $plugin['plugin']->getModule() == 'Content' && $plugin['plugin']->getName() == 'Heading') {
+                        $toc[] = array('title' => $plugin['plugin']->getText(), 'url' => $pageurl . "#heading_" . $plugin['id'], 'level' => $level, 'css' => 'content-toc-heading');
                     }
                 }
             }
@@ -187,7 +196,8 @@ class Content_ContentType_TableOfContents extends Content_AbstractContentType
 
         return array('pid' => $pages['id'], 'title' => $pages['title'], 'url' => $pageurl, 'level' => $level, 'css' => '', 'toc' => $toc);
     }
-    function displayEditing()
+    
+    public function displayEditing()
     {
         if ($this->pid == 0) {
             $title = $this->__('All pages');
@@ -197,25 +207,44 @@ class Content_ContentType_TableOfContents extends Content_AbstractContentType
         }
         return "<h3>" . $this->__f('Table of contents of %s', htmlspecialchars($title)) . "</h3>";
     }
-    function getDefaultData()
+    
+    public function getDefaultData()
     {
-        return array('pid' => $this->pageId, 'includeSelf' => false, 'includeHeading' => 0, 'includeHeadingLevel' => 0, 'includeSubpage' => 1, 'includeSubpageLevel' => 0, 'includeNotInMenu' => false);
+        return array(
+            'pid' => $this->pageId,
+            'includeSelf' => false,
+            'includeHeading' => 0, 
+            'includeHeadingLevel' => 0,
+            'includeSubpage' => 1,
+            'includeSubpageLevel' => 0,
+            'includeNotInMenu' => false
+        );
 
     }
-    function startEditing()
+    
+    public function startEditing()
     {
         $pages = ModUtil::apiFunc('Content', 'Page', 'getPages', array('makeTree' => false, 'orderBy' => 'setLeft', 'includeContent' => false, 'filter' => array('checkActive' => false)));
         $pidItems = array();
         $pidItems[] = array('text' => $this->__('All pages'), 'value' => "0");
         foreach ($pages as $page) {
-            $pidItems[] = array('text' => str_repeat('+', $page['level']) . " " . $page['title'], 'value' => $page['id']);
+            $pidItems[] = array('text' => str_repeat('-', $page['level']) . " " . $page['title'], 'value' => $page['id']);
         }
 
         $this->view->assign('pidItems', $pidItems);
-        $this->view->assign('includeHeadingItems', array(array('text' => __('No'), 'value' => 0), array('text' => __('Yes, unlimited'), 'value' => 1), array('text' => __('Yes, limited'), 'value' => 2)));
-        $this->view->assign('includeSubpageItems', array(array('text' => __('No'), 'value' => 0), array('text' => __('Yes, unlimited'), 'value' => 1), array('text' => __('Yes, limited'), 'value' => 2)));
+        $this->view->assign('includeHeadingItems', array(
+            array('text' => __('No'), 'value' => 0), 
+            array('text' => __('Yes, unlimited'), 'value' => 1), 
+            array('text' => __('Yes, limited'), 'value' => 2))
+        );
+        $this->view->assign('includeSubpageItems', array(
+            array('text' => __('No'), 'value' => 0), 
+            array('text' => __('Yes, unlimited'), 'value' => 1), 
+            array('text' => __('Yes, limited'), 'value' => 2))
+        );
     }
-    function getSearchableText()
+    
+    public function getSearchableText()
     {
         return;
     }

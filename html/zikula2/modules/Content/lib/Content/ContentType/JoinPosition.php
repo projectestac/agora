@@ -3,7 +3,7 @@
  * Content join position plugin
  *
  * @copyright (C) 2010 Sven Strickroth
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 

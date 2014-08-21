@@ -4,7 +4,7 @@
  * Content
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_Controller_User extends Zikula_AbstractController
@@ -17,7 +17,7 @@ class Content_Controller_User extends Zikula_AbstractController
      */
     public function main($args)
     {
-		$this->redirect(ModUtil::url('Content', 'user', 'sitemap', $args));
+        $this->redirect(ModUtil::url('Content', 'user', 'sitemap', $args));
     }
 
     /**
@@ -29,14 +29,21 @@ class Content_Controller_User extends Zikula_AbstractController
     {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content:page:', '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
 
-        $mainCategoryId = CategoryRegistryUtil::getRegisteredModuleCategory('Content', 'page', 'primary', 30); // 30 == /__SYSTEM__/Modules/Global
+        $mainCategoryId = CategoryRegistryUtil::getRegisteredModuleCategory('Content', 'content_page', $this->getVar('categoryPropPrimary'), 30); // 30 == /__SYSTEM__/Modules/Global
         $categories = CategoryUtil::getCategoriesByParentID($mainCategoryId);
         $rootCategory = CategoryUtil::getCategoryByID($mainCategoryId);
 
         $this->view->assign('rootCategory', $rootCategory);
         $this->view->assign('categories', $categories);
         $this->view->assign('lang', ZLanguage::getLanguageCode());
-
+        
+        // Count the numer of pages in a specific category
+        $pagecount = array();
+        foreach ($categories as $category) {
+            $pagecount[$category['id']] = ModUtil::apiFunc('Content', 'Page', 'getPageCount', array ('filter' => array('category' => $category['id'])));
+        }
+        $this->view->assign('pagecount', $pagecount);
+        
         return $this->view->fetch('user/main.tpl');
     }
 
@@ -56,6 +63,11 @@ class Content_Controller_User extends Zikula_AbstractController
         $urlname = isset($args['name']) ? $args['name'] : FormUtil::getPassedValue('name');
         $preview = isset($args['preview']) ? $args['preview'] : FormUtil::getPassedValue('preview');
         $editmode = isset($args['editmode']) ? $args['editmode'] : FormUtil::getPassedValue('editmode', null, 'GET');
+
+        if ($pageId === null && !empty($urlname)) {
+            $pageId = ModUtil::apiFunc('Content', 'Page', 'solveURLPath', compact('urlname'));
+            System::queryStringSetVar('pid', $pageId);
+        }
 
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content:page:', $pageId . '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
 
@@ -95,9 +107,6 @@ class Content_Controller_User extends Zikula_AbstractController
                 'ipno' => $version['ipno']);
             $iconSrc = 'images/icons/extrasmall/clock.png';
             $versionHtml = "<p class=\"content-versionpreview\"><img alt=\"\" src=\"$iconSrc\"/> " . $this->__f('Version #%1$s - %2$s - %3$s by %4$s from %5$s', $translatable) . "</p>";
-        } else if ($pageId === null && !empty($urlname)) {
-            $pageId = ModUtil::apiFunc('Content', 'Page', 'solveURLPath', compact('urlname'));
-            System::queryStringSetVar('pid', $pageId);
         }
 
         if ($pageId !== null && $versionId === null) {
@@ -117,8 +126,11 @@ class Content_Controller_User extends Zikula_AbstractController
         if ($page['language'] == ZLanguage::getLanguageCode()) {
             $multilingual = false;
         }
-        $pageTitle = html_entity_decode($page['title']);
-        PageUtil::setVar('title', ($preview ? $this->__("Preview") . ' - ' . $pageTitle : $pageTitle));
+
+        if ($this->getVar('overrideTitle')) {
+            $pageTitle = html_entity_decode($page['title']);
+            PageUtil::setVar('title', ($preview ? $this->__("Preview") . ' - ' . $pageTitle : $pageTitle));
+        }
 
         $this->view->assign('page', $page);
         $this->view->assign('preview', $preview);
@@ -126,6 +138,11 @@ class Content_Controller_User extends Zikula_AbstractController
         $this->view->assign('multilingual', $multilingual);
         $this->view->assign('enableVersioning', $this->getVar('enableVersioning'));
 
+        // add layout type and column count as page variables to the template
+		// columncount can be used via plugin contentcolumncount, since it holds regular expressions that slow down
+        $this->view->assign('contentLayoutType', $page['layout']);
+
+        // add access parameters
         Content_Util::contentAddAccess($this->view, $pageId);
 
         // exclude writers from statistics
@@ -182,7 +199,7 @@ class Content_Controller_User extends Zikula_AbstractController
     {
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content:page:', '::', ACCESS_READ), LogUtil::getErrorMsgPermission());
 
-        $category = isset($args['cat']) ? $args['cat'] : (string) FormUtil::getPassedValue('cat');
+        $category = isset($args['cat']) ? $args['cat'] : (int) FormUtil::getPassedValue('cat');
         $pageIndex = isset($args['page']) ? $args['page'] : (int) FormUtil::getPassedValue('page');
         $orderBy = isset($args['orderby']) ? $args['orderby'] : (string) FormUtil::getPassedValue('orderby');
         $orderDir = isset($args['orderdir']) ? $args['orderdir'] : (string) FormUtil::getPassedValue('orderdir');
@@ -268,7 +285,9 @@ class Content_Controller_User extends Zikula_AbstractController
         if ($pages === false)
             return false;
 
-        PageUtil::setVar('title', $this->__('Sitemap'));
+        if ($this->getVar('overrideTitle')) {
+            PageUtil::setVar('title', $this->__('Sitemap'));
+        }
 
         $this->view->assign('pages', $pages);
         Content_Util::contentAddAccess($this->view, null);

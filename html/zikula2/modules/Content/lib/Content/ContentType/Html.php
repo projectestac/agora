@@ -4,13 +4,12 @@
  * Content html plugin
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_ContentType_Html extends Content_AbstractContentType
 {
     protected $text;
-    protected $inputType;
 
     public function getText()
     {
@@ -22,24 +21,14 @@ class Content_ContentType_Html extends Content_AbstractContentType
         $this->text = $text;
     }
 
-    public function getInputType()
-    {
-        return $this->inputType;
-    }
-
-    public function setInputType($inputType)
-    {
-        $this->inputType = $inputType;
-    }
-
     function getTitle()
     {
-        return $this->__('HTML text');
+        return $this->__('HTML markup text');
     }
 
     function getDescription()
     {
-        return $this->__('A rich HTML editor for adding text to your page.');
+        return $this->__('HTML editor for adding markup text to your page.');
     }
 
     function isTranslatable()
@@ -49,27 +38,12 @@ class Content_ContentType_Html extends Content_AbstractContentType
 
     function loadData(&$data)
     {
-        if (!isset($data['inputType'])) {
-            $data['inputType'] = 'html';
-        }
-        if (!ModUtil::available('Scribite') && $data['inputType'] == 'html') {
-            $data['inputType'] = 'text';
-        }
         $this->text = $data['text'];
-        $this->inputType = $data['inputType'];
     }
 
     function display()
     {
-        if ($this->inputType == 'raw') {
-            $text = DataUtil::formatForDisplay($this->text);
-        } else {
-            $text = $this->activateinternallinks(DataUtil::formatForDisplayHTML($this->text));
-        }
-
-        $this->view->assign('inputType', $this->inputType);
-        $this->view->assign('text', $text);
-
+        $this->view->assign('text', DataUtil::formatForDisplayHTML($this->text));
         return $this->view->fetch($this->getTemplate());
     }
 
@@ -80,51 +54,31 @@ class Content_ContentType_Html extends Content_AbstractContentType
 
     function getDefaultData()
     {
-        return array(
-            'text' => $this->__('Add text here ...'),
-            'inputType' => (ModUtil::available('Scribite') ? 'html' : 'text'));
+        return array('text' => $this->__('Add text here...'));
     }
 
     function startEditing()
     {
-        $scripts = array('javascript/ajax/prototype.js', 'javascript/helpers/Zikula.js');
-        PageUtil::addVar('javascript', $scripts);
-        if (isset($this->inputType)) {
-            $this->view->assign('pluginInputType', $this->inputType);
-        }
+        PageUtil::addVar('javascript', array('javascript/ajax/prototype.js', 'javascript/helpers/Zikula.js'));
+        $this->view->assign('cid', $this->contentId);
     }
 
     function getSearchableText()
     {
-        return html_entity_decode(strip_tags($this->activateinternallinks($this->text)));
-    }
-
-    function activateinternallinks($text)
-    {
-        $text = preg_replace_callback("/\[\[link-([0-9]+)(?:\|(.+?))?\]\]/", create_function(
-                                '$hits',
-                                'if ($hits[2]) { return "<a href=\"".ModUtil::url("Content", "user", "view", array("pid" => $hits[1]))."\">".$hits[2]."</a>"; } else {
-          $page = ModUtil::apiFunc("Content", "Page", "getPage", array("pid" => $hits[1]));
-          if ($page === false) { return "";}
-          return "<a href=\"".ModUtil::url("Content", "user", "view", array("pid" => $hits[1]))."\">".$page["title"]."</a>";
-          }'
-                        ), $text);
-        if (ModUtil::available('crptag')) {
-            $text = preg_replace_callback("/\[\[tag-([0-9]+)(?:\|(.+?))?\]\]/", create_function(
-                                    '$hits',
-                                    '$title = $hits[1];
-              if ($hits[2]) { $title = $hits[2]; }
-              return "<a href=\"".ModUtil::url("crpTag", "user", "display", array("id" => $hits[1]))."\">".$title."</a>";
-              '
-                            ), $text);
-        }
-        return $text;
+        return html_entity_decode(strip_tags($this->text));
     }
 
     public function getTemplate()
     {
         $this->view->setCacheId($this->contentId);
-        return 'contenttype/paragraph_view.tpl';
+        return 'contenttype/html_view.tpl';
     }
+
+	/* Override method for simple template inclusion */
+    public function getEditTemplate()
+    {
+        return 'contenttype/html_edit.tpl';
+    }
+	
 
 }

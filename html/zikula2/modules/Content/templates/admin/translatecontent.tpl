@@ -4,10 +4,9 @@
     <h3>{gt text="Translate content item"}</h3>
 </div>
 
-<h4>{$page.title}</h4>
+<h4>{$page.title} - {$contentType.title}</h4>
 
 {form cssClass='z-form'}
-
 {contentformframe}
 
 {if $isTranslatable}
@@ -43,6 +42,5 @@
 {/if}
 
 {/contentformframe}
-
 {/form}
 {adminfooter}

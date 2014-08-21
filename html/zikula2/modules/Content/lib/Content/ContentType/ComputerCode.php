@@ -4,7 +4,7 @@
  * Content computer code plugin
  *
  * @copyright (C) 2007-2010, Content Development Team
- * @link http://code.zikula.org/content
+ * @link http://github.com/zikula-modules/Content
  * @license See license.txt
  */
 class Content_ContentType_ComputerCode extends Content_AbstractContentType

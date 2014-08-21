@@ -12,12 +12,14 @@
 {pageaddvar name="javascript" value="modules/Content/lib/vendor/lightwindow/javascript/lightwindow.js"}
 {pageaddvar name="stylesheet" value="modules/Content/lib/vendor/lightwindow/css/lightwindow.css"}
 
-{assign var="image" value=http://i.ytimg.com/vi/`$videoId`/default.jpg}
+{* Not allowed in allow_url_fopen=0 case so disabled
+{assign var="image" value="http://img.youtube.com/vi/$videoId/default.jpg"}
 {assign var="imageSize" value=$image|getimagesize}
+*}
 
-<dl class="content-video content-youtube" style="width:{$imageSize[0]}px;">
+<dl class="content-video content-youtube">
     <dt>
-        <a title="{$text|safetext}" href="http://www.youtube.com/v/{$videoId}&amp;autoplay=1" class="lightwindow page-options" params="lightwindow_width={$width},lightwindow_height={$height},lightwindow_loading_animation=false"><img src="http://i.ytimg.com/vi/{$videoId}/default.jpg" alt="{$text|safetext}" /></a>
+        <a title="{$text|safetext}" href="http://www.youtube.com/v/{$videoId}&amp;autoplay=1" class="lightwindow page-options" params="lightwindow_width={$width},lightwindow_height={$height},lightwindow_loading_animation=false"><img src="http://img.youtube.com/vi/{$videoId}/default.jpg" alt="{$text|safetext}" /></a>
     </dt>
     <dd>{$text|safetext}</dd>
     <dd><a title="{$text|safetext}" href="http://www.youtube.com/v/{$videoId}&amp;autoplay=1" class="play-icon lightwindow page-options" params="lightwindow_width={$width},lightwindow_height={$height},lightwindow_loading_animation=false">{gt text="Play Video"}</a></dd>

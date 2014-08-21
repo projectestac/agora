@@ -61,6 +61,7 @@
                 <th class="z-center">{gt text="Status"}</th>
                 <th class="z-center">{gt text="Menu"}</th>
                 <th>{if $enableVersioning}{gt text="Last updated (revision)"}{else}{gt text="Last updated"}{/if}</th>
+                {if isset($categoryUsage) && ($categoryUsage lt 4)}<th>{gt text="Category"}</th>{/if}
                 {if $multilingual}<th>{gt text="Language"}</th>{/if}
             </tr>
         </thead>
@@ -115,6 +116,7 @@
                     (#{$versionNo})
                     {/if}
                 </td>
+                {if isset($categoryUsage) && ($categoryUsage lt 4)}<td>{foreach from=$categories[$page.id] item=cat name=categories}{$cat}{if !$smarty.foreach.categories.last}<br />{/if}{/foreach}</td>{/if}
                 {if $multilingual}<td>{if $page.isTranslated}{gt text='%1$s (%2$s original)' tag1=$language|getlanguagename tag2=$page.language|getlanguagename}{elseif $language neq $page.language}{gt text="%s original used" tag1=$page.language|getlanguagename}{else}{$page.language|getlanguagename}{/if}</td>{/if}
             </tr>
             {foreachelse}
