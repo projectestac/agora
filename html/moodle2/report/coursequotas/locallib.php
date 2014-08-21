@@ -445,7 +445,8 @@ function report_coursequotas_printChart($disaggregated, $consumed = false, $tota
         $total = $consumed;
         $consumed_percent = 100;
     }
-
+    $colors = array('course' =>'#FDB45C', 'backup' => '#46BFBD', 'temp' => '#984298','trash' => '#A4822D', 'repo' => '#BB556F');
+    $highlights = array('course' =>'#FFC870', 'backup' => '#5AD3D1', 'temp' => '#D19ED1','trash' => '#C79E37', 'repo' => '#DF6A88');
     $text = '<script src="'.$CFG->wwwroot.'/report/coursequotas/chartjs/Chart.min.js"></script>';
     $text .= '<div id="canvas-holder" style="text-align:center;"><canvas id="chart-area" width="300" height="300"/></div>';
     $text .= '<script>
@@ -456,7 +457,7 @@ function report_coursequotas_printChart($disaggregated, $consumed = false, $tota
         $value = $value / (1024*1024);
         $percent = (int) ($value/$total *100);
         if($percent > 0){
-            $text .= '{ value: '.$value.', label: "'.get_string('disk_used_'.$type, 'report_coursequotas').' ('.$percent.'%)", color: "#FDB45C", highlight: "#FFC870"},';
+            $text .= '{ value: '.$value.', label: "'.get_string('disk_used_'.$type, 'report_coursequotas').' ('.$percent.'%)", color: "'.$colors[$type].'", highlight: "'.$highlights[$type].'"},';
             $consumed -= $value;
             $consumed_percent -= $percent;
         }
@@ -469,8 +470,8 @@ function report_coursequotas_printChart($disaggregated, $consumed = false, $tota
                 },
                 {
                     value: '.$free.',
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    color: "#2C9C69",
+                    highlight: "#4CCA91",
                     label: "'.get_string('disk_free', 'report_coursequotas').' ('.$free_percent.'%)"
                 }
             ];
