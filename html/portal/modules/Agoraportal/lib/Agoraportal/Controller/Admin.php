@@ -1328,7 +1328,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
         $sqlfunc = FormUtil::getPassedValue('sqlfunction', isset($args['sqlfunction']) ? $args['sqlfunction'] : null, 'GETPOST');
-        $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '2', 'GETPOST');
+        $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '4', 'GETPOST');
 
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('which', $which);
