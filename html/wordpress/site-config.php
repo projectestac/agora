@@ -39,7 +39,7 @@ if (($school_info === false) || !isset($school_info['id_nodes']) || empty($schoo
 
 // There's a new "Nom propi"
 if (!empty($school_info['new_dns'])) {
-    $newadress = WWWROOT . $school_info['new_dns'] . '/';
+    $newadress = WWWROOT . $school_info['new_dns'] . '/nodes';
     header('location: ' . WWWROOT . 'error.php?newaddress=' . $newadress);
     exit(0);
 }
@@ -51,7 +51,7 @@ $isBlocs = false;
 
 define('DB_NAME', $agora['nodes']['userprefix'] . $school_info['id_nodes']);
 define('DB_HOST', $school_info['dbhost_nodes']);
-define('WP_SITEURL', $agora['server']['html'] . $centre . '/');
+define('WP_SITEURL', $agora['server']['html'] . $centre . '/nodes/');
 define('UPLOADS', 'wp-content/uploads/' . $agora['nodes']['userprefix'] . $school_info['id_nodes']);
 
 define('ENVIRONMENT', $agora['server']['enviroment']);
