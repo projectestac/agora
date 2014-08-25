@@ -65,61 +65,96 @@ add_action('reactor_header_before', 'reactor_do_top_bar',1);
 function reactor_do_title_logo() { ?>
 	<div id="inner-header" class="inner-header">
 		<div class="row">
-			<div class="column">			 
-				<div id="idcentre-box" class="<?php reactor_columns(3); ?>">   
+		<div class="column">	
+		 
+			<div id="idcentre-box" class="<?php reactor_columns(array( 3, 12 ));?>">   
 				
-				  <div id="logo-box" class="site-logo <?php reactor_columns( 6 ); ?>">                     		
-                			<!--Hi ha logo-->
-                			<?php if ( reactor_option('logo_image') ) : ?>
-                			<div class="site-logo-inner" style="padding:0px">        	
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<img id="img_logo" src="<?php echo reactor_option('logo_image') ?>" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?> logo">
-							</a>
+				  <!-- Primer bloc: text o logo -->
+				  <div  id="logo-box" class="site-logo <?php reactor_columns(array( 6, 8 ));?>">                     		
+                	<div class="site-logo-inner"> 
+	                	<?php if ( reactor_option('logo_image') ) : ?>
+	                			<div id="img-logo" style="background-image:url(<?php echo reactor_option('logo_image') ?>)"></div>
 							<?php else: ?>
-								<div class="site-logo-inner"> <!--padding definit a style.css -->        	
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>							
-							<?php endif; // end if logo ?>
-						</div>
-						
-					</div><!-- .site-logo -->
-					
-					
-				<div id="description-box" class="site-description-box <?php reactor_columns( 6 ); ?>">
-				<div class="site-description-box-inner">  
-					<span> 
-					<?php echo esc_attr( get_bloginfo( 'description', 'display' ) ); ?>
-					</span>
-				</div>
-				</div><!-- .site-description -->
-				</div>
+								<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
+						<?php endif; // end if logo ?>					
+					</div><!-- .site-logo-inner -->						
+				  </div> <!-- #logo-box .site-logo -->
 				
-				<div id="slider-box" class="site-slider <?php reactor_columns( 7 ); ?> ">
+				  <!-- Segon bloc -->
+				  <!-- small devices -->
+				  <div id="quick-call-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
+						<div class="site-quick-box-inner">  
+							<a title="Trucar" href="tel:93 723 39 05">93 723 39 05</a>	
+						</div>
+				  </div>	
+				  <div id="quick-map-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
+							<a title="Mapa" href="https://www.google.com/maps/dir//41.554484,2.085249/@41.5544914,2.0831204,17z/data=!4m4!4m3!1m0!1m0!3e0?hl=ca">			<div class="site-quick-map-box-inner">&nbsp;</div>
+							</a>	
+				 </div>	
+				  
+				  <!-- medium & large devices -->	
+				  <div id="description-box" class="hide-for-small  site-description-box <?php reactor_columns( 6 ); ?> ">
+						<div class="site-description-box-inner">  
+							<span> 
+							<?php echo esc_attr( get_bloginfo( 'description', 'display' ) ); ?>
+							</span>
+						</div>
+					</div>	
+					
+			</div><!-- #idcentre-box -->
+				
+				<!-- #slider -->
+				<div id="slider-box" class="hide-for-small site-slider <?php reactor_columns(7); ?> ">
 					<!-- jmeler hardcoded -->
-					<?php do_action('slideshow_deploy', '3649'); ?>
+					<?php do_action('slideshow_deploy', reactor_option('diaporama',3625)); ?>
 				</div><!-- .slider -->
 				
-				<!-- <div class="site-icones <?php reactor_columns( 2 ); ?>">-->
 				
+				<!--Graella d'icones -->
 				<div style="padding:0px" class="<?php reactor_columns( 2 ); ?>">  
-				<div class="site-icones <?php reactor_columns( 12 ); ?>">
-
-				<div id="icon-11" class="icon-graella"></div>
-				<div id="icon-12" class="icon-graella"></div>
-				<div id="icon-13" class="icon-graella"></div>
 				
-				<div id="icon-14" class="icon-graella"></div>
-				<div id="icon-21" class="icon-graella"></div>
-				<div id="icon-22" class="icon-graella"></div>
-				<!-- <div id="icon-23" class="icon-graella"></div>
-				<div id="icon-24" class="icon-graella"></div> -->
-
-				</div>
-				</div>
-				<!--
-				<div class="title-area">
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-					<p class="site-description"><?php bloginfo('description'); ?></p>
-				</div>-->
+					<div class="site-icones <?php reactor_columns( 12 ); ?>">
+					
+						<?php $options=get_option( 'my_option_name' );?>
+		
+						<!-- Fila 1 -->
+						<a title="<?php echo $options['title_icon11'];?>" href="<?php echo $options['link_icon11'];?>">
+							<div id="icon-11" class="icon-graella">
+								<div class="dashicons dashicons-<?php echo $options['icon11'];?>"></div>
+								<!--<p><?php echo $options['title_icon11'];?></p>-->
+							</div>
+						</a>
+						<a title="<?php echo $options['title_icon12'];?>" href="<?php echo $options['link_icon12'];?>">
+							<div id="icon-12" class="icon-graella">
+								<div class="dashicons dashicons-<?php echo $options['icon12'];?>"></div>
+							</div>
+						</a>			
+						<a title="<?php echo $options['title_icon13'];?>" href="<?php echo $options['link_icon13'];?>">
+							<div id="icon-13" class="icon-graella">
+								<div class="dashicons dashicons-<?php echo $options['icon13'];?>"></div>
+							</div>
+						</a>
+						
+						<!-- Fila 2 -->
+						<a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>">
+							<div id="icon-21" class="icon-graella">
+							<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>				
+							</div>
+						</a>	
+						<a title="<?php echo $options['title_icon22'];?>"href="<?php echo $options['link_icon22'];?>">
+							<div id="icon-22" class="icon-graella">
+								<div class="dashicons dashicons-<?php echo $options['icon22'];?>"></div>
+							</div>
+						</a>			
+						<a title="<?php echo $options['title_icon23'];?>"href="<?php echo $options['link_icon23'];?>">
+							<div id="icon-23" class="icon-graella">
+								<div class="dashicons dashicons-<?php echo $options['icon23'];?>"></div>
+							</div>
+						</a>
+					
+					</div> <!-- .site-icones -->
+					
+				</div> <!-- columns (2) container -->
 				
 				</div><!-- .column -->
 		</div><!-- .row -->
@@ -159,7 +194,7 @@ function reactor_do_nav_bar() {
 }
 //add_action('reactor_header_before', 'reactor_do_nav_bar', 3);
 //add_action('reactor_header_after', 'reactor_do_nav_bar', 1);
-add_action('reactor_header_inside', 'reactor_do_nav_bar', 3);
+//add_action('reactor_header_inside', 'reactor_do_nav_bar', 3);
 
 /**
  * Mobile nav

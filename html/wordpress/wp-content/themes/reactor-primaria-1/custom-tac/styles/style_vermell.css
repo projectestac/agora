@@ -1,0 +1,18 @@
+
+body {
+    /*background-color: #a4d3df !important;*/
+    
+}
+.site-logo{
+    display:table !important;
+    background-color:#ff2a2a;
+}
+.site-logo-inner{
+    color:white; 
+}
+.site-description-box{
+    background-color:#ff5a26;
+}
+.site-description-box-inner{
+    color:white; 
+}

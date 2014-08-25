@@ -1,0 +1,32 @@
+
+body {
+    /*background-color: #a4d3df !important;*/
+    
+}
+.site-logo{
+    display:table !important;
+    background-color:#fc3b56;
+}
+.site-logo-inner{
+    color:white; 
+}
+.site-description-box{
+    background-color:#2ca698;
+}
+.site-description-box-inner{
+    color:white; 
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    color: #2ca698 !important;
+}
+
+#icon-11{
+background-color:#2ca698;
+}
+#icon-21{
+background-color:#fc3b56;
+}
+#icon-22{
+color:#2ca698;
+}

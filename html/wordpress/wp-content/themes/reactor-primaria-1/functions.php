@@ -90,7 +90,7 @@ function reactor_child_theme_setup() {
 	/* Remove support for shortcodes */
 	// remove_theme_support('reactor-shortcodes');
 	
-	/* Remove support for tumblog icons */
+	/* Remove support for tum icons */
 	// remove_theme_support('reactor-tumblog-icons');
 	
 	/* Remove support for other langauges */
@@ -99,52 +99,143 @@ function reactor_child_theme_setup() {
 }
 
 
-/*
-function header_widget() {
-register_sidebar( array(
-'name' => __( 'Capçalera Dreta', 'reactor-primaria-child' ),
-'id' => 'header_widget',
-'description' => __( 'Appears in the header', 'reactor-primaria-child' ),
-'before_widget' => '<aside id="%1$s">',
-'after_widget' => '</aside>',
-'before_title' => '<h3>',
-'after_title' => '</h3>',
-) );
-}
-
-add_action( 'widgets_init', 'header_widget' );
-
-
-function logo_widget() {
-register_sidebar( array(
-'name' => __( 'Logo', 'reactor-primaria-child' ),
-'id' => 'logo_widget',
-'description' => __( 'Sidebar Logo', 'reactor-primaria-child' ),
-'before_widget' => '<aside id="%1$s">',
-'after_widget' => '</aside>',
-'before_title' => '<h3>',
-'after_title' => '</h3>',
-) );
-}
-add_action( 'widgets_init', 'logo_widget' );
-
-function add_menu_cerca(){
-	echo "<div><div style='float:left;width:150px;height:100px;background-color:white'>Cercador</div>";
-	echo "<div style='height:100px;background-color:#efefef'>Menu</div></div>";
-}
-
-function add_logo_corp(){
-	echo "<div id='logo_genedu'></div>";
-}
-*/
-
-
+//Fil d'ariadna
 function add_fil_ariadna(){
 	reactor_breadcrumbs(); 
 }
-
 add_action ('reactor_content_before','add_fil_ariadna');
 
+/**************************************************************
+
+Contingut barra superior (top bar o admin bar)
+
+***************************************************************/
+
+show_admin_bar( 'true' );
+
+//Logo gencat i enllaços associats
+function add_gencat( $wp_admin_bar ) {
+
+	$args = array(
+		'id'     => 'gencat',     // id of the existing child node (New > Post)
+		'title'  => '<img src=http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/07/ensenyament_bn_30.png>', 
+		'parent' => false,          // set parent to false to make it a top level (parent) node
+	);
+
+	$wp_admin_bar->add_menu( $args );
+
+	$args = array(
+		'id'     => 'gencat-web',     // id of the existing child node (New > Post)
+		'title'  => 'Generalitat de Catalunya', // alter the title of existing node
+		'href' =>'http://www20.gencat.cat',
+		'parent' => 'gencat',          // set parent to false to make it a top level (parent) node
+	);
+
+	$wp_admin_bar->add_node( $args );
+	
+	$args = array(
+		'id'     => 'dep-ensenyament',     
+		'title'  => 'Departament d\'ensenyament', // alter the title of existing node
+		'href' =>'http://www20.gencat.cat/portal/site/ensenyament',
+		'parent' => 'gencat',          // set parent to false to make it a top level (parent) node
+	);
+
+	$wp_admin_bar->add_node( $args );
+
+	$args = array(
+		'id'     => 'atri',     
+		'title'  => 'ATRI', 
+		'href' => 'https://atri.gencat.cat/',
+		'parent' => 'gencat',          
+	);
+	
+	$wp_admin_bar->add_node( $args );
+	
+	$wp_admin_bar->add_node( $args );
+
+	$args = array(
+		'id'     => 'saga',     
+		'title'  => 'SAGA', 
+		'href' => 'https://saga.xtec.cat/entrada',
+		'parent' => 'gencat',          
+		);
+	
+	$wp_admin_bar->add_node( $args );
+
+	$args = array(
+		'id'     => 'familia-escola',     
+		'title'  => 'Familia i Escola', 
+		'href'=>'http://www20.gencat.cat/portal/site/familiaescola/',
+		'parent' => 'gencat',          
+	);
+	
+	$wp_admin_bar->add_node( $args );
+
+	$args = array(
+		'id'     => 'portal',     
+		'title'  => 'Intranet · Portal de centre', 
+		'href' => 'http://educacio.gencat.cat/portal/page/portal/EducacioIntranet/Benvinguda',
+		'parent' => 'gencat',          
+		);
+	
+	$wp_admin_bar->add_node( $args );
+
+
+
+}
+
+// Informació del centre (direcció, telèfon etc)
+
+function add_direccio( $wp_admin_bar ) {
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+    		$args = array(
+			'id'     => 'nomCentre',     
+			'title'  => get_option("blogname"),
+			'href'=> get_home_url(),
+			'parent' => false,          
+		);
+
+		$wp_admin_bar->add_node( $args );
+	}	
+	/*
+	$args = array(
+		'id'     => 'iconMapsCentre',     
+		'title' => '<a href="https://www.google.com/maps/dir//41.554484,2.085249/@41.5544914,2.0831204,17z/data=!4m4!4m3!1m0!1m0!3e0?hl=ca">&nbsp;</a>',
+		'parent' => false,          
+	);
+
+	$wp_admin_bar->add_node( $args );*/
+	
+	$args = array(
+		'id'     => 'direccioCentre',     
+		'title' => reactor_option('direccioCentre'), 
+		'parent' => false,          
+	);
+
+	$wp_admin_bar->add_node( $args );
+
+	$args = array(
+		'id'     => 'telCentre',     
+		/*'title'  => '<a href="tel:'.reactor_option('telefoncentre', '111111').'">'.reactor_option('telefoncentre', '111111').'</a>',*/ 
+		'title'  => reactor_option('telCentre'), 
+		'parent' => false,          
+	);
+
+	$wp_admin_bar->add_node( $args );
+	
+	$args = array(
+		'id'     => 'titularitat',     
+		'title'  => 'Centre públic',
+		'href' => 'http://www20.gencat.cat/portal/site/ensenyament/menuitem.a735c8413184c341c65d3082b0c0e1a0/?vgnextoid=fd48f9cd4d7e9310VgnVCM1000008d0c1e0aRCRD&vgnextchannel=fd48f9cd4d7e9310VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default',
+		'parent' => false,          
+	);
+
+	$wp_admin_bar->add_node( $args );
+	
+}
+
+// Enllaços de recursos (xtec,edu365...) a la barra superior 
 function add_recursos( $wp_admin_bar ) {
 
 	$args = array(
@@ -158,7 +249,8 @@ function add_recursos( $wp_admin_bar ) {
 
 	$args = array(
 		'id'     => 'xtec',     
-		'title'  => '<img src=http://educacio.gencat.cat/documents/img/meva_xtec.jpg>&nbsp;Xtec',
+		//'title'  => '<img src=http://educacio.gencat.cat/documents/img/meva_xtec.jpg>&nbsp;Xtec',
+		'title'  => 'Xtec',
 		'href'=>'http://www.xtec.cat/', 
 		'parent' => 'recursosXTEC',          
 	);
@@ -168,7 +260,8 @@ function add_recursos( $wp_admin_bar ) {
 	$args = array(
 		'id'     => 'edu365',     
 		'href' => 'http://www.edu365.cat/',
-		'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu365.jpg>&nbsp;Edu365', 
+		//'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu365.jpg>&nbsp;Edu365', 
+		'title'  => 'Edu365',
 		'parent' => 'recursosXTEC',         
 	);
 
@@ -177,7 +270,8 @@ function add_recursos( $wp_admin_bar ) {
 	$args = array(
 		'id'     => 'edu3',     
 		'href'=> 'http://www.edu3.cat/',
-		'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu3.jpg>&nbsp;Edu3', 
+		//'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu3.jpg>&nbsp;Edu3',
+		'title'  => 'Edu3',  
 		'parent' => 'recursosXTEC',          
 	);
 
@@ -249,7 +343,7 @@ function add_recursos( $wp_admin_bar ) {
 }
 
 
-
+// Enllaços de serveis (agora, xtecblocs...) a la barra superior 
 function add_serveis( $wp_admin_bar ) {
 
 	$args = array(
@@ -316,151 +410,7 @@ function add_serveis( $wp_admin_bar ) {
 	*/
 }
 
-function add_direccio( $wp_admin_bar ) {
-
-	if ( ! current_user_can( 'manage_options' ) ) {
-    		$args = array(
-			'id'     => 'nomCentre',     
-			'title'  => get_option("blogname"),
-			'href'=>'http://ies-sabadell.cat/webdecentre',
-			'parent' => false,          
-		);
-
-		$wp_admin_bar->add_node( $args );
-	}	
-	/*
-	$args = array(
-		'id'     => 'iconMapsCentre',     
-		'title' => '<a href="https://www.google.com/maps/dir//41.554484,2.085249/@41.5544914,2.0831204,17z/data=!4m4!4m3!1m0!1m0!3e0?hl=ca">&nbsp;</a>',
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );*/
-	
-	$args = array(
-		'id'     => 'direccioCentre',     
-		'title' => reactor_option('direcciocentre', 'C/Direcció del centre,1'), 
-		'parent' => false,          
-	);
-
-		
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'telCentre',     
-		/*'title'  => '<a href="tel:'.reactor_option('telefoncentre', '111111').'">'.reactor_option('telefoncentre', '111111').'</a>',*/ 
-		'title'  => reactor_option('telefoncentre', '111111'), 
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );
-	
-	$args = array(
-		'id'     => 'titularitat',     
-		'title'  => 'Centre públic',
-		'href' => 'http://www20.gencat.cat/portal/site/ensenyament/menuitem.a735c8413184c341c65d3082b0c0e1a0/?vgnextoid=fd48f9cd4d7e9310VgnVCM1000008d0c1e0aRCRD&vgnextchannel=fd48f9cd4d7e9310VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default',
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );
-		
-
-	/*
-	$wp_admin_bar->add_node( $args );
-	$args = array(
-		'id'     => 'emailCentre',     // id of the existing child node (New > Post)
-		'title'  => 'bustia@ies-sabadell.cat ', // alter the title of existing node
-		'parent' => false,          // set parent to false to make it a top level (parent) node
-	);
-
-	$wp_admin_bar->add_node( $args );
-	*/
-}
-
-
-function add_corporatiu( $wp_admin_bar ) {
-
-	$args = array(
-		'id'     => 'gencat',     // id of the existing child node (New > Post)
-		'title'  => '<img src=http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/07/ensenyament_bn_30.png>', // alter the title of existing node
-		'parent' => false,          // set parent to false to make it a top level (parent) node
-	);
-
-	$wp_admin_bar->add_menu( $args );
-
-	$args = array(
-		'id'     => 'gencat-web',     // id of the existing child node (New > Post)
-		'title'  => 'Generalitat de Catalunya', // alter the title of existing node
-		'href' =>'http://www20.gencat.cat',
-		'parent' => 'gencat',          // set parent to false to make it a top level (parent) node
-	);
-
-	$wp_admin_bar->add_node( $args );
-	
-	$args = array(
-		'id'     => 'dep-ensenyament',     
-		'title'  => 'Departament d\'ensenyament', // alter the title of existing node
-		'href' =>'http://www20.gencat.cat/portal/site/ensenyament',
-		'parent' => 'gencat',          // set parent to false to make it a top level (parent) node
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-			'id'     => 'atri',     
-			'title'  => 'ATRI', 
-			'href' => 'https://atri.gencat.cat/',
-			'parent' => 'gencat',          
-		);
-	
-	$wp_admin_bar->add_node( $args );
-	
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-			'id'     => 'saga',     
-			'title'  => 'SAGA', 
-			'href' => 'https://saga.xtec.cat/entrada',
-			'parent' => 'gencat',          
-		);
-	
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'familia-escola',     
-		'title'  => 'Familia i Escola', 
-		'href'=>'http://www20.gencat.cat/portal/site/familiaescola/',
-		'parent' => 'gencat',          
-	);
-	
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-			'id'     => 'portal',     
-			'title'  => 'Intranet · Portal de centre', 
-			'href' => 'http://educacio.gencat.cat/portal/page/portal/EducacioIntranet/Benvinguda',
-			'parent' => 'gencat',          
-		);
-	
-	$wp_admin_bar->add_node( $args );
-
-
-
-}
-
-add_action( 'admin_bar_menu', 'add_corporatiu',0 );
-add_action( 'admin_bar_menu', 'add_direccio',12 );
-//add_action( 'admin_bar_menu', 'add_serveis',13 );
-//add_action( 'admin_bar_menu', 'add_recursos',14);
-
-function disable_bar_search() {  
-    global $wp_admin_bar;  
-    $wp_admin_bar->remove_menu('search');  
-}  
-add_action( 'wp_before_admin_bar_render', 'disable_bar_search' ); 
-
-show_admin_bar( 'true' );
-
+// Eliminem icones de la barra superior
 function my_edit_toolbar($wp_toolbar) {
     $wp_toolbar->remove_node('wp-logo');
     $wp_toolbar->remove_node('updates');
@@ -468,8 +418,20 @@ function my_edit_toolbar($wp_toolbar) {
     $wp_toolbar->remove_node('new-content');
     $wp_toolbar->remove_menu('edit');
 }
- 
-add_action('admin_bar_menu', 'my_edit_toolbar', 999);
+
+add_action( 'admin_bar_menu', 'add_gencat',1 ); 
+add_action( 'admin_bar_menu', 'add_direccio',31 );
+add_action('admin_bar_menu', 'my_edit_toolbar',98);
+
+//add_action( 'admin_bar_menu', 'add_serveis',999 );
+//add_action( 'admin_bar_menu', 'add_recursos',999);
+
+function disable_bar_search() {  
+    global $wp_admin_bar;  
+    $wp_admin_bar->remove_menu('search');  
+}  
+add_action( 'wp_before_admin_bar_render', 'disable_bar_search' ); 
+
 
 /* Camps extra per definir disposició de noticies a cada categoria*/
 
@@ -510,9 +472,9 @@ function save_extra_category_fields( $term_id ) {
     }
 }
 
-
+//TODO: s'ha de modificar a un hook del reactor un excerpt hardcoded, si no no fa cas d'això
+//WARN: trim_excerpt també defineix la longitut
 function custom_excerpt_length( $length ) {
-	
 	return 45;
 }
 
@@ -536,26 +498,82 @@ function improved_trim_excerpt($text) {
 	$allowed_tags='<a>,<ul>,<li>,<ol>';
 
         if ( '' == $text ) {
-                $text = get_the_content('');
-                $text = apply_filters('the_content', $text);
-                $text = str_replace('\]\]\>', ']]&gt;', $text);
-                $text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
-                $text = strip_tags($text,$allowed_tags);
-                $excerpt_length = 45;
+		$text = get_the_content('');
+		$text = apply_filters('the_content', $text);
+		$text = str_replace('\]\]\>', ']]&gt;', $text);
+		$text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
+		$text = strip_tags($text,$allowed_tags);
+		$excerpt_length = 45;
 
 		$excerpt_more = reactor_option('post_readmore','Llegir més');
-   		$excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_more);
-    
-                $words = explode(' ', $text, $excerpt_length + 1);
-                if (count($words)> $excerpt_length) {
-                        array_pop($words);
-                        $text = implode(' ', $words);
-                }
+		$excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_more);
+
+		$words = explode(' ', $text, $excerpt_length + 1);
+		if (count($words)> $excerpt_length) {
+		        array_pop($words);
+		        $text = implode(' ', $words);
+		}
         }
         return $text . $excerpt_more;
 }
 
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'improved_trim_excerpt');
+
+
+// Allow HTML in description category/tag
+// remove the html filtering
+remove_filter( 'pre_term_description', 'wp_filter_kses' );
+remove_filter( 'term_description', 'wp_kses_data' );
+
+add_filter('edit_category_form_fields', 'cat_description');
+function cat_description($tag)
+{
+    ?>
+        <table class="form-table">
+            <tr class="form-field">
+                <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
+                <td>
+                <?php
+                    $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
+                    wp_editor(wp_kses_post($tag->description , ENT_QUOTES, 'UTF-8'), 'cat_description', $settings);
+                ?>
+                <br />
+                <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
+                </td>
+            </tr>
+        </table>
+    <?php
+}
+
+add_action('admin_head', 'remove_default_category_description');
+function remove_default_category_description()
+{
+    global $current_screen;
+    if ( $current_screen->id == 'edit-category' )
+    {
+    ?>
+        <script type="text/javascript">
+        jQuery(function($) {
+            $('textarea#description').closest('tr.form-field').remove();
+        });
+        </script>
+    <?php
+    }
+}
+
+
+// Metabox paràmetres: Amaga títol, amaga metadades, mostra contingut sencer. 
+include "custom-tac/metabox-post-parametres.php";
+
+//Formulari per definir la capçalera 
+include "custom-tac/capcalera/capcalera-settings.php";
+
+//Giny Recursos XTEC
+include "custom-tac/ginys/giny-xtec.php";
+
+
+
+
 
 

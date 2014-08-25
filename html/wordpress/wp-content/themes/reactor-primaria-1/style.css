@@ -125,6 +125,7 @@ Header
     height:11.2em;
     margin:0px !important;
     padding:0;
+    overflow:hidden;	
 }
 
 #idcentre-box{
@@ -192,102 +193,90 @@ Header
 }
 
 .icon-graella{   
-    background-color: #ff5a26;
+    background-color: white;
+    color:white;
     height: 5.6em;
-    width: 4.3em;
+    width: 33.3%;
     margin: 0px;
     text-align: center;
     line-height: 5.6em;
     float: left;
     display: table-cell;
     vertical-align: middle;
-    /*border: 1px solid silver;
-    border-right: 0px;
-    border-top: 0px;*/
+    position: relative;
     
+    /*border: 1px solid #41d1d1;
+    border-right: 0px;
+    border-top: 0px;
+    */
+}
+
+.icon-graella > .dashicons {
+    font-size: 2em;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 
-#icon-11:before {
-    content: "\f469";
-    font-family: dashicons;
-    /*color:#2c8f8f;*/
-    color:white;
-    font-size:2em;
-    border-top:0;
+#icon-11{
+background-color:#4ad0d2;
+}
+#icon-11:hover{
+ background-color:#fdd300;
+ color: black;
 }
 
-#icon-12:before {
-    content: "\f118";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
+#icon-12{
+    background-color:#ff5a26;
 }
 
-#icon-13:before {
-    content: "\f237";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
+#icon-12:hover{
+ background-color:#fdd300;
+ color: black;
 }
 
-#icon-14:before {
-    content: "\f179";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
-border-bottom:0 !important;
+#icon-13{
+    background-color:#4e4f54;
+}
+#icon-13:hover{
+ background-color:#fdd300;
+ color: black;
 }
 
-
-#icon-21:before {
-    content: "\f307";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
-border-bottom:0 !important;
+#icon-21{
+    background-color:#FF4343;
+}
+#icon-21:hover{
+ background-color:#fdd300;
+ color: black;
 }
 
-#icon-22:before {
-    content: "\f304";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
-border-bottom:0 !important;
+#icon-22 {
+    background-color:white;
+    color:#999999;
+}
+#icon-22:hover{
+ background-color:#fdd300;
+ color: black;
 }
 
-#icon-23:before {
-    content: "\f233";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
-    border-right:0;
+#icon-23{
+    background-color:#1e73be;
 }
-
-#icon-24:before {
-    content: "\f333";
-    font-family: dashicons;
-    font-size:2em;
-    /*color:#2c8f8f;*/
-    color:white;
-    width:100%;
- 
+#icon-23:hover{
+ background-color:#fdd300;
+ color: black;
 }
-
 .slideshow_container_slideshow-jquery-image-gallery-custom-styles_1 .slideshow_slide {
     margin-right: 0px;
 }
 
-.slideshow_description, .slideshow_title{
+/*.slideshow_description, .slideshow_title{
     padding:10px !important;
     line-height: 1.2em;
-}
+}*/
+
 
 /*****************************************************************
 Menu
@@ -330,26 +319,38 @@ margin:0px;
 }
 
 .entry-body {
-background-color:white;
+background-color:#f9f9f9 ;
 background-repeat:no-repeat;
 margin-bottom:0px;
 padding-bottom:0px !important;
-border-radius: 4px 4px 4px 4px;
 border:1px solid #ddd;
-  webkit-box-shadow: 1px 1px 1px #efefef;
-  -moz-box-shadow: 1px 1px 1px #efefef;
+box-shadow: 1px 2px 1px #ddd;
+  webkit-box-shadow: 0px 1px 5px 0px #efefef;
+  -moz-box-shadow: 0px 1px 5px 0px #efefef;
   filter: shadow(color=#efefef, direction=135, strength=1);
   
 }
+
 .entry-header> h2 {
 font-size:1.5em;
+border-bottom:1px solid #ddd;
+margin-bottom:0px;
 }
+
 .entry-summary > p, h2{
-padding:0.5em;
+padding:1em;
 }
-.entry-header> h2 {
+
+.entry-header> h2{
 padding:0.5em;
+
 }
+
+.entry-footer {
+padding:1em;
+border-top:1px solid #ddd;
+}
+
 .post.format-video .flex-video {
 /*border-radius: 10px 10px 0px 0px;*/
 }
@@ -358,11 +359,20 @@ padding:0.5em;
 }
 .entry-thumbnail{
     width: 100%;
-    height: 250px;
+    height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    
 }
+
+/*****************************************************************
+Categories - Archive
+******************************************************************/
+.archive-header{
+display:none;
+}
+
 
 /*****************************************************************
 Ginys
@@ -396,7 +406,6 @@ color: #2c8f8f;
 }
 
 .gce-widget-grid .gce-calendar td {
-
 border-bottom: 0px solid #CCCCCC;
 text-align: center;
 padding: 4px;
@@ -413,4 +422,8 @@ font-weight: normal;
 padding-top:3px;
 padding-bottom:3px;
 }
+
+
+
+
 
