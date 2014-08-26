@@ -37,14 +37,14 @@ if($action == 'update') {
 
 $params = array('publisher'=>$id);
 
-$sql = 'SELECT b.id, b.name, b.levelid, b.isbn, b.format, l.name AS "level", count(uc.isbn) as total, SUM(case when uc.euserid > 0 THEN 1 ELSE 0 END) as assig
+$sql = 'SELECT b.id, b.name, b.levelid, b.isbn, b.format, l.name AS levelname, count(uc.isbn) as total, SUM(case when uc.euserid > 0 THEN 1 ELSE 0 END) as assig
     FROM {rcommon_books} b
     INNER JOIN {rcommon_level} l
         ON b.levelid=l.id
     LEFT JOIN {rcommon_user_credentials} uc
         ON b.isbn = uc.isbn
     WHERE  b.publisherid=:publisher
-    GROUP BY b.id, b.name, b.levelid, b.isbn, b.format, level
+    GROUP BY b.id, b.name, b.levelid, b.isbn, b.format, l.name
     ORDER BY l.name, b.format, b.name';
 
 $books = $DB->get_records_sql($sql, $params);
@@ -73,7 +73,7 @@ if (!empty($books)){
                 $table->align = array('left', 'center', 'center', 'center', 'center', 'center');
             }
 
-            echo $OUTPUT->heading($book->level,4);
+            echo $OUTPUT->heading($book->levelname,4);
             $levelid = $book->levelid;
         }
         $row = array();
