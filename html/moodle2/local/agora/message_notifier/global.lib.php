@@ -51,10 +51,15 @@ function message_notifier_get_badge(){
     $PAGE->set_popup_notification_allowed(false);
     
     $num_messages = message_notifier_count_unread_messages();
+    if($num_messages == 0){
+        $extracss = 'hidden style="display: none;"';
+    } else {
+        $extracss = '';
+    }
     $output = '<div id="message_notifier" class="dropdown pull-right">';
     $output .= '<div id="message_notif_click" class="dropdown-toggle" data-toggle="dropdown">';
     $output .= $OUTPUT->pix_icon('t/message', 'Notifications', 'moodle', array('width'=>'24px','height'=>'24px'));
-    $output .= '<span class="num_overlay" id="message_count">'.$num_messages.'</span>';
+    $output .= '<span class="num_overlay" id="message_count" '.$extracss.'>'.$num_messages.'</span>';
     $output .= '</div>';
     $output .= '<ul id="message_contents" class="dropdown-menu">';
     $output .= '<li class="viewall"><a href="'.$CFG->wwwroot.'/message/index.php">'.get_string('messagehistoryfull','message').'</a></li>';
