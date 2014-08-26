@@ -115,31 +115,28 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, "", $default, $choices);
     $settings->add($setting);
 
+    require_once($CFG->dirroot.'/theme/xtec2/lib.php');
+
     $name = 'theme_xtec2/color2';
     $title = get_string('color2', 'theme_xtec2');
     $default = '#AC2013';
-    $setting = new admin_setting_configcolourpicker($name, $title, "", $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $settings->add($setting);
-
-    $name = 'theme_xtec2/color3';
-    $title = get_string('color3', 'theme_xtec2');
-    $default = '#FFFFFF';
-    $setting = new admin_setting_configcolourpicker($name, $title, "", $default);
+    $setting = new admin_setting_configcolourpicker($name, $title, '', $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
     $name = 'theme_xtec2/color4';
     $title = get_string('color4', 'theme_xtec2');
     $default = '#303030';
-    $setting = new admin_setting_configcolourpicker($name, $title, "", $default);
+    $colorwarning = get_string('color_warning', 'theme_xtec2', theme_xtec2_get_YIQ(get_config('theme_xtec2','color4')));
+    $setting = new admin_setting_configcolourpicker($name, $title, $colorwarning , $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
     $name = 'theme_xtec2/color5';
     $title = get_string('color5', 'theme_xtec2');
     $default = '#AC2013';
-    $setting = new admin_setting_configcolourpicker($name, $title, "", $default);
+    $colorwarning = get_string('color_warning', 'theme_xtec2', theme_xtec2_get_YIQ(get_config('theme_xtec2','color5')));
+    $setting = new admin_setting_configcolourpicker($name, $title, $colorwarning, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 

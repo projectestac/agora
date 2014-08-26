@@ -59,9 +59,9 @@ $string['nostalgia'] = 'Nostàlgia'; //'Nostàlgia'
 
 
 $string['color2'] = 'Fons de les capçaleres dels blocs';
-$string['color3'] = 'Color de la lletra de les capçaleres dels blocs';
 $string['color4'] = 'Color de la lletra dels títols';
 $string['color5'] = 'Color de la lletra dels enllaços';
+$string['color_warning'] = 'La luminància del color actual és de {$a}.<br> Per raons d\'accessibilitat, aquest valor cal que sigui inferior a 135, en cas contrari es farà servir el color negre.';
 
 $string['font_settings'] = 'Paràmetres de font';
 $string['fontsize'] = 'Mida de la lletra';

@@ -59,9 +59,9 @@ $string['nostalgia'] = 'Nostálgia'; //'Nostàlgia'
 
 
 $string['color2'] = 'Fondo de la cabecera de los bloques';
-$string['color3'] = 'Color de la fuente de la cabecera de los bloques';
 $string['color4'] = 'Color de la fuente delos títulos';
 $string['color5'] = 'Color de los enlaces';
+$string['color_warning'] = 'La luminancia del color actual es de {$a}.<br> Por razones de accesibilidad, este valor debe ser inferior a 135, en caso contrario se usará el color negro.';
 
 $string['font_settings'] = 'Parámetros de fuente';
 $string['fontsize'] = 'Tamaño de la fuente';

@@ -101,7 +101,7 @@ h2,h3,h4{
 
 .block .header h2{
 	color: [[setting:color3]];
-	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+	text-shadow: 0 1px 0 [[setting:color3a]];
 }
 
 .block .header{

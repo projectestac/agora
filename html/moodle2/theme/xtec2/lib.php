@@ -61,14 +61,29 @@ function theme_xtec2_process_css($css, $theme) {
     $importcss = !empty($theme->settings->importcss) ? "@import url('" . $theme->settings->importcss . "');" : "";
     $css = theme_xtec2_set_importcss($css, $importcss);
 
-    $color = !empty($theme->settings->color2) ? $theme->settings->color2 : '#AC2013';
-    $css = theme_xtec2_set_color($css, 2, $color);
-    $color = !empty($theme->settings->color3) ? $theme->settings->color3 : '#FFFFFF';
-    $css = theme_xtec2_set_color($css, 3, $color);
-    $color = !empty($theme->settings->color4) ? $theme->settings->color4 : '#303030';
-    $css = theme_xtec2_set_color($css, 4, $color);
-    $color = !empty($theme->settings->color5) ? $theme->settings->color5 : '#AC2013';
-    $css = theme_xtec2_set_color($css, 5, $color);
+    $color2 = !empty($theme->settings->color2) ? $theme->settings->color2 : '#AC2013';
+    $css = theme_xtec2_set_color($css, 2, $color2);
+
+    // Decide foreground color depending on the other
+    $color3 = theme_xtec2_get_contrast_YIQ($color2);
+    $css = theme_xtec2_set_color($css, 3, $color3);
+    if($color3 == 'black'){
+        $anticolor3 = 'rgba(255,255,255,0.5)';
+    } else {
+        $anticolor3 = 'rgba(0,0,0,0.5)';
+    }
+    $css = theme_xtec2_set_color($css, '3a', $anticolor3);
+
+
+    $color4 = !empty($theme->settings->color4) ? $theme->settings->color4 : '#303030';
+    if(theme_xtec2_get_YIQ($color4) > 135)
+        $color4 = 'black';
+    $css = theme_xtec2_set_color($css, 4, $color4);
+
+    $color5 = !empty($theme->settings->color5) ? $theme->settings->color5 : '#AC2013';
+    if(theme_xtec2_get_YIQ($color5) > 135)
+        $color5 = 'black';
+    $css = theme_xtec2_set_color($css, 5, $color5);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -83,6 +98,22 @@ function theme_xtec2_process_css($css, $theme) {
     $css = str_replace('[[url]]', $CFG->wwwroot, $css);
 
     return $css;
+}
+
+// Returns if black or white is the color with more contrast over the hexcolor using the YIQ equation
+function theme_xtec2_get_contrast_YIQ($hexcolor){
+    $yiq = theme_xtec2_get_YIQ($hexcolor);
+    return ($yiq >= 128) ? 'black' : 'white';
+}
+
+
+// Get the YIQ number of the color
+// http://en.wikipedia.org/wiki/YIQ
+function theme_xtec2_get_YIQ($hexcolor){
+    $r = hexdec(substr($hexcolor,1,2));
+    $g = hexdec(substr($hexcolor,3,2));
+    $b = hexdec(substr($hexcolor,5,2));
+    return (int)((($r*299)+($g*587)+($b*114))/1000);
 }
 
 function theme_xtec2_set_color($css, $colornumber, $color) {

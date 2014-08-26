@@ -59,9 +59,9 @@ $string['nostalgia'] = 'Nostalgia'; //'Nostàlgia'
 
 
 $string['color2'] = 'Background of block headers';
-$string['color3'] = 'Font color of block headers';
 $string['color4'] = 'Titles font color';
 $string['color5'] = 'Links font color';
+$string['color_warning'] = 'The luminance of the current color is {$a}.<br> For accessibility reasons, this value has to be lower than 135, otherwise black color will be used.';
 
 $string['font_settings'] = 'Font settings';
 $string['fontsize'] = 'Font size';
