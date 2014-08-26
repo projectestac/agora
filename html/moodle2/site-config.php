@@ -44,8 +44,14 @@
     // Get the correct domain for the school (it's different if the school uses marsupial modules)
     $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
 
-    $moodle_wwwserver = $agora['server']['server'];
-    
+    if (isset($CFG->ismarsupial) && $CFG->ismarsupial) {
+        $moodle_wwwserver = $agora['server']['marsupial'];
+    } else {
+        $moodle_wwwserver = $agora['server']['server'];
+    }
+
+     $moodle_wwwroot = $moodle_wwwserver . $agora['server']['base'];
+
     // Check if the domain is not the correct one and move if it isn't
     if (endsWith($moodle_wwwserver, $_SERVER['HTTP_HOST']) === false) {
         $location = $moodle_wwwserver.$_SERVER['REQUEST_URI'];
@@ -54,7 +60,6 @@
         exit;
     }
 
-    $moodle_wwwroot = $moodle_wwwserver . $agora['server']['base'];
     if (!empty($school_info['new_dns'])) {
          $newadress = $moodle_wwwroot . $school_info['new_dns'] . '/moodle';
          header('location: '.$moodle_wwwroot.'error.php?newaddress='.$newadress);
