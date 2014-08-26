@@ -11,7 +11,7 @@ if ($hassiteconfig && (!isset($CFG->ismarsupial) || $CFG->ismarsupial)) {
 	$ADMIN->add('rcommon', new admin_externalpage('marsupial_credentials_users', get_string('marsupialmanage_credentials','local_rcommon'), $CFG->wwwroot . '/local/rcommon/users.php', array('local/rcommon:managecredentials')));
 
 	// Get publishers
-	$publishers = $DB->get_records_select('rcommon_publisher', "urlwsbookstructure<>''", array(), 'name');
+	$publishers = $DB->get_records('rcommon_publisher', array(), 'name');
 	if($publishers){
 		$ADMIN->add('rcommon', new admin_category('marsupialcontent', get_string('marsupialcontent','local_rcommon')));
 
