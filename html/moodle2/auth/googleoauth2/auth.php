@@ -506,8 +506,10 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
 
         echo '</td></tr>';
 
+        //XTEC ************ ELIMINAT - Only let configure Google OAuth
+        //2014.08.15  @pferre22
         // Facebook client id
-
+        /*
         echo '<tr>
                 <td align="right"><label for="facebookclientid">';
 
@@ -728,7 +730,8 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
         print_string('auth_googleipinfodbkey', 'auth_googleoauth2', (object) array('website' => $CFG->wwwroot)) ;
 
         echo '</td></tr>';
-
+        */
+        //************ FI
         // User prefix
 
         echo '<tr>
