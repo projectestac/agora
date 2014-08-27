@@ -5,9 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-GENERAL:
-- Deleted support for educat1x1.cat domain
 
+Changes 14.08.26
+---------------------------------------------------------------------------------------
 MOODLE2:
 - Added Google Auth2 Auth method
 - Solved problem authenticating to Marsupial servers
