@@ -13,7 +13,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
 
         $from = optional_param('from', '', PARAM_TEXT);
 
-        if (!isset($data->bookid)||($book = $DB->get_record('rcommon_books', array('id' => $data->bookid))) == false){
+        if (!isset($data->bookid) || ($book = $DB->get_record('rcommon_books', array('id' => $data->bookid))) == false){
             print_error(get_string('nobookid','local_rcommon'));
             //save error on bd
         } elseif (($publisher = $DB->get_record('rcommon_publisher', array('id' => $book->publisherid))) == false){
@@ -53,11 +53,14 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             redirect($CFG->wwwroot.'/local/rcommon/formInsert.php?url='.base64_encode($url).'&isbn='.$book->isbn);
             exit;
             //save error on bd
-        }
-        elseif ($data->activityid != 0 && ($activ = $DB->get_record('rcommon_books_activities', array('id' => $data->activityid))) == false){
-            print_error('noactivity','local_rcommon');
+        } else if (!empty($data->unitid) && ($unit = $DB->get_record('rcommon_books_units', array('id' => $data->unitid))) == false){
+            print_error(get_string('nounit','block_rcommon'));
+            //save error on bd
+        } else if (!empty($data->activityid) && ($activ = $DB->get_record('rcommon_books_activities', array('id' => $data->activityid))) == false){
+            print_error('noactivity','block_rcommon');
             //save error on bd
         }
+
         //look for the group if he has anyone assigned
         $grupo = $DB->get_recordset_sql("SELECT GRUPO.id
                         FROM {user} USERS

@@ -11,6 +11,7 @@ html/moodle/config.php
 html/moodle2/config.php
 html/moodle2/local/agora/muc/cacheconfig.php
 html/moodle2/auth/odissea
+html/moodle2/sftp-config.json
 nbproject
 moodledata
 portaldata
