@@ -5,20 +5,24 @@ class rcommon_level{
     static function get_create_by_code($code){
         global $DB;
 
-        if ($code == null or $code == '') {
+        if ($code == null or empty($code)) {
             $code = 'SENSE NIVELL';
         }
 
-        if (!$levelid = $DB->get_field('rcommon_level','id', array('code'=>$code))) {
-            //if the level does not exist create it
-            $record = new stdClass();
-            $record->name = $code;
-            $record->code = $code;
-            $record->timemodified = time();
-            $record->timecreated = $record->timemodified;
+		if(is_numeric($code)){
+			return $code;
+		}
 
-            $levelid = $DB->insert_record('rcommon_level', $record);
-        }
+		if (!$levelid = $DB->get_field('rcommon_level','id', array('code'=>$code))) {
+			//if the level does not exist create it
+			$record = new stdClass();
+			$record->name = $code;
+			$record->code = $code;
+			$record->timemodified = time();
+			$record->timecreated = $record->timemodified;
+			$levelid = $DB->insert_record('rcommon_level', $record);
+		}
+
         return $levelid;
     }
 }
