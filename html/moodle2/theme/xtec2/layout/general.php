@@ -64,21 +64,25 @@ $showsidepre = ($hassidepre && !$PAGE->blocks->region_completely_docked('side-pr
 $showsidepost = ($hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT));
 
 if($showsidepre && $showsidepost){
+    $showhidebutton = true;
     $spanpre = 4;
     $spanmainpre = 8;
     $spanmainpost = 9;
     $spanpost = 3;
 } else if($showsidepre){
+    $showhidebutton = true;
     $spanpre = 3;
     $spanmainpre = 9;
     $spanmainpost = 12;
     $spanpost = 0;
 } else if($showsidepost){
+    $showhidebutton = true;
     $spanpre = 0;
     $spanmainpre = 12;
     $spanmainpost = 9;
     $spanpost = 3;
 } else {
+    $showhidebutton = false;
     $spanpre = 0;
     $spanmainpre = 12;
     $spanmainpost = 12;
@@ -135,6 +139,9 @@ echo $OUTPUT->doctype() ?>
                 </div>
             </div>
         <?php } ?>
+        <?php if($showhidebutton) { ?>
+            <div id="showhideblocks" class="pull-right" title="<?php echo get_string('showhideblocks','theme_xtec2');?>" onclick="showhideblocks();"><?php echo $OUTPUT->pix_icon('i/twoway','','moodle',array('class'=>'fa-lg'));?></div>
+        <?php } ?>
         <?php if($hasmainmenu) { ?>
             <div id="main_menu" class="pull-right">
                 <div class="nav-collapse collapse">
@@ -175,7 +182,10 @@ echo $OUTPUT->doctype() ?>
 <footer id="page-footer">
     <div id="page-footer-top">
         <div class="row-fluid">
-            <div class="span10">
+            <div class="span2  social-icons">
+                <?php echo $OUTPUT->social_icons(); ?>
+            </div>
+            <div class="span8 footer-center">
                 <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
                 <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
                 <?php

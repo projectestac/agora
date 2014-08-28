@@ -28,6 +28,11 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+function theme_xtec2_clean_cache(){
+	$social_icons_cache = cache::make('core', 'string');
+	$social_icons_cache->delete('social_icons',true);
+}
+
 /**
  * Parses CSS before it is cached.
  *

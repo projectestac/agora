@@ -38,7 +38,7 @@ $THEME->name = 'xtec2';
 //
 $THEME->doctype = 'html5';
 $THEME->parents = array('bootstrapbase');
-$THEME->sheets = array('custom');
+$THEME->sheets = array('custom', 'font-awesome.min');
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 

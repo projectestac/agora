@@ -37,13 +37,29 @@ $string['top_menus_description'] = 'Show Navigation and Settings menu on the nav
 $string['disabled'] = 'Disabled';
 
 $string['layout_settings'] = 'Layout settings';
-$string['footnote'] = 'Footnote';
-$string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
 $string['block_layout'] = 'Blocks layout';
 $string['without_blocks'] = 'Without blocks';
 $string['blocks_left'] = 'All blocks on the left';
 $string['blocks_right'] = 'All blocks on the right';
 $string['blocks_both'] = 'Blocks on both sides (not in all site)';
+$string['showhideblocks'] = 'Toggle blocks visibility';
+
+$string['footer_settings'] = 'Footer settings';
+$string['footnote'] = 'Footnote';
+$string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
+$string['nodes'] = 'Show Nodes link';
+$string['nodesdesc'] = 'Show an icon with a link to your Nodes site in the footer.';
+$string['intranet'] = 'Show Intranet link';
+$string['intranetdesc'] = 'Show an icon with a link to your Intranet site in the footer.';
+$string['facebook'] = 'Facebook URL';
+$string['twitter'] = 'Twitter URL';
+$string['googleplus'] = 'Google Plus URL';
+$string['instagram'] = 'Instagram URL';
+$string['flickr'] = 'Flickr URL';
+$string['linkedin'] = 'LinkedIn URL';
+$string['pinterest'] = 'Pinterest URL';
+$string['youtube'] = 'Youtube URL';
+$string['urldesc'] = 'If this field is not empty an icon linking to that URL will be shown in the footer.';
 
 $string['color_settings'] = 'Color settings';
 $string['colorset'] = 'Color set';

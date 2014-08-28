@@ -78,13 +78,6 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_heading('theme_xtec2/layout_settings', get_string('layout_settings', 'theme_xtec2'),"");
     $settings->add($setting);
 
-    $name = 'theme_xtec2/footnote';
-    $title = get_string('footnote', 'theme_xtec2');
-    $description = get_string('footnotedesc', 'theme_xtec2');
-    $default = '';
-    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-    $settings->add($setting);
-
     $name = 'theme_xtec2/block_layout';
     $title = get_string('block_layout', 'theme_xtec2');
     $default = 'left';
@@ -96,6 +89,89 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
+    // Footer Params
+    $setting = new admin_setting_heading('theme_xtec2/footer_settings', get_string('footer_settings', 'theme_xtec2'), "");
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/footnote';
+    $title = get_string('footnote', 'theme_xtec2');
+    $description = get_string('footnotedesc', 'theme_xtec2');
+    $default = '';
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+    $settings->add($setting);
+
+    if(is_agora()){
+      global $school_info;
+      if(isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])){
+        $name = 'theme_xtec2/nodes';
+        $title = get_string('nodes', 'theme_xtec2');
+        $description = get_string('nodesdesc', 'theme_xtec2');
+        $default = 1;
+        $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_xtec2_clean_cache');
+        $settings->add($setting);
+      }
+
+      if(isset($school_info['id_intranet']) && !empty($school_info['id_intranet'])){
+        $name = 'theme_xtec2/intranet';
+        $title = get_string('intranet', 'theme_xtec2');
+        $description = get_string('intranetdesc', 'theme_xtec2');
+        $default = 1;
+        $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_xtec2_clean_cache');
+        $settings->add($setting);
+      }
+    }
+
+    $description_url_desc = get_string('urldesc', 'theme_xtec2');
+
+    $name = 'theme_xtec2/facebook';
+    $title = get_string('facebook', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/twitter';
+    $title = get_string('twitter', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/googleplus';
+    $title = get_string('googleplus', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/instagram';
+    $title = get_string('instagram', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/flickr';
+    $title = get_string('flickr', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/linkedin';
+    $title = get_string('linkedin', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/pinterest';
+    $title = get_string('pinterest', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/youtube';
+    $title = get_string('youtube', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
 
 
     // Select color set
@@ -198,42 +274,6 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
-
-/*
-    // Select iconset
-    $name = 'theme_xtec2/iconset';
-    $title = get_string('iconset', 'theme_xtec2');
-    $icons_core = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/users.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/edit.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/files.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/admin.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/report.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/scales.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/backup.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/all.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/hide.gif" />&nbsp;
-                   <img src="' . $CFG->wwwroot . '/pix/i/guest.gif" />';
-    $icons_theme = '<img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/users.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/edit.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/files.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/admin.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/report.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/scales.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/backup.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/all.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/hide.png" />&nbsp;
-                    <img src="' . $CFG->wwwroot . '/theme/' . $CFG->theme . '/pix_core/i/guest.png" />';
-    $description = get_string('iconsetdesc', 'theme_xtec2') .
-                   '<ul style="margin-left:15%;">' .
-                   get_string('iconsetdesc1', 'theme_xtec2', $icons_core) .
-                   get_string('iconsetdesc2', 'theme_xtec2', $icons_theme) .
-                   '</ul>';
-    $default = 'tema';
-    $choices = array('tema' => 'Personalitzades del tema', 'estandard' => 'Estàndard del Moodle');
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $settings->add($setting);
-*/
 
     // Select font settings
     $setting = new admin_setting_heading('theme_xtec2/css_settings', get_string('css_settings', 'theme_xtec2'), "");

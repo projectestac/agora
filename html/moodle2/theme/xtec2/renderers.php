@@ -317,7 +317,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             $menu->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
         }
 
-		$content = '<div class="btn-group dropup">';
+		$content = '<div class="btn-group dropup langmenu">';
 		$content .= '<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'.$currentlang;
 		$content .= '<span class="caret"></span>';
 		$content .= '</a>';
@@ -328,5 +328,152 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 
         return $content.'</ul></div>';
     }
+
+    function social_icons(){
+
+		$social_icons_cache = cache::make('core', 'string');
+		if($text = $social_icons_cache->get('social_icons')){
+			return $text;
+		}
+        global $school_info, $CFG, $OUTPUT;
+        $content = "";
+        if(get_config('theme_xtec2','nodes') && isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])){
+            $content.= '<a href="'.$CFG->wwwroot.'/nodes" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
+        }
+        if(get_config('theme_xtec2','intranet') && isset($school_info['id_intranet']) && !empty($school_info['id_intranet'])){
+            $content.= '<a href="'.$CFG->wwwroot.'/intranet" target="_blank" class="agora-social icon intranet"><img src="'.$OUTPUT->pix_url('intranet-32', 'theme').'" alt="" title="Intranet" /></a>';
+        }
+        if($url = get_config('theme_xtec2','facebook')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-facebook" title="Facebook"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','twitter')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-twitter" title="Twitter"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','googleplus')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-google-plus" title="Google Plus"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','instagram')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-instagram" title="Instagram"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','flickr')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-flickr" title="Flickr"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','linkedin')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-linkedin" title="LinkedIn"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','pinterest')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pinterest" title="Pinterest"></i></a>';
+		}
+		if($url = get_config('theme_xtec2','youtube')){
+			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-youtube" title="Youtube"></i></a>';
+		}
+        $social_icons_cache->set('social_icons', $content);
+        return $content;
+    }
+
+    /*
+    * This code replaces icons in with
+    * FontAwesome variants where available.
+    */
+    public function render_pix_icon(pix_icon $icon) {
+        static $icons = array(
+            'add' => 'plus',
+            'book' => 'book',
+            'chapter' => 'file',
+            'docs' => 'info-circle',
+            'help' => 'question-circle',
+            'generate' => 'gift',
+            'users' => 'users',
+            'withoutpassword' => 'folder-open',
+            'withoutkey' => 'unlock',
+            'i/badge' => 'trophy',
+            'i/course' => 'graduation-cap',
+            'i/marker' => 'lightbulb-o',
+            'i/dragdrop' => 'arrows',
+            'i/loading_small' => 'spinner fa-spin ',
+            'i/backup' => 'cloud-download',
+            'i/checkpermissions' => 'user',
+            'i/dragdrop' => 'arrows',
+            'i/edit' => 'pencil',
+            'i/filter' => 'filter',
+            'i/grades' => 'table',
+            'i/group' => 'group',
+            'i/groupn' =>'user',
+            'i/hide' => 'eye-slash',
+            'i/import' => 'upload',
+            'i/move_2d' => 'arrows',
+            'i/navigationitem' => 'circle',
+            'i/outcomes' => 'magic',
+            'i/publish' => 'globe',
+            'i/reload' => 'refresh',
+            'i/report' => 'list-alt',
+            'i/restore' => 'cloud-upload',
+            'i/return' => 'repeat',
+            'i/roles' => 'user',
+            'i/cohort' => 'users',
+			'i/scales' => 'signal',
+            'i/settings' => 'cogs',
+            'i/show' => 'eye',
+            'i/switchrole' => 'random',
+            'i/user' => 'user',
+            'i/users' => 'user',
+			'i/twoway' => 'arrows-h',
+			'i/withsubcat' => 'indent',
+			'i/permissions' => 'key',
+			't/add' => 'plus',
+            'i/assignroles' => 'lock',
+			't/assignroles' => 'lock',
+			't/cohort' => 'users',
+			't/delete' => 'times-circle',
+			't/edit' => 'cog',
+			't/right' => 'arrow-right',
+            't/left' => 'arrow-left',
+			't/edit_menu' => 'cogs',
+			't/hide' => 'eye-slash',
+			't/show' => 'eye',
+			't/up' => 'arrow-up',
+			't/down' => 'arrow-down',
+            't/copy' => 'copy',
+            't/move' => 'arrows-alt',
+            't/switch_minus' => 'minus-square',
+            't/switch_plus' => 'plus-square',
+            't/block_to_dock' => 'caret-square-o-left',
+            't/sort' => 'sort',
+            't/sort_asc' => 'sort-asc',
+            't/sort_desc' => 'sort-desc',
+            't/grades' => 'th-list',
+            't/preview' => 'search',
+            't/message' => 'comment',
+            't/editstring' => 'pencil-square-o',
+            't/check' => 'check',
+        );
+
+        $name = $icon->pix;
+        if (isset($icons[$name])) {
+			$icon->attributes['class'] = isset($icon->attributes['class'])? $icon->attributes['class'] : '';
+			$icon->attributes['class'] .= " fa fa-$icons[$name] icon";
+			if(isset($icon->attributes['alt'])){
+				$icon->attributes['title'] = $icon->attributes['alt'];
+			}
+			$style = "";
+			if(isset($icon->attributes['width'])) {
+				$style .= 'width:'.$icon->attributes['width'].';';
+				unset($icon->attributes['width']);
+			}
+			if(isset($icon->attributes['height'])) {
+				$style .= 'height:'.$icon->attributes['height'].';line-height:'.$icon->attributes['height'].';';
+				unset($icon->attributes['height']);
+			}
+			if(!empty($style)){
+				$icon->attributes['style'] = isset($icon->attributes['style'])? $icon->attributes['style'].$style : $style;
+			}
+
+			//unset($icon->attributes['alt']);
+            return html_writer::tag('i', '', $icon->attributes);
+        } else {
+            return parent::render_pix_icon($icon);
+        }
+    }
+
 
 }
