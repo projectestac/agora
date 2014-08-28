@@ -5,6 +5,13 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE2:
+- Font awesome icons
+- New button to toggle block visibility
+- Now submit buttons uses main background color
+- Deleted foreground color over navigation chooser to avoid accessibility problems
+- Now text colors must have a correct luminancy to avoid accessibility problems
+- New footer settings to put social icons and links
 
 Changes 14.08.26
 ---------------------------------------------------------------------------------------
