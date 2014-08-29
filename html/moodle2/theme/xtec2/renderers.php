@@ -337,11 +337,11 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 		}
         global $school_info, $CFG, $OUTPUT;
         $content = "";
-        if(get_config('theme_xtec2','nodes') && isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])){
-            $content.= '<a href="'.$CFG->wwwroot.'/nodes" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
+        if(get_config('theme_xtec2','nodes') && is_service_enabled('nodes')){
+            $content.= '<a href="'.get_service_url('nodes').'" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
         }
-        if(get_config('theme_xtec2','intranet') && isset($school_info['id_intranet']) && !empty($school_info['id_intranet'])){
-            $content.= '<a href="'.$CFG->wwwroot.'/intranet" target="_blank" class="agora-social icon intranet"><img src="'.$OUTPUT->pix_url('intranet-32', 'theme').'" alt="" title="Intranet" /></a>';
+        if(get_config('theme_xtec2','intranet') && is_service_enabled('intranet')){
+            $content.= '<a href="'.get_service_url('intranet').'" target="_blank" class="agora-social icon intranet"><img src="'.$OUTPUT->pix_url('intranet-32', 'theme').'" alt="" title="Intranet" /></a>';
         }
         if($url = get_config('theme_xtec2','facebook')){
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-facebook" title="Facebook"></i></a>';

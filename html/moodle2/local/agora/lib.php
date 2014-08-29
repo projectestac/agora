@@ -217,7 +217,7 @@ function is_rush_hour() {
  **/
 function is_enabled_in_agora ($mod){
     if (is_agora()){
-		
+
         // Only enabled in marsupial Moodles
         if (!is_marsupial() && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade')){
             return false;
@@ -261,4 +261,19 @@ function agora_course_print_navlinks($course, $section = 0){
         echo html_writer::link($CFG->wwwroot.'/grade/report/index.php?id=' . $course->id ,$icon.get_string('grades'));
     }
     echo '</div>';
+}
+
+function is_service_enabled($service){
+    if(!is_agora()) return false;
+
+    global $school_info;
+    return isset($school_info['id_'.$service]) && !empty($school_info['id_'.$service]);
+}
+
+function get_service_url($service){
+    global $CFG;
+    if(is_service_enabled($service)){
+        return $CFG->wwwroot.'/'.$service.'/';
+    }
+    return false;
 }

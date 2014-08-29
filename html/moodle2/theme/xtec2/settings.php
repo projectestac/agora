@@ -100,28 +100,25 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $settings->add($setting);
 
-    if(is_agora()){
-      global $school_info;
-      if(isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])){
-        $name = 'theme_xtec2/nodes';
-        $title = get_string('nodes', 'theme_xtec2');
-        $description = get_string('nodesdesc', 'theme_xtec2');
-        $default = 1;
-        $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-        $setting->set_updatedcallback('theme_xtec2_clean_cache');
-        $settings->add($setting);
-      }
+  if(is_service_enabled('nodes')){
+    $name = 'theme_xtec2/nodes';
+    $title = get_string('nodes', 'theme_xtec2');
+    $description = get_string('nodesdesc', 'theme_xtec2');
+    $default = 1;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+  }
 
-      if(isset($school_info['id_intranet']) && !empty($school_info['id_intranet'])){
-        $name = 'theme_xtec2/intranet';
-        $title = get_string('intranet', 'theme_xtec2');
-        $description = get_string('intranetdesc', 'theme_xtec2');
-        $default = 1;
-        $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-        $setting->set_updatedcallback('theme_xtec2_clean_cache');
-        $settings->add($setting);
-      }
-    }
+  if(is_service_enabled('intranet')){
+    $name = 'theme_xtec2/intranet';
+    $title = get_string('intranet', 'theme_xtec2');
+    $description = get_string('intranetdesc', 'theme_xtec2');
+    $default = 1;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+  }
 
     $description_url_desc = get_string('urldesc', 'theme_xtec2');
 

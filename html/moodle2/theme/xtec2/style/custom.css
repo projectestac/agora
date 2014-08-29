@@ -389,6 +389,36 @@ input.form-submit:hover, input#id_submitbutton:hover, input#id_submitbutton2:hov
 	background-image:none;
 }
 
+.block .minicalendar {
+	max-width: none;
+}
+
+.block .minicalendar .calendar-controls{
+	text-transform: uppercase;
+	height: 2em;
+	line-height: 2em;
+}
+/*
+.block .minicalendar tr.weekdays{
+	color: [[setting:color3]];
+    background-color: [[setting:color2]];
+    box-shadow:inset -3px -3px 10px 0 #e0e0e0;
+}
+
+.block .minicalendar td.day, .block .minicalendar td.dayblank{
+	box-shadow:inset -3px -3px 10px 0 #e0e0e0;
+	background-color: #f5f5f5;
+}
+
+.block .minicalendar td.today{
+	background-color: [[setting:color5]];
+	box-shadow:inset 3px 3px 10px 0 #666;
+}
+
+.block .minicalendar td.today>a{
+	color: white;
+}*/
+
 
 /*Fonts Awesome */
 i.fa{
