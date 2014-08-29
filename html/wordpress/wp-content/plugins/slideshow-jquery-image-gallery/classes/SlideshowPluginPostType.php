@@ -133,7 +133,12 @@ class SlideshowPluginPostType
 		if (isset($_GET['action']) &&
 			strtolower($_GET['action']) == strtolower('edit'))
 		{
+                        //XTEC ************ ELIMINAT - Hide donate message
+                        //2014.08.29 @sarjona
+                        /*
 			add_action('admin_notices', array(__CLASS__,  'supportPluginMessage'));
+                         */
+                        //************ FI         
 		}
 	}
 
