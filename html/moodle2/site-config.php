@@ -33,6 +33,7 @@
         exit(0);
     }
 
+    global $school_info;
     $school_info = getSchoolInfoFromFile($centre, $dbsource, 'moodle2');
     xtec_debug($school_info['source']);
 
@@ -42,7 +43,7 @@
     }
 
     // Get the correct domain for the school (it's different if the school uses marsupial modules)
-    $CFG->ismarsupial = array_key_exists('is_marsupial', $school_info) && $school_info['is_marsupial'];
+    $CFG->ismarsupial = isset($school_info['is_marsupial']) && $school_info['is_marsupial'];
 
     if (isset($CFG->ismarsupial) && $CFG->ismarsupial) {
         $moodle_wwwserver = $agora['server']['marsupial'];
