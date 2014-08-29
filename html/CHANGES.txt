@@ -13,6 +13,10 @@ MOODLE2:
 - Now text colors must have a correct luminancy to avoid accessibility problems
 - New footer settings to put social icons and links
 
+WORDPRESS
+- Removed exray theme
+
+
 Changes 14.08.26
 ---------------------------------------------------------------------------------------
 MOODLE2:
