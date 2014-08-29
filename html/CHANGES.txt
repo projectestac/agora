@@ -15,6 +15,7 @@ MOODLE2:
 
 WORDPRESS
 - Removed exray theme
+- Hidden reactor at the theme selector
 
 
 Changes 14.08.26
