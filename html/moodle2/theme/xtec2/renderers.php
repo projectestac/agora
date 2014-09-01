@@ -142,6 +142,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
     function get_user_menu(){
 
     	$options = array();
+
     	$mymoodle = $this->page->navigation->get('home');
     	if($mymoodle){
 			$options[] = theme_xtec2_render_user_settings($mymoodle, array(), null, array(), 2);
@@ -329,42 +330,43 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         return $content.'</ul></div>';
     }
 
-    function social_icons(){
+    function social_icons() {
+        global $DB;
 
 		$social_icons_cache = cache::make('core', 'string');
-		if($text = $social_icons_cache->get('social_icons')){
+		if ($text = $social_icons_cache->get('social_icons')) {
 			return $text;
 		}
         global $school_info, $CFG, $OUTPUT;
         $content = "";
-        if(get_config('theme_xtec2','nodes') && is_service_enabled('nodes')){
+        if (get_config('theme_xtec2', 'nodes') && is_service_enabled('nodes')) {
             $content.= '<a href="'.get_service_url('nodes').'" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
         }
-        if(get_config('theme_xtec2','intranet') && is_service_enabled('intranet')){
+        if (get_config('theme_xtec2', 'intranet') && is_service_enabled('intranet')) {
             $content.= '<a href="'.get_service_url('intranet').'" target="_blank" class="agora-social icon intranet"><img src="'.$OUTPUT->pix_url('intranet-32', 'theme').'" alt="" title="Intranet" /></a>';
         }
-        if($url = get_config('theme_xtec2','facebook')){
+        if ($url = get_config('theme_xtec2', 'facebook')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-facebook" title="Facebook"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','twitter')){
+		if ($url = get_config('theme_xtec2', 'twitter')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-twitter" title="Twitter"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','googleplus')){
+		if ($url = get_config('theme_xtec2', 'googleplus')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-google-plus" title="Google Plus"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','instagram')){
+		if ($url = get_config('theme_xtec2', 'instagram')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-instagram" title="Instagram"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','flickr')){
+		if ($url = get_config('theme_xtec2', 'flickr')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-flickr" title="Flickr"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','linkedin')){
+		if ($url = get_config('theme_xtec2', 'linkedin')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-linkedin" title="LinkedIn"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','pinterest')){
+		if ($url = get_config('theme_xtec2', 'pinterest')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pinterest" title="Pinterest"></i></a>';
 		}
-		if($url = get_config('theme_xtec2','youtube')){
+		if ($url = get_config('theme_xtec2', 'youtube')) {
 			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-youtube" title="Youtube"></i></a>';
 		}
         $social_icons_cache->set('social_icons', $content);
@@ -403,7 +405,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             'i/import' => 'upload',
             'i/move_2d' => 'arrows',
             'i/navigationitem' => 'circle',
-            'i/outcomes' => 'magic',
+            'i/outcomes' => 'pie-chart',
             'i/publish' => 'globe',
             'i/reload' => 'refresh',
             'i/report' => 'list-alt',

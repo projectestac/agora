@@ -29,3 +29,5 @@ $string['year_ago'] = 'hace {$a} año';
 $string['years_ago'] = 'hace {$a} años';
 
 $string['agora_scripts'] = 'Àgora Scripts';
+
+$string['login_nodes'] = 'Entrar a Nodes';

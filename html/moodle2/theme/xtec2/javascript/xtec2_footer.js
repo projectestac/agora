@@ -85,29 +85,35 @@ function showhideblocks(){
         var main_pre = Y.one('#region-bs-main-and-pre');
         if(main_pre == null) main_pre = Y.one('#region-bs-main-and-post');
         var main_post = Y.one('#region-main');
-        
+
         if(blocks_shown){
             //Hide
             Y.one('#block-region-side-post').hide();
             Y.one('#block-region-side-pre').hide();
-            
+
             old_main_post_class = main_pre.getAttribute('class');
             main_pre.removeClass(old_main_post_class);
             main_pre.addClass('span12');
-            
+
             old_main_pre_class = main_post.getAttribute('class');
             main_post.removeClass(old_main_pre_class);
             main_post.addClass('span12');
+
+            Y.one('#showhideblocks').removeClass('collapsed');
+            Y.one('#showhideblocks').addClass('expanded');
         } else {
             //Show
             Y.one('#block-region-side-post').show();
             Y.one('#block-region-side-pre').show();
-            
+
             main_pre.removeClass('span12');
             main_pre.addClass(old_main_post_class);
-            
+
             main_post.removeClass('span12');
             main_post.addClass(old_main_pre_class);
+
+            Y.one('#showhideblocks').removeClass('expanded');
+            Y.one('#showhideblocks').addClass('collapsed');
         }
     });
     blocks_shown = !blocks_shown;

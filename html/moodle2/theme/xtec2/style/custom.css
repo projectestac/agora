@@ -1,4 +1,4 @@
-[[setting:importcss]]
+f[[setting:importcss]]
 
 @font-face {
     font-family: Abecedario;
@@ -365,10 +365,27 @@ a {
 
 #showhideblocks, #showhideblocks i {
     height: 36px;
-    line-height: 36px;
     width: 36px;
     cursor: pointer;
+    text-align: center;
 }
+
+#showhideblocks:before{
+	display: inline-block;
+	font: normal normal normal 24px/1 FontAwesome;
+	text-rendering: auto;
+	line-height: 36px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#showhideblocks.expanded:before{
+    content:"\f066";
+}
+#showhideblocks.collapsed:before{
+    content:"\f065";
+}
+
 
 input.form-submit, input#id_submitbutton, input#id_submitbutton2, .path-admin .buttons input[type="submit"], td.submit input {
 	color: [[setting:color3]];
@@ -382,11 +399,16 @@ input.form-submit, input#id_submitbutton, input#id_submitbutton2, .path-admin .b
 	border-color: [[setting:color2]];
 	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[[setting:color2]]',endColorstr='[[setting:color2]]',GradientType=0);
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false)
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
 input.form-submit:hover, input#id_submitbutton:hover, input#id_submitbutton2:hover, .path-admin .buttons input[type="submit"]:hover, td.submit input:hover, input.form-submit:focus, input#id_submitbutton:focus, input#id_submitbutton2:focus, .path-admin .buttons input[type="submit"]:focus, td.submit input:focus, input.form-submit:active, input#id_submitbutton:active, input#id_submitbutton2:active, .path-admin .buttons input[type="submit"]:active, td.submit input:active, input.form-submit.active, input#id_submitbutton.active, input#id_submitbutton2.active, .path-admin .buttons input[type="submit"].active, td.submit input.active, input.form-submit.disabled, input#id_submitbutton.disabled, input#id_submitbutton2.disabled, .path-admin .buttons input[type="submit"].disabled, td.submit input.disabled, input.form-submit[disabled], input#id_submitbutton[disabled], input#id_submitbutton2[disabled], .path-admin .buttons input[type="submit"][disabled], td.submit input[disabled]{
-	background-image:none;
+	color: [[setting:color3]];
+	background-color: [[setting:color2]];
+	background-image: none;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
 }
 
 .block .minicalendar {
@@ -688,6 +710,7 @@ i.fa.iconsmall {
 .block_rgrade .header .title h2:before{
     content:"\f0ce";
 }
+
 
 /* Custom CSS Settings
 -------------------------*/
