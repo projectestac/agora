@@ -9,8 +9,13 @@ class com_wiris_quizzes_service_ServiceRouterListener implements com_wiris_quizz
 		$this->res->sendError(500, $error);
 	}
 	public function onData($data) {
-		$b = haxe_io_Bytes::ofString($data);
-		$this->res->writeBinary($b);
+		$type = $this->res->getHeader("Content-Type");
+		if($type !== null && (StringTools::startsWith($type, "image/") || $type === "application/octet-stream")) {
+			$b = haxe_io_Bytes::ofString($data);
+			$this->res->writeBinary($b);
+		} else {
+			$this->res->writeString($data);
+		}
 		$this->res->close();
 	}
 	public $mime;

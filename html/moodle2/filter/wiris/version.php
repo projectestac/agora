@@ -19,16 +19,51 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2014050600;
-$plugin->release = '3.25.3';
-$plugin->requires = 2011120500;
+require_once('wirispluginwrapper.php');
+
+$plugin->version = 2014082600;
+$plugin->release = '3.52.2.1137';
+$plugin->requires =  2011120511;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'filter_wiris';
-/*global $CFG;
-if ($CFG->version>=2012120300) { // Moodle 2.4
-	$plugin->dependencies = array (
-		 'tinymce_tiny_mce_wiris' => 2014050600
-	);
-}*/
+$plugin->dependencies = array();
+global $CFG, $PAGE;
+if ($CFG->version>=2012120300) { // Moodle 2.4 and upwards.
+	$wirisplugin = WIRISpluginWrapper::get_wiris_plugin();
+	$checkdependencies = !$wirisplugin ? true : (($wirisplugin->version != $plugin->version) ? true : false );
+	if ($checkdependencies) {
+		$editors = array_flip(explode(',', $CFG->texteditors));
+		// If atto and tinymce editors installed choose first for dependencies check.
+		if (array_key_exists('atto', $editors) && array_key_exists('tinymce', $editors)) {
+			$plugin->dependencies = ($editors['atto'] < $editors['tinymce']) ?
+									array('atto_wiris' => 2014082600):
+									array('tinymce_tiny_mce_wiris' => 2014082600);
+		} else { // Default dependencies atto for Moodle 2.7 and upwards.
+			$plugin->dependencies = ($CFG->version>=2014051200) ?
+									array('atto_wiris' => 2014082600):
+									array('tinymce_tiny_mce_wiris'=>2014082600);
+		}
+	}
+}
 
-?>
+// Minimal quizzes version compatible with 3.5 plugin is 2014081900.
+
+if ($CFG->version>=2013111800) {
+	$pluginmanager = core_plugin_manager::instance();
+	if ($plugininfo = $pluginmanager->get_plugin_info('qtype_wq')) {
+		if ($plugininfo->versiondisk < 2014081900 ) {
+			$PAGE->requires->js('/filter/wiris/js/installmessage.js',false);
+		}
+		$plugin->dependencies = array_merge($plugin->dependencies, array('qtype_wq' => 2014081900));
+	}
+} else if ($CFG->version>=2012120300) { // core_plugin_manager not implemented since 2.6
+	require_once($CFG->libdir . '/pluginlib.php');
+	$pluginmanager = plugin_manager::instance();
+	if ($plugininfo = $pluginmanager->get_plugin_info('qtype_wq')) {
+		if ($plugininfo->versiondisk < 2014081900 ) {
+			$PAGE->requires->js('/filter/wiris/js/installmessage.js',false);
+		}
+		$plugin->dependencies = array_merge($plugin->dependencies, array('qtype_wq' => 2014081900));
+	}
+}
+

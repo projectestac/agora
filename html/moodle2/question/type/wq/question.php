@@ -36,27 +36,27 @@ class qtype_wq_question extends question_with_responses {
     public function start_attempt(question_attempt_step $step, $variant){
         $this->base->start_attempt($step, $variant);
         
-        //Get variables from WIRIS quizzes service.
-        
-        //TODO: Do not call service when there aren't variables to request. This
-        //      could be done also in WIRIS quizzes generic.
-        
+        // Get variables from WIRIS quizzes service.
         $builder = com_wiris_quizzes_api_QuizzesBuilder::getInstance();
         $text = $this->join_all_text();
         $this->wirisquestioninstance = $builder->newQuestionInstance();
         $this->wirisquestioninstance->setRandomSeed($variant);
         
-        //This is for testing, it's never used in production.
+        // Begin testing code. It's never used in production.
         global $CFG;
         if (isset($CFG->wq_random_seed) && $CFG->wq_random_seed!='false') {
             $this->wirisquestioninstance->setRandomSeed($CFG->wq_random_seed);
             set_config('wq_random_seed', 'false');
         }
+        // End testing code.
         
-        // Do the call.
+        // Create request to call service.
         $request = $builder->newVariablesRequest($text, $this->wirisquestion, $this->wirisquestioninstance);
-        $response = $this->call_wiris_service($request);
-        $this->wirisquestioninstance->update($response);
+        // Do the call only if needed.
+        if (!$request->isEmpty()) {
+            $response = $this->call_wiris_service($request);
+            $this->wirisquestioninstance->update($response);
+        }
         // Save the result.
         $step->set_qt_var('_qi', $this->wirisquestioninstance->serialize());
     }
@@ -74,14 +74,7 @@ class qtype_wq_question extends question_with_responses {
         
         // Be sure that plotter images don't got removed, and recompute them 
         // otherwise.
-        
-        // ToDo: put it in WIRIS quizzes generic API with name areVariablesReady().
-        $wrap = com_wiris_system_CallWrapper::getInstance();
-        $wrap->start();
-        $ready = $this->wirisquestioninstance->instance->isCacheReady();
-        $wrap->stop();
-        
-        if (!$ready){
+        if (!$this->wirisquestioninstance->areVariablesReady()){
             //We make a new request to the service if plotter images are not cached.
             $request = $builder->newVariablesRequest($this->join_all_text(), $this->wirisquestion, $this->wirisquestioninstance);
             $response = $this->call_wiris_service($request);

@@ -2,25 +2,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 //Checking that WIRIS plugin is installed
-$filterwiris = $CFG->dirroot . '/filter/wiris/filter.php';
+$filterexists = file_exists($CFG->dirroot . '/filter/wiris/filter.php');
+
 $output = '';
-if (!file_exists($filterwiris)) {
+if (!$filterexists) {
     $title = '<br /><br /><br /><span style="color:#aa0000; font-size:18px;">Attention! WIRIS filter is not installed</span>';
     $info = '<a target="_blank" href="http://www.wiris.com/plugins/docs/moodle"><img style="vertical-align:-3px;" alt="" src="https://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png" /></a>';
     $output = $title . '<br />WIRIS quizzes for Moodle 2.x needs that WIRIS plugin for Moodle 2.x is installed on your Moodle. ' . $info;
-}
-
-include_once ($CFG->dirroot . '/lib/editor/tinymce/lib.php');
-$tinyeditor = new tinymce_texteditor();
-$libwiris = $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $tinyeditor->version . '/plugins/tiny_mce_wiris/integration/libwiris.php';
-if (!file_exists($libwiris)) {
-    //Check for Moodle 2.4
-    $libwiris = $CFG->dirroot . '/lib/editor/tinymce/plugins/tiny_mce_wiris/integration/libwiris.php';        
-    if (!file_exists($libwiris)) {
-        $title = '<br /><br /><br /><span style="color:#aa0000; font-size:18px;">Attention! WIRIS plugin is not installed</span>';
-        $info = '<a target="_blank" href="http://www.wiris.com/plugins/docs/moodle"><img style="vertical-align:-3px;" alt="" src="https://www.wiris.com/system/files/attachments/1689/WIRIS_manual_icon_17_17.png" /></a>';    
-        $output .= $title . '<br />WIRIS quizzes for Moodle 2.x needs that WIRIS plugin for TinyMCE is installed on your Moodle. ' . $info;    
-    }
 }
 
 //Checkbox to enable/disable all the WIRIS quizzes question types
@@ -45,10 +33,7 @@ if ($quizzes_disabled == '1'){
 
 $settings->add(new admin_setting_configcheckbox('question/wq_disabled', 'WIRIS quizzes', $output, '0', '0', '1'));
 
-$wiris_plugin = dirname(__FILE__) . '/../../../filter/wiris/filter.php';
-$filter_installed = file_exists($wiris_plugin);
-
-if ($filter_installed){
+if ($filterexists){
     $url = $CFG->wwwroot . '/admin/settings.php?section=filtersettingwiris';
     $url = '<a href="' . $url . '">WIRIS filter settings</a>';
     $settings->add(new admin_setting_heading('filter_wirisfilterheading', $url, ''));

@@ -4,7 +4,7 @@ class com_wiris_quizzes_impl_HTMLTools {
 	public function __construct() { 
 	}
 	public function unitTestDev() {
-		haxe_Log::trace("compare(a,a1)=" . _hx_string_rec(com_wiris_quizzes_impl_HTMLTools::compareStrings("a", "a1"), ""), _hx_anonymous(array("fileName" => "HTMLTools.hx", "lineNumber" => 1535, "className" => "com.wiris.quizzes.impl.HTMLTools", "methodName" => "unitTestDev")));
+		haxe_Log::trace("compare(a,a1)=" . _hx_string_rec(com_wiris_quizzes_impl_HTMLTools::compareStrings("a", "a1"), ""), _hx_anonymous(array("fileName" => "HTMLTools.hx", "lineNumber" => 1537, "className" => "com.wiris.quizzes.impl.HTMLTools", "methodName" => "unitTestDev")));
 		$a = new _hx_array(array());
 		$a->push("a");
 		$a->push("a1");
@@ -19,7 +19,7 @@ class com_wiris_quizzes_impl_HTMLTools {
 				unset($i1);
 			}
 		}
-		haxe_Log::trace("sort({a1,a})" . $r, _hx_anonymous(array("fileName" => "HTMLTools.hx", "lineNumber" => 1546, "className" => "com.wiris.quizzes.impl.HTMLTools", "methodName" => "unitTestDev")));
+		haxe_Log::trace("sort({a1,a})" . $r, _hx_anonymous(array("fileName" => "HTMLTools.hx", "lineNumber" => 1548, "className" => "com.wiris.quizzes.impl.HTMLTools", "methodName" => "unitTestDev")));
 	}
 	public function unitTest() {
 		$this->unitTestReplaceVariablesInHTML();
@@ -82,8 +82,8 @@ class com_wiris_quizzes_impl_HTMLTools {
 		}
 	}
 	public function unitTestTextToMathML() {
-		$texts = new _hx_array(array("sin(x)+1", "#F +C", "2.0·xy"));
-		$responses = new _hx_array(array("<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>sin</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>+</mo><mn>1</mn></math>", "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mo>#</mo><mi>F</mi><mo> </mo><mo>+</mo><mi>C</mi></math>", "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mn>2</mn><mo>.</mo><mn>0</mn><mo>·</mo><mi>x</mi><mi>y</mi></math>"));
+		$texts = new _hx_array(array("sin(x)+1", "#F +C", "2.0·xy", "x<3"));
+		$responses = new _hx_array(array("<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>sin</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>+</mo><mn>1</mn></math>", "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mo>#</mo><mi>F</mi><mo> </mo><mo>+</mo><mi>C</mi></math>", "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mn>2</mn><mo>.</mo><mn>0</mn><mo>·</mo><mi>x</mi><mi>y</mi></math>", "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>x</mi><mo>&lt;</mo><mn>3</mn></math>"));
 		$i = null;
 		{
 			$_g1 = 0; $_g = $texts->length;
@@ -699,7 +699,7 @@ class com_wiris_quizzes_impl_HTMLTools {
 					if($c === 32) {
 						$c = 160;
 					}
-					$mathml->add(com_wiris_quizzes_impl_HTMLTools_6($this, $c, $i, $mathml, $n, $text, $token));
+					$mathml->add(com_wiris_util_xml_WXmlUtils::htmlEscape(com_wiris_quizzes_impl_HTMLTools_6($this, $c, $i, $mathml, $n, $text, $token)));
 					$mathml->add("</mo>");
 					$i++;
 					if($i < $n) {

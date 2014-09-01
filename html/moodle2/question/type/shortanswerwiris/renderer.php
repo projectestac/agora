@@ -30,12 +30,7 @@ class qtype_shortanswerwiris_renderer extends qtype_wq_renderer{
 
         $feedbackimg = '';
         if ($options->correctness) {
-            $answer = $question->get_matching_answer(array('answer' => $currentanswer));
-            if ($answer) {
-                $fraction = $answer->fraction;
-            } else {
-                $fraction = 0;
-            }
+            list($fraction, $state) = $question->grade_response(array('answer' => $currentanswer));
             $inputattributes['class'] .= ' ' . $this->feedback_class($fraction);
             $feedbackimg = $this->feedback_image($fraction);
         }

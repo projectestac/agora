@@ -18,7 +18,7 @@ class qtype_multianswerwiris extends qtype_wq {
         // can call base method.
         
         $oldidsseq = $DB->get_field('question_multianswer', 'sequence', array('question' => $question->id));
-        if(!empty($oldwrappedids)) {
+        if(!empty($oldidsseq)) {
             $oldids = explode(',', $oldidsseq);
             foreach($oldids as $id) {
                 question_delete_question($id);

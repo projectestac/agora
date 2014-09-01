@@ -577,8 +577,12 @@ class com_wiris_quizzes_impl_QuestionImpl extends com_wiris_quizzes_impl_Questio
 			if($a->name === com_wiris_quizzes_impl_Assertion::$SYNTAX_QUANTITY) {
 				$sb->add("Quantity");
 			} else {
-				if($a->name === com_wiris_quizzes_impl_Assertion::$SYNTAX_LIST) {
-					$sb->add("List");
+				if($a->name === com_wiris_quizzes_impl_Assertion::$SYNTAX_STRING) {
+					$sb->add("String");
+				} else {
+					if($a->name === com_wiris_quizzes_impl_Assertion::$SYNTAX_LIST) {
+						$sb->add("List");
+					}
 				}
 			}
 		}

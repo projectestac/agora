@@ -10,10 +10,18 @@ class com_wiris_quizzes_service_ServiceRouter {
 		}
 	}}
 	public function sendFile($s, $res) {
-		$data = haxe_io_Bytes::ofData($s->readBinary());
-		$res->setHeader("Content-Length", "" . _hx_string_rec($data->length, ""));
-		$res->writeBinary($data);
-		$res->close();
+		try {
+			$data = haxe_io_Bytes::ofData($s->readBinary());
+			$res->setHeader("Content-Length", "" . _hx_string_rec($data->length, ""));
+			$res->writeBinary($data);
+			$res->close();
+		}catch(Exception $»e) {
+			$_ex_ = ($»e instanceof HException) ? $»e->e : $»e;
+			$t = $_ex_;
+			{
+				$res->sendError(500, "Unable to read file.");
+			}
+		}
 	}
 	public function sendQuizzesJS($s, $res) {
 		$js = $s->read();
@@ -49,52 +57,69 @@ class com_wiris_quizzes_service_ServiceRouter {
 				$this->sendFile($s, $res);
 			}
 		} else {
-			$url = null;
-			$post = null;
-			$postdata = null;
-			$mime = null;
-			$http = null;
-			if($service === "url") {
-				$url = $parameters->get("url");
-				if(!$this->allowedURL($url)) {
-					$res->sendError(400, "URL not allowed.");
-				}
-				$http = new com_wiris_quizzes_impl_MaxConnectionsHttpImpl($url, new com_wiris_quizzes_service_ServiceRouterListener($res));
-				$res->setHeader("Content-Type", $this->getUrlMime($url));
-				$post = false;
-			} else {
-				if(!com_wiris_quizzes_service_ServiceRouter::$router->exists($service)) {
-					$res->sendError(400, "Service \"" . $service . "\" not found.");
+			if($service === "echo") {
+				if(!$parameters->exists("data")) {
+					$res->sendError(400, "Missing \"data\" parameter.");
 					return;
+				}
+				$data = $parameters->get("data");
+				if($parameters->exists("filename")) {
+					$filename = $parameters->get("filename");
+					$res->setHeader("Content-Type", com_wiris_quizzes_service_ServiceTools::getContentType($filename));
+					$res->setHeader("Content-Disposition", "attachment; filename=\"" . $filename . "\"");
 				} else {
-					$url = com_wiris_quizzes_service_ServiceRouter::$router->get($service);
-					$post = true;
-					$rawpostdata = $parameters->exists("rawpostdata") && $parameters->get("rawpostdata") === "true";
+					$res->setHeader("Content-Type", "text/plain");
+				}
+				$res->writeString($data);
+				$res->close();
+			} else {
+				$url = null;
+				$post = null;
+				$postdata = null;
+				$mime = null;
+				$http = null;
+				if($service === "url") {
+					$url = $parameters->get("url");
+					if(!$this->allowedURL($url)) {
+						$res->sendError(400, "URL not allowed.");
+					}
 					$http = new com_wiris_quizzes_impl_MaxConnectionsHttpImpl($url, new com_wiris_quizzes_service_ServiceRouterListener($res));
-					$res->setHeader("Content-Type", com_wiris_quizzes_service_ServiceRouter::$serviceMimes->get($service));
-					if($rawpostdata) {
-						$postdata = $parameters->get("postdata");
-						$http->setPostData($postdata);
-						$mime = "text/plain";
+					$res->setHeader("Content-Type", $this->getUrlMime($url));
+					$post = false;
+				} else {
+					if(!com_wiris_quizzes_service_ServiceRouter::$router->exists($service)) {
+						$res->sendError(400, "Service \"" . $service . "\" not found.");
+						return;
 					} else {
-						$mime = "application/x-www-form-urlencoded";
-						$keys = $parameters->keys();
-						while($keys->hasNext()) {
-							$key = $keys->next();
-							if(!($key === "service") && !($key === "rawpostdata")) {
-								$http->setParameter($key, $parameters->get($key));
+						$url = com_wiris_quizzes_service_ServiceRouter::$router->get($service);
+						$post = true;
+						$rawpostdata = $parameters->exists("rawpostdata") && $parameters->get("rawpostdata") === "true";
+						$http = new com_wiris_quizzes_impl_MaxConnectionsHttpImpl($url, new com_wiris_quizzes_service_ServiceRouterListener($res));
+						$res->setHeader("Content-Type", com_wiris_quizzes_service_ServiceRouter::$serviceMimes->get($service));
+						if($rawpostdata) {
+							$postdata = $parameters->get("postdata");
+							$http->setPostData($postdata);
+							$mime = "text/plain";
+						} else {
+							$mime = "application/x-www-form-urlencoded";
+							$keys = $parameters->keys();
+							while($keys->hasNext()) {
+								$key = $keys->next();
+								if(!($key === "service") && !($key === "rawpostdata")) {
+									$http->setParameter($key, $parameters->get($key));
+								}
+								unset($key);
 							}
-							unset($key);
 						}
 					}
 				}
+				$http->setHeader("Referer", com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$REFERER_URL));
+				$http->setHeader("Accept-Charset", "utf-8");
+				if($post) {
+					$http->setHeader("Content-Type", $mime . ";charset=utf-8");
+				}
+				$http->request($post);
 			}
-			$http->setHeader("Referer", com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$REFERER_URL));
-			$http->setHeader("Accept-Charset", "utf-8");
-			if($post) {
-				$http->setHeader("Content-Type", $mime . ";charset=utf-8");
-			}
-			$http->request($post);
 		}
 	}
 	public function getUrlMime($url) {
@@ -134,5 +159,6 @@ class com_wiris_quizzes_service_ServiceRouter {
 	}
 	static $router;
 	static $serviceMimes;
+	static $MAX_UPLOAD_SIZE = 1048576;
 	function __toString() { return 'com.wiris.quizzes.service.ServiceRouter'; }
 }

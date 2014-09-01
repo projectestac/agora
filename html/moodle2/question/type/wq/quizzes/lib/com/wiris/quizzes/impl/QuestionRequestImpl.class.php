@@ -5,6 +5,9 @@ class com_wiris_quizzes_impl_QuestionRequestImpl extends com_wiris_util_xml_Seri
 		if(!php_Boot::$skip_constructor) {
 		parent::__construct();
 	}}
+	public function isEmpty() {
+		return $this->processes === null || $this->processes->length === 0;
+	}
 	public function addMetaProperty($name, $value) {
 		if($this->meta === null) {
 			$this->meta = new _hx_array(array());

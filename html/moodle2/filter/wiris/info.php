@@ -48,9 +48,11 @@ function wrs_createTableRow($test_name, $report_text, $solution_link, $condition
 //Used to find the position of WIRIS plugin (Starting from Moodle 2.4 it changes the folder used to install the plugins)
 $tinyEditor = new tinymce_texteditor();
 $tiny_ver = $tinyEditor->version;
-$wiris_plugin_base = '../../lib/editor/tinymce/tiny_mce/' . $tiny_ver . '/plugins/tiny_mce_wiris';
-if (!file_exists($wiris_plugin_base)){
-    $wiris_plugin_base = '../../lib/editor/tinymce/plugins/tiny_mce_wiris';    
+
+if ($CFG->version>=2012120300) { // Moodle 2.4 or superior
+	$wiris_plugin_base = '../../lib/editor/tinymce/plugins/tiny_mce_wiris/tinymce';
+} else {
+	$wiris_plugin_base = '../../lib/editor/tinymce/tiny_mce/' . $tiny_ver . '/plugins/tiny_mce_wiris';
 }
 ?>
 
@@ -95,7 +97,7 @@ if (!file_exists($wiris_plugin_base)){
 					$test_name = 'Looking for filter files';
 					$report_text = 'WIRIS plugin filter for Moodle 2.x must be installed.';
 					$solution_link = 'http://www.wiris.com/plugins/moodle/download';
-					$filter_files = Array('filter.php', 'MoodleConfigurationUpdater.php', 'tinyversion.php', 'version.php');
+					$filter_files = Array('filter.php', 'MoodleConfigurationUpdater.php', 'version.php');
 					$exist = true;
 					foreach ($filter_files as $value){
 						$condition = file_exists($value);
@@ -141,10 +143,10 @@ if (!file_exists($wiris_plugin_base)){
 					$solution_link = 'http://www.wiris.com/plugins/moodle/download';
 					$wiris_plugin = $wiris_plugin_base. '/integration';
 					$condition = file_exists($wiris_plugin);					
-                                        if (!$condition){
-                                            $wiris_plugin = '../../lib/editor/tinymce/plugins/tiny_mce_wiris/integration';    
-                                            $condition = file_exists($wiris_plugin);    
-                                        }
+					if (!$condition){
+						$wiris_plugin = '../../lib/editor/tinymce/plugins/tiny_mce_wiris/integration';    
+						$condition = file_exists($wiris_plugin);    
+					}
 					echo wrs_createTableRow($test_name, $report_text, $solution_link, $condition);
 				?>			
 			</tr>

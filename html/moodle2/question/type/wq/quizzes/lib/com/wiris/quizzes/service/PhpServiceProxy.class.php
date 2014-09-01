@@ -24,9 +24,28 @@ class com_wiris_quizzes_service_PhpServiceProxy {
 		$conf->set(com_wiris_quizzes_api_ConfigurationKeys::$REFERER_URL, $this->getReferer());
 		
 		$res = new com_wiris_quizzes_service_PhpHttpResponse();
+		
 		$parameters = new Hash();
+		// Standard post parameters.
 		foreach ($_POST as $key => $value) {
 			$parameters->set($key, $this->getParam($key));
+		}
+		// Uploaded files.
+		foreach ($_FILES as $key => $file) {
+			if ($file['size'] > 0) {
+				if ($file['size'] > com_wiris_quizzes_service_ServiceRouter::$MAX_UPLOAD_SIZE) {
+					$res->sendError(400, "File too big.");
+				}
+				$content = '';
+				$fh = fopen($file['tmp_name'], 'rb');
+				if ($fh !== false) {
+					while (!feof($fh)) {
+						$content .= fread($fh, 4096);
+					}
+					fclose($fh);
+				}
+				$parameters->set($key, $content);
+			}
 		}
 		
 		$service = new com_wiris_quizzes_service_ServiceRouter();
@@ -46,6 +65,8 @@ class com_wiris_quizzes_service_PhpServiceProxy {
 }
 
 class com_wiris_quizzes_service_PhpHttpResponse implements com_wiris_quizzes_service_HttpResponse {
+	private $headers = array();
+	
 	function close() {
 		//Nothing!
 	}
@@ -61,7 +82,11 @@ class com_wiris_quizzes_service_PhpHttpResponse implements com_wiris_quizzes_ser
 		die();
 	}
 	function setHeader($name, $value) {
+		$headers[$name] = $value;
 		header($name . ': ' . $value);
+	}
+	function getHeader($name) {
+		isset($headers[$name]) ? $headers[$name] : null;
 	}
 }
 ?>

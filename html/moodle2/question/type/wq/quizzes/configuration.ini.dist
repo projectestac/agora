@@ -35,7 +35,7 @@
 ; Path where to save the cached image files. It can be safely deleted. If you
 ; have WIRIS plugin installed, the same cache folder is a good place.
 
-;quizzes.cache.dir = "E:/tmp/image-cache"
+;quizzes.cache.dir = "/var/wiris/cache"
 
 ;
 ; Maximum number of concurrent connections to WIRIS web services. For some 

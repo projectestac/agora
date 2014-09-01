@@ -17,6 +17,6 @@
 //  along with Moodle WIRIS Plugin. If not, see <http://www.gnu.org/licenses/>.
 //
  
-$string['filtername'] = 'WIRIS filter';
-$string['pluginname'] = 'WIRIS filter';
+$string['filtername'] = 'WIRIS filter - Maths';
+$string['pluginname'] = 'WIRIS filter - Maths';
 ?>

@@ -55,7 +55,11 @@ class com_wiris_quizzes_test_Tester {
 																		if($id === "multianswer2") {
 																			$this->responseMultianswer2($res, $q, $qi);
 																		} else {
-																			throw new HException("Unknown test id.");
+																			if($id === "anyanswer1") {
+																				$this->responseAnyAnswer1($res, $q, $qi);
+																			} else {
+																				throw new HException("Unknown test id.");
+																			}
 																		}
 																	}
 																}
@@ -72,13 +76,13 @@ class com_wiris_quizzes_test_Tester {
 					}
 				}
 			}
-			haxe_Log::trace("Test " . $id . " OK!", _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 648, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "onServiceResponse")));
+			haxe_Log::trace("Test " . $id . " OK!", _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 672, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "onServiceResponse")));
 			$this->endCall();
 		}catch(Exception $ªe) {
 			$_ex_ = ($ªe instanceof HException) ? $ªe->e : $ªe;
 			$e = $_ex_;
 			{
-				haxe_Log::trace("Failed test " . $id . "!!!", _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 651, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "onServiceResponse")));
+				haxe_Log::trace("Failed test " . $id . "!!!", _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 675, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "onServiceResponse")));
 				throw new HException($e);
 			}
 		}
@@ -124,7 +128,7 @@ class com_wiris_quizzes_test_Tester {
 			throw new HException("Failed test");
 		}
 		if($t2 >= $t1) {
-			haxe_Log::trace("WARNING: Uncached question was faster than cached one! time miss: " . _hx_string_rec($t1, "") . "ms, time hit: " . _hx_string_rec($t2, "") . "ms.", _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 587, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "testCache")));
+			haxe_Log::trace("WARNING: Uncached question was faster than cached one! time miss: " . _hx_string_rec($t1, "") . "ms, time hit: " . _hx_string_rec($t2, "") . "ms.", _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 609, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "testCache")));
 		}
 	}
 	public function testFilter() {
@@ -147,7 +151,7 @@ class com_wiris_quizzes_test_Tester {
 		$r = $qb->newVariablesRequest($text, $q, $qi);
 		$qi->update($qb->getQuizzesService()->execute($r));
 		$expanded = $qi->expandVariables($text);
-		haxe_Log::trace($expanded, _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 545, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "testPerformance")));
+		haxe_Log::trace($expanded, _hx_anonymous(array("fileName" => "Tester.hx", "lineNumber" => 567, "className" => "com.wiris.quizzes.test.Tester", "methodName" => "testPerformance")));
 	}
 	public function responseTranslation1($s, $q) {
 		$fr = "<session lang=\"fr\" version=\"2.0\"><library closed=\"false\"><mtext style=\"color:#ffc800\">library</mtext><group><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>a</mi><mo>=</mo><mi>al√©a</mi><mo>(</mo><mn>1</mn><mo>.</mo><mo>.</mo><mn>10</mn><mo>)</mo></math></input></command></group></library></session>";
@@ -283,6 +287,31 @@ class com_wiris_quizzes_test_Tester {
 		$quizzes = $rb->getQuizzesService();
 		$this->numCalls++;
 		$quizzes->executeAsync($eqs, new com_wiris_quizzes_test_TestIdServiceListener("openquestion1", $this, null, null));
+	}
+	public function responseAnyAnswer1($s, $q, $qi) {
+		$qi->update($s);
+		if($qi->getAnswerGrade(0, 0, $q) !== 0.0) {
+			throw new HException("Failed test!");
+		}
+		if($qi->getAnswerGrade(1, 0, $q) !== 1.0) {
+			throw new HException("Failed test!");
+		}
+	}
+	public function testAnyAnswer() {
+		$correctAnswer = "123";
+		$correctAnswer2 = "*";
+		$rb = com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance();
+		$q = $rb->newQuestion();
+		$q->setCorrectAnswer(0, $correctAnswer);
+		$q->setCorrectAnswer(1, $correctAnswer2);
+		$q->addAssertion(com_wiris_quizzes_impl_Assertion::$EQUIVALENT_SYMBOLIC, 0, 0, null);
+		$q->addAssertion(com_wiris_quizzes_impl_Assertion::$EQUIVALENT_ALL, 1, 0, null);
+		$qi = $rb->newQuestionInstance();
+		$qi->setStudentAnswer(0, "++++");
+		$eqs = $rb->newEvalRequest(null, null, $q, $qi);
+		$quizzes = $rb->getQuizzesService();
+		$this->numCalls++;
+		$quizzes->executeAsync($eqs, new com_wiris_quizzes_test_TestIdServiceListener("anyanswer1", $this, $q, $qi));
 	}
 	public function responseImages2($s, $q, $qi) {
 		$text = "#p";
@@ -512,6 +541,7 @@ class com_wiris_quizzes_test_Tester {
 		$this->testMultiAnswer();
 		$this->testBugs();
 		$this->testOpenQuestion();
+		$this->testAnyAnswer();
 		if(!(com_wiris_settings_PlatformSettings::$IS_FLASH || com_wiris_settings_PlatformSettings::$IS_JAVASCRIPT)) {
 			$this->testCache();
 			$this->testFilter();

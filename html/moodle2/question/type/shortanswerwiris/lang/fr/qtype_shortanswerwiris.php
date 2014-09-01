@@ -8,6 +8,7 @@ $string['shortanswerwiris_addanswers'] = 'Vide pour un autre choix';
 $string['shortanswerwiris_answersinstruct'] = 'Vous devez proposer au moins une bonne réponse. Les réponses vides ne sont pas utilisées. La première bonne réponse sert à déterminer le score et les commentaires.';
 $string['shortanswerwiris_algorithm'] = 'Algorithme';
 $string['shortanswerwiris_cantimportcompoundtest'] = 'La question de type Réponse courte - Maths et sciences n\'a pas pu être correctement importée depuis le format Moodle 1.9. La question peut être corrigée manuellement en suivant les instructions disponibles à la page <a href="http://www.wiris.com/quizzes/docs/moodle/manual/compound-answer#upgrade">http://www.wiris.com/quizzes/docs/moodle/manual/compound-answer#upgrade</a>.';
+$string['filloutoneanswer'] = 'You must provide at least one possible answer. The first matching answer will be used to determine the score and feedback. Click the icon next to the answer field to edit the mathematical properties of the answer and the question.';
 
 //From Moodle 2.3
 $string['pluginname'] = 'Réponse courte - Maths et sciences';

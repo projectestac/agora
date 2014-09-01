@@ -268,6 +268,13 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 				unset($i1);
 			}
 		}
+		$uu = new com_wiris_quizzes_impl_UserData();
+		if($qi !== null && $qi->userData !== null) {
+			$uu->randomSeed = $qi->userData->randomSeed;
+		} else {
+			$qqi = new com_wiris_quizzes_impl_QuestionInstanceImpl();
+			$uu->randomSeed = $qqi->userData->randomSeed;
+		}
 		if($correctAnswers !== null) {
 			$_g1 = 0; $_g = $correctAnswers->length;
 			while($_g1 < $_g) {
@@ -276,19 +283,13 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 				if($value === null) {
 					$value = "";
 				}
-				if($qi !== null && $qi->hasVariables()) {
-					$value = $qi->expandVariablesMathML($value);
-				}
 				$qq->setCorrectAnswer($i1, $value);
 				unset($value,$i1);
 			}
-		}
-		$uu = new com_wiris_quizzes_impl_UserData();
-		if($qi !== null && $qi->userData !== null) {
-			$uu->randomSeed = $qi->userData->randomSeed;
 		} else {
-			$qqi = new com_wiris_quizzes_impl_QuestionInstanceImpl();
-			$uu->randomSeed = $qqi->userData->randomSeed;
+			if($q !== null) {
+				$qq->correctAnswers = $q->correctAnswers;
+			}
 		}
 		if($userAnswers !== null) {
 			$_g1 = 0; $_g = $userAnswers->length;
@@ -300,6 +301,10 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 				}
 				$uu->setUserAnswer($i1, $userAnswers[$i1]);
 				unset($i1,$answerValue);
+			}
+		} else {
+			if($qi !== null) {
+				$uu->answers = $qi->userData->answers;
 			}
 		}
 		$syntax = null;
@@ -341,6 +346,42 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 				}
 				unset($i1,$foundSyntax);
 			}
+		}
+		if($qi !== null && $qi->hasVariables()) {
+			$_g1 = 0; $_g = $qq->correctAnswers->length;
+			while($_g1 < $_g) {
+				$i1 = $_g1++;
+				$value = $qq->getCorrectAnswer($i1);
+				if($syntax->name === com_wiris_quizzes_impl_Assertion::$SYNTAX_STRING) {
+					$value = $qi->expandVariablesText($value);
+				} else {
+					$value = $qi->expandVariablesMathML($value);
+				}
+				$qq->setCorrectAnswer($i1, $value);
+				unset($value,$i1);
+			}
+		}
+		$equivall = new _hx_array(array());
+		$i = $qq->assertions->length - 1;
+		while($i >= 0) {
+			if(_hx_array_get($qq->assertions, $i)->name === com_wiris_quizzes_impl_Assertion::$EQUIVALENT_ALL) {
+				$correctanswer = _hx_array_get($qq->assertions, $i)->getCorrectAnswer();
+				$j = $qq->assertions->length - 1;
+				while($j >= 0) {
+					if(_hx_array_get($qq->assertions, $j)->isSyntactic()) {
+						_hx_array_get($qq->assertions, $j)->removeCorrectAnswer($correctanswer);
+						if(_hx_array_get($qq->assertions, $j)->getCorrectAnswers()->length === 0) {
+							$qq->assertions->remove($qq->assertions[$j]);
+							if($j < $i) {
+								$i--;
+							}
+						}
+					}
+					$j--;
+				}
+				unset($j,$correctanswer);
+			}
+			$i--;
 		}
 		$usedcorrectanswers = new _hx_array(array());
 		{
@@ -426,7 +467,9 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 		return $qr;
 	}
 	public function newEvalRequest($correctAnswer, $userAnswer, $q, $qi) {
-		return $this->newEvalMultipleAnswersRequest(new _hx_array(array($correctAnswer)), new _hx_array(array($userAnswer)), $q, $qi);
+		$correctAnswers = (($correctAnswer === null) ? null : new _hx_array(array($correctAnswer)));
+		$userAnswers = (($userAnswer === null) ? null : new _hx_array(array($userAnswer)));
+		return $this->newEvalMultipleAnswersRequest($correctAnswers, $userAnswers, $q, $qi);
 	}
 	public function extractQuestionInstanceVariableNames($qi) {
 		$vars = new _hx_array(array());
@@ -466,8 +509,10 @@ class com_wiris_quizzes_impl_QuizzesBuilderImpl extends com_wiris_quizzes_api_Qu
 		$qr = new com_wiris_quizzes_impl_QuestionRequestImpl();
 		$qr->question = $q;
 		$qr->userData = $qi->userData;
-		$qr->variables($variables, com_wiris_quizzes_impl_MathContent::$TYPE_TEXT);
-		$qr->variables($variables, com_wiris_quizzes_impl_MathContent::$TYPE_MATHML);
+		if($variables->length > 0) {
+			$qr->variables($variables, com_wiris_quizzes_impl_MathContent::$TYPE_TEXT);
+			$qr->variables($variables, com_wiris_quizzes_impl_MathContent::$TYPE_MATHML);
+		}
 		return $qr;
 	}
 	public function readQuestionInstance($xml) {

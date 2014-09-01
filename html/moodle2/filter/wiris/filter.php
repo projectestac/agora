@@ -44,56 +44,47 @@ defined('MOODLE_INTERNAL') || die();
 // code: '<math ... </math>'                                                    //
 //------------------------------------------------------------------------------//
 
-
 class filter_wiris extends moodle_text_filter {
 
 	public function filter($text, array $options = array()) {
-		global $CFG, $PAGE, $COURSE;
-		$isM24 = false;
-                
-                include_once $CFG->dirroot . '/lib/editor/tinymce/lib.php';
-                $tinyEditor = new tinymce_texteditor();
-                
-                $api_file = $CFG->dirroot . '/lib/editor/tinymce/tiny_mce/' . $tinyEditor->version . '/plugins/tiny_mce_wiris/integration/api.php';
-		if(!file_exists($api_file)){
-                    //Check for Moodle 2.4
-                    $api_file = $CFG->dirroot . '/lib/editor/tinymce/plugins/tiny_mce_wiris/integration/api.php';
-                    if(!file_exists($api_file)){
-                        $coursecontext = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-                        if(has_capability('moodle/site:config', $coursecontext)) {
-                            $PAGE->requires->js('/filter/wiris/js/message.js',false);
-                            return $text;
-                        }else{
-                            return $text;
-                        }
-                    }
-                    $isM24 = true;
+		$n0 = stripos($text, '«math');
+		$n1 = stripos($text, '<math');
+		$n2 = stripos($text, '«applet');
+		
+		if ($n0 === false && $n1 === false && $n2 === false) {
+			// Nothing to do
+			return $text;
 		}
-		include_once $api_file;
-                
-                global $wirisconfigurationclass;
-                if ($isM24){
-                    $wirisconfigurationclass = '../../../../../../filter/wiris/MoodleConfigurationUpdater.php;com_wiris_plugin_configuration_MoodleConfigurationUpdater';    
-                }else{
-                    $wirisconfigurationclass = '../../../../../../../../filter/wiris/MoodleConfigurationUpdater.php;com_wiris_plugin_configuration_MoodleConfigurationUpdater';    
-                }
 
-                $filter = new com_wiris_plugin_PluginAPI();
-                
-                $n1 = stripos($text, '<math');
-                if ($n1 !== false){
-                    $text = $filter->filter_math($text, 'mathml');
-                }                
-                $n1 = stripos($text, '«applet');
-                if ($n1 !== false){
-                    $text = $filter->filter_applet($text);
-                }
-                $n1 = stripos($text, '«math');
-                if ($n1 !== false){
-                   $text = $filter->filter_math($text, 'safeXML');
-                }
+		require_once "wirispluginwrapper.php";
+		
+		$wirisplugin = new WIRISpluginWrapper();
+		if (!$wirisplugin->is_installed()) {
+			return $text;
+		}
 
+		$wirisplugin->begin();
+		$textservice = $wirisplugin->get_instance()->newTextService();
+		
+		$query = '';
+
+		global $COURSE;
+        
+        if(isset($COURSE->id)){
+            $query .= 'course=' . $COURSE->id;
+        }
+        if(isset($COURSE->category)) {
+            $query .= empty($query) ? '' : '/';
+            $query .= 'category=' . $COURSE->category;
+        }
+
+        $prop['refererquery'] = $query;
+        
+		$text = $textservice->filter($text, $prop);
+		$prop['savemode'] = 'xml';
+		$text = $textservice->filter($text, $prop);
+		$wirisplugin->end();
 		return $text;
 	}
 }
-?>
+

@@ -177,6 +177,29 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 			return -1;
 		}
 	}
+	public function removeCorrectAnswer($ca) {
+		if($this->hasCorrectAnswer($ca)) {
+			$current = $this->getCorrectAnswers();
+			$newca = new _hx_array(array());
+			$i = null;
+			$j = 0;
+			{
+				$_g1 = 0; $_g = $current->length;
+				while($_g1 < $_g) {
+					$i1 = $_g1++;
+					if($current[$i1] !== $ca) {
+						$newca[$j] = $current[$i1];
+						$j++;
+					}
+					unset($i1);
+				}
+			}
+			$this->setCorrectAnswers($newca);
+		}
+	}
+	public function hasCorrectAnswer($ca) {
+		return $this->inIntArray($ca, $this->getCorrectAnswers());
+	}
 	public function addCorrectAnswer($ca) {
 		$current = $this->getCorrectAnswers();
 		if(!$this->inIntArray($ca, $current)) {
@@ -228,13 +251,14 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 	static $tagName = "assertion";
 	static $SYNTAX_EXPRESSION = "syntax_expression";
 	static $SYNTAX_QUANTITY = "syntax_quantity";
+	static $SYNTAX_STRING = "syntax_string";
 	static $SYNTAX_LIST = "syntax_list";
 	static $PARAM_NO_BRACKETS_LIST = "nobracketslist";
 	static $EQUIVALENT_SYMBOLIC = "equivalent_symbolic";
 	static $EQUIVALENT_LITERAL = "equivalent_literal";
 	static $EQUIVALENT_EQUATIONS = "equivalent_equations";
-	static $EQUIVALENT_SET = "equivalent_set";
 	static $EQUIVALENT_FUNCTION = "equivalent_function";
+	static $EQUIVALENT_ALL = "equivalent_all";
 	static $PARAM_ORDER_MATTERS = "ordermatters";
 	static $PARAM_REPETITION_MATTERS = "repetitionmatters";
 	static $CHECK_INTEGER_FORM = "check_integer_form";
@@ -253,6 +277,7 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 	static $CHECK_UNIT_LITERAL = "check_unit_literal";
 	static $CHECK_NO_MORE_DECIMALS = "check_no_more_decimals";
 	static $CHECK_NO_MORE_DIGITS = "check_no_more_digits";
+	static $EQUIVALENT_SET = "equivalent_set";
 	static $syntactic;
 	static $equivalent;
 	static $structure;
@@ -349,8 +374,8 @@ class com_wiris_quizzes_impl_Assertion extends com_wiris_util_xml_SerializableIm
 	}
 	function __toString() { return 'com.wiris.quizzes.impl.Assertion'; }
 }
-com_wiris_quizzes_impl_Assertion::$syntactic = new _hx_array(array(com_wiris_quizzes_impl_Assertion::$SYNTAX_EXPRESSION, com_wiris_quizzes_impl_Assertion::$SYNTAX_QUANTITY));
-com_wiris_quizzes_impl_Assertion::$equivalent = new _hx_array(array(com_wiris_quizzes_impl_Assertion::$EQUIVALENT_SYMBOLIC, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_LITERAL, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_EQUATIONS, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_FUNCTION));
+com_wiris_quizzes_impl_Assertion::$syntactic = new _hx_array(array(com_wiris_quizzes_impl_Assertion::$SYNTAX_EXPRESSION, com_wiris_quizzes_impl_Assertion::$SYNTAX_QUANTITY, com_wiris_quizzes_impl_Assertion::$SYNTAX_STRING));
+com_wiris_quizzes_impl_Assertion::$equivalent = new _hx_array(array(com_wiris_quizzes_impl_Assertion::$EQUIVALENT_LITERAL, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_SYMBOLIC, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_EQUATIONS, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_ALL, com_wiris_quizzes_impl_Assertion::$EQUIVALENT_FUNCTION));
 com_wiris_quizzes_impl_Assertion::$structure = new _hx_array(array(com_wiris_quizzes_impl_Assertion::$CHECK_INTEGER_FORM, com_wiris_quizzes_impl_Assertion::$CHECK_FRACTION_FORM, com_wiris_quizzes_impl_Assertion::$CHECK_POLYNOMIAL_FORM, com_wiris_quizzes_impl_Assertion::$CHECK_RATIONAL_FUNCTION_FORM, com_wiris_quizzes_impl_Assertion::$CHECK_ELEMENTAL_FUNCTION_FORM, com_wiris_quizzes_impl_Assertion::$CHECK_SCIENTIFIC_NOTATION));
 com_wiris_quizzes_impl_Assertion::$checks = new _hx_array(array(com_wiris_quizzes_impl_Assertion::$CHECK_SIMPLIFIED, com_wiris_quizzes_impl_Assertion::$CHECK_EXPANDED, com_wiris_quizzes_impl_Assertion::$CHECK_FACTORIZED, com_wiris_quizzes_impl_Assertion::$CHECK_NO_COMMON_FACTOR, com_wiris_quizzes_impl_Assertion::$CHECK_DIVISIBLE, com_wiris_quizzes_impl_Assertion::$CHECK_COMMON_DENOMINATOR, com_wiris_quizzes_impl_Assertion::$CHECK_UNIT, com_wiris_quizzes_impl_Assertion::$CHECK_UNIT_LITERAL, com_wiris_quizzes_impl_Assertion::$CHECK_NO_MORE_DECIMALS, com_wiris_quizzes_impl_Assertion::$CHECK_NO_MORE_DIGITS));
 function com_wiris_quizzes_impl_Assertion_0(&$paramvalues) {

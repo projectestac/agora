@@ -1,130 +1,63 @@
+// Define variables needed by core/core.js
+var _wrs_int_conf_file = "integration/loadconfig.php";
+var _wrs_int_conf_async = true;
 var _wrs_baseURL;
 
+// Define _wrs_conf_path (path where configuration is found)
 if (typeof _wrs_isMoodle24 == 'undefined') {
 	_wrs_baseURL = tinymce.baseURL;
+	_wrs_conf_path = _wrs_baseURL + '/plugins/tiny_mce_wiris/'; // TODO use the same variable name always
 }else{
 	var base = tinymce.baseURL;
 	var search = 'lib/editor/tinymce';
 	var pos = base.indexOf(search);
 	_wrs_baseURL = tinymce.baseURL.substr(0, pos + search.length);
+	_wrs_conf_path = _wrs_baseURL + '/plugins/tiny_mce_wiris/tinymce/'; // TODO use the same variable name always
+	_wrs_int_conf_async = false; // For sure!
+}
+
+// Load configuration synchronously
+if (!_wrs_int_conf_async) {
+	var httpRequest = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest():new ActiveXObject('Microsoft.XMLHTTP');
+	var configUrl = (_wrs_int_conf_file.indexOf('/')==0 || _wrs_int_conf_file.indexOf('http') == 0) ? _wrs_int_conf_file : _wrs_conf_path + '/' + _wrs_int_conf_file;
+	httpRequest.open('GET', configUrl, false);
+	httpRequest.send(null);
+	eval(httpRequest.responseText);
 }
 
 /* Including core.js */
-tinymce.ScriptLoader.load(_wrs_baseURL + '/plugins/tiny_mce_wiris/core/core.js');
-while (tinymce.ScriptLoader.isDone(_wrs_baseURL + '/plugins/tiny_mce_wiris/core/core.js'));
+tinymce.ScriptLoader.load(_wrs_conf_path + 'core/core.js');
 
-/* Configuration */
-var _wrs_conf_editorEnabled = true;		// Specifies if fomula editor is enabled.
-var _wrs_conf_CASEnabled = true;		// Specifies if WIRIS cas is enabled.
-
-var _wrs_conf_imageMathmlAttribute = 'data-mathml';	// Specifies the image tag where we should save the formula editor mathml code.
-var _wrs_conf_CASMathmlAttribute = 'alt';	// Specifies the image tag where we should save the WIRIS cas mathml code.
-
-var _wrs_conf_editorPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/editor.php';				// Specifies where is the editor HTML code (for popup window).
-var _wrs_conf_editorAttributes = 'width=570, height=450, scroll=no, resizable=yes';							// Specifies formula editor window options.
-var _wrs_conf_CASPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/cas.php';					// Specifies where is the WIRIS cas HTML code (for popup window).
-var _wrs_conf_CASAttributes = 'width=640, height=480, scroll=no, resizable=yes';										// Specifies WIRIS cas window options.
-
-var _wrs_conf_createimagePath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/createimage.php';			// Specifies where is the createimage script.
-var _wrs_conf_createcasimagePath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/createcasimage.php';		// Specifies where is the createcasimage script.
-
-var _wrs_conf_getmathmlPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/getmathml.php';			// Specifies where is the getmathml script.
-var _wrs_conf_servicePath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/service.php';				// Specifies where is the service script.
-var _wrs_conf_getconfigPath = _wrs_baseURL + '/plugins/tiny_mce_wiris/integration/getconfig.php';			// Specifies from where it returns the configuration using AJAX
-
-var _wrs_conf_saveMode = 'safeXml';					// This value can be 'tags', 'xml' or 'safeXml'.
-var _wrs_conf_parseModes = ['latex'];				// This value can contain 'latex'.
-var _wrs_conf_defaultEditMode = 'images';				// This value can be 'images', 'latex' or 'iframes'.
-
-var _wrs_conf_enableAccessibility = true;
-
-var _wrs_conf_pluginBasePath = _wrs_baseURL + '/plugins/tiny_mce_wiris';
+var _wrs_conf_pluginBasePath = _wrs_conf_path; // _wrs_baseURL + '/plugins/tiny_mce_wiris';
 
 /* Vars */
-var _wrs_int_editorIcon = _wrs_baseURL + '/plugins/tiny_mce_wiris/core/icons/tiny_mce/formula.gif';
-var _wrs_int_CASIcon = _wrs_baseURL + '/plugins/tiny_mce_wiris/core/icons/tiny_mce/cas.gif';
+var _wrs_int_editorIcon = _wrs_conf_path + 'core/icons/tiny_mce/formula.gif';
+var _wrs_int_CASIcon = _wrs_conf_path + 'core/icons/tiny_mce/cas.gif';
 var _wrs_int_temporalIframe;
+var _wrs_int_temporalElementIsIframe;
 var _wrs_int_window;
 var _wrs_int_window_opened = false;
 var _wrs_int_temporalImageResizing;
 var _wrs_int_wirisProperties;
 var _wrs_int_directionality; 
 
-/* Configuration loading */
-var configuration = {};
-
-if (_wrs_conf_getconfigPath.substr(_wrs_conf_getconfigPath.length - 4) == '.php') {
-	var httpRequest;
-
-	if (typeof XMLHttpRequest != 'undefined') {
-		if (navigator.appName == 'Microsoft Internet Explorer' && navigator.appVersion.indexOf('MSIE 8.0') != -1) {
-			try {
-				httpRequest = new ActiveXObject('Msxml2.XMLHTTP');
-			}
-			catch (e) {
-				try {
-					httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
-				}
-				catch (oc) {
-				}
-			}
-		}else{
-			httpRequest = new XMLHttpRequest();
-		}
-	}
-	else {
-		try {
-			httpRequest = new ActiveXObject('Msxml2.XMLHTTP');
-		}
-		catch (e) {
-			try {
-				httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
-			}
-			catch (oc) {
-			}
-		}
-	}
-
-	if (_wrs_conf_getconfigPath.substr(0, 1) == '/' || _wrs_conf_getconfigPath.substr(0, 7) == 'http://' || _wrs_conf_getconfigPath.substr(0, 8) == 'https://') {
-		httpRequest.open('GET', _wrs_conf_getconfigPath, false);
-	}
-	else {
-		httpRequest.open('GET', _wrs_currentPath + _wrs_conf_getconfigPath, false);
-	}
-	
-	httpRequest.send(null);
-
-	try {
-		configuration = eval('(' + httpRequest.responseText + ')');
-	}
-	catch (e) {
-	}
-}
-
-if ('wirisformulaeditoractive' in configuration) {
-	_wrs_conf_editorEnabled = (configuration.wirisformulaeditoractive == true);
-}
-if ('wiriscasactive' in configuration) {
-	_wrs_conf_CASEnabled = (configuration.wiriscasactive == true);
-}
-
 /* Plugin integration */
 (function () {
 	tinymce.create('tinymce.plugins.tiny_mce_wiris', {
 		init: function (editor, url) {
-			var iframe;
+			var element;
 			
 			//Fix a Moodle 2.4 bug. data-mathml was lost without this.
 			if (typeof _wrs_isMoodle24 !== 'undefined' && _wrs_isMoodle24){
-				editor.settings.extended_valid_elements += ',img[*]';    
+				editor.settings.extended_valid_elements += ',img[*]';
 			}
 			
-			editor.onInit.add(function (editor) {
+			var onInit = function (editor) {
 				var editorElement = editor.getElement();
 				var content = ('value' in editorElement) ? editorElement.value : editorElement.innerHTML;
 				
 				function whenDocReady() {
-					if (window.wrs_initParse) {
+					if (window.wrs_initParse && typeof _wrs_conf_plugin_loaded != 'undefined') {
 						var language = editor.getParam('language');
 						_wrs_int_directionality = editor.getParam('directionality');
 				
@@ -132,30 +65,25 @@ if ('wiriscasactive' in configuration) {
 							language = editor.settings['wirisformulaeditorlang'];
 						}
 						
-						if (configuration.wirisparselatex == false) {
-							var pos = wrs_arrayContains(_wrs_conf_parseModes, 'latex');
-							if (pos != -1){
-								_wrs_conf_parseModes.splice(pos, 1);
-							}
-						}else if (configuration.wirisparselatex == true) {
-							var pos = wrs_arrayContains(_wrs_conf_parseModes, 'latex');
-							if (pos == -1){
-								_wrs_conf_parseModes.push('latex');
-							}
-						}		
-				
 						//Bug fix: In Moodle2.x when TinyMCE is set to full screen 
 						//the content doesn't need to be filtered.
 						if (!editor.getParam('fullscreen_is_enabled')){
 							editor.setContent(wrs_initParse(content, language));
 						}
 
-						iframe = editor.getContentAreaContainer().firstChild;
-						wrs_initParseImgToIframes(iframe.contentWindow);
-						
-						wrs_addIframeEvents(iframe, function (iframe, element) {
-							wrs_int_doubleClickHandler(editor, iframe, element);
+						if (!editor.inline) {
+							element = editor.getContentAreaContainer().firstChild;
+							wrs_initParseImgToIframes(element.contentWindow);
+							wrs_addIframeEvents(element, function (iframe, element) {
+							wrs_int_doubleClickHandler(editor, iframe, true, element);
 						}, wrs_int_mousedownHandler, wrs_int_mouseupHandler);
+						} else { // Inline
+							element = editorElement;
+							wrs_addElementEvents(element, function (div, element) {
+							wrs_int_doubleClickHandler(editor, div, false, element);
+						},  wrs_int_mousedownHandler, wrs_int_mouseupHandler);
+						}
+
 					}
 					else {
 						setTimeout(whenDocReady, 50);
@@ -163,9 +91,18 @@ if ('wiriscasactive' in configuration) {
 				}
 				
 				whenDocReady();
-			});
+			}
 			
-			editor.onSaveContent.add(function (editor, params) {
+			if ('onInit' in editor) {
+				editor.onInit.add(onInit);
+			}
+			else {
+				editor.on('init', function () {
+					onInit(editor);
+				});
+			}
+			
+			var onSave = function (editor, params) {
 				_wrs_int_wirisProperties = {
 					'bgColor': editor.settings['wirisimagebgcolor'],
 					'symbolColor': editor.settings['wirisimagesymbolcolor'],
@@ -187,10 +124,18 @@ if ('wiriscasactive' in configuration) {
 				}
 				
 				params.content = wrs_endParse(params.content, _wrs_int_wirisProperties, language);
-			});
+			}
 			
+			if ('onSaveContent' in editor) {
+				editor.onSaveContent.add(onSave);
+			}
+			else {
+				editor.on('saveContent', function (params) {
+					onSave(editor, params);
+				});
+			}
 			
-			if (_wrs_conf_editorEnabled) {
+			if (_wrs_int_conf_async || _wrs_conf_editorEnabled) {
 				editor.addCommand('tiny_mce_wiris_openFormulaEditor', function () {
 					_wrs_int_wirisProperties = {
 						'bgColor': editor.settings['wirisimagebgcolor'],
@@ -212,7 +157,7 @@ if ('wiriscasactive' in configuration) {
 						language = editor.settings['wirisformulaeditorlang'];
 					}
 					
-					wrs_int_openNewFormulaEditor(iframe, language);
+					wrs_int_openNewFormulaEditor(element, language, editor.inline ? false : true);
 				});
 			
 				editor.addButton('tiny_mce_wiris_formulaEditor', {
@@ -221,8 +166,8 @@ if ('wiriscasactive' in configuration) {
 					image: _wrs_int_editorIcon
 				});
 			}
-			
-			if (_wrs_conf_CASEnabled) {
+
+			if (_wrs_int_conf_async || _wrs_conf_CASEnabled) {
 				editor.addCommand('tiny_mce_wiris_openCAS', function () {
 					var language = editor.settings.language;
 				
@@ -230,7 +175,7 @@ if ('wiriscasactive' in configuration) {
 						language = editor.settings['wirisformulaeditorlang'];
 					}
 					
-					wrs_int_openNewCAS(iframe, language);
+					wrs_int_openNewCAS(element, language, editor.inline ? false : true);
 				});
 			
 				editor.addButton('tiny_mce_wiris_CAS', {
@@ -245,9 +190,9 @@ if ('wiriscasactive' in configuration) {
 		getInfo: function () {
 			return {
 				longname : 'tiny_mce_wiris',
-				author : 'Juan Lao Tebar - Maths for More',
+				author : 'Maths for More',
 				authorurl : 'http://www.wiris.com',
-				infourl : 'http://www.mathsformore.com',
+				infourl : 'http://www.wiris.com',
 				version : '1.0'
 			};
 		}	
@@ -258,43 +203,50 @@ if ('wiriscasactive' in configuration) {
 
 /**
  * Opens formula editor.
- * @param object iframe Target
+ * @param object element Target
+ * @param string language 
+ * @param bool isIframe
  */
-function wrs_int_openNewFormulaEditor(iframe, language) {
+function wrs_int_openNewFormulaEditor(element, language, isIframe) {
 	if (_wrs_int_window_opened) {
 		_wrs_int_window.focus();
 	}
 	else {
 		_wrs_int_window_opened = true;
 		_wrs_isNewElement = true;
-		_wrs_int_temporalIframe = iframe;
-		_wrs_int_window = wrs_openEditorWindow(language, iframe, true);
+		_wrs_int_temporalIframe = element;
+		_wrs_int_temporalElementIsIframe = isIframe;
+		_wrs_int_window = wrs_openEditorWindow(language, element, isIframe);
 	}
 }
 
 /**
  * Opens CAS.
- * @param object iframe Target
+ * @param object element Target
  * @param string language
+ * @param bool isIframe
  */
-function wrs_int_openNewCAS(iframe, language) {
+function wrs_int_openNewCAS(element, language, isIframe) {
 	if (_wrs_int_window_opened) {
 		_wrs_int_window.focus();
 	}
 	else {
 		_wrs_int_window_opened = true;
 		_wrs_isNewElement = true;
-		_wrs_int_temporalIframe = iframe;
-		_wrs_int_window = wrs_openCASWindow(iframe, true, language);
+		_wrs_int_temporalIframe = element;
+		_wrs_int_temporalElementIsIframe = isIframe;
+		_wrs_int_window = wrs_openCASWindow(element, isIframe, language);
 	}
 }
 
 /**
- * Handles a double click on the iframe.
- * @param object iframe Target
+ * Handles a double click on the target.
+ * @param object editor tinymce active editor
+ * @param object target Target
  * @param object element Element double clicked
+ * @param bool isIframe target is an iframe or not
  */
-function wrs_int_doubleClickHandler(editor, iframe, element) {
+function wrs_int_doubleClickHandler(editor, target, isIframe, element) {
 	// This loop allows the double clicking on the formulas represented with span's.
 	
 	while (!wrs_containsClass(element, 'Wirisformula') && !wrs_containsClass(element, 'Wiriscas') && element.parentNode) {
@@ -326,7 +278,7 @@ function wrs_int_doubleClickHandler(editor, iframe, element) {
 				}
 				
 				_wrs_temporalImage = element;
-				wrs_int_openExistingFormulaEditor(iframe, language);
+				wrs_int_openExistingFormulaEditor(target, isIframe, language);
 			}
 			else {
 				_wrs_int_window.focus();
@@ -341,7 +293,7 @@ function wrs_int_doubleClickHandler(editor, iframe, element) {
 				}
 				
 				_wrs_temporalImage = element;
-				wrs_int_openExistingCAS(iframe, language);
+				wrs_int_openExistingCAS(target, isIframe, language);
 			}
 			else {
 				_wrs_int_window.focus();
@@ -352,25 +304,29 @@ function wrs_int_doubleClickHandler(editor, iframe, element) {
 
 /**
  * Opens formula editor to edit an existing formula.
- * @param object iframe Target
+ * @param object element Target
+ * @param bool isIframe
  */
-function wrs_int_openExistingFormulaEditor(iframe, language) {
+function wrs_int_openExistingFormulaEditor(element, isIframe, language) {
 	_wrs_int_window_opened = true;
 	_wrs_isNewElement = false;
-	_wrs_int_temporalIframe = iframe;
-	_wrs_int_window = wrs_openEditorWindow(language, iframe, true);
+	_wrs_int_temporalIframe = element;
+	_wrs_int_temporalElementIsIframe = isIframe;
+	_wrs_int_window = wrs_openEditorWindow(language, element, isIframe);
 }
 
 /**
  * Opens CAS to edit an existing formula.
- * @param object iframe Target
- * @parma string language
+ * @param object element Target
+ * @param bool isIframe
+ * @param string language
  */
-function wrs_int_openExistingCAS(iframe, language) {
+function wrs_int_openExistingCAS(element, isIframe, language) {
 	_wrs_int_window_opened = true;
 	_wrs_isNewElement = false;
-	_wrs_int_temporalIframe = iframe;
-	_wrs_int_window = wrs_openCASWindow(iframe, true, language);
+	_wrs_int_temporalIframe = element;
+	_wrs_int_temporalElementIsIframe = isIframe;
+	_wrs_int_window = wrs_openCASWindow(element, isIframe, language);
 }
 
 /**
@@ -392,9 +348,7 @@ function wrs_int_mousedownHandler(iframe, element) {
 function wrs_int_mouseupHandler() {
 	if (_wrs_int_temporalImageResizing) {
 		setTimeout(function () {
-			_wrs_int_temporalImageResizing.removeAttribute('style');
-			_wrs_int_temporalImageResizing.removeAttribute('width');
-			_wrs_int_temporalImageResizing.removeAttribute('height');
+			wrs_fixAfterResize(_wrs_int_temporalImageResizing);
 		}, 10);
 	}
 }
@@ -404,7 +358,12 @@ function wrs_int_mouseupHandler() {
  * @param string mathml
  */
 function wrs_int_updateFormula(mathml, editMode, language) {
-	wrs_updateFormula(_wrs_int_temporalIframe.contentWindow, _wrs_int_temporalIframe.contentWindow, mathml, _wrs_int_wirisProperties, editMode, language);
+	if (_wrs_int_temporalElementIsIframe) {
+		wrs_updateFormula(_wrs_int_temporalIframe.contentWindow, _wrs_int_temporalIframe.contentWindow, mathml, _wrs_int_wirisProperties, editMode, language);
+	}
+	else {
+		wrs_updateFormula(_wrs_int_temporalIframe, window, mathml, _wrs_int_wirisProperties, editMode, language);
+	}
 }
 
 /**
@@ -415,7 +374,11 @@ function wrs_int_updateFormula(mathml, editMode, language) {
  * @param int height
  */
 function wrs_int_updateCAS(appletCode, image, width, height) {
-	wrs_updateCAS(_wrs_int_temporalIframe.contentWindow, _wrs_int_temporalIframe.contentWindow, appletCode, image, width, height);
+	if (_wrs_int_temporalElementIsIframe) {
+		wrs_updateCAS(_wrs_int_temporalIframe.contentWindow, _wrs_int_temporalIframe.contentWindow, appletCode, image, width, height);
+	} else {
+		wrs_updateCAS(_wrs_int_temporalIframe, window, appletCode, image, width, height);
+	}
 }
 
 /**

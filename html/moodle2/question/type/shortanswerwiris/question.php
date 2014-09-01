@@ -55,8 +55,8 @@ class qtype_shortanswerwiris_question extends qtype_wq_question implements quest
             if(!empty($grade)) {
                 $fraction = $fraction * $grade;
             }
-            return array($fraction,
-                    question_state::graded_state_for_fraction($answer->fraction));
+            $state = question_state::graded_state_for_fraction($fraction);
+            return array($fraction, $state);
         } else if($this->step->is_error()) {
             // Do not grade and tell teacher to do so...
             return array(null, question_state::$needsgrading);

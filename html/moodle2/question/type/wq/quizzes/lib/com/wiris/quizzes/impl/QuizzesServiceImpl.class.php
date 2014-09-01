@@ -28,7 +28,7 @@ class com_wiris_quizzes_impl_QuizzesServiceImpl implements com_wiris_quizzes_api
 				$_g1 = 0; $_g = $mqr->questionRequests->length;
 				while($_g1 < $_g) {
 					$j1 = $_g1++;
-					_hx_array_get($mqr->questionRequests, $j1)->processes->push(new com_wiris_quizzes_impl_ProcessStoreQuestion());
+					_hx_array_get($mqr->questionRequests, $j1)->addProcess(new com_wiris_quizzes_impl_ProcessStoreQuestion());
 					unset($j1);
 				}
 			}

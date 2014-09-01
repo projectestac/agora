@@ -1,6 +1,7 @@
 <?php
 
 interface com_wiris_quizzes_api_QuestionInstance extends com_wiris_quizzes_api_Serializable{
+	function areVariablesReady();
 	function getAssertionChecks($correctAnswer, $studentAnswer);
 	function getStudentAnswer($index);
 	function setStudentAnswer($index, $answer);

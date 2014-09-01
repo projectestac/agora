@@ -9,6 +9,24 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		$this->variables = null;
 		$this->checks = null;
 	}}
+	public function areVariablesReady() {
+		if($this->variables !== null) {
+			if($this->variables->exists(com_wiris_quizzes_impl_MathContent::$TYPE_IMAGE_REF)) {
+				$images = $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_IMAGE_REF);
+				$names = $images->keys();
+				while($names->hasNext()) {
+					$filename = $images->get($names->next());
+					$path = com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$CACHE_DIR) . "/" . $filename;
+					$s = com_wiris_system_Storage::newStorage($path);
+					if(!$s->exists()) {
+						return false;
+					}
+					unset($s,$path,$filename);
+				}
+			}
+		}
+		return true;
+	}
 	public function getAssertionChecks($correctAnswer, $studentAnswer) {
 		if($this->checks !== null) {
 			$answerChecks = $this->checks->get("" . _hx_string_rec($studentAnswer, ""));
@@ -508,22 +526,7 @@ class com_wiris_quizzes_impl_QuestionInstanceImpl extends com_wiris_util_xml_Ser
 		return $correct;
 	}
 	public function isCacheReady() {
-		if($this->variables !== null) {
-			if($this->variables->exists(com_wiris_quizzes_impl_MathContent::$TYPE_IMAGE_REF)) {
-				$images = $this->variables->get(com_wiris_quizzes_impl_MathContent::$TYPE_IMAGE_REF);
-				$names = $images->keys();
-				while($names->hasNext()) {
-					$filename = $images->get($names->next());
-					$path = com_wiris_quizzes_impl_QuizzesBuilderImpl::getInstance()->getConfiguration()->get(com_wiris_quizzes_api_ConfigurationKeys::$CACHE_DIR) . "/" . $filename;
-					$s = com_wiris_system_Storage::newStorage($path);
-					if(!$s->exists()) {
-						return false;
-					}
-					unset($s,$path,$filename);
-				}
-			}
-		}
-		return true;
+		return $this->areVariablesReady();
 	}
 	public function hasEvaluation() {
 		return $this->checks !== null && $this->checks->keys()->hasNext();

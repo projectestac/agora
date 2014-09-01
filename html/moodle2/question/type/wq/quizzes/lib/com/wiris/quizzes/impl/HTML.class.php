@@ -6,6 +6,15 @@ class com_wiris_quizzes_impl_HTML {
 		$this->s = new StringBuf();
 		$this->tags = new _hx_array(array());
 	}}
+	public function openTd($className) {
+		$this->open("td", new _hx_array(array(new _hx_array(array("class", $className)))));
+	}
+	public function openTr() {
+		$this->open("tr", null);
+	}
+	public function openTable($id, $className) {
+		$this->open("table", new _hx_array(array(new _hx_array(array("id", $id)), new _hx_array(array("class", $className)))));
+	}
 	public function jsComponent($id, $className, $arg) {
 		$this->input("hidden", $id, null, $arg, null, "wirisjscomponent " . $className);
 	}
@@ -80,6 +89,9 @@ class com_wiris_quizzes_impl_HTML {
 		$this->open("label", new _hx_array(array(new _hx_array(array("for", $id)), new _hx_array(array("class", $className)))));
 		$this->text($text);
 		$this->close();
+	}
+	public function openLiClass($className) {
+		$this->open("li", new _hx_array(array(new _hx_array(array("class", $className)))));
 	}
 	public function openLi() {
 		$this->open("li", new _hx_array(array()));

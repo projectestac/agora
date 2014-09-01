@@ -8,6 +8,7 @@ $string['shortanswerwiris_addanswers'] = 'Leerfeld für eine weitere Auswahlmög
 $string['shortanswerwiris_answersinstruct'] = 'Sie müssen mindestens eine richtige Antwort angeben. Ausgelassene Antworten werden nicht verwendet. Die erste übereinstimmende Antwort wird zur Bestimmung der Punktzahl und des Feedbacks verwendet.';
 $string['shortanswerwiris_algorithm'] = 'Algorithmus';
 $string['shortanswerwiris_cantimportcompoundtest'] = 'Die Kurzantwort-Frage zu Mathematik und Naturwissenschaften konnte nicht korrekt aus dem Moodle-1.9-Format importiert werden. Die Frage kann manuell repariert werden. Befolgen Sie dazu die Anweisungen unter <a href="http://www.wiris.com/quizzes/docs/moodle/manual/compound-answer#upgrade">http://www.wiris.com/quizzes/docs/moodle/manual/compound-answer#upgrade</a>.';
+$string['filloutoneanswer'] = 'You must provide at least one possible answer. The first matching answer will be used to determine the score and feedback. Click the icon next to the answer field to edit the mathematical properties of the answer and the question.';
 
 //From Moodle 2.3
 $string['pluginname'] = 'Kurzantwort-Fragen – Mathematik und Naturwissenschaften';
