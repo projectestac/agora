@@ -201,6 +201,8 @@ echo $OUTPUT->doctype() ?>
     <div class="footerlogos clearfix container-fluid">
         <a href="http://agora.xtec.cat" target="_blank"><img src="<?php echo $OUTPUT->pix_url('logo_main', 'theme'); ?>" alt="" title="" /></a>
         <a href="http://moodle.org" target="_blank"><img src="<?php echo $OUTPUT->pix_url('logo_moodle', 'theme'); ?>" alt="Moodle" title="Moodle" /></a>
+        <a href="http://www20.gencat.cat/portal/site/ensenyament" class="brand ensenyament visible-phone"><img src="<?php echo $OUTPUT->pix_url('departament', 'theme'); ?>" alt="" title="" /></a>
+        <a href="http://www.xtec.cat" class="brand xtec visible-phone"><img src="<?php echo $OUTPUT->pix_url('xtec', 'theme'); ?>" alt="" title="" /></a>
     </div>
 </footer>
 

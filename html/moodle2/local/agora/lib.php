@@ -267,7 +267,7 @@ function agora_course_print_navlinks($course, $section = 0){
 
 function local_agora_extends_navigation(global_navigation $navigation){
     global $DB, $CFG;
-    if (isloggedin() && is_service_enabled('nodes') && $DB->get_record('oauth_clients', array('client_id'=>'nodes'))) {
+    if (isloggedin() && is_service_enabled('nodes') && $DB->record_exists('oauth_clients', array('client_id'=>'nodes'))) {
         $nodes_url = $CFG->wwwroot.'/local/agora/login_service?service=nodes';
         $navigation->add(get_string('login_nodes','local_agora'), $nodes_url, navigation_node::TYPE_SETTING, null, get_string('login_nodes','local_agora'));
         //$message->icon = 'i/email';
