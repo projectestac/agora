@@ -67,12 +67,22 @@ function auth_googleoauth2_display_buttons() {
     echo "<div style=\"width:'1%'\">";
     $displayprovider = ((empty($authprovider) || $authprovider == 'google' || $allauthproviders) && get_config('auth/googleoauth2', 'googleclientid'));
     $providerdisplaystyle = $displayprovider?'display:inline-block;padding:10px;':'display:none;';
+    //XTEC ************ MODIFICAT - To make Google Auth2 translatable
+    //2014.09.01 @pferre22
     echo '<div class="singinprovider" style="' . $providerdisplaystyle .'">
+            <a class="zocial googleplus" href="https://accounts.google.com/o/oauth2/auth?client_id='.
+              get_config('auth/googleoauth2', 'googleclientid') .'&redirect_uri='.$CFG->wwwroot .'/auth/googleoauth2/google_redirect.php&scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&response_type=code">
+                '.get_string('signin_google','local_agora', 'Google').'
+            </a>
+        </div>';
+    //******* CODI ORIGINAL
+    /*echo '<div class="singinprovider" style="' . $providerdisplaystyle .'">
             <a class="zocial googleplus" href="https://accounts.google.com/o/oauth2/auth?client_id='.
               get_config('auth/googleoauth2', 'googleclientid') .'&redirect_uri='.$CFG->wwwroot .'/auth/googleoauth2/google_redirect.php&scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&response_type=code">
                 Sign-in with Google
             </a>
-        </div>';
+        </div>';*/
+    //************ FI
 
      $displayprovider = ((empty($authprovider) || $authprovider == 'facebook' || $allauthproviders) && get_config('auth/googleoauth2', 'facebookclientid'));
      $providerdisplaystyle = $displayprovider?'display:inline-block;padding:10px;':'display:none;';

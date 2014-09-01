@@ -92,7 +92,7 @@ if($CFG->iseoi){
 }
 
 // Only allow some of the languages
-if($CFG->iseoi){
+if(!$CFG->iseoi){
 	$CFG->langlist = 'ca,en,es,fr,de';
 }
 

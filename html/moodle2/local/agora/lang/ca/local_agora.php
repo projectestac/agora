@@ -31,3 +31,6 @@ $string['years_ago'] = 'fa {$a} anys';
 $string['agora_scripts'] = 'Àgora Scripts';
 
 $string['login_nodes'] = 'Entra a Nodes';
+
+$string['signin_google'] = 'Entra amb {$a}';
+
