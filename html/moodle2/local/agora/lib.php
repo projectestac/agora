@@ -242,16 +242,18 @@ function agora_course_print_navlinks($course, $section = 0){
     echo '<div class="agora_navbar">';
     //Show reports
     $reportavailable = false;
-    if (has_capability('moodle/grade:viewall', $context)) {
-        $reportavailable = true;
-    } else if (!empty($course->showgrades)) {
-        if ($reports = core_component::get_plugin_list('gradereport')) {     // Get all installed reports
-            arsort($reports); // user is last, we want to test it first
-            foreach ($reports as $plugin => $pluginname) {
-                if (has_capability('gradereport/' . $plugin . ':view', $context)) {
-                    //stop when the first visible plugin is found
-                    $reportavailable = true;
-                    break;
+    if(!empty($course->showgrades)){
+        if (has_capability('moodle/grade:viewall', $context)) {
+            $reportavailable = true;
+        } else {
+            if ($reports = core_component::get_plugin_list('gradereport')) {     // Get all installed reports
+                arsort($reports); // user is last, we want to test it first
+                foreach ($reports as $plugin => $pluginname) {
+                    if (has_capability('gradereport/' . $plugin . ':view', $context)) {
+                        //stop when the first visible plugin is found
+                        $reportavailable = true;
+                        break;
+                    }
                 }
             }
         }
