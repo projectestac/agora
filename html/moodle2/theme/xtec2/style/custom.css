@@ -208,8 +208,10 @@ a {
     text-align: center;
 }
 
-#page-footer-top .social-icons{
-	text-align: left;
+@media (min-width: 767px){
+	#page-footer-top .social-icons{
+		text-align: left;
+	}
 }
 
 #page-footer-top .social-icons img,

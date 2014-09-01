@@ -140,7 +140,7 @@ echo $OUTPUT->doctype() ?>
             </div>
         <?php } ?>
         <?php if($showhidebutton) { ?>
-            <div id="showhideblocks" class="pull-right collapsed" title="<?php echo get_string('showhideblocks','theme_xtec2');?>" onclick="showhideblocks();"></div>
+            <div id="showhideblocks" class="hidden-phone pull-right collapsed" title="<?php echo get_string('showhideblocks','theme_xtec2');?>" onclick="showhideblocks();"></div>
         <?php } ?>
         <?php if($hasmainmenu) { ?>
             <div id="main_menu" class="pull-right">
