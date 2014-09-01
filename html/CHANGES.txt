@@ -12,6 +12,8 @@ MOODLE2:
 - Deleted foreground color over navigation chooser to avoid accessibility problems
 - Now text colors must have a correct luminancy to avoid accessibility problems
 - New footer settings to put social icons and links
+- Added brand icons to footer for mobile layout
+- Improved Xtec2 styles
 
 WORDPRESS
 - Removed exray theme
