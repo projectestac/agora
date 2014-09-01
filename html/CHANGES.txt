@@ -14,6 +14,7 @@ MOODLE2:
 - New footer settings to put social icons and links
 - Added brand icons to footer for mobile layout
 - Improved Xtec2 styles
+- Updated Wiris Quizzes and Wiris
 
 WORDPRESS
 - Removed exray theme
