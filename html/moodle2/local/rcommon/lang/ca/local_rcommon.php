@@ -1,6 +1,12 @@
 <?php
 $string['pluginname'] ='Recursos remots';
 
+$string['rcommon:authenticate'] = 'Autentica contingut Marsupial';
+$string['rcommon:exportcredentials'] = 'Exporta credencials de Marsupial';
+$string['rcommon:importcredentials'] = 'Importa credencials de Marsupial';
+$string['rcommon:managecredentials'] = 'Gestiona credencials de Marsupial';
+$string['rcommon:managepublishers'] = 'Gestiona proveïdors de Marsupial';
+
 $string['addnewpublisher'] = 'Afegeix nou proveïdor';
 $string['centernotfound'] = 'Codi de centre (CFG->center) no trobat al fitxer de configuració (config.php)';
 $string['code'] = 'Codi';

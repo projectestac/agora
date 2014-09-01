@@ -1,6 +1,12 @@
 <?php
 $string['pluginname'] ='Remote resources';
 
+$string['rcommon:authenticate'] = 'Marsupial content authentication';
+$string['rcommon:exportcredentials'] = 'Export Marsupial credentials';
+$string['rcommon:importcredentials'] = 'Import Marsupial credentials';
+$string['rcommon:managecredentials'] = 'Manage Marsupial creadentials';
+$string['rcommon:managepublishers'] = 'Manage Marsupial publishers';
+
 $string['addnewpublisher'] = 'Add new publisher';
 $string['centernotfound'] = 'Code center (CFG->center) not found in config.php';
 $string['code'] = 'Code';
