@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'ca', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'ca', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,13 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['certificate:manage'] = 'Gestiona certificat';
 $string['certificatename'] = 'Nom del certificat';
 $string['certificatereport'] = 'Informe de certificats';
 $string['certificatesfor'] = 'Certificats per';
-$string['certificate:student'] = 'Obté certificat';
 $string['certificatetype'] = 'Tipus de certificat';
-$string['certificate:view'] = 'Visualitza el certificat';
 $string['certify'] = 'Aquest document certifica que';
 $string['completiondate'] = 'Compleció del curs';
 $string['statement'] = 'ha completat el curs';

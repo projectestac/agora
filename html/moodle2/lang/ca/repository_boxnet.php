@@ -26,14 +26,18 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['apikey'] = 'Clau d\'API';
-$string['boxnet:view'] = 'Mostra el repositori box.net';
-$string['configplugin'] = 'Configuració de box.net';
-$string['information'] = 'Obteniu una API de la <a href="http://www.box.net/developers/services">pàgina de desenvolupadors de Box.net</a> per al vostre lloc Moodle.';
+$string['apiv1migration_message_content'] = 'El connector de repositori Box s\'ha deshabiitat en les actualitzacions més recents de Moodle (2.6, 2.5.3, 2.4.7). Per tal de tornar-lo a habilitar cal que el reconfigureu com s\'explica a la documentació {$a->docsurl}.';
+$string['apiv1migration_message_small'] = 'Aquest connector s\'ha deshabilitat perquè requereix configuració, tal i com es descriu a la documentació de la migració Box APIv1.';
+$string['boxnet:view'] = 'Mostra el repositori BOX';
+$string['configplugin'] = 'Configuració de Box';
+$string['filesourceinfo'] = 'Box ({$a->fullname}): {$a->filename}';
+$string['information'] = 'Obteniu un ID de client i una clau de la <a href="http://www.box.net/developers/services">pàgina de desenvolupadors de Box</a> per al vostre lloc Moodle.';
 $string['invalidpassword'] = 'Contrasenya no vàlida';
 $string['nullfilelist'] = 'No hi ha fitxers en aquest repositori';
 $string['password'] = 'Contrasenya';
-$string['pluginname'] = 'Box.net';
-$string['pluginname_help'] = 'Repositori de Box.net';
-$string['saved'] = 'S\'han desat les dades de box.net';
+$string['pluginname'] = 'Box';
+$string['pluginname_help'] = 'Repositori a Box';
+$string['runthemigrationnow'] = 'Executeu ara l\'eina de migració';
+$string['saved'] = 'S\'han desat les dades de Box';
 $string['shareurl'] = 'Comparteix URL';
-$string['username'] = 'Nom d\'usuari per a Box.net';
+$string['username'] = 'Nom d\'usuari de Box';
