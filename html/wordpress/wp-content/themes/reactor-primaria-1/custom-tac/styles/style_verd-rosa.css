@@ -1,0 +1,84 @@
+
+body {
+    /*background-color: #a4d3df !important;*/
+    
+}
+
+/*
+.card_bgcolor3{
+    background-color: #e4ecec;
+}
+*/
+
+.card_bgcolor1{
+	background-color:#e5e5e5;
+	
+}
+.card_bgcolor2{
+	/*background-color:#efefef;*/
+background-color:#f1f1f1;
+	
+}
+.card_bgcolor3{
+	background-color:#f8f8f8;
+}
+
+.site-logo{
+    display:table !important;
+    background-color:#fc3b56;
+}
+.site-logo-inner{
+    color:white; 
+}
+.site-description-box{
+    background-color:#2ca698;
+}
+.site-description-box-inner{
+    color:white; 
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    color: #1e786e !important;
+}
+
+#icon-11{
+background-color:#2ca698;
+}
+#icon-21{
+background-color:#fc3b56;
+}
+#icon-22{
+    color:#2ca698;
+}
+#icon-23{
+   background-color: #2ca698;
+}
+#icon-13{
+   background-color: #fc3b56;
+}
+
+.entry-comments,
+.entry-categories>a,
+.entry-tags >a {
+    /*color:#56AEC1 !important;*/
+    font-size:0.9em;
+}
+
+.entry-comments:before,
+.entry-categories:before,
+.entry-tags:before{
+    color:#2ca698; 
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font: normal 22px/1 'dashicons';
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+
+.menu-link, .sub-menu-link {
+color: #1e786e !important;
+}
+
+#menu-panel {
+border-bottom: 2px solid #1e786e;
+}

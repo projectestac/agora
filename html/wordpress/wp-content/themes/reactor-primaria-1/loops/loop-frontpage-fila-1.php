@@ -10,8 +10,12 @@
 
 <?php
 
-// Nombre de posts per la primera fila
-$posts_per_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
+global $number_posts;
+global $posts_per_fila1;
+global $layout;
+global $card_colors;
+global $card_bgcolor;
+global $frontpage_query;  
 
 // Array que conté el nombre i tipus de posts (segon amplada)
 $aLayout=array();
@@ -31,36 +35,22 @@ switch ($posts_per_fila1) {
          break;
         default:
 }
+
 $aLayout=array_reverse($aLayout);
 
 if ($posts_per_fila1==33 || $posts_per_fila1==66)
 	$posts_per_fila1=2; 
 
-$number_posts = reactor_option('frontpage_number_posts', 10);
-//$post_columns = reactor_option('frontpage_post_columns', 3);
 $page_links = reactor_option('frontpage_page_links', 0); 
 
-global  $tipus_targeta;
-$tipus_targeta="tarjeta-fixe";
-global $layout;
 $layout=array();
-$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-
-//Preparem la consulta
-$args = array( 
-	'post_type'           => 'post',
-	'posts_per_page'      => $number_posts,
-	'paged'               => $paged );
-			
-global $frontpage_query;  	
-$frontpage_query = new WP_Query( $args ); 		
-			
+		
 if ( $frontpage_query->have_posts() and count($aLayout>0)) : 
 	reactor_loop_before(); 
 	
 	while ( $frontpage_query->have_posts() ) : 
-	
 	 	$layout=array_pop($aLayout); 
+	 	$card_bgcolor=current($card_colors);
     	if (!$layout): 
     		break;
     	else: 		
@@ -70,6 +60,10 @@ if ( $frontpage_query->have_posts() and count($aLayout>0)) :
 			reactor_post_after();
     	endif;
     	
+    	if (!next($card_colors)){
+			reset($card_colors);
+			$card_colors=array_reverse($card_colors);
+    	}
 	endwhile; 
 	
 	reactor_loop_after();

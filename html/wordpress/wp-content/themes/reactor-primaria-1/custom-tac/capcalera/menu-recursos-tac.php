@@ -5,7 +5,7 @@ function add_recursos( $wp_admin_bar ) {
 		'id'     => 'recursosXTEC',     
 		'title'  => '<img src=http://ies-sabadell.cat/nodes/wp-content/uploads/2014/03/xtec4.png>', 
 		'parent' => false,          
-		'meta'=>array('class' =>'ab-top-secondary ab-top-menu')
+		//'meta'=>array('class' =>'ab-top-secondary ab-top-menu')
 	);
 
 	$wp_admin_bar->add_node( $args );

@@ -8,10 +8,16 @@
  */
 ?>
 
-<?php // get the options
-$slider_category = reactor_option('frontpage_slider_category', ''); ?>
 
-<?php get_header(); ?>
+
+<?php // get the options
+
+global $number_posts;
+$number_posts = reactor_option('frontpage_number_posts', 10);
+
+get_header(); 
+
+?>
 
 	<div id="primary" class="site-content">
     
@@ -20,7 +26,7 @@ $slider_category = reactor_option('frontpage_slider_category', ''); ?>
         <div id="content" role="main">
 
         	<div class="row">
-        	<!-- jmeler Barra/s dreta si aplica -->
+        	<!-- Barra dreta si aplica -->
         	<?php 
         		$frontpage_layout = reactor_option('frontpage_layout');
         		
@@ -34,92 +40,59 @@ $slider_category = reactor_option('frontpage_slider_category', ''); ?>
 	        			get_sidebar('frontpage'); 
 	        			break;
 	        		case "2c-r":
+						$columnes=10;
 	        			break;
-	        		case "3c-l":
-	        			get_sidebar('frontpage');
-	        			get_sidebar('frontpage-2');
-						$columnes=6;
-						break;
-	        		case "3c-c":
+					case "3c-c":
 	        			get_sidebar('frontpage'); 
-	        			$columnes=6;
+	        			$columnes=7;
 	        			break;
-	        		case "3c-r":
-	        			$columnes=6;
-	        			break;
-	        		default:
+	    	        default:
 	        			$columnes=9;
 	        		}
         		
         	?>
         	
-			<!-- jmeler Contingut central -->
-
-            	<div id="contingut_central_frontpage" class="<?php reactor_columns($columnes); ?>" > 
-            
-	            <?php reactor_inner_content_before(); ?>
-				
-			<?php // get the page
-				if (  strlen(  trim(get_the_content()) ) > 0)  {
-                		get_template_part('loops/loop', 'page'); 
-				} ?>
-
-			<?php			
-				$number_posts = reactor_option('frontpage_number_posts', 10);
-				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-				$args = array( 
-							'post_type'           => 'post',
-							'posts_per_page'      => $number_posts,
-							'paged'               => $paged );
-						
-				global $frontpage_query;
-		            	
-				$frontpage_query = new WP_Query( $args ); 		
-
-			?>
-
-
-			<div class="row fila1">
-				<?php	// get the row 1, fixed height cards
-				 	get_template_part('loops/loop', 'frontpage-fila-1'); ?>
-			</div>
-						
-			<div class="row fila2">	
-				<?php	// get the row 2, fixed height cards
-					get_template_part('loops/loop', 'frontpage-fila-2'); ?>
-			</div>
+			<!-- Contingut central -->
+			<div id="contingut_central_frontpage" class="<?php reactor_columns($columnes); ?>" > 
 			
-			<!-- jmeler flexible grid (by masonry) -->
-			<div id="graella" class="js-masonry">
+	         	<?php reactor_inner_content_before(); ?>
+					
+				<?php 
+				
+                                    // La pagina principal	
+                                    $pagina=get_post();
+                                    if (strlen(trim($pagina->post_content)))
+                                    get_template_part('loops/loop', 'page'); 
 
-				<!--<div class=tarjeta style="width:1px;"></div>-->
+                                    // Preparem la consulta principal	
 
-				<?php // get the main loop
-				get_template_part('loops/loop', 'frontpage-fila-n'); ?>
+                                    $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+                                    $args = array( 
+                                        'post_type'           => 'post',
+                                        //'cat'                 => reactor_option('frontpage_post_category', '1'), 
+                                        //IMPORTANT: Aixo no permet stickys. Llastima. action associat al functions (categoria_portada())  
+                                        'posts_per_page'      => $number_posts,
+                                        'paged'               => $paged );
 
-			</div> <!-- #graella -->
-	
-	            <?php reactor_inner_content_after(); ?>
-
-            </div><!-- .columns -->
-            
-		<!-- jmeler Barra/s esquerra si aplica -->
-
+                                    global $frontpage_query;   			      	
+                                    $frontpage_query = new WP_Query( $args ); 	
+						
+				?>
+			
+				
+				<?php get_template_part('loops/loop', 'frontpage'); ?>
+				
+		        <?php reactor_inner_content_after(); ?>
+	        
+	    	</div><!-- .columns --><!--Contingut central -->
+		    
+			  
+		<!-- Barra esquerra si aplica -->
 		<?php
-			switch ($frontpage_layout){
-				case "2c-r":
-        			get_sidebar('frontpage'); 
-        			break;
-            			case "3c-c":
-        			get_sidebar('frontpage-2'); 
-        			break;
-        			case "3c-r":
-        			get_sidebar('frontpage');
-        			get_sidebar('frontpage-2');
-        			break;
-        		}
+			
+			(in_array($frontpage_layout,array("2c-r","3c-c"))) ? get_sidebar('frontpage-2'):''; 
         		
-        	?>
+        ?>
 
 		</div><!-- .row -->
         </div><!-- #content -->
@@ -129,5 +102,3 @@ $slider_category = reactor_option('frontpage_slider_category', ''); ?>
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>
-
-});

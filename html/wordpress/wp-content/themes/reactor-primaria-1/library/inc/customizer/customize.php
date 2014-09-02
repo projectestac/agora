@@ -303,7 +303,7 @@ if ( !function_exists('reactor_customize_register') ) {
 		 
 		// Header
 		$wp_customize->add_section('reactor_customizer_general', array( 
-			'title'    => __('General', 'reactor'),
+			'title'    => __('Identificació Centre', 'reactor'),
 			'priority' => 5,
 		 ) );
 
@@ -331,7 +331,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'priority' => 2,
 				 ) );
 
-			$wp_customize->add_setting('reactor_options[show_title]', array( 
+			/*$wp_customize->add_setting('reactor_options[show_title]', array( 
 				'default'    => 1,
 				'type'       => 'option',
 				'capability' => 'manage_options',
@@ -343,6 +343,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'type'     => 'checkbox',
 					'priority' => 3,
 				 ) );
+			*/
 			$wp_customize->add_setting('reactor_options[direccioCentre]', array( 
 				'default'    => "Direcció", /*jmeler agafar de BBDD agora*/
 				'type'       => 'option',
@@ -831,12 +832,17 @@ if ( !function_exists('reactor_customize_register') ) {
 	*/
 	
 			$paletes=array(
-			"vermell"=>"Vermell, Taronja i verd fosc",
-			"blau"=>"Blau fosc, Blau clar",
-			"verd"=>"Verd i Rosa",
-			"groc"=>"Groc i Verd"
-			);
-	
+			"vermell-taronja"=>"Vermell i Taronja",
+                        "vermell-verd"=>"Vermell i Verd",
+                        "blau-vermell"=>"Blau i Vermell",
+			"blaus"=>"Blau fosc i Blau clar",
+			"verd-rosa"=>"Verd i Rosa",
+			"groc-verd"=>"Groc i Verd",
+                        "groc-lila"=>"Groc i Lila",
+                        "taronja-verd"=>"Taronja i Verd",
+                        "rosa-gris"=>"Rosa i Gris"
+                        );
+			//TODO: crear secció colors, no reaprofitar fonts q&d :S
 			$wp_customize->add_section('reactor_customizer_fonts', array( 
 					'title'          => __('Colors', 'reactor'),
 					'priority'       => 7,
@@ -856,7 +862,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'choices'  => $paletes,
 				 ) );
 		 
-	
+			/*
 			$wp_customize->add_setting('reactor_options[content_font]', array( 
 				'default'        => "'Helvetica Neue', Helvetica, Arial, sans-serif",
 				'type'           => 'option',
@@ -1014,7 +1020,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'settings' => 'reactor_options[frontpage_post_category]',
 					'priority' => 1,
 				 ) ) );
-				 
+			/*	 
 			$wp_customize->add_setting('reactor_options[frontpage_exclude_cat]', array( 
 				'default'        => 1,
 				'type'           => 'option',
@@ -1027,8 +1033,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'type'     => 'checkbox',
 					'priority' => 2,
 				 ) );
-				 
-		/* jmeler slider
+				
 			$wp_customize->add_setting('reactor_options[frontpage_slider_category]', array( 
 				'default'        => '',
 				'type'           => 'option',
@@ -1046,6 +1051,7 @@ if ( !function_exists('reactor_customize_register') ) {
 		*/
 		
 	/*jmeler*/
+	
 			$wp_customize->add_setting('reactor_options[diaporama]', array( 
 				'default'    => "1", 
 				'type'       => 'option',
@@ -1072,11 +1078,9 @@ if ( !function_exists('reactor_customize_register') ) {
 				'type'    => 'select',
 				'choices' => array( 
 					'1c' => __('Sense barres laterals','reactor'),
-					'2c-l' => __('Barra a la esquerra', 'reactor'),
-					'2c-r' => __('Barra a la dreta', 'reactor'),
-					//'3c-c' => __('2 barres, contingut centrat','reactor'),
-					//'3c-l' => __('2 barres a la esquerra', 'reactor'),
-					//'3c-r' => __('2 barres a la dreta', 'reactor'),
+					'2c-l' => __('Barra esquerra', 'reactor'),
+					'2c-r' => __('Barra dreta', 'reactor'),
+					'3c-c' => __('Barra esquerra i dreta','reactor'),
 				),
 				'priority' => 3,
 			 ) );

@@ -184,6 +184,7 @@ class graellaIcones
         );
 	
        // Icon 13  
+	/*
 		add_settings_field(
 	            'title_icon13', // ID
 	            'Element 3:', // Title 
@@ -206,7 +207,7 @@ class graellaIcones
             'my-setting-admin', // Page
             'setting_icons_fila1' // Section           
         ); 
-       
+       */
         
        	// Fila2 
        	add_settings_section(
@@ -283,6 +284,7 @@ class graellaIcones
         );
 	
 	// Icon 23
+	/*
 	add_settings_field(
             'title_icon23', // ID
             'Element 3:', // Title 
@@ -304,6 +306,7 @@ class graellaIcones
             'my-setting-admin', // Page
             'setting_icons_fila2' // Section           
         ); 
+	*/
 	
     }
 

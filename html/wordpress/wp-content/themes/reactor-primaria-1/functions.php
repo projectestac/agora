@@ -4,16 +4,16 @@
  *
  * @package Reactor
  * @author Anthony Wilhelm (@awshout / anthonywilhelm.com)
+ * @author Xavi Meler (jmeler@xtec.cat)
  * @version 1.1.0
  * @since 1.0.0
- * @copyright Copyright (c) 2013, Anthony Wilhelm
+ * @copyright Copyright (c) 2013, TODO
  * @license GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  */
 
 /* -------------------------------------------------------
  You can add your custom functions below
 -------------------------------------------------------- */
-
 
 /**
  * Child Theme Features
@@ -67,10 +67,10 @@ function reactor_child_theme_setup() {
 	);
 	
 	/* Remove support for background options in customizer */
-	// remove_theme_support('reactor-backgrounds');
+	 remove_theme_support('reactor-backgrounds');
 	
 	/* Remove support for font options in customizer */
-	// remove_theme_support('reactor-fonts');
+	 //remove_theme_support('reactor-fonts');
 	
 	/* Remove support for custom login options in customizer */
 	// remove_theme_support('reactor-custom-login');
@@ -98,317 +98,29 @@ function reactor_child_theme_setup() {
 
 }
 
-
 //Fil d'ariadna
 function add_fil_ariadna(){
 	reactor_breadcrumbs(); 
 }
-add_action ('reactor_content_before','add_fil_ariadna');
+add_action ('reactor_content_before','add_fil_ariadna',999);
 
 /**************************************************************
 
-Contingut barra superior (top bar o admin bar)
+Contingut barra superior (admin bar)
 
 ***************************************************************/
 
-show_admin_bar( 'true' );
+include "custom-tac/capcalera/menu-gencat.php";
+add_action( 'admin_bar_menu', 'add_gencat',1 ); 
 
-//Logo gencat i enllaços associats
-function add_gencat( $wp_admin_bar ) {
+//include "custom-tac/capcalera/menu-dades-centre.php";
+//add_action( 'admin_bar_menu', 'add_dades_centre',31 );
 
-	$args = array(
-		'id'     => 'gencat',     // id of the existing child node (New > Post)
-		'title'  => '<img src=http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/07/ensenyament_bn_30.png>', 
-		'parent' => false,          // set parent to false to make it a top level (parent) node
-	);
+include "custom-tac/capcalera/menu-serveis-tac.php";
+//add_action( 'admin_bar_menu', 'add_serveis',999 );
 
-	$wp_admin_bar->add_menu( $args );
-
-	$args = array(
-		'id'     => 'gencat-web',     // id of the existing child node (New > Post)
-		'title'  => 'Generalitat de Catalunya', // alter the title of existing node
-		'href' =>'http://www20.gencat.cat',
-		'parent' => 'gencat',          // set parent to false to make it a top level (parent) node
-	);
-
-	$wp_admin_bar->add_node( $args );
-	
-	$args = array(
-		'id'     => 'dep-ensenyament',     
-		'title'  => 'Departament d\'ensenyament', // alter the title of existing node
-		'href' =>'http://www20.gencat.cat/portal/site/ensenyament',
-		'parent' => 'gencat',          // set parent to false to make it a top level (parent) node
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'atri',     
-		'title'  => 'ATRI', 
-		'href' => 'https://atri.gencat.cat/',
-		'parent' => 'gencat',          
-	);
-	
-	$wp_admin_bar->add_node( $args );
-	
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'saga',     
-		'title'  => 'SAGA', 
-		'href' => 'https://saga.xtec.cat/entrada',
-		'parent' => 'gencat',          
-		);
-	
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'familia-escola',     
-		'title'  => 'Familia i Escola', 
-		'href'=>'http://www20.gencat.cat/portal/site/familiaescola/',
-		'parent' => 'gencat',          
-	);
-	
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'portal',     
-		'title'  => 'Intranet · Portal de centre', 
-		'href' => 'http://educacio.gencat.cat/portal/page/portal/EducacioIntranet/Benvinguda',
-		'parent' => 'gencat',          
-		);
-	
-	$wp_admin_bar->add_node( $args );
-
-
-
-}
-
-// Informació del centre (direcció, telèfon etc)
-
-function add_direccio( $wp_admin_bar ) {
-
-	if ( ! current_user_can( 'manage_options' ) ) {
-    		$args = array(
-			'id'     => 'nomCentre',     
-			'title'  => get_option("blogname"),
-			'href'=> get_home_url(),
-			'parent' => false,          
-		);
-
-		$wp_admin_bar->add_node( $args );
-	}	
-	/*
-	$args = array(
-		'id'     => 'iconMapsCentre',     
-		'title' => '<a href="https://www.google.com/maps/dir//41.554484,2.085249/@41.5544914,2.0831204,17z/data=!4m4!4m3!1m0!1m0!3e0?hl=ca">&nbsp;</a>',
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );*/
-	
-	$args = array(
-		'id'     => 'direccioCentre',     
-		'title' => reactor_option('direccioCentre'), 
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'telCentre',     
-		/*'title'  => '<a href="tel:'.reactor_option('telefoncentre', '111111').'">'.reactor_option('telefoncentre', '111111').'</a>',*/ 
-		'title'  => reactor_option('telCentre'), 
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );
-	
-	$args = array(
-		'id'     => 'titularitat',     
-		'title'  => 'Centre públic',
-		'href' => 'http://www20.gencat.cat/portal/site/ensenyament/menuitem.a735c8413184c341c65d3082b0c0e1a0/?vgnextoid=fd48f9cd4d7e9310VgnVCM1000008d0c1e0aRCRD&vgnextchannel=fd48f9cd4d7e9310VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default',
-		'parent' => false,          
-	);
-
-	$wp_admin_bar->add_node( $args );
-	
-}
-
-// Enllaços de recursos (xtec,edu365...) a la barra superior 
-function add_recursos( $wp_admin_bar ) {
-
-	$args = array(
-		'id'     => 'recursosXTEC',     
-		'title'  => '<img src=http://ies-sabadell.cat/nodes/wp-content/uploads/2014/03/xtec4.png>', 
-		'parent' => false,          
-		'meta'=>array('class' =>'ab-top-secondary ab-top-menu')
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'xtec',     
-		//'title'  => '<img src=http://educacio.gencat.cat/documents/img/meva_xtec.jpg>&nbsp;Xtec',
-		'title'  => 'Xtec',
-		'href'=>'http://www.xtec.cat/', 
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'edu365',     
-		'href' => 'http://www.edu365.cat/',
-		//'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu365.jpg>&nbsp;Edu365', 
-		'title'  => 'Edu365',
-		'parent' => 'recursosXTEC',         
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'edu3',     
-		'href'=> 'http://www.edu3.cat/',
-		//'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu3.jpg>&nbsp;Edu3',
-		'title'  => 'Edu3',  
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'alexandria',     
-		'title'  => 'Alexandria',
-		'href' => 'http://alexandria.xtec.cat/', 
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'xarxadocent',     
-		'title'  => 'Xarxa Docent', 
-		'href'=>'http://educat.xtec.cat/',
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'arc',     
-		'title'  => 'ARC', 
-		'href' => 'http://apliense.xtec.cat/arc/',
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'merli',     
-		'title'  => 'Merlí', 
-		'href'=>'http://aplitic.xtec.cat/merli/',
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'jclic',     
-		'title'  => 'jClic', 
-		'href'	=> 'http://clic.xtec.cat/ca/index.htm',
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'linkat',     
-		'title'  => 'Linkat', 
-		'href' => 'http://linkat.xtec.cat/portal/index.php',
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'odissea',     
-		'title'  => 'Odissea', 
-		'href' => 'http://odissea.xtec.cat/',
-		'parent' => 'recursosXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-}
-
-
-// Enllaços de serveis (agora, xtecblocs...) a la barra superior 
-function add_serveis( $wp_admin_bar ) {
-
-	$args = array(
-		'id'     => 'serveisXTEC',     
-		'title'  => '<img src=http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/07/agora2.png>', 
-		'parent' => false,         
-		'meta'=>array('class' =>'ab-top-secondary ab-top-menu')
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'Moodle',     
-		'title'  => 'Moodle', 
-		'href' => 'http://agora.xtec.cat/',
-		'parent' => 'serveisXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'nodes',     
-		'title'  => 'Nodes', 
-		'href'	=> 'http://agora.xtec.cat/',
-		'parent' => 'serveisXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'xtecblocs',     
-		'title'  => 'XtecBlocs', 
-		'href' => 'http://blocs.xtec.cat/',
-		'parent' => 'serveisXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'intraweb',     
-		'title'  => 'Intraweb', 
-		'href'	=> 'http://agora.xtec.cat/',
-		'parent' => 'serveisXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-	
-	/*
-	$args = array(
-		'id'     => 'sep',     
-		'title'  => '<hr>', 
-		'parent' => 'serveisXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-
-	$args = array(
-		'id'     => 'aboutAgora',     
-		'title'  => 'Què és Àgora', 
-		'parent' => 'serveisXTEC',          
-	);
-
-	$wp_admin_bar->add_node( $args );
-	*/
-}
+include "custom-tac/capcalera/menu-recursos-tac.php";
+add_action( 'admin_bar_menu', 'add_recursos',2);
 
 // Eliminem icones de la barra superior
 function my_edit_toolbar($wp_toolbar) {
@@ -418,13 +130,7 @@ function my_edit_toolbar($wp_toolbar) {
     $wp_toolbar->remove_node('new-content');
     $wp_toolbar->remove_menu('edit');
 }
-
-add_action( 'admin_bar_menu', 'add_gencat',1 ); 
-add_action( 'admin_bar_menu', 'add_direccio',31 );
 add_action('admin_bar_menu', 'my_edit_toolbar',98);
-
-//add_action( 'admin_bar_menu', 'add_serveis',999 );
-//add_action( 'admin_bar_menu', 'add_recursos',999);
 
 function disable_bar_search() {  
     global $wp_admin_bar;  
@@ -482,14 +188,14 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 //Filtre categoria 
-function my_home_category( $query ) {
+function categoria_portada ( $query ) {
+    
     $catId = reactor_option('frontpage_post_category', '1');
-
-    if ( $query->is_home() ) {
+    if ( $query->is_home() and $query->query['post_type']=='post') {
         $query->set('cat',$catId);
     }
 }
-add_action( 'pre_get_posts', 'my_home_category' );
+add_action( 'pre_get_posts', 'categoria_portada' );
 
 
 // Permet algunes etiquetes html al extracte d'un post
@@ -546,7 +252,6 @@ function cat_description($tag)
     <?php
 }
 
-add_action('admin_head', 'remove_default_category_description');
 function remove_default_category_description()
 {
     global $current_screen;
@@ -561,7 +266,7 @@ function remove_default_category_description()
     <?php
     }
 }
-
+add_action('admin_head', 'remove_default_category_description');
 
 // Metabox paràmetres: Amaga títol, amaga metadades, mostra contingut sencer. 
 include "custom-tac/metabox-post-parametres.php";
@@ -572,8 +277,196 @@ include "custom-tac/capcalera/capcalera-settings.php";
 //Giny Recursos XTEC
 include "custom-tac/ginys/giny-xtec.php";
 
+//Giny Logo centre
+include "custom-tac/ginys/giny-logo-centre.php";
+
+//Menu principal
+include "custom-tac/menu-principal.php";
+add_action("reactor_content_before","menu_principal");
 
 
 
 
+function getRowFrontPage($posts_per_fila,$numFila){
+	
+	global $frontpage_query;  
+  	global $card_colors;
+        $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
+        global $card_bgcolor;
+	global $layout;
+     
+	$aLayout=array();
+	
+	switch ($posts_per_fila) {
+        case 1: array_push($aLayout,1);
+         break;
+        case 2: array_push($aLayout,2,2);
+         break;
+        case 3: array_push($aLayout,3,3,3);
+         break;
+        case 4: array_push($aLayout,4,4,4,4);
+         break;
+        case 33: array_push($aLayout,66,3);
+         break;
+        case 66: array_push($aLayout,3,66);
+         break;
+	}
+	
+	echo '<div class="row fila'.$numFila.'">';
 
+	if ( $frontpage_query->have_posts() and count($aLayout>0)) : 
+            reactor_loop_before(); 
+            $col=1;    
+            while ( $frontpage_query->have_posts() ) : 
+            
+                    $pos_color=((($numFila+1)%3)+$col)%3;
+            
+                    $card_bgcolor=$card_colors[$pos_color];
+                   // echo "f:".$numFila."-c:".$col."-poscolor:".$pos_color;
+                    $col++;
+                    $layout=array_pop($aLayout);	  
+                    if (!$layout): 
+                        break;
+                    else: 		
+                    $frontpage_query->the_post(); 
+                    reactor_post_before();
+                    get_template_part('post-formats/format', "tac");
+                    reactor_post_after();
+            endif;
+    	
+	endwhile; 
+	
+	reactor_loop_after();
+	 
+	else : 
+		reactor_loop_else(); 
+	endif; 
+
+	echo '</div>';
+
+}
+
+
+function getRow_N_FrontPage($posts_per_fila,$num_posts_n){
+	
+	global $frontpage_query;  
+        global $card_colors;
+        $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
+        global $card_bgcolor;
+	global $layout;
+        global $aLayout;
+        
+        $aLayout=array();
+        
+        //Omplim el layout de la resta de files
+        $aLayout=array_fill(0, $num_posts_n, $posts_per_fila);
+        
+	if ( $num_posts_n>0 and $frontpage_query->have_posts() ) : 
+            
+            $num_fila=3; // Fila inicial 
+            $loop_posts=0; 
+            $nova_fila=true;      
+            reactor_loop_before();  
+            $col=0;
+            
+            while ( $frontpage_query->have_posts() ) : 	
+                $col++;
+                $pos_color=((($num_fila+1)%3)+$col)%3;
+                //echo "f:".$num_fila."-col:".$col;
+                $card_bgcolor=$card_colors[$pos_color];
+                
+                if ($nova_fila){
+                        echo "<div class='row fila".$num_fila."'>";
+                        $nova_fila=false;
+                }
+                $frontpage_query->the_post(); 
+                
+                $layout=array_pop($aLayout); 
+                reactor_post_before();
+                get_template_part('post-formats/format', "tac"); 
+                reactor_post_after(); 
+                $loop_posts++;
+
+                $nova_fila=($loop_posts>=$posts_per_fila)?true:false;
+
+                if ($nova_fila) {
+                        echo "</div>";
+                        $loop_posts=0;
+                        $num_fila++;
+                        $col=0;
+                }	
+                
+               
+            endwhile; 
+            //Si no hem acabat la fila, tanquem la graella
+            if ($col!=0 and $col<$posts_per_fila)
+                echo "</div>";
+
+            reactor_loop_after(); 
+	
+        else : 
+                reactor_loop_else(); 
+        endif; 
+
+}
+
+function getRow_Posts($posts_per_fila,$num_posts_n){
+
+        global $card_colors;
+        $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
+        global $card_bgcolor;
+	global $layout;
+        global $aLayout;
+        
+        $aLayout=array();
+        
+        //Omplim el layout de la resta de files
+        $aLayout=array_fill(0, $num_posts_n, $posts_per_fila);
+        
+	if ( $num_posts_n>0 and have_posts() ) : 
+            
+            $num_fila=3; // Fila inicial 
+            $loop_posts=0; 
+            $nova_fila=true;      
+            reactor_loop_before();  
+            $col=0;
+            
+            while ( have_posts() ) :
+                $col++;
+                $pos_color=((($num_fila+1)%3)+$col)%3;
+                //echo "f:".$num_fila."-col:".$col;
+                $card_bgcolor=$card_colors[$pos_color];
+                
+                if ($nova_fila){
+                        echo "<div class='row fila".$num_fila."'>";
+                        $nova_fila=false;
+                }
+                the_post(); 
+                
+                $layout=array_pop($aLayout); 
+                reactor_post_before();
+                get_template_part('post-formats/format', "tac"); 
+                reactor_post_after(); 
+                $loop_posts++;
+
+                $nova_fila=($loop_posts>=$posts_per_fila)?true:false;
+
+                if ($nova_fila) {
+                        echo "</div>";
+                        $loop_posts=0;
+                        $num_fila++;
+                        $col=0;
+                }	
+                
+               
+            endwhile; 
+
+            reactor_loop_after(); 
+	
+        else : 
+            reactor_loop_else(); 
+        endif; 
+
+}
+
+?>

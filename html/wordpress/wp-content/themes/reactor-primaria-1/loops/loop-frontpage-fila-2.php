@@ -7,11 +7,13 @@
  * @since 1.0.0
  */
 
+global $posts_per_fila2;
+global $frontpage_query;
+global $layout;
+global $card_colors;
+global $card_bgcolor;
 
-/*jmeler*/
-
-$posts_per_fila2 = reactor_option('frontpage_posts_per_fila_2', 2);
-
+$card_colors=array("card_bgcolor3","card_bgcolor1","card_bgcolor2");
 $aLayout=array();
 
 switch ($posts_per_fila2) {
@@ -31,34 +33,13 @@ switch ($posts_per_fila2) {
 }
 
 $aLayout=array_reverse($aLayout);
-
-if ($posts_fila2==33 || $posts_fila2==66)
-	$posts_fila2=2; 
-
-
-// Determinem post inicial a partir del nombre de post de la primera fila
-$posts_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
-// 33 i 66 corresponen a configuracions d'amplada sempre amb 2 posts per fila
-if ($posts_fila1==33 || $posts_fila1==66)
-	$posts_fila1=2; 
-$post_start=$posts_fila1;
-
-$post_columns = reactor_option('frontpage_post_columns', 3);
-$page_links = reactor_option('frontpage_page_links', 0); 
-$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-//Conservem la consulta inicial
-global $frontpage_query;
-global $layout;
-global $tipus_targeta;
-$tipus_targeta="tarjeta-fixe";
-      	    
+    	    
 if ( $frontpage_query->have_posts() and count($aLayout>0)) : 
   	reactor_loop_before();                  
   	
   	while ( $frontpage_query->have_posts()  ) : 
-   		 
-   	$layout=array_pop($aLayout); 
-		
+   		$layout=array_pop($aLayout); 
+		$card_bgcolor=current($card_colors);
 		if (!$layout): 
 			break;
 		else:
@@ -67,7 +48,11 @@ if ( $frontpage_query->have_posts() and count($aLayout>0)) :
 			get_template_part('post-formats/format', "tac"); 
 			reactor_post_after(); 	
 		endif;
-		
+		if (!next($card_colors)){
+			reset($card_colors);
+			$card_colors=array_reverse($card_colors);
+    	}
+
 	endwhile;
 	
 	reactor_loop_after(); 

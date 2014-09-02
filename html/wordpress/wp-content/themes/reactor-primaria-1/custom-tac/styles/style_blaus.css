@@ -3,6 +3,25 @@ body {
     /*background-color: #a4d3df !important;*/
     background-color: whitesmoke;
 }
+
+#idcentre-box{
+    background-color:#0eb1ff;
+}
+
+
+.card_bgcolor1{
+	background-color:#e5e5e5;
+	
+}
+.card_bgcolor2{
+	/*background-color:#efefef;*/
+background-color:#f1f1f1;
+	
+}
+.card_bgcolor3{
+	background-color:#f8f8f8;
+}
+
 .site-logo{
     display:table !important;
     background-color:#0eb1ff;

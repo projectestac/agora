@@ -22,8 +22,7 @@
                 
 				<?php if ( have_posts() ) : ?>
                     <header class="archive-header">
-                        <h1 class="archive-title"><?php printf( __('Tag: %s', 'reactor'), '<span>' . single_tag_title('', false) . '</span>'); ?></h1>
-        
+                        
                     <?php // show an optional tag description
 					if ( tag_description() ) : ?>
                         <div class="archive-meta">
@@ -34,7 +33,7 @@
                 <?php endif; // end have_posts() check ?> 
                 
 				<?php // get the loop
-				get_template_part('loops/loop', 'index'); ?>
+				get_template_part('loops/loop', 'tag'); ?>
                 
                 <?php reactor_inner_content_after(); ?>
                 

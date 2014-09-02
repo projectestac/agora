@@ -1,6 +1,6 @@
 <?php
 
-function add_corporatiu( $wp_admin_bar ) {
+function add_gencat( $wp_admin_bar ) {
 
 	$args = array(
 		'id'     => 'gencat',     // id of the existing child node (New > Post)

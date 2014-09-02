@@ -2,31 +2,159 @@
 Theme Name: NODES (Primaria)
 Theme URI: http://awtheme.com/
 Description: Tema per primaria
-Author: Albert Bachiller / Anthony Wilhelm
+Author: Albert Bachiller 
 Author URI: http://anthonywilhelm.com
 Template: reactor
 Version: 1.1.0
 */
+
+/*Agora - Nodes */
 
 /*****************************************************************
 Add Custom styles below 
 ******************************************************************/
 /*jmeler mod*/
 
+body{
+	background-color:white !important;
+}
+
+
 .row {
+    /*max-width: 95em;*/
     max-width: 95em;
+    margin: 0 0em 0 0em !important;
 }
 
-#content .row{
-    margin: 0em;
+h1, h2, h3, h4, h5, h6, a {
+    color: #ff5a26;
+    /*font-family: 'Delius', cursive !important;*/
+    font-family: 'Ubuntu', sans-serif;
+    font-weight:300;
+    
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #2c8f8f !important;
+/*Bug WP/Buddypress*/
+#wp-toolbar > ul > li {display:block;}
+
+.login h1 a { 
+    background-size:auto !important;
 }
 
-#content {
-margin: 10px 30px 10px 30px;
+/*****************************************************************
+Targetes
+******************************************************************/
+
+.card_bgcolor1{
+	background-color:#e5e5e5;
+	
+}
+.card_bgcolor2{
+	/*background-color:#efefef;*/
+background-color:#f1f1f1;
+	
+}
+.card_bgcolor3{
+	background-color:#f8f8f8;
+}
+
+/*
+.card_bgcolor1{
+ 	background-color: #efefef;
+    
+}
+
+.card_bgcolor2{
+    background-color:whitesmoke;
+}
+
+.card_bgcolor3{
+    background-color: #e4eaec;
+}
+
+*/
+
+#contingut_central_frontpage{
+    padding:0px;
+}
+#contingut_central_frontpage > .page{
+    background-color:#e4ecf2;
+    line-height: 1.2em;
+    padding-bottom: 2em;
+}
+
+article {
+    padding:0px;
+    border:0px !important;
+}
+
+.entry-body {
+    margin:0px !important;
+    border:0px;
+    padding:30px;
+    position: relative !important;
+}
+
+.entry-header> h2 {
+    font-size:1.5em;
+    line-height:1em;
+}
+
+.entry-title{
+    margin-top: 0px;
+}
+
+.post.format-video .entry-title {
+	font-size: 1.5em;
+}
+
+.entry-body >.entry-summary{
+    padding:0px;
+    
+}
+
+.entry-summary > p,h2{
+    padding-top:0.5em;
+}
+
+.entry-footer {
+    /*border:2px solid #ddd;
+    border-left:0;
+    border-right:0;
+    border-color: #ddd;
+    border-style: solid;*/
+    padding:0.2em;
+}
+
+.targeta {
+	float:left;
+}
+
+.entry-thumbnail{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%; 
+    display: block;
+    margin-top: 0.5em;
+}
+
+.label.secondary {
+    background-color: #4ad0d2;
+    color: white;
+}
+
+.header_metatags{
+    padding-bottom:5px !important;
+    color:silver;
+    font-size: 1em;
+}
+
+.footer_metatags{
+    color:#087eb6;
+    margin-right: 4px;
+    font-size: 0.8em;
 }
 
 
@@ -34,63 +162,25 @@ margin: 10px 30px 10px 30px;
 Top header
 ******************************************************************/
 
-#wpadminbar #wp-admin-bar-direccioCentre>.ab-item:before {
-content: "\f231";
+#wpadminbar {
+height: 36px;
 }
 
-#wpadminbar #wp-admin-bar-direccioCentre a,
-#wpadminbar #wp-admin-bar-nomCentre a,
-#wpadminbar #wp-admin-bar-titularitat a,
-#wpadminbar #wp-admin-bar-telCentre a
-{
-    color:darkgrey !important;    
+.ab-item{
+    color:#ddd !important;    
 }
 
-/*#wpadminbar #wp-admin-bar-telCentre{
-    display: block;
-    width:128px;
-}*/
-
-#wpadminbar #wp-admin-bar-nomCentre{
-    text-align: center;    
-}
-
-#wpadminbar #wp-admin-bar-telCentre>.ab-item:before {
-    content: "\f470";
-}
 #wpadminbar #wp-admin-bar-bp-login>.ab-item:before {
     content: "\f112";
 }
 
-#wpadminbar #wp-admin-bar-gencat {
-    top:-2px;
-    display: block;
-    margin-right:180px !important;
-}
-
-@media screen and (max-width: 600px) {
-	#wpadminbar #wp-admin-bar-gencat {
-		top:5px;
-		display: block;
-		margin-right:20px !important;
-	}
-	#wpadminbar #wp-admin-bar-telCentre{
-		top:8px;
-	}
-}
-
-#wpadminbar #wp-admin-bar-titularitat>.ab-item:before {
-    content: "\f323";
+li#wp-admin-bar-bp-login{
+float:right;
 }
 
 /*****************************************************************
 Header
 ******************************************************************/
-
-#header {
-    height:11.2em;
-    top:2px;
-}
 
 #header .row {
     width: 100%;
@@ -104,10 +194,6 @@ Header
 .inner-header{
     margin:0;
     padding:0;
-    margin-top:5px;
-    /*border-bottom:1px solid white;*/
-    /*-webkit-box-shadow: 0px 1px 1px #3cb6b6;
-      -moz-box-shadow: 0px 1px 1px #3cb6b6;*/
 }
 
 .inner-header > div.row > div.column{
@@ -120,79 +206,107 @@ Header
     margin:0;
 }
 
-.site-header, .site-identity, .site-logo, .site-description-box, .site-slider, .site-icones{
-    /*height:100%;*/
+.site-header,
+.site-identity,
+.site-logo,
+.site-description-box,
+.site-slider,
+.site-icones{
     height:11.2em;
     margin:0px !important;
-    padding:0;
-    overflow:hidden;	
+    padding:0px;
 }
 
 #idcentre-box{
     padding:0px;
-    background-color: #ff5a26;
-    border-bottom:0px solid white;
-}
-
-.site-description-box{
-    display:table !important;
-    background-color:ff5a26;
-}
-
-.site-description-box-inner{
-    font-size:24px;
-    text-align:center;
-    font-family:'Oswald';
-    font-weight: 300;
-    padding:0px;
-    color:white; 
-    display: table-cell;
-    vertical-align:middle;
-    padding:10px;
+    /*background-color: #ff5a26;*/
+    background-color: black;
 }
 
 .site-logo{
     display:table !important;
     background-color:#ff2a2a;
-
 }
 
 .site-logo-inner{
-    font-size:40px;
+    font-size:38px; 
     text-align:center;
-    font-family:'Oswald';
-    font-weight: 300;
+    font-family:'Oswald'; font-weight: 300;
+    /*font-family: 'Delius', bold;*/
+    color:white; 
+    display: table-cell;
+    vertical-align:middle;
+    padding:0px;
+    overflow: hidden;
+}
+
+#img-logo{
+	max-width: 200px
+}
+
+.site-description-box{
+    background-color:#ff5a26;
+    
+}
+
+.site-description-box-inner{
+    font-size:24px;
+    text-align:center;
+    font-family:'Oswald'; font-weight: 300;
+    /*font-family: 'Delius', bold;*/
+   
+
     padding:0px;
     color:white; 
     display: table-cell;
     vertical-align:middle;
     padding:10px;
+    line-height: 1.2em;
 }
 
 .site-icones {
-    /*background-color:white;*/
-    background-color: #ff5a26;
+    background-color:white;
     display:table !important;
     float:left;
 }
 
-
-.site-slider{
-    border-bottom:1px solid white;
-    background-color: white;
-    /*overflow: hidden !important;*/
+.site-slider {
+    background-color: whitesmoke;
 }
 
 .slideshow_slide {
     margin-right: 0px !important;
 }
 
-#img_logo{
-    width:100%;
-    height:100%;
+.site-quick-box{
+    position: relative;
+    text-align: center;
+    height: 5.6em;
+    line-height: 5.6em;
 }
 
-.icon-graella{   
+
+#quick-call-box{
+    background-color: white;
+}
+
+#quick-call-box > a{
+  color:black;  
+}
+.site-quick-map-box-inner{
+    background-image:url(http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/08/googlemaps.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+    position: absolute;
+    top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+   
+}
+
+.icon-graella {   
     background-color: white;
     color:white;
     height: 5.6em;
@@ -204,85 +318,183 @@ Header
     display: table-cell;
     vertical-align: middle;
     position: relative;
-    
-    /*border: 1px solid #41d1d1;
-    border-right: 0px;
-    border-top: 0px;
-    */
+    z-index:10;
+    padding:5px !important;
 }
 
-.icon-graella > .dashicons {
+.entry-date > a,
+.entry-author >a,
+.entry-comments,
+.entry-categories>a,
+.entry-tags >a {
+    color:#56AEC1 !important;
+    font-size:0.9em;
+}
+
+.entry-date:before,
+.entry-author:before,
+.entry-comments:before,
+.entry-categories:before,
+.entry-tags:before{
+    color:#56AEC1; 
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font: normal 22px/1 'dashicons';
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+
+.entry-date,.entry-author{
+    color:#BFC0BC;
+}
+.entry-date:before {
+    content: "\f145"; 
+    font-size: 1.2em;
+    color:#aaaba6;
+}
+
+.entry-author:before {
+    content: "\f110";
+    font-size: 1em;
+    color: #BFC0BC;
+}
+
+.entry-comments:before {
+    content: "\f101"; 
+}
+
+.entry-categories:before {
+    content: "\f318"; 
+}
+
+.entry-tags:before {
+    content: "\f323"; 
+}
+
+.entry-footer{
+    bottom: 2em;
+    color: silver;
+}
+
+.icon-graella > .dashicons,
+.site-quick-box-inner > .dashicons
+{
+    display: inline;
     font-size: 2em;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    line-height: 2.5em;
 }
-
 
 #icon-11{
-background-color:#4ad0d2;
+    background-color:#FF4343;
 }
+
 #icon-11:hover{
- background-color:#fdd300;
- color: black;
+    background-color:#fdd300;
+    color: black;
 }
 
 #icon-12{
-    background-color:#ff5a26;
+    background-color:silver;
 }
 
 #icon-12:hover{
- background-color:#fdd300;
- color: black;
+    background-color:#fdd300;
+    color: black;
 }
 
 #icon-13{
-    background-color:#4e4f54;
+    background-color:#0eb1ff;
+    /*#4e4f54;*/
 }
 #icon-13:hover{
- background-color:#fdd300;
- color: black;
+    background-color:#fdd300;
+    color: black;
 }
 
 #icon-21{
-    background-color:#FF4343;
+    background-color:#087eb6;
 }
 #icon-21:hover{
- background-color:#fdd300;
- color: black;
+    background-color:#fdd300;
+    color: black;
 }
 
 #icon-22 {
     background-color:white;
-    color:#999999;
+    color:#ff5a26;
 }
 #icon-22:hover{
- background-color:#fdd300;
- color: black;
+    background-color:#fdd300;
+    color: black;
 }
 
 #icon-23{
-    background-color:#1e73be;
+    background-color:#087eb6;
 }
+
 #icon-23:hover{
- background-color:#fdd300;
- color: black;
+    background-color:#fdd300;
+    color: black;
 }
+
 .slideshow_container_slideshow-jquery-image-gallery-custom-styles_1 .slideshow_slide {
     margin-right: 0px;
 }
 
-/*.slideshow_description, .slideshow_title{
+.slideshow_description, .slideshow_title{
     padding:10px !important;
     line-height: 1.2em;
-}*/
-
+}
 
 /*****************************************************************
 Menu
 ******************************************************************/
-.main-nav{
-/*display:none;*/
+
+#menu-panel{
+    padding:1em;
+    height:auto;
+    background-color:white;
+    display:none;
+    border-bottom: 2px solid #087eb6;
+}
+
+.menu-link, .sub-menu-link {
+    color:#087eb6 !important;
+}
+
+.menu-item-depth-0 {
+    float:left;
+    text-transform: uppercase;
+    margin-left:2em;
+    font-weight: bold;
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+.menu-item-depth-1, .menu-item-depth-2, .menu-item-depth-3{
+    text-transform: lowercase;
+    font-weight: normal;
+    list-style-type: none;
+}
+
+li.menu-item-depth-1:before
+{
+    
+}
+
+.menu-item-depth-1:first-letter{
+    text-transform: uppercase;
+    
+}
+
+
+/*****************************************************************
+Fil d'ariadna
+******************************************************************/
+
+ul.breadcrumbs{
+    border:0px;
+    margin:0px;
 }
 
 /*****************************************************************
@@ -290,88 +502,29 @@ Barra lateral
 ******************************************************************/
 
 #sidebar-frontpage{
-background-color:white;
-padding-top: 1em;
-/*border-left: 1px solid #41d1d1;*/
-
+    	padding-top: 1em;
+	background-color:white;
+   	padding-left: 2.5em;
 }
 
-#sidebar-frontpage .columns{
-margin:0;
+#sidebar-frontpage-2{
+	padding-top: 1em;
+	padding-left: 1em;
 }
 
 #content .row {
-margin-left:0;
+    margin-left:0;
 }
+
+
 
 
 /*****************************************************************
-Targetes
+Personalitza
 ******************************************************************/
-#contingut_central_frontpage{
-top:1em;
-}
 
-article {
-padding:10px;
-margin:0px;
+select#gender option[value="male"]   { background-image:url(male.png);   }
 
-}
-
-.entry-body {
-background-color:#f9f9f9 ;
-background-repeat:no-repeat;
-margin-bottom:0px;
-padding-bottom:0px !important;
-border:1px solid #ddd;
-box-shadow: 1px 2px 1px #ddd;
-  webkit-box-shadow: 0px 1px 5px 0px #efefef;
-  -moz-box-shadow: 0px 1px 5px 0px #efefef;
-  filter: shadow(color=#efefef, direction=135, strength=1);
-  
-}
-
-.entry-header> h2 {
-font-size:1.5em;
-border-bottom:1px solid #ddd;
-margin-bottom:0px;
-}
-
-.entry-summary > p, h2{
-padding:1em;
-}
-
-.entry-header> h2{
-padding:0.5em;
-
-}
-
-.entry-footer {
-padding:1em;
-border-top:1px solid #ddd;
-}
-
-.post.format-video .flex-video {
-/*border-radius: 10px 10px 0px 0px;*/
-}
-.tarjeta-fixe {
-	float:left;
-}
-.entry-thumbnail{
-    width: 100%;
-    height: 200px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    
-}
-
-/*****************************************************************
-Categories - Archive
-******************************************************************/
-.archive-header{
-display:none;
-}
 
 
 /*****************************************************************
@@ -386,9 +539,23 @@ margin-right: 0px;
     padding:20px !important;
 }
 
-.cattree li{
+li.cat-item {
 list-style:none;
+font-size: 18px;
 }
+
+
+div.logotip-widget{
+    margin: 0.5em 0 0.5em -4em;
+    text-align: center;
+    
+}
+    
+.iconedu {
+    margin-bottom: 15px;
+}   
+
+
 
 /*****************************************************************
 Calendari
@@ -406,6 +573,7 @@ color: #2c8f8f;
 }
 
 .gce-widget-grid .gce-calendar td {
+
 border-bottom: 0px solid #CCCCCC;
 text-align: center;
 padding: 4px;
@@ -423,7 +591,90 @@ padding-top:3px;
 padding-bottom:3px;
 }
 
+ul.breadcrumbs {
+	margin: 1em;
+}	
 
+.breadcrumbs>* {
+	font-size:0.8em;
+	text-transform: uppercase;
+}
 
+.breadcrumbs {
+-webkit-border-radius: 0px;
+border-radius: 0px;
+}
+
+/*
+#slider-box{
+height:11.2em;
+overflow:hidden;
+}
+*/
+
+/*Small devices*/
+@media screen and (max-width: 782px) {
+
+    
+    /*#wp-admin-bar-direccioCentre,
+    #wp-admin-bar-telCentre,
+    #wp-admin-bar-titularitat,*/
+    #wp-admin-bar-recursosXTEC
+    {
+        display: none !important;
+    }
+    
+    
+    #content {
+        margin:0;
+    	}
+
+    #page{
+    	padding-top: 18px;
+   	}
+
+    menu-item-depth-0 {
+        clear:both;
+    }
+
+}
+
+/* Large devices*/
+@media screen and (min-width: 782px) {
+    
+    .site-description-box{    
+        display:table !important;    
+    }
+    /*Logo generalitat*/
+    #logogencat { 
+     vertical-align: baseline;
+}
+
+/*TODO: Fer per a totes les resolucions*/
+@media screen and (device-aspect-ratio: 5/4) {
+
+    .site-header,
+    .site-identity,
+    .site-logo,
+    .site-description-box,
+    .site-slider,
+    #slider-box,
+    .site-icones {
+       height:10.2em;
+       overflow:hidden;
+    }
+
+    .icon-graella {
+        height:5.1em;
+    }
+    
+    .icon-graella > .dashicons,
+    .site-quick-box-inner > .dashicons
+    {
+        font-size: 2em;
+        line-height: 2em;
+    }
+    
+}
 
 

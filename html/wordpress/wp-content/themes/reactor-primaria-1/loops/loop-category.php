@@ -5,73 +5,81 @@
  * @package Reactor
  * @subpackage loops
  * @since 1.0.0
- * jmeler
  */
 ?>
 
 <?php
 
-/*jmeler*/
+global $card_colors;
+$card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
+global $card_bgcolor;
+global $layout;
+global $aLayout;
+global $posts_per_fila;
 
 $cat_id=get_query_var('cat');
 $cat_meta = get_option( "category_$cat_id");
 
-$aLayout=array();
-
-$number_posts = reactor_option('frontpage_number_posts', 8);
-
-
 if (!isset($cat_meta ['articles_fila']) || $cat_meta ['articles_fila']<1 || $cat_meta ['articles_fila']>4) {
-	$num_articles=2;
+	$posts_per_fila=2;
 } else {
-	$num_articles=$cat_meta ['articles_fila'];
+	$posts_per_fila=$cat_meta ['articles_fila'];
 }	
 
-for ($i=0;$i<=$number_posts;$i++){
-	array_push($aLayout, $num_articles);
-}
+$aLayout=array();
 
-$aLayout=array_reverse($aLayout);
+//Omplim el layout de la resta de files
+$aLayout=array_fill(0, 10, $posts_per_fila);
+        
+if ( have_posts() ) : 
+    $num_fila=1; // Fila inicial 
+    $loop_posts=0; 
+    $nova_fila=true;      
+    reactor_loop_before();  
+    $col=0;
 
-/*
-if ($posts_fila1==33 || $posts_fila1==66)
-	$posts_fila1=2; 
+    while ( have_posts() ) : 	
+        $col++;
+        $pos_color=((($num_fila+1)%3)+$col)%3;
+        
+        $card_bgcolor=$card_colors[$pos_color];
 
-if ($posts_fila2==33 || $posts_fila2==66)
-	$posts_fila2=2; 
-
-$post_start= $posts_fila1 + $posts_fila2;
-*/
-
-?>
-
-<?php // get the options
-
-$post_category = reactor_option('frontpage_post_category', '');
-if ( -1 == $post_category ) { $post_category = ''; } // fix customizer -1
-
-?>
-            
-<?php reactor_loop_before(); ?>
-<div id="graella" class="js-masonry">
-		<div class=tarjeta style="width:1px"></div>
-     <?php while ( have_posts() ) : the_post(); ?>
+        if ($nova_fila){
+                echo "<div class='row fila".$num_fila."'>";
+                $nova_fila=false;
+        }
      
-    	<?php $layout=array_pop($aLayout); ?>
+        the_post();  
+        $layout=array_pop($aLayout); 
+        reactor_post_before();
+        get_template_part('post-formats/format', "tac"); 
+        reactor_post_after(); 
+        $loop_posts++;
 
-        <?php reactor_post_before(); ?>
+        $nova_fila=($loop_posts>=$posts_per_fila)?true:false;
 
-	<!-- jmeler flexible grid (by masonry) -->
-	
-		<?php // display frontpage post format
-		get_template_part('post-formats/format', "resum-".$layout); ?>
-	
+        if ($nova_fila) {
+                echo "</div>";
+                $loop_posts=0;
+                $num_fila++;
+                $col=0;
+        }	
+        //echo "f:".$num_fila."-col:".$col;        
+               
+      endwhile; 
+      //Si no hem acabat la fila, tanquem la graella
+      
+      if ($col!=0 and $col<$posts_per_fila)
+           echo "</div>";
+      
 
-        <?php reactor_post_after(); ?>
+      reactor_loop_after(); 
 
-    <?php endwhile; // end of the loop ?>
-</div>
-<?php reactor_loop_after(); ?>
+    else : 
+        reactor_loop_else(); 
+    endif; 
 
-                    
-
+ 
+    
+?>
+    

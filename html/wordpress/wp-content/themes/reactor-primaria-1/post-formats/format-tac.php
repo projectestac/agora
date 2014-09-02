@@ -6,11 +6,12 @@
  * @subpackage Post-Formats
  * @since 1.0.0
  */
- global $tipus_targeta;
+ 
  global $layout;
+ global $card_bgcolor;
  
  switch ($layout) {
- 	case 1: 	$amplada="large-12"; 	break;
+ 	case 1: 	$amplada="large-12";            break;
  	case 66: 	$amplada="large-8";		break;
  	case 2: 	$amplada="large-6";		break;
  	case 33:	$amplada="large-4";		break;
@@ -20,29 +21,32 @@
  }
  
 ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class("$amplada $tipus_targeta"); ?>>
-        <div class="entry-body">
+<article id="post-<?php the_ID(); ?>" <?php post_class("$amplada targeta $card_bgcolor"); ?>>
+<div class="entry-body">
+
+<?php     
+      if ( get_post_meta( get_the_ID(), '_amaga_titol', true )!="on") { 
+       echo '<header class="entry-header">';
+       reactor_post_header();
+       echo "</header><!-- .entry-header -->";
+      }
+      if ( get_post_meta( get_the_ID(), '_bloc_html', true )!="on") {  
+        echo '<div class="entry-summary">';
+        the_excerpt(); 
+        echo "</div><!-- .entry-summary -->";
+     } else { 
+        echo '<div class="entry-summary">';
+        the_content();
+        echo '</div><!-- .entry-summary -->';
+    }    
+    if ( get_post_meta( get_the_ID(), '_amaga_metadata', true )!="on") { 
+        echo '<footer class="entry-footer">';
+        reactor_post_footer(); 
+        echo '</footer><!-- .entry-footer -->';
+    } 
     
-        <?php if ( get_post_meta( get_the_ID(), '_amaga_titol', true )!="on") { ?>
-			<header class="entry-header">
-           	<?php reactor_post_header(); ?>
-           </header><!-- .entry-header -->
- 		<?php } ?> 
- 		<?php if ( get_post_meta( get_the_ID(), '_bloc_html', true )!="on") { ?>  
-            <div class="entry-summary">
-                <?php the_excerpt(); ?>
-            </div><!-- .entry-summary -->
-        <?php } else { ?>
-       		 <div class="entry-summary">
-                <?php the_content(); ?>
-            </div><!-- .entry-summary -->
-        <?php } ?>   
-        <?php if ( get_post_meta( get_the_ID(), '_amaga_metadata', true )!="on") { ?>
-            <footer class="entry-footer">
-            	<?php reactor_post_footer(); ?>
-            </footer><!-- .entry-footer -->
-        <?php } ?>  
-                 
-        </div><!-- .entry-body -->
-	</article><!-- #post -->
+?>  
+
+</div><!-- .entry-body -->
+</article><!-- #post -->
 

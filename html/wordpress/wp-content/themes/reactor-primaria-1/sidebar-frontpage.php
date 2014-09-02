@@ -10,7 +10,6 @@
 
     <?php reactor_sidebar_before(); ?>
     
-        <!--<div id="sidebar-frontpage" class="sidebar <?php reactor_columns( '', true, true, 1 ); ?>" role="complementary">-->
         <div id="sidebar-frontpage" class="sidebar <?php reactor_columns( 3 ); ?>" role="complementary">
 
 		<div id="sidebar-frontpage-inner">

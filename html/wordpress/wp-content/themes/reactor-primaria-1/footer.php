@@ -25,41 +25,48 @@
 
 <!-- Include the plug-in -->
 
-<!-- jmeler mateixa alçada -->
+<?php 
+
+//From loop-frontpage
+
+if ( is_front_page() ){
+	global $number_posts;
+	global $posts_per_fila1;
+	global $posts_per_fila2;
+	global $posts_per_filan;
+	$num_rows_n = round( ($number_posts - ($posts_per_fila1 + $posts_per_fila2)) / $posts_per_filan, 0, PHP_ROUND_HALF_UP ) ;
+	$num_rows=$num_rows_n+2;
+}
+
+if ( is_category() or is_tag() ){
+	global $posts_per_fila;
+	$num_rows=round( 10/$posts_per_fila, 0, PHP_ROUND_HALF_UP);
+}
+
+
+?>
+
 <script>
 
 jQuery(document).ready(function() {
-  jQuery(window).load(function() {
-    targetes_fila1 = jQuery('.fila1 > .tarjeta-fixe > .entry-body');
-    maxHeight = Math.max.apply(
-    Math, targetes_fila1.map(function() {
-      return jQuery(this).height();
-    }).get());
-    targetes_fila1.height(maxHeight);
-  });
-  
-  jQuery(window).load(function() {
-    targetes_fila2 = jQuery('.fila2 > .tarjeta-fixe > .entry-body');
-    maxHeight = Math.max.apply(
-    Math, targetes_fila2.map(function() {
-      return jQuery(this).height();
-    }).get());
-    targetes_fila2.height(maxHeight);
-  });
-  
+	
+	//Targeta mes alta determina l'alcada de la fila		
+	for (i=0;i<=<?php echo $num_rows; ?>;i++){
+	 	targetes_fila = jQuery('.fila'+i.toString()+'> .targeta > .entry-body');
+    	maxHeight = Math.max.apply(
+    	Math, targetes_fila.map(function() {
+      	return jQuery(this).height();
+    	}).get());
+    	targetes_fila.height(maxHeight);
+	}
+	
+	//Perque quedin alineats, coloquem el footer partint de la base de la targeta, no del contingut	
+ 	targetes = jQuery('.targeta > .entry-body >.entry-footer');
+	targetes.css('position', 'absolute');
+	targetes.css('bottom', '1em');
+  	 
 });
 
-</script>
-
-<script src="<?php echo get_template_directory_uri(); ?>/masonry.pkgd.min.js"></script>
-
-<script>
-var container = document.querySelector('#graella');
-var msnry = new Masonry( container, {
-  // options
-  columnWidth: 60,
-  itemSelector: '.tarjeta',
-});
 </script>
 
 </body>

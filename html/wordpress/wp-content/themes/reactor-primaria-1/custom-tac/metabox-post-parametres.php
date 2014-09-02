@@ -46,9 +46,10 @@ function metabox1_callback( $post ) {
 	echo '</label> ';
 	echo '<input type="text" id="mostrar_titol" name="mostrar_titol" value="' . esc_attr( $value ) . '" size="25" /><br>';*/
 	//echo $check1;
+	echo '<input type="checkbox" id="bloc_html" name="bloc_html" '.checked( $check3,'on' ,false ).'/> Mostra el contingut sencer<br>';
 	echo '<input type="checkbox" id="amaga_titol" name="amaga_titol" '.checked( $check1,'on', false ).' /> Amaga títol<br>';
-	echo '<input type="checkbox" id="amaga_metadata" name="amaga_metadata" '.checked( $check2,'on',false ).'/> Amaga metadades<br>';
-	echo '<input type="checkbox" id="bloc_html" name="bloc_html" '.checked( $check3,'on' ,false ).'/> Mostra el contingut sencer';
+	echo '<input type="checkbox" id="amaga_metadata" name="amaga_metadata" '.checked( $check2,'on',false ).'/> Amaga metadades';
+	
 }
 
 /**

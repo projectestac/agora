@@ -32,6 +32,26 @@ function reactor_do_reactor_head() { ?>
 <link rel="shortcut icon" href="<?php echo $favicon_uri; ?>">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+
+<!-- TODO: moure aquesta funció a un lloc més adequat -->
+<script>
+
+function menu_toggle(){
+	$icon_menu=document.getElementById("icon-menu");
+	$menu_panel=document.getElementById("menu-panel")
+	
+	if ($menu_panel.style.display=="inline-block") {
+		$menu_panel.style.display="none";
+		$icon_menu.setAttribute("class", "dashicons dashicons-menu");
+	} else {
+		$menu_panel.style.display="inline-block";
+		$icon_menu.setAttribute("class", "dashicons dashicons-no-alt");	
+	}
+}
+</script>
+
+
+
 <?php 
 }
 
@@ -69,14 +89,12 @@ function reactor_do_title_logo() { ?>
 		 
 			<div id="idcentre-box" class="<?php reactor_columns(array( 3, 12 ));?>">   
 				
-				  <!-- Primer bloc: text o logo -->
-				  <div  id="logo-box" class="site-logo <?php reactor_columns(array( 6, 8 ));?>">                     		
-                	<div class="site-logo-inner"> 
-	                	<?php if ( reactor_option('logo_image') ) : ?>
-	                			<div id="img-logo" style="background-image:url(<?php echo reactor_option('logo_image') ?>)"></div>
-							<?php else: ?>
-								<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
-						<?php endif; // end if logo ?>					
+			  	<!-- Primer bloc: text o logo -->
+			  	<div  id="logo-box" class="site-logo <?php reactor_columns(array( 6, 8 ));?>">                     		
+                		<div class="site-logo-inner"> 
+	                	
+				<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
+										
 					</div><!-- .site-logo-inner -->						
 				  </div> <!-- #logo-box .site-logo -->
 				
@@ -96,7 +114,26 @@ function reactor_do_title_logo() { ?>
 				  <div id="description-box" class="hide-for-small  site-description-box <?php reactor_columns( 6 ); ?> ">
 						<div class="site-description-box-inner">  
 							<span> 
-							<?php echo esc_attr( get_bloginfo( 'description', 'display' ) ); ?>
+						<?php	
+							switch (true){
+								case is_front_page():
+								case is_single():
+								case is_page():
+									echo esc_attr( get_bloginfo( 'description', 'display' ) ); 
+									break;
+								case is_category(): 
+									echo single_cat_title( '', false ); 
+                                                                        echo "<style type='text/css'>.site-description-box-inner {font-size:44px;}</style>";
+									break;
+								case is_tag():
+									echo single_tag_title( '', false );
+                                                                        echo "<style type='text/css'>.site-description-box-inner {font-size:44px;}</style>";
+									break;
+								default:
+									echo esc_attr( get_bloginfo( 'description', 'display' ) ); 
+							}
+						?>
+							
 							</span>
 						</div>
 					</div>	
@@ -106,7 +143,7 @@ function reactor_do_title_logo() { ?>
 				<!-- #slider -->
 				<div id="slider-box" class="hide-for-small site-slider <?php reactor_columns(7); ?> ">
 					<!-- jmeler hardcoded -->
-					<?php do_action('slideshow_deploy', reactor_option('diaporama',3625)); ?>
+					<?php do_action('slideshow_deploy', '3625'); ?>
 				</div><!-- .slider -->
 				
 				
@@ -129,28 +166,30 @@ function reactor_do_title_logo() { ?>
 								<div class="dashicons dashicons-<?php echo $options['icon12'];?>"></div>
 							</div>
 						</a>			
-						<a title="<?php echo $options['title_icon13'];?>" href="<?php echo $options['link_icon13'];?>">
+						<a title="CERCA" href="#">
 							<div id="icon-13" class="icon-graella">
-								<div class="dashicons dashicons-<?php echo $options['icon13'];?>"></div>
+								<div class="dashicons dashicons-search"></div>
 							</div>
 						</a>
 						
 						<!-- Fila 2 -->
-						<a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>">
+
+						<a title="<?php echo $options['title_icon23'];?>"href="<?php echo $options['link_icon23'];?>">
 							<div id="icon-21" class="icon-graella">
-							<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>				
+								<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>
 							</div>
-						</a>	
+						</a>
+						
 						<a title="<?php echo $options['title_icon22'];?>"href="<?php echo $options['link_icon22'];?>">
 							<div id="icon-22" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon22'];?>"></div>
 							</div>
 						</a>			
-						<a title="<?php echo $options['title_icon23'];?>"href="<?php echo $options['link_icon23'];?>">
+						<a title="MENU" href="javascript:void(0);" onclick='menu_toggle();'>
 							<div id="icon-23" class="icon-graella">
-								<div class="dashicons dashicons-<?php echo $options['icon23'];?>"></div>
+							<div id="icon-menu" class="dashicons dashicons-menu"></div>				
 							</div>
-						</a>
+						</a>	
 					
 					</div> <!-- .site-icones -->
 					

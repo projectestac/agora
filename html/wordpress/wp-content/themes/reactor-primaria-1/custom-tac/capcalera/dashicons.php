@@ -169,5 +169,6 @@
 			"dashicons-tablet",
 			"dashicons-smartphone",
 			"dashicons-smiley",
+			"dashicons-heart",
 			);
 ?>

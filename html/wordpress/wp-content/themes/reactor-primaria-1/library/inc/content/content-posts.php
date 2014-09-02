@@ -38,7 +38,9 @@ function reactor_do_standard_format_sticky() {
 		</div>
 <?php }
 }
-add_action('reactor_post_header', 'reactor_do_standard_format_sticky', 2);
+
+//jmeler No sticky label
+//add_action('reactor_post_header', 'reactor_do_standard_format_sticky', 2);
 
 /**
  * Post header
@@ -47,6 +49,7 @@ add_action('reactor_post_header', 'reactor_do_standard_format_sticky', 2);
  * @since 1.0.0
  */
 function reactor_do_standard_header_titles() {
+
 	$show_titles = reactor_option('frontpage_show_titles', 1);
 	$link_titles = reactor_option('frontpage_link_titles', 0);
 	
@@ -63,9 +66,17 @@ function reactor_do_standard_header_titles() {
 		<?php } else { ?>
 		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 		<?php } ?>
+		
 <?php }
+
+        
+        echo '<span class="entry-author">'.get_the_author().'&nbsp;&nbsp;</span>';
+        echo '<span class="entry-date">'.get_the_date('d/m/y' ).'&nbsp;&nbsp;</span>';
+	//echo '<div class="header_metatags" style="float:left"><div class="dashicons dashicons-admin-users"></div>'.get_the_author().'</div>';
+	//echo '<div class="header_metatags" ><div class="dashicons dashicons-calendar"></div>'.get_the_date('d/m/y' ).'</div>';
+
 }
-//jmeler change order, first thumbnail and title after
+
 add_action('reactor_post_header', 'reactor_do_standard_header_titles', 3);
 
 /**
@@ -74,40 +85,20 @@ add_action('reactor_post_header', 'reactor_do_standard_header_titles', 3);
  * 
  * @since 1.0.0
  */
- /*
-function reactor_do_standard_thumbnail() { 
-	$link_titles = reactor_option('frontpage_link_titles', 0);
-	
-	if ( has_post_thumbnail() ) { ?>
-		<div class="entry-thumbnail">
-		<?php if ( is_page_template('page-templates/front-page.php') && !$link_titles ) { 
-			the_post_thumbnail();
-		} else { ?>
-			<?php the_post_thumbnail(); ?></a>
-			<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"></a>
-            <?php } ?>
-		</div>
-	<?php }
-}
-*/
+ 
 
-/*jmeler cover thumbnail*/
 function reactor_do_standard_thumbnail() { 
 	$link_titles = reactor_option('frontpage_link_titles', 0);
 	
-	if ( has_post_thumbnail() ) { 
-		if ( is_page_template('page-templates/front-page.php') ) { 
+	if ( has_post_thumbnail() and !is_single() ) { 
 			$thumb_src=wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 		?>
 		<div class="entry-thumbnail" style="background-image:url(<?php echo $thumb_src ?>)">
 		</div>
 	<?php }
-	}
 }
 
-
-
-add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 5);
+add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 4);
             
 /**
  * Post footer title 
@@ -116,7 +107,8 @@ add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 5);
  * @since 1.0.0
  */
 function reactor_do_post_footer_title() {
-$format = ( get_post_format() ) ? get_post_format() : 'standard'; 
+
+    $format = ( get_post_format() ) ? get_post_format() : 'standard'; 
 
     switch ( $format ) { 
 		case 'audio' : 
@@ -131,7 +123,7 @@ $format = ( get_post_format() ) ? get_post_format() : 'standard';
 		<?php break; 
 	}
 }
-add_action('reactor_post_footer', 'reactor_do_post_footer_title', 1);
+add_action('reactor_post_footer', 'reactor_do_post_footer_title', 3);
 
 /**
  * Post footer meta
@@ -140,7 +132,7 @@ add_action('reactor_post_footer', 'reactor_do_post_footer_title', 1);
  * @since 1.0.0
  */
 function reactor_do_post_footer_meta() {
-	
+	/*
 	if ( is_page_template('page-templates/front-page.php') ) {
 		$post_meta = reactor_option('frontpage_post_meta', 1);
 	}
@@ -153,6 +145,28 @@ function reactor_do_post_footer_meta() {
 	if ( $post_meta && current_theme_supports('reactor-post-meta') ) {
 		reactor_post_meta();
 	}
+	*/
+	//$categories=implode(",",get_the_category());
+	//$tags=implode(",",get_the_tags( $id ));
+        //
+	//echo "<hr style='margin:0.5em 0 0.5em 0'>";
+	$categories = get_the_category();
+	$output = '<span class="entry-categories">';
+	if($categories){
+	foreach($categories as $category) {
+		$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.", ";
+	}
+	echo trim($output, ", ");
+	echo "</span>";
+	$string_tags=trim(get_the_tag_list("",", "),",");
+	
+	if (strlen($string_tags)) 
+		echo ' <span class="entry-tags">'.$string_tags.'</span>';
+		
+	echo ' <span class="entry-comments">12</span>';
+        //echo ' <span class="entry-like">16</span>';
+	//echo "<hr style='margin:0.5em 0 0.5em 0'>";
+}
 }
 add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 2);
 
