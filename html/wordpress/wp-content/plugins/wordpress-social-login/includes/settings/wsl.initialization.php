@@ -7,7 +7,7 @@
 */
 
 /**
-* Check wsl requirements and register wsl settings 
+* Check wsl requirements and register wsl settings
 *
 * More information ca be found at http://hybridauth.sourceforge.net/wsl/developer.html
 */
@@ -26,29 +26,29 @@ $WORDPRESS_SOCIAL_LOGIN_COMPONENTS = ARRAY(
 	"networks"       => array( "type" => "core"  , "label" => __("Networks"       , 'wordpress-social-login'), "description" => __("Social networks setup.", 'wordpress-social-login') ),
 	"login-widget"   => array( "type" => "core"  , "label" => __("Widget"         , 'wordpress-social-login'), "description" => __("Authentication widget customization.", 'wordpress-social-login') ),
 	"bouncer"        => array( "type" => "core"  , "label" => __("Bouncer"        , 'wordpress-social-login'), "description" => __("WordPress Social Login advanced configuration.", 'wordpress-social-login') ),
-	"diagnostics"    => array( "type" => "core"  , "label" => __("Diagnostics"    , 'wordpress-social-login'), "description" => __("WordPress Social Login diagnostics.", 'wordpress-social-login') ), 
-	"basicinsights"  => array( "type" => "plugin", "label" => __("Basic Insights" , 'wordpress-social-login'), "description" => __("WordPress Social Login basic insights. When enabled <b>Basic Insights</b> will on <b>Networks</b> tab.", 'wordpress-social-login') ), 
+	"diagnostics"    => array( "type" => "core"  , "label" => __("Diagnostics"    , 'wordpress-social-login'), "description" => __("WordPress Social Login diagnostics.", 'wordpress-social-login') ),
+	"basicinsights"  => array( "type" => "plugin", "label" => __("Basic Insights" , 'wordpress-social-login'), "description" => __("WordPress Social Login basic insights. When enabled <b>Basic Insights</b> will on <b>Networks</b> tab.", 'wordpress-social-login') ),
 	"users"          => array( "type" => "plugin", "label" => __("Users"          , 'wordpress-social-login'), "description" => __("WordPress Social Login users manager.", 'wordpress-social-login') ),
 	"contacts"       => array( "type" => "plugin", "label" => __("Contacts"       , 'wordpress-social-login'), "description" => __("WordPress Social Login users contacts manager", 'wordpress-social-login') ),
 );
 
 /** list of wsl admin tabs */
-$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS = ARRAY(  
+$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS = ARRAY(
 	"networks"     => array( "label" => __("Networks"      , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "networks"      , "default" => true ),
-	"login-widget" => array( "label" => __("Widget"        , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "login-widget" ), 
-	"bouncer"      => array( "label" => __("Bouncer"       , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "bouncer"      ), 
+	"login-widget" => array( "label" => __("Widget"        , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "login-widget" ),
+	"bouncer"      => array( "label" => __("Bouncer"       , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "bouncer"      ),
 	"users"        => array( "label" => __("Users"         , 'wordpress-social-login') , "enabled" => false,  "visible" => true  , "component" => "users"        ),
 	"contacts"     => array( "label" => __("Contacts"      , 'wordpress-social-login') , "enabled" => false,  "visible" => true  , "component" => "contacts"     ),
-	"diagnostics"  => array( "label" => __("Diagnostics"   , 'wordpress-social-login') , "enabled" => true ,  "visible" => false , "component" => "diagnostics"   , "pull-right" => true , "welcome-panel" => false ), 
-	"help"         => array( "label" => __('?'             , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "core"          , "pull-right" => true , "welcome-panel" => false ), 
-	"components"   => array( "label" => __("Components"    , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "core"          , "pull-right" => true , "welcome-panel" => false ), 
+	"diagnostics"  => array( "label" => __("Diagnostics"   , 'wordpress-social-login') , "enabled" => true ,  "visible" => false , "component" => "diagnostics"   , "pull-right" => true , "welcome-panel" => false ),
+	"help"         => array( "label" => __('?'             , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "core"          , "pull-right" => true , "welcome-panel" => false ),
+	"components"   => array( "label" => __("Components"    , 'wordpress-social-login') , "enabled" => true ,  "visible" => true  , "component" => "core"          , "pull-right" => true , "welcome-panel" => false ),
 	"advanced"     => array( "label" => __("Advanced"      , 'wordpress-social-login') , "enabled" => true ,  "visible" => false , "component" => "core"          , "pull-right" => true , "welcome-panel" => false ),
 );
 
 // --------------------------------------------------------------------
 
 /**
-* Register new wsl components 
+* Register new wsl components
 */
 function wsl_register_component( $component, $config, $tabs )
 {
@@ -60,11 +60,11 @@ function wsl_register_component( $component, $config, $tabs )
 	}
 
 	$config["type"] = "plugin";
-	$WORDPRESS_SOCIAL_LOGIN_COMPONENTS[ $component ] = $config;  
+	$WORDPRESS_SOCIAL_LOGIN_COMPONENTS[ $component ] = $config;
 
 	if( is_array( $tabs ) && count( $tabs ) ){
 		foreach( $tabs as $tab => $config ){
-			$config["component"] = $component; 
+			$config["component"] = $component;
 
 			wsl_register_admin_tab( $tab, $config );
 		}
@@ -78,8 +78,8 @@ add_action( 'wsl_register_component', 'wsl_register_component', 10, 3 );
 /**
 * Register new wsl admin tab
 */
-function wsl_register_admin_tab( $tab, $config ) 
-{ 
+function wsl_register_admin_tab( $tab, $config )
+{
 	GLOBAL $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS;
 
 	// sure it can be overwritten.. just not recommended
@@ -87,7 +87,7 @@ function wsl_register_admin_tab( $tab, $config )
 		return wsl_render_notices_pages( _wsl__("An installed plugin is trying to o-ver-write WordPress Social Login config in a bad way.", 'wordpress-social-login') );
 	}
 
-	$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS[ $tab ] = $config;  
+	$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS[ $tab ] = $config;
 }
 
 add_action( 'wsl_register_admin_tab', 'wsl_register_admin_tab', 10, 2 );
@@ -98,7 +98,7 @@ add_action( 'wsl_register_admin_tab', 'wsl_register_admin_tab', 10, 2 );
 * Check if a component is enabled
 */
 function wsl_is_component_enabled( $component )
-{ 
+{
 	if( get_option( "wsl_components_" . $component . "_enabled" ) == 1 ){
 		return true;
 	}
@@ -117,7 +117,7 @@ function wsl_register_components()
 	GLOBAL $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS;
 
 	foreach( $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS as $tab => $config ){
-		$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS[ $tab ][ "enabled" ] = false; 
+		$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS[ $tab ][ "enabled" ] = false;
 	}
 
 	foreach( $WORDPRESS_SOCIAL_LOGIN_COMPONENTS as $component => $config ){
@@ -133,9 +133,9 @@ function wsl_register_components()
 			update_option( "wsl_components_" . $component . "_enabled", 1 );
 		}
 
-		foreach( $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS as $tab => $tconfig ){ 
+		foreach( $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS as $tab => $tconfig ){
 			if( $tconfig["component"] == $component ){
-				
+
 				if( $WORDPRESS_SOCIAL_LOGIN_COMPONENTS[ $component ][ "enabled" ] ){
 					$WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS[ $tab ][ "enabled" ] = true;
 				}
@@ -187,7 +187,7 @@ function wsl_register_setting()
 
 	// idps credentials
 	foreach( $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG AS $item ){
-		$provider_id          = @ $item["provider_id"]; 
+		$provider_id          = @ $item["provider_id"];
 		$require_client_id    = @ $item["require_client_id"];
 		$require_registration = @ $item["new_app_link"];
 
@@ -195,33 +195,39 @@ function wsl_register_setting()
 
 		if ( $require_registration ){ // require application?
 			if ( $require_client_id ){ // key or id ?
-				register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_app_id' ); 
+				register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_app_id' );
 			}
 			else{
-				register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_app_key' ); 
+				register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_app_key' );
 			}
 
-			register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_app_secret' ); 
+			register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_app_secret' );
+			// XTEC ************ AFEGIT - Added Moodle Login provider
+		    // 2014.08.29 @pferre22
+		   	if ($provider_id == 'Moodle'){
+		   		register_setting( 'wsl-settings-group', 'wsl_settings_' . $provider_id . '_url' );
+		   	}
+		    //************ FI
 		}
 	}
 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_connect_with_label'                               ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_social_icon_set'                                  ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_users_avatars'                                    ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_use_popup'                                        ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_widget_display'                                   ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_redirect_url'                                     ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_users_notification'                               ); 
-	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_authentication_widget_css'                        ); 
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_connect_with_label'                               );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_social_icon_set'                                  );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_users_avatars'                                    );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_use_popup'                                        );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_widget_display'                                   );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_redirect_url'                                     );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_users_notification'                               );
+	register_setting( 'wsl-settings-group-customize'        , 'wsl_settings_authentication_widget_css'                        );
 
-	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_facebook'                         ); 
-	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_google'                           ); 
-	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_twitter'                          ); 
-	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_live'                             ); 
-	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_linkedin'                         ); 
+	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_facebook'                         );
+	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_google'                           );
+	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_twitter'                          );
+	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_live'                             );
+	register_setting( 'wsl-settings-group-contacts-import'  , 'wsl_settings_contacts_import_linkedin'                         );
 
-	register_setting( 'wsl-settings-group-bouncer'          , 'wsl_settings_bouncer_registration_enabled'                     ); 
-	register_setting( 'wsl-settings-group-bouncer'          , 'wsl_settings_bouncer_authentication_enabled'                   ); 
+	register_setting( 'wsl-settings-group-bouncer'          , 'wsl_settings_bouncer_registration_enabled'                     );
+	register_setting( 'wsl-settings-group-bouncer'          , 'wsl_settings_bouncer_authentication_enabled'                   );
 
 	register_setting( 'wsl-settings-group-bouncer'          , 'wsl_settings_bouncer_profile_completion_require_email'         );
 	register_setting( 'wsl-settings-group-bouncer'          , 'wsl_settings_bouncer_profile_completion_change_email'          );
@@ -251,7 +257,7 @@ function wsl_register_setting()
 
 	register_setting( 'wsl-settings-group-advanced-settings', 'wsl_settings_base_url' );
 
-	register_setting( 'wsl-settings-group-development'      , 'wsl_settings_development_mode_enabled' ); 
+	register_setting( 'wsl-settings-group-development'      , 'wsl_settings_development_mode_enabled' );
 
 	add_option( 'wsl_settings_welcome_panel_enabled' );
 
@@ -277,7 +283,7 @@ function wsl_admin_menu_top_bar()
 		return ;
 	}
 
-	if ( ! is_admin_bar_showing() ) {  
+	if ( ! is_admin_bar_showing() ) {
 		return ;
 	}
 
@@ -312,8 +318,8 @@ function wsl_admin_menu_top_bar()
 		"title"  => __('User Guide and FAQ', 'wordpress-social-login'),
 		'href' 	 => 'http://hybridauth.sourceforge.net/wsl/index.html',
 		"parent" => "wp-admin-wordpress-social-login",
-		'meta'  => array( 'target' => '_blank' )  
-	)); 
+		'meta'  => array( 'target' => '_blank' )
+	));
 }
 
 add_action('wp_before_admin_bar_render', 'wsl_admin_menu_top_bar');
@@ -330,7 +336,7 @@ function wsl_admin_menu()
 	add_action( 'admin_init', 'wsl_register_setting' );
 }
 
-add_action('admin_menu', 'wsl_admin_menu' ); 
+add_action('admin_menu', 'wsl_admin_menu' );
 
 // --------------------------------------------------------------------
 
@@ -339,9 +345,9 @@ add_action('admin_menu', 'wsl_admin_menu' );
 */
 function wsl_admin_menu_sidebar()
 {
-	add_menu_page( 'WP Social Login', 'WP Social Login', 'manage_options', 'wordpress-social-login', 'wsl_admin_init' ); 
+	add_menu_page( 'WP Social Login', 'WP Social Login', 'manage_options', 'wordpress-social-login', 'wsl_admin_init' );
 }
- 
+
 // add_action('admin_menu', 'wsl_admin_menu_sidebar');
 
 // --------------------------------------------------------------------
@@ -369,7 +375,7 @@ function wsl_comment_row_actions( $a ) {
 
 	$tmp = wsl_get_user_by_meta_key_and_user_id( "wsl_user_image", $comment->user_id);
 
-    if ( $tmp ) { 
+    if ( $tmp ) {
 		$a[ 'wsl_profile' ] = '<a href="options-general.php?page=wordpress-social-login&wslp=users&uid=' . $comment->user_id . '">' . _wsl__("WSL user profile", 'wordpress-social-login') . '</a>';
 		$a[ 'wsl_contacts' ] = '<a href="options-general.php?page=wordpress-social-login&wslp=contacts&uid=' . $comment->user_id . '">' . _wsl__("WSL user contacts", 'wordpress-social-login') . '</a>';
 	}

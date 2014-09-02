@@ -14,13 +14,19 @@ class Hybrid_Providers_Moodle extends Hybrid_Provider_Model_OAuth2
 	{
 		parent::initialize();
 
-		if ( ! $this->config["keys"]["id"] || ! $this->config["keys"]["secret"] ){
+		if(!$this->config["url"]){
+			require_once( dirname(dirname(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))))) . '/wp-load.php' );
+			$this->config["url"] = get_option( 'wsl_settings_' . $this->providerId . '_url' );
+		}
+
+		if ( ! $this->config["keys"]["id"] || ! $this->config["keys"]["secret"] || !$this->config["url"]){
+			var_dump($this->config);
+			die();
 			throw new Exception( "Your application id and secret are required in order to connect to {$this->providerId}.", 4 );
 		}
-		// TODO: In a future this url must be configurable
-		require( dirname(dirname(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))))) . '/wp-load.php' );
-		$this->api->api_base_url = str_replace('nodes','moodle',WP_SITEURL);
+
 		// Provider api end-points
+		$this->api->api_base_url   = $this->config["url"];
 		$this->api->authorize_url  = $this->api->api_base_url."/local/oauth/login.php";
 		$this->api->token_url      = $this->api->api_base_url."/local/oauth/token.php";
 		$this->api->token_info_url = $this->api->api_base_url."/local/oauth/token_info.php";

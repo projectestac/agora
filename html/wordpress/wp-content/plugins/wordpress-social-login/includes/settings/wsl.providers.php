@@ -60,7 +60,7 @@ $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
 		"provider_id"       => "Moodle",
 		"provider_name"     => "Moodle",
 		"require_client_id" => true,
-		"new_app_link"      => "MOODLE_URL/agora/local/oauth/register.php",
+		"new_app_link"      => "MOODLE_URL/agora/local/oauth/index.php",
 
 		"default_network"  => true,
 		"cat"               => "agora",
