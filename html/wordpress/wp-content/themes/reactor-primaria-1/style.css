@@ -1,19 +1,17 @@
 /*
-Theme Name: NODES (Primaria)
-Theme URI: http://awtheme.com/
-Description: Tema per primaria
+Theme Name: NODES
+Theme URI: http://jurjur.org
+Description: Tema desenvolupat pel departament d'Ensenyament de Catalunya
 Author: Albert Bachiller 
-Author URI: http://anthonywilhelm.com
+Author URI: http://jurjur.org
 Template: reactor
-Version: 1.1.0
+Version: 1.0.0
 */
 
-/*Agora - Nodes */
 
 /*****************************************************************
 Add Custom styles below 
 ******************************************************************/
-/*jmeler mod*/
 
 body{
 	background-color:white !important;
@@ -27,10 +25,10 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6, a {
-    color: #ff5a26;
+    color: #087eb6;
     /*font-family: 'Delius', cursive !important;*/
-    font-family: 'Ubuntu', sans-serif;
-    font-weight:300;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;
     
 }
 
@@ -47,32 +45,14 @@ Targetes
 
 .card_bgcolor1{
 	background-color:#e5e5e5;
-	
 }
-.card_bgcolor2{
-	/*background-color:#efefef;*/
-background-color:#f1f1f1;
-	
+.card_bgcolor2{	
+	background-color:#f1f1f1;
 }
 .card_bgcolor3{
 	background-color:#f8f8f8;
 }
 
-/*
-.card_bgcolor1{
- 	background-color: #efefef;
-    
-}
-
-.card_bgcolor2{
-    background-color:whitesmoke;
-}
-
-.card_bgcolor3{
-    background-color: #e4eaec;
-}
-
-*/
 
 #contingut_central_frontpage{
     padding:0px;
@@ -172,11 +152,23 @@ height: 36px;
 
 #wpadminbar #wp-admin-bar-bp-login>.ab-item:before {
     content: "\f112";
+margin-top: 4px;
 }
 
 li#wp-admin-bar-bp-login{
 float:right;
 }
+#wpadminbar #wp-admin-bar-gencat >.ab-item:after, #wpadminbar #wp-admin-bar-recursosXTEC >.ab-item:after{
+	font: normal 16px/1 'dashicons';
+	display:inline-block;
+	vertical-align:middle;
+	content: "\f347";
+	margin-left: 8px;
+	padding-right:5px;
+	border-right:1px solid grey;
+
+}
+
 
 /*****************************************************************
 Header
@@ -225,7 +217,7 @@ Header
 
 .site-logo{
     display:table !important;
-    background-color:#ff2a2a;
+    background-color:#0eb1ff;
 }
 
 .site-logo-inner{
@@ -245,7 +237,7 @@ Header
 }
 
 .site-description-box{
-    background-color:#ff5a26;
+    background-color:#087eb6;
     
 }
 
@@ -385,11 +377,12 @@ Header
 }
 
 #icon-11{
-    background-color:#FF4343;
+    background-color:#087eb6;
 }
 
 #icon-11:hover{
-    background-color:#fdd300;
+background-color:#fdd300;
+    
     color: black;
 }
 
@@ -407,12 +400,12 @@ Header
     /*#4e4f54;*/
 }
 #icon-13:hover{
-    background-color:#fdd300;
+    background-color:#087eb6;
     color: black;
 }
 
 #icon-21{
-    background-color:#087eb6;
+    background-color:#0eb1ff;
 }
 #icon-21:hover{
     background-color:#fdd300;
@@ -421,7 +414,7 @@ Header
 
 #icon-22 {
     background-color:white;
-    color:#ff5a26;
+    color:#087eb6;
 }
 #icon-22:hover{
     background-color:#fdd300;

@@ -1,9 +1,4 @@
 
-body {
-    /*background-color: #a4d3df !important;*/
-    background-color: whitesmoke;
-}
-
 #idcentre-box{
     background-color:#0eb1ff;
 }
@@ -14,7 +9,6 @@ body {
 	
 }
 .card_bgcolor2{
-	/*background-color:#efefef;*/
 background-color:#f1f1f1;
 	
 }
@@ -49,3 +43,9 @@ background-color:#0eb1ff;
 #icon-22{
 color:#087eb6;
 }
+
+#icon-13{
+background-color:#087eb6;
+}
+
+

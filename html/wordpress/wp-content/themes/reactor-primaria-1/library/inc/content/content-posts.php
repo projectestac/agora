@@ -163,7 +163,7 @@ function reactor_do_post_footer_meta() {
 	if (strlen($string_tags)) 
 		echo ' <span class="entry-tags">'.$string_tags.'</span>';
 		
-	echo ' <span class="entry-comments">12</span>';
+	echo ' <span class="entry-comments">'.get_comments_number().'</span>';
         //echo ' <span class="entry-like">16</span>';
 	//echo "<hr style='margin:0.5em 0 0.5em 0'>";
 }
