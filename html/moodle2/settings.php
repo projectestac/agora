@@ -43,7 +43,7 @@ if($CFG->iseoi){
 
 //Cleanup
 $CFG->disablegradehistory = 1;
-if($CFG->iseoi){
+if(!$CFG->iseoi){
 	$CFG->loglifetime = 365;
 } else {
 	$CFG->loglifetime = 0;

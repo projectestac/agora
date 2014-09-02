@@ -2,7 +2,7 @@
 
     // Schools Moodle database access info (common in all environments)
     $agora['moodle']['current_version']    = '';                   // Current version
-    $agora['moodle']['dbtype']             = 'oci8po';             // oci8po (Oracle), mysql, ...
+    $agora['moodle']['dbtype']             = 'oci';             // oci8po (Oracle), mysql, ...
     $agora['moodle']['dbhost']             = '';                   // Not necessary for Oracle
     $agora['moodle']['prefix']             = 'ml';                 // Moodle table prefix (only 2 chars)
     $agora['moodle']['username']           = $agora['server']['userprefix'];
@@ -10,7 +10,7 @@
     $agora['moodle']['userprefix']         = $agora['server']['userprefix']; // All services need to have the same variable name
 
     // Params for Moodle2
-    $agora['moodle2']['dbtype']            = 'oci8po';             // oci8po (Oracle), mysql, ...
+    $agora['moodle2']['dbtype']            = 'oci';             // oci8po (Oracle), mysql, ...
     $agora['moodle2']['prefix']            = 'm2';                 // Moodle 2 table prefix (only 2 chars)
     $agora['moodle2']['username']          = $agora['server']['userprefix'];
     $agora['moodle2']['diskusagefile']     = 'diskUsageMdl2.txt';

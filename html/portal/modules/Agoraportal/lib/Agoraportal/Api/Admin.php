@@ -1641,6 +1641,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 }
                 mysql_close($connect);
                 break;
+            case 'oci':
             case 'oci8':
             case 'oci8po':
                 if (substr_count(strtolower(trim($sql)), 'insert') > 1 
