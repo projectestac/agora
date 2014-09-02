@@ -285,7 +285,7 @@ function is_service_enabled($service){
 function get_service_url($service){
     global $CFG;
     if(is_service_enabled($service)){
-        return $CFG->wwwroot.'/'.$service.'/';
+        return $CFG->wwwroot.'/../'.$service.'/';
     }
     return false;
 }
