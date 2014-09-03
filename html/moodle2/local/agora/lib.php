@@ -139,7 +139,7 @@ function run_cli_cron($background = true){
         if(isset($CFG->usu1repofiles) && !empty($CFG->usu1repofiles)) {
             $output_dir = $CFG->usu1repofiles.'/crons';
         } else {
-            $output_dir = $CFG->dataroot.'/crons';
+            $output_dir = $CFG->dataroot.'/repository/files/crons';
         }
         $result = make_writable_directory($output_dir, false);
         if($result){
