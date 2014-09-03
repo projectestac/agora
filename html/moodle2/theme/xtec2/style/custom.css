@@ -1,4 +1,4 @@
-f[[setting:importcss]]
+[[setting:importcss]]
 
 @font-face {
     font-family: Abecedario;
@@ -426,6 +426,64 @@ input.form-submit:hover, input#id_submitbutton:hover, input#id_submitbutton2:hov
 	height: 2em;
 	line-height: 2em;
 }
+
+
+.path-mod-forum .forumheaderlist .discussion .topic,
+.path-mod-forum .forumheaderlist .discussion .topic.starter,
+.path-mod-forum .forumheaderlist .discussion .picture,
+.path-mod-forum .forumheaderlist .discussion .author,
+.path-mod-forum .forumheaderlist .discussion .replies,
+.path-mod-forum .forumheaderlist .discussion .lastpost {
+	vertical-align: middle;
+	padding: 5px;
+}
+
+table#explaincaps tbody>tr:nth-child(odd)>td,
+table#defineroletable tbody>tr:nth-child(odd)>td,
+table.grading-report tbody>tr:nth-child(odd)>td,
+table#listdirectories tbody>tr:nth-child(odd)>td,
+table.rolecaps tbody>tr:nth-child(odd)>td,
+table.userenrolment tbody>tr:nth-child(odd)>td,
+table#form tbody>tr:nth-child(odd)>td,
+form#movecourses table tbody>tr:nth-child(odd)>td,
+#page-admin-course-index .editcourse tbody>tr:nth-child(odd)>td,
+.forumheaderlist tbody>tr:nth-child(odd)>td,
+table.flexible tbody>tr:nth-child(odd)>td,
+.generaltable tbody>tr:nth-child(odd)>td,
+table#explaincaps tbody>tr:nth-child(odd)>th,
+table#defineroletable tbody>tr:nth-child(odd)>th,
+table.grading-report tbody>tr:nth-child(odd)>th,
+table#listdirectories tbody>tr:nth-child(odd)>th,
+table.rolecaps tbody>tr:nth-child(odd)>th,
+table.userenrolment tbody>tr:nth-child(odd)>th,
+table#form tbody>tr:nth-child(odd)>th,
+form#movecourses table tbody>tr:nth-child(odd)>th,
+#page-admin-course-index .editcourse tbody>tr:nth-child(odd)>th,
+.forumheaderlist tbody>tr:nth-child(odd)>th,
+table.flexible tbody>tr:nth-child(odd)>th,
+.generaltable tbody>tr:nth-child(odd)>th {
+	background-color: #f6f6f6;
+}
+
+.user-enroller-panel .uep-search-results .users tbody tr:hover>td,
+table.grading-report tbody tr:hover>td,
+.forumheaderlist tbody tr:hover>td,
+.generaltable tbody tr:hover>td,
+table.flexible tbody tr:hover>td,
+.category_subcategories tbody tr:hover>td,
+table#modules tbody tr:hover>td,
+table#permissions tbody tr:hover>td,
+.user-enroller-panel .uep-search-results
+.users tbody tr:hover>th,
+table.grading-report tbody tr:hover>th,
+.forumheaderlist tbody tr:hover>th,
+.generaltable tbody tr:hover>th,
+table.flexible tbody tr:hover>th,
+.category_subcategories tbody tr:hover>th,
+table#modules tbody tr:hover>th,
+table#permissions tbody tr:hover>th {
+	background-color: #f2f2f2;
+}
 /*
 .block .minicalendar tr.weekdays{
 	color: [[setting:color3]];
@@ -559,6 +617,7 @@ i.fa.iconsmall {
 	padding-right: 3px;
 	display: inline-block;
 	font: normal normal normal 24px/1 FontAwesome;
+	font-size: inherit;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
