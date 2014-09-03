@@ -4,6 +4,9 @@
  * This file contains extra functions for Agora and XTECBlocs services
  */
 
+/*
+ * Check if current logged user is xtecadmin
+ */
 function is_xtecadmin() {
     
     global $current_user;
@@ -16,9 +19,28 @@ function is_xtecadmin() {
 }
 
 /*
+ * Get the ID of xtecadmin user
+ * 
+ * return int ID of xtecadmin
+ */
+function get_xtecadmin_id() {
+
+    return get_user_by('login', 'xtecadmin')->ID;
+}
+
+/*
+ * Get the username of xtecadmin
+ * 
+ * return string username of xtecadmin
+ */
+function get_xtecadmin_username() {
+
+    return 'xtecadmin';
+}
+
+/*
  * Collect basic statistical and security information.
  */
-
 function save_stats() {
 
     global $current_user, $table_prefix, $wpdb;

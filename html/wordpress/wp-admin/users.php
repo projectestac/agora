@@ -143,7 +143,7 @@ case 'dodelete':
 	if ( is_multisite() )
 		wp_die( __('User deletion is not allowed from this screen.') );
 
-	check_admin_referer('delete-users');
+    check_admin_referer('delete-users');
 
 	if ( empty($_REQUEST['users']) ) {
 		wp_redirect($redirect);
@@ -166,7 +166,15 @@ case 'dodelete':
 	$delete_count = 0;
 
 	foreach ( $userids as $id ) {
-		if ( ! current_user_can( 'delete_user', $id ) )
+
+        // XTEC ************ MODIFICAT - Xtecadmin cannot be deleted (actual remove step)
+        // 2014.09.03 @aginard
+        if ($isAgora && ($id == get_xtecadmin_id())) {
+            wp_die(__('You do not have permission to do that.'));
+        }
+        //************ FI
+        
+        if ( ! current_user_can( 'delete_user', $id ) )
 			wp_die(__( 'You can&#8217;t delete that user.' ) );
 
 		if ( $id == $current_user->ID ) {
@@ -194,7 +202,7 @@ case 'delete':
 	if ( is_multisite() )
 		wp_die( __('User deletion is not allowed from this screen.') );
 
-	check_admin_referer('bulk-users');
+    check_admin_referer('bulk-users');
 
 	if ( empty($_REQUEST['users']) && empty($_REQUEST['user']) ) {
 		wp_redirect($redirect);
@@ -229,6 +237,14 @@ case 'delete':
 <?php
 	$go_delete = 0;
 	foreach ( $userids as $id ) {
+
+        // XTEC ************ MODIFICAT - Xtecadmin cannot be deleted (confirmation step)
+        // 2014.09.03 @aginard
+        if ($isAgora && ($id == get_xtecadmin_id())) {
+            wp_die(__('You do not have permission to do that.'));
+        }
+        //************ FI
+
 		$user = get_userdata( $id );
 		if ( $id == $current_user->ID ) {
 			echo "<li>" . sprintf(__('ID #%1$s: %2$s <strong>The current user will not be deleted.</strong>'), $id, $user->user_login) . "</li>\n";

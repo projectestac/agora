@@ -360,14 +360,38 @@ class WP_Users_List_Table extends WP_List_Table {
 
 			if ( current_user_can( 'edit_user',  $user_object->ID ) ) {
 				$edit = "<strong><a href=\"$edit_link\">$user_object->user_login</a></strong><br />";
-				$actions['edit'] = '<a href="' . $edit_link . '">' . __( 'Edit' ) . '</a>';
+
+                // XTEC ************ MODIFICAT - Do not show edit link for xtecadmin (opening if)
+                // 2014.09.03 @aginard
+                global $isAgora;
+                if ($isAgora && (($user_object->user_login != get_xtecadmin_username()) || is_xtecadmin())) {
+                //************ FI
+                    
+                $actions['edit'] = '<a href="' . $edit_link . '">' . __( 'Edit' ) . '</a>';
+                
+                // XTEC ************ MODIFICAT - Do not show edit link for xtecadmin (closing if)
+                // 2014.09.03 @aginard
+                }
+                //************ FI
+                
 			} else {
 				$edit = "<strong>$user_object->user_login</strong><br />";
 			}
-
 			if ( !is_multisite() && get_current_user_id() != $user_object->ID && current_user_can( 'delete_user', $user_object->ID ) )
+
+                // XTEC ************ MODIFICAT - Do not show delete link for xtecadmin (opening if)
+                // 2014.09.03 @aginard
+                {
+                global $isAgora;
+                if ($isAgora && (($user_object->user_login != get_xtecadmin_username()))) {
+                //************ FI
 				$actions['delete'] = "<a class='submitdelete' href='" . wp_nonce_url( "users.php?action=delete&amp;user=$user_object->ID", 'bulk-users' ) . "'>" . __( 'Delete' ) . "</a>";
-			if ( is_multisite() && get_current_user_id() != $user_object->ID && current_user_can( 'remove_user', $user_object->ID ) )
+                // XTEC ************ MODIFICAT - Do not show delete link for xtecadmin (closing ifs)
+                // 2014.09.03 @aginard
+                }
+                }
+                //************ FI
+            if ( is_multisite() && get_current_user_id() != $user_object->ID && current_user_can( 'remove_user', $user_object->ID ) )
 				$actions['remove'] = "<a class='submitdelete' href='" . wp_nonce_url( $url."action=remove&amp;user=$user_object->ID", 'bulk-users' ) . "'>" . __( 'Remove' ) . "</a>";
 
 			/**

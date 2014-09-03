@@ -5,7 +5,17 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-MOODLE2:
+MOODLE 2
+
+
+WORDPRESS
+- Protected xtecadmin against edition and deletion
+
+
+
+Changes 14.09.03
+---------------------------------------------------------------------------------------
+MOODLE 2
 - Font awesome icons
 - New button to toggle block visibility
 - Now submit buttons uses main background color
@@ -24,17 +34,17 @@ WORDPRESS
 
 Changes 14.08.26
 ---------------------------------------------------------------------------------------
-MOODLE2:
+MOODLE 2
 - Added Google Auth2 Auth method
 - Solved problem authenticating to Marsupial servers
 
-ZIKULA2
+ZIKULA 2
 - Upgraded Content module to 4.1.1 version to fix some bugs
  
 
 Changes 14.08.19 codename mgrau
 ---------------------------------------------------------------------------------------
-GENERAL:
+GENERAL
 - config.php: Added param for nodes
 
 PORTAL
@@ -97,7 +107,7 @@ Goodbyes are not forever. Goodbyes are not the end. They simply mean I'll miss y
 
 Changes 14.07.04
 ---------------------------------------------------------------------------------------
-GENERAL:
+GENERAL
 - config.php: Use same global variable name for all services: $agora[$serviceName]['userprefix']
 - config.php: Change var name from $agora[$serviceName]['discusagefile'] to $agora[$serviceName]['diskusagefile']
 - sync_to_file.php: Fixed warning message when trying to remove directory

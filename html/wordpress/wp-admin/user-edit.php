@@ -184,6 +184,13 @@ if ( !is_wp_error( $errors ) ) {
 default:
 $profileuser = get_user_to_edit($user_id);
 
+// XTEC ************ MODIFICAT - Only xtecadmin is allowed to edit xtecadmin
+// 2014.09.03 @aginard
+if ($isAgora && ($profileuser->user_login == get_xtecadmin_username()) && !is_xtecadmin()) {
+    wp_die(__('You do not have permission to edit this user.'));
+}
+//************ FI
+
 if ( !current_user_can('edit_user', $user_id) )
 	wp_die(__('You do not have permission to edit this user.'));
 
