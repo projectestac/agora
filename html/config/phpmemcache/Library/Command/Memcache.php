@@ -100,7 +100,9 @@ class Library_Command_Memcache implements Library_Command_Interface
         if(($slabs = self::$_memcache->getStats('slabs')))
         {
             # Finding uptime
-            $stats = $this->stats($server, $port);
+            //$stats = $this->stats($server, $port);
+            $stats = self::$_memcache->getExtendedStats();
+            $stats = $return[$server.':'.$port];
             $slabs['uptime'] = $stats['uptime'];
             unset($stats);
 
