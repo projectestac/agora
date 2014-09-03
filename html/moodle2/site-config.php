@@ -16,13 +16,16 @@
     $centre = false;
     if(isset($_REQUEST['ccentre'])){
         $centre = $_REQUEST['ccentre'];
-    } else if(isset($_SERVER['argv'])){
-        $argvs = $_SERVER['argv'];
-        foreach($argvs as $arg){
-            $parts = explode('=', $arg);
-            if($parts[0] == '--ccentre'){
-                $centre = $parts[1];
-                $agora_cli = true;
+    } else if(defined('CLI_SCRIPT')) {
+        $agora_cli = true;
+        if (isset($_SERVER['argv'])){
+            $argvs = $_SERVER['argv'];
+            foreach($argvs as $arg){
+                $parts = explode('=', $arg);
+                if($parts[0] == '--ccentre'){
+                    $centre = $parts[1];
+
+                }
             }
         }
     }
@@ -54,20 +57,20 @@
      $moodle_wwwroot = $moodle_wwwserver . $agora['server']['base'];
 
     // Check if the domain is not the correct one and move if it isn't
-    if (endsWith($moodle_wwwserver, $_SERVER['HTTP_HOST']) === false) {
+    if (!$agora_cli && endsWith($moodle_wwwserver, $_SERVER['HTTP_HOST']) === false) {
         $location = $moodle_wwwserver.$_SERVER['REQUEST_URI'];
         header ('HTTP/1.1 301 Moved Permanently');
         header ('Location: '.$location);
         exit;
     }
 
-    if (!empty($school_info['new_dns'])) {
+    if (!$agora_cli && !empty($school_info['new_dns'])) {
          $newadress = $moodle_wwwroot . $school_info['new_dns'] . '/moodle';
          header('location: '.$moodle_wwwroot.'error.php?newaddress='.$newadress);
          exit(0);
     }
 
-    if (!isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
+    if (!$agora_cli && !isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
         header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
         exit(0);
     } else {

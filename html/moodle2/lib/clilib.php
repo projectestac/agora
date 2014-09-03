@@ -65,6 +65,11 @@ function cli_get_params(array $longoptions, array $shortmapping=null) {
     $options      = array();
     $unrecognized = array();
 
+    //XTEC ************ AFEGIT - To be able to run CLI scripts
+    //2014.09.03 @pferre22
+    $longoptions['ccentre'] = false;
+    //************ FI
+
     if (empty($_SERVER['argv'])) {
         // bad luck, we can continue in interactive mode ;-)
         return array($options, $unrecognized);

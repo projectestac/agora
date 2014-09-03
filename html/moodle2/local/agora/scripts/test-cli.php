@@ -1,8 +1,12 @@
 <?php
 define('CLI_SCRIPT', true);
-require_once('../../../config.php');
+require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/config.php');
+require_once("$CFG->libdir/clilib.php");
 
-$ccentre  = optional_param('ccentre','',PARAM_TEXT);
+list($options, $unrecognized) = cli_get_params(array('ccentre'=>'false'));
+
 echo "root: ".$CFG->wwwroot."\n";
-echo "ccentre: ".$ccentre."\n";
+echo "ccentre: ".$options['ccentre']."\n";
+
+print_object($school_info);
 die();
