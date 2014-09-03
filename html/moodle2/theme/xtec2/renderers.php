@@ -333,7 +333,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
     function social_icons() {
         global $DB;
 
-		$social_icons_cache = cache::make('core', 'string');
+		$social_icons_cache = cache::make('core', 'htmlpurifier');
 		if ($text = $social_icons_cache->get('social_icons')) {
 			return $text;
 		}

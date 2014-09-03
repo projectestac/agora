@@ -20,8 +20,6 @@ class Hybrid_Providers_Moodle extends Hybrid_Provider_Model_OAuth2
 		}
 
 		if ( ! $this->config["keys"]["id"] || ! $this->config["keys"]["secret"] || !$this->config["url"]){
-			var_dump($this->config);
-			die();
 			throw new Exception( "Your application id and secret are required in order to connect to {$this->providerId}.", 4 );
 		}
 
