@@ -3,13 +3,15 @@ function add_recursos( $wp_admin_bar ) {
 
 	$args = array(
 		'id'     => 'recursosXTEC',     
-		'title'  => '<img src=http://ies-sabadell.cat/nodes/wp-content/uploads/2014/03/xtec4.png>', 
+		'title'  => '<img src='.get_bloginfo('template_directory').'-primaria-1/custom-tac/imatges/logo_xtec.png',
+		'title'  => '<img src=http://ies-sabadell.cat/nodes/wp-content/uploads/2014/03/xtec4.png>',
+		//'href'=>'http://www.xtec.cat/', 
 		'parent' => false,          
 		//'meta'=>array('class' =>'ab-top-secondary ab-top-menu')
 	);
 
 	$wp_admin_bar->add_node( $args );
-
+	
 	$args = array(
 		'id'     => 'xtec',     
 		'title'  => '<img src=http://educacio.gencat.cat/documents/img/meva_xtec.jpg>&nbsp;Xtec',
@@ -99,6 +101,7 @@ function add_recursos( $wp_admin_bar ) {
 	);
 
 	$wp_admin_bar->add_node( $args );
+
 
 }
 ?>

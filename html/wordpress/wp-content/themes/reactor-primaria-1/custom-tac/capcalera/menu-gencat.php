@@ -4,12 +4,13 @@ function add_gencat( $wp_admin_bar ) {
 
 	$args = array(
 		'id'     => 'gencat',     // id of the existing child node (New > Post)
-		'title'  => '<img src=http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/07/ensenyament_bn_30.png>', // alter the title of existing node
+		'title'  => '<img src="'.get_bloginfo('template_directory').'-primaria-1/custom-tac/imatges/logo_gene.png"',
+		//'href' =>'http://www20.gencat.cat',
 		'parent' => false,          // set parent to false to make it a top level (parent) node
 	);
 
 	$wp_admin_bar->add_menu( $args );
-
+	/*
 	$args = array(
 		'id'     => 'gencat-web',     // id of the existing child node (New > Post)
 		'title'  => 'Generalitat de Catalunya', // alter the title of existing node
@@ -65,5 +66,6 @@ function add_gencat( $wp_admin_bar ) {
 		);
 	
 	$wp_admin_bar->add_node( $args );
+	*/
 }
 ?>
