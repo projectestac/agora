@@ -65,10 +65,11 @@ function auth_googleoauth2_display_buttons() {
 
     echo "<center>";
     echo "<div style=\"width:'1%'\">";
-    $displayprovider = ((empty($authprovider) || $authprovider == 'google' || $allauthproviders) && get_config('auth/googleoauth2', 'googleclientid'));
-    $providerdisplaystyle = $displayprovider?'display:inline-block;padding:10px;':'display:none;';
     //XTEC ************ MODIFICAT - To make Google Auth2 translatable
     //2014.09.01 @pferre22
+    $allauthproviders = true;
+    $displayprovider = ((empty($authprovider) || $authprovider == 'google' || $allauthproviders) && get_config('auth/googleoauth2', 'googleclientid') && get_config('auth/googleoauth2', 'googleclientsecret'));
+    $providerdisplaystyle = $displayprovider?'display:inline-block;padding:10px;':'display:none;';
     echo '<div class="singinprovider" style="' . $providerdisplaystyle .'">
             <a class="zocial googleplus" href="https://accounts.google.com/o/oauth2/auth?client_id='.
               get_config('auth/googleoauth2', 'googleclientid') .'&redirect_uri='.$CFG->wwwroot .'/auth/googleoauth2/google_redirect.php&scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&response_type=code">
@@ -76,6 +77,8 @@ function auth_googleoauth2_display_buttons() {
             </a>
         </div>';
     //******* CODI ORIGINAL
+    $displayprovider = ((empty($authprovider) || $authprovider == 'google' || $allauthproviders) && get_config('auth/googleoauth2', 'googleclientid'));
+    $providerdisplaystyle = $displayprovider?'display:inline-block;padding:10px;':'display:none;';
     /*echo '<div class="singinprovider" style="' . $providerdisplaystyle .'">
             <a class="zocial googleplus" href="https://accounts.google.com/o/oauth2/auth?client_id='.
               get_config('auth/googleoauth2', 'googleclientid') .'&redirect_uri='.$CFG->wwwroot .'/auth/googleoauth2/google_redirect.php&scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&response_type=code">
