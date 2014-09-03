@@ -1,3 +1,6 @@
+#idcentre-box{
+    background-color:#ff2a2a;
+}
 .site-logo{
     display:table !important;
     background-color:#ff2a2a;
@@ -16,6 +19,9 @@ background-color:#006338;
 }
 #icon-21{
 background-color:#ff2a2a;
+}
+#icon-22{
+color:#006338;
 }
 #icon-23{
    background-color: #006338;

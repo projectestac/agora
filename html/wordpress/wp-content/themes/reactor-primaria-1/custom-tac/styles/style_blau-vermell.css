@@ -1,5 +1,9 @@
 
 
+#idcentre-box{
+    background-color: #ff3257;
+}
+
 .site-logo{
     display:table !important;
     background-color:#ff3257;
@@ -56,3 +60,7 @@ color: #4c86a6 !important;
 #menu-panel {
 border-bottom: 2px solid #4c86a6;
 }
+
+
+
+

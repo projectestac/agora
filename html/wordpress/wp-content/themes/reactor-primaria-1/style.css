@@ -158,16 +158,35 @@ margin-top: 4px;
 li#wp-admin-bar-bp-login{
 float:right;
 }
-#wpadminbar #wp-admin-bar-gencat >.ab-item:after, #wpadminbar #wp-admin-bar-recursosXTEC >.ab-item:after{
-	font: normal 16px/1 'dashicons';
+
+#wpadminbar #wp-admin-bar-recursosXTEC{
+	margin: 0 2px 0 20px;
+}
+
+#wpadminbar #wp-admin-bar-recursosXTEC >.ab-item:after{
+	font: normal 14px/1 'dashicons';
 	display:inline-block;
 	vertical-align:middle;
 	content: "\f347";
-	margin-left: 8px;
-	padding-right:5px;
+	margin-left: 4px;
+	/*padding-right:5px;*/
 	border-right:1px solid grey;
-
+	color:lightgrey;
+	padding-right: 4px;
 }
+
+
+#wpadminbar .quicklinks>ul>li.wp-admin-bar-gencat>a {
+	padding: 0 0px 0 0px;
+}
+
+#wpadminbar .quicklinks .ab-empty-item {
+height: 32px;
+display: block;
+padding: 0 10px 0 0;
+margin: 0;
+}
+
 
 
 /*****************************************************************
@@ -211,8 +230,8 @@ Header
 
 #idcentre-box{
     padding:0px;
-    /*background-color: #ff5a26;*/
-    background-color: black;
+    background-color: #0eb1ff;
+  
 }
 
 .site-logo{
@@ -400,7 +419,7 @@ background-color:#fdd300;
     /*#4e4f54;*/
 }
 #icon-13:hover{
-    background-color:#087eb6;
+    background-color:#fdd300;
     color: black;
 }
 
@@ -468,11 +487,6 @@ Menu
     text-transform: lowercase;
     font-weight: normal;
     list-style-type: none;
-}
-
-li.menu-item-depth-1:before
-{
-    
 }
 
 .menu-item-depth-1:first-letter{

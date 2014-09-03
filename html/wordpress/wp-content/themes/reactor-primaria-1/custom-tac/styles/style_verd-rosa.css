@@ -1,15 +1,4 @@
 
-body {
-    /*background-color: #a4d3df !important;*/
-    
-}
-
-/*
-.card_bgcolor3{
-    background-color: #e4ecec;
-}
-*/
-
 .card_bgcolor1{
 	background-color:#e5e5e5;
 	
@@ -30,6 +19,12 @@ background-color:#f1f1f1;
 .site-logo-inner{
     color:white; 
 }
+
+
+#idcentre-box{
+    background-color:#2ca698;
+}
+
 .site-description-box{
     background-color:#2ca698;
 }
