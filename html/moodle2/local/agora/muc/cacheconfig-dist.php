@@ -1,17 +1,16 @@
-<?php
+<?php 
 global $CFG;
 defined('MOODLE_INTERNAL') || die();
  $configuration = array (
   'siteidentifier' => 'unknown',
-  'stores' =>
+  'stores' => 
   array (
-    'default_application' =>
+    'default_application' => 
     array (
       'name' => 'default_application',
       'plugin' => 'file',
-      'configuration' =>
+      'configuration' => 
       array (
-        'path' => $CFG->agora_muc_path,
       ),
       'features' => 14,
       'modes' => 3,
@@ -19,12 +18,13 @@ defined('MOODLE_INTERNAL') || die();
       'class' => 'cachestore_file',
       'lock' => 'cachelock_file_default',
     ),
-    'default_session' =>
+    'default_session' => 
     array (
       'name' => 'default_session',
       'plugin' => 'session',
-      'configuration' =>
+      'configuration' => 
       array (
+        'path' => $CFG->agora_muc_path,
       ),
       'features' => 14,
       'modes' => 2,
@@ -32,12 +32,13 @@ defined('MOODLE_INTERNAL') || die();
       'class' => 'cachestore_session',
       'lock' => 'cachelock_file_default',
     ),
-    'default_request' =>
+    'default_request' => 
     array (
       'name' => 'default_request',
       'plugin' => 'static',
-      'configuration' =>
+      'configuration' => 
       array (
+        'path' => $CFG->agora_muc_path,
       ),
       'features' => 14,
       'modes' => 4,
@@ -45,31 +46,53 @@ defined('MOODLE_INTERNAL') || die();
       'class' => 'cachestore_static',
       'lock' => 'cachelock_file_default',
     ),
+    'localmemcache' => 
+    array (
+      'name' => 'localmemcache',
+      'plugin' => 'memcache',
+      'configuration' => 
+      array (
+        'servers' => 
+        array (
+          0 => 
+          array (
+            0 => '127.0.0.1',
+          ),
+        ),
+        'prefix' => $CFG->dbuser.'_',
+      ),
+      'features' => 4,
+      'modes' => 1,
+      'mappingsonly' => false,
+      'class' => 'cachestore_memcache',
+      'default' => false,
+      'lock' => 'cachelock_file_default',
+    ),
   ),
-  'modemappings' =>
+  'modemappings' => 
   array (
-    0 =>
+    0 => 
     array (
-      'mode' => 1,
-      'store' => 'default_application',
-      'sort' => -1,
-    ),
-    1 =>
-    array (
-      'mode' => 2,
-      'store' => 'default_session',
-      'sort' => -1,
-    ),
-    2 =>
-    array (
-      'mode' => 4,
       'store' => 'default_request',
-      'sort' => -1,
+      'mode' => 4,
+      'sort' => 0,
+    ),
+    1 => 
+    array (
+      'store' => 'default_session',
+      'mode' => 2,
+      'sort' => 0,
+    ),
+    2 => 
+    array (
+      'store' => 'localmemcache',
+      'mode' => 1,
+      'sort' => 0,
     ),
   ),
-  'definitions' =>
+  'definitions' => 
   array (
-    'core/string' =>
+    'core/string' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -80,9 +103,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'string',
       'selectedsharingoption' => 1,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/langmenu' =>
+    'core/langmenu' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -92,12 +114,11 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'langmenu',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/databasemeta' =>
+    'core/databasemeta' => 
     array (
       'mode' => 1,
-      'requireidentifiers' =>
+      'requireidentifiers' => 
       array (
         0 => 'dbfamily',
       ),
@@ -107,9 +128,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'databasemeta',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/eventinvalidation' =>
+    'core/eventinvalidation' => 
     array (
       'mode' => 1,
       'staticacceleration' => true,
@@ -119,9 +139,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'eventinvalidation',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/questiondata' =>
+    'core/questiondata' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -132,18 +151,16 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'questiondata',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/htmlpurifier' =>
+    'core/htmlpurifier' => 
     array (
       'mode' => 1,
       'component' => 'core',
       'area' => 'htmlpurifier',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/config' =>
+    'core/config' => 
     array (
       'mode' => 1,
       'staticacceleration' => true,
@@ -152,9 +169,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'config',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/groupdata' =>
+    'core/groupdata' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -165,9 +181,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'groupdata',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/calendar_subscriptions' =>
+    'core/calendar_subscriptions' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -177,18 +192,16 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'calendar_subscriptions',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/yuimodules' =>
+    'core/yuimodules' => 
     array (
       'mode' => 1,
       'component' => 'core',
       'area' => 'yuimodules',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/observers' =>
+    'core/observers' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -199,9 +212,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'observers',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/plugin_manager' =>
+    'core/plugin_manager' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -210,13 +222,12 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'plugin_manager',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/coursecattree' =>
+    'core/coursecattree' => 
     array (
       'mode' => 1,
       'staticacceleration' => true,
-      'invalidationevents' =>
+      'invalidationevents' => 
       array (
         0 => 'changesincoursecat',
       ),
@@ -224,12 +235,11 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'coursecattree',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/coursecat' =>
+    'core/coursecat' => 
     array (
       'mode' => 2,
-      'invalidationevents' =>
+      'invalidationevents' => 
       array (
         0 => 'changesincoursecat',
         1 => 'changesincourse',
@@ -239,13 +249,12 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'coursecat',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'core/coursecatrecords' =>
+    'core/coursecatrecords' => 
     array (
       'mode' => 4,
       'simplekeys' => true,
-      'invalidationevents' =>
+      'invalidationevents' => 
       array (
         0 => 'changesincoursecat',
       ),
@@ -253,9 +262,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'coursecatrecords',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'core/coursecontacts' =>
+    'core/coursecontacts' => 
     array (
       'mode' => 1,
       'staticacceleration' => true,
@@ -264,18 +272,16 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'coursecontacts',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/repositories' =>
+    'core/repositories' => 
     array (
       'mode' => 4,
       'component' => 'core',
       'area' => 'repositories',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'core/externalbadges' =>
+    'core/externalbadges' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -284,9 +290,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'externalbadges',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/coursemodinfo' =>
+    'core/coursemodinfo' => 
     array (
       'mode' => 1,
       'simplekeys' => true,
@@ -294,9 +299,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'coursemodinfo',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/userselections' =>
+    'core/userselections' => 
     array (
       'mode' => 2,
       'simplekeys' => true,
@@ -305,9 +309,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'userselections',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'core/gradecondition' =>
+    'core/gradecondition' => 
     array (
       'mode' => 1,
       'staticacceleration' => true,
@@ -317,9 +320,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'gradecondition',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 15,
     ),
-    'core/navigation_expandcourse' =>
+    'core/navigation_expandcourse' => 
     array (
       'mode' => 2,
       'simplekeys' => true,
@@ -328,9 +330,8 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'navigation_expandcourse',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'core/suspended_userids' =>
+    'core/suspended_userids' => 
     array (
       'mode' => 4,
       'simplekeys' => true,
@@ -339,33 +340,30 @@ defined('MOODLE_INTERNAL') || die();
       'area' => 'suspended_userids',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'repository_skydrive/foldername' =>
+    'repository_skydrive/foldername' => 
     array (
       'mode' => 2,
       'component' => 'repository_skydrive',
       'area' => 'foldername',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
-    'tool_uploadcourse/helper' =>
+    'tool_uploadcourse/helper' => 
     array (
       'mode' => 4,
       'component' => 'tool_uploadcourse',
       'area' => 'helper',
       'selectedsharingoption' => 2,
       'userinputsharingkey' => '',
-      'sharingoptions' => 2,
     ),
   ),
-  'definitionmappings' =>
+  'definitionmappings' => 
   array (
   ),
-  'locks' =>
+  'locks' => 
   array (
-    'cachelock_file_default' =>
+    'cachelock_file_default' => 
     array (
       'name' => 'cachelock_file_default',
       'type' => 'cachelock_file',
