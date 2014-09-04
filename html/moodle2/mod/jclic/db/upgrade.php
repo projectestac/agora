@@ -157,18 +157,6 @@ function xmldb_jclic_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014040400, 'jclic');
     }
 
-    if ($oldversion < 2014052900) {
-
-        // Changing type of field grade on table qv to int.
-        $table = new xmldb_table('qv');
-        $field = new xmldb_field('grade', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'target');
-
-        // Launch change of type for field grade.
-        $dbman->change_field_type($table, $field);
-
-        // Qv savepoint reached.
-        upgrade_mod_savepoint(true, 2014052900, 'qv');
-    }
 
     // Final return of upgrade result (true, all went good) to Moodle.
     return true;
