@@ -1,47 +1,39 @@
 <?php
-/*
-Plugin Name: Google Calendar Events
-Plugin URI: http://www.rhanney.co.uk/plugins/google-calendar-events
-Description: Parses Google Calendar feeds and displays the events as a calendar grid or list on a page, post or widget.
-Version: 0.7.2
-Author: Ross Hanney
-Author URI: http://www.rhanney.co.uk
-License: GPL2
 
----
-
-Copyright 2010 Ross Hanney (email: rosshanney@gmail.com)
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License, version 2, as 
-published by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
----
-
-Contains code inspired by and adapted from GCalendar - http://g4j.laoneo.net/content/extensions/download/cat_view/2-simplepie-gcalendar.html
-
-GCalendar: Copyright 2007-2009 Allon Moritz
-*/
+/**
+ * Google Calendar Events
+ *
+ * @package   GCE
+ * @author    Phil Derksen <pderksen@gmail.com>, Nick Young <mycorpweb@gmail.com>
+ * @license   GPL-2.0+
+ * @link      http://philderksen.com
+ * @copyright 2014 Phil Derksen
+ *
+ * @wordpress-plugin
+ * Plugin Name: Google Calendar Events
+ * Plugin URI: http://philderksen.com/google-calendar-events-version-2/
+ * Description: Parses Google Calendar feeds and displays the events as a calendar grid or list on a page, post or widget.
+ * Version: 0.7.3.1
+ * Author: Phil Derksen
+ * Author URI: http://philderksen.com
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 define( 'GCE_PLUGIN_NAME', str_replace( '.php', '', basename( __FILE__ ) ) );
 define( 'GCE_TEXT_DOMAIN', 'google-calendar-events' );
 define( 'GCE_OPTIONS_NAME', 'gce_options' );
 define( 'GCE_GENERAL_OPTIONS_NAME', 'gce_general' );
-define( 'GCE_VERSION', '0.7.2' );
+define( 'GCE_VERSION', '0.7.3' );
 
 if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 	class Google_Calendar_Events {
 		function __construct() {
+
 			register_activation_hook( __FILE__, array( $this, 'activate_plugin' ) );
+			
+			register_deactivation_hook( __FILE__, array( $this, 'deactivate_plugin' ) );
+			
 			add_action( 'init', array( $this, 'init_plugin' ) );
 			add_action( 'wp_ajax_gce_ajax', array( $this, 'gce_ajax' ) );
 			add_action( 'wp_ajax_nopriv_gce_ajax', array( $this, 'gce_ajax' ) );
@@ -55,7 +47,27 @@ if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts' ) );
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'add_settings_link' ) );
 				add_shortcode( 'google-calendar-events', array( $this, 'shortcode_handler' ) );
+				
+				if( false === get_option( 'gce_show_upgrade_notice' ) ) {
+					add_action( 'admin_notices', array( $this, 'show_upgrade_notice' ) );
+				}
 			}
+		}
+		
+		// Show an upgrade warning notice to users for the 2.0.0 release
+		function show_upgrade_notice() {
+			
+			if ( ! empty( $_REQUEST['gce-dismiss-install-nag'] ) ) {
+				add_option( 'gce_show_upgrade_notice', 1 );
+				remove_action( 'admin_notices', array( $this, 'show_upgrade_notice' ) );
+				return;
+			}
+
+			include_once( 'inc/upgrade-notice.php' );
+		}
+		
+		function deactivate_plugin(){
+			delete_option( 'gce_show_upgrade_notice' );
 		}
 
 		//PHP 5.2 is required (json_decode), so if PHP version is lower then 5.2, display an error message and deactivate the plugin
@@ -162,10 +174,11 @@ if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 				'loading' => 'Loading...',
 				'error' => 'Events cannot currently be displayed, sorry! Please check back later.',
 				'fields' => true,
-				'old_stylesheet' => false
+				'old_stylesheet' => false,
+				'save_settings' => true
 			);
 
-			$old_stylesheet_option = get_option( 'gce_stylesheet' );
+            $old_stylesheet_option = get_option( 'gce_stylesheet' );
 
 			//If old custom stylesheet option was set, add it to general options, then delete old option
 			if( false !== $old_stylesheet_option ) {
@@ -189,6 +202,9 @@ if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 
 			if( isset( $options['old_stylesheet'] ) )
 				$defaults['old_stylesheet'] = $options['old_stylesheet'];
+			
+			if( isset( $options['save_settings'] ) )
+				$defaults['save_settings'] = $options['save_settings'];
 
 			//Save general options
 			update_option( GCE_GENERAL_OPTIONS_NAME, $defaults );
@@ -483,6 +499,7 @@ if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 			$options['error'] = wp_filter_kses( $input['error'] );
 			$options['fields'] = ( isset( $input['fields'] ) ) ? true : false;
 			$options['old_stylesheet'] = ( isset( $input['old_stylesheet'] ) ) ? true : false;
+			$options['save_settings'] = ( isset( $input['save_settings'] ) ) ? true : false;
 
 			add_settings_error( 'gce_general', 'gce_general_updated', __( 'General options updated.', GCE_TEXT_DOMAIN ), 'updated' );
 
@@ -694,4 +711,9 @@ function gce_print_grid( $feed_ids, $title_text, $max_events, $ajaxified = false
 }
 
 $gce = new Google_Calendar_Events();
+
+
+
+
+
 ?>

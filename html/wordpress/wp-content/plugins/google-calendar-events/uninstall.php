@@ -13,7 +13,11 @@ foreach ( $gce_options as $gce_feed ) {
 }
 
 //Delete plugin options
-delete_option( 'gce_options' );
-delete_option( 'gce_general' );
-delete_option( 'gce_version' );
+$gce_general = get_option( 'gce_general' );
+
+if( $gce_general['save_settings'] != true ) {
+	delete_option( 'gce_options' );
+	delete_option( 'gce_general' );
+	delete_option( 'gce_version' );
+}
 ?>

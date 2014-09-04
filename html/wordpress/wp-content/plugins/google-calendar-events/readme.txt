@@ -1,10 +1,11 @@
 === Google Calendar Events ===
-Contributors: rosshanney
-Donate link: http://www.rhanney.co.uk/plugins/google-calendar-events/#donate
+Contributors: rosshanney, pderksen, nickyoung87
 Tags: google, google calendar, calendar, event, events, ajax, widget
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 0.7.2
+Requires at least: 3.7.4
+Tested up to: 4.0
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Parses Google Calendar feeds and displays the events as a calendar grid or list on a page, post or widget.
 
@@ -47,6 +48,14 @@ You can now start adding feeds. Visit the [plugin homepage](http://www.rhanney.c
 1. A page showing a full page calendar grid and various widgets.
 
 == Changelog ==
+
+= 0.7.3.1 =
+* Include missing file: upgrade-notice.php.
+
+= 0.7.3 =
+* Added warning about upcoming version 2.0 release.
+* Added option to save settings upon uninstall.
+* Tested with WordPress 4.0.
 
 = 0.7.2 =
 * Fixed a bug causing the "More details" Google Calendar information to be displayed in the wrong timezone

@@ -104,6 +104,14 @@
 				<input type="checkbox" name="gce_general[old_stylesheet]"<?php checked($options['old_stylesheet'], true); ?> value="on" />
 			</td>
 		</tr>
+		<tr>
+			<th scope="row"><?php _e('Save settings on uninstall?', GCE_TEXT_DOMAIN); ?></th>
+			<td>
+				<span class="description"><?php _e( 'Normally when you uninstall your plugin your settings are removed also. Checking this option will save your settings even after an uninstall.', GCE_TEXT_DOMAIN ); ?></span>
+				<br />
+				<input type="checkbox" name="gce_general[save_settings]"<?php checked($options['save_settings'], true); ?> value="on" />
+			</td>
+		</tr>
 	</table>
 
 	<br />
