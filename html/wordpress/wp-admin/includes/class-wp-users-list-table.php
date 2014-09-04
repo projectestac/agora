@@ -364,7 +364,11 @@ class WP_Users_List_Table extends WP_List_Table {
                 // XTEC ************ MODIFICAT - Do not show edit link for xtecadmin (opening if)
                 // 2014.09.03 @aginard
                 global $isAgora;
-                if ($isAgora && (($user_object->user_login != get_xtecadmin_username()) || is_xtecadmin())) {
+                if ($isAgora) {
+                    if (($user_object->user_login != get_xtecadmin_username()) || is_xtecadmin()) {
+                        $actions['edit'] = '<a href="' . $edit_link . '">' . __( 'Edit' ) . '</a>';
+                    }
+                } else {
                 //************ FI
                     
                 $actions['edit'] = '<a href="' . $edit_link . '">' . __( 'Edit' ) . '</a>';
@@ -383,7 +387,11 @@ class WP_Users_List_Table extends WP_List_Table {
                 // 2014.09.03 @aginard
                 {
                 global $isAgora;
-                if ($isAgora && (($user_object->user_login != get_xtecadmin_username()))) {
+                if ($isAgora) {
+                    if ($user_object->user_login != get_xtecadmin_username()) {
+        				$actions['delete'] = "<a class='submitdelete' href='" . wp_nonce_url( "users.php?action=delete&amp;user=$user_object->ID", 'bulk-users' ) . "'>" . __( 'Delete' ) . "</a>";
+                    }
+                } else {
                 //************ FI
 				$actions['delete'] = "<a class='submitdelete' href='" . wp_nonce_url( "users.php?action=delete&amp;user=$user_object->ID", 'bulk-users' ) . "'>" . __( 'Delete' ) . "</a>";
                 // XTEC ************ MODIFICAT - Do not show delete link for xtecadmin (closing ifs)
