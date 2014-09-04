@@ -3,10 +3,15 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 14.09.08
 ---------------------------------------------------------------------------------------
-MOODLE 2
+GENERAL
+- phpmemcache: Solved Segmentation fault
 
+MOODLE 2
+- Some errors solved in marsupial, theme and jclic
+- Google Oauth2 module translated
+- Enabled cron CLI for testing
 
 WORDPRESS
 - Protected xtecadmin against edition and deletion
