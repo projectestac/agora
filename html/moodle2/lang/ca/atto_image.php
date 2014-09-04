@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['browserepositories'] = 'Navega pels repositoris ...';
 $string['createimage'] = 'Insereix imatge';
+$string['enteralt'] = 'Descriu aquesta imatge per a algú que no la pot veure';
 $string['enterurl'] = 'Introdueix l\'URL';
 $string['height'] = 'Alçada';
 $string['pluginname'] = 'Imatge';

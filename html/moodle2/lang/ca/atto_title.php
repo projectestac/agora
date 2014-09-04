@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['h3'] = 'Capçalera 1';
 $string['h4'] = 'Capçalera 2';
 $string['h5'] = 'Capçalera 3';
+$string['p'] = 'Paràgraf';
 $string['pluginname'] = 'Estils de paràgraf';
 $string['pre'] = 'Pre-formatat';
 $string['title'] = 'Estils de paràgraf';
