@@ -47,6 +47,7 @@ $string['showhideblocks'] = 'Mostra/Amaga blocs';
 $string['footer_settings'] = 'Paràmetres del peu de pàgina';
 $string['footnote'] = 'Nota a peu de pàgina';
 $string['footnotedesc'] = 'Qualsevol cosa que escriviu en aquesta àrea de text es mostrarà al peu de pàgina al vostre lloc Moodle.';
+$string['website'] = 'Web URL';
 $string['nodes'] = 'Mostra l\'enllaç a Nodes';
 $string['nodesdesc'] = 'Mostra una icona enllaçada a la vostra plataforma Nodes al peu.';
 $string['intranet'] = 'Mostra l\'enllaç a Intranet';
@@ -60,6 +61,8 @@ $string['linkedin'] = 'LinkedIn URL';
 $string['pinterest'] = 'Pinterest URL';
 $string['youtube'] = 'Youtube URL';
 $string['urldesc'] = 'Si el camp no està buit, es mostra una icona enllaçada a la URL escrita al peu.';
+$string['maildesc'] = 'Si el camp no està buit, es mostra una icona enllaçada al correu electrònic escrit al peu.';
+$string['teldesc'] = 'Si el camp no està buit, es mostra una icona enllaçada al telèfon escrit al peu.';
 
 $string['color_settings'] = 'Paràmetres de color';
 $string['colorset'] = 'Combinació de colors';

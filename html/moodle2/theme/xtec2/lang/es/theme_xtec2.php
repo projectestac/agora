@@ -47,6 +47,7 @@ $string['showhideblocks'] = 'Mostrar/Ocultar bloques';
 $string['footer_settings'] = 'Parámetros del pie de página';
 $string['footnote'] = 'Nota a pie de página';
 $string['footnotedesc'] = 'Lo que añada en esta área de texto se mostrará en el pie de página de todo su sitio Moodle.';
+$string['website'] = 'Web URL';
 $string['nodes'] = 'Mostrar enlace a Nodes';
 $string['nodesdesc'] = 'Muestra un icono con un enlace a su plataforma Nodes en el pie.';
 $string['intranet'] = 'Mostrar enlace a Intranet';
@@ -60,6 +61,8 @@ $string['linkedin'] = 'LinkedIn URL';
 $string['pinterest'] = 'Pinterest URL';
 $string['youtube'] = 'Youtube URL';
 $string['urldesc'] = 'Si este campo no está vacío, muestra un icono enlazando a la URL escrita en el pie.';
+$string['maildesc'] = 'Si este campo no está vacío, muestra un icono enlazando a la correo electrónico escrito en el pie.';
+$string['teldesc'] = 'Si este campo no está vacío, muestra un icono enlazando al teléfono escrito en el pie.';
 
 $string['color_settings'] = 'Parámetros de color';
 $string['colorset'] = 'Combinación de colores';
