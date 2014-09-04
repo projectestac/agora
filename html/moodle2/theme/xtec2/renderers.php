@@ -339,6 +339,15 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 		}
         global $school_info, $CFG, $OUTPUT;
         $content = "";
+        if ($url = get_config('theme_xtec2', 'website')) {
+            $content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-globe" title="Web"></i></a>';
+        }
+        if ($url = get_config('theme_xtec2', 'email')) {
+            $content.= '<a href="mailto:'.$url.'" target="_blank"><i class="fa fa-envelope" title="'.get_string('email').'"></i></a>';
+        }
+        if ($url = get_config('theme_xtec2', 'phone')) {
+            $content.= '<a href="tel:'.$url.'" target="_blank"><i class="fa fa-phone" title="'.get_string('phone').'"></i></a>';
+        }
         if (get_config('theme_xtec2', 'nodes') && is_service_enabled('nodes')) {
             $content.= '<a href="'.get_service_url('nodes').'" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
         }
@@ -432,8 +441,8 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 			't/right' => 'arrow-right',
             't/left' => 'arrow-left',
 			't/edit_menu' => 'cogs',
-			't/hide' => 'eye-slash',
-			't/show' => 'eye',
+			//'t/hide' => 'eye-slash', Disabled to solve errors hidding activities
+			//'t/show' => 'eye',
 			't/up' => 'arrow-up',
 			't/down' => 'arrow-down',
             't/copy' => 'copy',

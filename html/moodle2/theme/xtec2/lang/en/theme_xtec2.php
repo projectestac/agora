@@ -51,6 +51,7 @@ $string['nodes'] = 'Show Nodes link';
 $string['nodesdesc'] = 'Show an icon with a link to your Nodes site in the footer.';
 $string['intranet'] = 'Show Intranet link';
 $string['intranetdesc'] = 'Show an icon with a link to your Intranet site in the footer.';
+$string['website'] = 'Website URL';
 $string['facebook'] = 'Facebook URL';
 $string['twitter'] = 'Twitter URL';
 $string['googleplus'] = 'Google Plus URL';
@@ -60,6 +61,8 @@ $string['linkedin'] = 'LinkedIn URL';
 $string['pinterest'] = 'Pinterest URL';
 $string['youtube'] = 'Youtube URL';
 $string['urldesc'] = 'If this field is not empty an icon linking to that URL will be shown in the footer.';
+$string['maildesc'] = 'If this field is not empty an icon linking to that Mail will be shown in the footer.';
+$string['teldesc'] = 'If this field is not empty an icon linking to that Telephone will be shown in the footer.';
 
 $string['color_settings'] = 'Color settings';
 $string['colorset'] = 'Color set';

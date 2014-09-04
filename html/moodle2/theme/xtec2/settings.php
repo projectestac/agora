@@ -100,27 +100,48 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $settings->add($setting);
 
-  if(is_service_enabled('nodes')){
-    $name = 'theme_xtec2/nodes';
-    $title = get_string('nodes', 'theme_xtec2');
-    $description = get_string('nodesdesc', 'theme_xtec2');
-    $default = 1;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_xtec2_clean_cache');
-    $settings->add($setting);
-  }
-
-  if(is_service_enabled('intranet')){
-    $name = 'theme_xtec2/intranet';
-    $title = get_string('intranet', 'theme_xtec2');
-    $description = get_string('intranetdesc', 'theme_xtec2');
-    $default = 1;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_xtec2_clean_cache');
-    $settings->add($setting);
-  }
 
     $description_url_desc = get_string('urldesc', 'theme_xtec2');
+    $description_tel_desc = get_string('teldesc', 'theme_xtec2');
+    $description_mail_desc = get_string('maildesc', 'theme_xtec2');
+
+    $name = 'theme_xtec2/website';
+    $title = get_string('website', 'theme_xtec2');
+    $setting = new admin_setting_configtext($name, $title, $description_url_desc, '', PARAM_URL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/email';
+    $title = get_string('email');
+    $setting = new admin_setting_configtext($name, $title, $description_mail_desc, '', PARAM_EMAIL);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    $name = 'theme_xtec2/phone';
+    $title = get_string('phone');
+    $setting = new admin_setting_configtext($name, $title, $description_tel_desc, '', PARAM_TEXT);
+    $setting->set_updatedcallback('theme_xtec2_clean_cache');
+    $settings->add($setting);
+
+    if(is_service_enabled('nodes')){
+        $name = 'theme_xtec2/nodes';
+        $title = get_string('nodes', 'theme_xtec2');
+        $description = get_string('nodesdesc', 'theme_xtec2');
+        $default = 1;
+        $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_xtec2_clean_cache');
+        $settings->add($setting);
+    }
+
+    if(is_service_enabled('intranet')){
+        $name = 'theme_xtec2/intranet';
+        $title = get_string('intranet', 'theme_xtec2');
+        $description = get_string('intranetdesc', 'theme_xtec2');
+        $default = 1;
+        $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_xtec2_clean_cache');
+        $settings->add($setting);
+    }
 
     $name = 'theme_xtec2/facebook';
     $title = get_string('facebook', 'theme_xtec2');

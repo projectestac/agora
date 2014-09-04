@@ -224,6 +224,19 @@ a {
     font-size: 20px;
 }
 
+#page-footer-top .social-icons  i.fa-globe{
+	background-color: white;
+	color: [[setting:color2]];
+}
+
+#page-footer-top .social-icons  i.fa-phone{
+	background-color: #34af23;
+}
+
+#page-footer-top .social-icons  i.fa-envelope{
+	background-color: #9B90C8;
+}
+
 #page-footer-top .social-icons .nodes img{
 	background-color: #1b393a;
 }
@@ -558,6 +571,7 @@ i.fa.iconsmall {
 }
 .moodle-actionmenu[data-enhanced].show .menu i.fa {
 	vertical-align: middle;
+	color: #999;
 }
 
 .section .moodle-actionmenu i.fa.iconsmall {
@@ -776,6 +790,7 @@ i.fa.iconsmall {
     content:"\f0ce";
 }
 
+description_mail_desc
 
 /* Custom CSS Settings
 -------------------------*/
