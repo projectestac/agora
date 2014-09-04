@@ -14,7 +14,7 @@
 body{
 	padding-top: 41px;
 	font-size: [[setting:fontsize]];
-    [[setting:fontstyle]]
+    [[setting:fontstyle]];
 }
 
 
@@ -790,7 +790,6 @@ i.fa.iconsmall {
     content:"\f0ce";
 }
 
-description_mail_desc
 
 /* Custom CSS Settings
 -------------------------*/
