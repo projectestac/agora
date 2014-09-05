@@ -47,18 +47,22 @@ h1, h2, h3, h4, h5, h6, a {
     background-size:auto !important;
 }
 
-/*
-li:before {
-    content: "";
-    width:20px;
-    height:20px;
-    background:red;
-    display: block;
-    float: left;
-    margin-right: 5px;
-}*/
 
+ul.menu{
+	list-style-type:none;
+	margin:0.3em;
+	margin-left:0;
+}
 
+ul.sub-menu{
+	list-style-type:none;
+}
+
+ul.sub-menu > li:before{
+	
+	content:"\f345";
+	font:normal 14px/1 'dashicons';
+}
 
 
 
