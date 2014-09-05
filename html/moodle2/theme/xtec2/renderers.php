@@ -6,11 +6,11 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
     public function user_picture(stdClass $user, array $options = null) {
         $class = 'img-circle userpic';
 
-        if(!is_array($options)){
+        if (!is_array($options)) {
             $options = array();
         }
 
-        if(isset($options['class'])) $class .= ' '.$options['class'];
+        if (isset($options['class'])) $class .= ' '.$options['class'];
 
         $options['class'] = $class;
         return parent::user_picture($user, $options);
@@ -57,10 +57,10 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             $context = context_course::instance($course->id);
 
             $fullname = fullname($USER, true);
-            $picture = $this->user_picture($USER, array('alttext'=> false, 'size'=>27, 'link'=>false));
+            $picture = $this->user_picture($USER, array('alttext' => false, 'size' => 27, 'link' => false));
 
             $username = $picture.$fullname;
-            if (is_mnet_remote_user($USER) and $idprovider = $DB->get_record('mnet_host', array('id'=>$USER->mnethostid))) {
+            if (is_mnet_remote_user($USER) and $idprovider = $DB->get_record('mnet_host', array('id' => $USER->mnethostid))) {
                 if ($withlinks) {
                     $username .= " from <a href=\"{$idprovider->wwwroot}\">{$idprovider->name}</a>";
                 } else {
@@ -79,13 +79,13 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
                 }
             } else if (is_role_switched($course->id)) { // Has switched roles
                 $rolename = '';
-                if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
+                if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
                     $rolename = ': '.role_get_name($role, $context);
                 }
                 $loggedinas .= '<a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$username.$rolename.'<b class="caret"></b></a>';
                 if ($withlinks) {
-                    $url = new moodle_url('/course/switchrole.php', array('id'=>$course->id,'sesskey'=>sesskey(), 'switchrole'=>0, 'returnurl'=>$this->page->url->out_as_local_url(false)));
-                    $options [] = '<li>'.html_writer::tag('a', get_string('switchrolereturn'), array('href'=>$url)).'</li>';
+                    $url = new moodle_url('/course/switchrole.php', array('id' => $course->id,'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
+                    $options [] = '<li>'.html_writer::tag('a', get_string('switchrolereturn'), array('href' => $url)).'</li>';
                 }
             } else {
                 $loggedinas .= $realuserinfo.'<a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$username.'<b class="caret"></b></a>';
@@ -93,9 +93,9 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 					$options [] = "<li><a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a></li>';
                 }
             }
-            if(!empty($options)){
+            if (!empty($options)) {
 				$loggedinas .= '<ul class="dropdown-menu">';
-				foreach($options as $option){
+				foreach ($options as $option) {
 					$loggedinas .= $option;
 				}
 				$loggedinas .= '</ul>';
@@ -134,35 +134,35 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         if (isloggedin() && !isguestuser()) {
 			require_once($CFG->dirroot.'/local/agora/message_notifier/global.lib.php');
 			$messages = message_notifier_get_badge();
-			$loggedinas .=  $messages;
+			$loggedinas .= $messages;
 		}
         return $loggedinas;
     }
 
-    function get_user_menu(){
+    public function get_user_menu() {
 
     	$options = array();
 
     	$mymoodle = $this->page->navigation->get('home');
-    	if($mymoodle){
+    	if ($mymoodle) {
 			$options[] = theme_xtec2_render_user_settings($mymoodle, array(), null, array(), 2);
 		}
     	$myprofile = $this->page->navigation->get('myprofile');
-		if($myprofile && $myprofile->has_children()){
-			foreach($myprofile->children as $child){
+		if ($myprofile && $myprofile->has_children()) {
+			foreach ($myprofile->children as $child) {
 				$options[] = theme_xtec2_render_user_settings($child, array(), null, array(), 2);
 			}
 		}
-        if($this->page->navigation->get('myprofile')){
-		  $this->page->navigation->get('myprofile')->hide();
+        if ($this->page->navigation->get('myprofile')) {
+            $this->page->navigation->get('myprofile')->hide();
         }
 
     	$usernav = $this->page->settingsnav->get('usercurrentsettings');
-		if($usernav && $usernav->has_children()){
+		if ($usernav && $usernav->has_children()) {
 			$options[] = theme_xtec2_render_user_settings($usernav, array(), null, array(), 2);
 		}
-        if($this->page->settingsnav->get('usercurrentsettings')){
-		  $this->page->settingsnav->get('usercurrentsettings')->hide();
+        if ($this->page->settingsnav->get('usercurrentsettings')) {
+            $this->page->settingsnav->get('usercurrentsettings')->hide();
         }
 
 		return $options;
@@ -223,7 +223,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             } else {
                 $url = '#cm_submenu_'.$submenucount;
             }
-            $content .= html_writer::start_tag('a', array('href'=>$url, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown', 'title'=>$menunode->get_title()));
+            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             if ($level == 1) {
                 $content .= '<b class="caret"></b>';
@@ -242,24 +242,26 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             } else {
                 $url = '#';
             }
-            $content .= html_writer::link($url, $menunode->get_text(), array('title'=>$menunode->get_title()));
+            $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title()));
         }
         return $content;
     }
 
-    function main_menu() {
+    public function main_menu() {
         global $CFG;
 
-        if(!isloggedin()) return "";
+        if (!isloggedin()) {
+            return "";
+        }
 
         $content = '<ul class="nav">';
 
         $currentcourse = $this->page->navigation->get('currentcourse');
-        if($currentcourse  && $currentcourse->has_children()){
+        if ($currentcourse  && $currentcourse->has_children()) {
             $content .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" title="'.$currentcourse->get_content().'">';
             $content .= $currentcourse->get_content().'<b class="caret"></b></a><ul class="dropdown-menu pull-right">';
-            foreach($currentcourse->children as $child){
-                foreach($child->children as $child2){
+            foreach ($currentcourse->children as $child) {
+                foreach ($child->children as $child2) {
                     $content .= theme_xtec2_render_user_settings($child2, array(), null, array(), 2);
                 }
             }
@@ -267,11 +269,11 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         }
 
         $navigation = $this->page->navigation;
-        if($navigation  && $navigation->has_children()){
+        if ($navigation  && $navigation->has_children()) {
             $content .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" title="'.get_string('pluginname', 'block_navigation').'">';
             $content .= get_string('pluginname', 'block_navigation').'<b class="caret"></b></a><ul class="dropdown-menu pull-right">';
-            foreach($navigation->children as $child){
-                if($child->key != 'currentcourse' && $child->key != 'home'){
+            foreach ($navigation->children as $child) {
+                if ($child->key != 'currentcourse' && $child->key != 'home') {
                     $content .= theme_xtec2_render_user_settings($child, array(), null, array(), 2);
                 }
 
@@ -280,13 +282,13 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         }
 
         $settings = $this->page->settingsnav;
-        if($settings  && $settings->has_children()){
+        if ($settings  && $settings->has_children()) {
             $content .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" title="'.get_string('pluginname', 'block_settings').'">';
             $content .= get_string('pluginname', 'block_settings').'<b class="caret"></b></a><ul class="dropdown-menu pull-right">';
-            foreach($settings->children as $child){
+            foreach ($settings->children as $child) {
                 $content .= theme_xtec2_render_user_settings($child, array(), null, array(), 2);
             }
-            if (has_capability('moodle/site:config',context_system::instance()) ) {
+            if (has_capability('moodle/site:config', context_system::instance())) {
                 $content .= '<li><form class="navbar-search" method="get" action="'.$CFG->wwwroot.'/'.$CFG->admin.'/search.php"><input type="text" class="search-query" name="query" placeholder="'.get_string('search').'"></form></li>';
             }
             $content .= '</ul>';
@@ -295,7 +297,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         return $content.'</ul>';
     }
 
-	function lang_menu() {
+	public function lang_menu() {
 		global $CFG;
 
 		$menu = new custom_menu('', current_language());
@@ -307,7 +309,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
         }
 
-        $strlang =  get_string('language');
+        $strlang = get_string('language');
         $currentlang = current_language();
         if (isset($langs[$currentlang])) {
             $currentlang = $langs[$currentlang];
@@ -340,43 +342,43 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         global $school_info, $CFG, $OUTPUT;
         $content = "";
         if ($url = get_config('theme_xtec2', 'website')) {
-            $content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-globe" title="Web"></i></a>';
+            $content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-globe" title="Web"></i></a>';
         }
         if ($url = get_config('theme_xtec2', 'email')) {
-            $content.= '<a href="mailto:'.$url.'" target="_blank"><i class="fa fa-envelope" title="'.get_string('email').'"></i></a>';
+            $content .= '<a href="mailto:'.$url.'" target="_blank"><i class="fa fa-envelope" title="'.get_string('email').'"></i></a>';
         }
         if ($url = get_config('theme_xtec2', 'phone')) {
-            $content.= '<a href="tel:'.$url.'" target="_blank"><i class="fa fa-phone" title="'.get_string('phone').'"></i></a>';
+            $content .= '<a href="tel:'.$url.'" target="_blank"><i class="fa fa-phone" title="'.get_string('phone').'"></i></a>';
         }
         if (get_config('theme_xtec2', 'nodes') && is_service_enabled('nodes')) {
-            $content.= '<a href="'.get_service_url('nodes').'" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
+            $content .= '<a href="'.get_service_url('nodes').'" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
         }
         if (get_config('theme_xtec2', 'intranet') && is_service_enabled('intranet')) {
-            $content.= '<a href="'.get_service_url('intranet').'" target="_blank" class="agora-social icon intranet"><img src="'.$OUTPUT->pix_url('intranet-32', 'theme').'" alt="" title="Intranet" /></a>';
+            $content .= '<a href="'.get_service_url('intranet').'" target="_blank" class="agora-social icon intranet"><img src="'.$OUTPUT->pix_url('intranet-32', 'theme').'" alt="" title="Intranet" /></a>';
         }
         if ($url = get_config('theme_xtec2', 'facebook')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-facebook" title="Facebook"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-facebook" title="Facebook"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'twitter')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-twitter" title="Twitter"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-twitter" title="Twitter"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'googleplus')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-google-plus" title="Google Plus"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-google-plus" title="Google Plus"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'instagram')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-instagram" title="Instagram"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-instagram" title="Instagram"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'flickr')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-flickr" title="Flickr"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-flickr" title="Flickr"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'linkedin')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-linkedin" title="LinkedIn"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-linkedin" title="LinkedIn"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'pinterest')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pinterest" title="Pinterest"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-pinterest" title="Pinterest"></i></a>';
 		}
 		if ($url = get_config('theme_xtec2', 'youtube')) {
-			$content.= '<a href="'.$url.'" target="_blank"><i class="fa fa-youtube" title="Youtube"></i></a>';
+			$content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-youtube" title="Youtube"></i></a>';
 		}
         $social_icons_cache->set('social_icons', $content);
         return $content;
@@ -410,7 +412,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             'i/filter' => 'filter',
             'i/grades' => 'table',
             'i/group' => 'group',
-            'i/groupn' =>'user',
+            'i/groupn' => 'user',
             'i/hide' => 'eye-slash',
             'i/import' => 'upload',
             'i/move_2d' => 'arrows',
@@ -441,8 +443,8 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 			't/right' => 'arrow-right',
             't/left' => 'arrow-left',
 			't/edit_menu' => 'cogs',
-			//'t/hide' => 'eye-slash', Disabled to solve errors hidding activities
-			//'t/show' => 'eye',
+			// 't/hide' => 'eye-slash', Disabled to solve errors hidding activities
+			// 't/show' => 'eye',
 			't/up' => 'arrow-up',
 			't/down' => 'arrow-down',
             't/copy' => 'copy',
@@ -464,23 +466,23 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         if (isset($icons[$name])) {
 			$icon->attributes['class'] = isset($icon->attributes['class'])? $icon->attributes['class'] : '';
 			$icon->attributes['class'] .= " fa fa-$icons[$name] icon";
-			if(isset($icon->attributes['alt'])){
+			if (isset($icon->attributes['alt'])) {
 				$icon->attributes['title'] = $icon->attributes['alt'];
 			}
 			$style = "";
-			if(isset($icon->attributes['width'])) {
+			if (isset($icon->attributes['width'])) {
 				$style .= 'width:'.$icon->attributes['width'].';';
 				unset($icon->attributes['width']);
 			}
-			if(isset($icon->attributes['height'])) {
+			if (isset($icon->attributes['height'])) {
 				$style .= 'height:'.$icon->attributes['height'].';line-height:'.$icon->attributes['height'].';';
 				unset($icon->attributes['height']);
 			}
-			if(!empty($style)){
+			if (!empty($style)) {
 				$icon->attributes['style'] = isset($icon->attributes['style'])? $icon->attributes['style'].$style : $style;
 			}
 
-			//unset($icon->attributes['alt']);
+			// unset($icon->attributes['alt']);
             return html_writer::tag('i', '', $icon->attributes);
         } else {
             return parent::render_pix_icon($icon);

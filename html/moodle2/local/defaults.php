@@ -18,3 +18,4 @@ Please note that not all settings are converted to admin_tree, they are mostly i
 */
 
 $defaults['moodle']['calendar_startwday'] = 1;
+$defaults['moodle']['allowblockstodock'] = 0;

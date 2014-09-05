@@ -30,15 +30,14 @@
 
 $THEME->name = 'xtec2';
 
-/////////////////////////////////
 // The only thing you need to change in this file when copying it to
 // create a new theme is the name above. You also need to change the name
 // in version.php and lang/en/theme_xtec2.php as well.
-//////////////////////////////////
 //
 $THEME->doctype = 'html5';
 $THEME->parents = array('bootstrapbase');
-$THEME->sheets = array('custom', 'font-awesome.min');
+$THEME->sheets = array('font-awesome.min', 'moodle-awesome', 'custom');
+$THEME->enable_dock = true;
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
@@ -52,28 +51,28 @@ $THEME->blockrtlmanipulations = array(
     'side-post' => 'side-pre'
 );
 
-$block_layout = get_config('theme_xtec2','block_layout');
-switch($block_layout){
+$blocklayout = get_config('theme_xtec2', 'block_layout');
+switch($blocklayout){
     case 'none':
-        $regions_one = array();
-        $regions_both = array();
-        $default_region = '';
+        $regionsone = array();
+        $regionsboth = array();
+        $defaultregion = '';
         break;
     case 'right':
-        $regions_one = array('side-post');
-        $regions_both = array('side-post');
-        $default_region = 'side-post';
+        $regionsone = array('side-post');
+        $regionsboth = array('side-post');
+        $defaultregion = 'side-post';
         break;
     case 'both':
-        $regions_one = array('side-pre');
-        $regions_both = array('side-pre', 'side-post');
-        $default_region = 'side-pre';
+        $regionsone = array('side-pre');
+        $regionsboth = array('side-pre', 'side-post');
+        $defaultregion = 'side-pre';
         break;
     case 'left':
     default:
-        $regions_one = array('side-pre');
-        $regions_both = array('side-pre');
-        $default_region= 'side-pre';
+        $regionsone = array('side-pre');
+        $regionsboth = array('side-pre');
+        $defaultregion = 'side-pre';
         break;
 }
 
@@ -87,70 +86,70 @@ $THEME->layouts = array(
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
     ),
     // Main course page.
     'course' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
-        'options' => array('langmenu'=>true),
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
+        'options' => array('langmenu' => true),
     ),
     'coursecategory' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
     ),
     // part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
     ),
     // The site home page.
     'frontpage' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
-        'options' => array('nonavbar'=>true),
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
+        'options' => array('nonavbar' => true),
     ),
     // Server administration scripts.
     'admin' => array(
         'file' => 'general.php',
-        'regions' => $regions_one,
-        'defaultregion' => $default_region,
+        'regions' => $regionsone,
+        'defaultregion' => $defaultregion,
     ),
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
-        'options' => array('langmenu'=>true),
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
+        'options' => array('langmenu' => true),
     ),
     // My public page.
     'mypublic' => array(
         'file' => 'general.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region,
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion,
     ),
     'login' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu' => true),
     ),
 
     // Pages that appear in pop-up windows - no navigation, no blocks, no header.
     'popup' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter' => true, 'nonavbar' => true),
     ),
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nocoursefooter'=>true),
+        'options' => array('nofooter' => true, 'nocoursefooter' => true),
     ),
     // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
     'embedded' => array(
@@ -168,7 +167,7 @@ $THEME->layouts = array(
     'print' => array(
         'file' => 'general.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>false),
+        'options' => array('nofooter' => true, 'nonavbar' => false),
     ),
     // The pagelayout used when a redirection is occuring.
     'redirect' => array(
@@ -178,14 +177,14 @@ $THEME->layouts = array(
     // The pagelayout used for reports.
     'report' => array(
         'file' => 'general.php',
-        'regions' => $regions_one,
-        'defaultregion' => $default_region,
+        'regions' => $regionsone,
+        'defaultregion' => $defaultregion,
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(
         'file' => 'secure.php',
-        'regions' => $regions_both,
-        'defaultregion' => $default_region
+        'regions' => $regionsboth,
+        'defaultregion' => $defaultregion
     ),
 );
 

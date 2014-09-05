@@ -72,22 +72,27 @@ function theme_xtec2_process_css($css, $theme) {
     // Decide foreground color depending on the other
     $color3 = theme_xtec2_get_contrast_YIQ($color2);
     $css = theme_xtec2_set_color($css, 3, $color3);
-    if($color3 == 'black'){
+    if ($color3 == 'black') {
         $anticolor3 = 'rgba(255,255,255,0.5)';
+        $invert = '';
     } else {
         $anticolor3 = 'rgba(0,0,0,0.5)';
+        $invert = 'invert(100%)';
     }
     $css = theme_xtec2_set_color($css, '3a', $anticolor3);
+    $css = theme_xtec2_set_color($css, '3b', $invert);
 
 
     $color4 = !empty($theme->settings->color4) ? $theme->settings->color4 : '#303030';
-    if(theme_xtec2_get_YIQ($color4) > 135)
+    if (theme_xtec2_get_YIQ($color4) > 135) {
         $color4 = 'black';
+    }
     $css = theme_xtec2_set_color($css, 4, $color4);
 
     $color5 = !empty($theme->settings->color5) ? $theme->settings->color5 : '#AC2013';
-    if(theme_xtec2_get_YIQ($color5) > 135)
+    if (theme_xtec2_get_YIQ($color5) > 135) {
         $color5 = 'black';
+    }
     $css = theme_xtec2_set_color($css, 5, $color5);
 
     // Set custom CSS.
