@@ -46,13 +46,18 @@ class graellaIcones
         // Set class property
         $this->options = get_option( 'my_option_name' );
         ?>
-        <div class="wrap">
+        <div class="wrap row">
             <div style="float:left;margin-right:30px;">
 	         <?php screen_icon(); ?>
             <h2>Capçalera</h2> 
             
+            <div style="width:500px">
+            <li>Per definir el <strong>nom del centre</strong> i <strong>la descripció</strong> vés a <code>Aparença -> Personalitza -> Identificació del centre</code>.
+            <li>Per definir les fotos de capçalera crea una presentació de diapositives, copia l'identificador i enganxa'l al camp <code>Diapositives capçalera (id)</code> del apartat <code>Aparença -> Personalitza -> Identificació del centre </code> 
+            </div>
 	                      
 	            <form method="post" action="options.php">
+	            
 	            <?php
 	                // This prints out all hidden setting fields
 	                settings_fields( 'my_option_group' );   

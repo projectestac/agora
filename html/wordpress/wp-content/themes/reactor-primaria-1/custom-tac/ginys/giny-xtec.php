@@ -6,7 +6,7 @@ class XTEC_Widget extends WP_Widget {
 	'xtec'=>	array('nom'=>"XTEC",'url'=>'http://xtec.cat','img'=>'xtec-icon.png',desc=>'Recursos educatius'),  
 	'edu365'=>array('nom'=>"Edu365",'url'=>'http://edu365.cat','img'=>'edu365-icon.png', desc=>'Recursos educatius'),
 	'edu3'=>array('nom'=>"Edu3",'url'=>'http://edu3.cat','img'=>'edu3-icon.png',desc=>'Videos educatius'),
-	'xarxa-docent'=>array('nom'=>"Xarxa Docent",'url'=>'http://educat.xtec.cat','img'=>'',desc=>'Xarxa de support amb més de 10.000 docents inscrits'), 
+	'xarxa-docent'=>array('nom'=>"Xarxa Docent",'url'=>'http://educat.xtec.cat','img'=>'xarxa-docent-icon.png',desc=>'Xarxa de support amb més de 10.000 docents inscrits'), 
 	'alexandria'=>array('nom'=>"Alexandria",'url'=>'http://alexandria.xtec.cat','img'=>'alexandria-icon.png',desc=>'Cursos moodle i activitats PDI per descarregar'), 
 	'linkat'=>array('nom'=>"Linkat",'url'=>'http://linkat.xtec.cat/','img'=>'linkat-icon.png',desc=>'Linux pels centres educatius'),
 	'jclic'=>	array('nom'=>"JClic",'url'=>'http://clic.xtec.cat/ca/jclic/','img'=>'jclic-icon.png',desc=>'Activitats jClic'), 
@@ -39,7 +39,7 @@ class XTEC_Widget extends WP_Widget {
         $title   = $instance['title'];
         
         // Display information
-        echo '<div class="my-widget block" >';
+        echo '<div class="widget my-widget block" >';
             if ( !empty( $title ) ) {
             	echo '<h4 class="widget-title">' . $title . '</h4>';
             }         

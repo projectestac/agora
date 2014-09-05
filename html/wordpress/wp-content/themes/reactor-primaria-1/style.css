@@ -13,8 +13,16 @@ Version: 1.0.0
 Add Custom styles below 
 ******************************************************************/
 
+.block{
+
+/*border-bottom:1px solid #ddd;*/
+
+}
+
+
 body{
 	background-color:white !important;
+	color:#444;
 }
 
 
@@ -38,6 +46,64 @@ h1, h2, h3, h4, h5, h6, a {
 .login h1 a { 
     background-size:auto !important;
 }
+
+/*
+li:before {
+    content: "";
+    width:20px;
+    height:20px;
+    background:red;
+    display: block;
+    float: left;
+    margin-right: 5px;
+}*/
+
+
+
+
+
+/*****************************************************************
+vcard (targeta presentacio centre)
+******************************************************************/
+
+.vcard {
+margin: 0;
+border: 0;
+padding: 0;
+}
+
+.vcard .country-name, .vcard .region, .vcard .fn.org.url {
+display:none;
+}
+
+
+#tar-nomCentre {
+    display:block;	
+    font-size: 0.95em !important;
+    font-weight: bold;
+    line-height: 1em !important;
+    padding-bottom: 0.5em;
+    color: #555;
+}
+
+.vcard span {
+   font-size: 0.8em;
+   line-height: 1em;
+   color: #777;
+}
+
+#tar-mapa, #tar-contacte {
+    color: #808080;
+    font-weight: 500;
+    font-size: 0.8em;
+}
+
+.tel {
+    font-weight: bold;
+    margin: 0.5em 0 0.3em 0;
+}
+
+
 
 /*****************************************************************
 Targetes
@@ -80,8 +146,11 @@ article {
     line-height:1em;
 }
 
-.entry-title{
-    margin-top: 0px;
+#contingut_central_frontpage .entry-title{
+   	 margin-top: 0;
+	margin-bottom: 0;
+
+padding-top: 0;
 }
 
 .post.format-video .entry-title {
@@ -252,7 +321,8 @@ Header
 }
 
 #img-logo{
-	max-width: 200px
+	/*padding:1em;*/
+	max-width:120px;
 }
 
 .site-description-box{
@@ -265,8 +335,6 @@ Header
     text-align:center;
     font-family:'Oswald'; font-weight: 300;
     /*font-family: 'Delius', bold;*/
-   
-
     padding:0px;
     color:white; 
     display: table-cell;
@@ -339,7 +407,7 @@ Header
 .entry-categories>a,
 .entry-tags >a {
     color:#56AEC1 !important;
-    font-size:0.9em;
+    font-size:0.8em;
 }
 
 .entry-date:before,
@@ -350,14 +418,18 @@ Header
     color:#56AEC1; 
     display: inline-block;
     -webkit-font-smoothing: antialiased;
-    font: normal 22px/1 'dashicons';
+    font: normal 18px/1 'dashicons';
     vertical-align: middle;
     margin-right: 0.2rem;
 }
 
-.entry-date,.entry-author{
-    color:#BFC0BC;
+.entry-date, .entry-author {
+color: #A9AAA8;
+margin-bottom: 0.8em;
+display: inline-block;
+font-size: 0.8em;
 }
+
 .entry-date:before {
     content: "\f145"; 
     font-size: 1.2em;
@@ -511,12 +583,15 @@ Barra lateral
 #sidebar-frontpage{
     	padding-top: 1em;
 	background-color:white;
-   	padding-left: 2.5em;
+   	/*padding-left: 2.5em;*/
+	padding:0em;
+	
 }
 
 #sidebar-frontpage-2{
-	padding-top: 1em;
-	padding-left: 1em;
+	/*padding-top: 1em;
+	padding-left: 1em;*/
+	padding:0px;
 }
 
 #content .row {
@@ -538,6 +613,12 @@ select#gender option[value="male"]   { background-image:url(male.png);   }
 Ginys
 ******************************************************************/
 
+.widget{
+
+padding-left: 2em;
+padding-right: 1em;
+}
+
 .slideshow_slide {
 margin-right: 0px;
 }
@@ -552,10 +633,10 @@ font-size: 18px;
 }
 
 
-div.logotip-widget{
-    margin: 0.5em 0 0.5em -4em;
+.logotip-widget{
+    margin: 0 0 1em 0;
     text-align: center;
-    
+    padding: 1em 0.2em;	    
 }
     
 .iconedu {
@@ -563,6 +644,51 @@ div.logotip-widget{
 }   
 
 
+address{
+	font-size: 0.8em;
+    	line-height: 1.25em;
+    	font-style:normal;	
+}
+
+.text-info-centre{
+	 display:table-cell;
+	 vertical-align: middle;
+	 margin-left: 0px;
+	 padding-left: 0px;
+         margin-top: 0.9em;
+}
+
+#tar_nomCentre{
+	color:#444 !important;
+}
+
+
+/*****************************************************************
+Xarxa Nodes (BuddyPress & BBPress & Others)
+******************************************************************/
+
+
+.widget.buddypress ul.item-list img.avatar{
+	width:3em !important;
+	height:3em !important;
+}
+
+#buddypress form#whats-new-form #whats-new-content {
+	padding: 0 0 0px 10px;
+}
+
+/*No RSS Link*/
+li.feed{
+	display:none;
+}
+
+#groups-list{
+list-style-type: none;
+}
+
+#groups-list .item{
+display:none;
+}
 
 /*****************************************************************
 Calendari
@@ -622,7 +748,6 @@ overflow:hidden;
 /*Small devices*/
 @media screen and (max-width: 782px) {
 
-    
     /*#wp-admin-bar-direccioCentre,
     #wp-admin-bar-telCentre,
     #wp-admin-bar-titularitat,*/

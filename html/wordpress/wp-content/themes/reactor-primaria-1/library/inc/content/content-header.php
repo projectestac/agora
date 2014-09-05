@@ -83,6 +83,7 @@ add_action('reactor_header_before', 'reactor_do_top_bar',1);
  * @since 1.0.0
  */
 function reactor_do_title_logo() { ?>
+
 	<div id="inner-header" class="inner-header">
 		<div class="row">
 		<div class="column">	
@@ -92,21 +93,20 @@ function reactor_do_title_logo() { ?>
 			  	<!-- Primer bloc: text o logo -->
 			  	<div  id="logo-box" class="site-logo <?php reactor_columns(array( 6, 8 ));?>">                     		
                 		<div class="site-logo-inner"> 
-	                	
-				<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
-										
-					</div><!-- .site-logo-inner -->						
+	                		<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
+				</div><!-- .site-logo-inner -->						
 				  </div> <!-- #logo-box .site-logo -->
 				
 				  <!-- Segon bloc -->
 				  <!-- small devices -->
 				  <div id="quick-call-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
 						<div class="site-quick-box-inner">  
-							<a title="Trucar" href="tel:93 723 39 05">93 723 39 05</a>	
+							<a title="Trucar" href="tel:<?php echo reactor_option('telCentre');?>"><?php echo reactor_option('telCentre');?></a>	
 						</div>
 				  </div>	
 				  <div id="quick-map-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
-							<a title="Mapa" href="https://www.google.com/maps/dir//41.554484,2.085249/@41.5544914,2.0831204,17z/data=!4m4!4m3!1m0!1m0!3e0?hl=ca">			<div class="site-quick-map-box-inner">&nbsp;</div>
+						<a title="Mapa" href="<?php echo reactor_option('googleMaps'); ?>">			
+<div class="site-quick-map-box-inner">&nbsp;</div>
 							</a>	
 				 </div>	
 				  
@@ -143,7 +143,7 @@ function reactor_do_title_logo() { ?>
 				<!-- #slider -->
 				<div id="slider-box" class="hide-for-small site-slider <?php reactor_columns(7); ?> ">
 					<!-- jmeler hardcoded -->
-					<?php do_action('slideshow_deploy', '3625'); ?>
+					<?php do_action('slideshow_deploy', reactor_option('diaporama')); ?>
 				</div><!-- .slider -->
 				
 				
@@ -158,7 +158,6 @@ function reactor_do_title_logo() { ?>
 						<a title="<?php echo $options['title_icon11'];?>" href="<?php echo $options['link_icon11'];?>">
 							<div id="icon-11" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon11'];?>"></div>
-								<!--<p><?php echo $options['title_icon11'];?></p>-->
 							</div>
 						</a>
 						<a title="<?php echo $options['title_icon12'];?>" href="<?php echo $options['link_icon12'];?>">

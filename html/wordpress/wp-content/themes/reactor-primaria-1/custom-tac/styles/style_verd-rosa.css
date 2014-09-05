@@ -55,19 +55,14 @@ background-color:#fc3b56;
 .entry-comments,
 .entry-categories>a,
 .entry-tags >a {
-    /*color:#56AEC1 !important;*/
-    font-size:0.9em;
+    color:#1e786e !important;
+
 }
 
 .entry-comments:before,
 .entry-categories:before,
 .entry-tags:before{
-    color:#2ca698; 
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    font: normal 22px/1 'dashicons';
-    vertical-align: middle;
-    margin-right: 0.2rem;
+    color:#1e786e; 
 }
 
 .menu-link, .sub-menu-link {

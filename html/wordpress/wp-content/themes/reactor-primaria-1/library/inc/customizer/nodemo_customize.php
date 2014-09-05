@@ -17,8 +17,6 @@
  *
  * @since 1.0.0
  */
- // jmeler versió per la demo inminente QUICK AND DIRTY 
- 
 function reactor_customizer_css() {
 	do_action('reactor_customizer_css');
 		
@@ -296,7 +294,10 @@ if ( !function_exists('reactor_customize_register') ) {
 		$wp_customize->remove_section('background_image');
 		$wp_customize->remove_section('static_front_page');
 		$wp_customize->remove_section('nav');
-				
+		$wp_customize->remove_section('login');
+		$wp_customize->remove_section('contactpage_settings');
+		$wp_customize->remove_section('portfoli_settings');
+		
 		/**
 		 * setup customizer settings
 		 *
@@ -316,7 +317,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				'transport'  => 'postMessage',
 			 ) );
 				$wp_customize->add_control('blogname', array( 
-					'label'    => __('Nom de l\'escola', 'reactor'),
+					'label'    => __('Site Title', 'reactor'),
 					'section'  => 'reactor_customizer_general',
 					'priority' => 1,
 				 ) );
@@ -328,7 +329,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				'transport'  => 'postMessage',
 			 ) );
 				$wp_customize->add_control('blogdescription', array( 
-					'label'    => __('Descripció', 'reactor'),
+					'label'    => __('Tagline', 'reactor'),
 					'section'  => 'reactor_customizer_general',
 					'priority' => 2,
 				 ) );
@@ -347,7 +348,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				 ) );
 			*/
 			$wp_customize->add_setting('reactor_options[direccioCentre]', array( 
-				'default'    => "C/ Direcció, 1", /*jmeler agafar de BBDD agora*/
+				'default'    => "Direcció", /*jmeler agafar de BBDD agora*/
 				'type'       => 'option',
 				'capability' => 'manage_options',
 				'transport'  => 'postMessage',
@@ -358,13 +359,13 @@ if ( !function_exists('reactor_customize_register') ) {
 					'priority' => 3,
 				 ) );
 			$wp_customize->add_setting('reactor_options[cpCentre]', array( 
-				'default'    => "00000 Localitat", /*jmeler agafar de BBDD agora*/
+				'default'    => "Direcció", /*jmeler agafar de BBDD agora*/
 				'type'       => 'option',
 				'capability' => 'manage_options',
 				'transport'  => 'postMessage',
 			 ) );
 				$wp_customize->add_control('reactor_options[cpCentre]', array( 
-					'label'    => __('Codi Postal i localitat', 'reactor'),
+					'label'    => __('CP i localitat', 'reactor'),
 					'section'  => 'reactor_customizer_general',
 					'priority' => 3,
 				 ) );
@@ -400,7 +401,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				'capability' => 'manage_options',
 			 ) );
 				$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'reactor_logo_image', array( 
-					'label'    => __('Logotip', 'reactor'),
+					'label'    => __('Site Logo', 'reactor'),
 					'section'  => 'reactor_customizer_general',
 					'settings' => 'reactor_options[logo_image]',
 					'priority' => 4,
@@ -412,23 +413,11 @@ if ( !function_exists('reactor_customize_register') ) {
 				'capability' => 'manage_options',
 			 ) );
 				$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'reactor_favicon_image', array( 
-					'label'    => __('Icona pestanya navegadors (favicon)', 'reactor'),
+					'label'    => __('Favicon', 'reactor'),
 					'section'  => 'reactor_customizer_general',
 					'settings' => 'reactor_options[favicon_image]',
 					'priority' => 5,
 				 ) ) );
-				 
-			$wp_customize->add_setting('reactor_options[diaporama]', array( 
-				'default'    => "1", 
-				'type'       => 'option',
-				'capability' => 'manage_options',
-				'transport'  => 'postMessage',
-			 ) );
-				$wp_customize->add_control('reactor_options[diaporama]', array( 
-					'label'    => __('Diapositives capçalera (id)', 'reactor'),
-					'section'  => 'reactor_customizer_general',
-					'priority' => 6,
-				 ) );	 
 
 			
 			/*
@@ -446,7 +435,6 @@ if ( !function_exists('reactor_customize_register') ) {
 			*/
 
 		// Navigation
-		/*
 		$menus = get_theme_support('reactor-menus');
 		
 		if ( !is_array( $menus[0] ) ) {
@@ -664,9 +652,8 @@ if ( !function_exists('reactor_customize_register') ) {
 					'type'     => 'checkbox',
 					'priority' => 10,
 				 ) );
-		*/
+
 		// Backgrounds
-		/*
 		$wp_customize->add_section('reactor_customizer_background', array( 
 			'title'          => __('Background', 'reactor'),
 			'priority'       => 25,
@@ -773,7 +760,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'section'  => 'reactor_customizer_background',
 					'type'     => 'checkbox',
 				 ) );					 
-		*/
+
 		// Fonts 
 		
 		
@@ -875,9 +862,9 @@ if ( !function_exists('reactor_customize_register') ) {
 			"vermell-taronja"=>"Vermell i Taronja",
                         "vermell-verd"=>"Vermell i Verd",
                         "blau-vermell"=>"Blau i Vermell",
-						"blaus"=>"Blau fosc i Blau clar",
-						"verd-rosa"=>"Verd i Rosa",
-						"groc-verd"=>"Groc i Verd",
+			"blaus"=>"Blau fosc i Blau clar",
+			"verd-rosa"=>"Verd i Rosa",
+			"groc-verd"=>"Groc i Verd",
                         "groc-lila"=>"Groc i Lila",
                         "taronja-verd"=>"Taronja i Verd",
                         "rosa-gris"=>"Rosa i Gris"
@@ -989,7 +976,6 @@ if ( !function_exists('reactor_customize_register') ) {
 				 ) ) );
 		/* end jmeler colors */
 		
-		/*
 		// Login
 		$wp_customize->add_section('reactor_customizer_login', array( 
 			'title'          => __('Login', 'reactor'),
@@ -1033,7 +1019,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'type'     => 'text',
 				 ) );
 				 
-		*/
+		
 		$templates = get_theme_support('reactor-page-templates');
 		
 		if ( !is_array( $templates[0] ) ) {
@@ -1043,7 +1029,7 @@ if ( !function_exists('reactor_customize_register') ) {
 		// Front Page
 		if ( in_array( 'front-page', $templates[0] ) ) {
 		$wp_customize->add_section('frontpage_settings', array( 
-			'title'          => __('Pàgina principal', 'reactor'),
+			'title'          => __('Front Page', 'reactor'),
 			'priority'       =>6,//=> 50,
 			'theme_supports' => 'reactor-page-templates'
 		 ) );
@@ -1055,7 +1041,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				'theme_supports' => 'reactor-page-templates'
 			 ) );
 				$wp_customize->add_control( new WP_Customize_Dropdown_Categories_Control( $wp_customize, 'reactor_frontpage_post_category', array( 
-					'label'    => __('Categoria de notícies', 'reactor'),
+					'label'    => __('Post Category', 'reactor'),
 					'section'  => 'frontpage_settings',
 					'type'     => 'dropdown-categories',
 					'settings' => 'reactor_options[frontpage_post_category]',
@@ -1093,6 +1079,19 @@ if ( !function_exists('reactor_customize_register') ) {
 		
 	/*jmeler*/
 	
+			$wp_customize->add_setting('reactor_options[diaporama]', array( 
+				'default'    => "1", 
+				'type'       => 'option',
+				'capability' => 'manage_options',
+				'transport'  => 'postMessage',
+			 ) );
+				$wp_customize->add_control('reactor_options[diaporama]', array( 
+					'label'    => __('Diapositives capçalera (id)', 'reactor'),
+					'section'  => 'frontpage_settings',
+					'priority' => 3,
+				 ) );
+
+	
 			$wp_customize->add_setting('reactor_options[frontpage_layout]', array( 
 				'default'        => '2c-r',
 				'type'           => 'option',
@@ -1101,11 +1100,11 @@ if ( !function_exists('reactor_customize_register') ) {
 			 ) );
 			 
 			$wp_customize->add_control('reactor_options[frontpage_layout]', array( 
-				'label'   => __('Barres laterals', 'reactor'),
+				'label'   => __('Esquema', 'reactor'),
 				'section' => 'frontpage_settings',
 				'type'    => 'select',
 				'choices' => array( 
-					'1c' => __('Sense barres','reactor'),
+					'1c' => __('Sense barres laterals','reactor'),
 					'2c-l' => __('Barra esquerra', 'reactor'),
 					'2c-r' => __('Barra dreta', 'reactor'),
 					'3c-c' => __('Barra esquerra i dreta','reactor'),
@@ -1127,7 +1126,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'choices' => array( 
 						'0' => __('0 articles','reactor'),
 						'1' => __('1 article', 'reactor'),
-						'2' => __('2 articles  (iguals)', 'reactor'),
+						'2' => __('2 articles iguals', 'reactor'),
 						'33' => __('2 articles (1/3+2/3)', 'reactor'),
 						'66' => __('2 articles (2/3+1/3)', 'reactor'),
 						'3' => __('3 articles', 'reactor'),
@@ -1162,7 +1161,7 @@ if ( !function_exists('reactor_customize_register') ) {
 
 
 			$wp_customize->add_setting('reactor_options[frontpage_posts_per_fila_n]', array( 
-				'default'        => '2',
+				'default'        => '3',
 				'type'           => 'option',
 				'capability'     => 'manage_options',
 				'theme_supports' => 'reactor-page-templates'
@@ -1178,7 +1177,7 @@ if ( !function_exists('reactor_customize_register') ) {
 						'3' => __('3 articles', 'reactor'),
 						'4' => __('4 articles', 'reactor'),
 					),
-					'priority' => 6,
+					'priority' => 5,
 				 ) );
 
 
@@ -1211,12 +1210,12 @@ if ( !function_exists('reactor_customize_register') ) {
 				'theme_supports' => 'reactor-page-templates'
 			 ) );
 				$wp_customize->add_control('reactor_options[frontpage_number_posts]', array( 
-					'label'    => __('Nombre d\'articles', 'reactor'),
+					'label'    => __('Number of Posts', 'reactor'),
 					'section'  => 'frontpage_settings',
 					'type'     => 'text',
 					'priority' => 6,
 				 ) ); 
-			/*
+			
 			$wp_customize->add_setting('reactor_options[frontpage_show_titles]', array( 
 				'default'        => 1,
 				'type'           => 'option',
@@ -1281,11 +1280,9 @@ if ( !function_exists('reactor_customize_register') ) {
 					'type'     => 'checkbox',
 					'priority' => 11,
 				 ) );
-				 */
 		}
 		
 		// News Page
-		/*
 		if ( in_array( 'news-page', $templates[0] ) ) {
 		$wp_customize->add_section('newspage_settings', array( 
 			'title'          => __('News Page', 'reactor'),
@@ -1509,7 +1506,6 @@ if ( !function_exists('reactor_customize_register') ) {
 					'priority' => 8,
 				 ) );
 		}
-		*/
 		
 	}
 }
