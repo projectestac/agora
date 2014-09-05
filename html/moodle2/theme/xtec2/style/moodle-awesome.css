@@ -59,10 +59,7 @@ i.fa.iconlarge {
 	line-height: 12px;
 	font-size: 12px;
 }
-.moodle-actionmenu[data-enhanced].show .menu i.fa {
-	vertical-align: middle;
-	color: #999;
-}
+
 
 .section .moodle-actionmenu i.fa.iconsmall {
 	line-height: 16px;
@@ -120,8 +117,8 @@ i.fa.iconlarge {
 .coursebox>.info>.coursename a:before {
 	padding-right: 3px;
 	display: inline-block;
-	font: normal normal normal 24px/1 FontAwesome;
-	font-size: inherit;
+	font-family: fontawesome;
+	font-weight: normal;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -136,6 +133,24 @@ i.fa.iconlarge {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\f0ac";
+}
+
+/* Fallback icon colors... */
+.coursebox .enrolmenticons i.fa,
+#course-category-listings .item-actions i.fa,
+.moodle-actionmenu[data-enhanced].show .menu i.fa,
+.block_site_main_menu li .buttons a i.fa {
+	color: #999;
+}
+.block_site_main_menu li .buttons a i.fa{
+	vertical-align: text-bottom;
+}
+
+#course-category-listings .item-actions i.fa{
+	height: 12px;
+	padding: 0;
+	margin: 0 4px;
+	vertical-align: inherit;
 }
 
 /* Block icons */

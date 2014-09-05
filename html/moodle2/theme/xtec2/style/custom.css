@@ -25,6 +25,10 @@ h2,h3,h4{
 	color: [[setting:color4]];
 }
 
+h3{
+	font-size: 22px;
+}
+
 .span0{
 	display: none !important;
 }
