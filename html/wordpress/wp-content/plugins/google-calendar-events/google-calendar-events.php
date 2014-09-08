@@ -171,8 +171,20 @@ if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 			$defaults = array(
 				'stylesheet' => '',
 				'javascript' => false,
+
+                // XTEC ************ MODIFICAT - Added translation missing strings
+                // 2014.09.08 @aginard
+
+                'loading' => __('Loading...', GCE_TEXT_DOMAIN),
+				'error' => __('Events cannot currently be displayed, sorry! Please check back later.', GCE_TEXT_DOMAIN),
+
+                //************ ORIGINAL
+                /*
 				'loading' => 'Loading...',
 				'error' => 'Events cannot currently be displayed, sorry! Please check back later.',
+                */
+                //************ FI
+                
 				'fields' => true,
 				'old_stylesheet' => false,
 				'save_settings' => true

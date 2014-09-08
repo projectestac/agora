@@ -82,6 +82,7 @@ function gce_edit_retrieve_from_field(){
 	?>
 	<span class="description"><?php _e('The point in time at which to start retrieving events. Use the text-box to specify an additional offset from you chosen start point. The offset should be provided in seconds (3600 = 1 hour, 86400 = 1 day) and can be negative. If you have selected the \'Specific date / time\' option, enter a <a href="http://www.timestampgenerator.com" target="_blank">UNIX timestamp</a> in the text-box.', GCE_TEXT_DOMAIN); ?></span>
 	<br />
+    <!--
 	<select name="gce_options[retrieve_from]">
 		<option value="now"<?php selected($options['retrieve_from'], 'now'); ?>>Now</option>
 		<option value="today"<?php selected($options['retrieve_from'], 'today'); ?>>00:00 today</option>
@@ -90,6 +91,16 @@ function gce_edit_retrieve_from_field(){
 		<option value="month-end"<?php selected($options['retrieve_from'], 'month-end'); ?>>End of current month</option>
 		<option value="any"<?php selected($options['retrieve_from'], 'any'); ?>>The beginning of time</option>
 		<option value="date"<?php selected($options['retrieve_from'], 'date'); ?>>Specific date / time</option>
+	</select>
+    -->
+	<select name="gce_options[retrieve_from]">
+		<option value="now"<?php selected($options['retrieve_from'], 'now'); ?>><?php _e( 'Now', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="today"<?php selected($options['retrieve_from'], 'today'); ?>><?php _e( '00:00 today', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="week"<?php selected($options['retrieve_from'], 'week'); ?>><?php _e( 'Start of current week', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="month-start"<?php selected($options['retrieve_from'], 'month-start'); ?>><?php _e( 'Start of current month', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="month-end"<?php selected($options['retrieve_from'], 'month-end'); ?>><?php _e( 'End of current month', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="any"<?php selected($options['retrieve_from'], 'any'); ?>><?php _e( 'The beginning of time', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="date"<?php selected($options['retrieve_from'], 'date'); ?>><?php _e( 'Specific date / time', GCE_TEXT_DOMAIN ); ?></option>
 	</select>
 	<input type="text" name="gce_options[retrieve_from_value]" value="<?php echo $options['retrieve_from_value']; ?>" />
 	<?php
@@ -102,7 +113,23 @@ function gce_edit_retrieve_until_field(){
 	?>
 	<span class="description"><?php _e('The point in time at which to stop retrieving events. The instructions for the above option also apply here.', GCE_TEXT_DOMAIN); ?></span>
 	<br />
+    
+    <!-- XTEC ************ MODIFICAT - Added translation missing strings
+         2014.09.08 @aginard -->
+    
 	<select name="gce_options[retrieve_until]">
+		<option value="now"<?php selected($options['retrieve_until'], 'now'); ?>><?php _e( 'Now', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="today"<?php selected($options['retrieve_until'], 'today'); ?>><?php _e( '00:00 today', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="week"<?php selected($options['retrieve_until'], 'week'); ?>><?php _e( 'Start of current week', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="month-start"<?php selected($options['retrieve_until'], 'month-start'); ?>><?php _e( 'Start of current month', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="month-end"<?php selected($options['retrieve_until'], 'month-end'); ?>><?php _e( 'End of current month', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="any"<?php selected($options['retrieve_until'], 'any'); ?>><?php _e( 'The end of time', GCE_TEXT_DOMAIN ); ?></option>
+		<option value="date"<?php selected($options['retrieve_until'], 'date'); ?>><?php _e( 'Specific date / time', GCE_TEXT_DOMAIN ); ?></option>
+	</select>
+
+    <!-- ************ ORIGINAL
+
+    <select name="gce_options[retrieve_until]">
 		<option value="now"<?php selected($options['retrieve_until'], 'now'); ?>>Now</option>
 		<option value="today"<?php selected($options['retrieve_until'], 'today'); ?>>00:00 today</option>
 		<option value="week"<?php selected($options['retrieve_until'], 'week'); ?>>Start of current week</option>
@@ -112,6 +139,10 @@ function gce_edit_retrieve_until_field(){
 		<option value="date"<?php selected($options['retrieve_until'], 'date'); ?>>Specific date / time</option>
 
 	</select>
+
+    ************ FI
+    -->
+
 	<input type="text" name="gce_options[retrieve_until_value]" value="<?php echo $options['retrieve_until_value']; ?>" />
 	<?php
 }

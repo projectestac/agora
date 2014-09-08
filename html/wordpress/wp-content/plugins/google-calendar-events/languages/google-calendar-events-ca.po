@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-09-05 17:50+0100\n"
+"PO-Revision-Date: 2014-09-08 17:08+0100\n"
 "Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -96,7 +96,7 @@ msgstr "Separador de text / caràcters"
 
 #: admin/edit.php:33 admin/add.php:32
 msgid "Display location?"
-msgstr "Voleu mostrar el lloc?"
+msgstr "Voleu mostrar la ubicació?"
 
 #: admin/edit.php:34 admin/add.php:33
 msgid "Display description?"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: admin/edit.php:245 admin/add.php:244
 msgid "Feed information shortcodes:"
-msgstr "Codis curts d'informacó a les entrades:"
+msgstr "Codis curts d'informació a les entrades:"
 
 #: admin/edit.php:247 admin/add.php:246
 msgid "The title of the feed from which the event comes"
@@ -466,52 +466,56 @@ msgstr "L'esdeveniment té ubicació"
 
 #: admin/edit.php:259 admin/add.php:258
 msgid "The event is to be displayed in a tooltip (not a list)"
-msgstr ""
+msgstr "L'esdeveniment s'ha de mostrar en un text emergent (no en una llista)"
 
 #: admin/edit.php:260 admin/add.php:259
 msgid "The event is to be displayed in a list (not a tooltip)"
-msgstr ""
+msgstr "L'esdeveniment s'ha de mostrar en una llista (no en un text emergent)"
 
 #: admin/edit.php:261 admin/add.php:260
 msgid ""
 "The event is taking place now (after the start time, but before the end time)"
 msgstr ""
+"L'esdeveniment està tenint lloc en aquests moments (després de l'hora "
+"d'inici, però abans de l'hora de finalització)"
 
 #: admin/edit.php:262 admin/add.php:261
 msgid "The event is not taking place now (may have ended or not yet started)"
 msgstr ""
+"L'esdeveniment no està tenint lloc en aquests moments (pot haver acabat o no "
+"haver començat)"
 
 #: admin/edit.php:263 admin/add.php:262
 msgid "The event has started (even if it has also ended)"
-msgstr ""
+msgstr "L'esdeveniment ha començat (pot haver acabat)"
 
 #: admin/edit.php:264 admin/add.php:263
 msgid "The event has not started"
-msgstr ""
+msgstr "L'esdeveniment no ha començat"
 
 #: admin/edit.php:265 admin/add.php:264
 msgid "The event has ended"
-msgstr ""
+msgstr "L'esdeveniment ha acabat"
 
 #: admin/edit.php:266 admin/add.php:265
 msgid "The event has not ended (even if it hasn't started)"
-msgstr ""
+msgstr "L'esdeveniment no ha acabat (pot no haver començat)"
 
 #: admin/edit.php:267 admin/add.php:266
 msgid "The event is the first of the day"
-msgstr ""
+msgstr "L'esdeveniment és el primer del dia"
 
 #: admin/edit.php:268 admin/add.php:267
 msgid "The event is not the first of the day"
-msgstr ""
+msgstr "L'esdeveniment no és el primer del dia"
 
 #: admin/edit.php:269 admin/add.php:268
 msgid "The event spans multiple days"
-msgstr ""
+msgstr "L'esdeveniment dura més d'un dia"
 
 #: admin/edit.php:270 admin/add.php:269
 msgid "The event does not span multiple days"
-msgstr ""
+msgstr "L'esdeveniment comença i acaba el mateix dia"
 
 #: admin/edit.php:272 admin/add.php:271
 msgid "Attributes:"
@@ -526,6 +530,8 @@ msgid ""
 "Whether or not to parse HTML that has been entered in the relevant field. "
 "Can be <code>true</code> or <code>false</code>"
 msgstr ""
+"Si s'ha de parsejar o no el codi HTML que s'ha introduït en el camp. Pot ser "
+"<code>true</code> o <code>false</code>"
 
 #: admin/edit.php:276 admin/add.php:275
 msgid ""
@@ -535,10 +541,15 @@ msgid ""
 "\">PHP Markdown</a> must be installed for this to work. Can be <code>true</"
 "code> or <code>false</code>"
 msgstr ""
+"Si s'ha de parsejar o no el text del camp amb el <a href=\"http://"
+"daringfireball.net/projects/markdown\" target=\"_blank\">Markdown</a>. Cal "
+"haver instal·lat el <a href=\"http://michelf.com/projects/php-markdown\" "
+"target=\"_blank\">PHP Markdown</a> per a que això funcioni. Pot ser "
+"<code>true</code> o <code>false</code>"
 
 #: admin/edit.php:277 admin/add.php:276
 msgid "The word limit for the field. Should be specified as a positive integer"
-msgstr ""
+msgstr "El nombre de paraules màxim pel camp. Ha de ser un número natural"
 
 #: admin/edit.php:278 admin/add.php:277
 msgid ""
@@ -546,18 +557,25 @@ msgid ""
 "net/manual/en/function.date.php\" target=\"_blank\">PHP date format</a> "
 "string"
 msgstr ""
+"El format de data i hora que s'ha d'utilitzar. S'ha d'especificar amb una "
+"cadena de <a href=\"http://php.net/manual/en/function.date.php\" target="
+"\"_blank\">format de data PHP</a>"
 
 #: admin/edit.php:279 admin/add.php:278
 msgid ""
 "Whether or not the link should open in a new window / tab. Can be "
 "<code>true</code> or <code>false</code>"
 msgstr ""
+"Si l'enllaç s'ha d'obrir en una finestra o pestanya noves. Pot ser "
+"<code>true</code> o <code>false</code>"
 
 #: admin/edit.php:280 admin/add.php:279
 msgid ""
 "How precise to be when displaying a time difference in human-readable "
 "format. Should be specified as a positive integer"
 msgstr ""
+"Com de precís s'ha de ser en mostrar la diferència de temps en un format "
+"llegible per les persones. S'ha d'especificar un número natural"
 
 #: admin/edit.php:281 admin/add.php:280
 msgid ""
@@ -572,6 +590,8 @@ msgid ""
 "Whether or not to automatically convert URLs in the description to links. "
 "Can be <code>true</code> or <code>false</code>"
 msgstr ""
+"Si s'han de convertir automàticament en enllaços els URL que apareguin a les "
+"descripcions. Pot ser <code>true</code> o <code>false</code>"
 
 #: admin/edit.php:290 admin/add.php:289
 msgid ""
@@ -649,7 +669,7 @@ msgstr ""
 
 #: admin/edit.php:349 admin/add.php:340
 msgid "Show the location of events?"
-msgstr "Mostra la localitzacó dels esdeveniments?"
+msgstr "Mostra la ubicació dels esdeveniments?"
 
 #: admin/edit.php:351 admin/add.php:342
 msgid "Text to display before the location."
@@ -676,7 +696,8 @@ msgstr ""
 
 #: admin/edit.php:379 admin/add.php:366
 msgid "Show a link to the Google Calendar page for an event?"
-msgstr "Mostra un enllaç a la pàgina de Google Calendar per a un esdeveniment?"
+msgstr ""
+"Mostra un enllaç a la pàgina del Google Calendar per a un esdeveniment?"
 
 #: admin/edit.php:382 admin/add.php:369
 msgid "Links open in a new window / tab?"
@@ -788,7 +809,7 @@ msgid ""
 "Show the description of events? (URLs in the description will be made into "
 "links)."
 msgstr ""
-"Voleu mostrar la descripció dels esdeveniments? (els URL de la descripció es "
+"Voleu mostrar la descripció dels esdeveniments? (Els URL de la descripció es "
 "convertiran en enllaços)."
 
 #: admin/refresh.php:9
@@ -839,7 +860,7 @@ msgstr "Entrades actuals"
 
 #: admin/main.php:16
 msgid "You haven't added any Google Calendar feeds yet."
-msgstr "Encara no heu afegit cap entrda de Google Calendar."
+msgstr "Encara no heu afegit cap entrada de Google Calendar."
 
 #: admin/main.php:24 admin/main.php:32
 msgid "ID"
@@ -885,7 +906,7 @@ msgstr ""
 
 #: admin/main.php:72
 msgid "Add JavaScript to footer?"
-msgstr "Voleu afegir JavaScript a peu de pàgina?"
+msgstr "Voleu afegir JavaScript al peu de pàgina?"
 
 #: admin/main.php:74
 msgid ""
@@ -902,7 +923,7 @@ msgstr "Text a mostrar durant la càrrega"
 #: admin/main.php:81
 msgid "Text to display while calendar data is loading (on AJAX requests)."
 msgstr ""
-"Text que es mostra mentre el calendari està carregant (en peticions AJAX)."
+"Text que es mostra mentre el calendari s'està carregant (en peticions AJAX)."
 
 #: admin/main.php:86
 msgid "Error message"
@@ -947,7 +968,7 @@ msgstr ""
 "Es van fer alguns canvis d'estil CSS en la versió 0.7. Si aquesta opció està "
 "activada, s'afegirà el CSS antic, juntament amb el full d'estils principal. "
 "Hauríeu de considerar actualitzar el vostre full d'estils per no tenir la "
-"necessitat d'activar aquesta oopció."
+"necessitat d'activar aquesta opció."
 
 #: admin/main.php:111
 msgid "Save"
@@ -956,7 +977,7 @@ msgstr "Desa"
 #. Plugin Name of the plugin/theme
 #: widget/gce-widget.php:6 google-calendar-events.php:231
 msgid "Google Calendar Events"
-msgstr "Esdeveniments de Google Calendar"
+msgstr "Esdeveniments del Google Calendar"
 
 #: widget/gce-widget.php:7
 msgid ""
@@ -964,7 +985,7 @@ msgid ""
 "feeds you have added"
 msgstr ""
 "Mostra una llista o graella d'esdeveniments de calendari per una o més "
-"entrades que hàgiu afegit a Google Calendar."
+"entrades que hàgiu afegit al Google Calendar."
 
 #: widget/gce-widget.php:57
 msgid ""
@@ -982,7 +1003,7 @@ msgid ""
 "Events settings."
 msgstr ""
 "Encara no s'ha afegit cap entrada. Podeu afegir una entrada a la "
-"configuració d'esdeveniments de Google Calendar."
+"configuració d'esdeveniments del Google Calendar."
 
 #: widget/gce-widget.php:129
 msgid ""
@@ -990,7 +1011,7 @@ msgid ""
 "Events settings."
 msgstr ""
 "Encara no s'ha afegit cap entrada. Podeu afegir entrades a la configuració "
-"d'esdeveniments de Google Calendar."
+"d'esdeveniments del Google Calendar."
 
 #: widget/gce-widget.php:145
 msgid ""
@@ -1003,7 +1024,7 @@ msgstr ""
 
 #: widget/gce-widget.php:149
 msgid "Display events as:"
-msgstr "Mostra esdeveniment com:"
+msgstr "Mostra els esdeveniments com a:"
 
 #: widget/gce-widget.php:151
 msgid "Calendar Grid"
@@ -1044,7 +1065,7 @@ msgid ""
 "lists always have a title displayed."
 msgstr ""
 "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniments del "
-"19 d'agost'). A les llistes agrupades sempres es mostra el títol."
+"19 d'agost'). A les llistes agrupades sempre es mostra el títol."
 
 #: inc/gce-feed.php:96
 msgid ""
@@ -1052,14 +1073,14 @@ msgid ""
 "your feed URL is correct."
 msgstr ""
 "Algunes dades s'han recuperat però no s'han pogut processar amb èxit. "
-"Assegureu-vos que l'URL de l'entrada és correcta."
+"Assegureu-vos que l'URL de l'entrada és correcte."
 
 #: inc/gce-feed.php:102
 msgid ""
 "The feed could not be found (404). Please ensure your feed URL is correct."
 msgstr ""
 "No s'ha pogut trobar l'entrada (404). Assegureu-vos que l'URL de l'entrada "
-"és correcta."
+"és correcte."
 
 #: inc/gce-feed.php:105
 msgid ""
@@ -1075,7 +1096,7 @@ msgid ""
 "feed URL is correct."
 msgstr ""
 "No s'ha pogut trobar la data de l'entrada. Codi d'error: %s. Assegureu-vos "
-"que l'URL de l'entrada és correcta."
+"que l'URL de l'entrada és correcte."
 
 #: inc/gce-event.php:484
 msgid "%s year"
@@ -1164,14 +1185,14 @@ msgid ""
 msgstr ""
 "La forma en què Esdeveniments de Google Calendar desa les dades a la memòria "
 "cau ha estat millorada a la versió 0.6. Com que heu actualitzat des d'una "
-"versio anterior del connector, pot ser que hi hagi dades dels sistema antic, "
+"versió anterior del connector, pot ser que hi hagi dades dels sistema antic, "
 "que ja no són útils, a la vostra base de dades. Feu clic a continuació per "
 "esborrar aquestes dades antigues emmagatzemades a la memòria cau de la base "
 "de dades."
 
 #: google-calendar-events.php:236
 msgid "Clear expired cached data"
-msgstr "Esborra dades antigues de la meòria cau"
+msgstr "Esborra dades antigues de la memòria cau"
 
 #: google-calendar-events.php:237
 msgid "or"
@@ -1196,7 +1217,7 @@ msgstr "Desa els canvis"
 
 #: google-calendar-events.php:310
 msgid "Old cached data cleared."
-msgstr "S'han esborrat les dades antigues de la meòria cau"
+msgstr "S'han esborrat les dades antigues de la memòria cau"
 
 #: google-calendar-events.php:487
 msgid "General options updated."
@@ -1229,3 +1250,27 @@ msgstr "Ross Hanney"
 #. Author URI of the plugin/theme
 msgid "http://www.rhanney.co.uk"
 msgstr "http://www.rhanney.co.uk"
+
+msgid "Save settings on uninstall?"
+msgstr "Desa els paràmetres en desinstal·lar?"
+
+# XTEC ************ AFEGIT - Added missing strings
+# 2014.09.08 @aginard
+msgid ""
+"Normally when you uninstall your plugin your settings are removed also. "
+"Checking this option will save your settings even after an uninstall."
+msgstr ""
+"Normalment, en desinstal·lar una extensió s'esborren els seus paràmetres. "
+"Quan aquesta opció està marcada, els paràmetres es mantenen a la base de "
+"dades encara que l'extensió es desinstal·li"
+
+msgid "Loading..."
+msgstr "S'està carregant el calendari..."
+
+msgid "Events cannot currently be displayed, sorry! Please check back later."
+msgstr ""
+"En aquests moments no es poden mostrar els esdeveniments. Si us plau, proveu-"
+"ho més tard"
+
+msgid "Default"
+msgstr "Per defecte"
