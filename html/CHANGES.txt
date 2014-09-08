@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 WORDPRESS
 - Updated Google Calendar Events to version 0.7.3.1
+- Updated theme reactor-primaria-1
 
 
 

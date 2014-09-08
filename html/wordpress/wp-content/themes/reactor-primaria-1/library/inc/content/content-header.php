@@ -140,11 +140,29 @@ function reactor_do_title_logo() { ?>
 					
 			</div><!-- #idcentre-box -->
 				
-				<!-- #slider -->
+				<!-- # imatge de capçalera o slider -->
 				<div id="slider-box" class="hide-for-small site-slider <?php reactor_columns(7); ?> ">
-					<!-- jmeler hardcoded -->
-					<?php do_action('slideshow_deploy', reactor_option('diaporama')); ?>
-				</div><!-- .slider -->
+				
+				<?php
+ 				
+				if (reactor_option('imatge_capcalera')) {
+					//echo "<img id='imatge_capcalera' src='".reactor_option('imatge_capcalera')."'>";
+					
+				?>
+					<style>
+						#slider-box{
+							background-image:url(<?php echo reactor_option('imatge_capcalera'); ?>); 
+							background-size: cover;
+    							background-repeat: no-repeat; 
+						}
+					</style>
+				<?php
+			  	}else{	
+					do_action('slideshow_deploy', reactor_option('carrusel'));
+				}
+				?>
+
+				</div>
 				
 				
 				<!--Graella d'icones -->
