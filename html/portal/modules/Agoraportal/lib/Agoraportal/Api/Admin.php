@@ -327,7 +327,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         } else {
             // There is no service 'intranet' so an empty database is needed
             $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
-                        'serviceName' => $serviceName));
+                        'serviceName' => $serviceName,
+                        'dbHost' => $dbHost));
             if (!$db) {
                 LogUtil::registerError($this->__('No queda cap base de dades lliure'));
                 return false;
@@ -425,7 +426,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         } else {
             // There is no service 'intranet' so an empty database is needed
             $db = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', array('serviceId' => $serviceId,
-                        'serviceName' => $serviceName));
+                        'serviceName' => $serviceName,
+                        'dbHost' => $dbHost));
             if (!$db) {
                 LogUtil::registerError($this->__('No queda cap base de dades lliure'));
                 return false;
@@ -555,6 +557,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $allNodes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $idNodes,
                         'state' => -1));
             if (!$allNodes) {
+                LogUtil::registerError($this->__('No s\'ha trobat cap nodes'));
                 return false;
             }
 
@@ -562,6 +565,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $allIntranet = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $idIntranet,
                         'state' => -1));
             if (!$allIntranet) {
+                LogUtil::registerError($this->__('No s\'ha trobat cap intranet'));
                 return false;
             }
             
@@ -615,6 +619,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     'host' => $dbHost));
 
         if (!$connect) {
+            LogUtil::registerError($this->__('No s\'ha pogut connectar a la base de dades.'
+                    . 'Paràmetres passats a connectExtDB: servicename: '
+                    . $serviceInfo['serviceName'] . ', database: ' . $free . ', host: ' . $dbHost));
             return false;
         }
 
