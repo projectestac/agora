@@ -467,7 +467,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         $name = $icon->pix;
         if (isset($icons[$name])) {
 			$icon->attributes['class'] = isset($icon->attributes['class'])? $icon->attributes['class'] : '';
-			$icon->attributes['class'] .= " fa fa-$icons[$name] icon";
+			$icon->attributes['class'] .= " fa fa-$icons[$name]";
 			if (isset($icon->attributes['alt'])) {
 				$icon->attributes['title'] = $icon->attributes['alt'];
 			}

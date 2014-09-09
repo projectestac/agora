@@ -326,6 +326,7 @@ h3{
     line-height: 32px;
     font-size: 20px;
     color: white;
+    vertical-align: middle;
 }
 
 #page-footer-top .social-icons  i.fa-globe{

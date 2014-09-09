@@ -182,10 +182,10 @@ echo $OUTPUT->doctype() ?>
 <footer id="page-footer">
     <div id="page-footer-top">
         <div class="row-fluid">
-            <div class="span2  social-icons">
+            <div class="span3  social-icons">
                 <?php echo $OUTPUT->social_icons(); ?>
             </div>
-            <div class="span8 footer-center">
+            <div class="span6 footer-center">
                 <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
                 <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
                 <?php
@@ -193,7 +193,7 @@ echo $OUTPUT->doctype() ?>
                 echo $OUTPUT->standard_footer_html();
                 ?>
             </div>
-            <div class="span2 pull-right">
+            <div class="span3 pull-right">
                 <?php echo $OUTPUT->lang_menu(); ?>
             </div>
         </div>

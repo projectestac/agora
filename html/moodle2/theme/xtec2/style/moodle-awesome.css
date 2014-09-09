@@ -6,6 +6,11 @@ i.fa{
 	display: inline-block;
 	vertical-align:middle;
     background-image: none;
+    width: 16px;
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+	vertical-align: text-bottom;
 }
 
 i.fa.icon {
@@ -34,6 +39,26 @@ i.fa.iconlarge {
 	font-size: 24px;
 	line-height: 24px;
 	vertical-align: middle;
+}
+
+.action-icon i.fa.smallicon {
+	margin: 0 .3em;
+	vertical-align: text-bottom;
+	color: #999;
+	width: 12px;
+	height: 12px;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+
+.gradestable th i.fa.sorticon {
+	margin-left: .3em;
+}
+
+.gradestable th i.fa {
+	vertical-align: text-bottom;
+	padding-bottom: 0;
 }
 
 .block .header .commands i.fa.actionmenu {
