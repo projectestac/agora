@@ -29,7 +29,6 @@ i.fa.iconsmall {
 	height: 12px;
 	font-size: 12px;
 	line-height: 12px;
-	margin-right: 3px;
 	vertical-align: middle;
 }
 
@@ -51,6 +50,10 @@ i.fa.iconlarge {
 	line-height: 12px;
 }
 
+i.fa.icon-pre, .dir-rtl i.fa.icon-post {
+	padding-right: 3px;
+	padding-left: 0;
+}
 
 .gradestable th i.fa.sorticon {
 	margin-left: .3em;
@@ -75,21 +78,27 @@ i.fa.iconlarge {
 	line-height: 20px;
 	font-size: 16px;
 }
+
 .moodle-actionmenu[data-enhanced].show .menu .iconsmall {
 	margin: 4px 4px 4px -24px;
 }
-.section .moodle-actionmenu[data-enhanced] .menu i.fa {
+
+.moodle-actionmenu[data-enhanced].show .menu i.fa {
 	width: 12px;
 	height: 12px;
 	line-height: 12px;
 	font-size: 12px;
+	vertical-align: middle;
 }
 
 
+.section .summary i.fa.iconsmall,
+.section .activity i.fa.iconsmall,
 .section .moodle-actionmenu i.fa.iconsmall {
+	color: #999;
+	vertical-align: text-bottom;
 	line-height: 16px;
 	font-size: 16px;
-	vertical-align: middle;
 }
 
 #message_notif_click i.fa{
@@ -167,6 +176,11 @@ i.fa.iconlarge {
 .block_site_main_menu li .buttons a i.fa {
 	color: #999;
 }
+
+.coursebox .enrolmenticons i.fa, .coursebox .moreinfo i.fa {
+	margin: 0 .2em;
+}
+
 .block_site_main_menu li .buttons a i.fa{
 	vertical-align: text-bottom;
 }

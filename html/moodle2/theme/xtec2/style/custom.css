@@ -110,6 +110,12 @@ h3{
 	filter: brightness(0) [[setting:color3b]];
 }
 
+.block .header .moodle-actionmenu[data-enhanced] .menu img{
+	-webkit-filter: none;
+	-moz-filter: none;
+	filter: none;
+}
+
 
 .block .header, #dockeditempanel .dockeditempanel_hd{
 	color: [[setting:color3]];
