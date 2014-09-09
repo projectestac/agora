@@ -129,16 +129,21 @@ if (!get_protected_agora() && is_rush_hour()) {
 
     // Content for third tab (courses)
     $coursesContent = $OUTPUT->heading(get_string('courses_description', 'report_coursequotas'),3) . report_coursequotas_printCoursesData($data);
+
+    $backupsContent = $OUTPUT->heading(get_string('backups_description', 'report_coursequotas'),3) . report_coursequotas_printBackupsData();
+
     echo '<div id="coursequotas">
             <ul  class="nav nav-tabs">
                 <li class="ui-state-active"><a href="#general" data-toggle="tab">' . get_string('total_data', 'report_coursequotas') . '</a></li>
                 <li><a href="#category" data-toggle="tab">' . get_string('category_data', 'report_coursequotas') . '</a></li>
                 <li><a href="#course" data-toggle="tab">' . get_string('larger_courses', 'report_coursequotas') . '</a></li>
+                <li><a href="#backups" data-toggle="tab">' . get_string('backups', 'report_coursequotas') . '</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane" id="general">' . $generalContent . '</div>
               <div class="tab-pane" id="category">' . $categoryContent . '</div>
               <div class="tab-pane" id="course">' . $coursesContent . '</div>
+              <div class="tab-pane" id="backups">' . $backupsContent . '</div>
             </div>
         </div>
 

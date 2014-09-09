@@ -297,6 +297,43 @@ function report_coursequotas_printCoursesData($data) {
 
 
 /**
+ * Returns a table with the backup files data of the site
+ *
+ * @author Pau Ferrer (pferre22@xtec.cat)
+ *
+ * @return string HTML code to be sent to the browser
+ */
+function report_coursequotas_printBackupsData() {
+    global $DB;
+
+    $sql = "SELECT u.username, f.filename, f.filesize, f.component
+            FROM {files} f
+            LEFT JOIN {user} u on f.userid = u.id
+            WHERE (component = 'backup' or filearea = 'backup') AND filename != '.'
+            ORDER BY f.filesize DESC";
+    $datas = $DB->get_records_sql($sql);
+
+    // Open HTML table and adds headings
+    $table = new html_table();
+    $table->class = 'generaltable';
+    $table->head = array(get_string('username'), get_string('filename', 'backup'), get_string('disk_used', 'report_coursequotas'), get_string('component', 'report_coursequotas'));
+    $table->align = array('left', 'center', 'center', 'center');
+    foreach ($datas as $data) {
+
+        $row = array();
+        //$row[] = '<a href="../../course/view.php?id=' . $course['courseId'] . '" target="_blank">' . $course['courseName'];
+        // Exclude link in front page
+        $row[] = $data->username;
+        $row[] = $data->filename;
+        $size = report_coursequotas_formatSize($data->filesize);
+        $row[] = number_format($size['figure'], 2, ',', '.') . ' ' . $size['unit'];
+        $row[] = $data->component;
+        $table->data[] = $row;
+    }
+    return html_writer::table($table);
+}
+
+/**
  * Transforms the n-level tree in a two-dimension array for two reasons: to be
  *  able to build an HTML table and to be able to order the courses by size
  *
