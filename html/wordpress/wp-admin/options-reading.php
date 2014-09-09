@@ -148,8 +148,8 @@ else :
 <td><input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="<?php form_option( 'posts_per_rss' ); ?>" class="small-text" /> <?php _e( 'items' ); ?></td>
 </tr>
 
-<!-- XTEC ************ ELIMINAT - Hidden reading options to simplify configuration -->
-<!-- 2014.09.09 @aginard -->
+<!-- XTEC ************ AFEGIT - Hidden reading options to simplify configuration -->
+<!-- 2014.09.09 @aginard: Added code is just this if. Cannot add FI tag -->
 <?php if ($isAgora) { ?>
 <!--  
 <?php } ?>
@@ -195,7 +195,7 @@ else :
 </fieldset></td>
 </tr>
 
-<!-- XTEC ************ ELIMINAT - Hidden reading options to simplify configuration
+<!-- XTEC ************ AFEGIT - Hidden reading options to simplify configuration
 <!-- 2014.09.09 @aginard
 <?php if ($isAgora) { ?>
 --> 
