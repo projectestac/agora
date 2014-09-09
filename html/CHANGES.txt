@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Agoraportal: Fixed activation of new services Intraweb and Nodes
+
 WORDPRESS
 - Updated Google Calendar Events to version 0.7.3.1
 - Updated theme reactor-primaria-1
