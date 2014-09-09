@@ -99,6 +99,13 @@ else :
 		update_option( 'show_on_front', 'posts' );
 ?>
 <table class="form-table">
+
+<!-- XTEC ************ AFEGIT - Hidden reading options. Some parameters are configured in theme. Others may confuse users -->
+<!-- 2014.09.09 @aginard: Added code is just this if. Cannot add FI tag -->
+<?php if ($isAgora) { ?>
+<!--  
+<?php } ?>
+
 <tr>
 <th scope="row"><?php _e( 'Front page displays' ); ?></th>
 <td id="front-static-pages"><fieldset><legend class="screen-reader-text"><span><?php _e( 'Front page displays' ); ?></span></legend>
@@ -128,10 +135,25 @@ else :
 <input name="posts_per_page" type="number" step="1" min="1" id="posts_per_page" value="<?php form_option( 'posts_per_page' ); ?>" class="small-text" /> <?php _e( 'posts' ); ?>
 </td>
 </tr>
+
+<!--// XTEC ************ AFEGIT - Hidden reading options. Some parameters are configured in theme. Others may confuse users -->
+<!--// 2014.09.09 @aginard
+<?php if ($isAgora) { ?>
+--> 
+<?php } ?>
+<!-- ************ FI -->
+
 <tr>
 <th scope="row"><label for="posts_per_rss"><?php _e( 'Syndication feeds show the most recent' ); ?></label></th>
 <td><input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="<?php form_option( 'posts_per_rss' ); ?>" class="small-text" /> <?php _e( 'items' ); ?></td>
 </tr>
+
+<!-- XTEC ************ ELIMINAT - Hidden reading options to simplify configuration -->
+<!-- 2014.09.09 @aginard -->
+<?php if ($isAgora) { ?>
+<!--  
+<?php } ?>
+
 <tr>
 <th scope="row"><?php _e( 'For each article in a feed, show' ); ?> </th>
 <td><fieldset><legend class="screen-reader-text"><span><?php _e( 'For each article in a feed, show' ); ?> </span></legend>
@@ -173,6 +195,13 @@ else :
 </fieldset></td>
 </tr>
 
+<!-- XTEC ************ ELIMINAT - Hidden reading options to simplify configuration
+<!-- 2014.09.09 @aginard
+<?php if ($isAgora) { ?>
+--> 
+<?php } ?>
+<!-- ************ FI -->
+    
 <?php do_settings_fields( 'reading', 'default' ); ?>
 </table>
 
