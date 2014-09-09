@@ -228,6 +228,10 @@ h3{
 	border-bottom: 2px solid [[setting:color2]]; /* Color*/
 }
 
+.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner{
+	padding: 0;
+}
+
 #page-navbar{
 	margin: 0 0 8px 0;
 }
@@ -250,6 +254,7 @@ h3{
 #main_navigation .nav>li>a{
 	background-color: transparent;
 	color: [[setting:color3]];
+	font-weight: normal;
 }
 
 #main_navigation .nav>li {
@@ -315,12 +320,6 @@ h3{
 	color: [[setting:color3]];
     padding: 1em;
     text-align: center;
-}
-
-@media (min-width: 767px){
-	#page-footer-top .social-icons{
-		text-align: left;
-	}
 }
 
 #page-footer-top .social-icons img,
@@ -413,28 +412,6 @@ h3{
 
 #page{
     padding: 8px 20px;
-}
-
-@media (max-width: 979px){
-	body{
-		padding-top: 0;
-	}
-	.navbar-fixed-top {
-		margin-bottom: 0;
-	}
-    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
-        color: white;
-    }
-}
-
-@media (max-width: 767px){
-    #page{
-        padding: 8px 0 0 0;
-    }
-    #page-footer{
-        margin-left: -20px;
-        margin-right: -20px;
-    }
 }
 
 .logininfo img{
@@ -580,6 +557,63 @@ table#permissions tbody tr:hover>th {
 
 .calendar-event-panel .yui3-overlay-content h2.eventtitle{
 	font-size: 1.6em;
+}
+
+/* Phones and tablets */
+@media (max-width: 979px) {
+	body{
+		padding-top: 0;
+	}
+	.navbar-fixed-top {
+		margin-bottom: 0;
+	}
+    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+        color: white;
+    }
+    .nav-collapse.collapse {
+		height: auto;
+		overflow: visible;
+	}
+	#main_navigation .nav {
+		padding: 0;
+	}
+	#main_navigation .nav-collapse .dropdown-menu a {
+		background-color: transparent;
+		color: [[setting:color3]];
+		font-weight: normal;
+	}
+	#main_navigation .nav-collapse .dropdown-menu a:hover {
+		font-weight: bold;
+	}
+}
+
+/* Phones only */
+@media (max-width: 767px){
+    #page{
+        padding: 8px 0 0 0;
+    }
+    #page-footer{
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    #main_navigation {
+		margin: 0 -20px;
+    }
+	.nav-collapse, .nav-collapse.collapse {
+		height: 0;
+		overflow: hidden;
+	}
+	.nav-collapse.active, .nav-collapse.active{
+		height: auto;
+		overflow: visible;
+	}
+}
+
+/* All except phones */
+@media (min-width: 767px){
+	#page-footer-top .social-icons{
+		text-align: left;
+	}
 }
 
 /* Custom CSS Settings
