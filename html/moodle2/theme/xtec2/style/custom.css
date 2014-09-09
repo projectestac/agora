@@ -571,6 +571,10 @@ table#permissions tbody tr:hover>th {
 	background-color: #f2f2f2;
 }
 
+.calendar-event-panel .yui3-overlay-content h2.eventtitle{
+	font-size: 1.6em;
+}
+
 /* Custom CSS Settings
 -------------------------*/
 [[setting:customcss]]
