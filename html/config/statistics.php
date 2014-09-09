@@ -621,23 +621,21 @@ function getSchoolMoodleStats_Courses($con, $timestamp, $prefix) {
  * @return int El nombre d'activitats
  */
 function getSchoolMoodleStats_Activities($con, $timestamp, $prefix) {
-
-    $sql = 'SELECT to_char(substr(modinfo, 0, 50)) as modinfo FROM ' . $prefix . 'course where timecreated < ' . $timestamp;
+    //$sql = 'SELECT to_char(substr(modinfo, 0, 50)) as modinfo FROM ' . $prefix . 'course where timecreated < ' . $timestamp;
+    $sql = 'SELECT COUNT(*) as count FROM ' . $prefix . 'course_modules WHERE added < ' . $timestamp;
     $stmt = oci_parse($con, $sql);
 
+	$value = 0;
     if (oci_execute($stmt, OCI_DEFAULT)) {
-        $value = 0;
         while (oci_fetch($stmt)) {
-            $modinfo = oci_result($stmt, 'MODINFO');
+            /*$modinfo = oci_result($stmt, 'MODINFO');
             $activities_ar = explode(':', $modinfo, 3);
             if (sizeof($activities_ar) == 3) {
                 $value += $activities_ar[1];
-            }
+            }*/
+            $count = (int) oci_result($stmt, 'COUNT');
+            $value += $count;
         }
-    }
-
-    if (empty($value)) {
-        $value = 0;
     }
 
     return $value;
