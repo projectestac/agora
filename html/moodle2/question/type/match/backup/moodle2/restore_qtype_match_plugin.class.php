@@ -129,11 +129,22 @@ class restore_qtype_match_plugin extends restore_qtype_plugin {
             // they are used by question_states->answer.
 
             // Look for matching subquestion (by questionid, questiontext and answertext).
+            //XTEC ************ AFEGIT - MDL-47176 sql_compare_text does not support string longer than 4000 chars in Oracle
+            //2014.09.09  @pferre22
+            $questiontext = substr($data->questiontext,0,4000);
             $sub = $DB->get_record_select('qtype_match_subquestions', 'questionid = ? AND ' .
+                    $DB->sql_compare_text('questiontext') . ' = ' .
+                    $DB->sql_compare_text('?').' AND answertext = ?',
+                            array($newquestionid, $questiontext, $data->answertext),
+                            'id', IGNORE_MULTIPLE);
+            // ORIGINAL
+            /* $sub = $DB->get_record_select('qtype_match_subquestions', 'questionid = ? AND ' .
                     $DB->sql_compare_text('questiontext') . ' = ' .
                     $DB->sql_compare_text('?').' AND answertext = ?',
                             array($newquestionid, $data->questiontext, $data->answertext),
                             'id', IGNORE_MULTIPLE);
+            */
+            //************ FI
 
             // Not able to find the answer, let's try cleaning the answertext
             // of all the match subquestions in DB as slower fallback. MDL-36683 / MDL-30018.
