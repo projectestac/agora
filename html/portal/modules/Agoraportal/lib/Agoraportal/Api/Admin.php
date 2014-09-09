@@ -451,6 +451,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $clientDNS = $clientService[$clientServiceId]['clientDNS'];
         $clientCode = $clientService[$clientServiceId]['clientCode'];
         $serviceURL = $service['URL'];
+        $dbUser = $agora['nodes']['userprefix'] . $db;
 
         $sqls = array();
 
@@ -460,6 +461,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $siteURL = $agora['server']['server'] . $agora['server']['base'] . $clientDNS . "/" . $serviceURL;
         $value = DataUtil::formatForStore($siteURL);
         $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='siteurl'";
+        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='home'";
+        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='wsl_settings_redirect_url'";
 
         $value = DataUtil::formatForStore('Espai del centre ' . $clientName);
         $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogdescription'";
@@ -469,16 +472,86 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $sqls[] = "UPDATE $prefix" . "_users set user_pass='$passwordEnc', user_email='$clientCode" . "@xtec.cat', user_registered=now() WHERE user_login='admin'";
 
+        // Convert some hardcoded URL (TODO: This must be a param in web form)
+        $toReplace = 'http://pwc-int.educacio.intranet/agora/moodle/nodes';
+       
+        $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            SET action = REPLACE (action , '$toReplace', '$siteURL')
+            WHERE action like '%$toReplace%'";
+        
+        $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            SET content = REPLACE (content , '$toReplace', '$siteURL')
+            WHERE content like '%$toReplace%'";
+        
+        $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            SET primary_link = REPLACE (primary_link , '$toReplace', '$siteURL')
+            WHERE primary_link like '%$toReplace%'";
+        
+        $sqls[] = "UPDATE $prefix" . "_posts 
+            SET post_content = REPLACE (post_content , '$toReplace', '$siteURL')
+            WHERE post_content like '%$toReplace%'";
+        
+        $sqls[] = "UPDATE $prefix" . "_posts 
+            SET post_excerpt = REPLACE (post_excerpt , '$toReplace', '$siteURL')
+            WHERE post_excerpt like '%$toReplace%'";
+        
+        $sqls[] = "UPDATE $prefix" . "_posts 
+            SET guid = REPLACE (guid , '$toReplace', '$siteURL')
+            WHERE guid like '%$toReplace%'";
+        
+        // Reset stats table
+        $sqls[] = "TRUNCATE $prefix" . "_stats";
+        
         foreach ($sqls as $sql) {
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $sql,
                         'serviceName' => 'nodes',
                         'host' => $dbHost,
             ));
+            
             if (!$result['success']) {
                 return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $oneSql . '. Error: ' . $result['errorMsg']));
             }
         }
+        
+        // Now update serialized wp_options fields
+        $fields = array ('widget_text', 'reactor_options');
+        
+        foreach ($fields as $field) {
+            $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
+            
+            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                        'sql' => $sql,
+                        'serviceName' => 'nodes',
+                        'host' => $dbHost,
+            ));
+
+            $values = $result['values'];
+            
+            if (is_array($values)) {
+                foreach ($values as $key => $value) {
+                    if ($this->is_serialized($value)) {
+                        $value = unserialize($value);
+                        
+                        $values[$key] = str_replace($toReplace, $siteURL, $value);
+
+                        if (strpos('/usu1/', $value)) {
+                            $values[$key] = str_replace('usu1', $dbUser, $values[$key]);
+                        }
+
+                        $newValue = serialize($values[$key]);
+
+                        $sql = "UPDATE $prefix" . "_options set option_value='$newValue' WHERE option_name='$field'";
+
+                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                                    'sql' => $sql,
+                                    'serviceName' => 'nodes',
+                                    'host' => $dbHost,
+                        ));
+                    }
+                }
+            }
+       }
 
         return array('db' => $db, 'password' => $password);
     }
@@ -1706,5 +1779,22 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         return $pass;
     }
+    
+    /**
+     * Checks if a value is serialized
+     * 
+     * @author Toni Ginard
+     * 
+     * @return boolean true or false
+     */
+     function is_serialized($data) {
+        $data_unserialized = @unserialize($data);
+        if ($data === 'b:0;' || $data_unserialized !== false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }

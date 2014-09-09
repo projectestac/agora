@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Agoraportal: Fixed activation of new services Intraweb and Nodes
+- Agoraportal: Customized more fields in Nodes when a service is activated
 
 WORDPRESS
 - Updated Google Calendar Events to version 0.7.3.1
