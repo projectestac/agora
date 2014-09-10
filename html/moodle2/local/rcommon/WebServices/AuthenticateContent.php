@@ -127,6 +127,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             if (isset($grupoid)) {
                 $params->IdGrupo = new SoapVar($grupoid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
             }
+
             $response = $client->__soapCall("AutenticarUsuarioContenido", array($params));
         } catch (Exception $e) {
             echo '<script type="text/javascript">window.alert("' . get_string('bad_wsdl_connection', 'local_rcommon') . '"); history.go(-1);</script>';
