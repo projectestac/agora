@@ -424,19 +424,6 @@ class BBP_Admin {
 			case 'bbp_tools_import_page'     : // Tools - Import Page
 			case 'bbp_tools_reset_page'      : // Tools - Reset Page
             case 'bbp_settings_page'         : // Settings Page
-
-// XTEC ************ AFEGIT - Disable Settings > Forums for everybody but xtecadmin
-// 2014.09.10 @aginard
-
-            global $isAgora;
-
-            if ($isAgora && !is_xtecadmin()) {
-                break;
-            }
-
-//************ FI
-
-            case 'bbp_settings_page'         : // Settings Page
 			case 'bbp_settings_users'        : // Settings - Users
 			case 'bbp_settings_features'     : // Settings - Features
 			case 'bbp_settings_theme_compat' : // Settings - Theme compat
