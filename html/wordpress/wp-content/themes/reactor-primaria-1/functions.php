@@ -469,4 +469,29 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
 
 }
 
-?>
+/**
+ * Remove admin menus
+ * 
+ * @author Toni Ginard
+ */
+function remove_menus() {
+
+    // Forum
+    remove_submenu_page('options-general.php', 'bbpress');
+
+    // BuddyPress
+    remove_menu_page('bp-activity');
+    remove_menu_page('bp-groups');
+    //remove_submenu_page('options-general.php', 'bp-components'); // Tab in BuddyPress
+    remove_submenu_page('options-general.php', 'bp-page-settings'); // Tab in BuddyPress
+    remove_submenu_page('options-general.php', 'bp-settings'); // Tab in BuddyPress
+}
+
+global $isAgora;
+
+// Remove admin menus for all users but xtecadmin
+if ($isAgora && !is_xtecadmin()) {
+    add_action('admin_menu', 'remove_menus');
+}
+
+

@@ -39,11 +39,6 @@ function bp_groups_add_admin_menu() {
 
 	// Hook into early actions to load custom CSS and our init handler.
 	add_action( "load-$hook", 'bp_groups_admin_load' );
-    
-    // XTEC ************ AFEGIT - Remove creation of option in main admin menu
-    // 2014.07.21 @aginard
-    remove_menu_page('bp-groups');
-    //************ FI
 
 }
 add_action( bp_core_admin_hook(), 'bp_groups_add_admin_menu' );

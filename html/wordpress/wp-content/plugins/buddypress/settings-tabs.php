@@ -126,6 +126,7 @@ class Xtec_Bp_Settings_Tabs {
             
             <div style="width:150px; padding:20px; float:left;">
                 <h3 style="height:40px;"><?php _e('BuddyPress', 'buddypress'); ?></h3>
+                <p><a href="admin.php?page=bp-components"><?php _e('Components', 'buddypress'); ?></a></p>
                 <p><a href="admin.php?page=bp-activity"><?php _e('Activity', 'buddypress'); ?></a></p>
                 <p><a href="admin.php?page=bp-groups"><?php _e('Groups', 'buddypress'); ?></a></p>
             </div>
