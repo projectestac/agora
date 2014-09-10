@@ -99,7 +99,7 @@ $string['drop_feedback'] = 'Suprimeix d\'aquest curs';
 $string['edit_item'] = 'Edita la pregunta';
 $string['edit_items'] = 'Edita les preguntes';
 $string['email_notification'] = 'Envia notificacions per correu electrònic';
-$string['email_notification_help'] = 'Si s\'habilita, els administradors rebran un correu electrònic amb les realimentacions enviades';
+$string['email_notification_help'] = 'Si s\'habilita, el professorat rebrà notificacions de les realimentacions enviades.';
 $string['emailteachermail'] = '{$a->username} ha completat l\'activitat de realimentació: \'{$a->feedback}\'
 
 Podeu veure-la aquí:

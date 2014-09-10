@@ -33,7 +33,7 @@ $string['actionaftercorrectanswer_help'] = 'Després de respondre correctament u
 * Mostra una pàgina no vista - Les pàgines es mostren en un ordre aleatori sense mostrar la mateixa pàgina  dues vegades.
 * Mostra una pàgina sense contestar - Les pàgines es mostren aleatòriament i es tornen a mostrar les pàgines que contenen preguntes encara no respostes.';
 $string['actions'] = 'Accions';
-$string['activitylink'] = 'Enllaça a una activitat';
+$string['activitylink'] = 'Enllaça a la següent activitat';
 $string['activitylink_help'] = '<p>El menú desplegable conté totes les activitats d\'aquest curs. Si en seleccioneu una, al final de la lliçó apareixerà un enllaç a aquesta activitat. </p>';
 $string['activitylinkname'] = 'Vés a: {$a}';
 $string['activityoverview'] = 'Teniu lliçons pendents.';
@@ -382,6 +382,7 @@ $string['savechanges'] = 'Desa els canvis';
 $string['savechangesandeol'] = 'Desa tots els canvis i ves al final de la lliçó.';
 $string['savepage'] = 'Desa la pàgina';
 $string['score'] = 'Puntuació';
+$string['score_help'] = 'La puntuació sols s\'usa quan s\'ha habilitat la puntuació personalitzada. Cada pregunta pot tenir un valor numèric (positiu o negatiu).';
 $string['scores'] = 'Puntuacions';
 $string['secondpluswrong'] = 'Incorrecte de nou. Voleu tornar-ho a provar?';
 $string['selectaqtype'] = 'Seleccioneu un tipus de pregunta';

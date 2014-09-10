@@ -184,7 +184,7 @@ $string['forum:addquestion'] = 'Afegeix una pregunta';
 $string['forum:allowforcesubscribe'] = 'Permetre imposar la subscripció';
 $string['forumauthorhidden'] = 'Autor (ocult)';
 $string['forumblockingalmosttoomanyposts'] = 'Us esteu apropant al llindar de missatges. Heu enviat {$a->numposts} missatges en {$a->blockperiod} i el límit són {$a->blockafter} missatges.';
-$string['forumbodyhidden'] = 'No podeu veure aquest missatge, probablement perquè encara no heu enviat un missatge en aquest debat. O encara no ha conclòs el temps màxim d\'edició.';
+$string['forumbodyhidden'] = 'No podeu veure aquest missatge, probablement perquè encara no heu enviat un missatge en aquest debat, encara no ha conclòs el temps màxim d\'edició, el debat encara no ha començat o ja ha acabat.';
 $string['forum:createattachment'] = 'Crear adjuncions';
 $string['forum:deleteanypost'] = 'Suprimir qualsevol missatge (sempre)';
 $string['forum:deleteownpost'] = 'Suprimir els missatges propis (dins del termini)';
@@ -193,7 +193,7 @@ $string['forum:exportdiscussion'] = 'Exportar el debat sencer';
 $string['forum:exportownpost'] = 'Exportar les pròpies contribucions';
 $string['forum:exportpost'] = 'Exportar les contribucions';
 $string['forumintro'] = 'Descripció';
-$string['forum:managesubscriptions'] = 'Gestionar les subscripcions';
+$string['forum:managesubscriptions'] = 'Gestiona les subscripcions';
 $string['forum:movediscussions'] = 'Traslladar els debats';
 $string['forumname'] = 'Nom del fòrum';
 $string['forumposts'] = 'Missatges al fòrum';
@@ -262,7 +262,24 @@ $string['modeflatoldestfirst'] = 'Visualitza les respostes, començant per la m�
 $string['modenested'] = 'Visualitza les respostes escalonades';
 $string['modethreaded'] = 'Visualitza les respostes abreujades, seguint el fil de la discussió';
 $string['modulename'] = 'Fòrum';
-$string['modulename_help'] = 'L\'activitat «fòrum» permet que els participants mantinguin debats sense estar connectats tots al mateix temps';
+$string['modulename_help'] = 'El mòdul d\'activitat de fòrum permet que els participants mantinguin discussions asíncrones, és a dir, discussions que s\'estenen durant un període de temps llarg.
+
+Hi ha diversos tipus de fòrum per escollir, com ara un fòrum estàndard on tothom pot iniciar una nova discussió en qualsevol moment; un fòrum en què cada estudiant pot iniciar únicament una sola discussió; o bé un fòrum de preguntes i respostes en què els estudiants han d\'enviar obligatòriament un missatge abans no puguin veure els missatges dels altres estudiants. Un professor pot permetre l\'enviament de fitxers adjunts als missatges del fòrum. Les imatges adjuntes es mostren dins del missatge.
+
+Els participants poden subscriure\'s a un fòrum per rebre notificacions quan hi hagi nous missatges. El professor pot establir el mode de subscripció a voluntari, obligatori o automàtic, o bé impedir la subscripció completament. Si cal, es pot impedir que els estudiants envïin més d\'un cert nombre de missatges en un determinat període de temps; això evita que algú monopolitzi les discussions.
+
+Els missatges del fòrum es poden puntuar, ja sigui per professors o bé pels propis estudiants (avaluació entre iguals). Aquestes puntuacions es poden agregar per formar una qualificació final que apareixerà al llibre de qualificacions.
+
+Els fòrums tenen diverses utilitats com ara:
+
+* Un espai social on els estudiants es poden conèixer
+* Per anuncis del curs (usant un fòrum de notícies amb subscripció obligatòria)
+* Per discutir els continguts del curs o materials de lectura
+* Per prosseguir en línia alguna qüestió que hagi sorgit prèviament en una sessió presencial
+* Per discussions entre professors (usant un fòrum ocult)
+* Com a centre d\'ajuda on tutors i estudiants poden oferir consells
+* Com a àrea de suport personalitzada per establir una comunicació privada entre el professor i un estudiant (utilitzant un fòrum amb grups separats i un sol estudiant per grup)
+* Per activitats d\'extensió, per exemple proposar reptes als estudiants per tal que hi reflexionin i proposin solucions';
 $string['modulenameplural'] = 'Fòrums';
 $string['more'] = 'més';
 $string['movedmarker'] = '(traslladat)';
@@ -319,13 +336,14 @@ $string['parent'] = 'Mostra el missatge original';
 $string['parentofthispost'] = 'Missatge original';
 $string['pluginadministration'] = 'Administració del fòrum';
 $string['pluginname'] = 'Fòrum';
-$string['postadded'] = 'S\'ha afegit el vostre missatge. <p>Teniu {$a} per editar-lo si voleu fer algun canvi.';
+$string['postadded'] = '<p>S\'ha afegit el vostre missatge.</p> <p>Teniu {$a} per editar-lo si voleu fer algun canvi.</p>';
 $string['postaddedsuccess'] = 'S\'ha afegit correctament el vostre missatge.';
 $string['postaddedtimeleft'] = 'Teniu {$a} per a editar-lo si voleu fer-hi algun canvi.';
 $string['postbyuser'] = '{$a->post} de {$a->user}';
 $string['postincontext'] = 'Mostra aquest missatge en el seu context';
 $string['postmailinfo'] = 'Això és una còpia d\'un missatge enviat al lloc web {$a}.
-Per afegir la vostra resposta via web, feu clic en aquest enllaç:';
+
+Per respondre-hi cliqueu damunt d\'aquest enllaç:';
 $string['postmailnow'] = '<p>Aquest missatge s\'enviarà per correu, immediatament, a tots els subscriptors del fòrum.</p>';
 $string['postrating1'] = 'Sobretot coneixements separats';
 $string['postrating2'] = 'Separats i connectats';
@@ -342,7 +360,7 @@ $string['prune'] = 'Parteix';
 $string['prunedpost'] = 'S\'ha creat un nou debat amb aquest missatge';
 $string['pruneheading'] = 'Parteix el debat i mou aquest missatge a un nou debat';
 $string['qandaforum'] = 'Fòrum de preguntes i respostes';
-$string['qandanotify'] = 'Aquest és un fòrum de preguntes i respostes. A fi de veure les respostes d\'altres a aquestes preguntes, abans heu d\'enviar la vostra resposta.';
+$string['qandanotify'] = 'Aquest és un fòrum de preguntes i respostes. Per tal de poder veure les respostes d\'altres a aquestes preguntes, heu d\'enviar primer la vostra resposta.';
 $string['re'] = 'Re:';
 $string['readtherest'] = 'Mostra la resta d\'aquest tema';
 $string['replies'] = 'Respostes';
@@ -404,19 +422,19 @@ $string['subscribestart'] = 'Envia\'m còpia dels missatges d\'aquest fòrum per
 $string['subscribestop'] = 'No vull rebre còpies per correu dels missatges d\'aquest fòrum';
 $string['subscription'] = 'Subscripció';
 $string['subscriptionandtracking'] = 'Subscripció i seguiment';
-$string['subscriptionauto'] = 'Subscripció inicial (l\'usuari la podrà canceŀlar)';
+$string['subscriptionauto'] = 'Subscripció automàtica (l\'usuari la podrà canceŀlar)';
 $string['subscriptiondisabled'] = 'No es permet la subscripció';
 $string['subscriptionforced'] = 'Subscripció obligatòria';
 $string['subscription_help'] = 'La subscripció a un fòrum significa que la persona rebrà còpies per correu electrònic dels missatges del fòrum. Normalment la gent pot triar si vol subscriure\'s a un fòrum o no. A vegades, la subscripció a un fòrum pot ser obligatòria, i tots els membres del curs rebran còpies dels missatges al seu correu electrònic.';
 $string['subscriptionmode'] = 'Mode de subscripció';
-$string['subscriptionmode_help'] = 'La subscripció a un fòrum significa que la persona rebrà còpies per correu electrònic dels missatges del fòrum.
-
-Hi ha 4 modalitats de subscripció:
+$string['subscriptionmode_help'] = 'Quan un participant es subscriu a un fòrum significa que rebrà notificacions dels missatges del fòrum. Hi ha 4 modalitats de subscripció:
 
 * Subscripció voluntària - Els participants poden triar si es subscriuen o no
 * Subscripció obligatòria - Tothom hi està subscrit i no pot esborrar-se\'n
-* Subscripció inicial - D\'entrada, tothom hi està subscrit, però hi ha la possibilitat d\'esborrar-se\'n quan es vulgui
-* Subscripció inhabilitada - No s\'hi permeten les subscripcions.';
+* Subscripció automàtica - D\'entrada, tothom hi està subscrit, però hi ha la possibilitat d\'esborrar-se\'n quan es vulgui
+* Subscripció inhabilitada - No s\'hi permeten les subscripcions.
+
+Nota: Els canvis en qualsevol mode de subscripció afectaran només als usuaris que s\'inscriguin en el futur i no als usuaris existents.';
 $string['subscriptionoptional'] = 'Subscripció voluntària';
 $string['subscriptions'] = 'Subscripcions';
 $string['thisforumisthrottled'] = 'Aquest fòrum té limitat el nombre de missatges que podeu enviar-hi en un període de temps determinat. Actualment el límit són {$a->blockafter} missatges en {$a->blockperiod}';
@@ -425,9 +443,9 @@ $string['timestartenderror'] = 'La data de fi de la visualització no pot ser an
 $string['trackforum'] = 'Fes el seguiment de missatges no llegits';
 $string['tracking'] = 'Seguiment';
 $string['trackingoff'] = 'Inactiu';
-$string['trackingon'] = 'Actiu';
+$string['trackingon'] = 'Obligat';
 $string['trackingoptional'] = 'Opcional';
-$string['trackingtype'] = 'Voleu fer el seguiment de missatges llegits en aquest fòrum?';
+$string['trackingtype'] = 'Seguiment de missatges llegits';
 $string['trackingtype_help'] = 'Si s\'habilita, els participants poden realitzar el seguiment dels missatges llegits i no llegits en el fòrum i en els debats. Hi ha tres opcions:
 
 * Opcional: els participants poden triar si activen o desactiven el seguiment mitjançant un enllaç en el bloc d\'administració. El seguiment dels fòrums també ha d\'estar habilitat en els paràmetres del perfil d\'usuari.
