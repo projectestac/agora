@@ -27,3 +27,7 @@ $string['disk_consume_trash'] = '<strong>{$a->figure} {$a->unit}</strong> utiliz
 $string['total_description'] = 'A continuación se muestra el porcentaje de cuota de disco ocupado en relación con el total';
 $string['category_description'] = 'A continuación se muestran los cursos de las diferentes categorias junto con el tamaño total de los ficheros que lo componen';
 $string['courses_description'] = 'A continuación se muestran todos los cursos junto con su categoría y el tamaño de sus ficheros ordenados de mayor a menor según este último dato';
+
+$string['backups'] = 'Copias de seguridad';
+$string['backups_description'] = 'Disco usado con ficheros de copias de seguridad';
+$string['area'] = 'Área';

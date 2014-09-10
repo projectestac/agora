@@ -297,6 +297,58 @@ function report_coursequotas_printCoursesData($data) {
 
 
 /**
+ * Returns a table with the backup files data of the site
+ *
+ * @author Pau Ferrer (pferre22@xtec.cat)
+ *
+ * @return string HTML code to be sent to the browser
+ */
+function report_coursequotas_printBackupsData() {
+    global $DB, $CFG;
+
+    $sql = "SELECT f.id, u.username, u.id as userid, f.filename, f.filesize, f.component, f.filearea, f.contextid
+            FROM {files} f
+            LEFT JOIN {user} u on f.userid = u.id
+            WHERE (component = 'backup' or filearea = 'backup') AND filename != '.'
+            ORDER BY f.filesize DESC";
+    $datas = $DB->get_records_sql($sql);
+
+    // Open HTML table and adds headings
+    $table = new html_table();
+    $table->class = 'generaltable';
+    $table->head = array(get_string('filename', 'backup'), get_string('username'), get_string('area', 'report_coursequotas'), get_string('disk_used', 'report_coursequotas'));
+    $table->align = array('left', 'center', 'center', 'center');
+    foreach ($datas as $data) {
+
+        $row = array();
+
+        // Exclude link in front page
+        $row[] = $data->filename;
+        $row[] = '<a href="'.$CFG->wwwroot.'/user/profile.php?id=' . $data->userid . '" target="_blank">' . $data->username . '</a>';
+        $area  = $data->component == 'backup' ? $data->filearea : $data->component;
+        switch($area){
+            case 'course':
+            case 'activity':
+                $row[] = '<a href="'.$CFG->wwwroot.'/backup/restorefile.php?contextid=' . $data->contextid . '" target="_blank">' . get_string($area) . '</a>';
+                break;
+            case 'automated':
+                $row[] = '<a href="'.$CFG->wwwroot.'/backup/restorefile.php?contextid=' . $data->contextid . '" target="_blank">' . get_string('automatedbackup', 'repository') . '</a>';
+                break;
+            case 'user':
+                $row[] = get_string($area);
+                break;
+            default:
+                $row[] = $area;
+                break;
+        }
+        $size = report_coursequotas_formatSize($data->filesize);
+        $row[] = number_format($size['figure'], 2, ',', '.') . ' ' . $size['unit'];
+        $table->data[] = $row;
+    }
+    return html_writer::table($table);
+}
+
+/**
  * Transforms the n-level tree in a two-dimension array for two reasons: to be
  *  able to build an HTML table and to be able to order the courses by size
  *

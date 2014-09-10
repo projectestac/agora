@@ -27,3 +27,7 @@ $string['disk_consume_trash'] = '<strong>{$a->figure} {$a->unit}</strong> utilit
 $string['total_description'] = 'Percentatge de disc ocupat en relació amb el total de la quota assignada';
 $string['category_description'] = 'Mida total de les categories i subcategories calculada a partir de la mida dels cursos que contenen';
 $string['courses_description'] = 'Llista de tots els cursos, ordenada de major a menor segons la mida dels seus fitxers';
+
+$string['backups'] = 'Còpies de seguretat';
+$string['backups_description'] = 'Disc ocupat amb fitxers de còpies de seguretat';
+$string['area'] = 'Àrea';

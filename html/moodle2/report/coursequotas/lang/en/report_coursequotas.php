@@ -27,3 +27,7 @@ $string['disk_consume_trash'] = '<strong>{$a->figure} {$a->unit}</strong> used i
 $string['total_description'] = 'Percentage of used disk versus the total disk space';
 $string['category_description'] = 'Courses of each category with the total size of its files';
 $string['courses_description'] = 'All courses with its category and the size of its files ordered decreasing';
+
+$string['backups'] = 'Backups';
+$string['backups_description'] = 'Disk used with backup files';
+$string['area'] = 'Area';
