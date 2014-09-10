@@ -42,12 +42,6 @@ $struninstall = get_string('uninstallplugin', 'core_admin');
 
 $table = new flexible_table('toolplugins_administration_table');
 $table->define_columns(array('name', 'version', 'uninstall'));
-//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-//2012.08.20 @sarjona
-if (!get_protected_agora()) {
-    $struninstall = "";
-}
-//************ FI
 $table->define_headers(array(get_string('plugin'), get_string('version'), $struninstall));
 $table->define_baseurl($PAGE->url);
 $table->set_attribute('id', 'toolplugins');
@@ -82,12 +76,6 @@ foreach ($plugins as $plugin => $name) {
     if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('tool_'.$plugin, 'manage')) {
         $uninstall = html_writer::link($uninstallurl, $struninstall);
     }
-    //XTEC ************ AFEGIT - To let access only to xtecadmin user
-    //2012.08.20 @sarjona
-    if (!get_protected_agora()) {
-        $uninstall = "";
-    }
-    //************ FI
 
     if (!isset($versions[$plugin])) {
         if (file_exists("$CFG->dirroot/$CFG->admin/tool/$plugin/version.php")) {

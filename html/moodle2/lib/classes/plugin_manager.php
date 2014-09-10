@@ -305,7 +305,7 @@ class core_plugin_manager {
         foreach ($plugintypes as $type => $typedir) {
             $plugs = core_component::get_plugin_list($type);
             foreach ($plugs as $plug => $fullplug) {
-                //XTEC ************ AFEGIT - Only enabled modules has to be showed
+                //XTEC ************ AFEGIT - Only enabled modules has to be shown
                 //2012.11.06  @sarjona
                 if (!is_enabled_in_agora($plug) ){
                     continue;

@@ -409,7 +409,7 @@ class script_repair_duplicated_assign extends agora_script_base{
 
 	private function merge_assign_grades($originalid, $assignid, $original_contextid, $contextid, $execute = false){
 		global $DB;
-		$fields = 'userid,timecreated,timemodified,grader,grade,locked,mailed,extensionduedate,id';
+		$fields = 'userid,timecreated,timemodified,grader,grade,id';
 
 		$original = $DB->get_records('assign_grades',array('assignment'=>$originalid), '', $fields);
 		$assign_grades = $DB->get_records('assign_grades',array('assignment'=>$assignid), '', $fields);
@@ -428,13 +428,10 @@ class script_repair_duplicated_assign extends agora_script_base{
 						mtrace("------> EQUALS!", '<br/>');
 					} else {
 						if($grade->timecreated == $original_grade->timecreated &&
-							$grade->grader == $original_grade->grader &&
-							$grade->locked == $original_grade->locked &&
-							$grade->mailed == $original_grade->mailed &&
-							$grade->extensionduedate == $original_grade->extensionduedate){
-							if($grade->timemodified > $original_grade->timemodified){
-								$update = true;
-							}
+							$grade->grader == $original_grade->grader){
+								if($grade->timemodified > $original_grade->timemodified){
+									$update = true;
+								}
 						} else {
 							print_object($original_grade);
 							print_object($grade);

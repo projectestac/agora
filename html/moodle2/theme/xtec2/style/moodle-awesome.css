@@ -11,6 +11,7 @@ i.fa{
 	line-height: 16px;
 	font-size: 16px;
 	vertical-align: text-bottom;
+	color: #999;
 }
 
 i.fa.icon {
@@ -53,6 +54,7 @@ i.fa.iconlarge {
 i.fa.icon-pre, .dir-rtl i.fa.icon-post {
 	padding-right: 3px;
 	padding-left: 0;
+	color: [[setting:color3]];
 }
 
 .gradestable th i.fa.sorticon {
