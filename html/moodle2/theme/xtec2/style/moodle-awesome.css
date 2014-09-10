@@ -44,7 +44,6 @@ i.fa.iconlarge {
 .action-icon i.fa.smallicon {
 	margin: 0 .3em;
 	vertical-align: text-bottom;
-	color: #999;
 	width: 12px;
 	height: 12px;
 	font-size: 12px;
@@ -71,7 +70,6 @@ i.fa.icon-pre, .dir-rtl i.fa.icon-post {
 }
 .block_settings .block_tree li.item_with_icon > p i.fa,
 .block_navigation .block_tree li.item_with_icon > p i.fa {
-	color: #999;
 	vertical-align: middle;
 	position: absolute;
 	left: 0;
@@ -97,7 +95,6 @@ i.fa.icon-pre, .dir-rtl i.fa.icon-post {
 .section .summary i.fa.iconsmall,
 .section .activity i.fa.iconsmall,
 .section .moodle-actionmenu i.fa.iconsmall {
-	color: #999;
 	vertical-align: text-bottom;
 	line-height: 16px;
 	font-size: 16px;
@@ -121,7 +118,6 @@ i.fa.icon-pre, .dir-rtl i.fa.icon-post {
 
 .block_navigation .block_tree .tree_item.branch:before,
 .block_settings .block_tree .tree_item.branch:before{
-	color: #999;
 	display: inline-block;
 	font: normal normal normal 20px/1 FontAwesome;
 	text-rendering: auto;
@@ -169,14 +165,6 @@ i.fa.icon-pre, .dir-rtl i.fa.icon-post {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\f0ac";
-}
-
-/* Fallback icon colors... */
-.coursebox .enrolmenticons i.fa,
-#course-category-listings .item-actions i.fa,
-.moodle-actionmenu[data-enhanced].show .menu i.fa,
-.block_site_main_menu li .buttons a i.fa {
-	color: #999;
 }
 
 .coursebox .enrolmenticons i.fa, .coursebox .moreinfo i.fa {

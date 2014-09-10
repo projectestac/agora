@@ -98,7 +98,8 @@ h3{
 	text-shadow: 0 1px 0 [[setting:color3a]];
 }
 
-.block .header a,  #dockeditempanel .dockeditempanel_hd a{
+.block .header a,  #dockeditempanel .dockeditempanel_hd a,
+.block .header a i.fa,  #dockeditempanel .dockeditempanel_hd a  i.fa{
 	color: [[setting:color3]];
 }
 
