@@ -5,6 +5,7 @@ $string['rcommon:authenticate'] = 'Autenticar contenido Marsupial';
 $string['rcommon:exportcredentials'] = 'Exportar credenciales de Marsupial';
 $string['rcommon:importcredentials'] = 'Importar credenciales de Marsupial';
 $string['rcommon:managecredentials'] = 'Gestionar credenciales de Marsupial';
+$string['rcommon:manageowncredentials'] = 'Gestionar credenciales de Marsupial propias';
 $string['rcommon:managepublishers'] = 'Gestionar proveedores de Marsupial';
 
 $string['addnewpublisher'] = 'Añadir nuevo proveedor';
@@ -17,7 +18,7 @@ $string['consumewait'] = 'Descargando la estructura de libros. El proceso puede 
 $string['delok'] = 'Datos borrados correctamente';
 $string['delko'] = 'No ha sido possible borrar los datos, por favor vuelva a intentarlo m&acute;s tarde';
 $string['downloadbookstructures'] = 'Actualizar la estructura de libros';
-$string['error_authentication'] = 'Error de autenticación, código: ';
+$string['error_authentication'] = 'Error de autenticación código: {$a}';
 
 $string['error_code_1'] = 'URL generada correctamente.';
 $string['error_code_0'] = 'Error inesperado.';
@@ -63,7 +64,7 @@ $string['selectpublisherdescription'] = 'To download all the book structures it 
 $string['selectpublisheredit'] = 'Seleccione un proveedor de contenidos para editar sus datos';
 $string['teacherroles'] = 'Roles profesor';
 $string['teacherrolesinfo'] = 'Roles que se autenticar&aacute;n en las editoriales como usuario profesor. El resto se autenticar&aacute;n como estudiante';
-$string['urlmoreinfo'] = 'Para m&aacute;s información: <a href="{$a}" target="_blank">click aqu&iacute;</a>';
+$string['urlmoreinfo'] = '<a href="{$a}" target="_blank">Más información del error</a>';
 $string['urlwsauthentication'] = 'Dirección del servicio web de autenticación';
 $string['urlwsbookstructure'] = 'Dirección del servicio web de estructura de libro';
 $string['userhasnokeys'] = 'Este usuario/a no tiene claves registradas';

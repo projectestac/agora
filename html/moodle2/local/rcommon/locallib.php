@@ -64,6 +64,13 @@ class rcommon_book{
         }
         return false;
     }
+
+    static function clean($bookid, $time){
+        global $DB;
+        $DB->delete_records_select('rcommon_books_units', 'bookid = :bookid AND timemodified < :time', array('bookid'=> $bookid, 'time'=>$time));
+        $DB->delete_records_select('rcommon_books_activities', 'bookid = :bookid AND timemodified < :time', array('bookid'=> $bookid, 'time'=>$time));
+        echo 'deleting '.$bookid.'-'.$time;
+    }
 }
 
 class rcommon_unit{

@@ -55,7 +55,7 @@ function get_books_structure_publisher($publisher, $isbn = false) {
                 $book = rcommon_object_to_array_lower($book);
 
                 // Disable scorm import
-                if($book['formato'] == 'scorm') continue;
+                if($book['formato'] == 'stats_cdf_uniform(par1, par2, par3, which)') continue;
 
                 $cod_isbn = $book['isbn'];
 
@@ -75,7 +75,7 @@ function get_books_structure_publisher($publisher, $isbn = false) {
                         rcommon_book::add_update($instance);
 
                         get_book_structure($publisher, $cod_isbn);
-
+                        echo 'OK';
                     } catch( Exception $e){
                         echo "KO! -- <span style='color: red;'>".$e->getMessage()."</span>";
                     }
@@ -181,52 +181,56 @@ function get_book_structure($publisher, $isbn) {
     }
 }
 
-function save_book_structure($response, $book){
+function save_book_structure($response, $book) {
 
     $units = isset($response->ObtenerEstructuraResult->Libros->libro->unidades->unidad) ? $response->ObtenerEstructuraResult->Libros->libro->unidades->unidad : false;
     // Guarda los datos del libro
     $book->structureforaccess = (count($units) > 0)? 1 : 0;
     $bookid = rcommon_book::add_update($book);
 
-    if(!$units) return;
+    $timemodified = time();
+    if ($units) {
 
-    if (!is_array($units)) {
-        $units = array($units);
-    }
-
-    foreach($units as $unit) {
-        $actividades = isset($unit->actividades->actividad) ? $unit->actividades->actividad : false;
-
-        $unit = rcommon_object_to_array_lower($unit);
-
-        $unit_instance = new stdClass();
-        $unit_instance->bookid = $bookid;
-        $unit_instance->code = isset($unit['id']) ? $unit['id'] : "";
-        $unit_instance->name = isset($unit['titulo']) ? $unit['titulo'] : "";
-        $unit_instance->summary = $unit_instance->name;
-        $unit_instance->sortorder = isset($unit['orden']) ? $unit['orden'] : "";
-
-        //echo "<li>Unit: {$unit_instance->name}";
-        $unitid = rcommon_unit::add_update($unit_instance);
-
-        if(!$actividades) return;
-
-        if (!is_array($actividades)) {
-            $actividades = array($actividades);
+        if (!is_array($units)) {
+            $units = array($units);
         }
 
-        foreach($actividades as $act) {
-            $act = rcommon_object_to_array_lower($act);
+        foreach ($units as $unit) {
+            $actividades = isset($unit->actividades->actividad) ? $unit->actividades->actividad : false;
 
-            $activity_instance = new stdClass();
-            $activity_instance->bookid = $bookid;
-            $activity_instance->unitid = $unitid;
-            $activity_instance->code = isset($unit['id']) ? $unit['id'] : "";
-            $activity_instance->name = isset($unit['titulo']) ? $unit['titulo'] : "";
-            $activity_instance->summary = $unit_instance->name;
-            $activity_instance->sortorder = isset($unit['orden']) ? $unit['orden'] : "";
+            $unit = rcommon_object_to_array_lower($unit);
 
-            $activid = rcommon_activity::add_update($activity_instance);
+            $unit_instance = new stdClass();
+            $unit_instance->bookid = $bookid;
+            $unit_instance->code = isset($unit['id']) ? $unit['id'] : "";
+            $unit_instance->name = isset($unit['titulo']) ? $unit['titulo'] : "";
+            $unit_instance->summary = $unit_instance->name;
+            $unit_instance->sortorder = isset($unit['orden']) ? $unit['orden'] : "";
+
+            //echo "<li>Unit: {$unit_instance->name}";
+            $unitid = rcommon_unit::add_update($unit_instance);
+
+            if ($actividades) {
+
+                if (!is_array($actividades)) {
+                    $actividades = array($actividades);
+                }
+
+                foreach ($actividades as $act) {
+                    $act = rcommon_object_to_array_lower($act);
+
+                    $activity_instance = new stdClass();
+                    $activity_instance->bookid = $bookid;
+                    $activity_instance->unitid = $unitid;
+                    $activity_instance->code = isset($act['id']) ? $act['id'] : "";
+                    $activity_instance->name = isset($act['titulo']) ? $act['titulo'] : "";
+                    $activity_instance->summary = $activity_instance->name;
+                    $activity_instance->sortorder = isset($act['orden']) ? $act['orden'] : "";
+
+                    $activid = rcommon_activity::add_update($activity_instance);
+                }
+            }
         }
     }
+    rcommon_book::clean($bookid, $timemodified);
 }
