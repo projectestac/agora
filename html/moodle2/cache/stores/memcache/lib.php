@@ -128,6 +128,14 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         } else {
             $this->prefix = $configuration['prefix'];
         }
+        //XTEC ************ AFEGIT - To have MUC configured.
+        // To have different prefixes, memcache_prefix must be in settings.php
+        // 2014.09.10 @pferre22
+        global $CFG;
+        if (isset($CFG->memcache_prefix)) {
+            $this->prefix = $CFG->memcache_prefix;
+        }
+        //************ FI
 
         $this->connection = new Memcache;
         foreach ($this->servers as $server) {
@@ -347,6 +355,17 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      * @return array
      */
     public static function config_get_configuration_array($data) {
+        //XTEC ************ AFEGIT - To have MUC configured.
+        // To have different prefixes and servers configured
+        // 2014.09.10 @pferre22
+        global $CFG;
+        if (isset($CFG->memcache_prefix)) {
+            $data->prefix = 'notused';
+        }
+        if (isset($CFG->memcache_servers)) {
+            $data->servers = $CFG->memcache_servers;
+        }
+        //************ FI
         $lines = explode("\n", $data->servers);
         $servers = array();
         foreach ($lines as $line) {
@@ -384,6 +403,17 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         } else {
             $data['prefix'] = self::DEFAULT_PREFIX;
         }
+        //XTEC ************ AFEGIT - To have MUC configured.
+        // To have different prefixes and servers configured
+        // 2014.09.10 @pferre22
+        global $CFG;
+        if (isset($CFG->memcache_prefix)) {
+            $data['prefix']  = $CFG->memcache_prefix;
+        }
+        if (isset($CFG->memcache_servers)) {
+            $data['servers'] = $CFG->memcache_servers;
+        }
+        //************ FI
 
         $editform->set_data($data);
     }

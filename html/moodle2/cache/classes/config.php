@@ -145,8 +145,9 @@ class cache_config {
         $this->configdefinitionmappings = array();
         $this->configlockmappings = array();
 
-        //XTEC ************ AFEGIT - To have MUC configured
-        //2014.08.12 @pferre22
+        //XTEC ************ AFEGIT - To have MUC configured.
+        // Siteidentifier must be located on settings.php and must be different for each instance
+        // 2014.08.12 @pferre22
         if(isset($CFG->siteidentifier) && ! empty($CFG->siteidentifier)){
             $siteidentifier = md5((string)$CFG->siteidentifier);
         } else {

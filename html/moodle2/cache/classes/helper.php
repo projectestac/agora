@@ -572,7 +572,8 @@ class cache_helper {
         $factory->updating_started();
         $config = $factory->create_config_instance(true);
         //XTEC ************ ELIMINAT - To have MUC configured
-        //2014.08.12 @pferre22
+        // Never update siteidentifier
+        // 2014.08.12 @pferre22
         // $siteidentifier = $config->update_site_identifier($siteidentifier);
         //************ FI
         $factory->updating_finished();
@@ -588,6 +589,7 @@ class cache_helper {
     public static function get_site_identifier() {
         global $CFG;
         //XTEC ************ ELIMINAT - To have MUC configured
+        // DO not calculate siteidentifier if it is set
         //2014.08.12 @pferre22
         if(isset($CFG->siteidentifier) && ! empty($CFG->siteidentifier)){
             return md5((string)$CFG->siteidentifier);
