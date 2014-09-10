@@ -56,7 +56,13 @@ if ( ! class_exists( 'Google_Calendar_Events' ) ) {
 		
 		// Show an upgrade warning notice to users for the 2.0.0 release
 		function show_upgrade_notice() {
-			
+
+            // XTEC ************ AFEGIT - Don't bother admins with warning notice
+            // 2014.09.10 @aginard
+            remove_action( 'admin_notices', array( $this, 'show_upgrade_notice' ) );
+            return;
+            //************ FI
+
 			if ( ! empty( $_REQUEST['gce-dismiss-install-nag'] ) ) {
 				add_option( 'gce_show_upgrade_notice', 1 );
 				remove_action( 'admin_notices', array( $this, 'show_upgrade_notice' ) );
