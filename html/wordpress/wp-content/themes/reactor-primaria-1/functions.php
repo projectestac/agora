@@ -485,6 +485,10 @@ function remove_menus() {
     //remove_submenu_page('options-general.php', 'bp-components'); // Tab in BuddyPress
     remove_submenu_page('options-general.php', 'bp-page-settings'); // Tab in BuddyPress
     remove_submenu_page('options-general.php', 'bp-settings'); // Tab in BuddyPress
+    
+    // Private BP Pages
+    remove_submenu_page('options-general.php', 'bphelp-pbp-settings'); // In this case, it doesn't block access
+    
 }
 
 global $isAgora;
