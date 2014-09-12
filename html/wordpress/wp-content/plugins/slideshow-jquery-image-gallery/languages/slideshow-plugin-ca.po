@@ -64,7 +64,7 @@ msgstr "No"
 #: classes/SlideshowPluginInstaller.php:803
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:610
 msgid "The style used for this slideshow"
-msgstr "Estil utilitzat per a aquesta presentació de diapositives"
+msgstr "Estil utilitzat per a aquest carrusel"
 
 #: classes/SlideshowPluginInstaller.php:803
 msgid "Custom"
@@ -118,7 +118,7 @@ msgstr "Segons entre el canvi de diapositives"
 #: classes/SlideshowPluginInstaller.php:809
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:522
 msgid "Number of slides to fit into one slide"
-msgstr "Nombre de diapositives per incloure en una diapositiva "
+msgstr "Nombre de elements per incloure en una diapositiva "
 
 #: classes/SlideshowPluginInstaller.php:809
 #: classes/SlideshowPluginInstaller.php:810
@@ -142,11 +142,11 @@ msgstr "Visualització"
 #: classes/SlideshowPluginInstaller.php:810
 msgid "Width of the slideshow, set to parent&#39;s width on 0"
 msgstr ""
-"Amplada de la presentació de diapositives, deixeu parent&#39;s amplada a 0"
+"Amplada del carrusel, deixeu parent&#39;s amplada a 0"
 
 #: classes/SlideshowPluginInstaller.php:811
 msgid "Height of the slideshow"
-msgstr "Alçada de la presentació de diapositivies"
+msgstr "Alçada del carrusel"
 
 #: classes/SlideshowPluginInstaller.php:812
 msgid "Height of the description boxes"
@@ -189,7 +189,7 @@ msgstr "Control"
 #: classes/SlideshowPluginInstaller.php:817
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:532
 msgid "Return to the beginning of the slideshow after last slide"
-msgstr "Torna a l'inici de la presentació després de la darrera diapositiva"
+msgstr "Torna a l'inici del carrusel després de la darrera diapositiva"
 
 #: classes/SlideshowPluginInstaller.php:818
 msgid "Activate buttons (so the user can scroll through the slides)"
@@ -203,37 +203,37 @@ msgstr "Mostra el tauler de control (bontons de reproducció i pausa)"
 
 #: classes/SlideshowPluginPostType.php:45
 msgid "Slideshows"
-msgstr "Presentacions de diapositives"
+msgstr "Carrusel"
 
 #: classes/SlideshowPluginPostType.php:46
 #: views/SlideshowPluginWidget/form.php:7
 msgid "Slideshow"
-msgstr "Presentació de diapositives"
+msgstr "Carrusel"
 
 #: classes/SlideshowPluginPostType.php:47
 msgid "Add New Slideshow"
-msgstr "Afegeix una presntació de diapositives nova"
+msgstr "Afegeix un nou carrusel"
 
 #: classes/SlideshowPluginPostType.php:48
 msgid "Edit slideshow"
-msgstr "Edita la presentació de diapositives"
+msgstr "Edita el carrusel"
 
 #: classes/SlideshowPluginPostType.php:49
 msgid "New slideshow"
-msgstr "Presentació de diapositives nova"
+msgstr "Nou Carrusel"
 
 #: classes/SlideshowPluginPostType.php:50
 msgid "View slideshow"
-msgstr "Visualitza la presentació de diapositives"
+msgstr "Visualitza el carrusel"
 
 #: classes/SlideshowPluginPostType.php:51
 msgid "Search slideshows"
-msgstr "Cerca presentacions de diapositives"
+msgstr "Cerca carrusel"
 
 #: classes/SlideshowPluginPostType.php:52
 #: classes/SlideshowPluginPostType.php:53
 msgid "No slideshows found"
-msgstr "No s'ha trobat cap presentació de diapositives"
+msgstr "No s'ha trobat cap carrusel"
 
 #: classes/SlideshowPluginPostType.php:98
 msgid "Information"
@@ -245,19 +245,19 @@ msgstr "Llista de diapositives"
 
 #: classes/SlideshowPluginPostType.php:116
 msgid "Slideshow Style"
-msgstr "Estil de la presentació de diapositives"
+msgstr "Estil del carrusel"
 
 #: classes/SlideshowPluginPostType.php:125
 msgid "Slideshow Settings"
-msgstr "Configuració de la presentació de diapositives"
+msgstr "Configuració del carrusel"
 
 #: classes/SlideshowPluginPostType.php:173
 msgid "Slideshow created"
-msgstr "S'ha creat la presentació de diapositives"
+msgstr "S'ha creat el carrusel"
 
 #: classes/SlideshowPluginPostType.php:177
 msgid "Slideshow updated"
-msgstr "S'ha actualitzat la presentació de diapositives"
+msgstr "S'ha actualitzat el carrusel"
 
 #: classes/SlideshowPluginPostType.php:224
 #: classes/SlideshowPluginSlideInserter.php:238
@@ -277,7 +277,7 @@ msgstr "Tanca-ho tot"
 #: views/SlideshowPluginPostType/slides.php:10
 msgid "Add slides to this slideshow by using one of the buttons above."
 msgstr ""
-"Afegeix diapositives a aquesta presentació mitjançant l'ús d'un dels botons "
+"Afegeix diapositives a aquest carrusel mitjançant l'ús d'un dels botons "
 "de dalt."
 
 #: classes/SlideshowPluginPostType.php:320
@@ -290,7 +290,7 @@ msgstr "Copia"
 
 #: classes/SlideshowPluginShortcode.php:148
 msgid "No slideshow selected."
-msgstr "No s'ha seleccionat cap presentació de diapositives"
+msgstr "No s'ha seleccionat cap carrusel"
 
 #: classes/SlideshowPluginSlideInserter.php:194
 msgid "More results loaded"
@@ -332,12 +332,11 @@ msgid ""
 "Proportional relationship%s between slideshow's width and height (width:"
 "height)"
 msgstr ""
-"Relació proporcional%s entre l'amplada i l'alçada de la presentació de "
-"diapositives (amplada:alçada)"
+"Relació proporcional%s entre l'amplada i l'alçada del carrusel (amplada:alçada)"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:525
 msgid "Slideshow's height"
-msgstr "Alçada de la presentació de diapositives"
+msgstr "Alçada de el carrusel"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:526
 msgid "Image behaviour"
@@ -362,7 +361,7 @@ msgstr ""
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:533
 msgid "Pause slideshow when mouse hovers over"
-msgstr "Pausa la presentació de diapositives quan el ratolí passa per sobre"
+msgstr "Pausa el carrusel quan el ratolí passa per sobre"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:534
 msgid "Activate navigation buttons"
@@ -453,12 +452,12 @@ msgstr "Miscel·lània"
 #: classes/SlideshowPluginWidget.php:23
 msgid "Enables you to show your slideshows in the widget area of your website."
 msgstr ""
-"Permet mostrar les presentacions de diapositives a l'àrea de ginys de la "
+"Permet mostrar els carrusels a l'àrea de ginys de la "
 "pàgina."
 
 #: classes/SlideshowPluginWidget.php:29
 msgid "Slideshow Widget"
-msgstr "Giny de presentació de diapositives"
+msgstr "Giny de carrusel"
 
 #: views/SlideshowPlugin/slideshow.php:23
 msgid "Play"
@@ -478,7 +477,7 @@ msgstr "Següent"
 
 #: views/SlideshowPlugin/slideshow.php:28
 msgid "Go to slide"
-msgstr "Vés a la dapositiva"
+msgstr "Vés a la diapositiva"
 
 #: views/SlideshowPluginGeneralSettings/custom-styles-tab.php:46
 msgid "Default stylesheets"
@@ -556,9 +555,9 @@ msgid ""
 "therefore do not alter any existing ones. To adapt a slideshow's settings, "
 "%sclick here.%s"
 msgstr ""
-"La configuració definida en aquesta pàgina afecta només a les presentacions "
-"de diapositives noves i per tant, no altera cap de les existents. Per "
-"adaptar la configuració de la presentació de diapositvies, %sfeu clic aquí.%s"
+"La configuració definida en aquesta pàgina afecta només als nous carrusels "
+" i per tant, no altera cap de les existents. Per "
+"adaptar la configuració dels carrusels, %sfeu clic aquí.%s"
 
 #: views/SlideshowPluginGeneralSettings/default-slideshow-settings-tab.php:29
 #: views/SlideshowPluginGeneralSettings/general-settings.php:15
@@ -576,15 +575,15 @@ msgstr "Full d'estils per defecte"
 
 #: views/SlideshowPluginGeneralSettings/general-settings-tab.php:11
 msgid "Add slideshows"
-msgstr "Afegeix presentació de diapositives"
+msgstr "Afegeix carrusel"
 
 #: views/SlideshowPluginGeneralSettings/general-settings-tab.php:12
 msgid "Edit slideshows"
-msgstr "Edita presentació de diapositives"
+msgstr "Edita carrusel"
 
 #: views/SlideshowPluginGeneralSettings/general-settings-tab.php:13
 msgid "Delete slideshows"
-msgstr "Esborra presentació de diapositives"
+msgstr "Esborra carrusel"
 
 #: views/SlideshowPluginGeneralSettings/general-settings-tab.php:20
 msgid "User Capabilities"
@@ -633,13 +632,13 @@ msgid ""
 "the slideshow"
 msgstr ""
 "O afegiu aquest codi curt a qualsevol lloc del vostre lloc web on volgueu "
-"posar una presentació de diapositives"
+"posar un carrusel"
 
 #: views/SlideshowPluginPostType/information.php:9
 #, php-format
 msgid "Or go to the %swidgets page%s and show the slideshow as a widget."
 msgstr ""
-"O aneu a la %spàgina de ginys%s i afegiu la presentació de diapositives com "
+"O aneu a la %spàgina de ginys%s i afegiu el carrusel com "
 "a giny."
 
 #: views/SlideshowPluginPostType/settings.php:26
@@ -746,8 +745,8 @@ msgid ""
 "An error occurred while loading this slide, and it will not be present in "
 "the slideshow"
 msgstr ""
-"S'ha produït un error en carregar la diapositiva i no es mostrarà en la "
-"presentació de diapositives"
+"S'ha produït un error en carregar la diapositiva i no es mostrarà en el "
+"carrusel"
 
 #: views/SlideshowPluginPostType/slides.php:177
 #: views/SlideshowPluginPostType/slides.php:218
@@ -791,21 +790,21 @@ msgstr "Preguntes més freqüesnts (PMF)"
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:9
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:18
 msgid "Insert a Slideshow"
-msgstr "Insereix una Presentació de diapositives"
+msgstr "Insereix un carrusel"
 
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:12
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:51
 msgid "Insert Slideshow"
-msgstr "Insereix Presentació de diapositives"
+msgstr "Insereix carrusel"
 
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:27
 msgid "Select a slideshow"
-msgstr "Selecciona una presentació de diapositives"
+msgstr "Selecciona un carrusel"
 
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:36
 #: views/SlideshowPluginWidget/form.php:12
 msgid "Untitled slideshow"
-msgstr "Presentació de diapositives sense nom"
+msgstr "Carrusel sense nom"
 
 #: views/SlideshowPluginShortcode/shortcode-inserter.php:56
 msgid "Cancel"
@@ -817,8 +816,8 @@ msgid ""
 "It seems you haven't created any slideshows yet. %sYou can create a "
 "slideshow here!%s"
 msgstr ""
-"Encara no heu creat una presentació de diapositives. %sPodeu crear una "
-"presentació de diapositives aquí!%s"
+"Encara no heu creat un carrusel. %sPodeu crear un "
+"carrusel aquí!%s"
 
 #: views/SlideshowPluginSlideInserter/search-popup.php:6
 msgid "Search"
@@ -870,7 +869,7 @@ msgstr "Puja/gestiona imatges"
 
 #: views/SlideshowPluginWidget/form.php:9
 msgid "Random Slideshow"
-msgstr "Presentació de diapositives al·leatoria"
+msgstr "Carrusel al·leatori"
 
 #~ msgid "Leave any field open to use default value."
 #~ msgstr "Een veld dat open wordt gelaten neemt de standaardwaarde aan."
