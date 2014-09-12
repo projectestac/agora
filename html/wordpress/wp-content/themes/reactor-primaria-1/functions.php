@@ -470,32 +470,119 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
 }
 
 /**
- * Remove admin menus
+ * Build HTML page to centralize all BuddyPress-related stuff
  * 
  * @author Toni Ginard
+ * 
  */
-function remove_menus() {
+function bp_options_page() {
+    ?>
+    <div class="wrap">
+
+        <div style="width:150px; padding:20px; float:left;">
+            <h3 style="height:40px;"><?php _e('BuddyPress', 'buddypress'); ?></h3>
+            <p><a href="admin.php?page=bp-components"><?php _e('Components', 'buddypress'); ?></a></p>
+            <p><a href="admin.php?page=bp-activity"><?php _e('Activity', 'buddypress'); ?></a></p>
+            <p><a href="admin.php?page=bpfb-settings"><?php _e('Activity Plus', 'bpfb'); ?></a></p>
+            <p><a href="admin.php?page=bp-groups"><?php _e('Groups', 'buddypress'); ?></a></p>
+            <p><a href="admin.php?page=ass_admin_options"><?php _e("Group Email Options", 'bp-ass'); ?></a></p>
+        </div>
+
+        <div style="width:150px; padding:20px; float:left;">
+            <h3 style="height:40px;"><?php _e('BuddyPress Docs', 'bp-docs'); ?></h3>
+            <p><a href="edit.php?post_type=bp_doc"><?php _e('BuddyPress Docs', 'bp-docs'); ?></a></p>
+            <p><a href="post-new.php?post_type=bp_doc"><?php _e('Add New', 'bp-docs'); ?></a></p>
+            <p><a href="edit-tags.php?taxonomy=bp_docs_associated_item&post_type=bp_doc"><?php _e('Associated Items', 'bp-docs'); ?></a></p>
+            <p><a href="edit-tags.php?taxonomy=bp_docs_tag&post_type=bp_doc"><?php _e('Docs Tags', 'bp-docs' ); ?></a></p>
+            <p><a href="edit.php?post_type=bp_doc&page=bp-docs-settings"><?php _e('Settings', 'bp-docs'); ?></a></p>
+        </div>
+
+        <div style="width:150px; padding:20px; float:left;">
+            <h3 style="height:40px;"><?php _e('BuddyPress Invitations', 'bp-invite-anyone'); ?></h3>
+            <p><a href="edit.php?post_type=ia_invites"><?php _e('BuddyPress Invitations', 'bp-invite-anyone'); ?></a></p>
+            <p><a href="post-new.php?post_type=ia_invites"><?php _e('Add New', 'bp-invite-anyone'); ?></a></p>
+            <p><a href="edit-tags.php?taxonomy=ia_invitees&post_type=ia_invites"><?php _e('Invitee', 'bp-invite-anyone'); ?></a></p>
+            <p><a href="edit-tags.php?taxonomy=ia_invited_groups&post_type=ia_invites"><?php _e('Invited Group', 'bp-invite-anyone'); ?></a></p>
+        </div>
+
+        <div style="width:150px; padding:20px; float:left;">
+            <h3 style="height:40px;"><?php _e('BP Moderation', 'bp-moderation'); ?></h3>
+            <p><a href="admin.php?page=bp-moderation&view=contents"><?php _e('Contents', 'bp-moderation'); ?></a></p>
+            <p><a href="admin.php?page=bp-moderation&view=users"><?php _e('Users', 'bp-moderation'); ?></a></p>
+            <p><a href="admin.php?page=bp-moderation&view=settings"><?php _e('Settings', 'bp-moderation'); ?></a></p>
+        </div>
+
+    </div>
+    <?php
+}
+
+/**
+ * Remove menus for administrators who are not xtecadmin
+ * 
+ * @author Toni Ginard
+ * 
+ */
+function remove_admin_menus() {
 
     // Forum
     remove_submenu_page('options-general.php', 'bbpress');
 
     // BuddyPress
-    remove_menu_page('bp-activity');
-    remove_menu_page('bp-groups');
-    //remove_submenu_page('options-general.php', 'bp-components'); // Tab in BuddyPress
     remove_submenu_page('options-general.php', 'bp-page-settings'); // Tab in BuddyPress
     remove_submenu_page('options-general.php', 'bp-settings'); // Tab in BuddyPress
     
     // Private BP Pages
     remove_submenu_page('options-general.php', 'bphelp-pbp-settings'); // In this case, it doesn't block access
-    
+
+}
+
+/**
+ * Move options from Settings to custom BuddyPress page, step 1. This movement 
+ * is broken in two steps because some actions need to be done early and some 
+ * need to be done later, depending on the implementation of every plugin.
+ * 
+ * @author Toni Ginard
+ * 
+ */
+function rebuild_bp_menus_step_1() {
+
+    remove_submenu_page('options-general.php', 'bpfb-settings'); // Activity Plus
+
+    add_menu_page(__('BuddyPress', 'buddypress'), __('BuddyPress', 'buddypress'), 'manage_options', 'xtec-bp-options', 'bp_options_page', '', 40);
+
+    add_submenu_page('xtec-bp-options', __('Components', 'buddypress'), __('Components', 'buddypress'), 'manage_options', 'bp-components', 'bp_core_admin_components_settings');
+    add_submenu_page('xtec-bp-options', __('Activity', 'buddypress'), __('Activity', 'buddypress'), 'manage_options', 'bp-activity');
+    add_submenu_page('xtec-bp-options', __('Activity Plus', 'bpfb'), __('Activity Plus', 'bpfb'), 'manage_options', 'bpfb-settings', 'settings_page');
+    add_submenu_page('xtec-bp-options', __('Groups', 'buddypress'), __('Groups', 'buddypress'), 'manage_options', 'bp-groups');
+	add_submenu_page('xtec-bp-options', __('Group Email Options', 'bp-ass'), __('Group Email Options', 'bp-ass'), 'manage_options', 'ass_admin_options', 'ass_admin_options' );
+
+}
+
+/**
+ * Move options from Settings to custom BuddyPress page, step 2. This movement 
+ * is broken in two steps because some actions need to be done early and some 
+ * need to be done later, depending on the implementation of every plugin.
+ * 
+ * @author Toni Ginard
+ * 
+ */
+function rebuild_bp_menus_step_2() {
+
+    remove_menu_page('bp-activity');
+    remove_menu_page('bp-groups');
+
+    remove_submenu_page('options-general.php', 'bp-components'); // Tab in BuddyPress
+    remove_submenu_page('bp-general-settings', 'ass_admin_options'); // Group Email 
+
 }
 
 global $isAgora;
 
 // Remove admin menus for all users but xtecadmin
 if ($isAgora && !is_xtecadmin()) {
-    add_action('admin_menu', 'remove_menus');
+    add_action('admin_menu', 'remove_admin_menus');
 }
 
-
+// Rebuild menus for all users
+add_action('admin_menu', 'rebuild_bp_menus_step_1', 1); // Priority 1 is important!
+add_action('admin_menu', 'rebuild_bp_menus_step_2'); // Default priority (10) is important!
