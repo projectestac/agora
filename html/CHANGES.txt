@@ -5,9 +5,27 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE 2
+ - Cron by cli enabled by default
+ - GoogleOauth now admits users with other auth method configured
+ - Repaired many errors in Marsupial
+ - Repaired bug: MDL-47227 User bulk selection gets Orable database errors when more than 1000 are selected
+ - Repaired bug: MDL-43197 gradereport_user: Parents/mentors can see all the relevant grades
+ - Report course quotas now has information about backup files
+ - Deleted uninstall option of all modules and submodules
+ - Enabling memcache
+ - Workarround for MDL-47176 sql_compare_text does not support string longer than 4000 chars in Oracle restoring match question type
+ - Many theme xtec2 improvements including:
+   - Enable custom menu on tablets and phones
+   - Enabled dock form theme xtec2
+   - Repaired fontawesome colors in many icons
+   - Repaired theme fonts and images viewing in https mode
+   - Calendar activity titles are now smaller
+   
 PORTAL
 - Agoraportal: Fixed activation of new services Intraweb and Nodes
 - Agoraportal: Customized more fields in Nodes when a service is activated
+- Agoraportal: Corrected count of activities on stats
 
 WORDPRESS
 - Updated Google Calendar Events to version 0.7.3.1
