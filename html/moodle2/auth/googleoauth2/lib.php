@@ -45,6 +45,18 @@ function auth_googleoauth2_display_buttons() {
     global $CFG;
 
     // Load the CSS social buttons
+    //XTEC ************ MODIFICAT - To be able to use css on https
+    //2014.09.15 @pferre22
+    echo '
+    <script language="javascript">
+        linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.href = "' . $CFG->httpswwwroot . '/auth/googleoauth2/csssocialbuttons/css/zocial.css";
+        document.head.appendChild(linkElement);
+    </script>
+    ';
+    //******* CODI ORIGINAL
+    /*
     echo '
     <script language="javascript">
         linkElement = document.createElement("link");
@@ -53,6 +65,8 @@ function auth_googleoauth2_display_buttons() {
         document.head.appendChild(linkElement);
     </script>
     ';
+     */
+    ////************ FI
 
     //get previous auth provider
     $allauthproviders = optional_param('allauthproviders', false, PARAM_BOOL);
@@ -77,9 +91,9 @@ function auth_googleoauth2_display_buttons() {
             </a>
         </div>';
     //******* CODI ORIGINAL
-    $displayprovider = ((empty($authprovider) || $authprovider == 'google' || $allauthproviders) && get_config('auth/googleoauth2', 'googleclientid'));
+    /*$displayprovider = ((empty($authprovider) || $authprovider == 'google' || $allauthproviders) && get_config('auth/googleoauth2', 'googleclientid'));
     $providerdisplaystyle = $displayprovider?'display:inline-block;padding:10px;':'display:none;';
-    /*echo '<div class="singinprovider" style="' . $providerdisplaystyle .'">
+    echo '<div class="singinprovider" style="' . $providerdisplaystyle .'">
             <a class="zocial googleplus" href="https://accounts.google.com/o/oauth2/auth?client_id='.
               get_config('auth/googleoauth2', 'googleclientid') .'&redirect_uri='.$CFG->wwwroot .'/auth/googleoauth2/google_redirect.php&scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&response_type=code">
                 Sign-in with Google
