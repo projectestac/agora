@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- statistics.php: Corrected count of Moodle activities
+
 MOODLE 2
  - Cron by cli enabled by default
  - GoogleOauth now admits users with other auth method configured
@@ -16,16 +19,15 @@ MOODLE 2
  - Enabling memcache
  - Workarround for MDL-47176 sql_compare_text does not support string longer than 4000 chars in Oracle restoring match question type
  - Many theme xtec2 improvements including:
-   - Enable custom menu on tablets and phones
-   - Enabled dock form theme xtec2
-   - Repaired fontawesome colors in many icons
-   - Repaired theme fonts and images viewing in https mode
-   - Calendar activity titles are now smaller
+ - Enable custom menu on tablets and phones
+ - Enabled dock form theme xtec2
+ - Repaired fontawesome colors in many icons
+ - Repaired theme fonts and images viewing in https mode
+ - Calendar activity titles are now smaller
    
 PORTAL
 - Agoraportal: Fixed activation of new services Intraweb and Nodes
 - Agoraportal: Customized more fields in Nodes when a service is activated
-- Agoraportal: Corrected count of activities on stats
 
 WORDPRESS
 - Updated Google Calendar Events to version 0.7.3.1
@@ -33,7 +35,7 @@ WORDPRESS
 - Hidden parameters in Settings | Reading
 - Removed initialization of Slides and Portfolio, so they don't load
 - Blocked access to Settings > Forums to all users but xtecadmin
-
+- WordPress Social Login: Hidden option added in admin bar by this plugin
 
 
 Changes 14.09.08

@@ -470,6 +470,23 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
 }
 
 /**
+ * Remove option in admin bar added by the extension 'WordPress Social Login'.
+ * It is removed for all users
+ * 
+ * @global Array $wp_admin_bar
+ * @author Toni Ginard
+ */
+function tweak_admin_bar() {
+    
+    global $wp_admin_bar;
+
+    $wp_admin_bar->remove_menu('wp-admin-wordpress-social-login');
+
+}
+add_action('wp_before_admin_bar_render', 'tweak_admin_bar');
+
+
+/**
  * Build HTML page to centralize all BuddyPress-related stuff
  * 
  * @author Toni Ginard
