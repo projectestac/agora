@@ -502,7 +502,8 @@ function bp_options_page() {
             <p><a href="admin.php?page=bp-activity"><?php _e('Activity', 'buddypress'); ?></a></p>
             <p><a href="admin.php?page=bpfb-settings"><?php _e('Activity Plus', 'bpfb'); ?></a></p>
             <p><a href="admin.php?page=bp-groups"><?php _e('Groups', 'buddypress'); ?></a></p>
-            <p><a href="admin.php?page=ass_admin_options"><?php _e("Group Email Options", 'bp-ass'); ?></a></p>
+            <p><a href="admin.php?page=bp-like-settings"><?php _e('BuddyPress Like', 'buddypress-like'); ?></a></p>
+            <p><a href="admin.php?page=ass_admin_options"><?php _e('Group Email Options', 'bp-ass'); ?></a></p>
         </div>
 
         <div style="width:150px; padding:20px; float:left;">
@@ -571,7 +572,7 @@ function rebuild_bp_menus_step_1() {
     add_submenu_page('xtec-bp-options', __('Activity', 'buddypress'), __('Activity', 'buddypress'), 'manage_options', 'bp-activity');
     add_submenu_page('xtec-bp-options', __('Activity Plus', 'bpfb'), __('Activity Plus', 'bpfb'), 'manage_options', 'bpfb-settings', 'settings_page');
     add_submenu_page('xtec-bp-options', __('Groups', 'buddypress'), __('Groups', 'buddypress'), 'manage_options', 'bp-groups');
-	add_submenu_page('xtec-bp-options', __('Group Email Options', 'bp-ass'), __('Group Email Options', 'bp-ass'), 'manage_options', 'ass_admin_options', 'ass_admin_options' );
+	add_submenu_page('xtec-bp-options', __('Group Email Options', 'bp-ass'), __('Group Email Options', 'bp-ass'), 'manage_options', 'ass_admin_options', 'ass_admin_options');
 
 }
 
@@ -590,6 +591,9 @@ function rebuild_bp_menus_step_2() {
 
     remove_submenu_page('options-general.php', 'bp-components'); // Tab in BuddyPress
     remove_submenu_page('bp-general-settings', 'ass_admin_options'); // Group Email 
+    remove_submenu_page('options-general.php', 'bp-like-settings'); // BuddyPress Like
+
+    add_submenu_page('xtec-bp-options', __('BuddyPress Like', 'buddypress-like'), __('BuddyPress Like', 'buddypress-like'), 'manage_options' , 'bp-like-settings' , 'bp_like_admin_page');
 
 }
 
