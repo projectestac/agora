@@ -137,7 +137,7 @@ if(isset($agora['server']['root']) && !empty($agora['server']['root'])){
 
 $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
-$CFG->cronclionly = 0; // changed to avoid schools change it
+$CFG->cronclionly = 1; // changed to avoid schools change it
 
 
 //Here is where the cronlogs will be stored
