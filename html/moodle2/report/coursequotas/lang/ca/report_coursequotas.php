@@ -30,4 +30,4 @@ $string['courses_description'] = 'Llista de tots els cursos, ordenada de major a
 
 $string['backups'] = 'Còpies de seguretat';
 $string['backups_description'] = 'Disc ocupat amb fitxers de còpies de seguretat';
-$string['component'] = 'Component';
+$string['area'] = 'Àrea';

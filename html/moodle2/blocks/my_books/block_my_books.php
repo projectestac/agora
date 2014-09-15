@@ -286,7 +286,7 @@ class block_my_books extends block_list {
 		if (has_capability('local/rcommon:managecredentials', $context)){
 			$bt = '<a href="' . $CFG->wwwroot . '/local/rcommon/users.php?action=manage&username='.$USER->username.'" title="' . get_string('manage_button_title', 'block_my_books') . '"><button>' . get_string('manage_button', 'block_my_books') . '</button></a>';
 		}
-		if ($CFG->mybooks_addkey){
+		if ($CFG->mybooks_addkey && has_capability('local/rcommon:manageowncredentials', $context)){
 			$bt .= '<a href="' . $CFG->wwwroot.'/local/rcommon/add_user_credential.php?username='.$USER->username.'" title="' . get_string('addkey_button_title', 'block_my_books') . '"><button>' . get_string('addkey_button', 'block_my_books') . '</button></a>';
 		}
 		$this->content->items[] = '<br>' . $bt;

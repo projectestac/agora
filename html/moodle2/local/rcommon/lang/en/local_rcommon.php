@@ -5,6 +5,7 @@ $string['rcommon:authenticate'] = 'Marsupial content authentication';
 $string['rcommon:exportcredentials'] = 'Export Marsupial credentials';
 $string['rcommon:importcredentials'] = 'Import Marsupial credentials';
 $string['rcommon:managecredentials'] = 'Manage Marsupial creadentials';
+$string['rcommon:manageowncredentials'] = 'Manage own Marsupial creadentials';
 $string['rcommon:managepublishers'] = 'Manage Marsupial publishers';
 
 $string['addnewpublisher'] = 'Add new publisher';
@@ -17,7 +18,7 @@ $string['consumewait'] = 'Updating books structure. This process may take some t
 $string['delok'] = 'Data removed successfully';
 $string['delko'] = 'Unable to delete the data, please try again a few minutes later';
 $string['downloadbookstructures'] = 'Update books structures';
-$string['error_authentication'] = 'Authentication error: Code: ';
+$string['error_authentication'] = 'Authentication error code: {$a}';
 
 $string['error_code_1'] = 'URL successfully generated';
 $string['error_code_0'] = 'Unexpected error.';
@@ -64,7 +65,7 @@ $string['selectpublisherdescription'] = 'To download all the book structures it 
 $string['selectpublisheredit'] = 'Select a publisher to edit his info';
 $string['teacherroles'] = 'Teacher roles';
 $string['teacherrolesinfo'] = 'Roles that will be authenticated as a teacher. The rest will be authenticated as a student';
-$string['urlmoreinfo'] = 'For more information: <a href="{$a}" target="_blank">click here</a>';
+$string['urlmoreinfo'] = '<a href="{$a}" target="_blank">More information about the error</a>';
 $string['urlwsauthentication'] = 'Authentication web services address';
 $string['urlwsbookstructure'] = 'Book structure web services address';
 $string['userhasnokeys'] = 'This user has no key registered';

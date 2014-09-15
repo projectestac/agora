@@ -40,16 +40,7 @@ echo $OUTPUT->heading(get_string('localplugins'));
 
 $table = new flexible_table('localplugins_administration_table');
 $table->define_columns(array('name', 'version', 'uninstall'));
-//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-//2012.08.20 @sarjona
-if (get_protected_agora()) {
-	$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('uninstallplugin', 'core_admin')));    
-} else {
-	$table->define_headers(array(get_string('plugin'), get_string('version'), ""));
-}
-//************ ORIGINAL
-//$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('uninstallplugin', 'core_admin')));    
-//************ FI
+$table->define_headers(array(get_string('plugin'), get_string('version'), get_string('uninstallplugin', 'core_admin')));
 $table->define_baseurl($PAGE->url);
 $table->set_attribute('id', 'localplugins');
 $table->set_attribute('class', 'admintable generaltable');
@@ -71,12 +62,7 @@ foreach ($plugins as $plugin => $name) {
     if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('local_'.$plugin, 'manage')) {
         $uninstall = html_writer::link($uninstallurl, get_string('uninstallplugin', 'core_admin'));
     }
-	//XTEC ************ AFEGIT - To let access only to xtecadmin user
-    //2012.08.20 @sarjona
-    if (!get_protected_agora()) {
-        $uninstall = "";
-    }
-    //************ FI
+
     $version = get_config('local_' . $plugin);
     if (!empty($version->version)) {
         $version = $version->version;

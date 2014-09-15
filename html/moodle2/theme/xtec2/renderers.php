@@ -411,6 +411,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             'i/dragdrop' => 'arrows',
             'i/edit' => 'pencil',
             'i/filter' => 'filter',
+            'i/folder' => 'folder',
             'i/grades' => 'table',
             'i/group' => 'group',
             'i/groupn' => 'user',
@@ -450,6 +451,10 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
 			't/up' => 'arrow-up',
 			't/down' => 'arrow-down',
             't/copy' => 'copy',
+            't/lock' => 'unlock',
+            't/unlock' => 'lock',
+            't/locked' => 'lock',
+            't/unlocked' => 'unlock',
             't/move' => 'arrows-alt',
             't/switch_minus' => 'minus-square',
             't/switch_plus' => 'plus-square',
@@ -462,6 +467,7 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             't/message' => 'comment',
             't/editstring' => 'pencil-square-o',
             't/check' => 'check',
+            't/calc_off' => 'calculator',
         );
 
         $name = $icon->pix;

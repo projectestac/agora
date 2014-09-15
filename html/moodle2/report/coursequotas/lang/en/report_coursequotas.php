@@ -30,4 +30,4 @@ $string['courses_description'] = 'All courses with its category and the size of 
 
 $string['backups'] = 'Backups';
 $string['backups_description'] = 'Disk used with backup files';
-$string['component'] = 'Component';
+$string['area'] = 'Area';

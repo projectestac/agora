@@ -81,12 +81,6 @@
     // construct the flexible table ready to display
     $table = new flexible_table(MODULE_TABLE);
     $table->define_columns(array('name', 'instances', 'version', 'hideshow', 'uninstall', 'settings'));
-    //XTEC ************ AFEGIT - To let access only to xtecadmin user
-    //2012.06.25  @sarjona
-    if (!get_protected_agora()) {
-        $struninstall = "";
-    }
-    //************ FI 
     $table->define_headers(array($stractivitymodule, $stractivities, $strversion, "$strhide/$strshow", $strsettings, $struninstall));
     $table->define_baseurl($CFG->wwwroot.'/'.$CFG->admin.'/modules.php');
     $table->set_attribute('id', 'modules');
@@ -94,8 +88,8 @@
     $table->setup();
 
     foreach ($modules as $module) {
-        
-        //XTEC ************ AFEGIT - Only enabled modules has to be showed
+
+        //XTEC ************ AFEGIT - Only enabled modules has to be shown
         //2012.11.06  @sarjona
         if (!is_enabled_in_agora($module->name) ){
             continue;

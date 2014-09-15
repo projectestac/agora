@@ -109,7 +109,7 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             }
             //check if the web service is prepared to receive rol parameter
             $parsed_wsdl = rcommon_get_wsdl($publisher->urlwsauthentication.'?wsdl');
-            if (textlib::strpos($parsed_wsdl, 'name="Rol"') && $rolestring == "PROFESOR"){
+            if (textlib::strpos($parsed_wsdl, 'name="Rol"') && $rolestring == "PROFESOR") {
                 $params->Rol = new SoapVar($rolestring, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
             }
 
@@ -118,12 +118,12 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             $params->IdCentro = new SoapVar($centerid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
             $params->URLResultado = new SoapVar("$CFG->wwwroot/mod/rcontent/WebServices/wsSeguimiento.php", XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
             $params->IdContenidoLMS = new SoapVar($data->id, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
-            $unitid=(isset($unit->code))?$unit->code:'';
+            $unitid = (isset($unit->code))?$unit->code:'';
             $params->IdUnidad = new SoapVar($unitid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
-            $activid=(isset($activ->code))?$activ->code:'';
+            $activid = (isset($activ->code))?$activ->code:'';
             $params->IdActividad = new SoapVar($activid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
 
-            //he has assigned a group
+            // He has been assigned a group
             if (isset($grupoid)) {
                 $params->IdGrupo = new SoapVar($grupoid, XSD_STRING, "string", "http://www.w3.org/2001/XMLSchema");
             }
@@ -157,25 +157,22 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
         if ($response->AutenticarUsuarioContenidoResult->Codigo <= 0 ) {
             //test if isset the url
             //
-            $urlok =  false;
-            $message  =  "Instance ID: ".$data->id.", Text: ".get_string('wsautenticationerror',$data->module=='check_credentials'?'rcontent':$data->module).", Code: ".$response->AutenticarUsuarioContenidoResult->Codigo.", Detail: ".$response->AutenticarUsuarioContenidoResult->Descripcion;
+            $urlok = false;
+            $message = "Instance ID: ".$data->id.", Text: ".get_string('wsautenticationerror',$data->module=='check_credentials'?'rcontent':$data->module).", Code: ".$response->AutenticarUsuarioContenidoResult->Codigo.", Detail: ".$response->AutenticarUsuarioContenidoResult->Descripcion;
             if (isset($response->AutenticarUsuarioContenidoResult->URL)) {
-                $urlok = ", URL: ".test_ws_url($response->AutenticarUsuarioContenidoResult->URL);
+                $urlok = test_ws_url($response->AutenticarUsuarioContenidoResult->URL);
             }
 
-            if($urlok){
+            if ($urlok) {
                 $message  .= ", URL: ".$urlok;
             }
 
             rcommon_ws_error('AuthenticateUserContent', $message, $data->module, $data->cmid, $data->course);
 
-            $msg="";
-
-            if($urlok && $showurl) {
-                $msg='<br><br>'.@get_string('urlmoreinfo','local_rcommon',$response->AutenticarUsuarioContenidoResult->URL);
-                echo '<script type="text/javascript" language"javascript">window.open("'.$response->AutenticarUsuarioContenidoResult->URL.'","","fullscreen=yes,toolbar=yes,menubar=yes,scrollbars=yes,resizable=yes");</script>';
+            if ($urlok && $showurl) {
+                $msg = '<br><br>'.@get_string('urlmoreinfo','local_rcommon',$urlok);
             } else {
-            	return $response;
+            	$msg = "";
             }
 
             //set the description to show
@@ -184,9 +181,12 @@ function AuthenticateUserContent($data, $usr_creden = false, $showurl = true){
             	  $desctext = $response->AutenticarUsuarioContenidoResult->Codigo;
             }
 
-            print_error(get_string('error_authentication','local_rcommon').$response->AutenticarUsuarioContenidoResult->Codigo.', '.$desctext.$msg);
-        } else{
-        	//print_r($response);
+            if (isset($response->AutenticarUsuarioContenidoResult->Descripcion) && !empty($response->AutenticarUsuarioContenidoResult->Descripcion)) {
+                $desctext .= '<br>'.$response->AutenticarUsuarioContenidoResult->Descripcion;
+            }
+
+            print_error(get_string('error_authentication', 'local_rcommon', $response->AutenticarUsuarioContenidoResult->Codigo).'<br>'.$desctext.$msg);
+        } else {
             return $response;
         }
 }

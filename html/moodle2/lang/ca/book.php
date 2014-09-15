@@ -63,10 +63,10 @@ $string['numbering0'] = 'Cap';
 $string['numbering1'] = 'Nombres';
 $string['numbering2'] = 'Pics';
 $string['numbering3'] = 'Sagnat';
-$string['numbering_help'] = '* Cap - els capítols i títols de subcapítols no tenen cap format; utilitzeu-ho si voleu definir estils especials de numeració. Per exemple, lletres: escriviu en el títol del capítol "A. Primer capítol", "A.1 Subcapítol", ...
-* Nombres - els capítols i subcapítols es numeren (1, 1.1, 1.2, 2, ...)
-* Pics - els subcapítols es sagnen i es mostren amb pics
-* Sagnat - els subcapítols es sagnen';
+$string['numbering_help'] = '* Cap - els títols dels capítols i subcapítols no tenen cap format
+* Nombres - els títols dels capítols i subcapítols es numeren (1, 1.1, 1.2, 2, ...)
+* Pics - els subcapítols es sagnen i es mostren amb pics en la taula de continguts
+* Sagnat - els subcapítols es sagnen en la taula de continguts';
 $string['numberingoptions'] = 'Opcions de numeració disponibles';
 $string['numberingoptions_desc'] = 'Seleccioneu les opcions de numeració que voleu tenir disponibles en crear nous llibres.';
 $string['page-mod-book-x'] = 'Qualsevol pàgina del llibre';

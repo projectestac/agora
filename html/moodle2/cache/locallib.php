@@ -451,25 +451,11 @@ class cache_config_writer extends cache_config {
         require_once($CFG->dirroot.'/cache/stores/session/lib.php');
         require_once($CFG->dirroot.'/cache/stores/static/lib.php');
 
-        //XTEC ************ AFEGIT - To have MUC configured
-        //2014.08.12 @pferre2
-        if(isset($CFG->agora_muc_path) && !empty($CFG->agora_muc_path)){
-            $file_config = array('path' =>  $CFG->agora_muc_path);
-        } else {
-            $file_config = array();
-        }
-        //************ FI
-
         return array(
             'default_application' => array(
                 'name' => 'default_application',
                 'plugin' => 'file',
-                //XTEC ************ MODIFICAT - To have MUC configured
-                //2014.08.12 @pferre2
-                'configuration' => $file_config,
-                //************ ORIGINAL
-                //'configuration' => array(),
-                //************ FI
+                'configuration' => array(),
                 'features' => cachestore_file::get_supported_features(),
                 'modes' => cachestore_file::get_supported_modes(),
                 'default' => true,

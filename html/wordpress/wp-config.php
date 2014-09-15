@@ -96,7 +96,7 @@ define('SAVEQUERIES', false);
 /**
  * Default blog creation theme.
  */
-define('WP_DEFAULT_THEME', 'exray');
+define('WP_DEFAULT_THEME', 'NODES');
 
 /* That's all, stop editing! Happy blogging. */
 

@@ -1068,12 +1068,12 @@ $string['updateavailablenot'] = 'El codi del vostre Moodle està actualitzat!';
 $string['updateavailable_release'] = 'Moodle {$a}';
 $string['updateavailable_version'] = 'Versió {$a}';
 $string['updatecomponent'] = 'Actualitza component';
-$string['updateminmaturity'] = 'Es requereix maduresa del codi';
+$string['updateminmaturity'] = 'Maduresa del codi requerida';
 $string['updateminmaturity_desc'] = 'Notifica les actualitzacions disponibles només si el codi disponible té el nivell de maduresa seleccionat com a mínim. Les actualitzacions per als connectors que no declaren el seu nivell de maduresa de codi es comuniquen sempre sense tenir en compte aquest paràmetre.';
 $string['updatenotificationfooter'] = 'El vostre lloc Moodle {$a->siteurl} està configurat per a comprovar automàticament si hi ha actualitzacions disponibles. Rebeu aquest missatge com a administrador del lloc. Podeu desactivar la comprovació automàtica d\'actualitzacions disponibles a l\'apartat d\'Administració del lloc, del bloc de Configuració. Podeu personalitzar el lliurament d\'aquest missatge des de la vostra Missatgeria a l\'apartat Configuració del meu perfil, del bloc Configuració.';
 $string['updatenotifications'] = 'Notificacions d\'actualització';
 $string['updatenotificationsubject'] = 'Hi ha actualitzacions de Moodle disponibles ({$a->siteurl})';
-$string['updatenotifybuilds'] = 'Notifiqueu nous muntatges';
+$string['updatenotifybuilds'] = 'Notifica\'m l\'aparició de noves compilacions';
 $string['updatenotifybuilds_desc'] = 'Si s\'habilita, s\'informarà quan hi hagi una actualització per Moodle que sigui una nova compilació de la versió actual. Les compilacions són millores continues d\'una versió de Moodle. Normalment es llancen de forma setmanal. Si es deshabilita sols s\'informarà quan una nova versió de Moodle hagi estat alliberada. La comprovació de connectors no està afectada per aquest paràmetre.';
 $string['upgrade197notice'] = '<p>Moodle 1.9.7 conté un nombre de millores de seguretat a les contrasenyes dels usuaris i a les còpies de seguretat per protegir les dades d\'usuari del vostre lloc web. En conseqüència han canviat alguns dels paràmetres i permisos de les còpies de seguretat. <br /> Mireu les <a href="http://docs.moodle.org/en/Moodle_1.9.7_release_notes" target="_blank">notes de llançament de Moodle 1.9.7 </a> per llegir tots els detalls.</p>
 ';

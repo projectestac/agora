@@ -119,18 +119,23 @@ echo $OUTPUT->doctype() ?>
                     <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
                     <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
                 </ul>
+                <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target="#custom-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
             </div>
         </div>
     </nav>
 </header>
-<header id="title-header" class="clearfix hidden-phone">
+<div id="title-header" class="clearfix hidden-phone">
     <div id="logo-top"></div>
     <div class="container-fluid">
         <?php echo $OUTPUT->page_heading(); ?>
     </div>
-</header>
+</div>
 
-<div id="main_navigation" class="clearfix hidden-phone">
+<div id="main_navigation" class="clearfix">
     <div class="container-fluid">
         <?php if($hascustommenu) { ?>
             <div id="custom_menu" class="pull-left">
@@ -143,7 +148,7 @@ echo $OUTPUT->doctype() ?>
             <div id="showhideblocks" class="hidden-phone pull-right collapsed" title="<?php echo get_string('showhideblocks','theme_xtec2');?>" onclick="showhideblocks();"></div>
         <?php } ?>
         <?php if($hasmainmenu) { ?>
-            <div id="main_menu" class="pull-right">
+            <div id="main_menu" class="pull-right hidden-phone">
                 <div class="nav-collapse collapse">
                     <?php echo $mainmenu; ?>
                 </div>

@@ -1262,10 +1262,10 @@ class core_admin_renderer extends plugin_renderer_base {
                 //2012.06.12  @sarjona
                 if (get_protected_agora() && $uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
                 //************ ORIGINAL
-                /*  
+                /*
                 if ($uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
                 */
-                //************ FI  
+                //************ FI
                     $uninstall = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'));
                 } else {
                     $uninstall = '';

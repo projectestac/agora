@@ -129,6 +129,8 @@ if (isset($agora['server']['enviroment'])){
 // This folder has to exists and to be writable
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
+$CFG->memcache_prefix = $CFG->dbuser.'_';
+$CFG->memcache_servers = "127.0.0.1";
 if(isset($agora['server']['root']) && !empty($agora['server']['root'])){
 	$CFG->agora_muc_path = $agora['server']['root'].'/cache_ins';
 }

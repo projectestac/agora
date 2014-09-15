@@ -304,9 +304,9 @@ function report_coursequotas_printCoursesData($data) {
  * @return string HTML code to be sent to the browser
  */
 function report_coursequotas_printBackupsData() {
-    global $DB;
+    global $DB, $CFG;
 
-    $sql = "SELECT u.username, f.filename, f.filesize, f.component
+    $sql = "SELECT f.id, u.username, u.id as userid, f.filename, f.filesize, f.component, f.filearea, f.contextid
             FROM {files} f
             LEFT JOIN {user} u on f.userid = u.id
             WHERE (component = 'backup' or filearea = 'backup') AND filename != '.'
@@ -316,18 +316,33 @@ function report_coursequotas_printBackupsData() {
     // Open HTML table and adds headings
     $table = new html_table();
     $table->class = 'generaltable';
-    $table->head = array(get_string('username'), get_string('filename', 'backup'), get_string('disk_used', 'report_coursequotas'), get_string('component', 'report_coursequotas'));
+    $table->head = array(get_string('filename', 'backup'), get_string('username'), get_string('area', 'report_coursequotas'), get_string('disk_used', 'report_coursequotas'));
     $table->align = array('left', 'center', 'center', 'center');
     foreach ($datas as $data) {
 
         $row = array();
-        //$row[] = '<a href="../../course/view.php?id=' . $course['courseId'] . '" target="_blank">' . $course['courseName'];
+
         // Exclude link in front page
-        $row[] = $data->username;
         $row[] = $data->filename;
+        $row[] = '<a href="'.$CFG->wwwroot.'/user/profile.php?id=' . $data->userid . '" target="_blank">' . $data->username . '</a>';
+        $area  = $data->component == 'backup' ? $data->filearea : $data->component;
+        switch($area){
+            case 'course':
+            case 'activity':
+                $row[] = '<a href="'.$CFG->wwwroot.'/backup/restorefile.php?contextid=' . $data->contextid . '" target="_blank">' . get_string($area) . '</a>';
+                break;
+            case 'automated':
+                $row[] = '<a href="'.$CFG->wwwroot.'/backup/restorefile.php?contextid=' . $data->contextid . '" target="_blank">' . get_string('automatedbackup', 'repository') . '</a>';
+                break;
+            case 'user':
+                $row[] = get_string($area);
+                break;
+            default:
+                $row[] = $area;
+                break;
+        }
         $size = report_coursequotas_formatSize($data->filesize);
         $row[] = number_format($size['figure'], 2, ',', '.') . ' ' . $size['unit'];
-        $row[] = $data->component;
         $table->data[] = $row;
     }
     return html_writer::table($table);

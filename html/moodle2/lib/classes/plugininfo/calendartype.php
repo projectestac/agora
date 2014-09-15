@@ -31,6 +31,12 @@ defined('MOODLE_INTERNAL') || die();
 class calendartype extends base {
 
     public function is_uninstall_allowed() {
+        //XTEC ************ AFEGIT - Disable uninstalling
+        //2014.09.09  @pferre22
+        if (!get_protected_agora()) {
+            return false;
+        }
+        //************ FI
         // We can delete all calendar types, except Gregorian. Gregorian comes with core and was the calendar
         // type used before the calendar types were introduced as plugins in Moodle. If all calendar types were
         // deleted then Moodle would break completely wherever any dates are displayed.

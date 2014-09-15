@@ -12,6 +12,9 @@ PORTAL
 WORDPRESS
 - Updated Google Calendar Events to version 0.7.3.1
 - Updated theme reactor-primaria-1
+- Hidden parameters in Settings | Reading
+- Removed initialization of Slides and Portfolio, so they don't load
+- Blocked access to Settings > Forums to all users but xtecadmin
 
 
 

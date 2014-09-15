@@ -132,24 +132,9 @@ $table = new flexible_table('qtypeadmintable');
 $table->define_baseurl($thispageurl);
 $table->define_columns(array('questiontype', 'numquestions', 'version', 'requires',
         'availableto', 'uninstall', 'settings'));
-//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-//2012.08.20 @sarjona
-if (get_protected_agora()) {
-    $table->define_headers(array(get_string('questiontype', 'question'), get_string('numquestions', 'question'),
-        get_string('version'), get_string('requires', 'admin'), get_string('availableq', 'question'),
-        get_string('settings'), get_string('uninstallplugin', 'core_admin')));
-} else{
-    $table->define_headers(array(get_string('questiontype', 'question'), get_string('numquestions', 'question'),
-        get_string('version'), get_string('requires', 'admin'), get_string('availableq', 'question'),
-        get_string('settings'), ""));
-}
-//************ ORIGINAL
-/*
 $table->define_headers(array(get_string('questiontype', 'question'), get_string('numquestions', 'question'),
         get_string('version'), get_string('requires', 'admin'), get_string('availableq', 'question'),
         get_string('settings'), get_string('uninstallplugin', 'core_admin')));
- */
-//************ FI
 $table->set_attribute('id', 'qtypes');
 $table->set_attribute('class', 'admintable generaltable');
 $table->setup();

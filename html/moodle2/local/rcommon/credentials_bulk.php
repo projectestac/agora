@@ -18,7 +18,7 @@ admin_externalpage_setup('marsupialcontent'.$book->publisherid);
 echo $OUTPUT->header();
 
 //key synchronization
-echo $OUTPUT->heading(get_string('keymanager_new', 'local_rcommon'));
+echo $OUTPUT->heading(get_string('keymanager', 'local_rcommon'));
 echo '<div class="generalbox box contentbox">';
 
 $credentials = $DB->get_records_sql("SELECT ruc.id, ruc.credentials, ruc.euserid, u.lastname, u.firstname FROM {rcommon_user_credentials} ruc LEFT JOIN {user} u ON ruc.euserid = u.id WHERE isbn = '{$book->isbn}' ORDER BY u.lastname, u.firstname");
@@ -292,7 +292,7 @@ switch($action){
 		            if (!empty($searchtext) && empty($courseid)) {
 		            	echo '<input name="showall" id="showall" onclick="getElementById(\'courseid\').selectedIndex=0;getElementById(\'searchtext\').value=\'\';" type="submit" value="'.$strshowall.'" />'."\n";
 		            }
-                    
+
                     $courses = array();
 		            if ($ccc = $DB->get_records("course", array(), "fullname","id,fullname,category")) {
 		            	foreach ($ccc as $cc) {

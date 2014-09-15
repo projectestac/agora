@@ -231,21 +231,22 @@ class assign_plugin_manager {
             $row[] = $movelinks;
 
             $exists = file_exists($CFG->dirroot . '/mod/assign/' . $shortsubtype . '/' . $plugin . '/settings.php');
-			//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-            //2012.08.20 @sarjona
-            if ($row[1] != '' && $exists && get_protected_agora()) {
-            //************ ORIGINAL
-			/*
             if ($row[1] != '' && $exists) {
-			*/
-            //************ FI
                 $row[] = html_writer::link(new moodle_url('/admin/settings.php',
                         array('section' => $this->subtype . '_' . $plugin)), get_string('settings'));
             } else {
                 $row[] = '&nbsp;';
             }
 
-            $row[] = $this->format_icon_link('delete', $plugin, 't/delete', get_string('uninstallplugin', 'core_admin'));
+            //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+            //2012.08.20 @sarjona
+            if (get_protected_agora()) {
+            //************ FI
+                $row[] = $this->format_icon_link('delete', $plugin, 't/delete', get_string('uninstallplugin', 'core_admin'));
+            //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+            //2012.08.20 @sarjona
+            }
+            //************ FI
 
             $table->add_data($row, $class);
         }

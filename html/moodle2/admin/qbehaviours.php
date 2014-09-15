@@ -148,23 +148,9 @@ $table = new flexible_table('qbehaviouradmintable');
 $table->define_baseurl($thispageurl);
 $table->define_columns(array('behaviour', 'numqas', 'version', 'requires',
         'available', 'uninstall'));
-//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-//2012.08.20 @sarjona
-if (get_protected_agora()) {
-	$table->define_headers(array(get_string('behaviour', 'question'), get_string('numqas', 'question'),
+$table->define_headers(array(get_string('behaviour', 'question'), get_string('numqas', 'question'),
         get_string('version'), get_string('requires', 'admin'),
         get_string('availableq', 'question'), get_string('uninstallplugin', 'core_admin')));
-} else{
-	$table->define_headers(array(get_string('behaviour', 'question'), get_string('numqas', 'question'),
-        get_string('version'), get_string('requires', 'admin'),
-        get_string('availableq', 'question'), ""));
-}
-
-//************ ORIGINAL
-//$table->define_headers(array(get_string('behaviour', 'question'), get_string('numqas', 'question'),
-//        get_string('version'), get_string('requires', 'admin'),
-//        get_string('availableq', 'question'), get_string('uninstallplugin', 'core_admin')));
-//************ FI
 $table->set_attribute('id', 'qbehaviours');
 $table->set_attribute('class', 'generaltable admintable');
 $table->setup();

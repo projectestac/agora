@@ -119,19 +119,8 @@ $states = filter_get_global_states();
 $stringfilters = filter_get_string_filters();
 
 $table = new html_table();
-//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-//2012.08.20 @sarjona
-if (get_protected_agora()) {
 $table->head  = array(get_string('filter'), get_string('isactive', 'filters'),
         get_string('order'), get_string('applyto', 'filters'), get_string('settings'), get_string('uninstallplugin', 'core_admin'));
-} else {
-$table->head  = array(get_string('filter'), get_string('isactive', 'filters'),
-        get_string('order'), get_string('applyto', 'filters'), get_string('settings'), "");
-}
-//************ ORIGINAL
-//$table->head  = array(get_string('filter'), get_string('isactive', 'filters'),
-//        get_string('order'), get_string('applyto', 'filters'), get_string('settings'), get_string('uninstallplugin', 'core_admin'));
-//************ FI
 $table->colclasses = array ('leftalign', 'leftalign', 'centeralign', 'leftalign', 'leftalign', 'leftalign');
 $table->attributes['class'] = 'admintable generaltable';
 $table->id = 'filterssetting';
@@ -266,7 +255,7 @@ function get_table_row(\core\plugininfo\filter $plugininfo, $state, $isfirstrow,
 	//XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2013.11.12  @sarjona
     } else {
-        $row[] = '';        
+        $row[] = '';
     }
     //************ FI
 

@@ -148,6 +148,7 @@ $string['answer'] = 'Resposta';
 $string['any'] = 'Qualsevol';
 $string['appearance'] = 'Aparença';
 $string['approve'] = 'Aprova';
+$string['areyousure'] = 'Segur que voleu tirar endavant aquesta acció?';
 $string['areyousuretorestorethis'] = 'Voleu continuar?';
 $string['areyousuretorestorethisinfo'] = 'Més endavant tindreu l\'opció d\'afegir aquesta còpia de seguretat a un curs existent o crear un curs completament nou.';
 $string['asc'] = 'Ascendent';
@@ -276,6 +277,7 @@ $string['clickhelpiconformoreinfo'] = '... continua ... Feu clic en la icona d\'
 $string['clickhere'] = 'Feu clic aquí...';
 $string['clicktochangeinbrackets'] = '{$a} Prem per canviar';
 $string['clicktohideshow'] = 'Feu clic per ampliar o reduir';
+$string['closebuttontitle'] = 'Tanca';
 $string['closewindow'] = 'Tanca aquesta finestra';
 $string['collapse'] = 'Redueix';
 $string['collapseall'] = 'Redueix tot';
@@ -517,7 +519,7 @@ $string['directory'] = 'Directori';
 $string['disable'] = 'Inhabilita';
 $string['disabledcomments'] = 'Els comentaris estan inhabilitats';
 $string['displayingfirst'] = 'Només es mostren els primers {$a->count} {$a->things}';
-$string['displayingrecords'] = 'S\'estan visualitzant {$a} registres';
+$string['displayingrecords'] = 'S\'estan mostrant {$a} registres';
 $string['displayingusers'] = 'S\'estan visualitzant els usuaris {$a->start} a {$a->end}';
 $string['displayonpage'] = 'Visualitza en la pàgina';
 $string['dndcourse'] = 'Podeu arrossegar i deixar anar aquest curs per alterar la seva ordenació o moure\'l a una altra categoria.';
@@ -1024,7 +1026,7 @@ $string['loginsite'] = 'Entra en aquest lloc';
 $string['loginsteps'] = 'Hola! L\'accés complet als cursos requereix que dediqueu un minut a la creació d\'un nou compte d\'usuari vàlid en aquest lloc web. Cada curs pot requerir també una "clau d\'inscripció" que no necessitareu fins més tard. Els passos que heu de donar són els següents:
 <ol>
 <li>Ompliu el formulari de <a href="{$a}">Nou compte</a> amb les vostres dades.</li>
-<li>Se us enviarà inmediatament un correu a la vostra adreça electrònica.</li>
+<li>Se us enviarà immediatament un correu a la vostra adreça electrònica.</li>
 <li>Llegiu el correu i feu clic en l\'enllaç web inclòs.</li>
 <li>Es confirmarà el vostre compte i podreu entrar-hi.</li>
 <li>Llavors, seleccioneu el curs en el qual voleu participar.</li>
@@ -1864,6 +1866,7 @@ $string['turneditingon'] = 'Activa edició';
 $string['undecided'] = 'No decidit';
 $string['unfinished'] = 'Inacabat';
 $string['unknowncategory'] = 'Categoria desconeguda';
+$string['unknownerror'] = 'Error desconegut';
 $string['unlimited'] = 'Il·limitat';
 $string['unpacking'] = 'S\'està desempaquetant {$a}';
 $string['unsafepassword'] = 'Aquesta contrasenya no és segura, proveu-ne una altra';

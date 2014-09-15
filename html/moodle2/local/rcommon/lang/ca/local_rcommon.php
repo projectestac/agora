@@ -5,6 +5,7 @@ $string['rcommon:authenticate'] = 'Autentica contingut Marsupial';
 $string['rcommon:exportcredentials'] = 'Exporta credencials de Marsupial';
 $string['rcommon:importcredentials'] = 'Importa credencials de Marsupial';
 $string['rcommon:managecredentials'] = 'Gestiona credencials de Marsupial';
+$string['rcommon:manageowncredentials'] = 'Gestiona credencials de Marsupial pròpies';
 $string['rcommon:managepublishers'] = 'Gestiona proveïdors de Marsupial';
 
 $string['addnewpublisher'] = 'Afegeix nou proveïdor';
@@ -17,7 +18,7 @@ $string['consumewait'] = 'Descarregant l\'estructura dels llibres. Aquest procé
 $string['delok'] = 'Dades esborrades correctament';
 $string['delko'] = 'No ha estat possible esborrar les dades, si us plau torni a intentar-ho pasats uns minuts';
 $string['downloadbookstructures'] = 'Actualitza l\'estructura dels llibres';
-$string['error_authentication'] = 'Error d\'autenticaci&oacute, codi: ';
+$string['error_authentication'] = 'Error d\'autenticació codi: {$a}';
 
 $string['error_code_1'] = 'URL generada correctament.';
 $string['error_code_0'] = 'Error inesperat.';
@@ -36,7 +37,7 @@ $string['insertkeybtn'] = 'Afegeix credencial';
 $string['insertkeymsg'] = 'Introdueix una credencial per aquest recurs';
 $string['key'] = 'Credencial';
 $string['keyadd'] = 'Afegeix credencial';
-$string['keyaddingforuser'] = 'Credencial nova per a l\'usuari/ària <strong>{$a}</strong>';
+$string['keyaddingforuser'] = 'CredeGncial nova per a l\'usuari/ària <strong>{$a}</strong>';
 $string['keyeditingforuser'] = 'Edita la credencial per a l\'usuari/ària <strong>{$a}</strong>';
 $string['keyconfirmdelete'] = 'Segur que vols eliminar aquesta credencial?';
 $string['keydelbtn'] = 'Elimina';
@@ -64,7 +65,7 @@ $string['selectpublisheredit'] = 'Seleccioneu un proveïdor de continguts per ed
 $string['selectpublisherdescription'] = 'Per descarregar totes les estructures de llibre és necessari seleccionar un editor';
 $string['teacherroles'] = 'Rols del professorat';
 $string['teacherrolesinfo'] = 'Rols que s\'autenticaran a les editorials com a usuari professor/a. La resta s\'autenticaran com a estudiants';
-$string['urlmoreinfo'] = 'Per a més informació: <a href="{$a}" target="_blank">click aqu&iacute;</a>';
+$string['urlmoreinfo'] = '<a href="{$a}" target="_blank">Més informació de l\'error</a>';
 $string['urlwsauthentication'] = 'Adreça del servei web d\'autenticació';
 $string['urlwsbookstructure'] = 'Adreça del servei web d\'estructura de llibre';
 $string['userhasnokeys'] = 'Aquest usuari/ària no te cap credencial assignada';

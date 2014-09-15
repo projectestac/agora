@@ -30,4 +30,4 @@ $string['courses_description'] = 'A continuación se muestran todos los cursos j
 
 $string['backups'] = 'Copias de seguridad';
 $string['backups_description'] = 'Disco usado con ficheros de copias de seguridad';
-$string['component'] = 'Componente';
+$string['area'] = 'Área';

@@ -166,6 +166,7 @@ $string['force_ssl_help'] = 'Al seleccionar aquest opció forceu que tots els ll
 A més a més, totes les peticions de serveis web des del proveïdor de l\'eina utilitzaran SSL.
 
 Si escolliu aquesta opció, confirmeu que el lloc web Moodle i el proveïdor de l\'eina suporten SSL.';
+$string['generaltool'] = 'Eina general';
 $string['global_tool_types'] = 'Tipus d\'eina globals';
 $string['grading'] = 'Encaminament de la qualificació';
 $string['icon_url'] = 'URL de l\'icona';
@@ -210,11 +211,12 @@ Aquest error pot ser resultat de la manca de la clau i de la contrasenya al prov
 Si teniu la clau i la contrasenya cal que l\'entreu quan s\'estigui editant l\'instància de l\'eina externa ( comproveu que les opcions avançades són visibles).<br />
 De forma alternativa, podeu crear una configuració per l\'eina del curs <a href="{$a->course_tool_editor}">aquí</a>.
  </p>';
-$string['lti:manage'] = 'Edita activitats LTI';
+$string['lti:manage'] = 'Esdevingues professor quan l\'eina es llanci';
 $string['lti:requesttooladd'] = 'Envia una eina als admins per configurar';
 $string['lti_tool_request_added'] = 'La petició de configuració de l\'eina ha sigut enviat amb èxit. Podeu contactar amb l\'administrador per completar la configuració de l\'eina.';
 $string['lti_tool_request_existing'] = 'Una configuració d\'eina per al domini de l\'eina ha sigut enviat.';
-$string['lti:view'] = 'Mostra activitats LTI';
+$string['ltiunknownserviceapicall'] = 'Crida API a servei de LTI desconegut';
+$string['lti:view'] = 'Llança activitats d\'eines externes';
 $string['main_admin'] = 'Ajuda general';
 $string['main_admin_help'] = 'Les eines externes permeten als usuaris de Moodle interactuar de forma fluida amb recursos situats en servidors remots. Mitjançant un protocol de llançament especial, l\'eina remota té accés a informació general sobre l\'usuari que la llança. Per exemple, el nom de la institució, la ID del curs, la ID de l\'usuari, i altres informacions com el nom de l\'usuari o l\'adreça de correu electrònic.
 
@@ -347,6 +349,9 @@ El únic cas en el qual aquesta opció hauria de ser seleccionada és si la conf
 $string['size'] = 'Mida dels parametres';
 $string['submission'] = 'Submissió';
 $string['submissions'] = 'Trameses';
+$string['submissionsfor'] = 'Trameses per a  {$a}';
+$string['subplugintype_ltisource'] = 'Font LTI';
+$string['subplugintype_ltisource_plural'] = 'Fonts LTI';
 $string['toggle_debug_data'] = 'Commuta dades de depuració';
 $string['tool_config_not_found'] = 'La configuració de l\'eina no s\'ha trobat per aquesta URL';
 $string['tool_settings'] = 'Configuració de l\'eina';
