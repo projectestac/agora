@@ -55,7 +55,9 @@ function get_books_structure_publisher($publisher, $isbn = false) {
                 $book = rcommon_object_to_array_lower($book);
 
                 // Disable scorm import
-                if($book['formato'] == 'stats_cdf_uniform(par1, par2, par3, which)') continue;
+                if($book['formato'] == 'scorm') {
+                    continue;
+                }
 
                 $cod_isbn = $book['isbn'];
 
