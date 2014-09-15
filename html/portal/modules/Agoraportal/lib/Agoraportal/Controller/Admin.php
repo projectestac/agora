@@ -155,11 +155,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
             $clientService = $clientService[$clientServiceId];
 
-            // Get the 3 services
+            // Get the definition of the services
             $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+            
+            $serviceName = $services[$clientService['serviceId']]['serviceName'];
+            $serviceURL = $services[$clientService['serviceId']]['URL'];
 
-            // Autofill dbHost var with default values
-            if ((is_null($dbHost) || empty($dbHost)) && ($services[$clientService['serviceId']]['serviceName'] == 'intranet')) {
+            // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
+            if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
                 $dbHost = $agora['intranet']['host'];
             }
 
@@ -169,8 +172,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // If it is an activation, checks if the service exists. If not create it
             if ($state == 1) {
                 if ($clientService['activedId'] == 0) {
-                    $serviceName = $services[$clientService['serviceId']]['serviceName'];
-
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $serviceName,
                                                 array('clientServiceId' => $clientServiceId,
                                                       'dbHost' => $dbHost));
@@ -187,8 +188,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     }
 
                     // Get the database value depending on the service requested
+                    // In MySQL is DB name. In Oracle is Oracle instance.
                     $serviceDB = '';
-                    switch ($services[$clientService['serviceId']]['serviceName']) {
+                    switch ($serviceName) {
                         case 'intranet':
                             $database = ($db) ? $agora['intranet']['userprefix'] . $db : '';
                             break;
@@ -216,7 +218,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         // insert the action in logs table
                         ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode,
                             'actionCode' => 2,
-                            'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                            'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $serviceName)));
                     } else {
                         LogUtil::registerError($this->__('Error en l\'edició del registre'));
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
@@ -233,7 +235,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             if ($state == -2) {
                 // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
-                    'action' => $this->__f('S\'ha denegat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                    'action' => $this->__f('S\'ha denegat el servei %s', $serviceName)));
             }
 
             // Withdraw the service
@@ -244,14 +246,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                 'activedId' => '')));
                 // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
-                    'action' => $this->__f('S\'ha donat de baixa el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                    'action' => $this->__f('S\'ha donat de baixa el servei %s', $serviceName)));
             }
 
             // Deactivate the new service
             if ($state == -4) {
                 // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
-                    'action' => $this->__f('S\'ha desactivat el servei %s', $services[$clientService['serviceId']]['serviceName'])));
+                    'action' => $this->__f('S\'ha desactivat el servei %s', $serviceName)));
             }
 
             // This call activates the service
@@ -286,7 +288,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 // We need to know service base URL
                 $mailContent = $this->view->assign('baseURL', $agora['server']['server'] . $agora['server']['base'])
                         ->assign('baseURLMarsupial', $agora['server']['marsupial'] . $agora['server']['base'])
-                        ->assign('serviceName', $services[$clientService['serviceId']]['serviceName'])
+                        ->assign('serviceName', $serviceName)
+                        ->assign('serviceURL', $serviceURL)
                         ->assign('clientName', $clientName)
                         ->assign('clientDNS', $clientDNS)
                         ->assign('observations', $observations)

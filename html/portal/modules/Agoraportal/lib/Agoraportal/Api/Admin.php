@@ -473,32 +473,35 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sqls[] = "UPDATE $prefix" . "_users set user_pass='$passwordEnc', user_email='$clientCode" . "@xtec.cat', user_registered=now() WHERE user_login='admin'";
 
         // Convert some hardcoded URL (TODO: This must be a param in web form)
-        $toReplace = 'http://pwc-int.educacio.intranet/agora/moodle/nodes';
-       
-        $sqls[] = "UPDATE $prefix" . "_bp_activity 
-            SET action = REPLACE (action , '$toReplace', '$siteURL')
-            WHERE action like '%$toReplace%'";
-        
-        $sqls[] = "UPDATE $prefix" . "_bp_activity 
-            SET content = REPLACE (content , '$toReplace', '$siteURL')
-            WHERE content like '%$toReplace%'";
-        
-        $sqls[] = "UPDATE $prefix" . "_bp_activity 
-            SET primary_link = REPLACE (primary_link , '$toReplace', '$siteURL')
-            WHERE primary_link like '%$toReplace%'";
-        
-        $sqls[] = "UPDATE $prefix" . "_posts 
-            SET post_content = REPLACE (post_content , '$toReplace', '$siteURL')
-            WHERE post_content like '%$toReplace%'";
-        
-        $sqls[] = "UPDATE $prefix" . "_posts 
-            SET post_excerpt = REPLACE (post_excerpt , '$toReplace', '$siteURL')
-            WHERE post_excerpt like '%$toReplace%'";
-        
-        $sqls[] = "UPDATE $prefix" . "_posts 
-            SET guid = REPLACE (guid , '$toReplace', '$siteURL')
-            WHERE guid like '%$toReplace%'";
-        
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterpri';
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec';
+
+        foreach ($toReplace as $string) {
+            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+                SET action = REPLACE (action , '$string', '$siteURL')
+                WHERE action like '%$string%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+                SET content = REPLACE (content , '$string', '$siteURL')
+                WHERE content like '%$string%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+                SET primary_link = REPLACE (primary_link , '$string', '$siteURL')
+                WHERE primary_link like '%$string%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
+                SET post_content = REPLACE (post_content , '$string', '$siteURL')
+                WHERE post_content like '%$string%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
+                SET post_excerpt = REPLACE (post_excerpt , '$string', '$siteURL')
+                WHERE post_excerpt like '%$string%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
+                SET guid = REPLACE (guid , '$string', '$siteURL')
+                WHERE guid like '%$string%'";
+        }
+
         // Reset stats table
         $sqls[] = "TRUNCATE $prefix" . "_stats";
         
@@ -533,8 +536,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     if ($this->is_serialized($value)) {
                         $value = unserialize($value);
                         
-                        $values[$key] = str_replace($toReplace, $siteURL, $value);
+                        foreach ($toReplace as $string) {
+                            $values[$key] = str_replace($string, $siteURL, $value);
+                        }
 
+                        // TODO: If this check is necessary, must be done in a better way
                         if (strpos('/usu1/', $value)) {
                             $values[$key] = str_replace('usu1', $dbUser, $values[$key]);
                         }

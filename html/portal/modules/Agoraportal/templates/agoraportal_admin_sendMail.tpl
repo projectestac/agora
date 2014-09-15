@@ -9,20 +9,15 @@
     </p>
     
     {if $serviceName eq 'moodle2'}
-        {assign var='serviceName4URL' value='moodle'}
         {assign var='serviceName4User' value='moodle'}
-    {elseif $serviceName eq 'intranet'}
-        {assign var='serviceName4URL' value='intranet'}
-        {assign var='serviceName4User' value='intranet'}
-    {elseif $serviceName eq 'nodes'}
-        {assign var='serviceName4URL' value='nodes'}
-        {assign var='serviceName4User' value='nodes'}
+    {else}
+        {assign var='serviceName4User' value=$serviceName}
     {/if}
     
     {if $serviceName neq 'marsupial'}
     <p>
         Podeu accedir al vostre espai <strong>{$serviceName4User}</strong> des de
-        l'URL <a href="{$baseURL}{$clientDNS}/{$serviceName4URL}/">{$baseURL}{$clientDNS}/{$serviceName4URL}</a>
+        l'URL <a href="{$baseURL}{$clientDNS}/{$serviceURL}/">{$baseURL}{$clientDNS}/{$serviceURL}</a>
         amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
         Us recomanem que canvieu la contrasenya d'aquest usuari despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
@@ -33,7 +28,7 @@
     {else}
     <p>
         A partir d'ara, l'URL d'acc&eacute;s al vostre moodle ha canviat i ha
-        passat a ser <a href="{$baseURLMarsupial}{$clientDNS}/moodle/">{$baseURLMarsupial}{$clientDNS}/moodle</a>.
+        passat a ser <a href="{$baseURLMarsupial}{$clientDNS}/{$serviceURL}/">{$baseURLMarsupial}{$clientDNS}/{$serviceURL}</a>.
         Tots els accessos que es facin utilitzant el domini {$baseURL}
         seran redirigits automàticament a {$baseURLMarsupial}.
     </p>
@@ -96,15 +91,16 @@
         recordeu que a la XTEC no hi ha cap figura destinada a solucionar les
         q&uuml;estions plantejades en relaci&oacute; al funcionament del 
         WordPress. Per tal de resoldre els dubtes relacionats amb aquest tema
-        podeu adre&ccedil;ar-vos als 
-        f&ograve;rums 
-        del projecte Nodes. En aquest f&ograve;rum tothom pot preguntar 
+        podeu adre&ccedil;ar-vos al
+        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1243">
+        f&ograve;rum 
+        del projecte Nodes</a>. En aquest f&ograve;rum tothom pot preguntar 
         i respondre les q&uuml;estions que consideri oportunes.
     </p>
     {/if}
 
     <p>
-        Des del portal <a href="{$baseURL}">&Agrave;gora</a> s'informar&agrave; 
+        Des del <a href="{$baseURL}">portal de suport d'&Agrave;gora</a> s'informar&agrave; 
         de les novetats relacionades amb el projecte (versions noves, 
         not&iacute;cies...). Esperem que els serveis que us ofereix &Agrave;gora 
         us siguin d'utilitat.
