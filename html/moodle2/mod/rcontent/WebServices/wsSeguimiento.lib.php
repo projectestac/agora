@@ -623,7 +623,7 @@ function get_unit_from_code($ResultadoExtendido, $bookid){
 function get_activity_from_code($ResultadoExtendido, $bookid, $unitid){
     global $DB;
     if(isset($ResultadoExtendido->idActividad) && !empty($ResultadoExtendido->idActividad)) {
-        return $DB->get_record('rcommon_books_activities',array('code'=>$$ResultadoExtendido->idActividad, 'unitid'=>$unitid, 'bookid'=>$bookid));
+        return $DB->get_record('rcommon_books_activities',array('code'=>$ResultadoExtendido->idActividad, 'unitid'=>$unitid, 'bookid'=>$bookid));
     } else {
          return false;
     }
