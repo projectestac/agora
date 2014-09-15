@@ -1,0 +1,10 @@
+
+# turn the rewriting engine on
+RewriteEngine On
+
+# rewrite any unknown directories and files
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^(.*)$ - [NC,L]
+RewriteRule ^(.*)$ index.php [QSA,L]
