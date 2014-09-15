@@ -2,6 +2,10 @@ RewriteEngine on
 
 RewriteBase /agora/
 
+# Allow access to directories without URL rewrite
+RewriteRule ^portal(.*)$ - [L]
+RewriteRule ^config(.*)$ - [L]
+
 # Block access to install.php
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
 RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
@@ -9,19 +13,17 @@ RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
 RewriteRule ^([^/]*)/moodle$ $1/moodle/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle/my$ $1/moodle/my/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
-RewriteRule ^([^/]*)/nodes$ $1/nodes/ [QSA,R=permanent,L]
+RewriteRule ^([^/]*)$ $1/ [QSA,R=permanent,L]
 
 # Redirect /moodle2 to /moodle
 RewriteRule ^([^/]*)/moodle2/(.*)$ $1/moodle/$2 [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle2$ $1/moodle/ [QSA,R=permanent,L]
 
-RewriteCond %{REQUEST_URI} ([^/]*)/usu1/intranet/ [OR]
-RewriteCond %{REQUEST_URI} ([^/]*)/usu2/intranet/
-RewriteRule ^([^.]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
-
 RewriteRule ^([^/]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
-RewriteRule ^([^/]*)/nodes/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]
+# Only apply the rule if it is not an internal redirect
+RewriteCond %{ENV:REDIRECT_STATUS} !200
+RewriteRule ^([^/]*)/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]
 
 # Required for the proper functioning of cacti
 RewriteRule ^server-status$ - [L]
@@ -30,4 +32,3 @@ RewriteRule ^server-status$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . wordpress/index.php [L]
-
