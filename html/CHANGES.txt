@@ -19,11 +19,11 @@ MOODLE 2
  - Enabling memcache
  - Workarround for MDL-47176 sql_compare_text does not support string longer than 4000 chars in Oracle restoring match question type
  - Many theme xtec2 improvements including:
- - Enable custom menu on tablets and phones
- - Enabled dock form theme xtec2
- - Repaired fontawesome colors in many icons
- - Repaired theme fonts and images viewing in https mode
- - Calendar activity titles are now smaller
+   -- Enable custom menu on tablets and phones
+   -- Enabled dock form theme xtec2
+   -- Repaired fontawesome colors in many icons
+   -- Repaired theme fonts and images viewing in https mode
+   -- Calendar activity titles are now smaller
    
 PORTAL
 - Agoraportal: Fixed activation of new services Intraweb and Nodes
