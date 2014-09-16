@@ -42,15 +42,19 @@ function reactor_child_theme_setup() {
 	// remove_theme_support('reactor-sidebars');
 	 add_theme_support(
 	 	'reactor-sidebars',
-	 	array('primary', 'secondary', 'front-primary', 'front-secondary', 'footer')
+	 	array('primary', 'secondary', 'front-primary', 'front-secondary','categoria', 'footer')
 	 );
 	
 	/* Support for layouts
 	Note: this doesn't remove sidebars */
 	// remove_theme_support('reactor-layouts');
-	 add_theme_support(
+	/* add_theme_support(
 	 	'reactor-layouts',
 	 	array('1c', '2c-l', '2c-r', '3c-l', '3c-r', '3c-c')
+	 );*/
+	add_theme_support(
+	 	'reactor-layouts',
+	 	array('2c-l')
 	 );
 	
 	/* Support for custom post types */
@@ -541,6 +545,18 @@ add_action( 'wp_footer', function()
     print '<pre>$widgets = ' . esc_html( var_export( $widgets, TRUE ) ) . '</pre>';
 });
 */
+
+function my_remove_meta_boxes() {
+
+ //if( !current_user_can('manage_options') ) {
+  remove_meta_box('trackbacksdiv', 'post', 'normal');
+  remove_meta_box('commentsdiv', 'post', 'normal');
+  remove_meta_box('layoutdiv', 'post', 'normal');
+ //}
+}
+
+add_action( 'admin_menu', 'my_remove_meta_boxes' );
+
 
 /**
  * Remove option in admin bar added by the extension 'WordPress Social Login'.

@@ -22,9 +22,9 @@
                 
 					<?php /* get the page loop
 					only works when posts page is set in the reading settings */
-                    			get_template_part('loops/loop', 'page'); ?>
-                    
-					<?php // get the loop
+                    get_template_part('loops/loop', 'page'); ?>
+ 					
+					<?php // get the loop					
 					get_template_part('loops/loop', 'index'); ?>
                 
                 <?php reactor_inner_content_after(); ?>
