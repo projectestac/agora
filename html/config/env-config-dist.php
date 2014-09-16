@@ -17,6 +17,7 @@
 
 	// Schools Moodle 2 config info
 	$agora['moodle2']['datadir']   = 'moodledata/moodle2/';   // Directori de dades d'usuari del moodle2
+	$agora['moodle2']['memcache_servers'] = '127.0.0.1';
 
 	// Schools intranet database access info (MySQL)
 	$agora['intranet']['username'] = 'root';          // Usuari/ària per accedir a les bases de dades de les intranets

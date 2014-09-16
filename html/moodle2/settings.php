@@ -130,7 +130,9 @@ if (isset($agora['server']['enviroment'])){
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
 $CFG->memcache_prefix = $CFG->dbuser.'_';
-$CFG->memcache_servers = "127.0.0.1";
+if(isset($agora['moodle2']['memcache_servers'])){
+	$CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
+}
 if(isset($agora['server']['root']) && !empty($agora['server']['root'])){
 	$CFG->agora_muc_path = $agora['server']['root'].'/cache_ins';
 }
