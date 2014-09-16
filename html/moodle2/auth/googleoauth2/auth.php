@@ -261,6 +261,13 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
                 //create the user if it doesn't exist
                 if (empty($user)) {
 
+                    //XTEC ************ AFEGIT - To restrict domain
+                    //2014.09.16 @pferre22
+                    if (!$this->email_auth_domain($useremail)) {
+                        throw new moodle_exception('emailonlyallowed', '', '', get_config('auth/googleoauth2', 'auth_domain'));
+                    }
+                    //************* FI
+
                     // deny login if setting "Prevent account creation when authenticating" is on
                     if($CFG->authpreventaccountcreation) throw new moodle_exception("noaccountyet", "auth_googleoauth2");
 
@@ -516,6 +523,35 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
         print_string('auth_googleclientsecret', 'auth_googleoauth2') ;
 
         echo '</td></tr>';
+
+        //XTEC ************ AFEGIT - To restrict domain
+        //2014.09.16 @pferre22
+        if (!isset($config->auth_domain)) {
+            $config->auth_domain = '';
+        }
+
+        echo '<tr>
+                <td align="right"><label for="auth_domain">';
+
+        print_string('allowemailaddresses', 'admin');
+
+        echo '</label></td><td>';
+
+
+        echo html_writer::empty_tag('input',
+                array('type' => 'text', 'id' => 'auth_domain', 'name' => 'auth_domain',
+                    'class' => 'auth_domain', 'value' => $config->auth_domain));
+
+        if (isset($err["auth_domain"])) {
+            echo $OUTPUT->error_text($err["auth_domain"]);
+        }
+
+        echo '</td><td>';
+
+        print_string('configallowemailaddresses', 'admin') ;
+
+        echo '</td></tr>';
+        //***********************FI
 
         //XTEC ************ ELIMINAT - Only let configure Google OAuth
         //2014.08.15  @pferre22
@@ -842,6 +878,14 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
         set_config('googleipinfodbkey', $config->googleipinfodbkey, 'auth/googleoauth2');
         set_config('googleuserprefix', $config->googleuserprefix, 'auth/googleoauth2');
 
+
+        //XTEC ************ AFEGIT - To restrict domain
+        //2014.09.16 @pferre22
+        if (!isset($config->auth_domain)) {
+            $config->auth_domain = '';
+        }
+        set_config('auth_domain', $config->auth_domain, 'auth/googleoauth2');
+        //***********************FI
         return true;
     }
 
@@ -862,5 +906,32 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
             return true;
         }
     }
+
+    //XTEC ************ AFEGIT - To restrict domain
+    //2014.09.16 @pferre22
+    function email_auth_domain($email) {
+        $auth_domain = get_config('auth/googleoauth2', 'auth_domain');
+        if (!empty($auth_domain)) {
+            $allowed = explode(' ', $auth_domain);
+            foreach ($allowed as $allowedpattern) {
+                $allowedpattern = trim($allowedpattern);
+                if (!$allowedpattern) {
+                    continue;
+                }
+                if (strpos($allowedpattern, '.') === 0) {
+                    if (strpos(strrev($email), strrev($allowedpattern)) === 0) {
+                        // Subdomains are in a form ".example.com" - matches "xxx@anything.example.com".
+                        return true;
+                    }
+
+                } else if (strpos(strrev($email), strrev('@'.$allowedpattern)) === 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+    //************* FI
 
 }
