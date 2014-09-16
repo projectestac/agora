@@ -34,7 +34,38 @@ function reactor_do_reactor_head() { ?>
 
 
 <!-- TODO: moure aquesta funció a un lloc més adequat -->
+
 <script>
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+function checkMenuCookie() {
+    var menu = getCookie("mostraMenu");
+    if (menu == 1) {
+ 		document.getElementById("menu-panel").style.display="inline-block";
+ 		document.getElementById("icon-menu").setAttribute("class", "dashicons dashicons-no-alt");
+ 		document.getElementById("icon-23").setAttribute("backgroundColor", "yellow");
+    } else {
+    	document.getElementById("menu-panel").style.display="none";
+    	document.getElementById("icon-menu").setAttribute("class", "dashicons dashicons-menu");
+    }
+}
 
 function menu_toggle(){
 	$icon_menu=document.getElementById("icon-menu");
@@ -43,13 +74,15 @@ function menu_toggle(){
 	if ($menu_panel.style.display=="inline-block") {
 		$menu_panel.style.display="none";
 		$icon_menu.setAttribute("class", "dashicons dashicons-menu");
+		setCookie("mostraMenu","0",10);
 	} else {
 		$menu_panel.style.display="inline-block";
 		$icon_menu.setAttribute("class", "dashicons dashicons-no-alt");	
+		document.getElementById("icon-23").setAttribute("backgroundColor", "yellow");
+		setCookie("mostraMenu","1",10);
 	}
 }
 </script>
-
 
 
 <?php 
@@ -88,15 +121,17 @@ function reactor_do_title_logo() { ?>
 		<div class="row">
 		<div class="column">	
 		 
+			
 			<div id="idcentre-box" class="<?php reactor_columns(array( 3, 12 ));?>">   
 				
 			  	<!-- Primer bloc: text o logo -->
+			  	<a href=<?php echo home_url();?> >
 			  	<div  id="logo-box" class="site-logo <?php reactor_columns(array( 6, 8 ));?>">                     		
-                		<div class="site-logo-inner"> 
+                		<div class="site-logo-inner" style="font-size:<?php echo reactor_option('tamany_font_nom');?>"> 
 	                		<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
 				</div><!-- .site-logo-inner -->						
 				  </div> <!-- #logo-box .site-logo -->
-				
+				</a>
 				  <!-- Segon bloc -->
 				  <!-- small devices -->
 				  <div id="quick-call-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
@@ -110,10 +145,10 @@ function reactor_do_title_logo() { ?>
 							</a>	
 				 </div>	
 				  
-				  <!-- medium & large devices -->	
+				  <!-- medium & large devices -->
 				  <div id="description-box" class="hide-for-small  site-description-box <?php reactor_columns( 6 ); ?> ">
 						<div class="site-description-box-inner">  
-							<span> 
+						<span> 
 						<?php	
 							switch (true){
 								case is_front_page():
@@ -133,11 +168,9 @@ function reactor_do_title_logo() { ?>
 									echo esc_attr( get_bloginfo( 'description', 'display' ) ); 
 							}
 						?>
-							
-							</span>
+						</span>
 						</div>
 					</div>	
-					
 			</div><!-- #idcentre-box -->
 				
 				<!-- # imatge de capçalera o slider -->
@@ -145,22 +178,17 @@ function reactor_do_title_logo() { ?>
 				
 				<?php
  				
-				if (reactor_option('imatge_capcalera')) {
-					//echo "<img id='imatge_capcalera' src='".reactor_option('imatge_capcalera')."'>";
-					
-				?>
+				if (reactor_option('imatge_capcalera')) { ?>
 					<style>
 						#slider-box{
 							background-image:url(<?php echo reactor_option('imatge_capcalera'); ?>); 
 							background-size: cover;
-    							background-repeat: no-repeat; 
+							background-repeat: no-repeat; 
 						}
 					</style>
-				<?php
-			  	}else{	
+				<?php }else{	
 					do_action('slideshow_deploy', reactor_option('carrusel'));
-				}
-				?>
+				}?>
 
 				</div>
 				
@@ -182,7 +210,12 @@ function reactor_do_title_logo() { ?>
 							<div id="icon-12" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon12'];?>"></div>
 							</div>
-						</a>			
+						</a>
+						
+						<div style="position:absolute">
+						<?php get_search_form( ); ?>
+						</div>
+									
 						<a title="CERCA" href="#">
 							<div id="icon-13" class="icon-graella">
 								<div class="dashicons dashicons-search"></div>
@@ -191,7 +224,7 @@ function reactor_do_title_logo() { ?>
 						
 						<!-- Fila 2 -->
 
-						<a title="<?php echo $options['title_icon23'];?>"href="<?php echo $options['link_icon23'];?>">
+						<a title="<?php echo $options['title_icon21'];?>"href="<?php echo $options['link_icon21'];?>">
 							<div id="icon-21" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>
 							</div>

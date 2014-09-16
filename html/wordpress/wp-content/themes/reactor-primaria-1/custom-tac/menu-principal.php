@@ -61,22 +61,22 @@ function start_lvl( &$output, $depth = 0, $args = array() ) {
 }
 function menu_principal(){
 
-		$defaults = array(
-		    'theme_location' => "main-menu",	
-		    'echo'            => true,
-		    'container'       => FALSE,
-        	'container_id'    => FALSE,
-        	'menu_class'      => 'menu-principal',
-        	'menu_id'         => FALSE,
-        	'depth'           => 2,
-        	'walker'          => new themeslug_walker_nav_menu
-		);
-		
-		
-		echo "<div id='menu-panel' class='large-12'>";
-			wp_nav_menu( $defaults);	
-		echo "</div>";
-		
+	$defaults = array(
+	    'theme_location' => "main-menu",	
+	    'echo'            => true,
+	    'container'       => FALSE,
+	'container_id'    => FALSE,
+	'menu_class'      => 'menu-principal',
+	'menu_id'         => FALSE,
+	'depth'           => 2,
+	'walker'          => new themeslug_walker_nav_menu
+	);
+	
+	
+	echo "<div id='menu-panel' class='large-12'>";
+		wp_nav_menu( $defaults);	
+	echo "</div>";
+	
 
 }
 

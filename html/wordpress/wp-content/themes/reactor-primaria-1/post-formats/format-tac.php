@@ -9,6 +9,7 @@
  
  global $layout;
  global $card_bgcolor;
+ global $amplada;
  
  switch ($layout) {
  	case 1: 	$amplada="large-12";            break;
@@ -21,32 +22,43 @@
  }
  
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class("$amplada targeta $card_bgcolor"); ?>>
-<div class="entry-body">
 
-<?php     
-      if ( get_post_meta( get_the_ID(), '_amaga_titol', true )!="on") { 
-       echo '<header class="entry-header">';
-       reactor_post_header();
-       echo "</header><!-- .entry-header -->";
-      }
-      if ( get_post_meta( get_the_ID(), '_bloc_html', true )!="on") {  
-        echo '<div class="entry-summary">';
-        the_excerpt(); 
-        echo "</div><!-- .entry-summary -->";
-     } else { 
-        echo '<div class="entry-summary">';
-        the_content();
-        echo '</div><!-- .entry-summary -->';
-    }    
-    if ( get_post_meta( get_the_ID(), '_amaga_metadata', true )!="on") { 
-        echo '<footer class="entry-footer">';
-        reactor_post_footer(); 
-        echo '</footer><!-- .entry-footer -->';
-    } 
-    
-?>  
+<?php if ($amplada!="large-12") { ?>
 
-</div><!-- .entry-body -->
-</article><!-- #post -->
+	<article id="post-<?php the_ID(); ?>" <?php post_class("$amplada targeta $card_bgcolor"); ?>>
+		<div class="entry-body">
+		<header class="entry-header">
+			 <?php reactor_post_header(); ?>
+		</header>
+		<div class="entry-summary">
+			  <?php (get_post_meta( get_the_ID(), '_bloc_html', true )!="on")? the_excerpt(): the_content(); ?>
+		</div>
+		<footer class="entry-footer">
+			<?php  reactor_post_footer();?>
+		</footer>
+		</div><!-- .entry-body -->
+	</article><!-- #post -->
 
+<?php } else { // Targeta 1  ?> 
+	
+	<article id="post-<?php the_ID(); ?>" <?php post_class("$amplada targeta $card_bgcolor"); ?>>
+		<div class="entry-body row">
+			<div class="entry-summary large-9 columns">
+			      <?php reactor_do_standard_header_titles(); ?>
+			      <?php reactor_do_meta_autor_date(); ?>
+				  <?php (get_post_meta( get_the_ID(), '_bloc_html', true )!="on")? the_excerpt(): the_content(); ?>
+				  <?php  add_action('reactor_post_after', 'reactor_do_post_comments', 2);?>
+				  <footer class="entry-footer">
+					<?php 
+					add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
+				  	reactor_post_footer(); 
+				  	?>
+				</footer>
+			</div>
+		<header class="entry-header large-3 columns">
+			 <?php 	reactor_do_standard_thumbnail(); ?>
+		</header>		
+		</div><!-- .entry-body -->
+	</article><!-- #post -->	
+
+<?php } ?>

@@ -40,13 +40,13 @@ get_header();
 	        			get_sidebar('frontpage'); 
 	        			break;
 	        		case "2c-r":
-						$columnes=10;
+					$columnes=10;
 	        			break;
 					case "3c-c":
 	        			get_sidebar('frontpage'); 
 	        			$columnes=7;
 	        			break;
-	    	        default:
+	    	        	default:
 	        			$columnes=9;
 	        		}
         		
@@ -58,13 +58,21 @@ get_header();
 	         	<?php reactor_inner_content_before(); ?>
 					
 				<?php 
-				
-                                    // La pagina principal	
-                                    $pagina=get_post();
-                                    if (strlen(trim($pagina->post_content)))
-                                    get_template_part('loops/loop', 'page'); 
 
-                                    // Preparem la consulta principal	
+				   // La pagina principal
+				   $args = array( 
+                                        'post_type'           => 'page',
+                                        'page_id'             => reactor_option('frontpage_page'));
+
+                                    global $frontpage_query;   			      	
+                                    $frontpage_query = new WP_Query( $args ); 	
+ 				    $frontpage_query->the_post(); 			
+
+                                    if (strlen(trim(get_the_content()))){
+				    	get_template_part('post-formats/format', 'page');
+				    }
+				   
+                                    // Preparem la consulta principal per obtenir els articles	
 
                                     $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
                                     $args = array( 
@@ -73,9 +81,9 @@ get_header();
                                         //IMPORTANT: Aixo no permet stickys. Llastima. action associat al functions (categoria_portada())  
                                         'posts_per_page'      => $number_posts,
                                         'paged'               => $paged );
-
-                                    global $frontpage_query;   			      	
-                                    $frontpage_query = new WP_Query( $args ); 	
+ 			      	
+                                    $frontpage_query = new WP_Query( $args ); 
+                                    
 						
 				?>
 			
@@ -100,5 +108,8 @@ get_header();
         <?php reactor_content_after(); ?>
         
 	</div><!-- #primary -->
-
+<script>
+	//Mostra menu o no
+	checkMenuCookie();
+</script>
 <?php get_footer(); ?>

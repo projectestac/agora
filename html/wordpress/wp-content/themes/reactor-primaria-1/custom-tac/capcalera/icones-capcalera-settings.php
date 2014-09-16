@@ -29,7 +29,7 @@ class graellaIcones
         // This page will be under "Settings"
         add_theme_page(
             'Settings Admin', 
-            'Capçalera', 
+            'Icones de capçalera', 
             'manage_options', 
             'my-setting-admin', 
             array( $this, 'create_admin_page' )
@@ -49,13 +49,8 @@ class graellaIcones
         <div class="wrap row">
             <div style="float:left;margin-right:30px;">
 	         <?php screen_icon(); ?>
-            <h2>Capçalera</h2> 
-            
-            <div style="width:500px">
-            <li>Per definir el <strong>nom del centre</strong> i <strong>la descripció</strong> vés a <code>Aparença -> Personalitza -> Identificació del centre</code>.
-            <li>Per definir les fotos de capçalera crea una presentació de diapositives, copia l'identificador i enganxa'l al camp <code>Diapositives capçalera (id)</code> del apartat <code>Aparença -> Personalitza -> Identificació del centre </code> 
-            </div>
-	                      
+            <h2>Icones de capçalera</h2> 
+                                  
 	            <form method="post" action="options.php">
 	            
 	            <?php
@@ -126,22 +121,21 @@ class graellaIcones
             'my-setting-admin' // Page
         );  
         
-        // Icon 11
+        // Icon 11  
 		add_settings_field(
             'title_icon11', // ID
             'Element 1:', // Title 
             array( $this, 'title_icon11_callback' ), // Callback
             'my-setting-admin', // Page
             'setting_icons_fila1' // Section           
-        ); 
-
-        add_settings_field(
+        );    
+		add_settings_field(
             'icon11', // ID
             'Icona:', // Title 
             array( $this, 'icon11_callback' ), // Callback
             'my-setting-admin', // Page
             'setting_icons_fila1' // Section           
-        ); 
+        );    
         add_settings_field(
             'link_icon11', // ID
             'Enllaç:', // Title 
@@ -149,7 +143,8 @@ class graellaIcones
             'my-setting-admin', // Page
             'setting_icons_fila1' // Section           
         ); 
-         add_settings_field(
+        
+        add_settings_field(
             'separador11', // ID
             '<hr>', // Title 
             array( $this, 'sep_callback' ), // Callback
@@ -324,53 +319,51 @@ class graellaIcones
     {
         $new_input = array();
 
-        if( isset( $input['icon11'] ) )
-            $new_input['icon11'] = sanitize_text_field( $input['icon11'] );
-        if( isset( $input['link_icon11'] ) )
-            $new_input['link_icon11'] = sanitize_text_field( $input['link_icon11'] );
- 	if( isset( $input['title_icon11'] ) )
-            $new_input['title_icon11'] = sanitize_text_field( $input['title_icon11'] );
+		if( isset( $input['icon11'] ) )
+		    	$new_input['icon11'] = sanitize_text_field( $input['icon11'] );
+		if( isset( $input['link_icon11'] ) )
+			    $new_input['link_icon11'] = sanitize_text_field( $input['link_icon11']); 
+	 	if( isset( $input['title_icon11'] ) )
+		    $new_input['title_icon11'] = sanitize_text_field( $input['title_icon11'] );
+		
+		if( isset( $input['icon12'] ) )
+	            $new_input['icon12'] = sanitize_text_field( $input['icon12'] );
+		if( isset( $input['link_icon12'] ) )
+	            $new_input['link_icon12'] = sanitize_text_field( $input['link_icon12'] );
+	 	if( isset( $input['title_icon12'] ) )
+	            $new_input['title_icon12'] = sanitize_text_field( $input['title_icon12'] );
 	
-        if( isset( $input['icon12'] ) )
-            $new_input['icon12'] = sanitize_text_field( $input['icon12'] );
-	if( isset( $input['link_icon12'] ) )
-            $new_input['link_icon12'] = sanitize_text_field( $input['link_icon12'] );
- 	if( isset( $input['title_icon12'] ) )
-            $new_input['title_icon12'] = sanitize_text_field( $input['title_icon12'] );
-
-	if( isset( $input['icon13'] ) )
-    		$new_input['icon13'] = sanitize_text_field( $input['icon13'] );
-	if( isset( $input['link_icon13'] ) )
-            $new_input['link_icon13'] = sanitize_text_field( $input['link_icon13'] );
- 	if( isset( $input['title_icon13'] ) )
-            $new_input['title_icon13'] = sanitize_text_field( $input['title_icon13'] );
-
-	if( isset( $input['icon21'] ) )
-    		$new_input['icon21'] = sanitize_text_field( $input['icon21'] );
-	if( isset( $input['link_icon21'] ) )
-            $new_input['link_icon21'] = sanitize_text_field( $input['link_icon21'] );
- 	if( isset( $input['title_icon21'] ) )
-            $new_input['title_icon21'] = sanitize_text_field( $input['title_icon21'] );
-
-	if( isset( $input['icon22'] ) )
-    		$new_input['icon22'] = sanitize_text_field( $input['icon22'] );
-	if( isset( $input['link_icon22'] ) )
-            $new_input['link_icon22'] = sanitize_text_field( $input['link_icon22'] );
- 	if( isset( $input['title_icon22'] ) )
-            $new_input['title_icon22'] = sanitize_text_field( $input['title_icon22'] );
-
-	if( isset( $input['icon23'] ) )
-    		$new_input['icon23'] = sanitize_text_field( $input['icon23'] );
-	if( isset( $input['link_icon23'] ) )
-            $new_input['link_icon23'] = sanitize_text_field( $input['link_icon23'] );
- 	if( isset( $input['title_icon23'] ) )
-            $new_input['title_icon23'] = sanitize_text_field( $input['title_icon23'] );
-
-
-        /*if( isset( $input['title'] ) )
-            $new_input['title'] = sanitize_text_field( $input['title'] );*/
-
-        return $new_input;
+		/*if( isset( $input['icon13'] ) )
+	    		$new_input['icon13'] = sanitize_text_field( $input['icon13'] );
+		if( isset( $input['link_icon13'] ) )
+	            $new_input['link_icon13'] = sanitize_text_field( $input['link_icon13'] );
+	 	if( isset( $input['title_icon13'] ) )
+	            $new_input['title_icon13'] = sanitize_text_field( $input['title_icon13'] );*/
+	
+		if( isset( $input['icon21'] ) )
+	    		$new_input['icon21'] = sanitize_text_field( $input['icon21'] );
+		if( isset( $input['link_icon21'] ) )
+	            $new_input['link_icon21'] = sanitize_text_field( $input['link_icon21'] );
+	 	if( isset( $input['title_icon21'] ) )
+	            $new_input['title_icon21'] = sanitize_text_field( $input['title_icon21'] );
+	
+		if( isset( $input['icon22'] ) )
+	    		$new_input['icon22'] = sanitize_text_field( $input['icon22'] );
+		if( isset( $input['link_icon22'] ) )
+	            $new_input['link_icon22'] = sanitize_text_field( $input['link_icon22'] );
+	 	if( isset( $input['title_icon22'] ) )
+	            $new_input['title_icon22'] = sanitize_text_field( $input['title_icon22'] );
+		
+		/*
+		if( isset( $input['icon23'] ) )
+	    		$new_input['icon23'] = sanitize_text_field( $input['icon23'] );
+		if( isset( $input['link_icon23'] ) )
+	            $new_input['link_icon23'] = sanitize_text_field( $input['link_icon23'] );
+	 	if( isset( $input['title_icon23'] ) )
+	            $new_input['title_icon23'] = sanitize_text_field( $input['title_icon23'] );*/
+	
+	
+	        return $new_input;
     }
 
     /** 

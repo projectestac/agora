@@ -5,6 +5,7 @@
  * @package Reactor
  * @author Anthony Wilhelm (@awshout / anthonywilhelm.com)
  * @author Xavi Meler (jmeler@xtec.cat)
+ * @author Toni Ginard (aginard@xtec.cat)
  * @version 1.1.0
  * @since 1.0.0
  * @copyright Copyright (c) 2013, TODO
@@ -33,7 +34,7 @@ function reactor_child_theme_setup() {
 	// remove_theme_support('reactor-menus');
 	 add_theme_support(
 	 	'reactor-menus',
-	 	array('top-bar-l', 'top-bar-r', 'main-menu', 'side-menu', 'footer-links')
+	 	array('main-menu','side-menu')
 	 );
 	
 	/* Support for sidebars
@@ -110,13 +111,16 @@ Contingut barra superior (admin bar)
 
 ***************************************************************/
 
+//Sempre visible
+show_admin_bar( true );
+
 include "custom-tac/capcalera/menu-gencat.php";
 add_action( 'admin_bar_menu', 'add_gencat',1 ); 
 
 //include "custom-tac/capcalera/menu-dades-centre.php";
 //add_action( 'admin_bar_menu', 'add_dades_centre',31 );
 
-include "custom-tac/capcalera/menu-serveis-tac.php";
+//include "custom-tac/capcalera/menu-serveis-tac.php";
 //add_action( 'admin_bar_menu', 'add_serveis',999 );
 
 include "custom-tac/capcalera/menu-recursos-tac.php";
@@ -128,7 +132,6 @@ function my_edit_toolbar($wp_toolbar) {
     $wp_toolbar->remove_node('updates');
     $wp_toolbar->remove_node('comments');
     $wp_toolbar->remove_node('new-content');
-    $wp_toolbar->remove_menu('edit');
 }
 add_action('admin_bar_menu', 'my_edit_toolbar',98);
 
@@ -178,14 +181,6 @@ function save_extra_category_fields( $term_id ) {
     }
 }
 
-//TODO: s'ha de modificar a un hook del reactor un excerpt hardcoded, si no no fa cas d'això
-//WARN: trim_excerpt també defineix la longitut
-function custom_excerpt_length( $length ) {
-	return 45;
-}
-
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-
 
 //Filtre categoria 
 function categoria_portada ( $query ) {
@@ -194,7 +189,15 @@ function categoria_portada ( $query ) {
     if ( $query->is_home() and $query->query['post_type']=='post') {
         $query->set('cat',$catId);
     }
+    
+    if ( is_category() ){
+    	global $categoria;
+    	$query->set('cat',$categoria);
+    }
+    
+    
 }
+
 add_action( 'pre_get_posts', 'categoria_portada' );
 
 
@@ -229,20 +232,28 @@ add_filter('get_the_excerpt', 'improved_trim_excerpt');
 
 // Allow HTML in description category/tag
 // remove the html filtering
+/*
+Plugin Name: Tinymce Category Description
+Description: Adds a tinymce editor to the category description box
+Author: Paulund
+Author URI: http://www.paulund.co.uk
+Version: 1.0
+License: GPL2
+*/
+// remove the html filtering
 remove_filter( 'pre_term_description', 'wp_filter_kses' );
 remove_filter( 'term_description', 'wp_kses_data' );
 
 add_filter('edit_category_form_fields', 'cat_description');
 function cat_description($tag)
-{
-    ?>
-        <table class="form-table">
+{ ?>
+           <table class="form-table">
             <tr class="form-field">
                 <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
                 <td>
                 <?php
                     $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
-                    wp_editor(wp_kses_post($tag->description , ENT_QUOTES, 'UTF-8'), 'cat_description', $settings);
+                    wp_editor(htmlspecialchars_decode(wp_kses_post($tag->description , ENT_QUOTES, 'UTF-8'),ENT_QUOTES), 'cat_description', $settings);
                 ?>
                 <br />
                 <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
@@ -252,6 +263,7 @@ function cat_description($tag)
     <?php
 }
 
+add_action('admin_head', 'remove_default_category_description');
 function remove_default_category_description()
 {
     global $current_screen;
@@ -266,13 +278,12 @@ function remove_default_category_description()
     <?php
     }
 }
-add_action('admin_head', 'remove_default_category_description');
 
 // Metabox paràmetres: Amaga títol, amaga metadades, mostra contingut sencer. 
 include "custom-tac/metabox-post-parametres.php";
 
-//Formulari per definir la capçalera 
-include "custom-tac/capcalera/capcalera-settings.php";
+//Formulari per definir els icones de capçalera 
+include "custom-tac/capcalera/icones-capcalera-settings.php";
 
 //Giny Recursos XTEC
 include "custom-tac/ginys/giny-xtec.php";
@@ -283,8 +294,6 @@ include "custom-tac/ginys/giny-logo-centre.php";
 //Menu principal
 include "custom-tac/menu-principal.php";
 add_action("reactor_content_before","menu_principal");
-
-
 
 
 function getRowFrontPage($posts_per_fila,$numFila){
@@ -298,50 +307,52 @@ function getRowFrontPage($posts_per_fila,$numFila){
 	$aLayout=array();
 	
 	switch ($posts_per_fila) {
-        case 1: array_push($aLayout,1);
-         break;
-        case 2: array_push($aLayout,2,2);
-         break;
-        case 3: array_push($aLayout,3,3,3);
-         break;
-        case 4: array_push($aLayout,4,4,4,4);
-         break;
-        case 33: array_push($aLayout,66,3);
-         break;
-        case 66: array_push($aLayout,3,66);
-         break;
+		case 1: array_push($aLayout,1);
+		 break;
+		case 2: array_push($aLayout,2,2);
+		 break;
+		case 3: array_push($aLayout,3,3,3);
+		 break;
+		case 4: array_push($aLayout,4,4,4,4);
+		 break;
+		case 33: array_push($aLayout,66,3);
+		 break;
+		case 66: array_push($aLayout,3,66);
+		 break;
 	}
 	
 	echo '<div class="row fila'.$numFila.'">';
+	
+	if ( count($aLayout>0) ) : 
 
-	if ( $frontpage_query->have_posts() and count($aLayout>0)) : 
             reactor_loop_before(); 
             $col=1;    
+
             while ( $frontpage_query->have_posts() ) : 
-            
+		   
                     $pos_color=((($numFila+1)%3)+$col)%3;
-            
                     $card_bgcolor=$card_colors[$pos_color];
                    // echo "f:".$numFila."-c:".$col."-poscolor:".$pos_color;
                     $col++;
-                    $layout=array_pop($aLayout);	  
+                    $layout=array_pop($aLayout);
+	  
                     if (!$layout): 
                         break;
                     else: 		
-                    $frontpage_query->the_post(); 
-                    reactor_post_before();
-                    get_template_part('post-formats/format', "tac");
-                    reactor_post_after();
-            endif;
+                    	$frontpage_query->the_post(); 
+                    	reactor_post_before();
+                    	get_template_part('post-formats/format', "tac");
+                    	reactor_post_after();
+            	    endif;
     	
-	endwhile; 
+	     endwhile; 
 	
-	reactor_loop_after();
+		reactor_loop_after();
 	 
 	else : 
 		reactor_loop_else(); 
 	endif; 
-
+	
 	echo '</div>';
 
 }
@@ -349,11 +360,11 @@ function getRowFrontPage($posts_per_fila,$numFila){
 
 function getRow_N_FrontPage($posts_per_fila,$num_posts_n){
 	
-	global $frontpage_query;  
+		global $frontpage_query;  
         global $card_colors;
         $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
         global $card_bgcolor;
-	global $layout;
+		global $layout;
         global $aLayout;
         
         $aLayout=array();
@@ -361,7 +372,7 @@ function getRow_N_FrontPage($posts_per_fila,$num_posts_n){
         //Omplim el layout de la resta de files
         $aLayout=array_fill(0, $num_posts_n, $posts_per_fila);
         
-	if ( $num_posts_n>0 and $frontpage_query->have_posts() ) : 
+	if ( $frontpage_query->have_posts() ) : 
             
             $num_fila=3; // Fila inicial 
             $loop_posts=0; 
@@ -423,7 +434,7 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
         //Omplim el layout de la resta de files
         $aLayout=array_fill(0, $num_posts_n, $posts_per_fila);
         
-	if ( $num_posts_n>0 and have_posts() ) : 
+	if (have_posts() ) : 
             
             $num_fila=3; // Fila inicial 
             $loop_posts=0; 
@@ -432,6 +443,7 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
             $col=0;
             
             while ( have_posts() ) :
+
                 $col++;
                 $pos_color=((($num_fila+1)%3)+$col)%3;
                 //echo "f:".$num_fila."-col:".$col;
@@ -457,8 +469,7 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
                         $num_fila++;
                         $col=0;
                 }	
-                
-               
+
             endwhile; 
 
             reactor_loop_after(); 
@@ -468,6 +479,70 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
         endif; 
 
 }
+
+
+// Zona de Ginys per categories
+if ( function_exists('register_sidebar') ) {
+	
+	register_sidebars( 1,
+	array(
+	'name'          => __( 'Barra Categories', 'custom_tac' ),
+	'id'            => 'categoria',
+	'description'   => 'Barra lateral a les categories',
+        'class'         => '',
+	'before_widget' => '
+	<div id="%1$s" class="widget %2$s">',
+	'after_widget' => '</div>
+	',
+	'before_title' => '
+	<h2 class="widgettitle">',
+	'after_title' => '</h2>
+	'
+	));
+
+}
+
+/**
+ * Hide widgets 
+ * @author Xavi Meler
+ */
+
+
+function unregister_default_widgets() {
+     //unregister_widget('WP_Widget_Pages');
+     unregister_widget('WP_Widget_Calendar');
+     //unregister_widget('WP_Widget_Archives');
+     //unregister_widget('WP_Widget_Links');
+     unregister_widget('WP_Widget_Meta');
+     unregister_widget('WP_Widget_Search');
+     //unregister_widget('WP_Widget_Text');
+     //unregister_widget('WP_Widget_Categories');
+     //unregister_widget('WP_Widget_Recent_Posts');
+     //unregister_widget('WP_Widget_Recent_Comments');
+     //unregister_widget('WP_Widget_RSS');
+     //unregister_widget('WP_Widget_Tag_Cloud');
+     //unregister_widget('WP_Nav_Menu_Widget');
+     unregister_widget('BBP_Login_Widget');
+     unregister_widget('BBP_Search_Widget');
+     unregister_widget('BBP_Stats_Widget');
+     unregister_widget('InviteAnyoneWidget');
+     unregister_widget('BP_Core_Whos_Online_Widget');
+     unregister_widget('BP_Core_Login_Widget');
+     unregister_widget('BP_Messages_Sitewide_Notices_Widget'); 	
+
+ }
+ add_action('widgets_init', 'unregister_default_widgets', 11);
+
+/*
+add_action( 'wp_footer', function()
+{
+    if ( empty ( $GLOBALS['wp_widget_factory'] ) )
+        return;
+
+    $widgets = array_keys( $GLOBALS['wp_widget_factory']->widgets );
+    print '<pre>$widgets = ' . esc_html( var_export( $widgets, TRUE ) ) . '</pre>';
+});
+*/
 
 /**
  * Remove option in admin bar added by the extension 'WordPress Social Login'.

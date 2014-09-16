@@ -16,34 +16,35 @@
     
         <div id="content" role="main">
         	<div class="row">
-                    
-                <div class="<?php reactor_columns(); ?>">
-                
+		
+		<?php get_sidebar("category"); ?>                    
+
+        <div class="<?php reactor_columns(); ?>">
+        
                 <?php reactor_inner_content_before(); ?>
-                
-		<?php if ( have_posts() ) : ?>
-                    <header class="archive-header">
-                       
-                <?php // show an optional category description 
-			if ( category_description() ) : ?>
-                       <div class="archive-meta">
-                       <?php echo category_description(); ?>
-                       </div>
-                <?php endif; ?>
-                </header><!-- .archive-header -->
-                <?php endif; // end have_posts() check ?> 
-                
-                <?php // get the loop
-                get_template_part('loops/loop', 'category'); ?>
-			
-                <?php reactor_inner_content_after(); ?>
+		
+				
+				<?php // show an optional category description 
+				if ( category_description() ) : ?>
+					 <header class="archive-header">
+		                 <div class="archive-meta">
+		                 <?php echo category_description(); ?>
+		                 </div>
+		             </header><!-- .archive-header -->
+		
+		         <?php endif; ?>
+		         		         
+		   		<?php if ( have_posts() ) : ?>
+		
+		         <?php endif; // end have_posts() check ?> 
+		         
+		         <?php // get the loop
+		         get_template_part('loops/loop', 'category'); ?>
+		
+		         <?php reactor_inner_content_after(); ?>
                 
                 </div><!-- .columns -->
-                
-                
-                
-                <?php get_sidebar(); ?>
-                
+                                
             </div><!-- .row -->
             
         </div><!-- #content -->
