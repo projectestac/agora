@@ -19,8 +19,8 @@
                 
                 <?php reactor_inner_content_before(); ?>
 
-		<?php // get the main loop
-		get_template_part('loops/loop', 'index'); ?>
+				<?php // get the main loop
+				get_template_part('loops/loop', 'index'); ?>
                 
                 <?php reactor_inner_content_after(); ?>
                 

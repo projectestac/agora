@@ -348,8 +348,19 @@ class Jetpack_Widget_Conditions {
 						$condition_result = true;
 					else if ( is_category( $rule['minor'] ) )
 						$condition_result = true;
-					else if ( is_singular() && $rule['minor'] && has_category( $rule['minor'] ) )
-						$condition_result = true;
+					else if ( is_singular() && $rule['minor'] && has_category( $rule['minor'] ) ) {
+
+					//XTEC ************ MODIFICAT - Don't show category widgets in a simple post
+					//2014.09.15 @jmeler
+						$condition_result = false;
+					//************ ORIGINAL
+					/*
+					 $condition_result = true;
+					*/
+					//************ FI
+
+					}
+					
 				break;
 				case 'author':
 					if ( ! $rule['minor'] && is_author() )
