@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+Changes 14.09.18
+---------------------------------------------------------------------------------------
 GENERAL
 - statistics.php: Corrected count of Moodle activities
 
@@ -18,12 +21,14 @@ MOODLE 2
  - Deleted uninstall option of all modules and submodules
  - Enabling memcache
  - Workarround for MDL-47176 sql_compare_text does not support string longer than 4000 chars in Oracle restoring match question type
+ - Restrict domains which can create accounts from Google Oauth
  - Many theme xtec2 improvements including:
    -- Enable custom menu on tablets and phones
    -- Enabled dock form theme xtec2
    -- Repaired fontawesome colors in many icons
    -- Repaired theme fonts and images viewing in https mode
    -- Calendar activity titles are now smaller
+   -- Better grade report
    
 PORTAL
 - Agoraportal: Fixed activation of new services Intraweb and Nodes
