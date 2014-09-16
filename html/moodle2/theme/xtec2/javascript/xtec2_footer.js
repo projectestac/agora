@@ -101,6 +101,7 @@ function showhideblocks(){
 
             Y.one('#showhideblocks').removeClass('collapsed');
             Y.one('#showhideblocks').addClass('expanded');
+            Y.one('body').addClass('blocks_collapsed');
         } else {
             //Show
             Y.one('#block-region-side-post').show();
@@ -114,6 +115,7 @@ function showhideblocks(){
 
             Y.one('#showhideblocks').removeClass('expanded');
             Y.one('#showhideblocks').addClass('collapsed');
+            Y.one('body').removeClass('blocks_collapsed');
         }
     });
     blocks_shown = !blocks_shown;
