@@ -28,7 +28,7 @@ if ( current_theme_supports('reactor-breadcrumbs') ) {
 			</div><!-- #breadcrumbs -->
 	<?php }
 	}
-	add_action('reactor_footer_before', 'reactor_do_breadcrumbs', 1);
+	//add_action('reactor_footer_before', 'reactor_do_breadcrumbs', 1);
 }
 
 /**
@@ -69,8 +69,12 @@ function reactor_do_footer_content() { ?>
                     
 			<div class="<?php reactor_columns( 6 ); ?>">
 				<div id="colophon">
-				<p><span class="copyright">&copy;<?php echo date_i18n('Y'); ?> <?php bloginfo('name'); ?> | </span>
-				<span class="site-source"><?php _e('Powered by ', 'reactor'); ?><a href="<?php echo esc_url('http://wordpress.org/'); ?>" title="<?php esc_attr_e('Personal Publishing Platform', 'reactor'); ?>">WordPress</a> &amp; <a href="<?php echo esc_url('http://awtheme.com/') ?>" title="<?php esc_attr_e('WordPress Parent Theme', 'reactor'); ?>">Reactor</a>. Disseny: <a href="http://www.jurjur.org">Albert Batxiller</a></span></p>
+
+				                                                
+				  <p> <a target="_blank" href="http://www.xtec.cat/web/guest/avis">Avís legal</a> |                                 
+
+				<span class="copyright">&copy;<?php echo date_i18n('Y'); ?>  Generalitat de Catalunya | </span>
+				<span class="site-source">Fet amb <a href=http://wordpress.org/>WordPress</a></span></p>
 					
 				</div><!-- #colophon -->
 			</div><!-- .columns -->

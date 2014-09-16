@@ -10,6 +10,18 @@
  * @license GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  */
 
+/**
+ * Construim l'article 
+ */
+ 
+add_action('reactor_post_header', 'reactor_do_standard_header_titles', 1);
+add_action('reactor_post_header', 'reactor_do_meta_autor_date', 2);
+add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 3);
+	
+add_action('reactor_post_after', 'reactor_do_nav_single', 1);
+add_action('reactor_post_after', 'reactor_do_post_comments', 2);
+add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
+//add_action('reactor_post_footer', 'reactor_do_post_footer_comments_link', 3);
 
 /**
  * Post Tumblog Icons
@@ -23,7 +35,7 @@ function reactor_do_tumblog_icons() {
 		echo $output;
 	}
 }
-add_action('reactor_post_header', 'reactor_do_tumblog_icons', 1);
+//add_action('reactor_post_header', 'reactor_do_tumblog_icons', 1);
 
 /**
  * Post featured tag
@@ -31,6 +43,7 @@ add_action('reactor_post_header', 'reactor_do_tumblog_icons', 1);
  * 
  * @since 1.0.0
  */
+/* 
 function reactor_do_standard_format_sticky() { 
 	if ( is_sticky() ) { ?>
 		<div class="entry-featured">
@@ -41,6 +54,7 @@ function reactor_do_standard_format_sticky() {
 
 //jmeler No sticky label
 //add_action('reactor_post_header', 'reactor_do_standard_format_sticky', 2);
+*/
 
 /**
  * Post header
@@ -48,36 +62,35 @@ function reactor_do_standard_format_sticky() {
  * 
  * @since 1.0.0
  */
+ 
 function reactor_do_standard_header_titles() {
-
-	$show_titles = reactor_option('frontpage_show_titles', 1);
-	$link_titles = reactor_option('frontpage_link_titles', 0);
 	
-	if ( is_page_template('page-templates/front-page.php') && $show_titles ) { ?>
-		<?php if ( !$link_titles ) { ?>
-		<h2 class="entry-title"><?php the_title(); ?></h2>
-		<?php } else { ?>
-		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		if ( is_page_template('page-templates/front-page.php') and get_post_meta( get_the_ID(), '_amaga_titol', true )!="on") { ?>
+			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<?php 
+		}
+	    elseif ( !get_post_format() && !is_page_template('page-templates/front-page.php') ) {  ?>    
+			<?php if ( is_single() ) { ?>
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+			<?php } else { ?>
+				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<?php } ?>
 	<?php }
-	}
-    elseif ( !get_post_format() && !is_page_template('page-templates/front-page.php') ) {  ?>    
-		<?php if ( is_single() ) { ?>
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-		<?php } else { ?>
-		<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-		<?php } ?>
-		
-<?php }
 
-        
-        echo '<span class="entry-author">'.get_the_author().'&nbsp;&nbsp;</span>';
-        echo '<span class="entry-date">'.get_the_date('d/m/y' ).'&nbsp;&nbsp;</span>';
-	//echo '<div class="header_metatags" style="float:left"><div class="dashicons dashicons-admin-users"></div>'.get_the_author().'</div>';
-	//echo '<div class="header_metatags" ><div class="dashicons dashicons-calendar"></div>'.get_the_date('d/m/y' ).'</div>';
-
+	edit_post_link( __('Edit', 'reactor'), '<div class="edit-link"><span>', '</span></div>');	
+	
 }
 
-add_action('reactor_post_header', 'reactor_do_standard_header_titles', 3);
+//add_action('reactor_post_header', 'reactor_do_standard_header_titles', 3);
+
+function reactor_do_meta_autor_date() {
+	if (get_post_meta( get_the_ID(), '_amaga_metadata', true )!="on") {    
+    	echo '<span class="entry-author">'.get_the_author().'&nbsp;&nbsp;</span>';
+    	echo '<span class="entry-date">'.get_the_date('d/m/y' ).'&nbsp;&nbsp;</span>';
+    }
+}
+
+//add_action('reactor_post_header', 'reactor_do_meta_autor_date', 4);
 
 /**
  * Post thumbnail
@@ -85,20 +98,16 @@ add_action('reactor_post_header', 'reactor_do_standard_header_titles', 3);
  * 
  * @since 1.0.0
  */
- 
-
 function reactor_do_standard_thumbnail() { 
-	$link_titles = reactor_option('frontpage_link_titles', 0);
 	
 	if ( has_post_thumbnail() and !is_single() ) { 
-			$thumb_src=wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-		?>
-		<div class="entry-thumbnail" style="background-image:url(<?php echo $thumb_src ?>)">
-		</div>
+			$thumb_src=wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
+			<div class="entry-thumbnail" style="background-image:url(<?php echo $thumb_src ?>)">
+			</div>
 	<?php }
 }
 
-add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 4);
+//add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 4);
             
 /**
  * Post footer title 
@@ -106,6 +115,7 @@ add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 4);
  * 
  * @since 1.0.0
  */
+/* 
 function reactor_do_post_footer_title() {
 
     $format = ( get_post_format() ) ? get_post_format() : 'standard'; 
@@ -123,7 +133,8 @@ function reactor_do_post_footer_title() {
 		<?php break; 
 	}
 }
-add_action('reactor_post_footer', 'reactor_do_post_footer_title', 3);
+//add_action('reactor_post_footer', 'reactor_do_post_footer_title', 3);
+*/
 
 /**
  * Post footer meta
@@ -132,30 +143,18 @@ add_action('reactor_post_footer', 'reactor_do_post_footer_title', 3);
  * @since 1.0.0
  */
 function reactor_do_post_footer_meta() {
-	/*
-	if ( is_page_template('page-templates/front-page.php') ) {
-		$post_meta = reactor_option('frontpage_post_meta', 1);
+	
+	if (is_page_template('page-templates/front-page.php') and get_post_meta( get_the_ID(), '_amaga_metadata', true )=="on") {   
+		return;
 	}
-	elseif ( is_page_template('page-templates/news-page.php') ) {
-		$post_meta = reactor_option('newspage_post_meta', 1);
-	} else {
-		$post_meta = reactor_option('post_meta', 1);
-	}
-
-	if ( $post_meta && current_theme_supports('reactor-post-meta') ) {
-		reactor_post_meta();
-	}
-	*/
-	//$categories=implode(",",get_the_category());
-	//$tags=implode(",",get_the_tags( $id ));
-        //
-	//echo "<hr style='margin:0.5em 0 0.5em 0'>";
+	
 	$categories = get_the_category();
 	$output = '<span class="entry-categories">';
+	
 	if($categories){
-	foreach($categories as $category) {
-		$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.", ";
-	}
+		foreach($categories as $category) {
+			$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.", ";
+		}
 	echo trim($output, ", ");
 	echo "</span>";
 	$string_tags=trim(get_the_tag_list("",", "),",");
@@ -163,12 +162,13 @@ function reactor_do_post_footer_meta() {
 	if (strlen($string_tags)) 
 		echo ' <span class="entry-tags">'.$string_tags.'</span>';
 		
-	echo ' <span class="entry-comments">'.get_comments_number().'</span>';
-        //echo ' <span class="entry-like">16</span>';
-	//echo "<hr style='margin:0.5em 0 0.5em 0'>";
+	echo ' <a href="'.get_comments_link().'"><span class="entry-comments">'.get_comments_number().'</span></a>';
+    //echo ' <span class="entry-like">16</span>';
+	}
+	
 }
-}
-add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 2);
+
+//add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 2);
 
 /**
  * Post footer comments link 
@@ -194,7 +194,7 @@ function reactor_do_post_footer_comments_link() {
 		</div><!-- .comments-link -->
     <?php }
 }
-add_action('reactor_post_footer', 'reactor_do_post_footer_comments_link', 3);
+//add_action('reactor_post_footer', 'reactor_do_post_footer_comments_link', 3);
 
 /**
  * Post footer edit 
@@ -202,12 +202,14 @@ add_action('reactor_post_footer', 'reactor_do_post_footer_comments_link', 3);
  * 
  * @since 1.0.0
  */
+ /*
 function reactor_do_post_edit() {
-	if ( is_single() ) {
+	//if ( is_single() ) {
 		edit_post_link( __('Edit', 'reactor'), '<div class="edit-link"><span>', '</span></div>');
-	}
+	//}
 }
 add_action('reactor_post_footer', 'reactor_do_post_edit', 4);
+*/
 
 /**
  * Single post nav 
@@ -228,7 +230,8 @@ function reactor_do_nav_single() {
         </nav><!-- .nav-single -->
 <?php }
 }
-add_action('reactor_post_after', 'reactor_do_nav_single', 1);
+
+//add_action('reactor_post_after', 'reactor_do_nav_single', 1);
 
 /**
  * Comments 
@@ -242,7 +245,7 @@ function reactor_do_post_comments() {
 		comments_template('', true);
 	}
 }
-add_action('reactor_post_after', 'reactor_do_post_comments', 2);
+//add_action('reactor_post_after', 'reactor_do_post_comments', 2);
 
 /**
  * No posts format
@@ -254,4 +257,5 @@ function reactor_do_loop_else() {
 	get_template_part('post-formats/format', 'none');
 }
 add_action('reactor_loop_else', 'reactor_do_loop_else', 1);
+
 ?>

@@ -3,18 +3,14 @@ function add_recursos( $wp_admin_bar ) {
 
 	$args = array(
 		'id'     => 'recursosXTEC',     
-		/*'title'  => '<img src='.get_bloginfo('template_directory').'-primaria-1/custom-tac/imatges/logo_xtec.png',*/
-		'title'  => '<img src=http://ies-sabadell.cat/nodes/wp-content/uploads/2014/03/xtec4.png>',
-		//'href'=>'http://www.xtec.cat/', 
+		'title'  => '<img src="'.get_bloginfo('template_directory').'-primaria-1/custom-tac/imatges/logo_xtec.png'."\">",
 		'parent' => false,          
-		//'meta'=>array('class' =>'ab-top-secondary ab-top-menu')
 	);
 
 	$wp_admin_bar->add_node( $args );
 	
 	$args = array(
 		'id'     => 'xtec',     
-		/*'title'  => '<img src=http://educacio.gencat.cat/documents/img/meva_xtec.jpg>&nbsp;Xtec',*/
 		'title' => 'XTEC',
 		'href'=>'http://www.xtec.cat/', 
 		'parent' => 'recursosXTEC',          
@@ -25,7 +21,6 @@ function add_recursos( $wp_admin_bar ) {
 	$args = array(
 		'id'     => 'edu365',     
 		'href' => 'http://www.edu365.cat/',
-		/*'title'  => '<img src=http://educacio.gencat.cat/documents/img/edu365.jpg>&nbsp;Edu365',*/ 
 		'title' => 'Edu365',
 		'parent' => 'recursosXTEC',         
 	);
@@ -99,6 +94,15 @@ function add_recursos( $wp_admin_bar ) {
 		'id'     => 'odissea',     
 		'title'  => 'Odissea', 
 		'href' => 'http://odissea.xtec.cat/',
+		'parent' => 'recursosXTEC',          
+	);
+
+	$wp_admin_bar->add_node( $args );
+	
+	$args = array(
+		'id'     => 'agora',     
+		'title'  => 'Àgora', 
+		'href' => 'http://agora.xtec.cat/',
 		'parent' => 'recursosXTEC',          
 	);
 
