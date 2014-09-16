@@ -613,17 +613,17 @@ table#permissions tbody tr:hover>th {
 
 @media (min-width: 979px) {
 	/* Better grader */
-	body.blocks_collapsed{
+	body.blocks_collapsed.path-grade-report{
 		height: 100%;
 	}
 
 
-	body.blocks_collapsed #page-footer,
-	body.blocks_collapsed #title-header{
+	body.blocks_collapsed.path-grade-report #page-footer,
+	body.blocks_collapsed.path-grade-report #title-header{
 		display: none;
 	}
 
-	body.blocks_collapsed div.gradeparent table#user-grades{
+	body.blocks_collapsed.path-grade-report div.gradeparent table#user-grades{
 		margin-top: 77px;
 		top: 0;
 		left: 0;
@@ -633,7 +633,7 @@ table#permissions tbody tr:hover>th {
 		background-color: white;
 		font-size: 12px;
 	}
-	body.blocks_collapsed #main_navigation{
+	body.blocks_collapsed.path-grade-report #main_navigation{
 		position: fixed;
 		z-index: 4030;
 		top: 41px;
