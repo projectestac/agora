@@ -951,11 +951,3 @@ if ( defined( 'BBPRESS_LATE_LOAD' ) ) {
 }
 
 endif; // class_exists check
-
-
-// XTEC ************ AFEGIT - Add main option in admin menu for custom bbpress menus
-// 2014.06.16 @aginard
-
-include 'settings-tabs.php';
-
-//************ FI

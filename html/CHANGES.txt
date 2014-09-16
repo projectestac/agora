@@ -35,8 +35,10 @@ WORDPRESS
 - Hidden parameters in Settings | Reading
 - Removed initialization of Slides and Portfolio, so they don't load
 - Blocked access to Settings > Forums to all users but xtecadmin
+- Blocked access to Settings > Private BP Pages to all users but xtecadmin
 - WordPress Social Login: Hidden option added in admin bar by this plugin
 - Removed Plugin 'Collapsing Category List'
+- Reworked custom menus for bbpress and BuddyPress
 
 
 Changes 14.09.08

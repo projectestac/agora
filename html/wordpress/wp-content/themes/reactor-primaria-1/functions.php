@@ -506,8 +506,6 @@ if ( function_exists('register_sidebar') ) {
  * Hide widgets 
  * @author Xavi Meler
  */
-
-
 function unregister_default_widgets() {
      //unregister_widget('WP_Widget_Pages');
      unregister_widget('WP_Widget_Calendar');
@@ -610,26 +608,6 @@ function bp_options_page() {
 }
 
 /**
- * Remove menus for administrators who are not xtecadmin
- * 
- * @author Toni Ginard
- * 
- */
-function remove_admin_menus() {
-
-    // Forum
-    remove_submenu_page('options-general.php', 'bbpress');
-
-    // BuddyPress
-    remove_submenu_page('options-general.php', 'bp-page-settings'); // Tab in BuddyPress
-    remove_submenu_page('options-general.php', 'bp-settings'); // Tab in BuddyPress
-    
-    // Private BP Pages
-    remove_submenu_page('options-general.php', 'bphelp-pbp-settings'); // In this case, it doesn't block access
-
-}
-
-/**
  * Move options from Settings to custom BuddyPress page, step 1. This movement 
  * is broken in two steps because some actions need to be done early and some 
  * need to be done later, depending on the implementation of every plugin.
@@ -641,7 +619,7 @@ function rebuild_bp_menus_step_1() {
 
     remove_submenu_page('options-general.php', 'bpfb-settings'); // Activity Plus
 
-    add_menu_page(__('BuddyPress', 'buddypress'), __('BuddyPress', 'buddypress'), 'manage_options', 'xtec-bp-options', 'bp_options_page', '', 40);
+    add_menu_page(__('BuddyPress', 'buddypress'), __('BuddyPress', 'buddypress'), 'manage_options', 'xtec-bp-options', 'bp_options_page', '', 59);
 
     add_submenu_page('xtec-bp-options', __('Components', 'buddypress'), __('Components', 'buddypress'), 'manage_options', 'bp-components', 'bp_core_admin_components_settings');
     add_submenu_page('xtec-bp-options', __('Activity', 'buddypress'), __('Activity', 'buddypress'), 'manage_options', 'bp-activity');
@@ -672,6 +650,67 @@ function rebuild_bp_menus_step_2() {
 
 }
 
+/**
+ * Build HTML page to centralize all bbpress-related stuff
+ * 
+ * @author Toni Ginard
+ * 
+ */
+function bbpress_options_page() {
+    ?>
+    <div class="wrap">
+        <div style="width:150px; padding:20px; float:left;">
+            <h3><?php _e('Forums', 'bbpress'); ?></h3>
+            <p><a href="edit.php?post_type=forum"><?php _e('All Forums', 'bbpress'); ?></a></p>
+            <p><a href="post-new.php?post_type=forum"><?php _e('New Forum', 'bbpress'); ?></a></p>
+        </div>
+
+        <div style="width:150px; padding:20px; float:left;">
+            <h3><?php _e('Topics', 'bbpress'); ?></h3>
+            <p><a href="edit.php?post_type=topic"><?php _e('All Topics', 'bbpress'); ?></a></p>
+            <p><a href="post-new.php?post_type=topic"><?php _e('New Topic', 'bbpress'); ?></a></p>
+            <p><a href="edit-tags.php?taxonomy=topic-tag&post_type=topic"><?php _e('Topic Tags', 'bbpress'); ?></a></p>
+        </div>
+
+        <div style="width:150px; padding:20px; float:left;">
+            <h3><?php _e('Replies', 'bbpress'); ?></h3>
+            <p><a href="edit.php?post_type=reply"><?php _e('All Replies', 'bbpress'); ?></a></p>
+            <p><a href="post-new.php?post_type=reply"><?php _e('New Reply', 'bbpress'); ?></a></p>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Build bbpress custom menu
+ * 
+ * @author Toni Ginard
+ * 
+ */
+function rebuild_bbpress_menus() {
+    add_menu_page(__('Forums', 'bbpress'), __('Forums', 'bbpress'), 'manage_options', 'xtec-bbpress-options', 'bbpress_options_page', '', 58);
+}
+
+/**
+ * Remove menus for administrators who are not xtecadmin
+ * 
+ * @author Toni Ginard
+ * 
+ */
+function remove_admin_menus() {
+
+    // Forum
+    remove_submenu_page('options-general.php', 'bbpress');
+
+    // BuddyPress
+    remove_submenu_page('options-general.php', 'bp-page-settings'); // Tab in BuddyPress
+    remove_submenu_page('options-general.php', 'bp-settings'); // Tab in BuddyPress
+    
+    // Private BP Pages
+    remove_submenu_page('options-general.php', 'bphelp-pbp-settings'); // In this case, it doesn't block access
+
+}
+
 global $isAgora;
 
 // Remove admin menus for all users but xtecadmin
@@ -682,3 +721,4 @@ if ($isAgora && !is_xtecadmin()) {
 // Rebuild menus for all users
 add_action('admin_menu', 'rebuild_bp_menus_step_1', 1); // Priority 1 is important!
 add_action('admin_menu', 'rebuild_bp_menus_step_2'); // Default priority (10) is important!
+add_action('admin_menu', 'rebuild_bbpress_menus');
