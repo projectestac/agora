@@ -30,11 +30,16 @@ class Logo_Centre_Widget extends WP_Widget {
 
 	<div class="targeta_id_centre row">
 		 
-		<div class="<?php reactor_columns(array( 6, 12 ));?>"> 
-			<img src="<?php echo reactor_option('logo_image'); ?>">					
-		</div> 
+		<?php if ( reactor_option('logo_image') ) { 
+               		$amplada="6";
+			$padding="2em"; 
+			?>
+			<div class="<?php reactor_columns(array( 6, 12 ));?>"> 
+				<img src="<?php echo reactor_option('logo_image'); ?>">					
+			</div> 
+		<?php }else { $amplada="12"; $padding="2em"; } ?>
 
-		<div style="text-align:left" class="<?php reactor_columns( 6 ); ?> ">
+		<div style="text-align:left;padding-left:<?php echo $padding; ?>" class="<?php reactor_columns( $amplada ); ?> ">
 			<div class="vcard  hide-for-small">
 		  		<span id="tar-nomCentre"><?php echo reactor_option('nomCanonicCentre'); ?></span>
 		  		<div class="adr">
