@@ -1669,6 +1669,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $databaseName = $agora['admin']['database'];
                 $host = $agora['admin']['host'] . ':' . $agora['admin']['port'];
                 $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
+                mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
                     return false;
                 }
@@ -1679,6 +1680,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     $host = $clientService[0]['dbHost'];
                 }
                 $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
+                mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
                     return false;
                 }
@@ -1689,6 +1691,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     $host = $clientService[0]['dbHost'];
                 }
                 $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
+                mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
                     return false;
                 }
