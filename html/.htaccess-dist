@@ -5,6 +5,7 @@ RewriteBase /agora/
 # Allow access to directories without URL rewrite
 RewriteRule ^portal(.*)$ - [L]
 RewriteRule ^config(.*)$ - [L]
+RewriteRule ^works(.*)$ - [L]
 
 # Block access to install.php
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
