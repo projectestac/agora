@@ -6,7 +6,7 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 
-Changes 14.09.18
+Changes 14.09.18 codename jmeler
 ---------------------------------------------------------------------------------------
 GENERAL
 - statistics.php: Corrected count of Moodle activities
