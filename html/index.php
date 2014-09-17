@@ -1,3 +1,1 @@
-<?
-	header('location:moodle/moodle/');
-?>
+<?php 	header('location:moodle/moodle/');
