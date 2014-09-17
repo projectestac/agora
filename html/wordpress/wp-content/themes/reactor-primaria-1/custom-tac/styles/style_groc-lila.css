@@ -9,7 +9,7 @@
 }
 
 .site-description-box{
-    background-color:#7a0483;
+    background-color:#b501c4;
 }
 
 h1, h2, h3, h4, h5, h6, a {
@@ -17,13 +17,16 @@ h1, h2, h3, h4, h5, h6, a {
 }
 
 #icon-11{
-background-color:#7a0483;
+background-color:#b501c4;
 }
 #icon-21{
 background-color:#ffa00c;
 }
 #icon-23{
-   background-color: #7a0483;
+   background-color: #b501c4;
+}
+#icon-22{
+  color: #b501c4;
 }
 #icon-13{
    background-color: #ffa00c;
@@ -50,7 +53,8 @@ background-color:#ffa00c;
 }
 
 .menu-link, .sub-menu-link {
-color: #7a0483 !important;
+/*color: #7a0483 !important;*/
+color: #b501c4 !important;
 }
 
 #menu-panel {

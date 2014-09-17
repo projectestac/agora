@@ -7,24 +7,24 @@
 }
 
 .site-description-box{
-    background-color:#006338;
+    background-color:#00854e;
 }
 
 h1, h2, h3, h4, h5, h6, a {
-    color: #006338 !important;
+    color: #00854e !important;
 }
 
 #icon-11{
-background-color:#006338;
+background-color:#00854e;
 }
 #icon-21{
 background-color:#ff2a2a;
 }
 #icon-22{
-color:#006338;
+color:#00854e;
 }
 #icon-23{
-   background-color: #006338;
+   background-color: #00854e;
 }
 #icon-13{
    background-color: #ff2a2a;
@@ -34,7 +34,7 @@ color:#006338;
 .entry-comments,
 .entry-categories>a,
 .entry-tags >a {
-    color:#006338 !important;
+    color:#00854e !important;
 }
 
 
@@ -42,7 +42,7 @@ color:#006338;
 .entry-comments:before,
 .entry-categories:before,
 .entry-tags:before{
-    color:#006338; 
+    color:#00854e; 
     display: inline-block;
     -webkit-font-smoothing: antialiased;
     font: normal 22px/1 'dashicons';
@@ -51,7 +51,7 @@ color:#006338;
 }
 
 .menu-link, .sub-menu-link {
-color: #006338 !important;
+color: #00854e !important;
 }
 
 #menu-panel {

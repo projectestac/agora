@@ -19,7 +19,8 @@ div.large-9{
 
 body{
 	background-color:white !important;
-	color:#444;
+        font-family: "Open Sans",Arial,Helvetica,sans-serif;
+        color:#444;
 }
 
 
@@ -33,9 +34,13 @@ h1, h2, h3, h4, h5, h6, a {
     color: #087eb6;
     /*font-family: 'Delius', cursive !important;*/
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
-    
+    font-weight:400;    
 }
+
+a:hover{
+    text-decoration: underline;
+}
+
 h1 {
     font-size:2em;
 }
@@ -169,7 +174,7 @@ padding-top: 0;
 }
 
 .entry-body >.entry-summary{
-    padding:0px;
+   padding-top: 1em;
     
 }
 
@@ -594,8 +599,8 @@ Fil d'ariadna
 ******************************************************************/
 
 ul.breadcrumbs{
-    border:0px;
-    margin:0px !important;
+    border:0px solid #ddd;
+    margin:0.1em 0 0 0 !important;
 }
 
 /*****************************************************************
@@ -644,6 +649,10 @@ Ginys
 #sidebar-frontpage .widget{
 padding-left: 2em;
 padding-right: 1em;     
+}
+
+.widget-title, .widgettitle{
+ /*color:#444444 !important;   */   
 }
 
 #sidebar-frontpage .widget.logotip-widget{
@@ -774,7 +783,7 @@ padding-bottom:3px;
 }
 
 ul.breadcrumbs {
-	margin: 1em;
+	/*margin: 1em;*/
 }	
 
 .breadcrumbs>* {

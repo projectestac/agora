@@ -29,7 +29,7 @@ class Logo_Centre_Widget extends WP_Widget {
 	?>
 
 	<div class="targeta_id_centre row">
-		 
+
 		<?php if ( reactor_option('logo_image') ) { 
                		$amplada="6";
 			$padding="2em"; 

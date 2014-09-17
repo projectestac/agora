@@ -69,7 +69,7 @@ function checkMenuCookie() {
 
 function menu_toggle(){
 	$icon_menu=document.getElementById("icon-menu");
-	$menu_panel=document.getElementById("menu-panel")
+	$menu_panel=document.getElementById("menu-panel");
 	
 	if ($menu_panel.style.display=="inline-block") {
 		$menu_panel.style.display="none";
