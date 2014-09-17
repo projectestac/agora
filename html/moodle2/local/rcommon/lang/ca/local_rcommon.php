@@ -102,6 +102,7 @@ $string['provider_books'] = 'Llibres del proveïdor {$a}';
 $string['manage_credentials'] = 'Administració de les credencials';
 $string['see_details'] = 'Visualitza';
 $string['see_details_atitle'] = 'Visualitza informació detallada d\'aquest llibre';
+$string['keymanager_import_export'] = 'Importa/Exporta credencials';
 $string['keymanager_import'] = 'Importa un fitxer amb credencials';
 $string['keymanager_import_atitle'] = 'Vés a Importa un fitxer amb credencials';
 $string['keymanager_usernotfound'] = 'Usuari/ària no trobat';

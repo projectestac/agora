@@ -100,6 +100,7 @@ $string['provider_books'] = 'Libros del proveedor {$a}';
 $string['manage_credentials'] = 'Gestión de credenciales';
 $string['see_details'] = 'Ver detalles';
 $string['see_details_atitle'] = 'Ir a Ver detalles';
+$string['keymanager_import_export'] = 'Importar/Exportar credenciales';
 $string['keymanager_import'] = 'Importar un archivo con credenciales';
 $string['keymanager_import_atitle'] = 'Ir a Importar un archivo con credenciales';
 $string['keymanager_usernotfound'] = 'Usuario no encontrado';
