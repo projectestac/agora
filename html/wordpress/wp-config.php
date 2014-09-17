@@ -91,12 +91,15 @@ define('SCRIPT_DEBUG', false);
 
 // Activates the saving of database queries in an array ($wpdb->queries).
 // Set to true and uncomment code in theme exray in footer.php to use it.
-define('SAVEQUERIES', false); 
+define('SAVEQUERIES', false);
 
-/**
- * Default blog creation theme.
- */
+// Default blog creation theme.
 define('WP_DEFAULT_THEME', 'NODES');
+
+// Autosave time
+define('AUTOSAVE_INTERVAL', 300); // 5 minuts
+// Number of revisions of each post
+define('WP_POST_REVISIONS', 3);
 
 /* That's all, stop editing! Happy blogging. */
 

@@ -523,7 +523,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'priority' => 7,
 				 ) ); 
 				 
-				 
+/*				 
 				 	 $wp_customize->add_setting('reactor_options[frontpage_link_titles]', array( 
 				'default'        => 0,
 				'type'           => 'option',
@@ -536,7 +536,7 @@ if ( !function_exists('reactor_customize_register') ) {
 					'type'     => 'checkbox',
 					'priority' => 8,
 				 ) );
-			
+*/	
 
 
 			

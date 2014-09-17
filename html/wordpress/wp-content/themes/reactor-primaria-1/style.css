@@ -13,14 +13,14 @@ Version: 1.0.0
 Add Custom styles below 
 ******************************************************************/
 div.large-9{
-    
+
     padding:0;
 }
 
 body{
-	background-color:white !important;
-        font-family: "Open Sans",Arial,Helvetica,sans-serif;
-        color:#444;
+    background-color:white !important;
+    font-family: "Open Sans",Arial,Helvetica,sans-serif;
+    color:#444;
 }
 
 
@@ -57,14 +57,14 @@ h2 {
 
 
 ul.menu{
-	list-style-type:none;
-	margin:0.3em;
-	margin-left:0;
+    list-style-type:none;
+    margin:0.3em;
+    margin-left:0;
 }
 
 ul.sub-menu{
-	list-style-type:none;
-        margin-left: 0em;
+    list-style-type:none;
+    margin-left: 0em;
 }
 
 
@@ -73,13 +73,13 @@ vcard (targeta presentacio centre)
 ******************************************************************/
 
 .vcard {
-margin: 0;
-border: 0;
-padding: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
 }
 
 .vcard .country-name, .vcard .region, .vcard .fn.org.url {
-display:none;
+    display:none;
 }
 
 
@@ -93,9 +93,9 @@ display:none;
 }
 
 .vcard span {
-   font-size: 0.8em;
-   line-height: 1em;
-   color: #777;
+    font-size: 0.8em;
+    line-height: 1em;
+    color: #777;
 }
 
 #tar-mapa, #tar-contacte {
@@ -116,13 +116,13 @@ Targetes
 ******************************************************************/
 
 .card_bgcolor1{
-	background-color:#e5e5e5;
+    background-color:#e5e5e5;
 }
 .card_bgcolor2{	
-	background-color:#f1f1f1;
+    background-color:#f1f1f1;
 }
 .card_bgcolor3{
-	background-color:#f8f8f8;
+    background-color:#f8f8f8;
 }
 
 
@@ -148,34 +148,34 @@ article {
 }
 
 .entry-header > h2 {
-	font-size: 1.35em;
-	line-height: 1.15em;
-	padding-bottom: 0.15em;
+    font-size: 1.35em;
+    line-height: 1.15em;
+    padding-bottom: 0.15em;
 }
 
 #contingut_central_frontpage .entry-title{
-   	 margin-top: 0;
-	margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 
-padding-top: 0;
+    padding-top: 0;
 }
 
 .post.format-video .entry-title {
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .entry-body li {
-	margin-bottom: 0.75em;
+    margin-bottom: 0.75em;
 }
 
 .entry-body {
-	padding: 2.5em 2em;
+    padding: 2.5em 2em;
 
 }
 
 .entry-body >.entry-summary{
-   padding-top: 1em;
-    
+    padding-top: 1em;
+
 }
 
 .entry-summary > p,h2{
@@ -187,7 +187,7 @@ padding-top: 0;
 }
 
 .targeta {
-	float:left;
+    float:left;
 }
 
 .entry-thumbnail{
@@ -223,7 +223,7 @@ Top header
 ******************************************************************/
 
 #wpadminbar {
-height: 36px;
+    height: 36px;
 }
 
 .ab-item{
@@ -232,39 +232,39 @@ height: 36px;
 
 #wpadminbar #wp-admin-bar-bp-login>.ab-item:before {
     content: "\f112";
-margin-top: 4px;
+    margin-top: 4px;
 }
 
 li#wp-admin-bar-bp-login{
-float:right;
+    float:right;
 }
 
 #wpadminbar #wp-admin-bar-recursosXTEC{
-	margin: 0 2px 0 20px;
+    margin: 0 2px 0 20px;
 }
 
 #wpadminbar #wp-admin-bar-recursosXTEC >.ab-item:after{
-	font: normal 14px/1 'dashicons';
-	display:inline-block;
-	vertical-align:middle;
-	content: "\f347";
-	margin-left: 4px;
-	/*padding-right:5px;*/
-	border-right:1px solid grey;
-	color:lightgrey;
-	padding-right: 4px;
+    font: normal 14px/1 'dashicons';
+    display:inline-block;
+    vertical-align:middle;
+    content: "\f347";
+    margin-left: 4px;
+    /*padding-right:5px;*/
+    border-right:1px solid grey;
+    color:lightgrey;
+    padding-right: 4px;
 }
 
 
 #wpadminbar .quicklinks>ul>li.wp-admin-bar-gencat>a {
-	padding: 0 0px 0 0px;
+    padding: 0 0px 0 0px;
 }
 
 #wpadminbar .quicklinks .ab-empty-item {
-height: 32px;
-display: block;
-padding: 0 10px 0 0;
-margin: 0;
+    height: 32px;
+    display: block;
+    padding: 0 10px 0 0;
+    margin: 0;
 }
 
 
@@ -310,14 +310,14 @@ Header
 
 
 .site-header .site-logo {
-padding: 0.5em;
+    padding: 0.5em;
 }
 
 
 #idcentre-box{
     padding:0px;
     background-color: #0eb1ff;
-  
+
 }
 
 .site-logo{
@@ -338,8 +338,8 @@ padding: 0.5em;
 }
 
 #img-logo{
-	/*padding:1em;*/
-	max-width:120px;
+    /*padding:1em;*/
+    max-width:120px;
 }
 
 #imatge_capcalera{
@@ -348,7 +348,7 @@ padding: 0.5em;
 
 .site-description-box{
     background-color:#087eb6;
-    
+
 }
 
 .site-description-box-inner{
@@ -391,7 +391,7 @@ padding: 0.5em;
 }
 
 #quick-call-box > a{
-  color:black;  
+    color:black;  
 }
 .site-quick-map-box-inner{
     background-image:url(http://ies-sabadell.cat/webdecentre/wp-content/uploads/2014/08/googlemaps.png);
@@ -403,7 +403,7 @@ padding: 0.5em;
     right: 0px;
     bottom: 0px;
     left: 0px;
-   
+
 }
 
 .icon-graella {   
@@ -445,10 +445,10 @@ padding: 0.5em;
 }
 
 .entry-date, .entry-author {
-color: #A9AAA8;
-margin-bottom: 0.8em;
-display: inline-block;
-font-size: 0.8em;
+    color: #A9AAA8;
+    margin-bottom: 0.8em;
+    display: inline-block;
+    font-size: 0.8em;
 }
 
 .entry-date:before {
@@ -493,8 +493,8 @@ font-size: 0.8em;
 }
 
 #icon-11:hover{
-background-color:#fdd300;
-    
+    background-color:#fdd300;
+
     color: black;
 }
 
@@ -588,9 +588,9 @@ a:first-letter{
 }
 
 ul.sub-menu > li:before {    
-	content: "\f345";  
-	font: 11px/1 "dashicons";   
-	color: #BBB; 
+    content: "\f345";  
+    font: 11px/1 "dashicons";   
+    color: #BBB; 
 }
 
 
@@ -608,17 +608,17 @@ Barra lateral
 ******************************************************************/
 
 #sidebar-frontpage{
-    	
-	background-color:white;
-   	/*padding-left: 2.5em;*/
-	padding:0em;
-        padding-top: 1em;
-        
+
+    background-color:white;
+    /*padding-left: 2.5em;*/
+    padding:0em;
+    padding-top: 1em;
+
 }
 
 #sidebar-frontpage-2{
-	padding:0px;
-        padding-top: 1em;
+    padding:0px;
+    padding-top: 1em;
 }
 
 #content .row {
@@ -647,25 +647,25 @@ Ginys
 ******************************************************************/
 
 #sidebar-frontpage .widget{
-padding-left: 2em;
-padding-right: 1em;     
+    padding-left: 2em;
+    padding-right: 1em;     
 }
 
 .widget-title, .widgettitle{
- /*color:#444444 !important;   */   
+    /*color:#444444 !important;   */   
 }
 
 #sidebar-frontpage .widget.logotip-widget{
-padding-left: 0em;     
+    padding-left: 0em;     
 }
 
 #sidebar-frontpage-2 .widget{
-padding-left: 1em;
-padding-right: 1em;     
+    padding-left: 1em;
+    padding-right: 1em;     
 }
 
 .slideshow_slide {
-margin-right: 0px;
+    margin-right: 0px;
 }
 
 .slideshow_slide slideshow_slide_text{
@@ -673,8 +673,8 @@ margin-right: 0px;
 }
 
 li.cat-item {
-list-style:none;
-font-size: 18px;
+    list-style:none;
+    font-size: 18px;
 }
 
 
@@ -683,28 +683,28 @@ font-size: 18px;
     text-align: center;
     padding: 1em 0.2em;	    
 }
-    
+
 .iconedu {
     width:60px;	
 }   
 
 address{
-	font-size: 0.8em;
-    	line-height: 1.25em;
-    	font-style:normal;	
+    font-size: 0.8em;
+    line-height: 1.25em;
+    font-style:normal;	
 }
 
 .text-info-centre{
- 	display:table-cell;
- 	vertical-align: middle;
- 	margin-left: 0px;
- 	padding-left: 0px;
- 	margin-top: 0.9em;
-	text-align: left;
+    display:table-cell;
+    vertical-align: middle;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-top: 0.9em;
+    text-align: left;
 }
 
 #tar_nomCentre{
-	color:#444 !important;
+    color:#444 !important;
 }
 
 .tagcloud{
@@ -717,8 +717,8 @@ Categories
 ******************************************************************/
 
 .archive-meta{
- background-color:#f8f8f8;
- padding:2em;
+    background-color:#f8f8f8;
+    padding:2em;
 }
 
 /*****************************************************************
@@ -727,25 +727,25 @@ Xarxa Nodes (BuddyPress & BBPress & Others)
 
 
 .widget.buddypress ul.item-list img.avatar{
-	width:3em !important;
-	height:3em !important;
+    width:3em !important;
+    height:3em !important;
 }
 
 #buddypress form#whats-new-form #whats-new-content {
-	padding: 0 0 0px 10px;
+    padding: 0 0 0px 10px;
 }
 
 /*No RSS Link*/
 li.feed{
-	display:none;
+    display:none;
 }
 
 #groups-list{
-list-style-type: none;
+    list-style-type: none;
 }
 
 #groups-list .item{
-display:none;
+    display:none;
 }
 
 /*****************************************************************
@@ -754,11 +754,11 @@ Calendari
 
 
 .gce-today {
-border: 3px solid;
+    border: 3px solid;
 }
 
 td.gce-today{
-border: 3px solid black;
+    border: 3px solid black;
 }
 
 table tr th, table tr td {
@@ -770,11 +770,11 @@ table tr th, table tr td {
 }
 
 abbr[title] {
-border-bottom: 0px;
-color:grey;
-font-weight: normal;
-padding-top:3px;
-padding-bottom:3px;
+    border-bottom: 0px;
+    color:grey;
+    font-weight: normal;
+    padding-top:3px;
+    padding-bottom:3px;
 }
 
 .gce-caption{
@@ -783,17 +783,17 @@ padding-bottom:3px;
 }
 
 ul.breadcrumbs {
-	/*margin: 1em;*/
+    /*margin: 1em;*/
 }	
 
 .breadcrumbs>* {
-	font-size:0.8em;
-	text-transform: uppercase;
+    font-size:0.8em;
+    text-transform: uppercase;
 }
 
 .breadcrumbs {
--webkit-border-radius: 0px;
-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
 }
 
 /*
@@ -813,14 +813,14 @@ overflow:hidden;
     {
         display: none !important;
     }
-    
+
     #content {
         margin:0;
-    	}
+    }
 
     #page{
-    	padding-top: 18px;
-   	}
+        padding-top: 18px;
+    }
 
     menu-item-depth-0 {
         clear:both;
@@ -830,46 +830,38 @@ overflow:hidden;
 
 /* Large devices*/
 @media screen and (min-width: 782px) {
-    
+
     .site-description-box{    
         display:table !important;    
     }
     /*Logo generalitat*/
     #logogencat { 
-     vertical-align: baseline;
-}
-
-/*TODO: Fer per a totes les resolucions*/
-@media screen and (device-aspect-ratio: 5/4) {
-
-    .site-header,
-    .site-identity,
-    .site-logo,
-    .site-description-box,
-    .site-slider,
-    #slider-box,
-    .site-icones {
-       height:10.2em;
-       overflow:hidden;
+        vertical-align: baseline;
     }
 
-    .icon-graella {
-        height:5.1em;
+    /*TODO: Fer per a totes les resolucions*/
+    @media screen and (device-aspect-ratio: 5/4) {
+
+        .site-header,
+        .site-identity,
+        .site-logo,
+        .site-description-box,
+        .site-slider,
+        #slider-box,
+        .site-icones {
+            height:10.2em;
+            overflow:hidden;
+        }
+
+        .icon-graella {
+            height:5.1em;
+        }
+
+        .icon-graella > .dashicons,
+        .site-quick-box-inner > .dashicons
+        {
+            font-size: 2em;
+            line-height: 2em;
+        }
+
     }
-    
-    .icon-graella > .dashicons,
-    .site-quick-box-inner > .dashicons
-    {
-        font-size: 2em;
-        line-height: 2em;
-    }
-    
-}
-
-
-
-
-
-
-
-
