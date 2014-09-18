@@ -150,7 +150,8 @@ function userNews() {
                             'module' => 'IWmain_block_news',
                             'sv' => $sv,
                             'nult' => true));
-                if ($newsValue != __('Nothing to show', $dom)) {
+                // When there are no messages, string lenght is 75 (contains only HTML comments)
+                if (strlen($newsValue) != 75) {
                     $newsValueText = '<div>' . ModUtil::getVar('IWmain', 'cronHeaderText') . '</div>';
                     $newsValueText .= '<table width="300">' . $newsValue . '</table>';
                     $newsValueText .= '<div>' . ModUtil::getVar('IWmain', 'cronFooterText') . '</div>';

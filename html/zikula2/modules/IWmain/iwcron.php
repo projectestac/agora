@@ -8,7 +8,6 @@ ModUtil::load('IWmain', 'admin');
 
 $langcode = ModUtil::getVar('ZConfig', 'language_i18n');
 
-
 ZLanguage::setLocale($langcode);
 ZLanguage::bindCoreDomain();
 
@@ -18,6 +17,8 @@ $lastCronSuccessfull = ModUtil::func('IWmain', 'user', 'userGetVar', array('uid'
             'name' => 'lastCronSuccessfull',
             'module' => 'IWmain_cron',
             'sv' => $sv));
+
+/*
 if ($lastCronSuccessfull > time() - 7 * 60 * 60) {
     if (isset($_REQUEST['return']) && $_REQUEST['return'] == 1) {
         LogUtil::registerError(__('The cron has been executed too recenty', $dom));
@@ -27,6 +28,8 @@ if ($lastCronSuccessfull > time() - 7 * 60 * 60) {
         exit;
     }
 }
+*/
+
 //Check if module Mailer is active
 $modid = ModUtil::getIdFromName('Mailer');
 $modinfo = ModUtil::getInfo($modid);
@@ -103,7 +106,14 @@ if (isset($_REQUEST['return']) && $_REQUEST['return'] == 1) {
     print $cronResponse;
 }
 
+Zikula_View_Theme::getInstance()->clear_all_cache();
+Zikula_View_Theme::getInstance()->clear_compiled();
+Zikula_View_Theme::getInstance()->clear_cssjscombinecache();
+Zikula_View::getInstance()->clear_all_cache();
+Zikula_View::getInstance()->clear_compiled();
+
 System::shutdown();
+
 
 function userNews() {
 
@@ -140,7 +150,8 @@ function userNews() {
                             'module' => 'IWmain_block_news',
                             'sv' => $sv,
                             'nult' => true));
-                if ($newsValue != __('Nothing to show', $dom)) {
+                // When there are no messages, string lenght is 75 (contains only HTML comments)
+                if (strlen($newsValue) != 75) {
                     $newsValueText = '<div>' . ModUtil::getVar('IWmain', 'cronHeaderText') . '</div>';
                     $newsValueText .= '<table width="300">' . $newsValue . '</table>';
                     $newsValueText .= '<div>' . ModUtil::getVar('IWmain', 'cronFooterText') . '</div>';
