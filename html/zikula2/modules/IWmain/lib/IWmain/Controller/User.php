@@ -322,7 +322,7 @@ class IWmain_Controller_User extends Zikula_AbstractController {
                 if ($uid != $realUid) {
                     $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
                 }
-                $noves = ModUtil::apiFunc('IWagendas', 'user', 'new', array('uid' => $uid,
+                $noves = ModUtil::apiFunc('IWagendas', 'user', 'newItem', array('uid' => $uid,
                             'sv' => $sv));
                 //Get user news in agendas
                 if ($noves > 0) {
