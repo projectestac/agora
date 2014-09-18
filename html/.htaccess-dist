@@ -3,12 +3,14 @@ RewriteEngine on
 RewriteBase /agora/
 
 # Allow access to directories without URL rewrite
+RewriteRule ^$ index.php [L]
 RewriteRule ^portal(.*)$ - [L]
 RewriteRule ^config(.*)$ - [L]
 RewriteRule ^error(.*)$ - [L]
 RewriteRule ^works(.*)$ - [L]
 RewriteRule ^apc(.*)$ - [L]
 RewriteRule ^index(.*)$ - [L]
+RewriteRule ^CHANGES(.*)$ - [L]
 
 # Block access to install.php
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
