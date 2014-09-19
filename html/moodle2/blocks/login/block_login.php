@@ -68,6 +68,12 @@ class block_login extends block_base {
 
             $this->content->text .= "</form>\n";
 
+            //XTEC ************ AFEGIT - To make Google Auth2 work
+            //2014.09.19 @pferre22
+            require_once($CFG->dirroot . '/auth/googleoauth2/lib.php');
+            $this->content->text .= auth_googleoauth2_render_buttons();
+            //************ FI
+
             if (!empty($signup)) {
                 $this->content->footer .= '<div><a href="'.$signup.'">'.get_string('startsignup').'</a></div>';
             }

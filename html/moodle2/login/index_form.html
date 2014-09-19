@@ -118,5 +118,5 @@ if (!empty($CFG->loginpasswordautocomplete)) {
 <?php
 //XTEC ************ AFEGIT - To make Google Auth2 work
 //2014.08.18 @pferre22
-require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); auth_googleoauth2_display_buttons(); 
+require_once($CFG->dirroot . '/auth/googleoauth2/lib.php'); echo auth_googleoauth2_render_buttons();
 //************ FI

@@ -57,7 +57,7 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
         //username must exist and have the right authentication method
         if (!empty($user) && ($user->auth == 'googleoauth2')) {
             $code = optional_param('code', false, PARAM_TEXT);
-            if($code === false){
+            if(empty($code)){
                 return false;
             }
             return true;
@@ -190,10 +190,20 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
                         $params = array();
                         $params['access_token'] = $accesstoken;
                         $params['alt'] = 'json';
-                        $postreturnvalues = $curl->get('https://www.googleapis.com/userinfo/email', $params);
+                        $postreturnvalues = $curl->get('https://www.googleapis.com/plus/v1/people/me', $params);
                         $postreturnvalues = json_decode($postreturnvalues);
-                        $useremail = $postreturnvalues->data->email;
-                        $verified = $postreturnvalues->data->isVerified;
+                        if(isset($postreturnvalues->errors)){
+                            print_object($postreturnvalues);
+                            print_error($postreturnvalues->errors);
+                        }
+                        foreach($postreturnvalues->emails as $googleemail) {
+                            if($googleemail->type == "account") {
+                                $useremail = $googleemail->value;
+                            }
+                        }
+                        $useremail = $postreturnvalues->emails[0]->value;
+                        // All emails are verified: https://developers.google.com/+/api/latest/people.
+                        $verified = 1;
                         break;
 
                     case 'facebook':
@@ -273,6 +283,21 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
 
 
                     //get following incremented username
+                    //XTEC ************ MODIFICAT - Repair not lowercase prefix
+                    //2014.09.19 @pferre22
+                    $googleuserprefix = core_text::strtolower(get_config('auth/googleoauth2', 'googleuserprefix'));
+                    $lastusernumber = get_config('auth/googleoauth2', 'lastusernumber');
+                    $lastusernumber = empty($lastusernumber)?1:$lastusernumber++;
+                    //check the user doesn't exist
+                    $nextuser = $DB->record_exists('user', array('username' => $googleuserprefix.$lastusernumber));
+                    while (!$nextuser) {
+                        $lastusernumber++;
+                        $nextuser = $DB->record_exists('user', array('username' => $googleuserprefix.$lastusernumber));
+                    }
+                    set_config('lastusernumber', $lastusernumber, 'auth/googleoauth2');
+                    $username = $googleuserprefix . $lastusernumber;
+                    // ORIGINAL
+                    /*
                     $lastusernumber = get_config('auth/googleoauth2', 'lastusernumber');
                     $lastusernumber = empty($lastusernumber)?1:$lastusernumber++;
                     //check the user doesn't exist
@@ -285,6 +310,8 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
                     }
                     set_config('lastusernumber', $lastusernumber, 'auth/googleoauth2');
                     $username = get_config('auth/googleoauth2', 'googleuserprefix') . $lastusernumber;
+                    */
+                    ////************ FI
 
                     //retrieve more information from the provider
                     $newuser = new stdClass();
@@ -294,15 +321,14 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
                             $params = array();
                             $params['access_token'] = $accesstoken;
                             $params['alt'] = 'json';
-                            $userinfo = $curl->get('https://www.googleapis.com/oauth2/v1/userinfo', $params);
-                            $userinfo = json_decode($userinfo); //email, id, name, verified_email, given_name, family_name, link, gender, locale
-
+                            $userinfo = $curl->get('https://www.googleapis.com/plus/v1/people/me', $params);
+                            $userinfo = json_decode($userinfo);
                             $newuser->auth = 'googleoauth2';
-                            if (!empty($userinfo->given_name)) {
-                                $newuser->firstname = $userinfo->given_name;
+                            if (!empty($userinfo->name->givenName)) {
+                                $newuser->firstname = $userinfo->name->givenName;
                             }
-                            if (!empty($userinfo->family_name)) {
-                                $newuser->lastname = $userinfo->family_name;
+                            if (!empty($userinfo->name->familyName)) {
+                                $newuser->lastname = $userinfo->name->familyName;
                             }
                             if (!empty($userinfo->locale)) {
                                 //$newuser->lang = $userinfo->locale;
@@ -352,6 +378,7 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
                             $newuser->city = isset($newuser->city)?isset($newuser->city):$locationdata->cityName;
                         }
                     }
+
                     create_user_record($username, '', 'googleoauth2');
 
                 } else {
@@ -556,6 +583,7 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
         //XTEC ************ ELIMINAT - Only let configure Google OAuth
         //2014.08.15  @pferre22
         if(is_xtecadmin()){
+
         // Facebook client id
         echo '<tr>
                 <td align="right"><label for="facebookclientid">';
@@ -876,7 +904,12 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
         set_config('linkedinclientid', $config->linkedinclientid, 'auth/googleoauth2');
         set_config('linkedinclientsecret', $config->linkedinclientsecret, 'auth/googleoauth2');
         set_config('googleipinfodbkey', $config->googleipinfodbkey, 'auth/googleoauth2');
-        set_config('googleuserprefix', $config->googleuserprefix, 'auth/googleoauth2');
+        //XTEC ************ MODIFICAT - Repair not lowercase prefix
+        //2014.09.19 @pferre22
+        set_config('googleuserprefix', core_text::strtolower($config->googleuserprefix), 'auth/googleoauth2');
+        // ORIGINAL
+        //set_config('googleuserprefix', $config->googleuserprefix, 'auth/googleoauth2');
+        ////****** FI
 
 
         //XTEC ************ AFEGIT - To restrict domain
