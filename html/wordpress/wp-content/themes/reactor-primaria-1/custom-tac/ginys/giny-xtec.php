@@ -3,23 +3,23 @@ class XTEC_Widget extends WP_Widget {
     
         
 	public $recursos = array( 
-	'ensenyament'=>	array('nom'=>"Dep.Ensenyament",'url'=>'http://www20.gencat.cat/portal/site/ensenyament','img'=>'ensenyament-icon.png',desc=>'Pàgina del Departament d\'ensenyament'), 
-	'xtec'=>	array('nom'=>"XTEC",'url'=>'http://xtec.cat','img'=>'xtec-icon.png',desc=>'Recursos educatius'),  
-	'edu365'=>array('nom'=>"Edu365",'url'=>'http://edu365.cat','img'=>'edu365-icon.png', desc=>'Recursos educatius'),
-	'edu3'=>array('nom'=>"Edu3",'url'=>'http://edu3.cat','img'=>'edu3-icon.png',desc=>'Videos educatius'),
-	'xarxa-docent'=>array('nom'=>"Xarxa Docent",'url'=>'http://educat.xtec.cat','img'=>'xarxa-docent-icon.png',desc=>'Xarxa de support amb més de 10.000 docents inscrits'), 
-	'alexandria'=>array('nom'=>"Alexandria",'url'=>'http://alexandria.xtec.cat','img'=>'alexandria-icon.png',desc=>'Cursos moodle i activitats PDI per descarregar'), 
-	'linkat'=>array('nom'=>"Linkat",'url'=>'http://linkat.xtec.cat/','img'=>'linkat-icon.png',desc=>'Linux pels centres educatius'),
-	'jclic'=>	array('nom'=>"JClic",'url'=>'http://clic.xtec.cat/ca/jclic/','img'=>'jclic-icon.png',desc=>'Activitats jClic'), 
-	'merli'=>	array('nom'=>"Merlí",'url'=>'http://aplitic.xtec.cat/merli','img'=>'merli-icon.png',desc=>'Catàleg de recursos XTEC'),
-	//'arc'=>	array('nom'=>"ARC",'url'=>'http://apliense.xtec.cat/arc/','img'=>'arc-icon.png',desc=>'Aplicació de recursos al Currículum'), 
-	//'odissea'=>array('nom'=>"Odissea",'url'=>'http://odissea.xtec.cat','img'=>'odissea-icon.png',desc=>'Moodle de formació pel docents'),
-	//'ampa'=>array('nom'=>"AMPA",'url'=>'','img'=>'ampa-icon.png',desc=>'La nostra associació de Pares d\'alumnes'),
-	//'escola-verda'=>array('nom'=>"Escola verda",'url'=>'','img'=>'escola-verda-icon.png',desc=>'Escola verda'),
-	//'som-escola'=>array('nom'=>"Som Escola",'url'=>'','img'=>'som-escola-icon.png',desc=>'Escola en català'),
-	'atri'=>array('nom'=>"ATRI",'url'=>'https://atri.gencat.cat','img'=>'atri-icon.png',desc=>'Portal ATRI'),
-	'saga'=>array('nom'=>"SAGA",'url'=>'https://saga.xtec.cat/entrada','img'=>'saga-icon.png',desc=>'Aplicatiu SAGA'),
-	'internet-segura'=>array('nom'=>"Internet Segura",'url'=>'http://www.xtec.cat/web/recursos/tecinformacio/internet_segura','img'=>'internet-segura-icon.png',desc=>'Recursos per utilitzar Internet de manera segura')
+	'ensenyament'=>	array('nom'=>"Dep.Ensenyament",'url'=>'http://www20.gencat.cat/portal/site/ensenyament','img'=>'ensenyament-icon.png','desc'=>'Pàgina del Departament d\'ensenyament'), 
+	'xtec'=>	array('nom'=>"XTEC",'url'=>'http://xtec.cat','img'=>'xtec-icon.png','desc'=>'Recursos educatius'),  
+	'edu365'=>array('nom'=>"Edu365",'url'=>'http://edu365.cat','img'=>'edu365-icon.png', 'desc'=>'Recursos educatius'),
+	'edu3'=>array('nom'=>"Edu3",'url'=>'http://edu3.cat','img'=>'edu3-icon.png','desc'=>'Videos educatius'),
+	'xarxa-docent'=>array('nom'=>"Xarxa Docent",'url'=>'http://educat.xtec.cat','img'=>'xarxa-docent-icon.png','desc'=>'Xarxa de support amb més de 10.000 docents inscrits'), 
+	'alexandria'=>array('nom'=>"Alexandria",'url'=>'http://alexandria.xtec.cat','img'=>'alexandria-icon.png','desc'=>'Cursos moodle i activitats PDI per descarregar'), 
+	'linkat'=>array('nom'=>"Linkat",'url'=>'http://linkat.xtec.cat/','img'=>'linkat-icon.png','desc'=>'Linux pels centres educatius'),
+	'jclic'=>	array('nom'=>"JClic",'url'=>'http://clic.xtec.cat/ca/jclic/','img'=>'jclic-icon.png','desc'=>'Activitats jClic'), 
+	'merli'=>	array('nom'=>"Merlí",'url'=>'http://aplitic.xtec.cat/merli','img'=>'merli-icon.png','desc'=>'Catàleg de recursos XTEC'),
+	//'arc'=>	array('nom'=>"ARC",'url'=>'http://apliense.xtec.cat/arc/','img'=>'arc-icon.png','desc'=>'Aplicació de recursos al Currículum'), 
+	//'odissea'=>array('nom'=>"Odissea",'url'=>'http://odissea.xtec.cat','img'=>'odissea-icon.png','desc'=>'Moodle de formació pel docents'),
+	//'ampa'=>array('nom'=>"AMPA",'url'=>'','img'=>'ampa-icon.png','desc'=>'La nostra associació de Pares d\'alumnes'),
+	//'escola-verda'=>array('nom'=>"Escola verda",'url'=>'','img'=>'escola-verda-icon.png','des'c=>'Escola verda'),
+	//'som-escola'=>array('nom'=>"Som Escola",'url'=>'','img'=>'som-escola-icon.png','desc'=>'Escola en català'),
+	'atri'=>array('nom'=>"ATRI",'url'=>'https://atri.gencat.cat','img'=>'atri-icon.png','desc'=>'Portal ATRI'),
+	'saga'=>array('nom'=>"SAGA",'url'=>'https://saga.xtec.cat/entrada','img'=>'saga-icon.png','desc'=>'Aplicatiu SAGA'),
+	'internet-segura'=>array('nom'=>"Internet Segura",'url'=>'http://www.xtec.cat/web/recursos/tecinformacio/internet_segura','img'=>'internet-segura-icon.png','desc'=>'Recursos per utilitzar Internet de manera segura')
 
 	);
 
