@@ -12,6 +12,9 @@ RewriteRule ^apc(.*)$ - [L]
 RewriteRule ^index(.*)$ - [L]
 RewriteRule ^CHANGES(.*)$ - [L]
 
+# Required for the proper functioning of cacti
+RewriteRule ^server-status$ - [L]
+
 # Block access to install.php
 RewriteCond %{REQUEST_URI} ([^/]*)/moodle/install.php
 RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
@@ -30,9 +33,6 @@ RewriteRule ^([^/]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
 # Only apply the rule if it is not an internal redirect
 RewriteCond %{ENV:REDIRECT_STATUS} !200
 RewriteRule ^([^/]*)/(.*)$ wordpress/$2?ccentre=$1 [QSA,L]
-
-# Required for the proper functioning of cacti
-RewriteRule ^server-status$ - [L]
 
 # Required for WordPress
 RewriteCond %{REQUEST_FILENAME} !-f
