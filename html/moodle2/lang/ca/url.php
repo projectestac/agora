@@ -58,7 +58,7 @@ $string['modulenameplural'] = 'URL';
 $string['neverseen'] = 'No s\'ha vist mai';
 $string['page-mod-url-x'] = 'Qualsevol pàgina del mòdul URL';
 $string['parameterinfo'] = '&amp;parameter=variable';
-$string['parametersheader'] = 'Paràmetres';
+$string['parametersheader'] = 'Variables URL';
 $string['parametersheader_help'] = 'Algunes variables internes de Moodle poden afegir-se automàticament a l\'URL. Teclegeu  en cada caixa de text el nom que voleu donar al paràmetre i seleccioneu la variable corresponent.';
 $string['pluginadministration'] = 'Administració del mòdul URL';
 $string['pluginname'] = 'URL';

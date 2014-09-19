@@ -136,6 +136,7 @@ $string['destination_help'] = '<p>Podeu especificar on voleu importar les entrad
 	<li><b>Glossari actual:</b> les entrades importades s\'afegiran al glossari obert actualment.</li>
 	<li><b>Nou glossari:</b> es crearà un glossari nou basat en la informació que es trobi en el fitxer i les noves entrades s\'hi inseriran.</li>
 </ul';
+$string['disapprove'] = 'Desfés l\'aprovació';
 $string['displayformat'] = 'Format de visualització';
 $string['displayformatcontinuous'] = 'Continu sense autor';
 $string['displayformatdefault'] = 'Per defecte el mateix que el format de visualització';
@@ -176,7 +177,7 @@ $string['displayformats'] = 'Formats de visualització';
 $string['displayformatssetup'] = 'Configuració dels formats de visualització';
 $string['duplicatecategory'] = 'Categoria duplicada';
 $string['duplicateentry'] = 'Entrada duplicada';
-$string['editalways'] = 'Edita sempre';
+$string['editalways'] = 'Permet editar sempre';
 $string['editalways_help'] = '<p>Aquesta opció us permet decidir si els estudiants poden editar les seves entrades en qualsevol moment.</p>
 
 <p>Podeu seleccionar:</p>
@@ -232,13 +233,13 @@ $string['fullmatch_help'] = '<p>Si s\'han habilitat els enllaços automàtics, a
 
 <p>Per exemple, una entrada del glossari anomenada "pedagog" no crearà un enllaç des de "pedagogia".</p>';
 $string['glossary:addinstance'] = 'Afegeix un glossari nou';
-$string['glossary:approve'] = 'Aprovar entrades pendents';
+$string['glossary:approve'] = 'Aprovar entrades i desfer-ne l\'aprovació';
 $string['glossary:comment'] = 'Crear comentaris';
 $string['glossary:export'] = 'Exportar entrades';
 $string['glossary:exportentry'] = 'Exporta entrada senzilla';
 $string['glossary:exportownentry'] = 'Exporteu la entrada senzilla vostra';
 $string['glossary:import'] = 'Importar entrades';
-$string['glossaryleveldefaultsettings'] = 'Paràmetres per defecte al nivell de glossari';
+$string['glossaryleveldefaultsettings'] = 'Paràmetres per defecte nivell glossari';
 $string['glossary:managecategories'] = 'Gestionar categories';
 $string['glossary:managecomments'] = 'Gestionar comentaris';
 $string['glossary:manageentries'] = 'Gestionar entrades';
@@ -283,6 +284,9 @@ $string['nocomments'] = '(No s\'han trobat comentaris referents a aquesta entrad
 $string['noconceptfound'] = 'No s\'ha trobat cap concepte ni definició.';
 $string['noentries'] = 'No s\'han trobat entrades en aquesta secció';
 $string['noentry'] = 'No s\'ha trobat cap entrada.';
+$string['nopermissiontodelcomment'] = 'No podeu suprimir els comentaris d\'altres persones';
+$string['nopermissiontodelinglossary'] = 'No podeu comentar en aquest glossari';
+$string['nopermissiontoviewresult'] = 'Només podeu veure els resultats de les vostres entrades';
 $string['notapproved'] = 'L\'entrada al glossari no està aprovada encara.';
 $string['notcategorised'] = 'No categoritzat';
 $string['numberofentries'] = 'Nombre d\'entrades';
@@ -293,6 +297,7 @@ $string['page-mod-glossary-x'] = 'Qualsevol pàgina del modul glossari';
 $string['pluginadministration'] = 'Gestió del glossari';
 $string['pluginname'] = 'Glossari';
 $string['popupformat'] = 'Format emergent';
+$string['print'] = 'Imprimeix';
 $string['printerfriendly'] = 'Versió per imprimir';
 $string['printviewnotallowed'] = 'La visualització per a impressora no està autoritzada';
 $string['question'] = 'Qüestió';
