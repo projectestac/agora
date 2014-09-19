@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+WORDPRESS
+- Blocked access to Settings > Writing to all users but xtecadmin
+
 
 Changes 14.09.18 codename jmeler
 ---------------------------------------------------------------------------------------

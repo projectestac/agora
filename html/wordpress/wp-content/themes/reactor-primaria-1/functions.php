@@ -885,6 +885,9 @@ function remove_admin_menus() {
     // Private BP Pages
     remove_submenu_page('options-general.php', 'bphelp-pbp-settings'); // In this case, it doesn't block access
 
+    // Settings | Writing
+    remove_submenu_page('options-general.php', 'options-writing.php'); // In this case, it doesn't block access
+
 }
 
 global $isAgora;
