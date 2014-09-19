@@ -212,24 +212,15 @@ function update_nag() {
 	if ( current_user_can('update_core') ) {
 		$msg = sprintf( __('<a href="http://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> is available! <a href="%2$s">Please update now</a>.'), $cur->current, network_admin_url( 'update-core.php' ) );
 	} else {
-        //XTEC ************ MODIFICAT - To hide upgrade Wordpress version message (shown only to xtecadmin user)
-        //2014.08.29 @sarjona
-            if (is_xtecadmin()) {
-		$msg = sprintf( __('<a href="http://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> is available! Please notify the site administrator.'), $cur->current );
-            }
-	}
-        if (!empty($msg)){
-                echo "<div class='update-nag'>$msg</div>";
-        }
-        //************ ORIGINAL
-        /*    
 		$msg = sprintf( __('<a href="http://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> is available! Please notify the site administrator.'), $cur->current );
 	}
         
+    // XTEC ************ ELIMINAT - Remove upgrade Wordpress version message
+    // 2014.09.19 @aginard
+    /*
 	echo "<div class='update-nag'>$msg</div>";
-        */
-        //************ FI
-
+    */
+    // ************ FI
         
 }
 add_action( 'admin_notices', 'update_nag', 3 );
