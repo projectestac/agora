@@ -224,13 +224,13 @@ function reactor_do_title_logo() { ?>
 						
 						<!-- Fila 2 -->
 
-						<a title="<?php echo $options['title_icon21'];?>"href="<?php echo $options['link_icon21'];?>">
+						<a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>">
 							<div id="icon-21" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>
 							</div>
 						</a>
 						
-						<a title="<?php echo $options['title_icon22'];?>"href="<?php echo $options['link_icon22'];?>">
+						<a title="<?php echo $options['title_icon22'];?>" href="<?php echo $options['link_icon22'];?>">
 							<div id="icon-22" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon22'];?>"></div>
 							</div>
