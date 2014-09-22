@@ -8,6 +8,7 @@ Changes in progress
 WORDPRESS
 - Blocked access to Settings > Writing to all users but xtecadmin
 - Removed WordPress upgrade message
+- Social Articles: Added catalan translation
 
 
 
