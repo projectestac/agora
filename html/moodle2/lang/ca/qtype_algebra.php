@@ -36,7 +36,7 @@ Aquests controls poden emprar-se per restringir les funcions que els estudiants 
 $string['allowedfunctions'] = 'Funcions permeses';
 $string['answer'] = 'Resposta: {$a}';
 $string['answerboxprefix'] = 'Cadena que s\'usarà com a prefix de l\'àrea de resposta en mostrar la pregunta';
-$string['answermustbegiven'] = 'Cal que introduïu una respostasi hi ha una qualificació o retroalimentació.';
+$string['answermustbegiven'] = 'Cal que introduïu una resposta si hi ha una qualificació o retroalimentació.';
 $string['answerno'] = 'Resposta {$a}';
 $string['answerprefix'] = 'Prefix de l\'àrea de resposta';
 $string['answerprefix_help'] = 'El text introduït aquí es mostrarà al davant de la caixa d\'entada on els estudiants introdueixen les seves respostes. Per exemple, si en una pregunta es demana l\'expressió d\'una certa funció f(x), aleshores podríeu posar "f(x) = " en aquest camp.';
@@ -64,7 +64,7 @@ $string['defaultmethod'] = 'Mètode de comparació per defecte';
 $string['disallow'] = 'Resposta no permesa';
 $string['disallowans'] = 'Resposta no permesa';
 $string['disallowanswer'] = 'Resposta no permesa';
-$string['disallow_help'] = 'conté una expressió que no serà permesa com a resposta.
+$string['disallow_help'] = 'Conté una expressió que no serà permesa com a resposta.
 Els estudiants que introdueixin respostes que concordin amb aquesta no obtindran cap puntuació de la pregunta encara que la resposta concordi amb alguna de les programades.';
 $string['dollars'] = '$$...$$';
 $string['duplicatevar'] = 'Nom de variable duplicat: «{$a}» ja està definit.';
@@ -114,7 +114,7 @@ $string['unknownterm'] = 'Error de sintaxi: S\'ha trobat el terme desconegut «{
 $string['unusedvar'] = 'Aquesta variable no s\'utilitza en cap de les respostes';
 $string['uri'] = 'URI del servidor SAGE';
 $string['variable'] = 'Variable';
-$string['variable_help'] = 'Heu d\'introduir aquí tots els noms de les variables utilitzades a les respostes. Els valors mínims i màxims només són necessaris';
+$string['variable_help'] = 'Heu d\'introduir aquí tots els noms de les variables utilitzades a les respostes. Els valors mínims i màxims només són necessaris si s\'utilitza l\'algorisme de comparació d\'avaluacions.';
 $string['variablename'] = 'Nom';
 $string['variableno'] = 'Variable {$a}';
 $string['variables'] = 'Variables';

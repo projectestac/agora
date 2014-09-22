@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'Format dels informes';
 $string['log:view'] = 'Veure els registres del curs';
 $string['log:viewtoday'] = 'Veure els registres d\'avui';
+$string['mnetlogwarning'] = 'Si els vostres clients MNet estan utilitzant el Moodle 2.7 o superior, potser no rebreu cap registre.';
 $string['page'] = 'Pàgina {$a}';
 $string['page-report-log-index'] = 'Informe d\'activitat del curs';
 $string['page-report-log-user'] = 'Informe d\'activitat de l\'usuari';
