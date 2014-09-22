@@ -1,0 +1,889 @@
+# Copyright (C) 2014 Invite Anyone
+# This file is distributed under the same license as the Invite Anyone package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Invite Anyone 1.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/invite-anyone\n"
+"POT-Creation-Date: 2014-06-23 12:51:30+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-08-08 10:04+0100\n"
+"Last-Translator: mgrau <mgrau226@xtec.cat>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"X-Generator: Poedit 1.6.7\n"
+
+#. Plugin Name of the plugin/theme
+#: admin/admin-panel.php:6
+#: admin/admin-panel.php:113
+#: widgets/widgets.php:38
+#: widgets/widgets.php:86
+msgid "Invite Anyone"
+msgstr "Convida Membres"
+
+#: admin/admin-panel.php:24
+msgid "Settings"
+msgstr "Configuració"
+
+#: admin/admin-panel.php:117
+#: admin/admin-panel.php:196
+msgid "General Settings"
+msgstr "Configuració general"
+
+#: admin/admin-panel.php:121
+msgid "Access Control"
+msgstr "Control d'accés"
+
+#: admin/admin-panel.php:125
+#: admin/admin-panel.php:177
+#: admin/admin-panel.php:466
+msgid "CloudSponge"
+msgstr "CloudSponge"
+
+#: admin/admin-panel.php:129
+#: admin/admin-panel.php:183
+msgid "Manage Invitations"
+msgstr "Gestió d'invitacions"
+
+#: admin/admin-panel.php:133
+#: admin/admin-panel.php:189
+msgid "Stats"
+msgstr "Estadístiques"
+
+#: admin/admin-panel.php:147
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: admin/admin-panel.php:165
+msgid "Access Settings"
+msgstr "Paràmetres d'accés"
+
+#: admin/admin-panel.php:167
+msgid "Allow email invitations to be sent by"
+msgstr "Permet invitacions per correu electrònic enviades per"
+
+#: admin/admin-panel.php:169
+msgid "Limit group invitations"
+msgstr "Limiteu les invitacions de grup"
+
+#: admin/admin-panel.php:171
+msgid "Limit per-user invitations"
+msgstr "Limiteu les invitacions per usuari/ària"
+
+#: admin/admin-panel.php:198
+msgid "Replacement patterns for email text fields"
+msgstr "Patrons per als camps de text de correu electrònic"
+
+#: admin/admin-panel.php:200
+msgid "Text of email invitation subject line"
+msgstr "Text de la invitació, assumpte del correu electrònic"
+
+#: admin/admin-panel.php:202
+msgid "Main text of email invitation message"
+msgstr "Text principal de la invitació, cos del missatge"
+
+#: admin/admin-panel.php:204
+msgid "Footer text of email invitation message (not editable by users)"
+msgstr "Peu del missatge (no és editable pels usuaris)"
+
+#: admin/admin-panel.php:206
+msgid "Allow users to customize invitation"
+msgstr "Permet als usuaris personalitzar la invitació a"
+
+#: admin/admin-panel.php:208
+msgid "Number of email invitations users are permitted to send at a time"
+msgstr "Nombre d'invitacions que els usuaris poden enviar alhora"
+
+#: admin/admin-panel.php:210
+msgid "Allow users to send group invitations along with email invitations"
+msgstr "Permet als usuaris enviar invitacions de grup, juntament amb invitacions per correu electrònic"
+
+#: admin/admin-panel.php:212
+msgid "Allow email invitations to be accepted even when site registration is disabled"
+msgstr "Permet invitacions per correu electrònic, fins i tot si el registre està deshabilitat"
+
+#: admin/admin-panel.php:214
+msgid "Enable the Send Invites step during group creation"
+msgstr "Habilita l'enviament d'invitacions durant la creació d'un grup"
+
+#: admin/admin-panel.php:226
+msgid "Control the default behavior of Invite Anyone."
+msgstr "Controla el comportament predeterminat de Convida Membres."
+
+#: admin/admin-panel.php:234
+msgid "name of your website"
+msgstr "nom del vostre lloc web"
+
+#: admin/admin-panel.php:235
+msgid "display name of the inviter"
+msgstr "mostra el nom de la persona que convida"
+
+#: admin/admin-panel.php:236
+msgid "URL to the profile of the inviter"
+msgstr "URL al perfil de la persona que convida"
+
+#: admin/admin-panel.php:237
+msgid "Link that invited users can click to accept the invitation"
+msgstr "Enllaç on els usuaris convidats poden fer clic per acceptar la invitació"
+
+#: admin/admin-panel.php:238
+msgid "Link that invited users can click to opt out of future invitations"
+msgstr "Enllaç on els usuaris convidats poden fer clic per no rebre futures notificacions"
+
+#: admin/admin-panel.php:296
+msgid "Subject line"
+msgstr "Assumpte del missatge"
+
+#: admin/admin-panel.php:300
+msgid "Message body"
+msgstr "Cos del missatge"
+
+#: admin/admin-panel.php:308
+msgid "Control which members are able to send various kinds of invitations."
+msgstr "Controla quins membres poden enviar diferents tipus d'invitacions "
+
+#: admin/admin-panel.php:317
+msgid "All users"
+msgstr "Tots els usuaris"
+
+#: admin/admin-panel.php:319
+msgid "A limited set of users"
+msgstr "Un nombre limitat d'usuaris"
+
+#: admin/admin-panel.php:323
+msgid "Only users who have been members of the site for a minimum number of days:"
+msgstr "Només els usuaris que han estat membres del lloc per un mínim de dies:"
+
+#: admin/admin-panel.php:328
+msgid "Only users who have at least the following role on this blog:"
+msgstr "Només els usuaris que tenen aquest rol al lloc:"
+
+#: admin/admin-panel.php:330
+msgid "Subscriber"
+msgstr "Subscriptor/a"
+
+#: admin/admin-panel.php:331
+msgid "Contributor"
+msgstr "Col·laborador"
+
+#: admin/admin-panel.php:332
+msgid "Author"
+msgstr "Autor/a"
+
+#: admin/admin-panel.php:333
+msgid "Editor"
+msgstr "Editor/a"
+
+#: admin/admin-panel.php:334
+msgid "Administrator"
+msgstr "Administrador/a"
+
+#: admin/admin-panel.php:339
+msgid "Provide a comma-separated list of users (identified by their numerical user ids) who <strong>cannot</strong> send invitations by email:"
+msgstr "Afegiu una llista separada per comes (amb els ID d'usuari/a) que <strong>no poden</strong> enviar invitacions per correu electrònic:"
+
+#: admin/admin-panel.php:356
+msgid "Limit number of invites per user :"
+msgstr "Nombre màxim d'invitacions per usuari/ària:"
+
+#: admin/admin-panel.php:368
+msgid "Invite Anyone extends BuddyPress's default group invitation settings. Instead of allowing you to invite only friends to a group, this plugin allows you to invite any member of the site. Use these settings to limit possible invitees for different group roles."
+msgstr "Convida Membres és una extesió de la configuració per defecte de les invitacions a nodes del BuddyPress.  En lloc de permetre convidar amics a un node, aquest giny permet convidar membres del tot el lloc. Feu servir aquests paràmetres per eliminar possibles invitacions per diferents rols als nodes."
+
+#: admin/admin-panel.php:370
+msgid "<strong>Site admins</strong> can send group invitations to: "
+msgstr "Els <strong>administradors del lloc</strong> poden enviar invitacions a:"
+
+#: admin/admin-panel.php:372
+#: admin/admin-panel.php:380
+#: admin/admin-panel.php:388
+#: admin/admin-panel.php:396
+msgid "Anyone"
+msgstr "Qualsevol"
+
+#: admin/admin-panel.php:373
+#: admin/admin-panel.php:381
+#: admin/admin-panel.php:389
+#: admin/admin-panel.php:397
+msgid "Friends"
+msgstr "Amistats"
+
+#: admin/admin-panel.php:374
+#: admin/admin-panel.php:382
+#: admin/admin-panel.php:390
+#: admin/admin-panel.php:398
+msgid "No one"
+msgstr "Ningú"
+
+#: admin/admin-panel.php:378
+msgid "<strong>Group admins</strong> can send group invitations to: "
+msgstr "Els <strong>administradors de nodes</strong> poden enviar invitacions a:"
+
+#: admin/admin-panel.php:386
+msgid "<strong>Group mods</strong> can send group invitations to: "
+msgstr "Els <strong>moderadors de nodes</strong> poden enviar invitacions a:"
+
+#: admin/admin-panel.php:394
+msgid "<strong>Group members</strong> can send group invitations to: "
+msgstr "Els <strong>membres de nodes</strong> poden enviar invitacions a:"
+
+#: admin/admin-panel.php:415
+msgid "<a href=\"http://www.cloudsponge.com/?utm_source=invite-anyone&utm_medium=partner&utm_campaign=integrator\">CloudSponge</a> is a cool service that gives your users easy and secure access to their address books (Gmail, Yahoo, and a number of other online and desktop email clients), so that they can more easily invite friends to your site. In order to enable CloudSponge support in Invite Anyone and BuddyPress, you'll need to <a href=\"http://www.cloudsponge.com/signup?utm_source=invite-anyone&utm_medium=partner&utm_campaign=integrator\">register for a CloudSponge account</a>."
+msgstr "<a href=\"http://www.cloudsponge.com/?utm_source=invite-anyone&utm_medium=partner&utm_campaign=integrator\">CloudSponge</a> és un servei genial que dóna als seus usuaris un accés fàcil i segur a la seves adreces de contacte (Gmail, Yahoo, i una sèrie d'altres clients de correu electrònic en línia i d'escriptori), de manera que puguin convidar els amics més fàcilment al seu lloc. Per tal d'habilitar el suport CloudSponge a convidar algú i BuddyPress, haureu de <a href=\"http://www.cloudsponge.com/signup?utm_source=invite-anyone&utm_medium=partner&utm_campaign=integrator\">registrar un compte a CloudSponge</a>."
+
+#: admin/admin-panel.php:417
+msgid "Enable CloudSponge?"
+msgstr "Habilita CloudSponge?"
+
+#: admin/admin-panel.php:421
+msgid "CloudSponge Domain Key"
+msgstr "CloudSponge Domain Key"
+
+#: admin/admin-panel.php:421
+msgid "CloudSponge integration will not work without a valid domain key."
+msgstr "La integració amb CloudSponge no funcionarà sense un clau vàlida."
+
+#: admin/admin-panel.php:423
+msgid "When you use CloudSponge with Invite Anyone, part of your CloudSponge monthly payment goes to the author of Invite Anyone. This is a great way to support future development of the plugin. Thanks for your support!"
+msgstr "Quan veu servir CloudSponge amb Convida Membres, part del vostre pagament mensual a CloudSponge va adreçat a l'autor de Convida membres. Aquesta és una bona forma de donar suport al desenvolupament del giny. Gràcies pel vostre suport!"
+
+#: admin/admin-panel.php:442
+msgid "Inviter"
+msgstr "Qui convida"
+
+#: admin/admin-panel.php:447
+msgid "Invited Email"
+msgstr "Correu electònic de qui convida"
+
+#: admin/admin-panel.php:452
+#: by-email/by-email.php:761
+msgid "Sent"
+msgstr "Enviat"
+
+#: admin/admin-panel.php:460
+#: by-email/by-email.php:762
+msgid "Accepted"
+msgstr "Acceptat"
+
+#: admin/admin-panel.php:526
+#: by-email/by-email-db.php:88
+msgid "View Invitation"
+msgstr "Visualitza la invitació"
+
+#: admin/admin-panel.php:568
+msgid "(no data)"
+msgstr "(sense dades)"
+
+#: admin/admin-panel.php:592
+msgid "No invitations have been sent yet."
+msgstr "Encara no s'ha enviat cap invitació"
+
+#: admin/admin-stats.php:41
+msgid "24 Hours"
+msgstr "24 hores"
+
+#: admin/admin-stats.php:44
+msgid "3 Days"
+msgstr "3 dies"
+
+#: admin/admin-stats.php:47
+msgid "1 Week"
+msgstr "1 setmana"
+
+#: admin/admin-stats.php:50
+msgid "4 Weeks"
+msgstr "4 setmanes"
+
+#: admin/admin-stats.php:53
+msgid "3 Months"
+msgstr "3 mesos"
+
+#: admin/admin-stats.php:56
+msgid "All Time"
+msgstr "Total"
+
+#: admin/admin-stats.php:163
+#: by-email/by-email-db.php:352
+msgid "Yes"
+msgstr "Sí"
+
+#: admin/admin-stats.php:188
+#: admin/admin-stats.php:196
+#: admin/admin-stats.php:204
+msgid "n/a"
+msgstr "n/a"
+
+#: admin/admin-stats.php:305
+msgid "In the last..."
+msgstr "A les darreres..."
+
+#: admin/admin-stats.php:309
+msgid "Total Sent"
+msgstr "Total d'enviades"
+
+#: admin/admin-stats.php:313
+msgid "Total Accepted"
+msgstr "Total d'acceptades"
+
+#: admin/admin-stats.php:317
+msgid "Acceptance Rate"
+msgstr "Taxa d'acceptació"
+
+#: admin/admin-stats.php:321
+msgid "Top Inviter (by #)"
+msgstr "Qui més convida (per #)"
+
+#: admin/admin-stats.php:325
+msgid "Top Inviter (by % accepted)"
+msgstr "Qui més convida (per % d'acceptades)"
+
+#: admin/admin-stats.php:330
+msgid "Total Sent (CloudSponge)"
+msgstr "Total d'enviades (CloudSponge)"
+
+#: admin/admin-stats.php:334
+msgid "Total Accepted (CloudSponge)"
+msgstr "Total d'acceptades (CloudSponge)"
+
+#: admin/admin-stats.php:338
+msgid "Acceptance Rate (CloudSponge)"
+msgstr "Taxa d'acceptació (CloudSponge)"
+
+#: admin/admin-stats.php:342
+msgid "CloudSponge Usage"
+msgstr "Ús de CloudSponge"
+
+#: admin/admin-stats.php:346
+msgid "Top Inviter (by #) (CloudSponge)"
+msgstr "Qui més convida (per #) (CloudSponge)"
+
+#: admin/admin-stats.php:350
+msgid "Top Inviter (by % accepted) (CloudSponge)"
+msgstr "Qui més convida (per % d'acceptades) (CloudSponge)"
+
+#: admin/admin-stats.php:378
+#: admin/admin-stats.php:403
+msgid "(%d sent)"
+msgstr "(%d enviada)"
+
+#: admin/admin-stats.php:382
+#: admin/admin-stats.php:407
+msgid "(%s accepted)"
+msgstr "(%s acceptada)"
+
+#: by-email/by-email-db.php:82
+msgctxt "post type general name"
+msgid "BuddyPress Invitations"
+msgstr "Invitacions de BuddyPress"
+
+#: by-email/by-email-db.php:83
+msgctxt "post type singular name"
+msgid "Invitation"
+msgstr "Invitació"
+
+#: by-email/by-email-db.php:84
+msgctxt "add new"
+msgid "Add New"
+msgstr "Afegeix nova"
+
+#: by-email/by-email-db.php:85
+msgid "Add New Invitation"
+msgstr "Afegeix invitació nova"
+
+#: by-email/by-email-db.php:86
+msgid "Edit Invitation"
+msgstr "Edita la invitació"
+
+#: by-email/by-email-db.php:87
+msgid "New Invitation"
+msgstr "Invitació nova"
+
+#: by-email/by-email-db.php:89
+msgid "Search Invitation"
+msgstr "Cerca invitació"
+
+#: by-email/by-email-db.php:90
+msgid "No Invitations found"
+msgstr "No s'ha trobat cap invitació"
+
+#: by-email/by-email-db.php:91
+msgid "No Invitations found in Trash"
+msgstr "No s'ha trobat cap invitació a la paperera"
+
+#: by-email/by-email-db.php:97
+msgid "BuddyPress Invitations"
+msgstr "Invitacions de BuddyPress"
+
+#: by-email/by-email-db.php:109
+#: by-email/by-email-db.php:122
+msgid "Invitees"
+msgstr "Convidats"
+
+#: by-email/by-email-db.php:110
+#: by-email/by-email-db.php:117
+msgid "Invitee"
+msgstr "Convidat"
+
+#: by-email/by-email-db.php:111
+msgid "Search Invitees"
+msgstr "Cerca convidats"
+
+#: by-email/by-email-db.php:112
+msgid "All Invitees"
+msgstr "Tots els convidats"
+
+#: by-email/by-email-db.php:113
+msgid "Edit Invitee"
+msgstr "Edita convidat"
+
+#: by-email/by-email-db.php:114
+msgid "Update Invitee"
+msgstr "Actualitza convidat"
+
+#: by-email/by-email-db.php:115
+msgid "Add New Invitee"
+msgstr "Afegeix convidat nou"
+
+#: by-email/by-email-db.php:116
+msgid "New Invitee Name"
+msgstr "Nom del convidat nou"
+
+#: by-email/by-email-db.php:130
+#: by-email/by-email-db.php:143
+msgid "Invited Groups"
+msgstr "Nodes convidats"
+
+#: by-email/by-email-db.php:131
+#: by-email/by-email-db.php:138
+msgid "Invited Group"
+msgstr "Node convidat"
+
+#: by-email/by-email-db.php:132
+msgid "Search Invited Groups"
+msgstr "Cerca nodes convidats"
+
+#: by-email/by-email-db.php:133
+msgid "All Invited Groups"
+msgstr "Tots els nodes convidats"
+
+#: by-email/by-email-db.php:134
+msgid "Edit Invited Group"
+msgstr "Edita el node convidat"
+
+#: by-email/by-email-db.php:135
+msgid "Update Invited Group"
+msgstr "Actualitza el node convidat"
+
+#: by-email/by-email-db.php:136
+msgid "Add New Invited Group"
+msgstr "Afegeix un node convidat nou"
+
+#: by-email/by-email-db.php:137
+msgid "New Invited Group Name"
+msgstr "Nom nou del node convidat"
+
+#: by-email/by-email-db.php:352
+msgid "No"
+msgstr "No"
+
+#: by-email/by-email-db.php:912
+msgid "All done!"
+msgstr "Ja està!"
+
+#: by-email/by-email-db.php:914
+msgid "Finish"
+msgstr "Acabat"
+
+#: by-email/by-email-db.php:952
+msgid "Migrated Invitation"
+msgstr "Invitació migrada"
+
+#: by-email/by-email-db.php:972
+msgid "Importing: %1$s invited %2$s<br />"
+msgstr "Important: %1$s convidats %2$s<br />"
+
+#: by-email/by-email-db.php:983
+msgid "If your browser doesn&#8217;t start loading the next page automatically, click this link:"
+msgstr "Si el vostre navegador no carrega la pàgina de forma automàtica, feu clic en aquest enllaç:"
+
+#: by-email/by-email-db.php:983
+msgid "Next Invitations"
+msgstr "Invitacions següents"
+
+#: by-email/by-email-db.php:1011
+msgid "Invite Anyone Upgrade"
+msgstr "Actualització de Convida Membres"
+
+#: by-email/by-email-db.php:1014
+msgid "Invite Anyone has just been updated, and needs to move some old invitation data in order to complete the upgrade. Click GO to start the process."
+msgstr "Convida Membres s'ha actualitzat i necessita moure algunes de les invitacions antigues per tal de completar l'actualització. Feu clic a GO per començar el procés."
+
+#: by-email/by-email.php:73
+msgid "Opt Out"
+msgstr "Rebutja"
+
+#: by-email/by-email.php:74
+msgid "Accept Invitation"
+msgstr "Accpeta la invitació"
+
+#: by-email/by-email.php:78
+msgid "To opt out of future invitations to %s, make sure that your email is entered in the field below and click \"Opt Out\"."
+msgstr "Per rebutjar invitacions futures a %s, assegureu-vos que el vostre correu electrònic apareix al camp de sota i feu clic a  \"Rebutja\"."
+
+#: by-email/by-email.php:80
+msgid "If you are here by mistake and would like to accept your invitation to %s, click \"Accept Invitation\" instead."
+msgstr "Si esteu aquí per error i voleu acceptar la invitació a %s, feu clic a \"Accepta la invitació\"."
+
+#: by-email/by-email.php:93
+msgid "You have successfully opted out. No more invitation emails will be sent to you by this site."
+msgstr "La petició s'ha tramès correctament. No rebreu cap invitació més d'aquest lloc al vostre correu electrònic."
+
+#: by-email/by-email.php:96
+msgid "Sorry, there was an error in processing your request"
+msgstr "Ho sentim, hi ha hagut un error processant la vostra petició."
+
+#: by-email/by-email.php:122
+msgid "Email:"
+msgstr "Correu electrònic"
+
+#: by-email/by-email.php:144
+msgid "It looks like you're trying to accept an invitation to join the site, but some information is missing. Please try again by clicking on the link in the invitation email."
+msgstr "Sembla que voleu acceptar una invitació per unir-vos a aqust lloc, però falta alguna informació. Torneu a intentar-ho fent clic a l'enllaç de la invitació del correu electrònic."
+
+#: by-email/by-email.php:177
+msgid "Welcome! You&#8217;ve been invited to join the site by the following user: %s. Please fill out the information below to create your account."
+msgstr "Benvingut/da! Heu estat convidats a unir-vos a aquest lloc per l'usuari/ària següent: %s. Ompliu la informació de sota per crear el vostre compte."
+
+#: by-email/by-email.php:179
+msgid "Welcome! You&#8217;ve been invited to join the site. Please fill out the information below to create your account."
+msgstr "Benvingut/da! Heu estat convidats a unir-vos a aquest lloc. Ompliu la informació de sota per crear el vostre compte."
+
+#: by-email/by-email.php:269
+#: by-email/by-email.php:677
+#: group-invites/group-invites.php:59
+#: group-invites/templates/invite-anyone.php:87
+#: group-invites/templates/invite-anyone.php:178
+msgid "Send Invites"
+msgstr "Envia invitacions"
+
+#: by-email/by-email.php:281
+#: by-email/by-email.php:503
+#: by-email/by-email.php:566
+msgid "Invite New Members"
+msgstr "Convideu memebres nous"
+
+#: by-email/by-email.php:291
+#: by-email/by-email.php:733
+msgid "Sent Invites"
+msgstr "Invitacions enviades"
+
+#: by-email/by-email.php:403
+msgid "Sorry, there was a problem sending your invitations. Please try again."
+msgstr "Ho sentim, hi ha hagut un problema enviant les vostres invitacions. Toneu a provar-ho de nou."
+
+#: by-email/by-email.php:443
+msgid "Invitation cleared"
+msgstr "Invitació netejada"
+
+#: by-email/by-email.php:445
+msgid "There was a problem clearing the invitation."
+msgstr "Hi ha hagut un problema netejant la invitació."
+
+#: by-email/by-email.php:448
+msgid "Invitations cleared."
+msgstr "S'han netejat les invitacions."
+
+#: by-email/by-email.php:450
+msgid "There was a problem clearing the invitations."
+msgstr "Hi ha hagut un problema netejant les invitacions."
+
+#: by-email/by-email.php:493
+msgid "It looks like you&#8217;ve already accepted your invitation to join the site."
+msgstr "Sembla que heu acceptat la vostra invitació per unir-vos a aquest lloc."
+
+#: by-email/by-email.php:505
+msgid "You have sent the maximum allowed number of invitations."
+msgstr "Heu enviat el màxim permès d'invitacions."
+
+#: by-email/by-email.php:555
+msgid "Some of your invitations were not sent. Please see the errors below and resubmit the failed invitations."
+msgstr "Algunes de les vostres invitacions no s'han enviat. Mireu els erros a sota i reenvieu les invitacions que han fallat."
+
+#: by-email/by-email.php:561
+msgid "Invite friends to join %s by following these steps:"
+msgstr "Convideu amics a afegir-se a %s seguint els passos següents:"
+
+#: by-email/by-email.php:584
+msgid "The site administrator has limited each user to %1$d invitations. You have %2$d invitations remaining."
+msgstr "L'administrador/a del lloc ha limitat el nombre d'invitacions per usuari/ària a %1$d . Encar a teniu %2$d invitacions disponibles."
+
+#: by-email/by-email.php:603
+msgid "Enter email addresses below, one per line."
+msgstr "Afegiu les adreces de correu electrònic a continuació, una a línia."
+
+#: by-email/by-email.php:604
+msgid "You can only invite people whose email addresses end in one of the following domains:"
+msgstr "Només podeu convidar a les persones que tenen adreces de correu electrònic en un dels dominis següents:"
+
+#: by-email/by-email.php:608
+msgid "You can invite a maximum of %s people at a time."
+msgstr "Podeu convidar a un màxim de %s persones alhora."
+
+#: by-email/by-email.php:620
+msgid "(optional) Customize the subject line of the invitation email."
+msgstr "(opcional) Personalitzeu l'assumpte del missatge de correu electrònic d'aquesta invitació."
+
+#: by-email/by-email.php:623
+msgid "Subject: <span class=\"disabled-subject\">Subject line is fixed</span>"
+msgstr "Assumpte: <span class=\"disabled-subject\">L'assumpte no es pot modificar</span>"
+
+#: by-email/by-email.php:632
+msgid "(optional) Customize the text of the invitation."
+msgstr "(opcional) Presonalitzeu el text de la invitació."
+
+#: by-email/by-email.php:633
+msgid "The message will also contain a custom footer containing links to accept the invitation or opt out of further email invitations from this site."
+msgstr "El missatge també contindrà un peu de missatge amb els enllaços per acceptar la invitació o  bé optar per no rebre més invitacions de correu electrònic d'aquest lloc."
+
+#: by-email/by-email.php:636
+msgid "Message:"
+msgstr "Missatge:"
+
+#: by-email/by-email.php:647
+msgid "(optional) Select some groups. Invitees will receive invitations to these groups when they join the site."
+msgstr "(optional) Seleccioneu alguns nodes. Els convidats rebran les invitacions a aquests nodes quan s'uneixin al lloc."
+
+#: by-email/by-email.php:740
+msgid "You have sent invitations to the following people."
+msgstr "Heu enviat invitacions a les persones següents."
+
+#: by-email/by-email.php:753
+msgid ""
+"This table displays a list of all your sent invites.\n"
+"\t\t\tInvites that have been accepted are highlighted in the listings.\n"
+"\t\t\tYou may clear any individual invites, all accepted invites or all of the invites from the list."
+msgstr ""
+"Aquesta taula mostra la llista de totes les invitacions que heu enviat.\n"
+"\t\t\tLes invitacions que han estat acceptades apareixen ressaltades a les llistes.\n"
+"\t\t\tPodeu esborrar les invitacions individuals, totes invitacions acceptades o totes les invitacions de la llista."
+
+#: by-email/by-email.php:759
+msgid "Invited email address"
+msgstr "Adreça de correu electrònic del convidat"
+
+#: by-email/by-email.php:760
+msgid "Group invitations"
+msgstr "Invitacions al node"
+
+#: by-email/by-email.php:770
+msgid "Clear all accepted invites from the list"
+msgstr "Neteja totes les invitacions acceptades de la llista"
+
+#: by-email/by-email.php:770
+msgid "Clear all accepted invitations"
+msgstr "Neteja totes les invitacions acceptades"
+
+#: by-email/by-email.php:771
+msgid "Clear all your listed invites"
+msgstr "Neteja totes les invitacions de la llista"
+
+#: by-email/by-email.php:771
+msgid "Clear all invitations"
+msgstr "Neteja totes les invitacions"
+
+#: by-email/by-email.php:797
+msgid "Clear this invitation"
+msgstr "Neteja aquesta invitació"
+
+#: by-email/by-email.php:851
+msgid "You haven't sent any email invitations yet."
+msgstr "Encara no heu enviat cap invitació de correu electrònic."
+
+#: by-email/by-email.php:884
+msgid "An invitation to join the %s community."
+msgstr "Una invitació per unir-se a la comunitat %s."
+
+#: by-email/by-email.php:909
+msgid ""
+"You have been invited by %%INVITERNAME%% to join the %s community.\n"
+"\n"
+"Visit %%INVITERNAME%%'s profile at %%INVITERURL%%."
+msgstr ""
+"Heu estat convidats per %%INVITERNAME%% a unir-vos a la comunitat %s.\n"
+"\n"
+"Aneu al perfil de %%INVITERNAME%% accedint a %%INVITERURL%%."
+
+#: by-email/by-email.php:932
+msgid "To accept this invitation, please visit %%ACCEPTURL%%"
+msgstr "Per acceptar aquesta invitació, aneu a %%ACCEPTURL%%"
+
+#: by-email/by-email.php:936
+msgid "To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
+msgstr "Per rebutjar invitacions futures d'aquest lloc, aneu a %%OPTOUTURL%%"
+
+#: by-email/by-email.php:1099
+msgid "You are only allowed to invite up to %s people at a time. Please remove some addresses and try again"
+msgstr "Només podeu convidar %s persones alhora. Elimineu alguna adreça de correu electrònic i torneu a provar-ho."
+
+#: by-email/by-email.php:1109
+msgid "You didn't include any email addresses!"
+msgstr "No heu inclòs cap adreça de correu electrònic!"
+
+#: by-email/by-email.php:1122
+msgid "You are only allowed to invite %s more people. Please remove some addresses and try again"
+msgstr "Nomś podeu convidar %s persona/es més. Esborreu alguna adreça de correu electrònic i toneu a provar-ho de nou."
+
+#: by-email/by-email.php:1143
+msgid "<strong>%s</strong> has opted out of email invitations from this site."
+msgstr "<strong>%s</strong> ha rebutjat les invitacions de correu electrònic per a aquest lloc."
+
+#: by-email/by-email.php:1147
+msgid "<strong>%s</strong> is already a registered user of the site."
+msgstr "<strong>%s</strong> ja és un usuari/ària registrat en aquest lloc."
+
+#: by-email/by-email.php:1151
+msgid "<strong>%s</strong> is not a permitted email address."
+msgstr "<strong>%s</strong> no és una adreça de correu electrònic vàlida."
+
+#: by-email/by-email.php:1155
+msgid "<strong>%s</strong> is not a valid email address. Please make sure that you have typed it correctly."
+msgstr "<strong>%s</strong> no és una adreça de correu electrònic vàlida. Assegureu-vos que l'heu escrita correctament."
+
+#: by-email/by-email.php:1159
+msgid "<strong>%s</strong> is not a permitted email address. Please make sure that you have typed the domain name correctly."
+msgstr "<strong>%s</strong> no és una adreça de correu electrònic permesa. Assegureu-vos que heu escrit el domini correctament."
+
+#: by-email/by-email.php:1218
+msgid "Invitations were sent successfully to the following email addresses: %s"
+msgstr "Les invitacions s'han enviat correctament a les adreces de correu electrònic següents: %s"
+
+#: by-email/by-email.php:1223
+msgid "Please correct your errors and resubmit."
+msgstr "Corregiu els errors i reenvieu les invitacions."
+
+#: by-email/by-email.php:1261
+#: by-email/by-email.php:1301
+msgid "We couldn't find any invitations associated with this email address."
+msgstr "No s'ha pogut trobar cap invitació associada a aqusest correu electrònic."
+
+#: by-email/cloudsponge-integration.php:69
+msgid "You can also add email addresses <a class=\"cs_import\">from your Address Book</a>."
+msgstr "També podeu afegir adreces de correu electrònic <a class=\"cs_import\">de la vostra llista de contactes</a>."
+
+#: group-invites/group-invites.php:89
+#: group-invites/group-invites.php:132
+#: group-invites/group-invites.php:176
+msgid "Group invites sent."
+msgstr "S'han enviat la invitació al node"
+
+#: group-invites/group-invites.php:134
+msgid "Group created successfully."
+msgstr "El node s'ha creat correctament."
+
+#: group-invites/group-invites.php:382
+#: group-invites/templates/invite-anyone.php:70
+#: group-invites/templates/invite-anyone.php:159
+msgid "Remove Invite"
+msgstr "Elimina la invitació"
+
+#: group-invites/group-invites.php:566
+msgid ""
+"%1$s has invited you to the group: \"%2$s\".\n"
+"\n"
+"To view your group invites visit: %3$s\n"
+"\n"
+"To view the group visit: %4$s\n"
+"\n"
+"To view %5$s's profile visit: %6$s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"%1$s us ha convidat al node: \"%2$s\".\n"
+"\n"
+"Per veure la invitació al node aneu a: %3$s\n"
+"\n"
+"Per veure el node aneu a: %4$s\n"
+"\n"
+"Per veure el perfil de %5$s aneu a: %6$s\n"
+"\n"
+"---------------------\n"
+
+#: group-invites/templates/invite-anyone.php:27
+#: group-invites/templates/invite-anyone.php:115
+msgid "Search for members to invite:"
+msgstr "Cerca membres per convidar:"
+
+#: group-invites/templates/invite-anyone.php:35
+#: group-invites/templates/invite-anyone.php:126
+msgid "Select members from the directory:"
+msgstr "Cerca membres del directori:"
+
+#: group-invites/templates/invite-anyone.php:50
+msgid "Select people to invite."
+msgstr "Selecciona usuaris per convidar."
+
+#: group-invites/templates/invite-anyone.php:107
+msgid "Want to invite someone to the group who is not yet a member of the site?"
+msgstr "Voleu convidar algú que encara no és membre de lloc al node?"
+
+#: group-invites/templates/invite-anyone.php:107
+msgid "Send invitations by email."
+msgstr "Envieu invitacions per correu electrònic."
+
+#: group-invites/templates/invite-anyone.php:139
+msgid "Select people to invite from your friends list."
+msgstr "Seleccioneu usuaris per convidar de la vostra llista d'amistats."
+
+#: lib/bbg-cpt-pag.php:200
+msgid "Viewing %1$d - %2$d of a total of %3$d"
+msgstr "Veient %1$d - %2$d d'un total de %3$d"
+
+#: lib/bbg-cpt-pag.php:221
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: lib/bbg-cpt-pag.php:222
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: widgets/widgets.php:41
+msgid "Enter one email address per line to invite friends to join this site."
+msgstr "Afegiu un correu electrònic per línia per convidar amistats a unir-se a aquest lloc."
+
+#: widgets/widgets.php:68
+msgid "Continue"
+msgstr "Continua"
+
+#: widgets/widgets.php:92
+msgid "Invite friends to join the site by entering their email addresses below."
+msgstr "Convideu amistats a unir-se a aquest lloc posant el seu correu electrònic a sota."
+
+#: widgets/widgets.php:95
+msgid "Title:"
+msgstr "Títol:"
+
+#: widgets/widgets.php:97
+msgid "Text to display in widget:"
+msgstr "Text que es mostrarà al giny:"
+
+#: widgets/widgets.php:101
+msgid "Number of email fields to display in widget:"
+msgstr "Número de camps de correu electònic que es mostrarà al giny:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://teleogistic.net/code/buddypress/invite-anyone/"
+msgstr "http://teleogistic.net/code/buddypress/invite-anyone/"
+
+#. Description of the plugin/theme
+msgid "Allows group admins to invite any member of their BuddyPress community to a group or to the site"
+msgstr "Permet als administradors dels nodes convidar qualsevol membre de la comunitat de BuddyPress a un altre grup del lloc"
+
+#. Author of the plugin/theme
+msgid "Boone Gorges"
+msgstr "Boone Gorges"
+
+#. Author URI of the plugin/theme
+msgid "http://boone.gorg.es"
+msgstr "http://boone.gorg.es"
+

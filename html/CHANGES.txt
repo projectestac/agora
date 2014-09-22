@@ -8,7 +8,8 @@ Changes in progress
 WORDPRESS
 - Blocked access to Settings > Writing to all users but xtecadmin
 - Removed WordPress upgrade message
-
+- Social Articles: Added catalan translation
+- Invite Anyone: Added catalan translation
 
 
 Changes 14.09.18 codename jmeler
