@@ -2,7 +2,7 @@
 //MARSUPIAL ************ FITXER AFEGIT - Marsupial menu options
 
 // If site is allowed to use Marsupial
-if ($hassiteconfig && (!isset($CFG->ismarsupial) || $CFG->ismarsupial)) {
+if ((!isset($CFG->ismarsupial) || $CFG->ismarsupial)) {
 	//****************** MENU ******************/
 	$ADMIN->add('root', new admin_category('rcommon', get_string('rcommon','local_rcommon')));
 
