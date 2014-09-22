@@ -21,6 +21,7 @@
 <!--<link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>-->
 <!--Secundaria-->
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
 
 </head>
 
