@@ -589,6 +589,11 @@ table#permissions tbody tr:hover>th {
 	}
 }
 
+/* HOTPOT workarround */
+.path-mod-hotpot #region-main {
+	margin: 0;
+}
+
 /* Phones only */
 @media (max-width: 767px){
     #page{
