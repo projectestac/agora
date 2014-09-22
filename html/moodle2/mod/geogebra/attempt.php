@@ -20,7 +20,7 @@ if ($id) {
 } else {
     error('You must specify a course_module ID or an instance ID');
 }
-$context = context_module::::instance($cm->id);
+$context = context_module::instance($cm->id);
 
 //Activity was sended before the applet was fully loaded
 parse_str($vars, $parsedVars);
