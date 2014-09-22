@@ -15,7 +15,7 @@ class XTEC_Widget extends WP_Widget {
 	//'arc'=>	array('nom'=>"ARC",'url'=>'http://apliense.xtec.cat/arc/','img'=>'arc-icon.png','desc'=>'Aplicació de recursos al Currículum'), 
 	//'odissea'=>array('nom'=>"Odissea",'url'=>'http://odissea.xtec.cat','img'=>'odissea-icon.png','desc'=>'Moodle de formació pel docents'),
 	//'ampa'=>array('nom'=>"AMPA",'url'=>'','img'=>'ampa-icon.png','desc'=>'La nostra associació de Pares d\'alumnes'),
-	//'escola-verda'=>array('nom'=>"Escola verda",'url'=>'','img'=>'escola-verda-icon.png','des'c=>'Escola verda'),
+	//'escola-verda'=>array('nom'=>"Escola verda",'url'=>'','img'=>'escola-verda-icon.png','desc'=>'Escola verda'),
 	//'som-escola'=>array('nom'=>"Som Escola",'url'=>'','img'=>'som-escola-icon.png','desc'=>'Escola en català'),
 	'atri'=>array('nom'=>"ATRI",'url'=>'https://atri.gencat.cat','img'=>'atri-icon.png','desc'=>'Portal ATRI'),
 	'saga'=>array('nom'=>"SAGA",'url'=>'https://saga.xtec.cat/entrada','img'=>'saga-icon.png','desc'=>'Aplicatiu SAGA'),
