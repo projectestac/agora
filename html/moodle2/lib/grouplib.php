@@ -860,6 +860,13 @@ function groups_get_activity_allowed_groups($cm,$userid=0) {
 function groups_filter_users_by_course_module_visible($cm, $users) {
     global $CFG, $DB;
 
+    //XTEC ************ AFEGIT - MDL-46833 mod_assign: Fix assignment view when available for group members only
+    //2014.09.22 @pferre22
+    if (empty($users)) {
+        return $users;
+    }
+    ////****** FI
+
     if (empty($CFG->enablegroupmembersonly)) {
         return $users;
     }
