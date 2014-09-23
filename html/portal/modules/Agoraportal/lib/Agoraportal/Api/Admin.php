@@ -523,7 +523,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
             $sqls[] = "UPDATE $prefix" . "_posts 
                 SET guid = REPLACE (guid , '/usu7/', '/$dbUser/')
-                WHERE guid like '%/usu67/%'";
+                WHERE guid like '%/usu7/%'";
         }
 
         // Reset stats table
