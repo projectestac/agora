@@ -536,6 +536,33 @@ table.flexible tbody>tr:nth-child(odd)>th,
 	background-color: #f6f6f6;
 }
 
+table#explaincaps tbody>tr.selectedrow:nth-child(odd)>td,
+table#defineroletable tbody>tr.selectedrow:nth-child(odd)>td,
+table.grading-report tbody>tr.selectedrow:nth-child(odd)>td,
+table#listdirectories tbody>tr.selectedrow:nth-child(odd)>td,
+table.rolecaps tbody>tr.selectedrow:nth-child(odd)>td,
+table.userenrolment tbody>tr.selectedrow:nth-child(odd)>td,
+table#form tbody>tr.selectedrow:nth-child(odd)>td,
+form#movecourses table tbody>tr.selectedrow:nth-child(odd)>td,
+#page-admin-course-index .editcourse tbody>tr.selectedrow:nth-child(odd)>td,
+.forumheaderlist tbody>tr.selectedrow:nth-child(odd)>td,
+table.flexible tbody>tr.selectedrow:nth-child(odd)>td,
+.generaltable tbody>tr.selectedrow:nth-child(odd)>td,
+table#explaincaps tbody>tr.selectedrow:nth-child(odd)>th,
+table#defineroletable tbody>tr.selectedrow:nth-child(odd)>th,
+table.grading-report tbody>tr.selectedrow:nth-child(odd)>th,
+table#listdirectories tbody>tr.selectedrow:nth-child(odd)>th,
+table.rolecaps tbody>tr.selectedrow:nth-child(odd)>th,
+table.userenrolment tbody>tr.selectedrow:nth-child(odd)>th,
+table#form tbody>.selectedrow:nth-child(odd)>th,
+form#movecourses table tbody>tr.selectedrow:nth-child(odd)>th,
+#page-admin-course-index .editcourse tbody>tr.selectedrow:nth-child(odd)>th,
+.forumheaderlist tbody>tr.selectedrow:nth-child(odd)>th,
+table.flexible tbody>tr.selectedrow:nth-child(odd)>th,
+.generaltable tbody>tr.selectedrow:nth-child(odd)>th {
+	background-color: #fdb;
+}
+
 .user-enroller-panel .uep-search-results .users tbody tr:hover>td,
 table.grading-report tbody tr:hover>td,
 .forumheaderlist tbody tr:hover>td,
@@ -554,6 +581,26 @@ table.flexible tbody tr:hover>th,
 table#modules tbody tr:hover>th,
 table#permissions tbody tr:hover>th {
 	background-color: #f2f2f2;
+}
+
+.user-enroller-panel .uep-search-results .users tbody tr.selectedrow:hover>td,
+table.grading-report tbody tr.selectedrow:hover>td,
+.forumheaderlist tbody tr.selectedrow:hover>td,
+.generaltable tbody tr.selectedrow:hover>td,
+table.flexible tbody tr.selectedrow:hover>td,
+.category_subcategories tbody tr.selectedrow:hover>td,
+table#modules tbody tr.selectedrow:hover>td,
+table#permissions tbody tr.selectedrow:hover>td,
+.user-enroller-panel .uep-search-results
+.users tbody tr.selectedrow:hover>th,
+table.grading-report tbody tr.selectedrow:hover>th,
+.forumheaderlist tbody tr.selectedrow:hover>th,
+.generaltable tbody tr.selectedrow:hover>th,
+table.flexible tbody tr.selectedrow:hover>th,
+.category_subcategories tbody tr.selectedrow:hover>th,
+table#modules tbody tr.selectedrow:hover>th,
+table#permissions tbody tr.selectedrow:hover>th {
+	background-color: #ffd;
 }
 
 .calendar-event-panel .yui3-overlay-content h2.eventtitle{
@@ -618,15 +665,19 @@ table#permissions tbody tr:hover>th {
 
 @media (min-width: 979px) {
 	/* Better grader */
+	body.blocks_collapsed#page-mod-assign-view,
 	body.blocks_collapsed.path-grade-report-grader{
 		height: 100%;
 	}
 
+	body.blocks_collapsed#page-mod-assign-view #page-footer,
+	body.blocks_collapsed#page-mod-assign-view #title-header,
 	body.blocks_collapsed.path-grade-report-grader #page-footer,
 	body.blocks_collapsed.path-grade-report-grader #title-header{
 		display: none;
 	}
 
+	body.blocks_collapsed#page-mod-assign-view table,
 	body.blocks_collapsed.path-grade-report-grader div.gradeparent table#user-grades{
 		margin-top: 77px;
 		top: 0;
@@ -638,6 +689,7 @@ table#permissions tbody tr:hover>th {
 		font-size: 12px;
 	}
 
+	body.blocks_collapsed#page-mod-assign-view #main_navigation,
 	body.blocks_collapsed.path-grade-report-grader #main_navigation{
 		position: fixed;
 		z-index: 4030;
