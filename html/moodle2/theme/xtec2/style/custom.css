@@ -673,12 +673,17 @@ table#permissions tbody tr.selectedrow:hover>th {
 	body.blocks_collapsed#page-mod-assign-view #page-footer,
 	body.blocks_collapsed#page-mod-assign-view #title-header,
 	body.blocks_collapsed.path-grade-report-grader #page-footer,
-	body.blocks_collapsed.path-grade-report-grader #title-header{
+	body.blocks_collapsed.path-grade-report-grader #title-header,
+	body.blocks_collapsed.path-grade-report-grader #page-header,
+	body.blocks_collapsed.path-grade-report-grader .urlselect,
+	body.blocks_collapsed.path-grade-report-grader .paging,
+	body.blocks_collapsed.path-grade-report-grader h2{
 		display: none;
 	}
 
 	body.blocks_collapsed#page-mod-assign-view table,
-	body.blocks_collapsed.path-grade-report-grader div.gradeparent table#user-grades{
+	/*body.blocks_collapsed.path-grade-report-grader div.gradeparent,*/
+	body.blocks_collapsed.path-grade-report-grader div.gradeparent>table#user-grades {
 		margin-top: 77px;
 		top: 0;
 		left: 0;
@@ -688,6 +693,7 @@ table#permissions tbody tr.selectedrow:hover>th {
 		background-color: white;
 		font-size: 12px;
 	}
+
 
 	body.blocks_collapsed#page-mod-assign-view #main_navigation,
 	body.blocks_collapsed.path-grade-report-grader #main_navigation{
