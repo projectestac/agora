@@ -141,8 +141,16 @@ if ($currentuser) {
     }
 
     // If groups are in use and enforced throughout the course, then make sure we can meet in at least one course level group
+    //XTEC ************ MODIFICAT - MDL-47384 Mentee cannot access to course reports of courses with separated groups
+    //2014.09.23 @pferre22
+    if (groups_get_course_groupmode($course) == SEPARATEGROUPS and $course->groupmodeforce
+      and !has_capability('moodle/site:accessallgroups', $coursecontext) and !has_capability('moodle/site:accessallgroups', $coursecontext, $user->id) and !has_capability('moodle/site:accessallgroups', $usercontext)) {
+    // ORIGINAL
+    /*
     if (groups_get_course_groupmode($course) == SEPARATEGROUPS and $course->groupmodeforce
       and !has_capability('moodle/site:accessallgroups', $coursecontext) and !has_capability('moodle/site:accessallgroups', $coursecontext, $user->id)) {
+     */
+    //********** FI
         if (!isloggedin() or isguestuser()) {
             // do not use require_login() here because we might have already used require_login($course)
             redirect(get_login_url());

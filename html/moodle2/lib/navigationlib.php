@@ -4125,7 +4125,14 @@ class settings_navigation extends navigation_node {
                 if ((!$canviewusercourse && !$canviewuser) || !$userisenrolled) {
                     return false;
                 }
+                //XTEC ************ MODIFICAT - MDL-47384 Mentee cannot access to course reports of courses with separated groups
+                //2014.09.23 @pferre22
+                $canaccessallgroups = has_capability('moodle/site:accessallgroups', $coursecontext) || has_capability('moodle/site:accessallgroups', $usercontext);
+                // ORIGINAL
+                /*
                 $canaccessallgroups = has_capability('moodle/site:accessallgroups', $coursecontext);
+                */
+                //********** FI
                 if (!$canaccessallgroups && groups_get_course_groupmode($course) == SEPARATEGROUPS) {
                     // If groups are in use, make sure we can see that group
                     return false;
