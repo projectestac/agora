@@ -132,9 +132,13 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
         }
 
         if (isloggedin() && !isguestuser()) {
-			require_once($CFG->dirroot.'/local/agora/message_notifier/global.lib.php');
-			$messages = message_notifier_get_badge();
-			$loggedinas .= $messages;
+            if (file_exists($CFG->dirroot.'/local/agora/message_notifier/global.lib.php')) {
+                require_once($CFG->dirroot.'/local/agora/message_notifier/global.lib.php');
+                if (function_exists('message_notifier_get_badge')) {
+                    $messages = message_notifier_get_badge();
+                    $loggedinas .= $messages;
+                }
+            }
 		}
         return $loggedinas;
     }
