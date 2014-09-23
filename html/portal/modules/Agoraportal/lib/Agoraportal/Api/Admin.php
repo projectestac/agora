@@ -473,8 +473,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sqls[] = "UPDATE $prefix" . "_users set user_pass='$passwordEnc', user_email='$clientCode" . "@xtec.cat', user_registered=now() WHERE user_login='admin'";
 
         // Convert some hardcoded URL (TODO: This must be a param in web form)
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterpri';
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec';
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterpri/';
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec/';
 
         foreach ($toReplace as $string) {
             $sqls[] = "UPDATE $prefix" . "_bp_activity 
@@ -486,6 +486,14 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 WHERE content like '%$string%'";
 
             $sqls[] = "UPDATE $prefix" . "_bp_activity 
+                SET content = REPLACE (content , '/usu6/', '/$dbUser/')
+                WHERE content like '%/usu6/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+                SET content = REPLACE (content , '/usu7/', '/$dbUser/')
+                WHERE content like '%/usu7/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity 
                 SET primary_link = REPLACE (primary_link , '$string', '$siteURL')
                 WHERE primary_link like '%$string%'";
 
@@ -494,12 +502,28 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 WHERE post_content like '%$string%'";
 
             $sqls[] = "UPDATE $prefix" . "_posts 
+                SET post_content = REPLACE (post_content , '/usu6/', '/$dbUser/')
+                WHERE post_content like '%/usu6/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
+                SET post_content = REPLACE (post_content , '/usu7/', '/$dbUser/')
+                WHERE post_content like '%/usu7/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
                 SET post_excerpt = REPLACE (post_excerpt , '$string', '$siteURL')
                 WHERE post_excerpt like '%$string%'";
 
             $sqls[] = "UPDATE $prefix" . "_posts 
                 SET guid = REPLACE (guid , '$string', '$siteURL')
                 WHERE guid like '%$string%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
+                SET guid = REPLACE (guid , '/usu6/', '/$dbUser/')
+                WHERE guid like '%/usu6/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts 
+                SET guid = REPLACE (guid , '/usu7/', '/$dbUser/')
+                WHERE guid like '%/usu67/%'";
         }
 
         // Reset stats table
@@ -518,10 +542,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
         
         // Now update serialized wp_options fields
-        $fields = array ('widget_text', 'reactor_options');
+        $fields = array ('my_option_name', 'widget_text', 'reactor_options');
         
         foreach ($fields as $field) {
             $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
+            //LogUtil::registerStatus($sql);
             
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $sql,
@@ -530,34 +555,44 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             ));
 
             $values = $result['values'];
-            
+            //LogUtil::registerStatus(serialize($values));
+
             if (is_array($values)) {
+
                 foreach ($values as $key => $value) {
+                    $value = $value['option_value'];
+
                     if ($this->is_serialized($value)) {
                         $value = unserialize($value);
-                        
+
+                        // Update URL recursively
                         foreach ($toReplace as $string) {
-                            $values[$key] = str_replace($string, $siteURL, $value);
+                            $value = $this->replaceTree($string, $siteURL, $value);
                         }
 
-                        // TODO: If this check is necessary, must be done in a better way
-                        if (strpos('/usu1/', $value)) {
-                            $values[$key] = str_replace('usu1', $dbUser, $values[$key]);
-                        }
+                        // Update user database. This depends on where the model is build! 
+                        $value = $this->replaceTree('usu6', $dbUser, $value);
+                        $value = $this->replaceTree('usu7', $dbUser, $value);
 
-                        $newValue = serialize($values[$key]);
+                        // Scape apostrophes for MySQL
+                        $newValue = str_replace("'", "''", serialize($value));
 
-                        $sql = "UPDATE $prefix" . "_options set option_value='$newValue' WHERE option_name='$field'";
-
+                        $sql = "UPDATE $prefix" . "_options set option_value='$newValue' WHERE option_name='$field';";
+                        //LogUtil::registerStatus($sql);
+                        
                         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                                     'sql' => $sql,
                                     'serviceName' => 'nodes',
                                     'host' => $dbHost,
                         ));
+                        
+                        if (!$result) {
+                            return LogUtil::registerError($this->__('No s\'ha pogut actualitzar la taula wp_options: ' . $sql));
+                        }
                     }
                 }
             }
-       }
+        }
 
         return array('db' => $db, 'password' => $password);
     }
@@ -1801,6 +1836,31 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return false;
         }
     }
+    /**
+     * Replace string recursively in multidimensional array
+     * 
+     * @param string $search
+     * @param string $replace
+     * @param string $array
+     * 
+     * @author Toni Ginard
+     * 
+     * @return array
+     */
+    function replaceTree($search = '', $replace = '', $array = false) {
+        
+        if (!is_array($array)) {
+            // Regular replace
+            return str_replace($search, $replace, $array);
+        }
 
+        $newArray = array();
+        foreach ($array as $k => $v) {
+            // Recurse call
+            $newArray[$k] = $this->replaceTree($search, $replace, $v);
+        }
+        
+        return $newArray;
+    }
 
 }
