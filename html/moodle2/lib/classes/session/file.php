@@ -62,9 +62,7 @@ class file extends handler {
         if (!is_writable($this->sessiondir)) {
             throw new exception('sessionhandlerproblem', 'error', '', null, 'Session directory is not writable');
         }
-        //XTEC ************ ELIMINAT - Sessions will be saved in each web server
-        //2012.05.23 @aginard
-        /*
+
         // Need to disable debugging since disk_free_space()
         // will fail on very large partitions (see MDL-19222).
         $freespace = @disk_free_space($this->sessiondir);
@@ -76,8 +74,6 @@ class file extends handler {
         // NOTE: we cannot set any lock acquiring timeout here - bad luck.
         ini_set('session.save_handler', 'files');
         ini_set('session.save_path', $this->sessiondir);
-        */
-        //************ FI
     }
 
     /**
