@@ -32,20 +32,22 @@ class Logo_Centre_Widget extends WP_Widget {
 
 		<?php if ( reactor_option('logo_image') ) { 
                		$amplada="6";
-			$padding="2em"; 
+			$padding="0"; 
 			?>
 			<div class="<?php reactor_columns(array( 6, 12 ));?>"> 
 				<img src="<?php echo reactor_option('logo_image'); ?>">					
 			</div> 
 		<?php }else { $amplada="12"; $padding="2em"; } ?>
-
+            
+                <?php $addr=explode(" ",reactor_option("cpCentre"),1);?>
+            
 		<div style="text-align:left;padding-left:<?php echo $padding; ?>" class="<?php reactor_columns( $amplada ); ?> ">
 			<div class="vcard  hide-for-small">
 		  		<span id="tar-nomCentre"><?php echo reactor_option('nomCanonicCentre'); ?></span>
 		  		<div class="adr">
 					<span class="street-address"><?php echo reactor_option('direccioCentre'); ?></span><br>
-					<span class="postal-code"><?php echo trim($adreca[0]);?></span> 
-					<span class="locality"><?php echo trim($adreca[1]);?></span>  
+					<span class="postal-code"><?php echo trim($addr[0]);?></span> 
+					<span class="locality"><?php echo trim($addr[1]);?></span>  
 					<span  class="region" title="Catalunya">Catalunya</span>
 				    	<span  class="country-name">Espanya</span>
  					<div class="tel">
