@@ -158,11 +158,11 @@ function reactor_do_title_logo() { ?>
 									break;
 								case is_category(): 
 									echo single_cat_title( '', false ); 
-                                                                        echo "<style type='text/css'>.site-description-box-inner {font-size:44px;}</style>";
+                                    echo "<style type='text/css'>.site-description-box-inner {font-size:38px;}</style>";
 									break;
 								case is_tag():
 									echo single_tag_title( '', false );
-                                                                        echo "<style type='text/css'>.site-description-box-inner {font-size:44px;}</style>";
+                                    echo "<style type='text/css'>.site-description-box-inner {font-size:44px;}</style>";
 									break;
 								default:
 									echo esc_attr( get_bloginfo( 'description', 'display' ) ); 
