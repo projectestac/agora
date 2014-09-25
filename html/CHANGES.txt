@@ -5,6 +5,21 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE2
+ - Updated module Google Oauth, button on login block and some bugs repaired
+ - Repaired syntaxt error on geogebra attempt
+ - Workarround to solve hotpot width
+ - Updated catalan translations
+ - Fix MDL-46833 mod_assign: Fix assignment view when available for group members only
+ - Add admin menu for marsupial managers
+ - Solved problem when receiving only one book from Marsupial publishers
+ - Solved xtecadmin problem with Agora scripts
+ - Upgrade memcache from Moodle 2.7
+ - Added conditions to get message notifier optional if file or function does not exists
+ - Fix MDL-47384 Mentee cannot access to course reports of courses with separated groups
+ - Better grader report for grading assignments
+ - Performance settings
+
 PORTAL
  - Agoraportal: Improvements to service activation
 
