@@ -757,12 +757,24 @@ li.feed{
     display:none;
 }
 
-#groups-list{
+#groups-list {
     list-style-type: none;
 }
 
-#groups-list .item{
+#groups-list  .activity {
+    display:none !important;
+}
+
+.widget_bp_groups_widget #groups-list{
+    margin-left: 0;
+}
+
+.widget_bp_groups_widget #groups-list .item{
     display:none;
+}
+
+.widget.buddypress div.item-options{
+    margin:0 !important;
 }
 
 /*****************************************************************

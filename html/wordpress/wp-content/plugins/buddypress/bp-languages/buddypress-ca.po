@@ -4531,7 +4531,7 @@ msgstr "Avatar del node"
 #: bp-templates/bp-legacy/buddypress-functions.php:1214
 #: bp-themes/bp-default/_inc/ajax.php:780
 msgid "Request Membership"
-msgstr "Sol·licitud de pertinença"
+msgstr "Uneix-te al node"
 
 #: bp-groups/bp-groups-loader.php:490
 #: bp-templates/bp-legacy/buddypress/groups/single/invites-loop.php:90
@@ -5391,7 +5391,7 @@ msgstr "Què hi ha de nou a %s, %s?"
 #: bp-templates/bp-legacy/buddypress/activity/post-form.php:35
 #: bp-themes/bp-default/activity/post-form.php:35
 msgid "Post Update"
-msgstr "Actualitza l'entrada"
+msgstr "Actualitza"
 
 #: bp-templates/bp-legacy/buddypress/activity/post-form.php:42
 #: bp-themes/bp-default/activity/post-form.php:42
@@ -7223,7 +7223,7 @@ msgstr "S'ha produït un error en suprimir %s del sistema. Torneu a provar-ho de
 
 #: bp-core/bp-core-functions.php:777
 msgid "sometime"
-msgstr "alguna vegada"
+msgstr "una estona"
 
 #: bp-activity/bp-activity-template.php:2626
 msgid "Clear Filter"
