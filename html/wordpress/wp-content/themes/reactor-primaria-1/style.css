@@ -23,6 +23,9 @@ body{
     color:#444;
 }
 
+p{
+    font-size:0.9em;
+}
 
 .row {
     /*max-width: 95em;*/
@@ -94,7 +97,7 @@ vcard (targeta presentacio centre)
 
 .vcard span {
     font-size: 0.8em;
-    line-height: 1em;
+    line-height: 1.2em;
     color: #777;
 }
 

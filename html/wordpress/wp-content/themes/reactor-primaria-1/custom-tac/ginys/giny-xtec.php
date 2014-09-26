@@ -14,7 +14,7 @@ class XTEC_Widget extends WP_Widget {
 	'merli'=>	array('nom'=>"Merlí",'url'=>'http://aplitic.xtec.cat/merli','img'=>'merli-icon.png','desc'=>'Catàleg de recursos XTEC'),
 	//'arc'=>	array('nom'=>"ARC",'url'=>'http://apliense.xtec.cat/arc/','img'=>'arc-icon.png','desc'=>'Aplicació de recursos al Currículum'), 
 	//'odissea'=>array('nom'=>"Odissea",'url'=>'http://odissea.xtec.cat','img'=>'odissea-icon.png','desc'=>'Moodle de formació pel docents'),
-	//'ampa'=>array('nom'=>"AMPA",'url'=>'','img'=>'ampa-icon.png','desc'=>'La nostra associació de Pares d\'alumnes'),
+	'ampa'=>array('nom'=>"AMPA",'url'=>'','img'=>'ampa-icon.png','desc'=>'La nostra associació de Pares d\'alumnes'),
 	//'escola-verda'=>array('nom'=>"Escola verda",'url'=>'','img'=>'escola-verda-icon.png','desc'=>'Escola verda'),
 	//'som-escola'=>array('nom'=>"Som Escola",'url'=>'','img'=>'som-escola-icon.png','desc'=>'Escola en català'),
 	'atri'=>array('nom'=>"ATRI",'url'=>'https://atri.gencat.cat','img'=>'atri-icon.png','desc'=>'Portal ATRI'),
@@ -23,7 +23,7 @@ class XTEC_Widget extends WP_Widget {
 
 	);
 
-	public $recursosXtec = array('xtec','edu365','edu3','xarxa-docent','alexandria','linkat','jclic','merli','arc','odissea','internet-segura');
+	public $recursosXtec = array('xtec','edu365','edu3','xarxa-docent','alexandria','linkat','jclic','merli','arc','odissea','internet-segura','moodle');
 
  
     // Create widget
@@ -32,7 +32,10 @@ class XTEC_Widget extends WP_Widget {
             'xtec_widget', // Base ID
             'Enllaços Educatius', // Name
             array( 'description' => 'Enllaços a portals, recursos i serveis de la Xarxa Telemàtica Educativa de Catalunya (XTEC)') 
-      		  );
+      	        );
+        
+            /*$recursos['moodle']=array('nom'=>"MOODLE",'url'=>home_url()."/moodle",'img'=>'moodle-icon.png','desc'=>'Aula virtual (moodle)');
+            print_r($recursos);*/
     }
  
     // Front-End Display of the Widget

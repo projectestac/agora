@@ -30,18 +30,32 @@ class Logo_Centre_Widget extends WP_Widget {
 
 	<div class="targeta_id_centre row">
 
-		<?php if ( reactor_option('logo_image') ) { 
-               		$amplada="6";
-			$padding="0"; 
-			?>
-			<div class="<?php reactor_columns(array( 6, 12 ));?>"> 
+		<?php if ( reactor_option('logo_image')) {
+                        if ( reactor_option('logo_inline')){
+                            $margin_bottom="0";
+                            $amplada="6";
+                            $padding="0"; 
+                            $text_align="left";
+                        } else{
+                            $margin_bottom="1em";
+                            $amplada="12";
+                            $padding="2em"; 
+                            $text_align="center";
+                        }
+		?>
+			<div style="margin-bottom:<?php echo $margin_bottom; ?>" class="<?php reactor_columns(array( $amplada, 12 ));?>"> 
 				<img src="<?php echo reactor_option('logo_image'); ?>">					
 			</div> 
-		<?php }else { $amplada="12"; $padding="2em"; } ?>
+            
+		<?php }else { 
+                            $amplada="12"; 
+                            $padding="2em"; 
+                            $text_align="center";
+                        } ?>
             
                 <?php $addr=explode(" ",reactor_option("cpCentre"),1);?>
             
-		<div style="text-align:left;padding-left:<?php echo $padding; ?>" class="<?php reactor_columns( $amplada ); ?> ">
+		<div style="text-align:<?php echo $text_align; ?>;padding-left:<?php echo $padding; ?>" class="<?php reactor_columns( $amplada ); ?> ">
 			<div class="vcard  hide-for-small">
 		  		<span id="tar-nomCentre"><?php echo reactor_option('nomCanonicCentre'); ?></span>
 		  		<div class="adr">

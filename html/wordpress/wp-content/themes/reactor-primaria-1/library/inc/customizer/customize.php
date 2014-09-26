@@ -241,11 +241,11 @@ if ( !function_exists('reactor_customize_register') ) {
 				'capability' => 'manage_options',
 				'transport'  => 'postMessage',
 			 ) );
-				$wp_customize->add_control( new simpleHTML($wp_customize, 'icones_capcalera', array( 
-					'label'    => __('Graella d\'icones', 'custom_tac'),
-					'section'  => 'reactor_customizer_capcalera',
-					'priority' => 6,
-				 ) ));
+                            $wp_customize->add_control( new simpleHTML($wp_customize, 'icones_capcalera', array( 
+                                    'label'    => __('Graella d\'icones', 'custom_tac'),
+                                    'section'  => 'reactor_customizer_capcalera',
+                                    'priority' => 6,
+                             ) ));
 
 			//Pestanya Identificació del centre
 			$wp_customize->add_section('reactor_customizer_idcentre', array( 
@@ -264,7 +264,18 @@ if ( !function_exists('reactor_customize_register') ) {
 					'settings' => 'reactor_options[logo_image]',
 					'priority' => 1,
 				 ) ) );
-
+                        $wp_customize->add_setting('reactor_options[logo_inline]', array( 
+                                                        'default'    => 1,
+                                                        'type'       => 'option',
+                                                        'capability' => 'manage_options',
+                                                        'transport'  => 'postMessage',
+                        ) );	
+                               $wp_customize->add_control('reactor_options[logo_inline]', array( 
+                                       'label'    => __('Alineat amb l\'adreça', 'custom_tac'),
+                                       'section'  => 'reactor_customizer_idcentre',
+                                       'type'     => 'checkbox',
+                                       'priority' => 2,
+                                ) );
 
 			// Tornem a demanar el nom del centre perquè pot ser diferent (noms llargs)
 			
@@ -278,7 +289,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				$wp_customize->add_control('reactor_options[nomCanonicCentre]', array( 
 					'label'    => __('Nom del centre', 'reactor'),
 					'section'  => 'reactor_customizer_idcentre',
-					'priority' => 2,
+					'priority' => 3,
 				 ) );
 
 
@@ -292,7 +303,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				$wp_customize->add_control('reactor_options[direccioCentre]', array( 
 					'label'    => __('Adreça (física)', 'reactor'),
 					'section'  => 'reactor_customizer_idcentre',
-					'priority' => 2,
+					'priority' => 4,
 				 ) );
 
 			$wp_customize->add_setting('reactor_options[cpCentre]', array( 
@@ -304,7 +315,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				$wp_customize->add_control('reactor_options[cpCentre]', array( 
 					'label'    => __('Codi postal i localitat', 'reactor'),
 					'section'  => 'reactor_customizer_idcentre',
-					'priority' => 3,
+					'priority' => 5,
 				 ) );
 
 			$wp_customize->add_setting('reactor_options[telCentre]', array( 
@@ -316,7 +327,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				$wp_customize->add_control('reactor_options[telCentre]', array( 
 					'label'    => __('Telèfon', 'custom_tac'),
 					'section'  => 'reactor_customizer_idcentre',
-					'priority' => 4,
+					'priority' => 6,
 				 ) );
 
 			$wp_customize->add_setting('reactor_options[googleMaps]', array( 
@@ -328,7 +339,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				$wp_customize->add_control('reactor_options[googleMaps]', array( 
 					'label'    => __('Mapa (adreça Google Maps)', 'custom_tac'),
 					'section'  => 'reactor_customizer_idcentre',
-					'priority' => 5,
+					'priority' => 7,
 				 ) );
 
 			$wp_customize->add_setting('reactor_options[emailCentre]', array( 
@@ -340,7 +351,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				$wp_customize->add_control('reactor_options[emailCentre]', array( 
 					'label'    => __('Contacte principal (email) o pàgina de contacte', 'custom_tac'),
 					'section'  => 'reactor_customizer_idcentre',
-					'priority' => 6,
+					'priority' => 8,
 				 ) );
 				 				 							
 			$paletes=array(
