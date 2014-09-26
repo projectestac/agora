@@ -283,19 +283,23 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
 
 
                     //get following incremented username
-                    //XTEC ************ MODIFICAT - Repair not lowercase prefix
-                    //2014.09.19 @pferre22
-                    $googleuserprefix = core_text::strtolower(get_config('auth/googleoauth2', 'googleuserprefix'));
-                    $lastusernumber = get_config('auth/googleoauth2', 'lastusernumber');
-                    $lastusernumber = empty($lastusernumber)?1:$lastusernumber++;
-                    //check the user doesn't exist
-                    $nextuser = $DB->record_exists('user', array('username' => $googleuserprefix.$lastusernumber));
-                    while (!$nextuser) {
-                        $lastusernumber++;
+                    //XTEC ************ MODIFICAT - Repair not lowercase prefix and add username detection
+                    //2014.09.26 @pferre22
+                    $parts = explode('@', $useremail);
+                    $username = $parts[0];
+                    if ($DB->record_exists('user', array('username' => $username))) {
+                        $googleuserprefix = core_text::strtolower(get_config('auth/googleoauth2', 'googleuserprefix'));
+                        $lastusernumber = get_config('auth/googleoauth2', 'lastusernumber');
+                        $lastusernumber = empty($lastusernumber)? 1 : $lastusernumber++;
+                        //check the user doesn't exist
                         $nextuser = $DB->record_exists('user', array('username' => $googleuserprefix.$lastusernumber));
+                        while ($nextuser) {
+                            $lastusernumber++;
+                            $nextuser = $DB->record_exists('user', array('username' => $googleuserprefix.$lastusernumber));
+                        }
+                        set_config('lastusernumber', $lastusernumber, 'auth/googleoauth2');
+                        $username = $googleuserprefix . $lastusernumber;
                     }
-                    set_config('lastusernumber', $lastusernumber, 'auth/googleoauth2');
-                    $username = $googleuserprefix . $lastusernumber;
                     // ORIGINAL
                     /*
                     $lastusernumber = get_config('auth/googleoauth2', 'lastusernumber');
@@ -325,10 +329,20 @@ class auth_plugin_googleoauth2 extends auth_plugin_base {
                             $userinfo = json_decode($userinfo);
                             $newuser->auth = 'googleoauth2';
                             if (!empty($userinfo->name->givenName)) {
-                                $newuser->firstname = $userinfo->name->givenName;
+                                //XTEC ************ MODIFICAT - Convert names to Title
+                                //2014.09.19 @pferre22
+                                $newuser->firstname = core_text::strtotitle($userinfo->name->givenName);
+                                // ORIGINAL
+                                //$newuser->firstname = $userinfo->name->givenName;
+                                //************ FI
                             }
                             if (!empty($userinfo->name->familyName)) {
-                                $newuser->lastname = $userinfo->name->familyName;
+                                //XTEC ************ MODIFICAT - Convert names to Title
+                                //2014.09.19 @pferre22
+                                $newuser->lastname = core_text::strtotitle($userinfo->name->familyName);
+                                // ORIGINAL
+                                //$newuser->lastname = $userinfo->name->familyName;
+                                //************ FI
                             }
                             if (!empty($userinfo->locale)) {
                                 //$newuser->lang = $userinfo->locale;
