@@ -32,30 +32,25 @@ class Logo_Centre_Widget extends WP_Widget {
 
 		<?php if ( reactor_option('logo_image')) {
                         if ( reactor_option('logo_inline')){
-                            $margin_bottom="0";
+                            $class="logo_inline";
                             $amplada="6";
-                            $padding="0"; 
-                            $text_align="left";
                         } else{
-                            $margin_bottom="1em";
+                            $class="logo_clear";
                             $amplada="12";
-                            $padding="2em"; 
-                            $text_align="center";
                         }
 		?>
-			<div style="margin-bottom:<?php echo $margin_bottom; ?>" class="<?php reactor_columns(array( $amplada, 12 ));?>"> 
+			<div class="<?php reactor_columns(array( $amplada, 12 )); echo " ".$class;?>"> 
 				<img src="<?php echo reactor_option('logo_image'); ?>">					
 			</div> 
             
 		<?php }else { 
                             $amplada="12"; 
-                            $padding="2em"; 
-                            $text_align="center";
+                            $class="no_logo";
                         } ?>
             
                 <?php $addr=explode(" ",reactor_option("cpCentre"),1);?>
             
-		<div style="text-align:<?php echo $text_align; ?>;padding-left:<?php echo $padding; ?>" class="<?php reactor_columns( $amplada ); ?> ">
+		<div class="<?php reactor_columns( $amplada ); echo " ".$class; ?> ">
 			<div class="vcard  hide-for-small">
 		  		<span id="tar-nomCentre"><?php echo reactor_option('nomCanonicCentre'); ?></span>
 		  		<div class="adr">
