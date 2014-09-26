@@ -276,16 +276,19 @@ function local_agora_extends_navigation(global_navigation $navigation){
     }
 }
 
-function is_service_enabled($service){
+function is_service_enabled($service) {
     if(!is_agora()) return false;
 
     global $school_info;
     return isset($school_info['id_'.$service]) && !empty($school_info['id_'.$service]);
 }
 
-function get_service_url($service){
+function get_service_url($service) {
     global $CFG;
-    if(is_service_enabled($service)){
+    if (is_service_enabled($service)) {
+        if ($service == 'nodes') {
+            return $CFG->wwwroot.'/../';
+        }
         return $CFG->wwwroot.'/../'.$service.'/';
     }
     return false;
