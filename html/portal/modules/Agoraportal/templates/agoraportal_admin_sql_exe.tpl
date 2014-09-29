@@ -82,7 +82,7 @@
     {foreach item=result key=id from=$results}
     <div>
         <h2>
-            <a name="{$prefix}{$sqlClients[$id].activedId}" target="_blank" href="../{$client.clientDNS}/{$serviceName}">{$prefix}{$sqlClients[$id].activedId}</a>
+            <a name="{$prefix}{$sqlClients[$id].activedId}" target="_blank" href="../{$sqlClients[$id].clientDNS}/{$serviceName}">{$prefix}{$sqlClients[$id].activedId}  {$sqlClients[$id].clientName}</a>
         </h2>
         <table class="z-datatable"><thead>
                 {foreach item=line key=columna from=$result}
