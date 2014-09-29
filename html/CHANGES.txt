@@ -8,6 +8,7 @@ Changes in progress
 ZIKULA 2
 - Content: Fixed breakdown of the website when using permissions to block access to blocks 
 - IWbooks: Fixed error when creating a pdf if variable is not defined
+- IWmoodle: Added support for Moodle 2.6+ hash passwords
 
 
 Changes 14.09.30

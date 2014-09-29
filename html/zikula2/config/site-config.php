@@ -70,7 +70,7 @@
         $dbhoststring = $dbhost[0];
         // hostmigrate and portmigrate are used by Zikula's migrations and by IWmoodle
         $ZConfig['DBInfo']['databases']['default']['hostmigrate'] = $school_info['dbhost_intranet'];
-        $ZConfig['DBInfo']['databases']['default']['portmigrate'] = '';
+        $ZConfig['DBInfo']['databases']['default']['portmigrate'] = 3306;
     }
     
     $ZConfig['DBInfo']['databases']['default']['host']        = $dbhoststring;
@@ -88,4 +88,17 @@
 
     // Needed for SSO with Moodle for salted passwords created in Moodle
     $ZConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
-    $ZConfig['centre']['nomPropi'] = $centre;	
+    $ZConfig['centre']['nomPropi'] = $centre;
+/*    
+if (!defined('PASSWORD_BCRYPT')) {
+
+	define('PASSWORD_BCRYPT', 1);
+	define('PASSWORD_DEFAULT', PASSWORD_BCRYPT);
+}
+    
+
+    echo $hash = password_hash('agora', PASSWORD_DEFAULT);
+    $verify = password_verify('agora', $hash);
+    
+    var_dump($verify);
+ */

@@ -591,16 +591,24 @@ class IWmoodle_Api_Admin extends Zikula_AbstractApi {
         $pass = FormUtil::getPassedValue('pass', isset($args['pass']) ? $args['pass'] : null, 'POST');
         $uname = FormUtil::getPassedValue('uname', isset($args['uname']) ? $args['uname'] : null, 'POST');
         $email = FormUtil::getPassedValue('email', isset($args['email']) ? $args['email'] : null, 'POST');
+
         // Security check
         if (!SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
+
         //Needed arguments
         if ($uname == null || $pass == null || $email == null) {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
+        
+        // Added support for Moodle 2.6+ hash passwords
+        if (strlen($pass) != 60) {
+            $pass = '1$$' . $pass;
+        }
+
         $items = array('uname' => $uname,
-            'pass' => '1$$' . $pass,
+            'pass' => $pass,
             'email' => $email,
             'activated' => 1,
             'approved_by' => 2,
