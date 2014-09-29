@@ -30,9 +30,20 @@ class Content_Block_OnePage extends Zikula_Controller_AbstractBlock
 
     public function display($blockinfo)
     {
+        // XTEC ************ MODIFICAT - Fixed breakdown of the website when using permissions to block access to blocks
+        // 2014.09.29 @aginard
+
+        if(!SecurityUtil::checkPermission('Content:OnePageBlock:', "$blockinfo[title]::", ACCESS_READ)) {
+            return false;
+        }
+
+        //************ ORIGINAL
+        /*
         // security check
         $this->throwForbiddenUnless(SecurityUtil::checkPermission('Content:OnePageBlock:', "$blockinfo[title]::", ACCESS_READ), LogUtil::getErrorMsgPermission());
-
+        */
+        //************ FI
+        
         // Break out options from our content field
         $vars = BlockUtil::varsFromContent($blockinfo['content']);
         // --- Setting of the Defaults

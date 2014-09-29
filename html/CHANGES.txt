@@ -5,6 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+ZIKULA 2
+- Content: Fixed breakdown of the website when using permissions to block access to blocks 
+
+
+Changes 14.09.30
+---------------------------------------------------------------------------------------
 MOODLE2
  - Updated module Google Oauth, button on login block and some bugs repaired
  - Repaired syntaxt error on geogebra attempt
