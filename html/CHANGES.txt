@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 ZIKULA 2
 - Content: Fixed breakdown of the website when using permissions to block access to blocks 
+- IWbooks: Fixed error when creating a pdf if variable is not defined
 
 
 Changes 14.09.30

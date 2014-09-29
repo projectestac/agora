@@ -300,6 +300,9 @@ class IWbooks_Controller_User extends Zikula_AbstractController {
         $pdf->Write($alt, utf8_decode($this->__('Textbooks')));
         $pdf->Ln($salt + 1);
 
+        // If this variable is not defined at this moment, can lead to errors when creating the pdf
+        $amaterials = array();
+        
         foreach ($items as $item) {
             if ($item[lectura] == 1 and $fita_lect != 1) {
                 $fita_lect = 1;
