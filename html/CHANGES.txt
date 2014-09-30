@@ -13,6 +13,9 @@ ZIKULA 2
 PORTAL
 - Updated school name and address in school card when activating a service
 
+WORDPRESS
+- Removed extension Viper's Video Quicktags
+
 
 Changes 14.09.30
 ---------------------------------------------------------------------------------------
