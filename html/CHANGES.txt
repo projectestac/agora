@@ -10,6 +10,9 @@ ZIKULA 2
 - IWbooks: Fixed error when creating a pdf if variable is not defined
 - IWmoodle: Added support for Moodle 2.6+ hash passwords
 
+PORTAL
+- Updated school name and address in school card when activating a service
+
 
 Changes 14.09.30
 ---------------------------------------------------------------------------------------

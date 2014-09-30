@@ -416,7 +416,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $serviceId = $clientService[$clientServiceId]['serviceId'];
         $clientId = $clientService[$clientServiceId]['clientId'];
         $serviceName = 'nodes';
-
+        $clientName = $clientService[$clientServiceId]['clientName'];
+        $clientAddress = $clientService[$clientServiceId]['clientAddress'];
+        $clientCity = $clientService[$clientServiceId]['clientCity'];
+        $clientPC = $clientService[$clientServiceId]['clientPC']; // Post Code
+        
         $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
                     'serviceName' => 'intranet'));
 
@@ -574,6 +578,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         $value = $this->replaceTree('usu6', $dbUser, $value);
                         $value = $this->replaceTree('usu7', $dbUser, $value);
 
+                        // Update school name and address
+                        $value['nomCanonicCentre'] = $clientName;
+                        $value['direccioCentre'] = $clientAddress;
+                        $value['cpCentre'] = $clientPC . ' ' . $clientCity;
+                        $value['nomCanonicCentre'] = $clientName;
+                        
                         // Scape apostrophes for MySQL
                         $newValue = str_replace("'", "''", serialize($value));
 
