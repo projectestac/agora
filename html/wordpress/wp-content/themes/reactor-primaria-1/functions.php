@@ -54,7 +54,7 @@ function reactor_child_theme_setup() {
 	 );*/
 	add_theme_support(
 	 	'reactor-layouts',
-	 	array('2c-l')
+	 	array('1c','2c-l')
 	 );
 	
 	/* Support for custom post types */
@@ -120,12 +120,6 @@ show_admin_bar( true );
 
 include "custom-tac/capcalera/menu-gencat.php";
 add_action( 'admin_bar_menu', 'add_gencat',1 ); 
-
-//include "custom-tac/capcalera/menu-dades-centre.php";
-//add_action( 'admin_bar_menu', 'add_dades_centre',31 );
-
-//include "custom-tac/capcalera/menu-serveis-tac.php";
-//add_action( 'admin_bar_menu', 'add_serveis',999 );
 
 include "custom-tac/capcalera/menu-recursos-tac.php";
 add_action( 'admin_bar_menu', 'add_recursos',2);
@@ -214,7 +208,7 @@ function categoria_portada ( $query ) {
 add_action( 'pre_get_posts', 'categoria_portada' );
 
 
-// Permet algunes etiquetes html al extracte d'un post
+// Permet algunes etiquetes html a l'extracte d'un post
 function improved_trim_excerpt($text) {
         global $post;
 	$allowed_tags='<a>,<ul>,<li>,<ol>';
@@ -373,7 +367,7 @@ function getRowFrontPage($posts_per_fila,$numFila){
 
 function getRow_N_FrontPage($posts_per_fila,$num_posts_n){
 	
-		global $frontpage_query;  
+	global $frontpage_query;  
         global $card_colors;
         $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
         global $card_bgcolor;
@@ -561,6 +555,7 @@ function custom_hidden_meta_boxes( $hidden ) {
     $hidden[] = 'revisionsdiv';
     $hidden[] = 'commentstatusdiv';
     $hidden[] = 'authordiv';
+    $hidden[] = 'layout_meta';
     return $hidden;
 }
 
@@ -577,7 +572,7 @@ function remove_post_meta_boxes() {
 	  remove_meta_box('formatdiv', 'post', 'normal');
 	  remove_meta_box('formatdiv', 'post', 'side');
 	  remove_meta_box( 'postcustom' , 'post' , 'normal' ); 
-	   remove_meta_box( 'postcustom' , 'post' , 'side' );
+	  remove_meta_box( 'postcustom' , 'post' , 'side' );
  	  remove_meta_box( 'rawhtml_meta_box' , 'post' , 'side' ); 
  	  remove_meta_box( 'rawhtml_meta_box' , 'post' , 'normal' ); 
  	  remove_meta_box( 'layout_meta' , 'post' , 'side' ); 
@@ -596,7 +591,7 @@ function remove_page_meta_boxes() {
 	  remove_meta_box( 'slugdiv' , 'page' , 'normal' ); 
 	  remove_meta_box( 'rawhtml_meta_box' , 'page' , 'side' ); 
 	  remove_meta_box( 'postcustom' , 'page' , 'normal' ); 
- 	  remove_meta_box( 'layout_meta' , 'page' , 'side' ); 
+ 	  //remove_meta_box( 'layout_meta' , 'page' , 'side' ); 
 	  remove_meta_box( 'postimagediv', 'page', 'side' );
 	 //}
 

@@ -648,16 +648,17 @@ Barra lateral
 }
 
 
-
-/*****************************************************************
-Personalitza
-******************************************************************/
-
-/*select#gender option[value="male"]   { background-image:url(male.png);   }*/
-
-.accordion-section-title {
-    background-color: silver !important;
+.section-container.accordion{
+    border:0px;
 }
+
+.section-container.accordion>.section>.title {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  background-color: white;
+}
+
 
 /*****************************************************************
 Ginys
@@ -825,12 +826,8 @@ ul.breadcrumbs {
     border-radius: 0px;
 }
 
-/*
-#slider-box{
-height:11.2em;
-overflow:hidden;
-}
-*/
+
+
 
 /*Small devices*/
 @media screen and (max-width: 782px) {
