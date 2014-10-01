@@ -89,16 +89,3 @@
     // Needed for SSO with Moodle for salted passwords created in Moodle
     $ZConfig['MoodleSalt'][0] = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
     $ZConfig['centre']['nomPropi'] = $centre;
-/*    
-if (!defined('PASSWORD_BCRYPT')) {
-
-	define('PASSWORD_BCRYPT', 1);
-	define('PASSWORD_DEFAULT', PASSWORD_BCRYPT);
-}
-    
-
-    echo $hash = password_hash('agora', PASSWORD_DEFAULT);
-    $verify = password_verify('agora', $hash);
-    
-    var_dump($verify);
- */
