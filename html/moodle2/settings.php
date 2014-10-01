@@ -136,7 +136,7 @@ if(isset($agora['moodle2']['memcache_servers'])){
 	$CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
 }
 if(isset($agora['server']['root']) && !empty($agora['server']['root'])){
-	$CFG->agora_muc_path = $agora['server']['root'].'/cache_ins';
+    $CFG->agora_muc_path = $agora['server']['root'].'/cache_ins/'.$CFG->dbuser;
 	$CFG->cachedir = $CFG->agora_muc_path.'/cache';
 	$CFG->localcachedir = $CFG->agora_muc_path.'/localcache';
 }
