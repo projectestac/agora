@@ -16,6 +16,9 @@ PORTAL
 WORDPRESS
 - Removed extension Viper's Video Quicktags
 
+ZIKULA 2
+- IWdocmanager: Show subcategory tree when viewing docs
+
 
 Changes 14.09.30
 ---------------------------------------------------------------------------------------
