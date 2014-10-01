@@ -413,13 +413,15 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('No s\'ha trobat el servei'));
         }
 
+        $serviceName = 'nodes';
         $serviceId = $clientService[$clientServiceId]['serviceId'];
         $clientId = $clientService[$clientServiceId]['clientId'];
-        $serviceName = 'nodes';
         $clientName = $clientService[$clientServiceId]['clientName'];
         $clientAddress = $clientService[$clientServiceId]['clientAddress'];
         $clientCity = $clientService[$clientServiceId]['clientCity'];
         $clientPC = $clientService[$clientServiceId]['clientPC']; // Post Code
+        $clientDNS = $clientService[$clientServiceId]['clientDNS'];
+        $clientCode = $clientService[$clientServiceId]['clientCode'];
         
         $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
                     'serviceName' => 'intranet'));
@@ -451,9 +453,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         global $agora;
         
         $prefix = $agora['nodes']['prefix'];
-        $clientName = $clientService[$clientServiceId]['clientName'];
-        $clientDNS = $clientService[$clientServiceId]['clientDNS'];
-        $clientCode = $clientService[$clientServiceId]['clientCode'];
         $serviceURL = $service['URL'];
         $dbUser = $agora['nodes']['userprefix'] . $db;
 
