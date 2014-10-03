@@ -13,13 +13,12 @@ class Logo_Centre_Widget extends WP_Widget {
  
     // Front-End Display of the Widget
     public function widget( $args, $instance ) {
-    	
+    
         // Saved widget options
-        $title   = $instance['title'];
+        $title   = $instance['title'];     
+     
+	echo $args['before_widget'];
         
-        // Display information
-	
-        echo '<div class="widget logotip-widget block">';
     	if ( !empty( $title ) ) {
 		echo '<h4 class="widget-title">' . $title . '</h4>';
     	}       
@@ -28,7 +27,7 @@ class Logo_Centre_Widget extends WP_Widget {
 		$contacte=(strstr(reactor_option('emailCentre'),'@'))?"mailto:".reactor_option('emailCentre'):reactor_option('emailCentre');
 	?>
 
-	<div class="targeta_id_centre row">
+            <div class="targeta_id_centre row">
 
 		<?php if ( reactor_option('logo_image')) {
                         if ( reactor_option('logo_inline')){
@@ -68,9 +67,9 @@ class Logo_Centre_Widget extends WP_Widget {
 		  		</div>		 
 			</div>	
 		 </div>		 
-	</div>	
+            </div>	
 	
-  	</div>	
+  	<?php echo $args['after_widget']; ?>
     	
 <?php }  //end if nomCanonicCentre
 

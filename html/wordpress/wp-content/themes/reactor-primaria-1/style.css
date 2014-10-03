@@ -1,6 +1,6 @@
 /*
 Theme Name: NODES
-Theme URI: http://jurjur.org
+Theme URI: 
 Description: Tema desenvolupat pel Departament d'Ensenyament de Catalunya
 Author: Albert Bachiller 
 Author URI: http://jurjur.org
@@ -827,7 +827,28 @@ ul.breadcrumbs {
 }
 
 
+/*****************************************************************
+Footer
+******************************************************************/
 
+#footer {
+    background-color:#222222;
+    margin-top: 2em;
+    padding-top: 2em;
+}
+
+.inner-footer{
+    border:0;    
+}
+
+
+.site-info{
+    color:white;
+}
+
+/*****************************************************************
+Media
+******************************************************************/
 
 /*Small devices*/
 @media screen and (max-width: 782px) {

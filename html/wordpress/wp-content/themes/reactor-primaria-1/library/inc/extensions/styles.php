@@ -44,7 +44,6 @@ function reactor_enqueue_styles() {
 		if ( is_child_theme() ) {
 			wp_enqueue_style('style');
 			wp_enqueue_style('style_colors');
-
 		}
 	}
 }

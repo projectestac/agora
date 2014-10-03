@@ -15,6 +15,7 @@ PORTAL
 
 WORDPRESS
 - Removed extension Viper's Video Quicktags
+- Group Email Subscription: Added catalan translation
 
 ZIKULA 2
 - IWdocmanager: Show subcategory tree when viewing docs
