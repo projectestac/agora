@@ -33,4 +33,7 @@ if (is_dir($tempdir)) {
 
 scripts_execute_crons();
 
+require_once('adware/lib.php');
+detect_adware_cron();
+
 mtrace("Agora cron done.","\n");
