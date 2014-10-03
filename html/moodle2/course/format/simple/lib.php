@@ -315,17 +315,20 @@ function simple_add_module_image($data) {
 
 }
 
-//Deletes the selected imatge to the course module from the form
-function simple_delete_module_image($cmid) {
+// Deletes the selected imatge to the course module from the form
+function simple_delete_module_image($cmid, $context = false) {
 
-    $context = context_module::instance($cmid);
-    if($context){
+	if (!$context) {
+    	$context = context_module::instance($cmid, IGNORE_MISSING);
+    }
+
+    if ($context) {
     	$fs = get_file_storage();
 		$component = 'format_simple';
 		$filearea = 'bigicon';
-    	//Erase current image
+    	// Erase current image
 		$files = $fs->get_area_files($context->id, $component, $filearea);
-		foreach($files as $file){
+		foreach ($files as $file) {
 			$file->delete();
 		}
     }
