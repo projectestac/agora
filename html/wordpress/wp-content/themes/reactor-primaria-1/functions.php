@@ -298,6 +298,9 @@ include "custom-tac/ginys/giny-xtec.php";
 //Giny Logo centre
 include "custom-tac/ginys/giny-logo-centre.php";
 
+//Giny enllaços Social Media
+include "custom-tac/ginys/giny-socialmedia.php";
+
 //Menu principal
 include "custom-tac/menu-principal.php";
 add_action("reactor_content_before","menu_principal");

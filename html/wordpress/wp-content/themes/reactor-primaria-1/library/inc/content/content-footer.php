@@ -58,21 +58,9 @@ add_action('reactor_footer_inside', 'reactor_do_footer_widgets', 1);
 function reactor_do_footer_content() { ?>
 	<div class="site-info">
 		<div class="row">
-        
-			<div class="<?php reactor_columns( 6 ); ?>">
-			<?php if ( function_exists('reactor_footer_links') ) : ?>
-				<nav class="footer-links" role="navigation">
-					<?php reactor_footer_links(); ?>
-				</nav><!-- #footer-links -->
-			<?php endif; ?>
-			</div><!--.columns -->
-                    
-			<div class="<?php reactor_columns( 6 ); ?>">
-				<div id="colophon">
-
-				                                                
-				  <p> <a target="_blank" href="http://www.xtec.cat/web/guest/avis">Avís legal</a> |                                 
-
+			<div class="<?php reactor_columns( 12 ); ?>">
+				<div style="text-align:center" id="colophon">
+				<p> <a target="_blank" href="http://www.xtec.cat/web/guest/avis">Avís legal</a> |
 				<span class="copyright">&copy;<?php echo date_i18n('Y'); ?>  Generalitat de Catalunya | </span>
 				<span class="site-source">Fet amb <a href=http://wordpress.org/>WordPress</a></span></p>
 					

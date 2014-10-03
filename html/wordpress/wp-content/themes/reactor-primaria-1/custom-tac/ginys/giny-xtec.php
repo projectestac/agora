@@ -59,7 +59,7 @@ class XTEC_Widget extends WP_Widget {
         }
         
         // Display information
-        echo '<div class="widget my-widget block" >';
+        echo $args['before_widget'];
         if ( !empty( $title ) ) {
             echo '<h4 class="widget-title">' . $title . '</h4>';
         }         
@@ -69,7 +69,7 @@ class XTEC_Widget extends WP_Widget {
                 echo "<a target='_blank' title=\"".$nomRecurs['nom']."\" href=\"".$nomRecurs['url']."\"><img class=\"iconedu\" src=\"".get_bloginfo('template_directory')."-primaria-1/custom-tac/imatges/".$nomRecurs['img']."\"></a>";
            }       
         }  
-        echo '</div>';
+        echo $args['after_widget'];
    }
  
     // Back-end form of the Widget
