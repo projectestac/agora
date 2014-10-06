@@ -12,7 +12,8 @@ ZIKULA 2
 
 PORTAL
 - Updated Zikula to 1.3.9
-- Updated school name and address in school card when activating a service
+- Agoraportal: Updated school name and address in school card when activating a service
+- Agoraportal: Don't show clients with no services in services list
 
 WORDPRESS
 - Removed extension Viper's Video Quicktags
