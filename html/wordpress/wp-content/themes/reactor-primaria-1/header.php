@@ -17,9 +17,7 @@
 <!-- end WordPress head -->
 <?php reactor_head(); ?>
 
-<!--Primaria-->
-<!--<link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>-->
-<!--Secundaria-->
+
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

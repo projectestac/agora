@@ -568,6 +568,21 @@ Header
     line-height: 1.2em;
 }
 
+
+#search-panel{
+    display:none;
+    background-color:#fdd300;   
+ }
+
+#search-panel .search-field{
+   height: 4em;
+   margin:0;
+}
+
+#search-panel .search-form{
+    margin:0;
+}
+
 /*****************************************************************
 Menu
 ******************************************************************/

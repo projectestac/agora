@@ -82,6 +82,20 @@ function menu_toggle(){
 		setCookie("mostraMenu","1",10);
 	}
 }
+
+function cerca_toggle(){
+    	$icon_search=document.getElementById("icon-search");
+	$search_panel=document.getElementById("search-panel");
+	
+	if ($search_panel.style.display=="block") {
+		$search_panel.style.display="none";
+		$icon_search.setAttribute("class", "dashicons dashicons-search");
+        } else {
+		$search_panel.style.display="block";
+		$icon_search.setAttribute("class", "dashicons dashicons-no-alt");	
+		document.getElementById("icon-13").setAttribute("backgroundColor", "yellow");
+	}
+}
 </script>
 
 
@@ -206,25 +220,30 @@ function reactor_do_title_logo() { ?>
 								<div class="dashicons dashicons-<?php echo $options['icon11'];?>"></div>
 							</div>
 						</a>
+                                                
 						<a title="<?php echo $options['title_icon12'];?>" href="<?php echo $options['link_icon12'];?>">
 							<div id="icon-12" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon12'];?>"></div>
 							</div>
 						</a>
-						
-						<div style="position:absolute">
-						<?php get_search_form( ); ?>
-						</div>
-									
-						<a title="CERCA" href="#">
-							<div id="icon-13" class="icon-graella">
-								<div class="dashicons dashicons-search"></div>
-							</div>
+                                                
+						<a title="CERCA" href="javascript:void(0);" onclick='cerca_toggle();'>
+                                                    <div id="icon-13" class="icon-graella">
+                                                        <div id="icon-search" class="dashicons dashicons-search"></div>
+                                                    </div>
 						</a>
 						
+                                                <div id="search-panel" class="search-box-wrapper">
+                                                    <div class="search-box">
+                                                        <form role="search" method="get" class="search-form" action=<?php get_home_url();?>>
+                                                            <input type="search" class="search-field" placeholder="Cerca i pulsa enter…" value="" name="s" title="Cerca:">
+                                                            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
+                                                    </form>			
+                                                    </div>
+                                                </div>
+                                                
 						<!-- Fila 2 -->
-
-						<a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>">
+                                                <a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>">
 							<div id="icon-21" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>
 							</div>

@@ -22,13 +22,10 @@
 </div><!-- #page -->
 
 <?php wp_footer(); reactor_foot(); ?>
-
 <!-- Include the plug-in -->
 
 <?php 
-
 //From loop-frontpage
-
 if ( is_front_page() ){
 	global $number_posts;
 	global $posts_per_fila1;
@@ -37,35 +34,25 @@ if ( is_front_page() ){
 	$num_rows_n = round( ($number_posts - ($posts_per_fila1 + $posts_per_fila2)) / $posts_per_filan, 0, PHP_ROUND_HALF_UP ) ;
 	$num_rows=$num_rows_n+2;
 }
-
 if ( is_category() or is_tag() ){
 	global $posts_per_fila;
 	$num_rows=round( 10/$posts_per_fila, 0, PHP_ROUND_HALF_UP);
 }
-
-
 ?>
 
-<script>
-
-jQuery(document).ready(function() {
-	
-	//Targeta mes alta determina l'alcada de la fila		
-	for (i=0;i<=<?php echo $num_rows; ?>;i++){
-	 	targetes_fila = jQuery('.fila'+i.toString()+'> .targeta > .entry-body');
-    	maxHeight = Math.max.apply(
-    	Math, targetes_fila.map(function() {
-      	return jQuery(this).height();
-    	}).get());
-    	targetes_fila.height(maxHeight);
-	}
-	
-	//Perque quedin alineats, coloquem el footer partint de la base de la targeta, no del contingut	
- 	targetes = jQuery('.targeta > .entry-body >.entry-footer');
-	targetes.css('position', 'absolute');
-	targetes.css('bottom', '1em');
-  	 
-});
+<script type="text/javascript">
+    //http://www.feedthebot.com/pagespeed/defer-loading-javascript.html
+    function downloadJSAtOnload() {
+        var element = document.createElement("script");
+        element.src = "wp-content/themes/reactor-primaria-1/igualaTargetes.js";
+        document.body.appendChild(element);
+    }
+    
+    if (window.addEventListener)
+    window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+    window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
 
 </script>
 

@@ -15,19 +15,18 @@
     
         <div id="content" role="main">
         	<div class="row">
-                <div class="<?php reactor_columns(); ?>">
-                
-                <?php reactor_inner_content_before(); ?>
+                    <div class="<?php reactor_columns(); ?>">
 
-				<?php // get the main loop
-				get_template_part('loops/loop', 'index'); ?>
+                    <?php reactor_inner_content_before(); ?>
+
+                    <?php // get the main loop
+                    get_template_part('loops/loop', 'index'); ?>
+
+                    <?php reactor_inner_content_after(); ?>
+
+                    </div><!-- .columns -->
                 
-                <?php reactor_inner_content_after(); ?>
-                
-                </div><!-- .columns -->
-                
-                <?php get_sidebar(); ?>
-                
+                    <?php get_sidebar(); ?>
             </div><!-- .row -->
         </div><!-- #content -->
         

@@ -342,7 +342,6 @@ function getRowFrontPage($posts_per_fila,$numFila){
 		   
                     $pos_color=((($numFila+1)%3)+$col)%3;
                     $card_bgcolor=$card_colors[$pos_color];
-                   // echo "f:".$numFila."-c:".$col."-poscolor:".$pos_color;
                     $col++;
                     $layout=array_pop($aLayout);
 	  
@@ -393,7 +392,6 @@ function getRow_N_FrontPage($posts_per_fila,$num_posts_n){
             while ( $frontpage_query->have_posts() ) : 	
                 $col++;
                 $pos_color=((($num_fila+1)%3)+$col)%3;
-                //echo "f:".$num_fila."-col:".$col;
                 $card_bgcolor=$card_colors[$pos_color];
                 
                 if ($nova_fila){

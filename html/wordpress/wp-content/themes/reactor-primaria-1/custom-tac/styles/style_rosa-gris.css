@@ -22,7 +22,7 @@ background-color:#ff3257;
 background-color:#6c6c6c;
 }
 #icon-22{
-    color:#ff2a2a;
+    color:#ff3257;
 }
 #icon-23{
    background-color: #6c6c6c;
@@ -31,14 +31,11 @@ background-color:#6c6c6c;
    background-color: #ff3257;
 }
 
-
 .entry-comments,
 .entry-categories>a,
 .entry-tags >a {
     color:#fb7f4a !important;
 }
-
-
 
 .entry-comments:before,
 .entry-categories:before,

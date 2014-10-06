@@ -395,6 +395,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         if (count($sites) > 0) {
             foreach ($sites as $site) {
+                // Skip clients with no services
+                if (!isset($site['serviceId'])) {
+                    continue;
+                }
+                
                 $serviceName = $services[$site['serviceId']]['serviceName'];
                 $hasDB = $services[$site['serviceId']]['hasDB'];
                 $link = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));

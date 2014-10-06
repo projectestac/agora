@@ -11,13 +11,16 @@ ZIKULA 2
 - IWmoodle: Added support for Moodle 2.6+ hash passwords
 
 PORTAL
-- Updated school name and address in school card when activating a service
+- Updated Zikula to 1.3.9
+- Agoraportal: Updated school name and address in school card when activating a service
+- Agoraportal: Don't show clients with no services in services list
 
 WORDPRESS
 - Removed extension Viper's Video Quicktags
 - Group Email Subscription: Added catalan translation
 
 ZIKULA 2
+- Updated Zikula to 1.3.9
 - IWdocmanager: Show subcategory tree when viewing docs
 
 
