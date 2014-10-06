@@ -11,6 +11,7 @@ ZIKULA 2
 - IWmoodle: Added support for Moodle 2.6+ hash passwords
 
 PORTAL
+- Updated Zikula to 1.3.9
 - Updated school name and address in school card when activating a service
 
 WORDPRESS
