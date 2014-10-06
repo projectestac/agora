@@ -1,12 +1,24 @@
+
+/**
+ * Public JS functions
+ *
+ * @package   GCE
+ * @author    Phil Derksen <pderksen@gmail.com>, Nick Young <mycorpweb@gmail.com>
+ * @license   GPL-2.0+
+ * @copyright 2014 Phil Derksen
+ */
+
+
 function gce_ajaxify(target, feed_ids, max_events, title_text, type){
+
 	//Add click event to change month links
 	jQuery('#' + target + ' .gce-change-month').click(function(){
 		//Extract month and year
 		var month_year = jQuery(this).attr('name').split('-', 2);
 		//Add loading text to table caption
-		jQuery('#' + target + ' caption').html(GoogleCalendarEvents.loading);
+		jQuery('#' + target + ' caption').html('Loading...');
 		//Send AJAX request
-		jQuery.get(GoogleCalendarEvents.ajaxurl,{
+		jQuery.get(gce.ajaxurl,{
 			action:'gce_ajax',
 			gce_type:type,
 			gce_feed_ids:feed_ids,
@@ -20,6 +32,7 @@ function gce_ajaxify(target, feed_ids, max_events, title_text, type){
 			if(type == 'widget'){
 				jQuery('#' + target).html(data);
 			}else{
+				//console.log( 'Replacing content...' );
 				jQuery('#' + target).replaceWith(data);
 			}
 			gce_tooltips('#' + target + ' .gce-has-events');

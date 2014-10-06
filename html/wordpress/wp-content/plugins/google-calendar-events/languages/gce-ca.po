@@ -1,0 +1,1343 @@
+# Copyright (C) 2010 Google Calendar Events
+# This file is distributed under the same license as the Google Calendar Events package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Google Calendar Events 0.7.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/google-calendar-events\n"
+"POT-Creation-Date: 2014-09-16 12:29-0700\n"
+"PO-Revision-Date: 2014-10-06 16:31+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: google-calendar-events/class-google-calendar-events-admin.php:67
+#: google-calendar-events/class-google-calendar-events-admin.php:68
+#: google-calendar-events/includes/register-settings.php:44
+msgid "General Settings"
+msgstr "Opcions"
+
+#: google-calendar-events/class-google-calendar-events-admin.php:139
+#: google-calendar-events/views/widgets.php:27
+msgid "Google Calendar Events"
+msgstr "Esdeveniments del Google Calendar"
+
+#: google-calendar-events/class-google-calendar-events-admin.php:151
+msgid "Feeds"
+msgstr "Entrades"
+
+#: google-calendar-events/includes/admin/admin-functions.php:20
+msgid "Cache has been cleared for this feed."
+msgstr "S'ha buidat la memòria cau d'aquesta entrada"
+
+#: google-calendar-events/includes/class-gce-display.php:218
+msgid "There are currently no events to display."
+msgstr "No hi ha cap esdeveniment per mostrar."
+
+#: google-calendar-events/includes/class-gce-event.php:499
+#, php-format
+msgid "%s year"
+msgstr "%s any"
+
+#: google-calendar-events/includes/class-gce-event.php:499
+#, php-format
+msgid "%s years"
+msgstr "%s anys"
+
+#: google-calendar-events/includes/class-gce-event.php:500
+#, php-format
+msgid "%s month"
+msgstr "%s mes"
+
+#: google-calendar-events/includes/class-gce-event.php:500
+#, php-format
+msgid "%s months"
+msgstr "%s mesos"
+
+#: google-calendar-events/includes/class-gce-event.php:501
+#, php-format
+msgid "%s week"
+msgstr "%s setmana"
+
+#: google-calendar-events/includes/class-gce-event.php:501
+#, php-format
+msgid "%s weeks"
+msgstr "%s setmanes"
+
+#: google-calendar-events/includes/class-gce-event.php:502
+#, php-format
+msgid "%s day"
+msgstr "%s dia"
+
+#: google-calendar-events/includes/class-gce-event.php:502
+#, php-format
+msgid "%s days"
+msgstr "%s dies"
+
+#: google-calendar-events/includes/class-gce-event.php:503
+#, php-format
+msgid "%s hour"
+msgstr "%s hora"
+
+#: google-calendar-events/includes/class-gce-event.php:503
+#, php-format
+msgid "%s hours"
+msgstr "%s hores"
+
+#: google-calendar-events/includes/class-gce-event.php:504
+#, php-format
+msgid "%s min"
+msgstr "%s minut"
+
+#: google-calendar-events/includes/class-gce-event.php:504
+#, php-format
+msgid "%s mins"
+msgstr "%s minuts"
+
+#: google-calendar-events/includes/class-gce-event.php:532
+msgid ", "
+msgstr ","
+
+#: google-calendar-events/includes/class-gce-feed.php:93
+msgid "The feed URL has not been set. Please make sure to set it correctly in the Feed settings."
+msgstr "No s'ha indicat l'URL de l'entrada. Si us plau, assegureu-vos d'introduir-la correctament als paràmetres de l'entrada."
+
+#: google-calendar-events/includes/class-gce-feed.php:180
+msgid "Some data was retrieved, but could not be parsed successfully. Please ensure your feed URL is correct."
+msgstr "Algunes dades s'han recuperat però no s'han pogut processar amb èxit. Assegureu-vos que l'URL de l'entrada és correcte."
+
+#: google-calendar-events/includes/class-gce-feed.php:186
+msgid "The feed could not be found (404). Please ensure your feed URL is correct."
+msgstr "No s'ha pogut trobar l'entrada (404). Assegureu-vos que l'URL de l'entrada és correcte."
+
+#: google-calendar-events/includes/class-gce-feed.php:189
+msgid "Access to this feed was denied (403). Please ensure you have public sharing enabled for your calendar."
+msgstr "L'accés a aquesta entrada ha estat denegat (403). Assegureu-vos que el vostre calendari és públic."
+
+#: google-calendar-events/includes/class-gce-feed.php:192
+#, php-format
+msgid "The feed data could not be retrieved. Error code: %s. Please ensure your feed URL is correct."
+msgstr "No s'ha pogut trobar la data de l'entrada. Codi d'error: %s. Assegureu-vos que l'URL de l'entrada és correcte."
+
+#: google-calendar-events/includes/class-gce-feed.php:197
+msgid " Please ensure your feed URL is correct."
+msgstr "Assegureu-vos que l'URL de l'entrada és correcte."
+
+#: google-calendar-events/includes/gce-feed-cpt.php:21
+msgid "Google Calendar Feeds"
+msgstr "Esdeveniments del Google Calendar"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:22
+#: google-calendar-events/includes/gce-feed-cpt.php:24
+msgid "Feed"
+msgstr "Entrada"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:23
+msgid "GCal Events"
+msgstr "Google Calendar"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:25
+msgid "Add New"
+msgstr "Afegeix"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:26
+msgid "Add New Feed"
+msgstr "Afegeix una entrada nova"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:27
+msgid "New Feed"
+msgstr "Afegeix una entrada nova"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:28
+msgid "Edit Feed"
+msgstr "Edita l'entrada"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:29
+msgid "View Feed"
+msgstr "Mostra l'entrada"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:30
+msgid "All GCal Feeds"
+msgstr "Totes les entrades"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:31
+msgid "Search GCal Feeds"
+msgstr "Cerca a les entrades"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:32
+msgid "No feeds found."
+msgstr "No s'ha trobat cap entrada"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:33
+msgid "No feeds found in Trash."
+msgstr "No s'ha trobat cap entrada a la paperera"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:75
+#: google-calendar-events/includes/gce-feed-cpt.php:76
+#, php-format
+msgid "%4$s updated. %1$sView %2$s%3$s"
+msgstr "%4$s actualitzat. %1$sMostra %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:77
+#, php-format
+msgid "%4$s published. %1$sView %2$s%3$s"
+msgstr "%4$s publicat. %1$sMostra %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:78
+#, php-format
+msgid "%4$s saved. %1$sView %2$s%3$s"
+msgstr "%4$s desat. %1$sMostra %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:79
+#, php-format
+msgid "%4$s submitted. %1$sView %2$s%3$s"
+msgstr "%4$s tramès. %1$sMostra %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:80
+#, php-format
+msgid "%4$s draft updated. %1$sView %2$s%3$s"
+msgstr "%4$s esborrany actualitzat. %1$sMostra %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:209
+msgid "Feed ID"
+msgstr "ID de l'entrada"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:210
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:57
+msgid "Feed Shortcode"
+msgstr "Codi curt"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:211
+msgid "Max Events"
+msgstr "Nombre màxim d'esdeveniments"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:212
+msgid "Display Type"
+msgstr "Tipus de visualització"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:243
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:181
+#: google-calendar-events/views/widgets.php:170
+msgid "Grid"
+msgstr "Graella"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:245
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:182
+#: google-calendar-events/views/widgets.php:172
+msgid "List"
+msgstr "Llista"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:247
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:183
+#: google-calendar-events/views/widgets.php:173
+msgid "Grouped List"
+msgstr "Llista agrupada"
+
+#: google-calendar-events/includes/register-settings.php:29
+msgid "Save Settings"
+msgstr "Paràmetres de desament"
+
+#: google-calendar-events/includes/register-settings.php:30
+msgid "Save your settings when uninstalling this plugin. Useful when upgrading or re-installing."
+msgstr "Manté els paràmetres a la base de dades quan es desinstal·li aquesta extensió. Això és útil en actualitzar i en tornar a instal·lar."
+
+#: google-calendar-events/includes/register-settings.php:132
+#, php-format
+msgid "The callback function used for the <strong>%s</strong> setting is missing."
+msgstr "No es pot trobar la funció de retorn utilitzada pel paràmetre <strong>%s</strong>."
+
+#: google-calendar-events/views/admin/display-options-meta.php:39
+msgid "Check this box to use the simple display options below instead of the Event Builder code on the left."
+msgstr "Marqueu aquesta casella per utilitzar les opcions de visualització simple en lloc del codi del \"constructor d'esdeveniments\" que apareix a l'esquerra."
+
+#: google-calendar-events/views/admin/display-options-meta.php:44
+msgid "Start date / time display"
+msgstr "Data i hora d'inici"
+
+#: google-calendar-events/views/admin/display-options-meta.php:45
+msgid "Select how to display the start date / time."
+msgstr "Indiqueu com s'han de mostrar la data i l'hora d'inici."
+
+#: google-calendar-events/views/admin/display-options-meta.php:47
+#: google-calendar-events/views/admin/display-options-meta.php:61
+msgid "None"
+msgstr "Cap"
+
+#: google-calendar-events/views/admin/display-options-meta.php:48
+msgid "Start time"
+msgstr "Hora d'inici"
+
+#: google-calendar-events/views/admin/display-options-meta.php:49
+msgid "Start date"
+msgstr "Data d'inici"
+
+#: google-calendar-events/views/admin/display-options-meta.php:50
+msgid "Start time and date"
+msgstr "Hora i data d'inici"
+
+#: google-calendar-events/views/admin/display-options-meta.php:51
+msgid "Start date and time"
+msgstr "Data i hora d'inici"
+
+#: google-calendar-events/views/admin/display-options-meta.php:53
+msgid "Text to display before the start time."
+msgstr "Text a mostrar abans de l'hora d'inici."
+
+#: google-calendar-events/views/admin/display-options-meta.php:58
+msgid "End time/date display"
+msgstr "Data i hora de finalització"
+
+#: google-calendar-events/views/admin/display-options-meta.php:59
+msgid "Select how to display the end date / time."
+msgstr "Seleccioneu com s'ha de mostrar la data / hora de finalització."
+
+#: google-calendar-events/views/admin/display-options-meta.php:62
+msgid "End time"
+msgstr "Hora de finalització"
+
+#: google-calendar-events/views/admin/display-options-meta.php:63
+msgid "End date"
+msgstr "Data de finalització"
+
+#: google-calendar-events/views/admin/display-options-meta.php:64
+msgid "End time and date"
+msgstr "Hora i data de finalització"
+
+#: google-calendar-events/views/admin/display-options-meta.php:65
+msgid "End date and time"
+msgstr "Data i hora de finalització"
+
+#: google-calendar-events/views/admin/display-options-meta.php:67
+msgid "Text to display before the end time."
+msgstr "Text a mostrar abans de la data de finalització"
+
+#: google-calendar-events/views/admin/display-options-meta.php:72
+msgid "Separator"
+msgstr "Separador"
+
+#: google-calendar-events/views/admin/display-options-meta.php:74
+msgid "If you have chosen to display both the time and date above, enter the text / characters to display between the time and date here (including any spaces)."
+msgstr "Si  heu triat mostrar tant hora com data a dalt indicada, introduïu el text / els caràcters que han d'aparèixer entre l'hora i la data aquí (incloent espais)."
+
+#: google-calendar-events/views/admin/display-options-meta.php:88
+msgid "Description"
+msgstr "Descripció"
+
+#: google-calendar-events/views/admin/display-options-meta.php:91
+msgid "Show the description of events? (URLs in the description will be made into links)."
+msgstr "Voleu mostrar la descripció dels esdeveniments? (Els URL de la descripció es convertiran en enllaços)."
+
+#: google-calendar-events/views/admin/display-options-meta.php:93
+msgid "Text to display before the description."
+msgstr "Text a mostrar abans de la descripció"
+
+#: google-calendar-events/views/admin/display-options-meta.php:95
+msgid "Maximum number of words to show from description. Leave blank for no limit."
+msgstr "Nombre màxim de paraules a mostrar de la descripció. Deixeu l'espai en blanc si no voleu posar cap límit."
+
+#: google-calendar-events/views/admin/display-options-meta.php:100
+msgid "Event Link"
+msgstr "Enllaç de l'esdeveniment"
+
+#: google-calendar-events/views/admin/display-options-meta.php:103
+msgid "Show a link to the Google Calendar page for an event?"
+msgstr "Mostra un enllaç a la pàgina del Google Calendar per a un esdeveniment?"
+
+#: google-calendar-events/views/admin/display-options-meta.php:107
+msgid "Links open in a new window / tab?"
+msgstr "Els enllaços s'obren en una finestra / pestanya nova?"
+
+#: google-calendar-events/views/admin/display-options-meta.php:109
+msgid "The link text to be displayed."
+msgstr "El text de l'enllaç que voleu mostrar."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:38
+msgid "We're <strong>smack dab</strong> in the middle of building additional features for this plugin. Have ideas?"
+msgstr "Estem preparant noves funcionalitats per a aquesta extensió. Voleu fer-hi alguna aportació?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:41
+msgid "Visit our roadmap and tell us what you're looking for"
+msgstr "Visiteu el nostre full de ruta i dieu-nos què esteu buscant"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:47
+msgid "Want to know when we release something new?"
+msgstr "Voleu assabentar-vos de quan publiquem versions noves?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:50
+msgid "Get notified of major plugin updates"
+msgstr "Avisa'm quan es publiqui una versió major d'aquesta extensió"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:60
+msgid "Copy and paste this shortcode to display this Google Calendar feed in any post or page."
+msgstr "Copieu i enganxeu aquest codi curt per mostrar aquesta entrada del Google Calendar a qualsevol entrada o pàgina del WordPress"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:64
+msgid "GCal Feed URL"
+msgstr "URL de l'entrada"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:68
+msgid "The Google Calendar feed URL."
+msgstr "L'URL de l'entrada del Google Calendar"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:69
+msgid "Example"
+msgstr "Exemple"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:70
+msgid "How to find your GCal feed URL"
+msgstr "Com trobar l'URL de l'entrada del Google Calendar"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:76
+msgid "Search Query"
+msgstr "Consulta de cerca"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:79
+msgid "Find and show events based on a search query."
+msgstr "Troba i mostra esdeveniments basats en una consulta de cerca"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:84
+msgid "Expand Recurring Events?"
+msgstr "Estendre el esdeveniments recurrents?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:86
+msgid "Yes"
+msgstr "Sí"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:87
+msgid "This will show recurring events each time they occur, otherwise it will only show the event the first time it occurs."
+msgstr "Això mostrarà els esdeveniments recurrents cada vegada que ocorrin, altrament només es mostrarà un esdeveniment la primera vegada que ocorri."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:92
+msgid "Retrieve Events From"
+msgstr "Recupera els esdeveniments des de"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:95
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:111
+msgid "Today"
+msgstr "Avui"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:96
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:112
+msgid "Start of current week"
+msgstr "Inici de la setmana actual"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:97
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:113
+msgid "Start of current month"
+msgstr "Inici del mes actual"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:98
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:114
+msgid "End of current month"
+msgstr "Final del mes actual"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:99
+msgid "The beginning of time"
+msgstr "El principi dels temps"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:100
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:116
+msgid "Specific date"
+msgstr "Data concreta"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:103
+msgid "The point in time at which to start retrieving events."
+msgstr "El punt en el temps en què començarà la recuperació d'esdeveniments."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:108
+msgid "Retrieve Events Until"
+msgstr "Recupera els esdeveniments fins a"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:115
+msgid "The end of time"
+msgstr "El final dels temps"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:119
+msgid "The point in time at which to stop retrieving events."
+msgstr "El punt en el temps en què s'aturarà la recuperació d'esdeveniments."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:124
+msgid "Max Number of Events"
+msgstr "Nombre màxim d'esdeveniments a recuperar"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:127
+msgid "Maximum number of events to show."
+msgstr "Nombre màxim d'esdeveniments a mostrar"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:132
+msgid "Date Format"
+msgstr "Format de la data"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:136
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:147
+#, php-format
+msgid "Use %sPHP date formatting%s."
+msgstr "Utilitza el %sformat de data del PHP%s."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:137
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:148
+msgid "Leave blank to use the default."
+msgstr "Deixeu-ho en blanc per utilitzar el valor per defecte."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:143
+msgid "Time Format"
+msgstr "Format de l'hora"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:154
+msgid "Timezone Adjustment"
+msgstr "Configuració de la zona horària"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:157
+msgid "If you are having problems with dates and times displaying in the wrong timezone, select a city in your required timezone here."
+msgstr "Si les dates i hores que es mostren no es corresponen amb la zona horària correcta, seleccioneu una ciutat de la vostra zona horària."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:162
+msgid "Cache Duration"
+msgstr "Durada de la memòria cau"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:165
+msgid "The length of time, in seconds, to cache the feed (43200 = 12 hours). If this feed changes regularly, you may want to reduce the cache duration."
+msgstr "La durada, en segons, per emmagatzemar en la memòria cau l'entrada (43200 = 12 hores). Si aquest flux canvia amb regularitat, és possible que vulgueu reduir la durada de la memòria cau."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:170
+msgid "Multiple Day Events"
+msgstr "Esdeveniments de varis dies"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:172
+msgid "Show on each day"
+msgstr "Mostra els esdeveniments d'un període cadascun dels dies?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:173
+msgid "Show events that span multiple days on each day that they span, rather than just the first day."
+msgstr "Mostra els esdeveniments que es repeteixin durant un període de temps en cadascun dels dies, en lloc de només el primer dia."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:178
+msgid "Display Mode"
+msgstr "Mode de visualització"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:185
+msgid "Choose how you want your calendar to be displayed."
+msgstr "Trieu com voleu que es mostri el vostre calendari"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:190
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:192
+msgid "Clear Cache"
+msgstr "Buida la memòria cau"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:195
+#, php-format
+msgid "This will clear your feed cache. This also automatically happens when you save your changes. %sIf you make changes you %sMUST%s save first or your changes will be lost."
+msgstr "Això buidarà la memòria cau d'aquesta entrada. Això passa automàticament cada vegada que deseu els canvis. %sSi feu canvis %sHEU%s de desar-los en primer lloc o es perdran."
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:6
+msgid "Documentation & Getting Started"
+msgstr "Documentació i guia d'inici"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:12
+msgid "Community Support Forums"
+msgstr "Fòrums de suport de la comunitat"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:18
+msgid "Get Notified of Major Updates"
+msgstr "Notificació d'actualitzacions majors"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:24
+msgid "Now Accepting 5-Star Reviews!"
+msgstr "S'accepten revisions de 5 estrelles!"
+
+#: google-calendar-events/views/widgets.php:28
+msgid "Display a list or calendar grid of events from one or more Google Calendar feeds you have added"
+msgstr "Mostra una llista o graella d'esdeveniments de calendari per una o més entrades que hàgiu afegit al Google Calendar."
+
+#: google-calendar-events/views/widgets.php:72
+msgid "No valid Feed IDs have been entered for this widget. Please check that you have entered the IDs correctly in the widget settings (Appearance > Widgets), and that the Feeds have not been deleted."
+msgstr "No hi ha cap ID d'entrades vàlides en aquest giny. Comproveu que s'han introduït els codis correctament en la configuració del giny (Aparença | Ginys), i que les entrades no s'han eliminat."
+
+#: google-calendar-events/views/widgets.php:104
+msgid "You have not added any feeds yet."
+msgstr "Encara no heu afegit cap entrada del Google Calendar."
+
+#: google-calendar-events/views/widgets.php:142
+msgid "There are no feeds created yet."
+msgstr "Encara no hi ha cap entrada creada."
+
+#: google-calendar-events/views/widgets.php:143
+msgid "Add your first feed!"
+msgstr "Afegiu la primera entrada!"
+
+#: google-calendar-events/views/widgets.php:163
+msgid "Feeds to display, as a comma separated list (e.g. 101,102,103)"
+msgstr "Entrades a mostrar, en forma de llista separada per comes (per exemple: 1, 2, 4)."
+
+#: google-calendar-events/views/widgets.php:168
+msgid "Display events as:"
+msgstr "Mostra els esdeveniments com a:"
+
+#: google-calendar-events/views/widgets.php:171
+msgid "Calendar Grid - with AJAX"
+msgstr "Graella de calendari - amb AJAX"
+
+#: google-calendar-events/views/widgets.php:178
+msgid "Maximum no. events to display. Enter 0 to show all retrieved."
+msgstr "Nombre màxim d'esdeveniments a mostrar. Poseu 0 per a mostrar-los tots."
+
+#: google-calendar-events/views/widgets.php:183
+msgid "Sort order (only applies to lists):"
+msgstr "Ordre (només s'aplica a les llistes):"
+
+#: google-calendar-events/views/widgets.php:185
+msgid "Ascending"
+msgstr "Ascendent"
+
+#: google-calendar-events/views/widgets.php:186
+msgid "Descending"
+msgstr "Descendent"
+
+#: google-calendar-events/views/widgets.php:190
+msgid "Display title on tooltip / list item (e.g. 'Events on 7th March') Grouped lists always have a title displayed."
+msgstr "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniments del 7 de març'). A les llistes agrupades sempre es mostra el títol."
+
+#~ msgid "Feed Title"
+#~ msgstr "Títol de l'entrada"
+
+#~ msgid "Select display customization method"
+#~ msgstr "Tria un mètode de visualització"
+
+#~ msgid "Event Display Builder"
+#~ msgstr "Creador d'esdeveniments personalitzat"
+
+#~ msgid "Event display builder HTML and shortcodes"
+#~ msgstr "Configura la visualització d'esdeveniments personalitzada"
+
+#~ msgid "Simple Display Options"
+#~ msgstr "Visualització per defecte"
+
+#~ msgid "Separator text / characters"
+#~ msgstr "Separador de text / caràcters"
+
+#~ msgid "Display location?"
+#~ msgstr "Voleu mostrar la ubicació?"
+
+#~ msgid "Display link to event?"
+#~ msgstr "Voleu mostrar l'enllaç a l'esdeveniment?"
+
+#~ msgid ""
+#~ "Make any changes you require to the feed details below, then click the "
+#~ "Save Changes button."
+#~ msgstr ""
+#~ "Feu els canvis necessaris als detalls de l'entrada i després feu clic al "
+#~ "botó Desa els canvis."
+
+#~ msgid "Anything you like. 'Upcoming Club Events', for example."
+#~ msgstr "El que vulgueu. Per exemple: 'Esdeveniments propers del centre'."
+
+#~ msgid ""
+#~ "This will probably be something like: <code>http://www.google.com/"
+#~ "calendar/feeds/your-email@gmail.com/public/full</code>."
+#~ msgstr ""
+#~ "Això probablement serà semblant a: <code>http://www.google.com/calendar/"
+#~ "feeds/your-email@gmail.com/public/full</code>."
+
+#~ msgid ""
+#~ "or: <code>http://www.google.com/calendar/feeds/your-email@gmail.com/"
+#~ "private-d65741b037h695ff274247f90746b2ty/basic</code>."
+#~ msgstr ""
+#~ "o: <code>http://www.google.com/calendar/feeds/your-email@gmail.com/"
+#~ "private-d65741b037h695ff274247f90746b2ty/basic</code>."
+
+#~ msgid ""
+#~ "The point in time at which to start retrieving events. Use the text-box "
+#~ "to specify an additional offset from you chosen start point. The offset "
+#~ "should be provided in seconds (3600 = 1 hour, 86400 = 1 day) and can be "
+#~ "negative. If you have selected the 'Specific date / time' option, enter a "
+#~ "<a href=\"http://www.timestampgenerator.com\" target=\"_blank\">UNIX "
+#~ "timestamp</a> in the text-box."
+#~ msgstr ""
+#~ "El punt en el temps en què es començaran a recuperar els esdeveniments. "
+#~ "Feu servir la caixa de text per especificar un desplaçament addicional al "
+#~ "punt triat inicialment. Aquest desplaçament s'ha de proporcionar en "
+#~ "segons (3600 = 1 hora, 86400 = 1 dia) i pot ser negatiu. Si heu "
+#~ "seleccionat l'opció 'Data / hora específics' poseu una <a href=\"http://"
+#~ "www.timestampgenerator.com\" target=\"_blank\">marca de temps de UNIX</a> "
+#~ "a la caixa de text."
+
+#~ msgid ""
+#~ "Set this to a few more than you actually want to display (due to caching "
+#~ "and timezone issues). The exact number to display can be configured per "
+#~ "shortcode / widget."
+#~ msgstr ""
+#~ "Definiu aquí una mica més del que realment voleu mostrar (per evitar "
+#~ "problemes d'emmagatzematge en la memòria cau i la zona horària). El "
+#~ "nombre exacte a mostrar es pot configurar per codi curt / ginys."
+
+#~ msgid ""
+#~ "In <a href=\"http://php.net/manual/en/function.date.php\" target=\"_blank"
+#~ "\">PHP date format</a>. Leave this blank if you'd rather stick with the "
+#~ "default format for your blog."
+#~ msgstr ""
+#~ "En <a href=\"http://php.net/manual/en/function.date.php\" target=\"_blank"
+#~ "\">format de data en PHP</a>. Deixeu l'espai en blanc si voleu fer servir "
+#~ "el format predeterminat."
+
+#~ msgid ""
+#~ "In <a href=\"http://php.net/manual/en/function.date.php\" target=\"_blank"
+#~ "\">PHP date format</a>. Again, leave this blank to stick with the default."
+#~ msgstr ""
+#~ "En <a href=\"http://php.net/manual/en/function.date.php\" target=\"_blank"
+#~ "\">format de data en PHP</a>. De nou, deixeu l'espai en blanc per fer "
+#~ "servir el format predeterminat."
+
+#~ msgid ""
+#~ "These settings control what information will be displayed for this feed "
+#~ "in the tooltip (for grids), or in a list."
+#~ msgstr ""
+#~ "Aquests ajustaments controlen quina informació es mostra per a aquesta "
+#~ "entrada en el títol (per graelles), o en una llista."
+
+#~ msgid ""
+#~ "It is recommended that you use the event display builder option, as it "
+#~ "provides much more flexibility than the simple display options. The event "
+#~ "display builder can do everything the simple display options can, plus "
+#~ "lots more!"
+#~ msgstr ""
+#~ "Es recomana que utilitzeu el creador d'esdeveniments personalitzat, ja "
+#~ "que proporciona molta més flexibilitat que les opcions de visualització "
+#~ "per defecte. La visualiitzacó personalitzada pot fer tot el que les "
+#~ "opcions de visualització per defecte, a més de moltes més!"
+
+#~ msgid "Event display builder"
+#~ msgstr "Creador d'esdeveniments personalitzat"
+
+#~ msgid "Simple display options"
+#~ msgstr "Visualització d'esdeveniments per defecte"
+
+#~ msgid ""
+#~ "Use the event display builder to customize how event information will be "
+#~ "displayed in the grid tooltips and in lists. Use HTML and the shortcodes "
+#~ "(explained below) to display the information you require. A basic example "
+#~ "display format is provided as a starting point. For more information, "
+#~ "take a look at the <a href=\"http://www.rhanney.co.uk/plugins/google-"
+#~ "calendar-events/event-display-builder\" target=\"_blank\">event display "
+#~ "builder guide</a>."
+#~ msgstr ""
+#~ "Utilitzeu el creador d'esdeveniments personalitzat per definir quina "
+#~ "informació es mostrarà als títols de la graella i a les llistes. "
+#~ "Utilitzeu HTML i codis curts (que s'explica més endavant) per mostrar la "
+#~ "informació necessària. Com a punt de partida, es proporciona un format "
+#~ "bàsic a mode d'exemple. Per obtenir més informació, feu un cop d'ull a la "
+#~ "<a href=\"http://www.rhanney.co.uk/plugins/google-calendar-events/event-"
+#~ "display-builder\" target=\"_blank\">guia d'ús de creació d'esdeveniments "
+#~ "personalitzats</a>."
+
+#~ msgid ""
+#~ "(More information on all of the below shortcodes and attributes, and "
+#~ "working examples, can be found in the <a href=\"http://www.rhanney.co.uk/"
+#~ "plugins/google-calendar-events/event-display-builder\" target=\"_blank"
+#~ "\">event display builder guide</a>)"
+#~ msgstr ""
+#~ "(Podeu trobar més informació sobre tots els codis curts i atributs de "
+#~ "baix, així com exemples de treball a la <a href=\"http://www.rhanney.co."
+#~ "uk/plugins/google-calendar-events/event-display-builder\" target=\"_blank"
+#~ "\">guia d'ús de creació d'esdeveniments personalitzats</a>)"
+
+#~ msgid "Event information shortcodes:"
+#~ msgstr "Informació sobre els esdeveniments i codis curts:"
+
+#~ msgid ""
+#~ "The event title (possible attributes: <code>html</code>, <code>markdown</"
+#~ "code>)"
+#~ msgstr ""
+#~ "El títol de l'esdeveniment (atributs possibles: <code>html</code>, "
+#~ "<code>markdown</code>)"
+
+#~ msgid ""
+#~ "The event start time. Will use the time format specified in the above "
+#~ "settings"
+#~ msgstr ""
+#~ "L'hora en què comença l'esdeveniment. S'utilitzarà el format especificat "
+#~ "en els paràmetres anteriors"
+
+#~ msgid ""
+#~ "The event start date. Will use the date format specified in the above "
+#~ "settings"
+#~ msgstr ""
+#~ "La data en què comença l'esdeveniment. S'utilitzarà el format especificat "
+#~ "en els paràmetres anteriors"
+
+#~ msgid ""
+#~ "The event start date / time. Will use the format specified in the "
+#~ "<code>format</code> attribute (possible attributes: <code>format</code>)"
+#~ msgstr ""
+#~ "L'hora i la data en què comença l'esdeveniment. S'utilitzarà el format "
+#~ "especificat a l'atribut <code>format</code> (atributs possibles: "
+#~ "<code>format</code>)"
+
+#~ msgid ""
+#~ "The difference between the start time of the event and the time now, in "
+#~ "human-readable format, such as '1 hour', '4 days', '15 mins' (possible "
+#~ "attributes: <code>precision</code>)"
+#~ msgstr ""
+#~ "La diferència entre l'hora d'inici de l'esdeveniment i l'hora actual, en "
+#~ "un format llegible per les persones, com ara '1 hora', '4 dies', '15 "
+#~ "minuts' (atributs possibles: <code>precision</code>)"
+
+#~ msgid ""
+#~ "The event end time. Will use the time format specified in the above "
+#~ "settings"
+#~ msgstr ""
+#~ "L'hora en què finalitza l'esdeveniment. S'utilitzarà el format "
+#~ "especificat en els paràmetres anteriors"
+
+#~ msgid ""
+#~ "The event end date. Will use the date format specified in the above "
+#~ "settings"
+#~ msgstr ""
+#~ "La data en què acaba l'esdeveniment. S'utilitzarà el format especificat "
+#~ "en els paràmetres anteriors"
+
+#~ msgid ""
+#~ "The event end date / time. Will use the format specified in the "
+#~ "<code>format</code> attribute (possible attributes: <code>format</code>)"
+#~ msgstr ""
+#~ "L'hora i la data en què acaba l'esdeveniment. S'utilitzarà el format "
+#~ "especificat a l'atribut <code>format</code> (atributs possibles: "
+#~ "<code>format</code>)"
+
+#~ msgid ""
+#~ "The difference between the end time of the event and the time now, in "
+#~ "human-readable format (possible attributes: <code>precision</code>)"
+#~ msgstr ""
+#~ "La diferència entre l'hora de finalització de l'esdeveniment i l'hora "
+#~ "actual, en un format llegible per les persones, com ara '1 hora', '4 "
+#~ "dies', '15 minuts' (atributs possibles: <code>precision</code>)"
+
+#~ msgid ""
+#~ "The event location (possible attributes: <code>html</code>, "
+#~ "<code>markdown</code>)"
+#~ msgstr ""
+#~ "La ubicació de l'esdeveniment (atributs possibles: <code>html</code>, "
+#~ "<code>markdown</code>)"
+
+#~ msgid ""
+#~ "Anything between the opening and closing shortcode tags (inlcuding "
+#~ "further shortcodes) will be linked to Google Maps, using the event "
+#~ "location as a search parameter (possible attributes: <code>newwindow</"
+#~ "code>)"
+#~ msgstr ""
+#~ "Qualsevol cosa entre les etiquetes d'obertura i tancament (incloses les "
+#~ "etiquetes futures) s'enllaçaran al Google Maps mitjançant la ubicació de "
+#~ "l'esdeveniment, que s'utilitzarà com a paràmetre de cerca (atributs "
+#~ "possibles: <code>newwindow</code>)"
+
+#~ msgid ""
+#~ "The event description (possible attributes: <code>html</code>, "
+#~ "<code>markdown</code>, <code>limit</code>)"
+#~ msgstr ""
+#~ "La descripció de l'esdeveniment (atributs possibles: <code>html</code>, "
+#~ "<code>markdown</code>, <code>limit</code>)"
+
+#~ msgid ""
+#~ "Anything between the opening and closing shortcode tags (inlcuding "
+#~ "further shortcodes) will be linked to the Google Calendar page for the "
+#~ "event (possible attributes: <code>newwindow</code>)"
+#~ msgstr ""
+#~ "Qualsevol cosa entre les etiquetes d'obertura i tancament (incloses les "
+#~ "etiquetes futures) s'enllaçaran a la pàgina de l'esdeveniment al Google "
+#~ "Calendar (atributs possibles: <code>newwindow</code>)"
+
+#~ msgid "The raw URL to the Google Calendar page for the event"
+#~ msgstr ""
+#~ "L'URL sense formatar a la pàgina de l'esdeveniment al Google Calendar"
+
+#~ msgid ""
+#~ "The length of the event, in human-readable format (possible attributes: "
+#~ "<code>precision</code>)"
+#~ msgstr ""
+#~ "La durada de l'esdeveniment en un format llegible per les persones "
+#~ "(atributs possibles: <code>precision</code>)"
+
+#~ msgid ""
+#~ "The position of the event in the current list, or the position of the "
+#~ "event in the current month (for grids)"
+#~ msgstr ""
+#~ "La posició de l'esdeveniment a la llista actual o la posició de "
+#~ "l'esdeveniment en el mes actual (per a les graelles)"
+
+#~ msgid "The event UID (a unique identifier assigned to the event by Google)"
+#~ msgstr ""
+#~ "L'UID de l'esdeveniment (un identificador únic assignat a l'esdeveniment "
+#~ "pel Google)"
+
+#~ msgid "The title of the feed from which the event comes"
+#~ msgstr "El títol de l'entrada d'on prové l'esdeveniment"
+
+#~ msgid "The ID of the feed from which the event comes"
+#~ msgstr "L'ID de l'entrada d'on prové l'esdeveniment"
+
+#~ msgid ""
+#~ "The calendar ID (a unique identifier assigned to the calendar by Google)"
+#~ msgstr ""
+#~ "L'ID del calendari (un identificador únic assignat al calendari pel "
+#~ "Google)"
+
+#~ msgid "Conditional shortcodes:"
+#~ msgstr "Codis curts condicionals:"
+
+#~ msgid ""
+#~ "Anything entered between the opening and closing tags of each of the "
+#~ "following shortcodes will only be displayed if its condition (below) is "
+#~ "met."
+#~ msgstr ""
+#~ "Qualsevol cosa introduïda entre l'obertura i el tancament d'etiquetes de "
+#~ "cadascun dels codis curts següents, només es mostrarà si es compleix la "
+#~ "condició de sota."
+
+#~ msgid "The event is an all-day event"
+#~ msgstr "L'esdeveniment dura tot el dia"
+
+#~ msgid "The event is not an all-day event"
+#~ msgstr "L'esdeveniment no dura tot el dia"
+
+#~ msgid "The event has a title"
+#~ msgstr "L'esdeveniment té títol"
+
+#~ msgid "The event has a description"
+#~ msgstr "L'esdeveniment té descripció"
+
+#~ msgid "The event has a location"
+#~ msgstr "L'esdeveniment té ubicació"
+
+#~ msgid "The event is to be displayed in a tooltip (not a list)"
+#~ msgstr ""
+#~ "L'esdeveniment s'ha de mostrar en un text emergent (no en una llista)"
+
+#~ msgid "The event is to be displayed in a list (not a tooltip)"
+#~ msgstr ""
+#~ "L'esdeveniment s'ha de mostrar en una llista (no en un text emergent)"
+
+#~ msgid ""
+#~ "The event is taking place now (after the start time, but before the end "
+#~ "time)"
+#~ msgstr ""
+#~ "L'esdeveniment està tenint lloc en aquests moments (després de l'hora "
+#~ "d'inici, però abans de l'hora de finalització)"
+
+#~ msgid ""
+#~ "The event is not taking place now (may have ended or not yet started)"
+#~ msgstr ""
+#~ "L'esdeveniment no està tenint lloc en aquests moments (pot haver acabat o "
+#~ "no haver començat)"
+
+#~ msgid "The event has started (even if it has also ended)"
+#~ msgstr "L'esdeveniment ha començat (pot haver acabat)"
+
+#~ msgid "The event has not started"
+#~ msgstr "L'esdeveniment no ha començat"
+
+#~ msgid "The event has ended"
+#~ msgstr "L'esdeveniment ha acabat"
+
+#~ msgid "The event has not ended (even if it hasn't started)"
+#~ msgstr "L'esdeveniment no ha acabat (pot no haver començat)"
+
+#~ msgid "The event is the first of the day"
+#~ msgstr "L'esdeveniment és el primer del dia"
+
+#~ msgid "The event is not the first of the day"
+#~ msgstr "L'esdeveniment no és el primer del dia"
+
+#~ msgid "The event spans multiple days"
+#~ msgstr "L'esdeveniment dura més d'un dia"
+
+#~ msgid "The event does not span multiple days"
+#~ msgstr "L'esdeveniment comença i acaba el mateix dia"
+
+#~ msgid "Attributes:"
+#~ msgstr "Atributs:"
+
+#~ msgid "The possible attributes mentioned above are explained here:"
+#~ msgstr "Els possibles atributs abans esmentats s'expliquen aquí:"
+
+#~ msgid ""
+#~ "Whether or not to parse HTML that has been entered in the relevant field. "
+#~ "Can be <code>true</code> or <code>false</code>"
+#~ msgstr ""
+#~ "Si s'ha de parsejar o no el codi HTML que s'ha introduït en el camp. Pot "
+#~ "ser <code>true</code> o <code>false</code>"
+
+#~ msgid ""
+#~ "Whether or not to parse <a href=\"http://daringfireball.net/projects/"
+#~ "markdown\" target=\"_blank\">Markdown</a> that has been entered in the "
+#~ "relevant field. <a href=\"http://michelf.com/projects/php-markdown\" "
+#~ "target=\"_blank\">PHP Markdown</a> must be installed for this to work. "
+#~ "Can be <code>true</code> or <code>false</code>"
+#~ msgstr ""
+#~ "Si s'ha de parsejar o no el text del camp amb el <a href=\"http://"
+#~ "daringfireball.net/projects/markdown\" target=\"_blank\">Markdown</a>. "
+#~ "Cal haver instal·lat el <a href=\"http://michelf.com/projects/php-markdown"
+#~ "\" target=\"_blank\">PHP Markdown</a> per a que això funcioni. Pot ser "
+#~ "<code>true</code> o <code>false</code>"
+
+#~ msgid ""
+#~ "The word limit for the field. Should be specified as a positive integer"
+#~ msgstr "El nombre de paraules màxim pel camp. Ha de ser un número natural"
+
+#~ msgid ""
+#~ "The date / time format to use. Should specified as a <a href=\"http://php."
+#~ "net/manual/en/function.date.php\" target=\"_blank\">PHP date format</a> "
+#~ "string"
+#~ msgstr ""
+#~ "El format de data i hora que s'ha d'utilitzar. S'ha d'especificar amb una "
+#~ "cadena de <a href=\"http://php.net/manual/en/function.date.php\" target="
+#~ "\"_blank\">format de data PHP</a>"
+
+#~ msgid ""
+#~ "Whether or not the link should open in a new window / tab. Can be "
+#~ "<code>true</code> or <code>false</code>"
+#~ msgstr ""
+#~ "Si l'enllaç s'ha d'obrir en una finestra o pestanya noves. Pot ser "
+#~ "<code>true</code> o <code>false</code>"
+
+#~ msgid ""
+#~ "How precise to be when displaying a time difference in human-readable "
+#~ "format. Should be specified as a positive integer"
+#~ msgstr ""
+#~ "Com de precís s'ha de ser en mostrar la diferència de temps en un format "
+#~ "llegible per les persones. S'ha d'especificar un número natural"
+
+#~ msgid ""
+#~ "An offset (in seconds) to apply to start / end times before display. "
+#~ "Should be specified as a (positive or negative) integer"
+#~ msgstr ""
+#~ "Un desplaçament (en segons) per aplicar a les hores d'inici / final abans "
+#~ "de la visualització. S'ha d'especificar com un nombre sencer (positiu o "
+#~ "negatiu)"
+
+#~ msgid ""
+#~ "Whether or not to automatically convert URLs in the description to links. "
+#~ "Can be <code>true</code> or <code>false</code>"
+#~ msgstr ""
+#~ "Si s'han de convertir automàticament en enllaços els URL que apareguin a "
+#~ "les descripcions. Pot ser <code>true</code> o <code>false</code>"
+
+#~ msgid ""
+#~ "You can use some HTML in the text fields, but ensure it is valid or "
+#~ "things might go wonky. Text fields can be empty too."
+#~ msgstr ""
+#~ "Podeu fer servir HTML als camps de text, però assegureu-vos que és un "
+#~ "HMTL vàlid on algunes coses poden funcionar malament. Els camps de text "
+#~ "també poden estar buits."
+
+#~ msgid "Don't display start time or date"
+#~ msgstr "No mostris la data o hora d'inici"
+
+#~ msgid "Display start time and date (in that order)"
+#~ msgstr "Mostra l'hora i data d'inici (en aquest ordre)"
+
+#~ msgid "Display start date and time (in that order)"
+#~ msgstr "Mostra la data i hora d'inici (en aquest ordre)"
+
+#~ msgid "Don't display end time or date"
+#~ msgstr "No mostris l'hora o data de finalització"
+
+#~ msgid "Display end date"
+#~ msgstr "Mostra la data de finalització"
+
+#~ msgid "Display end time and date (in that order)"
+#~ msgstr "Mostra l'hora i data de finalització (en aquest ordre)"
+
+#~ msgid "Display end date and time (in that order)"
+#~ msgstr "Mostra la data i hora de finalització (en aquest ordre)"
+
+#~ msgid "Show the location of events?"
+#~ msgstr "Mostra la ubicació dels esdeveniments?"
+
+#~ msgid "Text to display before the location."
+#~ msgstr "Text a mostrar abans de la localització."
+
+#~ msgid ""
+#~ "Show the description of events?  (URLs in the description will be made "
+#~ "into links)."
+#~ msgstr ""
+#~ "Voleu mostrar la descripció dels esdeveniments? (l'URL de la descripció "
+#~ "es convertirà en un enllaç)."
+
+#~ msgid "Enter the feed details below, then click the Add Feed button."
+#~ msgstr ""
+#~ "Afegiu els detalls de l'entrada a sota, després feu clic al botó Afegeix "
+#~ "entrada."
+
+#~ msgid "This will probably be something like:"
+#~ msgstr "Això probablement serà similar a:"
+
+#~ msgid "or:"
+#~ msgstr "o:"
+
+#~ msgid ""
+#~ "The point in time at which to start retrieving events. Use the text-box "
+#~ "to specify an additional offset from you chosen start point. The offset "
+#~ "should be provided in seconds (3600 = 1 hour, 86400 = 1 day) and can be "
+#~ "negative. If you have selected the 'Specific date / time' option, enter a"
+#~ msgstr ""
+#~ "El punt en el temps en què es començaran a recuperar els esdeveniments. "
+#~ "Feu servir la caixa de text per especificar un desplaçament addicional al "
+#~ "punt triat inicialment. Aquest desplaçament s'ha de proporcionar en "
+#~ "segons (3600 = 1 hora, 86400 = 1 dia) i pot ser negatiu. Si heu "
+#~ "seleccionat l'opció 'Data / hora específics' poseu una"
+
+#~ msgid "UNIX timestamp"
+#~ msgstr "marca de temps de UNIX"
+
+#~ msgid "in the text-box."
+#~ msgstr "a la caixa de text."
+
+#~ msgid "Now"
+#~ msgstr "Ara"
+
+#~ msgid "00:00 today"
+#~ msgstr "00:00 avui"
+
+#~ msgid ""
+#~ "Use the event display builder to customize how event information will be "
+#~ "displayed in the grid tooltips and in lists. Use HTML and the shortcodes "
+#~ "(explained below) to display the information you require. A basic example "
+#~ "display format is provided as a starting point. For more information, "
+#~ "take a look at the"
+#~ msgstr ""
+#~ "Utilitzeu el creador d'esdeveniments personalitzat per definir quina "
+#~ "informació es mostrarà als títols de la graella i a les llistes. "
+#~ "Utilitzeu HTML i codis curts (que s'explica més endavant) per mostrar la "
+#~ "informació necessària. Com a punt de partida, es proporciona un format "
+#~ "bàsic a mode d'exemple. Per obtenir més informació, feu un cop d'ull a la"
+
+#~ msgid "event display builder guide"
+#~ msgstr "guia d'ús de creació d'esdeveniments personalitzats"
+
+#~ msgid ""
+#~ "(More information on all of the below shortcodes and attributes, and "
+#~ "working examples, can be found in the"
+#~ msgstr ""
+#~ "(Podeu trobar més informació sobre tots els codis curts i atributs de "
+#~ "baix, així com exemples de treball a la"
+
+#~ msgid "Refresh Feed Cache"
+#~ msgstr "Refresca la memòria cau de les entrades"
+
+#~ msgid ""
+#~ "The plugin will automatically refresh the cache when it expires, but you "
+#~ "can manually clear the cache now by clicking the button below."
+#~ msgstr ""
+#~ "El connector actualitzarà automàticament la memòria cau quan expiri, però "
+#~ "es pot esborrar manualment ara fent clic al botó de sota."
+
+#~ msgid "Are you want you want to clear the cache data for this feed?"
+#~ msgstr ""
+#~ "Esteu segurs que voleu esborrar les dades de la memòria cau d'aquesta "
+#~ "entrada?"
+
+#~ msgid "Delete Feed"
+#~ msgstr "Esborra l'entrada"
+
+#~ msgid ""
+#~ "Are you want you want to delete this feed? (Remember to remove / adjust "
+#~ "any widgets or shortcodes associated with this feed)."
+#~ msgstr ""
+#~ "Esteu segurs que voleu esborrar aquesta entrada? (Recordeu esborrar / "
+#~ "ajustar els ginys o codis curts associats a aquesta entrada)."
+
+#~ msgid "Click here to add a new feed"
+#~ msgstr "Feu clic aquí per afegir una entrada nova"
+
+#~ msgid "Add Feed"
+#~ msgstr "Afegeix entrada"
+
+#~ msgid "Current Feeds"
+#~ msgstr "Entrades actuals"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Title"
+#~ msgstr "Títol"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "Refresh"
+#~ msgstr "Refresca"
+
+#~ msgid "Edit"
+#~ msgstr "Edita"
+
+#~ msgid "Delete"
+#~ msgstr "Esborra"
+
+#~ msgid "Custom stylesheet URL"
+#~ msgstr "URL del full d'estils personalitzat"
+
+#~ msgid ""
+#~ "If you want to alter the default plugin styling, create a new stylesheet "
+#~ "on your server (not in the <code>google-calendar-events</code> directory) "
+#~ "and then enter its URL below."
+#~ msgstr ""
+#~ "Si voleu canviar l'estil per defecte del giny, creeu un full d'estil nou "
+#~ "al vostre servidor (no al directori <code>google-calendar-events</code>) "
+#~ "i poseu aquí l'URL."
+
+#~ msgid "Add JavaScript to footer?"
+#~ msgstr "Voleu afegir JavaScript al peu de pàgina?"
+
+#~ msgid ""
+#~ "If you are having issues with tooltips not appearing or the AJAX "
+#~ "functionality not working, try ticking the checkbox below."
+#~ msgstr ""
+#~ "Si teniu problemes amb títols que no apareixen o l'AJAX no funciona, "
+#~ "proveu a marcar la casella de sota."
+
+#~ msgid "Loading text"
+#~ msgstr "Text a mostrar durant la càrrega"
+
+#~ msgid "Text to display while calendar data is loading (on AJAX requests)."
+#~ msgstr ""
+#~ "Text que es mostra mentre el calendari s'està carregant (en peticions "
+#~ "AJAX)."
+
+#~ msgid "Error message"
+#~ msgstr "Missatge d'error"
+
+#~ msgid ""
+#~ "An error message to display to non-admin users if events cannot be "
+#~ "displayed for any reason (admins will see a message indicating the cause "
+#~ "of the problem)."
+#~ msgstr ""
+#~ "Missatge d'error que es mostrarà als usuaris que no siguin administradors "
+#~ "si els esdeveniments no es poden mostrar per qualsevol motiu (els "
+#~ "administradors veuran un missatge indicant la causa del problema)."
+
+#~ msgid "Optimise event retrieval?"
+#~ msgstr "Voleu optimitzar la recuperació de l'esdeveniment?"
+
+#~ msgid ""
+#~ "If this option is enabled, the plugin will use an experimental feature of "
+#~ "the Google Data API, which can improve performance significantly, "
+#~ "especially with large numbers of events. Google could potentially "
+#~ "remove / change this feature at any time."
+#~ msgstr ""
+#~ "Si s'activa aquesta opció, el giny farà servir una característica "
+#~ "experimental de l'API de dades de Google que pot millorar "
+#~ "significativament el rendiment, sobretot si el nombre d'esdeveniments és "
+#~ "elevat. Google pot eliminar / canviar aquesta funció en qualsevol moment."
+
+#~ msgid "Use old styles?"
+#~ msgstr "Voleu fer servir estils antics?"
+
+#~ msgid ""
+#~ "Some CSS changes were made in version 0.7. If this option is enabled, the "
+#~ "old CSS will still be added along with the main stylesheet. You should "
+#~ "consider updating your stylesheet so that you don't need this enabled."
+#~ msgstr ""
+#~ "Es van fer alguns canvis d'estil CSS en la versió 0.7. Si aquesta opció "
+#~ "està activada, s'afegirà el CSS antic, juntament amb el full d'estils "
+#~ "principal. Hauríeu de considerar actualitzar el vostre full d'estils per "
+#~ "no tenir la necessitat d'activar aquesta opció."
+
+#~ msgid "Save"
+#~ msgstr "Desa"
+
+#~ msgid ""
+#~ "No feeds have been added yet. You can add a feed in the Google Calendar "
+#~ "Events settings."
+#~ msgstr ""
+#~ "Encara no s'ha afegit cap entrada. Podeu afegir una entrada a la "
+#~ "configuració d'esdeveniments del Google Calendar."
+
+#~ msgid ""
+#~ "No feeds have been added yet. You can add feeds in the Google Calendar "
+#~ "Events settings."
+#~ msgstr ""
+#~ "Encara no s'ha afegit cap entrada. Podeu afegir entrades a la "
+#~ "configuració d'esdeveniments del Google Calendar."
+
+#~ msgid "Calendar Grid"
+#~ msgstr "Graella de calendari"
+
+#~ msgid "List - grouped by date"
+#~ msgstr "Llista - agrupada per data"
+
+#~ msgid ""
+#~ "1 or more of your feeds could not be displayed. The following errors "
+#~ "occurred:"
+#~ msgstr ""
+#~ "Una o més de les vostres entrades no es poden mostrar. S'han trobat els "
+#~ "errors següents:"
+
+#~ msgid "Notice:"
+#~ msgstr "Avís:"
+
+#~ msgid ""
+#~ "The way in which Google Calendar Events stores cached data has been much "
+#~ "improved in version 0.6. As you have upgraded from a previous version of "
+#~ "the plugin, there is likely to be some data from the old caching system "
+#~ "hanging around in your database that is now useless. Click below to clear "
+#~ "expired cached data from your database."
+#~ msgstr ""
+#~ "La forma en què Esdeveniments de Google Calendar desa les dades a la "
+#~ "memòria cau ha estat millorada a la versió 0.6. Com que heu actualitzat "
+#~ "des d'una versió anterior del connector, pot ser que hi hagi dades dels "
+#~ "sistema antic, que ja no són útils, a la vostra base de dades. Feu clic a "
+#~ "continuació per esborrar aquestes dades antigues emmagatzemades a la "
+#~ "memòria cau de la base de dades."
+
+#~ msgid "Clear expired cached data"
+#~ msgstr "Esborra dades antigues de la memòria cau"
+
+#~ msgid "or"
+#~ msgstr "o"
+
+#~ msgid "Ignore this notice"
+#~ msgstr "Ignora aquest avís"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgid "Refresh Feed"
+#~ msgstr "Refresca l'entrada"
+
+#~ msgid "Save Changes"
+#~ msgstr "Desa els canvis"
+
+#~ msgid "Old cached data cleared."
+#~ msgstr "S'han esborrat les dades antigues de la memòria cau"
+
+#~ msgid "General options updated."
+#~ msgstr "S'han desat les opcions generals"
+
+#~ msgid ""
+#~ "No valid Feed IDs have been entered for this shortcode. Please check that "
+#~ "you have entered the IDs correctly and that the Feeds have not been "
+#~ "deleted."
+#~ msgstr ""
+#~ "No hi ha cap ID d'entrada vàlid en aquest codi curt. Comproveu que heu "
+#~ "introduït els codis correctament i que les entrades no s'han eliminat."
+
+#~ msgid "http://www.rhanney.co.uk/plugins/google-calendar-events"
+#~ msgstr "http://www.rhanney.co.uk/plugins/google-calendar-events"
+
+#~ msgid ""
+#~ "Parses Google Calendar feeds and displays the events as a calendar grid "
+#~ "or list on a page, post or widget."
+#~ msgstr ""
+#~ "Analitza les entrades de Google Calendar i mostra els esdeveniments com "
+#~ "una graella de calendari, una llista en una pàgina, un article o un giny."
+
+#~ msgid "Ross Hanney"
+#~ msgstr "Ross Hanney"
+
+#~ msgid "http://www.rhanney.co.uk"
+#~ msgstr "http://www.rhanney.co.uk"
+
+#~ msgid "Save settings on uninstall?"
+#~ msgstr "Desa els paràmetres en desinstal·lar?"

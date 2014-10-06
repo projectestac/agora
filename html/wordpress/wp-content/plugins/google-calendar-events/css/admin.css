@@ -1,0 +1,56 @@
+/**
+ * Admin CSS file
+ *
+ * @package   GCE
+ * @author    Phil Derksen <pderksen@gmail.com>, Nick Young <mycorpweb@gmail.com>
+ * @license   GPL-2.0+
+ * @copyright 2014 Phil Derksen
+ */
+ 
+.gce-meta-control {
+	margin-bottom: 15px;
+}
+
+.gce-meta-control label {
+	display: block;
+	font-weight: bold;
+}
+
+#gce-display-options-wrap .gce-meta-control label {
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+#gce-display-options-wrap .gce-meta-control p label {
+	display: inline;
+}
+
+#gce-display-options-wrap .gce-meta-control label#gce-simple-display-label {
+	font-weight: bold;
+	color: #cb4d4d;
+}
+
+.gce-admin-hidden { 
+	display: none;
+}
+
+#gce-display-options-wrap .gce-meta-control span.description {
+	display: block;
+	margin-top: 5px;
+}
+
+#gce-display-options-wrap .gce-meta-control span.description p {
+	margin-top: 5px;
+}
+
+#gce-admin-promo {
+	background-color: #fcf8e3;
+	border: 1px solid #faebbe;
+	color: #8a6d3b;
+	padding: 15px;
+}
+
+#gce_feed_meta .inside code {
+	word-break: break-all;
+}
