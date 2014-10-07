@@ -150,8 +150,25 @@ function userNews() {
                             'module' => 'IWmain_block_news',
                             'sv' => $sv,
                             'nult' => true));
-                // When there are no messages, string lenght is 75 (contains only HTML comments)
-                if (strlen($newsValue) != 75) {
+                
+                // Now find out if there are any news in the message or if it's just HTML comments
+                $comments = array('<!---ta--->', '<!---/ta--->',
+                                  '<!---ag--->', '<!---/ag--->',
+                                  '<!---me--->', '<!---/me--->',
+                                  '<!---fo--->', '<!---/fo--->',
+                                  '<!---fu--->', '<!---/fu--->',
+                                  '<!---ch--->', '<!---/ch--->',
+                                  '<!---fr--->', '<!---/fr--->');
+                
+                // Using a temporary value for not loosing data
+                $temp = $newsValue;
+                foreach ($comments as $comment) {
+                    $temp = str_replace($comment, '', $temp);
+                }
+                $temp = str_replace("\n", '', $temp);
+                
+                // If $temp is empty, then $newsValue doesn't contain any worth content
+                if (!empty($temp)) {
                     $newsValueText = '<div>' . ModUtil::getVar('IWmain', 'cronHeaderText') . '</div>';
                     $newsValueText .= '<table width="300">' . $newsValue . '</table>';
                     $newsValueText .= '<div>' . ModUtil::getVar('IWmain', 'cronFooterText') . '</div>';
