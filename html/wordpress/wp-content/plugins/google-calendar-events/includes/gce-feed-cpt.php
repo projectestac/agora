@@ -43,8 +43,19 @@ function gce_setup_cpt() {
 		'capability_type'    => 'post',
 		'has_archive'        => false,
 		'hierarchical'       => false,
+        
+// XTEC ************ MODIFICAT - Replaced ugly default icon by standard WordPress icon
+// 2014.10.08 @aginard
+       
+		'menu_icon'          => 'dashicons-calendar',
+
+//************ ORIGINAL
+/*
 		'menu_icon'          => plugins_url( '/assets/gcal-icon-16x16.png', GCE_MAIN_FILE ),
-		'supports'           => array( 'title', 'editor' )
+*/
+//************ FI
+
+        'supports'           => array( 'title', 'editor' )
 	);
 	
 	register_post_type( 'gce_feed', $args );
