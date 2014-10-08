@@ -34,6 +34,10 @@
 	$gce_expand_recurring = get_post_meta( $post->ID, 'gce_expand_recurring', true );
 ?>
 
+<!--
+// XTEC ************ ELIMINAT - Removed useless links to don't bother users
+// 2014.10.08 @aginard
+
 <div id="gce-admin-promo">
 	<?php echo __( 'We\'re <strong>smack dab</strong> in the middle of building additional features for this plugin. Have ideas?', 'gce' ); ?>
 	<strong>
@@ -51,6 +55,9 @@
 		</a>
 	</strong>
 </div>
+
+//************ FI
+-->
 
 <table class="form-table">
 	<tr>
