@@ -125,6 +125,34 @@ class boxnet_client extends oauth2_client {
         parent::log_out();
     }
 
+    //XTEC ************ AFEGIT - MDL-47581 Force box.net repository work with https
+    //2014.10.08 @pferre22
+    /**
+     * Callback url where the request is returned to.
+     *
+     * @return moodle_url url of callback
+     */
+    public static function callback_url() {
+        global $CFG;
+        $httpswwwroot = str_replace('http:', 'https:', $CFG->wwwroot);
+        return new moodle_url($httpswwwroot.'/admin/oauth2callback.php');
+    }
+
+    /**
+     * Returns the login link for this oauth request
+     *
+     * @return moodle_url login url
+     */
+    public function get_login_url() {
+
+        $url = parent::get_login_url();
+        $callbackurl = self::callback_url();
+        $url->param('redirect_uri', $callbackurl->out(false));
+
+        return $url;
+    }
+    //************ FI
+
     /**
      * Build a request URL.
      *
