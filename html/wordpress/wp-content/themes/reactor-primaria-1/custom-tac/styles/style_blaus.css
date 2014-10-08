@@ -34,6 +34,18 @@ h1, h2, h3, h4, h5, h6, a {
     color: #087eb6 !important;
 }
 
+.entry-comments,
+.entry-categories>a,
+.entry-tags >a, 
+.entry-comments:before,
+.entry-categories:before,
+.entry-tags:before,
+.menu-link, 
+.sub-menu-link {
+    color:#087eb6 !important;
+}
+
+
 #icon-11{
 background-color:#087eb6;
 }
@@ -48,4 +60,7 @@ color:#087eb6;
 background-color:#0eb1ff;
 }
 
+#footer {    
+    background-color: #087eb6 ;
+}
 

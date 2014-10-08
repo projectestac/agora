@@ -1,0 +1,42 @@
+#idcentre-box{ 
+    background-color: #55CD00 ;
+}
+.site-logo{
+    display:table !important;
+    background-color: #55CD00 ;
+}
+.site-description-box{
+    background-color: #418000 ;
+}
+h1, h2, h3, h4, h5, h6, a {    color: #418000  !important;
+}
+#icon-11{	background-color: #55CD00 ;
+}
+#icon-21{
+background-color: #418000 ;
+}
+#icon-22{
+    color: #418000 ;
+}
+#icon-23{
+   background-color: #55CD00 ;
+}
+#icon-13{
+   background-color: #418000 ;
+}
+.entry-comments,
+.entry-categories>a,
+.entry-tags >a,
+.entry-comments:before,
+.entry-categories:before,
+.entry-tags:before,
+.menu-link, 
+.sub-menu-link {
+	color: #418000  !important;
+}
+#menu-panel {
+	border-bottom: 2px solid #418000 ;
+}
+
+#footer {    background-color: #418000 ;
+}

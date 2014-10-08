@@ -113,9 +113,8 @@ vcard (targeta identificació centre)
 }
 
 .logo_inline{
-    padding-left:1.2em;
     text-align: left;
-}
+ }
 
 .logo_clear{
     text-align:center;
@@ -162,6 +161,14 @@ article {
     border:0px;
     padding:30px;
     position: relative !important;
+}
+
+.entry-tags:before{
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font: normal 22px/1 'dashicons';
+    vertical-align: middle;
+    margin-right: 0.2rem;
 }
 
 .entry-header > h2 {
@@ -692,6 +699,10 @@ Ginys
     padding-left: 0em;     
 }
 
+#sidebar-frontpage .widget.widget_logo_centre_widget{
+    padding-left: 0;
+}
+
 #sidebar-frontpage-2 .widget{
     padding-left: 1em;
     padding-right: 1em;     
@@ -710,6 +721,10 @@ li.cat-item {
     font-size: 18px;
 }
 
+div.addr-centre{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
 
 .logotip-widget{
     margin: 0 0 1em 0;
@@ -860,6 +875,42 @@ Footer
 .site-info{
     color:white;
 }
+
+.entry-comments,
+.entry-categories>a,
+.entry-tags >a, 
+.entry-comments:before,
+.entry-categories:before,f
+.entry-tags:before,
+.menu-link, 
+.sub-menu-link {
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+/*icons*/
+
+#footer a{
+    text-decoration: underline;
+    
+}
+#footer .widget_socialmedia_widget a{
+    text-decoration: none;
+    margin: 0 0.1em 0 0.1em;
+}
+.fa-2-5x{
+    font-size: 2.5em !important;
+}
+
+#footer  a:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+#footer *{
+    color:white !important;
+}
+
+
+
 
 /*****************************************************************
 Media

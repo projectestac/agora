@@ -30,18 +30,21 @@ class Logo_Centre_Widget extends WP_Widget {
             <div class="targeta_id_centre row">
 
 		<?php if ( reactor_option('logo_image')) {
+                    
                         if ( reactor_option('logo_inline')){
-                            $class="logo_inline";
+                            $class_logo="logo_inline";
+                            $class_addr="addr-centre";
                             $amplada="6";
                         } else{
-                            $class="logo_clear";
+                            $class_logo="logo_clear";
+                            $class_addr="logo_clear";
                             $amplada="12";
                         }
 		?>
-			<div class="<?php reactor_columns(array( $amplada, 12 )); echo " ".$class;?>"> 
+			<div class="<?php reactor_columns(array( $amplada, 12 )); echo " ".$class_logo;?>"> 
 				<img src="<?php echo reactor_option('logo_image'); ?>">					
 			</div> 
-            
+                        
 		<?php }else { 
                             $amplada="12"; 
                             $class="no_logo";
@@ -49,21 +52,21 @@ class Logo_Centre_Widget extends WP_Widget {
             
                 <?php $addr=explode(" ",reactor_option("cpCentre"),1);?>
             
-		<div class="<?php reactor_columns( $amplada ); echo " ".$class; ?> ">
+		<div class="<?php reactor_columns( $amplada ); echo " ".$class_addr;?> ">
 			<div class="vcard  hide-for-small">
 		  		<span id="tar-nomCentre"><?php echo reactor_option('nomCanonicCentre'); ?></span>
 		  		<div class="adr">
-					<span class="street-address"><?php echo reactor_option('direccioCentre'); ?></span><br>
-					<span class="postal-code"><?php echo trim($addr[0]);?></span> 
-					<span class="locality"><?php echo trim($addr[1]);?></span>  
-					<span  class="region" title="Catalunya">Catalunya</span>
-				    	<span  class="country-name">Espanya</span>
- 					<div class="tel">
-						<span><?php echo reactor_option('telCentre'); ?></span>
-					</div>
-					<a id="tar-mapa" href="<?php echo reactor_option('googleMaps'); ?>">mapa</a> 
-					<span style="color:#bbb;font-size:0.8em;margin:0 5px" >|</span> 
-					<a id="tar-contacte" href="<?php echo $contacte;?>">contacte</a>
+                                    <span class="street-address"><?php echo reactor_option('direccioCentre'); ?></span><br>
+                                    <span class="postal-code"><?php echo trim($addr[0]);?></span> 
+                                    <span class="locality"><?php echo trim($addr[1]);?></span>  
+                                    <span  class="region" title="Catalunya">Catalunya</span>
+                                    <span  class="country-name">Espanya</span>
+                                    <div class="tel">
+                                        <span><?php echo reactor_option('telCentre'); ?></span>
+                                    </div>
+                                    <a id="tar-mapa" href="<?php echo reactor_option('googleMaps'); ?>">mapa</a> 
+                                    <span style="color:#bbb;font-size:0.8em;margin:0 5px" >|</span> 
+                                    <a id="tar-contacte" href="<?php echo $contacte;?>">contacte</a>
 		  		</div>		 
 			</div>	
 		 </div>		 

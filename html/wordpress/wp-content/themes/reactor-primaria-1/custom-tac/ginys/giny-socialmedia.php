@@ -61,7 +61,7 @@ class SocialMedia_Widget extends WP_Widget {
 
         foreach ($this->socialmedia as $idSocialMedia => $nomSocialMedia) {
             if ($this->socialmedia[$idSocialMedia]['url']!='')
-                echo "<a style='margin-right:0.1em' class=\"fa fa-" . $this->socialmedia[$idSocialMedia]['img'] ." ".$mida."\" href=\"" . $this->socialmedia[$idSocialMedia]['url'] . "\" title=\"" . $this->socialmedia[$idSocialMedia]['nom'] . "\" target=\"_blank\"></a>";
+                echo "<a class=\"fa fa-" . $this->socialmedia[$idSocialMedia]['img'] ." ".$mida."\" href=\"" . $this->socialmedia[$idSocialMedia]['url'] . "\" title=\"" . $this->socialmedia[$idSocialMedia]['nom'] . "\" target=\"_blank\"></a>";
         }
         echo $args['after_widget'];
         //echo '</div>';
@@ -97,9 +97,9 @@ class SocialMedia_Widget extends WP_Widget {
             <p>
                 <label for="<?php echo $this->get_field_id('mida'); ?>">Mida de la icona:</label><br> 
                 <select id="<?php echo $this->get_field_id('mida'); ?>" name="<?php echo $this->get_field_name('mida'); ?>">
-                <option value="fa-2x" <?php echo ($mida=='fa-2x' ? 'selected':''); ?>>petita</option>
-                <option value="fa-3x" <?php echo ($mida=='fa-3x' ? 'selected':''); ?>>normal</option>
-                <option value="fa-4x" <?php echo ($mida=='fa-4x' ? 'selected':''); ?>>gran</option>
+                <option value="fa-2x" <?php echo ($mida=='fa-2x' ? 'selected':''); ?>>petit</option>
+                <option value="fa-2-5x" <?php echo ($mida=='fa-2-5x' ? 'selected':''); ?>>normal</option>
+                <option value="fa-3x" <?php echo ($mida=='fa-3x' ? 'selected':''); ?>>gran</option>
                 </select>       
               </p>
 
