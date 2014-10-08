@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Google Calendar Events 0.7.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/google-calendar-events\n"
 "POT-Creation-Date: 2014-09-16 12:29-0700\n"
-"PO-Revision-Date: 2014-10-06 16:31+0100\n"
+"PO-Revision-Date: 2014-10-08 17:16+0100\n"
 "Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -23,15 +23,15 @@ msgstr "Opcions"
 #: google-calendar-events/class-google-calendar-events-admin.php:139
 #: google-calendar-events/views/widgets.php:27
 msgid "Google Calendar Events"
-msgstr "Esdeveniments del Google Calendar"
+msgstr "Calendaris del Google"
 
 #: google-calendar-events/class-google-calendar-events-admin.php:151
 msgid "Feeds"
-msgstr "Entrades"
+msgstr "Calendaris"
 
 #: google-calendar-events/includes/admin/admin-functions.php:20
 msgid "Cache has been cleared for this feed."
-msgstr "S'ha buidat la memòria cau d'aquesta entrada"
+msgstr "S'ha buidat la memòria cau d'aquest calendari"
 
 #: google-calendar-events/includes/class-gce-display.php:218
 msgid "There are currently no events to display."
@@ -103,37 +103,37 @@ msgstr ","
 
 #: google-calendar-events/includes/class-gce-feed.php:93
 msgid "The feed URL has not been set. Please make sure to set it correctly in the Feed settings."
-msgstr "No s'ha indicat l'URL de l'entrada. Si us plau, assegureu-vos d'introduir-la correctament als paràmetres de l'entrada."
+msgstr "No s'ha indicat l'URL del calendari. Si us plau, assegureu-vos d'introduir-lo correctament als paràmetres del calendari"
 
 #: google-calendar-events/includes/class-gce-feed.php:180
 msgid "Some data was retrieved, but could not be parsed successfully. Please ensure your feed URL is correct."
-msgstr "Algunes dades s'han recuperat però no s'han pogut processar amb èxit. Assegureu-vos que l'URL de l'entrada és correcte."
+msgstr "Algunes dades s'han recuperat però no s'han pogut processar correctament. Assegureu-vos que l'URL del calendari és correcte."
 
 #: google-calendar-events/includes/class-gce-feed.php:186
 msgid "The feed could not be found (404). Please ensure your feed URL is correct."
-msgstr "No s'ha pogut trobar l'entrada (404). Assegureu-vos que l'URL de l'entrada és correcte."
+msgstr "No s'ha pogut trobar el calendari (404). Assegureu-vos que l'URL del calendari és correcte."
 
 #: google-calendar-events/includes/class-gce-feed.php:189
 msgid "Access to this feed was denied (403). Please ensure you have public sharing enabled for your calendar."
-msgstr "L'accés a aquesta entrada ha estat denegat (403). Assegureu-vos que el vostre calendari és públic."
+msgstr "S'ha denegat l'accés a aquest calendari (403). Assegureu-vos que el vostre calendari és públic."
 
 #: google-calendar-events/includes/class-gce-feed.php:192
 #, php-format
 msgid "The feed data could not be retrieved. Error code: %s. Please ensure your feed URL is correct."
-msgstr "No s'ha pogut trobar la data de l'entrada. Codi d'error: %s. Assegureu-vos que l'URL de l'entrada és correcte."
+msgstr "No s'ha pogut recuperar la informació del calendari. Codi d'error: %s. Assegureu-vos que l'URL del calendari és correcte."
 
 #: google-calendar-events/includes/class-gce-feed.php:197
 msgid " Please ensure your feed URL is correct."
-msgstr "Assegureu-vos que l'URL de l'entrada és correcte."
+msgstr "Assegureu-vos que l'URL del calendari és correcte."
 
 #: google-calendar-events/includes/gce-feed-cpt.php:21
 msgid "Google Calendar Feeds"
-msgstr "Esdeveniments del Google Calendar"
+msgstr "Calendaris del Google"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:22
 #: google-calendar-events/includes/gce-feed-cpt.php:24
 msgid "Feed"
-msgstr "Entrada"
+msgstr "Calendari"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:23
 msgid "GCal Events"
@@ -145,35 +145,35 @@ msgstr "Afegeix"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:26
 msgid "Add New Feed"
-msgstr "Afegeix una entrada nova"
+msgstr "Afegeix un calendari nou"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:27
 msgid "New Feed"
-msgstr "Afegeix una entrada nova"
+msgstr "Afegeix un calendari nou"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:28
 msgid "Edit Feed"
-msgstr "Edita l'entrada"
+msgstr "Edita el calendari"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:29
 msgid "View Feed"
-msgstr "Mostra l'entrada"
+msgstr "Mostra el calendari"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:30
 msgid "All GCal Feeds"
-msgstr "Totes les entrades"
+msgstr "Tots els calendaris"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:31
 msgid "Search GCal Feeds"
-msgstr "Cerca a les entrades"
+msgstr "Cerca als calendaris"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:32
 msgid "No feeds found."
-msgstr "No s'ha trobat cap entrada"
+msgstr "No s'ha trobat cap calendari."
 
 #: google-calendar-events/includes/gce-feed-cpt.php:33
 msgid "No feeds found in Trash."
-msgstr "No s'ha trobat cap entrada a la paperera"
+msgstr "No s'ha trobat cap calendari a la paperera"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:75
 #: google-calendar-events/includes/gce-feed-cpt.php:76
@@ -203,7 +203,7 @@ msgstr "%4$s esborrany actualitzat. %1$sMostra %2$s%3$s"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:209
 msgid "Feed ID"
-msgstr "ID de l'entrada"
+msgstr "ID del calendari"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:210
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:57
@@ -320,7 +320,7 @@ msgstr "Separador"
 
 #: google-calendar-events/views/admin/display-options-meta.php:74
 msgid "If you have chosen to display both the time and date above, enter the text / characters to display between the time and date here (including any spaces)."
-msgstr "Si  heu triat mostrar tant hora com data a dalt indicada, introduïu el text / els caràcters que han d'aparèixer entre l'hora i la data aquí (incloent espais)."
+msgstr "Si  heu triat mostrar tant l'hora com la data, introduïu aquí  el text o els caràcters que han d'aparèixer entre l'hora i la data (incloent espais)."
 
 #: google-calendar-events/views/admin/display-options-meta.php:88
 msgid "Description"
@@ -328,7 +328,7 @@ msgstr "Descripció"
 
 #: google-calendar-events/views/admin/display-options-meta.php:91
 msgid "Show the description of events? (URLs in the description will be made into links)."
-msgstr "Voleu mostrar la descripció dels esdeveniments? (Els URL de la descripció es convertiran en enllaços)."
+msgstr "Mostra la descripció dels esdeveniments (Els URL de la descripció es convertiran en enllaços)."
 
 #: google-calendar-events/views/admin/display-options-meta.php:93
 msgid "Text to display before the description."
@@ -344,11 +344,11 @@ msgstr "Enllaç de l'esdeveniment"
 
 #: google-calendar-events/views/admin/display-options-meta.php:103
 msgid "Show a link to the Google Calendar page for an event?"
-msgstr "Mostra un enllaç a la pàgina del Google Calendar per a un esdeveniment?"
+msgstr "Mostra un enllaç a la pàgina del Google Calendar per a un esdeveniment"
 
 #: google-calendar-events/views/admin/display-options-meta.php:107
 msgid "Links open in a new window / tab?"
-msgstr "Els enllaços s'obren en una finestra / pestanya nova?"
+msgstr "Obre els enllaços en una finestra o pestanya noves"
 
 #: google-calendar-events/views/admin/display-options-meta.php:109
 msgid "The link text to be displayed."
@@ -372,15 +372,15 @@ msgstr "Avisa'm quan es publiqui una versió major d'aquesta extensió"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:60
 msgid "Copy and paste this shortcode to display this Google Calendar feed in any post or page."
-msgstr "Copieu i enganxeu aquest codi curt per mostrar aquesta entrada del Google Calendar a qualsevol entrada o pàgina del WordPress"
+msgstr "Copieu i enganxeu aquest codi curt per mostrar aquest calendari del Google Calendar a qualsevol entrada o pàgina del WordPress"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:64
 msgid "GCal Feed URL"
-msgstr "URL de l'entrada"
+msgstr "URL del calendari"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:68
 msgid "The Google Calendar feed URL."
-msgstr "L'URL de l'entrada del Google Calendar"
+msgstr "L'URL del calendari del Google Calendar"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:69
 msgid "Example"
@@ -388,7 +388,7 @@ msgstr "Exemple"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:70
 msgid "How to find your GCal feed URL"
-msgstr "Com trobar l'URL de l'entrada del Google Calendar"
+msgstr "Com trobar l'URL d'un calendari del Google Calendar"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:76
 msgid "Search Query"
@@ -500,7 +500,7 @@ msgstr "Durada de la memòria cau"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:165
 msgid "The length of time, in seconds, to cache the feed (43200 = 12 hours). If this feed changes regularly, you may want to reduce the cache duration."
-msgstr "La durada, en segons, per emmagatzemar en la memòria cau l'entrada (43200 = 12 hores). Si aquest flux canvia amb regularitat, és possible que vulgueu reduir la durada de la memòria cau."
+msgstr "La durada, en segons, de l'emmagatzemament del calendari a la memòria cau (43200 = 12 hores). Si aquest flux canvia amb regularitat, és possible que vulgueu reduir la durada de la memòria cau."
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:170
 msgid "Multiple Day Events"
@@ -530,7 +530,7 @@ msgstr "Buida la memòria cau"
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:195
 #, php-format
 msgid "This will clear your feed cache. This also automatically happens when you save your changes. %sIf you make changes you %sMUST%s save first or your changes will be lost."
-msgstr "Això buidarà la memòria cau d'aquesta entrada. Això passa automàticament cada vegada que deseu els canvis. %sSi feu canvis %sHEU%s de desar-los en primer lloc o es perdran."
+msgstr "Això buidarà la memòria cau d'aquest calendari. Això passa automàticament cada vegada que deseu els canvis. %sSi feu canvis %sHEU%s de desar-los en primer lloc o es perdran."
 
 #: google-calendar-events/views/admin/gce-feed-sidebar-help.php:6
 msgid "Documentation & Getting Started"
@@ -550,27 +550,27 @@ msgstr "S'accepten revisions de 5 estrelles!"
 
 #: google-calendar-events/views/widgets.php:28
 msgid "Display a list or calendar grid of events from one or more Google Calendar feeds you have added"
-msgstr "Mostra una llista o graella d'esdeveniments de calendari per una o més entrades que hàgiu afegit al Google Calendar."
+msgstr "Mostra una llista o graella amb els esdeveniments d'un o més calendaris del Google Calendar."
 
 #: google-calendar-events/views/widgets.php:72
 msgid "No valid Feed IDs have been entered for this widget. Please check that you have entered the IDs correctly in the widget settings (Appearance > Widgets), and that the Feeds have not been deleted."
-msgstr "No hi ha cap ID d'entrades vàlides en aquest giny. Comproveu que s'han introduït els codis correctament en la configuració del giny (Aparença | Ginys), i que les entrades no s'han eliminat."
+msgstr "No hi ha cap ID de calendari vàlid en aquest giny. Comproveu que s'han introduït els codis correctament en la configuració del giny (Aparença | Ginys), i que els calendaris no s'han eliminat."
 
 #: google-calendar-events/views/widgets.php:104
 msgid "You have not added any feeds yet."
-msgstr "Encara no heu afegit cap entrada del Google Calendar."
+msgstr "Encara no heu afegit cap calendari."
 
 #: google-calendar-events/views/widgets.php:142
 msgid "There are no feeds created yet."
-msgstr "Encara no hi ha cap entrada creada."
+msgstr "Encara no hi ha cap calendari creat."
 
 #: google-calendar-events/views/widgets.php:143
 msgid "Add your first feed!"
-msgstr "Afegiu la primera entrada!"
+msgstr "Afegiu el primer calendari!"
 
 #: google-calendar-events/views/widgets.php:163
 msgid "Feeds to display, as a comma separated list (e.g. 101,102,103)"
-msgstr "Entrades a mostrar, en forma de llista separada per comes (per exemple: 1, 2, 4)."
+msgstr "Calendaris a mostrar, en forma de llista separada per comes (per exemple: 1, 2, 4)."
 
 #: google-calendar-events/views/widgets.php:168
 msgid "Display events as:"
@@ -1056,7 +1056,7 @@ msgstr "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniment
 #~ msgstr "Mostra la ubicació dels esdeveniments?"
 
 #~ msgid "Text to display before the location."
-#~ msgstr "Text a mostrar abans de la localització."
+#~ msgstr "Text a mostrar abans de la ubicació."
 
 #~ msgid ""
 #~ "Show the description of events?  (URLs in the description will be made "
@@ -1332,12 +1332,3 @@ msgstr "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniment
 #~ msgstr ""
 #~ "Analitza les entrades de Google Calendar i mostra els esdeveniments com "
 #~ "una graella de calendari, una llista en una pàgina, un article o un giny."
-
-#~ msgid "Ross Hanney"
-#~ msgstr "Ross Hanney"
-
-#~ msgid "http://www.rhanney.co.uk"
-#~ msgstr "http://www.rhanney.co.uk"
-
-#~ msgid "Save settings on uninstall?"
-#~ msgstr "Desa els paràmetres en desinstal·lar?"

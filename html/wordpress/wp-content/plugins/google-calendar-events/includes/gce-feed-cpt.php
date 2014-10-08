@@ -102,7 +102,17 @@ add_filter( 'post_updated_messages', 'gce_feed_messages' );
  * @since 2.0.0
  */
 function gce_cpt_meta() {
+
+// XTEC ************ MODIFICAT - Translation hardcoded because GCE doesn't support it yet
+// 2014.10.08 @aginard
+
+	add_meta_box( 'gce_feed_meta', 'Paràmetres del calendari', 'gce_display_meta', 'gce_feed', 'advanced', 'core' );
+
+//************ ORIGINAL
+/*
 	add_meta_box( 'gce_feed_meta', 'Feed Settings', 'gce_display_meta', 'gce_feed', 'advanced', 'core' );
+*/
+//************ FI
 
 // XTEC ************ ELIMINAT - Removed metabox. We don't want this one.
 // 2014.10.08 @aginard
@@ -112,7 +122,17 @@ function gce_cpt_meta() {
 */
 //************ FI
 
-	add_meta_box( 'gce_display_options_meta', 'Display Options', 'gce_display_options_meta', 'gce_feed', 'side', 'core' );
+// XTEC ************ MODIFICAT - Translation hardcoded because GCE doesn't support it yet
+// 2014.10.08 @aginard
+
+    add_meta_box( 'gce_display_options_meta', 'Opcions de visualització', 'gce_display_options_meta', 'gce_feed', 'side', 'core' );
+
+//************ ORIGINAL
+/*
+    add_meta_box( 'gce_display_options_meta', 'Display Options', 'gce_display_options_meta', 'gce_feed', 'side', 'core' );
+*/
+//************ FI
+
 }
 add_action( 'add_meta_boxes', 'gce_cpt_meta' );
 

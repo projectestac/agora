@@ -60,14 +60,20 @@
 -->
 
 <table class="form-table">
-	<tr>
+
+<!-- XTEC *** REMOVED - Moved code down -->
+<!--
+    <tr>
 		<th scope="row"><?php _e( 'Feed Shortcode', 'gce' ); ?></th>
 		<td>
 			<code>[gcal id="<?php echo $post_id; ?>"]</code>
 			<p class="description"><?php _e( 'Copy and paste this shortcode to display this Google Calendar feed in any post or page.', 'gce' ); ?></p>
 		</td>
 	</tr>
-	<tr>
+-->
+<!-- *** FI -->
+
+    <tr>
 		<th scope="row"><label for="gce_feed_url"><?php _e( 'GCal Feed URL', 'gce' ); ?></label></th>
 		<td>
 			<input type="text" class="large-text" name="gce_feed_url" id="gce_feed_url" value="<?php echo $gce_feed_url; ?>" />
@@ -78,14 +84,38 @@
 			</p>
 		</td>
 	</tr>
+    
+<!-- XTEC *** AFEGIT - Code moved from above -->
+    <tr>
+		<th scope="row"><?php _e( 'Feed Shortcode', 'gce' ); ?></th>
+		<td>
+			<code>[gcal id="<?php echo $post_id; ?>"]</code>
+			<p class="description"><?php _e( 'Copy and paste this shortcode to display this Google Calendar feed in any post or page.', 'gce' ); ?></p>
+		</td>
+	</tr>
+<!-- *** FI -->
 
-	<tr>
+<!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
+<?php
+    global $isAgora;
+    
+    if (!$isAgora || ($isAgora && is_xtecadmin())) {
+?>
+<!-- *** FI -->
+
+    <tr>
 		<th scope="row"><label for="gce_search_query"><?php _e( 'Search Query', 'gce' ); ?></label></th>
 		<td>
 			<input type="text" class="" name="gce_search_query" id="gce_search_query" value="<?php echo $gce_search_query; ?>" />
 			<p class="description"><?php _e( 'Find and show events based on a search query.', 'gce' ); ?></p>
 		</td>
 	</tr>
+
+<!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
+<?php
+    }
+?>
+<!-- *** FI -->
 
 	<tr>
 		<th scope="row"><label for="gce_expand_recurring"><?php _e( 'Expand Recurring Events?', 'gce' ); ?></label></th>
@@ -134,8 +164,16 @@
 			<p class="description"><?php _e( 'Maximum number of events to show.', 'gce' ); ?></p>
 		<td>
 	</tr>
+    
+<!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
+<?php
+    global $isAgora;
+    
+    if (!$isAgora || ($isAgora && is_xtecadmin())) {
+?>
+<!-- *** FI -->
 
-	<tr>
+    <tr>
 		<th scope="row"><label for="gce_date_format"><?php _e( 'Date Format', 'gce' ); ?></label></th>
 		<td>
 			<input type="text" class="" name="gce_date_format" id="gce_date_format" value="<?php echo $gce_date_format; ?>" />
@@ -173,6 +211,16 @@
 		</td>
 	</tr>
 
+<!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
+<?php
+    } else {
+        ?>
+        <input type="hidden" name="gce_multi_day_events" id="gce_multi_day_events" value="1" checked />
+        <?php
+    }
+?>
+<!-- *** FI -->
+
 	<tr>
 		<th scope="row"><label for="gce_display_mode"><?php _e( 'Display Mode', 'gce' ); ?></label></th>
 		<td>
@@ -185,6 +233,14 @@
 		</td>
 	</tr>
 	
+<!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
+<?php
+    global $isAgora;
+    
+    if (!$isAgora || ($isAgora && is_xtecadmin())) {
+?>
+<!-- *** FI -->
+
 	<tr>
 		<th scope="row"><?php _e( 'Clear Cache', 'gce' ); ?></th>
 		<td>
@@ -197,4 +253,11 @@
 			</p>
 		</td>
 	</tr>
+
+<!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
+<?php
+    }
+?>
+<!-- *** FI -->
+
 </table>
