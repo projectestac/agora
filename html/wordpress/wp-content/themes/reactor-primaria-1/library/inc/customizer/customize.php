@@ -355,15 +355,34 @@ if ( !function_exists('reactor_customize_register') ) {
 				 ) );
 				 				 							
 			$paletes=array(
-						"vermell-taronja" => "Vermell i Taronja",
-                        "vermell-verd"=>"Vermell i Verd",
-                        "blau-vermell"=>"Vermell i Blau",
-						"blaus"=>"Blau clar i Blau fosc",
-						"groc-verd"=>"Groc i Verd",
-                        "groc-lila"=>"Groc i Lila",
-                        "taronja-verd"=>"Taronja i Verd",
-                        "verd-rosa"=>"Rosa i Verd",
-                        "rosa-gris"=>"Rosa i Gris"
+                            //"vermells" => "Vermells",
+                            "vermell-taronja" => "Vermell i Taronja",
+                            "vermell-verd" => "Vermell i Verd",
+                            //"vermell-groc" => "Vermell i Groc",
+                            "blau-vermell" => "Vermell i Blau",
+                            "blaus" => "Blau clar i Blau fosc",
+                            //"blau-gris" => "Blau clar i Gris",
+                            "turqueses"=>"Turqueses",
+                            "verd-rosa" => "Rosa i Verd",
+                            "verd-marro" => "Verd i Marró",
+                            //"verd-groc" => "Verd i Groc",
+                            "verds" => "Verd clar i Verd fosc",
+                            //"verd-gris" => "Verd i Gris",
+                            "roses" => "Roses",
+                            "rosa-gris" => "Rosa i Gris",
+                            //"groc-marro" => "Groc i Marró",
+                            "groc-verd" => "Groc i Verd",
+                            "groc-lila" => "Groc i Lila",
+                            //"groc-vermell"=>"Groc i Vermell",
+                            //"groc-gris"=>"Groc i Gris",
+                            "groc-blau"=>"Groc i Blau",
+                            //"groc-blaumari"=> "Groc i Blau Marí",
+                            //"bordeus" => "Bordeus",
+                            "taronges" => "Taronges",
+                            "taronja-verd" => "Taronja i Verd",
+                            "taronga-gris" => "Taronga i gris",
+                            "sienna"=> "Sienna",
+                            "xocolata" => "Xocolata",
                         );
 
 			//TODO: crear secció colors, no reaprofitar fonts q&d :S

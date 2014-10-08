@@ -164,6 +164,14 @@ article {
     position: relative !important;
 }
 
+.entry-tags:before{
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font: normal 22px/1 'dashicons';
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+
 .entry-header > h2 {
     font-size: 1.35em;
     line-height: 1.15em;
@@ -860,6 +868,42 @@ Footer
 .site-info{
     color:white;
 }
+
+.entry-comments,
+.entry-categories>a,
+.entry-tags >a, 
+.entry-comments:before,
+.entry-categories:before,f
+.entry-tags:before,
+.menu-link, 
+.sub-menu-link {
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+/*icons*/
+
+#footer a{
+    text-decoration: underline;
+    
+}
+#footer .widget_socialmedia_widget a{
+    text-decoration: none;
+    margin: 0 0.1em 0 0.1em;
+}
+.fa-2-5x{
+    font-size: 2.5em !important;
+}
+
+#footer  a:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+#footer *{
+    color:white !important;
+}
+
+
+
 
 /*****************************************************************
 Media
