@@ -77,12 +77,28 @@
 	</div>
 
 	<div class="gce-meta-control">
-		<strong>Location</strong>
+
+<!--
+// XTEC ************ MODIFICAT - Translation hardcoded because GCE doesn't support it yet
+// 2014.10.08 @aginard -->
+
+		<strong>Ubicació</strong>
+		<p><input type="checkbox" name="gce_display_location" id="gce_display_location" value="1" <?php checked( $gce_display_location, '1' ); ?> />
+			<label for="gce_display_location">Mostra la ubicació dels esdeveniments</label></p>
+		<label class="description" for="gce_display_location_text">Text a mostrar abans de la Ubicació.</label>
+		<input type="text" name="gce_display_location_text" id="gce_display_location_text" value="<?php echo $gce_display_location_text; ?>" />
+
+<!-- //************ ORIGINAL
+
+        <strong>Location</strong>
 		<p><input type="checkbox" name="gce_display_location" id="gce_display_location" value="1" <?php checked( $gce_display_location, '1' ); ?> />
 			<label for="gce_display_location">Show the location of events?</label></p>
 		<label class="description" for="gce_display_location_text">Text to display before the location.</label>
 		<input type="text" name="gce_display_location_text" id="gce_display_location_text" value="<?php echo $gce_display_location_text; ?>" />
-	</div>
+
+//************ FI
+-->
+    </div>
 
 	<div class="gce-meta-control">
 		<strong><?php _e( 'Description', 'gce' ); ?></strong>

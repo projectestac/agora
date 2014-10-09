@@ -19,6 +19,7 @@ WORDPRESS
 - Removed extension Viper's Video Quicktags
 - Group Email Subscription: Added catalan translation
 - Google Calendar Events: Upgraded to version 2.0.3.1
+- Google Calendar Events: Improved and customized catalan translation
 
 ZIKULA 2
 - Updated Zikula to 1.3.9

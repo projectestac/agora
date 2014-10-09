@@ -113,9 +113,8 @@ vcard (targeta identificació centre)
 }
 
 .logo_inline{
-    padding-left:1.2em;
     text-align: left;
-}
+ }
 
 .logo_clear{
     text-align:center;
@@ -700,6 +699,10 @@ Ginys
     padding-left: 0em;     
 }
 
+#sidebar-frontpage .widget.widget_logo_centre_widget{
+    padding-left: 0;
+}
+
 #sidebar-frontpage-2 .widget{
     padding-left: 1em;
     padding-right: 1em;     
@@ -718,6 +721,10 @@ li.cat-item {
     font-size: 18px;
 }
 
+div.addr-centre{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
 
 .logotip-widget{
     margin: 0 0 1em 0;

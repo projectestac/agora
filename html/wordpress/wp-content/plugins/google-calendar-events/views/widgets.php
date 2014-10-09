@@ -151,9 +151,19 @@ class GCE_Widget extends WP_Widget {
 		$max_events    = ( isset( $instance['max_events'] ) ) ? $instance['max_events'] : 0;
 		$order         = ( isset( $instance['order'] ) ) ? $instance['order'] : 'asc';
 		$display_title = ( isset( $instance['display_title'] ) ) ? $instance['display_title'] : true;
+
+// XTEC ************ MODIFICAT - Translation hardcoded because GCE doesn't support it yet
+// 2014.10.08 @aginard
+
+		$title_text    = ( isset( $instance['display_title_text'] ) ) ? $instance['display_title_text'] : 'Esdeveniments del';
+
+//************ ORIGINAL
+/*
 		$title_text    = ( isset( $instance['display_title_text'] ) ) ? $instance['display_title_text'] : 'Events on';
-		
-		?>
+Es*/		
+//************ FI
+
+        ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $title; ?>" class="widefat" />
