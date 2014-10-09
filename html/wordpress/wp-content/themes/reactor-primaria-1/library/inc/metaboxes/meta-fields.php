@@ -18,14 +18,14 @@
 	}
 	//TODO: Nodes - No hardcoded translations 
 	//if ( in_array( '1c', $layouts[0] ) ) {   $theme_layouts['1c']   = __('One Column', 'reactor'); }
-	if ( in_array( '1c', $layouts[0] ) ) {   $theme_layouts['1c']   = __('Sense subpàgines', 'reactor'); }
+	if ( in_array( '1c', $layouts[0] ) ) {   $theme_layouts['1c']   = __('Sense barres laterals', 'reactor'); }
 	//if ( in_array( '2c-l', $layouts[0] ) ) { $theme_layouts['2c-l'] = __('Two Columns, Left', 'reactor'); }
-	if ( in_array( '2c-l', $layouts[0] ) ) { $theme_layouts['2c-l'] = __('Subpàgines a la esquerra', 'reactor'); }
-	if ( in_array( '2c-r', $layouts[0] ) ) { $theme_layouts['2c-r'] = __('Two Columns, Right', 'reactor'); }
+	if ( in_array( '2c-l', $layouts[0] ) ) { $theme_layouts['2c-l'] = __('Barra esquerra (Ginys)', 'reactor'); }
+	/*if ( in_array( '2c-r', $layouts[0] ) ) { $theme_layouts['2c-r'] = __('Two Columns, Right', 'reactor'); }
 	if ( in_array( '3c-l', $layouts[0] ) ) { $theme_layouts['3c-l'] = __('Three Columns, Left', 'reactor'); }
 	if ( in_array( '3c-r', $layouts[0] ) ) { $theme_layouts['3c-r'] = __('Three Columns, Right', 'reactor'); }
 	if ( in_array( '3c-c', $layouts[0] ) ) { $theme_layouts['3c-c'] = __('Three Columns, Center', 'reactor'); }
-
+	*/
 /**
  * Variables above this line
  * --------------------------------------------
@@ -178,7 +178,7 @@
 		 	array(
 				//TODO: No hardcoded translations
 				//'label'	=> __('Select a template layout', 'reactor'),
-				'label'	=> __('Selecciona esquema de pàgina', 'reactor'),
+				'label'	=> __('Només aplica si la Plantilla és del tipus "Plantilla predeterminada"', 'reactor'),
 				'desc'	=> '',
 				'id'	=> '_template_layout',
 				'type'	=> 'radio',

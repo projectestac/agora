@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Front Page
+ * Template Name: Portada
  *
  * @package Reactor
  * @subpackge Page-Templates

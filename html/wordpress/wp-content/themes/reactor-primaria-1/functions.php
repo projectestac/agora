@@ -67,8 +67,8 @@ function reactor_child_theme_setup() {
 	/* Support for page templates */
 	//remove_theme_support('reactor-page-templates');
 	add_theme_support(
-	 	'reactor-page-templates',
-	 	array('front-page')
+		'reactor-page-templates',
+		array('front-page'/*, 'news-page', 'portfolio', 'contact'*/)
 	);
 	
 	/* Remove support for background options in customizer */
@@ -622,7 +622,7 @@ include "custom-tac/rss-metabox.php";
 //rss nodes 
 function rss_register_widgets() {
     global $wp_meta_boxes;
-    wp_add_dashboard_widget('widget_rss_nodes', "Nodes", 'rss_box');
+    wp_add_dashboard_widget('widget_rss_nodes', "Notícies", 'rss_box');
 }
 
 add_action('wp_dashboard_setup', 'rss_register_widgets');
@@ -836,3 +836,18 @@ function restrict_post_deletion($post_ID){
     }
 }
 add_action('wp_trash_post', 'restrict_post_deletion', 10, 1);
+
+/*
+ * Remove Page Templates
+ * 
+ * @author Xavi Meler
+ * Thanks Alex Angas
+ */
+
+function remove_page_templates( $templates ) {
+    unset( $templates['page-templates/contact.php'] );
+    unset( $templates['page-templates/portfolio.php'] );
+    unset( $templates['page-templates/news-page.php'] );
+    return $templates;
+}
+add_filter( 'theme_page_templates', 'remove_page_templates' );

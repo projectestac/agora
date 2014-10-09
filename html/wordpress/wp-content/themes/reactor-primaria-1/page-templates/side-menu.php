@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Side Menu
+ * Template Name: Barra esquerra (Subpàgines)
  *
  * @package Reactor
  * @subpackge Page-Templates
