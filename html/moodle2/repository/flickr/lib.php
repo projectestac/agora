@@ -315,7 +315,13 @@ class repository_flickr extends repository {
             $mform->addElement('static', null, '',  $callbackurl);
         } else {
             $instance = array_shift($instances);
-            $callbackurl = $CFG->wwwroot.'/repository/repository_callback.php?repo_id='.$instance->id;
+            //XTEC ************ MODIFICAT - MDL-47597 Inform users to use https on callback url on Flickr repository
+            //2014.10.08 @pferre22
+            $httpswwwroot = str_replace('http:', 'https:', $CFG->wwwroot);
+            $callbackurl = $httpswwwroot.'/repository/repository_callback.php?repo_id='.$instance->id;
+            //CODI ORIGINAL
+            //$callbackurl = $CFG->wwwroot.'/repository/repository_callback.php?repo_id='.$instance->id;
+            //************ FI
             $mform->addElement('static', 'callbackurl', '', get_string('callbackurltext', 'repository_flickr', $callbackurl));
         }
 

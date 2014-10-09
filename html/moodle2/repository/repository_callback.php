@@ -74,8 +74,18 @@ $js =<<<EOD
 <head>
     <script type="text/javascript">
     if(window.opener){
-        window.opener.M.core_filepicker.active_filepicker.list();
-        window.close();
+        //XTEC ************ MODIFICAT - MDL-47597 Inform users to use https on callback url on Flickr repository
+        //2014.10.08 @pferre22
+        try{
+            window.opener.M.core_filepicker.active_filepicker.list();
+            window.close();
+        } catch (err) {
+            alert("{$strhttpsbug }");
+        }
+        //CODI ORIGINAL
+        //window.opener.M.core_filepicker.active_filepicker.list();
+        //window.close();
+        //************ FI
     } else {
         alert("{$strhttpsbug }");
     }
