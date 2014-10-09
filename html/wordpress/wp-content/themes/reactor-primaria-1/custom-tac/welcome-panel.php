@@ -25,7 +25,7 @@ jQuery(document).ready( function($)
     <div class="welcome-panel-column">
         <h4><?php _e( 'Accions' ); ?></h4>
         <ul>
-	<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'Personalitza la web' ) . '</a>', __( 'customize.php' ) ); ?></li>
+	<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'Personalitza' ) . '</a>', __( 'customize.php' ) ); ?></li>
         <?php if ( 'page' == get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
             <li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edita pàgina principal' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
             <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Icones de capçalera' ) . '</a>', admin_url( 'themes.php?page=my-setting-admin' ) ); ?></li>
@@ -45,7 +45,7 @@ jQuery(document).ready( function($)
         <ul>
             <li><?php printf( '<div class="welcome-icon welcome-widgets-menus">' . __( 'Manage <a href="%1$s">widgets</a> or <a href="%2$s">menus</a>' ) . '</div>', admin_url( 'widgets.php' ), admin_url( 'nav-menus.php' ) ); ?></li>
             <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Carrusels' ) . '</a>', admin_url( 'edit.php?post_type=slideshow' ) ); ?></li>
-            <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Calendaris' ) . '</a>', __( 'options-general.php?page=google-calendar-events.php' ) ); ?></li>
+            <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Xarxa NODES (BuddyPress)' ) . '</a>', __( 'admin.php?page=xtec-bp-options' ) ); ?></li>
         </ul>
     </div>
     

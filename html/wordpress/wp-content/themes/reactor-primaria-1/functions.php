@@ -68,7 +68,7 @@ function reactor_child_theme_setup() {
 	//remove_theme_support('reactor-page-templates');
 	add_theme_support(
 	 	'reactor-page-templates',
-	 	array('front-page', 'news-page')
+	 	array('front-page')
 	);
 	
 	/* Remove support for background options in customizer */
@@ -557,29 +557,30 @@ function custom_hidden_meta_boxes( $hidden ) {
     $hidden[] = 'commentstatusdiv';
     $hidden[] = 'authordiv';
     $hidden[] = 'layout_meta';
+    $hidden[] = 'gce_display_options_meta';
     return $hidden;
 }
 
 //Eliminem opcions dels articles que s'utilitzen molt poc o mai
 function remove_post_meta_boxes() {
 
-	 //if(!current_user_can('administrator')) {
-	  remove_meta_box('trackbacksdiv', 'post', 'normal');
-	  remove_meta_box('trackbacksdiv', 'post', 'side');
-	  remove_meta_box('commentsdiv', 'post', 'normal');
-	  remove_meta_box('commentsdiv', 'post', 'side');
-	  remove_meta_box( 'slugdiv' , 'post' , 'normal' ); 
-	  remove_meta_box( 'slugdiv' , 'post' , 'side' );
-	  remove_meta_box('formatdiv', 'post', 'normal');
-	  remove_meta_box('formatdiv', 'post', 'side');
-	  remove_meta_box( 'postcustom' , 'post' , 'normal' ); 
-	  remove_meta_box( 'postcustom' , 'post' , 'side' );
- 	  remove_meta_box( 'rawhtml_meta_box' , 'post' , 'side' ); 
- 	  remove_meta_box( 'rawhtml_meta_box' , 'post' , 'normal' ); 
- 	  remove_meta_box( 'layout_meta' , 'post' , 'side' ); 
- 	  remove_meta_box( 'layout_meta' , 'post' , 'normal' ); 
- 	 
-	 //}
+    //if(!current_user_can('administrator')) {
+     remove_meta_box('trackbacksdiv', 'post', 'normal');
+     remove_meta_box('trackbacksdiv', 'post', 'side');
+     remove_meta_box('commentsdiv', 'post', 'normal');
+     remove_meta_box('commentsdiv', 'post', 'side');
+     remove_meta_box( 'slugdiv' , 'post' , 'normal' ); 
+     remove_meta_box( 'slugdiv' , 'post' , 'side' );
+     remove_meta_box('formatdiv', 'post', 'normal');
+     remove_meta_box('formatdiv', 'post', 'side');
+     remove_meta_box( 'postcustom' , 'post' , 'normal' ); 
+     remove_meta_box( 'postcustom' , 'post' , 'side' );
+     remove_meta_box( 'rawhtml_meta_box' , 'post' , 'side' ); 
+     remove_meta_box( 'rawhtml_meta_box' , 'post' , 'normal' ); 
+     remove_meta_box( 'layout_meta' , 'post' , 'side' ); 
+     remove_meta_box( 'layout_meta' , 'post' , 'normal' ); 
+
+    //}
 
 }
 add_action( 'do_meta_boxes', 'remove_post_meta_boxes' );
@@ -616,94 +617,16 @@ function remove_dashboard_widgets(){
 }
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 
+include "custom-tac/rss-metabox.php"; 
 
-/**
- * Creates the RSS metabox
- *
- * @access      public
- * @since       1.0 
- * @return      void
-*/
-
-/*
-function rc_mdm_create_my_rss_box() {
-	
-	// Get RSS Feed(s)
-	include_once(ABSPATH . WPINC . '/feed.php');
-	
-	// My feeds list (add your own RSS feeds urls)
-	$my_feeds = array( 
-				'http://agora.xtec.cat/moodle/moodle/rss/file.php/242/3fc15f9228d855be6cfbe5bd26c6a2f5/mod_forum/62/rss.xml' 
-				);
-	
-	// Loop through Feeds
-	foreach ( $my_feeds as $feed) :
-	
-		// Get a SimplePie feed object from the specified feed source.
-		$rss = fetch_feed( $feed );
-		if (!is_wp_error( $rss ) ) : // Checks that the object is created correctly 
-		    // Figure out how many total items there are, and choose a limit 
-		    $maxitems = $rss->get_item_quantity( 20 ); 
-		
-		    // Build an array of all the items, starting with element 0 (first element).
-		    $rss_items = $rss->get_items( 0, $maxitems ); 
-	
-		    // Get RSS title
-		    $rss_title = '<a href="'.$rss->get_permalink().'" target="_blank">'.strtoupper( $rss->get_title() ).'</a>'; 
-		endif;
-	
-		// Display the container
-		echo '<div class="rss-widget">';
-		echo '<strong>'.$rss_title.'</strong>';
-		echo '<hr style="border: 0; background-color: #DFDFDF; height: 1px;">';
-		
-		// Starts items listing within <ul> tag
-		echo '<ul>';
-		
-		// Check items
-		if ( $maxitems == 0 ) {
-			echo '<li>'.__( 'No item', 'rc_mdm').'.</li>';
-		} else {
-			// Loop through each feed item and display each item as a hyperlink.
-			foreach ( $rss_items as $item ) :
-				// Uncomment line below to display non human date
-				//$item_date = $item->get_date( get_option('date_format').' @ '.get_option('time_format') );
-				
-				// Get human date (comment if you want to use non human date)
-				$item_date = human_time_diff( $item->get_date('U'), current_time('timestamp')).' '.__( 'ago', 'rc_mdm' );
-				
-				// Start displaying item content within a <li> tag
-				echo '<li>';
-				// create item link
-				echo '<a href="'.esc_url( $item->get_permalink() ).'" title="'.$item_date.'">';
-				// Get item title
-				echo esc_html( $item->get_title() );
-				echo '</a>';
-				// Display date
-				echo ' <span class="rss-date">'.$item_date.'</span><br />';
-				// Get item content
-				$content = $item->get_content();
-				// Shorten content
-				$content = wp_html_excerpt($content, 120) . ' [...]';
-				// Display content
-				echo $content;
-				// End <li> tag
-				echo '</li>';
-			endforeach;
-		}
-		// End <ul> tag
-		echo '</ul></div>';
-
-	endforeach; // End foreach feed
-}
-
-function rc_mdm_register_widgets() {
+//rss nodes 
+function rss_register_widgets() {
     global $wp_meta_boxes;
-    wp_add_dashboard_widget('widget_freelanceswitch', __('Fòrum suport ÀGORA', 'rc_mdm'), 'rc_mdm_create_my_rss_box');
+    wp_add_dashboard_widget('widget_rss_nodes', "Nodes", 'rss_box');
 }
 
-add_action('wp_dashboard_setup', 'rc_mdm_register_widgets');
-*/
+add_action('wp_dashboard_setup', 'rss_register_widgets');
+
 
 // Tauler personalitzat 
 include "custom-tac/welcome-panel.php"; 
@@ -897,3 +820,19 @@ if ($isAgora && !is_xtecadmin()) {
 add_action('admin_menu', 'rebuild_bp_menus_step_1', 1); // Priority 1 is important!
 add_action('admin_menu', 'rebuild_bp_menus_step_2'); // Default priority (10) is important!
 add_action('admin_menu', 'rebuild_bbpress_menus');
+
+/*
+ * @author Xavi Meler & Toni Ginard
+ * Avoid delete this pages: Activitat(5), Membres(6), Inici(9), Nodes(sec 16,pri 141)
+ * 
+ */
+
+function restrict_post_deletion($post_ID){
+   
+    $restricted_pages = array(5,6,9,16,141);
+    if(get_post_type( $post_ID )=="page" && in_array($post_ID, $restricted_pages)){
+        echo "Aquesta p&aagrave;gina forma part de l'estructura de NODES. No es pot esborrar.";
+        exit;
+    }
+}
+add_action('wp_trash_post', 'restrict_post_deletion', 10, 1);

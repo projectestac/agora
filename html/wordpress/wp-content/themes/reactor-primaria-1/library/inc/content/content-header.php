@@ -215,13 +215,13 @@ function reactor_do_title_logo() { ?>
 						<?php $options=get_option( 'my_option_name' );?>
 		
 						<!-- Fila 1 -->
-						<a title="<?php echo $options['title_icon11'];?>" href="<?php echo $options['link_icon11'];?>">
+						<a title="<?php echo $options['title_icon11'];?>" href="<?php echo $options['link_icon11'];?>" target="_blank">
 							<div id="icon-11" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon11'];?>"></div>
 							</div>
 						</a>
                                                 
-						<a title="<?php echo $options['title_icon12'];?>" href="<?php echo $options['link_icon12'];?>">
+						<a title="<?php echo $options['title_icon12'];?>" href="<?php echo $options['link_icon12'];?>" target="_blank">
 							<div id="icon-12" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon12'];?>"></div>
 							</div>
@@ -243,13 +243,13 @@ function reactor_do_title_logo() { ?>
                                                 </div>
                                                 
 						<!-- Fila 2 -->
-                                                <a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>">
+                                                <a title="<?php echo $options['title_icon21'];?>" href="<?php echo $options['link_icon21'];?>" target="_blank">
 							<div id="icon-21" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon21'];?>"></div>
 							</div>
 						</a>
 						
-						<a title="<?php echo $options['title_icon22'];?>" href="<?php echo $options['link_icon22'];?>">
+						<a title="<?php echo $options['title_icon22'];?>" href="<?php echo $options['link_icon22'];?>" target="_blank">
 							<div id="icon-22" class="icon-graella">
 								<div class="dashicons dashicons-<?php echo $options['icon22'];?>"></div>
 							</div>
