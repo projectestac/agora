@@ -70,8 +70,8 @@ With the support of:
 AGORA uses code from the following projects:
 
    - Moodle: Learning Management System (http://moodle.org/)
-   - Nodes: Content Management System for Education & Social Network (http://agora.xtec.cat/nodes)
-   - Intraweb: Content Management System for Education (http://projectestac.github.io/intraweb/)
+   - Nodes: CMS for Education & Social Network based on Wordpress & BuddyPress (http://agora.xtec.cat/nodes)
+   - Intraweb: CMS for Education based on Zikula (http://projectestac.github.io/intraweb/)
 
 
 AGORA includes external resources like:
