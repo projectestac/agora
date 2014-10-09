@@ -7,7 +7,7 @@
 ##
 
 
-Àgora [1] is a multi-instance system with services like Moodle and Zikula. 
+Àgora [1] is a multi-instance system with services like Moodle, Wordpress and Zikula. 
 It's developed by the Ministry of Education of the Government of Catalonia [2].
 
 
@@ -50,11 +50,12 @@ Older versions of the source code are available at:
 CREDITS
 
 Developers:
-   Sara Arjona      (sarjona@xtec.cat) 
-   Albert Pérez     (aperez16@xtec.cat)
    Toni Ginard      (aginard@xtec.cat)
-   Jaume Miró       (jmiro227@xtec.cat)
    Pau Ferrer       (crazyserver@gmail.com)
+   Sara Arjona      (sarjona@xtec.cat)
+   Xavier Meler     (jmeler@xtec.cat)
+   Albert Pérez     (aperez16@xtec.cat)
+   Jaume Miró       (jmiro227@xtec.cat)
    Fèlix Casanellas (fcasanel@xtec.cat)
    Jaume Fernández  (jfern343@xtec.cat)
    Aida Regi        (aregi@xtec.cat)
@@ -69,7 +70,8 @@ With the support of:
 AGORA uses code from the following projects:
 
    - Moodle: Learning Management System (http://moodle.org/)
-   - Intraweb: Content Management System for Education (http://intraweb.xtec.cat/)
+   - Nodes: Content Management System for Education & Social Network (http://agora.xtec.cat/nodes)
+   - Intraweb: Content Management System for Education (http://projectestac.github.io/intraweb/)
 
 
 AGORA includes external resources like:
