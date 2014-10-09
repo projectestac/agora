@@ -53,30 +53,6 @@ class bpModBackend extends bpModeration
 
     }
 
-    
-    // XTEC ************ MODIFICAT - Fixed repetition of background image in Dashboard
-    // 2014.06.02 @aginard
-
-    function print_page_icon_style() {
-
-            echo <<<HTML
-<style>
-ul#adminmenu li.toplevel_page_bp-moderation .wp-menu-image {
-    background-image: url('{$this->plugin_url}/css/sprite.png');
-    background-position: 6px 5px;
-    background-repeat: no-repeat;
-}
-ul#adminmenu li.toplevel_page_bp-moderation:hover .wp-menu-image,
-ul#adminmenu li.toplevel_page_bp-moderation.current .wp-menu-image {
-    background-position: 6px -61px;
-    background-repeat: no-repeat;
-}
-</style>
-HTML;
-    }
-    
-    //************ ORIGINAL
-    /*
     function print_page_icon_style()
     {
         echo <<<HTML
@@ -92,9 +68,6 @@ background-position: 6px -61px;
 </style>
 HTML;
     }
-     */
-    //************ FI
-
 
     /**
 	 * Add info on moderation queue in the rightnow widget
