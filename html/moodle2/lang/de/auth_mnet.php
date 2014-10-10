@@ -27,8 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['auth_mnet_auto_add_remote_users'] = 'Die Einstellung "Ja" bewirkt, dass ein lokaler Datensatz automatisch angelegt wird, sobald sich ein Remote-Nutzer erstmalig einloggt.';
 $string['auth_mnetdescription'] = 'Nutzer/innen werden als vertrauensvoll authentifiziert, wenn sie in den MNET-Einstellungen (Moodle Network) definiert wurden.';
-$string['auth_mnet_roamin'] = 'Nutzer/innen dieses Hosts können Ihre Website durchsuchen';
-$string['auth_mnet_roamout'] = 'Ihre Nutzer/innen können diese Websites durchsuchen';
+$string['auth_mnet_roamin'] = 'Nutzer/innen können sich von diesen Hosts auf Ihre Website verbinden.';
+$string['auth_mnet_roamout'] = 'Nutzer/innen können sich von Ihrer Website zu diesen Hosts verbinden.';
 $string['auth_mnet_rpc_negotiation_timeout'] = 'Timeout in Sekunden für die Authentifizierung über den XMLRPC Transfer.';
 $string['auto_add_remote_users'] = 'Remote-Nutzer/innen automatisch hinzufügen';
 $string['pluginname'] = 'MNET Authentifizierung';

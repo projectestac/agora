@@ -26,4 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Notación en TeX';
-$string['source'] = 'Código fonte TeX';
+$string['source'] = 'Orixe TeX';

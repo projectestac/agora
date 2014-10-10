@@ -25,10 +25,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['anonymouscity'] = 'Stadt/Ort';
-$string['anonymouscountry'] = 'Land';
-$string['anonymousfirstname'] = 'Vorname';
-$string['anonymoussurname'] = 'Nachname';
+$string['anonymousauth'] = 'Authentifizierungsmethode der gelöschten Nutzer';
+$string['anonymouscity'] = 'Stadt/Ort der gelöschten Nutzer';
+$string['anonymouscountry'] = 'Land der gelöschten Nutzer';
+$string['anonymousfirstname'] = 'Vorname der gelöschten Nutzer';
+$string['anonymoussurname'] = 'Nachname der gelöschten Nutzer';
+$string['makeanonymous_anonymize_no_users'] = 'Es gibt keine unanonymisierten gelöschten Nutzer.';
+$string['makeanonymous_anonymize_old_desc'] = 'Sie können auch Nutzer anonymisieren, die in der Vergangenheit gelöscht wurden.';
+$string['makeanonymous_anonymize_old_head'] = 'Anonymisierung von in der Vergangenheit gelöschten Nutzern';
+$string['makeanonymous_anonymize_users_available'] = 'Es gibt {$a} unanonymisierte, gelöschte Nutzer. Sie können diese Nutzer anonymisieren, indem Sie auf den unteren Button klicken.';
+$string['makeanonymous_button'] = 'Anonymisiere früher gelöschte Nutzer';
 $string['makeanonymous_delay'] = 'Verzögerung aktivieren';
 $string['makeanonymous_delay_config'] = 'Wenn die Option aktiviert ist, wird der Prozess um die angegebene Zeit verzögert.';
 $string['makeanonymous_delay_desc'] = '<h4>Verzögerung</h4>';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_mygrades', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'report_mygrades', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   report_mygrades
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['event_assessable_uploaded'] = 'Un texte en ligne a été déposé.';
+$string['event_assessable_uploaded'] = 'Texte en ligne déposé';
 $string['pluginname'] = 'En ligne';

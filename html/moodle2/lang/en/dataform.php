@@ -542,7 +542,6 @@ $string['viewdescription_help'] = 'Short description of the view purpose and cha
 $string['viewdisabled'] = 'Disabled';
 $string['viewedit'] = 'Editing \'{$a}';
 $string['vieweditthis'] = 'Edit this view';
-$string['viewenabled'] = 'Enabled';
 $string['viewfilter'] = 'Filter';
 $string['viewfilter_help'] = 'A predefined filter from the Filters list (if any) that will be enforced in the view.';
 $string['viewforedit'] = 'View for \'edit';
@@ -550,6 +549,7 @@ $string['viewformore'] = 'View for \'more';
 $string['viewfromdate'] = 'Viewable from';
 $string['viewgeneral'] = 'View general settings';
 $string['viewgeneral_help'] = 'View general settings';
+$string['viewhidden'] = 'Hidden';
 $string['viewinterval'] = 'When to refresh view content';
 $string['viewintervalsettings'] = 'Interval settings';
 $string['viewname'] = 'View name';
@@ -580,6 +580,8 @@ $string['viewtemplate_help'] = 'The view template allows you to determine conten
 $string['viewtiming'] = 'View timing';
 $string['viewtiming_help'] = 'Set From and/or To dates to restrict access to the view only between the specified dates to any one without accessanytime capability. Tick the \'Set as default\' checkbox to set the view as the default view when it becomes available.';
 $string['viewvisibility'] = 'Visibility';
-$string['viewvisibility_help'] = 'Set to No if you wish to condition access to the view (require viewaccesshidden capability). By default managers can access hidden views. Users who cannot access a view will not see the view link in the views menu and navigation.';
+$string['viewvisibility_help'] = 'A Disabled view is accessible only with viewaccesshidden capability (typically teachers and managers).
+    A Visible view can be accessed by participants and appears in navigation.
+    A Hidden view can be accessed by participants but does not appear in navigation.';
 $string['viewvisible'] = 'Visible';
 $string['wrongdataid'] = 'Wrong dataform id provided';

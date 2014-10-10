@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_badgeawarder', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'block_badgeawarder', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_badgeawarder
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -43,13 +43,13 @@ $string['completion'] = 'Completion';
 $string['countryrequired'] = 'Country Selection Required for new users';
 $string['csv'] = 'The badge CSV file';
 $string['csvdelimiter'] = 'CSV delimiter';
-$string['csvfileerror'] = 'There was an error in you CSV upload file';
+$string['csvfileerror'] = 'There was an error in your CSV upload file';
 $string['csvline'] = 'CSV line';
 $string['emailawardsubject'] = 'You have received a badge';
-$string['emailawardtextexisting'] = 'Contratulations you have receive a {$a->badgename} badge.<br>
+$string['emailawardtextexisting'] = 'Congratulations you have received a {$a->badgename} badge.<br>
 <br>
 To access your badge visit {$a->siteurl}';
-$string['emailawardtextnew'] = 'Contratulations you have receive a {$a->badgename} badge.<br>
+$string['emailawardtextnew'] = 'Congratulations you have received a {$a->badgename} badge.<br>
 <br>
 To access Moodle, got to: {$a->siteurl}
 <br>

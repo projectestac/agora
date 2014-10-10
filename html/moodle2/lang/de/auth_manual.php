@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['auth_manualdescription'] = 'Diese Methode verhindert, dass Personen ihre Zugänge selbst anlegen können. Jedes Nutzerprofil wird manuell vom Administrator eingerichtet.';
+$string['auth_manualdescription'] = 'Diese Authentifizierung verhindert, dass Personen ihre Nutzerkonten selbst anlegen können. Jedes Nutzerprofil wird manuell vom Administrator eingerichtet.';
 $string['pluginname'] = 'Manuelle Konten';

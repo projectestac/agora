@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['acknowledgement'] = 'Reconhecimento';
-$string['acknowledgementmust'] = 'Deve reconhecer isto';
+$string['acknowledgement'] = 'Confirmação';
+$string['acknowledgementmust'] = 'Confirme o seguinte Termo de Responsabilidade:';
 $string['acknowledgementtext'] = 'Compreendo que é da minha responsabilidade ter cópias de segurança completas deste site antes de instalar add-ons. Aceito e compreendo que as add-ons (especialmente, mas não apenas as originárias de fontes não oficiais) podem conter falhas de segurança, podem tornar o site indisponível ou causar fuga ou perda de dados privados.';
 $string['featuredisabled'] = 'O instalador de add-ons está desativado neste site.';
 $string['installaddon'] = 'Instalar add-on!';
@@ -93,7 +93,7 @@ $string['validationmsg_targetexists_help'] = 'A diretoria em que o add-on será 
 $string['validationmsg_unknowntype'] = 'Tipo de módulo inválido';
 $string['validationresult0'] = 'Validação reprovada!';
 $string['validationresult0_help'] = 'Um problema sério foi detetado e por isso não é seguro instalar o add-on. Veja as mensagens de registo de validação para mais detalhes.';
-$string['validationresult1'] = 'Validação aprovada!';
+$string['validationresult1'] = 'Módulo aprovado!';
 $string['validationresult1_help'] = 'O pacote de add-on foi validado e nenhum problema grave foi detetado.';
 $string['validationresultinfo'] = 'Informação';
 $string['validationresultmsg'] = 'Mensagem';

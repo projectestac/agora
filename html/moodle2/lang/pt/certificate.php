@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'pt', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'pt', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -32,22 +32,19 @@ $string['awarded'] = 'Awarded';
 $string['awardedto'] = 'Awarded To';
 $string['back'] = 'Back';
 $string['border'] = 'Border';
-$string['borderblack'] = 'Black';
-$string['borderblue'] = 'Blue';
-$string['borderbrown'] = 'Brown';
+$string['borderblack'] = 'Preto';
+$string['borderblue'] = 'Azul';
+$string['borderbrown'] = 'Castanho';
 $string['bordercolor'] = 'Border Lines';
 $string['bordercolor_help'] = 'Since images can substantially increase the size of the pdf file, you may choose to print a border of lines instead of using a border image (be sure the Border Image option is set to No).  The Border Lines option will print a nice border of three lines of varying widths in the chosen color.';
-$string['bordergreen'] = 'Green';
-$string['borderlines'] = 'Lines';
+$string['bordergreen'] = 'Verde';
+$string['borderlines'] = 'Linhas';
 $string['borderstyle'] = 'Border Image';
 $string['borderstyle_help'] = 'The Border Image option allows you to choose a border image from the certificate/pix/borders folder.  Select the border image that you want around the certificate edges or select no border.';
 $string['certificate'] = 'Verification for certificate code:';
-$string['certificate:manage'] = 'Manage Certificate';
 $string['certificatename'] = 'Certificate Name';
-$string['certificate:printteacher'] = 'Print Teacher';
 $string['certificatereport'] = 'Certificates Report';
 $string['certificatesfor'] = 'Certificates for';
-$string['certificate:student'] = 'Get Certificate';
 $string['certificatetype'] = 'Certificate Type';
 $string['certificatetype_help'] = 'This is where you determine the layout of the certificate. The certificate type folder includes four default certificates:
 A4 Embedded prints on A4 size paper with embedded font.
@@ -58,7 +55,6 @@ Letter Non-Embedded prints on letter size paper without embedded fonts.
 The non-embedded types use the Helvetica and Times fonts.  If you feel your users will not have these fonts on their computer, or if your language uses characters or symbols that are not accommodated by the Helvetica and Times fonts, then choose an embedded type.  The embedded types use the Dejavusans and Dejavuserif fonts.  This will make the pdf files rather large; thus it is not recommended to use an embedded type unless you must.
 
 New type folders can be added to the certificate/type folder. The name of the folder and any new language strings for the new type must be added to the certificate language file.';
-$string['certificate:view'] = 'View Certificate';
 $string['certify'] = 'This is to certify that';
 $string['code'] = 'Code';
 $string['completiondate'] = 'Course Completion';
@@ -165,8 +161,6 @@ $string['printwmark'] = 'Watermark Image';
 $string['printwmark_help'] = 'A watermark file can be placed in the background of the certificate. A watermark is a faded graphic. A watermark could be a logo, seal, crest, wording, or whatever you want to use as a graphic background.';
 $string['receivedcerts'] = 'Received certificates';
 $string['receiveddate'] = 'Date Received';
-$string['reissuecert'] = 'Reissue Certificates';
-$string['reissuecert_help'] = 'If you choose yes here, then this certificate will be reissued with a new date, grade and code number every time a user clicks on the certificate link. Note:  Although a table will show their past received dates, no review button will be available to users.  Only the latest issued certificate will appear in the certificate report.';
 $string['removecert'] = 'Issued certificates removed';
 $string['report'] = 'Report';
 $string['reportcert'] = 'Report Certificates';

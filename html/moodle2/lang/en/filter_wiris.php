@@ -25,5 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'WIRIS filter';
-$string['pluginname'] = 'WIRIS filter';
+$string['filtername'] = 'WIRIS filter - Maths';
+$string['pluginname'] = 'WIRIS filter - Maths';

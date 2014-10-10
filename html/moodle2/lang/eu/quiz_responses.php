@@ -41,4 +41,7 @@ $string['responsex'] = '{$a} ebazpena';
 $string['rightanswer'] = 'erantzun zuzena';
 $string['rightanswerx'] = 'Erantzun zuzena {$a}';
 $string['showattempts'] = 'Erakutsi / jeitsi bakarrik saiakerak';
+$string['showthe'] = 'Erakutsi';
 $string['summaryofquestiontext'] = 'Galderaren laburpena';
+$string['summaryofresponse'] = 'Ebazpenen laburpena';
+$string['summaryofrightanswer'] = 'Ebazpen zuzenen laburpena';

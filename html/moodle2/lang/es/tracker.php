@@ -25,6 +25,46 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['abandonned'] = 'Abandonado';
+$string['action'] = 'Acción';
+$string['activeplural'] = 'Activos';
+$string['addacomment'] = 'Añadir un comentario';
+$string['addanoption'] = 'Añadir una opción';
+$string['addaquerytomemo'] = 'Añadir esta consulta a "mis consultas"';
+$string['addawatcher'] = 'Añadir un observador';
+$string['addtothetracker'] = 'Añadir a este seguimiento';
+$string['administration'] = 'Administración';
+$string['administrators'] = 'Administradores';
+$string['allownotifications_help'] = 'Cuando está disponible algunos cambios de estado puede dar como resultado el envío a otros usuarios cuando se está viendo un tema. Los usuarios pueden configurar que eventos se le notifican.';
+$string['alltracks'] = 'Ver mi trabajo en todos los seguimientos';
+$string['AND'] = 'Y';
+$string['any'] = 'Todo';
+$string['assignedto'] = 'Asignado a';
+$string['attributes'] = 'Atributos';
+$string['build'] = 'Versión';
+$string['by'] = '<i>asignado por</i>';
+$string['cascadedticket'] = 'Transferido desde:';
+$string['checkbox'] = 'Casilla';
+$string['checkboxhoriz'] = 'Casilla horizontal';
+$string['chooseremote'] = 'Elegir un host remoto';
+$string['chooseremoteparent'] = 'Elegir una instancia remota';
+$string['choosetarget'] = 'Elegir destino';
+$string['clearsearch'] = 'Limpiar criterio de búsqueda';
+$string['comment'] = 'Comentario';
+$string['comments'] = 'Comentarios';
+$string['component'] = 'Componente';
+$string['count'] = 'Contar';
+$string['createnewelement'] = 'Crear un nuevo elemento';
+$string['database'] = 'Base de datos';
+$string['datereported'] = 'Fecha de informe';
+$string['dependancies'] = 'Dependencias';
+$string['dependson'] = 'Depende de';
+$string['descriptionisempty'] = 'La descripción está vacía';
+$string['doaddelementcheckbox'] = 'Añadir casilla';
+$string['doaddelementcheckboxhoriz'] = 'Añadir casilla horizontal';
+$string['doaddelementdropdown'] = 'Añadir lista desplegable';
+$string['doaddelementtext'] = 'Añsir un campo de texto';
+$string['doaddelementtextarea'] = 'Añadir un área de texto';
 $string['modulename_help'] = 'La actividad Rastreador (Tracker) permite rastrear boletos (tickets) para ayuda, reporte de errores (bugs) o también actividades rastreables en un curso.
 
 La actividad permite crear un formato de rastreo con elementos de atributos de una lista de elementos configurables. Algunos elementos pueden compartirse a nivel de sitio para re-utilizarse en otros rastreadores.

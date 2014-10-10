@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Διαχείριση';
+$string['settings:addinstance'] = 'Προσθέστε νέο μπλοκ διαχείρισης';

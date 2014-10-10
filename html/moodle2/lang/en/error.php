@@ -265,6 +265,7 @@ $string['groupnotaddederror'] = 'Group "{$a}" not added';
 $string['groupnotaddedtogroupingerror'] = 'Group "{$a->groupname}" not added to grouping "{$a->groupingname}"';
 $string['groupunknown'] = 'Group {$a} not associated to specified course';
 $string['groupusernotmember'] = 'User is not member of this group.';
+$string['guestcantaccessprofiles'] = 'Guests cannot access user profiles. Log in with a full user account to continue.';
 $string['guestnocomment'] = 'Guests are not allowed to post comments!';
 $string['guestnoeditprofile'] = 'The guest user cannot edit their profile';
 $string['guestnoeditprofileother'] = 'The guest user profile cannot be edited';

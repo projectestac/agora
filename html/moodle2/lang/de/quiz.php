@@ -170,7 +170,7 @@ $string['confignavmethod'] = 'In der selbstgewählten Navigation können die Auf
 $string['confignewpageevery'] = 'Wenn Sie Fragen zur Testseite hinzufügen, werden in Abhängigkeit der hier gewählten Einstellung an der entsprechenden Stelle automatisch Seitenumbrüche eingefügt.';
 $string['configoutcomesadvanced'] = 'Wenn diese Option aktiviert ist, werden die Lernziele als erweiterte Einstellungen in der Testerstellung angezeigt.';
 $string['configpenaltyscheme'] = 'Im Adaptiven Modus werden bei jeder falschen Antwort Strafpunkte abgezogen.';
-$string['configpopup'] = 'Mit Hilfe von JavaScript wird versucht "Copy & Paste" während des Testdurchgangs zu verhindern.';
+$string['configpopup'] = 'Mit Hilfe von JavaScript wird versucht, \'Copy&Paste\' während des Testdurchgangs zu verhindern.';
 $string['configrequirepassword'] = 'Teilnehmer/innen müssen ein Kennwort eingeben, bevor sie den Test durchführen können.';
 $string['configrequiresubnet'] = 'Teilnehmer/innen können den Test nur von diesen Computern aus durchführen.';
 $string['configreviewoptions'] = 'Diese Einstellungen geben an, welche Informationen angezeigt werden, wenn Nutzer/innen einen Testversuch oder den Testbericht ansehen.';
@@ -229,12 +229,12 @@ $string['default'] = 'Standard';
 $string['defaultgrade'] = 'Standardbewertung (Punkte)';
 $string['defaultinfo'] = 'Standardkategorie für Fragen';
 $string['delay1'] = 'Pause zwischen 1. und 2. Versuch';
-$string['delay1st2nd'] = 'Erzwungener Abstand zwischen 1. und 2. Versuch';
+$string['delay1st2nd'] = 'Vorgegebene Pause zwischen 1. und 2. Versuch';
 $string['delay1st2nd_help'] = '<h2>Pause zwischen 1. und 2. Versuch</h2>
 
 <p>Wenn Sie hier eine Pause einrichten, lässt sich ein zweiter Testversuch erst nach Ablauf dieser Pause durchführen.</p>';
 $string['delay2'] = 'Pause bei späteren Versuchen';
-$string['delaylater'] = 'Erzwungener Abstand zwischen weiteren Versuchen';
+$string['delaylater'] = 'Vorgegebene Pause zwischen weiteren Versuchen';
 $string['delaylater_help'] = '<h2>Pause bei weiteren Testversuchen</h2>
 <p>Wenn Sie hier eine Pause einrichten, lassen sich der dritte und weitere Testversuche erst nach Ablauf dieser Pause starten.</p>';
 $string['deleteattemptcheck'] = 'Sind Sie wirklich sicher, dass Sie diese Versuche löschen wollen?';
@@ -331,7 +331,7 @@ $string['filloutthreequestions'] = 'Sie müssen mindestens drei Fragen auswähle
 $string['fillouttwochoices'] = 'Sie müssen mindestens zwei Antwortfelder ausfüllen. Leere Felder werden ignoriert.';
 $string['finishattemptdots'] = 'Versuch beenden...';
 $string['finishreview'] = 'Überprüfung beenden';
-$string['forceregeneration'] = 'erzwungene Wiederherstellung';
+$string['forceregeneration'] = 'Erneuerung erzwingen';
 $string['formatnotfound'] = 'Das Import-Export-Format {$a} wurde nicht gefunden.';
 $string['formatnotimplemented'] = 'Das Format wurde nicht richtig implementiert. Bitte erstellen Sie einen Fehlerbericht.';
 $string['formulaerror'] = 'Formularfehler!';

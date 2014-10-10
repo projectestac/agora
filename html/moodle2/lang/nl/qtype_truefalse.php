@@ -37,5 +37,5 @@ $string['pluginnameadding'] = 'Een waar/niet waar-vraag toevoegen';
 $string['pluginnameediting'] = 'Een  waar/niet waar-vraag bewerken';
 $string['pluginname_help'] = 'Als antwoord op de vraag (die ook een afbeelding kan bevatten), moet de respondent antwoorden met waar of niet waar.';
 $string['pluginnamesummary'] = 'Een eenvoudige vorm van meerkeuzevraag met slechts twee keuzes: waar of niet waar';
-$string['selectone'] = 'Kies één:';
+$string['selectone'] = 'Kies uit één van de volgende antwoorden:';
 $string['true'] = 'Waar';

@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'en', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,12 +42,13 @@ $string['borderlines'] = 'Lines';
 $string['borderstyle'] = 'Border Image';
 $string['borderstyle_help'] = 'The Border Image option allows you to choose a border image from the certificate/pix/borders folder.  Select the border image that you want around the certificate edges or select no border.';
 $string['certificate'] = 'Verification for certificate code:';
-$string['certificate:manage'] = 'Manage Certificate';
+$string['certificate:addinstance'] = 'Add a certificate instance';
+$string['certificate:manage'] = 'Manage a certificate instance';
 $string['certificatename'] = 'Certificate Name';
-$string['certificate:printteacher'] = 'Print Teacher';
+$string['certificate:printteacher'] = 'Be listed as a teacher on the certificate if the print teacher setting is on';
 $string['certificatereport'] = 'Certificates Report';
 $string['certificatesfor'] = 'Certificates for';
-$string['certificate:student'] = 'Get Certificate';
+$string['certificate:student'] = 'Retrieve a certificate';
 $string['certificatetype'] = 'Certificate Type';
 $string['certificatetype_help'] = 'This is where you determine the layout of the certificate. The certificate type folder includes four default certificates:
 A4 Embedded prints on A4 size paper with embedded font.
@@ -58,13 +59,15 @@ Letter Non-Embedded prints on letter size paper without embedded fonts.
 The non-embedded types use the Helvetica and Times fonts.  If you feel your users will not have these fonts on their computer, or if your language uses characters or symbols that are not accommodated by the Helvetica and Times fonts, then choose an embedded type.  The embedded types use the Dejavusans and Dejavuserif fonts.  This will make the pdf files rather large; thus it is not recommended to use an embedded type unless you must.
 
 New type folders can be added to the certificate/type folder. The name of the folder and any new language strings for the new type must be added to the certificate language file.';
-$string['certificate:view'] = 'View Certificate';
+$string['certificate:view'] = 'View a certificate';
 $string['certify'] = 'This is to certify that';
 $string['code'] = 'Code';
 $string['completiondate'] = 'Course Completion';
 $string['course'] = 'For';
 $string['coursegrade'] = 'Course Grade';
 $string['coursename'] = 'Course';
+$string['coursetimereq'] = 'Required minutes in course';
+$string['coursetimereq_help'] = 'Enter here the minimum amount of time, in minutes, that a student must be logged into the course before they will be able to receive the certificate.';
 $string['credithours'] = 'Credit Hours';
 $string['customtext'] = 'Custom Text';
 $string['customtext_help'] = 'If you want the certificate to print different names for the teacher than those who are assigned
@@ -113,6 +116,7 @@ Letter Grade: Prints the percentage grade as a letter.';
 $string['gradeletter'] = 'Letter Grade';
 $string['gradepercent'] = 'Percentage Grade';
 $string['gradepoints'] = 'Points Grade';
+$string['imagetype'] = 'Image Type';
 $string['incompletemessage'] = 'In order to download your certificate, you must first complete all required activities. Please return to the course to complete your coursework.';
 $string['intro'] = 'Introduction';
 $string['issued'] = 'Issued';
@@ -128,6 +132,7 @@ $string['mycertificates'] = 'My Certificates';
 $string['nocertificates'] = 'There are no certificates';
 $string['nocertificatesissued'] = 'There are no certificates that have been issued';
 $string['nocertificatesreceived'] = 'has not received any course certificates.';
+$string['nofileselected'] = 'Must choose a file to upload!';
 $string['nogrades'] = 'No grades available';
 $string['notapplicable'] = 'N/A';
 $string['notfound'] = 'The certificate number could not be validated.';
@@ -165,16 +170,18 @@ $string['printwmark'] = 'Watermark Image';
 $string['printwmark_help'] = 'A watermark file can be placed in the background of the certificate. A watermark is a faded graphic. A watermark could be a logo, seal, crest, wording, or whatever you want to use as a graphic background.';
 $string['receivedcerts'] = 'Received certificates';
 $string['receiveddate'] = 'Date Received';
-$string['reissuecert'] = 'Reissue Certificates';
-$string['reissuecert_help'] = 'If you choose yes here, then this certificate will be reissued with a new date, grade and code number every time a user clicks on the certificate link. Note:  Although a table will show their past received dates, no review button will be available to users.  Only the latest issued certificate will appear in the certificate report.';
 $string['removecert'] = 'Issued certificates removed';
 $string['report'] = 'Report';
 $string['reportcert'] = 'Report Certificates';
 $string['reportcert_help'] = 'If you choose yes here, then this certificate\'s date received, code number, and the course name will be shown on the user certificate reports.  If you choose to print a grade on this certificate, then that grade will also be shown on the certificate report.';
+$string['requiredtimenotmet'] = 'You must spend at least a minimum of {$a->requiredtime} minutes in the course before you can access this certificate';
+$string['requiredtimenotvalid'] = 'The required time must be a valid number greater than 0';
 $string['reviewcertificate'] = 'Review your certificate';
 $string['savecert'] = 'Save Certificates';
 $string['savecert_help'] = 'If you choose this option, then a copy of each user\'s certificate pdf file is saved in the course files moddata folder for that certificate. A link to each user\'s saved certificate will be displayed in the certificate report.';
+$string['seal'] = 'Seal';
 $string['sigline'] = 'line';
+$string['signature'] = 'Signature';
 $string['statement'] = 'has completed the course';
 $string['summaryofattempts'] = 'Summary of Previously Received Certificates';
 $string['textoptions'] = 'Text Options';
@@ -184,9 +191,13 @@ $string['typeA4_embedded'] = 'A4 Embedded';
 $string['typeA4_non_embedded'] = 'A4 Non-Embedded';
 $string['typeletter_embedded'] = 'Letter Embedded';
 $string['typeletter_non_embedded'] = 'Letter Non-Embedded';
+$string['unsupportedfiletype'] = 'File must be a jpeg or png file';
+$string['uploadimage'] = 'Upload image';
+$string['uploadimagedesc'] = 'This button will take you to a new screen where you will be able to upload images.';
 $string['userdateformat'] = 'User\'s Language Date Format';
 $string['validate'] = 'Verify';
 $string['verifycertificate'] = 'Verify Certificate';
 $string['viewcertificateviews'] = 'View {$a} issued certificates';
 $string['viewed'] = 'You received this certificate on:';
 $string['viewtranscript'] = 'View Certificates';
+$string['watermark'] = 'Watermark';

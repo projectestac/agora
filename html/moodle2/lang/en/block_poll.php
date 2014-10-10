@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_poll', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'block_poll', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_poll
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -41,7 +41,7 @@ $string['nopollsavailable'] = 'No polls are currently available, select the crea
 $string['option'] = 'Option';
 $string['pluginname'] = 'Poll';
 $string['poll:addinstance'] = 'Add a new poll block';
-$string['pollconfirmdelete'] = 'Are you sure you want to completely delete this poll ($a), including all response data?';
+$string['pollconfirmdelete'] = 'Are you sure you want to completely delete this poll ({$a}), including all response data?';
 $string['poll:editpoll'] = 'Edit a poll';
 $string['poll:myaddinstance'] = 'Add a new poll block to My home';
 $string['pollwarning'] = 'You must be a teacher to perform this action';

@@ -26,33 +26,31 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['accy'] = 'Accuracy';
-$string['cbm_accy'] = 'Acc\'y + Bonus';
-$string['cbm_av'] = 'CBM Avg';
-$string['cbm_bonus'] = 'CBM Bonus';
+$string['cbm_accy'] = 'CB Accuracy';
+$string['cbm_av'] = 'Avg (max=3)';
+$string['cbm_bonus'] = 'CB Bonus';
 $string['cbmexplanations'] = 'CBM Explanations:';
-$string['cbmgrade'] = 'CBM Grade';
+$string['cbmgrade'] = 'CB Grade';
 $string['cbmgrades'] = 'CBM Grades';
 $string['cbmgradesdownload'] = 'CBM download';
 $string['cbmgradesfilename'] = 'cbmgrades';
-$string['cbmgrades_help'] = 'All correct at C=1 would give the same grade as the maximum without CBM. Grades with CBM can be up to 3 times this.<br><br>
-        Other scores (Average CB Mark, Accuracy (= % correct), CB Bonus and
-        CB Accuracy (= Accuracy + Bonus) can be displayed for the whole quiz, or relative to just those questions where the student has
-        chosen to enter a response. Thus if a student has chosen 50% of the questions and got 80% of these right, the accuracy could
-        be shown either as 40% or 80%. The first would be appropriate for an exam assessment, the second could be more appropriate
-        for self-testing.<br><br>
-        In calculating overall scores, individual scores (up to 3 for CBM, up to 100% correct for simple marking) are weighted in
-        proportion to the maximum mark or \'weight\' set for each question (usually simply 1).<br><br>
-        The CBM bonus shows how much your CBM mark total benefitted from successfull identification of reliable and uncertain answers.
-        This is added to the simple accuracy to give your CB Accuracy. This is a more reliable measure of knowledge and predictor of
-        future performance than simple accuracy. A negative bonus indicates that the student has misconceptions (confident errors) or
-        poor judgement of the reliability or unreliability of their answers.';
+$string['cbmgrades_help'] = 'With Certainty Based Marking (CBM), all correct at C=1 (low certainty)
+        will give a Moodle Grade of 100%. Grades may be as high as 300% if every question is correct with C=3
+       (high certainty). Simple Moodle Grades with CBM are not easily compared with Grades without CBM,
+        unless converted to CB Grades (below).
+
+**Accuracy** is the percentage correct, ignoring certainty but weighted with the max values assigned to each question.
+        If the student successfully distinguishes more and less reliable answers, this is reflected in a **CB Bonus**,
+        which  is positive if the total marks are higher than could be obtained with the same answers at uniform certainty.
+        The **CB Accuracy** (=Accuracy + Bonus) is the clearest measure of knowledge. The **CB Grade** is the
+        CB Accuracy multiplied by the maximum grade assigned to the quiz.';
 $string['cbmgrades_link'] = 'qbehaviour/deferredcbm/certaintygrade';
 $string['cbmgradesoptions'] = 'CBM Grades options';
 $string['cbmgradesreport'] = 'CBM report';
 $string['cbmgradestitle'] = 'CBM Grades';
 $string['chosenresps'] = 'Show scores based on chosen questions rather than the whole quiz. &nbsp;';
-$string['grade'] = 'Grade';
-$string['marks'] = 'Marks';
+$string['grade'] = 'Moodle Grade';
+$string['marks'] = 'Mark Total';
 $string['pagesize'] = 'Page size';
 $string['pluginname'] = 'CBM Summary';
 $string['qdata'] = 'Show data for each Q';

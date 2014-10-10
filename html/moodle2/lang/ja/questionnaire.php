@@ -447,6 +447,9 @@ $string['usetemplate'] = 'テンプレートの利用';
 $string['vertical'] = '縦置き';
 $string['view'] = '閲覧';
 $string['viewallresponses'] = '全回答の閲覧';
+$string['viewallresponses_help'] = 'アンケートが、**Group Mode**: *Visible groups*　または　*Separate groups*　に設定されている場合や、利用者が　*moodle/site:accessallgroups*　のアクセス権を有している場合（該当内容において）、また、グループが現在のコースとして認識されている場合は、利用者グループリストへのアクセスが可能です。
+このグループリストにより、利用者は質問の回答をグループごとに分けることができます。
+**Group Mode**: *Separate groups*に設定されている際は、*moodle/site:accessallgroups* へのアクセス権を有さない利用者（通常、学生やnon-editing teachersなど）も、所属のグループの回答を閲覧することができます。';
 $string['viewbyresponse'] = '回答のリスト';
 $string['viewindividualresponse'] = '個々の回答';
 $string['viewindividualresponse_help'] = '個々の回答を表示するには、以下のリストの回答者の名前をクリックします。';

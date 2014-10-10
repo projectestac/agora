@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['addgroup'] = 'Inserisci nel gruppo';
 $string['ajaxmore'] = 'Altro...';
 $string['assignrole'] = 'Assegna ruolo';
-$string['cohort:config'] = 'Configurare istanze di gruppi globali';
+$string['cohort:config'] = 'Configurare istanze plugin Sincronizzazione gruppi globali';
 $string['cohortsearch'] = 'Cerca';
 $string['cohort:unenrol'] = 'Disiscrivi gli utenti sospesi';
 $string['instanceexists'] = 'Il gruppo globale è già sincronizzato con il ruolo selezionato';

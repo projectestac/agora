@@ -40,6 +40,7 @@ $string['allowcommentsmax'] = 'Allow comments (if chosen for post)';
 $string['allowimport'] = 'Enable post import';
 $string['allowimport_help'] = 'Allow any user to import pages from other blog activities they have access to.';
 $string['allowimport_invalid'] = 'Posts can only be imported when activity is set to individual mode.';
+$string['alpha'] = 'A to Z';
 $string['atom'] = 'Atom';
 $string['atomfeed'] = 'Atom feed';
 $string['attachments'] = 'Attachments';
@@ -52,7 +53,9 @@ $string['blogsummary'] = 'Blog summary';
 $string['cancel'] = 'Cancel';
 $string['comment'] = 'Add your comment';
 $string['commentalert'] = 'Report comment';
-$string['commentonby'] = 'Comment on <u>{$a->title}</u> by <u>{$a->author}</u>';
+$string['commentdated'] = 'Dated';
+$string['commentonby'] = 'Comment on post <u>{$a->title}</u> {$a->date} by <u>{$a->author}</u>';
+$string['commentonbyusers'] = 'Comment <u>{$a->commenttitle}</u> on post <u>{$a->posttitle}</u> <br> by <u>{$a->author}</u>';
 $string['commentposts'] = 'Most commented posts';
 $string['commentposts_info_alltime'] = 'Posts with the most number of comments';
 $string['commentposts_info_thismonth'] = 'Posts with the most number of comments added in the past month';
@@ -82,11 +85,11 @@ $string['configremotetoken'] = 'Web service user token for oublog webservices on
 $string['confirmdeletecomment'] = 'Are you sure you want to delete this comment?';
 $string['confirmdeletelink'] = 'Are you sure you want to delete this link?';
 $string['confirmdeletepost'] = 'Are you sure you want to delete this post?';
-$string['contribution'] = 'Contribution';
-$string['contribution_all'] = 'Contribution - All time';
-$string['contribution_from'] = 'Contribution - From {$a}';
-$string['contribution_fromto'] = 'Contribution - From {$a->start} To {$a->end}';
-$string['contribution_to'] = 'Contribution - To {$a}';
+$string['contribution'] = 'Participation';
+$string['contribution_all'] = 'Participation - All time';
+$string['contribution_from'] = 'Participation - From {$a}';
+$string['contribution_fromto'] = 'Participation - From {$a->start} To {$a->end}';
+$string['contribution_to'] = 'Participation - To {$a}';
 $string['copytoself'] = 'Send a copy to yourself';
 $string['couldnotaddcomment'] = 'Could not add comment';
 $string['couldnotaddlink'] = 'Could not add link';
@@ -107,7 +110,7 @@ $string['displayname_help'] = 'Set an alternate activity type name within the in
 Leaving blank/empty will mean the default (\'blog\') is used.
 
 The alternate name should start with a lower-case letter, this will be capitalised where needed.';
-$string['displayperiod'] = 'Contribution selector From date - To date.';
+$string['displayperiod'] = 'Participation selector From date - To date.';
 $string['displayperiod_help'] = '<p>The default selects all entries.</p>
 <p>You can select \'From\' a date until todays entries.</p>
 <p>You can select all entries between a \'From\' date and a \'To\' date.</p>
@@ -158,6 +161,7 @@ $string['globalblogmissing'] = 'Global blog is missing';
 $string['globalusageexclude'] = 'Exclude from global usage stats';
 $string['globalusageexclude_desc'] = 'Comma-separated list of user ids to exclude users from the top usage stats list for global blog';
 $string['gradesupdated'] = 'Grades updated';
+$string['group'] = 'Group';
 $string['guestblog'] = 'If you have an account on the system, please
 <a href=\'{$a}\'>log in for full access</a>.';
 $string['import'] = 'Import posts';
@@ -197,6 +201,7 @@ $string['info'] = 'Participation within the selected period.';
 $string['introonpost'] = 'Show intro when posting';
 $string['invalidblog'] = 'Invalid Blog Id';
 $string['invalidblogdetails'] = 'Can\'t find details for blog post {$a}';
+$string['invalidblogtags'] = 'Invalid blog tags';
 $string['invalidcomment'] = 'Invalid Comment Id';
 $string['invalidedit'] = 'Invalid Edit Id';
 $string['invalidformat'] = 'Format must be atom or rss';
@@ -344,8 +349,11 @@ $string['nocomments'] = 'Comments not allowed';
 $string['noposts'] = 'There are no visible posts in this {$a}.';
 $string['notaddpost'] = 'Could not add post';
 $string['notaddpostnogroup'] = 'Can\'t add post with no group';
+$string['nousercommentpartsfound'] = 'No comments added in this period.';
 $string['nousercomments'] = 'No comments made.';
 $string['nousercommentsfound'] = 'No comments made during this period.';
+$string['nousergrade'] = 'User grade not available.';
+$string['nouserpostpartsfound'] = 'No posts made in this period.';
 $string['nouserposts'] = 'No posts made.';
 $string['nouserpostsfound'] = 'No posts made during this period.';
 $string['npending'] = '{$a} comments awaiting approval';
@@ -356,11 +364,17 @@ $string['numberposts'] = '{$a} posts';
 $string['numberpostsmore'] = 'Plus {$a} more posts';
 $string['numberviews'] = '{$a} views';
 $string['numposts'] = '{$a} posts';
+$string['official'] = 'Set';
 $string['olderposts'] = 'Previous posts';
 $string['onecomment'] = '{$a} comment';
 $string['onepending'] = '{$a} comment awaiting approval';
 $string['onependingafter'] = ', {$a} awaiting approval';
 $string['onlyworkspersonal'] = 'Only works for personal blogs';
+$string['order'] = 'Order:';
+$string['order_help'] = 'You can choose to display the list of tags used ordered
+either in alphabetical order or by number of posts used in.
+Select the two links to switch between ordering methods,
+this choice is remembered and will be used on subsequent views.';
 $string['oublog'] = 'OU blog';
 $string['oublog:addinstance'] = 'Add a new OU blog';
 $string['oublogallpostslogin'] = 'Force login on all posts page';
@@ -389,7 +403,11 @@ $string['overviewnumentrylog1'] = 'entry since last log in';
 $string['overviewnumentryvw'] = 'entries since last viewed';
 $string['overviewnumentryvw1'] = 'entry since last viewed';
 $string['participation'] = 'Participation';
+$string['participation_all'] = 'Participation - All time';
 $string['participationbyuser'] = 'Participation by user';
+$string['participation_from'] = 'Participation - From {$a}';
+$string['participation_fromto'] = 'Participation - From {$a->start} To {$a->end}';
+$string['participation_to'] = 'Participation - To {$a}';
 $string['permalink'] = 'Permalink';
 $string['personalblognotsetup'] = 'Personal blogs not set up';
 $string['pluginadministration'] = 'OU Blog administration';
@@ -397,9 +415,11 @@ $string['pluginname'] = 'OU Blog';
 $string['postalert'] = 'Report post';
 $string['postauthor'] = 'Post author';
 $string['postdate'] = 'Post date';
+$string['postdetail'] = 'Post detail';
 $string['postedby'] = 'by {$a}';
 $string['postedbymoderated'] = 'by {$a->commenter} (approved by {$a->approver}, {$a->approvedate})';
 $string['postedbymoderatedaudit'] = 'by {$a->commenter} [{$a->ip}] (approved by {$a->approver}, {$a->approvedate})';
+$string['postinfoblock'] = '<u>{$a->posttitle}</u> <br> <u>{$a->postdate}</u> <br> <u>{$a->sourcelink}</u>';
 $string['postmessage'] = 'Post';
 $string['posts'] = 'Posts';
 $string['postsby'] = 'Posts by {$a}';
@@ -408,11 +428,16 @@ $string['posts_info_thismonth'] = '{$a}s with the most number of posts in the pa
 $string['posts_info_thisyear'] = '{$a}s with the most number of posts in the past year';
 $string['posttime'] = 'Post time';
 $string['posttitle'] = 'Post title';
+$string['predefinedtags'] = 'Pre-defined tags';
+$string['predefinedtags_help'] = 'Give users tags to choose from when entering a tag on a post.
+Tags should be comma separated.';
 $string['publiccomments'] = 'Yes, from everybody (even if not logged in)';
 $string['publiccomments_info'] = 'If somebody adds a comment when they are not
 logged in, you will receive email notification and can approve the comment for
 display, or reject it. This is necessary in order to prevent spam.';
 $string['re'] = 'Re: {$a}';
+$string['recentcomments'] = 'Recent comments';
+$string['recentposts'] = 'Recent posts';
 $string['remoteserver'] = 'Import from remote server';
 $string['remotetoken'] = 'Import remote server token';
 $string['removeblogs'] = 'Remove all blog entries';
@@ -422,6 +447,12 @@ about issues with posts or comments within the OUBlog.
 They should be entered as a comma separated list.';
 $string['rss'] = 'RSS';
 $string['rssfeed'] = 'RSS feed';
+$string['savefailnetwork'] = '<p>Unfortunately, your changes cannot be saved at this time.
+This is due to a network error; the website is temporarily unavailable or you have been signed out. </p>
+<p>Saving has been disabled on this blog.
+In order to retain any changes you must copy the edited blog content,
+access the Edit page again and then paste in your changes.</p>';
+$string['savefailtitle'] = 'Post cannot be saved';
 $string['savegrades'] = 'Save grades';
 $string['searchblogs'] = 'Search';
 $string['searchblogs_help'] = 'Type your search term and press Enter or click the button.
@@ -462,8 +493,11 @@ address bar.</p>';
 $string['untitledcomment'] = 'Untitled comment';
 $string['untitledpost'] = 'Untitled post';
 $string['url'] = 'Full Web address';
+$string['use'] = 'Most used';
 $string['usergrade'] = 'User grade';
 $string['userparticipation'] = 'User participation';
+$string['usersparticipation'] = 'All users participation';
+$string['viewallparticipation'] = 'View all participation';
 $string['viewallusers'] = 'View all users';
 $string['viewallusersingroup'] = 'View all users in group';
 $string['viewblogdetails'] = 'View blog details';

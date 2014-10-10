@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addperparticipant'] = 'Add entries per participant';
 $string['allowupdateexisting'] = 'Allow update existing entries';
 $string['csv'] = 'CSV';
 $string['csvcontent'] = 'CSV content';
@@ -33,6 +34,7 @@ $string['expimpsettings'] = 'Export/Import settings';
 $string['exportall'] = 'Export all';
 $string['exportpage'] = 'Export page';
 $string['importfields'] = 'Import fields';
+$string['importoptions'] = 'Import options';
 $string['importresults'] = 'Import results';
 $string['noerrorsfound'] = 'No errors found';
 $string['nothingimported'] = 'Nothing imported';

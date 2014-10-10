@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['accessibility:addinstance'] = 'Add a new Accessibility block';
+$string['accessibility:myaddinstance'] = 'Add a new Accessibility block to My home';
 $string['autolaunch'] = '(always?)';
 $string['blockname'] = 'Accessibility';
 $string['char'] = 'A';
@@ -49,6 +51,7 @@ $string['jsnocolourreset'] = 'Error resetting colour scheme';
 $string['jsnosave'] = 'Error saving settings';
 $string['jsnosize'] = 'Error changing size';
 $string['jsnosizereset'] = 'Error resetting text size';
+$string['jsnotloggedin'] = 'Error! Please check if you are logged-in to the system or contact your administrator';
 $string['launchtoolbar'] = 'Launch ATbar';
 $string['pluginname'] = 'Accessibility';
 $string['pluginnameplural'] = 'Accessibility Blocks';

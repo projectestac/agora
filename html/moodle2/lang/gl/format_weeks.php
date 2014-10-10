@@ -26,5 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['currentsection'] = 'Esta semana';
+$string['hidefromothers'] = 'Agochar a semana';
+$string['page-course-view-weeks'] = 'Páxina principal de calquera curso en formato semanal';
+$string['page-course-view-weeks-x'] = 'Páxina de calquera curso en formato semanal';
 $string['pluginname'] = 'Formato semanal';
-$string['sectionname'] = 'semana';
+$string['section0name'] = 'Xeral';
+$string['sectionname'] = 'Semana';
+$string['showfromothers'] = 'Amosar a semana';

@@ -54,6 +54,7 @@ $string['nosavebutnext'] = 'Επόμενο';
 $string['notgraded'] = 'Χωρίς βαθμό';
 $string['notgradedyet'] = 'Δεν βαθμολογήθηκαν ακόμα';
 $string['notsubmittedyet'] = 'Δεν υποβλήθηκαν ακόμα';
+$string['numberofparticipants'] = 'Συμμετέχοντες';
 $string['offline'] = 'Δεν απαιτείται διαδικτυακή υποβολή';
 $string['previous'] = 'Προηγούμενο';
 $string['reviewed'] = 'Ελεγμένα';

@@ -38,3 +38,4 @@ $string['typeonefile'] = 'Goiburuak atal gisa dituen HTML fitxategia';
 $string['typezipdirs'] = 'Karpeta bakoitzak atal bat osatzen du';
 $string['typezipfiles'] = 'HTML fitxategi bakoitzak atal bat osatzen du';
 $string['ziparchive'] = 'Zip fitxategia';
+$string['ziparchive_help'] = 'Aukera ezazu HTML fitxategiak eta bestelako media-fitxategiak eta karpetak dituen ZIP fitxategia. Azpikarpetak igotzeko, gehitu "_sub" HTML fitxategiaren amaieran edo karpeta-izenean.';

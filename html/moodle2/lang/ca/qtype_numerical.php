@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['acceptederror'] = 'Error acceptat';
-$string['addmoreanswerblanks'] = 'Blancs per a {no} preguntes més';
-$string['addmoreunitblanks'] = 'Blancs per a {no} unitats més';
+$string['addmoreanswerblanks'] = 'Espais per a {no} preguntes més';
+$string['addmoreunitblanks'] = 'Espais per a {no} unitats més';
 $string['answercolon'] = 'Resposta:';
 $string['answererror'] = 'Error';
 $string['answermustbenumberorstar'] = 'La resposta ha de ser un nombre, per exemple -1,234 o 3e8, o \'*\'.';
@@ -35,7 +35,7 @@ $string['answerno'] = 'Resposta {$a}';
 $string['decfractionofquestiongrade'] = 'com una fracció decimal (0-1) de la qualificació de la pregunta';
 $string['decfractionofresponsegrade'] = 'com una fracció decimal (0-1) de la qualificació de la resposta';
 $string['decimalformat'] = 'decimals';
-$string['editableunittext'] = 'Caixa d\'entrada de text';
+$string['editableunittext'] = 'la caixa d\'entrada de text';
 $string['errornomultiplier'] = 'Heu d\'especificar un multiplicador per a aquesta unitat.';
 $string['errorrepeatedunit'] = 'No podeu tenir dues unitats amb el mateix nom.';
 $string['geometric'] = 'Geomètric';
@@ -44,7 +44,7 @@ $string['invalidnumbernounit'] = 'Cal que entreu un nombre vàlid. No inclogueu 
 $string['invalidnumericanswer'] = 'Una de les respostes que heu entrat ha estat un nombre no vàlid.';
 $string['invalidnumerictolerance'] = 'Una de les toleràncies que heu entrat ha estat un nombre no vàlid.';
 $string['leftexample'] = 'ESQUERRA com a $1,00 o £1,00';
-$string['manynumerical'] = 'Les unitats són opcionals. Si entreu una unitat, s\'utilitza per convertir la resposta a la unitat 1 abans de qualificar.';
+$string['manynumerical'] = 'Les unitats són opcionals. Si entreu una unitat, s\'utilitza per convertir la resposta a la Unitat 1 abans de qualificar.';
 $string['multiplier'] = 'Multiplicador';
 $string['nominal'] = 'Nominal';
 $string['noneditableunittext'] = 'Text NO editable de la Unitat No.1';
@@ -72,13 +72,13 @@ $string['relative'] = 'Relativa';
 $string['rightexample'] = 'DRETA com a 1,00cm o 1,00km';
 $string['selectunit'] = 'Escolliu una unitat';
 $string['selectunits'] = 'Escolliu les unitats';
-$string['studentunitanswer'] = 'RESPOSTA DE LA UNITAT mostrada com a';
+$string['studentunitanswer'] = 'Les unitats s\'introdueixen usant';
 $string['tolerancetype'] = 'Tipus de tolerància';
 $string['unit'] = 'Unitat';
 $string['unitappliedpenalty'] = 'Aquests valors inclouen una penalització de {$a} per tenir malament la unitat.';
-$string['unitchoice'] = 'Opcions múltiples (botons/caixes de selecció)';
+$string['unitchoice'] = 'una selecció múltiple';
 $string['unitedit'] = 'Edita la unitat';
-$string['unitgraded'] = 'Es qualificarà la RESPOSTA NUMÈRICA i també LES UNITATS';
+$string['unitgraded'] = 'Cal introduir la unitat, i aquesta es qualificarà.';
 $string['unithandling'] = 'Tractament de les unitats';
 $string['unitincorrect'] = 'No heu posat la resposta correcta';
 $string['unitmandatory'] = 'Obligatori';
@@ -101,12 +101,12 @@ $string['units'] = 'Unitats';
 $string['unitselect'] = 'un menú desplegable';
 $string['unitx'] = 'Unitat {no}';
 $string['validnumberformats'] = 'Formats numèrics vàlids';
-$string['validnumberformats_help'] = '* números regulars 13500,67, 13 500,67, 13500,67 o 13 500,67
+$string['validnumberformats_help'] = '* números normals 13500.67; 13 500.67; 13500,67 o 13 500,67
 
-* si utilitzeu el separador de milers poseu *SEMPRE* el decimal com en 13.500,67 : 13.500,
+* Si els paràmetres del vostre paquet d\'idioma (fitxer langconfig.php) estableixen la coma (,) com a separador dels milers, aleshores poseu *SEMPRE* el punt decimal com en 13,500.67 : 13,500.
 
 * per a formes exponencials com el nombre 1,350067 * 10<sup>4</sup>, utilitzeu 1,350067 E4 : 1,350067 E04';
-$string['validnumbers'] = '13500.67 : 13 500.67 : 13,500.67 : 13500,67: 13 500,67 : 1.350067 E4 : 1.350067 E04';
+$string['validnumbers'] = '13500.67; 13 500.67; 13,500.67; 13500,67; 13 500,67; 1.350067 E4 o bé 1.350067 E04';
 $string['xmustbenumeric'] = 'Cal que {$a} sigui un número.';
 $string['xmustnotbenumeric'] = '{$a} no pot ser un número.';
 $string['youmustenteramultiplierhere'] = 'Aquí heu d\'introduir un multiplicador';

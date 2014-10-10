@@ -25,13 +25,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activityoverview'] = 'Zain dituzu hainbat {$a}';
 $string['alwaysshowall'] = 'Erakutsi beti guztiak';
+$string['collapseall'] = 'Tolestu ikastaro-zerrenda guztiak';
 $string['course_overview:addinstance'] = 'Gehitu ikastaroaren ikuspegi orokorra blokea';
 $string['course_overview:myaddinstance'] = 'Gehitu ikastaroaren ikuspegi orokorra bloke berria Nire hasieran';
 $string['defaultmaxcourses'] = 'Berezko gehinenezko ikastaroak';
+$string['expandall'] = 'Zabaldu ikastaro-zerrenda guztiak';
 $string['forcedefaultmaxcourses'] = 'behartu gehienezko ikastaroak';
 $string['hiddencoursecount'] = '{$a} ikastaro dituzu ezkutuan';
 $string['hiddencoursecountplural'] = '{$a} ikastaro dituzu ezkutuan';
+$string['hiddencoursecountwithshowall'] = '{$a->coursecount} ikastaro dituzu ezkutuan ({$a->showalllink})';
 $string['hiddencoursecountwithshowallplural'] = '{$a->coursecount} ikastaro dituzu ezkutuan  ({$a->showalllink})';
 $string['message'] = 'mezua';
 $string['messages'] = 'mezuak';

@@ -181,6 +181,7 @@ $string['pluginadministration'] = '위키 관리';
 $string['pluginname'] = '위키';
 $string['prettyprint'] = '인쇄용 버전';
 $string['previewwarning'] = '미리보기 입니다. 변경한 것은 아직 저장되지 않았습니다.';
+$string['print'] = '인쇄';
 $string['rated'] = '이 페이지 등급을 {$a} 로 평가하였습니다.';
 $string['rating'] = '등급';
 $string['ratingmode'] = '등급 모드';

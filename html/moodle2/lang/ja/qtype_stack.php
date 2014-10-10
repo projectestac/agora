@@ -79,7 +79,7 @@ $string['AT_EmptySA'] = '評価対象が空欄のまま評価関数を実行し�
 $string['AT_EmptyTA'] = '評価対象が空欄のまま評価基準を実行しました。問題作成時にCASの評価で問題が生じます。';
 $string['ATFacForm_error_degreeSA'] = 'CASはあなたの解答を処理できませんでした。';
 $string['ATFacForm_error_list'] = 'この評価関数には不具合が含まれています。サイト管理者に問い合わせてください。';
-$string['ATFacForm_isfactored'] = 'よくできました。正しく因数分解できています。';
+$string['ATFacForm_isfactored'] = '形式的には因数分解できています。';
 $string['ATFacForm_notalgequiv'] = 'あなたの解答は正答と代数的に等価ではありません。どこか計算間違いをしていませんか？';
 $string['ATFacForm_notfactored'] = 'あなたの解答は因数分解されていません。';
 $string['ATInequality_backwards'] = '不等式が反対になっていませんか？';
@@ -486,11 +486,9 @@ $string['stackCas_MissingAt'] = '<code>@</code>が入力されていません。
 $string['stackCas_MissingCloseDisplay'] = '<code>]</code>が入力されていません。';
 $string['stackCas_MissingCloseHTML'] = 'HTMLタグを閉じ忘れています。';
 $string['stackCas_MissingCloseInline'] = '<code>)</code>が入力されていません。';
-$string['stackCas_MissingClosingHint'] = '/hint がありません';
 $string['stackCas_MissingDollar'] = '<code>$</code>が入力されていません。';
 $string['stackCas_missingLeftBracket'] = '左括弧がありません(<span class="stacksyntaxexample">{a->bracket}</span>)：{a->cmd}。';
 $string['stackCas_MissingOpenDisplay'] = '<code>[</code>が入力されていません。';
-$string['stackCas_MissingOpenHint'] = 'ヒントが開けません';
 $string['stackCas_MissingOpenHTML'] = 'HTMLの始まりタグを忘れています。';
 $string['stackCas_MissingOpenInline'] = '<code>(</code>が入力されていません。';
 $string['stackCas_missingRightBracket'] = '右かっこがありません(<span class="stacksyntaxexample">{a->bracket}</span>)：{a->cmd}。';

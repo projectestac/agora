@@ -31,4 +31,4 @@ $string['configplagiarismplugins'] = 'Kies de plagiaatsplugin die je wil configu
 $string['enableplagiarism'] = 'Plagiaatsplugins inschakelen';
 $string['manageplagiarism'] = 'Beheer plagiaatsplugins';
 $string['nopluginsinstalled'] = 'Er zijn geen plagiaatsplugins geïnstalleerd';
-$string['plagiarism'] = 'Plagiaatsbescherming';
+$string['plagiarism'] = 'Plagiaat';

@@ -26,3 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Mehrsprachiger Inhalt';
+$string['mode0'] = 'HTML';
+$string['mode1'] = 'Nicht-HTML';
+$string['mode2'] = 'Beide';
+$string['modenew'] = 'Syntax';
+$string['modenew_desc'] = 'Sie können eine <strong>Nicht-HTML</strong> Syntax á la  {mlang en}English{mlang}{mlang de}Deutsch{mlang} oder eine <strong>HTML</strong> Syntax, welche HTML Tags nutzt um die Sprache zu definieren, á la <p lang="en">English</p><p lang="de">Deutsch</p> nutzen. Wenn Sie <strong>Beide</strong> auswählen, werden beide Syntaxen aktiviert, die Verarbeitungszeit des Filters wird dabei aber auch verdoppelt.';

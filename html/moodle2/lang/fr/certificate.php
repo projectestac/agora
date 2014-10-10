@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'fr', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'fr', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,15 +42,11 @@ $string['borderlines'] = 'Lignes';
 $string['borderstyle'] = 'Image de bordure';
 $string['borderstyle_help'] = 'L\'option d\'image de bordure vous permet de choisir une image de bordure du dossier certificate/pix/borders. Choisissez l\'image que vous voulez pour les bords du certificat ou l\'option "pas de bordure".';
 $string['certificate'] = 'Vérification du code de certificat';
-$string['certificate:manage'] = 'Gérer le certificat';
 $string['certificatename'] = 'Nom du certificat';
-$string['certificate:printteacher'] = 'Être inscrit en tant que professeur sur le certificat si le réglage enseignant impression se trouve sur on.';
 $string['certificatereport'] = 'Rapport des certificats';
 $string['certificatesfor'] = 'Certificats pour';
-$string['certificate:student'] = 'Télécharger le certificat';
 $string['certificatetype'] = 'Types de certificats';
 $string['certificatetype_help'] = 'C\'est ici que vous déterminez la disposition du certificat. Le dossier de type de certificat inclut quatre certificats par défaut : A4 copies Incorporées sur papier de taille A4 avec police de caractères incorporée. A4 copies Non-incorporées sur papier  de taille A4 sans polices de caractères incorporées. Lettre copies Incorporées sur papier de taille de lettre avec police de caractères incorporée. Lettre copies Non-incorporées sur papier de taille de lettre sans polices de caractères incorporées. Les types non-incorporés utilisent les polices de caractères Times et Helvetica. Si vous estimez que vos utilisateurs n\'auront pas ces polices de caractères sur leur ordinateur, ou si votre langue utilise des caractères (personnages) ou les symboles qui ne sont pas satisfaits(arrangés) par le Helvetica et les polices de caractères de Temps, choisissent donc un type incorporé. Les types incorporés utilisent le Dejavusans et les polices de caractères Dejavuserif. Ceci rendra les fichiers(dossiers) de pdf plutôt grands; ainsi on ne cela recommande pas de n\'utiliser un type incorporé à moins que vous ne le deviez vraiment. Dossiers de type peuvent être ajoutés au certificat / type de dossier. Le nom du dossier et les chaînes du nouveau langage pour le nouveau type doit être ajoutée au fichier de langue certificat.';
-$string['certificate:view'] = 'Visualiser le certificat';
 $string['certify'] = 'Ceci est certifié par';
 $string['code'] = 'Code';
 $string['completiondate'] = 'Cours complet';

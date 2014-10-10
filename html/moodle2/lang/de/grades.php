@@ -401,8 +401,8 @@ $string['hidecalculations'] = 'Berechnungen verbergen';
 $string['hidecategory'] = 'Verborgen';
 $string['hideeyecons'] = 'Symbole zur Sichtbarkeit (Auge) verbergen';
 $string['hidefeedback'] = 'Feedback verbergen';
-$string['hideforcedsettings'] = 'Gesetzte Einstellungen verbergen';
-$string['hideforcedsettings_help'] = 'Keine voreingestellten Einträge im Bewertungsdialog anzeigen.';
+$string['hideforcedsettings'] = 'Vorgegebene Einstellungen verbergen';
+$string['hideforcedsettings_help'] = 'Keine vorgegebenen Einträge im Bewertungsdialog anzeigen.';
 $string['hidegroups'] = 'Gruppen verbergen';
 $string['hidelocks'] = 'Sperrungen verbergen';
 $string['hidenooutcomes'] = 'Lernziele zeigen';
@@ -424,7 +424,7 @@ $string['import'] = 'Import';
 $string['importcsv'] = 'CSV importieren';
 $string['importcustom'] = 'Import als individuelle Lernziele (nur für diesen Kurs)';
 $string['importerror'] = 'Es ist ein Fehler aufgetreten. Das Script wurde mit falschen Parametern gestartet.';
-$string['importfailed'] = 'Import gescheitert';
+$string['importfailed'] = 'Import gescheitert. Es wurden keine Daten importiert.';
 $string['importfeedback'] = 'Feedback importieren';
 $string['importfile'] = 'Importdatei';
 $string['importfilemissing'] = 'Es konnte keine Datei importiert werden. Gehen Sie noch einmal zu dem Formular zurück und prüfen Sie, ob die richtige Datei ausgewählt wurde.';
@@ -566,9 +566,7 @@ $string['overridden_help'] = '<h2>Überschreiben</h2>
 <p>Diese Funktion wird vielfach automatisch durch das Bewertungssystem aktiviert. Sie kann manuell an dieser Stelle an- und ausgeschaltet werden.</p>';
 $string['overriddennotice'] = 'Die endgültige Bewertung zu dieser Aktivität wurde manuell bearbeitet.';
 $string['overridesitedefaultgradedisplaytype'] = 'Voreinstellungen überschreiben';
-$string['overridesitedefaultgradedisplaytype_help'] = '<h2>Voreinstellungen für Site überschreiben</h2>
-<p>Die Checkkox erlaubt die systemweiten Voreinstellungen für die Bewertungen zu überschreiben. Danach besteht die Möglichkeit Gesamtnotenumrechnungen (Punktwerte in Noten) oder Begrenzungen anzupassen.
-</p>';
+$string['overridesitedefaultgradedisplaytype_help'] = 'Die Checkkox erlaubt die systemweiten Voreinstellungen für die Bewertungen zu überschreiben. Danach besteht die Möglichkeit Gesamtnotenumrechnungen (Punktwerte in Noten) oder Begrenzungen anzupassen.';
 $string['parentcategory'] = 'Übergeordnete Kategorie';
 $string['pctoftotalgrade'] = '% der Gesamtbewertung';
 $string['percent'] = 'Prozent';

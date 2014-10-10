@@ -299,7 +299,7 @@ $string['notacceptedrole'] = 'Je huidige rol behoort niet tot die rollen die een
 Als je wil zien wie al een badge verdient heeft, dan kan je volgende pagina bezoeken: {$a}';
 $string['notconnected'] = 'Niet verbonden';
 $string['nothingtoadd'] = 'Er zijn geen criteria beschikbaar om toe te voegen';
-$string['notification'] = 'Verwittig ontwerper van de badge';
+$string['notification'] = 'Waarschuw ontwerper van de badge';
 $string['notification_help'] = 'Deze instelling beheert de meldingen die naar een badge-ontwerper gestuurd worden als de badge wordt uitgereikt.
 
 Volgende opties zijn mogelijk:

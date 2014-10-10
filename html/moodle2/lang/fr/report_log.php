@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'Format des historiques';
 $string['log:view'] = 'Consulter les historiques du cours';
 $string['log:viewtoday'] = 'Consulter l\'historique du jour';
+$string['mnetlogwarning'] = 'Si vos clients MNet tournent sur Moodle 2.7 ou version ultérieure, il est possible que vous ne receviez aucun historique.';
 $string['page'] = 'Page {$a}';
 $string['page-report-log-index'] = 'Rapport d\'historiques de cours';
 $string['page-report-log-user'] = 'Rapport utilisateur d\'historiques de cours';

@@ -65,6 +65,7 @@ $string['pluginname'] = '開発データジェネレータ';
 $string['progress_checkaccounts'] = 'ユーザアカウント確認中 ({$a})';
 $string['progress_coursecompleted'] = 'コース完了 ({$a})';
 $string['progress_createaccounts'] = 'ユーザアカウント作成中 ({$a->from} - {$a->to})';
+$string['progress_createassignments'] = '課題を作成する ({$a})';
 $string['progress_createbigfiles'] = 'ビッグファイル作成中 ({$a})';
 $string['progress_createcourse'] = 'コース作成中 {$a}';
 $string['progress_createforum'] = 'フォーラム作成中 ({$a} 投稿)';

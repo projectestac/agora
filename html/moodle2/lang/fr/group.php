@@ -146,9 +146,9 @@ $string['javascriptrequired'] = 'Cette page requiert l\'activation de Javascript
 $string['members'] = 'Membres par groupe';
 $string['membersofselectedgroup'] = 'Membres de :';
 $string['namingscheme'] = 'Schéma de dénomination';
-$string['namingscheme_help'] = 'Le caractère arobase (@) peut être utilisé pour créer des groupes contenants des lettres. Par exemple, « Groupe @ » générera des groupes nommés « Groupe A », « Groupe B », « Groupe C », etc.
+$string['namingscheme_help'] = 'Le caractère arobase (@) peut être utilisé pour créer des groupes contenant des lettres. Par exemple, « Groupe @ » générera des groupes nommés « Groupe A », « Groupe B », « Groupe C », etc.
 
-Le caractère dièze (#) peut être utilisé pour créer des groupes contenants des nombres. Par exemple, « Groupe # » générera des groupes nommés « Groupe 1 », « Groupe 2 », « Groupe 3 », etc.';
+Le caractère dièse (#) peut être utilisé pour créer des groupes contenant des nombres. Par exemple, « Groupe # » générera des groupes nommés « Groupe 1 », « Groupe 2 », « Groupe 3 », etc.';
 $string['newgrouping'] = 'Nouveau groupement';
 $string['newpicture'] = 'Nouvelle image';
 $string['newpicture_help'] = 'Sélectionnez une image en format JPG ou PNG.  L\'image sera redimensionnée en un carré de 100x100 pixels.';

@@ -262,6 +262,7 @@ $string['groupnotaddederror'] = 'Le groupe « {$a} » n\'a pas été ajouté';
 $string['groupnotaddedtogroupingerror'] = 'Groupe {$a->groupname} pas ajouté au groupement {$a->groupingname}';
 $string['groupunknown'] = 'Le groupe {$a} n\'est pas associé au cours indiqué';
 $string['groupusernotmember'] = 'L\'utilisateur n\'est pas membre de ce groupe.';
+$string['guestcantaccessprofiles'] = 'Les utilisateurs anonymes ne peuvent pas consulter les profils utilisateurs. Veuillez vous connecter avec un compte utilisateur pour continuer.';
 $string['guestnocomment'] = 'Les visiteurs anonymes ne peuvent pas ajouter de commentaires';
 $string['guestnoeditprofile'] = 'Les visiteurs anonymes ne peuvent pas modifier leur profil';
 $string['guestnoeditprofileother'] = 'Le profil du compte « Visiteur anonyme » ne peut pas être modifié';

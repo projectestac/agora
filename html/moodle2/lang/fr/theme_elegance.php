@@ -44,42 +44,34 @@ $string['bannertext'] = 'Texte de la diapo';
 $string['bannertextdesc'] = 'Texte à afficher sur la diapositive';
 $string['bannertitle'] = 'Titre de la diapo';
 $string['bannertitledesc'] = 'Nom de cette diapositive';
+$string['blog'] = 'URL du blog';
+$string['blogdesc'] = 'Entrez l\'URL du blog de votre organisation (par ex. http://www.moodleman.net)';
 $string['bodybg'] = 'Image de fond';
 $string['bodybgdesc'] = 'Si vous souhaitez remplacer le fond standard, vous pouvez télécharger votre propre ici.<br />
 <strong>Astuce</strong> : vous pouvez l\'utiliser pour montrer à travers le contenu de Moodle en utilisant l\'option de transparence ci-dessous.';
 $string['bodycolor'] = 'Couleur de fond';
 $string['bodycolordesc'] = 'Couleur par défaut si aucune image n\'est téléchargée';
+$string['categoryicondesc'] = 'Sélectionnez l’icône à utiliser pour cette catégorie';
+$string['categoryiconheading'] = 'Icône de catégorie';
+$string['categoryiconheadingdesc'] = 'Si elle est activée, cela vous permettra de définir des icônes pour chaque catégorie de cours.';
+$string['categoryiconheadingsub'] = 'Utilisez les icônes pour représenter vos catégories.';
+$string['categoryiconinfo'] = 'Réglage des icônes de catégorie';
+$string['categoryiconinfodesc'] = 'Chaque icône est définie par un "ID de catégorie". Vous les trouverez en regardant l\'URL ou à chaque catégorie. La liste est <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">ici</a>. Il suffit de saisir ce qui est après le « fa- ».';
 $string['choosereadme'] = '<div class="clearfix">
 <div class="well">
 <h2>Elegance Theme</h2>
 <p><img class=img-polaroid src="elegance/pix/screenshot.jpg" /></p>
-</div>
-<div class="well">
-<h3>À propos</h3>
 <p>Élégance est un thème à 2 colonne, épuré et hautement personnalisable construit avec  Bootstrap 3.</p>
-<h3>Crédits</h3>
-<p>Auteur : Julian (Moodleman) Ridden<br>
-Contact : julian@moodleman.net<br>
-Site web : <a href="http://moodleman.net">www.moodleman.net</a>
-</p>
-<p>Support Auteur : Bas Brands (pour  Bootstrap 3 )<br>
-Contact : bas@sonsbeekmedia.nl<br>
-Site web : <a href="http://www.basbrands.nl">www.basbrands.nl</a>
-</p>
-<h3>Signaler un bogue :</h3>
-<p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p>
-<h3>Faire un don si vous le pouvez</h3>
-<p>Élégance, et tous mes thèmes, seront toujours libres pour la communauté Moodle. Cependant, le temps  pour créer  et maintenir ces derniers est en augmentation  à chaque nouvelle version. Si vous aimez ce thème et le soutien que j\'ai fournis dans les forums, je voudrais vous encourager à faire un don avec le bouton ci-dessous. Ce n\'est en aucun cas nécessaire pour utiliser ce thème.</p>
-
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KNV2ZPHCYTB8E" class="btn btn-lrg btn-info">Donner AUD$15</a>
-
 </div></div>';
 $string['colorsettings'] = 'Logos et couleurs';
 $string['colorsettingsdesc'] = 'Déposer vos logos et changez les couleurs du thème avec ces paramètres.';
+$string['colorsettingssub'] = 'Changez le look';
 $string['configtitle'] = 'Élégance';
+$string['copyright'] = 'Copyright';
 $string['copyrightdesc'] = 'Le nom de votre organisation.';
 $string['customcss'] = 'CSS personnalisée';
 $string['customcssdesc'] = 'Les règles CSS que vous indiquez ici seront utilisées dans chaque page, ce qui permet la personnalisation simplifiée de ce thème.';
+$string['customlinkicon'] = 'Icône du lien';
 $string['customlinkicondesc'] = 'Nom de l\'icône que vous souhaitez utiliser à côté de votre lien.<br /> La liste est <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">ici</a>. Il suffit de saisir ce qui est après le « fa- ».';
 $string['customlinkindicator'] = 'Choisir le numéro de lien';
 $string['customlinkindicatordesc'] = 'Paramétrer ce lien personnalisé';
@@ -87,6 +79,8 @@ $string['customlinkname'] = 'Nom du lien';
 $string['customlinknamedesc'] = 'Nom de votre lien affiché aux utilisateurs';
 $string['customlinkurl'] = 'URL de destination';
 $string['customlinkurldesc'] = 'Le chemin d\'accès complet ou relatif de l\'URL de destination.';
+$string['defaultcategoryicon'] = 'Icône de catégorie par défaut';
+$string['defaultcategoryicondesc'] = 'Si vous n\'entrez pas de valeur dans l\'une de vos catégories ci-dessous, cette valeur par défaut sera utilisée. C\'est un moyen facile de changer rapidement de nombreuses icônes de catégorie.';
 $string['displayafterlogin'] = 'Afficher seulement après la connexion';
 $string['displaybeforelogin'] = 'Afficher avant connexion uniquement';
 $string['dontdisplay'] = 'Ne jamais afficher';
@@ -96,6 +90,8 @@ $string['enablebanner'] = 'Activez cette diapositive';
 $string['enablebannerdesc'] = 'Allez-vous utiliser cette diapositive';
 $string['enablecalendar'] = 'Calendrier de l\'utilisateur';
 $string['enablecalendardesc'] = 'Afficher un lien vers le calendrier des utilisateurs';
+$string['enablecategoryicon'] = 'Activer les icônes de catégorie';
+$string['enablecategoryicondesc'] = 'Si elle est activée, vous serez en mesure de sélectionner les icônes de catégorie après avoir cliqué sur "Enregistrer les modifications".';
 $string['enablecustomlogin'] = 'Utiliser un login personalisé';
 $string['enablecustomlogindesc'] = 'Si cette option est activée, la version augmentée de l\'écran de connexion sera utilisée. Décocher la case pour revenir à la version par défaut de Moodle.<br />La version augmentée vous permet de télécharger un arrière-plan aux diapositives et de vraiment ajouter du punch à votre charte graphique.';
 $string['enableeditprofile'] = 'Modifier le profil';
@@ -111,21 +107,30 @@ $string['facebookdesc'] = 'Saisir l\'URL de votre page Facebook.';
 $string['flickr'] = 'URL Flickr';
 $string['flickrdesc'] = 'Saisir l\'URL de votre page Flickr';
 $string['fluidwidth'] = 'Largeur du thème';
+$string['fluidwidthdesc'] = 'Activer cette option pour permettre l\'affichage plein écran.';
 $string['fontcolor'] = 'Couleur de police';
 $string['fontcolordesc'] = 'Définit la couleur principale de la police utilisée dans l\'ensemble du site.';
 $string['fonticons'] = 'Utiliser la police Icon';
 $string['fonticonsdesc'] = 'Activer cette option pour utiliser la police Glyphicon Icon';
 $string['footnote'] = 'Note de bas de page';
+$string['footnotedesc'] = 'Tout ce que vous ajoutez à cette zone de texte sera affiché dans le pied de page tout de votre site Moodle.';
 $string['frontpagecontent'] = 'Contenu de la page d’accueil';
 $string['frontpagecontentdesc'] = 'Cet emplacement sera mis en évidence sous la diapo sur la page d’accueil';
 $string['geneicsettings'] = 'Paramètres généraux';
 $string['googleplus'] = 'URL Google+';
 $string['googleplusdesc'] = 'Saisir l\'URL de votre profil Google+';
+$string['headerbg'] = 'Image en arrière-plan du fil d’Ariane';
+$string['headerbgdesc'] = 'Si vous voulez remplacer l\'arrière-plan par défaut vous pouvez télécharger votre propre image ici. <br> La taille recommandée est 110 px de haut par 1 600 px de large. L\'image sera tuilée si petit. <br> <strong>Astuce cool</ strong>: Si votre image utilise la transparence, la couleur du thème se verra au travers.';
+$string['headingcolor'] = 'Couleurs des titres';
 $string['headingcolordesc'] = 'Régler la couleur utilisée pour la majorité des rubriques sur tout le site.';
+$string['instagram'] = 'URL d\'Instagram';
+$string['instagramdesc'] = 'Enter l\'URL de votre page Instagram. (par ex. http://instagram.com/moncollege)';
 $string['invert'] = 'Inverser la barre de navigation';
 $string['invertdesc'] = 'Intervertir les couleurs du texte et du fond pour la barre de navigation en haut de la page entre le noir et blanc.';
 $string['linkedin'] = 'URL LinkedIn';
 $string['linkedindesc'] = 'Saisir l\'URL de votre profil LinkedIn';
+$string['loginbgumber'] = 'Nombre d\'arrière-plan';
+$string['loginbgumberdesc'] = 'Combien d\'images en d\'arrière-plan devrait tourner lorsque la page de connexion est affichée ?';
 $string['loginimage'] = 'Image de fond';
 $string['loginimagedesc'] = 'La taille idéale pour les images d\'arrière-plan est 1200x800 pixels';
 $string['loginsettings'] = 'Écran de connexion';
@@ -140,10 +145,12 @@ $string['marketing3'] = 'Spot marketing trois';
 $string['marketing4'] = 'Spot marketing quatre';
 $string['marketingbuttontext'] = 'Lien texte';
 $string['marketingbuttontextdesc'] = 'Texte à afficher sur le bouton.';
+$string['marketingbuttonurl'] = 'Lien URL';
 $string['marketingbuttonurldesc'] = 'URL vers laquelle pointe le bouton.';
 $string['marketingcontent'] = 'Contenu';
 $string['marketingcontentdesc'] = 'Contenu à afficher dans la boîte de marketing. Soyez bref et concis.';
 $string['marketingdesc'] = 'Ce thème offre la possibilité d\'afficher trois « annonces » ou « spots publicitaires » au-dessous du diaporama. Ces spots permettent à vos utilisateurs d\'identifier facilement les informations essentielles et de fournir des liens directs.';
+$string['marketingheading'] = 'Spots marketing';
 $string['marketingheadingsub'] = 'Trois emplacements sur la première page pour ajouter des informations et des liens';
 $string['marketingheight'] = 'Taille des images marketing';
 $string['marketingheightdesc'] = 'Si vous souhaitez afficher des images dans les boîtes de marketing, vous pouvez spécifier leur hauteur ici.';
@@ -156,8 +163,12 @@ $string['marketingtitle'] = 'Titre';
 $string['marketingtitledesc'] = 'Titre à afficher dans ce spot marketing';
 $string['marketingtitleicon'] = 'Icône de titre';
 $string['marketingtitleicondesc'] = 'Nom de l\'icône que vous souhaitez utiliser dans le titre du spot marketing. La liste se trouve <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">ici</a>. Il suffit de saisir ce qui est après le « fa- ».';
+$string['moodlemobilecss'] = 'CSS Moodle Mobile';
+$string['moodlemobilecssdesc'] = 'L\'application mobile Moodle vous permet de définir une feuille de style externe pour le style de l\'application. Quel que soit les règles CSS que vous ajoutez à cette zone de texte sera affiché dans l\'application officielle Moodle Mobile. Il suffit de copier l\'URL ci-dessous et de le stocker dans le "mobilecssurl" mise sous "Web Services -> Mobile"';
 $string['mydashboard'] = 'Mon tableau de bord';
 $string['nextsection'] = 'Section suivante';
+$string['pinterest'] = 'URL Pinterest';
+$string['pinterestdesc'] = 'Entrer l\'URL de votre page Pinterest. (Par ex. http://pinterest.com/moncollege)';
 $string['pluginname'] = 'Élégance';
 $string['previoussection'] = 'Section précédente';
 $string['quicklinkbuttoncolor'] = 'Couleur du bouton';
@@ -186,6 +197,8 @@ $string['region-hidden-dock'] = 'Administrateur uniquement';
 $string['region-side-middle'] = 'Milieu de la page d\'accueil';
 $string['region-side-post'] = 'Droite';
 $string['region-side-pre'] = 'Gauche';
+$string['showoldmessages'] = 'Afficher les messages anciens';
+$string['showoldmessagesdesc'] = 'Afficher les messages anciens dans le menu d\'affichage des messages';
 $string['skype'] = 'Compte Skype';
 $string['skypedesc'] = 'Saisir le nom d\'utilisateur de votre compte Skype de société';
 $string['slidenumber'] = 'Nombre de diapos';
@@ -196,6 +209,20 @@ $string['socialdesc'] = 'Fournit des liens directs vers les principaux réseaux 
 $string['socialheading'] = 'Réseaux sociaux';
 $string['socialheadingsub'] = 'Connectez-vous à vos utilisateurs avec les réseaux sociaux';
 $string['socialnetworks'] = 'Réseaux sociaux';
+$string['socialnetworksicondescriptionblog'] = 'Lisez notre blog';
+$string['socialnetworksicondescriptionfacebook'] = 'Aimez nous sur Facebook';
+$string['socialnetworksicondescriptionflickr'] = 'Regardez nous sur Flickr';
+$string['socialnetworksicondescriptiongoogleplus'] = 'Suivez nous sur Google Plus+';
+$string['socialnetworksicondescriptioninstagram'] = 'Trouvez nous sur Instagram';
+$string['socialnetworksicondescriptionlinkedin'] = 'Connectez vous à nous sur LinkedIn';
+$string['socialnetworksicondescriptionpinterest'] = 'Épinglez nous sur Pinterest';
+$string['socialnetworksicondescriptionskype'] = 'Appelez nous avec Skype';
+$string['socialnetworksicondescriptiontumblr'] = 'Trouvez nous sur Tumblr';
+$string['socialnetworksicondescriptiontwitter'] = 'Suivez nous sur Twitter';
+$string['socialnetworksicondescriptionvimeo'] = 'Regardez nous sur Vimeo';
+$string['socialnetworksicondescriptionvk'] = 'Aimez nous sur VK';
+$string['socialnetworksicondescriptionwebsite'] = 'Visitez notre site';
+$string['socialnetworksicondescriptionyoutube'] = 'Regardez nous sur Youtube';
 $string['themecolor'] = 'Couleur du thème';
 $string['themecolordesc'] = 'Définit la couleur de « surbrillance » de votre thème. Cette couleur est également utilisé pour les liens hypertextes';
 $string['togglemarketing'] = 'Affichage du spot marketing';
@@ -211,14 +238,17 @@ $string['twitterdesc'] = 'Saisir l\'URL de votre flux Twitter';
 $string['usermenulinks'] = 'Nombre de liens personnalisés';
 $string['usermenulinksdesc'] = 'Définit le nombre de liens supplémentaires que vous souhaitez fournir à vos utilisateurs.<br />Veuillez enregistrer les paramètres pour faire  apparaître les nouvelles options de liens.';
 $string['usermenusettings'] = 'Menu utilisateur';
-$string['usermenusettingssub'] = 'Options pour les utilisateurs connectés';
+$string['usermenusettingsdesc'] = 'Détermine quel lien sera affiché dans le menu utilisateur une fois connecté.';
+$string['usermenusettingssub'] = 'Options pour les utilisateurs connectés.';
 $string['videowidth'] = 'Définir la largeur de visionnage maxi des video';
 $string['videowidthdesc'] = 'Ce thème détermine dynamiquement la taille d\'affichage des vidéo intégrées. Par défaut, il utilise 100% de largeur. Vous pouvez modifier ce paramètre ici.<br />
-<strong>Remarque importante :</strong> N\'oubliez pas d\'ajouter un % ou px après le nombre sans quoi cela ne fonctionnera pas';
+<strong>Remarque importante :</strong> N\'oubliez pas d\'ajouter un % ou px après le nombre sans quoi cela ne fonctionnera pas.';
 $string['vimeo'] = 'URL Vimeo';
 $string['vimeodesc'] = 'Saisir l\'URL de votre chaine Vimeo';
-$string['visibleadminonly'] = 'Les blocs déplacés dans la zone ci-dessous ne seront visibles que par les administrateurs';
+$string['visibleadminonly'] = 'Les blocs déplacés dans la zone ci-dessous ne seront visibles que par les administrateurs.';
 $string['vk'] = 'URL VKontakte';
 $string['vkdesc'] = 'Saisir l\'URL de votre page Vkontakte';
+$string['website'] = 'URL du site';
+$string['websitedesc'] = 'Entrer l\'URL de votre site. (Par ex. http://fael.fr)';
 $string['youtube'] = 'URL YouTube';
 $string['youtubedesc'] = 'Saisir l\'URL de votre chaîne YouTube';

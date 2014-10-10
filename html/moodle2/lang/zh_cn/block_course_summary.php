@@ -27,4 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = '课程简介';
 $string['course_summary:addinstance'] = '添加一个课程/网站描述版块';
-$string['pluginname'] = '课程/网站描述';
+$string['pluginname'] = '课程/网站简介';

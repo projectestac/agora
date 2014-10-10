@@ -104,6 +104,8 @@ $string['email_notification_help'] = '활성화가 되면, 관리자는 피드�
 $string['emailteachermail'] = '{$a->username} 가 \'{$a->feedback}\' 피드백 활동을 완료하였습니다. {$a->url} 에서 결과를 볼 수 있습니다.';
 $string['emailteachermailhtml'] = '{$a->username} 가 <i>\'{$a->feedback}\'</i><br/><br/> 피드백 활동을 완료하였습니다. <a href="{$a->url}">여기</a> 에서 결과를 볼 수 있습니다.';
 $string['entries_saved'] = '응답 저장됨. 감사합니다.';
+$string['eventresponsedeleted'] = '응답이 삭제되었습니다.';
+$string['eventresponsesubmitted'] = '응답이 제출되었습니다.';
 $string['export_questions'] = '질문 내보내기';
 $string['export_to_excel'] = '엑셀로 내보내기';
 $string['feedback:addinstance'] = '새 피드백 추가';

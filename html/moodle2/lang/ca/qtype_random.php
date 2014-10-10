@@ -31,6 +31,6 @@ $string['pluginname'] = 'Aleatòria';
 $string['pluginnameediting'] = 'S\'està editant una pregunta aleatòria';
 $string['pluginname_help'] = 'Una pregunta a l\'atzar no és un tipus de pregunta com a tal, però és una forma de la inserció d\'una pregunta a l\'atzar elegida a partir d\'una categoria especificada en una activitat.';
 $string['randomqname'] = 'Aleatòria ({$a})';
-$string['randomqplusname'] = 'Aleatòria ({$a} i les sub-categories)';
+$string['randomqplusname'] = 'Aleatòria ({$a} i les subcategories)';
 $string['selectedby'] = '{$a->questionname} seleccionada per {$a->randomname}';
 $string['selectmanualquestions'] = 'Les preguntes aleatòries poden emprar preguntes qualificades manualment.';

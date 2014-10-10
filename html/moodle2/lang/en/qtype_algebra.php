@@ -81,6 +81,7 @@ $string['disallow_help'] = 'contains an expression which will be disallowed as a
 Students entering an answers which matches this will be prevented from
 receiving any grade for the question even if the response would match
 a given answer for the question.';
+$string['displayresponse'] = 'Display response';
 $string['dollars'] = '$$...$$';
 $string['duplicatevar'] = 'Duplicated variable name: \'{$a}\' is already defined.';
 $string['editingalgebra'] = 'Editing an Algebra question';
@@ -90,7 +91,7 @@ $string['filloutonevariable'] = 'You must provide at least one variable.';
 $string['host'] = 'Host url of SAGE server';
 $string['illegalplusminus'] = 'Found a + or - in an invalid location';
 $string['illegalvarname'] = 'Illegal variable name \'{$a}\': same name as a parser function or special constant.';
-$string['mismatchedbracket'] = 'Mismatched brackets: Open and close bracket pair not of same type \'$a';
+$string['mismatchedbracket'] = 'Mismatched brackets: Open and close bracket pair not of same type \'{$a}';
 $string['mismatchedcloseb'] = 'Mismatched brackets: Close bracket without an open bracket found';
 $string['mismatchedopenb'] = 'Mismatched brackets: Open bracket without a close bracket found';
 $string['missingonearg'] = 'Syntax Error: Operator \'{$a}\' missing its argument';

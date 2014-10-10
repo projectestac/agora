@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configlog'] = 'Einstellungen konfigurieren';
+$string['configlog'] = 'Konfigurationsänderungen';
 $string['oldvalue'] = 'Ursprünglicher Wert';
 $string['plugin'] = 'Plugin';
 $string['pluginname'] = 'Änderungen der Konfiguration';

@@ -196,6 +196,7 @@ $string['typegroup'] = '모둠 일정';
 $string['typesite'] = '사이트 일정';
 $string['typeuser'] = '사용자 일정';
 $string['upcomingevents'] = '예정된 행사';
+$string['upcomingeventsfor'] = '다가오는 이벤트:';
 $string['urlforical'] = '달력에 기재할 iCalendar 내보냄을 위한 URL';
 $string['user'] = '사용자';
 $string['userevent'] = '사용자 행사';

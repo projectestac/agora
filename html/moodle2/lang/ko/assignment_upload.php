@@ -25,4 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_assessable_submitted'] = '업로드 제출물이 제출되었습니다.';
+$string['event_assessable_uploaded'] = '파일이 업로드 되었습니다.';
 $string['pluginname'] = '올리기';

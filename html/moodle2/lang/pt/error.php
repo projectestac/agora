@@ -346,7 +346,7 @@ $string['invalidurl'] = 'URL inválido';
 $string['invaliduser'] = 'Utilizador inválido';
 $string['invaliduserfield'] = 'Campo de utilizador inválido: {$a}';
 $string['invaliduserid'] = 'Id do utilizador inválido';
-$string['invalidusername'] = 'O nome de utilizador contém carateres inválidos';
+$string['invalidusername'] = 'O nome de utilizador contém caracteres inválidos';
 $string['invalidxmlfile'] = '"{$a}" não é um ficheiro XML válido';
 $string['iplookupfailed'] = 'Não é possível encontrar informação geográfica sobre este endereço IP {$a}';
 $string['iplookupprivate'] = 'Não é possível exibir a pesquisa de endereço de IP privado';
@@ -446,7 +446,7 @@ $string['pluginrequirementsnotmet'] = 'O módulo "{$a->pluginname}"  ({$a->plugi
 $string['prefixcannotbeempty'] = '<p> Erro: O prefixo da tabela da base de dados não pode estar vazio ({$a}) </p>
  <p> O administrador do site deve corrigir esse problema.</p>';
 $string['prefixtoolong'] = '<p>Erro: O prefixo da tabela da base de dados é muito longo ({$a->dbfamily})</p>
-<p>O administrador do site deve corrigir esse problema. O comprimento máximo para prefixos na tabela {$a->dbfamily} é {$a->maxlength} carateres.</p>';
+<p>O administrador do site deve corrigir esse problema. O comprimento máximo para prefixos na tabela {$a->dbfamily} é {$a->maxlength} caracteres.</p>';
 $string['processingstops'] = 'O processamento terminou aqui. Os restantes registos foram ignorados.';
 $string['protected_cc_not_supported'] = 'Não é permitido Protected cartridges';
 $string['querystringcannotbeempty'] = 'A query string não pode ficar vazia.';

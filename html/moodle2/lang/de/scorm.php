@@ -126,12 +126,12 @@ $string['firstaccess'] = 'Erster Zugang';
 $string['firstattempt'] = 'Erster Versuch';
 $string['floating'] = 'Umfliessen';
 $string['forcecompleted'] = 'Abschluss einfordern';
-$string['forcecompleteddesc'] = 'Diese Einstellung setzt den Standardwert für die Einstellung "Abschluss einfordern"';
+$string['forcecompleteddesc'] = 'Diese Einstellung setzt den Standardwert für die Einstellung \'Abschluss einfordern\'';
 $string['forcecompleted_help'] = 'Mit dieser Einstellung \'Abschluss einfordern\' wird sicher gestellt, dass ein Versuch als \'abgeschlossen\' registriert wird. Dies funktioniert nur mit SCORM 1.2.';
-$string['forcejavascript'] = 'Zur Aktivierung von JavaScript auffordern';
+$string['forcejavascript'] = 'Aktivierung von JavaScript einfordern';
 $string['forcejavascript_desc'] = 'Lernpakete erfordern JavaScript zur Kommunikation zwischen dem Lernpaket und Moodle, z.B. um Bewertungen zu übergeben. Mit dieser Funktion wird der Zugriff auf ein Lernpaket lesend möglich, wenn JavaScript im Browser nicht verfügbar ist. Es werden jedoch keine Bewertungen abgespeichert. Es wird empfohlen, diese Funktion zu aktivieren.';
 $string['forcejavascriptmessage'] = 'Um dieses Objekt anzuzeigen ist JavaScript notwendig. Bitte aktivieren Sie JavaScript für Ihren Browser und versuchen Sie es nochmal.';
-$string['forcenewattempt'] = 'Neuen Versuch erzwingen';
+$string['forcenewattempt'] = 'Neuen Versuch einfordern';
 $string['forcenewattemptdesc'] = 'Wenn aktiviert, wird jeder Zugriff auf das Lernpaket als neuer Versuch betrachtet.';
 $string['forcenewattempt_help'] = '<h2>Neuen Versuch erzwingen</h2>
 
@@ -259,8 +259,8 @@ $string['popupmenu'] = 'In einem Dropdown-Menü';
 $string['popupopen'] = 'Lernpaket in neuem Fenster öffnen';
 $string['popupsblocked'] = 'Es scheint so als ob Popup-Fenster blockiert sind. Das Lernpaket kann nicht angezeigt werden. Bitte prüfen Sie Ihre Browsereinstellungen, bevor Sie es noch einmal probieren.';
 $string['position_error'] = 'Das Tag {$a-tag} kann nicht Kind (Child) des Tags {$a->parent} sein';
-$string['preferencespage'] = 'Voreinstellungen für diese Seite';
-$string['preferencesuser'] = 'Voreinstellungen für diese Übersicht';
+$string['preferencespage'] = 'Einstellungen für diese Seite';
+$string['preferencesuser'] = 'Einstellungen für diese Übersicht';
 $string['prev'] = 'Zurück';
 $string['raw'] = 'Rohpunktwert';
 $string['regular'] = 'Reguläres Manifest';
@@ -378,6 +378,6 @@ Hinweise zur Nutzung mehrfacher Versuche:
 
 * Die Option zum Starten eines neuen Versuchs wird mit einer Checkbox auf der Übersichtsseite angezeigt. Prüfen Sie, ob Sie mehr als einen Versuch zulassen möchten.
 * Einige Lernpakete unterstützen erneute Versuchen, viele aber nicht. Wenn Teilnehmer/innen erneut in einen bereits beendeten Versuch einsteigen, könnte die Bewertung des vorherigen Versuchs überschrieben werden, selbst wenn der Versuch als \'abgeschlossen\' oder \'erfolgreich\' markiert war.
-* Die Einstellungen \'Abschluss erzwingen\', \'Neuen Versuch erzwingen\' und \'Nach letztem Versuch sperren\' bieten zusätzliche Möglichkeiten für mehrerer Versuche.';
+* Die Einstellungen \'Abschluss einfordern\', \'Neuen Versuch einfordern\' und \'Nach letztem Versuch sperren\' bieten zusätzliche Möglichkeiten für mehrerer Versuche.';
 $string['width'] = 'Breite';
 $string['window'] = 'Fenster';

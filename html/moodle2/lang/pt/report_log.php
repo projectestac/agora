@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'Formato dos registos de atividade';
 $string['log:view'] = 'Ver registos de atividade';
 $string['log:viewtoday'] = 'Ver registos de atividade de hoje';
+$string['mnetlogwarning'] = 'Se os seus clientes MNet estão a executar o Moodle 2.7 ou superior, é possível que não receba nenhum registo.';
 $string['page'] = 'Página {$a}';
 $string['page-report-log-index'] = 'Registos de atividade na disciplina';
 $string['page-report-log-user'] = 'Registos da atividade do utilizador na disciplina';

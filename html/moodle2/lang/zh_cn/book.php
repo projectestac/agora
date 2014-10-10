@@ -40,23 +40,29 @@ $string['customtitles_help'] = '章标题通常显示目录中，并做为正文
 
 如果自定义标题复选框被勾选，就不会在正文上方显示章标题。可以在正文中输入一个不同的标题（可以比章标题长）。';
 $string['editingchapter'] = '编辑章节';
-$string['errorchapter'] = '读取章节发生错误';
+$string['errorchapter'] = '读取图书章节发生错误。';
 $string['modulename'] = '图书';
-$string['modulename_help'] = '图书是一种简单的多页学习资料。';
+$string['modulename_help'] = '通过图书模块，教师可以用类似书本的格式创建一份多页的资源，并且可以分章节和子章节。图书可以包含媒体文件和文本，可以有很长的篇幅，并且可以分节。
+
+图书可以用来
+
+* 呈现某学习模块的阅读材料
+* 做员工手册
+* 做学生学习成果的展示台';
 $string['modulenameplural'] = '图书';
 $string['navexit'] = '退出图书';
 $string['navnext'] = '下一个';
 $string['navprev'] = '前一个';
 $string['nocontent'] = '该图书尚未被添加任何内容。';
-$string['numbering'] = '章节编号';
+$string['numbering'] = '章节格式';
 $string['numbering0'] = '无';
 $string['numbering1'] = '数字';
 $string['numbering2'] = '项目列表';
 $string['numbering3'] = '缩进';
-$string['numbering_help'] = '* 无 - 章及节的标题都完全不做格式化。如果您想自定义特殊编号方式，就选这个。例如：在章节标题输入“A 第一章”，“A.1 某小节”，……
-* 编号 - 章及节都是编号的（1，1.1，1.2，2，……）
-* 项目符号 - 节是缩进的并且带有项目符号
-* 缩进 - 节是缩进的';
+$string['numbering_help'] = '* 无 - 章节标题都完全不做格式化
+* 编号 - 章节都是编号的（1，1.1，1.2，2，……）
+* 项目符号 - 小节在目录中是缩进的并且带有项目符号
+* 缩进 - 小节在目录中是缩进的';
 $string['numberingoptions'] = '可用的编号选项';
 $string['numberingoptions_desc'] = '选择在创建图书时可用的编号选项。';
 $string['page-mod-book-x'] = '任意图书模块页';

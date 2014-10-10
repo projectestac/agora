@@ -25,10 +25,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['clientid'] = '클라이언트 ID';
+$string['clientsecret'] = '클라이언트 암호';
 $string['existingfolder'] = '파일을 넣어둘 기존 폴더';
 $string['folderclash'] = '생성 요청한 폴더는 이미 존재함!';
 $string['foldercreatefailed'] = 'box.net에 폴더 생성 실패';
 $string['folderlistfailed'] = 'box.net에서 폴더목록 가져오기 실패';
+$string['missinghttps'] = 'HTTPS 가 필요합니다';
+$string['missinghttps_help'] = 'Box는 HTTPS 가 활성화된 웹사이트에서만 사용할 수 있습니다.';
+$string['missingoauthkeys'] = '누락된 클라이언트 ID와 암호';
 $string['newfolder'] = '파일을 저장할 새 폴더';
 $string['noauthtoken'] = '본 세션에서 사용할 수 있는 인증 획득 실패';
 $string['notarget'] = '기존의 폴더와 새 폴더를 지정해야만 함';

@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configintrotimezones'] = 'Die Einstellungen zu den Zeitzonen inkl. aller Sommerzeitregelungen werden aktualisiert. Die nachfolgenden Speicherorte werden in der angegebenen Reihenfolge geprüft: {$a} Möchten Sie die Zeitzonen jetzt aktualisieren?';
+$string['configintrotimezones'] = 'Die Einstellungen zu den Zeitzonen (inkl. aller Sommerzeitregelungen) werden aktualisiert. Die nachfolgenden Speicherorte werden in der angegebenen Reihenfolge geprüft: {$a} Möchten Sie die Zeitzonen jetzt aktualisieren?';
 $string['importtimezones'] = 'Liste der Zeitzonen aktualisieren';
 $string['importtimezonescount'] = '{$a->count} Einträge importiert von {$a->source}';
 $string['importtimezonesfailed'] = 'Keine Daten gefunden!';
-$string['pluginname'] = 'Zeitzonenupdate';
+$string['pluginname'] = 'Zeitzonen aktualisieren';
 $string['updatetimezones'] = 'Zeitzonen aktualisieren';

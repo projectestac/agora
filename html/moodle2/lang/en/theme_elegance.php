@@ -165,6 +165,8 @@ $string['marketingtitle'] = 'Title';
 $string['marketingtitledesc'] = 'Title to show in this marketing spot.';
 $string['marketingtitleicon'] = 'Heading Icon';
 $string['marketingtitleicondesc'] = 'Name of the icon you wish to use in the heading for the marketing spots. List is <a href="http://fontawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>.  Just enter what is after the "fa-".';
+$string['moodlemobilecss'] = 'Moodle Mobile CSS';
+$string['moodlemobilecssdesc'] = 'The Moodle Mobile Application allows you to define an external stylesheet to style the application.  Whatever CSS rules you add to this textarea will be displayed in the official Moodle Mobile application.  Simply copy the URL below and store it in the "mobilecssurl" setting under "Web Services -> Mobile".';
 $string['mydashboard'] = 'My Dashboard';
 $string['nextsection'] = 'Next Section';
 $string['pinterest'] = 'Pinterest URL';

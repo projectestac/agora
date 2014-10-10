@@ -245,8 +245,10 @@ $string['canrestartchain'] = 'Your results so far will be saved but if you want 
 $string['canrestarttask'] = 'Your results so far will be saved and you can redo "{$a}" later';
 $string['canresumetask'] = 'Your results so far will be saved and you can resume "{$a}" later.';
 $string['chain'] = 'TaskChain activity';
+$string['chainattempt'] = 'Chain attempt';
 $string['chainattemptnotinprogress'] = 'Chain attempt not in progress';
 $string['chainclosed'] = 'Sorry, this activity closed on {$a}';
+$string['chaingrade'] = 'Chain grade';
 $string['chainname_help'] = 'The name of this TaskChain activity that will be displayed on the course page';
 $string['chainnotavailable'] = 'Sorry this activity is not available to you until {$a}.';
 $string['chainrequirepasswordmessage'] = 'To attempt this activity, you need to know the password.';
@@ -976,6 +978,7 @@ $string['taskaction_help'] = 'These options specify what action will be taken wh
 
 **Delete tasks**
 : The selected tasks will be deleted from the TaskChain activity.';
+$string['taskattempt'] = 'Task attempt';
 $string['taskattemptnotinprogress'] = 'Task attempt not in progress';
 $string['taskchain:addinstance'] = 'Add a new TaskChain activity';
 $string['taskchain:attempt'] = 'Attempt a TaskChain activity and submit results';
@@ -1024,6 +1027,7 @@ $string['tasknotavailable'] = 'Sorry this task is not available to you until {$a
 $string['taskposition'] = 'Task position';
 $string['taskrequirepasswordmessage'] = 'To attempt this task, you need to know the password.';
 $string['tasks'] = 'Tasks';
+$string['taskscore'] = 'Task score';
 $string['tasktype'] = 'Task type';
 $string['textsourcefile'] = 'Get from source file';
 $string['textsourcefilename'] = 'Use source file name';

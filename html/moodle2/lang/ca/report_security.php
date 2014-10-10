@@ -79,7 +79,7 @@ $string['check_noauth_details'] = '<p>El connector de <em>Sense autenticació</e
 $string['check_noauth_error'] = 'El connector de Sense autenticació no pot utilitzar-se en llocs en producció.';
 $string['check_noauth_name'] = 'Sense autenticació';
 $string['check_noauth_ok'] = 'El connector de Sense autenticació està deshabilitat.';
-$string['check_openprofiles_details'] = '<p>Els perfils oberts dels usuaris  poden ser usats abusivament pels que envien correu brossa. Es recomana que: o bé <code>Forceu els usuaris a iniciar la sessió per accedir als perfils</code>, o bé que <code>Forceu els usuaris a iniciar sessió</code> estiguin habilitats.</p>';
+$string['check_openprofiles_details'] = 'Els perfils oberts dels usuaris poden ser usats abusivament pels que envien correu brossa. Es recomana que: o bé <code>Forceu els usuaris a iniciar la sessió per accedir als perfils</code>, o bé que <code>Forceu els usuaris a iniciar sessió</code> estiguin habilitats.';
 $string['check_openprofiles_error'] = 'Qualsevol pot visualitzar perfils d\'usuaris sense iniciar sessió.';
 $string['check_openprofiles_name'] = 'Perfils oberts dels usuaris';
 $string['check_openprofiles_ok'] = 'Cal iniciar sessió abans de veure els perfils dels usuaris.';
@@ -90,14 +90,20 @@ $string['check_passwordpolicy_error'] = 'No s\'ha establert una política de con
 $string['check_passwordpolicy_name'] = 'Política de contrasenyes';
 $string['check_passwordpolicy_ok'] = 'S\'ha habilitat la política de contrasenyes.';
 $string['check_riskadmin_detailsok'] = '<p>Si us plau comproveu la següent llista d\'administrador:</p>{$a}';
+$string['check_riskadmin_detailswarning'] = '<p>Verifiqueu la següent llista d\'administradors del sistema:</p>{$a->admins}
+<p>Es recomana asignar funcions d\'administració sols en el context del sistema. Els usuaris següents tenen funcions d\'administració (sense suport) en altres contexts:</p>{$a->unsupported}';
 $string['check_riskadmin_name'] = 'Administradors';
 $string['check_riskadmin_ok'] = 'S\'han trobat {$a} administrador(s) dels servidor.';
+$string['check_riskadmin_unassign'] = '<a href="{$a->url}">{$a->fullname} ({$a->email}): revisa l\'assignació de rols</a>';
+$string['check_riskadmin_warning'] = 'S\'han trobat {$a->admincount} administradors del servidor i {$a->unsupcount} rols d\'administrador no suportats.';
+$string['check_riskbackup_detailsok'] = 'No hi ha cap rol que permeti explícitament fer una copia de seguretat de les dades dels usuaris. Tanmateix fixeu-vos que els administrador que tinguin la capacitat «ferqualsevolcosa» poden segurament fer-ho.';
 $string['check_riskbackup_details_overriddenroles'] = '<p> Aquesta sobreescritura activa donarà als usuaris la capacitat d\'incloure dades d\'usuari a les copies de seguretat. Si us plau comproveu que aquest permís es necessari.</p> {$a}';
 $string['check_riskbackup_details_systemroles'] = '<p>Els rols de sistema següents permeten actualment als usuaris incloure dades d\'usuari a les copies de seguretat. Si us plau comproveu que aquest permís es necessari.</p> {$a}';
 $string['check_riskbackup_details_users'] = '<p>Degut als rols anteriors o a les substitucions locals, els seguents comptes d\'usuaris tenen permís per fer còpies de seguretat amb dades privades de qualsevol usuari inscrit al seu curs. Comproveu que (a) són de confiança i (b) estan protegits amb contrasenyes fortes:</p> {$a}';
 $string['check_riskbackup_editoverride'] = '<a href="{$a->url}">{$a->name} en {$a->contextname}</a>';
 $string['check_riskbackup_editrole'] = '<a href="{$a->url}">{$a->name}</a>';
 $string['check_riskbackup_name'] = 'Copia de seguretat de les dades d\'usuari';
+$string['check_riskbackup_ok'] = 'No hi ha rols que explícitament permetin fer una copia de seguretat de les dades dels usuaris.';
 $string['check_riskbackup_unassign'] = '<a href="{$a->url}">{$a->fullname} ({$a->email}) en {$a->contextname}</a>';
 $string['check_riskbackup_warning'] = 'Trobats els rols {$a->rolecount}, $a->overridecount} sobreescriptures i {$a->usercount} usuaris amb la capacitat de fer copies de seguretat de dades d\'usuari.';
 $string['check_riskxss_details'] = '<p>RISK_XSS simbolitza totes les capacitats perilloses que sols els usuaris de confiança poden utilitzar. </p>

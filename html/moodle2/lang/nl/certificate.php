@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'nl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'nl', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,12 +42,9 @@ $string['borderlines'] = 'Lijnen';
 $string['borderstyle'] = 'Randafbeelding';
 $string['borderstyle_help'] = 'De randafbeelding-optie geeft je de mogelijkheid om een afbeelding te gebruiken uit de certificate/pix/border map. Selecteer de afbeelding die je wilt gebruiken rond het certificaat of selecteer geen  (geen afbeelding")';
 $string['certificate'] = 'Verifieer de certificaatcode:';
-$string['certificate:manage'] = 'Beheer certificaatmodule';
 $string['certificatename'] = 'Certificaatnaam';
-$string['certificate:printteacher'] = 'Je wordt als leraar getoond op het certificaat als de Druk leraar-instelling aan is.';
 $string['certificatereport'] = 'Certificaatrapport';
 $string['certificatesfor'] = 'Certificaten voor';
-$string['certificate:student'] = 'Haal je certificaat op';
 $string['certificatetype'] = 'Certificaattype';
 $string['certificatetype_help'] = 'Hier bepaal je de lay-out van het certificaat. De certificaat type folder bevat 4 standaard certificaten:
 A4 Embedded drukt op A4 grootte papier met embedded fonts
@@ -58,7 +55,6 @@ Letter Non-Embedded druk op Letter zonder embedded fonts
 De non-embedded fonts gebruiken de Helvetica en Times fonts. Als je gebruikers deze fonts niet op hun computer hebben of in jouw taal karakters of symbolen gebruikt worden die niet door Helvetica en Times ondersteund worden kies Embedded certificaat types. Het embedded certificaat type gebruikt de Dejavusans and Dejavuserif fonts. Dit zal het PDF-bestand vrij groot maken, het is daarom niet aanbevolen om Embedded te gebruiken tenzij je dit nodig hebt.
 
 Nieuwe certificaattype mappen kunnen worden toegevoegd aan de certificaat/type map. De naam van de map en elke nieuwe taalstring voor het nieuwe type moet worden toegevoegd aan het certificaat taalbestand.';
-$string['certificate:view'] = 'Toon een certificaat';
 $string['certify'] = 'Dit certificaat toont aan dat';
 $string['code'] = 'Code';
 $string['completiondate'] = 'Cursusvoltooiing';
@@ -171,8 +167,6 @@ $string['printwmark'] = 'Afbeelding watermerk';
 $string['printwmark_help'] = 'Een watermerkbestand kan als achtergrond van het certificaat  worden geplaatst. Een watermerk is een vergrijsde afbeelding. Dit kan een logo, een zegel, een schild, een tekst of iets anders zijn.';
 $string['receivedcerts'] = 'Ontvangen certificaten.';
 $string['receiveddate'] = 'Datum ontvangen';
-$string['reissuecert'] = 'Geef certificaat opnieuw uit.';
-$string['reissuecert_help'] = 'Als je hier ka kiest, dan wordt het certificaat opnieuw uitgegeven met een nieuwe datum, cijfer en code nummer, iedere keer als de gebruiker op de certificaat link klikt. Alhoewel in een tabel de in eerder  uitgeven data zijn opgenomen, is er geen review knop voor gebruikers. Alleen het laatst uitgegeven certificaat wordt getoond in het certificaat rapport.';
 $string['removecert'] = 'Uitgegeven certificaten verwijderd.';
 $string['report'] = 'Overzicht';
 $string['reportcert'] = 'Overzicht certificaten';

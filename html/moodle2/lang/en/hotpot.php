@@ -451,7 +451,7 @@ $string['score'] = 'Score';
 $string['scoresreport'] = 'Scores';
 $string['selectattempts'] = 'Select attempts';
 $string['showerrormessage'] = 'HotPot error: {$a}';
-$string['sourcefile'] = 'Source file name';
+$string['sourcefile'] = 'Source file';
 $string['sourcefile_help'] = 'This setting specifies the file containing the content that will be shown to the students.
 
 Usually the source file will have been created outside of Moodle, and then uploaded to the files area of a Moodle course.

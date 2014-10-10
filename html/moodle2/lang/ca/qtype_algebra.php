@@ -66,6 +66,7 @@ $string['disallowans'] = 'Resposta no permesa';
 $string['disallowanswer'] = 'Resposta no permesa';
 $string['disallow_help'] = 'Conté una expressió que no serà permesa com a resposta.
 Els estudiants que introdueixin respostes que concordin amb aquesta no obtindran cap puntuació de la pregunta encara que la resposta concordi amb alguna de les programades.';
+$string['displayresponse'] = 'Previsualitza la resposta';
 $string['dollars'] = '$$...$$';
 $string['duplicatevar'] = 'Nom de variable duplicat: «{$a}» ja està definit.';
 $string['editingalgebra'] = 'S\'està editant una pregunta d\'Àlgebra';
@@ -75,7 +76,7 @@ $string['filloutonevariable'] = 'Heu de proporcionar una variable com a mínim.'
 $string['host'] = 'URL del servidor que hostatja el SAGE';
 $string['illegalplusminus'] = 'S\'ha trobat un + o un - en una posició no vàlida';
 $string['illegalvarname'] = 'El nom de variable «{$a}» no és legal: és el mateix nom que el d\'una funció o constant especial.';
-$string['mismatchedbracket'] = 'Claudàtors discordants: Els craudàtors d\'obertura i tancament no són del mateix tipus';
+$string['mismatchedbracket'] = 'Claudàtors discordants: Els claudàtors d\'obertura i tancament no són del mateix tipus «{$a}»';
 $string['mismatchedcloseb'] = 'Claudàtors discordants: S\'ha trobat un claudàtor de tancament sense el corresponent claudàtor d\'obertura';
 $string['mismatchedopenb'] = 'Claudàtors discordants: S\'ha trobat un claudàtor d\'obertura sense el corresponent claudàtor de tancament';
 $string['missingonearg'] = 'Error de sintaxi: A l\'operador «{$a}» li manca l\'argument';

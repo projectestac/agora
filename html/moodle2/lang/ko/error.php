@@ -494,6 +494,7 @@ $string['unknowncourse'] = '"{$a}"라는 알려지지 않은 강좌';
 $string['unknowncourseidnumber'] = '알수 없는 강좌 ID "{$a}"';
 $string['unknowncourserequest'] = '알 수 없는 강좌 요청';
 $string['unknowncoursesection'] = '강좌 "{$a}"에 알 수 없는 강좌 섹션';
+$string['unknownevent'] = '알수 없는 이벤트';
 $string['unknownfiletype'] = '알 수 없는 필터유형';
 $string['unknowngroup'] = '알 수 없는 모둠 "{$a}"';
 $string['unknownhelp'] = '알 수 없는 도움말 {$a}';

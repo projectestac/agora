@@ -26,12 +26,18 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['currentsection'] = 'This topic';
+$string['disable'] = 'Disable';
+$string['disableajax'] = 'Asynchronous edit actions';
+$string['disableajax_help'] = 'Use this action in order to move resources between topic tabs. It only disables the asynchronous actions in current session, it is not permanently.';
+$string['enable'] = 'Enable';
 $string['hidefromothers'] = 'Hide topic';
 $string['hidetabsbar'] = 'Hide tabs bar';
 $string['hidetabsbar_help'] = 'Hide tabs bar in the course page. The navigation is with the sections navbar.';
-$string['movesectionto'] = 'Move current topic to left/rigth of:';
+$string['movesectionto'] = 'Move current topic';
+$string['movesectionto_help'] = 'Move current topic to left/right of selected topic';
 $string['page-course-view-topics'] = 'Any course main page in onetopic format';
 $string['page-course-view-topics-x'] = 'Any course page in onetopic format';
 $string['pluginname'] = 'Onetopic format';
 $string['sectionname'] = 'Topic';
 $string['showfromothers'] = 'Show topic';
+$string['utilities'] = 'Tabs edition utilities';

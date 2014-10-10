@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addmoreanswerblanks'] = 'Zuriuneak {no} galdera gehiagotarako';
 $string['answer'] = 'Erantzuna: {$a}';
-$string['answermustbegiven'] = 'Erantzun bat eman behar duzu hau kalifikazioa edo feeback-a baita.';
+$string['answermustbegiven'] = 'Erantzun bat eman behar duzu hau kalifikazioa edo feebacka baita.';
 $string['answerno'] = '{$a} erantzuna';
 $string['caseno'] = 'Ez, ez bereizi maiuskulak/minuskulak';
 $string['casesensitive'] = 'Maiuskulak/minuskulak';
@@ -35,6 +35,7 @@ $string['caseyes'] = 'Bai, bereizi maiuskulak/minuskulak';
 $string['correctansweris'] = 'Erantzun zuzena ondokoa da: {$a}.';
 $string['correctanswers'] = 'Erantzun zuzenak';
 $string['filloutoneanswer'] = 'Gutxienez erantzun egoki bat eman behar duzu. Zuri utzitako erantzunak ez dira erabiliko. \'*\' erabiliko da komodin gisa beste edozein karakterretarako. Bat datorren lehen erantzuna erabiliko da puntuazioa eta atzera elikadura zehazteko.';
+$string['notenoughanswers'] = 'Galdera-mota honek gutxienez {$a} erantzun behar ditu';
 $string['pleaseenterananswer'] = 'Mesedez, idatzi erantzun bat.';
 $string['pluginname'] = 'Erantzun laburreko galdera';
 $string['pluginnameadding'] = 'Gehitu erantzun laburreko galdera';

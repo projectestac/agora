@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['correctanswer'] = 'Positive Bewertung für die Antwort';
-$string['correctanswerfalse'] = 'Die richtige Antwort ist \'Falsch\'';
-$string['correctanswertrue'] = 'Die richtige Antwort ist \'Wahr\'';
+$string['correctanswerfalse'] = 'Die richtige Antwort ist \'Falsch\'.';
+$string['correctanswertrue'] = 'Die richtige Antwort ist \'Wahr\'.';
 $string['false'] = 'Falsch';
 $string['feedbackfalse'] = 'Feedback (Falsch)';
 $string['feedbacktrue'] = 'Feedback (Wahr)';

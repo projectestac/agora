@@ -36,6 +36,20 @@ $string['address'] = 'Address';
 $string['addsite'] = 'Add a site';
 $string['allcachesinvalidated'] = 'All caches invalidated';
 $string['allcachespurged'] = 'All caches purged';
+$string['appstoredescription'] = 'NOTE: This official Moodle Mobile app will ONLY work with Moodle sites that have been set up to allow it.  Please talk to your Moodle administrator if you have any problems connecting.
+
+If your Moodle site has been configured correctly, you can use this app to:
+
+- browse the content of your courses, even when offline
+- receive instant notifications of messages and other events
+- quickly find and contact other people in your courses
+- upload images, audio, videos and other files from your mobile device
+- view your course grades
+- and more!
+
+Please see http://docs.moodle.org/en/Mobile_app for all the latest information.
+
+We’d really appreciate any good reviews about the functionality so far, and your suggestions on what else you want this app to do!';
 $string['areyousurereset'] = 'Are you sure you want to reset the application? All of your sites will be deleted.';
 $string['audionotavailable'] = 'Audio input hardware not available';
 $string['audiorecordinstructions'] = 'Press Record to start the audio recording, Stop to stop and upload the file.';
@@ -76,15 +90,16 @@ $string['development'] = 'Development';
 $string['deviceinfo'] = 'Device info';
 $string['disablenotifications'] = 'Disable notifications';
 $string['disablerdebugger'] = 'Disable remote debugging';
+$string['discussions'] = 'discussions';
 $string['docsurl'] = 'http://docs.moodle.org/en/Mobile_app';
 $string['downloadremotefile'] = 'Download remote file';
 $string['downloadtime'] = 'Downloaded';
 $string['email'] = 'Email';
 $string['empty'] = 'empty';
 $string['enableautosync'] = 'Enable auto sync';
-$string['enableautosynccss'] = 'Enable synchronization of additional CSS style sheet';
-$string['enableautosynclang'] = 'Enable synchronization of language files';
-$string['enableautosyncws'] = 'Enable synchronization of operations and data';
+$string['enableautosynccss'] = 'Synchronization of additional CSS';
+$string['enableautosynclang'] = 'Synchronization of language files';
+$string['enableautosyncws'] = 'Synchronization of operations and data';
 $string['enablecss3transitions'] = 'Enable CSS3 Transitions';
 $string['enabledebugging'] = 'Enable debugging';
 $string['enablenotifications'] = 'Enable notifications';
@@ -115,6 +130,8 @@ $string['fileurl'] = 'File URL';
 $string['forcecsssync'] = 'Force CSS sync now';
 $string['forcelangsync'] = 'Force lang sync now';
 $string['forceofflinemode'] = 'Force offline mode';
+$string['forumnodiscussionsyet'] = 'There are no discussion topics yet in this forum';
+$string['forumnumreplies'] = 'replies';
 $string['fullname'] = 'Full name';
 $string['general'] = 'General';
 $string['grade'] = 'Grade';
@@ -122,6 +139,7 @@ $string['grades'] = 'Grades';
 $string['groupeventsnotdisplayed'] = 'Group events are not displayed';
 $string['help'] = 'Help';
 $string['helpmelogin'] = '<p>There are many thousands of Moodle sites around the world. This app can only connect to Moodle sites that have specifically enabled Mobile app access.</p><p>If you can\'t connect to your Moodle site then you need to contact a Moodle administrator at the place where you want to connect and ask them to read <a href="http://docs.moodle.org/en/Mobile_app" target="_blank">http://docs.moodle.org/en/Mobile_app</a></p><p>To test the app in a Moodle demo site type <i>teacher</i> or <i>student</i> in the <i>Site URL</i> field and click the <b>Add button</b>.</p>';
+$string['hours'] = 'Hours';
 $string['icantlogin'] = 'I can\'t log in';
 $string['imagestored'] = 'Your image has been stored in your private area';
 $string['info'] = 'Info';
@@ -130,6 +148,7 @@ $string['invalidaccount'] = 'Please check your login details or ask your site ad
 $string['invalidmoodleversion'] = 'Invalid Moodle version. The minium version required is:';
 $string['invalidscheme'] = 'Please provide a valid site URL.';
 $string['invalidsite'] = 'The site URL is invalid.';
+$string['keepsynchronising'] = 'Keep synchronising posts from the server';
 $string['langsynced'] = 'Language synced';
 $string['language'] = 'Language';
 $string['license'] = 'License';
@@ -143,14 +162,17 @@ $string['lostconnection'] = 'We lost connection you need to reconnect. Your toke
 $string['manageaccounts'] = 'Manage accounts';
 $string['message'] = 'Message';
 $string['messagesent'] = 'Message sent';
+$string['minutes'] = 'Minutes';
 $string['mobileservicesnotenabled'] = 'Mobile Services are not enabled in your site. Please, contact your Moodle site administrator if you think mobile access should be enabled.';
 $string['modulename'] = 'Module name';
+$string['months'] = 'Months';
 $string['moodlehelp'] = 'Help';
 $string['mycourses'] = 'My courses';
 $string['myfiles'] = 'My files';
 $string['name'] = 'Name';
 $string['networkerror'] = 'Network not reachable';
 $string['networkerrormsg'] = 'Network not enabled or not working.';
+$string['next'] = 'Next';
 $string['no'] = 'No';
 $string['norefreshdisconnected'] = 'The refresh option requires network connection';
 $string['notaskstobesynchronized'] = 'No tasks to be synchronized';
@@ -173,6 +195,7 @@ $string['phone1'] = 'Phone';
 $string['phone2'] = 'Mobile';
 $string['pluginname'] = 'Moodle Mobile language strings';
 $string['preview'] = 'Preview';
+$string['previous'] = 'Previous';
 $string['privatefiles'] = 'Private files';
 $string['purgecaches'] = 'Purge caches';
 $string['range'] = 'Range';
@@ -190,6 +213,7 @@ $string['reset'] = 'Reset';
 $string['resetapp'] = 'Reset application';
 $string['save'] = 'Save';
 $string['saving'] = 'Saving...';
+$string['seconds'] = 'Seconds';
 $string['select'] = 'Select';
 $string['selectsite'] = 'Select a site';
 $string['send'] = 'Send';
@@ -246,6 +270,7 @@ $string['webservicesuccessfullyexecuted'] = 'Web Service executed successfully';
 $string['website'] = 'Website';
 $string['welcome'] = 'Welcome to the Moodle mobile app';
 $string['writeherethebug'] = 'Write here a detailed description of the problem';
+$string['years'] = 'Years';
 $string['yes'] = 'Yes';
 $string['youarein'] = 'You are in:';
 $string['yourpassword'] = 'password';

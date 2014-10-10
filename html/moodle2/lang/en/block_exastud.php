@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_exastud', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'block_exastud', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   block_exastud
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,9 +42,9 @@ $string['configteacher'] = 'Teachers in {$a}';
 $string['configuration'] = 'Class Configuration';
 $string['detailedreview'] = 'Detailed review';
 $string['editclasscategories'] = 'Edit assessment categories';
-$string['editclassmemberlist'] = 'Edit class student list';
+$string['editclassmemberlist'] = 'Edit student list';
 $string['editclassname'] = 'Edit class';
-$string['editclassteacherlist'] = 'Edit class teacher list';
+$string['editclassteacherlist'] = 'Edit teacher list';
 $string['endtime'] = 'endtime:';
 $string['errorinsertingcategories'] = 'Error when adding categorie to a course';
 $string['errorinsertingclass'] = 'Error when inserting class';
@@ -61,7 +61,7 @@ $string['errorupdatingclass'] = 'Error when updating class';
 $string['errorupdatingstudent'] = 'Error when updating student';
 $string['evaluation'] = 'Evaluation';
 $string['evaluation1'] = '1 - insufficient';
-$string['evaluation10'] = '10 - very weak';
+$string['evaluation10'] = '10 - very good';
 $string['evaluation2'] = '2';
 $string['evaluation3'] = '3';
 $string['evaluation4'] = '4';
@@ -78,7 +78,7 @@ $string['exastud:uploadpicture'] = 'Upload logo';
 $string['exastud:use'] = 'Use of Exabis Student Review';
 $string['explainclassname'] = 'Click here to edit the class name';
 $string['invalidperiodid'] = 'Invalid period id';
-$string['logosize'] = 'For efficient use the logo banner must be 840x100px. Please avoid using transparency in PNG files, this may cause an error while creating a PDF report.';
+$string['logosize'] = 'For efficient use the logo banner must be 840x100px. Please avoid using transparency in PNG files as they may cause an error while creating a PDF report.';
 $string['members'] = 'Members';
 $string['modulename'] = 'Exabis Student Review';
 $string['name'] = 'name';
@@ -100,6 +100,27 @@ $string['pluginname'] = 'Exabis Student Review';
 $string['print'] = 'print';
 $string['printall'] = 'Print all';
 $string['printversion'] = 'Print version';
+$string['project_based_badclass'] = 'You cannot edit this project';
+$string['project_based_badstudent'] = 'The student is not member of this project';
+$string['project_based_class'] = 'project';
+$string['project_based_configmember'] = 'Students of {$a}';
+$string['project_based_configteacher'] = 'Teachers in {$a}';
+$string['project_based_configuration'] = 'Edit project';
+$string['project_based_editclassmemberlist'] = 'Edit project list';
+$string['project_based_editclassname'] = 'Edit project';
+$string['project_based_editclassteacherlist'] = 'Edit teacher list';
+$string['project_based_errorinsertingclass'] = 'Error when inserting project';
+$string['project_based_errorupdatingclass'] = 'Error when updating project';
+$string['project_based_explainclassname'] = 'Click here to edit the project name';
+$string['project_based_members'] = 'Projects';
+$string['project_based_noclassestoreview'] = 'No projects to review';
+$string['project_based_noclassfound'] = 'No project found!';
+$string['project_based_redirectingtoclassinput'] = 'No project information found, redirecting to project input.';
+$string['project_based_reviewclass'] = 'Project review';
+$string['project_based_studentreview'] = 'PROJECT REVIEW';
+$string['project_based_teachers'] = 'Project-Teachers';
+$string['project_based_total'] = 'total score';
+$string['project_based_upload_picture'] = 'You can upload a logo for a project-specific report';
 $string['redirectingtoclassinput'] = 'No class information found, redirecting to class input.';
 $string['redirectingtoperiodsinput'] = 'No period information found, redirecting to periods input';
 $string['report'] = 'Report';
@@ -109,10 +130,15 @@ $string['reviewclass'] = 'Class review';
 $string['reviewcount'] = 'review(s) yet';
 $string['reviewstudent'] = 'Student review';
 $string['selfreliance'] = 'Self-reliance';
+$string['settings_detailed_review'] = 'Detailed review';
+$string['settings_detailed_review_body'] = 'This setting allows you to see all the assessments from teachers in detail';
+$string['settings_project_based_assessment'] = 'Project-based assessment';
+$string['settings_project_based_assessment_body'] = 'This setting allows you to use project-based assessment instead of class-assessment';
 $string['showall'] = 'Show all';
 $string['starttime'] = 'starttime:';
 $string['studentreview'] = 'STUDENT REVIEW';
 $string['teachers'] = 'Teachers';
 $string['teamplayer'] = 'Team player';
+$string['total'] = 'total score';
 $string['upload_picture'] = 'You can upload a logo for a school-specific report';
 $string['upload_success'] = 'The new logo was uploaded successfully!';

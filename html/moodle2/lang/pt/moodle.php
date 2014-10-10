@@ -139,7 +139,7 @@ $string['allownone'] = 'Não permitir nenhum';
 $string['allownot'] = 'Não permitir';
 $string['allparticipants'] = 'Todos os participantes';
 $string['allteachers'] = 'Todos os professores';
-$string['alphanumerical'] = 'Só pode conter carateres alfabéticos ou numéricos';
+$string['alphanumerical'] = 'Só pode conter caracteres alfabéticos ou numéricos';
 $string['alreadyconfirmed'] = 'A inscrição já foi confirmada';
 $string['alternatename'] = 'Nome alternativo';
 $string['always'] = 'Sempre';
@@ -305,7 +305,7 @@ O essencial é a sessão de cookie, normalmente chamado de MoodleSession. Deve p
 
 O outro cookie é puramente por conveniência, chamada geralmente de algo como MOODLEID. Ele apenas só se lembra do seu nome de utilizador no browser. Isto significa que quando voltar a este site o nome na página de entrada já estará preenchido. É seguro aceitar este cookie - apenas terá que escrever o seu nome de utilizador cada vez que acede à plataforma.';
 $string['cookiesnotenabled'] = 'Infelizmente o seu browser tem as cookies desativadas';
-$string['copy'] = 'cópia';
+$string['copy'] = 'Duplicar';
 $string['copyasnoun'] = 'Cópia';
 $string['copyingcoursefiles'] = 'A copiar os ficheiros da disciplina';
 $string['copyingsitefiles'] = 'A copiar ficheiros do site usados na disciplina';
@@ -632,30 +632,34 @@ $string['emailmustbereal'] = 'Atenção: o seu e-mail tem que ser verdadeiro';
 $string['emailnotallowed'] = 'Não são permitidos endereços de e-mail nestes domínios ({$a})';
 $string['emailnotfound'] = 'O e-mail não foi encontrado na base de dados';
 $string['emailonlyallowed'] = 'Este e-mail não está entre os permitidos ({$a})';
-$string['emailpasswordchangeinfo'] = '$a->firstname,
+$string['emailpasswordchangeinfo'] = 'Caro(a) {$a->firstname},
 
-Alguém pediu uma nova senha para a sua conta em \'{$a->sitename}\'.
+Foi pedida uma nova senha para a sua conta em \'{$a->sitename}\'.
 
-Para mudar a sua senha, clique em:
+Para mudar a sua senha, aceda a:
 
 {$a->link}
 
-Na maioria dos programas de e-mail este endereço aparece como um link a azul que basta clicar. Se tal não funcionar,
-então corte e cole o endereço na linha de Endereço no topo da janela do se browser de internet.
+Na maioria dos programas de e-mail basta clicar neste endereço que deverá aparecer como um link a azul. Se isto não funcionar, copie e cole o endereço na barra de endereço no topo da janela do seu browser de Internet.
 
-Se necessitar de ajuda, contacte o administrador do site,
+Se necessitar de ajuda, contacte o administrador do site:
 {$a->admin}';
-$string['emailpasswordchangeinfodisabled'] = 'Olá $a->firstname,
+$string['emailpasswordchangeinfodisabled'] = 'Caro(a) {$a->firstname},
 
-Alguém (provavelmente você) solicitou uma nova senha de acesso à conta em $a->sitename.
+Foi pedida uma nova senha para a sua conta em \'{$a->sitename}\'.
 
-Infelizmente, a sua conta neste site está desativada e não pode ser reposta. Por favor, contacte o administrador, $a->admin';
-$string['emailpasswordchangeinfofail'] = '$a->firstname,
+Infelizmente, a sua conta neste site está desativada e não pode ser reposta.
 
-Alguém pediu uma nova senha para a sua conta em $a->sitename.
+Por favor, contacte o administrador do site:
+{$a->admin}';
+$string['emailpasswordchangeinfofail'] = 'Caro(a) {$a->firstname},
 
-Infelizmente as senhas não podem ser modificadas neste site. Contacte o administrador do site,
-$a->admin';
+Foi pedida uma nova senha para a sua conta em \'{$a->sitename}\'.
+
+Infelizmente, as senhas não podem ser definidas neste site.
+
+Por favor, contacte o administrador do site:
+{$a->admin}';
 $string['emailpasswordchangeinfosubject'] = '{$a}: Informação para alteração de senha';
 $string['emailpasswordconfirmation'] = 'Viva {$a->firstname},
 Pediu uma nova senha para a sua conta no servidor \'{$a->sitename}\'.
@@ -951,7 +955,7 @@ $string['interestslist'] = 'Lista de interesses';
 $string['interestslist_help'] = 'Insira os seus interesses separados por vírgulas. Serão mostrados na página do seu perfil como tags.';
 $string['invalidemail'] = 'Endereço de correio não válido';
 $string['invalidlogin'] = 'Nome de utilizador não válido, por favor tente novamente';
-$string['invalidusername'] = 'O nome de utilizador apenas pode conter carateres alfanuméricos, minúsculas, underscore (_), hífen (-), ponto final (.) ou o símbolo (@)';
+$string['invalidusername'] = 'O nome de utilizador apenas pode conter caracteres alfanuméricos, minúsculas, underscore (_), hífen (-), ponto final (.) ou o símbolo (@)';
 $string['invalidusernameupload'] = 'Nome de utilizador inválido';
 $string['ip_address'] = 'Endereço IP';
 $string['jump'] = 'Saltar';
@@ -1042,7 +1046,7 @@ $string['maxareabytesreached'] = 'A imagem (ou o tamanho total de vários fichei
 $string['maxbytesforfile'] = 'O ficheiro {$a} é maior do que o tamanho máximo permitido.';
 $string['maxfilesize'] = 'Tamanho máximo para novos ficheiros: {$a}';
 $string['maxfilesreached'] = 'Tem permissão para anexar um máximo de {$a} ficheiro (s) para este item';
-$string['maximumchars'] = 'Máximo de {$a} carateres';
+$string['maximumchars'] = 'Máximo de {$a} caracteres';
 $string['maximumgrade'] = 'Nota máxima';
 $string['maximumgradex'] = 'Nota máxima: {$a}';
 $string['maximumshort'] = 'Máx';
@@ -1156,7 +1160,7 @@ $string['myfilesmanage'] = 'Gerir os meus ficheiros privados';
 $string['myhome'] = 'Minha página principal';
 $string['mymoodledashboard'] = 'Meu painel Moodle';
 $string['myprofile'] = 'Meu perfil';
-$string['name'] = 'Nome(s)';
+$string['name'] = 'Designação';
 $string['nameforlink'] = 'Que nome deseja dar a este link?';
 $string['nameforpage'] = 'Nome';
 $string['navigation'] = 'Navegação';
@@ -1199,23 +1203,21 @@ $string['newsitemsnumber_help'] = 'Esta configuração determina quantas notíci
 $string['newuser'] = 'Novo utilizador';
 $string['newusernewpasswordsubj'] = 'Nova conta de utilizador';
 $string['newusernewpasswordtext'] = 'Uma nova conta de utilizador foi criada para si em
- \'{$a->sitename}\'
-e foi-lhe atribuída uma senha temporária.
+ \'{$a->sitename}\' e foi-lhe atribuída uma senha temporária.
 
 Os seus dados atuais são:
-nome de utilizador: {$a->username}
-senha: {$a->newpassword}
-(terá oportunidade de alterar a sua senha quando entrar pela primeira vez)
+Nome de utilizador: {$a->username};
+Senha: {$a->newpassword} (pode alterar a sua senha depois de entrar no Moodle, em Administração » Meu perfil » Modificar senha).
 
-Para começar a usar \'{$a->sitename}\', entre em:
-{$a->link}
+Para começar a usar \'{$a->sitename}\' aceda a:
+{$a->link}.
 
-Na maior parte dos programas de e-mail o apontador anterior deverá aparecer sublinhado permitindo-lhe visitar essa página com um simples clique. Se isso não funcionar, copie o endereço para o campo de endereços no topo do seu browser.
+Na maior parte dos programas de e-mail a hiperligação anterior deverá aparecer sublinhada, permitindo-lhe aceder a essa página com um simples clique. Se isso não funcionar, copie o URL para a barra de endereços no topo do seu browser.
 
-Cumprimentos do administrador de \'{$a->sitename}\',
+Cumprimentos do administrador {$a->sitename},
 {$a->signoff}
 
-(esta mensagem foi gerada automaticamente)';
+(Esta mensagem foi gerada automaticamente.)';
 $string['newusers'] = 'Novos utilizadores';
 $string['newwindow'] = 'Nova janela';
 $string['next'] = 'Seguinte';
@@ -1306,7 +1308,7 @@ $string['optional'] = 'opcional';
 $string['options'] = 'opções';
 $string['order'] = 'Ordem';
 $string['originalpath'] = 'Caminho original';
-$string['orphanedactivitiesinsectionno'] = 'Atividades órfãs (seção {$a})';
+$string['orphanedactivitiesinsectionno'] = 'Atividades órfãs (secção {$a})';
 $string['other'] = 'Outro';
 $string['outline'] = 'Esboço';
 $string['outlinereport'] = 'Relatório';
@@ -1537,7 +1539,7 @@ $string['searchhelp'] = '<p>Pode procurar várias palavras de uma só vez e refi
 <li>"+palavra" - apenas correspondências exatas das palavras serão encontradas.</li>
 <li>"-palavra" - não incluir resultados que contenham esta palavra.</li>
 </ul>';
-$string['search_help'] = 'Para fazer uma pesquisa básica de uma ou mais palavras no texto digite as palavras a pesquisar, separadas por espaços. São consideradas para pesquisa todas as palavras com mais de dois carateres.
+$string['search_help'] = 'Para fazer uma pesquisa básica de uma ou mais palavras no texto digite as palavras a pesquisar, separadas por espaços. São consideradas para pesquisa todas as palavras com mais de dois caracteres.
 
 Para fazer pesquisas avançadas clique no botão de pesquisa sem digitar nenhuma palavra na caixa de texto para ter acesso ao formulário de pesquisa avançada.';
 $string['searchoptions'] = 'Opções de pesquisa';
@@ -1728,7 +1730,7 @@ $string['subcategories'] = 'Subcategorias';
 $string['subcategory'] = 'Subcategoria';
 $string['subcategoryof'] = 'Subcategoria de {$a}';
 $string['submit'] = 'Submeter';
-$string['success'] = 'Sucesso';
+$string['success'] = 'Operação realizada com sucesso!';
 $string['summary'] = 'Sumário';
 $string['summary_help'] = 'Um sumário é um texto curto cujo o objetivo é fornecer informação para preparar os alunos para as atividades dentro do tópico ou semana. O texto é mostrado na página da disciplina sob o nome da secção.';
 $string['summaryof'] = 'Sumário de {$a}';
@@ -1826,7 +1828,7 @@ $string['uploadnotempdir'] = 'Não existe pasta temporária';
 $string['uploadoldfilesdeleted'] = 'O(s) ficheiro(s) antigo(s) na sua área de ficheiros enviados foi apagado';
 $string['uploadpartialfile'] = 'Foi recebida apenas uma parte do ficheiro';
 $string['uploadproblem'] = 'Ocorreu m problema desconhecido no envio do ficheiro \'{$a}\' (talvez fosse demasiado grande?)';
-$string['uploadrenamedchars'] = 'O ficheiro foi renomeado de {$a->oldname} para {$a->newname} para substituir carateres não válidos.';
+$string['uploadrenamedchars'] = 'O ficheiro foi renomeado de {$a->oldname} para {$a->newname} para substituir caracteres não válidos.';
 $string['uploadrenamedcollision'] = 'O ficheiro foi renomeado de  {$a->oldname} para {$a->newname} devido a um conflito no nome.';
 $string['uploadserverlimit'] = 'O ficheiro enviado excedeu o limite de tamanho máximo imposto pelo servidor';
 $string['uploadthisfile'] = 'Carregar este ficheiro';

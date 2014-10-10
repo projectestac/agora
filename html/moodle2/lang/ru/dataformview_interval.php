@@ -27,13 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['custom'] = 'Пользовательский';
 $string['daily'] = 'Ежедневно';
-$string['first'] = 'Первый';
 $string['hourly'] = 'Почасовой';
-$string['last'] = 'Последний';
 $string['monthly'] = 'Ежемесячный';
-$string['next'] = 'Следующий';
 $string['pluginname'] = 'Интервал';
-$string['random'] = 'Случайный';
 $string['refresh'] = 'Обновление';
 $string['resetnext'] = 'Повторения перед сбросом следующего счета';
 $string['selection'] = 'Какие записи выбрать';

@@ -79,7 +79,7 @@ $string['sourcedidfallback_desc'] = 'Na informação IMS o campo <strong>sourced
 
 Alguns sistemas de gestão de alunos não conseguem exportar o campo <strong>userid</strong>. Se for o caso, esta configuração deve ser ativada para permitir a utilização do campo <strong>sourcedid</strong> como identificador de utilizador no Moodle. Caso contrário, desative esta configuração.';
 $string['truncatecoursecodes'] = 'Truncar os códigos das disciplinas se o número de carateres exceder';
-$string['truncatecoursecodes_desc'] = 'Nalguns casos pode querer truncar os códigos das disciplinas para um comprimento máximo predefinido antes de fazer o seu processamento. Nestas situações, indique neste campo o número de carateres máximo a considerar. Se o campo ficar vazio, os códigos das disciplinas não serão truncados.';
+$string['truncatecoursecodes_desc'] = 'Nalguns casos pode querer truncar os códigos das disciplinas para um comprimento máximo predefinido antes de fazer o seu processamento. Nestas situações, indique neste campo o número de caracteres máximo a considerar. Se o campo ficar vazio, os códigos das disciplinas não serão truncados.';
 $string['usecapitafix'] = 'Selecione esta opção se utilizar <strong>Capita</strong> (o seu formato XML é ligeiramente incorreto)';
 $string['usecapitafix_desc'] = 'A informação dos alunos produzida por <strong>Capita</strong> apresenta um pequeno erro na sua exportação XML. Se estiver a utilizar <strong>Capita</strong> deve ativar esta opção.';
 $string['usersettings'] = 'Configurações dos dados de utilizador';

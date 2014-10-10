@@ -106,7 +106,7 @@ $string['groupmembersonly_help'] = 'Wenn die Option aktiviert ist, ist das Mater
 $string['groupmemberssee'] = 'Gruppenmitglieder anzeigen';
 $string['groupmembersselected'] = 'Mitglieder der markierten Gruppe';
 $string['groupmode'] = 'Gruppenmodus';
-$string['groupmodeforce'] = 'Gruppenmodus erzwingen';
+$string['groupmodeforce'] = 'Gruppenmodus vorgeben';
 $string['groupmodeforce_help'] = 'Wenn der Gruppenmodus erzwungen wird, dann wird der Gruppenmodus des Kurses auch auf jede Aktivität im Kurs angewendet. Die Gruppeneinstellungen in jeder Aktivität werden ignoriert.';
 $string['groupmode_help'] = 'Für den Gruppenmodus stehen drei Einstellungen zur Verfügung:
 * Keine Gruppen - es gibt keine Gruppen im Kurs

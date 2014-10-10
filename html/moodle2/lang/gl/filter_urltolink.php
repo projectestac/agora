@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['embedimages'] = 'Incrustar imaxes';
 $string['embedimages_desc'] = 'Substituír os url de imaxes con imaxes nos formatos de texto seleccionados.';
 $string['filtername'] = 'Converter os URL en ligazóns e imaxes';
 $string['settingformats'] = 'Aplicar a formatos';

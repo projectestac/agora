@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['configdndmedia'] = 'Se ativar esta opção, o utilizador poderá optar por criar um recurso do tipo Separador ou do tipo Ficheiro quando arrasta e larga ficheiros multimédia numa disciplina.';
-$string['configdndresizeheight'] = 'Quando um separador é criado a partir de uma imagem que foi arrastada e largada numa disciplina, redimensionar se esta for mais alta do que este número de píxeis (0 para não redimensionar)';
-$string['configdndresizewidth'] = 'Quando um separador é criado a partir de uma imagem que foi arrastada e largada numa disciplina, redimensionar se esta for mais larga do que este número de píxeis (0 para não redimensionar)';
+$string['configdndresizeheight'] = 'Quando um separador é criado a partir de uma imagem que foi arrastada e largada numa disciplina, redimensionar se esta for mais alta do que este número de pixeis (0 para não redimensionar)';
+$string['configdndresizewidth'] = 'Quando um separador é criado a partir de uma imagem que foi arrastada e largada numa disciplina, redimensionar se esta for mais larga do que este número de pixeis (0 para não redimensionar)';
 $string['dndmedia'] = 'Arrastar e largar ficheiros multimédia';
 $string['dndresizeheight'] = 'Redimensionar altura da imagem';
 $string['dndresizewidth'] = 'Redimensionar largura da imagem';

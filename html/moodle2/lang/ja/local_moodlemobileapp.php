@@ -36,6 +36,20 @@ $string['address'] = 'アドレス';
 $string['addsite'] = 'サイトを追加';
 $string['allcachesinvalidated'] = '全てのキャッシュを無効にしました';
 $string['allcachespurged'] = '全てのキャッシュは消去されました';
+$string['appstoredescription'] = '注意：この公式Moodle Mobileアプリは、利用許可設定がなされたMoodleサイトで「のみ」利用できます。接続時に問題があった場合、あなたのMoodleサイト管理者に連絡してください。
+
+あなたのMoodleサイトの設定が正しければ、本アプリを用いて以下のことができます。
+
+ - あなたのコースの内容の閲覧。オフラインでも。
+ - メッセージその他について即座に通知の受信
+ - あなたのコースに属する他の利用者の素早い検索と連絡
+ - 画像、音声、映像その他あたなのモバイルデバイスからのファイルアップロード
+ - あなたのコースでの評定の閲覧
+ - それ以上のこと！
+
+最新の情報すべては、 http://docs.moodle.org/en/Mobile_app に掲載されています。
+
+私たちは、皆さんからこれまで寄せられているよい評価に対して心より感謝します。本アプリに追加してほしい機能など、ご意見をお寄せください！';
 $string['areyousurereset'] = '本当にアプリをリセットしますか？　追加したサイトの情報はすべて消去されます。';
 $string['audionotavailable'] = '音声入力装置がありません';
 $string['audiorecordinstructions'] = '記録を始めるには記録ボタンを、止めるには停止ボタンを押し、ファイルをアップロードします。';
@@ -56,8 +70,8 @@ $string['confirmcontinuedownload'] = '本当にファイルのダウンロード
 $string['confirmdeletetask'] = '本当にこのタスクを消去しますか？';
 $string['contact'] = 'コンタクト';
 $string['contactadd'] = 'コンタクトがあなたの電話の連絡帳に追加されました。';
-$string['content'] = 'コンタクト';
-$string['contents'] = 'コンタクト';
+$string['content'] = 'コンテンツ';
+$string['contents'] = 'コンテンツ';
 $string['contentyetnotavailable'] = 'この活動はモバイル・アプリ経由では利用できません';
 $string['continue'] = '継続';
 $string['country'] = '国';
@@ -215,6 +229,15 @@ $string['system'] = 'システム';
 $string['takephoto'] = '写真を撮影';
 $string['takepicture'] = 'カメラ';
 $string['taskqueue'] = 'タスクキュー';
+$string['therearentnotificationsyet'] = '通知はありません';
+$string['threemonthsmore'] = '3ヶ月以上を表示';
+$string['timecreated'] = '日付が追加されました';
+$string['timeduration'] = '利用時間';
+$string['timemodified'] = '最終更新';
+$string['timestart'] = '開始時間';
+$string['total'] = '総計';
+$string['totalusage'] = '総使用量';
+$string['type'] = '種類';
 $string['unexpectederror'] = '不明なエラー。アプリを閉じて再起動してみてください。';
 $string['update'] = 'アップデート';
 $string['updatesite'] = 'サイトをアップデート';

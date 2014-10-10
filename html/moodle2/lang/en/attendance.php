@@ -35,6 +35,7 @@ $string['all'] = 'All';
 $string['allcourses'] = 'All courses';
 $string['allpast'] = 'All past';
 $string['attendance:addinstance'] = 'Add a new attendance activity';
+$string['attendance_already_submitted'] = 'You may not self register attendance that has already been set.';
 $string['attendance:canbelisted'] = 'Appears in the roster';
 $string['attendance:changeattendances'] = 'Changing Attendances';
 $string['attendance:changepreferences'] = 'Changing Preferences';
@@ -43,6 +44,7 @@ $string['attendance:export'] = 'Export Reports';
 $string['attendanceforthecourse'] = 'Attendance for the course';
 $string['attendancegrade'] = 'Attendance grade';
 $string['attendance:manageattendances'] = 'Manage Attendances';
+$string['attendancenotset'] = 'You must set your attendance';
 $string['attendancenotstarted'] = 'Attendance has not started yet for this course';
 $string['attendancepercent'] = 'Attendance percent';
 $string['attendancereport'] = 'Attendance report';
@@ -112,9 +114,9 @@ For example, if you have earned 8 of 10 points to date (80% attendance) and atte
 $string['gridcolumns'] = 'Grid columns';
 $string['groupsession'] = 'Group';
 $string['hiddensessions'] = 'Hidden sessions';
-$string['hiddensessions_help'] = 'Session hides if course\'s start date older than its date. Change start date of course and hidden sessions will be shown.
+$string['hiddensessions_help'] = 'Sessions are hidden if they are scheduled before the course start date.
 
-You can use this feature to hide older sessions instead delete. Remember than only visible sessions using in Gradebook.';
+You can use this feature to hide older sessions instead of deleting them. Only visible sessions will appear in the Gradebook.';
 $string['identifyby'] = 'Identify student by';
 $string['includeall'] = 'Select all sessions';
 $string['includenottaken'] = 'Include not taken sessions';
@@ -124,6 +126,7 @@ $string['invalidsessionenddate'] = 'The session end date can not be earlier than
 $string['jumpto'] = 'Jump to';
 $string['Lacronym'] = 'L';
 $string['Lfull'] = 'Late';
+$string['lowgrade'] = 'Low grade';
 $string['modulename'] = 'Attendance';
 $string['modulename_help'] = 'The attendance activity module enables a teacher to take attendance during class and students to view their own attendance record.
 
@@ -189,6 +192,7 @@ $string['sessiontype_help'] = 'There are two types of sessions: common and group
 $string['sessiontypeshort'] = 'Type';
 $string['sessionupdated'] = 'Session successfully updated';
 $string['setallstatusesto'] = 'Set status for all users to «{$a}»';
+$string['set_by_student'] = 'Self-recorded';
 $string['settings'] = 'Settings';
 $string['showdefaults'] = 'Show defaults';
 $string['showduration'] = 'Show duration';
@@ -205,6 +209,9 @@ $string['strftimedmyw'] = '%d.%m.%y&nbsp;(%a)';
 $string['strftimehm'] = '%H:%M';
 $string['strftimeshortdate'] = '%d.%m.%Y';
 $string['studentid'] = 'Student ID';
+$string['studentscanmark'] = 'Allow students to record own attendance';
+$string['studentscanmark_help'] = 'If checked students will be able to change their own attendance status for the session.';
+$string['submitattendance'] = 'Submit attendance';
 $string['tablerenamefailed'] = 'Rename of old attforblock table to attendance failed';
 $string['takeattendance'] = 'Take attendance';
 $string['thiscourse'] = 'This course';

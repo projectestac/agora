@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['openlinkinnewwindow'] = 'Ireki esteka leiho berrian';
 $string['pluginname'] = 'URLa';

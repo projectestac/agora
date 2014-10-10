@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cbmbonus'] = 'CBM saria';
 $string['cbmgrades'] = 'CBM kalifikazioak';
 $string['certainty'] = 'Ziurtasuna';
 $string['certainty1'] = 'Ez handiegia (%67tik behera)';
@@ -33,6 +34,6 @@ $string['certainty3'] = 'Handia (%80tik gora)';
 $string['certaintyshort1'] = 'C=1';
 $string['certaintyshort2'] = 'C=2';
 $string['certaintyshort3'] = 'C=3';
-$string['howcertainareyou'] = 'Zenbaiterainoko ziurtasuna duzu?{$a}';
+$string['howcertainareyou'] = 'Ziurtasuna {$a->help}: {$a->choices}';
 $string['judgementok'] = 'Ondo!';
 $string['pluginname'] = 'Beranduagoko feedbacka CBMrekin';

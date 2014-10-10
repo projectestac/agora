@@ -44,6 +44,7 @@ $string['completedunlockedtext'] = '변경사항을 저장하게 되면, 모든 
 $string['completedwarning'] = '이수 설정 잠금';
 $string['completedwarningtext'] = '여러 사람 ({$a}) 이 이 활동을 이수했다고 보고되었습니다. 이수 설정을 변경하게 되면 그들의 이수 상황이 지워질 것이며 혼선을 불러올 수도 있습니다. 꼭 필요하지 않고, 설정이 잠겨 있다면 굳이 이를 해제하지 마십시오.';
 $string['completion'] = '이수상황 추적';
+$string['completionactivitydefault'] = '활동 디폴트 사용';
 $string['completion-alt-auto-enabled'] = '조건에 의거하여 항목 이수를 표시함';
 $string['completion-alt-auto-fail'] = '이수함(통과 성적을 획득하지 못함)';
 $string['completion-alt-auto-n'] = '미이수';

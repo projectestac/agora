@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['addentry'] = '添加的座右铭！';
+$string['addentry'] = '添加新词条';
 $string['askaddentry'] = '如果用户可以将条目添加到词汇表，用链接显示这个文本';
 $string['askinvisible'] = '如果用户不能编辑或查看词汇表，显示这个文本(无链接)';
 $string['askviewglossary'] = '当用户能看到这个词汇表但不能添加词条时，用此文本显示链接';
@@ -46,5 +46,5 @@ $string['select_glossary'] = '从这个词汇表取词条';
 $string['showconcept'] = '显示每个词条的概念（标题）';
 $string['title'] = '标题';
 $string['type'] = '如何选择一个新的条目';
-$string['viewglossary'] = '更多引用……';
+$string['viewglossary'] = '查看所有词条';
 $string['whichfooter'] = '您可以显示本版块关联的词汇表的动作链接。版块只会显示词汇表中启用了的动作。';

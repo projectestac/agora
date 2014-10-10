@@ -67,9 +67,11 @@ $string['completion_help'] = 'Wenn diese Option aktiviert ist, dann werden die A
 
 Ein Häkchen direkt neben den Aktivitätsnamen signalisiert auf der Kursseite, dass diese Aktivität abgeschlossen ist.';
 $string['completionicons'] = 'Markierung zur Fortschrittsanzeige';
-$string['completionicons_help'] = 'Das Kästchen an der Seite neben der Aktivität zeigt an, ob Sie die abgeschlossen haben.
+$string['completionicons_help'] = 'Das Kästchen an der Seite neben der Aktivität zeigt an, ob Sie die Aktivität abgeschlossen haben.
 
-Falls ein gepunktetes Häkchen zu sehen ist, so können Sie darauf klicken, wenn diese Aktivität Ihrer Meinung nach abgeschlossen ist. Ein erneuter Klick entfernt das Häkchen wieder, falls Sie Ihre Meinung nachträglich ändern sollten. Das Häkchen ist optional und bietet eine einfache Möglichkeit, Ihre Fortschritte im Kurs festzuhalten. Wenn statt des Häkchens ein leeres Feld gezeigt wird, wird das Häkchen automatisch erscheinen, sobald Sie die Aktivität entsprechend den Trainervorgaben abgeschlossen haben.';
+Falls ein Kästchen mit gepunktetem Rand zu sehen ist, wird darin automatisch ein Häkchen erscheinen, sobald Sie die Aktivität entsprechend den Trainervorgaben abgeschlossen haben.
+
+Falls ein Kästchen mit durchgezogenem Rand zu sehen ist, können Sie darauf klicken, wenn diese Aktivität Ihrer Meinung nach abgeschlossen ist. (Ein erneuter Klick entfernt das Häkchen wieder, falls Sie Ihre Meinung nachträglich ändern sollten.) Das Häkchen ist optional und bietet eine einfache Möglichkeit, Ihre Fortschritte im Kurs festzuhalten.';
 $string['completion_manual'] = 'Abschluss wird manuell markiert';
 $string['completionmenuitem'] = 'Abschluss';
 $string['completion-n'] = 'Nicht abgeschlossen';
@@ -116,7 +118,7 @@ $string['dependencies'] = 'Abhängigkeiten';
 $string['dependenciescompleted'] = 'Abschluss von anderen Kursen';
 $string['editcoursecompletionsettings'] = 'Abschlusseinstellungen bearbeiten';
 $string['enablecompletion'] = 'Abschlussverfolgung';
-$string['enablecompletion_help'] = 'Wenn aktiviert, so wird die Einstellung zur Abschlussverfolgung in den Einstellungen der Aktivität und der Übersichtsseite zur Abschlussverfolgung angezeigt.';
+$string['enablecompletion_help'] = 'Diese Option legt fest, ob die Einstellung zur Abschlussverfolgung in den Einstellungen der Aktivität und der Übersichtsseite zur Abschlussverfolgung angezeigt wird.';
 $string['enrolmentduration'] = 'Tage noch verfügbar';
 $string['enrolmentdurationlength'] = 'Nutzer/in muss eingeschrieben bleiben';
 $string['err_noactivities'] = 'Die Abschlussinformation ist nicht für jede Aktivität eingeschaltet, daher kann keine angezeigt werden. Sie können die Abschlussinformation einschalten, indem Sie die Einstellungen einer Aktivität bearbeiten.';

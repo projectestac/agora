@@ -77,8 +77,8 @@ $string['compatibilitysettings'] = 'Configurações de compatibilidade';
 $string['completed'] = 'Completo';
 $string['completionscorerequired'] = 'Exigir nota mínima';
 $string['completionscorerequired_help'] = 'Ativar essa configuração vai exigir que o utilizador tenha pelo menos a pontuação mínima inserida para marcar como completa a atividade SCORM, bem como quaisquer outros requisitos de conclusão de atividade.';
-$string['completionstatus_completed'] = 'Completa';
-$string['completionstatus_passed'] = 'Concluído';
+$string['completionstatus_completed'] = 'Completo';
+$string['completionstatus_passed'] = 'Aprovado';
 $string['completionstatusrequired'] = 'Exigir estado';
 $string['completionstatusrequired_help'] = 'Verificar um ou mais estados exigirá que o utilizador fique com pelo menos um estado, para se marcar como completa a atividade SCORM, bem como quaisquer outros requisitos de conclusão de atividade.';
 $string['confirmloosetracks'] = 'AVISO: O pacote de conteúdos parece ter sido alterado. Caso a estrutura do pacote tenha sido alterada, alguns dados de utilizador poderão perder-se durante a atualização.';
@@ -220,8 +220,8 @@ Existem 3 opções:
 
  * Flutuante - os botões de navegação são mostrados no modo flutuante, sendo a posição a partir do topo e da esquerda determinada pelo pacote.';
 $string['navigation'] = 'Navegação';
-$string['navpositionleft'] = 'Posição dos botões de navegação a partir da esquerda em píxeis.';
-$string['navpositiontop'] = 'Posição dos botões de navegação de cima em píxeis.';
+$string['navpositionleft'] = 'Posição dos botões de navegação a partir da esquerda em pixeis.';
+$string['navpositiontop'] = 'Posição dos botões de navegação de cima em pixeis.';
 $string['newattempt'] = 'Iniciar uma nova tentativa';
 $string['next'] = 'Continuar';
 $string['noactivity'] = 'Nada a registar';

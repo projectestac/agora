@@ -25,17 +25,28 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['poodll:audiomp3_desc'] = 'MP3 aufnehmen';
-$string['poodll:audiored5_desc'] = 'Audio aufnehmen';
+$string['drawtheninsert'] = 'Zuerst zeichnen und \'Bild speichern\', dann \'Einfügen\'.';
+$string['pluginname'] = 'PoodLL Anywhere (TinyMCE)';
+$string['poodll:allowaudiomp3'] = 'Audio (MP3)';
+$string['poodll:allowaudiored5'] = 'Audio (Red5)';
+$string['poodll:allowsnapshot'] = 'Foto';
+$string['poodll:allowvideo'] = 'Video';
+$string['poodll:allowwhiteboard'] = 'Whiteboard';
+$string['poodll:audiomp3_desc'] = 'Audio aufnehmen (MP3)';
+$string['poodll:audiored5_desc'] = 'Audio aufnehmen (Red5)';
+$string['poodll:browse'] = 'Blättern';
 $string['poodll:desc'] = 'PoodLL Anywhere';
 $string['poodll:nothingtoinsert'] = 'Nichts zum Einfügen!';
-$string['poodll:snapshot_desc'] = 'Bild aufnehmen';
+$string['poodll:snapshot_desc'] = 'Foto aufnehmen';
 $string['poodll:video_desc'] = 'Video aufnehmen';
 $string['poodll:visible'] = 'Sichtbar';
 $string['poodll:whiteboard_desc'] = 'Bild zeichnen';
 $string['recorderstoshow'] = 'Recorder zum Anzeigen';
+$string['recordtheninsert'] = 'Zuerst aufnehmen, dann \'Einfügen\'.';
 $string['show_audiomp3'] = 'Audiorecorder (MP3) anzeigen';
 $string['show_audiored5'] = 'Audiorecorder (Red5) anzeigen';
+$string['show_snapshot'] = 'Fotokamera anzeigen';
 $string['show_video'] = 'Videorecorder anzeigen';
 $string['show_whiteboard'] = 'Whiteboard anzeigen';
+$string['snaptheninsert'] = 'Zuerst Foto aufnehmen, dann \'Einfügen\'.';
 $string['title'] = 'Mediendatei anlegen';

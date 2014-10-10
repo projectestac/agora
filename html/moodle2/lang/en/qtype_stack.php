@@ -38,15 +38,12 @@ $string['alg_indices_fact'] = 'The following laws govern index manipulation:
 [a^{frac{1}{n}} = sqrt[n]{a}]
 [a^{frac{m}{n}} = left(sqrt[n]{a}right)^m]';
 $string['alg_indices_name'] = 'The Laws of Indices';
-$string['alg_inequalities_fact'] = '[a>b hbox{ means } a hbox{ is greater than } b]
-<br />
-[ a < b hbox{ means } a hbox{ is less than } b]
-<br />
-[ageq b hbox{ means } a hbox{ is greater than or equal to } b]
-<br />
-[aleq b hbox{ means } a hbox{ is less than or equal to } b]';
+$string['alg_inequalities_fact'] = '[a>b hbox{ means } a hbox{ is greater than } b.]
+[ a < b hbox{ means } a hbox{ is less than } b.]
+[ageq b hbox{ means } a hbox{ is greater than or equal to } b.]
+[aleq b hbox{ means } a hbox{ is less than or equal to } b.]';
 $string['alg_inequalities_name'] = 'Inequalities';
-$string['alg_logarithms_fact'] = 'For any positive base (b) (with (b neq 1)):
+$string['alg_logarithms_fact'] = 'For any base (b>0) with (b neq 1):
 [log_b(a) = c mbox{, means } a = b^c]
 [log_b(a) + log_b(b) = log_b(ab)]
 [log_b(a) - log_b(b) = log_bleft(frac{a}{b}right)]
@@ -55,29 +52,29 @@ $string['alg_logarithms_fact'] = 'For any positive base (b) (with (b neq 1)):
 [log_b(b) = 1]
 The formula for a change of base is:
 [log_a(x) = frac{log_b(x)}{log_b(a)}]
-Logarithms to base $e$, denoted $log_e$ or alternatively $ln$ are called natural logarithms.  The letter $e$ represents the exponential constant which is approximately 2.718.';
+Logarithms to base (e), denoted (log_e) or alternatively (ln) are called natural logarithms.  The letter (e) represents the exponential constant which is approximately (2.718).';
 $string['alg_logarithms_name'] = 'The Laws of Logarithms';
 $string['alg_partial_fractions_fact'] = 'Proper fractions occur with [{frac{P(x)}{Q(x)}}]
-when $P$ and $Q$ are polynomials with the degree of $P$ less than the degree of $Q$.  This this case, we proceed
-as follows: write $Q(x)$ in factored form,
+when (P) and (Q) are polynomials with the degree of (P) less than the degree of (Q).  This this case, we proceed
+as follows: write (Q(x)) in factored form,
 <ul>
 <li>
-a <em>linear factor</em> $ax+b$ in the denominator produces a partial fraction of the form [{frac{A}{ax+b}}.]
+a <em>linear factor</em> (ax+b) in the denominator produces a partial fraction of the form [{frac{A}{ax+b}}.]
 </li>
 <li>
-a <em>repeated linear factors</em> $(ax+b)^2$ in the denominator
+a <em>repeated linear factors</em> ((ax+b)^2) in the denominator
 produce partial fractions of the form [{Aover ax+b}+{Bover (ax+b)^2}.]
 </li>
 <li>
-a <em>quadratic factor</em> $ax^2+bx+c$
+a <em>quadratic factor</em> (ax^2+bx+c)
 in the denominator produces a partial fraction of
 the form [{Ax+Bover ax^2+bx+c}]
 </li>
 <li>
 <em>Improper fractions}</em> require an additional
-term which is a polynomial of degree $n-d$ where $n$ is
-the degree of the numerator (i.e. $P(x)$) and $d$ is the degree of
-the denominator (ie $Q(x)$).
+term which is a polynomial of degree (n-d) where (n) is
+the degree of the numerator (i.e. (P(x))) and (d) is the degree of
+the denominator (i.e. (Q(x))).
 </li></ul>';
 $string['alg_partial_fractions_name'] = 'Partial Fractions';
 $string['alg_quadratic_formula_fact'] = 'If we have a quadratic equation of the form:
@@ -150,6 +147,11 @@ $string['AT_NOTIMPLEMENTED'] = 'This answer test has not been implemented.';
 $string['ATNumDecPlaces_NoDP'] = 'Your answer must be a decimal number, including a decimal point.';
 $string['ATNumDecPlaces_OptNotInt'] = 'For ATNumDecPlaces the test option must be a positive integer, in fact "{$a->opt}" was received.';
 $string['ATNumDecPlaces_Wrong_DPs'] = 'Your answer has been given to the wrong number of decimal places.';
+$string['ATNumerical_FAILED'] = 'Your answer should be a floating point number, or a list or set of numbers.  It is not.';
+$string['ATNumerical_SA_not_list'] = 'Your answer should be a list, but is not.  Note that the syntax to enter a list is to enclose the comma separated values with square brackets.';
+$string['ATNumerical_SA_not_number'] = 'Your answer should be a floating point number, but is not.';
+$string['ATNumerical_SA_not_set'] = 'Your answer should be a set, but is not.  Note that the syntax to enter a set is to enclose the comma separated values with curly brackets.';
+$string['ATNumerical_STACKERROR_tol'] = 'The numerical tolerance for ATNumerical should be a floating point number, but is not.  This is an internal error with the test.  Please ask your teacher about this.';
 $string['ATNumSigFigs_error_list'] = 'The answer test failed.  Please contact your systems administrator';
 $string['ATNumSigFigs_Inaccurate'] = 'The accuracy of your answer is not correct.  Either you have not rounded correctly, or you have rounded an intermediate answer which propagates an error.';
 $string['ATNumSigFigs_NotDecimal'] = 'Your answer should be a decimal number, but is not!';
@@ -202,7 +204,7 @@ Assume we have a function (f(g(x))), then defining (u=g(x)), the derivative with
 Alternatively, we can write:
 [frac{df(x)}{dx} = f\'(g(x))cdot g\'(x).]';
 $string['calc_chain_rule_name'] = 'The Chain Rule';
-$string['calc_diff_linearity_rule_fact'] = '[{{rm d},over {rm d}x}big(af(x)+bg(x)big)=a{{rm d}f(x)over {rm d}x}+b{{rm d}g(x)over {rm d}x}quad a,b {rm  constant}]';
+$string['calc_diff_linearity_rule_fact'] = '[{{rm d},over {rm d}x}big(af(x)+bg(x)big)=a{{rm d}f(x)over {rm d}x}+b{{rm d}g(x)over {rm d}x}quad a,b {rm  constant.}]';
 $string['calc_diff_linearity_rule_name'] = 'The Linearity Rule for Differentiation';
 $string['calc_diff_standard_derivatives_fact'] = 'The following table displays the derivatives of some standard functions.  It is useful to learn these standard derivatives as they are used frequently in calculus.
 <center>
@@ -236,21 +238,20 @@ $string['calc_diff_standard_derivatives_fact'] = 'The following table displays t
  [ frac{d}{dx}left(tanh^{-1}(x)right) =  frac{1}{1-x^2}]';
 $string['calc_diff_standard_derivatives_name'] = 'Standard Derivatives';
 $string['calc_int_linearity_rule_fact'] = '[int left(af(x)+bg(x)right){rm d}x = aint!!f(x),{rm d}x
-,+,bint !!g(x),{rm d}x, quad (a,b , , {rm constant})
+,+,bint !!g(x),{rm d}x, quad (a,b , , {rm constant.})
 ]';
 $string['calc_int_linearity_rule_name'] = 'The Linearity Rule for Integration';
 $string['calc_int_methods_parts_fact'] = '[
 int_a^b u{{rm d}vover {rm d}x}{rm d}x=left[uvright]_a^b-
-int_a^b{{rm d}uover {rm d}x}v,{rm d}x
-]
-Or alternatively: [int_a^bf(x)g(x),{rm d}x=left[f(x),int
+int_a^b{{rm d}uover {rm d}x}v,{rm d}x]
+or alternatively: [int_a^bf(x)g(x),{rm d}x=left[f(x),int
 g(x){rm d}xright]_a^b -int_a^b{{rm d}fover {rm
-d}x}left{int g(x){rm d}xright}{rm d}x ]';
+d}x}left{int g(x){rm d}xright}{rm d}x.]';
 $string['calc_int_methods_parts_name'] = 'Integration by Parts';
 $string['calc_int_methods_substitution_fact'] = '[
 int f(u){{rm d}uover {rm d}x}{rm d}x=int f(u){rm d}u
 quadhbox{and}quad int_a^bf(u){{rm d}uover {rm d}x},{rm
-d}x = int_{u(a)}^{u(b)}f(u){rm d}u
+d}x = int_{u(a)}^{u(b)}f(u){rm d}u.
 ]';
 $string['calc_int_methods_substitution_name'] = 'Integration by Substitution';
 $string['calc_int_standard_integrals_fact'] = '[int k dx = kx +c, mbox{ where k is constant.}]
@@ -394,7 +395,7 @@ $string['greek_alphabet_fact'] = '<center>
  (Theta)  </td><td>  (theta)  </td><td>  theta </td> </tr>   <tr> <td>
  (K)  </td><td>  (kappa)  </td><td>  kappa </td> </tr>   <tr> <td>
  (M)  </td><td>  (mu)  </td><td>  mu </td> </tr>   <tr> <td>
- (N)  </td><td>  ) u)  </td><td>  nu </td> </tr>   <tr> <td>
+ (N)  </td><td>  ( u)  </td><td>  nu </td> </tr>   <tr> <td>
  (Xi)  </td><td>  (xi)  </td><td>  xi </td> </tr>   <tr> <td>
  (O)  </td><td>  (o)  </td><td>  omicron </td> </tr>   <tr> <td>
  (Pi)  </td><td>  (pi)  </td><td>  pi </td> </tr>   <tr> <td>
@@ -413,6 +414,7 @@ $string['greek_alphabet_name'] = 'The Greek Alphabet';
 $string['healthcheck'] = 'STACK healthcheck';
 $string['healthcheckcache_db'] = 'CAS results are being cached in the database.';
 $string['healthcheckcache_none'] = 'CAS results are not being cached.';
+$string['healthcheckcache_otherdb'] = 'CAS results are being cached in another database.';
 $string['healthcheckcachestatus'] = 'The cache currently contains {$a} entries.';
 $string['healthcheckconfig'] = 'Maxima configuration file';
 $string['healthcheckconfigintro1'] = 'Found, and using, Maxima in the following directory:';
@@ -495,8 +497,11 @@ $string['inputtypematrix'] = 'Matrix';
 $string['inputtypesinglechar'] = 'Single character';
 $string['inputtypetextarea'] = 'Text area';
 $string['insertstars'] = 'Insert stars';
-$string['insertstars_help'] = 'If set to yes then the system will automatically insert *s into any patterns identified by Strict Syntax.  Otherwise, it shows an error.';
+$string['insertstarsassumesinglechar'] = 'Insert stars assuming single-characer variable names';
+$string['insertstars_help'] = 'If set to false then no stars will be inseted.  If set to yes then the system will automatically insert stars into any patterns identified by Strict Syntax.  If set to "single char vars" then we assume the answer has variable names consisting only of single letter variable names.  Other variable names will have stars inserted between the letters, e.g. ab->a*b';
 $string['insertstars_link'] = '%%WWWROOT%%/question/type/stack/doc/doc.php/Authoring/Inputs.md#Insert_Stars';
+$string['insertstarsno'] = 'Don\'t insert stars';
+$string['insertstarsyes'] = 'Insert stars for implied mulitplication';
 $string['inversetrig'] = 'Inverse trigonometric functions';
 $string['inversetrig_help'] = 'Controls how inverse trigonometric functions are displayed in CAS output.';
 $string['inversetrig_link'] = '%%WWWROOT%%/question/type/stack/doc/doc.php/Authoring/Options.md#inverse_trig';
@@ -504,6 +509,9 @@ $string['irred_Q_commonint'] = 'You need to take out a common factor.';
 $string['irred_Q_factored'] = 'The term {$a->m0} should be unfactored, but is not.';
 $string['irred_Q_optional_fac'] = 'You could do more work, since {$a->m0} can be further factored.  However, you don\'t need to.';
 $string['Lowest_Terms'] = 'Your answer contains fractions that are not written in lowest terms.  Please cancel factors and try again.';
+$string['matrixparens'] = 'Default shape of matrix parentheses';
+$string['matrixparens_help'] = 'Controls the default shape of matrix parentheses when displayed in CAS output.';
+$string['matrixparens_link'] = '%%WWWROOT%%/question/type/stack/doc/doc.php/CAS/Matrix.md#matrixparens';
 $string['Maxima_DivisionZero'] = 'Division by zero.';
 $string['multcross'] = 'Cross';
 $string['multdot'] = 'Dot';
@@ -644,9 +652,9 @@ $string['settingmathsdisplay_mathjax'] = 'MathJax';
 $string['settingmathsdisplay_maths'] = 'OU maths filter';
 $string['settingmathsdisplay_tex'] = 'Moodle TeX filter';
 $string['settingplatformmaximacommand'] = 'Maxima command';
-$string['settingplatformmaximacommand_desc'] = 'STACK needs to know the shell command to start Maxima.  If this is blank, STACK will make an educated guess.';
+$string['settingplatformmaximacommand_desc'] = 'For Platform type: Server, this is must be set to the URL of the Maxima Pool servlet. For other platform types, if this is blank, STACK will make an educated guess as to where to find Maxima. If that fails, this should be set to the full path of the maxima or maxima-optimised executable.';
 $string['settingplatformplotcommand'] = 'Plot command';
-$string['settingplatformplotcommand_desc'] = 'STACK needs to know the gnuplot command.  If this is blank, STACK will make an educated guess.';
+$string['settingplatformplotcommand_desc'] = 'Normally this can be left blank, but if graph plotting is not working, you may need to supply the full plath to the gnuplot command here.';
 $string['settingplatformtype'] = 'Platform type';
 $string['settingplatformtype_desc'] = 'STACK needs to know what sort of operating system it is running on. The Server option give better performance at the cost of having to set up an additional server. The option "Linux (optimised)" is explained on the Optimising Maxima page in the documentation.';
 $string['settingplatformtypeserver'] = 'Server';
@@ -655,6 +663,8 @@ $string['settingplatformtypeunixoptimised'] = 'Linux (optimised)';
 $string['settingplatformtypewin'] = 'Windows';
 $string['settingreplacedollars'] = 'Replace <code>$</code> and <code>$$</code>';
 $string['settingreplacedollars_desc'] = 'Replace <code>$...$</code> and <code>$$...$$</code> delimiters in question text, in addition to <code>[...]</code> and <code>(...)</code>. A better option is to user the \'Fix maths delimiters\' script which is referred to below.';
+$string['settingserveruserpass'] = 'Server username:password';
+$string['settingserveruserpass_desc'] = 'If you are using Platform type: Server, and if you have set up your Maxima pool server with HTTP authentication, then you can put the username and password here. That is slighly safer than putting them in the URL. The format is username:password.';
 $string['settingsmathsdisplayheading'] = 'Maths display options';
 $string['settingsmaximasettings'] = 'Connecting to Maxima';
 $string['settingusefullinks'] = 'Useful links';
@@ -686,11 +696,9 @@ $string['stackCas_MissingAt'] = 'You are missing a <code>@</code> sign.';
 $string['stackCas_MissingCloseDisplay'] = 'Missing <code>]</code>.';
 $string['stackCas_MissingCloseHTML'] = 'Missing closing html tag.';
 $string['stackCas_MissingCloseInline'] = 'Missing <code>)</code>.';
-$string['stackCas_MissingClosingHint'] = 'Missing closing /hint';
 $string['stackCas_MissingDollar'] = 'You are missing a <code>$</code> sign.';
 $string['stackCas_missingLeftBracket'] = 'You have a missing left bracket <span class="stacksyntaxexample">{$a->bracket}</span> in the expression: {$a->cmd}.';
 $string['stackCas_MissingOpenDisplay'] = 'Missing <code>[</code>.';
-$string['stackCas_MissingOpenHint'] = 'Missing opening hint.';
 $string['stackCas_MissingOpenHTML'] = 'Missing opening html tag.';
 $string['stackCas_MissingOpenInline'] = 'Missing <code>(</code>.';
 $string['stackCas_missingRightBracket'] = 'You have a missing right bracket <span class="stacksyntaxexample">{$a->bracket}</span> in the expression: {$a->cmd}.';
@@ -701,6 +709,11 @@ $string['stackCas_percent'] = '&#037; found in expression {$a->expr}.';
 $string['stackCas_spaces'] = 'Spaces found in expression {$a->expr}.';
 $string['stackCas_spuriousop'] = 'Unknown operator: {$a->cmd}.';
 $string['stackCas_tooLong'] = 'CASText statement is too long.';
+$string['stackCas_trigexp'] = 'You cannot take a power of a trig function by writing {$a->forbid}. The square of the value of (sin(x)) is typed in as (sin(x)^2).  The inverse of (sin(x)) is written <tt>asin(x)</tt> and not (sin^{-1}(x)) .';
+$string['stackCas_triginv'] = 'Inverse trig functions are written {$a->goodinv} not {$a->badinv}.';
+$string['stackCas_trigop'] = 'You must apply {$a->trig} to an argument.  You seem to have {$a->forbid}, which looks like you have tried to use {$a->trig} as a variable name.';
+$string['stackCas_trigparens'] = 'When you apply a trig function to its arguments you must use round parentheses not square brackets.  E.g {$a->forbid}.';
+$string['stackCas_unencpsulated_comma'] = 'A comma in your expression appears in a strange way.  Commas are used to separate items in lists, sets etc.  You need to use a decimal point, not a comma, in floating point numbers.';
 $string['stackCas_unknownFunction'] = 'Unknown function: {$a->forbid}.';
 $string['stackCas_unsupportedKeyword'] = 'Unsupported keyword: {$a->forbid}.';
 $string['stackDoc_404'] = 'Error 404';
@@ -712,6 +725,7 @@ $string['stackDoc_home'] = 'Documentation home';
 $string['stackDoc_index'] = 'Category index';
 $string['stackDoc_parent'] = 'Parent';
 $string['stackDoc_siteMap'] = 'Site map';
+$string['stackHintOld'] = 'The CASText has old-style hint tags. These should now be in the form <pre>[[facts:tag]]</pre>';
 $string['stackInstall_input_intro'] = 'This page allows you to test how STACK interprets various inputs from a student.  This currently only checks with the most liberal settings, trying to adopt an informal syntax and insert stars.  <br />\'V\' columns record validity as judged by PHP and the CAS.  V1 = PHP valid, V2 = CAS valid.';
 $string['stackInstall_input_title'] = 'A test suite for validation of student\'s input';
 $string['stackInstall_input_title_desc'] = 'The <a href="{$a->link}">input-tests script</a> provides test cases of how STACK interprets mathematical expressions.  They are also useful to learn by example.';
@@ -765,11 +779,14 @@ $string['tansinvalid'] = 'TAns is invalid: {$a}';
 $string['tans_link'] = '%%WWWROOT%%/question/type/stack/doc/doc.php/Authoring/Answer_tests.md';
 $string['tansrequired'] = 'TAns must not be empty.';
 $string['teacheranswer'] = 'Teacher answer';
+$string['teacheranswershow'] = 'A correct answer is ( {$a->display} ), which can be typed in as follows: {$a->value}';
+$string['teacheranswershow_disp'] = 'A correct answer is ( {$a->display} ).';
 $string['teachersanswer'] = 'Model answer';
 $string['teachersanswer_help'] = 'The teacher must specify a model answer for each input.  This must be a valid Maxima string, and may be formed from the question variables.';
 $string['teachersanswer_link'] = '%%WWWROOT%%/question/type/stack/doc/doc.php/Authoring/Inputs.md#model_answer';
 $string['testcasexresult'] = 'Test case {$a->no} {$a->result}';
 $string['TEST_FAILED'] = 'The answer test failed to execute correctly: please alert your teacher. {$a->errors}';
+$string['TEST_FAILED_Q'] = 'The answer test failed to execute correctly: please alert your teacher.';
 $string['testingquestion'] = 'Testing question {$a}';
 $string['testinputs'] = 'Test inputs';
 $string['testinputsimpwarning'] = 'Please note that test inputs are always <em>unsimplified</em> regardless of the question or PRT option setting.  Please use <tt>ev(...,simp)</tt> to simplify part or all of the test input expressions.';
@@ -844,6 +861,7 @@ Whether to go to another node, and if so which, or stop.
 ### Answer note
 This is a tag which is key for reporting purposes.  It is designed to record the unique path through the tree, and the outcome of each answer test.  This is automatically generated, but can be changed to something meaningful.';
 $string['undeploy'] = 'Un-deploy';
+$string['unrecognisedfactstags'] = 'The following facts tag(s) are not recognized: {$a->tags}.';
 $string['variant'] = 'Variant';
 $string['variantsselectionseed'] = 'Random group';
 $string['variantsselectionseed_help'] = 'Normally you can leave this box blank. If, however, you want two different questions in a quiz to use the same random seed, then type the same string in this box for the two questions (and deploy the same set of random seeds, if you are using deployed versions) and the random seeds for the two questions will be synchronised.';

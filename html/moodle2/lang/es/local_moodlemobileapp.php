@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['about'] = 'Acerca';
+$string['about'] = 'Acerca de';
 $string['activity'] = 'Actividad';
 $string['add'] = 'Añadir';
 $string['addcontact'] = 'Añadir como contacto';
@@ -36,6 +36,20 @@ $string['address'] = 'Dirección';
 $string['addsite'] = 'Añadir un sitio';
 $string['allcachesinvalidated'] = 'Todas las cachés invalidadas';
 $string['allcachespurged'] = 'Todas las cachés han sido borradas';
+$string['appstoredescription'] = 'NOTA: La aplicación oficial para móviles de Moodle sólo funciona con sitios Moodle que se han configurado para permitirlo. Por favor, consulte con su administrador de Moodle si tiene algún problema de conexión.
+
+Si su sitio Moodle se ha configurado correctamente, puede utilizar esta aplicación para:
+
+- Navegar por el contenido de sus cursos, incluso sin conexión
+- Recibir notificaciones instantáneas de mensajes y otros eventos
+- Encontrar de manera rápida y contactar con otras personas en sus cursos
+- Subir imágenes, audio, videos y otros archivos desde su dispositivo móvil
+- Ver las calificaciones de los cursos
+- ¡Y mucho más!
+
+Por favor, consulte http://docs.moodle.org/en/Mobile_app para información actualizada.
+
+¡Nos encantaría recibir comentarios sobre qué más querría que esta aplicación fuese capaz de hacer!';
 $string['areyousurereset'] = '¿Está seguro que desea reiniciar la aplicación? Todos sus sitios serán borrados.';
 $string['audionotavailable'] = 'Hardware de entrada de audio no disponible';
 $string['audiorecordinstructions'] = 'Presione Grabar para iniciar la grabación, Detener para parar y subir el archivo .';
@@ -61,6 +75,7 @@ $string['contents'] = 'Contenidos';
 $string['contentyetnotavailable'] = 'Este tipo de actividad no está disponible aún';
 $string['continue'] = 'Continuar';
 $string['country'] = 'País';
+$string['course'] = 'Curso';
 $string['coursename'] = 'Nombre del curso';
 $string['csssynced'] = 'CSS remota sincronizada';
 $string['date'] = 'Fecha';
@@ -75,6 +90,7 @@ $string['development'] = 'Desarrollo';
 $string['deviceinfo'] = 'Información de dispositivo';
 $string['disablenotifications'] = 'Deshabilitar notificaciones';
 $string['disablerdebugger'] = 'Deshabilitar depuración remota';
+$string['discussions'] = 'discusiones';
 $string['docsurl'] = 'http://docs.moodle.org/es/Mobile_app';
 $string['downloadremotefile'] = 'Descargar archivo remoto';
 $string['downloadtime'] = 'Descargado';
@@ -98,6 +114,7 @@ $string['errorcapturingvideo'] = 'Error grabando el vídeo';
 $string['errordownloading'] = 'Ocurrió un error descargando el archivo';
 $string['errorduringdevicetokenrequest'] = 'Ocurrió un error durante la petición del token';
 $string['errorduringdevicetokenrequesttoapns'] = 'Error en la petición de un token a APNS';
+$string['errorlistingfiles'] = 'Ocurrió un error al obtener los archivos de este directorio';
 $string['errornoconnectednocache'] = 'El dispositivo no está conectado y no hay información cacheada disponible para la opción requerida';
 $string['errorregisteringdeviceinmoodle'] = 'Error registrando el dispositivo en Moodle';
 $string['errorretrievinggradeinformation'] = 'Ocurrió un error obteniendo información de las calificaciones';
@@ -113,6 +130,8 @@ $string['fileurl'] = 'URL del archivo';
 $string['forcecsssync'] = 'Forzar sincronización de CSS ahora';
 $string['forcelangsync'] = 'Forzar sincronización de idioma ahora';
 $string['forceofflinemode'] = 'Forzar modo desconectado';
+$string['forumnodiscussionsyet'] = 'No existen temas de discusión en este foro';
+$string['forumnumreplies'] = 'respuestas';
 $string['fullname'] = 'Nombre completo';
 $string['general'] = 'General';
 $string['grade'] = 'Calificación';
@@ -120,6 +139,7 @@ $string['grades'] = 'Calificaciones';
 $string['groupeventsnotdisplayed'] = 'Los eventos de grupo no se muestran';
 $string['help'] = 'Ayuda';
 $string['helpmelogin'] = '<p>Hay miles de sitios que usan Moodle en el mundo. Esta aplicación sólo puede acceder a aquellos que han habilitado acceso móvil.</p><p>Si no puede conectar, contacte con su administrador de Moodle para que lea la siguiente información <a href="http://docs.moodle.org/en/Mobile_app" target="_blank">http://docs.moodle.org/en/Mobile_app</a></p><p>Para probar la aplicación en un sitio de demostración teclee <i>teacher</i> o <i>student</i> en el campo <i>URL del sitio</i> y haga clic en el botón <b>Añadir</b>.</p>';
+$string['hours'] = 'Horas';
 $string['icantlogin'] = 'No puedo acceder';
 $string['imagestored'] = 'Su imagen se ha guardado en su zona de archivos privada';
 $string['info'] = 'Información';
@@ -128,6 +148,7 @@ $string['invalidaccount'] = 'Por favor, verifique sus datos de acceso, o consult
 $string['invalidmoodleversion'] = 'Versión de Moodle inválida. La versión mínima requerida es:';
 $string['invalidscheme'] = 'Por favor, introduzca una dirección URL válida.';
 $string['invalidsite'] = 'La URL del sitio es inválida.';
+$string['keepsynchronising'] = 'Mantener la sincronización de mensajes desde el servidor';
 $string['langsynced'] = 'Idioma sincronizado';
 $string['language'] = 'Idioma';
 $string['license'] = 'Licencia';
@@ -138,15 +159,20 @@ $string['location'] = 'Ubicación';
 $string['logininsiterequired'] = 'Para autentificarse en el sitio se ha de abrir una ventana de navegador.';
 $string['logout'] = 'Salir';
 $string['lostconnection'] = 'Hemos perdido la conexión, necesita reconectar. Su token ya no es válido';
+$string['manageaccounts'] = 'Gestionar cuentas';
 $string['message'] = 'Mensaje';
 $string['messagesent'] = 'Mensaje enviado';
+$string['minutes'] = 'Minutos';
 $string['mobileservicesnotenabled'] = 'El acceso móvil no está habilitado para este sitio, por favor, contacte con su administrador si piensa que debería estar habilitado.';
 $string['modulename'] = 'Nombre del módulo';
+$string['months'] = 'Meses';
 $string['moodlehelp'] = 'Ayuda';
 $string['mycourses'] = 'Mis cursos';
+$string['myfiles'] = 'Mis archivos';
 $string['name'] = 'Nombre';
 $string['networkerror'] = 'Conexión no disponible';
 $string['networkerrormsg'] = 'Conexión no disponible o sin funcionar.';
+$string['next'] = 'Siguiente';
 $string['no'] = 'No';
 $string['norefreshdisconnected'] = 'La opción de "Actualizar" requiere conexión a Internet';
 $string['notaskstobesynchronized'] = 'No hay tareas pendiente de sincronización';
@@ -164,16 +190,20 @@ $string['password'] = 'Contraseña';
 $string['passwordlabel'] = 'Contraseña';
 $string['passwordnotnull'] = 'Por favor indica tu contraseña';
 $string['passwordrequired'] = 'Contraseña obligatoria';
+$string['percentage'] = 'Porcentaje';
 $string['phone1'] = 'Teléfono';
 $string['phone2'] = 'Móvil';
 $string['pluginname'] = 'Cadenas de idioma de Moodle Mobile';
 $string['preview'] = 'Previsualizar';
+$string['previous'] = 'Anterior';
+$string['privatefiles'] = 'Archivos privados';
 $string['purgecaches'] = 'Borrar caches';
 $string['range'] = 'Rango';
 $string['rdebuggingenabledfor'] = 'El debug remoto estará disponible en los próximos segundos:';
 $string['record'] = 'Grabar';
 $string['recordaudio'] = 'Audio';
 $string['recordstored'] = 'Tu grabación ha sido almacenada en tu zona de archivos privada';
+$string['remotesystemnotconfiguredfornotifications'] = 'La instalación de Moodle no está configurada para enviar notificaciones móvil. Por favor, contacte con su administrador de Moodle si piensa que las notificaciones deberían estar habilitadas.';
 $string['replay'] = 'Reproducir';
 $string['reply'] = 'Responder';
 $string['reportabug'] = 'Informar de un problema';
@@ -183,6 +213,7 @@ $string['reset'] = 'Reiniciar';
 $string['resetapp'] = 'Reiniciar aplicación';
 $string['save'] = 'Guardar';
 $string['saving'] = 'Guardando...';
+$string['seconds'] = 'Segundos';
 $string['select'] = 'Seleccionar';
 $string['selectsite'] = 'Seleccionar un sitio';
 $string['send'] = 'Enviar';
@@ -193,6 +224,7 @@ $string['settings'] = 'Ajustes';
 $string['showall'] = 'Mostrar todo';
 $string['showlog'] = 'Mostrar log';
 $string['siteexists'] = 'Este sitio ya existe.';
+$string['sitefiles'] = 'Archivos del sitio';
 $string['siteinmaintenance'] = 'Su sitio está en modo mantenimiento';
 $string['sitename'] = 'Nombre del sitio';
 $string['sites'] = 'Sitios';
@@ -204,6 +236,7 @@ $string['stop'] = 'Detener';
 $string['strings'] = 'Cadenas';
 $string['synchronization'] = 'Sincronización';
 $string['syncthistasknow'] = 'Sincronizar esta tarea ahora';
+$string['system'] = 'Sistema';
 $string['takephoto'] = 'Hacer una foto';
 $string['takepicture'] = 'Cámara';
 $string['taskqueue'] = 'Cola de tareas';
@@ -222,6 +255,7 @@ $string['updatesite'] = 'Actualizar el sitio';
 $string['upload'] = 'Subir';
 $string['uploading'] = 'Subiendo';
 $string['uploadingtoprivatefiles'] = 'Subiendo a su área de archivos privada';
+$string['uselocalmobileplugin'] = 'Esta página funciona mejor si el sitio Moodle tiene el plugin de funcionalidades adicionales móvil instalado';
 $string['userfrom'] = 'De';
 $string['username'] = 'Nombre de usuario';
 $string['usernamelabel'] = 'Nombre de usuario';
@@ -236,7 +270,9 @@ $string['webservicesuccessfullyexecuted'] = 'Petición a servicio web ejecutada 
 $string['website'] = 'Página web';
 $string['welcome'] = 'Bienvenido a la aplicación móvil Moodle Mobile';
 $string['writeherethebug'] = 'Escriba aquí una descripción detalla del problema';
+$string['years'] = 'Años';
 $string['yes'] = 'Sí';
+$string['youarein'] = 'Está en:';
 $string['yourpassword'] = 'contraseña';
 $string['yoursiteurl'] = 'https://yourmoodle.com';
 $string['yourusername'] = 'usuario';

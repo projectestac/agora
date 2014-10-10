@@ -679,6 +679,7 @@ $string['style_dlg:top'] = '상';
 $string['style_dlg:visibility'] = '가시성';
 $string['style_dlg:width'] = '폭';
 $string['style_dlg:zindex'] = 'Z-index';
+$string['subplugintype_tinymce'] = '플러그인';
 $string['subplugintype_tinymce_plural'] = '플러그인';
 $string['table:cell'] = '셀';
 $string['table:cell_desc'] = '셀의 속성';

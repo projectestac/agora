@@ -51,6 +51,7 @@ $string['questionsaveasedited'] = 'Galdera editatutakoa bezala gordeko da';
 $string['questionsmissing'] = 'Ez dago balio duen galderarik, sortu gutxienez galdera bat';
 $string['questiontypechanged'] = 'Galdera-mota aldatu da';
 $string['storedqtype'] = 'Gordetako galdera-mota: {$a}';
+$string['subqresponse'] = '{$a->i} zatia: {$a->response}';
 $string['unknownquestiontypeofsubquestion'] = 'Galdera-mota ezezaguna: # {$a->sub} galdera-zatiaren {$a->type}';
 $string['warningquestionmodified'] = '<b>KONTUZ</b>';
 $string['youshouldnot'] = '<b>EZ ZENUKE EGIN BEHAR</b>';

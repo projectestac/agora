@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'ko', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'ko', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -28,7 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['completiondate'] = '강좌 완료';
 $string['receivedcerts'] = '받은 인증서';
 $string['receiveddate'] = '수여일';
-$string['reissuecert'] = '인증서 재발행';
 $string['removecert'] = '발행된 인증서 제거됨';
 $string['report'] = '보고서';
 $string['savecert'] = '인증서 저장';

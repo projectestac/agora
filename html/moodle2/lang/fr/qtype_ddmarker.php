@@ -42,6 +42,12 @@ $string['draggableword'] = 'Texte déplaçable';
 $string['dropbackground'] = 'Image de fond pouvant être recouverte de marqueurs déplaçables';
 $string['dropzone'] = 'Zone de dépôt {$a}';
 $string['dropzoneheader'] = 'Zone de dépôt';
+$string['dropzones'] = 'Zones de dépôt';
+$string['dropzones_help'] = 'Les zones de dépôt sont définies en saisissant leurs coordonnées. En les saisissant, l\'aperçu, ci-dessus, se met immédiatement à jour ce qui vous permet de placer et d\'ajuster les zones pas à pas.
+
+* Cercle: centre_x, centre_y; rayon<br>par exemple: `80, 100; 50`
+* Polygone: x1, y1; x2, y2; ...; xn, yn<br>par exemple: `20, 60; 100, 60; 20, 100`
+* Rectangle: x1, y1(coordonnées coin gauche haut); largeur, hauteur<br>par exemple: `20, 60; 80, 40`';
 $string['followingarewrong'] = 'Les marqueurs suivants ont été placés dans la mauvaise zone : {$a}.';
 $string['followingarewrongandhighlighted'] = 'Les marqueurs suivants étaient placés de manière incorrecte : {$a}. Les marqueurs en surbrillance sont à présent à leur place.<br /> Cliquez sur le marqueur pour mettre la zone autorisée en surbrillance.';
 $string['formerror_nobgimage'] = 'Vous devez sélectionner une image à utiliser comme fond pour cette aire de glisser-déposer.';

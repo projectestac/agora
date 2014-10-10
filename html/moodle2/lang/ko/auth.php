@@ -71,6 +71,7 @@ $string['chooseauthmethod_help'] = '<p>본 메뉴는 특별한 사용자를 위�
 <p>하지만 여러분이 사이트 인증방법에 무엇을 썼으며 또 어떻게 설정하였는지에 의해 긴밀히 의존되어 있음을 유의하기 바랍니다.</p>
 
 <p>이 곳에서 설정을 잘못하게 되면 로그인을 하지 못할 뿐만 아니라, 사용자 자신들의 계정을 완전히 삭제할 수도 없게 되므로, 이에 대한 내용을 완전하게 숙지하지 못한 경우, 기본 설정을 그대로 두는 것이 안전합니다.</p>';
+$string['createpassword'] = '암호를 만들고 사용자에게 통지';
 $string['createpasswordifneeded'] = '필요시 암호 생성';
 $string['emailchangecancel'] = '이메일 주소변경 취소';
 $string['emailchangepending'] = '변경 보류. {$a->preference_newemail} 로 발송된 확인 내용에 응답하기 바랍니다.';
@@ -93,6 +94,7 @@ $string['errorminpasswordlower'] = '암호에는 최소 {$a} 개의 소문자가
 $string['errorminpasswordnonalphanum'] = '암호에는 최소 {$a} 개의 특수문자가 포함되야 합니다.';
 $string['errorminpasswordupper'] = '암호에는 최소 {$a} 개의 대문자가 포함되야 합니다.';
 $string['errorpasswordupdate'] = '비밀번호 업데이트 오류. 비밀번호가 변경되지 않았습니다.';
+$string['eventuserloggedinas'] = '사용자가 다른 사용자로 로그인하였습니다.';
 $string['forcechangepassword'] = '강제 암호변경';
 $string['forcechangepasswordfirst_help'] = '무들에 최초 로그인 할 때 비밀번호 교체 요청';
 $string['forcechangepassword_help'] = '다음 로그인시 사용자에게 비밀번호 교체 요청';
@@ -144,6 +146,8 @@ $string['stdchangepassword_expl'] = '만약 외부 인증 시스템이 무들을
 $string['stdchangepassword_explldap'] = '주목 : 만약 LDAP서버가 원격에 있다면, SSL 함호화 터널(ldaps://)을 통해서 LDAP를 사용할 것을 추천한다.';
 $string['suspended'] = '유보된 계정';
 $string['suspended_help'] = '유예된 사용자 계정으로는 로그인하거나 웹 서비스를 사용할 수 없으며, 어떠한 연락도 전달되지 않을 것입니다.';
+$string['testsettings'] = '테스트 설정';
+$string['testsettingsheading'] = '인증 설정 테스트 -  {$a}';
 $string['unlocked'] = '잠금 해제';
 $string['unlockedifempty'] = '비어있다면 잠금 해제';
 $string['update_never'] = '불가';

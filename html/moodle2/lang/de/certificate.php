@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'de', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'de', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,14 +42,25 @@ $string['borderlines'] = 'Linien';
 $string['borderstyle'] = 'Rahmen';
 $string['borderstyle_help'] = 'Die  Option Rahmen erlaubt es Ihnen, ein Bild aus dem Verzeichnis certificate/pix/borders auszuwählen. Wählen Sie entweder einen Dateinamen aus oder keinen Rahmen. Sie können diese Option auch dazu nutzen, Hintergrundbilder einzubetten, die im Verzeichnis certificate/pix/borders hinterlegt wurden.';
 $string['certificate'] = 'Zugangscode eingeben';
-$string['certificate:manage'] = 'Zertifikat bearbeiten';
+$string['certificate:addinstance'] = 'Zertifikatsinstanz hinzufügen';
+$string['certificate:manage'] = 'Zertifikatsinstanz verwalten';
 $string['certificatename'] = 'Name des Zertifikats';
-$string['certificate:printteacher'] = 'Name der Kursleitung angeben';
+$string['certificate:printteacher'] = 'Diese Namen werden als Kursleitung auf dem Zertifikat aufgeführt, wenn die Einstellung \'Kursleitung drucken\' aktiviert ist.';
 $string['certificatereport'] = 'Bericht';
 $string['certificatesfor'] = 'Zertifikate für';
-$string['certificate:student'] = 'Zertifikat abrufen';
+$string['certificate:student'] = 'Zertifikat zurückziehen';
 $string['certificatetype'] = 'Vorlage';
-$string['certificatetype_help'] = 'Hier können Sie das Layout des Zertifikats festlegen. Zur Auswahl stehen zwei Formate: A4 und Letter. Bei den Formaten kann jeweils gewählt werden, ob die Schriftart eingebettet (embedded) werden soll oder nicht. Standardmäßig werden die Schriftarten Times und Helvetica verwendet, eingebettet werden Dejavusans and Dejavuserif.  Das Einbetten der Schriftart kann das PDF vergrößern.';
+$string['certificatetype_help'] = 'Diese Einstellungen legen das Layout des Zertifikats fest. Es sind vier Standardformate des Zertifikats möglich:
+- A4 Embedded ist druckbar auf A4-Papier mit eingebetteten Schriften
+- A4 Non-Embedded ist druckbar auf A4-Papier ohne eingebettete Schriften
+- Letter Embedded ist druckbar auf Letter-Papier mit eingebetteten Schriften
+- Letter Non-Embedded ist druckbar auf Letter-Papier ohne eingebettete Schriften
+
+Zertifikate ohne eingebettete Schriften verwenden die Schriftarten Helvetica und Times.
+
+Falls Sie denken, dass die Nutzer/innen diese Schriftarten auf ihrem Computer haben bzw. wenn Ihre Sprache besondere Zeichen oder Symbole verwendet, benutzen Sie die Embedded-Formate mit eingebetteten Schriften. Hierfür werden die Schriftarten Dejavusans und Dejavuserif in die Zertifikate eingebunden, wobei die PDF-Dateien erheblich größer werden.
+
+Sie können auch eigene Formate hinzufügen, wobei Sie aber Dateien auf dem Server ergänzen und die Sprachdatei müssen.';
 $string['certificate:view'] = 'Zertifikat anzeigen';
 $string['certify'] = 'Hiermit wird bescheinigt';
 $string['code'] = 'Seriennummer';
@@ -57,6 +68,8 @@ $string['completiondate'] = 'Abschluss des Kurses';
 $string['course'] = 'Für';
 $string['coursegrade'] = 'Kursbewertung';
 $string['coursename'] = 'Kurs';
+$string['coursetimereq'] = 'Mindestzeit im Kurs (Minuten)';
+$string['coursetimereq_help'] = 'Diese Option legt die Mindestzeit (in Minuten) fest, die Teilnehmer/innen im Kurs angemeldet sein müssen, bevor sie das Zertifikat erhalten können.';
 $string['credithours'] = 'Anzurechnende Stunden';
 $string['customtext'] = 'eigener Text';
 $string['customtext_help'] = 'Wenn Sie anstelle der Trainer/innen andere Namen für die Kursleitung ins Zertifikat aufnehmen möchten, können Sie diese hier eingeben. Sie sollten in diesem Fall allerdings die Option \'Name der Kursleitung\' deaktivieren.
@@ -106,6 +119,7 @@ Bewertung nach Noten (A,B,C,... || 1,2,3,...) orientiert an den Prozenten.';
 $string['gradeletter'] = 'Note';
 $string['gradepercent'] = 'Prozent';
 $string['gradepoints'] = 'Punktzahl';
+$string['imagetype'] = 'Bildtyp';
 $string['incompletemessage'] = 'Um das Zertifikat herunterladen zu können, müssen Sie zuerst alle angezeigten Aufgaben erfolgreich bearbeiten. Bitte gehen Sie zur Hauptseite des Kurses zurück und vervollständigen Sie die Aufgaben.';
 $string['intro'] = 'Einführung';
 $string['issued'] = 'Ausgestellt';
@@ -121,6 +135,7 @@ $string['mycertificates'] = 'Meine Zertifikate';
 $string['nocertificates'] = 'Sie bewerben sich bisher nicht um Zertifikate.';
 $string['nocertificatesissued'] = 'Sie haben noch keine Zertifikate erworben.';
 $string['nocertificatesreceived'] = 'hat noch kein Zertifikat erhalten.';
+$string['nofileselected'] = 'Sie müssen eine Datei zum Hochladen auswählen!';
 $string['nogrades'] = 'Keine Bewertungen verfügbar';
 $string['notapplicable'] = 'N/A';
 $string['notfound'] = 'Die Anzahl der Zertifikate konnte nicht ermittelt werden.';
@@ -152,24 +167,28 @@ $string['printseal'] = 'Siegel oder Logo';
 $string['printseal_help'] = 'Diese Option erlaubt es das Bild eines Siegels im Zertifikat einzufügen. Standardmäßig wird das Siegel in die rechte untere Ecke gesetzt.';
 $string['printsignature'] = 'Unterschrift';
 $string['printsignature_help'] = 'Diese Option erlaubt es das Bild einer Unterschrift einzufügen. Standardmäßig wird die Unterschrift in die linke untere Ecke gesetzt.';
-$string['printteacher'] = 'Name der Kursleitung';
-$string['printteacher_help'] = 'Um den Namen der Kursleitung im Zertifikat einzufügen, ordnen Sie der Kursleitung die Trainerrolle zu.';
+$string['printteacher'] = 'Kursleitung drucken';
+$string['printteacher_help'] = 'Standardmäßig werden die Trainer/innen des Kurses als Kursleitung aufgeführt.
+
+Um spezielle Namen im Zertifikat einzufügen, ordnen Sie den entsprechenden Personen die Trainerrolle auf Modulebene zu. Eine solche Zuordnung ist notwendig, falls Sie mehrere Personen die Trainerrolle im Kurs haben oder wenn andere Personen auf dem Zertifikat vermerkt sein sollen.';
 $string['printwmark'] = 'Wasserzeichen';
-$string['printwmark_help'] = 'Eine Wasserzeichen kann im Hintergrund der Zertifikate als durchscheinendes Zeichen eingebunden werden.';
+$string['printwmark_help'] = 'Ein Wasserzeichen kann im Hintergrund der Zertifikate als durchscheinendes Zeichen eingebunden werden. Sie können ein Logo, ein Siegel, ein Wappen oder auch einen Schriftzug verwenden.';
 $string['receivedcerts'] = 'Ausgestellte Zertifikate';
 $string['receiveddate'] = 'Ausstellungsdatum';
-$string['reissuecert'] = 'Zertifikate neu ausstellen';
-$string['reissuecert_help'] = 'Bei Aktivierung dieser Option werden alle Zertifikate bei wiederholtem Abrufen neu erstellt und alle Zertifikate außer dem aktuellen Zertifikat werden gelöscht.';
 $string['removecert'] = 'Ausgestellte Zertifikate löschen';
 $string['report'] = 'Bericht';
 $string['reportcert'] = 'Berichte über Zertifikate';
 $string['reportcert_help'] = 'Bei Aktivierung dieser Option werden alle Daten, die Teil des Zertifikats sind, auch im Bericht zu den Zertifikaten angezeigt.';
+$string['requiredtimenotmet'] = 'Sie müssen eine Mindestzeit von {$a->requiredtime} Minuten im Kurs angemeldet sein, bevor Sie auf dieses Zertifikat zugreifen können.';
+$string['requiredtimenotvalid'] = 'Die Mindestzeit muss eine Zahl größer als 0 sein.';
 $string['reviewcertificate'] = 'Zertifikat nochmals abrufen';
 $string['savecert'] = 'Zertifikate speichern';
 $string['savecert_help'] = 'Bei Aktivierung dieser Option wird von jedem ausgestellten Zertifikat eine Kopie gespeichert.';
+$string['seal'] = 'Siegel';
 $string['sigline'] = 'Linie';
+$string['signature'] = 'Unterschrift';
 $string['statement'] = 'hat teilgenommen am Lehrgang';
-$string['summaryofattempts'] = 'Auflistung zuvor ausgestellter Zertifikat';
+$string['summaryofattempts'] = 'Auflistung über ausgestellte Zertifikate';
 $string['textoptions'] = 'Text Optionen';
 $string['title'] = 'Zertifikat';
 $string['to'] = 'Ausgestellt für';
@@ -177,9 +196,13 @@ $string['typeA4_embedded'] = 'A4 Embedded';
 $string['typeA4_non_embedded'] = 'A4 Non-Embedded';
 $string['typeletter_embedded'] = 'Letter Embedded';
 $string['typeletter_non_embedded'] = 'Letter Non-Embedded';
+$string['unsupportedfiletype'] = 'Die Datei muss ein Bild im Format jpg oder png sein.';
+$string['uploadimage'] = 'Bild hochladen';
+$string['uploadimagedesc'] = 'Über diese Taste gelangen Sie auf eine neue Seite, wo Sie Ihre Bilder hochladen können.';
 $string['userdateformat'] = 'Standard';
 $string['validate'] = 'Überprüfen';
 $string['verifycertificate'] = 'Zertifikat überprüfen';
-$string['viewcertificateviews'] = 'Zeige {$a} ausgestellte Zertifikate';
-$string['viewed'] = 'Sie haben das Zertifikat abgerufen am';
-$string['viewtranscript'] = 'Zertifikate ansehen';
+$string['viewcertificateviews'] = 'Ausgestellte Zertifikate: {$a}';
+$string['viewed'] = 'Sie haben das Zertifikat erhalten am';
+$string['viewtranscript'] = 'Zertifikate anzeigen';
+$string['watermark'] = 'Wasserzeichen';

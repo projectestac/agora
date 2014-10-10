@@ -25,6 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['event_assessable_submitted'] = 'Un travail a été déposé.';
-$string['event_assessable_uploaded'] = 'Un fichier a été déposé.';
+$string['event_assessable_submitted'] = 'Travail remis';
+$string['event_assessable_uploaded'] = 'Fichier déposé';
 $string['pluginname'] = 'Déposer';

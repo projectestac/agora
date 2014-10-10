@@ -29,6 +29,7 @@ $string['pluginname'] = 'ZiLink - Super Block';
 $string['pluginname_desc'] = 'ZiLink automatically enrols users on courses based on the information held in your managment information system.';
 $string['pluginname_short'] = 'ZiLink';
 $string['zilink:addinstance'] = 'Add Block Instance';
+$string['zilink_block_hide_title'] = 'Hide Title';
 $string['zilink_block_settings'] = '{$a} Block Settings';
 $string['zilink_block_title'] = 'Block Title';
 $string['zilink_block_type'] = 'Block Type';

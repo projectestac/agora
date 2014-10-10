@@ -70,7 +70,7 @@ $string['chooseauthmethod_help'] = '<p>Met dit menu kun je de authenticatiemetho
 <p>Let op dat dit sterk afhankelijk is van de authenticatiemethodes die je ingesteld hebt voor de site en welke instellingen je gebruikt.</p>
 
 <p>Hier een fout maken kan ervoor zorgen dat de gebruiker niet meer aangemeld geraakt of kan zelfs de account helemaal verwijderen. Gebruik dit alleen als je echt weet wat je doet.</p>';
-$string['createpassword'] = 'Genereer wachtwoord en verwittig gebruiker';
+$string['createpassword'] = 'Genereer wachtwoord en waarschuw gebruiker';
 $string['createpasswordifneeded'] = 'Maak een wachtwoord indien nodig';
 $string['emailchangecancel'] = 'Annuleer e-mailwijziging';
 $string['emailchangepending'] = 'De wijziging is in behandeling. Open de link in het bericht dat gestuurd is naar {$a->preference_newemail}.';

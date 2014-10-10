@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'Formato log';
 $string['log:view'] = 'Visualizzare i log del corso';
 $string['log:viewtoday'] = 'Visualizzare i log di oggi';
+$string['mnetlogwarning'] = 'Se i client Mnet utilizzano Moodle versione 2.7 o successiva, non riceverai nessun log.';
 $string['page'] = 'Pagina {$a}';
 $string['page-report-log-index'] = 'Log del corso';
 $string['page-report-log-user'] = 'Log utente';

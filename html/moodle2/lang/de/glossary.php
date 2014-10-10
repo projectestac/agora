@@ -28,11 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['addcomment'] = 'Kommentar hinzufügen';
 $string['addentry'] = 'Eintrag hinzufügen';
 $string['addingcomment'] = 'Kommentar hinzufügen';
-$string['alias'] = 'Schlagwort';
-$string['aliases'] = 'Schlagworte';
-$string['aliases_help'] = 'Zu jedem Glossareintrag kann eine Reihe von Schlagworten (Alternativbegriffe, Synonyme, Keywords, Tags) angegeben werden. Tragen Sie jedes Schlagwort in einer neuen Zeile ein (nicht als kommagetrennte Liste).
+$string['alias'] = 'Alternativbegriff';
+$string['aliases'] = 'Alternativbegriff(e)';
+$string['aliases_help'] = 'Zu jedem Glossareintrag kann eine Reihe von Alternativbegriffen (Schlagworten, Synonymen, Keywords, Tags) angegeben werden. Tragen Sie jeden Begriff in einer neuen Zeile ein (nicht als kommagetrennte Liste).
 
-Wenn ein Glossareintrag automatisch verlinkt wird, ist jedes Schlagwort ebenfalls markiert.';
+Wenn ein Glossareintrag automatisch verlinkt wird wird jeder dieser Begriffe ebenfalls markiert.';
 $string['allcategories'] = 'Alle Kategorien';
 $string['allentries'] = 'Alle';
 $string['allowcomments'] = 'Kommentare';
@@ -172,7 +172,7 @@ $string['erredittimeexpired'] = 'Die Bearbeitungszeit für diesen Eintrag wurde 
 $string['errorparsingxml'] = 'Es sind Fehler bei der Analyse der Datei aufgetreten. Stellen Sie sicher, dass die  XML-Syntax zulässig ist.';
 $string['explainaddentry'] = 'Neuen Eintrag ins Glossar hinzufügen. <br />Begriff und Definition sind Pflichtfelder.';
 $string['explainall'] = 'Alle Einträge des Glossars auf einer Seite anzeigen';
-$string['explainalphabet'] = 'Sie können das Glossar über den Index durchsuchen.';
+$string['explainalphabet'] = 'Sie können das Glossar über das Suchfeld und das Stichwortalphabet durchsuchen.';
 $string['explainexport'] = 'Klicken Sie auf den untenstehenden Button, um das Glossar zu exportieren. <br />Es wird eine Datei erstellt, die Sie herunterladen und jederzeit in einen anderen Kurs importieren können.<p>Beachten Sie, dass Anhänge (z.B. Bilder) und Autoren dabei verloren gehen.</p>';
 $string['explainimport'] = 'Wählen Sie die zu importierende Datei aus und legen Sie die Kriterien des weiteren Vorgehens fest.';
 $string['explainspecial'] = 'Sonderzeichen: alle Einträge anzeigen, die nicht mit einem Buchstaben beginnen';
@@ -185,7 +185,7 @@ $string['exporttomainglossary'] = 'Ins Hauptglossar exportieren';
 $string['filetoimport'] = 'Datei importieren';
 $string['filetoimport_help'] = 'Wählen Sie eine lokal auf Ihrem Computer befindliche XML-Datei aus, die die zu importierenden Einträge enthält.';
 $string['fillfields'] = 'Begriff und Definition sind Pflichtfelder.';
-$string['filtername'] = 'Automatische Verlinkung zum Glossar';
+$string['filtername'] = 'Autoverlinkung zum Glossar';
 $string['fullmatch'] = 'Nur vollständige Worte';
 $string['fullmatch_help'] = 'Wenn diese Option aktiviert ist, wird ein Eintrag nur dann verlinkt, wenn ein vollständiges Wort im Text mit dem Eintrag im Glossar übereinstimmt. Dabei wird beispielsweise keine Verlinkung erzeugt, wenn ein im Glossar eingetragener Begriff "Konstrukt" lautet, aber im Text das Wort "Konstruktivität" vorkommt.';
 $string['glossary:addinstance'] = 'Glossar hinzufügen';
@@ -220,7 +220,7 @@ $string['isglobal_help'] = 'Ein kursübergreifendes Glossar enthält Einträge, 
 $string['letter'] = 'Buchstabe';
 $string['linkcategory'] = 'Kategorie automatisch verlinken';
 $string['linkcategory_help'] = 'Wenn die Option \'Eintrag automatisch verlinken\' und zusätzlich diese Option aktiviert sind, wird automatisch der Kategoriename verlinkt, wo immer er im Kurs erscheint. Wenn Teilnehmer/innen einem Kategorielink folgen, werden sie auf die Anzeige \'Nach Kategorie\' im Glossar geleitet.';
-$string['linking'] = 'Auto-Verlinkung';
+$string['linking'] = 'Autoverlinkung';
 $string['mainglossary'] = 'Hauptglossar';
 $string['maxtimehaspassed'] = 'Die maximale Bearbeitungszeit für den Kommentar wurde überschritten! ({$a})';
 $string['modulename'] = 'Glossar';

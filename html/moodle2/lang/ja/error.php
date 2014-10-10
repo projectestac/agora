@@ -265,6 +265,7 @@ $string['groupnotaddederror'] = 'グループ「 {$a} 」は追加されませ�
 $string['groupnotaddedtogroupingerror'] = 'グループ「 {$a->groupname} 」はグルーピング「 {$a->groupingname} 」に追加されませんでした。';
 $string['groupunknown'] = 'グループ「 {$a} 」は指定されたコースに関連していません。';
 $string['groupusernotmember'] = 'ユーザはこのグループのメンバーではありません。';
+$string['guestcantaccessprofiles'] = 'ゲストはプロファイルにアクセスすることはできません。続けるには完全なユーザアカウントでログインしてください。';
 $string['guestnocomment'] = 'ゲストはコメントを投稿できません。';
 $string['guestnoeditprofile'] = 'ゲストユーザはプロファイルを変更できません。';
 $string['guestnoeditprofileother'] = 'ゲストユーザのプロファイルを変更できません。';

@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'ログフォーマット';
 $string['log:view'] = 'コースログを表示する';
 $string['log:viewtoday'] = '本日のログを表示する';
+$string['mnetlogwarning'] = 'あなたのMNetクライアントがMoodle 2.7またはそれ以上を動作させている場合、 あなたはログを受信することはありません。';
 $string['page'] = 'ページ {$a}';
 $string['page-report-log-index'] = 'コースログレポート';
 $string['page-report-log-user'] = 'ユーザコースログレポート';

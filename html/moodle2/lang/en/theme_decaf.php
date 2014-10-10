@@ -34,23 +34,20 @@ $string['backgroundcolordesc'] = 'This sets the background colour for the theme.
 $string['choosereadme'] = '<div class="clearfix">
 <div class="well">
 <h2>Decaf</h2>
-<p><img class=img-polaroid src="clean/pix/screenshot.jpg" /></p>
+<p><img class=img-polaroid src="decaf/pix/screenshot.jpg" /></p>
 </div>
 <div class="well">
 <h3>About</h3>
-<p>Clean is a modified Moodle bootstrap theme which inherits styles and renderers from its parent theme.</p>
+<p>Decaf is a three-column, fluid-width theme for Moodle that was created by <a href="http://moodle.org/user/view.php?id=390408">Lei Zhang</a>.
+It improves usability by shifting setting blocks to top of the page, so called "Moodle awesome bar".
+For developers, It transfers the performance info into a colorful floated bar at bottom of the page, which brings the performance awareness as well as improves usability.</p>
 <h3>Parents</h3>
 <p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.5, with the help of:<br>
 Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans.</p>
 <h3>Theme Credits</h3>
-<p>Authors: Bas Brands, David Scotson, Mary Evans<br>
-Contact: bas@sonsbeekmedia.nl<br>
-Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
-</p>
+<p>Authors: Paul Nicholls, Lei Zhang</p>
 <h3>Report a bug:</h3>
-<p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p>
-<h3>More information</h3>
-<p><a href="clean/README.txt">How to copy and customise this theme.</a></p>
+<p><a href="https://github.com/CTANZ/moodle-theme_decaf/issues">Github</a></p>
 </div></div>';
 $string['configtitle'] = 'Decaf theme settings';
 $string['coursesleafonly'] = 'Populate "Courses" menu';

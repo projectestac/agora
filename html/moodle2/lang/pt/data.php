@@ -342,10 +342,10 @@ $string['uploadrecords'] = 'Importar registos a partir de ficheiro';
 $string['uploadrecords_help'] = 'Os registos podem ser inseridos através de um ficheiro de texto. O formato do ficheiro deve respeitar as seguintes regras:
 
 * Cada linha do ficheiro corresponde a um registo
-* Cada registo tem um conjunto de valores para os diferentes campos, separados por vírgulas (ou outros carateres)
+* Cada registo tem um conjunto de valores para os diferentes campos, separados por vírgulas (ou outros caracteres)
 * A primeira linha do ficheiro contém os nomes dos campos, definindo a ordem pela qual os mesmos são apresentados em todo o ficheiro
 
-O delimitador dos valores dos campos é um caráter que marca o início e fim do valor de cada campo. Em geral pode deixar indefinido.';
+O delimitador dos valores dos campos é um carácter que marca o início e fim do valor de cada campo. Em geral pode deixar indefinido.';
 $string['uploadrecords_link'] = 'mod/data/import';
 $string['url'] = 'URL';
 $string['usedate'] = 'Incluir na pesquisa.';

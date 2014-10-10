@@ -260,7 +260,7 @@ $string['choosereportfilter'] = 'Kies een filter voor het rapport';
 $string['choosetheme'] = 'Kies een thema';
 $string['chooseuser'] = 'Kies een gebruiker';
 $string['city'] = 'Plaats';
-$string['clambroken'] = 'Je beheerder heeft viruscontrole voor geüploade bestanden ingeschakeld, maar heeft iets fout geconfigureerd.<br />Je bestand is NIET geüpload. Er is een e-mail naar je beheerder gestuurd om hem te verwittigen, zodat hij het kan herstellen.<br />Misschien moet je later nog eens proberen dit bestand te uploaden.';
+$string['clambroken'] = 'Je beheerder heeft viruscontrole voor geüploade bestanden ingeschakeld, maar heeft iets fout geconfigureerd.<br />Je bestand is NIET geüpload. Er is een e-mail naar je beheerder gestuurd om hem te waarschuwen, zodat hij het kan herstellen.<br />Misschien moet je later nog eens proberen dit bestand te uploaden.';
 $string['clamdeletedfile'] = 'Dit bestand is verwijderd';
 $string['clamdeletedfilefailed'] = 'Dit bestand kon niet verwijderd worden';
 $string['clamemailsubject'] = '{$a}:: Clam AV-melding';
@@ -1021,9 +1021,9 @@ $string['logs'] = 'Logs';
 $string['logtoomanycourses'] = '[<a href="{$a->url}">meer</a>]';
 $string['logtoomanyusers'] = '[<a href="{$a->url}">meer</a>]';
 $string['lookback'] = 'rapportperiode';
-$string['mailadmins'] = 'Verwittig beheerders';
-$string['mailstudents'] = 'Verwittig leerlingen';
-$string['mailteachers'] = 'Verwittig leraren';
+$string['mailadmins'] = 'Informeer beheerders';
+$string['mailstudents'] = 'Informeer leerlingen';
+$string['mailteachers'] = 'Informeer leraren';
 $string['maincoursepage'] = 'Hoofdpagina cursus';
 $string['makeafolder'] = 'Maak een map';
 $string['makeeditable'] = 'Als je \'{$a}\' bewerkbaar maakt door het proces op de webserver (bijv. Apache), dan kun je dit bestand rechtstreeks vanuit deze pagina bewerken';
@@ -1939,7 +1939,7 @@ $string['virusfoundlateradmin'] = 'Opgelet beheerder! Een bestand dat geüpload 
 
 {$a->action}
 
-De gebruiker is ook verwittigd.';
+De gebruiker is ook gewaarschuwd.';
 $string['virusfoundlateradminnolog'] = 'Opgelet beheerder! Een bestand dat geüpload werd met bestandsnaam {$a->filename} bevat een virus. Moodle kon dit bestand niet terugsturen naar de gebruiker die het oorspronkelijk geüpload had.
 
 Hier is een samenvatting van wat er met dat bestand gebeurd is:
@@ -1947,7 +1947,7 @@ Hier is een samenvatting van wat er met dat bestand gebeurd is:
 {$a->action}';
 $string['virusfoundsubject'] = '{$a}: Virus gevonden!';
 $string['virusfounduser'] = 'Het bestand {$a->filename} dat je geüpload hebt is door een virusscanner gecontroleerd en is geïnfecteerd! Je bestandsupload is mislukt.';
-$string['virusplaceholder'] = 'Dit geüploade bestand bevat een virus en is verplaatst of verwijderd. De gebruiker is verwittigd.';
+$string['virusplaceholder'] = 'Dit geüploade bestand bevat een virus en is verplaatst of verwijderd. De gebruiker is gewaarschuwd.';
 $string['visible'] = 'Zichtbaar';
 $string['visible_help'] = 'Deze instelling bepaalt wanneer een cursus verschijnt in de cursuslijst. Behalve leraren en beheerders hebben gebruikers geen toegang tot deze cursus.';
 $string['visibletostudents'] = 'Zichtbaar voor {$a}';

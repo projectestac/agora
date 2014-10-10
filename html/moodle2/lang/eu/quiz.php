@@ -233,6 +233,7 @@ $string['deletingquestionattempts'] = 'Galderaren saiakerak ezabatzen';
 $string['description'] = 'Deskribapena';
 $string['disabled'] = 'Desgaituta';
 $string['displayoptions'] = 'Aukerak erakutsi';
+$string['donotuseautosave'] = 'Ez erabili automatikoki gordetzea';
 $string['download'] = 'Klikatu esportatutako kategoria-fitxategia deskargatzeko';
 $string['downloadextra'] = '(fitxategia ikastaroko fitxategien eremuko backupdata/quiz karpetan ere gordetzen da)';
 $string['duplicateresponse'] = 'Orain gutxi antzeko erantzun bat eman duzu eta, beraz, bidalketa hau ez da kontuan hartuko.';
@@ -272,8 +273,8 @@ $string['emailnotifybody'] = 'Kaixo {$a->username},
 {$a->studentname} -k \'{$a->quizname}\' ({$a->quizurl}) galdetegia osatu du \'{$a->coursename}\' ikastaroan
 
 Saiakera hau hemen {$a->quizreviewurl} berrikusi ahal duzu.';
-$string['emailnotifysmall'] = '{$a->studentname}-(e)k {$a->quizname} osatu du';
-$string['emailnotifysubject'] = '{$a->studentname} -(e)k {$a->quizname} galdetegia osatu du';
+$string['emailnotifysmall'] = '{$a->studentname}-(e)k {$a->quizname} osatu du. Ikusi {$a->quizreviewurl}';
+$string['emailnotifysubject'] = '{$a->studentname} -(e)k {$a->quizname} osatu du';
 $string['emailoverduebody'] = '{$a->studentname} agurgarria,
 
 Saiakera bat hasi zenuen \'{$a->coursename}\' ikastaroko \'{$a->quizname}\' galdetegian, baina ez duzu bidalketa egin. Bidalita egon beharko litzateke {$a->attemptduedate}-rako.

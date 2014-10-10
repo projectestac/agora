@@ -147,6 +147,7 @@ $string['newgrouping'] = '새 모둠무리';
 $string['newpicture'] = '새 사진';
 $string['newpicture_help'] = 'JPG 나 PNG 형식의 이미지를 선택하십시요. 이미지는 정사각형으로 맞추어지게 되며 100x100 픽셀로 크기가 조절됩니다.';
 $string['noallocation'] = '할당 없음';
+$string['nogrouping'] = '모둠무리 없음';
 $string['nogroups'] = '이 강좌에는 설정된 모둠이 없습니다.';
 $string['nogroupsassigned'] = '모둠이 할당되지 않았습니다.';
 $string['nopermissionforcreation'] = '필요한 권한이 없어서 "{$a}" 을 생성할 수 없습니다.';

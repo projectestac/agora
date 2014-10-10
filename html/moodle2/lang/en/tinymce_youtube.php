@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tinymce_youtube', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'tinymce_youtube', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   tinymce_youtube
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -80,7 +80,7 @@ $string['linkavideo'] = 'Submit a YouTube URL';
 $string['linkavideodetails'] = 'Paste a YouTube URL into the textbox below.<br />';
 $string['linkonly'] = 'Link only';
 $string['logintext'] = 'Login with Google/YouTube';
-$string['nodevkey'] = 'To upload, your administrator must specify their developer key in the admin settings for this plugin.';
+$string['nodevkey'] = 'To upload, your administrator must specify their Google Public API Key in the admin settings for this plugin.';
 $string['nomaster'] = 'To upload, your administrator must specify a master YouTube account and password.';
 $string['nooauth2'] = 'To upload, your administrator must specify a Google OAUTH2 client id and secret.';
 $string['pleasesave'] = 'click the Insert button to finish.';
@@ -110,7 +110,7 @@ $string['youtubecallbackjsfailed'] = 'The processing of your authorisation from 
 $string['youtubeclientid'] = 'Google OAUTH2 Client ID';
 $string['youtubeclientiddetails'] = 'Necessary if authenticating with student\'s YouTube accounts.';
 $string['youtube:desc'] = 'Insert a YouTube Video';
-$string['youtubedevkey'] = 'YouTube Developer Key';
+$string['youtubedevkey'] = 'Google Public API Key';
 $string['youtubedevkeydetails'] = '';
 $string['youtubemasterpass'] = 'YouTube master account password';
 $string['youtubemasterpassdetails'] = 'Necessary if authenticating with a master YouTube account.';

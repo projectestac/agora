@@ -219,7 +219,7 @@ $string['error:nocourses'] = 'A Conclusão da disciplina não está ativa para n
 $string['error:nogroups'] = '<p> Não existem coleções públicas de Medalhas disponíveis na sua Backpack. </p><p> Apenas coleções públicas são exibidas, <a href="http://backpack.openbadges.org">aceda à sua Backpack</a> para criar algumas coleções públicas. </p>';
 $string['error:nopermissiontoview'] = 'Não tem permissão para ver os destinatários da Medalha';
 $string['error:nosuchbadge'] = 'A Medalha com a identificação {$a} não existe.';
-$string['error:nosuchcourse'] = 'Aviso: Esta disciplina já não está disponí';
+$string['error:nosuchcourse'] = 'Aviso: Esta disciplina já não está disponível';
 $string['error:nosuchfield'] = 'Aviso: Este campo de perfil do utilizador já não está disponível.';
 $string['error:nosuchmod'] = 'Aviso: Esta atividade já não está disponível.';
 $string['error:nosuchrole'] = 'Aviso: Este papel já não está disponível.';
@@ -348,7 +348,7 @@ $string['status_help'] = 'O estado da Medalha determina o seu comportamento no s
 
 * **INDISPONÍVEL** – Significa que esta Medalha não está disponível para os utilizadores e que não pode ser ganha nem manualmente atribuída. Se essa Medalha nunca tiver sido emitida anteriormente, os seus critérios podem ser alterados.
 
-Assim que uma Medalha tiver sido atribuída pelo menos a um utilizador, esta fica automaticamente **BLOQUEADA**. As Medalhas bloqueadas podem continuar a ser ganhas pelos utilziadores, mas os seus critérios já não poderão ser alterados. Se precisar de alterar detalhes os critérios de uma Medalha bloqueada, pode duplicar esta Medalha e fazer as alterações necessárias.
+Assim que uma Medalha tiver sido atribuída pelo menos a um utilizador, esta fica automaticamente **BLOQUEADA**. As Medalhas bloqueadas podem continuar a ser ganhas pelos utilizadores, mas os seus critérios já não poderão ser alterados. Se precisar de alterar detalhes ou critérios de uma Medalha bloqueada, pode duplicar esta Medalha e fazer as alterações necessárias.
 
 *Porque são as Medalhas bloqueadas?*
 

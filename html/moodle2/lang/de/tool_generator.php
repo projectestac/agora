@@ -65,6 +65,7 @@ $string['pluginname'] = 'Datengenerator zur Entwicklung';
 $string['progress_checkaccounts'] = 'Nutzeraccounts prüfen ({$a})';
 $string['progress_coursecompleted'] = 'Abgeschlossene Kurse ({$a}s)';
 $string['progress_createaccounts'] = 'Nutzeraccounts erstellen {$a->from} - {$a->to})';
+$string['progress_createassignments'] = 'Zuweisungen werden angelegt: {$a}';
 $string['progress_createbigfiles'] = 'Grosse Dateien erzeugen ({$a})';
 $string['progress_createcourse'] = 'Kurse erzeugen ({$a})';
 $string['progress_createforum'] = 'Forenbeiträge erzeugen ({$a} Beiträge)';

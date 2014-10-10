@@ -41,6 +41,8 @@ $string['certificate_path'] = 'Trust certificate file path';
 $string['certificate_path_description'] = 'The path in the Moodle server to the trust certificate file to be used for signing the Java applets';
 $string['check_bookings'] = 'Check your active bookings with the booking system.';
 $string['collab_access'] = 'However, you can still work in collaborative mode if you have been invited by a user with an active booking';
+$string['css_rules'] = 'Create your own css rules to change the visual aspect of the javascript application';
+$string['css_style'] = 'CSS stylesheet';
 $string['custom_height'] = 'Applet height (px)';
 $string['custom_height_required'] = 'WARNING: Applet height was not set. You must provide a different value.';
 $string['custom_width'] = 'Applet width (px)';
@@ -85,7 +87,7 @@ $string['max_value'] = 'Maximum value {no}';
 $string['max_value_help'] = 'Maximum value allowed for the variable.';
 $string['min_value'] = 'Minimum value {no}';
 $string['min_value_help'] = 'Minimum value allowed for the variable.';
-$string['modulename'] = 'EJSApp';
+$string['modulename'] = 'ejsapp';
 $string['modulename_help'] = 'The EJSApp activity module enables teachers to add a java applets created with Easy Java Simulations (EJS) into their Moodle courses.
 
 EJS applets will be embedded into Moodle courses. The teacher can select to keep the orginal applet size or let Moodle to resize it according to the available space. If the EJS applet was compiled using the "Add language facilities" option in EJS, the applet embedded into Moodle with the EJSApp activity will automatically set its language to the one selected by the user in Moodle, if possible. This activity supports configuring conditional access restrictions.
@@ -93,7 +95,7 @@ EJS applets will be embedded into Moodle courses. The teacher can select to keep
 When used along with the EJSApp File Browser block, students can save the state of the EJS applet, when it is running, by just right-clicking on it and selecting the proper option in the menu. The information of these states is saved into an .xml file which is stored in the private files area (EJSApp File Browser). These states can be recovered by an EJS applet in two different ways: clicking on the .xml files in the EJSApp File Browser block or right-clicking on the EJS applet and selecting the proper option in the menu. If the EJS applet is prepared to do so, it can also save text or image files and store them in the private files area.
 
 When used along with the EJSApp Collab Sessions block, Moodle users can work with the same EJS applet in a synchronous way, meaning the applet will show the same state for all the users in the collaborative session. Thanks to this block, users can create sessions, invite other users and work together with the same EJSApp activity.';
-$string['modulenameplural'] = 'EJSApps';
+$string['modulenameplural'] = 'ejsapps';
 $string['moodle_resize'] = 'Let Moodle set the size';
 $string['more_text'] = 'Optional text after the applet';
 $string['no_booking'] = 'You do not have an active booking for this lab.';

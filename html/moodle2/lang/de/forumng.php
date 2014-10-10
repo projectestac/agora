@@ -27,80 +27,86 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['addanewdiscussion'] = 'Neue Diskussion starten';
 $string['advancedsearch'] = 'Erweiterte Suche';
-$string['afterenddate'] = 'Sie können alle Beiträge in diesem Forum lesen, aber Sie können keine Beiträge erstellen.
-Dieses Forum wird geschlossen am {$a}.';
-$string['afterenddatecapable'] = 'Studenten können alle Beiträge in diesem Forum lesen, aber Studenten können keine eigene Beiträge erstellen ab {$a}. Sie können aber ab diesem Zeitpunkt Beiträge erstellen.';
-$string['alert_condition1'] = 'Es ist ausfallend';
-$string['alert_condition2'] = 'Es ist Belästigung';
-$string['alert_condition3'] = 'Es enthält obszöne Inhalte wie Pornografie';
-$string['alert_condition4'] = 'Es ist beleidigend oder diffamierend';
-$string['alert_condition5'] = 'Es verstößt gegen Urheberrecht';
-$string['alert_condition6'] = 'Es ist gegen die Regeln aus einem anderen Grund';
+$string['afterenddate'] = 'Sie können alle Beiträge in diesem Forum lesen, aber Sie können keine Beiträge erstellen. Dieses Forum wurde geschlossen am {$a}.';
+$string['afterenddatecapable'] = 'Teilnehmer/innen können Beiträge in diesem Forum lesen, aber selber keine eigene Beiträge erstellen ab {$a}. Sie dürfen aber trotzdem weitere Beiträge erstellen.';
+$string['alert_condition1'] = 'Der Beitrag ist beleidigend.';
+$string['alert_condition2'] = 'Der Beitrag ist belästigend.';
+$string['alert_condition3'] = 'Der Beitrag enthält obszöne Inhalte wie etwa Pornografie.';
+$string['alert_condition4'] = 'Der Beitrag ist beleidigend oder diffamierend.';
+$string['alert_condition5'] = 'Der Beitrag verstößt gegen Urheberrecht';
+$string['alert_condition6'] = 'Der Beitrag verstößt gegen Regeln.';
 $string['alert_conditionmore'] = 'Weitere Informationen (optional)';
-$string['alert_emailappendix'] = 'Sie erhalten diese E-Mail, weil Ihre E-Mail-Adresse in ForumNG für die Berichterstattung inakzeptabeler E-Mails verwendet wird.';
-$string['alert_emailpreface'] = 'Ein Foren-Beitrag wurde gemeldet von {$a->fullname} ({$a->username},
-{$a->email}) {$a->url}';
+$string['alert_emailappendix'] = 'Sie erhalten diese E-Mail, weil Ihre E-Mail-Adresse in ForumNG für die Berichterstattung inakzeptabeler E-Mails angemeldet ist.';
+$string['alert_emailpreface'] = 'Ein Forumsbeitrag wurde gemeldet von {$a->fullname} ({$a->username}, {$a->email}): {$a->url}';
 $string['alert_emailsubject'] = 'Benachrichtigung F{$a->postid}: {$a->coursename} {$a->forumname}';
 $string['alert_feedback'] = 'Ihr Bericht wurde erfolgreich gesendet. Ein Support-Mitarbeiter wird
 dieses Problem untersuchen.';
+$string['alert_intro'] = 'Sie können den Link zur Benachrichtigung verwenden, um Moderator/innen dieses Forums auf einen Beitrag aufmerksam zu machen.';
 $string['alert_linktitle'] = 'Beitrag als inakzeptabel melden';
 $string['alert_notcurrentpost'] = 'Dieser Beitrag wurde bereits gelöscht.';
 $string['alert_note'] = 'Bitte beachten Sie: Diese E-Mail wurde auch an {$a} gesendet.';
 $string['alert_pagename'] = 'Einen Beitrag als nicht akzeptabel melden';
-$string['alert_reporterdetail'] = '{$a->fullname} ({$a->username}; {$a->email}; {$a->ip})';
-$string['alert_reporterinfo'] = '<strong>Reporter Details</strong>:';
-$string['alert_turnedoff'] = 'Die Alarm-Funktion ist nicht verfügbar.';
+$string['alert_reasons'] = 'Gründe für den Bericht';
+$string['alert_reporterdetail'] = '{$a->fullname} ({$a->username}, {$a->email}, {$a->ip})';
+$string['alert_reporterinfo'] = '<strong>Details</strong>:';
+$string['alert_submit'] = 'Bericht senden';
+$string['alert_turnedoff'] = 'Die Mitteilungsfunktion ist nicht verfügbar.';
 $string['allowsubscribe'] = 'Abonnieren erlauben';
 $string['allsubscribe'] = 'Alle Foren abonnieren';
 $string['allunsubscribe'] = 'Alle Foren abbestellen';
 $string['alt_discussion_deleted'] = 'Gelöschte Diskussion';
-$string['alt_discussion_locked'] = 'Die Diskussion ist nur zum Lesen';
+$string['alt_discussion_locked'] = 'Die Diskussion ist nur zum Lesen.';
+$string['alt_discussion_moderator'] = 'Die Diskussion wird moderiert.';
 $string['alt_discussion_sticky'] = 'Diese Diskussion wird immer am Anfang der Liste angezeigt';
-$string['alt_discussion_timeout'] = 'nicht für Benutzer/innen sichtbar (Zeitlimit)';
-$string['archive_errorgrouping'] = 'Das Forum, das alte Diskussionen enthält, hat eine andere Gruppeneinstellungen.
-Bitte aktualisieren Sie das Forum und ändern Sie <strong>Alte Diskussionen entfernen</strong> Optionen.';
-$string['archive_errortargetforum'] = 'Das Forum enthält alte Diskussionen, die nicht mehr existieren. Bitte aktualisieren Sie das Forum und ändern Sie die <strong>Alte Diskussionen entfernen</strong> Optionen.';
+$string['alt_discussion_timeout'] = 'Nicht für Benutzer/innen sichtbar (Zeitlimit)';
+$string['anonymousmoderator'] = 'Anonymer Moderator';
+$string['archive_errorgrouping'] = 'Das Forum, das alte Diskussionen enthält, hat eine andere Gruppeneinstellungen. Aktualisieren Sie das Forum und ändern Sie die Optionen <strong>Alte Diskussionen entfernen</strong>.';
+$string['archive_errortargetforum'] = 'Das Forum, das für alte Diskussionen benutzt wurde, existiert nicht mehr. Aktualisieren Sie das Forum und ändern Sie die Optionen <strong>Alte Diskussionen entfernen</strong>.';
+$string['asmoderator'] = 'Schreiben als?';
+$string['asmoderator_help'] = 'Diese Option erlaubt es ausgesuchten Nutzer/innen, sich als Moderator auszuweisen oder als Moderator mit einem für Teilnehmer/innen unsichtbaren Profil zu schreiben.';
+$string['asmoderator_post'] = 'Standardbeitrag';
 $string['atom'] = 'Atom';
 $string['attachment'] = 'Anhang';
 $string['attachmentmaxbytes'] = 'Maximale Größe von Anhängen';
 $string['attachmentmaxbytes_help'] = 'Dies ist die maximale <i>gesamte</i> Größe für alle Anlagen in einem Beitrag.';
 $string['attachmentnum'] = 'Anhang {$a}';
 $string['attachments'] = 'Anhänge';
-$string['authorname'] = 'Name des Autors';
-$string['authorname_help'] = 'Sie können einen Namen (Jane), einen Nachnamen (Brown), den vollständigen Namen (jane brown), oder der erste Teil von jeder dieser Namen (Ja, bro, Jane B) eintippen. Suchbegriffe sind nicht case sensitive (Groß-und Kleinschreibung).
+$string['author'] = 'Autor/in: &lsquo;{$a}&rsquo;';
+$string['authorname'] = 'Autor/in';
+$string['authorname_help'] = 'Sie können einen Namen (Jane), einen Nachnamen (Brown), den vollständigen Namen (jane brown) oder auch den ersten Teil von jedem dieser Namen (Ja, bro, Jane B) eintippen. Suchbegriffe sind unabhängig von der Groß-/Kleinschreibung.
 
-Sie können auch einen Benutzernamen eintippen (jb001).
+Sie können auch einen Benutzernamen eingeben (jb001).
 
-Wenn Sie dieses Feld leer lassen, werden Beiträge von allen Autoren aufgenommen werden.';
+Wenn Sie dieses Feld leer lassen, werden Beiträge von allen Autor/innen einbezogen.';
 $string['automaticallylock'] = 'Automatisch sperren';
 $string['averagerating'] = 'durchschnittliche Bewertung: {$a->avg} (from {$a->num})';
-$string['badbrowser'] = '<h3>Reduzierte Forum-Funktionen</h3>&nbsp;<p>Sie verwenden {$a}. Wenn Sie eine bessere Ansicht dieser Foren wünschen,
-bitte installieren Sie eine neuere Version von <a href=\'http://www.microsoft.com/windows/internet-explorer/\'>Internet Explorer</a>
+$string['badbrowser'] = '<h3>Reduzierte Forumsfunktionen</h3> <p>Sie verwenden {$a}. Wenn Sie eine bessere Ansicht dieser Foren wünschen,
+installieren Sie eine neuere Version von <a href=\'http://www.microsoft.com/windows/internet-explorer/\'>Internet Explorer</a>
 oder <a href=\'http://www.mozilla.com/firefox/\'>Firefox</a>.</p>';
 $string['beforeenddate'] = 'Dieses Forum wird geschlossen am {$a}.';
-$string['beforeenddatecapable'] = 'Dieses Forum wird für neue Studenten geschlossen am {$a}.';
-$string['beforestartdate'] = 'Sie können alle Beiträge in diesem Forum lesen, aber Sie können keine Beiträge erstellen. Dieses Forum ist für {$a}.';
-$string['beforestartdatecapable'] = 'Studenten können alle Beiträge in diesem Forum lesen, aber Studenten können keine eigene Beiträge erstellen bis {$a}. Sie können aber bis zu diesem Zeitpunkt Beiträge erstellen.';
+$string['beforeenddatecapable'] = 'Dieses Forum wird für neue Teilnehmerbeiträge geschlossen am {$a}.';
+$string['beforestartdate'] = 'Sie können Beiträge in diesem Forum lesen, aber Sie dürfen keine Beiträge erstellen. Dieses Forum wird geöffnet am {$a}.';
+$string['beforestartdatecapable'] = 'Teilnehmer/innen können Beiträge in diesem Forum lesen, aber selber keine eigenen Beiträge erstellen bis {$a}. Sie dürfen aber trotzdem auch vorher weitere Beiträge erstellen.';
+$string['canpostanon'] = 'Anonyme Moderatorbeiträge erlauben';
 $string['choosefile'] = '1. Datei auswählen';
 $string['clearflag'] = 'Fahne entfernen';
 $string['clicktoadd'] = '2. Eintragen';
 $string['collapseall'] = 'Alle Beiträge einklappen';
-$string['completiondiscussions'] = 'Benutzer/in muss eine Dikussion erstellen:';
+$string['completiondiscussions'] = 'Nutzer/in muss eine Diskussion erstellen:';
 $string['completiondiscussionsgroup'] = 'Diskussionen erforderlich';
-$string['completiondiscussionsgroup_help'] = 'wenn aktiv, wid das Forum für Studenten als abgeschlossen markiert, wenn sie die Anzahl von neuen Diskussionen gestartet haben';
-$string['completionposts'] = 'Benutzer/in muss Diskussionen oder Antworten verfassen:';
+$string['completiondiscussionsgroup_help'] = 'Diese Option legt fest, dass das Forum für Teilnehmer/innen als abgeschlossen markiert wird, sobald diese die notwendige Anzahl neuer Diskussionen erstellt haben (und eventuell weitere Bedingungen erfüllt sind).';
+$string['completionposts'] = 'Nutzer/in muss Diskussionen oder Antworten verfassen:';
 $string['completionpostsgroup'] = 'Beiträge erforderlich';
-$string['completionpostsgroup_help'] = 'wenn angekreuzt, wird das Forum als abgeschlossen markiert für Studenten, sobald sie die erforderliche Anzahl von Diskussionen / Antworten erstellt haben.';
-$string['completionreplies'] = 'Benutzer/in muss Antworten verfassen:';
+$string['completionpostsgroup_help'] = 'Diese Option legt fest, dass das Forum für Teilnehmer/innen als abgeschlossen markiert wird, sobald diese die notwendige Anzahl neuer Diskussionen bzw. Antworten erstellt haben (und eventuell weitere Bedingungen erfüllt sind).';
+$string['completionreplies'] = 'Nutzer/in muss Antworten verfassen:';
 $string['completionrepliesgroup'] = 'Antworten erforderlich';
-$string['completionrepliesgroup_help'] = 'wenn angekreuzt, wird das Forum als abgeschlossen markiert für Studenten, sobald sie die erforderliche Anzahl von Antworten von bestehende Diskussionen erstellt haben.';
-$string['configattachmentmaxbytes'] = 'maximale Standardgröße für alle Foren-Anhänge auf der Website
-(unterliegt natürlich Grenzen und andere lokale Einstellungen)';
+$string['completionrepliesgroup_help'] = 'Diese Option legt fest, dass das Forum für Teilnehmer/innen als abgeschlossen markiert wird, sobald diese die notwendige Anzahl von Antworten zu bestehenden Diskussionen erstellt haben (und eventuell weitere Bedingungen erfüllt sind).';
+$string['configattachmentmaxbytes'] = 'Maximale Standardgröße für alle Forenanhänge auf der Website (abhängig von Grenzen und anderen lokalen Einstellungen)';
 $string['configdiscussionsperpage'] = 'Maximale Anzahl von Diskussionen in einem Forum pro Seite';
-$string['configdonotmailafter'] = 'Um zu verhindern, dass es zu einer Mail-Flut kommt, wenn der cron-Job des Servers für eine Zeit nicht läuft. wird das Forum keine E-Mails verschicken. die älter sind als so viel Stunden.';
+$string['configdonotmailafter'] = 'Um zu verhindern, dass es zu einer E-Mail-Flut kommt, wenn der Cron-Job des Servers für eine Zeit nicht läuft, versendet das Forum keine E-Mails, die älter sind als die angegebenen Stunden.';
 $string['configenableadvanced'] = 'Diese Option aktiviert erweiterte Funktionen (Forum freigeben, Forum teilen oder gemeinsames Forum), die eventuell für viele Installationen nicht nötig sind.';
-$string['configenablerssfeeds'] = 'Dieser Schalter ermöglicht es, RSS-Feeds für alle
-Foren zu aktivieren. Sie müssen noch, um Feeds zu aktivieren, diese manuell in den Einstellungen für jedes Forum aktivieren (oder unten).';
+$string['configenablerssfeeds'] = 'Diese Option legt fest, ob RSS-Feeds für alle
+Foren aktiviert sind. Sie müssen noch, um Feeds zu aktivieren, diese manuell in den Einstellungen für jedes Forum aktivieren (oder unten).';
 $string['configfeeditems'] = 'Anzahl der letzten Nachrichten, die in einem Feed enthalten sind.';
 $string['configfeedtype'] = 'Wählen Sie die Information, die in allen Foren-RSS-Feeds enthalten sein muss.';
 $string['confighousekeepingstarthour'] = 'Archivierungsaufgaben, wie z. B. das Löschen von alten Diskussionen wird ab dieser Zeit jeden Tag beginnen.';

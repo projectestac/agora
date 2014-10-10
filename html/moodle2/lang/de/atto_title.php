@@ -26,9 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blockquote'] = 'Zitiert';
-$string['h3'] = 'Überschrift 1';
-$string['h4'] = 'Überschrift 2';
-$string['h5'] = 'Überschrift 3';
+$string['h3'] = 'Überschrift (groß)';
+$string['h4'] = 'Überschrift (mittel)';
+$string['h5'] = 'Überschrift (klein)';
 $string['p'] = 'Unformatiert';
 $string['pluginname'] = 'Absatzformate';
 $string['pre'] = 'Vorformatiert';

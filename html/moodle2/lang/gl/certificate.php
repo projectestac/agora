@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'gl', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'gl', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -35,13 +35,10 @@ $string['borderbrown'] = 'Marrón';
 $string['bordergreen'] = 'Verde';
 $string['borderlines'] = 'Líñas';
 $string['certificate'] = 'Verificación do código de certificado';
-$string['certificate:manage'] = 'Xestionar certificado';
 $string['certificatename'] = 'Nome do certificado';
 $string['certificatereport'] = 'Informe dos certificados';
 $string['certificatesfor'] = 'Certificados para';
-$string['certificate:student'] = 'Obter certificado';
 $string['certificatetype'] = 'Tipo de Certificado';
-$string['certificate:view'] = 'Ver certificado';
 $string['code'] = 'Código';
 $string['course'] = 'Para';
 $string['coursegrade'] = 'Cualificación do curso';

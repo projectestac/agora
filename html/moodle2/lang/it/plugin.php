@@ -29,6 +29,8 @@ $string['actions'] = 'Azioni';
 $string['availability'] = 'Disponibilità';
 $string['checkforupdates'] = 'Controlla gli aggiornamenti';
 $string['checkforupdateslast'] = 'Controllo più recente effettuato il {$a}';
+$string['dependencyinstall'] = 'Installa';
+$string['dependencyupload'] = 'Carica';
 $string['detectedmisplacedplugin'] = 'Il plugin "{$a->component}" è installato erroneamente in "{$a->current}", dovrebbe invece essere installato in  "{$a->expected}"';
 $string['displayname'] = 'Nome plugin';
 $string['err_response_curl'] = 'Non è stato possibile ottenere i dati sugli aggiornamenti - errore cURL inatteso.';
@@ -144,7 +146,7 @@ $string['uninstallconfirm'] = 'Stai per rimuovere il plugin <em>{$a->name}</em>.
 $string['uninstalldelete'] = 'Tutti i dati relativi al plugin <em>{$a->name}</em> sono stati eliminati dal database. Per evitare che il plugin si installi nuovamente, è necessario rimuovere manualmente dal server la seguente cartella: <em>{$a->rootdir}</em>.
 Moodle non può rimuovere la cartella per mancanza di permessi di scrittura.';
 $string['uninstalldeleteconfirm'] = 'Tutti i dati relativi al plugin <em>{$a->name}</em> sono stati eliminati dal database. Per evitare che il plugin si installi nuovamente, è necessario rimuovere dal server la seguente cartella: <em>{$a->rootdir}</em>. Desideri rimuovere la cartella?';
-$string['uninstalldeleteconfirmexternal'] = 'E\' possibile che il codice sorgente del plugin sia stato ottenuto via checkout del source code management system ({$a}). Rimuovendo la cartella del plugin si potrebbero perdere informazioni rilevanti sulle eventuali modifiche apportate al codice. Prima di proseguire, per favore accertati che la cartella possa essere eliminata senza creare problemi.';
+$string['uninstalldeleteconfirmexternal'] = 'E\' possibile che il codice sorgente del plugin sia stato ottenuto via checkout del source code management system ({$a}). Rimuovendo la cartella del plugin si potrebbero perdere informazioni rilevanti sulle eventuali modifiche apportate al codice. Prima di proseguire, per favore accertarsi che la cartella vada eliminata definitivamente.';
 $string['uninstallextraconfirmblock'] = 'Sono presenti  {$a->instances} istanze di questo blocco';
 $string['uninstallextraconfirmenrol'] = 'Sono presenti  {$a->enrolments} iscrizioni.';
 $string['uninstallextraconfirmmod'] = 'Sono presenti {$a->instances} istanze del modulo in {$a->courses} corsi.';

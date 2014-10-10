@@ -308,7 +308,7 @@ $string['configpasswordpolicy'] = 'Attivando questa opzione Moodle verificherà 
 $string['configpasswordresettime'] = 'Il tempo massimo entro il quale deve essere validata la richiesta di recupero password. In genere 30 minuti è un valore adeguato.';
 $string['configpathtoclam'] = 'Percorso assoluto per Clam antivirus. Probabilmente usr/bin/clamscan oppure /usr/bin/clamdscan.
 Questo percorso consente a Clam di funzionare.';
-$string['configpathtodu'] = 'Percorso assoluto per du. Probabilmente usr/bin/du. Se questo campo viene compilato, le pagine che visualizzano il contenuto delle cartelle con molti file verranno elaborate più velocemente.';
+$string['configpathtodu'] = 'Percorso per du, in genere /usr/bin/du. Se questo campo viene compilato, le pagine che visualizzano il contenuto delle cartelle con molti file verranno elaborate più velocemente.';
 $string['configperfdebug'] = 'Consente la visualizzazione di informazioni sulle prestazioni nel piè di pagina del tema standard';
 $string['configprofileroles'] = 'Elenco dei ruoli visibili nelle pagine del profilo utente e della partecipazione.';
 $string['configprofilesforenrolledusersonly'] = 'Per evitare abusi da parte di spammer, non verranno visualizzate le descrizioni dei profili degli utenti non iscritti a corsi. I nuovi utenti potranno aggiungere la  descrizione nel profilo solo dopo essere stati iscritti ad almeno un corso.';
@@ -705,7 +705,7 @@ $string['maturity200'] = 'Versione stabile';
 $string['maturity50'] = 'Alfa';
 $string['maturityallowunstable'] = 'Suggerimento: se desideri eseguire questo script, usa l\'opzione -allow-unstable';
 $string['maturitycoreinfo'] = 'Il tuo sito gira con codice di sviluppo non stabile "{$a}".';
-$string['maturitycorewarning'] = 'Stai per installare o aggiornare Moodle alla versione "{$a}". Non trattandosi di una versione pronta per andare in produzione, accertati che tu voglia effetivamente installare/aggiornare con  questa versione e che tu abbia effettuato il checkout della versione desiderata del codice sorgente di Moodle.';
+$string['maturitycorewarning'] = 'Stai per installare o aggiornare Moodle alla versione "{$a}". Non trattandosi di una versione pronta per andare in produzione, accertati che tu voglia effetivamente installare/aggiornare con questa versione e che tu abbia effettuato il checkout della versione desiderata del codice sorgente di Moodle.';
 $string['maxbytes'] = 'Dimensione massima upload';
 $string['maxconsecutiveidentchars'] = 'Caratteri identici consecutivi';
 $string['maxeditingtime'] = 'Tempo massimo per l\'editing dei messaggi';
@@ -827,7 +827,7 @@ $string['plugin'] = 'Plugin';
 $string['plugins'] = 'Plugin';
 $string['pluginscheck'] = 'Controllo dipendenze plugin';
 $string['pluginscheckfailed'] = 'Il controllo delle dipendenze plugin è fallito per {$a->pluginslist}';
-$string['pluginschecktodo'] = 'Devi sistemare tutti i requisiti richiesti prima di continuare con l\'installazione di questa versione di Moodle"';
+$string['pluginschecktodo'] = 'Devi sistemare tutti i requisiti richiesti dai plugin prima di continuare con l\'installazione di questa versione di Moodle';
 $string['pluginsoverview'] = 'Panoramica plugin';
 $string['pluginsoverviewsee'] = 'Per maggiori informazioni è disponibile la pagina <a href="{$a->url}">panoramica plugin</a>';
 $string['profilecategory'] = 'Categoria';

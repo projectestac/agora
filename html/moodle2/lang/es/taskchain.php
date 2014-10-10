@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['configenableobfuscate'] = 'Ofuscar el código javascript para que al insertar reproductores multimedia dificulte el determinar el nombre del archivo multimedia y su contenido.';
 $string['hints'] = 'Pistas';
 $string['next2task'] = 'Pasar por alto la siguiente tarea';
 $string['next3task'] = 'Pasar por alto 2 tareas';

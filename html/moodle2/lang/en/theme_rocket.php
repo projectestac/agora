@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_rocket', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'theme_rocket', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   theme_rocket
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -40,12 +40,11 @@ $string['blocklinkcolordesc'] = 'Change the color of the links in blocks';
 $string['bootstrap'] = 'Bootstrap Stying - BETA';
 $string['bootstrapdesc'] = 'This feature will enable new Bootstrap styling. This project for moodle is headed by <a href="http://moodle.org/user/view.php?id=3152&course=5">David Scotson</a> and introduced into Rocket as a Beta status. Bootstrap is a project from Twitter that provides "Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions." For more information on Bootstrap <a href="http://twitter.github.com/bootstrap/">click here</a>.';
 $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot">
-
 <h1>Rocket</h1>
-<img src="rocket/pix/screenshot.jpg" />
+<img src="rocket/pix/screenshot.jpg"/>
 
 <h2>About</h2>
-<p>Rocket is a three column fixed-width theme for Moodle 2.1+ originally designed by Julian Ridden to take Moodle themes to a more website focused look and feel. While the design is original, much of the CSS and the icons have come from <a href="http://moodle.org/user/profile.php?id=299683"><strong>Saun Daubney\'s</strong></a> fantastic Aardvark theme and also with support in the forums from <a href="http://moodle.org/user/profile.php?id=713800"><strong>Mary Evans</strong></a>.</p>
+<p>Rocket is a three column fixed-width theme for Moodle 2.1+ originally designed by Julian Ridden to take Moodle themes to a more website focused look and feel. While the design is original, much of the CSS and the icons have come from <a href="http://moodle.org/user/profile.php?id=299683"><strong>Saun Daubney\'s</strong></a> fantastic Aardvark theme and also with support in the forums from<a href="http://moodle.org/user/profile.php?id=713800"><strong>Mary Evans</strong></a>.</p>
 
 <p>The theme is highly customisable through Moodle\'s theme settings. You can adjust images, text and colurs all without changing code. The theme also has a function that means that when users log in, courses they are enrolled in will show up in the dropdown \'custom menu\' at the top of the screen.</p>
 
@@ -113,9 +112,9 @@ $string['screenwidthdesc'] = 'This allows you to designate if this theme is disp
 $string['sitename'] = 'Institution Name';
 $string['sitenamedesc'] = 'The name of your institution is shown on the frontpage. This is not the name of your site';
 $string['themecolor'] = 'Theme Color';
-$string['themecolordesc'] = 'What color should your theme be. This will change mulitple components to produce the color you wish across the moodle site';
+$string['themecolordesc'] = 'What color should your theme be. This will change multiple components to produce the color you wish across the moodle site';
 $string['themetrimcolor'] = 'Theme Trim Color';
-$string['themetrimcolordesc'] = 'What color should your theme be. This will change mulitple components to produce the color you wish across the moodle site';
+$string['themetrimcolordesc'] = 'What color should your theme be. This will change multiple components to produce the color you wish across the moodle site';
 $string['turneditingoff'] = 'On';
 $string['turneditingon'] = 'Off';
 $string['variablewidth'] = 'Variable Width';

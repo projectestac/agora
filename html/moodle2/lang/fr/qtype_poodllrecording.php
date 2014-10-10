@@ -45,6 +45,7 @@ $string['pluginnamesummary'] = 'Permet une réponse audio ou vidéo enregistrée
 $string['poodllrecording'] = 'Enregistrement PoodLL';
 $string['responsefieldlines'] = 'Donner la taille de la boîte';
 $string['responseformat'] = 'Format de la réponse';
+$string['timelimit'] = 'Temps limite d\'enregistrement';
 $string['x320x320'] = '320 x 320';
 $string['x400x600'] = '400 x 600';
 $string['x500x500'] = '500 x 500';

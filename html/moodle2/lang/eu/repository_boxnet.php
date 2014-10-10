@@ -38,4 +38,4 @@ $string['pluginname'] = 'Box';
 $string['pluginname_help'] = 'Biltegia Box-en';
 $string['saved'] = 'Box-en datuak gordeta';
 $string['shareurl'] = 'URLa partekatu';
-$string['username'] = 'Box.net-erako erabiltzaile-izena';
+$string['username'] = 'Box-erako erabiltzaile-izena';

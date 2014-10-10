@@ -31,6 +31,7 @@ $string['autocreate'] = '<p>만일 무들에 없는 강좌에 등록된 사람�
 moodle/course:changeidnumber, moodle/course:changeshortname, moodle/course:changefullname and moodle/course:changesummary, ';
 $string['autocreate_key'] = '자동 생성';
 $string['autocreation_settings'] = '강좌 자동 생성 설정';
+$string['autoupdate_settings'] = '자동 강좌 업데이트 설정';
 $string['bind_dn'] = '만일 각 사용자를 찾기 위해 bind-user를 사용하고 싶다면 다음과 같이 설정하십시오. 예: \'cn=ldapuser,ou=public,o=org\'';
 $string['bind_dn_key'] = '사용자 식별 이름을 바인딩';
 $string['bind_pw'] = 'bind-user를 위한 패스워드';
@@ -43,6 +44,7 @@ $string['contexts'] = 'LDAP 문맥';
 $string['couldnotfinduser'] = '사용자 \'{$a}\'를 찾을 수 없습니다, 건너뜁니다.';
 $string['course_fullname'] = '선택 사항: 전체이름을 위한 LDAP 필드';
 $string['course_fullname_key'] = '성명';
+$string['course_fullname_updateonsync_key'] = '강좌 전체이름 업데이트';
 $string['course_idnumber'] = 'LDAP에서의 서로다른 식별자를 위한 맵, 대부분
 <em>cn</em>나 <em>uid</em>. 만일 자동 강좌 생성기능을 사용하면 값을 수정하지 못하도록 해 놓기 바랍니다.';
 $string['course_idnumber_key'] = 'ID 번호';
@@ -52,8 +54,10 @@ $string['course_search_sub_key'] = '하위문맥 검색';
 $string['course_settings'] = '강좌 등록 설정';
 $string['course_shortname'] = '선택 사항: 짧은 이름을 위한 LDAP 필드';
 $string['course_shortname_key'] = '짧은 이름';
+$string['course_shortname_updateonsync_key'] = '강좌 짧은 이름 업데이트';
 $string['course_summary'] = '선택 사항: 요약을 위한 LDAP 필드';
 $string['course_summary_key'] = '요약';
+$string['course_summary_updateonsync_key'] = '요약 업데이트';
 $string['createcourseextid'] = '존재하지 않는 강좌 \'{$a->courseextid}\'에 등록된 사용자 생성';
 $string['createnotcourseextid'] = '사용자가 존재하지 않는 강좌 \'{$a->courseextid}\'에 등록되었습니다.';
 $string['creatingcourse'] = '강좌 \'{$a}\' 를 만드는 중...';

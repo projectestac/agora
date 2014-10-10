@@ -37,6 +37,7 @@ $string['attemptfinished'] = 'Saiakera amaitu da';
 $string['attemptfinishedsubmitting'] = 'Amaitutako saiakera bidaltzen:';
 $string['attemptoptions'] = 'Saiakeren aukerak';
 $string['availableq'] = 'Eskuragarri?';
+$string['badbase'] = 'Oinarri okerra **: {$a}**-(r)en aurretik';
 $string['behaviour'] = 'Jokaera';
 $string['behaviourbeingused'] = 'Erabilitako jokaera: {$a}';
 $string['broken'] = 'Etendako esteka da hau: ez dagoen fitxategi batera eramaten du';
@@ -61,6 +62,7 @@ $string['cannotread'] = 'Ezin da inportatutako fitxategia irakurri (edo hutsik d
 $string['cannotretrieveqcat'] = 'Ezin izan da galdera-kategoria berreskuratu';
 $string['cannotunhidequestion'] = 'Errorea galdera erakustean';
 $string['cannotunzip'] = 'Ezin da fitxategia deskonprimatu.';
+$string['cannotwriteto'] = 'Ezin dira  {$a}-ra esportatuko galderak idatzi';
 $string['category'] = 'Kategoria';
 $string['categorycurrent'] = 'Oraingo kategoria';
 $string['categorycurrentuse'] = 'Erabili kategoria hau';
@@ -86,6 +88,7 @@ $string['commentormark'] = 'Iruzkina egin edo baliogabetu marka';
 $string['comments'] = 'Iruzkinak';
 $string['commentx'] = 'Iruzkina: {$a}';
 $string['complete'] = 'Osatu';
+$string['contexterror'] = 'Ez zenuke hemen egon behar,  kategoria bat beste testuinguru batera mugitzen ez bazaude.';
 $string['copy'] = 'Kopiatu {$a}-tik eta aldatu estekak.';
 $string['correct'] = 'Zuzena';
 $string['correctfeedback'] = 'Edozein ebazpen zuzenetarako';
@@ -158,7 +161,7 @@ $string['errorduringpre'] = 'Errorea gertatu da aurre-prozesaketan!';
 $string['errorduringproc'] = 'Errorea gertatu da prozesamenduan!';
 $string['errorfilecannotbecopied'] = 'Errorea: ezin da {$a} fitxategia kopiatu.';
 $string['errorfilecannotbemoved'] = 'Errorea: ezin da {$a} fitxategia mugitu.';
-$string['errorfileschanged'] = 'Galderetatik estekatutako errore-fitxategiak aldatu egin dira formularioa erakutsi denetik';
+$string['errorfileschanged'] = 'Errorea: galderetatik estekatutako fitxategiak aldatu egin dira formularioa erakutsi denetik';
 $string['errormanualgradeoutofrange'] = '{$a->grade} kalifikazioa ez da 0 eta {$a->maxgrade}-ren artekoa {$a->name} (-)en galderarako. Puntuazioa eta iruzkina ez dira gorde.';
 $string['errormovingquestions'] = 'Errorea {$a} ID-ak dituzten galderak mugitzean.';
 $string['errorpostprocess'] = 'Errorea gertatu da prozesamendu-ostean!';
@@ -230,10 +233,12 @@ $string['information'] = 'Informazioa';
 $string['invalidanswer'] = 'Erantzuna ez dago osorik';
 $string['invalidcategoryidforparent'] = 'Goragoko kategoriaren IDak ez du balio!';
 $string['invalidcategoryidtomove'] = 'Mugitzeko kategoriaren IDak ez du balio!';
+$string['invalidconfirm'] = 'Egiaztatze-katea ez da zuzena';
 $string['invalidcontextinhasanyquestions'] = 'Testuinguru baliogabea hona pasa da: question_context_has_any_questions.';
+$string['invalidpenalty'] = 'Penalizazioa ez da baliagarria';
 $string['lastmodifiedby'] = 'Nork aldatua azkenengoz';
 $string['linkedfiledoesntexist'] = 'Ez dago {$a} lotutako fitxategia';
-$string['makechildof'] = 'Bihurtu {$a}-ren ondorengo';
+$string['makechildof'] = 'Bihurtu \'{$a}\'-ren ondorengo';
 $string['makecopy'] = 'Kopia egin';
 $string['maketoplevelitem'] = 'Igo ondorengo mailara';
 $string['manualgradeoutofrange'] = 'Kalifikazio hau ibilartetik kanpo dago.';
@@ -313,6 +318,7 @@ $string['noprobs'] = 'Zure galderen datu-basean ez da arazorik aurkitu.';
 $string['noquestionsinfile'] = 'Ez dago galderarik inportazio-fitxategian';
 $string['noresponse'] = '[Ebazpenik ez]';
 $string['notanswered'] = 'Erantzun gabea';
+$string['notchanged'] = 'Aldaketarik ez azken saiakeratik';
 $string['notenoughanswers'] = 'Galdera-mota honek gutxienez {$a} erantzun behar ditu';
 $string['notenoughdatatoeditaquestion'] = 'Ez da galderaren, kategoriaren eta galdera-motaren id-a zehaztu.';
 $string['notenoughdatatomovequestions'] = 'Mugitu nahi dituzun galderen ida-ak eman behar dituzu.';
@@ -333,22 +339,10 @@ $string['page-question-import'] = 'Galdera inportatzeko orria';
 $string['page-question-x'] = 'Edozein galdera-orri';
 $string['parent'] = 'Goragokoa';
 $string['parentcategory'] = 'Goragoko kategoria';
-$string['parentcategory_help'] = '<h2>Goragokoa</h2>
-
-<p>Bere baitan beste kategoria bat duen kategoria. \'Goragokorik ez\'-ek adierazten du kategoria hau ez dagoela beste baten barruan.</p>
-
-<p>Normalean kategoria \'testuinguru\' asko ikusiko dituzu letra lodiz eta horrek adierazten du testuinguru bakoitzak bere kategoria-ierarkia duela. Begiratu beherago testuinguruen inguruko informazio gehiago lortzeko. Ez baduzu hainbat testuinguru ikusten agian beste testuinguru batzuetara sartzeko baimenik ez duzulako izango da.</p>
-
-<p>Testuinguru batean kategoria bakarra badago, ezin izango duzu kategoria hori mugitu testuinguru bakoitzean gutxienez kategoria bat egon behar baitu.</p>
-
-<p>Begiratu halaber:</p>
-<ul>
-  <li><a href="help.php?module=question&amp;file=categories.html">Galderen kategoriak</a></li>
-  <li><a href="help.php?module=question&amp;file=categorycontexts.html">Kategoria-testuinguruak</a></li>
-  <li><a href="help.php?module=question&amp;file=permissions.html">Galderen baimenak</a></li>
-</ul>';
+$string['parentcategory_help'] = 'Goragoko kategoria  bere baitan beste kategoria bat duen kategoria da. \'Goragokorik ez\'-ek adierazten du kategoria hau ez dagoela beste baten barruan. Kategoria-testuinguruak letra lodiz erakusten dira. Testuingurua bakoitzean gutxienez kategoria bat izan behar da.';
 $string['parenthesisinproperclose'] = '**-ren aurretiko parentesia ez da ondo itxi {$a}**-n';
 $string['parenthesisinproperstart'] = '**-ren aurretiko parentesia ez da ondo ireki {$a}**-n';
+$string['parsingquestions'] = 'Inportatutako fitxategiaren galderak aztertzen.';
 $string['partiallycorrect'] = 'Zuzena zati batean';
 $string['partiallycorrectfeedback'] = 'Edozein ebazpen erdi zuzenetarako';
 $string['partiallycorrectfeedbackdefault'] = 'Zure galdera zuzena da neurri batean.';
@@ -418,6 +412,7 @@ $string['technicalinfo'] = 'Informazio teknikoa';
 $string['technicalinfomaxfraction'] = 'Gehieneko zatikia: {$a}';
 $string['technicalinfominfraction'] = 'Gutxieneko zatikia: {$a}';
 $string['technicalinfoquestionsummary'] = 'Galderaren laburpena: {$a}';
+$string['technicalinforightsummary'] = 'Erantzun zuzenaren laburpena: {$a}';
 $string['technicalinfostate'] = 'Galderaren egoera: {$a}';
 $string['tofilecategory'] = 'Fitxategiari kategoria idatzi';
 $string['tofilecontext'] = 'Fitxategiari testuingurua idatzi';

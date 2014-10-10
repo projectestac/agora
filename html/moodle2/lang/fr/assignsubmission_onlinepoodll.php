@@ -25,24 +25,33 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['allowedrecorders'] = 'Permettre les enregistreurs';
 $string['allowonlinepoodllsubmissions'] = 'Activé';
 $string['backimage'] = 'Fond du tableau blanc PoodLL';
 $string['boardsize'] = 'Taille du tableau blanc PoodLL';
 $string['currentsubmission'] = 'Remise de fichier actuelle :';
 $string['default'] = 'Activé par défaut';
 $string['default_help'] = 'Si elle est choisie, cette méthode de remise de fichier sera activée par défaut pour toutes les nouvelles réponses.';
+$string['displaysizelist'] = 'Taille du lecteur vidéo sur les pages de résumé';
+$string['displaysizesingle'] = 'Taille du lecteur vidéo par défaut (classement etc.)';
 $string['enabled'] = 'PoodLL en ligne';
-$string['enabled_help'] = 'Si elle est activée, les étudiants sont autorisés à enregistrer de l\'audio/vidéo, des captures d\'écran, ou à utiliser le tableau blanc selon les paramètres de remise du devoir PoodLL en ligne.';
+$string['enabled_help'] = 'Si elle est activée, les étudiants sont autorisés à enregistrer de l\'audio/vidéo, à prendre des photos, ou à utiliser le tableau blanc selon les paramètres de remise du devoir PoodLL en ligne.';
+$string['no'] = 'non';
 $string['nosubmission'] = 'Rien n\'a encore été remis pour ce cas.';
 $string['onlinepoodll'] = 'PoodLL en ligne';
 $string['onlinepoodllfilename'] = 'onlinepoodll.html';
 $string['onlinepoodllsubmission'] = 'Permettre la remise de fichier PoodLL en ligne';
+$string['placeholderonly'] = 'Pas de lecteur vidéo';
 $string['pluginname'] = 'Remises de fichier PoodLL en ligne';
 $string['recordertype'] = 'Type d\'enregistrement PoodLL';
 $string['replymp3voice'] = 'Enregistrement vocal MP3';
-$string['replysnapshot'] = 'Capture d\'écran';
+$string['replysnapshot'] = 'Prendre une photo';
 $string['replytalkback'] = 'Retour de la voix';
 $string['replyvideo'] = 'Enregistrement Vidéo';
 $string['replyvoice'] = 'Enregistrement vocal (Red5)';
 $string['replywhiteboard'] = 'Tableau blanc';
+$string['showcurrentsubmission'] = 'Voir la soumission en cours';
+$string['showcurrentsubmissiondetails'] = 'Voir les soumissions précédentes dans un formulaire';
 $string['timelimit'] = 'Limite du temps pour l\'enregistrement PoodLL';
+$string['videoplaceholder'] = '[La vidéo ne s\'affiche pas ici]';
+$string['yes'] = 'oui';

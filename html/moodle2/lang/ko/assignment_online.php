@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['event_assessable_uploaded'] = '온라인 텍스트가 업로드 되었습니다.';
 $string['pluginname'] = '오프라인';

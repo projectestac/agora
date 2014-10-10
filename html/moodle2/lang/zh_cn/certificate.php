@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'zh_cn', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'zh_cn', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,12 +42,9 @@ $string['borderlines'] = '线条';
 $string['borderstyle'] = '边界图像';
 $string['borderstyle_help'] = '边界图像选项允许您从 certificate/pix/borders 文件夹选择一个边界图像。选择证书边缘您想要的图像或选择没有边框。';
 $string['certificate'] = '证书编码验证：';
-$string['certificate:manage'] = '管理证书';
 $string['certificatename'] = '证书名称';
-$string['certificate:printteacher'] = '打印教师';
 $string['certificatereport'] = '证书报告';
 $string['certificatesfor'] = '证书';
-$string['certificate:student'] = '获得证书';
 $string['certificatetype'] = '证书类型';
 $string['certificatetype_help'] = '这是您确定证书布局的地方。证书类型文件夹包含了四种默认证书：
 A4 嵌入式打印在 A4 大小的纸上，使用嵌入字体。
@@ -58,7 +55,6 @@ A4 非嵌入式打印在 A4 大小的纸上，不使用嵌入字体。
 非嵌入类型使用 Helvetica 和 Times 字体。如果您担心您的用户的电脑上没有这种字体，或者您的语言使用的字符或符号无法接受Helvetica 和 Times 字体，那么选择一种嵌入类型。嵌入类型使用 Dejavusans 和 Dejavuserif 字体。这会使得 PDF 文件变得相当大；因此不建议使用嵌入类型，除非您必须使用。
 
 新类型文件夹可以添加到 certificate/type 文件夹里。文件夹的名字和新类型使用的任何语言字符串必须添加到证书的语言文件里。';
-$string['certificate:view'] = '查看证书';
 $string['certify'] = '这是为了验证';
 $string['code'] = '编码';
 $string['completiondate'] = '课程结业';
@@ -162,8 +158,6 @@ $string['printwmark'] = '水印图像';
 $string['printwmark_help'] = '一个水印文件将会放在证书的背景里。水印是一个浅色的图形。水印可以是一个标志、印章、饰章、文字或您想用来作为图形背景的任何东西。';
 $string['receivedcerts'] = '得到的证书';
 $string['receiveddate'] = '接收日期';
-$string['reissuecert'] = '重新颁发证书';
-$string['reissuecert_help'] = '如果您这里选择了是，那么每次用户点击证书的链接时证书将会用新的日期、成绩和号码重新颁发。注：虽然有一个表格显示出过去得到证书的日期，但是没有可供用户使用的查看按钮。只有最新颁发的证书显示在证书报告里。';
 $string['removecert'] = '颁发的证书已删除';
 $string['report'] = '报告';
 $string['reportcert'] = '报告证书';

@@ -127,7 +127,7 @@ $string['external'] = 'Mise à jour des paquetages externes';
 $string['failed'] = 'Échec';
 $string['finishscorm'] = 'Si vous avez fini de consulter cette ressource, {$a}';
 $string['finishscormlinkname'] = 'cliquez ici pour revenir à la page de cours';
-$string['firstaccess'] = 'Premier accès';
+$string['firstaccess'] = 'Toujours, sauf la première fois';
 $string['firstattempt'] = 'Première tentative';
 $string['floating'] = 'Flottant';
 $string['forcecompleted'] = 'Imposer de terminer';
@@ -166,15 +166,8 @@ $string['gradesum'] = 'Note totale';
 $string['height'] = 'Hauteur';
 $string['hidden'] = 'Invisible';
 $string['hidebrowse'] = 'Désactiver le mode prévisualisation';
-$string['hidebrowsedesc'] = 'Le mode prévisualisation permet aux participants de consulter une activité avant de la tenter.';
-$string['hidebrowse_help'] = '<!-- $Id$ -->
-
-
-<p>En choisissant Oui, le bouton de prévisualisation de l\'activité SCORM/AICC sera caché.</p>
-
-<p>L\'étudiant peut choisir de prévisualiser (parcourir) l\'activité ou de réaliser une tentative en mode normal.</p>
-
-<p>Lorsqu\'un objet d\'apprentissage est achevé en mode prévisualisation, il est signalé par l\'icône <img src="<?php echo $CFG->wwwroot.\'/mod/scorm/pix/browsed.gif\' ?>" alt="<?php print_string(\'browsed\',\'scorm\') ?>" title="<?php print_string(\'browsed\',\'scorm\') ?>" />.</p>';
+$string['hidebrowsedesc'] = 'Le mode prévisualisation permet aux participants de consulter une activité avant de commencer une tentative.';
+$string['hidebrowse_help'] = 'Le mode prévisualisation permet aux participants de consulter une activité avant de commencer une tentative. En désactivant le mode prévisualisation, le bouton de prévisualisation sera caché.';
 $string['hideexit'] = 'Masquer le bouton de sortie';
 $string['hidereview'] = 'Masquer le bouton de relecture';
 $string['hidetoc'] = 'Affichage de la structure du cours dans le lecteur';
@@ -347,24 +340,11 @@ $string['selectall'] = 'Tout sélectionner';
 $string['selectnone'] = 'Tout désélectionner';
 $string['show'] = 'Afficher';
 $string['sided'] = 'Sur le côté';
-$string['skipview'] = 'Ne pas afficher la structure du contenu des pages';
-$string['skipviewdesc'] = 'Ce réglage détermine quand par défaut ne pas afficher pour les participants la structure du contenu d\'une page';
-$string['skipview_help'] = '<!-- $Id$ -->
+$string['skipview'] = 'Cacher la structure du contenu aux étudiants';
+$string['skipviewdesc'] = 'Ce réglage détermine si la structure du contenu est par défaut cachée aux étudiants';
+$string['skipview_help'] = 'Ce réglage détermine si la structure du contenu est cachée aux étudiant. Si le paquetage ne contient qu\'un seul objet d\'apprentissage. Si la page ne contient qu\'un seul objet d\'apprentissage, l\'affichage de la page de structure de contenu pourrait toujours être sautée. Si l\'option  d\'affichage est "jamais", la structure du contenue sera donc montrée à chaque accès. Il est possible de choisir de ne montrer la structure que lors du premier accès, en choisissant "Toujours, sauf la première fois".
 
-
-<p>Si vous ajoutez un paquetage ne comportant qu\'un objet d\'apprentissage, vous pouvez vous dispenser d\'afficher la liste des contenus s\'affichant au lancement de l\'activité SCORM.</p>
-
-<p>Vous pouvez choisir :</p>
-
-<ul>
-
-<li><strong>Jamais</strong> affiche la liste des contenus</li>
-
-<li><strong>Premier accès</strong> n\'affiche la liste des contenus que la première fois</li>
-
-<li><strong>Toujours</strong> n\'affiche pas la liste des contenus</li>
-
-</ul>';
+Notez que ce réglage n\'a d\'effet que pour les étudiants.';
 $string['slashargs'] = 'ATTENTION ! Le réglage <i>slasharguments</i> est désactivé. Les objets SCORM ne fonctionneront pas correctement !';
 $string['stagesize'] = 'Taille cadre/fenêtre';
 $string['stagesize_help'] = 'Ces deux paramètres déterminent les dimensions (hauteur et largeur) du cadre ou de la fenêtre de l\'objet d\'apprentissage.';

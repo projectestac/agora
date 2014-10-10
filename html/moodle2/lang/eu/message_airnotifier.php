@@ -25,7 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['airnotifieraccesskey'] = 'Airnotifier-en sarbide-giltza';
 $string['airnotifier:managedevice'] = 'Kudeatu gailuak';
+$string['airnotifierport'] = 'Airnotifier-en ataka';
+$string['airnotifierurl'] = 'Airnotifier-en URLa';
 $string['deletecheckdevicename'] = 'Ezabatu zure gailua: {$a->name}';
 $string['showhide'] = 'Gaitu/desgaitu gailua';
 $string['unknowndevice'] = 'Gailu ezezaguna';

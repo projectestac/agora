@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['allowaudiomp3'] = 'Audio MP3';
-$string['allowaudiored5'] = 'Audio Red5';
+$string['allowaudiomp3'] = 'Audio (MP3)';
+$string['allowaudiored5'] = 'Audio (Red5)';
 $string['allowsnapshot'] = 'Foto';
 $string['allowvideo'] = 'Video';
 $string['allowwhiteboard'] = 'Whiteboard';
@@ -37,14 +37,14 @@ $string['browserepositories'] = 'Repositories durchsuchen...';
 $string['cancel'] = 'Abbrechen';
 $string['createpoodll'] = 'PoodLL anlegen';
 $string['dialogtitle'] = 'Media-Datei anlegen';
-$string['drawtheninsert'] = 'Drücken Sie zuerst auf "Bild speichern" und dann auf "Einfügen".';
+$string['drawtheninsert'] = 'Zuerst zeichnen und \'Bild speichern\', dann \'Einfügen\'.';
 $string['enterurl'] = 'URL eingeben';
 $string['insert'] = 'Einfügen';
 $string['nothingtoinsert'] = 'Nicht zum Einfügen vorhanden!';
 $string['openinnewwindow'] = 'In neuem Fenster öffnen';
 $string['pluginname'] = 'PoodLL Anywhere (Atto)';
 $string['recorderstoshow'] = 'Recorder zum Anzeigen';
-$string['recordtheninsert'] = 'Drücken Sie auf "Einfügen", wenn die Aufnahme fertig ist.';
+$string['recordtheninsert'] = 'Zuerst aufnehmen, dann \'Einfügen\'.';
 $string['settings'] = 'PoodLL Anywhere (Atto)';
 $string['show_audiomp3'] = 'Audiorecorder anzeigen (MP3)';
 $string['show_audiored5'] = 'Audiorecorder anzeigen (Red5)';
@@ -52,7 +52,7 @@ $string['show_snapshot'] = 'Foto anzeigen';
 $string['show_video'] = 'Videorecorder anzeigen';
 $string['show_whiteboard'] = 'Whiteboard anzeigen';
 $string['snapshot_desc'] = 'Foto aufnehmen';
-$string['snaptheninsert'] = 'Drücken Sie auf "Einfügen", wenn die Aufnahme fertig ist.';
+$string['snaptheninsert'] = 'Zuerst Foto aufnehmen, dann \'Einfügen\'.';
 $string['usewhiteboard'] = 'Whiteboard-Typ wählen:';
 $string['video_desc'] = 'Video aufnehmen';
 $string['visible'] = 'Sichtbar';

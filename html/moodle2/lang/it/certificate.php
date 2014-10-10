@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'certificate', language 'it', branch 'MOODLE_24_STABLE'
+ * Strings for component 'certificate', language 'it', branch 'MOODLE_26_STABLE'
  *
  * @package   certificate
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -42,12 +42,9 @@ $string['borderlines'] = 'Linee';
 $string['borderstyle'] = 'Immagine per il bordo';
 $string['borderstyle_help'] = 'E\' possibile scegliere una immagine, presa dalla cartella certificate/pix/borders, da stampare sul bordo del certificato. Scegliendo No non verrà stampato nessun bordo.';
 $string['certificate'] = 'Verifica del codice del certificato:';
-$string['certificate:manage'] = 'Gestire certificati';
 $string['certificatename'] = 'Nome del certificato';
-$string['certificate:printteacher'] = 'Stampa i docenti';
 $string['certificatereport'] = 'Report dei certificati';
 $string['certificatesfor'] = 'Certificato di';
-$string['certificate:student'] = 'Consegui il certificato';
 $string['certificatetype'] = 'Tipo di certificato';
 $string['certificatetype_help'] = 'E\' possibile scegliere l\'impaginazione del certificato. Il foder type del modulo certificato contiene quattro certificati di default:
 A4 Embedded stamperà un certificato formato A4 con font embedded
@@ -58,7 +55,6 @@ Letter Non-Embedded stamperà un certificato formato A4 con font non-embedded
 I tipi di certificati non embedded usano i font Helvetica e Times. Se i tuoi utenti non hanno questi font sul loro computer, o se la tua lingua usa caratteri e simboli non presenti nei font Helvetica e Times, scegli i tipi embedded. I tipi embedded usano i font Dejavusans e Dejavuserif. I tipi embedded producono certificati più grandi quindi se ne sconsiglia l\'uso se non strettamente necessario.
 
 E\' possibile aggiungere font nella cartella certificate/type. Il nome della cartella ed eventuali nuove stringhe della lingua per il nuovo tipo di certificato devono essere aggiunti ai file della lingua.';
-$string['certificate:view'] = 'Visualizzare certificati';
 $string['certify'] = 'Si certifica che';
 $string['code'] = 'Codice';
 $string['completiondate'] = 'Completamento del corso';
@@ -166,8 +162,6 @@ $string['printwmark'] = 'Immagine di sfondo';
 $string['printwmark_help'] = 'E\' possibile inserire un\'immagine sullo sfondo del certificato. Lo sfondo è un\'immagine sfumata, come un logo, un timbro, un crest o qualsiasi altra cosa che si desidera stampare sullo sfondo.';
 $string['receivedcerts'] = 'Certificati conseguiti';
 $string['receiveddate'] = 'Data di conseguimento';
-$string['reissuecert'] = 'Emetti nuovamente i certificati';
-$string['reissuecert_help'] = 'Se scegli \'Si\', il certificato verrà riemesso con nuova data, nuovo esito e nuovo codice numerico  tutte le volte che l\'utente farà click sul link del certificato. Nota: sebbene l\'utente potrà visualizzare una tabella con le date di emissione di eventuali certificati già emessi, non avrà comunque a disposizione un pulsante per visualizzarli. Nel report dei certificati sarà visualizzato solamente il certificato emesso più recentemente.';
 $string['removecert'] = 'I certificati emessi sono stati eliminati';
 $string['report'] = 'Report';
 $string['reportcert'] = 'Report dei certificati';

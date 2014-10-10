@@ -207,6 +207,7 @@ $string['howquestionsbehave_help'] = 'Students can interact with the questions i
 Alternatively, you may wish for students to submit each question as they go along to get immediate feedback, and if they do not get it right immediately, have another try for fewer marks. That would be \'Interactive with multiple tries\' mode.
 
 Those are probably the two most commonly used modes of behaviour.';
+$string['howquestionsbehave_link'] = 'question/behaviour';
 $string['ignorebroken'] = 'Ignore broken links';
 $string['importcategory'] = 'Import category';
 $string['importcategory_help'] = 'This setting determines the category into which the imported questions will go.

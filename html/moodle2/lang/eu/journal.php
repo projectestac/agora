@@ -29,6 +29,7 @@ $string['accessdenied'] = 'Sarbide ukatua';
 $string['alwaysopen'] = 'Beti zabalik';
 $string['blankentry'] = 'Sarrera hutsik';
 $string['entries'] = 'Sarrerak';
+$string['feedbackupdated'] = 'feedbacka eguneratu da {$a} sarreratan';
 $string['gradeingradebook'] = 'Oraingo kalifikazioa kalifikazio-liburuan';
 $string['journal:addentries'] = 'Gehitu egunkari-sarrerak';
 $string['journal:addinstance'] = 'Gehitu egunkari-instantziak';

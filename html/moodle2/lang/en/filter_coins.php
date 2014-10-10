@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_coins', language 'en', branch 'MOODLE_22_STABLE'
+ * Strings for component 'filter_coins', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   filter_coins
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}

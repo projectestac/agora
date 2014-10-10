@@ -61,6 +61,7 @@ $string['regradealldrygroup'] = '{$a->groupname}\' talderako guztiaren berkalifi
 $string['regradeallgroup'] = 'Berriz kalifikatu guztia \'{$a->groupname}\' taldeari';
 $string['regradeheader'] = 'Berriz kalifikatzen';
 $string['regradeselected'] = 'Berriz kalifikatu aukeratutako saiakerak';
+$string['regradingattemptxofy'] = 'Saiakera berriz kalifikatzen  ({$a->done}/{$a->count})';
 $string['show'] = 'Erakutsi / jaitsi';
 $string['showattempts'] = 'Saiakerak barne ditu';
 $string['showdetailedmarks'] = 'Erakutsi / jaitsi galdera bakoitzerako markak';

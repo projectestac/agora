@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['aftersaving...'] = 'Dopo aver salvato le impostazioni, puoi';
+$string['aftersaving...'] = 'Dopo aver salvato le impostazioni, è possibile';
 $string['allowunenrol'] = 'I dati IMS possono <strong>disiscrivere</strong> gli studenti/docenti';
-$string['allowunenrol_desc'] = 'Consente di rimuovere le iscrizione dai corsi quando se specificato nel file IMS Enterprise';
+$string['allowunenrol_desc'] = 'Consente di rimuovere le iscrizione dai corsi se specificato nel file IMS Enterprise';
 $string['basicsettings'] = 'Impostazioni di base';
 $string['coursesettings'] = 'Opzioni del corso';
 $string['createnewcategories'] = 'Crea nuove categorie (nascoste) di corsi se non presenti in Moodle';
@@ -43,7 +43,7 @@ Gli utenti vengono cercati prima tramite il codice identificativo poi in base al
 $string['cronfrequency'] = 'Frequenza di attivazione';
 $string['deleteusers'] = 'Elimina gli account se è specificato nei dati IMS';
 $string['deleteusers_desc'] = 'L\'impostazione consente l\'eliminazione di account utente se specificato nel file IMS (recstatus deve essere impostato a 3, che significa eliminazione di un account). Per default l\'account non viene fisicamente eliminato dalla tabella degli utenti di Moodle ma solo contrassegnato come eliminato.';
-$string['doitnow'] = 'esegui un\'importazione IMS Enterprise immediatamente';
+$string['doitnow'] = 'elaborare adesso il file IMS Enterprise';
 $string['emptyattribute'] = 'Lascia vuoto';
 $string['filelockedmail'] = 'Il processo cron non riesce ad eliminare il file ({$a}) usato per le iscrizioni IMS Enterprise. L\'errore in genre indica che i permessi non sono corretti. Controllare e impostare correttamente i permessi per consentire a Moodle di eliminare il file, che altrimenti verrà elaborato ripetutamente.';
 $string['filelockedmailsubject'] = 'Errore grave: File di iscrizione';
@@ -51,7 +51,7 @@ $string['fixcasepersonalnames'] = 'Cambia i nomi propri in Maiuscolo/minuscolo';
 $string['fixcaseusernames'] = 'Cambia gli username in minuscolo';
 $string['ignore'] = 'Ignora';
 $string['importimsfile'] = 'Importa file IMS Enterprise';
-$string['imsrolesdescription'] = 'Le specifiche "IMS Enterprise" comprendono 8 tipi di ruoli. Scegli come vuoi mapparli in Moodle, includendo anche quelli che dovranno essere tralasciati.';
+$string['imsrolesdescription'] = 'Le specifiche "IMS Enterprise" comprendono 8 tipi di ruoli. Scegli come vuoi mapparli in Moodle, includendo anche quelli che dovranno essere ignorati.';
 $string['location'] = 'Percorso del file';
 $string['logtolocation'] = 'Percorso del file di log (lasciare bianco per nessun log)';
 $string['mailadmins'] = 'Avvisa l\'amministratore per email';
@@ -63,9 +63,9 @@ $string['pluginname_desc'] = 'Il plugin di iscrizione IMS Enterprise controlla r
 $string['processphoto'] = 'Aggiungi una foto al profilo';
 $string['processphotowarning'] = 'ATTENZIONE: lavorare un\'immagine potrebbe aggravare il lavoro del server. Si raccomanda di NON attivare questa opzione se è previsto un elevato numero di utenti.';
 $string['restricttarget'] = 'Elabora i dati solo se destinati al sistema specificato';
-$string['restricttarget_desc'] = 'Un file di dati IMS Enterprise può essere usato per i diversi LMS e i diversi sistemi presenti nelle organizzazioni. E\' possibile indicare per quale sistema è destinato il file fornendone il nome nel tag <target> presente all\'interno del tag <properties>.
+$string['restricttarget_desc'] = 'Un file di dati IMS Enterprise può essere usato per vari LMS e sistemi in uso presso leorganizzazioni. E\' possibile indicare per quale sistema è destinato il file fornendone il nome nel tag <target> presente all\'interno del tag <properties>.
 
-In generale non è necessario fornire questo valore, lasciandolo vuoto Moodle elaborerà comunque il file. In alternativa, è possibile specificare il nome esatto all\'interno del tag <target>.';
+In generale non è necessario fornire questo valore, lasciandolo vuoto Moodle elaborerà comunque il file, indipendentemente dalla presenza del target nel file. In alternativa, è possibile specificare il nome esatto all\'interno del tag <target>.';
 $string['roles'] = 'Ruoli';
 $string['settingfullname'] = 'Tag di descrizione IMS per il titolo del corso';
 $string['settingfullnamedescription'] = 'Il titolo del corso è un capo obbligatorio, è necessario definire il tag di descrizione nel file IMS Enterprise';
@@ -74,13 +74,13 @@ $string['settingshortnamedescription'] = 'Il titolo abbreviato del corso è un c
 $string['settingsummary'] = 'Tag di descrizione IMS per la descrizione del corso';
 $string['settingsummarydescription'] = 'Il campo è opzionale, è possibile non utilizzarlo selezionando \'Lascia vuoto\'';
 $string['sourcedidfallback'] = 'Utilizza il campo &quot;sourcedid&quot; come userid di una persona se il campo &quot;userid&quot; non è presente';
-$string['sourcedidfallback_desc'] = 'Nei file IMS  il campo <sourcedid> rappresenta il codice ID permanente della persona in uso nel sistema da dove provengono i dati.
+$string['sourcedidfallback_desc'] = 'Nei file IMS il campo <sourcedid> rappresenta il codice ID permanente assegnato all\'utente dal sistema da dove si originano i dati.
 Il campo <userid> è un campo separato che contiene il codice ID usato dagli utenti per autenticarsi. Spesso i due valori coincidono, in altri casi no.
 
-Alcuni student information system non forniscono il campo <userid>, nel qual caso è opportuno abilitare questa impostazione per usare <sourcedid> come userid di Moodle.';
+Alcuni student information system non forniscono il campo <userid>, nel qual caso è opportuno abilitare questa impostazione per usare <sourcedid> come userid di Moodle. Altrimenti lasciare l\'impostazione disabilitata.';
 $string['truncatecoursecodes'] = 'Tronca i codici dei corsi a questa lunghezza';
 $string['truncatecoursecodes_desc'] = 'In alcuni casi si potrebbe desiderare di troncare ad una certa lunghezza i codici corso prima di elaborarli. E\' possibile specificare il numero di caratteri da utilizzare prima del troncamento. Lasciando il campo in bianco i codici corso non saranno troncati.';
-$string['usecapitafix'] = 'Seleziona questa opzione se usi "Capita" (il formato XML generato da questo sistema è impreciso)';
+$string['usecapitafix'] = 'Compatibilità "Capita" (il formato XML generato da questo sistema è impreciso)';
 $string['usecapitafix_desc'] = 'Lo student data system di Capita produce un XML con delle imprecisioni. Se usi Capita, è bene abilitare questa impostazione.';
 $string['usersettings'] = 'Opzioni utente';
 $string['zeroisnotruncation'] = '0 indica nessun troncamento';

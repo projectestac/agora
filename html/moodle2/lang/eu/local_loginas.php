@@ -30,4 +30,5 @@ $string['ajaxoneuserfound'] = 'Erabiltzaile bat aurkitu da';
 $string['ajaxprev25'] = '<< aurreko 25ak';
 $string['ajaxxusersfound'] = '{$a} erabiltzaile aurkitu dira';
 $string['courseusers'] = 'Ikastaroko erabiltzaileak';
+$string['loginasuser'] = 'Sartu erabiltzaile gisa';
 $string['pluginname'] = 'Sartu honela';

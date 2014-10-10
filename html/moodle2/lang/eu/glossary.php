@@ -30,14 +30,12 @@ $string['addentry'] = 'Gehitu sarrera';
 $string['addingcomment'] = 'Gehitu iruzkin bat';
 $string['alias'] = 'Hitz gakoa';
 $string['aliases'] = 'Hitz gakoak';
-$string['aliases_help'] = '<p>Glosategiko kontzeptu bakoitza hitz gakoen zerrenda batekin lotuta egon daiteke.</p>
+$string['aliases_help'] = 'Glosategiko kontzeptu bakoitza hitz gakoen zerrenda batekin lotuta egon daiteke. Sarrera autoestekatzen bada,  edozein hitz gako ere automatikoki estekatuko da.
 
-<p>Hitz gako horiek lerro banatan sartu (komarik gabe).</p>
-
-<p>Hitz gakoak kontzeptuari buruz aritzeko ordezko gisa erabil daitezke. Adibidez, glosategiaren auto-esteka iragazkia erabiltzen ari bazara, hitz gakoak (eta kontzeptuaren izen nagusia) erabiliko dira kontzeptu honekin zein hitz lotu erabakitzeko.</p>';
+Hitz gako horiek lerro banatan sartu (komarik gabe).';
 $string['allcategories'] = 'Kategoria guztiak';
 $string['allentries'] = 'GUZTIAK';
-$string['allowcomments'] = 'Iruzkinak gehitu daitezke';
+$string['allowcomments'] = 'Baimendu iruzkinak sarreretan';
 $string['allowcomments_help'] = '<p>Ikasleei glosategiko sarrerei iruzkinak gehitzen utzi ahal diegu.</p>
 
 <p>Zeure esku dago aukera hau gaitzea ala ez.</p>
@@ -45,12 +43,8 @@ $string['allowcomments_help'] = '<p>Ikasleei glosategiko sarrerei iruzkinak gehi
 <p>Irakasleek une oro dute sarrerei iruzkinak gehitzeko modua.</p>';
 $string['allowduplicatedentries'] = 'Sarrerak bikoiztea baimenduta';
 $string['allowduplicatedentries_help'] = 'Aukera hau gaituz gero, kontzeptu batek nahi beste sarrera izan dezake.';
-$string['allowprintview'] = 'Inprimatzeko bertsioa erakutsi';
-$string['allowprintview_help'] = '<p>Ikasleei glosategia inprimatzeko bertsioa erabiltzen utzi ahal diegu.</p>
-
-<p>Zeure esku dago aukera hau gaitzea ala ez.</p>
-
-<p>Irakasleek une oro erabil dezakete inprimatzeko bertsioa.</p>';
+$string['allowprintview'] = 'Erakutsi inprimatzeko bertsioa';
+$string['allowprintview_help'] = 'Gaituz gero, ikasleek glosategia inprimatu ahal izateko esteka bat izango dute eskura. Irakasleek une oro erabil dezakete inprimatzeko esteka.';
 $string['andmorenewentries'] = 'eta {$a} sarrera berri gehiago.';
 $string['answer'] = 'Azalpena';
 $string['approvaldisplayformat'] = 'Onarpena erakusteko modua';
@@ -63,11 +57,7 @@ $string['areyousuredeletecomment'] = 'Ziur al zaude iruzkin hau ezabatu nahi duz
 $string['areyousureexport'] = 'Ziur al zaude sarrera hau esportatu nahi duzula?';
 $string['ascending'] = 'behetik gora';
 $string['attachment'] = 'Eranskina';
-$string['attachment_help'] = '<p>Glosategi bateko sarrerari fitxategi BAT erantsi ahal diozu. Fitxategi hau zerbitzarira igo eta sarrerarekin batera bilduko da. </p>
-
-<p>Erabilgarria da, adibidez, argazki bilduma sortzeko edo word dokumentua partekatzeko.</p>
-
-<p>Erantsitako fitxategia ezabatzeko Fitxategietara joan beharko duzu Kudeaketa blokean eta moddata izeneko direktorioan glossary azpidirektorioan begiratu. Sarrera bakoitzari erantsitako fitxategia banakako azpidirektorio batean gordeko da.</p>';
+$string['attachment_help'] = 'Glosategi bateko sarrerari fitxategi bat edo gehiago eransteko aukera duzu.';
 $string['author'] = 'egilea';
 $string['authorview'] = 'Egilearen arabera bilatu';
 $string['back'] = 'Atzera';
@@ -107,7 +97,7 @@ $string['completionentries'] = 'Ikasleak sarrerak sortu behar ditu:';
 $string['completionentriesgroup'] = 'Sarrerak behar dira';
 $string['concept'] = 'Kontzeptua';
 $string['concepts'] = 'Kontzeptuak';
-$string['configenablerssfeeds'] = 'Aukera honekin glosategi guztietan eza daitezke RSS jarioak. Glosategi bakoitzaren ezarpenetan eskuz ezarri beharko dira jariook.';
+$string['configenablerssfeeds'] = 'Aukera honekin glosategi guztietan ezar daitezke RSS jarioak. Glosategi bakoitzaren ezarpenetan eskuz ezarri beharko dira jariook.';
 $string['current'] = 'Orain ordenatuak {$a}';
 $string['currentglossary'] = 'Oraingo glosategia';
 $string['date'] = 'data';
@@ -133,7 +123,7 @@ $string['destination_help'] = '<p>Helbide-eremuan inportatutako sarrerak nora jo
 <li><strong>Oraingo glosategira: </strong>Sarrerak une horretan zabaldik duzun glosategira gaineratuko dira.</li>
 <li><strong>Glosategi berrira: </strong>Glosategi berria sortuko da inportatuko fitxategian aurkitutako informazioan oinarrituta. Bertan sartuko dira sarrera berriak).</li>
 </ul>';
-$string['disapprove'] = 'Ez onartu';
+$string['disapprove'] = 'Desegin onarpena';
 $string['displayformat'] = 'Erakusteko modua';
 $string['displayformatcontinuous'] = 'Jarraian eta egilerik gabe';
 $string['displayformatdefault'] = 'Lehenetsia erakusteko modu berdina da';
@@ -143,31 +133,15 @@ $string['displayformatentrylist'] = 'Sarrera-zerrenda';
 $string['displayformatfaq'] = 'FAQ';
 $string['displayformatfullwithauthor'] = 'Osorik, egilea eta guzti';
 $string['displayformatfullwithoutauthor'] = 'Osorik, egilerik gabe';
-$string['displayformat_help'] = '<P>Ezarpen honek glosategian sarrera bakoitza nola erakutsiko den definitzen du. Hauek dira aukeran dauden formatuak:</p>
-<blockquote>
-<dl>
-<dt><b>Arrunta, hiztegi erakoa</b>:</dt>
-<dd>Ohiko hiztegi bat bezala agertzen da, sarrerak banatuta. Ez da egilerik agertzen eta erantsitako fitxategiak esteka bezala agertzen dira.</dd>
+$string['displayformat_help'] = 'Sarrerak erakusteko 7 formatu ditugu aukeran:
 
-<dt><b>Jarraian eta egilerik gabe</b>:</dt>
-<dd>Sarrerak bata bestearen atzetik agertzen dira banaketa-ikonoez banatuta.</dd>
-
-<dt><b>Osorik, egilea eta guzti</b>:</dt>
-<dd>Foroen antzeko formatua, sarrera bakoitzaren egilearen informazioa gaineratzen du. Erantsitako fitxategiak esteka bezala agertzen dira.</dd>
-
-<dt><b>Osorik, egilerik gabe</b>:</dt>
-<dd>Foroen antzeko formatua baina ez du sarrera bakoitzaren egilearen informaziorik gaineratzen. Erantsitako fitxategiak esteka bezala agertzen dira.</dd>
-
-<dt><b>Entziklopedia</b>:</dt>
-<dd>Osorik, egilea eta guzti\'ren antzekoa baina erantsitako irudiak on-line erakusten dira.</dd>
-
-<dt><b>FAQ</b>:</dt>
-<dd>Maiz egiten diren Galderak aurkezteko erabilgarria. Automatikoki gaineratzen ditu Galdera eta Erantzuna hitzak kontzeptu eta definizioan.</dd>
-</dl>
-</blockquote>
-
-<hr>
-<p>Moodle-ren kudeatzaileek formatu berriak sor ditzakete euren instalazioko mod/glossary/formats/README.txt fitxategian agertzen diren jarraipideen arabera.</p>';
+* Arrunta, hiztegi erakoa - Ez da egilerik agertzen eta erantsitako fitxategiak esteka bezala agertzen dira.
+* Jarraian eta egilerik gabe - Sarrerak bata bestearen atzetik agertzen dira banaketa-ikonoez banatuta.
+* Osorik, egilea eta guzti - Foroen antzeko formatua, sarrera bakoitzaren egilearen informazioa gaineratzen du. Erantsitako fitxategiak esteka bezala agertzen dira.
+* Osorik, egilerik gabe - Foroen antzeko formatua baina ez du sarrera bakoitzaren egilearen informaziorik gaineratzen. Erantsitako fitxategiak esteka bezala agertzen dira.
+* Entziklopedia - Osorik, egilea eta guzti\'ren antzekoa baina erantsitako irudiak on-line erakusten dira.
+* Sarrera-zerrenda - Kontzeptuak esteka gisa erakusten dira
+* FAQ - Maiz egiten diren Galderak aurkezteko erabilgarria. Automatikoki gaineratzen ditu Galdera eta Erantzuna hitzak kontzeptu eta definizioan.';
 $string['displayformats'] = 'Erakusteko moduak';
 $string['displayformatssetup'] = 'Aukeratu erakusteko modua';
 $string['duplicatecategory'] = 'Bikoiztu kategoria';
@@ -181,8 +155,8 @@ $string['editalways_help'] = '<P>Aukera honi esker erabaki dezakezu ikasleek sar
 <LI><B>Bai:</B> Sarrerak beti edita daitezke.</li>
 <LI><B>Ez:</B> Sarrerak epe jakin baten barruan edita daitezke.</li>
 </UL>';
-$string['editcategories'] = 'Kategoriak editatu';
-$string['editentry'] = 'Sarrera editatu';
+$string['editcategories'] = 'Editatu kategoriak';
+$string['editentry'] = 'Editatu sarrera';
 $string['editingcomment'] = 'Iruzkina editatu';
 $string['entbypage'] = 'Zenbat sarrera orriko';
 $string['entries'] = 'Sarrerak';
@@ -193,7 +167,7 @@ $string['entryapproved'] = 'Sarrera hau onartuta dago';
 $string['entrydeleted'] = 'Sarrera ezabatuta';
 $string['entryexported'] = 'Sarrera ondo esportatu da';
 $string['entryishidden'] = '(sarrera hau ezkutuan dago)';
-$string['entryleveldefaultsettings'] = 'Sarreren aldez aurretiko ezarpenak';
+$string['entryleveldefaultsettings'] = 'Sarreren berezko ezarpenak';
 $string['entrysaved'] = 'Sarrera gordeta';
 $string['entryupdated'] = 'Sarrera eguneratuta';
 $string['entryusedynalink'] = 'Sarrera hau automatikoki estekatu';
@@ -217,9 +191,9 @@ $string['explainimport'] = 'Inportatu beharreko fitxategia zehaztu behar duzu et
 $string['explainspecial'] = 'Erakutsi letraz hasten ez diren sarrerak';
 $string['exportedentry'] = 'Sarrera esportatua';
 $string['exportentries'] = 'Sarrerak esportatu';
-$string['exportentriestoxml'] = 'Sarrerak XML fitxategira esportatu ';
-$string['exportfile'] = 'Sarrerak fitxategi batera esportatu ';
-$string['exportglossary'] = 'Glosategia esportatu ';
+$string['exportentriestoxml'] = 'Esportatu sarrerak XML fitxategira';
+$string['exportfile'] = 'Esportatu sarrerak fitxategi batera';
+$string['exportglossary'] = 'Esportatu glosategia';
 $string['exporttomainglossary'] = 'Esportatu glosategi nagusira';
 $string['filetoimport'] = 'Inportatu beharreko fitxategia';
 $string['filetoimport_help'] = '<P>Aukera itzazu inportatu beharreko sarrerak dituzten XML fitxategiak zeure ordenagailuan.</p>';
@@ -230,24 +204,24 @@ $string['fullmatch_help'] = '<p>Aldagai honek esteka automatikoa hitz osoekin eg
 
 <p>Adibidez, gaituta egonez gero, "eta" ez da automatikoki "aldaketa" hitzarekin estekatuko.</p>';
 $string['glossary:addinstance'] = 'Gehitu beste glosategi bat';
-$string['glossary:approve'] = 'Onartzeko dauden sarrerak onartu';
-$string['glossary:comment'] = 'Iruzkinak sortu';
-$string['glossary:export'] = 'Sarrerak esportatu';
+$string['glossary:approve'] = 'Onartu eta desegin onartutako sarrerak';
+$string['glossary:comment'] = 'Sortu iruzkinak';
+$string['glossary:export'] = 'Esportatu sarrerak';
 $string['glossary:exportentry'] = 'Esportatu sarrera bakarra';
 $string['glossary:exportownentry'] = 'Esportatu sarrera bakarra zureetatik';
-$string['glossary:import'] = 'Sarrerak inportatu';
-$string['glossaryleveldefaultsettings'] = 'Glosategiaren aldez aurretiko ezarpenak';
-$string['glossary:managecategories'] = 'Kategoriak kudeatu';
-$string['glossary:managecomments'] = 'Iruzkinak kudeatu';
-$string['glossary:manageentries'] = 'Sarrerak kudeatu';
-$string['glossary:rate'] = 'Sarrerak kalifikatu';
+$string['glossary:import'] = 'Inportatu sarrerak';
+$string['glossaryleveldefaultsettings'] = 'Glosategiaren berezko ezarpenak';
+$string['glossary:managecategories'] = 'Kudeatu kategoriak';
+$string['glossary:managecomments'] = 'Kudeatu iruzkinak';
+$string['glossary:manageentries'] = 'Kudeatu sarrerak';
+$string['glossary:rate'] = 'Kalifikatu sarrerak';
 $string['glossarytype'] = 'Glosategi-mota';
 $string['glossarytype_help'] = '<P>Modulu honek bigarren mailako edozein glosategiren sarrerak ikastaroaren glosategi nagusira esportatzea ahalbidetzen du.</p>
 
 <p>Horretarako, glosategi nagusia zein den zehaztu behar duzu.</p>
 
 <p>Oharra: nahi izanez gero, glosategi nagusi bat bakarrik izan dezakezu ikastaroko eta irakasleek baino ez izan eguneratzeko modua.</p>';
-$string['glossary:view'] = 'Glosategia ikusi';
+$string['glossary:view'] = 'Ikusi glosategia';
 $string['glossary:viewallratings'] = 'Erabiltzaileek emandako kalifikazio guztiak ikusi';
 $string['glossary:viewanyrating'] = 'Besteren batek denera jasotako kalifikazioak ikusi';
 $string['glossary:viewrating'] = 'Denera jasotako kalifikazioak ikusi';
@@ -326,15 +300,7 @@ $string['rssarticles_help'] = '<p>Honekin RSS jarioan sartu beharreko artikulu-k
 <p>Bost aukeratuta, harpidedunei azken bost artikuluak bidaliko zaizkie. Glosategi gehienetan egokia izan daiteke 5 eta 20ren artean ezartzea. Gehiago ipini behar litzateke oso glosategi erabilia bada.</p>';
 $string['rsssubscriberss'] = 'Erakutsi RSS jarioa \'{$a}\' kontzeptuetarako';
 $string['rsstype'] = 'Jarduera honetarako RSS jarioa';
-$string['rsstype_help'] = '<P>Aukera honi esker RSS jarioak gaitu daitezke glosategi honetan.
-
-<P>Bi mota dago:
-
-<UL>
-<LI><B>Egilea barne:</B> Hau aukeratuz gero, artikulu bakoitzak egilearen izena izango du.
-
-<LI><B>Egilerik gabe:</B> Hau aukeratuz gero, artikuluek ez dute egilearen izenik izango.
-</UL>';
+$string['rsstype_help'] = 'Jarduera honetan RSS jarioak gaitzeko, aukeratu kontzeptuak egilea eta guzti edo egilerik gabe, jarioan gaineratzeko.';
 $string['searchindefinition'] = 'Bilatu testu osoan';
 $string['secondaryglossary'] = 'Bigarren mailako glosategia';
 $string['showall'] = 'Erakutsi "GUZTIAK" esteka';

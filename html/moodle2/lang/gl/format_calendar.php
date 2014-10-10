@@ -25,10 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['currentday'] = 'Día actual';
+$string['dailyoutline'] = 'Esquema diario';
 $string['day'] = 'Día';
 $string['dayfriday'] = 'venres';
+$string['dayhide'] = 'Agochar este día desde {$a}';
 $string['daymonday'] = 'luns';
 $string['daysaturday'] = 'sábado';
+$string['dayshow'] = 'Amosar este día desde {$a}';
 $string['daysunday'] = 'domingo';
 $string['daythursday'] = 'xoves';
 $string['daytuesday'] = 'martes';
@@ -36,5 +40,15 @@ $string['daywednesday'] = 'mércores';
 $string['displayAllMonths'] = 'Ano';
 $string['displayCurrentMonth'] = 'Mes';
 $string['displayCurrentWeek'] = 'Semana';
+$string['hidedayfromothers'] = 'Agochar día';
+$string['hidefromothers'] = 'Agochar día';
+$string['page-course-view-calendar'] = 'Calquera páxina principal do curso en formato calendario';
+$string['page-course-view-calendar-x'] = 'Calquera páxina do curso en formato calendario';
+$string['pluginname'] = 'Formato do calendario';
 $string['section0name'] = 'Xeral';
 $string['sectionname'] = 'Día';
+$string['showalldays'] = 'Amosar todos os días';
+$string['showdayfromothers'] = 'Amosar o día';
+$string['showfromothers'] = 'Amosar o día';
+$string['showonlyday'] = 'Amosar só o día {$a}';
+$string['toggleWeekends'] = 'Agochar/Amosar as fins de semana';

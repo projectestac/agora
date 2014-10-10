@@ -66,6 +66,7 @@ $string['pluginname'] = 'Generatore di dati per sviluppo';
 $string['progress_checkaccounts'] = 'Verifica account utente ({$a})';
 $string['progress_coursecompleted'] = 'Corso completato ({$a}s)';
 $string['progress_createaccounts'] = 'Creazione account utente ({$a->from} - {$a->to})';
+$string['progress_createassignments'] = 'Creazione compiti in corso ({$a})';
 $string['progress_createbigfiles'] = 'Creazione file grandi ({$a})';
 $string['progress_createcourse'] = 'Creazione corso {$a}';
 $string['progress_createforum'] = 'Creazione forum ({$a} posts)';

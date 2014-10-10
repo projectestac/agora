@@ -36,6 +36,20 @@ $string['address'] = 'Adreça';
 $string['addsite'] = 'Afegeix un lloc';
 $string['allcachesinvalidated'] = 'S\'han desactivat totes les memòries cau';
 $string['allcachespurged'] = 'S\'han esborrat totes les memòries cau';
+$string['appstoredescription'] = 'NOTA: aquesta aplicació mòbil oficial de Moodle NOMÉS funciona amb llocs Moodle que s\'han configurat per a permetre-ho. Si us plau, consulteu amb l\'administració del vostre Moodle si teniu problemes de connexió.
+
+Si el vostre lloc Moodle s\'ha configurat correctament, podreu utilitzar aquesta aplicació per a:
+
+- navegar pel contingut dels vostres cursos, fins i tot quan no tingueu connexió a la xarxa,
+- rebre notificacions instantànies de missatges i altres esdeveniments,
+- trobar de manera ràpida altres participants dels vostres cursos i contactar-hi,
+- penjar imatges, àudio, vídeos i altres fitxers des del vostre dispositiu mòbil,
+- veure les vostres qualificacions
+- i moltes coses més!
+
+Consulteu la informació més recent en http://docs.moodle.org/en/Mobile_app
+
+Agrairem els comentaris sobre les funcions actuals i els suggeriments sobre quines altres coses vodríeu que fes aquesta aplicació.';
 $string['areyousurereset'] = 'Esteu segur que voleu reiniciar l\'aplicació ? S\'esborraran tots els vostres llocs.';
 $string['audionotavailable'] = 'No està disponible el maquinari d\'entrada d\'àudio';
 $string['audiorecordinstructions'] = 'Premeu \'Gravar\' per iniciar la gravació. \'Atura\' per aturar i penjar el fitxer.';

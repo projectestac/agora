@@ -25,4 +25,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Geografische Breite und Länge';
+$string['pluginname'] = 'Geografische Daten';

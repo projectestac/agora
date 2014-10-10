@@ -37,6 +37,7 @@ $string['maxfilessubmission'] = 'Maximalt antal uppladdade filer';
 $string['maxfilessubmission_help'] = 'Om uppladdning av filer är aktiverad, kommer varje student att kunna ladda upp till definierad antal filer för inlämnande';
 $string['maximumsubmissionsize'] = 'Maximal inlämningsstorlek';
 $string['maximumsubmissionsize_help'] = 'Filer som laddas upp av studenter kan vara upp till denna storlek';
+$string['numfilesforlog'] = 'Antalet fil (er): {$a} fil (er).';
 $string['pluginname'] = 'Filinlämningar';
 $string['siteuploadlimit'] = 'Webbplatsens uppladningsbegränsning';
 $string['submissionfilearea'] = 'Uppladdade filinlämningar';

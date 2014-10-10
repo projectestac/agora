@@ -41,3 +41,4 @@ $string['resetcomplete'] = 'Berrabiarazi egin da';
 $string['resetquiz'] = 'Berrabiarazi saiakerak...';
 $string['resettingquizattempts'] = 'Galdetagiaren saiakerak berrabiarazten';
 $string['resettingquizattemptsprogress'] = 'Berrabiarazitako saiakerak {$a->done} / {$a->outof}(e)tik';
+$string['upgradedsitedetected'] = 'Badirudi gune hau eguneratuta dagoela, galderak bilatzeko motore berria barne.';

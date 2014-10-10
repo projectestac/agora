@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_messageteacher', language 'es', branch 'MOODLE_25_STABLE'
+ * Strings for component 'block_messageteacher', language 'es', branch 'MOODLE_26_STABLE'
  *
  * @package   block_messageteacher
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -25,4 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['messagesent'] = '¡Mensaje enviado!';
 $string['nogroupmembership'] = 'Usted no es miembro de ningún grupo';
+$string['pluginname'] = 'Mensaje al Profesor';
+$string['pluginnameplural'] = 'Mensaje a mis Profesores';
+$string['rolesdesc'] = 'Selecciona los roles  que son profesores o personas a las que los estudiantes deseen pedir ayuda';
+$string['send'] = 'Mandar';
+$string['sentfrom'] = 'Este mensaje lo ha mandado {$a}';
+$string['showuserpictures'] = 'Mostrar imagen de usuario';

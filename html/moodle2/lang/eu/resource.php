@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['clicktodownload'] = 'Sakatu {$a} estekari fitxategia jaisteko.';
 $string['clicktoopen2'] = 'Sakatu {$a} estekari fitxategia ikusteko.';
+$string['configdisplayoptions'] = 'Aukeratu gaituta egon behar diren aukera guztiak, lehendik dauden ezarpenak ez dira aldatuko. Mantendu CTRL tekla sakaturik aukera bat baino gehiago aukeratzeko.';
 $string['configframesize'] = 'Web-orri edo fitxategiren bat marko baten barruan azalduz gero, balio hau (pixeletan)  nabigazio-markoaren neurria da.';
 $string['configparametersettings'] = 'Honek baliabide berriak eransteko formularioko ezarpen panelaren lehenespenak ezartzen ditu. Behin egin ondoren, erabiltzailearen hobespen bihurtzen da.';
 $string['configpopup'] = 'Baliabide berria eranstean eta hau popup leiho baten ager baliteke, aukera hau lehenetsi behar da?';
@@ -43,10 +44,20 @@ $string['contentheader'] = 'Edukia';
 $string['displayoptions'] = 'Eskura dauden erakusteko aukerak';
 $string['displayselect'] = 'Erakutsi';
 $string['displayselectexplain'] = 'Aukeratu mota (zoritxarrez, mota guztiek ez dute fitxategi guztietan funtzionatzen).';
+$string['displayselect_help'] = 'Ezarpen honek, fitxategi-mota kontuan hartuta eta web-nabigatzaileak edukiak txertatzea baimentzen badu, fitxategia nola erakutsiko den zehazten du. Aukerak hurrengoak izan daitezke:
+
+* Automatikoa - Fitxategi-mota erakusteko aukerarik onena automatikoki aukeratuko da.
+* Enbotatu - Fitxategia orriaren barruan erakutsiko da, nabigazio-barraren azpian eta fitxategiaren deskribapena eta blokeen ondoan.
+* Jaistera behartu - Erabiltzaileari fitxategia jaisteko mezua erakutsiko zaio
+* Ireki - Web-nabigatzailearen orrian fitxategia soilik erakutsiko da.
+* Pop-up-ean - Fitxategia web-nabigatzailearen leiho berri batean erakutsiko da, menu eta helbide-barrarik gabe.
+* Markoan - Fitxategia marko baten barruan erakutsiko da, nabigazio-barraren eta fitxategiaren deskribapenaren azpian.
+* Leiho berria - Fitxategia web-nabigatzailearen leiho berri batean erakutsiko da, menuekin eta nabigazio-barrarekin.';
 $string['dnduploadresource'] = 'Sortu fitxategia izeneko baliabidea';
 $string['encryptedcode'] = 'Kode enkriptatua';
 $string['filenotfound'] = 'Ez da fitxategia aurkitu, barkatu.';
 $string['filterfiles'] = 'Fitxategiaren edukian iragazkiak erabili ';
+$string['filterfilesexplain'] = 'Aukeratu fitxategien edukiko iragazki mota; kontuan izan honek Flash eta Java applet-etan arazoak eragin ditzakela. Ziurtatu mesedez testu-fitxategi guztiek UTF-8 kodeaketa dutela.';
 $string['filtername'] = 'Automatikoki lotutako baliabideak';
 $string['forcedownload'] = 'Jaistera behartu';
 $string['framesize'] = 'Markoaren altuera';
@@ -70,18 +81,29 @@ $string['optionsheader'] = 'Erakusteko aukerak';
 $string['page-mod-resource-x'] = 'Fitxategia moduluaren edozein orri';
 $string['pluginadministration'] = 'Fitxategiaren kudeaketa';
 $string['pluginname'] = 'Fitxategia';
-$string['popupheight'] = 'Popup-aren altuera (pixeletan)';
+$string['popupheight'] = 'Pop-up-aren altuera (pixeletan)';
 $string['popupheightexplain'] = 'Zehaztu zabaltzen den leihoaren berezko altuera.';
 $string['popupresource'] = 'Baliabide hau popup leiho batean agertuko da';
 $string['popupresourcelink'] = 'Hala ez bada, sakatu hemen:  {$a}';
-$string['popupwidth'] = 'Popup-aren zabalera (pixeletan)';
+$string['popupwidth'] = 'Pop-up-aren zabalera (pixeletan)';
 $string['popupwidthexplain'] = 'Zehaztu zabaltzen den leihoaren berezko zabalera.';
 $string['printintro'] = 'Baliabidearen deskribapena erakutsi';
-$string['printintroexplain'] = 'Baliabidearen deskribapena edukiaren azpian? Mota batzuek agian ez dute deskribapena erakutsiko, nahiz aukera hori ezarrita egon.';
+$string['printintroexplain'] = 'Erakutsi baliabidearen deskribapena edukiaren azpian? Mota batzuek agian ez dute deskribapena erakutsiko, nahiz aukera hori ezarrita egon.';
 $string['resource:addinstance'] = 'Gehitu beste baliabide bat';
 $string['resourcecontent'] = 'Fitxategiak eta azpikarpetak';
 $string['resourcedetails_sizetype'] = '{$a->size} {$a->type}';
 $string['resource:exportresource'] = 'Esportatu baliabidea';
 $string['resource:view'] = 'Ikusi baliabidea';
+$string['selectmainfile'] = 'Aukeratu mesedez fitxategi nagusia fitxategiaren izenaren ondoan dagoen ikonoan klik eginda.';
 $string['showsize'] = 'Erakutsi tamaina';
+$string['showsize_desc'] = 'Fitxategiaren tamaina ikastaroaren orrian erakutsi?';
+$string['showsize_help'] = 'Fitxategiaren tamaina erakusten du, \'3,1MB\' adibidez, fitxategiaren estekaren ondoan.
+
+Baliabidean fitxategi bat baino gehiago badaude, guztien tamainaren batuketa erakutsiko da.';
 $string['showtype'] = 'Erakutsi mota';
+$string['showtype_desc'] = 'Erakutsi fitxategi mota (\'PDF dokumentua\' adibidez) ikastaroaren orria?';
+$string['showtype_help'] = 'Fitxategi-mota erakusten du, \'PDF dokumentua\' adibidez, fitxategiaren estekaren ondoan.
+
+Baliabidean fitxategi bat baino gehiago badaude, fitxategi nagusiarena erakutsiko da.
+
+Sistemak fitxategi-mota ezagutzen ez badu, ez du erakutsiko.';

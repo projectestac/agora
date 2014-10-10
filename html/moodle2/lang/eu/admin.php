@@ -161,6 +161,16 @@ $string['configcronclionly'] = 'Aukera hau gaituz gero, cron-aren script-a koman
 $string['configcronremotepassword'] = 'Honek esan nahi du cron.php script-a ezin dela web nabigatzaile batetik egikaritu pasahitza eman gabe, ondokoa bezalako URL motako formularioa erabiliz: <pre>http://site.example.com/admin/cron.php?password=opensesame
 </pre>. Hutsik utziz gero, ez da pasahitzik behar.';
 $string['configcurlcache'] = 'cURL cachearen biziraupena, segundutan.';
+$string['configcustommenuitems'] = 'Pertsonalizatutako menua sor dezakezu zure Moodle gunearen goiko aldean erakusteko. Menu hau gaika antola daiteke eta horrela, lerro bakoitzak menuaren testu bat, URL esteka bat (aukerakoa) eta izenburuaren deskribapena (aukerakoa) hartzen ditu, lerro horizontal batek | banatuta (AltGr + 1) . Gidoiak erabilita, azpimenuen egitura sor daiteke. Adibidez:
+
+<pre>
+Moodle komunitatea|https://moodle.org
+-Moodle komunitateko foroak|https://moodle.org/support
+-Moodle garapena|https://moodle.org/development
+--Moodle Docs|http://docs.moodle.org|Moodle-ren dokumentazio ofiziala
+--Dokumentazioa eukaraz|http://docs.moodle.org/eu|Dokumentazioa euskaraz|de
+Moodle.com|http://moodle.com/
+</pre>';
 $string['configdbsessions'] = 'Aukera hau hartuz gero, saioen informazioa metatzeko datu-basea erabiliko da. Hau bereziki erabilgarri suertatzen da gune handi edo zerbitzarien multzoetan (\'clusters\') bildutakoen kasuan. Kasu gehienetan zuriz utzi beharko litzateke horren ordez zerbitzariaren diskoa erabil dadin. Ohar zaitez honen aldaketa erabiltzaile guztiak deskonektatuko dituela, zeu ere barne.';
 $string['configdebug'] = 'Aukera hau aktibatuz gero, PHP error_reporting indarrean jarriko da, eta gastigu gehiago jasoko duzu. Garatzaileentzat baino ez da erabilgarria.';
 $string['configdebugdisplay'] = 'Aukera hau gaituz gero, erroreen txostena HTML orrira joango da. Praktikoa da baina, oro har, XHTML, JS, kukiak eta HTTP goiburuak apurtzen ditu. Aukera hau desgaituz gero, zerbitzariaren erregistroetara bidaliko da eta arazketa hobeto egingo da. PHpren error_log ezarpenak zein erregistrotara doan kontrolatzen du.';
@@ -184,6 +194,7 @@ $string['configenableajax'] = 'Aukera honekin AJAX-en (Javascript-bezero/zerbitz
 $string['configenablecalendarexport'] = 'Gaitu egutegiak esportatzea eta harpidetzea.';
 $string['configenablecomments'] = 'Iruzkinak gaitu';
 $string['configenablecourserequests'] = 'Edozein erabiltzailek ikastaro bat sortzeko eska dezala ahalbidetzen du.';
+$string['configenabledevicedetection'] = 'Ezarpen hau gaitzeak telefono mugikorrak, smartphone-ak, tabletak edo berezko gailuak (mahai-gaineko ordenagailuak, ordenagailu eramangarriak, e.a.)  atzematea baimentzen du, itxura edo beste ezaugarri batzuk aplikatu ahal izateko.';
 $string['configenablegroupmembersonly'] = 'Gaituta, jardueratarako sarbidea taldekideentzat bakarrik dago mugatuta. Lan handiagoa eska diezaioke zerbitzariari. Gainera, kalifikazio-liburuko kategorietan nolabaiteko ezarpena beharko da jarduerak taldekide ez direnentzat ezkutuan geratuko direla ziurtatzeko.';
 $string['configenablerssfeeds'] = 'Aukera honek RSS jarioetarako kanaletarako sarbidea ahalbidetzen du. Edozein aldaketa ikusteko moduluetan ere RSS jarioak aktibatu behar dira (Admin - Konfiguraziora joan).';
 $string['configenablerssfeedsdisabled'] = 'Ez dago eskuragarri RSS kanalak gune osoan desaktibatuta daudelako. Aktibatzeko, Aldagaietara joan Admin - Konfigurazioan.';
@@ -678,7 +689,7 @@ $string['plugins'] = 'Pluginak';
 $string['pluginsoverview'] = 'Pluginen ikuspegi orokorra';
 $string['pluginsoverviewsee'] = 'Ikusi <a href="{$a->url}">pluginen ikuspegi orokorra</a> orria xehetasun gehiagotarako.';
 $string['profilecategory'] = 'Kategoria';
-$string['profilecategoryname'] = 'Kategoriaren izena (bakarra)';
+$string['profilecategoryname'] = 'Kategoriaren izena (bakarra izan behar du)';
 $string['profilecategorynamenotunique'] = 'Kategoria-izen hau dagoeneko erabiltzen ari da';
 $string['profilecommonsettings'] = 'Ezarpen komunak';
 $string['profileconfirmcategorydeletion'] = '{$a} eremu daude kategoria honetan eta goragoko kategorira eramango dira (edo beheragokora goragokoan badaude). </br> Oraindik ere kategoria hau ezabatu egin nahi al duzu?';
@@ -717,7 +728,7 @@ $string['profilenofieldsdefined'] = 'Ez dago definitutako eremurik';
 $string['profilerequired'] = 'Beharrezkoa al da eremu hau?';
 $string['profileroles'] = 'Ikus daitezkeen profilen rolak';
 $string['profilesforenrolledusersonly'] = 'Profil hauek matrikulatutako erabiltzaileentzako bakarrik dira';
-$string['profileshortname'] = 'Izen laburra (bakarra)';
+$string['profileshortname'] = 'Izen laburra (bakarra izan behar du)';
 $string['profileshortnamenotunique'] = 'Izen labur hau dagoeneko erabiltzen ari da';
 $string['profilesignup'] = 'Orria erakutsi behar da saioa hastean?';
 $string['profilespecificsettings'] = 'Ezarpen espezifikoak';
@@ -730,6 +741,7 @@ $string['profilevisiblenone'] = 'Ez ikusteko modukoa';
 $string['profilevisibleprivate'] = 'Erabiltzaileak ikusteko modukoa';
 $string['profilingenabled'] = 'Gaitu profilak';
 $string['profilingexcluded'] = 'Baztertu profilak';
+$string['profilingimportprefix'] = 'Profilak inportatzeko aurrizkia';
 $string['profilingincluded'] = 'Profil hauek';
 $string['protectusernames'] = 'Erabiltzaile-izenak babestu';
 $string['proxyhost'] = 'Proxy ostalaria';

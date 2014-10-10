@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'Logs format';
 $string['log:view'] = 'View course logs';
 $string['log:viewtoday'] = 'View today\'s logs';
+$string['mnetlogwarning'] = 'If your MNet clients are running Moodle 2.7 or higher, then you may not receive any logs.';
 $string['page'] = 'Page {$a}';
 $string['page-report-log-index'] = 'Course log report';
 $string['page-report-log-user'] = 'User course log report';

@@ -26,7 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['arrow'] = 'Flèche';
+$string['bulb'] = 'Ampoule';
 $string['center'] = 'Centre';
+$string['cloud'] = 'Nuage';
 $string['colourrule'] = 'Veuillez entrer une couleur RVB valide au format # suivi de 6 caractères hexadécimaux.';
 $string['columnhorizontal'] = 'Horizontal';
 $string['columnvertical'] = 'Vertical';
@@ -35,6 +37,8 @@ $string['ctreset_help'] = 'Rétablir les paramètres par défaut des sections r�
 $string['currentsection'] = 'Cette section';
 $string['defaultcoursedisplay'] = 'Mise en page du cours';
 $string['defaultcoursedisplay_desc'] = 'Ce réglage détermine si la totalité du cours est affiché sur une seule page ou sur plusieurs pages avec la section 0 toujours visible.';
+$string['defaultdisplayinstructions'] = 'Afficher les instructions aux utilisateurs';
+$string['defaultdisplayinstructions_desc'] = 'Afficher des instructions aux utilisateurs leur expliquant l\'utilisation des sections réduites.';
 $string['defaultlayoutcolumnorientation'] = 'Orientation par défaut de la colonne';
 $string['defaultlayoutcolumnorientation_desc'] = 'Orientation de la colonne par défaut : verticale ou horizontale.';
 $string['defaultlayoutcolumns'] = 'Nombre par défaut de colonnes';
@@ -99,20 +103,42 @@ $string['defaulttoggleiconposition_desc'] = 'Précise si les icônes doivent êt
 $string['defaulttoggleiconset'] = 'Réglage par défaut des icônes';
 $string['defaulttoggleiconset_desc'] = '« Flèche » => Icône de flèche
 
+« Ampoule » => Icône d\'ampoule
+
+« Nuage » => Icône de nuage
+
+« Œil » => Icône d’œil
+
+« Diode électroluminescente » => Icône de LED
+
 « Point » => Icône de point
 
-« Power » => Icône de bouton d’alimentation';
+« Énergie » => Icône de bouton d’alimentation
+
+« Radio » => Icône radio
+
+« Sourire » => Icône de sourire
+
+« Carré » => Icône de carré
+
+« Soleil / Lune » => Icône de soleil / lune
+
+« Interrupteur » => Icône d\'interrupteur';
 $string['defaulttogglepersistence'] = 'Persistance de la bascule';
 $string['defaulttogglepersistence_desc'] = '« On » ou « Off ». Vous devriez peut être mettre sur \'Off\' pour améliorer la performance AJAX, mais la position des sections basculées par l\'utilisateur ne sera pas rappelée à l\'actualisatin de la page.
 
 Remarque : mettre la persistance sur \'Off\' supprime toutes les lignes contenant \'topcoll_toggle_x\' dans le champ \'name\' de la table \'user_preferences de la base de données (quand \'x\' dans \'topcoll_toggle_x\' correspond à l\'id du cours).';
 $string['defaultuserpreference'] = 'Que faire avec les sections basculées lorsque l\'utilisateur accède pour la première fois au cours, ou lors d\'ajout de sections.';
 $string['defaultuserpreference_desc'] = 'Ce réglage établit le comportement de base des sections réduites lorsque l\'utilisateur accède pour la première fois au cours, ou lorsque sont ajoutées des sections au cours.';
+$string['displayinstructions'] = 'Afficher les instructions';
+$string['displayinstructions_help'] = 'Définit si les instructions seront affichées aux utilisateurs';
+$string['eye'] = 'Œil';
 $string['formatsettings'] = 'Réinitialisation des réglages du format';
 $string['formatsettingsinformation'] = '<br />Pour modifier les paramètres du format du cours, cliquez sur l\'icône à droite.';
 $string['formattopcoll'] = 'Sections réduites';
 $string['four'] = 'Quatre';
 $string['hidefromothers'] = 'Cacher la section';
+$string['instructions'] = 'Instructions : un clic sur le titre de la section affiche ou masque cette section';
 $string['left'] = 'Gauche';
 $string['maincoursepage'] = 'Page principale du cours';
 $string['markedthissection'] = 'Cette section est mise en surbrillance comme section courante';
@@ -127,22 +153,29 @@ $string['page-course-view-topcoll-x'] = 'Toutes les pages du cours au format sec
 $string['pluginname'] = 'Sections réduites';
 $string['point'] = 'Point';
 $string['power'] = 'Power';
-$string['resetallcolour'] = 'Réinitialiser la couleur pour tous les cours utilisant le format sections réduites';
-$string['resetallcolour_help'] = 'Réinitialise les couleurs par les valeurs par défaut pour tous les cours, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites.';
-$string['resetalllayout'] = 'Réinitialiser la disposition pour tous les cours utilisant le format sections réduites';
-$string['resetalllayout_help'] = 'Réinitialise les réglages par les valeurs par défaut pour tous les cours, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites.';
-$string['resetalltogglealignment'] = 'Réinitialiser l\'alignement du texte de la section réduite pour tous les cours utilisant le format sections réduites';
-$string['resetalltogglealignment_help'] = 'Réinitialise l\'alignement du texte par les valeurs par défaut pour tous les cours, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites';
-$string['resetalltoggleiconset'] = 'Réinitialiser l\'icône de la section réduite pour tous les cours utilisant le format sections réduites';
-$string['resetalltoggleiconset_help'] = 'Réinitialise le jeu d\'icônes par les valeurs par défaut pour tous les cours, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites';
-$string['resetcolour'] = 'Réinitialiser la couleur';
-$string['resetcolour_help'] = 'Réinitialise les couleurs par les valeurs par défaut, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites.';
-$string['resetlayout'] = 'Réinitialiser la disposition';
-$string['resetlayout_help'] = 'Réinitialise les réglages par les valeurs par défaut, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites.';
-$string['resettogglealignment'] = 'Réinitialiser l\'alignement du texte';
-$string['resettogglealignment_help'] = 'Réinitialise l\'alignement du texte par les valeurs par défaut pour tous les cours, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites';
-$string['resettoggleiconset'] = 'Réinitialiser l\'icône';
-$string['resettoggleiconset_help'] = 'Réinitialise le jeu d\'icônes par les valeurs par défaut pour tous les cours, ce sera donc le format par défaut pour tous les cours utilisant le format sections réduites';
+$string['radio'] = 'Radio';
+$string['resetallcolour'] = 'Les couleurs';
+$string['resetallcolour_help'] = 'Réinitialise les couleurs par défaut pour tous les cours. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetalldisplayinstructions'] = 'L\'affichage des instructions';
+$string['resetalldisplayinstructions_help'] = 'Réinitialise l\'affichage des instructions par défaut pour tous les cours. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetallgrp'] = 'Tout réinitialiser :';
+$string['resetalllayout'] = 'La mise en page';
+$string['resetalllayout_help'] = 'Réinitialise la mise en page par défaut pour tous les cours. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetalltogglealignment'] = 'L\'alignement du texte';
+$string['resetalltogglealignment_help'] = 'Réinitialise l\'alignement du texte par défaut pour tous les cours. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetalltoggleiconset'] = 'Le jeu d\'icônes';
+$string['resetalltoggleiconset_help'] = 'Réinitialise le jeu d\'icônes par défaut pour tous les cours. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetcolour'] = 'Couleur';
+$string['resetcolour_help'] = 'Réinitialise les couleurs par défaut. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetdisplayinstructions'] = 'L\'affichage des instructions';
+$string['resetdisplayinstructions_help'] = 'Réinitialise l\'affichage des instructions par défaut. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resetgrp'] = 'Réinitialiser :';
+$string['resetlayout'] = 'La mise en page';
+$string['resetlayout_help'] = 'Réinitialise la mise en page par défaut. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resettogglealignment'] = 'L\'alignement du texte';
+$string['resettogglealignment_help'] = 'Réinitialise l\'alignement du texte par défaut. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
+$string['resettoggleiconset'] = 'Le jeu d\'icônes';
+$string['resettoggleiconset_help'] = 'Réinitialise le jeu d\'icônes par défaut. Ce sera la même valeur que lors de la première utilisation du format sections réduites dans un cours.';
 $string['right'] = 'Droite';
 $string['section0name'] = 'Général';
 $string['sectionname'] = 'Section';
@@ -205,14 +238,18 @@ $string['settoggleiconposition_help'] = 'Ce régl';
 $string['settoggleiconset'] = 'Réglages des icônes';
 $string['settoggleiconset_help'] = 'Définit le type d\'icônes dans le bandeau de la section réduite';
 $string['showfromothers'] = 'Afficher la section';
+$string['smiley'] = 'Smiley';
+$string['square'] = 'Carré';
+$string['sunmoon'] = 'Soleil / Lune';
+$string['switch'] = 'Interrupteur';
 $string['three'] = 'Trois';
 $string['topcollall'] = 'toutes les sections.';
 $string['topcoll:changecolour'] = 'Modifier ou réinitialiser les couleurs';
 $string['topcoll:changelayout'] = 'Modifier ou réinitialiser la configuration';
 $string['topcoll:changetogglealignment'] = 'Modifier ou réinitialiser l\'alignement du texte';
 $string['topcoll:changetoggleiconset'] = 'Modifier ou réinitialiser les icônes';
-$string['topcollclosed'] = 'Fermer';
-$string['topcollopened'] = 'Ouvrir';
+$string['topcollclosed'] = 'Tout fermer';
+$string['topcollopened'] = 'Tout ouvrir';
 $string['topcollsidewidth'] = '28px';
 $string['topcolltoggle'] = 'Basculer';
 $string['two'] = 'Deux';

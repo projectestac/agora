@@ -36,9 +36,9 @@ $string['location'] = 'Bestandslokatie';
 $string['location_desc'] = 'Geef het volledige pad voor het aanmeldingsbestand. Dit bestand wordt automatisch verwijderd nadat het verwerkt is.';
 $string['mapping'] = 'Rolkoppeling voor tekstbestand';
 $string['messageprovider:flatfile_enrolment'] = 'Aanmeldingsberichten tekstbestand aanmeldingen';
-$string['notifyadmin'] = 'Verwittig beheerders';
-$string['notifyenrolled'] = 'Verwittig aangemelde gebruikers';
-$string['notifyenroller'] = 'Verwittig de verantwoordelijke voor aanmeldingen';
+$string['notifyadmin'] = 'Waarschuw beheerders';
+$string['notifyenrolled'] = 'Stuur melding naar aangemelde gebruikers';
+$string['notifyenroller'] = 'Stuur melding naar de verantwoordelijke voor aanmeldingen';
 $string['pluginname'] = 'Tekstbestand (CSV)';
 $string['pluginname_desc'] = 'Deze methode zal regelmatig een tekstbestand controleren en verwerken dat op de plaats staat die je opgeeft.
 Het bestand is een kommagescheiden bestand dat vier tot zes velden per lijn heeft:

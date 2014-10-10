@@ -407,6 +407,12 @@ $string['feedtype_help'] = 'If enabled, users can subscribe to the forum using a
 reader. You can set the feed to include only top-level discussions and not replies, or to include
 all posts.';
 $string['feedtype_none'] = 'Feed disabled';
+$string['flaggeddiscussions'] = 'Flagged discussions';
+$string['flaggeddiscussions_help'] = 'Flagged discussions appear in this list. To jump to a flagged discussion,
+click on it.
+
+To remove the flag from a discussion, click on the flag icon (here or the \'Remove flag\' button in the discussion).';
+$string['flaggeddiscussionslink'] = '{$a} flagged discussions';
 $string['flaggedposts'] = 'Flagged posts';
 $string['flaggedposts_help'] = 'Flagged posts appear in this list. To jump to a flagged post,
 click on it.
@@ -638,6 +644,10 @@ $string['savedposts_selected'] = '{$a} (selected posts)';
 $string['savedposts_selected_tag'] = 'Forum posts';
 $string['savedraft'] = 'Save as draft';
 $string['savedtoportfolio'] = 'The selected information has been saved to MyStuff.';
+$string['savefailnetwork'] = '<p>Unfortunately, your changes cannot be saved at this time. This is due to a
+network error; the website is temporarily unavailable or you have been signed out. </p><p>Saving has been disabled
+on this page. In order to retain any changes you must copy the post content, access this page again and then paste in your changes.</p>';
+$string['savefailtitle'] = 'Post save failed';
 $string['savetoportfolio'] = 'Save to MyStuff';
 $string['searchallforums'] = 'Search all forums';
 $string['searchresults'] = 'Search results: <strong>{$a}</strong>';

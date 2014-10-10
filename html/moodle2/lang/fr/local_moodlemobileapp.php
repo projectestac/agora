@@ -36,6 +36,20 @@ $string['address'] = 'Adresse';
 $string['addsite'] = 'Ajouter un site';
 $string['allcachesinvalidated'] = 'Tous les caches supprimés';
 $string['allcachespurged'] = 'Tous les caches vidés';
+$string['appstoredescription'] = 'NOTE : cette app mobile officielle Moodle ne fonctionne qu\'avec les sites Moodle autorisant son utilisation. Veuillez contacter l\'administrateur de votre site Moodle si vous avez des difficultés pour vous connecter.
+
+Si votre site Moodle a été configuré correctement, cette app vous permettra :
+
+- de parcourir vos cours, même sans connexion à Internet ;
+- de recevoir des notifications instantanées des messages et autres événements ;
+- de trouver et de contacter rapidement d\'autres personnes dans vos cours ;
+- de déposer des images, sons, vidéos et d\'autres fichiers à partir de votre appareil mobile ;
+- de consulter vos notes ;
+- et bien plus encore !
+
+Consultez http://docs.moodle.org/en/Mobile_app pour des infos actuelles.
+
+Nous apprécions vos évaluations et toutes les suggestions ou commentaires qui vous nous faites sur cette app !';
 $string['areyousurereset'] = 'Voulez-vous vraiment réinitialiser l\'application ? Tous vos sites seront supprimés.';
 $string['audionotavailable'] = 'Matériel d\'enregistrement audio non disponible';
 $string['audiorecordinstructions'] = 'Appuyez Enregistrer pour commencer l\'enregistrement, Stop pour arrêter et envoyer le fichier.';
@@ -61,6 +75,7 @@ $string['contents'] = 'Contenus';
 $string['contentyetnotavailable'] = 'Ce type d\'activité n\'est pas encore disponible avec l\'app mobile';
 $string['continue'] = 'Continuer';
 $string['country'] = 'Pays';
+$string['course'] = 'Cours';
 $string['coursename'] = 'Nom du cours';
 $string['csssynced'] = 'CSS distante synchronisée';
 $string['date'] = 'Date';
@@ -98,6 +113,7 @@ $string['errorcapturingvideo'] = 'Erreur lors de la capture vidéo';
 $string['errordownloading'] = 'Erreur lors du téléchargement du fichier';
 $string['errorduringdevicetokenrequest'] = 'Erreur lors de la requête du jeton d\'appareil';
 $string['errorduringdevicetokenrequesttoapns'] = 'Erreur lors de la requête du jeton à APNS';
+$string['errorlistingfiles'] = 'Erreur lors de la récupération des fichiers de ce dossier';
 $string['errornoconnectednocache'] = 'Cet appareil n\'est pas connecté et aucune information n\'est disponible en cache pour l\'option demandée';
 $string['errorregisteringdeviceinmoodle'] = 'Erreur d\'enregistrement de l\'appareil dans Moodle';
 $string['errorretrievinggradeinformation'] = 'Erreur lors de la lecture des information de note';
@@ -138,12 +154,14 @@ $string['location'] = 'Emplacement';
 $string['logininsiterequired'] = 'Vous devez vous connecter au moyen d\'un navigateur.';
 $string['logout'] = 'Déconnexion';
 $string['lostconnection'] = 'Connexion perdue. Vous devez vous reconnecter. Votre jeton n\'est plus valide';
+$string['manageaccounts'] = 'Gérer les comptes';
 $string['message'] = 'Message';
 $string['messagesent'] = 'Message envoyé';
 $string['mobileservicesnotenabled'] = 'Les Services Moodle ne sont pas activés sur votre site. Veuillez contacter l\'administrateur de votre site si vous pensez qu\'ils devraient être activés.';
 $string['modulename'] = 'Nom du module';
 $string['moodlehelp'] = 'Aide';
 $string['mycourses'] = 'Mes cours';
+$string['myfiles'] = 'Mes fichiers';
 $string['name'] = 'Nom';
 $string['networkerror'] = 'Réseau inatteignable';
 $string['networkerrormsg'] = 'Réseau désactivé ou en panne.';
@@ -169,6 +187,7 @@ $string['phone1'] = 'Tél.';
 $string['phone2'] = 'Mobile';
 $string['pluginname'] = 'Chaînes de caractères de Moodle Mobile';
 $string['preview'] = 'Prévisualiser';
+$string['privatefiles'] = 'Fichiers privés';
 $string['purgecaches'] = 'Vider les caches';
 $string['range'] = 'Intervalle';
 $string['rdebuggingenabledfor'] = 'Le débogage à distance sera activé pendant cette durée (en secondes) :';
@@ -195,6 +214,7 @@ $string['settings'] = 'Réglages';
 $string['showall'] = 'Tout afficher';
 $string['showlog'] = 'Afficher l\'historique';
 $string['siteexists'] = 'Ce site existe déjà.';
+$string['sitefiles'] = 'Fichiers du site';
 $string['siteinmaintenance'] = 'Votre site est en mode de maintenance';
 $string['sitename'] = 'Nom du site';
 $string['sites'] = 'Sites';
@@ -206,6 +226,7 @@ $string['stop'] = 'Stop';
 $string['strings'] = 'Chaînes';
 $string['synchronization'] = 'Synchronisation';
 $string['syncthistasknow'] = 'Synchroniser cette tâche';
+$string['system'] = 'Système';
 $string['takephoto'] = 'Prendre une photo';
 $string['takepicture'] = 'Appareil photo';
 $string['taskqueue'] = 'File d\'attente';
@@ -240,6 +261,7 @@ $string['website'] = 'Site web';
 $string['welcome'] = 'Bienvenue dans l\'app mobile Moodle';
 $string['writeherethebug'] = 'Indiquez ici une description détaillée du problème';
 $string['yes'] = 'Oui';
+$string['youarein'] = 'Vous êtes dans :';
 $string['yourpassword'] = 'mot de passe';
 $string['yoursiteurl'] = 'https://votre_moodle.fr';
 $string['yourusername'] = 'nom d\'utilisateur';
