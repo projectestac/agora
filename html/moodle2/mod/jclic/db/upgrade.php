@@ -157,7 +157,6 @@ function xmldb_jclic_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014040400, 'jclic');
     }
 
-
     // Final return of upgrade result (true, all went good) to Moodle.
     return true;
 }

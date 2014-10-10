@@ -1,0 +1,6 @@
+Branch:
+- master = Versión estable validada en Moodle 2.4 y 2.6
+- MOODLE_19_STABLE = Versión estable para moodle 1.9
+- moodle2-dev, dev, ec son branch internas de desarrollo. No necesariamente actualizadas.
+
+El antiguo branch moodle2 se ha eliminado, utilizar master.

@@ -79,7 +79,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         $dbman->add_field($table2, $field4);
         upgrade_mod_savepoint(true, 2008051500, 'qv');
     }
-    
+
     if ($oldversion < 2008052600) {
         /// Define field time in qv_sections
         $table3 = new xmldb_table('qv_sections');
@@ -89,7 +89,7 @@ function xmldb_qv_upgrade($oldversion=0) {
         $dbman->add_field($table3, $field5);
         upgrade_mod_savepoint(true, 2008052600, 'qv');
     }
-	
+
     if ($oldversion < 2008060300) {
         /// Define field time in qv_sections
         $field6 = new xmldb_field('pending_scores');
@@ -113,7 +113,7 @@ function xmldb_qv_upgrade($oldversion=0) {
     if ($oldversion < 2013022800) {
 
 		require_once("$CFG->dirroot/mod/qv/db/upgradelib.php");
-		
+
         /// Define field introformat to be added to qv
         $table = new xmldb_table('qv');
 
@@ -170,11 +170,11 @@ function xmldb_qv_upgrade($oldversion=0) {
             }
             $rs->close();
         }
-        
+
         // qv savepoint reached
         upgrade_mod_savepoint(true, 2013022800, 'qv');
     }
-    
+
     if ($oldversion < 2013041000) {
 		// Migrate to new file storage system)
 		require_once("$CFG->dirroot/mod/qv/db/upgradelib.php");
@@ -187,9 +187,22 @@ function xmldb_qv_upgrade($oldversion=0) {
 				$dbman->drop_field($table, $field);
 			}
 		}
-		
+
 		upgrade_mod_savepoint(true, 2013041000, 'qv');
     }
-    
+
+    if ($oldversion < 2014072500) {
+
+        // Changing type of field grade on table qv to int.
+        $table = new xmldb_table('qv');
+        $field = new xmldb_field('grade', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'target');
+
+        // Launch change of type for field grade.
+        $dbman->change_field_type($table, $field);
+
+        // Qv savepoint reached.
+        upgrade_mod_savepoint(true, 2014072500, 'qv');
+    }
+
     return true;
 }
