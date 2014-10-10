@@ -49,7 +49,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Duracion" type="s:long" />
           <s:element minOccurs="0" maxOccurs="1" name="MaxDuracion" type="s:long" />
           <s:element minOccurs="0" maxOccurs="1" default="0" name="MinCalificacion" type="s:double" />
-          <s:element minOccurs="0" maxOccurs="1" name="Calificacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calificacion" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" default="100" name="MaxCalificacion" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" default="1" name="Intentos" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" default="1" name="MaxIntentos" type="s:int" />
@@ -87,7 +87,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Duracion" type="s:long" />
           <s:element minOccurs="0" maxOccurs="1" name="MaxDuracion" type="s:long" />
           <s:element minOccurs="0" maxOccurs="1" name="MinCalificacion" type="s:double" />
-          <s:element minOccurs="0" maxOccurs="1" name="Calificacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calificacion" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" name="MaxCalificacion" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" name="Intentos" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="MaxIntentos" type="s:int" />

@@ -792,13 +792,13 @@ function rcontent_activity_list($bookid='',$unitid='',$from='ajax'){
 }
 
 /**
- * Insert a note into the error log of the bd rcommond_errors_log
+ * Insert a note into the error log of the bd rcommon_errors_log
  * @param $action string ->
  * @param $bookis int ->
  * @param $cmid int ->
  * @return int -> ID of the new entry in the log or false if failds
  */
-function rcontent_insert_error_log($action, $bookid, $cmid=0){
+function rcontent_insert_error_log($action, $bookid, $cmid=0) {
 
 	global $USER, $COURSE, $DB;
 

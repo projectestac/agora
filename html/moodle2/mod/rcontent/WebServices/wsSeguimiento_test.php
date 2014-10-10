@@ -142,7 +142,7 @@ if($params->idUsuario && $params->idContenidoLMS && $params->idCentro){
 		    $options['trace'] = 1;
 			$client = @new soapclient($wsdl.'?wsdl', $options);
 			$auth = array('User' => $User, 'Password' => $Password);
-		    $namespace = rcommond_get_wsdl_namespace($wsdl.'?wsdl');
+		    $namespace = rcommon_get_wsdl_namespace($wsdl.'?wsdl');
 		    $header = new SoapHeader($namespace, "WSEAuthenticateHeader", $auth);
 		    $client->__setSoapHeaders(array($header));
 

@@ -1,7 +1,7 @@
 <?php
 
 
-function get_marsupial_ws_client($publisher, $auth_content = false){
+function get_marsupial_ws_client($publisher, $auth_content = false) {
     // This call must be included to ensure the WSDL loading
     libxml_disable_entity_loader(false);
 
@@ -12,7 +12,7 @@ function get_marsupial_ws_client($publisher, $auth_content = false){
 
     $auth = array('User' => $publisher->username, 'Password' => $publisher->password);
 
-    $namespace = rcommond_get_wsdl_namespace($wsdl.'?wsdl');
+    $namespace = rcommon_get_wsdl_namespace($wsdl.'?wsdl');
 
     $header = new SoapHeader($namespace, "WSEAuthenticateHeader", $auth);
     $client->__setSoapHeaders(array($header));
@@ -20,35 +20,35 @@ function get_marsupial_ws_client($publisher, $auth_content = false){
     return $client;
 }
 
-function get_marsupial_soap_options($debug = true, $timeout = 120){
+function get_marsupial_soap_options($debug = true, $timeout = 120) {
     global $CFG;
 
     $options = array('connection_timeout' => $timeout);
 
-    if($debug){
+    if ($debug) {
         $options['trace'] = 1;
     }
-    if (isset($CFG->proxytype) && $CFG->proxytype == 'HTTP' && isset($CFG->proxyhost) && !empty($CFG->proxyhost)){
+    if (isset($CFG->proxytype) && $CFG->proxytype == 'HTTP' && isset($CFG->proxyhost) && !empty($CFG->proxyhost)) {
         $options['proxy_host'] = $CFG->proxyhost;
-        if (!empty($CFG->proxyport)){
+        if (!empty($CFG->proxyport)) {
             $options['proxy_port'] = $CFG->proxyport;
         }
-        if (!empty($CFG->proxyuser)){
+        if (!empty($CFG->proxyuser)) {
             $options['proxy_login'] = $CFG->proxyuser;
         }
-        if (!empty($CFG->proxypassword)){
+        if (!empty($CFG->proxypassword)) {
             $options['proxy_password'] = $CFG->proxypassword;
         }
     }
     return $options;
 }
 
-function get_marsupial_center($error = true){
+function get_marsupial_center($error = true) {
     global $CFG;
     if (isset($CFG->center) && !empty($CFG->center)) {
         return $CFG->center;
     } else {
-        if($error){
+        if ($error) {
             print_error(get_string("centernotfound", "local_rcommon"));
         } else {
             return false;
@@ -60,7 +60,7 @@ function get_marsupial_center($error = true){
 /**
  * Get WSDL contents
  */
-function rcommon_get_wsdl($urlwdsl){
+function rcommon_get_wsdl($urlwdsl, $timeout = 20) {
 	global $CFG;
 
 	$curl = curl_init();
@@ -68,13 +68,16 @@ function rcommon_get_wsdl($urlwdsl){
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HEADER, false);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $timeout);
 
-	if (!empty($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)){
+
+	if (!empty($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)) {
 		curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);
-		if (!empty($CFG->proxyport)){
+		if (!empty($CFG->proxyport)) {
 			curl_setopt($curl, CURLOPT_PROXYPORT, $CFG->proxyport);
 		}
-		if (!empty($CFG->proxyuser)){
+		if (!empty($CFG->proxyuser)) {
 			curl_setopt($curl, CURLOPT_PROXYUSERPWD, $CFG->proxyuser . ':' . $CFG->proxypassword);
 		}
 	}
@@ -90,8 +93,8 @@ function rcommon_get_wsdl($urlwdsl){
  * @param string $urlwdsl
  * @return string -> wdsl namespaces
  */
-function rcommond_get_wsdl_namespace($urlwdsl) {
-    try{
+function rcommon_get_wsdl_namespace($urlwdsl) {
+    try {
         $wsdlcontents = rcommon_get_wsdl($urlwdsl);
         $xml = simplexml_load_string($wsdlcontents);
         return (string)$xml['targetNamespace'];
@@ -100,19 +103,19 @@ function rcommond_get_wsdl_namespace($urlwdsl) {
     }
 }
 
-function rcommon_object_to_array_lower($object){
+function rcommon_object_to_array_lower($object) {
     $array = (array) $object;
     $array_ret = array();
-    foreach($array as $key => $value){
+    foreach ($array as $key => $value) {
         $array_ret[strtolower($key)] = $value;
     }
     return $array_ret;
 }
 
-function test_ws_url($url){
-    try{
+function test_ws_url($url) {
+    try {
         $urlok = rcommon_get_wsdl($url);
-        if($urlok){
+        if ($urlok) {
             return $url;
         }
     } catch(Exception $e){
@@ -124,18 +127,18 @@ function test_ws_url($url){
 
 /** ERROR HANDLING **/
 function log_to_file($info, $notused = null) {
-    try{
-        $data_store_log = get_config('rcommon','data_store_log');
-        $tracer = get_config('rcommon','tracer');
+    try {
+        $data_store_log = get_config('rcommon', 'data_store_log');
+        $tracer = get_config('rcommon', 'tracer');
         if  ($tracer == 'checked' && !empty($data_store_log)) {
         	$data_store_log .= "/1";
 
         	//Escribimos en un fichero de texto los mensajes de errores
-        	if(!is_dir($data_store_log)) {
+        	if (!is_dir($data_store_log)) {
         		mkdir($data_store_log);
         	}
         	$data_store_log .= "/log_rcommon";
-        	if(!is_dir($data_store_log)) {
+        	if (!is_dir($data_store_log)) {
         		mkdir($data_store_log);
         	}
 
@@ -151,13 +154,13 @@ function log_to_file($info, $notused = null) {
 
 }
 
-function rcommon_ws_error($function, $message, $module = 'rcommon', $cmid = 0, $course = false){
+function rcommon_ws_error($function, $message, $module = 'rcommon', $cmid = 0, $course = false) {
     global $USER, $COURSE, $DB;
 
     $error_message = 'Error '.$function.': '. $message;
     log_to_file($error_message);
 
-    try{
+    try {
         $record = new stdClass();
         $record->time      =  time();
         $record->userid    =  isset($USER->id) ? $USER->id : 0;
