@@ -610,6 +610,10 @@ table#permissions tbody tr.selectedrow:hover>th {
 	font-size: 1.6em;
 }
 
+#dndupload-status {
+	position: absolute;
+}
+
 .path-grade-report-grader .right_scroller td select {
 	padding: 0;
 	margin: 0;
