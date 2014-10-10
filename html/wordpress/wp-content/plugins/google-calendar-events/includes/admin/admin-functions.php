@@ -39,7 +39,7 @@ function gce_default_editor_content( $content, $post ) {
         $content .= '[if-not-all-day]' . "\n";
         $content .= '[if-single-day]<div><span>Quan:</span> [start-time]-[end-time]</div>[/if-single-day]' . "\n";
         $content .= '[/if-not-all-day]' . "\n";
-        $content .= '[if-multi-day]<div>Del [start-date] fins el [end-date]</div>[/if-multi-day]' . "\n";
+        $content .= '[if-multi-day]<div>Del [start-date] fins al [end-date]</div>[/if-multi-day]' . "\n";
         $content .= '[if-location]<div><span>On:</span> [location]</div>[/if-location]' . "\n";
         $content .= '[if-description]<div>[description]</div>[/if-description]' . "\n";
         $content .= '<div>[link newwindow="true"]Més detalls...[/link]</div>' . "\n";
