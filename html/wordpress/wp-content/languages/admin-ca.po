@@ -211,7 +211,7 @@ msgstr "<span>%1$s, %2$s</span> %3$s"
 #: wp-admin/theme-install.php:123
 msgctxt "themes"
 msgid "Featured"
-msgstr "Destacats"
+msgstr "Destacat"
 
 #: wp-admin/theme-install.php:124
 msgctxt "themes"
@@ -9422,7 +9422,7 @@ msgstr "Protegida amb contrasenya"
 
 #: wp-admin/includes/meta-boxes.php:145
 msgid "Stick this post to the front page"
-msgstr "Fixa a la pàgina principal"
+msgstr "Fixa a dalt"
 
 #: wp-admin/includes/meta-boxes.php:165
 msgid "Scheduled for: <b>%1$s</b>"

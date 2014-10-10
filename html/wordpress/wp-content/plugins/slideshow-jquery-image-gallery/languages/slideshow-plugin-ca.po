@@ -451,13 +451,11 @@ msgstr "Miscel·lània"
 
 #: classes/SlideshowPluginWidget.php:23
 msgid "Enables you to show your slideshows in the widget area of your website."
-msgstr ""
-"Permet mostrar els carrusels a l'àrea de ginys de la "
-"pàgina."
+msgstr "Permet mostrar els carrusels a la zona de ginys de la pàgina."
 
 #: classes/SlideshowPluginWidget.php:29
 msgid "Slideshow Widget"
-msgstr "Giny de carrusel"
+msgstr "Carrusel"
 
 #: views/SlideshowPlugin/slideshow.php:23
 msgid "Play"

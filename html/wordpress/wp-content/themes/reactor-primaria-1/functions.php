@@ -493,9 +493,9 @@ function getRow_Posts($posts_per_fila,$num_posts_n){
 if ( function_exists('register_sidebar') ) {
 	register_sidebars( 1,
 	array(
-	'name'          => __( 'Barra Categories', 'custom_tac' ),
+	'name'          => __( 'Categories (Barra esquerra)', 'custom_tac' ),
 	'id'            => 'categoria',
-	'description'   => 'Barra lateral a les categories',
+	'description'   => 'Barra lateral a les pàgines de categories (ESO, ESO1, ESO1A...)',
         'class'         => '',
 	'before_widget' => '
 	<div id="%1$s" class="widget %2$s">',
