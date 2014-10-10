@@ -7,6 +7,7 @@ class script_assignments_upgrade extends agora_script_base{
 	public $title = 'Assignments upgrade';
 	public $info = "Upgrades all assignments to the new version";
 	public $cron = true;
+	public $cli = true;
 	protected $test = false;
 
 	protected function _execute($params = array(), $execute = true){

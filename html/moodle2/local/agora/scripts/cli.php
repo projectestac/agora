@@ -44,8 +44,12 @@ Example:
 mtrace("Start server Time: ".date('r', time())."\n");
 
 set_time_limit(0);
-
-$success = scripts_cli_execute_script($script);
+try{
+    $success = scripts_cli_execute_script($script);
+} catch (Exception $e){
+    $success = false;
+    mtrace($e->getMessage());
+}
 
 mtrace("End server Time: ".date('r', time())."\n");
 

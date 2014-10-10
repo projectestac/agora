@@ -7,6 +7,7 @@ class script_replace_database_text extends agora_script_base{
 	public $title = 'Replace database texts';
 	public $info = "Eina XTEC de cerca i substitució a la base de dades [Només Oracle]";
 	public $cron = false;
+	public $cli = true;
 	protected $test = false;
 
 	public function params(){
