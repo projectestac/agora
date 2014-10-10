@@ -36,7 +36,7 @@ $CFG->recaptchaprivatekey='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 $CFG->smtpmaxbulk = 20;
 //$CFG->noreplyaddress = "noreply@agora.xtec.cat";
 $CFG->digestmailtime = 1;
-if($CFG->iseoi){
+if ($CFG->iseoi) {
 	$CFG->mailheader = '[Àgora-EOI]';
 } else {
 	$CFG->mailheader = '[Àgora]';
@@ -44,11 +44,7 @@ if($CFG->iseoi){
 
 //Cleanup
 $CFG->disablegradehistory = 1;
-if($CFG->iseoi){
-	$CFG->loglifetime = 365;
-} else {
-	$CFG->loglifetime = 0;
-}
+$CFG->loglifetime = 365 * 2;
 
 //Rules
 $CFG->forceloginforprofiles = 1;
@@ -70,7 +66,7 @@ $CFG->sessiontimeout=3600;
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
 // This param (hour_restrictions) can be serialized. This is useful for setting it in database
 // Values for days: 0 = sunday, 1 = monday, ..., 6 = saturday
-if($CFG->iseoi){
+if ($CFG->iseoi) {
 	$CFG->hour_restrictions = array(array('start' => '16:00', 'end' => '23:59', 'days' => '1|2|3|4|5'),
                                 array('start' => '00:00', 'end' => '23:59', 'days' => '0|6'));
 } else {
@@ -87,14 +83,14 @@ $CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
 //$CFG->apligestlogdebug = 0;		/* Set in database */
 $CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
 $CFG->apligestenv = $agora['server']['enviroment'];
-if($CFG->iseoi){
+if ($CFG->iseoi) {
 	$CFG->apligestaplic = 'AGORAEOI';
 } else {
 	$CFG->apligestaplic = 'AGORA';
 }
 
 // Only allow some of the languages
-if(!$CFG->iseoi){
+if (!$CFG->iseoi) {
 	$CFG->langlist = 'ca,en,es,fr,de';
 }
 
@@ -123,7 +119,7 @@ $CFG->atriaFormUrl = 'https://www.atria.cat/_layouts/Renacimiento/LoginPageExt.a
 
 $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 
-if (isset($agora['server']['enviroment'])){
+if (isset($agora['server']['enviroment'])) {
     $CFG->eoicampus_wsdl_path = dirname(__FILE__) . '/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
 
@@ -132,10 +128,10 @@ if (isset($agora['server']['enviroment'])){
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
 $CFG->memcache_prefix = $CFG->dbuser.'_';
-if(isset($agora['moodle2']['memcache_servers'])){
+if (isset($agora['moodle2']['memcache_servers'])) {
 	$CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
 }
-if(isset($agora['server']['root']) && !empty($agora['server']['root'])){
+if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
     $CFG->agora_muc_path = $agora['server']['root'].'/cache_ins/'.$CFG->dbuser;
 	$CFG->cachedir = $CFG->agora_muc_path.'/cache';
 	$CFG->localcachedir = $CFG->agora_muc_path.'/localcache';
@@ -148,6 +144,6 @@ $CFG->cronclionly = 1; // changed to avoid schools change it
 
 //Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
-if(isset($agora['moodle2']['userprefix']) && !empty($agora['moodle2']['userprefix'])){
+if (isset($agora['moodle2']['userprefix']) && !empty($agora['moodle2']['userprefix'])) {
 	$CFG->usu1repofiles  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . '1/repository/files';
 }
