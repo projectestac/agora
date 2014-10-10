@@ -432,7 +432,7 @@ class questionnaire_question {
             $ridstr = ' AND response_id = '.$rids.' ';
         }
 
-        //XTEC ************ MODIFICAT - Questionnaire YES/NO questions results not properly shown
+        //XTEC ************ MODIFICAT - CONTRIB-4891 Questionnaire YES/NO questions results not properly shown
         //2014.02.24 @pferre22
         $sql = 'SELECT choice_id, COUNT(response_id) AS num '.
                 'FROM {questionnaire_'.$this->response_table.'} '.
