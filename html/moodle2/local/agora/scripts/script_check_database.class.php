@@ -5,8 +5,8 @@ require_once('agora_script_base.class.php');
 class script_check_database extends agora_script_base{
 
 	public $title = 'Check database';
-	public $info = "Check many paràmeters of the database and tries to solve the errors found";
-	public $cron = true;
+	public $info = "Check many parameters of the database and tries to solve the errors found";
+    public $cli = true;
 	protected $test = true;
 
 	protected function _execute($params = array(), $execute = true){
@@ -115,14 +115,14 @@ class script_check_database extends agora_script_base{
         $SESSION->badtables = serialize($savetestagain);
 
         $sqls = array();
-        foreach ($problemsfound as $i => $problem){
+        foreach ($problemsfound as $i => $problem) {
         	if(!empty($problem)) {
         		$sqls[] = $problem;
         	}
         }
 
         if (!empty($sqls)) {
-	        if ($execute){
+	        if ($execute) {
 	        	foreach ($sqls as $sql) {
 	        		try {
 	        			print_object($sql);

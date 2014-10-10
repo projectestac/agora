@@ -9,7 +9,7 @@ class script_replace_database_text extends agora_script_base{
 	public $cron = false;
 	protected $test = false;
 
-	protected function params(){
+	public function params(){
 		global $CFG;
 		$params = array();
 		$params['origintext'] = optional_param('origintext',$CFG->wwwroot . '/', PARAM_TEXT);
@@ -19,12 +19,12 @@ class script_replace_database_text extends agora_script_base{
 
 	protected function _execute($params = array(), $execute = true){
 		global $CFG, $OUTPUT;
-		
+
 		$textOrig = $params['origintext'];
 		$textTarg = $params['targettext'];
-		
+
 		echo "Reemplaçant '<strong>$textOrig</strong>' per '<strong>$textTarg</strong>'<br />";
-		
+
         $result = $this->replaceMoodle($textOrig, $textTarg);
 
         if ($result) {

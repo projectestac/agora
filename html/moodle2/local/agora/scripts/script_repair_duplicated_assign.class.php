@@ -7,9 +7,10 @@ class script_repair_duplicated_assign extends agora_script_base{
 	public $title = 'Repair duplicated Assignments';
 	public $info = "Deletes duplicate assignments merging into one";
 	public $cron = false;
+	public $cli = true;
 	protected $test = true;
 
-	protected function params(){
+	public function params(){
 		$params = array();
 		$params['courseid'] = optional_param('courseid', false, PARAM_INT);
 		return $params;

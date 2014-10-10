@@ -7,9 +7,10 @@ class script_repair_not_erased_activities extends agora_script_base{
 	public $title = 'Repair not erased activities';
 	public $info = "Erased activities that became orphaned in the past can be deleted";
 	public $cron = false;
+	public $cli = true;
 	protected $test = true;
 
-	protected function params(){
+	public function params(){
 		$params = array();
 		$params['courseid'] = optional_param('courseid', false, PARAM_INT);
 		return $params;
@@ -38,7 +39,7 @@ class script_repair_not_erased_activities extends agora_script_base{
 				if(!in_array($cm->id, $sequence)){
 					mtrace("Orphaned {$cm->id} on course {$cm->course} on section {$cm->section}",'<br>');
 					if($execute){
-						delete_course_module($cm->id);
+						course_delete_module($cm->id);
 						mtrace('Done!','<br>');
 					} else mtrace('not executing','<br>');
 				}

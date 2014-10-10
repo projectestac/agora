@@ -5,9 +5,10 @@ class agora_script_base{
 	public $title = 'No title';
 	public $info = "";
 	public $cron = false;
+	public $cli = false;
 	protected $test = true;
 
-	protected function params() {
+	public function params() {
 		$params = array();
 		return $params;
 	}
@@ -28,6 +29,24 @@ class agora_script_base{
 			return $this->_execute($params);
 		}
 		return false;
+	}
+
+	function execute_cli() {
+		if (!$this->cli) {
+			mtrace('Script not enabled for cli execution');
+			return false;
+		}
+
+		$starttime = microtime();
+
+		mtrace($this->title);
+
+		list($params, $unrecognized) = cli_get_params($this->params());
+		$return  = $this->_execute($params);
+
+		$difftime = microtime_diff($starttime, microtime());
+		mtrace("\n"."Execution took ".$difftime." seconds");
+		return $return;
 	}
 
 	function execute($params) {

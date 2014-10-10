@@ -9,7 +9,7 @@ class script_repair_gradebook extends agora_script_base{
 	public $cron = false;
 	protected $test = false;
 
-	protected function params(){
+	public function params(){
 		$params = array();
 		$params['courseid'] = optional_param('courseid', false, PARAM_INT);
 		return $params;
