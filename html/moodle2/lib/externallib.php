@@ -210,6 +210,10 @@ class external_api {
                 }
                 unset($params[$key]);
             }
+            //XTEC ************ AFEGIT - Delete param ccentre to avoid problems executing WS
+            //2014.10.10 @pferre22
+            unset($params['ccentre']);
+            //************ FI
             if (!empty($params)) {
                 throw new invalid_parameter_exception('Unexpected keys (' . implode(', ', array_keys($params)) . ') detected in parameter array.');
             }
