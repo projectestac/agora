@@ -6,6 +6,19 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 MOODLE 2
+- Updated translations
+- Upgrade some module versions
+- Updated Marsupial module
+- Fix MDL-47597 Inform users to use https on callback url on Flickr repository
+- Fix MDL-47581 Force box.net repository work with https
+- Duplicated assignmetns script now inform the coursemoduleid
+- Styling grader
+- CONTRIB-4891 Questionnaire YES/NO questions results not properly shown
+- First version of database check script
+- Format simple. Solved bug deleting images by module deletion handler
+- Added autodetection cron for adware and some improvements
+- Changed Oauth server params to Server menu
+- Recovered log database fails function
 
 PORTAL
 - Updated Zikula to 1.3.9
