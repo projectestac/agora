@@ -11,6 +11,7 @@ MOODLE 2
 - Updated Marsupial module
 - Fix MDL-47597 Inform users to use https on callback url on Flickr repository
 - Fix MDL-47581 Force box.net repository work with https
+- Fix MDL-31679 gradereport_grader: Add a horizontal scroll bar to the top of the grader report
 - Duplicated assignmetns script now inform the coursemoduleid
 - Styling grader
 - CONTRIB-4891 Questionnaire YES/NO questions results not properly shown
