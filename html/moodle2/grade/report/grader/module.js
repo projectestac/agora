@@ -378,6 +378,15 @@ M.gradereport_grader.classes.ajax.prototype.make_editable = function(e) {
             break;
     }
     this.current.replace().attach_key_events();
+
+    //XTEC ************ AFEGIT - MDL-31679 gradereport_grader: Add a horizontal scroll bar to the top of the grader report
+    //2014.10.10 @pferre22
+    // Making a field editable changes the grade table width.
+    // Update the top scroll bar to reflect the new table width.
+    Y.use('moodle-gradereport_grader-scrollview', function() {
+        M.gradereport_grader.scrollview.resize();
+    });
+    //************ FI
 };
 /**
  * Callback function for the user pressing the enter key on an editable field

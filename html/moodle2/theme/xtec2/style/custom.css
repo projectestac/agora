@@ -617,6 +617,15 @@ table#permissions tbody tr.selectedrow:hover>th {
 	line-height: 22px;
 }
 
+/** MDL-31679 gradereport_grader: Add a horizontal scroll bar to the top of the grader report */
+#page-grade-report-grader-index .topscrollcontent {
+    height: 1px;
+}
+
+body.path-grade-report-grader #user-grades {
+    margin-top: 4px;
+}
+
 
 /* Phones and tablets */
 @media (max-width: 979px) {
@@ -689,6 +698,12 @@ table#permissions tbody tr.selectedrow:hover>th {
 	body.blocks_collapsed.path-grade-report-grader .paging,
 	body.blocks_collapsed.path-grade-report-grader h2{
 		display: none;
+	}
+
+	body.blocks_collapsed.path-grade-report-grader #page{
+		max-width: none;
+		padding: 0;
+		margin-top: 36px;
 	}
 
 	body.blocks_collapsed#page-mod-assign-view table,

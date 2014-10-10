@@ -40,6 +40,10 @@ $toggle        = optional_param('toggle', NULL, PARAM_INT);
 $toggle_type   = optional_param('toggle_type', 0, PARAM_ALPHANUM);
 
 $PAGE->set_url(new moodle_url('/grade/report/grader/index.php', array('id'=>$courseid)));
+//XTEC ************ AFEGIT - MDL-31679 gradereport_grader: Add a horizontal scroll bar to the top of the grader report
+//2014.10.10 @pferre22
+$PAGE->requires->yui_module('moodle-gradereport_grader-scrollview', 'M.gradereport_grader.scrollview.init');
+//************ FI
 
 /// basic access checks
 if (!$course = $DB->get_record('course', array('id' => $courseid))) {

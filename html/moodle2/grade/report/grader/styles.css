@@ -587,3 +587,12 @@ table#user-grades td.controls,
     margin-left: 0.5em;
 }
 
+/** XTEC ************ AFEGIT - MDL-31679 gradereport_grader: Add a horizontal scroll bar to the top of the grader report
+  2014.10.10 @pferre22*/
+.path-grade-report-grader .yui3-scrollview-scrollbar {
+    opacity: 1 !important;
+}
+
+.path-grade-report-grader .yui3-scrollview-scrollbar-horiz {
+    bottom: -2px;
+}
