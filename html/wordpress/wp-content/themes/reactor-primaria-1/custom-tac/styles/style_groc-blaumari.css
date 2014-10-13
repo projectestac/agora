@@ -10,19 +10,20 @@
 }
 h1, h2, h3, h4, h5, h6, a {    color: #005C9C  !important;
 }
-#icon-11{	background-color: #FFBD00 ;
+#icon-11{	
+    background-color:  #005C9C;
 }
 #icon-21{
-background-color: #005C9C ;
+    background-color: #FFBD00 ;
 }
 #icon-22{
     color: #FFBD00 ;
 }
 #icon-23{
-   background-color: #FFBD00 ;
+   background-color: #005C9C ;
 }
 #icon-13{
-   background-color: #005C9C ;
+   background-color: #FFBD00 ;
 }
 .entry-comments,
 .entry-categories>a,

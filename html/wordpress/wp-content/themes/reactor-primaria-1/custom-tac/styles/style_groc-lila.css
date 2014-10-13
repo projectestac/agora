@@ -22,12 +22,13 @@ h1, h2, h3, h4, h5, h6, a {
 #icon-21{
     background-color:#ffa00c;
 }
-#icon-23{
-    background-color: #b501c4;
-}
 #icon-22{
-    color: #b501c4;
+    color: #b501c4 ;
 }
+#icon-23{
+    background-color:#b501c4 ;
+}
+
 #icon-13{
     background-color: #ffa00c;
 }

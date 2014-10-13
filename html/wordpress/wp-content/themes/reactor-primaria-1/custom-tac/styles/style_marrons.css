@@ -8,21 +8,23 @@
 .site-description-box{
     background-color: #923917 ;
 }
-h1, h2, h3, h4, h5, h6, a {    color: #923917  !important;
+h1, h2, h3, h4, h5, h6, a {    
+    color: #923917  !important;
 }
-#icon-11{	background-color: #521A09 ;
+#icon-11{	
+    background-color:  #923917;
 }
 #icon-21{
-background-color: #923917 ;
+    background-color: #521A09 ;
 }
 #icon-22{
     color: #521A09 ;
 }
 #icon-23{
-   background-color: #521A09 ;
+   background-color: #923917;
 }
 #icon-13{
-   background-color: #923917 ;
+   background-color: #521A09;
 }
 .entry-comments,
 .entry-categories>a,

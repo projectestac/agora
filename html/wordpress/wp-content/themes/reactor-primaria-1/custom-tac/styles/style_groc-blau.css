@@ -12,19 +12,19 @@ h1, h2, h3, h4, h5, h6, a {
     color: #3C7C80  !important;
 }
 #icon-11{	
-    background-color: #FFA00C ;
+    background-color: #3C7C80 ;
 }
 #icon-21{
-    background-color: #3C7C80 ;
+    background-color: #FFA00C ;
 }
 #icon-22{
     color: #3C7C80 ;
 }
 #icon-23{
-   background-color:  #FFA00C;
+   background-color: #3C7C80 ;
 }
 #icon-13{
-   background-color: #3C7C80;
+   background-color: #FFA00C;
 }
 .entry-comments,
 .entry-categories>a,
