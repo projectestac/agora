@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+Changes 14.10.15
+---------------------------------------------------------------------------------------
 MOODLE 2
 - Updated translations
 - Upgrade some module versions
@@ -20,6 +23,7 @@ MOODLE 2
 - Added autodetection cron for adware and some improvements
 - Changed Oauth server params to Server menu
 - Recovered log database fails function
+- Repaired Moodle APP
 
 PORTAL
 - Updated Zikula to 1.3.9
