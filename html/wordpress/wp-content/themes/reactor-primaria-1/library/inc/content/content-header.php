@@ -87,11 +87,11 @@ function cerca_toggle(){
     	$icon_search=document.getElementById("icon-search");
 	$search_panel=document.getElementById("search-panel");
 	
-	if ($search_panel.style.display=="block") {
+	if ($search_panel.style.display=="inline-block") {
 		$search_panel.style.display="none";
 		$icon_search.setAttribute("class", "dashicons dashicons-search");
         } else {
-		$search_panel.style.display="block";
+		$search_panel.style.display="inline-block";
 		$icon_search.setAttribute("class", "dashicons dashicons-no-alt");	
 		document.getElementById("icon-13").setAttribute("backgroundColor", "yellow");
 	}
@@ -233,7 +233,7 @@ function reactor_do_title_logo() { ?>
                                                     </div>
 						</a>
 						
-                                                <div id="search-panel" class="search-box-wrapper">
+                                                <div id="search-panel" class="search-box-wrapper icon-graella">
                                                     <div class="search-box">
                                                         <form role="search" method="get" class="search-form" action=<?php get_home_url();?>>
                                                             <input type="search" class="search-field" placeholder="Cerca i pulsa enter…" value="" name="s" title="Cerca:">

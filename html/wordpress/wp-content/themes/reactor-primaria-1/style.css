@@ -159,7 +159,7 @@ article {
 .entry-body {
     margin:0px !important;
     border:0px;
-    padding:30px;
+    padding: 2.5em 2em;
     position: relative !important;
 }
 
@@ -190,16 +190,6 @@ article {
 
 .entry-body li {
     margin-bottom: 0.75em;
-}
-
-.entry-body {
-    padding: 2.5em 2em;
-
-}
-
-.entry-body >.entry-summary{
-    padding-top: 1em;
-
 }
 
 .entry-summary > p,h2{
@@ -273,7 +263,6 @@ li#wp-admin-bar-bp-login{
     vertical-align:middle;
     content: "\f347";
     margin-left: 4px;
-    /*padding-right:5px;*/
     border-right:1px solid grey;
     color:lightgrey;
     padding-right: 4px;
@@ -578,7 +567,8 @@ Header
 
 #search-panel{
     display:none;
-    background-color:#fdd300;   
+    background-color:#fdd300;
+    width:100%;
  }
 
 #search-panel .search-field{
@@ -645,6 +635,10 @@ ul.breadcrumbs{
 /*****************************************************************
 Barra lateral
 ******************************************************************/
+
+.targeta_id_centre{
+    padding-top:0.8em;
+}
 
 #sidebar-frontpage{
 
@@ -881,9 +875,7 @@ Footer
 .entry-tags >a, 
 .entry-comments:before,
 .entry-categories:before,f
-.entry-tags:before,
-.menu-link, 
-.sub-menu-link {
+.entry-tags:before{
     opacity: 0.7;
     filter: alpha(opacity=70); /* For IE8 and earlier */
 }
@@ -919,9 +911,6 @@ Media
 /*Small devices*/
 @media screen and (max-width: 782px) {
 
-    /*#wp-admin-bar-direccioCentre,
-    #wp-admin-bar-telCentre,
-    #wp-admin-bar-titularitat,*/
     #wp-admin-bar-recursosXTEC
     {
         display: none !important;
@@ -938,7 +927,7 @@ Media
     menu-item-depth-0 {
         clear:both;
     }
-
+    
 }
 
 /* Large devices*/

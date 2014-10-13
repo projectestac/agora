@@ -1,28 +1,30 @@
 #idcentre-box{ 
-    background-color: #00B36B ;
+    background-color: #00B36B;
 }
 .site-logo{
     display:table !important;
-    background-color: #00B36B ;
+    background-color: #00B36B;
 }
 .site-description-box{
-    background-color: #752800 ;
+    background-color: #752800;
 }
-h1, h2, h3, h4, h5, h6, a {    color: #752800  !important;
+h1, h2, h3, h4, h5, h6, a {    
+    color: #752800  !important;
 }
-#icon-11{	background-color: #00B36B ;
+#icon-11{	
+    background-color: #752800;
 }
 #icon-21{
-background-color: #752800 ;
+    background-color: #00B36B;
 }
 #icon-22{
     color: #752800 ;
 }
 #icon-23{
-   background-color: #00B36B ;
+   background-color: #752800;
 }
 #icon-13{
-   background-color: #752800 ;
+   background-color: #00B36B;
 }
 .entry-comments,
 .entry-categories>a,
