@@ -1,0 +1,100 @@
+body {
+  color: #black;				/*default*/
+  background: #AC2013;
+}
+a {
+  color: #AC2013; /*COLOR5*/
+}
+h1 {
+  color: #303030; /*COLOR4*/
+}
+h2 {
+  color: #ffffff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
+  background-color: #AC2013;
+}
+.nav .nav-item a {
+  color: #AC2013;				/*default*/
+}
+#manage-accounts .account-details {
+  color: #666666;				/*default*/
+}
+.header-main {
+  color: #FFFFFF;
+  background: #AC2013;
+}
+#page-title {
+  text-shadow: none;
+}
+#panel-right,
+#panel-center {
+  background: #ffffff;				/*default*/
+}
+
+.user-menu {
+  background: #FFFFFF;
+  color: #AC2013;
+}
+
+.user-menu .section-header,
+.user-menu .divider{
+	background: #AC2013; /*COLOR2*/
+	color: white;
+	box-shadow: none;
+}
+
+.user-menu .section-header a{
+	color: white;
+}
+
+.user-menu header {
+	background: #fafafa;
+	background-color: #fafafa;
+	background-image: -moz-linear-gradient(top,#fff,#f2f2f2);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f2f2f2));
+	background-image: -webkit-linear-gradient(top,#fff,#f2f2f2);
+	background-image: -o-linear-gradient(top,#fff,#f2f2f2);
+	background-image: linear-gradient(to bottom,#fff,#f2f2f2);
+	-webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+	box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+	border-bottom: 2px solid #AC2013; /*COLOR2*/
+}
+.user-menu header h1 {
+  color: black;				/*default*/
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
+}
+.user-menu h2 {
+  color: #4b565d;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
+  background: #ffffff;
+  box-shadow: none;
+}
+.user-menu .nav-item > a {
+  color: #AC2013;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
+}
+
+.refresh.app-ico,
+.user-menu .nav-item .plugin-ico,
+.user-menu .nav-item .course-ico {
+  background-color: #4b565d;
+}
+
+.refresh.app-ico{
+	border-radius: 50%;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+}
+
+.grades .section-name {
+  color: #ffffff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
+  background-color: #7a8a94;
+  border-bottom: 1px solid #ffffff;		/*default*/
+}
+
+#app-dialog .modalHeader{
+	background-color: #AC2013;
+}
