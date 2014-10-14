@@ -1,50 +1,51 @@
 body {
-  color: black;				/*default*/
-  background: #AC2013;
+  color: [[setting:color3]];
+  background: [[setting:color2]];
 }
 a {
-  color: #AC2013; /*COLOR5*/
+  color: [[setting:color5]];
 }
 h1 {
-  color: #303030; /*COLOR4*/
+  color: [[setting:color4]];
 }
 h2 {
-  color: #ffffff;
+  color: [[setting:color3]];
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
-  background-color: #AC2013;
+  background-color: [[setting:color2]];
 }
 .nav .nav-item a {
-  color: #AC2013;				/*default*/
+  color: [[setting:color5]];
 }
 #manage-accounts .account-details {
   color: #666666;				/*default*/
 }
 .header-main {
-  color: #FFFFFF;
-  background: #AC2013;
+  color: [[setting:color3]];
+  background:  [[setting:color2]];
 }
 #page-title {
   text-shadow: none;
 }
 #panel-right,
 #panel-center {
-  background: #ffffff;				/*default*/
+  background: white;
 }
 
 .user-menu {
-  background: #FFFFFF;
-  color: #AC2013;
+  background: white;
+  color: [[setting:color5]];
 }
 
 .user-menu .section-header,
 .user-menu .divider{
-	background: #AC2013; /*COLOR2*/
-	color: white;
+	background: [[setting:color2]];
+	color:  [[setting:color3]];
 	box-shadow: none;
 }
 
+.user-menu .section-header .plugin-name,
 .user-menu .section-header a{
-	color: white;
+	color: [[setting:color3]];
 }
 
 .user-menu header {
@@ -58,7 +59,7 @@ h2 {
 	-webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
 	box-shadow: 0 1px 10px rgba(0,0,0,0.1);
-	border-bottom: 2px solid #AC2013; /*COLOR2*/
+	border-bottom: 2px solid [[setting:color2]];
 }
 .user-menu header h1 {
   color: black;				/*default*/
@@ -71,7 +72,7 @@ h2 {
   box-shadow: none;
 }
 .user-menu .nav-item > a {
-  color: #AC2013;
+  color: [[setting:color5]];
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);	/*default*/
 }
 
@@ -96,5 +97,6 @@ h2 {
 }
 
 #app-dialog .modalHeader{
-	background-color: #AC2013;
+  color:  [[setting:color3]];
+	background-color:  [[setting:color2]];
 }

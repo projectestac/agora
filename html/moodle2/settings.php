@@ -141,6 +141,7 @@ $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
 $CFG->cronclionly = 1; // changed to avoid schools change it
 
+$CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
 
 //Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
