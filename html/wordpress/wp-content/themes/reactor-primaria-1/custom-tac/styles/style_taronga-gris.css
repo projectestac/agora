@@ -40,3 +40,12 @@ background-color: #FF4C00 ;
 	border-bottom: 2px solid #7D7D7D ;
 }#footer {    background-color: #7D7D7D ;
 }
+
+
+.gce-today span.gce-day-number{
+    border: 3px solid #FF4C00 !important;
+}
+
+.gce-widget-grid .gce-calendar th abbr {
+    color: #FF4C00;
+}

@@ -37,8 +37,6 @@ color:#00854e;
     color:#00854e !important;
 }
 
-
-
 .entry-comments:before,
 .entry-categories:before,
 .entry-tags:before{
@@ -59,4 +57,12 @@ border-bottom: 2px solid #ff2a2a;
 }
 #footer {    
     background-color: #00854e ;
+}
+
+.gce-today span.gce-day-number{
+    border: 3px solid #00854e !important;
+}
+
+.gce-widget-grid .gce-calendar th abbr {
+    color: #00854e;
 }

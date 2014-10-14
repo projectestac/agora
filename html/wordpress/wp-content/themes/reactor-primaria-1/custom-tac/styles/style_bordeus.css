@@ -42,3 +42,11 @@ background-color:#B5196E ;
 #footer {    
     background-color: #770E4B ;
 }
+
+.gce-today span.gce-day-number{
+    border: 3px solid #770E4B !important;
+}
+
+.gce-widget-grid .gce-calendar th abbr {
+    color: #770E4B;
+}

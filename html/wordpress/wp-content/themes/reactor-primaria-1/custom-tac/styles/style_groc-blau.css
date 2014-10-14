@@ -42,3 +42,11 @@ h1, h2, h3, h4, h5, h6, a {
 #footer {    
     background-color: #3C7C80 ;
 }
+
+.gce-today span.gce-day-number{
+    border: 3px solid #3C7C80 !important;
+}
+
+.gce-widget-grid .gce-calendar th abbr {
+    color: #3C7C80;
+}

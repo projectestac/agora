@@ -64,3 +64,10 @@ background-color:#0eb1ff;
     background-color: #087eb6 ;
 }
 
+.gce-today span.gce-day-number{
+    border: 3px solid #087eb6 !important;
+}
+
+.gce-widget-grid .gce-calendar th abbr {
+    color: #087eb6;
+}

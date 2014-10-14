@@ -69,3 +69,11 @@ border-bottom: 2px solid #f64646;
 #footer {    
     background-color: #ff5a26 ;
 }
+
+.gce-today span.gce-day-number{
+    border: 3px solid #ff5a26 !important;
+}
+
+.gce-widget-grid .gce-calendar th abbr {
+    color: #ff5a26;
+}

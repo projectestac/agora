@@ -632,6 +632,16 @@ ul.breadcrumbs{
     margin:0.1em 0 0 0 !important;
 }
 
+.breadcrumbs>* {
+    font-size:0.8em;
+    text-transform: uppercase;
+}
+
+.breadcrumbs {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
 /*****************************************************************
 Barra lateral
 ******************************************************************/
@@ -806,57 +816,62 @@ li.feed{
 Calendari
 ******************************************************************/
 
-
-.gce-today {
-    border: 3px solid;
+.gce-widget-grid .gce-calendar td {
+    background-color:#efefef;
+    border:0.1em solid white !important;
+    color: #55556a !important; 
 }
 
-td.gce-today{
-    border: 3px solid black;
-}
-
-table tr th, table tr td {
-    padding: 0.4em 0.4em;
-}
-
-.gce-page-grid td{
-    color:#b7b7b7;    
-}
-
-abbr[title] {
-    border-bottom: 0px;
-    color:grey;
-    font-weight: normal;
-    padding-top:3px;
-    padding-bottom:3px;
-}
-
-.gce-caption{
-    padding-bottom: 0.8em;
-    color:grey;
-}
-
-ul.breadcrumbs {
-    /*margin: 1em;*/
-}	
-
-.breadcrumbs>* {
+.gce-widget-grid .gce-calendar td.gce-day-future, 
+.gce-widget-grid .gce-calendar td.gce-day-past
+{
+    color: #55556a !important; 
+    /*font-weight: bold;*/
+    font-family: 'Open Sans', sans-serif;
     font-size:0.8em;
-    text-transform: uppercase;
+    background-color: #e7e7e7;
+    border:0.1em solid white !important;
 }
 
-.breadcrumbs {
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
+.gce-widget-grid .gce-calendar th {
+    border: 0px !important;
 }
 
+.gce-widget-grid .gce-calendar {
+    border: 0px !important;
+}
+
+.gce-widget-grid .gce-calendar .gce-caption {
+    background-color: #e7e7e7;
+    color:#55556a;
+    /*font-weight: bold;*/
+    text-transform: capitalize;
+    padding: 0.5em;
+}
+ 
+.gce-widget-grid .gce-calendar th abbr {
+    color: #2ca698;
+}
+
+.gce-has-events{
+    background-color:#cfcfcf !important;
+    /*text-decoration: underline;*/
+    font-weight: bold;
+}
+.gce-widget-grid{
+    padding-right:1em;
+}
+.gce-today span.gce-day-number{
+    border: 3px solid #2ca698 !important;
+    border-radius: 75%;
+    padding:5px;
+ }
 
 /*****************************************************************
 Footer
 ******************************************************************/
 
 #footer {
-    background-color:#222222;
     margin-top: 2em;
     padding-top: 2em;
 }
@@ -900,9 +915,6 @@ Footer
 #footer *{
     color:white !important;
 }
-
-
-
 
 /*****************************************************************
 Media
