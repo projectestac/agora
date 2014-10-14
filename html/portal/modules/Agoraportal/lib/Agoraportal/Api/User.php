@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Get the active services of a client. If clientId is present, uses this param 
- *  to get the service info. If clientId is not present but clientCode is 
+ * Get the active services of a client. If clientId is present, uses this param
+ *  to get the service info. If clientId is not present but clientCode is
  *  present, uses client code to get the info.
- * 
+ *
  * @author Toni Ginard
  * @param int clientId
  * @param int clientCode
- * 
+ *
  * @return array The services of the client
  */
 class Agoraportal_Api_User extends Zikula_AbstractApi {
@@ -47,10 +47,10 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the client info from its clientCode
-     * 
+     *
      * @author Toni Ginard
      * @param int clientCode
-     * 
+     *
      * @return array information of the client in table agoraportal_clients
      */
     public function getClient($args) {
@@ -80,10 +80,10 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the client info from its clientCode
-     * 
+     *
      * @author Toni Ginard
      * @param int ClientId
-     * 
+     *
      * @return array information of the client in table agoraportal_clients
      */
     public function getClientById($args) {
@@ -112,10 +112,10 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the serviceId's allowed for a given requestType
-     * 
+     *
      * @author Toni Ginard
      * @param int requestTypeId
-     * 
+     *
      * @return array services allowed for the request type
      */
     public function getRequestTypesServices($args) {
@@ -158,6 +158,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $clientServiceId = (isset($args['clientServiceId'])) ? $args['clientServiceId'] : false;
         $service = (isset($args['service'])) ? $args['service'] : false;
         $state = (isset($args['state'])) ? $args['state'] : false;
+        $pilot = (isset($args['pilot'])) ? $args['pilot'] : false;
+        $include = (isset($args['include'])) ? $args['include'] : true;
 
         $myJoin = array();
         $myJoin[] = array('join_table' => 'agoraportal_client_services',
@@ -232,7 +234,32 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 case '3':
                     $where .= "b.$lcolumn[clientCity]" . " LIKE '%" . $args['searchText'] . "%'";
                     break;
+                case '4':
+                    $where .= "b.$lcolumn[clientDNS]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
+                case '5':
+                    $where .= "a.$ocolumn[activedId]" . " LIKE '%" . $args['searchText'] . "%'";
+                    break;
             }
+        }
+
+        switch ($pilot) {
+            case 'educat':
+                $where .= ( !empty($where) ) ? ' AND ' : '';
+                if($include){
+                    $where .= "b.$lcolumn[educat]" . " = 1";
+                } else {
+                    $where .= "b.$lcolumn[educat]" . " = 0";
+                }
+                break;
+            case 'educatNetwork':
+                $where .= ( !empty($where) ) ? ' AND ' : '';
+                if($include){
+                    $where .= "b.$lcolumn[educatNetwork]" . " = 1";
+                } else {
+                    $where .= "b.$lcolumn[educatNetwork]" . " = 0";
+                }
+                break;
         }
 
         if (isset($args['order'])) {
@@ -248,6 +275,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     break;
                 case 4: //Used to order by clientCode
                     $orderby = "b.$lcolumn[clientCode]";
+                    break;
+                case 5: //Used to order by clientCode
+                    $orderby = "b.$lcolumn[clientDNS]";
                     break;
             }
         } else {
@@ -272,11 +302,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     /**
      * Gets the list of services, owned by current client (identified by its
      *  manager), that are active for a given request type.
-     * 
+     *
      * @author Toni Ginard
      * @author Aida Regi
-     * @param 		
-     * @return 		
+     * @param
+     * @return
      */
     public function getClientRequestServices($args) {
         $typeId = $args['requestTypeId'];
@@ -576,7 +606,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     'activedId' => 0,
                     'timeRequested' => time(),
                     'observations' => $args['observations']);
-                
+
                 if (!DBUtil::insertObject($item, 'agoraportal_client_services', 'clientServiceId')) {
                     return LogUtil::registerError($this->__('L\'intent de creació ha fallat'));
                 }
@@ -643,14 +673,14 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the activedId (data base ID) for a given client and service
-     * 
+     *
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @author Toni Ginard
-     * 
+     *
      * @param int clientId
      * @param int serviceId (not needed if serviceName is present)
      * @param string serviceName (not needed if serviceId is present)
-     * 
+     *
      * @return array service information combined with client information
      */
     public function getClientService($args) {
@@ -690,11 +720,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the client-service record by its Id
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @param int clientServiceId
-     * 
+     *
      * @return Array Client-service record
      */
     public function getClientServiceById($args) {
@@ -726,12 +756,12 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the all the client_service info given a serviceName and activedId
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @param string serviceName (intranet, moodle, moodle2)
      * @param int    activedId
-     * 
+     *
      * @return Array Register of table client_services
      */
     public function getClientServiceFull($args) {
@@ -856,7 +886,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * Verify if the verifyCode proposed by the user is correct, then convert the user to clientManager  
+     * Verify if the verifyCode proposed by the user is correct, then convert the user to clientManager
      * @author     Fèlix Casanellas (fcasanel@xtec.cat)
      * @param      The clientCode, verifyCode, uname
      * @return     True if the delete succed and error otherwise
@@ -1245,7 +1275,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * 
+     *
      * @author      Aida Regi Cosculluela (aregi@xtec.cat)
      * @param
      * @return
@@ -1308,7 +1338,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * 
+     *
      * @author      Aida Regi Cosculluela (aregi@xtec.cat)
      * @param
      * @return
@@ -1339,7 +1369,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * 
+     *
      * @author      Aida Regi Cosculluela (aregi@xtec.cat)
      * @param
      * @return
@@ -1368,7 +1398,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * 
+     *
      * @author      Aida Regi Cosculluela (aregi@xtec.cat)
      * @param
      * @return
@@ -1412,11 +1442,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get requests description
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @param int requestTypeId (optional)
-     * 
+     *
      * @return array Information of the request/s
      */
     public function getRequestTypes($args) {
@@ -1446,12 +1476,12 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Check if a service of a given client has crossed the disk request threshold
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @param int serviceId
      * @param string clientCode
-     * 
+     *
      * @return boolean true if threshold is crossed, false if not.
      */
     public function checkDiskRequestThreshold($args) {
@@ -1495,13 +1525,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     /**
      * Execute SQL commands. It is the same function as in admin api but only the select commands are allowed
-     * 
+     *
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @param  sql
      * @param  serviceName
-     * @param  database 
-     * @param  host 
-     *  
+     * @param  database
+     * @param  host
+     *
      * @return	Array with success 0 or 1, errorMsg with the error text or '' and values in select commands
      */
 /*
@@ -1595,7 +1625,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 */
     /**
      * Calculate Oracle database instance for Moodle
-     * 
+     *
      * @author  Toni Ginard
      * @param   int database number
      * @return  string instance name

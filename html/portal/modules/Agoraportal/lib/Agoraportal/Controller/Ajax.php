@@ -46,11 +46,15 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $init = FormUtil::getPassedValue('init', -1, 'GET');
         $which = FormUtil::getPassedValue('which', "selected", 'GET');
         $order = FormUtil::getPassedValue('order', 1, 'GET');
+        $pilot = FormUtil::getPassedValue('pilot', 0, 'GET');
+        $include = FormUtil::getPassedValue('include', 1, 'GET');
         $content = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('init' => $init,
                     'service_sel' => $service,
                     'search' => $search,
                     'searchText' => $searchText,
-                    'order' => $order));
+                    'order' => $order,
+                    'pilot' => $pilot,
+                    'include' => $include));
         AjaxUtil::output(array('content' => $content));
     }
 
@@ -427,7 +431,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     /**
      * Build a dropdown menu with the services the client has
-     * 
+     *
      * @author Aida Regi
      * @param int $requestTypeId
      */
@@ -446,7 +450,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     /**
      * @author Aida Regi
-     * @param type $args 
+     * @param type $args
      */
     public function requestsList($args) {
         if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
@@ -483,13 +487,13 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     /**
      * Get HTML to be shown to user. It can be a message for the user or a part
      *   of a form
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @param int serviceId
      * @param int requestId
      * @param string clientCode
-     * 
+     *
      */
     public function getRequestMessage($args) {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
@@ -559,10 +563,10 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                 'actionCode' => 3,
                 'clientCode' => $clientCode));
         }
-        
+
         AjaxUtil::output(array('name' => $basename));
     }
-    
+
     private function is_dir_empty($dir) {
         if (!is_readable($dir)) {
             return null;

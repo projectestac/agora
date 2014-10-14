@@ -10,8 +10,7 @@ html/config/.htaccess
 html/moodle/config.php
 html/moodle2/config.php
 html/moodle2/auth/odissea
-html/moodle2/sftp-config.json
-html/wordpress/sftp-config.json
+html/*/sftp-config.json
 nbproject
 moodledata
 portaldata
