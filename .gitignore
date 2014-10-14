@@ -18,7 +18,7 @@ portaldata
 sh
 zkdata
 wpdata
-.Trash-1000/
+.Trash*/*
 cache_ins/
 muc/
 html/moodle/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
