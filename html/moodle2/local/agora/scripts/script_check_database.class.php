@@ -83,7 +83,7 @@ class script_check_database extends agora_script_base{
 	                            continue;
 	                        }
 	                        // Fetch metadata from physical DB. All the columns info.
-	                        if (!$metacolumns = $DB->get_columns($xmldb_table->getName())) {
+	                        if (!$metacolumns = $DB->get_columns($xmldb_table->getName(), false)) {
 	                            // / Skip table if no metacolumns is available for it
 	                            continue;
 	                        }
@@ -126,11 +126,13 @@ class script_check_database extends agora_script_base{
 	        	foreach ($sqls as $sql) {
 	        		try {
 	        			print_object($sql);
-	        			$sql = $dbman->generator->getEndedStatements($sql);
+                        if ($CFG->dbtype != 'oci' && $CFG->dbtype != 'oci8po') {
+	        			    $sql = $dbman->generator->getEndedStatements($sql);
+                        }
 	        			$DB->execute($sql);
 	        		} catch(Exception $e) {
-	        			print_object($e->getMessage());
-	        			print_object($e->debuginfo);
+	        			echo $OUTPUT->notification($e->getMessage());
+                        print_object($e->debuginfo);
 	        		}
 	        	}
 	        } else {
@@ -146,7 +148,7 @@ class script_check_database extends agora_script_base{
 		global $CFG;
 		$actions = array('check_indexes', 'check_defaults', 'check_bigints', 'check_foreign_keys');
 
-		if ($CFG->dbtype == 'oci') {
+		if ($CFG->dbtype == 'oci' || $CFG->dbtype == 'oci8po') {
 			$actions[] = 'check_oracle_semantics';
 		}
 
@@ -168,7 +170,7 @@ class script_check_database extends agora_script_base{
 	}
 
 	protected function check_indexes(xmldb_table $xmldb_table, array $metacolumns) {
-        global $DB;
+        global $CFG, $DB;
         $dbman = $DB->get_manager();
 
         $o = '';
@@ -300,7 +302,7 @@ class script_check_database extends agora_script_base{
         	if ($xmldbdefault !== '' && $xmldb_field->getNotNull()) {
         		// Li podem posar el default
         		//$DB->set_field_select($xmldb_table->getName(), $xmldb_field->getName(), $xmldbdefault, $xmldb_field->getName() .' IS NULL');
-        		$sqls[] = 'UPDATE '.$CFG->prefix.$xmldb_table->getName().' SET '.$xmldb_field->getName().' = '.$xmldbdefault.' WHERE '.$xmldb_field->getName().' IS NULL';
+        		$sqls[] = 'UPDATE '.$CFG->prefix.$xmldb_table->getName().' SET '.$xmldb_field->getName().'='.$xmldbdefault.' WHERE '.$xmldb_field->getName().' IS NULL';
         	}
             // get the alter table command
             $sqlarr = $dbman->generator->getAlterFieldSQL($obj->table, $obj->field);
@@ -512,8 +514,7 @@ class script_check_database extends agora_script_base{
                 // If using byte semantics, we'll need to change them to char semantics
                 if ($currentsemantic == 'B') {
                 	$o.='<li>Field: ' . $xmldb_field->getName() . ' ';
-                    $info = '(Expected CHAR, Actual BYTE)';
-                    $o .= '<font color="red">Wrong '. $info.'</font>';
+                    $o .= '<font color="red">Wrong (Expected CHAR, Actual BYTE)</font>';
                     // Add the wrong field to the list
                     $obj = new stdClass();
                     $obj->table = $xmldb_table;
