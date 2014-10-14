@@ -22,15 +22,19 @@ $pagetitle = $publisher->name;
 
 echo $OUTPUT->heading(get_string('provider_books', 'local_rcommon', $publisher->name));
 
-$action = optional_param('action',false, PARAM_TEXT);
-if($action == 'update') {
+$action = optional_param('action', false, PARAM_TEXT);
+if ($action == 'update') {
     require_once($CFG->dirroot.'/local/rcommon/WebServices/BooksStructure.php');
-    echo get_string('consumewait','local_rcommon');
+    echo get_string('consumewait', 'local_rcommon');
 
-    if (get_all_books_structure($id)){
-        echo $OUTPUT->notification(get_string('consumefinish','local_rcommon'),'notifysuccess');
-    }else {
-        echo $OUTPUT->notification(get_string('consumeerror','local_rcommon'));
+    try {
+        if (get_all_books_structure($id)) {
+            echo $OUTPUT->notification(get_string('consumefinish', 'local_rcommon'), 'notifysuccess');
+        } else {
+            echo $OUTPUT->notification(get_string('consumeerror', 'local_rcommon'));
+        }
+    } catch(Exception $fault) {
+        echo $OUTPUT->notification($fault->getMessage());
     }
 }
 

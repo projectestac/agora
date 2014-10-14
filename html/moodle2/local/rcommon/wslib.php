@@ -98,16 +98,28 @@ function rcommon_get_wsdl_namespace($urlwdsl) {
         $wsdlcontents = rcommon_get_wsdl($urlwdsl);
         $xml = simplexml_load_string($wsdlcontents);
         return (string)$xml['targetNamespace'];
-    }catch (Exception $e){
+    } catch (Exception $e) {
         return false;
     }
 }
 
-function rcommon_object_to_array_lower($object) {
-    $array = (array) $object;
+function rcommon_object_to_array_lower($value, $recursive = false) {
+    if (is_array($value)) {
+        $array = $value;
+    } else if (is_object($value)) {
+        $array = (array) $value;
+    } else {
+        return $value;
+    }
+
     $array_ret = array();
     foreach ($array as $key => $value) {
-        $array_ret[strtolower($key)] = $value;
+        if ($recursive) {
+            $array_ret[strtolower($key)] = rcommon_object_to_array_lower($value, $recursive);
+        } else {
+            $array_ret[strtolower($key)] = $value;
+        }
+
     }
     return $array_ret;
 }
@@ -180,3 +192,11 @@ function rcommon_ws_error($function, $message, $module = 'rcommon', $cmid = 0, $
     return $error_message;
 }
 
+function is_associative_array($array) {
+    if (!is_array($array) || empty($array)) {
+        return false;
+    }
+
+    $keys = array_keys($array);
+    return array_keys($keys) !== $keys;
+}
