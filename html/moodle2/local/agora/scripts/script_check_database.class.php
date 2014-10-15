@@ -38,6 +38,7 @@ class script_check_database extends agora_script_base{
 
 		$testagain = array();
 		$savetestagain = array();
+        //TODO: Not save in session, save in cookies or start session again
 		if(isset($SESSION->badtables)){
 			$test = unserialize($SESSION->badtables);
 			foreach ($test as $tablename){

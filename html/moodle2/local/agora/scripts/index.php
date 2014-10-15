@@ -1,4 +1,6 @@
 <?php
+
+	define('NO_OUTPUT_BUFFERING', true);
     require_once('../../../config.php');
 
     require_once($CFG->libdir.'/adminlib.php');
@@ -14,7 +16,6 @@
 	echo $OUTPUT->heading(get_string('agora_scripts','local_agora'));
 
 	if($script){
-
 		$success = scripts_execute_script($script);
 		if($success){
 			echo $OUTPUT->notification('Script '.$script.' succeed', 'notifysuccess');

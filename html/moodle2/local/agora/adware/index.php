@@ -1,4 +1,6 @@
 <?php
+define('NO_OUTPUT_BUFFERING', true);
+
 require_once('../../../config.php');
 require_once('lib.php');
 
@@ -13,6 +15,7 @@ echo $OUTPUT->heading('Neteja Adware');
 
 echo $OUTPUT->box('Aquesta eina no detecta tot l\'Adware de la plataforma ni l\'esborra automàticament<br>Podeu trobar més informació en aquesta <a href="http://agora.xtec.cat/moodle/moodle/mod/glossary/view.php?id=461&mode=entry&hook=2001">Pregunta Freqüent</a>');
 
+\core\session\manager::write_close();
 $data = get_adware();
 if (!empty($data)) {
 	echo $OUTPUT->notification('S\'han trobat '.count($data). ' cadenes');
