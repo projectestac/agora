@@ -586,8 +586,47 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('order', $order)
                         ->assign('stateFilter', $stateFilter)
                         ->assign('siteBaseURL', ModUtil::getVar('Agoraportal', 'siteBaseURL'))
-                        ->fetch('agoraportal_admin_servicesListContent.tpl');
+                        ->fetch('S.tpl');
     }
+
+    /**
+     * Get the list of services associated with clients
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
+     * @param:      The filter and pager values
+     * @return:     An array with all the clients and services
+     */
+    public function getServiceActions($args) {
+        $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : '0', 'POST');
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+        $serviceName = $services[$service]['serviceName'];
+
+        $actions = array();
+        switch ($serviceName) {
+            case 'moodle2':
+                // TODO: Retrieve from the service
+                $cron = new StdClass();
+                $cron->action = 'cron';
+                $cron->title = 'Executar Cron';
+                $cron->description = 'Executa el cron';
+                $cron->params = array();
+                $cron->params[] = 'param1';
+                $actions[] = $cron;
+                break;
+            default:
+                $noaction = new StdClass();
+                $noaction->action = '';
+                $noaction->title = 'No hi ha operacions disponibles';
+                $actions[] = $noaction;
+                break;
+        }
+        return json_encode($actions);
+    }
+
 
     /**
      * Display the list of clients
@@ -3868,12 +3907,19 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
         $sqlfunc = FormUtil::getPassedValue('sqlfunction', isset($args['sqlfunction']) ? $args['sqlfunction'] : null, 'GETPOST');
+        $pilot = FormUtil::getPassedValue('pilot', isset($args['pilot']) ? $args['pilot'] : 0, 'GETPOST');
+        $include = FormUtil::getPassedValue('include', isset($args['include']) ? $args['include'] : 1, 'GETPOST');
+        $order_sel = FormUtil::getPassedValue('order_sel', isset($args['order_sel']) ? $args['order_sel'] : 1, 'GETPOST');
         $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '4', 'GETPOST');
 
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('which', $which);
         $view->assign('sqlfunc', $sqlfunc);
         $view->assign('service_sel', $service_sel);
+        $view->assign('pilot', $pilot);
+        $view->assign('include', $include);
+        $view->assign('order_sel', $order_sel);
+        $view->assign('serviceSQL', 'getServiceActions();');
 
         $ask = FormUtil::getPassedValue('ask', isset($args['ask']) ? $args['ask'] : null, 'GETPOST');
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'GETPOST');

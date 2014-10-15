@@ -8,6 +8,21 @@ function servicesList(service, stateFilter, search, searchText,order,init,rpp) {
         onComplete: servicesList_response,
         onFailure: servicesList_failure
     });
+    return false;
+}
+
+function getServiceActions() {
+    var service = document.getElementById("service_sel").value;
+    var pars = "module=Agoraportal&func=getServiceActions&service=" + service;
+    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
+    var myAjax = new Ajax.Request("ajax.php",
+    {
+        method: 'get',
+        parameters: pars,
+        onComplete: getServiceActions_response,
+        onFailure: servicesList_failure
+    });
+    return false;
 }
 
 function requestsList(service, stateFilter, search, searchText,order,init,rpp) {
@@ -387,6 +402,63 @@ function servicesList_response(req) {
     var json = pndejsonize(req.responseText);
     Element.update('servicesListContent', json.content);
     Element.update('reload','');
+}
+
+function getServiceActions_response(req) {
+    if (req.status != 200 ) {
+        pnshowajaxerror(req.responseText);
+        return;
+    }
+    var json = pndejsonize(req.responseText);
+    actions = JSON.parse(json.content);
+    var text = "";
+
+    var x = 0;
+    while (x < actions.length) {
+        text += '<option value="'+actions[x].action+'" >'+actions[x].title+'</option>';
+        x++;
+    }
+    Element.update('actionselect', text);
+    Element.update('reload','');
+    prepareAction();
+    return false;
+}
+
+function prepareAction() {
+    var action = document.getElementById("actionselect").value;
+
+    if(action == ''){
+        Element.update('actiondescription', 'No hi ha cap acció seleccionada');
+        Element.update('actionparams', 'No hi ha paràmetres');
+    }
+
+    var x = 0;
+    while (x < actions.length) {
+        if(actions[x].action == action){
+
+            if(actions[x].description != undefined && actions[x].description != '') {
+                Element.update('actiondescription', actions[x].description);
+            } else {
+                Element.update('actiondescription', 'No hi ha descripció disponible');
+            }
+
+            if(actions[x].params != undefined && actions[x].params.length > 0) {
+                var y = 0;
+                var params = '';
+                while (y < actions[x].params.length) {
+                    params += '<label for="parm_'+actions[x].params[y]+'">'+actions[x].params[y]+'</label>';
+                    params += '<input id="parm_'+actions[x].params[y]+'" name="'+actions[x].params[y]+'" type="text"/>';
+                    y++;
+                }
+                Element.update('actionparams', params);
+            } else {
+                Element.update('actionparams', 'No hi ha paràmetres');
+            }
+            return false;
+        }
+        x++;
+    }
+    return false;
 }
 
 function servicesList_failure() {

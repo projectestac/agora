@@ -35,6 +35,20 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         AjaxUtil::output(array('content' => $content));
     }
 
+    public function getServiceActions($args) {
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
+        }
+        $service = FormUtil::getPassedValue('service', 0, 'GET');
+
+        $stateString = serialize(array('service' => $service));
+        SessionUtil::setVar('navState', $stateString);
+
+        $content = ModUtil::func('Agoraportal', 'admin', 'getServiceActions', array('service' => $service));
+        AjaxUtil::output(array('content' => $content));
+    }
+
     public function sqlservicesList($args) {
 
         if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {

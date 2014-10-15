@@ -1,6 +1,7 @@
 <div style="text-align:left;">
     <strong>Servei</strong><br/>
-    <select name="service_sel" id="service_sel" onchange="sqlservicesList()" style="width:100%;">>
+    <select name="service_sel" id="service_sel" onchange="sqlservicesList(); {$serviceSQL}" style="width:100%;">>
+        <option value="0" {if $service_sel eq 0}selected="selected"{/if}>portal</option>
         {foreach item=service from=$services}
         <option value="{$service.serviceId}" {if $service_sel eq $service.serviceId}selected="selected"{/if}>{gt text="%s" tag1=$service.serviceName}</option>
         {/foreach}
