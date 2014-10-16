@@ -695,16 +695,14 @@ Ginys
     padding-right: 1em;     
 }
 
-.widget-title, .widgettitle{
-    /*color:#444444 !important;   */   
-}
-
 #sidebar-frontpage .widget.logotip-widget{
     padding-left: 0em;     
 }
 
 #sidebar-frontpage .widget.widget_logo_centre_widget{
-    padding-left: 0;
+    padding-left: 0.7em;
+    padding-bottom:1.5em;
+    
 }
 
 #sidebar-frontpage-2 .widget{
