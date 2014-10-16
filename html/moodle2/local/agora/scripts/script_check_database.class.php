@@ -137,6 +137,7 @@ class script_check_database extends agora_script_base{
     protected function execute_sqls($sqls, $execute) {
         global $CFG, $DB, $OUTPUT;
         $dbman = $DB->get_manager();
+        $ok = true;
         foreach ($sqls as $sql) {
             if(!empty($sql)) {
                 try {
@@ -146,14 +147,14 @@ class script_check_database extends agora_script_base{
                     }
                     $DB->execute($sql);
                     echo $OUTPUT->notification('OK', 'notifysuccess');
-                    return true;
                 } catch(Exception $e) {
                     echo $OUTPUT->notification($e->getMessage());
                     print_object($e->debuginfo);
-                    return false;
+                    $ok = false;
                 }
             }
         }
+        return $ok;
     }
 
 	protected function check_table(xmldb_table $xmldb_table, array $metacolumns) {
