@@ -586,14 +586,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('order', $order)
                         ->assign('stateFilter', $stateFilter)
                         ->assign('siteBaseURL', ModUtil::getVar('Agoraportal', 'siteBaseURL'))
-                        ->fetch('S.tpl');
+                        ->fetch('agoraportal_admin_servicesListContent.tpl');
     }
 
     /**
-     * Get the list of services associated with clients
-     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:      The filter and pager values
-     * @return:     An array with all the clients and services
+     * Get the list of actions associated with services
+     * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @param:      Service
+     * @return:     Josn of actions
      */
     public function getServiceActions($args) {
         $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : '0', 'POST');
@@ -606,24 +606,59 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $serviceName = $services[$service]['serviceName'];
 
         $actions = array();
+
+        $sites = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices',array('service'=>$service, 'state' => 1));
+        $url = false;
+        if (count($sites) > 0) {
+            foreach ($sites as $site) {
+                if (!isset($site['serviceId'])) {
+                    continue;
+                }
+                if($services[$site['serviceId']]['serviceName'] != $serviceName){
+                    continue;
+                }
+                $url = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
+                if ($url) {
+                    break;
+                }
+            }
+        }
+
+        if(!$url){
+            return $this->getServiceActions_noaction();
+        }
         switch ($serviceName) {
             case 'moodle2':
                 // TODO: Retrieve from the service
+
+                /*$curl_handle = curl_init();
+                curl_setopt($curl_handle, CURLOPT_URL, $url);
+                curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
+                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+                $buffer = curl_exec($curl_handle);
+                curl_close($curl_handle);*/
+
                 $cron = new StdClass();
                 $cron->action = 'cron';
                 $cron->title = 'Executar Cron';
-                $cron->description = 'Executa el cron';
+                $cron->description = $url;
                 $cron->params = array();
                 $cron->params[] = 'param1';
                 $actions[] = $cron;
                 break;
             default:
-                $noaction = new StdClass();
-                $noaction->action = '';
-                $noaction->title = 'No hi ha operacions disponibles';
-                $actions[] = $noaction;
+                return $this->getServiceActions_noaction();
                 break;
         }
+        return json_encode($actions);
+    }
+
+    private function getServiceActions_noaction(){
+        $actions = array();
+        $noaction = new StdClass();
+        $noaction->action = '';
+        $noaction->title = 'No hi ha operacions disponibles';
+        $actions[] = $noaction;
         return json_encode($actions);
     }
 

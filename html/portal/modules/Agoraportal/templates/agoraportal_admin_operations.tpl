@@ -9,17 +9,17 @@
                 <option value="">{gt text="No hi ha accions disponibles"}</option>
             </select><br/><br/>
             <strong>Descripció</strong>
-            <div id="actiondescription"></div>
+            <div id="actiondescription"></div><br/><br/>
             <strong>Paràmetres</strong>
-            <div id="actionparams"></div>
+            <div id="actionparams"></div><br/><br/>
+            <input name="exec" value="{gt text='Executa ara'}" type="submit" />
+            <input name="queue" value="{gt text='Posa a la cua'}" type="submit" />
         </div>
         <div class="form_right">
             {include file="agoraportal_admin_service_filter.tpl"}
             <br/><br/>
         </div>
-    <div class="clear"></div>
-    <input name="exec" value="{gt text='Executa ara'}" type="submit" />
-    <input name="queue" value="{gt text='Posa a la cua'}" type="submit" />
+        <div class="clear"></div>
     </form>
 </div>
 <script>
