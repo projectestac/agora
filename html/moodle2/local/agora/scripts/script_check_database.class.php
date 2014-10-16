@@ -38,13 +38,14 @@ class script_check_database extends agora_script_base{
 
 		$testagain = array();
 		$savetestagain = array();
-        //TODO: Not save in session, save in cookies or start session again
+
 		if(isset($SESSION->badtables)){
 			$test = unserialize($SESSION->badtables);
 			foreach ($test as $tablename){
 				$testagain[$tablename] = $tablename;
 			}
 		}
+
 
         // And we nedd some ddl suff
         $dbman = $DB->get_manager();
@@ -98,6 +99,7 @@ class script_check_database extends agora_script_base{
 	                        	$savetestagain[] = $xmldb_table->getName();
 	                        	echo $output;
 	                        	$problemsfound = array_merge($problemsfound, $newproblems);
+                                $this->execute_sqls($newproblems, $execute);
 	                        }
 	                        echo '</li>';
 	                        // Give the script some more time (resetting to current if exists)
@@ -113,7 +115,9 @@ class script_check_database extends agora_script_base{
             echo '</ul>';
         }
 
-        $SESSION->badtables = serialize($savetestagain);
+        if (!empty($savetestagain)) {
+            $SESSION->badtables = serialize($savetestagain);
+        }
 
         $sqls = array();
         foreach ($problemsfound as $i => $problem) {
@@ -123,27 +127,34 @@ class script_check_database extends agora_script_base{
         }
 
         if (!empty($sqls)) {
-	        if ($execute) {
-	        	foreach ($sqls as $sql) {
-	        		try {
-	        			print_object($sql);
-                        if ($CFG->dbtype != 'oci' && $CFG->dbtype != 'oci8po') {
-	        			    $sql = $dbman->generator->getEndedStatements($sql);
-                        }
-	        			$DB->execute($sql);
-	        		} catch(Exception $e) {
-	        			echo $OUTPUT->notification($e->getMessage());
-                        print_object($e->debuginfo);
-	        		}
-	        	}
-	        } else {
-	        	echo $OUTPUT->notification('SQLS de reparació:');
-	        	print_object($sqls);
-	        }
+        	echo $OUTPUT->notification('SQLS de reparació:');
+        	print_object($sqls);
 	    }
 
 		return empty($problemsfound);
 	}
+
+    protected function execute_sqls($sqls, $execute) {
+        global $CFG, $DB, $OUTPUT;
+        $dbman = $DB->get_manager();
+        foreach ($sqls as $sql) {
+            if(!empty($sql)) {
+                try {
+                    print_object($sql);
+                    if ($CFG->dbtype != 'oci' && $CFG->dbtype != 'oci8po') {
+                        $sql = $dbman->generator->getEndedStatements($sql);
+                    }
+                    $DB->execute($sql);
+                    echo $OUTPUT->notification('OK', 'notifysuccess');
+                    return true;
+                } catch(Exception $e) {
+                    echo $OUTPUT->notification($e->getMessage());
+                    print_object($e->debuginfo);
+                    return false;
+                }
+            }
+        }
+    }
 
 	protected function check_table(xmldb_table $xmldb_table, array $metacolumns) {
 		global $CFG;

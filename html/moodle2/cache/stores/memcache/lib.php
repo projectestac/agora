@@ -129,6 +129,14 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         if (!is_array($configuration['servers'])) {
             $configuration['servers'] = array($configuration['servers']);
         }
+        //XTEC ************ AFEGIT - To have MUC configured.
+        // To have different prefixes, memcache_prefix must be in settings.php
+        // 2014.10.16 @pferre22
+        global $CFG;
+        if (isset($CFG->memcache_servers)) {
+            $configuration['servers'] = explode("\n", $CFG->memcache_servers);
+        }
+        //************ FI
         foreach ($configuration['servers'] as $server) {
             if (!is_array($server)) {
                 $server = explode(':', $server, 3);

@@ -51,14 +51,8 @@ defined('MOODLE_INTERNAL') || die();
       'plugin' => 'memcache',
       'configuration' =>
       array (
-        'servers' =>
-        array (
-          0 =>
-          array (
-            0 => '127.0.0.1',
-          ),
-        ),
-        'prefix' => $CFG->dbuser.'_',
+        'servers' => $CFG->memcache_servers,
+        'prefix' => $CFG->memcache_prefix,
       ),
       'features' => 4,
       'modes' => 1,
@@ -249,7 +243,7 @@ defined('MOODLE_INTERNAL') || die();
       'sharingoptions' => 15,
     ),
     'core/coursecat' =>
-	    array (
+      array (
       'mode' => 2,
       'invalidationevents' =>
       array (
