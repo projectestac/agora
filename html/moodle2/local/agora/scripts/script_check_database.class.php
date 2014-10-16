@@ -99,7 +99,9 @@ class script_check_database extends agora_script_base{
 	                        	$savetestagain[] = $xmldb_table->getName();
 	                        	echo $output;
 	                        	$problemsfound = array_merge($problemsfound, $newproblems);
-                                $this->execute_sqls($newproblems, $execute);
+                                if ($execute) {
+                                    $this->execute_sqls($newproblems);
+                                }
 	                        }
 	                        echo '</li>';
 	                        // Give the script some more time (resetting to current if exists)
@@ -134,10 +136,9 @@ class script_check_database extends agora_script_base{
 		return empty($problemsfound);
 	}
 
-    protected function execute_sqls($sqls, $execute) {
+    protected function execute_sqls($sqls) {
         global $CFG, $DB, $OUTPUT;
         $dbman = $DB->get_manager();
-        $ok = true;
         foreach ($sqls as $sql) {
             if(!empty($sql)) {
                 try {
@@ -150,11 +151,9 @@ class script_check_database extends agora_script_base{
                 } catch(Exception $e) {
                     echo $OUTPUT->notification($e->getMessage());
                     print_object($e->debuginfo);
-                    $ok = false;
                 }
             }
         }
-        return $ok;
     }
 
 	protected function check_table(xmldb_table $xmldb_table, array $metacolumns) {
