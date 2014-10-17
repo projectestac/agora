@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" type="text/css" href="modules/Agoraportal/javascript/calendar/css/jscal2.css" />
 <link rel="stylesheet" type="text/css" href="modules/Agoraportal/javascript/calendar/css/border-radius.css" />
-<link rel="stylesheet" type="text/css" href="modules/Agoraportal/javascript/calendar/css/agora/agora.css" />  
+<link rel="stylesheet" type="text/css" href="modules/Agoraportal/javascript/calendar/css/agora/agora.css" />
 <script type="text/javascript" src="modules/Agoraportal/javascript/calendar/jscal2.js"></script>
 <script type="text/javascript" src="modules/Agoraportal/javascript/calendar/lang/ca.js"></script>
 
@@ -29,9 +29,10 @@
                     <option value="6" {if $stats_sel eq "6"}selected="selected"{/if}>{gt text="Estadístiques setmanals Moodle 2"}</option>
                     <option value="7" {if $stats_sel eq "7"}selected="selected"{/if}>{gt text="Estadístiques diàries Moodle 2"}</option>
                 </select>
+                <span id="reload"></span>
                 <br/>
                 {gt text="Des de: "}<input size="8" id="date_start" name="date_start"  value="{$date_start}"/><input type="button" id="from_btn" value="..." />
-                {gt text="Fins a: "}<input size="8" id="date_stop" name="date_stop" value="{$date_stop}"/><input type="button" id="to_btn" value="..." /> 
+                {gt text="Fins a: "}<input size="8" id="date_stop" name="date_stop" value="{$date_stop}"/><input type="button" id="to_btn" value="..." />
                 <div id="servicesListContent" name="servicesListContent" class="{if $which eq "all"}hidden{/if}">
                      {$statsservicesList}
                 </div>
@@ -43,14 +44,14 @@
                 <input type="hidden" name="clients" />
                 <input type="hidden" name="orderby" value="clientDNS" />
                 <!-- <a href="index.php?module=Agoraportal&type=admin&func=statsGetCSVContent" onClick="javascript:statsGetCSV(document.statsForm.which.value,document.statsForm.stats_sel.value, document.statsForm.date_start.value, document.statsForm.date_stop.value,'clientDNS')" >Descarrega l'últim fitxer .csv generat</a>
-                -->  
+                -->
                 <input type="submit" name="kk" value="Exporta a format .csv"/>
             </form>
 
         </div>
         <div class="form_right {if $which eq "all"}hidden{/if}" id="cerca">
              <h3>{gt text="Cerca per..."}</h3>
-            <form name="filterForm" id="filterForm">    
+            <form name="filterForm" id="filterForm">
                 <select name="search" id="search">
                     <option {if isset($search) AND $search eq 1}selected{/if} value="1">{gt text="Codi"}</option>
                     <option {if isset($search) AND $search eq 2}selected{/if} value="2">{gt text="Nom client"}</option>
@@ -67,7 +68,7 @@
             {$resultsContent}
         </div>
         <h3>{gt text="Generar estadístiques"}</h3>
-        <form name="generateForm" id="generateForm">    
+        <form name="generateForm" id="generateForm">
             {gt text="Data: "}<input size="8" id="date" name="date"/><input type="button" id="date_btn" value="..." />
             <input type="button" value="Genera" onClick="javascript:statsGenerateStatistics(document.generateForm.date.value)" />
             <span id="generate" name="generate"></span>

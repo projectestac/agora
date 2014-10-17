@@ -5,14 +5,14 @@
     <form name="serviceForm" id="serviceForm" action="index.php?module=Agoraportal&type=admin&func=operations" method="POST">
         <div class="form_left">
             <strong>{gt text="Acció"}</strong><br />
-            <select name="accio" id="actionselect" onchange="prepareAction()" style="width:100%;">
+            <select name="actionselect" id="actionselect" onchange="prepareAction()" style="width:100%;">
                 <option value="">{gt text="No hi ha accions disponibles"}</option>
             </select><br/><br/>
             <strong>Descripció</strong>
             <div id="actiondescription"></div><br/><br/>
             <strong>Paràmetres</strong>
             <div id="actionparams"></div><br/><br/>
-            <input name="exec" value="{gt text='Executa ara'}" type="submit" />
+            <input name="exe" value="{gt text='Executa ara'}" type="submit" />
             <input name="queue" value="{gt text='Posa a la cua'}" type="submit" />
         </div>
         <div class="form_right">

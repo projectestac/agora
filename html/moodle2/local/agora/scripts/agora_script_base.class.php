@@ -6,6 +6,7 @@ class agora_script_base{
 	public $info = "";
 	public $cron = false;
 	public $cli = false;
+	public $api = true;
 	protected $test = true;
 
 	public function params() {

@@ -95,27 +95,26 @@ function statsServiceSelected(search, searchText) {
 
     if(which == "selected"){
         var stats_sel = document.getElementById("stats_sel").value;
-        var service; // = stats_sel == '4' ? 1 /*Intranet*/ :2 /*Moodle*/;
-        switch ($stats_sel) {
+        switch (stats_sel) {
             case '1':
             case '2':
             case '3':
-                service = 2; // Moodle 1.9
+                serviceName = 'moodle';
                 break;
             case '4':
-                service = 1; // Intranet
+                 serviceName = 'intranet';
                 break;
             case '5':
             case '6':
             case '7':
-                service = 4; // Moodle 2
+                serviceName = 'moodle2';
                 break;
         }
 
         document.getElementById("servicesListContent").className = "visible";
         document.getElementById("cerca").className = "visible";
 
-        var pars = "module=Agoraportal&func=statsservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText;
+        var pars = "module=Agoraportal&func=statsservicesList&serviceName=" + serviceName + "&search=" + search + "&searchText=" + searchText;
         Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
         var myAjax = new Ajax.Request("ajax.php",
         {
@@ -444,12 +443,13 @@ function prepareAction() {
 
             if(actions[x].params != undefined && actions[x].params.length > 0) {
                 var y = 0;
-                var params = '';
+                var params = '<ul>';
                 while (y < actions[x].params.length) {
-                    params += '<label for="parm_'+actions[x].params[y]+'">'+actions[x].params[y]+'</label>';
-                    params += '<input id="parm_'+actions[x].params[y]+'" name="'+actions[x].params[y]+'" type="text"/>';
+                    params += '<li><label for="parm_'+actions[x].params[y]+'">'+actions[x].params[y]+' </label>';
+                    params += '<input id="parm_'+actions[x].params[y]+'" name="parm_'+actions[x].params[y]+'" type="text"/></li>';
                     y++;
                 }
+                params += '</ul>';
                 Element.update('actionparams', params);
             } else {
                 Element.update('actionparams', 'No hi ha paràmetres');

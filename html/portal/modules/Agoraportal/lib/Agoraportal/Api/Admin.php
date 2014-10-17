@@ -5,8 +5,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     /**
      * Insert a new client in the database
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param 		The client main properties 
-     * @return 		The new client identity if success and false otherwise 
+     * @param 		The client main properties
+     * @return 		The new client identity if success and false otherwise
      */
     public function createClient($args) {
         // Security check
@@ -63,7 +63,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * Update a existing client
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param 		Client identity and new properties values
-     * @return 		True if success and false otherwise 
+     * @return 		True if success and false otherwise
      */
     public function editClient($args) {
         // Security check
@@ -89,7 +89,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * update a service for a given client
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param 		Client-service identity
-     * @return 		True if success and false otherwise 
+     * @return 		True if success and false otherwise
      */
     public function editService($args) {
         // Security check
@@ -121,7 +121,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * remove a service for a given client
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param 		Client-service identity
-     * @return 		True if success and false otherwise 
+     * @return 		True if success and false otherwise
      */
     public function deleteService($args) {
         // Security check
@@ -149,12 +149,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Activate moodle service. Each service have got its activation function.
-     * 
+     *
      * @author 	Albert Pérez Monfort (aperezm@xtec.cat)
      * @author 	Toni Ginard
      *
      * @param string Client-service identity
-     * 
+     *
      * @return  array if Ok / boolean if error
      */
     public function activeService_moodle2($args) {
@@ -250,7 +250,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Query to update site name and site description
         $sqls[] = "
-            UPDATE {$prefix}course 
+            UPDATE {$prefix}course
             SET	fullname='" . str_replace("'", "''", $client['clientName']) . "',
                 shortname='" . str_replace("'", "''", $client['clientDNS']) . "',
                 summary='Moodle del centre " . str_replace("'", "''", $client['clientName']) . "'
@@ -260,8 +260,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // Query to update the cookie name
         $sessionPrefix = 'moodle';
         $sqls[] = "
-            UPDATE {$prefix}config 
-            SET value='$sessionPrefix" . $client['clientId'] . "' 
+            UPDATE {$prefix}config
+            SET value='$sessionPrefix" . $client['clientId'] . "'
             WHERE name='sessioncookie'
             ";
 
@@ -289,7 +289,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @param string $clientServiceId
      * @param string Data base server including optional port
-     * 
+     *
      * @return 	array if Ok / boolean if error
      */
     public function activeService_intranet($args) {
@@ -333,8 +333,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 LogUtil::registerError($this->__('No queda cap base de dades lliure'));
                 return false;
             }
-        }        
-        
+        }
+
         // Generate a password for Intraweb admin user
         $password = $this->createRandomPass();
         $passwordEnc = '1$$' . md5($password);
@@ -386,9 +386,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Activate nodes service
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @return 	array with dummy value
      */
     public function activeService_nodes($args) {
@@ -422,7 +422,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $clientPC = $clientService[$clientServiceId]['clientPC']; // Post Code
         $clientDNS = $clientService[$clientServiceId]['clientDNS'];
         $clientCode = $clientService[$clientServiceId]['clientCode'];
-        
+
         $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
                     'serviceName' => 'intranet'));
 
@@ -438,8 +438,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 LogUtil::registerError($this->__('No queda cap base de dades lliure'));
                 return false;
             }
-        }        
-        
+        }
+
         // Get service info
         $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'nodes'));
         if ($service == false) {
@@ -451,7 +451,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $passwordEnc = md5($password);
 
         global $agora;
-        
+
         $prefix = $agora['nodes']['prefix'];
         $serviceURL = $service['URL'];
         $dbUser = $agora['nodes']['userprefix'] . $db;
@@ -480,77 +480,77 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec/';
 
         foreach ($toReplace as $string) {
-            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET action = REPLACE (action , '$string', '$siteURL')
                 WHERE action like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET content = REPLACE (content , '$string', '$siteURL')
                 WHERE content like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET content = REPLACE (content , '/usu6/', '/$dbUser/')
                 WHERE content like '%/usu6/%'";
 
-            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET content = REPLACE (content , '/usu7/', '/$dbUser/')
                 WHERE content like '%/usu7/%'";
 
-            $sqls[] = "UPDATE $prefix" . "_bp_activity 
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET primary_link = REPLACE (primary_link , '$string', '$siteURL')
                 WHERE primary_link like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET post_content = REPLACE (post_content , '$string', '$siteURL')
                 WHERE post_content like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET post_content = REPLACE (post_content , '/usu6/', '/$dbUser/')
                 WHERE post_content like '%/usu6/%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET post_content = REPLACE (post_content , '/usu7/', '/$dbUser/')
                 WHERE post_content like '%/usu7/%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET post_excerpt = REPLACE (post_excerpt , '$string', '$siteURL')
                 WHERE post_excerpt like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET guid = REPLACE (guid , '$string', '$siteURL')
                 WHERE guid like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET guid = REPLACE (guid , '/usu6/', '/$dbUser/')
                 WHERE guid like '%/usu6/%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts 
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET guid = REPLACE (guid , '/usu7/', '/$dbUser/')
                 WHERE guid like '%/usu7/%'";
         }
 
         // Reset stats table
         $sqls[] = "TRUNCATE $prefix" . "_stats";
-        
+
         foreach ($sqls as $sql) {
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $sql,
                         'serviceName' => 'nodes',
                         'host' => $dbHost,
             ));
-            
+
             if (!$result['success']) {
                 return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $oneSql . '. Error: ' . $result['errorMsg']));
             }
         }
-        
+
         // Now update serialized wp_options fields
         $fields = array ('my_option_name', 'widget_text', 'reactor_options');
-        
+
         foreach ($fields as $field) {
             $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
             //LogUtil::registerStatus($sql);
-            
+
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $sql,
                         'serviceName' => 'nodes',
@@ -573,7 +573,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                             $value = $this->replaceTree($string, $siteURL, $value);
                         }
 
-                        // Update user database. This depends on where the model is build! 
+                        // Update user database. This depends on where the model is build!
                         $value = $this->replaceTree('usu6', $dbUser, $value);
                         $value = $this->replaceTree('usu7', $dbUser, $value);
 
@@ -582,19 +582,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         $value['direccioCentre'] = $clientAddress;
                         $value['cpCentre'] = $clientPC . ' ' . $clientCity;
                         $value['nomCanonicCentre'] = $clientName;
-                        
+
                         // Scape apostrophes for MySQL
                         $newValue = str_replace("'", "''", serialize($value));
 
                         $sql = "UPDATE $prefix" . "_options set option_value='$newValue' WHERE option_name='$field';";
                         //LogUtil::registerStatus($sql);
-                        
+
                         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                                     'sql' => $sql,
                                     'serviceName' => 'nodes',
                                     'host' => $dbHost,
                         ));
-                        
+
                         if (!$result) {
                             return LogUtil::registerError($this->__('No s\'ha pogut actualitzar la taula wp_options: ' . $sql));
                         }
@@ -608,9 +608,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Activate marsupial service.
-     * 
+     *
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
-     * 
+     *
      * @return 	array with dummy value
      */
     public function activeService_marsupial($args) {
@@ -619,12 +619,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      *  Find free database number
-     * 
+     *
      * @author		Albert Pérez Monfort (aperezm@xtec.cat)
      * @author     Toni Ginard
-     * 
+     *
      * @param  		Client-service identity
-     * 
+     *
      * @return 		The first available database or false if something is wrong
      */
     public function getFreeDataBase($args) {
@@ -636,10 +636,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // Needed for connectExtDB
         $dbHost = $args['dbHost'];
 
-        // Moodle and moodle2 use the same activeId, so must be treated as one 
+        // Moodle and moodle2 use the same activeId, so must be treated as one
         if (isset($args['serviceName']) && $args['serviceName'] == 'moodle2') {
-            // Get the list of moodle2 services of all the clients. First step 
-            // is to get the service Id from the service definition. Second step 
+            // Get the list of moodle2 services of all the clients. First step
+            // is to get the service Id from the service definition. Second step
             // is get all the client-services with that Id.
             $moodle2Service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
             $moodle2ServiceId = $moodle2Service['serviceId'];
@@ -675,7 +675,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             // Get ID of service 'intranet'
             $intranet = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'intranet'));
             $idIntranet = $intranet['serviceId'];
-            
+
             // Get all client services (all states) of service 'nodes'
             $allNodes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $idNodes,
                         'state' => -1));
@@ -691,7 +691,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 LogUtil::registerError($this->__('No s\'ha trobat cap intranet'));
                 return false;
             }
-            
+
             // Get all the 'activedId' used (each 'activedId' is a database)
             $databaseIds = array();
             $max = 0;
@@ -1086,7 +1086,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         global $agora;
 
         switch ($action) {
-            case 1: 
+            case 1:
                 // Create or delete Moodle2 super administrator
                 // get all the services and tables prefix for moodle tables
                 $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
@@ -1115,7 +1115,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
                     }
                     $xtecadminID = $result['values'][0]['ID'];
-                    
+
                     // Get list of site admins
                     $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
@@ -1125,7 +1125,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     if (!$result['success']) {
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
                     }
-                    
+
                     // Remove xtecadmin ID from the list of admins
                     $siteadmins = explode(',', $result['values'][0]['VALUE']);
                     $siteadmins = array_diff($siteadmins, array($xtecadminID));
@@ -1470,7 +1470,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @author      Aida Regi
      * @param 		Client-service identity
-     * @return 		True if success and false otherwise 
+     * @return 		True if success and false otherwise
      */
     public function editRequest($args) {
         // Security check
@@ -1497,7 +1497,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @author      Aida Regi
      * @param 		Client-service identity
-     * @return 		True if success and false otherwise 
+     * @return 		True if success and false otherwise
      */
     public function deleteRequest($args) {
         // Security check
@@ -1525,7 +1525,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
      * @author      Aida Regi
      * @param 		Client-service identity
-     * @return 		True if success and false otherwise 
+     * @return 		True if success and false otherwise
      */
     public function getInfodeleteRequest($args) {
         // Security check
@@ -1584,11 +1584,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Get all requests from database
-     * 
+     *
      * @author	Albert Pérez Monfort (aperezm@xtec.cat)
      * @author Aida Regi
      * @param  Filter parameters
-     * 
+     *
      * @return	Array The list of available services. False in case of error.
      */
     public function getAllRequests($args) {
@@ -1679,10 +1679,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Get database table prefix and names depending on intranet version to make functions compatible
-     * 
+     *
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @param  intranetVersion
-     *  
+     *
      * @return	Array with the correct names and tables prefix in database
      */
     public function compat($args) {
@@ -1717,13 +1717,13 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Execute SQL commands
-     * 
+     *
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @param  sql
      * @param  serviceName
-     * @param  database 
-     * @param  host 
-     *  
+     * @param  database
+     * @param  host
+     *
      * @return	Array with success 0 or 1, errorMsg with the error text or '' and values in select commands
      */
     public function executeSQL($args) {
@@ -1774,8 +1774,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             case 'oci':
             case 'oci8':
             case 'oci8po':
-                if (substr_count(strtolower(trim($sql)), 'insert') > 1 
-                        || substr_count(strtolower(trim($sql)), 'update') > 1 
+                if (substr_count(strtolower(trim($sql)), 'insert') > 1
+                        || substr_count(strtolower(trim($sql)), 'update') > 1
                         || substr_count(strtolower(trim($sql)), 'delete') > 1) {
                     // for multiple inserts, updates and deletes in Oracle SQL
                     $sql = "BEGIN $sql END;";
@@ -1808,10 +1808,55 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
+     * Execute operations to a service
+     *
+     * @author Pau Ferrer Ocaña (pferre22@xtec.cat)
+     *
+     * @return  Array with success 0 or 1, errorMsg with the error text or '' and values in select commands
+     */
+    public function executeOperation($args) {
+        $actionselect = $args['actionselect'];
+        $serviceName = $args['serviceName'];
+        $clientDNS = $args['clientDNS'];
+        $params = $args['params'];
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $success = false;
+        $result = "";
+        $command = "";
+        $dirbase = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))));
+
+        switch ($serviceName) {
+            case 'moodle2':
+                $params['ccentre'] = $clientDNS;
+                $command = $dirbase.'/moodle2/local/agora/scripts/cli.php -s='.$actionselect;
+                break;
+            default:
+                return array('success' => $success, 'result' => $result);
+                break;
+        }
+
+        if($params && is_array($params)) {
+            foreach($params as $key => $value) {
+                $command .= ' --'.$key.'='.$value;
+            }
+        }
+
+        $command = 'php '.$command.' > /dev/stdout 2>&1';
+
+        exec($command, $result, $success);
+
+        return array('success' => $success, 'result' => $result);
+    }
+
+    /**
      * Create random password
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @return string The password
      */
     public function createRandomPass() {
@@ -1829,12 +1874,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         return $pass;
     }
-    
+
     /**
      * Checks if a value is serialized
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @return boolean true or false
      */
      function is_serialized($data) {
@@ -1847,17 +1892,17 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
     /**
      * Replace string recursively in multidimensional array
-     * 
+     *
      * @param string $search
      * @param string $replace
      * @param string $array
-     * 
+     *
      * @author Toni Ginard
-     * 
+     *
      * @return array
      */
     function replaceTree($search = '', $replace = '', $array = false) {
-        
+
         if (!is_array($array)) {
             // Regular replace
             return str_replace($search, $replace, $array);
@@ -1868,7 +1913,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             // Recurse call
             $newArray[$k] = $this->replaceTree($search, $replace, $v);
         }
-        
+
         return $newArray;
     }
 

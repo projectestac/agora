@@ -605,16 +605,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $serviceName = $services[$service]['serviceName'];
 
-        $actions = array();
-
-        $sites = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices',array('service'=>$service, 'state' => 1));
+        $sites = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $service, 'state' => 1));
         $url = false;
         if (count($sites) > 0) {
             foreach ($sites as $site) {
                 if (!isset($site['serviceId'])) {
                     continue;
                 }
-                if($services[$site['serviceId']]['serviceName'] != $serviceName){
+                if ($services[$site['serviceId']]['serviceName'] != $serviceName) {
                     continue;
                 }
                 $url = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
@@ -624,33 +622,26 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        if(!$url){
-            return $this->getServiceActions_noaction();
+        if ($url) {
+            switch ($serviceName) {
+                case 'moodle2':
+                    $url .= '/local/agora/scripts/list.php';
+                    break;
+                default:
+                    return $this->getServiceActions_noaction();
+                    break;
+            }
+            $curl_handle = curl_init();
+            curl_setopt($curl_handle, CURLOPT_URL, $url);
+            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
+            curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+            $actions = curl_exec($curl_handle);
+            curl_close($curl_handle);
+            if($actions){
+                return $actions;
+            }
         }
-        switch ($serviceName) {
-            case 'moodle2':
-                // TODO: Retrieve from the service
-
-                /*$curl_handle = curl_init();
-                curl_setopt($curl_handle, CURLOPT_URL, $url);
-                curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
-                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-                $buffer = curl_exec($curl_handle);
-                curl_close($curl_handle);*/
-
-                $cron = new StdClass();
-                $cron->action = 'cron';
-                $cron->title = 'Executar Cron';
-                $cron->description = $url;
-                $cron->params = array();
-                $cron->params[] = 'param1';
-                $actions[] = $cron;
-                break;
-            default:
-                return $this->getServiceActions_noaction();
-                break;
-        }
-        return json_encode($actions);
+        return $this->getServiceActions_noaction();
     }
 
     private function getServiceActions_noaction(){
@@ -2066,7 +2057,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
-        $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : 2, 'GETPOST');
+        $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'moodle2', 'GETPOST');
+        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'GETPOST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'GETPOST');
 
@@ -2076,7 +2068,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 1, //Default
                     'rpp' => 0, //No pages
-                    'service' => $service,
+                    'service' => $service['serviceId'],
                     'state' => 1, //Active
                     'search' => $search,
                     'order' => 1, //Default
@@ -2086,7 +2078,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         return $this->view->assign('clients', $clients)
                         ->assign('services', $services)
-                        ->assign('service', $service)
+                        ->assign('service', $service['serviceId'])
                         ->assign('clients_sel', $clients_sel)
                         ->assign('clientsNumber', $clientsNumber)
                         ->fetch('agoraportal_admin_statsservicesListContent.tpl');
@@ -3925,12 +3917,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     /**
-     * Display a form that allows you to execute SQL
+     * Display a form that allows you to execute commands
      * @author  Pau Ferrer Ocaña (pferre22@xtec.cat)
-     * @param   array clients_sel
-     * @param   $which
-     * @param   $sqlfunc
-     * @param   int service_sel     Id of the selected service
      * @return  Rendering of the page
      */
     public function operations($args) {
@@ -3939,45 +3927,41 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
+        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
-        $sqlfunc = FormUtil::getPassedValue('sqlfunction', isset($args['sqlfunction']) ? $args['sqlfunction'] : null, 'GETPOST');
-        $pilot = FormUtil::getPassedValue('pilot', isset($args['pilot']) ? $args['pilot'] : 0, 'GETPOST');
-        $include = FormUtil::getPassedValue('include', isset($args['include']) ? $args['include'] : 1, 'GETPOST');
         $order_sel = FormUtil::getPassedValue('order_sel', isset($args['order_sel']) ? $args['order_sel'] : 1, 'GETPOST');
         $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '4', 'GETPOST');
+        $actionselect = FormUtil::getPassedValue('actionselect', isset($args['actionselect']) ? $args['actionselect'] : false, 'GETPOST');
 
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('which', $which);
-        $view->assign('sqlfunc', $sqlfunc);
         $view->assign('service_sel', $service_sel);
-        $view->assign('pilot', $pilot);
-        $view->assign('include', $include);
         $view->assign('order_sel', $order_sel);
         $view->assign('serviceSQL', 'getServiceActions();');
+        $view->assign('actionselect', $actionselect);
 
-        $ask = FormUtil::getPassedValue('ask', isset($args['ask']) ? $args['ask'] : null, 'GETPOST');
-        $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'GETPOST');
-        if (!empty($ask)) {
-            $action = 'ask';
-        } else if (!empty($confirm)) {
-            $action = 'exe';
+        $exe = FormUtil::getPassedValue('exe', isset($args['exe']) ? $args['exe'] : null, 'GETPOST');
+        $queue = FormUtil::getPassedValue('queue', isset($args['queue']) ? $args['queue'] : null, 'GETPOST');
+        $confirm_exe = FormUtil::getPassedValue('confirm_exe', isset($args['confirm_exe']) ? $args['confirm_exe'] : null, 'GETPOST');
+        $confirm_queue = FormUtil::getPassedValue('confirm_queue', isset($args['confirm_queue']) ? $args['confirm_queue'] : null, 'GETPOST');
+        if (!empty($exe)) {
+            $action = 'ask_exe';
+        } else if (!empty($confirm_exe)) {
+            $action = 'confirm_exe';
+        } else if (!empty($queue)) {
+            $action = 'ask_queue';
+        } else if (!empty($confirm_queue)) {
+            $action = 'confirm_queue';
         }
 
-        if (isset($action) && ( empty($sqlfunc) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
+        if (isset($action) && (empty($actionselect) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
             LogUtil::registerError($this->__('Heu d\'emplenar tots els camps'));
-            $action = "show";
-        }
-
-        $sqlfunc_low = strtolower($sqlfunc);
-        if ((strpos($sqlfunc_low, "delete") !== false || strpos($sqlfunc_low, "update") !== false) && strpos($sqlfunc_low, "where") === false) {
-            LogUtil::registerError($this->__('L\'operació necessita la clàusula where'));
             $action = "show";
         }
 
         $comands = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', array('serviceId' => $service_sel));
 
-        if (isset($action) && ($action == "ask" || $action == "exe")) {
+        if (isset($action) && $action != "show") {
             // Initialization
             $serviceName = '';
             $sqlClients = '';
@@ -4012,106 +3996,69 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     $sqlClients = $clients;
                 }
             }
+            //Get params
+            $args = '';
+            $params = array();
+            foreach ($_POST as $key => $value) {
+                if (strpos($key,'parm_') === 0 && !empty($value)) {
+                    $key_ret = substr($key,5);
+                    $params[$key_ret] = FormUtil::getPassedValue($key, $args[$key], 'POST');
+                }
+            }
+            $view->assign('params', $params);
+
 
             $view->assign('serviceName', $serviceName);
-            $view->assign('sqlClients', $sqlClients);
+            $view->assign('clients', $sqlClients);
 
-            if ($action == "exe") { //Execute SQL
+            if ($action == "confirm_exe") { //Execute SQL
                 $results = Array();
                 $success = Array();
                 $messages = Array();
-                $messages_recount = Array();
-                $one_result_mode = false;
                 foreach ($sqlClients as $i => $client) {
                     //Connected
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                'host' => $client['dbHost'],
-                                'sql' => $sqlfunc,
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperation',
+                            array('clientDNS' => $client['clientDNS'],
+                                'actionselect' => $actionselect,
                                 'serviceName' => $serviceName,
-                                'serviceDB' => $client['serviceDB'],
+                                'params' => $params
                             ));
 
-                    if (!$result['success']) {
+                    if ($result['success'] < 0) {
                         $success[$i] = false;
-                        $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades ') . $result['errorMsg'];
+                        $messages[$i] = $this->__('No s\'ha pogut executar la operació');
+                        $results[$i] = implode("\n",$result['result']);
                     } else {
-                        //PARSE the result
-                        if (strpos($sqlfunc_low, "select") !== False || strpos($sqlfunc_low, "show") !== False) {
-                            $messages[$i] = count($result['values']);
-                            if ($messages[$i] > 0) {
-                                $column_names = array();
-                                foreach ($result['values'][0] as $k => $v)
-                                    $column_names[] = $k;
-
-                                if ($messages[$i] == 1 && count($column_names) == 1) {
-                                    //One row and one column
-                                    $one_result_mode = true;
-                                    $messages[$i] = $v;
-                                } else {
-                                    //Bigger matrix
-                                    foreach ($column_names as $k => $column)
-                                        $results[$i][0][$k] = $column;
-                                    foreach ($result['values'] as $k => $line)
-                                        foreach ($line as $j => $field)
-                                            $results[$i][$k + 1][$j] = $field;
-                                }
-                            }
-                        } else
-                            $messages[$i] = "OK";
+                        $messages[$i] = "OK";
                         $success[$i] = true;
+                        $results[$i] = implode("<br/>",$result['result']);
                     }
                 }
-
-                if ($one_result_mode) {
-                    foreach ($messages as $i => $message) {
-                        if (isset($messages_recount[$message])) {
-                            $messages_recount[$message]++;
-                        } else {
-                            $messages_recount[$message] = 1;
-                        }
-                    }
-                }
-
-                global $agora;
-
-                if ($serviceName == 'portal') {
-                    $view->assign('prefix', $agora['admin']['database']);
-                } else {
-                    $view->assign('prefix', $agora['server']['userprefix']);
-                }
-
                 $view->assign('which', $which);
                 $view->assign('results', $results);
                 $view->assign('success', $success);
                 $view->assign('messages', $messages);
-                $view->assign('messages_recount', $messages_recount);
 
-                return $view->fetch('agoraportal_admin_sql_exe.tpl');
+                return $view->fetch('agoraportal_admin_operations_exe.tpl');
             }
 
-            // Else ask to execute SQL
-            // Check if the SQL comand contain the SQL security code
-            if ($this->getVar('sqlSecurityCode') != '') {
-                if (strpos($sqlfunc, $this->getVar('sqlSecurityCode'))) {
-                    LogUtil::registerError($this->__f('La comanda SQL conté el codi de seguretat "%s". No es recomana seguir amb l\'operació', ModUtil::getVar('Agoraportal', 'sqlSecurityCode')));
-                }
-            }
-            return $view->fetch('agoraportal_admin_sql_ask.tpl');
+            return $view->fetch('agoraportal_admin_operations_ask_exe.tpl');
         }
 
         //Else  show form
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
+        $pilot = FormUtil::getPassedValue('pilot', isset($args['pilot']) ? $args['pilot'] : 0, 'GETPOST');
+        $include = FormUtil::getPassedValue('include', isset($args['include']) ? $args['include'] : 1, 'GETPOST');
+
+        $view->assign('pilot', $pilot);
+        $view->assign('include', $include);
 
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('search' => $search,
                     'searchText' => $searchText,
                     'service_sel' => $service_sel,
                     'which' => $which));
 
-        // Create output object
-        if ($comands) {
-            $view->assign('comands', $comands);
-        }
         $view->assign('servicesListContent', $servicesListContent);
         $view->assign('search', $search);
         $view->assign('searchText', $searchText);

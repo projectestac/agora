@@ -8,6 +8,7 @@ class script_health extends agora_script_base{
 	public $info = "Revisa diversos paràmetres per veure l'estat de Salut del Moodle";
 	public $cron = false;
 	protected $test = false;
+	public $api = false;
 
 	protected function _execute($params = array(), $execute = true){
 		global $CFG, $DB, $OUTPUT;

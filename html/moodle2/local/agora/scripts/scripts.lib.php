@@ -22,6 +22,11 @@ function get_all_scripts($param = false) {
 			continue;
 		}
 
+		if ($param == 'api' && $script->cli && $script->api) {
+			$scripts[$class] = $script;
+			continue;
+		}
+
 		if ($script->is_visible()) {
 			$scripts[$class] = $script;
 			continue;
@@ -90,4 +95,19 @@ function scripts_cli_list_scripts() {
 	foreach ($scripts as $script_name => $script) {
 		mtrace("- $script->title ($script_name): $script->info");
 	}
+}
+
+function scripts_api_list_scripts() {
+	$scripts = get_all_scripts('api');
+	$actions = array();
+	foreach ($scripts as $script_name => $script) {
+        $action = new StdClass();
+        $action->action = $script_name;
+        $action->title = $script->title;
+        $action->description = $script->info;
+        $scriptclass = new $script_name();
+		$action->params = array_keys($scriptclass->params());
+        $actions[] = $action;
+	}
+	return $actions;
 }
