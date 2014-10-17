@@ -5,6 +5,10 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Agoraportal: Increased maximum size for big files to 200MB
+
+
 
 Changes 14.10.15
 ---------------------------------------------------------------------------------------

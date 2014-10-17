@@ -43,7 +43,7 @@ $_CONFIG['progress_bar_width']                    = 400;
 $_CONFIG['unique_upload_dir']                     = 0;
 $_CONFIG['unique_file_name']                      = 0;
 $_CONFIG['unique_file_name_length']               = 16;
-$_CONFIG['max_upload_size']                       = 104857600; //(100 * 1024 * 1024 = 104857600 = 100MB)
+$_CONFIG['max_upload_size']                       = 209715200; //(200 * 1024 * 1024 = 209715200 = 200MB)
 $_CONFIG['overwrite_existing_files']              = 0;
 $_CONFIG['redirect_url']                          = $agora['server']['html'] . 'portal/modules/Agoraportal/upload/ubr_finished.php';
 $_CONFIG['redirect_using_location']               = 1;
