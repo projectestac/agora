@@ -76,4 +76,16 @@ if(!sizeof($srcLines)) {
 var ns="";
 <?php echo $jsMakeSrc; ?>
 editor.setHTML(ns);
+
+<?php
+// XTEC ************ MODIFICAT - Removed usage of php short tags
+// 2010.07.12 @aginard
+
+}
+
+//************ ORIGINAL
+/*
 <? } ?>
+*/
+//************ FI
+?>
