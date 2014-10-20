@@ -347,11 +347,11 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
             $name = $this->get_pagenumber_name();
             if ($this->clustered) {
                 foreach ($this->setconnections as $connection) {
-                    $connection->set($name, $number, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
+                    $connection->set($name, $number, MEMCACHE_COMPRESSED, 0);
                 }
             }
 
-            $this->connection->set($name, $number, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
+            $this->connection->set($name, $number, MEMCACHE_COMPRESSED, 0);
         }
         $this->prefix = $this->originalprefix.$this->definition->generate_single_key_prefix().$number;
     }
