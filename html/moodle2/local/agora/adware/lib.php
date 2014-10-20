@@ -3,7 +3,7 @@
 function get_adware() {
 	global $CFG, $DB;
 
-	$adware = detect_adware('%script%cdncache%akamaihd%');
+	$adware = detect_adware();
 
 	if (!$adware) {
 		return false;
@@ -29,29 +29,41 @@ function get_adware() {
 	return $data;
 }
 
-function detect_adware($search) {
+function detect_adware($notused = false) {
 	global $DB;
 
-	$adware = new StdClass();
+	$searches = array('%script%cdncache%akamaihd%', '%rackcdn.com\/ytplayall%');
+	$modules = $DB->get_records_menu('modules', array(), '', 'id,name');
 
+	$adware = new StdClass();
+	$adware->courses = array();
+	$adware->course_sections = array();
+	foreach ($modules as $moduleid => $modulename) {
+		$adware->$modulename = array();
+	}
 	$count = 0;
 
-	$args = array('search' => $search);
-	$courselike = $DB->sql_like('summary', ':search');
-	$adware->courses = $DB->get_records_sql("SELECT id, fullname FROM {course} WHERE $courselike", $args);
-	$count += count($adware->courses);
+	foreach ($searches as $search) {
 
-	$adware->course_sections = $DB->get_records_sql("SELECT id, section, course FROM {course_sections} WHERE $courselike", $args);
-	$count += count($adware->course_sections);
+		$args = array('search' => $search);
+		$courselike = $DB->sql_like('summary', ':search');
+		$courses = $DB->get_records_sql("SELECT id, fullname FROM {course} WHERE $courselike", $args);
+		$count += count($courses);
+		$adware->courses = array_merge($adware->courses, $courses);
 
-	$modules = $DB->get_records_menu('modules', array(), '', 'id,name');
-	$moduleintrolike = $DB->sql_like('m.intro', ':search');
-	foreach ($modules as $moduleid => $modulename) {
-		try {
-			$adware->$modulename = $DB->get_records_sql("SELECT m.id, m.name, m.intro, m.course, cm.id as cmid FROM {".$modulename."} m, {course_modules} cm WHERE m.id = cm.instance AND cm.module = ".$moduleid." AND $moduleintrolike", $args);
-			$count += count($adware->$modulename);
-		} catch(Exception $e){
-			//echo $OUTPUT->notification($modulename.' no té summary');
+		$course_sections = $DB->get_records_sql("SELECT id, section, course FROM {course_sections} WHERE $courselike", $args);
+		$count += count($course_sections);
+		$adware->course_sections = array_merge($adware->course_sections, $course_sections);
+
+		$moduleintrolike = $DB->sql_like('m.intro', ':search');
+		foreach ($modules as $moduleid => $modulename) {
+			try {
+				$mod = $DB->get_records_sql("SELECT m.id, m.name, m.intro, m.course, cm.id as cmid FROM {".$modulename."} m, {course_modules} cm WHERE m.id = cm.instance AND cm.module = ".$moduleid." AND $moduleintrolike", $args);
+				$count += count($mod);
+				$adware->$modulename = array_merge($adware->$modulename, $mod);
+			} catch(Exception $e){
+				//echo $OUTPUT->notification($modulename.' no té summary');
+			}
 		}
 	}
 
@@ -74,7 +86,7 @@ function detect_adware_cron() {
     }
     set_config('lastadware', time(), 'local_agora');
 
-	$adware = detect_adware('%script%cdncache%akamaihd%');
+	$adware = detect_adware();
 	if ($adware) {
 		mtrace('WARNING: Adware detected');
 	}
