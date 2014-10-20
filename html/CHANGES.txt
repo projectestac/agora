@@ -8,6 +8,8 @@ Changes in progress
 PORTAL
 - Agoraportal: Increased maximum size for big files to 200MB
 
+WORDPRESS
+- Added catalan translation to Widget Visibility
 
 
 Changes 14.10.15
