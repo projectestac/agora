@@ -111,6 +111,11 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      */
     const DEFAULT_PREFIX = 'mdl_';
 
+    //XTEC ************ AFEGIT - To have an instance non dependant purge action
+    // 2014.10.20 @pferre22
+    private $originalprefix = 0;
+    //************ FI
+
     /**
      * Constructs the store instance.
      *
@@ -185,6 +190,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         if (isset($CFG->memcache_prefix)) {
             $this->prefix = $CFG->memcache_prefix;
         }
+        $this->originalprefix = $this->prefix;
         //************ FI
 
         $this->connection = new Memcache;
@@ -203,6 +209,13 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
 
         // Test the connection to the pool of servers.
         $this->isready = @$this->connection->set($this->parse_key('ping'), 'ping', MEMCACHE_COMPRESSED, 1);
+
+        //XTEC ************ AFEGIT - To have an instance non dependant purge action
+        // 2014.10.20 @pferre22
+        $purgenumber = $this->get_purgenumber();
+        $this->prefix = $this->originalprefix.$purgenumber;
+        //************ FI
+
     }
 
     /**
@@ -300,6 +313,52 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         $key = $this->prefix . $key;
         return $key;
     }
+
+    //XTEC ************ AFEGIT - To have an instance non dependant purge action
+    // 2014.10.20 @pferre22
+    public function get_purgenumber() {
+        $name = $this->originalprefix.'purgenumber';
+        $purgenumber = $this->connection->get($name);
+        if(!$purgenumber) {
+            return 0;
+        }
+        return $purgenumber;
+    }
+
+    public function get_connections(){
+        if ($this->isready) {
+            if ($this->clustered) {
+                return $this->setconnections;
+            }
+
+            return array($this->connection);
+        }
+        return false;
+    }
+
+    private function increment_purgenumber() {
+        $purgenumber = $this->get_purgenumber();
+        $purgenumber++;
+        if($purgenumber >= 100000){
+            $purgenumber = 0;
+        }
+        $this->set_purgenumber($purgenumber);
+    }
+
+    private function set_purgenumber($number) {
+        if ($this->isready) {
+            $name = $this->originalprefix.'purgenumber';
+            if ($this->clustered) {
+                foreach ($this->setconnections as $connection) {
+                    $connection->set($name, $number, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
+                }
+            }
+
+            $this->connection->set($name, $number, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
+        }
+        $this->prefix = $this->originalprefix.$number;
+    }
+    //************ FI
 
     /**
      * Retrieves an item from the cache store given its key.
@@ -419,6 +478,11 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
      */
     public function purge() {
         if ($this->isready) {
+            //XTEC ************ AFEGIT - To have an instance non dependant purge action
+            // 2014.10.20 @pferre22
+            $this->increment_purgenumber();
+            return true;
+            //************ FI
             if ($this->clustered) {
                 foreach ($this->setconnections as $connection) {
                     $connection->flush();

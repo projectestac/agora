@@ -80,8 +80,24 @@ class script_health extends agora_script_base{
 			echo 'Use the Moodle health check on <a href="'.$CFG->wwwroot.'/admin/tool/health/">'.get_string('pluginname', 'tool_health').'</a>';
 		}
 
-		echo $OUTPUT->heading('Info útil');
+		$config = cache_config::instance();
+        $stores = $config->get_all_stores();
+        if(isset($stores['localmemcache'])){
+			$store = $stores['localmemcache'];
+        	$class = $store['class'];
+			$instance = new $class($store['name'], $store['configuration']);
 
+			$memcaches = $instance->get_connections();
+			print_collapsible_region_start('', 'memcache',$OUTPUT->heading('Memcache'), '', true);
+			echo 'Memcache purgenumber: '.$instance->get_purgenumber();
+			foreach($memcaches as $memcache){
+				$stats = $memcache->getExtendedStats();
+				print_object($stats);
+			}
+			print_collapsible_region_end();
+		}
+
+		print_collapsible_region_start('', 'info',$OUTPUT->heading('Info útil'), '', true);
 		$serverip = (isset($_SERVER['SERVER_ADDR']))?$_SERVER['SERVER_ADDR']:'¿?';
 		echo '<ul>';
 		echo  "<li><strong>WWWRoot</strong>: $CFG->wwwroot</li>";
@@ -98,14 +114,18 @@ class script_health extends agora_script_base{
 		echo  '</ul>';
 
 		echo  "<p>El valor de ignore_user_abort és ".ignore_user_abort().".</p>";
+		print_collapsible_region_end();
 
-		echo $OUTPUT->heading('Variable $_SERVER');
+		print_collapsible_region_start('', 'server',$OUTPUT->heading('Variable $_SERVER'), '', true);
 		print_object($_SERVER);
+		print_collapsible_region_end();
 
 		//variable cfg
-		echo $OUTPUT->heading('Variable $CFG');
+		print_collapsible_region_start('', 'cfg',$OUTPUT->heading('Variable $CFG'), '', true);
 		print_object($CFG);
+		print_collapsible_region_end();
 
+		echo '<br/>';
 		return $health;
 	}
 }
