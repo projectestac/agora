@@ -209,13 +209,6 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
 
         // Test the connection to the pool of servers.
         $this->isready = @$this->connection->set($this->parse_key('ping'), 'ping', MEMCACHE_COMPRESSED, 1);
-
-        //XTEC ************ AFEGIT - To have an instance non dependant purge action
-        // 2014.10.20 @pferre22
-        $purgenumber = $this->get_purgenumber();
-        $this->prefix = $this->originalprefix.$purgenumber;
-        //************ FI
-
     }
 
     /**
@@ -231,6 +224,10 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
         }
         $this->definition = $definition;
         $this->isinitialised = true;
+        //XTEC ************ AFEGIT - To have an instance non dependant purge action
+        // 2014.10.20 @pferre22
+        $this->set_purgenumber($this->get_purgenumber());
+        //************ FI
     }
 
     /**
@@ -317,7 +314,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     //XTEC ************ AFEGIT - To have an instance non dependant purge action
     // 2014.10.20 @pferre22
     public function get_purgenumber() {
-        $name = $this->originalprefix.'purgenumber';
+        $name = $this->get_pagenumber_name();
         $purgenumber = $this->connection->get($name);
         if(!$purgenumber) {
             return 0;
@@ -347,7 +344,7 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
 
     private function set_purgenumber($number) {
         if ($this->isready) {
-            $name = $this->originalprefix.'purgenumber';
+            $name = $this->get_pagenumber_name();
             if ($this->clustered) {
                 foreach ($this->setconnections as $connection) {
                     $connection->set($name, $number, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
@@ -356,7 +353,11 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
 
             $this->connection->set($name, $number, MEMCACHE_COMPRESSED, $this->definition->get_ttl());
         }
-        $this->prefix = $this->originalprefix.$number;
+        $this->prefix = $this->originalprefix.$this->definition->generate_single_key_prefix().$number;
+    }
+
+    private function get_pagenumber_name(){
+        return $this->originalprefix.'_'.$this->definition->generate_single_key_prefix().'_purgenumber';
     }
     //************ FI
 
