@@ -114,11 +114,16 @@ class agora_script_base{
 	}
 
 	function is_visible() {
+		global $USER;
 		if (is_agora() && !is_xtecadmin()) {
 			return false;
         }
         if (!is_siteadmin()) {
             return false;
+        }
+        $mainadmin = get_admin();
+        if($USER->id != $mainadmin->id){
+        	return false;
         }
         return true;
 	}
