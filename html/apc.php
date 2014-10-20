@@ -697,7 +697,7 @@ input {
 <div class="head">
         <h1 class="apc">
                 <div class="logo"><span class="logo"><a href="http://pecl.php.net/package/APC">APC</a></span></div>
-                <div class="nameinfo"><? system('uname -n')?> Cache</div>
+                <div class="nameinfo"><?php system('uname -n')?> Cache</div>
         </h1>
         <div class="login">
         <?php put_login_link(); ?>
