@@ -630,6 +630,14 @@ body.path-grade-report-grader #user-grades {
     margin-top: 4px;
 }
 
+#page-footer .performanceinfo{
+	margin: 0;
+}
+
+#page-footer .performanceinfo .cachesused .cache-definition-stats{
+	color: black;
+}
+
 
 /* Phones and tablets */
 @media (max-width: 979px) {
