@@ -6,10 +6,15 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
+- Fixed possibility of login without https
 - Agoraportal: Increased maximum size for big files to 200MB
 
 WORDPRESS
 - Added catalan translation to Widget Visibility
+
+ZIKULA 2
+- Fixed possibility of login without https
+
 
 
 Changes 14.10.15
