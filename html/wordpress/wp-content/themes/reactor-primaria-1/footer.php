@@ -40,11 +40,12 @@ if ( is_category() or is_tag() ){
 }
 ?>
 
+
 <script type="text/javascript">
     //http://www.feedthebot.com/pagespeed/defer-loading-javascript.html
     function downloadJSAtOnload() {
         var element = document.createElement("script");
-        element.src = "wp-content/themes/reactor-primaria-1/igualaTargetes.js";
+        element.src = "<?php echo get_bloginfo('template_directory').'-primaria-1/'?>igualaTargetes.js";
         document.body.appendChild(element);
     }
     
@@ -55,6 +56,7 @@ if ( is_category() or is_tag() ){
     else window.onload = downloadJSAtOnload;
 
 </script>
+
 
 </body>
 </html>

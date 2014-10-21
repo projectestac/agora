@@ -368,7 +368,6 @@ Header
     font-size:24px;
     text-align:center;
     font-family:'Oswald'; font-weight: 300;
-    /*font-family: 'Walter Turncoat', cursive;*/
     padding:0px;
     color:white; 
     display: table-cell;
@@ -581,7 +580,7 @@ Header
 }
 
 /*****************************************************************
-Menu
+Menu principal 
 ******************************************************************/
 
 #menu-panel{
@@ -598,7 +597,6 @@ Menu
 
 .menu-item-depth-0 {
     float:left;
-    text-transform: uppercase;
     margin-left:2em;
     font-weight: bold;
     list-style-type: none;
@@ -606,14 +604,8 @@ Menu
 }
 
 .menu-item-depth-1{
-    text-transform: capitalize;
     font-weight: normal;
     list-style-type: none;
-}
-
-
-a:first-letter{
-    text-transform: uppercase !important;    
 }
 
 ul.sub-menu > li:before {    
@@ -621,7 +613,6 @@ ul.sub-menu > li:before {
     font: 11px/1 "dashicons";   
     color: #BBB; 
 }
-
 
 /*****************************************************************
 Fil d'ariadna

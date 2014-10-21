@@ -851,3 +851,37 @@ function remove_page_templates( $templates ) {
     return $templates;
 }
 add_filter( 'theme_page_templates', 'remove_page_templates' );
+
+/*
+ * Menú shortcode 
+ * 
+ * @author Xavi Meler
+ * http://www.smashingmagazine.com/2012/05/01/wordpress-shortcodes-complete-guide/
+ * 
+ * Usage: [menu name="main-menu"]
+ */
+/*
+function menu_function($atts, $content = null) {
+   extract(
+      shortcode_atts(
+         array( 'nom' => null,
+                'mostra'=>"horitzontal",
+                'nivells'=>2 ),
+         $atts
+      )
+   );
+   return wp_nav_menu(
+      array(
+          'menu' => $nom,
+          'mostra' => $mostra,
+          'echo' => false,
+          'depth'=> $nivells,
+          'walker'=> new themeslug_walker_nav_menu
+          )
+   );
+   
+}
+add_shortcode('menu', 'menu_function');
+ * 
+ */
+ 

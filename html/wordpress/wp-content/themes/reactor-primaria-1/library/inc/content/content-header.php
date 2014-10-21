@@ -149,9 +149,9 @@ function reactor_do_title_logo() { ?>
 				  <!-- Segon bloc -->
 				  <!-- small devices -->
 				  <div id="quick-call-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
-						<div class="site-quick-box-inner">  
-							<a title="Trucar" href="tel:<?php echo reactor_option('telCentre');?>"><?php echo reactor_option('telCentre');?></a>	
-						</div>
+                                        <div class="site-quick-box-inner">  
+                                                <a title="Trucar" href="tel:<?php echo reactor_option('telCentre');?>"><?php echo reactor_option('telCentre');?></a>	
+                                        </div>
 				  </div>	
 				  <div id="quick-map-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
 						<a title="Mapa" href="<?php echo reactor_option('googleMaps'); ?>">			
@@ -160,31 +160,26 @@ function reactor_do_title_logo() { ?>
 				 </div>	
 				  
 				  <!-- medium & large devices -->
-				  <div id="description-box" class="hide-for-small  site-description-box <?php reactor_columns( 6 ); ?> ">
-						<div class="site-description-box-inner">  
-						<span> 
-						<?php	
-							switch (true){
-								case is_front_page():
-								case is_single():
-								case is_page():
-									echo esc_attr( get_bloginfo( 'description', 'display' ) ); 
-									break;
-								case is_category(): 
-									echo single_cat_title( '', false ); 
-                                    echo "<style type='text/css'>.site-description-box-inner {font-size:38px;}</style>";
-									break;
-								case is_tag():
-									echo single_tag_title( '', false );
-                                    echo "<style type='text/css'>.site-description-box-inner {font-size:44px;}</style>";
-									break;
-								default:
-									echo esc_attr( get_bloginfo( 'description', 'display' ) ); 
-							}
-						?>
-						</span>
-						</div>
-					</div>	
+				  <div id="description-box" class="hide-for-small site-description-box <?php reactor_columns( 6 ); ?> ">
+				
+                                    <?php
+                                    switch (true){
+                                        case is_category():
+                                            $description = single_cat_title( '', false ); 
+                                            break;
+                                        case is_tag():
+                                             $description = single_tag_title( '', false ); 
+                                            break;
+                                        default:
+                                             $description = esc_attr( get_bloginfo( 'description', 'display' ) );
+                                    }
+                                    ?>
+                                    <div id="description-box-inner" class="site-description-box-inner">
+                                        <span>
+                                            <?php echo $description; ?>
+                                        </span>
+                                    </div>
+                                </div>	
 			</div><!-- #idcentre-box -->
 				
 				<!-- # imatge de capçalera o slider -->
@@ -300,9 +295,6 @@ function reactor_do_nav_bar() {
 	<?php }
 	}
 }
-//add_action('reactor_header_before', 'reactor_do_nav_bar', 3);
-//add_action('reactor_header_after', 'reactor_do_nav_bar', 1);
-//add_action('reactor_header_inside', 'reactor_do_nav_bar', 3);
 
 /**
  * Mobile nav
@@ -320,4 +312,4 @@ function reactor_do_mobile_nav() {
 <?php }
 }
 add_action('reactor_header_before', 'reactor_do_mobile_nav', 1);
-?>
+
