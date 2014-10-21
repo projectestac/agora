@@ -9,6 +9,17 @@
 /** WordPress Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
+
+// XTEC ************ AFEGIT - Block access to plugin management to all users but xtecadmin
+// 2014.10.21 @aginard
+global $isAgora;
+
+if ($isAgora && !is_xtecadmin()) {
+    wp_die( __( 'You do not have sufficient permissions to manage plugins for this site.' ) );
+}
+//************ FI
+
+
 if ( ! current_user_can('activate_plugins') )
 	wp_die( __( 'You do not have sufficient permissions to manage plugins for this site.' ) );
 

@@ -11,6 +11,7 @@ PORTAL
 
 WORDPRESS
 - Added catalan translation to Widget Visibility
+- Blocked access to plugin management to all users but xtecadmin
 
 ZIKULA 2
 - Fixed possibility of login without https

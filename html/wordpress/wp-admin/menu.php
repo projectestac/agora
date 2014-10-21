@@ -167,6 +167,13 @@ if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
 	$count = "<span class='update-plugins count-{$update_data['counts']['plugins']}'><span class='plugin-count'>" . number_format_i18n($update_data['counts']['plugins']) . "</span></span>";
 }
 
+// XTEC ************ AFEGIT - Block access to plugin management to all users but xtecadmin
+// 2014.10.21 @aginard
+global $isAgora;
+
+if ($isAgora && is_xtecadmin()) {
+//************ FI
+
 $menu[65] = array( sprintf( __('Plugins %s'), $count ), 'activate_plugins', 'plugins.php', '', 'menu-top menu-icon-plugins', 'menu-plugins', 'dashicons-admin-plugins' );
 
 $submenu['plugins.php'][5]  = array( __('Installed Plugins'), 'activate_plugins', 'plugins.php' );
@@ -176,6 +183,11 @@ $submenu['plugins.php'][5]  = array( __('Installed Plugins'), 'activate_plugins'
 		$submenu['plugins.php'][10] = array( _x('Add New', 'plugin'), 'install_plugins', 'plugin-install.php' );
 		$submenu['plugins.php'][15] = array( _x('Editor', 'plugin editor'), 'edit_plugins', 'plugin-editor.php' );
 	}
+
+// XTEC ************ AFEGIT - Block access to plugin management to all users but xtecadmin
+// 2014.10.21 @aginard
+}
+//************ FI
 
 unset( $update_data );
 
