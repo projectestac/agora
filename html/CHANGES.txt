@@ -14,6 +14,7 @@ WORDPRESS
 
 ZIKULA 2
 - Fixed possibility of login without https
+- IWagendas: Fixed fields not shown in shared agendas
 
 
 
