@@ -4017,27 +4017,37 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $messages = Array();
                 foreach ($sqlClients as $i => $client) {
                     //Connected
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperation',
-                            array('clientDNS' => $client['clientDNS'],
-                                'actionselect' => $actionselect,
-                                'serviceName' => $serviceName,
+                    $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+                            array('operation' => $actionselect,
+                                'clientId' => $client['clientId'],
+                                'serviceId' => $service_sel,
                                 'params' => $params
                             ));
 
-                    if ($result['success'] < 0) {
-                        $success[$i] = false;
-                        $messages[$i] = $this->__('No s\'ha pogut executar la operació');
-                        $results[$i] = implode("\n",$result['result']);
-                    } else {
+                    $success[$i] = $operation ? true : false;
+                    /*$result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId',
+                            array('opId' => $operation['id']));
+
+                    if ($result['success']) {
                         $messages[$i] = "OK";
                         $success[$i] = true;
-                        $results[$i] = implode("<br/>",$result['result']);
+                    } else {
+                        $success[$i] = false;
+                        $messages[$i] = $this->__('No s\'ha pogut executar la operació');
                     }
+                    $results[$i] = nl2br($result['result']);*/
+
                 }
                 $view->assign('which', $which);
-                $view->assign('results', $results);
                 $view->assign('success', $success);
-                $view->assign('messages', $messages);
+
+                global $agora;
+                if ($serviceName == 'portal') {
+                    $view->assign('prefix', $agora['admin']['database']);
+                } else {
+                    $view->assign('prefix', $agora['server']['userprefix']);
+                }
+
 
                 return $view->fetch('agoraportal_admin_operations_exe.tpl');
             }
@@ -4063,5 +4073,75 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $view->assign('search', $search);
         $view->assign('searchText', $searchText);
         return $view->fetch('agoraportal_admin_operations.tpl');
+    }
+
+    /**
+     * Display the queue management table
+     * @author  Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @return  Rendering of the page
+     */
+    public function queues($args) {
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        $view = Zikula_View::getInstance('Agoraportal', false);
+
+        $search = array();
+        $search['operation'] = FormUtil::getPassedValue('operation_filter', isset($args['operation_filter']) ? $args['operation_filter'] : '', 'GETPOST');
+        $view->assign('operation_filter', $search['operation']);
+
+        $search['client_type'] = FormUtil::getPassedValue('client_type', isset($args['client_type']) ? $args['client_type'] : '', 'GETPOST');
+        $view->assign('client_type', $search['client_type']);
+
+        $search['client'] = FormUtil::getPassedValue('client_filter', isset($args['client_filter']) ? $args['client_filter'] : '', 'GETPOST');
+        $view->assign('client_filter', $search['client']);
+
+        $search['priority'] = FormUtil::getPassedValue('priority_filter', isset($args['priority_filter']) ? $args['priority_filter'] : '-', 'GETPOST');
+        $view->assign('priority_filter', $search['priority']);
+
+        $search['service'] = FormUtil::getPassedValue('service_filter', isset($args['service_filter']) ? $args['service_filter'] : '', 'GETPOST');
+        $view->assign('service_filter', $search['service']);
+
+        $search['state'] = FormUtil::getPassedValue('state_filter', isset($args['state_filter']) ? $args['state_filter'] : '', 'GETPOST');
+        $view->assign('state_filter', $search['state']);
+
+        $search['timeStart'] = FormUtil::getPassedValue('date_start', isset($args['date_start']) ? $args['date_start'] : '', 'GETPOST');
+        $view->assign('date_start', $search['timeStart']);
+
+        $search['timeEnd'] = FormUtil::getPassedValue('date_stop', isset($args['date_stop']) ? $args['date_stop'] : '', 'GETPOST');
+        $view->assign('date_stop', $search['timeEnd']);
+
+        $search['sortby_dir'] = FormUtil::getPassedValue('sortby_dir', isset($args['sortby_dir']) ? $args['sortby_dir'] : 'ASC', 'GETPOST');
+        $view->assign('sortby_dir', $search['sortby_dir']);
+
+        $search['sortby'] = FormUtil::getPassedValue('sortby_filter', isset($args['sortby_filter']) ? $args['sortby_filter'] : 'timeStart', 'GETPOST');
+        $view->assign('sortby_filter', $search['sortby']);
+
+        $operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', $search);
+        foreach($operations as $operation) {
+            if(!empty($operation['params'])){
+                $operation['params'] = json_decode($operation['params']);
+            }
+        }
+        $view->assign('rows', $operations);
+
+        //TODO: pager
+        $view->assign('rowsNumber', count($operations));
+        $view->assign('pager', '');
+
+        $priority_filter_values = array();
+        $priority_filter_values['-'] = '-';
+        $i = -10;
+        while ($i <= 10) {
+            $priority_filter_values["$i"] = $i;
+            $i++;
+        }
+        $view->assign('priority_filter_values', $priority_filter_values);
+
+        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+        $view->assign('services', $services);
+
+        return $view->fetch('agoraportal_admin_queues.tpl');
     }
 }

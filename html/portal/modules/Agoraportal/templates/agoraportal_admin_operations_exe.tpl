@@ -4,7 +4,7 @@
     <div style="height:10px;">&nbsp;</div>
     <h2>{gt text="Operacio a "}{$serviceName}</h2>
        <br />
-    {gt text="Operació a executar:"}
+    {gt text="Operació a encuar:"}
     <pre>
         {$actionselect}
     </pre>
@@ -25,7 +25,6 @@
                 <tr>
                     <th>{gt text="Usu"}</th>
                     <th>{gt text="Client"}</th>
-                    <th>{gt text="Missatge"}</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,18 +40,9 @@
                     <td>
                         <a target="_blank" href="../{$client.clientDNS}/{$serviceName}">{$client.clientName}</a>
                     </td>
-                    <td>{$messages[$id]}</td>
                 </tr>
                 {/foreach}
             </tbody>
         </table>
     </div>
-
-    {foreach item=result key=id from=$results}
-    <div>
-        <h2>
-            <a name="{$prefix}{$clients[$id].activedId}" target="_blank" href="../{$clients[$id].clientDNS}/{$serviceName}">{$prefix}{$clients[$id].activedId}  {$clients[$id].clientName}</a>
-        </h2>
-        {$result}
-    {/foreach}
 </div>

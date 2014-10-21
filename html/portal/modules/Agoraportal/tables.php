@@ -184,7 +184,7 @@ function Agoraportal_tables() {
         'managerUName' => "C(15) NOTNULL DEFAULT ''",
         'verifyCode' => "C(15) NOTNULL DEFAULT ''",
         'state' => "I(1) NOTNULL DEFAULT '0'");
-    //agoraportal_mysql_comands table definition														   
+    //agoraportal_mysql_comands table definition
     $table['agoraportal_mysql_comands'] = DBUtil::getLimitedTablename('agoraportal_mysql_comands');
     $table['agoraportal_mysql_comands_column'] = array('comandId' => 'comandId',
         'serviceId' => 'serviceId',
@@ -595,5 +595,48 @@ function Agoraportal_tables() {
         'time' => "C(20) NOTNULL DEFAULT ''",
     );
 
+    // agoraportal_queues definition
+    $table['agoraportal_queues'] = DBUtil::getLimitedTablename('agoraportal_queues');
+    $table['agoraportal_queues_column'] = array(
+        'id' => 'id',
+        'operation' => 'operation',
+        'clientId' => 'clientId',
+        'serviceId' => 'serviceId',
+        'priority' => 'priority',
+        'state' => 'state',
+        'timeStart' => 'timeStart',
+        'timeEnd' => 'timeEnd',
+        'params' => 'params',
+        'logId' => 'logId'
+    );
+
+    $table['agoraportal_queues_column_def'] = array(
+        'id' => "I NOTNULL AUTO PRIMARY",
+        'operation' => "C(100) NOTNULL",
+        'clientId' => "I NOTNULL",
+        'serviceId' => "I NOTNULL",
+        'priority' => "I(25) NOTNULL DEFAULT '0'",
+        'state' => "C(2) NOTNULL DEFAULT 'P'",
+        'timeStart' => "I(20)",
+        'timeEnd' => "I(20)",
+        'params' => "C(255) NOTNULL DEFAULT ''",
+        'logId' => "I NOTNULL DEFAULT '0'"
+    );
+
+    // agoraportal_queues_log definition
+    $table['agoraportal_queues_log'] = DBUtil::getLimitedTablename('agoraportal_queues_log');
+    $table['agoraportal_queues_log_column'] = array(
+        'id' => 'id',
+        'content' => 'content',
+        'timeModified' => 'timeModified'
+    );
+
+    $table['agoraportal_queues_log_column_def'] = array(
+        'id' => "I NOTNULL AUTO PRIMARY",
+        'content' => "X NOTNULL DEFAULT ''",
+        'timeModified' => "C(20) NOTNULL DEFAULT ''"
+    );
+
     return $table;
 }
+

@@ -1808,6 +1808,96 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
+     * Adds operation to the queue
+     * @author Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @return  object created
+     */
+    public function addOperation($args) {
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        if(!isset($args['operation']) || empty($args['operation']) ||
+            !isset($args['clientId']) || empty($args['clientId'])||
+            !isset($args['serviceId']) || empty($args['serviceId'])){
+                return false;
+        }
+
+        $operation = array();
+        $operation['operation'] = $args['operation'];
+        $operation['clientId'] = $args['clientId'];
+        $operation['serviceId'] = $args['serviceId'];
+        $operation['state'] = 'P';
+        $operation['params'] = json_encode($args['params']);
+        $operation = DBUtil::insertObject($operation, 'agoraportal_queues');
+        return $operation;
+    }
+
+    /**
+     * Execute operations to a service
+     *
+     * @author Pau Ferrer Ocaña (pferre22@xtec.cat)
+     *
+     * @return  Success
+     */
+    public function executeOperationId($args) {
+        $opId = $args['opId'];
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $operation = DBUtil::selectObjectByID('agoraportal_queues', $opId);
+
+        if ($operation) {
+            $operation['timeStart'] = time();
+            $operation['state'] = 'L';
+            DBUtil::updateObject($operation, 'agoraportal_queues');
+
+            $client = DBUtil::selectObjectByID('agoraportal_clients', $operation['clientId'], 'clientId');
+            if ($client) {
+                $service = DBUtil::selectObjectByID('agoraportal_services', $operation['serviceId'], 'serviceId');
+                if ($service) {
+
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperation',
+                                    array('clientDNS' => $client['clientDNS'],
+                                        'operation' => $operation['operation'],
+                                        'serviceName' => $service['serviceName'],
+                                        'params' => json_decode($operation['params'])
+                                    ));
+                    $success = $result['success'];
+                    $message = $result['result'];
+                } else {
+                    $success = false;
+                    $message = 'Service '.$operation['serviceId'].' not found';
+                }
+            } else {
+                $success = false;
+                $message = 'Client '.$operation['clientId'].' not found';
+            }
+
+            $timeend = time();
+            // Record Log
+            $log = array();
+            $log['contents'] = $message;
+            $log['timeModified'] = $timeend;
+            if ($operation['logId'] > 0) {
+                $log['id'] = $operation['logId'];
+                DBUtil::updateObject($log, 'agoraportal_queues_log');
+            } else {
+                $log = DBUtil::insertObject($log, 'agoraportal_queues_log');
+            }
+
+            $operation['logId'] = $log['id'];
+            $operation['state'] = $success ?  'OK' : 'KO';
+            $operation['timeEnd'] = $timeend;
+            DBUtil::updateObject($operation, 'agoraportal_queues');
+
+            return array('success' => $success, 'result' => $message);
+        }
+        return false;
+    }
+
+    /**
      * Execute operations to a service
      *
      * @author Pau Ferrer Ocaña (pferre22@xtec.cat)
@@ -1815,7 +1905,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @return  Array with success 0 or 1, errorMsg with the error text or '' and values in select commands
      */
     public function executeOperation($args) {
-        $actionselect = $args['actionselect'];
+        $operation = $args['operation'];
         $serviceName = $args['serviceName'];
         $clientDNS = $args['clientDNS'];
         $params = $args['params'];
@@ -1832,10 +1922,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         switch ($serviceName) {
             case 'moodle2':
                 $params['ccentre'] = $clientDNS;
-                $command = $dirbase.'/moodle2/local/agora/scripts/cli.php -s='.$actionselect;
+                $command = $dirbase.'/moodle2/local/agora/scripts/cli.php -s='.$operation;
                 break;
             default:
-                return array('success' => $success, 'result' => $result);
+                return array('success' => $success, 'result' => 'Operations are not allowed for this service');
                 break;
         }
 
@@ -1849,7 +1939,109 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         exec($command, $result, $success);
 
+        $success = $result['success'] >= 0;
+        $result = implode("\n", $result);
         return array('success' => $success, 'result' => $result);
+    }
+
+    public function getOperations($args) {
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        $tables = DBUtil::getTables();
+        $c = $tables['agoraportal_queues_column'];
+        $a = $tables['agoraportal_clients_column'];
+
+        $orderdir = !empty($args['sortby_dir']) ? $args['sortby_dir'] : '';
+        $orderby = !empty($args['sortby']) ? $args['sortby'] : 'timeStart ASC, priority DESC';
+        switch($orderby){
+            case 'clientName':
+            case 'clientDNS':
+                $orderby = "a.$orderby $orderdir";
+                break;
+            case 'serviceId':
+                $orderby = "b.$orderby $orderdir";
+                break;
+            default:
+                $orderby = "tbl.$orderby $orderdir";
+                break;
+        }
+
+
+        $wheres = array();
+        $joins = array();
+        $joins[] = array('join_table' => 'agoraportal_clients',
+            'join_field' => array('clientName', 'clientDNS'),
+            'object_field_name' => array('clientName', 'clientDNS'),
+            'compare_field_table' => 'clientId',
+            'compare_field_join' => 'clientId');
+
+        $joins[] = array('join_table' => 'agoraportal_services',
+            'join_field' => array('serviceName'),
+            'object_field_name' => array('serviceName'),
+            'compare_field_table' => 'serviceId',
+            'compare_field_join' => 'serviceId');
+
+        if (!empty($args['operation'])) {
+            $where[] = "$c[operation] = '$args[operation]'";
+        }
+
+        if ($args['priority'] != '-') {
+            $where[] = "$c[priority] = $args[priority]";
+        }
+
+        if (!empty($args['service'])) {
+            $where[] = "tbl.$c[serviceId] = $args[service]";
+        }
+
+        if (!empty($args['client'])) {
+            switch($args['client_type']){
+                case 'clientCode':
+                    $where[] = "a.$a[clientCode] LIKE '%$args[client]%'";
+                    break;
+                case 'clientName':
+                    $where[] = "a.$a[clientName] LIKE '%$args[client]%'";
+                    break;
+                case 'clientCity':
+                    $where[] = "a.$a[clientCity] LIKE '%$args[client]%'";
+                    break;
+                case 'clientDNS':
+                    $where[] = "a.$a[clientDNS] LIKE '%$args[client]%'";
+                    break;
+                case 'clientId':
+                    $where[] = "tbl.$c[clientId] = $args[client]";
+                    break;
+            }
+        }
+
+        if (!empty($args['state'])) {
+            $states = explode(',', $args['state']);
+            $states_where = array();
+            foreach ($states as $state) {
+                $states_where[] = "$c[state] = '$state'";
+            }
+            $where[] = '('.implode(' OR ', $states_where).')';
+        }
+
+        if (!empty($args['timeStart'])) {
+            $timestart = strtotime($args['timeStart']);
+        } else {
+            $timestart = strtotime(date('Y-m-d'));
+        }
+        //$where[] = "tbl.$c[timeStart] >= $timestart";
+
+        if (!empty($args['timeEnd'])) {
+            $timeend = strtotime($args['timeEnd']);
+        } else {
+            $timeend = strtotime(date('Y-m-d', strtotime('+2 weeks')));
+        }
+        //$where[] = "tbl.$c[timeStart] <= $timeend";
+
+        $where = implode(' AND ', $where);
+        $items = DBUtil::selectExpandedObjectArray('agoraportal_queues', $joins,  $where, $orderby);
+
+        return $items;
     }
 
     /**

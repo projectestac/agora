@@ -104,7 +104,8 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'stats')) . "\">" . __('Estadístiques') . "</a> " . $params['separator'];
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'config')) . "\">" . __('Configuració') . "</a> " . $params['separator'];
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'requestsList')) . "\">" . __('Sol·licituds') . "</a> " . $params['separator'];
-        $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'operations')) . "\">" . __('Operacions') . "</a> ";
+        $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'operations')) . "\">" . __('Operacions') . "</a> " . $params['separator'];
+        $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'admin', 'queues')) . "\">" . __('Cues') . "</a> ";
         $AgoraportalMenuLinks .= $params['end'] . "</span>\n";
         $AgoraportalMenuLinks .= '</div>';
     }

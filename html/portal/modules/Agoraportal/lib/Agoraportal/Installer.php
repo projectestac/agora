@@ -8,7 +8,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
      *
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @author Toni Ginard
-     * 
+     *
      * @return bool true if successful, false otherwise
      */
     public function Install() {
@@ -34,6 +34,10 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         if (!DBUtil::createTable('agoraportal_requestTypesServices'))
             return false;
         if (!DBUtil::createTable('agoraportal_logs'))
+            return false;
+        if (!DBUtil::createTable('agoraportal_queues'))
+            return false;
+        if (!DBUtil::createTable('agoraportal_queues_log'))
             return false;
 
         // Do not stop in case of error
@@ -192,13 +196,18 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
                  * afegir una comprovació amb DBUtil::metaIndexes per saber
                  * si s'han de tornar a crear. */
+            case '2.0.9':
+                if (!DBUtil::createTable('agoraportal_queues'))
+                    return false;
+                if (!DBUtil::createTable('agoraportal_queues_log'))
+                    return false;
         }
         return true;
     }
 
     /**
      * Checks if service moodle2 is present
-     * 
+     *
      * @author Toni Ginard
      *
      * @return boolean
@@ -223,7 +232,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
 
     /**
      * Add service moodle2 to table agoraportal_services
-     * 
+     *
      * @author Toni Ginard
      *
      * @return boolean
@@ -246,7 +255,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
     }
     /**
      * Checks if service nodes is present
-     * 
+     *
      * @author Toni Ginard
      *
      * @return boolean
@@ -271,7 +280,7 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
 
     /**
      * Add service nodes to table agoraportal_services
-     * 
+     *
      * @author Toni Ginard
      *
      * @return boolean
