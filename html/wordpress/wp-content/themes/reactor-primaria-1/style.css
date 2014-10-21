@@ -329,7 +329,7 @@ Header
 
 #idcentre-box{
     padding:0px;
-    background-color: #0eb1ff;
+    background-color:#0eb1ff;
 
 }
 
@@ -911,24 +911,19 @@ Media
 
 /*Small devices*/
 @media screen and (max-width: 782px) {
-
     #wp-admin-bar-recursosXTEC
     {
         display: none !important;
     }
-
     #content {
         margin:0;
     }
-
     #page{
         padding-top: 18px;
     }
-
     menu-item-depth-0 {
         clear:both;
     }
-    
 }
 
 /* Large devices*/
@@ -941,30 +936,31 @@ Media
     #logogencat { 
         vertical-align: baseline;
     }
+}
 
-    /*TODO: Fer per a totes les resolucions*/
-    @media screen and (device-aspect-ratio: 5/4) {
+/*TODO: Fer per a totes les resolucions*/
+@media screen and (min-width: 782px) and (device-aspect-ratio: 5/4) {
 
-        .site-header,
-        .site-identity,
-        .site-logo,
-        .site-description-box,
-        .site-slider,
-        #slider-box,
-        .site-icones {
-            height:10.2em;
-            overflow:hidden;
-        }
-
-        .icon-graella {
-            height:5.1em;
-        }
-
-        .icon-graella > .dashicons,
-        .site-quick-box-inner > .dashicons
-        {
-            font-size: 2em;
-            line-height: 2em;
-        }
-
+    .site-header,
+    .site-identity,
+    .site-logo,
+    .site-description-box,
+    .site-slider,
+    #slider-box,
+    .site-icones {
+        height:10.2em;
+        overflow:hidden;
     }
+
+    .icon-graella {
+        height:5.1em;
+    }
+
+    .icon-graella > .dashicons,
+    .site-quick-box-inner > .dashicons
+    {
+        font-size: 2em;
+        line-height: 2em;
+    }
+
+}

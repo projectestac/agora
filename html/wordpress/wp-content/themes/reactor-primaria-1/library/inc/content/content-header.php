@@ -134,30 +134,28 @@ function reactor_do_title_logo() { ?>
 	<div id="inner-header" class="inner-header">
 		<div class="row">
 		<div class="column">	
-		 
-			
 			<div id="idcentre-box" class="<?php reactor_columns(array( 3, 12 ));?>">   
-				
-			  	<!-- Primer bloc: text o logo -->
-			  	<a href=<?php echo home_url();?> >
-			  	<div  id="logo-box" class="site-logo <?php reactor_columns(array( 6, 8 ));?>">                     		
-                		<div class="site-logo-inner" style="font-size:<?php echo reactor_option('tamany_font_nom');?>"> 
-	                		<?php echo esc_attr( get_bloginfo( 'name', 'display' ) );?>					
-				</div><!-- .site-logo-inner -->						
-				  </div> <!-- #logo-box .site-logo -->
-				</a>
-				  <!-- Segon bloc -->
-				  <!-- small devices -->
-				  <div id="quick-call-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
-                                        <div class="site-quick-box-inner">  
-                                                <a title="Trucar" href="tel:<?php echo reactor_option('telCentre');?>"><?php echo reactor_option('telCentre');?></a>	
-                                        </div>
-				  </div>	
-				  <div id="quick-map-box" class="show-for-small site-quick-box <?php reactor_columns( array( 4, 4 ) ); ?> ">
-						<a title="Mapa" href="<?php echo reactor_option('googleMaps'); ?>">			
-<div class="site-quick-map-box-inner">&nbsp;</div>
-							</a>	
-				 </div>	
+				<!-- Primer bloc: text o logo -->
+                                <a href=<?php echo home_url(); ?> >
+                                        <div  id="logo-box" class="site-logo <?php reactor_columns(array(6, 8)); ?>">                     		
+                                            <div class="site-logo-inner" style="font-size:<?php echo reactor_option('tamany_font_nom'); ?>"> 
+                                                <?php echo esc_attr(get_bloginfo('name', 'display')); ?>					
+                                            </div><!-- .site-logo-inner -->						
+                                        </div> <!-- #logo-box .site-logo -->
+                                </a>
+                                
+                                <!-- Segon bloc: Descripció -->
+                                <!-- small devices -->
+                                <div id="quick-call-box" class="show-for-small site-quick-box <?php reactor_columns(array(4, 4)); ?> ">
+                                    <div class="site-quick-box-inner">  
+                                        <a title="Trucar" href="tel:<?php echo reactor_option('telCentre'); ?>"><?php echo reactor_option('telCentre'); ?></a>	
+                                    </div>
+                                </div>	
+                                <div id="quick-map-box" class="show-for-small site-quick-box <?php reactor_columns(array(4, 4)); ?> ">
+                                    <a title="Mapa" href="<?php echo reactor_option('googleMaps'); ?>">			
+                                        <div class="site-quick-map-box-inner">&nbsp;</div>
+                                    </a>	
+                                </div>	
 				  
 				  <!-- medium & large devices -->
 				  <div id="description-box" class="hide-for-small site-description-box <?php reactor_columns( 6 ); ?> ">
@@ -173,8 +171,11 @@ function reactor_do_title_logo() { ?>
                                         default:
                                              $description = esc_attr( get_bloginfo( 'description', 'display' ) );
                                     }
+                                    
+                                    $descriptionFontSize=getDescriptionFontSize($description);
+                                    
                                     ?>
-                                    <div id="description-box-inner" class="site-description-box-inner">
+                                    <div style="font-size:<?php echo $descriptionFontSize;?>" id="description-box-inner" class="site-description-box-inner">
                                         <span>
                                             <?php echo $description; ?>
                                         </span>

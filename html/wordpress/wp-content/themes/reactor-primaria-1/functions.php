@@ -884,4 +884,40 @@ function menu_function($atts, $content = null) {
 add_shortcode('menu', 'menu_function');
  * 
  */
+
+/*
+ * Determina la mida de la font de la caixa descripció en funció del nombre de 
+ * paraules i de la mida de cada paraula
+ * 
+ * Si hi ha una paraula molt llarga, redueix la font a 1.5em
+ * Si hi ha més de 3 paraules, redueix a 1.8em
+ * Si hi ha més de 8 paraules, redueix a 1.5em
+ * Paraula mitja: 5 caràcteres/paraula
+ * 
+ * @author Xavi Meler
+ * 
+ */
  
+function getDescriptionFontSize($description){
+    
+    $description_len = strlen($description);
+    $aDescription = explode(" ",$description);
+    
+    foreach ($aDescription as $word) {
+        if (strlen($word) > 10)
+            return "1.5em";
+    }
+    
+    switch (true) {
+        case $description_len <= 15: //3 paraules aprox. Paraula mitja: 5caracters
+            $fontSize = "3em";
+            break;
+        case 15 < $description_len && $description_len <= 40:
+            $fontSize = "1.8em";
+            break;
+        case $description_len > 40:
+            $fontSize = "1.5em";
+            break;
+    }
+    return $fontSize;
+}
