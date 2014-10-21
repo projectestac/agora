@@ -63,7 +63,7 @@ p {
 }
 
 .userForm{
-    margin: 20px;	
+    margin: 20px;
 }
 
 .userFormHeader{
@@ -189,7 +189,7 @@ h2#menuuserfiles a {
     float: left;
     margin: 5px;
     margin-bottom: 15px;
-    padding: 10px; 
+    padding: 10px;
     border: 1px solid #9BB8D9;
     background-color: #E6E6FF;
     color: #27427D;
@@ -328,7 +328,7 @@ table.logtable td.autor{
 }
 
 .form_up fieldset, .form_down fieldset{
-    margin:0;	
+    margin:0;
 }
 
 .clear{
@@ -337,7 +337,7 @@ table.logtable td.autor{
 }
 
 .hidden{
-    display: none; 
+    display: none;
 }
 
 .intranet {
@@ -353,6 +353,14 @@ table.logtable td.autor{
 .marsupial {
     width: 40px;
     float: left;
+}
+
+.actions img{
+    cursor: pointer;
+}
+
+.z-alert .z-window-header{
+    color: white;
 }
 
 /*******************************************************************************/

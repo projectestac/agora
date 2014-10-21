@@ -67,7 +67,6 @@ function sqlservicesList() {
         // Service = 0 is a fake service to refer to the portal
         if (service != 0) {
             var pars = "module=Agoraportal&func=sqlservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include;
-            console.log(pars);
             Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
             var myAjax = new Ajax.Request("ajax.php",
             {
@@ -1236,4 +1235,59 @@ function deleteFileM2x_response(req) {
 }
 
 function deleteFileM2x_failure() {
+}
+
+
+function operations_show_params(text){
+    Zikula.UI.Alert(text,'Paràmetres');
+}
+
+function operations_show_log(logId){
+    var pars = "module=Agoraportal&func=showOperationLog&log="+ logId;
+    var myAjax = new Ajax.Request("ajax.php",
+    {
+        method: 'get',
+        parameters: pars,
+        onComplete: operations_show_log_complete,
+        onFailure: operations_failure
+    });
+
+    return false;
+}
+
+function operations_show_log_complete(req){
+    if (req.status != 200 ) {
+        pnshowajaxerror(req.responseText);
+        return;
+    }
+    var json = pndejsonize(req.responseText);
+    console.log(json);
+    Zikula.UI.Alert(json.data,'Registre');
+}
+
+
+function operations_execute(id){
+    var pars = "module=Agoraportal&func=executeOperationId&operation=" + id;
+    var myAjax = new Ajax.Request("ajax.php",
+    {
+        method: 'get',
+        parameters: pars,
+        onComplete: operations_execute_complete,
+        onFailure: operations_failure
+    });
+
+    return false;
+}
+
+function operations_execute_complete(req){
+    if (req.status != 200 ) {
+        pnshowajaxerror(req.responseText);
+        return;
+    }
+    var json = pndejsonize(req.responseText);
+    Zikula.UI.Alert(json.data,'Executa');
+}
+
+function operations_failure(){
+    Zikula.UI.Alert("Revisa els resultats",'Error');
 }

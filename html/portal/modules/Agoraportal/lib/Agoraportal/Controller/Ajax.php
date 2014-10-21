@@ -588,4 +588,27 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         return (count(scandir($dir)) == 2);
     }
 
+    public function showOperationLog($args) {
+        $logid = FormUtil::getPassedValue('log', -1, 'GET');
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $log = DBUtil::selectObjectByID('agoraportal_queues_log', $logid);
+
+        if ($log) {
+            return $log['content'];
+        }
+
+        return 'No hi ha registre';
+    }
+
+    public function executeOperationId($args) {
+        $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operationid));
+
+        return $result['result'];
+    }
+
 }

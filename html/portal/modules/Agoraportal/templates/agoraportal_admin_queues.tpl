@@ -63,6 +63,7 @@
         <table class="z-datatable">
             <thead>
                 <tr>
+                    <th>{gt text="id"}</th>
                     <th>{gt text="Operació"}</th>
                     <th align="center">{gt text="Client"}</th>
                     <th align="center">{gt text="Servei"}</th>
@@ -82,6 +83,7 @@
                     {else}
                         <tr class="{cycle values="z-odd,z-even"}">
                     {/if}
+                        <td align="center" valign="top">{$row.id}</td>
                         <td align="left" valign="top">{$row.operation}</td>
                         <td align="center" valign="top">
                             <a target="_blank" href="../{$row.clientDNS}/{$row.serviceName}">
@@ -104,22 +106,24 @@
                         </td>
                         <td align="center" valign="top">{$row.timeStart|date_format:"%d/%m/%Y - %H:%M:%S"}</td>
                         <td align="center" valign="top">{$row.timeEnd|date_format:"%d/%m/%Y - %H:%M:%S"}</td>
-                        <td align="center" valign="top">
+                        <td align="center" valign="top" class="actions">
                         {if $row.params != ''}
-                            {img title="Paràmetres" modname='core' src='package_graphics.png' set='icons/small'}
+                            {assign var="text" value=""}
+                            {foreach item=val key=k from=$row.params}
+                                {assign var="text" value="`$text``$k`=`$val`"}
+                            {/foreach}
+                            <img title="Paràmetres" src='images/icons/small/package_graphics.png' onclick="operations_show_params('{$text}');"/>
                         {/if}
-                        {if $row.state == 'OK'}
-                            {img title="Registre" modname='core' src='db.png' set='icons/small'}
-                        {elseif $row.state == 'KO'}
-                            {img title="Registre" modname='core' src='db.png' set='icons/small'}
-                            {img title="Executa de nou" modname='core' src='reload.png' set='icons/small'}
-                        {elseif $row.state == 'L'}
-                            ...
+
+                        {if $row.logId != 0}
+                            <img title="Registre" src='images/icons/small/db.png' onclick="operations_show_log('{$row.logId}');"/>
+                        {/if}
+
+                        {if $row.state == 'KO'}
+                            <img title="Executa de nou" src='images/icons/small/reload.png' onclick="operations_execute('{$row.id}');"/>
                         {elseif $row.state == 'P'}
-                            {img title="Executa ara" modname='core' src='cache.png' set='icons/small'}
+                            <img title="Executa ara" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
                             {img title="Canvia la prioritat" modname='core' src='2uparrow.png' set='icons/small'}
-                        {else}
-                            ...
                         {/if}
                         </td>
                     </tr>
@@ -128,5 +132,3 @@
         </table>
     </div>
 </div>
-
-

@@ -1827,7 +1827,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $operation['clientId'] = $args['clientId'];
         $operation['serviceId'] = $args['serviceId'];
         $operation['state'] = 'P';
-        $operation['params'] = json_encode($args['params']);
+        $operation['params'] = $args['params'] ? json_encode($args['params']) : '';
         $operation = DBUtil::insertObject($operation, 'agoraportal_queues');
         return $operation;
     }
@@ -1878,7 +1878,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $timeend = time();
             // Record Log
             $log = array();
-            $log['contents'] = $message;
+            $log['content'] = $message;
             $log['timeModified'] = $timeend;
             if ($operation['logId'] > 0) {
                 $log['id'] = $operation['logId'];
@@ -1984,33 +1984,33 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             'compare_field_join' => 'serviceId');
 
         if (!empty($args['operation'])) {
-            $where[] = "$c[operation] = '$args[operation]'";
+            $wheres[] = "$c[operation] = '$args[operation]'";
         }
 
         if ($args['priority'] != '-') {
-            $where[] = "$c[priority] = $args[priority]";
+            $wheres[] = "$c[priority] = $args[priority]";
         }
 
         if (!empty($args['service'])) {
-            $where[] = "tbl.$c[serviceId] = $args[service]";
+            $wheres[] = "tbl.$c[serviceId] = $args[service]";
         }
 
         if (!empty($args['client'])) {
             switch($args['client_type']){
                 case 'clientCode':
-                    $where[] = "a.$a[clientCode] LIKE '%$args[client]%'";
+                    $wheres[] = "a.$a[clientCode] LIKE '%$args[client]%'";
                     break;
                 case 'clientName':
-                    $where[] = "a.$a[clientName] LIKE '%$args[client]%'";
+                    $wheres[] = "a.$a[clientName] LIKE '%$args[client]%'";
                     break;
                 case 'clientCity':
-                    $where[] = "a.$a[clientCity] LIKE '%$args[client]%'";
+                    $wheres[] = "a.$a[clientCity] LIKE '%$args[client]%'";
                     break;
                 case 'clientDNS':
-                    $where[] = "a.$a[clientDNS] LIKE '%$args[client]%'";
+                    $wheres[] = "a.$a[clientDNS] LIKE '%$args[client]%'";
                     break;
                 case 'clientId':
-                    $where[] = "tbl.$c[clientId] = $args[client]";
+                    $wheres[] = "tbl.$c[clientId] = $args[client]";
                     break;
             }
         }
@@ -2021,7 +2021,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             foreach ($states as $state) {
                 $states_where[] = "$c[state] = '$state'";
             }
-            $where[] = '('.implode(' OR ', $states_where).')';
+            $wheres[] = '('.implode(' OR ', $states_where).')';
         }
 
         if (!empty($args['timeStart'])) {
@@ -2029,16 +2029,16 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         } else {
             $timestart = strtotime(date('Y-m-d'));
         }
-        //$where[] = "tbl.$c[timeStart] >= $timestart";
+        //$wheres[] = "tbl.$c[timeStart] >= $timestart";
 
         if (!empty($args['timeEnd'])) {
             $timeend = strtotime($args['timeEnd']);
         } else {
             $timeend = strtotime(date('Y-m-d', strtotime('+2 weeks')));
         }
-        //$where[] = "tbl.$c[timeStart] <= $timeend";
+        //$wheres[] = "tbl.$c[timeStart] <= $timeend";
 
-        $where = implode(' AND ', $where);
+        $where = implode(' AND ', $wheres);
         $items = DBUtil::selectExpandedObjectArray('agoraportal_queues', $joins,  $where, $orderby);
 
         return $items;

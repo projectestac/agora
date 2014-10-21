@@ -4025,18 +4025,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             ));
 
                     $success[$i] = $operation ? true : false;
-                    /*$result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId',
-                            array('opId' => $operation['id']));
-
-                    if ($result['success']) {
-                        $messages[$i] = "OK";
-                        $success[$i] = true;
-                    } else {
-                        $success[$i] = false;
-                        $messages[$i] = $this->__('No s\'ha pogut executar la operació');
-                    }
-                    $results[$i] = nl2br($result['result']);*/
-
                 }
                 $view->assign('which', $which);
                 $view->assign('success', $success);
