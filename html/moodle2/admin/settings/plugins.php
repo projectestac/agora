@@ -277,10 +277,6 @@ if ($hassiteconfig) {
     }
 
 /// Web services
-    //XTEC ************ AFEGIT - To let access only to xtecadmin user
-    //2012.08.20  @sarjona
-    if (get_protected_agora() ) {
-    //************ FI    
     $ADMIN->add('modules', new admin_category('webservicesettings', new lang_string('webservices', 'webservice')));
     // Mobile
     $temp = new admin_settingpage('mobile', new lang_string('mobile','admin'), 'moodle/site:config', false);
@@ -291,6 +287,10 @@ if ($hassiteconfig) {
             new lang_string('configenablemobilewebservice', 'admin', $enablemobiledoclink), 0));
     $temp->add(new admin_setting_configtext('mobilecssurl', new lang_string('mobilecssurl', 'admin'), new lang_string('configmobilecssurl','admin'), '', PARAM_URL));
     $ADMIN->add('webservicesettings', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI
     /// overview page
     $temp = new admin_settingpage('webservicesoverview', new lang_string('webservicesoverview', 'webservice'));
     $temp->add(new admin_setting_webservicesoverview());
@@ -340,8 +340,8 @@ if ($hassiteconfig) {
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.08.20  @sarjona
     }
-    //************ FI    
-    
+    //************ FI
+
 }
 
 // Question type settings
