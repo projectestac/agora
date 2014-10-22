@@ -264,6 +264,15 @@ class SlideshowPluginPostType
 
 		// End list
 		echo '</div>';
+                
+                // XTEC ************ AFEGIT - get slides from picasa
+                // 2014.10.22 @jmeler
+                
+                echo '<hr><p>
+			Picasa album RSS:<input type="text" name="picasa_album" value='.get_post_meta( $post->ID, "picasa_album", true ).'><br>
+                </p>';
+                
+                //************ FI
 
 		// Templates
 		SlideshowPluginSlideshowSlide::getBackEndTemplates(false);
