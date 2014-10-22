@@ -89,7 +89,6 @@ class script_health extends agora_script_base{
 
 			$memcaches = $instance->get_connections();
 			print_collapsible_region_start('', 'memcache',$OUTPUT->heading('Memcache'), '', true);
-			echo 'Memcache purgenumber: '.$instance->get_purgenumber();
 			foreach($memcaches as $memcache){
 				$stats = $memcache->getExtendedStats();
 				print_object($stats);
@@ -122,7 +121,12 @@ class script_health extends agora_script_base{
 
 		//variable cfg
 		print_collapsible_region_start('', 'cfg',$OUTPUT->heading('Variable $CFG'), '', true);
-		print_object($CFG);
+		$cf = $CFG;
+		unset($cf->dbpass);
+		if(isset($cf->config_php_settings) && isset($cf->config_php_settings['dbpass'])){
+			unset($cf->config_php_settings['dbpass']);
+		}
+		print_object($cf);
 		print_collapsible_region_end();
 
 		echo '<br/>';

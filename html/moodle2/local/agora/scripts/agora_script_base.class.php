@@ -121,10 +121,6 @@ class agora_script_base{
         if (!is_siteadmin()) {
             return false;
         }
-        $mainadmin = get_admin();
-        if($USER->id != $mainadmin->id){
-        	return false;
-        }
         return true;
 	}
 
