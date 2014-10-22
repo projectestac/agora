@@ -26,12 +26,89 @@ function gce_upgrade() {
 		if( version_compare( $version, '2.0.0-beta1', '<' ) && false === get_option( 'gce_upgrade_has_run' ) ) {
 			gce_v2_upgrade();
 		}
+		
+		// Version 2.0.4 upgrade
+		if( version_compare( $version, '2.0.4', '<' ) ) {
+			gce_v204_upgrade();
+		}
+		
+		// Version 2.0.6 upgrade
+		if( version_compare( $version, '2.0.6', '<' ) ) {
+			gce_v206_upgrade();
+		}
 	}
 	
 	$new_version = Google_Calendar_Events::get_instance()->get_plugin_version();
 	update_option( 'gce_version', $new_version );
 	
 	add_option( 'gce_upgrade_has_run', 1 );
+}
+
+/*
+ * Run the upgrade to version 2.0.6
+ * 
+ * @since 2.0.4
+ */
+function gce_v206_upgrade() {
+	
+	// Update feeds
+	$q = new WP_Query( 'post_type=gce_feed' );
+	
+	if( $q->have_posts() ) {
+		while( $q->have_posts() ) {
+			$q->the_post();
+			
+			update_post_meta( get_the_ID(), 'gce_feed_start', '1' );
+			update_post_meta( get_the_ID(), 'gce_feed_start_interval', 'months' );
+			update_post_meta( get_the_ID(), 'gce_feed_end', '2' );
+			update_post_meta( get_the_ID(), 'gce_feed_end_interval', 'years' );
+		}
+	}
+}
+
+/*
+ * Run the upgrade to version 2.0.4
+ * 
+ * @since 2.0.4
+ */
+function gce_v204_upgrade() {
+	
+	// Update feeds
+	$q = new WP_Query( 'post_type=gce_feed' );
+	
+	if( $q->have_posts() ) {
+		while( $q->have_posts() ) {
+			$q->the_post();
+			
+			update_post_meta( get_the_ID(), 'gce_paging', '1' );
+			update_post_meta( get_the_ID(), 'gce_list_max_num', '7' );
+			update_post_meta( get_the_ID(), 'gce_list_max_length', 'days' );
+			update_post_meta( get_the_ID(), 'gce_list_start_offset_num', '0' );
+			update_post_meta( get_the_ID(), 'gce_list_start_offset_direction', 'back' );
+		}
+	}
+	
+
+	// Update widgets
+	$widget = get_option( 'widget_gce_widget' );
+	
+	if( is_array( $widget ) && ! empty( $widget ) ) {
+		foreach( $widget as $a => $b ) {
+			if( ! is_array( $b ) ) {
+				continue;
+			} 
+
+			foreach( $b as $k => $v ) {
+				$widget[$a]['paging']                      = '1';
+				$widget[$a]['list_max_num']                = '7';
+				$widget[$a]['list_max_length']             = 'days';
+				$widget[$a]['list_start_offset_num']       = '0';
+				$widget[$a]['list_start_offset_direction'] = 'back';
+			}
+		}
+		
+		update_option( 'widget_gce_widget', $widget );
+	}
 }
 
 /*
@@ -43,9 +120,11 @@ function gce_v2_upgrade() {
 	$old_options = get_option( 'gce_options' );
 	
 	if( false !== $old_options ) {
-	
-		foreach( $old_options as $key => $value ) {
-			convert_to_cpt_posts( $value );
+		
+		if( ! empty( $old_options ) ) {
+			foreach( $old_options as $key => $value ) {
+				convert_to_cpt_posts( $value );
+			}
 		}
 
 		update_widget_feed_ids();
@@ -216,9 +295,9 @@ function update_widget_feed_ids() {
 
 				$id = $v;
 				
-				$multi = str_replace( ' ', '', $v );
+				//$multi = str_replace( ' ', '', $v );
 				
-				$multi = explode( ',', $id );
+				$multi = explode( ',', str_replace( ' ', '', $id ) );
 				
 				if( is_array( $multi ) ) {
 					

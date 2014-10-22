@@ -19,19 +19,35 @@
 	}
 	
 	// Load up all post meta data
-	$gce_feed_url         = get_post_meta( $post->ID, 'gce_feed_url', true );
-	$gce_retrieve_from    = get_post_meta( $post->ID, 'gce_retrieve_from', true );
-	$gce_retrieve_until   = get_post_meta( $post->ID, 'gce_retrieve_until', true );
-	$gce_retrieve_max     = get_post_meta( $post->ID, 'gce_retrieve_max', true );
-	$gce_date_format      = get_post_meta( $post->ID, 'gce_date_format', true );
-	$gce_time_format      = get_post_meta( $post->ID, 'gce_time_format', true );
-	$gce_cache            = get_post_meta( $post->ID, 'gce_cache', true );
-	$gce_multi_day_events = get_post_meta( $post->ID, 'gce_multi_day_events', true );
-	$gce_display_mode     = get_post_meta( $post->ID, 'gce_display_mode', true );
-	$gce_custom_from      = get_post_meta( $post->ID, 'gce_custom_from', true );
-	$gce_custom_until     = get_post_meta( $post->ID, 'gce_custom_until', true );
-	$gce_search_query     = get_post_meta( $post->ID, 'gce_search_query', true );
-	$gce_expand_recurring = get_post_meta( $post->ID, 'gce_expand_recurring', true );
+	$gce_feed_url                    = get_post_meta( $post->ID, 'gce_feed_url', true );
+	$gce_date_format                 = get_post_meta( $post->ID, 'gce_date_format', true );
+	$gce_time_format                 = get_post_meta( $post->ID, 'gce_time_format', true );
+	$gce_cache                       = get_post_meta( $post->ID, 'gce_cache', true );
+	$gce_multi_day_events            = get_post_meta( $post->ID, 'gce_multi_day_events', true );
+	$gce_display_mode                = get_post_meta( $post->ID, 'gce_display_mode', true );
+	$gce_search_query                = get_post_meta( $post->ID, 'gce_search_query', true );
+	$gce_expand_recurring            = get_post_meta( $post->ID, 'gce_expand_recurring', true );
+	$gce_paging                      = get_post_meta( $post->ID, 'gce_paging', true );
+	$gce_list_max_num                = get_post_meta( $post->ID, 'gce_list_max_num', true );
+	$gce_list_max_length             = get_post_meta( $post->ID, 'gce_list_max_length', true );
+	$gce_list_start_offset_num       = get_post_meta( $post->ID, 'gce_list_start_offset_num', true );
+	$gce_list_start_offset_direction = get_post_meta( $post->ID, 'gce_list_start_offset_direction', true );
+	$gce_feed_start                  = get_post_meta( $post->ID, 'gce_feed_start', true );
+	$gce_feed_start_interval         = get_post_meta( $post->ID, 'gce_feed_start_interval', true );
+	$gce_feed_end                    = get_post_meta( $post->ID, 'gce_feed_end', true );
+	$gce_feed_end_interval           = get_post_meta( $post->ID, 'gce_feed_end_interval', true );
+	
+	if( empty( $gce_list_start_offset_num ) ) {
+		$gce_list_start_offset_num = 0;
+	}
+	
+	if( empty( $gce_feed_start ) ) {
+		$gce_feed_start = 0;
+	}
+	
+	if( empty( $gce_feed_end ) ) {
+		$gce_feed_end = 0;
+	}
 ?>
 
 <!--
@@ -63,34 +79,40 @@
 
 <!-- XTEC *** REMOVED - Moved code down -->
 <!--
-    <tr>
+	<tr>
 		<th scope="row"><?php _e( 'Feed Shortcode', 'gce' ); ?></th>
 		<td>
 			<code>[gcal id="<?php echo $post_id; ?>"]</code>
-			<p class="description"><?php _e( 'Copy and paste this shortcode to display this Google Calendar feed in any post or page.', 'gce' ); ?></p>
+			<p class="description">
+				<?php _e( 'Copy and paste this shortcode to display this Google Calendar feed on any post or page.', 'gce' ); ?>
+				<?php _e( 'To avoid display issues, make sure to paste the shortcode in the Text tab of the post editor.', 'gce' ); ?>
+			</p>
 		</td>
 	</tr>
 -->
 <!-- *** FI -->
 
-    <tr>
+	<tr>
 		<th scope="row"><label for="gce_feed_url"><?php _e( 'GCal Feed URL', 'gce' ); ?></label></th>
 		<td>
 			<input type="text" class="large-text" name="gce_feed_url" id="gce_feed_url" value="<?php echo $gce_feed_url; ?>" />
 			<p class="description">
-				<?php _e( 'The Google Calendar feed URL.', 'gce' ); ?><br/>
-				<?php _e( 'Example', 'gce' ); ?>: <code>https://www.google.com/calendar/feeds/em3luo1919fjcjum4j874j5ejg%40group.calendar.google.com/public/basic</code><br/>
+				<?php _e( 'The Google Calendar feed URL.', 'gce' ); ?> <?php _e( 'Example', 'gce' ); ?>:<br/>
+				<code>https://www.google.com/calendar/feeds/em3luo1919fjcjum4j874j5ejg%40group.calendar.google.com/public/basic</code><br/>
 				<a href="http://wpdocs.philderksen.com/google-calendar-events/getting-started/find-feed-url/" target="_blank"><?php _e( 'How to find your GCal feed URL', 'gce' ); ?></a>
 			</p>
 		</td>
 	</tr>
     
 <!-- XTEC *** AFEGIT - Code moved from above -->
-    <tr>
+	<tr>
 		<th scope="row"><?php _e( 'Feed Shortcode', 'gce' ); ?></th>
 		<td>
 			<code>[gcal id="<?php echo $post_id; ?>"]</code>
-			<p class="description"><?php _e( 'Copy and paste this shortcode to display this Google Calendar feed in any post or page.', 'gce' ); ?></p>
+			<p class="description">
+				<?php _e( 'Copy and paste this shortcode to display this Google Calendar feed on any post or page.', 'gce' ); ?>
+				<?php _e( 'To avoid display issues, make sure to paste the shortcode in the Text tab of the post editor.', 'gce' ); ?>
+			</p>
 		</td>
 	</tr>
 <!-- *** FI -->
@@ -103,7 +125,7 @@
 ?>
 <!-- *** FI -->
 
-    <tr>
+	<tr>
 		<th scope="row"><label for="gce_search_query"><?php _e( 'Search Query', 'gce' ); ?></label></th>
 		<td>
 			<input type="text" class="" name="gce_search_query" id="gce_search_query" value="<?php echo $gce_search_query; ?>" />
@@ -125,46 +147,6 @@
 		</td>
 	</tr>
 
-	<tr>
-		<th scope="row"><label for="gce_retrieve_from"><?php _e( 'Retrieve Events From', 'gce' ); ?></label></th>
-		<td>
-			<select name="gce_retrieve_from" id="gce_retrieve_from">
-				<option value="today" <?php selected( $gce_retrieve_from, 'today', true ); ?>><?php _e( 'Today', 'gce' ); ?></option>
-				<option value="start_week" <?php selected( $gce_retrieve_from, 'start_week', true ); ?>><?php _e( 'Start of current week', 'gce' ); ?></option>
-				<option value="start_month" <?php selected( $gce_retrieve_from, 'start_month', true ); ?>><?php _e( 'Start of current month', 'gce' ); ?></option>
-				<option value="end_month" <?php selected( $gce_retrieve_from, 'end_month', true ); ?>><?php _e( 'End of current month', 'gce' ); ?></option>
-				<option value="start_time" <?php selected( $gce_retrieve_from, 'start_time', true ); ?>><?php _e( 'The beginning of time', 'gce' ); ?></option>
-				<option value="custom_date" <?php selected( $gce_retrieve_from, 'custom_date', true ); ?>><?php _e( 'Specific date', 'gce' ); ?></option>
-			</select>
-			<input type="text" <?php echo ( $gce_retrieve_from != 'custom_date' ? 'class="gce-admin-hidden" ' : ' ' ); ?> name="gce_custom_from" id="gce_custom_from" value="<?php echo $gce_custom_from; ?>" />
-			<p class="description"><?php _e( 'The point in time at which to start retrieving events.', 'gce' ); ?></p>
-		</td>
-	</tr>
-
-	<tr>
-		<th scope="row"><label for="gce_retrieve_until"><?php _e( 'Retrieve Events Until', 'gce' ); ?></label></th>
-		<td>
-			<select name="gce_retrieve_until" id="gce_retrieve_until">
-				<option value="today" <?php selected( $gce_retrieve_until, 'today', true ); ?>><?php _e( 'Today', 'gce' ); ?></option>
-				<option value="start_week" <?php selected( $gce_retrieve_until, 'start_week', true ); ?>><?php _e( 'Start of current week', 'gce' ); ?></option>
-				<option value="start_month" <?php selected( $gce_retrieve_until, 'start_month', true ); ?>><?php _e( 'Start of current month', 'gce' ); ?></option>
-				<option value="end_month" <?php selected( $gce_retrieve_until, 'end_month', true ); ?>><?php _e( 'End of current month', 'gce' ); ?></option>
-				<option value="end_time" <?php selected( $gce_retrieve_until, 'end_time', true ); ?>><?php _e( 'The end of time', 'gce' ); ?></option>
-				<option value="custom_date" <?php selected( $gce_retrieve_until, 'custom_date', true ); ?>><?php _e( 'Specific date', 'gce' ); ?></option>
-			</select>
-			<input type="text" <?php echo ( $gce_retrieve_until != 'custom_date' ? 'class="gce-admin-hidden" ' : ' ' ); ?> name="gce_custom_until" id="gce_custom_until" value="<?php echo $gce_custom_until; ?>" />
-			<p class="description"><?php _e( 'The point in time at which to stop retrieving events.', 'gce' ); ?></p>
-		</td>
-	</tr>
-
-	<tr>
-		<th scope="row"><label for="gce_retrieve_max"><?php _e( 'Max Number of Events', 'gce' ); ?></label></th>
-		<td>
-			<input type="text" class="" name="gce_retrieve_max" id="gce_retrieve_max" value="<?php echo $gce_retrieve_max; ?>" />
-			<p class="description"><?php _e( 'Maximum number of events to show.', 'gce' ); ?></p>
-		<td>
-	</tr>
-    
 <!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->
 <?php
     global $isAgora;
@@ -173,13 +155,13 @@
 ?>
 <!-- *** FI -->
 
-    <tr>
+	<tr>
 		<th scope="row"><label for="gce_date_format"><?php _e( 'Date Format', 'gce' ); ?></label></th>
 		<td>
 			<input type="text" class="" name="gce_date_format" id="gce_date_format" value="<?php echo $gce_date_format; ?>" />
 			<p class="description">
 				<?php printf( __( 'Use %sPHP date formatting%s.', 'gce' ), '<a href="http://php.net/manual/en/function.date.php" target="_blank">', '</a>' ); ?>
-				<?php echo _x( 'Leave blank to use the default.', 'References the Date Format option', 'gce' ); ?>
+				<?php _e( 'Leave blank to use the default.', 'gce' ); ?>
 			</p>
 		</td>
 	</tr>
@@ -190,7 +172,7 @@
 			<input type="text" class="" name="gce_time_format" id="gce_time_format" value="<?php echo $gce_time_format; ?>" />
 			<p class="description">
 				<?php printf( __( 'Use %sPHP date formatting%s.', 'gce' ), '<a href="http://php.net/manual/en/function.date.php" target="_blank">', '</a>' ); ?>
-				<?php echo _x( 'Leave blank to use the default.', 'References the Time Format option', 'gce' ); ?>
+				<?php _e( 'Leave blank to use the default.', 'gce' ); ?>
 			</p>
 		</td>
 	</tr>
@@ -242,16 +224,63 @@
 <!-- *** FI -->
 
 	<tr>
-		<th scope="row"><?php _e( 'Clear Cache', 'gce' ); ?></th>
+		<th scope="row"><label for="gce_paging"><?php _e( 'Show Paging Links', 'gce' ); ?></label></th>
 		<td>
-			<a href="<?php echo add_query_arg( array( 'clear_cache' => true ) ); ?>" class="button-secondary"><?php _e( 'Clear Cache', 'gce' ); ?></a>
-			<p class="description">
-				<?php 
-				printf( __( 'This will clear your feed cache. This also automatically happens when you save your changes. %s' . 
-						     'If you make changes you %sMUST%s save first or your changes will be lost.' ), '<br>', '<strong>', '</strong>' ); 
-				?>
-			</p>
+			<input type="checkbox" name="gce_paging" id="gce_paging" value="1" <?php checked( $gce_paging, '1' ); ?> /> <?php _e( 'Check this option to display Next and Back navigation links.', 'gce' ); ?>
 		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row"><label for="gce_list_max_num"><?php _e( 'Number of Events per Page', 'gce' ); ?></label></th>
+		<td>
+			<input type="number" min="0" step="1" class="small-text" id="gce_list_max_num" name="gce_list_max_num" value="<?php echo $gce_list_max_num; ?>" />
+			<select name="gce_list_max_length" id="gce_list_max_length">
+				<option value="days" <?php selected( $gce_list_max_length, 'days', true ); ?>><?php _e( 'Days', 'gce' ); ?></option>
+				<option value="events" <?php selected( $gce_list_max_length, 'events', true ); ?>><?php _e( 'Events', 'gce' ); ?></option>
+			</select>
+			<p class="description"><?php _e( 'How many events to display per page (List View only).', 'gce' ); ?></p>
+		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row"><label for="gce_list_start_offset_num"><?php _e( 'Display Start Date Offset', 'gce' ); ?></label></th>
+		<td>
+			<input type="number" min="0" step="1" class="small-text" id="gce_list_start_offset_num" name="gce_list_start_offset_num" value="<?php echo $gce_list_start_offset_num; ?>" />
+			<?php _e( 'Days', 'gce' ); ?>
+			<select name="gce_list_start_offset_direction" id="gce_list_start_offset_direction">
+				<option value="back" <?php selected( $gce_list_start_offset_direction, 'back', true ); ?>><?php _e( 'Back', 'gce' ); ?></option>
+				<option value="ahead" <?php selected( $gce_list_start_offset_direction, 'ahead', true ); ?>><?php _e( 'Ahead', 'gce' ); ?></option>
+			</select>
+			<p class="description"><?php _e( 'Change if you need to initially display events on a date other than today (List View only).', 'gce' ); ?></p>
+		</td>	
+	</tr>
+	
+	<tr>
+		<th scope="row"><label for="gce_feed_start"><?php _e( 'Minimum Feed Start Date', 'gce' ); ?></label></th>
+		<td>
+			<input type="number" min="0" step="1" class="small-text" id="gce_feed_start" name="gce_feed_start" value="<?php echo $gce_feed_start; ?>" />
+			<select name="gce_feed_start_interval" id="gce_feed_start_interval">
+				<option value="days" <?php selected( $gce_feed_start_interval, 'days', true ); ?>><?php _e( 'Days', 'gce' ); ?></option>
+				<option value="months" <?php selected( $gce_feed_start_interval, 'months', true ); ?>><?php _e( 'Months', 'gce' ); ?></option>
+				<option value="years" <?php selected( $gce_feed_start_interval, 'years', true ); ?>><?php _e( 'Years', 'gce' ); ?></option>
+			</select>
+			<?php _e( 'back', 'gce' ); ?>
+			<p class="description"><?php _e( 'Set how far back to retrieve events regardless of month or page being displayed.', 'gce' ); ?></p>
+		</td>	
+	</tr>
+	
+	<tr>
+		<th scope="row"><label for="gce_feed_end"><?php _e( 'Maximum Feed End Date', 'gce' ); ?></label></th>
+		<td>
+			<input type="number" min="0" step="1" class="small-text" id="gce_feed_end" name="gce_feed_end" value="<?php echo $gce_feed_end; ?>" />
+			<select name="gce_feed_end_interval" id="gce_feed_end_interval">
+				<option value="days" <?php selected( $gce_feed_end_interval, 'days', true ); ?>><?php _e( 'Days', 'gce' ); ?></option>
+				<option value="months" <?php selected( $gce_feed_end_interval, 'months', true ); ?>><?php _e( 'Months', 'gce' ); ?></option>
+				<option value="years" <?php selected( $gce_feed_end_interval, 'years', true ); ?>><?php _e( 'Years', 'gce' ); ?></option>
+			</select>
+			<?php _e( 'forward', 'gce' ); ?>
+			<p class="description"><?php _e( 'Set how far in the future to retrieve events regardless of month or page being displayed.', 'gce' ); ?></p>
+		</td>	
 	</tr>
 
 <!-- XTEC *** AFEGIT - Removed in Agora to simplify user experience -->

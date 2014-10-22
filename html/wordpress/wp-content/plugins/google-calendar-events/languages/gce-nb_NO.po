@@ -1,0 +1,652 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Google Calendar Events\n"
+"POT-Creation-Date: 2014-10-04 17:15-0700\n"
+"PO-Revision-Date: 2014-10-08 00:14+0100\n"
+"Last-Translator: Tore Hjartland <tore.hjartland@biologge.no>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Language: nb_NO\n"
+"X-Poedit-SearchPath-0: google-calendar-events\n"
+
+#: google-calendar-events/class-google-calendar-events-admin.php:67
+#: google-calendar-events/class-google-calendar-events-admin.php:68
+#: google-calendar-events/includes/register-settings.php:44
+msgid "General Settings"
+msgstr "Generelle innstillinger"
+
+#: google-calendar-events/class-google-calendar-events-admin.php:139
+#: google-calendar-events/views/widgets.php:27
+msgid "Google Calendar Events"
+msgstr "Google Calendar Events"
+
+#: google-calendar-events/class-google-calendar-events-admin.php:151
+msgid "Feeds"
+msgstr "Feeds"
+
+#: google-calendar-events/includes/admin/admin-functions.php:20
+msgid "Cache has been cleared for this feed."
+msgstr "Bufferen har blitt tømt for denne feed'en."
+
+#: google-calendar-events/includes/admin/admin-functions.php:71
+msgid "Clear Cache"
+msgstr "Tøm buffer"
+
+#: google-calendar-events/includes/class-gce-display.php:360
+msgid "No events to display."
+msgstr "Ingen arrangement å vise"
+
+#: google-calendar-events/includes/class-gce-event.php:496
+#, php-format
+msgid "%s year"
+msgstr "%s år"
+
+#: google-calendar-events/includes/class-gce-event.php:496
+#, php-format
+msgid "%s years"
+msgstr "%s år"
+
+#: google-calendar-events/includes/class-gce-event.php:497
+#, php-format
+msgid "%s month"
+msgstr "%s måned"
+
+#: google-calendar-events/includes/class-gce-event.php:497
+#, php-format
+msgid "%s months"
+msgstr "%s måneder"
+
+#: google-calendar-events/includes/class-gce-event.php:498
+#, php-format
+msgid "%s week"
+msgstr "%s uke"
+
+#: google-calendar-events/includes/class-gce-event.php:498
+#, php-format
+msgid "%s weeks"
+msgstr "%s uker"
+
+#: google-calendar-events/includes/class-gce-event.php:499
+#, php-format
+msgid "%s day"
+msgstr "%s dag"
+
+#: google-calendar-events/includes/class-gce-event.php:499
+#, php-format
+msgid "%s days"
+msgstr "%s dager"
+
+#: google-calendar-events/includes/class-gce-event.php:500
+#, php-format
+msgid "%s hour"
+msgstr "%s time"
+
+#: google-calendar-events/includes/class-gce-event.php:500
+#, php-format
+msgid "%s hours"
+msgstr "%s timer"
+
+#: google-calendar-events/includes/class-gce-event.php:501
+#, php-format
+msgid "%s min"
+msgstr "%s min"
+
+#: google-calendar-events/includes/class-gce-event.php:501
+#, php-format
+msgid "%s mins"
+msgstr "%s minutter"
+
+#: google-calendar-events/includes/class-gce-feed.php:82
+msgid ""
+"The feed URL has not been set. Please make sure to set it correctly in the "
+"Feed settings."
+msgstr ""
+"FeedURLen har ikke blitt satt. Vennligst påse å sette den korrekt i "
+"feedinnstillingene."
+
+#: google-calendar-events/includes/class-gce-feed.php:164
+msgid ""
+"Some data was retrieved, but could not be parsed successfully. Please ensure "
+"your feed URL is correct."
+msgstr ""
+"Noen data ble hentet, men kunne ikke analyseres med hell. Vennligst sikre  "
+"at feed- URLen er riktig."
+
+#: google-calendar-events/includes/class-gce-feed.php:170
+msgid ""
+"The feed could not be found (404). Please ensure your feed URL is correct."
+msgstr ""
+"Feed'en ble ikke funnet (404). Vennligst sikre at feed-URLen er korrekt."
+
+#: google-calendar-events/includes/class-gce-feed.php:173
+msgid ""
+"Access to this feed was denied (403). Please ensure you have public sharing "
+"enabled for your calendar."
+msgstr ""
+"Tilgang til denne feed'en ble avvist (403). Vennligst påse at du har "
+"offentlig deling aktivert for kalenderen din."
+
+#: google-calendar-events/includes/class-gce-feed.php:176
+#, php-format
+msgid ""
+"The feed data could not be retrieved. Error code: %s. Please ensure your "
+"feed URL is correct."
+msgstr ""
+"Feeddataen kunne ikke hentes. Feilkode: %s. Vennligst påse at feed-URLen er "
+"korrekt"
+
+#: google-calendar-events/includes/class-gce-feed.php:181
+msgid " Please ensure your feed URL is correct."
+msgstr "Vennligst sikre at feed-URL'en din er korrekt"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:21
+msgid "Google Calendar Feeds"
+msgstr "Google Calendar feeds"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:22
+#: google-calendar-events/includes/gce-feed-cpt.php:24
+msgid "Feed"
+msgstr "Feed"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:23
+msgid "GCal Events"
+msgstr "GCal-feeds"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:25
+msgid "Add New"
+msgstr "Legg til ny"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:26
+msgid "Add New Feed"
+msgstr "Legg til ny feed"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:27
+msgid "New Feed"
+msgstr "Ny feed"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:28
+msgid "Edit Feed"
+msgstr "Rediger feed"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:29
+msgid "View Feed"
+msgstr "Vis feed"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:30
+msgid "All GCal Feeds"
+msgstr "Alle GCAL-feeds"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:31
+msgid "Search GCal Feeds"
+msgstr "Søk i GCal-feeds"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:32
+msgid "No feeds found."
+msgstr "Ingen feeds funnet."
+
+#: google-calendar-events/includes/gce-feed-cpt.php:33
+msgid "No feeds found in Trash."
+msgstr "Ingen feeds funnet i søpla."
+
+#: google-calendar-events/includes/gce-feed-cpt.php:75
+#: google-calendar-events/includes/gce-feed-cpt.php:76
+#, php-format
+msgid "%4$s updated. %1$sView %2$s%3$s"
+msgstr "%4$s oppdatert. %1$sVis %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:77
+#, php-format
+msgid "%4$s published. %1$sView %2$s%3$s"
+msgstr "%4$s publisert. %1$sVis %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:78
+#, php-format
+msgid "%4$s saved. %1$sView %2$s%3$s"
+msgstr "%4$s lagret. %1$sVis %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:79
+#, php-format
+msgid "%4$s submitted. %1$sView %2$s%3$s"
+msgstr "%4$s innsendt. %1$sVis %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:80
+#, php-format
+msgid "%4$s draft updated. %1$sView %2$s%3$s"
+msgstr "%4$s utkast oppdatert. %1$sVis %2$s%3$s"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:206
+msgid "Feed ID"
+msgstr "Feed-ID"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:207
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:60
+msgid "Feed Shortcode"
+msgstr "Feed hurtigkode"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:208
+msgid "Display Type"
+msgstr "Visningstype"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:235
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:136
+#: google-calendar-events/views/widgets.php:223
+msgid "Grid"
+msgstr "Grid"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:237
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:137
+#: google-calendar-events/views/widgets.php:225
+msgid "List"
+msgstr "Liste"
+
+#: google-calendar-events/includes/gce-feed-cpt.php:239
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:138
+#: google-calendar-events/views/widgets.php:226
+msgid "Grouped List"
+msgstr "Gruppert list"
+
+#: google-calendar-events/includes/register-settings.php:29
+msgid "Save Settings"
+msgstr "Lagre innstillinger"
+
+#: google-calendar-events/includes/register-settings.php:30
+msgid ""
+"Save your settings when uninstalling this plugin. Useful when upgrading or "
+"re-installing."
+msgstr ""
+"Lagre innstillingene dine når du avinnstallerer denne utvidelsen. Nyttig ved "
+"oppgradering eller reinstallasjon."
+
+#: google-calendar-events/includes/register-settings.php:132
+#, php-format
+msgid ""
+"The callback function used for the <strong>%s</strong> setting is missing."
+msgstr ""
+"Tilbakekallingsfunksjonen som brukes til <strong>%s</strong>-innstillingen "
+"mangler."
+
+#: google-calendar-events/views/admin/display-options-meta.php:39
+msgid ""
+"Check this box to use the simple display options below instead of the Event "
+"Builder code on the left."
+msgstr ""
+"Huk av denne boksen for å benytte enkle visningsvalg nedenfor i stedet for "
+"Event Builder-koden til vensstre."
+
+#: google-calendar-events/views/admin/display-options-meta.php:44
+msgid "Start date / time display"
+msgstr "Visning av startdato / -tid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:45
+msgid "Select how to display the start date / time."
+msgstr "Velg hvordan å vise startdato / -tid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:47
+#: google-calendar-events/views/admin/display-options-meta.php:61
+msgid "None"
+msgstr "Ingen"
+
+#: google-calendar-events/views/admin/display-options-meta.php:48
+msgid "Start time"
+msgstr "Starttid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:49
+msgid "Start date"
+msgstr "Startdato"
+
+#: google-calendar-events/views/admin/display-options-meta.php:50
+msgid "Start time and date"
+msgstr "Starttid og -dato"
+
+#: google-calendar-events/views/admin/display-options-meta.php:51
+msgid "Start date and time"
+msgstr "Startdato / -tid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:53
+msgid "Text to display before the start time."
+msgstr "Tekst å vise før starttiden."
+
+#: google-calendar-events/views/admin/display-options-meta.php:58
+msgid "End time/date display"
+msgstr "Visning av sluttid/dato"
+
+#: google-calendar-events/views/admin/display-options-meta.php:59
+msgid "Select how to display the end date / time."
+msgstr "Velg hvordan å vise sluttdato / -tid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:62
+msgid "End time"
+msgstr "Sluttid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:63
+msgid "End date"
+msgstr "Sluttdato"
+
+#: google-calendar-events/views/admin/display-options-meta.php:64
+msgid "End time and date"
+msgstr "Sluttid og -dato"
+
+#: google-calendar-events/views/admin/display-options-meta.php:65
+msgid "End date and time"
+msgstr "Sluttdato og -tid"
+
+#: google-calendar-events/views/admin/display-options-meta.php:67
+msgid "Text to display before the end time."
+msgstr "Tekst å vise før sluttiden."
+
+#: google-calendar-events/views/admin/display-options-meta.php:72
+msgid "Separator"
+msgstr "Skiller"
+
+#: google-calendar-events/views/admin/display-options-meta.php:74
+msgid ""
+"If you have chosen to display both the time and date above, enter the text / "
+"characters to display between the time and date here (including any spaces)."
+msgstr ""
+"Hvis du har valgt å vise både klokkeslett og dato ovenfor, skriv inn "
+"teksten / tegnene for å vise mellom klokkeslett og dato her (inkludert "
+"mellomrom)."
+
+#: google-calendar-events/views/admin/display-options-meta.php:88
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: google-calendar-events/views/admin/display-options-meta.php:91
+msgid ""
+"Show the description of events? (URLs in the description will be made into "
+"links)."
+msgstr ""
+"Vis arrangementsbeskrivelser? (URLer i beskrivelsen vil bli omgjort til "
+"lenker)."
+
+#: google-calendar-events/views/admin/display-options-meta.php:93
+msgid "Text to display before the description."
+msgstr "Tekst å vise før beskrivelsen."
+
+#: google-calendar-events/views/admin/display-options-meta.php:95
+msgid ""
+"Maximum number of words to show from description. Leave blank for no limit."
+msgstr "Maks antall ord å vise fra beskrivelsen. La stå tomt for ingen grense."
+
+#: google-calendar-events/views/admin/display-options-meta.php:100
+msgid "Event Link"
+msgstr "Arrangementslink"
+
+#: google-calendar-events/views/admin/display-options-meta.php:103
+msgid "Show a link to the Google Calendar page for an event?"
+msgstr "Vis en lenke til Google Calendar-siden for et arrangement?"
+
+#: google-calendar-events/views/admin/display-options-meta.php:107
+msgid "Links open in a new window / tab?"
+msgstr "Åpner lenker i et nytt vindu/arkfane?"
+
+#: google-calendar-events/views/admin/display-options-meta.php:109
+msgid "The link text to be displayed."
+msgstr "Lenketeksten å vise."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:41
+msgid ""
+"We're <strong>smack dab</strong> in the middle of building additional "
+"features for this plugin. Have ideas?"
+msgstr ""
+"Vi er <strong>midt i </strong> byggingen av ekstra funksjoner for denne "
+"plugin. Har du ideer?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:44
+msgid "Visit our roadmap and tell us what you're looking for"
+msgstr "Besøk veikartet vårt og fortell oss hva du etterspør"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:50
+msgid "Want to be in the know?"
+msgstr "Lyst til å være oppdatert?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:53
+msgid "Get notified when new features are released"
+msgstr "Bli varslet når nye funksjoner blir lansert"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:63
+msgid ""
+"Copy and paste this shortcode to display this Google Calendar feed in any "
+"post or page."
+msgstr ""
+"Klipp og lim denne hurtigkoden for å vise denne Googlekalenderen i hvilke "
+"som helst innlegg eller sider."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:67
+msgid "GCal Feed URL"
+msgstr "GCal-feed-URL"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:71
+msgid "The Google Calendar feed URL."
+msgstr "Google Calendar feed-URL."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:72
+msgid "Example"
+msgstr "Eksempel"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:73
+msgid "How to find your GCal feed URL"
+msgstr "Hvordan å finne URL til GCal-feed'en din"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:79
+msgid "Search Query"
+msgstr "Søk"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:82
+msgid "Find and show events based on a search query."
+msgstr "Finn og vis arrangement basert på et søk."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:87
+msgid "Expand Recurring Events?"
+msgstr "Utvid gjentakende arrangementer?"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:89
+msgid "Yes"
+msgstr "Ja"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:90
+msgid ""
+"This will show recurring events each time they occur, otherwise it will only "
+"show the event the first time it occurs."
+msgstr ""
+"Dette vil vise tilbakevendende arrangement hver gang de oppstår. Ellers vil "
+"det bare vise arrangementet første gang det skjer."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:95
+msgid "Date Format"
+msgstr "Datoformat"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:99
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:110
+#, php-format
+msgid "Use %sPHP date formatting%s."
+msgstr "Benytt %sPHP datoformatering%s."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:106
+msgid "Time Format"
+msgstr "Tidsformat"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:117
+msgid "Cache Duration"
+msgstr "Buffervarighet"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:120
+msgid ""
+"The length of time, in seconds, to cache the feed (43200 = 12 hours). If "
+"this feed changes regularly, you may want to reduce the cache duration."
+msgstr ""
+"Hvor lang tid, i sekunder, å bufre feeden (43 200 = 12 timer). Hvis denne "
+"feed'en endres regelmessig, kan det være lurt å redusere buffervarighet."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:125
+msgid "Multiple Day Events"
+msgstr "Arrangement over fler dager"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:127
+msgid "Show on each day"
+msgstr "Vis på hver dag"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:128
+msgid ""
+"Show events that span multiple days on each day that they span, rather than "
+"just the first day."
+msgstr ""
+"Vis arrangement som går over flere dager på hver dag det går over, og ikke "
+"bare den første dagen."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:133
+msgid "Display Mode"
+msgstr "Visningsmodus"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:140
+msgid "Choose how you want your calendar to be displayed."
+msgstr "Velg hvordan du vil vise kalenderen din."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:145
+#: google-calendar-events/views/widgets.php:239
+msgid "Show Paging Links"
+msgstr "Vis sidelenker"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:147
+#: google-calendar-events/views/widgets.php:241
+msgid "Disable to hide Next/Back links."
+msgstr "Deaktiver for å skjule Neste/Tilbake-lenker"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:152
+#: google-calendar-events/views/widgets.php:245
+msgid "Number of Events per Page"
+msgstr "Antall arrangement å vise per side"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:156
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:168
+#: google-calendar-events/views/widgets.php:248
+#: google-calendar-events/views/widgets.php:257
+msgid "Days"
+msgstr "Dager"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:157
+#: google-calendar-events/views/widgets.php:249
+msgid "Events"
+msgstr "Arrangementer"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:159
+msgid "How many events to display per page (List View only)."
+msgstr "Hvor mange arrangement å vise per side (kun listevisning)."
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:164
+msgid "Start Date Offset"
+msgstr "Startdatooffsett"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:169
+msgid "Weeks"
+msgstr "Uker"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:170
+msgid "Months"
+msgstr "Måneder"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:173
+#: google-calendar-events/views/widgets.php:260
+msgid "Back"
+msgstr "Tilbake"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:174
+#: google-calendar-events/views/widgets.php:261
+msgid "Ahead"
+msgstr "Forover"
+
+#: google-calendar-events/views/admin/gce-feed-meta-display.php:176
+msgid ""
+"If you need to show events starting on a day other than today. (List View "
+"only)."
+msgstr ""
+"Hvis du trenger å vise arrangement som starter på en annen dag enn i dag. "
+"(kun listevisning)"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:6
+msgid "Documentation & getting started"
+msgstr "Dokumentasjon & komme i gang"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:12
+msgid "Community support forums"
+msgstr "Støttefora"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:18
+msgid "Get notified of new features"
+msgstr "Bli varslet om nye funksjoner"
+
+#: google-calendar-events/views/admin/gce-feed-sidebar-help.php:24
+msgid "Rate this plugin"
+msgstr "Ranger denne utvidelsen"
+
+#: google-calendar-events/views/widgets.php:28
+msgid ""
+"Display a list or calendar grid of events from one or more Google Calendar "
+"feeds you have added"
+msgstr ""
+"Vis en liste eller kalendergrid over arrangement fra en eller flere "
+"Googlekalenderfeeds som du har lagt til"
+
+#: google-calendar-events/views/widgets.php:114
+msgid ""
+"No valid Feed IDs have been entered for this widget. Please check that you "
+"have entered the IDs correctly in the widget settings (Appearance > "
+"Widgets), and that the Feeds have not been deleted."
+msgstr ""
+"Ingen gyldig feed-IDer er angitt for denne widgeten. Vennligst sjekk at du "
+"har skrevet IDer riktig i widgetinnstillinger (utseende> Widgets), og at "
+"Feeds ikke har blitt slettet."
+
+#: google-calendar-events/views/widgets.php:147
+msgid "You have not added any feeds yet."
+msgstr "Du har ikke lagt til noen feeds ennå."
+
+#: google-calendar-events/views/widgets.php:190
+msgid "There are no feeds created yet."
+msgstr "Ingen feed er opprettet ennå."
+
+#: google-calendar-events/views/widgets.php:191
+msgid "Add your first feed!"
+msgstr "Legg til din første feed!"
+
+#: google-calendar-events/views/widgets.php:216
+msgid "Feeds to display, as a comma separated list (e.g. 101,102,103)"
+msgstr "Feeds å vise; som en kommaseparert liste (f.eks. 101, 102, 103)"
+
+#: google-calendar-events/views/widgets.php:221
+msgid "Display events as:"
+msgstr "Vis arrangement som:"
+
+#: google-calendar-events/views/widgets.php:224
+msgid "Calendar Grid - with AJAX"
+msgstr "Kalendergrid - med AJAX"
+
+#: google-calendar-events/views/widgets.php:231
+msgid "Sort order (only applies to lists):"
+msgstr "Sorteringsrekkefølge (gjelder bare for lister):"
+
+#: google-calendar-events/views/widgets.php:233
+msgid "Ascending"
+msgstr "Stigende"
+
+#: google-calendar-events/views/widgets.php:234
+msgid "Descending"
+msgstr "Synkende"
+
+#: google-calendar-events/views/widgets.php:254
+msgid "Start Date Offset (List View Only)"
+msgstr "Startdatooffsett (kun listevisning)"
+
+#: google-calendar-events/views/widgets.php:266
+msgid ""
+"Display title on tooltip / list item (e.g. 'Events on 7th March') Grouped "
+"lists always have a title displayed."
+msgstr ""
+"Vis tittel på verktøytips / listegjenstand (f.eks. 'Arrangement på 7. "
+"mars'). Grupperte lister har alltid tittelen vist."

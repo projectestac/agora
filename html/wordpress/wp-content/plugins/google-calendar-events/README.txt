@@ -15,13 +15,13 @@ Parses Google Calendar feeds and displays the events as a calendar grid or list 
 
 = Features =
 
-* Parses Google Calendar feeds to extract events
-* Displays events as a list or within a calendar grid
-* Events from multiple Google Calendar feeds can be shown in a single list / grid
-* Lists and grids can be displayed in posts, pages or within a widget
-* Options to change the number of events retrieved, date / time format, cache duration etc
-* Complete customisation of the event information displayed
-* Calendar grids can have the ability to change the month displayed
+* Parses Google Calendar feeds to extract events.
+* Displays events as a list or within a calendar grid.
+* Events from multiple Google Calendar feeds can be shown in a single list / grid.
+* Lists and grids can be displayed in posts, pages or within a widget.
+* Options to change the number of events retrieved, date / time format, cache duration, etc.
+* Complete customisation of the event information displayed.
+* Calendar grids can have the ability to change the month displayed.
 
 [Plugin Documentation & Getting Started](http://wpdocs.philderksen.com/google-calendar-events/?utm_source=wordpress_org&utm_medium=link&utm_campaign=gce_lite)
 
@@ -33,7 +33,13 @@ Parses Google Calendar feeds and displays the events as a calendar grid or list 
 
 This plugin was originally created by [Ross Hanney](http://www.rhanney.co.uk), a web developer based in the UK specialising in WordPress and PHP.
 
-Spanish translation provided by Eduardo Larequi of [educacion.navarra.es/web/pnte/](http://www.educacion.navarra.es/web/pnte/).
+## Available Translations ##
+
+* Spanish - Provided by Eduardo Larequi of [educacion.navarra.es/web/pnte/](http://www.educacion.navarra.es/web/pnte/).
+* Italian - Provided by Francesco Paccagnella of [pacca.it](http://www.pacca.it/).
+* French - Provided by Vincent Bray.
+* German - Provided by Stefanie Drucker of [kreativhuhn.at](http://www.kreativhuhn.at/).
+* Norwegian - Provided by Tore Hjartland of [aliom.no](http://www.aliom.no/).
 
 == Installation ==
 
@@ -79,6 +85,57 @@ There are three ways to install this plugin.
 
 == Changelog ==
 
+= 2.0.6.1 =
+
+* Added Polish translation.
+* Updated Italian translation.
+* Updated French translation.
+* Fixed bug with date() call causing a display error in some cases.
+* Minor bug fixes.
+
+= 2.0.6 =
+
+* Added minimum and maximum feed date options to fix event display issues and boost performance.
+* Fixed a caching issue to increase performance.
+* Fixed bug where backslashes kept getting added to event titles that already contained single quotes when navigating through pages in widget.
+
+= 2.0.5.1 =
+
+* Fix timezone issue.
+
+= 2.0.5 =
+
+* Fixed display bug with event date and grouped lists.
+* Fixed broken paging links when feed IDs contain spaces between them.
+* Fixed bug with start offset and grouped lists not working properly.
+* Fixed bug where clear cache link was showing on any type of CPT.
+* Added German translation - Provided by Stefanie Drucker of [kreativhuhn.at](http://www.kreativhuhn.at/).
+* Added Norwegian translation - Provided by Tore Hjartland of [aliom.no](http://www.aliom.no/).
+
+= 2.0.4 =
+
+* Added option to show/hide paging.
+* Added option to limit display to any number of days or events per page.
+* Added option to set the start date offset any number of days back or ahead (list view).
+* Removed retrieve events from/until options now that display limit options will be used.
+* Removed max number of events to retrieve option.
+* Added shortcode attribute 'paging'.
+* Added shortcode attribute 'interval'.
+* Added shortcode attribute 'interval_count'.
+* Added shortcode attribute 'offset_interval_count'.
+* Added shortcode attribute 'offset_direction'.
+* Updated shortcode 'display' attribute to allow a value of 'grouped-list'.
+* Date no longer shows up for the title (list view).
+* HTML restructured to use div tags instead of an unordered list (list view).
+* Nav bar HTML (Back/Next links and month title) restructured to use div tags instead of span and percentages.
+* Moved clear cache button and changed style.
+* Added Italian translation - Provided by Francesco Paccagnella of [pacca.it](http://www.pacca.it/).
+* Added French translation - Provided by Vincent Bray.
+* Fixed PHP error during upgrade.
+* Fixed cross-site scripting (XSS) vulnerability.
+* JavaScript restructured to fit more in line with best practices.
+* Remove unused admin script file.
+
 = 2.0.3.1 =
 
 * Fixed bug where retrieve from/until dates were accidentally removed.
@@ -90,7 +147,7 @@ There are three ways to install this plugin.
 
 = 2.0.2 =
 
-* Added Spanish translation (thanks to Eduardo Larequi of [educacion.navarra.es/web/pnte/](http://www.educacion.navarra.es/web/pnte/)).
+* Added Spanish translation - Provided by Eduardo Larequi of [educacion.navarra.es/web/pnte/](http://www.educacion.navarra.es/web/pnte/).
 * Fixed timezone issues by forcing calendar feeds to use the timezone selected in the site's General Settings. Feed-specific timezone setting removed.
 * Fixed a bug with recurring events display.
 * Fixed an upgrade bug with multiple day events.

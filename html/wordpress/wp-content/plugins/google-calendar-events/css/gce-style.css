@@ -7,6 +7,32 @@
  * @copyright 2014 Phil Derksen
  */
 
+/* Base line-height for all views & tooltip */
+
+.gce-page-grid,
+.gce-page-list,
+.gce-widget-grid,
+.gce-widget-list,
+.gce-event-info {
+	line-height: 1.5;
+}
+
+/* Month & list titles for all views */
+
+.gce-month-title,
+.gce-list-title {
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+/* Event titles with shaded background for all views */
+
+.gce-list-event,
+.gce-tooltip-event {
+	background-color: #ddd;
+	padding: 0 5px;
+}
+
 /* PAGE GRID */
 
 .gce-page-grid .gce-calendar .gce-caption{ /* Caption at top of calendar */
@@ -53,28 +79,15 @@
 	background-color:#DDDDDD;
 }
 
-.gce-page-grid .gce-calendar .gce-next,
-.gce-page-grid .gce-calendar .gce-prev{ /* Previous and next month links */
-	cursor:pointer;
-	display:inline-block;
-	width:5%;
-	white-space: nowrap;
-}
-
-.gce-page-grid .gce-calendar .gce-prev{
-	float: left;
-}
-
-.gce-page-grid .gce-calendar .gce-month-title{ /* Month title */
-	display:inline-block;
-	width:80%;
-}
-
 .gce-page-grid .gce-calendar th abbr{ /* Day letter abbreviation */
 	border-bottom:none;
 }
 
 /* PAGE LIST */
+
+.gce-page-list .gce-feed {
+	padding-bottom: 10px;
+}
 
 .gce-page-list .gce-list p{ /* Each piece of information in the list */
 	margin:0;
@@ -83,20 +96,6 @@
 .gce-page-list .gce-list p span,
 .gce-page-list .gce-list div span{ /* The text displayed before each piece of info, 'Starts:' for example */
 	color:#999999;
-}
-
-.gce-page-list .gce-list .gce-list-event{ /* The event title */
-	background-color:#DDDDDD;
-}
-
-.gce-page-list .gce-list .gce-list-title{ /* The title (not the same as event title) */
-	font-weight:bold;
-}
-
-.gce-page-list .gce-list ul{
-	list-style-type:none;
-	margin:0;
-	padding:0;
 }
 
 /* WIDGET GRID */
@@ -137,23 +136,6 @@
 	display:none; /* Important! */
 }
 
-.gce-widget-grid  .gce-calendar .gce-next,
-.gce-widget-grid  .gce-calendar .gce-prev{ /* Prev and next month links */
-	cursor:pointer;
-	display:inline-block;
-	width:5%;
-	white-space: nowrap;
-}
-
-.gce-widget-grid .gce-calendar .gce-prev{
-	float: left;
-}
-
-.gce-widget-grid .gce-calendar .gce-month-title{ /* Month title in caption at top of table */
-	display:inline-block;
-	width:80%;
-}
-
 .gce-widget-grid .gce-calendar th abbr{ /* Day name abbreviations */
 	border-bottom:none;
 }
@@ -167,20 +149,6 @@
 .gce-widget-list .gce-list p span,
 .gce-widget-list .gce-list div span{ /* The text displayed before each piece of info, 'Starts:' for example */
 	color:#999999;
-}
-
-.gce-widget-list .gce-list .gce-list-event{ /* The event title */
-	background-color:#DDDDDD;
-}
-
-.gce-widget-list .gce-list .gce-list-title{ /* The title (not the same as event title) */
-	font-weight:bold;
-}
-
-.gce-widget-list .gce-list ul{
-	list-style-type:none;
-	margin:0;
-	padding:0;
 }
 
 /* TOOLTIP */
@@ -216,7 +184,36 @@
 	color:#999999;
 }
 
-.gce-event-info .gce-tooltip-event{ /* The event title */
-	background-color:#DDDDDD;
-	font-weight:bold;
+/** Calendar navigation bar, Prev/Next links & month title. **/
+
+.gce-navbar {
+	width: 100%;
+	text-align: center;
+	clear: both;
+	overflow: hidden;
+}
+
+.gce-next,
+.gce-prev {
+	white-space: nowrap;
+}
+
+.gce-prev {
+	float: left;
+}
+
+.gce-next {
+	float: right;
+}
+
+.gce-month-title {
+	display: inline-block;
+	margin: 0 auto;
+	white-space: nowrap;
+}
+
+/* Grouped List */
+
+.gce-list-grouped .gce-feed { 
+	margin-left: 5%;
 }

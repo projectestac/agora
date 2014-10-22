@@ -13,9 +13,6 @@ class GCE_Feed {
 	
 	public $id,
 		   $feed_url,
-		   $start,
-		   $end,
-		   $max,
 		   $date_format,
 		   $time_format,
 		   $cache,
@@ -41,6 +38,7 @@ class GCE_Feed {
 		
 		// Now create the Feed
 		$this->create_feed();
+
 	}
 	
 	/**
@@ -62,9 +60,6 @@ class GCE_Feed {
 		$time_format = get_post_meta( $this->id, 'gce_time_format', true );
 		
 		$this->feed_url            = get_post_meta( $this->id, 'gce_feed_url', true );
-		$this->start               = $this->set_feed_length( get_post_meta( $this->id, 'gce_retrieve_from', true ), 'start' );
-		$this->end                 = $this->set_feed_length( get_post_meta( $this->id, 'gce_retrieve_until', true ), 'end' );
-		$this->max                 = get_post_meta( $this->id, 'gce_retrieve_max', true );
 		$this->date_format         = ( ! empty( $date_format ) ? $date_format : get_option( 'date_format' ) );
 		$this->time_format         = ( ! empty( $time_format ) ? $time_format : get_option( 'time_format' ) );
 		$this->cache               = get_post_meta( $this->id, 'gce_cache', true );
@@ -101,13 +96,26 @@ class GCE_Feed {
 
 		//Add the default parameters to the querystring (retrieving JSON, not XML)
 		$query = '?alt=json&sortorder=ascending&orderby=starttime';
+		
+		$start = $this->get_feed_start();
+		
+		$end   = $this->get_feed_end();
+		
+		$gmt_offset = abs( get_option( 'gmt_offset' ) * 3600 );
+		
+		$query .= '&start-min=' . date( 'Y-m-d\TH:i:s', $start - $gmt_offset );
+		
+		$query .= '&start-max=' . date( 'Y-m-d\TH:i:s', $end - $gmt_offset );
+		
 
-		$gmt_offset = get_option( 'gmt_offset' ) * 3600;
-
-		//Append the feed specific parameters to the querystring
-		$query .= '&start-min=' . date( 'Y-m-d\TH:i:s', $this->start - $gmt_offset );
-		$query .= '&start-max=' . date( 'Y-m-d\TH:i:s', $this->end - $gmt_offset );
-		$query .= '&max-results=' . $this->max;
+		// Max results limit for performance.
+		$query .= '&max-results=10000';
+		
+		$ctz = get_option( 'timezone_string' );
+		
+		if( ! empty( $ctz ) ) {
+			$query .= '&ctz=' . $ctz;
+		}
 		
 		if ( ! empty( $this->search_query ) ) {
 			$query .= '&q=' . rawurlencode( $this->search_query );
@@ -130,15 +138,19 @@ class GCE_Feed {
 	 * @since 2.0.0
 	 */
 	private function get_feed_data( $url ) {	
-		$raw_data = wp_remote_get( $url, array(
-				'sslverify' => false, //sslverify is set to false to ensure https URLs work reliably. Data source is Google's servers, so is trustworthy
-				'timeout'   => 10     //Increase timeout from the default 5 seconds to ensure even large feeds are retrieved successfully
-			) );
 		
 		// First check for transient data to use
 		if( false !== get_transient( 'gce_feed_' . $this->id ) ) {
 			$this->events = get_transient( 'gce_feed_' . $this->id );
 		} else {
+			
+			// Moved the remote get here to be more efficient
+			// Pointed out to us by John McManigle ( github.com/mcmanigle )
+			$raw_data = wp_remote_get( $url, array(
+				'sslverify' => false, //sslverify is set to false to ensure https URLs work reliably. Data source is Google's servers, so is trustworthy
+				'timeout'   => 10     //Increase timeout from the default 5 seconds to ensure even large feeds are retrieved successfully
+			) );
+			
 			//If $raw_data is a WP_Error, something went wrong
 			if ( ! is_wp_error( $raw_data ) ) {
 				//If response code isn't 200, something went wrong
@@ -157,8 +169,8 @@ class GCE_Feed {
 								$description = ( isset( $event['content']['$t'] ) ? esc_html( $event['content']['$t'] ) : '' );
 								$link        = ( isset( $event['link'][0]['href'] ) ? esc_url( $event['link'][0]['href'] ) : '' );
 								$location    = ( isset( $event['gd$where'][0]['valueString'] ) ? esc_html( $event['gd$where'][0]['valueString'] ) : '' );
-								$start_time  = ( isset( $event['gd$when'][0]['startTime'] ) ? $this->iso_to_ts( $event['gd$when'][0]['startTime'] ) : '' );
-								$end_time    = ( isset( $event['gd$when'][0]['endTime'] ) ? $this->iso_to_ts( $event['gd$when'][0]['endTime'] ) : '' );
+								$start_time  = $event['gd$when'][0]['startTime'];
+								$end_time    = $event['gd$when'][0]['endTime'];
 
 								//Create a GCE_Event using the above data. Add it to the array of events
 								$this->events[] = new GCE_Event( $this, $id, $title, $description, $location, $start_time, $end_time, $link );
@@ -209,52 +221,40 @@ class GCE_Feed {
 		return mktime( $hour, $minute, $second, $month, $day, $year );
 	}
 	
-	/**
-	 * Return feed start/end
-	 * 
-	 * @since 2.0.0
-	 */
-	private function set_feed_length( $value, $type ) {
-		// All times start at 00:00
-		switch ( $value ) {
-			case 'today':
-				$return = mktime( 0, 0, 0, date( 'm' ), date( 'j' ), date( 'Y' ) );
-				break;
-			case 'start_week':
-				$return = mktime( 0, 0, 0, date( 'm' ), ( date( 'j' ) - date( 'w' ) ), date( 'Y' ) );
-				break;
-			case 'start_month':
-				$return = mktime( 0, 0, 0, date( 'm' ), 1, date( 'Y' ) );
-				break;
-			case 'end_month':
-				$return = mktime( 0, 0, 0, date( 'm' ) + 1, 1, date( 'Y' ) );
-				break;
-			case 'custom_date':
-				if( $type == 'start' ) {
-					$date = get_post_meta( $this->id, 'gce_custom_from', true );
-					$fallback = mktime( 0, 0, 0, date( 'm' ), 1, date( 'Y' ) );
-				} else {
-					$date = get_post_meta( $this->id, 'gce_custom_until', true );
-					$fallback = mktime( 0, 0, 0, date( 'm' ) + 1, 1, date( 'Y' ) );
-				}
-				
-				if( ! empty( $date ) ) {
-					$date = explode( '/', $date );
-					$return = mktime( 0, 0, 0, $date[0], $date[1], $date[2] );
-				} else {
-					$return = $fallback;
-				}
-				break;
-			default:
-				if( $type == 'start' ) {
-					$return = 0; //any - 1970-01-01 00:00
-				} else {
-					// Set default end time
-					$return = 2145916800;
-				}
+	private function get_feed_start() {
+		
+		$start    = get_post_meta( $this->id, 'gce_feed_start', true );
+		$interval = get_post_meta( $this->id, 'gce_feed_start_interval', true );
+		
+		switch( $interval ) {
+			case 'days':
+				return time() - ( $start * 86400 );
+			case 'months':
+				return time() - ( $start * 2629743 );
+			case 'years':
+				return time() - ( $start * 31556926 );
 		}
 		
-		return $return;
+		// fall back just in case. Falls back to 1 year ago
+		return time() - 31556926;
+	}
+	
+	private function get_feed_end() {
+		
+		$end    = get_post_meta( $this->id, 'gce_feed_end', true );
+		$interval = get_post_meta( $this->id, 'gce_feed_end_interval', true );
+		
+		switch( $interval ) {
+			case 'days':
+				return time() + ( $end * 86400 );
+			case 'months':
+				return time() + ( $end * 2629743 );
+			case 'years':
+				return time() + ( $end * 31556926 );
+		}
+		
+		// Falls back to 1 year ahead just in case
+		return time() + 31556926;
 	}
 	
 	function get_builder() {

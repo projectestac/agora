@@ -50,7 +50,7 @@ class GCE_Event {
 	 * 
 	 * @since 2.0.0
 	 */
-	function get_days() {
+	function get_days() {	
 		//Round start date to nearest day
 		$start_time = mktime( 0, 0, 0, date( 'm', $this->start_time ), date( 'd', $this->start_time ) , date( 'Y', $this->start_time ) );
 
@@ -64,10 +64,7 @@ class GCE_Event {
 			while ( $on_next_day ) {
 				//If the end time of the event is after 00:00 on the next day (therefore, not doesn't end on this day)
 				if ( $this->end_time > $next_day ) {
-					//If $next_day is within the event retrieval date range (specified by retrieve events from / until settings)
-					if ( $next_day >= $this->feed->start && $next_day < $this->feed->end ) {
-						$days[] = $next_day;
-					}
+					$days[] = $next_day;
 				} else {
 					$on_next_day = false;
 				}
@@ -192,7 +189,12 @@ class GCE_Event {
 		//If link should be displayed add to $markup
 		if ( isset($display_options['display_link'] ) ) {
 			$target = ( ! empty( $display_options['display_link_target'] ) ? 'target="blank"' : '' );
-			$markup .= '<p class="gce-' . $this->type . '-link"><a href="' . esc_url( $this->link ) . '" ' . $target . '>' . esc_html( $display_options['display_link_text'] ) . '</a></p>';
+			
+			$ctz  = get_option( 'timezone_string' );
+			
+			$link = $this->link . ( ! empty( $ctz ) ? '&ctz=' . $ctz : '' );
+			
+			$markup .= '<p class="gce-' . $this->type . '-link"><a href="' . esc_url( $link ) . '" ' . $target . '>' . esc_html( $display_options['display_link_text'] ) . '</a></p>';
 		}
 
 		return $markup;
@@ -361,7 +363,9 @@ class GCE_Event {
 
 			case 'link':
 				$new_window = ( $newwindow ) ? ' target="_blank"' : '';
-				return $m[1] . '<a href="' . esc_url( $this->link ) . '"' . $new_window . '>' . $this->look_for_shortcodes( $m[5] ) . '</a>' . $m[6];
+				$ctz  = get_option( 'timezone_string' );
+				$link = $this->link . ( ! empty( $ctz ) ? '&ctz=' . $ctz : '' );
+				return $m[1] . '<a href="' . esc_url( $link ) . '"' . $new_window . '>' . $this->look_for_shortcodes( $m[5] ) . '</a>' . $m[6];
 
 			case 'url':
 				return $m[1] . esc_url( $this->link ) . $m[6];

@@ -50,6 +50,11 @@ if ( empty( $general['save_settings'] ) ) {
 	delete_post_meta_by_key( 'gce_display_mode' );
 	delete_post_meta_by_key( 'gce_custom_from' );
 	delete_post_meta_by_key( 'gce_custom_until' );
+	delete_post_meta_by_key( 'gce_paging' );
+	delete_post_meta_by_key( 'gce_list_max_num' );
+	delete_post_meta_by_key( 'gce_list_max_length' );
+	delete_post_meta_by_key( 'gce_list_start_offset_num' );
+	delete_post_meta_by_key( 'gce_list_start_offset_direction' );
 
 	// Remove options
 	delete_option( 'gce_upgrade_has_run' );
