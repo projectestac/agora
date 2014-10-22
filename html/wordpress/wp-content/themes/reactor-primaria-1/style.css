@@ -878,7 +878,7 @@ Footer
 .entry-categories>a,
 .entry-tags >a, 
 .entry-comments:before,
-.entry-categories:before,f
+.entry-categories:before,
 .entry-tags:before{
     opacity: 0.7;
     filter: alpha(opacity=70); /* For IE8 and earlier */
@@ -889,9 +889,9 @@ Footer
     text-decoration: underline;
     
 }
-#footer .widget_socialmedia_widget a{
-    text-decoration: none;
-    margin: 0 0.1em 0 0.1em;
+.widget_socialmedia_widget a{
+    text-decoration: none !important;
+    margin: 0em 0.1em 0.1em 0.1em;
 }
 .fa-2-5x{
     font-size: 2.5em !important;
