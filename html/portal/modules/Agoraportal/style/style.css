@@ -264,6 +264,16 @@ table.logtable tbody tr.pn-odd{
     color: inherit;
 }
 
+tr.info-even {
+    background-color: #66d;
+    color: inherit;
+}
+
+tr.info-odd{
+    background-color: #66a;
+    color: inherit;
+}
+
 tr.ok-even {
     background-color: #6d6;
     color: inherit;

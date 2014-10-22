@@ -12,7 +12,7 @@
             <div id="actiondescription"></div><br/><br/>
             <strong>Paràmetres</strong>
             <div id="actionparams"></div><br/><br/>
-            <input name="exe" value="{gt text='Executa ara'}" type="submit" />
+            Prioritat (Negativa: nocturna): {html_options name="priority" options=$priority_values values=$priority_values selected=0}
             <input name="queue" value="{gt text='Posa a la cua'}" type="submit" />
         </div>
         <div class="form_right">

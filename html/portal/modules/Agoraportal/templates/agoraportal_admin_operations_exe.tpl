@@ -8,6 +8,11 @@
     <pre>
         {$actionselect}
     </pre>
+    <div>Prioritat:
+    {if $priority < 0}
+        Nocturna
+    {/if}
+    {$priority}</div>
     {gt text="Paràmetres de la operació:"}
     <ul>
     {foreach key=paramkey item=param from=$params}

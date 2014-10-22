@@ -1826,6 +1826,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $operation['operation'] = $args['operation'];
         $operation['clientId'] = $args['clientId'];
         $operation['serviceId'] = $args['serviceId'];
+        $operation['priority'] = isset($args['priority']) ? $args['priority'] : 0;
+        $operation['timeCreated'] = time();
         $operation['state'] = 'P';
         $operation['params'] = $args['params'] ? json_encode($args['params']) : '';
         $operation = DBUtil::insertObject($operation, 'agoraportal_queues');
@@ -1953,8 +1955,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $c = $tables['agoraportal_queues_column'];
         $a = $tables['agoraportal_clients_column'];
 
+        $init = !empty($args['startnum']) ? $args['startnum'] : 1;
+        $rpp = !empty($args['rpp']) ? $args['rpp'] : 15;
         $orderdir = !empty($args['sortby_dir']) ? $args['sortby_dir'] : '';
-        $orderby = !empty($args['sortby']) ? $args['sortby'] : 'timeStart ASC, priority DESC';
+        $orderby = !empty($args['sortby']) ? $args['sortby'] : 'timeCreated DESC, priority DESC';
         switch($orderby){
             case 'clientName':
             case 'clientDNS':
@@ -2024,24 +2028,74 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $wheres[] = '('.implode(' OR ', $states_where).')';
         }
 
-        if (!empty($args['timeStart'])) {
-            $timestart = strtotime($args['timeStart']);
+        if (!empty($args['from'])) {
+            $timestart = strtotime($args['from']);
         } else {
             $timestart = strtotime(date('Y-m-d'));
         }
-        //$wheres[] = "tbl.$c[timeStart] >= $timestart";
+        $wheres[] = "tbl.$c[timeCreated] >= $timestart";
 
-        if (!empty($args['timeEnd'])) {
-            $timeend = strtotime($args['timeEnd']);
+        if (!empty($args['to'])) {
+            $timeend = strtotime($args['to']);
         } else {
             $timeend = strtotime(date('Y-m-d', strtotime('+2 weeks')));
         }
-        //$wheres[] = "tbl.$c[timeStart] <= $timeend";
+        $wheres[] = "tbl.$c[timeCreated] <= $timeend";
 
         $where = implode(' AND ', $wheres);
-        $items = DBUtil::selectExpandedObjectArray('agoraportal_queues', $joins,  $where, $orderby);
+        if (!empty($args['count']) && $args['count'] == 1) {
+            $items = DBUtil::selectExpandedObjectArray('agoraportal_queues', $joins,  $where);
+            return count($items);
+        }
+        $items = DBUtil::selectExpandedObjectArray('agoraportal_queues', $joins,  $where, $orderby, $init, $rpp);
 
         return $items;
+    }
+
+    public function executePendingOperations($args) {
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        $dom = ZLanguage::getModuleDomain('Agoraportal');
+
+        $executing = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
+        if (!empty($executing)) {
+            print __('There are '.count($executing) .' operations executing!', $dom);
+            return 0;
+        } else {
+            $hour = (int)date('G');
+            $where = "state = 'P'";
+            if ($hour < 2 || $hour > 6) {
+                $where .= ' AND priority >=0';
+                $night_runner = false;
+            } else {
+                $night_runner = true;
+            }
+            $pending = DBUtil::selectObjectArray('agoraportal_queues', $where, 'priority DESC');
+            if (empty($pending)) {
+                print __('GREAT! No operations pending...', $dom);
+                return 1;
+            }
+            print __('There are '.count($pending) .' operations pending...', $dom);
+            echo '<ul>';
+            foreach($pending as $operation){
+                // Control again the hour to stop at the right time
+                if ($night_runner && $operation['priority'] < 0 ) {
+                    $hour = (int)date('G');
+                    if ($hour < 2 || $hour > 6) {
+                        // If it is not night, jumpt it
+                        print '<li>Operation id: '.$operation['id'].' Operation: '.$operation['operation'].' Priority: '.$operation['priority']. ' not executing now...';
+                        continue;
+                    }
+                }
+                print '<li>Operation id: '.$operation['id'].' Operation: '.$operation['operation'].' Priority: '.$operation['priority'];
+                ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operation['id']));
+            }
+            echo '</ul>';
+        }
+
+        return 1;
     }
 
     /**

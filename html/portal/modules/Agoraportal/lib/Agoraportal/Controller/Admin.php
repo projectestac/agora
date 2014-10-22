@@ -3932,6 +3932,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $order_sel = FormUtil::getPassedValue('order_sel', isset($args['order_sel']) ? $args['order_sel'] : 1, 'GETPOST');
         $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '4', 'GETPOST');
         $actionselect = FormUtil::getPassedValue('actionselect', isset($args['actionselect']) ? $args['actionselect'] : false, 'GETPOST');
+        $priority = FormUtil::getPassedValue('priority', isset($args['priority']) ? $args['priority'] : false, 'GETPOST');
 
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('which', $which);
@@ -3942,16 +3943,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $exe = FormUtil::getPassedValue('exe', isset($args['exe']) ? $args['exe'] : null, 'GETPOST');
         $queue = FormUtil::getPassedValue('queue', isset($args['queue']) ? $args['queue'] : null, 'GETPOST');
-        $confirm_exe = FormUtil::getPassedValue('confirm_exe', isset($args['confirm_exe']) ? $args['confirm_exe'] : null, 'GETPOST');
-        $confirm_queue = FormUtil::getPassedValue('confirm_queue', isset($args['confirm_queue']) ? $args['confirm_queue'] : null, 'GETPOST');
-        if (!empty($exe)) {
-            $action = 'ask_exe';
-        } else if (!empty($confirm_exe)) {
-            $action = 'confirm_exe';
-        } else if (!empty($queue)) {
-            $action = 'ask_queue';
-        } else if (!empty($confirm_queue)) {
-            $action = 'confirm_queue';
+        $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'GETPOST');
+        if (!empty($queue)) {
+            $action = 'ask';
+        } else if (!empty($confirm)) {
+            $action = 'confirm';
         }
 
         if (isset($action) && (empty($actionselect) || ($which == "selected" && empty($clients_sel)) || $service_sel === false)) {
@@ -3965,6 +3961,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Initialization
             $serviceName = '';
             $sqlClients = '';
+
+            $view->assign('priority', $priority);
 
             // Common parts on ask and execute
             if ($service_sel == 0) {
@@ -4011,7 +4009,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $view->assign('serviceName', $serviceName);
             $view->assign('clients', $sqlClients);
 
-            if ($action == "confirm_exe") { //Execute SQL
+            if ($action == "confirm") { //Execute SQL
                 $results = Array();
                 $success = Array();
                 $messages = Array();
@@ -4021,6 +4019,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             array('operation' => $actionselect,
                                 'clientId' => $client['clientId'],
                                 'serviceId' => $service_sel,
+                                'priority' => $priority,
                                 'params' => $params
                             ));
 
@@ -4060,6 +4059,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $view->assign('servicesListContent', $servicesListContent);
         $view->assign('search', $search);
         $view->assign('searchText', $searchText);
+
+        $priority_values = array();
+        $i = -10;
+        while ($i <= 10) {
+            $priority_values["$i"] = $i;
+            $i++;
+        }
+        $view->assign('priority_values', $priority_values);
+
         return $view->fetch('agoraportal_admin_operations.tpl');
     }
 
@@ -4094,11 +4102,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search['state'] = FormUtil::getPassedValue('state_filter', isset($args['state_filter']) ? $args['state_filter'] : '', 'GETPOST');
         $view->assign('state_filter', $search['state']);
 
-        $search['timeStart'] = FormUtil::getPassedValue('date_start', isset($args['date_start']) ? $args['date_start'] : '', 'GETPOST');
-        $view->assign('date_start', $search['timeStart']);
+        $search['from'] = FormUtil::getPassedValue('date_start', isset($args['date_start']) ? $args['date_start'] : date('Y-m-d').' 00:00', 'GETPOST');
+        $view->assign('date_start', $search['from']);
 
-        $search['timeEnd'] = FormUtil::getPassedValue('date_stop', isset($args['date_stop']) ? $args['date_stop'] : '', 'GETPOST');
-        $view->assign('date_stop', $search['timeEnd']);
+        $search['to'] = FormUtil::getPassedValue('date_stop', isset($args['date_stop']) ? $args['date_stop'] : date('Y-m-d', strtotime('+2 weeks')).' 00:00', 'GETPOST');
+        $view->assign('date_stop', $search['to']);
 
         $search['sortby_dir'] = FormUtil::getPassedValue('sortby_dir', isset($args['sortby_dir']) ? $args['sortby_dir'] : 'ASC', 'GETPOST');
         $view->assign('sortby_dir', $search['sortby_dir']);
@@ -4106,18 +4114,21 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search['sortby'] = FormUtil::getPassedValue('sortby_filter', isset($args['sortby_filter']) ? $args['sortby_filter'] : 'timeStart', 'GETPOST');
         $view->assign('sortby_filter', $search['sortby']);
 
+        $startnum = FormUtil::getPassedValue('startnum', isset($args['startnum']) ? $args['startnum'] : 1, 'GETPOST');
+        $search['startnum'] = $startnum;
+
+        $rpp = 50;
+        $search['rpp'] = $rpp;
+
         $operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', $search);
-        foreach($operations as $operation) {
-            if(!empty($operation['params'])){
-                $operation['params'] = json_decode($operation['params']);
-            }
-        }
         $view->assign('rows', $operations);
 
-        //TODO: pager
-        $view->assign('rowsNumber', count($operations));
-        $view->assign('pager', '');
+        $search['count'] = 1;
+        $operations_number = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', $search);
+        $view->assign('rowsNumber', $operations_number);
 
+        $view->assign('pager', array('numitems' => $operations_number,
+                                           'itemsperpage' => $rpp));
         $priority_filter_values = array();
         $priority_filter_values['-'] = '-';
         $i = -10;
@@ -4126,6 +4137,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $i++;
         }
         $view->assign('priority_filter_values', $priority_filter_values);
+
+        $change_priority_values = array();
+        $i = -10;
+        while ($i <= 10) {
+            $change_priority_values["$i"] = $i;
+            $i++;
+        }
+        $view->assign('change_priority_values', $change_priority_values);
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $view->assign('services', $services);

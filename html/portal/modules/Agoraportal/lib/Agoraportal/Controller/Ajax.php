@@ -604,6 +604,33 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         return 'No hi ha registre';
     }
 
+    public function changeOperationPriority($args) {
+        $opid = FormUtil::getPassedValue('operation', false, 'GET');
+        $newpriority = FormUtil::getPassedValue('newpriority', false, 'GET');
+        if($opid === false || $newpriority === false) {
+            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No s\'han rebut dades')));
+        }
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $operation = DBUtil::selectObjectByID('agoraportal_queues', $opid);
+
+        if (!$operation) {
+            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No s\'han trobat la operació')));
+        }
+
+        if ($operation['state'] != 'P') {
+            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('La operació no està en Pendent')));
+        }
+
+        $operation['priority'] = $newpriority;
+        DBUtil::updateObject($operation, 'agoraportal_queues');
+
+        return $operation;
+    }
+
     public function executeOperationId($args) {
         $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operationid));

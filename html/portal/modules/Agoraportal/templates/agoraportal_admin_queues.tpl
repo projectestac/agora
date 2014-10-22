@@ -17,7 +17,7 @@
         <input type="text" value="{$client_filter}" name="client_filter" size="20"/>
 
         <strong>Prioritat: </strong>
-        {html_options name=priority_filter options=$priority_filter_values values=$priority_filter_values selected=$priority_filter)}
+        {html_options name=priority_filter options=$priority_filter_values values=$priority_filter_values selected=$priority_filter}
 
         <strong>Servei: </strong>
         <select name="service_filter">
@@ -37,9 +37,9 @@
             <option {if $state_filter === 'OK,KO'}selected{/if} value="OK,KO">{gt text="Acabat"}</option>
         </select><br/>
         <strong>{gt text="Des de: "}</strong>
-        <input size="15" id="date_start" name="date_start"  value="{$date_start}"/>{gt text="Format YYYY-mm-dd HH:mm"}<br/>
+        <input size="15" id="date_start" name="date_start"  value="{$date_start}"/><br/>
         <strong>{gt text="Fins a: "}</strong>
-        <input size="15" id="date_stop" name="date_stop" value="{$date_stop}"/>{gt text="Format YYYY-mm-dd  HH:mm"}<br/>
+        <input size="15" id="date_stop" name="date_stop" value="{$date_stop}"/><br/>
         <strong>{gt text="Ordenat per"}: </strong>
         <select name="sortby_filter">
             <option {if $sortby_filter === "timeStart"}selected{/if} value="timeStart">{gt text="Inici"}</option>
@@ -59,7 +59,10 @@
     </form>
     </div>
     <div>
-        <div class="pager">{$rowsNumber} {gt text="Operacions"} - {$pager}</div>
+        <div class="pager">{$rowsNumber} {gt text="Operacions"}</div>
+        {pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='startnum'}
+
+        <span id="reload"></span>
         <table class="z-datatable">
             <thead>
                 <tr>
@@ -69,6 +72,7 @@
                     <th align="center">{gt text="Servei"}</th>
                     <th align="center">{gt text="Prioritat"}</th>
                     <th align="center">{gt text="Estat"}</th>
+                    <th align="center">{gt text="Encuat"}</th>
                     <th align="center">{gt text="Inici"}</th>
                     <th align="center">{gt text="Fi"}</th>
                     <th align="center">{gt text="Accions"}</th>
@@ -80,6 +84,8 @@
                         <tr class="{cycle values="ok-odd,ok-even"}">
                     {elseif $row.state == 'KO'}
                         <tr class="{cycle values="error-odd,error-even"}">
+                    {elseif $row.state == 'L'}
+                        <tr class="{cycle values="info-odd,info-even"}">
                     {else}
                         <tr class="{cycle values="z-odd,z-even"}">
                     {/if}
@@ -90,7 +96,15 @@
                                 {$row.clientName}
                             </a></td>
                         <td align="center" valign="top">{$row.serviceName}</td>
-                        <td align="center" valign="top">{$row.priority}</td>
+                        <td align="center" valign="top">
+                        {if $row.state == 'P'}
+                            <select id="new_priority_{$row.id}" onchange="operations_change_priority({$row.id});">
+                                {html_options options=$change_priority_values values=$change_priority_values selected=$row.priority}
+                            </select>
+                        {else}
+                            {$row.priority}
+                        {/if}
+                        </td>
                         <td align="center" valign="top">
                         {if $row.state == 'OK'}
                             Correcte
@@ -104,15 +118,35 @@
                             {$row.state}
                         {/if}
                         </td>
-                        <td align="center" valign="top">{$row.timeStart|date_format:"%d/%m/%Y - %H:%M:%S"}</td>
-                        <td align="center" valign="top">{$row.timeEnd|date_format:"%d/%m/%Y - %H:%M:%S"}</td>
+                        <td align="center" valign="top">
+                        {if $row.timeCreated}
+                            {$row.timeCreated|date_format:"%d/%m/%Y - %H:%M:%S"}
+                        {else}
+                            -
+                        {/if}
+                        </td>
+                        <td align="center" valign="top">
+                        {if $row.timeStart}
+                            {$row.timeStart|date_format:"%d/%m/%Y - %H:%M:%S"}
+                        {else}
+                            -
+                        {/if}
+                        </td>
+                        <td align="center" valign="top">
+                         {if $row.timeEnd}
+                            {$row.timeEnd|date_format:"%d/%m/%Y - %H:%M:%S"}
+                        {else}
+                            -
+                        {/if}
+                        </td>
                         <td align="center" valign="top" class="actions">
                         {if $row.params != ''}
+                            {assign var="params" value=$row.params|@json_decode}
                             {assign var="text" value=""}
-                            {foreach item=val key=k from=$row.params}
-                                {assign var="text" value="`$text``$k`=`$val`"}
+                            {foreach item=val key=k from=$params}
+                                {assign var="text" value="`$text``$k` = `$val`<br/>"}
                             {/foreach}
-                            <img title="Paràmetres" src='images/icons/small/package_graphics.png' onclick="operations_show_params('{$text}');"/>
+                            <img title="Paràmetres" src='images/icons/small/package_graphics.png' onclick="operations_show_params('{$text|escape}');"/>
                         {/if}
 
                         {if $row.logId != 0}
@@ -123,7 +157,6 @@
                             <img title="Executa de nou" src='images/icons/small/reload.png' onclick="operations_execute('{$row.id}');"/>
                         {elseif $row.state == 'P'}
                             <img title="Executa ara" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
-                            {img title="Canvia la prioritat" modname='core' src='2uparrow.png' set='icons/small'}
                         {/if}
                         </td>
                     </tr>
@@ -132,3 +165,4 @@
         </table>
     </div>
 </div>
+

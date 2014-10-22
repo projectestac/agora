@@ -1238,11 +1238,40 @@ function deleteFileM2x_failure() {
 }
 
 
+function operations_change_priority(id){
+    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
+    var priority = document.getElementById('new_priority_'+id).value;
+    var pars = "module=Agoraportal&func=changeOperationPriority&operation=" + id + "&newpriority=" +priority;
+    console.log(pars);
+    var myAjax = new Ajax.Request("ajax.php",
+    {
+        method: 'get',
+        parameters: pars,
+        onComplete: operations_change_priority_complete,
+        onFailure: operations_failure
+    });
+
+    return false;
+}
+
+function operations_change_priority_complete(req){
+    Element.update('reload', '');
+    if (req.status != 200 ) {
+        pnshowajaxerror(req.responseText);
+        return;
+    }
+    var operation = pndejsonize(req.responseText);
+    var opid = operation.id;
+    var priority = operation.priority;
+    document.getElementById('new_priority_'+opid).value = priority;
+}
+
 function operations_show_params(text){
     Zikula.UI.Alert(text,'Paràmetres');
 }
 
 function operations_show_log(logId){
+    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
     var pars = "module=Agoraportal&func=showOperationLog&log="+ logId;
     var myAjax = new Ajax.Request("ajax.php",
     {
@@ -1256,17 +1285,18 @@ function operations_show_log(logId){
 }
 
 function operations_show_log_complete(req){
+    Element.update('reload', '');
     if (req.status != 200 ) {
         pnshowajaxerror(req.responseText);
         return;
     }
     var json = pndejsonize(req.responseText);
-    console.log(json);
     Zikula.UI.Alert(json.data,'Registre');
 }
 
 
 function operations_execute(id){
+    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
     var pars = "module=Agoraportal&func=executeOperationId&operation=" + id;
     var myAjax = new Ajax.Request("ajax.php",
     {
@@ -1280,6 +1310,7 @@ function operations_execute(id){
 }
 
 function operations_execute_complete(req){
+    Element.update('reload', '');
     if (req.status != 200 ) {
         pnshowajaxerror(req.responseText);
         return;
@@ -1289,5 +1320,6 @@ function operations_execute_complete(req){
 }
 
 function operations_failure(){
+    Element.update('reload', '');
     Zikula.UI.Alert("Revisa els resultats",'Error');
 }

@@ -2,12 +2,17 @@
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <div style="height:10px;">&nbsp;</div>
-    <h2>{gt text="Operació"}</h2>
+    <h2>{gt text="Operacio a "}{$serviceName}</h2>
     <br />
-    {gt text="Operació a executar:"}
+    {gt text="Operació a encuar:"}
     <pre>
         {$actionselect}
     </pre>
+    <div>Prioritat:
+    {if $priority < 0}
+        Nocturna
+    {/if}
+    {$priority}</div>
     {gt text="Paràmetres de la operació:"}
     <ul>
     {foreach key=paramkey item=param from=$params}
@@ -38,10 +43,11 @@
             {foreach key=paramkey item=param from=$params}
                 <input type="hidden" name="parm_{$paramkey}" value="{$param}">
             {/foreach}
+            <input type="hidden" name="priority" value="{$priority}">
             <input type="hidden" name="actionselect" value="{$actionselect}">
         </div>
         {gt text="Esteu segurs?"}
-        <input name="confirm_exe" value="{gt text='Sí'}" type="submit" />
+        <input name="confirm" value="{gt text='Sí'}" type="submit" />
         <input value="{gt text='No'}" type="submit" />
     </form>
 </div>
