@@ -4114,13 +4114,18 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search['sortby'] = FormUtil::getPassedValue('sortby_filter', isset($args['sortby_filter']) ? $args['sortby_filter'] : 'timeStart', 'GETPOST');
         $view->assign('sortby_filter', $search['sortby']);
 
-        $startnum = FormUtil::getPassedValue('startnum', isset($args['startnum']) ? $args['startnum'] : 1, 'GETPOST');
+        $startnum = FormUtil::getPassedValue('startnum', isset($args['startnum']) ? $args['startnum'] : 0, 'GETPOST');
         $search['startnum'] = $startnum;
 
         $rpp = 50;
         $search['rpp'] = $rpp;
 
         $operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', $search);
+
+        if (!$search['state']) {
+            $exec_operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', array('state'=>'L'));
+            $operations = array_merge($exec_operations, $operations);
+        }
         $view->assign('rows', $operations);
 
         $search['count'] = 1;

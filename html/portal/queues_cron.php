@@ -1,5 +1,8 @@
 <?php
 
+
+define('CLI_SCRIPT', true);
+
 // init zikula engine
 include 'lib/bootstrap.php';
 $core->init();

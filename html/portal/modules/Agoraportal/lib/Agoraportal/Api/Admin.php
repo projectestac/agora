@@ -1844,7 +1844,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     public function executeOperationId($args) {
         $opId = $args['opId'];
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
 
@@ -1912,7 +1912,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $clientDNS = $args['clientDNS'];
         $params = $args['params'];
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
 
@@ -1955,7 +1955,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $c = $tables['agoraportal_queues_column'];
         $a = $tables['agoraportal_clients_column'];
 
-        $init = !empty($args['startnum']) ? $args['startnum'] : 1;
+        $init = !empty($args['startnum']) ? $args['startnum'] : 0;
         $rpp = !empty($args['rpp']) ? $args['rpp'] : 15;
         $orderdir = !empty($args['sortby_dir']) ? $args['sortby_dir'] : '';
         $orderby = !empty($args['sortby']) ? $args['sortby'] : 'timeCreated DESC, priority DESC';
@@ -1991,7 +1991,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $wheres[] = "$c[operation] = '$args[operation]'";
         }
 
-        if ($args['priority'] != '-') {
+        if ($args['priority'] != '-' && $args['priority'] != '') {
             $wheres[] = "$c[priority] = $args[priority]";
         }
 
@@ -2026,21 +2026,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $states_where[] = "$c[state] = '$state'";
             }
             $wheres[] = '('.implode(' OR ', $states_where).')';
+        } else {
+            $wheres[] = "$c[state] != 'L'";
         }
 
         if (!empty($args['from'])) {
             $timestart = strtotime($args['from']);
-        } else {
-            $timestart = strtotime(date('Y-m-d'));
+            $wheres[] = "tbl.$c[timeCreated] >= $timestart";
         }
-        $wheres[] = "tbl.$c[timeCreated] >= $timestart";
 
         if (!empty($args['to'])) {
             $timeend = strtotime($args['to']);
-        } else {
-            $timeend = strtotime(date('Y-m-d', strtotime('+2 weeks')));
+            $wheres[] = "tbl.$c[timeCreated] <= $timeend";
         }
-        $wheres[] = "tbl.$c[timeCreated] <= $timeend";
 
         $where = implode(' AND ', $wheres);
         if (!empty($args['count']) && $args['count'] == 1) {
@@ -2054,7 +2052,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     public function executePendingOperations($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
         $dom = ZLanguage::getModuleDomain('Agoraportal');
@@ -2074,10 +2072,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
             $pending = DBUtil::selectObjectArray('agoraportal_queues', $where, 'priority DESC, timeCreated ASC, ClientId ASC');
             if (empty($pending)) {
-                print __('GREAT! No operations pending...', $dom);
+                print __('GREAT! No pending operations...', $dom);
                 return 1;
             }
-            print __('There are '.count($pending) .' operations pending...', $dom);
+            print __('There are '.count($pending) .' pending operations...', $dom);
             echo '<ul>';
             foreach($pending as $operation){
                 // Control again the hour to stop at the right time
