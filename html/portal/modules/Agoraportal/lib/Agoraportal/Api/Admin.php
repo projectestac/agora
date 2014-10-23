@@ -1864,7 +1864,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                     array('clientDNS' => $client['clientDNS'],
                                         'operation' => $operation['operation'],
                                         'serviceName' => $service['serviceName'],
-                                        'params' => json_decode($operation['params'])
+                                        'params' => json_decode($operation['params'], true)
                                     ));
                     $success = $result['success'];
                     $message = $result['result'];
@@ -2072,7 +2072,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             } else {
                 $night_runner = true;
             }
-            $pending = DBUtil::selectObjectArray('agoraportal_queues', $where, 'priority DESC');
+            $pending = DBUtil::selectObjectArray('agoraportal_queues', $where, 'priority DESC, timeCreated ASC, ClientId ASC');
             if (empty($pending)) {
                 print __('GREAT! No operations pending...', $dom);
                 return 1;

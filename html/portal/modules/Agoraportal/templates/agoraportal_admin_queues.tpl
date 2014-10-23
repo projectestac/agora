@@ -157,6 +157,10 @@
                             <img title="Executa de nou" src='images/icons/small/reload.png' onclick="operations_execute('{$row.id}');"/>
                         {elseif $row.state == 'P'}
                             <img title="Executa ara" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
+                        {elseif $row.state == 'L'}
+                            {if $row.timeStart < $smarty.now - 30*60}
+                                <img title="Executa de nou" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
+                            {/if}
                         {/if}
                         </td>
                     </tr>

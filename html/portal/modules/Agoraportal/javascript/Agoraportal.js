@@ -1319,7 +1319,8 @@ function operations_execute_complete(req){
     Zikula.UI.Alert(json.data,'Executa');
 }
 
-function operations_failure(){
+function operations_failure(req){
     Element.update('reload', '');
     Zikula.UI.Alert("Revisa els resultats",'Error');
+    console.log(req);
 }
