@@ -29,6 +29,7 @@ h2 {
 #panel-right,
 #panel-center {
   background: white;
+  color: [[setting:color2]];
 }
 
 .user-menu {
