@@ -1086,226 +1086,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         global $agora;
 
         switch ($action) {
-            case 1:
-                // Create or delete Moodle2 super administrator
-                // get all the services and tables prefix for moodle tables
-                $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-                $prefix = $agora[$serviceName]['prefix'];
-                $service = $services[$item[$clientServiceId]['serviceId']]['serviceName'];
-
-                $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin'";
-                $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                            'sql' => $sql,
-                            'serviceName' => $serviceName,
-                        ));
-                if (!$result['success']) {
-                    return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
+            case 1: //Restore XTECADMIN Moodle2
+                $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addExecuteOperation',
+                            array('operation' => 'script_restore_xtecadmin',
+                                'clientId' => $item[$clientServiceId]['clientId'],
+                                'serviceId' => $serviceId
+                            ));
+                print_r($operation);
+                if (!$operation['success']) {
+                    return LogUtil::registerError($this->__('Ha fallat la restauració de l\'usuari xtecadmin. Error:' . $operation['result']));
                 }
-
-                $uid = (isset($result['values'][0]['ID']) && $result['values'][0]['ID'] > 0) ? $result['values'][0]['ID'] : 0;
-
-                if ($uid > 0) {
-                    // Get xtecadmin user id
-                    $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin'";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-                    $xtecadminID = $result['values'][0]['ID'];
-
-                    // Get list of site admins
-                    $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-
-                    // Remove xtecadmin ID from the list of admins
-                    $siteadmins = explode(',', $result['values'][0]['VALUE']);
-                    $siteadmins = array_diff($siteadmins, array($xtecadminID));
-                    $siteadmins = implode(',', $siteadmins);
-
-                    // Update list of site admins
-                    $sql = "UPDATE {$prefix}config c SET c.value='$siteadmins' WHERE c.name='siteadmins'";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-
-                    $sql = "DELETE FROM {$prefix}user WHERE id='" . $uid . "'";
-
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-
-                    LogUtil::registerStatus($this->__('S\'ha esborrat l\'usuari xtecadmin del Moodle del centre'));
-                } else {
-                    // Create xtecadmin
-                    // Get MNETHOSTID
-                    $sql = "SELECT mnethostid FROM {$prefix}user u WHERE u.username='admin'";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-                    $mnethostid = $result['values'][0]['MNETHOSTID'];
-                    // create user
-                    global $agora;
-
-                    $sql = "INSERT INTO {$prefix}USER(AUTH,
-                            CONFIRMED,
-                            POLICYAGREED,
-                            DELETED,
-                            MNETHOSTID,
-                            USERNAME,
-                            PASSWORD,
-                            IDNUMBER,
-                            FIRSTNAME,
-                            LASTNAME,
-                            EMAIL,
-                            EMAILSTOP,
-                            ICQ,
-                            SKYPE,
-                            YAHOO,
-                            AIM,
-                            MSN,
-                            PHONE1,
-                            PHONE2,
-                            INSTITUTION,
-                            DEPARTMENT,
-                            ADDRESS,
-                            CITY,
-                            COUNTRY,
-                            LANG,
-                            THEME,
-                            TIMEZONE,
-                            FIRSTACCESS,
-                            LASTACCESS,
-                            LASTLOGIN,
-                            CURRENTLOGIN,
-                            LASTIP,
-                            SECRET,
-                            PICTURE,
-                            URL,
-                            DESCRIPTION,
-                            MAILFORMAT,
-                            MAILDIGEST,
-                            MAILDISPLAY,
-                            AUTOSUBSCRIBE,
-                            TRACKFORUMS,
-                            TIMEMODIFIED,
-                            TRUSTBITMASK,
-                            IMAGEALT)
-                            VALUES ('manual',
-                                    1,
-                                    0,
-                                    0,
-                                    $mnethostid,
-                                    'xtecadmin',
-                                    '" . $agora['config']['xtecadmin'] . "',
-                                    ' ',
-                                    'Administrador/a',
-                                    'XTEC',
-                                    'agora@xtec.cat',
-                                    1,
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    ' ',
-                                    'Barcelona',
-                                    'es',
-                                    'ca',
-                                    ' ',
-                                    '99',
-                                    0,
-                                    1208419071,
-                                    1208419039,
-                                    1208419069,
-                                    '0.0.0.0',
-                                    ' ',
-                                    0,
-                                    ' ',
-                                    'Administrador/a de la XTEC ',
-                                    1,
-                                    0,
-                                    0,
-                                    1,
-                                    0,
-                                    1208418989,
-                                    0,
-                                    ' ')";
-
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-
-                    // Get xtecadmin userid
-                    $sql = "SELECT id FROM {$prefix}user u WHERE u.username='xtecadmin' ";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => $serviceName,
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-                    $xtecadminID = $result['values'][0]['ID'];
-
-                    // Get list of site admins
-                    $sql = "SELECT to_char(c.value) as value FROM {$prefix}config c WHERE c.name='siteadmins'";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => 'moodle2',
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-                    // Add xtecadmin ID from the list of admins
-                    $siteadmins = explode(',', $result['values'][0]['VALUE']);
-                    array_push($siteadmins, $xtecadminID);
-                    $siteadmins = array_reverse($siteadmins); // xtecadmin will be main admin!
-                    $siteadmins = implode(',', $siteadmins);
-
-                    // Update list of site admins
-                    echo $sql = "UPDATE {$prefix}config c SET c.value='$siteadmins' WHERE c.name='siteadmins'";
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
-                                'sql' => $sql,
-                                'serviceName' => 'moodle2',
-                            ));
-                    if (!$result['success']) {
-                        return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
-                    }
-
-                    LogUtil::registerStatus($this->__('S\'ha creat correctament l\'usuari xtecadmin del centre.'));
-                }
+                LogUtil::registerStatus($this->__('S\'ha restaurat l\'usuari xtecadmin del Moodle del centre'));
                 break;
-
             case 2: // Connect Zikula and Moodle
                 break;
 
@@ -1422,8 +1214,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     return LogUtil::registerError($this->__('No s\'han pogut desactivar els blocs.'));
                 break;
 
-            case 6:
-            case 7:
+            case 6:  // Calculate consumed space Moodle2
+            case 7: // Calculate consumed space Zikula
                 ModUtil::func('Agoraportal', 'user', 'calcUsedSpace', array('clientCode' => $item[$clientServiceId]['clientCode'],
                     'serviceId' => $item[$clientServiceId]['serviceId'],
                     'clientServiceId' => $clientServiceId));
@@ -1832,6 +1624,30 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $operation['params'] = $args['params'] ? json_encode($args['params']) : '';
         $operation = DBUtil::insertObject($operation, 'agoraportal_queues');
         return $operation;
+    }
+
+    public function addExecuteOperation($args){
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        if(!isset($args['operation']) || empty($args['operation']) ||
+            !isset($args['clientId']) || empty($args['clientId'])||
+            !isset($args['serviceId']) || empty($args['serviceId'])){
+                return false;
+        }
+
+        $priority = isset($args['priority']) ? $args['priority'] : 0;
+        $params = $args['params'] ? json_encode($args['params']) : '';
+        $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+                array('operation' => $args['operation'],
+                    'clientId' => $args['clientId'],
+                    'serviceId' => $args['serviceId'],
+                    'priority' => $priority,
+                    'params' => $params
+                ));
+
+        if(!$operation) return false;
+        return ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operation['id']));
     }
 
     /**

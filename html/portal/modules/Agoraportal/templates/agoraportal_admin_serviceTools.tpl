@@ -12,7 +12,7 @@
     <ul>
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='1' clientServiceId=$client.clientServiceId}">
-                {gt text="Crea o esborra l'usuari xtecadmin a Moodle"}
+                {gt text="Restaura l'usuari xtecadmin a Moodle"}
             </a>
         </li>
         <li>
