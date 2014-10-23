@@ -44,7 +44,7 @@ jQuery(document).ready( function($)
         <h4><?php _e( 'More Actions' ); ?></h4>
         <ul>
             <li><?php printf( '<div class="welcome-icon welcome-widgets-menus">' . __( 'Manage <a href="%1$s">widgets</a> or <a href="%2$s">menus</a>' ) . '</div>', admin_url( 'widgets.php' ), admin_url( 'nav-menus.php' ) ); ?></li>
-            <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Carrusels' ) . '</a>', admin_url( 'edit.php?post_type=slideshow' ) ); ?></li>
+            <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Sistema de reserves' ) . '</a>', "http://agora.xtec.cat/nodes/reserva-de-recursos" ); ?></li>
             <li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Xarxa NODES (BuddyPress)' ) . '</a>', __( 'admin.php?page=xtec-bp-options' ) ); ?></li>
         </ul>
     </div>
