@@ -12,10 +12,6 @@ Version: 1.0.0
 /*****************************************************************
 Add Custom styles below 
 ******************************************************************/
-div.large-9{
-
-    padding:0;
-}
 
 body{
     background-color:white !important;
@@ -23,20 +19,22 @@ body{
     color:#444;
 }
 
+div.large-9{
+    padding:0;
+}
+
 #contingut_central_frontpage p{
     font-size:0.9em;
 }
 
 .row {
-    /*max-width: 95em;*/
     max-width: 95em;
-    margin: 0 0em 0 0em !important;
+    margin: 0 !important;
 }
 
 h1, h2, h3, h4, h5, h6, a {
     color: #087eb6;
     font-family: 'Open Sans', sans-serif;
-    /*font-family: 'Walter Turncoat', cursive;*/
     font-weight:400;    
 }
 
@@ -57,7 +55,6 @@ h2 {
 .login h1 a { 
     background-size:auto !important;
 }
-
 
 ul.menu{
     list-style-type:none;
@@ -906,6 +903,18 @@ Calendari
     border-radius: 75%;
     padding:5px;
  }
+ 
+ @media screen and (max-width: 1280px) {
+     #sidebar-frontpage-2 .widget_gce_widget table tr th, 
+     #sidebar-frontpage-2 .widget_gce_widget table tr td {
+         padding: 0.25em;
+     }
+     #sidebar-frontpage-2 .gce-today span.gce-day-number {
+         border-radius: 75%;
+         padding: 2px;
+     }
+ }
+
 
 /*****************************************************************
 Footer
