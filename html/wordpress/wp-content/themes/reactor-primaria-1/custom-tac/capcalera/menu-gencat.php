@@ -4,7 +4,7 @@ function add_gencat( $wp_admin_bar ) {
 
 	$args = array(
 		'id'     => 'gencat',     // id of the existing child node (New > Post)
-		'title'  => '<img src="'.get_bloginfo('template_directory').'-primaria-1/custom-tac/imatges/logo_gene.png">',
+		'title'  => '<img src="'.get_stylesheet_directory_uri().'/custom-tac/imatges/logo_gene.png">',
 		//'href' =>'http://www20.gencat.cat',
 		'parent' => false,          // set parent to false to make it a top level (parent) node
 	);

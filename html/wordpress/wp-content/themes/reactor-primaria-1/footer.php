@@ -45,7 +45,7 @@ if ( is_category() or is_tag() ){
     //http://www.feedthebot.com/pagespeed/defer-loading-javascript.html
     function downloadJSAtOnload() {
         var element = document.createElement("script");
-        element.src = "<?php echo get_bloginfo('template_directory').'-primaria-1/'?>equalize-cards.js";
+        element.src = "<?php echo get_stylesheet_directory_uri().'/'?>equalize-cards.js";
         document.body.appendChild(element);
     }
     
