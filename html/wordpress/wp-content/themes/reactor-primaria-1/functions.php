@@ -210,26 +210,31 @@ add_action( 'pre_get_posts', 'categoria_portada' );
 
 // Permet algunes etiquetes html a l'extracte d'un post
 function improved_trim_excerpt($text) {
+    
         global $post;
 	$allowed_tags='<a>,<ul>,<li>,<ol>';
+        
+        $excerpt_more = reactor_option('post_readmore','Llegir més');
+        $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_more);
 
         if ( '' == $text ) {
-		$text = get_the_content('');
-		$text = apply_filters('the_content', $text);
-		$text = str_replace('\]\]\>', ']]&gt;', $text);
-		$text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
-		$text = strip_tags($text,$allowed_tags);
-		$excerpt_length = 45;
+            $text = get_the_content('');
+            $text = apply_filters('the_content', $text);
+            $text = str_replace('\]\]\>', ']]&gt;', $text);
+            $text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
+            $text = strip_tags($text,$allowed_tags);
+            $excerpt_length = 45;
 
-		$excerpt_more = reactor_option('post_readmore','Llegir més');
-		$excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_more);
-
-		$words = explode(' ', $text, $excerpt_length + 1);
-		if (count($words)> $excerpt_length) {
-		        array_pop($words);
-		        $text = implode(' ', $words);
-		}
+            $words = explode(' ', $text, $excerpt_length + 1);
+            if (count($words)> $excerpt_length) {
+                    array_pop($words);
+                    $text = implode(' ', $words);
+            }
+            else 
+                 return $text;
+            
         }
+        
         return $text . $excerpt_more;
 }
 
