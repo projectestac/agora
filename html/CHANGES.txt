@@ -8,6 +8,7 @@ Changes in progress
 PORTAL
 - Fixed possibility of login without https
 - Agoraportal: Increased maximum size for big files to 200MB
+- Agoraportal: Added link to force update of used quota in actions of service Nodes
 
 WORDPRESS
 - Added catalan translation to Widget Visibility

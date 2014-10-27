@@ -3,7 +3,7 @@
     <div class="z-pageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
     <h2>{gt text="Eines d'administració"}</h2>
     <div>{gt text="Nom client"}: <strong>{$client.clientName}</strong></div>
-    <div>{gt text="Servei"}:</div>
+    <div>{gt text="Servei"}: <strong>{$services[$client.serviceId].serviceName}</strong></div>
     <div class="serviceImgAdmin">
         <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" />
     </div>
@@ -40,6 +40,14 @@
         </li>
         <li>
             <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='7' clientServiceId=$client.clientServiceId}">
+                {gt text="Recalcula l'espai consumit"}
+            </a>
+        </li>
+    </ul>
+    {elseif $services[$client.serviceId].serviceName == 'nodes'}
+    <ul>
+        <li>
+            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='8' clientServiceId=$client.clientServiceId}">
                 {gt text="Recalcula l'espai consumit"}
             </a>
         </li>
