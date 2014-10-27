@@ -19,12 +19,14 @@ function bigdata_export() {
 
 	require_once($CFG->dirroot.'/local/bigdata/locallib.php');
 
+	$bigdata = new bigdata($CFG->dataroot.'/bigdata.txt', 'escola', $roles);
 	$success = true;
 	foreach ($courses as $course) {
 		try {
-			$success = $success && bigdata::export_course($course, $roles);
+			$success = $success && $bigdata->export_course($course);
 		} catch (Exception $e) {
-			echo $e->get_Message();
+			echo $e->getMessage();
+			throw $e;
 			$success = false;
 		}
 	}
