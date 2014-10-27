@@ -169,8 +169,8 @@ class GCE_Feed {
 								$description = ( isset( $event['content']['$t'] ) ? esc_html( $event['content']['$t'] ) : '' );
 								$link        = ( isset( $event['link'][0]['href'] ) ? esc_url( $event['link'][0]['href'] ) : '' );
 								$location    = ( isset( $event['gd$where'][0]['valueString'] ) ? esc_html( $event['gd$where'][0]['valueString'] ) : '' );
-								$start_time  = $event['gd$when'][0]['startTime'];
-								$end_time    = $event['gd$when'][0]['endTime'];
+								$start_time  = ( isset( $event['gd$when'][0]['startTime'] ) ? $this->iso_to_ts( $event['gd$when'][0]['startTime'] ) : '' );
+								$end_time    = ( isset( $event['gd$when'][0]['endTime'] ) ? $this->iso_to_ts( $event['gd$when'][0]['endTime'] ) : '' );
 
 								//Create a GCE_Event using the above data. Add it to the array of events
 								$this->events[] = new GCE_Event( $this, $id, $title, $description, $location, $start_time, $end_time, $link );

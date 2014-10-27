@@ -52,6 +52,8 @@ function gce_default_editor_content( $content, $post ) {
 		$content .= '[if-location]<div><span>' . __( 'Location:', 'gce' ) . '</span> [location]</div>[/if-location]' . "\n";
 		$content .= '[if-description]<div><span>' . __( 'Description:', 'gce' ) . '</span> [description]</div>[/if-description]' . "\n";
 		$content .= '<div>[link newwindow="true"]' . __( 'More details...', 'gce' ) . '[/link]</div>' . "\n";
+*/
+//************ FI
 		
 		// Default Post Meta Options
 		add_post_meta( $post->ID, 'gce_expand_recurring', 1 );
@@ -78,18 +80,6 @@ function gce_default_editor_content( $content, $post ) {
 		add_post_meta( $post->ID, 'gce_display_link', 1 );
 		add_post_meta( $post->ID, 'gce_display_link_text', __( 'More Details', 'gce' ) );
 		
-//************ ORIGINAL
-/*
-		add_post_meta( $post->ID, 'gce_display_start_text', 'Starts:' );
-		add_post_meta( $post->ID, 'gce_display_end', 'time-date' );
-		add_post_meta( $post->ID, 'gce_display_end_text', 'Ends:' );
-		add_post_meta( $post->ID, 'gce_display_separator', ', ' );
-		add_post_meta( $post->ID, 'gce_display_location_text', 'Location:' );
-		add_post_meta( $post->ID, 'gce_display_description_text', 'Description:' );
-		add_post_meta( $post->ID, 'gce_display_link', 1 );
-		add_post_meta( $post->ID, 'gce_display_link_text', 'More Details' );
-*/
-//************ FI
 	}
 	
 	return $content;
