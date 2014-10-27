@@ -12,7 +12,7 @@ PORTAL
 WORDPRESS
 - Added catalan translation to Widget Visibility
 - Blocked access to plugin management to all users but xtecadmin
-- Google Calendar Events: updated to version 2.0.6.1
+- Google Calendar Events: updated to version 2.0.6.2
 
 ZIKULA 2
 - Fixed possibility of login without https

@@ -68,7 +68,7 @@ class Google_Calendar_Events_Admin {
 
 //************ FI
             
-        // Add Help submenu page
+		// Add Help submenu page
 		$this->plugin_screen_hook_suffix[] = add_submenu_page(
 			'edit.php?post_type=gce_feed',
 			__( 'General Settings', 'gce' ),
