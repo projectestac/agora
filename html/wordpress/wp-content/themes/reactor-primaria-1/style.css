@@ -67,6 +67,7 @@ ul.sub-menu{
     margin-left: 0em;
 }
 
+
 table thead tr th, 
 table tfoot tr th, 
 table tbody tr td, 
@@ -247,6 +248,10 @@ article {
     font-size: 0.8em;
 }
 
+.entry-content img{
+    padding-left:1em;
+    padding-right:1em;
+}
 
 /*****************************************************************
 Top header
@@ -296,7 +301,9 @@ li#wp-admin-bar-bp-login{
     margin: 0;
 }
 
-
+#wpadminbar .notification{
+    color:white;
+}
 
 /*****************************************************************
 Header
@@ -611,23 +618,43 @@ Menu principal
     color:#087eb6 !important;
 }
 
+.menu-item-depth-0 > a.menu-link {
+    border-bottom: 1px solid #c0c0c0;
+}
+
 .menu-item-depth-0 {
     float:left;
     margin-left:2em;
-    font-weight: bold;
     list-style-type: none;
     padding-bottom: 10px;
 }
 
-.menu-item-depth-1{
-    font-weight: normal;
-    list-style-type: none;
+.menu-item-depth-0 > a{
+    font-weight: bold;
+    /*text-decoration: underline;
+    text-decoration: overline;*/
+}
+
+.menu-item-depth-2, .menu-item-depth-3{
+    padding-left: 1em;
+    font-size:0.9em;
+}
+.menu-item-depth-3{
+    padding-left: 2em;
 }
 
 ul.sub-menu > li:before {    
     content: "\f345";  
     font: 11px/1 "dashicons";   
     color: #BBB; 
+}
+
+ul.menu-depth-1{
+    margin-top:0.4em; 
+}
+
+li.menu-item-depth-2:last-child, li.menu-item-depth-3:last-child{
+     margin-bottom:0.4em; 
 }
 
 /*****************************************************************
@@ -702,10 +729,13 @@ Barra lateral
     background-color: #E2E2E2 !important;
    
 }
-.current_page_item a{
+div.section > .current_page_item a{
     font-weight: bold;
-     border-right: 3px solid #087EB6;
-    
+    border-right: 3px solid #087EB6;
+}
+
+li.current_page_item > a{
+    font-weight: bold;
 }
 
 .page_item a{
