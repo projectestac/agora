@@ -40,6 +40,7 @@ if ( is_category() or is_tag() ){
 }
 ?>
 
+<?php if (!wp_is_mobile()){ ?>
 
 <script type="text/javascript">
     //http://www.feedthebot.com/pagespeed/defer-loading-javascript.html
@@ -57,6 +58,7 @@ if ( is_category() or is_tag() ){
 
 </script>
 
+<?php } ?>
 
 </body>
 </html>

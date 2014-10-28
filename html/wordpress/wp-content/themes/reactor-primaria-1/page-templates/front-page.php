@@ -54,12 +54,10 @@ get_header();
     	<?php reactor_content_before(); ?>
   
         <div id="content" role="main">
-
         	<div class="row">
 		
         	<!-- Barra esquerra si aplica -->
-		
-        	<?php 
+		<?php 
 			if (wp_is_mobile()){
 				echo "<div>";
 				if (in_array($frontpage_layout,array("2c-l","3c-c"))){
@@ -72,7 +70,6 @@ get_header();
 			} else {
 				$columnes=barra_esquerra($frontpage_layout);
 			}
-				
         	?>
         	
 		<!-- Contingut central -->
@@ -90,13 +87,13 @@ get_header();
                     global $frontpage_query;   			      	
                     $frontpage_query = new WP_Query( $args ); 	
 		    $frontpage_query->the_post(); 			
-
+                    
+                    //Es mostra la pàgina només si hi ha contingut
                     if (strlen(trim(get_the_content()))){
 		    	get_template_part('post-formats/format', 'page');
 		    }
 		   
                     // Preparem la consulta principal per obtenir els articles	
-
                     $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
                     $args = array( 
                         'post_type'           => 'post',

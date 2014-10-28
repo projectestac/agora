@@ -836,7 +836,7 @@ function restrict_post_deletion($post_ID){
    
     $restricted_pages = array(5,6,9,16,141);
     if(get_post_type( $post_ID )=="page" && in_array($post_ID, $restricted_pages)){
-        echo "Aquesta p&aagrave;gina forma part de l'estructura de NODES. No es pot esborrar.";
+        echo "Aquesta p&agrave;gina forma part de l'estructura de NODES. No es pot esborrar.";
         exit;
     }
 }
