@@ -43,12 +43,12 @@ function get_marsupial_soap_options($debug = true, $timeout = 120) {
     return $options;
 }
 
-function get_marsupial_center($error = true) {
+function get_marsupial_center($show_error = true) {
     global $CFG;
     if (isset($CFG->center) && !empty($CFG->center)) {
         return $CFG->center;
     } else {
-        if ($error) {
+        if ($show_error) {
             print_error(get_string("centernotfound", "local_rcommon"));
         } else {
             return false;
@@ -112,7 +112,13 @@ function rcommon_object_to_array_lower($value, $recursive = false) {
         return $value;
     }
 
-    $array_ret = array();
+    // Solve lack of xmlns
+    if(count($array) == 1 && isset($array['any'])){
+        $anyxml = simplexml_load_string ($array['any']);
+        $array = array($anyxml->getName() =>$anyxml);
+    }
+	
+	$array_ret = array();
     foreach ($array as $key => $value) {
         if ($recursive) {
             $array_ret[strtolower($key)] = rcommon_object_to_array_lower($value, $recursive);

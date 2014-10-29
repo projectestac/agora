@@ -13,12 +13,6 @@ admin_externalpage_setup('marsupialmanage_publisher');
 
 $action  = optional_param('action', '', PARAM_ALPHA);
 
-if ($action!='save') {
-	echo $OUTPUT->header();
-
-	//publishers management
-	echo $OUTPUT->heading(get_string('publishersmanager', 'local_rcommon'));
-}
 
 switch($action){
 	case 'edit':
@@ -88,6 +82,10 @@ switch($action){
 			$form->password            = "";
 			$form->action              = 'add';
 		}
+		echo $OUTPUT->header();
+
+		//publishers management
+		echo $OUTPUT->heading(get_string('publishersmanager', 'local_rcommon'));
 	    $bform->set_data($form);
 	    $bform->display();
 
@@ -102,6 +100,10 @@ switch($action){
 	        if (!$record = $DB->get_record('rcommon_publisher', array('id' => $publisher))){
 				print_error(get_string('nopublisher', 'local_rcommon'), $CFG->wwwroot.'/local/rcommon/publishers.php');
 			}
+			echo $OUTPUT->header();
+
+			//publishers management
+			echo $OUTPUT->heading(get_string('publishersmanager', 'local_rcommon'));
 			echo '<p>'.get_string('confirmdeletestr', 'local_rcommon', $record->name.' ('.$record->code.')').'</p>
 			    <form action="publishers.php" method="GET">
 			        <input type="hidden" name="action" value="del" />
@@ -117,7 +119,11 @@ switch($action){
 		}
 	break;
 	default:
-		echo '<p><input onclick="document.location.href=\'publishers.php?action=add\';" type="submit" value="'.get_string('addnewpublisher', 'local_rcommon').'" /></p>';
+		echo $OUTPUT->header();
+
+		//publishers management
+		echo $OUTPUT->heading(get_string('publishersmanager', 'local_rcommon'));
+		echo '<p><a href="publishers.php?action=add"><button>'.get_string('addnewpublisher', 'local_rcommon').'</button></a></p>';
 
         $sql = 'SELECT p.id, p.name, p.code, count(b.id) as books
 		    FROM {rcommon_publisher} p
