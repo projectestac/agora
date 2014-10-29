@@ -1,0 +1,1032 @@
+# Copyright (C) 2014 BuddyPress Docs
+# This file is distributed under the same license as the BuddyPress Docs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Docs 1.7.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/buddypress-docs\n"
+"POT-Creation-Date: 2014-04-09 01:26:14+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-10-29 12:54+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"X-Generator: Poedit 1.6.7\n"
+
+#: bp-docs.php:263
+msgctxt "post type general name"
+msgid "BuddyPress Docs"
+msgstr "Documents del BuddyPress"
+
+#: bp-docs.php:264
+msgctxt "post type singular name"
+msgid "Doc"
+msgstr "Document"
+
+#: bp-docs.php:265
+msgctxt "add new"
+msgid "Add New"
+msgstr "Afegeix"
+
+#: bp-docs.php:266
+msgid "Add New Doc"
+msgstr "Afegeix un document nou"
+
+#: bp-docs.php:267
+msgid "Edit Doc"
+msgstr "Edita el document"
+
+#: bp-docs.php:268
+#: includes/integration-groups.php:875
+#: includes/integration-groups.php:1341
+#: includes/templates/docs/docs-header.php:40
+msgid "New Doc"
+msgstr "Document nou"
+
+#: bp-docs.php:269
+msgid "View Doc"
+msgstr "Visualitza el document"
+
+#: bp-docs.php:270
+msgid "Search Docs"
+msgstr "Cerca documents"
+
+#: bp-docs.php:271
+msgid "No Docs found"
+msgstr "No s'ha trobat cap document"
+
+#: bp-docs.php:272
+msgid "No Docs found in Trash"
+msgstr "No s'ha trobat cap document a la Paperera"
+
+#. Plugin Name of the plugin/theme
+#: bp-docs.php:279
+#: includes/component.php:40
+#: includes/integration-groups.php:1136
+msgid "BuddyPress Docs"
+msgstr "Documents de BuddyPress"
+
+#: bp-docs.php:298
+msgid "Associated Items"
+msgstr "Elements associats"
+
+#: bp-docs.php:299
+msgid "Associated Item"
+msgstr "Element associat"
+
+#: includes/activity.php:79
+#: includes/activity.php:338
+msgid "%1$s commented on the doc %2$s"
+msgstr "%1$s ha comentat al document %2$s"
+
+#: includes/activity.php:170
+#: includes/activity.php:294
+msgid "%1$s created the doc %2$s"
+msgstr "%1$s ha creat el document %2$s"
+
+#: includes/activity.php:172
+#: includes/activity.php:315
+msgid "%1$s edited the doc %2$s"
+msgstr "%1$s ha editat el document %2$s"
+
+#: includes/activity.php:258
+msgid "Created a Doc"
+msgstr "Ha creat un document"
+
+#: includes/activity.php:265
+msgid "Edited a Doc"
+msgstr "Ha editat un document"
+
+#: includes/activity.php:272
+msgid "Commented on a Doc"
+msgstr "Ha comentat el document"
+
+#: includes/activity.php:400
+msgid "Show New Docs"
+msgstr "Mostra documents nous"
+
+#: includes/activity.php:401
+msgid "Show Doc Edits"
+msgstr "Mostra edicions del document"
+
+#: includes/activity.php:402
+msgid "Show Doc Comments"
+msgstr "Mostra comentaris del document"
+
+#: includes/addon-hierarchy.php:113
+msgid "Parent: "
+msgstr "Pare:"
+
+#: includes/addon-hierarchy.php:164
+msgid "Children: "
+msgstr "Fill:"
+
+#: includes/addon-history.php:117
+msgid "You have successfully restored the Doc to the revision from %s."
+msgstr "El document s'ha restaurat correctament a la revisió de %s."
+
+#: includes/addon-history.php:165
+msgid "Compare Revisions of &#8220;%1$s&#8221;"
+msgstr "Compara revisions de &#8220;%1$s&#8221;"
+
+#: includes/addon-history.php:166
+#: includes/addon-history.php:195
+msgid "Revisions"
+msgstr "Revisions"
+
+#: includes/addon-history.php:194
+msgid "Revision for &#8220;%1$s&#8221; created on %2$s"
+msgstr "Revisions de &#8220;%1$s&#8221; creat el %2$s"
+
+#. translators: post revision: 1: when, 2: author name
+#: includes/addon-history.php:360
+msgctxt "post revision"
+msgid "%1$s by %2$s"
+msgstr "%1$s per %2$s"
+
+#: includes/addon-history.php:387
+msgid "Restore"
+msgstr "Restaura"
+
+#: includes/addon-history.php:410
+msgid "Compare Revisions"
+msgstr "Compara revisions"
+
+#. translators: column name in revisons
+#: includes/addon-history.php:426
+msgid "Old"
+msgstr "Antic"
+
+#. translators: column name in revisons
+#: includes/addon-history.php:427
+msgid "New"
+msgstr "Nou"
+
+#. translators: column name in revisons
+#: includes/addon-history.php:428
+msgid "Date Created"
+msgstr "Data de creació"
+
+#: includes/addon-history.php:429
+#: includes/templates/docs/docs-loop.php:25
+msgid "Author"
+msgstr "Autor/a"
+
+#: includes/addon-history.php:430
+msgid "Actions"
+msgstr "Accions"
+
+#: includes/addon-history.php:458
+#: includes/integration-groups.php:884
+#: includes/templatetags.php:941
+msgid "History"
+msgstr "Revisa"
+
+#: includes/addon-taxonomy.php:84
+msgid "Docs Tags"
+msgstr "Etiquetes del document"
+
+#: includes/addon-taxonomy.php:85
+msgid "Docs Tag"
+msgstr "Etiquetes dels documents"
+
+#: includes/addon-taxonomy.php:187
+msgid "Tags: %s"
+msgstr "Etiquetes: %s"
+
+#: includes/addon-taxonomy.php:269
+#: includes/templates/docs/single/edit.php:104
+msgid "Tags"
+msgstr "Etiquetes"
+
+#: includes/addon-taxonomy.php:321
+msgid "You are viewing docs with the following tags: %s"
+msgstr "Esteu visualitzant documents amb les etiquetes següents: %s"
+
+#: includes/addon-taxonomy.php:330
+msgid "Tag"
+msgstr "Etiqueta"
+
+#: includes/addon-taxonomy.php:370
+msgid "(%d)"
+msgstr "(%d)"
+
+#: includes/addon-taxonomy.php:375
+msgid "No tags to show."
+msgstr "No hi ha cap etiqueta per mostrar."
+
+#: includes/addon-taxonomy.php:445
+msgid "Docs tagged %s"
+msgstr "Documents etiquetats %s"
+
+#: includes/addon-taxonomy.php:508
+msgid "Most Used"
+msgstr "Les més usades"
+
+#. translators: %s: add new taxonomy label
+#: includes/addon-taxonomy.php:532
+msgid "+ %s"
+msgstr "+ %s"
+
+#: includes/admin.php:32
+#: includes/admin.php:44
+msgid "BuddyPress Docs Settings"
+msgstr "Configuració dels documents del BuddyPress"
+
+#: includes/admin.php:33
+msgid "Settings"
+msgstr "Configuració"
+
+#: includes/admin.php:57
+msgid "General"
+msgstr "General"
+
+#: includes/admin.php:65
+msgid "Slug"
+msgstr ""
+
+#: includes/admin.php:75
+msgid "Directory Excerpt Length"
+msgstr ""
+
+#: includes/admin.php:85
+msgid "Users"
+msgstr "Usuaris"
+
+#: includes/admin.php:93
+msgid "User Tab Name"
+msgstr "Nom de la pestanya de l'usuari/ària"
+
+#: includes/admin.php:104
+msgid "Groups"
+msgstr "Nodes"
+
+#: includes/admin.php:112
+msgid "Group Tab Name"
+msgstr "Nom de la pestanya del node"
+
+#: includes/admin.php:123
+#: includes/attachments.php:562
+#: includes/templates/docs/single/edit.php:68
+#: includes/templates/docs/single/index.php:35
+#: includes/templatetags.php:1923
+msgid "Attachments"
+msgstr "Fitxers adjunts"
+
+#: includes/admin.php:131
+msgid "Enable Attachments"
+msgstr "Habilita els fitxers adjunts"
+
+#: includes/admin.php:152
+msgid "Change the slug used to build Docs URLs."
+msgstr ""
+
+#: includes/admin.php:152
+msgid "You have already defined this value in <code>wp-config.php</code>, so it cannot be edited here."
+msgstr "Aquest valor està definit al fitxer <code>wp-config.php</code>, per tant, no pot ser editat aquí."
+
+#: includes/admin.php:162
+msgid "Excerpts are shown on Docs directories, to provide better context. If your theme or language requires longer or shorter excerpts, change this value. Set to <code>0</code> to disable these excerpts."
+msgstr "Al directori Documents apareix un resum per a proporcionar un millor context. Si el tema o llenguatge requereix fragments més llargs o més curts, canvieu aquest valor. Definiu a <code>0</code> per desactivar aquests resums."
+
+#: includes/admin.php:172
+msgid "Change the word on the BuddyPress group tab from 'Docs' to whatever you'd like. Keep in mind that this will not change the text anywhere else on the page. For a more thorough text change, create a <a href='http://codex.buddypress.org/extending-buddypress/customizing-labels-messages-and-urls/'>language file</a> for BuddyPress Docs."
+msgstr "Canvieu la paraula 'Documents' de la pestanya del BuddyPress per una altra. Tingueu en compte que això no canviarà el text a tot arreu. Per un canvi de text general creeu un <a href='http://codex.buddypress.org/extending-buddypress/customizing-labels-messages-and-urls/'>fitxer d'idioma</a> per als Documents de BuddyPress."
+
+#: includes/admin.php:182
+msgid "Change the word on users' Docs tabs from 'Docs' to whatever you'd like. Keep in mind that this will not change the text anywhere else on the page. For a more thorough text change, create a <a href='http://codex.buddypress.org/extending-buddypress/customizing-labels-messages-and-urls/'>language file</a> for BuddyPress Docs."
+msgstr "Canvieu la paraula 'Documents' a les pestanyes dels usuaris per una altra. Tingueu en compte que això no canviarà el text a tot arreu. Per un canvi de text general creeu un <a href='http://codex.buddypress.org/extending-buddypress/customizing-labels-messages-and-urls/'>fitxer d'idioma</a> per als Documents de BuddyPress."
+
+#: includes/admin.php:192
+msgid "Enabled"
+msgstr "Habilitat"
+
+#: includes/admin.php:193
+msgid "Disabled"
+msgstr "Deshabilitat"
+
+#: includes/admin.php:195
+msgid "Allow users to add attachments to their Docs."
+msgstr "Permet als usuaris afegir fitxers adjunts als seus documents."
+
+#: includes/admin.php:229
+msgid "Recent Comments"
+msgstr "Comentaris recents"
+
+#: includes/admin.php:304
+msgid "No comments yet."
+msgstr "Encara no hi ha comentaris."
+
+#: includes/attachments.php:69
+#: includes/attachments.php:76
+msgid "File not found."
+msgstr "No s'ha trobat el fitxer."
+
+#: includes/attachments.php:338
+msgid "Attachment deleted"
+msgstr "S'ha suprimit el fitxer adjunt"
+
+#: includes/attachments.php:340
+msgid "Could not delete attachment"
+msgstr "No es pot suprimir el fitxer adjunt"
+
+#: includes/attachments.php:578
+msgid "Has attachment?"
+msgstr "Hi ha algun fitxer adjunt?"
+
+#: includes/attachments.php:580
+msgid "Yes"
+msgstr "Sí"
+
+#: includes/attachments.php:581
+msgid "No"
+msgstr "No"
+
+#: includes/attachments.php:582
+msgid "Doesn&#8217;t matter"
+msgstr "És indiferent"
+
+#: includes/attachments.php:584
+msgid "Filter"
+msgstr "Filtre"
+
+#: includes/attachments.php:716
+msgid "It looks like you are running <strong>nginx</strong>. We recommend the following setting in your site configuration file:"
+msgstr "Sembla que esteu fent servir <strong>nginx</strong>. Recomanem els paràmetres següents al fitxer de configuració del lloc:"
+
+#: includes/attachments.php:726
+msgid "It looks like you are running <strong>IIS 7</strong>. We recommend the following setting in your Web.config file:"
+msgstr "Sembla que esteu fent servir <strong>IIS 7</strong>. Recomanem els paràmetres següents al fitxer Web.config:"
+
+#: includes/attachments.php:738
+msgid "It looks like you are running <strong>Apache</strong>. The most likely cause of your problem is that the <code>AllowOverride</code> directive has been disabled, either globally (<code>httpd.conf</code>) or in a <code>VirtualHost</code> definition. Contact your host for assistance."
+msgstr "Sembla que esteu fent servir <strong>Apache</strong>. La causa més possible del vostre problema és que la directiva <code>AllowOverride</code> ha estat desactivada."
+
+#: includes/attachments.php:744
+msgid "<strong>Your BuddyPress Docs attachments directory is publicly accessible.</strong> Doc attachments will not be properly protected from direct viewing, even if the parent Docs are non-public."
+msgstr "<strong>El vostre directori de fitxers adjunts dels Documents de BuddyPress és accessible de forma pública.</strong> Els fitxers adjunts no estan protegits de la visualització tot i que el Document del que pengi no sigui públic."
+
+#: includes/attachments.php:751
+msgid "See <a href=\"%s\">this wiki page</a> for more information."
+msgstr "Mireu <a href=\"%s\">aquesta pàgina</a> per a més informació."
+
+#: includes/attachments.php:754
+msgid "Dismiss this message"
+msgstr "Descarta aquest missatge"
+
+#: includes/component.php:136
+msgid "Search Docs..."
+msgstr "Cerca Documents..."
+
+#: includes/component.php:182
+#: includes/component.php:290
+#: includes/templatetags.php:1260
+msgid "Started By Me"
+msgstr "Iniciats per mi"
+
+#: includes/component.php:189
+#: includes/component.php:299
+#: includes/templatetags.php:1261
+msgid "Edited By Me"
+msgstr "Editats per mi"
+
+#: includes/component.php:196
+#: includes/templatetags.php:1285
+msgid "Create New Doc"
+msgstr "Crea un document nou"
+
+#: includes/component.php:287
+msgid "My Docs "
+msgstr "Els meus documents"
+
+#: includes/component.php:287
+msgid "%s&#8217;s Docs"
+msgstr "%s&#8217;s documents"
+
+#: includes/component.php:290
+msgid "Started By %s"
+msgstr "Iniciats per %s"
+
+#: includes/component.php:299
+msgid "Edited By %s"
+msgstr "Editats per %s"
+
+#: includes/component.php:388
+msgid "This doc is currently being edited by %s. To prevent overwrites, you cannot edit until that user has finished. Please try again in a few minutes."
+msgstr "Aquest document està sent editat en aquests moments per %s. Per evitar que se sobreescriguin, no es podrà editar fins que l'usuari/ària hagi acabat. Torneu a intetar-ho de nou en uns minuts."
+
+#: includes/component.php:401
+msgid "You do not have permission to edit the doc."
+msgstr "No teniu permís per editar aquest Document."
+
+#: includes/component.php:417
+msgid "You do not have permission to create a Doc in this group."
+msgstr "No teniu permís per crear un Document en aquest node."
+
+#: includes/component.php:433
+msgid "You do not have permission to view this Doc's history."
+msgstr "No teniu permís per veure les revisions d'aquest Document."
+
+#: includes/component.php:457
+msgid "Lock successfully removed"
+msgstr "El bloqueig s'ha cancel·lat correctament"
+
+#: includes/component.php:482
+msgid "Doc successfully deleted!"
+msgstr "El document s'ha eliminat correctament!"
+
+#: includes/component.php:484
+msgid "Could not delete doc."
+msgstr "No s'ha pogut eliminar el document."
+
+#: includes/component.php:487
+msgid "You do not have permission to delete that doc."
+msgstr "No teniu permís per eliminar aquest document."
+
+#: includes/component.php:500
+msgid "Doc successfully removed from Trash!"
+msgstr "El document s'ha eliminat correctament de la paperera!"
+
+#: includes/component.php:502
+msgid "Could not remove Doc from Trash."
+msgstr "No s'ha pogut eliminar el document de la paperera."
+
+#: includes/component.php:505
+msgid "You do not have permission to remove that Doc from the Trash."
+msgstr "No teniu permís per eliminar aquest document de la paperera."
+
+#: includes/component.php:815
+#: includes/component.php:827
+msgid "Search"
+msgstr "Cerca"
+
+#: includes/component.php:879
+msgid "Upload File"
+msgstr "Puja un fitxer"
+
+#: includes/component.php:880
+msgid "OK"
+msgstr "D'acord"
+
+#: includes/component.php:881
+msgid "Still working?"
+msgstr "Encara treballant?"
+
+#: includes/component.php:882
+msgid "and %d more"
+msgstr "i %d més"
+
+#: includes/functions.php:160
+msgctxt "Description for the associated-item taxonomy term. Of the form \"Docs associated with the [item-type] [item-name]\" - item-type is group, user, etc"
+msgid "Docs associated with the %1$s %2$s"
+msgstr "Document associat a %1$s %2$s"
+
+#: includes/functions.php:519
+#: includes/templatetags.php:1361
+msgid "Logged-in Users"
+msgstr "Usuaris autenticats"
+
+#: includes/functions.php:524
+#: includes/templatetags.php:1363
+msgid "The Doc author only"
+msgstr "Només l'autor/a del document"
+
+#: includes/functions.php:532
+#: includes/templatetags.php:1360
+msgid "Anyone"
+msgstr "Qualsevol"
+
+#: includes/functions.php:565
+msgid "Your Doc was successfully saved, but some of your access settings have been changed to match the Doc's permissions."
+msgstr "El vostre document s'ha desat correctament ,però alguns dels seus valors d'accés s'han modificat per a que coincideixi amb els permisos del document."
+
+#: includes/integration-groups.php:479
+msgid "Members of %s"
+msgstr "Membres de %s"
+
+#: includes/integration-groups.php:491
+msgid "Admins and mods of %s"
+msgstr "Administradors i moderadors de %s"
+
+#: includes/integration-groups.php:579
+msgid "%1$s created the doc %2$s in the group %3$s"
+msgstr "%1$s ha creat el document %2$s al node %3$s"
+
+#: includes/integration-groups.php:581
+msgid "%1$s edited the doc %2$s in the group %3$s"
+msgstr "%1$s ha editat el document %2$s al node %3$s"
+
+#: includes/integration-groups.php:637
+msgid "%1$s commented on the doc %2$s in the group %3$s"
+msgstr "%1$s ha comentat al document %2$s al node %3$s"
+
+#: includes/integration-groups.php:711
+msgid "Group"
+msgstr "Node"
+
+#: includes/integration-groups.php:847
+msgid "%s <span>%d</span>"
+msgstr "%s <span>%d</span>"
+
+#: includes/integration-groups.php:869
+#: includes/integration-groups.php:953
+#: includes/integration-groups.php:1498
+#: includes/integration-users.php:233
+msgid "Docs"
+msgstr "Documents"
+
+#: includes/integration-groups.php:882
+#: includes/templates/docs/docs-header.php:30
+#: includes/templatetags.php:937
+#: includes/templatetags.php:1464
+msgid "Edit"
+msgstr "Edita"
+
+#: includes/integration-groups.php:1054
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: includes/integration-groups.php:1079
+msgid "There was an error saving, please try again"
+msgstr "Hi ha hagut un error en desar, torneu a provar-ho de nou"
+
+#: includes/integration-groups.php:1081
+msgid "Settings saved successfully"
+msgstr "La configuració s'ha desat correctament"
+
+#: includes/integration-groups.php:1138
+msgid "BuddyPress Docs is a powerful tool for collaboration with members of your group. A cross between document editor and wiki, BuddyPress Docs allows you to co-author and co-edit documents with your fellow group members, which you can then sort and tag in a way that helps your group to get work done."
+msgstr "Documents del BuddyPress és una eina col·laborativa molt potent per a la col·laboració entre els membres del vostre node. Entre un wiki i un editor de documents, Documents del BuddyPress permet creaer i editar documents de forma col·laborativa entre els membres del vostre node, que després podreu classificar i etiquetar de forma que ajudi als vostres usuaris a fer la feina."
+
+#: includes/integration-groups.php:1141
+msgid "Enable BuddyPress Docs for this group"
+msgstr "Habilita Documents de BuddyPress per a aquest node"
+
+#: includes/integration-groups.php:1145
+msgid "Options"
+msgstr "Opcions"
+
+#: includes/integration-groups.php:1150
+msgid "Minimum role to associate Docs with this group:"
+msgstr ""
+
+#: includes/integration-groups.php:1155
+msgid "Group admin"
+msgstr "Administrador/a del node"
+
+#: includes/integration-groups.php:1156
+msgid "Group moderator"
+msgstr "Moderador/a del node"
+
+#: includes/integration-groups.php:1157
+msgid "Group member"
+msgstr "Membre del node"
+
+#: includes/integration-groups.php:1338
+msgid "View Docs"
+msgstr "Mostra els documents"
+
+#: includes/query-builder.php:428
+msgid "Unknown error. Please try again."
+msgstr "Error desconegut. Torneu a provar-ho de nou."
+
+#: includes/query-builder.php:449
+msgid "You are not allowed to associate a Doc with that group."
+msgstr "No teniu permisos suficients per associar un document a aquest node."
+
+#: includes/query-builder.php:459
+msgid "The title field is required."
+msgstr "El camp de títol és un camp requerit."
+
+#: includes/query-builder.php:488
+msgid "There was an error when creating the doc."
+msgstr "Hi ha hagut un error en crear el document."
+
+#: includes/query-builder.php:497
+msgid "Doc successfully created!"
+msgstr "El document s'ha creat correctament!"
+
+#: includes/query-builder.php:517
+msgid "There was an error when saving the doc."
+msgstr "S'ha produit un error en desar el document."
+
+#: includes/query-builder.php:527
+msgid "You idled a bit too long while in Edit mode. In order to allow others to edit the doc you were working on, your changes have been autosaved. Click the Edit button to return to Edit mode."
+msgstr ""
+
+#: includes/query-builder.php:530
+msgid "Doc successfully edited!"
+msgstr "El document s'ha editat correctament!"
+
+#: includes/templates/docs/docs-header.php:16
+#: includes/templatetags.php:1965
+msgid "This Doc is in the Trash"
+msgstr "El document és a la paperera"
+
+#: includes/templates/docs/docs-header.php:25
+#: includes/templatetags.php:934
+msgid "Read"
+msgstr "Llegeix"
+
+#: includes/templates/docs/docs-loop.php:21
+#: includes/templates/docs/single/edit.php:34
+msgid "Title"
+msgstr "Títol"
+
+#: includes/templates/docs/docs-loop.php:29
+msgid "Created"
+msgstr "Creat"
+
+#: includes/templates/docs/docs-loop.php:33
+msgid "Last Edited"
+msgstr "Darrera edició"
+
+#: includes/templates/docs/docs-loop.php:86
+msgid "Viewing %1$s-%2$s of %3$s docs"
+msgstr "Veient %1$s-%2$s de %3$s documents"
+
+#: includes/templates/docs/docs-loop.php:97
+msgid "There are no docs for this view. Why not <a href=\"%s\">create one</a>?"
+msgstr "No hi ha cap document. Per què no <a href=\"%s\">en creeu un</a>?"
+
+#: includes/templates/docs/docs-loop.php:99
+msgid "There are no docs for this view."
+msgstr "No hi ha cap document."
+
+#: includes/templates/docs/index.php:25
+#: includes/theme-bridge.php:184
+msgid "Docs Directory"
+msgstr "Directori de documents"
+
+#: includes/templates/docs/single/comments.php:27
+msgid "Discussion (%d)"
+msgstr "Debat (%d)"
+
+#: includes/templates/docs/single/comments.php:49
+msgid "There are no comments for this doc yet."
+msgstr "Encara no hi ha cap comentari per a aquest document."
+
+#: includes/templates/docs/single/comments.php:58
+msgid "Comment display has been disabled on this doc."
+msgstr "La visualització de comentaris s'ha deshabilitat en aquest document."
+
+#: includes/templates/docs/single/comments.php:67
+msgid "Comment posting has been disabled on this doc."
+msgstr "La creació de comentaris s'ha deshabilitat en aquest document."
+
+#: includes/templates/docs/single/edit.php:23
+msgid "You have been idle for <span id=\"idle-warning-time\"></span>"
+msgstr "Heu estat inactius durant <span id=\"idle-warning-time\"></span>"
+
+#: includes/templates/docs/single/edit.php:40
+msgid "Permalink"
+msgstr "Enllaç permanent"
+
+#: includes/templates/docs/single/edit.php:48
+msgid "Content"
+msgstr "Contingut"
+
+#: includes/templates/docs/single/edit.php:77
+msgid "Associated Group"
+msgstr "Node associat"
+
+#: includes/templates/docs/single/edit.php:91
+msgid "Access"
+msgstr "Accés"
+
+#: includes/templates/docs/single/edit.php:110
+msgid "Tags are words or phrases that help to describe and organize your Docs."
+msgstr "Les etiquetes són paraules o frases que ajuden a descriure i organitzar els vostres documents."
+
+#: includes/templates/docs/single/edit.php:111
+msgid "Separate tags with commas (for example: <em>orchestra, snare drum, piccolo, Brahms</em>)"
+msgstr "Etiquetes separades per comes (per exemple: <em>orquestra, tambor, Brahms</em>)"
+
+#: includes/templates/docs/single/edit.php:125
+msgid "Parent"
+msgstr "Pare"
+
+#: includes/templates/docs/single/edit.php:131
+msgid "Select a parent for this Doc."
+msgstr "Seleccioneu un document pare."
+
+#: includes/templates/docs/single/edit.php:133
+msgid "(Optional) Assigning a parent Doc means that a link to the parent will appear at the bottom of this Doc, and a link to this Doc will appear at the bottom of the parent."
+msgstr "(Opcional) Assignar un document pare vol dir que apareixerà a la part superior d'aquest document, i un enllaç al document apareixerà a la part superior del document pare."
+
+#: includes/templates/docs/single/edit.php:154
+msgid "Save"
+msgstr "Desa"
+
+#: includes/templates/docs/single/edit.php:154
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: includes/templates/docs/single/edit.php:189
+msgid "Are you still there?"
+msgstr "Encara sou aquí?"
+
+#: includes/templates/docs/single/edit.php:191
+msgid "In order to prevent overwriting content, only one person can edit a given doc at a time. For that reason, you must periodically ensure the system that you're still actively editing. If you are idle for more than 30 minutes, your changes will be auto-saved, and you'll be sent out of Edit mode so that others can access the doc."
+msgstr "Per tal d'evitar sobreescriure contingut, el document només el pot editar una persona alhora. Per aquesta raó, de forma periòdica, heu de comprovar que encara l'esteu editant. Si esteu absents durant més de 30 minuts, els vostres canvis es desaran de forma automàtica, i deixareu d'estar en mode d'edició i per tant, altres usuaris podran editar el document."
+
+#: includes/templates/docs/single/edit.php:193
+msgid "I'm still editing!"
+msgstr "Encara estic editant!"
+
+#: includes/templates/docs/single/history.php:9
+msgid "Click on a revision date from the list below to view that revision."
+msgstr "Feu clic a una data de revisió de la llista de sota per veure dita revisió."
+
+#: includes/templates/docs/single/history.php:11
+msgid "Alternatively, you can compare two revisions by selecting them in the 'Old' and 'New' columns, and clicking 'Compare Revisions'."
+msgstr "També podeu comparar dues revisions seleccionant-les a les columnes 'Antic' i 'Nou' i fent clic a 'Compara revisioins'."
+
+#: includes/templates/docs/single/history.php:22
+msgid "Older: %s"
+msgstr "Més antic: %s"
+
+#: includes/templates/docs/single/history.php:23
+msgid "Newer: %s"
+msgstr "Més nou: %s"
+
+#: includes/templates/docs/single/history.php:30
+msgid "You are currently viewing a revision titled \"%1$s\", saved on %2$s by %3$s"
+msgstr "Esteu veient una revisió anomenada  \"%1$s\", desada el %2$s per %3$s"
+
+#: includes/templates/docs/single/history.php:54
+msgid "These revisions are identical."
+msgstr "Aquestes revisions són idèntiques."
+
+#: includes/templates/docs/single/index.php:10
+msgid "Locked"
+msgstr "Bloquejat"
+
+#: includes/templates/docs/single/index.php:10
+msgid "(click for more info)"
+msgstr "(feu clic per a més informació)"
+
+#: includes/templates/docs/single/index.php:12
+msgid "This doc is currently being edited by %1$s. In order to prevent edit conflicts, only one user can edit a doc at a time."
+msgstr "Aquest doment l'està editant %1$s. Per tal d'evitar conflictes d'edició, només el pot editar un usuari/ària alhora."
+
+#: includes/templates/docs/single/index.php:15
+msgid "Please try again in a few minutes. Or, as an admin, you can <a href=\"%s\">force cancel</a> the edit lock."
+msgstr "Proveu en uns minuts. O, com a administrador/a, podeu <a href=\"%s\">forçar la cancel·lació</a> del bloqueig d'edició."
+
+#: includes/templates/docs/single/index.php:17
+msgid "Please try again in a few minutes."
+msgstr "Proveu de nou en uns minuts."
+
+#: includes/templatetags-edit.php:115
+msgid "(no parent)"
+msgstr "(cap pare)"
+
+#: includes/templatetags.php:198
+msgid "You are viewing <strong>all</strong> docs."
+msgstr "Esteu visualitzant <strong>tots</strong> els documents."
+
+#: includes/templatetags.php:207
+msgid "<strong><a href=\"%s\" title=\"View All Docs\">View All Docs</a></strong>"
+msgstr "<strong><a href=\"%s\" title=\"View All Docs\">Visualitza tots els documents</a></strong>"
+
+#: includes/templatetags.php:217
+msgid "Filter by: %s"
+msgstr "Filtra per: %s"
+
+#: includes/templatetags.php:294
+msgid "You are searching for docs containing the term <em>%s</em>"
+msgstr "Esteu cercant documents que contenen el terme <em>%s</em>"
+
+#: includes/templatetags.php:765
+msgid "Which group should this Doc be associated with?"
+msgstr "Amb quin node s'ha d'associar aquest document?"
+
+#: includes/templatetags.php:766
+msgid "(Optional) Note that the Access settings available for this Doc may be limited by the privacy settings of the group you choose."
+msgstr "(Opcional) Tingueu en compte que els paràmetres d'accés disponibles per a aquest document estan limitats per la privacitat del node que heu triat."
+
+#: includes/templatetags.php:771
+msgid "None"
+msgstr "Cap"
+
+#: includes/templatetags.php:818
+msgid "%s member"
+msgstr "%s membre"
+
+#: includes/templatetags.php:818
+msgid "%s members"
+msgstr "%s membres"
+
+#: includes/templatetags.php:822
+msgid "Public Group"
+msgstr "Node públic"
+
+#: includes/templatetags.php:826
+msgid "Private Group"
+msgstr "Node privat"
+
+#: includes/templatetags.php:830
+msgid "Hidden Group"
+msgstr "Node amagat"
+
+#: includes/templatetags.php:869
+msgid "Who can read this doc?"
+msgstr "Qui pot llegir aquest document?"
+
+#: includes/templatetags.php:873
+msgid "Who can edit this doc?"
+msgstr "Qui pot editar aquest document?"
+
+#: includes/templatetags.php:877
+msgid "Who can read comments on this doc?"
+msgstr "Qui pot llegir els comentaris d'aquest document?"
+
+#: includes/templatetags.php:881
+msgid "Who can post comments on this doc?"
+msgstr "Qui pot posar comentaris a aquest document?"
+
+#: includes/templatetags.php:885
+msgid "Who can view the history of this doc?"
+msgstr "Qui pot veure les revisions d'aquest document?"
+
+#: includes/templatetags.php:945
+msgid "Untrash"
+msgstr "Restaura de la paperera"
+
+#: includes/templatetags.php:1037
+msgid "Remove from Trash"
+msgstr "Elimina de la paperera"
+
+#: includes/templatetags.php:1039
+#: includes/templatetags.php:1850
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: includes/templatetags.php:1066
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: includes/templatetags.php:1067
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: includes/templatetags.php:1254
+msgid "All Docs"
+msgstr "Tots els documents"
+
+#: includes/templatetags.php:1258
+msgid "%s's Docs"
+msgstr "%s's documents"
+
+#: includes/templatetags.php:1264
+msgid "My Groups"
+msgstr "Els meus nodes"
+
+#: includes/templatetags.php:1346
+msgid "Group: "
+msgstr "Node:"
+
+#: includes/templatetags.php:1348
+msgid " %s"
+msgstr " %s"
+
+#: includes/templatetags.php:1362
+msgid "My Friends"
+msgstr "Amistats"
+
+#: includes/templatetags.php:1364
+msgid "Just Me"
+msgstr "Només jo"
+
+#: includes/templatetags.php:1368
+msgid "Members of: %s"
+msgstr "Membres de: %s"
+
+#: includes/templatetags.php:1369
+msgid "Admins and mods of the group %s"
+msgstr "Administradors i moderadors del node %s"
+
+#: includes/templatetags.php:1373
+msgid "The Doc author only (that's you!)"
+msgstr "Només l'autor/a del document (aquest sou vosaltres!)"
+
+#: includes/templatetags.php:1380
+msgid "This Doc can be read by: <strong>%s</strong>"
+msgstr "El document el pot llegir: <strong>%s</strong>"
+
+#: includes/templatetags.php:1384
+msgid "This Doc can be edited by: <strong>%s</strong>"
+msgstr "El document el pot editar: <strong>%s</strong>"
+
+#: includes/templatetags.php:1388
+msgid "Comments are visible to: <strong>%s</strong>"
+msgstr "Els comentaris son visibles per: <strong>%s</strong>"
+
+#: includes/templatetags.php:1392
+msgid "Comments can be posted by: <strong>%s</strong>"
+msgstr "Els comentaris els poden posar: <strong>%s</strong>"
+
+#: includes/templatetags.php:1396
+msgid "History can be viewed by: <strong>%s</strong>"
+msgstr "Les revisions les poden veure: <strong>%s</strong>"
+
+#: includes/templatetags.php:1438
+msgid "Private"
+msgstr "Privat"
+
+#: includes/templatetags.php:1441
+msgid "Public"
+msgstr "Públic"
+
+#: includes/templatetags.php:1444
+msgid "Limited"
+msgstr "Limitat"
+
+#: includes/templatetags.php:1449
+msgid "Access: <strong>%s</strong>"
+msgstr "Accés: <strong>%s</strong>"
+
+#: includes/templatetags.php:1450
+msgid "Show Details"
+msgstr "Mostra els detalls"
+
+#: includes/templatetags.php:1466
+msgid "Hide Details"
+msgstr "Amaga els detalls"
+
+#: includes/templatetags.php:1756
+msgid "Add Files"
+msgstr "Afegeix fitxers"
+
+#: includes/templatetags.php:1965
+msgid "Trash"
+msgstr "Paperera"
+
+#: includes/theme-bridge.php:242
+msgid "Create a Doc"
+msgstr "Crea un document"
+
+#: includes/upgrade.php:40
+msgid "Upgrade complete!"
+msgstr ""
+
+#: includes/upgrade.php:61
+#: includes/upgrade.php:99
+msgid "Thanks for updating BuddyPress Docs. We need to run a few quick operations before your new Docs is ready to use."
+msgstr ""
+
+#: includes/upgrade.php:62
+msgid "Click here to start the upgrade."
+msgstr ""
+
+#: includes/upgrade.php:70
+#: includes/upgrade.php:91
+msgid "BuddyPress Docs Upgrade"
+msgstr ""
+
+#: includes/upgrade.php:71
+msgid "Upgrade"
+msgstr ""
+
+#: includes/upgrade.php:101
+msgid "Start the upgrade"
+msgstr ""
+
+#: includes/upgrade.php:107
+msgid "Migrating..."
+msgstr ""
+
+#: includes/upgrade.php:138
+msgid "Migration complete! <a href=\"%s\">Dashboard</a>"
+msgstr ""
+
+#: includes/upgrade.php:243
+msgid "Docs associated with the group %s"
+msgstr "Documents associats al node %s"
+
+#: includes/upgrade.php:258
+msgid "Group terms migrated. Now migrating Doc access terms...."
+msgstr ""
+
+#: includes/upgrade.php:306
+msgid "Migrated %s of %s Docs. Migrating...."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://github.com/boonebgorges/buddypress-docs"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds collaborative Docs to BuddyPress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Boone B Gorges"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://boone.gorg.es"
+msgstr ""
+
