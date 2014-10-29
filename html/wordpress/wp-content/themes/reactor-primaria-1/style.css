@@ -1055,3 +1055,41 @@ Media
 
 }
 
+#info-footer-mediaprint{
+    display:none;
+}
+
+@media print {
+    #header,
+    #commentform,
+    #footer,
+    #side-menu,
+    #reply-title,
+    .breadcrumbs,
+    .edit-link,
+    .sidebar,
+    .nav-single,
+    .entry-thumbnail,
+    iframe{
+        display:none;
+    }
+    
+    a:link:after, a:visited:after {
+        content: "";
+    }
+    #info-footer-mediaprint{
+        text-align: center;
+        display:block;
+        position: fixed;
+        bottom: 0;
+    }
+    
+    img {
+        max-width: 500px;
+        }
+        
+    @page {
+        margin: 0.5cm;
+        }    
+    
+}

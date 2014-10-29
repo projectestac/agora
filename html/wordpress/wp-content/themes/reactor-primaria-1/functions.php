@@ -926,3 +926,9 @@ function getDescriptionFontSize($description){
     }
     return $fontSize;
 }
+
+function footer_mediaprint(){
+    echo "<div id='info-footer-mediaprint'>". reactor_option('nomCanonicCentre')." | ".  get_home_url()."</div>";
+}
+
+add_action('reactor_footer_after', 'footer_mediaprint');
