@@ -13,6 +13,7 @@ PORTAL
 WORDPRESS
 - Added catalan translation for Widget Visibility
 - Added catalan translation for BuddyPress Docs
+- Added catalan translation for BuddyPress Activity Plus
 - Blocked access to plugin management to all users but xtecadmin
 - Google Calendar Events: updated to version 2.0.6.2
 
