@@ -828,13 +828,13 @@ add_action('admin_menu', 'rebuild_bbpress_menus');
 
 /*
  * @author Xavi Meler & Toni Ginard
- * Avoid delete this pages: Activitat(5), Membres(6), Inici(9), Nodes(sec 16,pri 141)
+ * Avoid delete this pages: Activitat(5), Membres(6), Nodes(sec 16,pri 141)
  * 
  */
 
 function restrict_post_deletion($post_ID){
    
-    $restricted_pages = array(5,6,9,16,141);
+    $restricted_pages = array(5,6,16,141);
     if(get_post_type( $post_ID )=="page" && in_array($post_ID, $restricted_pages)){
         echo "Aquesta p&agrave;gina forma part de l'estructura de NODES. No es pot esborrar.";
         exit;
@@ -927,8 +927,32 @@ function getDescriptionFontSize($description){
     return $fontSize;
 }
 
+/*
+ * Informació del centre al peu de la versió per imprimir
+ * 
+ * @author Xavi Meler
+ */
+
 function footer_mediaprint(){
     echo "<div id='info-footer-mediaprint'>". reactor_option('nomCanonicCentre')." | ".  get_home_url()."</div>";
 }
-
 add_action('reactor_footer_after', 'footer_mediaprint');
+
+
+/* 
+ * Fixem la portada amb la configuració de "pàgina" i establim la pàgina segons 
+ * el valor definit al customizer (Personalitza). Evitem dependre de les opcions de 
+ * Paràmetres -> Lectura i del problema de l'esborrat de la pàgina d'inici definida allà. 
+ * 
+ * @author Xavi Meler
+ */
+
+add_filter("pre_option_show_on_front","show_on_front_page");
+function show_on_front_page($value) {
+    return "page";
+}
+
+add_filter("pre_option_page_on_front","set_page_on_front");
+function set_page_on_front($value) {
+    return reactor_option("frontpage_page");
+}
