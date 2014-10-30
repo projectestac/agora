@@ -458,9 +458,14 @@ abstract class oauth2_client extends curl {
      * @return moodle_url url of callback
      */
     public static function callback_url() {
+        //XTEC ************ MODIFICAT - MDL-47581 Force box.net repository work with https
+        //2014.10.08 @pferre22
         global $CFG;
-
-        return new moodle_url('/admin/oauth2callback.php');
+        $httpswwwroot = str_replace('http:', 'https:', $CFG->wwwroot);
+        return new moodle_url($httpswwwroot.'/admin/oauth2callback.php');
+        //CODI ORIGINAL
+        //return new moodle_url('/admin/oauth2callback.php');
+        //************ FI
     }
 
     /**
