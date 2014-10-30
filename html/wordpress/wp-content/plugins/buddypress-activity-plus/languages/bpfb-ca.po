@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Agora\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-19 15:30+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: Agora\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: /Volumes/Trunk/xampp/htdocs/bpfb/wp-content/plugins/bpfb_the_edge/\n"
+"X-Generator: Poedit 1.6.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ca\n"
+"X-Poedit-SearchPath-0: lib\n"
+"X-Poedit-SearchPath-1: lib/forms\n"
+
+#: lib/bpfb_group_documents.php:31
+msgid "Add documents"
+msgstr "Afegiu documents"
+
+#: lib/bpfb_group_documents.php:32
+msgid "Please select a group to upload to"
+msgstr "Seleccioneu un grup per a pujar-lo"
+
+#: lib/bpfb_group_documents.php:184
+#, php-format
+msgid "%s uploaded new file(s): %s to %s"
+msgstr "%s fitxer(s) nou (s) pujats: %s a %s"
+
+#: lib/class_bpfb_admin_pages.php:32
+msgid "BuddyPress Activity Plus"
+msgstr "BuddyPress Activity Plus"
+
+#: lib/class_bpfb_admin_pages.php:33
+msgid "Activity Plus"
+msgstr "Activity Plus"
+
+#: lib/class_bpfb_admin_pages.php:87
+msgid "Appearance"
+msgstr "Aparença"
+
+#: lib/class_bpfb_admin_pages.php:91
+msgid "Your BuddyPress theme incorporates Activity Plus style overrides. Respecting the selection you make in the &quot;Appearance&quot; section is entirely up to your theme."
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:96
+msgid "Theme"
+msgstr "Tema"
+
+#: lib/class_bpfb_admin_pages.php:100
+msgid "Default (legacy)"
+msgstr "Per defecte (legacy)"
+
+#: lib/class_bpfb_admin_pages.php:105
+msgid "New"
+msgstr "Nou"
+
+#: lib/class_bpfb_admin_pages.php:110
+msgid "Round"
+msgstr "Arrodonit"
+
+#: lib/class_bpfb_admin_pages.php:114
+msgid "Alignment"
+msgstr "Alineació"
+
+#: lib/class_bpfb_admin_pages.php:117
+msgid "Left"
+msgstr "Esquerra"
+
+#: lib/class_bpfb_admin_pages.php:121
+msgid "Right"
+msgstr "Dreta"
+
+#: lib/class_bpfb_admin_pages.php:128
+msgid "Functional"
+msgstr "Configuració"
+
+#: lib/class_bpfb_admin_pages.php:131
+msgid "oEmbed"
+msgstr "Paràmetres d'incrustació"
+
+#: lib/class_bpfb_admin_pages.php:134
+#, php-format
+msgid "Your oEmbed dimensions will be dictated by the <code>BPFB_OEMBED_WIDTH</code> define value (%s). Remove this define to enable this option."
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:138
+#: lib/class_bpfb_admin_pages.php:150
+msgid "Width"
+msgstr "Amplada"
+
+#: lib/class_bpfb_admin_pages.php:143
+msgid "Image thumbnails"
+msgstr "Miniatures de les imatges"
+
+#: lib/class_bpfb_admin_pages.php:146
+#, php-format
+msgid "Your thumbnail dimensions will be dictated by the <code>BPFB_THUMBNAIL_IMAGE_SIZE</code> define value (%s). Remove this define to enable these options."
+msgstr ""
+
+#: lib/class_bpfb_admin_pages.php:154
+msgid "Height"
+msgstr "Alçada"
+
+#: lib/class_bpfb_admin_pages.php:162
+msgid "Save"
+msgstr "Desa"
+
+#: lib/class_bpfb_binder.php:135
+msgid "Add photos"
+msgstr "Afegeix imatge(s)"
+
+#: lib/class_bpfb_binder.php:136
+msgid "Add image URL"
+msgstr "Afegiu l'URL de la imatge"
+
+#: lib/class_bpfb_binder.php:137
+msgid "Add another image URL"
+msgstr "Afegiu l'URL de la imatge"
+
+#: lib/class_bpfb_binder.php:138
+msgid "Add videos"
+msgstr "Afegeix vídeos"
+
+#: lib/class_bpfb_binder.php:139
+msgid "Add video"
+msgstr "Afegeix vídeo"
+
+#: lib/class_bpfb_binder.php:140
+msgid "Add links"
+msgstr "Afegeix enllaços"
+
+#: lib/class_bpfb_binder.php:141
+msgid "Add link"
+msgstr "Afegeix enllaç"
+
+#: lib/class_bpfb_binder.php:142
+msgid "Add"
+msgstr "Afegeix"
+
+#: lib/class_bpfb_binder.php:143
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: lib/class_bpfb_binder.php:144
+msgid "Preview"
+msgstr "Previsualitza"
+
+#: lib/class_bpfb_binder.php:145
+msgid "Drop files here to upload"
+msgstr "Arrossegueu aquí els fitxers per a pujar-los"
+
+#: lib/class_bpfb_binder.php:146
+msgid "Upload a file"
+msgstr "Pugeu un fitxer"
+
+#: lib/class_bpfb_binder.php:147
+msgid "Choose thumbnail"
+msgstr "Escull una miniatura"
+
+#: lib/class_bpfb_binder.php:148
+msgid "No thumbnail"
+msgstr "No hi ha cap miniatura"
+
+#: lib/class_bpfb_binder.php:149
+msgid "Paste video URL here"
+msgstr "Enganxeu l'URL del vídeo aquí"
+
+#: lib/class_bpfb_binder.php:150
+msgid "Paste link here"
+msgstr "Enganxeu l'enllaç aquí"
+
+#: lib/class_bpfb_binder.php:151
+#, php-format
+msgid "You tried to add too many images, only %d will be posted."
+msgstr "Heu triat afegir massa imatges, només %d es pujaran."
+
+#: lib/class_bpfb_binder.php:177
+#: lib/class_bpfb_binder.php:194
+msgid "There has been an error processing your request"
+msgstr "Hi ha hagut un error processant la vostra petició"
+
+#: lib/class_bpfb_binder.php:178
+#: lib/class_bpfb_binder.php:195
+msgid "Processing..."
+msgstr "Processant..."
+
+#: lib/external/wpmudev-dash-notification.php:62
+#, php-format
+msgid "Easily get updates, support, and one-click WPMU DEV plugin/theme installations right from in your dashboard - <strong><a href=\"%s\" title=\"Install Now &raquo;\">install the free WPMU DEV Dashboard plugin</a></strong>. &nbsp;&nbsp;&nbsp;<small><a href=\"http://premium.wpmudev.org/wpmu-dev/update-notifications-plugin-information/\">(find out more)</a></small>"
+msgstr ""
+
+#: lib/external/wpmudev-dash-notification.php:66
+#, php-format
+msgid "Updates, Support, Premium Plugins, Community - <strong><a href=\"%s\" title=\"Activate Now &raquo;\">activate the WPMU DEV Dashboard plugin now</a></strong>."
+msgstr ""
+

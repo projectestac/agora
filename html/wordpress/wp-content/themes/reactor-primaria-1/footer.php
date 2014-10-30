@@ -13,10 +13,11 @@
         <footer id="footer" class="site-footer" role="contentinfo">
         
         	<?php reactor_footer_inside(); ?>
-  
-        </footer><!-- #footer -->
         
+        </footer><!-- #footer -->
         <?php reactor_footer_after(); ?>
+        
+        
 
     </div><!-- #main -->
 </div><!-- #page -->
