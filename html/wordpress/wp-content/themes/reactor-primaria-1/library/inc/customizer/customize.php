@@ -246,6 +246,19 @@ if ( !function_exists('reactor_customize_register') ) {
                                     'section'  => 'reactor_customizer_capcalera',
                                     'priority' => 6,
                              ) ));
+                            
+                            
+                        $wp_customize->add_setting('reactor_options[favicon_image]', array( 
+				'default'    => '',
+				'type'       => 'option',
+				'capability' => 'manage_options',
+			 ) );
+				$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'reactor_favicon_image', array( 
+					'label'    => __('Favicon', 'reactor'),
+					'section'  => 'reactor_customizer_capcalera',
+					'settings' => 'reactor_options[favicon_image]',
+					'priority' => 7,
+				 ) ) );    
 
 			//Pestanya Identificació del centre
 			$wp_customize->add_section('reactor_customizer_idcentre', array( 
