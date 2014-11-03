@@ -17,6 +17,7 @@ WORDPRESS
 - Blocked access to plugin management to all users but xtecadmin
 - Google Calendar Events: updated to version 2.0.6.2
 - Google Analyticator: installed version 6.4.7.3 (downloaded from XTECBlocs)
+- Blocked access to permalink management to all users but xtecadmin
 
 ZIKULA 2
 - Fixed possibility of login without https

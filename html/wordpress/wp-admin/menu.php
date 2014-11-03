@@ -229,7 +229,17 @@ $menu[80] = array( __('Settings'), 'manage_options', 'options-general.php', '', 
 	$submenu['options-general.php'][20] = array(__('Reading'), 'manage_options', 'options-reading.php');
 	$submenu['options-general.php'][25] = array(__('Discussion'), 'manage_options', 'options-discussion.php');
 	$submenu['options-general.php'][30] = array(__('Media'), 'manage_options', 'options-media.php');
+// XTEC ************ AFEGIT - Block access to permalink management to all users but xtecadmin
+// 2014.11.03 @sarjona
+global $isAgora;
+
+if ($isAgora && is_xtecadmin()) {
+//************ FI
 	$submenu['options-general.php'][40] = array(__('Permalinks'), 'manage_options', 'options-permalink.php');
+// XTEC ************ AFEGIT - Block access to permalink management to all users but xtecadmin
+// 2014.11.03 @sarjona
+}
+//************ FI
 
 $_wp_last_utility_menu = 80; // The index of the last top-level menu in the utility menu group
 

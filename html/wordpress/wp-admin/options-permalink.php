@@ -9,6 +9,15 @@
 /** WordPress Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
+// XTEC ************ AFEGIT - Block access to permalink management to all users but xtecadmin
+// 2014.11.03 @sarjona
+global $isAgora;
+
+if ($isAgora && !is_xtecadmin()) {
+    wp_die( __( 'You do not have sufficient permissions to manage options for this site.' ) );
+}
+//************ FI
+
 if ( ! current_user_can( 'manage_options' ) )
 	wp_die( __( 'You do not have sufficient permissions to manage options for this site.' ) );
 
