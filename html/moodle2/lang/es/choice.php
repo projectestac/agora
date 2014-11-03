@@ -47,6 +47,7 @@ $string['choicesaved'] = 'Su elección ha sido guardada';
 $string['choicetext'] = 'Pregunta a responder';
 $string['chooseaction'] = 'Elija una acción ...';
 $string['completionsubmit'] = 'Mostrar como completada cuando el usuario selecciona una opción';
+$string['description'] = 'Descripción';
 $string['displayhorizontal'] = 'Mostrar horizontalmente';
 $string['displaymode'] = 'Modo de visualización de las opciones';
 $string['displayvertical'] = 'Mostrar verticalmente';

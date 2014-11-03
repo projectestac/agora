@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['action'] = 'Acción';
-$string['activityoverview'] = 'Usted tiene cuestionarios pendientes';
+$string['activityoverview'] = 'Tiene cuestionarios disponibles';
 $string['additionalinfo'] = 'Información adicional';
 $string['additionalinfo_help'] = 'Texto a mostrar en la parte superior de la primera página de esta encuesta. (por ejemplo, instrucciones, información general, etc)';
 $string['addnewquestion'] = 'Añadir una pregunta del tipo {$a}';

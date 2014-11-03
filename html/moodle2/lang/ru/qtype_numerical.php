@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['acceptederror'] = 'Допустимая погрешность';
-$string['addmoreanswerblanks'] = 'Добавить {no} варианта(ов) ответа(ов)';
+$string['addmoreanswerblanks'] = 'Добавить {no} варианта(ов) ответов';
 $string['addmoreunitblanks'] = 'Добавить {no} единиц(ы) измерения';
 $string['answercolon'] = 'Ответ:';
 $string['answererror'] = 'Ошибка';

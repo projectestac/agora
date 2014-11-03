@@ -165,7 +165,7 @@ $string['feedbackavailablehtml'] = 'あなたの「 {$a->assignment} 」への�
 <br />
 <br />
 あなたの<a href="{$a->url}">提出課題</a>に追加されたフィードバックをご覧ください。';
-$string['feedbackavailablesmall'] = '{$a->username} に課題「 {$a->assignment} 」のフィードバックが投稿されました。';
+$string['feedbackavailablesmall'] = '{$a->username} によって課題「 {$a->assignment} 」のフィードバックが投稿されました。';
 $string['feedbackavailabletext'] = 'あなたの「 {$a->assignment} 」への提出課題に対して、{$a->username} がフィードバックを投稿しました。
 
 あなたの提出課題に追加されたフィードバックをご覧ください:

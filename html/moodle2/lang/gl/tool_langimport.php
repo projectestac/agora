@@ -34,5 +34,5 @@ $string['nolangupdateneeded'] = 'Ningún dos seus paquetes de idioma precisa de 
 $string['pluginname'] = 'Paquetes de idioma';
 $string['remotelangnotavailable'] = 'Non podemos facer a instalación do paquete de idioma debido a que o Moodle non consegue conectarse con download.moodle.org. Por favor, descargue os ficheiros comprimidos da lista de abaixo, cópieos no directorio {$a} e descomprímaos manualmente.';
 $string['uninstall'] = 'Desinstale o paquete de idiomas seleccionado';
-$string['uninstallconfirm'] = 'Está a punto de desinstalar completamente o paquete de idiomas {$a}, está certo?';
+$string['uninstallconfirm'] = 'Está a punto de desinstalar completamente o paquete de idiomas {$a}, está seguro?';
 $string['updatelangs'] = 'Actualizar todos os paquetes de idiomas locais';

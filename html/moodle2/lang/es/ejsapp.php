@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['active'] = 'Disponible';
 $string['appletfile'] = 'Easy Java Simulation';
 $string['appletfile_help'] = 'Selecione el archivo .jar que encapsula el laboratorio EJS (Easy Java Simulation). La p&aacute;gina oficial de EJS es http://fem.um.es/Ejs/';
 $string['appletfile_required'] = 'Se debe seleccionar un archivo .jar';

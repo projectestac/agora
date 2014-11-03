@@ -34,4 +34,4 @@ $string['orphaned'] = 'Orfane';
 $string['orphanedwarning'] = 'Queste attività non sono raggiungibili dagli utenti!';
 $string['pluginname'] = 'Formato attività singola';
 $string['sectionname'] = '';
-$string['warningchangeformat'] = 'Quando si cambia il formato in uso con il formato "Attività singola" accertarsi di eliminare tutte le attività del corso, incluso il forum news, Da notare che la struttura delle sezioni può essere modificata.';
+$string['warningchangeformat'] = 'Quando si cambia il formato in uso con il formato "Attività singola" accertarsi di eliminare tutte le attività del corso, incluso il forum news. Da notare che la struttura delle sezioni può essere modificata.';

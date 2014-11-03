@@ -40,6 +40,7 @@ $string['choice:readresponses'] = 'أقراء الاجابات';
 $string['choicesaved'] = 'تم حفظ اختيارك';
 $string['choicetext'] = 'نص الاختيار';
 $string['chooseaction'] = 'اختر إجراء';
+$string['description'] = 'نص المقدمة';
 $string['displayhorizontal'] = 'اعرض أفقياً';
 $string['displaymode'] = 'طريقة العرض';
 $string['displayvertical'] = 'أعرض عموديا';

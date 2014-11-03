@@ -32,4 +32,3 @@ $string['lengthex11'] = '长度（如，1.1）';
 $string['massrename'] = '批量修改';
 $string['max'] = '小于等于';
 $string['min'] = '大于等于';
-$string['s_quizfordays'] = '频率限制（天数）';

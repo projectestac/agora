@@ -32,6 +32,7 @@ $string['airnotifiermobileappname'] = 'Название мобильного п�
 $string['airnotifierport'] = 'Порт Airnotifier';
 $string['airnotifierurl'] = 'URL-адрес Airnotifier';
 $string['configairnotifieraccesskey'] = 'Ключ доступа используемый при подключении к серверу airnotifier.';
+$string['configairnotifiermobileappname'] = 'Уникальный идентификатор Мобильного приложения  (напр. com.moodle.moodlemobile).';
 $string['configairnotifierport'] = 'Порт для подключения к серверу airnotifier.';
 $string['configairnotifierurl'] = 'URL-адрес сервера для подключения к отправке уведомления.';
 $string['deletecheckdevicename'] = 'Удаление устройства: {$a->name}';

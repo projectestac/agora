@@ -25,5 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['preferences'] = 'Preferencias de informe de cualificación';
-$string['useractivityfeedback'] = 'comentario {$a}';
+$string['ajaxchoosescale'] = 'Escoller';
+$string['ajaxclicktoclose'] = 'Escolla esta caixa para retirala';
+$string['ajaxerror'] = 'Erro';
+$string['ajaxfailedupdate'] = 'Non foi posíbel actualizar [1] cara [2]';
+$string['ajaxfieldchanged'] = 'O campo que está a editar actualmente cambiou. Quere usar o valor actualizado?';
+$string['grader:manage'] = 'Administrar o informe do cualificador';
+$string['grader:view'] = 'Ver o informe do cualificador';
+$string['pluginname'] = 'Informe do cualificador';
+$string['preferences'] = 'Preferencias de informe do cualificador';
+$string['useractivityfeedback'] = 'Comentario de {$a}';
+$string['useractivitygrade'] = 'Cualificación de {$a}';

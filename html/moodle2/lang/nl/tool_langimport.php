@@ -39,7 +39,7 @@ $string['missinglangparent'] = 'Ontbrekende parent language <em>{$a->parent}</em
 $string['nolangupdateneeded'] = 'Al je geïnstalleerde taalpakketten zijn up-to-date. Er is geen update nodig.';
 $string['pluginname'] = 'Pakketten';
 $string['purgestringcaches'] = 'Taalcache leegmaken';
-$string['remotelangnotavailable'] = 'Het is niet mogelijk om automatisch taalpakketten te installeren, omdat Moodle geen verbinding kan maken met Moodle.org. Download daarom de nodige zipbestanden van <a href="http://download.moodle.org/langpack/">download.moodle.org/langpack</a>,  kopieer ze naar je {$a} map en unzip ze daar.';
+$string['remotelangnotavailable'] = 'Het is niet mogelijk om automatisch taalpakketten te installeren, omdat Moodle geen verbinding kan maken met Moodle.org. Download daarom de nodige zipbestanden van <a href="https://download.moodle.org/langpack/">download.moodle.org/langpack</a>,  kopieer ze naar je {$a} map en unzip ze daar.';
 $string['uninstall'] = 'Verwijder geselecteerde taalpakket(ten)';
 $string['uninstallconfirm'] = 'Je gaat zodadelijk het taalpakket {$a} verwijderen. Verder gaan?';
 $string['updatelangs'] = 'Update alle geïnstalleerde taalpakketten';

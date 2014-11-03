@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['linkedcourse'] = 'Corso da collegare';
 $string['meta:config'] = 'Configurare istanze plugin iscrizione collegamento meta corso';
 $string['meta:selectaslinked'] = 'Selezionare un meta corso da collegare';
-$string['meta:unenrol'] = 'Disiscrivi utenti sospesi';
+$string['meta:unenrol'] = 'Disiscrivere utenti sospesi';
 $string['nosyncroleids'] = 'Ruoli non sincronizzati';
 $string['nosyncroleids_desc'] = 'Per default tutte le assegnazioni di ruolo a livello di corso vengono sincronizzate dal corso padre al corso figlio. E\' possibile selezionare i ruoli che non si desidera sincronizzare. I ruoli saranno aggiornati al prossimo elaboarazione del cron.';
 $string['pluginname'] = 'Collegamento meta corso';

@@ -48,6 +48,7 @@ $string['choicesaved'] = 'Zure aukera ondo gorde da';
 $string['choicetext'] = 'Kontsultaren testua';
 $string['chooseaction'] = 'Aukera ezazu ekintza bat...';
 $string['completionsubmit'] = 'Erabiltzaileak aukera bat hautatzen duenean, osatutzat erakutsi';
+$string['description'] = 'Deskribapena';
 $string['displayhorizontal'] = 'Erakutsi horizontalean';
 $string['displaymode'] = 'Aukerak erakusteko modua';
 $string['displayvertical'] = 'Erakutsi bertikalean';

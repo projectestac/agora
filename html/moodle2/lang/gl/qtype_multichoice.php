@@ -31,6 +31,7 @@ $string['answersingleyes'] = 'Só unha resposta';
 $string['choiceno'] = 'Escolla {$a}';
 $string['choices'] = 'Escollas dispoñibles';
 $string['clozeaid'] = 'Introduza a palabra que falta';
+$string['correctansweris'] = 'A resposta correcta é: {$a}';
 $string['correctfeedback'] = 'Para calquera resposta correcta';
 $string['errfractionsaddwrong'] = 'As cualificacións positivas que escolleu non suman 100%<br />senón {$a}%';
 $string['errfractionsnomax'] = 'Unha das respostas ten que ser 100% para <br />poder obter unha cualificación total nesta pregunta.';

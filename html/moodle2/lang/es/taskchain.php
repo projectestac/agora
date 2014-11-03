@@ -25,10 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['chainnotavailable'] = 'Lo sentimos, esta actividad no está disponible para usted hasta {$a}.';
 $string['configenableobfuscate'] = 'Ofuscar el código javascript para que al insertar reproductores multimedia dificulte el determinar el nombre del archivo multimedia y su contenido.';
 $string['hints'] = 'Pistas';
 $string['next2task'] = 'Pasar por alto la siguiente tarea';
 $string['next3task'] = 'Pasar por alto 2 tareas';
 $string['next4task'] = 'Pasar por alto 3 tareas';
 $string['next5task'] = 'Pasar por alto 4 tareas';
+$string['noreviewbeforeclose'] = 'Lo sentimos, usted no puede ver los detalles de esta tarea hasta {$a}.';
+$string['tasknotavailable'] = 'Lo sentimos, esta tarea no está disponible para usted hasta {$a}.';
+$string['timeclose'] = 'Disponible hasta';
 $string['timeopen'] = 'Disponible desde';

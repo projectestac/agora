@@ -36,6 +36,19 @@ $string['address'] = 'Helbidea';
 $string['addsite'] = 'Gehitu gunea';
 $string['allcachesinvalidated'] = 'Cache guztiak baliogabeturik';
 $string['allcachespurged'] = 'Cache guztiak ezabatu dira';
+$string['appstoredescription'] = 'OHARRA: Moodle Mobile app ofizial hau BAKARRIK funtzionatuko du aurrez gaitu duten Moodle guneetan. Hitz egin zure Moodle kudeatzailearekin konektatzeko arazoak badituzu.
+
+Zure Moodle gunea ondo konfiguraturik badago, app hau erabili dezakezu:
+
+- zure ikastaroetako edukiak arakatzeko, baita offline ere.
+- mezuen eta bestelako ekitaldien berehalako jakinarazpenak jasotzeko
+- zure ikastaroetako jendea topatu eta eurekin harremanetan jartzeko
+- zure ikastaroetako kalifikazioak ikusteko
+- eta askoz gehiago!
+
+Informazio berriena topatzeko mesedez ikusi http://docs.moodle.org/en/Mobile_app
+
+Benetan eskertuko genuke edozein berrikuspen eta iradokizun funtzionalitatearen inguruan edo app honek egitea nahiko zenukenaren inguruan!';
 $string['areyousurereset'] = 'Ziur zaude aplikazioa berrabiarazi nahi duzula? Zure gune guztiak ezabatuko dira.';
 $string['audionotavailable'] = 'Audio-sarrerarako hardware-a ez dago eskuragarri';
 $string['audiorecordinstructions'] = 'Grabatu botoia sakatu audio grabaketa hasteko. Gelditu botoia sakatu geratu eta fitxategia igotzeko.';
@@ -76,15 +89,16 @@ $string['development'] = 'Garapena';
 $string['deviceinfo'] = 'Gailuaren informazioa';
 $string['disablenotifications'] = 'Desgaitu jakinarazpenak';
 $string['disablerdebugger'] = 'Desgaitu urruneko arazketa';
+$string['discussions'] = 'eztabaidak';
 $string['docsurl'] = 'http://docs.moodle.org/en/Mobile_app';
 $string['downloadremotefile'] = 'Jaitsi urruneko fitxategia';
 $string['downloadtime'] = 'Jaitsita';
 $string['email'] = 'E-posta';
 $string['empty'] = 'hutsik';
 $string['enableautosync'] = 'Gaitu sinkronizazio automatikoa';
-$string['enableautosynccss'] = 'Gaitu CSS estilo orrien sinkronizazioa';
-$string['enableautosynclang'] = 'Gaitu hizkuntza-fitxategien sinkronizazioa';
-$string['enableautosyncws'] = 'Gaitu eragiketa eta datuen sinkronizazioa';
+$string['enableautosynccss'] = 'CSS estilo orrien sinkronizazioa';
+$string['enableautosynclang'] = 'Hizkuntza-fitxategien sinkronizazioa';
+$string['enableautosyncws'] = 'Eragiketa eta datuen sinkronizazioa';
 $string['enablecss3transitions'] = 'Gaitu CSS3 trantsizioa';
 $string['enabledebugging'] = 'Gaitu arazketa';
 $string['enablenotifications'] = 'Gaitu jakinarazpenak';
@@ -115,6 +129,8 @@ $string['fileurl'] = 'Fitxategiaren URLa';
 $string['forcecsssync'] = 'CSS sinkronizazioa behartu orain';
 $string['forcelangsync'] = 'Hizkuntza sinkronizazioa behartu orain';
 $string['forceofflinemode'] = 'Behartu lineaz kanpoko modua';
+$string['forumnodiscussionsyet'] = 'Oraindik ez dago eztabaida-gairik foro honetan';
+$string['forumnumreplies'] = 'erantzunak';
 $string['fullname'] = 'Izen osoa';
 $string['general'] = 'Orokorra';
 $string['grade'] = 'Kalifikazioa';
@@ -122,6 +138,7 @@ $string['grades'] = 'Kalifikazioak';
 $string['groupeventsnotdisplayed'] = 'Talde-gertakariak ez dira erakusten';
 $string['help'] = 'Laguntza';
 $string['helpmelogin'] = '<p>Milaka Moodle gune dago munduan zehar. App hau soilik Mobile sarbidea gaituta duten guneetan sartzeko gai da.</p><p>Zure Moodle gunera konektatzeko gai ez bazara konektatu nahi zaren Moodle guneko administratzailearekin harremanetan jarri behar zara eta hurrengo esteka irakurtzeko esan: <a href="http://docs.moodle.org/en/Mobile_app" target="_blank">http://docs.moodle.org/en/Mobile_app</a></p>.<p>App honen demo gunea probatzeko idatzi <i>teacher</i> edo <i>student</i> <i>Site URL</i> eremuan eta <b>Gehitu botoia</b> sakatu.</p>';
+$string['hours'] = 'Orduak';
 $string['icantlogin'] = 'Ezin naiz sartu';
 $string['imagestored'] = 'Zure irudia zure fitxategi pribatuen atalean gorde da';
 $string['info'] = 'Informazioa';
@@ -130,6 +147,7 @@ $string['invalidaccount'] = 'Zure erabiltzaile eta pasahitza egiaztatu itzazu ed
 $string['invalidmoodleversion'] = 'Moodle bertsio baliogabea. Gutxieneko bertsioa hurrengoa da:';
 $string['invalidscheme'] = 'Baliozko URL bat eman, mesedez';
 $string['invalidsite'] = 'Guneko URLa ez da baliozkoa';
+$string['keepsynchronising'] = 'Jarraitu mezuak zerbitzariarekin sinkronizatzen';
 $string['langsynced'] = 'Hizkuntza sinkronizaturik';
 $string['language'] = 'Hizkuntza';
 $string['license'] = 'Lizentzia';
@@ -143,14 +161,17 @@ $string['lostconnection'] = 'Konexioa galdu dugu eta berriz konektatu behar zara
 $string['manageaccounts'] = 'Kudeatu kontuak';
 $string['message'] = 'Mezua';
 $string['messagesent'] = 'Mezua bidalita';
+$string['minutes'] = 'MInutuak';
 $string['mobileservicesnotenabled'] = 'Mobile zerbitzuak gaitu gabe daude zure gunean. Mesedez zure Moodle gunearen administratzailearen harremanetan jarri zaitez mobile sarbidea gaitu behar dela uste baduzu.';
 $string['modulename'] = 'Moduluaren izena';
+$string['months'] = 'Hilabeteak';
 $string['moodlehelp'] = 'Laguntza';
 $string['mycourses'] = 'Nire ikastaroak';
 $string['myfiles'] = 'Nire fitxategiak';
 $string['name'] = 'Izena';
 $string['networkerror'] = 'Sarea ez dago eskuragarri';
 $string['networkerrormsg'] = 'Sarea ez dago gaituta edo ez dabil';
+$string['next'] = 'Hurrengoa';
 $string['no'] = 'Ez';
 $string['norefreshdisconnected'] = 'Freskatze aukerak sare-konexioa behar du';
 $string['notaskstobesynchronized'] = 'Ez dago sinkronizatu beharreko atazarik';
@@ -173,6 +194,7 @@ $string['phone1'] = 'Telefonoa';
 $string['phone2'] = 'Mobile';
 $string['pluginname'] = 'Moodle Mobile hizkuntza-kateak';
 $string['preview'] = 'Aurreikusi';
+$string['previous'] = 'Aurrekoa';
 $string['privatefiles'] = 'Fitxategi pribatuak';
 $string['purgecaches'] = 'Cache-ak garbitu';
 $string['range'] = 'Tartea';
@@ -190,6 +212,7 @@ $string['reset'] = 'Berrezarri';
 $string['resetapp'] = 'Aplikazioa berrabiarazi';
 $string['save'] = 'Gorde';
 $string['saving'] = 'Gordetzen...';
+$string['seconds'] = 'Segunduak';
 $string['select'] = 'Aukeratu';
 $string['selectsite'] = 'Aukeratu gunea';
 $string['send'] = 'Bidali';
@@ -246,6 +269,7 @@ $string['webservicesuccessfullyexecuted'] = 'Web Zerbitzua ondo exekutatu da';
 $string['website'] = 'Webgunea';
 $string['welcome'] = 'Ongi etorri Moodle mobile aplikaziora';
 $string['writeherethebug'] = 'Hemen arazoaren deskribapen xehatua idatzi';
+$string['years'] = 'Urteak';
 $string['yes'] = 'Bai';
 $string['youarein'] = 'Zu hemen zaude:';
 $string['yourpassword'] = 'pasahitza';

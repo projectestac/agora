@@ -37,6 +37,7 @@ $string['by-sa'] = 'Llicència Reconeixement-CompartirIgual';
 $string['callbackurl'] = 'URL de crida de retorn';
 $string['commercialuse'] = 'Vull poder utilitzar imatges amb finalitat comercial';
 $string['configplugin'] = 'Configuració pública de Flickr';
+$string['creativecommonscommercial'] = 'Sols creative commons comercials';
 $string['emailaddress'] = 'Adreça de correu electrònic';
 $string['flickr_public:view'] = 'Utilitza el repositori públic de Flickr al selector de fitxers';
 $string['fulltext'] = 'Text complet';

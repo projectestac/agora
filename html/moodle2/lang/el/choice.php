@@ -45,6 +45,7 @@ $string['choiceoptions_help'] = '<p align="center"><b>Διαθέσιμες επ�
 $string['choice:readresponses'] = 'Ανάγνωση απαντήσεων';
 $string['choicesaved'] = 'Η επιλογή σας καταγράφηκε';
 $string['choicetext'] = 'Επιλογή κείμενο';
+$string['description'] = 'Κείμενο εισαγωγής';
 $string['displayhorizontal'] = 'Οριζόντια προβολή';
 $string['displaymode'] = 'Τρόπος εμφάνισης';
 $string['displayvertical'] = 'Κάθετη προβολή';

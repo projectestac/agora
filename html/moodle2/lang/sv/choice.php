@@ -47,6 +47,7 @@ $string['choicesaved'] = 'Din opinionsundersökning har sparats';
 $string['choicetext'] = 'Opinionsundersökningens text';
 $string['chooseaction'] = 'Välj en åtgärd...';
 $string['completionsubmit'] = 'Visa som fullföljd när en användare besvarar en opinionsundersökning';
+$string['description'] = 'Introduktion';
 $string['displayhorizontal'] = 'Visa horisontellt';
 $string['displaymode'] = 'Visningsläge';
 $string['displayvertical'] = 'Visa vertikalt';

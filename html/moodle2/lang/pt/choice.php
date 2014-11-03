@@ -47,6 +47,7 @@ $string['choicesaved'] = 'A sua resposta foi guardada';
 $string['choicetext'] = 'Questão da sondagem';
 $string['chooseaction'] = 'Selecione uma ação...';
 $string['completionsubmit'] = 'Mostrar como concluída após o aluno submeter a sua resposta';
+$string['description'] = 'Descrição';
 $string['displayhorizontal'] = 'Disposição horizontal';
 $string['displaymode'] = 'Modo de exibição para as opções';
 $string['displayvertical'] = 'Disposição vertical';

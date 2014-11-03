@@ -42,4 +42,4 @@ $string['purgestringcaches'] = 'Svuota la cache delle stringhe';
 $string['remotelangnotavailable'] = 'Non è possibile installare automaticamente i language pack perché Moodle non riesce a connettersi a download.moodle.org. Si prega di scaricare i file ZIP necessari da <a href="https://download.moodle.org/langpack/">download.moodle.org/langpack</a>, copiarli nella cartella {$a} e scompattarli manualmente.';
 $string['uninstall'] = 'Rimuovi i language pack selezionati';
 $string['uninstallconfirm'] = 'Sta per rimuovere il Language Pack {$a}, sei sicuro ?';
-$string['updatelangs'] = 'Aggiorna tutti i Language Pack installati';
+$string['updatelangs'] = 'Aggiornamento dei Language Pack installati';

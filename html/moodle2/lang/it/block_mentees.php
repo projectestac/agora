@@ -29,6 +29,6 @@ $string['configtitle'] = 'Titolo del blocco';
 $string['configtitleblankhides'] = 'Titolo del blocco (senza titolo se lasciato vuoto))';
 $string['leaveblanktohide'] = 'lasciare vuoto per non visualizzare il titolo';
 $string['mentees:addinstance'] = 'Aggiungere blocco Assistiti';
-$string['mentees:myaddinstance'] = 'Aggiungi blocco Assistiti alla pagina My home';
+$string['mentees:myaddinstance'] = 'Aggiungere blocco Assistiti alla pagina My home';
 $string['newmenteesblock'] = '(nuovo blocco Assistiti)';
 $string['pluginname'] = 'Assistiti';

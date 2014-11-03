@@ -356,6 +356,7 @@ $string['gradetype_help'] = 'Er zijn 4 beoordelingstypes:
 
 Enkel de waarde en schaal kunnen geaggregeerd worden. Het beoordelingstype voor een activiteitsgebaseerd beoordelingsitem wordt op de instellingspagina van de activiteit ingesteld.';
 $string['gradeview'] = 'Bekijk beoordeling';
+$string['gradewasmodifiedduringediting'] = 'Het ingegeven cijfer voor {$a->itemname} van {$a->username} is weggelaten omdat het recent is aangepast door iemand anders.';
 $string['gradeweighthelp'] = 'Help bij gewogen beoordelingen';
 $string['groupavg'] = 'Groepsgemiddelde';
 $string['hidden'] = 'Verborgen';
@@ -394,7 +395,7 @@ $string['import'] = 'Importeer';
 $string['importcsv'] = 'Importeer CSV';
 $string['importcustom'] = 'Importeer als aangepaste competenties (enkel deze cursus)';
 $string['importerror'] = 'Er is een fout opgetreden. Dit script is niet aangeroepen met de juiste parameters.';
-$string['importfailed'] = 'Importeren mislukt';
+$string['importfailed'] = 'Importeren mislukt. Er zijn geen gegevens geïmporteerd.';
 $string['importfeedback'] = 'Importeer feedback';
 $string['importfile'] = 'Importeer bestand';
 $string['importfilemissing'] = 'Geen bestand ontvangen, ga terug naar het formulier en upload een geldig bestand.';

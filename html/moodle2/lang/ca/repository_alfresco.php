@@ -26,13 +26,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['alfresco_url'] = 'URL Alfresco';
-$string['alfrescourltext'] = 'L\'URL de l\'API Alfresco hauria de ser: http://elvostrelloc.com/alfresco/api';
+$string['alfrescourltext'] = 'L\'URL de l\'API Alfresco hauria de ser: http://elvostrelloc.com/alfresco/api o http://elvostrelloc.com/alfresco/soapapi per a Alfresco 4.2 o superior';
 $string['alfresco:view'] = 'Mostra el repositori alfresco';
 $string['configplugin'] = 'Configuració Alfresco';
 $string['notitle'] = 'sensetítol';
 $string['password'] = 'Contrasenya';
 $string['pluginname'] = 'Repositori Alfresco';
 $string['pluginname_help'] = 'Un connector per al CMS Alfresco';
+$string['security_key_notice_message_content'] = 'Un problema de seguretat recent ha estat descobert quan s\'usen els enllaços externs al repositori Alfresco de Moodle. Els usuaris podien obtenir accés als comptes d\'altres usuaris al servidor d\'Alfresco a través de l\'ús de la informació continguda en aquests enllaços (tokens). Aquesta característica ha estat desactivada, però és possible que els tokens continguts dins de qualsevol enllaç encara permetin l\'accés al compte d\'un altre usuari. Per a la seva pròpia protecció, és important que reinicieu el servidor Alfresco per fer caducar els tokens.';
+$string['security_key_notice_message_small'] = 'Degut a un problema de seguretat recent trobat al repositori d\'Alfresco, us aconsellem que reinicieu el vostre servidor Alfresco.';
+$string['security_key_notice_message_subject'] = 'Noticia de seguretat sobre el repositori Alfresco';
 $string['soapmustbeenabled'] = 'Cal que l\'extensió SOAP estigui habilitada per al connector alfresco';
 $string['space'] = 'Espai';
 $string['username'] = 'Nom d\'usuari';

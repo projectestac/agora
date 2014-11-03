@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = 'Puede previsualizar este cuestionario, pero si éste fuera un intento real, podría ser bloqueado debido a:';
 $string['action'] = 'Acción';
-$string['activityoverview'] = 'Tiene cuestionarios pendientes';
+$string['activityoverview'] = 'Tiene cuestionarios disponibles';
 $string['adaptive'] = 'Modo adaptativo';
 $string['adaptive_help'] = 'Si se activa, se permite más de un intento de respuesta a una pregunta dentro del mismo intento de resolver el cuestionario.
 Por ejemplo, si una respuesta se marca como incorrecta, el alumno podrá volver a intentarlo de inmediato. Sin embargo, según se establezca  "Aplicar penalizaciones", se restará una penalización por cada intento equivocado.';
@@ -481,7 +481,7 @@ $string['moveselectedonpage'] = 'Mover las preguntas seleccionadas a la página:
 $string['multichoice'] = 'Opción múltiple';
 $string['multipleanswers'] = 'Seleccione  al menos una respuesta.';
 $string['multiplier'] = 'Multiplicador';
-$string['mustbesubmittedby'] = 'Este intento debe ser presentado por {$a}.';
+$string['mustbesubmittedby'] = 'Este intento debe ser presentado el {$a}.';
 $string['name'] = 'Nombre';
 $string['navmethod'] = 'Método de navegación';
 $string['navmethod_free'] = 'Libre';

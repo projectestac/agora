@@ -62,6 +62,7 @@ $string['addfilehere'] = '여기에 파일 추가';
 $string['addinganew'] = '새 {$a} 추가하기';
 $string['addinganewto'] = '새 {$a->what} 를 {$a->to} 에 추가하기';
 $string['addingdatatoexisting'] = '기존의 데이터에 추가하기';
+$string['additionalnames'] = '추가 이름';
 $string['addlinkhere'] = '여기에 링크 추가';
 $string['addnewcategory'] = '범주 추가';
 $string['addnewcourse'] = '강좌 추가';
@@ -116,12 +117,15 @@ $string['administratorsandteachers'] = '관리자와 선생님';
 $string['advanced'] = '고급';
 $string['advancedfilter'] = '고급검색';
 $string['advancedsettings'] = '고급설정';
+$string['afterresource'] = '자원 "{$a}" 이후';
+$string['aftersection'] = '섹션 "{$a}" 이후';
 $string['again'] = '다시';
 $string['aimid'] = 'AIM 아이디';
 $string['ajaxuse'] = 'AJAX 및 자바';
 $string['all'] = '모두';
 $string['allactions'] = '모든 조치';
 $string['allactivities'] = '모든 활동';
+$string['allcategories'] = '모든 범주';
 $string['allchanges'] = '모든 변경';
 $string['alldays'] = '모든 날';
 $string['allfieldsrequired'] = '모든 필드가 필수';
@@ -137,18 +141,21 @@ $string['allparticipants'] = '모든 참가자';
 $string['allteachers'] = '모든 선생님';
 $string['alphanumerical'] = '하이폰이나 마침표를 포함한 알파벳이나 숫자만 쓸 수 있음';
 $string['alreadyconfirmed'] = '이미 등록이 완료되었습니다.';
+$string['alternatename'] = '대체 이름';
 $string['always'] = '항상';
 $string['and'] = '{$a->one} 및 {$a->two}';
 $string['answer'] = '대답';
 $string['any'] = '어떤';
 $string['appearance'] = '모습';
 $string['approve'] = '승인';
+$string['areyousure'] = '계속하시겠습니까?';
 $string['areyousuretorestorethis'] = '계속할까요?';
 $string['areyousuretorestorethisinfo'] = '이 과정의 말미에 이 백업자료를 기존의 강좌에 추가할 것인지, 아니면 완전히 새 강좌로 생성할 것인지를 선택하여야 합니다.';
 $string['asc'] = '오름차순';
 $string['assessment'] = '평가';
 $string['assignadmins'] = '관리자 권한부여';
 $string['assigncreators'] = '생성자 권한부여';
+$string['assignedrolecount'] = '{$a->role}: {$a->count}';
 $string['assignsiteroles'] = '사이트 전체를 관장할 역할 부여';
 $string['authenticateduser'] = '인증된 사용자';
 $string['authenticateduserdescription'] = '인증을 거친 사용자들';
@@ -187,6 +194,7 @@ $string['backuploglaststatus'] = '최근 실행기록';
 $string['backupmissinguserinfoperms'] = '주: 이 백업은 사용자 데이터를 포함하지 않습니다. 연습 및 상호평가 활동들은 본 백업에 포함되지 않을 것이기 때문에 본 유형의 백업으로는 이러한 모듈들을 백업하는 데 적절하지 않습니다.';
 $string['backupnext'] = '다음 백업';
 $string['backupnonisowarning'] = '경고: 이 백업은 Unicode 이전버전(1.6 이전)자료를 포함하고 있습니다. Unicode 버전으로 복구할때 ASCII 문자 이외의 문자를 가지고 있으면 문제가 있을 수 있습니다. 이 백업을 올바르게 복구하기 위한 정보를 보기위해서는 <a href="http://docs.moodle.org/en/Backup_FAQ">백업 FAQ</a> 를 참고하십시요.';
+$string['backupnotyetrun'] = '자동 백업 대기 중';
 $string['backuporiginalname'] = '백업 이름';
 $string['backuproleassignments'] = '각 역할의 부여 현황 백업';
 $string['backupsavetohelp'] = '백업 파일을 저장할 경로 입력<br />(기존 강좌 경로에 저장하려면 비워 둘 것)';
@@ -205,6 +213,9 @@ $string['blocksediton'] = '블록 편집 켬';
 $string['blocksetup'] = '블록 테이블 설정';
 $string['blocksuccess'] = '{$a} 테이블 설치 완료';
 $string['brief'] = '간략한';
+$string['bulkactions'] = '대량 작업';
+$string['bulkactionselect'] = '{$a} 대량 작업 선택';
+$string['bulkmovecoursessuccess'] = '{$a->courses} 강좌를 {$a->category} 범주로 성공적으로 이동함';
 $string['bycourseorder'] = '강좌 순서로';
 $string['byname'] = '{$a} 순서로';
 $string['bypassed'] = '건너뜀';
@@ -212,14 +223,17 @@ $string['cachecontrols'] = '캐시 제어';
 $string['cancel'] = '취소';
 $string['cancelled'] = '취소됨';
 $string['categories'] = '강좌 범주';
+$string['categoriesandcoures'] = '강좌 범주와 강좌';
 $string['category'] = '범주';
 $string['categoryadded'] = '범주 \'{$a}\' 가 추가됨';
+$string['categorybulkaction'] = '선택한 범주에 대한 대량 작업';
 $string['categorycontents'] = '강좌 및 범주목록';
 $string['categorycurrentcontents'] = '{$a} 의 내용';
 $string['categorydeleted'] = '범주 \'{$a}\' 가 삭제됨';
 $string['categoryduplicate'] = '이미 범주명 \'{$a}\' 존재함!';
 $string['categorymodifiedcancel'] = '범주가 변경되었음! 취소하고 다시 시도하시기 바랍니다.';
 $string['categoryname'] = '범주명';
+$string['categorysubcategoryof'] = '{$a->category} - {$a->parentcategory}의 하위 범주';
 $string['categoryupdated'] = '범주 \'{$a}\'가 업데이트되었음';
 $string['changedpassword'] = '변경된 비밀번호';
 $string['changepassword'] = '비밀번호 변경';
@@ -263,8 +277,11 @@ $string['clickhelpiconformoreinfo'] = '...계속...다 읽고 싶으면 도움�
 $string['clickhere'] = '여기를 클릭...';
 $string['clicktochangeinbrackets'] = '변경하려면 다음을 클릭 {$a}';
 $string['clicktohideshow'] = '펴거나 접으려면 클릭';
+$string['closebuttontitle'] = '닫기';
 $string['closewindow'] = '창 닫기';
+$string['collapse'] = '축소';
 $string['collapseall'] = '모두 접기';
+$string['collapsecategory'] = '{$a} 축소';
 $string['commentincontext'] = '문맥에서 덧글 찾기';
 $string['comments'] = '덧글';
 $string['commentsnotenabled'] = '덧글 기능 사용 불가';
@@ -275,6 +292,7 @@ $string['completereport'] = '보고 완성';
 $string['configuration'] = '환경설정';
 $string['confirm'] = '확인';
 $string['confirmcheckfull'] = '정말 {$a} 를 승인해 주려고 합니까?';
+$string['confirmcoursemove'] = '이 강좌 ({$a->course})를  이 범주({$a->category})로 옮기시겠습니까?';
 $string['confirmed'] = '등록 완료';
 $string['confirmednot'] = '등록 미확정!';
 $string['content'] = '내용';
@@ -309,6 +327,7 @@ $string['courseapprovedsubject'] = '강좌가 승인되었습니다!';
 $string['courseavailable'] = '학생 이용 가능';
 $string['courseavailablenot'] = '학생 이용 불가능';
 $string['coursebackup'] = '강좌 백업';
+$string['coursebulkaction'] = '선택한 강좌에 대한 대량 작업';
 $string['coursecategories'] = '강좌 목록';
 $string['coursecategory'] = '강좌 범주';
 $string['coursecategorydeleted'] = '삭제된 강좌 범주 {$a}';
@@ -500,8 +519,10 @@ $string['displayingfirst'] = '오직 첫째 {$a->count} {$a->things} 이 보여�
 $string['displayingrecords'] = '{$a} 레코드 보기';
 $string['displayingusers'] = '{$a->start} 에서 {$a->end} 까지 사용자 보기';
 $string['displayonpage'] = '페이지에 표시';
+$string['dndcourse'] = '정렬을 바꾸거나 다른 범주로 옮기기 위해 이 강좌를 끌어다 놓을 수 있습니다.';
 $string['dndenabled_inbox'] = '파일을 끌어다 놓아 추가할 수 있음';
 $string['dndnotsupported'] = '드래그 드롭 업로드가 지원되지 않습니다.';
+$string['dndnotsupported_help'] = '사용 중인 브라우저가 끌어다 놓기 업로드를 지원하지 않습니다<br />이 기능은 Internet Explorer 버전 10 이상을 비롯하여 Chrome, Firefox, Safari 최신 버전에서 사용할 수 있습니다.';
 $string['dndnotsupported_insentence'] = '드래그 드롭이 지원되지 않습니다.';
 $string['dnduploadwithoutcontent'] = '올린 것에 아무런 내용이 없음';
 $string['dndworkingfile'] = '파일을 올리려면 강좌 영역에 끌어다 놓을 것';
@@ -586,6 +607,11 @@ $string['emailconfirmsent'] = '<p>당신의 이메일 주소인 <b>{$a}</b>로 �
 <p>등록을 마치기 위한 간단한 안내문이 포함되어 있습니다.</p>';
 $string['emaildigest'] = '이메일 요약 형식';
 $string['emaildigestcomplete'] = '전부다(모든 게시 내용에 대해 매일)';
+$string['emaildigest_help'] = '아래는 포럼에서 기본 값으로 사용할 일별 다이제스트 설정입니다.
+
+* 다이제스트 없음 - 포럼 게시글마다 하나의 이메일을 받습니다.
+* 다이제스트 - 모든 게시글 - 매일 각 포럼 게시글의 내용을 전부 담은 다이제스트 이메일을 한 통 받습니다.
+* 다이제스트 - 제목만 - 매일 각 포럼 게시글의 제목만 담은 다이제스트 이메일을 한 통 받습니다.';
 $string['emaildigestoff'] = '요약하지 않음(포럼 게시물이 게시될 때만)';
 $string['emaildigestsubjects'] = '제목만(매일)';
 $string['emaildisable'] = '이메일 전송 금지';
@@ -641,6 +667,11 @@ $string['emailpasswordconfirmation'] = '안녕하세요 {$a->firstname},
 $string['emailpasswordconfirmationsubject'] = '{$a}: 비밀번호 변경 확인';
 $string['emailpasswordconfirmmaybesent'] = '<p>만약 사용자 ID나 이메일 주소가 정확하면 이메일이 발송될 것입니다.</p>
  <p>거기에는 암호변경을 완료하고 확인하기 위한 간단한 안내문이 포함되어 있습니다. 만일 지속적으로 어려움을 격는다면, 사이트 관리자에게 연락하기 바랍니다.</p>';
+$string['emailpasswordconfirmnoemail'] = '<p>지정한 사용자 계정에 기록된 이메일 주소가 없습니다.</p>
+   <p>사이트 관리자에게 문의하시기 바랍니다.</p>';
+$string['emailpasswordconfirmnotsent'] = '<p>제공하신 사용자 세부 정보와 일치하는 사용자 계정을 찾을 수 없습니다.</p>
+   <p>입력한 정보를 확인하고 다시 시도하십시오.
+문제가 계속되면 사이트 관리자에게 문의하시기 바랍니다.</p>';
 $string['emailpasswordconfirmsent'] = '<b>{$a}</b>로 이메일이 보내지게 됩니다
 <br />비밀번호 변경 확인을 위한 내용이 포함됩니다.
 만일 지속적으로 어려움을 격는다면, 사이트 관리자에게 연락하기 바랍니다.';
@@ -648,6 +679,21 @@ $string['emailpasswordsent'] = '비밀번호 변경에 대한 확인을 해 주�
 <br />새로운 비밀번호가 포함된 이메일이 <b>{$a->email}</b> 로 보내졌습니다.
 <br />새 비밀번호는 자동으로 생성되었습니다.
 <a href="{$a->link}">비밀번호 변경하기</a> 로 가서 기억하기 쉬운 비밀번호로 바꾸세요.';
+$string['emailresetconfirmation'] = '안녕하세요 {$a->firstname}님,
+
+{$a->sitename} 사이트의 \'{$a->username}\' 계정에 대해 암호 재설정이 요청되었습니다.
+
+이 요청을 확인하고 계정에 새로운 암호를 설정하려면 다음 웹 주소를 방문하십시오:
+
+{$a->link}
+(이 링크는 재설정이 요청된 시점으로부터 {$a->resetminutes}분 동안 유효합니다)
+
+만약 여러분이 재설정을 요청하지 않았다면 별도의 작업이 필요하지 않습니다.
+
+도움이 필요한 경우에는 사이트 관리자 {$a->admin}에게 문의하시기 바랍니다.';
+$string['emailresetconfirmationsubject'] = '{$a}: 암호 재설정 요청';
+$string['emailresetconfirmsent'] = '<b>{$a}</b>에 있는 주소로 이메일을 보냈습니다.
+<br />거기에는 이 암호 변경을 확인하고 마치기 위한 간단한 지시 사항이 포함되어 있습니다. 문제가 계속되면 사이트 관리자에게 문의하십시오.';
 $string['emptydragdropregion'] = '빈 영역';
 $string['enable'] = '관리모드 활성';
 $string['encryptedcode'] = '암호화된 코드';
@@ -717,6 +763,7 @@ $string['first'] = '처음';
 $string['firstaccess'] = '처음 접속';
 $string['firstname'] = '성';
 $string['firstnamephonetic'] = '이름-음성학적';
+$string['firstsiteaccess'] = '사이트 최초 액세스';
 $string['firsttime'] = '이곳에 처음 오셨나요?';
 $string['folder'] = '폴더';
 $string['folderclosed'] = '닫힌 경로';
@@ -905,11 +952,13 @@ $string['language'] = '언어';
 $string['languagegood'] = '언어팩이 업데이트되었습니다.';
 $string['last'] = '마지막';
 $string['lastaccess'] = '최근의 접속';
+$string['lastcourseaccess'] = '강좌 최종 액세스';
 $string['lastedited'] = '마지막 수정됨';
 $string['lastlogin'] = '마지막 로그인';
 $string['lastmodified'] = '마지막 수정됨';
 $string['lastname'] = '이름';
 $string['lastnamephonetic'] = '성-음성학적';
+$string['lastsiteaccess'] = '사이트 최종 액세스';
 $string['lastyear'] = '지난 해';
 $string['latestlanguagepack'] = 'moodle.org에서 최신의 언어 팩 확인하기';
 $string['layouttable'] = '배치표';
@@ -977,6 +1026,7 @@ $string['manageroles'] = '역할과 권한';
 $string['markedthistopic'] = '이 주제는 현재의 주제로서 강조됩니다.';
 $string['markthistopic'] = '이 주제를 현재의 주제로 강조하기';
 $string['matchingsearchandrole'] = '\'{$a->search}\' {$a->role} 찾은 내용';
+$string['maxareabytesreached'] = '파일 크기(또는 여러 파일의 전체 크기)가 이 영역의 여유 공간보다 큽니다.';
 $string['maxbytesforfile'] = '파일 {$a}가 허용되는 최대 크기보다 큽니다.';
 $string['maxfilesize'] = '새 파일 최대크기: {$a}';
 $string['maxfilesreached'] = '최대 {$a} 개의 파일을 첨부 가능';
@@ -994,12 +1044,15 @@ $string['maxnumcoursesincombo'] = '<a href="{$a->link}">{$a->numberofcourses} �
 $string['maxsize'] = '제한 용량: {$a}';
 $string['maxsizeandareasize'] = '새 파일의 최대 크기 : {$a->size}, 전체 한도 : {$a->areasize}';
 $string['maxsizeandattachments'] = '파일의 최대 크기: {$a->size}, 최대 첨부 파일 갯수: {$a->attachments}';
+$string['maxsizeandattachmentsandareasize'] = '새 파일의 최대 크기: {$a->size}, 최대 첨부 개수: {$a->attachments}, 전체 한도: {$a->areasize}';
 $string['memberincourse'] = '강좌 동료';
 $string['messagebody'] = '메세지 내용';
 $string['messagedselectedusers'] = '선택한 사용자에게 메세지를 발송하고 수신인 목록을 초기화 합니다.';
 $string['messagedselectedusersfailed'] = '선택한 사용자에게 메세지를 보내는 중 오류 발생. 누군가는 이미 메일을 받았을 것임.';
 $string['messageprovider:availableupdate'] = '올리기 유의사항 표시';
 $string['messageprovider:backup'] = '백업 통지';
+$string['messageprovider:badgecreatornotice'] = '';
+$string['messageprovider:badgerecipientnotice'] = '';
 $string['messageprovider:courserequestapproved'] = '강좌 생성 요청 승인 통지';
 $string['messageprovider:courserequested'] = '강좌 생성 요청 통지';
 $string['messageprovider:courserequestrejected'] = '강좌 생성 요청 거절 통지';
@@ -1062,8 +1115,12 @@ $string['moreinformation'] = '이 오류에 대한 추가 정보';
 $string['moreprofileinfoneeded'] = '추가 신상 명세';
 $string['mostrecently'] = '가장 최근';
 $string['move'] = '옮기기';
+$string['movecategoriessuccess'] = '{$a->count}개의 범주를 \'{$a->to}\' 범주로 성공적으로 옮김';
+$string['movecategoriestotopsuccess'] = '{$a->count}개의 범주를 최상위 수준으로 성공적으로 옮김';
 $string['movecategorycontentto'] = '옮겨감';
+$string['movecategorysuccess'] = '\'{$a->moved}\' 범주를 \'{$a->to}\' 범주로 성공적으로 옮김';
 $string['movecategoryto'] = '범주를 다음으로 옮김 :';
+$string['movecategorytotopsuccess'] = '\'{$a->moved}\' 범주를 최상위 수준으로 성공적으로 옮김';
 $string['movecontent'] = '{$a} 이동';
 $string['movecontentstoanothercategory'] = '다른 범주로 내용 옮기기';
 $string['movecoursemodule'] = '자원 이동';
@@ -1076,6 +1133,7 @@ $string['movehere'] = '여기로 옮김';
 $string['moveleft'] = '왼쪽으로 옮김';
 $string['moveright'] = '오른쪽으로 옮김';
 $string['movesection'] = '섹션 {$a} 이동';
+$string['moveselectedcategoriesto'] = '선택한 범주를 다음으로 옮기기';
 $string['moveselectedcoursesto'] = '선택된 강좌를 옮김';
 $string['movetoanotherfolder'] = '다른 폴더로 옮기기';
 $string['moveup'] = '위로 옮김';
@@ -1171,6 +1229,7 @@ $string['norecentactivity'] = '최근 활동 없음';
 $string['noreplybouncemessage'] = '실제 존재하지 않는 이메일 주소로 답장을 보냈습니다. 포럼에 내용을 게시하고 싶었다면 답장 대신 {$a} 포럼에 직접 게시 하십시오. 다음은 당신이 쓴 이메일의 원문입니다.';
 $string['noreplybouncesubject'] = '{$a}  - 되돌아온 이메일';
 $string['noreplyname'] = '이 이메일로 답장을 보내지 마십시오.';
+$string['noresetrecord'] = '해당 재설정 요청에 대한 기록이 없습니다. 암호 재설정 요청을 새로 시작하시기 바랍니다.';
 $string['noresults'] = '결과 없음';
 $string['normal'] = '일반';
 $string['normalfilter'] = '일반 검색';
@@ -1223,6 +1282,7 @@ $string['optional'] = '선택';
 $string['options'] = '옵션';
 $string['order'] = '정렬';
 $string['originalpath'] = '원래 경로';
+$string['orphanedactivitiesinsectionno'] = '분리된 활동 ({$a} 섹션)';
 $string['other'] = '기타';
 $string['outline'] = '요약';
 $string['outlinereport'] = '요약 보고';
@@ -1363,6 +1423,7 @@ $string['resetcomponent'] = '구성요소';
 $string['resetcourse'] = '강좌 초기화';
 $string['resetinfo'] = '이 페이지에서는 강좌의 활동과 다른 설정은 그대로 둔 채, 사용자 데이터를 삭제할 수 있도록 해 줍니다. 아래 항목을 선택하고 이페이지를 제출하면, 당신의 데이터가 선택한 강좌에서 영구히 삭제됨을 유의하시기 바랍니다!';
 $string['resetnotimplemented'] = '초기화가 구현되지 않았음';
+$string['resetrecordexpired'] = '사용한 암호 재설정 링크가 {$a}분이 지나 만료되었습니다. 암호 재설정을 새로 시작하십시오.';
 $string['resetstartdate'] = '시작날짜 초기화';
 $string['resetstatus'] = '상태';
 $string['resettask'] = '할일';
@@ -1481,6 +1542,9 @@ $string['selectamodule'] = '활동 모듈을 선택하십시요.';
 $string['selectanaction'] = '활동 선택';
 $string['selectanoptions'] = '옵션 선택';
 $string['selectaregion'] = '지역 선택';
+$string['selectcategorysort'] = '정렬하려는 범주가 어떤 것입니까?';
+$string['selectcategorysortby'] = '범주 정렬 방식 선택';
+$string['selectcoursesortby'] = '강좌 정렬 방식 선택';
 $string['selectdefault'] = '기본 선택';
 $string['selectedcategories'] = '선택된 범주들';
 $string['selectedfile'] = '선택된 파일';
@@ -1499,6 +1563,7 @@ $string['servererror'] = '서버와 교신 중 오류 발생';
 $string['serverlocaltime'] = '서버의 지역시간';
 $string['setcategorytheme'] = '범주 테마 설정';
 $string['setpassword'] = '암호 설정';
+$string['setpasswordinstructions'] = '아래에 있는 암호 및 암호 확인을 입력하고 "암호 설정"을 클릭하십시오. <br />새 암호가 저장된 후에 로그인 상태로 됩니다.';
 $string['settings'] = '설정';
 $string['shortname'] = '짧은 이름';
 $string['shortnamecollisionwarning'] = '[*]=이 짧은 이름은 이미 다른 교육과정에 사용되고 있습니다. 승인이 될 수 있는 다른 이름으로 바꿔주십시오';
@@ -1524,6 +1589,7 @@ $string['showgrades_help'] = '많은 활동들이 성적 설정을 허용하고 
 
 ';
 $string['showingacourses'] = '모든  {$a} 강좌 보기';
+$string['showingxofycourses'] = '전체 {$a->total}개의 강좌 중 {$a->start}부터 {$a->end}까지 표시 중';
 $string['showlistofcourses'] = '강좌 목록보기';
 $string['showmodulecourse'] = '활동이 있는 강좌 목록보기';
 $string['showonly'] = '보기만';
@@ -1783,6 +1849,7 @@ $string['viewallcourses'] = '모든 강좌 보기';
 $string['viewallcoursescategories'] = '모든 강좌 및 범주 보기';
 $string['viewallsubcategories'] = '모든 하위 범주 보기';
 $string['viewfileinpopup'] = '팝업창으로 보기';
+$string['viewing'] = '보기:';
 $string['viewmore'] = '더 보기';
 $string['viewprofile'] = '개인정보 보기';
 $string['views'] = '보기';

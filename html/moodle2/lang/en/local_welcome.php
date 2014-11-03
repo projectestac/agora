@@ -25,14 +25,32 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['default_moderator_email'] = 'Hi moderator,
-
-  A new user: [[fullname]], has signed up for {$a}';
-$string['default_moderator_email_subject'] = 'A new user signed up on {$a} : [[fullname]]';
-$string['default_user_email'] = 'Hello [[fullname]],
-
-    Thanks for creating an account on {$a}';
-$string['default_user_email_subject'] = 'Hello [[fullname]] Welcome to {$a}';
+$string['default_moderator_email'] = '<html>
+<body>
+<table cellspacing="0" cellpadding="8">
+<tr><td colspan="2"><h3>New site user [[fullname]]</h3>
+    A new account has been created with the following details:</td></tr>
+<tr><td>Name:</td><td>[[fullname]]</td></tr>
+<tr><td>Username: </td><td>[[username]]</td></tr>
+<tr><td>Email: </td><td>[[email]]</td></tr>
+</table>
+</body>
+</html>';
+$string['default_moderator_email_subject'] = 'A new user signed up on [[sitename]] : [[fullname]]';
+$string['default_user_email'] = '<html>
+<body>
+<table cellspacing="0" cellpadding="8">
+<tr><td colspan="2"><h3>Welcome [[fullname]]</h3>
+    Your Moodle account has been created and you\'re ready to go! Your account has
+    been created on [[sitelink]] with the following details:</td></tr>
+<tr><td>Name:</td><td>[[fullname]]</td></tr>
+<tr><td>Username: </td><td>[[username]]</td></tr>
+<tr><td>Email: </td><td>[[email]]</td></tr>
+<tr><td colspan="2">If you ever loose your password resetting it is easy:<br>[[resetpasswordlink]]</tr>
+</table>
+</body>
+</html>';
+$string['default_user_email_subject'] = 'Hello [[fullname]] Welcome to [[sitename]]';
 $string['message_moderator'] = 'Moderator message';
 $string['message_moderator_desc'] = 'Message send to moderators';
 $string['message_moderator_enabled'] = 'Enable moderator messages';
@@ -48,6 +66,7 @@ $string['message_user_subject_desc'] = 'This will be the subject of the email se
 $string['moderator_email'] = 'Moderator email';
 $string['moderator_email_desc'] = 'New user notifications are send to this email address';
 $string['pluginname'] = 'Moodle welcome';
+$string['resetpass'] = 'Reset your password here';
 $string['sender_email'] = 'Sender email address';
 $string['sender_email_desc'] = 'When new users log in this email address is used to send a notification message, users will be able to see this email address';
 $string['sender_firstname'] = 'Welcome message sender firstname';

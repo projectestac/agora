@@ -26,5 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['coursesummary'] = 'Descrizione del corso';
-$string['course_summary:addinstance'] = 'Aggiungi blocco Descrizione del corso/sito alla pagina My home';
+$string['course_summary:addinstance'] = 'Aggiungere blocco Descrizione del corso/sito alla pagina My home';
 $string['pluginname'] = 'Descrizione del corso/sito';

@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['areyousure'] = 'Está seguro?';
 $string['pluginname'] = 'Axudante de actualización do motor de preguntas';

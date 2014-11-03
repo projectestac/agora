@@ -39,7 +39,7 @@ $string['missinglangparent'] = 'Отсутствует родительский 
 $string['nolangupdateneeded'] = 'Все Ваши языковые пакеты актуальны, обновление не требуется';
 $string['pluginname'] = 'Языковые пакеты';
 $string['purgestringcaches'] = 'Очистка строк кэша';
-$string['remotelangnotavailable'] = 'Moodle не может подключиться к download.moodle.org, автоматическая установка языкового пакета невозможна. Загрузите соответствующий архивный файл с http://download.moodle.org, скопируйте его в каталог {$a} и распакуйте вручную.';
+$string['remotelangnotavailable'] = 'Moodle не может подключиться к download.moodle.org, автоматическая установка языкового пакета невозможна. Загрузите соответствующий архивный файл с <a href="https://download.moodle.org/langpack/">download.moodle.org/langpack</a>, скопируйте его в каталог {$a} и распакуйте вручную.';
 $string['uninstall'] = 'Удалить выбранный языковый пакет';
 $string['uninstallconfirm'] = 'Вы уверены, что хотите полностью удалить языковой пакет «{$a}»?';
 $string['updatelangs'] = 'Обновить все установленные языковые пакеты';

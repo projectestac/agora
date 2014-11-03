@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['logsformat'] = 'Log-opmaak';
 $string['log:view'] = 'Bekijk cursus logs';
 $string['log:viewtoday'] = 'Bekijk logs van vandaag';
+$string['mnetlogwarning'] = 'Als je MNet clients Moodle 2.7 of hoger gebruiken, dan krijg je geen logs.';
 $string['page'] = 'Pagina {$a}';
 $string['page-report-log-index'] = 'Cursus log rapport';
 $string['page-report-log-user'] = 'Cursus log rapport gebruiker';

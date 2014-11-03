@@ -47,6 +47,7 @@ $string['choicesaved'] = 'S\'ha desat la consulta';
 $string['choicetext'] = 'Text de la consulta';
 $string['chooseaction'] = 'Trieu una acció ...';
 $string['completionsubmit'] = 'Mostra com a completada quan l\'usuari fa una tria';
+$string['description'] = 'Descripció';
 $string['displayhorizontal'] = 'En horitzontal';
 $string['displaymode'] = 'Mode de visualització';
 $string['displayvertical'] = 'En vertical';

@@ -47,6 +47,7 @@ $string['choicesaved'] = '已经保存了您的选择';
 $string['choicetext'] = '投票描述';
 $string['chooseaction'] = '选择一个动作...';
 $string['completionsubmit'] = '用户投票后显示为完成';
+$string['description'] = '简要描述';
 $string['displayhorizontal'] = '水平显示';
 $string['displaymode'] = '显示方式';
 $string['displayvertical'] = '垂直显示';

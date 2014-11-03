@@ -25,9 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['configplugin'] = 'Configura el repositori al sistema de fitxers';
-$string['enablecourseinstances'] = 'Permet als usuaris afegir una instància de repositori al curs (sols pot ser configurat pels administradors).';
-$string['enableuserinstances'] = 'Permet als usuaris afegir una instància de repositori en el context d\'usuari (sols pot ser configurat pels administradors).';
+$string['blockedpath'] = 'Camí de root bloquejat';
+$string['configplugin'] = 'Configuració del sistema de fitxers del repositori';
+$string['donotusesysdir'] = 'No utilitzeu el sistema de directoris com repositori, incloent-hi';
+$string['enablecourseinstances'] = 'Permet als administradors afegir una instància del repositori al curs (sols pot ser configurat pels administradors).';
+$string['enableuserinstances'] = 'Permet als administradors afegir una instància de repositori per a ús personal (sols pot ser configurat pels administradors).';
 $string['filesystem:view'] = 'Mostra el repositori del sistema de fitxers';
 $string['information'] = 'Aquestes carpetes estan dins del directori <b>{$a}</b>.';
 $string['invalidpath'] = 'Camí de l\'arrel no vàlid';
@@ -35,4 +37,6 @@ $string['nosubdir'] = 'Heu de crear almenys una carpeta dins del directori <b>{$
 $string['path'] = 'Selecciona una subcarpeta';
 $string['pluginname'] = 'Sistema de fitxers';
 $string['pluginname_help'] = 'Crea un repositori des d\'un directori local';
+$string['relativefiles'] = 'Permet fitxers relatius';
+$string['relativefiles_desc'] = 'Això permet que tots els fitxers del repositori siguin accessibles utilitzant enllaços relatius.';
 $string['root'] = 'Arrel';

@@ -48,6 +48,7 @@ $string['choicetext'] = 'Abstimmungstext';
 $string['chooseaction'] = 'Aktion auswählen...';
 $string['completionsubmit'] = 'Als abgeschlossen anzeigen, wenn die Abstimmung durchgeführt wurde
  ';
+$string['description'] = 'Beschreibung';
 $string['displayhorizontal'] = 'Horizontal anzeigen';
 $string['displaymode'] = 'Anzeigemodus';
 $string['displayvertical'] = 'Vertikal anzeigen';

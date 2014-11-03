@@ -119,7 +119,7 @@ $string['updatemode_help'] = 'Se permitir que as disciplinas sejam atualizadas, 
 $string['updateonly'] = 'Apenas atualizar disciplinas existentes';
 $string['updatewithdataonly'] = 'Atualize apenas com dados CSV';
 $string['updatewithdataordefaults'] = 'Atualize com dados e predefinições de CSV';
-$string['uploadcourses'] = 'Fazer upload de disciplinas';
+$string['uploadcourses'] = 'Carregar disciplinas';
 $string['uploadcourses_help'] = 'O upload das disciplinas pode ser feito via ficheiro de texto. O formato deste ficheiro deve estar de acordo com as seguintes indicações:
 
 *Cada linha do ficheiro deve conter um registo;

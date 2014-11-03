@@ -39,6 +39,7 @@ $string['choiceopen'] = 'کھولو';
 $string['choice:readresponses'] = 'جوابی اقدامات کو پڑھیں';
 $string['choicesaved'] = 'آپ کا انتخاب محفوظ ہو چکا';
 $string['choicetext'] = 'انتخاب کا متن';
+$string['description'] = 'تعرف کا متن';
 $string['displayhorizontal'] = 'افقی طرز سے ظاہر کرو';
 $string['displaymode'] = 'ظاہرکرنے کا طریقہ';
 $string['displayvertical'] = 'عمودی طرز سے ظاہر کرو';

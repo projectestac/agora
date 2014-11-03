@@ -265,6 +265,7 @@ $string['groupnotaddederror'] = 'Groep "{$a}" is niet toegevoegd';
 $string['groupnotaddedtogroupingerror'] = 'Groep "{$a->groupname}" niet toegevoegd aan groepering "{$a->groupingname}"';
 $string['groupunknown'] = 'Groep {$a} is niet geassocieerd met de gespecifieerde groep';
 $string['groupusernotmember'] = 'Gebruiker is geen lid van deze groep.';
+$string['guestcantaccessprofiles'] = 'Gasten hebben geen toegang tot gebruikersprofielen. Log in met een volwaardige gebruikersaccount om verder te gaan.';
 $string['guestnocomment'] = 'Gasten mogen geen commentaren posten!';
 $string['guestnoeditprofile'] = 'De gastgebruiker kan zijn profiel niet wijzigen';
 $string['guestnoeditprofileother'] = 'Het profiel van de gastgebruiker kan niet gewijzigd worden';

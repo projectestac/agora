@@ -49,6 +49,7 @@ $string['choicesaved'] = 'Ваш выбор сохранен';
 $string['choicetext'] = 'Текст опроса';
 $string['chooseaction'] = 'Выберите действие...';
 $string['completionsubmit'] = 'Показать как завершенный, когда пользователь сделает выбор';
+$string['description'] = 'Вступление';
 $string['displayhorizontal'] = 'Отображать горизонтально';
 $string['displaymode'] = 'Режим отображения';
 $string['displayvertical'] = 'Отображать вертикально';

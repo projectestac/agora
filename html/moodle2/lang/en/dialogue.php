@@ -114,7 +114,7 @@ $string['maxattachments_help'] = 'This setting specifies the maximum number of f
 $string['maxattachmentsize'] = 'Maximum attachment size';
 $string['maxattachmentsize_help'] = 'This setting specifies the largest size of file that can be attached to a dialogue post.';
 $string['message'] = 'Message';
-$string['messageapibasicmessage'] = '<p>{$a->userfrom} posted a new message to a conversation you are participanting
+$string['messageapibasicmessage'] = '<p>{$a->userfrom} posted a new message to a conversation you are participating
 in with subject: <i>{$a->subject}</i>
 <br/><br/><a href="{$a->url}">View in Moodle</a></p>';
 $string['messageapismallmessage'] = '{$a} posted a new message to a conversation you are participating in';

@@ -150,7 +150,9 @@ $string['nativemariadbhelp'] = 'あなたはほとんどのMoodleデータが保
 $string['nativemssql'] = 'SQL*Server FreeTDS (ネイティブ/mssql)';
 $string['nativemssqlhelp'] = 'あなたはほとんどのMoodleデータが保存されるデータベースを設定する必要があります。このデータベースはすでに作成され、アクセスするためのユーザ名およびパスワードが作成されている必要があります。テーブル接頭辞は必須項目です。';
 $string['nativemysqli'] = 'Improved MySQL (ネイティブ/mysqli)';
-$string['nativemysqlihelp'] = 'あなたは、ほとんどのMoodleデータが保存されるデータベースを設定する必要があります。すでにデータベースユーザに必要なパーミッション、ユーザ名およびパスワードがある場合、データベースが作成されます。テーブル接頭辞は、任意です。';
+$string['nativemysqlihelp'] = '<p>データベースにはほとんどのMoodle設定およびデータが保存され、ここで設定する必要があります。</p>
+<p>データベース名、ユーザ名およびパスワードは必須入力フィールドです。また、テーブル接頭辞は任意です。</p>
+<p>データベースが存在せず、あなたが指定したユーザにパーミッションがある場合、Moodleは正しいパーミッションおよび設定の新しいデータベースの作成を試みます。/p>';
 $string['nativeoci'] = 'Oracle (ネイティブ/oci)';
 $string['nativeocihelp'] = 'あなたはほとんどのMoodleデータが保存されるデータベースを設定する必要があります。このデータベースはすでに作成され、アクセスするためのユーザ名およびパスワードが作成されている必要があります。テーブル接頭辞は必須項目です。';
 $string['nativepgsql'] = 'PostgreSQL (ネイティブ/pgsql)';

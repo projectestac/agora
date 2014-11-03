@@ -25,9 +25,22 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['apikey'] = 'Vidya.io API key';
+$string['confirmdelete'] = 'Confirm delete';
+$string['confirmkeydeletion'] = 'Confirm API key deletion';
+$string['currentmonth'] = 'Current Month';
 $string['domain'] = 'Domain url';
+$string['graphheading'] = 'Usage Graph of vidya.io API';
+$string['havekey'] = 'Already have Vidya.io API key? <a href=\'savekey.php\'>click here</a>';
 $string['keyis'] = 'Your API key is';
 $string['keynotsaved'] = 'API key not saved';
 $string['message'] = 'To get API Key for whiteboard/chat you need to submit this form with correct detail. You will get key only for specified Domain.';
 $string['missingdomain'] = 'Domain name missing';
+$string['missingkey'] = 'API key missing';
+$string['msggraph'] = 'Message Graph';
+$string['nodata'] = 'No data available for {$a} graph';
 $string['pluginname'] = 'Get Key';
+$string['previousmonth'] = 'Previous Month';
+$string['today'] = 'Today';
+$string['usrgraph'] = 'Users Graph';
+$string['year'] = '1 Year';

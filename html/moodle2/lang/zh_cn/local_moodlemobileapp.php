@@ -26,87 +26,117 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['about'] = '关于';
+$string['activity'] = '活动';
 $string['add'] = '添加';
 $string['addcontact'] = '添加为联系人';
-$string['addedtoqueue'] = '您现在是离线状态；您的操作已经被添加到任务队列中。';
-$string['addfakenotifications'] = '添加伪造的通知';
-$string['addnote'] = '添加一条笔记';
+$string['addedtoqueue'] = '您已下线；您的操作已经被添加到任务队列中。';
+$string['addfakenotifications'] = '添加假冒通知';
+$string['addnote'] = '添加一条注意消息';
 $string['address'] = '地址';
 $string['addsite'] = '添加一个站点';
+$string['allcachesinvalidated'] = '所有缓存已失效';
 $string['allcachespurged'] = '所有缓存已被清空';
-$string['areyousurereset'] = '您确定打算重置程序？您的所有站点都会被删除。';
+$string['appstoredescription'] = '注意：此官方APP只能适用于那些已经启用本插件功能的Moodle站点。如果您有任何疑问，请与站点管理员沟通。
+
+如果您的站点已经配置妥当，您可以使用本APP的以下功能：
+
+- 浏览您的课程内容，甚至是在离线的时候
+- 接受即时消息及其它事件通知
+- 快速查找本课程的其它同学并与他们联系
+- 上传您的移动设备上的图像、音频、视频和其它文件
+- 查看您的课程成绩
+- 其它更多功能
+
+请访问 http://docs.moodle.org/en/Mobile_app 获取最新资讯。
+
+十分感谢您对本APP的现有功能做出良好的评价，同时也欢迎您对其新功能提出建议。';
+$string['areyousurereset'] = '您确定要重置APP吗？这样，您的所有站点都会被删除。';
 $string['audionotavailable'] = '音频输入设备不可用';
-$string['audiorecordinstructions'] = '点击“录制”，开始录音，点击“停止”，结束录音并上传文件。';
-$string['authenticating'] = '正在验证';
+$string['audiorecordinstructions'] = '触按“录制”按钮开始录音，“停止”按钮结束录音，并上传文件。';
+$string['authenticating'] = '验证中';
 $string['author'] = '作者';
 $string['back'] = '后退';
 $string['browsephotoalbums'] = '相册';
 $string['cacheexpirationtime'] = '缓存过期时间（毫秒）';
 $string['cancel'] = '取消';
-$string['cannotaddnote'] = '网络不可达。您的笔记已保存至任务队列，一旦您重新上线，您就可以重新发送。';
-$string['cannotconnect'] = '无法连接：请确认您已经输入了正确的网址，并且您的网站使用了Moodle 2.4或更高版本。';
-$string['cannotconnectssl'] = '无法连接：请确认你已经输入了正确的网址，您的网站使用了Moodle 2.4或更高版本，并且SSL证书是有效的。';
-$string['cannotsendmessage'] = '网络不可达。您的消息将被保存到任务队列；一旦您重新上线，您就可以重新发送。';
+$string['cannotaddnote'] = '网络无法连接。您的注意消息已保存至任务队列中；一旦您重新上线，您就可以重新发送。';
+$string['cannotconnect'] = '无法连接：请确认您已经正确输入网址，并且您的网站使用了Moodle 2.4或更高版本。';
+$string['cannotconnectssl'] = '无法连接：请确认你已经正确输入网址，您的网站使用了Moodle 2.4或更高版本，并且SSL证书是有效的。';
+$string['cannotsendmessage'] = '网络无法连接。您的消息已保存至任务队列中；一旦您重新上线，您就可以重新发送。';
 $string['city'] = '城市';
 $string['close'] = '关闭';
 $string['completed'] = '已经完成';
 $string['confirmcontinuedownload'] = '您确定要继续下载文件？';
+$string['confirmdeletetask'] = '您确定要删除本任务？';
 $string['contact'] = '联系人';
-$string['contactadd'] = '联系人已被添加至您的手机通讯录';
+$string['contactadd'] = '联系人已被添加至您的手机通讯录中';
 $string['content'] = '内容';
 $string['contents'] = '内容';
-$string['contentyetnotavailable'] = '这类活动还在移动app里还不可用';
+$string['contentyetnotavailable'] = '此类活动还无法在本APP中使用';
 $string['continue'] = '继续';
 $string['country'] = '国家';
+$string['course'] = '课程';
 $string['coursename'] = '课程名称';
-$string['csssynced'] = '远程CSS已经被同步';
+$string['csssynced'] = '远程CSS已经同步';
 $string['date'] = '日期';
 $string['days'] = '日';
 $string['delete'] = '删除';
-$string['deletesite'] = '删除这个网站？';
-$string['deletesitefiles'] = '您确定要删除来自这个网站的已下载文件？';
+$string['deletesite'] = '删除本站？';
+$string['deletesiteb'] = '删除站点';
+$string['deletesitefiles'] = '您确定要删除从本站下载的文件？';
 $string['description'] = '描述';
 $string['details'] = '详情';
 $string['development'] = '开发';
 $string['deviceinfo'] = '设备信息';
 $string['disablenotifications'] = '关闭通知';
 $string['disablerdebugger'] = '关闭远程调试';
+$string['discussions'] = '讨论';
 $string['docsurl'] = 'http://docs.moodle.org/en/Mobile_app';
 $string['downloadremotefile'] = '下载远程文件';
 $string['downloadtime'] = '已经下载';
 $string['email'] = 'Email';
 $string['empty'] = '空的';
-$string['enableautosync'] = '开启自动同步';
-$string['enableautosynccss'] = '开启附加CSS样式表的同步';
-$string['enableautosynclang'] = '开启语言文件的同步';
-$string['enableautosyncws'] = '开启操作和数据的同步';
-$string['enablecss3transitions'] = '开启CSS3过渡效果';
-$string['enabledebugging'] = '开启调试';
-$string['enablenotifications'] = '开启通知';
-$string['enablenotificationscheck'] = '<p>您应该首先检查您的Moodle网站是否支持移动端的通知，请打开您的Moodle网站，并进入“管理”/ “我的个人资料设置”/ "消息"。如果移动端通知已经启用，你应该看到“移动端消息”一栏。</p>';
-$string['enablenotificationswarning'] = '<p>为了启用通知，我们需要在网站中保存一些信息，诸如您移动设备的型号和操作系统。</p>';
-$string['enablerdebugger'] = '启用远程调试';
+$string['enableautosync'] = '启用自动同步';
+$string['enableautosynccss'] = '启用附加CSS样式表同步';
+$string['enableautosynclang'] = '启用语言文件同步';
+$string['enableautosyncws'] = '启用操作和数据同步';
+$string['enablecss3transitions'] = '启用CSS3过渡效果';
+$string['enabledebugging'] = '启用调试功能';
+$string['enablenotifications'] = '启用通知功能';
+$string['enablenotificationscheck'] = '<p>您应该首先检查您的Moodle站点是否支持移动通知功能。请打开您的Moodle网站，并进入“管理”/ “我的个人资料设置”/ "消息"菜单。如果移动通知功能已经启用，您应该会看到“移动通知”栏目。</p>';
+$string['enablenotificationswarning'] = '<p>要启用通知功能，需要在Moodle站点中保存一些信息，诸如您的移动设备型号和操作系统。</p>';
+$string['enablerdebugger'] = '启用远程调试功能';
 $string['error'] = '错误';
 $string['errorcamera'] = '访问相机时出错';
 $string['errorcameramsg'] = '设备不支持拍照';
-$string['errorcapturingaudio'] = '采集音频时出错';
-$string['errorcapturingvideo'] = '采集视频时出错';
-$string['errorduringdevicetokenrequesttoapns'] = '在向苹果信息推送服务(Apple Push Notification Service)发送设备令牌时出错。';
+$string['errorcapturingaudio'] = '捕捉音频时出错';
+$string['errorcapturingvideo'] = '捕捉视频时出错';
+$string['errordownloading'] = '下载文件时出错';
+$string['errorduringdevicetokenrequest'] = '请求设备标识符时出错';
+$string['errorduringdevicetokenrequesttoapns'] = '请求向APNS发送设备标识符时出错。';
+$string['errorlistingfiles'] = '从本目录提取文件时出错';
+$string['errornoconnectednocache'] = '本设备未连接，没有相关的缓存信息可供用户请求的选项使用。';
 $string['errorregisteringdeviceinmoodle'] = '在Moodle中注册设备时出错';
-$string['erroruploading'] = '在上传文件时出错';
+$string['errorretrievinggradeinformation'] = '获取成绩信息时出错';
+$string['erroruploading'] = '上传文件时出错';
 $string['estimatedfreespace'] = '估计的可用空间';
-$string['events'] = '日历时间';
+$string['events'] = '日历事件';
+$string['feedback'] = '反馈';
+$string['filedownloaded'] = '文件已下载';
 $string['filename'] = '文件名';
 $string['filesize'] = '大小';
-$string['fileuploaded'] = '已上传的文件';
-$string['fileurl'] = '文件URL';
+$string['fileuploaded'] = '文件已上传';
+$string['fileurl'] = '文件地址';
 $string['forcecsssync'] = '强制立即同步CSS';
 $string['forcelangsync'] = '强制立即同步语言';
-$string['forceofflinemode'] = '强制切换为离线模式';
+$string['forceofflinemode'] = '强制使用离线模式';
+$string['forumnodiscussionsyet'] = '此论坛中还没有讨论话题';
+$string['forumnumreplies'] = '回复';
 $string['fullname'] = '全名';
-$string['general'] = '一般';
-$string['grade'] = '等级';
-$string['groupeventsnotdisplayed'] = '群组事件不会被显示';
+$string['general'] = '常规';
+$string['grade'] = '成绩';
+$string['grades'] = '成绩';
+$string['groupeventsnotdisplayed'] = '群组事件不显示';
 $string['help'] = '帮助';
 $string['helpmelogin'] = '<p>为了登录成功，请验证以下：</p>1. Moodle站点版本为2.4或更高。<br />2. Moodle站点管理员已经开启移动设备接入。<br /><br /><p>想要在Moodle演示站点中测试程序，在<i>用户名</i>处键入<i>teacher</i>或者<i>student</i>，并点击<b>添加</b>按钮。</p><p><a href=\'http://docs.moodle.org/en/Mobile_app\' target=\'_blank\'>欲获取更多详细信息和帮助，请访问Moodle文档站点。</a></p>';
 $string['icantlogin'] = '我无法登录';

@@ -37,7 +37,7 @@ $string['langupdatecomplete'] = 'La mise à jour des langues est terminée';
 $string['missingcfglangotherroot'] = 'Valeur manquante pour le paramètre de configuration $CFG->langotherroot';
 $string['missinglangparent'] = 'Le paquetage de la langue parente <em>{$a->parent}</em> de <em>{$a->lang}</em> n\'est pas installé.';
 $string['nolangupdateneeded'] = 'Toutes les langues sont à jour. Aucune mise à jour n\'est nécessaire';
-$string['pluginname'] = 'Paquetages langue';
+$string['pluginname'] = 'Paquetages de langue';
 $string['purgestringcaches'] = 'Vider les caches des chaînes de caractères';
 $string['remotelangnotavailable'] = 'Moodle ne peut pas se connecter au site download.moodle.org. L\'installation automatique des langues ne peut donc pas avoir lieu. Veuillez télécharger sur <a href="https://download.moodle.org/langpack/">download.moodle.org/langpack</a> le(s) fichier(s) compressé(s) nécessaire(s) dans la liste ci-dessous, les copier dans votre dossier {$a} et les décompresser manuellement.';
 $string['uninstall'] = 'Désinstaller le paquetage de langue sélectionné';

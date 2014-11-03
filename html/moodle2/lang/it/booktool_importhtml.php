@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['doimport'] = 'Importa';
 $string['errornochapters'] = 'Non sono stati trovati capitoli nel file selezionato';
 $string['import'] = 'Importa capitoli';
-$string['importhtml:import'] = 'Importa capitoli';
+$string['importhtml:import'] = 'Importare capitoli';
 $string['importing'] = 'Importazione in corso';
 $string['importingchapters'] = 'Importazione dei capitoli nel libro';
 $string['pluginname'] = 'Importazione libro';

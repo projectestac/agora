@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['activityoverview'] = 'Existem trabalhos que requerem a sua atenção';
+$string['activityoverview'] = 'Atenção aos seus Trabalhos! Clique aqui para mais informações.';
 $string['addattempt'] = 'Permitir nova tentativa';
 $string['addnewattempt'] = 'Adicionar nova tentativa';
 $string['addnewattemptfromprevious'] = 'Adicionar nova tentativa baseada na submissão anterior';

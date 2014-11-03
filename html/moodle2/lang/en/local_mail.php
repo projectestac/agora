@@ -49,6 +49,7 @@ $string['cronstart'] = 'Cron start';
 $string['cronstop'] = 'Cron stop';
 $string['delete'] = 'Delete';
 $string['discard'] = 'Discard';
+$string['downloadall'] = 'Download all';
 $string['draft'] = 'Draft';
 $string['drafts'] = 'Drafts';
 $string['editlabel'] = 'Edit label';

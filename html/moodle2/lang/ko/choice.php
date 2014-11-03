@@ -47,6 +47,7 @@ $string['choicesaved'] = '저장됨';
 $string['choicetext'] = '설문 내용';
 $string['chooseaction'] = '활동을 선택하십시요...';
 $string['completionsubmit'] = '사용자가 선택을 할때 완료된 것으로 보이기';
+$string['description'] = '머리말';
 $string['displayhorizontal'] = '수평으로 배치';
 $string['displaymode'] = '옵션 표시모드';
 $string['displayvertical'] = '수직으로 배치';

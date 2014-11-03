@@ -876,7 +876,7 @@ $string['profileshortname'] = 'Nome abbreviato (univoco)';
 $string['profileshortnamenotunique'] = 'Nome abbreviato già in uso';
 $string['profilesignup'] = 'Da compilare nella pagina di creazione account?';
 $string['profilespecificsettings'] = 'Impostazioni specifiche';
-$string['profilevisible'] = 'A chi è visibile il campo?';
+$string['profilevisible'] = 'Visibilità del campo';
 $string['profilevisibleall'] = 'Visibile a tutti';
 $string['profilevisible_help'] = '<p>Ad ogni campo creato dall\'utente può essere assegnata una impostazione di visibilità: non visibile, visibile a tutti, visibile all\'utente. L\'impostazione \'non visibile\' sarà normalmente assegnata da un amministratore che vuole mantenere dati privati riguardanti gli utenti. L\'impostazione \'visibile all\'utente\' sarà di solito scelta per un campo contenente informazioni sensibili, mentre \'visibile a tutti\' potrà essere utilizzata per ogni tipo di informazione.
 </p>';

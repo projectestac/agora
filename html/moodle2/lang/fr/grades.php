@@ -36,7 +36,7 @@ $string['additem'] = 'Ajouter un élément d\'évaluation';
 $string['addoutcome'] = 'Ajouter un objectif';
 $string['addoutcomeitem'] = 'Ajouter un élément d\'objectif';
 $string['addscale'] = 'Ajouter un barème';
-$string['aggregateextracreditmean'] = 'Moyenne des notes (points supplémentaires)';
+$string['aggregateextracreditmean'] = 'Moyenne des notes (avec bonus)';
 $string['aggregatemax'] = 'Note la plus haute';
 $string['aggregatemean'] = 'Moyenne des notes';
 $string['aggregatemedian'] = 'Médiane des notes';
@@ -63,103 +63,14 @@ $string['aggregateweightedmean'] = 'Moyenne pondérée des notes';
 $string['aggregateweightedmean2'] = 'Simple moyenne pondérée des notes';
 $string['aggregation'] = 'Tendance centrale';
 $string['aggregationcoef'] = 'Coefficient';
-$string['aggregationcoefextra'] = 'Points supplémentaires';
-$string['aggregationcoefextra_help'] = '<!-- $Id$ -->
+$string['aggregationcoefextra'] = 'Bonus';
+$string['aggregationcoefextra_help'] = 'Lorsque la tendance centrale choisie est la « Somme des notes » ou « Moyenne simple pondérée » et que la case « Bonus » est cochée, la note maximale de l\'élément d\'évaluation n\'est pas comptée dans le maximum du total des notes. Cela a pour conséquence qu\'il est possible d\'obtenir la note maximale (ou une note dépassant la note maximale, si l\'administrateur du site a activé cette possibilité) dans la catégorie sans obtenir la note maximale dans tous les éléments d\'évaluation.
 
-
-<h2>Lorsque la tendance centrale choisie est la « Somme des notes »</h2>
-
-<p>Lorsque la tendance centrale choisie est la « Somme des notes », un élément d\'évaluation peut compter pour des points supplémentaires dans une catégorie. Cela signifie que la note maximale de l\'élément d\'évaluation ne sera pas compté dans le maximum du total des notes, mais que les points obtenus par chaque participant pour cet élément seront ajoutés à leur total.</p>
-
-<p>Voici un exemple :</p>
-
-<ul>
-
-    <li>l\'élément 1 est noté de 0 à 100 ;</li>
-
-    <li>l\'élément 2 est noté de 0 à 75 ;</li>
-
-    <li>l\'élément 1 a l\'option « Compte comme points supplémentaires » cochée, l\'élément 2 ne l\'a pas ;</li>
-
-    <li>les deux éléments font partie de la catégorie 1, dont la tendance centrale choisie est « Somme des notes » ;</li>
-
-    <li>Le total de la catégorie 1 sera noté de 0 à 75 ;</li>
-
-    <li>un participant a obtenu 20 pour l\'élément 1 et 70 pour l\'élément 2 ;</li>
-
-    <li>la note du participant pour la catégorie 1 sera de 75 sur 75 (20 + 70 = 90, mais l\'élément 1 compte comme points supplémentaires, et pousse donc la note à son maximum de 75, et non de 175).</li>
-
-</ul>
-
-<h2>Lorsque la tendance centrale choisie est la « Moyenne des notes (points supplémentaires) »</h2>
-
-<p>Une valeur plus grande que 0 a pour effet le traitement de la note de cet élément d\'évaluation comme points supplémentaires lors du calcul de la tendance centrale. Le nombre est un facteur par lequel la valeur de la note sera multipliée avant d\'être ajoutée à la somme de toutes les notes, mais l\'élément lui-même ne sera pas compté dans la division.</p>
-
-<p>Voici un exemple :</p>
-
-<ul>
-
-    <li>l\'élément 1 est noté de 0 à 100 et sa valeur « Points supplémentaires » est de 2 ;</li>
-
-    <li>l\'élément 2 est noté de 0 à 100 et sa valeur « Points supplémentaires » est laissée à 0.0000 ;</li>
-
-    <li>l\'élément 3 est noté de 0 à 100 et sa valeur « Points supplémentaires » est laissée à 0.0000 ;</li>
-
-    <li>Les trois éléments 3 font partie de la catégorie 1, dont la tendance centrale choisie est « Moyenne des notes (points supplémentaires) » ;</li>
-
-    <li>un participant a obtenu 20 pour l\'élément 1, 40 pour l\'élément 2 et 70 pour l\'élément 3 ;</li>
-
-    <li>la note du participant pour la catégorie 1 sera de 95 sur 100 puisque 20*2 + (40 + 70)/2 = 95.</li>
-
-</ul>';
-$string['aggregationcoefextrasum'] = 'Points supplémentaires';
-$string['aggregationcoefextrasum_help'] = '<!-- $Id$ -->
-
-
-<p>Lorsque la tendance centrale choisie est la « Somme des notes », un élément d\'évaluation peut compter pour des points supplémentaires dans une catégorie. Cela signifie que la note maximale de l\'élément d\'évaluation ne sera pas compté dans le maximum du total des notes, mais que les points obtenus par chaque participant pour cet élément seront ajoutés à leur total.</p>
-
-<p>Voici un exemple :</p>
-
-<ul>
-
-    <li>l\'élément 1 est noté de 0 à 100 ;</li>
-
-    <li>l\'élément 2 est noté de 0 à 75 ;</li>
-
-    <li>l\'élément 1 a l\'option « Compte comme points supplémentaires » cochée, l\'élément 2 ne l\'a pas ;</li>
-
-    <li>les deux éléments font partie de la catégorie 1, dont la tendance centrale choisie est « Somme des notes » ;</li>
-
-    <li>Le total de la catégorie 1 sera noté de 0 à 75 ;</li>
-
-    <li>un participant a obtenu 20 pour l\'élément 1 et 70 pour l\'élément 2 ;</li>
-
-    <li>le total du participant pour la catégorie 1 sera de 75 sur 75 (20 + 70 = 90, mais puisque l\'élément 1 compte comme points supplémentaires, et pousse donc la note à son maximum de 75, et non de 175).</li>
-
-</ul>';
-$string['aggregationcoefextraweight'] = 'Coefficient de points supplémentaires';
-$string['aggregationcoefextraweight_help'] = '<!-- $Id$ -->
-
-
-<p>Une valeur supérieure à 0 dans ce champ aura pour effet que la note obtenue pour cet élément d\'évaluation sera traitée comme des points supplémentaires lors du calcul de la tendance centrale. Cette valeur est un facteur par lequel la valeur de la note sera multipliée avant d\'être ajoutée à la somme de toutes les notes. L\'élément lui-même ne sera pas utilisé dans la division.</p>
-
-<p>Voici un exemple :</p>
-
-<ul>
-
-    <li>l\'élément 1 est noté de 0 à 100 et sa valeur pour le coefficient de points supplémentaires est 2 ;</li>
-
-    <li>l\'élément 2 est noté de 0 à 100 et sa valeur pour le coefficient de points supplémentaires est laissée à 0 ;</li>
-
-    <li>l\'élément 3 est noté de 0 à 100 et sa valeur pour le coefficient de points supplémentaires est laissée à 0 ;</li>
-
-    <li>Tous les 3 éléments font partie de la catégorie 1, dont la tendance centrale choisie est la « Moyenne des notes (avec points supplémentaires) » ;</li>
-
-    <li>Un participant obtient la note 20 pour l\'élément 1, 40  pour l\'élément 2 et 70 pour l\'élément 3 ;</li>
-
-    <li>La note du participant pour la catégorie 1 sera de 95/100 puisque 95 = 20*2 + (40 + 70)/2.</li>
-
-</ul>';
+Si la tendance centrale choisie est « Moyenne des notes (avec points supplémentaires) » et que les points supplémentaires indiqués sont plus grands que 0, les points supplémentaires constituent le facteur qui multiplie la note avant de l\'ajouter au total, après le calcul de la moyenne.';
+$string['aggregationcoefextrasum'] = 'Bonus';
+$string['aggregationcoefextrasum_help'] = 'Si la case « Bonus » est cochée, la note maximale de l\'élément d\'évaluation ne sera pas ajoutée à la note maximale de la catégorie, offrant la possibilité d\'obtenir la note maximale (ou une note dépassant la note maximale, si l\'administrateur du site a activé cette possibilité) dans la catégorie sans obtenir la note maximale dans tous les éléments d\'évaluation.';
+$string['aggregationcoefextraweight'] = 'Coefficient de bonus';
+$string['aggregationcoefextraweight_help'] = 'Si la pondération pour le bonus est plus grande que 0, la note est traitée comme bonus lors du calcul de la tendance centrale. Ce nombre est le facteur par lequel la note est multipliée avant d\'être ajoutée au total des notes pour le calcul de la moyenne.';
 $string['aggregationcoefweight'] = 'Coefficient de l\'élément';
 $string['aggregationcoefweight_help'] = '<!-- $Id$ -->
 
@@ -167,15 +78,12 @@ $string['aggregationcoefweight_help'] = '<!-- $Id$ -->
 <p>Pondération appliquée à toutes les notes de cet élément d\'évaluation lors du calcul de la tendance centrale.</p>';
 $string['aggregation_help'] = 'La tendance centrale détermine comment les notes d\'une catégorie sont combinées.
 
-* Moyenne des notes : la somme de toutes les notes divisée par le nombre total de notes.
-* Moyenne pondérée des notes : une pondération est donnée à chaque élément d\'évaluation et influence le calcul de la moyenne des notes. Ainsi, la somme des notes de tous les éléments d\'évaluation multipliés par leur pondération est calculée, et cette somme est divisée par la somme des pondérations pour donner le total du cours.
-* Simple moyenne pondérée des notes : la différence entre cette moyenne et la moyenne pondérée des notes est que la pondération est calculée au moyen des notes maximale et minimale pour chaque élément d\'évaluation. Un travail qui vaut 100 points a une pondération de 100, et un travail qui vaut 10 points a une pondération de 10.
-* Moyenne des notes (points supplémentaires) : ce calcul de la tendance centrale n\'est plus supporté, mais figure dans cette liste afin que certaines anciennes activités puissent être compatibles avec le carnet de notes. Une valeur supérieure à 0 confère à un élément d\'évaluation des points supplémentaires dans le calcul de la tendance centrale. Le nombre est un facteur par lequel l\'élément d\'évaluation est multiplié. Le résultat de cette multiplication est ajouté à la somme des notes, mais l\'élément d\'évaluation n\'est pas compté dans la division.
-* Médiane des notes : ce calcul indique la note médiane (ou la moyenne des deux notes médianes) lorsque les notes sont classées par ordre de grandeur. Son avantage par rapport à une moyenne est que la médiane n\'est pas affectée par les valeurs extrêmes (notes anormalement éloignées de la moyenne).
+* Moyenne des notes : la somme de toutes les notes divisée par le nombre total de notes.
+* Médiane des notes : la note du milieu de la liste, lorsque les notes sont classées par ordre de grandeur.
 * Note la plus basse.
 * Note la plus haute.
-* Mode des notes : le mode est la note qui revient le plus souvent dans le groupe. En général, il s\'applique à des notes non numériques. Son avantage par rapport à la moyenne des notes est qu\'il n\'est pas influencé par les valeurs extrêmes (notes anormalement éloignées de la moyenne). Toutefois, ce calcul perd son sens lorsque plus d\'une note revient fréquemment (dans ce cas, une seule note est conservée), ou lorsque toutes les notes sont différentes les unes des autres.
-* Somme des notes : la somme de toutes les notes est calculée et les éléments évalués selon un barème sont ignorés.';
+* Mode des notes : la note qui revient le plus souvent dans la liste.
+* Somme des notes : la somme de toutes les notes, sans pondération.';
 $string['aggregationposition'] = 'Position de la tendance centrale';
 $string['aggregationposition_help'] = '<!-- $Id$ -->
 
@@ -296,7 +204,7 @@ $string['errorupdatinggradecategoryaggregateonlygraded'] = 'Erreur lors de la mo
 $string['errorupdatinggradecategoryaggregateoutcomes'] = 'Erreur lors de la modification du réglage « Inclure les objectifs dans les tendances centrales » de la catégorie de note d\'identifiant {$a->id}';
 $string['errorupdatinggradecategoryaggregatesubcats'] = 'Erreur lors de la modification du réglage « Inclure les sous-catégories dans les tendances centrales » de la catégorie de note d\'identifiant {$a->id}';
 $string['errorupdatinggradecategoryaggregation'] = 'Erreur lors de la modification du type de tendance centrale de la catégorie de note d\'identifiant {$a->id}';
-$string['errorupdatinggradeitemaggregationcoef'] = 'Erreur lors de la modification du  coefficient de l\'élément d\'évaluation d\'identifiant {$a->id}';
+$string['errorupdatinggradeitemaggregationcoef'] = 'Erreur lors de la modification du coefficient (pondération ou bonus) de l\'élément d\'évaluation d\'identifiant {$a->id}';
 $string['excluded'] = 'Exclue';
 $string['excluded_help'] = '<!-- $Id$ -->
 
@@ -311,7 +219,7 @@ $string['exportonlyactive_help'] = 'N\'inclure dans l\'exportation que les parti
 $string['exportplugins'] = 'Modules d\'exportation';
 $string['exportsettings'] = 'Réglages d\'exportation';
 $string['exportto'] = 'Exporter vers';
-$string['extracreditvalue'] = 'Points supplémentaires pour {$a}';
+$string['extracreditvalue'] = 'Bonus pour {$a}';
 $string['extracreditwarning'] = 'Remarque : si tous les éléments d\'une catégorie sont cochés comme bonus, cela aura pour effet de les retirer complètement du calcul des notes, puisqu\'il n\'y aura pas de point au total.';
 $string['feedback'] = 'Feedback';
 $string['feedbackadd'] = 'Ajouter feedback';
@@ -429,6 +337,7 @@ $string['gradetype_help'] = '<!-- $Id$ -->
 
 <p>Indique le type de note utilisé : aucune (pas de note possible), valeur (activation des notes maximale et minimale), barème (activation du réglage du barème) ou texte (feedback uniquement). Seuls les types valeur et barème permettent le calcul d\'une tendance centrale. Le type de note pour un élément d\'évaluation basé sur une activité est géré sur la page de modification de l\'activité.</p>';
 $string['gradeview'] = 'Afficher la note';
+$string['gradewasmodifiedduringediting'] = 'La note saisie donnée à {$a->username} pour {$a->itemname} a été ignorée, car elle a été mise à jour ultérieurement par quelqu\'un d\'autre.';
 $string['gradeweighthelp'] = 'Aide sur les coefficients des notes';
 $string['groupavg'] = 'Moyenne du groupe';
 $string['hidden'] = 'Caché';
@@ -636,8 +545,8 @@ $string['plusfactorvalue'] = 'Décalage pour {$a}';
 $string['points'] = 'points';
 $string['pointsascending'] = 'Tri croissant par points';
 $string['pointsdescending'] = 'Tri décroissant par points';
-$string['positionfirst'] = 'Premier';
-$string['positionlast'] = 'Dernier';
+$string['positionfirst'] = 'Première colonne';
+$string['positionlast'] = 'Dernière colonne';
 $string['preferences'] = 'Préférences';
 $string['prefgeneral'] = 'Général';
 $string['prefletters'] = 'Notes lettres et limites';
@@ -828,9 +737,9 @@ $string['weightedascending'] = 'Tri croissant par pourcent pondéré';
 $string['weighteddescending'] = 'Tri décroissant par pourcent pondéré';
 $string['weightedpct'] = '% pondéré';
 $string['weightedpctcontribution'] = 'contribution en % pondérée';
-$string['weightorextracredit'] = 'Coefficient ou bonus';
+$string['weightorextracredit'] = 'Pondération ou bonus';
 $string['weights'] = 'Coefficients';
-$string['weightsedit'] = 'Modifier les coefficients et les bonus';
+$string['weightsedit'] = 'Modifier les pondérations et les bonus';
 $string['weightuc'] = 'Coefficient';
 $string['writinggradebookinfo'] = 'Écriture des réglages du carnet de notes';
 $string['xml'] = 'XML';

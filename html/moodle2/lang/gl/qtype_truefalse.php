@@ -26,6 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['correctanswer'] = 'Resposta correcta';
+$string['correctanswerfalse'] = 'A resposta correcta é «Falso».';
+$string['correctanswertrue'] = 'A resposta correcta é «Verdadeiro».';
 $string['false'] = 'Falso';
 $string['feedbackfalse'] = 'Avaliación (Falso)';
 $string['feedbacktrue'] = 'Avaliación (Verdadeiro)';

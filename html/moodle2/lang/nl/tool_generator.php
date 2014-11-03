@@ -66,6 +66,7 @@ $string['pluginname'] = 'Ontwikkelings datagenerator';
 $string['progress_checkaccounts'] = 'Gebruikersaccounts controleren ({$a})';
 $string['progress_coursecompleted'] = 'Cursus volledig ({$a})';
 $string['progress_createaccounts'] = 'Gebruikersaccounts maken ({$a->from} - {$a->to})';
+$string['progress_createassignments'] = 'Opdrachten maken ({$a} )';
 $string['progress_createbigfiles'] = 'Grote bestanden maken ({$a})';
 $string['progress_createcourse'] = 'Cursus maken ({$a})';
 $string['progress_createforum'] = 'Forumberichten maken ({$a} berichten)';

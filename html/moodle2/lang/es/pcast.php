@@ -26,3 +26,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['category'] = 'Categoría';
+$string['nocommentuntilapproved'] = 'Los comentarios no están disponibles hasta que el episodio haya sido aprobado';
+$string['noratinguntilapproved'] = 'Las calificaciones no están disponibles hasta que el episodio haya sido aprobado';

@@ -47,6 +47,7 @@ $string['choicesaved'] = 'Votre choix a été enregistré';
 $string['choicetext'] = 'Texte de la question';
 $string['chooseaction'] = 'Choisir une action...';
 $string['completionsubmit'] = 'Afficher comme terminé quand l\'utilisateur a rempli le sondage';
+$string['description'] = 'Description';
 $string['displayhorizontal'] = 'Afficher horizontalement';
 $string['displaymode'] = 'Mode d\'affichage des options';
 $string['displayvertical'] = 'Afficher verticalement';

@@ -61,7 +61,7 @@ $string['uploadusers_help'] = 'Os utilizadores podem ser carregados (e opcionalm
 * Os nomes dos campos obrigatórios são username, password, firstname, lastname, email';
 $string['uploaduserspreview'] = 'Pré-visualizar utilizadores carregados';
 $string['uploadusersresult'] = 'Resultados dos utilizadores carregados';
-$string['uploaduser:uploaduserpictures'] = 'Fazer upload de imagens de utilizador';
+$string['uploaduser:uploaduserpictures'] = 'Carregar imagens de utilizador';
 $string['useraccountupdated'] = 'Utilizador atualizado';
 $string['useraccountuptodate'] = 'Sem alterações';
 $string['userdeleted'] = 'Utilizador apagados';

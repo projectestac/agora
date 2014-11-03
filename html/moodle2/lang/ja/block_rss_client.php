@@ -53,7 +53,7 @@ $string['enableautodiscovery_help'] = '<p>このオプションを有効にす�
 Moodleは購読するため、自動的に最新の変更に関するフィードを探します:
 <pre>http://docs.moodle.org/en/index.php?title=Special:RecentChanges&feed=rss</pre>
 </p>';
-$string['errorloadingfeed'] = 'RSSフィード ({$a}) のローディング中にエラーが発生しました。';
+$string['errorloadingfeed'] = 'RSSフィード ({$a}) の読み込み中にエラーが発生しました。';
 $string['feed'] = 'フィード';
 $string['feedadded'] = '新しいフィードが追加されました。';
 $string['feeddeleted'] = 'フィードが削除されました。';

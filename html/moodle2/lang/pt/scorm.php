@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['activation'] = 'Ativação';
 $string['activityloading'] = 'Vai ser automaticamente redirecionado para a atividade em…';
-$string['activityoverview'] = 'Existem Pacotes SCORM que requerem a sua atenção';
+$string['activityoverview'] = 'Atenção aos seus Pacotes SCORM! Clique aqui para mais informações.';
 $string['activitypleasewait'] = 'Atividade a carregar, por favor aguarde ...';
 $string['adminsettings'] = 'Configurações do administrador';
 $string['advanced'] = 'Parâmetros';

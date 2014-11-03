@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'assignsubmission_youtube', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'assignsubmission_youtube', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   assignsubmission_youtube
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -37,11 +37,12 @@ $string['bymaster'] = 'Use master YouTube account';
 $string['byuser'] = 'Use students YouTube accounts';
 $string['clicktoplayvideo'] = 'Click to play video';
 $string['clicktorecordvideo'] = 'Click to Record Video';
+$string['currentsubmission'] = 'Current Submission';
 $string['default'] = 'Enabled by default';
 $string['default_help'] = 'If set, this submission method will be enabled by default for all new assignments.';
-$string['displaysizelist'] = 'YT Player size for lists of submissions';
+$string['displaysizelist'] = 'YT Player size: summary';
 $string['displaysizelistdetails'] = '';
-$string['displaysizesingle'] = 'YT Player size for single submissions';
+$string['displaysizesingle'] = 'YT Player size: view assignment';
 $string['displaysizesingledetails'] = '';
 $string['enabled'] = 'YouTube submissions';
 $string['enabled_help'] = 'If enabled, students are able to record a video via YouTube and submit it.';
@@ -49,6 +50,7 @@ $string['linkavideo'] = 'Submit a YouTube URL';
 $string['linkavideodetails'] = 'Paste a YouTube URL into the textbox below. The URL will be submitted along with your assignment.<br />';
 $string['linkonly'] = 'Link only';
 $string['logintext'] = 'Login with Google to Upload';
+$string['moodledefault'] = 'Moodle default';
 $string['nodevkey'] = 'To upload, your administrator must specify their developer key in the admin settings for this plugin.';
 $string['nomaster'] = 'To upload, your administrator must specify a master YouTube account and password.';
 $string['nooauth2'] = 'To upload, your administrator must specify a Google OAUTH2 client id and secret.';

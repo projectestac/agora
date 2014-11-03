@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['accessnoticesheader'] = 'Pode pré-visualizar o teste, mas se fosse uma tentativa real seria impedido porque:';
 $string['action'] = 'Ação';
-$string['activityoverview'] = 'Existem Testes que requerem a sua atenção';
+$string['activityoverview'] = 'Atenção aos seus Testes! Clique aqui para mais informações.';
 $string['adaptive'] = 'Modo adaptável';
 $string['adaptive_help'] = 'Se selecionar \'Sim\', o aluno poderá responder várias vezes à mesma pergunta, durante a mesma tentativa de resolução do teste. Por exemplo, se a primeira resposta for incorreta, o aluno poderá, de imediato, responder novamente até acertar. Porém, se a configuração "Aplicar penalizações" estiver ativa será aplicada uma penalização na nota da pergunta por cada tentativa errada.';
 $string['addaquestion'] = 'Criar pergunta';

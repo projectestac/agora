@@ -42,6 +42,12 @@ $string['draggableword'] = 'Ziehbarer Text';
 $string['dropbackground'] = 'Hintergrundbild, auf das die Markierungen gezogen werden';
 $string['dropzone'] = 'Ablegebereich {$a}';
 $string['dropzoneheader'] = 'Ablegebereiche';
+$string['dropzones'] = 'Ablegebereiche';
+$string['dropzones_help'] = 'Die Ablegebereiche werden definiert, indem Sie Koordinaten eingeben. Die Vorschau wird ständig aktualisiert während Sie tippen, so dass Sie die Ablegebereiche gegebenenfalls auch durch systematisches Ausprobieren definieren können.
+
+* Kreis: mittelpunkt_x, mittelpunkt_y; radius<br>Beispiel: `80, 100; 50`
+* Polygon: x1, y1; x2, y2; ...; xn, yn<br>Beispiel: `20, 60; 100, 60; 20, 100`
+* Rechteck: links, oben, breite, höhe<br>Beispiel: `20, 60; 80, 40`';
 $string['followingarewrong'] = 'Die folgenden Markierungen wurden in den falschen Bereich gesetzt: {$a}.';
 $string['followingarewrongandhighlighted'] = 'Die folgenden Markierungen wurden falsch gesetzt: {$a}. Hervorgehobene Markierungen werden nun an den richtigen Platzierungen gezeigt. <br />Klicken Sie auf die Markierung, um den erlaubten Bereich zu sehen.';
 $string['formerror_nobgimage'] = 'Sie müssen ein Hintergrundbild für die "Drag and Drop"-Fläche wählen.';

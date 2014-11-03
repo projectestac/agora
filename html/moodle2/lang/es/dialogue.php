@@ -101,6 +101,7 @@ $string['reply'] = 'Respuesta';
 $string['replydeleteconfirm'] = 'Está seguro de eliminar la respuesta?';
 $string['replydeleted'] = 'El borrador de la respuesta ha sido eliminado';
 $string['replysent'] = 'Su respuesta ha sido enviada';
+$string['runsuntil'] = 'Funcionando hasta';
 $string['send'] = 'Enviar';
 $string['senton'] = '<small><strong>Enviado el: </strong></small>';
 $string['studenttostudent'] = 'Estudiante a Estudiante';
