@@ -956,3 +956,17 @@ add_filter("pre_option_page_on_front","set_page_on_front");
 function set_page_on_front($value) {
     return reactor_option("frontpage_page");
 }
+
+/* 
+ * Canvia la url a mode segur per la part d'administració (wp scheme) 
+ * 
+ * @author Xavi Meler
+ */
+
+add_filter('site_url',  'wpadmin_filter', 10, 3);
+
+function wpadmin_filter( $url, $path, $orig_scheme ) {
+	$old  = array( "/http:/");
+	$new  = array( "https:");
+	return preg_replace( $old, $new, $url, 1);
+}
