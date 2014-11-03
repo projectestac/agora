@@ -3,12 +3,23 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 14.11.05
 ---------------------------------------------------------------------------------------
+MOODLE:
+- MDL-47581 Force box.net repository work with https
+- Updated marsupial modules
+- Bigdata exporter to json
+- Mobile panel colors repaired
+- Scripting module
+- Enable webservice mobile settings for all admins
+- More intelligent purge cache
+
 PORTAL
 - Fixed possibility of login without https
 - Agoraportal: Increased maximum size for big files to 200MB
 - Agoraportal: Added link to force update of used quota in actions of service Nodes
+- Queue operations module
+- Moved restore xtecadmin to AGORA-MOODLE queues
 
 WORDPRESS
 - Added catalan translation for Widget Visibility
