@@ -18,6 +18,7 @@ class script_upgrade_moodle extends agora_script_base{
 		$allow_unstable = false;
 
 		require_once($CFG->libdir.'/upgradelib.php');     // general upgrade/install related functions
+		require_once($CFG->libdir.'/environmentlib.php');
 		if (empty($CFG->version)) {
 		    mtrace(get_string('missingconfigversion', 'debug'));
 		    return false;
