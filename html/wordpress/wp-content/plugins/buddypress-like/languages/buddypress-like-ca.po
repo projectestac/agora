@@ -1,0 +1,374 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPres Like - Catalan\n"
+"POT-Creation-Date: 2014-11-04 17:32+0100\n"
+"PO-Revision-Date: 2014-11-04 17:57+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: Àgora <agora@xtec.cat>\n"
+"Language: catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: wordpress/wp-content/plugins/buddypress-like\n"
+
+#: buddypress-like/includes/install-functions.php:16
+#: buddypress-like/includes/install-functions.php:17
+#: buddypress-like/includes/install.php:13
+#: buddypress-like/includes/install.php:14
+msgid "Like"
+msgstr "M'agrada"
+
+#: buddypress-like/includes/install-functions.php:20
+#: buddypress-like/includes/install-functions.php:21
+#: buddypress-like/includes/install.php:17
+#: buddypress-like/includes/install.php:18
+msgid "Unlike"
+msgstr "No m'agrada"
+
+#: buddypress-like/includes/install-functions.php:24
+#: buddypress-like/includes/install-functions.php:25
+#: buddypress-like/includes/install.php:21
+#: buddypress-like/includes/install.php:22
+msgid "Like this item"
+msgstr "Indica que aquest element m'agrada"
+
+#: buddypress-like/includes/install-functions.php:28
+#: buddypress-like/includes/install-functions.php:29
+#: buddypress-like/includes/install.php:25
+#: buddypress-like/includes/install.php:26
+msgid "Unlike this item"
+msgstr "Indica que aquest element no m'agrada"
+
+#: buddypress-like/includes/install-functions.php:32
+#: buddypress-like/includes/install-functions.php:33
+#: buddypress-like/includes/install.php:29
+#: buddypress-like/includes/install.php:30
+msgid "View likes"
+msgstr "Mostra els \"m'agrada\""
+
+#: buddypress-like/includes/install-functions.php:36
+#: buddypress-like/includes/install-functions.php:37
+#: buddypress-like/includes/install.php:33
+#: buddypress-like/includes/install.php:34
+msgid "Hide likes"
+msgstr "Amaga els \"M'agrada\""
+
+#: buddypress-like/includes/install-functions.php:40
+#: buddypress-like/includes/install-functions.php:41
+msgid "Activity Likes"
+msgstr "Activitat"
+
+#: buddypress-like/includes/install-functions.php:44
+#: buddypress-like/includes/install-functions.php:45
+msgid "Blog Post Likes"
+msgstr "\"M'agrada\" d'enviaments de blog"
+
+#: buddypress-like/includes/install-functions.php:48
+#: buddypress-like/includes/install-functions.php:49
+#: buddypress-like/includes/install.php:45
+#: buddypress-like/includes/install.php:46
+msgid "Sorry, you must be logged in to like that."
+msgstr "Has d'estar validat per poder dir que t'agrada"
+
+#: buddypress-like/includes/install-functions.php:52
+#: buddypress-like/includes/install-functions.php:53
+msgid "%user% liked their own <a href=\"%permalink%\">activity</a>"
+msgstr ""
+"A %user% li ha agradat la seva pròpia <a href=\"%permalink%\">activitat</a>"
+
+#: buddypress-like/includes/install-functions.php:56
+#: buddypress-like/includes/install-functions.php:57
+msgid "%user% liked an <a href=\"%permalink%\">activity</a>"
+msgstr "A %user% li ha agradat una <a href=\"%permalink%\">activitat</a>"
+
+#: buddypress-like/includes/install-functions.php:60
+#: buddypress-like/includes/install-functions.php:61
+msgid "%user% liked %author%'s <a href=\"%permalink%\">activity</a>"
+msgstr ""
+"A %user% li ha agradat l'<a href=\"%permalink%\">activitat</a> de %author%"
+
+#: buddypress-like/includes/install-functions.php:64
+#: buddypress-like/includes/install-functions.php:65
+msgid "%user% liked their own blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li ha agradat el seu propi enviament al blog, <a href=\"%permalink%"
+"\">%title%</a>"
+
+#: buddypress-like/includes/install-functions.php:68
+msgid "%user% liked a blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li ha agradat un enviament al blog, <a href=\"%permalink%\">%title"
+"%</a>"
+
+#: buddypress-like/includes/install-functions.php:69
+msgid "%user% liked an blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li ha agradat un enviament al blog, <a href=\"%permalink%\">%title"
+"%</a>"
+
+#: buddypress-like/includes/install-functions.php:72
+#: buddypress-like/includes/install-functions.php:73
+msgid "%user% liked %author%'s blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li ha agradat l'enviament de %author% al blog, <a href=\"%permalink%"
+"\">%title%</a>"
+
+#: buddypress-like/includes/install-functions.php:76
+#: buddypress-like/includes/install-functions.php:77
+#: buddypress-like/includes/install.php:72
+#: buddypress-like/includes/install.php:73
+msgid "Nobody likes this yet."
+msgstr "Ningú ha clicat ningú a \"M'agrada\""
+
+#: buddypress-like/includes/install-functions.php:80
+#: buddypress-like/includes/install-functions.php:81
+#: buddypress-like/includes/install.php:76
+#: buddypress-like/includes/install.php:77
+msgid "You are the only person who likes this so far."
+msgstr "Ets l'única persona que ha clicat a \"M'agrada\""
+
+#: buddypress-like/includes/install-functions.php:84
+#: buddypress-like/includes/install-functions.php:85
+#: buddypress-like/includes/install.php:80
+#: buddypress-like/includes/install.php:81
+msgid "You and %count% other person like this."
+msgstr "A tu i a %count% altra persona us agrada"
+
+#: buddypress-like/includes/install-functions.php:88
+#: buddypress-like/includes/install-functions.php:89
+#: buddypress-like/includes/install.php:84
+#: buddypress-like/includes/install.php:85
+msgid "You and %count% other people like this"
+msgstr "A tu i a %count% persones més us agrada"
+
+#: buddypress-like/includes/install-functions.php:94
+#: buddypress-like/includes/install-functions.php:95
+#: buddypress-like/includes/install.php:88
+#: buddypress-like/includes/install.php:89
+msgid "%count% person likes this."
+msgstr "A %count% persona li agrada això"
+
+#: buddypress-like/includes/install-functions.php:98
+#: buddypress-like/includes/install-functions.php:99
+#: buddypress-like/includes/install.php:92
+#: buddypress-like/includes/install.php:93
+msgid "%count% people like this."
+msgstr "A %count% persones els agrada això"
+
+#: buddypress-like/includes/install-functions.php:102
+#: buddypress-like/includes/install-functions.php:103
+#: buddypress-like/includes/install.php:96
+#: buddypress-like/includes/install.php:97
+msgid "and %count% other person like this."
+msgstr "i a %count% persona més us agrada"
+
+#: buddypress-like/includes/install-functions.php:106
+#: buddypress-like/includes/install-functions.php:107
+#: buddypress-like/includes/install.php:100
+#: buddypress-like/includes/install.php:101
+msgid "and %count% other people like this."
+msgstr "i a %count% persones més us agrada"
+
+#: buddypress-like/includes/install-functions.php:110
+#: buddypress-like/includes/install-functions.php:111
+msgid "liked this."
+msgstr "li ha agradat"
+
+#: buddypress-like/includes/install-functions.php:114
+#: buddypress-like/includes/install-functions.php:115
+#: buddypress-like/includes/install.php:108
+#: buddypress-like/includes/install.php:109
+msgid "like this."
+msgstr "li agrada"
+
+#: buddypress-like/includes/install-functions.php:118
+#: buddypress-like/includes/install-functions.php:119
+#: buddypress-like/includes/install.php:112
+#: buddypress-like/includes/install.php:113
+msgid ""
+"None of your friends like this yet, but you and %count% other person does."
+msgstr ""
+"Cap dels teus amics ha clicat a \"M'agrada\", però tu i %count% altra "
+"persona ho heu fet"
+
+#: buddypress-like/includes/install-functions.php:122
+#: buddypress-like/includes/install-functions.php:123
+#: buddypress-like/includes/install.php:116
+#: buddypress-like/includes/install.php:117
+msgid ""
+"None of your friends like this yet, but you and %count% other people do."
+msgstr ""
+"Cap dels teus amics ha clicat a \"M'agrada\", però tu i %count% persones més "
+"ho heu fet"
+
+#: buddypress-like/includes/install-functions.php:126
+#: buddypress-like/includes/install-functions.php:127
+#: buddypress-like/includes/install.php:120
+#: buddypress-like/includes/install.php:121
+msgid "None of your friends like this yet, but %count% other person does."
+msgstr ""
+"Cap dels teus amics ha clicat a \"M'agrada\", però %count% persona ho ha fet"
+
+#: buddypress-like/includes/install-functions.php:130
+#: buddypress-like/includes/install-functions.php:131
+#: buddypress-like/includes/install.php:124
+#: buddypress-like/includes/install.php:125
+msgid "None of your friends like this yet, but %count% other people do."
+msgstr ""
+"Cap dels teus amics ha clicat a \"M'agrada\", però %count% persones ho han "
+"fet"
+
+#: buddypress-like/includes/install-functions.php:247
+msgid ""
+"<strong>BuddyPress Like</strong> has been successfully updated to version %s."
+msgstr "S'ha actualitzat el <strong>BuddyPress Like</strong> a la versió %s"
+
+#: buddypress-like/includes/install-functions.php:259
+msgid ""
+"<strong>BuddyPress Like</strong></a> requires the BuddyPress plugin to work. "
+"Please <a href=\"http://buddypress.org\">install BuddyPress</a> first, or <a "
+"href=\"plugins.php\">deactivate BuddyPress Like</a>."
+msgstr ""
+"El <strong>BuddyPress Like</strong> requereix l'extensió BuddyPress per "
+"funcionar. Instal·leu el <a href=\"http://buddypress.org\">BuddyPress</a> "
+"primer o <a href=\"plugins.php\">desinstal·leu el BuddyPress Like</a>"
+
+#: buddypress-like/includes/install.php:37
+#: buddypress-like/includes/install.php:38
+msgid "Show Activity Likes"
+msgstr "Mostra els \"M'agrada\" de l'activitat"
+
+#: buddypress-like/includes/install.php:41
+#: buddypress-like/includes/install.php:42
+msgid "Show Blog Post Likes"
+msgstr "Mostra els \"M'agrada\" dels enviaments del blog"
+
+#: buddypress-like/includes/install.php:48
+#: buddypress-like/includes/install.php:49
+msgid "%user% likes their own <a href=\"%permalink%\">activity</a>"
+msgstr ""
+"A %user% li agrada la seva pròpia <a href=\"%permalink%\">activitat</a>"
+
+#: buddypress-like/includes/install.php:52
+#: buddypress-like/includes/install.php:53
+msgid "%user% likes an <a href=\"%permalink%\">activity</a>"
+msgstr "A %user% li agrada una <a href=\"%permalink%\">activitat</a>"
+
+#: buddypress-like/includes/install.php:56
+#: buddypress-like/includes/install.php:57
+msgid "%user% likes %author%'s <a href=\"%permalink%\">activity</a>"
+msgstr "A %user% li agrada l'<a href=\"%permalink%\">activitat</a> de %author%"
+
+#: buddypress-like/includes/install.php:60
+#: buddypress-like/includes/install.php:61
+msgid "%user% likes their own blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li agrada el seu propi enviament al blog, <a href=\"%permalink%\">"
+"%title%</a>"
+
+#: buddypress-like/includes/install.php:64
+msgid "%user% likes a blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li agrada un enviament al blog, <a href=\"%permalink%\">%title%</a>"
+
+#: buddypress-like/includes/install.php:65
+msgid "%user% likes an blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li agrada un enviament al blog, <a href=\"%permalink%\">%title%</a>"
+
+#: buddypress-like/includes/install.php:68
+#: buddypress-like/includes/install.php:69
+msgid "%user% likes %author%'s blog post, <a href=\"%permalink%\">%title%</a>"
+msgstr ""
+"A %user% li agrada un enviament al blog de %author%, <a href=\"%permalink%\">"
+"%title%</a>"
+
+#: buddypress-like/includes/install.php:104
+#: buddypress-like/includes/install.php:105
+msgid "likes this."
+msgstr "li agrada això"
+
+#: buddypress-like/includes/admin.php:31
+msgid "You do not have permission to do that."
+msgstr "No teniu permís per fer això"
+
+#: buddypress-like/includes/admin.php:76
+msgid "Settings saved."
+msgstr "S'han desat els paràmetres"
+
+#: buddypress-like/includes/admin.php:81
+msgid "BuddyPress Like"
+msgstr "BuddyPress Like"
+
+#: buddypress-like/includes/admin.php:103
+#: buddypress-like/includes/admin.php:107
+msgid "Posting Settings"
+msgstr "Paràmetres d'enviament"
+
+#: buddypress-like/includes/admin.php:111
+msgid "Post an activity update when something is liked"
+msgstr "Envia una actualització de l'activitat quan algú clica a \"M'agrada\""
+
+#: buddypress-like/includes/admin.php:113
+msgid "e.g. "
+msgstr "p. ex."
+
+#: buddypress-like/includes/admin.php:113
+msgid " liked Darren's activity. "
+msgstr "li ha agradat l'activitat del Darren"
+
+#: buddypress-like/includes/admin.php:117
+msgid "Show a short excerpt of the activity that has been liked."
+msgstr "Mostra un petit extracte de l'activitat on s'ha clicat \"M'agrada\""
+
+#: buddypress-like/includes/admin.php:126
+#: buddypress-like/includes/admin.php:130
+msgid "Remove Favorite Button"
+msgstr "Esborra el botó de favorit"
+
+#: buddypress-like/includes/admin.php:134
+msgid "Remove the BuddyPress favorite button from activity."
+msgstr "Esborra el botó de favorit del BuddyPress de l'activitat"
+
+#: buddypress-like/includes/admin.php:136
+msgid " Currently only uses jQuery to remove the buttons."
+msgstr "Actualment només s'utilitza jQuery per esborrar els botons"
+
+#: buddypress-like/includes/admin.php:168
+#: buddypress-like/includes/admin.php:172
+msgid "Custom Messages"
+msgstr "Textos personalitzats"
+
+#: buddypress-like/includes/admin.php:175
+msgid ""
+"Change what messages are shown to users. For example, they can 'love' or "
+"'dig' items instead of liking them."
+msgstr ""
+"Canvia els textos que veuen els usuaris. Per exemple, \"M'encanta\" o \"Mola"
+"\" en lloc de \"M'agrada\""
+
+#: buddypress-like/includes/admin.php:186
+msgid "Default"
+msgstr "Per defecte"
+
+#: buddypress-like/includes/admin.php:187
+msgid "Custom"
+msgstr "Personalitza"
+
+#: buddypress-like/includes/admin.php:206
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: buddypress-like/includes/like-functions.php:456
+#: buddypress-like/includes/like-functions.php:461
+msgid "liked this"
+msgstr "li ha agradat això"
+
+#: buddypress-like/includes/like-functions.php:460
+msgid "and"
+msgstr "i"

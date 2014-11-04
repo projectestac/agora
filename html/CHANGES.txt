@@ -3,9 +3,16 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes on progress
+---------------------------------------------------------------------------------------
+WORDPRESS
+- Added catalan translation for BuddyPress Like
+
+
+
 Changes 14.11.05
 ---------------------------------------------------------------------------------------
-MOODLE:
+MOODLE 2
 - MDL-47581 Force box.net repository work with https
 - Updated marsupial modules
 - Bigdata exporter to json
@@ -34,7 +41,6 @@ WORDPRESS
 ZIKULA 2
 - Fixed possibility of login without https
 - IWagendas: Fixed fields not shown in shared agendas
-
 
 
 Changes 14.10.15
