@@ -635,6 +635,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             curl_setopt($curl_handle, CURLOPT_URL, $url);
             curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
             curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, true);
             $actions = curl_exec($curl_handle);
             curl_close($curl_handle);
             if($actions){
