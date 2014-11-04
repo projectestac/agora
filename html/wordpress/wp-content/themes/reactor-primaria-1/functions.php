@@ -958,15 +958,14 @@ function set_page_on_front($value) {
 }
 
 /* 
- * Canvia la url a mode segur per la part d'administració (wp scheme) 
+ * Canvia la galeta perquè no sigui secura (wordpress_ enlloc de wordpress_sec) per no haver de validar dues vegades en accedir al Tauler
  * 
- * @author Xavi Meler
- */
+ * @author Sara Arjona
+ *
+*/
 
-add_filter('site_url',  'wpadmin_filter', 10, 3);
+add_filter('secure_auth_cookie', 'wpadmin_secure_cookie_filter');
 
-function wpadmin_filter( $url, $path, $orig_scheme ) {
-	$old  = array( "/http:/");
-	$new  = array( "https:");
-	return preg_replace( $old, $new, $url, 1);
+function wpadmin_secure_cookie_filter( ) {
+	return false;
 }
