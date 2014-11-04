@@ -219,6 +219,13 @@ class oci_native_moodle_database extends moodle_database {
         // Connection stabilised and configured, going to instantiate the temptables controller
         $this->temptables = new oci_native_moodle_temptables($this, $this->unique_session_id);
 
+        //XTEC ************ AFEGIT - Fix for correct sorting
+        //2014.11.04 @pferre22
+        $sql = "ALTER session SET NLS_COMP = LINGUISTIC";
+        $this->execute($sql);
+        $sql = "ALTER session SET NLS_SORT = BINARY_AI";
+        $this->execute($sql);
+        //************ FI
         return true;
     }
 
