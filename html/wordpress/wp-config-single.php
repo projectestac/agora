@@ -14,6 +14,8 @@
  * @package WordPress
  */
 
+include_once dirname(__FILE__) . '/wp-includes/xtec/lib.php';
+
 global $isAgora, $isBlocs;
 
 $isAgora = true;
