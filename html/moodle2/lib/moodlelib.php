@@ -5785,6 +5785,19 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         return false;
     }
 
+    // XTEC ************ AFEGIT - Avoid sending to invalid domains
+    // 2014.11.05  @pferre22
+    if (substr($user->email, -8) == '.invalid') {
+        // We can not send emails to invalid addresses - it might create security issue or confuse the mailer.
+        $invalidemail = "User $user->id (".fullname($user).") domain ($user->email) is invalid! Not sending.";
+        error_log($invalidemail);
+        if (CLI_SCRIPT) {
+            mtrace('Error: lib/moodlelib.php email_to_user(): '.$invalidemail);
+        }
+        return false;
+    }
+    // ************ FI
+
     // If the user is a remote mnet user, parse the email text for URL to the
     // wwwroot and modify the url to direct the user's browser to login at their
     // home site (identity provider - idp) before hitting the link itself.
