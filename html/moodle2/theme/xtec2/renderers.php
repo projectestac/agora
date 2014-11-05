@@ -349,10 +349,10 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
             $content .= '<a href="'.$url.'" target="_blank"><i class="fa fa-globe" title="Web"></i></a>';
         }
         if ($url = get_config('theme_xtec2', 'email')) {
-            $content .= '<a href="mailto:'.$url.'" target="_blank"><i class="fa fa-envelope" title="'.get_string('email').'"></i></a>';
+            $content .= '<a href="mailto:'.$url.'" target="_blank"><i class="fa fa-envelope" title="'.get_string('email', 'theme_xtec2', $url).'"></i></a>';
         }
         if ($url = get_config('theme_xtec2', 'phone')) {
-            $content .= '<a href="tel:'.$url.'" target="_blank"><i class="fa fa-phone" title="'.get_string('phone').'"></i></a>';
+            $content .= '<a href="tel:'.$url.'" target="_blank"><i class="fa fa-phone" title="'.get_string('phone', 'theme_xtec2', $url).'"></i></a>';
         }
         if (get_config('theme_xtec2', 'nodes') && is_service_enabled('nodes')) {
             $content .= '<a href="'.get_service_url('nodes').'" target="_blank" class="agora-social icon nodes"><img src="'.$OUTPUT->pix_url('nodes-32', 'theme').'" alt="" title="Nodes" /></a>';
