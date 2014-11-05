@@ -22,13 +22,14 @@ RewriteRule ^([^.]*)/install.php(.*)$ $1/moodle/siteoff.html [QSA,L]
 RewriteRule ^([^/]*)/moodle$ $1/moodle/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle/my$ $1/moodle/my/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/intranet$ $1/intranet/ [QSA,R=permanent,L]
+RewriteRule ^([^/]*)/wp-admin$ $1/wp-admin/ [QSA,R=permanent,L]
 RewriteRule ^([^/]*)$ $1/ [QSA,R=permanent,L]
 
 # Redirect /moodle2 to /moodle
 RewriteRule ^([^/]*)/moodle2/(.*)$ $1/moodle/$2 [QSA,R=permanent,L]
 RewriteRule ^([^/]*)/moodle2$ $1/moodle/ [QSA,R=permanent,L]
 
-RewriteRule ^([^/]*)/moodle/(.*)$ moodle2/$2?ccentre=$1 [QSA,L]
+RewriteRule ^([^/]*)/moodle/([^?]*)?(.*)$ moodle2/$2?$3&ccentre=$1 [QSA,L]
 RewriteRule ^([^/]*)/intranet/(.*)$ zikula2/$2?ccentre=$1 [QSA,L]
 # Only apply the rule if it is not an internal redirect
 RewriteCond %{ENV:REDIRECT_STATUS} !200
