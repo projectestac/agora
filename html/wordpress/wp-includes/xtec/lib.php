@@ -11,7 +11,7 @@ function is_xtecadmin() {
     
     global $current_user;
     
-    if ($current_user->user_login == 'xtecadmin') {
+    if (isset($current_user->user_login) && ($current_user->user_login == 'xtecadmin')) {
         return true;
     } else {
         return false;
