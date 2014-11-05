@@ -208,6 +208,10 @@ class admin_uploaduser_form2 extends moodleform {
         $mform->disabledIf('username', 'uutype', 'eq', UU_USER_UPDATE);
 
         $mform->addElement('text', 'email', get_string('email'), 'maxlength="100" size="30"');
+        // XTEC ************ MODIFICAT - SEt default value to avoid sending to invalid domains
+        // 2014.11.05  @pferre22
+        $mform->setDefault('email', '%u@mail.invalid');
+        // ************ FI
         $mform->setType('email', PARAM_RAW); // No cleaning here. The process verifies it later.
         $mform->disabledIf('email', 'uutype', 'eq', UU_USER_ADD_UPDATE);
         $mform->disabledIf('email', 'uutype', 'eq', UU_USER_UPDATE);
