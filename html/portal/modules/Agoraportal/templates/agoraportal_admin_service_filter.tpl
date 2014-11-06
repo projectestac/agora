@@ -18,7 +18,7 @@
                 {$servicesListContent}
             </div>
             <strong>{gt text="Ordenat per"}</strong><br/>
-            <select name="order_sel" onchange="sqlservicesList()" style="width:100%;">
+            <select name="order_sel" id="order_sel" onchange="sqlservicesList()" style="width:100%;">
                 <option {if $order eq 1}selected{/if} value="1">{gt text="Nom del centre"}</option>
                 <option {if $order eq 3}selected{/if} value="3">{gt text="Id del centre"}</option>
                 <option {if $order eq 4}selected{/if} value="4">{gt text="Codi del centre"}</option>
