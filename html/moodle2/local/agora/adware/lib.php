@@ -32,7 +32,7 @@ function get_adware() {
 function detect_adware($notused = false) {
 	global $DB;
 
-	$searches = array('%script%cdncache%akamaihd%', '%rackcdn.com\/ytplayall%');
+	$searches = array('%script%cdncache%akamaihd%', '%rackcdn.com/ytplayall%');
 	$modules = $DB->get_records_menu('modules', array(), '', 'id,name');
 
 	$adware = new StdClass();
