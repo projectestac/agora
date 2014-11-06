@@ -95,7 +95,30 @@ class bpModInstaller extends bpModAbstractCore
 			$options['active_types'] = array_fill_keys(array('status_update', 'activity_comment', 'blog_post', 'blog_comment', 'member', 'group', 'forum_post'), 'on');
 		}
 
+// XTEC ************ MODIFICAT - Fixed translation of strings
+// 2014.11.06 @aginard
+
 		$def_options = array(
+			'unflagged_text' => __('Flag', 'bp-moderation'),
+			'flagged_text' => __('Unflag', 'bp-moderation'),
+			'warning_threshold' => 5,
+			'warning_forward' => get_option('admin_email'),
+			'warning_message' => __(<<< TXT
+Varis usuaris han indicat que un dels vostres continguts és inapropiat.
+Podeu veure el contingut a la pàgina: %CONTENTURL%.
+Heu publicat el contingut des del compte de "%AUTHORNAME%".
+
+Els moderadors revisaran aquest contingut si ho consideren necessari.
+--------------------
+[%SITENAME%] %SITEURL%
+TXT
+				, 'bp-moderation'),
+			'delete_threshold' => 0,
+		);
+
+//************ ORIGINAL
+/*
+        $def_options = array(
 			'unflagged_text' => __('Flag', 'bp-moderation'),
 			'flagged_text' => __('Unflag', 'bp-moderation'),
 			'warning_threshold' => 5,
@@ -112,6 +135,8 @@ TXT
 				, 'bp-moderation'),
 			'delete_threshold' => 0,
 		);
+*/
+//************ FI
 
 		$options = array_merge($def_options, $options);
 

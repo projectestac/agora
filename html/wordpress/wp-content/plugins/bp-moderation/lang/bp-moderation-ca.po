@@ -1,0 +1,868 @@
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Agora\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-moderation\n"
+"POT-Creation-Date: 2013-07-23 15:27:55+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-11-06 18:05+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ca\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: classes/bpModAbstractCore.php:81
+msgid "new"
+msgstr "nou"
+
+#: classes/bpModAbstractCore.php:82
+msgid "author warned"
+msgstr "autor/a advertit"
+
+#: classes/bpModAbstractCore.php:83
+msgid "ignored"
+msgstr "ignorat"
+
+#: classes/bpModAbstractCore.php:84
+msgid "moderated (unknown)"
+msgstr "moderat (desconegut)"
+
+#: classes/bpModAbstractCore.php:85
+msgid "moderated (edited)"
+msgstr "moderat (editat)"
+
+#: classes/bpModAbstractCore.php:86
+msgid "moderated (deleted)"
+msgstr "moderat (esborrat)"
+
+#: classes/bpModActions.php:36
+msgid "You have already flagged this content"
+msgstr "Heu marcat aquest contingut"
+
+#: classes/bpModActions.php:38 classes/bpModActions.php:205
+msgid "Thank you for your report"
+msgstr "Gràcies pel vostre informe"
+
+#: classes/bpModActions.php:40
+msgid "There was a problem flagging that content"
+msgstr "Hi ha hagut un problema en marcar el contingut"
+
+#: classes/bpModActions.php:65
+msgid "Already flagged"
+msgstr "Marcat"
+
+#: classes/bpModActions.php:68 classes/bpModActions.php:235
+msgid "Error"
+msgstr "Error"
+
+#: classes/bpModActions.php:166
+msgid "one of your contents has been reported as inappropriate"
+msgstr "un dels vostres continguts ha estat reportat com inapropiat"
+
+#: classes/bpModActions.php:181
+msgid "a warning for inappropriate content has been sent to %s"
+msgstr "un avís per un contingut inapropiat s'ha enviat a %s"
+
+#: classes/bpModActions.php:182
+msgid ""
+"Content url: %1$s\n"
+"Total flags: %2$s\n"
+"Author profile: %3$s\n"
+"\n"
+"----- Message sent to the author -----\n"
+msgstr ""
+
+#: classes/bpModActions.php:203
+msgid "This content wasn't flagged"
+msgstr "El contingut no s'ha marcat"
+
+#: classes/bpModActions.php:207
+msgid "There was a problem unflagging that content"
+msgstr "Hi ha hagut un problema en desmarcar el contingut"
+
+#: classes/bpModActions.php:231
+msgid "It wasn't flagged"
+msgstr "No s'ha marcat"
+
+#: classes/bpModBackend.php:43
+msgid "BuddyPress Moderation"
+msgstr "Moderació del BuddyPress"
+
+#: classes/bpModBackend.php:43 classes/bpModBackend.php:168
+msgid "BP Moderation"
+msgstr "Moderació del BuddyPress"
+
+#: classes/bpModBackend.php:77
+msgid "BP Moderation: "
+msgstr "Moderació BP:"
+
+#: classes/bpModBackend.php:84
+msgid "<a href=\"%1$s\">%2$d content</a> is awaiting your moderation"
+msgid_plural "<a href=\"%1$s\">%2$d contents</a> are awaiting your moderation"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:93
+msgid ""
+" and the owner of <a href=\"%1$s\">%2$d of them</a> has already been warned"
+msgid_plural ""
+" and the owners of <a href=\"%1$s\">%2$d of them</a> have already been warned"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:104
+msgid ""
+"there are no contents awaiting your moderation, <a href=\"%1$s\">%2$d "
+"reported content</a> has already been viewed."
+msgid_plural ""
+"there are no contents awaiting your moderation, <a href=\"%1$s\">%2$d "
+"reported contents</a> have already been viewed."
+msgstr[0] ""
+"no hi ha cap contingut esperant a ser moderat, <a href=\"%1$s\">%2$d "
+"contingut reportat</a> s'ha visualitzat."
+msgstr[1] ""
+"no hi ha cap contingut esperant a ser moderat, <a href=\"%1$s\">%2$d "
+"continguts reportats</a> s'han visualitzat."
+
+#: classes/bpModBackend.php:110
+msgid "no content has ever been reported."
+msgstr "no s'ha reportat mai cap contingut."
+
+#: classes/bpModBackend.php:153
+msgid "Cheatin&#8217; uh?"
+msgstr "Fent trampes?"
+
+#: classes/bpModBackend.php:159
+msgid "Contents"
+msgstr "Continguts"
+
+#: classes/bpModBackend.php:160
+msgid "Users"
+msgstr "Usuaris"
+
+#: classes/bpModBackend.php:161
+msgid "Settings"
+msgstr "Configuració"
+
+#: classes/bpModBackend.php:177
+msgid "%s has been marked as spammer."
+msgid_plural "%d members have been marked as spammers."
+msgstr[0] "%s ha estat marcat com a brossa."
+msgstr[1] "%d membres han estat marcats com a brossa."
+
+#: classes/bpModBackend.php:178
+msgid "%s has been marked as not spammer."
+msgid_plural "%d members have been marked as not spammers."
+msgstr[0] "%s ha estat marcat com a no brossa."
+msgstr[1] "%d membres han estat marcats com a no brossa."
+
+#: classes/bpModBackend.php:179
+msgid "%d item has been ignored."
+msgid_plural "%d items have been ignored."
+msgstr[0] "%d ítem ha estat ignorat."
+msgstr[1] "%d ítems han estat ignorats."
+
+#: classes/bpModBackend.php:180
+msgid "%d item has been marked as moderated."
+msgid_plural "%d items have been marked as moderated."
+msgstr[0] "%d ítem ha estat marcat com a moderat."
+msgstr[1] "%d ítems han estat marcats com a moderats."
+
+#: classes/bpModBackend.php:181
+msgid "%d item has been deleted."
+msgid_plural "%d items have been deleted."
+msgstr[0] "%d ítem ha estat esborrat."
+msgstr[1] "%d ítems han estat esborrats."
+
+#: classes/bpModBackend.php:191
+msgid "Operation failed on these items: %s"
+msgstr "L'operació ha fallat en aquests ítems: %s"
+
+#: classes/bpModBackend.php:224 classes/bpModBackend.php:766
+msgid "Custom Query"
+msgstr "Consulta personalitzada"
+
+#: classes/bpModBackend.php:226 classes/bpModBackend.php:768
+msgid "Filters"
+msgstr "Filtres"
+
+#: classes/bpModBackend.php:234
+msgid "Content types"
+msgstr "Tipus de contingut"
+
+#: classes/bpModBackend.php:257
+msgid "Status"
+msgstr "Estat"
+
+#: classes/bpModBackend.php:280
+msgid "Times reported"
+msgstr "Vegades reportat"
+
+#: classes/bpModBackend.php:286
+msgid "Reported at least %s times"
+msgstr "Reportat almenys %s vegades"
+
+#: classes/bpModBackend.php:295
+msgid "Content posted by"
+msgstr "Contingut afegit per"
+
+#: classes/bpModBackend.php:303 classes/bpModBackend.php:320
+#: classes/bpModBackend.php:783
+msgid "User ids (comma separeted)"
+msgstr "IDs d'usuari/ària (separats per comes)"
+
+#: classes/bpModBackend.php:312
+msgid "Content reported by"
+msgstr "Contingut reportat per"
+
+#: classes/bpModBackend.php:324 classes/bpModBackend.php:844
+msgid "Order"
+msgstr "Ordena"
+
+#: classes/bpModBackend.php:329 classes/bpModBackend.php:849
+msgid "Order by"
+msgstr "Ordena per"
+
+#: classes/bpModBackend.php:337 classes/bpModBackend.php:857
+msgid "none"
+msgstr "cap"
+
+#: classes/bpModBackend.php:339
+msgid "times reported"
+msgstr "vegades reportat"
+
+#: classes/bpModBackend.php:341
+msgid "first time reported"
+msgstr "reportat per primera vegada"
+
+#: classes/bpModBackend.php:343
+msgid "last time reported"
+msgstr "reportat per darrera vegada"
+
+#: classes/bpModBackend.php:345
+msgid "item id"
+msgstr "ítem ID"
+
+#: classes/bpModBackend.php:347
+msgid "secondary id"
+msgstr "ID secundari"
+
+#: classes/bpModBackend.php:362 classes/bpModBackend.php:890
+msgid "Limit"
+msgstr "Límit"
+
+#: classes/bpModBackend.php:367
+msgid "Display at most %s contents"
+msgstr "Mostra %s continguts"
+
+#: classes/bpModBackend.php:370
+msgid "Query Contents"
+msgstr "Continguts de la consulta"
+
+#: classes/bpModBackend.php:382 classes/bpModBackend.php:910
+msgid "&laquo;"
+msgstr ""
+
+#: classes/bpModBackend.php:383 classes/bpModBackend.php:911
+msgid "&raquo;"
+msgstr ""
+
+#: classes/bpModBackend.php:395 classes/bpModBackend.php:923
+msgid "Bulk Actions"
+msgstr "Accions en bloc"
+
+#: classes/bpModBackend.php:397 classes/bpModBackend.php:513
+msgid "Ignore"
+msgstr "Ignora"
+
+#: classes/bpModBackend.php:399 classes/bpModBackend.php:525
+msgid "Mark as moderated"
+msgstr "Marca com a moderat"
+
+#: classes/bpModBackend.php:401 classes/bpModBackend.php:531
+msgid "Delete"
+msgstr "Esborra"
+
+#: classes/bpModBackend.php:403
+msgid "Mark authors as spammers"
+msgstr "Marca autors com a brossa"
+
+#: classes/bpModBackend.php:405
+msgid "Mark authors as not spammers"
+msgstr "Marca autors com a no brossa"
+
+#: classes/bpModBackend.php:406
+msgid "View authors in users view"
+msgstr ""
+
+#: classes/bpModBackend.php:412 classes/bpModBackend.php:933
+msgid "Apply"
+msgstr "Aplica"
+
+#: classes/bpModBackend.php:418 classes/bpModBackend.php:939
+msgid "Displaying %s&#8211;%s of %s"
+msgstr ""
+
+#: classes/bpModBackend.php:434 classes/bpModBackend.php:446
+msgid "Author"
+msgstr "Autor"
+
+#: classes/bpModBackend.php:436 classes/bpModBackend.php:448
+msgid "Content"
+msgstr "Contingut"
+
+#: classes/bpModBackend.php:438 classes/bpModBackend.php:450
+msgid "Flags"
+msgstr "Marques"
+
+#: classes/bpModBackend.php:478 classes/bpModBackend.php:996
+msgid "Mark the author of this content as not spammer"
+msgstr "Marca l'autor/a d'aquest contingut com a no brossa"
+
+#: classes/bpModBackend.php:478 classes/bpModBackend.php:996
+msgid "Mark as not spammer"
+msgstr "Marca com a no brossa"
+
+#: classes/bpModBackend.php:482 classes/bpModBackend.php:1000
+msgid "Mark the author of this content as spammer"
+msgstr "Marca l'autor/a d'aquest contingut com a brossa"
+
+#: classes/bpModBackend.php:482 classes/bpModBackend.php:1000
+msgid "Mark as spammer"
+msgstr "Marca com a brossa"
+
+#: classes/bpModBackend.php:485 classes/bpModBackend.php:992
+msgid "Unregistered"
+msgstr "No registrat"
+
+#: classes/bpModBackend.php:488
+msgid "Not a member"
+msgstr "No és un membre"
+
+#: classes/bpModBackend.php:493
+msgid "Status:"
+msgstr "Estat:"
+
+#: classes/bpModBackend.php:495
+msgid "Type:"
+msgstr "Tipus:"
+
+#: classes/bpModBackend.php:497
+msgid "not found"
+msgstr "no s'ha trobat"
+
+#: classes/bpModBackend.php:499
+msgid "Item ID:"
+msgstr "Ítem ID:"
+
+#: classes/bpModBackend.php:503
+msgid "Date:"
+msgstr "Data:"
+
+#: classes/bpModBackend.php:508
+msgid "View this content"
+msgstr "Visualitza aquest contingut"
+
+#: classes/bpModBackend.php:508
+msgid "View"
+msgstr "Visualitza"
+
+#: classes/bpModBackend.php:513
+msgid "Mark this content as clean"
+msgstr "Marca aquest contingut com a net"
+
+#: classes/bpModBackend.php:519
+msgid "Link to the edit page for this content"
+msgstr ""
+
+#: classes/bpModBackend.php:519
+msgid "Edit"
+msgstr "Edita"
+
+#: classes/bpModBackend.php:525
+msgid ""
+"Manually mark this content as moderated if it has already been edited/"
+"deleted without this plugin"
+msgstr ""
+
+#: classes/bpModBackend.php:531
+msgid "Delete this content"
+msgstr "Esborra aquest contingut"
+
+#: classes/bpModBackend.php:536
+msgid "Flags:"
+msgstr "Marques:"
+
+#: classes/bpModBackend.php:538
+msgid "First:"
+msgstr "Primera:"
+
+#: classes/bpModBackend.php:540
+msgid "Last:"
+msgstr "Darrera:"
+
+#: classes/bpModBackend.php:542
+msgid "Reporters:"
+msgstr "Reportat per:"
+
+#: classes/bpModBackend.php:558
+msgid "No content to display, try a different search"
+msgstr "No s'ha trobat cap contingut. Proveu una cerca diferent."
+
+#: classes/bpModBackend.php:577
+msgid "Send a private message to the author of this content"
+msgstr "Envia un missatge privat a l'autor/a d'aquest contingut"
+
+#: classes/bpModBackend.php:577
+msgid "Send PM"
+msgstr "Envia MP"
+
+#: classes/bpModBackend.php:578 classes/bpModDefaultContentTypes.php:371
+msgid "Send an email to the author of this content"
+msgstr "Envia un correu electrònic a l'autor/a d'aquest contingut"
+
+#: classes/bpModBackend.php:578 classes/bpModDefaultContentTypes.php:371
+msgid "Send email"
+msgstr "Envia correu electrònic"
+
+#: classes/bpModBackend.php:584 classes/bpModBackend.php:613
+msgid "User #%d"
+msgstr "Usuari/ària #%d"
+
+#: classes/bpModBackend.php:610
+msgid "See more details on this user in the users table"
+msgstr "Visualitza més detalls d'aquest usuari/ària a la taula d'usuaris"
+
+#: classes/bpModBackend.php:611
+msgid ""
+"This user is not registered anymore, but you can still see some details on "
+"it in the users table"
+msgstr ""
+"Aquest usuari/ària ja no està registrat, encara podeu trobar alguns detalls "
+"a la taula d'usuaris"
+
+#: classes/bpModBackend.php:638
+msgid "Hotkeys are enabled. <a href=\"%s\">Disable</a>"
+msgstr ""
+
+#: classes/bpModBackend.php:640
+msgid "Hotkeys are disabled. <a href=\"%s\">Enable</a>"
+msgstr ""
+
+#: classes/bpModBackend.php:775
+msgid "Specific users"
+msgstr "Usuaris específics"
+
+#: classes/bpModBackend.php:789
+msgid "Total flags on own contents"
+msgstr "Total de marcats sobre continguts propis"
+
+#: classes/bpModBackend.php:790
+msgid "Own contents have been flagged for a total of at least %s flags"
+msgstr ""
+
+#: classes/bpModBackend.php:794
+msgid "Total own contents reported"
+msgstr "Total de continguts propis reportats"
+
+#: classes/bpModBackend.php:795
+msgid "Own contents have been reported at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:799
+msgid "Ignored own contents"
+msgstr "Continguts propis ignorats"
+
+#: classes/bpModBackend.php:800
+msgid "Own contents have been ignored at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:804
+msgid "Moderated own contents"
+msgstr "Continguts propis moderats"
+
+#: classes/bpModBackend.php:805
+msgid "Own contents have been moderated at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:809
+msgid "Total contents reported by user"
+msgstr "Total de continguts reportats per usuari/ària"
+
+#: classes/bpModBackend.php:810
+msgid "User has been reported at least %s contents"
+msgstr "L'usuari/ària ha reportat %s continguts"
+
+#: classes/bpModBackend.php:814
+msgid "Ignored contents reported by user"
+msgstr "Continguts ignorats reportats per usuari/ària"
+
+#: classes/bpModBackend.php:815
+msgid "Contents reported by user have been ignored at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:819
+msgid "Moderated contents reported by user"
+msgstr "Continguts moderats reportats per usuari/ària"
+
+#: classes/bpModBackend.php:820
+msgid "Contents reported by user have been moderated at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:859
+msgid "total own contents reported"
+msgstr "total de continguts propis reportats"
+
+#: classes/bpModBackend.php:861
+msgid "pending own contents"
+msgstr "continguts propis pendents"
+
+#: classes/bpModBackend.php:863
+msgid "ignored own contents"
+msgstr "continguts propis ignorats"
+
+#: classes/bpModBackend.php:865
+msgid "moderated own contents"
+msgstr "continguts propis moderats"
+
+#: classes/bpModBackend.php:867
+msgid "total flags on own contents"
+msgstr "total de marcats sobre continguts propis"
+
+#: classes/bpModBackend.php:869
+msgid "total contents reported by user"
+msgstr "total de continguts reportats per usuari/ària"
+
+#: classes/bpModBackend.php:871
+msgid "pending contents reported by user"
+msgstr "continguts pendents reportats per usuari/ària"
+
+#: classes/bpModBackend.php:873
+msgid "ignored contents reported by user"
+msgstr "continguts ignorats reportats per usuari/ària"
+
+#: classes/bpModBackend.php:875
+msgid "moderated contents reported by user"
+msgstr "continguts moderats reportats per usuari/ària"
+
+#: classes/bpModBackend.php:895
+msgid "Display at most %s users"
+msgstr "Mostra, com a màxim, %s usuaris"
+
+#: classes/bpModBackend.php:898
+msgid "Query Users"
+msgstr "Consulta d'usuaris"
+
+#: classes/bpModBackend.php:925
+msgid "Mark users as spammers"
+msgstr "Marca usuaris com a brossa"
+
+#: classes/bpModBackend.php:927
+msgid "Mark users as not spammers"
+msgstr "Marca usuaris com a no brossa"
+
+#: classes/bpModBackend.php:955 classes/bpModBackend.php:967
+msgid "User"
+msgstr "Usuari/ària"
+
+#: classes/bpModBackend.php:957 classes/bpModBackend.php:969
+msgid "Own contents reported by others"
+msgstr "Continguts propis reportats per altres"
+
+#: classes/bpModBackend.php:959 classes/bpModBackend.php:971
+msgid "Contents reported by user"
+msgstr "Continguts reportats per usuari/ària"
+
+#: classes/bpModBackend.php:1005
+msgid "%d content from this user has been reported"
+msgid_plural "%d contents from this user have been reported"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:1009 classes/bpModBackend.php:1029
+msgid "New:"
+msgstr "Nou:"
+
+#: classes/bpModBackend.php:1011 classes/bpModBackend.php:1031
+msgid "Ignored:"
+msgstr "Ignorat:"
+
+#: classes/bpModBackend.php:1013 classes/bpModBackend.php:1033
+msgid "Moderated:"
+msgstr "Moderat:"
+
+#: classes/bpModBackend.php:1015
+msgid "Total flags:"
+msgstr "Marques totals:"
+
+#: classes/bpModBackend.php:1020 classes/bpModBackend.php:1038
+msgid ""
+"Show the contents from this user that have been reported in the contents view"
+msgstr ""
+
+#: classes/bpModBackend.php:1020 classes/bpModBackend.php:1038
+msgid "Show in contents view"
+msgstr "Mostra a la pestanya de continguts"
+
+#: classes/bpModBackend.php:1025
+msgid "this user reported %d content"
+msgid_plural "this user reported %d contents"
+msgstr[0] "aquest usuari/ària ha reportat %d contingut"
+msgstr[1] "aquest usuari/ària ha reportat %d continguts"
+
+#: classes/bpModBackend.php:1055
+msgid "No users to display, try a different search"
+msgstr "No s'ha trobat cap usuari/ària. Proveu una cerca diferent."
+
+#: classes/bpModBackend.php:1333
+msgid "Settings saved."
+msgstr "S'ha desat la configuració."
+
+#: classes/bpModBackend.php:1344
+msgid "General Settings"
+msgstr "Configuració general"
+
+#: classes/bpModBackend.php:1345
+msgid "Link text when unflagged"
+msgstr "Text de l'enllaç quan no està marcat"
+
+#: classes/bpModBackend.php:1346
+msgid "Link text when flagged"
+msgstr "Text de l'enllaç quan està marcat"
+
+#: classes/bpModBackend.php:1350
+msgid "Generate test data"
+msgstr ""
+
+#: classes/bpModBackend.php:1351
+msgid ""
+"NOTE: will destroy all users except #1 — USE ONLY ON WORTHLESS TEST INSTALLS"
+msgstr ""
+
+#: classes/bpModBackend.php:1354
+msgid "Content Types"
+msgstr "Tipus de continguts"
+
+#: classes/bpModBackend.php:1355
+msgid "Choose which content types can be flagged by site members."
+msgstr ""
+"Escolliu quin tipus de continguts poden ser marcats pels membres del lloc."
+
+#: classes/bpModBackend.php:1356
+msgid ""
+"Note: if you deactivate one that was previously active you will still see "
+"previously flagged contents of that type in the backend tables."
+msgstr ""
+"Nota: si desactiveu algun contingut que estava actiu encara trobareu els "
+"continguts marcats a les taules."
+
+#: classes/bpModBackend.php:1362
+msgid "Automatic Moderation"
+msgstr "Moderació automàtica"
+
+#: classes/bpModBackend.php:1362
+msgid "Automatic warnings and deletion."
+msgstr "Avisos automàtics i esborraments."
+
+#: classes/bpModBackend.php:1363
+msgid "Automatic warning"
+msgstr "Avís automàtic"
+
+#: classes/bpModBackend.php:1364
+msgid ""
+"When a content is flagged %s times send a warning message to the author (0 = "
+"disabled)."
+msgstr ""
+"Quan el contingut està marcat %s vegades envia un missatge d'avís a l'autor/"
+"a (0 = deshabilitat)."
+
+#: classes/bpModBackend.php:1365
+msgid "Forward warning"
+msgstr "Enviament de l'avís"
+
+#: classes/bpModBackend.php:1366
+msgid "Forward the warning also to these addresses (comma separated) <br/>%s"
+msgstr ""
+"Reenvia l'avís també a les adreces de correu electrònic següents (separades "
+"per comes) <br/>%s"
+
+#: classes/bpModBackend.php:1367
+msgid "Warning message"
+msgstr "Missatge d'avís"
+
+#: classes/bpModBackend.php:1367
+msgid ""
+"\n"
+"\t\t\t\t<br/>placeholders:\n"
+"\t\t\t\t<br/>%AUTHORNAME% : content author username\n"
+"\t\t\t\t<br/>%CONTENTURL% : reported content url\n"
+"\t\t\t\t<br/>%SITENAME% : wordpress site name\n"
+"\t\t\t\t<br/>%SITEURL% : wordpress site url\n"
+"\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t<br/>marcadors de posició:\n"
+"\t\t\t\t<br/>%AUTHORNAME% : nom d'usuari/ària de l'autor/a del contingut\n"
+"\t\t\t\t<br/>%CONTENTURL% : URL del contingut reportat\n"
+"\t\t\t\t<br/>%SITENAME% : nom del lloc\n"
+"\t\t\t\t<br/>%SITEURL% : URL del lloc\n"
+"\t\t\t"
+
+#: classes/bpModBackend.php:1375
+msgid "Uninstall"
+msgstr "Desinstal·la"
+
+#: classes/bpModBackend.php:1375
+msgid ""
+"If you check the field below all plugin data will be erased on plugin "
+"deactivation."
+msgstr ""
+"Si feu clic a la casella de sota, totes les dades del connector seran "
+"esborrades en desactivar-lo."
+
+#: classes/bpModBackend.php:1376
+msgid "Clean Up on Deactivation"
+msgstr "Neteja en desactivar"
+
+#: classes/bpModBackend.php:1384
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: classes/bpModDefaultContentTypes.php:30
+msgid "Status update"
+msgstr "Actualització d'estat"
+
+#: classes/bpModDefaultContentTypes.php:43
+msgid "Activity comment"
+msgstr "Comentari d'activitat"
+
+#: classes/bpModDefaultContentTypes.php:58
+msgid "Blog post"
+msgstr "Article del bloc"
+
+#: classes/bpModDefaultContentTypes.php:73
+msgid "Blog page"
+msgstr "Pàgina del bloc"
+
+#: classes/bpModDefaultContentTypes.php:87
+msgid "Blog comment"
+msgstr "Comentari del bloc"
+
+#: classes/bpModDefaultContentTypes.php:102
+msgid "Member"
+msgstr "Membre"
+
+#: classes/bpModDefaultContentTypes.php:115
+msgid "Group"
+msgstr "Grup"
+
+#: classes/bpModDefaultContentTypes.php:128
+msgid "Legacy Forum topic"
+msgstr "Tema del fòrum heretat"
+
+#: classes/bpModDefaultContentTypes.php:141
+msgid "Legacy Forum post"
+msgstr "Entrada del fòrum heretada"
+
+#: classes/bpModDefaultContentTypes.php:158
+msgid "Private message sender"
+msgstr "Missatge de remitent privat"
+
+#: classes/bpModDefaultContentTypes.php:170
+msgid "Private message"
+msgstr "Missatge privat"
+
+#: classes/bpModDefaultContentTypes.php:293
+#: examples/bpMod_ContentType_BlogPostExample.php:95
+msgid "Flag this post as inappropriate"
+msgstr "Marca aquest article com inadequat"
+
+#: classes/bpModDefaultContentTypes.php:312
+msgid "Flag this page as inappropriate"
+msgstr "Marca aquesta pàgina com inapropiada"
+
+#: classes/bpModDefaultContentTypes.php:389
+msgid "Flag this comment as inappropriate"
+msgstr "Marca aquest comentari com inapropiat"
+
+#: classes/bpModDefaultContentTypes.php:448
+msgid "Flag this member as inappropriate"
+msgstr "Marca aquest membre com inapropiat"
+
+#: classes/bpModDefaultContentTypes.php:495
+msgid "Flag this group as inappropriate"
+msgstr "Marca aquest grup com inapropiat"
+
+#: classes/bpModDefaultContentTypes.php:539
+msgid "Flag Whole Topic"
+msgstr "Marca tot el tema"
+
+#: classes/bpModDefaultContentTypes.php:618 classes/bpModInstaller.php:99
+msgid "Flag"
+msgstr "Marca"
+
+#: classes/bpModDefaultContentTypes.php:649
+msgid "Flag sender as inappropriate: %s"
+msgstr "Marca el remitent com a inapropiat: %s"
+
+#: classes/bpModDefaultContentTypes.php:716
+msgid "Flag as inappropriate messages by: %s"
+msgstr "Marca com inapropiats els missatges de: %s"
+
+#: classes/bpModDefaultContentTypes.php:734
+msgid "Review message by %s"
+msgstr "Revisa missatge de %s"
+
+#: classes/bpModFrontend.php:162
+msgid "Unflag this content"
+msgstr "Desmarca aquest contingut"
+
+#: classes/bpModFrontend.php:162
+msgid "Flag as inappropriate"
+msgstr "Marca com inapropiat"
+
+#: classes/bpModInstaller.php:100
+msgid "Unflag"
+msgstr "Desmarca"
+
+#: classes/bpModInstaller.php:152
+msgid "You are using WordPress %s, please upgrade."
+msgstr "Esteu fent servir WordPress %s, actualitzeu."
+
+#: classes/bpModInstaller.php:155
+msgid ""
+" Please install <a href=\"http://buddypress.org/\" target=\"_blank\" "
+">Buddypress</a>."
+msgstr ""
+"Instal·leu <a href=\"http://buddypress.org/\" target=\"_blank\" >Buddypress</"
+"a>."
+
+#: classes/bpModInstaller.php:157
+msgid "You are using BuddyPress %s, please upgrade."
+msgstr "Esteu fent servir BuddyPress %s, actualitzeu."
+
+#: classes/bpModInstaller.php:164
+msgid ""
+"BuddyPress Moderation require at least WordPress %1$s and BuddyPress %2$s to "
+"work."
+msgstr ""
+
+#: examples/bpMod_ContentType_BlogPostExample.php:43
+msgid "Blog post example"
+msgstr ""
+
+#: vendor/wordpress/i18n-tools/pomo/sample/app.php:56
+msgid "Welcome %s!"
+msgstr "Benvingut/da %s!"
+
+#: vendor/wordpress/i18n-tools/pomo/sample/app.php:60
+msgid "A string with low priority!"
+msgstr ""
+
+#: vendor/wordpress/i18n-tools/pomo/sample/app.php:62
+msgid "Bye\n"
+msgstr "Adéu\n"

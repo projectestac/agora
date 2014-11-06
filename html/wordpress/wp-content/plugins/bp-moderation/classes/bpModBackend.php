@@ -858,6 +858,33 @@ HTML;
 								$asc = 'DESC' == @$_GET['order'][$i]['dir'] ? 'DESC'
 										: 'ASC'; ?>
 
+<!-- XTEC ************ MODIFICAT - Fixed translation of strings -->
+<!-- 2014.11.06 @aginard -->
+
+								<select name="order[<?php echo $i ?>][by]">
+									<option<?php selected('none', $orby) ?>
+										value="none"><?php _e('none', 'bp-moderation') ?></option>
+									<option<?php selected('own_contents', $orby) ?>
+										value="own_contents"><?php _e('total own contents reported', 'bp-moderation') ?></option>
+									<option<?php selected('own_new', $orby) ?>
+										value="own_new"><?php _e('pending own contents', 'bp-moderation') ?></option>
+									<option<?php selected('own_ignored', $orby) ?>
+										value="own_ignored"><?php _e('ignored own contents', 'bp-moderation') ?></option>
+									<option<?php selected('own_moderated', $orby) ?>
+										value="own_moderated"><?php _e('moderated own contents', 'bp-moderation') ?></option>
+									<option<?php selected('own_flags', $orby) ?>
+										value="own_flags"><?php _e('total flags on own contents', 'bp-moderation') ?></option>
+									<option<?php selected('others_contents', $orby) ?>
+										value="others_contents"><?php _e('total contents reported by user', 'bp-moderation') ?></option>
+									<option<?php selected('others_new', $orby) ?>
+										value="others_new"><?php _e('pending contents reported by user', 'bp-moderation') ?></option>
+									<option<?php selected('others_ignored', $orby) ?>
+										value="others_ignored"><?php _e('ignored contents reported by user', 'bp-moderation') ?></option>
+									<option<?php selected('others_moderated', $orby) ?>
+										value="others_moderated"><?php _e('moderated contents reported by user', 'bp-moderation') ?></option>
+								</select>
+                            
+<!-- ************ ORIGINAL
 								<select name="order[<?php echo $i ?>][by]">
 									<option<?php selected('none', $orby) ?>
 										value="none"><?php _e('none', 'bp-moderation') ?></option>
@@ -880,7 +907,8 @@ HTML;
 									<option<?php selected('others_moderated', $orby) ?>
 										value="others_moderated"><?php _e('moderated contents reported by user', 'bp-moderation') ?></option>
 								</select>
-								<select name="order[<?php echo $i ?>][dir]">
+-->
+                                <select name="order[<?php echo $i ?>][dir]">
 									<option<?php selected('ASC', $asc) ?>
 										value="ASC">ASC
 									</option>
