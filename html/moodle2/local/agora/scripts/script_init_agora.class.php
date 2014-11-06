@@ -20,10 +20,13 @@ fontselect,fontsizeselect,code,search,replace,wrap,cleanup,removeformat,pastetex
 
 		set_config('customtoolbar', $value, 'editor_tinymce');
 		mtrace('Canviat barra de l\'editor HMTL', '<br/>');
-		$DB->set_field('filter_active', 'active', 1, array('filter' => 'filter/tex', 'contextid' => 1));
-		mtrace('Activat filtre text', '<br/>');
+
+		filter_set_global_state('filter/tex', TEXTFILTER_ON);
+		mtrace('Activat filtre TEX', '<br/>');
+
 		set_config('loginhttps', 1);
 		mtrace('Activat login https', '<br/>');
+
 		set_config('maxbytes', 0, 'assignsubmission_file');
 		mtrace('Límit de tramesa de tasques pujat al límit de servidor', '<br/>');
 
