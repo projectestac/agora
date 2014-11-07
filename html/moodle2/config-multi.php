@@ -1,16 +1,16 @@
 <?php
 
 //------------ DESENVOLUPAMENT
-define('INSTALL_BASE', '/srv/www/agora/');               // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
+define('INSTALL_BASE', '/srv/www/agora/');          // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
 
 //------------ INTEGRACIÓ
-//define('INSTALL_BASE', '/dades/eduphp/agora-moodle/'); // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
+//define('INSTALL_BASE', '/dades/agora/');          // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
 
 //------------ ACCEPTACIÓ i FORMACIÓ
-//define('INSTALL_BASE', '/dades/agora-moodle/');        // Directori base de la instal·lació d'Àgora ($BASE_AGORA) 	
+//define('INSTALL_BASE', '/dades/agora-moodle/');   // Directori base de la instal·lació d'Àgora ($BASE_AGORA) 	
 
 //------------ PRODUCCIÓ
-//define('INSTALL_BASE', '/dades/');                     // Directori base de la instal·lació d'Àgora ($BASE_AGORA) 	
+//define('INSTALL_BASE', '/dades/');                // Directori base de la instal·lació d'Àgora ($BASE_AGORA) 	
 
 
 //----- PART COMUNA
@@ -21,8 +21,8 @@ global $CFG;
 
 $CFG = new stdClass();
 
-$CFG->dbtype = $agora['moodle']['dbtype'];
-$CFG->dbhost = $agora['moodle']['dbhost'];
+$CFG->dbtype = $agora['moodle2']['dbtype'];
+$CFG->dbhost = $agora['moodle2']['dbhost'];
 $CFG->dbpass = $agora['moodle']['userpwd'];
 $CFG->prefix = $agora['moodle2']['prefix'];
 

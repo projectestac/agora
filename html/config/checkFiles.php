@@ -32,7 +32,6 @@ $files[] = $agora['server']['root'] . 'html/moodle2/local/agora/muc/cacheconfig.
 $files[] = $agora['server']['root'] . 'html/wordpress/wp-config.php';
 $files[] = $agora['server']['root'] . 'html/wordpress/wp-content/uploads';
 $files[] = $agora['server']['root'] . $agora['intranet']['datadir'] . 'diskUsageZk.txt';
-$files[] = $agora['server']['root'] . $agora['moodle']['datadir'] .'diskUsageMdl.txt';
 $files[] = $agora['server']['root'] . $agora['moodle2']['datadir'] .'diskUsageMdl2.txt';
 $files[] = $agora['server']['root'] . $agora['nodes']['datadir'] .'diskUsageWp.txt';
 $files[] = $agora['server']['root'] . 'adminInfo/cronIntranet.txt';

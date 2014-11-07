@@ -1,25 +1,18 @@
 <?php
 
-    // Schools Moodle database access info (common in all environments)
-    $agora['moodle']['current_version']    = '';                   // Current version
-    $agora['moodle']['dbtype']             = 'oci';             // oci8po (Oracle), mysql, ...
-    $agora['moodle']['dbhost']             = '';                   // Not necessary for Oracle
-    $agora['moodle']['prefix']             = 'ml';                 // Moodle table prefix (only 2 chars)
-    $agora['moodle']['username']           = $agora['server']['userprefix'];
-    $agora['moodle']['diskusagefile']      = 'diskUsageMdl.txt';
-    $agora['moodle']['userprefix']         = $agora['server']['userprefix']; // All services need to have the same variable name
+    // Params common in all environments
 
-    // Params for Moodle2
-    $agora['moodle2']['dbtype']            = 'oci';             // oci8po (Oracle), mysql, ...
-    $agora['moodle2']['prefix']            = 'm2';                 // Moodle 2 table prefix (only 2 chars)
+    // Params for Moodle 2
+    $agora['moodle2']['dbtype']            = 'oci';             // oci (Oracle), mysql, ...
+    $agora['moodle2']['prefix']            = 'm2';              // Moodle 2.x tables prefix (only 2 chars)
+    $agora['moodle2']['dbhost']            = '';                // Not necessary for Oracle
     $agora['moodle2']['username']          = $agora['server']['userprefix'];
     $agora['moodle2']['diskusagefile']     = 'diskUsageMdl2.txt';
     $agora['moodle2']['repository_files']  = '/repository/files/'; // folder for uploading big files, sinchronization between 1.9 and 2 files...
     $agora['moodle2']['userprefix']        = $agora['server']['userprefix']; // All services need to have the same variable name
 
-    // Schools intranet database access info  (common in all environments)
+    // Params for Zikula
     $agora['intranet']['dbtype']           = 'mysql';              // oci8po (Oracle), mysql, ...
-    $agora['intranet']['current_version']  = '';                   // Current version
     $agora['intranet']['adminuser']        = 'adminagora';
     $agora['intranet']['prefix']           = 'zk';                 // Table prefix
     $agora['intranet']['diskusagefile']    = 'diskUsageZk.txt';
@@ -28,7 +21,7 @@
 
     // Params for WordPress
     $agora['nodes']['dbtype']              = 'mysql';              // oci8po (Oracle), mysql, ...
-    $agora['nodes']['prefix']              = 'wp';                  // Table prefix
+    $agora['nodes']['prefix']              = 'wp';                 // Table prefix
     $agora['nodes']['userprefix']          = $agora['server']['userprefix'];
     $agora['nodes']['diskusagefile']       = 'diskUsageWp.txt';
 

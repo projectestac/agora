@@ -49,7 +49,7 @@ if (empty($dns)) { // Show form
     require_once('dblib-mysql.php');
 
     $dns_array = explode(',', $dns);
-    $prefix = ($version == '1') ? $agora['moodle']['prefix'] : $agora['moodle2']['prefix'];
+    $prefix = ($version == '1') ? 'ml' : $agora['moodle2']['prefix'];
 
     foreach ($dns_array as $dns) {
         // Get service connection data ($dns is checked for security in getSchoolDBInfo)
