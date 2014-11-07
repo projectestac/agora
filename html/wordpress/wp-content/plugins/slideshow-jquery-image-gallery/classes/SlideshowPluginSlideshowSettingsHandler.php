@@ -283,19 +283,17 @@ class SlideshowPluginSlideshowSettingsHandler
                 
                 // XTEC ************ AFEGIT - get slides from picasa
                 // 2014.10.22 @jmeler
-                $picasa_album=get_post_meta(
-			$slideshowId,
-			"picasa_album",
-			true
-		);
-		if ($picasa_album){
-                    $content = file_get_contents($picasa_album);
-                    $x = simplexml_load_string($content);
-                    foreach($x->channel->item as $entry => $value){
-                        $title  = $value->title;
-                        $image  = $value->enclosure->attributes()->url;
-                        $urlimg = $image[0];
-                        $slides[]=array("url"=>$urlimg,"title"=>$title,"type"=>"image");
+                
+                $picasa_album_rss=get_post_meta($slideshowId,"picasa_album",true);
+                
+		if ($picasa_album_rss){
+                    $picasa_album = fetch_feed($picasa_album_rss);
+                    $picasa_items = $picasa_album->get_items();
+                    foreach($picasa_items as $picasa_item){
+                        $enclosure=$picasa_item->get_enclosure();
+                        $info=$enclosure->get_description();
+                        $url_img=$enclosure->get_link();
+                        $slides[]=array("title"=>$info,"url"=>$url_img,"type"=>"image");
                     }
                 }
                 //************ FI
