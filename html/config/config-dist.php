@@ -12,7 +12,7 @@
     $agora['moodle2']['userprefix']        = $agora['server']['userprefix']; // All services need to have the same variable name
 
     // Params for Zikula
-    $agora['intranet']['dbtype']           = 'mysql';              // oci8po (Oracle), mysql, ...
+    $agora['intranet']['dbtype']           = 'mysql';              // oci (Oracle), mysql, ...
     $agora['intranet']['adminuser']        = 'adminagora';
     $agora['intranet']['prefix']           = 'zk';                 // Table prefix
     $agora['intranet']['diskusagefile']    = 'diskUsageZk.txt';
@@ -20,7 +20,7 @@
     $agora['intranet']['userprefix']       = $agora['server']['userprefix'];
 
     // Params for WordPress
-    $agora['nodes']['dbtype']              = 'mysql';              // oci8po (Oracle), mysql, ...
+    $agora['nodes']['dbtype']              = 'mysql';              // oci (Oracle), mysql, ...
     $agora['nodes']['prefix']              = 'wp';                 // Table prefix
     $agora['nodes']['userprefix']          = $agora['server']['userprefix'];
     $agora['nodes']['diskusagefile']       = 'diskUsageWp.txt';
@@ -32,8 +32,8 @@
 
     // ubr_upload vars
     $agora['server']['cgi_script']         = $agora['server']['server'] . $agora['server']['cgi_base'] . 'ubr_upload.pl';
-    $agora['server']['ubr_upload']         = $agora['server']['root'] . $agora['moodle']['datadir'] . 'ubr_uploads/';       // Directori pels fitxers de l'ubr_upload (script de pujada de fitxers grans). Després es mouran a cada usu.
-    $agora['server']['ubr_temp']           = $agora['server']['root'] . $agora['moodle']['datadir'] . 'ubr_uploads/tmp/';   // Directori pels fitxers temporals de l'ubr_upload (script de pujada de fitxers grans)
+    $agora['server']['ubr_upload']         = $agora['server']['root'] . $agora['server']['docs'] . 'ubr_uploads/';      // Directori pels fitxers de l'ubr_upload (script de pujada de fitxers grans). Després es mouran a cada usu.
+    $agora['server']['ubr_temp']           = $agora['server']['root'] . $agora['server']['docs'] . 'ubr_uploads/tmp/';  // Directori pels fitxers temporals de l'ubr_upload (script de pujada de fitxers grans)
     // Fitxer amb les CA reconegudes
     $agora['server']['ca_bundle']          = $agora['server']['root'] . 'html/config/ca-bundle.crt';
 
@@ -44,9 +44,6 @@
     $agora['dbsource']['filename']         = 'allSchools.php';
 
     // Constants used elsewhere
-    define('MOODLE_DIRROOT', 'moodle');
-    define('MOODLE2_DIRROOT', 'moodle2');
-    define('INTRANET_DIRROOT', 'zikula');
     define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
     define('EOI_WWWROOT', 'http://agora-eoi.xtec.cat');
 

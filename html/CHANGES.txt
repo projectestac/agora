@@ -5,6 +5,12 @@ development home at https://github.com/projectestac/agora
 
 Changes on progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Removed all references to Moodle 1.9 vars. Replaced by references to Moodle 2 vars
+
+PORTAL
+- Moved portaldata/ to docs/portaldata/
+
 WORDPRESS
 - Added catalan translation for BuddyPress Like
 - Added catalan translation for BuddyPress Moderation

@@ -1638,13 +1638,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
         global $agora;
 
-        $dbNumber = (int) $agora['moodle']['dbnumber'];
+        $dbNumber = (int) $agora['moodle2']['dbnumber'];
         $database = (int) $args['database'];
 
         // If $dbNumber is not set or it is an empty string, at this point its value
-        //   will be 0. In that case, no offset is applied to $agora['moodle']['database']
+        //   will be 0. In that case, no offset is applied to $agora['moodle2']['database']
         if (empty($dbNumber)) {
-            return $agora['moodle']['database'];
+            return $agora['moodle2']['database'];
         } else {
             $offset = floor($database / 200) + (($database % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
             if ($offset > 1) {
@@ -1652,7 +1652,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             } else {
                 $offset = '';
             }
-            return $agora['moodle']['database'] . $offset;
+            return $agora['moodle2']['database'] . $offset;
         }
     }
 
@@ -1738,9 +1738,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     }
                 }
                 if ($ZConfig['System']['oci_pconnect']) {
-                    $connect = oci_pconnect($user, $agora['moodle']['userpwd'], $databaseName);
+                    $connect = oci_pconnect($user, $agora['moodle2']['userpwd'], $databaseName);
                 } else {
-                    $connect = oci_connect($user, $agora['moodle']['userpwd'], $databaseName);
+                    $connect = oci_connect($user, $agora['moodle2']['userpwd'], $databaseName);
                 }
                 if (!$connect) {
                     $e = oci_error();

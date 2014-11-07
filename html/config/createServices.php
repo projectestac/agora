@@ -269,17 +269,17 @@ function checkConnection($id) {
     $dbUser = $agora['moodle2']['userprefix'] . $id;
     $prefix = strtoupper($agora['moodle2']['prefix']);
 
-    if (empty($agora['moodle']['dbnumber'])) {
+    if (empty($agora['moodle2']['dbnumber'])) {
         $offset = '';
     } else {
-        $dbNumber = (int) $agora['moodle']['dbnumber'];    
+        $dbNumber = (int) $agora['moodle2']['dbnumber'];    
         $offset = floor($id / 200) + (($id % 200) == 0 ? ($dbNumber - 1) : $dbNumber);       
         $offset = ($offset > 1) ? (string) $offset : '';
     }
 
-    $dbName = $agora['moodle']['database'] . $offset;
+    $dbName = $agora['moodle2']['database'] . $offset;
 
-    $connect = oci_pconnect($dbUser, $agora['moodle']['userpwd'], $dbName);
+    $connect = oci_pconnect($dbUser, $agora['moodle2']['userpwd'], $dbName);
     
     if ($connect === false) {
         echo "No s'ha pogut connectar a l'usuari <strong>$dbUser</strong> de la instància <strong>$dbName</strong><br />";
@@ -334,7 +334,7 @@ function executeSQL($sql, $dbUser, $dbName) {
 
     global $agora;
 
-    $connect = oci_pconnect($dbUser, $agora['moodle']['userpwd'], $dbName);
+    $connect = oci_pconnect($dbUser, $agora['moodle2']['userpwd'], $dbName);
 
     if ($connect === false) {
         return "No s'ha pogut connectar a l'usuari <strong>$dbUser</strong> de la base de dades <strong>$dbName</strong><br />";

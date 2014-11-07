@@ -5,8 +5,8 @@ global $agora;
 global $ZConfig;
 
 $ZConfig['System']['installed']         = 1;     // installer will change this during installation
-$ZConfig['System']['temp']              = $agora['server']['root'] . 'portaldata/pnTemp';     // location of temporary folder
-$ZConfig['System']['datadir']           = $agora['server']['root'] . 'portaldata/zkdata';     // location of site data files
+$ZConfig['System']['temp']              = $agora['server']['root'] . $agora['admin']['datadir'] . 'pnTemp';  // location of temporary folder
+$ZConfig['System']['datadir']           = $agora['server']['root'] . $agora['admin']['datadir'] . 'data';    // location of site data files
 $ZConfig['System']['prefix']            = '';    // database prefix (deprecated).
 $ZConfig['System']['development']       = 0;     // development mode 1/0 for on or off.  Disable in production mode.
 $ZConfig['System']['legacy_prefilters'] = true;  // enable legacy template prefilters
