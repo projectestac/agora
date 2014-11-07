@@ -1,197 +1,98 @@
 <?php
 
-class bigdata {
+function show_profiles() {
+	global $DB, $OUTPUT, $CFG;
+	$profiles = $DB->get_records('bigdata_profiles');
 
-	private $file;
-	private $roles;
-	private $modules;
-
-	function __construct($filepath, $escola, $roles){
-		$this->file = new bigdata_filemanager($filepath, $escola);
-		$this->roles = $roles;
-
-		// Platform common export
-		$this->modules = $this->add_data('modules', null, 'id, name', true);
-		$this->add_data_select('role', 'id IN ('.implode(',', $this->roles).')', null, 'id, shortname');
+	if (empty($profiles)) {
+		return;
 	}
 
-	public function export_course($courseid) {
-		global $CFG, $USER, $DB;
+	$table = new html_table();
+    $table->tablealign = 'center';
+    $table->head = array(get_string('name'), get_string('courses'), get_string('roles'), get_string('excludedusers', 'local_bigdata'),
+    	 get_string('tablefields', 'local_bigdata'), get_string('periodicity', 'local_bigdata'), get_string('actions'));
+    $table->align = array('left', 'center', 'center', 'center', 'center', 'center', 'center');
 
-		@set_time_limit(0);
-        raise_memory_limit(MEMORY_EXTRA);
+    foreach ($profiles as $profile) {
+        $row = array();
+        $row[] = $profile->name;
+        $row[] = !empty($profile->courses) ? count(explode(',', $profile->courses)) : get_string('all');
+        $row[] = !empty($profile->roles) ? count(explode(',', $profile->roles)) : get_string('all');
+        $row[] = !empty($profile->excludedusers) ? count(explode(',', $profile->excludedusers)) : get_string('none');
+        $row[] = !empty($profile->tablefields) ? count(explode(',', $profile->tablefields)) : get_string('default');
+        $row[] = !empty($profile->periodicity) ? $profile->periodicity : get_string('never');
 
-		$course = $DB->get_record('course', array('id' => $courseid), 'id, fullname');
-		if (!$course) {
-			throw Exception('coursenotfound');
-			return false;
-		}
-		$this->file->add($course, 'course');
-		unset($course);
-		$coursecontext = context_course::instance($courseid);
+        $editlink = new moodle_url($CFG->wwwroot.'/local/bigdata/profile.php', array('action' => 'edit', 'id' => $profile->id));
+    	$deletelink = new moodle_url($CFG->wwwroot.'/local/bigdata/profile.php', array('id' => $profile->id, 'action' => 'delete'));
+        $row[] = $OUTPUT->action_icon($editlink, new pix_icon('t/edit', get_string('edit_profile', 'local_bigdata', $profile->name))).' | '.
+                 $OUTPUT->action_icon($deletelink, new pix_icon('t/delete', get_string('delete_profile', 'local_bigdata', $profile->name)),
+                 new confirm_action(get_string('delete_profile_confirm', 'local_bigdata', $profile->name)));
 
-		// User and roles. User only userid, it's not needed to export anything
-		$role_assignments = $this->add_data_select('role_assignments', 'roleid IN ('.implode(',', $this->roles).') AND contextid = :contextid', array('contextid' => $coursecontext->id), 'id, roleid, contextid, userid', true);
+        $table->data[] = $row;
+    }
+    echo html_writer::table($table);
 
-		// Log
-		$this->add_data('log', array('course' => $courseid), 'id, time, userid, course, module, cmid, action');
-
-		// Context
-		$this->add_data('context', array('path' => $coursecontext->path), 'id, contextlevel, instanceid');
-		$this->add_data_select('context', "path LIKE '$coursecontext->path/%'", null, 'id, contextlevel, instanceid');
-
-		// Activities
-		$this->add_data('course_modules', array('course' => $courseid), 'id, course, module, instance, added');
-		foreach ($this->modules as $module) {
-			switch($module->name){
-				case 'book':
-				case 'glossary':
-				case 'survey':
-				case 'wiki':
-					$fields = 'id, course, name, timecreated, timemodified';
-					break;
-				case 'assignment':
-					$fields = 'id, course, name, timeavailable, timemodified';
-					break;
-				case 'assign':
-					$fields = 'id, course, name, timemodified'; // timeavailable no existeix...
-					break;
-				case 'chat': // Not enabled in agora
-					$fields = "";
-					// $fields = 'id, course, name, timemodified';
-					break;
-				case 'choice':
-					$fields = 'id, course, name, timeopen, timeclose, timemodified';
-					break;
-				case 'lesson':
-					$fields = 'id, course, name, available, timemodified';
-					break;
-				case 'quiz':
-					$fields = 'id, course, name, timeopen, timecreated, timemodified';
-					break;
-				case 'scorm':
-					$fields = 'id, course, name, timeopen, timemodified';
-					break;
-				case 'data':
-				case 'jclic':
-				case 'qv':
-				case 'eoicampus':
-					$fields = 'id, course, name';
-					break;
-				case 'resource':
-				case 'folder':
-				case 'page':
-				case 'url':
-				case 'forum':
-				case 'workshop':
-				default:
-					$fields = 'id, course, name, timemodified';
-					break;
-			}
-
-			if (!empty($fields)) {
-				$this->add_data($module->name, array('course' => $courseid), $fields);
-			}
-		}
-
-		$sql = "SELECT asub.id, asub.userid, asub.timecreated from {assignment_submissions} asub
-				JOIN {assign} a ON a.id = asub.assignment
-				WHERE a.course = :course";
-		$this->add_data_sql('assign_submissions', $sql, array('course' => $courseid));
-
-		$sql = "SELECT asub.id, asub.userid, asub.timecreated from {assign_submission} asub
-				JOIN {assignment} a ON a.id = asub.assignment
-				WHERE a.course = :course";
-		$this->add_data_sql('assignment_submissions', $sql, array('course' => $courseid));
-
-		// Files
-		$sql = "SELECT f.id, f.filename, f.userid, f.status, f.timecreated, f.timemodified from {files} f
-				JOIN {context} c ON c.id = f.contextid
-				WHERE (c.path = :path OR c.path LIKE '$coursecontext->path/%') AND f.filename != '.'";
-		$this->add_data_sql('files', $sql, array('path'=> $coursecontext->path));
-
-		$this->file->close();
-		return true;
-	}
-
-	private function add_data($table, $conditions = null, $fields = "", $return = false){
-		global $DB;
-
-		$data = $DB->get_records($table, $conditions, 'id', $fields);
-		$this->add_data_array($table, $data);
-
-		if ($return) {
-			return $data;
-		}
-	}
-
-	private function add_data_select($table, $select  = "", $params = null, $fields = "", $return = false){
-		global $DB;
-
-		$data = $DB->get_records_select($table, $select, $params, 'id', $fields);
-		$this->add_data_array($table, $data);
-
-		if ($return) {
-			return $data;
-		}
-	}
-
-	private function add_data_sql($table, $sql, $params, $return = false){
-		global $DB;
-
-		$data = $DB->get_records_sql($sql, $params);
-		$this->add_data_array($table, $data);
-
-		if ($return) {
-			return $data;
-		}
-	}
-
-	private function add_data_array($table, $array, $return = false){
-		foreach($array as $data) {
-			$this->file->add($data, $table);
-		}
-
-		if ($return) {
-			return $array;
-		}
-	}
 }
 
-class bigdata_filemanager{
-	private $handler;
-	private $filepath;
-	private $escola;
+function bigdata_get_profile_from_form($data) {
+	$profile = new StdClass();
+	$profile->name = $data->name;
+	$profile->courses = isset($data->courses) ? implode(',', $data->courses) : '';
+	$profile->roles = isset($data->roles) ? implode(',', $data->roles) : '';
 
-	function __construct($filepath, $escola){
-		$this->filepath = $filepath;
-		$this->escola = $escola;
-		$this->reset();
-	}
-
-	private function reset() {
-		$this->handler = fopen($this->filepath, "w+");
-		fwrite($this->handler, '');
-	}
-
-	private function open() {
-		$this->handler = fopen($this->filepath, "a+");
-		if (!$this->handler) {
-			throw new Exception('Cannot open file '.$this->filepath);
+	if (!empty($data->excludedusers)) {
+		// Replace \n by commas
+		$excluded = implode(',', explode("\n", $data->excludedusers));
+		// Real explode
+		$excluded = explode(',', $excluded);
+		$excludedclean = array();
+		foreach ($excluded as $exclude) {
+			$excludedclean[] = trim($exclude);
 		}
+		$profile->excludedusers = implode(',', $excludedclean);
+	} else {
+		$profile->excludedusers = '';
 	}
+	$profile->tablefields = isset($data->tablefields) ? implode(',', $data->tablefields) : '';
 
-	function close() {
-		fclose($this->handler);
-	}
-
-	function add($object, $table) {
-		$this->open();
-		$object->table = $table;
-		$object->school = $this->escola;
-		$text = json_encode($object);
-		return fwrite($this->handler, $text."\n");
-	}
-
-
+	$profile->periodicity = ($data->periodicity > 0 && $data->periodicity_unit != '') ? $data->periodicity.' '.$data->periodicity_unit : 0;
+	return $profile;
 }
+
+function bigdata_get_formdata_from_profile($profile) {
+	$data = array();
+	$data['name'] = $profile->name;
+	$data['courses'] = explode(',', $profile->courses);
+	$data['roles'] = explode(',', $profile->roles);
+	$data['excludedusers']  = $profile->excludedusers;
+	$data['tablefields'] = explode(',', $profile->tablefields);
+	if (empty($profile->periodicity)) {
+		$data['periodicity'] = 0;
+		$data['periodicity_unit'] = '';
+	} else {
+		$period = explode(' ', $profile->periodicity);
+		$data['periodicity'] = $period[0];
+		$data['periodicity_unit'] = $period[1];
+	}
+	return $data;
+}
+
+function bigdata_profile_insert($data) {
+	global $DB;
+	$profile = bigdata_get_profile_from_form($data);
+	return $DB->insert_record('bigdata_profiles', $profile);
+}
+
+function bigdata_profile_update($id, $data) {
+	global $DB;
+	$profile = bigdata_get_profile_from_form($data);
+	$profile->id = $id;
+	return $DB->update_record('bigdata_profiles', $profile);
+}
+
+function bigdata_profile_delete($id) {
+	global $DB;
+	return $DB->delete_records('bigdata_profiles', array('id' => $id));
+}
+
