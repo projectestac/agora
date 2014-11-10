@@ -11,7 +11,7 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('pluginname', 'local_bigdata'));
 
 if (!bigdata_is_enabled()) {
-	print_error('Big data not enabled');
+    print_error('Big data not enabled');
 }
 
 echo $OUTPUT->single_button('profile.php?action=add', get_string('add_profile', 'local_bigdata'));
