@@ -1,84 +1,86 @@
 <?php
 
-function is_agora(){
-	global $CFG;
-	return isset($CFG->isagora) && $CFG->isagora;
+function is_agora() {
+    global $CFG;
+    return isset($CFG->isagora) && $CFG->isagora;
 }
 
-function is_marsupial(){
+function is_marsupial() {
     global $CFG;
     return isset($CFG->ismarsupial) && $CFG->ismarsupial;
 }
 
-function is_eoi(){
+function is_eoi() {
     global $CFG;
     return isset($CFG->iseoi) && $CFG->iseoi;
 }
 
-function is_portal(){
+function is_portal() {
     global $CFG;
     return isset($CFG->isportal) && $CFG->isportal;
 }
 
-function is_xtecadmin($user=null){
-	global $USER;
-    if (empty($user)) $user = $USER;
-	return isset($user)
-		   && array_key_exists('username', $user)
-		   && $user->username=='xtecadmin';
+function is_xtecadmin($user=null) {
+    global $USER;
+    if (empty($user)) {
+        $user = $USER;
+    }
+    return isset($user)
+           && array_key_exists('username', $user)
+           && $user->username == 'xtecadmin';
 }
 
-function require_xtecadmin($canbesiteadmin = false){
-	require_login(0, false);
-    if(!$canbesiteadmin){
-        if(!is_xtecadmin()){
+function require_xtecadmin($canbesiteadmin = false) {
+    require_login(0, false);
+    if (!$canbesiteadmin) {
+        if (!is_xtecadmin()) {
             print_error('noxtecadmin');
         }
     } else {
-        if(is_agora() && !is_xtecadmin()){
+        if (is_agora() && !is_xtecadmin()) {
             print_error('noxtecadmin');
         }
-        if(!is_siteadmin()){
+        if (!is_siteadmin()) {
             print_error('no_siteadmin');
         }
     }
 
 }
 
-function get_protected_agora(){
-	global $CFG, $USER;
-	return !is_agora() || is_xtecadmin();
+function get_protected_agora() {
+    global $CFG, $USER;
+    return !is_agora() || is_xtecadmin();
 }
 
-function get_debug(){
-	global $CFG;
+function get_debug() {
+    global $CFG;
 
-	//Consult the cookie (only changes if the cookie is enabled), if not, takes default settings
-	if(isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1){
-	        $CFG->debug = E_ALL | E_STRICT;
-	        $CFG->debugdisplay = 1;
-        	error_reporting($CFG->debug);
-	        @ini_set('display_errors', '1');
-        	@ini_set('log_errors', '0');
-	}
+    // Get the cookie (only changes if the cookie is enabled), if not, takes default settings
+    if (isset($_COOKIE['agora_debug']) && $_COOKIE['agora_debug'] == 1) {
+            $CFG->debug = E_ALL | E_STRICT;
+            $CFG->debugdisplay = 1;
+            error_reporting($CFG->debug);
+            @ini_set('display_errors', '1');
+            @ini_set('log_errors', '0');
+    }
 }
 
-//Execute a command via CLI
-function run_cli($command, $output_file = false, $append = true, $background = true, $params = array()){
+// Execute a command via CLI
+function run_cli($command, $outputfile = false, $append = true, $background = true, $params = array()) {
     global $CFG;
 
     $command = $CFG->dirroot . '/'.$command;
 
-    if(isset($CFG->dnscentre)){
+    if (isset($CFG->dnscentre)) {
         $params['ccentre'] = $CFG->dnscentre;
     }
-    if($params && is_array($params)){
-        foreach($params as $key => $value){
+    if ($params && is_array($params)) {
+        foreach ($params as $key => $value) {
             $command .= ' --'.$key.'='.$value;
         }
     }
 
-    if(isset($CFG->clicommand)){
+    if (isset($CFG->clicommand)) {
         $cmd = $CFG->clicommand;
     } else {
         $cmd = "php";
@@ -86,69 +88,64 @@ function run_cli($command, $output_file = false, $append = true, $background = t
 
     $command = 'nohup '.$cmd.' '.$command;
 
-    if($append){
+    if ($append) {
         $command .= ' >> ';
     } else {
         $command .= ' > ';
     }
 
-    if(empty($output_file)){
-        if($background){
-            $output_file = '/dev/null';
+    if (empty($outputfile)) {
+        if ($background) {
+            $outputfile = '/dev/null';
         } else {
-            $output_file = '/dev/stdout';
+            $outputfile = '/dev/stdout';
         }
     }
 
-    $command .= $output_file.' 2>&1 ';
+    $command .= $outputfile.' 2>&1 ';
 
-    if($background){
+    if ($background) {
          $command .= ' & echo $!';
     }
 
     // Això és una marranada a evitar...
-    if(isset($CFG->cli_ldlibrarypath)){
+    if (isset($CFG->cli_ldlibrarypath)) {
         putenv('LD_LIBRARY_PATH='.$CFG->cli_ldlibrarypath);
     }
-    if(isset($CFG->cli_path)){
+    if (isset($CFG->cli_path)) {
         putenv('PATH='.$CFG->cli_path);
     }
 
     $output = "";
-    $return_var = "";
-    exec($command ,$output, $return_var);
+    $returnvar = "";
+    exec($command, $output, $returnvar);
 
-    if (is_xtecadmin()){
-        mtrace($command,'<br/>');
+    if (is_xtecadmin()) {
+        mtrace($command, '<br/>');
         print_object($output);
-        mtrace("Return var: $return_var",'<br/>');
+        mtrace("Return var: $returnvar", '<br/>');
     }
 
-    return $return_var;
+    return $returnvar;
 }
 
-//Executes a cron via CLI
-function run_cli_cron($background = true){
+// Executes a cron via CLI
+function run_cli_cron($background = true) {
     global $CFG, $DB;
 
     $command = $CFG->admin.'/cli/cron.php';
 
-    $output_file = false;
-    $savecronlog = $DB->get_field('config', 'value', array('name'=>'savecronlog'));
+    $outputfile = false;
+    $savecronlog = $DB->get_field('config', 'value', array('name' => 'savecronlog'));
     // $CFG->savecronlog must be saved on DB
-    if(isset($savecronlog) && !empty($savecronlog)) {
-        if(isset($CFG->usu1repofiles) && !empty($CFG->usu1repofiles)) {
-            $output_dir = $CFG->usu1repofiles.'/crons';
-        } else {
-            $output_dir = $CFG->dataroot.'/repository/files/crons';
-        }
-        $result = make_writable_directory($output_dir, false);
-        if($result){
-            $output_file = $output_dir.'/cron_'.$CFG->dbuser.'_'.date("Ymd").'.log';
+    if (isset($savecronlog) && !empty($savecronlog)) {
+        $outputdir = get_admin_datadir_folder('crons', false);
+        if ($result) {
+            $outputfile = $outputdir.'/cron_'.$CFG->siteidentifier.'_'.date("Ymd").'.log';
         }
     }
     $append = true;
-    return run_cli($command, $output_file, $append, $background);
+    return run_cli($command, $outputfile, $append, $background);
 }
 
 /**
@@ -184,7 +181,7 @@ function is_rush_hour() {
     $weekday = idate('w'); // 0 = sunday
     $hour = idate('H');
     $minutes = idate('i');
-    $now_minutes = ($hour * 60) + $minutes;
+    $nowminutes = ($hour * 60) + $minutes;
 
     foreach ($timeframes as $frame) {
         $start = explode(':', $frame['start']);
@@ -196,11 +193,11 @@ function is_rush_hour() {
             continue;
         }
 
-        $start_minutes = ((int) $start[0] * 60) + (int) $start[1];
-        $end_minutes = ((int) $end[0] * 60) + (int) $end[1];
+        $startminutes = ((int) $start[0] * 60) + (int) $start[1];
+        $endminutes = ((int) $end[0] * 60) + (int) $end[1];
 
         // Check if current time is in the frame
-        if (($now_minutes >= $start_minutes) && ($now_minutes < $end_minutes)) {
+        if (($nowminutes >= $startminutes) && ($nowminutes < $endminutes)) {
             return true;
         }
     }
@@ -216,20 +213,23 @@ function is_rush_hour() {
  *
  * @author sarjona
  **/
-function is_enabled_in_agora ($mod){
-    if (is_agora()){
+function is_enabled_in_agora ($mod) {
+    if (is_agora()) {
 
         // Only enabled in marsupial Moodles
-        if (!is_marsupial() && ($mod=='rcontent' || $mod=='rscorm' || $mod=='atria' || $mod=='rcommon' || $mod=='my_books' || $mod=='rgrade')){
+        if (!is_marsupial() && ($mod == 'rcontent' || $mod == 'rscorm' || $mod == 'atria' || $mod == 'rcommon' || $mod == 'my_books' || $mod == 'rgrade')) {
             return false;
         }
         // Only enabled in EOI Moodles
-        if (!is_eoi() && ($mod=='eoicampus')){
+        if (!is_eoi() && ($mod == 'eoicampus')) {
             return false;
         }
 
         // Disabled in all Agora Moodles
-        if($mod=='clean' || $mod=='afterburner' || $mod=='anomaly' || $mod=='arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' || $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' || $mod == 'nonzero' || $mod=='overlay' || $mod=='serenity' || $mod=='sky_high' || $mod=='splash' || $mod=='standard' || $mod=='standardold' || $mod=='chat' || $mod == 'alfresco' || $mod == 'rscorm' || $mod == 'rscormreport_basic' || $mod == 'rscormreport_graphs' || $mod == 'rscormreport_interactions'){
+        if ($mod == 'clean' || $mod == 'afterburner' || $mod == 'anomaly' || $mod == 'arialist' || $mod == 'base' || $mod == 'binarius' || $mod == 'boxxie' || $mod == 'brick' ||
+            $mod == 'canvas' || $mod == 'formal_white' || $mod == 'formfactor' || $mod == 'fusion' || $mod == 'leatherbound' || $mod == 'magazine' || $mod == 'nimble' ||
+            $mod == 'nonzero' || $mod == 'overlay' || $mod == 'serenity' || $mod == 'sky_high' || $mod == 'splash' || $mod == 'standard' || $mod == 'standardold' ||
+            $mod == 'chat' || $mod == 'alfresco' || $mod == 'rscorm' || $mod == 'rscormreport_basic' || $mod == 'rscormreport_graphs' || $mod == 'rscormreport_interactions') {
             return false;
         }
     }
@@ -237,13 +237,13 @@ function is_enabled_in_agora ($mod){
 }
 
 
-function agora_course_print_navlinks($course, $section = 0){
+function agora_course_print_navlinks($course, $section = 0) {
     global $CFG, $OUTPUT;
     $context = context_course::instance($course->id, MUST_EXIST);
     echo '<div class="agora_navbar">';
-    //Show reports
+    // Show reports
     $reportavailable = false;
-    if(!empty($course->showgrades)){
+    if (!empty($course->showgrades)) {
         if (has_capability('moodle/grade:viewall', $context)) {
             $reportavailable = true;
         } else {
@@ -251,7 +251,7 @@ function agora_course_print_navlinks($course, $section = 0){
                 arsort($reports); // user is last, we want to test it first
                 foreach ($reports as $plugin => $pluginname) {
                     if (has_capability('gradereport/' . $plugin . ':view', $context)) {
-                        //stop when the first visible plugin is found
+                        // Stop when the first visible plugin is found
                         $reportavailable = true;
                         break;
                     }
@@ -260,17 +260,17 @@ function agora_course_print_navlinks($course, $section = 0){
         }
     }
     if ($reportavailable) {
-        $icon=  $OUTPUT->pix_icon('i/grades', "");
-        echo html_writer::link($CFG->wwwroot.'/grade/report/index.php?id=' . $course->id ,$icon.get_string('grades'));
+        $icon = $OUTPUT->pix_icon('i/grades', "");
+        echo html_writer::link($CFG->wwwroot.'/grade/report/index.php?id=' . $course->id, $icon.get_string('grades'));
     }
     echo '</div>';
 }
 
-function local_agora_extends_navigation(global_navigation $navigation){
+function local_agora_extends_navigation(global_navigation $navigation) {
     global $DB, $CFG;
-    if (isloggedin() && is_service_enabled('nodes') && $DB->record_exists('oauth_clients', array('client_id'=>'nodes'))) {
-        $nodes_url = $CFG->wwwroot.'/local/agora/login_service.php?service=nodes';
-        $navigation->add(get_string('login_nodes','local_agora'), $nodes_url, navigation_node::TYPE_SETTING, null, get_string('login_nodes','local_agora'));
+    if (isloggedin() && is_service_enabled('nodes') && $DB->record_exists('oauth_clients', array('client_id' => 'nodes'))) {
+        $nodesurl = $CFG->wwwroot.'/local/agora/login_service.php?service=nodes';
+        $navigation->add(get_string('login_nodes', 'local_agora'), $nodesurl, navigation_node::TYPE_SETTING, null, get_string('login_nodes', 'local_agora'));
         //$message->icon = 'i/email';
 
     }
@@ -292,4 +292,44 @@ function get_service_url($service) {
         return $CFG->wwwroot.'/../'.$service.'/';
     }
     return false;
+}
+
+/**
+ * Return the directory to store admin things
+ *
+ * @param bool $exceptiononerror throw exception if error encountered creating file
+ * @return string|false Returns full path to directory if successful, false if not; may throw exception
+ */
+function get_admin_datadir($exceptiononerror = true) {
+    global $agora, $CFG;
+
+    if (isset($CFG->admindatadir)) {
+        return $CFG->admindatadir;
+    }
+
+    if (isset($agora['admin']['datadir'])) {
+        $dir = $agora['admin']['datadir'].$CFG->siteidentifier;
+    } else {
+        $dir = $CFG->dataroot.'/repository/files';
+    }
+    $CFG->admindatadir = make_writable_directory($dir, $exceptiononerror);
+
+    return $CFG->admindatadir;
+}
+
+/**
+ * Return the folder inside admindatadir directory to store admin things
+ *
+ * @param string $folder to add to the admindatadir
+ * @param bool $exceptiononerror throw exception if error encountered creating file
+ * @return string|false Returns full path to directory if successful, false if not; may throw exception
+ */
+function get_admin_datadir_folder($folder = '', $exceptiononerror = true) {
+    $directory = get_admin_datadir($exceptiononerror);
+    if ($directory && !empty($folder)) {
+        $directory .= '/'.$folder;
+        $directory = make_writable_directory($directory, $exceptiononerror);
+    }
+
+    return $directory;
 }

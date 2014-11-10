@@ -614,8 +614,8 @@ setup_validate_php_configuration();
 try{
     setup_DB();
 } catch(Exception $e){
-    if (isset($CFG->usu1repofiles) && !empty($CFG->usu1repofiles)) {
-        $logdir = $CFG->usu1repofiles.'/adodberror';
+    $logdir = get_admin_datadir_folder('adodberror', false);
+    if ($logdir) {
         $logcontrolfile = $logdir.'/logon.txt';
 
         // Check if logs are on. There's no database at this stage, so an alternative control system is mandatory.
@@ -645,7 +645,6 @@ try{
                 fclose($gestor);
             }
         }
-
     }
     throw $e;
 }

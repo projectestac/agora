@@ -145,8 +145,5 @@ $CFG->cronclionly = 1; // changed to avoid schools change it
 
 $CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
 
-//Here is where the cronlogs will be stored
+// Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
-if (isset($agora['moodle2']['userprefix']) && !empty($agora['moodle2']['userprefix'])) {
-	$CFG->usu1repofiles  = INSTALL_BASE . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . '1/repository/files';
-}
