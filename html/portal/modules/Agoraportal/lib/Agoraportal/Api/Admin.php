@@ -1141,9 +1141,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     //the user doesn't exists and create it
                     $sql = ($item[$clientServiceId]['version'] == '128') ?
                             "INSERT INTO zk_users (pn_uname, pn_pass, pn_email, pn_hash_method, pn_activated)
-                        VALUES ('xtecadmin','" . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1,1)" :
+                        VALUES ('xtecadmin','" . $agora['xtecadmin']['password'] . "','" . $agora['xtecadmin']['mail'] . "',1,1)" :
                             "INSERT INTO users (uname, pass, email, activated)
-                        VALUES ('xtecadmin','" . '1$$' . $agora['config']['xtecadmin'] . "','agora@xtec.cat',1)";
+                        VALUES ('xtecadmin','" . '1$$' . $agora['xtecadmin']['password']. "'," . $agora['xtecadmin']['mail'] . "',1)";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
                                 'serviceName' => 'intranet',

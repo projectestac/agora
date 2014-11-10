@@ -43,6 +43,7 @@
     $agora['dbsource']['syncdir']          = $agora['dbsource']['dir'] . 'sync/';
     $agora['dbsource']['filename']         = 'allSchools.php';
 
+	$agora['xtecadmin']['mail']		       = 'agora@xtec.invalid';
     // Constants used elsewhere
     define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
     define('EOI_WWWROOT', 'http://agora-eoi.xtec.cat');

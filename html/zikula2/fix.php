@@ -26,7 +26,7 @@ if ($pass) {
 */
 //************ FI
 
-    $_SESSION['loggedin'] = ($pass == $agora['config']['xtecadmin']) ? true : false;
+    $_SESSION['loggedin'] = ($pass == $agora['xtecadmin']['password']) ? true : false;
 }
 
 // Not logged, so show login form
@@ -155,8 +155,8 @@ function connectdb() {
 
     global $ZConfig;
 
-    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'] . ':' . $ZConfig['DBInfo']['databases']['default']['portmigrate'], 
-                              $ZConfig['DBInfo']['databases']['default']['user'], 
+    if (!$con = mysql_connect($ZConfig['DBInfo']['databases']['default']['hostmigrate'] . ':' . $ZConfig['DBInfo']['databases']['default']['portmigrate'],
+                              $ZConfig['DBInfo']['databases']['default']['user'],
                               $ZConfig['DBInfo']['databases']['default']['password'])) {
         return false;
     }

@@ -8,7 +8,7 @@ include 'lib/bootstrap.php';
 global $ZConfig, $agora;
 
 // Security check
-if (is_null($pass) || !$pass || ($pass != $agora['config']['xtecadmin'])) {
+if (is_null($pass) || !$pass || ($pass != $agora['xtecadmin']['password'])) {
     echo 'Password check failed!';
     exit(0);
 }
@@ -167,7 +167,7 @@ while ($fila = mysql_fetch_array($result, MYSQL_NUM)) {
             // Table blocks is special because we want to do some extra work
             if ($fila[0] == $prefix . '_' . 'blocks') {
                 // Select all columns
-                $sql = "select $column[column_name] as columna from $fila[0]";               
+                $sql = "select $column[column_name] as columna from $fila[0]";
             } else {
                 // Look for text "iw_"
                 $sql = "select $column[column_name] as columna from $fila[0] where $column[column_name] like '%iw\_%'";
@@ -650,7 +650,7 @@ $action = FormUtil::getPassedValue('action', false, 'GETPOST');
 // deactivate file based shorturls
 if (System::getVar('shorturls') && System::getVar('shorturlstype')) {
     System::setVar('shorturls', false);
-    System::delVar('shorturlstype'); 
+    System::delVar('shorturlstype');
     System::delVar('shorturlsext');
     LogUtil::registerError('You were using file based shorturls. This feature will no longer be supported. The shorturls were disabled. Directory based shorturls can be activated in the General settings manager.');
 }
@@ -922,7 +922,7 @@ function upgrade_getColumnsForTable($connection, $tableName)
 function upgrade_columns($connection)
 {
 //    $prefix = $GLOBALS['ZConfig']['System']['prefix'];
-    
+
     $commands = array();
     $commands[] = "ALTER TABLE admin_category CHANGE pn_cid cid INT(11) NOT NULL AUTO_INCREMENT";
     $commands[] = "ALTER TABLE admin_category CHANGE pn_name name VARCHAR(32) NOT NULL";
@@ -1151,7 +1151,7 @@ CHANGE pn_language language VARCHAR(30) NOT NULL DEFAULT  ''";
     // LONGBLOB is not supported by Doctrine 2
     $silentCommands[] = "ALTER TABLE workflows CHANGE debug debug LONGTEXT NULL DEFAULT NULL";
     $silentCommands[] = "ALTER TABLE group_applications CHANGE application application LONGTEXT NOT NULL";
-    
+
     // Handle case of andreas08 themes on linux environments.
     $silentCommands[] = "UPDATE themes SET name = 'Andreas08', directory = 'Andreas08' WHERE name = 'andreas08'";
     $silentCommands[] = "UPDATE module_vars SET value = 's:9:\"Andreas08\";' WHERE modname = 'ZConfig' AND value ='s:9:\"andreas08\";'";
