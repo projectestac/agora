@@ -8,7 +8,6 @@ class bigdata {
     private $roles;
     private $users;
     private $tablefields;
-    private $modules;
 
     function __construct($profileid) {
         global $DB;
@@ -141,7 +140,22 @@ class bigdata {
     private function add_data($table, $fields) {
         global $DB;
 
-        $rs = $DB->get_recordset($table);
+        // Special queries
+        switch ($table) {
+            case 'course':
+                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->courses).')');
+                break;
+            case 'user':
+                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->users).')');
+                break;
+            case 'role':
+                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->roles).')');
+                break;
+            default:
+                $rs = $DB->get_recordset($table);
+                break;
+        }
+
         $fields['id'] = 'id';
         foreach ($rs as $record) {
             // Exclude users
@@ -345,6 +359,7 @@ class bigdata {
             return $array;
         }
     }
+    // *************** END OLD **************** //
 }
 
 class bigdata_filemanager{

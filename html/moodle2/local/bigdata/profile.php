@@ -27,8 +27,63 @@ switch($action) {
         }
         echo $OUTPUT->header();
         echo $OUTPUT->heading(get_string('pluginname', 'local_bigdata').': '.get_string('add_profile', 'local_bigdata'));
-        $toform = array('roles' => array(3, 4, 5));
+        $roles = array(3, 4, 5);
         // TODO: Add default tablefields
+        $tablefields = array('modules.name', 'role.shortname', 'course.fullname', 'role_assignments.roleid', 'role_assignments.contextid', 'role_assignments.userid',
+            'log.time', 'log.userid', 'log.course', 'log.module', 'log.cmid', 'log.action', 'context.contextlevel', 'context.instanceid', 'course_modules.course',
+            'course_modules.module', 'course_modules.instance', 'course_modules.added', 'assignment_submissions.userid', 'assignment_submissions.timecreated',
+            'assign_submission.userid', 'assign_submission.timecreated', 'files.filename', 'files.userid', 'files.status', 'files.timecreated', 'files.timemodified');
+
+        $modules = $DB->get_fieldset_select('modules', 'name', "");
+        foreach ($modules as $module) {
+            switch($module){
+                case 'book':
+                case 'glossary':
+                case 'survey':
+                case 'wiki':
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timecreated', $module.'.timemodified');
+                    break;
+                case 'assignment':
+                    $$modulefields = array($module.'.course', $module.'.name', $module.'.timeavailable', $module.'.timemodified');
+                    break;
+                case 'assign':
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified'); // timeavailable no existeix...
+                    break;
+                case 'chat': // Not enabled in agora
+                    $modulefields = array();
+                    // $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified');
+                    break;
+                case 'choice':
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeopen', $module.'.timeclose', $module.'.timemodified');
+                    break;
+                case 'lesson':
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.available', $module.'.timemodified');
+                    break;
+                case 'quiz':
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeopen', $module.'.timecreated', $module.'.timemodified');
+                    break;
+                case 'scorm':
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeopen', $module.'.timemodified');
+                    break;
+                case 'data':
+                case 'jclic':
+                case 'qv':
+                case 'eoicampus':
+                    $modulefields = array($module.'.course', $module.'.name');
+                    break;
+                case 'resource':
+                case 'folder':
+                case 'page':
+                case 'url':
+                case 'forum':
+                case 'workshop':
+                default:
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified');
+                    break;
+            }
+            $tablefields = array_merge($tablefields, $modulefields);
+        }
+        $toform = array('roles' => $roles, 'tablefields' => $tablefields);
         $mform->set_data($toform);
         $mform->display();
         break;
