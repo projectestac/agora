@@ -7,21 +7,33 @@ class bigdata {
     private $coursescontext;
     private $roles;
     private $users;
+    private $exportfields;
+    private $foreignkeys;
     private $tablefields;
+    private $possibleextrafields;
+    private $profilename;
+
 
     function __construct($profileid) {
         global $DB;
 
         $profile = $DB->get_record('bigdata_profiles', array('id' => $profileid));
+        if (!$profile) {
+            throw new Exception('Profile not found');
+        }
+
+        $this->profilename = $profile->name;
 
         if (empty($profile->courses)) {
             $courses = $DB->get_fieldset_select('course', 'id', '1=1 ORDER BY id');
         } else {
             $courses = explode(',', $profile->courses);
         }
+
         foreach ($courses as $course) {
             $this->courses[$course] = $course;
-            $this->coursescontext[$course] = $DB->get_records('context', array('contextlevel' => '50', 'instanceid' => $course), '', 'id, instanceid as course, path');
+            $context = $DB->get_record('context', array('contextlevel' => '50', 'instanceid' => $course), 'id, instanceid as course, path');
+            $this->coursescontext[$context->id] = $context;
         }
 
         if (empty($profile->roles)) {
@@ -44,24 +56,27 @@ class bigdata {
         }
 
 
-        $this->tablefields = array();
+        $this->exportfields = array();
         if (!empty($profile->tablefields)) {
-            $tablefields = explode(',', $profile->tablefields);
-            foreach ($tablefields as $tablefield) {
+            $exportfields = explode(',', $profile->tablefields);
+            foreach ($exportfields as $tablefield) {
                 list($table, $field) = explode('.', $tablefield, 2);
-                if (!isset($this->tablefields[$table])) {
-                    $this->tablefields[$table] = array();
+                if (!isset($this->exportfields[$table])) {
+                    $this->exportfields[$table] = array();
                 }
-                $this->tablefields[$table][$field] = $field;
+                $this->exportfields[$table][$field] = $field;
             }
         }
+
+        $this->load_database();
+        $this->possibleextrafields = array('course', 'courseid', 'role', 'roleid', 'context', 'contextid', 'user', 'userid');
     }
 
     public function export($filepath, $filename, $escola) {
-        $this->file = new bigdata_filemanager($filepath, $filename, $escola);
+        $this->file = new bigdata_filemanager($filepath, $filename.'_'.$this->profilename , $escola);
 
         // Export Selected tables
-        foreach ($this->tablefields as $table => $fields) {
+        foreach ($this->exportfields as $table => $fields) {
             $this->add_data($table, $fields);
         }
 
@@ -78,7 +93,7 @@ class bigdata {
             } else if (isset($data->user)) {
                 $id = $data->user;
             }
-            if ($id && !isset($this->users[$id])) {
+            if ($id !== false && !isset($this->users[$id])) {
                 return false;
             }
         }
@@ -92,7 +107,7 @@ class bigdata {
         } else if (isset($data->course)) {
             $id = $data->course;
         }
-        if ($id && !isset($this->courses[$id])) {
+        if ($id !== false && !isset($this->courses[$id])) {
             return false;
         }
         return true;
@@ -105,7 +120,7 @@ class bigdata {
         } else if (isset($data->role)) {
             $id = $data->role;
         }
-        if ($id && !isset($this->roles[$id])) {
+        if ($id !== false && !isset($this->roles[$id])) {
             return false;
         }
         return true;
@@ -143,36 +158,75 @@ class bigdata {
         // Special queries
         switch ($table) {
             case 'course':
-                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->courses).')');
+                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->courses).')', null, 'id');
                 break;
-            case 'user':
-                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->users).')');
+            case 'user': // No needed but still have it
+                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->users).')', null, 'id');
                 break;
             case 'role':
-                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->roles).')');
+                $rs = $DB->get_recordset_select($table, 'id IN ('.implode(',', $this->roles).')', null, 'id');
+                break;
+            case 'files':
+                $rs = $DB->get_recordset_select($table, "filename != '.'", null, 'id');
+                break;
+            case 'context':
+                foreach ($this->coursescontext as $coursecontext) {
+                    $rs = $DB->get_recordset_select($table, 'path LIKE ? OR path = ?', array($coursecontext->path.'/%', $coursecontext->path), 'id');
+                    $this->add_records($table, $fields, $rs);
+                }
+                return;
                 break;
             default:
-                $rs = $DB->get_recordset($table);
+                // Get possible joins
+                if (isset($this->foreignkeys[$table])) {
+                    $fks = $this->foreignkeys[$table];
+                    $i = 2;
+                    $joins = array();
+                    $extrafields = array();
+                    foreach ($fks as $field => $fk) {
+                        $efs = array();
+                        foreach ($this->possibleextrafields as $ef) {
+                            if (isset($this->tablefields[$fk->reftable][$ef])) {
+                                $efs[] = 't'.$i.'.'.$ef;
+                            }
+                        }
+                        if (!empty($efs)) {
+                            $extrafields = array_merge($extrafields, $efs);
+                            if (!$fk->notnull) {
+                                $left = 'LEFT';
+                            } else {
+                                $left = "";
+                            }
+                            $joins[] = 'LEFT JOIN {'.$fk->reftable.'} t'.$i.' ON t1.'.$field.' = t'.$i.'.'.$fk->reffield;
+                            $i++;
+                        }
+                    }
+                    $extraf = implode(',', $extrafields);
+                    if (!empty($extraf)) {
+                        $sql = 'SELECT t1.*, '.$extraf.' FROM {'.$table.'} t1 '.implode(' ', $joins). ' ORDER BY t1.id';
+                        echo $sql .'<br/>';
+                        $rs = $DB->get_recordset_sql($sql);
+                    }
+                }
                 break;
         }
 
+        if (!isset($rs)) {
+            $rs = $DB->get_recordset($table, null, 'id');
+        }
+
+        $this->add_records($table, $fields, $rs);
+    }
+
+    private function add_records($table, $fields, $rs) {
+
         $fields['id'] = 'id';
         foreach ($rs as $record) {
-            // Exclude users
-            if (!$this->check_user($record)) {
-                continue;
-            }
-
-            // Only selected courses
-            if (!$this->check_course($record)) {
-                continue;
-            }
-
-            if (!$this->check_role($record)) {
-                continue;
-            }
-
-            if (!$this->check_context($record)) {
+            // Exclude non related data
+            if (!$this->check_user($record) ||
+                !$this->check_course($record) ||
+                !$this->check_role($record) ||
+                !$this->check_context($record)) {
                 continue;
             }
 
@@ -188,20 +242,116 @@ class bigdata {
         $rs->close();
     }
 
+    private function load_database() {
+        global $CFG, $DB;
+        require_once($CFG->libdir.'/ddllib.php');
+
+        $this->foreignkeys = array();
+
+        $xmldirs = array();
+        $dbdirectories = get_db_directories();
+
+        foreach ($dbdirectories as $path) {
+            if (file_exists($path)) {
+                $xmldbfile = new xmldb_file($path. '/install.xml');
+                if ($xmldbfile->fileExists()) {
+                    $xmldirs[$path] = $xmldbfile;
+                }
+            }
+        }
+        // Sort by key
+        ksort($dbdirectories);
+
+        $dbman = $DB->get_manager();
+
+        if ($xmldirs) {
+            foreach ($xmldirs as $xmldbfile) {
+                $loaded = $xmldbfile->loadXMLStructure();
+                if (!$loaded || !$xmldbfile->isLoaded()) {
+                    continue;
+                }
+                // Arriving here, everything is ok, get the XMLDB structure
+                $structure = $xmldbfile->getStructure();
+                if ($xmldbtables = $structure->getTables()) {
+                    foreach ($xmldbtables as $xmldbtable) {
+                        if (!$dbman->table_exists($xmldbtable)) {
+                            continue;
+                        }
+                        $tablename = $xmldbtable->getName();
+
+                        $columns = $DB->get_columns($tablename);
+                        $columnsclean = array();
+                        foreach ($columns as $key => $unused) {
+                            $columnsclean[$key] = $key;
+                        }
+                        $this->tablefields[$tablename] = $columnsclean;
+
+                        // Do not load the foreign keys if the table is not going to be exported
+                        if (!isset($this->exportfields[$tablename])) {
+                            continue;
+                        }
+
+                        if ($keys = $xmldbtable->getKeys()) {
+                            $tablekeys = array();
+                            foreach ($keys as $key) {
+                                // We are only interested in foreign keys.
+                                if (!in_array($key->getType(), array(XMLDB_KEY_FOREIGN, XMLDB_KEY_FOREIGN_UNIQUE))) {
+                                    continue;
+                                }
+
+                                $reftable = $key->getRefTable();
+                                if (!$dbman->table_exists($reftable)) {
+                                    continue;
+                                }
+
+                                // Work out the SQL to find key violations.
+                                $keyfields = $key->getFields();
+                                $reffields = $key->getRefFields();
+                                $joinconditions = array();
+                                $nullnessconditions = array();
+                                $params = array();
+                                foreach ($keyfields as $i => $field) {
+                                    if (!$dbman->field_exists($reftable, $reffields[$i])) {
+                                        continue;
+                                    }
+                                    $xmldbfield = $xmldbtable->getField($field);
+                                    // Do not load the references to the main tables
+                                    if (in_array($reftable, array('user', 'course', 'context', 'role'))) {
+                                        continue;
+                                    }
+                                    $tablekey = new StdClass();
+                                    $tablekey->reftable = $reftable;
+                                    $tablekey->reffield = $reffields[$i];
+                                    $tablekey->default = $xmldbfield->getDefault();
+                                    $tablekey->notnull = $xmldbfield->getNotNull();
+                                    $tablekeys[$field] = $tablekey;
+                                }
+                            }
+
+                            if (!empty($tablekeys)) {
+                                $this->foreignkeys[$tablename] = $tablekeys;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     // *************** OLD **************** //
     public function old_export($filepath, $filename, $escola) {
 
-        $this->file = new bigdata_filemanager($filepath, $filename, $escola);
+        $this->file = new bigdata_filemanager($filepath, $filename.'_'.$this->profilename, $escola);
 
         $success = true;
 
         // Platform common export
-        $this->modules = $this->add_data_old('modules', null, 'id, name', true);
+        $this->add_data_old('modules', null, 'id, name', true);
         $this->add_data_select('role', 'id IN ('.implode(',', $this->roles).')', null, 'id, shortname');
 
         foreach ($this->courses as $course) {
             try {
-                $success = $success && $bigdata->export_course($course);
+                $success = $success && $this->export_course($course);
             } catch (Exception $e) {
                 echo $e->getMessage();
                 throw $e;
@@ -242,8 +392,9 @@ class bigdata {
 
         // Activities
         $this->add_data_old('course_modules', array('course' => $courseid), 'id, course, module, instance, added');
-        foreach ($this->modules as $module) {
-            switch($module->name){
+        $modules = $DB->get_fieldset_select('modules', 'name', "");
+        foreach ($modules as $module) {
+            switch($module){
                 case 'book':
                 case 'glossary':
                 case 'survey':
@@ -290,7 +441,7 @@ class bigdata {
             }
 
             if (!empty($fields)) {
-                $this->add_data_old($module->name, array('course' => $courseid), $fields);
+                $this->add_data_old($module, array('course' => $courseid), $fields);
             }
         }
 
@@ -376,30 +527,31 @@ class bigdata_filemanager{
     }
 
     private function reset() {
-        $this->handler = fopen($this->filepath.'/'.$this->filename.'.tmp', "w+");
+        $this->handler = fopen($this->filepath.'/'.$this->filename.'.json', "w+");
         fwrite($this->handler, '');
     }
 
     private function open() {
-        $this->handler = fopen($this->filepath.'/'.$this->filename.'.tmp', "a+");
+        $this->handler = fopen($this->filepath.'/'.$this->filename.'.json', "a+");
         if (!$this->handler) {
             throw new Exception('Cannot open file '.$this->filepath);
         }
     }
 
-    function close() {
+    public function close() {
+        global $CFG;
+
         fclose($this->handler);
 
-        global $CFG;
         require_once("$CFG->libdir/filestorage/tgz_packer.php");
         $zp = new tgz_packer();
-        $files = array($this->filename.'.tmp' => $this->filepath.'/'.$this->filename.'.tmp');
+        $files = array($this->filename.'.json' => $this->filepath.'/'.$this->filename.'.json');
         $zp->archive_to_pathname($files, $this->filepath.'/'.$this->filename.'_'.$this->escola.'_'.date('Ymd_Hi').'.tgz');
 
-        unlink($this->filepath.'/'.$this->filename.'.tmp');
+        unlink($this->filepath.'/'.$this->filename.'.json');
     }
 
-    function add($object, $table) {
+    public function add($object, $table) {
         $this->open();
         $object->table = $table;
         $text = json_encode($object);

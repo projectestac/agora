@@ -44,7 +44,7 @@ switch($action) {
                     $modulefields = array($module.'.course', $module.'.name', $module.'.timecreated', $module.'.timemodified');
                     break;
                 case 'assignment':
-                    $$modulefields = array($module.'.course', $module.'.name', $module.'.timeavailable', $module.'.timemodified');
+                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeavailable', $module.'.timemodified');
                     break;
                 case 'assign':
                     $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified'); // timeavailable no existeix...

@@ -9,8 +9,10 @@ function bigdata_export($profileid) {
     if (function_exists('get_admin_datadir_folder')) {
         $directory = get_admin_datadir_folder('bigdata');
     } else {
-        $directory = $CFG->dataroot;
+        $directory = $CFG->dataroot.'/bigdata';
+        make_writable_directory($directory);
     }
+
     return $bigdata->export($directory, 'bigdata', $CFG->siteidentifier);
 }
 
