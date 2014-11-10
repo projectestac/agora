@@ -31,8 +31,9 @@ switch($action) {
         // TODO: Add default tablefields
         $tablefields = array('modules.name', 'role.shortname', 'course.fullname', 'role_assignments.roleid', 'role_assignments.contextid', 'role_assignments.userid',
             'log.time', 'log.userid', 'log.course', 'log.module', 'log.cmid', 'log.action', 'context.contextlevel', 'context.instanceid', 'course_modules.course',
-            'course_modules.module', 'course_modules.instance', 'course_modules.added', 'assignment_submissions.userid', 'assignment_submissions.timecreated',
-            'assign_submission.userid', 'assign_submission.timecreated', 'files.filename', 'files.userid', 'files.status', 'files.timecreated', 'files.timemodified');
+            'course_modules.module', 'course_modules.instance', 'course_modules.added', 'assignment_submissions.assignment', 'assignment_submissions.userid',
+            'assignment_submissions.timecreated', 'assign_submission.assignment', 'assign_submission.userid', 'assign_submission.timecreated', 'files.filename', 'files.userid',
+            'files.status', 'files.timecreated', 'files.timemodified');
 
         $modules = $DB->get_fieldset_select('modules', 'name', "");
         foreach ($modules as $module) {

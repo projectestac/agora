@@ -204,7 +204,6 @@ class bigdata {
                     $extraf = implode(',', $extrafields);
                     if (!empty($extraf)) {
                         $sql = 'SELECT t1.*, '.$extraf.' FROM {'.$table.'} t1 '.implode(' ', $joins). ' ORDER BY t1.id';
-                        echo $sql .'<br/>';
                         $rs = $DB->get_recordset_sql($sql);
                     }
                 }
@@ -448,12 +447,12 @@ class bigdata {
         $sql = "SELECT asub.id, asub.userid, asub.timecreated from {assignment_submissions} asub
                 JOIN {assign} a ON a.id = asub.assignment
                 WHERE a.course = :course";
-        $this->add_data_sql('assign_submissions', $sql, array('course' => $courseid));
+        $this->add_data_sql('assignment_submissions', $sql, array('course' => $courseid));
 
         $sql = "SELECT asub.id, asub.userid, asub.timecreated from {assign_submission} asub
                 JOIN {assignment} a ON a.id = asub.assignment
                 WHERE a.course = :course";
-        $this->add_data_sql('assignment_submissions', $sql, array('course' => $courseid));
+        $this->add_data_sql('assign_submission', $sql, array('course' => $courseid));
 
         // Files
         $sql = "SELECT f.id, f.filename, f.userid, f.status, f.timecreated, f.timemodified from {files} f
