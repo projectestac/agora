@@ -140,7 +140,7 @@ function run_cli_cron($background = true) {
     // $CFG->savecronlog must be saved on DB
     if (isset($savecronlog) && !empty($savecronlog)) {
         $outputdir = get_admin_datadir_folder('crons', false);
-        if ($result) {
+        if ($outputdir) {
             $outputfile = $outputdir.'/cron_'.$CFG->siteidentifier.'_'.date("Ymd").'.log';
         }
     }

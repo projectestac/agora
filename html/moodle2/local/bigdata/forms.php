@@ -91,7 +91,7 @@ class bigdata_profile_form extends moodleform {
         $durationarr = array();
         $durationarr[] =& $mform->createElement('text', 'periodicity', '');
         $durationarr[] =& $mform->createElement('select', 'periodicity_unit', '', $units);
-        $mform->addGroup($durationarr, 'durationarr', get_string('periodicity', 'local_bigdata').' [not implemented]', array(' '), false);
+        $mform->addGroup($durationarr, 'durationarr', get_string('periodicity', 'local_bigdata'), array(' '), false);
         $mform->setDefault('periodicity', 1);
         $mform->setType('periodicity', PARAM_INT);
         $mform->setDefault('periodicity_unit', 'D');
