@@ -1,0 +1,859 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-07 15:35+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/Files/Version.php:27
+msgid "File manager for Zikula sites."
+msgstr ""
+
+#: lib/Files/Version.php:28 lib/Files/Api/Account.php:31
+msgid "File Manager"
+msgstr ""
+
+#: lib/Files/Version.php:29
+msgid "files"
+msgstr ""
+
+#: lib/Files/Api/User.php:33
+msgid "Error! Could not load items."
+msgstr ""
+
+#: lib/Files/Api/User.php:58
+msgid "Error! Could not create the new item."
+msgstr ""
+
+#: lib/Files/Api/User.php:94
+msgid "Error! Could not update the used disk."
+msgstr ""
+
+#: lib/Files/Api/User.php:110 lib/Files/Controller/Ajax.php:24
+#: lib/Files/Controller/Ajax.php:41 lib/Files/Controller/Ajax.php:80
+#: lib/Files/Controller/Ajax.php:116 lib/Files/Controller/Ajax.php:135
+#: lib/Files/Controller/Ajax.php:145
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: lib/Files/Api/Admin.php:20
+msgid "Manage Files"
+msgstr ""
+
+#: lib/Files/Api/Admin.php:21
+msgid "Module configuration"
+msgstr ""
+
+#: lib/Files/Controller/User.php:60 lib/Files/Controller/User.php:77
+#: lib/Files/Controller/User.php:181 lib/Files/Controller/User.php:227
+#: lib/Files/Controller/User.php:239 lib/Files/Controller/User.php:396
+#: lib/Files/Controller/User.php:449 lib/Files/Controller/User.php:515
+#: lib/Files/Controller/User.php:699 lib/Files/Controller/User.php:809
+#: lib/Files/Controller/User.php:899 lib/Files/Controller/User.php:939
+#: lib/Files/Controller/User.php:991 lib/Files/Controller/User.php:1101
+#: lib/Files/Controller/User.php:1144 lib/Files/Controller/User.php:1177
+#: lib/Files/Controller/User.php:1286 lib/Files/Controller/User.php:1320
+#: lib/Files/Controller/User.php:1392 lib/Files/Controller/User.php:1444
+#: lib/Files/Controller/User.php:1546 lib/Files/Controller/User.php:1599
+#: lib/Files/Controller/User.php:1691 lib/Files/Controller/User.php:1815
+#: lib/Files/Controller/User.php:1876 lib/Files/Controller/External.php:53
+#: lib/Files/Controller/External.php:71
+msgid "Invalid folder"
+msgstr ""
+
+#: lib/Files/Controller/User.php:70 lib/Files/Controller/External.php:64
+msgid "It is not possible to browse this folder"
+msgstr ""
+
+#: lib/Files/Controller/User.php:143
+msgid "More than 200 MB"
+msgstr ""
+
+#: lib/Files/Controller/User.php:145
+#, php-format
+msgid "%s MB"
+msgstr ""
+
+#: lib/Files/Controller/User.php:147
+#, php-format
+msgid "%s KB"
+msgstr ""
+
+#: lib/Files/Controller/User.php:149
+#, php-format
+msgid "%s Bytes"
+msgstr ""
+
+#: lib/Files/Controller/User.php:289
+msgid "Unzip file"
+msgstr ""
+
+#: lib/Files/Controller/User.php:296
+msgid "List of the file content"
+msgstr ""
+
+#: lib/Files/Controller/User.php:306 templates/Files_user_editFile.tpl:8
+msgid "Edit file"
+msgstr ""
+
+#: lib/Files/Controller/User.php:316
+msgid "Create Thumbnail"
+msgstr ""
+
+#: lib/Files/Controller/User.php:324
+msgid "Download file"
+msgstr ""
+
+#: lib/Files/Controller/User.php:333 templates/Files_user_renameFile.tpl:10
+#: templates/Files_user_renameFile.tpl:22
+#: templates/Files_user_filesList.tpl:124
+#: templates/Files_external_getFiles.tpl:136
+msgid "Rename file"
+msgstr ""
+
+#: lib/Files/Controller/User.php:341 templates/Files_user_filesList.tpl:127
+#: templates/Files_user_deleteListFile.tpl:8
+msgid "Delete File"
+msgstr ""
+
+#: lib/Files/Controller/User.php:384 lib/Files/Controller/User.php:445
+#: lib/Files/Controller/User.php:504 lib/Files/Controller/User.php:688
+#: lib/Files/Controller/User.php:788 lib/Files/Controller/User.php:889
+#: lib/Files/Controller/User.php:929 lib/Files/Controller/User.php:981
+#: lib/Files/Controller/User.php:1084 lib/Files/Controller/User.php:1139
+#: lib/Files/Controller/User.php:1173 lib/Files/Controller/User.php:1282
+#: lib/Files/Controller/User.php:1316 lib/Files/Controller/User.php:1381
+#: lib/Files/Controller/User.php:1434 lib/Files/Controller/User.php:1534
+#: lib/Files/Controller/User.php:1589 lib/Files/Controller/User.php:1679
+#: lib/Files/Controller/User.php:1764 lib/Files/Controller/User.php:1811
+#: lib/Files/Controller/User.php:1866
+msgid "Error! You are not authorized to access this module."
+msgstr ""
+
+#: lib/Files/Controller/User.php:402 lib/Files/Controller/User.php:999
+msgid "File not found"
+msgstr ""
+
+#: lib/Files/Controller/User.php:524
+msgid "It is not possible to create a thumbnail from this file."
+msgstr ""
+
+#: lib/Files/Controller/User.php:538
+msgid "Error! It has been possible to read the file."
+msgstr ""
+
+#: lib/Files/Controller/User.php:568
+msgid "Error! Saving the image in memory."
+msgstr ""
+
+#: lib/Files/Controller/User.php:580 lib/Files/Controller/User.php:598
+#: lib/Files/Controller/User.php:604 lib/Files/Controller/User.php:612
+#: lib/Files/Controller/User.php:618 lib/Files/Controller/User.php:624
+#: lib/Files/Controller/User.php:632 lib/Files/Controller/User.php:647
+#: lib/Files/Controller/User.php:653
+msgid "Error! Creating the thumbnail of the image."
+msgstr ""
+
+#: lib/Files/Controller/User.php:664
+msgid "Thumbnail created."
+msgstr ""
+
+#: lib/Files/Controller/User.php:710
+#, php-format
+msgid "Sorry! The file %s is not editable."
+msgstr ""
+
+#: lib/Files/Controller/User.php:718
+#, php-format
+msgid "Sorry! The file %s has not been found."
+msgstr ""
+
+#: lib/Files/Controller/User.php:728
+#, php-format
+msgid "Error! It has not been possible to read the content of the file %s."
+msgstr ""
+
+#: lib/Files/Controller/User.php:755
+#, php-format
+msgid "Error! It has not been possible to write the content to the file %s."
+msgstr ""
+
+#: lib/Files/Controller/User.php:762
+msgid "File successfully edited"
+msgstr ""
+
+#: lib/Files/Controller/User.php:801
+msgid "You can not delete the users folder!"
+msgstr ""
+
+#: lib/Files/Controller/User.php:855
+msgid "Failed to deleted"
+msgstr ""
+
+#: lib/Files/Controller/User.php:862
+msgid "Error deleting file"
+msgstr ""
+
+#: lib/Files/Controller/User.php:873
+msgid "Files successfully removed"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1036
+#, php-format
+msgid ""
+"The extension <strong>%s</strong> is not allowed.  The allowed extensions "
+"are: <strong>%s</strong>."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1045
+msgid "Failed to rename"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1062
+msgid "Changed filename successfully"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1108
+msgid "Directory Create Error"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1113
+msgid "Directory created"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1198
+#, php-format
+msgid "The directory <strong>%s</strong> does not exist"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1208
+#, php-format
+msgid ""
+"The extension <strong>%s</strong> is not allowed. The allowed extensions "
+"are: <strong>%s</strong>."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1219
+#, php-format
+msgid "The file is to big. The maximum size allowed is \"%s\" bytes."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1225
+msgid "Some problem has ocurred when uploading the file to the server."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1237
+msgid "You have not enough disk space to upload the file."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1256
+msgid "Failed to upload"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1261
+msgid "Uploaded file success"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1336
+msgid "No selected action"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1341
+msgid "No selected file or directory"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1481
+msgid "No file name given"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1507
+msgid "Error creating ZIP file"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1512
+msgid "Successfully zipped"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1554 lib/Files/Controller/User.php:1699
+msgid "Failed to list content zip file."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1640 lib/Files/Controller/User.php:1650
+msgid "Error moving"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1659
+msgid "Successfully moved"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1715
+#, php-format
+msgid ""
+"The zip file contains at least one file with the extension <strong>%s</"
+"strong> which is not allowed. The allowed extensions are: <strong>%s</"
+"strong>."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1732
+#, php-format
+msgid ""
+"You have not enough disk space to unzip the file. You need %s extra bytes."
+msgstr ""
+
+#: lib/Files/Controller/User.php:1738
+msgid "Failed to unzip"
+msgstr ""
+
+#: lib/Files/Controller/User.php:1747
+msgid "Successfully unzipped"
+msgstr ""
+
+#: lib/Files/Controller/User.php:2088 lib/Files/Controller/User.php:2098
+#: lib/Files/Controller/User.php:2110
+msgid "Directory creation error"
+msgstr ""
+
+#: lib/Files/Controller/User.php:2121
+msgid "User data creation error"
+msgstr ""
+
+#: lib/Files/Controller/User.php:2128
+#, php-format
+msgid "The \"%s\" directory does not exist or is not writable."
+msgstr ""
+
+#: lib/Files/Controller/Admin.php:109
+msgid "Users folder can't be empty"
+msgstr ""
+
+#: lib/Files/Controller/Admin.php:116
+msgid "The configuration has been updated"
+msgstr ""
+
+#: lib/Files/Controller/External.php:28
+msgid "Sorry! You have not been granted access to this page."
+msgstr ""
+
+#: lib/Files/Controller/External.php:45
+msgid ""
+"The server directory does not exist. Contact with the website administrator "
+"to solve this problem."
+msgstr ""
+
+#: lib/Files/Controller/Ajax.php:46 lib/Files/Controller/Ajax.php:85
+msgid "no group found"
+msgstr ""
+
+#: lib/Files/Controller/Ajax.php:51
+msgid "no quota defined"
+msgstr ""
+
+#: lib/Files/Controller/Ajax.php:150
+msgid "no size factor defined"
+msgstr ""
+
+#: lib/Files/Controller/Ajax.php:155
+msgid "no image found"
+msgstr ""
+
+#: lib/Files/Controller/Ajax.php:160
+msgid "No folder defined."
+msgstr ""
+
+#: lib/Files/Controller/Ajax.php:165
+msgid "No action defined."
+msgstr ""
+
+#: templates/Files_user_uploadFile.tpl:8 templates/Files_user_filesList.tpl:21
+#: templates/Files_external_getFiles.tpl:41
+msgid "Upload file"
+msgstr ""
+
+#: templates/Files_user_uploadFile.tpl:11
+msgid "File name"
+msgstr ""
+
+#: templates/Files_user_uploadFile.tpl:15 templates/Files_admin_conf.tpl:50
+msgid "Allowed extensions (comma separated list)"
+msgstr ""
+
+#: templates/Files_user_uploadFile.tpl:18
+#: templates/Files_user_moveListFile.tpl:38
+#: templates/Files_user_renameFile.tpl:29
+#: templates/Files_user_listContentZip.tpl:18
+#: templates/Files_user_listContentZip.tpl:22
+#: templates/Files_user_createDir.tpl:15
+#: templates/Files_user_createZipListFile.tpl:31
+#: templates/Files_user_editFile.tpl:24
+#: templates/Files_user_deleteListFile.tpl:32
+msgid "Accept"
+msgstr ""
+
+#: templates/Files_user_uploadFile.tpl:21
+#: templates/Files_user_moveListFile.tpl:41
+#: templates/Files_user_moveListFile.tpl:45
+#: templates/Files_user_renameFile.tpl:32
+#: templates/Files_user_renameFile.tpl:36
+#: templates/Files_user_createDir.tpl:18
+#: templates/Files_user_createZipListFile.tpl:34
+#: templates/Files_user_createZipListFile.tpl:38
+#: templates/Files_user_editFile.tpl:27 templates/Files_user_editFile.tpl:31
+#: templates/Files_user_deleteListFile.tpl:35
+#: templates/Files_user_deleteListFile.tpl:39
+msgid "Cancel"
+msgstr ""
+
+#: templates/Files_user_moveListFile.tpl:10
+msgid "Moving"
+msgstr ""
+
+#: templates/Files_user_moveListFile.tpl:23
+msgid "Move to"
+msgstr ""
+
+#: templates/Files_user_moveListFile.tpl:26
+msgid "(root)"
+msgstr ""
+
+#: templates/Files_user_renameFile.tpl:24
+msgid "New filename"
+msgstr ""
+
+#: templates/Files_user_listContentZip.tpl:8
+msgid "The list of the archive content"
+msgstr ""
+
+#: templates/Files_user_errorMsg.tpl:9 templates/Files_user_filesList.tpl:7
+#: templates/Files_external_getFiles.tpl:30
+msgid "List of files in folder"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:4
+msgid "Modify configuration"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:7
+msgid ""
+"You should move the file file.php from modules/Files/Resources/extras to the "
+"zikula root directory"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:10
+msgid "You should remove the file file.php from modules/Files/Resources/extras"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:18
+msgid "Settings"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:22 templates/Files_admin_conf.tpl:24
+msgid "Files system physical path"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:22
+msgid "Defined in multisites configuration"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:22
+msgid " and implemends agora functions"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:26
+msgid "Defined in config file."
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:28
+msgid "Default configuration."
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:34
+msgid "Users folder"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:37
+msgid "The folder does not exist or it is not writable"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:42
+msgid "Show hidden files"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:44
+msgid "Do not show to anyone"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:45
+msgid "Only show to administrators"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:46
+msgid "Show to everyone"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:54
+msgid "Editable extensions (comma separated list)"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:58
+msgid "Maximum file size"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:61
+msgid "bytes"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:65
+msgid "Default width for images in editor"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:68 templates/Files_admin_conf.tpl:75
+msgid "pixel"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:72
+msgid "Default height for images in editor"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:79
+msgid "Default disk quota"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:82 templates/Files_admin_newQuotaForm.tpl:9
+msgid "MB"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:86
+msgid "New folders public by default"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:93 templates/Files_admin_newQuotaForm.tpl:12
+msgid "Save the changes"
+msgstr ""
+
+#: templates/Files_admin_conf.tpl:99
+msgid "Disk quotas for groups"
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:1
+msgid "Failed Files Module configuration"
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:2
+msgid "Problems with folders configuration"
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:5
+msgid ""
+"Problems with multisites configuration. Check <i>$ZConfig['Multisites']"
+"['filesRealPath']</i> and <i>$ZConfig['Multisites']['siteFilesFolder']</i> "
+"definitions."
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:8
+msgid ""
+"Problems with site configuration. Check <i>$ZConfig['FilesModule']"
+"['folderPath']</i> in <i>config.php</i>."
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:11
+msgid ""
+"Problems with Zikula configuration. Check <i>$ZConfig['System']['datadir']</"
+"i> in <i>config.php</i>."
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:14
+#, php-format
+msgid "Folder <i>%s</i> not exists."
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:17
+#, php-format
+msgid "Folder <i>%s</i> is no writeable."
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:19
+msgid "Contact site admin and report this problem."
+msgstr ""
+
+#: templates/Files_user_failedConf.tpl:21
+msgid "Go to homepage"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:7
+#: templates/Files_external_getFiles.tpl:30
+msgid "Main"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:14
+#: templates/Files_external_getFiles.tpl:36
+msgid "It is not possible to write in this directory. Make it writable."
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:20
+#: templates/Files_external_getFiles.tpl:40
+msgid "Create directory"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:24
+#: templates/Files_external_getFiles.tpl:43
+msgid "Set as not public folder"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:28
+#: templates/Files_external_getFiles.tpl:45
+msgid "Set as a public folder"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:36
+#: templates/Files_user_filesList.tpl:177
+#: templates/Files_external_getFiles.tpl:51
+msgid "Disk use:"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:39
+#: templates/Files_external_getFiles.tpl:54
+#, php-format
+msgid "%s%% - %s of %s"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:49
+#: templates/Files_external_getFiles.tpl:63
+msgid ""
+"The files in this directory are accessible directly from the navigator. "
+"Anybody can access to them with the URL"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:52
+#: templates/Files_external_getFiles.tpl:66
+msgid ""
+"The files in this directory no are accessible directly. Set directory as "
+"Public."
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:55
+#: templates/Files_external_getFiles.tpl:69
+msgid "The files in root directory aren't accessible directly."
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:63
+#: templates/Files_external_getFiles.tpl:78
+msgid "Select all"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:64
+#: templates/Files_external_getFiles.tpl:79
+msgid "Name"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:65
+#: templates/Files_external_getFiles.tpl:80
+msgid "Size"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:66
+#: templates/Files_external_getFiles.tpl:81
+msgid "Modified"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:67
+#: templates/Files_external_getFiles.tpl:82
+msgid "Action"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:75
+#: templates/Files_external_getFiles.tpl:90
+msgid "Go to main"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:87 templates/Files_user_filesList.tpl:89
+#: templates/Files_external_getFiles.tpl:102
+#: templates/Files_external_getFiles.tpl:104
+msgid "Go to upper folder"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:124
+#: templates/Files_external_getFiles.tpl:136
+msgid "Rename folder"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:127
+#: templates/Files_external_getFiles.tpl:139
+msgid "Delete folder"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:145
+#: templates/Files_external_getFiles.tpl:165
+msgid "Move the file to a public directory to get an access URL"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:151
+#: templates/Files_external_getFiles.tpl:172
+msgid "Bytes"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:171
+#: templates/Files_external_getFiles.tpl:223
+msgid "-- Selected files --"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:172
+#: templates/Files_external_getFiles.tpl:224
+msgid "Move them to another folder"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:173
+#: templates/Files_external_getFiles.tpl:225
+msgid "Delete them"
+msgstr ""
+
+#: templates/Files_user_filesList.tpl:174
+#: templates/Files_external_getFiles.tpl:226
+msgid "Create a zip file with them"
+msgstr ""
+
+#: templates/Files_external_footer.tpl:2
+msgid "Close window"
+msgstr ""
+
+#: templates/Files_external_getFilesImgContent.tpl:7
+msgid "Reduce size"
+msgstr ""
+
+#: templates/Files_external_getFilesImgContent.tpl:10
+msgid "Increase size"
+msgstr ""
+
+#: templates/Files_external_getFilesImgContent.tpl:13
+msgid "Delete thumbnail"
+msgstr ""
+
+#: templates/Files_external_getFilesImgContent.tpl:17
+#: templates/Files_external_getFilesImgContent.tpl:21
+msgid "Insert"
+msgstr ""
+
+#: templates/Files_user_createDir.tpl:8
+msgid "Create folder"
+msgstr ""
+
+#: templates/Files_user_createDir.tpl:10
+msgid "Folder name"
+msgstr ""
+
+#: templates/Files_admin_newQuotaForm.tpl:3
+msgid "Choose a group..."
+msgstr ""
+
+#: templates/Files_admin_newQuotaForm.tpl:16
+msgid "-1 means no disk quota limit"
+msgstr ""
+
+#: templates/Files_user_createZipListFile.tpl:8
+msgid "Create zip file"
+msgstr ""
+
+#: templates/Files_user_createZipListFile.tpl:18
+msgid "Generates a zip with this content"
+msgstr ""
+
+#: templates/Files_user_createZipListFile.tpl:26
+msgid "Filename"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:193
+#: templates/Files_external_getFiles.tpl:194
+msgid "Insert image"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:199
+#: templates/Files_external_getFiles.tpl:200
+msgid "Insert link"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:204
+#: templates/Files_external_getFiles.tpl:205
+msgid "Copy URL"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:209
+#: templates/Files_external_getFiles.tpl:210
+msgid "Go to URL"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:234
+msgid "Thumbnails"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:239
+msgid "Size(factor)"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:240
+msgid "Actions"
+msgstr ""
+
+#: templates/Files_external_getFiles.tpl:255
+msgid ""
+"The values displayed in each image are its real size \"width x height\" and "
+"the factor of the modification of its size (value). The value 1 means that "
+"the image is in its natural size. A value upper than 1 means that the image "
+"has been reduced and a value lower than 1 means that the image has been "
+"increased."
+msgstr ""
+
+#: templates/Files_admin_quotasTable.tpl:4
+msgid "Group"
+msgstr ""
+
+#: templates/Files_admin_quotasTable.tpl:5
+msgid "Quota (MB)"
+msgstr ""
+
+#: templates/Files_admin_quotasTable.tpl:6
+msgid "Delete"
+msgstr ""
+
+#: templates/Files_admin_quotasTable.tpl:17
+msgid "Delete disk quota"
+msgstr ""
+
+#: templates/Files_admin_quotasTable.tpl:27
+msgid "Assign a new disk quota"
+msgstr ""
+
+#: templates/Files_admin_quotasTable.tpl:34
+msgid "(A value of -1 means no disk quota assigned)"
+msgstr ""
+
+#: templates/Files_user_editFile.tpl:19
+#, php-format
+msgid "%s/%s"
+msgstr ""
+
+#: templates/Files_user_deleteListFile.tpl:12
+msgid "Confirm deletion of the thumbnail of:"
+msgstr ""
+
+#: templates/Files_user_deleteListFile.tpl:12
+msgid "Confirm deletion of:"
+msgstr ""
+
+#: templates/Files_user_deleteListFile.tpl:30
+msgid "Confirmation prompt"
+msgstr ""
+
+#: templates/Files_admin_menu.tpl:4
+msgid "Files"
+msgstr ""

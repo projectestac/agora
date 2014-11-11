@@ -1,0 +1,1015 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-07 15:35+0000\n"
+"PO-Revision-Date: 2014-05-07 17:39+0100\n"
+"Last-Translator: Joan Guillén i Pelegay <jguille2@xtec.cat>\n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: lib/Files/Version.php:27
+msgid "File manager for Zikula sites."
+msgstr "Gestió de fitxers per a llocs Zikula"
+
+#: lib/Files/Version.php:28 lib/Files/Api/Account.php:31
+msgid "File Manager"
+msgstr "Gestor de fitxers"
+
+#: lib/Files/Version.php:29
+msgid "files"
+msgstr "fitxers"
+
+#: lib/Files/Api/User.php:33
+msgid "Error! Could not load items."
+msgstr "S'ha produït un error en carregar elements"
+
+#: lib/Files/Api/User.php:58
+msgid "Error! Could not create the new item."
+msgstr "No s'ha pogut crear l'element nou"
+
+#: lib/Files/Api/User.php:94
+msgid "Error! Could not update the used disk."
+msgstr "Error! No és possible actualitzar l'espai de disc ocupat"
+
+#: lib/Files/Api/User.php:110 lib/Files/Controller/Ajax.php:24
+#: lib/Files/Controller/Ajax.php:41 lib/Files/Controller/Ajax.php:80
+#: lib/Files/Controller/Ajax.php:116 lib/Files/Controller/Ajax.php:135
+#: lib/Files/Controller/Ajax.php:145
+msgid "Sorry! No authorization to access this module."
+msgstr "No teniu autorització per accedir a aquest mòdul"
+
+#: lib/Files/Api/Admin.php:20
+msgid "Manage Files"
+msgstr "Gestiona els fitxers"
+
+#: lib/Files/Api/Admin.php:21
+msgid "Module configuration"
+msgstr "Configura el mòdul"
+
+#: lib/Files/Controller/User.php:60 lib/Files/Controller/User.php:77
+#: lib/Files/Controller/User.php:181 lib/Files/Controller/User.php:227
+#: lib/Files/Controller/User.php:239 lib/Files/Controller/User.php:396
+#: lib/Files/Controller/User.php:449 lib/Files/Controller/User.php:515
+#: lib/Files/Controller/User.php:699 lib/Files/Controller/User.php:809
+#: lib/Files/Controller/User.php:899 lib/Files/Controller/User.php:939
+#: lib/Files/Controller/User.php:991 lib/Files/Controller/User.php:1101
+#: lib/Files/Controller/User.php:1144 lib/Files/Controller/User.php:1177
+#: lib/Files/Controller/User.php:1286 lib/Files/Controller/User.php:1320
+#: lib/Files/Controller/User.php:1392 lib/Files/Controller/User.php:1444
+#: lib/Files/Controller/User.php:1546 lib/Files/Controller/User.php:1599
+#: lib/Files/Controller/User.php:1691 lib/Files/Controller/User.php:1815
+#: lib/Files/Controller/User.php:1876 lib/Files/Controller/External.php:53
+#: lib/Files/Controller/External.php:71
+msgid "Invalid folder"
+msgstr "Directori incorrecte"
+
+#: lib/Files/Controller/User.php:70 lib/Files/Controller/External.php:64
+msgid "It is not possible to browse this folder"
+msgstr "No ha estat possible seleccionar aquesta carpeta"
+
+#: lib/Files/Controller/User.php:143
+msgid "More than 200 MB"
+msgstr "Més de 200 MB"
+
+#: lib/Files/Controller/User.php:145
+#, php-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#: lib/Files/Controller/User.php:147
+#, php-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: lib/Files/Controller/User.php:149
+#, php-format
+msgid "%s Bytes"
+msgstr "%s Bytes"
+
+#: lib/Files/Controller/User.php:289
+msgid "Unzip file"
+msgstr "Descomprimeix el fitxer"
+
+#: lib/Files/Controller/User.php:296
+msgid "List of the file content"
+msgstr "Continguts del fitxer"
+
+#: lib/Files/Controller/User.php:306 templates/Files_user_editFile.tpl:8
+msgid "Edit file"
+msgstr "Edita el fitxer"
+
+#: lib/Files/Controller/User.php:316
+msgid "Create Thumbnail"
+msgstr "Crea una nova miniatura"
+
+#: lib/Files/Controller/User.php:324
+msgid "Download file"
+msgstr "Descarrega l'arxiu"
+
+#: lib/Files/Controller/User.php:333 templates/Files_user_renameFile.tpl:10
+#: templates/Files_user_renameFile.tpl:22
+#: templates/Files_user_filesList.tpl:124
+#: templates/Files_external_getFiles.tpl:136
+msgid "Rename file"
+msgstr "Canvia el nom"
+
+#: lib/Files/Controller/User.php:341 templates/Files_user_filesList.tpl:127
+#: templates/Files_user_deleteListFile.tpl:8
+msgid "Delete File"
+msgstr "Esborra fitxer"
+
+#: lib/Files/Controller/User.php:384 lib/Files/Controller/User.php:445
+#: lib/Files/Controller/User.php:504 lib/Files/Controller/User.php:688
+#: lib/Files/Controller/User.php:788 lib/Files/Controller/User.php:889
+#: lib/Files/Controller/User.php:929 lib/Files/Controller/User.php:981
+#: lib/Files/Controller/User.php:1084 lib/Files/Controller/User.php:1139
+#: lib/Files/Controller/User.php:1173 lib/Files/Controller/User.php:1282
+#: lib/Files/Controller/User.php:1316 lib/Files/Controller/User.php:1381
+#: lib/Files/Controller/User.php:1434 lib/Files/Controller/User.php:1534
+#: lib/Files/Controller/User.php:1589 lib/Files/Controller/User.php:1679
+#: lib/Files/Controller/User.php:1764 lib/Files/Controller/User.php:1811
+#: lib/Files/Controller/User.php:1866
+msgid "Error! You are not authorized to access this module."
+msgstr "Error! No esteu atoritzats a accedir a aquest mòdul"
+
+#: lib/Files/Controller/User.php:402 lib/Files/Controller/User.php:999
+msgid "File not found"
+msgstr "Fitxer no trobat"
+
+#: lib/Files/Controller/User.php:524
+msgid "It is not possible to create a thumbnail from this file."
+msgstr "No ha estat possible crear una miniatura d'aquest fitxer"
+
+#: lib/Files/Controller/User.php:538
+msgid "Error! It has been possible to read the file."
+msgstr "Error! No ha estat possible llegir aquest fitxer"
+
+#: lib/Files/Controller/User.php:568
+msgid "Error! Saving the image in memory."
+msgstr "Error! Guardant la imatge en memòria"
+
+#: lib/Files/Controller/User.php:580 lib/Files/Controller/User.php:598
+#: lib/Files/Controller/User.php:604 lib/Files/Controller/User.php:612
+#: lib/Files/Controller/User.php:618 lib/Files/Controller/User.php:624
+#: lib/Files/Controller/User.php:632 lib/Files/Controller/User.php:647
+#: lib/Files/Controller/User.php:653
+msgid "Error! Creating the thumbnail of the image."
+msgstr "Error! Creant la miniatura de la imatge"
+
+#: lib/Files/Controller/User.php:664
+msgid "Thumbnail created."
+msgstr "S'ha creat la miniatura"
+
+#: lib/Files/Controller/User.php:710
+#, php-format
+msgid "Sorry! The file %s is not editable."
+msgstr "Perdoneu! No és possible editar el fitxer %s."
+
+#: lib/Files/Controller/User.php:718
+#, php-format
+msgid "Sorry! The file %s has not been found."
+msgstr "Perdoneu! No s'ha trobat el fitxer %s."
+
+#: lib/Files/Controller/User.php:728
+#, php-format
+msgid "Error! It has not been possible to read the content of the file %s."
+msgstr "Error! No ha estat possible llegir el contingut del fitxer %s."
+
+#: lib/Files/Controller/User.php:755
+#, php-format
+msgid "Error! It has not been possible to write the content to the file %s."
+msgstr "Error! No ha estat possible escriure en el fitxer %s."
+
+#: lib/Files/Controller/User.php:762
+msgid "File successfully edited"
+msgstr "Fitxer editat correctament"
+
+#: lib/Files/Controller/User.php:801
+msgid "You can not delete the users folder!"
+msgstr "No té permís per eliminar aquesta carpeta!"
+
+#: lib/Files/Controller/User.php:855
+msgid "Failed to deleted"
+msgstr "No s'ha pogut esborrar el fitxer"
+
+#: lib/Files/Controller/User.php:862
+msgid "Error deleting file"
+msgstr "S'ha produït un error al eliminar el fitxer"
+
+#: lib/Files/Controller/User.php:873
+msgid "Files successfully removed"
+msgstr "Fitxer eliminat correctament"
+
+#: lib/Files/Controller/User.php:1036
+#, php-format
+msgid ""
+"The extension <strong>%s</strong> is not allowed.  The allowed extensions "
+"are: <strong>%s</strong>."
+msgstr ""
+"L'extensió <strong>%s</strong> no està permesa. Les extensions permeses són: "
+"<strong>%s</strong>."
+
+#: lib/Files/Controller/User.php:1045
+msgid "Failed to rename"
+msgstr "El canvi de nom a fallat"
+
+#: lib/Files/Controller/User.php:1062
+msgid "Changed filename successfully"
+msgstr "S'ha canviat el nom del fitxer"
+
+#: lib/Files/Controller/User.php:1108
+msgid "Directory Create Error"
+msgstr "Error en la creació del directori"
+
+#: lib/Files/Controller/User.php:1113
+msgid "Directory created"
+msgstr "S'ha creat el directori"
+
+#: lib/Files/Controller/User.php:1198
+#, php-format
+msgid "The directory <strong>%s</strong> does not exist"
+msgstr "El directori <strong>%s</strong> no existeix"
+
+#: lib/Files/Controller/User.php:1208
+#, php-format
+msgid ""
+"The extension <strong>%s</strong> is not allowed. The allowed extensions "
+"are: <strong>%s</strong>."
+msgstr ""
+"L'extensió <strong>%s</strong> no està permesa. Les extensions permeses són: "
+"<strong>%s</strong>."
+
+#: lib/Files/Controller/User.php:1219
+#, php-format
+msgid "The file is to big. The maximum size allowed is \"%s\" bytes."
+msgstr "El fitxer és massa gran. La mida màxima permesa és de \"%s\" bytes."
+
+#: lib/Files/Controller/User.php:1225
+msgid "Some problem has ocurred when uploading the file to the server."
+msgstr "S'ha produït un problema ne pujar el fitxer al servidor"
+
+#: lib/Files/Controller/User.php:1237
+msgid "You have not enough disk space to upload the file."
+msgstr "No disposa de suficient espai en el disc per carregar el fitxer"
+
+#: lib/Files/Controller/User.php:1256
+msgid "Failed to upload"
+msgstr "No s'ha pogut pujar el fitxer"
+
+#: lib/Files/Controller/User.php:1261
+msgid "Uploaded file success"
+msgstr "El fitxer s'ha pujat correctament al servidor"
+
+#: lib/Files/Controller/User.php:1336
+msgid "No selected action"
+msgstr "No ha seleccionat cap acció a realitzar"
+
+#: lib/Files/Controller/User.php:1341
+msgid "No selected file or directory"
+msgstr "No ha seleccionat cap fitxer o directori"
+
+#: lib/Files/Controller/User.php:1481
+msgid "No file name given"
+msgstr "No has donat el nom del fitxer"
+
+#: lib/Files/Controller/User.php:1507
+msgid "Error creating ZIP file"
+msgstr "S'ha produït un error al crear el fitxer ZIP"
+
+#: lib/Files/Controller/User.php:1512
+msgid "Successfully zipped"
+msgstr "La compressió ha tingut èxit"
+
+#: lib/Files/Controller/User.php:1554 lib/Files/Controller/User.php:1699
+msgid "Failed to list content zip file."
+msgstr "No s'ha pogut llistar el contingut de l'arxiu zip."
+
+#: lib/Files/Controller/User.php:1640 lib/Files/Controller/User.php:1650
+msgid "Error moving"
+msgstr "S'ha produït un error al moure"
+
+#: lib/Files/Controller/User.php:1659
+msgid "Successfully moved"
+msgstr "S'ha mogut amb èxit!"
+
+#: lib/Files/Controller/User.php:1715
+#, php-format
+msgid ""
+"The zip file contains at least one file with the extension <strong>%s</"
+"strong> which is not allowed. The allowed extensions are: <strong>%s</"
+"strong>."
+msgstr ""
+"El fitxer zip conté com a mínim un fitxer amb l'extensió <strong>%s</"
+"strong>, la qual no està permesa. Les extensions permeses són: <strong>"
+"%s<strong>."
+
+#: lib/Files/Controller/User.php:1732
+#, php-format
+msgid ""
+"You have not enough disk space to unzip the file. You need %s extra bytes."
+msgstr ""
+"No disosa de suficient espai de disc per carregar el fitxer. Necessita %s "
+"bytes adicionals"
+
+#: lib/Files/Controller/User.php:1738
+msgid "Failed to unzip"
+msgstr "La descompresió ha fallat"
+
+#: lib/Files/Controller/User.php:1747
+msgid "Successfully unzipped"
+msgstr "Descompressió amb èxit"
+
+#: lib/Files/Controller/User.php:2088 lib/Files/Controller/User.php:2098
+#: lib/Files/Controller/User.php:2110
+msgid "Directory creation error"
+msgstr "S'ha produït un error en la creació del directori"
+
+#: lib/Files/Controller/User.php:2121
+msgid "User data creation error"
+msgstr ""
+"S'ha produït un error en la creació del directori dels fitxers d'usuari"
+
+#: lib/Files/Controller/User.php:2128
+#, php-format
+msgid "The \"%s\" directory does not exist or is not writable."
+msgstr "El directori \"%s\" no existeix o bé no té permisos d'escriptura"
+
+#: lib/Files/Controller/Admin.php:109
+msgid "Users folder can't be empty"
+msgstr "S'ha d'informar del nom de la Carpeta dels fitxers dels usuaris"
+
+#: lib/Files/Controller/Admin.php:116
+msgid "The configuration has been updated"
+msgstr "La conficuració s'ha actualitzat correctament"
+
+#: lib/Files/Controller/External.php:28
+msgid "Sorry! You have not been granted access to this page."
+msgstr "No teniu accés a aquesta pàgina."
+
+#: lib/Files/Controller/External.php:45
+msgid ""
+"The server directory does not exist. Contact with the website administrator "
+"to solve this problem."
+msgstr ""
+"El directori servidor no existeix. Contacti amb l'administrador del lloc web "
+"per tal de resoldre el problema"
+
+#: lib/Files/Controller/Ajax.php:46 lib/Files/Controller/Ajax.php:85
+msgid "no group found"
+msgstr "no s'ha trobat el grup"
+
+#: lib/Files/Controller/Ajax.php:51
+msgid "no quota defined"
+msgstr "no s'ha especificat la quota"
+
+#: lib/Files/Controller/Ajax.php:150
+msgid "no size factor defined"
+msgstr "no s'ha especificat el factor de redimensionament"
+
+#: lib/Files/Controller/Ajax.php:155
+msgid "no image found"
+msgstr "no s'ha trobat la imatge"
+
+#: lib/Files/Controller/Ajax.php:160
+msgid "No folder defined."
+msgstr "No s'ha especificat el directori"
+
+#: lib/Files/Controller/Ajax.php:165
+msgid "No action defined."
+msgstr "No s'ha especificat cap acció."
+
+#: templates/Files_user_uploadFile.tpl:8 templates/Files_user_filesList.tpl:21
+#: templates/Files_external_getFiles.tpl:41
+msgid "Upload file"
+msgstr "Puja un fitxer"
+
+#: templates/Files_user_uploadFile.tpl:11
+msgid "File name"
+msgstr "Nom del fitxer"
+
+#: templates/Files_user_uploadFile.tpl:15 templates/Files_admin_conf.tpl:50
+msgid "Allowed extensions (comma separated list)"
+msgstr "Extensions permeses (separades per comes)"
+
+#: templates/Files_user_uploadFile.tpl:18
+#: templates/Files_user_moveListFile.tpl:38
+#: templates/Files_user_renameFile.tpl:29
+#: templates/Files_user_listContentZip.tpl:18
+#: templates/Files_user_listContentZip.tpl:22
+#: templates/Files_user_createDir.tpl:15
+#: templates/Files_user_createZipListFile.tpl:31
+#: templates/Files_user_editFile.tpl:24
+#: templates/Files_user_deleteListFile.tpl:32
+msgid "Accept"
+msgstr "Accepta"
+
+#: templates/Files_user_uploadFile.tpl:21
+#: templates/Files_user_moveListFile.tpl:41
+#: templates/Files_user_moveListFile.tpl:45
+#: templates/Files_user_renameFile.tpl:32
+#: templates/Files_user_renameFile.tpl:36
+#: templates/Files_user_createDir.tpl:18
+#: templates/Files_user_createZipListFile.tpl:34
+#: templates/Files_user_createZipListFile.tpl:38
+#: templates/Files_user_editFile.tpl:27 templates/Files_user_editFile.tpl:31
+#: templates/Files_user_deleteListFile.tpl:35
+#: templates/Files_user_deleteListFile.tpl:39
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: templates/Files_user_moveListFile.tpl:10
+msgid "Moving"
+msgstr "Movent"
+
+#: templates/Files_user_moveListFile.tpl:23
+msgid "Move to"
+msgstr "Moure a "
+
+#: templates/Files_user_moveListFile.tpl:26
+msgid "(root)"
+msgstr "(root)"
+
+#: templates/Files_user_renameFile.tpl:24
+msgid "New filename"
+msgstr "Nou nom de fitxer"
+
+#: templates/Files_user_listContentZip.tpl:8
+msgid "The list of the archive content"
+msgstr "Continguts de l'arxiu"
+
+#: templates/Files_user_errorMsg.tpl:9 templates/Files_user_filesList.tpl:7
+#: templates/Files_external_getFiles.tpl:30
+msgid "List of files in folder"
+msgstr "Llista de fitxers en el directori"
+
+#: templates/Files_admin_conf.tpl:4
+msgid "Modify configuration"
+msgstr "Modifica la configuració"
+
+#: templates/Files_admin_conf.tpl:7
+msgid ""
+"You should move the file file.php from modules/Files/Resources/extras to the "
+"zikula root directory"
+msgstr ""
+"Cal moure el fitxer file.php de modules/Files/Resources/extras al directori "
+"arrel de Zikula"
+
+#: templates/Files_admin_conf.tpl:10
+msgid "You should remove the file file.php from modules/Files/Resources/extras"
+msgstr "Cal eliminar el fitxer file.php de modules/Files/Resources/extras"
+
+#: templates/Files_admin_conf.tpl:18
+msgid "Settings"
+msgstr "Paràmetres"
+
+#: templates/Files_admin_conf.tpl:22 templates/Files_admin_conf.tpl:24
+msgid "Files system physical path"
+msgstr "Ruta al sistema de fitxers físic"
+
+#: templates/Files_admin_conf.tpl:22
+msgid "Defined in multisites configuration"
+msgstr "Definit en la configuració 'mulisites'"
+
+#: templates/Files_admin_conf.tpl:22
+msgid " and implemends agora functions"
+msgstr "i utililitza funcions específiques d'Àgora"
+
+#: templates/Files_admin_conf.tpl:26
+msgid "Defined in config file."
+msgstr "Definit en el fitxer de configuració."
+
+#: templates/Files_admin_conf.tpl:28
+msgid "Default configuration."
+msgstr "Configuració per defecte"
+
+#: templates/Files_admin_conf.tpl:34
+msgid "Users folder"
+msgstr "Carpeta dels fitxers dels usuaris"
+
+#: templates/Files_admin_conf.tpl:37
+msgid "The folder does not exist or it is not writable"
+msgstr "La carpeta no existeix o no s'hi pot escriure"
+
+#: templates/Files_admin_conf.tpl:42
+msgid "Show hidden files"
+msgstr "Mostra els fitxers ocults"
+
+#: templates/Files_admin_conf.tpl:44
+msgid "Do not show to anyone"
+msgstr "No mostra a ningú"
+
+#: templates/Files_admin_conf.tpl:45
+msgid "Only show to administrators"
+msgstr "Mostra només a administradors"
+
+#: templates/Files_admin_conf.tpl:46
+msgid "Show to everyone"
+msgstr "Mostra a tothom"
+
+#: templates/Files_admin_conf.tpl:54
+msgid "Editable extensions (comma separated list)"
+msgstr "Extensions editables (separades per comes)"
+
+#: templates/Files_admin_conf.tpl:58
+msgid "Maximum file size"
+msgstr "Mida màxima del fitxer"
+
+#: templates/Files_admin_conf.tpl:61
+msgid "bytes"
+msgstr "Bytes"
+
+#: templates/Files_admin_conf.tpl:65
+msgid "Default width for images in editor"
+msgstr "Amplada per defecte per a les imatges a l'editor"
+
+#: templates/Files_admin_conf.tpl:68 templates/Files_admin_conf.tpl:75
+msgid "pixel"
+msgstr "pixel"
+
+#: templates/Files_admin_conf.tpl:72
+msgid "Default height for images in editor"
+msgstr "Alçada per defecte per a les imatges a l'editor"
+
+#: templates/Files_admin_conf.tpl:79
+msgid "Default disk quota"
+msgstr "Quota de disc per defecte"
+
+#: templates/Files_admin_conf.tpl:82 templates/Files_admin_newQuotaForm.tpl:9
+msgid "MB"
+msgstr "MB"
+
+#: templates/Files_admin_conf.tpl:86
+msgid "New folders public by default"
+msgstr "Noves carpetes públiques per defecte"
+
+#: templates/Files_admin_conf.tpl:93 templates/Files_admin_newQuotaForm.tpl:12
+msgid "Save the changes"
+msgstr "Desa els canvis"
+
+#: templates/Files_admin_conf.tpl:99
+msgid "Disk quotas for groups"
+msgstr "Quota de disc per a grups"
+
+#: templates/Files_user_failedConf.tpl:1
+msgid "Failed Files Module configuration"
+msgstr "La configuració del mòdul Files és errònia"
+
+#: templates/Files_user_failedConf.tpl:2
+msgid "Problems with folders configuration"
+msgstr "La configuració de la ubicació dels fitxers és errònia"
+
+#: templates/Files_user_failedConf.tpl:5
+msgid ""
+"Problems with multisites configuration. Check <i>$ZConfig['Multisites']"
+"['filesRealPath']</i> and <i>$ZConfig['Multisites']['siteFilesFolder']</i> "
+"definitions."
+msgstr ""
+"Hi ha problemes amb la configuració del 'multisites'. S'han de revisar les "
+"definicions del  <i>$ZConfig['Multisites']['filesRealPath']</i> i del <i>"
+"$ZConfig['Multisites']['siteFilesFolder']</i>."
+
+#: templates/Files_user_failedConf.tpl:8
+msgid ""
+"Problems with site configuration. Check <i>$ZConfig['FilesModule']"
+"['folderPath']</i> in <i>config.php</i>."
+msgstr ""
+"Hi ha problemes amb la configuració. s'ha de revisar la variable <i>"
+"$ZConfig['FilesModule']['folderPath']</i> del  <i>config.php</i>."
+
+#: templates/Files_user_failedConf.tpl:11
+msgid ""
+"Problems with Zikula configuration. Check <i>$ZConfig['System']['datadir']</"
+"i> in <i>config.php</i>."
+msgstr ""
+"Hi ha problemes amb la configuració general de Zikula. S'ha de revisar la "
+"variable <i>$ZConfig['System']['datadir']</i> del <i>config.php</i>."
+
+#: templates/Files_user_failedConf.tpl:14
+#, php-format
+msgid "Folder <i>%s</i> not exists."
+msgstr "La carpeta <i>%s</i> no existeix."
+
+#: templates/Files_user_failedConf.tpl:17
+#, php-format
+msgid "Folder <i>%s</i> is no writeable."
+msgstr "El directori <strong>%s</strong> no té permissos d'escriptura"
+
+#: templates/Files_user_failedConf.tpl:19
+msgid "Contact site admin and report this problem."
+msgstr "Reporteu als administradors del sistema aquest problema."
+
+#: templates/Files_user_failedConf.tpl:21
+msgid "Go to homepage"
+msgstr "Vés a la pàgina inicial"
+
+#: templates/Files_user_filesList.tpl:7
+#: templates/Files_external_getFiles.tpl:30
+msgid "Main"
+msgstr "Inicial"
+
+#: templates/Files_user_filesList.tpl:14
+#: templates/Files_external_getFiles.tpl:36
+msgid "It is not possible to write in this directory. Make it writable."
+msgstr ""
+"No ha estat possible escriure al directori. Habiliti els permissos "
+"d'escriptura"
+
+#: templates/Files_user_filesList.tpl:20
+#: templates/Files_external_getFiles.tpl:40
+msgid "Create directory"
+msgstr "Crea un directori"
+
+#: templates/Files_user_filesList.tpl:24
+#: templates/Files_external_getFiles.tpl:43
+msgid "Set as not public folder"
+msgstr "Fes que no sigui un directori públic"
+
+#: templates/Files_user_filesList.tpl:28
+#: templates/Files_external_getFiles.tpl:45
+msgid "Set as a public folder"
+msgstr "Estableix com a directori públic"
+
+#: templates/Files_user_filesList.tpl:36
+#: templates/Files_user_filesList.tpl:177
+#: templates/Files_external_getFiles.tpl:51
+msgid "Disk use:"
+msgstr "Ús del disc:"
+
+#: templates/Files_user_filesList.tpl:39
+#: templates/Files_external_getFiles.tpl:54
+#, php-format
+msgid "%s%% - %s of %s"
+msgstr "%s%% - %s of %s"
+
+#: templates/Files_user_filesList.tpl:49
+#: templates/Files_external_getFiles.tpl:63
+msgid ""
+"The files in this directory are accessible directly from the navigator. "
+"Anybody can access to them with the URL"
+msgstr ""
+"Els fitxers d'aquest directori són directament accessibles. Tothom pot "
+"accedir-hi amb la URL"
+
+#: templates/Files_user_filesList.tpl:52
+#: templates/Files_external_getFiles.tpl:66
+msgid ""
+"The files in this directory no are accessible directly. Set directory as "
+"Public."
+msgstr ""
+"Directori PRIVAT. Si vols compartir l'enllaç d'aquests fitxers, estableix el "
+"directori com a públic"
+
+#: templates/Files_user_filesList.tpl:55
+#: templates/Files_external_getFiles.tpl:69
+msgid "The files in root directory aren't accessible directly."
+msgstr ""
+"Directori arrel. Els fitxers no són accessibles públicament. Si vols "
+"compartir una imatge o un fitxer, penja el fitxer en un subdirectori públic."
+
+#: templates/Files_user_filesList.tpl:63
+#: templates/Files_external_getFiles.tpl:78
+msgid "Select all"
+msgstr "Selecciona-ho tot"
+
+#: templates/Files_user_filesList.tpl:64
+#: templates/Files_external_getFiles.tpl:79
+msgid "Name"
+msgstr "Nom"
+
+#: templates/Files_user_filesList.tpl:65
+#: templates/Files_external_getFiles.tpl:80
+msgid "Size"
+msgstr "Mida"
+
+#: templates/Files_user_filesList.tpl:66
+#: templates/Files_external_getFiles.tpl:81
+msgid "Modified"
+msgstr "Modificat"
+
+#: templates/Files_user_filesList.tpl:67
+#: templates/Files_external_getFiles.tpl:82
+msgid "Action"
+msgstr "Acció"
+
+#: templates/Files_user_filesList.tpl:75
+#: templates/Files_external_getFiles.tpl:90
+msgid "Go to main"
+msgstr "Vés a la carpeta principal"
+
+#: templates/Files_user_filesList.tpl:87 templates/Files_user_filesList.tpl:89
+#: templates/Files_external_getFiles.tpl:102
+#: templates/Files_external_getFiles.tpl:104
+msgid "Go to upper folder"
+msgstr "Vés a la carpeta superior"
+
+#: templates/Files_user_filesList.tpl:124
+#: templates/Files_external_getFiles.tpl:136
+msgid "Rename folder"
+msgstr "Reanomena la carpeta"
+
+#: templates/Files_user_filesList.tpl:127
+#: templates/Files_external_getFiles.tpl:139
+msgid "Delete folder"
+msgstr "Elimina la carpeta"
+
+#: templates/Files_user_filesList.tpl:145
+#: templates/Files_external_getFiles.tpl:165
+msgid "Move the file to a public directory to get an access URL"
+msgstr ""
+"Cal moure el fitxer a una carpeta pública per poder accedir mitjançant una "
+"URL"
+
+#: templates/Files_user_filesList.tpl:151
+#: templates/Files_external_getFiles.tpl:172
+msgid "Bytes"
+msgstr "Bytes"
+
+#: templates/Files_user_filesList.tpl:171
+#: templates/Files_external_getFiles.tpl:223
+msgid "-- Selected files --"
+msgstr "-- Fitxers seleccionats --"
+
+#: templates/Files_user_filesList.tpl:172
+#: templates/Files_external_getFiles.tpl:224
+msgid "Move them to another folder"
+msgstr "Mou-los a un altre directori"
+
+#: templates/Files_user_filesList.tpl:173
+#: templates/Files_external_getFiles.tpl:225
+msgid "Delete them"
+msgstr "Esborra'ls"
+
+#: templates/Files_user_filesList.tpl:174
+#: templates/Files_external_getFiles.tpl:226
+msgid "Create a zip file with them"
+msgstr "Crear un fitxer zip"
+
+#: templates/Files_external_footer.tpl:2
+msgid "Close window"
+msgstr "Tanca la finestra"
+
+#: templates/Files_external_getFilesImgContent.tpl:7
+msgid "Reduce size"
+msgstr "Redueix la mida"
+
+#: templates/Files_external_getFilesImgContent.tpl:10
+msgid "Increase size"
+msgstr "Augmenta la mida"
+
+#: templates/Files_external_getFilesImgContent.tpl:13
+msgid "Delete thumbnail"
+msgstr "Elimina la miniatura"
+
+#: templates/Files_external_getFilesImgContent.tpl:17
+#: templates/Files_external_getFilesImgContent.tpl:21
+msgid "Insert"
+msgstr "Insereix una fila en blanc a darrera"
+
+#: templates/Files_user_createDir.tpl:8
+msgid "Create folder"
+msgstr "Crea una carpeta"
+
+#: templates/Files_user_createDir.tpl:10
+msgid "Folder name"
+msgstr "Nom de la carpeta"
+
+#: templates/Files_admin_newQuotaForm.tpl:3
+msgid "Choose a group..."
+msgstr "Tria un grup..."
+
+#: templates/Files_admin_newQuotaForm.tpl:16
+msgid "-1 means no disk quota limit"
+msgstr "-1 indica quota de disc il·limitada"
+
+#: templates/Files_user_createZipListFile.tpl:8
+msgid "Create zip file"
+msgstr "Crea un fitxer zip"
+
+#: templates/Files_user_createZipListFile.tpl:18
+msgid "Generates a zip with this content"
+msgstr "Genera un fitxer zip amb els següents continguts"
+
+#: templates/Files_user_createZipListFile.tpl:26
+msgid "Filename"
+msgstr "Nom d'arxiu"
+
+#: templates/Files_external_getFiles.tpl:193
+#: templates/Files_external_getFiles.tpl:194
+msgid "Insert image"
+msgstr "Insereix la imatge"
+
+#: templates/Files_external_getFiles.tpl:199
+#: templates/Files_external_getFiles.tpl:200
+msgid "Insert link"
+msgstr "Insereix un enllaç"
+
+#: templates/Files_external_getFiles.tpl:204
+#: templates/Files_external_getFiles.tpl:205
+msgid "Copy URL"
+msgstr "Copia la URL"
+
+#: templates/Files_external_getFiles.tpl:209
+#: templates/Files_external_getFiles.tpl:210
+msgid "Go to URL"
+msgstr "Vés a la URL"
+
+#: templates/Files_external_getFiles.tpl:234
+msgid "Thumbnails"
+msgstr "Miniatures"
+
+#: templates/Files_external_getFiles.tpl:239
+msgid "Size(factor)"
+msgstr "Tamany(factor)"
+
+#: templates/Files_external_getFiles.tpl:240
+msgid "Actions"
+msgstr "Accions"
+
+#: templates/Files_external_getFiles.tpl:255
+msgid ""
+"The values displayed in each image are its real size \"width x height\" and "
+"the factor of the modification of its size (value). The value 1 means that "
+"the image is in its natural size. A value upper than 1 means that the image "
+"has been reduced and a value lower than 1 means that the image has been "
+"increased."
+msgstr ""
+"Es mostra la mida real de la imatge \"amplada x alçada\" i el factor de "
+"redimensionament. El valor 1 significa que la imatge es troba en el seva "
+"mida original. Amb un valor superior a 1 la imatge es reduirà i amb un valor "
+"inferior a 1 la imatge s'ampliarà."
+
+#: templates/Files_admin_quotasTable.tpl:4
+msgid "Group"
+msgstr "Grup"
+
+#: templates/Files_admin_quotasTable.tpl:5
+msgid "Quota (MB)"
+msgstr "Quota (MB)"
+
+#: templates/Files_admin_quotasTable.tpl:6
+msgid "Delete"
+msgstr "Esborra"
+
+#: templates/Files_admin_quotasTable.tpl:17
+msgid "Delete disk quota"
+msgstr "Elimina la quota de disc"
+
+#: templates/Files_admin_quotasTable.tpl:27
+msgid "Assign a new disk quota"
+msgstr "Asigna una nova quota de disc"
+
+#: templates/Files_admin_quotasTable.tpl:34
+msgid "(A value of -1 means no disk quota assigned)"
+msgstr "(El valor -1 significa que no s'ha assignat quota de disc)"
+
+#: templates/Files_user_editFile.tpl:19
+#, php-format
+msgid "%s/%s"
+msgstr "%s%s"
+
+#: templates/Files_user_deleteListFile.tpl:12
+msgid "Confirm deletion of the thumbnail of:"
+msgstr "Confirma l'eliminació de la miniatura de:"
+
+#: templates/Files_user_deleteListFile.tpl:12
+msgid "Confirm deletion of:"
+msgstr "Confirma l'eliminació de;"
+
+#: templates/Files_user_deleteListFile.tpl:30
+msgid "Confirmation prompt"
+msgstr "Pregunta de confirmació"
+
+#: templates/Files_admin_menu.tpl:4
+msgid "Files"
+msgstr "Fitxers"
+
+#~ msgid "The server directory does not exist."
+#~ msgstr "El directori servidor no existeix."
+
+#~ msgid "The folder <strong>%s</strong> has not been found."
+#~ msgstr "No s'ha trobat el directori <strong>%s</strong>"
+
+#~ msgid "Directory creation error. Please contact with the administrator"
+#~ msgstr ""
+#~ "Error en la creació del directori. Si us plau contecteu amb "
+#~ "l'administrador"
+
+#~ msgid "The directory <strong>%s</strong> for users does not exist"
+#~ msgstr "El directori <strong>%s</strong>, destinat a usuaris, no existeix"
+
+#~ msgid "file_name"
+#~ msgstr "Nom_del_fitxer"
+
+#~ msgid "Files module installation"
+#~ msgstr "Instal·lació dels fitxers del mòdul"
+
+#~ msgid "Welcome to Files module"
+#~ msgstr "Benvingut al mòdul Fitxers"
+
+#~ msgid ""
+#~ "This module allow user to manage their own files.<br />Each user has a "
+#~ "folder for his/her files.<br />This module needs two writable folders "
+#~ "that have to be created."
+#~ msgstr ""
+#~ "Aquest mòdul permet a l'usuari gestionar els seus fitxers.<br />Cada "
+#~ "usuari disposa d'una capreta amb els seus fitxers.<br />Aquest mòdul "
+#~ "necessita que es creïn dos directoris amb permissos d'escriptura"
+
+#~ msgid "Proceed with the installation"
+#~ msgstr "Continua amb l'instal·lació"
+
+#~ msgid ""
+#~ "Check if the files folders in the server have been created and define "
+#~ "them using the form below.<br />These folders will be used to save the "
+#~ "files of the site and the users' files.<br />We recommend to locate them "
+#~ "out of the public HTTP."
+#~ msgstr ""
+#~ "Comprovi que els directoris per a fitxers han estat creats i especifiqui "
+#~ "les seves característiques en el següent formulari. Aquests directoris "
+#~ "s'utilitzaran per guardar els fitxers del lloc i dels usuaris.<br />Es "
+#~ "recomana allotjar-los fora de l'espai públic HTTP."
+
+#~ msgid "Defining the files folders"
+#~ msgstr "Definint les carpetes per a fitxers"
+
+#~ msgid "Write the physical location of the folder in the server"
+#~ msgstr "Escriu la localització física de la carpeta en el servidor"
+
+#~ msgid "Write the users' folder name"
+#~ msgstr "Escriu el nom de la carpeta d'usuari"
+
+#~ msgid "Checking if the files folders exist and they are writable"
+#~ msgstr ""
+#~ "Comprovant si els directoris per a fitxers existeixen i tenen permissos "
+#~ "d'escriptura"
+
+#~ msgid "The folder <strong>%s</strong> is located in the correct place."
+#~ msgstr "La localització del directori <strong>%s</strong> es correcte"
+
+#~ msgid "The folder <strong>%s</strong> is not writable and it should be."
+#~ msgstr ""
+#~ "El directori <strong>%s</strong> no té permisos d'escriptura i hauria de "
+#~ "tenir-ne"
+
+#~ msgid "The folder <strong>%s/%s</strong> has not been found."
+#~ msgstr "No s'ha trobat el directori <strong>%s/%s</strong>"
+
+#~ msgid "The folder <strong>%s/%s</strong> is located in the correct place."
+#~ msgstr "La localització del directori <strong>%s/%s</strong> es correcte"
+
+#~ msgid "The folder <strong>%s/%s</strong> is not writable and it should be."
+#~ msgstr ""
+#~ "El directori <strong>%s/%s</strong> no té permisos d'escriptura i hauria "
+#~ "de tenir-ne"
+
+#~ msgid "The folder <strong>%s/%s</strong> is writable."
+#~ msgstr "El directori <strong>%s/%s</strong> té permissos d'escriptura"
+
+#~ msgid ""
+#~ "Define folders again. Remember that you have to create the folders after "
+#~ "define them."
+#~ msgstr ""
+#~ "Especifiqui els directoris altra vegada. Recordi que s'han de crear del "
+#~ "directoris dessorés de definir-los."
+
+#~ msgid "Make the folders writable and try again."
+#~ msgstr "Doni permissos d'escriptura a les carpetes i torni-ho a provar"
+
+#~ msgid "Proceed with the module installation"
+#~ msgstr "Continua amb la instal·lació del mòdul"
+
+#~ msgid "Browse"
+#~ msgstr "Cerca"
+
+#~ msgid "User's files"
+#~ msgstr "Fitxers de l'usuari"
+
+#~ msgid "The folder <strong>%s</strong> is in the correct place."
+#~ msgstr "La localització del directori <strong>%s</strong> no es correcte"
+
+#~ msgid "File not available"
+#~ msgstr "Arxiu no disponible"
+
+#~ msgid "The requested file does not exist or is private."
+#~ msgstr "L'arxiu demanat no existeix o és privat."
+
+#~ msgid "The requested <b><i>%s</i></b> is not available."
+#~ msgstr "L'arxiu <b><i>%s</i></b> no està disponible"
+
+#~ msgid "This file does not exist or is private."
+#~ msgstr "Aquest arxiu no existeix o és privat."
+
+#~ msgid "Ask the file owner or the site admin for this file."
+#~ msgstr ""
+#~ "Heu de contactar amb el propietari de l'arxiu o amb l'administrador del "
+#~ "lloc."
+
+#~ msgid "The file folder must be public in Files module."
+#~ msgstr ""
+#~ "La carpeta que conté l'arxiu s'ha de fer pública des del mòdul 'Files'."
