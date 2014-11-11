@@ -112,6 +112,9 @@ Zikula_View_Theme::getInstance()->clear_cssjscombinecache();
 Zikula_View::getInstance()->clear_all_cache();
 Zikula_View::getInstance()->clear_compiled();
 
+// Remove old records in table IWstats to avoid infinite growing
+ModUtil::func('IWstats', 'admin', 'purgeOldRecords', array());
+
 System::shutdown();
 
 

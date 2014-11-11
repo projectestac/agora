@@ -537,7 +537,7 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
             //throw new Zikula_Exception_Forbidden();
         }
 
-        $days = 7;
+        $days = 2;
 
         ModUtil::apiFunc('IWstats', 'admin', 'summary', array('days' => $days,
         ));
@@ -545,6 +545,13 @@ class IWstats_Controller_Admin extends Zikula_AbstractController {
         // Success
         LogUtil::registerStatus($this->__('Summary reported'));
         return System::redirect(ModUtil::url('IWstats', 'admin', 'view'));
+    }
+
+    public function purgeOldRecords() {
+
+        ModUtil::apiFunc('IWstats', 'admin', 'purgeOldRecords', array());
+        
+        return true;
     }
 
 }

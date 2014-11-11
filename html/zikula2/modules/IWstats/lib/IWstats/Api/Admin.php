@@ -202,6 +202,28 @@ class IWstats_Api_Admin extends Zikula_AbstractApi {
         return true;
     }
 
+    public function purgeOldRecords($args) {
+
+        $table = DBUtil::getTables();
+        $d = $table['IWstats_column'];
+
+        $keepDays = $this->getVar('keepDays');
+
+        if (!is_numeric($keepDays) || $keepDays <= 0) {
+            $keepDays = 90;
+        }
+
+        $time = time() - $keepDays * 24 * 60 * 60;
+        $keepTime = date('Y-m-d 23:59:59', $time);
+
+        // delete old records
+        $where = "$d[datetime] <= '$keepTime'";
+        DBUtil::deleteWhere('IWstats', $where);
+
+        return true;
+    }
+    
+    
     /**
      * get available admin panel links
      *
