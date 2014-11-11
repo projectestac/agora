@@ -51,7 +51,8 @@ function get_books_structure_publisher($publisher, $isbn = false) {
             echo '<ol>';
             foreach ($books as $book) {
                 // Disable scorm import
-                if (textlib::strtolower($book['formato']) == 'scorm') {
+                $bookformat = textlib::strtolower($book['formato']);
+                if (!in_array($bookformat, rcommon_book::$allowedformats)) {
                     continue;
                 }
 
@@ -61,13 +62,13 @@ function get_books_structure_publisher($publisher, $isbn = false) {
                 if (!$isbn || $cod_isbn == $isbn) {
                     echo '<li>ISBN: '.$cod_isbn.' -- ';
 
-                    //obtiene los datos del indice del libro
+                    // Obtiene los datos del indice del libro
                     try {
                         $instance = new StdClass();
                         $instance->isbn = $cod_isbn;
                         $instance->name = $book['titulo'];
                         $instance->summary = $book['titulo'];
-                        $instance->format = $book['formato'];
+                        $instance->format = $bookformat;
                         $instance->levelid = isset($book['nivel']) ? $book['nivel'] : false;
                         $instance->publisherid = $publisher->id;
                         rcommon_book::add_update($instance);

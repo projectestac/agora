@@ -88,7 +88,8 @@ if($rcontent->popup == 1 ){
 
 } else if($rcontent->frame == 1) {
 	echo $OUTPUT->header();
-	echo '<iframe height="'.$CFG->rcontent_framesize.'px" width="100%" src="'.$url.'" id="rcontent_iframe"> <a href="'.$url.'" target="_blank">Resource</a></iframe>';
+  $framesize = get_config('rcontent', 'framesize');
+	echo '<iframe height="'.$framesize.'px" width="100%" src="'.$url.'" id="rcontent_iframe"> <a href="'.$url.'" target="_blank">Resource</a></iframe>';
 	echo'<script type="text/javascript">
 								 //<![CDATA[
 								 function resizeEmbeddedHtml() {

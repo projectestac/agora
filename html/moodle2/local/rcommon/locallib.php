@@ -28,6 +28,8 @@ class rcommon_level{
 }
 
 class rcommon_book{
+    public static $allowedformats = array('webcontent');
+
     static function add_update($record){
         global $DB;
 
@@ -69,6 +71,17 @@ class rcommon_book{
         global $DB;
         $DB->delete_records_select('rcommon_books_units', 'bookid = :bookid AND timemodified < :time', array('bookid'=> $bookid, 'time'=>$time));
         $DB->delete_records_select('rcommon_books_activities', 'bookid = :bookid AND timemodified < :time', array('bookid'=> $bookid, 'time'=>$time));
+    }
+
+    static function delete($bookid, $publisherid) {
+        global $DB;
+        if ($DB->record_exists('rcommon_books', array('id' => $bookid, 'publisherid' => $publisherid))) {
+            $DB->delete_records('rcommon_books', array('id' => $bookid, 'publisherid' => $publisherid));
+            $DB->delete_records('rcommon_books_units', array('bookid' => $bookid));
+            $DB->delete_records('rcommon_books_activities', array('bookid' => $bookid));
+            return true;
+        }
+        return false;
     }
 }
 

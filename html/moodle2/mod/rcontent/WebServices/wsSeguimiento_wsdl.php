@@ -1,6 +1,6 @@
 <?php
-	require_once('../../../config.php');
-	echo '<?xml version="1.0" encoding="utf-8"?>';
+defined('MOODLE_INTERNAL') || die;
+echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://educacio.gencat.cat/agora/seguimiento/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://educacio.gencat.cat/agora/seguimiento/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>

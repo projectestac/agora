@@ -103,7 +103,7 @@ if ($course->format == 'weeks') {
 //MARSUPIAL ********** AFEGIT -> Add pagination
 //2011.05.18 @mmartinez
 $page       = optional_param("page",0,PARAM_INT);
-$limit      = $CFG->rcontent_registersperreportpage;
+$limit      = get_config('rcontent', 'registersperreportpage');
 $count      = count($rcontents);
 $startindex = ($limit*$page);
 //********** FI

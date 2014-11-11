@@ -19,6 +19,7 @@ echo $OUTPUT->header();
 
 //key synchronization
 echo $OUTPUT->heading(get_string('keymanager', 'local_rcommon'));
+
 echo '<div class="generalbox box contentbox">';
 
 $credentials = $DB->get_records_sql("SELECT ruc.id, ruc.credentials, ruc.euserid, u.lastname, u.firstname FROM {rcommon_user_credentials} ruc LEFT JOIN {user} u ON ruc.euserid = u.id WHERE isbn = '{$book->isbn}' ORDER BY u.lastname, u.firstname");
@@ -49,6 +50,9 @@ switch($action){
 		break;
 	break;
 	case 'assign':
+		if (!in_array(textlib::strtolower($book->format), rcommon_book::$allowedformats)) {
+			print_error('Not a valid book');
+		}
 		define("MAX_USERS_PER_PAGE", 5000);
 
 		//get received info

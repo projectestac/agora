@@ -37,9 +37,9 @@ switch ($action){
 
 			$sql = 'SELECT rcuc.*, rcb.name, rcp.name AS pname
 					FROM {rcommon_user_credentials} rcuc
-					JOIN {rcommon_books} rcb
+					LEFT JOIN {rcommon_books} rcb
 						ON rcb.isbn =  rcuc.isbn
-					JOIN {rcommon_publisher} rcp
+					LEFT JOIN {rcommon_publisher} rcp
 						ON rcp.id = rcb.publisherid
 					WHERE euserid = :userid ORDER BY rcb.name ASC ';
 			$credentials = $DB->get_records_sql($sql, array('userid'=>$id));
@@ -53,9 +53,11 @@ switch ($action){
 				$table->head = array(get_string('publisher', 'local_rcommon'),get_string('book', 'local_rcommon'), get_string('key','local_rcommon'), get_string('actions','local_rcommon'),"");
 				$table->align = array('left','left', 'center', 'center', 'center');
 				foreach($credentials as $credential) {
+					$name = $credential->name? $credential->name : get_string('deleted_book', 'local_rcommon');
+					$publisher = $credential->pname? $credential->pname : get_string('deleted_book', 'local_rcommon');
 					$row = array();
-					$row[] = $credential->pname;
-					$row[] = $credential->name.' ('.$credential->isbn.')';
+					$row[] = $publisher;
+					$row[] = $name.' ('.$credential->isbn.')';
 					$row[] = $credential->credentials;
 					$actions = array();
 					$actions[] = '<a href="edit_book_credential.php?id='.$credential->id.'">'.get_string('edit').'</a>';
@@ -105,7 +107,7 @@ switch ($action){
 		$sort         = 'firstname';
 	    $page         = optional_param('page', 0, PARAM_INT);
 	    $perpage      = optional_param('perpage', 30, PARAM_INT);        // how many per page
-	    $show 		  = optional_param('show', 'all', PARAM_TEXT);        // how many per page
+	    $show 		  = optional_param('show', 'with', PARAM_TEXT);        // how many per page
 		$username = optional_param('username', false, PARAM_TEXT);
 
 		/*echo '<p>'.get_string('keyslookupusertext','local_rcommon').'</p>';

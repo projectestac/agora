@@ -2,6 +2,7 @@
 require_once('../../config.php');
 require_once($CFG->dirroot.'/course/lib.php');
 require_once("{$CFG->libdir}/formslib.php");
+require_once($CFG->dirroot.'/local/rcommon/locallib.php');
 
 require_login();
 
@@ -21,7 +22,12 @@ echo $OUTPUT->heading($book->name . ' (' . $book->isbn . ')',2);
 // print content
 echo $OUTPUT->heading(get_string('manage_credentials', 'local_rcommon'),3);
 $credentials = $DB->get_records_sql("SELECT ruc.id, ruc.credentials, ruc.euserid, u.lastname, u.firstname FROM {rcommon_user_credentials} ruc LEFT JOIN {user} u ON ruc.euserid = u.id WHERE isbn = '{$book->isbn}' ORDER BY u.lastname, u.firstname");
-echo '<input onclick="document.location.href=\'edit_book_credential.php?backto=books&isbn=' . $book->isbn . '\';" type="submit" value="'.get_string('keymanager_add', 'local_rcommon').'" />';
+
+$validbook = in_array(textlib::strtolower($book->format), rcommon_book::$allowedformats);
+if ($validbook) {
+	echo '<input onclick="document.location.href=\'edit_book_credential.php?backto=books&isbn=' . $book->isbn . '\';" type="submit" value="'.get_string('keymanager_add', 'local_rcommon').'" />';
+}
+
 if (empty($credentials)){
 	echo $OUTPUT->notification(get_string('keymanager_nocredentialsfound', 'local_rcommon') );
 } else {
@@ -48,9 +54,11 @@ if (empty($credentials)){
 	}
 	echo html_writer::table($table);
 	echo '<select id="action" name="action" onchange="confirm_actions(this);" disabled>
-		<option value="">' . get_string('keymanager_selectaction', 'local_rcommon') . '</option>
-		<option value="assign">' . get_string('keymanager_assignaction', 'local_rcommon') . '</option>
-		<option value="unassign">' . get_string('keymanager_unassignaction', 'local_rcommon') . '</option>
+		<option value="">' . get_string('keymanager_selectaction', 'local_rcommon') . '</option>';
+	//if ($validbook) {
+		echo '<option value="assign">' . get_string('keymanager_assignaction', 'local_rcommon') . '</option>';
+	//}
+	echo '<option value="unassign">' . get_string('keymanager_unassignaction', 'local_rcommon') . '</option>
 		<option value="delete">' . get_string('keymanager_deleteaction', 'local_rcommon') . '</option>
 	</select> <input type="button" onclick="select_all();" value = "' . get_string('keymanager_selectall', 'local_rcommon') . '"> <input type="button" onclick="unselect_all();" value="' . get_string('keymanager_unselectall', 'local_rcommon') . '">
 	</form>';

@@ -32,10 +32,10 @@
 
 
 $capabilities = array(
-	
+
 	'mod/rcontent:addinstance' => array(
 	        'riskbitmask' => RISK_XSS,
-	
+
 	        'captype' => 'write',
 	        'contextlevel' => CONTEXT_COURSE,
 	        'archetypes' => array(
@@ -57,7 +57,7 @@ $capabilities = array(
             'student' => CAP_ALLOW
         )
     ),
-    
+
     'mod/rcontent:viewresult' => array(
 
         'captype' => 'read',
@@ -69,7 +69,7 @@ $capabilities = array(
             'student' => CAP_PREVENT
         )
     ),
-    
+
     'mod/rcontent:updatescore' => array(
 
         'captype' => 'read',
@@ -114,7 +114,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    
+
     'mod/rcontent:deleteresponses' => array(
 
         'captype' => 'read',
@@ -127,5 +127,3 @@ $capabilities = array(
         )
     )
 );
-
-?>

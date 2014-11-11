@@ -72,15 +72,17 @@ function rcommon_get_wsdl($urlwdsl, $timeout = 20) {
     curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $timeout);
 
 
-	if (!empty($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)) {
-		curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);
-		if (!empty($CFG->proxyport)) {
-			curl_setopt($curl, CURLOPT_PROXYPORT, $CFG->proxyport);
-		}
-		if (!empty($CFG->proxyuser)) {
-			curl_setopt($curl, CURLOPT_PROXYUSERPWD, $CFG->proxyuser . ':' . $CFG->proxypassword);
-		}
-	}
+    if (!is_proxybypass($urlwdsl)) {
+    	if (!empty($CFG->proxytype) && $CFG->proxytype == 'HTTP' && !empty($CFG->proxyhost)) {
+    		curl_setopt($curl, CURLOPT_PROXY, $CFG->proxyhost);
+    		if (!empty($CFG->proxyport)) {
+    			curl_setopt($curl, CURLOPT_PROXYPORT, $CFG->proxyport);
+    		}
+    		if (!empty($CFG->proxyuser)) {
+    			curl_setopt($curl, CURLOPT_PROXYUSERPWD, $CFG->proxyuser . ':' . $CFG->proxypassword);
+    		}
+    	}
+    }
 
     $contents = curl_exec($curl);
     curl_close($curl);
@@ -117,7 +119,7 @@ function rcommon_object_to_array_lower($value, $recursive = false) {
         $anyxml = simplexml_load_string ($array['any']);
         $array = array($anyxml->getName() =>$anyxml);
     }
-	
+
 	$array_ret = array();
     foreach ($array as $key => $value) {
         if ($recursive) {

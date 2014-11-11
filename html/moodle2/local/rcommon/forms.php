@@ -49,7 +49,9 @@ class local_rcommon_add_credentials_form extends moodleform {
 		$select_list = array();
 		$books = $DB->get_records_sql('SELECT b.*, p.name as pname FROM {rcommon_books} b JOIN {rcommon_publisher} p ON b.publisherid = p.id ORDER BY b.name ');
 		foreach($books as $book) {
-			$select_list[$book->isbn] = $book->name.' ('.$book->pname.')';
+			if (in_array(textlib::strtolower($book->format), rcommon_book::$allowedformats)) {
+				$select_list[$book->isbn] = $book->name.' ('.$book->pname.')';
+			}
 		}
 		$mform->addElement('select', 'isbn', 'DOI / ISBN', $select_list);
 		$mform->addRule('isbn', null, 'required', null, 'client');
@@ -73,7 +75,7 @@ class local_rcommon_edit_credentials_form extends moodleform {
 
         $mform->addElement('hidden', 'backto');
 		$mform->setType('backto',PARAM_TEXT);
-        
+
 		$mform->addElement('hidden', 'isbn');
 		$mform->setType('isbn',PARAM_TEXT);
 
