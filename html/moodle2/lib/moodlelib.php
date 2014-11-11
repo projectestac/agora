@@ -5792,9 +5792,9 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         $invalidemail = "User $user->id (".fullname($user).") domain ($user->email) is invalid! Not sending.";
         error_log($invalidemail);
         if (CLI_SCRIPT) {
-            mtrace('Error: lib/moodlelib.php email_to_user(): '.$invalidemail);
+            mtrace('Warning: lib/moodlelib.php email_to_user(): '.$invalidemail);
         }
-        return false;
+        return true;
     }
     // ************ FI
 
