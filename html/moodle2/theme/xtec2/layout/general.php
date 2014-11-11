@@ -37,13 +37,14 @@ if(empty($PAGE->layout_options['nocustommenu'])){
 }
 
 $hasmainmenu = get_config('theme_xtec2','top_menus');
-if($hasmainmenu){
+if($hascustommenu && $hasmainmenu){
     $mainmenu = $OUTPUT->main_menu();
     $hasmainmenu = !empty($mainmenu);
 } else {
     $hasmainmenu = false;
 }
 
+$haslogin = empty($PAGE->layout_options['nologin']);
 $hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
 $hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
 
@@ -115,15 +116,19 @@ echo $OUTPUT->doctype() ?>
 			<a href="http://www.xtec.cat" class="brand xtec hidden-phone"><img src="<?php echo $OUTPUT->pix_url('xtec', 'theme'); ?>" alt="" title="" /></a>
 			<a class="brand mainbrand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->fullname; ?></a>
             <div class="navbar">
-                <ul class="nav pull-right">
-                    <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-                    <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
-                </ul>
-                <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target="#custom-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
+                <?php if($haslogin) { ?>
+                    <ul class="nav pull-right">
+                        <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+                        <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
+                    </ul>
+                <?php } ?>
+                <?php if($hascustommenu) { ?>
+                    <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target="#custom-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                <?php } ?>
             </div>
         </div>
     </nav>
@@ -164,7 +169,6 @@ echo $OUTPUT->doctype() ?>
 			<div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
 		</div>
 	</header>
-
 
     <div id="page-content" class="row-fluid">
         <div id="<?php echo $regionbsid ?>" class="span<?php echo $spanmainpost;?>">
