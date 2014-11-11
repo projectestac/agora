@@ -61,8 +61,25 @@ class bigdata_profile_form extends moodleform {
         $tables = $DB->get_tables();
         $tablefields = array();
         ksort($tables);
+
+        // Tables to be excluded of the form
+        $excludedtables = array('bigdata_profiles', 'cohort', 'cohort_members', 'comments', 'enrol', 'enrol_flatfile', 'enrol_paypal', 'external_functions', 'external_services',
+            'external_services_functions', 'files_reference', 'filter_active', 'filter_config', 'license', 'message', 'message_contacts', 'message_processors',
+            'message_providers', 'message_read', 'message_working', 'mnet_application', 'mnet_host', 'mnet_host2service', 'mnet_log', 'mnet_remote_rpc', 'mnet_remote_service2rpc',
+            'mnet_rpc', 'mnet_service', 'mnet_service2rpc', 'mnet_session', 'mnet_sso_access_control', 'mnetservice_enrol_courses', 'mnetservice_enrol_enrolments', 'my_pages',
+            'oauth_access_tokens', 'oauth_authorization_codes', 'oauth_clients', 'oauth_jwt', 'oauth_public_keys', 'oauth_refresh_tokens', 'oauth_scopes', 'oauth_user_auth_scopes',
+            'portfolio_instance', 'portfolio_instance_config', 'portfolio_instance_user', 'portfolio_log', 'portfolio_mahara_queue', 'portfolio_tempdata',  'profiling',
+            'rcommon_publisher', 'rcommon_user_credentials', 'registration_hubs', 'repository', 'repository_instance_config', 'repository_instances', 'resource_old',
+            'role_allow_assign', 'role_allow_override', 'role_allow_switch', 'role_capabilities', 'role_context_levels', 'role_names', 'role_sortorder',
+            'rscorm', 'rscorm_scoes', 'rscorm_scoes_users', 'rscorm_scoes_data', 'rscorm_scoes_track', 'rscorm_seq_objective', 'rscorm_seq_mapinfo', 'rscorm_seq_ruleconds',
+            'rscorm_seq_rulecond', 'rscorm_seq_rolluprule', 'rscorm_seq_rolluprulecond', 'rscorm_aicc_session', 'sessions', 'stats_daily', 'stats_monthly', 'stats_user_daily',
+            'stats_user_monthly', 'stats_user_weekly', 'stats_weekly', 'timezone', 'tool_customlang', 'tool_customlang_components', 'upgrade_log', 'user', 'user_devices',
+            'user_enrolments', 'user_info_category', 'user_info_data', 'user_info_field', 'user_lastaccess', 'user_password_resets', 'user_preferences', 'user_private_key',
+            'webdav', 'log_queries');
+
+        $excludedtablefields = array('log.info', 'files.author', 'files.contenthash');  // Tables.Fields to be excluded of the form
         foreach ($tables as $table) {
-            if ($table == 'user') {
+            if (in_array($table, $excludedtables)) {
                 continue;
             }
 
@@ -72,7 +89,13 @@ class bigdata_profile_form extends moodleform {
                 if ($key == 'id') {
                     continue;
                 }
-                $columnsclean[$table.'.'.$key] = $key;
+                $tablefield = $table.'.'.$key;
+
+                if (in_array($tablefield, $excludedtablefields)) {
+                    continue;
+                }
+
+                $columnsclean[$tablefield] = $key;
             }
             $tablefields[$table] = $columnsclean;
         }

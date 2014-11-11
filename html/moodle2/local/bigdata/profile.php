@@ -28,7 +28,7 @@ switch($action) {
         echo $OUTPUT->header();
         echo $OUTPUT->heading(get_string('pluginname', 'local_bigdata').': '.get_string('add_profile', 'local_bigdata'));
         $roles = array(3, 4, 5);
-        // TODO: Add default tablefields
+
         $tablefields = array('modules.name', 'role.shortname', 'course.fullname', 'role_assignments.roleid', 'role_assignments.contextid', 'role_assignments.userid',
             'log.time', 'log.userid', 'log.course', 'log.module', 'log.cmid', 'log.action', 'context.contextlevel', 'context.instanceid', 'course_modules.course',
             'course_modules.module', 'course_modules.instance', 'course_modules.added', 'assignment_submissions.assignment', 'assignment_submissions.userid',
