@@ -25,22 +25,6 @@
 <?php wp_footer(); reactor_foot(); ?>
 <!-- Include the plug-in -->
 
-<?php 
-//From loop-frontpage
-if ( is_front_page() ){
-	global $number_posts;
-	global $posts_per_fila1;
-	global $posts_per_fila2;
-	global $posts_per_filan;
-	$num_rows_n = round( ($number_posts - ($posts_per_fila1 + $posts_per_fila2)) / $posts_per_filan, 0, PHP_ROUND_HALF_UP ) ;
-	$num_rows=$num_rows_n+2;
-}
-if ( is_category() or is_tag() ){
-	global $posts_per_fila;
-	$num_rows=round( 10/$posts_per_fila, 0, PHP_ROUND_HALF_UP);
-}
-?>
-
 <?php if (!wp_is_mobile()){ ?>
 
 <script type="text/javascript">

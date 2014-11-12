@@ -8,7 +8,12 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php
+    global $etiqueta;
+    $etiqueta=  get_query_var('tag');
+?>
+
+    <?php get_header(); ?>
 
 	<div id="primary" class="site-content">
     
@@ -25,16 +30,41 @@
                     <header class="archive-header">
                         
                     <?php // show an optional tag description
-					if ( tag_description() ) : ?>
-                        <div class="archive-meta">
-                        <?php echo tag_description(); ?>
-                        </div>
+                        if ( tag_description() ) : ?>
+                            <div class="archive-meta">
+                            <?php echo tag_description(); ?>
+                            </div>
                     <?php endif; ?>
                     </header><!-- .archive-header -->
                 <?php endif; // end have_posts() check ?> 
                 
-				<?php // get the loop
-				get_template_part('loops/loop', 'tag'); ?>
+                <?php
+                $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+                       
+                $temp=$wp_query;
+                $wp_query=null;
+
+                $args = array( 
+                    'post_type'      => 'post',
+                    'posts_per_page' => 10,
+                    'paged' => $paged
+                );
+
+                $wp_query = new WP_Query( $args );  
+                
+               
+                //TODO: get values from tag settings
+                $posts_per_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
+                $posts_per_fila2 = reactor_option('frontpage_posts_per_fila_2', 2);
+                $posts_per_filan = reactor_option('frontpage_posts_per_fila_n', 2);
+
+                reactor_loop_before();
+                get_template_part('loops/loop', 'taxonomy'); 
+                reactor_loop_after();
+
+                wp_reset_postdata();
+                $wp_query=$temp;
+                ?>
                 
                 <?php reactor_inner_content_after(); ?>
                 

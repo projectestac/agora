@@ -41,7 +41,9 @@ function barra_dreta($frontpage_layout){
 
 
 global $number_posts;
+global $categoria;
 
+$categoria=reactor_option('frontpage_post_category', '1');
 $number_posts = reactor_option('frontpage_number_posts', 10);
 $frontpage_layout = reactor_option('frontpage_layout');
 
@@ -78,36 +80,49 @@ get_header();
          	<?php reactor_inner_content_before(); ?>
 				
 		<?php 
-
-		   // La pagina principal
-		   $args = array( 
+                 
+		    // Consulta per obtenir el contingut de la pagina principal
+                    $args = array( 
                         'post_type'           => 'page',
                         'page_id'             => reactor_option('frontpage_page'));
 
-                    global $frontpage_query;   			      	
-                    $frontpage_query = new WP_Query( $args ); 	
-		    $frontpage_query->the_post(); 			
+                    $wp_frontpage = new WP_Query( $args ); 	
+		    $wp_frontpage ->the_post(); 			
                     
-                    //Es mostra la pàgina només si hi ha contingut
                     if (strlen(trim(get_the_content()))){
 		    	get_template_part('post-formats/format', 'page');
 		    }
-		   
-                    // Preparem la consulta principal per obtenir els articles	
-                    $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+                     wp_reset_postdata();
+                                         
+                    $paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
+                    
+                    //Es necessari utilitzar $wp_query per tenir paginació
+                    $temp=$wp_query;
+                    $wp_query=null;
+                                       
+                    // Articles
+                    // No es pot establir la categoria directament perquè perdem els stickys
                     $args = array( 
                         'post_type'           => 'post',
-                        //'cat'                 => reactor_option('frontpage_post_category', '1'), 
-                        //IMPORTANT: Aixo no permet stickys. Llastima. action associat al functions (categoria_portada())  
                         'posts_per_page'      => $number_posts,
                         'paged'               => $paged );
 	      	
-                    $frontpage_query = new WP_Query( $args ); 
+                   
+                    $wp_query = new WP_Query( $args ); 
                     
-		?>
-		
-		<?php get_template_part('loops/loop', 'frontpage'); ?>
-			
+                    //action: filter_by_categoria
+                    
+                    $posts_per_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
+                    $posts_per_fila2 = reactor_option('frontpage_posts_per_fila_2', 2);
+                    $posts_per_filan = reactor_option('frontpage_posts_per_fila_n', 2);
+                    reactor_loop_before();
+                    get_template_part('loops/loop', 'taxonomy'); 
+                    reactor_loop_after();
+                    wp_reset_postdata();
+                    $wp_query=$temp;
+                    
+               ?>
+                	
 	        <?php reactor_inner_content_after(); ?>
 	        
 	    	</div><!-- .columns --><!--Contingut central -->

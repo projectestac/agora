@@ -7,6 +7,10 @@
  * @since 1.0.0
  */
 ?>
+<?php
+    global $categoria;
+    $categoria=  get_query_var('cat');
+?>
 
 <?php get_header(); ?>
 
@@ -22,26 +26,47 @@
         <div class="<?php reactor_columns(); ?>">
         
                 <?php reactor_inner_content_before(); ?>
-		
 				
-				<?php // show an optional category description 
-				if ( category_description() ) : ?>
-					 <header class="archive-header">
-		                 <div class="archive-meta">
-		                 <?php echo category_description(); ?>
-		                 </div>
-		             </header><!-- .archive-header -->
-		
-		         <?php endif; ?>
-		         		         
-		   		<?php if ( have_posts() ) : ?>
-		
-		         <?php endif; // end have_posts() check ?> 
+                    <?php // show an optional category description 
+                    if ( category_description() ) : ?>
+                        <header class="archive-header">
+                       <div class="archive-meta">
+                       <?php echo category_description(); ?>
+                       </div>
+                       </header><!-- .archive-header -->
+
+                    <?php endif; ?>
 		         
-		         <?php // get the loop
-		         get_template_part('loops/loop', 'category'); ?>
-		
-		         <?php reactor_inner_content_after(); ?>
+                    <?php
+                    
+                       $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+                       
+                       $temp=$wp_query;
+                       $wp_query=null;
+                    
+                       $args = array( 
+                           'post_type'      => 'post',
+                           'posts_per_page' => 10,
+                           'paged' => $paged
+                       );
+
+                       $wp_query = new WP_Query( $args );    
+                       
+                       //TODO: get values from tag settings
+                       $posts_per_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
+                       $posts_per_fila2 = reactor_option('frontpage_posts_per_fila_2', 2);
+                       $posts_per_filan = reactor_option('frontpage_posts_per_fila_n', 2);
+
+                       reactor_loop_before();
+                       get_template_part('loops/loop', 'taxonomy'); 
+                       reactor_loop_after();
+                       
+                       wp_reset_postdata();
+                       $wp_query=$temp;
+                    
+                    ?>
+                       
+                    <?php reactor_inner_content_after(); ?>
                 
                 </div><!-- .columns -->
                                 

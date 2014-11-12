@@ -16,7 +16,7 @@
  You can add your custom functions below
 -------------------------------------------------------- */
 
-/**
+/**react
  * Child Theme Features
  * The following function will allow you to remove features included with Reactor
  *
@@ -172,7 +172,7 @@ function extra_category_fields( $tag ) {    //check for existing featured ID
 // save extra category extra fields hook
 add_action ( 'edited_category', 'save_extra_category_fields');
 
-   // save extra category extra fields callback function
+// save extra category extra fields callback function
 function save_extra_category_fields( $term_id ) {
     if ( isset( $_POST['Cat_meta'] ) ) {
         $t_id = $term_id;
@@ -190,24 +190,26 @@ function save_extra_category_fields( $term_id ) {
 
 
 //Filtre categoria 
-function categoria_portada ( $query ) {
+function filter_by_taxonomy ( $query ) {
+
+    global $categoria;
+    global $etiqueta;
     
-    $catId = reactor_option('frontpage_post_category', '1');
-    if ( $query->is_home() and $query->query['post_type']=='post') {
-        $query->set('cat',$catId);
+    if ( $categoria && $query->query['post_type']=='post'){
+        //echo "<script>alert(".$categoria.");</script>";
+        $query->set('cat',$categoria);
     }
     
-    if ( is_category() ){
-    	global $categoria;
-    	$query->set('cat',$categoria);
+    if ( $etiqueta && $query->query['post_type']=='post'){
+        //echo "<script>alert(".$etiqueta.");</script>";
+        $query->set('tag',$etiqueta);
     }
     
     
 }
-
-add_action( 'pre_get_posts', 'categoria_portada' );
-
-
+    
+add_action( 'pre_get_posts', 'filter_by_taxonomy');
+ 
 // Permet algunes etiquetes html a l'extracte d'un post
 function improved_trim_excerpt($text) {
     
@@ -309,190 +311,6 @@ include "custom-tac/ginys/giny-socialmedia.php";
 //Menu principal
 include "custom-tac/menu-principal.php";
 add_action("reactor_content_before","menu_principal");
-
-
-function getRowFrontPage($posts_per_fila,$numFila){
-	
-	global $frontpage_query;  
-  	global $card_colors;
-        $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
-        global $card_bgcolor;
-	global $layout;
-     
-	$aLayout=array();
-	
-	switch ($posts_per_fila) {
-		case 1: array_push($aLayout,1);
-		 break;
-		case 2: array_push($aLayout,2,2);
-		 break;
-		case 3: array_push($aLayout,3,3,3);
-		 break;
-		case 4: array_push($aLayout,4,4,4,4);
-		 break;
-		case 33: array_push($aLayout,66,3);
-		 break;
-		case 66: array_push($aLayout,3,66);
-		 break;
-	}
-	
-	echo '<div class="row fila'.$numFila.'">';
-	
-	if ( count($aLayout>0) ) : 
-
-            reactor_loop_before(); 
-            $col=1;    
-
-            while ( $frontpage_query->have_posts() ) : 
-		   
-                    $pos_color=((($numFila+1)%3)+$col)%3;
-                    $card_bgcolor=$card_colors[$pos_color];
-                    $col++;
-                    $layout=array_pop($aLayout);
-	  
-                    if (!$layout): 
-                        break;
-                    else: 		
-                    	$frontpage_query->the_post(); 
-                    	reactor_post_before();
-                    	get_template_part('post-formats/format', "tac");
-                    	reactor_post_after();
-            	    endif;
-    	
-	     endwhile; 
-	
-		reactor_loop_after();
-	 
-	else : 
-		reactor_loop_else(); 
-	endif; 
-	
-	echo '</div>';
-
-}
-
-
-function getRow_N_FrontPage($posts_per_fila,$num_posts_n){
-	
-	global $frontpage_query;  
-        global $card_colors;
-        $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
-        global $card_bgcolor;
-		global $layout;
-        global $aLayout;
-        
-        $aLayout=array();
-        
-        //Omplim el layout de la resta de files
-        $aLayout=array_fill(0, $num_posts_n, $posts_per_fila);
-        
-	if ( $frontpage_query->have_posts() ) : 
-            
-            $num_fila=3; // Fila inicial 
-            $loop_posts=0; 
-            $nova_fila=true;      
-            reactor_loop_before();  
-            $col=0;
-            
-            while ( $frontpage_query->have_posts() ) : 	
-                $col++;
-                $pos_color=((($num_fila+1)%3)+$col)%3;
-                $card_bgcolor=$card_colors[$pos_color];
-                
-                if ($nova_fila){
-                        echo "<div class='row fila".$num_fila."'>";
-                        $nova_fila=false;
-                }
-                $frontpage_query->the_post(); 
-                
-                $layout=array_pop($aLayout); 
-                reactor_post_before();
-                get_template_part('post-formats/format', "tac"); 
-                reactor_post_after(); 
-                $loop_posts++;
-
-                $nova_fila=($loop_posts>=$posts_per_fila)?true:false;
-
-                if ($nova_fila) {
-                        echo "</div>";
-                        $loop_posts=0;
-                        $num_fila++;
-                        $col=0;
-                }	
-                
-               
-            endwhile; 
-            //Si no hem acabat la fila, tanquem la graella
-            if ($col!=0 and $col<$posts_per_fila)
-                echo "</div>";
-
-            reactor_loop_after(); 
-	
-        else : 
-                reactor_loop_else(); 
-        endif; 
-
-}
-
-function getRow_Posts($posts_per_fila,$num_posts_n){
-
-        global $card_colors;
-        $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
-        global $card_bgcolor;
-	global $layout;
-        global $aLayout;
-        
-        $aLayout=array();
-        
-        //Omplim el layout de la resta de files
-        $aLayout=array_fill(0, $num_posts_n, $posts_per_fila);
-        
-	if (have_posts() ) : 
-            
-            $num_fila=3; // Fila inicial 
-            $loop_posts=0; 
-            $nova_fila=true;      
-            reactor_loop_before();  
-            $col=0;
-            
-            while ( have_posts() ) :
-
-                $col++;
-                $pos_color=((($num_fila+1)%3)+$col)%3;
-                //echo "f:".$num_fila."-col:".$col;
-                $card_bgcolor=$card_colors[$pos_color];
-                
-                if ($nova_fila){
-                        echo "<div class='row fila".$num_fila."'>";
-                        $nova_fila=false;
-                }
-                the_post(); 
-                
-                $layout=array_pop($aLayout); 
-                reactor_post_before();
-                get_template_part('post-formats/format', "tac"); 
-                reactor_post_after(); 
-                $loop_posts++;
-
-                $nova_fila=($loop_posts>=$posts_per_fila)?true:false;
-
-                if ($nova_fila) {
-                        echo "</div>";
-                        $loop_posts=0;
-                        $num_fila++;
-                        $col=0;
-                }	
-
-            endwhile; 
-
-            reactor_loop_after(); 
-	
-        else : 
-            reactor_loop_else(); 
-        endif; 
-
-}
-
 
 // Zona de Ginys per categories
 if ( function_exists('register_sidebar') ) {
@@ -857,21 +675,22 @@ function remove_page_templates( $templates ) {
 }
 add_filter( 'theme_page_templates', 'remove_page_templates' );
 
+
 /*
  * Menú shortcode 
- * 
+ *  
  * @author Xavi Meler
  * http://www.smashingmagazine.com/2012/05/01/wordpress-shortcodes-complete-guide/
  * 
  * Usage: [menu name="main-menu"]
- */
-/*
+ 
+
 function menu_function($atts, $content = null) {
    extract(
       shortcode_atts(
          array( 'nom' => null,
                 'mostra'=>"horitzontal",
-                'nivells'=>2 ),
+                'nivells'=>1 ),
          $atts
       )
    );
@@ -887,8 +706,9 @@ function menu_function($atts, $content = null) {
    
 }
 add_shortcode('menu', 'menu_function');
- * 
- */
+
+*/
+
 
 /*
  * Determina la mida de la font de la caixa descripció en funció del nombre de 
