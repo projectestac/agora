@@ -308,7 +308,7 @@ function get_admin_datadir($exceptiononerror = true) {
     }
 
     if (isset($agora['admin']['datadir'])) {
-        $dir = $agora['admin']['datadir'].$CFG->siteidentifier;
+        $dir = $agora['server']['root'].'/'.$agora['admin']['datadir'].'/data/moodle2/'.$CFG->siteidentifier;
     } else {
         $dir = $CFG->dataroot.'/repository/files';
     }
