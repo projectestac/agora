@@ -34,7 +34,7 @@ $CFG->recaptchaprivatekey='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 
 //Mail
 $CFG->smtpmaxbulk = 20;
-//$CFG->noreplyaddress = "noreply@agora.xtec.cat";
+$CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 $CFG->digestmailtime = 1;
 if ($CFG->iseoi) {
 	$CFG->mailheader = '[Àgora-EOI]';
@@ -93,31 +93,6 @@ if ($CFG->iseoi) {
 if (!$CFG->iseoi) {
 	$CFG->langlist = 'ca,en,es,fr,de';
 }
-
-// Àtria-marsupial information
-//$CFG->center = '08929684';
-$CFG->atriaUsername = $agora['atria']['username'];
-$CFG->atriaPassword = $agora['atria']['password'];
-$CFG->atriaEmpresa = $CFG->atriaUsername;
-$CFG->atriaEvaType = $agora['atria']['evatype'];
-
-///////////////////////////
-////dades preproduccio
-//$CFG->atriaWSUrl = 'http://212.92.50.138/_layouts/Renacimiento/WebServices/WS_IdentEVA.wsdl';
-//$CFG->atriaWSUrlPublisher = 'http://212.92.50.138/_layouts/Renacimiento/WebServices/WS_PublisherData.wsdl';
-//$CFG->atriaFormUrl = 'http://212.92.50.138/_layouts/Renacimiento/LoginPageExt.aspx';
-
-/////////////////////////
-//dades produccio
-$CFG->atriaWSUrl = 'https://www.atria.cat/_layouts/Renacimiento/WebServices/WS_IdentEVA.wsdl';
-$CFG->atriaWSUrlPublisher = 'https://www.atria.cat/_layouts/Renacimiento/WebServices/WS_PublisherData.wsdl';
-$CFG->atriaFormUrl = 'https://www.atria.cat/_layouts/Renacimiento/LoginPageExt.aspx';
-
-//$CFG->atriaWSUrl = 'http://www.atria.cat/_layouts/Renacimiento/WebServices/WS_IdentEVA.wsdl';
-//$CFG->atriaWSUrlPublisher = 'http://www.atria.cat/_layouts/Renacimiento/WebServices/WS_PublisherDatax.wsdl';
-//$CFG->atriaFormUrl = 'http://www.atria.cat/_layouts/Renacimiento/LoginPageExt.aspx';
-
-$CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 
 if (isset($agora['server']['enviroment'])) {
     $CFG->eoicampus_wsdl_path = dirname(__FILE__) . '/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
