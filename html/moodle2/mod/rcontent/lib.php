@@ -10,51 +10,51 @@ $RCONTENT_WINDOW_OPTIONS = array('resizable', 'scrollbars', 'directories', 'loca
  * @return int/bool -> if ok return last insert id else return false
  */
 function rcontent_add_instance($data){
- if(empty($data))
-     return false;
+    if(empty($data))
+        return false;
 
- global $DB;
- //resizable=1,scrollbars=1,directories=1,location=1,menubar=1,toolbar=1,status=1,height=450,width=620
- $popup_options = array();
- if(isset($data->resizable))   $popup_options[]="resizable=".$data->resizable;
- if(isset($data->scrollbars))  $popup_options[]="scrollbars=".$data->scrollbars;
- if(isset($data->directories)) $popup_options[]="directories=".$data->directories;
- if(isset($data->location))    $popup_options[]="location=".$data->location;
- if(isset($data->menubar))     $popup_options[]="menubar=".$data->menubar;
- if(isset($data->toolbar))     $popup_options[]="toolbar=".$data->toolbar;
- if(isset($data->status))      $popup_options[]="status=".$data->status;
- if(isset($data->height))      $popup_options[]="height=".$data->height;
- if(isset($data->width))       $popup_options[]="width=".$data->width;
+    global $DB;
+    //resizable=1,scrollbars=1,directories=1,location=1,menubar=1,toolbar=1,status=1,height=450,width=620
+    $popup_options = array();
+    if(isset($data->resizable))   $popup_options[]="resizable=".$data->resizable;
+    if(isset($data->scrollbars))  $popup_options[]="scrollbars=".$data->scrollbars;
+    if(isset($data->directories)) $popup_options[]="directories=".$data->directories;
+    if(isset($data->location))    $popup_options[]="location=".$data->location;
+    if(isset($data->menubar))     $popup_options[]="menubar=".$data->menubar;
+    if(isset($data->toolbar))     $popup_options[]="toolbar=".$data->toolbar;
+    if(isset($data->status))      $popup_options[]="status=".$data->status;
+    if(isset($data->height))      $popup_options[]="height=".$data->height;
+    if(isset($data->width))       $popup_options[]="width=".$data->width;
 
- $popup_options = implode(",",$popup_options);
+    $popup_options = implode(",",$popup_options);
 
- $tmp = new stdClass();
- $tmp->course        = $data->course;
- $tmp->name          = $data->name;
- $tmp->summary       = $data->summary;
- $tmp->levelid       = (isset($data->levelid))?$data->levelid:required_param('level',PARAM_INT);
- $tmp->bookid        = (isset($data->isbn))?$data->isbn:required_param('isbn',PARAM_INT);
- $tmp->unitid        = (isset($data->unit))?$data->unit:required_param('unit',PARAM_INT);
- $tmp->activityid    = (isset($data->activity))?$data->activity:required_param('activity',PARAM_INT);
- $tmp->whatgrade     = $data->whatgrade;
- $tmp->popup         = $data->windowpopup;
- $tmp->popup_options = $popup_options;
- $tmp->frame         = (isset($data->framepage))?$data->framepage:0;
-//MARSUPIAL ********** AFEGIT -> Bug no save frame size
-//2011.06.17 @mmartinez
- $tmp->width         = str_replace('%','',$data->width);
- $tmp->height        = str_replace('%','',$data->height);
-//********** FI
- $tmp->timecreated   = time();
- $tmp->timemodified  = time();
+    $tmp = new stdClass();
+    $tmp->course        = $data->course;
+    $tmp->name          = $data->name;
+    $tmp->summary       = $data->summary;
+    $tmp->levelid       = (isset($data->levelid))?$data->levelid:required_param('level',PARAM_INT);
+    $tmp->bookid        = (isset($data->isbn))?$data->isbn:required_param('isbn',PARAM_INT);
+    $tmp->unitid        = (isset($data->unit))?$data->unit:required_param('unit',PARAM_INT);
+    $tmp->activityid    = (isset($data->activity))?$data->activity:required_param('activity',PARAM_INT);
+    $tmp->whatgrade     = $data->whatgrade;
+    $tmp->popup         = $data->windowpopup;
+    $tmp->popup_options = $popup_options;
+    $tmp->frame         = (isset($data->framepage))?$data->framepage:0;
+    //MARSUPIAL ********** AFEGIT -> Bug no save frame size
+    //2011.06.17 @mmartinez
+    $tmp->width         = str_replace('%','',$data->width);
+    $tmp->height        = str_replace('%','',$data->height);
+    //********** FI
+    $tmp->timecreated   = time();
+    $tmp->timemodified  = time();
 
- $id=$DB->insert_record("rcontent",$tmp);
+    $id=$DB->insert_record("rcontent",$tmp);
 
- if ($id!==false){
- 	$tmp->id=$id;
- 	rcontent_grade_item_update($tmp);
- }
- return $id;
+    if ($id!==false){
+    	$tmp->id=$id;
+    	rcontent_grade_item_update($tmp);
+    }
+    return $id;
 
 }
 

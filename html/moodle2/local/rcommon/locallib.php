@@ -67,15 +67,26 @@ class rcommon_book{
         return false;
     }
 
-    static function clean($bookid, $time){
+    static function clean($bookid, $time) {
         global $DB;
-        $DB->delete_records_select('rcommon_books_units', 'bookid = :bookid AND timemodified < :time', array('bookid'=> $bookid, 'time'=>$time));
-        $DB->delete_records_select('rcommon_books_activities', 'bookid = :bookid AND timemodified < :time', array('bookid'=> $bookid, 'time'=>$time));
+        $units2delete = $DB->get_records_select('rcommon_books_units', 'bookid = :bookid AND timemodified < :time', array('bookid' => $bookid, 'time' => $time));
+        foreach ($units2delete as $unit) {
+            if (!$DB->record_exists('rcontent', array('bookid' => $bookid, 'unitid' => $unit->id))) {
+                $DB->delete_records('rcommon_books_units', array('id' => $unit->id));
+            }
+        }
+        $acts2delete = $DB->get_records_select('rcommon_books_activities', 'bookid = :bookid AND timemodified < :time', array('bookid' => $bookid, 'time' => $time));
+        foreach ($acts2delete as $act) {
+            if (!$DB->record_exists('rcontent', array('bookid' => $bookid, 'unitid' => $act->unitid, 'activityid' => $act->id))) {
+                $DB->delete_records('rcommon_books_activities', array('id' => $act->id));
+            }
+        }
     }
 
     static function delete($bookid, $publisherid) {
         global $DB;
-        if ($DB->record_exists('rcommon_books', array('id' => $bookid, 'publisherid' => $publisherid))) {
+        $book = $DB->get_record('rcommon_books', array('id' => $bookid, 'publisherid' => $publisherid));
+        if ($book) {
             $DB->delete_records('rcommon_books', array('id' => $bookid, 'publisherid' => $publisherid));
             $DB->delete_records('rcommon_books_units', array('bookid' => $bookid));
             $DB->delete_records('rcommon_books_activities', array('bookid' => $bookid));

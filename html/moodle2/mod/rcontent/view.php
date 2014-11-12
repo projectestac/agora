@@ -2,8 +2,8 @@
 require_once('../../config.php');
 require_once('lib.php');
 
-$id = optional_param('id', 0, PARAM_INT);        // course_module ID, or
-$a = optional_param('a', 0, PARAM_INT);          // rcontent instance ID
+$id = optional_param('id', false, PARAM_INT);        // course_module ID, or
+$a = optional_param('a', false, PARAM_INT);          // rcontent instance ID
 
 if ($id !== false) {
     if (($cm = get_coursemodule_from_id('rcontent', $id)) === false) {
@@ -16,8 +16,7 @@ if ($id !== false) {
     if (($rcontent = $DB->get_record('rcontent', array('id' => $cm->instance))) === false) {
         print_error('Course module is incorrect');
     }
-}
-else if ($a !== false) {
+} else if ($a !== false) {
     if (($rcontent = $DB->get_record('rcontent', array('id' => $a))) === false) {
         print_error('Course module is incorrect');
     }

@@ -55,9 +55,9 @@ if (empty($credentials)){
 	echo html_writer::table($table);
 	echo '<select id="action" name="action" onchange="confirm_actions(this);" disabled>
 		<option value="">' . get_string('keymanager_selectaction', 'local_rcommon') . '</option>';
-	//if ($validbook) {
+	if ($validbook) {
 		echo '<option value="assign">' . get_string('keymanager_assignaction', 'local_rcommon') . '</option>';
-	//}
+	}
 	echo '<option value="unassign">' . get_string('keymanager_unassignaction', 'local_rcommon') . '</option>
 		<option value="delete">' . get_string('keymanager_deleteaction', 'local_rcommon') . '</option>
 	</select> <input type="button" onclick="select_all();" value = "' . get_string('keymanager_selectall', 'local_rcommon') . '"> <input type="button" onclick="unselect_all();" value="' . get_string('keymanager_unselectall', 'local_rcommon') . '">
@@ -76,16 +76,17 @@ if(!$units){
     echo $OUTPUT->notification(get_string('no_units', 'local_rcommon'));
 } else {
     echo '<ul>';
+    $activities = array();
     foreach($units as $unit){
         echo '<li><strong>'.$unit->name.'</strong> ('.$unit->code.') - ';
         echo get_string('lastmodified').': '.userdate($unit->timemodified);
         if(!empty($unit->summary)) echo '<br/>'.$unit->summary;
-        $activities = $DB->get_records('rcommon_books_activities',array('unitid'=>$unit->id), 'sortorder ASC');
-        if(!$activities){
+        $activities[$unit->id] = $DB->get_records('rcommon_books_activities',array('unitid'=>$unit->id), 'sortorder ASC');
+        if(!$activities[$unit->id]){
             echo '<br/>'.get_string('no_activities', 'local_rcommon');
         } else {
             echo '<ul>';
-            foreach($activities as $activity){
+            foreach($activities[$unit->id] as $activity){
                 echo '<li><strong>'.$activity->name.'</strong> ('.$activity->code.') - ';
                 echo get_string('lastmodified').': '.userdate($activity->timemodified);
                 if(!empty($activity->summary)) echo '<br/>'.$activity->summary;
@@ -98,8 +99,40 @@ if(!$units){
     echo '</ul>';
 }
 
+$modules = false;
+switch ($book->format) {
+	case 'scorm':
+	    if ($DB->get_manager()->table_exists('rscorm')) {
+	        $modules = $DB->get_records('rscorm', array('bookid' => $book->id));
+	        $urlbase = $CFG->wwwroot.'/mod/rscorm/view.php?a=';
+	    }
+	    break;
+	default:
+	case 'webcontent':
+		$modules = $DB->get_records('rcontent', array('bookid' => $book->id));
+		$urlbase = $CFG->wwwroot.'/mod/rcontent/view.php?a=';
+	    break;
+}
+if (!empty($modules)) {
+	echo $OUTPUT->heading(get_string('used_modules', 'local_rcommon'), 3);
+	$table = new html_table();
+	$table->class = 'generaltable';
+	$table->head = array(get_string('activity'), get_string('course'), get_string('unit', 'local_rcommon'), get_string('activity', 'local_rcommon'));
+	$table->align = array('left', 'center', 'center', 'center');
+	foreach ($modules as $module) {
+		$row = array();
+		$row[] = '<a href="'.$urlbase.$module->id.'">'.$module->name.'</a>';
+		$coursename = $module->course == SITEID ? get_string('site') : $DB->get_field('course', 'fullname', array('id' => $module->course));
+		$row[] = '<a href="'.$CFG->wwwroot.'/course/view.php?id='.$module->course.'">'.$coursename.'</a>';
+		$row[] = $module->unitid ? (isset($units[$module->unitid]->name) ? $units[$module->unitid]->name : $module->unitid) : '-';
+		$row[] = $module->activityid ? (isset($activities[$module->unitid][$module->activityid]->name) ? $activities[$module->unitid][$module->activityid]->name : $module->activityid) : '-';
+		$table->data[] = $row;
+	}
+	echo html_writer::table($table);
+}
 
-//print_js
+
+// Javascript
 echo '<script type="text/javascript">
 	function confirm_actions(el){
 		if(el.value == ""){

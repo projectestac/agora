@@ -39,8 +39,34 @@ if ($action == 'update') {
     }
 } else if ($action == 'delete') {
     $bookid = required_param('bookid', PARAM_INT);
-    if (rcommon_book::delete($bookid, $id)) {
-        echo $OUTPUT->notification(get_string('book_deleted', 'local_rcommon', $bookid));
+    $book = $DB->get_record('rcommon_books', array('id' => $bookid, 'publisherid' => $id));
+    if ($book) {
+        $success = true;
+        switch ($book->format) {
+            case 'scorm':
+                if ($DB->get_manager()->table_exists('rscorm') && $DB->record_exists_select('rscorm', 'bookid = :bookid AND course != :course', array('bookid' => $bookid, 'course' => SITEID))) {
+                    $success = false;
+                }
+                break;
+            case 'webcontent':
+            default:
+                if ($DB->record_exists_select('rcontent', 'bookid = :bookid AND course != :course', array('bookid' => $bookid, 'course' => SITEID))) {
+                    $success = false;
+                }
+                break;
+        }
+        if (!$success) {
+            echo $OUTPUT->notification(get_string('book_deleted_act_error', 'local_rcommon', $bookid));
+        } else {
+            $sql = 'SELECT * FROM {rcommon_user_credentials} RUC INNER JOIN {rcommon_books} RB ON RB.isbn = RUC.isbn WHERE RUC.euserid != 0 AND RB.id = :bookid';
+            if ($DB->record_exists_sql($sql, array('bookid' => $bookid))) {
+                echo $OUTPUT->notification(get_string('book_deleted_cred_error', 'local_rcommon', $bookid));
+            } else {
+                if (rcommon_book::delete($bookid, $id)) {
+                    echo $OUTPUT->notification(get_string('book_deleted', 'local_rcommon', $bookid));
+                }
+            }
+        }
     }
 }
 
@@ -105,9 +131,7 @@ if (!empty($books)) {
         $deletelink = 'contents.php?id='.$id.'&action=delete&showall=1&bookid='.$book->id;
         $actions = array();
         $actions[] = '<a href="books.php?id=' . $book->id .'" title="' . get_string('see_details_atitle', 'local_rcommon') . '">' . get_string('see_details', 'local_rcommon') . '</a>';
-        if (!in_array(textlib::strtolower($book->format), rcommon_book::$allowedformats)) {
-            $actions[] = $OUTPUT->action_link($deletelink, get_string('delete'), new confirm_action(get_string('delete_book_confirm', 'local_rcommon', $name)));
-        }
+        $actions[] = $OUTPUT->action_link($deletelink, get_string('delete'), new confirm_action(get_string('delete_book_confirm', 'local_rcommon', $name)));
         $row[] = implode(' | ', $actions);
 
         $table->data[] = $row;

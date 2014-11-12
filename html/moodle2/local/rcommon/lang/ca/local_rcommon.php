@@ -63,7 +63,10 @@ $string['show_all_books'] = 'Mostra tots els llibres';
 $string['show_valid_books'] = 'Mostra només els llibres vàlids';
 $string['delete_book_confirm'] = 'Estàs segur que vols eliminar el llibre {$a}?<br> Totes les dades i activitats relacionades s\'eliminaran';
 $string['book_deleted'] = 'Llibre {$a} eliminat';
+$string['book_deleted_act_error'] = 'El llibre {$a} no es pot eliminar, ja que s\'està fent servir en alguna activitat. Cal que elimineu les activitats manualment abans.';
+$string['book_deleted_cred_error'] = 'El llibre {$a} no es pot eliminar, ja que té credencials assignades. Cal que les desassigneu manualment abans.';
 $string['deleted_book'] = 'Llibre eliminat';
+$string['used_modules'] = 'Mòduls on es fa servir aquest llibre';
 $string['savekoemptyvalues'] = 'No ha estat possible desar les dades, almenys el camp codi s\'ha d\'omplir.';
 $string['selectpublisher'] = 'Seleccioneu un proveïdor de continguts...';
 $string['selectpublisheredit'] = 'Seleccioneu un proveïdor de continguts per editar les seves dades';
@@ -203,7 +206,8 @@ $string['rcommon_data_store_log_desc'] = 'Indiqui el directori per guardar el se
 $string['units_and_activities'] = 'Unitats i activitats del llibre';
 $string['no_units'] = 'El llibre no conté unitats';
 $string['no_activities'] = 'La unitat no conté activitats';
-
+$string['unit'] = 'Unitat';
+$string['activity'] = 'Activitat';
 
 $string['importcsv'] = 'Importa des d\'un fitxer CSV';
 $string['importcsv_help'] = "<p>El fitxer d'importació ha de ser un CSV codificat amb UTF-8 i amb els camps seg&uuml;ents separats per punts i comes (;):</p>
