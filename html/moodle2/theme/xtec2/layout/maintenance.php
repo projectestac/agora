@@ -25,8 +25,8 @@ echo $OUTPUT->doctype() ?>
 <header role="banner" class="navbar navbar-fixed-top moodle-has-zindex">
     <nav role="navigation" class="navbar-inner">
         <div class="container-fluid">
-            <a href="http://www20.gencat.cat/portal/site/ensenyament" class="brand ensenyament visible-desktop"><img src="<?php echo $OUTPUT->pix_url('departament', 'theme'); ?>" alt="" title="" /></a>
-            <a href="http://www.xtec.cat" class="brand xtec visible-desktop"><img src="<?php echo $OUTPUT->pix_url('xtec', 'theme'); ?>" alt="" title="" /></a>
+            <a href="http://www20.gencat.cat/portal/site/ensenyament" class="brand ensenyament visible-desktop"><img src="<?php echo $OUTPUT->pix_url('departament', 'theme'); ?>" alt="Departament d'Ensenyament" title="" /></a>
+            <a href="http://www.xtec.cat" class="brand xtec visible-desktop"><img src="<?php echo $OUTPUT->pix_url('xtec', 'theme'); ?>" alt="Xarxa Telemàtica Educativa de Catalunya" title="" /></a>
             <a class="brand mainbrand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->fullname; ?></a>
             <div class="navbar">
                 <ul class="nav pull-right">
