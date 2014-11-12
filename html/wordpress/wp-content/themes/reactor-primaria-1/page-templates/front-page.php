@@ -42,6 +42,9 @@ function barra_dreta($frontpage_layout){
 
 global $number_posts;
 global $categoria;
+global $posts_per_fila1;
+global $posts_per_fila2;
+global $posts_per_filan;
 
 $categoria=reactor_option('frontpage_post_category', '1');
 $number_posts = reactor_option('frontpage_number_posts', 10);
@@ -111,10 +114,14 @@ get_header();
                     $wp_query = new WP_Query( $args ); 
                     
                     //action: filter_by_categoria
-                    
-                    $posts_per_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
-                    $posts_per_fila2 = reactor_option('frontpage_posts_per_fila_2', 2);
                     $posts_per_filan = reactor_option('frontpage_posts_per_fila_n', 2);
+                    if ($paged==1){
+                        $posts_per_fila1 = reactor_option('frontpage_posts_per_fila_1', 2);
+                        $posts_per_fila2 = reactor_option('frontpage_posts_per_fila_2', 2);
+                    } else{
+                        $posts_per_fila1=$posts_per_fila2=$posts_per_filan;
+                    }
+                    
                     reactor_loop_before();
                     get_template_part('loops/loop', 'taxonomy'); 
                     reactor_loop_after();

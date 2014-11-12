@@ -11,6 +11,10 @@
 <?php
 global $card_colors;
 global $card_bgcolor;
+global $layout;
+global $posts_per_fila1;
+global $posts_per_fila2;
+global $posts_per_filan;
 
 $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
 $rows=array(1=>$posts_per_fila1,2=>$posts_per_fila2,3=>$posts_per_filan);
@@ -35,13 +39,18 @@ foreach ($rows as $row=>$posts_per_fila ) {
             }
 }
 
+/*echo "<pre>";
+print_r($aLayout);
+echo "</pre>";
+*/
+
 $row=1;
 while (have_posts()):
 	echo '<div class="row fila'.$row.'">';
-	foreach ($aLayout[3] as $idcard=>$layout_fila3){
+        foreach ($aLayout[$row] as $idcard=>$layout_fila){
 		$pos_color=((($row+1)%3)+$idcard)%3;
 		$card_bgcolor=$card_colors[$pos_color];
-		$layout=$layout_fila3;
+		$layout=$layout_fila;
 		the_post(); 
                 //check if really there are a post
 		if (get_the_ID()){

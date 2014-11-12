@@ -155,11 +155,11 @@ msgstr ""
 
 #: D:\Documents\GitHub/reactor/image.php:47
 msgid "&larr; Previous"
-msgstr ""
+msgstr "&larr; Anterior"
 
 #: D:\Documents\GitHub/reactor/image.php:48
 msgid "Next &rarr;"
-msgstr ""
+msgstr "Següent &rarr;"
 
 #: D:\Documents\GitHub/reactor/image.php:98
 #: D:\Documents\GitHub/reactor/library/inc/content/content-pages.php:36
@@ -1001,11 +1001,11 @@ msgstr ""
 
 #: D:\Documents\GitHub/reactor/library/inc/functions/page-links.php:72
 msgid "&laquo; Previous"
-msgstr ""
+msgstr "&laquo; Anterior"
 
 #: D:\Documents\GitHub/reactor/library/inc/functions/page-links.php:73
 msgid "Next &raquo;"
-msgstr ""
+msgstr "Següent &raquo;"
 
 #: D:\Documents\GitHub/reactor/library/inc/functions/page-links.php:121
 msgid "&hellip;"
