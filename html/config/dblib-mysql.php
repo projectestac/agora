@@ -695,3 +695,35 @@ function formatBytes($size, $precision = 2)
 
     return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
 }
+
+
+
+/* * ****** NODES ******* */
+
+/**
+ * Open a connection to the specified Nodes database and return it
+ *
+ * @param school        Array with the school information (database)
+ *
+ * @return Connection handler
+ */
+function connect_nodes($school) {
+    global $agora;
+
+    $con = mysql_connect($school['dbhost'], $agora['nodes']['username'], $agora['nodes']['userpwd']);
+    if (!mysql_select_db($agora['nodes']['userprefix'] . $school['id'], $con)) {
+        return false;
+    }
+    return $con;
+}
+
+/**
+ * Close specified Intranet connection
+ *
+ * @param con       The Nodes database connection
+ *
+ * @return boolean  TRUE on success or FALSE on failure.
+ */
+function disconnect_nodes($con) {
+    return mysql_close($con);
+}
