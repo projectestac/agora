@@ -193,12 +193,12 @@ class theme_xtec2_core_renderer extends theme_bootstrapbase_core_renderer {
      * This renderer is needed to enable the Bootstrap style navigation.
      */
     protected function render_custom_menu(custom_menu $menu) {
-        $content = '<ul class="nav">';
+        $content = '';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
 
-        return $content.'</ul>';
+        return (!empty($content)) ? '<ul class="nav">'.$content.'</ul>' : "";
     }
 
  	/*
