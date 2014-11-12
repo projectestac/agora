@@ -32,8 +32,6 @@ $string['error_code_-7'] = 'The role is not valid.';
 $string['error_code_-101'] = 'Incorrect authentication. The user requesting access to this Web service method is not correct.';
 $string['error_code_-102'] = 'Incorrect authentication. The user requesting access to this Web service method has insufficient permissions.';
 
-$string['exit'] = 'Exit';
-$string['insertkeybtn'] = 'Add the key';
 $string['insertkeymsg'] = 'Enter a password for this resource';
 $string['key'] = 'Key';
 $string['keyadd'] = 'Add the key';
@@ -45,7 +43,6 @@ $string['keymanager'] = 'Users key management';
 $string['keysadminsearchuserbtn'] = 'Managing keys';
 $string['keyslookupusertext'] = 'Choose a user to manage his keys';
 $string['keysshowingfor'] = 'Manage key of user';
-$string['loading'] = 'Loading, please wait...';
 $string['manage'] = 'Manage';
 $string['noactivity'] = 'Activity not found';
 $string['nobooks'] = 'No books received';
@@ -68,9 +65,6 @@ $string['book_deleted_cred_error'] = 'Book {$a} cannot be deleted, it has some a
 $string['deleted_book'] = 'Deleted book';
 $string['used_modules'] = 'Modules where this book is used';
 $string['savekoemptyvalues'] = 'Unable to save data, at least the field code must be completed.';
-$string['selectpublisher'] = 'Select a publisher...';
-$string['selectpublisherdescription'] = 'To download all the book structures it is necessary to select a publisher';
-$string['selectpublisheredit'] = 'Select a publisher to edit his info';
 $string['teacherroles'] = 'Teacher roles';
 $string['teacherrolesinfo'] = 'Roles that will be authenticated as a teacher. The rest will be authenticated as a student';
 $string['urlmoreinfo'] = '<a href="{$a}" target="_blank">More information about the error</a>';
@@ -79,12 +73,8 @@ $string['urlwsbookstructure'] = 'Book structure web services address';
 $string['userhasnokeys'] = 'This user has no key registered';
 $string['usernotfound'] = 'User invalid or nonexistent';
 $string['marsupialcontent'] = 'Contents';
-$string['marsupialusersync'] = 'Synchronize with &Agrave;tria';
-$string['marsupialupdate_publisher'] = 'Update suppliers';
 $string['marsupialmanage_publisher'] = 'Manage suppliers';
-$string['marsupialpublisher'] = 'Suppliers';
 $string['marsupialcredentials'] = 'Credentials';
-$string['marsupialget_credentials'] = 'Update credentials';
 $string['marsupialmanage_credentials'] = 'Manage by users';
 $string['scorm'] = 'Remote SCORM';
 $string['webcontent'] = 'Remote content';
@@ -96,7 +86,6 @@ $string['publishers'] 			= 'Publishers';
 $string['no_publishers'] 		= 'There isn\'t any publisher';
 $string['without_credentials'] 		= 'Users without credentials';
 $string['with_credentials'] 		= 'Users with credentials';
-$string['back_to_stats'] 		= 'Go back';
 $string['good_connection'] 		= 'Connection succeeded';
 $string['bad_connection'] 		= 'Connection fail';
 $string['bad_wsdl_connection']          = 'Check authentication web services address';
@@ -231,3 +220,16 @@ Els possibles missatges d'error que es poden produir s&oacute;n:</p>
     <li>Fitxer buit</li>
 </ul>
 <p>Cal tenir en compte que si hi ha errors, caldr&agrave; revisar-los i reparar-los per poder continuar amb el proc&eacute;s d'importaci&oacute;.</p>";
+
+// Deprecated lang strings
+$string['exit'] = 'Exit';
+$string['insertkeybtn'] = 'Add the key';
+$string['loading'] = 'Loading, please wait...';
+$string['selectpublisher'] = 'Select a publisher...';
+$string['selectpublisherdescription'] = 'To download all the book structures it is necessary to select a publisher';
+$string['selectpublisheredit'] = 'Select a publisher to edit his info';
+$string['marsupialusersync'] = 'Synchronize with &Agrave;tria';
+$string['marsupialupdate_publisher'] = 'Update suppliers';
+$string['marsupialpublisher'] = 'Suppliers';
+$string['marsupialget_credentials'] = 'Update credentials';
+$string['back_to_stats'] 		= 'Go back';

@@ -31,7 +31,7 @@ if(!empty($key)) {
         <input type="text" name="key">
         <input type="hidden" name="isbn" value="<?php echo $isbn; ?>">
         <input type="hidden" name="url" value="<?php echo base64_encode($url); ?>">
-        <input type="submit" value="<?php echo get_string('insertkeybtn', 'local_rcommon'); ?>">
+        <input type="submit" value="<?php echo get_string('keyadd', 'local_rcommon'); ?>">
         <input type="button" value="<?php echo get_string('nokeybtn', 'local_rcommon'); ?>" onclick="document.location.href='<?php echo $url; ?>';">
     </form>
 
