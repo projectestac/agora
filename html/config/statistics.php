@@ -1,8 +1,7 @@
 <?php
 
-define('MOODLE_PREFIX', 'ml');
 define('MOODLE2_PREFIX', 'm2');
-define('STATS_PREFIX', '');
+define('NODES_PREFIX', 'wp_');
 
 define('SECONDS_IN_A_WEEK', '604800');
 define('SECONDS_IN_AN_HOUR', '3600');
@@ -16,17 +15,20 @@ date_default_timezone_set('Europe/Madrid');
 
 // Params to allow execution of stats of only one service
 $doIntranet = true;
-$doMoodle2 = true;
+$doMoodle = true;
+$doNodes = true;
 if (isset($_REQUEST['onlyIntranet'])) {
-    $doMoodle2 = false;
+    $doMoodle = false;
+    $doNodes = false;
 }
 if (isset($_REQUEST['onlyMoodle2'])) {
     $doIntranet = false;
+    $doNodes = false;
 }
-
-// Force update of dayly statistics of Moodle 1.9 if they already exists. This option
-//  will be tested on production to know if performance increases when there's been trouble
-$forceUpdate = (isset($_REQUEST['forceUpdate'])) ? (bool)$_REQUEST['forceUpdate'] : true;
+if (isset($_REQUEST['onlyNodes'])) {
+    $doIntranet = false;
+    $doMoodle = false;
+}
 
 // Get optional params or set default values
 $year = (isset($_REQUEST['year']) && $_REQUEST['year'] != '') ? sprintf("%04d", $_REQUEST['year']) : date('Y', strtotime("-1 day"));
@@ -44,11 +46,13 @@ $timestampofmonth = mktime(23, 59, 59, $month, $daysofmonth, $year);
 $allSchools = getAllSchoolsDBInfo(true);
 
 foreach ($allSchools as $school) {
-    echo '<br>' . $school['service'] . '<br>';
+    echo '<br />' . $school['service'] . '<br />';
     if (($school['service'] == 'intranet') && $doIntranet) {
-        process_intranet_stats($school, $year, $month, $day, $timestampofmonth, $school['version']);
-    } else if (($school['service'] == 'moodle2') && $doMoodle2) {
-        process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
+        process_intranet_stats($school, $year, $month, $day, $timestampofmonth);
+    } else if (($school['service'] == 'moodle2') && $doMoodle) {
+        process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
+    } else if (($school['service'] == 'nodes') && $doNodes) {
+        process_nodes_stats($school, $year, $month, $day, $daysofmonth, $timestampofmonth);
     }
 }
 
@@ -60,25 +64,22 @@ echo '<p>FET!</p>';
 /* INTRANET */
 
 /**
- * Obte les estadistiques d'una intranet i les desa a la taula d'agoraPortal
+ * Obte les estadistiques d'una intranet i les desa a la taula d'agoraportal
  *
  * @param school           Array amb les dades del centre
  * @param year             Any del que es volen obtenir les estadistiques
  * @param month            Mes del que es volen obtenir les estadistiques
  * @param day              Dia del que es volen obtenir les estadistiques
  * @param timestampofmonth Timestamp del darrer segon del mes del que es volen obtenir les estadistiques
- * @param zkversion        Version of Zikula
  *
  * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
  */
-function process_intranet_stats($school, $year, $month, $day, $timestampofmonth, $zkversion) {
+function process_intranet_stats($school, $year, $month, $day, $timestampofmonth) {
 
-    global $agora;
-
-    $day_usage = getSchoolIntranetStats_DayUsage($school, $year, $month, $day, $zkversion);
+    $day_usage = getSchoolIntranetStats_DayUsage($school, $year, $month, $day);
     $month_usage = getSchoolIntranetStats_MonthUsage($school, $year, $month, (int) $day);
     $month_usage = $month_usage + $day_usage;
-    $month_users = getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversion);
+    $month_users = getSchoolIntranetStats_MonthUsers($school, $timestampofmonth);
 
     // Connecta a adminagora
     if (!($statsCon = opendb())) {
@@ -89,19 +90,19 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth,
     $date = $year . $month;
 
     // Consulta que comprova si el registre del mes del centre ja existeix o no
-    $sql = "SELECT yearmonth FROM " . STATS_PREFIX . "agoraportal_intranet_stats_day WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT yearmonth FROM agoraportal_intranet_stats_day WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
 
     // Executa la consulta
     if ($qry = mysql_query($sql, $statsCon)) {
         // INSERT: Si no hi ha cap registre, el crea
         if (mysql_num_rows($qry) == 0) {
-            $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_intranet_stats_day
+            $sql = "INSERT INTO agoraportal_intranet_stats_day
                         (clientcode, yearmonth, clientDNS, total, users, d" . (int) $day . ")
                         VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', $month_usage, $month_users, $day_usage)";
         }
         // UPDATE: Si el registre ja existeix, l'actualitza
         else {
-            $sql = "UPDATE " . STATS_PREFIX . "agoraportal_intranet_stats_day 
+            $sql = "UPDATE agoraportal_intranet_stats_day 
                         SET total = $month_usage,
                         users = $month_users,
                         d" . (int) $day . " = $day_usage
@@ -126,38 +127,19 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth,
  * @param year          Any del que es volen obtenir les estadistiques
  * @param month         Mes del que es volen obtenir les estadistiques
  * @param day           Dia del que es volen obtenir les estadistiques
- * @param zkversion     Version of Zikula
  *
  * @return bool false si hi ha un error i el nombre de clics si no n'hi ha
  */
-function getSchoolIntranetStats_DayUsage($school, $year, $month, $day, $zkversion) {
+function getSchoolIntranetStats_DayUsage($school, $year, $month, $day) {
 
     if (!($con = connect_intranet($school))) {
         print '<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns'];
         return false;
     }
 
-    $stats_active = false;
-    if ($zkversion != '135') {
-        // Mira si el modul Stats esta actiu
-        $sql = 'SELECT `pn_state` FROM zk_modules WHERE `pn_name` = \'Stats\'';
-
-        if ($qry = mysql_query($sql, $con)) {
-            if ($data = mysql_fetch_array($qry)) {
-                if ($data['pn_state'] == 3) {
-                    $stats_active = true;
-                }
-            }
-        }
-    }
-
     // Mira si el modul IWstats esta actiu
     $iwstats_active = false;
-    if ($zkversion != '135') {
-        $sql = 'SELECT `pn_state` as state FROM zk_modules WHERE `pn_name` = \'IWstats\'';
-    } else {
-        $sql = 'SELECT `state` FROM modules WHERE `name` = \'IWstats\'';
-    }
+    $sql = 'SELECT `state` FROM modules WHERE `name` = \'IWstats\'';
     if ($qry = mysql_query($sql, $con)) {
         if ($data = mysql_fetch_array($qry)) {
             if ($data['state'] == 3) {
@@ -169,36 +151,17 @@ function getSchoolIntranetStats_DayUsage($school, $year, $month, $day, $zkversio
     // Valor predefinit
     $hits = 0;
 
-    $date = $day . $month . $year;
-
     // Si el modul IWstats esta actiu, agafa les dades d'aquest mòdul
     if ($iwstats_active) {
         // Obte les dades del modul IWstats
         $max = "$year-$month-$day 23:59:59"; // Format datetime del MySQL: 2011-05-02 17:02:55
         $min = "$year-$month-$day 00:00:00";
-        if ($zkversion != '135') {
-            $sql = 'SELECT count(*) AS total FROM zk_IWstats WHERE iw_datetime > \'' . $min . '\' AND iw_datetime < \'' . $max . '\'';
-        } else {
-            $sql = 'SELECT count(*) AS total FROM IWstats WHERE iw_datetime > \'' . $min . '\' AND iw_datetime < \'' . $max . '\'';
-        }
+        $sql = 'SELECT count(*) AS total FROM IWstats WHERE iw_datetime > \'' . $min . '\' AND iw_datetime < \'' . $max . '\'';
         if ($qry = mysql_query($sql, $con)) {
             if (mysql_num_rows($qry) == 0) {
                 $hits = 0;
             } else {
                 $hits = mysql_result($qry, 0, 0);
-            }
-        }
-    } else {
-        // Si el modul IWstats esta inactiu i Stats esta actiu, agafa les dades d'aquest mòdul
-        if ($stats_active) {
-            // Obte les dades del modul Stats
-            $sql = 'SELECT pn_hits FROM zk_stats_date WHERE pn_date=' . $date;
-            if ($qry = mysql_query($sql, $con)) {
-                if (mysql_num_rows($qry) == 0) {
-                    $hits = 0;
-                } else {
-                    $hits = mysql_result($qry, 0, 0);
-                }
             }
         }
     }
@@ -220,15 +183,12 @@ function getSchoolIntranetStats_DayUsage($school, $year, $month, $day, $zkversio
  */
 function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
 
-    global $agora;
-
     // Connecta a adminagora
     if (!($statsCon = opendb())) {
         print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
         exit();
     }
 
-    $date = $month . $year;
     $clientcode = $school['code'];
 
     for ($i = 1; $i < 32; $i++) {
@@ -240,7 +200,7 @@ function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
     $days2sum = implode(' + ', $days_array); // d1 + d2 + d3 ...
 
     $sql = "SELECT $days2sum
-                FROM " . STATS_PREFIX . "agoraportal_intranet_stats_day
+                FROM agoraportal_intranet_stats_day
                 WHERE yearmonth = '$year$month' AND clientcode = '$clientcode'";
 
     if ($qry = mysql_query($sql, $statsCon)) {
@@ -263,11 +223,10 @@ function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
  *
  * @param school           Array amb les dades del centre
  * @param timestampofmonth Timestamp del darrer segon del mes del que es volen obtenir les estadistiques
- * @param zkversion        Version of Zikula
  *
  * @return int El nombre de clics d'usuaris i false en cas d'error
  */
-function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversion) {
+function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth) {
 
     if (!($con = connect_intranet($school))) {
         print '<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns'];
@@ -277,11 +236,7 @@ function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversio
     // Construeix la data de referència. A la BBDD és un datetime (format: 1970-01-01 00:00:00)
     $regdate = date("Y-m-d H:i:s", $timestampofmonth);
 
-    if ($zkversion != '135') {
-        $sql = 'SELECT count(`pn_uid`) FROM zk_users where `pn_user_regdate` <= \'' . $regdate . '\'';
-    } else {
-        $sql = 'SELECT count(`uid`) FROM users where `user_regdate` <= \'' . $regdate . '\'';
-    }
+    $sql = 'SELECT count(`uid`) FROM users where `user_regdate` <= \'' . $regdate . '\'';
 
     if ($qry = mysql_query($sql, $con)) {
         if (mysql_num_rows($qry) == 0) {
@@ -298,10 +253,12 @@ function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversio
     return $value;
 }
 
+
+
 /* MOODLE 2 */
 
 /**
- * Obte les estadistiques d'un moodle 2 i les desa a la taula d'Agoraportal
+ * Obte les estadistiques d'un espai moodle2 i les desa a la taula d'agoraportal
  *
  * @param school            Array amb les dades del centre
  * @param year              Any del que es volen obtenir les estadistiques
@@ -313,7 +270,7 @@ function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth, $zkversio
  *
  * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
  */
-function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth) {
+function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth) {
 
     if (!($con = connect_moodle($school))) {
         print 'No s\'ha pogut connectar a la base de dades del Moodle 2 del centre ' . $school['dns'];
@@ -338,14 +295,14 @@ function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysof
     }
 
     $date = $year . $month . $day;
-    $users = getSchoolMoodle2Stats_Users($con, $year, $month, $daysofmonth);
+    $users = getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth);
     $diskConsume = getDiskConsume($statsCon, $school['code'], 'moodle2');
 
     // Consulta que comprova si el registre del mes del centre ja existeix o no
-    $sql = "SELECT date FROM " . STATS_PREFIX . "agoraportal_moodle2_stats_day WHERE date='$date' AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT date FROM agoraportal_moodle2_stats_day WHERE date='$date' AND clientcode='" . $school['code'] . "'";
     if ($qry = mysql_query($sql, $statsCon)) {
         if (mysql_num_rows($qry) == 0) { //INSERT
-            $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle2_stats_day
+            $sql = "INSERT INTO agoraportal_moodle2_stats_day
                 (clientcode, date, clientDNS, total, h0, h1, h2, h3, h4, h5 ,h6, h7, h8, 
                 h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23, 
                 userstotal, usersnodelsus, usersactive, usersactivelast90days, usersactivelast30days,
@@ -359,7 +316,7 @@ function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysof
                 " . $users['activelast90days'] .", " . $users['activelast30days'] .",
                 '$diskConsume')";
         } else {    //UPDATE
-            $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle2_stats_day SET
+            $sql = "UPDATE agoraportal_moodle2_stats_day SET
                 total = $total,
                 h0 = $hours[0],
                 h1 = $hours[1],
@@ -402,7 +359,7 @@ function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysof
 
     echo "<p>$sql</p>";
 
-    $lastaccess = getSchoolMoodle2Stats_LastAccess($con);
+    $lastaccess = getSchoolMoodleStats_LastAccess($con);
 
 
     // WEEK STATS
@@ -417,18 +374,18 @@ function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysof
 
         $date = date('Ymd', (mktime(00, 00, 00, $month, $day, $year) - 518400)); // 518400 = 6 dies
         // Comprova si el registre ja existeix
-        $sql = "SELECT date FROM " . STATS_PREFIX . "agoraportal_moodle2_stats_week WHERE date=$date AND clientcode='" . $school['code'] . "'";
+        $sql = "SELECT date FROM agoraportal_moodle2_stats_week WHERE date=$date AND clientcode='" . $school['code'] . "'";
 
         if ($qry = mysql_query($sql, $statsCon)) {
             if (mysql_num_rows($qry) == 0) // INSERT
-                $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle2_stats_week
+                $sql = "INSERT INTO agoraportal_moodle2_stats_week
                             (clientcode, clientDNS, date, usersactive, courses, activities, lastaccess, lastaccess_date, lastaccess_user, total_access)
                             VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', '$date', 
                                     '" . $users['active'] . "', '$courses', '$activities',
                                     '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "',
                                     '" . $lastaccess['lastaccessuser'] . "', '$totalaccess')";
             else  // UPDATE
-                $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle2_stats_week SET
+                $sql = "UPDATE agoraportal_moodle2_stats_week SET
                             clientcode      = '" . $school['code'] . "',
                             usersactive     = '" . $users['active'] . "',
                             courses         = '$courses',
@@ -454,11 +411,11 @@ function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysof
     $activities = getSchoolMoodleStats_Activities($con, $timestampofmonth, MOODLE2_PREFIX);
     $totalaccess = getSchoolMoodleStats_TotalMonthAccess($con, $year, $month, $daysofmonth, MOODLE2_PREFIX);
 
-    $sql = "SELECT yearmonth FROM " . STATS_PREFIX . "agoraportal_moodle2_stats_month WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT yearmonth FROM agoraportal_moodle2_stats_month WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
 
     if ($qry = mysql_query($sql, $statsCon)) {
         if (mysql_num_rows($qry) == 0) //INSERT
-            $sql = "INSERT INTO " . STATS_PREFIX . "agoraportal_moodle2_stats_month
+            $sql = "INSERT INTO agoraportal_moodle2_stats_month
                 (clientcode, yearmonth, clientDNS, usersactive, usersactivelast30days, 
                 courses, activities, lastaccess, lastaccess_date,
                 lastaccess_user, total_access, diskConsume)
@@ -467,7 +424,7 @@ function process_moodle2_stats($school, $year, $month, $day, $dayofweek, $daysof
                 '" . $lastaccess['lastaccess'] . "', '" . $lastaccess['lastaccessdate'] . "',
                 '" . $lastaccess['lastaccessuser'] . "', '$totalaccess', '$diskConsume')";
         else    //UPDATE
-            $sql = "UPDATE " . STATS_PREFIX . "agoraportal_moodle2_stats_month SET
+            $sql = "UPDATE agoraportal_moodle2_stats_month SET
                 usersactive           = '" . $users['active'] . "',
                 usersactivelast30days = '" . $users['activelast30days'] . "',
                 courses               = '$courses',
@@ -621,18 +578,12 @@ function getSchoolMoodleStats_Courses($con, $timestamp, $prefix) {
  * @return int El nombre d'activitats
  */
 function getSchoolMoodleStats_Activities($con, $timestamp, $prefix) {
-    //$sql = 'SELECT to_char(substr(modinfo, 0, 50)) as modinfo FROM ' . $prefix . 'course where timecreated < ' . $timestamp;
     $sql = 'SELECT COUNT(*) as count FROM ' . $prefix . 'course_modules WHERE added < ' . $timestamp;
     $stmt = oci_parse($con, $sql);
 
 	$value = 0;
     if (oci_execute($stmt, OCI_DEFAULT)) {
         while (oci_fetch($stmt)) {
-            /*$modinfo = oci_result($stmt, 'MODINFO');
-            $activities_ar = explode(':', $modinfo, 3);
-            if (sizeof($activities_ar) == 3) {
-                $value += $activities_ar[1];
-            }*/
             $count = (int) oci_result($stmt, 'COUNT');
             $value += $count;
         }
@@ -659,7 +610,7 @@ function getSchoolMoodleStats_Activities($con, $timestamp, $prefix) {
  *
  * @return array Conte un element amb cada una de les dades anteriors
  */
-function getSchoolMoodle2Stats_Users($con, $year, $month, $daysofmonth) {
+function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
 
     $now = mktime();
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
@@ -721,7 +672,7 @@ function getSchoolMoodle2Stats_Users($con, $year, $month, $daysofmonth) {
  *
  * @return array Les dades del darrer accés
  */
-function getSchoolMoodle2Stats_LastAccess($con) {
+function getSchoolMoodleStats_LastAccess($con) {
 
     $sql = 'SELECT lastaccess, username FROM ' . MOODLE2_PREFIX . 'user WHERE username!=\'xtecadmin\' AND username!=\'guest\' AND confirmed=1 AND suspended=0 AND deleted=0 ORDER BY lastaccess DESC ';
     $stmt = oci_parse($con, $sql);
@@ -748,7 +699,7 @@ function getSchoolMoodle2Stats_LastAccess($con) {
  * 
  * @param statsCon    Connexió a la base de dades d'estadístiques
  * @param clientCode
- * @param service     Valors possibles: 'intranet', 'moodle', 'moodle2'
+ * @param service     Valors possibles: 'intranet', 'nodes', 'moodle2'
  * 
  * @return string     La quota utilitzada en KB
  */
@@ -758,9 +709,9 @@ function getDiskConsume ($statsCon, $clientCode, $service) {
     $diskConsume = '0';
     
     $sql = 'SELECT cs.diskConsume
-            FROM ' . STATS_PREFIX . 'agoraportal_client_services as cs
-            LEFT JOIN ' . STATS_PREFIX . 'agoraportal_clients c ON cs.clientId = c.clientId
-            LEFT JOIN ' . STATS_PREFIX . 'agoraportal_services s ON cs.serviceId = s.serviceId
+            FROM agoraportal_client_services as cs
+            LEFT JOIN agoraportal_clients c ON cs.clientId = c.clientId
+            LEFT JOIN agoraportal_services s ON cs.serviceId = s.serviceId
             WHERE c.clientCode=\''.$clientCode.'\' AND s.serviceName=\''.$service.'\'';
 
     if (!$resul = mysql_query($sql, $statsCon)) {
@@ -778,5 +729,283 @@ function getDiskConsume ($statsCon, $clientCode, $service) {
 }
 
 
+/* NODES */
+
+/**
+ * Obte les estadistiques d'un espai Nodes i les desa a la taula d'agoraportal
+ *
+ * @param school           Array amb les dades del centre
+ * @param year             Any del que es volen obtenir les estadistiques
+ * @param month            Mes del que es volen obtenir les estadistiques
+ * @param day              Dia del que es volen obtenir les estadistiques
+ * @param timestampofmonth Timestamp del darrer segon del mes del que es volen obtenir les estadistiques
+ *
+ * @return bool false si hi ha un error recuperable i acaba l'script si es irrecuperable
+ */
+function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
+
+    if (!($statsCon = opendb())) {
+        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
+        exit();
+    }
+
+    $date = $year . $month . $day;
+    $yearmonth = $year . $month;
+
+    // Get number of pages loaded in a given day
+    $numPagesDay = getSchoolNodesStats_PagesDay($school, $year, $month, $day);
+    
+    // Get total number of pages loaded up to a given day
+    $numPagesTotal = getSchoolNodesStats_PagesTotal($school, $year, $month, $day);
+
+    // Get number of posts published a given day
+    $numPostsDay = getSchoolNodesStats_PostsDay($school, $year, $month, $day);
+    
+    // Get total number of posts published up to a given day
+    $numPostsTotal = getSchoolNodesStats_PostsTotal($school, $year, $month, $day);
+
+    // Get users data: total, active and active last 30 and 90 days
+    $users = getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth);
+    
+    // Get last activity up to a given day
+    $lastActivity = getSchoolNodesStats_LastActivity($school, $year, $month, $day);
+
+    // Get disk consume
+    $diskConsume = getDiskConsume($statsCon, $school['code'], 'nodes');
+
+    // Insert or update stats_day
+    $sql = "SELECT date FROM agoraportal_nodes_stats_day WHERE date=$date AND clientcode='" . $school['code'] . "'";
+
+    if ($qry = mysql_query($sql, $statsCon)) {
+        if (mysql_num_rows($qry) == 0) { // INSERT
+            $sql = "INSERT INTO agoraportal_nodes_stats_day
+                (clientcode, clientDNS, date, total, posts, userstotal, usersactive, 
+                usersactivelast30days, usersactivelast90days, diskConsume)
+                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $date, "
+                    . "$numPagesDay, $numPostsDay, " . $users['total'] . ", " . $users['active'] . ", "
+                    . $users['activelast30days'] . ", " . $users['activelast90days'] . ", $diskConsume)";
+        } else  { // UPDATE
+            $sql = "UPDATE agoraportal_nodes_stats_day SET
+                total                 = $numPagesDay,
+                posts                 = $numPostsDay,
+                userstotal            = " . $users['total'] . ",
+                usersactive           = " . $users['active'] . ",
+                usersactivelast30days = " . $users['activelast30days'] . ",
+                usersactivelast90days = " . $users['activelast90days'] . ",
+                diskConsume           = $diskConsume
+                WHERE clientcode = '" . $school['code'] . "' AND date = '$date'";
+        }
+        if (!mysql_query($sql, $statsCon)) {
+            print mysql_error() . '<br/>';
+        }
+    }
+   
+    echo '<p>' . $sql . '</p>';
 
 
+    // Insert or update stats_month
+    $sql = "SELECT date FROM agoraportal_nodes_stats_month WHERE date=$yearmonth AND clientcode='" . $school['code'] . "'";
+
+    if ($qry = mysql_query($sql, $statsCon)) {
+        if (mysql_num_rows($qry) == 0) { // INSERT
+            $sql = "INSERT INTO agoraportal_nodes_stats_month
+                (clientcode, clientDNS, date, total, posts, userstotal, usersactive, 
+                 	lastactivity, diskConsume)
+                VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $yearmonth, "
+                    . "$numPagesTotal, $numPostsTotal, " . $users['total'] . ", " . $users['active'] . ", "
+                    . "'$lastActivity', $diskConsume)";
+        } else  { // UPDATE
+            $sql = "UPDATE agoraportal_nodes_stats_month SET
+                total        = $numPagesTotal,
+                posts        = $numPostsTotal,
+                userstotal   = " . $users['total'] . ",
+                usersactive  = " . $users['active'] . ",
+                lastactivity = '$lastActivity',
+                diskConsume  = $diskConsume
+                WHERE clientcode = '" . $school['code'] . "' AND date = '$yearmonth'";
+        }
+        if (!mysql_query($sql, $statsCon)) {
+            print mysql_error() . '<br/>';
+        }
+    }
+    
+    echo '<p>' . $sql . '</p>';
+    
+    mysql_close($statsCon);
+}
+
+
+function getSchoolNodesStats_PagesDay($school, $year, $month, $day) {
+
+    if (!($con = connect_nodes($school))) {
+        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        return false;
+    }
+
+    $sql = "SELECT count(stat_id) FROM " . NODES_PREFIX . "stats WHERE datetime like '$year-$month-$day%'";
+
+    $value = 0;
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $value = mysql_result($qry, 0, 0);
+        }
+    }
+
+    mysql_close($con);
+
+    return $value;
+}
+
+function getSchoolNodesStats_PagesTotal($school, $year, $month, $day) {
+    
+
+    if (!($con = connect_nodes($school))) {
+        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        return false;
+    }
+
+    $sql = "SELECT count(stat_id) FROM " . NODES_PREFIX . "stats WHERE datetime < '$year-$month-$day 23:59:59'";
+
+    $value = 0;
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $value = mysql_result($qry, 0, 0);
+        }
+    }
+
+    mysql_close($con);
+
+    return $value;
+}
+
+function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
+    
+    if (!($con = connect_nodes($school))) {
+        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        return false;
+    }
+
+    $sql = "SELECT count(ID) FROM " . NODES_PREFIX . "posts WHERE post_date like '$year-$month-$day%'";
+
+    $value = 0;
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $value = mysql_result($qry, 0, 0);
+        }
+    }
+
+    mysql_close($con);
+
+    return $value;
+}
+
+function getSchoolNodesStats_PostsTotal($school, $year, $month, $day) {
+    
+    if (!($con = connect_nodes($school))) {
+        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        return false;
+    }
+
+    $sql = "SELECT count(ID) FROM " . NODES_PREFIX . "posts WHERE post_date < '$year-$month-$day 23:59:59'";
+
+    $value = 0;
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $value = mysql_result($qry, 0, 0);
+        }
+    }
+
+    mysql_close($con);
+
+    return $value;
+}
+
+function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
+    
+    if (!($con = connect_nodes($school))) {
+        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        return false;
+    }
+
+    $users = array ('total' => 0, 'active' => 0, 'activelast30days' => 0, 'activelast90days' => 0);
+    
+    // Count all users in the table
+    $sql = "SELECT count(ID) FROM " . NODES_PREFIX . "users";
+
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $users['total'] = mysql_result($qry, 0, 0);
+        }
+    }
+
+    // Count the users not marked as spam
+    $sql = "SELECT count(ID) FROM " . NODES_PREFIX . "users WHERE user_status = 0";
+
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $users['active'] = mysql_result($qry, 0, 0);
+        }
+    }
+    
+    // Count the users not marked as spam that have logged in the last 30 days
+    $now = mktime();
+    $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
+    if ($now < $max) { // Protection against late executions
+        $max = $now;
+    }
+    $min = date('Y-m-d H:i:s', $max - SECONDS_IN_30_DAYS);
+    $max = date ('Y-m-d H:i:s', $max);
+    
+    $sql = "SELECT count(um.umeta_id) FROM " . NODES_PREFIX . "users u "
+            . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
+            . "WHERE u.user_status = 0 AND um.meta_key = 'last_activity' "
+            . "AND STR_TO_DATE(um.meta_value, '%Y-%m-%d %H:%i:%s') between '$min' AND '$max'";
+
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $users['activelast30days'] = mysql_result($qry, 0, 0);
+        }
+    }
+    
+    // Count the users not marked as spam that have logged in the last 90 days
+    $min = date('Y-m-d H:i:s', $max - SECONDS_IN_90_DAYS);
+    
+    $sql = "SELECT count(um.umeta_id) FROM " . NODES_PREFIX . "users u "
+            . "LEFT JOIN " . NODES_PREFIX . "usermeta um ON um.user_id = u.ID "
+            . "WHERE u.user_status = 0 AND um.meta_key = 'last_activity' "
+            . "AND STR_TO_DATE(um.meta_value, '%Y-%m-%d %H:%i:%s') between '$min' AND '$max'";
+
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) != 0) {
+            $users['activelast90days'] = mysql_result($qry, 0, 0);
+        }
+    }
+    
+    mysql_close($con);
+
+    return $users;
+}
+
+function getSchoolNodesStats_LastActivity($school, $year, $month, $day) {
+   
+    if (!($con = connect_nodes($school))) {
+        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        return false;
+    }
+
+    $sql = "SELECT MAX(meta_value) FROM " . NODES_PREFIX . "usermeta WHERE meta_key = 'last_activity'";
+
+    if ($qry = mysql_query($sql, $con)) {
+        if (mysql_num_rows($qry) == 0) {
+            $value = 0;
+        } else {
+            $value = mysql_result($qry, 0, 0);
+        }
+    } else {
+        $value = 0;
+    }
+
+    mysql_close($con);
+
+    return $value;
+}

@@ -7,6 +7,7 @@ Changes on progress
 ---------------------------------------------------------------------------------------
 GENERAL
 - Removed all references to Moodle 1.9 vars. Replaced by references to Moodle 2 vars
+- statistics.php: Added collect of stats of Nodes
 
 PORTAL
 - Moved portaldata/ to docs/portaldata/
