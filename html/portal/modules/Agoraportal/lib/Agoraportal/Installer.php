@@ -49,6 +49,8 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         DBUtil::createTable('agoraportal_moodle2_stats_week');
         DBUtil::createTable('agoraportal_moodle2_stats_month');
         DBUtil::createTable('agoraportal_intranet_stats_day');
+        DBUtil::createTable('agoraportal_nodes_stats_day');
+        DBUtil::createTable('agoraportal_nodes_stats_month');
 
         // indexes creation
         $table = DBUtil::getTables();
@@ -79,6 +81,10 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         DBUtil::createIndex('idx_moodle2_stats_month', 'agoraportal_moodle2_stats_month', array('clientcode', 'yearmonth'));
         $c = $table['agoraportal_moodle2_stats_week_column'];
         DBUtil::createIndex('idx_moodle2_stats_week', 'agoraportal_moodle2_stats_week', array('clientcode', 'date'));
+        $c = $table['agoraportal_nodes_stats_day_column'];
+        DBUtil::createIndex('idx_nodes_stats_day', 'agoraportal_nodes_stats_day', array('clientcode', 'date'));
+        $c = $table['agoraportal_nodes_stats_month_column'];
+        DBUtil::createIndex('idx_nodes_stats_month', 'agoraportal_nodes_stats_month', array('clientcode', 'date'));
         // create module vars
         $this->setVar('siteBaseURL', 'http://agora.xtec.cat')
                 ->setVar('allowedIpsForCalcDisckConsume', '')
@@ -192,15 +198,20 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 }
                 DBUtil::dropTable('agoraportal_client_settings');
                 DBUtil::dropTable('agoraportal_ldap_asynchronous');
-
-                /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
-                 * afegir una comprovació amb DBUtil::metaIndexes per saber
-                 * si s'han de tornar a crear. */
             case '2.0.9':
                 if (!DBUtil::createTable('agoraportal_queues'))
                     return false;
                 if (!DBUtil::createTable('agoraportal_queues_log'))
                     return false;
+            case '2.0.10':
+                if (!DBUtil::createTable('agoraportal_nodes_stats_day'))
+                    return false;
+                if (!DBUtil::createTable('agoraportal_nodes_stats_month'))
+                    return false;
+
+                /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
+                 * afegir una comprovació amb DBUtil::metaIndexes per saber
+                 * si s'han de tornar a crear. */
         }
         return true;
     }

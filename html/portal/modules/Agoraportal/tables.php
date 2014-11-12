@@ -639,6 +639,56 @@ function Agoraportal_tables() {
         'timeModified' => "C(20) NOTNULL DEFAULT ''"
     );
 
+    $table['agoraportal_nodes_stats_day'] = DBUtil::getLimitedTablename('agoraportal_nodes_stats_day');
+    $table['agoraportal_nodes_stats_day_column'] = array(
+        'clientcode' => 'clientcode',
+        'clientDNS' => 'clientDNS',
+        'date' => 'date',
+        'total' => 'total',
+        'posts' => 'posts',
+        'userstotal' => 'userstotal',
+        'usersactive' => 'usersactive',
+        'usersactivelast30days' => 'usersactivelast30days',
+        'usersactivelast90days' => 'usersactivelast90days',
+        'diskConsume' => 'diskConsume',
+        );
+    $table['agoraportal_nodes_stats_day_column_def'] = array(
+        'clientcode' => 'C(10) NOTNULL default \'\'',
+        'clientDNS' => 'C(50) NOTNULL default \'\'',
+        'date' => 'I NOTNULL DEFAULT 0',
+        'total' => 'I NOTNULL DEFAULT 0',
+        'posts' => 'I NOTNULL DEFAULT 0',
+        'userstotal' => 'I NOTNULL DEFAULT 0',
+        'usersactive' => 'I NOTNULL DEFAULT 0',
+        'usersactivelast30days' => 'I NOTNULL DEFAULT 0',
+        'usersactivelast90days' => 'I NOTNULL DEFAULT 0',
+        'diskConsume' => 'I NOTNULL DEFAULT 0',
+        );
+
+    $table['agoraportal_nodes_stats_month'] = DBUtil::getLimitedTablename('agoraportal_nodes_stats_month');
+    $table['agoraportal_nodes_stats_month_column'] = array(
+        'clientcode' => 'clientcode',
+        'clientDNS' => 'clientDNS',
+        'date' => 'date',
+        'total' => 'total',
+        'posts' => 'posts',
+        'userstotal' => 'userstotal',
+        'usersactive' => 'usersactive',
+        'lastactivity' => 'lastactivity',
+        'diskConsume' => 'diskConsume',
+        );
+    $table['agoraportal_nodes_stats_month_column_def'] = array(
+        'clientcode' => 'C(10) NOTNULL default \'\'',
+        'clientDNS' => 'C(50) NOTNULL default \'\'',
+        'date' => 'I NOTNULL DEFAULT 0',
+        'total' => 'I NOTNULL DEFAULT 0',
+        'posts' => 'I NOTNULL DEFAULT 0',
+        'userstotal' => 'I NOTNULL DEFAULT 0',
+        'usersactive' => 'I NOTNULL DEFAULT 0',
+        'lastactivity' => 'T NOTNULL DEFAULT \'1970-01-01 00:00:00\'',
+        'diskConsume' => 'I NOTNULL DEFAULT 0',
+        );
+
     return $table;
 }
 

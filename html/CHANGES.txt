@@ -11,6 +11,7 @@ GENERAL
 PORTAL
 - Moved portaldata/ to docs/portaldata/
 - Added module Files 1.0.1
+- Added tables for statistics of Nodes
 
 WORDPRESS
 - Added catalan translation for BuddyPress Like
