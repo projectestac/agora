@@ -1,6 +1,7 @@
 <?php
- define('CLI_SCRIPT', true);
-define('CACHE_DISABLE_ALL', true);
+
+define('CLI_SCRIPT', true);
+//define('CACHE_DISABLE_ALL', true);
 
 require(dirname(dirname(dirname(dirname(__FILE__)))).'/config.php');
 require_once($CFG->libdir.'/clilib.php');      // cli only functions
