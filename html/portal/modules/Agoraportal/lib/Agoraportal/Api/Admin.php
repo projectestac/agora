@@ -1743,6 +1743,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $params['ccentre'] = $clientDNS;
                 $command = $dirbase.'/moodle2/local/agora/scripts/cli.php -s='.$operation;
                 break;
+            case 'nodes':
+                $params['ccentre'] = $clientDNS;
+                $command = $dirbase.'/wordpress/wp-content/plugins/agora/scripts/cli.php -s='.$operation;
+                break;
             default:
                 return array('success' => $success, 'result' => 'Operations are not allowed for this service');
                 break;
@@ -1755,11 +1759,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         $command = 'php '.$command.' > /dev/stdout 2>&1';
-
         exec($command, $result, $success);
 
         $success = $result['success'] >= 0;
-        $result = implode("\n", $result);
+        $result = nl2br(implode("\n", $result));
+
         return array('success' => $success, 'result' => $result);
     }
 
@@ -1874,9 +1878,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
         $dom = ZLanguage::getModuleDomain('Agoraportal');
 
-        $executing = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
-        if (!empty($executing)) {
-            print __('There are '.count($executing) .' operations executing!', $dom);
+        $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
+        if (!empty($executings)) {
+            foreach ($executings as $executing) {
+                if ($executing['timeStart'] < time() - 60 * 60) { //Timeout after one hour
+                    $executing['state'] = 'TO';
+                    DBUtil::updateObject($executing, 'agoraportal_queues');
+                }
+            }
+        }
+
+        $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
+        if (!empty($executings)) {
+            print __('There are '.count($executings) .' operations executing!', $dom);
             return 0;
         } else {
             $hour = (int)date('G');

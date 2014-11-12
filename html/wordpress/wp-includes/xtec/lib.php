@@ -8,9 +8,9 @@
  * Check if current logged user is xtecadmin
  */
 function is_xtecadmin() {
-    
+
     global $current_user;
-    
+
     if (isset($current_user->user_login) && ($current_user->user_login == 'xtecadmin')) {
         return true;
     } else {
@@ -20,7 +20,7 @@ function is_xtecadmin() {
 
 /*
  * Get the ID of xtecadmin user
- * 
+ *
  * return int ID of xtecadmin
  */
 function get_xtecadmin_id() {
@@ -30,7 +30,7 @@ function get_xtecadmin_id() {
 
 /*
  * Get the username of xtecadmin
- * 
+ *
  * return string username of xtecadmin
  */
 function get_xtecadmin_username() {
@@ -94,4 +94,53 @@ function save_stats() {
     );
 
     $wpdb->insert($table, $data, array('%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%s', '%s'));
+}
+
+function parse_cli_args() {
+    global $cliargs;
+    $cliargs = array();
+    $rawoptions = $_SERVER['argv'];
+
+    if (($key = array_search('--', $rawoptions)) !== false) {
+        $rawoptions = array_slice($rawoptions, 0, $key);
+    }
+
+    unset($rawoptions[0]);
+    foreach ($rawoptions as $raw) {
+        if (substr($raw, 0, 2) === '--') {
+            $value = substr($raw, 2);
+            $parts = explode('=', $value);
+            if (count($parts) == 1) {
+                $key   = reset($parts);
+                $value = true;
+            } else {
+                $key = array_shift($parts);
+                $value = implode('=', $parts);
+            }
+            $cliargs[$key] = $value;
+
+        } else if (substr($raw, 0, 1) === '-') {
+            $value = substr($raw, 1);
+            $parts = explode('=', $value);
+            if (count($parts) == 1) {
+                $key   = reset($parts);
+                $value = true;
+            } else {
+                $key = array_shift($parts);
+                $value = implode('=', $parts);
+            }
+            $cliargs[$key] = $value;
+        }
+    }
+}
+
+function get_cli_arg($arg){
+    global $cliargs;
+    if (empty($cliargs)) {
+        parse_cli_args();
+    }
+    if (isset($cliargs[$arg])) {
+        return $cliargs[$arg];
+    }
+    return false;
 }

@@ -5,7 +5,11 @@ require_once (dirname(dirname(__FILE__)) . '/config/dblib-mysql.php');
 // Load params from URL
 $debug_enabled = filter_input(INPUT_GET, 'debug', FILTER_SANITIZE_STRING); // Values: 'on', 'off', null (if not set)
 $dbsource = filter_input(INPUT_GET, 'dbsource', FILTER_SANITIZE_NUMBER_INT); // Values: '1', '2', null (if not set)
-$centre = filter_input(INPUT_GET, 'ccentre', FILTER_SANITIZE_STRING); // Values: "Nom propi", null (if not set)
+if (defined('CLI_SCRIPT')) {
+    $centre = get_cli_arg('ccentre');
+} else {
+    $centre = filter_input(INPUT_GET, 'ccentre', FILTER_SANITIZE_STRING);
+}
 
 if (!is_null($debug_enabled)) {
     define('DEBUG_ENABLED', $debug_enabled);

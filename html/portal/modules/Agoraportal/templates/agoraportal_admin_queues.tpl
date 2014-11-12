@@ -34,7 +34,9 @@
             <option {if $state_filter === 'P'}selected{/if} value="P">{gt text="Pendent"}</option>
             <option {if $state_filter === 'OK'}selected{/if} value="OK">{gt text="Correcte"}</option>
             <option {if $state_filter === 'KO'}selected{/if} value="KO">{gt text="Error"}</option>
-            <option {if $state_filter === 'OK,KO'}selected{/if} value="OK,KO">{gt text="Acabat"}</option>
+            <option {if $state_filter === 'TO'}selected{/if} value="TO">{gt text="Timeout"}</option>
+            <option {if $state_filter === 'OK,KO,TO'}selected{/if} value="OK,KO,TO">{gt text="Acabat"}</option>
+            <option {if $state_filter === 'L,P'}selected{/if} value="L,P">{gt text="No acabat"}</option>
         </select><br/>
         <strong>{gt text="Des de: "}</strong>
         <input size="15" id="date_start" name="date_start"  value="{$date_start}"/><br/>
@@ -114,6 +116,8 @@
                             Executant
                         {elseif $row.state == 'P'}
                             Pendent
+                        {elseif $row.state == 'TO'}
+                            Timeout
                         {else}
                             {$row.state}
                         {/if}

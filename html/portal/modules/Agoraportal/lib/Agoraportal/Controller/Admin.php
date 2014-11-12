@@ -627,6 +627,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 case 'moodle2':
                     $url .= '/local/agora/scripts/list.php';
                     break;
+                case 'nodes':
+                    $url .= '/wp-content/plugins/agora/scripts/list.php';
+                    break;
                 default:
                     return $this->getServiceActions_noaction();
                     break;
@@ -4103,10 +4106,10 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search['state'] = FormUtil::getPassedValue('state_filter', isset($args['state_filter']) ? $args['state_filter'] : '', 'GETPOST');
         $view->assign('state_filter', $search['state']);
 
-        $search['from'] = FormUtil::getPassedValue('date_start', isset($args['date_start']) ? $args['date_start'] : date('Y-m-d').' 00:00', 'GETPOST');
+        $search['from'] = FormUtil::getPassedValue('date_start', isset($args['date_start']) ? $args['date_start'] : date('Y-m-d', strtotime('-3 days')).' 00:00', 'GETPOST');
         $view->assign('date_start', $search['from']);
 
-        $search['to'] = FormUtil::getPassedValue('date_stop', isset($args['date_stop']) ? $args['date_stop'] : date('Y-m-d', strtotime('+2 weeks')).' 00:00', 'GETPOST');
+        $search['to'] = FormUtil::getPassedValue('date_stop', isset($args['date_stop']) ? $args['date_stop'] : date('Y-m-d', strtotime('+1 day')).' 00:00', 'GETPOST');
         $view->assign('date_stop', $search['to']);
 
         $search['sortby_dir'] = FormUtil::getPassedValue('sortby_dir', isset($args['sortby_dir']) ? $args['sortby_dir'] : 'ASC', 'GETPOST');
