@@ -2,17 +2,17 @@
 
 /**
  * This class is used to send mail using common Web Service mail delivery of the Departament d'Ensenyament.
- * 
+ *
  * REQUIREMENTS:
  * - have enabled the PHP SOAP library
- * 
- * 
+ *
+ *
  * WORKDIR:
  * new mailsender -> add_message -> send_mail
- * 
- * 
+ *
+ *
  * Basic example of using this class:
- * 
+ *
  * include ('mailsender.class.php');
  * $sender  = new mailsender('XTECBLOCS', 'xtecblocs-noreply@xtec.cat', 'educacio', 'INT', true);
  * $to      = array('manuel.martinez.ortega@atsistemas.com');
@@ -20,15 +20,15 @@
  * $body    = 'Testing the mailserder.class.php v.1';
  * $sender->add_message( $to, $cc, $bcc, $subject, $body);
  * $sender->send_mail();
- * 
- * 
+ *
+ *
  * @author IECISA @mmartinez
  * @version 1.2
- * 
+ *
  */
 
 class mailsender{
-	
+
 	/**
 	 * Mail adress of the allowed senders
 	 */
@@ -45,16 +45,16 @@ class mailsender{
 	 *  Other variables used
 	 */
 	private $idApp, $replyAddress, $sender, $enviroment, $islogger = false, $logger, $debug, $messages = array();
-	
+
 	private $error = array('idApp'           => false,
 	                       'replyAddress'    => false,
 	                       'sender'          => false,
 	                       'enviroment'      => false,
 	                       'ws_availability' => false);
-	
+
 	/**
 	 * Class constructor
-	 * 
+	 *
 	 * @param int    $idApp        -> code of the application that want to send mails
 	 * @param string $replyAddress -> email address where destinataries can answer to
 	 * @param string $sender       -> code of the desired sender
@@ -62,16 +62,16 @@ class mailsender{
 	 * @param bool   $log          -> set if the log are enable or disable
 	 * @param bool   $logdebug     -> set if a full log is wanted or just a resume log
 	 * @param string $logpath      -> set the full path where the log will be stored
-	 */	
+	 */
 //XTEC ************ MODIFIED -> Add to the constructor a new parameter called $logpath to define where will be stored the log file
 //2011.04.01 @mmartinez
 	function __construct($idApp, $replyAddress = '', $sender = 'educacio', $enviroment = 'PRO', $log = false, $logdebug = false, $logpath = ''){
 		//set variables
 		$this->islogger = ($log)? $this->get_logger($logdebug, $logpath) : false;
-//*********** ORIGINAL 
+//*********** ORIGINAL
     /*function __construct($idApp, $replyAddress = '', $sender = 'educacio', $enviroment = 'PRO', $log = false, $debug = false){
 		//set variables
-		$this->islogger = ($log)? $this->get_logger($debug) : false;*/ 
+		$this->islogger = ($log)? $this->get_logger($debug) : false;*/
 //*********** ORIGINAL 2011.03.18 ******  Add to the constructor a new parameter called $log to switch the logger on and off
     /*function __construct($idApp, $replyAddress = '', $sender = 'educacio', $enviroment = 'PRO', $debug = false){
 		//set variables
@@ -81,14 +81,14 @@ class mailsender{
 	    if ($this->islogger){
 		    $this->logger->add('mailsender.class.php: Loading class...');
 		}
-		
+
 		if (!$this->set_idapp($idApp)){
 			exit('Mailsender need obligatory the $idApp parameter. Please set it.');
 		}
 		$this->set_replyAddress($replyAddress);
 		$this->set_sender($sender);
 		$this->set_enviroment($enviroment);
-		
+
 		if ($this->islogger){
 			if (in_array(true, $this->error)){
 				$this->logger->add('mailsender.class.php: Class loaded with errors');
@@ -97,20 +97,20 @@ class mailsender{
 			}
 		}
 	}
-	
+
     /**
 	 * Check if ws is available for the setted sender and enviroment.
-	 * 
+	 *
 	 * @return bool -> true if test passed successfuly or false if not
 	 */
 	function test_availability (){
-		
+
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Testing ws availability...', 'DEBUG');
 		}
-		
+
 		$this->error['ws_availability'] = false;
-		
+
 		//check if there are any previous error
 		if (in_array(true, $this->error)){
 		    if ($this->islogger){
@@ -118,7 +118,7 @@ class mailsender{
 		    }
 		    return false;
 		}
-		
+
 		$xml = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cor="http://www.gencat.cat/educacio/sscc/correu">
             <soapenv:Body>
                 <cor:PeticioDisponibilitat>
@@ -126,13 +126,13 @@ class mailsender{
                 </cor:PeticioDisponibilitat>
             </soapenv:Body>
         </soapenv:Envelope>';
-		
+
 		if ($this->debug){
 			$this->logger->add('mailsender.class.php: Test ws availability values: sender -> '.$this->sender.', url ->'.$this->enviroment, 'DEBUG');
-		}	
-		
+		}
+
 		try {
-			
+
 			//get_wsdl
 			$wsdl = $this->get_wsdl($this->enviroment);
 			if (!$wsdl){
@@ -153,31 +153,31 @@ class mailsender{
 
 		    //call the ws method
 		    $response = $soapclient->__doRequest(utf8_encode($xml), $this->enviroment.'?wsdl', 'disponibilitat', SOAP_1_1, 0);
-		    
+
 		    if ($this->debug){
 		    	$this->logger->add('mailsender.class.php: Test ws availability doRequest OK', 'DEBUG');
 		   	    $this->logger->add('mailsender.class.php: Test ws availability request: "'."\n".'<![CDATA['.$xml.']]!>"', 'DEBUG');
 		   	    $this->logger->add('mailsender.class.php: Test ws availability response: "'."\n".'<![CDATA['.$response.']]!>"', 'DEBUG');
 		    }
-		    
+
 		} catch (SoapFault $e){
-			
+
 		    if ($this->islogger){
 			    $this->logger->add('mailsender.class.php: Test ws availability KO, '.$e->faultstring, 'ERROR');
 		    }
-		        
+
 		    $this->error['ws_availability'] = true;
 		    return false;
-		    
+
 		}
-		
+
 		if (empty($response)){
 			if ($this->islogger){
 				$this->logger->add('mailsender.class.php: Test availability KO, response is empty', 'ERROR');
 			}
 			return false;
 		}
-		
+
 		//parse response
 		if ($response = simplexml_load_string($response)){
 			if ($this->islogger){
@@ -188,45 +188,45 @@ class mailsender{
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Test availability response parsed OK', 'DEBUG');
 		}
-		
-		$response = $response->children('env', true);		
-		$response = $response->Body[0]->children("ans1", true);		
+
+		$response = $response->children('env', true);
+		$response = $response->Body[0]->children("ans1", true);
 		$response = $response->RespostaDisponibilitat[0]->children();
-		
-		//parse ws response		
+
+		//parse ws response
 		if ($response->status == "OK"){
 			if ($this->islogger){
 				$this->logger->add('mailsender.class.php: Test ws availability OK');
 			}
 			return true;
 		}
-		
+
 		$error_message = 'Unknown';
-		
+
 		if (isset($response->message) && !empty($response->message)){
 			$error_message = $response->message;
 		}
-		
+
 		if ($this->islogger){
 		    $this->logger->add('mailsender.class.php: Test ws availability KO. '.$error_message, 'ERROR');
 		}
-		    
+
 		$this->error['ws_availability'] = true;
-		
+
 		return false;
 	}
-    
+
     /**
 	 * Send mail with al the messages loaded previously
-	 * 
+	 *
 	 * @return array -> resume of the messages sended
 	 */
 	function send_mail (){
-		
+
 	   if ($this->islogger){
 			$this->logger->add('mailsender.class.php: Sending mails...');
 		}
-		
+
 		//check if there are any previous error
 		if (in_array(true, $this->error)){
 		    if ($this->islogger){
@@ -234,7 +234,7 @@ class mailsender{
 		    }
 		    return false;
 		}
-		
+
 		//check ws availability
 		if (!$this->test_availability()){
 		    if ($this->islogger){
@@ -242,7 +242,7 @@ class mailsender{
 		    }
 			return false;
 		}
-		
+
 		//prepare xml to be send
 		if (!$xml = $this->get_messages()){
 		    if ($this->islogger){
@@ -250,7 +250,7 @@ class mailsender{
 		    }
 			return false;
 		}
-		
+
 // XTEC ************ ADDED -> Test the charset to do conversions
 // 2011.03.16 @mmartinez
 		//test the charset of the xml
@@ -261,7 +261,7 @@ class mailsender{
 //************* END
 
 	    try {
-	    				
+
 			//get_wsdl
 			$wsdl = $this->get_wsdl($this->enviroment);
 			if (!$wsdl){
@@ -270,40 +270,40 @@ class mailsender{
 			    }
 				return false;
 			}
-			
+
 			//invoke soap client
 		    $soapclient = @new soapclient($wsdl, array('trace' => 1, 'connection_timeout' => 120));
 	        if ($this->debug){
 				$this->logger->add('mailsender.class.php: Send mail instanced soapclient OK', 'DEBUG');
 			}
-			
+
 			set_time_limit(120);
-			
+
 		    //call the ws method
 		    $response = $soapclient->__doRequest($xml, $this->enviroment.'?wsdl', 'enviament', SOAP_1_1, 0);
-		    
+
 		    if ($this->debug){
 		    	$this->logger->add('mailsender.class.php: Send mail doRequest OK', 'DEBUG');
 		   	    $this->logger->add('mailsender.class.php: Send mail request value: <![CDATA['.$xml.']]!>', 'DEBUG');
 		   	    $this->logger->add('mailsender.class.php: Send mail response value: <![CDATA['.$response.']]!>', 'DEBUG');
 		    }
-		    
+
 		} catch (SoapFault $e){
-			
+
 		    if ($this->islogger){
 			    $this->logger->add('mailsender.class.php: Send mail KO, '.$e->faultstring, 'ERROR');
 		    }
 		    return false;
-		    
+
 		}
-		
+
 		if (empty($response)){
 			if ($this->islogger){
 				$this->logger->add('mailsender.class.php: Send mail KO, response is empty', 'ERROR');
 			}
 			return false;
 		}
-		
+
 		//parse response
 		if ($response = simplexml_load_string($response)){
 			if ($this->islogger){
@@ -314,10 +314,10 @@ class mailsender{
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Send mail response parsed OK', 'DEBUG');
 		}
-		
-		$response = $response->children('env', true);		
-		
-		
+
+		$response = $response->children('env', true);
+
+
 		if (isset($response->Body[0]->Fault[0])){
 			$response = $response->Body[0]->Fault[0]->children();
 			if ($this->islogger){
@@ -325,9 +325,9 @@ class mailsender{
 			}
 			return false;
 		}
-		$response = $response->Body[0]->children("ans1", true);	
+		$response = $response->Body[0]->children("ans1", true);
 		$response = $response->RespostaEnviament[0]->children();
-		
+
 		//process response
 		if ($response->status == 'KO'){
 		    if ($this->islogger){
@@ -338,15 +338,15 @@ class mailsender{
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Send mail OK, ws response with OK', 'DEBUG');
 		}
-		
+
 		//process each message
 		$return = array();
 		$errors = 0;
-		foreach ($response->respostaCorreu as $respostaCorreu){ 
-			
+		foreach ($response->respostaCorreu as $respostaCorreu){
+
 			$responsemessage = (!empty($respostaCorreu->message))? $respostaCorreu->message : '' ;
 			$return[] = array('id' => $respostaCorreu->id, 'status' => $respostaCorreu->status, 'message' => $responsemessage);
-			
+
 			if ($respostaCorreu->status == 'KO'){
 				if ($this->logger){
 				    $this->logger->add('mailsender.class.php: Send mail response message '.$respostaCorreu->id.' response with KO. Reason: '.$responsemessage, 'WARNING');
@@ -354,48 +354,48 @@ class mailsender{
 				$errors ++;
 				continue;
 			}
-			
+
 			if ($this->debug){
 				$this->logger->add('mailsender.class.php: Send mail response message '.$respostaCorreu->id.' response with OK', 'DEBUG');
 			}
-		}		
+		}
 	    if ($this->logger){
 		    $this->logger->add('mailsender.class.php: Send mail response messages resume: '.(count($return)-$errors).' OK, '.$errors.' KO, '.count($return).' Total');
 		}
-		
+
 		//unset requested messagedd
 		$this->messages = '';
-		
+
 		return $return;
-		
+
 	}
 
 // XTEC ************* ADDED -> new method to add_message by object
 // 2011.04.04 @mmartinez
 	/**
 	 * Add message object to mailsender
-	 * 
+	 *
 	 * @param object $message -> Object with the message to add
 	 * @return bool           -> true if all ok, false if not
 	 */
 	function add ($message = null){
-		
+
 		if (empty($message)){
 			if ($this->islogger){
 				$this->logger->add('mailsender.class.php: add parameter is empty', 'ERROR');
 			}
 			return false;
 		}
-		
+
 		$attach = $message->get_attach();
-		
+
 		 return $this->add_message($message->get_to(), $message->get_cc(), $message->get_bcc(), $message->get_subject(), $message->get_bodyContent(),
 		$attach[0], $attach[1], $attach[2], $attach[3], $message->get_bodyType());
 	}
 //************ END
 	/**
 	 * Add messages to the request xml
-	 * 
+	 *
 	 * @param array $to                 -> list of email address to send message to
 	 * @param array $cc                 -> list of email address to send message copy to
 	 * @param array $bcc                -> list of email address to send message hidden copy to
@@ -409,9 +409,9 @@ class mailsender{
 	 * @return bool                     -> true if added was successfull or false if not
 	 */
 	function add_message($to = array(), $cc = array(), $bcc = array(), $subject = '', $bodyContent = '', $attachfilenames = array(), $attachfilepaths = array(), $attachfilecontents = array(), $attachmimetypes = array(), $bodyType = 'text/plain'){
-		
-		$cntmsg = count($this->messages)+1; 
-		
+
+		$cntmsg = count($this->messages)+1;
+
 		//check if there are destinataris
 		$parameters = array('to', 'cc', 'bcc');
 		$errorcnt = 0;
@@ -424,7 +424,7 @@ class mailsender{
 		if ($errorcnt == count($parameters)){
 			$errorstr .= 'Parameters $to, $cc and $bcc are empty, and there isnt any destinatary';
 		}
-		
+
 		//check if there are body contents
 		$parameters = array('subject', 'bodyContent', 'bodyType');
 	    foreach ($parameters as $parameter){
@@ -437,7 +437,7 @@ class mailsender{
 				$errorstr .= 'parameter bodyType is incorrect, it must be "text/plain" or "text/html"';
 			}
 		}
-		
+
 		//if the are errors add message to logger and stop add messages
 		if ($errorstr != ''){
 			if ($this->logger){
@@ -445,14 +445,14 @@ class mailsender{
 			}
 			return false;
 		}
-		
+
 		//set xml
 		$message = '                    <correu>
 		                  <from>'.$this->sender.'</from>
 		                  <replyAddresses>
 		                      <address>'.$this->replyAddress.'</address>
 		                  </replyAddresses>
-		                  <destinationAddresses>';        
+		                  <destinationAddresses>';
         foreach ($to as $t){
             $message .= '                          <destination>
                                   <address>'.$t.'</address>
@@ -482,7 +482,7 @@ class mailsender{
 	    $body_charset = $this->get_charset($bodyContent);
         if ($body_charset != 'UTF_8'){
         	$bodyContent = utf8_encode($bodyContent);
-        }	
+        }
 //************ END
 
         $message .= '                     </destinationAddresses>
@@ -491,7 +491,7 @@ class mailsender{
                                   <bodyType>'.$bodyType.'</bodyType>
                                   <bodyContent><![CDATA['.$bodyContent.']]></bodyContent>
                              </mailBody>';
-        
+
         if (!empty($attachfilenames) && (!empty($attachfilepaths) || (!empty($attachfilecontents) && !empty($attachmimetypes)))){
         	$cnt = 0;
 	        $message .= "\n".'        <attachments>';
@@ -500,11 +500,11 @@ class mailsender{
 	        		$cnt++;
 	        		continue;
 	        	}
-	        
+
 	        	$message .= "\n".'<attachment>'."\n";
 	        	if (!empty($attachfilepaths[$cnt])){
 	        	    //file is posted in a path of the server
-	        	    
+
 	        		//check that file exits
                     if (!is_file($attachfilepaths[$cnt])){
                     	$cnt++;
@@ -523,12 +523,12 @@ class mailsender{
 	                    <attachmentContent>';
 	                if (is_file($attachfilecontents[$cnt])){
 	                	//get file type and set it to $attachmimetypes[$cnt]
-	                	
+
 //XTEC ************	MODIFIED -> Call to the new method added to get file mime type
 //2011.03.18 @mmartinez
                         $attachmimetypes[$cnt] = $this->get_mime_type($attachfilecontents[$cnt]);
 //************** ORIGINAL
-	                	/*if (function_exists('finfo_file')) {  
+	                	/*if (function_exists('finfo_file')) {
 					        $finfo = finfo_open(FILEINFO_MIME_TYPE);
 					        $attachmimetypes[$cnt] = finfo_file($finfo, $attachfilecontents[$cnt]);
 					        finfo_close($finfo);
@@ -536,12 +536,12 @@ class mailsender{
 					  	    $attachmimetypes[$cnt] = mime_content_type($attachfilecontents[$cnt]);
 					    }else {
 					  	    $file = escapeshellarg($attachfilecontents[$cnt]);
-					  	    $attachmimetypes[$cnt] = shell_exec("file -bi " . $file);     
+					  	    $attachmimetypes[$cnt] = shell_exec("file -bi " . $file);
 					    }*/
 //************** END
-					    
+
 	                	$attachfilecontents[$cnt] = base64_encode(fread(fopen($attachfilecontents[$cnt], 'r'), filesize($attachfilecontents[$cnt])));
-	                	
+
 	                } else if (empty($attachmimetypes[$cnt])){
 	                	if ($this->islogger){
 	                		$this->logger->add('mailsender.class.php: Add message '.$cntmsg.' KO, attachmimetypes not found for attach '.($cnt+1).'. Cancell add messages.', 'ERROR');
@@ -558,53 +558,53 @@ class mailsender{
 	            $message .= "\n".'</attachment>';
 	            $cnt++;
 	        }
-	        
+
 	        $message .= "\n".'</attachments>';
         }
-                                      
+
         $message .= "\n".'</correu>';
-		
+
         //add to messages array
-		$this->messages[] = $message;		
+		$this->messages[] = $message;
 	    if ($this->debug){
 	    	    $cnt = count($this->messages);
 				$this->logger->add('mailsender.class.php: Add message '.$cnt.' OK, message: "'."\n".'<![CDATA['.$message.']]>"', 'DEBUG');
 			}
 		return true;
 	}
-		
+
 	/**
 	 * Print de log generated by the class
-	 * 
+	 *
 	 * @return string -> full string with the log
 	 */
 	function print_log(){
-		
+
 		if ($this->islogger && $log = $this->logger->get_log('<br>')){
 		    echo '<br><br><b>Log generated on '.date("d-m-Y H:i:s").':</b><br>'.$log;
 		}
-		
+
 		return;
 	}
-	
+
 ////////////////////////////////////////////////////////
 //////////          SET/GET FUNCTIONS          /////////
 ////////////////////////////////////////////////////////
-	
+
 	/**
 	 * Check and set idApp
-	 * 
+	 *
 	 * @param string $idApp -> code of the application that is been using this class
 	 * @return bool         -> true if all ok or false if not
 	 */
 	private function set_idapp($idApp = ''){
-		
+
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Checking idApp...', 'DEBUG');
 		}
-		
+
 		$this->error['idApp'] = false;
-		
+
 		if (empty($idApp)){
 			if ($this->islogger){
 			    $this->logger->add('mailsender.class.php: IdApp KO, parameter is empty', 'ERROR');
@@ -612,27 +612,27 @@ class mailsender{
 		    $this->error['idApp'] = true;
 		    return false;
 		}
-		
+
 	    if ($this->islogger){
 			$this->logger->add('mailsender.class.php: IdApp OK, setted to "'.$idApp.'"');
 		}
-		
+
 		$this->idApp = $idApp;
 		return true;
 	}
-	
+
 	/**
 	 * Check and set replyAddress
-	 * 
+	 *
 	 * @param string $replyAddres -> email address where destinataris can reply to
 	 * @return bool               -> true if all ok or false if not
 	 */
 	function set_replyAddress($replyAddress = ''){
-		
+
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Checking replyAddress...', 'DEBUG');
 		}
-		
+
 		$this->error['replyAddress'] = false;
 
 //XTEC ************ ADD -> Improved control of well-formed email
@@ -655,58 +655,58 @@ class mailsender{
 		    $this->error['replyAddress'] = true;
 		    return false;
 		}
-		
+
 	    if ($this->islogger){
 			$this->logger->add('mailsender.class.php: ReplyAddress: OK, setted to "'.$replyAddress.'"');
 		}
 		$this->replyAddress = $replyAddress;
 		return true;
 	}
-	
+
 	/**
 	 * Check if the sender is allowed and set it
-	 * 
+	 *
 	 * @param  string $sender -> code of the desired sender
 	 * @return string         -> true if all ok or false if not
-	 */	
+	 */
 	function set_sender($sender = ''){
-		
+
 		if ($this->debug){
 			$this->logger->add('mailsender.class.php: Checking sender...', 'DEBUG');
 		}
-		
+
 		$this->error['sender'] = false;
-		
+
 		if (!array_key_exists($sender, $this->allowed_senders)){
 			if ($this->islogger){
 			    $this->logger->add('mailsender.class.php: Sender KO, "'.$sender.'" is not a valid sender', 'ERROR');
-		    }		
+		    }
 		    $this->error['sender']  = true;
 		    $this->sender =  null;
 		    return false;
 		}
-		
+
 		if ($this->islogger){
 		    $this->logger->add('mailsender.class.php: Sender OK, setted to "'.$sender.'"');
 		}
 		$this->sender = $this->allowed_senders[$sender];
-		return true;	    
+		return true;
 	}
-	
+
 	/**
 	 * Check if isset the desired enviroment, else denie any activity
-	 * 
+	 *
 	 * @param string $enviroment -> code of the desired enviroment
 	 * @return string            -> ws url of the desired enviroment
 	 */
 	function set_enviroment($enviroment = ''){
-		
+
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Checking enviroment...', 'DEBUG');
 		}
-		
+
 		$this->error['enviroment'] = false;
-		
+
 		if (!array_key_exists($enviroment, $this->allowed_enviroments)){
 		    if ($this->islogger){
 			    $this->logger->add('mailsender.class.php: Enviroment KO, "'.$enviroment.'" is not a valid enviroment', 'ERROR');
@@ -714,18 +714,18 @@ class mailsender{
 		    $this->error['enviroment'] = true;
 		    $this->enviroment          = null;
 		    return false;
-		}		
-		
+		}
+
 		if ($this->islogger){
 			$this->logger->add('mailsender.class.php: Enviroment OK, setted to "'.$enviroment.'"');
 		}
 		$this->enviroment = $this->allowed_enviroments[$enviroment];
 		return true;
 	}
-	
+
 	/**
 	 * Function to get messages than convert array to string
-	 * 
+	 *
 	 * @return string -> full XML to be send
 	 */
 	function get_messages(){
@@ -737,38 +737,38 @@ class mailsender{
 			}
 			return false;
 		}
-		
+
 		$messages = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cor="http://www.gencat.cat/educacio/sscc/correu">
 		    <soapenv:Body>
 		        <cor:PeticioEnviament>
                     <idApp>'.$this->idApp.'</idApp>';
-		
+
 		//convert array to string
 		$messages .= implode("", $this->messages);
-		
+
 		$messages .= '</cor:PeticioEnviament>
              </soapenv:Body>
         </soapenv:Envelope>';
 	    if ($this->debug){
 			$this->logger->add('mailsender.class.php: Send mail XML creation OK'."\n".'"<![CDATA['.$messages.']]>"', 'DEBUG');
 		}
-		
+
 		//return string
 		return $messages;
 	}
-	
+
 	/**
 	 * Function to take out wsdl and take out de portType that make php crash
-	 * 
+	 *
 	 * @param string $url -> url where the class will take de wsdl file
 	 * @return string     -> path to the local wsdl or false if failed
 	 */
 	private function get_wsdl($url = null){
-        
+
 		if ($this->debug){
 			$this->logger->add('mailsender.class.php: Getting wsdl...', 'DEBUG');
 		}
-		
+
 		//check if local wsdl exits
 		$enviroment_code = array_keys($this->allowed_enviroments, $url);
 		$current_file = dirname(__FILE__).'/wsdl/wsdl-'.$enviroment_code[0].'.wsdl';
@@ -778,37 +778,37 @@ class mailsender{
 			}
 			return $current_file;
 		}
-		
-		//check if $url is empty 
+
+		//check if $url is empty
 		if (empty($url)){
 			if ($this->islogger){
 				$this->logger->add('mailsender.class.php: Get wsdl KO, $url is empty', 'ERROR');
 			}
 			return false;
 		}
-		
+
 		//get wsdl
 		if (!$curl=curl_init()){
 			if ($this->islogger){
-				$this->logger->add('mailsender.class.php: Get wsdl KO, curl_init fails', 'ERROR');        
+				$this->logger->add('mailsender.class.php: Get wsdl KO, curl_init fails', 'ERROR');
 			}
 			return false;
 		}
-	    curl_setopt($curl, CURLOPT_URL, $url.'?wsdl');     
+	    curl_setopt($curl, CURLOPT_URL, $url.'?wsdl');
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	    curl_setopt($curl, CURLOPT_HEADER, false);    
-	    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);  
+	    curl_setopt($curl, CURLOPT_HEADER, false);
+	    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 	    if (!$contents = curl_exec($curl)){
 	    	if ($this->islogger){
 	    		$this->logger->add('mailsender.class.php: Get wsdl KO, curl_exec fails', 'ERROR');
 	    	}
 	    	return false;
 	    }
-	    curl_close($curl);	    
+	    curl_close($curl);
 	    if ($this->debug){
 	    	$this->logger->add('mailsender.class.php: Get wsdl taked OK', 'DEBUG');
 	    }
-		
+
 	    //takeout from <portType... to </portType>
 	    if ($inipos = strpos($contents, '<portType')){
 	    	$newcontents = substr($contents, 0, $inipos);
@@ -820,7 +820,7 @@ class mailsender{
 	    if ($this->debug){
 	    	$this->logger->add('mailsender.class.php: Get wsdl stripped OK', 'DEBUG');
 	    }
-		
+
 	    //openfile to save the downloaded wsdl
 		if (!$f = fopen($current_file, 'w+')){
 			if ($this->islogger){
@@ -828,7 +828,7 @@ class mailsender{
 			}
 			return false;
 		}
-		
+
 		if (!fwrite($f, $newcontents)){
 		    if ($this->islogger){
 				$this->logger->add('mailsender.class.php: Get wsdl KO, imposible to write in "wsdl-'.$enviroment_code[0].'.wsdl" file', 'ERROR');
@@ -838,25 +838,25 @@ class mailsender{
 	    if ($this->debug){
 	    	$this->logger->add('mailsender.class.php: Get wsdl saved OK', 'DEBUG');
 	    }
-		
+
 	    if ($this->debug){
 		    $this->logger->add('mailsender.class.php: Get WSDL OK', 'DEBUG');
 		}
-		
+
 		return $current_file;
 	}
-	
+
 // XTEC ************ ADDED -> Method to test the charset of the given string
 // 2011.03.16 @mmartinez
 
 	/**
 	 * Get charset of the given string
-	 * 
+	 *
 	 * @param  string $str -> string to test
 	 * @return string      -> possible values: UTF_8, ISO_8859_1, ASCII
 	 */
 	private function get_charset ($str = ''){
-		
+
 		$c = 0;
 	    $ascii = true;
 	    for ($i = 0;$i<strlen($str);$i++) {
@@ -887,16 +887,16 @@ class mailsender{
 // XTEC ************ ADDED -> Method to get the mime type of a given file
 // 2011.03.16 @mmartinez
     /**
-     * 
+     *
      * Method to get the mime type of a given file
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @param string $fn -> absolute path to the file
      * @return string    -> mime type of the given file
      */
 	function get_mime_type($fn){
-		
+
 		static $mime_magic_data;
 
       #-- fallback
@@ -925,7 +925,7 @@ class mailsender{
          $type = finfo_buffer($bin);
          return($type);
       }
-      
+
       #-- read in magic data, when called for the very first time
       if (!isset($mime_content_type)) {
          if (file_exists($fn = ini_get("mime_magic.magicfile")) || file_exists($fn = "./lib/magic.mime") || file_exists($fn = "../lib/magic.mime"))
@@ -983,7 +983,7 @@ class mailsender{
                if ($typestr == "string") {
                   $magic = stripcslashes($magic);
                   $len = strlen($magic);
-                  if ($mask) { 
+                  if ($mask) {
                      continue;
                   }
                }
@@ -1008,20 +1008,20 @@ class mailsender{
                      if (!$magic) { continue; }   // zero is not a good magic value anyhow
                   }
 
-                  #-- different types               
+                  #-- different types
                   switch ($typestr) {
 
                      case "byte":
                         $len = 1;
                         break;
-                        
+
                      case "beshort":
                         $magic = ($magic >> 8) | (($magic & 0xFF) << 8);
                      case "leshort":
                      case "short":
                         $len = 2;
                         break;
-                     
+
                      case "belong":
                         $magic = (($magic >> 24) & 0xFF)
                                | (($magic >> 8) & 0xFF00)
@@ -1037,21 +1037,21 @@ class mailsender{
                         continue;
                   }
                }
-               
+
                #-- add to list
                $mime_magic_data[] = array($pos, $len, $mask, $magic, trim($ct));
             }
          }
 //echo "mime_magic_data = "; print_r($mime_magic_data);
       }
-      
-      
+
+
       #-- compare against each entry from the mime magic database
       foreach ($mime_magic_data as $def) {
 
          #-- entries are organized as follows
          list($pos, $len, $mask, $magic, $ct) = $def;
-         
+
          #-- ignored entries (we only read first 3K of file for opt. speed)
          if ($pos >= $maxlen) {
             continue;
@@ -1074,10 +1074,10 @@ class mailsender{
             }
          }
       }// foreach
-      
+
       #-- built-in defaults
       if (!$type) {
-      
+
          #-- some form of xml
          if (strpos($bin, "<"."?xml ") !== false) {
             return("text/xml");
@@ -1109,17 +1109,17 @@ class mailsender{
             $type = "application/octet-stream";
          }
       }
-      
-      
+
+
 
       #-- done
-      return $type;		
+      return $type;
 	}
 //*********** END
 
     /**
 	 * Check if isset the logger class, else denie any log
-	 * 
+	 *
 	 * @param bool $debug  -> activate debug mode or not
 	 * @param string $path -> absolute path where file log wil be stored
 	 * @return bool        -> true if logger could be loaded or false if not
@@ -1130,12 +1130,12 @@ class mailsender{
 //*********** ORIGINAL
 	//private function get_logger($debug = false){
 //*********** END
-		
+
 		if (!@include_once('log4p.class.php')){
 		    $this->logger = false;
 		    $this->debug  = false;
 		    return false;
-		}		
+		}
 //XTEC ************ ADDED -> Just get actuall path when there isn't any path defined
 // 2011.04.01 @mmartinez
 		//set default path location
@@ -1160,7 +1160,7 @@ class mailsender{
 		//$this->logger = new log4p(true, $pwd.'log/mailsender.log');*/
 //*********** END
 
-		if ($debug){		    	
+		if ($debug){
 		    $this->debug = $debug;
 		}
 		return true;

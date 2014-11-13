@@ -33,3 +33,7 @@ $string['agora_scripts'] = 'Àgora Scripts';
 $string['login_nodes'] = 'Login to Nodes';
 
 $string['signin_google'] = 'Sign-in with {$a}';
+
+
+$string['environment_url'] = 'Mailsender URL';
+$string['environment_url_desc'] = 'If set, this WSDL Mailsender will be used, if not, the default url for {$a} environment will be used';
