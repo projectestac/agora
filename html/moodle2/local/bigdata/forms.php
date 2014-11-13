@@ -77,7 +77,7 @@ class bigdata_profile_form extends moodleform {
             'user_enrolments', 'user_info_category', 'user_info_data', 'user_info_field', 'user_lastaccess', 'user_password_resets', 'user_preferences', 'user_private_key',
             'webdav', 'log_queries');
 
-        $excludedtablefields = array('log.info', 'files.author', 'files.contenthash');  // Tables.Fields to be excluded of the form
+        $excludedtablefields = array('log.info', 'files.author', 'files.contenthash', 'files.pathnamehash', 'files.filename', 'files.filepath');  // Tables.Fields to be excluded of the form
         foreach ($tables as $table) {
             if (in_array($table, $excludedtables)) {
                 continue;

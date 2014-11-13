@@ -32,45 +32,63 @@ switch($action) {
         $tablefields = array('modules.name', 'role.shortname', 'course.fullname', 'role_assignments.roleid', 'role_assignments.contextid', 'role_assignments.userid',
             'log.time', 'log.userid', 'log.course', 'log.module', 'log.cmid', 'log.action', 'context.contextlevel', 'context.instanceid', 'course_modules.course',
             'course_modules.module', 'course_modules.instance', 'course_modules.added', 'assignment_submissions.assignment', 'assignment_submissions.userid',
-            'assignment_submissions.timecreated', 'assign_submission.assignment', 'assign_submission.userid', 'assign_submission.timecreated', 'files.filename', 'files.userid',
+            'assignment_submissions.timecreated', 'assign_submission.assignment', 'assign_submission.userid', 'assign_submission.timecreated', 'files.userid',
             'files.status', 'files.timecreated', 'files.timemodified');
 
         $modules = $DB->get_fieldset_select('modules', 'name', "");
         foreach ($modules as $module) {
+            $modulefields = array();
             switch($module){
                 case 'book':
-                case 'glossary':
                 case 'survey':
                 case 'wiki':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timecreated', $module.'.timemodified');
+                case 'lti':
+                case 'rcontent':
+                    $modulefields = array($module.'.timecreated', $module.'.timemodified');
                     break;
                 case 'assignment':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeavailable', $module.'.timemodified');
+                    $modulefields = array($module.'.timeavailable', $module.'.timemodified');
                     break;
                 case 'assign':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified'); // timeavailable no existeix...
+                    $modulefields = array($module.'.timemodified'); // timeavailable no existeix...
                     break;
                 case 'chat': // Not enabled in agora
-                    $modulefields = array();
-                    // $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified');
+                    // $modulefields = array($module.'.timemodified');
+                    continue;
                     break;
                 case 'choice':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeopen', $module.'.timeclose', $module.'.timemodified');
+                case 'feedback':
+                    $modulefields = array($module.'.timeopen', $module.'.timeclose', $module.'.timemodified');
                     break;
                 case 'lesson':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.available', $module.'.timemodified');
-                    break;
-                case 'quiz':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeopen', $module.'.timecreated', $module.'.timemodified');
+                    $modulefields = array($module.'.available', $module.'.timemodified');
                     break;
                 case 'scorm':
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timeopen', $module.'.timemodified');
+                    $modulefields = array($module.'.timeopen', $module.'.timemodified');
                     break;
-                case 'data':
+                case 'geogebra':
+                    $modulefields = array($module.'.timeavailable', $module.'.timedue', $module.'.timecreated', $module.'.timemodified');
+                    break;
+                case 'quiz':
+                case 'hotpot':
+                    $modulefields = array($module.'.timeopen', $module.'.timeclose', $module.'.timecreated', $module.'.timemodified');
+                    break;
                 case 'jclic':
                 case 'qv':
+                    $modulefields = array($module.'.timeavailable', $module.'.timedue');
+                    break;
+                case 'questionnaire':
+                    $modulefields = array($module.'.opendate', $module.'.closedate', $module.'.timemodified');
+                    break;
+                case 'data':
+                    $modulefields = array($module.'.timeavailablefrom', $module.'.timeavailableto', $module.'.timeviewfrom', $module.'.timeviewto', $module.'.assesstimestart',
+                                        $module.'.assesstimefinish');
+                    break;
+                case 'glossary':
+                    $modulefields = array($module.'.timecreated', $module.'.timemodified', $module.'.assesstimestart', $module.'.assesstimefinish');
+                    break;
                 case 'eoicampus':
-                    $modulefields = array($module.'.course', $module.'.name');
+                    // Nothing to add
                     break;
                 case 'resource':
                 case 'folder':
@@ -78,10 +96,14 @@ switch($action) {
                 case 'url':
                 case 'forum':
                 case 'workshop':
+                case 'imscp':
+                case 'journal':
                 default:
-                    $modulefields = array($module.'.course', $module.'.name', $module.'.timemodified');
+                    $modulefields = array($module.'.timemodified');
                     break;
             }
+            // Always add course and name
+            $tablefields = array_merge($tablefields, array($module.'.course', $module.'.name'));
             $tablefields = array_merge($tablefields, $modulefields);
         }
         $toform = array('roles' => $roles, 'tablefields' => $tablefields);
