@@ -148,21 +148,12 @@ function test_ws_url($url) {
 /** ERROR HANDLING **/
 function log_to_file($info, $notused = null) {
     try {
-        $data_store_log = get_config('rcommon', 'data_store_log');
+        $logdir = get_config('rcommon', 'data_store_log');
         $tracer = get_config('rcommon', 'tracer');
-        if  ($tracer == 'checked' && !empty($data_store_log)) {
-        	$data_store_log .= "/1";
+        if ($tracer == 'checked' && !empty($logdir)) {
+            $logdir = make_writable_directory($logdir.'/log_rcommon', false);
 
-        	//Escribimos en un fichero de texto los mensajes de errores
-        	if (!is_dir($data_store_log)) {
-        		mkdir($data_store_log);
-        	}
-        	$data_store_log .= "/log_rcommon";
-        	if (!is_dir($data_store_log)) {
-        		mkdir($data_store_log);
-        	}
-
-            if ($handle = @fopen($data_store_log."/LogRcommon.log", "a")) {
+            if ($handle = @fopen($logdir."/LogRcommon.log", "a")) {
                 $content = "\r\n".date("Y-m-d H:i:s")." - Data: ".$info;
                 @fwrite($handle, $content);
                 @fclose($handle);
