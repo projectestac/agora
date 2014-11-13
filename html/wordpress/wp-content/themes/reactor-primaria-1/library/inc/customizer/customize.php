@@ -560,7 +560,7 @@ if ( !function_exists('reactor_customize_register') ) {
 				'theme_supports' => 'reactor-page-templates'
 			 ) );
 				$wp_customize->add_control('reactor_options[frontpage_number_posts]', array( 
-					'label'    => __('Nombre d\'articles', 'custom_tac'),
+					'label'    => __('Nombre d\'articles per pàgina', 'custom_tac'),
 					'section'  => 'frontpage_settings',
 					'type'     => 'text',
 					'priority' => 7,

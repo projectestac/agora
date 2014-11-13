@@ -22,7 +22,7 @@
         <div id="content" role="main">
         	<div class="row">
  		<?php get_sidebar(); ?>
-                <div class="<?php reactor_columns(); ?>">
+                <div class="articles <?php reactor_columns(); ?>">
                 
                 <?php reactor_inner_content_before(); ?>
                 

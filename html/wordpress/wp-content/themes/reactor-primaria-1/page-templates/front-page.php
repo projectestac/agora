@@ -78,7 +78,7 @@ get_header();
         	?>
         	
 		<!-- Contingut central -->
-		<div id="contingut_central_frontpage" class="<?php reactor_columns($columnes); ?>" > 
+		<div id="contingut_central_frontpage" class="articles <?php reactor_columns($columnes); ?>" > 
 		
          	<?php reactor_inner_content_before(); ?>
 				
