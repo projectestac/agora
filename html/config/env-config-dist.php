@@ -2,8 +2,8 @@
 
 global $agora;
 
-// Environment vars	
-$agora['server']['root']       = '/srv/www/agora/';  // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
+// Environment vars
+$agora['server']['root']       = dirname(dirname(dirname(__FILE__)));  // Directori base de la instal·lació d'Àgora ($BASE_AGORA)
 $agora['server']['server']     = 'http://agora';     // URL base del servidor
 $agora['server']['marsupial']  = 'http://agora-virtual.educat1x1.cat';   // URL base del servidor per utilitzar els mòduls de marsupial
 $agora['server']['base']       = '/agora/';          // Context de l'aplicació (és a dir, el que cal escriure després del servidor per accedir a l'aplicació). En el cas d'acceptació agora-moodle i a producció res.

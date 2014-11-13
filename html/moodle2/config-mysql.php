@@ -1,8 +1,8 @@
 <?php
 
 define('AGORA_BASE', 'agora');
-define('INSTALL_BASE', '/srv/www/' . AGORA_BASE . '/'); 
-
+define('INSTALL_BASE', dirname(dirname(dirname(__FILE__))));
+define('MOODLE_BASE', dirname(__FILE__));
 require_once(INSTALL_BASE . 'html/config/env-config.php');
 
 unset($CFG);
