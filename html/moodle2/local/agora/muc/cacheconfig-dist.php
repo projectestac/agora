@@ -12,6 +12,7 @@ defined('MOODLE_INTERNAL') || die();
       'configuration' =>
       array (
         'path' =>  $CFG->agora_muc_path,
+        'autocreate' => true
       ),
       'features' => 14,
       'modes' => 3,
