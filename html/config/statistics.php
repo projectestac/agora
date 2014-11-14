@@ -834,7 +834,16 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
     mysql_close($statsCon);
 }
 
-
+/**
+ * Count the number of pages of WordPress loaded during a given day
+ * 
+ * @param array $school
+ * @param int $year
+ * @param int $month
+ * @param int $day
+ * 
+ * @return int if successful, boolean false otherwise
+ */
 function getSchoolNodesStats_PagesDay($school, $year, $month, $day) {
 
     if (!($con = connect_nodes($school))) {
@@ -856,6 +865,16 @@ function getSchoolNodesStats_PagesDay($school, $year, $month, $day) {
     return $value;
 }
 
+/**
+ * Count the number of pages of WordPress loaded up to a given day
+ * 
+ * @param array $school
+ * @param int $year
+ * @param int $month
+ * @param int $day
+ * 
+ * @return int if successful, boolean false otherwise
+ */
 function getSchoolNodesStats_PagesTotal($school, $year, $month, $day) {
     
 
@@ -878,6 +897,16 @@ function getSchoolNodesStats_PagesTotal($school, $year, $month, $day) {
     return $value;
 }
 
+/**
+ * Count the number of items in the table wp_posts of WordPress created a given day
+ * 
+ * @param array $school
+ * @param int $year
+ * @param int $month
+ * @param int $day
+ * 
+ * @return int if successful, boolean false otherwise
+ */
 function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
     
     if (!($con = connect_nodes($school))) {
@@ -899,6 +928,16 @@ function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
     return $value;
 }
 
+/**
+ * Count the number of records in the table wp_posts of WordPress created up to a given day
+ * 
+ * @param array $school
+ * @param int $year
+ * @param int $month
+ * @param int $day
+ * 
+ * @return int if successful, boolean false otherwise
+ */
 function getSchoolNodesStats_PostsTotal($school, $year, $month, $day) {
     
     if (!($con = connect_nodes($school))) {
@@ -920,6 +959,21 @@ function getSchoolNodesStats_PostsTotal($school, $year, $month, $day) {
     return $value;
 }
 
+/**
+ * Count the number of users that meet these conditions:
+ *  total: Number of records in the table wp_users
+ *  active: Number of users not marked as spam
+ *  activelast30days: Number of users who has logged in during the last 30 days
+ *  activelast90days: Number of users who has logged in during the last 90 days
+ * 
+ * @param array $school
+ * @param int $year
+ * @param int $month
+ * @param int $day
+ * @param int $daysofmonth
+ * 
+ * @return array if successful, boolean false otherwise
+ */
 function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
     
     if (!($con = connect_nodes($school))) {
@@ -986,6 +1040,16 @@ function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
     return $users;
 }
 
+/**
+ * Get the date of the last login in WordPress
+ * 
+ * @param array $school
+ * @param int $year
+ * @param int $month
+ * @param int $day
+ * 
+ * @return int if successful, boolean false otherwise
+ */
 function getSchoolNodesStats_LastActivity($school, $year, $month, $day) {
    
     if (!($con = connect_nodes($school))) {
