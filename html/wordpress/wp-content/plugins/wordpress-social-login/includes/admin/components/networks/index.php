@@ -44,9 +44,22 @@ function wsl_component_networks()
 				<td width="10"></td>
 				<td width="400">
 					<?php
-						wsl_component_networks_whyhello();
+
+                    // XTEC ************ AFEGIT - Remove side boxes
+                    // 2014.11.14 @aginard
+                    global $isAgora;
+                    
+                    if (!$isAgora || is_xtecadmin()) {
+                    //************ FI
+
+                        wsl_component_networks_whyhello();
 
 						wsl_component_networks_addmore();
+
+                    // XTEC ************ AFEGIT - Remove side boxes
+                    // 2014.11.14 @aginard
+                    }
+                    //************ FI
 
 						wsl_component_networks_basicinsights();
 					?>

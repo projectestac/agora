@@ -57,7 +57,21 @@ function wsl_admin_init()
 		wsl_register_components();
 	}
 
+// XTEC ************ MODIFICAT - Hide tabs "Widget" and "Components"
+// 2014.11.14 @aginard
+global $isAgora;
+
+if ($isAgora) {
+	$wslp            = "users";
+} else {
 	$wslp            = "networks";
+}
+//************ ORIGINAL
+/*
+	$wslp            = "networks";
+*/
+//************ FI
+
 	$wsldwp          = 0;
 	$assets_base_url = WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . '/assets/img/16x16/';
 
@@ -553,12 +567,23 @@ function wsl_admin_welcome_panel()
 	if( get_option( 'wsl_settings_welcome_panel_enabled' ) == wsl_version() ){ 
 		return;
 	}
-?> 
+ ?> 
 <!-- 
 	if you want to know if a UI was made by devloper, then here is a tip: he will always use tables
 
 	//> wsl-w-panel is shamelessly borrowered and modified from wordpress welcome-panel
 -->
+
+<!-- XTEC ************ AFEGIT - Remove Welcome banner -->
+<!-- 2014.11.14 @aginard -->
+<?php 
+    global $isAgora;
+    
+    if ($isAgora && !is_xtecadmin()) {
+        echo '<!--';
+    }
+//************ FI (The following close PHP tag belongs to the patch) ?>
+
 <div id="wsl-w-panel">
 	<a href="options-general.php?page=wordpress-social-login&wslp=<?php echo $wslp ?>&wsldwp=1" id="wsl-w-panel-dismiss"><?php _e("Dismiss", 'wordpress-social-login') ?></a>
 	
@@ -605,6 +630,14 @@ function wsl_admin_welcome_panel()
 	</table> 
 </div>
 <?php 
+
+// XTEC ************ AFEGIT - Remove Welcome banner
+// 2014.11.14 @aginard
+    if ($isAgora && !is_xtecadmin()) {
+        echo '-->';
+    }
+//************ FI
+    
 }
 
 // --------------------------------------------------------------------
