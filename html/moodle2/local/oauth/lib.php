@@ -3,8 +3,8 @@
 function oauth_get_server() {
 	global $CFG;
 	// error reporting (this is a demo, after all!)
-	ini_set('display_errors', 1);
-	error_reporting(E_ALL);
+	//ini_set('display_errors', 1);
+	//error_reporting(E_ALL);
 
 	// Autoloading (composer is preferred, but for this example let's just do this)
 	require_once($CFG->dirroot.'/local/oauth/OAuth2/Autoloader.php');

@@ -22,6 +22,7 @@ if (isset($token['user_id']) && !empty($token['user_id'])) {
 	}
 
 	$user = $DB->get_record('user', array('id'=>$token['user_id']), 'id,auth,username,idnumber,firstname,lastname,email,lang,country,phone1,address,description');
+	add_to_log(SITEID, 'oauth', 'user_info', 'local/oauth/user_info.php', 'ok', 0, $user->id);
 	echo json_encode($user);
 } else {
 	$server->getResponse()->send();
