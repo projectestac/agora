@@ -632,11 +632,25 @@ function remove_admin_menus() {
 
 }
 
+/**
+ * Unregister WordPress Social Login admin tabs
+ * 
+ * @author Toni Ginard
+ */
+function wsl_unregister_admin_tabs() {
+
+    global $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS;
+
+    unset($WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS['login-widget']);
+    unset($WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS['components']);
+}
+
 global $isAgora;
 
-// Remove admin menus for all users but xtecadmin
+// Remove items for all users but xtecadmin
 if ($isAgora && !is_xtecadmin()) {
     add_action('admin_menu', 'remove_admin_menus');
+    add_action('wsl_register_setting_end', 'wsl_unregister_admin_tabs');
 }
 
 // Rebuild menus for all users
