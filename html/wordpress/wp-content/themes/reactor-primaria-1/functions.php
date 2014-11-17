@@ -643,6 +643,7 @@ function wsl_unregister_admin_tabs() {
 
     unset($WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS['login-widget']);
     unset($WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS['components']);
+    unset($WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS['help']);
 }
 
 global $isAgora;
