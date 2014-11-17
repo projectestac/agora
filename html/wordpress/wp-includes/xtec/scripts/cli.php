@@ -1,6 +1,6 @@
 <?php
 define('CLI_SCRIPT', true);
-require( dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php' );
+require( dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-load.php' );
 require_once(dirname(__FILE__).'/scripts.lib.php');
 $script = get_cli_arg('s');
 

@@ -1745,7 +1745,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
             case 'nodes':
                 $params['ccentre'] = $clientDNS;
-                $command = $dirbase.'/wordpress/wp-content/plugins/agora/scripts/cli.php -s='.$operation;
+                $command = $dirbase.'/wordpress/wp-includes/xtec/scripts/cli.php -s='.$operation;
                 break;
             default:
                 return array('success' => $success, 'result' => 'Operations are not allowed for this service');

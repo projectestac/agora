@@ -1,6 +1,6 @@
 <?php
 
-require( dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php' );
+require( dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-load.php' );
 require_once(dirname(__FILE__).'/scripts.lib.php');
 
 $scripts = get_all_scripts();

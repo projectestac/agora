@@ -628,7 +628,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     $url .= '/local/agora/scripts/list.php';
                     break;
                 case 'nodes':
-                    $url .= '/wp-content/plugins/agora/scripts/list.php';
+                    $url .= '/wp-includes/xtec/scripts/list.php';
                     break;
                 default:
                     return $this->getServiceActions_noaction();
