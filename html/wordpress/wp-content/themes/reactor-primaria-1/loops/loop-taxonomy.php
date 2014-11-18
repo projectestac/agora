@@ -20,25 +20,23 @@ $card_colors=array("card_bgcolor1","card_bgcolor2","card_bgcolor3");
 $rows=array(1=>$posts_per_fila1,2=>$posts_per_fila2,3=>$posts_per_filan);
 $aLayout=array( 1=>array(),2=>array(),3=>array());
 
-foreach ($rows as $row=>$posts_per_fila ) {
-				 	
-	switch ($posts_per_fila) {
-            case 1: array_push($aLayout[$row],1);
-             break;
-            case 2: array_push($aLayout[$row],2,2);
-             break;
-            case 3: array_push($aLayout[$row],3,3,3);
-             break;
-            case 4: array_push($aLayout[$row],4,4,4,4);
-             break;
-            case 33: array_push($aLayout[$row],3,66);
-             break;
-            case 66: array_push($aLayout[$row],66,3);
-             break;
-            default: array_push($aLayout[$row],2,2);
-            }
+foreach ($rows as $row=>$posts_per_fila ) {			 	
+    switch ($posts_per_fila) {
+        case 1: array_push($aLayout[$row],1);
+         break;
+        case 2: array_push($aLayout[$row],2,2);
+         break;
+        case 3: array_push($aLayout[$row],3,3,3);
+         break;
+        case 4: array_push($aLayout[$row],4,4,4,4);
+         break;
+        case 33: array_push($aLayout[$row],3,66);
+         break;
+        case 66: array_push($aLayout[$row],66,3);
+         break;
+        default: array_push($aLayout[$row],2,2);
+    }
 }
-
 
 $row=1;
 while (have_posts()):
