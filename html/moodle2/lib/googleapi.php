@@ -105,8 +105,14 @@ class google_docs {
             // chose.
             switch($type){
                 case 'document':
-                    $title = $gdoc->title.'.rtf';
-                    $source = 'https://docs.google.com/feeds/download/documents/Export?id='.$docid.'&exportFormat=rtf';
+                    //XTEC ************ MODIFICAT - MDL-33483 GoogleDocs: Save Doc files in different formats to RTF
+                    //2014.11.18 @pferre22
+                    $title = $gdoc->title.'.odt';
+                    $source = 'https://docs.google.com/feeds/download/documents/Export?id='.$docid.'&exportFormat=odt';
+                    //***********CODI ORIGINAL
+                    //$title = $gdoc->title.'.rtf';
+                    //$source = 'https://docs.google.com/feeds/download/documents/Export?id='.$docid.'&exportFormat=rtf';
+                    //*****************FI PATCH
                     break;
                 case 'presentation':
                     $title = $gdoc->title.'.ppt';
