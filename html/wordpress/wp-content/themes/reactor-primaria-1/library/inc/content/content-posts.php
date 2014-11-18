@@ -17,11 +17,13 @@
 add_action('reactor_post_header', 'reactor_do_standard_header_titles', 1);
 add_action('reactor_post_header', 'reactor_do_meta_autor_date', 2);
 add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 3);
-	
-add_action('reactor_post_after', 'reactor_do_nav_single', 1);
-add_action('reactor_post_after', 'reactor_do_post_comments', 2);
+//add_action('reactor_post_footer', 'reactor_do_meta_autor_date', 1);
 add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
 //add_action('reactor_post_footer', 'reactor_do_post_footer_comments_link', 3);
+//add_action('reactor_post_after', 'reactor_do_nav_single', 1);
+add_action('reactor_post_after', 'reactor_do_post_comments', 1);
+
+
 
 /**
  * Post Tumblog Icons
@@ -30,10 +32,10 @@ add_action('reactor_post_footer', 'reactor_do_post_footer_meta', 1);
  * @since 1.0.0
  */
 function reactor_do_tumblog_icons() {
-	if ( reactor_option('tumblog_icons', false) && ( is_home() || is_archive() ) && current_theme_supports('reactor-tumblog-icons') ) {
-		$output = reactor_tumblog_icon();
-		echo $output;
-	}
+    if ( reactor_option('tumblog_icons', false) && ( is_home() || is_archive() ) && current_theme_supports('reactor-tumblog-icons') ) {
+            $output = reactor_tumblog_icon();
+            echo $output;
+    }
 }
 //add_action('reactor_post_header', 'reactor_do_tumblog_icons', 1);
 
@@ -65,28 +67,26 @@ function reactor_do_standard_format_sticky() {
  
 function reactor_do_standard_header_titles() {
 	
-		if ( is_page_template('page-templates/front-page.php') and get_post_meta( get_the_ID(), '_amaga_titol', true )!="on") { ?>
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-		<?php 
-		}
-	    elseif ( !get_post_format() && !is_page_template('page-templates/front-page.php') ) {  ?>    
-			<?php if ( is_single() ) { ?>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php } else { ?>
-				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'reactor'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<?php } ?>
-	<?php }
-
-	edit_post_link( __('Edit', 'reactor'), '<div class="edit-link"><span>', '</span></div>');	
-	
+    if (!is_single() && get_post_meta(get_the_ID(), '_amaga_titol', true) == "on") {
+        edit_post_link(__('Edit', 'reactor'), '<div class="edit-link"><span>', '</span></div>');
+        return;
+    }
+   
+    if (is_single()) { ?>
+                    <h1 class="entry-title"><?php the_title(); ?></h1>
+<?php } else { ?>
+                    <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr(sprintf(__('%s', 'reactor'), the_title_attribute('echo=0'))); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+<?php } 
+    
+    edit_post_link(__('Edit', 'reactor'), '<div class="edit-link"><span>', '</span></div>');
 }
 
 //add_action('reactor_post_header', 'reactor_do_standard_header_titles', 3);
 
 function reactor_do_meta_autor_date() {
-	if (get_post_meta( get_the_ID(), '_amaga_metadata', true )!="on") {    
-    	echo '<span class="entry-author">'.get_the_author().'&nbsp;&nbsp;</span>';
-    	echo '<span class="entry-date">'.get_the_date('d/m/y' ).'&nbsp;&nbsp;</span>';
+    if (is_single() || (get_post_meta( get_the_ID(), '_amaga_metadata', true )!="on")) {    
+        echo '<span class="entry-author">'.get_the_author().'&nbsp;&nbsp;</span>';
+        echo '<span class="entry-date">'.get_the_date('d/m/y' ).'&nbsp;&nbsp;</span>';
     }
 }
 
@@ -100,11 +100,14 @@ function reactor_do_meta_autor_date() {
  */
 function reactor_do_standard_thumbnail() { 
 	
-	if ( has_post_thumbnail() and !is_single() ) { 
-			$thumb_src=wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
-			<div class="entry-thumbnail" style="background-image:url(<?php echo $thumb_src ?>)">
-			</div>
-	<?php }
+    if (get_post_meta( get_the_ID(), '_bloc_html', true )=="on")
+            return;
+    
+    if ( has_post_thumbnail() && !is_single() ) { 
+        $thumb_src=wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
+        <div class="entry-thumbnail" style="background-image:url(<?php echo $thumb_src ?>)">
+        </div>
+    <?php }
 }
 
 //add_action('reactor_post_header', 'reactor_do_standard_thumbnail', 4);
@@ -143,8 +146,8 @@ function reactor_do_post_footer_title() {
  * @since 1.0.0
  */
 function reactor_do_post_footer_meta() {
-	
-	if (is_page_template('page-templates/front-page.php') and get_post_meta( get_the_ID(), '_amaga_metadata', true )=="on") {   
+    
+        if (!is_single() && get_post_meta( get_the_ID(), '_amaga_metadata', true )=="on") {   
 		return;
 	}
 	
@@ -152,18 +155,18 @@ function reactor_do_post_footer_meta() {
 	$output = '<span class="entry-categories">';
 	
 	if($categories){
-		foreach($categories as $category) {
-			$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.", ";
-		}
-	echo trim($output, ", ");
-	echo "</span>";
-	$string_tags=trim(get_the_tag_list("",", "),",");
-	
-	if (strlen($string_tags)) 
-		echo ' <span class="entry-tags">'.$string_tags.'</span>';
-		
-	echo ' <a href="'.get_comments_link().'"><span class="entry-comments">'.get_comments_number().'</span></a>';
-    //echo ' <span class="entry-like">16</span>';
+            foreach($categories as $category) {
+                    $output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.", ";
+            }
+            echo trim($output, ", ");
+            echo "</span>";
+            $string_tags=trim(get_the_tag_list("",", "),",");
+
+            if (strlen($string_tags)) 
+                    echo ' <span class="entry-tags">'.$string_tags.'</span>';
+
+            echo ' <a href="'.get_comments_link().'"><span class="entry-comments">'.get_comments_number().'</span></a>';
+
 	}
 	
 }

@@ -213,10 +213,6 @@ article {
     padding-top:0.5em;
 }
 
-.entry-footer {
-    padding:0.2em;
-}
-
 .targeta {
     float:left;
 }
@@ -251,6 +247,18 @@ article {
 .entry-content img{
     padding-left:1em;
     padding-right:1em;
+}
+
+#comments {
+    padding: 1.5em 2em;
+}
+
+#reply-title{
+    font-size:1.2em;
+}
+
+#commentform .alert.info{
+    display:none;
 }
 
 /*****************************************************************
@@ -511,8 +519,10 @@ Header
 }
 
 .entry-footer{
-    bottom: 2em;
+    margin-top:1em;
     color: silver;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
 }
 
 .icon-graella > .dashicons,
@@ -964,15 +974,15 @@ Footer
     color:white;
 }
 
-.entry-comments,
+/*.entry-comments,
 .entry-categories>a,
 .entry-tags >a, 
 .entry-comments:before,
 .entry-categories:before,
 .entry-tags:before{
     opacity: 0.7;
-    filter: alpha(opacity=70); /* For IE8 and earlier */
-}
+    filter: alpha(opacity=70);
+}*/
 /*icons*/
 
 #footer a{
@@ -989,7 +999,7 @@ Footer
 
 #footer  a:hover{
     opacity: 0.4;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
+    filter: alpha(opacity=40); 
 }
 #footer *{
     color:white !important;

@@ -269,7 +269,7 @@ class SlideshowPluginPostType
                 // 2014.10.22 @jmeler
                 
                 echo '<hr><p>
-			Picasa àlbum <a target="_blank" href="http://agora.xtec.cat/nodes/carrusel/#picasa_rss">RSS</a>:  
+			Picasa àlbum <a target="_blank" href="https://sites.google.com/a/xtec.cat/ajudaxtecblocs/insercio-de-continguts/carrusel-d-imatges">RSS</a>:  
                         <input type="text" name="picasa_album" value='.get_post_meta( $post->ID, "picasa_album", true ).'><br>
                 </p>';
                 

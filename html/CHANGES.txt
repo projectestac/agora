@@ -18,6 +18,7 @@ WORDPRESS
 - Added catalan translation for BuddyPress Like
 - Added catalan translation for BuddyPress Moderation
 - WordPress Social Login: Hidden options to all admins but xtecadmin
+- Bug pagination fixed 
 
 ZIKULA
 - IWstats: Remove old records using iwcron.php

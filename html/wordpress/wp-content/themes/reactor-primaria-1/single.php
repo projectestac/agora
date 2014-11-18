@@ -22,14 +22,17 @@
                 
                 <?php reactor_inner_content_before(); ?>
                 
-					<?php // start the loop
+                    <?php // start the loop
                     while ( have_posts() ) : the_post(); ?>
                     
                     <?php reactor_post_before(); ?>
                         
-					<?php // get post format and display code for that format
-                    if ( !get_post_format() ) : get_template_part('post-formats/format', 'standard'); 
-					else : get_template_part('post-formats/format', get_post_format() ); endif; ?>
+                    <?php // get post format and display code for that format
+                    if ( !get_post_format() ) :
+                        get_template_part('post-formats/format', 'standard'); 
+                    else : 
+                        get_template_part('post-formats/format', get_post_format() ); 
+                    endif; ?>
                     
                     <?php reactor_post_after(); ?>
         
