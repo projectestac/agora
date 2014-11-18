@@ -347,8 +347,17 @@ class repository_googledocs extends repository {
                     $exportType = '';
                     switch ($type){
                         case 'document':
-                            $title = $item['title'] . '.rtf';
-                            $exportType = 'application/rtf';
+                            //XTEC ************ MODIFICAT - MDL-33483 GoogleDocs: Save Doc files in different formats to RTF
+                            //2014.11.18 @pferre22
+                            $title = $item['title'] . '.odt';
+                            $exportType = 'application/vnd.oasis.opendocument.text';
+                            // Deixo aquest codi pq ens pot ser útil
+                            //$title = $item['title'] . '.docx';
+                            //$exportType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+                            //***********CODI ORIGINAL
+                            //$title = $item['title'] . '.rtf';
+                            //$exportType = 'application/rtf';
+                            //*****************FI PATCH
                             break;
                         case 'presentation':
                             $title = $item['title'] . '.pptx';
