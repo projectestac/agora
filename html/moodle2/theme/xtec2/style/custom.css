@@ -638,6 +638,16 @@ body.path-grade-report-grader #user-grades {
 	color: black;
 }
 
+ /* MDL-43462 Landscape PDFs are not shown correctly in EditPDF */
+.assignfeedback_editpdf_widget {
+	min-width: 840px;
+	width: auto !important;
+ }
+.assignfeedback_editpdf_widget .drawingcanvas {
+    min-width: 1200px;
+    min-height: 800px;
+}
+
 
 /* Phones and tablets */
 @media (max-width: 979px) {
