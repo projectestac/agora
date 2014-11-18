@@ -1,20 +1,48 @@
 <?php
 
-class rcommon_level{
+class rcommon_publisher {
 
-    static function get_create_by_code($code){
+    public static function get($id) {
+        global $DB;
+        return $DB->get_record('rcommon_publisher', array('id' => $id));
+    }
+
+    public static function check_auth($publisherid, $user, $passwd) {
+        global $DB;
+
+        if (!$user || !$passwd) {
+            return false;
+        }
+
+        return $DB->record_exists('rcommon_publisher', array('id' => $publisherid, 'username' => $user, 'password' => $passwd));
+    }
+
+}
+
+class rcommon_level {
+
+    public static function get_by_format($format) {
+        global $DB;
+        $emptysql = $DB->sql_isempty('rcommon_level', 'code', false, false);
+        $sql = "SELECT * FROM {rcommon_level}
+            WHERE id IN (SELECT DISTINCT levelid FROM {rcommon_books} WHERE format = :format) AND NOT $emptysql ORDER BY code, name";
+
+        return $DB->get_records_sql($sql, array('format' => $format));
+    }
+
+    public static function get_create_by_code($code) {
         global $DB;
 
         if ($code == null or empty($code)) {
             $code = 'SENSE NIVELL';
         }
 
-		if(is_numeric($code)){
+		if (is_numeric($code)) {
 			return $code;
 		}
 
-		if (!$levelid = $DB->get_field('rcommon_level','id', array('code'=>$code))) {
-			//if the level does not exist create it
+		if (!$levelid = $DB->get_field('rcommon_level', 'id', array('code' => $code))) {
+			// If the level does not exist create it
 			$record = new stdClass();
 			$record->name = $code;
 			$record->code = $code;
@@ -30,8 +58,41 @@ class rcommon_level{
 class rcommon_book{
     public static $allowedformats = array('webcontent');
 
-    static function add_update($record){
+    public static function get($id) {
         global $DB;
+        return $DB->get_record('rcommon_books', array('id' => $id));
+    }
+
+    public static function get_by_level($levelid, $format = false) {
+        global $DB;
+
+        $emptysql = $DB->sql_isempty('rcommon_books', 'rb.isbn', false, false);
+        $sql = "SELECT rb.*, rp.name as publisher FROM {rcommon_books} rb
+                    INNER JOIN {rcommon_publisher} rp ON rb.publisherid = rp.id
+                    WHERE rb.levelid = :levelid AND rb.format = :format AND NOT $emptysql
+                    ORDER BY rp.name, rb.name ASC";
+        $params = array('levelid' => $levelid);
+        if ($format) {
+            $params['format'] = $format;
+        }
+        return $DB->get_records_sql($sql, $params);
+    }
+
+    public static function check_auth($bookid, $user, $passwd) {
+        global $DB;
+
+        if (!$publisherid = $DB->get_field('rcommon_books', 'publisherid', array('id' => $bookid))) {
+            return false;
+        }
+        return rcommon_publisher::check_auth($publisherid, $user, $passwd);
+    }
+
+    public static function add_update($record) {
+        global $DB;
+
+        if (empty($record->isbn)) {
+            return false;
+        }
 
         // Check that book name isn't larger than 255 characters
         if (textlib::strlen($record->name) > 255) {
@@ -39,7 +100,7 @@ class rcommon_book{
         }
 
         // Check that book summary isn't larger than 1024 characters
-        if (textlib::strlen($record->summary) > 1024){
+        if (textlib::strlen($record->summary) > 1024) {
             $record->summary = textlib::substr($record->summary, 0, 1024);
         }
 
@@ -48,26 +109,26 @@ class rcommon_book{
 
         // Test that de obligatory fields aren't empty
         $obligatoryarray = array('isbn', 'levelid', 'format', 'summary');
-        foreach($obligatoryarray as $value) {
-            if(empty($record->$value)) {
+        foreach ($obligatoryarray as $value) {
+            if (empty($record->$value)) {
                 throw new Exception('Required parameter <strong>'.$value.' not found!</strong>');
             }
         }
 
         $record->timemodified = time();
-        if (!$bookid = $DB->get_field('rcommon_books','id',array('isbn'=>$record->isbn))) {
+        if (!$bookid = $DB->get_field('rcommon_books', 'id', array('isbn' => $record->isbn))) {
             $record->timecreated = $record->timemodified;
             return $DB->insert_record('rcommon_books', $record);
         } else {
             $record->id = $bookid;
-            if($DB->update_record('rcommon_books', $record)){
+            if ($DB->update_record('rcommon_books', $record)) {
                 return $bookid;
             }
         }
         return false;
     }
 
-    static function clean($bookid, $time) {
+    public static function clean($bookid, $time) {
         global $DB;
         $units2delete = $DB->get_records_select('rcommon_books_units', 'bookid = :bookid AND timemodified < :time', array('bookid' => $bookid, 'time' => $time));
         foreach ($units2delete as $unit) {
@@ -83,7 +144,7 @@ class rcommon_book{
         }
     }
 
-    static function delete($bookid, $publisherid) {
+    public static function delete($bookid, $publisherid) {
         global $DB;
         $book = $DB->get_record('rcommon_books', array('id' => $bookid, 'publisherid' => $publisherid));
         if ($book) {
@@ -98,26 +159,46 @@ class rcommon_book{
 
 class rcommon_unit{
 
-    static function add_update($record){
+    public static function get($id) {
+        global $DB;
+        return $DB->get_record('rcommon_books_units', array('id' => $id));
+    }
+
+    public static function get_from_code($code, $bookid) {
+        global $DB;
+        return $DB->get_record('rcommon_books_units', array('code' => $code, 'bookid' => $bookid));
+    }
+
+    public static function get_by_book($bookid) {
+        global $DB;
+        $emptysql = $DB->sql_isempty('rcommon_books_units', 'code', false, false);
+        return $DB->get_records_select('rcommon_books_units', "bookid = :bookid AND NOT $emptysql", array('bookid' => $bookid), 'sortorder, name');
+    }
+
+    public static function add_update($record) {
         global $DB;
 
+        if (empty($record->code) || empty($record->bookid)) {
+            return false;
+        }
+
         // Check that unit name isn't larger than 200 characters
-        if (textlib::strlen($record->name) > 200){
+        if (textlib::strlen($record->name) > 200) {
             $record->name = textlib::substr($record->name, 0, 200);
         }
 
         // Check that unit summary isn't larger than 1024 characters
-        if (textlib::strlen($record->summary) > 1024){
+        if (textlib::strlen($record->summary) > 1024) {
             $record->summary = textlib::substr($record->summary, 0, 1024);
         }
 
         $record->timemodified = time();
-        if (!$unitid = $DB->get_field('rcommon_books_units','id', array('bookid'=>$record->bookid, 'code'=>$record->code))) {
+        if (!$unitid = $DB->get_field('rcommon_books_units', 'id', array('bookid' => $record->bookid, 'code' => $record->code))) {
             $record->timecreated = $record->timemodified;
             return $DB->insert_record('rcommon_books_units', $record);
         } else {
             $record->id = $unitid;
-            if($DB->update_record('rcommon_books_units', $record)){
+            if ($DB->update_record('rcommon_books_units', $record)) {
                 return $unitid;
             }
         }
@@ -127,28 +208,49 @@ class rcommon_unit{
 
 class rcommon_activity{
 
-    static function add_update($record){
+    public static function get($id) {
+        global $DB;
+        return $DB->get_record('rcommon_books_activities', array('id' => $id));
+    }
+
+    public static function get_from_code($code, $unitid, $bookid) {
+        global $DB;
+        return $DB->get_record('rcommon_books_activities', array('code' => $code, 'unitid' => $unitid, 'bookid' => $bookid));
+    }
+
+    public static function get_by_unit($unitid, $bookid) {
+        global $DB;
+        $emptysql = $DB->sql_isempty('rcommon_books_activities', 'code', false, false);
+        return $DB->get_records_select('rcommon_books_activities', "bookid = :bookid AND unitid = :unitid AND NOT $emptysql",
+            array('bookid' => $bookid, 'unitid' => $unitid), 'sortorder, name');
+    }
+
+    public static function add_update($record) {
         global $DB;
 
+        if (empty($record->code) || empty($record->bookid) || empty($record->unitid)) {
+            return false;
+        }
+
         // Check that unit activity isn't larger than 200 characters
-        if (textlib::strlen($record->name) > 200){
+        if (textlib::strlen($record->name) > 200) {
             $record->name = textlib::substr($record->name, 0, 200);
         }
 
         // Check that unit summary isn't larger than 1024 characters
-        if (textlib::strlen($record->summary) > 1024){
+        if (textlib::strlen($record->summary) > 1024) {
             $record->summary = textlib::substr($record->summary, 0, 1024);
         }
 
         $record->timemodified = time();
 
-        $params = array('bookid'=>$record->bookid, 'unitid'=>$record->unitid, 'code'=>$record->code);
-        if (!$activityid = $DB->get_field('rcommon_books_activities','id', $params)) {
+        $params = array('bookid' => $record->bookid, 'unitid' => $record->unitid, 'code' => $record->code);
+        if (!$activityid = $DB->get_field('rcommon_books_activities', 'id', $params)) {
             $record->timecreated = $record->timemodified;
             return $DB->insert_record('rcommon_books_activities', $record);
         } else {
             $record->id = $activityid;
-            if($DB->update_record('rcommon_books_activities', $record)){
+            if ($DB->update_record('rcommon_books_activities', $record)) {
                 return $activityid;
             }
         }
@@ -159,21 +261,21 @@ class rcommon_activity{
 
 class credentials{
 
-    static function get($id){
+    public static function get($id) {
         global $DB;
         $cred = $DB->get_record('rcommon_user_credentials', array('id' => $id));
 
-        if(!$cred || !self::check_empty_credential($cred)){
+        if (!$cred || !self::check_empty_credential($cred)) {
             return false;
         }
         return $cred;
     }
 
-    static function get_by_user_isbn($userid, $isbn){
+    public static function get_by_user_isbn($userid, $isbn) {
         global $DB;
 
-        $cred = $DB->get_record('rcommon_user_credentials', array('isbn'=>$isbn, 'euserid' => $userid));
-        if(!$cred || !self::check_empty_credential($cred)){
+        $cred = $DB->get_record('rcommon_user_credentials', array('isbn' => $isbn, 'euserid' => $userid));
+        if (!$cred || !self::check_empty_credential($cred)) {
             return false;
         }
         return $cred;

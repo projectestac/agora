@@ -223,3 +223,4 @@ Els possibles missatges d'error que es poden produir són:</p>
     <li>Fitxer buit</li>
 </ul>
 <p>Cal tenir en compte que si hi ha errors, caldrà revisar-los i reparar-los per poder continuar amb el procés d'importació.</p>";
+$string['addeddate']        = 'Afegit';

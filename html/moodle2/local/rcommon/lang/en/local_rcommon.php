@@ -220,6 +220,7 @@ Els possibles missatges d'error que es poden produir s&oacute;n:</p>
     <li>Fitxer buit</li>
 </ul>
 <p>Cal tenir en compte que si hi ha errors, caldr&agrave; revisar-los i reparar-los per poder continuar amb el proc&eacute;s d'importaci&oacute;.</p>";
+$string['addeddate']        = 'Added';
 
 // Deprecated lang strings
 $string['exit'] = 'Exit';

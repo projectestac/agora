@@ -10,6 +10,7 @@ define('RCONTENT_YESWITHFRAME', '1');
 define('RCONTENT_YESWITHOUTFRAME', '2');
 
 require_once("$CFG->dirroot/mod/rcontent/lib.php");
+require_once("$CFG->dirroot/local/rcommon/locallib.php");
 
 /**
  * Returns an array of the array of what grade options
@@ -683,20 +684,15 @@ function rcontent_update_grade_instance(){
  * @return array with the loaded data
  */
 function rcontent_level_list() {
-    global $CFG,$DB;
-    $return[0]='- '.get_string('level','rcontent').' -';
+    global $CFG, $DB;
 
-//********** MODIFICAT MARSUPIAL - levels with books and level code added to the list
-	//TODO: upper is not a valid SQL function for all DB's user SQL_like instead
-    $sql = "SELECT * FROM {rcommon_level}
-            WHERE id IN (SELECT DISTINCT levelid FROM {rcommon_books} WHERE upper(format) = 'WEBCONTENT')";
+    $return[0] = '- '.get_string('level', 'rcontent').' -';
 
-    if($records = $DB->get_records_sql($sql)) {
-        foreach($records as $r) {
-            $return[$r->id] = $r->code." - ".$r->name ;
+    if ($records = rcommon_level::get_by_format('webcontent')) {
+        foreach ($records as $r) {
+            $return[$r->id] = $r->name .' ('.$r->code.')';
         }
     }
-//**********
     return $return;
 }
 
@@ -706,25 +702,22 @@ function rcontent_level_list() {
  * @param string $from -> to response in a format or other
  * @return array -> (id=>name)
  */
-function rcontent_isbn_list($levelid='',$from='ajax'){
-    global $CFG, $DB;
-    if($from == 'updateform') {
-    	$return[0]='- '.get_string('isbn','rcontent').' -';
-    } else {
-    	$return[]=array('id'=>0,'name'=>'- '.get_string('isbn','rcontent').' -');
+function rcontent_isbn_list($levelid = '', $from = 'ajax') {
+    global $DB;
+    $return = array();
+    if ($from == 'ajax') {
+        $return[] = array('id' => 0, 'name' => '- '.get_string('isbn', 'rcontent').' -');
     }
-
-	if($levelid!=""){
-		$sql="SELECT rb.*, rp.name as publiname FROM {rcommon_books} rb
-		    INNER JOIN {rcommon_publisher} rp ON rb.publisherid=rp.id
-		    WHERE rb.levelid='".$levelid."' AND rb.format='webcontent'
-		    ORDER BY rb.name ASC";
-        if($records=$DB->get_records_sql($sql)) {
-    	    foreach($records as $r) {
-    	    	if($from=='updateform') {
-    	    		$return[$r->id]=$r->name." ($r->publiname)";
+	if (!empty($levelid)) {
+        if ($records = rcommon_book::get_by_level($levelid, 'webcontent')) {
+    	    foreach ($records as $r) {
+    	    	if ($from == 'ajax') {
+                    $return[] = array('id' => $r->id, 'name' => $r->name, 'group' => $r->publisher);
     	    	} else {
-    	    	    $return[]=array('id'=>$r->id,'name'=>$r->name." ($r->publiname)");
+                    if (!isset($return[$r->publisher])) {
+                        $return[$r->publisher] = array();
+                    }
+                    $return[$r->publisher][$r->id] = $r->name;
     	    	}
     	    }
 
@@ -739,21 +732,22 @@ function rcontent_isbn_list($levelid='',$from='ajax'){
  * @param $from string -> for select the array structure of the response
  * @return array -> (id=>name)
  */
-function rcontent_unit_list($bookid='',$from='ajax'){
-	global $CFG,$DB;
-	if($from=='updateform' ){
-		$return[0]='- '.get_string('unit','rcontent').' -';
+function rcontent_unit_list($bookid = '', $from = 'ajax') {
+	global $DB;
+    $return = array();
+	if ($from == 'updateform') {
+		$return[0] = '- '.get_string('unit', 'rcontent').' -';
 	} else {
-		$return[]=array('id'=>0,'name'=>'- '.get_string('unit','rcontent').' -');
+		$return[] = array('id' => 0, 'name' => '- '.get_string('unit', 'rcontent').' -');
 	}
 
-	if($bookid!="") {
-        if($records=$DB->get_records('rcommon_books_units',array('bookid'=>$bookid),'sortorder')) {
-    	    foreach($records as $r) {
-    	    	if($from=='updateform') {
-    	    		$return[$r->id]=$r->name;
+	if (!empty($bookid)) {
+        if ($records = rcommon_unit::get_by_book($bookid)) {
+    	    foreach ($records as $r) {
+    	    	if ($from == 'updateform') {
+    	    		$return[$r->id] = $r->name;
     	    	} else {
-    	    	    $return[]=array('id'=>$r->id,'name'=>$r->name);
+    	    	    $return[] = array('id' => $r->id, 'name' => $r->name);
     	    	}
     	    }
 
@@ -769,21 +763,21 @@ function rcontent_unit_list($bookid='',$from='ajax'){
  * @param $from string -> for select the array structure of the response
  * @return array -> (id=>name)
  */
-function rcontent_activity_list($bookid='',$unitid='',$from='ajax'){
-	global $CFG,$DB;
-	if($from == 'updateform') {
-		$return[0]='- '.get_string('activity','rcontent').' -';
+function rcontent_activity_list($bookid = '', $unitid = '', $from = 'ajax') {
+	global $DB;
+	if ($from == 'updateform') {
+		$return[0] = '- '.get_string('activity', 'rcontent').' -';
 	} else {
-		$return[]=array('id'=>0,'name'=>'- '.get_string('activity','rcontent').' -');
+		$return[] = array('id' => 0, 'name' => '- '.get_string('activity', 'rcontent').' -');
 	}
 
-	if($bookid!=""&&$unitid!="") {
-	    if($records = $DB->get_records('rcommon_books_activities',array('bookid'=>$bookid,'unitid'=>$unitid),'sortorder ASC')){
-	    	foreach($records as $r) {
-	    		if($from=='updateform') {
-    	    		$return[$r->id]=$r->name;
+	if (!empty($bookid) && !empty($unitid)) {
+	    if ($records = rcommon_activity::get_by_unit($unitid, $bookid)) {
+	    	foreach ($records as $r) {
+	    		if ($from == 'updateform') {
+    	    		$return[$r->id] = $r->name;
     	    	} else {
-    	    	    $return[]=array('id'=>$r->id,'name'=>$r->name);
+    	    	    $return[] = array('id' => $r->id, 'name' => $r->name);
     	    	}
 	    	}
 	    }
@@ -798,20 +792,9 @@ function rcontent_activity_list($bookid='',$unitid='',$from='ajax'){
  * @param $cmid int ->
  * @return int -> ID of the new entry in the log or false if failds
  */
-function rcontent_insert_error_log($action, $bookid, $cmid=0) {
-
-	global $USER, $COURSE, $DB;
-
-	$tmp = new stdClass();
-	$tmp->time      =  time();
-	$tmp->userid    =  $USER->id;
-	$tmp->ip        =  $_SERVER['REMOTE_ADDR'];
-	$tmp->course    =  $COURSE->id;
-	$tmp->module    =  "rcontent";
-	$tmp->cmid      =  $cmid;
-	$tmp->action    =  $action;
-	$tmp->url       =  $_SERVER['REQUEST_URI'];
-	$tmp->info      =  "Bookid: ".$bookid.", Text: ".get_string($action,'rcontent');
-
-	return $DB->insert_record("rcommon_errors_log",$tmp);
+function rcontent_insert_error_log($action, $bookid, $cmid = 0) {
+	global $CFG;
+    require_once($CFG->dirroot.'/local/rcommon/wslib.php');
+    $message = "Bookid: $bookid, Text: ".get_string($action, 'rcontent');
+    rcommon_ws_error($action, $message, 'rcontent', $cmid);
 }

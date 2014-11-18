@@ -20,6 +20,8 @@ class wsSeguimiento{
         if (!$this->user || !$this->password) {
             $ret = generate_error("Autenticacion", "", "ResultadoDetalleExtendido");
         } else {
+            global $HTTP_RAW_POST_DATA;
+            log_to_file("wsSeguimiento XMLrequest: " . $HTTP_RAW_POST_DATA);
             log_to_file("wsSeguimiento request: " . serialize($Resultado));
             $ret = get_ResultadoDetalleExtendido($Resultado->ResultadoExtendido, $this->user, $this->password);
         }
@@ -40,12 +42,11 @@ if (isset($_REQUEST['wsdl']) || isset($_REQUEST['WSDL'])) {
                         'DetalleResultado' => 'DetalleResultado',
                         'RespuestaResultadoExtendido' => 'RespuestaResultadoExtendido',
                         'ResultadoDetalleExtendidoResponse' => 'ResultadoDetalleExtendidoResponse');
-    $server = new SoapServer("$CFG->wwwroot/mod/rcontent/WebServices/wsSeguimiento_wsdl.php");
+    $server = new SoapServer("$CFG->wwwroot/mod/rcontent/WebServices/wsSeguimiento.php?wsdl");
 
     $server->setClass("wsSeguimiento");
-    $server->addFunction("ResultadoDetalleExtendido");
-
-    $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
+    //$server->addFunction("ResultadoDetalleExtendido");
+    $server->addFunction(SOAP_FUNCTIONS_ALL);
 
     $server->handle();
 }

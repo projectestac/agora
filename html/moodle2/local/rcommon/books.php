@@ -78,8 +78,9 @@ if(!$units){
     echo '<ul>';
     $activities = array();
     foreach($units as $unit){
-        echo '<li><strong>'.$unit->name.'</strong> ('.$unit->code.') - ';
-        echo get_string('lastmodified').': '.userdate($unit->timemodified);
+        echo '<li><strong>'.$unit->name.'</strong> ('.$unit->code.')<br/>';
+        echo '<span style="font-size:80%;"><strong>'.get_string('addeddate', 'local_rcommon').'</strong>: '.userdate($unit->timecreated).' - ';
+        echo '<strong>'.get_string('lastmodified').'</strong>: '.userdate($unit->timemodified).'</span>';
         if(!empty($unit->summary)) echo '<br/>'.$unit->summary;
         $activities[$unit->id] = $DB->get_records('rcommon_books_activities',array('unitid'=>$unit->id), 'sortorder ASC');
         if(!$activities[$unit->id]){
@@ -87,8 +88,9 @@ if(!$units){
         } else {
             echo '<ul>';
             foreach($activities[$unit->id] as $activity){
-                echo '<li><strong>'.$activity->name.'</strong> ('.$activity->code.') - ';
-                echo get_string('lastmodified').': '.userdate($activity->timemodified);
+                echo '<li><strong>'.$activity->name.'</strong> ('.$activity->code.')<br/>';
+                echo '<span style="font-size:80%;"><strong>'.get_string('addeddate', 'local_rcommon').'</strong>: '.userdate($activity->timecreated).' - ';
+                echo '<strong>'.get_string('lastmodified').'</strong>: '.userdate($activity->timemodified).'</span>';
                 if(!empty($activity->summary)) echo '<br/>'.$activity->summary;
                 echo '</li>';
             }

@@ -76,52 +76,57 @@ class mod_rcontent_mod_form extends moodleform_mod {
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required');
 
+        if (!empty($update)) {
+            $level = optional_param('level', $rcontent->levelid, PARAM_INT);
+            $isbn = optional_param('isbn', $rcontent->bookid, PARAM_INT);
+            $unit = optional_param('unit', $rcontent->unitid, PARAM_INT);
+            $activity = optional_param('activity', $rcontent->activityid, PARAM_INT);
+        } else {
+            $level = optional_param('level', false, PARAM_INT);
+            $isbn = optional_param('isbn', false, PARAM_INT);
+            $unit = optional_param('unit', false, PARAM_INT);
+            $activity = optional_param('activity', false, PARAM_INT);
+        }
+
         // Level
-		$level_list_array=rcontent_level_list();
-		if (!empty($update)) {
-			$mform->setDefault('level',$rcontent->levelid);
-		}
+		$levellistarray = rcontent_level_list();
         if (ajaxenabled()) {
             $attrs = array('onchange' => 'javascript:rcontent_load_isbn_list(this.value)');
         } else {
   	        $attrs = array('onchange' => 'javascript:this.form.issubmit.value=0;this.form.submit();');
         }
-        $mform->addElement('select', 'level', get_string('level', 'rcontent'), $level_list_array, $attrs);
+        $mform->addElement('select', 'level', get_string('level', 'rcontent'), $levellistarray, $attrs);
         $mform->setType('level', PARAM_INT);
         $mform->addRule('level', get_string('isbnerror', 'rcontent'), 'nonzero');
         $mform->addRule('level', null, 'required');
+        $mform->setDefault('level', $level);
 
         // ISBN
         // Set isbn select onchange event width ajax and without it
-        if (!empty($update)) {
-        	$level = optional_param('level', $rcontent->levelid, PARAM_INT);
-        	$isbn_list_array = rcontent_isbn_list($level, 'updateform');
-        	$mform->setDefault('isbn', $rcontent->bookid);
-        } else if(!ajaxenabled() && isset($_POST['level'])) {
-  	        $isbn_list_array = rcontent_isbn_list($_POST['level'],'updateform');
+        if (!empty($level)) {
+  	        $isbnlistarray = rcontent_isbn_list($level, 'updateform');
+            $selecttype = 'selectgroups';
         } else {
-  	        $isbn_list_array = array('- '.get_string('isbn','rcontent').' -');
+  	        $isbnlistarray = array('- '.get_string('isbn', 'rcontent').' -');
+            $selecttype = 'select';
         }
         if (ajaxenabled()) {
             $attrs = array('onchange' => 'javascript:rcontent_load_unit_list(this.value);');
         } else {
   	        $attrs = array('onchange' => 'javascript:this.form.issubmit.value=0;this.form.submit();');
         }
-        $mform->addElement('select', 'isbn', get_string('isbn', 'rcontent'), $isbn_list_array, $attrs);
+        $mform->addElement($selecttype, 'isbn', get_string('isbn', 'rcontent'), $isbnlistarray, $attrs);
         $mform->setType('isbn', PARAM_INT);
         $mform->addRule('isbn', get_string('isbnerror', 'rcontent'), 'nonzero');
         $mform->addRule('isbn', null, 'required');
+        $mform->setDefault('isbn', $isbn);
 
         // Unit
         // Load unit select options with ajax and without it
-        if (!empty($update)) {
-            $isbn = optional_param('isbn', $rcontent->bookid, PARAM_INT);
-            $unit_list_array = rcontent_unit_list($isbn, 'updateform');
-            $mform->setDefault('unit', $rcontent->unitid);
-        } else if(!ajaxenabled() && isset($_POST['isbn'])) {
-  	        $unit_list_array = rcontent_unit_list($_POST['isbn'], 'updateform');
+        if (!empty($isbn)) {
+  	        $unitlistarray = rcontent_unit_list($isbn, 'updateform');
         } else {
-  	        $unit_list_array = array('- '.get_string('unit','rcontent').' -');
+  	        $unitlistarray = array('- '.get_string('unit', 'rcontent').' -');
         }
         // Set unit select onchange event width aja and without it
         if (ajaxenabled()) {
@@ -129,22 +134,20 @@ class mod_rcontent_mod_form extends moodleform_mod {
         } else {
   	        $attrs = array('onchange' => 'javascript:this.form.issubmit.value=0;this.form.submit()');
         }
-        $mform->addElement('select', 'unit', get_string('unit', 'rcontent'), $unit_list_array , $attrs);
+        $mform->addElement('select', 'unit', get_string('unit', 'rcontent'), $unitlistarray , $attrs);
         $mform->setType('unit', PARAM_INT);
+        $mform->setDefault('unit', $unit);
 
         // Activity
         // Load activity select options width ajax and widthout it
-        if (!empty($update)) {
-            $unit = optional_param('unit', $rcontent->unitid, PARAM_INT);
-            $activity_list_array = rcontent_activity_list($isbn, $unit, 'updateform');
-            $mform->setDefault('activity', $rcontent->activityid);
-        } else if(!ajaxenabled() && isset($_POST['isbn']) && isset($_POST['unit'])) {
-  	        $activity_list_array = rcontent_activity_list($_POST['isbn'], $_POST['unit'], 'updateform');
+        if (!empty($isbn) && !empty($unit)) {
+  	        $activitylistarray = rcontent_activity_list($isbn, $unit, 'updateform');
         } else {
-            $activity_list_array = array('- '.get_string('activity','rcontent').' -');
+            $activitylistarray = array('- '.get_string('activity', 'rcontent').' -');
         }
-        $mform->addElement('select', 'activity', get_string('activity','rcontent'), $activity_list_array);
+        $mform->addElement('select', 'activity', get_string('activity', 'rcontent'), $activitylistarray);
         $mform->setType('activity', PARAM_INT);
+        $mform->setDefault('activity', $activity);
 
         // Summary
         $mform->addElement('htmleditor', 'summary', get_string('summary'));

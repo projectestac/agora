@@ -1,19 +1,26 @@
 <?php
 
 require_once($CFG->dirroot . '/local/rcommon/wslib.php');
+require_once($CFG->dirroot . '/local/rcommon/locallib.php');
 
 class TiposEstado {
-    private static $types = array("NO_INICIADO" => "NO_INICIADO", "INCOMPLETO" => "INCOMPLETO", "FINALIZADO" => "FINALIZADO", "POR_CORREGIR" => "POR_CORREGIR", "CORREGIDO" => "CORREGIDO");
+    private static $types = array(
+        "NO_INICIADO" => "NO_INICIADO",
+        "INCOMPLETO" => "INCOMPLETO",
+        "FINALIZADO" => "FINALIZADO",
+        "POR_CORREGIR" => "POR_CORREGIR",
+        "CORREGIDO" => "CORREGIDO");
+
     static function Tipos($type) {
         $type = strtoupper($type);
-        if(isset(self::$types[$type])) {
+        if (isset(self::$types[$type])) {
             return self::$types[$type];
         } else {
             return "NO_VALIDO";
         }
     }
 
-    static function ValidType($type){
+    static function ValidType($type) {
         $type = strtoupper($type);
         return isset(self::$types[$type]);
     }
@@ -33,15 +40,15 @@ class ErroresSeguimiento {
                                     "EstadoInvalido" => 1015,
                                     "InvalidIdContenidoLMS" => 1016);
 
-    static public function get_error_code($index){
-        if(isset(self::$errores[$index])) {
+    static public function get_error_code($index) {
+        if (isset(self::$errores[$index])) {
             return self::$errores[$index];
         } else {
             return 0;
         }
     }
 
-    static public function get_error_description($index){
+    static public function get_error_description($index) {
         switch($index){
             case "UsrNoExisteEnCurso":
                 return get_string('usrnotexists', 'rcontent');
@@ -128,11 +135,11 @@ class TipoDetalleError {
     public $Descripcion;
     public $Observaciones;
 
-    function __construct($indexError, $extradescr = ""){
+    function __construct($indexError, $extradescr = "") {
         $this->Codigo = ErroresSeguimiento::get_error_code($indexError);
         $this->Descripcion = ErroresSeguimiento::get_error_description($indexError);
 
-        if(!empty($extradescr)){
+        if (!empty($extradescr)) {
             $this->Descripcion .= " - " . $extradescr;
         }
     }
@@ -142,7 +149,7 @@ class RespuestaResultadoExtendido {
     public $Resultado;
     public $DetalleError;
 
-    function setError($indexError, $extradescr = ""){
+    function setError($indexError, $extradescr = "") {
         $this->DetalleError = new TipoDetalleError($indexError, $extradescr);
         $this->Resultado = 'KO';
         return array($this->DetalleError->Codigo, $this->DetalleError->Descripcion);
@@ -164,11 +171,11 @@ class ResultadoDetalleExtendidoResponse {
         return $this->ResultadoDetalleExtendidoResult->getErrorDescription();
     }
 
-    function setError($indexError, $extradescr = ""){
+    function setError($indexError, $extradescr = "") {
         return $this->ResultadoDetalleExtendidoResult->setError($indexError, $extradescr);
     }
 
-    function setOK(){
+    function setOK() {
         $this->ResultadoDetalleExtendidoResult->setOK();
     }
 }
@@ -180,7 +187,7 @@ function valid_result_details($ResultExt) {
         return false;
     }
 
-    if (isset($ResultExt->Detalles)){
+    if (isset($ResultExt->Detalles)) {
         $detalles = $ResultExt->Detalles;
 
         // Take first detail
@@ -234,8 +241,8 @@ function get_ResultadoDetalleExtendido($ResultadoExtendido, $user, $passwd) {
         }
 
         // Search book
-        $book = $DB->get_record('rcommon_books', array('id' => $rcontent->bookid));
-        if(!$book){
+        $book = rcommon_book::get($rcontent->bookid);
+        if (!$book) {
             return generate_error("LibroInvalido", $rcontent->bookid, "ResultadoDetalleExtendido");
         }
 
@@ -254,7 +261,7 @@ function get_ResultadoDetalleExtendido($ResultadoExtendido, $user, $passwd) {
         $cm = get_coursemodule_from_instance('rcontent', $rcontent->id, $rcontent->course);
         $contextmodule = context_module::instance($cm->id);
 
-        if (!UserAuthentication($book->id, $user, $passwd)) {
+        if (!rcommon_book::check_auth($book->id, $user, $passwd)) {
             return generate_error("Autenticacion", "", "ResultadoDetalleExtendido", $cm->id);
         }
 
@@ -434,11 +441,11 @@ function valid_user($userid, $courseid) {
     return $DB->record_exists_sql($select, array('courseid'=>$courseid, 'userid' => $userid, 'contextlevel' => CONTEXT_COURSE));
 }
 
-function isForzarGuardar($ResultExt){
+function isForzarGuardar($ResultExt) {
     return property_exists($ResultExt, 'ForzarGuardar') && $ResultExt->ForzarGuardar == 1;
 }
 
-function valid_unit($ResultExt, $book, $rcontent_unitid) {
+function valid_unit($resultext, $book, $rcontentunitid) {
     global $CFG, $DB;
     require_once($CFG->dirroot . '/local/rcommon/WebServices/BooksStructure.php');
 
@@ -446,68 +453,60 @@ function valid_unit($ResultExt, $book, $rcontent_unitid) {
 
     try {
         // Busco la unidad por unitid del rcontent, cuando no hay que ForzarGuardar
-        if ($rcontent_unitid != 0 && !isForzarGuardar($ResultExt)) {
-            $unidad = $DB->get_record('rcommon_books_units', array('id' => $rcontent_unitid));
+        if ($rcontentunitid != 0 && !isForzarGuardar($resultext)) {
+            $unidad = rcommon_unit::get($rcontentunitid);
             // Error Si rcontent tiene una unidad especifica y si no ha llegado desde ws o no son iguales
-            if ($unidad && (!isset($ResultExt->idUnidad) || ($unidad->code != $ResultExt->idUnidad))) {
+            if ($unidad && (!isset($resultext->idUnidad) || ($unidad->code != $resultext->idUnidad))) {
                 return false;
             }
         }
 
-        if (isset($ResultExt->idUnidad)) {
+        if (isset($resultext->idUnidad) && !empty($resultext->idUnidad)) {
             // Buscamos la unidad por codigo
-            if (!$unidad){
-                $unidad = get_unit_from_code($ResultExt, $book->id);
+            if (!$unidad) {
+                $unidad = rcommon_unit::get_from_code($resultext->idUnidad, $book->id);
             }
 
             // Si existe la unidad pero cambia el orden o el titulo
             // Update if no isset unit/actividad title or no isset unit/activity order
-            $actualizar_unidad = $unidad && ((empty($unidad->name) && !empty($ResultExt->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($ResultExt->UnidadOrden)));
+            $update = $unidad && ((empty($unidad->name) && !empty($resultext->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($resultext->UnidadOrden)));
 
             if ($book->structureforaccess == 1) {
                 // Si no se ha encontrado la unidad o se ha encontrado pero cambia el nombre o orden llamamos al ws
-                if (!$unidad || $actualizar_unidad) {
-                    $publisher = $DB->get_record('rcommon_publisher', array('id' => $book->publisherid));
+                if (!$unidad || $update) {
+                    $publisher = rcommon_publisher::get($book->publisherid);
                     get_book_structure($publisher, $book->isbn);
 
                     // Fixed bug in the processing of received unit/activity title when it's diferent from the stored one
                     // Si aun no tenemos la info de la unidad la buscamos
                     if (!$unidad) {
-                        $unidad = get_unit_from_code($ResultExt, $book->id);
+                        $unidad = rcommon_unit::get_from_code($resultext->idUnidad, $book->id);
                     }
 
                     // Volvemos a comprobar si coincide el título o no
                     // Just update if no isset unit/actividad title or no isset unit/activity order
-                    $actualizar_unidad = $unidad && ((empty($unidad->name) && !empty($ResultExt->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($ResultExt->UnidadOrden)));
+                    $update = $unidad && ((empty($unidad->name) && !empty($resultext->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($resultext->UnidadOrden)));
                 }
             }
 
             // Si no se ha encontrado la unidad o cambia el nombre
-            if (!$unidad || $actualizar_unidad) {
+            if (!$unidad || $update) {
                 $instance = new StdClass();
                 $instance->bookid = $book->id;
-                $instance->code = $ResultExt->idUnidad;
+                $instance->code = $resultext->idUnidad;
 
                 // Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->name = isset($unidad->name) && !empty($unidad->name) ? $unidad->name : (!empty($ResultExt->UnidadTitulo) ? $ResultExt->UnidadTitulo : $ResultExt->idUnidad);
+                $instance->name = isset($unidad->name) && !empty($unidad->name) ? $unidad->name : (!empty($resultext->UnidadTitulo) ? $resultext->UnidadTitulo : $resultext->idUnidad);
                 // Just update if no empty unit/actividad summary
                 $instance->summary = isset($unidad->summary) && !empty($unidad->summary) ? $unidad->summary : $instance->name;
                 // Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->sortorder = isset($unidad->sortorder) && !empty($unidad->sortorder) ? $unidad->sortorder : (!empty($ResultExt->UnidadOrden) ? $ResultExt->UnidadOrden : 0);
-                $instance->timemodified = time();
+                $instance->sortorder = isset($unidad->sortorder) && !empty($unidad->sortorder) ? $unidad->sortorder : (!empty($resultext->UnidadOrden) ? $resultext->UnidadOrden : 0);
 
-                //si no existe la unidad
-                if (!$unidad) {
-                    $instance->timecreated = $instance->timemodified;
-                    $instance->id = $DB->insert_record('rcommon_books_units', $instance);
-                    log_to_file("wsSeguimiento: function valid_unit - Add new unit " . (($instance->id) ? 'OK' : 'KO (instance:' . serialize($instance) . ')'));
-                } else {
-                    // si el titulo o el orden a cambiado actualizamos el registro
-                    $instance->id = $unidad->id;
-                    $DB->update_record('rcommon_books_units', $instance);
-                    log_to_file("wsSeguimiento: function valid_unit - Update unit (instance:" . serialize($instance) . ')');
+                $unitid = rcommon_unit::add_update($instance);
+                if ($unitid) {
+                    $unidad = rcommon_unit::get($unitid);
                 }
-                $unidad = $DB->get_record('rcommon_books_units', array('id' => $instance->id));
+                log_to_file("wsSeguimiento: function valid_unit - Add/Update unit " . (($unitid) ? 'OK' : 'KO (instance:' . serialize($instance) . ')'));
             }
         }
         return $unidad ? $unidad : true;
@@ -519,117 +518,77 @@ function valid_unit($ResultExt, $book, $rcontent_unitid) {
 }
 
 //  retorn true o false, $actividad param if activity was found
-function valid_activity($ResultExt, $book, $rcontent_activityid, $unidadid) {
+function valid_activity($resultext, $book, $rcontentactivityid, $unidadid) {
     global $CFG, $DB;
     require_once($CFG->dirroot . '/local/rcommon/WebServices/BooksStructure.php');
     try {
         $actividad = false;
 		// Busco la actividad por actividadid del rcontent, cuando no hay que ForzarGuardar
-        if ($rcontent_activityid != 0 && !isForzarGuardar($ResultExt)) {
-            $actividad = $DB->get_record('rcommon_books_activities',  array('id' => $rcontent_activityid));
+        if ($rcontentactivityid != 0 && !isForzarGuardar($resultext)) {
+            $actividad = rcommon_activity::get($rcontentactivityid);
 
-            //if rcontent has a specific activity error if you come from or are not equal ws
-            if ($actividad && (!isset($ResultExt->idActividad) || $actividad->code != $ResultExt->idActividad)) {
+            // If rcontent has a specific activity error if you come from or are not equal ws
+            if ($actividad && (!isset($resultext->idActividad) || $actividad->code != $resultext->idActividad)) {
                 return false;
 			}
         }
 
-        if (isset($ResultExt->idActividad)) {
+        if (isset($resultext->idActividad) && !empty($resultext->idActividad)) {
             // Buscamos la unidad por codigo
             if (!$actividad) {
-                $actividad = get_activity_from_code($ResultExt, $book->id, $unidadid);
+                $actividad = rcommon_activity::get_from_code($resultext->idActividad, $unidadid, $book->id);
             }
 
             // Si existe la unidad pero cambia el orden o el titulo
             // Just update if no isset unit/actividad title or no isset unit/activity order
-            $actualizar_actividad = $actividad && ((empty($activitat->name) && !empty($ResultExt->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($ResultExt->ActividadOrden)));
+            $update = $actividad && ((empty($activitat->name) && !empty($resultext->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($resultext->ActividadOrden)));
 
             if ($book->structureforaccess == 1) {
                 // Si no se ha encontrado la unidad o se ha encontrado pero cambia el nombre o orden llamamos al ws
-                if (!$actividad || $actualizar_actividad) {
-                    $publisher = $DB->get_record('rcommon_publisher', array('id' => $book->publisherid));
+                if (!$actividad || $update) {
+                    $publisher = rcommon_publisher::get($book->publisherid);
                     get_book_structure($publisher, $book->isbn);
 
                     // Fixed bug in the processing of received unit/activity title when it's diferent from the stored one
                     // Obtengo los nuevos datos de la actividad
                     if (!$actividad) {
-                        $actividad = get_activity_from_code($ResultExt, $book->id, $unidadid);
+                        $actividad = rcommon_activity::get_from_code($resultext->idActividad, $unidadid, $book->id);
                     }
                     // Y vuelvo a comprobar si coincide el título o no
                     // Just update if no isset unit/actividad title or no isset unit/activity order
-                    $actualizar_actividad = $actividad && ((empty($activitat->name) && !empty($ResultExt->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($ResultExt->ActividadOrden)));
+                    $update = $actividad && ((empty($activitat->name) && !empty($resultext->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($resultext->ActividadOrden)));
                 }
             }
 
             //si no se ha encontrado la unidad o cambia el nombre
-            if (!$actividad || $actualizar_actividad) {
+            if (!$actividad || $update) {
                 $instance = new StdClass();
                 $instance->bookid = $book->id;
                 $instance->unitid = $unidadid;
-                $instance->code = $ResultExt->idActividad;
+                $instance->code = $resultext->idActividad;
                 // Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->name = isset($actividad) && !empty($actividad->name) ? $actividad->name : (!empty($ResultExt->ActividadTitulo) ? $ResultExt->ActividadTitulo : $ResultExt->idActividad);
+                $instance->name = isset($actividad) && !empty($actividad->name) ? $actividad->name : (!empty($resultext->ActividadTitulo) ? $resultext->ActividadTitulo : $resultext->idActividad);
                 // Just update if no empty unit/actividad summary
                 $instance->summary = isset($actividad) && !empty($actividad->summary) ? $actividad->summary : $instance->name;
 				//  Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->sortorder = isset($actividad) && !empty($actividad->sortorder) ? $actividad->sortorder : (!empty($ResultExt->ActividadOrden) ? $ResultExt->ActividadOrden : 0);
+                $instance->sortorder = isset($actividad) && !empty($actividad->sortorder) ? $actividad->sortorder : (!empty($resultext->ActividadOrden) ? $resultext->ActividadOrden : 0);
 
-                $instance->timemodified = time();
 
-                // If activity not found
-                if (!$actividad) {
-                    $instance->timecreated = $instance->timemodified;
-                    $instance->id = $DB->insert_record('rcommon_books_activities', $instance);
-                    log_to_file("wsSeguimiento: function valid_activity - Add new activity " . (($instance->id) ? 'OK' : 'KO (instance:' . serialize($instance) . ')'));
-                } else {
-                    // If the title or order to update the register changed
-                    $instance->id = $actividad->id;
-                    $DB->update_record('rcommon_books_activities', $instance);
-                    log_to_file("wsSeguimiento: function valid_activity - Update activity (instance:" . serialize($instance) . ')');
+                $activityid = rcommon_activity::add_update($instance);
+                if ($activityid) {
+                    $actividad = rcommon_activity::get($activityid);
                 }
-                $actividad = $DB->get_record('rcommon_books_activities', array('id' => $instance->id));
+                log_to_file("wsSeguimiento: function valid_activity - Add/Update activity " . (($activityid) ? 'OK' : 'KO (instance:' . serialize($instance) . ')'));
             }
         }
         return $actividad ? $actividad : true;
     } catch (Exception $e) {
-        //log_to_file("wsSeguimiento: function valid_activity - Exception = " . serialize($e));
         log_to_file("wsSeguimiento: function valid_activity - Exception = " . $e->getMessage());
         return false;
     }
 }
 
-function UserAuthentication($bookid, $user, $passwd) {
-    global $DB;
-
-    if (!$publisherid = $DB->get_field('rcommon_books', 'publisherid', array('id' => $bookid))) {
-        return false;
-    }
-    if (!$user || !$passwd) {
-        return false;
-    }
-
-    return $DB->record_exists('rcommon_publisher',array('id' => $publisherid, 'username' => $user, 'password' => $passwd));
-}
-
-function get_unit_from_code($ResultadoExtendido, $bookid){
-    global $DB;
-    if(isset($ResultadoExtendido->idUnidad) && !empty($ResultadoExtendido->idUnidad)) {
-        return $DB->get_record('rcommon_books_units',array('code'=>$ResultadoExtendido->idUnidad, 'bookid'=>$bookid));
-    } else {
-        return false;
-    }
-}
-
-function get_activity_from_code($ResultadoExtendido, $bookid, $unitid){
-    global $DB;
-    if(isset($ResultadoExtendido->idActividad) && !empty($ResultadoExtendido->idActividad)) {
-        return $DB->get_record('rcommon_books_activities',array('code'=>$ResultadoExtendido->idActividad, 'unitid'=>$unitid, 'bookid'=>$bookid));
-    } else {
-         return false;
-    }
-}
-
-function get_real_rcontent($ResultadoExtendido, $rcontent_original, $bookid){
+function get_real_rcontent($ResultadoExtendido, $rcontent_original, $bookid) {
     global $DB;
 
     log_to_file("Forzar Guardar");
@@ -638,16 +597,24 @@ function get_real_rcontent($ResultadoExtendido, $rcontent_original, $bookid){
     log_to_file('Original rcontenid:'.$rcontentoriginalid);
 
     // Search UNIT
-    if(!$unit = get_unit_from_code($ResultadoExtendido, $bookid)) {
+    $unit = false;
+    if (isset($ResultadoExtendido->idUnidad) && !empty($ResultadoExtendido->idUnidad)) {
+        $unit = rcommon_unit::get_from_code($ResultadoExtendido->idUnidad, $bookid);
+    }
+    if (!$unit) {
         // No unit provided, the real rcontent is the original
         return false;
     }
     log_to_file('unit:'.$unit->code.'-'.$unit->id);
 
     // Search ACTIVITY
-    if($activity = get_activity_from_code($ResultadoExtendido, $bookid, $unit->id)){
+    $activity = false;
+    if (isset($ResultadoExtendido->idActividad) && !empty($ResultadoExtendido->idActividad)) {
+        $activity = rcommon_activity::get_from_code($ResultadoExtendido->idActividad, $unit->id, $bookid);
+    }
+    if ($activity) {
         log_to_file('activity:'.$activity->code.'-'.$activity->id);
-        if($rcontent_original->unitid == $unit->id && $rcontent_original->activityid == $activity->id){
+        if ($rcontent_original->unitid == $unit->id && $rcontent_original->activityid == $activity->id) {
             // Unit and activity match, the real rcontent is the original
             return $rcontent_original;
         }
@@ -658,7 +625,7 @@ function get_real_rcontent($ResultadoExtendido, $rcontent_original, $bookid){
 
     $rcontents = false;
     // ALL OK Searching for real Rcontent with activity
-    if($activity) {
+    if ($activity) {
         $rcontents = $DB->get_records('rcontent', array('bookid'=>$bookid, 'unitid'=>$unit->id, 'activityid'=>$activity->id), 'id');
     }
 

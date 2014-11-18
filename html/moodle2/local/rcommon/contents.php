@@ -128,7 +128,11 @@ if (!empty($books)) {
         $row[] = $book->isbn;
         $row[] = $book->assig;
         $row[] = $book->total;
-        $deletelink = 'contents.php?id='.$id.'&action=delete&showall=1&bookid='.$book->id;
+        if($showall) {
+            $deletelink = 'contents.php?id='.$id.'&action=delete&showall=1&bookid='.$book->id;
+        } else {
+            $deletelink = 'contents.php?id='.$id.'&action=delete&bookid='.$book->id;
+        }
         $actions = array();
         $actions[] = '<a href="books.php?id=' . $book->id .'" title="' . get_string('see_details_atitle', 'local_rcommon') . '">' . get_string('see_details', 'local_rcommon') . '</a>';
         $actions[] = $OUTPUT->action_link($deletelink, get_string('delete'), new confirm_action(get_string('delete_book_confirm', 'local_rcommon', $name)));

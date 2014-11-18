@@ -1,21 +1,21 @@
 
-/** 
- * 
+/**
+ *
  * Javascript to request ajax calls to rcontent mod
- * 
+ *
  */
 
 /**
  * Request isbn list from bd by ajax
  * @param int $levelid ID of the level
  */
-function rcontent_load_isbn_list(levelid){ 
+function rcontent_load_isbn_list(levelid){
     if (levelid!=undefined){
         var callback = {
-            success: function(o) {/*success handler code*/ 
-                fill_select('isbn',o);	    	    
+            success: function(o) {/*success handler code*/
+                fill_select('isbn',o);
             },
-            failure: function(o) {/*failure handler code*/ 
+            failure: function(o) {/*failure handler code*/
                 rcontent_yui_ajax_process_error('ajaxresponseerror');
             }
         };
@@ -30,16 +30,16 @@ function rcontent_load_isbn_list(levelid){
 
 /**
  * Load from bd units list for a single isbn
- * 
- * @param int bookid ID of the book 
+ *
+ * @param int bookid ID of the book
  */
 function rcontent_load_unit_list(bookid){
     if (bookid!=undefined){
         var callback = {
-            success: function(o) {/*success handler code*/ 
-                fill_select('unit',o);	    	    
+            success: function(o) {/*success handler code*/
+                fill_select('unit',o);
             },
-            failure: function(o) {/*failure handler code*/ 
+            failure: function(o) {/*failure handler code*/
                 rcontent_yui_ajax_process_error('ajaxresponseerror');
             }
             };
@@ -53,17 +53,17 @@ function rcontent_load_unit_list(bookid){
 
 /**
  * Load from bd activities list for a single isbn and a sigle unit
- * 
+ *
  * @param int bookid ID of the book
  * @param int unitid ID of the unit
  */
-function rcontent_load_activity_list(bookid, unitid){ 
+function rcontent_load_activity_list(bookid, unitid){
     if (bookid!=undefined&&unitid!=undefined){
         var callback = {
             success: function(o) {/*success handler code*/
-                fill_select('activity',o);	    	    
+                fill_select('activity',o);
             },
-            failure: function(o) {/*failure handler code*/ 
+            failure: function(o) {/*failure handler code*/
                 rcontent_yui_ajax_process_error('ajaxresponseerror');
             }
         };
@@ -77,7 +77,7 @@ function rcontent_load_activity_list(bookid, unitid){
 
 /**
  * Shows the loaded list
- * 
+ *
  * @param string id name of the select list
  * @param json o data loades from bd
  */
@@ -105,7 +105,7 @@ function fill_select(id,o){
     select.innerHTML = '';
 
     //second show new select options
-    if(o.responseText!='[""]'){	    
+    if(o.responseText!='[""]'){
         // Parse the data returned from the server
         rcontent_yui_json_parse(o.responseText, select);
     }
@@ -117,7 +117,7 @@ function rcontent_yui_async_request(url){
 
 function rcontent_yui_async_request(url, callback){
     if(typeof YAHOO != 'undefined') {
-        // Up to Moodle 2.3 
+        // Up to Moodle 2.3
         YAHOO.util.Connect.asyncRequest('GET', url, callback);
     } else{
         // Moodle 2.4 or higuer
@@ -138,7 +138,7 @@ function rcontent_yui_ajax_process_error (typerror){
 
 function rcontent_yui_json_parse(responseText, select){
     if(typeof YAHOO != 'undefined') {
-        // Up to Moodle 2.3 
+        // Up to Moodle 2.3
         try{
             response = YAHOO.lang.JSON.parse(responseText);
         }
@@ -161,13 +161,25 @@ function rcontent_yui_json_parse(responseText, select){
 }
 
 function rcontent_create_select_with_response(response, select) {
-    // The returned data was parsed into an array of objects
+    var currentgroup = '';
+    var optgroup;
+    // The optgroup data was parsed into an array of objects
     for (var i = 0, len = response.length; i < len; ++i) {
-            //second fill new options
-        var r = response[i]; 
+        //second fill new options
+        var r = response[i];
         var option = document.createElement('option');
         option.appendChild(document.createTextNode(r.name));
         option.setAttribute('value', r.id);
-        select.appendChild(option);
-    }        
+        if (r.group != undefined) {
+            if (currentgroup != r.group) {
+                optgroup = document.createElement('optgroup');
+                optgroup.setAttribute('label', r.group);
+                select.appendChild(optgroup);
+                currentgroup = r.group;
+            }
+            optgroup.appendChild(option);
+        } else {
+            select.appendChild(option);
+        }
+    }
 }
