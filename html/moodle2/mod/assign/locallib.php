@@ -3904,10 +3904,17 @@ class assign {
             } else {
                 //XTEC ************ MODIFICAT - To fix bug on participants count shown in Grading summary page (MDL-38128)
                 //2014.07.29  @pferre22
-                $groups = groups_get_activity_allowed_groups($this->get_course_module(),$USER->id);
-                $countparticipants = 0;
-                foreach ($groups as $group) {
-                   $countparticipants += $this->count_participants($group->id);
+                $cm = $this->get_course_module();
+                $groupmode = groups_get_activity_groupmode($cm);
+                $context = context_module::instance($cm->id);
+                if ($groupmode != SEPARATEGROUPS or has_capability('moodle/site:accessallgroups', $context, $USER->id)) {
+                    $countparticipants = $this->count_participants(0);
+                } else {
+                    $groups = groups_get_all_groups($cm->course, $USER->id, $cm->groupingid);
+                    $countparticipants = 0;
+                    foreach ($groups as $group) {
+                        $countparticipants += $this->count_participants($group->id);
+                    }
                 }
                 $summary = new assign_grading_summary($countparticipants,
                 //************ ORIGINAL
