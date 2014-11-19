@@ -97,8 +97,30 @@ class GCE_Feed {
 		if( ! empty( $gce_options['api_key'] ) ) {
 			$api_key = $gce_options['api_key'];
 		} else {
-			$api_key = $this->api_key;
-		}
+
+            // XTEC ************ MODIFICAT - Choose the appropriate API key
+            // 2014.10.08 @aginard
+
+            // Behaviour is as follows: First look for an API key in the database. If it is empty,
+            //  check if it must use the Agora API key or the XTECBlocs API key. If it is none of
+            //  them, use the default plugin API key.
+            global $isAgora, $isBlocs;
+           
+            if ($isAgora) {
+                $api_key = 'AIzaSyAssdKVved1mPVY0UJCrx96OUOF9u17AuY'; // API key for Agora
+            } elseif ($isBlocs) {
+                $api_key = 'AIzaSyAssdKVved1mPVY0UJCrx96OUOF9u17AuY'; // API key for XTECBlocs
+            } else {
+                $api_key = $this->api_key;
+            }
+    
+            //************ ORIGINAL
+            /*           
+                $api_key = $this->api_key;
+            */
+            //************ FI
+
+        }
 		
 		$query = 'https://www.googleapis.com/calendar/v3/calendars/' . $this->calendar_id . '/events';
 		
