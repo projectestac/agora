@@ -26,3 +26,4 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Llista desordenada';
+$string['unorderedlist'] = 'Llista desordenada';

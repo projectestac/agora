@@ -93,7 +93,7 @@ $string['bookmarkalreadyexists'] = 'You have already bookmarked this page.';
 $string['bookmarkdeleted'] = 'Bookmark deleted.';
 $string['bookmarkthispage'] = 'Bookmark this page';
 $string['cacheapplication'] = 'Application cache';
-$string['cacheapplicationhelp'] = 'Cached items are shared amoung all users and expire by a determined ttl.';
+$string['cacheapplicationhelp'] = 'Cached items are shared among all users and expire by a determined time to live (ttl).';
 $string['cachejs'] = 'Cache Javascript';
 $string['cachejs_help'] = 'Javascript caching and compression greatly improves page loading performance. it is strongly recommended for production sites. Developers will probably want to disable this feature.';
 $string['cacherequest'] = 'Request cache';
@@ -358,7 +358,7 @@ $string['configsupportpage'] = 'This web address will be published to users of t
 $string['configthemedesignermode'] = 'Normally all theme images and style sheets are cached in browsers and on the server for a very long time, for performance. If you are designing themes or developing code then you probably want to turn this mode on so that you are not served cached versions.  Warning: this will make your site slower for all users!  Alternatively, you can also reset the theme caches manually from the Theme selection page.';
 $string['configthemelist'] = 'Leave this blank to allow any valid theme to be used.  If you want to shorten the theme menu, you can specify a comma-separated list of names here (Don\'t use spaces!).
 For example:  standard,orangewhite.';
-$string['configtimezone'] = 'You can set the default timezone here.  This is the only the DEFAULT timezone for displaying dates - each user can override this by setting their own in their profile. "Server time" here will make Moodle default to the server\'s operating system setting, but "Server time" in the user profile will make the user default to this timezone setting.  Cronjobs that depend on a time of day to run will use this timezone.';
+$string['configtimezone'] = 'This is the default timezone for displaying dates - each user can override this setting in their profile. "Server timezone" here will make Moodle default to the server setting in PHP, but "Server timezone" in the user profile will make the user default to this timezone setting. It is recommended that you update timezones then select a named timezone specific to your region.';
 $string['configuseblogassociations'] = 'Should users be able to organize their blog by associating entries with courses and course modules?';
 $string['configuseexternalyui'] = 'Instead of using local files, use online files available on Yahoo&#145;s servers. WARNING: This requires an internet connection, or no AJAX will work on your site. This setting is not compatible with sites using https.';
 $string['configuserquota'] = 'The maximum number of bytes that a user can store in their own private file area. {$a->bytes} bytes == {$a->displaysize}';
@@ -680,7 +680,7 @@ $string['loginhttps'] = 'Use HTTPS for logins';
 $string['loginpageautofocus'] = 'Autofocus login page form';
 $string['loginpageautofocus_help'] = 'Enabling this option improves usability of the login page, but automatically focusing fields may be considered an accessibility issue.';
 $string['loginpasswordautocomplete'] = 'Prevent password autocompletion on login form';
-$string['loginpasswordautocomplete_help'] = 'Having this off will let users save their account password in their browser. Switching this setting on will result in your site no longer following XHTML strict validation rules.';
+$string['loginpasswordautocomplete_help'] = 'If enabled, users are not allowed to save their account password in their browser.';
 $string['loglifetime'] = 'Keep logs for';
 $string['longtimewarning'] = '<b>Please note that this process can take a long time.</b>';
 $string['maintenancemode'] = 'In maintenance mode';

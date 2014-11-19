@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['disclaimer'] = 'Entenc els riscos d\'aquesta operació:';
+$string['doit'] = 'Sí, fes-ho!';
 $string['excludedtables'] = 'La substitució del text no s\'aplica a diverses taules, incloent les de configuració, registres, esdeveniments, i taules de sessions.';
 $string['notifyfinished'] = '...finalitzat';
 $string['notifyrebuilding'] = 'S\'està reconstruint la memòria cau del curs...';

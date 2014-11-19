@@ -25,10 +25,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['autoresolve'] = 'AutoResolve';
 $string['changesnotsaved'] = 'Changes not saved';
 $string['configervmchat'] = 'Enable this option if you want to add vmchat.';
 $string['configlinceskey'] = 'Enter the API key given by vidyamantra.com';
+$string['dontinclude'] = 'Don\'t Include';
 $string['enablevmchat'] = 'Enable vmchat';
+$string['jqueryinclude'] = 'How to deal with jQuery';
+$string['jqueryinclude_help'] = 'Choose correct option to resolve jQuery conflict. If your site or theme already using jQuery then select Don\'t Include option.';
 $string['linceskey'] = 'API key';
 $string['pagenotfound'] = 'Page not found';
 $string['pluginname'] = 'Vm Chat';

@@ -26,19 +26,27 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['blocksenabledopt'] = 'What blocks would you encourage on courses?';
+$string['cachedef_coursechecksdata'] = 'Course checks caching';
 $string['cleanpermfailure'] = 'Sorry, there was an error when trying to clean this course.';
 $string['cleansuccess'] = 'Your course has been cleaned up, {$a} sections have been removed.';
 $string['cleanupbutton'] = 'Clean Course';
 $string['coursecleanupopt'] = 'Allow users to clean course?';
 $string['courseguestopt'] = 'Check that guest access is disabled for the course';
+$string['courseimage'] = 'Set a course image?';
 $string['courseimageopt'] = 'Check that course image is set?';
 $string['courserenamesecopt'] = 'Should all sections be renamed?';
+$string['coursesummary'] = 'Set course summary?';
 $string['coursesummaryopt'] = 'Check that course summary isn\'t empty?';
 $string['courseuseropt'] = 'Allow the user to set their own course checks?';
+$string['coursevisible'] = 'Is the course visible?';
 $string['coursevisibleopt'] = 'Check if the course is visible to students?';
 $string['creationprogress'] = 'Course Checks';
+$string['essentials'] = 'Essentials';
 $string['formatsnameopt'] = 'Which formats do you want to prompt the sections to be renamed on?';
+$string['guestaccess'] = 'Is guest access disabled?';
 $string['pluginname'] = 'Course Checks Block';
+$string['sectionchecks'] = 'Section checks';
 $string['sectioncontentopt'] = 'Should all sections have content?';
 $string['sectionsummaryopt'] = 'Should all sections have a summary?';
 $string['sectionvisibleopt'] = 'Should all sections be visible?';
+$string['suggestedblocks'] = 'Suggested blocks';

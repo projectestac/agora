@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['html'] = 'HTML';
 $string['pluginname'] = 'HTML';

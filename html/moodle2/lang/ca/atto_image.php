@@ -25,11 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['accessibilityhint'] = '<p>Pautes d\'accessibilitat de continguts web (<em>Web content accessibility guidelines</em>, WCAG):<br/><ul><li><a href="http://www.w3.org/TR/WCAG20/#text-equiv" target="_blank">Alternatives de text</a></li></ul></p>';
 $string['browserepositories'] = 'Navega pels repositoris ...';
 $string['createimage'] = 'Insereix imatge';
 $string['enteralt'] = 'Descriu aquesta imatge per a algú que no la pot veure';
 $string['enterurl'] = 'Introdueix l\'URL';
 $string['height'] = 'Alçada';
+$string['image'] = 'Imatge';
 $string['pluginname'] = 'Imatge';
 $string['preview'] = 'Previsualització';
 $string['width'] = 'Amplada';

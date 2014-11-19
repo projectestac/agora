@@ -84,6 +84,7 @@ jonest, verysecret, Tom, Jones, jonest@someplace.edu, en, 3663737, 1, Intro101, 
 reznort, somesecret, Trent, Reznor, reznort@someplace.edu, en_us, 6736733, 0, Advanced202, Section 3</font></p>';
 $string['uploaduserspreview'] = 'Previsualització de la càrrega d\'usuaris';
 $string['uploadusersresult'] = 'Resultats de la càrrega d\'usuaris';
+$string['uploaduser:uploaduserpictures'] = 'Puja fotografies d\'usuari';
 $string['useraccountupdated'] = 'S\'ha actualitzat l\'usuari';
 $string['useraccountuptodate'] = 'Usuari actualitzat';
 $string['userdeleted'] = 'S\'ha suprimit l\'usuari';

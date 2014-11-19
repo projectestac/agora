@@ -65,6 +65,7 @@ $string['validationmsg_filenotexists'] = 'Extracted file not found';
 $string['validationmsg_filesnumber'] = 'Not enough files found in the package';
 $string['validationmsg_filestatus'] = 'Unable to extract all files';
 $string['validationmsg_filestatus_info'] = 'Attempting to extract file {$a->file} resulted in error \'{$a->status}\'.';
+$string['validationmsg_foundlangfile'] = 'Found language file';
 $string['validationmsglevel_debug'] = 'Debug';
 $string['validationmsglevel_error'] = 'Error';
 $string['validationmsglevel_info'] = 'OK';

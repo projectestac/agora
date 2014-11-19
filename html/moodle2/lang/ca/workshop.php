@@ -214,6 +214,7 @@ $string['reassess'] = 'Torna a avaluar';
 $string['receivedgrades'] = 'Qualificacions rebudes';
 $string['recentassessments'] = 'Avaluacions del taller:';
 $string['recentsubmissions'] = 'Trameses del taller:';
+$string['resetsubmissions'] = 'Esborra totes les trameses';
 $string['saveandclose'] = 'Desa i tanca';
 $string['saveandcontinue'] = 'Desa i continua editant';
 $string['saveandpreview'] = 'Desa i previsualitza';

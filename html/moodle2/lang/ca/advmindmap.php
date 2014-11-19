@@ -25,4 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['advmindmap:submit'] = 'Envia';
+$string['advmindmap:view'] = 'Mostra';
+$string['advmindmap:viewother'] = 'Mostra\'n un altre';
+$string['class'] = 'Aula';
+$string['classno'] = 'Número d\'aula';
+$string['copylink'] = '(Ctrl+C per a copiar)';
+$string['coursemisconf'] = 'El curs està mal configurat';
 $string['errorinvalidauthor'] = 'L\'autor del Mindmap no és un usuari vàlid.';

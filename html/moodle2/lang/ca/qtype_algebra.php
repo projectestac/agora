@@ -82,7 +82,6 @@ $string['mismatchedopenb'] = 'Claudàtors discordants: S\'ha trobat un claudàto
 $string['missingonearg'] = 'Error de sintaxi: A l\'operador «{$a}» li manca l\'argument';
 $string['missingtwoargs'] = 'Error de sintaxi: L\'operador «{$a}» necessita dos argument';
 $string['morethantwoargs'] = 'Provant de comparar un terme amb més de dos arguments - aquesta casuística no està prevista a la programació!';
-$string['multiply'] = 'vegades';
 $string['nargswrong'] = 'Nombre incorrecte d\'arguments pel terme «{$a}»';
 $string['nchecks'] = 'Nombre de comprovacions d\'avaluació';
 $string['nchecks_help'] = 'Nombre de comprovacions d\'avaluació que s\'utilitzaran en l\'algorisme de comparació d\'avaluacions';

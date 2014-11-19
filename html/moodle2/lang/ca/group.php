@@ -59,6 +59,7 @@ $string['deleteselectedgroup'] = 'Suprimeix grup seleccionat';
 $string['editgroupingsettings'] = 'Edita paràmetres d\'agrupament';
 $string['editgroupsettings'] = 'Edita paràmetres del grup';
 $string['enrolmentkey'] = 'Clau d\'inscripció';
+$string['enrolmentkeyalreadyinuse'] = 'Aquesta clau de matrícula ja l\'utilitza un altre grup.';
 $string['enrolmentkey_help'] = 'Una clau d\'inscripció obre l\'accés al curs, que qeda restringit a les persones que la saben. Si s\'especifica una clau d\'inscripció, un usuari podrà inscriure\'s al curs si la coneix, i el convertirà automàticament en membre del grup.';
 $string['erroraddremoveuser'] = 'S\'ha produït un error en afegir l\'usuari {$a} o suprimir-lo del grup.';
 $string['erroreditgroup'] = 'S\'ha produït un error en crear o actualitzar el grup {$a}';
