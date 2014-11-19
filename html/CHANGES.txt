@@ -27,6 +27,7 @@ MOODLE2
 - Updated Marsupial modules with improvements:
   - Deprecated lang strings in marsupial
   - Simplify logging
+  - Units and activities not included in the book structure are not created anymore and error is raised
 - Scripting environment improvements:
   - Repaired upgrade through script
   - Enable TEX filter on init script
