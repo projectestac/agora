@@ -16,6 +16,7 @@ MOODLE2
 - Add log to oauth server
 - Fixed MDL-33483 GoogleDocs: Save Doc files in different formats to RTF
 - Fixed MDL-43462 Landscape PDFs are not shown correctly in EditPDF
+- Renewed mailer library
 - Improvements on theme XTEC2 including:
   - Added phone and mail to description of the footer icons
   - Accessibility (a11y): Added 'alt' text to 'img' tags and Avoid empty 'ul' tags
