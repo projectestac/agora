@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Google Calendar Events 0.7.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/google-calendar-events\n"
-"POT-Creation-Date: 2014-10-21 13:25-0700\n"
-"PO-Revision-Date: 2014-10-22 14:14+0100\n"
+"POT-Creation-Date: 2014-11-19 00:09-0700\n"
+"PO-Revision-Date: 2014-11-19 16:27+0100\n"
 "Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
@@ -14,20 +14,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: google-calendar-events/class-google-calendar-events-admin.php:64
-#: google-calendar-events/class-google-calendar-events-admin.php:65
-#: google-calendar-events/includes/register-settings.php:44
+#: google-calendar-events/class-google-calendar-events-admin.php:128
+#: google-calendar-events/class-google-calendar-events-admin.php:129
+#: google-calendar-events/class-google-calendar-events-admin.php:198
+#: google-calendar-events/includes/register-settings.php:54
 msgid "General Settings"
 msgstr "Opcions"
 
-#: google-calendar-events/class-google-calendar-events-admin.php:122
+#: google-calendar-events/class-google-calendar-events-admin.php:186
 #: google-calendar-events/views/widgets.php:27
 msgid "Google Calendar Events"
 msgstr "Calendaris del Google"
 
-#: google-calendar-events/class-google-calendar-events-admin.php:134
+#: google-calendar-events/class-google-calendar-events-admin.php:199
 msgid "Feeds"
 msgstr "Calendaris"
+
+#: google-calendar-events/class-google-calendar-events.php:142
+msgid "Loading..."
+msgstr "S'està carregant..."
 
 #: google-calendar-events/includes/admin/admin-functions.php:20
 msgid "Cache has been cleared for this feed."
@@ -62,108 +67,95 @@ msgid "More Details"
 msgstr "Més detalls"
 
 #: google-calendar-events/includes/admin/admin-functions.php:78
-#: google-calendar-events/includes/gce-feed-cpt.php:256
+#: google-calendar-events/includes/gce-feed-cpt.php:264
 msgid "Clear Cache"
 msgstr "Buida la memòria cau"
 
-#: google-calendar-events/includes/class-gce-display.php:188
-#: google-calendar-events/includes/class-gce-display.php:277
+#: google-calendar-events/includes/class-gce-display.php:179
+#: google-calendar-events/includes/class-gce-display.php:270
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:185
 #: google-calendar-events/views/widgets.php:252
 msgid "Back"
 msgstr "<div class='dashicons dashicons-arrow-left-alt2'></div>"
 
-#: google-calendar-events/includes/class-gce-display.php:192
-#: google-calendar-events/includes/class-gce-display.php:278
+#: google-calendar-events/includes/class-gce-display.php:183
+#: google-calendar-events/includes/class-gce-display.php:271
 msgid "Next"
 msgstr "<div class='dashicons dashicons-arrow-right-alt2'></div>"
 
-#: google-calendar-events/includes/class-gce-display.php:372
+#: google-calendar-events/includes/class-gce-display.php:366
 msgid "No events to display."
 msgstr "No hi ha cap esdeveniment per mostrar."
 
-#: google-calendar-events/includes/class-gce-event.php:503
+#: google-calendar-events/includes/class-gce-event.php:504
 #, php-format
 msgid "%s year"
 msgstr "%s any"
 
-#: google-calendar-events/includes/class-gce-event.php:503
+#: google-calendar-events/includes/class-gce-event.php:504
 #, php-format
 msgid "%s years"
 msgstr "%s anys"
 
-#: google-calendar-events/includes/class-gce-event.php:504
+#: google-calendar-events/includes/class-gce-event.php:505
 #, php-format
 msgid "%s month"
 msgstr "%s mes"
 
-#: google-calendar-events/includes/class-gce-event.php:504
+#: google-calendar-events/includes/class-gce-event.php:505
 #, php-format
 msgid "%s months"
 msgstr "%s mesos"
 
-#: google-calendar-events/includes/class-gce-event.php:505
+#: google-calendar-events/includes/class-gce-event.php:506
 #, php-format
 msgid "%s week"
 msgstr "%s setmana"
 
-#: google-calendar-events/includes/class-gce-event.php:505
+#: google-calendar-events/includes/class-gce-event.php:506
 #, php-format
 msgid "%s weeks"
 msgstr "%s setmanes"
 
-#: google-calendar-events/includes/class-gce-event.php:506
+#: google-calendar-events/includes/class-gce-event.php:507
 #, php-format
 msgid "%s day"
 msgstr "%s dia"
 
-#: google-calendar-events/includes/class-gce-event.php:506
+#: google-calendar-events/includes/class-gce-event.php:507
 #, php-format
 msgid "%s days"
 msgstr "%s dies"
 
-#: google-calendar-events/includes/class-gce-event.php:507
+#: google-calendar-events/includes/class-gce-event.php:508
 #, php-format
 msgid "%s hour"
 msgstr "%s hora"
 
-#: google-calendar-events/includes/class-gce-event.php:507
+#: google-calendar-events/includes/class-gce-event.php:508
 #, php-format
 msgid "%s hours"
 msgstr "%s hores"
 
-#: google-calendar-events/includes/class-gce-event.php:508
+#: google-calendar-events/includes/class-gce-event.php:509
 #, php-format
 msgid "%s min"
 msgstr "%s minut"
 
-#: google-calendar-events/includes/class-gce-event.php:508
+#: google-calendar-events/includes/class-gce-event.php:509
 #, php-format
 msgid "%s mins"
 msgstr "%s minuts"
 
-#: google-calendar-events/includes/class-gce-feed.php:82
+#: google-calendar-events/includes/class-gce-feed.php:89
 msgid "The feed URL has not been set. Please make sure to set it correctly in the Feed settings."
 msgstr "No s'ha indicat l'URL del calendari. Si us plau, assegureu-vos d'introduir-lo correctament als paràmetres del calendari"
 
-#: google-calendar-events/includes/class-gce-feed.php:181
-msgid "Some data was retrieved, but could not be parsed successfully. Please ensure your feed URL is correct."
-msgstr "Algunes dades s'han recuperat però no s'han pogut processar correctament. Assegureu-vos que l'URL del calendari és correcte."
+#: google-calendar-events/includes/class-gce-feed.php:165
+msgid "Some data was retrieved, but could not be parsed successfully. Please ensure your feed settings are correct."
+msgstr "S'han recuperat algunes dades, però no s'han pogut processar correctament. Assegureu-vos de què els paràmetres del calendari són correctes."
 
-#: google-calendar-events/includes/class-gce-feed.php:187
-msgid "The feed could not be found (404). Please ensure your feed URL is correct."
-msgstr "No s'ha pogut trobar el calendari (404). Assegureu-vos que l'URL del calendari és correcte."
-
-#: google-calendar-events/includes/class-gce-feed.php:190
-msgid "Access to this feed was denied (403). Please ensure you have public sharing enabled for your calendar."
-msgstr "S'ha denegat l'accés a aquest calendari (403). Assegureu-vos que el vostre calendari és públic."
-
-#: google-calendar-events/includes/class-gce-feed.php:193
-#, php-format
-msgid "The feed data could not be retrieved. Error code: %s. Please ensure your feed URL is correct."
-msgstr "No s'ha pogut recuperar la informació del calendari. Codi d'error: %s. Assegureu-vos que l'URL del calendari és correcte."
-
-#: google-calendar-events/includes/class-gce-feed.php:198
+#: google-calendar-events/includes/class-gce-feed.php:169
 msgid " Please ensure your feed URL is correct."
 msgstr "Assegureu-vos que l'URL del calendari és correcte."
 
@@ -173,6 +165,7 @@ msgstr "Calendaris del Google"
 
 #: google-calendar-events/includes/gce-feed-cpt.php:22
 #: google-calendar-events/includes/gce-feed-cpt.php:24
+#: google-calendar-events/includes/gce-feed-cpt.php:72
 msgid "Feed"
 msgstr "Calendari"
 
@@ -216,6 +209,10 @@ msgstr "No s'ha trobat cap calendari."
 msgid "No feeds found in Trash."
 msgstr "No s'ha trobat cap calendari a la paperera"
 
+#: google-calendar-events/includes/gce-feed-cpt.php:70
+msgid "feed"
+msgstr "calendari"
+
 #: google-calendar-events/includes/gce-feed-cpt.php:75
 #: google-calendar-events/includes/gce-feed-cpt.php:76
 #, php-format
@@ -246,49 +243,90 @@ msgstr "%4$s esborrany actualitzat. %1$sMostra %2$s%3$s"
 msgid "Helpful Links"
 msgstr "Enllaços d'interès"
 
-#: google-calendar-events/includes/gce-feed-cpt.php:209
+#: google-calendar-events/includes/gce-feed-cpt.php:217
 msgid "Feed ID"
 msgstr "ID del calendari"
 
-#: google-calendar-events/includes/gce-feed-cpt.php:210
+#: google-calendar-events/includes/gce-feed-cpt.php:218
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:73
 msgid "Feed Shortcode"
 msgstr "Codi curt"
 
-#: google-calendar-events/includes/gce-feed-cpt.php:211
+#: google-calendar-events/includes/gce-feed-cpt.php:219
 msgid "Display Type"
 msgstr "Tipus de visualització"
 
-#: google-calendar-events/includes/gce-feed-cpt.php:238
+#: google-calendar-events/includes/gce-feed-cpt.php:246
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:152
 #: google-calendar-events/views/widgets.php:218
 msgid "Grid"
 msgstr "Graella"
 
-#: google-calendar-events/includes/gce-feed-cpt.php:240
+#: google-calendar-events/includes/gce-feed-cpt.php:248
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:153
 #: google-calendar-events/views/widgets.php:219
 msgid "List"
 msgstr "Llista"
 
-#: google-calendar-events/includes/gce-feed-cpt.php:242
+#: google-calendar-events/includes/gce-feed-cpt.php:250
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:154
 #: google-calendar-events/views/widgets.php:220
 msgid "Grouped List"
 msgstr "Llista agrupada"
 
 #: google-calendar-events/includes/register-settings.php:29
+msgid "Google API Key"
+msgstr "Clau de l'API de Google"
+
+#: google-calendar-events/includes/register-settings.php:30
+msgid "If left blank all displayed Google calendars will use a public Google API key shared across all plugin users."
+msgstr "Si es deixa buit, els calendaris utilitzaran una clau pública compartida amb tots els usuaris d'aquesta extensió."
+
+#: google-calendar-events/includes/register-settings.php:31
+msgid "Currently the shared key is limited to 500,000 requests per day and 5 requests per second."
+msgstr "La clau compartida està limitada a 500.000 peticions diàries i a 5 peticions per segon."
+
+#: google-calendar-events/includes/register-settings.php:32
+#, php-format
+msgid "To avoid these limits <a href=\"%s\" target=\"_blank\">click here for instructions on how to generate and use your own Google API key.</a>"
+msgstr "Per evitar aquests límits podeu generar una clau pròpia. Trobareu instruccions sobre com fer-ho <a href=\"%s\" target=\"_blank\">en aquesta pàgina</a>."
+
+#: google-calendar-events/includes/register-settings.php:39
 msgid "Save Settings"
 msgstr "Paràmetres de desament"
 
-#: google-calendar-events/includes/register-settings.php:30
+#: google-calendar-events/includes/register-settings.php:40
 msgid "Save your settings when uninstalling this plugin. Useful when upgrading or re-installing."
 msgstr "Manté els paràmetres a la base de dades quan es desinstal·li aquesta extensió. Això és útil en actualitzar i en tornar a instal·lar."
 
-#: google-calendar-events/includes/register-settings.php:132
+#: google-calendar-events/includes/register-settings.php:169
 #, php-format
 msgid "The callback function used for the <strong>%s</strong> setting is missing."
 msgstr "No es pot trobar la funció de retorn utilitzada pel paràmetre <strong>%s</strong>."
+
+#: google-calendar-events/views/admin/api-settings-notice.php:27
+msgid "GCal Events Important Update (Nov. 19, 2014):"
+msgstr "Actualització important dels calendaris del Google (19-11-2014)"
+
+#: google-calendar-events/views/admin/api-settings-notice.php:28
+msgid "GCal Events now uses the Google API version 3, which requires use of a public key."
+msgstr "Aquesta extensió utilitza la versió 3 de l'API de Google, la qual requereix una clau pública."
+
+#: google-calendar-events/views/admin/api-settings-notice.php:29
+msgid "By default a shared key is used across all plugin users, which is limited to 500,000 requests per day and 5 requests per second."
+msgstr "Per defecte s'utilitza una clau compartida entre tots els usuaris de l'extensió. Aquesta clau està limitada a 500.000 peticions per dia i a 5 peticions per segon."
+
+#: google-calendar-events/views/admin/api-settings-notice.php:30
+msgid "To avoid these limits you can use your own Google API key."
+msgstr "Per evitar aquests límits podeu generar una clau pròpia de l'API de Google"
+
+#: google-calendar-events/views/admin/api-settings-notice.php:33
+msgid "Update your API settings now"
+msgstr "Actualitza els paràmetres de l'API ara"
+
+#: google-calendar-events/views/admin/api-settings-notice.php:34
+msgid "Hide this"
+msgstr "Amaga això"
 
 #: google-calendar-events/views/admin/display-options-meta.php:39
 msgid "Check this box to use the simple display options below instead of the Event Builder code on the left."
@@ -367,6 +405,14 @@ msgstr "Si  heu triat mostrar tant l'hora com la data, introduïu aquí  el text
 msgid "Location"
 msgstr "Ubicació"
 
+#: google-calendar-events/views/admin/display-options-meta.php:82
+msgid "Show the location of events?"
+msgstr "Mostra la ubicació dels esdeveniments?"
+
+#: google-calendar-events/views/admin/display-options-meta.php:83
+msgid "Text to display before the location."
+msgstr "Text a mostrar abans de la ubicació."
+
 #: google-calendar-events/views/admin/display-options-meta.php:88
 msgid "Description"
 msgstr "Descripció"
@@ -424,20 +470,20 @@ msgid "To avoid display issues, make sure to paste the shortcode in the Text tab
 msgstr "Per evitar problemes de visualització, assegureu-vos de copiar correctament el codi curt a la pestanya de text de l'editor visual."
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:83
-msgid "GCal Feed URL"
-msgstr "URL del calendari"
+msgid "Google Calendar ID"
+msgstr "ID del calendari"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:87
-msgid "The Google Calendar feed URL."
-msgstr "L'URL del calendari del Google Calendar"
+msgid "The Google Calendar ID."
+msgstr "L'ID del calendari del Google Calendar"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:87
 msgid "Example"
 msgstr "Exemple"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:89
-msgid "How to find your GCal feed URL"
-msgstr "Com trobar l'URL d'un calendari del Google Calendar"
+msgid "How to find your GCal calendar ID"
+msgstr "Com trobar l'ID d'un calendari del Google Calendar"
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:95
 msgid "Search Query"
@@ -655,6 +701,29 @@ msgstr "Mostra la desviació de la data d'inici (només a la vista de llista):"
 #: google-calendar-events/views/widgets.php:258
 msgid "Display Title on Tooltip/List Item (e.g. 'Events on 7th March'). Grouped lists always have a title displayed."
 msgstr "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniments del 7 de març'). A les llistes agrupades sempre es mostra el títol."
+
+#~ msgid ""
+#~ "The feed could not be found (404). Please ensure your feed URL is correct."
+#~ msgstr ""
+#~ "No s'ha pogut trobar el calendari (404). Assegureu-vos que l'URL del "
+#~ "calendari és correcte."
+
+#~ msgid ""
+#~ "Access to this feed was denied (403). Please ensure you have public "
+#~ "sharing enabled for your calendar."
+#~ msgstr ""
+#~ "S'ha denegat l'accés a aquest calendari (403). Assegureu-vos que el "
+#~ "vostre calendari és públic."
+
+#~ msgid ""
+#~ "The feed data could not be retrieved. Error code: %s. Please ensure your "
+#~ "feed URL is correct."
+#~ msgstr ""
+#~ "No s'ha pogut recuperar la informació del calendari. Codi d'error: %s. "
+#~ "Assegureu-vos que l'URL del calendari és correcte."
+
+#~ msgid "GCal Feed URL"
+#~ msgstr "URL del calendari"
 
 #~ msgid ", "
 #~ msgstr ","
@@ -1184,12 +1253,6 @@ msgstr "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniment
 #~ msgid "Display end date and time (in that order)"
 #~ msgstr "Mostra la data i hora de finalització (en aquest ordre)"
 
-#~ msgid "Show the location of events?"
-#~ msgstr "Mostra la ubicació dels esdeveniments?"
-
-#~ msgid "Text to display before the location."
-#~ msgstr "Text a mostrar abans de la ubicació."
-
 #~ msgid ""
 #~ "Show the description of events?  (URLs in the description will be made "
 #~ "into links)."
@@ -1328,9 +1391,6 @@ msgstr "Voleu que es mostri un títol personalitzat? (per exemple: 'Esdeveniment
 #~ msgstr ""
 #~ "Si teniu problemes amb títols que no apareixen o l'AJAX no funciona, "
 #~ "proveu a marcar la casella de sota."
-
-#~ msgid "Loading text"
-#~ msgstr "Text a mostrar durant la càrrega"
 
 #~ msgid "Text to display while calendar data is loading (on AJAX requests)."
 #~ msgstr ""

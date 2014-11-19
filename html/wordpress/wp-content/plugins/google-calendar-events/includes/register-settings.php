@@ -24,6 +24,16 @@ function gce_register_settings() {
 
 		/* General Settings */
 		'general' => array(
+			'api_key' => array(
+				'id'   => 'api_key',
+				'name' => __( 'Google API Key', 'gce' ),
+				'desc' => __( 'If left blank all displayed Google calendars will use a public Google API key shared across all plugin users.', 'gce' ) . ' ' .
+				          __( 'Currently the shared key is limited to 500,000 requests per day and 5 requests per second.', 'gce' ) . '<br/>' .
+				          sprintf( __( 'To avoid these limits <a href="%s" target="_blank">click here for instructions on how to generate and use your own Google API key.</a>', 'gce' ),
+								  gce_ga_campaign_url( 'http://wpdocs.philderksen.com/google-calendar-events/getting-started/api-key-settings/', 'gce_lite', 'settings_link', 'docs' ) ),
+				'size' => 'regular-text',
+				'type' => 'text'
+			),
 			'save_settings' => array(
 				'id'   => 'save_settings',
 				'name' => __( 'Save Settings', 'gce' ),
@@ -107,6 +117,33 @@ function gce_checkbox_callback( $args ) {
 	// Render description text directly to the right in a label if it exists.
 	if ( ! empty( $args['desc'] ) )
 		$html .= '<label for="gce_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>' . "\n";
+
+	echo $html;
+}
+
+/**
+ * Textbox callback function
+ * Valid built-in size CSS class values:
+ * small-text, regular-text, large-text
+ * 
+ * @since 2.1.0
+ * 
+ */
+function gce_text_callback( $args ) {
+	global $gce_options;
+
+	if ( isset( $gce_options[ $args['id'] ] ) )
+		$value = $gce_options[ $args['id'] ];
+	else
+		$value = isset( $args['std'] ) ? $args['std'] : '';
+
+	$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : '';
+	$html = "\n" . '<input type="text" class="' . $size . '" id="gce_settings_' . $args['section'] . '[' . $args['id'] . ']" name="gce_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>' . "\n";
+
+	// Render and style description text underneath if it exists.
+	if ( ! empty( $args['desc'] ) ) {
+		$html .= '<p class="description">' . $args['desc'] . '</p>' . "\n";
+	}
 
 	echo $html;
 }

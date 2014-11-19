@@ -27,7 +27,7 @@
 				var paging = $(this).attr('data-gce-grid-paging');
 
 				//Add loading text to table caption
-				$('#' + gce_grid[id].target_element + ' caption').html('Loading...');
+				$('#' + gce_grid[id].target_element + ' caption').html(gce.loadingText);
 				//Send AJAX request
 				$.post(gce.ajaxurl,{
 					action:'gce_ajax',
@@ -69,7 +69,7 @@
 			var paging_type = $(this).data('gce-paging-type');
 
 			//Add loading text to table caption
-			$(this).parent().parent().parent().find('.gce-month-title').html('Loading...');
+			$(this).parent().parent().parent().find('.gce-month-title').html(gce.loadingText);
 
 			//Send AJAX request
 			jQuery.post(gce.ajaxurl,{

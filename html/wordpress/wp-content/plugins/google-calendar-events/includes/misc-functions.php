@@ -6,8 +6,8 @@
  * @since 2.0.0
  */
 function gce_print_calendar( $feed_ids, $display = 'grid', $args = array(), $widget = false ) {
-	
-	$defaults = array( 
+
+	$defaults = array(
 			'title_text'      => '',
 			'sort'            => 'asc',
 			'grouped'         => 0,
@@ -47,7 +47,7 @@ function gce_print_calendar( $feed_ids, $display = 'grid', $args = array(), $wid
 	
 	// If paging is not set then we need to set it now
 	foreach( $ids as $id ) {
-		if( $paging == null && $paging != 0 ) {
+		if( $paging === null ) {
 			$paging = get_post_meta( $id, 'gce_paging', true );
 		}
 	}
@@ -94,7 +94,7 @@ function gce_print_calendar( $feed_ids, $display = 'grid', $args = array(), $wid
 			$i++;
 		}
 	}
-	
+
 	return $markup;
 }
 
@@ -237,3 +237,4 @@ function gce_ga_campaign_url( $base_url, $source, $medium, $campaign ) {
 
 	return $url;
 }
+

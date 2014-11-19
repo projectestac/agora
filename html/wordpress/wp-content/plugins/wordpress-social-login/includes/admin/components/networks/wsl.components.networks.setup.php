@@ -166,7 +166,13 @@ function wsl_component_networks_setup()
 				</p>
 				<?php endif; ?>
 				<br />
-				<div
+
+                <!--// XTEC ************ AFEGIT - Customize help info for Moodle provider. -->
+                <!--// 2014.11.19 @aginard -->
+                <?php if ($provider_id != 'Moodle') : ?>
+                <!--//************ FI -->
+                
+                <div
 					class="wsl_div_settings_help_<?php echo $provider_id; ?>"
 					style="<?php if( isset( $_REQUEST["enable"] ) && ! isset( $_REQUEST["settings-updated"] ) && $_REQUEST["enable"] == $provider_id ) echo "-"; // <= lolz ?>display:none;"
 				>
@@ -275,7 +281,20 @@ function wsl_component_networks_setup()
 						<?php endif; ?>
 					</div>
 				</div>
-			</div>
+                
+                <!--// XTEC ************ AFEGIT - Customize help info for Moodle provider. Not using gettext, sorry! :( -->
+                <!--// 2014.11.19 @aginard -->
+                <?php else : ?>
+                <div
+                    class="wsl_div_settings_help_<?php echo $provider_id; ?>"
+					style="<?php if( isset( $_REQUEST["enable"] ) && ! isset( $_REQUEST["settings-updated"] ) && $_REQUEST["enable"] == $provider_id ) echo "-"; // <= lolz ?>display:none;">
+                    <hr class="wsl" />
+                    <p>Per fer que els usuaris del Moodle puguin entrar a l'espai Nodes automàticament, visiteu la pàgina <a href="http://agora.xtec.cat/moodle/moodle/mod/glossary/view.php?id=1302&mode=cat&hook=201" target="_blank">http://agora.xtec.cat/moodle/moodle/mod/glossary/view.php?id=1302&mode=cat&hook=201</a> i seguiu les instruccions.</p><p>Heu de tenir en compte que cada vegada que un usuari/ària del Moodle entri, se li crearà automàticament un compte a Nodes.</p>
+                </div>
+                <?php endif; ?>
+                <!--//************ FI -->
+
+            </div>
 		</div>
 <?php
 	endforeach;

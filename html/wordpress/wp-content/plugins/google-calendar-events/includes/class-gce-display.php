@@ -56,20 +56,12 @@ class GCE_Display {
 	 */
 	private function get_event_days() {
 		$event_days = array();
-
-		//Total number of events retrieved
-		$count = count( $this->merged_feeds );
 		
-		//Loop through entire array of events, or until maximum number of events to be displayed has been reached
-		for ( $i = 0; $i < $count; $i++ ) {
-			$event = $this->merged_feeds[$i];
-			
-			//Check that event ends, or starts (or both) within the required date range. This prevents all-day events from before / after date range from showing up.
-			//if ( $event->end_time > $event->start_time && $event->start_time < $event->end_time ) {
-				foreach ( $event->get_days() as $day ) {
-					$event_days[$day][] = $event;
-				}
+		foreach ( $this->merged_feeds as $event ) {
+			foreach ( $event->get_days() as $day ) {
+				$event_days[$day][] = $event;
 			}
+		}
 			
 		return $event_days;
 	}
@@ -112,8 +104,7 @@ class GCE_Display {
 		
 		//Array of previous and next link stuff for use in gce_generate_calendar (below)
 		foreach( $event_days as $key => $event_day ) {
-			
-			if( $paging == null && $paging != 0 ) {
+			if( $paging === null ) {
 				$paging = get_post_meta( $event_day[0]->feed->id, 'gce_paging', true );
 			}
 		}
@@ -223,24 +214,25 @@ class GCE_Display {
 		// Get all the event days
 		$event_days = $this->get_event_days();
 		
-		foreach( $event_days as $key => $event_day ) {
-			if( $paging_interval == null ) {
-				$max_num    = get_post_meta( $event_day[0]->feed->id, 'gce_list_max_num', true );
-				
-				if( $paging_type == null ) {
-					$max_length = get_post_meta( $event_day[0]->feed->id, 'gce_list_max_length', true );
-					$paging_type = $max_length;
-				}
-			}
-
-			if( $paging == null && $paging != 0 ) {
-				$paging = get_post_meta(  $event_day[0]->feed->id, 'gce_paging', true );
-			}
+		$an_event_feed_id = current( $event_days );
+		$an_event_feed_id = $an_event_feed_id[0]->feed->id;
+		
+		if( $paging_interval == null ) {
+			$max_num	= get_post_meta( $an_event_feed_id, 'gce_list_max_num', true );
 			
-			if( $start_offset == null && $start_offset != 0 ) {
-				$start_offset_num       = get_post_meta( $event_day[0]->feed->id, 'gce_list_start_offset_num', true );
-				$start_offset_direction = get_post_meta( $event_day[0]->feed->id, 'gce_list_start_offset_direction', true );
+			if( $paging_type == null ) {
+				$max_length = get_post_meta( $an_event_feed_id, 'gce_list_max_length', true );
+				$paging_type = $max_length;
 			}
+		}
+
+		if( $paging === null ) {
+			$paging = get_post_meta(  $an_event_feed_id, 'gce_paging', true );
+		}
+		
+		if( $start_offset === null ) {
+			$start_offset_num       = get_post_meta( $an_event_feed_id, 'gce_list_start_offset_num', true );
+			$start_offset_direction = get_post_meta( $an_event_feed_id, 'gce_list_start_offset_direction', true );
 		}
 		
 		if( empty( $max_num ) || $max_num == 0 ) {
@@ -251,7 +243,7 @@ class GCE_Display {
 			$paging_interval = $max_num * 86400;
 		}
 		
-		if( $start_offset == null && $start_offset != 0 ) {
+		if( $start_offset === null ) {
 			if( $start_offset_direction == 'back' ) {
 				$start_offset_direction = -1;
 			} else {
@@ -274,8 +266,15 @@ class GCE_Display {
 		$markup = '<div class="gce-list" data-gce-start-offset="' . $start_offset . '" data-gce-start="' . ( $start + $paging_interval ) . '" data-gce-paging-interval="' . $paging_interval . '" data-gce-paging="' . $paging . '" data-gce-feeds="' . $feeds . '" data-gce-title="' . stripslashes( $this->title ) . '" data-gce-grouped="' . $grouped . '" data-gce-sort="' . $this->sort . '">' . "\n";
 
 		if( ( $paging != 0 ) && $max_length != 'events' ) {
-			$p = '<div class="gce-prev"><a href="#" class="gce-change-month-list" title="' . esc_attr__( 'Previous month', 'gce' ) . '" data-gce-paging-direction="back" data-gce-paging-type="' . $paging_type . '">'. __( 'Back', 'gce' ) . '</a></div>';
-			$n = '<div class="gce-next"><a href="#" class="gce-change-month-list" title="' . esc_attr__( 'Next month', 'gce' ) . '" data-gce-paging-direction="forward" data-gce-paging-type="' . $paging_type . '">' . __( 'Next', 'gce' ) . '</a></div>';
+			
+			$prev_text = __( 'Back', 'gce' );
+			$next_text = __( 'Next', 'gce' );
+			
+			$prev_text = apply_filters( 'gce_prev_text', $prev_text );
+			$next_text = apply_filters( 'gce_next_text', $next_text );
+			
+			$p = '<div class="gce-prev"><a href="#" class="gce-change-month-list" title="' . esc_attr__( 'Previous month', 'gce' ) . '" data-gce-paging-direction="back" data-gce-paging-type="' . $paging_type . '">'. $prev_text . '</a></div>';
+			$n = '<div class="gce-next"><a href="#" class="gce-change-month-list" title="' . esc_attr__( 'Next month', 'gce' ) . '" data-gce-paging-direction="forward" data-gce-paging-type="' . $paging_type . '">' . $next_text . '</a></div>';
 			
 			$markup .= '<caption class="gce-caption">' .
 						'<div class="gce-navbar">' .
@@ -287,6 +286,7 @@ class GCE_Display {
 		}
 		$max_count = 1;
 		$has_events = false;
+		$event_counter = 0;
 		
 		if( $max_length == 'events' ) {
 			if( $start_offset === null ) {
@@ -299,7 +299,6 @@ class GCE_Display {
 				
 			}
 			
-			$event_counter = 0;
 			
 			if( $max_events == null ) {
 				$max_events = $max_num;
@@ -311,53 +310,48 @@ class GCE_Display {
 				'<div class="gce-list-grouped">' ;
 		}
 		
+		if( $max_length != 'events' ) {
+			$max_events = INF;
+		}
+		else {
+			$end_time = INF;
+		}
+		
 		foreach ( $event_days as $key => $event_day ) {
 			
-			if( $max_length != 'events' ) {
-					
-				if( $grouped && $key >= $start && $key < $end_time ) {
-					$markup .= '<div class="gce-list-title">' . stripslashes( $this->title ) . ' ' . date_i18n( $event_day[0]->feed->date_format, $key ) . '</div>';
-				}
 
-				foreach ( $event_day as $num_in_day => $event ) {
-						//Create the markup for this event
-						if( ( $event->start_time >= $start && $event->end_time <= $end_time ) || ( $event->day_type == 'MWD' && $event->start_time > $start && $event->start_time < $end_time ) ) {
+			// If this is a grouped list, generate a per-date group title with date.
+			if( $grouped && $key >= $start && $key < $end_time && $event_counter < $max_events ) {
+				$markup .= '<div class="gce-list-title">' . stripslashes( $this->title ) . ' ' . date_i18n( $event_day[0]->feed->date_format, $key ) . '</div>';
+			}
 
-							$markup .=
-								'<div class="gce-feed gce-feed-' . $event->feed->id . '">' .
-								//If this isn't a grouped list and a date title should be displayed, add the date title
-								( ( ! $grouped && isset( $event->title ) ) ? '<div class="gce-list-title">' . stripslashes( $this->title ) . '</div>' : '' ) .
-								//Add the event markup
-								$event->get_event_markup( 'list', $num_in_day, $i ) .
-								'</div>';
+			foreach ( $event_day as $num_in_day => $event ) {
+				//Create the markup for this event
+				if( ( $max_length != 'events' && (( $event->start_time >= $start &&       // Condition for limited by days
+				                                    $event->end_time   <= $end_time ) ||
+				                                  ( $event->day_type == 'MWD' &&
+				                                    $event->start_time > $start &&
+				                                    $event->start_time < $end_time  )
+				                                 )
+				    ) || 
+				    ( $max_length == 'events' && ( $event->end_time >= $time_now &&       // Condition for limited by events
+				                                   $event_counter < $max_events     )
+				    )
+				  ) {
+				  
+					$markup .=
+					    '<div class="gce-feed gce-feed-' . $event->feed->id . '">' .
+					    //If this isn't a grouped list, generate a per-event title with date.
+					    ( ( ! $grouped ) ? ( ( isset( $this->title ) && $this->title !== '' ) )
+					        ? '<div class="gce-list-title">' . stripslashes( $this->title ) . ' ' . date_i18n( $event->feed->date_format, $event->start_time ) . '</div>'
+					        : '' : '' ) .
+					    //Add the event markup
+					    $event->get_event_markup( 'list', $num_in_day, $i ) .
+					    '</div>';
 
-							$has_events = true;
-
-							$i++;
-						}
-				}
-			} else {
-					
-				if( $grouped && $key >= $start && $event_counter < $max_events ) {
-					$markup .= '<div class="gce-list-title">' . stripslashes( $this->title ) . ' ' . date_i18n( $event_day[0]->feed->date_format, $key ) . '</div>';
-				}
-
-				foreach ( $event_day as $num_in_day => $event ) {
-					//Create the markup for this event		
-					if( ( $event->start_time >= $time_now ) && ( $event_counter < $max_events ) ) {
-						$markup .=
-							'<div class="gce-feed gce-feed-' . $event->feed->id . '">' .
-							'<div class="gce-list-title">' . stripslashes( $this->title ) . '</div>' .			
-							//Add the event markup
-							$event->get_event_markup( 'list', $num_in_day, $i ) .
-							'</div>';
-
-						$has_events = true;
-
-						$i++;
-
-						$event_counter++;
-					}
+					$has_events = true;
+					$i++;
+					$event_counter++;
 				}
 			}
 				

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Google Calendar Events\n"
-"POT-Creation-Date: 2014-10-21 13:25-0700\n"
-"PO-Revision-Date: 2014-10-21 13:25-0700\n"
+"POT-Creation-Date: 2014-11-19 00:09-0700\n"
+"PO-Revision-Date: 2014-11-19 00:10-0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -15,19 +15,24 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: google-calendar-events\n"
 
-#: google-calendar-events/class-google-calendar-events-admin.php:64
-#: google-calendar-events/class-google-calendar-events-admin.php:65
-#: google-calendar-events/includes/register-settings.php:44
+#: google-calendar-events/class-google-calendar-events-admin.php:128
+#: google-calendar-events/class-google-calendar-events-admin.php:129
+#: google-calendar-events/class-google-calendar-events-admin.php:198
+#: google-calendar-events/includes/register-settings.php:54
 msgid "General Settings"
 msgstr ""
 
-#: google-calendar-events/class-google-calendar-events-admin.php:122
+#: google-calendar-events/class-google-calendar-events-admin.php:186
 #: google-calendar-events/views/widgets.php:27
 msgid "Google Calendar Events"
 msgstr ""
 
-#: google-calendar-events/class-google-calendar-events-admin.php:134
+#: google-calendar-events/class-google-calendar-events-admin.php:199
 msgid "Feeds"
+msgstr ""
+
+#: google-calendar-events/class-google-calendar-events.php:142
+msgid "Loading..."
 msgstr ""
 
 #: google-calendar-events/includes/admin/admin-functions.php:20
@@ -63,117 +68,99 @@ msgid "More Details"
 msgstr ""
 
 #: google-calendar-events/includes/admin/admin-functions.php:78
-#: google-calendar-events/includes/gce-feed-cpt.php:256
+#: google-calendar-events/includes/gce-feed-cpt.php:264
 msgid "Clear Cache"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-display.php:188
-#: google-calendar-events/includes/class-gce-display.php:277
+#: google-calendar-events/includes/class-gce-display.php:179
+#: google-calendar-events/includes/class-gce-display.php:270
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:185
 #: google-calendar-events/views/widgets.php:252
 msgid "Back"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-display.php:192
-#: google-calendar-events/includes/class-gce-display.php:278
+#: google-calendar-events/includes/class-gce-display.php:183
+#: google-calendar-events/includes/class-gce-display.php:271
 msgid "Next"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-display.php:372
+#: google-calendar-events/includes/class-gce-display.php:366
 msgid "No events to display."
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:503
+#: google-calendar-events/includes/class-gce-event.php:504
 #, php-format
 msgid "%s year"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:503
+#: google-calendar-events/includes/class-gce-event.php:504
 #, php-format
 msgid "%s years"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:504
+#: google-calendar-events/includes/class-gce-event.php:505
 #, php-format
 msgid "%s month"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:504
+#: google-calendar-events/includes/class-gce-event.php:505
 #, php-format
 msgid "%s months"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:505
+#: google-calendar-events/includes/class-gce-event.php:506
 #, php-format
 msgid "%s week"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:505
+#: google-calendar-events/includes/class-gce-event.php:506
 #, php-format
 msgid "%s weeks"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:506
+#: google-calendar-events/includes/class-gce-event.php:507
 #, php-format
 msgid "%s day"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:506
+#: google-calendar-events/includes/class-gce-event.php:507
 #, php-format
 msgid "%s days"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:507
+#: google-calendar-events/includes/class-gce-event.php:508
 #, php-format
 msgid "%s hour"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:507
+#: google-calendar-events/includes/class-gce-event.php:508
 #, php-format
 msgid "%s hours"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:508
+#: google-calendar-events/includes/class-gce-event.php:509
 #, php-format
 msgid "%s min"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-event.php:508
+#: google-calendar-events/includes/class-gce-event.php:509
 #, php-format
 msgid "%s mins"
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-feed.php:82
+#: google-calendar-events/includes/class-gce-feed.php:89
 msgid ""
 "The feed URL has not been set. Please make sure to set it correctly in the "
 "Feed settings."
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-feed.php:181
+#: google-calendar-events/includes/class-gce-feed.php:165
 msgid ""
 "Some data was retrieved, but could not be parsed successfully. Please ensure "
-"your feed URL is correct."
+"your feed settings are correct."
 msgstr ""
 
-#: google-calendar-events/includes/class-gce-feed.php:187
-msgid ""
-"The feed could not be found (404). Please ensure your feed URL is correct."
-msgstr ""
-
-#: google-calendar-events/includes/class-gce-feed.php:190
-msgid ""
-"Access to this feed was denied (403). Please ensure you have public sharing "
-"enabled for your calendar."
-msgstr ""
-
-#: google-calendar-events/includes/class-gce-feed.php:193
-#, php-format
-msgid ""
-"The feed data could not be retrieved. Error code: %s. Please ensure your "
-"feed URL is correct."
-msgstr ""
-
-#: google-calendar-events/includes/class-gce-feed.php:198
+#: google-calendar-events/includes/class-gce-feed.php:169
 msgid " Please ensure your feed URL is correct."
 msgstr ""
 
@@ -183,6 +170,7 @@ msgstr ""
 
 #: google-calendar-events/includes/gce-feed-cpt.php:22
 #: google-calendar-events/includes/gce-feed-cpt.php:24
+#: google-calendar-events/includes/gce-feed-cpt.php:72
 msgid "Feed"
 msgstr ""
 
@@ -226,6 +214,10 @@ msgstr ""
 msgid "No feeds found in Trash."
 msgstr ""
 
+#: google-calendar-events/includes/gce-feed-cpt.php:70
+msgid "feed"
+msgstr ""
+
 #: google-calendar-events/includes/gce-feed-cpt.php:75
 #: google-calendar-events/includes/gce-feed-cpt.php:76
 #, php-format
@@ -256,51 +248,102 @@ msgstr ""
 msgid "Helpful Links"
 msgstr ""
 
-#: google-calendar-events/includes/gce-feed-cpt.php:209
+#: google-calendar-events/includes/gce-feed-cpt.php:217
 msgid "Feed ID"
 msgstr ""
 
-#: google-calendar-events/includes/gce-feed-cpt.php:210
+#: google-calendar-events/includes/gce-feed-cpt.php:218
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:73
 msgid "Feed Shortcode"
 msgstr ""
 
-#: google-calendar-events/includes/gce-feed-cpt.php:211
+#: google-calendar-events/includes/gce-feed-cpt.php:219
 msgid "Display Type"
 msgstr ""
 
-#: google-calendar-events/includes/gce-feed-cpt.php:238
+#: google-calendar-events/includes/gce-feed-cpt.php:246
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:152
 #: google-calendar-events/views/widgets.php:218
 msgid "Grid"
 msgstr ""
 
-#: google-calendar-events/includes/gce-feed-cpt.php:240
+#: google-calendar-events/includes/gce-feed-cpt.php:248
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:153
 #: google-calendar-events/views/widgets.php:219
 msgid "List"
 msgstr ""
 
-#: google-calendar-events/includes/gce-feed-cpt.php:242
+#: google-calendar-events/includes/gce-feed-cpt.php:250
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:154
 #: google-calendar-events/views/widgets.php:220
 msgid "Grouped List"
 msgstr ""
 
 #: google-calendar-events/includes/register-settings.php:29
-msgid "Save Settings"
+msgid "Google API Key"
 msgstr ""
 
 #: google-calendar-events/includes/register-settings.php:30
+msgid ""
+"If left blank all displayed Google calendars will use a public Google API "
+"key shared across all plugin users."
+msgstr ""
+
+#: google-calendar-events/includes/register-settings.php:31
+msgid ""
+"Currently the shared key is limited to 500,000 requests per day and 5 "
+"requests per second."
+msgstr ""
+
+#: google-calendar-events/includes/register-settings.php:32
+#, php-format
+msgid ""
+"To avoid these limits <a href=\"%s\" target=\"_blank\">click here for "
+"instructions on how to generate and use your own Google API key.</a>"
+msgstr ""
+
+#: google-calendar-events/includes/register-settings.php:39
+msgid "Save Settings"
+msgstr ""
+
+#: google-calendar-events/includes/register-settings.php:40
 msgid ""
 "Save your settings when uninstalling this plugin. Useful when upgrading or "
 "re-installing."
 msgstr ""
 
-#: google-calendar-events/includes/register-settings.php:132
+#: google-calendar-events/includes/register-settings.php:169
 #, php-format
 msgid ""
 "The callback function used for the <strong>%s</strong> setting is missing."
+msgstr ""
+
+#: google-calendar-events/views/admin/api-settings-notice.php:27
+msgid "GCal Events Important Update (Nov. 19, 2014):"
+msgstr ""
+
+#: google-calendar-events/views/admin/api-settings-notice.php:28
+msgid ""
+"GCal Events now uses the Google API version 3, which requires use of a "
+"public key."
+msgstr ""
+
+#: google-calendar-events/views/admin/api-settings-notice.php:29
+msgid ""
+"By default a shared key is used across all plugin users, which is limited to "
+"500,000 requests per day and 5 requests per second."
+msgstr ""
+
+#: google-calendar-events/views/admin/api-settings-notice.php:30
+msgid "To avoid these limits you can use your own Google API key."
+msgstr ""
+
+#: google-calendar-events/views/admin/api-settings-notice.php:33
+msgid "Update your API settings now"
+msgstr ""
+
+#: google-calendar-events/views/admin/api-settings-notice.php:34
+msgid "Hide this"
 msgstr ""
 
 #: google-calendar-events/views/admin/display-options-meta.php:39
@@ -384,6 +427,14 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
+#: google-calendar-events/views/admin/display-options-meta.php:82
+msgid "Show the location of events?"
+msgstr ""
+
+#: google-calendar-events/views/admin/display-options-meta.php:83
+msgid "Text to display before the location."
+msgstr ""
+
 #: google-calendar-events/views/admin/display-options-meta.php:88
 msgid "Description"
 msgstr ""
@@ -450,11 +501,11 @@ msgid ""
 msgstr ""
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:83
-msgid "GCal Feed URL"
+msgid "Google Calendar ID"
 msgstr ""
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:87
-msgid "The Google Calendar feed URL."
+msgid "The Google Calendar ID."
 msgstr ""
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:87
@@ -462,7 +513,7 @@ msgid "Example"
 msgstr ""
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:89
-msgid "How to find your GCal feed URL"
+msgid "How to find your GCal calendar ID"
 msgstr ""
 
 #: google-calendar-events/views/admin/gce-feed-meta-display.php:95
