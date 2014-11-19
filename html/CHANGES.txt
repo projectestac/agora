@@ -52,6 +52,7 @@ PORTAL
 WORDPRESS
 - Added catalan translation for BuddyPress Like
 - Added catalan translation for BuddyPress Moderation
+- Added catalan translation for WordPress Social Login
 - WordPress Social Login: Hidden options to all admins but xtecadmin
 - Bug pagination fixed 
 - Add support to execute scripts from portal
