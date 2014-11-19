@@ -40,6 +40,8 @@ This plugin was originally created by [Ross Hanney](http://www.rhanney.co.uk), a
 * French - Provided by Vincent Bray.
 * German - Provided by Stefanie Drucker of [kreativhuhn.at](http://www.kreativhuhn.at/).
 * Norwegian - Provided by Tore Hjartland of [aliom.no](http://www.aliom.no/).
+* Polish - Provided by Michał Pasternak of [iplweb.pl](http://iplweb.pl/).
+* Lithuanian - Provided by Andrius Mazeika of [mazeika.info](http://mazeika.info/).
 
 == Installation ==
 
@@ -85,13 +87,32 @@ There are three ways to install this plugin.
 
 == Changelog ==
 
+= 2.1.0 = 
+
+* Updated to use Google Calendar API version 3. Version 2 deprecated on Nov. 17, 2014.
+
+= 2.0.7.1 =
+
+* As of Nov. 17, 2014 the GCal API v2 is deprecated, which breaks all calendar feed displays. This update will temporarily hide the display while we work on a solution that uses GCal API v3.
+
+= 2.0.7 = 
+
+* Events will now display if it hasn't ended yet for list views.
+* Fixed bug with date() call causing a display error in some cases.
+* Fixed bug with with widget tooltip text display.
+* Added cache clearing on upgrade.
+* Added filters for Previous and Next link text.
+* Internationalization and language file updates.
+* Simplified text domain function.
+* Added Lithuanian translation - Provided by Andrius Mazeika of [mazeika.info](http://mazeika.info/).
+
 = 2.0.6.2 = 
 
 * Reverted previous bug fix that introduced new bugs.
 
 = 2.0.6.1 =
 
-* Added Polish translation.
+* Added Polish translation - Provided by Michał Pasternak of [iplweb.pl](http://iplweb.pl/).
 * Updated Italian translation.
 * Updated French translation.
 * Fixed bug with date() call causing a display error in some cases.
@@ -291,6 +312,6 @@ There are three ways to install this plugin.
 
 == Upgrade Notice ==
 
-= 2.0.0 = 
+= 2.1.0 =
 
-This is a major upgrade to a new code base and structure. PLEASE make sure you backup your site before upgrading.
+Updated to use Google Calendar API version 3. Version 2 deprecated on Nov. 17, 2014.

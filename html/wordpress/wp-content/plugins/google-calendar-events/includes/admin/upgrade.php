@@ -22,6 +22,10 @@ function gce_upgrade() {
 	$version = get_option( 'gce_version' );
 	
 	if( ! empty( $version ) ) {
+		
+		// Clear out cache when upgrading no matter the version
+		gce_upgrade_clear_cache();
+		
 		// Check if under version 2 and run the v2 upgrade if we are
 		if( version_compare( $version, '2.0.0-beta1', '<' ) && false === get_option( 'gce_upgrade_has_run' ) ) {
 			gce_v2_upgrade();
@@ -36,12 +40,40 @@ function gce_upgrade() {
 		if( version_compare( $version, '2.0.6', '<' ) ) {
 			gce_v206_upgrade();
 		}
+		
+		if( version_compare( $version, '2.1.0', '<' ) ) {
+			gce_v210_upgrade();
+		}
 	}
 	
 	$new_version = Google_Calendar_Events::get_instance()->get_plugin_version();
 	update_option( 'gce_version', $new_version );
 	
 	add_option( 'gce_upgrade_has_run', 1 );
+}
+
+/*
+ * Run the upgrade to version 2.1.0
+ */
+function gce_v210_upgrade() {
+	
+	$q = new WP_Query( 'post_type=gce_feed' );
+	
+	if( $q->have_posts() ) {
+		while( $q->have_posts() ) {
+			$q->the_post();
+			
+			$url = get_post_meta( get_the_ID(), 'gce_feed_url', true );
+			
+			// https://www.google.com/calendar/feeds/umsb0ekhivs1a2ubtq6vlqvcjk%40group.calendar.google.com/public/basic
+			
+			$url = str_replace( 'https://www.google.com/calendar/feeds/', '', $url );
+			$url = str_replace( '/public/basic', '', $url );
+			$url = str_replace( '%40', '@', $url );
+			
+			update_post_meta( get_the_ID(), 'gce_feed_url', $url );
+		}
+	}
 }
 
 /*
@@ -336,4 +368,23 @@ function update_widget_feed_ids() {
 		update_option( 'widget_gce_widget', $widget );
 	}
 	
+}
+
+/** 
+ * Update widget IDs
+ * 
+ * @since 2.0.6.3
+ */
+function gce_upgrade_clear_cache() {
+	// Update feeds
+	$q = new WP_Query( 'post_type=gce_feed' );
+	
+	if( $q->have_posts() ) {
+		while( $q->have_posts() ) {
+			
+			$q->the_post();
+			
+			delete_transient( 'gce_feed_' . get_the_ID() );
+		}
+	}
 }

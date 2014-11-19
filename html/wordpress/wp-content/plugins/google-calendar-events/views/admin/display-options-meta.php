@@ -92,8 +92,8 @@
 
 		<strong><?php _e( 'Location', 'gce' ); ?></strong>
 		<p><input type="checkbox" name="gce_display_location" id="gce_display_location" value="1" <?php checked( $gce_display_location, '1' ); ?> />
-			<label for="gce_display_location">Show the location of events?</label></p>
-		<label class="description" for="gce_display_location_text">Text to display before the location.</label>
+			<label for="gce_display_location"><?php _e( 'Show the location of events?', 'gce' ); ?></label></p>
+		<label class="description" for="gce_display_location_text"><?php _e( 'Text to display before the location.', 'gce' ); ?></label>
 		<input type="text" name="gce_display_location_text" id="gce_display_location_text" value="<?php echo $gce_display_location_text; ?>" />
 
 //************ FI

@@ -12,7 +12,7 @@
  * Plugin Name:     Google Calendar Events
  * Plugin URI:      https://github.com/pderksen/WP-Google-Calendar-Events
  * Description:     Parses Google Calendar feeds and displays the events as a calendar grid or list on a page, post or widget.
- * Version:         2.0.6.2
+ * Version:         2.1.0
  * Author:          Phil Derksen
  * Author URI:      http://philderksen.com
  * License:         GPL-2.0+
@@ -56,5 +56,12 @@ add_action( 'plugins_loaded', array( 'Google_Calendar_Events', 'get_instance' ) 
  */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 	require_once( 'class-google-calendar-events-admin.php' );
+	
+	// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
+	register_activation_hook( __FILE__, array( 'Google_Calendar_Events_Admin', 'activate' ) );
+	
+	// Get plugin admin class instance
 	add_action( 'plugins_loaded', array( 'Google_Calendar_Events_Admin', 'get_instance' ) );
 }
+
+

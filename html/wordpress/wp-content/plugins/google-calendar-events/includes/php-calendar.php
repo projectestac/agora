@@ -45,6 +45,12 @@ function gce_generate_calendar( $year, $month, $days = array(), $day_name_length
 	list( $p, $pl ) = each( $pn );
 	list( $n, $nl ) = each( $pn ); #previous and next links, if applicable
 	
+	// Previous filter
+	$p = apply_filters( 'gce_prev_text', $p );
+	
+	// Next filter
+	$n = apply_filters( 'gce_next_text', $n );
+	
 	if( $widget ) {
 		$p = '<div class="gce-prev">' . ( ( $pl ) ? ( '<a href="#" class="gce-change-month" title="' . esc_attr__( 'Previous month', 'gce' ) . '" name="' . $pl . '" data-gce-grid-paging="' . $paging . '">' . $p . '</a>' ) : $p ) . '</div>';
 	} else {

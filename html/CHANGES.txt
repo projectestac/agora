@@ -54,6 +54,7 @@ WORDPRESS
 - Added catalan translation for BuddyPress Moderation
 - Added catalan translation for WordPress Social Login
 - WordPress Social Login: Hidden options to all admins but xtecadmin
+- Updated Google Calendar Events to version 2.1.0
 - Bug pagination fixed 
 - Add support to execute scripts from portal
 - Added support to reverse proxy calls in Oauth Client

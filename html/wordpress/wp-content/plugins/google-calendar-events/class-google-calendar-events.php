@@ -18,7 +18,7 @@ class Google_Calendar_Events {
 	 *
 	 * @var     string
 	 */
-	protected $version = '2.0.6.2';
+	protected $version = '2.1.0';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -137,8 +137,9 @@ class Google_Calendar_Events {
 		
 		wp_localize_script( $this->plugin_slug . '-public', 'gce', 
 				array( 
-					'ajaxurl'   => admin_url( 'admin-ajax.php' ),
-					'ajaxnonce' => wp_create_nonce( 'gce_ajax_nonce' )
+					'ajaxurl'     => admin_url( 'admin-ajax.php' ),
+					'ajaxnonce'   => wp_create_nonce( 'gce_ajax_nonce' ),
+					'loadingText' => __( 'Loading...', 'gce' )
 				) );
 	}
 	
@@ -196,26 +197,10 @@ class Google_Calendar_Events {
 	 * @since    2.0.0
 	 */
 	public function plugin_textdomain() {
-		// Set filter for plugin's languages directory
-		$gce_lang_dir = dirname( plugin_basename( GCE_MAIN_FILE ) ) . '/languages/';
-		$gce_lang_dir = apply_filters( 'gce_languages_directory', $gce_lang_dir );
-
-		// Traditional WordPress plugin locale filter
-		$locale        = apply_filters( 'plugin_locale',  get_locale(), 'gce' );
-		$mofile        = sprintf( '%1$s-%2$s.mo', 'gce', $locale );
-
-		// Setup paths to current locale file
-		$mofile_local  = $gce_lang_dir . $mofile;
-		$mofile_global = WP_LANG_DIR . '/gce/' . $mofile;
-
-		if ( file_exists( $mofile_global ) ) {
-			load_textdomain( 'gce', $mofile_global );
-		} elseif ( file_exists( $mofile_local ) ) {
-			load_textdomain( 'gce', $mofile_local );
-		} else {
-			// Load the default language files
-			load_plugin_textdomain( 'gce', false, $gce_lang_dir );
-		}
-
+		load_plugin_textdomain(
+			'gce',
+			false,
+			dirname( plugin_basename( GCE_MAIN_FILE ) ) . '/languages/'
+		);
 	}
 }

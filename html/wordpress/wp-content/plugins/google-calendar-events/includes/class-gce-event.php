@@ -51,31 +51,36 @@ class GCE_Event {
 	 * @since 2.0.0
 	 */
 	function get_days() {	
-		//Round start date to nearest day
-		$start_time = mktime( 0, 0, 0, date( 'm', $this->start_time ), date( 'd', $this->start_time ) , date( 'Y', $this->start_time ) );
+		
+		if( $this->start_time !== null ) {
+			//Round start date to nearest day
+			$start_time = mktime( 0, 0, 0, date( 'm', $this->start_time ), date( 'd', $this->start_time ) , date( 'Y', $this->start_time ) );
 
-		$days = array();
+			$days = array();
 
-		//If multiple day events should be handled, and this event is a multi-day event, add multiple day event to required days
-		if ( $this->feed->multiple_day_events && ( 'MPD' == $this->day_type || 'MWD' == $this->day_type ) ) {
-			$on_next_day = true;
-			$next_day = $start_time;
+			//If multiple day events should be handled, and this event is a multi-day event, add multiple day event to required days
+			if ( $this->feed->multiple_day_events && ( 'MPD' == $this->day_type || 'MWD' == $this->day_type ) ) {
+				$on_next_day = true;
+				$next_day = $start_time;
 
-			while ( $on_next_day ) {
-				//If the end time of the event is after 00:00 on the next day (therefore, not doesn't end on this day)
-				if ( $this->end_time > $next_day ) {
-					$days[] = $next_day;
-				} else {
-					$on_next_day = false;
+				while ( $on_next_day ) {
+					//If the end time of the event is after 00:00 on the next day (therefore, not doesn't end on this day)
+					if ( $this->end_time > $next_day ) {
+						$days[] = $next_day;
+					} else {
+						$on_next_day = false;
+					}
+					$next_day += 86400;
 				}
-				$next_day += 86400;
+			} else {
+				//Add event into array of events for that day
+				$days[] = $start_time;
 			}
-		} else {
-			//Add event into array of events for that day
-			$days[] = $start_time;
-		}
 
-		return $days;
+			return $days;
+		} else {
+			return array();
+		}
 	}
 
 	/**
@@ -84,10 +89,6 @@ class GCE_Event {
 	 * @since 2.0.0
 	 */
 	function get_event_markup( $display_type, $num_in_day, $num ) {
-		
-		
-		
-		
 		//Set the display type (either tooltip or list)
 		$this->type = $display_type;
 
