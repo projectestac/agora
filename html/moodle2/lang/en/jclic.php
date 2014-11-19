@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'jclic', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'jclic', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   jclic
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -85,6 +85,8 @@ $string['msg_noattempts'] = 'You have tried this activity the maximum number of 
 $string['msg_nosessions'] = 'This JClic activity hasn\'t yet any session';
 $string['notopenyet'] = 'Sorry, this activity is not available until {$a}';
 $string['pluginadministration'] = 'JClic administration';
+$string['pluginjs'] = 'JClic plugin js file url';
+$string['pluginjs_help'] = 'URL where to find jclicplugin.js needed to work. If empty, it will use the file on the module.';
 $string['pluginname'] = 'JClic';
 $string['preview_jclic'] = 'Preview JClic activity';
 $string['return_results'] = 'Return to results';

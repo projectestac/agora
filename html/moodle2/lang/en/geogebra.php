@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'geogebra', language 'en', branch 'MOODLE_25_STABLE'
+ * Strings for component 'geogebra', language 'en', branch 'MOODLE_26_STABLE'
  *
  * @package   geogebra
  * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
@@ -47,6 +47,7 @@ $string['enableLabelDrags'] = 'Enable dragging of labels';
 $string['enableRightClick'] = 'Enable right click';
 $string['errorattempt'] = 'Error: attempt could not be saved.';
 $string['expired'] = 'Sorry, this activity closed on {$a} and is no longer available';
+$string['extractedfromggb'] = 'extracted files from ggb';
 $string['filename'] = 'Filename';
 $string['filenotfound'] = 'Specified file doesn\'t exist';
 $string['filetype'] = 'Type';

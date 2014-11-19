@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['italic'] = 'cursiva';
 $string['pluginname'] = 'Cursiva';

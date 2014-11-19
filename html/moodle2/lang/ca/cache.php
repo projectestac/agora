@@ -54,6 +54,7 @@ $string['cachedef_plugin_manager'] = 'Gestor d\'informació de connectors';
 $string['cachedef_questiondata'] = 'Definicions de qüestions';
 $string['cachedef_repositories'] = 'Dades d\'instàncies dels repositoris';
 $string['cachedef_string'] = 'Memòria cau de cadenes d\'idioma';
+$string['cachedef_suspended_userids'] = 'Llista d\'usuaris suspesos per curs';
 $string['cachedef_userselections'] = 'Dades utilitzades per a persistència de seleccions d\'usuaris a través de Moodle';
 $string['cachedef_yuimodules'] = 'Definicions del mòdul YUI';
 $string['cachelock_file_default'] = 'Blocatge de fitxers per defecte';

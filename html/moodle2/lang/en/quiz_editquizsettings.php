@@ -31,4 +31,5 @@ $string['editquizsettings:editquizsettingsreport'] = 'Use the edit quiz settings
 $string['idnumber'] = 'ID number:';
 $string['name'] = 'Name:';
 $string['pluginname'] = 'Edit quiz settings';
+$string['quizsettings_edited'] = 'edit quiz settings';
 $string['savechanges'] = 'Save changes';

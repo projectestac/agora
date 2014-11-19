@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['accessibilityhint'] = '<p>Pautes d\'accessibilitat de continguts web (<em>Web content accessibility guidelines</em>, WCAG):<br/><ul><li><a href="http://www.w3.org/TR/WCAG20/#text-equiv" target="_blank">Alternatives de text</a></li></ul></p>';
 $string['browserepositories'] = 'Navega pels repositoris...';
 $string['createmedia'] = 'Insereix un fitxer multimèdia';
 $string['entername'] = 'Introdueix el nom';

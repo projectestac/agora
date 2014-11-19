@@ -39,3 +39,4 @@ $string['pluginname'] = 'Helix Video Assignment';
 $string['version_warning_head'] = 'WARNING';
 $string['version_warning_mes'] = 'The Helix Media Library Video submission plugin requires you to have the Helix Media Activity module version';
 $string['version_warning_mes2'] = 'installed on your moodle system.';
+$string['view_submission'] = 'View Submission';

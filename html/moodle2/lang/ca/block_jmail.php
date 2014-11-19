@@ -58,6 +58,7 @@ $string['forward'] = 'Següent';
 $string['from'] = 'De';
 $string['fw'] = 'Fw:';
 $string['inbox'] = 'Inbox';
+$string['jmail:addinstance'] = 'Afegeix una instància de jmail';
 $string['jmail:approvemessages'] = 'Aprovar missatges';
 $string['jmail:managelabels'] = 'Gestionar etiquetes';
 $string['jmail:managepreferences'] = 'Gestionar preferències';

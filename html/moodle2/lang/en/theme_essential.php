@@ -63,18 +63,18 @@ $string['alwaysdisplay'] = 'Always show';
 $string['analytics'] = 'Analytics';
 $string['analyticscleanurl'] = 'Clean URLs';
 $string['analyticscleanurldesc'] = 'Generate clean URL for in advanced tracking';
-$string['analyticsdesc'] = 'Choose the type of Analytics you want to insert and save to enable the other options.';
+$string['analyticsdesc'] = 'Choose the type of analytics you want to insert and save to enable the other options.';
 $string['analyticsenabled'] = 'Enabled';
-$string['analyticsenableddesc'] = 'Enable Analytics for Moodle';
+$string['analyticsenableddesc'] = 'Enable analytics for Moodle';
 $string['analyticsguniversal'] = 'Google Universal Analytics';
 $string['analyticsheadingsub'] = 'Powerful analytics for Moodle';
-$string['analyticsimagetrack'] = 'Image Tracking';
+$string['analyticsimagetrack'] = 'Image tracking';
 $string['analyticsimagetrackdesc'] = 'Enable Image Tracking for browsers with JavaScript disabled.';
 $string['analyticspiwik'] = 'Piwik';
 $string['analyticssiteid'] = 'Site ID';
 $string['analyticssiteiddesc'] = 'Enter your Site ID';
 $string['analyticssiteurl'] = 'Analytics URL';
-$string['analyticssiteurldesc'] = 'Enter your Piwik Analytics URL without http(s) or a trailing slash';
+$string['analyticssiteurldesc'] = 'Enter your "Piwik Analytics" URL without http(s) or a trailing slash.  For example "mysite.com/analytics".';
 $string['analyticstrackadmin'] = 'Tracking Admins';
 $string['analyticstrackadmindesc'] = 'Enable tracking of Admin users (not recommended)';
 $string['analyticstrackingid'] = 'Site ID';
@@ -94,6 +94,7 @@ $string['breadcrumbsimple'] = 'Simple';
 $string['breadcrumbstyle'] = 'Breadcrumb style';
 $string['breadcrumbstyled'] = 'Fancy';
 $string['breadcrumbstyledesc'] = 'Here you can change the style of the breadcrumbs.';
+$string['breadcrumbstylednocollapse'] = 'Fancy with no collapse';
 $string['breadcrumbthin'] = 'Thin';
 $string['cachesused'] = 'Cached Used';
 $string['categoryiconcategory'] = 'The icon for the category: {$a->category}.';
@@ -118,10 +119,16 @@ Gareth J. Barnard<br>
 David Bezemer<br>
 </p>
 <h3>Donations</h3>
-<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by
+<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
+<h4>PayPal</h4>
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=themmai%40gmail%2ecom&lc=GB&item_name=Essential%20Theme%20Fund&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">
-     clicking here to donate.
-</a><br>Donations may allow us to provide you with more or better features in less time.</p>
+click here to donate.
+</a>
+<h4>Flattr</h4>
+<a href="https://flattr.com/profile/gjb2048" target="_blank">
+clicking here to donate.
+</a>
+<br>Donations may allow me to provide you with more or better features in less time.</p>
 </div></div>';
 $string['colordesc'] = 'Here you can find various settings to change many of the colours found in this theme.';
 $string['colorheading'] = 'Colour';
@@ -142,8 +149,8 @@ $string['displayafterlogin'] = 'Show after login only';
 $string['displaybeforelogin'] = 'Show before login only';
 $string['displaymycourses'] = 'Display enrolled courses';
 $string['displaymycoursesdesc'] = 'Display enrolled courses for users in the Custom Menu';
-$string['donate_click'] = 'click to donate';
-$string['donate_desc'] = 'Please {$a->url} to keep the Essential development going, or simply expressing your gratitude.';
+$string['donate_desc'] = 'Please';
+$string['donate_desc2'] = 'to keep the Essential development going, or simply to express your gratitude.';
 $string['donate_title'] = 'Essential donations';
 $string['dontdisplay'] = 'Never show';
 $string['enablealert'] = 'Enable alerts';
@@ -158,9 +165,13 @@ $string['extperfinfoheading'] = 'Extended Performance Information';
 $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Enter the URL of your Facebook page. (i.e https://www.facebook.com/mycollege)';
 $string['few'] = 'A few';
+$string['fitvids'] = 'Use FitVids';
+$string['fitvidsdesc'] = 'Enable FitVids (fitvidsjs.com) to make your embedded videos responsive.  If FitVids is on and you want a video to be excluded then add \'class="fitvidsignore"\' to the \'iframe\' tag in the HTML mode of the editor.  For example: \'iframe class="fitvidsignore" width="420" height="315" src="//www.youtube.com/embed/enmEmym85xc" frameborder="0" allowfullscreen=""></iframe\'.';
 $string['fixedwidthnarrow'] = 'Fixed width - Narrow';
 $string['fixedwidthnormal'] = 'Fixed width - Normal';
 $string['fixedwidthwide'] = 'Fixed width - Wide';
+$string['flattr_click'] = 'donate via Flattr';
+$string['flattr_desc'] = '{$a->url}';
 $string['flickr'] = 'Flickr URL';
 $string['flickrdesc'] = 'Enter the URL of your Flickr page. (i.e http://www.flickr.com/photos/mycollege)';
 $string['fontcharacterset'] = 'Google font additional character set';
@@ -172,18 +183,29 @@ $string['fontcharactersetgreek'] = 'Greek';
 $string['fontcharactersetgreekext'] = 'Greek Extended';
 $string['fontcharactersetlatinext'] = 'Latin Extended';
 $string['fontcharactersetvietnamese'] = 'Vietnamese';
+$string['fontfileeotbody'] = 'Body EOT font file';
+$string['fontfileeotheading'] = 'Heading EOT font file';
+$string['fontfileotfbody'] = 'Body OTF font file';
+$string['fontfileotfheading'] = 'Heading OTF font file';
 $string['fontfiles'] = 'Font files';
-$string['fontfilesdesc'] = 'Upload your font files here, only TTF files are supported.';
+$string['fontfilesdesc'] = 'Upload your font files here.';
+$string['fontfilesvgbody'] = 'Body SVG font file';
+$string['fontfilesvgheading'] = 'Heading SVG font file';
 $string['fontfilettfbody'] = 'Body TTF font file';
 $string['fontfilettfheading'] = 'Heading TTF font file';
-$string['fontheading'] = 'Font settings';
+$string['fontfilewoffbody'] = 'Body WOFF font file';
+$string['fontfilewoffheading'] = 'Heading WOFF font file';
+$string['fontfilewofftwobody'] = 'Body WOFF2 font file';
+$string['fontfilewofftwoheading'] = 'Heading WOFF2 font file';
 $string['fontheadingdesc'] = 'Select and enter the fonts that you want to use in your Moodle environment.';
+$string['fontheadingsub'] = 'Font settings';
 $string['fontnamebody'] = 'Text font';
 $string['fontnamebodydesc'] = 'Enter the exact name of the font to use for all other text.';
 $string['fontnameheading'] = 'Heading font';
 $string['fontnameheadingdesc'] = 'Enter the exact name of the font to use for headings.';
 $string['fontselect'] = 'Font type selector';
 $string['fontselectdesc'] = 'Choose from the list of available font types. Please save to show the options for your choice.';
+$string['fontsettings'] = 'Font';
 $string['fonttypecustom'] = 'Custom font';
 $string['fonttypegoogle'] = 'Google web fonts';
 $string['fonttypestandard'] = 'Standard fonts';
@@ -319,6 +341,8 @@ $string['pagebackgroundstyle'] = 'Page background style';
 $string['pagebackgroundstyledesc'] = 'Select the style for the uploaded image.';
 $string['pagewidth'] = 'Set page width';
 $string['pagewidthdesc'] = 'Choose from the list of available page widths for your site.';
+$string['paypal_click'] = 'donate via PayPal';
+$string['paypal_desc'] = '{$a->url} or';
 $string['peakmem'] = 'Peak Memory';
 $string['perfinfo'] = 'Performance information mode';
 $string['perfinfodesc'] = 'Many sites don\'t need the fully detailed performance info.  Especially when viewed by users.  When enabled, this shows a cleaned up minimal form with basic page load information.';

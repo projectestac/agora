@@ -410,14 +410,14 @@ $string['subscribeenrolledonly'] = 'Sorry, only enrolled users are allowed to su
 $string['subscribenone'] = 'Unsubscribe everyone from this forum';
 $string['subscribers'] = 'Subscribers';
 $string['subscribersto'] = 'Subscribers to \'{$a}\'';
-$string['subscribestart'] = 'Send me email copies of posts to this forum';
-$string['subscribestop'] = 'I don\'t want email copies of posts to this forum';
+$string['subscribestart'] = 'Send me notifications of new posts in this forum';
+$string['subscribestop'] = 'I don\'t want to be notified of new posts in this forum';
 $string['subscription'] = 'Subscription';
 $string['subscriptionandtracking'] = 'Subscription and tracking';
 $string['subscriptionauto'] = 'Auto subscription';
 $string['subscriptiondisabled'] = 'Subscription disabled';
 $string['subscriptionforced'] = 'Forced subscription';
-$string['subscription_help'] = 'If you are subscribed to a forum it means you will receive email copies of forum posts. Usually you can choose whether you wish to be subscribed, though sometimes subscription is forced so that everyone receives email copies of forum posts.';
+$string['subscription_help'] = 'If you are subscribed to a forum it means you will receive notification of new forum posts. Usually you can choose whether you wish to be subscribed, though sometimes subscription is forced so that everyone receives notifications.';
 $string['subscriptionmode'] = 'Subscription mode';
 $string['subscriptionmode_help'] = 'When a participant is subscribed to a forum it means they will receive forum post notifications. There are 4 subscription mode options:
 

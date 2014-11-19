@@ -40,5 +40,5 @@ $string['pluginnameadding'] = 'Adding a structure match question';
 $string['pluginnameediting'] = 'Editing a structure match question';
 $string['pluginname_help'] = 'In response to a question (that may include a image) the respondent draws a structure. There may be several possible correct answers, each with a different grade. If the "No stereochemisty" option is selected for an answer, then stereochemistry is ignored when judging the response.';
 $string['pluginname_link'] = 'question/type/fwstructmatch';
-$string['pluginnamesummary'] = 'Allows a response of a drawn chemical structure that is graded by comparing against various model answers, with our without stereochemistry.';
+$string['pluginnamesummary'] = 'Allows a response of a drawn chemical structure that is graded by comparing against various model answers, with or without stereochemistry.';
 $string['stereo'] = 'Consider stereochemistry in grading';

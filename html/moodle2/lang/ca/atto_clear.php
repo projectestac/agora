@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['clear'] = 'Esborra el format';
 $string['pluginname'] = 'Suprimeix el format';
