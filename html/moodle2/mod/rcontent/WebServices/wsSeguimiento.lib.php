@@ -461,131 +461,100 @@ function valid_unit($resultext, $book, $rcontentunitid) {
             }
         }
 
+        // Search the unit from the WS
         if (isset($resultext->idUnidad) && !empty($resultext->idUnidad)) {
             // Buscamos la unidad por codigo
             if (!$unidad) {
                 $unidad = rcommon_unit::get_from_code($resultext->idUnidad, $book->id);
             }
 
-            // Si existe la unidad pero cambia el orden o el titulo
-            // Update if no isset unit/actividad title or no isset unit/activity order
-            $update = $unidad && ((empty($unidad->name) && !empty($resultext->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($resultext->UnidadOrden)));
-
             if ($book->structureforaccess == 1) {
+                // Update if no isset unit/actividad title or no isset unit/activity order
+                $update = $unidad && ((empty($unidad->name) && !empty($resultext->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($resultext->UnidadOrden)));
+
                 // Si no se ha encontrado la unidad o se ha encontrado pero cambia el nombre o orden llamamos al ws
                 if (!$unidad || $update) {
                     $publisher = rcommon_publisher::get($book->publisherid);
                     get_book_structure($publisher, $book->isbn);
 
-                    // Fixed bug in the processing of received unit/activity title when it's diferent from the stored one
-                    // Si aun no tenemos la info de la unidad la buscamos
+                    // Si aun no tenemos la info de la unidad la volvemos a buscar
                     if (!$unidad) {
                         $unidad = rcommon_unit::get_from_code($resultext->idUnidad, $book->id);
                     }
-
-                    // Volvemos a comprobar si coincide el título o no
-                    // Just update if no isset unit/actividad title or no isset unit/activity order
-                    $update = $unidad && ((empty($unidad->name) && !empty($resultext->UnidadTitulo)) || (empty($unidad->sortorder) && !empty($resultext->UnidadOrden)));
                 }
             }
 
-            // Si no se ha encontrado la unidad o cambia el nombre
-            if (!$unidad || $update) {
-                $instance = new StdClass();
-                $instance->bookid = $book->id;
-                $instance->code = $resultext->idUnidad;
-
-                // Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->name = isset($unidad->name) && !empty($unidad->name) ? $unidad->name : (!empty($resultext->UnidadTitulo) ? $resultext->UnidadTitulo : $resultext->idUnidad);
-                // Just update if no empty unit/actividad summary
-                $instance->summary = isset($unidad->summary) && !empty($unidad->summary) ? $unidad->summary : $instance->name;
-                // Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->sortorder = isset($unidad->sortorder) && !empty($unidad->sortorder) ? $unidad->sortorder : (!empty($resultext->UnidadOrden) ? $resultext->UnidadOrden : 0);
-
-                $unitid = rcommon_unit::add_update($instance);
-                if ($unitid) {
-                    $unidad = rcommon_unit::get($unitid);
-                }
-                log_to_file("wsSeguimiento: function valid_unit - Add/Update unit " . (($unitid) ? 'OK' : 'KO (instance:' . serialize($instance) . ')'));
+            // Unit not found, error raised
+            if (!$unidad) {
+                log_to_file("wsSeguimiento: function valid_unit - Unit not found. Unitcode: $resultext->idUnidad Bookid: $book->id");
+                return false;
             }
+            return $unidad;
         }
-        return $unidad ? $unidad : true;
     } catch (Exception $e) {
-        //log_to_file("wsSeguimiento: function valid_unit - Exception = " . serialize($e));
         log_to_file("wsSeguimiento: function valid_unit - Exception = " . $e->getMessage());
         return false;
     }
+
+    // No unit found but not specified
+    return true;
 }
 
 //  retorn true o false, $actividad param if activity was found
 function valid_activity($resultext, $book, $rcontentactivityid, $unidadid) {
     global $CFG, $DB;
     require_once($CFG->dirroot . '/local/rcommon/WebServices/BooksStructure.php');
+
+    $actividad = false;
+
     try {
-        $actividad = false;
-		// Busco la actividad por actividadid del rcontent, cuando no hay que ForzarGuardar
+        // Busco la actividad por actividadid del rcontent, cuando no hay que ForzarGuardar
         if ($rcontentactivityid != 0 && !isForzarGuardar($resultext)) {
             $actividad = rcommon_activity::get($rcontentactivityid);
 
             // If rcontent has a specific activity error if you come from or are not equal ws
             if ($actividad && (!isset($resultext->idActividad) || $actividad->code != $resultext->idActividad)) {
                 return false;
-			}
+            }
         }
 
+        // Search the activity from the WS
         if (isset($resultext->idActividad) && !empty($resultext->idActividad)) {
             // Buscamos la unidad por codigo
             if (!$actividad) {
                 $actividad = rcommon_activity::get_from_code($resultext->idActividad, $unidadid, $book->id);
             }
 
-            // Si existe la unidad pero cambia el orden o el titulo
-            // Just update if no isset unit/actividad title or no isset unit/activity order
-            $update = $actividad && ((empty($activitat->name) && !empty($resultext->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($resultext->ActividadOrden)));
-
             if ($book->structureforaccess == 1) {
+                // Just update if no isset unit/actividad title or no isset unit/activity order
+                $update = $actividad && ((empty($activitat->name) && !empty($resultext->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($resultext->ActividadOrden)));
+
                 // Si no se ha encontrado la unidad o se ha encontrado pero cambia el nombre o orden llamamos al ws
                 if (!$actividad || $update) {
                     $publisher = rcommon_publisher::get($book->publisherid);
                     get_book_structure($publisher, $book->isbn);
 
-                    // Fixed bug in the processing of received unit/activity title when it's diferent from the stored one
                     // Obtengo los nuevos datos de la actividad
                     if (!$actividad) {
                         $actividad = rcommon_activity::get_from_code($resultext->idActividad, $unidadid, $book->id);
                     }
-                    // Y vuelvo a comprobar si coincide el título o no
-                    // Just update if no isset unit/actividad title or no isset unit/activity order
-                    $update = $actividad && ((empty($activitat->name) && !empty($resultext->ActividadTitulo)) || (empty($activitat->sortorder) && !empty($resultext->ActividadOrden)));
                 }
             }
 
-            //si no se ha encontrado la unidad o cambia el nombre
-            if (!$actividad || $update) {
-                $instance = new StdClass();
-                $instance->bookid = $book->id;
-                $instance->unitid = $unidadid;
-                $instance->code = $resultext->idActividad;
-                // Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->name = isset($actividad) && !empty($actividad->name) ? $actividad->name : (!empty($resultext->ActividadTitulo) ? $resultext->ActividadTitulo : $resultext->idActividad);
-                // Just update if no empty unit/actividad summary
-                $instance->summary = isset($actividad) && !empty($actividad->summary) ? $actividad->summary : $instance->name;
-				//  Just update if no isset unit/actividad title or no isset unit/activity order
-                $instance->sortorder = isset($actividad) && !empty($actividad->sortorder) ? $actividad->sortorder : (!empty($resultext->ActividadOrden) ? $resultext->ActividadOrden : 0);
-
-
-                $activityid = rcommon_activity::add_update($instance);
-                if ($activityid) {
-                    $actividad = rcommon_activity::get($activityid);
-                }
-                log_to_file("wsSeguimiento: function valid_activity - Add/Update activity " . (($activityid) ? 'OK' : 'KO (instance:' . serialize($instance) . ')'));
+            // Activity not found, error raised
+            if (!$actividad) {
+                log_to_file("wsSeguimiento: function valid_activity - Activity not found. Activitycode: $resultext->idActividad Unitid: $unidadid Bookid: $book->id");
+                return false;
             }
+            return $actividad;
         }
-        return $actividad ? $actividad : true;
     } catch (Exception $e) {
         log_to_file("wsSeguimiento: function valid_activity - Exception = " . $e->getMessage());
         return false;
     }
+
+    // No activity found but not specified
+    return true;
 }
 
 function get_real_rcontent($ResultadoExtendido, $rcontent_original, $bookid) {
