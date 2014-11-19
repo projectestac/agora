@@ -3,22 +3,58 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes on progress
+Changes 14.11.27
 ---------------------------------------------------------------------------------------
+MOODLE2
+- Fixed linguistic SQL sorting for Oracle
+- Do not even try to send mails to .invalid domain
+- Set default value on upload users tool to an invalid domain
+- Fixed adware detector
+- Delete dependencies between environments in config.php (Renamed config-multi to config)
+- usu1repofiles setting replaced by admin_datadir function to store admin files
+- Clean of old settings
+- Add log to oauth server
+- Fixed MDL-33483 GoogleDocs: Save Doc files in different formats to RTF
+- Fixed MDL-43462 Landscape PDFs are not shown correctly in EditPDF
+- Improvements on theme XTEC2 including:
+  - Added phone and mail to description of the footer icons
+  - Accessibility (a11y): Added 'alt' text to 'img' tags and Avoid empty 'ul' tags
+- Bigdata improvements:
+  - New profiles on bigdata export
+  - Bigdata to store in admindatadir
+  - Cron implemented
+  - Avalaibiliy to choose fields to export
+- Updated Marsupial modules with improvements:
+  - Deprecated lang strings in marsupial
+  - Simplify logging
+- Scripting environment improvements:
+  - Repaired upgrade through script
+  - Enable TEX filter on init script
+  - Enable cache for scripts
+- Cache related improvements:
+  - MUC autocreates path on file cache
+  - Disabled cacheconfig overwrite
+  - New Cacheconfig file without memcache configured
+
 GENERAL
 - Removed all references to Moodle 1.9 vars. Replaced by references to Moodle 2 vars
 - statistics.php: Added collect of stats of Nodes
+- New password and mail field in config
 
 PORTAL
 - Moved portaldata/ to docs/portaldata/
 - Added module Files 1.0.1
 - Added tables for statistics of Nodes
+- Fixed sorting in service selector
+- Add support to execute scripts of Wordpress
 
 WORDPRESS
 - Added catalan translation for BuddyPress Like
 - Added catalan translation for BuddyPress Moderation
 - WordPress Social Login: Hidden options to all admins but xtecadmin
 - Bug pagination fixed 
+- Add support to execute scripts from portal
+- Added support to reverse proxy calls in Oauth Client
 
 ZIKULA
 - IWstats: Remove old records using iwcron.php
