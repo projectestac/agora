@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Google Calendar Events en español\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/google-calendar-events\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tag/google-calendar-events\n"
 "POT-Creation-Date: 2014-10-09 13:21-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: David Arndt <dev@david-arndt.de>\n"

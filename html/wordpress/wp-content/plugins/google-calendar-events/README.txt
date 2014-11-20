@@ -87,6 +87,11 @@ There are three ways to install this plugin.
 
 == Changelog ==
 
+= 2.1.1 =
+
+* Fixed bug with all day events not displaying.
+* Added missing timezone parameter to internal query.
+
 = 2.1.0 = 
 
 * Updated to use Google Calendar API version 3. Version 2 deprecated on Nov. 17, 2014.
