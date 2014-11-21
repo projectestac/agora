@@ -78,7 +78,7 @@ msgstr "Editor d'estils personalitzats"
 #: classes/SlideshowPluginInstaller.php:805
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:518
 msgid "Animation used for transition between slides"
-msgstr "Animació que es mostra a la transisicó de diapositives"
+msgstr "Tipus de transició"
 
 #: classes/SlideshowPluginInstaller.php:805
 msgid "Slide"
@@ -113,12 +113,12 @@ msgstr "Nombre de segons que la descripció necessita per canviar"
 #: classes/SlideshowPluginInstaller.php:808
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:521
 msgid "Seconds between changing slides"
-msgstr "Segons entre el canvi de diapositives"
+msgstr "Durada de la diapositiva (segons)"
 
 #: classes/SlideshowPluginInstaller.php:809
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:522
 msgid "Number of slides to fit into one slide"
-msgstr "Nombre de elements per incloure en una diapositiva "
+msgstr "Elements per diapositiva "
 
 #: classes/SlideshowPluginInstaller.php:809
 #: classes/SlideshowPluginInstaller.php:810
@@ -159,16 +159,16 @@ msgstr "Ajusta la imatge a la diapositiva (estirant-la)"
 #: classes/SlideshowPluginInstaller.php:814
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:529
 msgid "Show title and description"
-msgstr "Mostra el títol i la descripció"
+msgstr "Títol i descripció"
 
 #: classes/SlideshowPluginInstaller.php:815
 msgid "Hide description box, it will pop up when a mouse hovers over the slide"
-msgstr "Amaga la caixa de la descripció"
+msgstr "<span class='dashicons dashicons-arrow-right'></span>Amaga fins que el ratolí passi per sobre"
 
 #: classes/SlideshowPluginInstaller.php:816
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:531
 msgid "Automatically slide to the next slide"
-msgstr "Llisca automàticament sobre la diapositiva següent"
+msgstr "Reproducció automàtica"
 
 #: classes/SlideshowPluginInstaller.php:816
 #: classes/SlideshowPluginInstaller.php:817
@@ -189,7 +189,7 @@ msgstr "Control"
 #: classes/SlideshowPluginInstaller.php:817
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:532
 msgid "Return to the beginning of the slideshow after last slide"
-msgstr "Torna a l'inici del carrusel després de la darrera diapositiva"
+msgstr "El carrusel comença de nou després de la última diapositiva"
 
 #: classes/SlideshowPluginInstaller.php:818
 msgid "Activate buttons (so the user can scroll through the slides)"
@@ -249,7 +249,7 @@ msgstr "Estil del carrusel"
 
 #: classes/SlideshowPluginPostType.php:125
 msgid "Slideshow Settings"
-msgstr "Configuració del carrusel"
+msgstr "Configuració"
 
 #: classes/SlideshowPluginPostType.php:173
 msgid "Slideshow created"
@@ -336,11 +336,11 @@ msgstr ""
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:525
 msgid "Slideshow's height"
-msgstr "Alçada de el carrusel"
+msgstr "Alçada del carrusel"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:526
 msgid "Image behaviour"
-msgstr "Comportament de la imatge"
+msgstr "Ajust de la imatge"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:527
 msgid "Shrink slideshow's height when width shrinks"
@@ -356,12 +356,11 @@ msgstr ""
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:530
 msgid "Hide description box, pop up when mouse hovers over"
 msgstr ""
-"Amaga la caixa de la descripció, obre una finestra emergent quan el ratolí "
-"hi passa per sobre"
+"<span class='dashicons dashicons-arrow-right'></span>Amaga fins que el ratolí passi per sobre"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:533
 msgid "Pause slideshow when mouse hovers over"
-msgstr "Pausa el carrusel quan el ratolí passa per sobre"
+msgstr "Pausa el carrusel quan el ratolí passi per sobre"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:534
 msgid "Activate navigation buttons"
@@ -374,19 +373,19 @@ msgstr ""
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:536
 msgid "Activate pagination"
-msgstr "Activa la paginació"
+msgstr "Paginació"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:537
 msgid "Hide pagination, show when mouse hovers over"
-msgstr "Amaga la paginació, mostra-la quan el ratolí passi per sobre"
+msgstr "<span class='dashicons dashicons-arrow-right'></span>Amaga fins que el ratolí passi per sobre"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:538
 msgid "Activate control panel (play and pause button)"
-msgstr "Activa el tauler de control (botó de reproducció i pausa)"
+msgstr "Botó de reproducció"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:539
 msgid "Hide control panel, show when mouse hovers over"
-msgstr "Amaga el tauler de control, mostra'l quan el ratolí passi per sobre"
+msgstr "<span class='dashicons dashicons-arrow-right'></span>Amaga fins que el ratolí passi per sobre"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:540
 msgid "Wait until the next slide has loaded before showing it"
@@ -399,7 +398,7 @@ msgstr "Mostra una icona de càrrega fins que la diapositiva aparegui"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:542
 msgid "Randomize slides"
-msgstr "Diapositives aleatòries"
+msgstr "Ordre aleatori"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:543
 #, php-format
@@ -432,15 +431,15 @@ msgstr "Animació al·leatòria"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:555
 msgid "Natural and centered"
-msgstr "Neutral i centrat"
+msgstr "Original"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:555
 msgid "Crop to fit"
-msgstr "Retalla per ajustar"
+msgstr "Retalla (recomenat)"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:555
 msgid "Stretch to fit"
-msgstr "Estira per ajustar"
+msgstr "Estira"
 
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:569
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:570

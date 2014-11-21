@@ -45,13 +45,6 @@ function reactor_child_theme_setup() {
 	 	array('primary', 'secondary', 'front-primary', 'front-secondary','categoria', 'footer')
 	 );
 	
-	/* Support for layouts
-	Note: this doesn't remove sidebars */
-	// remove_theme_support('reactor-layouts');
-	/* add_theme_support(
-	 	'reactor-layouts',
-	 	array('1c', '2c-l', '2c-r', '3c-l', '3c-r', '3c-c')
-	 );*/
 	add_theme_support(
 	 	'reactor-layouts',
 	 	array('1c','2c-l')
@@ -59,48 +52,16 @@ function reactor_child_theme_setup() {
 	
 	/* Support for custom post types */
 	 remove_theme_support('reactor-post-types');
-	/* add_theme_support(
-	 	'reactor-post-types',
-	 	array('portfolio')
-	 );*/
 	
 	/* Support for page templates */
-	//remove_theme_support('reactor-page-templates');
 	add_theme_support(
 		'reactor-page-templates',
 		array('front-page'/*, 'news-page', 'portfolio', 'contact'*/)
 	);
 	
 	/* Remove support for background options in customizer */
-	 remove_theme_support('reactor-backgrounds');
+	remove_theme_support('reactor-backgrounds');
 	
-	/* Remove support for font options in customizer */
-	 //remove_theme_support('reactor-fonts');
-	
-	/* Remove support for custom login options in customizer */
-	// remove_theme_support('reactor-custom-login');
-	
-	/* Remove support for breadcrumbs function */
-	// remove_theme_support('reactor-breadcrumbs');
-	
-	/* Remove support for page links function */
-	// remove_theme_support('reactor-page-links');
-	
-	/* Remove support for page meta function */
-	// remove_theme_support('reactor-post-meta');
-	
-	/* Remove support for taxonomy subnav function */
-	// remove_theme_support('reactor-taxonomy-subnav');
-	
-	/* Remove support for shortcodes */
-	// remove_theme_support('reactor-shortcodes');
-	
-	/* Remove support for tum icons */
-	// remove_theme_support('reactor-tumblog-icons');
-	
-	/* Remove support for other langauges */
-	// remove_theme_support('reactor-translation');
-
 }
 
 //Fil d'ariadna
@@ -151,26 +112,24 @@ add_action('admin_bar_menu', 'custom_toolbar',98);
 
 /* Camps extra per definir disposició de noticies a cada categoria*/
 
-add_action ( 'edit_category_form_fields', 'extra_category_fields');
-//add extra fields to category edit form callback function
 function extra_category_fields( $tag ) {    //check for existing featured ID
     $t_id = $tag->term_id;
     $cat_meta = get_option( "category_$t_id");
 ?>
+
 
 <tr class="form-field">
 <th scope="row" valign="top"><label for="articles_fila"><?php _e('Articles per fila'); ?></label></th>
 <td>
 <input type="text" name="Cat_meta[articles_fila]" id="Cat_meta[articles_fila]" size="25" style="width:60%;" value="<?php echo $cat_meta['articles_fila'] ? $cat_meta['articles_fila'] : ''; ?>"><br />
             <span class="description"><?php _e('Articles per fila que es mostraran a la pàgina de la categoria (entre 1 i 4)'); ?></span>
-        </td>
+     </td>
 </tr>
 
-<?php } 
 
+<?php }
+add_action ( 'edit_category_form_fields', 'extra_category_fields');
 
-// save extra category extra fields hook
-add_action ( 'edited_category', 'save_extra_category_fields');
 
 // save extra category extra fields callback function
 function save_extra_category_fields( $term_id ) {
@@ -187,27 +146,23 @@ function save_extra_category_fields( $term_id ) {
         update_option( "category_$t_id", $cat_meta );
     }
 }
+// save extra category extra fields hook
+add_action ( 'edited_category', 'save_extra_category_fields');
 
 
 //Filtre categoria 
-function filter_by_taxonomy ( $query ) {
-
+function filter_by_taxonomy($query) {
     global $categoria;
     global $etiqueta;
-    
-    if ( $categoria && $query->query['post_type']=='post'){
-        //echo "<script>alert(".$categoria.");</script>";
-        $query->set('cat',$categoria);
+
+    if ($categoria && $query->query['post_type'] == 'post') {
+        $query->set('cat', $categoria);
     }
-    
-    if ( $etiqueta && $query->query['post_type']=='post'){
-        //echo "<script>alert(".$etiqueta.");</script>";
-        $query->set('tag',$etiqueta);
+
+    if ($etiqueta && $query->query['post_type'] == 'post') {
+        $query->set('tag', $etiqueta);
     }
-    
-    
 }
-    
 add_action( 'pre_get_posts', 'filter_by_taxonomy');
  
 // Permet algunes etiquetes html a l'extracte d'un post
@@ -239,10 +194,8 @@ function improved_trim_excerpt($text) {
         
         return $text . $excerpt_more;
 }
-
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'improved_trim_excerpt');
-
 
 // Allow HTML in description category/tag
 // remove the html filtering
@@ -258,26 +211,26 @@ License: GPL2
 remove_filter( 'pre_term_description', 'wp_filter_kses' );
 remove_filter( 'term_description', 'wp_kses_data' );
 
-add_filter('edit_category_form_fields', 'cat_description');
 function cat_description($tag)
 { ?>
-           <table class="form-table">
-            <tr class="form-field">
-                <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
-                <td>
-                <?php
-                    $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
-                    wp_editor(htmlspecialchars_decode(wp_kses_post($tag->description , ENT_QUOTES, 'UTF-8'),ENT_QUOTES), 'cat_description', $settings);
-                ?>
-                <br />
-                <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
-                </td>
-            </tr>
-        </table>
+    <table class="form-table">
+        <tr class="form-field">
+            <th scope="row" valign="top"><label for="description"><?php _ex('Description', 'Taxonomy Description'); ?></label></th>
+            <td>
+            <?php
+                $settings = array('wpautop' => true, 'media_buttons' => true, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
+                wp_editor(htmlspecialchars_decode(wp_kses_post($tag->description , ENT_QUOTES, 'UTF-8'),ENT_QUOTES), 'cat_description', $settings);
+            ?>
+            <br />
+            <span class="description"><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></span>
+            </td>
+        </tr>
+    </table>
     <?php
 }
+add_filter('edit_category_form_fields', 'cat_description');
 
-add_action('admin_head', 'remove_default_category_description');
+
 function remove_default_category_description()
 {
     global $current_screen;
@@ -292,6 +245,7 @@ function remove_default_category_description()
     <?php
     }
 }
+add_action('admin_head', 'remove_default_category_description');
 
 // Metabox paràmetres: Amaga títol, amaga metadades, mostra contingut sencer. 
 include "custom-tac/metabox-post-parametres.php";

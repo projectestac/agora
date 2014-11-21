@@ -37,7 +37,8 @@ $defaultStyleSettings = SlideshowPluginSlideshowSettingsHandler::getDefaultStyle
 
 		<tr>
 			<td colspan="3" style="border-bottom: 1px solid #dfdfdf; text-align: center;">
-				<span style="display: inline-block; position: relative; top: 14px; padding: 0 12px; background: #fff;">
+				
+                            <span style="display: inline-block; position: relative; top: 14px; padding: 0 12px; background: #fff;">
 					<?php echo $defaultSettingValue['group']; ?> <?php _e('settings', 'slideshow-plugin'); ?>
 				</span>
 			</td>

@@ -92,8 +92,11 @@ class SlideshowPluginPostType
 	 * @since 1.0.0
 	 */
 	static function registerMetaBoxes()
-	{
-		add_meta_box(
+	{	
+            //XTEC ************ ELIMINAT - Hide information metabox - not necessary - less is more
+            //2014.11.20 @jmeler
+            /*
+                add_meta_box(
 			'information',
 			__('Information', 'slideshow-plugin'),
 			array(__CLASS__, 'informationMetaBox'),
@@ -101,7 +104,8 @@ class SlideshowPluginPostType
 			'normal',
 			'high'
 		);
-
+            */
+            //************ FI
 		add_meta_box(
 			'slides-list',
 			__('Slides List', 'slideshow-plugin'),
@@ -110,7 +114,9 @@ class SlideshowPluginPostType
 			'side',
 			'default'
 		);
-
+            //XTEC ************ ELIMINAT - Default style is cool
+            //2014.11.20 @jmeler
+            /*
 		add_meta_box(
 			'style',
 			__('Slideshow Style', 'slideshow-plugin'),
@@ -119,7 +125,8 @@ class SlideshowPluginPostType
 			'normal',
 			'low'
 		);
-
+            */
+           //************ FI
 		add_meta_box(
 			'settings',
 			__('Slideshow Settings', 'slideshow-plugin'),

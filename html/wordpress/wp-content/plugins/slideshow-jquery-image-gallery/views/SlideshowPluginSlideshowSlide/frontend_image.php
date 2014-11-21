@@ -25,6 +25,20 @@ if (isset($properties['noFollow']))
 	$noFollow = ' rel="nofollow" ';
 }
 
+$anchorTag = $endAnchorTag = $anchorTagAttributes = '';
+
+if (strlen($url) > 0)
+{
+        $anchorTagAttributes =
+                'href="' . $url . '" ' .
+                (strlen($urlTarget) > 0 ? 'target="' . $urlTarget . '" ' : '') .
+                $noFollow;
+
+        $anchorTag    = '<a ' . $anchorTagAttributes . '>';
+        $endAnchorTag = '</a>';
+}
+
+
 
 $imageSrc       = $properties['url'];
 $imageWidth     = 0;
