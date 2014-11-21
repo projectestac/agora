@@ -36,16 +36,8 @@ class script_check_database extends agora_script_base{
 
 		$problemsfound = array();
 
-		$testagain = array();
-		$savetestagain = array();
-
-		if(isset($SESSION->badtables)){
-			$test = unserialize($SESSION->badtables);
-			foreach ($test as $tablename){
-				$testagain[$tablename] = $tablename;
-			}
-		}
-
+        $lasttable = get_config('local_agora', 'lastcheckedtable');
+        $startchecking = empty($lasttable);
 
         // And we nedd some ddl suff
         $dbman = $DB->get_manager();
@@ -79,36 +71,40 @@ class script_check_database extends agora_script_base{
                     echo '<ul>';
                     // Foreach table, process its fields
                     foreach ($xmldb_tables as $xmldb_table) {
-                    	if(empty($testagain) || isset($testagain[$xmldb_table->getName()])) {
-	                        // Skip table if not exists
-	                        if (!$dbman->table_exists($xmldb_table)) {
-	                            continue;
-	                        }
-	                        // Fetch metadata from physical DB. All the columns info.
-	                        if (!$metacolumns = $DB->get_columns($xmldb_table->getName(), false)) {
-	                            // / Skip table if no metacolumns is available for it
-	                            continue;
-	                        }
-	                        // Table processing starts here
-	                        echo '<li>' . $xmldb_table->getName();
-	                        // Do the specific check.
-	                        list($output, $newproblems) = $this->check_table($xmldb_table, $metacolumns);
-	                        if (empty($newproblems)) {
-	                        	echo ' <font color="green">Ok</font>';
-	                        } else {
-	                        	$savetestagain[] = $xmldb_table->getName();
-	                        	echo $output;
-	                        	$problemsfound = array_merge($problemsfound, $newproblems);
+                        $tablename = $xmldb_table->getName();
+
+                        if ($startchecking) {
+                            // Skip table if not exists
+                            if (!$dbman->table_exists($xmldb_table)) {
+                                continue;
+                            }
+                            // Fetch metadata from physical DB. All the columns info.
+                            if (!$metacolumns = $DB->get_columns($xmldb_table->getName(), false)) {
+                                // / Skip table if no metacolumns is available for it
+                                continue;
+                            }
+                            // Table processing starts here
+                            echo '<li>' . $tablename;
+                            // Do the specific check.
+                            list($output, $newproblems) = $this->check_table($xmldb_table, $metacolumns);
+                            if (empty($newproblems)) {
+                            	echo ' <font color="green">Ok</font>';
+                            } else {
+                            	echo $output;
+                            	$problemsfound = array_merge($problemsfound, $newproblems);
                                 if ($execute) {
                                     $this->execute_sqls($newproblems);
                                 }
-	                        }
-	                        echo '</li>';
-	                        // Give the script some more time (resetting to current if exists)
-	                        if ($currenttl = @ini_get('max_execution_time')) {
-	                            @ini_set('max_execution_time', $currenttl);
-	                        }
-	                    }
+                            }
+                            echo '</li>';
+                            // Give the script some more time (resetting to current if exists)
+                            if ($currenttl = @ini_get('max_execution_time')) {
+                                @ini_set('max_execution_time', $currenttl);
+                            }
+                            set_config('lastcheckedtable', $tablename, 'local_agora');
+                        } else {
+                            $startchecking = $tablename == $lasttable;
+                        }
                     }
                     echo '</ul>';
                 }
@@ -117,9 +113,7 @@ class script_check_database extends agora_script_base{
             echo '</ul>';
         }
 
-        if (!empty($savetestagain)) {
-            $SESSION->badtables = serialize($savetestagain);
-        }
+        unset_config('lastcheckedtable', 'local_agora');
 
         $sqls = array();
         foreach ($problemsfound as $i => $problem) {
