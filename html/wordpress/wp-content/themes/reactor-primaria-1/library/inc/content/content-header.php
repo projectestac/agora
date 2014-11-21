@@ -231,7 +231,7 @@ function reactor_do_title_logo() { ?>
 						
                                                 <div id="search-panel" class="search-box-wrapper icon-graella">
                                                     <div class="search-box">
-                                                        <form role="search" method="get" class="search-form" action=<?php get_home_url();?>>
+                                                        <form role="search" method="get" class="search-form" action="<?php get_home_url();?>">
                                                             <input type="search" class="search-field" placeholder="Cerca i pulsa enter…" value="" name="s" title="Cerca:">
                                                             <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
                                                         </form>			
