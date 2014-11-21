@@ -758,3 +758,19 @@ add_filter('secure_auth_cookie', 'wpadmin_secure_cookie_filter');
 function wpadmin_secure_cookie_filter( ) {
 	return false;
 }
+
+
+/*
+ * Set target link 
+ * 
+ * @author Xavi Meler
+*/
+
+function setTarget($link){
+    if (strpos(trim($link),"http")===0)
+        return "target='_blank'";
+    else
+        return "";
+}
+
+
