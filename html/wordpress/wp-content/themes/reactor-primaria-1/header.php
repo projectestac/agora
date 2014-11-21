@@ -31,8 +31,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-	<?php reactor_body_inside(); ?>
+    
+    <?php reactor_body_inside(); ?>
 
     <div id="page" class="hfeed site"> 
     
