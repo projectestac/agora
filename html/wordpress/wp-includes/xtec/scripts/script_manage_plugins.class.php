@@ -8,30 +8,30 @@ class script_manage_plugins extends agora_script_base{
 	public $info = "Activa / Desactiva un plugin";
 
 
-	public function params(){
+	public function params() {
 		$params = array();
 		$params['activationfile'] = "";
 		$params['onoff'] = "";
 		return $params;
 	}
 
-	protected function _execute($params = array()){
+	protected function _execute($params = array()) {
 		switch ($params['onoff']) {
 			case 'on':
 				$result = activate_plugin($params['activationfile']);
-				if ( is_wp_error( $result ) ) {
-					echo $result->get_error_message();
-				}
 				break;
 			case 'off':
 				$result = deactivate_plugins($params['activationfile']);
-				if ( is_wp_error( $result ) ) {
-					echo $result->get_error_message();
-				}
 				break;
 			default:
 				echo 'onoff només admet valors on o off';
 				return false;
+		}
+		if ( is_wp_error( $result ) ) {
+			echo $result->get_error_message();
+			return false;
+		} else {
+			echo 'OK';
 		}
 		return true;
 	}
