@@ -286,7 +286,8 @@ class SlideshowPluginSlideshowSettingsHandler
                 
                 $picasa_album_rss=get_post_meta($slideshowId,"picasa_album",true);
                 if ($picasa_album_rss){
-                    $picasa_album_rss = str_replace("alt=rss","",$picasa_album_rss);
+                    $extra_params="&imgmax=800";
+                    $picasa_album_rss = str_replace("alt=rss","",$picasa_album_rss).$extra_params;
                     $picasa_album = fetch_feed($picasa_album_rss);
                     
                     if ( !is_wp_error( $picasa_album ) ) {
