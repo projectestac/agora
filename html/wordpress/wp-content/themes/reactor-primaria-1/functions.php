@@ -704,7 +704,7 @@ function getDescriptionFontSize($description){
     
     switch (true) {
         case $description_len <= 15: //3 paraules aprox. Paraula mitja: 5caracters
-            $fontSize = "3em";
+            $fontSize = "2em";
             break;
         case 15 < $description_len && $description_len <= 40:
             $fontSize = "1.8em";

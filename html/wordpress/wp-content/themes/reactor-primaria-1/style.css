@@ -741,7 +741,7 @@ Barra lateral
 }
 div.section > .current_page_item a{
     font-weight: bold;
-    border-right: 3px solid #087EB6;
+    border-right: 3px solid #A4A4A4;
 }
 
 li.current_page_item > a{
@@ -757,11 +757,12 @@ li.current_page_item > a{
     padding-right: 0;
 }
 
-.page_item.title{
+.accordion .page_item.title{
     padding-left: 1em;
 }
 
-li.page_item{
+
+.accordion li.page_item{
     padding-left: 2em;
 }
 
