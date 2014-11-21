@@ -189,7 +189,7 @@ msgstr "Control"
 #: classes/SlideshowPluginInstaller.php:817
 #: classes/SlideshowPluginSlideshowSettingsHandler.php:532
 msgid "Return to the beginning of the slideshow after last slide"
-msgstr "El carrusel comença de nou després de la última diapositiva"
+msgstr "En acabar, el carrusel comença de nou"
 
 #: classes/SlideshowPluginInstaller.php:818
 msgid "Activate buttons (so the user can scroll through the slides)"
