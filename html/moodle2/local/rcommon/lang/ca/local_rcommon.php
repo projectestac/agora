@@ -5,7 +5,6 @@ $string['rcommon:authenticate'] = 'Autentica contingut Marsupial';
 $string['rcommon:exportcredentials'] = 'Exporta credencials de Marsupial';
 $string['rcommon:importcredentials'] = 'Importa credencials de Marsupial';
 $string['rcommon:managecredentials'] = 'Gestiona credencials de Marsupial';
-$string['rcommon:manageowncredentials'] = 'Gestiona credencials de Marsupial pròpies';
 $string['rcommon:managepublishers'] = 'Gestiona proveïdors de Marsupial';
 
 $string['addnewpublisher'] = 'Afegeix nou proveïdor';

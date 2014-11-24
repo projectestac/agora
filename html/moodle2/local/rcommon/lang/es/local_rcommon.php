@@ -5,7 +5,6 @@ $string['rcommon:authenticate'] = 'Autenticar contenido Marsupial';
 $string['rcommon:exportcredentials'] = 'Exportar credenciales de Marsupial';
 $string['rcommon:importcredentials'] = 'Importar credenciales de Marsupial';
 $string['rcommon:managecredentials'] = 'Gestionar credenciales de Marsupial';
-$string['rcommon:manageowncredentials'] = 'Gestionar credenciales de Marsupial propias';
 $string['rcommon:managepublishers'] = 'Gestionar proveedores de Marsupial';
 
 $string['addnewpublisher'] = 'Añadir nuevo proveedor';
@@ -34,7 +33,7 @@ $string['error_code_-102'] = 'Autenticación incorrecta. El usuario que solicita
 
 $string['insertkeymsg'] = 'Introduce una clave para este recurso';
 $string['key'] = 'Clave';
-$string['keyadd'] = 'Añadir la clave';
+$string['keyadd'] = 'Añadir clave';
 $string['keyaddingforuser'] = 'Añadiendo una clave para el usuario/a <strong>{$a}</strong>';
 $string['keyeditingforuser'] = 'Editando una clave para el usuario/a <strong>{$a}</strong>';
 $string['keyconfirmdelete'] = 'Seguro que quieres eliminar esta clave?';

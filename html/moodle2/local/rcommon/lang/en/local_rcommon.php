@@ -4,8 +4,7 @@ $string['pluginname'] ='Remote resources';
 $string['rcommon:authenticate'] = 'Marsupial content authentication';
 $string['rcommon:exportcredentials'] = 'Export Marsupial credentials';
 $string['rcommon:importcredentials'] = 'Import Marsupial credentials';
-$string['rcommon:managecredentials'] = 'Manage Marsupial creadentials';
-$string['rcommon:manageowncredentials'] = 'Manage own Marsupial creadentials';
+$string['rcommon:managecredentials'] = 'Manage Marsupial credentials';
 $string['rcommon:managepublishers'] = 'Manage Marsupial publishers';
 
 $string['addnewpublisher'] = 'Add new publisher';
@@ -34,7 +33,7 @@ $string['error_code_-102'] = 'Incorrect authentication. The user requesting acce
 
 $string['insertkeymsg'] = 'Enter a password for this resource';
 $string['key'] = 'Key';
-$string['keyadd'] = 'Add the key';
+$string['keyadd'] = 'Add key';
 $string['keyaddingforuser'] = 'Adding a key to the user <strong>{$a}</strong>';
 $string['keyeditingforuser'] = 'Editing a key to the user <strong>{$a}</strong>';
 $string['keyconfirmdelete'] = 'Are you sure you want to delete this key?';
