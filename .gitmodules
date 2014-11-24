@@ -7,3 +7,6 @@
 [submodule "html/zikula2/modules/IWgroups"]
 	path = html/zikula2/modules/IWgroups
 	url = http://github.com/intraweb-modules13/IWgroups.git
+[submodule "html/wordpress"]
+	path = html/wordpress
+	url = git@github.com:projectestac/agora_nodes.git
