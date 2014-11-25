@@ -10,3 +10,6 @@
 [submodule "html/wordpress"]
 	path = html/wordpress
 	url = git@github.com:projectestac/agora_nodes.git
+[submodule "html/moodle2"]
+	path = html/moodle2
+	url = git@github.com:projectestac/agora_moodle2.git
