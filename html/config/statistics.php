@@ -744,11 +744,6 @@ function getDiskConsume ($statsCon, $clientCode, $service) {
  */
 function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
 
-    if (!($statsCon = opendb())) {
-        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
-        exit();
-    }
-
     $date = $year . $month . $day;
     $yearmonth = $year . $month;
 
@@ -770,6 +765,11 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
     // Get last activity up to a given day
     $lastActivity = getSchoolNodesStats_LastActivity($school, $year, $month, $day);
 
+    if (!($statsCon = opendb())) {
+        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
+        exit();
+    }
+
     // Get disk consume
     $diskConsume = (int)getDiskConsume($statsCon, $school['code'], 'nodes');
 
@@ -783,7 +783,7 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
                 usersactivelast30days, usersactivelast90days, diskConsume)
                 VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $date, "
                     . "$numPagesDay, $numPostsDay, " . $users['total'] . ", " . $users['active'] . ", "
-                    . $users['activelast30days'] . ", " . $users['activelast90days'] . ", '$diskConsume')";
+                    . $users['activelast30days'] . ", " . $users['activelast90days'] . ", $diskConsume)";
         } else  { // UPDATE
             $sql = "UPDATE agoraportal_nodes_stats_day SET
                 total                 = $numPagesDay,
@@ -792,7 +792,7 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
                 usersactive           = " . $users['active'] . ",
                 usersactivelast30days = " . $users['activelast30days'] . ",
                 usersactivelast90days = " . $users['activelast90days'] . ",
-                diskConsume           = '$diskConsume'
+                diskConsume           = $diskConsume
                 WHERE clientcode = '" . $school['code'] . "' AND date = '$date'";
         }
         if (!mysql_query($sql, $statsCon)) {
