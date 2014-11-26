@@ -41,6 +41,17 @@ INSTALL
 See INSTALL.txt for installation instructions.
 
 -----------------------------------------------------------------------------
+DOWNLOAD
+
+To download all the code of this repository follow this instructions:
+git clone https://github.com/projectestac/agora.git
+cd agora <or enter into the repo folder>
+git submodule update --init --recursive
+
+You can also use ths next repositories:
+https://github.com/projectestac/agora_moodle2 contains only the Moodle service
+https://github.com/projectestac/agora_nodes contains only the Wordpress service
+-----------------------------------------------------------------------------
 
 Older versions of the source code are available at:
 
