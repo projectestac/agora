@@ -153,6 +153,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
             throw new Zikula_Exception_Forbidden();
         }
+
         $clientCode = (!isset($args['clientCode'])) ? 0 : $args['clientCode'];
         $key = (!isset($args['key'])) ? 'clientServiceId' : $args['key'];
         $clientServiceId = (isset($args['clientServiceId'])) ? $args['clientServiceId'] : false;
@@ -243,23 +244,25 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             }
         }
 
-        switch ($pilot) {
-            case 'educat':
-                $where .= ( !empty($where) ) ? ' AND ' : '';
-                if($include){
-                    $where .= "b.$lcolumn[educat]" . " = 1";
-                } else {
-                    $where .= "b.$lcolumn[educat]" . " = 0";
-                }
-                break;
-            case 'educatNetwork':
-                $where .= ( !empty($where) ) ? ' AND ' : '';
-                if($include){
-                    $where .= "b.$lcolumn[educatNetwork]" . " = 1";
-                } else {
-                    $where .= "b.$lcolumn[educatNetwork]" . " = 0";
-                }
-                break;
+        if (is_string($pilot)) {
+            switch ($pilot) {
+                case 'educat':
+                    $where .= ( !empty($where) ) ? ' AND ' : '';
+                    if($include){
+                        $where .= "b.$lcolumn[educat]" . " = 1";
+                    } else {
+                        $where .= "b.$lcolumn[educat]" . " = 0";
+                    }
+                    break;
+                case 'educatNetwork':
+                    $where .= ( !empty($where) ) ? ' AND ' : '';
+                    if($include){
+                        $where .= "b.$lcolumn[educatNetwork]" . " = 1";
+                    } else {
+                        $where .= "b.$lcolumn[educatNetwork]" . " = 0";
+                    }
+                    break;
+            }
         }
 
         if (isset($args['order'])) {

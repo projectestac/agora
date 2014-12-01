@@ -18,7 +18,7 @@
                 {$servicesListContent}
             </div>
             <strong>{gt text="Ordenat per"}</strong><br/>
-            <select name="order_sel" id="order_sel" onchange="sqlservicesList()" style="width:100%;">
+            <select name="order" id="order" onchange="sqlservicesList()" style="width:100%;">
                 <option {if $order eq 1}selected{/if} value="1">{gt text="Nom del centre"}</option>
                 <option {if $order eq 3}selected{/if} value="3">{gt text="Id del centre"}</option>
                 <option {if $order eq 4}selected{/if} value="4">{gt text="Codi del centre"}</option>
@@ -27,21 +27,21 @@
 
             <fieldset style="width:90%; margin:0 auto; border: 1px solid #CCC;">
                 <legend><strong>{gt text="Filtra"}</strong></legend>
-                <select id="search">
+                <select id="search" name="search">
                     <option {if $search eq 1}selected{/if} value="1">{gt text="Codi"}</option>
                     <option {if $search eq 2}selected{/if} value="2">{gt text="Nom client"}</option>
                     <option {if $search eq 3}selected{/if} value="3">{gt text="Ciutat"}</option>
                     <option {if $search eq 4}selected{/if} value="4">{gt text="DNS"}</option>
                     <option {if $search eq 5}selected{/if} value="5">{gt text="Id"}</option>
                 </select>
-                <input type="text" value="{$searchText}" id="valueToSearch" size="20"/><br/><br/>
+                <input type="text" value="{$searchText}" id="valueToSearch" name="valueToSearch" size="20"/><br/><br/>
                 Característica:
-                <select id="pilot" onchange="sqlservicesList()">
+                <select id="pilot" name="pilot" onchange="sqlservicesList()">
                     <option {if $pilot === 0}selected{/if} value="0">{gt text="Cap"}</option>
                     <option {if $pilot === 'educat'}selected{/if} value="educat">{gt text="Centre Educat"}</option>
                     <option {if $pilot === 'educatNetwork'}selected{/if} value="educatNetwork">{gt text="Fa ús de la xarxa Educat"}</option>
                 </select>
-                <select id="include" onchange="sqlservicesList()">
+                <select id="include" name="include" onchange="sqlservicesList()">
                     <option {if $include eq 1}selected{/if} value="1">{gt text="Incloure"}</option>
                     <option {if $include eq 0}selected{/if} value="0">{gt text="Excloure"}</option>
                 </select><br/><br/>

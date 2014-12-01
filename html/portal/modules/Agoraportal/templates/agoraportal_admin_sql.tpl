@@ -11,7 +11,7 @@
                 <br /><br />
                 {gt text="Mostra un exemple de l'operació:"}
                 <br />
-                <select  id="sqloperation" onchange="sqlExampleUpdate(document.getElementbyId('sqloperation').value)">
+                <select  id="sqloperation" onchange="sqlExampleUpdate();">
                     <option value=""></option>
                     <option value="SELECT">SELECT</option>
                     <option value="INSERT">INSERT</option>
@@ -19,19 +19,19 @@
                     <option value="DELETE">DELETE</option>
                     <option value="ALTER">ALTER</option>
                 </select>
-                <span id="sqlexample" name="sqlexample"></span>
+                <span id="sqlexample"></span>
                 <br />
                 <div id="comandFormDiv" class="hidden">
                     {gt text="Escriu una descripció:"}
                     <textarea id="description" rows=4 width="100%"></textarea>
                     {gt text="Tipus de comanda:"}
                     <select name="comand_type" id="comand_type">
-                        <option value="0"></option>
-                        <option value="1">SELECT</option>
-                        <option value="2">INSERT</option>
-                        <option value="3">UPDATE</option>
-                        <option value="4">DELETE</option>
-                        <option value="5">ALTER</option>
+                        <option value=""></option>
+                        <option value="select">SELECT</option>
+                        <option value="insert">INSERT</option>
+                        <option value="update">UPDATE</option>
+                        <option value="delete">DELETE</option>
+                        <option value="alter">ALTER</option>
                     </select>
                     <div class="z-center">
                         <input id="comandId" type="hidden" value="" />

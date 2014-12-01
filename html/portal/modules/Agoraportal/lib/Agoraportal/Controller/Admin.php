@@ -1397,7 +1397,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
+        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
         $sqlfunc = FormUtil::getPassedValue('sqlfunction', isset($args['sqlfunction']) ? $args['sqlfunction'] : null, 'GETPOST');
         $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '4', 'GETPOST');
@@ -1550,22 +1550,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             return $view->fetch('agoraportal_admin_sql_ask.tpl');
         }
 
-        //Else  show form
-        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
-        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
-
-        $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('search' => $search,
-                    'searchText' => $searchText,
-                    'service_sel' => $service_sel,
-                    'which' => $which));
-
         // Create output object
         if ($comands) {
             $view->assign('comands', $comands);
         }
-        $view->assign('servicesListContent', $servicesListContent);
-        $view->assign('search', $search);
-        $view->assign('searchText', $searchText);
+        $view->assign('servicesListContent', $this->sqlservicesListContent($args));
         return $view->fetch('agoraportal_admin_sql.tpl');
     }
 
@@ -1580,7 +1569,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
+        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $message = FormUtil::getPassedValue('message', isset($args['message']) ? $args['message'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
         $only_admins = FormUtil::getPassedValue('only_admins', isset($args['only_admins']) ? $args['only_admins'] : "0", 'GETPOST');
@@ -1903,17 +1892,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             return $view->fetch('agoraportal_admin_advices_ask.tpl');
         }
 
-        //Else show form
-        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
-        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
-
-        $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('search' => $search,
-                    'searchText' => $searchText,
-                    'service_sel' => $service_sel,
-                    'which' => $which));
-
         // Create output object
-        $view->assign('servicesListContent', $servicesListContent);
+        $view->assign('servicesListContent', $this->sqlservicesListContent($args));
         $view->assign('search', $search);
         $view->assign('searchText', $searchText);
 
@@ -1931,13 +1911,18 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
-        $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : 2, 'GETPOST');
-        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'GETPOST');
-        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'GETPOST');
+
+        // Form usefull data
+        $service = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
+        $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : $service['serviceId'], 'GETPOST');
+        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
+
+        // Sorting and filtering data
         $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 1, 'GETPOST');
+        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
+        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
         $pilot = FormUtil::getPassedValue('pilot', isset($args['pilot']) ? $args['pilot'] : 0, 'GETPOST');
         $include = FormUtil::getPassedValue('include', isset($args['include']) ? $args['include'] : 1, 'GETPOST');
-        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
 
@@ -1945,7 +1930,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $service = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'marsupial'));
         unset($services[$service['serviceId']]);
 
-        $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 1, //Default
+        $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices',
+                array('init' => 1, //Default
                     'rpp' => 0, //No pages
                     'service' => $service_sel,
                     'state' => 1, //Active
@@ -1953,8 +1939,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     'order' => $order, //Default
                     'searchText' => $searchText,
                     'pilot' => $pilot,
-                    'include' => $include,
-                    ));
+                    'include' => $include));
 
         $clientsNumber = count($clients);
 
@@ -2066,7 +2051,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'GETPOST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'GETPOST');
 
-        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['servicesListContent'] : null, 'GETPOST');
+        $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
 
@@ -3933,7 +3918,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
-        $order_sel = FormUtil::getPassedValue('order_sel', isset($args['order_sel']) ? $args['order_sel'] : 1, 'GETPOST');
+        $order = FormUtil::getPassedValue('order', isset($args['order']) ? $args['order'] : 1, 'GETPOST');
         $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : '4', 'GETPOST');
         $actionselect = FormUtil::getPassedValue('actionselect', isset($args['actionselect']) ? $args['actionselect'] : false, 'GETPOST');
         $priority = FormUtil::getPassedValue('priority', isset($args['priority']) ? $args['priority'] : false, 'GETPOST');
@@ -3941,7 +3926,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('which', $which);
         $view->assign('service_sel', $service_sel);
-        $view->assign('order_sel', $order_sel);
+        $view->assign('order', $order);
         $view->assign('serviceSQL', 'getServiceActions();');
         $view->assign('actionselect', $actionselect);
 
@@ -4046,23 +4031,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             return $view->fetch('agoraportal_admin_operations_ask_exe.tpl');
         }
 
-        //Else  show form
-        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 0, 'GETPOST');
-        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
-        $pilot = FormUtil::getPassedValue('pilot', isset($args['pilot']) ? $args['pilot'] : 0, 'GETPOST');
-        $include = FormUtil::getPassedValue('include', isset($args['include']) ? $args['include'] : 1, 'GETPOST');
-
-        $view->assign('pilot', $pilot);
-        $view->assign('include', $include);
-
-        $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('search' => $search,
-                    'searchText' => $searchText,
-                    'service_sel' => $service_sel,
-                    'which' => $which));
-
-        $view->assign('servicesListContent', $servicesListContent);
-        $view->assign('search', $search);
-        $view->assign('searchText', $searchText);
+        $view->assign('servicesListContent', $this->sqlservicesListContent($args));
 
         $priority_values = array();
         $i = -10;

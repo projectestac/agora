@@ -42,8 +42,8 @@ function sqlservicesList() {
     var search = document.getElementById('search').value;
     var searchText = document.getElementById('valueToSearch').value;
     var service = document.getElementById("service_sel").value;
-    if(document.getElementById("order_sel")){
-            order = document.getElementById("order_sel").value;
+    if(document.getElementById("order")){
+            order = document.getElementById("order").value;
     } else {
         order = 1;
     }
@@ -61,12 +61,20 @@ function sqlservicesList() {
     var which = document.getElementById("which").value;
 
     if(which == "selected") {
+        var x = document.getElementById("clients_sel");
+        var clients = "";
+        for (i = 0; i < x.length; i++){
+            if(x.options[i].selected == true)
+                clients += x.options[i].value + ",";
+        }
+        clients = clients.substr(0, clients.length-1);
+
         document.getElementById("servicesListContent").className="visible";
         document.getElementById("cerca").className="visible";
 
         // Service = 0 is a fake service to refer to the portal
         if (service != 0) {
-            var pars = "module=Agoraportal&func=sqlservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include;
+            var pars = "module=Agoraportal&func=sqlservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include + "&clients=" + clients;
             Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
             var myAjax = new Ajax.Request("ajax.php",
             {
@@ -369,7 +377,8 @@ function statsAssistent(key, data) {
 }
 
 
-function sqlExampleUpdate(operation) {
+function sqlExampleUpdate() {
+    var operation = document.getElementById('sqloperation').value;
     switch(operation){
         case "SELECT":
             Element.update('sqlexample',"SELECT [columna] FROM [taules] WHERE [condicions]");

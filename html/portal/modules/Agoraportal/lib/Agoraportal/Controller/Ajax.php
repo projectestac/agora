@@ -62,13 +62,15 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $order = FormUtil::getPassedValue('order', 1, 'GET');
         $pilot = FormUtil::getPassedValue('pilot', 0, 'GET');
         $include = FormUtil::getPassedValue('include', 1, 'GET');
+        $clients = FormUtil::getPassedValue('clients', '', 'GET');
         $content = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('init' => $init,
                     'service_sel' => $service,
                     'search' => $search,
                     'searchText' => $searchText,
                     'order' => $order,
                     'pilot' => $pilot,
-                    'include' => $include));
+                    'include' => $include,
+                    'clients_sel' => explode(',',$clients)));
         AjaxUtil::output(array('content' => $content));
     }
 

@@ -1733,8 +1733,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $success = false;
-        $result = "";
         $command = "";
         $dirbase = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))));
 
@@ -1748,7 +1746,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 $command = $dirbase.'/wordpress/wp-includes/xtec/scripts/cli.php -s='.$operation;
                 break;
             default:
-                return array('success' => $success, 'result' => 'Operations are not allowed for this service');
+                return array('success' => false, 'result' => 'Operations are not allowed for this service');
                 break;
         }
 
@@ -1759,9 +1757,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         $command = 'php '.$command.' > /dev/stdout 2>&1';
-        exec($command, $result, $success);
+        $last = exec($command, $result);
 
-        $success = $result['success'] >= 0;
+        $success = $last != 'error';
         $result = nl2br(implode("\n", $result));
 
         return array('success' => $success, 'result' => $result);
