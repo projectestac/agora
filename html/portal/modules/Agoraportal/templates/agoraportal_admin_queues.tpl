@@ -84,7 +84,7 @@
                 {foreach item=row from=$rows}
                     {if $row.state == 'OK'}
                         <tr class="{cycle values="ok-odd,ok-even"}">
-                    {elseif $row.state == 'KO'}
+                    {elseif $row.state == 'KO' || $row.state == 'TO'}
                         <tr class="{cycle values="error-odd,error-even"}">
                     {elseif $row.state == 'L'}
                         <tr class="{cycle values="info-odd,info-even"}">
@@ -157,7 +157,7 @@
                             <img title="Registre" src='images/icons/small/db.png' onclick="operations_show_log('{$row.logId}');"/>
                         {/if}
 
-                        {if $row.state == 'KO'}
+                        {if $row.state == 'KO' || $row.state == 'TO'}
                             <img title="Executa de nou" src='images/icons/small/reload.png' onclick="operations_execute('{$row.id}');"/>
                         {elseif $row.state == 'P'}
                             <img title="Executa ara" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
