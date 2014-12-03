@@ -172,61 +172,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // If it is an activation, checks if the service exists. If not create it
             if ($state == 1) {
                 if ($clientService['activedId'] == 0) {
-                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService_' . $serviceName,
+                    $password = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService',
                                                 array('clientServiceId' => $clientServiceId,
-                                                      'dbHost' => $dbHost));
-                    if (!is_array($result)) {
-                        LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
+                                                      'dbHost' => $dbHost,
+                                                      'serviceName' => $serviceName));
+                    if (!$password) {
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
                                             'search' => $search,
                                             'searchText' => $searchText,
                                             'service' => $service,
                                             'stateFilter' => $stateFilter)));
-                    } else {
-                        $db = $result['db'];
-                        $password = $result['password'];
-                    }
-
-                    // Get the database value depending on the service requested
-                    // In MySQL is DB name. In Oracle is Oracle instance.
-                    $serviceDB = '';
-                    switch ($serviceName) {
-                        case 'intranet':
-                            $database = ($db) ? $agora['intranet']['userprefix'] . $db : '';
-                            break;
-                        case 'nodes':
-                            $database = ($db) ? $agora['nodes']['userprefix'] . $db : '';
-                            break;
-                        case 'moodle2':
-                            $database = ModUtil::apiFunc('Agoraportal', 'user', 'calcOracleInstance', array('database' => $db));
-                            $serviceDB = $database;
-                            break;
-                        case 'marsupial':
-                            $database = 1;
-                            break;
-                    }
-
-                    // edit service information
-                    $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
-                                'items' => array('serviceDB' => $database,
-                                    'timeCreated' => time(),
-                                    'activedId' => $db,
-                                    'dbHost' => $dbHost,
-                                    )));
-
-                    if ($clientServiceEdited) {
-                        // insert the action in logs table
-                        ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode,
-                            'actionCode' => 2,
-                            'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $serviceName)));
-                    } else {
-                        LogUtil::registerError($this->__('Error en l\'edició del registre'));
-                        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
-                                            'search' => $search,
-                                            'searchText' => $searchText,
-                                            'service' => $service,
-                                            'stateFilter' => $stateFilter,
-                                        )));
                     }
                 }
             }

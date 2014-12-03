@@ -148,7 +148,8 @@
                             {assign var="params" value=$row.params|@json_decode}
                             {assign var="text" value=""}
                             {foreach item=val key=k from=$params}
-                                {assign var="text" value="`$text``$k` = `$val`<br/>"}
+                                {assign var="value" value=$val|@html_entity_decode}
+                                {assign var="text" value="`$text``$k` = `$value`<br/>"}
                             {/foreach}
                             <img title="Paràmetres" src='images/icons/small/package_graphics.png' onclick="operations_show_params('{$text|escape}');"/>
                         {/if}
