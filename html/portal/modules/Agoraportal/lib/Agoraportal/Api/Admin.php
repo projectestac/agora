@@ -1070,7 +1070,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
 
             case 3: // Create or delete Zikula super administrator
-                $sql = "SELECT {$compat['fieldsPrefix']}uid FROM {$compat['tablePrefix']}users WHERE {$compat['fieldsPrefix']}uname='xtecadmin'";
+                $sql = "SELECT uid FROM users WHERE uname='xtecadmin'";
                 $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                             'sql' => $sql,
                             'serviceName' => 'intranet',
@@ -1080,10 +1080,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 if (!$result['success'])
                     return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
 
-                if ($result['values'][0]["{$compat['fieldsPrefix']}uid"] > 0) {
+                if ($result['values'][0]["uid"] > 0) {
                     //delete all the user groups
-                    $sql = "DELETE FROM {$compat['tablePrefix']}group_membership
-                    WHERE `{$compat['fieldsPrefix']}uid`=" . $result['values'][0]["{$compat['fieldsPrefix']}uid"];
+                    $sql = "DELETE FROM group_membership
+                    WHERE `uid`=" . $result['values'][0]["uid"];
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
                                 'serviceName' => 'intranet',
@@ -1094,8 +1094,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
 
                     //the user exists and delete it
-                    $sql = "DELETE FROM {$compat['tablePrefix']}users
-                        WHERE `{$compat['fieldsPrefix']}uname`= 'xtecadmin'";
+                    $sql = "DELETE FROM users WHERE uname = 'xtecadmin'";
 
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
@@ -1107,11 +1106,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     LogUtil::registerStatus($this->__('S\'ha esborrat l\'usuari xtecadmin del centre'));
                 } else {
                     //the user doesn't exists and create it
-                    $sql = ($item[$clientServiceId]['version'] == '128') ?
-                            "INSERT INTO zk_users (pn_uname, pn_pass, pn_email, pn_hash_method, pn_activated)
-                        VALUES ('xtecadmin','" . $agora['xtecadmin']['password'] . "','" . $agora['xtecadmin']['mail'] . "',1,1)" :
-                            "INSERT INTO users (uname, pass, email, activated)
-                        VALUES ('xtecadmin','" . '1$$' . $agora['xtecadmin']['password']. "'," . $agora['xtecadmin']['mail'] . "',1)";
+                    $sql = "INSERT INTO users (uname, pass, email, activated)
+                        VALUES ('xtecadmin','" . '1$$' . $agora['xtecadmin']['password']. "', '" . $agora['xtecadmin']['mail'] . "',1)";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
                                 'serviceName' => 'intranet',
@@ -1120,7 +1116,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     if (!$result['success'])
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
 
-                    $sql = "SELECT {$compat['fieldsPrefix']}uid FROM {$compat['tablePrefix']}users WHERE {$compat['fieldsPrefix']}uname='xtecadmin'";
+                    $sql = "SELECT uid FROM users WHERE uname='xtecadmin'";
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                 'sql' => $sql,
                                 'serviceName' => 'intranet',
@@ -1129,10 +1125,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     if (!$result['success'])
                         return LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error:' . $result['errorMsg']));
 
-                    if ($result['values'][0]["{$compat['fieldsPrefix']}uid"] > 0) {
+                    if ($result['values'][0]["uid"] > 0) {
                         //insert the user into admin group
-                        $sql = "INSERT INTO {$compat['tablePrefix']}group_membership ({$compat['fieldsPrefix']}uid, {$compat['fieldsPrefix']}gid)
-                            VALUES (" . $result['values'][0]["{$compat['fieldsPrefix']}uid"] . ",2)";
+                        $sql = "INSERT INTO group_membership (uid, gid) VALUES (" . $result['values'][0]["uid"] . ",2)";
 
                         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                                     'sql' => $sql,
