@@ -12,6 +12,7 @@ html/moodle2/auth/odissea
 html/*/sftp-config*.json
 nbproject
 moodledata/
+docs/
 sh/
 zkdata/
 .Trash*/*
