@@ -3,12 +3,37 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 14.12.22
 ---------------------------------------------------------------------------------------
-PORTAL:
-- Agoraportal: Fixed creation of xtecadmin in intranets
+GENERAL
+- Moved Wordpress and Moodle the external repositories
 
+MOODLE2
+- Upgrade to Moodle 2.6.6
+- Updated all external modules
+- Moved lang files to langpacks
+- MDL-43462 assignfeedback_editpdf: fix display of landscape PDFs 
+- Bigdata translated
+- Some marsupial bug fixes including: CSV import
 
+NODES
+- Changed Consorci d'Educació's logo
+- Added pending submission notifications plugin
+- Added tumblog icons style to post
+- Improved featured image visualization
+- Code styling
+- Changed spanish scribd url before save post
+- Improved main menu items
+- Nodes now choose the right corporate logo
+- Scripts: add error option for CLI
+
+PORTAL
+- Fixed creation of xtecadmin in intranets
+- Add functions for timeout operations
+- Better filtering of cliends and services
+- Enable Moodle instances from operations
+- Changed name of moodledata/ by docs/
+- Updated demo cache files
 
 Changes 14.11.27
 ---------------------------------------------------------------------------------------
