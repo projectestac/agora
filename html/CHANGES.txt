@@ -17,14 +17,14 @@ MOODLE2
 - Some marsupial bug fixes including: CSV import
 
 NODES
-- Changed Consorci d'Educació's logo
-- Added pending submission notifications plugin
-- Added tumblog icons style to post
-- Improved featured image visualization
-- Code styling
-- Changed spanish scribd url before save post
-- Improved main menu items
-- Nodes now choose the right corporate logo
+- Added pending submission notifications plugin #65
+- Added tumblog icons style to post #61
+- Improved featured image visualization #60 
+- Changed scribd url fromt es.scribd.com to www.scribd.com before save post #49
+- Improved main menu items  #58
+- Nodes now choose the right corporate logo (Consorci if city is Barcelona; Ensenyament otherwise)  #55
+- Added link to corporate logo  #68
+- Added Google+ support for slideshow  #51
 - Scripts: add error option for CLI
 
 PORTAL
