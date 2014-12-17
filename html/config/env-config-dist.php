@@ -8,7 +8,7 @@ $agora['server']['server']     = 'http://agora';     // URL base del servidor
 $agora['server']['marsupial']  = 'http://agora-virtual.educat1x1.cat';   // URL base del servidor per utilitzar els mòduls de marsupial
 $agora['server']['base']       = '/agora/';          // Context de l'aplicació (és a dir, el que cal escriure després del servidor per accedir a l'aplicació). En el cas d'acceptació agora-moodle i a producció res.
 $agora['server']['cgi_base']   = '/cgi-bin/';        // Context dels CGI (és a dir, el que cal escriure després del servidor per accedir als CGI).
-$agora['server']['docs']       = 'moodledata/';      // Context dels CGI (és a dir, el que cal escriure després del servidor per accedir als CGI).
+$agora['server']['docs']       = 'docs/';            // Directori arrel de dades d'usuari
 $agora['server']['userprefix'] = 'usu';              // Prefix dels esquemes dels usuaris de base de dades que s'han creat. Així, per exemple, si s'han creat usuaris de l'estil USUx (com ara USU1, USU2...), el prefix és USU.
 $agora['server']['enviroment'] = 'LOCAL';            // Referent a l'entorn (INT, ACC, PRO, FRM)
 
