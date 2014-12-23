@@ -39,6 +39,10 @@ pushd html/moodle2/local/oauth
 git checkout master
 git remote set-url origin git@github.com:projectestac/moodle-local_oauth.git
 popd
+pushd html/moodle2/local/mobile
+git checkout MOODLE_26_STABLE
+git remote set-url origin git@github.com:jleyva/moodle-local_mobile.git
+popd
 pushd html/moodle2/mod/eoicampus
 git checkout master
 git remote set-url origin git@github.com:projectestac/moodle-mod_eoicampus.git
