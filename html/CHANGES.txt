@@ -3,6 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+ZIKULA
+- IWagendas: Updated lang text and some HTML validation issues
+
+
 Changes 14.12.22
 ---------------------------------------------------------------------------------------
 GENERAL
@@ -34,6 +40,7 @@ PORTAL
 - Enable Moodle instances from operations
 - Changed name of moodledata/ by docs/
 - Updated demo cache files
+
 
 Changes 14.11.27
 ---------------------------------------------------------------------------------------
