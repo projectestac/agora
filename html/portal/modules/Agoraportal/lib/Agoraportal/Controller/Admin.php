@@ -172,16 +172,19 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // If it is an activation, checks if the service exists. If not create it
             if ($state == 1) {
                 if ($clientService['activedId'] == 0) {
-                    $password = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService',
+                    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService',
                                                 array('clientServiceId' => $clientServiceId,
                                                       'dbHost' => $dbHost,
                                                       'serviceName' => $serviceName));
-                    if (!$password) {
+                    if (!$result) {
                         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
                                             'search' => $search,
                                             'searchText' => $searchText,
                                             'service' => $service,
                                             'stateFilter' => $stateFilter)));
+                    } else {
+                        $serviceDB = $result['serviceDB'];
+                        $password = $result['password'];
                     }
                 }
             }

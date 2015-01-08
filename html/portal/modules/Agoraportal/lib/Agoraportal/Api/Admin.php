@@ -201,6 +201,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Get the database value depending on the service requested
         // In MySQL is DB name. In Oracle is Oracle instance.
+        $serviceDB = $db;
         switch ($serviceName) {
             case 'intranet':
                 $database = $agora['intranet']['userprefix'] . $db;
@@ -210,6 +211,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
             case 'moodle2':
                 $database = ModUtil::apiFunc('Agoraportal', 'user', 'calcOracleInstance', array('database' => $db));
+                $serviceDB = $database;
                 break;
             case 'marsupial':
                 $database = 1;
@@ -220,12 +222,15 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // edit service information
-        $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
-                    'items' => array('serviceDB' => $database,
-                        'timeCreated' => time(),
-                        'activedId' => $db,
-                        'dbHost' => $dbHost,
-                        )));
+        $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService',
+                array('clientServiceId' => $clientServiceId,
+                        'items' => array('serviceDB' => $database,
+                                         'timeCreated' => time(),
+                                         'activedId' => $db,
+                                         'dbHost' => $dbHost
+                                        )
+                    )
+                );
         if ($clientServiceEdited) {
             // insert the action in logs table
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode,
@@ -244,7 +249,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
             return false;
         }
-        return $password;
+
+        return array('serviceDB' => $serviceDB, 'password' => $password);
     }
 
     private function getDBId($clientService, $serviceId, $clientId, $serviceName, $dbHost) {
