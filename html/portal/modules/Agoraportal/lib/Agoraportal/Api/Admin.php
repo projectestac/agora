@@ -1728,6 +1728,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 break;
         }
 
+        set_time_limit(0);
+
         if($params && is_array($params)) {
             foreach($params as $key => $value) {
                 $command .= ' --'.$key.'="'.html_entity_decode($value).'"';
