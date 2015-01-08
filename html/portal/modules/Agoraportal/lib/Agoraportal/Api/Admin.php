@@ -1859,7 +1859,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
         if (!empty($executings)) {
             foreach ($executings as $executing) {
-                if ($executing['timeStart'] < time() - 60 * 60) { //Timeout after one hour
+                if ($executing['timeStart'] < time() - 30 * 60) { //Timeout after half hour
                     $executing['state'] = 'TO';
                     DBUtil::updateObject($executing, 'agoraportal_queues');
                 }
