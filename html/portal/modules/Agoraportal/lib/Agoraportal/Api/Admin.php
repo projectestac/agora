@@ -147,6 +147,15 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         return true;
     }
 
+    /**
+     * Generic function to activate services. Does common operations and calls
+     * specific function to complete the activation process
+     * 
+     * @global array $agora
+     * @param array $args
+     * @return boolean
+     * @throws Zikula_Exception_Forbidden
+     */
     public function activeService($args) {
         global $agora;
 
@@ -167,7 +176,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Falta el nom del servei'));
         }
 
-        // Get definition of service moodle2
+        // Get definition of the service
         $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
         if (!is_array($service)) {
             return LogUtil::registerError($this->__('No s\'ha trobat el servei '.$serviceName));
@@ -184,12 +193,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClientById', array('clientId' => $clientService['clientId']));
         if (!$client) {
             return LogUtil::registerError($this->__('No s\'ha trobat la informació del client amb Id ' . $clientServiceId['clientId']));
-        }
-
-        // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
-        $dbHost = $args['dbHost'];
-        if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
-            $dbHost = $agora['intranet']['host'];
         }
 
         // Get the actual Id
@@ -221,6 +224,16 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 return false;
         }
 
+        $password = $this->createRandomPass();
+
+        $function = 'activeService_' . $serviceName;
+        $result = $this->$function($db, $dbHost, $client, $service, $clientService, $password);
+
+        if (!$result) {
+            LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
+            return false;
+        }
+
         // edit service information
         $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService',
                 array('clientServiceId' => $clientServiceId,
@@ -238,15 +251,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $serviceName)));
         } else {
             LogUtil::registerError($this->__('Error en l\'edició del registre'));
-            return false;
-        }
-
-        $function = 'activeService_' . $serviceName;
-        $password = $this->createRandomPass();
-        $result = $this->$function($db, $dbHost, $client, $service, $clientService, $password);
-
-        if (!$result) {
-            LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
             return false;
         }
 
@@ -292,10 +296,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @return  array if Ok / boolean if error
      */
     private function activeService_moodle2($db, $dbHost, $client, $service, $clientService, $password) {
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
 
         // Generate a password for Moodle admin user
         $params = array();
@@ -335,18 +335,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     private function activeService_intranet($db, $dbHost, $client, $service, $clientService, $password) {
         global $agora;
 
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
         // Get the params
-        $clientServiceId = $clientService['clientServiceId'];
-        $serviceId = $service['serviceId'];
-        $clientId = $client['clientId'];
         $clientName = $client['clientName'];
         $clientCode = $client['clientCode'];
-        $serviceName = 'intranet';
 
         // Generate a password for Intraweb admin user
         $passwordEnc = '1$$' . md5($password);
@@ -404,17 +395,42 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @return 	array with dummy value
      */
     private function activeService_nodes($db, $dbHost, $client, $service, $clientService, $password) {
-        global $agora;
 
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+        global $agora, $ZConfig;
+        
+        // Check the value of extraFunc
+        if (!isset($client['extraFunc']) || empty($client['extraFunc'])) {
+            LogUtil::registerError($this->__("Falta indicar si es tracta d'una maqueta de primària o de secundària (Indicar <strong>primaria</strong> o <strong>secundaria</strong> al camp <strong>Funcionalitats addicionals</strong>)"));
+            return false;
+        }
+
+        // Check file presence
+        switch ($client['extraFunc']) {
+            case 'primaria':
+                $files = array (
+                    'db' => $ZConfig['System']['datadir'] . '/nodes/masterpri.sql',
+                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/masterpri.zip'
+                );
+                break;
+            case 'secundaria':
+                $files = array (
+                    'db' => $ZConfig['System']['datadir'] . '/nodes/mastersec.sql',
+                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastersec.zip'
+                );
+                break;
+            default:
+                LogUtil::registerError($this->__("El valor del camp <strong>Funcionalitats addicionals</strong> ha de ser <strong>primaria</strong> o <strong>secundaria</strong> (sense accents)."));
+                return false;
+        }
+
+        foreach ($files as $file) {
+            if (!file_exists($file)) {
+                LogUtil::registerError($this->__f("No s'ha trobat el fitxer %s", $file));
+                return false;
+            }
         }
 
         // Get the params
-        $clientServiceId = $clientService['clientServiceId'];
-        $serviceId = $service['serviceId'];
-        $clientId = $client['clientId'];
         $clientName = $client['clientName'];
         $clientAddress = $client['clientAddress'];
         $clientCity = $client['clientCity'];
@@ -422,7 +438,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $clientDNS = $client['clientDNS'];
         $clientCode = $client['clientCode'];
 
-        // Generate a password for Intraweb admin user
+        // Generate a password for admin user
         $passwordEnc = md5($password);
 
         $prefix = $agora['nodes']['prefix'];
@@ -430,6 +446,28 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $dbUser = $agora['nodes']['userprefix'] . $db;
 
         $sqls = array();
+
+        // Temporary variable, used to store current query
+        $templine = '';
+        // Read in entire file
+        $lines = file($files['db']);
+        
+        // Loop through each line
+        foreach ($lines as $line) {
+            // Skip it if it's a comment
+            if (substr($line, 0, 2) == '--' || substr($line, 0, 3) == '/*!' || substr($line, 0, 1) == '#' || $line == '') {
+                continue;
+            }
+            // Add this line to the current segment
+            $templine .= $line;
+            // If it has a semicolon at the end, it's the end of the query
+            if (substr(trim($line), -1, 1) == ';') {
+                // Perform the query
+                $sqls[] = $templine;
+                // Reset temp variable to empty
+                $templine = '';
+            }
+        }
 
         $value = DataUtil::formatForStore($clientName);
         $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogname'";
@@ -519,7 +557,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // Now update serialized wp_options fields
-        $fields = array ('my_option_name', 'widget_text', 'reactor_options');
+        $fields = array ('my_option_name', 'widget_text', 'reactor_options', 'widget_socialmedia_widget');
 
         foreach ($fields as $field) {
             $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
@@ -578,6 +616,23 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
+        // Uncompress the files
+        $zip = new ZipArchive();
+        
+        $resource = $zip->open($files['files']);
+        if (!$resource) {
+            LogUtil::registerError($this->__f("No s'ha pogut obrir el fitxer %s", $files['files']));
+            return false;
+        }
+        
+        if (!$zip->extractTo($agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/')) {
+            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s", $files['files']));
+            $zip->close();
+            return false;
+        }
+
+        $zip->close();
+        
         return true;
     }
 

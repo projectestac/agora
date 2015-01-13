@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Agoraportal: Added ability to create tables and files for Nodes when creating new services
+
 ZIKULA
 - IWagendas: Updated lang text and some HTML validation issues
 
