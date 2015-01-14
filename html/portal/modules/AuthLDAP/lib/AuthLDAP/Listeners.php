@@ -40,8 +40,9 @@ class AuthLDAP_Listeners {
         $authentication_info = FormUtil::getPassedValue('authentication_info', isset($args['authentication_info']) ? $args['authentication_info'] : null, 'POST');
 
         // Argument check
-        if ($authentication_info['login_id'] == '' || $authentication_info['pass'] == '')
+        if ($authentication_info['login_id'] == '' || $authentication_info['pass'] == '') {
             return false;
+        }
 
         $uname = $authentication_info['login_id'];
         $pass = $authentication_info['pass'];
@@ -54,18 +55,27 @@ class AuthLDAP_Listeners {
             $justthese = array('cn', 'uid', 'givenname', 'sn', 'mail');
 
             // connect to ldap server
-            if (!$ldap_ds = ldap_connect(modUtil::getVar('AuthLDAP', 'authldap_serveradr')))
+            if (!$ldap_ds = ldap_connect(modUtil::getVar('AuthLDAP', 'authldap_serveradr'))) {
+                LogUtil::registerError('En aquests moments no es pot entrar al portal perquè el servei LDAP no està disponible. Proveu-ho més tard.');
                 return false;
+            }
 
             // XTEC LDAP server uses non-standar bind
-            $ldaprdn = pnModGetVar('AuthLDAP', 'authldap_searchattr') . '=' . $uname . ',' . modUtil::getVar('AuthLDAP', 'authldap_basedn');    // ldap rdn or dn
+            $ldaprdn = pnModGetVar('AuthLDAP', 'authldap_searchattr') . '=' . $uname . ',' . modUtil::getVar('AuthLDAP', 'authldap_basedn'); // ldap rdn or dn
+
+            // Hide the E_WARNING messages from ldap_bind and ldap_search when there are any errors
+            set_error_handler(function() { ; }, E_WARNING);
+            
             ldap_bind($ldap_ds, $ldaprdn, $pass);
 
-            // search the directory for our user
+            // Search the directory for the user
             if (!$ldap_sr = ldap_search($ldap_ds, modUtil::getVar('AuthLDAP', 'authldap_searchdn'), modUtil::getVar('AuthLDAP', 'authldap_searchattr') . '=' . DataUtil::formatForStore($uname), $justthese)) {
                 LogUtil::registerError('No s\'ha trobat l\'usuari/ària en el servei LDAP i no podeu entrar a la gestió dels serveis d\'Àgora. Poseu-vos en contacte amb el SAU.');
                 return false;
             }
+            
+            // Restore standard error management after the calls to ldap_bind and ldap_search
+            restore_error_handler();
 
             $info = ldap_get_entries($ldap_ds, $ldap_sr);
 
@@ -80,18 +90,18 @@ class AuthLDAP_Listeners {
                 }
             }
 
-            // we're now finished with ldap itself so we don't need the connection anymore
-            @ldap_unbind($ldap_ds);
+            // Close the LDAP connection
+            set_error_handler(function() { ; }, E_WARNING);
+            ldap_unbind($ldap_ds);
+            restore_error_handler();
+
         } else {
             $info[0]['uid'][0] = $uname;
             $info[0]['cn'][0] = $uname;
             $info[0]['mail'][0] = $uname . '@xtec.cat';
         }
 
-        // Set default value to know if a client must be created
-        $createClient = false;
-
-        // check if the user already exists in the Zikula database. If not, create it.
+        // Check if the user already exists in the Zikula database. If not, create it.
         $user = ModUtil::APIFunc('Users', 'user', 'get', array('uname' => $info[0]['uid'][0]));
 
         if (!empty($user) && isset($user['uid'])) {

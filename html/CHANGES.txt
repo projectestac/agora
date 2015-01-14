@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Agoraportal: Added ability to create tables and files for Nodes when creating new services
+- LDAP: Don't show warnings to users when password is incorrect in login
 
 ZIKULA
 - IWagendas: Updated lang text and some HTML validation issues
