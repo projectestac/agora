@@ -404,7 +404,6 @@ class Files_Controller_User extends Zikula_AbstractController {
             return $this->view->fetch('Files_user_failedConf.tpl');
         }
         $initFolderPath = $check['initFolderPath'];
-        echo $initFolderPath;
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -437,7 +436,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         header($header);
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: " . $fileSize);
-        @readfile($initFolderPath . '/' . $file);
+        readfile($initFolderPath . '/' . $file);
         return true;
     }
 
