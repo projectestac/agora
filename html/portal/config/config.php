@@ -1,5 +1,6 @@
 <?php
 require_once('../config/env-config.php');
+require_once('../config/dblib-mysql.php'); // Loaded to be able to call its functions
 
 global $agora;
 global $ZConfig;

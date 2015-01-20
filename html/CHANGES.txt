@@ -8,7 +8,8 @@ Changes in progress
 PORTAL
 - Agoraportal: Added ability to create tables and files for Nodes when creating new services
 - LDAP: Don't show warnings to users when password is incorrect in login
-- FILES: Fixed problem downloading files when folder is not public
+- LDAP: Don't allow login to schools that doesn't have 'Nom propi'
+- Files: Fixed problem downloading files when folder is not public
 
 ZIKULA
 - IWagendas: Updated lang text and some HTML validation issues

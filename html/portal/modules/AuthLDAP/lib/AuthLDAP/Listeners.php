@@ -23,18 +23,15 @@ class AuthLDAP_Listeners {
      * @return bool true authetication succesful
      */
     public static function loginSuccessListener(Zikula_Event $event) {
-        $uname = UserUtil::getVar('uname');
-        $uid = UserUtil::getVar('uid');
-        // checks if user is a schools, member of clients group. If not create it as client
-        self::createClient(array('uname' => $uname,
-            'uid' => $uid));
         return true;
     }
 
     /**
-     * Validate user via LDAP because the Zikula authentication has failed and create it if necessary
+     * Log in user via LDAP after the Zikula authentication has failed and create it if necessary
+     * 
      * @author Albert Pérez Monfort
-     * @return bool true authetication succesful
+     * @author Toni Ginard
+     * @return bool true authentication successful
      */
     public static function tryAuthLDAPListener(Zikula_Event $event) {
         $authentication_info = FormUtil::getPassedValue('authentication_info', isset($args['authentication_info']) ? $args['authentication_info'] : null, 'POST');
@@ -46,9 +43,10 @@ class AuthLDAP_Listeners {
 
         $uname = $authentication_info['login_id'];
         $pass = $authentication_info['pass'];
-
+ 
         global $agora;
         $info = array();
+        $schoolData = '';
 
         if ($agora['server']['enviroment'] != 'LOCAL') {
             // define the attributes we want to get in our search
@@ -94,13 +92,21 @@ class AuthLDAP_Listeners {
             set_error_handler(function() { ; }, E_WARNING);
             ldap_unbind($ldap_ds);
             restore_error_handler();
+            
+            // Check if this user is a school and check if it has nom propi
+            if (self::isUserSchool($uname)) {
+                $schoolData = self::getSchoolFromWS($uname);
+                if (!$schoolData) {
+                    return false; // Log message already set
+                }
+            }
 
         } else {
             $info[0]['uid'][0] = $uname;
             $info[0]['cn'][0] = $uname;
             $info[0]['mail'][0] = $uname . '@xtec.cat';
         }
-
+ 
         // Check if the user already exists in the Zikula database. If not, create it.
         $user = ModUtil::APIFunc('Users', 'user', 'get', array('uname' => $info[0]['uid'][0]));
 
@@ -119,7 +125,8 @@ class AuthLDAP_Listeners {
                 'email' => $info[0]['mail'][0],
                 'user_regdate' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
                 'approved_date' => DateUtil::buildDatetime(date("Y"), date("m"), date("d"), date("H"), date("i"), date("s")),
-                'pass' => '1$$' . md5($pass),
+                //'pass' => '1$$' . md5($pass),
+                'pass' => '',
                 'activated' => 1,
                 'approved_by' => 2,
             );
@@ -144,14 +151,22 @@ class AuthLDAP_Listeners {
                 return LogUtil::registerError('No s\'ha pogut afegir l\'usuari/ària al grup per defecte.');
             }
             $uid = $uid['uid'];
-
-            // Adds client registry to clients table
-            self::createClient(array('uname' => $uname, 'uid' => $uid));
+        }
+        
+        // Ensure that usernames that match a client code are clients
+        if (!self::createClient(
+                        array(
+                            'uname' => $uname,
+                            'uid' => $uid,
+                            'schoolData' => $schoolData))) {
+            return false;
         }
 
+        // Remove error message from local login fail
         LogUtil::getErrorMessages();
 
         UserUtil::setUserByUid($uid);
+        
         return System::redirect('index.php');
     }
 
@@ -161,47 +176,23 @@ class AuthLDAP_Listeners {
      * @return bool true if succesful and false otherwise
      */
     private function createClient($args) {
+        // Extract vars
         $uname = $args['uname'];
         $uid = $args['uid'];
-        $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
-        if (preg_match($pattern, $uname)) {
+        $schoolData = $args['schoolData'];
+        
+        if (self::isUserSchool($uname)) {
             $idGroupClients = UserUtil::getGroupIdList('name=\'Clients\'');
             $groups = userUtil::getGroupsForUser($uid);
             $isClient = (in_array($idGroupClients, $groups)) ? true : false;
 
             if (!$isClient) {
-                // Convert uname begining with a letter to uname begining with a number
-                $uname = str_replace('a', '0', $uname);
-                $uname = str_replace('b', '1', $uname);
-                $uname = str_replace('c', '2', $uname);
-                $uname = str_replace('e', '4', $uname);
-
-                global $agora;
-                // Get school info
-                $url = $agora['server']['school_information'] . $uname;
-
-                $curl_handle = curl_init();
-                curl_setopt($curl_handle, CURLOPT_URL, $url);
-                curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
-                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-                $buffer = curl_exec($curl_handle);
-                curl_close($curl_handle);
-
-                // Get school DNS
-                $siteDNS = '';
-                if (!empty($buffer)) {
-                    $siteDNS = utf8_encode($buffer);
-                } else {
-                    return LogUtil::registerError('No s\'ha pogut obtenir automàticament la informació del centre. Poseu-vos en contacte amb el SAU.');
+                if (!$schoolData) {
+                    return false; // Log errors already set
                 }
 
-                // Additional check. This error should never happen.
-                if (strpos($siteDNS, 'ERROR') !== false) {
-                    return LogUtil::registerError('No se us ha reconegut com a centre docent perquè que figureu a la base de dades de centres de la XTEC. Poseu-vos en contacte amb el SAU.');
-                }
-
-                // it is a school and get DNS
-                $school = explode('$$', $siteDNS);
+                // Get school data
+                $school = explode('$$', $schoolData);
                 $clientCode = $school[0];
                 $clientDNS = $school[1];
                 $clientName = $school[2];
@@ -210,7 +201,8 @@ class AuthLDAP_Listeners {
                 $clientPC = $school[5];
 
                 if ($clientDNS == '0') {
-                    return LogUtil::registerError('El centre no disposa de nom propi. Cal tenir-ne per poder sol·licitar els serveis d\'Àgora');
+                    LogUtil::registerError('No podeu entrar perquè el vostre centre no té nom propi. Visiteu <a href="http://www.xtec.cat/web/at_usuari/nompropi">aquesta pàgina</a> per saber com aconseguir-lo.');
+                    return false;
                 }
 
                 // Add user to group (group tables are already loaded)
@@ -236,4 +228,65 @@ class AuthLDAP_Listeners {
         return true;
     }
 
+    /**
+     * Get the string with School Information from Web Service
+     * Demo string: a8000001$$nompropi$$Nom del Centre$$c. Carrer, 18-24$$Valldeneu$$00000
+     * 
+     * @author Toni Ginard
+     * 
+     * @global array $agora
+     * @param string $uname
+     * @return boolean false on error. String when success.
+     */
+    private function getSchoolFromWS($uname) {
+
+        $unameNum = transformClientCode($uname, 'letter2num');
+
+        global $agora;
+        // Get school info
+        $url = $agora['server']['school_information'] . $unameNum;
+
+        $curl_handle = curl_init();
+        curl_setopt($curl_handle, CURLOPT_URL, $url);
+        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+        $buffer = curl_exec($curl_handle);
+        curl_close($curl_handle);
+
+        // Get school Data
+        $schoolData = '';
+        if (!empty($buffer)) {
+            $schoolData = utf8_encode($buffer);
+        } else {
+            LogUtil::registerError('No s\'ha pogut obtenir automàticament la informació del centre. Poseu-vos en contacte amb el SAU.');
+            return false;
+        }
+
+        // Additional check. This error should never happen.
+        if (strpos($schoolData, 'ERROR') !== false) {
+            LogUtil::registerError('No se us ha reconegut com a centre docent perquè no figureu a la base de dades de centres de la XTEC. Poseu-vos en contacte amb el SAU.');
+            return false;
+        }
+
+        return $schoolData;
+    }
+
+    /**
+     * Check if the username matches a school code.
+     * 
+     * @author Toni Ginard
+     * @param string $uname
+     * @return boolean
+     */
+    private function isUserSchool($uname) {
+       
+        $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
+        
+        if (preg_match($pattern, $uname)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
