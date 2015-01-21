@@ -10,9 +10,11 @@ PORTAL
 - LDAP: Don't show warnings to users when password is incorrect in login
 - LDAP: Don't allow login to schools that doesn't have 'Nom propi'
 - Files: Fixed problem downloading files when folder is not public
+- Added ability to return to original URL when there is a redirect for login
 
 ZIKULA
 - IWagendas: Updated lang text and some HTML validation issues
+- Added ability to return to original URL when there is a redirect for login
 
 
 Changes 14.12.22
