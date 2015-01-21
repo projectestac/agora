@@ -63,7 +63,7 @@ git remote set-url origin git@github.com:projectestac/moodle-mod_jclic.git
 popd
 pushd html/moodle2/mod/journal
 git checkout MOODLE_26_STABLE
-git remote set-url origin git@github.com:dmonllao/moodle-mod_journal.git
+git remote set-url origin git@github.com:projectestac/moodle-mod_journal.git 
 popd
 pushd html/moodle2/mod/questionnaire
 git checkout MOODLE_26_STABLE
