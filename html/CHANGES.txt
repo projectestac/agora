@@ -5,6 +5,27 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE2
+- Moodle Upgraded to 2.6.7
+- Marsupial: Solved error on credentials bulk
+- Jclic: Solved error on viewing groupings reports
+- Memcache performance problem repaired
+- Journal: Performance improvements when journals have lots of entries
+- Hide all assignments < 2.2 from adding
+- Moved dberrors to portadata/moodle2 parent directory
+- Moved rcommon log to portaldata directory
+- Glossary: Solved problem searching when glossary have large entries (MDL-43816)
+- XTEC2 theme: Solved margin in fixed student column on grader
+- XTEC2 theme: Added external link class for links
+- XTEC2 theme: Solved collapsed menu button
+- XTEC2 theme: added classes to footer icons in order to be hidden by css
+- Added Moodle Mobile Additional features to enable push notifications
+- Added autoregister on moodle.org script
+- Enhanced Enable service script with upgrading and registering
+- Adware: New string added
+- Module updates: HotPot, questionnaire, languagepacks
+
+
 PORTAL
 - Agoraportal: Added ability to create tables and files for Nodes when creating new services
 - LDAP: Don't show warnings to users when password is incorrect in login
