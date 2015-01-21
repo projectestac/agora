@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git pull
+
 git submodule update --recursive --init
 git submodule sync
 
