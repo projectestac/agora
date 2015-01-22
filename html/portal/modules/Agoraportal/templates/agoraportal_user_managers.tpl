@@ -68,7 +68,7 @@
         </fieldset>
     </div>
     {/if}
-    {if $canDelegate && $managers|@count lt 3}
+    {if $canDelegate && $managers|@count lt 4}
     <form id="addManager" class="z-form" action="{modurl modname='Agoraportal' type='user' func='addManager'}" method="post" enctype="application/x-www-form-urlencoded">
         <fieldset>
             <legend>{gt text='Creació de gestors addicionals'}</legend>

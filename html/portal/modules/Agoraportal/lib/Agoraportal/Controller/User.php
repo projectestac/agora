@@ -958,7 +958,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
         // if the number of delegated users in lower than 3 and user have add permissions
-        if (count($managers) < 3 && SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
+        if (count($managers) < 4 && SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             return true;
         }
         $assigned = false;

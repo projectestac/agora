@@ -25,9 +25,9 @@ MOODLE2
 - Adware: New string added
 - Module updates: HotPot, questionnaire, languagepacks
 
-
 PORTAL
 - Agoraportal: Added ability to create tables and files for Nodes when creating new services
+- Agoraportal: Increased number of school managers from 3 to 4
 - LDAP: Don't show warnings to users when password is incorrect in login
 - LDAP: Don't allow login to schools that doesn't have 'Nom propi'
 - Files: Fixed problem downloading files when folder is not public
