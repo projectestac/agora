@@ -25,6 +25,10 @@ MOODLE2
 - Adware: New string added
 - Module updates: HotPot, questionnaire, languagepacks
 
+NODES
+- Upgraded WordPress to 4.0.1 
+- Added plugin "Grup-classe" 
+
 PORTAL
 - Agoraportal: Added ability to create tables and files for Nodes when creating new services
 - Agoraportal: Increased number of school managers from 3 to 4
