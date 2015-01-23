@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes 15.01.28
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added the list of Nodes for upgrade
+
 MOODLE2
 - Moodle Upgraded to 2.6.7
 - Marsupial: Solved error on credentials bulk
