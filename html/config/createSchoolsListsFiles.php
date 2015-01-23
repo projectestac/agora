@@ -68,6 +68,27 @@ if (isset($_REQUEST['update'])) {
     $filename = '../../adminInfo/updateIntranet.txt';
 
     saveVarToFile($filename, $schools_var);
+
+    
+    
+    /* NODES update file */
+
+    $schools = getAllSchools('activedId', 'asc', 'nodes', '1');
+
+    $schools_var = '';
+    foreach ($schools as $school) {
+        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
+    }
+
+    echo '<br /><br />';
+    echo '<b>File name: updateNodes.txt</b><br />';
+    echo str_replace("\n", '<br />', $schools_var);
+
+    $filename = '../../adminInfo/updateNodes.txt';
+
+    saveVarToFile($filename, $schools_var);
+    
+    
 } else {
 
     /* MOODLE 2 CRONFILE */
