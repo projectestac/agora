@@ -183,6 +183,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
         $serviceId = $service['serviceId'];
 
+        // Get dbHost form the func params
+        $dbHost = $args['dbHost'];
+        
         // Get full client-service record
         $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientServiceById', array('clientServiceId' => $clientServiceId));
         if (!$clientService) {
@@ -258,7 +261,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     private function getDBId($clientService, $serviceId, $clientId, $serviceName, $dbHost) {
-        $params = array('serviceId' => $serviceId, 'serviceName' => $serviceName);
+        $params = array('serviceId' => $serviceId, 'serviceName' => $serviceName, 'dbHost' => $dbHost);
         switch ($serviceName) {
             case 'nodes':
                 // Look for the twin service
@@ -269,7 +272,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 // Look for the twin service
                 $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
                     'serviceName' => 'nodes'));
-                $params['dbHost'] = $dbHost;
                 break;
             case 'marsupial':
                 return 1;
