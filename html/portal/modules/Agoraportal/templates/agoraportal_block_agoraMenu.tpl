@@ -6,7 +6,7 @@
     </div>
     {if not $logedIn}
     <div class="hmenuElement">
-        <a href="{modurl modname='users' type='user' func='loginscreen' ssl=true}">
+        <a href="{modurl modname='users' type='user' func='login' ssl=true}">
             {gt text="Entra"}
         </a>
     </div>
