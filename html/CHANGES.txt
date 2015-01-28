@@ -3,6 +3,11 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Solved issue with the count of the documents inside the categories and function added that update the documents' number (AGIN 1051-2014-0038)
+
+
 Changes 15.01.28
 ---------------------------------------------------------------------------------------
 GENERAL
