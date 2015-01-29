@@ -2,50 +2,8 @@
 
     require_once('../config/dblib-mysql.php');
 
-    // Debug code
-    $debug_enabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
-    define ('DEBUG_ENABLED', $debug_enabled);
-    xtec_debug("DEBUG ENABLED: $debug_enabled");
-    
-    $dbsource = isset($_GET['dbsource']) ? $_GET['dbsource'] : $agora['dbsource']['defaulttype'];
-    xtec_debug("Selected: $dbsource");
-    // End debug
-
-    // Get info from cookie if exists
-    $centre = $_REQUEST['ccentre'];
-
-    if ($centre == null){
-        // Envia a una pàgina d'error
-        header('location: '.WWWROOT.'error.php?s=intranet&dns='.$_REQUEST['ccentre']);
-        exit(0);
-    }
-
-    /**
-     * Configurar si llegir les dades de connexió des de l'allSchools o de la base de dades
-     * 1 = Des del fitxer allSchools (predefinit)
-     * 2 = Des de la base de dades
-     **/
-     
-    $school_info = getSchoolInfoFromFile($centre, $dbsource, 'intranet');
-
-    // Debug code
-    xtec_debug ($school_info['source']);
-
-    if ($school_info === false) {
-        header('location: '.WWWROOT.'error.php?s=intranet&dns='.$_REQUEST['ccentre']);
-        exit(0);
-    }
-
-    if (!empty($school_info['new_dns'])) {
-        $newadress = WWWROOT . $school_info['new_dns'].'/intranet';
-        header('location: '.WWWROOT.'error.php?newaddress='.$newadress);
-        exit(0);
-    }
-
-    if (!isset($school_info['id_intranet']) || empty($school_info['id_intranet'])) {
-        header('location: '.WWWROOT.'error.php?s=intranet&dns='.$_REQUEST['ccentre']);
-        exit(0);
-    }
+    global $school_info;
+    $centre = getSchoolInfo('intranet');
 
     global $ZConfig;
 
@@ -72,7 +30,7 @@
         $ZConfig['DBInfo']['databases']['default']['hostmigrate'] = $school_info['dbhost_intranet'];
         $ZConfig['DBInfo']['databases']['default']['portmigrate'] = 3306;
     }
-    
+
     $ZConfig['DBInfo']['databases']['default']['host']        = $dbhoststring;
     $ZConfig['DBInfo']['databases']['default']['dbname']      = $database_intranet;
     $ZConfig['System']['temp'] = $agora['server']['root'] . $agora['intranet']['datadir'] . $database_intranet . '/pnTemp';

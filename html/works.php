@@ -13,15 +13,15 @@ $origen = (isset($_GET['origen'])) ? $_GET['origen'] : '';
 $isBigIP = ($origen == 'bigip') ? true : false;
 
 // Get the list of DB arrays to connect
-$zkToTest = array();
+$nodesToTest = array();
 $m2ToTest = array();
 
 if ($isBigIP) {
     // Get info from allSchools.php file in web server
     require_once '../syncdata/allSchools.php';
     foreach ($schools as $school) {
-        if (isset($school['dbhost_intranet']) && !in_array($school['dbhost_intranet'], $zkToTest)) {
-            $zkToTest[$school['id_intranet']] = array('dbhost' => $school['dbhost_intranet'], 'zkversion' => $school['version_intranet']);
+        if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest)) {
+            $nodesToTest[$school['id_nodes']] = array('dbhost' => $school['dbhost_nodes']);
         }
         if (isset($school['database_moodle']) && !in_array(strtoupper($school['database_moodle']), $m2ToTest)) {
             $m2ToTest[$school['id_moodle']] = strtoupper($school['database_moodle']);
@@ -31,25 +31,23 @@ if ($isBigIP) {
     // Get info from admin database
     $isok = checkAdminDatabase(); // Check connection
     if (!$isok) {
-        $state = '<br>La connexi&oacute; a la base de dades d\'administraci&oacute; ha fallat (MySQL - ' . $agora['admin']['host'] . '). <span style="color:red">No es pot comprovar si les inst&agrave;ncies Oracle i els servidors MySQL funcionen correctament.</span>';
-    }
-
-    // Get the list of the schools to test
-    if ($isok) {
-        // Get one intranet per MySQL server and one moodle per Oracle instance to check connection to each one
-        $zkToTest = getServicesToTest('intranet');
+        $state = '<br>La connexió a la base de dades d\'administració ha fallat (MySQL - ' . $agora['admin']['host'] . '). <span style="color:red">No es pot comprovar si les instàncies Oracle i els servidors MySQL funcionen correctament.</span>';
+    } else {
+        // Get the list of the schools to test
+        // Get one nodes per MySQL server and one moodle per Oracle instance to check connection to each one
+        $nodesToTest = getServicesToTest('nodes');
         $m2ToTest = getServicesToTest('moodle2');
 
-        if (empty($zkToTest) && empty($m2ToTest)) {
+        if (empty($nodesToTest) && empty($m2ToTest)) {
             $isok = false;
-            $state .= '<br>La consulta a la base de dades d\'administraci&oacute; ha fallat (MySQL - ' . $agora['admin']['host'] . '). <span style="color:red">No es pot comprovar si les inst&agrave;ncies Oracle i els servidors MySQL funcionen correctament.</span>';
+            $state .= '<br>La consulta a la base de dades d\'administració ha fallat (MySQL - ' . $agora['admin']['host'] . '). <span style="color:red">No es pot comprovar si les instàncies Oracle i els servidors MySQL funcionen correctament.</span>';
         }
     }
 }
 
-// Connect to the first school of each server with intranet service to check that the MySQL servers are working
-foreach ($zkToTest as $schoolid => $data) {
-    if (!checkIntranetDatabase(array('id' => $schoolid, 'dbhost' => $data['dbhost'], 'zkversion' => $data['zkversion']))) {
+// Connect to the first school of each server with nodes service to check that the MySQL servers are working
+foreach ($nodesToTest as $schoolid => $dbhost) {
+    if (!checkNodesDatabase(array('id' => $schoolid, 'dbhost' => $dbhost))) {
         $isok = false;
         $state .= '<br>El servidor MySQL "' . $data['dbhost'] . '" no funciona correctament.<br>';
     } elseif ($isBigIP) {
@@ -63,7 +61,7 @@ if (($isBigIP && !$nodeok) || (!$isBigIP)) {
     foreach ($m2ToTest as $schoolid => $database) {
         if (!checkMoodleDatabase(array('id' => $schoolid, 'database' => $database))) {
             $isok = false;
-            $state .= '<br>La inst&agrave;ncia Oracle "' . $database . '" no funciona correctament.<br>';
+            $state .= '<br>La instància Oracle "' . $database . '" no funciona correctament.<br>';
         } elseif ($isBigIP) {
             $nodeok = true;
             break;
@@ -83,30 +81,34 @@ if (!$isBigIP && $isok) {
 }
 
 /**
- * To check if the admin database is working 
- * 
+ * To check if the admin database is working
+ *
  * @author Sara Arjona Tellez (sarjona@xtec.cat)
- * 
+ *
  * @return Boolean True if the database is working; false otherwise.
  */
 function checkAdminDatabase() {
-    $con = opendb();
-    if ($con) {
-        disconnectdb($con);
+    try {
+        $con = get_dbconnection('admin');
+        if ($con) {
+            $con->close();
+        }
         return true;
-    } else {
+    } catch (Exception $e) {
+        echo $e->getMessage();
         return false;
     }
+    return false;
 }
 
 /**
- * To check if the specified Moodle database is working 
- * 
+ * To check if the specified Moodle database is working
+ *
  * @author Sara Arjona Tellez (sarjona@xtec.cat)
  * @author Toni Ginard
- * 
+ *
  * @param $school database school information for connecting
- * 
+ *
  * @return Boolean True if the database is working; false otherwise.
  */
 function checkMoodleDatabase($school) {
@@ -136,52 +138,42 @@ function checkMoodleDatabase($school) {
 
         disconnect_moodle($con);
     } else {
-        $state .= '<br>No s\'ha pogut connectar a la inst&agrave;ncia ' . $school['database'] . ' (usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . ')';
+        $state .= '<br>No s\'ha pogut connectar a la instància ' . $school['database'] . ' (usuari ' . $agora['moodle2']['userprefix'] . $school['id'] . ')';
     }
 
     return $isok;
 }
 
 /**
- * To check if the specified Intranet database is working 
- * 
+ * To check if the specified Nodes database is working
+ *
  * @author Sara Arjona Tellez (sarjona@xtec.cat)
  * @author Toni Ginard
- * 
+ *
  * @param $school database school information for connecting
- * 
+ *
  * @return Boolean True if the database is working; false otherwise.
  */
-function checkIntranetDatabase($school) {
+function checkNodesDatabase($school) {
     global $agora, $state;
     $isok = false;
 
-    $con = connect_intranet($school);
+    $con = connect_nodes($school);
 
     if ($con) {
-        if ($school['zkversion'] == '128') {
-            $sql = 'SELECT `pn_pid` as pid FROM `' . $agora['intranet']['prefix'] . '_group_perms` LIMIT 0, 1';
+        $sql = 'SELECT `option_value` FROM `' . $agora['nodes']['prefix'] . '_options` LIMIT 0, 1';
+
+        $pid = $con->get_field($sql, 'option_value');
+        if (!empty($pid)) {
+            $isok = true;
         } else {
-            $sql = 'SELECT `pid` FROM `group_perms` LIMIT 0, 1';
+            $state .= '<br>No s\'ha pogut accedir a la taula options de la base de dades ' . $agora['nodes']['userprefix'] . $school['id'] . '.';
+            $state .= '<br>'.$con->get_error();
         }
 
-        if (!$result = mysql_query($sql)) {
-            $state .= '<br>S\'ha produ&iuml;t un error MySQL: ' . mysql_error();
-            return false;
-        }
-
-        if ($row = mysql_fetch_assoc($result)) {
-            $pid = $row['pid'];
-            if (!empty($pid)) {
-                $isok = true;
-            } else {
-                $state .= '<br>No s\'ha pogut accedir a la taula group_perms de la base de dades ' . $agora['intranet']['userprefix'] . $school['id'] . '.';
-            }
-        }
-
-        disconnect_intranet($con);
+        $con->close();
     } else {
-        $state .= '<br>No s\'ha pogut connectar a la bases de dades ' . $agora['intranet']['userprefix'] . $school['id'] . '.';
+        $state .= '<br>No s\'ha pogut connectar a la bases de dades ' . $agora['nodes']['userprefix'] . $school['id'] . '.';
     }
 
     return $isok;
