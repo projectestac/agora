@@ -1812,6 +1812,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $result = nl2br(implode("\n", $result));
 
         if (empty($result)) {
+            LogUtil::registerError($command);
             $success = false;
             $result = 'Empty message returned...';
         }
