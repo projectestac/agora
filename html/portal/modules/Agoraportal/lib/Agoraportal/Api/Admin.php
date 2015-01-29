@@ -571,7 +571,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // Now update serialized wp_options fields
-        $fields = array ('my_option_name', 'widget_text', 'reactor_options', 'widget_socialmedia_widget');
+        $fields = array ('my_option_name', 'widget_text', 'reactor_options', 'widget_socialmedia_widget', 'widget_xtec_widget', 'widget_grup_classe_widget');
 
         foreach ($fields as $field) {
             $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
