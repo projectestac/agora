@@ -196,7 +196,7 @@ function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $sta
  * @return type boolean True if specified DNS is correct; false otherwise
  */
 function isValidDNS($dns) {
-    if (strlen($dns) > 30 || !preg_match("/^[a-z0-9-]+$/", $dns)) {
+    if (strlen($dns) > 30 || !preg_match("/^[a-z0-9-_]+$/", $dns)) {
         return false;
     }
     return true;
