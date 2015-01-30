@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Solved issue with the count of the documents inside the categories and function added that update the documents' number (AGIN 1051-2014-0038)
+- Solved issue where users can view shared agenda's posts without loggin in (AGIN 1051-2014-0049) 
 
 
 Changes 15.01.28
