@@ -13,6 +13,7 @@ Changes 15.01.28
 ---------------------------------------------------------------------------------------
 GENERAL
 - Added the list of Nodes for upgrade
+- Added underscore to characters allowed in Nom Propi
 
 MOODLE2
 - Moodle Upgraded to 2.6.7
