@@ -62,9 +62,10 @@ CREDITS
 
 Developers:
    Toni Ginard      (aginard@xtec.cat)
-   Pau Ferrer       (crazyserver@gmail.com)
+   Pau Ferrer       (pferre22@xtec.cat)
    Sara Arjona      (sarjona@xtec.cat)
    Xavier Meler     (jmeler@xtec.cat)
+   Víctor Saavedra  (vsaavedr@xtec.cat)
    Albert Pérez     (aperez16@xtec.cat)
    Jaume Miró       (jmiro227@xtec.cat)
    Fèlix Casanellas (fcasanel@xtec.cat)
