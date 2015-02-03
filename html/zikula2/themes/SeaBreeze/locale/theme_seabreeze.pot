@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-03 10:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: version.php:16
+msgid "SeaBreeze"
+msgstr ""
+
+#: version.php:17
+msgid ""
+"The SeaBreeze theme is a browser-oriented theme, and was updated for the "
+"release of Zikula 1.0, with revised colours and new graphics."
+msgstr ""
+
+#: templates/modules/Search/search_block_search.tpl:5
+msgid "Search"
+msgstr ""
+
+#: templates/includes/footer.tpl:4
+msgid "Powered by"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:10 templates/includes/userheader.tpl:11
+msgid "Home"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:13
+msgid "Settings"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:16
+msgid "Extensions"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:19
+msgid "Blocks"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:22
+msgid "Users"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:25
+msgid "Groups"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:28
+msgid "Permission rules"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:31
+msgid "Themes"
+msgstr ""
+
+#: templates/includes/adminheader.tpl:34
+msgid "Categories"
+msgstr ""
+
+#: templates/includes/userheader.tpl:11
+msgid "Go to the site's home page"
+msgstr ""
+
+#: templates/includes/userheader.tpl:12
+msgid "Go to your account panel"
+msgstr ""
+
+#: templates/includes/userheader.tpl:12
+msgid "My Account"
+msgstr ""
+
+#: templates/includes/userheader.tpl:13
+msgid "Search this site"
+msgstr ""
+
+#: templates/includes/userheader.tpl:13
+msgid "Site search"
+msgstr ""
