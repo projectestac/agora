@@ -1678,6 +1678,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $database = FormUtil::getPassedValue('database', isset($args['database']) ? $args['database'] : null, 'GETPOST');
         $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'intranet', 'GETPOST');
         $serviceDB = FormUtil::getPassedValue('serviceDB', isset($args['serviceDB']) ? $args['serviceDB'] : '', 'GETPOST');
+        $forceCreateDB = FormUtil::getPassedValue('forceCreateDB', isset($args['forceCreateDB']) ? $args['forceCreateDB'] : 'false', 'GETPOST');
 
         // Needed argument
         if ($serviceName == 'moodle2' && (!isset($database) || !is_numeric($database))) {
@@ -1726,7 +1727,14 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
-                    return false;
+                    if ($forceCreateDB){
+                        $sql = 'CREATE DATABASE IF NOT EXISTS '.$databaseName;
+                        if (mysql_query($sql, $connect) && !mysql_select_db($databaseName, $connect)) {
+                            return false;
+                        }
+                    } else {
+                       return false;
+                    }
                 }
                 break;
             case 'moodle2':

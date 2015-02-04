@@ -5,10 +5,14 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-- Solved issue with the count of the documents inside the categories and function added that update the documents' number (AGIN 1051-2014-0038)
-- You can save the status of the field Active in each Document's category (AGIN 1051-2014-0038)
-- Solved issue where users can view shared agenda's posts without loggin in (AGIN 1051-2014-0049) 
-- Messages don't translated (AGIN 1051-2014-0028)
+PORTAL
+- Agoraportal: Added ability to create database if not exists when creating new services
+
+ZIKULA
+- [AGIN 1051-2014-0038] Solved issue with the count of the documents inside the categories and function added that update the documents' number
+- [AGIN 1051-2014-0038] You can save the status of the field Active in each Document's category
+- [AGIN 1051-2014-0049] Solved issue where users can view shared agenda's posts without loggin in 
+- [AGIN 1051-2014-0028] Messages don't translated
 
 
 Changes 15.01.28
