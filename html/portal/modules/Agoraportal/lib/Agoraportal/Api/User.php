@@ -1705,6 +1705,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
+                    LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['admin']['username']));
                     return false;
                 }
                 break;
@@ -1716,6 +1717,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
+                    LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['intranet']['username']));
                     return false;
                 }
                 break;
@@ -1727,13 +1729,20 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
-                    if ($forceCreateDB){
-                        $sql = 'CREATE DATABASE IF NOT EXISTS '.$databaseName;
-                        if (mysql_query($sql, $connect) && !mysql_select_db($databaseName, $connect)) {
+                    if ($forceCreateDB) {
+                        $sql = "CREATE DATABASE IF NOT EXISTS $databaseName DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci";
+                        if (!mysql_query($sql, $connect)) {
+                            LogUtil::registerError($this->__("No s'ha pogut crear la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username']));
+                            LogUtil::registerError($this->__("SQL que ha fallat: $sql"));
+                            return false;
+                        }
+                        if (!mysql_select_db($databaseName, $connect)) {
+                            LogUtil::registerError($this->__("S'ha creat la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username'] . " però no s'ha pogut seleccionar."));
                             return false;
                         }
                     } else {
-                       return false;
+                        LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username'] . " i no s'ha intentat crear la base de dades."));
+                        return false;
                     }
                 }
                 break;
