@@ -574,7 +574,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             ));
 
             if (!$result['success']) {
-                LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $oneSql . '. Error: ' . $result['errorMsg']));
+                LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error: ' . $result['errorMsg']));
                 return false;
             }
         }
@@ -789,13 +789,15 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Get info of the service from its ID
         $serviceInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $args['serviceId']));
+        $forceCreateDB = ($serviceInfo['serviceName']=='nodes');
 
         $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('serviceName' => $serviceInfo['serviceName'],
                     'database' => $free,
-                    'host' => $dbHost));
+                    'host' => $dbHost,
+                    'forceCreateDB' => $forceCreateDB));
 
         if (!$connect) {
-            LogUtil::registerError($this->__('No s\'ha pogut connectar a la base de dades.'
+            LogUtil::registerError($this->__('No s\'ha pogut connectar a la base de dades. '
                     . 'Paràmetres passats a connectExtDB: servicename: '
                     . $serviceInfo['serviceName'] . ', database: ' . $free . ', host: ' . $dbHost));
             return false;

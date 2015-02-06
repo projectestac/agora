@@ -21,7 +21,7 @@
         amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
         Us recomanem que canvieu la contrasenya d'aquest usuari despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
-        tamb&eacute;, l'usuari <strong>xtecadmin</strong> que s'utilitzar&agrave; en cas de
+        tamb&eacute;, l'usuari <strong>xtecadmin</strong> que s'utilitzar&agrave; en cas 
         que hi hagi alguna incid&egrave;ncia que requereixi un suport especial.
         Us preguem que no l'esborreu ni li canvieu la contrasenya.
     </p>
@@ -67,7 +67,7 @@
 
     {if $serviceName eq 'intranet'}
     <p>
-        Tal i com s'especifica a les condicions d'&uacute;s del servei, 
+        Tal com s'especifica a les condicions d'&uacute;s del servei, 
         recordeu que a la XTEC no hi ha cap figura destinada a solucionar les
         q&uuml;estions plantejades en relaci&oacute; al funcionament de la 
         intranet. Per tal de resoldre els dubtes relacionats amb aquest tema
@@ -87,15 +87,20 @@
 
     {if $serviceName eq 'nodes'}
     <p>
-        Tal i com s'especifica a les condicions d'&uacute;s del servei, 
+        Tal com s'especifica a les condicions d'&uacute;s del servei, 
         recordeu que a la XTEC no hi ha cap figura destinada a solucionar les
         q&uuml;estions plantejades en relaci&oacute; al funcionament del 
         WordPress. Per tal de resoldre els dubtes relacionats amb aquest tema
         podeu adre&ccedil;ar-vos al
-        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1243">
+        <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1721">
         f&ograve;rum 
         del projecte Nodes</a>. En aquest f&ograve;rum tothom pot preguntar 
         i respondre les q&uuml;estions que consideri oportunes.
+    </p>
+    <p>
+        Teniu a la vostra disposici&oacute; una <a href="http://agora.xtec.cat/nodes/guia-rapida/">
+        guia r&agrave;pida</a> sobre Nodes, on trobareu els primers passos a seguir 
+        quan accediu per primer cop al vostre web de centre.
     </p>
     {/if}
 

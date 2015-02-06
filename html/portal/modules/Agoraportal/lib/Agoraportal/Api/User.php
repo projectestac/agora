@@ -1527,106 +1527,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * Execute SQL commands. It is the same function as in admin api but only the select commands are allowed
-     *
-     * @author Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param  sql
-     * @param  serviceName
-     * @param  database
-     * @param  host
-     *
-     * @return	Array with success 0 or 1, errorMsg with the error text or '' and values in select commands
-     */
-/*
-     public function executeSQL($args) {
-        $sql = $args['sql'];
-        $serviceName = $args['serviceName'];
-        $database = $args['database'];
-        $host = (isset($args['host'])) ? $args['host'] : '';
-        $serviceDB = (isset($args['serviceDB'])) ? $args['serviceDB'] : '';
-
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        if (strtolower(substr(trim($sql), 0, 6)) != 'select') {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        global $agora;
-
-        $connect = ModUtil::apiFunc('Agoraportal', 'user', 'connectExtDB', array('database' => $database,
-                    'serviceName' => $serviceName,
-                    'host' => $host,
-                    'serviceDB' => $serviceDB,
-                ));
-
-        if (!$connect) {
-            return LogUtil::registerError($this->__('No s\'ha pogut connectar a la base de dades amb ID ' . $database));
-        }
-
-        $success = false;
-        $errorMsg = '';
-        $values = array();
-
-        $return = array('success' => $success,
-            'errorMsg' => $errorMsg,
-            'values' => $values,
-        );
-
-        $dbType = (isset($agora[$serviceName]['dbtype'])) ? $agora[$serviceName]['dbtype'] : 'mysql';
-
-        switch ($dbType) {
-            case 'mysql':
-                $results = mysql_query($sql, $connect);
-                if (!$results) {
-                    $errorMsg = mysql_error();
-                } else {
-                    $success = true;
-                    if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
-                        // return rows
-                        while ($row = mysql_fetch_assoc($results)) {
-                            $values[] = $row;
-                        }
-                    }
-                }
-                mysql_close($connect);
-                break;
-            case 'oci8':
-            case 'oci8po':
-                if (substr_count(strtolower(trim($sql)), 'insert') > 1) {
-                    // for multiple inserts in Oracle SQL
-                    $sql = "BEGIN $sql END;";
-                }
-                $results = oci_parse($connect, $sql);
-
-                if (!$results) {
-                    $error = oci_error($connect);
-                    $errorMsg = $error["message"];
-                }
-                $r = oci_execute($results);
-                if (!$r) {
-                    $error = oci_error($results);
-                    $errorMsg = $error["message"];
-                } else {
-                    $success = true;
-                    if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
-                        while ($row = oci_fetch_assoc($results)) {
-                            $values[] = $row;
-                        }
-                    }
-                }
-                oci_close($connect);
-                break;
-        }
-
-        return array('success' => $success,
-            'errorMsg' => $errorMsg,
-            'values' => $values,
-        );
-    }
-*/
-    /**
      * Calculate Oracle database instance for Moodle
      *
      * @author  Toni Ginard
@@ -1678,6 +1578,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $database = FormUtil::getPassedValue('database', isset($args['database']) ? $args['database'] : null, 'GETPOST');
         $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'intranet', 'GETPOST');
         $serviceDB = FormUtil::getPassedValue('serviceDB', isset($args['serviceDB']) ? $args['serviceDB'] : '', 'GETPOST');
+        $forceCreateDB = FormUtil::getPassedValue('forceCreateDB', isset($args['forceCreateDB']) ? $args['forceCreateDB'] : 'false', 'GETPOST');
 
         // Needed argument
         if ($serviceName == 'moodle2' && (!isset($database) || !is_numeric($database))) {
@@ -1704,6 +1605,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
+                    LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['admin']['username']));
                     return false;
                 }
                 break;
@@ -1715,6 +1617,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
+                    LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['intranet']['username']));
                     return false;
                 }
                 break;
@@ -1726,7 +1629,21 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
-                    return false;
+                    if ($forceCreateDB) {
+                        $sql = "CREATE DATABASE IF NOT EXISTS $databaseName DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci";
+                        if (!mysql_query($sql, $connect)) {
+                            LogUtil::registerError($this->__("No s'ha pogut crear la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username']));
+                            LogUtil::registerError($this->__("SQL que ha fallat: $sql"));
+                            return false;
+                        }
+                        if (!mysql_select_db($databaseName, $connect)) {
+                            LogUtil::registerError($this->__("S'ha creat la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username'] . " però no s'ha pogut seleccionar."));
+                            return false;
+                        }
+                    } else {
+                        LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username'] . " i no s'ha intentat crear la base de dades."));
+                        return false;
+                    }
                 }
                 break;
             case 'moodle2':

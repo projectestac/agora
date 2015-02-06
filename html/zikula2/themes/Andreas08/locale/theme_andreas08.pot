@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-03 10:43+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: version.php:16
+msgid "Andreas08"
+msgstr ""
+
+#: version.php:17
+msgid ""
+"Based on the theme Andreas08 by Andreas Viklund and extended for Zikula with "
+"the CSS Framework 'fluid960gs'."
+msgstr ""
+
+#: templates/admin.tpl:5 templates/master.tpl:6 templates/home.tpl:12
+msgid "Home"
+msgstr ""
+
+#: templates/admin.tpl:6
+msgid "Settings"
+msgstr ""
+
+#: templates/admin.tpl:7
+msgid "Extensions"
+msgstr ""
+
+#: templates/admin.tpl:8
+msgid "Blocks"
+msgstr ""
+
+#: templates/admin.tpl:9
+msgid "Users"
+msgstr ""
+
+#: templates/admin.tpl:10
+msgid "Groups"
+msgstr ""
+
+#: templates/admin.tpl:11
+msgid "Permission rules"
+msgstr ""
+
+#: templates/admin.tpl:12
+msgid "Themes"
+msgstr ""
+
+#: templates/modules/Search/search_block_search.tpl:1
+msgid "Search keywords"
+msgstr ""
+
+#: templates/modules/Search/search_block_search.tpl:6
+msgid "Go"
+msgstr ""
+
+#: templates/master.tpl:6 templates/home.tpl:12
+msgid "Go to the site's home page"
+msgstr ""
+
+#: templates/master.tpl:7 templates/home.tpl:13
+msgid "Go to your account panel"
+msgstr ""
+
+#: templates/master.tpl:7 templates/home.tpl:13
+msgid "My Account"
+msgstr ""
+
+#: templates/master.tpl:8 templates/home.tpl:14
+msgid "Search this site"
+msgstr ""
+
+#: templates/master.tpl:8 templates/home.tpl:14
+msgid "Site search"
+msgstr ""
+
+#: templates/includes/footer.tpl:2
+msgid "Powered by"
+msgstr ""
+
+#: templates/includes/footer.tpl:2
+msgid "Mobile version"
+msgstr ""

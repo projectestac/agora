@@ -421,7 +421,7 @@ msgstr ""
 #: templates/user/display.tpl:58
 #, php-format
 msgid "%s reads"
-msgstr ""
+msgstr "% lectures"
 
 #: templates/user/display.tpl:62
 msgid "Print page"
