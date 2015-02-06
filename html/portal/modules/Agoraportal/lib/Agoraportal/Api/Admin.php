@@ -272,6 +272,15 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         return array('serviceDB' => $serviceDB, 'password' => $password);
     }
 
+    /**
+     * Get DB ID
+     * @param  Object $clientService
+     * @param  integer $serviceId   id of the desired service
+     * @param  integer $clientId    id of the desirec client
+     * @param  string $serviceName  name of the desired service
+     * @param  string $dbHost       to connect
+     * @return integer/false  with the database to connect
+     */
     private function getDBId($clientService, $serviceId, $clientId, $serviceName, $dbHost) {
         $params = array('serviceId' => $serviceId, 'serviceName' => $serviceName, 'dbHost' => $dbHost);
         switch ($serviceName) {
