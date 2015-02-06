@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Agoraportal: Added ability to create database if not exists when creating new services
+- Agoraportal: Reviewed activation services mail messages (changed URL, added more information for Nodes...)
 
 ZIKULA
 - [AGIN 1051-2014-0038] Solved issue with the count of the documents inside the categories and function added that update the documents' number
