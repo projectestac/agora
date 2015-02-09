@@ -509,6 +509,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $sqls[] = "UPDATE $prefix" . "_users set user_pass='$passwordEnc', user_email='$clientCode" . "@xtec.cat', user_registered=now() WHERE user_login='admin'";
 
+        $sqls[] = "UPDATE $prefix" . "_users set user_pass='" . $agora['xtecadmin']['password'] . "' WHERE user_login='xtecadmin'";
+
         // Convert some hardcoded URL (TODO: This must be a param in web form)
         $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterpri/';
         $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec/';
