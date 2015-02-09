@@ -423,7 +423,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Check the value of extraFunc
         if (!isset($client['extraFunc']) || empty($client['extraFunc'])) {
-            LogUtil::registerError($this->__("Falta indicar si es tracta d'una maqueta de primària o de secundària (Indicar <strong>primaria</strong> o <strong>secundaria</strong> al camp <strong>Funcionalitats addicionals</strong>)"));
+            LogUtil::registerError($this->__("Falta indicar el tipus de maqueta (Indicar <strong>primaria</strong>, <strong>secundaria</strong>, <strong>adults</strong>, <strong>eoi</strong> o <strong>zer</strong> al camp <strong>Funcionalitats addicionals</strong>)"));
             return false;
         }
 
@@ -441,8 +441,26 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastersec.zip'
                 );
                 break;
+            case 'adults':
+                $files = array (
+                    'db' => $ZConfig['System']['datadir'] . '/nodes/mastercfa.sql',
+                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastercfa.zip'
+                );
+                break;
+            case 'eoi':
+                $files = array (
+                    'db' => $ZConfig['System']['datadir'] . '/nodes/mastereoi.sql',
+                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastereoi.zip'
+                );
+                break;
+            case 'zer':
+                $files = array (
+                    'db' => $ZConfig['System']['datadir'] . '/nodes/masterzer.sql',
+                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/masterzer.zip'
+                );
+                break;
             default:
-                LogUtil::registerError($this->__("El valor del camp <strong>Funcionalitats addicionals</strong> ha de ser <strong>primaria</strong> o <strong>secundaria</strong> (sense accents)."));
+                LogUtil::registerError($this->__("El valor del camp <strong>Funcionalitats addicionals</strong> ha de ser <strong>primaria</strong>, <strong>secundaria</strong>, <strong>adults</strong>, <strong>eoi</strong> o <strong>zer</strong> (sense accents)."));
                 return false;
         }
 
@@ -514,6 +532,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // Convert some hardcoded URL (TODO: This must be a param in web form)
         $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterpri/';
         $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec/';
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastercfa/';
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastereoi/';
+        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterzer/';
 
         foreach ($toReplace as $string) {
             $sqls[] = "UPDATE $prefix" . "_bp_activity
