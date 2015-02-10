@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Zikula 1.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-03 10:43+0000\n"
-"PO-Revision-Date: 2015-02-03 12:20+0100\n"
-"Last-Translator: Víctor Saavedra <vsaavedr@xtec.cat>\n"
+"PO-Revision-Date: 2015-02-10 18:50+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: intranet <intranet@xtec.cat>\n"
 "Language: ca_ES\n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,9 @@ msgstr ""
 
 #: version.php:3
 msgid "Intraweb XTEC2"
-msgstr "Intranet XTEC2"
+msgstr "Intraweb XTEC2"
 
 #: version.php:4
 msgid "Theme developed by the Intraweb project staff for the Agora service"
-msgstr "Tema desenvolupat per l'equip Intranet pel servei Àgora"
+msgstr "Entorn visual desenvolupat per l'equip del projecte Intraweb per al servei Àgora-Intranet"
+

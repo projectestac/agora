@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Zikula 1.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-03 10:43+0000\n"
-"PO-Revision-Date: 2015-02-03 12:21+0100\n"
-"Last-Translator: Víctor Saavedra <vsaavedr@xtec.cat>\n"
+"PO-Revision-Date: 2015-02-10 19:15+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: intranet <intranet@xtec.cat>\n"
 "Language: ca_ES\n"
 "MIME-Version: 1.0\n"
@@ -22,16 +22,12 @@ msgid "RSS"
 msgstr "RSS"
 
 #: version.php:17
-msgid ""
-"The RSS theme is an auxiliary theme designed specially for outputting pages "
-"as an RSS feed."
-msgstr ""
-"El tema Printer és un tema auxiliar disenyat especialment per una sortida "
-"com un feed RSS."
+msgid "The RSS theme is an auxiliary theme designed specially for outputting pages as an RSS feed."
+msgstr "L'RSS és un entorn visual auxiliar dissenyat per crear pàgines en format de font RSS"
 
 #: version.php:25
 msgid "Show item descriptions"
-msgstr "Mostrar la descripció de l'objecte"
+msgstr "Mostra les descripcions dels elements"
 
 #: version.php:26
 msgid "RSS v0.91,RSS v0.20"
@@ -41,6 +37,8 @@ msgstr "RSS v0.91,RSS v0.20"
 msgid "RSS Version"
 msgstr "Versió RSS"
 
-#: templates/master.tpl:15 templates/master.tpl:16
+#: templates/master.tpl:15
+#: templates/master.tpl:16
 msgid "Administrator"
-msgstr "Administrador"
+msgstr "Administrador/a"
+

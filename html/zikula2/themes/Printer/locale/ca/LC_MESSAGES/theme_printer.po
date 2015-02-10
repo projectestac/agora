@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Zikula 1.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-03 10:43+0000\n"
-"PO-Revision-Date: 2015-02-03 12:20+0100\n"
-"Last-Translator: Víctor Saavedra <vsaavedr@xtec.cat>\n"
+"PO-Revision-Date: 2015-02-10 19:09+0100\n"
+"Last-Translator: Toni Ginard <toni.ginard@gmail.com>\n"
 "Language-Team: intranet <intranet@xtec.cat>\n"
 "Language: ca_ES\n"
 "MIME-Version: 1.0\n"
@@ -19,16 +19,13 @@ msgstr ""
 
 #: version.php:16
 msgid "Printer"
-msgstr "Printer"
+msgstr "Impressora"
 
 #: version.php:17
-msgid ""
-"The Printer theme is an auxiliary theme designed specially for outputting "
-"pages in a printer-friendly format."
-msgstr ""
-"El tema Printer és un tema auxiliar disenyat especialment per una sortida en "
-"format printer-friendly."
+msgid "The Printer theme is an auxiliary theme designed specially for outputting pages in a printer-friendly format."
+msgstr "L'Impressora és un entorn visual auxiliar dissenyat per crear pàgines en un format amigable per a les impressores"
 
 #: templates/master.tpl:16
 msgid "Links"
 msgstr "Enllaços"
+
