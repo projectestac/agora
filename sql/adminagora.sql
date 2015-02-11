@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.2
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Temps de generació: 27-09-2012 a les 15:36:51
--- Versió del servidor: 5.1.57
--- Versió de PHP : 5.3.10
+-- Temps de generació: 11-02-2015 a les 17:04:18
+-- Versió del servidor: 5.5.41
+-- Versió de PHP : 5.4.37-1+deb.sury.org~precise+1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de dades: `adminagora_form`
+-- Base de dades: `adminagora`
 --
 
 -- --------------------------------------------------------
@@ -234,21 +234,6 @@ INSERT INTO `agoraportal_client_services` (`clientServiceId`, `serviceId`, `clie
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `agoraportal_client_settings`
---
-
-CREATE TABLE IF NOT EXISTS `agoraportal_client_settings` (
-  `settingsId` int(10) NOT NULL AUTO_INCREMENT,
-  `clientCode` varchar(15) NOT NULL DEFAULT '',
-  `parameter` varchar(100) NOT NULL DEFAULT '',
-  `value` text NOT NULL,
-  PRIMARY KEY (`settingsId`),
-  KEY `clientCode` (`clientCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de la taula `agoraportal_intranet_stats_day`
 --
 
@@ -290,26 +275,6 @@ CREATE TABLE IF NOT EXISTS `agoraportal_intranet_stats_day` (
   `total` int(10) DEFAULT '0',
   `users` int(10) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de la taula `agoraportal_ldap_asynchronous`
---
-
-CREATE TABLE IF NOT EXISTS `agoraportal_ldap_asynchronous` (
-  `ldapId` int(10) NOT NULL AUTO_INCREMENT,
-  `clientCode` varchar(15) NOT NULL DEFAULT '',
-  `actionType` varchar(15) NOT NULL DEFAULT '',
-  `actionResult` int(10) NOT NULL,
-  `valuesLDAP` text NOT NULL,
-  `managerId` int(10) NOT NULL,
-  `dateAdded` varchar(20) NOT NULL DEFAULT '',
-  `lastAttempt` varchar(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`ldapId`),
-  KEY `clientCode` (`clientCode`),
-  KEY `managerId` (`managerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -477,7 +442,11 @@ CREATE TABLE IF NOT EXISTS `agoraportal_moodle_stats_day` (
   `h22` int(11) DEFAULT '0',
   `h23` int(11) DEFAULT '0',
   `total` int(11) DEFAULT '0',
-  `diskConsume` varchar(15) NOT NULL DEFAULT '0'
+  `diskConsume` varchar(15) NOT NULL DEFAULT '0',
+  `usersconfnodel` int(11) DEFAULT '0',
+  `usersactive` int(11) DEFAULT '0',
+  `usersactivelast90days` int(11) DEFAULT '0',
+  `usersactivelast30days` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -497,7 +466,8 @@ CREATE TABLE IF NOT EXISTS `agoraportal_moodle_stats_month` (
   `lastaccess_date` varchar(50) DEFAULT NULL,
   `lastaccess_user` varchar(50) DEFAULT NULL,
   `total_access` int(11) DEFAULT '0',
-  `diskConsume` varchar(15) NOT NULL DEFAULT '0'
+  `diskConsume` varchar(15) NOT NULL DEFAULT '0',
+  `usersactivelast30days` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -513,6 +483,77 @@ CREATE TABLE IF NOT EXISTS `agoraportal_mysql_comands` (
   `description` text NOT NULL,
   `type` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`comandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `agoraportal_nodes_stats_day`
+--
+
+CREATE TABLE IF NOT EXISTS `agoraportal_nodes_stats_day` (
+  `clientcode` varchar(10) NOT NULL,
+  `clientDNS` varchar(50) NOT NULL,
+  `date` int(11) NOT NULL DEFAULT '0',
+  `total` int(11) NOT NULL DEFAULT '0',
+  `posts` int(11) NOT NULL DEFAULT '0',
+  `userstotal` int(11) NOT NULL DEFAULT '0',
+  `usersactive` int(11) NOT NULL DEFAULT '0',
+  `usersactivelast30days` int(11) NOT NULL DEFAULT '0',
+  `usersactivelast90days` int(11) NOT NULL DEFAULT '0',
+  `diskConsume` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `agoraportal_nodes_stats_month`
+--
+
+CREATE TABLE IF NOT EXISTS `agoraportal_nodes_stats_month` (
+  `clientcode` varchar(10) NOT NULL,
+  `clientDNS` varchar(50) NOT NULL,
+  `date` int(11) NOT NULL DEFAULT '0',
+  `total` int(11) NOT NULL DEFAULT '0',
+  `posts` int(11) NOT NULL DEFAULT '0',
+  `userstotal` int(11) NOT NULL DEFAULT '0',
+  `usersactive` int(11) NOT NULL DEFAULT '0',
+  `lastactivity` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
+  `diskConsume` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `agoraportal_queues`
+--
+
+CREATE TABLE IF NOT EXISTS `agoraportal_queues` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `operation` varchar(100) NOT NULL,
+  `clientId` int(11) NOT NULL,
+  `serviceId` int(11) NOT NULL,
+  `priority` bigint(20) NOT NULL DEFAULT '0',
+  `state` varchar(2) NOT NULL DEFAULT 'P',
+  `timeCreated` bigint(20) DEFAULT NULL,
+  `timeStart` bigint(20) DEFAULT NULL,
+  `timeEnd` bigint(20) DEFAULT NULL,
+  `params` varchar(255) NOT NULL,
+  `logId` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de la taula `agoraportal_queues_log`
+--
+
+CREATE TABLE IF NOT EXISTS `agoraportal_queues_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` longtext NOT NULL,
+  `timeModified` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -534,7 +575,7 @@ CREATE TABLE IF NOT EXISTS `agoraportal_request` (
   `timeCreated` varchar(25) NOT NULL DEFAULT '',
   `timeClosed` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`requestId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -610,26 +651,27 @@ INSERT INTO `agoraportal_requestTypesServices` (`requestTypeId`, `serviceId`) VA
 CREATE TABLE IF NOT EXISTS `agoraportal_services` (
   `serviceId` int(11) NOT NULL AUTO_INCREMENT,
   `serviceName` varchar(150) NOT NULL,
+  `URL` varchar(50) NOT NULL DEFAULT '',
   `description` varchar(255) NOT NULL,
+  `hasDB` tinyint(4) NOT NULL DEFAULT '1',
   `version` varchar(15) NOT NULL,
-  `currentVersion` varchar(15) NOT NULL,
   `tablesPrefix` varchar(10) NOT NULL DEFAULT '',
-  `usersNameField` varchar(15) NOT NULL,
   `defaultDiskSpace` bigint(20) NOT NULL DEFAULT '0',
   `serverFolder` varchar(100) NOT NULL DEFAULT '',
   `allowedClients` longtext NOT NULL,
   PRIMARY KEY (`serviceId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Bolcant dades de la taula `agoraportal_services`
 --
 
-INSERT INTO `agoraportal_services` (`serviceId`, `serviceName`, `description`, `version`, `currentVersion`, `tablesPrefix`, `usersNameField`, `defaultDiskSpace`, `serverFolder`, `allowedClients`) VALUES
-(1, 'intranet', 'Intranet i web de centre', '128', '127', '', '', 200, '../../zkdata/', ''),
-(2, 'moodle', 'Entorn Virtual d''Aprenentatge', '1912', '1912', '', '', 500, '../../moodledata/', ''),
-(3, 'marsupial', 'Integració de materials d''editorials amb el Moodle. Activar aquest servei implica canviar el domini agora.xtec.cat per agora.educat1x1cat.cat. Això pot provocar problemes en els enllaços dels cursos existents.', '', '', '', '', 0, '', ''),
-(4, 'moodle2', 'Entorn Virtual d''Aprenentatge (nova versió)', '', '', '', '', 500, '../../moodledata2/', '');
+INSERT INTO `agoraportal_services` (`serviceId`, `serviceName`, `URL`, `description`, `hasDB`, `version`, `tablesPrefix`, `defaultDiskSpace`, `serverFolder`, `allowedClients`) VALUES
+(1, 'intranet', '', 'Intranet i web de centre', 1, '128', '', 200, '../../zkdata/', ''),
+(2, 'moodle', '', 'Entorn Virtual d''Aprenentatge', 1, '1912', '', 500, '../../moodledata/', ''),
+(3, 'marsupial', '', 'Integració de materials d''editorials amb el Moodle. Activar aquest servei implica canviar el domini agora.xtec.cat per agora.educat1x1cat.cat. Això pot provocar problemes en els enllaços dels cursos existents.', 1, '', '', 0, '', ''),
+(4, 'moodle2', '', 'Entorn Virtual d''Aprenentatge (nova versió)', 1, '', '', 500, '../../moodledata2/', ''),
+(5, 'nodes', '', 'Web de centre fet amb WordPress', 1, '3.9.1', '', 500, '', 'cap');
 
 -- --------------------------------------------------------
 
@@ -661,9 +703,9 @@ CREATE TABLE IF NOT EXISTS `blocks` (
 --
 
 INSERT INTO `blocks` (`bid`, `bkey`, `title`, `content`, `url`, `mid`, `filter`, `active`, `collapsable`, `defaultstate`, `refresh`, `last_update`, `language`, `description`) VALUES
-(5, 'Messages', 'Admin messages', '', '', 8, '', 0, 1, 1, 3600, '2011-01-26 13:08:55', '', ''),
-(10, 'AgoraMenu', 'Menú', '', '', 64, 'a:3:{s:4:"type";s:0:"";s:9:"functions";s:0:"";s:10:"customargs";s:0:"";}', 1, 0, 1, 3600, '2012-05-09 15:47:34', '', ''),
-(11, 'AgoraQuestion', 'Gestors', '', '', 64, 'a:3:{s:4:"type";s:0:"";s:9:"functions";s:0:"";s:10:"customargs";s:0:"";}', 1, 0, 1, 3600, '2012-05-09 15:47:34', '', '');
+(5, 'Messages', 'Admin messages', '', '', 8, 'a:0:{}', 0, 1, 1, 3600, '2011-01-26 13:08:55', '', ''),
+(10, 'AgoraMenu', 'Menú', '', '', 64, 'a:0:{}', 1, 0, 1, 3600, '2012-05-09 15:47:34', '', ''),
+(11, 'AgoraQuestion', 'Gestors', '', '', 64, 'a:0:{}', 1, 0, 1, 3600, '2012-05-09 15:47:34', '', '');
 
 -- --------------------------------------------------------
 
@@ -968,7 +1010,7 @@ CREATE TABLE IF NOT EXISTS `hook_area` (
   `areaname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `areaidx` (`areaname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Bolcant dades de la taula `hook_area`
@@ -978,7 +1020,8 @@ INSERT INTO `hook_area` (`id`, `owner`, `subowner`, `areatype`, `category`, `are
 (1, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.user'),
 (2, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.registration'),
 (3, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.login_screen'),
-(4, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.login_block');
+(4, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.login_block'),
+(5, 'Blocks', NULL, 's', 'ui_hooks', 'subscriber.blocks.ui_hooks.htmlblock.content');
 
 -- --------------------------------------------------------
 
@@ -1058,7 +1101,7 @@ CREATE TABLE IF NOT EXISTS `hook_subscriber` (
   `eventname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `myindex` (`eventname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Bolcant dades de la taula `hook_subscriber`
@@ -1084,7 +1127,8 @@ INSERT INTO `hook_subscriber` (`id`, `owner`, `subowner`, `sareaid`, `hooktype`,
 (17, 'Users', NULL, 3, 'process_edit', 'ui_hooks', 'users.ui_hooks.login_screen.process_edit'),
 (18, 'Users', NULL, 4, 'form_edit', 'ui_hooks', 'users.ui_hooks.login_block.form_edit'),
 (19, 'Users', NULL, 4, 'validate_edit', 'ui_hooks', 'users.ui_hooks.login_block.validate_edit'),
-(20, 'Users', NULL, 4, 'process_edit', 'ui_hooks', 'users.ui_hooks.login_block.process_edit');
+(20, 'Users', NULL, 4, 'process_edit', 'ui_hooks', 'users.ui_hooks.login_block.process_edit'),
+(21, 'Blocks', NULL, 5, 'form_edit', 'ui_hooks', 'blocks.ui_hooks.htmlblock.content.form_edit');
 
 -- --------------------------------------------------------
 
@@ -1121,18 +1165,18 @@ CREATE TABLE IF NOT EXISTS `modules` (
   PRIMARY KEY (`id`),
   KEY `state` (`state`),
   KEY `mod_state` (`name`,`state`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
 -- Bolcant dades de la taula `modules`
 --
 
 INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `url`, `description`, `regid`, `directory`, `version`, `official`, `author`, `contact`, `admin_capable`, `user_capable`, `profile_capable`, `message_capable`, `state`, `credits`, `changelog`, `help`, `license`, `securityschema`, `capabilities`, `core_min`, `core_max`) VALUES
-(1, 'Extensions', 3, 'Extensions', 'extensions', 'Gestioneu els vostres mòduls i connectors.', 0, 'Extensions', '3.7.10', 1, 'Jim McDonald, Mark West', 'http://www.zikula.org', 1, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"Extensions::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(2, 'Theme', 3, 'Gestor d''entorns visuals', 'theme', 'Proporciona un sistema de plantilles i una interfície per gestionar-les i controlar l''estètica del lloc web', 0, 'Theme', '3.4.1', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:"Theme::";s:12:"Theme name::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(1, 'Extensions', 3, 'Mòduls', 'extensions', 'Gestioneu els vostres mòduls i connectors.', 0, 'Extensions', '3.7.10', 1, 'Jim McDonald, Mark West', 'http://www.zikula.org', 1, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"Extensions::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(2, 'Theme', 3, 'Gestor d''entorns visuals', 'theme', 'Proporciona un sistema de plantilles i una interfície per gestionar-les i controlar l''estètica del lloc web', 0, 'Theme', '3.4.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:"Theme::";s:12:"Theme name::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (4, 'Search', 3, 'Motor de cerca del lloc', 'search', 'Proporciona un motor de cerca a dins del lloc i una interfície per gestionar els paràmetres de cerca', 0, 'Search', '1.5.2', 1, 'Patrick Kellum', 'http://www.ctarl-ctarl.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:8:"Search::";s:13:"Module name::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (7, 'PageLock', 3, 'Gestor del bloqueig de pàgines', 'pagelock', 'Proporciona la capacitat de bloquejar pàgines quan s''estan utilitzant', 0, 'PageLock', '1.1.1', 1, 'Jorn Wildt', 'http://www.elfisk.dk', 0, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:10:"PageLock::";s:2:"::";}', 'a:0:{}', '', ''),
-(11, 'Blocks', 3, 'Gestor dels blocs', 'blocksmanager', 'Interfície de gestió dels blocs', 0, 'Blocks', '3.8.0', 1, 'Jim McDonald, Mark West', 'http://www.mcdee.net/, http://www.markwest.me.uk/', 1, 1, 0, 0, 3, '', '', '', '', 'a:4:{s:8:"Blocks::";s:30:"Block key:Block title:Block ID";s:16:"Blocks::position";s:26:"Position name::Position ID";s:23:"Menutree:menutreeblock:";s:26:"Block ID:Link Name:Link ID";s:19:"ExtendedMenublock::";s:17:"Block ID:Link ID:";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(11, 'Blocks', 3, 'Gestor dels blocs', 'blocksmanager', 'Interfície de gestió dels blocs', 0, 'Blocks', '3.8.2', 1, 'Jim McDonald, Mark West', 'http://www.mcdee.net/, http://www.markwest.me.uk/', 1, 1, 0, 0, 3, '', '', '', '', 'a:4:{s:8:"Blocks::";s:30:"Block key:Block title:Block ID";s:16:"Blocks::position";s:26:"Position name::Position ID";s:23:"Menutree:menutreeblock:";s:26:"Block ID:Link Name:Link ID";s:19:"ExtendedMenublock::";s:17:"Block ID:Link ID:";}', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (12, 'Groups', 3, 'Gestor de grups', 'gestorgrups', 'Proporciona les funcionalitats de grups d''usuaris i una interfície per gestionar-los', 0, 'Groups', '2.3.2', 1, 'Mark West, Franky Chestnut, Michael Halbook', 'http://www.markwest.me.uk/, http://dev.pnconcept.com, http://www.halbrooktech.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"Groups::";s:10:"Group ID::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (14, 'Users', 3, 'Gestor d''usuaris', 'users', 'Proporciona una interfície per configurar i administrar els comptes dels usuaris. Incorpora totes les funcionalitats necessàries, però pot treballar estretament amb el mòdul de perfil.', 0, 'Users', '2.2.0', 1, 'Xiaoyu Huang, Drak', 'class007@sina.com, drak@zikula.org', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:2:{s:7:"Users::";s:14:"Uname::User ID";s:16:"Users::MailUsers";s:2:"::";}', 'a:4:{s:14:"authentication";a:1:{s:7:"version";s:3:"1.0";}s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', ''),
 (15, 'Permissions', 3, 'Gestor dels permisos', 'permissions', 'Proporciona un sistema de gestió de l''accés a les diferents funcionalitats del lloc web a través de permisos.', 0, 'Permissions', '1.1.1', 1, 'Jim McDonald, M.Maes', 'http://www.mcdee.net/, http://www.mmaes.com', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:13:"Permissions::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
@@ -1143,10 +1187,12 @@ INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `url`, `description`
 (21, 'Errors', 3, 'Registrador d''errors', 'errorlogger', 'Proporciona la capacitat de registrar errors al sistema.', 0, 'Errors', '1.1.1', 1, 'Brian Lindner <Furbo>', 'furbo@sigtauonline.com', 0, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"Errors::";s:2:"::";}', 'a:1:{s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (22, 'Settings', 3, 'Gestor dels paràmetres generals', 'settings', 'Proporciona una interfície des d''on gestionar els paràmetres generals del lloc web', 0, 'Settings', '2.9.7', 1, 'Simon Wunderlin', '', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"Settings::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (26, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s ''Terms of use'', ''Privacy statement'' and ''Accessibility statement''.', 0, 'Legal', '2.0.1', 1, 'Michael M. Wechsler', 'michael@thelaw.com', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
-(29, 'Profile', 2, 'Profile manager', 'profile', 'Provides a personal account control panel for each registered user, an interface to administer the personal information items displayed within it, and a registered users list functionality. Works in close unison with the ''Users'' module.', 0, 'Profile', '1.6.0', 1, 'Mateo Tibaquirá, Mark West, Franky Chestnut', 'http://nestormateo.com/, http://www.markwest.me.uk/, http://dev.pnconcept.com/', 1, 1, 1, 0, 1, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:6:{s:9:"Profile::";s:2:"::";s:13:"Profile::view";s:2:"::";s:13:"Profile::item";s:56:"DynamicUserData PropertyName::DynamicUserData PropertyID";s:16:"Profile:Members:";s:2:"::";s:22:"Profile:Members:recent";s:2:"::";s:22:"Profile:Members:online";s:2:"::";}', 'a:3:{s:7:"profile";a:1:{s:7:"version";s:3:"1.0";}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
 (35, 'AuthLDAP', 2, 'AuthLDAP', 'authldap', 'Autentificació LDAP', 0, 'AuthLDAP', '1.0.1', 1, 'Mike Goldfinger', 'MikeGoldfinger@linuxmail.org', 1, 0, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"AuthLDAP::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '2.0.6', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"Agoraportal::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(68, 'XtecMailer', 2, 'XtecMailer', 'XtecMailer', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 0, 'XtecMailer', '1.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"XtecMailer::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', '');
+(64, 'Agoraportal', 2, 'Agoraportal', 'Agoraportal', 'Administració dels serveis d''Àgora, petició d''espais nous i gestió per part dels centres.', 0, 'Agoraportal', '2.0.11', 0, 'Agora Development Team', 'agora@xtec.cat', 1, 1, 0, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"Agoraportal::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(68, 'XtecMailer', 2, 'XtecMailer', 'XtecMailer', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 0, 'XtecMailer', '1.0.0', 0, '', '', 0, 0, 0, 0, 3, '', '', '', '', 'a:1:{s:12:"XtecMailer::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(69, 'Files', 2, 'Gestor de fitxers', 'fitxers', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.1', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:1:{s:7:"Files::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
+(70, 'IWmain', 2, 'Intraweb', 'IWmain', 'Mòdul principal del mòduls Intraweb. Els mòduls Intraweb necessiten aquest mòdul per poder funcionar.', 0, 'IWmain', '3.0.0', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:1:{s:8:"IWmain::";s:2:"::";}', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(71, 'IWstats', 2, 'Estadístiques', 'IWstats', 'Mòdul d''estadístiques.', 0, 'IWstats', '3.0.1', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', 'a:1:{s:9:"IWstats::";s:2:"::";}', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', '');
 
 -- --------------------------------------------------------
 
@@ -1162,7 +1208,14 @@ CREATE TABLE IF NOT EXISTS `module_deps` (
   `maxversion` varchar(10) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Bolcant dades de la taula `module_deps`
+--
+
+INSERT INTO `module_deps` (`id`, `modid`, `modname`, `minversion`, `maxversion`, `status`) VALUES
+(1, 11, 'Scribite', '5.0.0', '', 2);
 
 -- --------------------------------------------------------
 
@@ -1177,7 +1230,7 @@ CREATE TABLE IF NOT EXISTS `module_vars` (
   `value` longtext,
   PRIMARY KEY (`id`),
   KEY `mod_var` (`modname`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=827 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=832 ;
 
 --
 -- Bolcant dades de la taula `module_vars`
@@ -1255,7 +1308,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (76, 'ZConfig', 'funtext', 's:1:"1";'),
 (77, 'ZConfig', 'reportlevel', 's:1:"0";'),
 (78, 'ZConfig', 'startpage', 's:0:"";'),
-(79, 'ZConfig', 'Version_Num', 's:5:"1.3.2";'),
+(79, 'ZConfig', 'Version_Num', 's:5:"1.3.9";'),
 (80, 'ZConfig', 'Version_ID', 's:6:"Zikula";'),
 (81, 'ZConfig', 'Version_Sub', 's:3:"vai";'),
 (82, 'ZConfig', 'debug_sql', 's:1:"0";'),
@@ -1451,7 +1504,12 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (823, 'XtecMailer', 'log', 'i:0;'),
 (824, 'XtecMailer', 'debug', 'i:0;'),
 (825, 'XtecMailer', 'logpath', 's:0:"";'),
-(826, '/EventHandlers', 'XtecMailer', 'a:1:{i:0;a:3:{s:9:"eventname";s:29:"module.mailer.api.sendmessage";s:8:"callable";a:2:{i:0;s:20:"XtecMailer_Listeners";i:1;s:8:"sendMail";}s:6:"weight";i:10;}}');
+(826, '/EventHandlers', 'XtecMailer', 'a:1:{i:0;a:3:{s:9:"eventname";s:29:"module.mailer.api.sendmessage";s:8:"callable";a:2:{i:0;s:20:"XtecMailer_Listeners";i:1;s:8:"sendMail";}s:6:"weight";i:10;}}'),
+(827, 'systemplugin.imagine', 'version', 's:5:"1.0.0";'),
+(828, 'systemplugin.imagine', 'thumb_dir', 's:20:"systemplugin.imagine";'),
+(829, 'systemplugin.imagine', 'thumb_auto_cleanup', 'b:0;'),
+(830, 'systemplugin.imagine', 'presets', 'a:1:{s:7:"default";C:27:"SystemPlugin_Imagine_Preset":178:{x:i:2;a:7:{s:5:"width";i:100;s:6:"height";i:100;s:4:"mode";N;s:9:"extension";N;s:8:"__module";N;s:9:"__imagine";N;s:16:"__transformation";N;};m:a:1:{s:7:"\0*\0name";s:7:"default";}}}'),
+(831, 'Theme', 'enable_mobile_theme', 'b:0;');
 
 -- --------------------------------------------------------
 
@@ -1657,6 +1715,13 @@ CREATE TABLE IF NOT EXISTS `session_info` (
   PRIMARY KEY (`sessid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Bolcant dades de la taula `session_info`
+--
+
+INSERT INTO `session_info` (`sessid`, `ipaddr`, `lastused`, `uid`, `remember`, `vars`) VALUES
+('2l8goj1kgfc6a3q8e0jullm748dof20h', 'b44aab0625ab749bf5a23cce99d45b6d', '2015-02-11 17:03:42', 2, 0, '/|a:3:{s:4:"rand";a:0:{}s:9:"useragent";s:40:"354110d6a48a3a85c04316c953fc6947b34e8a8b";s:3:"uid";s:1:"2";}_zikula_messages|a:2:{s:5:"error";a:1:{i:0;s:76:"El nom d''usuari/ària o la contrasenya que heu introduït no són correctes.";}s:6:"status";a:3:{i:0;s:44:"S''ha actualitzat el mòdul. Ara està actiu.";i:1;s:44:"S''ha actualitzat el mòdul. Ara està actiu.";i:2;s:44:"S''ha actualitzat el mòdul. Ara està actiu.";}}Zikula_Users|a:1:{s:21:"authentication_method";a:2:{s:7:"modname";s:5:"Users";s:6:"method";s:5:"uname";}}');
+
 -- --------------------------------------------------------
 
 --
@@ -1685,7 +1750,7 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `license` varchar(255) NOT NULL,
   `xhtml` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Bolcant dades de la taula `themes`
@@ -1697,7 +1762,8 @@ INSERT INTO `themes` (`id`, `name`, `type`, `displayname`, `description`, `regid
 (4, 'Atom', 3, 'Àtom', 'Entorn visual auxiliar que genera pàgines en el format de sindicació Atom.', 0, 'Atom', '1.0', 0, 'Franz Skaaning', '', 0, 0, 1, 1, '', '', '', '', 0),
 (6, 'Printer', 3, 'Impressora', 'L''entorn visual Printer és un entorn visual auxiliar dissenyat per mostrar les pàgines en un format adequat per a la impressió', 0, 'Printer', '2.0', 0, 'Mark West', '', 0, 0, 1, 1, '', '', '', '', 1),
 (8, 'Andreas08', 3, 'Andreas08', 'Based on the theme Andreas08 by Andreas Viklund and extended for Zikula with the CSS Framework ''fluid960gs''.', 0, 'Andreas08', '2.0', 0, 'David Brucas, Mark West, Andreas Viklund', '', 1, 1, 0, 1, '', '', '', '', 1),
-(9, 'IWportal', 3, 'Portal theme', 'Theme developed by the Intraweb project staff for the Agora service', 0, 'IWportal', '1.0', 0, 'Albert Bachiller, Pau Ferrer', 'aginard@xtec.cat', 1, 1, 1, 1, '', '', '', 'GNU/GPL', 1);
+(9, 'IWportal', 3, 'Portal theme', 'Theme developed by the Intraweb project staff for the Agora service', 0, 'IWportal', '1.0', 0, 'Albert Bachiller, Pau Ferrer', 'aginard@xtec.cat', 1, 1, 1, 1, '', '', '', 'GNU/GPL', 1),
+(10, 'Mobile', 3, 'Mobile', 'The mobile theme is an auxiliary theme designed specially for outputting pages in a mobile-friendly format.', 0, 'Mobile', '1.0', 0, '', '', 0, 0, 1, 1, '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -1746,7 +1812,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`uid`, `uname`, `email`, `user_regdate`, `pass`, `ublockon`, `ublock`, `theme`, `activated`, `lastlogin`, `passreminder`, `approved_date`, `approved_by`, `tz`, `locale`) VALUES
 (1, 'guest', '', '1970-01-01 00:00:00', '', 0, '', '', 1, '1970-01-01 00:00:00', '', '1970-01-01 00:00:00', 0, '', ''),
-(2, 'admin', 'admin@agora.xtec.cat', '2010-03-02 10:33:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2012-08-09 09:32:31', '', '2010-03-02 10:33:02', 2, '', ''),
+(2, 'admin', 'admin@agora.xtec.cat', '2010-03-02 10:33:02', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2015-02-11 16:03:42', '', '2010-03-02 10:33:02', 2, '', ''),
 (3, 'a8000001', 'usu1@exemple.cat', '2012-03-05 13:01:43', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:01:43', 2, '', ''),
 (4, 'a8000002', 'usu2@exemple.cat', '2012-03-05 13:02:12', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:12', 2, '', ''),
 (5, 'a8000003', 'usu3@exemple.cat', '2012-03-05 13:02:36', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2012-03-05 13:02:36', 2, '', ''),
