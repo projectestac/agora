@@ -6,7 +6,7 @@
         {/foreach}
     </select>
     
-    <input type="text" size="3" name="quotaValue" /> {gt text="Mb"}
+    <input type="text" size="3" name="quotaValue" /> {gt text="MB"}
     
     <a href="javascript:createGroupQuota();">
         {img modname='core' src='button_ok.png' set='icons/extrasmall' __alt="Save the changes" __title="Save the changes"}

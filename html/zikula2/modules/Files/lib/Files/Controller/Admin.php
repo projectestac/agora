@@ -28,31 +28,39 @@ class Files_Controller_Admin extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        $multisites = (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) ? true : false;
-        if ($multisites) {
-            $siteDNS = FormUtil::getPassedValue('siteDNS', '', 'GET');
-            $folderPath = $GLOBALS['PNConfig']['Multisites']['filesRealPath'] . '/' . $siteDNS . $GLOBALS['PNConfig']['Multisites']['siteFilesFolder'];
-        } else {
-            $folderPath = ModUtil::getVar('Files', 'folderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
         }
-        
-        $moduleVars = array('usersFolder' => ModUtil::getVar('Files', 'usersFolder'),
+        $folderPath = $check['folderPath'];
+        $multisites = ($check['config'] == 'multisites') ? true : false;
+        $agora = $check['agora'];
+        $usersFolder = $check['usersFiles'];
+        $moduleVars = array('usersFolder' => $usersFolder,
             'allowedExtensions' => ModUtil::getVar('Files', 'allowedExtensions'),
             'defaultQuota' => ModUtil::getVar('Files', 'defaultQuota'),
             'filesMaxSize' => ModUtil::getVar('Files', 'filesMaxSize'),
             'maxWidth' => ModUtil::getVar('Files', 'maxWidth'),
             'maxHeight' => ModUtil::getVar('Files', 'maxHeight'),
             'showHideFiles' => ModUtil::getVar('Files', 'showHideFiles'),
-            'editableExtensions' => ModUtil::getVar('Files', 'editableExtensions'));
+            'editableExtensions' => ModUtil::getVar('Files', 'editableExtensions'),
+        	'defaultPublic' => ModUtil::getVar('Files', 'defaultPublic'),
+			'scribite_v4' => ModUtil::getVar('Files', 'scribite_v4'),
+			'scribite_v5' => ModUtil::getVar('Files', 'scribite_v5'),
+			'scribite_v4_name' => ModUtil::getVar('Files', 'scribite_v4_name'),
+			'scribite_v5_name' => ModUtil::getVar('Files', 'scribite_v5_name'));
         // check if file file.php exists in folder modules/Files
-        $fileFileInModule = (file_exists('modules/Files/file.php')) ? true : false;
+        $fileFileInModule = (file_exists('modules/Files/Resources/extras/file.php')) ? true : false;
         // check if file file.php exists in folder modules/Files
         $fileFileNotInRoot = (!file_exists('file.php')) ? true : false;
         $folderPathProblem = (!is_writable($folderPath) || !file_exists($folderPath)) ? true : false;
         $usersFolderProblem = (!is_writable($folderPath . '/' . $moduleVars['usersFolder']) || !file_exists($folderPath . '/' . $moduleVars['usersFolder']) || $moduleVars['usersFolder'] == '') ? true : false;
         $quotasTable = ModUtil::func('Files', 'admin', 'getQuotasTable');
+        $this->view->assign('check', $check);
         $this->view->assign('folderPath', $folderPath);
         $this->view->assign('multisites', $multisites);
+        $this->view->assign('agora', $agora);
         $this->view->assign('quotasTable', $quotasTable);
         $this->view->assign('moduleVars', $moduleVars);
         $this->view->assign('fileFileInModule', $fileFileInModule);
@@ -69,9 +77,15 @@ class Files_Controller_Admin extends Zikula_AbstractController {
      * @return: True if success or false in other case
      */
     public function updateconfig($args) {
+        
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $folderPath = $check['folderPath'];
         // Get parameters from whatever input we need.
         $showHideFiles = FormUtil::getPassedValue('showHideFiles', isset($args['showHideFiles']) ? $args['showHideFiles'] : 0, 'POST');
-        $folderPath = FormUtil::getPassedValue('folderPath', isset($args['folderPath']) ? $args['folderPath'] : null, 'POST');
         $usersFolder = FormUtil::getPassedValue('usersFolder', isset($args['usersFolder']) ? $args['usersFolder'] : null, 'POST');
         $allowedExtensions = FormUtil::getPassedValue('allowedExtensions', isset($args['allowedExtensions']) ? $args['allowedExtensions'] : null, 'POST');
         $defaultQuota = FormUtil::getPassedValue('defaultQuota', isset($args['defaultQuota']) ? $args['defaultQuota'] : null, 'POST');
@@ -79,6 +93,11 @@ class Files_Controller_Admin extends Zikula_AbstractController {
         $maxWidth = FormUtil::getPassedValue('maxWidth', isset($args['maxWidth']) ? $args['maxWidth'] : null, 'POST');
         $maxHeight = FormUtil::getPassedValue('maxHeight', isset($args['maxHeight']) ? $args['maxHeight'] : null, 'POST');
         $editableExtensions = FormUtil::getPassedValue('editableExtensions', isset($args['editableExtensions']) ? $args['editableExtensions'] : null, 'POST');
+        $defaultPublic = FormUtil::getPassedValue('defaultPublic', $args['defaultPublic']==1 ? $args['defaultPublic'] : 0, 'POST');
+		$scribite_v4 = FormUtil::getPassedValue('scribite_v4', $args['scribite_v4']== true ? true : false, 'POST');
+		$scribite_v5 = FormUtil::getPassedValue('scribite_v5', $args['scribite_v5']== true ? true : false, 'POST');
+		$scribite_v4_name = FormUtil::getPassedValue('scribite_v4_name', isset($args['scribite_v4_name']) ? $args['scribite_v4_name'] : '', 'POST');
+		$scribite_v5_name = FormUtil::getPassedValue('scribite_v5_name', isset($args['scribite_v5_name']) ? $args['scribite_v5_name'] : '', 'POST');
         // Security check
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
@@ -92,19 +111,14 @@ class Files_Controller_Admin extends Zikula_AbstractController {
             'filesMaxSize' => $filesMaxSize,
             'maxWidth' => $maxWidth,
             'maxHeight' => $maxHeight,
-            'editableExtensions' => $editableExtensions);
-        if ($GLOBALS['PNConfig']['Multisites']['multi'] != 1) {
-            if (!file_exists($folderPath)) {
-                ModUtil::setVars('Files', $moduleVars);
-                LogUtil::registerError($this->__f('The directory <strong>%s</strong> does not exist', $folderPath));
-                return System::redirect(ModUtil::url('Files', 'admin', 'main'));
-            }
-            $folderPath = (substr($folderPath, -1) == '/') ? substr($folderPath, 0, strlen($folderPath) - 1) : $folderPath;
-            $moduleVars['folderPath'] = $folderPath;
-        }
-        if (!file_exists($folderPath . '/' . $usersFolder) || $usersFolder == '' || $usersFolder == null) {
-            ModUtil::setVars('Files', $moduleVars);
-            LogUtil::registerError($this->__f('The directory <strong>%s</strong> for users does not exist', $usersFolder));
+            'editableExtensions' => $editableExtensions,
+        	'defaultPublic' => $defaultPublic,
+			'scribite_v4' => $scribite_v4,
+			'scribite_v5' => $scribite_v5,
+			'scribite_v4_name' => $scribite_v4_name,
+			'scribite_v5_name' => $scribite_v5_name);
+        if ($usersFolder == '' || $usersFolder == null) {
+            LogUtil::registerError($this->__("Users folder can't be empty"));
             return System::redirect(ModUtil::url('Files', 'admin', 'main'));
         }
         $usersFolder = (substr($usersFolder, -1) == '/') ? substr($usersFolder, 0, strlen($usersFolder) - 1) : $usersFolder;

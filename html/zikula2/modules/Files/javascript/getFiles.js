@@ -1,49 +1,70 @@
-	
-function FilesFindItemXinha(editor, maURL)
-{
-    /*
-    var pWidth = screen.width * 0.75;
-    var pHeight = screen.height * 0.66;
-    var pTop = (screen.height - pHeight) / 2;
-    var pLeft = (screen.width - pWidth) / 2;
-    */
-    
-    
-    /* 26.09.13 *************** XTEC MODIFICAT - simply open 
-    @jmeler redirecció a Files    */
-    window.open(maURL,'_blank');
-   /* ***********ORIGINAL
-    * editor._popupDialog(maURL , function(value){editor.insertHTML('<img src="'+ value + '" alt="' + getFileName(value) + '" title="' + getFileName(value) + '"/>')})
-    ************ FI */
-
+/*
+Deprecated functions
+Only to  keep compatibility with old version of Xinha plugin, playing in no-updated Scribite module
+*/
+function FilesFindItemXinha(editor, maURL) {
+    editor._popupDialog(maURL ,
+        function(val){
+            value = val[1];
+            opt = val[0];
+            fileName = getFileName(value);
+            if (opt == 'insertImg') {
+                editor.insertHTML('<img src="'+ value + '" alt="' + getFileName(value) + '" title="' + getFileName(value) + '"/>');
+            }else if (opt == 'insertLink') {
+                editor.insertHTML('<a href="' + value + '" alt="' + fileName + '" title="' + fileName + '">' + fileName + '</a>');
+            }else if (opt == 'copyURL') {
+                editor.insertHTML(Zikula.Config.baseURL+value);
+            }else if (opt == 'gotoURL') {
+                window.open(Zikula.Config.baseURL+value);
+             }
+            
+        });
 }
 
 function getFileName (value) {
     var filename = value.substr(value.lastIndexOf('/')+1,value.length);
     return filename;
 }
-
-function modifySize(folder,image,factor,action)
+/*
+End of dreprecated functions
+*/
+function modifySize(folder,image,factor,action,editor)
 {
-    var pars = "module=Files&func=externalModifyImg&folder=" + folder + "&image=" + image + "&factor=" + factor + "&action=" + action;
+    var pars = {
+        folder: folder,
+        image: image,
+        factor: factor,
+        action: action,
+        editor: editor
+    };
     Element.update('image_' + image, '<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
-	var myAjax = new Ajax.Request("ajax.php", 
-	{
-		method: 'get', 
-		parameters: pars, 
-		onComplete: modifySize_response,
-		onFailure: modifySize_failure
+    //$('image_' + image).update('<img src="images/ajax/circle-ball-dark-antialiased.gif" />');
+    var myAjax = new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=externalModifyImg",{
+        parameters: pars,
+	onComplete: modifySize_response,
+	onFailure: modifySize_failure
 	});
+
 }
 
 function modifySize_response(req)
 {
-   	if (req.status != 200 ) { 
+    
+if(!req.isSuccess()){
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+
+    var b=req.getData();
+    $('image_' + b.image).update(b.content);
+/*   	if (req.status != 200 ) { 
 		pnshowajaxerror(req.responseText);
 		return;
 	}
 	var json = pndejsonize(req.responseText);
 	Element.update('image_' + json.image, json.content);
+*/
+
 }
 
 function modifySize_failure()
@@ -58,7 +79,7 @@ function insertAndClose(file){
 
 function Loadwindow(){
 	
-        url = document.location.pnbaseURL + document.location.entrypoint + "?module=Files&type=external&func=getFiles&hook=1";
+        url = document.location.baseURL + document.location.entrypoint + "?module=Files&type=external&func=getFiles&hook=1";
 	popup=window.open(url,"Files","location=1,status=1,scrollbars=1,width=600,height=700");
 	popup.window.document.getElementsByTagName('body')[0].setAttribute('onblur','self.focus()');
 	

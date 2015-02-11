@@ -14,7 +14,7 @@
     </div>
     <div class="z-formbuttons">
         {if $external eq 1}
-        <a href="{modurl modname='Files' fqurl='true' type='external' func='getFiles' folder=$folder|replace:'/':'|' hook=$hook}">
+        <a href="{modurl modname='Files' fqurl='true' type='external' func='getFiles' folder=$folder|replace:'/':'|' hook=$hook editor=$editor}">
             {img modname='core' src='button_ok.png' set='icons/small' __alt="Accept" __title="Accept"}
         </a>
         {else}

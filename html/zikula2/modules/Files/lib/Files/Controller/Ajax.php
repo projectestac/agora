@@ -111,12 +111,13 @@ class Files_Controller_Ajax extends Zikula_AbstractController {
     public function createDir($args) {
         $folder = $this->request->getPost()->get('folder', '');
         $external = $this->request->getPost()->get('external', '');
-
+        $editor = $this->request->getPost()->get('editor', '');
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
             throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
         $content = ModUtil::func('Files', 'user', 'createDirForm', array('folder' => $folder,
-                    'external' => $external));
+                    'external' => $external,
+                    'editor' => $editor));
         return new Zikula_Response_Ajax(array('content' => $content,
                 ));
     }
@@ -130,12 +131,14 @@ class Files_Controller_Ajax extends Zikula_AbstractController {
     public function uploadFile($args) {
         $folder = $this->request->getPost()->get('folder', '');
         $external = $this->request->getPost()->get('external', '');
+        $editor = $this->request->getPost()->get('editor', '');
 
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
             throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
         $content = ModUtil::func('Files', 'user', 'uploadFileForm', array('folder' => $folder,
-                    'external' => $external));
+                    'external' => $external,
+                    'editor' => $editor));
         return new Zikula_Response_Ajax(array('content' => $content,
                 ));
     }
@@ -144,26 +147,35 @@ class Files_Controller_Ajax extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
             throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        $image = $this->request->getPost()->get('image', '');
-        if (!$image) {
-            throw new Zikula_Exception_Fatal($this->__('no image found'));
-        }
 
         $factor = $this->request->getPost()->get('factor', '');
         if (!$factor) {
             throw new Zikula_Exception_Fatal($this->__('no size factor defined'));
         }
+        $editor = $this->request->getPost()->get('editor', '');
+        $image = $this->request->getPost()->get('image', '');
+        if (!$image) {
+            throw new Zikula_Exception_Fatal($this->__('no image found'));
+        }
 
-        $folderName = $this->request->getPost()->get('folderName', '');
+        $folderName = $this->request->getPost()->get('folder', '');
         if (!$folderName) {
             throw new Zikula_Exception_Fatal($this->__('No folder defined.'));
         }
 
-        $action = FormUtil::getPassedValue('action', -1, 'GET');
+        $action = $this->request->getPost()->get('action', '');
+        if (!$action) {
+            throw new Zikula_Exception_Fatal($this->__('No action defined.'));
+        }
 
         $folderPath = (SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) ? $folderName : ModUtil::getVar('Files', 'usersFolder') . '/' . strtolower(substr(UserUtil::getVar('uname'), 0, 1)) . '/' . UserUtil::getVar('uname') . '/' . $folderName;
         // gets root folder for the user
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         list($width, $height) = getimagesize($initFolderPath . '/' . $folderName . '/' . $image);
 
         $factor = ($action == 'increase') ? round($factor / 1.2, 2) : round($factor * 1.2, 2);
@@ -185,13 +197,15 @@ class Files_Controller_Ajax extends Zikula_AbstractController {
             'newWidth' => $newWidth,
             'fromAjax' => 1));
         
+        $view = Zikula_View::getInstance($this->name);
         $this->view->setCaching(false);
+        
         $this->view->assign('file', $file);
         $this->view->assign('folderPath', $folderPath);
         $this->view->assign('folderName', $folderName);
         $this->view->assign('hook', 0);
+        $this->view->assign('editor',$editor);
         $content = $this->view->fetch('Files_external_getFilesImgContent.tpl');
-
         return new Zikula_Response_Ajax(array('image' => $image,
                     'content' => $content,
                 ));

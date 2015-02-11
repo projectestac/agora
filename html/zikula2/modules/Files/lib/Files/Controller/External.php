@@ -14,9 +14,14 @@ class Files_Controller_External extends Zikula_AbstractController
     public function getFiles($args)
     {
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : 0, 'GET');
+	$editor = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : false, 'GET');
         PageUtil::AddVar('javascript', 'modules/Files/javascript/getFiles.js');
         // get arguments
+        $root = FormUtil::getPassedValue('root', isset($args['root']) ? $args['root'] : null, 'REQUEST');
+        $lastFolder = isset($_SESSION['filesModuleLastFolder']) ? $_SESSION['filesModuleLastFolder'] : null;
         $folder = FormUtil::getPassedValue('folder', isset($args['folder']) ? $args['folder'] : null, 'REQUEST');
+        $folder = (is_null($folder) && !is_null($lastFolder) && is_null($root)) ? $lastFolder : $folder; 
+        $_SESSION['filesModuleLastFolder'] = $folder;
         $folder = str_replace("|", "/", $folder);
         // security check
         if (!SecurityUtil::checkPermission( 'Files::', '::', ACCESS_ADD) || !UserUtil::isLoggedIn()) {
@@ -28,7 +33,13 @@ class Files_Controller_External extends Zikula_AbstractController
         }
         $oFolder = $folder;
         // gets root folder for the user
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
+
         // check if the root folder exists
         if(!file_exists($initFolderPath)){
             $errorMsg = $this->__('The server directory does not exist. Contact with the website administrator to solve this problem.');
@@ -83,7 +94,8 @@ class Files_Controller_External extends Zikula_AbstractController
         $fileList = ModUtil::func('Files', 'user', 'dir_list',
                                    array('folder' => $folder,
                                          'external' => 1,
-                                         'hook' => $hook));
+                                         'hook' => $hook,
+                                         'editor' => $editor));
         sort($fileList['dir']);
         sort($fileList['file']);
         $notwriteable = (!is_writable($folder)) ? true : false;
@@ -100,7 +112,7 @@ class Files_Controller_External extends Zikula_AbstractController
                                       'external' => 1));
             foreach($images['file'] as $file) {
                 $fileExtension = FileUtil::getExtension($file['name']);
-                if(in_array(strtolower($fileExtension), array('gif','png','jpg'))) {
+                if(in_array(strtolower($fileExtension), array('gif','png','jpg','jpeg'))) {
                     list($width, $height) = getimagesize($folder . '/' . $file['name']);
                     list($newWidth, $newHeight) = getimagesize($folder . '/.tbn/' . $file['name']);
                     $factor = round($width/$newWidth,2);
@@ -113,6 +125,17 @@ class Files_Controller_External extends Zikula_AbstractController
                 }
             }
         }
+		$scribite_v4 = ModUtil::getVar('Files', 'scribite_v4');
+        $this->view->assign('scribite_v4', $scribite_v4);
+		$scribite_v5 = ModUtil::getVar('Files', 'scribite_v5');
+        $this->view->assign('scribite_v5', $scribite_v5);
+		$scribite_v4_name = ModUtil::getVar('Files', 'scribite_v4_name');
+        $this->view->assign('scribite_v4_name', $scribite_v4_name);
+		$scribite_v5_name = ModUtil::getVar('Files', 'scribite_v5_name');
+        $this->view->assign('scribite_v5_name', $scribite_v5_name);
+        $defaultPublic = ModUtil::getVar('Files', 'defaultPublic');
+        $this->view->assign('defaultPublic', $defaultPublic);
+		$this->view->assign('editor', $editor);
         $this->view->assign('folderPath', DataUtil::formatForDisplay($folderPath));
         $this->view->assign('folderName', DataUtil::formatForDisplay($folderName));
         $this->view->assign('fileList', $fileList);
@@ -120,6 +143,11 @@ class Files_Controller_External extends Zikula_AbstractController
         $this->view->assign('imagesArray', DataUtil::formatForDisplay($imagesArray));
         $this->view->assign('usedSpace',  $usedSpaceArray);
         $this->view->assign('notwriteable', $notwriteable);
+        //path to zk jquery lib
+        $js =new JCSSUtil;
+        $scripts = $js->scriptsMap();
+        $jquery = $scripts['jquery']['path'];
+        $this->view->assign('jquery',$jquery);
         return $this->view->display('Files_external_getFiles.tpl');
     }
 }

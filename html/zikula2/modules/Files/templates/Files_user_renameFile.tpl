@@ -10,7 +10,7 @@
         <h2>{gt text="Rename file"}</h2>
     </div>
 
-    <form class="z-form" action="{modurl modname='Files' type='user' func='renameFile' hook=$hook}" method="post" enctype="application/x-www-form-urlencoded">
+    <form class="z-form" action="{modurl modname='Files' type='user' func='renameFile' hook=$hook editor=$editor}" method="post" enctype="application/x-www-form-urlencoded">
         <div>
             <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
             <input type="hidden" name="confirm" value="1" />
@@ -28,7 +28,7 @@
             <div class="z-formbuttons">
                 {button src='button_ok.png' set='icons/small' __alt="Accept" __title="Accept"}
                 {if $external eq 1}
-                <a href="{modurl fqurl='true' modname='Files' type='external' func='getFiles' folder=$folder|replace:'/':'|' hook=$hook}">
+                <a href="{modurl fqurl='true' modname='Files' type='external' func='getFiles' folder=$folder|replace:'/':'|' hook=$hook editor=$editor}">
                     {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
                 </a>
                 {else}

@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>{gt text="Group"}</th>
-            <th>{gt text="Quota (Mb)"}</th>
+            <th>{gt text="Quota (MB)"}</th>
             <th>{gt text="Delete"}</th>
         </tr>
     </thead>

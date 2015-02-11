@@ -27,21 +27,20 @@ class Files_Installer extends Zikula_AbstractInstaller
         $pntable = DBUtil::getTables();
         $c = $pntable['Files_column'];
         DBUtil::createIndex($c['userId'], 'Files', 'userId');
-        // create security files
-        FileUtil::writeFile(ModUtil::getVar('Files', 'folderPath') . '/.htaccess', $htaccessContent, true);
-        FileUtil::writeFile(ModUtil::getVar('Files', 'folderPath') . '/.locked', $lockedContent, true);
-        FileUtil::writeFile(ModUtil::getVar('Files', 'folderPath') . '/' . ModUtil::getVar('Files', 'usersFolder') . '/.htaccess', $htaccessContent, true);
-        FileUtil::writeFile(ModUtil::getVar('Files', 'folderPath') . '/' . ModUtil::getVar('Files', 'usersFolder') . '/.locked', $lockedContent, true);
         //Create module vars
         ModUtil::setVar('Files', 'showHideFiles', '0');
-        ModUtil::setVar('Files', 'allowedExtensions', 'gif,png,jpg,odt,doc,pdf,zip');
+        ModUtil::setVar('Files', 'allowedExtensions', 'gif,png,jpg,jpeg,odt,doc,pdf,zip');
         ModUtil::setVar('Files', 'defaultQuota', 1);
         ModUtil::setVar('Files', 'groupsQuota', '');
         ModUtil::setVar('Files', 'filesMaxSize', '1000000');
         ModUtil::setVar('Files', 'maxWidth', '250');
         ModUtil::setVar('Files', 'maxHeight', '250');
         ModUtil::setVar('Files', 'editableExtensions', 'php,htm,html,htaccess,css,js,tpl');
-        ModUtil::setVar('Files', 'usersFolder', 'users');
+        ModUtil::setVar('Files', 'usersFolder', 'usersFiles');
+		ModUtil::setVar('Files', 'scribite_v4', false);
+		ModUtil::setVar('Files', 'scribite_v5', true);
+		ModUtil::setVar('Files', 'scribite_v4_name', 'Scribite');
+		ModUtil::setVar('Files', 'scribite_v5_name', 'Scribite');
 
         // Set up module hook
         ModUtil::registerHook('item', 'display', 'GUI', 'Files', 'user', 'Files');
@@ -68,8 +67,18 @@ class Files_Installer extends Zikula_AbstractInstaller
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @return bool true if successful, false otherwise
      */
-    public function upgrade($oldversion)
-    {
+    public function upgrade($oldversion) {
+        switch ($oldversion) {
+            case '1.0.0':
+                 $this->delVar('folderPath');
+			case '1.0.1':
+				ModUtil::setVar('Files', 'scribite_v4', false);
+				ModUtil::setVar('Files', 'scribite_v5', true);
+				ModUtil::setVar('Files', 'scribite_v4_name', 'Scribite');
+				ModUtil::setVar('Files', 'scribite_v5_name', 'Scribite');
+			case '1.0.2':
+				//Actual version
+        }
         return true;
     }
 }

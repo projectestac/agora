@@ -79,7 +79,12 @@ class Files_Api_User extends Zikula_AbstractApi
             ModUtil::apiFunc('Files', 'user', 'createUserFilesInfo');
         }
 
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         $spaceUsed = ModUtil::apiFunc('Files', 'user', 'calcUsedSpace', array('folderToCalc' => $initFolderPath));
         $item = array('diskUse' => DataUtil::formatForStore($spaceUsed));
         $pntable =& DBUtil::getTables();

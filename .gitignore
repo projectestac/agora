@@ -23,3 +23,7 @@ html/moodle/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
 html/moodle2/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
 html/moodle2/mod/geogebra/test
 html/moodle2/mod/geogebra/.gitignore
+.buildpath
+.project
+.settings/*
+

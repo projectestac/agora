@@ -1,4 +1,4 @@
-<form class="z-form" id="updateFile" action="{modurl modname='Files' type='user' func='uploadfile'}" method="post" enctype="multipart/form-data">
+<form class="z-form" id="updateFile" action="{modurl modname='Files' type='user' func='uploadfile' editor=$editor}" method="post" enctype="multipart/form-data">
       <div>
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="folder" value="{$folder|safetext}" />
@@ -17,7 +17,7 @@
                 <a href="javascript:submitUpdateFile();">
                     {img modname='core' src='button_ok.png' set='icons/small' altml='true' titleml='true' __alt="Accept" __title="Accept"}
                 </a>
-                <a href="{modurl modname='Files' type=$type func=$func folder=$folder|replace:'/':'|' hook=$hook}">
+                <a href="{modurl modname='Files' type=$type func=$func folder=$folder|replace:'/':'|' hook=$hook editor=$editor}">
                     {img modname='core' src='button_cancel.png' set='icons/small' altml='true' titleml='true' __alt="Cancel" __title="Cancel"}
                 </a>
             </div>

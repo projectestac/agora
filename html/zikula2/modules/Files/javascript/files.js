@@ -10,13 +10,14 @@ function failure()
  *          external => 1 if user is in a external plug-in and 0 otherwise
  * @return: form with the needed fields  
  */
-function createDir(a,aa,aaa)
+function createDir(a,aa,aaa,editor)
 {
     $("actionForm").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
     var b={
         folder:a,
         external: aa,
-        hook: aaa
+        hook: aaa,
+        editor: editor
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=createDir",{
         parameters: b,
@@ -42,13 +43,14 @@ function createDir_response(a)
  *          external => 1 if user is in a external plug-in and 0 otherwise
  * @return: form with the needed fields  
  */
-function uploadFile(a,aa,aaa)
+function uploadFile(a,aa,aaa,editor)
 {
     $("actionForm").update('<img src="'+Zikula.Config.baseURL+'images/ajax/circle-ball-dark-antialiased.gif">');
     var b={
         folder:a,
         external: aa,
-        hook: aaa
+        hook: aaa,
+        editor: editor
     };
     var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=Files&func=uploadFile",{
         parameters: b,

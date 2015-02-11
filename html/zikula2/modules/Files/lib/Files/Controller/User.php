@@ -31,10 +31,20 @@ class Files_Controller_User extends Zikula_AbstractController {
      */
     public function main($args) {
         
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         $minimal = FormUtil::getPassedValue('minimal', isset($args['minimal']) ? $args['minimal'] : null, 'REQUEST');
         
         // get arguments
+        $root = FormUtil::getPassedValue('root', isset($args['root']) ? $args['root'] : null, 'REQUEST');
+        $lastFolder = isset($_SESSION['filesModuleLastFolder']) ? $_SESSION['filesModuleLastFolder'] : null;
         $folder = FormUtil::getPassedValue('folder', isset($args['folder']) ? $args['folder'] : null, 'REQUEST');
+        $folder = (is_null($folder) && !is_null($lastFolder) && is_null($root)) ? $lastFolder : $folder;
+        $_SESSION['filesModuleLastFolder'] = $folder;
         $folder = str_replace("|", "/", $folder);
         
         // security check
@@ -43,15 +53,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         }
         $oFolder = $folder;
         // gets root folder for the user
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
         
-        // check if the root folder exists
-        if (!file_exists($initFolderPath)) {
-            $this->view = Zikula_View::getInstance('Files', false);
-            $errorMsg = $this->__('The server directory does not exist.');
-            $this->view->assign('errorMsg', $errorMsg);
-            return $this->view->fetch('Files_user_errorMsg.tpl');
-        }
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $this->view = Zikula_View::getInstance('Files', false);
@@ -60,7 +62,7 @@ class Files_Controller_User extends Zikula_AbstractController {
             return $this->view->fetch('Files_user_errorMsg.tpl');
         }
         // get folder name
-        $folderName = str_replace($initFolderPath . '/', '', $folder);
+        $folderName = $folder;
         $folder = $initFolderPath . '/' . $folder;
             
         // users can not browser the thumbnails folders
@@ -90,16 +92,14 @@ class Files_Controller_User extends Zikula_AbstractController {
             'percentage' => $percentage,
             'usedDiskSpace' => ModUtil::func('Files', 'user', 'diskUseFormat', array('value' => $usedSpace)),
             'widthUsage' => $widthUsage);
-        
-        // XTEC ************ MODIFICAT - Default storage and percentage of use
-	// 2013.09.25 @jmeler
-        global $ZConfig;
-        $centre=$ZConfig["centre"]["nomPropi"];
-        $diskInfo = getDiskInfo($centre, 'intranet');        
-        $diskSpace = $diskInfo['diskSpace']. " MB"; // Global Quota in MB
-        $percentatgeUs=round(($usedSpaceArray["usedDiskSpace"]*100)/$diskSpace);
-        // ************ FI
-               
+	if ($check['agora']) {
+            global $ZConfig;
+            $centre=$ZConfig["centre"]["nomPropi"];
+            $diskInfo = getDiskInfo($centre, 'intranet');        
+            $diskSpace = $diskInfo['diskSpace']. " MB"; // Global Quota in MB
+            $percentatgeUs=round(($usedSpaceArray["usedDiskSpace"]*100)/$diskSpace);
+        }
+             
         // create output object
         // get folder files and subfolders
         $fileList = $this->dir_list(array('folder' => $folder));
@@ -107,32 +107,23 @@ class Files_Controller_User extends Zikula_AbstractController {
         sort($fileList['file']);
         
         $notwriteable = (!is_writable($folder)) ? true : false;
-        
         // check if it is a public directori
-        // it is a public directori
         $is_public = (!file_exists($folder . '/.locked')) ? true : false;
-        
+        $folderPath = (SecurityUtil::checkPermission( 'Files::', '::', ACCESS_ADMIN)) ? $folderName : ModUtil::getVar('Files', 'usersFolder') . '/' . strtolower(substr(UserUtil::getVar('uname'), 0 , 1)) . '/' . UserUtil::getVar('uname') . '/' .$folderName;
+        $defaultPublic = ModUtil::getVar('Files', 'defaultPublic');
+        $this->view->assign('defaultPublic', $defaultPublic);
         $this->view->assign('publicFolder', $is_public);
         $this->view->assign('folderPrev', DataUtil::formatForDisplay(substr($folderName, 0, strrpos($folderName, '/'))));
-        
-        if (SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
-            $this->view->assign('folderPath', DataUtil::formatForDisplay($folderName));
-        } else {
-            $this->view->assign('folderPath', DataUtil::formatForDisplay(ModUtil::getVar('Files', 'usersFolder') . '/' . strtolower(substr(UserUtil::getVar('uname'), 0, 1)) . '/' . UserUtil::getVar('uname') . '/' . $folderName));
-        }
+        $this->view->assign('folderPath', $folderPath);
         $this->view->assign('folderName', DataUtil::formatForDisplay($folderName));
         $this->view->assign('fileList', $fileList);
-        
         $this->view->assign('usedSpace', $usedSpaceArray);
-
-	// XTEC ************ MODIFICAT  
-	// 2013.09.25 @jmeler
-        $this->view->assign('diskSpace', $diskSpace);
-        $this->view->assign('percentatgeUs', $percentatgeUs);
-	// ************ FI
-        
+	$this->view->assign('agora', $check['agora']);  
+	if ($check['agora']) {
+            $this->view->assign('diskSpace', $diskSpace);
+            $this->view->assign('percentatgeUs', $percentatgeUs);
+	}
         $this->view->assign('notwriteable', $notwriteable);
-       
         return $this->view->fetch('Files_user_filesList.tpl');
      
     }
@@ -144,9 +135,7 @@ class Files_Controller_User extends Zikula_AbstractController {
      * @return: Value formated
      */
     
-    // XTEC ************ MODIFICAT - canviar Mb per MB i Kb per KB
-    // 2013.09.25 @jmeler */
-    
+   
     public function diskUseFormat($args) {
         $value = FormUtil::getPassedValue('value', isset($args['value']) ? $args['value'] : null, 'POST');
 
@@ -181,7 +170,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
             return LogUtil::registerPermissionError();
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -189,7 +183,9 @@ class Files_Controller_User extends Zikula_AbstractController {
             return $this->view->fetch('Files_user_errorMsg.tpl');
         }
         $file = $initFolderPath . '/' . $folder . '/.htaccess';
+
         if (!file_exists($file)) {
+
             FileUtil::writeFile($file, $this->_HTACCESSCONTENT, true);
         }
         if ($onlyHtaccess != 1) {
@@ -212,14 +208,20 @@ class Files_Controller_User extends Zikula_AbstractController {
         
         $folder= FormUtil::getPassedValue('folder', isset($args['folder']) ? $args['folder'] : null, 'POST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'POST');
-        $hook  = FormUtil::getPassedValue('external', isset($args['hook']) ? $args['hook'] : null, 'POST');
+        $hook  = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'POST');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         
         // security check
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
             return LogUtil::registerPermissionError();
         }
         
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
@@ -238,7 +240,6 @@ class Files_Controller_User extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Invalid folder') . ': ' . $folderName);
         }
         
-        // jmeler: no fa el que diu el comentari ;), crec que sobra
         // check is the last character is a /
         if (strlen($folder) - 1 != '/') {
             $folder .= '/';
@@ -250,7 +251,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         }
         // set editable and thumbnailable extensions
         $editableExtensions = ModUtil::getVar('Files', 'editableExtensions');
-        $thumbnailExtensions = array('gif', 'jpg', 'png');
+        $thumbnailExtensions = array('gif','jpg','jpeg','png');
         $dir_handle = opendir($folder);
         $dir_objects = array();
         $dir_objects['dir'] = array();
@@ -275,83 +276,96 @@ class Files_Controller_User extends Zikula_AbstractController {
                 $fileIcon = $ctypeArray['icon'];
                 $options = array();
                 
-		//XTEC ************ MODIFICAT - Clear code presentation
-    		//2013.09.25 @jmeler 
                 if (substr($filename, strrpos($filename, '/') + 1, 1) != '.' 
                     || ModUtil::getVar('Files', 'showHideFiles') == 1 
                     || (ModUtil::getVar('Files', 'showHideFiles') == 2 
                     && SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN))) {
-		// ************ FI
 
                     if (strtolower($fileExtension) == 'zip') {
                         $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'unzip',
                                 'fileName' => $object,
                                 'folder' => $folderName,
-                                'external' => $external)),
+                                'external' => $external,
+                                'editor' => $editor)),
                             'image' => 'package.png',
                             'title' => $this->__('Unzip file'),
-                            'hook' => $hook);
+                            'hook' => $hook,
+                            'editor' => $editor);
                         $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'listcontentzip',
                                 'fileName' => $object,
                                 'folder' => $folderName,
-                                'external' => $external)),
+                                'external' => $external,
+                                'editor' => $editor)),
                             'image' => 'folder_tar.png',
                             'title' => $this->__('List of the file content'),
-                            'hook' => $hook);
+                            'hook' => $hook,
+                            'editor' => $editor);
                     }
-                    
-                    $options[] = array('url' => ModUtil::url('Files', 'user', 'downloadFile', array('fileName' => $object,
-                            'folder' => $folderName)),
-                        'image' => 'agt_update_misc.png',
-                        'title' => $this->__('Download file'),
-                        'external' => $external,
-                        'hook' => $hook);
                     
                     if ($editable) {
                         $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'edit',
                                 'fileName' => $object,
                                 'folder' => $folderName,
-                                'external' => $external)),
+                                'external' => $external,
+                                'editor' => $editor)),
                             'image' => 'xedit.png',
                             'title' => $this->__('Edit file'),
-                            'hook' => $hook);
+                            'hook' => $hook,
+                            'editor' => $editor);
                     }
                     
                     if ($thumbnailable && $external == 1 && !file_exists($folder . '.tbn/' . $object)) {
                         $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'thumbnail',
                                 'fileName' => $object,
                                 'folder' => $folderName,
-                                'external' => $external)),
+                                'external' => $external,
+                                'editor' => $editor)),
                             'image' => 'servicemanager2.png',
                             'title' => $this->__('Create Thumbnail'),
-                            'hook' => $hook);
+                            'hook' => $hook,
+                            'needpublic' => true,
+                            'editor' => $editor);
                     }
+                    
+                    $options[] = array('url' => ModUtil::url('Files', 'user', 'downloadFile', array('fileName' => $object,
+                            'folder' => $folderName,'editor' => $editor)),
+                        'image' => 'agt_update_misc.png',
+                        'title' => $this->__('Download file'),
+                        'external' => $external,
+                        'hook' => $hook,
+                        'editor' => $editor);
                     
                     $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'rename',
                             'fileName' => $object,
                             'folder' => $folderName,
-                            'external' => $external)),
+                            'external' => $external,
+                            'editor' => $editor)),
                         'image' => 'edit.png',
                         'title' => $this->__('Rename file'),
-                        'hook' => $hook);
+                        'hook' => $hook,
+                        'editor' => $editor);
                     
                     $options[] = array('url' => ModUtil::url('Files', 'user', 'action', array('do' => 'delete',
                         'fileName' => $object,
                         'folder' => $folderName,
-                        'external' => $external)),
+                        'external' => $external,
+                        'editor' => $editor)),
                         'image' => '14_layer_deletelayer.png',
                         'title' => $this->__('Delete File'),
-                        'hook' => $hook);
+                        'hook' => $hook,
+                        'editor' => $editor);
                     
+		    $base = log(filesize($filename)) / log(1024);
+		    $suffixes = array('', 'k', 'M', 'G', 'T');
+		    $size = round(pow(1024, $base - floor($base)), 0) . $suffixes[floor($base)];
+
                     $file_object = array('name' => DataUtil::formatForDisplay($object),
-			//XTEC ************ MODIFICAT - add formatBytes (human readable K,M,G)
-    			//2013.09.18 @jmeler 
-                        'size' => formatBytes(filesize($filename),0),
-			//************ FI
+                        'size' => $size,
                         'type' => filetype($filename),
                         'time' => date("j F Y, H:i", filemtime($filename)),
                         'fileIcon' => $fileIcon,
-                        'options' => $options);
+                        'options' => $options,
+                        'img'=> $thumbnailable);
 
                     if (is_dir($filename)) {
                         $dir_objects['dir'][] = $file_object;
@@ -384,7 +398,12 @@ class Files_Controller_User extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
         $file = ($folder != "") ? $folder . "/" . $fileName : $fileName;
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -434,6 +453,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $fileName = FormUtil::getPassedValue('fileName', isset($args['fileName']) ? $args['fileName'] : null, 'GET');
         $thumb = FormUtil::getPassedValue('thumb', isset($args['thumb']) ? $args['thumb'] : 0, 'GET');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GET');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
@@ -449,31 +469,37 @@ class Files_Controller_User extends Zikula_AbstractController {
                 return ModUtil::func('Files', 'user', 'deleteListFile', array('folder' => $folder,
                     'fileName' => $fileName,
                     'thumb' => $thumb,
-                    'hook' => $hook));
+                    'hook' => $hook,
+                    'editor' => $editor));
                 break;
             case 'rename':
                 return ModUtil::func('Files', 'user', 'renameFile', array('folder' => $folder,
                     'fileName' => $fileName,
-                    'hook' => $hook));
+                    'hook' => $hook,
+                    'editor' => $editor));
                 break;
             case 'unzip':
                 return ModUtil::func('Files', 'user', 'unzipFile', array('folder' => $folder,
                     'fileName' => $fileName,
-                    'hook' => $hook));
+                    'hook' => $hook,
+                    'editor' => $editor));
                 break;
             case 'listcontentzip':
                 return ModUtil::func('Files', 'user', 'listContentZip', array('folder' => $folder,
                     'fileName' => $fileName,
-                    'hook' => $hook));
+                    'hook' => $hook,
+                    'editor' => $editor));
                 break;
             case 'edit':
                 return ModUtil::func('Files', 'user', 'editFile', array('folder' => $folder,
-                    'fileName' => $fileName));
+                    'fileName' => $fileName,
+                    'editor' => $editor));
                 break;
             case 'thumbnail':
                 return ModUtil::func('Files', 'user', 'thumbnail', array('folder' => $folder,
                     'fileName' => $fileName,
-                    'hook' => $hook));
+                    'hook' => $hook,
+                    'editor' => $editor));
                 break;
         }
         return System::redirect(ModUtil::url('Files', 'user', 'main'));
@@ -492,13 +518,19 @@ class Files_Controller_User extends Zikula_AbstractController {
         $newWidth = FormUtil::getPassedValue('newWidth', isset($args['newWidth']) ? $args['newWidth'] : null, 'POST');
         $fromAjax = FormUtil::getPassedValue('fromAjax', isset($args['fromAjax']) ? $args['fromAjax'] : null, 'POST');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'POST');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
 
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
 
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -508,12 +540,12 @@ class Files_Controller_User extends Zikula_AbstractController {
 
         // create thumbnail image
         $fileExtension = FileUtil::getExtension($fileName);
-        $thumbnailExtensions = array('gif', 'jpg', 'png');
+        $thumbnailExtensions = array('gif','jpg','jpeg','png');
         if (!in_array($fileExtension, $thumbnailExtensions)) {
             LogUtil::registerError($this->__('It is not possible to create a thumbnail from this file.'));
             $folder = str_replace("/", "|", $folder);
             return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                        'hook' => $hook)));
+                        'hook' => $hook,'editor'=>$editor)));
         }
         // checks if the thumbnail folder exists and if it not exists create it
         if (!file_exists($initFolderPath . '/' . $folder . '/.tbn')) {
@@ -527,10 +559,10 @@ class Files_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('Error! It has been possible to read the file.'));
             $folder = str_replace("/", "|", $folder);
             return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                        'hook' => $hook)));
+                        'hook' => $hook,'editor'=>$editor)));
         }
         $format = '';
-        if (strtolower($fileExtension) == 'jpg') {
+        if (strtolower($fileExtension) == 'jpg' || strtolower($fileExtension) == 'jpeg') {
             $format = 'image/jpeg';
         } elseif (strtolower($fileExtension) == 'gif') {
             $format = 'image/gif';
@@ -557,7 +589,7 @@ class Files_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('Error! Saving the image in memory.'));
             $folder = str_replace("/", "|", $folder);
             return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                        'hook' => $hook)));
+                        'hook' => $hook,'editor'=>$editor)));
         }
         // set alphablending to on
         imagesavealpha($destimg, true);
@@ -569,7 +601,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 // preserve the transparency
                 $transIndex = imagecolortransparent($srcimg);
@@ -587,13 +619,13 @@ class Files_Controller_User extends Zikula_AbstractController {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 if (!imagegif($destimg, $imgDest)) {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 break;
             case 'image/jpeg':
@@ -601,19 +633,19 @@ class Files_Controller_User extends Zikula_AbstractController {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 if (!imagecopyresampled($destimg, $srcimg, 0, 0, 0, 0, $newWidth, $newHeight, ImageSX($srcimg), ImageSY($srcimg))) {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 if (!imagejpeg($destimg, $imgDest)) {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 break;
             case 'image/png':
@@ -621,7 +653,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 // preserve the transparency
                 // turns off transparency blending
@@ -636,13 +668,13 @@ class Files_Controller_User extends Zikula_AbstractController {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 if (!imagepng($destimg, $imgDest)) {
                     LogUtil::registerError($this->__('Error! Creating the thumbnail of the image.'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
                 break;
         }
@@ -651,11 +683,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         // only if the image is not resizing via Ajax
         if ($fromAjax == null) {
             LogUtil::registerStatus($this->__('Thumbnail created.'));
+        
         }
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', 'external', 'getFiles', array('folder' => $folder,
-                    'hook' => $hook)));
-    }
+                    'hook' => $hook,'editor'=>$editor)));
+     }
 
     /**
      * Edit a file.
@@ -670,13 +703,19 @@ class Files_Controller_User extends Zikula_AbstractController {
         $folder = str_replace("|", "/", $folder);
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'POST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GETPOST');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
 
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
 
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -744,7 +783,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         ModUtil::apiFunc('Files', 'user', 'updateUsedSpace');
         LogUtil::registerStatus($this->__('File successfully edited'));
         $folder = str_replace("/", "|", $folder);
-        return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder)));
+        return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,'editor'=>$editor)));
     }
 
     /**
@@ -766,6 +805,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GETPOST');
         $thumb = FormUtil::getPassedValue('thumb', isset($args['thumb']) ? $args['thumb'] : null, 'GETPOST');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'POST');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
@@ -774,14 +814,19 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (isset($fileName)) {
             $listFileName[] = $fileName;
         }
-        if ($fileName == ModUtil::getVar('Files', 'usersFolder')) {
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
+        if ($fileName == $check['usersFiles']) {
             LogUtil::registerError($this->__('You can not delete the users folder!'));
             $returnType = ($external == 1) ? 'external' : 'user';
             $returnFunc = ($external == 1) ? 'getFiles' : 'main';
             $folder = str_replace("/", "|", $folder);
-            return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder, 'hook' => $hook)));
+            return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder, 'hook' => $hook,'editor'=>$editor)));
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -808,12 +853,14 @@ class Files_Controller_User extends Zikula_AbstractController {
             $this->view->assign('thumb', $thumb);
             $this->view->assign('hook', $hook);
             if ($external == 1) {
+                $this->view->assign('editor',$editor);
                 $this->view->assign('external', 1);
                 $content = $this->view->fetch('Files_user_deleteListFile.tpl');
                 echo $content;
                 exit();
             } else {
                 $this->view->assign('external', 0);
+                $this->view->assign('editor',$editor);
                 return $this->view->fetch('Files_user_deleteListFile.tpl');
             }
         }
@@ -833,7 +880,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                     LogUtil::registerError($this->__('Failed to deleted'));
                     $folder = str_replace("/", "|", $folder);
                     return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                                'hook' => $hook)));
+                                'hook' => $hook,'editor'=>$editor)));
                 }
             } else {
                 if (!unlink($file)) {
@@ -851,7 +898,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         LogUtil::registerStatus($this->__('Files successfully removed'));
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                    'hook' => $hook)));
+                    'hook' => $hook,'editor'=>$editor)));
     }
 
     /**
@@ -866,7 +913,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($dir == ".." || $dir == "." || strpos($dir, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -901,7 +953,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($dir == ".." || $dir == "." || strpos($dir, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -944,11 +1001,17 @@ class Files_Controller_User extends Zikula_AbstractController {
         $newName = FormUtil::getPassedValue('newname', isset($args['newname']) ? $args['newname'] : null, 'POST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GETPOST');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GETPOST');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+            $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -968,6 +1031,7 @@ class Files_Controller_User extends Zikula_AbstractController {
             $this->view->assign('fileName', DataUtil::formatForDisplay($fileName));
             $this->view->assign('folder', DataUtil::formatForDisplay($folder));
             $this->view->assign('hook', $hook);
+            $this->view->assign('editor', $editor);
             if ($external == 1) {
                 $this->view->assign('external', 1);
                 $content = $this->view->fetch('Files_user_renameFile.tpl');
@@ -1000,13 +1064,13 @@ class Files_Controller_User extends Zikula_AbstractController {
                             $file_extension,
                             str_replace(',', ', ', $allowedExtensions))));
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook,'editor'=>$editor)));
             }
         }
         $newNameFile = ($folder != "") ? $initFolderPath . "/" . $folder . "/" . $newName : $initFolderPath . "/" . $newName;
         if (!rename($file, $newNameFile)) {
             LogUtil::registerError($this->__('Failed to rename'));
-            return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('hook' => $hook)));
+            return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('hook' => $hook,'editor'=>$editor)));
         } else {
             $file = ($folder != "") ? $initFolderPath . "/" . $folder . "/.tbn/" . $fileName : $initFolderPath . "/.tbn/" . $fileName;
             if (file_exists($file)) {
@@ -1025,7 +1089,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         LogUtil::registerStatus($this->__('Changed filename successfully'));
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                    'hook' => $hook)));
+                    'hook' => $hook,'editor'=>$editor)));
     }
 
     /**
@@ -1042,21 +1106,30 @@ class Files_Controller_User extends Zikula_AbstractController {
         $newFolder = FormUtil::getPassedValue('newFolder', isset($args['newFolder']) ? $args['newFolder'] : 0, 'POST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'POST');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'POST');
+        $editor = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
         // confirm authorisation code
         $this->checkCsrfToken();
+        
+        $defaultPublic = ModUtil::getVar('Files', 'defaultPublic');
 
         $returnType = ($external == 1) ? 'external' : 'user';
         $returnFunc = ($external == 1) ? 'getFiles' : 'main';
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
             $this->view->assign('errorMsg', $errorMsg);
             $this->view->assign('hook', $hook);
+            $this->view->assign('editor', $editor);
             return $this->view->fetch('Files_user_errorMsg.tpl');
         }
         $folderNew = ($folder != "") ? $initFolderPath . "/" . $folder . "/" . $newFolder : $initFolderPath . "/" . $newFolder;
@@ -1064,16 +1137,20 @@ class Files_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('Directory Create Error') . ': ' . $folder . "/" . $newFolder);
             $folder = str_replace("/", "|", $folder);
             return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                        'hook' => $hook)));
+                        'hook' => $hook,'editor'=>$editor)));
         }
         LogUtil::registerStatus($this->__('Directory created'));
         $inFolder = ($folder == '') ? $newFolder : $folder . "/" . $newFolder;
         ModUtil::func('Files', 'user', 'createaccessfile', array('folderNew' => $inFolder));
+        if ($defaultPublic == '1'){
+        	// make folder public after createaccessfile initially sets it as private
+        	ModUtil::func('Files', 'user', 'setaspublic', array('folder' => $inFolder));
+        }
         // update the number of bytes used by user
         ModUtil::apiFunc('Files', 'user', 'updateUsedSpace');
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                    'hook' => $hook)));
+                    'hook' => $hook,'editor'=>$editor)));
     }
 
     /**
@@ -1086,6 +1163,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $folder = FormUtil::getPassedValue('folder', isset($args['folder']) ? $args['folder'] : 0, 'REQUEST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GET');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GET');
+        $editor = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // Security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
@@ -1105,6 +1183,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $this->view->assign('func', $func);
         $this->view->assign('external', $external);
         $this->view->assign('hook', $hook);
+        $this->view->assign('editor', $editor);
         return $this->view->fetch('Files_user_createDir.tpl');
     }
 
@@ -1120,6 +1199,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $newFile = FormUtil::getPassedValue('newFile', isset($args['newFile']) ? $args['newFile'] : 0, 'REQUEST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'POST');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'POST');
+        $editor = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // Security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
@@ -1139,13 +1219,18 @@ class Files_Controller_User extends Zikula_AbstractController {
         $fileName = $_FILES['newFile']['name'];
         // update the attached file to the server
         if ($fileName != '') {
-            $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+            $check = ModUtil::func('Files', 'user', 'checkingModule');
+            if ($check['status'] != 'ok') {
+	        $this->view->assign('check', $check);
+                return $this->view->fetch('Files_user_failedConf.tpl');
+            }
+        $initFolderPath = $check['initFolderPath'];
             // check if folder exists. If not returns error.
             if (!file_exists($initFolderPath . '/' . $folder)) {
                 LogUtil::registerError($this->__f('The directory <strong>%s</strong> does not exist', DataUtil::formatForDisplay($folder)));
                 $folder = str_replace("/", "|", $folder);
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook, 'editor' => $editor)));
             }
             // get file extension
             $file_extension = FileUtil::getExtension($fileName);
@@ -1157,7 +1242,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                             str_replace(',', ', ', $allowedExtensions))));
                 $folder = str_replace("/", "|", $folder);
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook, 'editor' => $editor)));
             }
             // gets the file size
             $fileSize = $_FILES['newFile']['size'];
@@ -1166,13 +1251,13 @@ class Files_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerError($this->__f('The file is to big. The maximum size allowed is "%s" bytes.', ModUtil::getVar('Files', 'filesMaxSize')));
                 $folder = str_replace("/", "|", $folder);
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook, 'editor' => $editor)));
             }
             if ($fileSize == 0) {
                 LogUtil::registerError($this->__f('Some problem has ocurred when uploading the file to the server.', ModUtil::getVar('Files', 'filesMaxSize')));
                 $folder = str_replace("/", "|", $folder);
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook, 'editor' => $editor)));
             }
             // get user used space in folder
             $userDiskUse = ModUtil::apiFunc('Files', 'user', 'get');
@@ -1184,7 +1269,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerError($this->__f('You have not enough disk space to upload the file.', $fileSize + $usedSpace - $userAllowedSpace));
                 $folder = str_replace("/", "|", $folder);
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook, 'editor' => $editor)));
             }
             // prepare file name
             if (!isset($fileNameNew) || $fileNameNew == '') {
@@ -1203,7 +1288,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerError($this->__('Failed to upload'));
                 $folder = str_replace("/", "|", $folder);
                 return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                            'hook' => $hook)));
+                            'hook' => $hook, 'editor' => $editor)));
             }
             LogUtil::registerStatus($this->__('Uploaded file success'));
             // update the number of bytes used by user
@@ -1211,7 +1296,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         }
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                    'hook' => $hook)));
+                    'hook' => $hook, 'editor' => $editor)));
     }
 
     /**
@@ -1224,6 +1309,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $folder = FormUtil::getPassedValue('folder', isset($args['folder']) ? $args['folder'] : 0, 'REQUEST');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GET');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GET');
+        $editor = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
@@ -1244,6 +1330,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $this->view->assign('hook', $hook);
         $this->view->assign('type', $type);
         $this->view->assign('func', $func);
+        $this->view->assign('editor', $editor);
         return $this->view->fetch('Files_user_uploadFile.tpl');
     }
 
@@ -1328,7 +1415,12 @@ class Files_Controller_User extends Zikula_AbstractController {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
         
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -1375,7 +1467,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -1420,7 +1517,17 @@ class Files_Controller_User extends Zikula_AbstractController {
             return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
                         'hook' => $hook)));
         }
+        //load PclZip lib and create a callback function
         require_once ('modules/Files/includes/pclzip.lib.php');
+        function skipFilesOnPclzip($p_event, &$p_header){
+            $filename = $p_header['filename'];
+            // ----- skip .htaccess and .locked files
+            if (substr($filename,-9) == '.htaccess' || substr($filename,-7) == '.locked' || (preg_match("/\.tbn/", $filename))){
+                return 0;
+            }else {
+                return 1;
+            }
+        }
         $zipFileName = ($folder != "") ? $initFolderPath . "/" . $folder . "/" . $name . ".zip" : $initFolderPath . "/" . $name . ".zip";
         $listZipFile = array();
         foreach ($listFileName as $file) {
@@ -1428,7 +1535,9 @@ class Files_Controller_User extends Zikula_AbstractController {
             $listZipFile[] = $filePath;
         }
         $archive = new PclZip($zipFileName);
-        if (!$archive->create(implode(',', $listZipFile), PCLZIP_OPT_REMOVE_PATH, ($initFolderPath . "/" . $folder))) {
+        if (!$archive->add(implode(',', $listZipFile),
+                PCLZIP_OPT_REMOVE_PATH, $initFolderPath . "/" . $folder,
+                PCLZIP_CB_PRE_ADD, 'skipFilesOnPclzip')) {
             LogUtil::registerError($this->__('Error creating ZIP file') . ': ' . $file);
             $folder = str_replace("/", "|", $folder);
             return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
@@ -1454,13 +1563,19 @@ class Files_Controller_User extends Zikula_AbstractController {
         $folder = str_replace("|", "/", $folder);
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GET');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GET');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
         $returnType = ($external == 1) ? 'external' : 'user';
         $returnFunc = ($external == 1) ? 'getFiles' : 'main';
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -1482,6 +1597,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $this->view->assign('hook', $hook);
         if ($external == 1) {
             $this->view->assign('external', 1);
+            $this->view->assign('editor', $editor);
             $content = $this->view->fetch('Files_user_listContentZip.tpl');
             echo $content;
             exit();
@@ -1508,7 +1624,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -1558,7 +1679,7 @@ class Files_Controller_User extends Zikula_AbstractController {
                             'hook' => $hook)));
             }
             //check if the file is an image and move its thumbnail
-            if ((FileUtil::getExtension($file) == ('jpg' || 'gif' || 'png')) && file_exists($url_old . '.tbn/' . $file)) {
+            if ((FileUtil::getExtension($file) == ('jpg' || 'jpeg' || 'gif' || 'png')) && file_exists($url_old . '.tbn/' . $file)) {
                 if (!file_exists($url_new . '.tbn'))
                     mkdir($url_new . '.tbn');
                 if (!rename($url_old . '.tbn/' . $file, $url_new . '.tbn/' . $file)) {
@@ -1589,13 +1710,19 @@ class Files_Controller_User extends Zikula_AbstractController {
         $folder = str_replace("|", "/", $folder);
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GET');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GET');
+        $editor  = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
         $returnType = ($external == 1) ? 'external' : 'user';
         $returnFunc = ($external == 1) ? 'getFiles' : 'main';
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -1657,80 +1784,9 @@ class Files_Controller_User extends Zikula_AbstractController {
         LogUtil::registerStatus($this->__('Successfully unzipped'));
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                    'hook' => $hook)));
+                    'hook' => $hook, 'editor' => $editor)));
     }
 
-    /**
-     * Get the init folder path. For a multisites installation the folder path depends on the siteDNS.
-     * For a not multiple installation the folder path is stored in a module variable.
-     * @author    Albert Pérez Monfort
-     * @return    The initial folder path
-     */
-    public function getInitFolderPath() {
-        // security check
-        if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD) || !UserUtil::isLoggedIn()) {
-            return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
-        }
-        if (isset($GLOBALS['PNConfig']['Multisites']['multi']) && $GLOBALS['PNConfig']['Multisites']['multi'] == 1) {
-            $siteDNS = FormUtil::getPassedValue('siteDNS', '', 'GET');
-            // if siteDNS is the main site the root is the initial folder. If not it is the initial folder by the site
-            $rootFolderPath = ($siteDNS == $GLOBALS['PNConfig']['Multisites']['mainSiteURL']) ? $GLOBALS['PNConfig']['Multisites']['filesRealPath'] : $GLOBALS['PNConfig']['Multisites']['filesRealPath'] . '/' . $siteDNS . $GLOBALS['PNConfig']['Multisites']['siteFilesFolder'];
-        } else {
-            $rootFolderPath = ModUtil::getVar('Files', 'folderPath');
-        }
-        
-        if ($rootFolderPath=="/") $rootFolderPath="";
-        
-        // checks if $rootFolderPath exists. If not user is send to error page
-        if (!file_exists($rootFolderPath)) {
-            $errorMsg = $this->__f('The folder <strong>%s</strong> has not been found.', $rootFolderPath);
-            $this->view->assign('errorMsg', $errorMsg);
-            return $this->view->fetch('Files_user_errorMsg.tpl');
-        }
-        // checks if users folder exists. If user is admimistrator return initial folder otherwise return an error page
-        $userFolder = $rootFolderPath . '/' . ModUtil::getVar('Files', 'usersFolder');
-        if (!file_exists($userFolder)) {
-            if (SecurityUtil::checkPermission('Files::', "::", ACCESS_ADMIN)) {
-                return $rootFolderPath;
-            } else {
-                $errorMsg = $this->__('Directory creation error. Please contact with the administrator') . ': ' . $folderName;
-                $this->view->assign('errorMsg', $errorMsg);
-                return $this->view->fetch('Files_user_errorMsg.tpl');
-            }
-        }
-        // get user folder path depending on user name and if it not exists, create it
-        $userFolder = ModUtil::getVar('Files', 'usersFolder') . '/' . strtolower(substr(UserUtil::getVar('uname'), 0, 1));
-        if (!file_exists($rootFolderPath . '/' . $userFolder)) {
-            if (!FileUtil::mkdirs($rootFolderPath . '/' . $userFolder, 0777, true)) {
-                LogUtil::registerError($this->__('Directory creation error') . ': ' . $rootFolderPath . '/' . $userFolder);
-                return false;
-            }
-            // create .htaccess and .locked files
-            FileUtil::writeFile($rootFolderPath . '/' . $userFolder . '/.htaccess', $this->_HTACCESSCONTENT, true);
-            FileUtil::writeFile($rootFolderPath . '/' . $userFolder . '/.locked', $this->_LOCKEDCONTENT, true);
-        }
-        $userFolder .= '/' . UserUtil::getVar('uname');
-        if (!file_exists($rootFolderPath . '/' . $userFolder)) {
-            // create user record in database
-            if ($created = ModUtil::apiFunc('Files', 'user', 'createUserFilesInfo')) {
-                // create dir
-                if (!FileUtil::mkdirs($rootFolderPath . '/' . $userFolder, 0777, true)) {
-                    LogUtil::registerError($this->__('Directory creation error') . ': ' . $rootFolderPath . '/' . $userFolder);
-                    return false;
-                }
-                // create .htaccess and .locked files
-                ModUtil::func('Files', 'user', 'createaccessfile', array('folder' => $userFolder));
-            }
-        }
-        // get user init folder
-        $initFolderPath = (SecurityUtil::checkPermission('Files::', "::", ACCESS_ADMIN)) ? $rootFolderPath : $rootFolderPath . '/' . $userFolder;
-        if (!file_exists($initFolderPath) || !is_writable($initFolderPath)) {
-            $errorMsg = $this->__f('The "%s" directory does not exist or is not writable.', $initFolderPath);
-            $this->view->assign('errorMsg', $errorMsg);
-            return $this->view->fetch('Files_user_errorMsg.tpl');
-        }
-        return $initFolderPath;
-    }
 
     /**
      * gets the user disk quota depending on the groups where the user belong and the quota assigned to these groups
@@ -1787,6 +1843,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         $not = FormUtil::getPassedValue('not', isset($args['not']) ? $args['not'] : null, 'GET');
         $external = FormUtil::getPassedValue('external', isset($args['external']) ? $args['external'] : null, 'GET');
         $hook = FormUtil::getPassedValue('hook', isset($args['hook']) ? $args['hook'] : null, 'GET');
+        $editor = FormUtil::getPassedValue('editor', isset($args['editor']) ? $args['editor'] : null, 'GET');
         // security check
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
@@ -1800,7 +1857,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         $returnType = ($external == 1) ? 'external' : 'user';
         $returnFunc = ($external == 1) ? 'getFiles' : 'main';
         if ($not == null) {
-            $url = $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath') . '/' . $folder;
+            $check = ModUtil::func('Files', 'user', 'checkingModule');
+            if ($check['status'] != 'ok') {
+	        $this->view->assign('check', $check);
+                return $this->view->fetch('Files_user_failedConf.tpl');
+            }
+            $url = $initFolderPath= $check['initFolderPath'] . '/' . $folder;
             // if the folder .tbn for thumbnails does not exists create it
             if (!file_exists($url . '/.tbn')) {
                 if (FileUtil::mkdirs($url . '/.tbn', 0777, true)) {
@@ -1826,7 +1888,8 @@ class Files_Controller_User extends Zikula_AbstractController {
         }
         $folder = str_replace("/", "|", $folder);
         return System::redirect(ModUtil::url('Files', $returnType, $returnFunc, array('folder' => $folder,
-                    'hook' => $hook)));
+                    'hook' => $hook,
+                    'editor' => $editor)));
     }
 
     /**
@@ -1841,7 +1904,12 @@ class Files_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Files::', "::", ACCESS_ADD)) {
             return LogUtil::registerError($this->__('Error! You are not authorized to access this module.'), 403);
         }
-        $initFolderPath = ModUtil::func('Files', 'user', 'getInitFolderPath');
+        $check = ModUtil::func('Files', 'user', 'checkingModule');
+        if ($check['status'] != 'ok') {
+	    $this->view->assign('check', $check);
+            return $this->view->fetch('Files_user_failedConf.tpl');
+        }
+        $initFolderPath = $check['initFolderPath'];
         // protection. User can not navigate out their root folder
         if ($folder == ".." || $folder == "." || strpos($folder, "..") !== false) {
             $errorMsg = $this->__('Invalid folder') . ': ' . $folder;
@@ -2009,6 +2077,108 @@ class Files_Controller_User extends Zikula_AbstractController {
             'zip' => array('type' => 'application/zip', 'icon' => 'zip.gif'));
         $return = (isset($mimeTypes[$extension])) ? $mimeTypes[$extension] : $mimeTypes['xxx'];
         return $return;
+    }
+    /**
+    * Check the configuration (and folder path)
+    * @author: Joan Guillén Pelegay
+    * @param:  
+    * @return: array with check results
+    */
+    public function checkingModule() {
+        // security check
+        if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADD)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        // loading conf
+        $check = array();
+        $check['status'] = 'ok';
+	global $ZConfig;
+	// get folderPath
+        if (isset($ZConfig['Multisites']['multi']) && $ZConfig['Multisites']['multi'] == 1) {
+            $folderPath = $ZConfig['Multisites']['filesRealPath'] . '/' . $ZConfig['Multisites']['siteFilesFolder'];
+            $check['config'] = 'multisites';
+        } elseif (isset($ZConfig['FilesModule']['folderPath'])) {
+            $folderPath = $ZConfig['FilesModule']['folderPath'];
+	    $check['config'] = 'config_site';
+        } else {
+            $folderPath = $ZConfig['System']['datadir'];
+            $check['config'] = 'default_site';
+        }
+        $check['folderPath'] = $folderPath;
+	// get usersFiles
+	if (!is_null(ModUtil::getVar('Files', 'usersFolder'))) {
+	    $usersFiles = ModUtil::getVar('Files', 'usersFolder');
+	} else {
+	    $usersFiles = 'usersFiles';
+	}
+	$check['usersFiles'] = $usersFiles;
+        // checking folderPath
+	if (file_exists($folderPath)) {
+	    if (is_writeable($folderPath)){
+                if (!file_exists($folderPath . '/.htaccess')) {
+                    FileUtil::writeFile($folderPath . '/.htaccess', $this->_HTACCESSCONTENT, true);
+                }
+                if (!file_exists($folderPath . '/.locked')) {
+                    FileUtil::writeFile($folderPath . '/.locked', $this->_LOCKEDCONTENT, true);
+                }
+                $initFolderPath = $folderPath . '/' . $usersFiles;
+                if (!file_exists($initFolderPath)) {
+                    if (!FileUtil::mkdirs($folderPath . '/' . $usersFiles, 0777, true)) {
+                        LogUtil::registerError($this->__('Directory creation error') . ': ' . $initFolderPath);
+                        return false;
+                    } else {
+                        FileUtil::writeFile($initFolderPath . '/.htaccess', $this->_HTACCESSCONTENT, true);
+                        FileUtil::writeFile($initFolderPath . '/.locked', $this->_LOCKEDCONTENT, true);
+                    }
+                }
+                $initFolderPath .= '/' . strtolower(substr(UserUtil::getVar('uname'), 0, 1));
+                if (!file_exists($initFolderPath)) {
+                    if (!FileUtil::mkdirs($initFolderPath, 0777, true)) {
+                        LogUtil::registerError($this->__('Directory creation error') . ': ' . $initFolderPath);
+                        return false;
+                    } else {
+                        // create .htaccess and .locked files
+                        FileUtil::writeFile($initFolderPath . '/.htaccess', $this->_HTACCESSCONTENT, true);
+                        FileUtil::writeFile($initFolderPath . '/.locked', $this->_LOCKEDCONTENT, true);
+                    }
+                }
+                $initFolderPath .= '/' . UserUtil::getVar('uname');
+                $defaultPublic = ModUtil::getVar('Files', 'defaultPublic');
+                if (!file_exists($initFolderPath)) {
+                    if (!FileUtil::mkdirs($initFolderPath, 0777, true)) {
+                        LogUtil::registerError($this->__('Directory creation error') . ': ' . $initFolderPath);
+                        return false;
+                    } else {
+                        // create .htaccess and .locked files
+                        FileUtil::writeFile($initFolderPath . '/.htaccess', $this->_HTACCESSCONTENT, true);
+                        if ($defaultPublic != '1'){
+                        	FileUtil::writeFile($initFolderPath . '/.locked', $this->_LOCKEDCONTENT, true);
+                        }
+                    }
+                    // create user record in database
+                    if (!ModUtil::apiFunc('Files', 'user', 'createUserFilesInfo')) {
+                        LogUtil::registerError($this->__('User data creation error'));
+                        return false;
+                    }
+                }
+                    // get user init folder
+                    $check['initFolderPath'] = (SecurityUtil::checkPermission('Files::', "::", ACCESS_ADMIN)) ? $folderPath : $initFolderPath;
+                    if (!file_exists($check['initFolderPath']) || !is_writable($check['initFolderPath'])) {
+                        $errorMsg = $this->__f('The "%s" directory does not exist or is not writable.', $initFolderPath);
+                        $this->view->assign('errorMsg', $errorMsg);
+                        return $this->view->fetch('Files_user_errorMsg.tpl');
+                    }
+                
+            } else {
+                $check['status'] = 'ko';
+                $check['warning'] = "noWriteable_folderPath";            
+            }
+        } else {
+            $check['status'] = 'ko';
+            $check['warning'] = "no_folderPath";
+        }
+        $check['agora'] = isset($ZConfig['iwmodules']['agora']) ? $ZConfig['iwmodules']['agora'] : false;
+        return $check;         
     }
 
 }
