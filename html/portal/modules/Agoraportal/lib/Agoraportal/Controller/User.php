@@ -251,6 +251,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             $nodes = 'Maqueta primària';
         } elseif ($nodes == 1) {
             $nodes = 'Maqueta secundària';
+        } elseif ($nodes == 2) {
+            $nodes = 'Maqueta adults';
         }
 
         if ($contactProfile == '') {

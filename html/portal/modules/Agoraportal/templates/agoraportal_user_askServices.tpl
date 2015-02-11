@@ -23,6 +23,8 @@
                                 <input type="radio" id="{$service.serviceName}_primaria" name="{$service.serviceName}" value="0" />&nbsp;{gt text="Maqueta per primària"}
                                 <br />
                                 <input type="radio" id="{$service.serviceName}_secundaria" name="{$service.serviceName}" value="1" />&nbsp;{gt text="Maqueta per secundària"}
+                                <br />
+                                <input type="radio" id="{$service.serviceName}_adults" name="{$service.serviceName}" value="2" />&nbsp;{gt text="Maqueta per adults"}
                             </div>
                                 <div class="askServiceDescription">{$service.description}</div>
                         </fieldset>
