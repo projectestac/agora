@@ -554,6 +554,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 WHERE content like '%/usu7/%'";
 
             $sqls[] = "UPDATE $prefix" . "_bp_activity
+                SET content = REPLACE (content , '/usu8/', '/$dbUser/')
+                WHERE content like '%/usu8/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
+                SET content = REPLACE (content , '/usu9/', '/$dbUser/')
+                WHERE content like '%/usu9/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
+                SET content = REPLACE (content , '/usu10/', '/$dbUser/')
+                WHERE content like '%/usu10/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET primary_link = REPLACE (primary_link , '$string', '$siteURL')
                 WHERE primary_link like '%$string%'";
 
@@ -570,6 +582,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 WHERE post_content like '%/usu7/%'";
 
             $sqls[] = "UPDATE $prefix" . "_posts
+                SET post_content = REPLACE (post_content , '/usu8/', '/$dbUser/')
+                WHERE post_content like '%/usu8/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET post_content = REPLACE (post_content , '/usu9/', '/$dbUser/')
+                WHERE post_content like '%/usu9/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET post_content = REPLACE (post_content , '/usu10/', '/$dbUser/')
+                WHERE post_content like '%/usu10/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts
                 SET post_excerpt = REPLACE (post_excerpt , '$string', '$siteURL')
                 WHERE post_excerpt like '%$string%'";
 
@@ -584,6 +608,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $sqls[] = "UPDATE $prefix" . "_posts
                 SET guid = REPLACE (guid , '/usu7/', '/$dbUser/')
                 WHERE guid like '%/usu7/%'";
+            
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET guid = REPLACE (guid , '/usu8/', '/$dbUser/')
+                WHERE guid like '%/usu8/%'";
+            
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET guid = REPLACE (guid , '/usu9/', '/$dbUser/')
+                WHERE guid like '%/usu9/%'";
+            
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET guid = REPLACE (guid , '/usu10/', '/$dbUser/')
+                WHERE guid like '%/usu10/%'";
         }
 
         // Reset stats table
