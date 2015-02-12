@@ -620,7 +620,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $sqls[] = "UPDATE $prefix" . "_posts
                 SET guid = REPLACE (guid , '/usu10/', '/$dbUser/')
                 WHERE guid like '%/usu10/%'";
-        }
+
+            $sqls[] = "UPDATE $prefix" . "_postmeta
+                SET meta_value = REPLACE (meta_value , '$string', '$siteURL')
+                WHERE meta_key = '_menu_item_url' AND meta_value like '%$string%'";
+            }
 
         // Reset stats table
         $sqls[] = "TRUNCATE $prefix" . "_stats";
