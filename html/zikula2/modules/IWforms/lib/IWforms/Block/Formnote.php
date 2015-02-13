@@ -68,7 +68,7 @@ class IWforms_Block_formnote extends Zikula_Controller_AbstractBlock {
             // create output object
             $view = Zikula_View::getInstance('IWforms', false);
             $view->assign('noNote', 1);
-            $s = $view->fetch('IWforms_block_formNote.htm');
+            $s = $view->fetch('IWforms_block_formNote.tpl');
             // copy the block information into user vars
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
             ModUtil::func('IWmain', 'user', 'userSetVar', array('uid' => $uid,
@@ -135,7 +135,7 @@ class IWforms_Block_formnote extends Zikula_Controller_AbstractBlock {
         $view->assign('bid', $blockinfo['bid']);
         $view->assign('fid', $note['fid']);
         $view->assign('noNote', 0);
-        $s = $view->fetch('IWforms_block_formNote.htm');
+        $s = $view->fetch('IWforms_block_formNote.tpl');
         // copy the block information into user vars
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         ModUtil::func('IWmain', 'user', 'userSetVar', array('uid' => $uid,

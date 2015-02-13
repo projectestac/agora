@@ -3,7 +3,7 @@
         <td width="10%">
             {if $note.photo neq ''}
             <div style="height:10px; text-align:center;"></div>
-            <img src="{$baseurl}{modurl modname='IWforms' type='user' func='getFile' fileName=$note.photo}" />
+            <img src="{$baseurl}index.php?module=IWforms&type=user&func=getFile&fileName={$note.photo}" />
             {/if}
         </td>
         <td width="30%">

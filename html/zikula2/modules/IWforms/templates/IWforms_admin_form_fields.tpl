@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 {foreach item=field from=$fields}
-                {include file="IWforms_admin_form_fieldChar.htm" field=$field users=$users}
+                {include file="IWforms_admin_form_fieldChar.tpl" field=$field users=$users}
                 {foreachelse}
                 <tr>
                     <td colspan="20">

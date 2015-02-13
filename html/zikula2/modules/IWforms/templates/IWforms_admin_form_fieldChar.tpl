@@ -16,7 +16,7 @@
     </td>
     <td width="180" valign="top">
         <div id="field_{$field.fndid}" name="field_{$field.fndid}">
-            {include file="IWforms_admin_form_fieldCharContent.htm" field=$field}
+            {include file="IWforms_admin_form_fieldCharContent.tpl" field=$field}
         </div>
     </td>
 

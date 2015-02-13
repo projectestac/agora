@@ -1,4 +1,4 @@
-{include file="IWforms_admin_menu.htm"}
+{include file="IWforms_admin_menu.tpl"}
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='editdelete.png' set='icons/large'}</div>
     <h2>{gt text="Delete the form notes"}</h2>

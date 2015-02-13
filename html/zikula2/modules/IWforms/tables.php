@@ -45,6 +45,9 @@ function IWforms_tables() {
         'returnURL' => 'iw_returnURL',
         'filesFolder' => 'iw_filesFolder',
         'lang' => 'iw_lang',
+        'defaultNumberOfNotes' => 'iw_defaultNumberOfNotes',
+        'defaultOrderForNotes' => 'iw_defaultOrderForNotes',
+        'orderFormField' => 'iw_orderFormField',
     );
 
     $tables['IWforms_definition_column_def'] = array('fid' => "I NOTNULL AUTO PRIMARY",
@@ -73,14 +76,17 @@ function IWforms_tables() {
         'skinNote' => "X NOTNULL",
         'expertMode' => "I(1) NOTNULL DEFAULT '0'",
         'skinByTemplate' => "I(1) NOTNULL DEFAULT '0'",
-        'skinFormTemplate' => "C(70) NOTNULL DEFAULT 'IWforms_user_new.htm'",
-        'skinTemplate' => "C(70) NOTNULL DEFAULT 'IWforms_user_read.htm'",
-        'skinNoteTemplate' => "C(70) NOTNULL DEFAULT 'IWforms_user_read.htm'",
+        'skinFormTemplate' => "C(70) NOTNULL DEFAULT 'IWforms_user_new.tpl'",
+        'skinTemplate' => "C(70) NOTNULL DEFAULT 'IWforms_user_read.tpl'",
+        'skinNoteTemplate' => "C(70) NOTNULL DEFAULT 'IWforms_user_read.tpl'",
         'allowComments' => "I(1) NOTNULL DEFAULT '0'",
         'allowCommentsModerated' => "I(1) NOTNULL DEFAULT '0'",
         'returnURL' => "C(150) NOTNULL DEFAULT ''",
         'filesFolder' => "C(25) NOTNULL DEFAULT ''",
         'lang' => "C(2) NOTNULL DEFAULT ''",
+        'defaultNumberOfNotes' => "I(1) NOTNULL DEFAULT '0'",
+        'defaultOrderForNotes' => "I(1) NOTNULL DEFAULT '0'",
+        'orderFormField' => "I NOTNULL DEFAULT '0'",
     );
 
     ObjectUtil::addStandardFieldsToTableDefinition($tables['IWforms_definition_column'], 'pn_');

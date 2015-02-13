@@ -1,7 +1,7 @@
 <div style="clear: both;" >{$pager} ({gt text="Notes number"}: {if $records > 0}{$records}/{/if}{$total})</div>
 <div style="height:15px;">&nbsp;</div>
 {foreach item="note" from=$notes}
-{include file="IWforms_user_manageNoteContent.htm"}
+{include file="IWforms_user_manageNoteContent.tpl"}
 <div>&nbsp;</div>
 {foreachelse}
 <div>{gt text="Not annotations found"}</div>

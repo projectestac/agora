@@ -1,6 +1,6 @@
-{include file="IWforms_admin_menu.htm"}
+{include file="IWforms_admin_menu.tpl"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large' __alt=''}</div>
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
     <h2>{gt text="Change to the category"}</h2>
     <form id="editCat" class="z-form" action="{modurl modname='IWforms' type='admin' func='updateCat'}" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />

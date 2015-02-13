@@ -17,7 +17,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$gid) {
             throw new Zikula_Exception_Fatal($this->__('no group id'));
         }
-        // get group members
+// get group members
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $groupMembers = ModUtil::func('IWmain', 'user', 'getMembersGroup', array('sv' => $sv,
                     'gid' => $gid));
@@ -28,9 +28,9 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('groupMembers', $groupMembers);
         $view->assign('action', 'chgUsers');
-        $content = $view->fetch('IWforms_admin_ajax.htm');
+        $content = $view->fetch('IWforms_admin_ajax.tpl');
         return new Zikula_Response_Ajax(array('content' => $content,
-                ));
+        ));
     }
 
     /**
@@ -52,7 +52,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$charx) {
             throw new Zikula_Exception_Fatal($this->__('no char defined'));
         }
-        //Get field information
+//Get field information
         $itemField = ModUtil::apiFunc('IWforms', 'user', 'getFormField', array('fndid' => $fndid));
         if ($itemField == false) {
             throw new Zikula_Exception_Fatal($this->__('Could not find form'));
@@ -65,14 +65,14 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         } else {
             $value = ($itemField[$charx]) ? 0 : 1;
         }
-        //change value in database
+//change value in database
         $items = array($charx => $value);
         if (!ModUtil::apiFunc('IWforms', 'admin', 'editFormField', array('fndid' => $fndid,
                     'items' => $items))) {
             throw new Zikula_Exception_Fatal($this->__('Error'));
         }
         return new Zikula_Response_Ajax(array('fndid' => $fndid,
-                ));
+        ));
     }
 
     /**
@@ -91,7 +91,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             throw new Zikula_Exception_Fatal($this->__('no field id'));
         }
         $groupName = '';
-        //Get field information
+//Get field information
         $field = ModUtil::apiFunc('IWforms', 'user', 'getFormField', array('fndid' => $fndid));
         if ($field == false) {
             throw new Zikula_Exception_Fatal($this->__('Could not find form'));
@@ -133,10 +133,10 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             'imgHeight' => $field['imgHeight']);
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('field', $fields_array);
-        $content = $view->fetch('IWforms_admin_form_fieldCharContent.htm');
+        $content = $view->fetch('IWforms_admin_form_fieldCharContent.tpl');
         return new Zikula_Response_Ajax(array('content' => $content,
-                    'fndid' => $fndid,
-                ));
+            'fndid' => $fndid,
+        ));
     }
 
     /**
@@ -154,18 +154,18 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fid) {
             throw new Zikula_Exception_Fatal($this->__('no form id'));
         }
-        //Get item
+//Get item
         $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($form == false) {
             throw new Zikula_Exception_Fatal($this->__('Could not find form'));
         }
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $fid));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
         }
         $close = ModUtil::apiFunc('IWforms', 'user', 'closeInsert', array('fid' => $fid));
-        //check user access to this form
+//check user access to this form
         if ($close == false) {
             throw new Zikula_Exception_Fatal($this->__('There was an error in the modified form'));
         }
@@ -179,12 +179,12 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             'fid' => $form['fid']);
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('form', $form_array);
-        $content = $view->fetch('IWforms_user_mainOptions.htm');
+        $content = $view->fetch('IWforms_user_mainOptions.tpl');
         $text = ($form['closeInsert'] == 0) ? $this->__('Has closed input data on the form') : $this->__('Has opened input data on the form');
         return new Zikula_Response_Ajax(array('content' => $content,
-                    'text' => $text,
-                    'fid' => $fid,
-                ));
+            'text' => $text,
+            'fid' => $fid,
+        ));
     }
 
     /**
@@ -202,16 +202,16 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fmid) {
             throw new Zikula_Exception_Fatal($this->__('no note id'));
         }
-        //get the note information
+//get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //Get form fields
+//Get form fields
         $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $note['fid']));
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $note['fid']));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
         }
-        // get form
+// get form
         $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $note['fid']));
 
         foreach ($fields as $field) {
@@ -235,7 +235,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             throw new Zikula_Exception_Fatal($this->__('There was an error to remove the annotation'));
         }
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                ));
+        ));
     }
 
     /**
@@ -253,16 +253,16 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fmid) {
             throw new Zikula_Exception_Fatal($this->__('no note id'));
         }
-        //get the note information
+//get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $note['fid']));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
         }
-        //Change the flagged atributes for the user
+//Change the flagged atributes for the user
         $mark = ModUtil::apiFunc('IWforms', 'user', 'markNote', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         if ($mark == false) {
             throw new Zikula_Exception_Fatal($this->__('There was an error in the modified form'));
         }
@@ -272,7 +272,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             'value' => 'fr',
             'sv' => $sv));
 
-        //print 'dd';die();
+//print 'dd';die();
 
         $userName = ($note['annonimous'] == 0) ? UserUtil::getVar('uname', $note['user']) : '';
         $marked = ($mark == 'marked') ? 1 : 0;
@@ -289,11 +289,11 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             'validate' => $note['validate']));
         $view->assign('IWmessages', $IWmessages);
         $view->assign('fid', $note['fid']);
-        $contentOptions = $view->fetch('IWforms_user_manageNoteContentOptions.htm');
+        $contentOptions = $view->fetch('IWforms_user_manageNoteContentOptions.tpl');
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                    'mark' => $mark,
-                    'contentOptions' => $contentOptions,
-                ));
+            'mark' => $mark,
+            'contentOptions' => $contentOptions,
+        ));
     }
 
     /**
@@ -311,16 +311,16 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fmid) {
             throw new Zikula_Exception_Fatal($this->__('no note id'));
         }
-        //get the note information
+//get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $note['fid']));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
         }
-        //Change the flagged atributes for the user
+//Change the flagged atributes for the user
         $state = ModUtil::apiFunc('IWforms', 'user', 'changeState', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         if ($state == false) {
             throw new Zikula_Exception_Fatal($this->__('There was an error in the modified form'));
         }
@@ -341,13 +341,13 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             'validate' => $note['validate']));
         $view->assign('IWmessages', $IWmessages);
         $view->assign('fid', $note['fid']);
-        $contentOptions = $view->fetch('IWforms_user_manageNoteContentOptions.htm');
+        $contentOptions = $view->fetch('IWforms_user_manageNoteContentOptions.tpl');
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                    'color' => ModUtil::func('IWforms', 'user', 'calcColor', array('validate' => $note['validate'],
-                        'state' => $note['state'],
-                        'viewed' => $note['viewed'])),
-                    'contentOptions' => $contentOptions,
-                ));
+            'color' => ModUtil::func('IWforms', 'user', 'calcColor', array('validate' => $note['validate'],
+                'state' => $note['state'],
+                'viewed' => $note['viewed'])),
+            'contentOptions' => $contentOptions,
+        ));
     }
 
     /**
@@ -365,14 +365,14 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fmid) {
             throw new Zikula_Exception_Fatal($this->__('no note id'));
         }
-        //get the note information
+//get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $note['fid']));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
         }
-        //Change the flagged atributes for the user
+//Change the flagged atributes for the user
         $state = ModUtil::apiFunc('IWforms', 'user', 'validateNote', array('fmid' => $fmid));
         if ($state == false) {
             throw new Zikula_Exception_Fatal($this->__('There was an error in the modified form'));
@@ -392,12 +392,12 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             'validate' => $note['validate']));
         $view->assign('IWmessages', $IWmessages);
         $view->assign('fid', $note['fid']);
-        $contentOptions = $view->fetch('IWforms_user_manageNoteContentOptions.htm');
+        $contentOptions = $view->fetch('IWforms_user_manageNoteContentOptions.tpl');
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                    'color' => ModUtil::func('IWforms', 'user', 'calcColor', array('validate' => $note['validate'],
-                        'state' => $note['state'])),
-                    'contentOptions' => $contentOptions,
-                ));
+            'color' => ModUtil::func('IWforms', 'user', 'calcColor', array('validate' => $note['validate'],
+                'state' => $note['state'])),
+            'contentOptions' => $contentOptions,
+        ));
     }
 
     /**
@@ -411,7 +411,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!SecurityUtil::checkPermission('IWforms::', '::', ACCESS_READ)) {
             throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
         }
-        // in the case of editing the content of a note the parameter fmid refers to fnid
+// in the case of editing the content of a note the parameter fmid refers to fnid
         $fmid = $this->request->getPost()->get('fmid', '');
         if (!$fmid) {
             throw new Zikula_Exception_Fatal($this->__('no note id'));
@@ -431,10 +431,10 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             }
             $fmid = $noteContent['fmid'];
         }
-        // in the case of editing the content of a note the parameter fmid refers to fnid
-        // get the note information
+// in the case of editing the content of a note the parameter fmid refers to fnid
+// get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $note['fid']));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
@@ -443,29 +443,29 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $view->assign('do', 'edit');
         if ($toDo == 'observations') {
             $view->assign('note', $note);
-            $content = $view->fetch('IWforms_user_manageNoteContentObs.htm');
+            $content = $view->fetch('IWforms_user_manageNoteContentObs.tpl');
         }
         if ($toDo == 'renote') {
             $view->assign('note', $note);
-            //get form definition
+//get form definition
             $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $note['fid']));
             if ($form == false) {
                 LogUtil::registerError($this->__('Could not find form'));
                 return false;
             }
             $view->assign('form', $form);
-            $content = $view->fetch('IWforms_user_manageNoteContentRenote.htm');
+            $content = $view->fetch('IWforms_user_manageNoteContentRenote.tpl');
         }
         if ($toDo == 'content') {
             $fmid = $fnid;
             $view->assign('noteContent', $noteContent);
-            $content = $view->fetch('IWforms_user_manageNoteContentEdit.htm');
+            $content = $view->fetch('IWforms_user_manageNoteContentEdit.tpl');
         }
 
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                    'content' => $content,
-                    'toDo' => $toDo,
-                ));
+            'content' => $content,
+            'toDo' => $toDo,
+        ));
     }
 
     /**
@@ -488,7 +488,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             throw new Zikula_Exception_Fatal($this->__('no action defined'));
         }
         $value = FormUtil::getPassedValue('value', -1, 'POST');
-        // in the case of editing the content of a note the parameter fmid refers to fnid
+// in the case of editing the content of a note the parameter fmid refers to fnid
         if ($toDo == 'content') {
             $fnid = $fmid;
             $noteContent = ModUtil::apiFunc('IWforms', 'user', 'getNoteContent', array('fnid' => $fnid));
@@ -497,9 +497,9 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             }
             $fmid = $noteContent['fmid'];
         }
-        //get the note information
+//get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //check user access to this form
+//check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $note['fid']));
         if ($access['level'] < 7) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
@@ -510,7 +510,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                         'fnid' => $fnid,
                         'toDo' => $toDo));
         } else {
-            //submit values
+//submit values
             $submited = ModUtil::apiFunc('IWforms', 'user', 'submitValue', array('value' => $value,
                         'fmid' => $fmid,
                         'toDo' => $toDo));
@@ -524,20 +524,20 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if ($toDo == 'observations') {
             $note['observations'] = $value;
             $view->assign('note', $note);
-            $content = $view->fetch('IWforms_user_manageNoteContentObs.htm');
+            $content = $view->fetch('IWforms_user_manageNoteContentObs.tpl');
         }
         if ($toDo == 'renote') {
             $checked = FormUtil::getPassedValue('checked', -1, 'POST');
             $note['renote'] = $value;
             $view->assign('note', $note);
-            $content = $view->fetch('IWforms_user_manageNoteContentRenote.htm');
+            $content = $view->fetch('IWforms_user_manageNoteContentRenote.tpl');
             $modid = ModUtil::getIdFromName('IWmessages');
             $modinfo = ModUtil::getInfo($modid);
             if ($checked == 'true' && $modinfo['state'] == 3 && $note['annonimous'] == 0) {
                 $view->assign('fmid', $fmid);
-                $noteOrigen = $view->fetch('IWforms_user_origenNote.htm');
+                $noteOrigen = $view->fetch('IWforms_user_origenNote.tpl');
 
-                // set copy whit a private message to user
+// set copy whit a private message to user
                 ModUtil::apiFunc('IWmessages', 'user', 'create', array('image' => '',
                     'subject' => $this->__('Forms: automatic message'),
                     'to_userid' => $note['user'],
@@ -552,12 +552,12 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             $view->assign('value', $value);
             $view->assign('fnid', $fnid);
             $fmid = $fnid;
-            $content = $view->fetch('IWforms_user_manageNoteContentEdit.htm');
+            $content = $view->fetch('IWforms_user_manageNoteContentEdit.tpl');
         }
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                    'content' => $content,
-                    'toDo' => $toDo,
-                ));
+            'content' => $content,
+            'toDo' => $toDo,
+        ));
     }
 
     /**
@@ -577,22 +577,22 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
         $charx = $this->request->getPost()->get('charx', '');
         if (!$charx) {
-            throw new Zikula_Exception_Fatal($this->__('no char defined'));
+            throw new Zikula_Exception_Fatal($this->__("no char defined"));
         }
-        //Get form information
+//Get form information
         $itemForm = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($itemForm == false) {
             throw new Zikula_Exception_Fatal($this->__('Could not find form'));
         }
         $value = ($itemForm[$charx]) ? 0 : 1;
-        //change value in database
+//change value in database
         $items = array($charx => $value);
         if (!ModUtil::apiFunc('IWforms', 'admin', 'editForm', array('fid' => $fid,
                     'items' => $items))) {
             throw new Zikula_Exception_Fatal($this->__('Error'));
         }
         return new Zikula_Response_Ajax(array('fid' => $fid,
-                ));
+        ));
     }
 
     /**
@@ -610,7 +610,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fid) {
             throw new Zikula_Exception_Fatal($this->__('no form id'));
         }
-        //Get field information
+//Get field information
         $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($form == false) {
             throw new Zikula_Exception_Fatal($this->__('Could not find form'));
@@ -619,10 +619,10 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $form['new'] = ModUtil::func('IWforms', 'user', 'makeTimeForm', $form['new']);
         $form['caducity'] = ModUtil::func('IWforms', 'user', 'makeTimeForm', $form['caducity']);
         $view->assign('form', $form);
-        $content = $view->fetch('IWforms_admin_formChars.htm');
+        $content = $view->fetch('IWforms_admin_formChars.tpl');
         return new Zikula_Response_Ajax(array('content' => $content,
-                    'fid' => $fid,
-                ));
+            'fid' => $fid,
+        ));
     }
 
     /**
@@ -640,19 +640,19 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$fmid) {
             throw new Zikula_Exception_Fatal($this->__('no note id'));
         }
-        //get the note information
+//get the note information
         $note = ModUtil::apiFunc('IWforms', 'user', 'getNote', array('fmid' => $fmid));
-        //check user access to this note
+//check user access to this note
         if ($note['user'] != UserUtil::getVar('uid')) {
             throw new Zikula_Exception_Fatal($this->__('You do not have access to manage form'));
         }
-        //Change the deleted atributes for the user
+//Change the deleted atributes for the user
         $state = ModUtil::apiFunc('IWforms', 'user', 'deleteUserNote', array('fmid' => $fmid));
         if ($state == false) {
             throw new Zikula_Exception_Fatal($this->__('There was an error in the modified form'));
         }
         return new Zikula_Response_Ajax(array('fmid' => $fmid,
-                ));
+        ));
     }
 
     public function changeFilter($args) {
@@ -668,7 +668,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!$filter) {
             throw new Zikula_Exception_Fatal($this->__('no filter id'));
         }
-        //get form fields
+//get form fields
         $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $fid,
                     'whereArray' => 'active|1$$searchable|1'));
         $filterType = 0;
@@ -715,13 +715,13 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $view->assign('fid', $fid);
         $view->assign('filter', 1);
         $view->assign('filterType', $filterType);
-        $filterContent = $view->fetch('IWforms_user_manageFilter.htm');
+        $filterContent = $view->fetch('IWforms_user_manageFilter.tpl');
         $view->assign('total', 0);
-        $content = $view->fetch('IWforms_user_manageAllNotesContent.htm');
+        $content = $view->fetch('IWforms_user_manageAllNotesContent.tpl');
         return new Zikula_Response_Ajax(array('filterContent' => $filterContent,
-                    'content' => $content,
-                    'toDo' => $toDo,
-                ));
+            'content' => $content,
+            'toDo' => $toDo,
+        ));
     }
 
     public function deleteForm($args) {
@@ -754,7 +754,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             throw new Zikula_Exception_Fatal($this->__('Has been removed form'));
         }
         return new Zikula_Response_Ajax(array('fid' => $fid,
-                ));
+        ));
     }
 
     public function deleteFormField($args) {
@@ -782,7 +782,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         ModUtil::apiFunc('IWforms', 'admin', 'reorder', array('fid' => $fid));
 
         return new Zikula_Response_Ajax(array('fndid' => $fndid,
-                ));
+        ));
     }
 
     public function createField($args) {
@@ -802,7 +802,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                     'fieldType' => $fieldType,
                     'fieldName' => $this->__('Field name')));
         if (!$createField) {
-            throw new Zikula_Exception_Fatal($this->__('creation error'));
+            throw new Zikula_Exception_Fatal($this->__("creation error"));
         }
         ModUtil::apiFunc('IWforms', 'admin', 'reorder', array('fid' => $fid));
         //If field type is fileset create a fieldset end field </fieldset> and edit it
@@ -814,8 +814,8 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $content = ModUtil::func('IWforms', 'admin', 'editField', array('fid' => $fid,
                     'fndid' => $createField));
         return new Zikula_Response_Ajax(array('fid' => $fid,
-                    'content' => $content,
-                ));
+            'content' => $content,
+        ));
     }
 
     public function newField($args) {
@@ -829,8 +829,8 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
         $content = ModUtil::func('IWforms', 'admin', 'createField', array('fid' => $fid));
         return new Zikula_Response_Ajax(array('fid' => $fid,
-                    'content' => $content,
-                ));
+            'content' => $content,
+        ));
     }
 
     public function actionToDo($args) {
@@ -864,8 +864,8 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                 break;
         }
         return new Zikula_Response_Ajax(array('tabContent' => $tabContent,
-                    'content' => $content,
-                ));
+            'content' => $content,
+        ));
     }
 
     /**
@@ -886,7 +886,7 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
         $expertMode = $this->request->getPost()->get('expertMode', '');
         $skinByTemplate = $this->request->getPost()->get('skinByTemplate', '');
-        
+
         //Get field information
         $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
         if ($form == false) {
@@ -894,13 +894,31 @@ class IWforms_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
         $form['expertMode'] = $expertMode;
         $form['skinByTemplate'] = $skinByTemplate;
-        
+
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('item', $form);
-        $content = $view->fetch('IWforms_admin_form_definitionExpertMode.htm');
+        $content = $view->fetch('IWforms_admin_form_definitionExpertMode.tpl');
 
         return new Zikula_Response_Ajax(array('content' => $content,
-                ));
+        ));
+    }
+
+    public function orderField($args) {
+        if (!SecurityUtil::checkPermission('IWforms::', '::', ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Fatal($this->__('Sorry! No authorization to access this module.'));
+        }
+
+        $order = $this->request->getPost()->get('order', '');
+        $fid = $this->request->getPost()->get('fid', '');
+
+        if ($order == 3) {
+            $content = ModUtil::func('IWforms', 'admin', 'getFormFields', array('fid' => $fid));
+        } else {
+            $content = '<input type="hidden" name="orderFormField" value="0" />';
+        }
+
+        return new Zikula_Response_Ajax(array('content' => $content,
+        ));
     }
 
 }

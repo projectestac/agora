@@ -52,7 +52,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
             // we can return it easily when required
             $renderer = Zikula_View::getInstance($this->name);
             $options = $renderer->assign('active', !isset($args['active']) || isset($args['active']['IWforms']))
-                    ->fetch('IWforms_search_options.htm');
+                    ->fetch('IWforms_search_options.tpl');
         }
 
         return $options;
@@ -120,11 +120,6 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
             $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
                         'whereArray' => 'active|1$$searchable|1'));
             $fieldsArray = array_merge($fieldsArray, $fields);
-        }
-        
-        // If a user has no access to any searchable field, there's no possible search
-        if (empty($fieldsArray)) {
-            return true;
         }
 
         // get the db and table info

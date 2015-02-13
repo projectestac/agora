@@ -3,7 +3,7 @@
         document.order.submit();
     }
 </script>
-{include file="IWforms_user_menu.htm" fid=$form.fid}
+{include file="IWforms_user_menu.tpl" fid=$form.fid}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="List of entries submitted"}</h2>
@@ -45,7 +45,7 @@
     <div style="height:15px; clear:both;">&nbsp;</div>
     {foreach item="note" from=$notes}
     {if $note.contentBySkin eq ''}
-    {include file="IWforms_user_readNoteContent.htm"}
+    {include file="IWforms_user_readNoteContent.tpl"}
     <div>&nbsp;</div>
     {else}
     {$form.skincssurl}

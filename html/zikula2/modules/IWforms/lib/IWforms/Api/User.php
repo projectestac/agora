@@ -585,7 +585,10 @@ class IWforms_Api_User extends Zikula_AbstractApi {
         $userNotes = (isset($args['userNotes'])) ? $args['userNotes'] : null;
         $order = (isset($args['order'])) ? $args['order'] : null;
         $validate = (isset($args['validate'])) ? $args['validate'] : null;
+        $defaultOrderForNotes = (isset($args['defaultOrderForNotes'])) ? $args['defaultOrderForNotes'] : null;
 
+        $orderAscDesc = ($defaultOrderForNotes == 2) ? "asc" : "desc";
+        
         // Security check
         if (!SecurityUtil::checkPermission('IWforms::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
@@ -631,13 +634,13 @@ class IWforms_Api_User extends Zikula_AbstractApi {
 
         switch ($order) {
             case null:
-                $orderby = "$c[state], $c[fmid] desc";
+                $orderby = "$c[state], $c[fmid] "  . $orderAscDesc;
                 break;
             case "state":
-                $orderby = "$c[state], $c[fmid] desc";
+                $orderby = "$c[state], $c[fmid] " . $orderAscDesc;
                 break;
             case "time":
-                $orderby = "$c[time] desc";
+                $orderby = "$c[time] " . $orderAscDesc;
                 break;
         }
 

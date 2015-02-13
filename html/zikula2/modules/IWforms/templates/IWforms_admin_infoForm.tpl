@@ -1,6 +1,6 @@
-{include file="IWforms_admin_menu.htm"}
+{include file="IWforms_admin_menu.tpl"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='info.png' set='icons/large' __alt=''}</div>
+    <div class="z-adminpageicon">{img modname='core' src='info.png' set='icons/large'}</div>
     <h2>{gt text="Skin of the form and complete information"} => {$form.formName}</h2>
     <div style="height: 20px;">&nbsp;</div>
     <div style="margin-bottom: 20px;">

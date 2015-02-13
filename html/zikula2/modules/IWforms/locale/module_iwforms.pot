@@ -3,401 +3,413 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: templates/IWforms_admin_main.htm:3 templates/IWforms_admin_conf.htm:6
-#: templates/IWforms_admin_form_fieldChar.htm:26
-#: templates/IWforms_admin_form.htm:12 templates/IWforms_admin_addCat.htm:3
-#: templates/IWforms_admin_create.htm:8 templates/IWforms_admin_infoForm.htm:3
-#: templates/IWforms_admin_import.htm:3 templates/IWforms_admin_editCat.htm:3
-#: templates/IWforms_user_fieldContentHelp.htm:4
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Zikula component\n"
+"Project-Id-Version: Zikula 1.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-25 16:46+0100\n"
+"POT-Creation-Date: 2015-02-11 23:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/IWforms/Api/User.php:12 lib/IWforms/Api/User.php:42
-#: lib/IWforms/Api/User.php:69 lib/IWforms/Api/User.php:119
-#: lib/IWforms/Api/User.php:171 lib/IWforms/Api/User.php:257
-#: lib/IWforms/Api/User.php:902 lib/IWforms/Api/User.php:1689
-#: lib/IWforms/Api/User.php:1763 lib/IWforms/Api/Admin.php:29
-#: lib/IWforms/Api/Admin.php:65 lib/IWforms/Api/Admin.php:72
-#: lib/IWforms/Api/Admin.php:91 lib/IWforms/Api/Admin.php:98
-#: lib/IWforms/Api/Admin.php:118 lib/IWforms/Api/Admin.php:150
-#: lib/IWforms/Api/Admin.php:178 lib/IWforms/Api/Admin.php:204
-#: lib/IWforms/Api/Admin.php:230 lib/IWforms/Api/Admin.php:256
-#: lib/IWforms/Api/Admin.php:282 lib/IWforms/Api/Admin.php:320
-#: lib/IWforms/Api/Admin.php:346 lib/IWforms/Api/Admin.php:373
-#: lib/IWforms/Api/Admin.php:407 lib/IWforms/Api/Admin.php:433
-#: lib/IWforms/Api/Admin.php:614 lib/IWforms/Api/Admin.php:744
-#: lib/IWforms/Controller/User.php:12 lib/IWforms/Controller/User.php:87
-#: lib/IWforms/Controller/User.php:187 lib/IWforms/Controller/User.php:367
-#: lib/IWforms/Controller/User.php:644 lib/IWforms/Controller/User.php:689
-#: lib/IWforms/Controller/User.php:716 lib/IWforms/Controller/User.php:813
-#: lib/IWforms/Controller/User.php:833 lib/IWforms/Controller/User.php:860
-#: lib/IWforms/Controller/User.php:1001 lib/IWforms/Controller/User.php:1301
-#: lib/IWforms/Controller/User.php:1513 lib/IWforms/Controller/User.php:1552
-#: lib/IWforms/Controller/User.php:1773 lib/IWforms/Controller/Admin.php:16
-#: lib/IWforms/Controller/Admin.php:64 lib/IWforms/Controller/Admin.php:109
-#: lib/IWforms/Controller/Admin.php:171 lib/IWforms/Controller/Admin.php:294
-#: lib/IWforms/Controller/Admin.php:332 lib/IWforms/Controller/Admin.php:379
-#: lib/IWforms/Controller/Admin.php:398 lib/IWforms/Controller/Admin.php:444
-#: lib/IWforms/Controller/Admin.php:629 lib/IWforms/Controller/Admin.php:647
-#: lib/IWforms/Controller/Admin.php:701 lib/IWforms/Controller/Admin.php:749
-#: lib/IWforms/Controller/Admin.php:820 lib/IWforms/Controller/Admin.php:880
-#: lib/IWforms/Controller/Admin.php:942 lib/IWforms/Controller/Admin.php:984
-#: lib/IWforms/Controller/Admin.php:1048 lib/IWforms/Controller/Admin.php:1111
-#: lib/IWforms/Controller/Admin.php:1184 lib/IWforms/Controller/Admin.php:1258
-#: lib/IWforms/Controller/Admin.php:1322 lib/IWforms/Controller/Admin.php:1426
-#: lib/IWforms/Controller/Admin.php:1500 lib/IWforms/Controller/Admin.php:1569
-#: lib/IWforms/Controller/Admin.php:1649 lib/IWforms/Controller/Admin.php:1681
-#: lib/IWforms/Controller/Admin.php:1733 lib/IWforms/Controller/Admin.php:1752
-#: lib/IWforms/Controller/Admin.php:1781 lib/IWforms/Controller/Admin.php:1821
-#: lib/IWforms/Controller/Admin.php:1848 lib/IWforms/Controller/Admin.php:1877
-#: lib/IWforms/Controller/Admin.php:1915 lib/IWforms/Controller/Admin.php:1945
-#: lib/IWforms/Controller/Admin.php:2124 lib/IWforms/Controller/Ajax.php:14
-#: lib/IWforms/Controller/Ajax.php:45 lib/IWforms/Controller/Ajax.php:88
-#: lib/IWforms/Controller/Ajax.php:152 lib/IWforms/Controller/Ajax.php:202
-#: lib/IWforms/Controller/Ajax.php:249 lib/IWforms/Controller/Ajax.php:300
-#: lib/IWforms/Controller/Ajax.php:350 lib/IWforms/Controller/Ajax.php:398
-#: lib/IWforms/Controller/Ajax.php:468 lib/IWforms/Controller/Ajax.php:571
-#: lib/IWforms/Controller/Ajax.php:607 lib/IWforms/Controller/Ajax.php:637
-#: lib/IWforms/Controller/Ajax.php:662 lib/IWforms/Controller/Ajax.php:732
-#: lib/IWforms/Controller/Ajax.php:768 lib/IWforms/Controller/Ajax.php:797
-#: lib/IWforms/Controller/Ajax.php:832 lib/IWforms/Controller/Ajax.php:845
-#: lib/IWforms/Controller/Ajax.php:892
-msgid "Sorry! No authorization to access this module."
+#: lib/IWforms/Block/Formslist.php:12
+msgid "Display the list of forms where you can access the user"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:18 lib/IWforms/Api/User.php:73
-#: lib/IWforms/Api/User.php:125 lib/IWforms/Api/User.php:177
-#: lib/IWforms/Api/User.php:261 lib/IWforms/Api/User.php:313
+#: lib/IWforms/Block/Formslist.php:156
+msgid "Identities of the categories to show (default is all)"
+msgstr ""
+
+#: lib/IWforms/Block/Formslist.php:157
+msgid "Show forms into a list"
+msgstr ""
+
+#: lib/IWforms/Block/Formnote.php:12
+msgid "Display the content of a note in a block"
+msgstr ""
+
+#: lib/IWforms/Block/Formnote.php:184
+msgid "Identity of the note that must be schown"
+msgstr ""
+
+#: lib/IWforms/Block/Formnote.php:185
+msgid "Hide block title"
+msgstr ""
+
+#: lib/IWforms/Block/Formnote.php:186
+msgid "Block content"
+msgstr ""
+
+#: lib/IWforms/Block/Formnote.php:187
+#: templates/IWforms_admin_form_definition.tpl:243
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:61
+msgid ""
+"[$formId$] =>Identity of the form, [$noteId$] =>Identity of the note, [%id%] "
+"=> Title of the field, [$id$] => Content of the field, [$user$] => Username, "
+"[$date$] => Note creation date, [$time$] => Note creation time, [$avatar$] "
+"=> User avatar, [$reply$] => Reply to the user if the reply is public"
+msgstr ""
+
+#: lib/IWforms/Block/Formnote.php:188
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:64
+msgid "Styles sheet to aply (give full URL)"
+msgstr ""
+
+#: lib/IWforms/Installer.php:16
+msgid ""
+"Module IWmain is needed. You have to install the IWmain module before "
+"installing it."
+msgstr ""
+
+#: lib/IWforms/Version.php:6 lib/IWforms/Version.php:8
+msgid "IWforms"
+msgstr ""
+
+#: lib/IWforms/Version.php:7
+msgid "Creation, managment and use of forms."
+msgstr ""
+
+#: lib/IWforms/Version.php:31
+msgid "IWforms Hooks"
+msgstr ""
+
+#: lib/IWforms/Api/Search.php:160
+msgid "Error! Could not load the results of the user's search."
+msgstr ""
+
+#: lib/IWforms/Api/User.php:18 lib/IWforms/Api/User.php:79
+#: lib/IWforms/Api/User.php:129 lib/IWforms/Api/User.php:179
+#: lib/IWforms/Api/User.php:262 lib/IWforms/Api/User.php:313
 #: lib/IWforms/Api/User.php:354 lib/IWforms/Api/User.php:380
 #: lib/IWforms/Api/User.php:406 lib/IWforms/Api/User.php:437
-#: lib/IWforms/Api/User.php:507 lib/IWforms/Api/User.php:551
+#: lib/IWforms/Api/User.php:506 lib/IWforms/Api/User.php:549
 #: lib/IWforms/Api/User.php:605 lib/IWforms/Api/User.php:674
-#: lib/IWforms/Api/User.php:849 lib/IWforms/Api/User.php:954
-#: lib/IWforms/Api/User.php:1003 lib/IWforms/Api/User.php:1058
-#: lib/IWforms/Api/User.php:1109 lib/IWforms/Api/User.php:1535
-#: lib/IWforms/Api/User.php:1569 lib/IWforms/Api/Admin.php:33
-#: lib/IWforms/Api/Admin.php:76 lib/IWforms/Api/Admin.php:129
-#: lib/IWforms/Api/Admin.php:161 lib/IWforms/Api/Admin.php:182
-#: lib/IWforms/Api/Admin.php:208 lib/IWforms/Api/Admin.php:234
-#: lib/IWforms/Api/Admin.php:260 lib/IWforms/Api/Admin.php:286
-#: lib/IWforms/Api/Admin.php:324 lib/IWforms/Api/Admin.php:350
-#: lib/IWforms/Api/Admin.php:377 lib/IWforms/Api/Admin.php:411
-#: lib/IWforms/Api/Admin.php:437 lib/IWforms/Api/Admin.php:523
-#: lib/IWforms/Api/Admin.php:551 lib/IWforms/Api/Admin.php:584
-#: lib/IWforms/Api/Admin.php:618 lib/IWforms/Api/Admin.php:748
-#: lib/IWforms/Controller/User.php:1517 lib/IWforms/Controller/Admin.php:175
-#: lib/IWforms/Controller/Admin.php:298 lib/IWforms/Controller/Admin.php:336
-#: lib/IWforms/Controller/Admin.php:402 lib/IWforms/Controller/Admin.php:448
-#: lib/IWforms/Controller/Admin.php:1685 lib/IWforms/Controller/Admin.php:1919
-#: lib/IWforms/Controller/Admin.php:1949
+#: lib/IWforms/Api/User.php:846 lib/IWforms/Api/User.php:950
+#: lib/IWforms/Api/User.php:999 lib/IWforms/Api/User.php:1052
+#: lib/IWforms/Api/User.php:1101 lib/IWforms/Api/User.php:1509
+#: lib/IWforms/Api/User.php:1543 lib/IWforms/Api/Admin.php:39
+#: lib/IWforms/Api/Admin.php:87 lib/IWforms/Api/Admin.php:140
+#: lib/IWforms/Api/Admin.php:171 lib/IWforms/Api/Admin.php:192
+#: lib/IWforms/Api/Admin.php:217 lib/IWforms/Api/Admin.php:242
+#: lib/IWforms/Api/Admin.php:267 lib/IWforms/Api/Admin.php:292
+#: lib/IWforms/Api/Admin.php:328 lib/IWforms/Api/Admin.php:353
+#: lib/IWforms/Api/Admin.php:378 lib/IWforms/Api/Admin.php:410
+#: lib/IWforms/Api/Admin.php:435 lib/IWforms/Api/Admin.php:517
+#: lib/IWforms/Api/Admin.php:546 lib/IWforms/Api/Admin.php:578
+#: lib/IWforms/Api/Admin.php:611 lib/IWforms/Api/Admin.php:736
+#: lib/IWforms/Controller/User.php:1514 lib/IWforms/Controller/Admin.php:198
+#: lib/IWforms/Controller/Admin.php:303 lib/IWforms/Controller/Admin.php:367
+#: lib/IWforms/Controller/Admin.php:428 lib/IWforms/Controller/Admin.php:470
+#: lib/IWforms/Controller/Admin.php:1579 lib/IWforms/Controller/Admin.php:1782
+#: lib/IWforms/Controller/Admin.php:1810
 msgid "Error! Could not do what you wanted. Please check your input."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:26 lib/IWforms/Api/User.php:57
-#: lib/IWforms/Api/User.php:99 lib/IWforms/Api/User.php:149
-#: lib/IWforms/Api/User.php:217 lib/IWforms/Api/User.php:241
+#: lib/IWforms/Api/User.php:26 lib/IWforms/Api/User.php:63
+#: lib/IWforms/Api/User.php:104 lib/IWforms/Api/User.php:152
+#: lib/IWforms/Api/User.php:218 lib/IWforms/Api/User.php:242
 #: lib/IWforms/Api/User.php:282 lib/IWforms/Api/User.php:333
 #: lib/IWforms/Api/User.php:362 lib/IWforms/Api/User.php:388
-#: lib/IWforms/Api/User.php:414 lib/IWforms/Api/User.php:459
-#: lib/IWforms/Api/User.php:489 lib/IWforms/Api/User.php:515
-#: lib/IWforms/Api/User.php:567 lib/IWforms/Api/User.php:650
-#: lib/IWforms/Api/User.php:717 lib/IWforms/Api/User.php:764
-#: lib/IWforms/Api/User.php:825 lib/IWforms/Api/User.php:857
-#: lib/IWforms/Api/User.php:971 lib/IWforms/Api/User.php:1382
-#: lib/IWforms/Api/User.php:1413 lib/IWforms/Api/User.php:1454
-#: lib/IWforms/Api/User.php:1511 lib/IWforms/Api/User.php:1548
-#: lib/IWforms/Api/User.php:1662
+#: lib/IWforms/Api/User.php:414 lib/IWforms/Api/User.php:458
+#: lib/IWforms/Api/User.php:488 lib/IWforms/Api/User.php:514
+#: lib/IWforms/Api/User.php:565 lib/IWforms/Api/User.php:650
+#: lib/IWforms/Api/User.php:716 lib/IWforms/Api/User.php:764
+#: lib/IWforms/Api/User.php:822 lib/IWforms/Api/User.php:854
+#: lib/IWforms/Api/User.php:967 lib/IWforms/Api/User.php:1359
+#: lib/IWforms/Api/User.php:1390 lib/IWforms/Api/User.php:1430
+#: lib/IWforms/Api/User.php:1485 lib/IWforms/Api/User.php:1522
+#: lib/IWforms/Api/User.php:1632 lib/IWforms/Api/User.php:1793
 msgid "Error! Could not load items."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:80 lib/IWforms/Api/User.php:134
-#: lib/IWforms/Api/User.php:195 lib/IWforms/Api/User.php:268
-#: lib/IWforms/Api/User.php:908 lib/IWforms/Api/User.php:1017
-#: lib/IWforms/Api/User.php:1072 lib/IWforms/Api/User.php:1123
-#: lib/IWforms/Api/Admin.php:124 lib/IWforms/Api/Admin.php:156
-#: lib/IWforms/Api/Admin.php:188 lib/IWforms/Api/Admin.php:214
-#: lib/IWforms/Api/Admin.php:240 lib/IWforms/Api/Admin.php:266
-#: lib/IWforms/Api/Admin.php:292 lib/IWforms/Api/Admin.php:330
-#: lib/IWforms/Api/Admin.php:417 lib/IWforms/Api/Admin.php:443
-#: lib/IWforms/Api/Admin.php:483 lib/IWforms/Api/Admin.php:624
-#: lib/IWforms/Api/Admin.php:660 lib/IWforms/Api/Admin.php:689
-#: lib/IWforms/Api/Admin.php:700 lib/IWforms/Controller/User.php:99
-#: lib/IWforms/Controller/User.php:201 lib/IWforms/Controller/User.php:389
-#: lib/IWforms/Controller/User.php:748 lib/IWforms/Controller/User.php:878
-#: lib/IWforms/Controller/User.php:1017 lib/IWforms/Controller/User.php:1558
-#: lib/IWforms/Controller/User.php:1645 lib/IWforms/Controller/Admin.php:181
-#: lib/IWforms/Controller/Admin.php:304 lib/IWforms/Controller/Admin.php:342
-#: lib/IWforms/Controller/Admin.php:409 lib/IWforms/Controller/Admin.php:455
-#: lib/IWforms/Controller/Admin.php:569 lib/IWforms/Controller/Admin.php:576
-#: lib/IWforms/Controller/Admin.php:707 lib/IWforms/Controller/Admin.php:714
-#: lib/IWforms/Controller/Admin.php:755 lib/IWforms/Controller/Admin.php:762
-#: lib/IWforms/Controller/Admin.php:826 lib/IWforms/Controller/Admin.php:886
-#: lib/IWforms/Controller/Admin.php:948 lib/IWforms/Controller/Admin.php:990
-#: lib/IWforms/Controller/Admin.php:1054 lib/IWforms/Controller/Admin.php:1117
-#: lib/IWforms/Controller/Admin.php:1124 lib/IWforms/Controller/Admin.php:1190
-#: lib/IWforms/Controller/Admin.php:1197 lib/IWforms/Controller/Admin.php:1204
-#: lib/IWforms/Controller/Admin.php:1264 lib/IWforms/Controller/Admin.php:1333
-#: lib/IWforms/Controller/Admin.php:1432 lib/IWforms/Controller/Admin.php:1439
-#: lib/IWforms/Controller/Admin.php:1506 lib/IWforms/Controller/Admin.php:1513
-#: lib/IWforms/Controller/Admin.php:1692 lib/IWforms/Controller/Admin.php:1888
-#: lib/IWforms/Controller/Admin.php:1976 lib/IWforms/Controller/Ajax.php:59
-#: lib/IWforms/Controller/Ajax.php:99 lib/IWforms/Controller/Ajax.php:162
-#: lib/IWforms/Controller/Ajax.php:443 lib/IWforms/Controller/Ajax.php:585
-#: lib/IWforms/Controller/Ajax.php:617 lib/IWforms/Controller/Ajax.php:904
+#: lib/IWforms/Api/User.php:85 lib/IWforms/Api/User.php:137
+#: lib/IWforms/Api/User.php:196 lib/IWforms/Api/User.php:268
+#: lib/IWforms/Api/User.php:905 lib/IWforms/Api/User.php:1011
+#: lib/IWforms/Api/User.php:1064 lib/IWforms/Api/User.php:1113
+#: lib/IWforms/Api/Admin.php:135 lib/IWforms/Api/Admin.php:166
+#: lib/IWforms/Api/Admin.php:197 lib/IWforms/Api/Admin.php:222
+#: lib/IWforms/Api/Admin.php:247 lib/IWforms/Api/Admin.php:272
+#: lib/IWforms/Api/Admin.php:297 lib/IWforms/Api/Admin.php:333
+#: lib/IWforms/Api/Admin.php:415 lib/IWforms/Api/Admin.php:440
+#: lib/IWforms/Api/Admin.php:478 lib/IWforms/Api/Admin.php:616
+#: lib/IWforms/Api/Admin.php:650 lib/IWforms/Api/Admin.php:678
+#: lib/IWforms/Controller/User.php:97 lib/IWforms/Controller/User.php:194
+#: lib/IWforms/Controller/User.php:434 lib/IWforms/Controller/User.php:772
+#: lib/IWforms/Controller/User.php:895 lib/IWforms/Controller/User.php:1025
+#: lib/IWforms/Controller/User.php:1559 lib/IWforms/Controller/User.php:1638
+#: lib/IWforms/Controller/Admin.php:203 lib/IWforms/Controller/Admin.php:308
+#: lib/IWforms/Controller/Admin.php:372 lib/IWforms/Controller/Admin.php:434
+#: lib/IWforms/Controller/Admin.php:476 lib/IWforms/Controller/Admin.php:583
+#: lib/IWforms/Controller/Admin.php:589 lib/IWforms/Controller/Admin.php:706
+#: lib/IWforms/Controller/Admin.php:712 lib/IWforms/Controller/Admin.php:749
+#: lib/IWforms/Controller/Admin.php:755 lib/IWforms/Controller/Admin.php:808
+#: lib/IWforms/Controller/Admin.php:857 lib/IWforms/Controller/Admin.php:907
+#: lib/IWforms/Controller/Admin.php:941 lib/IWforms/Controller/Admin.php:993
+#: lib/IWforms/Controller/Admin.php:1043 lib/IWforms/Controller/Admin.php:1049
+#: lib/IWforms/Controller/Admin.php:1104 lib/IWforms/Controller/Admin.php:1110
+#: lib/IWforms/Controller/Admin.php:1116 lib/IWforms/Controller/Admin.php:1167
+#: lib/IWforms/Controller/Admin.php:1253 lib/IWforms/Controller/Admin.php:1353
+#: lib/IWforms/Controller/Admin.php:1359 lib/IWforms/Controller/Admin.php:1423
+#: lib/IWforms/Controller/Admin.php:1429 lib/IWforms/Controller/Admin.php:1585
+#: lib/IWforms/Controller/Admin.php:1754 lib/IWforms/Controller/Admin.php:1835
+#: lib/IWforms/Controller/Ajax.php:58 lib/IWforms/Controller/Ajax.php:97
+#: lib/IWforms/Controller/Ajax.php:160 lib/IWforms/Controller/Ajax.php:453
+#: lib/IWforms/Controller/Ajax.php:585 lib/IWforms/Controller/Ajax.php:616
+#: lib/IWforms/Controller/Ajax.php:893
 msgid "Could not find form"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:444
+#: lib/IWforms/Api/User.php:443
 msgid "Can not find the form field"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:546 lib/IWforms/Api/User.php:600
-#: lib/IWforms/Api/User.php:810 lib/IWforms/Api/User.php:1496
-#: lib/IWforms/Api/User.php:1695 lib/IWforms/Api/User.php:1769
-#: lib/IWforms/Controller/User.php:193 lib/IWforms/Controller/User.php:373
-#: lib/IWforms/Controller/User.php:650 lib/IWforms/Controller/User.php:702
-#: lib/IWforms/Controller/User.php:1523
+#: lib/IWforms/Api/User.php:544 lib/IWforms/Api/User.php:600
+#: lib/IWforms/Api/User.php:807 lib/IWforms/Api/User.php:1470
+#: lib/IWforms/Api/User.php:1663 lib/IWforms/Api/User.php:1732
+#: lib/IWforms/Controller/User.php:187 lib/IWforms/Controller/User.php:419
+#: lib/IWforms/Controller/User.php:684 lib/IWforms/Controller/User.php:730
+#: lib/IWforms/Controller/User.php:1519
 msgid "You can not access this form to view the annotations"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:681 lib/IWforms/Api/User.php:770
-#: lib/IWforms/Api/User.php:781 lib/IWforms/Api/User.php:916
-#: lib/IWforms/Api/User.php:1010 lib/IWforms/Api/User.php:1022
-#: lib/IWforms/Api/User.php:1065 lib/IWforms/Api/User.php:1078
-#: lib/IWforms/Api/User.php:1116 lib/IWforms/Controller/User.php:888
-#: lib/IWforms/Controller/User.php:895 lib/IWforms/Controller/User.php:1024
-#: lib/IWforms/Controller/User.php:1321 lib/IWforms/Controller/User.php:1637
+#: lib/IWforms/Api/User.php:680 lib/IWforms/Api/User.php:770
+#: lib/IWforms/Api/User.php:779 lib/IWforms/Api/User.php:912
+#: lib/IWforms/Api/User.php:1005 lib/IWforms/Api/User.php:1016
+#: lib/IWforms/Api/User.php:1058 lib/IWforms/Api/User.php:1070
+#: lib/IWforms/Api/User.php:1107 lib/IWforms/Controller/User.php:904
+#: lib/IWforms/Controller/User.php:911 lib/IWforms/Controller/User.php:1031
+#: lib/IWforms/Controller/User.php:1321 lib/IWforms/Controller/User.php:1631
 msgid "You can not access this form to send annotations"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:883 lib/IWforms/Api/User.php:1086
-#: lib/IWforms/Api/User.php:1135 lib/IWforms/Api/User.php:1214
-#: lib/IWforms/Api/User.php:1251 lib/IWforms/Api/User.php:1284
-#: lib/IWforms/Api/User.php:1314 lib/IWforms/Api/User.php:1352
-#: lib/IWforms/Api/User.php:1588 lib/IWforms/Api/User.php:1618
-#: lib/IWforms/Api/Admin.php:423 lib/IWforms/Api/Admin.php:457
-#: lib/IWforms/Api/Admin.php:502 lib/IWforms/Api/Admin.php:598
-#: lib/IWforms/Api/Admin.php:638 lib/IWforms/Api/Admin.php:668
+#: lib/IWforms/Api/User.php:880 lib/IWforms/Api/User.php:1078
+#: lib/IWforms/Api/User.php:1125 lib/IWforms/Api/User.php:1200
+#: lib/IWforms/Api/User.php:1235 lib/IWforms/Api/User.php:1266
+#: lib/IWforms/Api/User.php:1294 lib/IWforms/Api/User.php:1329
+#: lib/IWforms/Api/User.php:1561 lib/IWforms/Api/User.php:1590
+#: lib/IWforms/Api/Admin.php:421 lib/IWforms/Api/Admin.php:453
+#: lib/IWforms/Api/Admin.php:496 lib/IWforms/Api/Admin.php:591
+#: lib/IWforms/Api/Admin.php:629 lib/IWforms/Api/Admin.php:658
 msgid "Error! Update attempt failed."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:929 lib/IWforms/Api/User.php:1031
-#: lib/IWforms/Api/Admin.php:56 lib/IWforms/Api/Admin.php:82
-#: lib/IWforms/Api/Admin.php:105 lib/IWforms/Api/Admin.php:137
-#: lib/IWforms/Api/Admin.php:167 lib/IWforms/Api/Admin.php:531
-#: lib/IWforms/Api/Admin.php:778
+#: lib/IWforms/Api/User.php:925 lib/IWforms/Api/User.php:1025
+#: lib/IWforms/Api/Admin.php:67 lib/IWforms/Api/Admin.php:94
+#: lib/IWforms/Api/Admin.php:117 lib/IWforms/Api/Admin.php:148
+#: lib/IWforms/Api/Admin.php:177 lib/IWforms/Api/Admin.php:526
+#: lib/IWforms/Api/Admin.php:689 lib/IWforms/Api/Admin.php:695
+#: lib/IWforms/Api/Admin.php:766
 msgid "Error! Creation attempt failed."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1159 lib/IWforms/Api/User.php:1193
-#: lib/IWforms/Api/User.php:1238 lib/IWforms/Api/User.php:1275
-#: lib/IWforms/Api/User.php:1304 lib/IWforms/Api/User.php:1335
-#: lib/IWforms/Api/User.php:1439 lib/IWforms/Api/User.php:1576
-#: lib/IWforms/Api/User.php:1608 lib/IWforms/Controller/Ajax.php:168
-#: lib/IWforms/Controller/Ajax.php:218 lib/IWforms/Controller/Ajax.php:262
-#: lib/IWforms/Controller/Ajax.php:313 lib/IWforms/Controller/Ajax.php:363
-#: lib/IWforms/Controller/Ajax.php:429 lib/IWforms/Controller/Ajax.php:499
-#: lib/IWforms/Controller/Ajax.php:648
+#: lib/IWforms/Api/User.php:1147 lib/IWforms/Api/User.php:1179
+#: lib/IWforms/Api/User.php:1222 lib/IWforms/Api/User.php:1257
+#: lib/IWforms/Api/User.php:1284 lib/IWforms/Api/User.php:1313
+#: lib/IWforms/Api/User.php:1415 lib/IWforms/Api/User.php:1549
+#: lib/IWforms/Api/User.php:1580 lib/IWforms/Controller/Ajax.php:165
+#: lib/IWforms/Controller/Ajax.php:212 lib/IWforms/Controller/Ajax.php:261
+#: lib/IWforms/Controller/Ajax.php:319 lib/IWforms/Controller/Ajax.php:373
+#: lib/IWforms/Controller/Ajax.php:440 lib/IWforms/Controller/Ajax.php:505
+#: lib/IWforms/Controller/Ajax.php:647
 msgid "You do not have access to manage form"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1164 lib/IWforms/Api/User.php:1169
-#: lib/IWforms/Api/Admin.php:192 lib/IWforms/Api/Admin.php:221
-#: lib/IWforms/Api/Admin.php:247 lib/IWforms/Api/Admin.php:273
-#: lib/IWforms/Api/Admin.php:303 lib/IWforms/Api/Admin.php:311
-#: lib/IWforms/Api/Admin.php:334 lib/IWforms/Api/Admin.php:361
-#: lib/IWforms/Api/Admin.php:388 lib/IWforms/Api/Admin.php:560
+#: lib/IWforms/Api/User.php:1152 lib/IWforms/Api/User.php:1157
+#: lib/IWforms/Api/Admin.php:201 lib/IWforms/Api/Admin.php:229
+#: lib/IWforms/Api/Admin.php:254 lib/IWforms/Api/Admin.php:279
+#: lib/IWforms/Api/Admin.php:307 lib/IWforms/Api/Admin.php:315
+#: lib/IWforms/Api/Admin.php:337 lib/IWforms/Api/Admin.php:362
+#: lib/IWforms/Api/Admin.php:387 lib/IWforms/Api/Admin.php:554
 msgid "Error! Sorry! Deletion attempt failed."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1342 lib/IWforms/Controller/Ajax.php:417
+#: lib/IWforms/Api/User.php:1319 lib/IWforms/Controller/Ajax.php:430
 msgid "You can not edit this note."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1703 lib/IWforms/Api/User.php:1777
+#: lib/IWforms/Api/User.php:1670 lib/IWforms/Api/User.php:1739
 msgid "Note content not found"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1721 lib/IWforms/Api/User.php:1795
+#: lib/IWforms/Api/User.php:1686 lib/IWforms/Api/User.php:1755
 msgid "Note fields not found"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1744
+#: lib/IWforms/Api/User.php:1708
 msgid "Error! Creation attempt failed during field synchronization."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1816
+#: lib/IWforms/Api/User.php:1775
 msgid "Error! delete attempt failed during field synchronization."
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1843 lib/IWforms/Api/Admin.php:789
+#: lib/IWforms/Api/User.php:1823 lib/IWforms/Api/Admin.php:776
 msgid "Show the forms"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1846 templates/IWforms_block_formsList.htm:25
-#: templates/IWforms_user_mainOptions.htm:5
+#: lib/IWforms/Api/User.php:1826 templates/IWforms_block_formsList.tpl:25
+#: templates/IWforms_user_mainOptions.tpl:5
 msgid "Send an annotation"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1849 templates/IWforms_user_mainOptions.htm:18
+#: lib/IWforms/Api/User.php:1829 templates/IWforms_user_mainOptions.tpl:18
 msgid "Show the notes I sent"
 msgstr ""
 
-#: lib/IWforms/Api/User.php:1852 templates/IWforms_user_export.htm:4
+#: lib/IWforms/Api/User.php:1832 templates/IWforms_user_export.tpl:4
 msgid "Export to CSV"
 msgstr ""
 
-#: lib/IWforms/Api/Admin.php:355 lib/IWforms/Api/Admin.php:382
-#: lib/IWforms/Controller/Admin.php:1061
+#: lib/IWforms/Api/Admin.php:357 lib/IWforms/Api/Admin.php:382
+#: lib/IWforms/Controller/Admin.php:999
 msgid "Can not find the group"
 msgstr ""
 
-#: lib/IWforms/Api/Admin.php:557 lib/IWforms/Api/Admin.php:590
+#: lib/IWforms/Api/Admin.php:551 lib/IWforms/Api/Admin.php:583
 msgid "No such item found."
 msgstr ""
 
-#: lib/IWforms/Api/Admin.php:788 templates/IWforms_admin_create.htm:9
+#: lib/IWforms/Api/Admin.php:684
+msgid "Could not find form fields, then it is not possible to copy the form"
+msgstr ""
+
+#: lib/IWforms/Api/Admin.php:775 templates/IWforms_admin_create.tpl:10
 msgid "Create a new form"
 msgstr ""
 
-#: lib/IWforms/Api/Admin.php:790 templates/IWforms_admin_import.htm:5
+#: lib/IWforms/Api/Admin.php:777 templates/IWforms_admin_import.tpl:5
 msgid "Import a form"
 msgstr ""
 
-#: lib/IWforms/Api/Admin.php:791 templates/IWforms_admin_conf.htm:7
+#: lib/IWforms/Api/Admin.php:778 templates/IWforms_admin_conf.tpl:7
 msgid "Configure the module"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:508 lib/IWforms/Controller/User.php:1674
+#: lib/IWforms/Controller/User.php:541 lib/IWforms/Controller/User.php:1664
 msgid "user"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:558 lib/IWforms/Controller/Admin.php:421
-#: lib/IWforms/Controller/Ajax.php:709
-#: templates/IWforms_user_fieldContent.htm:320
-#: templates/IWforms_admin_form_definition.htm:33
-#: templates/IWforms_admin_form_definition.htm:41
-#: templates/IWforms_admin_form_definition.htm:49
-#: templates/IWforms_admin_form_definition.htm:57
-#: templates/IWforms_admin_form_definition.htm:65
-#: templates/IWforms_admin_form_definition.htm:73
-#: templates/IWforms_admin_form_definition.htm:81
-#: templates/IWforms_admin_form_definition.htm:89
-#: templates/IWforms_admin_form_definition.htm:105
-#: templates/IWforms_admin_form_definition.htm:113
-#: templates/IWforms_admin_form_definition.htm:121
-#: templates/IWforms_admin_form_definition.htm:150
-#: templates/IWforms_admin_form_definition.htm:158
-#: templates/IWforms_admin_form_fieldCharContent.htm:25
-#: templates/IWforms_admin_form_fieldCharContent.htm:46
-#: templates/IWforms_admin_form_fieldCharContent.htm:57
-#: templates/IWforms_admin_form_fieldCharContent.htm:78
-#: templates/IWforms_admin_form_fieldCharContent.htm:104
-#: templates/IWforms_admin_form_fieldCharContent.htm:116
-#: templates/IWforms_admin_form_fieldCharContent.htm:129
-#: templates/IWforms_admin_form_fieldCharContent.htm:143
-#: templates/IWforms_admin_form_fieldCharContent.htm:157
-#: templates/IWforms_admin_form_fieldCharContent.htm:188
-#: templates/IWforms_admin_formChars.htm:7
-#: templates/IWforms_admin_formChars.htm:18
-#: templates/IWforms_admin_formChars.htm:29
-#: templates/IWforms_admin_formChars.htm:40
-#: templates/IWforms_admin_formChars.htm:50
-#: templates/IWforms_admin_formChars.htm:60
-#: templates/IWforms_admin_formChars.htm:70
-#: templates/IWforms_admin_formChars.htm:80
-#: templates/IWforms_admin_formChars.htm:90
-#: templates/IWforms_admin_formChars.htm:100
+#: lib/IWforms/Controller/User.php:590 lib/IWforms/Controller/Admin.php:443
+#: lib/IWforms/Controller/Ajax.php:705
+#: templates/IWforms_user_fieldContent.tpl:296
+#: templates/IWforms_admin_form_definition.tpl:36
+#: templates/IWforms_admin_form_definition.tpl:44
+#: templates/IWforms_admin_form_definition.tpl:52
+#: templates/IWforms_admin_form_definition.tpl:60
+#: templates/IWforms_admin_form_definition.tpl:68
+#: templates/IWforms_admin_form_definition.tpl:118
+#: templates/IWforms_admin_form_definition.tpl:126
+#: templates/IWforms_admin_form_definition.tpl:134
+#: templates/IWforms_admin_form_definition.tpl:150
+#: templates/IWforms_admin_form_definition.tpl:158
+#: templates/IWforms_admin_form_definition.tpl:166
+#: templates/IWforms_admin_form_definition.tpl:210
+#: templates/IWforms_admin_form_definition.tpl:218
+#: templates/IWforms_admin_form_fieldCharContent.tpl:25
+#: templates/IWforms_admin_form_fieldCharContent.tpl:46
+#: templates/IWforms_admin_form_fieldCharContent.tpl:57
+#: templates/IWforms_admin_form_fieldCharContent.tpl:78
+#: templates/IWforms_admin_form_fieldCharContent.tpl:104
+#: templates/IWforms_admin_form_fieldCharContent.tpl:116
+#: templates/IWforms_admin_form_fieldCharContent.tpl:129
+#: templates/IWforms_admin_form_fieldCharContent.tpl:143
+#: templates/IWforms_admin_form_fieldCharContent.tpl:157
+#: templates/IWforms_admin_form_fieldCharContent.tpl:188
+#: templates/IWforms_admin_formChars.tpl:13
+#: templates/IWforms_admin_formChars.tpl:24
+#: templates/IWforms_admin_formChars.tpl:35
+#: templates/IWforms_admin_formChars.tpl:46
+#: templates/IWforms_admin_formChars.tpl:56
+#: templates/IWforms_admin_formChars.tpl:66
+#: templates/IWforms_admin_formChars.tpl:76
+#: templates/IWforms_admin_formChars.tpl:86
+#: templates/IWforms_admin_formChars.tpl:96
+#: templates/IWforms_admin_formChars.tpl:106
 msgid "No"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:559 lib/IWforms/Controller/Admin.php:421
-#: lib/IWforms/Controller/Ajax.php:710
-#: templates/IWforms_user_fieldContent.htm:318
-#: templates/IWforms_admin_form_definition.htm:31
-#: templates/IWforms_admin_form_definition.htm:39
-#: templates/IWforms_admin_form_definition.htm:47
-#: templates/IWforms_admin_form_definition.htm:55
-#: templates/IWforms_admin_form_definition.htm:63
-#: templates/IWforms_admin_form_definition.htm:71
-#: templates/IWforms_admin_form_definition.htm:79
-#: templates/IWforms_admin_form_definition.htm:87
-#: templates/IWforms_admin_form_definition.htm:103
-#: templates/IWforms_admin_form_definition.htm:111
-#: templates/IWforms_admin_form_definition.htm:119
-#: templates/IWforms_admin_form_definition.htm:148
-#: templates/IWforms_admin_form_definition.htm:156
-#: templates/IWforms_admin_form_fieldCharContent.htm:23
-#: templates/IWforms_admin_form_fieldCharContent.htm:44
-#: templates/IWforms_admin_form_fieldCharContent.htm:55
-#: templates/IWforms_admin_form_fieldCharContent.htm:76
-#: templates/IWforms_admin_form_fieldCharContent.htm:102
-#: templates/IWforms_admin_form_fieldCharContent.htm:114
-#: templates/IWforms_admin_form_fieldCharContent.htm:127
-#: templates/IWforms_admin_form_fieldCharContent.htm:141
-#: templates/IWforms_admin_form_fieldCharContent.htm:155
-#: templates/IWforms_admin_form_fieldCharContent.htm:186
-#: templates/IWforms_admin_formChars.htm:5
-#: templates/IWforms_admin_formChars.htm:16
-#: templates/IWforms_admin_formChars.htm:27
-#: templates/IWforms_admin_formChars.htm:38
-#: templates/IWforms_admin_formChars.htm:48
-#: templates/IWforms_admin_formChars.htm:58
-#: templates/IWforms_admin_formChars.htm:68
-#: templates/IWforms_admin_formChars.htm:78
-#: templates/IWforms_admin_formChars.htm:88
-#: templates/IWforms_admin_formChars.htm:98
+#: lib/IWforms/Controller/User.php:591 lib/IWforms/Controller/Admin.php:443
+#: lib/IWforms/Controller/Ajax.php:706
+#: templates/IWforms_user_fieldContent.tpl:294
+#: templates/IWforms_admin_form_definition.tpl:34
+#: templates/IWforms_admin_form_definition.tpl:42
+#: templates/IWforms_admin_form_definition.tpl:50
+#: templates/IWforms_admin_form_definition.tpl:58
+#: templates/IWforms_admin_form_definition.tpl:66
+#: templates/IWforms_admin_form_definition.tpl:116
+#: templates/IWforms_admin_form_definition.tpl:124
+#: templates/IWforms_admin_form_definition.tpl:132
+#: templates/IWforms_admin_form_definition.tpl:148
+#: templates/IWforms_admin_form_definition.tpl:156
+#: templates/IWforms_admin_form_definition.tpl:164
+#: templates/IWforms_admin_form_definition.tpl:208
+#: templates/IWforms_admin_form_definition.tpl:216
+#: templates/IWforms_admin_form_fieldCharContent.tpl:23
+#: templates/IWforms_admin_form_fieldCharContent.tpl:44
+#: templates/IWforms_admin_form_fieldCharContent.tpl:55
+#: templates/IWforms_admin_form_fieldCharContent.tpl:76
+#: templates/IWforms_admin_form_fieldCharContent.tpl:102
+#: templates/IWforms_admin_form_fieldCharContent.tpl:114
+#: templates/IWforms_admin_form_fieldCharContent.tpl:127
+#: templates/IWforms_admin_form_fieldCharContent.tpl:141
+#: templates/IWforms_admin_form_fieldCharContent.tpl:155
+#: templates/IWforms_admin_form_fieldCharContent.tpl:186
+#: templates/IWforms_admin_formChars.tpl:11
+#: templates/IWforms_admin_formChars.tpl:22
+#: templates/IWforms_admin_formChars.tpl:33
+#: templates/IWforms_admin_formChars.tpl:44
+#: templates/IWforms_admin_formChars.tpl:54
+#: templates/IWforms_admin_formChars.tpl:64
+#: templates/IWforms_admin_formChars.tpl:74
+#: templates/IWforms_admin_formChars.tpl:84
+#: templates/IWforms_admin_formChars.tpl:94
+#: templates/IWforms_admin_formChars.tpl:104
 msgid "Yes"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:667
+#: lib/IWforms/Controller/User.php:699
 msgid "Field synchronized successfully."
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:904
+#: lib/IWforms/Controller/User.php:919
 msgid ""
 "The form is only one answer and know that you've already sent an annotation."
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:914
+#: lib/IWforms/Controller/User.php:928
 msgid "Has not been found fields in the form"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1280 lib/IWforms/Controller/Admin.php:1444
+#: lib/IWforms/Controller/User.php:1283 lib/IWforms/Controller/Admin.php:1364
 msgid "Name_field"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1311
-msgid "Error with the capcha protect system"
+#: lib/IWforms/Controller/User.php:1312
+msgid "Error! The security words are incorrect."
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1400 lib/IWforms/Controller/User.php:1465
+#: lib/IWforms/Controller/User.php:1396 lib/IWforms/Controller/User.php:1464
 msgid "The entry has been edited"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1402 lib/IWforms/Controller/User.php:1467
+#: lib/IWforms/Controller/User.php:1398 lib/IWforms/Controller/User.php:1466
 msgid "There was an error in the edition of the annotation"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1416 lib/IWforms/Controller/User.php:1481
+#: lib/IWforms/Controller/User.php:1411 lib/IWforms/Controller/User.php:1479
 msgid "The entry has been created"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1418 lib/IWforms/Controller/User.php:1483
+#: lib/IWforms/Controller/User.php:1413 lib/IWforms/Controller/User.php:1481
 msgid "There was an error in the creation of the annotation"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1433 lib/IWforms/Controller/User.php:1449
+#: lib/IWforms/Controller/User.php:1434 lib/IWforms/Controller/User.php:1449
 msgid ""
 "There was a problem in the attachment file. Probably the annotation was sent "
 "without the file or attachment."
@@ -414,295 +426,350 @@ msgid ""
 "administrator at the portal."
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1581
-#: templates/IWforms_user_userNoteContent.htm:39
+#: lib/IWforms/Controller/User.php:1579
+#: templates/IWforms_user_userNoteContent.tpl:39
 msgid "State of the note"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1583 lib/IWforms/Controller/User.php:1589
-#: lib/IWforms/Controller/User.php:1676 lib/IWforms/Controller/Admin.php:607
-#: templates/IWforms_admin_form_fieldAdd.htm:15
+#: lib/IWforms/Controller/User.php:1581 lib/IWforms/Controller/User.php:1587
+#: lib/IWforms/Controller/User.php:1666 lib/IWforms/Controller/Admin.php:617
+#: templates/IWforms_admin_form_fieldAdd.tpl:15
 msgid "Date"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1585
+#: lib/IWforms/Controller/User.php:1583
 msgid "Referring"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1586 lib/IWforms/Controller/Admin.php:604
-#: templates/IWforms_admin_form_fieldAdd.htm:12
+#: lib/IWforms/Controller/User.php:1584 lib/IWforms/Controller/Admin.php:614
+#: templates/IWforms_admin_form_fieldAdd.tpl:12
 msgid "Text"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1587 lib/IWforms/Controller/Admin.php:605
-#: templates/IWforms_admin_form_fieldAdd.htm:13
+#: lib/IWforms/Controller/User.php:1585 lib/IWforms/Controller/Admin.php:615
+#: templates/IWforms_admin_form_fieldAdd.tpl:13
 msgid "Text area"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1588 lib/IWforms/Controller/User.php:1684
-#: lib/IWforms/Controller/Admin.php:606
-#: templates/IWforms_admin_form_fieldAdd.htm:14
+#: lib/IWforms/Controller/User.php:1586 lib/IWforms/Controller/User.php:1674
+#: lib/IWforms/Controller/Admin.php:616
+#: templates/IWforms_admin_form_fieldAdd.tpl:14
 msgid "URL"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1590 lib/IWforms/Controller/Admin.php:608
-#: templates/IWforms_admin_form_fieldAdd.htm:16
+#: lib/IWforms/Controller/User.php:1588 lib/IWforms/Controller/Admin.php:618
+#: templates/IWforms_admin_form_fieldAdd.tpl:16
 msgid "Time"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1591 lib/IWforms/Controller/Admin.php:609
-#: templates/IWforms_admin_form_fieldAdd.htm:17
+#: lib/IWforms/Controller/User.php:1589 lib/IWforms/Controller/Admin.php:619
+#: templates/IWforms_admin_form_fieldAdd.tpl:17
 msgid "List of options"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1592 lib/IWforms/Controller/Admin.php:611
-#: templates/IWforms_admin_form_fieldAdd.htm:19
+#: lib/IWforms/Controller/User.php:1590 lib/IWforms/Controller/Admin.php:621
+#: templates/IWforms_admin_form_fieldAdd.tpl:19
 msgid "Yes/No"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1598 templates/IWforms_user_export.htm:93
-#: templates/IWforms_admin_form_minitab.htm:5
+#: lib/IWforms/Controller/User.php:1596
+#: templates/IWforms_admin_form_minitab.tpl:5
+#: templates/IWforms_user_export.tpl:93
 msgid "Field"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1678
+#: lib/IWforms/Controller/User.php:1668
 msgid "Observations"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1680
+#: lib/IWforms/Controller/User.php:1670
 msgid "Renotes"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1682
+#: lib/IWforms/Controller/User.php:1672
 msgid "State"
 msgstr ""
 
-#: lib/IWforms/Controller/User.php:1737
+#: lib/IWforms/Controller/User.php:1725
 msgid ""
 "There was an error in the creation of information. The export was not "
 "possible"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:144
+#: lib/IWforms/Controller/Admin.php:168
 msgid "The form was created successfully"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:353
+#: lib/IWforms/Controller/Admin.php:381
 msgid "Global validator"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:420
-#: templates/IWforms_admin_form_addGroup.htm:20
-#: templates/IWforms_user_main.htm:35
+#: lib/IWforms/Controller/Admin.php:442 templates/IWforms_user_main.tpl:35
+#: templates/IWforms_admin_form_addGroup.tpl:20
 msgid "Only writing"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:420
-#: templates/IWforms_admin_form_addGroup.htm:21
-#: templates/IWforms_user_main.htm:37
-#: templates/IWforms_admin_form_fieldCharContent.htm:172
+#: lib/IWforms/Controller/Admin.php:442
+#: templates/IWforms_admin_form_fieldCharContent.tpl:172
+#: templates/IWforms_user_main.tpl:37
+#: templates/IWforms_admin_form_addGroup.tpl:21
 msgid "Only reading"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:420
-#: templates/IWforms_admin_form_addGroup.htm:22
-#: templates/IWforms_user_main.htm:39
-#: templates/IWforms_admin_form_fieldCharContent.htm:169
+#: lib/IWforms/Controller/Admin.php:442
+#: templates/IWforms_admin_form_fieldCharContent.tpl:169
+#: templates/IWforms_user_main.tpl:39
+#: templates/IWforms_admin_form_addGroup.tpl:22
 msgid "Reading and writing"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:422 lib/IWforms/Controller/Admin.php:1072
+#: lib/IWforms/Controller/Admin.php:444 lib/IWforms/Controller/Admin.php:1006
 msgid "Unregistered users"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:585
+#: lib/IWforms/Controller/Admin.php:597
 msgid "Has changed the order of the fields"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:603
-#: templates/IWforms_admin_form_fieldAdd.htm:11
+#: lib/IWforms/Controller/Admin.php:613
+#: templates/IWforms_admin_form_fieldAdd.tpl:11
 msgid "Choose a type of field"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:610
-#: templates/IWforms_admin_form_fieldAdd.htm:18
+#: lib/IWforms/Controller/Admin.php:620
+#: templates/IWforms_admin_form_fieldAdd.tpl:18
 msgid "File"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:612
-#: templates/IWforms_admin_form_fieldAdd.htm:20
+#: lib/IWforms/Controller/Admin.php:622
+#: templates/IWforms_admin_form_fieldAdd.tpl:20
 msgid "Information"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:613
-#: templates/IWforms_admin_form_fieldAdd.htm:21
+#: lib/IWforms/Controller/Admin.php:623
+#: templates/IWforms_admin_form_fieldAdd.tpl:21
 msgid "Dividing line"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:614
-#: templates/IWforms_admin_form_fieldAdd.htm:22
+#: lib/IWforms/Controller/Admin.php:624
+#: templates/IWforms_admin_form_fieldAdd.tpl:22
 msgid "Box"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:615 lib/IWforms/Controller/Admin.php:675
-#: lib/IWforms/Controller/Ajax.php:820
+#: lib/IWforms/Controller/Admin.php:625 lib/IWforms/Controller/Admin.php:677
+#: lib/IWforms/Controller/Ajax.php:812
 msgid "Final box"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:663 lib/IWforms/Controller/Ajax.php:810
+#: lib/IWforms/Controller/Admin.php:667 lib/IWforms/Controller/Ajax.php:803
 msgid "Field name"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:668
+#: lib/IWforms/Controller/Admin.php:671
 msgid "We have created a new field. Edit the characteristics of the field"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:729
+#: lib/IWforms/Controller/Admin.php:725
 msgid "Deleted validator"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:798
+#: lib/IWforms/Controller/Admin.php:782
 msgid "Added validator"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:835
+#: lib/IWforms/Controller/Admin.php:814
 msgid "Unregistered"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:855
+#: lib/IWforms/Controller/Admin.php:829
 msgid "Added a group of access to the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:920
+#: lib/IWforms/Controller/Admin.php:882
 msgid "Has added a new validator"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:966 lib/IWforms/Controller/Ajax.php:755
+#: lib/IWforms/Controller/Admin.php:918 lib/IWforms/Controller/Ajax.php:750
 msgid "Dropped the annotations of the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:997
+#: lib/IWforms/Controller/Admin.php:947
 msgid "Not Found validator"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1024
+#: lib/IWforms/Controller/Admin.php:966
 msgid "Has deleted a validator"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1088
+#: lib/IWforms/Controller/Admin.php:1017
 msgid "Has been cleared access to the group"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1149
+#: lib/IWforms/Controller/Admin.php:1066
 msgid "Has been deleted the field"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1240
+#: lib/IWforms/Controller/Admin.php:1145
 msgid "Have changed the dependencies"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1405
+#: lib/IWforms/Controller/Admin.php:1329
 msgid "The main points of the form have been published successfully"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1451
+#: lib/IWforms/Controller/Admin.php:1370
 msgid "Choose a group..."
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1554
+#: lib/IWforms/Controller/Admin.php:1465
 msgid "The field of the form has been published successfully"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1656
+#: lib/IWforms/Controller/Admin.php:1550
 msgid ""
 "The name of the directory of the files public is not valid because it "
 "matches the name of the home directory of files on the site."
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1667
+#: lib/IWforms/Controller/Admin.php:1561
 msgid "Has changed the configuration of the module"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1764
+#: lib/IWforms/Controller/Admin.php:1647
 msgid "New category created"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1787 lib/IWforms/Controller/Admin.php:1826
+#: lib/IWforms/Controller/Admin.php:1669 lib/IWforms/Controller/Admin.php:1702
 msgid "No such category found"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1802
+#: lib/IWforms/Controller/Admin.php:1679
 msgid "Has deleted the category"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1860
+#: lib/IWforms/Controller/Admin.php:1731
 msgid "Has changed the category"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1925
+#: lib/IWforms/Controller/Admin.php:1787
 msgid ""
 "Has made a copy of the form. Edit the characteristics that create appropriate"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1930
+#: lib/IWforms/Controller/Admin.php:1791
 msgid "There was an error in the copy of the forum"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1955
+#: lib/IWforms/Controller/Admin.php:1816
 msgid ""
 "Error! It is not possible to create the export file because the form folder "
 "defined in the module settings does not exist."
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:1959
+#: lib/IWforms/Controller/Admin.php:1820
 msgid ""
 "Error! It is not possible to create the export file because the form folder "
 "defined in the module settings is not writable."
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:2089
+#: lib/IWforms/Controller/Admin.php:1947
 msgid "Error exporting file"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:2140
+#: lib/IWforms/Controller/Admin.php:1996
 msgid "The import file is not correct. It need the xml extension"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:2156
+#: lib/IWforms/Controller/Admin.php:2011
 msgid "Error updating the import file to the server"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:2166
+#: lib/IWforms/Controller/Admin.php:2021
 msgid "Error loading xml document."
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:2222 lib/IWforms/Controller/Admin.php:2284
+#: lib/IWforms/Controller/Admin.php:2083 lib/IWforms/Controller/Admin.php:2144
 msgid "The form creation has failt"
 msgstr ""
 
-#: lib/IWforms/Controller/Admin.php:2288
+#: lib/IWforms/Controller/Admin.php:2148
 msgid "The form has been imported correcty"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:174 lib/IWforms/Controller/Ajax.php:269
-#: lib/IWforms/Controller/Ajax.php:320 lib/IWforms/Controller/Ajax.php:369
-#: lib/IWforms/Controller/Ajax.php:515 lib/IWforms/Controller/Ajax.php:654
+#: lib/IWforms/Controller/Ajax.php:14 lib/IWforms/Controller/Ajax.php:45
+#: lib/IWforms/Controller/Ajax.php:87 lib/IWforms/Controller/Ajax.php:151
+#: lib/IWforms/Controller/Ajax.php:199 lib/IWforms/Controller/Ajax.php:250
+#: lib/IWforms/Controller/Ajax.php:308 lib/IWforms/Controller/Ajax.php:362
+#: lib/IWforms/Controller/Ajax.php:412 lib/IWforms/Controller/Ajax.php:480
+#: lib/IWforms/Controller/Ajax.php:572 lib/IWforms/Controller/Ajax.php:607
+#: lib/IWforms/Controller/Ajax.php:637 lib/IWforms/Controller/Ajax.php:661
+#: lib/IWforms/Controller/Ajax.php:730 lib/IWforms/Controller/Ajax.php:763
+#: lib/IWforms/Controller/Ajax.php:791 lib/IWforms/Controller/Ajax.php:824
+#: lib/IWforms/Controller/Ajax.php:838 lib/IWforms/Controller/Ajax.php:880
+#: lib/IWforms/Controller/Ajax.php:908
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:18
+msgid "no group id"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:26
+msgid "unable to get group members or group is empty for gid="
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:49 lib/IWforms/Controller/Ajax.php:91
+#: lib/IWforms/Controller/Ajax.php:771
+msgid "no field id"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:53 lib/IWforms/Controller/Ajax.php:580
+msgid "no char defined"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:72 lib/IWforms/Controller/Ajax.php:592
+#: lib/IWforms/Controller/Ajax.php:779
+msgid "Error"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:155 lib/IWforms/Controller/Ajax.php:576
+#: lib/IWforms/Controller/Ajax.php:611 lib/IWforms/Controller/Ajax.php:665
+#: lib/IWforms/Controller/Ajax.php:734 lib/IWforms/Controller/Ajax.php:767
+#: lib/IWforms/Controller/Ajax.php:795 lib/IWforms/Controller/Ajax.php:828
+#: lib/IWforms/Controller/Ajax.php:842 lib/IWforms/Controller/Ajax.php:884
+msgid "no form id"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:170 lib/IWforms/Controller/Ajax.php:267
+#: lib/IWforms/Controller/Ajax.php:325 lib/IWforms/Controller/Ajax.php:378
+#: lib/IWforms/Controller/Ajax.php:519 lib/IWforms/Controller/Ajax.php:652
 msgid "There was an error in the modified form"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:187
+#: lib/IWforms/Controller/Ajax.php:183
 msgid "Has closed input data on the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:187
+#: lib/IWforms/Controller/Ajax.php:183
 msgid "Has opened input data on the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:222
+#: lib/IWforms/Controller/Ajax.php:203 lib/IWforms/Controller/Ajax.php:254
+#: lib/IWforms/Controller/Ajax.php:312 lib/IWforms/Controller/Ajax.php:366
+#: lib/IWforms/Controller/Ajax.php:417 lib/IWforms/Controller/Ajax.php:484
+#: lib/IWforms/Controller/Ajax.php:641
+msgid "no note id"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:235
 msgid "There was an error to remove the annotation"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:414 lib/IWforms/Controller/Ajax.php:488
+#: lib/IWforms/Controller/Ajax.php:421 lib/IWforms/Controller/Ajax.php:488
+msgid "no action defined"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:427 lib/IWforms/Controller/Ajax.php:496
 msgid "For some reason it is not possible to edit the field's content."
 msgstr ""
 
@@ -710,1409 +777,1481 @@ msgstr ""
 msgid "Forms: automatic message"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:741
+#: lib/IWforms/Controller/Ajax.php:669
+msgid "no filter id"
+msgstr ""
+
+#: lib/IWforms/Controller/Ajax.php:738
 msgid "Has been removed the fields of the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:746
+#: lib/IWforms/Controller/Ajax.php:742
 msgid "Has been removed the groups of the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:751
+#: lib/IWforms/Controller/Ajax.php:746
 msgid "Has been removed the validators of the form"
 msgstr ""
 
-#: lib/IWforms/Controller/Ajax.php:760
+#: lib/IWforms/Controller/Ajax.php:754
 msgid "Has been removed form"
 msgstr ""
 
-#: lib/IWforms/Version.php:6 lib/IWforms/Version.php:8
-msgid "IWforms"
+#: lib/IWforms/Controller/Ajax.php:776
+msgid "no possible"
 msgstr ""
 
-#: lib/IWforms/Version.php:7
-msgid "Creation, managment and use of forms."
+#: lib/IWforms/Controller/Ajax.php:799
+msgid "no field type"
 msgstr ""
 
-#: lib/IWforms/Installer.php:14
-msgid ""
-"Module IWmain is needed. You have to install the IWmain module before "
-"installing it."
+#: lib/IWforms/Controller/Ajax.php:805
+msgid "creation error"
 msgstr ""
 
-#: lib/IWforms/Block/Formslist.php:12
-msgid "Display the list of forms where you can access the user"
+#: lib/IWforms/Controller/Ajax.php:846
+msgid "no action defined id"
 msgstr ""
 
-#: lib/IWforms/Block/Formslist.php:151
-msgid "Identities of the categories to show (default is all)"
+#: templates/IWforms_admin_form_fieldModifyDependances.tpl:3
+msgid "Change the dependencies"
 msgstr ""
 
-#: lib/IWforms/Block/Formslist.php:152
-msgid "Show forms into a list"
+#: templates/IWforms_admin_form_fieldModifyDependances.tpl:9
+msgid "Choose depend on the field"
 msgstr ""
 
-#: lib/IWforms/Block/Formnote.php:11
-msgid "Display the content of a note in a block"
+#: templates/IWforms_admin_form_fieldModifyDependances.tpl:10
+msgid "List of possible dependencies"
 msgstr ""
 
-#: lib/IWforms/Block/Formnote.php:186
-msgid "Identity of the note that must be schown"
+#: templates/IWforms_admin_form_fieldModifyDependances.tpl:20
+#: templates/IWforms_admin_editCat.tpl:19
+msgid "Modify"
 msgstr ""
 
-#: lib/IWforms/Block/Formnote.php:187
-msgid "Hide block title"
+#: templates/IWforms_admin_form_fieldModifyDependances.tpl:24
+#: templates/IWforms_admin_form_definitionEdit.tpl:168
+#: templates/IWforms_admin_form_definitionEdit.tpl:172
+#: templates/IWforms_admin_form_addFieldValidator.tpl:30
+#: templates/IWforms_admin_form_fieldEdit.tpl:200
+#: templates/IWforms_admin_form_fieldEdit.tpl:201
+#: templates/IWforms_user_new.tpl:77
+#: templates/IWforms_admin_form_fieldDelete.tpl:28
+#: templates/IWforms_admin_form_catDelete.tpl:18
+#: templates/IWforms_admin_form_fieldAdd.tpl:33
+#: templates/IWforms_admin_create.tpl:179
+#: templates/IWforms_admin_form_validatorDelete.tpl:18
+#: templates/IWforms_admin_form_validatorDelete.tpl:22
+#: templates/IWforms_admin_form_deleteNotes.tpl:16
+#: templates/IWforms_admin_form_deleteNotes.tpl:17
+#: templates/IWforms_admin_form_groupDelete.tpl:20
+#: templates/IWforms_admin_form_groupDelete.tpl:21
+#: templates/IWforms_admin_form_groupDelete.tpl:25
+#: templates/IWforms_admin_form_groupDelete.tpl:26
+#: templates/IWforms_user_export.tpl:130
+#: templates/IWforms_admin_editCat.tpl:24
+#: templates/IWforms_admin_form_addGroup.tpl:36
+#: templates/IWforms_admin_form_addGroup.tpl:40
+#: templates/IWforms_admin_form_addValidator.tpl:40
+#: templates/IWforms_admin_form_addValidator.tpl:44
+#: templates/IWforms_admin_addCat.tpl:24
+msgid "Cancel"
 msgstr ""
 
-#: lib/IWforms/Block/Formnote.php:188
-msgid "Block content"
+#: templates/IWforms_admin_form_groups.tpl:4
+#: templates/IWforms_admin_form_groups.tpl:5
+#: templates/IWforms_admin_form_groups.tpl:9
+#: templates/IWforms_admin_form_groups.tpl:10
+#: templates/IWforms_admin_form_addGroup.tpl:3
+msgid "Add a new group"
 msgstr ""
 
-#: lib/IWforms/Block/Formnote.php:189
-#: templates/IWforms_admin_form_definition.htm:183
-#: templates/IWforms_admin_form_definitionExpertMode.htm:61
-msgid ""
-"[$formId$] =>Identity of the form, [$noteId$] =>Identity of the note, [%id%] "
-"=> Title of the field, [$id$] => Content of the field, [$user$] => Username, "
-"[$date$] => Note creation date, [$time$] => Note creation time, [$avatar$] "
-"=> User avatar, [$reply$] => Reply to the user if the reply is public"
+#: templates/IWforms_admin_form_groups.tpl:17
+#: templates/IWforms_admin_infoForm.tpl:20
+msgid "List of groups that have access to the form"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContent.htm:12
-#: templates/IWforms_user_readNoteContent.htm:12
-msgid "User who sent the note"
+#: templates/IWforms_admin_form_groups.tpl:24
+msgid "Name of the group"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContent.htm:16
-#: templates/IWforms_user_userNoteContent.htm:6
-#: templates/IWforms_user_readNoteContent.htm:16
-msgid "Date of sending the note"
+#: templates/IWforms_admin_form_groups.tpl:25
+#: templates/IWforms_admin_form_fieldEdit.tpl:171
+#: templates/IWforms_admin_form_fieldCharContent.tpl:167
+#: templates/IWforms_admin_form_addGroup.tpl:18
+msgid "Type of acces"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContent.htm:19
-#: templates/IWforms_user_userNoteContent.htm:9
-#: templates/IWforms_user_readNoteContent.htm:19
-msgid "Time of sending the note"
+#: templates/IWforms_admin_form_groups.tpl:26
+#: templates/IWforms_user_main.tpl:43
+msgid "Validation"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContent.htm:35
-#: templates/IWforms_user_readNoteContent.htm:35
-msgid "User not registered"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContent.htm:64
-#: templates/IWforms_block_formNote.htm:5
-msgid "Edit content"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContent.htm:73
-msgid "Private notes of those responsible"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContent.htm:79
-#: templates/IWforms_user_userNoteContent.htm:54
-#: templates/IWforms_user_readNoteContent.htm:65
-msgid "Answer"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContent.htm:89
-msgid "Synchronize fields"
-msgstr ""
-
-#: templates/IWforms_admin_form_validators.htm:4
-#: templates/IWforms_admin_form_validators.htm:5
-#: templates/IWforms_admin_form_validators.htm:9
-#: templates/IWforms_admin_form_validators.htm:10
-#: templates/IWforms_admin_form_addFieldValidator.htm:3
-#: templates/IWforms_admin_form_fieldChar.htm:38
-#: templates/IWforms_admin_form_addValidator.htm:3
-msgid "Add a validator"
-msgstr ""
-
-#: templates/IWforms_admin_form_validators.htm:17
-#: templates/IWforms_admin_infoForm.htm:28
-msgid "List of validators of the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_validators.htm:23
-msgid "Validator"
-msgstr ""
-
-#: templates/IWforms_admin_form_validators.htm:24
-msgid "Type of validator"
-msgstr ""
-
-#: templates/IWforms_admin_form_validators.htm:25
-#: templates/IWforms_admin_main.htm:15 templates/IWforms_admin_conf.htm:17
-#: templates/IWforms_admin_form_fields.htm:25
-#: templates/IWforms_admin_form_fieldCharContent.htm:63
-#: templates/IWforms_admin_form_groups.htm:27
+#: templates/IWforms_admin_form_groups.tpl:27
+#: templates/IWforms_admin_main.tpl:15 templates/IWforms_admin_conf.tpl:15
+#: templates/IWforms_admin_form_validators.tpl:25
+#: templates/IWforms_admin_form_fields.tpl:25
+#: templates/IWforms_admin_form_fieldCharContent.tpl:63
 msgid "Options"
 msgstr ""
 
-#: templates/IWforms_admin_form_validators.htm:41
-#: templates/IWforms_admin_form_validators.htm:43
-#: templates/IWforms_admin_form_fieldChar.htm:34
-#: templates/IWforms_admin_form_validatorDelete.htm:3
-msgid "Delete the validator"
+#: templates/IWforms_admin_form_groups.tpl:45
+#: templates/IWforms_admin_form_groups.tpl:49
+#: templates/IWforms_admin_form_groupDelete.tpl:3
+msgid "Delete the group"
 msgstr ""
 
-#: templates/IWforms_admin_form_validators.htm:50
-msgid "This form don't have defined validators"
+#: templates/IWforms_admin_form_groups.tpl:57
+msgid "No defined groups with access to the form"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:3
-#: templates/IWforms_admin_form_fieldChar.htm:43
+#: templates/IWforms_user_userNoteContent.tpl:6
+#: templates/IWforms_user_manageNoteContent.tpl:17
+#: templates/IWforms_user_readNoteContent.tpl:16
+msgid "Date of sending the note"
+msgstr ""
+
+#: templates/IWforms_user_userNoteContent.tpl:9
+#: templates/IWforms_user_manageNoteContent.tpl:20
+#: templates/IWforms_user_readNoteContent.tpl:19
+msgid "Time of sending the note"
+msgstr ""
+
+#: templates/IWforms_user_userNoteContent.tpl:43
+msgid "To view"
+msgstr ""
+
+#: templates/IWforms_user_userNoteContent.tpl:43
+msgid "to"
+msgstr ""
+
+#: templates/IWforms_user_userNoteContent.tpl:46
+msgid "Not seen by any validator"
+msgstr ""
+
+#: templates/IWforms_user_userNoteContent.tpl:49
+msgid "The note needs validation"
+msgstr ""
+
+#: templates/IWforms_user_userNoteContent.tpl:54
+#: templates/IWforms_user_manageNoteContent.tpl:80
+#: templates/IWforms_user_readNoteContent.tpl:60
+msgid "Answer"
+msgstr ""
+
+#: templates/IWforms_user_menu.tpl:3 templates/IWforms_search_options.tpl:3
+#: templates/IWforms_admin_menu.tpl:4
+msgid "Forms"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentObs.tpl:6
+msgid "Create private notes"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentObs.tpl:19
+#: templates/IWforms_user_new.tpl:70 templates/IWforms_user_new.tpl:72
+#: templates/IWforms_user_manageNoteContentEdit.tpl:23
+#: templates/IWforms_user_manageNoteContentEdit.tpl:24
+#: templates/IWforms_user_manageNoteContentRenote.tpl:33
+#: templates/IWforms_user_manageNoteContentRenote.tpl:35
+msgid "Send"
+msgstr ""
+
+#: templates/IWforms_admin_import.tpl:11
+msgid "Select a file"
+msgstr ""
+
+#: templates/IWforms_admin_import.tpl:16
+msgid "Ok"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:3
+#: templates/IWforms_admin_form_definition.tpl:263
+#: templates/IWforms_admin_form_definition.tpl:264
+msgid "Edit the main form"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:9
+#: templates/IWforms_admin_create.tpl:23
+msgid "General parameters"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:11
+#: templates/IWforms_admin_create.tpl:25
+msgid "Form language"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:13
+#: templates/IWforms_admin_create.tpl:27
+msgid "All languages"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:20
+#: templates/IWforms_admin_main.tpl:10
+#: templates/IWforms_admin_form_definition.tpl:16
+#: templates/IWforms_user_read.tpl:9 templates/IWforms_admin_create.tpl:34
+#: templates/IWforms_user_export.tpl:5 templates/IWforms_user_sendedView.tpl:5
+msgid "Form name"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:24
+#: templates/IWforms_admin_main.tpl:11
+#: templates/IWforms_admin_form_definition.tpl:20
+#: templates/IWforms_user_read.tpl:12 templates/IWforms_admin_create.tpl:38
+#: templates/IWforms_user_export.tpl:6 templates/IWforms_user_manage.tpl:12
+#: templates/IWforms_user_sendedView.tpl:6
+msgid "Title of the annotations "
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:28
+#: templates/IWforms_admin_main.tpl:12
+#: templates/IWforms_admin_form_definition.tpl:24
+#: templates/IWforms_admin_create.tpl:42
+msgid "Category"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:31
+#: templates/IWforms_admin_create.tpl:45
+msgid "Chosse one category..."
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:37
+#: templates/IWforms_admin_conf.tpl:42 templates/IWforms_admin_create.tpl:51
+msgid "There is no defined categories"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:41
+#: templates/IWforms_admin_main.tpl:13
+#: templates/IWforms_admin_form_definition.tpl:28
+#: templates/IWforms_admin_create.tpl:55
+msgid "Form description"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:45
+#: templates/IWforms_admin_form_definition.tpl:138
+#: templates/IWforms_admin_create.tpl:59
+msgid "As a new until a..."
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:52
+#: templates/IWforms_admin_form_definition.tpl:142
+#: templates/IWforms_admin_create.tpl:66
+msgid "Make it expires automatically a..."
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:59
+#: templates/IWforms_admin_form_definition.tpl:32
+#: templates/IWforms_admin_create.tpl:73
+#: templates/IWforms_admin_formChars.tpl:20
+msgid "Anonymous"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:63
+#: templates/IWforms_admin_form_definition.tpl:40
+#: templates/IWforms_admin_create.tpl:77
+#: templates/IWforms_admin_formChars.tpl:9
+msgid "Only answer"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:68
+#: templates/IWforms_admin_form_definition.tpl:48
+#: templates/IWforms_admin_create.tpl:82
+msgid "Validators can close the annotations"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:73
+#: templates/IWforms_admin_form_definition.tpl:56
+#: templates/IWforms_admin_create.tpl:87
+msgid "Validators can close the entries or the release of the book-entry form"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:77
+#: templates/IWforms_admin_form_definition.tpl:64
+#: templates/IWforms_admin_create.tpl:91
+msgid "The form is initially closed"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:82
+#: templates/IWforms_admin_create.tpl:96
+msgid "Notes users read view"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:84
+#: templates/IWforms_admin_form_definition.tpl:72
+#: templates/IWforms_admin_create.tpl:98
+msgid "Default number of notes for page in users read view"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:96
+#: templates/IWforms_admin_form_definition.tpl:92
+#: templates/IWforms_admin_create.tpl:110
+msgid "Default order for notes"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:98
+#: templates/IWforms_admin_form_definition.tpl:94
+#: templates/IWforms_admin_create.tpl:112
+msgid "Cronologicaly inverse"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:99
+#: templates/IWforms_admin_form_definition.tpl:96
+#: templates/IWforms_admin_create.tpl:113
+msgid "Cronologicaly"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:100
+#: templates/IWforms_admin_form_definition.tpl:98
+#: templates/IWforms_admin_create.tpl:114
+msgid "Alphabetical"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:101
+#: templates/IWforms_admin_form_definition.tpl:108
+#: templates/IWforms_admin_create.tpl:115
+msgid "Random order"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:110
+#: templates/IWforms_admin_form_definition.tpl:114
+#: templates/IWforms_admin_create.tpl:120
+msgid "Unregistered users can not see the data of senders of entries"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:114
+#: templates/IWforms_admin_form_definition.tpl:122
+#: templates/IWforms_admin_create.tpl:124
+msgid "Unregistered users can not export the contents of the annotations"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:118
+#: templates/IWforms_admin_form_definition.tpl:130
+#: templates/IWforms_admin_create.tpl:128
+#: templates/IWforms_user_manageNoteContentRenote.tpl:8
+#: templates/IWforms_user_manageNoteContentRenote.tpl:26
+msgid "The answer is visible to all users who have access to information"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:123
+#: templates/IWforms_admin_create.tpl:133
+msgid "Sending notes beheavor"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:125
+#: templates/IWforms_admin_form_definition.tpl:146
+#: templates/IWforms_admin_create.tpl:135
+msgid "The notes allow comments"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:130
+#: templates/IWforms_admin_form_definition.tpl:154
+#: templates/IWforms_admin_create.tpl:140
+msgid "The validators can decide if a particular note allow comments"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:135
+#: templates/IWforms_admin_form_definition.tpl:170
+#: templates/IWforms_admin_create.tpl:145
+msgid "Return URL after sending a new note"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:139
+#: templates/IWforms_admin_form_definition.tpl:174
+#: templates/IWforms_admin_create.tpl:149
+msgid "Form files folder"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:146
+#: templates/IWforms_admin_create.tpl:156
+#: templates/IWforms_admin_formChars.tpl:101
+#: templates/IWforms_admin_formChars.tpl:102
+msgid "Expert mode"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:148
+#: templates/IWforms_admin_form_definition.tpl:162
+msgid "Use expert mode"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:156
+#: templates/IWforms_admin_create.tpl:166
+msgid "Activation"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:158
+#: templates/IWforms_admin_form_definition.tpl:253
+#: templates/IWforms_admin_create.tpl:168
+msgid "Active / non-active"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionEdit.tpl:163
+#: templates/IWforms_admin_main.tpl:51
+#: templates/IWforms_admin_form_fieldEdit.tpl:195
+#: templates/IWforms_admin_conf.tpl:32
+#: templates/IWforms_user_manageNoteContentEdit.tpl:6
+#: templates/IWforms_admin_infoForm.tpl:7
+#: templates/IWforms_admin_infoForm.tpl:13
+msgid "Edit"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:5 templates/IWforms_user_main.tpl:4
+msgid "Forms list"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:14
+#: templates/IWforms_admin_form_fields.tpl:22
+msgid "Characteristics"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:46
+msgid "Full Form"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:56
+msgid "Copy"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:61 templates/IWforms_user_export.tpl:36
+#: templates/IWforms_user_export.tpl:96 templates/IWforms_user_export.tpl:124
+#: templates/IWforms_user_export.tpl:125
+msgid "Export"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:65
+msgid "Delete all the notes"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:66
+msgid "Delete notes"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:70
+msgid "Delete the topic"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:71
+#: templates/IWforms_admin_form_fieldDelete.tpl:23
+#: templates/IWforms_admin_form_catDelete.tpl:13
+#: templates/IWforms_admin_conf.tpl:35
+#: templates/IWforms_admin_form_validatorDelete.tpl:13
+#: templates/IWforms_admin_form_deleteNotes.tpl:12
+#: templates/IWforms_admin_form_groupDelete.tpl:14
+msgid "Delete"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:79
+msgid "No forms have been found"
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:87 templates/IWforms_admin_form.tpl:26
+msgid "...changing the information..."
+msgstr ""
+
+#: templates/IWforms_admin_main.tpl:88
+msgid "Confirms delete the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_addFieldValidator.tpl:3
+#: templates/IWforms_admin_form_validators.tpl:4
+#: templates/IWforms_admin_form_validators.tpl:5
+#: templates/IWforms_admin_form_validators.tpl:9
+#: templates/IWforms_admin_form_validators.tpl:10
+#: templates/IWforms_admin_form_fieldChar.tpl:34
+#: templates/IWforms_admin_form_addValidator.tpl:3
+msgid "Add a validator"
+msgstr ""
+
+#: templates/IWforms_admin_form_addFieldValidator.tpl:9
+msgid "Choose a new validator for the field"
+msgstr ""
+
+#: templates/IWforms_admin_form_addFieldValidator.tpl:11
+#: templates/IWforms_admin_form_addGroup.tpl:10
+msgid "Choose the group that should have access to the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_addFieldValidator.tpl:19
+msgid "There is no validators available for this form"
+msgstr ""
+
+#: templates/IWforms_admin_form_addFieldValidator.tpl:25
+#: templates/IWforms_admin_form_addGroup.tpl:31
+#: templates/IWforms_admin_form_addValidator.tpl:35
+#: templates/IWforms_admin_addCat.tpl:19
+msgid "Add"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldEdit.tpl:3
+#: templates/IWforms_admin_form_fieldChar.tpl:41
 msgid "Edit the field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:9
-#: templates/IWforms_user_export.htm:95
-#: templates/IWforms_admin_form_fieldAdd.htm:9
-#: templates/IWforms_admin_form_fields.htm:21
+#: templates/IWforms_admin_form_fieldEdit.tpl:9
+#: templates/IWforms_admin_form_fieldAdd.tpl:9
+#: templates/IWforms_admin_form_fields.tpl:21
+#: templates/IWforms_user_export.tpl:95
 msgid "Type field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:14
+#: templates/IWforms_admin_form_fieldEdit.tpl:14
 msgid "Informative text"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:19
-#: templates/IWforms_admin_form_fieldEdit.htm:20
-#: templates/IWforms_user_export.htm:94
-#: templates/IWforms_admin_form_fields.htm:19
+#: templates/IWforms_admin_form_fieldEdit.tpl:19
+#: templates/IWforms_admin_form_fieldEdit.tpl:20
+#: templates/IWforms_admin_form_fields.tpl:19
+#: templates/IWforms_user_export.tpl:94
 msgid "Name field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:26
+#: templates/IWforms_admin_form_fieldEdit.tpl:26
 msgid "Description of the field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:32
+#: templates/IWforms_admin_form_fieldEdit.tpl:32
 msgid "Text of the help icon"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:38
-#: templates/IWforms_admin_form_fieldEdit.htm:203
-#: templates/IWforms_user_fieldContent.htm:250
-#: templates/IWforms_admin_form_fieldCharContent.htm:21
+#: templates/IWforms_admin_form_fieldEdit.tpl:38
+#: templates/IWforms_admin_form_fieldEdit.tpl:208
+#: templates/IWforms_user_fieldContent.tpl:248
+#: templates/IWforms_admin_form_fieldCharContent.tpl:21
 msgid "Public File"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:43
+#: templates/IWforms_admin_form_fieldEdit.tpl:43
 msgid "Restringed extensions (separated by commas)"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:47
+#: templates/IWforms_admin_form_fieldEdit.tpl:47
 msgid "Thumbnail width (only images gif, jpg and png. 0 for original size)"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:51
+#: templates/IWforms_admin_form_fieldEdit.tpl:51
 msgid "Thumbnail height (only images gif, jpg and png. 0 for original size)"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:57
-#: templates/IWforms_admin_form_fieldCharContent.htm:15
+#: templates/IWforms_admin_form_fieldEdit.tpl:57
+#: templates/IWforms_admin_form_fieldCharContent.tpl:15
 msgid "Size of the box"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:63
-#: templates/IWforms_admin_form_fieldCharContent.htm:31
+#: templates/IWforms_admin_form_fieldEdit.tpl:63
+#: templates/IWforms_admin_form_fieldCharContent.tpl:31
 msgid "No. Column"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:69
-#: templates/IWforms_admin_form_fieldCharContent.htm:36
+#: templates/IWforms_admin_form_fieldEdit.tpl:69
+#: templates/IWforms_admin_form_fieldCharContent.tpl:36
 msgid "No. Row"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:75
-#: templates/IWforms_admin_form_fieldCharContent.htm:42
+#: templates/IWforms_admin_form_fieldEdit.tpl:75
+#: templates/IWforms_admin_form_fieldCharContent.tpl:42
 msgid "Incorporates the HTML editor"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:79
+#: templates/IWforms_admin_form_fieldEdit.tpl:79
 msgid "Available only if the editor is active and set on"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:84
-#: templates/IWforms_admin_form_fieldCharContent.htm:53
+#: templates/IWforms_admin_form_fieldEdit.tpl:84
+#: templates/IWforms_admin_form_fieldCharContent.tpl:53
 msgid "Default yes"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:90
+#: templates/IWforms_admin_form_fieldEdit.tpl:90
 msgid "List options"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:92
+#: templates/IWforms_admin_form_fieldEdit.tpl:92
 msgid ""
 "The options must be separated by the hyphen (-). To leave empty the first "
 "option, you must write a hyphen before the first one."
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:93
+#: templates/IWforms_admin_form_fieldEdit.tpl:93
 msgid "List of members into a groups"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:101
+#: templates/IWforms_admin_form_fieldEdit.tpl:101
 msgid "The group's members are added to the list defined in the option above."
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:107
+#: templates/IWforms_admin_form_fieldEdit.tpl:107
 msgid "The validators can filter using this field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:113
+#: templates/IWforms_admin_form_fieldEdit.tpl:113
 msgid "Make your choice with a calendar in JavaScript"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:119
-#: templates/IWforms_admin_form_fieldCharContent.htm:84
+#: templates/IWforms_admin_form_fieldEdit.tpl:119
+#: templates/IWforms_admin_form_fieldCharContent.tpl:84
 msgid "Thickness of the line"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:126
-#: templates/IWforms_admin_form_fieldCharContent.htm:89
+#: templates/IWforms_admin_form_fieldEdit.tpl:126
+#: templates/IWforms_admin_form_fieldCharContent.tpl:89
 msgid "Color Line"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:128
-#: templates/IWforms_admin_form_fieldEdit.htm:135
+#: templates/IWforms_admin_form_fieldEdit.tpl:128
+#: templates/IWforms_admin_form_fieldEdit.tpl:135
 msgid "Choose a color"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:133
-#: templates/IWforms_admin_form_fieldCharContent.htm:94
+#: templates/IWforms_admin_form_fieldEdit.tpl:133
+#: templates/IWforms_admin_form_fieldCharContent.tpl:94
 msgid "Background color"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:140
-#: templates/IWforms_admin_form_fieldCharContent.htm:100
+#: templates/IWforms_admin_form_fieldEdit.tpl:140
+#: templates/IWforms_admin_form_fieldCharContent.tpl:100
 msgid "Required"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:147
-#: templates/IWforms_admin_form_fieldCharContent.htm:125
+#: templates/IWforms_admin_form_fieldEdit.tpl:147
+#: templates/IWforms_admin_form_fieldCharContent.tpl:125
 msgid "Supports comments"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:155
-#: templates/IWforms_admin_form_fieldCharContent.htm:139
+#: templates/IWforms_admin_form_fieldEdit.tpl:155
+#: templates/IWforms_admin_form_fieldCharContent.tpl:139
 msgid "Need validation"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:163
+#: templates/IWforms_admin_form_fieldEdit.tpl:163
 msgid "Send a private message to validators"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:171
-#: templates/IWforms_admin_form_addGroup.htm:18
-#: templates/IWforms_admin_form_fieldCharContent.htm:167
-#: templates/IWforms_admin_form_groups.htm:25
-msgid "Type of acces"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldEdit.htm:173
+#: templates/IWforms_admin_form_fieldEdit.tpl:173
 msgid "Users can read and write"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:174
+#: templates/IWforms_admin_form_fieldEdit.tpl:174
 msgid "Users only can read"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:175
-#: templates/IWforms_admin_form_fieldCharContent.htm:175
+#: templates/IWforms_admin_form_fieldEdit.tpl:175
+#: templates/IWforms_admin_form_fieldCharContent.tpl:175
 msgid "Only validators"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:182
-#: templates/IWforms_admin_form_fieldCharContent.htm:184
+#: templates/IWforms_admin_form_fieldEdit.tpl:182
+#: templates/IWforms_admin_form_fieldCharContent.tpl:184
 msgid "Editable"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:188
-#: templates/IWforms_admin_form_fieldCharContent.htm:211
-#: templates/IWforms_admin_formChars.htm:118
+#: templates/IWforms_admin_form_fieldEdit.tpl:188
+#: templates/IWforms_admin_form_fieldCharContent.tpl:211
+#: templates/IWforms_admin_formChars.tpl:124
 msgid "Active/no active"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:194
-#: templates/IWforms_admin_main.htm:49 templates/IWforms_admin_conf.htm:34
-#: templates/IWforms_admin_form_definitionEdit.htm:108
-#: templates/IWforms_admin_infoForm.htm:7
-#: templates/IWforms_admin_infoForm.htm:13
-#: templates/IWforms_user_manageNoteContentEdit.htm:6
-msgid "Edit"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldEdit.htm:197
-#: templates/IWforms_admin_form_addGroup.htm:35
-#: templates/IWforms_admin_form_addGroup.htm:37
-#: templates/IWforms_admin_form_fieldDelete.htm:27
-#: templates/IWforms_admin_form_addFieldValidator.htm:27
-#: templates/IWforms_admin_form_definitionEdit.htm:112
-#: templates/IWforms_admin_form_definitionEdit.htm:114
-#: templates/IWforms_user_export.htm:126
-#: templates/IWforms_admin_form_validatorDelete.htm:17
-#: templates/IWforms_admin_form_validatorDelete.htm:19
-#: templates/IWforms_admin_addCat.htm:21
-#: templates/IWforms_admin_create.htm:122
-#: templates/IWforms_admin_form_deleteNotes.htm:15
-#: templates/IWforms_admin_form_fieldAdd.htm:30
-#: templates/IWforms_admin_form_fieldModifyDependances.htm:23
-#: templates/IWforms_admin_editCat.htm:21
-#: templates/IWforms_admin_form_groupDelete.htm:17
-#: templates/IWforms_admin_form_groupDelete.htm:19
-#: templates/IWforms_admin_form_addValidator.htm:39
-#: templates/IWforms_admin_form_addValidator.htm:41
-#: templates/IWforms_admin_form_catDelete.htm:15
-#: templates/IWforms_user_new.htm:66
-msgid "Cancel"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldEdit.htm:205
-#: templates/IWforms_user_fieldContent.htm:252
+#: templates/IWforms_admin_form_fieldEdit.tpl:210
+#: templates/IWforms_user_fieldContent.tpl:250
 msgid "If the file is public will be accessible to everyone from a URL like:"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldEdit.htm:206
-#: templates/IWforms_user_fieldContent.htm:253
-#: templates/IWforms_user_fieldContentHelp.htm:10
+#: templates/IWforms_admin_form_fieldEdit.tpl:211
+#: templates/IWforms_user_fieldContent.tpl:251
+#: templates/IWforms_user_fieldContentHelp.tpl:10
 msgid "Close the window"
 msgstr ""
 
-#: templates/IWforms_user_origenNote.htm:1
-msgid "See the entry in the original context"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentRenote.htm:8
-#: templates/IWforms_user_manageNoteContentRenote.htm:26
-#: templates/IWforms_admin_form_definitionEdit.htm:78
-#: templates/IWforms_admin_create.htm:89
-#: templates/IWforms_admin_form_definition.htm:85
-msgid "The answer is visible to all users who have access to information"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentRenote.htm:10
-#: templates/IWforms_user_manageNoteContentRenote.htm:28
-msgid "The answer only sees the user sender"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentRenote.htm:15
-msgid "Edit the response to senders"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentRenote.htm:32
-#: templates/IWforms_user_manageNoteContentEdit.htm:19
-#: templates/IWforms_user_manageNoteContentObs.htm:19
-#: templates/IWforms_user_new.htm:63
-msgid "Send"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentRenote.htm:36
-msgid "Send a copy to the private"
-msgstr ""
-
-#: templates/IWforms_admin_form_addGroup.htm:3
-#: templates/IWforms_admin_form_groups.htm:4
-#: templates/IWforms_admin_form_groups.htm:5
-#: templates/IWforms_admin_form_groups.htm:9
-#: templates/IWforms_admin_form_groups.htm:10
-msgid "Add a new group"
-msgstr ""
-
-#: templates/IWforms_admin_form_addGroup.htm:10
-#: templates/IWforms_admin_form_addFieldValidator.htm:11
-msgid "Choose the group that should have access to the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_addGroup.htm:26
-#: templates/IWforms_user_main.htm:46
-msgid "Validation is required"
-msgstr ""
-
-#: templates/IWforms_admin_form_addGroup.htm:31
-#: templates/IWforms_admin_form_addFieldValidator.htm:24
-#: templates/IWforms_admin_addCat.htm:18
-#: templates/IWforms_admin_form_addValidator.htm:35
-msgid "Add"
-msgstr ""
-
-#: templates/IWforms_user_fieldContent.htm:17
-#: templates/IWforms_user_fieldContent.htm:42
-#: templates/IWforms_user_fieldContent.htm:93
-#: templates/IWforms_user_fieldContent.htm:100
-#: templates/IWforms_user_fieldContent.htm:161
-#: templates/IWforms_user_fieldContent.htm:199
-#: templates/IWforms_user_fieldContent.htm:229
-#: templates/IWforms_user_fieldContent.htm:280
+#: templates/IWforms_user_fieldContent.tpl:17
+#: templates/IWforms_user_fieldContent.tpl:43
+#: templates/IWforms_user_fieldContent.tpl:94
+#: templates/IWforms_user_fieldContent.tpl:101
+#: templates/IWforms_user_fieldContent.tpl:159
+#: templates/IWforms_user_fieldContent.tpl:197
+#: templates/IWforms_user_fieldContent.tpl:227
+#: templates/IWforms_user_fieldContent.tpl:278
 msgid "Non-editable"
 msgstr ""
 
-#: templates/IWforms_user_fieldContent.htm:70
-#: templates/IWforms_user_fieldContent.htm:97
+#: templates/IWforms_user_fieldContent.tpl:71
+#: templates/IWforms_user_fieldContent.tpl:98
 msgid "Link text"
 msgstr ""
 
-#: templates/IWforms_user_fieldContent.htm:262
+#: templates/IWforms_user_fieldContent.tpl:260
 msgid "Allowed files extensions: "
 msgstr ""
 
-#: templates/IWforms_user_fieldContent.htm:267
+#: templates/IWforms_user_fieldContent.tpl:265
 #, php-format
 msgid "Maximum width: %spx"
 msgstr ""
 
-#: templates/IWforms_user_fieldContent.htm:272
+#: templates/IWforms_user_fieldContent.tpl:270
 #, php-format
 msgid "Maximum height: %spx"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldDelete.htm:3
-#: templates/IWforms_admin_form_fieldChar.htm:44
-#: templates/IWforms_admin_form_fieldChar.htm:45
+#: templates/IWforms_admin_form_definition.tpl:9
+msgid "Form definition"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:99
+#: templates/IWforms_admin_formFields.tpl:2
+msgid "Ordenation form field"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:102
+#: templates/IWforms_admin_formFields.tpl:12
+msgid ""
+"There are not defined fields. You should select this option editing this "
+"form after fields creation. The default option is Cronologicaly inverse"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:179
+msgid "Files folder not found."
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:184
+msgid "The files folder is not writeable."
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:190
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:4
+msgid "Templates for the notes (expert mode)"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:193
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:13
+msgid "Template to aply for the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:197
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:17
+msgid "Template to aply for the set of notes"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:201
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:21
+msgid "Template to aply for an alone note"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:206
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:26
+msgid "Show the form name"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:214
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:30
+msgid "Show the notes title"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:223
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:35
+msgid "Form aspect"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:228
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:42
+msgid "[$id$] => Form field"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:232
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:46
+msgid "Set of notes of the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:238
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:54
+msgid "An individual note"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:246
+msgid "Styles sheet to aply"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:255
+#: templates/IWforms_admin_form_fieldCharContent.tpl:213
+#: templates/IWforms_admin_formChars.tpl:126
+msgid "Active"
+msgstr ""
+
+#: templates/IWforms_admin_form_definition.tpl:257
+#: templates/IWforms_admin_form_fieldCharContent.tpl:215
+#: templates/IWforms_admin_formChars.tpl:128
+msgid "No active"
+msgstr ""
+
+#: templates/IWforms_user_new.tpl:10
+msgid "Confirms that want to send the annotation"
+msgstr ""
+
+#: templates/IWforms_user_new.tpl:56
+msgid "Please write the correct words"
+msgstr ""
+
+#: templates/IWforms_user_new.tpl:64
+msgid "Fields marked with an"
+msgstr ""
+
+#: templates/IWforms_user_new.tpl:64
+msgid "are required"
+msgstr ""
+
+#: templates/IWforms_user_origenNote.tpl:1
+msgid "See the entry in the original context"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldDelete.tpl:3
+#: templates/IWforms_admin_form_fieldChar.tpl:45
+#: templates/IWforms_admin_form_fieldChar.tpl:49
 msgid "Delete the field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldDelete.htm:11
-#: templates/IWforms_admin_form.htm:27
+#: templates/IWforms_admin_form_fieldDelete.tpl:11
+#: templates/IWforms_admin_form.tpl:28
 msgid "Confirms delete the field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldDelete.htm:11
+#: templates/IWforms_admin_form_fieldDelete.tpl:11
 msgid "type"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldDelete.htm:13
+#: templates/IWforms_admin_form_fieldDelete.tpl:13
 msgid ""
 "Unable to delete the field as there are other areas that are depending on. "
 "Clear dependencies before deleting the field. Here is the list of areas "
 "affected:"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldDelete.htm:23
-#: templates/IWforms_admin_main.htm:69 templates/IWforms_admin_conf.htm:37
-#: templates/IWforms_admin_form_validatorDelete.htm:13
-#: templates/IWforms_admin_form_deleteNotes.htm:12
-#: templates/IWforms_admin_form_groupDelete.htm:13
-#: templates/IWforms_admin_form_catDelete.htm:12
-msgid "Delete"
+#: templates/IWforms_admin_form_catDelete.tpl:4
+msgid "Delete category"
 msgstr ""
 
-#: templates/IWforms_user_manage.htm:10
-#: templates/IWforms_block_formsList.htm:39
-#: templates/IWforms_user_mainOptions.htm:24
-msgid "Managing annotations"
+#: templates/IWforms_admin_form_catDelete.tpl:9
+msgid "Confirms delete the category"
 msgstr ""
 
-#: templates/IWforms_user_manage.htm:11 templates/IWforms_admin_main.htm:11
-#: templates/IWforms_admin_form_definitionEdit.htm:13
-#: templates/IWforms_user_export.htm:6 templates/IWforms_admin_create.htm:24
-#: templates/IWforms_user_read.htm:12
-#: templates/IWforms_admin_form_definition.htm:17
-#: templates/IWforms_user_sendedView.htm:6
-msgid "Title of the annotations "
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:17 templates/IWforms_user_manage.htm:19
-msgid "State of the annotations"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:20
-msgid "Date Posted"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:25 templates/IWforms_user_read.htm:18
-msgid "N. Entries"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:38
-msgid "Filter by field"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:60
-msgid "Color legend of the notes"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:64
-msgid "Note not visited before"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:68
-msgid "Note longer view"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:72
-msgid "Note marked as completed"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:76
-msgid "The note has not yet been validated by the responsible"
-msgstr ""
-
-#: templates/IWforms_user_manage.htm:81
-#: templates/IWforms_user_manageNoteContentOptions.htm:12
-#: templates/IWforms_user_sended.htm:7
-msgid "Delete the note"
-msgstr ""
-
-#: templates/IWforms_user_manageFilter.htm:2
-msgid "It is the same as"
-msgstr ""
-
-#: templates/IWforms_user_manageFilter.htm:5
-msgid "All"
-msgstr ""
-
-#: templates/IWforms_user_manageFilter.htm:7
-msgid "Choose a value..."
-msgstr ""
-
-#: templates/IWforms_user_manageFilter.htm:16
-msgid "It have got the words"
-msgstr ""
-
-#: templates/IWforms_user_manageFilter.htm:24
-msgid "Return to init"
-msgstr ""
-
-#: templates/IWforms_user_main.htm:4 templates/IWforms_admin_main.htm:5
-msgid "Forms list"
-msgstr ""
-
-#: templates/IWforms_user_main.htm:14 templates/IWforms_user_main.htm:19
-#: templates/IWforms_block_formsList.htm:7
-#: templates/IWforms_block_formsList.htm:12
-#: templates/IWforms_user_mainOptions.htm:34
-msgid "Open the entry of annotations and editing"
-msgstr ""
-
-#: templates/IWforms_user_main.htm:24 templates/IWforms_block_formsList.htm:18
-msgid "New"
-msgstr ""
-
-#: templates/IWforms_user_main.htm:41
-msgid "Validation of fields"
-msgstr ""
-
-#: templates/IWforms_user_main.htm:43
-#: templates/IWforms_admin_form_groups.htm:26
-msgid "Validation"
-msgstr ""
-
-#: templates/IWforms_user_main.htm:56
-#: templates/IWforms_user_sendedWhatForm.htm:15
-msgid "You do not have any form available"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:10
-#: templates/IWforms_admin_form_definitionEdit.htm:9
-#: templates/IWforms_user_export.htm:5 templates/IWforms_admin_create.htm:20
-#: templates/IWforms_user_read.htm:9
-#: templates/IWforms_admin_form_definition.htm:13
-#: templates/IWforms_user_sendedView.htm:5
-msgid "Form name"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:12
-#: templates/IWforms_admin_form_definitionEdit.htm:17
-#: templates/IWforms_admin_create.htm:28
-#: templates/IWforms_admin_form_definition.htm:21
-msgid "Category"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:13
-#: templates/IWforms_admin_form_definitionEdit.htm:30
-#: templates/IWforms_admin_create.htm:41
-#: templates/IWforms_admin_form_definition.htm:25
-msgid "Form description"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:14
-#: templates/IWforms_admin_form_fields.htm:22
-msgid "Characteristics"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:44
-msgid "Full Form"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:54
-msgid "Copy"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:59 templates/IWforms_user_export.htm:36
-#: templates/IWforms_user_export.htm:96 templates/IWforms_user_export.htm:123
-msgid "Export"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:63
-msgid "Delete all the notes"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:64
-msgid "Delete notes"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:68
-msgid "Delete the topic"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:77
-msgid "No forms have been found"
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:85 templates/IWforms_admin_form.htm:25
-msgid "...changing the information..."
-msgstr ""
-
-#: templates/IWforms_admin_main.htm:86
-msgid "Confirms delete the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_addFieldValidator.htm:9
-msgid "Choose a new validator for the field"
-msgstr ""
-
-#: templates/IWforms_admin_form_addFieldValidator.htm:19
-msgid "There is no validators available for this form"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:11
-msgid "Categories"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:15 templates/IWforms_admin_addCat.htm:8
-#: templates/IWforms_admin_editCat.htm:9
-msgid "Name"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:16 templates/IWforms_admin_addCat.htm:12
-#: templates/IWforms_admin_form_fields.htm:20
-#: templates/IWforms_admin_editCat.htm:13
-msgid "Description"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:44
-#: templates/IWforms_admin_form_definitionEdit.htm:26
-#: templates/IWforms_admin_create.htm:37
-msgid "There is no defined categories"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:50 templates/IWforms_admin_addCat.htm:4
-msgid "Creates a new category"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:55
-msgid "Home directory of files"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:60
-msgid "Folder on the server where the files are stored in the notes attached"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:65
-msgid "Can not find the directory for attachments"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:70
-msgid "You should give write permissions in this folder"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:74
-msgid "Directory for the public files attached to the notes"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:79
-msgid "Can not find the directory for the files public."
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:84
-msgid "You should give write permissions in this folder or set it as public"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:89
-msgid ""
-"DpCaptcha module is not available. If you are planning to open the forms to "
-"unregistered users you may want to install them this module."
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:92 templates/IWforms_admin_conf.htm:100
-msgid ""
-"The module dpCaptcha prevents robots can send notes to forms automatically. "
-"With this module successfully activated and you get linked to when a user "
-"sends an unregistered entry, is obliged to recognize and write a set of "
-"characters that can not recognize an automated system."
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:97
-msgid ""
-"The module is not bound dpCaptcha (hook). If you are planning to open the "
-"forms to unregistered users recommend linking this module. You can do this "
-"from the administration of the modules."
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:104
-msgid "Color for the new notes"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:106 templates/IWforms_admin_conf.htm:112
-#: templates/IWforms_admin_conf.htm:118 templates/IWforms_admin_conf.htm:124
-#: templates/IWforms_admin_conf.htm:130 templates/IWforms_admin_conf.htm:136
-msgid "Change the color"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:110
-msgid "Color for the visit notes"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:116
-msgid "Color to the notes given as completed"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:122
-msgid "Color per a les notes pendents de validació"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:128
-msgid "Color for the names of the fields"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:134
-msgid "Color for the contents of the fields"
-msgstr ""
-
-#: templates/IWforms_admin_conf.htm:140
-msgid "Change the configuration"
-msgstr ""
-
-#: templates/IWforms_user_pager.htm:1
-msgid "Page"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldChar.htm:47
-msgid "A low"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldChar.htm:50
-msgid "Up one place"
-msgstr ""
-
-#: templates/IWforms_admin_form.htm:13 templates/IWforms_user_export.htm:35
-msgid "Managing a form"
-msgstr ""
-
-#: templates/IWforms_admin_form.htm:26
-msgid "...expand/collapse..."
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:3
-#: templates/IWforms_admin_form_definition.htm:202
-msgid "Edit the main form"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:20
-#: templates/IWforms_admin_create.htm:31
-msgid "Chosse one category..."
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:34
-#: templates/IWforms_admin_create.htm:45
-#: templates/IWforms_admin_form_definition.htm:93
-msgid "As a new until a..."
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:41
-#: templates/IWforms_admin_create.htm:52
-#: templates/IWforms_admin_form_definition.htm:97
-msgid "Make it expires automatically a..."
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:48
-#: templates/IWforms_admin_create.htm:59
-#: templates/IWforms_admin_form_definition.htm:29
-#: templates/IWforms_admin_formChars.htm:14
-msgid "Anonymous"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:52
-#: templates/IWforms_admin_create.htm:63
-#: templates/IWforms_admin_form_definition.htm:37
-#: templates/IWforms_admin_formChars.htm:3
-msgid "Only answer"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:57
-#: templates/IWforms_admin_create.htm:68
-#: templates/IWforms_admin_form_definition.htm:45
-msgid "Validators can close the annotations"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:62
-#: templates/IWforms_admin_create.htm:73
-#: templates/IWforms_admin_form_definition.htm:53
-msgid "Validators can close the entries or the release of the book-entry form"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:66
-#: templates/IWforms_admin_create.htm:77
-#: templates/IWforms_admin_form_definition.htm:61
-msgid "The form is initially closed"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:70
-#: templates/IWforms_admin_create.htm:81
-#: templates/IWforms_admin_form_definition.htm:69
-msgid "Unregistered users can not see the data of senders of entries"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:74
-#: templates/IWforms_admin_create.htm:85
-#: templates/IWforms_admin_form_definition.htm:77
-msgid "Unregistered users can not export the contents of the annotations"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:83
-#: templates/IWforms_admin_create.htm:94
-#: templates/IWforms_admin_form_definition.htm:101
-msgid "The notes allow comments"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:87
-#: templates/IWforms_admin_create.htm:98
-#: templates/IWforms_admin_form_definition.htm:109
-msgid "The validators can decide if a particular note allow comments"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:92
-#: templates/IWforms_admin_form_definition.htm:117
-msgid "Use expert mode"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:96
-#: templates/IWforms_admin_create.htm:103
-#: templates/IWforms_admin_form_definition.htm:125
-msgid "Return URL after sending a new note"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionEdit.htm:103
-#: templates/IWforms_admin_create.htm:114
-#: templates/IWforms_admin_form_definition.htm:193
-msgid "Active / non-active"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:14
-msgid "Order of the notes for export"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:24
-msgid "Ascending order"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:42
-msgid "Includes users senders of the notes"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:50
-msgid "Include the date and time of sending notes"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:58
-msgid "It includes the notes of private responsibility"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:66
-msgid "Includes responses to senders"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:74
-msgid "It includes the state (completed / not completed) of the notes"
-msgstr ""
-
-#: templates/IWforms_user_export.htm:82
-msgid "Include the annotations URL"
-msgstr ""
-
-#: templates/IWforms_admin_form_validatorDelete.htm:10
-msgid "Confirms delete the validator"
-msgstr ""
-
-#: templates/IWforms_admin_create.htm:12
-#: templates/IWforms_admin_infoForm.htm:13
-#: templates/IWforms_admin_form_minitab.htm:2
-msgid "Define the form"
-msgstr ""
-
-#: templates/IWforms_admin_create.htm:12
-#: templates/IWforms_admin_form_minitab.htm:2
-msgid "Definition"
-msgstr ""
-
-#: templates/IWforms_admin_create.htm:107
-msgid "Use expert mode (options available after creation during edition)"
-msgstr ""
-
-#: templates/IWforms_admin_create.htm:119
-#: templates/IWforms_admin_form_fieldAdd.htm:27
-msgid "Create"
-msgstr ""
-
-#: templates/IWforms_admin_menu.htm:4 templates/IWforms_user_menu.htm:3
-msgid "Forms"
-msgstr ""
-
-#: templates/IWforms_admin_form_deleteNotes.htm:4
-msgid "Delete the form notes"
-msgstr ""
-
-#: templates/IWforms_admin_form_deleteNotes.htm:9
-msgid "Confirm the deletion of the form notes for the form"
-msgstr ""
-
-#: templates/IWforms_user_manageAllNotesContent.htm:1
-#: templates/IWforms_user_manageAllNotesContent.htm:9
-msgid "Notes number"
-msgstr ""
-
-#: templates/IWforms_user_manageAllNotesContent.htm:7
-#: templates/IWforms_user_read.htm:40
-msgid "Not annotations found"
-msgstr ""
-
-#: templates/IWforms_user_read.htm:7
-msgid "List of entries submitted"
-msgstr ""
-
-#: templates/IWforms_admin_infoForm.htm:4
-msgid "Skin of the form and complete information"
-msgstr ""
-
-#: templates/IWforms_admin_infoForm.htm:7
-msgid "Skin form"
-msgstr ""
-
-#: templates/IWforms_admin_infoForm.htm:20
-#: templates/IWforms_admin_form_groups.htm:17
-msgid "List of groups that have access to the form"
-msgstr ""
-
-#: templates/IWforms_user_userNoteContent.htm:43
-msgid "To view"
-msgstr ""
-
-#: templates/IWforms_user_userNoteContent.htm:43
-msgid "to"
-msgstr ""
-
-#: templates/IWforms_user_userNoteContent.htm:46
-msgid "Not seen by any validator"
-msgstr ""
-
-#: templates/IWforms_user_userNoteContent.htm:49
-msgid "The note needs validation"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:9
-msgid "Form definition"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:130
-#: templates/IWforms_admin_form_definitionExpertMode.htm:4
-msgid "Templates for the notes (expert mode)"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:133
-#: templates/IWforms_admin_form_definitionExpertMode.htm:13
-msgid "Template to aply for the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:137
-#: templates/IWforms_admin_form_definitionExpertMode.htm:17
-msgid "Template to aply for the set of notes"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:141
-#: templates/IWforms_admin_form_definitionExpertMode.htm:21
-msgid "Template to aply for an alone note"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:146
-#: templates/IWforms_admin_form_definitionExpertMode.htm:26
-msgid "Show the form name"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:154
-#: templates/IWforms_admin_form_definitionExpertMode.htm:30
-msgid "Show the notes title"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:163
-#: templates/IWforms_admin_form_definitionExpertMode.htm:35
-msgid "Form aspect"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:168
-#: templates/IWforms_admin_form_definitionExpertMode.htm:42
-msgid "[$id$] => Form field"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:172
-#: templates/IWforms_admin_form_definitionExpertMode.htm:46
-msgid "Set of notes of the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:178
-#: templates/IWforms_admin_form_definitionExpertMode.htm:54
-msgid "An individual note"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:186
-msgid "Styles sheet to aply"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:195
-#: templates/IWforms_admin_form_fieldCharContent.htm:213
-#: templates/IWforms_admin_formChars.htm:120
-msgid "Active"
-msgstr ""
-
-#: templates/IWforms_admin_form_definition.htm:197
-#: templates/IWforms_admin_form_fieldCharContent.htm:215
-#: templates/IWforms_admin_formChars.htm:122
-msgid "No active"
-msgstr ""
-
-#: templates/IWforms_admin_import.htm:11
-msgid "Select a file"
-msgstr ""
-
-#: templates/IWforms_admin_import.htm:15
-msgid "Ok"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldAdd.htm:4
-#: templates/IWforms_admin_form_fields.htm:4
-#: templates/IWforms_admin_form_fields.htm:5
+#: templates/IWforms_admin_form_fieldAdd.tpl:4
+#: templates/IWforms_admin_form_fields.tpl:4
+#: templates/IWforms_admin_form_fields.tpl:5
 msgid "Create a new form field"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldAdd.htm:37
+#: templates/IWforms_admin_form_fieldAdd.tpl:28
+#: templates/IWforms_admin_create.tpl:174
+msgid "Create"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldAdd.tpl:41
 msgid "Choose a field type"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:4
-msgid "Validates the note"
+#: templates/IWforms_admin_conf.tpl:8
+msgid "Categories"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:8
-msgid "Invalidates the note"
+#: templates/IWforms_admin_conf.tpl:13 templates/IWforms_admin_editCat.tpl:9
+#: templates/IWforms_admin_addCat.tpl:8
+msgid "Name"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:16
-msgid "Show the note as not completed"
+#: templates/IWforms_admin_conf.tpl:14
+#: templates/IWforms_admin_form_fields.tpl:20
+#: templates/IWforms_admin_editCat.tpl:13
+#: templates/IWforms_admin_addCat.tpl:12
+msgid "Description"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:20
-msgid "Shows like complete"
+#: templates/IWforms_admin_conf.tpl:49 templates/IWforms_admin_addCat.tpl:4
+msgid "Creates a new category"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:25
-msgid "Delete the mark"
+#: templates/IWforms_admin_conf.tpl:51
+msgid "Settings"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:29
-msgid "Mark"
+#: templates/IWforms_admin_conf.tpl:56
+msgid "Home directory of files"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:34
-msgid "Respond with a private message"
+#: templates/IWforms_admin_conf.tpl:61
+msgid "Folder on the server where the files are stored in the notes attached"
 msgstr ""
 
-#: templates/IWforms_user_manageNoteContentOptions.htm:38
-msgid "View note"
+#: templates/IWforms_admin_conf.tpl:66
+msgid "Can not find the directory for attachments"
 msgstr ""
 
-#: templates/IWforms_block_formNote.htm:10
-msgid "Edit estructure"
+#: templates/IWforms_admin_conf.tpl:71
+msgid "You should give write permissions in this folder"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:10
+#: templates/IWforms_admin_conf.tpl:75
+msgid "Directory for the public files attached to the notes"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:80
+msgid "Can not find the directory for the files public."
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:85
+msgid "You should give write permissions in this folder or set it as public"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:89
+msgid "Color for the new notes"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:91 templates/IWforms_admin_conf.tpl:97
+#: templates/IWforms_admin_conf.tpl:103 templates/IWforms_admin_conf.tpl:109
+#: templates/IWforms_admin_conf.tpl:115 templates/IWforms_admin_conf.tpl:121
+msgid "Change the color"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:95
+msgid "Color for the visit notes"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:101
+msgid "Color to the notes given as completed"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:107
+msgid "Color per a les notes pendents de validació"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:113
+msgid "Color for the names of the fields"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:119
+msgid "Color for the contents of the fields"
+msgstr ""
+
+#: templates/IWforms_admin_conf.tpl:126
+msgid "Change the configuration"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContent.tpl:13
+#: templates/IWforms_user_readNoteContent.tpl:12
+msgid "User who sent the note"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContent.tpl:36
+#: templates/IWforms_user_readNoteContent.tpl:28
+msgid "User not registered"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContent.tpl:65
+#: templates/IWforms_block_formNote.tpl:9
+msgid "Edit content"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContent.tpl:74
+msgid "Private notes of those responsible"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContent.tpl:90
+msgid "Synchronize fields"
+msgstr ""
+
+#: templates/IWforms_user_read.tpl:7
+msgid "List of entries submitted"
+msgstr ""
+
+#: templates/IWforms_user_read.tpl:19 templates/IWforms_user_manage.tpl:26
+msgid "N. Entries"
+msgstr ""
+
+#: templates/IWforms_user_read.tpl:30
+msgid "Filter by user"
+msgstr ""
+
+#: templates/IWforms_user_read.tpl:32
+#: templates/IWforms_user_manageFilter.tpl:5
+msgid "All"
+msgstr ""
+
+#: templates/IWforms_user_read.tpl:53
+#: templates/IWforms_user_manageAllNotesContent.tpl:7
+msgid "Not annotations found"
+msgstr ""
+
+#: templates/IWforms_admin_create.tpl:13
+#: templates/IWforms_admin_form_minitab.tpl:2
+#: templates/IWforms_admin_infoForm.tpl:13
+msgid "Define the form"
+msgstr ""
+
+#: templates/IWforms_admin_create.tpl:14
+#: templates/IWforms_admin_form_minitab.tpl:2
+msgid "Definition"
+msgstr ""
+
+#: templates/IWforms_admin_create.tpl:158
+msgid "Use expert mode (options available after creation during edition)"
+msgstr ""
+
+#: templates/IWforms_admin_form_validators.tpl:17
+#: templates/IWforms_admin_infoForm.tpl:28
+msgid "List of validators of the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_validators.tpl:23
+msgid "Validator"
+msgstr ""
+
+#: templates/IWforms_admin_form_validators.tpl:24
+msgid "Type of validator"
+msgstr ""
+
+#: templates/IWforms_admin_form_validators.tpl:42
+#: templates/IWforms_admin_form_validators.tpl:46
+#: templates/IWforms_admin_form_validatorDelete.tpl:3
+#: templates/IWforms_admin_form_fieldChar.tpl:28
+msgid "Delete the validator"
+msgstr ""
+
+#: templates/IWforms_admin_form_validators.tpl:54
+msgid "This form don't have defined validators"
+msgstr ""
+
+#: templates/IWforms_admin_form_fields.tpl:10
 msgid "List of form fields"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:17
+#: templates/IWforms_admin_form_fields.tpl:17
 msgid "Order"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:23
+#: templates/IWforms_admin_form_fields.tpl:23
 msgid "Dependence"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:24
-#: templates/IWforms_admin_form_minitab.htm:11
+#: templates/IWforms_admin_form_fields.tpl:24
+#: templates/IWforms_admin_form_minitab.tpl:11
 msgid "Validators"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:34
+#: templates/IWforms_admin_form_fields.tpl:34
 msgid "No fields have been found for this form"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:41
-#: templates/IWforms_admin_form_fields.htm:44
+#: templates/IWforms_admin_form_fields.tpl:41
+#: templates/IWforms_admin_form_fields.tpl:44
 msgid "Change order"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:50
-#: templates/IWforms_admin_form_fields.htm:51
+#: templates/IWforms_admin_form_fields.tpl:50
+#: templates/IWforms_admin_form_fields.tpl:51
 msgid "Expand all"
 msgstr ""
 
-#: templates/IWforms_admin_form_fields.htm:55
-#: templates/IWforms_admin_form_fields.htm:56
+#: templates/IWforms_admin_form_fields.tpl:55
+#: templates/IWforms_admin_form_fields.tpl:56
 msgid "Collapse all"
 msgstr ""
 
-#: templates/IWforms_user_sendedWhatForm.htm:4
-#: templates/IWforms_block_formsList.htm:66
-#: templates/IWforms_user_sendedView.htm:4
-msgid "Notes sent"
+#: templates/IWforms_user_manageNoteContentEdit.tpl:6
+msgid "Edit "
 msgstr ""
 
-#: templates/IWforms_user_sendedWhatForm.htm:8
-#: templates/IWforms_block_formsList.htm:51
-msgid "Choose a form..."
+#: templates/IWforms_user_manageNoteContentEdit.tpl:20
+msgid "HtmlEditor"
 msgstr ""
 
-#: templates/IWforms_user_requiredJS.htm:3
-#: templates/IWforms_user_requiredJS.htm:9
-#: templates/IWforms_user_requiredJS.htm:16
-#: templates/IWforms_user_requiredJS.htm:23
-#: templates/IWforms_user_requiredJS.htm:30
-#: templates/IWforms_user_requiredJS.htm:37
+#: templates/IWforms_admin_form_validatorDelete.tpl:10
+msgid "Confirms delete the validator"
+msgstr ""
+
+#: templates/IWforms_admin_form_minitab.tpl:5
+msgid "Form fields"
+msgstr ""
+
+#: templates/IWforms_admin_form_minitab.tpl:8
+msgid "Groups who have acces to the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_minitab.tpl:8
+msgid "Groups"
+msgstr ""
+
+#: templates/IWforms_admin_form_minitab.tpl:11
+msgid "People who validated the entries in the form"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:3
+#: templates/IWforms_admin_form_fieldCharContent.tpl:9
+#: templates/IWforms_admin_form_fieldCharContent.tpl:20
+#: templates/IWforms_admin_form_fieldCharContent.tpl:41
+#: templates/IWforms_admin_form_fieldCharContent.tpl:52
+#: templates/IWforms_admin_form_fieldCharContent.tpl:73
+#: templates/IWforms_admin_form_fieldCharContent.tpl:99
+#: templates/IWforms_admin_form_fieldCharContent.tpl:111
+#: templates/IWforms_admin_form_fieldCharContent.tpl:124
+#: templates/IWforms_admin_form_fieldCharContent.tpl:138
+#: templates/IWforms_admin_form_fieldCharContent.tpl:152
+#: templates/IWforms_admin_form_fieldCharContent.tpl:166
+#: templates/IWforms_admin_form_fieldCharContent.tpl:183
+#: templates/IWforms_admin_form_fieldCharContent.tpl:210
+#: templates/IWforms_admin_formChars.tpl:8
+#: templates/IWforms_admin_formChars.tpl:19
+#: templates/IWforms_admin_formChars.tpl:30
+#: templates/IWforms_admin_formChars.tpl:41
+#: templates/IWforms_admin_formChars.tpl:51
+#: templates/IWforms_admin_formChars.tpl:61
+#: templates/IWforms_admin_formChars.tpl:71
+#: templates/IWforms_admin_formChars.tpl:81
+#: templates/IWforms_admin_formChars.tpl:123
+msgid "Change the state"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:4
+msgid "Expand"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:10
+msgid "Collapse"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:67
+msgid "Op. group"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:74
+msgid "JavaScript Calendar"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:112
+msgid "Filterable"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:153
+msgid "Msg to validators"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:196
+msgid "Extensions"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:200
+msgid "Width"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldCharContent.tpl:204
+msgid "Height"
+msgstr ""
+
+#: templates/IWforms_user_main.tpl:14 templates/IWforms_user_main.tpl:19
+#: templates/IWforms_block_formsList.tpl:7
+#: templates/IWforms_block_formsList.tpl:12
+#: templates/IWforms_user_mainOptions.tpl:34
+msgid "Open the entry of annotations and editing"
+msgstr ""
+
+#: templates/IWforms_user_main.tpl:24 templates/IWforms_block_formsList.tpl:18
+msgid "New"
+msgstr ""
+
+#: templates/IWforms_user_main.tpl:41
+msgid "Validation of fields"
+msgstr ""
+
+#: templates/IWforms_user_main.tpl:46
+#: templates/IWforms_admin_form_addGroup.tpl:26
+msgid "Validation is required"
+msgstr ""
+
+#: templates/IWforms_user_main.tpl:56
+#: templates/IWforms_user_sendedWhatForm.tpl:15
+msgid "You do not have any form available"
+msgstr ""
+
+#: templates/IWforms_admin_form_deleteNotes.tpl:4
+msgid "Delete the form notes"
+msgstr ""
+
+#: templates/IWforms_admin_form_deleteNotes.tpl:9
+msgid "Confirm the deletion of the form notes for the form"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentRenote.tpl:10
+#: templates/IWforms_user_manageNoteContentRenote.tpl:28
+msgid "The answer only sees the user sender"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentRenote.tpl:15
+msgid "Edit the response to senders"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentRenote.tpl:40
+msgid "Send a copy to the private"
+msgstr ""
+
+#: templates/IWforms_admin_form_groupDelete.tpl:10
+msgid "Confirms delete access to the group"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:14
+msgid "Order of the notes for export"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:24
+msgid "Ascending order"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:35 templates/IWforms_admin_form.tpl:14
+msgid "Managing a form"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:42
+msgid "Includes users senders of the notes"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:50
+msgid "Include the date and time of sending notes"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:58
+msgid "It includes the notes of private responsibility"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:66
+msgid "Includes responses to senders"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:74
+msgid "It includes the state (completed / not completed) of the notes"
+msgstr ""
+
+#: templates/IWforms_user_export.tpl:82
+msgid "Include the annotations URL"
+msgstr ""
+
+#: templates/IWforms_user_manageAllNotesContent.tpl:1
+#: templates/IWforms_user_manageAllNotesContent.tpl:9
+msgid "Notes number"
+msgstr ""
+
+#: templates/IWforms_admin_form.tpl:27
+msgid "...expand/collapse..."
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldChar.tpl:53
+msgid "A low"
+msgstr ""
+
+#: templates/IWforms_admin_form_fieldChar.tpl:58
+msgid "Up one place"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:31
+msgid "Closed notes"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:42
+msgid "Closed form"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:52
+msgid "Initially closed"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:62
+msgid "NR can not see users information"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:72
+msgid "NR can not export"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:82
+msgid "Public answer"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:91
+#: templates/IWforms_admin_formChars.tpl:92
+msgid "Allow comments"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:112
+msgid "New to"
+msgstr ""
+
+#: templates/IWforms_admin_formChars.tpl:118
+msgid "Expires in"
+msgstr ""
+
+#: templates/IWforms_admin_editCat.tpl:4
+msgid "Change to the category"
+msgstr ""
+
+#: templates/IWforms_user_requiredJS.tpl:3
+#: templates/IWforms_user_requiredJS.tpl:9
+#: templates/IWforms_user_requiredJS.tpl:16
+#: templates/IWforms_user_requiredJS.tpl:23
+#: templates/IWforms_user_requiredJS.tpl:30
+#: templates/IWforms_user_requiredJS.tpl:37
 msgid ""
 "There are one or more form fields that are required and you have not filled"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:3
-#: templates/IWforms_admin_form_fieldCharContent.htm:9
-#: templates/IWforms_admin_form_fieldCharContent.htm:20
-#: templates/IWforms_admin_form_fieldCharContent.htm:41
-#: templates/IWforms_admin_form_fieldCharContent.htm:52
-#: templates/IWforms_admin_form_fieldCharContent.htm:73
-#: templates/IWforms_admin_form_fieldCharContent.htm:99
-#: templates/IWforms_admin_form_fieldCharContent.htm:111
-#: templates/IWforms_admin_form_fieldCharContent.htm:124
-#: templates/IWforms_admin_form_fieldCharContent.htm:138
-#: templates/IWforms_admin_form_fieldCharContent.htm:152
-#: templates/IWforms_admin_form_fieldCharContent.htm:166
-#: templates/IWforms_admin_form_fieldCharContent.htm:183
-#: templates/IWforms_admin_form_fieldCharContent.htm:210
-#: templates/IWforms_admin_formChars.htm:2
-#: templates/IWforms_admin_formChars.htm:13
-#: templates/IWforms_admin_formChars.htm:24
-#: templates/IWforms_admin_formChars.htm:35
-#: templates/IWforms_admin_formChars.htm:45
-#: templates/IWforms_admin_formChars.htm:55
-#: templates/IWforms_admin_formChars.htm:65
-#: templates/IWforms_admin_formChars.htm:75
-#: templates/IWforms_admin_formChars.htm:117
-msgid "Change the state"
+#: templates/IWforms_user_sendedWhatForm.tpl:4
+#: templates/IWforms_block_formsList.tpl:69
+#: templates/IWforms_user_sendedView.tpl:4
+msgid "Notes sent"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:4
-msgid "Expand"
+#: templates/IWforms_user_sendedWhatForm.tpl:8
+#: templates/IWforms_block_formsList.tpl:51
+msgid "Choose a form..."
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:10
-msgid "Collapse"
+#: templates/IWforms_user_pager.tpl:1
+msgid "Page"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:67
-msgid "Op. group"
+#: templates/IWforms_user_manageFilter.tpl:2
+msgid "It is the same as"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:74
-msgid "JavaScript Calendar"
+#: templates/IWforms_user_manageFilter.tpl:7
+msgid "Choose a value..."
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:112
-msgid "Filterable"
+#: templates/IWforms_user_manageFilter.tpl:16
+msgid "It have got the words"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:153
-msgid "Msg to validators"
+#: templates/IWforms_user_manageFilter.tpl:25
+msgid "Return to init"
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:196
-msgid "Extensions"
+#: templates/IWforms_admin_formFields.tpl:5
+msgid "Select an option..."
 msgstr ""
 
-#: templates/IWforms_admin_form_fieldCharContent.htm:200
-msgid "Width"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldCharContent.htm:204
-msgid "Height"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:25
-msgid "Closed notes"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:36
-msgid "Closed form"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:46
-msgid "Initially closed"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:56
-msgid "NR can not see users information"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:66
-msgid "NR can not export"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:76
-msgid "Public answer"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:85
-#: templates/IWforms_admin_formChars.htm:86
-msgid "Allow comments"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:95
-#: templates/IWforms_admin_formChars.htm:96
-msgid "Expert mode"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:106
-msgid "New to"
-msgstr ""
-
-#: templates/IWforms_admin_formChars.htm:112
-msgid "Expires in"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentEdit.htm:6
-msgid "Edit "
-msgstr ""
-
-#: templates/IWforms_admin_form_groups.htm:24
-msgid "Name of the group"
-msgstr ""
-
-#: templates/IWforms_admin_form_groups.htm:44
-#: templates/IWforms_admin_form_groups.htm:46
-#: templates/IWforms_admin_form_groupDelete.htm:3
-msgid "Delete the group"
-msgstr ""
-
-#: templates/IWforms_admin_form_groups.htm:53
-msgid "No defined groups with access to the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldModifyDependances.htm:3
-msgid "Change the dependencies"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldModifyDependances.htm:9
-msgid "Choose depend on the field"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldModifyDependances.htm:10
-msgid "List of possible dependencies"
-msgstr ""
-
-#: templates/IWforms_admin_form_fieldModifyDependances.htm:20
-#: templates/IWforms_admin_editCat.htm:18
-msgid "Modify"
-msgstr ""
-
-#: templates/IWforms_user_manageNoteContentObs.htm:6
-msgid "Create private notes"
-msgstr ""
-
-#: templates/IWforms_block_formsList.htm:32
-#: templates/IWforms_user_mainOptions.htm:12
+#: templates/IWforms_block_formsList.tpl:32
+#: templates/IWforms_user_mainOptions.tpl:12
 msgid "Show annotations"
 msgstr ""
 
-#: templates/IWforms_block_formsList.htm:46
-#: templates/IWforms_block_formsList.htm:55
+#: templates/IWforms_block_formsList.tpl:39
+#: templates/IWforms_user_mainOptions.tpl:24
+#: templates/IWforms_user_manage.tpl:11
+msgid "Managing annotations"
+msgstr ""
+
+#: templates/IWforms_block_formsList.tpl:46
+#: templates/IWforms_block_formsList.tpl:60
 msgid "You do not have access to any form"
 msgstr ""
 
-#: templates/IWforms_admin_editCat.htm:4
-msgid "Change to the category"
+#: templates/IWforms_admin_infoForm.tpl:4
+msgid "Skin of the form and complete information"
 msgstr ""
 
-#: templates/IWforms_admin_form_groupDelete.htm:10
-msgid "Confirms delete access to the group"
+#: templates/IWforms_admin_infoForm.tpl:7
+msgid "Skin form"
 msgstr ""
 
-#: templates/IWforms_admin_form_minitab.htm:5
-msgid "Form fields"
-msgstr ""
-
-#: templates/IWforms_admin_form_minitab.htm:8
-msgid "Groups who have acces to the form"
-msgstr ""
-
-#: templates/IWforms_admin_form_minitab.htm:8
-msgid "Groups"
-msgstr ""
-
-#: templates/IWforms_admin_form_minitab.htm:11
-msgid "People who validated the entries in the form"
-msgstr ""
-
-#: templates/IWforms_user_mainOptions.htm:32
+#: templates/IWforms_user_mainOptions.tpl:32
 msgid "Close the entry of annotations and editing"
 msgstr ""
 
-#: templates/IWforms_user_sendedView.htm:9
-msgid "Has not been found sent notes"
+#: templates/IWforms_user_manage.tpl:18 templates/IWforms_user_manage.tpl:20
+msgid "State of the annotations"
 msgstr ""
 
-#: templates/IWforms_admin_form_addValidator.htm:9
+#: templates/IWforms_user_manage.tpl:21
+msgid "Date Posted"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:39
+msgid "Filter by field"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:61
+msgid "Color legend of the notes"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:65
+msgid "Note not visited before"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:69
+msgid "Note longer view"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:73
+msgid "Note marked as completed"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:77
+msgid "The note has not yet been validated by the responsible"
+msgstr ""
+
+#: templates/IWforms_user_manage.tpl:83 templates/IWforms_user_sended.tpl:7
+#: templates/IWforms_user_manageNoteContentOptions.tpl:12
+msgid "Delete the note"
+msgstr ""
+
+#: templates/IWforms_admin_form_addValidator.tpl:9
 msgid "Choose the group where you have the validator"
 msgstr ""
 
-#: templates/IWforms_admin_form_addValidator.htm:18
+#: templates/IWforms_admin_form_addValidator.tpl:18
 msgid "Choose a validator"
 msgstr ""
 
-#: templates/IWforms_admin_form_addValidator.htm:29
+#: templates/IWforms_admin_form_addValidator.tpl:29
 msgid "Only validator fields"
 msgstr ""
 
-#: templates/IWforms_admin_form_catDelete.htm:4
-msgid "Delete category"
+#: templates/IWforms_block_formNote.tpl:16
+msgid "Edit estructure"
 msgstr ""
 
-#: templates/IWforms_admin_form_catDelete.htm:9
-msgid "Confirms delete the category"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionExpertMode.htm:7
-msgid "Use skin by templates"
-msgstr ""
-
-#: templates/IWforms_admin_form_definitionExpertMode.htm:64
-msgid "Styles sheet to aply (give full URL)"
-msgstr ""
-
-#: templates/IWforms_user_new.htm:53
-msgid "Fields marked with an"
-msgstr ""
-
-#: templates/IWforms_user_new.htm:53
-msgid "are required"
-msgstr ""
-
+#: templates/IWforms_block_formNote.tpl:22
 msgid "Note do not fount. Please check the id of the note."
+msgstr ""
+
+#: templates/IWforms_user_sendedView.tpl:9
+msgid "Has not been found sent notes"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:4
+msgid "Validates the note"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:8
+msgid "Invalidates the note"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:16
+msgid "Show the note as not completed"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:20
+msgid "Shows like complete"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:25
+msgid "Delete the mark"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:29
+msgid "Mark"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:34
+msgid "Respond with a private message"
+msgstr ""
+
+#: templates/IWforms_user_manageNoteContentOptions.tpl:38
+msgid "View note"
+msgstr ""
+
+#: templates/IWforms_admin_form_definitionExpertMode.tpl:7
+msgid "Use skin by templates"
 msgstr ""

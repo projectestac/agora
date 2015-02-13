@@ -1,4 +1,4 @@
-{include file="IWforms_user_menu.htm"}
+{include file="IWforms_user_menu.tpl"}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Forms list"}</h2>
@@ -47,7 +47,7 @@
                 {/if}
             </td>
             <td valign="top">
-                {include file="IWforms_user_mainOptions.htm" form=$form}
+                {include file="IWforms_user_mainOptions.tpl" form=$form}
             </td>
         </tr>
 		{foreachelse}

@@ -1,5 +1,5 @@
 {if $item.expertMode}
-<div class="z-formrow">
+<div class="z-form">
     <fieldset>
         <legend>{gt text="Templates for the notes (expert mode)"}</legend>
         {if not isset($multizk) OR not $multizk}

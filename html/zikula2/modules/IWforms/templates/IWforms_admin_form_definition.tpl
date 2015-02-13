@@ -69,6 +69,48 @@
         {/if}
     </div>
     <div class="formRowDefinition">
+        <span class="formRowDefinitionDBField">{gt text="Default number of notes for page in users read view"}</span>:
+        {if $item.defaultNumberOfNotes eq 1}
+        10
+        {elseif $item.defaultNumberOfNotes eq 2}
+        20
+        {elseif $item.defaultNumberOfNotes eq 3}
+        30
+        {elseif $item.defaultNumberOfNotes eq 4}
+        50
+        {elseif $item.defaultNumberOfNotes eq 5}
+        70
+        {elseif $item.defaultNumberOfNotes eq 6}
+        100
+        {elseif $item.defaultNumberOfNotes eq 7}
+        500
+        {else}
+        {/if}
+    </div>
+
+    <div class="formRowDefinition">
+        <span class="formRowDefinitionDBField">{gt text="Default order for notes"}</span>:
+        {if $item.defaultOrderForNotes eq 1}
+        {gt text="Cronologicaly inverse"}
+        {elseif $item.defaultOrderForNotes eq 2}
+        {gt text="Cronologicaly"}
+        {elseif $item.defaultOrderForNotes eq 3}
+        {gt text="Alphabetical"}
+        - {gt text="Ordenation form field"}: 
+        {if $item.orderFormField eq 0}
+        <span style="color: red;">
+            {gt text="There are not defined fields. You should select this option editing this form after fields creation. The default option is Cronologicaly inverse"}
+        </span>            
+        {else}
+        {$orderFormField}
+        {/if}
+        {elseif $item.defaultOrderForNotes eq 4}
+        {gt text="Random order"}
+        {else}
+        {/if}
+    </div>
+
+    <div class="formRowDefinition">
         <span class="formRowDefinitionDBField">{gt text="Unregistered users can not see the data of senders of entries"}</span>:
         {if $item.unregisterednotusersview}
         <span class="active">{gt text="Yes"}</span>

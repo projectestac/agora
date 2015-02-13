@@ -14,9 +14,13 @@
     <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
     <input type="hidden" name="fnid" value="{$noteContent.fnid}" />
     <input type="hidden" name="toDo" value="content" />
-    <textarea name="content" style="width: 90%; margin: 10px;">{$noteContent.content|trim}</textarea>
+    <textarea class='noeditor' name="content" id="textarea_{$noteContent.fnid}" style="width: 90%; margin: 10px;">{$noteContent.content|trim}</textarea>
     <div class="z-right z-buttons">
-        <a onClick="javascript:submitValue('content',{$noteContent.fnid});" title="{gt text='Send'}">
+		<a onClick='toggleHtmlEditor("textarea_{$noteContent.fnid}");'>
+			{img modname='core' src='web.png' set='icons/small'} {gt text="HtmlEditor"}
+		</a>
+
+        <a onClick="sendNoteContent('{$noteContent.fnid}');" title="{gt text='Send'}">
             {img modname='core' src='button_ok.png' set='icons/small'} {gt text="Send"}
         </a>
     </div>

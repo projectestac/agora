@@ -1,4 +1,4 @@
-{include file="IWforms_user_menu.htm" fid=$form.fid func=''}
+{include file="IWforms_user_menu.tpl" fid=$form.fid func=''}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Export to CSV"}</h2>

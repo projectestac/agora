@@ -10,7 +10,7 @@
     </label>
     <div class="field"><input type="text" size="{$size}" name="field{$field.fndid}" id="field{$field.fndid}"/></div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
     {else}
     <div class="fieldTitleInnactive">{$field.fieldName|safehtml}<span class="required">{$field.required}</span></div>
@@ -30,9 +30,10 @@
             {$field.required}
         </span>
     </label>
-    <div class="field"><textarea cols="{$cols}" rows="{$rows}" name="field{$field.fndid}" {if $field.editor eq 1}id="intraweb"{/if}></textarea></div>
+    <div class="field"><textarea cols="{$cols}" rows="{$rows}" name="field{$field.fndid}" id="field{$field.fndid}"{if $field.editor neq 1} class="noeditor"{/if}></textarea></div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
+	
     {/if}
 </div>
 <div style="clear:both"></div>
@@ -75,7 +76,7 @@
         </div>
     </div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
 </div>
 {else}
@@ -149,7 +150,7 @@
         {/if}
     </div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
 </div>
 {else}
@@ -187,7 +188,7 @@
         </select>
     </div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
 </div>
 {else}
@@ -217,7 +218,7 @@
         </select>
     </div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
 </div>
 {else}
@@ -253,7 +254,7 @@
     </div>
     {/if}
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
     {if $field.extensions != ''}
     <div style="clear:left;">
@@ -296,7 +297,7 @@
                <input type="radio" name="field{$field.fndid}" id="field{$field.fndid}" {if not $checked}checked{/if} value="{gt text="No"}"/>{gt text="No"}
     </div>
     {if $field.help neq ''}
-    {include file="IWforms_user_fieldContentHelp.htm"}
+    {include file="IWforms_user_fieldContentHelp.tpl"}
     {/if}
 </div>
 {else}
@@ -337,3 +338,4 @@
 </fieldset>
 <!--end close fieldset field-->
 {/if}
+{notifydisplayhooks eventname='iwforms.ui_hooks.iwforms.form_edit'}

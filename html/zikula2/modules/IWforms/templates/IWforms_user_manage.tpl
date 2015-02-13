@@ -1,3 +1,4 @@
+{pageaddvar name=javascript value=jQuery}
 <script language="javascript">
     function sendChange(value){
         if(value == 1){
@@ -6,7 +7,7 @@
         document.order.submit();
     }
 </script>
-{include file="IWforms_user_menu.htm" fid=$form.fid}
+{include file="IWforms_user_menu.tpl" fid=$form.fid}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Managing annotations"} => {$form.formName}</h2>
@@ -50,14 +51,14 @@
                     {/if}
                 </div>
                 <div id="filterValues" style="float: left; margin: 10px 15px 0px 0px;">
-                    {include file="IWforms_user_manageFilter.htm"}
+                    {include file="IWforms_user_manageFilter.tpl"}
                 </div>
             </div>
             {/if}
         </form>
     </fieldset>
     <div id="allNotesContent" style="margin: 10px 0px 0px 0px;">
-        {include file="IWforms_user_manageAllNotesContent.htm"}
+        {include file="IWforms_user_manageAllNotesContent.tpl"}
     </div>
     <h3>{gt text="Color legend of the notes"}</h3>
     <table>
@@ -79,6 +80,7 @@
         </tr>
     </table>
 </div>
+{notifydisplayhooks eventname='iwforms.ui_hooks.iwforms.form_edit'}
 <script type="text/javascript">
     var deleteUserNote = '{{gt text="Delete the note"}}';
 </script>

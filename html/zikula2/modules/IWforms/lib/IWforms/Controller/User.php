@@ -58,7 +58,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
         return $this->view->assign('forms', $forms_array)
                         ->assign('func', '')
                         ->assign('fid', '')
-                        ->fetch('IWforms_user_main.htm');
+                        ->fetch('IWforms_user_main.tpl');
     }
 
     /**
@@ -169,7 +169,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
      */
     public function read($args) {
         $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'GET');
-        $ipp = FormUtil::getPassedValue('ipp', isset($args['ipp']) ? $args['ipp'] : 10, 'REQUEST');
+        $ipp = FormUtil::getPassedValue('ipp', isset($args['ipp']) ? $args['ipp'] : null, 'REQUEST');
         $init = FormUtil::getPassedValue('init', isset($args['init']) ? $args['init'] : 0, 'REQUEST');
         $fidReload = FormUtil::getPassedValue('fidReload', isset($args['fidReload']) ? $args['fidReload'] : null, 'POST');
         $fmid = FormUtil::getPassedValue('fmid', isset($args['fmid']) ? $args['fmid'] : null, 'GET');
@@ -194,6 +194,34 @@ class IWforms_Controller_User extends Zikula_AbstractController {
             LogUtil::registerError($this->__('Could not find form'));
             return false;
         }
+
+        if ($ipp == null) {
+            switch ($form['defaultNumberOfNotes']) {
+                case 1:
+                    $ipp = 10;
+                    break;
+                case 2:
+                    $ipp = 20;
+                    break;
+                case 3:
+                    $ipp = 30;
+                    break;
+                case 4:
+                    $ipp = 50;
+                    break;
+                case 5:
+                    $ipp = 70;
+                    break;
+                case 6:
+                    $ipp = 100;
+                    break;
+                case 7:
+                    $ipp = 500;
+                    break;
+                default:
+            }
+        }
+
         // get user identity
         $uid = UserUtil::getVar('uid');
         if ($uid == '') {
@@ -220,19 +248,28 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                         'validate' => $validate,
                         'u' => $u,
                         'filterValue' => $u,
-                        'filter' => 0));
+                        'filter' => 0,
+                        'defaultOrderForNotes' => $form['defaultOrderForNotes'],
+            ));
         }
         // set the default template
-        $template = 'IWforms_user_read.htm';
+        $template = 'IWforms_user_read.tpl';
         if ($form['expertMode'] && $form['skinByTemplate'] == 1) {
             if ($form['skinTemplate'] != '' && $fmid == null)
                 $template = $form['skinTemplate'];
             if ($form['skinNoteTemplate'] != '' && $fmid != null)
                 $template = $form['skinNoteTemplate'];
         }
+
+        $contents = array();
+
         foreach ($notes as $note) {
             $noteContent = ModUtil::apiFunc('IWforms', 'user', 'getAllNoteContents', array('fid' => $fid,
                         'fmid' => $note['fmid']));
+            if ($form['defaultOrderForNotes'] == 3 && $form['orderFormField'] > 0) {
+                $contents[] = $noteContent[$form['orderFormField']]['content'];
+            }
+
             if ($note['annonimous'] == 0 && ($uid != '-1' || ($uid == '-1' && $form['unregisterednotusersview'] == 0))) {
                 $userName = UserUtil::getVar('uname', $note['user']);
                 $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
@@ -277,6 +314,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                     $contentBySkin = ($note['publicResponse']) ? str_replace('[$reply$]', $note['renote'], $contentBySkin) : str_replace('[$reply$]', '', $contentBySkin);
                 }
             }
+
             $notesArray[] = array('user' => $user,
                 'userName' => $userName,
                 'fmid' => $note['fmid'],
@@ -287,14 +325,16 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                 'photo' => $photo,
                 'color' => $color,
                 'content' => $noteContent,
-                'contentBySkin' => $contentBySkin);
+                'contentBySkin' => $contentBySkin,
+                'validate' => $note['validate'],
+            );
         }
-	$users = array();
+        $users = array();
         if (!$hideUsers) {
-	    // get users ho have send a note
+            // get users ho have send a note
             $senders = ModUtil::apiFunc('IWforms', 'user', 'getSenders', array('fid' => $fid));
-            foreach ($senders as $sender){
-		$usersList .= $sender . '$$';
+            foreach ($senders as $sender) {
+                $usersList .= $sender . '$$';
             }
             if ($usersList != '') {
                 $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
@@ -322,6 +362,14 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                 $form['expertMode'] == 1 &&
                 $form['skinByTemplate'] == 0) {
             $form['skincssurl'] = '<link rel="stylesheet" href="' . $form['skincss'] . '" type="text/css" />';
+        }
+
+        if ($form['defaultOrderForNotes'] == 3 && $form['orderFormField'] > 0) {
+            array_multisort($contents, SORT_ASC, $notesArray);
+        }
+
+        if ($form['defaultOrderForNotes'] == 4) {
+            shuffle($notesArray);
         }
 
         return $this->view->assign('notes', $notesArray)
@@ -608,7 +656,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                         ->assign('completedColor', ModUtil::getVar('IWforms', 'completedColor'))
                         ->assign('validatedColor', ModUtil::getVar('IWforms', 'validatedColor'))
                         ->assign('IWmessages', $IWmessages)
-                        ->fetch('IWforms_user_manage.htm');
+                        ->fetch('IWforms_user_manage.tpl');
     }
 
     /**
@@ -716,7 +764,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
             }
             return $this->view->assign('formsArray', $formsArray)
                             ->assign('fid', '')
-                            ->fetch('IWforms_user_sendedWhatForm.htm');
+                            ->fetch('IWforms_user_sendedWhatForm.tpl');
         }
         //Get item
         $form = ModUtil::apiFunc('IWforms', 'user', 'getFormDefinition', array('fid' => $fid));
@@ -764,11 +812,11 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                     ->assign('fieldsColor', ModUtil::getVar('IWforms', 'fieldsColor'))
                     ->assign('contentColor', ModUtil::getVar('IWforms', 'contentColor'))
                     ->assign('color', ModUtil::getVar('IWforms', 'viewedColor'))
-                    ->fetch('IWforms_user_sended.htm');
+                    ->fetch('IWforms_user_sended.tpl');
         }
 
         return $this->view->assign('content', $content)
-                        ->fetch('IWforms_user_sendedView.htm');
+                        ->fetch('IWforms_user_sendedView.tpl');
     }
 
     /**
@@ -899,7 +947,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                 $noteValidationArray[] = array($noteContent['fndid'] => $noteContent['validate']);
             }
         }
-        $template = 'IWforms_user_new.htm';
+        $template = 'IWforms_user_new.tpl';
         if ($form['skinForm'] != '' && $form['skinByTemplate'] == 0 && $form['expertMode'] == 1) {
             $content = DataUtil::formatForDisplayHTML($form['skinForm']);
         }
@@ -1206,14 +1254,14 @@ class IWforms_Controller_User extends Zikula_AbstractController {
             }
             $view->assign('fieldType', $field['fieldType']);
             $view->assign('fndid', $field['fndid']);
-            $requiredJS .= $view->fetch('IWforms_user_requiredJS.htm');
+            $requiredJS .= $view->fetch('IWforms_user_requiredJS.tpl');
         }
         //Check some specific fields
         if ($statusActive && $fieldContent == 1) {
             $view->assign('fndid', $field['fndid']);
             $view->assign('fieldType', $field['fieldType']);
             $view->assign('extensions', ModUtil::getVar('IWmain', 'extensions'));
-            $checkJS .= $view->fetch('IWforms_user_checkJS.htm');
+            $checkJS .= $view->fetch('IWforms_user_checkJS.tpl');
         }
         $fieldsArray = array('fndid' => $field['fndid'],
             'fid' => $field['fid'],
@@ -1234,7 +1282,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
         $view->assign('field', $fieldsArray);
         $publicFileURL = '<strong>' . System::getBaseUrl() . 'file.php?<br />file=' . ModUtil::getVar('IWforms', 'publicFolder') . '/<br />' . $this->__('Name_field') . '</strong>';
         $view->assign('publicFileURL', $publicFileURL);
-        $content = $view->fetch('IWforms_user_fieldContent.htm');
+        $content = $view->fetch('IWforms_user_fieldContent.tpl');
         return array('content' => $content,
             'checkJS' => $checkJS,
             'requiredJS' => $requiredJS,
@@ -1258,14 +1306,14 @@ class IWforms_Controller_User extends Zikula_AbstractController {
         // Confirm authorisation code
         $this->checkCsrfToken();
         if (!UserUtil::isLoggedIn()) {
-                        // check captcha
+            // check captcha
             $captcha = ModUtil::func('IWmain', 'user', 'checkCaptcha');
             if (!$captcha) {
                 LogUtil::registerError($this->__("Error! The security words are incorrect."));
                 return System::redirect(ModUtil::url('IWforms', 'user', 'newitem', array('fid' => $fid)));
             }
         }
-        
+
         //check user access to this form
         $access = ModUtil::func('IWforms', 'user', 'access', array('fid' => $fid));
         if ($access['level'] != 1 &&
@@ -1557,7 +1605,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
                         ->assign('fieldsTypes', $fieldsTypes)
                         ->assign('fieldsOrder', $fieldsOrder)
                         ->assign('fields', $fieldsArray)
-                        ->fetch('IWforms_user_export.htm');
+                        ->fetch('IWforms_user_export.tpl');
     }
 
     /**
@@ -1794,7 +1842,7 @@ class IWforms_Controller_User extends Zikula_AbstractController {
         }
         $items[] = array('text' => $text);
         return $this->view->assign('items', $items)
-                        ->fetch('IWforms_user_pager.htm');
+                        ->fetch('IWforms_user_pager.tpl');
     }
 
 }

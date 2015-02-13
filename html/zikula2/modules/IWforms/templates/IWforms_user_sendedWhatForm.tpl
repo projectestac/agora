@@ -1,4 +1,4 @@
-{include file="IWforms_user_menu.htm" func="sended" fid=$fid}
+{include file="IWforms_user_menu.tpl" func="sended" fid=$fid}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Notes sent"}</h2>

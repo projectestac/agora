@@ -27,6 +27,8 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         $returnURL = FormUtil::getPassedValue('returnURL', isset($args['returnURL']) ? $args['returnURL'] : '', 'POST');
         $filesFolder = FormUtil::getPassedValue('filesFolder', isset($args['filesFolder']) ? $args['filesFolder'] : '', 'POST');
         $lang = $args['lang'];
+        $defaultNumberOfNotes = $args['defaultNumberOfNotes'];
+        $defaultOrderForNotes = $args['defaultOrderForNotes'];
 
         // Security check
         if (!SecurityUtil::checkPermission('IWforms::', "::", ACCESS_ADMIN)) {
@@ -58,6 +60,8 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
             'returnURL' => $returnURL,
             'filesFolder' => $filesFolder,
             'lang' => $lang,
+            'defaultNumberOfNotes' => $defaultNumberOfNotes,
+            'defaultOrderForNotes' => $defaultOrderForNotes,
         );
         if (!DBUtil::insertObject($item, 'IWforms_definition', 'fid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
@@ -85,7 +89,7 @@ class IWforms_Api_Admin extends Zikula_AbstractApi {
         $item = array('fid' => $fid,
             'fieldName' => $fieldName,
             'fieldType' => $fieldType,
-            );
+        );
         if (!DBUtil::insertObject($item, 'IWforms_note_definition', 'fndid')) {
             return LogUtil::registerError($this->__('Error! Creation attempt failed.'));
         }

@@ -113,7 +113,7 @@ class IWforms_Block_formslist extends Zikula_Controller_AbstractBlock {
         $view = Zikula_View::getInstance('IWforms', false);
         $view->assign('forms', $forms_array);
         $view->assign('listBox', $values['listBox']);
-        $s = $view->fetch('IWforms_block_formsList.htm');
+        $s = $view->fetch('IWforms_block_formsList.tpl');
         //Copy the block information into user vars
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         ModUtil::func('IWmain', 'user', 'userSetVar', array('uid' => $uid,

@@ -1,6 +1,6 @@
-{include file="IWforms_admin_menu.htm"}
+{include file="IWforms_admin_menu.tpl"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large' __alt=''}</div>
+    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <div style="height:10px;">&nbsp;</div>
     <h2>{gt text="Forms list"}</h2>
     <div style="height:15px;">&nbsp;</div>
@@ -37,7 +37,7 @@
                  </td>
                  <td align="left" style="vertical-align: top;" width="170">
                  <div id="form_{$form.fid}" name="form_{$form.fid}">
-                     {include file="IWforms_admin_formChars.htm" form=$form}
+                     {include file="IWforms_admin_formChars.tpl" form=$form}
                  </div>
              </td>
              <td align="center" style="vertical-align: top;">
