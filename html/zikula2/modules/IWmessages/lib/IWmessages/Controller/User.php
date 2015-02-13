@@ -72,7 +72,7 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
         }
 
         return $this->view->assign('main', ModUtil::func('IWmessages', 'user', 'view'))
-                ->fetch('IWmessages_user_main.htm');
+                ->fetch('IWmessages_user_main.tpl');
     }
 
     /**
@@ -407,7 +407,7 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
         $view->assign('pagersend', $pagersend);
         $view->assign('messagessend', $messagessend);
 
-        return $view->fetch('IWmessages_user_view.htm');
+        return $view->fetch('IWmessages_user_view.tpl');
     }
 
     /**
@@ -524,7 +524,7 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
         $view->assign('rpp', $rpp);
         $view->assign('rppsend', $rppsend);
 
-        return $view->fetch('IWmessages_user_display.htm');
+        return $view->fetch('IWmessages_user_display.tpl');
     }
 
     /**
@@ -619,7 +619,7 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
         $view->assign('filtersend', $filtersend);
         $view->assign('rpp', $rpp);
         $view->assign('rppsend', $rppsend);
-        return $view->fetch('IWmessages_user_display.htm');
+        return $view->fetch('IWmessages_user_display.tpl');
     }
 
     /**
@@ -879,7 +879,7 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
                 ->assign('touser', $touser)
                 ->assign('toUserFixed', $toUserFixed)
                 ->assign('fromuser', $fromuser)
-                ->fetch('IWmessages_user_new.htm');
+                ->fetch('IWmessages_user_new.tpl');
     }
 
     /**
@@ -1266,7 +1266,7 @@ class IWmessages_Controller_User extends Zikula_AbstractController {
         $items[] = array('text' => $text);
 
         return $this->view->assign('items', $items)
-                ->fetch('IWmessages_user_pager.htm');
+                ->fetch('IWmessages_user_pager.tpl');
     }
 
 }

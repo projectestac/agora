@@ -264,7 +264,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
                 ->assign('anotacions', $anotacions)
                 ->assign('loggedIn', UserUtil::isLoggedIn())
                 ->assign('notRegisteredSeeRedactors', ModUtil::getVar('IWnoteboard', 'notRegisteredSeeRedactors'))
-                ->fetch('IWnoteboard_user_main.htm');
+                ->fetch('IWnoteboard_user_main.tpl');
     }
 
     /**
@@ -569,7 +569,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
                 ->assign('shipHeadersLines', ModUtil::getVar('IWnoteboard', 'shipHeadersLines'))
                 ->assign('language', $language)
                 ->assign('commentCheckedByDefault', $this->getVar('commentCheckedByDefault'))
-                ->fetch('IWnoteboard_user_nova.htm');
+                ->fetch('IWnoteboard_user_nova.tpl');
     }
 
     /**
@@ -749,7 +749,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
                             ->assign('nid', $lid)
                             ->assign('sitename', System::getVar('sitename'))
                             ->assign('text', 1)
-                            ->fetch('IWnoteboard_user_msgbody.htm');
+                            ->fetch('IWnoteboard_user_msgbody.tpl');
 
             // get users in administrators group
             $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
@@ -1001,7 +1001,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
                 ->assign('submit', $this->__('Send the comment'))
                 ->assign('m', 'n')
                 ->assign('verifica', $permissions['verifica'])
-                ->fetch('IWnoteboard_user_comenta.htm');
+                ->fetch('IWnoteboard_user_comenta.tpl');
     }
 
     /**
@@ -1067,7 +1067,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
                             ->assign('nid', $nid)
                             ->assign('text', 2)
                             ->assign('sitename', System::getVar('sitename'))
-                            ->fetch('IWnoteboard_user_msgbody.htm');
+                            ->fetch('IWnoteboard_user_msgbody.tpl');
 
             $sendMessageArgs = array(
                 'fromname' => System::getVar('sitename'),
@@ -1155,7 +1155,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
                 ->assign('noticia', $registre['noticia'])
                 ->assign('nid', $nid)
                 ->assign('verifica', $permissions['verifica'])
-                ->fetch('IWnoteboard_user_comenta.htm');
+                ->fetch('IWnoteboard_user_comenta.tpl');
     }
 
     /**
@@ -1229,7 +1229,7 @@ class IWnoteboard_Controller_User extends Zikula_AbstractController {
 
         return $this->view->assign('registres', $registres)
                 ->assign('tema', $tema)
-                ->fetch('IWnoteboard_user_hanvist.htm');
+                ->fetch('IWnoteboard_user_hanvist.tpl');
     }
 
 }

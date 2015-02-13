@@ -124,7 +124,7 @@ class IWnoteboard_Block_Nbheadlines extends Zikula_Controller_AbstractBlock {
         $view->assign('notRegisteredSeeRedactors', ModUtil::getVar('IWnoteboard', 'notRegisteredSeeRedactors'));
         $view->assign('loggedIn', UserUtil::isLoggedIn());
 
-        $s = $view->fetch('IWnoteboard_block_headlines.htm');
+        $s = $view->fetch('IWnoteboard_block_headlines.tpl');
 
         //Copy the block information into user vars
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');

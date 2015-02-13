@@ -53,7 +53,7 @@ class IWmessages_Installer extends Zikula_AbstractInstaller {
                 ->setVar('limitOutBox', '50')
                 ->setVar('dissableSuggest', '0')
                 ->setVar('smiliesActive', '1');
-
+		HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
         return true;
     }
 
@@ -77,6 +77,7 @@ class IWmessages_Installer extends Zikula_AbstractInstaller {
                 ->delVar('smiliesActive');
 
         //Deletion successfull
+HookUtil::unregisterSubscriberBundles($this->version->getHookSubscriberBundles());
         return true;
     }
 
@@ -88,33 +89,34 @@ class IWmessages_Installer extends Zikula_AbstractInstaller {
      */
     public function upgrade($oldversion) {
 
+		switch ($oldversion) {
+			case($oldversion < '3.0.0'):
+        		//Array of names
+        		$oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWmessages'", '', false, '');
+        		$newVarsNames = Array('groupsCanUpdate', 'uploadFolder', 'multiMail', 'limitInBox',
+            		'limitOutBox', 'dissableSuggest', 'smiliesActive');
+        		$newVars = Array('groupsCanUpdate' => '$',
+            		'uploadFolder' => 'messages',
+            		'multiMail' => '$',
+            		'limitInBox' => '50',
+            		'limitOutBox' => '50',
+            		'dissableSuggest' => '0',
+            		'smiliesActive' => '1');
+        		// Delete unneeded vars
+        		$del = array_diff($oldVarsNames, $newVarsNames);
+        		foreach ($del as $i) {
+            		$this->delVar($i);
+        		}
+        		// Add new vars
+        		$add = array_diff($newVarsNames, $oldVarsNames);
+        		foreach ($add as $i) {
+            		$this->setVar($i, $newVars[$i]);
+        		}
 
-        //Array of names
-        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWmessages'", '', false, '');
-
-        $newVarsNames = Array('groupsCanUpdate', 'uploadFolder', 'multiMail', 'limitInBox',
-            'limitOutBox', 'dissableSuggest', 'smiliesActive');
-
-        $newVars = Array('groupsCanUpdate' => '$',
-            'uploadFolder' => 'messages',
-            'multiMail' => '$',
-            'limitInBox' => '50',
-            'limitOutBox' => '50',
-            'dissableSuggest' => '0',
-            'smiliesActive' => '1');
-
-        // Delete unneeded vars
-        $del = array_diff($oldVarsNames, $newVarsNames);
-        foreach ($del as $i) {
-            $this->delVar($i);
-        }
-
-        // Add new vars
-        $add = array_diff($newVarsNames, $oldVarsNames);
-        foreach ($add as $i) {
-            $this->setVar($i, $newVars[$i]);
-        }
-
+			case '3.0.0':
+				HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
+			case '3.0.1':
+		}
         return true;
     }
 

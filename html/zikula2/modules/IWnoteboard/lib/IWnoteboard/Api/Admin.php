@@ -118,5 +118,12 @@ class IWnoteboard_Api_Admin extends Zikula_AbstractApi {
 
         return true;
     }
+	public function getlinks($args)
+    {
+       if (SecurityUtil::checkPermission('IWnoteboard::', '::', ACCESS_ADMIN)) {
+			$links[] = array('url' => ModUtil::url($this->name, 'admin', 'main'), 'text' => $this->__('Module configuration'),'class' => 'z-icon-es-config');
+       }
+        return $links;
+    }
 
 }

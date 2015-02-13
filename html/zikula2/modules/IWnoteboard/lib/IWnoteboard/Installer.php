@@ -50,6 +50,7 @@ class IWnoteboard_Installer extends Zikula_AbstractInstaller {
                 ->setVar('commentCheckedByDefault', '1')
                 ->setVar('smallAvatar', '0');
 
+		HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
 
         //Initialation successfull
         return true;
@@ -87,6 +88,8 @@ class IWnoteboard_Installer extends Zikula_AbstractInstaller {
                 ->delVar('commentCheckedByDefault')
                 ->delVar('smallAvatar');
 
+		HookUtil::unregisterSubscriberBundles($this->version->getHookSubscriberBundles());
+
         //Deletion successfull
         return true;
     }
@@ -99,6 +102,8 @@ class IWnoteboard_Installer extends Zikula_AbstractInstaller {
      */
     public function upgrade($oldversion) {
 
+	switch ($oldversion) {
+		case($oldversion < '3.0.0'):
         // Delete unneded columns
         $c = array();
         $c[] = "ALTER TABLE `IWnoteboard` DROP `iw_public` ";
@@ -160,8 +165,11 @@ class IWnoteboard_Installer extends Zikula_AbstractInstaller {
         foreach ($add as $i) {
             $this->setVar($i, $newVars[$i]);
         }
-
+		case '3.0.0':
+			HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
+		case '3.0.1':
         return true;
+	}
     }
 
 }

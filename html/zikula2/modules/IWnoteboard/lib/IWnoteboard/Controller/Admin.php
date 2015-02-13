@@ -143,7 +143,7 @@ class IWnoteboard_Controller_Admin extends Zikula_AbstractController {
                 ->assign('notifyNewCommentsByMail', $notifyNewCommentsByMail)
                 ->assign('commentCheckedByDefault', $commentCheckedByDefault)
                 ->assign('smallAvatars', $smallAvatars)
-                ->fetch('IWnoteboard_admin_conf.htm');
+                ->fetch('IWnoteboard_admin_conf.tpl');
     }
 
     /**
@@ -267,7 +267,7 @@ class IWnoteboard_Controller_Admin extends Zikula_AbstractController {
                 ->assign('descriu', '')
                 ->assign('grup', 0)
                 ->assign('tid', 0)
-                ->fetch('IWnoteboard_admin_noutema.htm');
+                ->fetch('IWnoteboard_admin_noutema.tpl');
     }
 
     /**
@@ -349,7 +349,7 @@ class IWnoteboard_Controller_Admin extends Zikula_AbstractController {
                 ->assign('grups', $groups)
                 ->assign('submit', $this->__('Modify the topic'))
                 ->assign('m', 1)
-                ->fetch('IWnoteboard_admin_noutema.htm');
+                ->fetch('IWnoteboard_admin_noutema.tpl');
     }
 
     /**

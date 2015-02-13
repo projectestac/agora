@@ -86,7 +86,7 @@ class IWnoteboard_Block_Nbtopics extends Zikula_Controller_AbstractBlock {
         }
 
         $view->assign('temes', $temes0);
-        $s = $view->fetch('IWnoteboard_block_topics.htm');
+        $s = $view->fetch('IWnoteboard_block_topics.tpl');
 
         //Copy the block information into user vars
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');

@@ -69,7 +69,7 @@ class IWnoteboard_Block_Nbentries extends Zikula_Controller_AbstractBlock {
 
         $view->assign('notesArray', $notesArray);
 
-        $s = $view->fetch('IWnoteboard_block_entries.htm');
+        $s = $view->fetch('IWnoteboard_block_entries.tpl');
 
         //Copy the block information into user vars
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');

@@ -6,801 +6,821 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Zikula 1.2.x\n"
+"Project-Id-Version: Zikula 1.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-27 10:50+0100\n"
+"POT-Creation-Date: 2015-02-09 22:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: pnblocks/nbtopics.php:25
+#: lib/IWnoteboard/Block/Nbtopics.php:26
 msgid "NoteBoard topics"
 msgstr ""
 
-#: pnblocks/nbheadlines.php:25
+#: lib/IWnoteboard/Block/Nbheadlines.php:25
 msgid "Show the NoteBoard headlines"
 msgstr ""
 
-#: pnblocks/nbheadlines.php:89 pnblocks/nbheadlines.php:101 pnuser.php:71
+#: lib/IWnoteboard/Block/Nbheadlines.php:89
+#: lib/IWnoteboard/Block/Nbheadlines.php:101
+#: lib/IWnoteboard/Controller/User.php:69
 msgid "Not classified"
 msgstr ""
 
-#: pnblocks/nbheadlines.php:104
+#: lib/IWnoteboard/Block/Nbheadlines.php:105
 msgid "Topic not found"
 msgstr ""
 
-#: pnuserapi.php:38 pnuser.php:342 pnuser.php:410 pnuser.php:949
-#: pnuser.php:1123 pnuser.php:1223 pnuser.php:1230
-msgid "The note has not been found"
+#: lib/IWnoteboard/Block/Nbentries.php:15
+msgid "Show the NoteBoard last entries"
 msgstr ""
 
-#: pnuserapi.php:57 pnuserapi.php:83 pnuserapi.php:176 pnuserapi.php:316
-#: pnuserapi.php:358 pnuserapi.php:390 pnuserapi.php:538 pnuserapi.php:580
-#: pnuserapi.php:681 pnuserapi.php:798 pnuserapi.php:835 pnuserapi.php:868
-#: pnuserapi.php:899
-msgid "Error! Could not load items."
-msgstr ""
-
-#: pnuserapi.php:105 pnuserapi.php:170 pnuserapi.php:198 pnuserapi.php:248
-#: pnuserapi.php:348 pnuserapi.php:380 pnuserapi.php:416 pnuserapi.php:458
-#: pnuserapi.php:497 pnuserapi.php:662 pnuserapi.php:734 pnuserapi.php:821
-#: pnuserapi.php:858 pnuserapi.php:967 pnuserapi.php:987 pnuser.php:333
-#: pnadminapi.php:22 pnadminapi.php:60 pnadminapi.php:101 pnadminapi.php:144
-#: pnadminapi.php:181 pnadminapi.php:221 pnadmin.php:594
-msgid "Error! Could not do what you wanted. Please check your input."
-msgstr ""
-
-#: pnuserapi.php:116 pnuserapi.php:211 pnuserapi.php:216 pnuserapi.php:264
-#: pnuserapi.php:453 pnuserapi.php:492 pnuserapi.php:562 pnuserapi.php:657
-#: pnuser.php:364 pnuser.php:423 pnuser.php:432 pnuser.php:440 pnuser.php:529
-#: pnuser.php:958 pnuser.php:1131 pnuser.php:1178 pnuser.php:1242
-#: pnuser.php:1249 pnuser.php:1263 pnuser.php:1316 pnuser.php:1353
-#: pnajax.php:15 pnajax.php:64 pnajax.php:118 pnajax.php:178 pnajax.php:183
-msgid "You are not allowed to do this action"
-msgstr ""
-
-#: pnuserapi.php:145 pnadminapi.php:35 pnadminapi.php:156
-msgid "Error! Creation attempt failed."
-msgstr ""
-
-#: pnuserapi.php:204 pnuserapi.php:254 pnuserapi.php:422 pnuserapi.php:463
-#: pnuserapi.php:502 pnuserapi.php:668 pnadminapi.php:66 pnadminapi.php:107
-#: pnadminapi.php:187 pnadminapi.php:227 pnadmin.php:601
-msgid "No such item found."
-msgstr ""
-
-#: pnuserapi.php:220 pnadminapi.php:70 pnadminapi.php:191
-msgid "Error! Sorry! Deletion attempt failed."
-msgstr ""
-
-#: pnuserapi.php:303 pnuserapi.php:324 pnuserapi.php:430 pnuserapi.php:470
-#: pnuserapi.php:509 pnadminapi.php:119 pnadminapi.php:238
-msgid "Error! Update attempt failed."
-msgstr ""
-
-#: pninit.php:26 pninit.php:115 pnadmin.php:20
+#: lib/IWnoteboard/Installer.php:16 lib/IWnoteboard/Controller/Admin.php:26
 msgid ""
-"Module IWmain is required. You have to install the IWmain module "
-"previously to install it."
+"Module IWmain is required. You have to install the IWmain module previously "
+"to install it."
 msgstr ""
 
-#: pnuser.php:19 pnuser.php:306 pnuser.php:328 pnuser.php:401 pnuser.php:620
-#: pnuser.php:756 pnuser.php:933 pnuser.php:1114 pnuser.php:1164
-#: pnuser.php:1214 pnuser.php:1296 pnuser.php:1349 pnajax.php:12 pnajax.php:61
-#: pnajax.php:111 pnajax.php:160 pnajax.php:232 pnajax.php:274 pnajax.php:308
-#: pnajax.php:331 pnadmin.php:12 pnadmin.php:159 pnadmin.php:205
-#: pnadmin.php:274 pnadmin.php:309 pnadmin.php:352 pnadmin.php:400
-#: pnadmin.php:434 pnadmin.php:462 pnadmin.php:513 pnadmin.php:553
-#: pnadmin.php:658
-msgid "Sorry! No authorization to access this module."
-msgstr ""
-
-#: pnuser.php:35 pnuser.php:544 pnuser.php:632 pnadmin.php:75 pnadmin.php:220
-msgid "Unregistered"
-msgstr ""
-
-#: pnuser.php:69
-msgid "All the topics"
-msgstr ""
-
-#: pnuser.php:443 pnuser.php:1252 pntemplates/IWnoteboard_user_main.htm:85
-#: pntemplates/IWnoteboard_user_main.htm:118
-msgid "Validate"
-msgstr ""
-
-#: pnuser.php:444
-msgid "Validate a note"
-msgstr ""
-
-#: pnuser.php:448 pntemplates/IWnoteboard_admin_conf.htm:246
-msgid "Modify the configuration"
-msgstr ""
-
-#: pnuser.php:449 pnuser.php:1256
-msgid "Modify"
-msgstr ""
-
-#: pnuser.php:453
-msgid "Add a note"
-msgstr ""
-
-#: pnuser.php:454
-msgid "Send"
-msgstr ""
-
-#: pnuser.php:537 pnuser.php:539
-msgid "More information"
-msgstr ""
-
-#: pnuser.php:844 pnuser.php:1052
-msgid "Probably the note have been sent without the attached file"
-msgstr ""
-
-#: pnuser.php:872 pnuser.php:877
-msgid "The note has been created successfully"
-msgstr ""
-
-#: pnuser.php:879
-msgid ""
-"The note has been sent successfully, but is waiting for administrator's "
-"validation."
-msgstr ""
-
-#: pnuser.php:1084
-msgid "The note has been modified"
-msgstr ""
-
-#: pnuser.php:1139 pnuser.php:1140
-msgid "Send the comment"
-msgstr ""
-
-#: pnuser.php:1191
-msgid "A new comment has been created"
-msgstr ""
-
-#: pnuser.php:1193
-msgid ""
-"The comment has been sent successfully, but is waiting for administrator's "
-"validation."
-msgstr ""
-
-#: pnuser.php:1253
-msgid "Comment validation"
-msgstr ""
-
-#: pnuser.php:1255
-msgid "Modify a comment"
-msgstr ""
-
-#: pnuser.php:1328
-msgid "The comment has been modified"
-msgstr ""
-
-#: pntemplates/plugins/function.iwnoteboardusermenulinks.php:27
-msgid "Add a new note"
-msgstr ""
-
-#: pntemplates/plugins/function.iwnoteboardusermenulinks.php:31
-msgid "View notes list"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_menu.htm:6
-msgid "Return to the configuration of the module"
-msgstr ""
-
-#: pntemplates/plugins/function.iwnoteboardusermenulinks.php:35
-msgid "Show the notes stored (expired)"
-msgstr ""
-
-#: pnajax.php:39 pnajax.php:88 pnajax.php:138 pnajax.php:209 pnajax.php:251
-#: pnajax.php:293
-msgid "The action has failed"
-msgstr ""
-
-#: pnajax.php:190
-msgid ""
-"The note cannot be deleted because it has comments. Remove the comments "
-"previously."
-msgstr ""
-
-#: pnajax.php:198
-msgid "The note has been deleted"
-msgstr ""
-
-#: pnajax.php:235 pnajax.php:277 index.php:50
-msgid ""
-"Invalid 'authkey':  this probably means that you pressed the 'Back' button, "
-"or that the page 'authkey' expired. Please refresh the page and try again."
-msgstr ""
-
-#: index.php:57
-msgid "Error! Could not load module."
-msgstr ""
-
-#: pnadmin.php:238
-msgid ""
-"The shared URL has been modified. Remember to notify it to everybody you need"
-msgstr ""
-
-#: pnadmin.php:261
-msgid "The configuration has been modified"
-msgstr ""
-
-#: pnadmin.php:279 pnadmin.php:367 pntemplates/IWnoteboard_user_nova.htm:211 pnadmin:42
-msgid "All"
-msgstr ""
-
-#: pnadmin.php:287 pntemplates/IWnoteboard_admin_conf.htm:54
-msgid "Create a new topic"
-msgstr ""
-
-#: pnadmin.php:288
-msgid "Create the topic"
-msgstr ""
-
-#: pnadmin.php:324 pnadmin.php:484
-msgid "A new topic has been created"
-msgstr ""
-
-#: pnadmin.php:361 pnadmin.php:522
-msgid "The topic has not been found"
-msgstr ""
-
-#: pnadmin.php:372 pnadmin.php:527
-msgid "Edit a topic"
-msgstr ""
-
-#: pnadmin.php:377 pnadmin.php:530
-msgid "Modify the topic"
-msgstr ""
-
-#: pnadmin.php:414
-msgid "The topic has been modified"
-msgstr ""
-
-#: pnadmin.php:441 pntemplates/IWnoteboard_admin_conf.htm:110
-msgid "Create a new linked noteboard"
-msgstr ""
-
-#: pnadmin.php:442 pntemplates/IWnoteboard_user_nova.htm:331
-msgid "Create"
-msgstr ""
-
-#: pnadmin.php:478
-msgid "The noteboard is not available or is not shared"
-msgstr ""
-
-#: pnadmin.php:566
-msgid "The shared noteboard URL has been modified"
-msgstr ""
-
-#: pnadmin.php:607
-msgid "The noteboard is shared and it is available"
-msgstr ""
-
-#: pnadmin.php:609
-msgid "The noteboard is not shared or it is not available in this moment"
-msgstr ""
-
-#: pnversion.php:9
-#: pnversion.php:13
+#: lib/IWnoteboard/Version.php:6 lib/IWnoteboard/Version.php:8
 msgid "IWnoteboard"
 msgstr ""
 
-#: pnversion.php:11
+#: lib/IWnoteboard/Version.php:7
 msgid ""
 "Provides a system to send small pieces of information to selected users. It "
 "has file support."
 msgstr ""
 
-#: pnversion.php:12
-msgid "NoteBoard"
-msgstr """
+#: lib/IWnoteboard/Version.php:32
+msgid "IWnoteboard Hooks"
+msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:8
+#: lib/IWnoteboard/Api/User.php:42 lib/IWnoteboard/Controller/User.php:318
+#: lib/IWnoteboard/Controller/User.php:377
+#: lib/IWnoteboard/Controller/User.php:825
+#: lib/IWnoteboard/Controller/User.php:986
+#: lib/IWnoteboard/Controller/User.php:1107
+#: lib/IWnoteboard/Controller/User.php:1114
+msgid "The note has not been found"
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:62 lib/IWnoteboard/Api/User.php:86
+#: lib/IWnoteboard/Api/User.php:171 lib/IWnoteboard/Api/User.php:301
+#: lib/IWnoteboard/Api/User.php:341 lib/IWnoteboard/Api/User.php:375
+#: lib/IWnoteboard/Api/User.php:516 lib/IWnoteboard/Api/User.php:556
+#: lib/IWnoteboard/Api/User.php:653 lib/IWnoteboard/Api/User.php:773
+msgid "Error! Could not load items."
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:106 lib/IWnoteboard/Api/User.php:165
+#: lib/IWnoteboard/Api/User.php:191 lib/IWnoteboard/Api/User.php:231
+#: lib/IWnoteboard/Api/User.php:331 lib/IWnoteboard/Api/User.php:365
+#: lib/IWnoteboard/Api/User.php:399 lib/IWnoteboard/Api/User.php:438
+#: lib/IWnoteboard/Api/User.php:475 lib/IWnoteboard/Api/User.php:635
+#: lib/IWnoteboard/Api/User.php:706 lib/IWnoteboard/Api/Admin.php:23
+#: lib/IWnoteboard/Api/Admin.php:59 lib/IWnoteboard/Api/Admin.php:98
+#: lib/IWnoteboard/Controller/User.php:307
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:116 lib/IWnoteboard/Api/User.php:202
+#: lib/IWnoteboard/Api/User.php:207 lib/IWnoteboard/Api/User.php:245
+#: lib/IWnoteboard/Api/User.php:433 lib/IWnoteboard/Api/User.php:470
+#: lib/IWnoteboard/Api/User.php:538 lib/IWnoteboard/Api/User.php:630
+#: lib/IWnoteboard/Controller/User.php:341
+#: lib/IWnoteboard/Controller/User.php:395
+#: lib/IWnoteboard/Controller/User.php:405
+#: lib/IWnoteboard/Controller/User.php:413
+#: lib/IWnoteboard/Controller/User.php:498
+#: lib/IWnoteboard/Controller/User.php:835
+#: lib/IWnoteboard/Controller/User.php:994
+#: lib/IWnoteboard/Controller/User.php:1030
+#: lib/IWnoteboard/Controller/User.php:1126
+#: lib/IWnoteboard/Controller/User.php:1133
+#: lib/IWnoteboard/Controller/User.php:1147
+#: lib/IWnoteboard/Controller/User.php:1189
+#: lib/IWnoteboard/Controller/User.php:1224
+#: lib/IWnoteboard/Controller/Ajax.php:17
+#: lib/IWnoteboard/Controller/Ajax.php:65
+#: lib/IWnoteboard/Controller/Ajax.php:118
+#: lib/IWnoteboard/Controller/Ajax.php:177
+#: lib/IWnoteboard/Controller/Ajax.php:182
+msgid "You are not allowed to do this action"
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:144 lib/IWnoteboard/Api/Admin.php:36
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:196 lib/IWnoteboard/Api/User.php:236
+#: lib/IWnoteboard/Api/User.php:404 lib/IWnoteboard/Api/User.php:443
+#: lib/IWnoteboard/Api/User.php:480 lib/IWnoteboard/Api/User.php:640
+#: lib/IWnoteboard/Api/Admin.php:65 lib/IWnoteboard/Api/Admin.php:104
+msgid "No such item found."
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:211 lib/IWnoteboard/Api/Admin.php:69
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:288 lib/IWnoteboard/Api/User.php:309
+#: lib/IWnoteboard/Api/User.php:412 lib/IWnoteboard/Api/User.php:450
+#: lib/IWnoteboard/Api/User.php:487 lib/IWnoteboard/Api/Admin.php:116
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:785 lib/IWnoteboard/Api/Account.php:9
+msgid "Add a new note"
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:788
+msgid "View notes list"
+msgstr ""
+
+#: lib/IWnoteboard/Api/User.php:791
+msgid "Show the notes stored (expired)"
+msgstr ""
+
+#: lib/IWnoteboard/Api/Admin.php:124 templates/IWnoteboard_admin_conf.tpl:7
 msgid "Module configuration"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:14
+#: lib/IWnoteboard/Controller/User.php:48
+#: lib/IWnoteboard/Controller/User.php:525
+#: lib/IWnoteboard/Controller/Admin.php:85
+#: lib/IWnoteboard/Controller/Admin.php:198
+msgid "Unregistered"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:67
+msgid "All the topics"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:416
+#: lib/IWnoteboard/Controller/User.php:1136
+#: templates/IWnoteboard_user_main.tpl:96
+#: templates/IWnoteboard_user_main.tpl:136
+msgid "Validate"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:417
+msgid "Validate a note"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:421
+#: templates/IWnoteboard_admin_conf.tpl:235
+msgid "Modify the configuration"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:422
+#: lib/IWnoteboard/Controller/User.php:1140
+msgid "Modify"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:426
+msgid "Add a note"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:427
+msgid "Send"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:515
+#: lib/IWnoteboard/Controller/User.php:519
+msgid "More information"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:687
+#: lib/IWnoteboard/Controller/User.php:917
+msgid "Probably the note have been sent without the attached file"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:714
+#: lib/IWnoteboard/Controller/User.php:719
+msgid "The note has been created successfully"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:721
+msgid ""
+"The note has been sent successfully, but is waiting for administrator's "
+"validation."
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:735
+msgid "You have a new entry in noteboard"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:737
+msgid "You have a new entry in noteboard and its validation is pending"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:951
+msgid "The note has been modified"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1000
+#: lib/IWnoteboard/Controller/User.php:1001
+msgid "Send the comment"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1043
+msgid "A new comment has been created"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1044
+msgid "Somebody has commented your entry in noteboard"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1046
+msgid ""
+"The comment has been sent successfully, but is waiting for administrator's "
+"validation."
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1047
+msgid ""
+"Somebody has commented your entry in noteboard and is waiting for "
+"administrator's validation."
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1137
+msgid "Comment validation"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1139
+msgid "Modify a comment"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/User.php:1201
+msgid "The comment has been modified"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:50
+#: lib/IWnoteboard/Controller/Admin.php:258
+#: lib/IWnoteboard/Controller/Admin.php:340
+#: templates/IWnoteboard_user_nova.tpl:236
+msgid "All"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:241
+msgid "The configuration has been modified"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:264
+#: templates/IWnoteboard_admin_conf.tpl:53
+msgid "Create a new topic"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:265
+msgid "Create the topic"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:300
+msgid "A new topic has been created"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:334
+msgid "The topic has not been found"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:345
+msgid "Edit a topic"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:350
+msgid "Modify the topic"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Admin.php:382
+msgid "The topic has been modified"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Ajax.php:14
+#: lib/IWnoteboard/Controller/Ajax.php:62
+#: lib/IWnoteboard/Controller/Ajax.php:111
+#: lib/IWnoteboard/Controller/Ajax.php:159
+#: lib/IWnoteboard/Controller/Ajax.php:228
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Ajax.php:41
+#: lib/IWnoteboard/Controller/Ajax.php:89
+#: lib/IWnoteboard/Controller/Ajax.php:138
+#: lib/IWnoteboard/Controller/Ajax.php:206
+#: lib/IWnoteboard/Controller/Ajax.php:246
+msgid "The action has failed"
+msgstr ""
+
+#: lib/IWnoteboard/Controller/Ajax.php:189
+msgid ""
+"The note cannot be deleted because it has comments. Remove the comments "
+"previously."
+msgstr ""
+
+#: templates/IWnoteboard_user_hanvist.tpl:2
+msgid "Have seen the note"
+msgstr ""
+
+#: templates/IWnoteboard_user_hanvist.tpl:14
+msgid "Back to previous table"
+msgstr ""
+
+#: templates/IWnoteboard_admin_conf.tpl:12
 msgid "List of topics"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:17
-#: pntemplates/IWnoteboard_user_main.htm:23
+#: templates/IWnoteboard_admin_conf.tpl:15
+#: templates/IWnoteboard_user_main.tpl:22
 msgid "Topic"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:18
+#: templates/IWnoteboard_admin_conf.tpl:16
 msgid "Description"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:19
-#: pntemplates/IWnoteboard_admin_noutema.htm:22
+#: templates/IWnoteboard_admin_conf.tpl:17
+#: templates/IWnoteboard_admin_noutema.tpl:23
 msgid "Group with access"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:20
-#: pntemplates/IWnoteboard_admin_conf.htm:76
-#: pntemplates/IWnoteboard_user_main.htm:29
+#: templates/IWnoteboard_admin_conf.tpl:18
+#: templates/IWnoteboard_user_main.tpl:34
 msgid "Options"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:38
-#: pntemplates/IWnoteboard_admin_conf.htm:41
-#: pntemplates/IWnoteboard_admin_conf.htm:94
-#: pntemplates/IWnoteboard_admin_conf.htm:97
-#: pntemplates/IWnoteboard_user_main.htm:89
-#: pntemplates/IWnoteboard_user_main.htm:121
+#: templates/IWnoteboard_admin_conf.tpl:36
+#: templates/IWnoteboard_admin_conf.tpl:39
+#: templates/IWnoteboard_user_main.tpl:100
+#: templates/IWnoteboard_user_main.tpl:143
 msgid "Edit"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:40
-#: pntemplates/IWnoteboard_user_main.htm:92
-#: pntemplates/IWnoteboard_user_main.htm:124
-#: pntemplates/IWnoteboard_user_main.htm:127
-msgid "Confirm the action"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:40
+#: templates/IWnoteboard_admin_conf.tpl:38
 msgid "Delete the topic"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:41
-#: pntemplates/IWnoteboard_admin_conf.htm:96
-#: pntemplates/IWnoteboard_admin_conf.htm:97
-#: pntemplates/IWnoteboard_user_main.htm:92
-#: pntemplates/IWnoteboard_user_main.htm:124
+#: templates/IWnoteboard_admin_conf.tpl:39
+#: templates/IWnoteboard_user_main.tpl:105
+#: templates/IWnoteboard_user_main.tpl:106
+#: templates/IWnoteboard_user_main.tpl:150
 msgid "Delete"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:48
+#: templates/IWnoteboard_admin_conf.tpl:46
 msgid "There are no defined topics"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:71
-msgid "Linked noteboards"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:74
-#: pntemplates/IWnoteboard_admin_newShared.htm:16
-msgid "Name"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:75
-msgid "URL"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:91
-msgid "Make test"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:96
-msgid "Confirm that you want to eliminate the access to the module"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:104
-msgid "There are no linked noteboards"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:117
+#: templates/IWnoteboard_admin_conf.tpl:71
 msgid "Groups"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:118
+#: templates/IWnoteboard_admin_conf.tpl:72
 msgid "Groups that can be chosen when sending a note"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:119
+#: templates/IWnoteboard_admin_conf.tpl:73
 msgid "Permission level of the users"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:122
+#: templates/IWnoteboard_admin_conf.tpl:76
 msgid "Can be chosen"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:123
+#: templates/IWnoteboard_admin_conf.tpl:77
 msgid "Checked by default"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:124
+#: templates/IWnoteboard_admin_conf.tpl:78
 msgid "Permissions"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:125
+#: templates/IWnoteboard_admin_conf.tpl:79
 msgid "Validation required"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:143
-#: pntemplates/IWnoteboard_admin_conf.htm:152
+#: templates/IWnoteboard_admin_conf.tpl:97
+#: templates/IWnoteboard_admin_conf.tpl:106
 msgid "1 - Read"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:144
+#: templates/IWnoteboard_admin_conf.tpl:98
 msgid "2 - Comment"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:145
+#: templates/IWnoteboard_admin_conf.tpl:99
 msgid "3 - Write"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:146
+#: templates/IWnoteboard_admin_conf.tpl:100
 msgid "4 - Choose users who are going to see the note"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:147
+#: templates/IWnoteboard_admin_conf.tpl:101
 msgid "5 - Edit the own notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:148
+#: templates/IWnoteboard_admin_conf.tpl:102
 msgid "6 - Delete the own notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:149
+#: templates/IWnoteboard_admin_conf.tpl:103
 msgid "7 - Edit and delete notes sent by others"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:166
+#: templates/IWnoteboard_admin_conf.tpl:120
 msgid "Warning: "
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:166
+#: templates/IWnoteboard_admin_conf.tpl:120
 msgid "Every permission level includes lower levels"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:170
+#: templates/IWnoteboard_admin_conf.tpl:123
 msgid "Root of the file folder"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:175
+#: templates/IWnoteboard_admin_conf.tpl:128
 msgid "Server folder for attached files"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:180
-msgid "The attached files folder have not been found"
+#: templates/IWnoteboard_admin_conf.tpl:132
+msgid "The attached files folder have not been found."
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:185
-msgid "(This folder needs write permissions)"
+#: templates/IWnoteboard_admin_conf.tpl:137
+msgid "The attached files folder needs write permissions."
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:189
+#: templates/IWnoteboard_admin_conf.tpl:142
 msgid "Group to verify notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:200
+#: templates/IWnoteboard_admin_conf.tpl:153
+msgid "Notify new entries by email"
+msgstr ""
+
+#: templates/IWnoteboard_admin_conf.tpl:157
+msgid "Notify new comments to authors by email"
+msgstr ""
+
+#: templates/IWnoteboard_admin_conf.tpl:161
+msgid "The comments option is checked by default"
+msgstr ""
+
+#: templates/IWnoteboard_admin_conf.tpl:165
 msgid "The notes expire at"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:201
+#: templates/IWnoteboard_admin_conf.tpl:166
 msgid "days from their creation"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:204
+#: templates/IWnoteboard_admin_conf.tpl:169
 msgid ""
 "Inform about edition after the minutes given from creation time (-1 = never)"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:208
+#: templates/IWnoteboard_admin_conf.tpl:173
 msgid "When addressee cannot be chosen are"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:210
+#: templates/IWnoteboard_admin_conf.tpl:175
 msgid "All users"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:211
+#: templates/IWnoteboard_admin_conf.tpl:176
 msgid "Users from groups checked by default"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:212
+#: templates/IWnoteboard_admin_conf.tpl:177
 msgid "Users chosen during the validation of the note"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:217
+#: templates/IWnoteboard_admin_conf.tpl:181
+msgid "Use small avatars"
+msgstr ""
+
+#: templates/IWnoteboard_admin_conf.tpl:185
 msgid "Unregistered cannot see who has sent the notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:221
+#: templates/IWnoteboard_admin_conf.tpl:189
 msgid "Multi language notes are allowed"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:230
+#: templates/IWnoteboard_admin_conf.tpl:193
+msgid "Skip Headlines"
+msgstr ""
+
+#: templates/IWnoteboard_admin_conf.tpl:197
 msgid "Row color one for visited notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:231
-#: pntemplates/IWnoteboard_admin_conf.htm:235
-#: pntemplates/IWnoteboard_admin_conf.htm:239
-#: pntemplates/IWnoteboard_admin_conf.htm:243
-msgid "Try a color"
+#: templates/IWnoteboard_admin_conf.tpl:201
+#: templates/IWnoteboard_admin_conf.tpl:210
+#: templates/IWnoteboard_admin_conf.tpl:219
+#: templates/IWnoteboard_admin_conf.tpl:228
+msgid "Choose a color"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:234
+#: templates/IWnoteboard_admin_conf.tpl:206
 msgid "Row color two for visited notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:238
+#: templates/IWnoteboard_admin_conf.tpl:215
 msgid "Row color one for not visited notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:242
+#: templates/IWnoteboard_admin_conf.tpl:224
 msgid "Row color tho for not visited notes"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:249
-#: pntemplates/IWnoteboard_user_main.htm:156
-msgid "About this module"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_conf.htm:254
+#: templates/IWnoteboard_admin_conf.tpl:243
 msgid "...deleting topic..."
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:255
+#: templates/IWnoteboard_admin_conf.tpl:244
 msgid "...deleting shared noteboard..."
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_conf.htm:256
+#: templates/IWnoteboard_admin_conf.tpl:245
 msgid "...deleting shared URL..."
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_menu.htm:4
-#: pntemplates/IWnoteboard_user_menu.htm:3
-msgid "Noteboard"
-msgstr ""
-
-#: pntemplates/IWnoteboard_admin_noutema.htm:14
+#: templates/IWnoteboard_admin_noutema.tpl:15
 msgid "Topic name"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_noutema.htm:18
+#: templates/IWnoteboard_admin_noutema.tpl:19
 msgid "Topic description"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_noutema.htm:34
-#: pntemplates/IWnoteboard_user_comenta.htm:44
-#: pntemplates/IWnoteboard_admin_newShared.htm:26
-#: pntemplates/IWnoteboard_user_nova.htm:327
-#: pntemplates/IWnoteboard_user_nova.htm:332
+#: templates/IWnoteboard_admin_noutema.tpl:43
+#: templates/IWnoteboard_user_comenta.tpl:40
+#: templates/IWnoteboard_user_nova.tpl:305
+#: templates/IWnoteboard_user_nova.tpl:315
+#: templates/IWnoteboard_admin_newShared.tpl:24
 msgid "Cancel"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_noutema.htm:43
+#: templates/IWnoteboard_admin_noutema.tpl:56
 msgid "The topic name is empty"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_main.htm:6
-#: pntemplates/IWnoteboard_user_nova.htm:143
-msgid "Choose a topic"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:15
-msgid "List of expired notes"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:19
-#: pntemplates/IWnoteboard_admin_sharedURL.htm:2
-#: pntemplates/IWnoteboard_admin_newShared.htm:20
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:12
-msgid "Shared URL"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:23
-msgid "Date"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:24
-#: pntemplates/IWnoteboard_user_comenta.htm:48
-#: pntemplates/IWnoteboard_user_nova.htm:140
-msgid "Note content"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:26
-msgid "Informant"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:37
-#: pntemplates/IWnoteboard_user_main.htm:39
-#: pntemplates/IWnoteboard_user_main.htm:130
-#: pntemplates/IWnoteboard_user_main.htm:132
-msgid "Mark the note with a flag"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:44
-msgid "Edited by"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:46
-msgid "at date"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:57
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:3
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:26
-msgid "Shared noteboard between groups of different websites"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:77
-msgid "Comments"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:127
-msgid "Hide"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:128
-msgid "Has been seen by"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:130
-#: pntemplates/IWnoteboard_user_main.htm:132
-msgid "Remove the mark"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:136
-msgid "Confirm that you want to force the expiration of the note"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:136
-msgid "Force the expiration of the note"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:139
-#: pntemplates/IWnoteboard_user_comenta.htm:36
-msgid "Comment"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:147
-msgid "There are no notes in the noteboard"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:160
-msgid "...deleting the note..."
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:161
-msgid "...modifying note flag status..."
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:162
-msgid "...hidding note..."
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_main.htm:163
-msgid "...saving note..."
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_hanvist.htm:2
-msgid "Have seen the note"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_hanvist.htm:16
-msgid "Back to previous table"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_comenta.htm:5
+#: templates/IWnoteboard_user_comenta.tpl:6
 msgid "The text of the note is empty!"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_comenta.htm:9
-#: pntemplates/IWnoteboard_user_nova.htm:35
+#: templates/IWnoteboard_user_comenta.tpl:10
+#: templates/IWnoteboard_user_nova.tpl:37
 msgid "Do you really want to send the note?"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_newShared.htm:34
-msgid "The shared URL is empty"
+#: templates/IWnoteboard_user_comenta.tpl:26
+#: templates/IWnoteboard_user_comenta.tpl:28
+#: templates/IWnoteboard_user_main.tpl:189
+msgid "Comment"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:6
+#: templates/IWnoteboard_user_comenta.tpl:45
+#: templates/IWnoteboard_user_main.tpl:25
+#: templates/IWnoteboard_user_nova.tpl:139
+#: templates/IWnoteboard_user_nova.tpl:158
+msgid "Note content"
+msgstr ""
+
+#: templates/IWnoteboard_user_msgbody.tpl:2
+msgid "Dear,"
+msgstr ""
+
+#: templates/IWnoteboard_user_msgbody.tpl:4
+#, php-format
 msgid ""
-"You are going to change the shared noteboard URL. This will disconnect the "
-"websites sindicated to your noteboard. Do you want continue?"
+"There is a new entry in noteboard sended by %s. Its content is as follow:"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:6
-msgid "Regenerate shared URL"
+#: templates/IWnoteboard_user_msgbody.tpl:14
+#: templates/IWnoteboard_user_msgbody.tpl:38
+msgid "You can access the note from here:"
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:16
-msgid "Show the shared URL in the public noteboard"
+#: templates/IWnoteboard_user_msgbody.tpl:16
+msgid "Access to the note content."
 msgstr ""
 
-#: pntemplates/IWnoteboard_admin_confSharedOptions.htm:19
-msgid "Name to show in linked noteboards"
+#: templates/IWnoteboard_user_msgbody.tpl:26
+#, php-format
+msgid "Dear %s,"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:5
+#: templates/IWnoteboard_user_msgbody.tpl:28
+#, php-format
+msgid "%s has commented your entry in noteboard with the content as follow:"
+msgstr ""
+
+#: templates/IWnoteboard_user_msgbody.tpl:41
+msgid "Access to the note content"
+msgstr ""
+
+#: templates/IWnoteboard_user_menu.tpl:3
+msgid "Noteboard"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:6
+#: templates/IWnoteboard_user_nova.tpl:142
+msgid "Choose a topic"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:15
+msgid "List of expired notes"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:22
+msgid "Date"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:29
+msgid "Informant"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:45
+#: templates/IWnoteboard_user_main.tpl:47
+#: templates/IWnoteboard_user_main.tpl:169
+#: templates/IWnoteboard_user_main.tpl:174
+#: templates/IWnoteboard_user_main.tpl:175
+msgid "Mark the note with a flag"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:52
+msgid "Edited by"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:54
+msgid "at date"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:83
+msgid "Comments"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:105
+msgid "Confirm the action"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:157
+msgid "Hide"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:162
+msgid "Has been seen by"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:169
+#: templates/IWnoteboard_user_main.tpl:175
+msgid "Remove the mark"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:182
+msgid "Force the expiration of the note"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:200
+msgid "There are no notes in the noteboard"
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:208
+msgid "...deleting the note..."
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:209
+msgid "...modifying note flag status..."
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:210
+msgid "...hidding note..."
+msgstr ""
+
+#: templates/IWnoteboard_user_main.tpl:211
+msgid "...saving note..."
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:7
 msgid ""
 "The extension of the attached file is not accepted. Allowed extensions are: "
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:30
+#: templates/IWnoteboard_user_nova.tpl:30
 msgid "There are no chosen addressee for the note"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:61
-#: pntemplates/IWnoteboard_user_nova.htm:63
-#: pntemplates/IWnoteboard_user_nova.htm:65
-#: pntemplates/IWnoteboard_user_nova.htm:68
-#: pntemplates/IWnoteboard_user_nova.htm:71
+#: templates/IWnoteboard_user_nova.tpl:59
+#: templates/IWnoteboard_user_nova.tpl:62
+#: templates/IWnoteboard_user_nova.tpl:65
+#: templates/IWnoteboard_user_nova.tpl:69
+#: templates/IWnoteboard_user_nova.tpl:73
 msgid "Some of the dates in the form are not correct"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:114
+#: templates/IWnoteboard_user_nova.tpl:113
 msgid "The closing date is incorrect"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:154
+#: templates/IWnoteboard_user_nova.tpl:153
 msgid "Choose a language"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:166
+#: templates/IWnoteboard_user_nova.tpl:162
 msgid "Publish date"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:170
+#: templates/IWnoteboard_user_nova.tpl:166
 msgid "Closing date"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:179
+#: templates/IWnoteboard_user_nova.tpl:175
 msgid "Headline"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:184
+#: templates/IWnoteboard_user_nova.tpl:177
+msgid "Headline text"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:181
 msgid "Since"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:189
+#: templates/IWnoteboard_user_nova.tpl:188
 msgid "Up to"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:200
+#: templates/IWnoteboard_user_nova.tpl:197
+msgid "Additional information"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:199
 msgid "Link to find more information"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:206
-msgid "Addressee"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:214
-msgid "Check all"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:230
-msgid "This note will be sent to all registered users"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:241
-msgid "Comments allowed"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:250
-msgid "Shared"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:260
-msgid "Put me as the sender of the note"
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:277
+#: templates/IWnoteboard_user_nova.tpl:203
 msgid "Text for the link"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:292
+#: templates/IWnoteboard_user_nova.tpl:207
 msgid "Add an attached file"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:292
-msgid "Allowed extensions - "
-msgstr ""
-
-#: pntemplates/IWnoteboard_user_nova.htm:308
+#: templates/IWnoteboard_user_nova.tpl:218
 msgid "Erase the file attached to the note"
 msgstr ""
 
-#: pntemplates/IWnoteboard_user_nova.htm:315
+#: templates/IWnoteboard_user_nova.tpl:222
+msgid "Allowed extensions - "
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:226
 msgid "Attached file text"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:231
+msgid "Addressee"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:239
+msgid "Check all"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:255
+msgid "This note will be sent to all registered users"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:266
+msgid "Comments allowed"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:275
+msgid "Send note to first line"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:286
+msgid "Put me as the sender of the note"
+msgstr ""
+
+#: templates/IWnoteboard_user_nova.tpl:311
+msgid "Create"
+msgstr ""
+
+#: templates/IWnoteboard_admin_newShared.tpl:13
+msgid "Name"
+msgstr ""
+
+#: templates/IWnoteboard_admin_newShared.tpl:17
+msgid "Shared URL"
+msgstr ""
+
+#: templates/IWnoteboard_admin_newShared.tpl:34
+msgid "The shared URL is empty"
 msgstr ""

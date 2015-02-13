@@ -1,6 +1,6 @@
 <?php
 
-class IWMessages_Controller_Admin extends Zikula_AbstractController {
+class IWmessages_Controller_Admin extends Zikula_AbstractController {
 
     public function postInitialize() {
         $this->view->setCaching(false);
@@ -117,7 +117,7 @@ class IWMessages_Controller_Admin extends Zikula_AbstractController {
                         ->assign('limitOutBox', $limitOutBox)
                         ->assign('dissableSuggest', ModUtil::getVar('IWmessages', 'dissableSuggest'))
                         ->assign('smiliesActive', ModUtil::getVar('IWmessages', 'smiliesActive'))
-                        ->fetch('IWmessages_admin_main.htm');
+                        ->fetch('IWmessages_admin_main.tpl');
     }
 
     /**
