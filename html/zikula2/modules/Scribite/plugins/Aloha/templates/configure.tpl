@@ -1,0 +1,1 @@
+{adminheader}<div class="z-admin-content-pagetitle">    <img src="{$baseurl}modules/Scribite/plugins/Aloha/images/logo.png" height='22'>    <h3>{gt text='Aloha configuration'}</h3></div><p class="z-informationmsg">    {gt text="Sorry no configuration possibilites!"}</p>{adminfooter}

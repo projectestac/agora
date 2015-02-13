@@ -1,3 +1,17 @@
+Scribite Version 5.0.0
+  Move all editors to module plugins
+  Direct calls to load editor no longer allowed (e.g. Content)
+  Convert entire module to hook provider ONLY
+  Eliminates need for default module of "-" (just don't hook if you don't want the editor!)
+  Own table removed in favor of modvars.
+  Now inserts hidden field so subscriber can test the use of editor
+  All editor plugins updated to most recent version available as of release date
+  Add event for adding helper pagevars (useful for media modules)
+  Add event to allow third party modules to load external editor plugins for supported editors
+  Add/improve ability to override default behavior on per module or per textarea basis
+  Removed all hard coupling to EasyUpload
+  Removed pagesetter, mediashare, mediaattach files
+
 Scribite Version 4.3.0
   Update to be native Zikula 1.3 module
   Remove FCKEditor deprecated in earlier version

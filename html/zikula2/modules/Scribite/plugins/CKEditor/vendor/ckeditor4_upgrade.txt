@@ -1,0 +1,18 @@
+﻿Upgrade instructions for CKEditor 4 package
+============================================
+
+1. Download from vendor website using builder:
+http://ckeditor.com/builder
+- choose FULL preset.
+- at that point without selecting any optional plugins (right panel);
+- select all available languages;
+- Leave Skin as default (currently Moono);
+- Choose optimized package
+This is base package, and in next step will add more plugins and skins. 
+--> It is important for CKEditor to work normally to use ckeditor.js from this download.
+
+2. Download with builder again, with all optional plugins selected and optional skin (kama) selected.
+- from this download copy optional plugins to first downloaded package, also optional skin. Attention for respective directories.
+- check plugins directory for missing optional plugins, and if some are missing - download manually them and copy in plugins directory.
+
+3. Add custconfig.js from previous version to main package directory for updated version.

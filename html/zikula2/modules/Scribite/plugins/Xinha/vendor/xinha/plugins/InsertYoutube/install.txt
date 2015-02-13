@@ -1,0 +1,8 @@
+- make sure you have deployed /cms/xinha/xinha/plugins/InsertYoutube folder on your server (together with all js/html/img files)
+
+- define following xinha fields (/hippo:namespaces/hippostd/html/editor:templates/_default_/root)
+    * InsertYoutube (Xinha.plugins)
+    * insertyoutube (Xinha.config.toolbar)
+
+
+

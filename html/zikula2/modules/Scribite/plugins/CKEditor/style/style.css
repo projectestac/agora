@@ -1,0 +1,14 @@
+/* Following .z-form div.z-formrow select and make it fit */
+.z-form div.z-formrow .cke {
+  display: block;
+  margin: 0 0 0.3em 29%;
+  padding: 0 !important;
+  position: relative;
+  width: 68.6%;
+}
+
+/* Following .z-linear div.z-formrow select */
+.z-linear div.z-formrow .cke {
+  margin: 0;
+  width: 97%;
+}

@@ -1,0 +1,15 @@
+/* Following .z-form div.z-formrow select and make it fit */
+.z-form div.z-formrow .wym_box {
+    margin: 0 0 0.3em 29%;
+	padding: 0;
+    width: 68.6%;
+    display: block;
+    position: relative;
+}
+
+/* Following .z-linear div.z-formrow select */
+.z-linear div.z-formrow .wym_box {
+    width: 97%;
+    margin: 0;
+    display: block;
+}

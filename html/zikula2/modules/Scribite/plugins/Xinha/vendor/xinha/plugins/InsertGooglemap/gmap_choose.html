@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Google Maps JavaScript API v3 Example: Event Properties</title>
+    <style type="text/css">
+        .infowcontent {
+            width: 170px;
+            height: 110px;
+            font-size: 12px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery.1.4.2.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        var map;
+        var marker;
+        var center;
+        function initialize() {
+            var startLatLng = new google.maps.LatLng(52.361306,4.899265);
+            var myOptions = {
+                zoom: 4,
+                center: startLatLng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            marker = new google.maps.Marker({
+                position: startLatLng,
+                map: map
+            });
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Browse map to select langitude & longitude',
+                position: startLatLng
+            });
+            center = startLatLng;
+            var js = '<br /><br /><br /><strong><a onclick="process()" href="#">SELECT & CLOSE</a></strong></div>';
+            infowindow.setContent('<div class="infowcontent"> Latitude: ' + center.lat() + "<br />Longitude: " + center.lng() + js);
+            infowindow.open(map);
+            google.maps.event.addListener(map, 'click', function(event) {
+                center = event.latLng;
+                infowindow.setContent('<div class="infowcontent"> Latitude: ' + center.lat() + "<br />Longitude: " + center.lng() + js);
+                infowindow.setPosition(center);
+                infowindow.open(map);
+
+            });
+        }
+
+
+        function process() {
+            var opener = window.opener;
+            if (opener != null && center) {
+                var o = opener.document;
+                $(".glongitude", o).attr("value", center.lng());
+                $(".glatitude", o).attr("value", center.lat());
+                opener.focus();
+            }
+            window.close();
+            return false;
+        }
+    </script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+<div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>

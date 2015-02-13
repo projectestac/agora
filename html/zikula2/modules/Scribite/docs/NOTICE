@@ -1,4 +1,8 @@
-All thrid party libraries that are either licensed by GPL or Lesser GPL are
+All third party libraries that are either licensed by GPL or Lesser GPL are
 being distributed under GPL version 3 or LGPL version 3 as appropriate.  Please
 consider the license to be upgraded.  A copy of both GPL and LGPL license is
 included with this distribution.
+
+Module plugin vendor libraries are included with their associated license when
+appropriate. Information about their license can be referenced in the plugin's
+meta data.

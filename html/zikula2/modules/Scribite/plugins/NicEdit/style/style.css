@@ -1,0 +1,23 @@
+/* Following .z-form div.z-formrow select and make it fit */
+/* Nicedit uses an unclassed div around their classed divs, so hard to make right
+compromise in making it go to the left, but layout is then at least ok */
+.z-form .z-formrow > div .nicEdit-panelContain,
+.z-form .z-formrow > div .nicEdit-main  {
+    margin: 0;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+/* Following .z-linear div.z-formrow select */
+.z-form .z-linear .z-formrow .nicEdit-panelContain,
+.z-form .z-linear .z-formrow .nicEdit-main {
+    width: 100% !important;
+    padding-bottom: 0;
+    padding-top: 0;	
+    margin: 0px !important;
+    display: block;
+}
+.z-form .z-linear .z-formrow .nicEdit-main {
+    padding: 0 5px;
+}
