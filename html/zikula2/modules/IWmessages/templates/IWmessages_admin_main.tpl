@@ -1,0 +1,123 @@
+{adminheader}
+<div class="z-admincontainer">
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
+    <h2>{gt text="Module configuration"}</h2>
+    <form  class="z-form" id="attach" enctype="application/x-www-form-urlencoded" method="post" action="{modurl modname='IWmessages' type='admin' func='newUpdateGroup'}">
+        <fieldset>
+            <legend>
+                {gt text="Attachment of files in the messages"}
+            </legend>
+            <div>
+                {gt text="The groups listed bellow can attach files in the private messages"}:
+            </div>
+            <div style="margin-left:50px">
+                {section name=groupsUpdate loop=$groupsUpdate}
+                <div>
+                    {$groupsUpdate[groupsUpdate].name}<a href="{modurl modname=IWmessages func=deleteUpdateGroup group=$groupsUpdate[groupsUpdate].id type=admin}">{img modname='IWmessages' src='del.gif'}</a>
+                </div>
+                {/section}
+            </div>
+            {if $groups|@count gt 0}
+            <div class="z-formnote">
+                <select name="group">
+                    {section name=groups loop=$groups}
+                    <option value="{$groups[groups].id}">{$groups[groups].name}</option>
+                    {/section}
+                </select>
+                <span class="z-buttons">
+                    <a href="javascript:document.forms['attach'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Add a group" __title="Add a group"} {gt text="Add a group"}
+                    </a>
+                </span>
+            </div>
+            {/if}
+        </fieldset>
+    </form>
+    <form class="z-form" id="massive" enctype="application/x-www-form-urlencoded" method="post" action="{modurl modname='IWmessages' type='admin' func='newMultiGroup'}">
+        <fieldset>
+            <legend>
+                {gt text="Criteria for the massive sending of messages"}
+            </legend>
+            <div style="margin-left:50px">
+                {section name=groupsMulti loop=$groupsMulti}
+                <div>
+                    {$groupsMulti[groupsMulti].name}<a href="{modurl modname=IWmessages func=deleteMultiGroup group=$groupsMulti[groupsMulti].id type=admin}">{img modname='IWmessages' src='del.gif' }</a>
+                </div>
+                {/section}
+            </div>
+            <div class="z-formnote">
+                {gt text="The group"}
+                <select name="group1">
+                    {section name=groupsAll loop=$groupsAll}
+                    <option value="{$groupsAll[groupsAll].id}">{$groupsAll[groupsAll].name}</option>
+                    {/section}
+                </select>
+                {gt text="can send massive messages to the group"}
+                <select name="group2">
+                    <option value="0|0">{gt text="All the groups"}</option>
+                    {section name=groupsAll loop=$groupsAll}
+                    <option value="{$groupsAll[groupsAll].id}">{$groupsAll[groupsAll].name}</option>
+                    {/section}
+                </select>
+                <span class="z-buttons">
+                    <a href="javascript:document.forms['massive'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Add a group" __title="Add a group"} {gt text="Add a group"}
+                    </a>
+                </span>
+            </div>
+        </fieldset>
+    </form>
+    <form class="z-form" id="config" enctype="application/x-www-form-urlencoded" method="post" action="{modurl modname='IWmessages' type='admin' func='confupdate'}">
+        <fieldset>
+            <legend>
+                {gt text="Other configuration options"}
+            </legend>
+            {if not $multizk}
+            <div class="z-formrow">
+                <label for="directoriroot">{gt text="Initiation of the file folder"}</label>
+                <input type="text" name="directoriroot" size="50" maxlength="50" value="{$directoriroot}" onFocus='blur()' />
+            </div>
+            {/if}
+            <div class="z-formrow">
+                <label for="uploadFolder">{gt text="Server folder for attached files"}</label>
+                <input type="text" name="uploadFolder" size="50" maxlength="150" value="{$uploadFolder}">
+                {if $noFolder}
+                <div class="z-errormsg z-formnote">
+                    {gt text="The attached files folder has not been found"}
+                </div>
+                {/if}
+                {if $noWriteable}
+                <div class="z-errormsg z-formnote">
+                    {gt text="This folder needs written permissions (chmod 777)"}
+                </div>
+                {/if}
+            </div>
+            <div class="z-formrow">
+                <label for="dissableSuggest">{gt text="Not suggest on message sending"}</label>
+                <input type="checkbox" name="dissableSuggest" value="1" {if $dissableSuggest}checked="checked"{/if}/>
+            </div>
+            <div class="z-formrow">
+                <label for="smiliesActive">{gt text="Smilies active"}</label>
+                <input id="smiliesActive" type="checkbox" name="smiliesActive" value="1" {if $smiliesActive}checked="checked"{/if}/>
+            </div>
+            <div class="z-formrow">
+                <label for="limitInBox">{gt text="Limit of messages in received list (0 means no limit)"}</label>
+                <input type="text" name="limitInBox" size="10" maxlength="5" value="{$limitInBox}">
+            </div>
+            <div class="z-formrow">
+                <label for="limitOutBox">{gt text="Limit of messages in sent list (0 means no limit)"}</label>
+                <input type="text" name="limitOutBox" size="10" maxlength="5" value="{$limitOutBox}">
+                <div class="z-informationmsg z-formnote">
+                    {gt text="When a user overcomes a limit an annoying message is showed, but functionalities are still available."}
+                </div>
+            </div>
+            <div class="z-center">
+                <div class="z-buttons">
+                    <a href="javascript:document.forms['config'].submit();">
+                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"} {gt text="Modify"}
+                    </a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

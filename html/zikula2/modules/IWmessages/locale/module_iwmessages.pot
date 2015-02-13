@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Zikula 1.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-09 22:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/IWmessages/Installer.php:27 lib/IWmessages/Controller/Admin.php:28
+msgid ""
+"Module IWmain is needed. You have to install the IWmain module before "
+"installing it."
+msgstr ""
+
+#: lib/IWmessages/Version.php:7
+msgid "IWMessages"
+msgstr ""
+
+#: lib/IWmessages/Version.php:8
+msgid "Allow to send private messages between users."
+msgstr ""
+
+#: lib/IWmessages/Version.php:9
+msgid "IWmessages"
+msgstr ""
+
+#: lib/IWmessages/Version.php:32
+msgid "IWmessages Hooks"
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:65 lib/IWmessages/Api/User.php:114
+#: lib/IWmessages/Api/User.php:164 lib/IWmessages/Api/User.php:205
+#: lib/IWmessages/Api/User.php:250 lib/IWmessages/Api/User.php:283
+#: lib/IWmessages/Api/User.php:323 lib/IWmessages/Api/User.php:405
+#: lib/IWmessages/Api/User.php:473 lib/IWmessages/Api/User.php:550
+#: lib/IWmessages/Controller/User.php:913
+#: lib/IWmessages/Controller/User.php:1166
+#: lib/IWmessages/Controller/Admin.php:143
+#: lib/IWmessages/Controller/Admin.php:175
+#: lib/IWmessages/Controller/Admin.php:210
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:86 lib/IWmessages/Api/User.php:137
+#: lib/IWmessages/Api/User.php:172 lib/IWmessages/Api/User.php:225
+#: lib/IWmessages/Api/User.php:261 lib/IWmessages/Api/User.php:361
+#: lib/IWmessages/Api/User.php:525 lib/IWmessages/Api/User.php:596
+msgid "Error! Could not load items."
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:289 lib/IWmessages/Api/User.php:342
+#: lib/IWmessages/Api/User.php:479 lib/IWmessages/Api/User.php:557
+msgid "No such item found."
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:298 lib/IWmessages/Api/User.php:337
+#: lib/IWmessages/Api/User.php:492 lib/IWmessages/Api/User.php:567
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:349
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:433 lib/IWmessages/Controller/User.php:1092
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:617
+msgid "Send Message"
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:618
+msgid "View Messages"
+msgstr ""
+
+#: lib/IWmessages/Api/User.php:623
+msgid "Mark/unmark the message"
+msgstr ""
+
+#: lib/IWmessages/Api/Admin.php:19 templates/IWmessages_admin_main.tpl:4
+msgid "Module configuration"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:278
+#: lib/IWmessages/Controller/User.php:308
+#: lib/IWmessages/Controller/User.php:467
+#: lib/IWmessages/Controller/User.php:577
+#: lib/IWmessages/Controller/User.php:742
+msgid ""
+"January February March April May June July August September October November "
+"December"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:340
+msgid "Not read"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:375
+#: lib/IWmessages/Controller/User.php:379
+#: lib/IWmessages/Controller/Admin.php:68
+msgid "All"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:377
+msgid "Only not readed"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:381
+msgid "Only marked messages"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:445
+#: lib/IWmessages/Controller/User.php:560
+#: lib/IWmessages/Controller/User.php:565
+#: lib/IWmessages/Controller/User.php:1179
+msgid "Message not found"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:476
+#: lib/IWmessages/Controller/User.php:580 templates/IWmessages_user_view.tpl:9
+#: templates/IWmessages_user_view.tpl:135
+msgid "You don't have any messages"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:637
+#: lib/IWmessages/Controller/Ajax.php:13 lib/IWmessages/Controller/Ajax.php:56
+#: lib/IWmessages/Controller/Ajax.php:94
+#: lib/IWmessages/Controller/Ajax.php:134
+#: lib/IWmessages/Controller/Ajax.php:165
+#: lib/IWmessages/Controller/Ajax.php:187
+#: lib/IWmessages/Controller/Ajax.php:222
+msgid "Sorry! No authorization to access this module."
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:661
+#: lib/IWmessages/Controller/User.php:1113
+msgid "No message(s) selected"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:697
+msgid "Your message has been deleted."
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:754
+msgid "You can't reply to that message. It wasn't sent to you."
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:759
+msgid "Re"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:778
+msgid "wrote"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:778
+msgid "on"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:848
+msgid "To all users"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:909 templates/IWmessages_user_new.tpl:8
+msgid "Not user especified."
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:918 templates/IWmessages_user_new.tpl:13
+msgid "No subject"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:957
+msgid ""
+"Some of the users writed into the field A: are not correct. The incorrect "
+"users are: "
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:1032
+msgid ""
+"Please check that the name of the user you are sending a message to is a "
+"real user and known by this system."
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:1053
+msgid "Probably the message has been sent without the attached file"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:1082
+msgid "Number of sent messages:"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:1083
+msgid "Your message has been posted."
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:1091
+msgid "Errors number:"
+msgstr ""
+
+#: lib/IWmessages/Controller/User.php:1142
+msgid "Marked/unmarked messages"
+msgstr ""
+
+#: lib/IWmessages/Controller/Admin.php:152
+#: lib/IWmessages/Controller/Admin.php:184
+#: lib/IWmessages/Controller/Admin.php:219
+#: lib/IWmessages/Controller/Admin.php:250
+#: lib/IWmessages/Controller/Admin.php:287
+msgid "The module configuration has changed"
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:16 lib/IWmessages/Controller/Ajax.php:59
+#: lib/IWmessages/Controller/Ajax.php:97
+#: lib/IWmessages/Controller/Ajax.php:137
+msgid "You are not allowed to do this action"
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:20
+msgid "no block id"
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:29 lib/IWmessages/Controller/Ajax.php:69
+#: lib/IWmessages/Controller/Ajax.php:111
+#: lib/IWmessages/Controller/Ajax.php:118
+msgid "unable to get message info for msgid="
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:35 lib/IWmessages/Controller/Ajax.php:75
+msgid "unable check/uncheck message for msgid="
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:63
+#: lib/IWmessages/Controller/Ajax.php:192
+#: lib/IWmessages/Controller/Ajax.php:227
+msgid "no msg id"
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:102
+msgid "no id"
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:197
+#: lib/IWmessages/Controller/Ajax.php:232
+msgid "no who value"
+msgstr ""
+
+#: lib/IWmessages/Controller/Ajax.php:236
+msgid "no user id"
+msgstr ""
+
+#: templates/IWmessages_user_pager.tpl:1
+msgid "Pages"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:8
+msgid "Attachment of files in the messages"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:11
+msgid "The groups listed bellow can attach files in the private messages"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:29
+#: templates/IWmessages_admin_main.tpl:64
+msgid "Add a group"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:39
+msgid "Criteria for the massive sending of messages"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:49
+msgid "The group"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:55
+msgid "can send massive messages to the group"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:57
+msgid "All the groups"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:73
+msgid "Other configuration options"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:77
+msgid "Initiation of the file folder"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:82
+msgid "Server folder for attached files"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:86
+msgid "The attached files folder has not been found"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:91
+msgid "This folder needs written permissions (chmod 777)"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:96
+msgid "Not suggest on message sending"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:100
+msgid "Smilies active"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:104
+msgid "Limit of messages in received list (0 means no limit)"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:108
+msgid "Limit of messages in sent list (0 means no limit)"
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:111
+msgid ""
+"When a user overcomes a limit an annoying message is showed, but "
+"functionalities are still available."
+msgstr ""
+
+#: templates/IWmessages_admin_main.tpl:117
+msgid "Modify"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:7
+#: templates/IWmessages_user_new.tpl:42 templates/IWmessages_user_view.tpl:180
+msgid "To"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:7
+#: templates/IWmessages_user_view.tpl:53
+msgid "From"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:14
+#: templates/IWmessages_user_display.tpl:17
+#: templates/IWmessages_user_view.tpl:67 templates/IWmessages_user_view.tpl:69
+msgid "Mark the message with a flag"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:30
+#: templates/IWmessages_user_new.tpl:75 templates/IWmessages_user_view.tpl:54
+#: templates/IWmessages_user_view.tpl:181
+msgid "Subject"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:39
+msgid "Sent"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:61
+#: templates/IWmessages_user_new.tpl:99
+msgid "Message"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:84
+msgid "Reply"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:85
+msgid "Mark/unmark"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:91
+msgid "Confirm the action before deleting the message?"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:91
+#: templates/IWmessages_user_view.tpl:114
+#: templates/IWmessages_user_view.tpl:227
+msgid "Delete"
+msgstr ""
+
+#: templates/IWmessages_user_display.tpl:95
+msgid "...modifying note flag status..."
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:18
+msgid "The extension of the attached file"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:18
+msgid "is not allowed. The allowed extensions are: "
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:24
+msgid "Confirm before send?"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:37
+msgid "Send private message"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:58
+msgid "and/or to the group"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:62
+msgid "Choose a group..."
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:80
+msgid "Icon"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:94
+msgid "You can activate smilies from module configuration."
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:108 templates/IWmessages_user_view.tpl:76
+#: templates/IWmessages_user_view.tpl:193
+msgid "Attached files"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:110
+msgid "Allowed extensions"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:113
+msgid "File 1"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:117
+msgid "File 2"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:121
+msgid "File 3"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:135
+msgid "Submit"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:141
+msgid "Cancel reply"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:145
+msgid "Cancel sending"
+msgstr ""
+
+#: templates/IWmessages_user_new.tpl:153
+msgid "Original message"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:6
+msgid "Message(s) received"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:16
+#: templates/IWmessages_user_view.tpl:143
+msgid "Filter the messages"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:26
+#: templates/IWmessages_user_view.tpl:154
+msgid "Records per page"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:48
+#: templates/IWmessages_user_view.tpl:176
+msgid "Check all"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:55
+msgid "Date"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:82
+msgid "Message rewritted"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:84
+#: templates/IWmessages_user_view.tpl:198
+msgid "Message read"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:87
+#: templates/IWmessages_user_view.tpl:200
+msgid "Message unread"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:114
+#: templates/IWmessages_user_view.tpl:227
+msgid "Confirm the action before deleting the messages selected?"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:115
+msgid "Mark/Unmark messages"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:121
+msgid "Number of messages in inbox"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:127
+msgid ""
+"You have overcame the number of messages allowed in inbox. You should delete "
+"some messages."
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:132
+msgid "Message sent"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:182
+msgid "Hand-over date"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:183
+msgid "Date of reading"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:233
+msgid "Number of messages in outbox"
+msgstr ""
+
+#: templates/IWmessages_user_view.tpl:239
+msgid ""
+"You have overcame the number of messages allowed in outbox. You should "
+"delete some messages."
+msgstr ""
+
+#: templates/IWmessages_user_menu.tpl:2
+msgid "Your private messages"
+msgstr ""
