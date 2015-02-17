@@ -70,7 +70,7 @@
                             {$type.keyword}
                         </td>
                         <td align="center">
-                            <a href="{modurl modname='Agoraportal' type='admin' func='deleteRequestTypeService' requestTypeId=$types.requestTypeId serviceId=$types.serviceId}">
+                            <a href="{modurl modname='Agoraportal' type='admin' func='deleteModelType' modelTypeId=$type.modelTypeId}">
                                 {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
                             </a>
                         </td>

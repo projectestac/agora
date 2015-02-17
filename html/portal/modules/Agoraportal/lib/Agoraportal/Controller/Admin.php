@@ -846,6 +846,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $schooltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
         $requesttypes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes');
         $requesttypesservices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypesServices');
+        $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
 
         return $this->view->assign('siteBaseURL', $this->getVar('siteBaseURL'))
                         ->assign('allowedIpsForCalcDisckConsume', $this->getVar('allowedIpsForCalcDisckConsume'))
@@ -859,6 +860,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('schooltypes', $schooltypes)
                         ->assign('requesttypes', $requesttypes)
                         ->assign('requesttypesservices', $requesttypesservices)
+                        ->assign('modeltypes', $modeltypes)
                         ->fetch('agoraportal_admin_config.tpl');
     }
 
@@ -1218,15 +1220,18 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
  
     /**
+     * Show form to add a new model type or saves it to data base
      * 
-     * @author	Toni Ginard
-     * @param
-     * @return
+     * @author Toni Ginard
+     * @param int confirmation
+     * @param string shortcode
+     * @param string keyword
+     * @return redirect to config
      * @throws Zikula_Exception_Forbidden
      */
     public function addNewModelType($args) {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
-        $shortCode = FormUtil::getPassedValue('shortcode', isset($args['shortcode']) ? $args['shortcode'] : null, 'POST');
+        $shortcode = FormUtil::getPassedValue('shortcode', isset($args['shortcode']) ? $args['shortcode'] : null, 'POST');
         $keyword = FormUtil::getPassedValue('keyword', isset($args['keyword']) ? $args['keyword'] : null, 'POST');
 
         // Security check
@@ -1241,14 +1246,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         
         // Confirm authorisation code
         $this->checkCsrfToken();
-        
+
         // Save the record
-        if (ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('requestTypeName' => $requestTypeName, 'requestTypeDescription' => $requestTypeDescription, 'requestTypeUserCommentsText' => $requestTypeUserCommentsText))) {
+        $modelId = ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('shortcode' => $shortcode, 'keyword' => $keyword));
+
+        if ($modelId) {
             LogUtil::registerStatus($this->__('S\'ha registrat un tipus nou de maqueta'));
         } else {
             LogUtil::registerError($this->__('S\'ha produït un error en desar el tipus nou de maqueta'));
         }
-        
+
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
     }
 
@@ -1343,6 +1350,43 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         } else {
             LogUtil::registerError($this->__('S\'ha produït un error en esborrar el tipus de sol·licitud'));
         }
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
+    }
+
+    /**
+     * Delete a given model type
+     * 
+     * @author Toni Ginard
+     * @param int confirmation
+     * @param int modelTypeId
+     * @return redirect to config
+     * @throws Zikula_Exception_Forbidden
+     */
+    public function deleteModelType($args) {
+        $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
+        $modelTypeId = FormUtil::getPassedValue('modelTypeId', isset($args['modelTypeId']) ? $args['modelTypeId'] : null, 'GETPOST');
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        if ($confirmation == null) {
+            $modelType = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes', array('modelTypeId' => $modelTypeId));
+
+            return $this->view->assign('modelType', $modelType[$modelTypeId])
+                            ->fetch('agoraportal_admin_deleteModelType.tpl');
+        }
+        
+        // Confirm authorisation code
+        $this->checkCsrfToken();
+        
+        // Remove the record
+        if (ModUtil::apiFunc('Agoraportal', 'admin', 'deleteModelType', array('modelTypeId' => $modelTypeId))) {
+            LogUtil::registerStatus($this->__('S\'ha esborrat el registre de la maqueta'));
+        } else {
+            LogUtil::registerError($this->__('S\'ha produït un error en esborrar el registre de la maqueta'));
+        }
+        
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
     }
 

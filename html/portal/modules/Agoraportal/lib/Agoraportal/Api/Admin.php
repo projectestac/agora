@@ -1012,6 +1012,37 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     /**
+     * Save model data to data base
+     * 
+     * @author Toni Ginard
+     * @param string shortcode
+     * @param string keyword
+     * @return Boolean false on error, int model ID on success
+     * @throws Zikula_Exception_Forbidden
+     */
+    public function addNewModelType($args) {
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $shortcode = $args['shortcode'];
+        $keyword = $args['keyword'];
+
+        $item = array(
+            'shortcode' => $shortcode,
+            'keyword' => $keyword
+        );
+
+        if (!DBUtil::insertObject($item, 'agoraportal_modelTypes', 'modelTypeId')) {
+            return false;
+        }
+        
+        // Return the id of the newly created item to the calling process
+        return $item['modelTypeId'];
+    }
+
+    /**
      * Remove a location
      * @author		Albert Pérez Monfort (aperezm@xtec.cat)
      * @param      The location identity
@@ -1112,6 +1143,39 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // The item has been deleted, so we clear all cached pages of this item.
         $view = Zikula_View::getInstance('Agoraportal');
         $view->clear_cache(null, $args['requestTypeId']);
+        return true;
+    }
+
+    /**
+     * Remove a model type
+     * 
+     * @author Toni Ginard
+     * @param int modelTypeId
+     * @return Bolean true if success, false otherwise
+     */
+    public function deleteModelType($args) {
+
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        
+        $modelTypeId = $args['modelTypeId'];
+        
+        // get location information
+        $modelType = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes', array('modelTypeId' => $modelTypeId));
+
+        if (!$modelType) {
+            return LogUtil::registerError($this->__('No s\'ha trobat la maqueta'));
+        }
+        
+        if (!DBUtil::deleteObjectByID('agoraportal_modelTypes', $modelTypeId, 'modelTypeId')) {
+            return LogUtil::registerError($this->__("No s'ha pogut esborrar la maqueta"));
+        }
+        
+        // The item has been deleted, so we clear all cached pages of this item.
+        $view = Zikula_View::getInstance('Agoraportal');
+        $view->clear_cache(null, $args['requestTypeId']);
+        
         return true;
     }
 

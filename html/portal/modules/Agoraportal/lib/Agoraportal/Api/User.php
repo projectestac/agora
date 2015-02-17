@@ -1444,12 +1444,40 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
+     * Get model data
+     *
+     * @author Toni Ginard
+     * @param int modelTypeId (optional)
+     * @return array Information of the model/s
+     */
+    public function getModelTypes($args) {
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        // Get optional param
+        $modelTypeId = isset($args['modelTypeId']) ? $args['modelTypeId'] : '';
+
+        $tables = DBUtil::getTables();
+        $c = $tables['agoraportal_modelTypes_column'];
+
+        $where = (!empty($modelTypeId)) ? " WHERE $c[modelTypeId] = $modelTypeId " : '';
+
+        $items = DBUtil::selectObjectArray($tables['agoraportal_modelTypes'], $where, 'shortcode', -1, -1, 'modelTypeId');
+
+        if ($items === false) {
+            return LogUtil::registerError($this->__("No s'ha pogut obtenir la informació de la taula " . $tables['agoraportal_modelTypes']));
+        }
+
+        return $items;
+    }
+
+    /**
      * Get requests description
      *
      * @author Toni Ginard
-     *
      * @param int requestTypeId (optional)
-     *
      * @return array Information of the request/s
      */
     public function getRequestTypes($args) {
