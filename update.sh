@@ -1,121 +1,115 @@
 #!/bin/bash
 
-git pull
+function gitcheckout {
+    dir=$1
+    branch=$2
+    remote=$3
 
-git submodule update --recursive --init
-git submodule sync
+    if [ ! -d "$dir" ]; then
+        update_exec "git submodule update --init $dir"
 
-pushd html/moodle2
-git checkout master
-git remote set-url origin git@github.com:projectestac/agora_moodle2.git
-popd
-pushd html/moodle2/auth/googleoauth2
-git checkout STABLE_26
-git remote set-url origin git@github.com:projectestac/moodle-auth_googleoauth2.git
-popd
-pushd html/moodle2/blocks/advices
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-block_advices.git
-popd
-pushd html/moodle2/blocks/rgrade
-git checkout master
-git remote set-url origin  git@github.com:imartel/Rgrade.git
-popd
-pushd html/moodle2/langpacks
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-langpacks.git
-popd
-pushd html/moodle2/local/agora
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-local_agora.git
-popd
-pushd html/moodle2/local/agora/mailer
-git checkout master
-git remote set-url origin git@github.com:projectestac/mailer.git
-popd
-pushd html/moodle2/local/bigdata
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-local_bigdata.git
-popd
-pushd html/moodle2/local/oauth
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-local_oauth.git
-popd
-pushd html/moodle2/local/mobile
-git checkout MOODLE_26_STABLE
-git remote set-url origin git@github.com:jleyva/moodle-local_mobile.git
-popd
-pushd html/moodle2/mod/eoicampus
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-mod_eoicampus.git
-popd
-pushd html/moodle2/mod/geogebra
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-mod_geogebra.git
-popd
-pushd html/moodle2/mod/hotpot
-git checkout master
-git remote set-url origin git@github.com:gbateson/moodle-mod_hotpot.git
-popd
-pushd html/moodle2/mod/jclic
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-mod_jclic.git
-popd
-pushd html/moodle2/mod/journal
-git checkout MOODLE_26_STABLE
-git remote set-url origin git@github.com:projectestac/moodle-mod_journal.git 
-popd
-pushd html/moodle2/mod/questionnaire
-git checkout MOODLE_26_STABLE
-git remote set-url origin git@github.com:projectestac/moodle-mod_questionnaire.git
-popd
-pushd html/moodle2/mod/qv
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-mod_qv.git
-popd
-pushd html/moodle2/question/format/hotpot
-git checkout master
-git remote set-url origin git@github.com:gbateson/moodle-qformat_hotpot.git
-popd
-pushd html/moodle2/question/type/ddimageortext
-git checkout master
-git remote set-url origin git@github.com:moodleou/moodle-qtype_ddimageortext.git
-popd
-pushd html/moodle2/question/type/ddmarker
-git checkout master
-git remote set-url origin git@github.com:moodleou/moodle-qtype_ddmarker.git
-popd
-pushd html/moodle2/question/type/ddwtos
-git checkout master
-git remote set-url origin git@github.com:moodleou/moodle-qtype_ddwtos.git
-popd
-pushd html/moodle2/question/type/gapselect
-git checkout master
-git remote set-url origin git@github.com:moodleou/moodle-qtype_gapselect.git
-popd
-pushd html/moodle2/report/coursequotas
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-report_coursequotas.git
-popd
-pushd html/moodle2/theme/xtec2
-git checkout master
-git remote set-url origin git@github.com:projectestac/moodle-theme_xtec2.git
-popd
-pushd html/wordpress
-git checkout master
-git remote set-url origin git@github.com:projectestac/agora_nodes.git
-popd
-pushd html/zikula2/modules/IWagendas
-git checkout master
-git remote set-url origin git@github.com:intraweb-modules13/IWagendas.git 
-popd
-pushd html/zikula2/modules/IWdocmanager
-git checkout master
-git remote set-url origin git@github.com:intraweb-modules13/IWdocmanager.git
-popd
-pushd html/zikula2/modules/IWgroups
-git checkout master
-git remote set-url origin git@github.com:intraweb-modules13/IWgroups.git
-popd
+        if [ ! -d "$dir" ]; then
+            echo 'ERROR: el directori $dir no existeix'
+            exit -1
+        fi
+    fi
 
-git submodule foreach --recursive git pull
+    echo "Entrant $dir BRANCH $branch REPO $remote ..."
+    pushd $dir > /dev/null
+    update_exec "git checkout $branch"
+    update_exec "git remote set-url origin $remote"
+    git_pull
+
+
+    popd > /dev/null
+    echo 'OK'
+}
+
+function git_pull {
+    if [[ $action == 'stash' ]]
+    then
+        update_exec "git stash"
+    fi
+
+    update_exec "git pull"
+
+    if [[ $action == 'stash' ]]
+    then
+        if [[ -n $(git stash list) ]]; then
+            echo ' >>>> Aplicat Stash'
+            update_exec "git stash pop"
+        fi
+    fi
+
+    if [[ $action == 'reset' ]]
+    then
+        update_exec "git reset --hard origin/$branch"
+    fi
+}
+
+function update_exec {
+    if ! $1 > /dev/null
+    then
+        echo >&2 "ERROR: on $1"
+        exit -2
+    fi
+}
+
+############## SCRIPT START
+tempaction=$1
+if [[ $tempaction == 'reset' ]]
+then
+    echo 'Demanat RESET'
+    action=$tempaction
+elif [[ $tempaction == 'stash' ]]
+then
+    echo 'Demanat STASH'
+    action=$tempaction
+else
+    action=""
+fi
+
+echo 'Pull inicial'
+git_pull
+
+echo 'Inicialitzant submòduls...'
+update_exec "git submodule update --recursive --init"
+
+echo 'Sincronitzant submòduls...'
+update_exec "git submodule sync"
+
+gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
+gitcheckout "html/moodle2/auth/googleoauth2" "STABLE_26" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
+gitcheckout "html/moodle2/blocks/advices" "master" "git@github.com:projectestac/moodle-block_advices.git"
+gitcheckout "html/moodle2/blocks/rgrade" "master" " git@github.com:imartel/Rgrade.git"
+gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
+gitcheckout "html/moodle2/local/agora" "master" "git@github.com:projectestac/moodle-local_agora.git"
+gitcheckout "html/moodle2/local/agora/mailer" "master" "git@github.com:projectestac/mailer.git"
+gitcheckout "html/moodle2/local/bigdata" "master" "git@github.com:projectestac/moodle-local_bigdata.git"
+gitcheckout "html/moodle2/local/oauth" "master" "git@github.com:projectestac/moodle-local_oauth.git"
+gitcheckout "html/moodle2/local/mobile" "MOODLE_26_STABLE" "git@github.com:jleyva/moodle-local_mobile.git"
+gitcheckout "html/moodle2/mod/eoicampus" "master" "git@github.com:projectestac/moodle-mod_eoicampus.git"
+gitcheckout "html/moodle2/mod/geogebra" "master" "git@github.com:projectestac/moodle-mod_geogebra.git"
+gitcheckout "html/moodle2/mod/hotpot" "master" "git@github.com:gbateson/moodle-mod_hotpot.git"
+gitcheckout "html/moodle2/mod/jclic" "master" "git@github.com:projectestac/moodle-mod_jclic.git"
+gitcheckout "html/moodle2/mod/journal" "MOODLE_26_STABLE" "git@github.com:projectestac/moodle-mod_journal.git"
+gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_26_STABLE" "git@github.com:projectestac/moodle-mod_questionnaire.git"
+gitcheckout "html/moodle2/mod/qv" "master" "git@github.com:projectestac/moodle-mod_qv.git"
+gitcheckout "html/moodle2/question/format/hotpot" "master" "git@github.com:gbateson/moodle-qformat_hotpot.git"
+gitcheckout "html/moodle2/question/type/ddimageortext" "master" "git@github.com:moodleou/moodle-qtype_ddimageortext.git"
+gitcheckout "html/moodle2/question/type/ddmarker" "master" "git@github.com:moodleou/moodle-qtype_ddmarker.git"
+gitcheckout "html/moodle2/question/type/ddwtos" "master" "git@github.com:moodleou/moodle-qtype_ddwtos.git"
+gitcheckout "html/moodle2/question/type/gapselect" "master" "git@github.com:moodleou/moodle-qtype_gapselect.git"
+gitcheckout "html/moodle2/report/coursequotas" "master" "git@github.com:projectestac/moodle-report_coursequotas.git"
+gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moodle-theme_xtec2.git"
+
+gitcheckout "html/wordpress" "master" "git@github.com:projectestac/agora_nodes.git"
+
+gitcheckout "html/zikula2/modules/IWagendas" "master" "git@github.com:intraweb-modules13/IWagendas.git"
+gitcheckout "html/zikula2/modules/IWdocmanager" "master" "git@github.com:intraweb-modules13/IWdocmanager.git"
+gitcheckout "html/zikula2/modules/IWgroups" "master" "git@github.com:intraweb-modules13/IWgroups.git"
+
+echo "Garbage collecting..."
+git gc
+
+echo "That's all folks!"
