@@ -1224,7 +1224,15 @@ class Users_Api_Registration extends Zikula_AbstractApi
             $args['filter']['activated'] = Users_Constant::ACTIVATED_PENDING_REG;
             $where = $this->whereFromFilter($args['filter']);
         } else {
+            
+            //XTEC ************ MODIFICAT - Check if activation user is pending
+            //2015.02.17 @author - Nacho Abejaro
+            $where = " where activated = " . Users_Constant::ACTIVATED_PENDING_REG;
+            //************ ORIGINAL
+            /*
             $where = $this->whereFromFilter(array('activated' => Users_Constant::ACTIVATED_PENDING_REG));
+            */
+            //************ FI
         }
         if ($where === false) {
             return false;
