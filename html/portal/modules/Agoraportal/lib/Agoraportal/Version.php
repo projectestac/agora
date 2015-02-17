@@ -12,7 +12,7 @@ class Agoraportal_Version extends Zikula_AbstractVersion {
         $meta['displayname'] = $this->__("Agoraportal");
         $meta['description'] = $this->__("Administració dels serveis d'Àgora, petició d'espais nous i gestió per part dels centres.");
         $meta['url'] = $this->__("Agoraportal");
-        $meta['version'] = '2.0.11';
+        $meta['version'] = '2.0.12';
         $meta['securityschema'] = array('Agoraportal::' => '::');
         return $meta;
     }

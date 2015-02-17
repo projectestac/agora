@@ -1216,6 +1216,42 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
     }
+ 
+    /**
+     * 
+     * @author	Toni Ginard
+     * @param
+     * @return
+     * @throws Zikula_Exception_Forbidden
+     */
+    public function addNewModelType($args) {
+        $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
+        $shortCode = FormUtil::getPassedValue('shortcode', isset($args['shortcode']) ? $args['shortcode'] : null, 'POST');
+        $keyword = FormUtil::getPassedValue('keyword', isset($args['keyword']) ? $args['keyword'] : null, 'POST');
+
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        
+        // Show the form or save the data?
+        if ($confirmation == null) {
+            return $this->view->fetch('agoraportal_admin_addNewModelType.tpl');
+        }
+        
+        // Confirm authorisation code
+        $this->checkCsrfToken();
+        
+        // Save the record
+        if (ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('requestTypeName' => $requestTypeName, 'requestTypeDescription' => $requestTypeDescription, 'requestTypeUserCommentsText' => $requestTypeUserCommentsText))) {
+            LogUtil::registerStatus($this->__('S\'ha registrat un tipus nou de maqueta'));
+        } else {
+            LogUtil::registerError($this->__('S\'ha produït un error en desar el tipus nou de maqueta'));
+        }
+        
+        return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
+    }
+
 
     /**
      * Delete a given location

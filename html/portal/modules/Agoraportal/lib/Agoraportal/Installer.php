@@ -33,6 +33,8 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             return false;
         if (!DBUtil::createTable('agoraportal_requestTypesServices'))
             return false;
+        if (!DBUtil::createTable('agoraportal_modelTypes'))
+            return false;
         if (!DBUtil::createTable('agoraportal_logs'))
             return false;
         if (!DBUtil::createTable('agoraportal_queues'))
@@ -207,6 +209,9 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 if (!DBUtil::createTable('agoraportal_nodes_stats_day'))
                     return false;
                 if (!DBUtil::createTable('agoraportal_nodes_stats_month'))
+                    return false;
+            case '2.0.11':
+                if (!DBUtil::createTable('agoraportal_modelTypes'))
                     return false;
 
                 /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal

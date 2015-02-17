@@ -531,6 +531,17 @@ function Agoraportal_tables() {
         'description' => "X NOTNULL DEFAULT ''",
         'userCommentsText' => "X NOTNULL DEFAULT ''");
 
+    
+    // agoraportal_modelTypes table definition
+    $table['agoraportal_modelTypes'] = DBUtil::getLimitedTablename('agoraportal_modelTypes');
+    $table['agoraportal_modelTypes_column'] = array('modelTypeId' => 'modelTypeId',
+        'shortcode' => 'shortcode',
+        'keyword' => 'keyword');
+
+    $table['agoraportal_modelTypes_column_def'] = array('modelTypeId' => "I NOTNULL AUTO PRIMARY",
+        'shortcode' => "C(50) NOTNULL DEFAULT ''",
+        'keyword' => "C(50) NOTNULL DEFAULT ''");
+
 
     // agoraportal_requestTypesServices table definition
     $table['agoraportal_requestTypesServices'] = DBUtil::getLimitedTablename('agoraportal_requestTypesServices');

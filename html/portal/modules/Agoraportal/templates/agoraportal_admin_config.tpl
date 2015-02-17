@@ -47,26 +47,73 @@
             <input type="text" name="maxAbsFreeQuota" size="10" maxlength="50" value="{$maxAbsFreeQuota}" />
         </div> 
         <div class="z-formrow">
+            <label for="locations">{gt text="Maquetes"}</label>
+            <table class="z-datatable" style="width: 500px">
+                <tbody>
+                    <tr>
+                        <th>
+                            <strong>{gt text="Codi curt (nom fitxer)"}</strong>
+                        </th>
+                        <th>
+                            <strong>{gt text="Paraula clau (formulari alta)"}</strong>
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                    {foreach item=type from=$modeltypes}
+                    <tr class="{cycle values="z-odd,z-even"}">
+                        <td>
+                            {$type.shortcode}
+                        </td>
+                        <td>
+                            {$type.keyword}
+                        </td>
+                        <td align="center">
+                            <a href="{modurl modname='Agoraportal' type='admin' func='deleteRequestTypeService' requestTypeId=$types.requestTypeId serviceId=$types.serviceId}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="3">
+                            {gt text="No s'ha trobat cap tipus de maqueta"}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="3">
+                            <hr />
+                            <a href="{modurl modname='Agoraportal' type='admin' func='addNewModelType'}">
+                                {gt text="Afegeix un tipus de maqueta nou"}
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="z-formrow">
             <label for="locations">{gt text="Tipus de sol·licituds"}</label>
-            <table class="z-datatable" style="width: 400px">
+            <table class="z-datatable" style="width: 500px">
                 <tbody>
                     {foreach item=type from=$requesttypes}
                     <tr class="{cycle values="z-odd,z-even"}">
                         <td>
-                             {$type.name}
-                         </td>
-                         <td align="center">
-                             <a href="{modurl modname='Agoraportal' type='admin' func='editRequestType' requestTypeId=$type.requestTypeId}">
+                            {$type.name}
+                        </td>
+                        <td align="center">
+                            <a href="{modurl modname='Agoraportal' type='admin' func='editRequestType' requestTypeId=$type.requestTypeId}">
                                 {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
-                         </a>
-                         <a href="{modurl modname='Agoraportal' type='admin' func='deleteRequestType' requestTypeId=$type.requestTypeId}">
-                             {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
-                         </a>
-                     </td>
+                            </a>
+                            <a href="{modurl modname='Agoraportal' type='admin' func='deleteRequestType' requestTypeId=$type.requestTypeId}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
+                            </a>
+                        </td>
                     </tr>
                     {foreachelse}
                     <tr>
-                        <td colspan="10">
+                        <td colspan="2">
                             {gt text="No s'han trobat tipus de Sol·licituds"}
                         </td>
                     </tr>
@@ -75,7 +122,7 @@
                         <td colspan="2">
                             <hr />
                             <a href="{modurl modname='Agoraportal' type='admin' func='addNewRequestType'}">
-                                {gt text="Afegeix un nou tipus de sol·licitud"}
+                                {gt text="Afegeix un tipus de sol·licitud nou"}
                             </a>
                         </td>
                     </tr>
@@ -84,87 +131,90 @@
         </div>
         <div class="z-formrow">
             <label for="locations">{gt text="Serveis de les sol·licituds"}</label>
-            <table class="z-datatable" style="width: 400px">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <strong>{gt text="Tipus de sol·licitud"}</strong>
-                            </td>
-                            <td>
-                                <strong>{gt text="Servei"}</strong>
-                            </td>
-                        </tr>
-                        {foreach item=types from=$requesttypesservices}
-                        <tr class="{cycle values="z-odd,z-even"}">
-                            <td>
-                                {$types.type}
-                            </td>
-                            <td>
-                                {$types.serviceName}
-                            </td>
-                            <td align="center">
-                                <a href="{modurl modname='Agoraportal' type='admin' func='deleteRequestTypeService' requestTypeId=$types.requestTypeId serviceId=$types.serviceId}">
-                                    {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
-                                </a>
-                            </td>
-                        </tr>
-                        {foreachelse}
-                        <tr>
-                            <td colspan="10">
-                                {gt text="No s'han trobat serveis assignats a Sol·licituds"}
-                            </td>
-                        </tr>
-                        {/foreach}
-                        <tr>
-                            <td colspan="3">
-                                <hr />
-                                <a href="{modurl modname='Agoraportal' type='admin' func='addNewRequestTypeService'}">
-                                    {gt text="Afegeix un servei nou al tipus de sol·licitud"}
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="z-formrow">
-                <label for="locations">{gt text="Serveis Territorials"}</label>
-                <table class="z-datatable" style="width: 400px">
-                    <tbody>
-                        {foreach item=location from=$locations}
-                        <tr class="{cycle values="z-odd,z-even"}">
-                            <td>
-                                {$location.locationName}
-                            </td>
-                            <td align="center">
-                                <a href="{modurl modname='Agoraportal' type='admin' func='editLocation' locationId=$location.locationId}">
-                                    {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
-                                </a>
-                                <a href="{modurl modname='Agoraportal' type='admin' func='deleteLocation' locationId=$location.locationId}">
-                                    {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
-                                </a>
-                            </td>
-                        </tr>
-                        {foreachelse}
-                        <tr>
-                            <td colspan="10">
-                                {gt text="No s'han trobat SSTT"}
-                            </td>
-                        </tr>
-                        {/foreach}
-                        <tr>
-                            <td colspan="2">
-                                <hr />
-                                <a href="{modurl modname='Agoraportal' type='admin' func='addNewLocation'}">
-                                    {gt text="Afegeix un Servei Territorial nou"}
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="z-formrow">
-                <label for="types">{gt text="Tipologies de centres"}</label>
-                <table class="z-datatable" style="width: 400px;">
+            <table class="z-datatable" style="width: 500px">
+                <tbody>
+                    <tr>
+                        <th>
+                            <strong>{gt text="Tipus de sol·licitud"}</strong>
+                        </th>
+                        <th>
+                            <strong>{gt text="Servei"}</strong>
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                    {foreach item=types from=$requesttypesservices}
+                    <tr class="{cycle values="z-odd,z-even"}">
+                        <td>
+                            {$types.type}
+                        </td>
+                        <td>
+                            {$types.serviceName}
+                        </td>
+                        <td align="center">
+                            <a href="{modurl modname='Agoraportal' type='admin' func='deleteRequestTypeService' requestTypeId=$types.requestTypeId serviceId=$types.serviceId}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="10">
+                            {gt text="No s'ha trobat cap servei assignat a cap tipus de sol·licitud"}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="3">
+                            <hr />
+                            <a href="{modurl modname='Agoraportal' type='admin' func='addNewRequestTypeService'}">
+                                {gt text="Afegeix un servei nou al tipus de sol·licitud"}
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="z-formrow">
+            <label for="locations">{gt text="Serveis Territorials"}</label>
+            <table class="z-datatable" style="width: 500px">
+                <tbody>
+                    {foreach item=location from=$locations}
+                    <tr class="{cycle values="z-odd,z-even"}">
+                        <td>
+                            {$location.locationName}
+                        </td>
+                        <td align="center">
+                            <a href="{modurl modname='Agoraportal' type='admin' func='editLocation' locationId=$location.locationId}">
+                                {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
+                            </a>
+                            <a href="{modurl modname='Agoraportal' type='admin' func='deleteLocation' locationId=$location.locationId}">
+                                {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
+                            </a>
+                        </td>
+                    </tr>
+                    {foreachelse}
+                    <tr>
+                        <td colspan="2">
+                            {gt text="No s'han trobat SSTT"}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="2">
+                            <hr />
+                            <a href="{modurl modname='Agoraportal' type='admin' func='addNewLocation'}">
+                                {gt text="Afegeix un Servei Territorial nou"}
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="z-formrow">
+            <label for="types">{gt text="Tipologies de centres"}</label>
+            <table class="z-datatable" style="width: 500px;">
                 <tbody>
                     {foreach item=schooltype from=$schooltypes}
                     <tr class="{cycle values="z-odd,z-even"}" id="formRow_{$schooltype.typeId}">
@@ -182,7 +232,7 @@
                     </tr>
                     {foreachelse}
                     <tr>
-                        <td colspan="10">
+                        <td colspan="2">
                             {gt text="No s'han trobat tipologies de centres"}
                         </td>
                     </tr>
