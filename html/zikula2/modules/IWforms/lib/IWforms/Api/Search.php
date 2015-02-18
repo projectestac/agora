@@ -39,7 +39,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
      * Parameters passed in the $args array:
      * -------------------------------------
      * boolean 'active' Indicates that the Users module is an active part of the search(?).
-     * 
+     *
      * @param array $args All parameters passed to this function.
      *
      * @return string The rendered template for the Users search component.
@@ -65,7 +65,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
      * -------------------------------------
      * ? $args['q'] ?.
      * ? $args[?]   ?.
-     * 
+     *
      * @param array $args All parameters passed to this function.
      *
      * @return bool True on success or null result, false on error.
@@ -131,6 +131,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
 
         $joinArray = array();
         $where = '';
+
         foreach ($fieldsArray as $field) {
             $where .= "$c[fndid] = $field[fndid] OR ";
             $joinArray[$field['fndid']] = $field['fid'];
@@ -138,10 +139,16 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
 
         $where = substr($where, 0, -4);
 
-        $where = "$c[validate] =1 AND $c[content] LIKE '%$q%' AND (" . $where . ")";
+        //XTEC ************ MODIFICAT - Check if activation user is pending
+        //2015.02.18 @author - Nacho Abejaro
+        $where = "$c[validate] =1 AND $c[content] LIKE '%$q%' ";
+        //************ ORIGINAL
+        /*$where = "$c[validate] =1 AND $c[content] LIKE '%$q%' AND (" . $where . ")";
+        */
+        //************ FI
 
         $notes = DBUtil::selectObjectArray('IWforms_note', $where, '', -1, -1, 'fnid');
-        
+
         if (!$notes) {
             return true;
         }
@@ -161,7 +168,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
                 return false;
             }
         }
-        
+
         return true;
     }
 
@@ -174,7 +181,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
      * Parameters passed in the $args array:
      * -------------------------------------
      * array $args['datarow'] ?.
-     * 
+     *
      * @param array $args The search results.
      *
      * @return bool True.
