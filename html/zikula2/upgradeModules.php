@@ -97,7 +97,7 @@ foreach ($modulesToUpgrade as $module) {
 				echo ('MODULE___'.$module.': Data inserted into hook_binding table <br/>');
 			}
 		}else {
-			echo ('MODULE___'.$module.': Already in hook_binding table<br/>');
+			echo ('MODULE___'.$module.': Already exists in hook_binding table<br/>');
 		}
 
 		// Special case for Content Module
@@ -110,7 +110,7 @@ foreach ($modulesToUpgrade as $module) {
 				echo ('MODULE___'.$module.': Data inserted into hook_binding table<br/>');
 			}
 		}elseif ($moduleIdContent && $resultExist) {
-			echo ('MODULE___'.$module.': Already in hook_binding table<br/>');
+			echo ('MODULE___'.$module.': Already exists in hook_binding table<br/>');
 		}
 
 	}
@@ -125,15 +125,31 @@ foreach ($modulesToUpgrade as $module) {
 		$eventName = $stmtGetEventName->fetch(PDO::FETCH_NUM);
 
 		if ($eventName[0]) {
-			// Insert event into hook_runtime
-			$tableName = 'hook_runtime';
-			$stmtInsertRuntime = $connection->prepare("INSERT INTO $tableName (sowner, powner, sareaid, pareaid, eventname, classname, method, serviceid, priority) VALUES
-					('$module', 'Scribite', '$moduleId', '$scribiteId', '$eventName[0]', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10)");
 
-			if (!$stmtInsertRuntime->execute()) {
-				echo ('ERROR___MODULE___'.$module.': Error inserting event into hook_runtime table <br/>');
+			// Check if hook_runtime already exists
+			$tableName = 'hook_runtime';
+
+			$stmtCheckRuntime = $connection->prepare("SELECT id FROM $tableName WHERE sareaid=$moduleId AND pareaid=$scribiteId AND eventname='$eventName[0]'");
+
+			if (!$stmtCheckRuntime->execute()) {
+				die(__('FATAL ERROR: Cannot get id from hook_runtime table - Module: $module '));
 			}else {
-				echo ('MODULE___'.$module.': Event inserted into hook_runtime table <br/>');
+				$runtimeExist = $stmtCheckRuntime->fetch(PDO::FETCH_NUM);
+
+				if (!$runtimeExist) {
+					// Insert event into hook_runtime
+
+					$stmtInsertRuntime = $connection->prepare("INSERT INTO $tableName (sowner, powner, sareaid, pareaid, eventname, classname, method, serviceid, priority) VALUES
+							('$module', 'Scribite', '$moduleId', '$scribiteId', '$eventName[0]', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10)");
+
+					if (!$stmtInsertRuntime->execute()) {
+						echo ('ERROR___MODULE___'.$module.': Error inserting event into hook_runtime table <br/>');
+					}else {
+						echo ('MODULE___'.$module.': Event inserted into hook_runtime table <br/>');
+					}
+				}else {
+					echo ('MODULE___'.$module.': Already exists in hook_runtime table<br/>');
+				}
 			}
 		}
 	}
