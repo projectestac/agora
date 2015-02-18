@@ -1,7 +1,7 @@
 {include file="IWforums_admin_menu.htm"}
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large'}</div>
-    <h2>{gt text="Create a new forum"}</h2>
+    <h2>{gt text="Configure the module"}</h2>
     <form  class="z-form" method="post" id="configura" action="{modurl modname='IWforums' type='admin' func='update_conf'}" >
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <div style="height:40px;">&nbsp;</div>
@@ -32,6 +32,10 @@
         <div class="z-formrow">
             <label for="smiliesActive">{gt text="Smilies active"}</label>
             <input id="smiliesActive" type="checkbox" name="smiliesActive" value="1" {if $smiliesActive}checked="checked"{/if}/>
+        </div>
+        <div class="z-formrow">
+            <label for="restyledTheme">{gt text="Open format"}</label>
+            <input id="restyledTheme" type="checkbox" name="restyledTheme" value="1" {if $restyledTheme}checked="checked"{/if}/>
         </div>
         <div class="z-center">
             <span class="z-buttons">

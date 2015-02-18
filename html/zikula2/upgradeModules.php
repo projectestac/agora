@@ -1,10 +1,10 @@
 <?php
 
 /**
- * XTEC ************ Added upgradeModules- 
+ * XTEC ************ Added upgradeModules-
  * Upgrade all modules and create necesary hooks for Scribite modules
  * 2015.02.17 @author - Nacho Abejaro
- * 
+ *
  * @var $modulesToUpgrade: Array with the name modules to upgrade. You must configure it
  */
 
@@ -21,7 +21,7 @@ ModUtil::loadApi('Extensions', 'admin', true);
 
 $results = ModUtil::apiFunc('Extensions', 'admin', 'upgradeall');
 
-if ($results) {	
+if ($results) {
 	foreach ($results as $modname => $result) {
 		if ($result) {
 			echo '<li class="passed">' . DataUtil::formatForDisplay($modname) . ' ' . __('upgraded') . '</li>' . "\n";
@@ -56,22 +56,28 @@ $scribiteId = $result[0];
 echo "Scribite ID: ".$scribiteId."<br/>";
 
 // Modules to Upgrade
-$modulesToUpgrade = array("News", "IWnoteboard", "IWmessages", "IWforms", "Pages", "Content");
+$modulesToUpgrade = array("News", "IWnoteboard", "IWmessages", "IWforms", "Pages", "Content", "IWforums");
 
 foreach ($modulesToUpgrade as $module) {
 	$moduleId ='';
-	
+	$moduleIdContent = '';
+
 	$moduleTable = 'hook_area';
 	$stmt = $connection->prepare("SELECT id FROM $moduleTable WHERE owner = '$module' AND category = 'ui_hooks'");
-	
+
 	if (!$stmt->execute()) {
 		die(__('FATAL ERROR: Cannot get id from module $module'));
 	}
-	
-	$result = $stmt->fetch(PDO::FETCH_NUM);
-	
-	$moduleId = $result[0];
-	
+
+	$result = $stmt->fetchAll(PDO::FETCH_NUM);
+
+	$moduleId = $result[0][0];
+
+	if ($result[1][0]) {
+		// Special case for Content Module
+		$moduleIdContent = $result[1][0];
+	}
+
 	// Check if module exists in hook_binding table
 	$tableName = 'hook_binding';
 	$stmtModuleExists = $connection->prepare("SELECT id FROM $tableName WHERE sowner = '$module' AND powner = 'Scribite'");
@@ -79,12 +85,12 @@ foreach ($modulesToUpgrade as $module) {
 	if (!$stmtModuleExists->execute()) {
 		die(__('FATAL ERROR: Cannot get id from hook_binding table - Module: $module '));
 	}else {
-		$result = $stmtModuleExists->fetch(PDO::FETCH_NUM);
-		
-		if (!$result[0]) {
+		$resultExist = $stmtModuleExists->fetch(PDO::FETCH_NUM);
+
+		if (!$resultExist) {
 			// If not exists insert into table
 			$stmtInsert = $connection->prepare("INSERT INTO $tableName (sowner, powner, sareaid, pareaid, category, sortorder) VALUES ('$module', 'Scribite', '$moduleId', '$scribiteId', 'ui_hooks', 999)");
-			
+
 			if (!$stmtInsert->execute()) {
 				echo ('ERROR___MODULE___'.$module.': Error inserting data into hook_binding table <br/>');
 			}else {
@@ -92,31 +98,46 @@ foreach ($modulesToUpgrade as $module) {
 			}
 		}else {
 			echo ('MODULE___'.$module.': Already in hook_binding table<br/>');
-		}	
+		}
+
+		// Special case for Content Module
+		if ($moduleIdContent && !$resultExist) {
+			$stmtInsertContent = $connection->prepare("INSERT INTO $tableName (sowner, powner, sareaid, pareaid, category, sortorder) VALUES ('$module', 'Scribite', '$moduleIdContent', '$scribiteId', 'ui_hooks', 999)");
+
+			if (!$stmtInsertContent->execute()) {
+				echo ('ERROR___MODULE___'.$module.': Error inserting data into hook_binding table <br/>');
+			}else {
+				echo ('MODULE___'.$module.': Data inserted into hook_binding table<br/>');
+			}
+		}elseif ($moduleIdContent && $resultExist) {
+			echo ('MODULE___'.$module.': Already in hook_binding table<br/>');
+		}
+
 	}
-	
+
 	// Get eventName from hook_subscriber
 	$tableName = 'hook_subscriber';
 	$stmtGetEventName = $connection->prepare("SELECT eventname FROM $tableName WHERE owner = '$module' AND hooktype = 'form_edit'");
-	
+
 	if (!$stmtGetEventName->execute()) {
 		die(__('FATAL ERROR: Cannot get eventname from hook_subscriber table.'));
 	}else {
 		$eventName = $stmtGetEventName->fetch(PDO::FETCH_NUM);
-		
+
 		if ($eventName[0]) {
 			// Insert event into hook_runtime
 			$tableName = 'hook_runtime';
 			$stmtInsertRuntime = $connection->prepare("INSERT INTO $tableName (sowner, powner, sareaid, pareaid, eventname, classname, method, serviceid, priority) VALUES
 					('$module', 'Scribite', '$moduleId', '$scribiteId', '$eventName[0]', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10)");
-				
+
 			if (!$stmtInsertRuntime->execute()) {
 				echo ('ERROR___MODULE___'.$module.': Error inserting event into hook_runtime table <br/>');
 			}else {
 				echo ('MODULE___'.$module.': Event inserted into hook_runtime table <br/>');
 			}
-		}		
+		}
 	}
+	echo "<br/>";
 }
 
 // Extra querys for Scribite
@@ -126,5 +147,26 @@ $stmtUpdateScribite = $connection->prepare("UPDATE $tableName SET value = 's:7:\
 if (!$stmtUpdateScribite->execute()) {
 	die(__('FATAL ERROR: Cannot set TinyMCE Default Editor'));
 }else {
-	echo "Set TinyMCE Default Scribite Editor...<br/>";
+	echo "TinyMCE has been established as default Scribite Editor<br/>";
+}
+
+$tableName = 'module_vars';
+$stmtUpdatePlugin = $connection->prepare("
+		UPDATE $tableName
+		SET value = 'a:11:{i:0;s:4:\"link\";i:1;s:13:\"searchreplace\";i:2;s:7:\"preview\";i:3;s:14:\"insertdatetime\";i:4;s:9:\"wordcount\";i:5;s:10:\"autoresize\";i:6;s:10:\"fullscreen\";i:7;s:5:\"print\";i:8;s:8:\"fullpage\";i:9;s:4:\"code\";i:10;s:5:\"files\";}'
+		WHERE modname='moduleplugin.scribite.tinymce' AND name = 'activeplugins'
+		");
+
+if (!$stmtUpdatePlugin->execute()) {
+	die(__('FATAL ERROR: Cannot update moduleplugin.scribite.tinymce'));
+}else {
+	echo "moduleplugin.scribite.tinymce Updated<br/>";
+}
+
+$stmtUpdateLanguage = $connection->prepare("UPDATE $tableName SET value = 's:2:\"ca\";' WHERE modname='moduleplugin.scribite.tinymce' AND name='language'");
+
+if (!$stmtUpdatePlugin->execute()) {
+	die(__('FATAL ERROR: Cannot update language on moduleplugin.scribite.tinymce'));
+}else {
+	echo "Updated language on moduleplugin.scribite.tinymce<br/>";
 }

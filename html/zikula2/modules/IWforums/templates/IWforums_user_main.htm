@@ -1,40 +1,45 @@
+{pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
 {include file="IWforums_user_menu.htm" start="" end=""}
 {userloggedin assign=userid}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Forums list"}</h2>
     <div style="height:15px;">&nbsp;</div>
-    <table class="z-datatable">
+    <table class="table">
         <thead>
             <tr>
                 {if $userid neq ''}
                 <th></th>
                 {/if}
-                <th>{gt text="Forum name"}</th>
-                <th>{gt text="Description"}</th>
+                    <th>{gt text="Forum name"}</th>
+                    <th>{gt text="Description"}</th>
                 {if $userid neq ''}
-                <th>{gt text="Access type"}</th>
+                    <th>{gt text="Access type"}</th>
                 {/if}
-                <th>{gt text="N. topics"}</th>
-                <th>{gt text="N. messages"}</th>
+                    <th class="text-center">{gt text="N. topics"}</th>
+                    <th class="text-center">{gt text="Messages"}</th>
+                {if $userid neq ''}
+                    <th class="text-center">{gt text="Unreaded"}</th>
+                {/if}
             </tr>
         </thead>
         <tbody>
             {foreach item=forum from=$forums}
-            <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
+            <tr bgcolor="{cycle values="#ffffff, #eeeeee"}" style="cursor:pointer" onclick='window.location ="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}"'>
                 {if $userid neq ''}
                 <td align="center">
-                    <a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
+                    {*<a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
                         {if $forum.n_msg_no_llegits eq 0}
                         {img modname='IWforums' src='msg.gif'}
                         {else}
                         {img modname='IWforums' src='msgNo.gif'}
                         {/if}
-                    </a>
+                    </a>*}
                     <div>
                         <a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
                             {if $forum.marcats neq 0}
-                            {img modname='IWforums' src='marcat.gif'}
+                            {*img modname='IWforums' src='marcat.gif'*}
+                            <span class="fs1em glyphicon glyphicon-flag"></span>
                             {/if}
                         </a>
                     </div>
@@ -64,18 +69,16 @@
                 {userloggedin assign=userid}
                 {if $userid neq ''}
                 <td align="center" valign="top">
-                    {if $forum.n_msg_no_llegits eq 0}
-                    <font color="black">
-                    {else}
-                    <font color="red">
-                    {/if}
-                    {$forum.n_msg_no_llegits}
-                    </font>
-                    /{$forum.n_msg}
-                </td>
-                {else}
-                <td align="center" valign="top">
                     {$forum.n_msg}
+                </td>
+                <td align="center" valign="top">
+                    <div>
+                        {if $forum.n_msg_no_llegits neq 0}                                 
+                            <span style="background-color:#AC2013" class="badge">{$forum.n_msg_no_llegits}</span>
+                        {else}
+                            0
+                        {/if}
+                    </div>
                 </td>
                 {/if}
             </tr>

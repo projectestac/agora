@@ -1,96 +1,102 @@
-<script language="javascript">
-    function esborra_fitxer(){
-    document.new_msg.action = "index.php?module=IWforums&func=del_adjunt"
-            document.new_msg.submit();
-    }
+{pageaddvar name='javascript' value='jQuery' ui=true}
+{pageaddvar name='stylesheet' value='vendor/font-awesome/css/font-awesome.css'}
+{pageaddvar name='javascript' value='vendor/bootstrap/js/bootstrap.js'}
+{pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='javascript' value='vendor/bootstrap/filestyle/bootstrap-filestyle.min.js'}
+{ajaxheader modname=IWforums filename=IWforums.js}
 
-    function send(){
-    document.new_msg.action = "index.php?module=IWforums&func=update_msg"
-            if (document.new_msg.titol.value == ""){
-    alert("{{gt text="You didn't write a title for the message."}}");
-            var error = true;
-    }
-    {{if $adjunts neq "0"}}
-    if (document.new_msg.adjunt.value != "" && "{{$extensions}}".indexOf(document.new_msg.adjunt.value.substring(document.new_msg.adjunt.value.length - 3, document.new_msg.adjunt.value.length)) == - 1 && !error){
-    alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
-            var error = true;
-    }
-    {{/if}}
-            if (!error){document.new_msg.submit(); }
-    }
-</script>
-{include file="IWforums_user_menu.htm" m2=1 m7=1 fid=$fid ftid=$ftid}
+{if !$restyled}
+    {include file="IWforums_user_menu.htm" m2=1 m7=1 fid=$fid ftid=$ftid}
+{else}
+    <ol style="font-size:0.8em" class="breadcrumb">
+        <li><a href="{modurl modname='IWforums' type='user' func='main'}">{gt text="Forums list"}</a></li>
+        <li><a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid u=$u}">{gt text="List of topics"}</a></li>
+        <li><a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$ftid fid=$fid u=$u}}">{gt text="Posts"}</a></li>
+        <li class="active">{gt text="Edit"}</li>        
+    </ol>    
+{/if}
+
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='edit.png' set='icons/large'}</div>
-    <h2>{$name} => {gt text="Edit the message"}</h2>
-    <div style="height:15px;">&nbsp;</div>
-    <form  class="z-form" method="post" name="new_msg" id="new_msg" enctype="multipart/form-data">
+    <h2>{$name}: {gt text="Edit the message"}</h2>
+    <form  class="form-horizontal" role="form" method="post" name="new_msg" id="new_msg" enctype="multipart/form-data">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fid" value="{$fid}" />
         <input type="hidden" name="ftid" value="{$ftid}" />
         <input type="hidden" name="u" value="{$u}" />
         <input type="hidden" name="fmid" value="{$missatge.fmid}" />
-        <fieldset>
-            <legend>{gt text="Message content"}</legend>
-            <div class="z-formrow">
-                <label for="titol">{gt text="Title of the message"}</label>
-                <input type="text" name="titol" id ="titol" maxlength="100" size="60" value="{$missatge.titol}" />
+        {*<input type="checkbox" name="segur" id="segur" class="hidden">*}
+        <div class="form-group">
+            <label for="titol" class="col-xs-2 control-label">{gt text="Title of the message"}</label>
+            <div class="col-xs-8" id="inputName">
+                <input type='text' class='has-error form-control' id ='titol' name='titol' maxlength="250" oninput="checkName();" onblur="checkName();" value="{$missatge.titol}" placeholder="{gt text='Enter message title'}" required>
             </div>
-            {if $adjunts neq "0"}
-            <div class="z-formrow">
-                <label for="adjunt">{gt text="Attached file"}</label>
-                {if $missatge.adjunt eq ""}
-                <input type="file" id="adjunt" name="adjunt" />
-                {else}
-                <div class='z-formnote'>
-                <input type="hidden" name="adjunt" value="" />
-                {$missatge.adjunt}
-                <input type="button" onClick="javascript:esborra_fitxer()" value="{gt text='Delete the attached file'}" />
-                <input type="checkbox" name="segur" />{gt text="I'm sure"}
-                </div>
-                {/if}
-            </div>
-            {/if}
+        </div>
+        <!-- Modal icon popup -->
+        <div class="modal fade" id="icons">
+            <div class="modal-dialog" >
+                <div class="modal-content">      
+                    <div class="modal-body">
+                        <div id="iconset">
+                            <input type="radio" id="icon" name="icon" value="" title="Cap" {if $missatge.icon eq ''}checked{/if} />
+                            {section name=icons loop=$icons}
+                                <input type="radio" name="icon" {if $missatge.icon eq $icons[icons].imgsrc}checked{/if} value="{$icons[icons].imgsrc}" />
+                                <img id="{$icons[icons].imgsrc}" src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" style="vertical-align: middle;" />
+                            {/section}                            
+                            <button type="button" onclick="selectedIcon()" style="float:right;font-size:0.8em" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span> {gt text="Ok"}</button> 
+                        </div>         
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->        
+        
+        <div class="col-xs-offset-2 row">    
             {if $icons neq ''}
-            <div class="z-formrow">
-                <label for="icon">{gt text="Icon"}</label>
-                <div class="z-formnote">
-                    <input type="radio" id="icon" name="icon" value="" {if $missatge.icon eq ''}checked{/if} />
-                           {section name=icons loop=$icons}
-                           <input type="radio" name="icon" {if $missatge.icon eq $icons[icons].imgsrc}checked{/if} value="{$icons[icons].imgsrc}" />
-                           <img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" style="vertical-align: middle;" />
-                    {/section}
+                <div class="form-group col-xs-4">                                
+                    <div id="addIcon">
+                        <label class="control-label" >
+                            <span style='cursor:pointer' title='{gt text="Add an icon to the message"}' data-toggle="modal" data-target="#icons"><span class="fa fa-smile-o">&nbsp;</span>{gt text="Icon message"}&nbsp;<img id="currentIcon" style="display:none" src=""></span>
+                        </label>
+                    </div>
+                </div>
+            {else}
+                <input type="hidden" name="icon" value="" />
+            {/if}
+            
+            {if $moderator && ($missatge.idparent eq 0)}
+            <div class="form-group">
+                <label class="col-xs-4 control-label" for="onTop">{gt text="Set as main message"}&nbsp;<span class="glyphicon glyphicon-pushpin"></span></label>
+                <div>
+                    <input class="checkbox" type="checkbox" name="onTop" id="onTop" value="1" {if $missatge.onTop}checked="checked"{/if} />
                 </div>
             </div>
-            {else}
-            <input type="hidden" name="icon" value="" />
             {/if}
-                        {if $moderator}
-            <div class="z-formrow">
-                <label for="onTop">{gt text="Set as main message"}</label>
-                <input type="checkbox" name="onTop" {if $missatge.onTop}checked="checked"{/if} id="onTop" value="1" />
-            </div>
-            {/if}
-            <div class="z-formrow">
-                <label for="intraweb">{gt text="Message"}</label>
-                <textarea name="msg" cols="80" rows="10" id="intraweb">{$missatge.missatge}</textarea>
+        </div> <!--row -->
+        
+            <div class="form-group">
+                <label class="col-xs-2 control-label" for="intraweb">{gt text="Message"}</label>
+                <div class="col-xs-8">
+                    <textarea class="form-control" name="msg" cols="80" rows="10" id="intraweb" required>{$missatge.missatge}</textarea>
+                </div>
+            </div>     
+            <div id="attachment">
+                {include file="ajax/IWforums_ajax_attachment.tpl"}
             </div>
             <div class="z-center">
-                <span class="z-buttons">
-                    <a href="javascript:send()">
-                        {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify the message" __title="Modify the message"}
-                        {gt text="Modify the message"}
+                <span id="btnSend" class="z-buttons">
+                    <a onclick="javascript: send();"><span class="green fs1em glyphicon glyphicon-ok"></span>
+                    &nbsp;{gt text="Modify the message"}
                     </a>
                 </span>
                 <span class="z-buttons">
                     {if $ftid neq 0}
-                    <a href="{modurl modname='IWforums' type='user' func='llista_msg' fid=$fid ftid=$ftid}">
-                        {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
-                        {gt text="cancel"}
+                     <a href="{modurl modname='IWforums' type='user' func='llista_msg' fid=$fid ftid=$ftid}">
+                        <span class="red fs1em glyphicon glyphicon-remove"></span>                    
+                        &nbsp;{gt text="Cancel"}
                     </a>
                     {else}
                     <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">
-                        {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
+                        <span class="red fs1em glyphicon glyphicon-remove"></span> &nbsp;
                         {gt text="cancel"}
                     </a>
                     {/if}
@@ -103,7 +109,33 @@
                     </div>
                 </div>
             </div>
-        </fieldset>
-        <div style="visibility:hidden;"><textarea name="oldmsg" cols="80" rows="10" id="oldintraweb">{$missatge.quotes}</textarea></div>
+        <div style="display:none;"><textarea name="oldmsg" cols="80" rows="10" id="oldintraweb">{$missatge.quotes}</textarea></div>
     </form>
 </div>
+{notifydisplayhooks eventname='IWforums.ui_hooks.IWforums.form_edit' id='intraweb'}
+<script type="text/javascript">
+    jQuery( document ).ready(function() {
+        // Get selected icon image
+        selectedIcon();
+    });
+
+    jQuery('[data-toggle="modal"]').tooltip();
+    jQuery('[data-toggle="tooltip"]').tooltip();    
+
+    function send(){
+    	document.new_msg.action = "index.php?module=IWforums&func=update_msg"
+        if (document.new_msg.titol.value == ""){
+			//for gt detection
+    		alert("{{gt text="You didn't write a title for the message."}}");
+           	var error = true;
+    	}
+    {{if $adjunts neq "0"}}
+    if (document.new_msg.adjunt.value != "" && "{{$extensions}}".indexOf(document.new_msg.adjunt.value.substring(document.new_msg.adjunt.value.length - 3, document.new_msg.adjunt.value.length)) == - 1 && !error){
+		//for gt detection
+    	alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
+        var error = true;
+    }
+    {{/if}}
+            if (!error){document.new_msg.submit(); }
+    }
+</script>

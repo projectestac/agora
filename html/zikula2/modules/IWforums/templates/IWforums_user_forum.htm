@@ -1,14 +1,17 @@
 {include file="IWforums_user_menu.htm" m1=1 m2=1 m3=1 m9=1 fid=$fid ftid=$ftid u=$u inici=$inici}
 {userloggedin assign=userid}
+
 <div class="usercontainer">
     {if $hi_ha_temes}
     <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{$name} {if $u > 0}({$users[$u]|trim}){/if}</h2>
+    
     <strong>{gt text="List of topics"}</strong>
+    
     <table class="z-datatable">
         <tbody>
             {foreach item=tema from=$temes name="temes"}
-            <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
+            <tr bgcolor='{cycle values="#ffffff, #eeeeee"}'>
                 {if $userid neq ''}
                 <td align="center" width="2%" valign="top" class="topic">
                     <a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$tema.ftid fid=$fid u=$u}">
@@ -37,6 +40,13 @@
                         {$tema.descriu|nl2br}
                     </div>
                     <div style="padding-top:10px; font-size:0.9em; font-style:italic;">
+                        <div class="photo">
+                            {if $tema.photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
+                            <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$tema.photo}" class="photoImg" />
+                            {else}
+                            <img src="modules/IWforums/images/avatar.jpg" class="photoImg"/>
+                            {/if}
+                        </div>
                         {gt text="topic created by:"}&nbsp;<span style="color:green; font-weight:bold;">{$users[$tema.usuari]}</span>&nbsp;{gt text="on"}&nbsp;{$tema.data}&nbsp;{gt text="at"}&nbsp;{$tema.hora}
                     </div>
                 </td>
@@ -79,6 +89,7 @@
 </tbody>
 </table>
 {/if}
+
 {if $hi_ha_missatges}
 {if !$hi_ha_temes}
 <div class="userpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
@@ -144,7 +155,7 @@
         <tr bgcolor="{cycle values="#ffffff, #eeeeee"}">
             {if $userid neq ''}
             <td align="center" width="10" onclick="javascript:mark({$fid}, {$message.fmid})">
-                {img modname='IWforums' src=$message.marcat __alt=$message.textmarca __title=$message.textmarca id=$message.fmid}
+                {img modname='IWforums' src=$message.marcat alt=$message.textmarca title=$message.textmarca id=$message.fmid}
             </td>
             {/if}
             {if $icons}
@@ -226,6 +237,7 @@
     </tbody>
 </table>
 <div style="margin-left:20px;">{$pager}</div>
+
 {else}
 {if $u eq 0}
 {if $ftid neq 0}
@@ -242,4 +254,5 @@
 <div style="height:15px;">&nbsp;</div>
 <div>{gt text="This forum has no messages."}</div>
 {/if}
+
 </div>

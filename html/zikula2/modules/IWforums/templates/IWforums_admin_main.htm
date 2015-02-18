@@ -1,9 +1,11 @@
+{pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
 {include file="IWforums_admin_menu.htm"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
-    <div style="height:20px;">&nbsp;</div>
-    <h2>{gt text="Forums list"}</h2>
-    <table class="z-datatable">
+    {*<div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}
+    </div>*}
+
+    <h2><span class="glyphicon glyphicon-list"></span>&nbsp;{gt text="Forums list"}</h2>
+    <table class="table">
         <thead>
             <tr>
                 <th>{gt text="Forum name"}</th>
@@ -18,7 +20,11 @@
         <tbody>
             {foreach item=forum from=$forums}
             <tr class="{cycle values="z-odd,z-even"}">
-                <td align="left" valign="top">{$forum.nom_forum}</td>
+                <td align="left" valign="top">
+                    <a href="{modurl modname='IWforums' type='user' func='forum' fid=$forum.fid}">
+                        {$forum.nom_forum}
+                    </a>
+                </td>
                  <td align="left" valign="top">{$forum.descriu}</td>
                  <td align="left" valign="top" style="text-align:right;">
                      {foreach item=group from=$forum.groups}
@@ -34,7 +40,7 @@
                          {gt text="Read only"}
                          {/if}
                          <a href="javascript:deleteGroup('{$group.id}',{$forum.fid})">
-                             {img modname='core' src='delete_group.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}
+                             {img modname='core' src='delete_group.png' set='icons/extrasmall' __alt="Delete" __title="Delete"}                            
                          </a>
                      </div>
                      {/foreach}
@@ -68,18 +74,14 @@
              <td align="left" valign="top">
                  <div>
                      <a href="{modurl modname='IWforums' type='admin' func='newItem' fid=$forum.fid m=e}">
-                         {gt text="Edit"}
-                     </a>
-                 </div>
-                 <div>
-                     <a href="{modurl modname='IWforums' type='admin' func='delete' fid=$forum.fid}">
-                         {gt text="Delete"}
-                     </a>
-                 </div>
-                 <div>
-                     <a href="{modurl modname='IWforums' type='admin' func='newItem' fid='$forum.fid' m=c}">
-                         {gt text="Copy"}
-                     </a>
+                         {*img modname='core' src='xedit.png' set='icons/extrasmall' __alt="Edit" __title="Edit"*}
+                         <span class="fs1em glyphicon glyphicon-pencil" data-toggle="tooltip" title='{gt text="Edit"}'></span></a>
+                     <a href="{modurl modname='IWforums' type='admin' func='newItem' fid=$forum.fid m=c}" alt="{gt text="Duplicate"}" title="{gt text="Duplicate"}">
+                         {*img modname=$this->name src='dupForum.png' __alt="Duplicate" __title="Duplicate"*}
+                         <span class="fs1em glyphicon glyphicon-tags"></span></a>
+                     <a href="{modurl modname='IWforums' type='admin' func='delete' fid=$forum.fid}" alt="{gt text="Delete"}" title="{gt text="Delete"}">
+                         {*img modname='core' src='button_cancel.png' set='icons/extrasmall' __alt="Delete" __title="Delete"*}
+                         <span class="fs1em glyphicon glyphicon-remove"></span></a>                 
                  </div>
              </td>
             </tr>
@@ -93,6 +95,7 @@
         </tbody>
     </table>
 </div>
+
 <script type="text/javascript">
     var modifyingfield = '{{gt text="...modifying..."}}';
     var deleteConfirmation = '{{gt text="Confirm the deletion"}}';

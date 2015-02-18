@@ -1,4 +1,97 @@
 /* style.css */
+.formInfo {
+    background-color:#fffffc;
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+}
+
+.panel-body p{
+    padding-bottom:0
+}
+.well p{
+    padding:0px !important;
+    margin :0px !important;
+}
+
+.red {
+    color:#dd0000 !important;    
+}
+
+.green {
+    color: green !important;
+}
+
+.white {
+    color: white !important;
+}
+
+hr.gradient { 
+    border: 0; 
+    height: 1px; 
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+.btn-file {
+    position: absolute; /*relative;*/
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.msgTitle{
+    color:#AC2013; /*#59110A;*/
+    font-weight: bold;
+}
+.hr1 {
+    /*margin-top: 20px;*/
+    position: relative;
+    top:-20px;
+    margin-bottom: 10px;
+    border-right: 0px none;
+    border-width: 1px 0px 0px;
+    border-style: solid none none;
+    border-color: #BBB -moz-use-text-color -moz-use-text-color;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+}
+.unread{
+    background-color:#FFD !important;
+}
+.msgheading{
+    margin-bottom: 5px;
+    height:30px;
+}
+
+td#theme_content_center{
+    font-size:1em !important;
+}
+body {
+    font-size:16px !important;
+}
+
+.fs1em{
+    font-size:1em !important;
+    color: black;
+}
 .active{
 	color: green;
 }
@@ -27,7 +120,10 @@ table.usertable td  {
 	padding: 5px; /* top, right, bottom, left */
 }
 
-
+table.table tbody tr:hover {
+	color: #333;
+	background: #e8eaec;
+}
 
 div.usercontainer h2 {
 	text-align: left;
@@ -74,14 +170,47 @@ table.z-datatable, table.z-admintable {
 }
 
 .photoImg{
-   margin-right: 15px;
+   margin-right: 10px;
 }
 
 .photo{
     float: left;
 }
 
+.smallPhoto{
+    width: 35px;
+    border-radius: 500px;
+    background-color:white;
+}
 .msgBox{
     border: 1px solid #aaaaaa;
     padding: 7px;
+}
+
+.z-buttons .z-bt-newTopic {
+    padding: 5px 10px 5px 35px !important;
+    background: url("../images/new_topic.png") #dfdfdf 5px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, -moz-linear-gradient(center top , #ffffff, #dfdfdf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dfdfdf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, linear-gradient(#ffffff, #dfdfdf); /*CSS3*/
+}
+
+.z-buttons .z-bt-newTopic:hover,
+.z-buttons .z-bt-newTopic.hover {
+    background: url("../images/new_topic.png") #cfcfcf 5px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, -moz-linear-gradient(top,  #fafafa, #cfcfcf) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#cfcfcf)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, linear-gradient(#fafafa, #cfcfcf); /*CSS3*/
+}
+
+.z-buttons .z-bt-newTopic:active,
+.z-buttons .z-bt-newTopic.active {
+    background: url("../images/new_topic.png") #fafafa 5px 50% no-repeat; /*non-CSS3 browsers*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, -moz-linear-gradient(top,  #cfcfcf, #fafafa) repeat scroll 0 0 transparent; /*gecko*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#fafafa)) repeat scroll 0 0 transparent; /*webkit*/
+    background: url("../images/new_topic.png") 5px 50% no-repeat, linear-gradient(#cfcfcf, #fafafa); /*CSS3*/
+}
+
+.disabled{
+    color:lightgray;
 }

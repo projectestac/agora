@@ -6,839 +6,1242 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Zikula 1.2.x\n"
+"Project-Id-Version: Zikula 1.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-01 10:44+0100\n"
+"POT-Creation-Date: 2015-02-17 01:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: pnuserapi.php:59 pnuserapi.php:91 pnuserapi.php:143 pnuserapi.php:152
-#: pnuserapi.php:161 pnuserapi.php:168 pnuserapi.php:216 pnuserapi.php:254
-#: pnuserapi.php:294 pnuserapi.php:342 pnuserapi.php:885 pnuserapi.php:1251
+#: lib/IWforums/Installer.php:16
+msgid ""
+"Module IWmain is required. You have to install the IWmain module previously "
+"to install it."
+msgstr ""
+
+#: lib/IWforums/Version.php:6 lib/IWforums/Version.php:8
+msgid "IWforums"
+msgstr ""
+
+#: lib/IWforums/Version.php:7
+msgid "Creation, managment and use of forums."
+msgstr ""
+
+#: lib/IWforums/Version.php:30
+msgid "IWforums Hooks"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:59 lib/IWforums/Api/User.php:89
+#: lib/IWforums/Api/User.php:140 lib/IWforums/Api/User.php:149
+#: lib/IWforums/Api/User.php:158 lib/IWforums/Api/User.php:165
+#: lib/IWforums/Api/User.php:211 lib/IWforums/Api/User.php:256
+#: lib/IWforums/Api/User.php:295 lib/IWforums/Api/User.php:352
+#: lib/IWforums/Api/User.php:1154 lib/IWforums/Api/User.php:1480
 msgid "Error! Could not load items."
 msgstr ""
 
-#: pnuserapi.php:85 pnuserapi.php:198 pnuserapi.php:240 pnuserapi.php:280
-#: pnuserapi.php:322 pnuserapi.php:397 pnuserapi.php:460 pnuserapi.php:504
-#: pnuserapi.php:608 pnuserapi.php:642 pnuserapi.php:692 pnuserapi.php:758
-#: pnuserapi.php:835 pnuserapi.php:912 pnuserapi.php:1016 pnuserapi.php:1076
-#: pnuserapi.php:1196 pnuser.php:92 pnuser.php:982 pnadminapi.php:26
-#: pnadminapi.php:66 pnadminapi.php:103 pnadmin.php:252 pnadmin.php:326
-#: pnadmin.php:396 pnadmin.php:462
+#: lib/IWforums/Api/User.php:83 lib/IWforums/Api/User.php:193
+#: lib/IWforums/Api/User.php:242 lib/IWforums/Api/User.php:281
+#: lib/IWforums/Api/User.php:327 lib/IWforums/Api/User.php:427
+#: lib/IWforums/Api/User.php:433 lib/IWforums/Api/User.php:483
+#: lib/IWforums/Api/User.php:601 lib/IWforums/Api/User.php:718
+#: lib/IWforums/Api/User.php:831 lib/IWforums/Api/User.php:891
+#: lib/IWforums/Api/User.php:953 lib/IWforums/Api/User.php:1014
+#: lib/IWforums/Api/User.php:1098 lib/IWforums/Api/User.php:1182
+#: lib/IWforums/Api/User.php:1286 lib/IWforums/Api/User.php:1344
+#: lib/IWforums/Api/User.php:1434 lib/IWforums/Api/User.php:1494
+#: lib/IWforums/Api/Admin.php:31 lib/IWforums/Api/Admin.php:74
+#: lib/IWforums/Api/Admin.php:111 lib/IWforums/Controller/User.php:1113
+#: lib/IWforums/Controller/Admin.php:233 lib/IWforums/Controller/Admin.php:298
+#: lib/IWforums/Controller/Admin.php:362 lib/IWforums/Controller/Admin.php:420
 msgid "Error! Could not do what you wanted. Please check your input."
 msgstr ""
 
-#: pnuserapi.php:204 pnuserapi.php:246 pnuserapi.php:286 pnuserapi.php:327
-#: pnuserapi.php:403 pnuserapi.php:466 pnuserapi.php:509 pnuserapi.php:658
-#: pnuserapi.php:663 pnuserapi.php:697 pnuserapi.php:702 pnuserapi.php:770
-#: pnuserapi.php:831 pnuserapi.php:928 pnuserapi.php:933 pnuserapi.php:1062
-#: pnuserapi.php:1072 pnuserapi.php:1207 pnuser.php:159 pnuser.php:287
-#: pnuser.php:340 pnuser.php:409 pnuser.php:538 pnuser.php:618 pnuser.php:710
-#: pnuser.php:901 pnuser.php:1030 pnuser.php:1101 pnuser.php:1162
-#: pnuser.php:1194 pnuser.php:1268 pnuser.php:1285 pnuser.php:1345
-#: pnuser.php:1365 pnuser.php:1429 pnuser.php:1498 pnuser.php:1544
-#: pnuser.php:1600 pnuser.php:1680 pnuser.php:1741 pnuser.php:1820
-#: pnuser.php:1840 pnuser.php:1846 pnajax.php:158 pnajax.php:304
+#: lib/IWforums/Api/User.php:199 lib/IWforums/Api/User.php:248
+#: lib/IWforums/Api/User.php:287 lib/IWforums/Api/User.php:332
+#: lib/IWforums/Api/User.php:447 lib/IWforums/Api/User.php:489
+#: lib/IWforums/Api/User.php:525 lib/IWforums/Api/User.php:563
+#: lib/IWforums/Api/User.php:606 lib/IWforums/Api/User.php:849
+#: lib/IWforums/Api/User.php:854 lib/IWforums/Api/User.php:896
+#: lib/IWforums/Api/User.php:901 lib/IWforums/Api/User.php:958
+#: lib/IWforums/Api/User.php:963 lib/IWforums/Api/User.php:1030
+#: lib/IWforums/Api/User.php:1094 lib/IWforums/Api/User.php:1199
+#: lib/IWforums/Api/User.php:1204 lib/IWforums/Api/User.php:1328
+#: lib/IWforums/Api/User.php:1340 lib/IWforums/Api/User.php:1445
+#: lib/IWforums/Api/User.php:1504 lib/IWforums/Controller/User.php:175
+#: lib/IWforums/Controller/User.php:336 lib/IWforums/Controller/User.php:397
+#: lib/IWforums/Controller/User.php:463 lib/IWforums/Controller/User.php:639
+#: lib/IWforums/Controller/User.php:736 lib/IWforums/Controller/User.php:832
+#: lib/IWforums/Controller/User.php:1027 lib/IWforums/Controller/User.php:1158
+#: lib/IWforums/Controller/User.php:1227 lib/IWforums/Controller/User.php:1288
+#: lib/IWforums/Controller/User.php:1322 lib/IWforums/Controller/User.php:1398
+#: lib/IWforums/Controller/User.php:1415 lib/IWforums/Controller/User.php:1471
+#: lib/IWforums/Controller/User.php:1492 lib/IWforums/Controller/User.php:1558
+#: lib/IWforums/Controller/User.php:1643 lib/IWforums/Controller/User.php:1705
+#: lib/IWforums/Controller/User.php:1759 lib/IWforums/Controller/User.php:1847
+#: lib/IWforums/Controller/User.php:1900 lib/IWforums/Controller/User.php:1977
+#: lib/IWforums/Controller/User.php:1996 lib/IWforums/Controller/User.php:2002
+#: lib/IWforums/Controller/User.php:2132 lib/IWforums/Controller/User.php:2192
+#: lib/IWforums/Controller/Ajax.php:220 lib/IWforums/Controller/Ajax.php:416
+#: lib/IWforums/Controller/Ajax.php:585
 msgid "You can't access the forum"
 msgstr ""
 
-#: pnuserapi.php:332 pnuserapi.php:652 pnuserapi.php:922 pnuserapi.php:1056
-#: pnuserapi.php:1202 pnuser.php:99 pnuser.php:167 pnuser.php:295
-#: pnuser.php:334 pnuser.php:419 pnuser.php:546 pnuser.php:558 pnuser.php:626
-#: pnuser.php:716 pnuser.php:723 pnuser.php:764 pnuser.php:907 pnuser.php:914
-#: pnuser.php:1024 pnuser.php:1113 pnuser.php:1168 pnuser.php:1274
-#: pnuser.php:1351 pnuser.php:1436 pnuser.php:1550 pnuser.php:1606
-#: pnuser.php:1618 pnuser.php:1686 pnuser.php:1747 pnuser.php:1783
-#: pnuser.php:1826 pnajax.php:152 pnajax.php:298
+#: lib/IWforums/Api/User.php:337 lib/IWforums/Api/User.php:1322
+#: lib/IWforums/Api/User.php:1440 lib/IWforums/Controller/User.php:116
+#: lib/IWforums/Controller/User.php:182 lib/IWforums/Controller/User.php:345
+#: lib/IWforums/Controller/User.php:391 lib/IWforums/Controller/User.php:649
+#: lib/IWforums/Controller/User.php:662 lib/IWforums/Controller/User.php:838
+#: lib/IWforums/Controller/User.php:845 lib/IWforums/Controller/User.php:889
+#: lib/IWforums/Controller/User.php:1152 lib/IWforums/Controller/User.php:1239
+#: lib/IWforums/Controller/User.php:1404 lib/IWforums/Controller/User.php:1477
+#: lib/IWforums/Controller/User.php:1568 lib/IWforums/Controller/User.php:1711
+#: lib/IWforums/Controller/User.php:1765 lib/IWforums/Controller/User.php:1777
+#: lib/IWforums/Controller/User.php:1853 lib/IWforums/Controller/User.php:1906
+#: lib/IWforums/Controller/User.php:1941 lib/IWforums/Controller/User.php:1983
+#: lib/IWforums/Controller/User.php:2020 lib/IWforums/Controller/Ajax.php:578
 msgid "The forum upon which the ation had to be carried out hasn't been found"
 msgstr ""
 
-#: pnuserapi.php:424 pnuserapi.php:985 pnuserapi.php:1123 pnuserapi.php:1128
-#: pnuserapi.php:1167
+#: lib/IWforums/Api/User.php:454 lib/IWforums/Api/User.php:1243
+#: lib/IWforums/Api/User.php:1382 lib/IWforums/Api/User.php:1412
 msgid "An error has occurred while reading records from the data base"
 msgstr ""
 
-#: pnuserapi.php:476 pnuserapi.php:850 pnadminapi.php:38
+#: lib/IWforums/Api/User.php:499 lib/IWforums/Api/User.php:986
+#: lib/IWforums/Api/User.php:1119 lib/IWforums/Api/Admin.php:46
 msgid "Error! Creation attempt failed."
 msgstr ""
 
-#: pnuserapi.php:621
-msgid "The modification of the users who have read the message has failed"
-msgstr ""
-
-#: pnuserapi.php:647 pnuserapi.php:765 pnuserapi.php:917 pnuserapi.php:1067
-#: pnuser.php:1036 pnuser.php:1107 pnuser.php:1174 pnuser.php:1187
-#: pnuser.php:1280 pnuser.php:1361 pnuser.php:1442 pnuser.php:1450
-#: pnuser.php:1692 pnuser.php:1753 pnuser.php:1834
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:26 pnajax.php:164
-#: pnajax.php:310
-msgid "No messages have been found"
-msgstr ""
-
-#: pnuserapi.php:667 pnadminapi.php:125 pnadminapi.php:132 pnadminapi.php:137
-msgid "Error! Sorry! Deletion attempt failed."
-msgstr ""
-
-#: pnuserapi.php:716 pnuserapi.php:733
-msgid "The transfer of the message has failed"
-msgstr ""
-
-#: pnuserapi.php:789 pnuserapi.php:795
-msgid "An error has occurred while deleting the message"
-msgstr ""
-
-#: pnuserapi.php:858 pnuserapi.php:893 pninit.php:120 pnadminapi.php:80
+#: lib/IWforums/Api/User.php:538 lib/IWforums/Api/User.php:577
+#: lib/IWforums/Api/User.php:1127 lib/IWforums/Api/User.php:1162
+#: lib/IWforums/Api/User.php:1359 lib/IWforums/Api/User.php:1454
+#: lib/IWforums/Api/Admin.php:89
 msgid "Error! Update attempt failed."
 msgstr ""
 
-#: pnuserapi.php:950 pnuserapi.php:1091
-msgid "An error has occurred while editing the message"
+#: lib/IWforums/Api/User.php:729
+msgid "The modification of the users who have read the message has failed"
 msgstr ""
 
-#: pnuserapi.php:1028
-msgid "An error has occurred while checking/unchecking a message"
-msgstr ""
-
-#: pninit.php:26 pnadmin.php:20
-msgid ""
-"Module IWmain is required. You have to install the IWmain module "
-"previously to install it."
-msgstr ""
-
-#: pnuser.php:12 pnuser.php:56 pnadminapi.php:21 pnadminapi.php:61
-#: pnadminapi.php:98 pnajax.php:12 pnajax.php:50 pnajax.php:98 pnajax.php:132
-#: pnajax.php:197 pnajax.php:238 pnajax.php:279 pnadmin.php:12 pnadmin.php:97
-#: pnadmin.php:120 pnadmin.php:160 pnadmin.php:223 pnadmin.php:289
-#: pnadmin.php:357 pnadmin.php:430 pnadmin.php:492 pnadmin.php:533
-#: pnadmin.php:574 pnadmin.php:602
-msgid "Sorry! No authorization to access this module."
-msgstr ""
-
-#: pnuser.php:193 pnuser.php:442 pnuser.php:773 pnuser.php:811
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:155 pnajax.php:178
+#: lib/IWforums/Api/User.php:769 lib/IWforums/Controller/User.php:218
+#: lib/IWforums/Controller/User.php:511 lib/IWforums/Controller/User.php:899
+#: lib/IWforums/Controller/User.php:938 lib/IWforums/Controller/Ajax.php:441
 msgid "Check the message"
 msgstr ""
 
-#: pnuser.php:193 pnuser.php:446 pnuser.php:773 pnuser.php:811
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:159 pnajax.php:178
+#: lib/IWforums/Api/User.php:773 lib/IWforums/Controller/User.php:218
+#: lib/IWforums/Controller/User.php:515 lib/IWforums/Controller/User.php:899
+#: lib/IWforums/Controller/User.php:938 lib/IWforums/Controller/Ajax.php:441
 msgid "Uncheck the message"
 msgstr ""
 
-#: pnuser.php:242 pnuser.php:482
+#: lib/IWforums/Api/User.php:837 lib/IWforums/Api/User.php:968
+#: lib/IWforums/Api/User.php:1021 lib/IWforums/Api/User.php:1188
+#: lib/IWforums/Api/User.php:1335 lib/IWforums/Api/User.php:1499
+#: lib/IWforums/Api/User.php:1550 lib/IWforums/Controller/User.php:1164
+#: lib/IWforums/Controller/User.php:1233 lib/IWforums/Controller/User.php:1300
+#: lib/IWforums/Controller/User.php:1313 lib/IWforums/Controller/User.php:1410
+#: lib/IWforums/Controller/User.php:1488 lib/IWforums/Controller/User.php:1574
+#: lib/IWforums/Controller/User.php:1582 lib/IWforums/Controller/User.php:1859
+#: lib/IWforums/Controller/User.php:1912 lib/IWforums/Controller/User.php:1990
+#: lib/IWforums/Controller/User.php:2139 lib/IWforums/Controller/Ajax.php:423
+#: lib/IWforums/Controller/Ajax.php:592
+msgid "No messages have been found"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:842 lib/IWforums/Api/User.php:1193
+#: lib/IWforums/Controller/User.php:474 lib/IWforums/Controller/User.php:743
+#: lib/IWforums/Controller/User.php:1033 lib/IWforums/Controller/User.php:1040
+#: lib/IWforums/Controller/User.php:1294 lib/IWforums/Controller/Ajax.php:409
+msgid "The forum upon which the action had to be carried out hasn't been found"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:858 lib/IWforums/Api/Admin.php:130
+#: lib/IWforums/Api/Admin.php:137 lib/IWforums/Api/Admin.php:142
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: lib/IWforums/Api/User.php:868
+msgid "The empty topic has been deleted."
+msgstr ""
+
+#: lib/IWforums/Api/User.php:911 lib/IWforums/Api/User.php:927
+msgid "The transfer of the message has failed"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1054 lib/IWforums/Api/User.php:1058
+msgid "An error has occurred while deleting the message"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1214
+msgid "An error has occurred while editing the message"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1296
+msgid "An error has occurred while checking/unchecking a message"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1516
+msgid "An error has occurred while setting a message as main message."
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1556 templates/IWforums_user_openMsg.htm:34
+#: templates/user/IWforums_user_messages.tpl:70
+msgid "Reply to the message"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1559
+msgid "Who has read the message?"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1563 templates/user/IWforums_user_forum.tpl:30
+msgid "Create a new topic"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1566 templates/user/IWforums_user_forum.tpl:37
+msgid "Send a new message"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1569
+msgid "View the forum list"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1572
+msgid "Return to the list of topics and messages"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1575
+msgid "Return to the message list"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1578
+msgid "Return to the message"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1582 lib/IWforums/Api/User.php:1584
+msgid "Check all messages as read"
+msgstr ""
+
+#: lib/IWforums/Api/User.php:1588
+msgid "Check/uncheck the message"
+msgstr ""
+
+#: lib/IWforums/Api/Admin.php:81 lib/IWforums/Api/Admin.php:118
+msgid "No valid forum"
+msgstr ""
+
+#: lib/IWforums/Api/Admin.php:151 templates/IWforums_admin_newItem.htm:31
+msgid "Create a new forum"
+msgstr ""
+
+#: lib/IWforums/Api/Admin.php:152
+msgid "View the created forums"
+msgstr ""
+
+#: lib/IWforums/Api/Admin.php:153 templates/IWforums_admin_configura.htm:4
+msgid "Configure the module"
+msgstr ""
+
+#: lib/IWforums/Controller/User.php:274 lib/IWforums/Controller/User.php:571
 msgid "Choose the sender..."
 msgstr ""
 
-#: pnuser.php:350
+#: lib/IWforums/Controller/User.php:407
 msgid "A new topic has been created."
 msgstr ""
 
-#: pnuser.php:352 pnuser.php:665 pnuser.php:668
+#: lib/IWforums/Controller/User.php:409 lib/IWforums/Controller/User.php:786
+#: lib/IWforums/Controller/User.php:789
 msgid "During the next "
 msgstr ""
 
-#: pnuser.php:352
+#: lib/IWforums/Controller/User.php:409
 msgid " minutes you can delete the topic."
 msgstr ""
 
-#: pnuser.php:356
+#: lib/IWforums/Controller/User.php:412
 msgid "An error has occurred while creating a new topic"
 msgstr ""
 
-#: pnuser.php:369 pnuser.php:640
+#: lib/IWforums/Controller/User.php:425 lib/IWforums/Controller/User.php:757
 msgid ""
 "An error has occurred in the attachment of the file. The message has been "
 "sent without the attached file."
 msgstr ""
 
-#: pnuser.php:384 pnuser.php:672
+#: lib/IWforums/Controller/User.php:439 lib/IWforums/Controller/User.php:793
 msgid "An error has occurred while creating a new message"
 msgstr ""
 
-#: pnuser.php:562
-msgid "wrote on"
-msgstr ""
-
-#: pnuser.php:663
+#: lib/IWforums/Controller/User.php:784
 msgid "A new message has been created."
 msgstr ""
 
-#: pnuser.php:665
+#: lib/IWforums/Controller/User.php:786
 msgid " munutes you can edit the message"
 msgstr ""
 
-#: pnuser.php:668
+#: lib/IWforums/Controller/User.php:789
 msgid " minutes you can delete the message"
 msgstr ""
 
-#: pnuser.php:743 pntemplates/IWforums_user_move_msg.htm:26
-#: pntemplates/IWforums_user_allmsg.htm:19
-#: pntemplates/IWforums_user_msg.htm:24
-#: pntemplates/IWforums_user_del_msg.htm:14
-#: pntemplates/IWforums_user_printallmsg.htm:14
-msgid "From: "
-msgstr ""
-
-#: pnuser.php:744 pntemplates/IWforums_user_move_msg.htm:32
-#: pntemplates/IWforums_user_forum.htm:128
-#: pntemplates/IWforums_user_allmsg.htm:25
-#: pntemplates/IWforums_user_msg.htm:30 pntemplates/IWforums_user_msg.htm:81
-#: pntemplates/IWforums_user_del_msg.htm:20
-#: pntemplates/IWforums_user_printallmsg.htm:20
-msgid "Date"
-msgstr ""
-
-#: pnuser.php:745 pntemplates/IWforums_user_move_msg.htm:37
-#: pntemplates/IWforums_user_forum.htm:129
-#: pntemplates/IWforums_user_allmsg.htm:30
-#: pntemplates/IWforums_user_msg.htm:35 pntemplates/IWforums_user_msg.htm:82
-#: pntemplates/IWforums_user_del_msg.htm:25
-#: pntemplates/IWforums_user_printallmsg.htm:25
-msgid "Time"
-msgstr ""
-
-#: pnuser.php:747 pntemplates/IWforums_user_new_tema.htm:51
-#: pntemplates/IWforums_user_new_msg.htm:40
-#: pntemplates/IWforums_user_edit_msg.htm:40
-#: pntemplates/IWforums_user_msg.htm:42
-#: pntemplates/IWforums_user_openMsg.htm:15
-#: pntemplates/IWforums_user_printallmsg.htm:32
-msgid "Attached file"
-msgstr ""
-
-#: pnuser.php:987
+#: lib/IWforums/Controller/User.php:1118
 msgid "You are not allowed to do this action"
 msgstr ""
 
-#: pnuser.php:1199
+#: lib/IWforums/Controller/User.php:1327
 msgid ""
 "The message can not be deleted because have answers. You can move the "
 "answers to an other theme or forum."
 msgstr ""
 
-#: pnuser.php:1229
+#: lib/IWforums/Controller/User.php:1353
 msgid "The message has been deleted."
 msgstr ""
 
-#: pnuser.php:1377
+#: lib/IWforums/Controller/User.php:1504
 msgid "Probably the message has been sended without the attached file."
 msgstr ""
 
-#: pnuser.php:1392
+#: lib/IWforums/Controller/User.php:1517
 msgid "The message has been modified"
 msgstr ""
 
-#: pnuser.php:1394
+#: lib/IWforums/Controller/User.php:1519
 msgid "Error trying to edit the message"
 msgstr ""
 
-#: pnuser.php:1509
+#: lib/IWforums/Controller/User.php:1651
+msgid ""
+"No action done because the source and destiny forum and topic are the same"
+msgstr ""
+
+#: lib/IWforums/Controller/User.php:1660
+msgid "The message has been copied to the new destiny."
+msgstr ""
+
+#: lib/IWforums/Controller/User.php:1662
+msgid "Error triyng to copy the message to the new destiny."
+msgstr ""
+
+#: lib/IWforums/Controller/User.php:1672
 msgid "The message has been transferred"
 msgstr ""
 
-#: pnuser.php:1714
+#: lib/IWforums/Controller/User.php:1875
 msgid "The topic has been deleted."
 msgstr ""
 
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:41
-#: pntemplates/IWforums_user_openMsg.htm:34
-msgid "Reply to the message"
+#: lib/IWforums/Controller/User.php:2145
+msgid "The message can not be set as main message."
 msgstr ""
 
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:51
-msgid "Who has read the message?"
+#: lib/IWforums/Controller/User.php:2156
+msgid "The message has been set as not main message."
 msgstr ""
 
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:58
-msgid "Create a new topic"
+#: lib/IWforums/Controller/User.php:2156
+msgid "The message has been set as main message."
 msgstr ""
 
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:66
-msgid "Send a new message"
+#: lib/IWforums/Controller/User.php:2180 lib/IWforums/Controller/Ajax.php:252
+#: lib/IWforums/Controller/Ajax.php:275 lib/IWforums/Controller/Ajax.php:325
+msgid "No forum id"
 msgstr ""
 
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:71
-msgid "View the forum list"
+#: lib/IWforums/Controller/User.php:2185 lib/IWforums/Controller/Ajax.php:256
+#: lib/IWforums/Controller/Ajax.php:329
+msgid "No topic id"
 msgstr ""
 
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:78
-msgid "Return to the list of topics and messages"
-msgstr ""
-
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:87
-msgid "Return to the message list"
-msgstr ""
-
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:98
-msgid "Return to the message"
-msgstr ""
-
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:105
-#: pntemplates/plugins/function.iwforumsusermenulinks.php:111
-msgid "Check all messages as read"
-msgstr ""
-
-#: pntemplates/plugins/function.iwforumsadminmenulinks.php:27
-#: pntemplates/IWforums_admin_new.htm:15
-#: pntemplates/IWforums_admin_configura.htm:5
-msgid "Create a new forum"
-msgstr ""
-
-#: pntemplates/plugins/function.iwforumsadminmenulinks.php:31
-msgid "View the created forums"
-msgstr ""
-
-#: pntemplates/plugins/function.iwforumsadminmenulinks.php:35
-msgid "Configure the module"
-msgstr ""
-
-#: pnajax.php:69 pnajax.php:212 pnajax.php:253 pnadmin.php:130 pnadmin.php:229
-#: pnadmin.php:295 pnadmin.php:363 pnadmin.php:436 pnadmin.php:498
-#: pnadmin.php:608
-msgid "Forum not found"
-msgstr ""
-
-#: pnadmin.php:57 pnadmin.php:307 pntemplates/IWforums_admin_addGroup.htm:13
+#: lib/IWforums/Controller/Admin.php:53 lib/IWforums/Controller/Admin.php:286
+#: templates/IWforums_admin_addGroup.htm:13
 msgid "Unregistered"
 msgstr ""
 
-#: pnadmin.php:188
+#: lib/IWforums/Controller/Admin.php:113 lib/IWforums/Controller/Admin.php:215
+#: lib/IWforums/Controller/Admin.php:274 lib/IWforums/Controller/Admin.php:334
+#: lib/IWforums/Controller/Admin.php:400 lib/IWforums/Controller/Admin.php:454
+#: lib/IWforums/Controller/Admin.php:552 lib/IWforums/Controller/Ajax.php:143
+#: lib/IWforums/Controller/Ajax.php:188 lib/IWforums/Controller/Ajax.php:488
+#: lib/IWforums/Controller/Ajax.php:531
+msgid "Forum not found"
+msgstr ""
+
+#: lib/IWforums/Controller/Admin.php:169
 msgid "The forum has been modified"
 msgstr ""
 
-#: pnadmin.php:200
+#: lib/IWforums/Controller/Admin.php:188
 msgid "A new forum has been created"
 msgstr ""
 
-#: pnadmin.php:269
+#: lib/IWforums/Controller/Admin.php:249
 msgid "Group added"
 msgstr ""
 
-#: pnadmin.php:336
+#: lib/IWforums/Controller/Admin.php:309
 msgid "The access has been deleted"
 msgstr ""
 
-#: pnadmin.php:372 pntemplates/IWforums_admin_addGroup.htm:12
+#: lib/IWforums/Controller/Admin.php:343
+#: templates/IWforums_admin_addGroup.htm:12
 msgid "Choose a gruop..."
 msgstr ""
 
-#: pnadmin.php:409
+#: lib/IWforums/Controller/Admin.php:375
 msgid "Moderador added"
 msgstr ""
 
-#: pnadmin.php:517
+#: lib/IWforums/Controller/Admin.php:467
 msgid "The forum has been deleted"
 msgstr ""
 
-#: pnadmin.php:585
+#: lib/IWforums/Controller/Admin.php:530
 msgid "The configuration of the module has been modified"
 msgstr ""
 
-#: pnversion.php:9 pnversion.php:13
-msgid "IWforums"
+#: lib/IWforums/Controller/Ajax.php:11 lib/IWforums/Controller/Ajax.php:104
+#: lib/IWforums/Controller/Ajax.php:126 lib/IWforums/Controller/Ajax.php:174
+#: lib/IWforums/Controller/Ajax.php:211 lib/IWforums/Controller/Ajax.php:247
+#: lib/IWforums/Controller/Ajax.php:270 lib/IWforums/Controller/Ajax.php:320
+#: lib/IWforums/Controller/Ajax.php:359 lib/IWforums/Controller/Ajax.php:388
+#: lib/IWforums/Controller/Ajax.php:471 lib/IWforums/Controller/Ajax.php:514
+#: lib/IWforums/Controller/Ajax.php:557
+msgid "Sorry! No authorization to access this module."
 msgstr ""
 
-#: pnversion.php:11
-msgid "Creation, managment and use of forums"
+#: lib/IWforums/Controller/Ajax.php:16 lib/IWforums/Controller/Ajax.php:481
+msgid "no group id"
 msgstr ""
 
-#: pnversion.php:12
-msgid "IWForums"
+#: lib/IWforums/Controller/Ajax.php:28
+msgid "unable to get group members or group is empty for gid="
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:4
-msgid "You didn't write a title for the topic"
+#: lib/IWforums/Controller/Ajax.php:115
+#: templates/user/IWforums_user_new_tema.tpl:41
+#: templates/ajax/IWforums_ajax_attachment.tpl:7
+msgid "Browse..."
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:8
-#: pntemplates/IWforums_user_new_msg.htm:4
-#: pntemplates/IWforums_user_edit_msg.htm:10
+#: templates/ajax/IWforums_ajax_attachment.tpl:30
+msgid "Delete the file"
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:131 lib/IWforums/Controller/Ajax.php:170
+#: lib/IWforums/Controller/Ajax.php:364 lib/IWforums/Controller/Ajax.php:397
+#: lib/IWforums/Controller/Ajax.php:476 lib/IWforums/Controller/Ajax.php:519
+#: lib/IWforums/Controller/Ajax.php:561
+msgid "no forum id"
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:136
+msgid "no char defined"
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:154
+msgid "Error"
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:180
+msgid "Sorry! No authorization to edit content forum."
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:336
+msgid "No topic title"
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:402 lib/IWforums/Controller/Ajax.php:566
+msgid "no message id"
+msgstr ""
+
+#: lib/IWforums/Controller/Ajax.php:524
+msgid "no user id"
+msgstr ""
+
+#: templates/IWforums_admin_delete.htm:4
+msgid "Delete the forum"
+msgstr ""
+
+#: templates/IWforums_admin_delete.htm:9
+#: templates/IWforums_user_del_msg.htm:51
+msgid "Confirm the deletion of the forum"
+msgstr ""
+
+#: templates/IWforums_admin_delete.htm:13
+#: templates/IWforums_admin_delete.htm:14 templates/IWforums_admin_main.htm:43
+#: templates/IWforums_admin_main.htm:58 templates/IWforums_admin_main.htm:82
+#: templates/IWforums_admin_main.htm:83
+#: templates/IWforums_admin_deleteModerator.htm:16
+#: templates/IWforums_admin_deleteModerator.htm:17
+msgid "Delete"
+msgstr ""
+
+#: templates/IWforums_admin_delete.htm:19
+#: templates/IWforums_user_del_msg.htm:57
+#: templates/IWforums_user_del_msg.htm:62
+msgid "Cancel the deletion of the forum"
+msgstr ""
+
+#: templates/IWforums_admin_delete.htm:20
+#: templates/IWforums_admin_configura.htm:49
+#: templates/IWforums_admin_configura.htm:50
+#: templates/IWforums_user_new_msg.htm:108
+#: templates/IWforums_user_new_msg.htm:113
+#: templates/IWforums_user_edit_msg.htm:97
+#: templates/IWforums_user_del_msg.htm:58
+#: templates/IWforums_user_del_msg.htm:63
+#: templates/IWforums_admin_addGroup.htm:42
+#: templates/IWforums_admin_addGroup.htm:43
+#: templates/IWforums_user_new_tema.htm:70
+#: templates/IWforums_admin_deleteGroup.htm:22
+#: templates/IWforums_admin_deleteGroup.htm:23
+#: templates/user/IWforums_user_moveMessage.tpl:134
+#: templates/user/IWforums_user_moveMessage.tpl:138
+#: templates/user/IWforums_user_topicsList.tpl:63
+#: templates/user/IWforums_user_forumDesc.tpl:56
+#: templates/user/IWforums_user_messages.tpl:137
+#: templates/user/IWforums_user_new_tema.tpl:52
+#: templates/IWforums_admin_newItem.htm:111
+#: templates/IWforums_admin_newItem.htm:116
+#: templates/IWforums_user_del_tema.htm:21
+#: templates/IWforums_user_del_tema.htm:22
+#: templates/IWforums_admin_deleteModerator.htm:22
+#: templates/IWforums_admin_deleteModerator.htm:23
+#: templates/IWforums_user_move_msg.htm:95
+#: templates/IWforums_user_move_msg.htm:100
+#: templates/ajax/IWforums_ajax_attachment.tpl:33
+#: templates/ajax/IWforums_ajax_editTopic.tpl:23
+#: templates/IWforums_admin_addModerator.htm:34
+msgid "Cancel"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:9 templates/IWforums_user_new_msg.htm:13
+#: templates/IWforums_user_edit_msg.htm:13
+#: templates/user/IWforums_user_moveMessage.tpl:17
+#: templates/user/IWforums_user_topicsList.tpl:10
+#: templates/user/IWforums_user_forum.tpl:12
+#: templates/user/IWforums_user_forum.tpl:19
+msgid "List of topics"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:50
+msgid "topic created by:"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:50 templates/IWforums_user_forum.htm:64
+msgid "on"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:50 templates/IWforums_user_forum.htm:64
+#: templates/user/IWforums_user_topicInfo.tpl:32
+#: templates/user/IWforums_user_topicInfo.tpl:57
+msgid "at"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:55
+msgid "Messages:"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:59
+msgid " Unread messages:"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:64
+msgid "Last post by"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:71
+#: templates/user/IWforums_user_topicInfo.tpl:71
+msgid "Delete the topic"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:72 templates/IWforums_user_del_tema.htm:4
+msgid "Topic and messages deletion"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:76 templates/IWforums_user_forum.htm:77
+msgid "Up"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:81 templates/IWforums_user_forum.htm:82
+msgid "Down"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:99 templates/IWforums_user_forum.htm:101
+msgid "List of messages"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:129
+msgid "All the messages of the list"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:144 templates/IWforums_user_msg.htm:69
+#: templates/ajax/IWforums_ajax_editTopic.tpl:8
+msgid "Title"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:145 templates/IWforums_user_msg.htm:70
+msgid "Sender"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:146
+#: templates/IWforums_user_del_msg.htm:20
+#: templates/IWforums_user_printallmsg.htm:20
+#: templates/IWforums_user_msg.htm:33 templates/IWforums_user_msg.htm:71
+#: templates/IWforums_user_allmsg.htm:18
+#: templates/IWforums_user_move_msg.htm:32
+msgid "Date"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:147
+#: templates/IWforums_user_del_msg.htm:25
+#: templates/IWforums_user_printallmsg.htm:25
+#: templates/IWforums_user_msg.htm:36 templates/IWforums_user_msg.htm:72
+#: templates/IWforums_user_allmsg.htm:21
+#: templates/IWforums_user_move_msg.htm:37
+msgid "Time"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:149
+msgid "Actions"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:187
+msgid "Main message"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:203 templates/IWforums_user_forum.htm:204
+#: templates/IWforums_user_del_msg.htm:4
+#: templates/user/IWforums_user_messages.tpl:96
+msgid "Delete the message"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:208 templates/IWforums_user_forum.htm:209
+#: templates/IWforums_user_edit_msg.htm:21
+#: templates/user/IWforums_user_messages.tpl:75
+msgid "Edit the message"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:213 templates/IWforums_user_forum.htm:214
+#: templates/IWforums_user_forum.htm:219 templates/IWforums_user_forum.htm:221
+#: templates/IWforums_user_forum.htm:225
+#: templates/IWforums_user_openMsg.htm:33
+#: templates/user/IWforums_user_moveMessage.tpl:19
+#: templates/user/IWforums_user_messages.tpl:79
+#: templates/user/IWforums_user_messages.tpl:80
+#: templates/IWforums_user_move_msg.htm:16
+msgid "Move the message"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:217 templates/IWforums_user_forum.htm:221
+#: templates/IWforums_user_new_msg.htm:76
+#: templates/IWforums_user_edit_msg.htm:68
+#: templates/user/IWforums_user_messages.tpl:83
+msgid "Set as main message"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:217 templates/IWforums_user_forum.htm:219
+#: templates/user/IWforums_user_messages.tpl:83
+msgid "Set as not main message"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:245
+msgid "This subjet has no messages."
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:249
+#: templates/user/IWforums_user_forum.tpl:96
+msgid "The user "
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:249
+#: templates/user/IWforums_user_forum.tpl:96
+msgid " you haven't sent any message to this topic"
+msgstr ""
+
+#: templates/IWforums_user_forum.htm:255
+#: templates/user/IWforums_user_forum.tpl:104
+msgid "This forum has no messages."
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:10
+msgid "Root of the file folder"
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:15
+msgid "Server folder where will be save the attached files"
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:19
+msgid "The attached files folder have not been found."
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:24
+msgid "This folder needs writting atributes."
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:29
+msgid "The unregistered users can view messages writers avatars"
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:33
+msgid "Smilies active"
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:37
+msgid "Open format"
+msgstr ""
+
+#: templates/IWforums_admin_configura.htm:43
+#: templates/IWforums_admin_configura.htm:44
+#: templates/IWforums_admin_mainChars.htm:1
+#: templates/IWforums_admin_mainChars.htm:10
+#: templates/IWforums_admin_newItem.htm:99
+#: templates/IWforums_admin_newItem.htm:102
+msgid "Modify"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:12
+#: templates/IWforums_user_edit_msg.htm:12 templates/IWforums_user_main.htm:6
+#: templates/user/IWforums_user_moveMessage.tpl:16
+#: templates/user/IWforums_user_forum.tpl:11
+#: templates/user/IWforums_user_forum.tpl:18
+#: templates/IWforums_admin_main.htm:7
+msgid "Forums list"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:14
+#: templates/IWforums_user_edit_msg.htm:14
+#: templates/user/IWforums_user_moveMessage.tpl:18
+#: templates/user/IWforums_user_forum.tpl:13
+msgid "Posts"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:16
+msgid "Reply message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:18
+msgid "New message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:25
+msgid "Add a new message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:27
+msgid "Message reply"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:40
+#: templates/IWforums_user_edit_msg.htm:30
+#: templates/IWforums_user_new_tema.htm:46
+msgid "Title of the message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:42
+#: templates/IWforums_user_edit_msg.htm:32
+msgid "Enter message title"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:56
+msgid "Do it!"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:67
+#: templates/IWforums_user_edit_msg.htm:58
+msgid "Add an icon to the message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:67
+#: templates/IWforums_user_edit_msg.htm:58
+msgid "Icon message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:84
+#: templates/IWforums_user_edit_msg.htm:77
+#: templates/IWforums_user_new_tema.htm:55
+#: templates/user/IWforums_user_messages.tpl:131
+#: templates/user/IWforums_user_new_tema.tpl:31
+msgid "Message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:96
+msgid "Create the message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:100
+msgid "Reply the message"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:135
+msgid "wrote on"
+msgstr ""
+
+#: templates/IWforums_user_new_msg.htm:153
+#: templates/IWforums_user_edit_msg.htm:131
+#: templates/IWforums_user_new_tema.htm:10
+#: templates/user/IWforums_user_new_tema.tpl:82
 msgid "You didn't write a title for the message."
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:14
-#: pntemplates/IWforums_user_new_msg.htm:9
-#: pntemplates/IWforums_user_edit_msg.htm:15
+#: templates/IWforums_user_new_msg.htm:164
+#: templates/IWforums_user_edit_msg.htm:137
+#: templates/IWforums_user_new_tema.htm:17
 msgid ""
 "The extension of the attached file isn't correct. The valid extensions are: "
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:18
-#: pntemplates/IWforums_user_new_msg.htm:13
-msgid "Do you really want to send the message?"
+#: templates/IWforums_user_edit_msg.htm:15
+#: templates/IWforums_admin_main.htm:77 templates/IWforums_admin_main.htm:78
+msgid "Edit"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:25
-msgid "Add a new topic"
+#: templates/IWforums_user_edit_msg.htm:46
+msgid "Ok"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:33
-msgid "Title of the topic"
+#: templates/IWforums_user_edit_msg.htm:90
+msgid "Modify the message"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:37
-#: pntemplates/IWforums_admin_new.htm:25
-#: pntemplates/IWforums_user_main.htm:14
-#: pntemplates/IWforums_admin_main.htm:10
-msgid "Description"
+#: templates/IWforums_user_edit_msg.htm:102
+msgid "cancel"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:40
-msgid "First message of the topic (optional)"
+#: templates/IWforums_user_del_msg.htm:14
+#: templates/IWforums_user_printallmsg.htm:14
+#: templates/IWforums_user_msg.htm:29 templates/IWforums_user_allmsg.htm:14
+#: templates/IWforums_user_move_msg.htm:26
+msgid "From: "
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:42
-#: pntemplates/IWforums_user_new_msg.htm:35
-#: pntemplates/IWforums_user_edit_msg.htm:35
-msgid "Title of the message"
+#: templates/IWforums_user_del_msg.htm:51
+#: templates/user/IWforums_user_messages.tpl:120
+msgid "Confirm the deletion of the message"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:46
-#: pntemplates/IWforums_user_new_msg.htm:58
-#: pntemplates/IWforums_user_edit_msg.htm:70
-msgid "Message"
+#: templates/IWforums_user_openMsg.htm:15
+#: templates/IWforums_user_printallmsg.htm:32
+#: templates/IWforums_user_new_tema.htm:60 templates/IWforums_user_msg.htm:40
+#: templates/user/IWforums_user_moveMessage.tpl:83
+#: templates/user/IWforums_user_messages.tpl:59
+#: templates/user/IWforums_user_new_tema.tpl:38
+#: templates/ajax/IWforums_ajax_attachment.tpl:3
+msgid "Attached file"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:57
-#: pntemplates/IWforums_admin_deleteModerator.htm:14
-#: pntemplates/IWforums_admin_addModerator.htm:27
-#: pntemplates/IWforums_admin_addGroup.htm:30
-#: pntemplates/IWforums_admin_deleteGroup.htm:14
+#: templates/IWforums_admin_addGroup.htm:4
+#: templates/IWforums_admin_main.htm:49
+msgid "Add a group with access to the forum"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:10
+#: templates/IWforums_admin_main.htm:13
+#: templates/IWforums_admin_addModerator.htm:9
+msgid "Group"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:25
+#: templates/IWforums_user_main.htm:17
+msgid "Access type"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:27
+#: templates/IWforums_user_main.htm:64 templates/IWforums_admin_main.htm:40
+msgid "Read only"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:28
+#: templates/IWforums_user_main.htm:62 templates/IWforums_admin_main.htm:34
+msgid "Read and write"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:29
+#: templates/IWforums_user_main.htm:60 templates/IWforums_admin_main.htm:36
+msgid "Read, write and topics creation"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:30
+#: templates/IWforums_user_main.htm:58 templates/IWforums_admin_main.htm:38
+msgid "Moderation"
+msgstr ""
+
+#: templates/IWforums_admin_addGroup.htm:36
+#: templates/IWforums_admin_addGroup.htm:37
+#: templates/IWforums_user_new_tema.htm:67
+#: templates/IWforums_admin_deleteGroup.htm:16
+#: templates/IWforums_admin_deleteGroup.htm:17
+#: templates/IWforums_admin_addModerator.htm:29
 msgid "Add"
 msgstr ""
 
-#: pntemplates/IWforums_user_new_tema.htm:59
-#: pntemplates/IWforums_admin_new.htm:50
-#: pntemplates/IWforums_admin_deleteModerator.htm:15
-#: pntemplates/IWforums_user_new_msg.htm:68
-#: pntemplates/IWforums_user_new_msg.htm:70
-#: pntemplates/IWforums_user_edit_msg.htm:82
-#: pntemplates/IWforums_user_edit_msg.htm:84
-#: pntemplates/IWforums_user_del_tema.htm:15
-#: pntemplates/IWforums_admin_addModerator.htm:28
-#: pntemplates/IWforums_admin_configura.htm:35
-#: pntemplates/IWforums_admin_addGroup.htm:31
-#: pntemplates/IWforums_admin_deleteGroup.htm:15
-msgid "Cancel"
+#: templates/IWforums_admin_mainChars.htm:2
+msgid "Attachments?"
 msgstr ""
 
-#: pntemplates/IWforums_admin_menu.htm:5
-#: pntemplates/IWforums_user_menu.htm:3
-msgid "Forums"
+#: templates/IWforums_admin_mainChars.htm:4
+#: templates/IWforums_admin_mainChars.htm:13
+msgid "Yes"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:5
-msgid "You haven't writte the name of the forum "
+#: templates/IWforums_admin_mainChars.htm:6
+#: templates/IWforums_admin_mainChars.htm:15
+#: templates/IWforums_admin_mainChars.htm:22
+#: templates/IWforums_admin_mainChars.htm:28
+msgid "No"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:21
-#: pntemplates/IWforums_user_main.htm:13
-#: pntemplates/IWforums_admin_main.htm:9
+#: templates/IWforums_admin_mainChars.htm:11
+#: templates/IWforums_admin_newItem.htm:86
+msgid "Active?"
+msgstr ""
+
+#: templates/IWforums_admin_mainChars.htm:20
+#: templates/IWforums_admin_mainChars.htm:22
+msgid "Editable"
+msgstr ""
+
+#: templates/IWforums_admin_mainChars.htm:20
+#: templates/IWforums_admin_mainChars.htm:26
+msgid "minutes"
+msgstr ""
+
+#: templates/IWforums_admin_mainChars.htm:26
+#: templates/IWforums_admin_mainChars.htm:28
+msgid "Deletable"
+msgstr ""
+
+#: templates/IWforums_user_new_tema.htm:5
+msgid "You didn't write a title for the topic"
+msgstr ""
+
+#: templates/IWforums_user_new_tema.htm:29
+#: templates/user/IWforums_user_new_tema.tpl:9
+msgid "Add a new topic"
+msgstr ""
+
+#: templates/IWforums_user_new_tema.htm:37
+msgid "Title of the topic"
+msgstr ""
+
+#: templates/IWforums_user_new_tema.htm:41 templates/IWforums_user_main.htm:15
+#: templates/user/IWforums_user_new_tema.tpl:25
+#: templates/IWforums_admin_main.htm:12
+#: templates/ajax/IWforums_ajax_editTopic.tpl:14
+msgid "Description"
+msgstr ""
+
+#: templates/IWforums_user_new_tema.htm:44
+msgid "First message of the topic (optional)"
+msgstr ""
+
+#: templates/IWforums_user_msg.htm:22
+msgid "Change"
+msgstr ""
+
+#: templates/IWforums_user_main.htm:14
+#: templates/user/IWforums_user_forumDesc.tpl:29
+#: templates/IWforums_admin_newItem.htm:41
+#: templates/IWforums_admin_main.htm:11
 msgid "Forum name"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:29
-msgid "Attached files are allowed"
+#: templates/IWforums_user_main.htm:19
+msgid "N. topics"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:33
+#: templates/IWforums_user_main.htm:20
+#: templates/user/IWforums_user_topicsList.tpl:16
+msgid "Messages"
+msgstr ""
+
+#: templates/IWforums_user_main.htm:22
+msgid "Unreaded"
+msgstr ""
+
+#: templates/IWforums_user_main.htm:88 templates/IWforums_admin_main.htm:91
+msgid "There are no forum created"
+msgstr ""
+
+#: templates/IWforums_user_readers.htm:5
+msgid "The message has been read by:"
+msgstr ""
+
+#: templates/IWforums_admin_deleteGroup.htm:4
+msgid "Delete the access to the group "
+msgstr ""
+
+#: templates/IWforums_admin_deleteGroup.htm:11
+#: templates/IWforums_admin_main.htm:101
+msgid "Confirm the deletion"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:23
+#: templates/user/IWforums_user_moveMessage.tpl:127
+#: templates/user/IWforums_user_moveMessage.tpl:128
+#: templates/IWforums_user_move_msg.htm:52
+#: templates/IWforums_user_move_msg.htm:87
+#: templates/IWforums_user_move_msg.htm:88
+msgid "Confirm the transfer"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:42
+#: templates/user/IWforums_user_moveMessage.tpl:86
+#: templates/user/IWforums_user_messages.tpl:15
+#: templates/user/IWforums_user_messages.tpl:62
+msgid "Download"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:72
+#: templates/user/IWforums_user_messages.tpl:48
+msgid "by"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:94
+#: templates/IWforums_user_move_msg.htm:62
+msgid "Move the message to the forum"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:107
+#: templates/IWforums_user_move_msg.htm:72
+msgid "Move the message to the topic"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:110
+#: templates/IWforums_user_move_msg.htm:74
+msgid "Without topic"
+msgstr ""
+
+#: templates/user/IWforums_user_moveMessage.tpl:121
+#: templates/IWforums_user_move_msg.htm:82
+msgid "Keep a copy in the source forum and topic"
+msgstr ""
+
+#: templates/user/IWforums_user_topicInfo.tpl:5
+msgid "Contains marked messages"
+msgstr ""
+
+#: templates/user/IWforums_user_topicInfo.tpl:64
+msgid "Edit the topic"
+msgstr ""
+
+#: templates/user/IWforums_user_topicInfo.tpl:73
+msgid "Drag&Drop to Move"
+msgstr ""
+
+#: templates/user/IWforums_user_topicsList.tpl:13
+#: templates/user/IWforums_user_topicsList.tpl:58
+msgid "Started by"
+msgstr ""
+
+#: templates/user/IWforums_user_topicsList.tpl:19
+msgid "Unread"
+msgstr ""
+
+#: templates/user/IWforums_user_topicsList.tpl:22
+msgid "Last post"
+msgstr ""
+
+#: templates/user/IWforums_user_topicsList.tpl:27
+msgid "Enable topics list reorder"
+msgstr ""
+
+#: templates/user/IWforums_user_topicsList.tpl:48
+#: templates/IWforums_user_del_tema.htm:6
+msgid "Confirmation of deletion of the topic and its messages"
+msgstr ""
+
+#: templates/user/IWforums_user_topicsList.tpl:62
+#: templates/user/IWforums_user_messages.tpl:136
+#: templates/ajax/IWforums_ajax_attachment.tpl:32
+msgid "I'm sure"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:13
+msgid "Edit forum introduction"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:31
+msgid "Enter forum name"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:35
+#: templates/IWforums_admin_newItem.htm:47
+msgid "Brief description"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:35
+#: templates/user/IWforums_user_forumDesc.tpl:41
+#: templates/user/IWforums_user_forumDesc.tpl:47
+#: templates/user/IWforums_user_new_tema.tpl:25
+#: templates/IWforums_admin_newItem.htm:53
+#: templates/IWforums_admin_newItem.htm:59
+#: templates/ajax/IWforums_ajax_editTopic.tpl:14
+msgid "optional"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:41
+#: templates/IWforums_admin_newItem.htm:53
+msgid "Introduction"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:47
+#: templates/IWforums_admin_newItem.htm:59
+#: templates/IWforums_admin_main.htm:16
+msgid "Observations"
+msgstr ""
+
+#: templates/user/IWforums_user_forumDesc.tpl:54
+#: templates/ajax/IWforums_ajax_editTopic.tpl:21
+msgid "Apply changes"
+msgstr ""
+
+#: templates/user/IWforums_user_forum.tpl:51
+msgid "It's recommended to move this message to a specific topic"
+msgid_plural "It's recommended to move these messages to a specific topic"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/user/IWforums_user_forum.tpl:68
+msgid "Filter"
+msgstr ""
+
+#: templates/user/IWforums_user_forum.tpl:90
+msgid "This topic has no messages."
+msgstr ""
+
+#: templates/user/IWforums_user_new_tema.tpl:19
+msgid "Subject"
+msgstr ""
+
+#: templates/user/IWforums_user_new_tema.tpl:49
+msgid "Post to forum"
+msgstr ""
+
+#: templates/user/IWforums_user_new_tema.tpl:93
+#: templates/user/IWforums_user_new_tema.tpl:101
+#: templates/user/IWforums_user_new_tema.tpl:108
+msgid "You didn't write the message."
+msgstr ""
+
+#: templates/user/IWforums_user_new_tema.tpl:121
+msgid "Validation error."
+msgstr ""
+
+#: templates/user/IWforums_user_new_tema.tpl:127
+msgid "Close"
+msgstr ""
+
+#: templates/IWforums_user_pager.htm:1
+msgid "Pages:"
+msgstr ""
+
+#: templates/IWforums_admin_newItem.htm:6
+msgid "You haven't write the name of the forum"
+msgstr ""
+
+#: templates/IWforums_admin_newItem.htm:26
+#, php-format
+msgid "Create a new forum copying '%s' values"
+msgstr ""
+
+#: templates/IWforums_admin_newItem.htm:28
+msgid "Edit forum"
+msgstr ""
+
+#: templates/IWforums_admin_newItem.htm:67
 msgid ""
 "Minutes, after the submission, during which the messages can be edited by "
 "theirs authors"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:37
+#: templates/IWforums_admin_newItem.htm:73
 msgid ""
 "Minutes, after the submission, during which the messages can be deleted by "
 "theirs authors"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:41
-#: pntemplates/IWforums_admin_main.htm:14
-msgid "Observations"
+#: templates/IWforums_admin_newItem.htm:80
+msgid "Attached files are allowed"
 msgstr ""
 
-#: pntemplates/IWforums_admin_new.htm:45
-msgid "Active?"
-msgstr ""
-
-#: pntemplates/IWforums_admin_new.htm:49
-#: pntemplates/IWforums_admin_configura.htm:34
+#: templates/IWforums_admin_newItem.htm:95
+#: templates/IWforums_admin_newItem.htm:107
 msgid "Create"
 msgstr ""
 
-#: pntemplates/IWforums_user_pager.htm:1
-msgid "Pages:"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:5
-#: pntemplates/IWforums_admin_main.htm:5
-msgid "Forums list"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:16
-#: pntemplates/IWforums_admin_addGroup.htm:20
-msgid "Access type"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:18
-msgid "N. topics"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:19
-msgid "N. messages"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:52
-#: pntemplates/IWforums_admin_addGroup.htm:25
-#: pntemplates/IWforums_admin_main.htm:32
-msgid "Moderation"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:54
-#: pntemplates/IWforums_admin_addGroup.htm:24
-#: pntemplates/IWforums_admin_main.htm:30
-msgid "Read, write and topics creation"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:56
-#: pntemplates/IWforums_admin_addGroup.htm:23
-#: pntemplates/IWforums_admin_main.htm:28
-msgid "Read and write"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:58
-#: pntemplates/IWforums_admin_addGroup.htm:22
-#: pntemplates/IWforums_admin_main.htm:34
-msgid "Read only"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:84
-#: pntemplates/IWforums_admin_main.htm:79
-msgid "There are no forum created"
-msgstr ""
-
-#: pntemplates/IWforums_user_main.htm:89
-#: pntemplates/IWforums_admin_main.htm:86
-msgid "About this module"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:1
-#: pntemplates/IWforums_admin_mainChars.htm:10
-msgid "Modify"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:2
-msgid "Attachments?"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:4
-#: pntemplates/IWforums_admin_mainChars.htm:13
-msgid "Yes"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:6
-#: pntemplates/IWforums_admin_mainChars.htm:15
-#: pntemplates/IWforums_admin_mainChars.htm:23
-#: pntemplates/IWforums_admin_mainChars.htm:29
-msgid "No"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:11
-msgid "Status"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:21
-#: pntemplates/IWforums_admin_mainChars.htm:23
-msgid "Editable"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:21
-#: pntemplates/IWforums_admin_mainChars.htm:27
-msgid "minutes"
-msgstr ""
-
-#: pntemplates/IWforums_admin_mainChars.htm:27
-#: pntemplates/IWforums_admin_mainChars.htm:29
-msgid "Deletable"
-msgstr ""
-
-#: pntemplates/IWforums_admin_del.htm:5
-#: pntemplates/IWforums_admin_delete.htm:4
-msgid "Delete the forum"
-msgstr ""
-
-#: pntemplates/IWforums_admin_del.htm:7
-#: pntemplates/IWforums_user_del_msg.htm:47
-#: pntemplates/IWforums_admin_delete.htm:9
-msgid "Confirm the deletion of the forum"
-msgstr ""
-
-#: pntemplates/IWforums_admin_del.htm:13
-msgid "Confirm"
-msgstr ""
-
-#: pntemplates/IWforums_admin_del.htm:16
-#: pntemplates/IWforums_user_del_msg.htm:50
-#: pntemplates/IWforums_user_del_msg.htm:53
-#: pntemplates/IWforums_admin_delete.htm:12
-msgid "Cancel the deletion of the forum"
-msgstr ""
-
-#: pntemplates/IWforums_user_move_msg.htm:16
-#: pntemplates/IWforums_user_forum.htm:194
-#: pntemplates/IWforums_user_forum.htm:195
-#: pntemplates/IWforums_user_openMsg.htm:33
-msgid "Move the message"
-msgstr ""
-
-#: pntemplates/IWforums_user_move_msg.htm:52
-#: pntemplates/IWforums_user_move_msg.htm:83
-msgid "Confirm the transfer"
-msgstr ""
-
-#: pntemplates/IWforums_user_move_msg.htm:62
-msgid "Move the message to the forum"
-msgstr ""
-
-#: pntemplates/IWforums_user_move_msg.htm:71
-msgid "Move the message to the topic"
-msgstr ""
-
-#: pntemplates/IWforums_user_move_msg.htm:73
-msgid "Without topic"
-msgstr ""
-
-#: pntemplates/IWforums_user_move_msg.htm:86
-#: pntemplates/IWforums_user_move_msg.htm:89
-msgid "Cancel the transfer of the message"
-msgstr ""
-
-#: pntemplates/IWforums_admin_deleteModerator.htm:4
-#: pntemplates/IWforums_admin_main.htm:91
-msgid "Delete moderator"
-msgstr ""
-
-#: pntemplates/IWforums_admin_deleteModerator.htm:11
-msgid "Confirm que deletion of the moderator"
-msgstr ""
-
-#: pntemplates/IWforums_user_new_msg.htm:24
-msgid "Add a new message"
-msgstr ""
-
-#: pntemplates/IWforums_user_new_msg.htm:46
-#: pntemplates/IWforums_user_edit_msg.htm:57
-msgid "Icon"
-msgstr ""
-
-#: pntemplates/IWforums_user_new_msg.htm:66
-msgid "Create the message"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:7
-msgid "List of topics"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:39
-msgid "topic created by:"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:39
-#: pntemplates/IWforums_user_forum.htm:53
-msgid "on"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:39
-#: pntemplates/IWforums_user_forum.htm:53
-msgid "at"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:44
-msgid "Messages:"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:48
-msgid " Unread messages:"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:53
-msgid "Last post by"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:60
-msgid "Delete the topic"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:61
-#: pntemplates/IWforums_user_del_tema.htm:4
-msgid "Topic and messages deletion"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:65
-#: pntemplates/IWforums_user_forum.htm:66
-msgid "Up"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:70
-#: pntemplates/IWforums_user_forum.htm:71
-msgid "Down"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:86
-#: pntemplates/IWforums_user_forum.htm:88
-msgid "List of messages"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:114
-msgid "All the messages of the list"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:126
-#: pntemplates/IWforums_user_msg.htm:79
-msgid "Title"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:127
-#: pntemplates/IWforums_user_msg.htm:80
-msgid "Sender"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:131
-msgid "Actions"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:184
-#: pntemplates/IWforums_user_forum.htm:185
-#: pntemplates/IWforums_user_del_msg.htm:4
-msgid "Delete the message"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:189
-#: pntemplates/IWforums_user_forum.htm:190
-#: pntemplates/IWforums_user_edit_msg.htm:25
-msgid "Edit the message"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:213
-msgid "This subjet has no messages."
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:217
-msgid "The user "
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:217
-msgid " you haven't sent any message to this topic"
-msgstr ""
-
-#: pntemplates/IWforums_user_forum.htm:223
-msgid "This forum has no messages."
-msgstr ""
-
-#: pntemplates/IWforums_user_edit_msg.htm:48
-msgid "Delete the attached file"
-msgstr ""
-
-#: pntemplates/IWforums_user_edit_msg.htm:50
-msgid "I'm sure"
-msgstr ""
-
-#: pntemplates/IWforums_user_edit_msg.htm:80
-msgid "Modify the message"
-msgstr ""
-
-#: pntemplates/IWforums_user_del_tema.htm:6
-msgid "Confirmation of deletion of the topic and its messages"
-msgstr ""
-
-#: pntemplates/IWforums_user_del_tema.htm:14
-msgid "Confirm the deletion of the topic"
-msgstr ""
-
-#: pntemplates/IWforums_admin_addModerator.htm:4
-#: pntemplates/IWforums_admin_main.htm:60
-msgid "Add a moderator"
-msgstr ""
-
-#: pntemplates/IWforums_admin_addModerator.htm:9
-#: pntemplates/IWforums_admin_addGroup.htm:10
-#: pntemplates/IWforums_admin_main.htm:11
-msgid "Group"
-msgstr ""
-
-#: pntemplates/IWforums_admin_addModerator.htm:17
-msgid "Choose a moderator"
-msgstr ""
-
-#: pntemplates/IWforums_admin_configura.htm:11
-msgid "Root of the file folder"
-msgstr ""
-
-#: pntemplates/IWforums_admin_configura.htm:16
-msgid "Server folder where will be save the attached files"
-msgstr ""
-
-#: pntemplates/IWforums_admin_configura.htm:21
-msgid "The attached files folder have not been found"
-msgstr ""
-
-#: pntemplates/IWforums_admin_configura.htm:26
-msgid "(This folder needs writting atributes)"
-msgstr ""
-
-#: pntemplates/IWforums_admin_configura.htm:30
-msgid "The unregistered users can view messages writers avatars"
-msgstr ""
-
-#: pntemplates/IWforums_admin_addGroup.htm:4
-#: pntemplates/IWforums_admin_main.htm:44
-msgid "Add a group with access to the forum"
-msgstr ""
-
-#: pntemplates/IWforums_admin_deleteGroup.htm:4
-msgid "Delete the access to the group "
-msgstr ""
-
-#: pntemplates/IWforums_admin_deleteGroup.htm:11
-#: pntemplates/IWforums_admin_main.htm:90
-msgid "Confirm the deletion"
-msgstr ""
-
-#: pntemplates/IWforums_user_readers.htm:2
-msgid "The message has been read by:"
-msgstr ""
-
-#: pntemplates/IWforums_admin_main.htm:12
+#: templates/IWforums_admin_main.htm:14
 msgid "Moderators"
 msgstr ""
 
-#: pntemplates/IWforums_admin_main.htm:13
+#: templates/IWforums_admin_main.htm:15
 msgid "Features"
 msgstr ""
 
-#: pntemplates/IWforums_admin_main.htm:15
+#: templates/IWforums_admin_main.htm:17
 msgid "Options"
 msgstr ""
 
-#: pntemplates/IWforums_admin_main.htm:38
-#: pntemplates/IWforums_admin_main.htm:54
-#: pntemplates/IWforums_admin_main.htm:72
-#: pntemplates/IWforums_admin_delete.htm:11
-msgid "Delete"
+#: templates/IWforums_admin_main.htm:64
+#: templates/IWforums_admin_addModerator.htm:4
+msgid "Add a moderator"
 msgstr ""
 
-#: pntemplates/IWforums_admin_main.htm:71
-msgid "Edit"
+#: templates/IWforums_admin_main.htm:79 templates/IWforums_admin_main.htm:80
+msgid "Duplicate"
 msgstr ""
 
-#: pntemplates/IWforums_admin_main.htm:73
-msgid "Copy"
-msgstr ""
-
-#: pntemplates/IWforums_admin_main.htm:89
+#: templates/IWforums_admin_main.htm:100
 msgid "...modifying..."
+msgstr ""
+
+#: templates/IWforums_admin_main.htm:102
+#: templates/IWforums_admin_deleteModerator.htm:4
+msgid "Delete moderator"
+msgstr ""
+
+#: templates/IWforums_user_del_tema.htm:15
+#: templates/IWforums_user_del_tema.htm:16
+msgid "Confirm the deletion of the topic"
+msgstr ""
+
+#: templates/IWforums_admin_deleteModerator.htm:11
+msgid "Confirm que deletion of the moderator"
+msgstr ""
+
+#: templates/IWforums_user_move_msg.htm:94
+#: templates/IWforums_user_move_msg.htm:99
+msgid "Cancel the transfer of the message"
+msgstr ""
+
+#: templates/ajax/IWforums_ajax_attachment.tpl:10
+msgid "Clear selection"
+msgstr ""
+
+#: templates/ajax/IWforums_ajax_attachment.tpl:16
+msgid "Delete the attached file"
+msgstr ""
+
+#: templates/ajax/IWforums_ajax_attachment.tpl:26
+msgid "Attachment removal confirmation"
+msgstr ""
+
+#: templates/IWforums_admin_menu.htm:5
+msgid "Forums"
+msgstr ""
+
+#: templates/IWforums_admin_addModerator.htm:17
+msgid "Choose a moderator"
+msgstr ""
+
+#: templates/user/IWforums_user_new_tema.tpl:22
+msgid "Write the topic title"
 msgstr ""

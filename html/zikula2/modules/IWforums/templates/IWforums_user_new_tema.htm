@@ -1,22 +1,26 @@
 <script language="javascript">
     function send(){
         if(document.new_tema.titol.value==""){
+			//for gt detection
             alert("{{gt text="You didn't write a title for the topic"}}");
             var error=true;
         }
         if(document.new_tema.titolmsg.value=="" && document.new_tema.msg.value!="" && !error){
+			//for gt detection
             alert("{{gt text="You didn't write a title for the message."}}");
             var error=true;
         }
 
         {{if $adjunts neq "0"}}
         if(document.new_tema.adjunt.value!="" && "{{$extensions}}".indexOf(document.new_tema.adjunt.value.substring(document.new_tema.adjunt.value.length-3,document.new_tema.adjunt.value.length))==-1  && !error){
+			//for gt detection
             alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
             var error=true;
         }
         {{/if}}
-        if(!error){resposta=confirm("{{gt text="Do you really want to send the message?"}}");}
-        if(!error && resposta){document.new_tema.submit();}
+        //if(!error){resposta=confirm("{{gt text="Do you really want to send the message?"}}");}
+        //if(!error && resposta){document.new_tema.submit();}
+        if(!error){document.new_tema.submit();}
     }
 </script>
 {include file="IWforums_user_menu.htm" m3=1 m4=1}
@@ -24,15 +28,15 @@
     <div class="userpageicon">{img modname='core' src='filenew.png' set='icons/large'}</div>
     <h2>{$name} => {gt text="Add a new topic"}</h2>
     <div style="height:5px;">&nbsp;</div>
-    <form  method="post" name="new_tema" id="new_msg" action="{modurl modname='IWforums' type='user' func='crear_tema'}" enctype="multipart/form-data">
+    <form  class="z-form" method="post" name="new_tema" id="new_msg" action="{modurl modname='IWforums' type='user' func='crear_tema'}" enctype="multipart/form-data">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fid" value="{$fid}" />
-        <input type="hidden" name="ftid" value="{$ftid}" />
+        <input type="hidden" name="ftid" value="{$ftid}" />       
         <table class="usertable">
             <tr>
                 <td>{gt text="Title of the topic"}</td>
                 <td><input type="text" name="titol" maxlength="80" size="60"></td>
-            </tr>
+            </tr>            
             <tr>
                 <td>{gt text="Description"}</td>
                 <td><textarea name="descriu" cols="60" rows="6"></textarea></td>
@@ -40,8 +44,13 @@
             <tr><td></td><td colspan="1" align="left">{gt text="First message of the topic (optional)"}</td></tr>
             <tr>
                 <td>{gt text="Title of the message"}</td>
-                <td><input type="text" name="titolmsg" maxlength="80" size="60" value="{$title}"></td>
-            </tr>
+                <td>
+                    <div >
+                        <input type="text" name="titolmsg" maxlength="80" size="60" value="{$title}">
+                    </div>
+                </td>
+                   
+            </tr>           
             <tr>
                 <td>{gt text="Message"}</td>
                 <td><textarea name="msg" cols="60" rows="10" id="intraweb"></textarea></td>

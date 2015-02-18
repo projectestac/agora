@@ -47,8 +47,10 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
         //Create module vars
         $this->setVar('urladjunts', 'forums')
                 ->setVar('avatarsVisible', '1')
+                ->setVar('restyledTheme', '1')
                 ->setVar('smiliesActive', '1');
-
+        
+        HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
         //Initialation successfull
         return true;
     }
@@ -66,9 +68,12 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
 
         //Delete module vars
         $this->delVar('urladjunts')
-                ->delVar('avatarsVisible')
-                ->delVar('smiliesActive');
+             ->delVar('avatarsVisible')
+             ->delVar('restyledTheme')
+             ->delVar('smiliesActive');
         ;
+        // unregister hook handlers
+        HookUtil::unregisterSubscriberBundles($this->version->getHookSubscriberBundles());
         //success
         return true;
     }
@@ -77,37 +82,52 @@ class IWforums_Installer extends Zikula_AbstractInstaller {
      * Update the IWforums module
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @author Jaume Fernàndez Valiente (jfern343@xtec.cat)
+     * @author Josep Ferràndiz Farré (jferran6@xtec.cat)
      * @return bool true if successful, false otherwise
      */
     public function upgrade($oldversion) {
+         switch (true) {
+            case ($oldversion < '3.0.0'):
+                //ADD new fields to tables
+                $c = "ALTER TABLE `IWforums_msg` ADD `iw_onTop` TINYINT (4) NOT NULL DEFAULT '0'";
+                if (!DBUtil::executeSQL($c)) {
+                    return false;
+                }
 
-        //ADD new fields to tables
-        $c = "ALTER TABLE `IWforums_msg` ADD `iw_onTop` TINYINT (4) NOT NULL DEFAULT '0'";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
+                //Array de noms
+                $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWforums'", '', false, '');
 
-        //Array de noms
-        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWforums'", '', false, '');
+                $newVarsNames = Array('urladjunts', 'avatarsVisible', 'smiliesActive');
 
-        $newVarsNames = Array('urladjunts', 'avatarsVisible', 'smiliesActive');
+                $newVars = Array('urladjunts' => 'forums',
+                    'avatarsVisible' => 1,
+                    'smiliesActive' => 1);
 
-        $newVars = Array('urladjunts' => 'forums',
-            'avatarsVisible' => 1,
-            'smiliesActive' => 1);
+                // Delete unneeded vars
+                $del = array_diff($oldVarsNames, $newVarsNames);
+                foreach ($del as $i) {
+                    $this->delVar($i);
+                }
 
-        // Delete unneeded vars
-        $del = array_diff($oldVarsNames, $newVarsNames);
-        foreach ($del as $i) {
-            $this->delVar($i);
-        }
-
-        // Add new vars
-        $add = array_diff($newVarsNames, $oldVarsNames);
-        foreach ($add as $i) {
-            $this->setVar($i, $newVars[$i]);
-        }
-
+                // Add new vars
+                $add = array_diff($newVarsNames, $oldVarsNames);
+                foreach ($add as $i) {
+                    $this->setVar($i, $newVars[$i]);
+                }
+                
+            case ($oldversion == '3.0.0'):                
+                $sql = "ALTER TABLE `IWforums_definition` ADD `longDescriu` LONGTEXT NOT NULL Default ''";
+                $connection = Doctrine_Manager::getInstance()->getConnection('default');
+                $stmt = $connection->prepare($sql);
+                try {
+                    $stmt->execute();
+                } catch (Exception $e) {
+                    LogUtil::registerError($e->getMessage());
+                    return false;
+                }   
+                $this->setVar('restyledTheme', '1');
+                HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
+         }
         return true;
     }
 

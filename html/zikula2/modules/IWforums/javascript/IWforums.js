@@ -2,6 +2,281 @@ function failure () {
 
 }
 
+function create_msg(){
+    //alert(document.getElementById('intraweb').value);
+    if (document.getElementById('intraweb').value == '') {
+        jQuery('#intraweb').focus();
+    }
+}
+
+function enableTopicListSort(){
+    if (jQuery( "#EnDisSort" ).hasClass( "disabled" )) {
+        jQuery('.handle').removeClass('hide');
+        jQuery('#EnDisSort').removeClass('disabled'); 
+        jQuery('#divEDSort').attr('data-original-title',Zikula.__('Disable topics list reorder','module_iwforums_js'));    
+    } else {
+        jQuery('.handle').addClass('hide');
+        jQuery('#EnDisSort').addClass('disabled'); 
+        jQuery('#divEDSort').attr('data-original-title',Zikula.__('Enable topics list reorder','module_iwforums_js'));
+    }
+}
+
+// Delete selected topic and its messages
+function deleteTopic(){
+    var fid = jQuery('#fid').val();
+    var ftid = jQuery('#ftid').val();
+
+    var p = {
+        fid : fid,
+        ftid: ftid,
+        deleteTopic: true
+    }    
+    if (typeof(fid) != 'undefined')
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=reorderTopics", {
+        parameters: p,
+        onComplete: deleteTopic_reponse,
+        onFailure: failure
+    });
+}
+
+function deleteTopic_reponse(req) {
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    
+    var b = req.getData();
+    $('topicsList').update(b.content);
+}
+
+function reorderTopics(fid, ftid){
+    var tList = jQuery("#topicsTableBody").sortable("serialize");
+
+    var p = {
+        fid : fid,
+        ftid : ftid,
+        ordre : tList
+    }    
+    
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=reorderTopics", {
+        parameters: p,
+        onComplete: reorderTopics_reponse,
+        onFailure: failure
+    });
+}
+
+function reorderTopics_reponse(req){
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    
+    var b = req.getData();
+    $('topicsList').update(b.content);
+    
+    jQuery('#divEDSort').attr('title',Zikula.__('Disable topics list reorder','module_iwforums_js'));    
+    enableTopicListSort();  
+}
+/*
+ * Deleta message attached file
+ * @returns {}
+ */
+function delAttachment(){
+    var p = {
+        fid : document.new_msg["fid"].value,
+        fmid : document.new_msg["fmid"].value
+    }    
+    
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=delAttachment", {
+        parameters: p,
+        onComplete: delAttachment_reponse,
+        onFailure: failure
+    });
+}
+    
+function delAttachment_reponse(req){
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+        
+    var b = req.getData();
+    $('attachment').update(b.content); 
+    // Reload filestyle 
+    jQuery(":file").filestyle({
+        buttonText  : b.btnMsg ,
+        buttonBefore: true,
+        iconName    : "glyphicon-paperclip"
+    });
+    jQuery(":file").filestyle('clear');    
+}    
+    
+/*
+ * Apply introduction forum changes
+ * @returns {}
+ */
+function updateForumIntro(){
+    var fid          = document.feditform["fid"].value;
+    var nom_forum    = document.feditform["titol"].value;
+    var descriu      = document.feditform["descriu"].value;
+    var longDescriu  = document.feditform["lDesc"].value;
+    var observacions = document.feditform["observacions"].value;
+    var topicsPage   = document.feditform["topicsPage"].value;
+    
+    /*if (typeof tinyMCE != "undefined") {
+         tinyMCE.execCommand('mceRemoveEditor', true, 'lDesc');
+    }
+    */
+    //Scribite.destroyEditor('lDesc');
+    var p = {
+        fid         : fid,
+        nom_forum   : nom_forum,
+        descriu     : descriu,
+        longDescriu : longDescriu,
+        topicsPage  : topicsPage,
+        observacions: observacions
+    };
+    
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=setForum", {
+        parameters: p,
+        onComplete: updateForumIntro_reponse,
+        onFailure: failure
+    });
+}
+
+function updateForumIntro_reponse(req){
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    
+    var b = req.getData();
+    $('forumDescription').update(b.content);   
+    jQuery("#btnNewTopic").toggle();   
+    if (b.moduleSc){
+        if (b.moduleSc == 'new') Scribite.createEditors();
+        if (b.moduleSc == 'old') document.location.reload(true);
+    }
+    /*if (typeof tinyMCE != "undefined") {
+        tinyMCE.execCommand('mceAddEditor', true, 'lDesc');
+    }
+    */
+}
+
+// Get selected image icon in edit, create and reply message forms
+function selectedIcon(){
+    var file= jQuery("#iconset input[type='radio']:checked").val();
+    if (file != "") {
+        var src = document.getElementById(file).src;
+        jQuery('#currentIcon').attr("src", src);
+        jQuery('#currentIcon').show();
+    } else {
+        jQuery('#currentIcon').hide();
+    }
+}
+
+function checkName(){
+    if (jQuery('#titol').val().length < 1) {
+        jQuery('#btnSend').hide();
+        jQuery('#inputName').addClass('has-error');
+    } else {
+        jQuery('#btnSend').show();
+        jQuery('#inputName').removeClass('has-error');
+        jQuery('#titol').focus();
+    }
+}
+
+// Show/hide forum information edition form
+function showEditForumForm(){       
+    jQuery("#forumIntroduction").toggle();
+    jQuery("#forumEdition").toggle();
+    jQuery("#btnNewTopic").toggle();
+}
+
+function getTopic(fid, ftid){
+     var p = {
+         fid : fid,
+         ftid: ftid
+    };
+
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=getTopic", {
+        parameters: p,
+        onComplete: getTopic_response,
+        onFailure: failure
+    });
+}
+
+function getTopic_response(req){
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    
+    var b = req.getData();
+    $('row_'+b.id).update(b.content);    
+}
+
+function editTopic(fid, ftid){
+     var p = {
+         fid : fid,
+         ftid: ftid
+    };
+
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=editTopic", {
+        parameters: p,
+        onComplete: editTopic_response,
+        onFailure: failure
+    });
+}
+
+function editTopic_response(req)
+{    
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    
+    var b = req.getData();
+    $('row_'+b.id).update(b.content);    
+}
+
+// Save topic with new values 
+function setTopic(){
+    var fid     = document.feditTopic["fid"].value;
+    var ftid    = document.feditTopic["ftid"].value;
+    var titol   = document.feditTopic["titol"].value;
+    var descriu = document.feditTopic["descriu"].value;
+
+     var p = {
+         fid : fid,
+         ftid: ftid,
+         titol: titol,
+         descriu: descriu
+    };
+
+    new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWforums&func=setTopic", {
+        parameters: p,
+        onComplete: setTopic_response,
+        onFailure: failure
+    });
+}
+
+function setTopic_response(req){
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    
+    var b = req.getData();
+    $('row_'+b.id).update(b.content);  
+    // Show or hide sortable list
+    if (jQuery( "#EnDisSort" ).hasClass( "disabled" )) {
+        jQuery('.handle').addClass('hide');
+    } else {
+        jQuery('.handle').removeClass('hide');
+    }
+}
+
 function chgUsers(a){
     show_info();
     var b={
@@ -97,6 +372,39 @@ function changeContent_response(a){
     $('forumChars_' + b.fid).update(b.content);
 }
 
+// Check or uncheck forum message
+function of_mark(fid,msgId){
+    var b={
+        fid:fid,
+        fmid:msgId
+    };
+    var c=new Zikula.Ajax.Request(Zikula.Config.baseURL+"ajax.php?module=IWforums&func=mark",{
+        parameters: b,
+        onComplete: of_mark_response,
+        onFailure: failure
+    });
+    
+}
+
+function of_mark_response(a){
+    if(!a.isSuccess()){
+        Zikula.showajaxerror(a.getMessage());
+        return
+    }
+    var b=a.getData();
+    var icon = '<span data-toggle="tooltip" class="glyphicon glyphicon-flag" title="'+b.ofMarkText+'"></span>'; 
+    if(b.m == 1){
+        Element.removeClassName(b.fmid, 'disabled');
+        //Element.writeAttribute(b.fmid,'title',b.ofMarkText);
+    }else{
+        Element.addClassName(b.fmid, 'disabled');
+        //Element.writeAttribute(b.fmid,'title',b.ofMarkText);
+    }
+    $(b.fmid).update(icon);    
+    if (b.reloadFlags) {
+        reloadFlaggedBlock();
+    }
+}
 function mark(a,aa){
     var b={
         fid:a,

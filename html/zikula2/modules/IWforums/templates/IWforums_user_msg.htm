@@ -10,7 +10,7 @@
         {/if}
         {$title}
     </h2>
-    <div width="100%" class="msgBox">
+    <div class="msgBox">
         <div class="photo">
             {if $photo neq '' AND ($userid neq '' OR $avatarsVisible eq 1)}
             <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$photo}" class="photoImg" />
@@ -47,7 +47,7 @@
         <div class="z-clearer"></div>
         <hr />
         <div>
-            {$message|nl2br}
+            {$message}
         </div>
     </div>
 

@@ -16,6 +16,10 @@ class IWforums_Api_Admin extends Zikula_AbstractApi {
         $msgDelTime = FormUtil::getPassedValue('msgDelTime', isset($args['msgDelTime']) ? $args['msgDelTime'] : null, 'POST');
         $observacions = FormUtil::getPassedValue('observacions', isset($args['observacions']) ? $args['observacions'] : null, 'POST');
         $actiu = FormUtil::getPassedValue('actiu', isset($args['actiu']) ? $args['actiu'] : null, 'POST');
+        $grup = FormUtil::getPassedValue('grup', isset($args['grup']) ? $args['grup'] : null, 'POST');
+        $mod = FormUtil::getPassedValue('mod', isset($args['mod']) ? $args['mod'] : null, 'POST');
+        $longDescriu = FormUtil::getPassedValue('longDescriu', isset($args['longDescriu']) ? $args['longDescriu'] : null, 'POST');
+        
 
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', "::", ACCESS_ADMIN)) {
@@ -30,9 +34,12 @@ class IWforums_Api_Admin extends Zikula_AbstractApi {
         $item = array('nom_forum' => $nom_forum,
             'descriu' => $descriu,
             'adjunts' => $adjunts,
+            'longDescriu' => $longDescriu,
             'observacions' => $observacions,
             'msgEditTime' => $msgEditTime,
             'msgDelTime' => $msgDelTime,
+            'grup' => $grup,
+            'mod' => $mod,
             'actiu' => $actiu);
 
         if (!DBUtil::insertObject($item, 'IWforums_definition', 'fid')) {

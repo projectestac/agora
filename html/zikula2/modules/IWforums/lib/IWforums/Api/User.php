@@ -100,12 +100,13 @@ class IWforums_Api_User extends Zikula_AbstractApi {
      * @return:	And array with the information
      */
     public function compta_msg($args) {
-        $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
-        $ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : 0, 'POST');
-        $tots = FormUtil::getPassedValue('tots', isset($args['tots']) ? $args['tots'] : 0, 'POST');
-        $uid = FormUtil::getPassedValue('uid', isset($args['uid']) ? $args['uid'] : UserUtil::getVar('uid'), 'POST');
-        $sv = FormUtil::getPassedValue('sv', isset($args['sv']) ? $args['sv'] : null, 'POST');
-        $u = FormUtil::getPassedValue('u', isset($args['u']) ? $args['u'] : null, 'REQUEST');
+        $fid = isset($args['fid']) ? $args['fid'] : null;
+        $ftid = isset($args['ftid']) ? $args['ftid'] : 0;
+        $tots = isset($args['tots']) ? $args['tots'] : 0;
+        $uid = isset($args['uid']) ? $args['uid'] : UserUtil::getVar('uid');
+        $sv = isset($args['sv']) ? $args['sv'] : null;
+        $u = isset($args['u']) ? $args['u'] : null;
+        
         if (!ModUtil::func('IWmain', 'user', 'checkSecurityValue', array('sv' => $sv))) {
             // Security check
             if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
@@ -213,39 +214,49 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         return count($items);
     }
 
+    public function getMessageInfo($args) {
+        $mid = isset($args['fmid']) ? $args['fmid'] : null;
+        //return $mid;
+        return DBUtil::selectObjectByID('IWforums_msg',$mid, 'fmid');
+    }
     /**
      * Get a topic
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	Identity of the forum and the topic
      * @return:	An array with the topic information
      */
-    public function get_tema($args) {
+    public function get_tema($args) {        
+        
         $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
         $ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'POST');
+        //$fid = isset($args['fid']) ? $args['fid'] : null;
+        //$ftid =isset($args['ftid']) ? $args['ftid'] : null;     
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
+        $items = array();
+        if ($ftid) {
+            // Needed argument
+            if (!isset($fid) || !is_numeric($fid) || !isset($ftid) || !is_numeric($ftid)) {
+                return LogUtil::registerError("Function get_tema: ".$this->__('Error! Could not do what you wanted. Please check your input.'));
+            }
 
-        // Needed argument
-        if (!isset($fid) || !is_numeric($fid) || !isset($ftid) || !is_numeric($ftid)) {
-            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+            //check if user can access the forum
+            $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
+            if ($access < 1) {
+                return LogUtil::registerError($this->__('You can\'t access the forum'));
+            }
+
+            $items = DBUtil::selectObjectByID('IWforums_temes', $ftid, 'ftid');
+
+            // Check for an error with the database code, and if so set an appropriate
+            // error message and return
+            if ($items === false) {
+                LogUtil::registerError($this->__('Error! Could not load items.'));
+                //return false;
+            }
         }
-
-        //check if user can access the forum
-        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
-        if ($access < 1) {
-            return LogUtil::registerError($this->__('You can\'t access the forum'));
-        }
-
-        $items = DBUtil::selectObjectByID('IWforums_temes', $ftid, 'ftid');
-
-        // Check for an error with the database code, and if so set an appropriate
-        // error message and return
-        if ($items === false) {
-            return LogUtil::registerError($this->__('Error! Could not load items.'));
-        }
-
         // Return the items
         return $items;
     }
@@ -267,7 +278,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
 
         // Needed argument
         if (!isset($fid) || !is_numeric($fid) || !isset($fmid) || !is_numeric($fmid)) {
-            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+            return LogUtil::registerError("Function get_msg: ".$this->__('Error! Could not do what you wanted. Please check your input.'));
         }
 
         //check if user can access the forum
@@ -295,9 +306,15 @@ class IWforums_Api_User extends Zikula_AbstractApi {
      * @return:	An array with all the topics into a forum
      */
     public function get_temes($args) {
-        $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
-        $u = FormUtil::getPassedValue('u', isset($args['u']) ? $args['u'] : null, 'POST');
-        $forumtriat = FormUtil::getPassedValue('forumtriat', isset($args['forumtriat']) ? $args['forumtriat'] : null, 'POST');
+        //$fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
+        //$ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'POST');
+        //$u = FormUtil::getPassedValue('u', isset($args['u']) ? $args['u'] : null, 'POST');
+        //$forumtriat = FormUtil::getPassedValue('forumtriat', isset($args['forumtriat']) ? $args['forumtriat'] : null, 'POST');
+        $fid = isset($args['fid']) ? $args['fid'] : null;
+        $ftid = isset($args['ftid']) ? $args['ftid'] : null;
+        $u = isset($args['u']) ? $args['u'] : null;
+        $forumtriat = isset($args['forumtriat']) ? $args['forumtriat'] : null;
+
         if ($forumtriat != null) {
             $fid = $forumtriat;
         }
@@ -319,11 +336,15 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         if ($forum == false) {
             $view->assign('msg', $this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
             return $view->fetch('IWforums_user_noacces.htm');
-        }
+        }           
+        
         $itemsArray = array();
         $pntable = DBUtil::getTables();
         $c = $pntable['IWforums_temes_column'];
         $where = "$c[fid]=$fid";
+        if ($ftid) {
+            $where .= " AND $c[ftid]=$ftid";
+        }
         $orderBy = "$c[order] asc, $c[data] desc";
         $items = DBUtil::selectObjectArray('IWforums_temes', $where, $orderBy, '-1', '-1', 'ftid');
         // error message and return
@@ -340,17 +361,30 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                 $lastdate = date('d/m/y', $item['last_time']);
                 $lasttime = date('H.i', $item['last_time']);
             }
+                        
+            $esborrable = (time() < $item['data'] + 60 * $forum['msgDelTime']  && $item['usuari'] == UserUtil::getVar('uid')) ? true : false;
+            $editable   = (time() < $item['data'] + 60 * $forum['msgEditTime'] && $item['usuari'] == UserUtil::getVar('uid')) ? true : false;
 
-            $n_msg = ModUtil::apiFunc('IWforums', 'user', 'compta_msg', array('ftid' => $item['ftid'],
-                        'fid' => $fid,
-                        'u' => $u));
+            $n_msg = ModUtil::apiFunc('IWforums', 'user', 'compta_msg', 
+                                array('ftid' => $item['ftid'],
+                                      'fid' => $fid,
+                                      'u' => $u));                       
             $n_msg_no_llegits = $n_msg['nollegits'];
             $marcats = $n_msg['marcats'];
             $n_msg = $n_msg['nmsg'];
-            $itemsArray[] = array('ftid' => $item['ftid'],
+            // Get user avatar
+            $photo="";
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            $photo = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => UserUtil::getVar('uname', $item['usuari']),'sv' => $sv));
+            
+            $itemsArray[] = array(
+                'ftid' => $item['ftid'],
+                'editable' => $editable,
+                'esborrable' => $esborrable,
                 'titol' => $item['titol'],
                 'descriu' => $item['descriu'],
                 'usuari' => $item['usuari'],
+                'photo' => $photo,
                 'data' => date('d/m/y', $item['data']),
                 'hora' => date('H.i', $item['data']),
                 'lastdate' => $lastdate,
@@ -360,43 +394,60 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                 'n_msg' => $n_msg,
                 'n_msg_no_llegits' => $n_msg_no_llegits,
                 'marcats' => $marcats,
-            );
-        }
+            );            
+        }                      
         return $itemsArray;
     }
 
     /**
-     * Get the names of the attached files to a forum
+     * Get the names of the attached files to a forum 
+     * or topic 
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	Identity of the forum
+     * @param: fid Identity of the forum
+     * @param: ftid Identity of the topic (added in v 3.0.1)
+     * @param: mode f (forum: default) or t (topic)
      * @return:	And array with the files names
      */
     public function get_adjunts($args) {
-        $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
-
+        //$fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
+        $fid  = isset($args['fid']) ? $args['fid'] : null;
+        $ftid = isset($args['ftid']) ? $args['ftid'] : null;
+        $mode = isset($args['mode']) ? $args['mode'] : 'f';
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
 
-        // Needed argument
-        if (!isset($fid) || !is_numeric($fid)) {
-            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
-        }
+        $pntable = DBUtil::getTables();
+        $c = $pntable['IWforums_msg_column'];
 
+        switch ($mode) {
+            case 'f':
+                if (!isset($fid) || !is_numeric($fid)) {
+                    return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+                }
+                $where = "$c[fid]=$fid";
+                break;
+            case 't':
+                if (!isset($ftid) || !is_numeric($ftid)) {
+                    return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+                }
+                if (is_null($fid)) {
+                    $topic = DBUtil::selectObjectByID('IWforums_temes', $ftid, 'ftid');
+                    $fid = $topic['fid'];
+                }
+                $where = "$c[ftid]=$ftid";
+                break;
+        }
+        // Needed argument fid or ftid                
+        
         //check if user can access the forum
         $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
-        if ($access < 4 && !SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
+        if ($access < 4 ) {
             return LogUtil::registerError($this->__('You can\'t access the forum'));
         }
 
         $records = array();
-
-        $pntable = DBUtil::getTables();
-
-        $c = $pntable['IWforums_msg_column'];
-
-        $where = "$c[fid]=$fid";
         $items = DBUtil::selectObjectArray('IWforums_msg', $where, '');
         //Comprovem que la consulta hagi estat amb éxit
         if ($items === false) {
@@ -404,7 +455,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         }
 
         foreach ($items as $item) {
-            $records[] = array('adjunt' => $item['adjunt']);
+            if ($item['adjunt'] != "") $records[] = array('adjunt' => $item['adjunt']);
         }
 
         //Retornem la matriu plena de registres
@@ -454,6 +505,82 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         return $item['ftid'];
     }
 
+    /*
+     * Update topic title and description
+     */
+    public function setTopic($args){
+        // Security check
+        if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
+            return LogUtil::registerPermissionError();
+        }
+        
+        $fid    = $this->request->getPost()->get('fid', '');
+        $ftid   = $this->request->getPost()->get('ftid', '');
+        $titol  = $this->request->getPost()->get('titol', '');
+        $descriu= $this->request->getPost()->get('descriu', '');
+        
+        //check if user can access the forum
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
+        if ($access < 3) {
+            return LogUtil::registerError($this->__('You can\'t access the forum'));
+        }
+        
+        if (isset($ftid) && $ftid != 0) {
+            $pntable = DBUtil::getTables();
+            $c = $pntable['IWforums_temes_column'];
+            $where = "$c[ftid]=$ftid AND $c[fid]=$fid";
+            $item = array(
+                        'fid' => $fid,
+                        'ftid' => $ftid,
+                        'titol' => $titol,
+                        'descriu' => $descriu);
+            if (!DBUTil::updateObject($item, 'IWforums_temes', $where)) {
+                return LogUtil::registerError($this->__('Error! Update attempt failed.'));
+            }
+        }
+       
+        return $ftid;
+    }
+    
+    /*
+     * Update forum introduction vaalues
+     */
+    public function setForum($args){
+        // Security check
+        if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
+            return LogUtil::registerPermissionError();
+        }
+        
+        $fid    = $this->request->getPost()->get('fid', '');
+        $nom_forum   = $this->request->getPost()->get('nom_forum', '');
+        $descriu  = $this->request->getPost()->get('descriu', '');
+        $longDescriu= $this->request->getPost()->get('longDescriu', '');
+        $observacions = $this->request->getPost()->get('observacions', '');
+        
+        //check if user can access the forum
+        $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
+        if ($access < 3) {
+            return LogUtil::registerError($this->__('You can\'t access the forum'));
+        }
+        
+        if (isset($fid) && $fid != 0) {
+            $pntable = DBUtil::getTables();
+            $c = $pntable['IWforums_definition_column'];
+            $where = "$c[fid]=$fid";
+            $item = array(
+                        'fid' => $fid,
+                        'nom_forum' => $nom_forum,
+                        'descriu' => $descriu,
+                        'longDescriu' => $longDescriu,
+                        'observacions' => $observacions);
+            if (!DBUTil::updateObject($item, 'IWforums_definition', $where)) {
+                return LogUtil::registerError($this->__('Error! Update attempt failed.'));
+            }
+        }
+       
+        return $fid;
+    }
+    
     public function getall_msg($args) {
         $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
         $ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'POST');
@@ -464,6 +591,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         $indent = FormUtil::getPassedValue('indent', isset($args['indent']) ? $args['indent'] : null, 'POST');
         $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : null, 'POST');
         $oid = FormUtil::getPassedValue('oid', isset($args['oid']) ? $args['oid'] : null, 'POST');
+
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
@@ -504,6 +632,8 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                 $oid = $r['fmid'];
             // Put the message in the array to be returned
             $indentValue = ($filter_user != '') ? 0 : $indent;
+            //$clause = "$c[idparent]=$r[fmid]";
+            //$hasReplies = DBUtil::selectField('IWforums_msg', 'fmid', $clause);            
             $registres[] = array('fmid' => $r['fmid'],
                 'usuari' => $r['usuari'],
                 'titol' => $r['titol'],
@@ -516,6 +646,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                 'indent' => $indentValue,
                 'oid' => $oid,
                 'onTop' => $r['onTop'],
+                //'canDelete' => !$hasReplies
             );
             if ($filter_user == '') {
                 // Recursive call to get all the replies to a message
@@ -529,7 +660,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                 // Copy the replies to the all messages array
                 foreach ($listmessages as $message) {
                     if ($filter_user != 0) { // Filtering
-                        if ($filter_user == $message['usuari']) // Show only when the message is written by the selected used
+                        if ($filter_user == $message['usuari']) // Show only when the message is written by the selected user
                             $registres[] = array('fmid' => $message['fmid'],
                                 'usuari' => $message['usuari'],
                                 'titol' => $message['titol'],
@@ -542,6 +673,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                                 'indent' => 0,
                                 'oid' => $message['oid'],
                                 'onTop' => $message['onTop'],
+                                //'canDelete' => DBUtil::selectField('IWforums_msg', 'fmid', "$c[idparent]=$message[fmid]")
                             );
                     }else
                         $registres[] = array('fmid' => $message['fmid'],
@@ -556,16 +688,18 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                             'indent' => $message['indent'],
                             'oid' => $message['oid'],
                             'onTop' => $message['onTop'],
+                            //'canDelete' => DBUtil::selectField('IWforums_msg', 'fmid', "$c[idparent]=$message[fmid]")
                         );
                 }
             }
         }
         //Retornem la matriu plena de registres
+        //echo '<pre>'.$r['fmid'].'===='.var_dump($registres).'<br></pre>';
         return $registres;
     }
 
     /*
-      Funcié que posa a l'usuari com que ha llegit el missatge
+      Funció que posa a l'usuari com que ha llegit el missatge
      */
 
     public function llegit($args) {
@@ -588,39 +722,127 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         $llegit = $llegit . '$' . UserUtil::getVar('uid') . '$';
         $where = "$c[fmid]=$fmid";
         $items = array('llegit' => $llegit);
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
+        $lectors = explode('$$', substr($registre['llegit'], 2, -1));
+        if ( !in_array((UserUtil::getVar('uid')), $lectors)) {
         if (!DBUTil::updateObject($items, 'IWforums_msg', $where)) {
             return LogUtil::registerError($this->__('The modification of the users who have read the message has failed'));
+        }
         }
 
         //Informem que el procés s'ha acabat amb éxit
         return true;
     }
 
+    public function getmessagesForDisplay($args) {
+        $ftid = $this->request->getPost()->get('ftid', '');
+        //$ftid = isset($args['ftid']) ? $args['ftid'] : null;
+        //$fid = isset($args['fid']) ? $args['fid'] : null;
+        $fid = $this->request->getPost()->get('fid', '');
+        $u = isset($args['u']) ? $args['u'] : 0;
+        $u = $this->request->getPost()->get('u', 0);
+        //$inici = isset($args['inici']) ? $args['inici'] : null;
+        $inici= $this->request->getPost()->get('inici', '');
+        
+        $listmessages = ModUtil::apiFunc('IWforums', 'user', 'getall_msg', array('ftid' => $ftid,
+            'fid' => $fid,
+            'usuari' => $u,
+            'indent' => 0,
+            'idparent' => 0,
+            'inici' => $inici,
+            'rpp' => 10));
+        $messages = array();
+        $hi_ha_missatges = false;
+        // process the messages
+        foreach ($listmessages as $message) {
+            if (isset($message))
+                $hi_ha_missatges = true;
+            $imatge = (strpos($message['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 'msgNo.gif' : 'msg.gif';
+            $lectors = $message['llegit'];
+            $llegit = (strpos($message['llegit'], '$' . UserUtil::getVar('uid') . '$') == 0) ? 0 : 1;
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            $photo = ModUtil::func('IWmain', 'user', 'getUserPicture', array('uname' => UserUtil::getVar('uname', $message['usuari']),
+                    'sv' => $sv));
+            if (strpos($message['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) {
+                $marcat = 'res.gif';
+                $m = 1;
+                $textmarca = $this->__('Check the message');
+            } else {
+                $marcat = 'marcat.gif';
+                $m = 0;
+                $textmarca = $this->__('Uncheck the message');
+            }
+            $boolMarcat = (strpos($message['marcat'], '$' . UserUtil::getVar('uid') . '$') == 0) ? false : true;
+            $temps_esborrat = $registre['msgDelTime'];
+            $temps_edicio = $registre['msgEditTime'];
+            $esborrable = false;
+            $editable = false;
+            if (time() < $message['data'] + 60 * $temps_esborrat && $message['usuari'] == UserUtil::getVar('uid')) {
+                $esborrable = true;
+            }
+            if (time() < $message['data'] + 60 * $temps_edicio && $message['usuari'] == UserUtil::getVar('uid')) {
+                $editable = true;
+            }
+            $messages[] = array('fmid' => $message['fmid'],
+                'imatge' => $imatge,
+                'photo' => $photo,
+                'llegit' => $llegit,
+                'lectors' => $lectors,
+                'title' => $message['titol'],
+                'missatge' => $message['missatge'],
+                'user' => $message['usuari'],
+                'datetime' =>  strtolower(DateUtil::getDatetime($message['data'], 'datetimelong', true)),
+                'date' => date('d/m/y', $message['data']),
+                'time' => date('H.i', $message['data']),
+                'adjunt' => $message['adjunt'],
+                'icon' => $message['icon'],
+                'marcat' => $marcat,
+                'boolMarcat' => $boolMarcat,
+                'm' => $m,
+                'esborrable' => $esborrable,
+                'editable' => $editable,
+                'textmarca' => $textmarca,
+                'indent' => $message['indent'],
+                'oid' => $message['oid'],
+                'onTop' => $message['onTop'],
+                'canDelete' => !ModUtil::apiFunc($this->name, 'user', 'is_parent', array('fmid' => $message['fmid']))
+            );
+        }
+        $result = array();
+        $result['messages'] = $messages;
+        $result['hi_ha_missatges'] = $hi_ha_missatges;
+        return $result;
+    }
     /*
       Delete a message in a forum
      */
 
     public function del_msg($args) {
+        
         $fmid = FormUtil::getPassedValue('fmid', isset($args['fmid']) ? $args['fmid'] : null, 'POST');
+        
+        //$fmid = isset($args['fmid']) ? $args['fmid'] : null;
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
         //check needed values
         if (!isset($fmid)) {
-            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+            return LogUtil::registerError("Function del_msg: ".$this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //get message
-        $item = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
+        //$item = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
+        $item = ModUtil::apiFunc('IWforums', 'user', 'getMessageInfo', array('fmid' => $fmid));
         if ($item == false) {
             return LogUtil::registerError($this->__('No messages have been found'));
         }
         //get forum information
         $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $item['fid']));
         if ($registre == false) {
-            LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
+            LogUtil::registerError($this->__('The forum upon which the action had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
+        
         //check if user can access the forum
         $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $item['fid']));
         if ($access < 2) {
@@ -630,13 +852,22 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         //Check if user can delete the message
         if (!$moderator && (time() > $item['data'] + 60 * $registre['msgDelTime'] || $item['usuari'] != UserUtil::getVar('uid'))) {
             return LogUtil::registerError($this->__('You can\'t access the forum'));
-        }
+        }        
         //Delete the note content
         if (!DBUtil::deleteObjectByID('IWforums_msg', $fmid, 'fmid')) {
             return LogUtil::registerError($this->__('Error! Sorry! Deletion attempt failed.'));
-        }
+        }              
         //Update de last time and user in forum topic
         $updated = ModUtil::apiFunc('IWforums', 'user', 'updateLast', array('ftids' => array($item['ftid'])));
+        
+        $tema = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('ftid' => $item['ftid'], 'fid' => $fid));
+        // If topic has no messages and topic was created by de current user then delete topic
+        if (($tema['last_time']=="") && ($tema['usuari'] == UserUtil::getVar('uid'))) {
+            if (ModUtil::apiFunc('IWforums', 'user', 'deltema', array('ftid' => $ftid, 'fid' => $fid, 'force' => true))){                    
+                DBUtil::flushCache('IWforums_temes');        
+                LogUtil::registerStatus($this->__('The empty topic has been deleted.'));                
+            }    
+        }        
         //success
         return true;
     }
@@ -762,30 +993,40 @@ class IWforums_Api_User extends Zikula_AbstractApi {
     }
 
     /*
-      Funcié que esborra un tema d'un férum
-     */
+        Funció que esborra un tema d'un fòrum
+    */
 
     public function deltema($args) {
-        $ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'POST');
-        $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
+        
+        //$ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'POST');
+        //$fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
+        $fid = $this->request->getPost()->get('fid', '');
+        $ftid = $this->request->getPost()->get('ftid', '');
+        //$ftid = isset($args['ftid']) ? $args['ftid'] : null;
+        //$fid = isset($args['fid']) ? $args['fid'] : null;
+        $force = isset($args['force']) ? $args['force'] : false;
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
         // Arguments check
         if (!isset($ftid) || !isset($fid)) {
-            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+            return LogUtil::registerError("Function deltema: ".$this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Cridem la funcié get que retorna les dades
         $link = ModUtil::apiFunc('IWforums', 'user', 'get_tema', array('ftid' => $ftid,
                     'fid' => $fid));
-        //Comprovem que el registre efectivament existeix i, per tant, es podré esborrar
+        //Comprovem que el registre efectivament existeix i, per tant, es podrà esborrar
         if ($link == false) {
             return LogUtil::registerError($this->__('No messages have been found'));
         }
         //check if user can access the forum
+        if (is_null($fid)) {
+            $topic = DBUtil::selectObjectByID('IWforums_temes', $ftid, 'ftid');
+            $fid = $topic['fid'];
+        }
         $access = ModUtil::func('IWforums', 'user', 'access', array('fid' => $fid));
-        if ($access < 4) {
+        if (($access < 4) && (!$force)) {
             return LogUtil::registerError($this->__('You can\'t access the forum'));
         }
         $pntable = DBUtil::getTables();
@@ -793,13 +1034,19 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         $c = $pntable['IWforums_temes_column'];
         $t2 = $pntable['IWforums_msg'];
         $c2 = $pntable['IWforums_msg_column'];
+         
+        
         //get messages files
-        $files = ModUtil::apiFunc('IWforums', 'user', 'get_adjunts', array('fid' => $fid));
+        //$files = ModUtil::apiFunc('IWforums', 'user', 'get_adjunts', array('fid' => $fid));
+        $files = ModUtil::apiFunc('IWforums', 'user', 'get_adjunts', array('ftid' => $ftid, 'mode' => 't'));
+
         //delete messages files
         foreach ($files as $file) {
+            //if (false){
             $filePath = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWforums', 'urladjunts') . '/' . $file['adjunt'];
             if (file_exists($filePath))
                 unlink($filePath);
+            //}
         }
         // Messages deletion
         $where = "$c2[ftid]=$ftid";
@@ -815,6 +1062,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         return true;
     }
 
+    
     /*
       Create a new msg
      */
@@ -923,7 +1171,9 @@ class IWforums_Api_User extends Zikula_AbstractApi {
 
     public function del_adjunt($args) {
         $fmid = FormUtil::getPassedValue('fmid', isset($args['fmid']) ? $args['fmid'] : null, 'POST');
+        $fid = FormUtil::getPassedValue('fmid', isset($args['fid']) ? $args['fid'] : null, 'POST');
         // Security check
+        
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
@@ -932,14 +1182,15 @@ class IWforums_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
         //Agafem les dades del missatge
-        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid));
+        $missatge = ModUtil::apiFunc('IWforums', 'user', 'get_msg', array('fmid' => $fmid, 'fid'=> $fid));    
+
         if ($missatge == false) {
             return LogUtil::registerError($this->__('No messages have been found'));
         }
-        //Carreguem la informaciÃ³ del fÃ³rum
+        //Carreguem la informació del fòrum
         $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $missatge['fid']));
         if ($registre == false) {
-            LogUtil::registerError($this->__('The forum upon which the ation had to be carried out hasn\'t been found'));
+            LogUtil::registerError($this->__('The forum upon which the action had to be carried out hasn\'t been found'));
             return System::redirect(ModUtil::url('IWforums', 'user', 'main'));
         }
         //check if user can access the forum
@@ -963,9 +1214,9 @@ class IWforums_Api_User extends Zikula_AbstractApi {
                 return LogUtil::registerError($this->__('An error has occurred while editing the message'));
             }
         }
-
+       
         //Retorna el id del nou registre que s'acaba d'introduir
-        return $fmid;
+        return $missatge;
     }
 
     /*
@@ -996,6 +1247,29 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         return $items;
     }
 
+    /*
+     * Marca tots els missatges visualitzats com a llegits
+     */
+    
+    public function markMessagesAsReaded($args){
+        $messages = FormUtil::getPassedValue('messages', isset($args['messages']) ? $args['messages'] : null, 'POST');
+        // Marquem tots els missatges que es mostraran copm a llegits
+        foreach ($messages as $message) {
+            // set user as message reader
+            if (strpos($message['lectors'], '$' . UserUtil::getVar('uid') . '$') == 0) {
+                ModUtil::apiFunc('IWforums', 'user', 'llegit', 
+                    array('fmid'   => $message['fmid'],
+                          'llegit' => $message['lectors']));
+
+                $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+                ModUtil::func('IWmain', 'user', 'userSetVar', 
+                    array('module' => 'IWmain_block_news',
+                          'name' => 'have_news',
+                          'value' => 'fo',
+                          'sv' => $sv));
+            }
+        }
+    }
     /*
       Funcié que marca o treu la marca d'un missatge
      */
@@ -1092,8 +1366,8 @@ class IWforums_Api_User extends Zikula_AbstractApi {
       Funció que retorna si un missatge és pare o no ho és
      */
 
-    public function is_parent($args) {
-        $fmid = FormUtil::getPassedValue('fmid', isset($args['fmid']) ? $args['fmid'] : null, 'POST');
+    public function is_parent($args) {        
+        $fmid = isset($args['fmid']) ? $args['fmid'] : null;
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
@@ -1147,16 +1421,17 @@ class IWforums_Api_User extends Zikula_AbstractApi {
      */
 
     public function put_order($args) {
-        $fid = FormUtil::getPassedValue('fid', isset($args['fid']) ? $args['fid'] : null, 'POST');
-        $ordre = FormUtil::getPassedValue('ordre', isset($args['ordre']) ? $args['ordre'] : null, 'POST');
-        $ftid = FormUtil::getPassedValue('ftid', isset($args['ftid']) ? $args['ftid'] : null, 'POST');
+        $fid = isset($args['fid']) ? $args['fid'] : null;
+        $ftid = isset($args['ftid']) ? $args['ftid'] : null;
+        $ordre = isset($args['ordre']) ? $args['ordre'] : null;
+
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
         }
         //Comprovem que els valors han arribat
         if ($ftid == null || $ordre == null) {
-            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
+            return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));            
         }
         //Cridem la funcié get de l'API que ens retornaré les dades de l'entrada al mené
         $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
@@ -1178,7 +1453,7 @@ class IWforums_Api_User extends Zikula_AbstractApi {
         if (!DBUTil::updateObject($items, 'IWforums_temes', $where)) {
             return LogUtil::registerError($this->__('Error! Update attempt failed.'));
         }
-        return true;
+        return $ordre;
     }
 
     /**

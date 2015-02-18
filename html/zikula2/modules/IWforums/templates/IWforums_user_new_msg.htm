@@ -1,97 +1,210 @@
-<script language="javascript">
-    function send(){
-        var f = document.forms['new_msg'];
-        if(f.titol.value==""){
-            alert("{{gt text="You didn't write a title for the message."}}");
-            var error=true;
-        }
-        {{if $adjunts neq "0"}}
-        if(f.adjunt.value!="" && "{{$extensions}}".indexOf(f.adjunt.value.toLowerCase().substring(f.adjunt.value.toLowerCase().length-3,f.adjunt.value.length))==-1  && "{{$extensions}}".indexOf(f.adjunt.value.toUpperCase().substring(f.adjunt.value.toUpperCase().length-3,f.adjunt.value.length))==-1 && !error){
-            alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
-            var error=true;
-        }
-        {{/if}}
-        if(!error){resposta=confirm("{{gt text="Do you really want to send the message?"}}");}
-        if(!error && resposta){
-            f.submit();
-        }
-    }
-</script>
+{pageaddvar name='javascript' value='jQuery'}
+{pageaddvar name='stylesheet' value='vendor/font-awesome/css/font-awesome.css'}
+{pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='javascript' value='vendor/bootstrap/js/bootstrap.js'}
+{pageaddvar name='javascript' value='vendor/bootstrap/filestyle/bootstrap-filestyle.min.js'}
+{ajaxheader modname=IWforums filename=IWforums.js}
 
+{if !$restyled}
 {include file="IWforums_user_menu.htm" fid=$fid fmid=$fmid ftid=$ftid m2=1 m7=1}
+{else}
+<ol style="font-size:0.8em" class="breadcrumb">
+    <li><a href="{modurl modname='IWforums' type='user' func='main'}">{gt text="Forums list"}</a></li>
+    <li><a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid u=$u}">{gt text="List of topics"}</a></li>
+    <li><a href="{modurl modname='IWforums' type='user' func='llista_msg' ftid=$ftid fid=$fid u=$u}}">{gt text="Posts"}</a></li>
+    {if $mode eq 'r'}
+    <li class="active">{gt text="Reply message"}</li>
+    {else}
+    <li class="active">{gt text="New message"}</li>
+    {/if}
+</ol>    
+{/if}
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='filenew.png' set='icons/large'}</div>
-    <h2>{$name} => {gt text="Add a new message"}</h2>
-    <form  method="post" class="z-form" id="new_msg" action="{modurl modname='IWforums' type='user' func='crear_msg'}" enctype="multipart/form-data">
+    {if $msg eq ''}
+    <h2>{$name}: {gt text="Add a new message"}</h2>
+    {else}
+    <h2>{$name}: {gt text="Message reply"}</h2>
+    {/if}
+    <form  class="form-horizontal" role="form" method="post" id="new_msg" action="javascript:void();" enctype="multipart/form-data">
+        {*<form  class="form-horizontal" role="form" method="post" id="new_msg" action="{modurl modname='IWforums' type='user' func='crear_msg'}" enctype="multipart/form-data">*}
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fid" value="{$fid}" />
         <input type="hidden" name="ftid" value="{$ftid}" />
         <input type="hidden" name="fmid" value="{$fmid}" />
         <input type="hidden" name="oid" value="{$oid}" />
         <input type="hidden" name="u" value="{$u}" />
-        <fieldset>
-            <legend>{gt text="Message content"}</legend>
-            <div class="z-formrow">
-                <label for="titol">{gt text="Title of the message"}</label>
-                <input type="text" id ="titol" name="titol" maxlength="100" size="60" value="{$title}" />
+
+        <div class="form-group">
+            <label for="titol" class="col-xs-2 control-label">{gt text="Title of the message"}</label>
+            <div class="col-xs-8" id="inputName">
+                <input type='text' class='has-error form-control' id ='titol' name='titol' maxlength="100"  onblur="checkName();" oninput="checkName();"  value="{$title}" placeholder="{gt text='Enter message title'}">
             </div>
-            {if $adjunts neq "0"}
-            <div class="z-formrow">
-                <label for="adjunt">{gt text="Attached file"}</label>
-                <input type="file" id="adjunt" name="adjunt" />
-            </div>
-            {/if}
+        </div>
+        <!-- Modal icon popup -->
+        <div class="modal fade" id="icons">
+            <div class="modal-dialog">
+                <div class="modal-content">      
+                    <div class="modal-body">
+                        <div id="iconset">
+                            <input type="radio" id="icon" name="icon" value="" checked />
+                            {section name=icons loop=$icons}
+                            <input type="radio" name="icon" value="{$icons[icons].imgsrc}" />                            
+                            <img id="{$icons[icons].imgsrc}" src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" style="vertical-align: middle;" />                           
+                            {/section}
+                            <button type="button" onclick="selectedIcon()" style="float:right" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-ok"> </span> {gt text="Do it!"}</button> 
+                        </div>         
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->        
+        <div class="col-xs-offset-2 row">    
             {if $icons neq ''}
-            <div class="z-formrow">
-                <label for="icon">{gt text="Icon"}</label>
-                <div class="z-formnote">
-                    <input type="radio" id="icon" name="icon" value="" checked />
-                    {section name=icons loop=$icons}
-                    <input type="radio" name="icon" value="{$icons[icons].imgsrc}" />
-                    <img src="modules/IWmain/images/smilies/{$icons[icons].imgsrc}" alt="" style="vertical-align: middle;" />
-                    {/section}
+            <div class="form-group col-xs-4">                                
+                <div id="addIcon">
+                    <label class="control-label" >
+                        <span style='cursor:pointer' title='{gt text="Add an icon to the message"}' data-toggle="modal" data-target="#icons"><span class="fa fa-smile-o">&nbsp;</span>{gt text="Icon message"}&nbsp;<img id="currentIcon" style="display:none" src=""></span>
+                    </label>
                 </div>
             </div>
             {else}
             <input type="hidden" name="icon" value="" />
             {/if}
-            {if $moderator}
-            <div class="z-formrow">
-                <label for="onTop">{gt text="Set as main message"}</label>
-                <input type="checkbox" name="onTop" id="onTop" value="1" />
+            {if $moderator && ($msg|count eq 0)}
+            <div class="form-group">
+                <label class="col-xs-4 control-label" for="onTop">{gt text="Set as main message"}&nbsp;<span class="glyphicon glyphicon-pushpin"></span></label>
+                <div>
+                    <input class="checkbox" type="checkbox" name="onTop" id="onTop" value="1" />
+                </div>
             </div>
             {/if}
-            <div class="z-formrow">
-                <label for="intraweb">{gt text="Message"}</label>
-                <textarea name="msg" cols="80" rows="10" id="intraweb"></textarea>
+        </div> <!--row -->
+        <div class="form-group">
+            <label class="col-xs-2 control-label" for="intraweb">{gt text="Message"}</label>
+            <div class="col-xs-8">
+                <textarea class="form-control" name="msg" cols="80" rows="10" id="msg" required></textarea>
             </div>
-        </fieldset>
+        </div>
+        {if $adjunts neq "0"}    
+            <div id="attachment">
+                {include file="ajax/IWforums_ajax_attachment.tpl"}
+            </div>
+        {/if}
         <div class="z-center">
-            <span class="z-buttons">
-                <a href="javascript:send()">
-                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Create the message" __title="Create the message"}
-                    {gt text="Create the message"}
+            <span id="btnSend" class="z-buttons">
+                {if $mode eq "n"} {*New message *}
+                <a onclick="javascript:preSubmit();"><span class="green fs1em glyphicon glyphicon-ok"></span>
+                    &nbsp;{gt text="Create the message"}
                 </a>
+                {else}
+                <a onclick="javascript:preSubmit();"><span class="green fs1em glyphicon glyphicon-ok"></span>
+                    &nbsp;{gt text="Reply the message"}
+                </a>
+                {/if}                
             </span>
             <span class="z-buttons">
                 {if $ftid neq 0}
                 <a href="{modurl modname='IWforums' type='user' func='llista_msg' fid=$fid ftid=$ftid}">
-                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
-                    {gt text="Cancel"}
+                    <span class="red fs1em glyphicon glyphicon-remove"></span>                    
+                    &nbsp;{gt text="Cancel"}
                 </a>
                 {else}
                 <a href="{modurl modname='IWforums' type='user' func='forum' fid=$fid}">
-                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"}
-                    {gt text="Cancel"}
+                    <span class="red fs1em glyphicon glyphicon-remove"></span>                    
+                    &nbsp;{gt text="Cancel"}
                 </a>
-                {/if}
+                {/if}                
             </span>
         </div>
-        <div style="margin:30px;">
-            {$msg|nl2br}
-        </div>
-        <div style="visibility:hidden;">
-            <textarea name="oldmsg" cols="80" rows="10" id="oldintraweb">{$msg}</textarea>
-        </div>
     </form>
+
 </div>
+{if $msg|count gt 0 }
+
+<br>
+<div class="col-xs-offset-2 col-xs-8">
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="padding: 0px 10px">
+            <span><div class="photo">                       
+                    {if $msg.photo neq '' AND ($msg.uid neq '' OR $avatarsVisible eq 1)}
+                    <img src="index.php?module=IWmain&type=user&func=getPhoto&fileName={$msg.photo}" class="photoImg smallPhoto" />
+                    {else}
+                    <img src="modules/IWforums/images/default-avatar.png" class="photoImg smallPhoto"/>                        
+                    {/if}
+                </div>
+            </span>
+            <b>{$msg.userInfo}</b> <span style="font-size:0.8em">{gt text="wrote on"} {$msg.data}</span>
+        </div>
+        <div class="panel-body">
+            {$msg.text}
+        </div>   
+    </div>
+</div>
+{/if}        
+{notifydisplayhooks eventname='IWforums.ui_hooks.IWforums.form_edit' id='intraweb'}
+<script type="text/javascript">
+    jQuery( document ).ready(function() {
+        jQuery("#titol").focus();
+    });
+    jQuery('[data-toggle="modal"]').tooltip();
+    
+    function preSubmit(){
+        document.getElementById('new_msg').action = "javascript:validate();";
+        document.getElementById('new_msg').submit();
+    }
+    
+    function validate() {
+        var error = "";
+        if (jQuery('#titol').val() == '') {
+            // for gt detection
+            error = "{{gt text="You didn't write a title for the message."}}"+'\n';
+        }
+        if (jQuery('#msg').val() == '') {
+            document.getElementById('new_msg').action = "javascript:void();";
+            // for gt detection
+            error = error + "{{gt text="You didn't write the message."}}"+'\n';
+        }
+        {{if $adjunts neq "0"}}
+            var f = document.forms['new_msg'];
+            if (f.adjunt.value != "" && "{{$extensions}}".indexOf(f.adjunt.value.toLowerCase().substring(f.adjunt.value.toLowerCase().length - 3, f.adjunt.value.length)) == - 1 && "{{$extensions}}".indexOf(f.adjunt.value.toUpperCase().substring(f.adjunt.value.toUpperCase().length - 3, f.adjunt.value.length)) == - 1 && !error){
+		//for gt detection 
+                error = error + "{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}";
+            }
+        {{/if}}
+        if (error == ''){
+            document.getElementById('new_msg').action = "index.php?module=IWforums&type=user&func=crear_msg";
+            document.getElementById('new_msg').submit();
+        } else {
+            alert(error);
+            document.getElementById('new_msg').action = 'javascript:void();';
+        }
+    }
+/*        
+    function send(){       
+        var error = false;
+        var f = document.forms['new_msg'];
+        if (f.titol.value == ""){
+			//for gt detection
+            alert("{{gt text="You didn't write a title for the message."}}");
+            var error = true;
+        }
+            // It works if no editor is used
+            /*if (f.intraweb.value ==''){
+                alert("{{gt text="You didn't write a message."}}");
+                var error = true;
+            }*/
+/*
+        {{if $adjunts neq "0"}}
+            if (f.adjunt.value != "" && "{{$extensions}}".indexOf(f.adjunt.value.toLowerCase().substring(f.adjunt.value.toLowerCase().length - 3, f.adjunt.value.length)) == - 1 && "{{$extensions}}".indexOf(f.adjunt.value.toUpperCase().substring(f.adjunt.value.toUpperCase().length - 3, f.adjunt.value.length)) == - 1 && !error){
+				//for gt detection
+                alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
+                var error = true;
+            }
+        {{/if}}
+        //if(!error){resposta=confirm("{{gt text="Do you really want to send the message?"}}");}
+        if (!error){ // && resposta){     
+            f.submit();
+        }
+    }
+    */
+</script>

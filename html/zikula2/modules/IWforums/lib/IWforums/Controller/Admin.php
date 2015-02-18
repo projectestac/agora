@@ -97,6 +97,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $forum = array('fid' => '',
             'nom_forum' => '',
             'descriu' => '',
+            'lDescriu' => '',
             'msgEditTime' => '',
             'msgDelTime' => '',
             'observacions' => '',
@@ -107,6 +108,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         if ($m != null && ($m == "e" || $m == "c") && is_numeric($fid)) {
             //get forum information
             $forum = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
+            //echo "<pre>"; print_r($forum); echo "</pre>"; 
             if ($forum == false) {
                 LogUtil::registerError($this->__('Forum not found'));
                 return System::redirect(ModUtil::url('IWforums', 'admin', 'main'));
@@ -126,7 +128,10 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
     public function create($args) {
         $nom_forum = FormUtil::getPassedValue('nom_forum', isset($args['nom_forum']) ? $args['nom_forum'] : null, 'POST');
         $descriu = FormUtil::getPassedValue('descriu', isset($args['descriu']) ? $args['descriu'] : null, 'POST');
+        $longDescriu = FormUtil::getPassedValue('longDescriu', isset($args['longDescriu']) ? $args['longDescriu'] : null, 'POST');
         $adjunts = FormUtil::getPassedValue('adjunts', isset($args['adjunts']) ? $args['adjunts'] : null, 'POST');
+        $grup = FormUtil::getPassedValue('grup', isset($args['grup']) ? $args['grup'] : null, 'POST');
+        $mod = FormUtil::getPassedValue('mod', isset($args['mod']) ? $args['mod'] : null, 'POST');
         $msgEditTime = FormUtil::getPassedValue('msgEditTime', isset($args['msgEditTime']) ? $args['msgEditTime'] : null, 'POST');
         $msgDelTime = FormUtil::getPassedValue('msgDelTime', isset($args['msgDelTime']) ? $args['msgDelTime'] : null, 'POST');
         $observacions = FormUtil::getPassedValue('observacions', isset($args['observacions']) ? $args['observacions'] : null, 'POST');
@@ -148,28 +153,37 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
             $msgDelTime = 0;
 
         switch ($m) {
-            case 'e':
-                $items = array('nom_forum' => $nom_forum,
-                    'descriu' => $descriu,
-                    'actiu' => $actiu,
+            case 'e': //Edit existing forum
+                $items = array(
+                    'nom_forum'    => $nom_forum,
+                    'descriu'      => $descriu,
+                    'longDescriu'  => $longDescriu,
+                    'actiu'        => $actiu,                    
                     'observacions' => $observacions,
-                    'adjunts' => $adjunts,
-                    'msgDelTime' => $msgDelTime,
-                    'msgEditTime' => $msgEditTime);
+                    'adjunts'      => $adjunts,
+                    'msgDelTime'   => $msgDelTime,
+                    'msgEditTime'  => $msgEditTime);
                 if (ModUtil::apiFunc('IWforums', 'admin', 'update', array('items' => $items,
                             'fid' => $fid))) {
                     //modified successfully
                     LogUtil::registerStatus($this->__('The forum has been modified'));
                 }
                 break;
-            default:
-                if (ModUtil::apiFunc('IWforums', 'admin', 'create', array('nom_forum' => $nom_forum,
-                            'descriu' => $descriu,
-                            'actiu' => $actiu,
-                            'observacions' => $observacions,
-                            'adjunts' => $adjunts,
-                            'msgDelTime' => $msgDelTime,
-                            'msgEditTime' => $msgEditTime))) {
+            default: // New forum or copy existing forum
+                if (ModUtil::apiFunc('IWforums', 'admin', 'create', 
+                        array(
+                            'nom_forum'   => $nom_forum,
+                            'descriu'     => $descriu,
+                            'longDescriu' => $longDescriu,
+                            'actiu'       => $actiu,
+                            'observacions'=> $observacions,
+                            'adjunts'     => $adjunts,
+                            'grup'        => $grup,
+                            'mod'         => $mod,
+                            'msgDelTime'  => $msgDelTime,
+                            'msgEditTime' => $msgEditTime
+                        ))) 
+                {
                     //created successfully
                     LogUtil::registerStatus($this->__('A new forum has been created'));
                 }
@@ -484,6 +498,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
                         ->assign('directoriroot', ModUtil::getVar('IWmain', 'documentRoot'))
                         ->assign('avatarsVisible', ModUtil::getVar('IWforums', 'avatarsVisible'))
                         ->assign('smiliesActive', ModUtil::getVar('IWforums', 'smiliesActive'))
+                        ->assign('restyledTheme', ModUtil::getVar('IWforums', 'restyledTheme'))
                         ->fetch('IWforums_admin_configura.htm');
     }
 
@@ -497,6 +512,7 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $urladjunts = FormUtil::getPassedValue('urladjunts', isset($args['urladjunts']) ? $args['urladjunts'] : null, 'POST');
         $avatarsVisible = FormUtil::getPassedValue('avatarsVisible', isset($args['avatarsVisible']) ? $args['avatarsVisible'] : null, 'POST');
         $smiliesActive = FormUtil::getPassedValue('smiliesActive', isset($args['smiliesActive']) ? $args['smiliesActive'] : 0, 'POST');
+        $restyledTheme = FormUtil::getPassedValue('restyledTheme', isset($args['restyledTheme']) ? $args['restyledTheme'] : 0, 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('IWforums::', "::", ACCESS_ADMIN)) {
@@ -506,7 +522,8 @@ class IWforums_Controller_Admin extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         $this->setVar('urladjunts', $urladjunts)
-                ->setVar('avatarsVisible', $avatarsVisible);
+             ->setVar('restyledTheme', $restyledTheme)
+             ->setVar('avatarsVisible', $avatarsVisible);
 
         ModUtil::setVar('IWforums', 'smiliesActive', $smiliesActive);
 
