@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.3
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Temps de generació: 12-03-2014 a les 11:55:15
--- Versió del servidor: 5.1.63-log
--- Versió de PHP: 5.3.17
+-- Temps de generació: 18-02-2015 a les 17:32:49
+-- Versió del servidor: 5.5.41
+-- Versió de PHP : 5.4.37-1+deb.sury.org~precise+1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -421,6 +421,9 @@ CREATE TABLE IF NOT EXISTS `content_page` (
   `page_metakeywords` longtext NOT NULL,
   `page_nohooks` tinyint(4) NOT NULL DEFAULT '0',
   `page_views` int(11) DEFAULT '0',
+  `page_optString1` varchar(255) NOT NULL,
+  `page_optString2` varchar(255) NOT NULL,
+  `page_optText` longtext NOT NULL,
   PRIMARY KEY (`page_id`),
   KEY `parentPageId` (`page_ppid`,`page_pos`),
   KEY `leftright` (`page_setleft`,`page_setright`),
@@ -744,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `hook_area` (
   `areaname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `areaidx` (`areaname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Bolcant dades de la taula `hook_area`
@@ -755,13 +758,20 @@ INSERT INTO `hook_area` (`id`, `owner`, `subowner`, `areatype`, `category`, `are
 (2, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.registration'),
 (3, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.login_screen'),
 (4, 'Users', NULL, 's', 'ui_hooks', 'subscriber.users.ui_hooks.login_block'),
-(5, 'Content', NULL, 's', 'ui_hooks', 'subscriber.content.ui_hooks.pages'),
-(6, 'Content', NULL, 's', 'filter_hooks', 'subscriber.content.filter_hooks.pages'),
 (7, 'Formicula', NULL, 's', 'ui_hooks', 'subscriber.formicula.ui_hooks.forms'),
 (8, 'News', NULL, 's', 'ui_hooks', 'subscriber.news.ui_hooks.articles'),
 (9, 'News', NULL, 's', 'filter_hooks', 'subscriber.news.filter_hooks.articles'),
 (10, 'Pages', NULL, 's', 'ui_hooks', 'subscriber.pages.ui_hooks.pages'),
-(11, 'Pages', NULL, 's', 'filter_hooks', 'subscriber.pages.filter_hooks.pagesfilter');
+(11, 'Pages', NULL, 's', 'filter_hooks', 'subscriber.pages.filter_hooks.pagesfilter'),
+(12, 'Blocks', NULL, 's', 'ui_hooks', 'subscriber.blocks.ui_hooks.htmlblock.content'),
+(13, 'Content', NULL, 's', 'ui_hooks', 'subscriber.content.ui_hooks.htmlcontenttype'),
+(14, 'Content', NULL, 's', 'ui_hooks', 'subscriber.content.ui_hooks.pages'),
+(15, 'Content', NULL, 's', 'filter_hooks', 'subscriber.content.filter_hooks.htmlcontenttype'),
+(16, 'IWforms', NULL, 's', 'ui_hooks', 'subscriber.iwforms.ui_hooks.iwforms'),
+(17, 'IWforums', NULL, 's', 'ui_hooks', 'subscriber.IWforums.ui_hooks.IWforums'),
+(18, 'IWmessages', NULL, 's', 'ui_hooks', 'subscriber.iwmessages.ui_hooks.iwmessages'),
+(19, 'IWnoteboard', NULL, 's', 'ui_hooks', 'subscriber.iwnoteboard.ui_hooks.iwnoteboard'),
+(20, 'Scribite', NULL, 'p', 'ui_hooks', 'provider.scribite.ui_hooks.editor');
 
 -- --------------------------------------------------------
 
@@ -781,7 +791,21 @@ CREATE TABLE IF NOT EXISTS `hook_binding` (
   `sortorder` smallint(6) NOT NULL DEFAULT '999',
   PRIMARY KEY (`id`),
   KEY `sortidx` (`sareaid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Bolcant dades de la taula `hook_binding`
+--
+
+INSERT INTO `hook_binding` (`id`, `sowner`, `subsowner`, `powner`, `subpowner`, `sareaid`, `pareaid`, `category`, `sortorder`) VALUES
+(1, 'News', NULL, 'Scribite', NULL, 8, 20, 'ui_hooks', 999),
+(2, 'IWnoteboard', NULL, 'Scribite', NULL, 19, 20, 'ui_hooks', 999),
+(3, 'IWmessages', NULL, 'Scribite', NULL, 18, 20, 'ui_hooks', 999),
+(4, 'IWforms', NULL, 'Scribite', NULL, 16, 20, 'ui_hooks', 999),
+(5, 'Pages', NULL, 'Scribite', NULL, 10, 20, 'ui_hooks', 999),
+(6, 'Content', NULL, 'Scribite', NULL, 13, 20, 'ui_hooks', 999),
+(7, 'Content', NULL, 'Scribite', NULL, 14, 20, 'ui_hooks', 999),
+(8, 'IWforums', NULL, 'Scribite', NULL, 17, 20, 'ui_hooks', 999);
 
 -- --------------------------------------------------------
 
@@ -801,7 +825,14 @@ CREATE TABLE IF NOT EXISTS `hook_provider` (
   `serviceid` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nameidx` (`pareaid`,`hooktype`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Bolcant dades de la taula `hook_provider`
+--
+
+INSERT INTO `hook_provider` (`id`, `owner`, `subowner`, `pareaid`, `hooktype`, `category`, `classname`, `method`, `serviceid`) VALUES
+(1, 'Scribite', NULL, 20, 'form_edit', 'ui_hooks', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor');
 
 -- --------------------------------------------------------
 
@@ -823,7 +854,20 @@ CREATE TABLE IF NOT EXISTS `hook_runtime` (
   `serviceid` varchar(60) DEFAULT NULL,
   `priority` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Bolcant dades de la taula `hook_runtime`
+--
+
+INSERT INTO `hook_runtime` (`id`, `sowner`, `subsowner`, `powner`, `subpowner`, `sareaid`, `pareaid`, `eventname`, `classname`, `method`, `serviceid`, `priority`) VALUES
+(1, 'News', NULL, 'Scribite', NULL, 8, 20, 'news.ui_hooks.articles.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10),
+(2, 'IWnoteboard', NULL, 'Scribite', NULL, 19, 20, 'iwnoteboard.ui_hooks.iwnoteboard.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10),
+(3, 'IWmessages', NULL, 'Scribite', NULL, 18, 20, 'iwmessages.ui_hooks.iwmessages.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10),
+(4, 'IWforms', NULL, 'Scribite', NULL, 16, 20, 'iwforms.ui_hooks.iwforms.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10),
+(5, 'Pages', NULL, 'Scribite', NULL, 10, 20, 'pages.ui_hooks.pages.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10),
+(6, 'Content', NULL, 'Scribite', NULL, 13, 20, 'content.ui_hooks.htmlcontenttype.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10),
+(7, 'IWforums', NULL, 'Scribite', NULL, 17, 20, 'IWforums.ui_hooks.IWforums.form_edit', 'Scribite_HookHandlers', 'uiEdit', 'scribite.editor', 10);
 
 -- --------------------------------------------------------
 
@@ -841,7 +885,7 @@ CREATE TABLE IF NOT EXISTS `hook_subscriber` (
   `eventname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `myindex` (`eventname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
 
 --
 -- Bolcant dades de la taula `hook_subscriber`
@@ -868,14 +912,6 @@ INSERT INTO `hook_subscriber` (`id`, `owner`, `subowner`, `sareaid`, `hooktype`,
 (18, 'Users', NULL, 4, 'form_edit', 'ui_hooks', 'users.ui_hooks.login_block.form_edit'),
 (19, 'Users', NULL, 4, 'validate_edit', 'ui_hooks', 'users.ui_hooks.login_block.validate_edit'),
 (20, 'Users', NULL, 4, 'process_edit', 'ui_hooks', 'users.ui_hooks.login_block.process_edit'),
-(21, 'Content', NULL, 5, 'display_view', 'ui_hooks', 'content.ui_hooks.pages.display_view'),
-(22, 'Content', NULL, 5, 'form_edit', 'ui_hooks', 'content.ui_hooks.pages.form_edit'),
-(23, 'Content', NULL, 5, 'form_delete', 'ui_hooks', 'content.ui_hooks.pages.form_delete'),
-(24, 'Content', NULL, 5, 'validate_edit', 'ui_hooks', 'content.ui_hooks.pages.validate_edit'),
-(25, 'Content', NULL, 5, 'validate_delete', 'ui_hooks', 'content.ui_hooks.pages.validate_delete'),
-(26, 'Content', NULL, 5, 'process_edit', 'ui_hooks', 'content.ui_hooks.pages.process_edit'),
-(27, 'Content', NULL, 5, 'process_delete', 'ui_hooks', 'content.ui_hooks.pages.process_delete'),
-(28, 'Content', NULL, 6, 'filter', 'filter_hooks', 'content.filter_hooks.pages.filter'),
 (29, 'Formicula', NULL, 7, 'form_edit', 'ui_hooks', 'formicula.ui_hooks.forms.form_edit'),
 (30, 'Formicula', NULL, 7, 'validate_edit', 'ui_hooks', 'formicula.ui_hooks.forms.validate_edit'),
 (31, 'News', NULL, 8, 'display_view', 'ui_hooks', 'news.ui_hooks.articles.display_view'),
@@ -893,7 +929,27 @@ INSERT INTO `hook_subscriber` (`id`, `owner`, `subowner`, `sareaid`, `hooktype`,
 (43, 'Pages', NULL, 10, 'validate_delete', 'ui_hooks', 'pages.ui_hooks.pages.validate_delete'),
 (44, 'Pages', NULL, 10, 'process_edit', 'ui_hooks', 'pages.ui_hooks.pages.process_edit'),
 (45, 'Pages', NULL, 10, 'process_delete', 'ui_hooks', 'pages.ui_hooks.pages.process_delete'),
-(46, 'Pages', NULL, 11, 'filter', 'filter_hooks', 'pages.filter_hooks.pages.filter');
+(46, 'Pages', NULL, 11, 'filter', 'filter_hooks', 'pages.filter_hooks.pages.filter'),
+(47, 'Blocks', NULL, 12, 'form_edit', 'ui_hooks', 'blocks.ui_hooks.htmlblock.content.form_edit'),
+(48, 'Content', NULL, 13, 'display_view', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.display_view'),
+(49, 'Content', NULL, 13, 'form_edit', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.form_edit'),
+(50, 'Content', NULL, 13, 'form_delete', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.form_delete'),
+(51, 'Content', NULL, 13, 'validate_edit', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.validate_edit'),
+(52, 'Content', NULL, 13, 'validate_delete', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.validate_delete'),
+(53, 'Content', NULL, 13, 'process_edit', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.process_edit'),
+(54, 'Content', NULL, 13, 'process_delete', 'ui_hooks', 'content.ui_hooks.htmlcontenttype.process_delete'),
+(55, 'Content', NULL, 14, 'display_view', 'ui_hooks', 'content.ui_hooks.pages.display_view'),
+(56, 'Content', NULL, 14, 'form_edit', 'ui_hooks', 'content.ui_hooks.pages.form_edit'),
+(57, 'Content', NULL, 14, 'form_delete', 'ui_hooks', 'content.ui_hooks.pages.form_delete'),
+(58, 'Content', NULL, 14, 'validate_edit', 'ui_hooks', 'content.ui_hooks.pages.validate_edit'),
+(59, 'Content', NULL, 14, 'validate_delete', 'ui_hooks', 'content.ui_hooks.pages.validate_delete'),
+(60, 'Content', NULL, 14, 'process_edit', 'ui_hooks', 'content.ui_hooks.pages.process_edit'),
+(61, 'Content', NULL, 14, 'process_delete', 'ui_hooks', 'content.ui_hooks.pages.process_delete'),
+(62, 'Content', NULL, 15, 'filter', 'filter_hooks', 'content.filter_hooks.htmlcontenttype.filter'),
+(63, 'IWforms', NULL, 16, 'form_edit', 'ui_hooks', 'iwforms.ui_hooks.iwforms.form_edit'),
+(64, 'IWforums', NULL, 17, 'form_edit', 'ui_hooks', 'IWforums.ui_hooks.IWforums.form_edit'),
+(65, 'IWmessages', NULL, 18, 'form_edit', 'ui_hooks', 'iwmessages.ui_hooks.iwmessages.form_edit'),
+(66, 'IWnoteboard', NULL, 19, 'form_edit', 'ui_hooks', 'iwnoteboard.ui_hooks.iwnoteboard.form_edit');
 
 -- --------------------------------------------------------
 
@@ -1261,56 +1317,58 @@ CREATE TABLE IF NOT EXISTS `IWforms_cat` (
 --
 
 CREATE TABLE IF NOT EXISTS `IWforms_definition` (
-  `iw_fid` int(10) NOT NULL AUTO_INCREMENT,
-  `iw_formName` varchar(70) NOT NULL DEFAULT '',
-  `iw_description` varchar(255) NOT NULL DEFAULT '',
-  `iw_active` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_title` varchar(255) NOT NULL DEFAULT '',
+  `iw_fid` int(11) NOT NULL AUTO_INCREMENT,
+  `iw_formName` varchar(70) NOT NULL,
+  `iw_description` varchar(255) NOT NULL,
+  `iw_active` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_title` varchar(255) NOT NULL,
   `iw_new` datetime NOT NULL,
-  `iw_cid` int(10) NOT NULL DEFAULT '0',
+  `iw_cid` int(11) NOT NULL DEFAULT '0',
   `iw_caducity` datetime NOT NULL,
-  `iw_annonimous` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_unique` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_answare` text NOT NULL,
-  `iw_characters` int(3) NOT NULL DEFAULT '0',
-  `iw_closeableNotes` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_closeInsert` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_closeableInsert` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_unregisterednotusersview` tinyint(1) NOT NULL DEFAULT '1',
-  `iw_unregisterednotexport` tinyint(1) NOT NULL DEFAULT '1',
-  `iw_publicResponse` tinyint(1) NOT NULL DEFAULT '0',
+  `iw_annonimous` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_unique` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_answare` longtext NOT NULL,
+  `iw_characters` mediumint(9) NOT NULL DEFAULT '0',
+  `iw_closeableNotes` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_closeInsert` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_closeableInsert` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_unregisterednotusersview` tinyint(4) NOT NULL DEFAULT '1',
+  `iw_unregisterednotexport` tinyint(4) NOT NULL DEFAULT '1',
+  `iw_publicResponse` tinyint(4) NOT NULL DEFAULT '0',
   `pn_obj_status` varchar(1) NOT NULL DEFAULT 'A',
   `pn_cr_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `pn_cr_uid` int(11) NOT NULL DEFAULT '0',
   `pn_lu_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `pn_lu_uid` int(11) NOT NULL DEFAULT '0',
-  `iw_skin` text NOT NULL,
-  `iw_skincss` varchar(150) NOT NULL DEFAULT '',
-  `iw_showFormName` tinyint(1) NOT NULL DEFAULT '1',
-  `iw_showNotesTitle` tinyint(1) NOT NULL DEFAULT '1',
-  `iw_skinForm` text NOT NULL,
-  `iw_skinNote` text NOT NULL,
-  `iw_expertMode` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_skinByTemplate` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_skinFormTemplate` varchar(70) NOT NULL DEFAULT 'iw_forms_user_new.htm',
-  `iw_skinTemplate` varchar(70) NOT NULL DEFAULT 'iw_forms_user_read.htm',
-  `iw_skinNoteTemplate` varchar(70) NOT NULL DEFAULT 'iw_forms_user_read.htm',
-  `iw_allowComments` tinyint(1) NOT NULL DEFAULT '0',
-  `iw_allowCommentsModerated` tinyint(1) NOT NULL DEFAULT '0',
+  `iw_skin` longtext NOT NULL,
+  `iw_skincss` varchar(150) NOT NULL,
+  `iw_showFormName` tinyint(4) NOT NULL DEFAULT '1',
+  `iw_showNotesTitle` tinyint(4) NOT NULL DEFAULT '1',
+  `iw_skinForm` longtext NOT NULL,
+  `iw_skinNote` longtext NOT NULL,
+  `iw_expertMode` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_skinByTemplate` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_skinFormTemplate` varchar(70) NOT NULL DEFAULT 'IWforms_user_new.tpl',
+  `iw_skinTemplate` varchar(70) NOT NULL DEFAULT 'IWforms_user_read.tpl',
+  `iw_skinNoteTemplate` varchar(70) NOT NULL DEFAULT 'IWforms_user_read.tpl',
+  `iw_allowComments` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_allowCommentsModerated` tinyint(4) NOT NULL DEFAULT '0',
   `iw_returnURL` varchar(150) NOT NULL,
   `iw_filesFolder` varchar(25) NOT NULL,
-  `iw_lang` varchar(2) NOT NULL DEFAULT '',
-  PRIMARY KEY (`iw_fid`),
-  KEY `iw_active` (`iw_active`)
+  `iw_lang` varchar(2) NOT NULL,
+  `iw_defaultNumberOfNotes` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_defaultOrderForNotes` tinyint(4) NOT NULL DEFAULT '0',
+  `iw_orderFormField` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`iw_fid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Bolcant dades de la taula `IWforms_definition`
 --
 
-INSERT INTO `IWforms_definition` (`iw_fid`, `iw_formName`, `iw_description`, `iw_active`, `iw_title`, `iw_new`, `iw_cid`, `iw_caducity`, `iw_annonimous`, `iw_unique`, `iw_answare`, `iw_characters`, `iw_closeableNotes`, `iw_closeInsert`, `iw_closeableInsert`, `iw_unregisterednotusersview`, `iw_unregisterednotexport`, `iw_publicResponse`, `pn_obj_status`, `pn_cr_date`, `pn_cr_uid`, `pn_lu_date`, `pn_lu_uid`, `iw_skin`, `iw_skincss`, `iw_showFormName`, `iw_showNotesTitle`, `iw_skinForm`, `iw_skinNote`, `iw_expertMode`, `iw_skinByTemplate`, `iw_skinFormTemplate`, `iw_skinTemplate`, `iw_skinNoteTemplate`, `iw_allowComments`, `iw_allowCommentsModerated`, `iw_returnURL`, `iw_filesFolder`, `iw_lang`) VALUES
-(1, 'Guàrdies i substitucions', 'Espai des d''on enviar la feina per a les substitucions', 1, 'Feina per a l''alumnat', '2008-11-21 23:59:00', 0, '0000-00-00 00:00:00', 0, 0, '', 0, 0, 0, 0, 1, 1, 0, 'A', '2008-09-22 17:05:49', 2, '2009-02-24 09:37:06', 2, '', '', 1, 1, '', '', 0, 0, 'IWforms_user_new.htm', 'IWforms_user_read.htm', 'IWforms_user_read.htm', 0, 0, '', '', ''),
-(2, 'Avaries informàtiques', 'Notificació al coordinador d''informàtica de problemes amb el maquinari o programari informàtic del centre', 1, 'Avaries de l''equipament informàtic', '2008-12-09 23:59:00', 0, '0000-00-00 00:00:00', 0, 0, '', 0, 0, 0, 0, 1, 1, 0, 'A', '2008-09-22 17:19:45', 2, '2008-09-22 17:19:45', 2, '', '', 1, 1, '', '', 0, 0, 'IWforms_user_new.htm', 'IWforms_user_read.htm', 'IWforms_user_read.htm', 0, 0, '', '', '');
+INSERT INTO `IWforms_definition` (`iw_fid`, `iw_formName`, `iw_description`, `iw_active`, `iw_title`, `iw_new`, `iw_cid`, `iw_caducity`, `iw_annonimous`, `iw_unique`, `iw_answare`, `iw_characters`, `iw_closeableNotes`, `iw_closeInsert`, `iw_closeableInsert`, `iw_unregisterednotusersview`, `iw_unregisterednotexport`, `iw_publicResponse`, `pn_obj_status`, `pn_cr_date`, `pn_cr_uid`, `pn_lu_date`, `pn_lu_uid`, `iw_skin`, `iw_skincss`, `iw_showFormName`, `iw_showNotesTitle`, `iw_skinForm`, `iw_skinNote`, `iw_expertMode`, `iw_skinByTemplate`, `iw_skinFormTemplate`, `iw_skinTemplate`, `iw_skinNoteTemplate`, `iw_allowComments`, `iw_allowCommentsModerated`, `iw_returnURL`, `iw_filesFolder`, `iw_lang`, `iw_defaultNumberOfNotes`, `iw_defaultOrderForNotes`, `iw_orderFormField`) VALUES
+(1, 'Guàrdies i substitucions', 'Espai des d''on enviar la feina per a les substitucions', 1, 'Feina per a l''alumnat', '2008-11-21 23:59:00', 0, '0000-00-00 00:00:00', 0, 0, '', 0, 0, 0, 0, 1, 1, 0, 'A', '2008-09-22 17:05:49', 2, '2009-02-24 09:37:06', 2, '', '', 1, 1, '', '', 0, 0, 'IWforms_user_new.htm', 'IWforms_user_read.htm', 'IWforms_user_read.htm', 0, 0, '', '', '', 0, 0, 0),
+(2, 'Avaries informàtiques', 'Notificació al coordinador d''informàtica de problemes amb el maquinari o programari informàtic del centre', 1, 'Avaries de l''equipament informàtic', '2008-12-09 23:59:00', 0, '0000-00-00 00:00:00', 0, 0, '', 0, 0, 0, 0, 1, 1, 0, 'A', '2008-09-22 17:19:45', 2, '2008-09-22 17:19:45', 2, '', '', 1, 1, '', '', 0, 0, 'IWforms_user_new.htm', 'IWforms_user_read.htm', 'IWforms_user_read.htm', 0, 0, '', '', '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1467,6 +1525,7 @@ CREATE TABLE IF NOT EXISTS `IWforums_definition` (
   `pn_cr_uid` int(11) NOT NULL DEFAULT '0',
   `pn_lu_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `pn_lu_uid` int(11) NOT NULL DEFAULT '0',
+  `longDescriu` longtext NOT NULL,
   PRIMARY KEY (`iw_fid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -1474,10 +1533,10 @@ CREATE TABLE IF NOT EXISTS `IWforums_definition` (
 -- Bolcant dades de la taula `IWforums_definition`
 --
 
-INSERT INTO `IWforums_definition` (`iw_fid`, `iw_nom_forum`, `iw_descriu`, `iw_actiu`, `iw_adjunts`, `iw_grup`, `iw_mod`, `iw_observacions`, `iw_msgDelTime`, `iw_msgEditTime`, `pn_obj_status`, `pn_cr_date`, `pn_cr_uid`, `pn_lu_date`, `pn_lu_uid`) VALUES
-(1, 'Centre', 'Fòrum general de tot el centre', 1, 0, '$$4|2$$3|1$', '$$9$', '', '10', '20', 'A', '2008-09-09 16:48:58', 2, '2008-09-09 16:58:36', 2),
-(2, 'Funcionament de la maqueta', 'Espai on preguntar/respondre dubtes relacionats amb el funcionament dels mòduls de la intranet', 1, 0, '$$4|2$', '$$2$', '', '10', '20', 'A', '2008-09-09 16:49:42', 2, '2008-09-09 16:57:12', 2),
-(3, 'Professorat', 'Fòrum exclusiu del professorat', 1, 1, '$$4|3$', '$$3$', '', '10', '20', 'A', '2008-09-09 16:50:51', 2, '2008-09-09 16:58:05', 2);
+INSERT INTO `IWforums_definition` (`iw_fid`, `iw_nom_forum`, `iw_descriu`, `iw_actiu`, `iw_adjunts`, `iw_grup`, `iw_mod`, `iw_observacions`, `iw_msgDelTime`, `iw_msgEditTime`, `pn_obj_status`, `pn_cr_date`, `pn_cr_uid`, `pn_lu_date`, `pn_lu_uid`, `longDescriu`) VALUES
+(1, 'Centre', 'Fòrum general de tot el centre', 1, 0, '$$4|2$$3|1$', '$$9$', '', '10', '20', 'A', '2008-09-09 16:48:58', 2, '2008-09-09 16:58:36', 2, ''),
+(2, 'Funcionament de la maqueta', 'Espai on preguntar/respondre dubtes relacionats amb el funcionament dels mòduls de la intranet', 1, 0, '$$4|2$', '$$2$', '', '10', '20', 'A', '2008-09-09 16:49:42', 2, '2008-09-09 16:57:12', 2, ''),
+(3, 'Professorat', 'Fòrum exclusiu del professorat', 1, 1, '$$4|3$', '$$3$', '', '10', '20', 'A', '2008-09-09 16:50:51', 2, '2008-09-09 16:58:05', 2, '');
 
 -- --------------------------------------------------------
 
@@ -1728,7 +1787,24 @@ CREATE TABLE IF NOT EXISTS `IWmain` (
   KEY `iw_module` (`iw_module`),
   KEY `iw_name` (`iw_name`),
   KEY `iw_uid` (`iw_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Bolcant dades de la taula `IWmain`
+--
+
+INSERT INTO `IWmain` (`iw_id`, `iw_module`, `iw_name`, `iw_value`, `iw_uid`, `iw_lifetime`, `iw_nult`, `pn_obj_status`, `pn_cr_date`, `pn_cr_uid`, `pn_lu_date`, `pn_lu_uid`) VALUES
+(1, 'IWmain_block_news', 'news', '<!---fo--->\n<!---/fo--->\n<!---fu--->\n<!---/fu--->\n<!---fu--->\n<!---/fu--->\n', 2, '1424277725', 1, 'A', '2015-02-18 17:28:22', 2, '2015-02-18 17:31:27', 2),
+(2, 'IWmain_block_flagged', 'flagged', '', 2, '1424277625', 1, 'A', '2015-02-18 17:28:22', 2, '2015-02-18 17:31:27', 2),
+(3, 'IWnoteboard', 'nbtopics', '<div style="padding-left: 10px;">\n    <a href="index.php?module=Tauler&amp;type=user&amp;func=main&amp;tema=2">Comunitat</a>\n</div>\n<div style="height: 20px">&nbsp;</div>', 2, '1424278902', 1, 'A', '2015-02-18 17:28:22', 2, '2015-02-18 17:31:27', 2),
+(4, 'IWagendas', 'calendar', '\n<script type="text/javascript">\n    <!-- overLIB configuration -->\n    ol_fgcolor = "lightyellow";\n    ol_bgcolor = "#FFFFFF";\n    ol_textcolor = "#000000";\n    ol_capcolor = "#e7e7e7";\n    ol_closecolor = "#000000";\n    ol_textfont = "Verdana,Arial,Helvetica";\n    ol_captionfont = "Verdana,Arial,Helvetica";\n    ol_captionsize = 2;\n    ol_textsize = 2;\n    ol_border = 2;\n    ol_width = 350;\n    ol_offsetx = 10;\n    ol_offsety = 10;\n    ol_sticky = 0;\n    ol_close = "Tanca";\n    ol_closeclick = 0;\n    ol_autostatus = 2;\n    ol_snapx = 0;\n    ol_snapy = 0;\n    ol_fixx = -1;\n    ol_fixy = -1;\n    ol_background = "";\n    ol_fgbackground = "";\n    ol_bgbackground = "";\n    ol_padxl = 1;\n    ol_padxr = 1;\n    ol_padyt = 1;\n    ol_padyb = 1;\n    ol_capicon = "";\n    ol_hauto = 1;\n    ol_vauto = 1;\n    if (document.getElementById(''overDiv'')==null) {\n        document.writeln(''<div id="overDiv" style="position:absolute; top:0px; left:0px; visibility:hidden; z-index:1000;"></div>'');\n    }\n</script>\n\n\n\n<div id="calendarContent">\n    \n<table cellpadding="0" style="width:100%; border: 2px solid #FFFFFF; background-color:#E1EBFF">\n        <tr>\n        <td align="center" bgcolor="#DBD4A6" colspan="7">\n            <a href="javascript:calendarBlockMonth(1,2015)">\n                <img src="/usu1/intranet/modules/IWagendas/images/mesmenys.gif" alt="Mes anterior" title="Mes anterior" width="19" height="10" />\n            </a>\n            <a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015" style="color:#555555">\n                <strong>Febrer&nbsp;2015</strong>\n            </a>\n            <a href="javascript:calendarBlockMonth(3,2015)">\n                <img src="/usu1/intranet/modules/IWagendas/images/mesmes.gif" alt="Mes següent" title="Mes següent" width="19" height="10" />\n            </a>\n        </td>\n    </tr>\n        <tr>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Dl</td>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Dm</td>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Dc</td>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Dj</td>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Dv</td>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Ds</td>\n     <!-- Header with the name of the day abbreviated -->\n        <td style="color:#FFFFFF; background:#FFCC66; text-align:center;">Dg</td>\n        </tr>\n        <tr>\n              \n                             <td style="width:14.27%; text-align:center;">&nbsp;</td><td style="width:14.27%; text-align:center;">&nbsp;</td><td style="width:14.27%; text-align:center;">&nbsp;</td><td style="width:14.27%; text-align:center;">&nbsp;</td><td style="width:14.27%; text-align:center;">&nbsp;</td><td style="width:14.27%; text-align:center;">&nbsp;</td>            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Diumenge&nbsp;&nbsp;1/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=1">1</a></span>\n                </td>\n                                  \n            \n                             </tr><tr>\n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dilluns&nbsp;&nbsp;2/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=2">2</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimarts&nbsp;&nbsp;3/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=3">3</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimecres&nbsp;&nbsp;4/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=4">4</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dijous&nbsp;&nbsp;5/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=5">5</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Divendres&nbsp;&nbsp;6/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=6">6</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dissabte&nbsp;&nbsp;7/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=7">7</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Diumenge&nbsp;&nbsp;8/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=8">8</a></span>\n                </td>\n                                  \n            \n                             </tr><tr>\n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dilluns&nbsp;&nbsp;9/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=9">9</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimarts&nbsp;&nbsp;10/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=10">10</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimecres&nbsp;&nbsp;11/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=11">11</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dijous&nbsp;&nbsp;12/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=12">12</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Divendres&nbsp;&nbsp;13/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=13">13</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dissabte&nbsp;&nbsp;14/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=14">14</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Diumenge&nbsp;&nbsp;15/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=15">15</a></span>\n                </td>\n                                  \n            \n                             </tr><tr>\n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dilluns&nbsp;&nbsp;16/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=16">16</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimarts&nbsp;&nbsp;17/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=17">17</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#DBD4A6; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimecres&nbsp;&nbsp;18/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=18">18</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dijous&nbsp;&nbsp;19/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=19">19</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Divendres&nbsp;&nbsp;20/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=20">20</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dissabte&nbsp;&nbsp;21/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=21">21</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Diumenge&nbsp;&nbsp;22/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=22">22</a></span>\n                </td>\n                                  \n            \n                             </tr><tr>\n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dilluns&nbsp;&nbsp;23/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=23">23</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimarts&nbsp;&nbsp;24/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=24">24</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dimecres&nbsp;&nbsp;25/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=25">25</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dijous&nbsp;&nbsp;26/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=26">26</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FFFFFF; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Divendres&nbsp;&nbsp;27/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=27">27</a></span>\n                </td>\n                                  \n            \n            \n                            <td style="width:14.27%; background:#FF8484; text-align:center;" onmouseout="nd();" onmouseover="overlib(''No hi ha cap anotació en aquesta data<br />'', CAPTION, ''Dissabte&nbsp;&nbsp;28/02/2015'', BGCOLOR, ''#316ac5'', TIMEOUT, 100000, DELAY, 200, WIDTH, 200)">\n                    <span style="color:#FFFFFF;"><a href="index.php?module=IWagendas&amp;type=user&amp;func=main&amp;mes=2&amp;any=2015&amp;daid=0&amp;dia=28">28</a></span>\n                </td>\n                            </tr>\n</table></div>', 2, '1424277787', 0, 'A', '2015-02-18 17:28:23', 2, '2015-02-18 17:31:27', 2),
+(5, 'IWagendas', 'month', '0', 2, '1429461087', 0, 'A', '2015-02-18 17:28:23', 2, '2015-02-18 17:31:27', 2),
+(6, 'IWagendas', 'next', '<script type="text/javascript">\n\n    //Translucent scroller- By Dynamic Drive\n    //For full source code and more DHTML scripts, visit http://www.dynamicdrive.com\n    //This credit MUST stay intact for use\n\n    var scroller_width=''95%''\n    var scroller_height=''80px''\n    var bgcolor=''lightyellow''\n    var pause=3000 //SET PAUSE BETWEEN SLIDE (3000=3 seconds)\n\n    var scrollercontent=new Array()\n\n    \n    var id=0\n    scrollercontent[id]=''No tens anotacions a l&acute;agenda per als propers 7  days''\n    \n\n    ////NO need to edit beyond here/////////////\n\n    var ie4=document.all\n    var dom=document.getElementById&&navigator.userAgent.indexOf("Opera")==-1\n\n    if (ie4||dom)\n        document.write(''<div style="position:relative;width:''+scroller_width+'';height:''+scroller_height+'';overflow:hidden"><div id="canvas0" style="position:absolute;background-color:''+bgcolor+'';width:''+scroller_width+'';height:''+scroller_height+'';top:''+scroller_height+'';filter:alpha(opacity=20);-moz-opacity:0.2; padding: 5px;"></div><div id="canvas1" style="position:absolute;background-color:''+bgcolor+'';width:''+scroller_width+'';height:''+scroller_height+'';top:''+scroller_height+'';filter:alpha(opacity=20);-moz-opacity:0.2; padding: 5px;"></div></div>'')\n    else if (document.layers) {\n        document.write(''<ilayer id=tickernsmain visibility=hide width=''+scroller_width+'' height=''+scroller_height+'' bgColor=''+bgcolor+''><layer id=tickernssub width=''+scroller_width+'' height=''+scroller_height+'' left=0 top=0>''+scrollercontent[0]+''</layer></ilayer>'')\n    }\n\n    var curpos=scroller_height*(1)\n    var degree=10\n    var curcanvas="canvas0"\n    var curindex=0\n    var nextindex=1\n\n    function moveslide(){\n        if (curpos>0) {\n            curpos=Math.max(curpos-degree,0)\n            tempobj.style.top=curpos+"px"\n        } else {\n            clearInterval(dropslide)\n            if (crossobj.filters)\n                crossobj.filters.alpha.opacity=100\n            else if (crossobj.style.MozOpacity)\n                crossobj.style.MozOpacity=1\n            nextcanvas=(curcanvas=="canvas0")? "canvas0" : "canvas1"\n            tempobj=ie4? eval("document.all."+nextcanvas) : document.getElementById(nextcanvas)\n            tempobj.innerHTML=scrollercontent[curindex]\n            nextindex=(nextindex<scrollercontent.length-1)? nextindex+1 : 0\n            setTimeout("rotateslide()",pause)\n        }\n    }\n\n    function rotateslide() {\n        if (ie4||dom){\n            resetit(curcanvas)\n            crossobj=tempobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)\n            crossobj.style.zIndex++\n            if (crossobj.filters)\n                document.all.canvas0.filters.alpha.opacity=document.all.canvas1.filters.alpha.opacity=20\n            else if (crossobj.style.MozOpacity)\n                document.getElementById("canvas0").style.MozOpacity=document.getElementById("canvas1").style.MozOpacity=0.2\n            var temp=''setInterval("moveslide()",50)''\n            dropslide=eval(temp)\n            curcanvas=(curcanvas=="canvas0")? "canvas1" : "canvas0"\n        }\n        else if (document.layers){\n            crossobj.document.write(scrollercontent[curindex])\n            crossobj.document.close()\n        }\n        curindex=(curindex<scrollercontent.length-1)? curindex+1 : 0\n    }\n\n    function resetit(what){\n        curpos=parseInt(scroller_height)*(1)\n        var crossobj=ie4? eval("document.all."+what) : document.getElementById(what)\n        crossobj.style.top=curpos+"px"\n    }\n\n    function startit(){\n        crossobj=ie4? eval("document.all."+curcanvas) : dom? document.getElementById(curcanvas) : document.tickernsmain.document.tickernssub\n        if (ie4||dom){\n            crossobj.innerHTML=scrollercontent[curindex]\n            rotateslide()\n            crossobj.onclick=new Function("window.open(''index.php?module=IWagendas'',''_parent'')");\n        }else{\n            document.tickernsmain.visibility=''show''\n            curindex++\n            setInterval("rotateslide()",pause)\n        }\n    }\n\n    // if (ie4||dom||document.layers)\n    // window.onload=startit\n    if (ie4||dom||document.layers) startit();\n\n</script>\n\n<div class="iwagendas-block-next">\n    En els propers 7 dies\n</div>', 2, '1424277603', 1, 'A', '2015-02-18 17:28:23', 2, '2015-02-18 17:31:27', 2),
+(7, 'IWjclic', 'jclicBlock', '\n\nNo tens accés a cap activitat Jclic\n', 2, '1424277853', 1, 'A', '2015-02-18 17:28:23', 2, '2015-02-18 17:31:27', 2),
+(8, 'IWqv', 'qvsummary', '', 2, '1424278903', 0, 'A', '1970-01-01 00:00:00', 0, '1970-01-01 00:00:00', 0),
+(9, 'IWvhmenu', 'userMenu', '<script type="text/javascript">\n		// HV Menu by Ger Versluis (http://www.burmees.nl/)\n		// Submitted to Dynamic Drive (http://www.dynamicdrive.com)\n		// Visit http://www.dynamicdrive.com for this script and more\n		function Go(){ return; }\n		var NoOffFirstLineMenus=5;		// Number of first level items\n		var LowBgColor=''#efedde'';						// Background color when mouse is not over\n		var LowSubBgColor=''#efedde'';					// Background color when mouse is not over on subs\n		var HighBgColor=''#b3cadb'';						// Background color when mouse is over\n		var HighSubBgColor=''#b3cadb'';				// Background color when mouse is over on subs\n		var FontLowColor=''#000000'';					// Font color when mouse is not over\n		var FontSubLowColor=''#000000'';				// Font color subs when mouse is not over\n		var FontHighColor=''#000000'';					// Font color when mouse is over\n		var FontSubHighColor=''#000000'';			// Font color subs when mouse is over\n		var BorderColor=''#ffffff'';						// Border color\n		var BorderSubColor=''#ffffff'';				// Border color for subs\n		var BorderWidth=1;						// Border width\n		var BorderBtwnElmnts=1;				// Border between elements 1 or 0\n		var FontFamily=''Tahoma, Verdana, Arial, Helvetica, sans-serif'';						// Font family menu items\n		var FontSize=9;								// Font size menu items\n		var FontBold=0;								// Bold menu items 1 or 0\n		var FontItalic=0;							// Italic menu items 1 or 0\n		var MenuTextCentered=''center'';			// Item text position ''left'', ''center'' or ''right''\n		var MenuCentered=''left'';					// Menu horizontal position ''left'', ''center'' or ''right''\n		var MenuVerticalCentered=''top'';	// Menu vertical position ''top'', ''middle'',''bottom'' or static\n		var ChildOverlap=0.1;						// horizontal overlap child/ parent\n		var ChildVerticalOverlap=0.1;		// vertical overlap child/ parent\n		var StartTop=130;								// Menu offset x coordinate\n		var StartLeft=10;							// Menu offset y coordinate\n		var VerCorrect=0;							// Multiple frames y correction\n		var HorCorrect=0;							// Multiple frames x correction\n		var LeftPaddng=3;							// Left padding\n		var TopPaddng=0;							// Top padding\n		var FirstLineHorizontal=1;		// SET TO 1 FOR HORIZONTAL MENU, 0 FOR VERTICAL\n		var MenuFramesVertical=1;			// Frames in cols or rows 1 or 0\n		var DissapearDelay=1000;					// delay before menu folds in\n		var TakeOverBgColor=1;				// Menu frame takes over background color subitem frame\n		var FirstLineFrame=''navig'';				// Frame where first level appears\n		var SecLineFrame=''space'';					// Frame where sub levels appear\n		var DocTargetFrame=''space'';				// Frame where target documents appear\n		var TargetLoc='''';							// span id for relative positioning\n		var HideTop=0;								// Hide first level when loading new document 1 or 0\n		var MenuWrap=1;								// enables/ disables menu wrap 1 or 0\n		var RightToLeft=0;						// enables/ disables right to left unfold 1 or 0\n		var UnfoldsOnClick=0;					// Level 1 unfolds onclick/ onmouseover\n		var WebMasterCheck=0;					// menu tree checking on or off 1 or 0\n		var ShowArrow=1;							// Uses arrow gifs when 1\n		var KeepHilite=1;							// Keep selected path highligthed\n		var Arrws=[''modules/IWvhmenu/images/tri.gif'',5,10,''modules/IWvhmenu/images/tridown.gif'',10,5,''modules/IWvhmenu/images/trileft.gif'',5,10];	// Arrow source, width and height\n		\n		function BeforeStart(){return}\n		function AfterBuild(){return}\n		function BeforeFirstOpen(){return}\n		function AfterCloseAll(){return}\nMenu1=new Array("Inici", "index.php", "", 0, 23, 70);\nMenu2=new Array("El meu compte", "user.php", "", 0, 24, 120);\nMenu3=new Array("Bústia", "index.php?module=IWmessages", "", 0, 24, 80);\nMenu4=new Array("Administració", "admin.php", "", 4, 24, 120);\nMenu4_1=new Array("Continguts", "index.php?module=Admin&type=admin&func=adminpanel&acid=4", "", 7, 24, 120);\nMenu4_1_1=new Array("Notícies", "index.php?module=News&type=admin", "", 0, 24, 120);\nMenu4_1_2=new Array("Pàgines simples", "index.php?module=Pages&type=admin", "", 0, 24, 120);\nMenu4_1_3=new Array("Tauler", "index.php?module=IWnoteboard&type=admin", "", 0, 24, 150);\nMenu4_1_4=new Array("Agendes", "index.php?module=IWagendas&type=admin", "", 0, 24, 120);\nMenu4_1_5=new Array("Fòrums", "index.php?module=IWforums&type=admin", "", 0, 24, 80);\nMenu4_1_6=new Array("Documents", "index.php?module=IWdocmanager&type=admin&func=viewCategories", "", 0, 24, 120);\nMenu4_1_7=new Array("Més opcions", "index.php?module=adminpanel&type=admin&func=adminpanel&acid=4", "", 0, 24, 150);\nMenu4_2=new Array("Sistema", "index.php?module=Admin&type=admin&func=adminpanel&acid=1", "", 6, 24, 120);\nMenu4_2_1=new Array("Paràm.Generals", "index.php?module=Settings&type=admin", "", 0, 24, 120);\nMenu4_2_2=new Array("Seguretat", "index.php?module=SecurityCenter&type=admin&func=main", "", 0, 24, 150);\nMenu4_2_3=new Array("Blocs", "index.php?module=Blocks&type=admin", "", 0, 24, 120);\nMenu4_2_4=new Array("Mòduls", "index.php?module=Extensions&type=admin", "", 0, 24, 120);\nMenu4_2_5=new Array("Fitxers del lloc", "index.php?module=Files", "", 0, 24, 120);\nMenu4_2_6=new Array("Més opcions", "index.php?module=adminpanel&type=admin&func=adminpanel&acid=1", "", 0, 24, 150);\nMenu4_3=new Array("Usuaris", "index.php?module=Admin&type=admin&func=adminpanel&acid=2", "", 4, 24, 120);\nMenu4_3_1=new Array("Usuaris", "index.php?module=IWusers&type=admin", "", 0, 24, 120);\nMenu4_3_2=new Array("Grups", "index.php?module=Groups&type=admin", "", 0, 24, 150);\nMenu4_3_3=new Array("Permisos", "index.php?module=permissions&type=admin&func=view", "", 0, 24, 120);\nMenu4_3_4=new Array("Més opcions", "index.php?module=adminpanel&type=admin&func=adminpanel&acid=2", "", 0, 24, 150);\nMenu4_4=new Array("Utilitats", "index.php?module=Admin&type=admin&func=adminpanel&acid=5", "", 4, 24, 150);\nMenu4_4_1=new Array("Reserves", "index.php?module=IWbookings&type=admin", "", 0, 23, 150);\nMenu4_4_2=new Array("Formularis", "index.php?module=IWforms&type=admin", "", 0, 24, 120);\nMenu4_4_3=new Array("Llibres", "index.php?module=IWbooks&type=admin", "", 0, 24, 150);\nMenu4_4_4=new Array("Més opcions", "index.php?module=adminpanel&type=admin&func=adminpanel&acid=5", "", 0, 24, 150);\nMenu5=new Array("Surt", "index.php?module=users&type=user&func=logout", "", 0, 24, 70);\n</script>\n<script type="text/javascript" src="modules/IWvhmenu/javascript/menu_com.js"></script>\n', 2, '1424277503', 1, 'A', '1970-01-01 00:00:00', 0, '2015-02-18 17:31:25', 2),
+(10, 'IWmain_block_news', 'have_news', '0', 2, '1429461087', 0, 'A', '2015-02-18 17:30:25', 2, '2015-02-18 17:31:27', 2),
+(11, 'IWmain_block_flagged', 'have_flags', '0', 2, '1429461087', 0, 'A', '2015-02-18 17:30:25', 2, '2015-02-18 17:31:27', 2);
 
 -- --------------------------------------------------------
 
@@ -1987,14 +2063,33 @@ CREATE TABLE IF NOT EXISTS `IWstats` (
   `iw_datetime` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `iw_ip` varchar(15) NOT NULL,
   `iw_moduleid` int(11) NOT NULL DEFAULT '0',
-  `iw_params` varchar(100) NOT NULL,
+  `iw_params` varchar(255) NOT NULL,
   `iw_uid` int(11) NOT NULL DEFAULT '0',
   `iw_isadmin` tinyint(4) NOT NULL DEFAULT '0',
   `iw_skippedModule` tinyint(4) NOT NULL DEFAULT '0',
   `iw_skipped` tinyint(4) NOT NULL DEFAULT '0',
   `iw_summarised` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`iw_statsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `iw_ipForward` varchar(15) NOT NULL,
+  `iw_ipClient` varchar(15) NOT NULL,
+  `iw_userAgent` varchar(255) NOT NULL,
+  PRIMARY KEY (`iw_statsid`),
+  KEY `iw_ipForward` (`iw_ipForward`),
+  KEY `iw_ipClient` (`iw_ipClient`),
+  KEY `iw_userAgent` (`iw_userAgent`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Bolcant dades de la taula `IWstats`
+--
+
+INSERT INTO `IWstats` (`iw_statsid`, `iw_datetime`, `iw_ip`, `iw_moduleid`, `iw_params`, `iw_uid`, `iw_isadmin`, `iw_skippedModule`, `iw_skipped`, `iw_summarised`, `iw_ipForward`, `iw_ipClient`, `iw_userAgent`) VALUES
+(1, '2015-02-18 17:28:18', '192.168.33.1', 27, 'ccentre=usu1', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'),
+(2, '2015-02-18 17:30:21', '192.168.33.1', 27, 'ccentre=usu1&module=Not%C3%ADcies&type=admin&func=view', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'),
+(3, '2015-02-18 17:30:30', '192.168.33.1', 1, 'ccentre=usu1&module=Extensions&type=admin', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'),
+(4, '2015-02-18 17:30:30', '192.168.33.1', 1, 'ccentre=usu1&module=extensions&type=admin&func=view', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'),
+(5, '2015-02-18 17:31:16', '192.168.33.1', 0, 'ccentre=usu1', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'),
+(6, '2015-02-18 17:31:23', '192.168.33.1', 1, 'ccentre=usu1&module=extensions&type=admin&func=view', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'),
+(7, '2015-02-18 17:31:26', '192.168.33.1', 27, 'ccentre=usu1', 2, 1, 0, 0, 0, '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36');
 
 -- --------------------------------------------------------
 
@@ -2300,7 +2395,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   PRIMARY KEY (`id`),
   KEY `state` (`state`),
   KEY `mod_state` (`name`,`state`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=119 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
 
 --
 -- Bolcant dades de la taula `modules`
@@ -2308,7 +2403,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
 
 INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `description`, `regid`, `directory`, `version`, `official`, `author`, `contact`, `admin_capable`, `user_capable`, `state`, `credits`, `changelog`, `help`, `license`, `securityschema`, `profile_capable`, `message_capable`, `url`, `capabilities`, `core_min`, `core_max`) VALUES
 (1, 'Extensions', 3, 'Mòduls', 'Gestioneu els vostres mòduls i connectors.', 0, 'Extensions', '3.7.10', 1, 'Jim McDonald, Mark West', 'http://www.zikula.org', 1, 0, 3, '', '', '', '', 'a:1:{s:12:"Extensions::";s:2:"::";}', 0, 0, 'extensions', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(3, 'Blocks', 3, 'Blocs', 'Administració dels blocs i la seva posició.', 0, 'Blocks', '3.8.1', 1, 'Jim McDonald, Mark West', 'http://www.mcdee.net/, http://www.markwest.me.uk/', 1, 1, 3, '', '', '', '', 'a:4:{s:8:"Blocks::";s:30:"Block key:Block title:Block ID";s:16:"Blocks::position";s:26:"Position name::Position ID";s:23:"Menutree:menutreeblock:";s:26:"Block ID:Link Name:Link ID";s:19:"ExtendedMenublock::";s:17:"Block ID:Link ID:";}', 0, 0, 'blocs', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(3, 'Blocks', 3, 'Blocs', 'Administració dels blocs i la seva posició.', 0, 'Blocks', '3.8.2', 1, 'Jim McDonald, Mark West', 'http://www.mcdee.net/, http://www.markwest.me.uk/', 1, 1, 3, '', '', '', '', 'a:4:{s:8:"Blocks::";s:30:"Block key:Block title:Block ID";s:16:"Blocks::position";s:26:"Position name::Position ID";s:23:"Menutree:menutreeblock:";s:26:"Block ID:Link Name:Link ID";s:19:"ExtendedMenublock::";s:17:"Block ID:Link ID:";}', 0, 0, 'blocs', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (4, 'Errors', 3, 'Errors', 'Mòdul de visualització d''errors.', 0, 'Errors', '1.1.1', 1, 'Brian Lindner <Furbo>', 'furbo@sigtauonline.com', 0, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"Errors::";s:2:"::";}', 0, 0, 'errors', 'a:1:{s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (5, 'Permissions', 3, 'Permisos', 'Gestió dels permisos d''usuari/ària.', 0, 'Permissions', '1.1.1', 1, 'Jim McDonald, M.Maes', 'http://www.mcdee.net/, http://www.mmaes.com', 1, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:1:{s:13:"Permissions::";s:2:"::";}', 0, 0, 'permisos', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (7, 'Mailer', 3, 'Mailer', 'El mòdul Mailer, proporciona un API de correu i l''administració de la configuració del correu.', 0, 'Mailer', '1.3.2', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"Mailer::";s:2:"::";}', 0, 0, 'mailer', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
@@ -2330,18 +2425,18 @@ INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `description`, `regi
 (50, 'IWqv', 2, 'Quaderns virtuals', 'Permet assignar quaderns d''exercicis als usuaris designats.', 0, 'IWqv', '3.0.0', 0, 'Sara Arjona Téllez', 'sarjona@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:6:"IWqv::";s:2:"::";}', 0, 0, 'Quaderns virtuals', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (51, 'IWagendas', 2, 'Agendes', 'Permet crear i fer ús d''agendes compartides.', 0, 'IWagendas', '3.0.0', 0, 'Toni Ginard Lladó i Albert Pérez Monfort', 'aginard @xtec.cat i aperezm@xtec.es', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:11:"IWagendas::";s:2:"::";}', 0, 0, 'IWagendas', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (53, 'IWbooks', 2, 'Llibres', 'Llibres de text, lectures i materials', 0, 'IWbooks', '3.0.0', 0, 'Jordi Fons', 'jfons@iespfq.cat', 1, 1, 3, 'docs/credits.txt', 'docs/canvis.txt', 'docs/help.txt', 'docs/license.txt', 'a:1:{s:13:"IWbooks::Item";s:34:"IWbooks item name::IWbooks item ID";}', 0, 0, 'IWbooks', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(54, 'IWforums', 2, 'Fòrums', 'Creació, gestió i ús de fòrums', 0, 'IWforums', '3.0.0', 0, 'Albert Pérez Monfort i Toni Ginard Lladó', 'aperez16@xtec.cat, aginard@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"IWforums::";s:2:"::";}', 0, 0, 'Fòrums', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(56, 'IWmessages', 2, 'Missatges interns', 'Permet enviar missatges interns entre els usuaris', 0, 'IWmessages', '3.0.0', 0, 'Richard Tirtadji & Albert Pérez Monfort', 'rtirtadji@hotmail.com & aperezm@xtec.es', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:12:"IWmessages::";s:2:"::";}', 0, 0, 'IWmessages', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(57, 'IWnoteboard', 2, 'Tauler', 'Permet enviar informacions als usuaris designats', 0, 'IWnoteboard', '3.0.0', 0, 'Albert Pérez Monfort', 'aperezm@xtec.es', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"IWnoteboard::";s:2:"::";}', 0, 0, 'Tauler', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(54, 'IWforums', 2, 'Fòrums', 'Creació, gestió i ús de fòrums', 0, 'IWforums', '3.0.1', 0, 'Albert Pérez Monfort i Toni Ginard Lladó', 'aperez16@xtec.cat, aginard@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"IWforums::";s:2:"::";}', 0, 0, 'Fòrums', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(56, 'IWmessages', 2, 'Missatges interns', 'Permet enviar missatges interns entre els usuaris', 0, 'IWmessages', '3.0.1', 0, 'Richard Tirtadji & Albert Pérez Monfort', 'rtirtadji@hotmail.com & aperezm@xtec.es', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:12:"IWmessages::";s:2:"::";}', 0, 0, 'IWmessages', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(57, 'IWnoteboard', 2, 'Tauler', 'Permet enviar informacions als usuaris designats', 0, 'IWnoteboard', '3.0.1', 0, 'Albert Pérez Monfort', 'aperezm@xtec.es', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:13:"IWnoteboard::";s:2:"::";}', 0, 0, 'Tauler', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (58, 'IWtimeframes', 2, 'Marcs horaris', 'Permet definir marcs horaris.', 0, 'IWtimeframes', '3.0.0', 0, 'Albert Pérez Monfort & Josep Ferràndiz Farré', 'aperezm@xtec.cat / jferran6@xtec.cat', 1, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:14:"IWtimeframes::";s:2:"::";}', 0, 0, 'IWtimeframes', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (59, 'IWusers', 2, 'Usuaris-grups', 'Assignació multiple d''usuaris i grups. Configuració de l''Avatar. ', 0, 'IWusers', '3.0.0', 0, 'Albert Pérez Monfort', 'aperezm@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:9:"IWusers::";s:2:"::";}', 0, 0, 'Usuaris-grups', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (60, 'IWwebbox', 2, 'Webbox', 'Show external web sites into the site.', 0, 'IWwebbox', '3.0.0', 0, 'Albert Pérez Monfort (intraweb@xtec.cat)', 'http://phobos.xtec.cat/intraweb', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"IWwebbox::";s:2:"::";}', 0, 0, 'IWwebbox', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (61, 'IWvhmenu', 2, 'Menú horitzontal', 'Proporciona una interfície per administrar un menú Javascript completament personalitzable.', 0, 'IWvhmenu', '3.0.0', 0, 'Albert Pérez Monfort & Toni Ginard Lladó', 'aperez16@xtec.cat & aginard@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"IWvhmenu::";s:2:"::";}', 0, 0, 'Menú horitzontal', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (70, 'IWbookings', 2, 'Reserves', 'Permet definir espais i equipaments per reservar.', 0, 'IWbookings', '3.0.0', 0, 'Albert Pérez Monfort & Josep Ferràndiz Farré', 'aperezm@xtec.cat / jferran6@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:12:"IWbookings::";s:2:"::";}', 0, 0, 'Reserves', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(72, 'Scribite', 2, 'Scribite', 'Editors visuals per al Zikula', 0, 'Scribite', '4.3.0', 0, 'sven schomacker aka hilope', 'http://code.zikula.org/scribite/', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/scribite!-documentation-eng.pdf', 'pndocs/license.txt', 'a:1:{s:10:"Scribite::";s:12:"Modulename::";}', 0, 0, 'scribite', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
+(72, 'Scribite', 2, 'Scribite', 'Editors visuals per al Zikula', 0, 'Scribite', '5.0.0', 0, 'sven schomacker aka hilope', 'http://code.zikula.org/scribite/', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/scribite!-documentation-eng.pdf', 'pndocs/license.txt', 'a:1:{s:10:"Scribite::";s:12:"Modulename::";}', 0, 0, 'scribite', 'a:2:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.5', '1.4.99'),
 (75, 'Pages', 2, 'Pàgines simples', 'Permet gestionar pàgines d''estructura simple', 0, 'Pages', '2.5.1', 1, 'The Zikula Development Team', 'http://www.zikula.org/', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:2:{s:7:"Pages::";s:18:"Page name::Page ID";s:15:"Pages:category:";s:13:"Category ID::";}', 0, 0, 'pages', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
-(81, 'Content', 2, 'Pàgines avançades', 'Permet crear pàgines d''estructura complexa, amb varies columnes e inserir blocs i mòduls de la intraweb', 0, 'Content', '4.0.0', 0, 'Jorn Wildt', 'http://www.elfisk.dk/', 1, 1, 3, 'pndocs/readme.txt', 'pndocs/changelog.txt', 'pndocs/readme.txt', 'pndocs/license.txt', 'a:4:{s:9:"Content::";s:2:"::";s:22:"Content:plugins:layout";s:13:"Layout name::";s:23:"Content:plugins:content";s:19:"Content type name::";s:13:"Content:page:";s:9:"Page id::";}', 0, 0, 'contingut', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', ''),
-(89, 'IWforms', 2, 'Formularis', 'Creació, gestió i ús de formularis.', 0, 'IWforms', '3.0.0', 0, 'Albert Pérez Monfort', 'aperezm@xtec.cats', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:9:"IWforms::";s:2:"::";}', 0, 0, 'Formularis', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(81, 'Content', 2, 'Pàgines avançades', 'Permet crear pàgines d''estructura complexa, amb varies columnes e inserir blocs i mòduls de la intraweb', 0, 'Content', '4.1.1', 0, 'Jorn Wildt', 'http://www.elfisk.dk/', 1, 1, 3, 'pndocs/readme.txt', 'pndocs/changelog.txt', 'pndocs/readme.txt', 'pndocs/license.txt', 'a:4:{s:9:"Content::";s:2:"::";s:22:"Content:plugins:layout";s:13:"Layout name::";s:23:"Content:plugins:content";s:19:"Content type name::";s:13:"Content:page:";s:9:"Page id::";}', 0, 0, 'contingut', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
+(89, 'IWforms', 2, 'Formularis', 'Creació, gestió i ús de formularis.', 0, 'IWforms', '3.0.2', 0, 'Albert Pérez Monfort', 'aperezm@xtec.cats', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:9:"IWforms::";s:2:"::";}', 0, 0, 'Formularis', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (93, 'IWmyrole', 2, 'Canvia Rol', 'Permet als usuaris registrats canviar de grup en qualsevol moment', 0, 'IWmyrole', '3.0.0', 0, 'Albert Pérez Monfort & Josep Ferràndiz Farré', 'aperezm@xtec.es & jferran6@xtec.cat', 1, 0, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:10:"IWmyrole::";s:2:"::";}', 0, 0, 'Canvia Rol', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (94, 'IWjclic', 2, 'JClic', 'Assignació d''activitats JClic', 0, 'IWjclic', '3.0.0', 0, 'Albert Pérez Monfort', 'aperezm@xtec.es', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:9:"IWjclic::";s:2:"::";}', 0, 0, 'JClic', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (100, 'FAQ', 2, 'FAQ', 'Frequently Asked Questions', 0, 'FAQ', '2.3.3', 1, 'Mark West', 'http://www.markwest.me.uk/', 1, 1, 1, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:5:"FAQ::";s:8:"FAQ ID::";}', 0, 0, 'faq', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
@@ -2349,14 +2444,15 @@ INSERT INTO `modules` (`id`, `name`, `type`, `displayname`, `description`, `regi
 (105, 'EZComments', 2, 'Comentaris', 'Permet adjuntar comentaris a tota mena de continguts', 0, 'EZComments', '3.0.0', 0, 'The EZComments Development Team', 'http://code.zikula.org/ezcomments/', 1, 1, 1, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:3:{s:12:"EZComments::";s:25:"Module:Item ID:Comment ID";s:21:"EZComments::trackback";s:15:"Module:Item ID:";s:20:"EZComments::pingback";s:15:"Module:Item ID:";}', 0, 0, 'comentaris', 'a:4:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', ''),
 (106, 'Profile', 2, 'Perfils', 'Proporciona un tauler de control del compte personal per a cada usuari/ària registrat, una interfície per administrar els elements d''informació personal i una funcionalitat per a llistes d''usuaris registrats. Treballa estretament amb el mòdul d''usuaris.', 0, 'Profile', '1.6.1', 1, 'Mateo Tibaquirá, Mark West, Franky Chestnut', 'http://nestormateo.com/, http://www.markwest.me.uk/, http://dev.pnconcept.com/', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:6:{s:9:"Profile::";s:2:"::";s:13:"Profile::view";s:2:"::";s:13:"Profile::item";s:56:"DynamicUserData PropertyName::DynamicUserData PropertyID";s:16:"Profile:Members:";s:2:"::";s:22:"Profile:Members:recent";s:2:"::";s:22:"Profile:Members:online";s:2:"::";}', 1, 0, 'perfil', 'a:3:{s:7:"profile";a:1:{s:7:"version";s:3:"1.0";}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
 (107, 'Weblinks', 2, 'Weblinks', 'Weblinks Module', 0, 'Weblinks', '3.0.0', 0, 'Petzi-Juist', 'http://www.petzi-juist.de/', 1, 1, 1, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/install.txt', 'pndocs/license.txt', 'a:2:{s:18:"Weblinks::Category";s:26:"Category name::Category ID";s:14:"Weblinks::Link";s:2:"::";}', 0, 0, 'weblinks', 'a:3:{s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
-(108, 'Files', 2, 'Fitxers del lloc', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.0', 0, 'Albert Perez Monfort , Robert Barrera i Fèlix Casanellas', 'aperezm@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:"Files::";s:2:"::";}', 0, 0, 'fitxers', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
+(108, 'Files', 2, 'Fitxers del lloc', 'Gestió de fitxers per a llocs Zikula', 0, 'Files', '1.0.2', 0, 'Albert Perez Monfort , Robert Barrera i Fèlix Casanellas', 'aperezm@xtec.cat', 1, 1, 3, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:7:"Files::";s:2:"::";}', 0, 0, 'fitxers', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
 (111, 'IWmenu', 2, 'IWmenu', 'Provides an interface to manage fully customizable menu.', 0, 'IWmenu', '3.0.2', 0, 'Albert Pérez Monfort, Toni Ginard Lladó & Pau Ferrer Ocaña', 'aperez16@xtec.cat, aginard@xtec.cat & pferre22@xtec.cat', 1, 1, 1, 'pndocs/credits.txt', 'pndocs/changelog.txt', 'pndocs/help.txt', 'pndocs/license.txt', 'a:1:{s:8:"IWmenu::";s:2:"::";}', 0, 0, 'IWmenu', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
-(113, 'IWstats', 2, 'Estadístiques', 'Mòdul d''estadístiques.', 0, 'IWstats', '3.0.0', 0, '', '', 1, 0, 3, '', '', '', '', 'a:1:{s:9:"IWstats::";s:2:"::";}', 0, 0, 'IWstats', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(113, 'IWstats', 2, 'Estadístiques', 'Mòdul d''estadístiques.', 0, 'IWstats', '3.0.1', 0, '', '', 1, 0, 3, '', '', '', '', 'a:1:{s:9:"IWstats::";s:2:"::";}', 0, 0, 'IWstats', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (114, 'IWdocmanager', 2, 'Documents', 'Mòdul de gestió documental i control de versions.', 0, 'IWdocmanager', '1.0.0', 0, '', '', 0, 0, 3, '', '', '', '', 'a:1:{s:14:"IWdocmanager::";s:2:"::";}', 0, 0, 'documents', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
 (115, 'XtecMailer', 2, 'Mailer XTEC', 'Amplia les funcionalitats del mòdul Mailer per poder enviar correu electrònic utilitzant el servei web de la XTEC', 0, 'XtecMailer', '1.0.0', 0, '', '', 0, 0, 3, '', '', '', '', 'a:1:{s:12:"XtecMailer::";s:2:"::";}', 0, 0, 'XtecMailer', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (116, 'IWmoodle', 2, 'IWmoodle', 'Integration of Moodle2 into Zikula.', 0, 'IWmoodle', '3.0.0', 0, '', '', 0, 0, 1, '', '', '', '', 'a:1:{s:10:"IWmoodle::";s:2:"::";}', 0, 0, 'IWmoodle', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
 (117, 'Legal', 2, 'Legal info manager', 'Provides an interface for managing the site''s legal documents.', 0, 'Legal', '2.0.1', 0, '', '', 0, 0, 1, '', '', '', '', 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', 0, 0, 'legalmod', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '1.3.0', '1.3.99'),
-(118, 'Feeds', 2, 'Feeds', 'The Feeds module provides a feed reader to your website.', 0, 'Feeds', '2.6.0', 0, '', '', 0, 0, 1, '', '', '', '', 'a:1:{s:11:"Feeds::Item";s:28:"Feed item name::Feed item ID";}', 0, 0, 'feeds', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', '');
+(118, 'Feeds', 2, 'Feeds', 'The Feeds module provides a feed reader to your website.', 0, 'Feeds', '2.6.0', 0, '', '', 0, 0, 1, '', '', '', '', 'a:1:{s:11:"Feeds::Item";s:28:"Feed item name::Feed item ID";}', 0, 0, 'feeds', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', '', ''),
+(119, 'IWgroups', 2, 'IWgroups', 'Allow the creation, edition and removing of user groups.', 0, 'IWgroups', '3.0.0', 0, '', '', 0, 0, 1, '', '', '', '', 'a:1:{s:10:"IWgroups::";s:2:"::";}', 0, 0, 'IWgroups', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', '', '');
 
 -- --------------------------------------------------------
 
@@ -2372,18 +2468,20 @@ CREATE TABLE IF NOT EXISTS `module_deps` (
   `maxversion` varchar(10) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
 
 --
 -- Bolcant dades de la taula `module_deps`
 --
 
 INSERT INTO `module_deps` (`id`, `modid`, `modname`, `minversion`, `maxversion`, `status`) VALUES
-(81, 81, 'Scribite', '4.2.1', '', 2),
-(82, 105, 'Akismet', '2.0', '', 2),
-(83, 27, 'Scribite', '4.2.1', '', 2),
-(84, 27, 'EZComments', '3.0.1', '', 2),
-(85, 75, 'Scribite', '4.2.1', '', 2);
+(107, 3, 'Scribite', '5.0.0', '', 2),
+(108, 81, 'Scribite', '5.0.0', '', 2),
+(109, 105, 'Akismet', '2.0', '', 2),
+(110, 54, 'IWmain', '3.0.0', '', 1),
+(111, 27, 'Scribite', '4.2.1', '', 2),
+(112, 27, 'EZComments', '3.0.1', '', 2),
+(113, 75, 'Scribite', '4.2.1', '', 2);
 
 -- --------------------------------------------------------
 
@@ -2398,7 +2496,7 @@ CREATE TABLE IF NOT EXISTS `module_vars` (
   `value` longtext,
   PRIMARY KEY (`id`),
   KEY `mod_var` (`modname`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=644 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=706 ;
 
 --
 -- Bolcant dades de la taula `module_vars`
@@ -2424,7 +2522,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (18, 'ZConfig', 'seclevel', 's:4:"High";'),
 (19, 'ZConfig', 'secmeddays', 'i:7;'),
 (20, 'ZConfig', 'secinactivemins', 'i:40;'),
-(21, 'ZConfig', 'Version_Num', 's:5:"1.3.6";'),
+(21, 'ZConfig', 'Version_Num', 's:5:"1.3.9";'),
 (22, 'ZConfig', 'Version_ID', 's:6:"Zikula";'),
 (23, 'ZConfig', 'Version_Sub', 's:3:"vai";'),
 (24, 'ZConfig', 'debug_sql', 's:1:"0";'),
@@ -2467,11 +2565,11 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (63, 'ZConfig', 'sessionregeneratefreq', 'i:10;'),
 (64, 'ZConfig', 'enableanticracker', 's:1:"1";'),
 (65, 'ZConfig', 'emailhackattempt', 's:1:"1";'),
-(66, 'ZConfig', 'updatelastchecked', 'i:1394618224;'),
+(66, 'ZConfig', 'updatelastchecked', 'i:1424277023;'),
 (67, 'ZConfig', 'loghackattempttodb', 's:1:"1";'),
 (68, 'ZConfig', 'updatefrequency', 'i:7;'),
 (69, 'ZConfig', 'onlysendsummarybyemail', 's:1:"1";'),
-(70, 'ZConfig', 'updateversion', 's:5:"1.3.5";'),
+(70, 'ZConfig', 'updateversion', 's:5:"1.3.8";'),
 (71, 'ZConfig', 'usehtaccessbans', 'i:1;'),
 (72, 'ZConfig', 'updatecheck', 'i:1;'),
 (73, 'ZConfig', 'filtergetvars', 's:1:"1";'),
@@ -2603,7 +2701,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (249, 'IWmain', 'showHideFiles', 's:1:"0";'),
 (250, 'IWmain', 'allowUserChangeAvatar', 's:1:"1";'),
 (251, 'IWmain', 'avatarChangeValidationNeeded', 's:1:"1";'),
-(252, 'IWmain', 'URLBase', 's:33:"http://agora/agora/usu1/intranet/";'),
+(252, 'IWmain', 'URLBase', 's:30:"http://agora-vm/usu1/intranet/";'),
 (253, 'IWmain', 'friendsLabel', 's:5:"Amics";'),
 (254, 'IWmain', 'friendsSystemAvailable', 'i:1;'),
 (255, 'IWmain', 'url', 's:22:"http://agora.xtec.cat/";'),
@@ -2790,7 +2888,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (452, 'Scribite', 'openwysiwyg_width', 's:3:"400";'),
 (453, 'Scribite', 'openwysiwyg_height', 's:3:"300";'),
 (454, 'Scribite', 'nicedit_fullpanel', 'i:0;'),
-(455, 'Scribite', 'DefaultEditor', 's:5:"xinha";'),
+(455, 'Scribite', 'DefaultEditor', 's:7:"TinyMce"'),
 (456, 'Search', 'itemsperpage', 'i:10;'),
 (457, 'Search', 'limitsummary', 'i:255;'),
 (458, 'SecurityCenter', 'itemsperpage', 's:2:"10";'),
@@ -2942,7 +3040,6 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (624, 'Scribite', 'ckeditor_language', 's:2:"en";'),
 (625, 'Scribite', 'ckeditor_barmode', 's:4:"Full";'),
 (626, 'Scribite', 'ckeditor_maxheight', 's:3:"400";'),
-(627, '/EventHandlers', 'Scribite', 'a:1:{i:0;a:3:{s:9:"eventname";s:13:"core.postinit";s:8:"callable";a:2:{i:0;s:18:"Scribite_Listeners";i:1;s:8:"coreinit";}s:6:"weight";i:10;}}'),
 (628, 'Scribite', 'markitup_width', 's:3:"65%";'),
 (629, 'Scribite', 'markitup_height', 's:5:"400px";'),
 (630, 'Scribite', 'xinha_style_dynamiccss', 's:43:"modules/Scribite/style/xinha/DynamicCSS.css";'),
@@ -2958,7 +3055,69 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (640, 'IWMessages', 'limitOutBox', 's:2:"50";'),
 (641, 'IWMessages', 'dissableSuggest', 'N;'),
 (642, 'ZConfig', 'pagetitle', 's:11:"%pagetitle%";'),
-(643, 'IWbooks', 'darrer_nivell', 'N;');
+(643, 'IWbooks', 'darrer_nivell', 'N;'),
+(644, 'Content', 'pageinfoLocation', 's:3:"top";'),
+(645, 'Content', 'overrideTitle', 'b:1;'),
+(646, 'Files', 'scribite_v4', 'b:0;'),
+(647, 'Files', 'scribite_v5', 'b:1;'),
+(648, 'Files', 'scribite_v4_name', 's:8:"Scribite";'),
+(649, 'Files', 'scribite_v5_name', 's:8:"Scribite";'),
+(650, 'IWforums', 'restyledTheme', 's:1:"1";'),
+(651, '/Plugin', 'moduleplugin.scribite.aloha', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"1.0.0";}'),
+(652, 'moduleplugin.scribite.ckeditor', 'barmode', 's:8:"Standard";'),
+(653, 'moduleplugin.scribite.ckeditor', 'height', 's:3:"200";'),
+(654, 'moduleplugin.scribite.ckeditor', 'resizemode', 's:6:"resize";'),
+(655, 'moduleplugin.scribite.ckeditor', 'resizeminheight', 's:3:"250";'),
+(656, 'moduleplugin.scribite.ckeditor', 'resizemaxheight', 's:4:"3000";'),
+(657, 'moduleplugin.scribite.ckeditor', 'growminheight', 's:3:"200";'),
+(658, 'moduleplugin.scribite.ckeditor', 'growmaxheight', 's:3:"400";'),
+(659, 'moduleplugin.scribite.ckeditor', 'style_editor', 's:52:"modules/Scribite/plugins/CKEditor/style/contents.css";'),
+(660, 'moduleplugin.scribite.ckeditor', 'skin', 's:5:"moono";'),
+(661, 'moduleplugin.scribite.ckeditor', 'uicolor', 's:7:"#D3D3D3";'),
+(662, 'moduleplugin.scribite.ckeditor', 'langmode', 's:6:"zklang";'),
+(663, 'moduleplugin.scribite.ckeditor', 'entermode', 's:16:"CKEDITOR.ENTER_P";'),
+(664, 'moduleplugin.scribite.ckeditor', 'shiftentermode', 's:17:"CKEDITOR.ENTER_BR";'),
+(665, 'moduleplugin.scribite.ckeditor', 'extraplugins', 's:0:"";'),
+(666, 'moduleplugin.scribite.ckeditor', 'filemanagerpath', 's:0:"";'),
+(667, '/Plugin', 'moduleplugin.scribite.ckeditor', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"4.4.0";}'),
+(668, 'moduleplugin.scribite.markitup', 'width', 's:3:"99%";'),
+(669, 'moduleplugin.scribite.markitup', 'height', 's:5:"400px";'),
+(670, '/Plugin', 'moduleplugin.scribite.markitup', 'a:2:{s:5:"state";i:1;s:7:"version";s:6:"1.1.13";}'),
+(671, 'moduleplugin.scribite.nicedit', 'fullpanel', 'i:0;'),
+(672, 'moduleplugin.scribite.nicedit', 'xhtml', 'i:0;'),
+(673, '/Plugin', 'moduleplugin.scribite.nicedit', 'a:2:{s:5:"state";i:1;s:7:"version";s:6:"0.9.24";}'),
+(674, 'moduleplugin.scribite.tinymce', 'language', 's:2:"en";'),
+(675, 'moduleplugin.scribite.tinymce', 'style', 's:48:"modules/Scribite/plugins/TinyMce/style/style.css";'),
+(676, 'moduleplugin.scribite.tinymce', 'theme', 's:6:"modern";'),
+(677, 'moduleplugin.scribite.tinymce', 'width', 's:4:"100%";'),
+(678, 'moduleplugin.scribite.tinymce', 'height', 's:5:"400px";'),
+(679, 'moduleplugin.scribite.tinymce', 'dateformat', 's:8:"%Y-%m-%d";'),
+(680, 'moduleplugin.scribite.tinymce', 'timeformat', 's:8:"%H:%M:%S";'),
+(681, 'moduleplugin.scribite.tinymce', 'activeplugins', 'a:11:{i:0;s:4:"link";i:1;s:13:"searchreplace";i:2;s:7:"preview";i:3;s:14:"insertdatetime";i:4;s:9:"wordcount";i:5;s:10:"autoresize";i:6;s:10:"fullscreen";i:7;s:5:"print";i:8;s:8:"fullpage";i:9;s:4:"code";i:10;s:5:"files";}'),
+(682, '/Plugin', 'moduleplugin.scribite.tinymce', 'a:2:{s:5:"state";i:1;s:7:"version";s:6:"4.0.26";}'),
+(683, '/Plugin', 'moduleplugin.scribite.wymeditor', 'a:2:{s:5:"state";i:1;s:7:"version";s:8:"1.0.0-b5";}'),
+(684, '/Plugin', 'moduleplugin.scribite.wysihtml5', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"0.3.0";}'),
+(685, 'moduleplugin.scribite.xinha', 'language', 's:2:"en";'),
+(686, 'moduleplugin.scribite.xinha', 'skin', 's:9:"blue-look";'),
+(687, 'moduleplugin.scribite.xinha', 'barmode', 's:7:"reduced";'),
+(688, 'moduleplugin.scribite.xinha', 'width', 's:4:"auto";'),
+(689, 'moduleplugin.scribite.xinha', 'height', 's:4:"auto";'),
+(690, 'moduleplugin.scribite.xinha', 'style', 's:47:"modules/Scribite/Plugins/Xinha/style/editor.css";'),
+(691, 'moduleplugin.scribite.xinha', 'style_dynamiccss', 's:51:"modules/Scribite/Plugins/Xinha/style/DynamicCSS.css";'),
+(692, 'moduleplugin.scribite.xinha', 'style_stylist', 's:48:"modules/Scribite/Plugins/Xinha/style/stylist.css";'),
+(693, 'moduleplugin.scribite.xinha', 'statusbar', 'i:1;'),
+(694, 'moduleplugin.scribite.xinha', 'converturls', 'i:1;'),
+(695, 'moduleplugin.scribite.xinha', 'showloading', 'i:1;'),
+(696, 'moduleplugin.scribite.xinha', 'useEFM', 'b:0;'),
+(697, 'moduleplugin.scribite.xinha', 'activeplugins', 'a:2:{i:0;s:7:"GetHtml";i:1;s:12:"SmartReplace";}'),
+(698, '/Plugin', 'moduleplugin.scribite.xinha', 'a:2:{s:5:"state";i:1;s:7:"version";s:6:"0.96.1";}'),
+(699, 'moduleplugin.scribite.yui', 'toolbartype', 's:6:"Simple";'),
+(700, 'moduleplugin.scribite.yui', 'width', 's:4:"auto";'),
+(701, 'moduleplugin.scribite.yui', 'height', 's:5:"300px";'),
+(702, 'moduleplugin.scribite.yui', 'dombar', 'b:1;'),
+(703, 'moduleplugin.scribite.yui', 'animate', 'b:1;'),
+(704, 'moduleplugin.scribite.yui', 'collapse', 'b:1;'),
+(705, '/Plugin', 'moduleplugin.scribite.yui', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"2.9.0";}');
 
 -- --------------------------------------------------------
 
@@ -3207,62 +3366,6 @@ CREATE TABLE IF NOT EXISTS `quotes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de la taula `scribite`
---
-
-CREATE TABLE IF NOT EXISTS `scribite` (
-  `mid` int(11) NOT NULL AUTO_INCREMENT,
-  `modname` varchar(64) NOT NULL DEFAULT '',
-  `modfuncs` longtext NOT NULL,
-  `modareas` longtext NOT NULL,
-  `modeditor` varchar(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`mid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
-
---
--- Bolcant dades de la taula `scribite`
---
-
-INSERT INTO `scribite` (`mid`, `modname`, `modfuncs`, `modareas`, `modeditor`) VALUES
-(1, 'About', 'a:1:{i:0;s:6:"modify";}', 'a:1:{i:0;s:10:"about_info";}', '-'),
-(2, 'Admin_Messages', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:22:"admin_messages_content";}', 'xinha'),
-(3, 'Book', 'a:1:{i:0;s:3:"all";}', 'a:1:{i:0;s:7:"content";}', '-'),
-(4, 'ContentExpress', 'a:3:{i:0;s:0:"";i:1;s:10:"newcontent";i:2;s:11:"editcontent";}', 'a:1:{i:0;s:4:"text";}', '-'),
-(5, 'crpCalendar', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:22:"crpcalendar_event_text";}', '-'),
-(6, 'cotype', 'a:2:{i:0;s:7:"newitem";i:1;s:4:"edit";}', 'a:1:{i:0;s:4:"text";}', '-'),
-(7, 'element', 'a:5:{i:0;s:11:"start_topic";i:1;s:9:"add_topic";i:2;s:10:"edit_topic";i:3;s:10:"view_topic";i:4;s:9:"edit_post";}', 'a:1:{i:0;s:4:"comm";}', '-'),
-(8, 'eventia', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:26:"eventia_course_description";}', '-'),
-(9, 'FAQ', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:9:"faqanswer";}', '-'),
-(10, 'htmlpages', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:17:"htmlpages_content";}', '-'),
-(11, 'Mailer', 'a:1:{i:0;s:10:"testconfig";}', 'a:1:{i:0;s:11:"mailer_body";}', '-'),
-(12, 'mediashare', 'a:2:{i:0;s:8:"addmedia";i:1;s:8:"edititem";}', 'a:1:{i:0;s:3:"all";}', '-'),
-(13, 'News', 'a:3:{i:0;s:7:"newitem";i:1;s:6:"modify";i:2;s:7:"display";}', 'a:2:{i:0;s:13:"news_hometext";i:1;s:13:"news_bodytext";}', 'xinha'),
-(14, 'PagEd', 'a:1:{i:0;s:3:"all";}', 'a:1:{i:0;s:5:"PagEd";}', '-'),
-(15, 'Pages', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:13:"pages_content";}', 'xinha'),
-(16, 'pagesetter', 'a:1:{i:0;s:7:"pubedit";}', 'a:1:{i:0;s:3:"all";}', '-'),
-(17, 'PhotoGallery', 'a:2:{i:0;s:11:"editgallery";i:1;s:9:"editphoto";}', 'a:1:{i:0;s:17:"photogallery_desc";}', '-'),
-(18, 'pncommerce', 'a:1:{i:0;s:8:"itemedit";}', 'a:1:{i:0;s:15:"ItemDescription";}', '-'),
-(19, 'pnForum', 'a:4:{i:0;s:9:"viewtopic";i:1;s:8:"newtopic";i:2;s:8:"editpost";i:3;s:5:"reply";}', 'a:1:{i:0;s:7:"message";}', '-'),
-(20, 'pnhelp', 'a:1:{i:0;s:4:"edit";}', 'a:1:{i:0;s:4:"text";}', '-'),
-(21, 'pnMessages', 'a:2:{i:0;s:5:"newpm";i:1;s:10:"replyinbox";}', 'a:1:{i:0;s:7:"message";}', '-'),
-(22, 'pnWebLog', 'a:2:{i:0;s:10:"addposting";i:1;s:7:"addpage";}', 'a:1:{i:0;s:9:"xinhatext";}', '-'),
-(23, 'Profile', 'a:1:{i:0;s:6:"modify";}', 'a:3:{i:0;s:9:"signature";i:1;s:9:"extrainfo";i:2;s:10:"yinterests";}', '-'),
-(24, 'PostCalendar', 'a:1:{i:0;s:6:"submit";}', 'a:1:{i:0;s:11:"description";}', '-'),
-(25, 'Reviews', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:14:"reviews_review";}', '-'),
-(26, 'ShoppingCart', 'a:1:{i:0;s:3:"all";}', 'a:1:{i:0;s:11:"description";}', '-'),
-(27, 'tFAQ', 'a:2:{i:0;s:4:"view";i:1;s:6:"modify";}', 'a:1:{i:0;s:8:"tfanswer";}', '-'),
-(29, 'IWmessages', 'a:1:{i:0;s:7:"compose";}', 'a:1:{i:0;s:8:"intraweb";}', 'xinha'),
-(30, 'IWforums', 'a:3:{i:0;s:8:"nou_tema";i:1;s:7:"nou_msg";i:2;s:8:"edit_msg";}', 'a:1:{i:0;s:8:"intraweb";}', 'xinha'),
-(31, 'IWnoteboard', 'a:1:{i:0;s:4:"nova";}', 'a:1:{i:0;s:8:"intraweb";}', 'xinha'),
-(32, 'IWforms', 'a:1:{i:0;s:3:"all";}', 'a:1:{i:0;s:8:"intraweb";}', 'xinha'),
-(33, 'Blocks', 'a:1:{i:0;s:6:"modify";}', 'a:1:{i:0;s:14:"blocks_content";}', '-'),
-(34, 'Newsletter', 'a:1:{i:0;s:11:"add_message";}', 'a:1:{i:0;s:7:"message";}', '-'),
-(35, 'crpVideo', 'a:2:{i:0;s:7:"newitem";i:1;s:6:"modify";}', 'a:1:{i:0;s:13:"video_content";}', '-'),
-(36, 'Web_Links', 'a:3:{i:0;s:8:"linkview";i:1;s:7:"addlink";i:2;s:17:"modifylinkrequest";}', 'a:1:{i:0;s:11:"description";}', '-');
-
--- --------------------------------------------------------
-
---
 -- Estructura de la taula `sc_intrusion`
 --
 
@@ -3329,6 +3432,13 @@ CREATE TABLE IF NOT EXISTS `session_info` (
   `vars` longtext NOT NULL,
   PRIMARY KEY (`sessid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Bolcant dades de la taula `session_info`
+--
+
+INSERT INTO `session_info` (`sessid`, `ipaddr`, `lastused`, `uid`, `remember`, `vars`) VALUES
+('54li3p2sn25d3vlninq435ca4aeblb6e', 'b44aab0625ab749bf5a23cce99d45b6d', '2015-02-18 17:31:27', 2, 0, '/|a:7:{s:4:"rand";a:0:{}s:9:"useragent";s:40:"354110d6a48a3a85c04316c953fc6947b34e8a8b";s:3:"uid";s:1:"2";s:7:"_tokens";a:3:{s:23:"54e4be20494c47.74699595";a:2:{s:5:"token";s:92:"NTRlNGJlMjA0OTRjNDcuNzQ2OTk1OTU6NTFiNDU2YmFkZDBkNDgzMDk3NTg5NzUwMjM4YmU4ZjM6MTQyNDI3NzAyNA==";s:9:"timestamp";i:1424277024;}s:23:"54e4be279036b9.25339269";a:2:{s:5:"token";s:92:"NTRlNGJlMjc5MDM2YjkuMjUzMzkyNjk6Yjc3YzI2OTk1MzM3MmYzYzY3NWU3OTIwZDFkNDQxZDE6MTQyNDI3NzAzMQ==";s:9:"timestamp";i:1424277031;}s:23:"54e4be5be7bcd6.39199839";a:2:{s:5:"token";s:92:"NTRlNGJlNWJlN2JjZDYuMzkxOTk4Mzk6YWU0ZGVmMjg2MjRlYWJjYzgzZjY0N2EwODI3MmMwNWU6MTQyNDI3NzA4Mw==";s:9:"timestamp";i:1424277083;}}s:5:"state";N;s:4:"sort";s:4:"name";s:7:"sortdir";s:3:"ASC";}_zikula_messages|a:2:{s:6:"status";a:0:{}s:5:"error";a:0:{}}Zikula_Users|a:1:{s:21:"authentication_method";a:2:{s:7:"modname";s:5:"Users";s:6:"method";s:5:"uname";}}iwSecure|s:0:"";');
 
 -- --------------------------------------------------------
 
@@ -3422,7 +3532,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`uid`, `uname`, `email`, `user_regdate`, `pass`, `ublockon`, `ublock`, `theme`, `activated`, `lastlogin`, `passreminder`, `approved_date`, `approved_by`, `tz`, `locale`) VALUES
 (1, 'convidat', 'anonim@xtec.cat', '1970-01-01 00:00:00', '', 0, '', '', 1, '1970-01-01 00:00:00', '', '1970-01-01 00:00:00', 0, '', ''),
-(2, 'admin', 'centre@xtec.cat', '2013-11-19 16:25:10', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2013-11-19 16:25:10', 2, '', ''),
+(2, 'admin', 'centre@xtec.cat', '2013-11-19 16:25:10', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '2015-02-18 16:28:14', '', '2013-11-19 16:25:10', 2, '', ''),
 (3, 'profe1', 'exemple@xtec.cat', '2013-11-19 16:25:10', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2013-11-19 16:25:10', 2, '', ''),
 (4, 'profe2', 'exemple@xtec.cat', '2013-11-19 16:25:10', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2013-11-19 16:25:10', 2, '', ''),
 (5, 'profe3', 'exemple@xtec.cat', '2013-11-19 16:25:10', '1$$6142bfd56a583d891f0b1dcdbb2a9ef8', 0, '', '', 1, '1970-01-01 00:00:00', '', '2013-11-19 16:25:10', 2, '', ''),
