@@ -18,17 +18,22 @@ function gitcheckout {
     pushd $dir > /dev/null
     update_exec "git checkout $branch"
     update_exec "git remote set-url origin $remote"
-    git_pull
-
+    git_pull $branch
 
     popd > /dev/null
     echo 'OK'
 }
 
 function git_pull {
+	branch=$1
     if [[ $action == 'stash' ]]
     then
         update_exec "git stash"
+    fi
+    
+    if [[ $action == 'reset' ]]
+    then
+        update_exec "git reset --hard origin/$branch"
     fi
 
     update_exec "git pull"
@@ -39,11 +44,6 @@ function git_pull {
             echo ' >>>> Aplicat Stash'
             update_exec "git stash pop"
         fi
-    fi
-
-    if [[ $action == 'reset' ]]
-    then
-        update_exec "git reset --hard origin/$branch"
     fi
 }
 
@@ -70,13 +70,16 @@ else
 fi
 
 echo 'Pull inicial'
-git_pull
+git_pull master
 
-echo 'Inicialitzant submòduls...'
-update_exec "git submodule update --recursive --init"
+if [[ $action != 'reset' ]]
+then
+	echo 'Inicialitzant submòduls...'
+	update_exec "git submodule update --recursive --init"
 
-echo 'Sincronitzant submòduls...'
-update_exec "git submodule sync"
+	echo 'Sincronitzant submòduls...'
+	update_exec "git submodule sync"
+fi
 
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "STABLE_26" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
