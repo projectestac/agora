@@ -2,6 +2,7 @@
 {pageaddvar name='stylesheet' value='vendor/font-awesome/css/font-awesome.css'}
 {pageaddvar name='javascript' value='vendor/bootstrap/js/bootstrap.js'}
 {pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='stylesheet' value='modules/IWforums/style/bsRewrite.css'}
 {pageaddvar name='javascript' value='vendor/bootstrap/filestyle/bootstrap-filestyle.min.js'}
 {ajaxheader modname=IWforums filename=IWforums.js}
 
@@ -19,7 +20,7 @@
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='edit.png' set='icons/large'}</div>
     <h2>{$name}: {gt text="Edit the message"}</h2>
-    <form  class="form-horizontal" role="form" method="post" name="new_msg" id="new_msg" enctype="multipart/form-data">
+    <form  class="form-horizontal" role="form" method="post" name="new_msg" id="new_msg" action="javascript:void()" enctype="multipart/form-data">
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="fid" value="{$fid}" />
         <input type="hidden" name="ftid" value="{$ftid}" />
@@ -76,7 +77,7 @@
             <div class="form-group">
                 <label class="col-xs-2 control-label" for="intraweb">{gt text="Message"}</label>
                 <div class="col-xs-8">
-                    <textarea class="form-control" name="msg" cols="80" rows="10" id="intraweb" required>{$missatge.missatge}</textarea>
+                    <textarea class="form-control" name="msg" cols="80" rows="10" id="msg" required>{$missatge.missatge}</textarea>
                 </div>
             </div>     
             <div id="attachment">
@@ -84,7 +85,7 @@
             </div>
             <div class="z-center">
                 <span id="btnSend" class="z-buttons">
-                    <a onclick="javascript: send();"><span class="green fs1em glyphicon glyphicon-ok"></span>
+                    <a onclick="javascript: preSubmit();"><span class="green fs1em glyphicon glyphicon-ok"></span>
                     &nbsp;{gt text="Modify the message"}
                     </a>
                 </span>
@@ -109,10 +110,11 @@
                     </div>
                 </div>
             </div>
-        <div style="display:none;"><textarea name="oldmsg" cols="80" rows="10" id="oldintraweb">{$missatge.quotes}</textarea></div>
+        {*<div ><textarea name="oldmsg" cols="80" rows="10" id="oldintraweb" class="noeditor">{$missatge.quotes}</textarea></div>*}
     </form>
 </div>
 {notifydisplayhooks eventname='IWforums.ui_hooks.IWforums.form_edit' id='intraweb'}
+
 <script type="text/javascript">
     jQuery( document ).ready(function() {
         // Get selected icon image
@@ -122,20 +124,36 @@
     jQuery('[data-toggle="modal"]').tooltip();
     jQuery('[data-toggle="tooltip"]').tooltip();    
 
-    function send(){
-    	document.new_msg.action = "index.php?module=IWforums&func=update_msg"
-        if (document.new_msg.titol.value == ""){
-			//for gt detection
-    		alert("{{gt text="You didn't write a title for the message."}}");
-           	var error = true;
-    	}
-    {{if $adjunts neq "0"}}
-    if (document.new_msg.adjunt.value != "" && "{{$extensions}}".indexOf(document.new_msg.adjunt.value.substring(document.new_msg.adjunt.value.length - 3, document.new_msg.adjunt.value.length)) == - 1 && !error){
-		//for gt detection
-    	alert("{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}");
-        var error = true;
+    function preSubmit(){
+        document.getElementById('new_msg').action = "javascript:validate();";
+        document.getElementById('new_msg').submit();
     }
-    {{/if}}
-            if (!error){document.new_msg.submit(); }
+    
+    function validate() {
+        var error = "";
+        if (jQuery('#titol').val() == '') {
+            // for gt detection
+            error = "{{gt text="You didn't write a title for the message."}}"+'\n';
+        }
+        if (jQuery('#msg').val() == '') {
+            document.getElementById('new_msg').action = "javascript:void();";
+            // for gt detection
+            error = error + "{{gt text="You didn't write the message."}}"+'\n';
+        }
+        {{if $adjunts neq "0"}}
+            if (jQuery("#adjunt").val() != "" && "{{$extensions}}".indexOf(jQuery("#adjunt").val().toLowerCase().substring(jQuery("#adjunt").val().toLowerCase().length - 3, jQuery("#adjunt").val().length)) == - 1 && "{{$extensions}}".indexOf(jQuery("#adjunt").val().toUpperCase().substring(jQuery("#adjunt").val().toUpperCase().length - 3, jQuery("#adjunt").val().length)) == - 1){
+            //var f = document.forms['new_msg'];
+            //if (f.adjunt.value != "" && "{{$extensions}}".indexOf(f.adjunt.value.toLowerCase().substring(f.adjunt.value.toLowerCase().length - 3, f.adjunt.value.length)) == - 1 && "{{$extensions}}".indexOf(f.adjunt.value.toUpperCase().substring(f.adjunt.value.toUpperCase().length - 3, f.adjunt.value.length)) == - 1 && !error){
+		//for gt detection 
+                error = error + "{{gt text="The extension of the attached file isn't correct. The valid extensions are: "}}{{$extensions}}";
+            }
+        {{/if}}
+        if (error == ''){
+            document.getElementById('new_msg').action = "index.php?module=IWforums&func=update_msg";
+            document.getElementById('new_msg').submit();
+        } else {
+            alert(error);
+            document.getElementById('new_msg').action = 'javascript:void();';
+        }
     }
 </script>

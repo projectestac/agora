@@ -1,4 +1,5 @@
 {pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='stylesheet' value='modules/IWforums/style/bsRewrite.css'}
 <script language="javascript">
     function canviforum() {
         document.move_msg.action = "index.php?module=IWforums&func=mou";

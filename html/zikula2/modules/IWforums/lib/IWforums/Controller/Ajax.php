@@ -109,8 +109,10 @@ class IWforums_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         
         $missatge = ModUtil::ApiFunc('IWforums', 'user', 'del_adjunt', array('fmid' => $fmid, 'fid' => $fid ));
         $missatge['adjunt']="";
+        $registre = ModUtil::apiFunc('IWforums', 'user', 'get', array('fid' => $fid));
         $view = Zikula_View::getInstance('IWforums', false);
         $view->assign('missatge', $missatge);
+        $view->assign('adjunts',$registre['adjunts'] );
         $content = $view->fetch('ajax/IWforums_ajax_attachment.tpl');
         return new Zikula_Response_Ajax(array('content' => $content, 'btnMsg' => $this->__('Browse...')));
     }

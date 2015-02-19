@@ -3,6 +3,7 @@
 {pageaddvar name='javascript' value='vendor/bootstrap/js/bootstrap.js'}
 {pageaddvar name='javascript' value='vendor/zikula1.4/bootstrap-zikula.js'}
 {pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='stylesheet' value='modules/IWforums/style/bsRewrite.css'}
 {pageaddvar name='javascript' value='vendor/bootstrap/filestyle/bootstrap-filestyle.min.js'}
 
 <div class="usercontainer">

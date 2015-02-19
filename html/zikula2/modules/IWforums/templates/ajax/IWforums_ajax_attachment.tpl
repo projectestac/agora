@@ -1,6 +1,5 @@
     
 <div class="form-group">
-    
     {if (!isset($missatge.adjunt) || $missatge.adjunt eq "") && ($adjunts eq 1)}
         <label class="col-xs-2 control-label" for="adjunt">{gt text="Attached file"}</label>
         {* bootstrap-filestyle*}
@@ -12,7 +11,7 @@
         </div>                          
     {elseif (isset($missatge.adjunt) && $missatge.adjunt neq "") }
         <label class="col-xs-2 control-label" for="adjunt">{gt text="Attached file"}</label>
-        <input type="hidden" name="adjunt" value="">
+        <input type="hidden" name="adjunt" id="adjunt" value="">
         <span class="fs1em label label-default">{if isset($missatge.adjunt)}{$missatge.adjunt}{/if}</span>
         <span data-toggle="modal" data-target="#attached">
         <span class="fa fa-times fa-lg" style="cursor:pointer; color:#AC2013"  data-toggle="tooltip" title="{gt text='Delete the attached file'}"></span>
@@ -54,5 +53,6 @@
 {pageaddvar name='stylesheet' value='vendor/font-awesome/css/font-awesome.css'}
 {pageaddvar name='javascript' value='vendor/bootstrap/js/bootstrap.js'}
 {pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='stylesheet' value='modules/IWforums/style/bsRewrite.css'}
 {pageaddvar name='javascript' value='vendor/bootstrap/filestyle/bootstrap-filestyle.min.js'}
 {ajaxheader modname=IWforums filename=IWforums.js}

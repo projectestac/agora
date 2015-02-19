@@ -2,6 +2,8 @@
 {pageaddvar name='javascript' value='vendor/bootstrap/js/bootstrap.js'}
 {pageaddvar name='javascript' value='jQuery-ui'}
 {pageaddvar name='stylesheet' value='vendor/bootstrap/css/bootstrap.css'}
+{pageaddvar name='stylesheet' value='modules/IWforums/style/bsRewrite.css'}
+{pageaddvar name='stylesheet' value='modules/IWforums/style/bsRewrite.css'}
 {pageaddvar name='stylesheet' value='vendor/font-awesome/css/font-awesome.min.css'}
 {ajaxheader modname=IWforums filename=IWforums.js}
 {pageaddvar name="jsgettext" value="module_iwforums_js:IWforums"}
@@ -77,9 +79,7 @@
         </div> 
     {/if}
 
-    <div class="col-xs-12">
-        {include file="user/IWforums_user_messages.tpl"}
-    </div>
+    {include file="user/IWforums_user_messages.tpl"}
 
     <div style="margin-left:20px;">{$pager}</div>
 {else}
