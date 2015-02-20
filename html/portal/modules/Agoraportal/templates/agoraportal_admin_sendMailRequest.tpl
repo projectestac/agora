@@ -12,8 +12,10 @@
     En cas de disconformitat amb la resoluci&oacute; de la sol&middot;licitud, 
     contacteu amb l'equip del projecte &Agrave;gora mitjançant el 
     <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=181">f&ograve;rum 
-    d'&Agrave;gora-moodle</a> o el 
-    <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161">d'&Agrave;gora-intranet</a>,
+    d'&Agrave;gora-Moodle</a>, el
+    <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1721">d'&Agrave;gora-Nodes</a>,
+    o el 
+    <a href="http://agora.xtec.cat/moodle/moodle/mod/forum/view.php?id=1161">d'&Agrave;gora-Intranet</a>,
     en funci&oacute; de quin sigui el servei afectat. Si ho preferiu podeu fer 
     una nova sol&middot;licitud i fer-hi constar les circumst&agrave;ncies que considereu
     oportunes.
