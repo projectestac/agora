@@ -421,47 +421,45 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora, $ZConfig;
 
+        // Hardcoded vars. Sorry! :-(
+        $urlModelBase = 'http://pwc-int.educacio.intranet/agora/master';
+        $dbModels = array ('usu1', 'usu2', 'usu3', 'usu4', 'usu5', 'usu6', 'usu7', 'usu8', 'usu9', 'usu10', 'usu11', 'usu12');
+
+        $modelTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
+        $shortcode = '';
+        $files = array();
+        
+        foreach ($modelTypes as $modelType) {
+            $urlModels[] = $urlModelBase . $modelType['shortcode'];
+            $keywords[] = $modelType['keyword'];
+            if ($modelType['keyword'] == $client['extraFunc']) {
+                $shortcode = $modelType['shortcode'];
+            }
+        }
+
+        // Allowed values in $client['extraFunc']
+        $allowedValues = implode(", ", $keywords);
+
         // Check the value of extraFunc
         if (!isset($client['extraFunc']) || empty($client['extraFunc'])) {
-            LogUtil::registerError($this->__("Falta indicar el tipus de maqueta (Indicar <strong>primaria</strong>, <strong>secundaria</strong>, <strong>adults</strong>, <strong>eoi</strong> o <strong>zer</strong> al camp <strong>Funcionalitats addicionals</strong>)"));
+            LogUtil::registerError($this->__("Falta indicar el tipus de maqueta (Indicar <strong>" . $allowedValues . "</strong> al camp <strong>Funcionalitats addicionals</strong>)"));
             return false;
         }
 
-        // Check file presence
-        switch ($client['extraFunc']) {
-            case 'primaria':
-                $files = array (
-                    'db' => $ZConfig['System']['datadir'] . '/nodes/masterpri.sql',
-                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/masterpri.zip'
-                );
-                break;
-            case 'secundaria':
-                $files = array (
-                    'db' => $ZConfig['System']['datadir'] . '/nodes/mastersec.sql',
-                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastersec.zip'
-                );
-                break;
-            case 'adults':
-                $files = array (
-                    'db' => $ZConfig['System']['datadir'] . '/nodes/mastercfa.sql',
-                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastercfa.zip'
-                );
-                break;
-            case 'eoi':
-                $files = array (
-                    'db' => $ZConfig['System']['datadir'] . '/nodes/mastereoi.sql',
-                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/mastereoi.zip'
-                );
-                break;
-            case 'zer':
-                $files = array (
-                    'db' => $ZConfig['System']['datadir'] . '/nodes/masterzer.sql',
-                    'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/masterzer.zip'
-                );
-                break;
-            default:
-                LogUtil::registerError($this->__("El valor del camp <strong>Funcionalitats addicionals</strong> ha de ser <strong>primaria</strong>, <strong>secundaria</strong>, <strong>adults</strong>, <strong>eoi</strong> o <strong>zer</strong> (sense accents)."));
-                return false;
+        // If keyword provided by the user is not on the list, tell them and throw an error.
+        if (!in_array($client['extraFunc'], $keywords)) {
+            LogUtil::registerError($this->__("Els valors possibles del camp <strong>Funcionalitats addicionals</strong> són: <strong>" . $allowedValues . "</strong> (sense accents)."));
+            return false;
+        }
+        
+        if (!empty($shortcode)) {
+            $files = array(
+                'db' => $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql',
+                'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/master' . $shortcode . '.zip'
+            );
+        } else {
+            LogUtil::registerError($this->__("El codi curt de la maqueta indicada no està definit. Reviseu la configuració del mòdul."));
+            return false;
         }
 
         foreach ($files as $file) {
@@ -529,14 +527,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $sqls[] = "UPDATE $prefix" . "_users set user_pass='" . $agora['xtecadmin']['password'] . "' WHERE user_login='xtecadmin'";
 
-        // Convert some hardcoded URL (TODO: This must be a param in web form)
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterpri/';
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastersec/';
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastercfa/';
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/mastereoi/';
-        $toReplace[] = 'http://pwc-int.educacio.intranet/agora/masterzer/';
-
-        foreach ($toReplace as $string) {
+        // Add SQLs to replace URLs
+        foreach ($urlModels as $string) {
             $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET action = REPLACE (action , '$string', '$siteURL')
                 WHERE action like '%$string%'";
@@ -544,26 +536,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET content = REPLACE (content , '$string', '$siteURL')
                 WHERE content like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '/usu6/', '/$dbUser/')
-                WHERE content like '%/usu6/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '/usu7/', '/$dbUser/')
-                WHERE content like '%/usu7/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '/usu8/', '/$dbUser/')
-                WHERE content like '%/usu8/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '/usu9/', '/$dbUser/')
-                WHERE content like '%/usu9/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '/usu10/', '/$dbUser/')
-                WHERE content like '%/usu10/%'";
 
             $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET primary_link = REPLACE (primary_link , '$string', '$siteURL')
@@ -574,26 +546,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 WHERE post_content like '%$string%'";
 
             $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '/usu6/', '/$dbUser/')
-                WHERE post_content like '%/usu6/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '/usu7/', '/$dbUser/')
-                WHERE post_content like '%/usu7/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '/usu8/', '/$dbUser/')
-                WHERE post_content like '%/usu8/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '/usu9/', '/$dbUser/')
-                WHERE post_content like '%/usu9/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '/usu10/', '/$dbUser/')
-                WHERE post_content like '%/usu10/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
                 SET post_excerpt = REPLACE (post_excerpt , '$string', '$siteURL')
                 WHERE post_excerpt like '%$string%'";
 
@@ -601,30 +553,25 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 SET guid = REPLACE (guid , '$string', '$siteURL')
                 WHERE guid like '%$string%'";
 
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '/usu6/', '/$dbUser/')
-                WHERE guid like '%/usu6/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '/usu7/', '/$dbUser/')
-                WHERE guid like '%/usu7/%'";
-            
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '/usu8/', '/$dbUser/')
-                WHERE guid like '%/usu8/%'";
-            
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '/usu9/', '/$dbUser/')
-                WHERE guid like '%/usu9/%'";
-            
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '/usu10/', '/$dbUser/')
-                WHERE guid like '%/usu10/%'";
-
             $sqls[] = "UPDATE $prefix" . "_postmeta
                 SET meta_value = REPLACE (meta_value , '$string', '$siteURL')
                 WHERE meta_key = '_menu_item_url' AND meta_value like '%$string%'";
-            }
+        }
+
+        // Add SQLs to replace database names
+        foreach ($dbModels as $dbModel) {
+            $sqls[] = "UPDATE $prefix" . "_bp_activity
+                SET content = REPLACE (content , '/$dbModel/', '/$dbUser/')
+                WHERE content like '%/$dbModel/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET post_content = REPLACE (post_content , '/$dbModel/', '/$dbUser/')
+                WHERE post_content like '%/$dbModel/%'";
+
+            $sqls[] = "UPDATE $prefix" . "_posts
+                SET guid = REPLACE (guid , '/$dbModel/', '/$dbUser/')
+                WHERE guid like '%/$dbModel/%'";
+        }
 
         // Reset stats table
         $sqls[] = "TRUNCATE $prefix" . "_stats";
@@ -667,13 +614,14 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         $value = unserialize($value);
 
                         // Update URL recursively
-                        foreach ($toReplace as $string) {
+                        foreach ($urlModels as $string) {
                             $value = $this->replaceTree($string, $siteURL, $value);
                         }
 
-                        // Update user database. This depends on where the model is build!
-                        $value = $this->replaceTree('usu6', $dbUser, $value);
-                        $value = $this->replaceTree('usu7', $dbUser, $value);
+                        // Update user database recursively
+                        foreach ($dbModels as $dbModel) {
+                            $value = $this->replaceTree($dbModel, $dbUser, $value);
+                        }
 
                         // Update school name and address
                         $value['nomCanonicCentre'] = $clientName;
@@ -2167,7 +2115,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @return array
      */
-    function replaceTree($search = '', $replace = '', $array = false) {
+    protected function replaceTree($search = '', $replace = '', $array = false) {
 
         if (!is_array($array)) {
             // Regular replace
