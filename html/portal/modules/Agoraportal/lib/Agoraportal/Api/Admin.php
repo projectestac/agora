@@ -976,10 +976,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $shortcode = $args['shortcode'];
         $keyword = $args['keyword'];
+        $description = $args['description'];
 
         $item = array(
             'shortcode' => $shortcode,
-            'keyword' => $keyword
+            'keyword' => $keyword,
+            'description' => $description
         );
 
         if (!DBUtil::insertObject($item, 'agoraportal_modelTypes', 'modelTypeId')) {

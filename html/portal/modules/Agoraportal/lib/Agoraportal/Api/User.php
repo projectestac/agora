@@ -596,11 +596,16 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             $clientId = $info['clientId'];
         }
         // create services that have been asked
-        foreach ($args['serviceId'] as $service) {
+        foreach ($args['serviceId'] as $serviceId) {
             //check if the service has been created for security reasons
-            if (!in_array($service, $clientServices)) {
-                //insert service in database
-                $item = array('serviceId' => $service,
+            if (!in_array($serviceId, $clientServices)) {
+                // Check for nodes
+                $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId));
+                $serviceName = $service['serviceName'];
+                $obs = ($serviceName == 'nodes') ? $args['observations'] : '';
+
+                // Insert service in database
+                $item = array('serviceId' => $serviceId,
                     'contactName' => UserUtil::getVar('uname'),
                     'contactMail' => UserUtil::getVar('email'),
                     'contactProfile' => $args['contactProfile'],
@@ -608,10 +613,10 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                     'state' => 0,
                     'activedId' => 0,
                     'timeRequested' => time(),
-                    'observations' => $args['observations']);
+                    'observations' => $obs);
 
                 if (!DBUtil::insertObject($item, 'agoraportal_client_services', 'clientServiceId')) {
-                    return LogUtil::registerError($this->__('L\'intent de creació ha fallat'));
+                    return LogUtil::registerError($this->__('No s\'ha pogut desar la sol·licitud del servei ' . $serviceName));
                 }
             }
         }

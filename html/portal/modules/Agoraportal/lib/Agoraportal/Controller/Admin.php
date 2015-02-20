@@ -1233,6 +1233,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
         $shortcode = FormUtil::getPassedValue('shortcode', isset($args['shortcode']) ? $args['shortcode'] : null, 'POST');
         $keyword = FormUtil::getPassedValue('keyword', isset($args['keyword']) ? $args['keyword'] : null, 'POST');
+        $description = FormUtil::getPassedValue('description', isset($args['description']) ? $args['description'] : null, 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -1248,7 +1249,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         // Save the record
-        $modelId = ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('shortcode' => $shortcode, 'keyword' => $keyword));
+        $modelId = ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('shortcode' => $shortcode, 'keyword' => $keyword, 'description' => $description));
 
         if ($modelId) {
             LogUtil::registerStatus($this->__('S\'ha registrat un tipus nou de maqueta'));

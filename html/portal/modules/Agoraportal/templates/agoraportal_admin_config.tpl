@@ -55,7 +55,10 @@
                             <strong>{gt text="Codi curt (nom fitxer)"}</strong>
                         </th>
                         <th>
-                            <strong>{gt text="Paraula clau (formulari alta)"}</strong>
+                            <strong>{gt text="Paraula clau (extraFunc)"}</strong>
+                        </th>
+                        <th>
+                            <strong>{gt text="Descripció (askServices)"}</strong>
                         </th>
                         <th>
                             &nbsp;
@@ -68,6 +71,9 @@
                         </td>
                         <td>
                             {$type.keyword}
+                        </td>
+                        <td>
+                            {$type.description}
                         </td>
                         <td align="center">
                             <a href="{modurl modname='Agoraportal' type='admin' func='deleteModelType' modelTypeId=$type.modelTypeId}">

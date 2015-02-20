@@ -131,19 +131,27 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	A form with the services available and not solicited
      */
     public function askServices($args) {
+
+        // Access check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
+            return $this->view->assign('noaccess', true)
+                            ->fetch('agoraportal_user_askServices.tpl');
+        }
+
         $acceptUseTerms = FormUtil::getPassedValue('acceptUseTerms', isset($args['acceptUseTerms']) ? $args['acceptUseTerms'] : null, 'GETPOST');
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
         $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'GETPOST');
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-        $allowedServices = array();
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        
         $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+
+        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         $client = $clientInfo['client'];
+
+        $allowedServices = array();
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+        $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
+
         foreach ($services as $service) {
             if ($service['allowedClients'] != '') {
                 if (strpos($service['allowedClients'], $clientCode) !== false) {
@@ -163,6 +171,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                     'searchText' => $clientCode,
                     'clientCode' => $clientCode,
                 ));
+        
         $clientServices = array();
         $haveMoodle = false;
         foreach ($clientInfo as $info) {
@@ -196,6 +205,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                         ->assign('clientCode', $clientCode)
                         ->assign('isAdmin', $isAdmin)
                         ->assign('client', $client[$clientCode])
+                        ->assign('modeltypes', $modeltypes)
+                        ->assign('noaccess', false)
                         ->fetch('agoraportal_user_askServices.tpl');
     }
 
@@ -232,27 +243,28 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
-        
-        // Get service name
-        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId));
-        $serviceName = $service['serviceName'];
 
-        // If service is 'nodes' ensure that the model of service is selected
-        if (is_null($nodes)) {
+        $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
+
+        // User can ask for many services at a time
+        foreach ($serviceId as $id) {
+            $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $id));
+            $serviceName = $service['serviceName'];
+            // If service is 'nodes' ensure that the model of service is selected
             if ($serviceName == 'nodes') {
-                LogUtil::registerError($this->__('No heu indicat indicat quina maqueta voleu per al servei Nodes'));
-                return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
-                                    'contactProfile' => $contactProfile,
-                                    'acceptUseTerms' => $acceptUseTerms)));
-            } else {
-                $nodes = '';
+                if (is_null($nodes)) {
+                    LogUtil::registerError($this->__('No heu indicat indicat quina maqueta voleu per al servei Nodes'));
+                    return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
+                                        'contactProfile' => $contactProfile,
+                                        'acceptUseTerms' => $acceptUseTerms)));
+                } else {
+                    foreach ($modeltypes as $modeltype) {
+                        if ($nodes == $modeltype['shortcode']) {
+                            $nodes = $modeltype['description'];
+                        }
+                    }
+                }
             }
-        } elseif ($nodes == 0) {
-            $nodes = 'Maqueta primària';
-        } elseif ($nodes == 1) {
-            $nodes = 'Maqueta secundària';
-        } elseif ($nodes == 2) {
-            $nodes = 'Maqueta adults';
         }
 
         if ($contactProfile == '') {

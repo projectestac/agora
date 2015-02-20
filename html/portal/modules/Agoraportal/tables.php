@@ -536,11 +536,15 @@ function Agoraportal_tables() {
     $table['agoraportal_modelTypes'] = DBUtil::getLimitedTablename('agoraportal_modelTypes');
     $table['agoraportal_modelTypes_column'] = array('modelTypeId' => 'modelTypeId',
         'shortcode' => 'shortcode',
-        'keyword' => 'keyword');
+        'keyword' => 'keyword',
+        'description' => 'description',
+        );
 
     $table['agoraportal_modelTypes_column_def'] = array('modelTypeId' => "I NOTNULL AUTO PRIMARY",
         'shortcode' => "C(50) NOTNULL DEFAULT ''",
-        'keyword' => "C(50) NOTNULL DEFAULT ''");
+        'keyword' => "C(50) NOTNULL DEFAULT ''",
+        'description' => "C(255) NOTNULL DEFAULT ''",
+        );
 
 
     // agoraportal_requestTypesServices table definition
