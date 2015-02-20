@@ -169,7 +169,7 @@ if (!$stmtUpdateScribite->execute()) {
 $tableName = 'module_vars';
 $stmtUpdatePlugin = $connection->prepare("
 		UPDATE $tableName
-		SET value = 'a:11:{i:0;s:4:\"link\";i:1;s:13:\"searchreplace\";i:2;s:7:\"preview\";i:3;s:14:\"insertdatetime\";i:4;s:9:\"wordcount\";i:5;s:10:\"autoresize\";i:6;s:10:\"fullscreen\";i:7;s:5:\"print\";i:8;s:8:\"fullpage\";i:9;s:4:\"code\";i:10;s:5:\"files\";}'
+		SET value = 'a:10:{i:0;s:4:\"link\";i:1;s:13:\"searchreplace\";i:2;s:7:\"preview\";i:3;s:14:\"insertdatetime\";i:4;s:9:\"wordcount\";i:5;s:10:\"autoresize\";i:6;s:10:\"fullscreen\";i:7;s:5:\"print\";i:9;s:4:\"code\";i:10;s:5:\"files\";}'
 		WHERE modname='moduleplugin.scribite.tinymce' AND name = 'activeplugins'
 		");
 
