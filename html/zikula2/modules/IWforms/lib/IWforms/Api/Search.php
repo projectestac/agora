@@ -117,8 +117,18 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
         // get searchable fields
         foreach ($userForms as $form) {
             // get searchable fields for each form
-            $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
+
+        	//XTEC ************ MODIFICAT - Check if activation user is pending
+        	//2015.02.18 @author - Nacho Abejaro
+        	//--Original
+            /*$fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
                         'whereArray' => 'active|1$$searchable|1'));
+            */
+        	// --Codi Nou
+        	$fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
+        			'whereArray' => 'active|1'));
+        	// Fi
+
             $fieldsArray = array_merge($fieldsArray, $fields);
         }
 
@@ -139,13 +149,7 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
 
         $where = substr($where, 0, -4);
 
-        //XTEC ************ MODIFICAT - Check if activation user is pending
-        //2015.02.18 @author - Nacho Abejaro
-        $where = "$c[validate] =1 AND $c[content] LIKE '%$q%' ";
-        //************ ORIGINAL
-        /*$where = "$c[validate] =1 AND $c[content] LIKE '%$q%' AND (" . $where . ")";
-        */
-        //************ FI
+        $where = "$c[validate] =1 AND $c[content] LIKE '%$q%' AND (" . $where . ")";
 
         $notes = DBUtil::selectObjectArray('IWforms_note', $where, '', -1, -1, 'fnid');
 

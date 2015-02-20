@@ -86,6 +86,7 @@ class IWforms_Api_User extends Zikula_AbstractApi {
         }
         $pntable = DBUtil::getTables();
         $c = $pntable['IWforms_note_definition_column'];
+
         if ($whereArray != null) {
             $values = explode('$$', $whereArray);
             foreach ($values as $v) {
@@ -95,14 +96,17 @@ class IWforms_Api_User extends Zikula_AbstractApi {
                 $where .= " AND $c[$field]=$value";
             }
         }
+
         $orderby = "$c[order]";
         $where = "$c[fid]=$fid " . $where;
+
         $items = DBUtil::selectObjectArray('IWforms_note_definition', $where, $orderby, '-1', '-1', 'fndid');
         // Check for an error with the database code, and if so set an appropriate
         // error message and return
         if ($items === false) {
             return LogUtil::registerError($this->__('Error! Could not load items.'));
         }
+
         // Return the items
         return $items;
     }
@@ -588,7 +592,7 @@ class IWforms_Api_User extends Zikula_AbstractApi {
         $defaultOrderForNotes = (isset($args['defaultOrderForNotes'])) ? $args['defaultOrderForNotes'] : null;
 
         $orderAscDesc = ($defaultOrderForNotes == 2) ? "asc" : "desc";
-        
+
         // Security check
         if (!SecurityUtil::checkPermission('IWforms::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
