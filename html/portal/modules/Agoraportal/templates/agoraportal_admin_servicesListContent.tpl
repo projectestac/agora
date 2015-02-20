@@ -18,10 +18,10 @@
     <tbody>
         {foreach item=client from=$clients}
         <tr class="{cycle values="z-odd,z-even"}" id="formRow_{$client.clientId}">
-            <td align="left" valign="top">
+            <td align="left" valign="top" class="id">
                  {$client.activedId}
              </td>
-             <td align="left" valign="top">
+             <td align="left" valign="top" class="codeandname">
                  <a href="{modurl modname='Agoraportal' type='user' func='myAgora' clientCode=$client.clientCode}">{$client.clientName}</a>
                  {if $client.state eq 1 && $services[$client.serviceId].serviceName neq 'marsupial'}
                  (<a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}" target="_blank">{gt text="Entra-hi"}</a> - 
@@ -30,7 +30,7 @@
                  <br />
                  {$client.clientDNS} - {$client.clientCode}
              </td>
-             <td align="left" valign="top">
+             <td align="left" valign="top" class="schooltype">
                  {if isset($types[$client.typeId].typeName)}
                  {$types[$client.typeId].typeName}
                  {/if}
@@ -45,7 +45,7 @@
                  </div>
                  {/if}
              </td>
-             <td align="left" valign="top">
+             <td align="left" valign="top" class="service">
                  <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" alt="{$services[$client.serviceId].serviceName}" title="{$services[$client.serviceId].serviceName}" />
                  {if $client.haveMoodle eq 1}
                  <div>
@@ -53,7 +53,7 @@
                  </div>
                  {/if}
              </td>
-             <td align="left" valign="top">
+             <td align="left" valign="top" class="location">
                  {$client.clientCity}
                  {if isset($locations[$client.locationId].locationName)}
                  <div>
@@ -61,12 +61,12 @@
                  </div>
                  {/if}
              </td>
-             <td align="left" valign="top">
+             <td align="left" valign="top" class="contact">
                  {$client.contactName}
                  <br />
                  {$client.contactProfile}
              </td>
-             <td valign="top">
+             <td valign="top" class="observs">
                  {$client.observations|nl2br}
                  {if $client.annotations neq ''}
                  <div class="z-form">
@@ -77,14 +77,14 @@
                  </div>
                  {/if}
              </td>
-             <td width="100">
+             <td width="100" class="time">
                  <span class="timeLetter">{gt text="e"}</span>: {$client.timeEdited|dateformat:"%d/%m/%Y"}
                  <br />
                  <span class="timeLetter">{gt text="c"}</span>: {$client.timeCreated|dateformat:"%d/%m/%Y"}
                  <br />
                  <span class="timeLetter">{gt text="s"}</span>: {$client.timeRequested|dateformat:"%d/%m/%Y"}
              </td>
-             <td style="background-color: {$client.diskConsumeCellColor};">
+             <td style="background-color: {$client.diskConsumeCellColor}; width: 70px; text-align:right;" class="diskusage">
                  {if $client.diskSpace gt 0}
                  {$client.diskSpace} MB
                  <br />
@@ -93,48 +93,48 @@
                  {$client.diskConsumePerCent} %
                  {/if}
              </td>
-             <td align="left" valign="top" width="100">
+             <td align="left" valign="top" width="100" class="state">
                  {if $client.state eq 0}
                  <span class="toCheck">
                  {gt text="Per revisar"}
-             </span>
-             {elseif $client.state eq 1}
-             <span class="actived">
-                 {gt text="Actiu"}
-             </span>
-             {elseif $client.state eq -2}
-             <span class="denegated">
-                 {gt text="Denegat"}
-             </span>
-             {elseif $client.state eq -3}
-             <span class="denegated">
-                 {gt text="Donat de baixa"}
-             </span>
-             {elseif $client.state eq -4}
-             <span class="denegated">
-                 {gt text="Desactivat"}
-             </span>
-             {else}
-             {gt text="No s'ha trobat"}
-             {/if}
-         </td>
-         <td valign="top" align="center" width="70">
-             <div style="float:left; padding:3px;">
-                 <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId init=$init search=$search searchText=$searchText stateFilter=$stateFilter service=$service}">
-                     {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
-                 </a>
-             </div>
-             <div style="float:left; padding:3px;">
-                 <a href="{modurl modname='Agoraportal' type='admin' func='deleteService' clientServiceId=$client.clientServiceId}">
-                     {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
-                 </a>
-             </div>
-             <div style="float:left; padding:3px;">
-                 <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' clientServiceId=$client.clientServiceId}">
-                     {img modname='core' src='configure.png' set='icons/extrasmall' __alt="Eines" __title="Eines"}
-                 </a>
-             </div>
-         </td>
+                </span>
+                {elseif $client.state eq 1}
+                <span class="actived">
+                    {gt text="Actiu"}
+                </span>
+                {elseif $client.state eq -2}
+                <span class="denegated">
+                    {gt text="Denegat"}
+                </span>
+                {elseif $client.state eq -3}
+                <span class="denegated">
+                    {gt text="Donat de baixa"}
+                </span>
+                {elseif $client.state eq -4}
+                <span class="denegated">
+                    {gt text="Desactivat"}
+                </span>
+                {else}
+                {gt text="No s'ha trobat"}
+                {/if}
+            </td>
+            <td valign="top" align="center" width="70" class="actions">
+                <div style="float:left; padding:3px;">
+                    <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId init=$init search=$search searchText=$searchText stateFilter=$stateFilter service=$service}">
+                        {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
+                    </a>
+                </div>
+                <div style="float:left; padding:3px;">
+                    <a href="{modurl modname='Agoraportal' type='admin' func='deleteService' clientServiceId=$client.clientServiceId}">
+                        {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
+                    </a>
+                </div>
+                <div style="float:left; padding:3px;">
+                    <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' clientServiceId=$client.clientServiceId}">
+                        {img modname='core' src='configure.png' set='icons/extrasmall' __alt="Eines" __title="Eines"}
+                    </a>
+                </div>
+            </td>
         </tr>
         {foreachelse}
         <tr>
