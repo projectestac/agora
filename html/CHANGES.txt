@@ -5,6 +5,44 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+Changes 15.02.20
+---------------------------------------------------------------------------------------
+MOODLE2
+
+- MDL-49234 oracle: Remove variables passed by reference error
+- Forum: Solved courseoverview patch on mymoodle page
+- Now Agora is instalable if environment is LOCAL
+- MDL-48980 Security: Always clean the result from min_get_slash_argument
+- Simplify site-config
+- Added function to save in the parent admin folder of moodle2
+- Site config add suport to check id_moodle2 from db
+- MARSUPIAL: Added one required library that can crash the import method
+- LOCAL AGORA: Add new adware string to search
+- LOCAL AGORA: Export bigdata profiles by name
+- LOCAL AGORA: Scripts: Notificacion styles and debug
+- LOCAL AGORA: Added function to save in the parent admin folder of moodle2
+- LOCAL AGORA: Autocalculate mail log path
+- LOCAL BIGDATA: Add weekday restriction, save on folder setting and hour restriction
+- LOCAL BIGDATA: Solved problem calculating next cron date
+- LOCAL BIGDATA: Solved bug on unexistant contexts
+- LOCAL BIGDATA: Export bigdata profiles by name
+- LOCAL OAUTH: Updated catalan and spanish strings
+- LOCAL OAUTH: Some changes in the Client ID and Redirect help.
+- LOCAL OAUTH: Added default values when creating provider and improved user interface to include help
+- Updated Third party modules:
+  - Mobile
+  - Hot Potatoes
+  - JClic
+  - DDImageOrText
+  - DDMarker
+  - DDWtos
+- XTEC2: Solved problem moving blocks
+- XTEC2: Repaired a color in external link icon
+- XTEC2: Change horizontal padding of #page from 20px to 30px
+- XTEC2: Adding icons to notification status
+
 PORTAL
 - Agoraportal: Added ability to create database if not exists when creating new services
 - Agoraportal: Reviewed activation services mail messages (changed URL, added more information for Nodes...)
@@ -26,6 +64,12 @@ ZIKULA
 - IWagendas: Solved issue where users can view shared agenda's posts without loggin in [AGIN 1051-2014-0049]
 - IWagendas: Fixed messages not being translated [AGIN 1051-2014-0028]
 - Files: Added new module version 1.0.2 [AGIN 1051-2014-0035]
+- IWforums: Updated to version 3.0.1
+- IWforms: Updated to version 3.0.2
+- IWmessages: Updated to version 3.0.1
+- IWnoteboard: Updated to version 3.0.1
+- Profile: Fixed error when loading in Admin Pannel
+
 
 Changes 15.01.28
 ---------------------------------------------------------------------------------------
