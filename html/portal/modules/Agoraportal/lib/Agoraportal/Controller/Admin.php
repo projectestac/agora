@@ -573,6 +573,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 if ($services[$site['serviceId']]['serviceName'] != $serviceName) {
                     continue;
                 }
+                if ($site['educatNetwork'] == 1) {
+                	continue;
+                }
                 $url = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
                 if ($url) {
                     break;
@@ -594,7 +597,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
             $curl_handle = curl_init();
             curl_setopt($curl_handle, CURLOPT_URL, $url);
-            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
+            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
             curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, true);
             $actions = curl_exec($curl_handle);
@@ -1218,10 +1221,10 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
     }
- 
+
     /**
      * Show form to add a new model type or saves it to data base
-     * 
+     *
      * @author Toni Ginard
      * @param int confirmation
      * @param string shortcode
@@ -1239,12 +1242,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
-        
+
         // Show the form or save the data?
         if ($confirmation == null) {
             return $this->view->fetch('agoraportal_admin_addNewModelType.tpl');
         }
-        
+
         // Confirm authorisation code
         $this->checkCsrfToken();
 
@@ -1356,7 +1359,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     /**
      * Delete a given model type
-     * 
+     *
      * @author Toni Ginard
      * @param int confirmation
      * @param int modelTypeId
@@ -1377,17 +1380,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             return $this->view->assign('modelType', $modelType[$modelTypeId])
                             ->fetch('agoraportal_admin_deleteModelType.tpl');
         }
-        
+
         // Confirm authorisation code
         $this->checkCsrfToken();
-        
+
         // Remove the record
         if (ModUtil::apiFunc('Agoraportal', 'admin', 'deleteModelType', array('modelTypeId' => $modelTypeId))) {
             LogUtil::registerStatus($this->__('S\'ha esborrat el registre de la maqueta'));
         } else {
             LogUtil::registerError($this->__('S\'ha produït un error en esborrar el registre de la maqueta'));
         }
-        
+
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'config'));
     }
 
