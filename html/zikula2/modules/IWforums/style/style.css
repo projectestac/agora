@@ -84,10 +84,14 @@ hr.gradient {
 td#theme_content_center{
     font-size:1em !important;
 }
+/* XTEC ************ ELIMINAT - Removed for compatibility with theme IWxtec
+   2015.02.23 @aginard
+
 body {
     font-size:16px !important;
 }
-
+************ FI
+*/
 .fs1em{
     font-size:1em !important;
     color: black;
