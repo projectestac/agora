@@ -118,16 +118,18 @@ class IWforms_Api_Search extends Zikula_AbstractApi {
         foreach ($userForms as $form) {
             // get searchable fields for each form
 
-        	//XTEC ************ MODIFICAT - Check if activation user is pending
-        	//2015.02.18 @author - Nacho Abejaro
-        	//--Original
-            /*$fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
-                        'whereArray' => 'active|1$$searchable|1'));
+            // XTEC ************ MODIFICAT - Fixed search error
+            // 2015.02.18 @Nacho Abejaro
+
+            $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
+                        'whereArray' => 'active|1'));
+
+            //************ ORIGINAL
+            /*
+              $fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
+              'whereArray' => 'active|1$$searchable|1'));
             */
-        	// --Codi Nou
-        	$fields = ModUtil::apiFunc('IWforms', 'user', 'getAllFormFields', array('fid' => $form['fid'],
-        			'whereArray' => 'active|1'));
-        	// Fi
+            //************ FI
 
             $fieldsArray = array_merge($fieldsArray, $fields);
         }
