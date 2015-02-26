@@ -21,7 +21,7 @@ if ($isBigIP) {
     require_once '../syncdata/allSchools.php';
     foreach ($schools as $school) {
         if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest)) {
-            $nodesToTest[$school['id_nodes']] = array('dbhost' => $school['dbhost_nodes']);
+            $nodesToTest[$school['id_nodes']] = $school['dbhost_nodes'];
         }
         if (isset($school['database_moodle']) && !in_array(strtoupper($school['database_moodle']), $m2ToTest)) {
             $m2ToTest[$school['id_moodle']] = strtoupper($school['database_moodle']);
