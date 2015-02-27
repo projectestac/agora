@@ -31,7 +31,9 @@ class AdminMessages_Installer extends Zikula_AbstractInstaller {
 
         // create the default data for the modules module
         self::defaultdata();
-
+        
+        HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
+        
         // Initialisation successful
         return true;
     }
@@ -53,8 +55,8 @@ class AdminMessages_Installer extends Zikula_AbstractInstaller {
             case '2.1':
                 self::migrateLanguage();
 
-            case '2.2':
-            // future upgrade routines
+            case '2.2.0':
+                HookUtil::registerSubscriberBundles($this->version->getHookSubscriberBundles());
         }
 
         // Update successful
@@ -75,6 +77,8 @@ class AdminMessages_Installer extends Zikula_AbstractInstaller {
 
         ModUtil::delVar('AdminMessages');
 
+        HookUtil::unregisterSubscriberBundles($this->version->getHookSubscriberBundles());
+        
         // Deletion successful
         return true;
     }

@@ -61,3 +61,4 @@
         </div>
     </form>
 </div>
+{notifydisplayhooks eventname='adminmessages.ui_hooks.adminmessages.form_edit'}
