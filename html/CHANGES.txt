@@ -71,7 +71,8 @@ ZIKULA
 - IWforms: Updated to version 3.0.2
 - IWmessages: Updated to version 3.0.1
 - IWnoteboard: Updated to version 3.0.1
-- Profile: Fixed error when loading in Admin Pannel
+- AdminMessages: Updated to version 2.2.1
+- Profile: Fixed error when loading in Admin Panel
 
 
 Changes 15.01.28
