@@ -9,11 +9,6 @@ ZIKULA
 - IWbookings: Fixed loss of time frame when updating resource configuration
 
 
-Changes 25.02.20
----------------------------------------------------------------------------------------
-- NODES: save permalinks on edit forms
-
-
 Changes 15.02.20
 ---------------------------------------------------------------------------------------
 MOODLE2
