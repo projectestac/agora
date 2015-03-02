@@ -17,7 +17,7 @@
     {if $serviceName neq 'marsupial'}
     <p>
         Podeu accedir al vostre espai <strong>{$serviceName4User}</strong> des de
-        l'URL <a href="{$baseURL}{$clientDNS}/{$serviceURL}/">{$baseURL}{$clientDNS}/{$serviceURL}</a>
+        l'URL <a href="{$baseURL}{$clientDNS}/{$serviceURL}">{$baseURL}{$clientDNS}/{$serviceURL}</a>
         amb l'usuari <strong>admin</strong> i la contrasenya <strong>{$password}</strong>.
         Us recomanem que canvieu la contrasenya d'aquest usuari despr&eacute;s
         del primer acc&eacute;s al servei. Dins del vostre espai s'ha creat,
@@ -28,7 +28,7 @@
     {else}
     <p>
         A partir d'ara, l'URL d'acc&eacute;s al vostre moodle ha canviat i ha
-        passat a ser <a href="{$baseURLMarsupial}{$clientDNS}/{$serviceURL}/">{$baseURLMarsupial}{$clientDNS}/{$serviceURL}</a>.
+        passat a ser <a href="{$baseURLMarsupial}{$clientDNS}/{$serviceURL}">{$baseURLMarsupial}{$clientDNS}/{$serviceURL}</a>.
         Tots els accessos que es facin utilitzant el domini {$baseURL}
         seran redirigits automàticament a {$baseURLMarsupial}.
     </p>
