@@ -518,11 +518,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         $clientsArray = $clients;
-        $clientsNumber = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('onlyNumber' => 1,
+        $clientsNumber = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array(
+                    'onlyNumber' => 1,
                     'service' => $service,
                     'state' => $stateFilter,
                     'search' => $search,
-                    'order' => $order,
                     'searchText' => $searchText));
         $pager = ModUtil::func('Agoraportal', 'admin', 'pager', array('init' => $init,
                     'rpp' => $rpp,

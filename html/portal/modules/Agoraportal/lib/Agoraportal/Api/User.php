@@ -295,7 +295,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
             }
         } else {
-            $items = DBUtil::selectExpandedObjectCount('agoraportal_client_services', $myJoin, $where, $key);
+            $items = DBUtil::selectExpandedObjectArray('agoraportal_client_services', $myJoin, $where);
+            $items = count($items);
+
         }
 
         // Return the items
