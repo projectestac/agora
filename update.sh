@@ -83,7 +83,6 @@ fi
 
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "STABLE_26" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
-gitcheckout "html/moodle2/blocks/advices" "master" "git@github.com:projectestac/moodle-block_advices.git"
 gitcheckout "html/moodle2/blocks/rgrade" "master" " git@github.com:imartel/Rgrade.git"
 gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
 gitcheckout "html/moodle2/local/agora" "master" "git@github.com:projectestac/moodle-local_agora.git"
