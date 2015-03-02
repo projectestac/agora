@@ -95,7 +95,10 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 ->setVar('diskRequestThreshold', '70')
                 ->setVar('clientsMailThreshold', '85')
                 ->setVar('maxAbsFreeQuota', '2000')
-                ->setVar('maxFreeQuotaForRequest', '1000');
+                ->setVar('maxFreeQuotaForRequest', '1000')
+                ->setVar('createDB', false)
+                ->setVar('URLNodesModelBase', 'http://pwc-int.educacio.intranet/agora/master')
+                ->setVar('DBNodesModel', 's:29:"usu6, usu7, usu8, usu9, usu10";');
 
         // successful
         return true;
@@ -213,10 +216,14 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             case '2.0.11':
                 if (!DBUtil::createTable('agoraportal_modelTypes'))
                     return false;
+            case '2.0.12':
+                $this->setVar('createDB', false)
+                        ->setVar('URLNodesModelBase', 'http://pwc-int.educacio.intranet/agora/master')
+                        ->setVar('DBNodesModel', 's:29:"usu6, usu7, usu8, usu9, usu10";');
 
-                /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
-                 * afegir una comprovació amb DBUtil::metaIndexes per saber
-                 * si s'han de tornar a crear. */
+            /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
+             * afegir una comprovació amb DBUtil::metaIndexes per saber
+             * si s'han de tornar a crear. */
         }
         return true;
     }
