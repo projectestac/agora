@@ -421,9 +421,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora, $ZConfig;
 
-        // Hardcoded vars. Sorry! :-(
-        $urlModelBase = 'http://pwc-int.educacio.intranet/agora/master';
-        $dbModels = array ('usu1', 'usu2', 'usu3', 'usu4', 'usu5', 'usu6', 'usu7', 'usu8', 'usu9', 'usu10', 'usu11', 'usu12');
+        $urlModelBase = $this->getVar('URLNodesModelBase');
+        $dbModels = explode(',', $this->getVar('DBNodesModel'));
 
         $modelTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
         $shortcode = '';
@@ -560,6 +559,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Add SQLs to replace database names
         foreach ($dbModels as $dbModel) {
+            // Remove any blank space that wouldn't be welcome
+            $dbModel = trim($dbModel);
+            
             $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET content = REPLACE (content , '/$dbModel/', '/$dbUser/')
                 WHERE content like '%/$dbModel/%'";
@@ -620,7 +622,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
                         // Update user database recursively
                         foreach ($dbModels as $dbModel) {
-                            $value = $this->replaceTree($dbModel, $dbUser, $value);
+                            $value = $this->replaceTree(trim($dbModel), $dbUser, $value);
                         }
 
                         // Update school name and address

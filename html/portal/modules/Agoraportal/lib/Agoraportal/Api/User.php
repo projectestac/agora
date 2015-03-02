@@ -1665,7 +1665,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
                 mysql_set_charset('utf8', $connect);
                 if (!mysql_select_db($databaseName, $connect)) {
-                    if ($forceCreateDB) {
+                    $createDB = $this->getVar('createDB');
+                    if ($forceCreateDB && $createDB) {
                         $sql = "CREATE DATABASE IF NOT EXISTS $databaseName DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci";
                         if (!mysql_query($sql, $connect)) {
                             LogUtil::registerError($this->__("No s'ha pogut crear la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username']));
