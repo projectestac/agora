@@ -1641,11 +1641,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $ask = FormUtil::getPassedValue('ask', isset($args['ask']) ? $args['ask'] : null, 'GETPOST');
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'GETPOST');
+        
         if (!empty($ask)) {
             $action = 'ask';
         } else if (!empty($confirm)) {
             $action = 'exe';
         }
+        
         if (isset($action) && ($which == "selected" && empty($clients_sel) )) {
             LogUtil::registerError($this->__('Has d\'omplir tots els camps'));
             $action = "show";
@@ -1694,40 +1696,32 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 // Get message from session
                 $message = unserialize(SessionUtil::getVar('noticeboardMessage'));
 
-                switch ($serviceName) {
-                    case 'intranet':
-                        //Intraweb
-                        // needed to maintain comptability during migration from 1.2.x to 1.3.x
-                        $intranetVersion = '128';
-                        $compat = ModUtil::apiFunc('Agoraportal', 'admin', 'compat', array('intranetVersion' => $intranetVersion));
+                if ($serviceName == 'intranet') {
+                    if ($only_admins) {
+                        $content = Array('startTime' => $date_start,
+                            'endTime' => $date_stop,
+                            'adminNotice' => $message);
+                    } else {
+                        $content = Array('startTime' => $date_start,
+                            'endTime' => $date_stop,
+                            'userNotice' => $message,
+                            'adminNotice' => $message);
+                    }
+                    $content = serialize($content);
+                    $content = str_replace("'", "''", $content);
+                    $date = date("Y-m-d H:i:s");
 
-                        if ($only_admins) {
-                            $content = Array('startTime' => $date_start,
-                                'endTime' => $date_stop,
-                                'adminNotice' => $message);
-                        } else {
-                            $content = Array('startTime' => $date_start,
-                                'endTime' => $date_stop,
-                                'userNotice' => $message,
-                                'adminNotice' => $message);
-                        }
-                        $content = serialize($content);
-                        $content = str_replace("'", "''", $content);
-                        $date = date("Y-m-d H:i:s");
-
-                        $sqlexists = "SELECT * FROM {$compat['tablePrefix']}blocks WHERE {$compat['fieldsPrefix']}bkey = 'iwNotice'";
-                        $sqlactive = "SELECT * FROM {$compat['tablePrefix']}blocks WHERE {$compat['fieldsPrefix']}bkey = 'iwNotice' AND {$compat['fieldsPrefix']}active = '1'";
-                        $sqlactivate = "UPDATE {$compat['tablePrefix']}blocks SET {$compat['fieldsPrefix']}active = '1', {$compat['fieldsPrefix']}content = '" . $content . "'  WHERE {$compat['fieldsPrefix']}bkey = 'iwNotice'";
-                        $sqlupdate = "UPDATE {$compat['tablePrefix']}blocks SET {$compat['fieldsPrefix']}content = '" . $content . "'  WHERE {$compat['fieldsPrefix']}bkey = 'iwNotice'";
-                        $sqlminorder = "SELECT MIN({$compat['fieldsPrefix']}order) FROM {$compat['tablePrefix']}block_placements";
-                        break;
+                    $sqlexists = "SELECT * FROM blocks WHERE bkey = 'iwNotice'";
+                    $sqlactive = "SELECT * FROM blocks WHERE bkey = 'iwNotice' AND active = '1'";
+                    $sqlactivate = "UPDATE blocks SET active = '1', content = '" . $content . "'  WHERE bkey = 'iwNotice'";
+                    $sqlupdate = "UPDATE blocks SET content = '" . $content . "'  WHERE bkey = 'iwNotice'";
+                    $sqlminorder = "SELECT MIN(sortorder) FROM block_placements";
                 }
 
                 foreach ($sqlClients as $i => $client) {
                     $result = "";
                     switch ($serviceName) {
                         case 'intranet':
-                            //Intraweb
                             //Check if the block exists
                             $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                         'host' => $client['dbHost'],
@@ -1740,12 +1734,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             } else {
                                 if (count($return['values']) > 0) {
                                     //Exists. Check if it's active
-                                    $blockid = $return['values'][0]["{$compat['fieldsPrefix']}bid"];
+                                    $blockid = $return['values'][0]["bid"];
                                     $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sqlminorder,
                                                 'serviceName' => $serviceName));
-                                    $minorder = $return['values'][0]["MIN({$compat['fieldsPrefix']}order)"] - 1;
+                                    $minorder = $return['values'][0]["MIN(order)"] - 1;
                                     $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sqlactive,
@@ -1759,7 +1753,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                             $ok++;
                                             $success[$i] = true;
                                             $messages[$i] = $this->__('El bloc s\'ha actualitzat correctament');
-                                            $sql = "UPDATE {$compat['tablePrefix']}block_placements SET {$compat['fieldsPrefix']}pid = '2', {$compat['fieldsPrefix']}order = '" . $minorder . "' WHERE {$compat['fieldsPrefix']}bid = '" . $blockid . "'";
+                                            $sql = "UPDATE block_placements SET pid = '2', sortorder = '" . $minorder . "' WHERE bid = '" . $blockid . "'";
                                             $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                         'host' => $client['dbHost'],
                                                         'sql' => $sql,
@@ -1784,7 +1778,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                             $ok++;
                                             $success[$i] = true;
                                             $messages[$i] = $this->__('El bloc s\'ha activat i actualitzat correctament');
-                                            $sql = "UPDATE {$compat['tablePrefix']}block_placements SET {$compat['fieldsPrefix']}pid = '2', {$compat['fieldsPrefix']}order = '" . $minorder . "' WHERE {$compat['fieldsPrefix']}bid = '" . $blockid . "'";
+                                            $sql = "UPDATE block_placements SET pid = '2', sortorder = '" . $minorder . "' WHERE bid = '" . $blockid . "'";
                                             $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                         'host' => $client['dbHost'],
                                                         'sql' => $sql,
@@ -1801,26 +1795,28 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                         }
                                     }
                                 } else {
-                                    //Don't exists, create it.
-                                    $sql = "SELECT * FROM {$compat['tablePrefix']}modules WHERE {$compat['fieldsPrefix']}name = '{$compat['intrawebModulePrefix']}main'";
+                                    // It doesn't exists, create it.
+                                    $sql = "SELECT * FROM modules WHERE name = 'IWmain'";
                                     $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sql,
                                                 'serviceName' => $serviceName));
-                                    $bid = $return['values'][0]["{$compat['fieldsPrefix']}id"];
-                                    $sql = "INSERT INTO {$compat['tablePrefix']}blocks ({$compat['fieldsPrefix']}bkey,{$compat['fieldsPrefix']}title,{$compat['fieldsPrefix']}content,{$compat['fieldsPrefix']}url,{$compat['fieldsPrefix']}mid,{$compat['fieldsPrefix']}filter,{$compat['fieldsPrefix']}active,{$compat['fieldsPrefix']}collapsable,{$compat['fieldsPrefix']}defaultstate,{$compat['fieldsPrefix']}refresh,{$compat['fieldsPrefix']}last_update,{$compat['fieldsPrefix']}language)
-                                            VALUES('iwNotice','Avisos','" . $content . "','','" . $bid . "','','1','0','1','3600','" . $date . "','')";
+                                    
+                                    $mid = $return['values'][0]["id"];
+                                    $sql = "INSERT INTO blocks (bkey, title, content, url, mid, filter, active, collapsable, defaultstate, refresh, last_update, language)
+                                            VALUES('iwNotice', 'Avisos', '" . $content . "', '', '" . $mid . "', 'a:0:{}', '1', '0', '1', '3600', '" . $date . "', '')";
                                     $return1 = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sql,
                                                 'serviceName' => $serviceName));
+                                    
                                     if ($return1['success']) {
                                         $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sqlexists,
                                                     'serviceName' => $serviceName));
-                                        $blockid = $return['values'][0]["{$compat['fieldsPrefix']}bid"];
-                                        $sql = "INSERT INTO {$compat['tablePrefix']}block_placements ({$compat['fieldsPrefix']}pid,{$compat['fieldsPrefix']}bid,{$compat['fieldsPrefix']}order) VALUES ('2','" . $blockid . "','" . $minorder . "')";
+                                        $blockid = $return['values'][0]["bid"];
+                                        $sql = "INSERT INTO block_placements (pid, bid, sortorder) VALUES ('2', '" . $blockid . "', '" . $minorder . "')";
                                         $return2 = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sql,

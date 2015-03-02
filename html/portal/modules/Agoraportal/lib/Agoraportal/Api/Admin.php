@@ -1212,8 +1212,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $dbHost = $item[$clientServiceId]['dbHost'];
 
         if ($action > 1) {
-            // needed to maintain comptability during migration from 1.2.x to 1.3.x
-            $compat = ModUtil::apiFunc('Agoraportal', 'admin', 'compat', array('intranetVersion' => $item[$clientServiceId]['version']));
             $host = $item[$clientServiceId]['dbHost'];
         }
 
@@ -1308,38 +1306,41 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
             case 4: // Create the first administrator permission
                 //delete the sequence in the first position
-                $sql = "DELETE FROM {$compat['tablePrefix']}group_perms WHERE `{$compat['fieldsPrefix']}sequence` < 1 OR `{$compat['fieldsPrefix']}pid` = 1";
+                $sql = "DELETE FROM group_perms WHERE sequence < 1 OR pid = 1";
                 $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                             'sql' => $sql,
                             'serviceName' => 'intranet',
                             'host' => $host,
-                        ));
-                if (!$result['success'])
+                ));
+                if (!$result['success']) {
                     return LogUtil::registerError($this->__('No s\'han pogut esborrar la seqüència amb valor 0.'));
+                }
 
                 //insert a new sequence
                 //the user doesn't exists and create it
-                $sql = "INSERT INTO {$compat['tablePrefix']}group_perms ({$compat['fieldsPrefix']}gid, {$compat['fieldsPrefix']}sequence, {$compat['fieldsPrefix']}component, {$compat['fieldsPrefix']}instance, {$compat['fieldsPrefix']}level, {$compat['fieldsPrefix']}pid) VALUES (2,0,'.*','.*',800,1)";
+                $sql = "INSERT INTO group_perms (gid, sequence, component, instance, level, pid) VALUES (2,0,'::','::',800,1)";
                 $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                             'sql' => $sql,
                             'serviceName' => 'intranet',
                             'host' => $host,
-                        ));
-                if (!$result['success'])
+                ));
+                if (!$result['success']) {
                     return LogUtil::registerError($this->__('No s\'han pogut crear la seqüència.'));
+                }
                 break;
 
             case 5: // Desactive all the portal blocks
                 //update blocks table
                 //the user doesn't exists and create it
-                $sql = "UPDATE {$compat['tablePrefix']}blocks SET {$compat['fieldsPrefix']}active=0";
+                $sql = "UPDATE blocks SET active = 0";
                 $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $activedId,
                             'sql' => $sql,
                             'serviceName' => 'intranet',
                             'host' => $host,
                         ));
-                if (!$result['success'])
+                if (!$result['success']) {
                     return LogUtil::registerError($this->__('No s\'han pogut desactivar els blocs.'));
+                }
                 break;
 
             case 6: // Calculate consumed space in moodle2
@@ -1596,44 +1597,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         return $items;
-    }
-
-    /**
-     * Get database table prefix and names depending on intranet version to make functions compatible
-     *
-     * @author Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param  intranetVersion
-     *
-     * @return	Array with the correct names and tables prefix in database
-     */
-    public function compat($args) {
-        $version = $args['intranetVersion'];
-        if (!isset($version) || empty($version)) {
-            $version = '135';
-        }
-
-        switch ($version) {
-            case '128':
-                $tablePrefix = 'zk_';
-                $fieldsPrefix = 'pn_';
-                $coreModuleName = '/PNConfig';
-                $intrawebModulePrefix = 'iw_';
-                $downloadsModuleName = 'downloads';
-                break;
-            case '135':
-                $tablePrefix = '';
-                $fieldsPrefix = '';
-                $coreModuleName = 'ZConfig';
-                $intrawebModulePrefix = 'IW';
-                $downloadsModuleName = 'Downloads';
-                break;
-        }
-        return array('tablePrefix' => $tablePrefix,
-            'fieldsPrefix' => $fieldsPrefix,
-            'coreModuleName' => $coreModuleName,
-            'intrawebModulePrefix' => $intrawebModulePrefix,
-            'downloadsModuleName' => $downloadsModuleName,
-        );
     }
 
     /**
