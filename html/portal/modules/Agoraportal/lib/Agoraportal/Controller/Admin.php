@@ -1721,21 +1721,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         $sqlupdate = "UPDATE {$compat['tablePrefix']}blocks SET {$compat['fieldsPrefix']}content = '" . $content . "'  WHERE {$compat['fieldsPrefix']}bkey = 'iwNotice'";
                         $sqlminorder = "SELECT MIN({$compat['fieldsPrefix']}order) FROM {$compat['tablePrefix']}block_placements";
                         break;
-                    case 'moodle2':
-                        global $agora;
-                        $prefix = $agora[$serviceName]['prefix'];
-                        //Moodle
-                        $message = str_replace("'", "''", $message);
-                        if ($only_admins) {
-                            $sqlexists = "SELECT * FROM {$prefix}BLOCK_ADVICES WHERE show_only_admins = 1";
-                            $sqlupdate = "UPDATE {$prefix}BLOCK_ADVICES SET msg = '" . $message . "', date_start = " . $date_start . ", date_stop = " . $date_stop . " WHERE show_only_admins = 1";
-                            $sqlinsert = "INSERT INTO {$prefix}BLOCK_ADVICES (msg,date_start,date_stop,show_only_admins) VALUES ('" . $message . "'," . $date_start . "," . $date_stop . ",1)";
-                        } else {
-                            $sqlexists = "SELECT * FROM {$prefix}BLOCK_ADVICES WHERE show_only_admins = 0";
-                            $sqlupdate = "UPDATE {$prefix}BLOCK_ADVICES SET msg = '" . $message . "', date_start = " . $date_start . ", date_stop = " . $date_stop . " WHERE show_only_admins = 0";
-                            $sqlinsert = "INSERT INTO {$prefix}BLOCK_ADVICES (msg,date_start,date_stop,show_only_admins) VALUES ('" . $message . "'," . $date_start . "," . $date_stop . ",0)";
-                        }
-                        break;
                 }
 
                 foreach ($sqlClients as $i => $client) {
@@ -1855,77 +1840,27 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             break;
 
                         case 'moodle2':
-                            $prefix = $agora[$serviceName]['prefix'];
-                            //See if the block exists in course 1
-                            //Get the block id
-                            $sql = "SELECT ID FROM {$prefix}BLOCK WHERE name='advices'";
-                            $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                        'sql' => $sql,
-                                        'serviceName' => $serviceName));
-                            if ($return['success'] && count($return['values']) > 0) {
-                                $blockid = $return['values'][0]['ID'];
-                                $sql = "SELECT * FROM {$prefix}BLOCK_INSTANCES WHERE blockname='advices'";
-                                $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                            'sql' => $sql,
-                                            'serviceName' => $serviceName));
-                                if ($return['success']) {
-                                    if (count($return['values']) == 0) {
-                                        //INSERT THE BLOCK
-                                        $sql = "INSERT INTO {$prefix}BLOCK_INSTANCES (blockname,parentcontextid,showinsubcontexts,pagetypepattern,defaultregion,defaultweight) VALUES ('advices','2',0,'site-index','side-post',-999)";
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sql,
-                                                    'serviceName' => $serviceName));
-                                        if ($return['success'])
-                                            $result = ", bloc afegit";
-                                        else
-                                            $result = ", tot i que no s'ha pogut afegit el bloc";
-                                    }
-                                    else {
-                                        //MAKE IT VISIBLE
-                                        $sql = "UPDATE {$prefix}BLOCK_POSITIONS SET visible = 1 WHERE BLOCKINSTANCEID =" . $return['values'][0]['ID'];
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sql,
-                                                    'serviceName' => $serviceName));
-                                        if (!$return['success'])
-                                            $result = ", tot i que no s'ha pogut fer el bloc visible en cas d'estar invisible";
-                                        $sql = "UPDATE {$prefix}BLOCK_INSTANCES SET pagetypepattern='site-index', defaultregion='side-post', defaultweight=-999 WHERE blockname = 'advices'";
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sql,
-                                                    'serviceName' => $serviceName));
-                                        if (!$return['success'])
-                                            $result = ", tot i que no s'ha pogut reiniciarla posició del bloc";
-                                    }
-                                }
+                            $params = array();
+                            $params['text'] = str_replace("'", "''", $message);
+                            $params['inici'] = $date_start;
+                            $params['final'] = $date_stop;
+                            $params['admins'] = $only_admins ? '1' : '0';
+                            $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+                                    array('operation' => 'script_advices',
+                                        'clientId' => $client['clientId'],
+                                        'serviceId' => $service_sel,
+                                        'priority' => 3,
+                                        'params' => $params
+                                    ));
 
-                                //See if the line exists
-                                $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                            'sql' => $sqlexists,
-                                            'serviceName' => $serviceName));
-                                if ($return['success']) {
-                                    if (count($return['values']) > 0) //FOUNDED update
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sqlupdate,
-                                                    'serviceName' => $serviceName));
-                                    else //Not found, insert it
-                                        $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
-                                                    'sql' => $sqlinsert,
-                                                    'serviceName' => $serviceName));
-                                }
-
-                                if (!$return) {
-                                    $success[$i] = false;
-                                    $messages[$i] = $this->__('No s\'ha pogut executar la comanda a la base de dades ') . $return['errorMsg'];
-                                    $error++;
-                                } else {
-                                    $messages[$i] = $this->__('OK' . $result);
-                                    $success[$i] = true;
-                                    $ok++;
-                                }
-                            } else {
-                                //Module not installed
+                            if (!$operation) {
                                 $success[$i] = false;
-                                $messages[$i] = $this->__('El mòdul d\'avisos no està instal·lat o actualitzat correctament.') . $return['errorMsg'];
+                                $messages[$i] = 'No s\'ha pogut afegir la operació script_advices';
                                 $error++;
+                            } else {
+                                $messages[$i] =  'S\'ha afegit la operació script_advices';
+                                $success[$i] = true;
+                                $ok++;
                             }
                             break;
                     }
