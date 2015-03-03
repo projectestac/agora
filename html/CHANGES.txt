@@ -7,6 +7,11 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Agoraportal: Fixed the creation and the update of the block of notices for Intraweb
+- Agoraportal: Solved retrieving CLOB vars from batch SQL on Oracle
+- Agoraportal: Change MySQL timeout on batch SQL execution and on on executing operations
+- Agoraportal: Change External connections to mysqli libraries
+- Agoraportal: Repaired counting client services
+- Agoraportal: Adapt advices set to the new pseudoblock on Moodle2
 
 ZIKULA
 - IWbookings: Fixed loss of time frame when updating resource configuration
