@@ -1643,19 +1643,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         switch ($dbType) {
             case 'mysql':
-                $results = mysql_query($sql, $connect);
+                $results = $connect->query($sql);
                 if (!$results) {
-                    $errorMsg = mysql_error();
+                    $errorMsg = $connect->error;
                 } else {
                     $success = true;
                     if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
                         // return rows
-                        while ($row = mysql_fetch_assoc($results)) {
+                        while ($row = $results->fetch_assoc()) {
                             $values[] = $row;
                         }
                     }
                 }
-                mysql_close($connect);
+                $connect->close();
                 break;
             case 'oci':
             case 'oci8':

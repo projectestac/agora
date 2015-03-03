@@ -1637,12 +1637,17 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         switch ($serviceName) {
             case 'portal':
                 $databaseName = $agora['admin']['database'];
-                $host = $agora['admin']['host'] . ':' . $agora['admin']['port'];
-                $connect = mysql_connect($host, $agora['admin']['username'], $agora['admin']['userpwd']);
-                mysql_set_charset('utf8', $connect);
-                if (!mysql_select_db($databaseName, $connect)) {
-                    LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['admin']['username']));
-                    return false;
+                $host = $agora['admin']['host'];
+                $port = $agora['admin']['port'];
+                $username = $agora['admin']['username'];
+                $password = $agora['admin']['userpwd'];
+                $connect = new mysqli($host, $username, $password, $databaseName, $port);
+                if ($connect->connect_error) {
+                    $error = $connect->connect_error;
+                    $connect = false;
+                    LogUtil::registerError($error);
+                } else {
+                    $connect->set_charset('utf8');
                 }
                 break;
             case 'intranet':
@@ -1650,11 +1655,18 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 if ($clientService != false) {
                     $host = $clientService[0]['dbHost'];
                 }
-                $connect = mysql_connect($host, $agora['intranet']['username'], $agora['intranet']['userpwd']);
-                mysql_set_charset('utf8', $connect);
-                if (!mysql_select_db($databaseName, $connect)) {
-                    LogUtil::registerError($this->__("No s'ha pogut seleccionar la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['intranet']['username']));
-                    return false;
+                $parts = explode(':', $host, 2);
+                $host = $parts[0];
+                $port = isset($parts[1]) ? $parts[1]: "";
+                $username = $agora['intranet']['username'];
+                $password = $agora['intranet']['userpwd'];
+                $connect = new mysqli($host, $username, $password, $databaseName, $port);
+                if ($connect->connect_error) {
+                    $error = $connect->connect_error;
+                    $connect = false;
+                    LogUtil::registerError($error);
+                } else {
+                    $connect->set_charset('utf8');
                 }
                 break;
             case 'nodes':
@@ -1662,18 +1674,30 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 if ($clientService != false) {
                     $host = $clientService[0]['dbHost'];
                 }
-                $connect = mysql_connect($host, $agora['nodes']['username'], $agora['nodes']['userpwd']);
-                mysql_set_charset('utf8', $connect);
-                if (!mysql_select_db($databaseName, $connect)) {
+                $parts = explode(':', $host, 2);
+                $host = $parts[0];
+                $port = isset($parts[1]) ? $parts[1]: "";
+                $username = $agora['nodes']['username'];
+                $password = $agora['nodes']['userpwd'];
+                $connect = new mysqli($host, $username, $password, '', $port);
+                if ($connect->connect_error) {
+                    $error = $connect->connect_error;
+                    $connect = false;
+                    LogUtil::registerError($error);
+                } else {
+                    $connect->set_charset('utf8');
+                }
+
+                if (!$connect->select_db($databaseName)) {
                     $createDB = $this->getVar('createDB');
                     if ($forceCreateDB && $createDB) {
                         $sql = "CREATE DATABASE IF NOT EXISTS $databaseName DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci";
-                        if (!mysql_query($sql, $connect)) {
+                        if (!$connect->query($sql)) {
                             LogUtil::registerError($this->__("No s'ha pogut crear la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username']));
                             LogUtil::registerError($this->__("SQL que ha fallat: $sql"));
                             return false;
                         }
-                        if (!mysql_select_db($databaseName, $connect)) {
+                        if (!$connect->select_db($databaseName)) {
                             LogUtil::registerError($this->__("S'ha creat la base de dades $databaseName en el servidor $host amb l'usuari " . $agora['nodes']['username'] . " però no s'ha pogut seleccionar."));
                             return false;
                         }
