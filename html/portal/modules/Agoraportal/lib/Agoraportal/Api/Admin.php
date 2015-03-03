@@ -1678,9 +1678,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 } else {
                     $success = true;
                     if (strtolower(substr(trim($sql), 0, 6)) == 'select') {
-                        while ($row = oci_fetch_assoc($results)) {
-                            $values[] = $row;
-                        }
+                        oci_fetch_all($results, $values, 0, -1, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
                     }
                 }
                 oci_close($connect);
