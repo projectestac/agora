@@ -1711,11 +1711,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     $content = str_replace("'", "''", $content);
                     $date = date("Y-m-d H:i:s");
 
-                    $sqlexists = "SELECT * FROM blocks WHERE bkey = 'iwNotice'";
-                    $sqlactive = "SELECT * FROM blocks WHERE bkey = 'iwNotice' AND active = '1'";
-                    $sqlactivate = "UPDATE blocks SET active = '1', content = '" . $content . "'  WHERE bkey = 'iwNotice'";
-                    $sqlupdate = "UPDATE blocks SET content = '" . $content . "'  WHERE bkey = 'iwNotice'";
-                    $sqlminorder = "SELECT MIN(sortorder) FROM block_placements";
+                    $sqlexists = "SELECT * FROM blocks WHERE bkey = 'IWnotice'";
+                    $sqlactive = "SELECT * FROM blocks WHERE bkey = 'IWnotice' AND active = '1'";
+                    $sqlactivate = "UPDATE blocks SET active = '1', content = '" . $content . "'  WHERE bkey = 'IWnotice'";
+                    $sqlupdate = "UPDATE blocks SET content = '" . $content . "'  WHERE bkey = 'IWnotice'";
+                    $sqlminorder = "SELECT MIN(sortorder) as ordre FROM block_placements";
                 }
 
                 foreach ($sqlClients as $i => $client) {
@@ -1733,18 +1733,19 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                 $error++;
                             } else {
                                 if (count($return['values']) > 0) {
-                                    //Exists. Check if it's active
-                                    $blockid = $return['values'][0]["bid"];
+                                    // Block exists. Check if it's active
+                                    $blockid = $return['values'][0]['bid'];
                                     $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sqlminorder,
                                                 'serviceName' => $serviceName));
-                                    $minorder = $return['values'][0]["MIN(order)"] - 1;
+                                    $minorder = $return['values'][0]['ordre'] - 1;
                                     $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sqlactive,
                                                 'serviceName' => $serviceName));
                                     if (count($return['values']) > 0) {
+                                        // The block exists and it's active
                                         $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sqlupdate,
@@ -1753,11 +1754,27 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                             $ok++;
                                             $success[$i] = true;
                                             $messages[$i] = $this->__('El bloc s\'ha actualitzat correctament');
-                                            $sql = "UPDATE block_placements SET pid = '2', sortorder = '" . $minorder . "' WHERE bid = '" . $blockid . "'";
+                                            // Check if block placement exists
+                                            $sql = "SELECT pid FROM block_placements WHERE bid = '" . $blockid . "'";
                                             $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                         'host' => $client['dbHost'],
                                                         'sql' => $sql,
                                                         'serviceName' => $serviceName));
+                                            if (count($return['values']) > 0) {
+                                                // The block placement exists
+                                                $sql = "UPDATE block_placements SET pid = '2', sortorder = '" . $minorder . "' WHERE bid = '" . $blockid . "'";
+                                                $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
+                                                            'host' => $client['dbHost'],
+                                                            'sql' => $sql,
+                                                            'serviceName' => $serviceName));
+                                            } else{
+                                                // The block placement doesn't exist
+                                                $sql = "INSERT INTO block_placements SET bid = '" . $blockid . "', pid = '2', sortorder = '" . $minorder . "'";
+                                                $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
+                                                            'host' => $client['dbHost'],
+                                                            'sql' => $sql,
+                                                            'serviceName' => $serviceName));
+                                            }
                                             if ($return['success']) {
                                                 $messages[$i] .= $this->__(' i s\'ha promocionat a la primera posició de la columna dreta');
                                             } else {
@@ -1769,7 +1786,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                             $messages[$i] = $this->__('El bloc no s\'ha actualitzat correctament.') . $return['errorMsg'];
                                         }
                                     } else {
-                                        //It isn't active. Active it, update and promove
+                                        // The block exists but isn't active. Active it, update it and promote it
                                         $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sqlactivate,
@@ -1795,33 +1812,36 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                         }
                                     }
                                 } else {
-                                    // It doesn't exists, create it.
+                                    // It doesn't exist. Create it
                                     $sql = "SELECT * FROM modules WHERE name = 'IWmain'";
                                     $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sql,
                                                 'serviceName' => $serviceName));
                                     
-                                    $mid = $return['values'][0]["id"];
+                                    $mid = $return['values'][0]['id'];
                                     $sql = "INSERT INTO blocks (bkey, title, content, url, mid, filter, active, collapsable, defaultstate, refresh, last_update, language)
-                                            VALUES('iwNotice', 'Avisos', '" . $content . "', '', '" . $mid . "', 'a:0:{}', '1', '0', '1', '3600', '" . $date . "', '')";
+                                            VALUES('IWnotice', 'Avisos', '" . $content . "', '', '" . $mid . "', 'a:0:{}', '1', '0', '1', '3600', '" . $date . "', '')";
                                     $return1 = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sql,
                                                 'serviceName' => $serviceName));
                                     
+                                    // Add the block to the right column in first position
                                     if ($return1['success']) {
                                         $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sqlexists,
                                                     'serviceName' => $serviceName));
                                         $blockid = $return['values'][0]["bid"];
+                                        
                                         $sql = "INSERT INTO block_placements (pid, bid, sortorder) VALUES ('2', '" . $blockid . "', '" . $minorder . "')";
                                         $return2 = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sql,
                                                     'serviceName' => $serviceName));
                                     }
+                                    
                                     if ($return1['success'] && $return2['success']) {
                                         $ok++;
                                         $success[$i] = true;
