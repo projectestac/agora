@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Agoraportal: Fixed the creation and the update of the block of notices for Intraweb
+
 ZIKULA
 - IWbookings: Fixed loss of time frame when updating resource configuration
 
