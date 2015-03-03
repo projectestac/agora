@@ -898,7 +898,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         // Convert 'on' value of checkbox to boolean
         $createDB = ($createDB == 'on') ? true : false;
-        
+
         $this->setVar('siteBaseURL', $siteBaseURL)
                 ->setVar('allowedIpsForCalcDisckConsume', $allowedIpsForCalcDisckConsume)
                 ->setVar('warningMailsTo', $warningMailsTo)
@@ -1527,6 +1527,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $messages = Array();
                 $messages_recount = Array();
                 $one_result_mode = false;
+
+                ini_set('mysql.connect_timeout', 1800);
+                ini_set('default_socket_timeout', 1800);
                 foreach ($sqlClients as $i => $client) {
                     //Connected
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
@@ -1641,13 +1644,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $ask = FormUtil::getPassedValue('ask', isset($args['ask']) ? $args['ask'] : null, 'GETPOST');
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'GETPOST');
-        
+
         if (!empty($ask)) {
             $action = 'ask';
         } else if (!empty($confirm)) {
             $action = 'exe';
         }
-        
+
         if (isset($action) && ($which == "selected" && empty($clients_sel) )) {
             LogUtil::registerError($this->__('Has d\'omplir tots els camps'));
             $action = "show";
@@ -1818,7 +1821,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sql,
                                                 'serviceName' => $serviceName));
-                                    
+
                                     $mid = $return['values'][0]['id'];
                                     $sql = "INSERT INTO blocks (bkey, title, content, url, mid, filter, active, collapsable, defaultstate, refresh, last_update, language)
                                             VALUES('IWnotice', 'Avisos', '" . $content . "', '', '" . $mid . "', 'a:0:{}', '1', '0', '1', '3600', '" . $date . "', '')";
@@ -1826,7 +1829,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                                 'host' => $client['dbHost'],
                                                 'sql' => $sql,
                                                 'serviceName' => $serviceName));
-                                    
+
                                     // Add the block to the right column in first position
                                     if ($return1['success']) {
                                         $return = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
@@ -1834,14 +1837,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                                                     'sql' => $sqlexists,
                                                     'serviceName' => $serviceName));
                                         $blockid = $return['values'][0]["bid"];
-                                        
+
                                         $sql = "INSERT INTO block_placements (pid, bid, sortorder) VALUES ('2', '" . $blockid . "', '" . $minorder . "')";
                                         $return2 = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $client['activedId'],
                                                     'host' => $client['dbHost'],
                                                     'sql' => $sql,
                                                     'serviceName' => $serviceName));
                                     }
-                                    
+
                                     if ($return1['success'] && $return2['success']) {
                                         $ok++;
                                         $success[$i] = true;
