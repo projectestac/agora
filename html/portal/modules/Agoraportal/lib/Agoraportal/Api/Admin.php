@@ -2,6 +2,8 @@
 
 class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
+    public static $operations_timeout = 1800; ///Half an hour
+
     /**
      * Insert a new client in the database
      * @author 		Albert Pérez Monfort (aperezm@xtec.cat)
@@ -427,7 +429,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $modelTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
         $shortcode = '';
         $files = array();
-        
+
         foreach ($modelTypes as $modelType) {
             $urlModels[] = $urlModelBase . $modelType['shortcode'];
             $keywords[] = $modelType['keyword'];
@@ -450,7 +452,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             LogUtil::registerError($this->__("Els valors possibles del camp <strong>Funcionalitats addicionals</strong> són: <strong>" . $allowedValues . "</strong> (sense accents)."));
             return false;
         }
-        
+
         if (!empty($shortcode)) {
             $files = array(
                 'db' => $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql',
@@ -561,7 +563,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         foreach ($dbModels as $dbModel) {
             // Remove any blank space that wouldn't be welcome
             $dbModel = trim($dbModel);
-            
+
             $sqls[] = "UPDATE $prefix" . "_bp_activity
                 SET content = REPLACE (content , '/$dbModel/', '/$dbUser/')
                 WHERE content like '%/$dbModel/%'";
@@ -963,7 +965,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Save model data to data base
-     * 
+     *
      * @author Toni Ginard
      * @param string shortcode
      * @param string keyword
@@ -989,7 +991,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         if (!DBUtil::insertObject($item, 'agoraportal_modelTypes', 'modelTypeId')) {
             return false;
         }
-        
+
         // Return the id of the newly created item to the calling process
         return $item['modelTypeId'];
     }
@@ -1100,7 +1102,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     /**
      * Remove a model type
-     * 
+     *
      * @author Toni Ginard
      * @param int modelTypeId
      * @return Bolean true if success, false otherwise
@@ -1110,24 +1112,24 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
         }
-        
+
         $modelTypeId = $args['modelTypeId'];
-        
+
         // get location information
         $modelType = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes', array('modelTypeId' => $modelTypeId));
 
         if (!$modelType) {
             return LogUtil::registerError($this->__('No s\'ha trobat la maqueta'));
         }
-        
+
         if (!DBUtil::deleteObjectByID('agoraportal_modelTypes', $modelTypeId, 'modelTypeId')) {
             return LogUtil::registerError($this->__("No s'ha pogut esborrar la maqueta"));
         }
-        
+
         // The item has been deleted, so we clear all cached pages of this item.
         $view = Zikula_View::getInstance('Agoraportal');
         $view->clear_cache(null, $args['requestTypeId']);
-        
+
         return true;
     }
 
@@ -1851,6 +1853,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         set_time_limit(0);
+        ini_set('mysql.connect_timeout', self::$operations_timeout);
+        ini_set('default_socket_timeout', self::$operations_timeout);
 
         if ($params && is_array($params)) {
             foreach ($params as $key => $value) {
@@ -1977,6 +1981,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         return $items;
     }
 
+    public function timeoutOperations() {
+        $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
+        if (!empty($executings)) {
+            foreach ($executings as $executing) {
+                if ($executing['timeStart'] < time() - self::$operations_timeout) { //Timeout after half hour
+                    $executing['state'] = 'TO';
+                    DBUtil::updateObject($executing, 'agoraportal_queues');
+                }
+            }
+        }
+    }
+
     public function executePendingOperations($args) {
 
         if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -1984,15 +2000,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
         $dom = ZLanguage::getModuleDomain('Agoraportal');
 
-        $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
-        if (!empty($executings)) {
-            foreach ($executings as $executing) {
-                if ($executing['timeStart'] < time() - 30 * 60) { //Timeout after half hour
-                    $executing['state'] = 'TO';
-                    DBUtil::updateObject($executing, 'agoraportal_queues');
-                }
-            }
-        }
+        $this->timeoutOperations();
 
         $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
         if (!empty($executings)) {
