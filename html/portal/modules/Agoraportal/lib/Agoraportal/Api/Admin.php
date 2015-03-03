@@ -1681,6 +1681,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         oci_fetch_all($results, $values, 0, -1, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
                     }
                 }
+                oci_free_statement($results);
                 oci_close($connect);
                 break;
         }
