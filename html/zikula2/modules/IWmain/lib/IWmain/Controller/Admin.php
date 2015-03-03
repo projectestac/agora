@@ -244,4 +244,27 @@ class IWmain_Controller_Admin extends Zikula_AbstractController {
     public function isSuperadmin(){
         return $superadmin = (UserUtil::getVar('uname') == 'xtecadmin') ? true : false;
     }
+    
+    
+    /**
+     * Deactivate block of central notices from Àgora
+     * 
+     * @param int Block ID
+     * @return reload page
+     */
+    public function iwNoticeDeactivate($args) {
+        
+        // Get parameters
+        $bid = FormUtil::getPassedValue('bid', isset($args['bid']) ? $args['bid'] : null, 'GET');
+        
+
+        if (ModUtil::apiFunc('Blocks', 'admin', 'deactivate', array('bid' => $bid))) {
+            // Success
+            LogUtil::registerStatus(__('Done! Block now inactive.'));
+        }
+
+        // No params to redirect means "return to home page"
+        return System::redirect();
+    }
+
 }
