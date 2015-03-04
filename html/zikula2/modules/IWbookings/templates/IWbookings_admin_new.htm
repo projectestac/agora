@@ -2,6 +2,7 @@
     function send(valor){
         var error=false;
         if(document.new_espai.nom_espai.value==""){
+			//for gt detection
             alert("{{gt text="You must type a name for the room or equipment"}}");
             var error=true;
         }
@@ -49,15 +50,25 @@
             </div>
         </div>
 
-        {if $hi_ha_marcs && !$hasbookings}
+        {if !$hi_ha_marcs}
+			<div class="z-formnote z-warningmsg">
+				{gt text="Timetables not available. You can install IWtimeframes module."}
+			</div>
+		{else}
 
         <div class="z-formrow">
             <label for="color">{gt text="Timetable"}</label>
+			{if !$hasbookings}
             <select name="mdid">
                 {section name=marcs loop=$marcs}
                 <option {if $mdid eq $marcs[marcs].id}selected{/if} value="{$marcs[marcs].id}">{$marcs[marcs].name}</option>
                 {/section}
             </select>
+			{else}
+				<input type="text" name="mdid_show" value="{$marcs[$mdid].name}" disabled>
+				<input type="hidden" name="mdid" value="{$mdid}">
+				<span class="z-formnote z-warningmsg">{gt text="You can't change timetable because this space has bookings"}</span>
+			{/if}
         </div>
         <div class="z-formrow">
             <label for="descriu">{gt text="Table"}<br />{gt text="(Only works when a timetable is selected)"}</label>

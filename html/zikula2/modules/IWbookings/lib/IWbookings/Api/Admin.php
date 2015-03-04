@@ -71,21 +71,15 @@ class IWbookings_Api_Admin extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('IWbookings::', "::", ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        
+
         $where = "sid = " . $sid;
         $item = array('space_name' => $nom_espai,
             'description' => $descriu,
             'active' => $actiu,
+            'mdid' => $mdid,
             'vertical' => $vertical,
             'color' => $color);
 
-        // If resorce has bookings, don't update the Time Frame ID. Do it otherwise
-        // 2015.03.02 @aginard
-        $hasbookings = ModUtil::apiFunc('IWbookings', 'admin', 'hasbookings', $sid);
-        if (!$hasbookings) {
-            $item['mdid'] = $mdid;
-        }
-        
         if (!DBUTil::updateObject($item, 'IWbookings_spaces', $where)) {
             return LogUtil::registerError($this->__('An error has occurred while modifying the room or equipment'));
         }
