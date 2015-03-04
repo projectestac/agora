@@ -12,6 +12,7 @@ PORTAL
 - Agoraportal: Change External connections to mysqli libraries
 - Agoraportal: Repaired counting client services
 - Agoraportal: Adapt advices set to the new pseudoblock on Moodle2
+- Agoraportal: New stats library chartjs, renew the stats function and apply reading stats for Moodle2
 
 ZIKULA
 - IWbookings: Fixed loss of time frame when updating resource configuration
