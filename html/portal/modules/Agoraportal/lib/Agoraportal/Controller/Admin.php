@@ -2082,31 +2082,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     function check_date($yearmonth, $day) {
-        list($MMMM, $YYYY) = explode("/", $yearmonth);
+        list($month, $year) = explode("/", $yearmonth);
         $D = substr($day, 1);
-        $hash = $MMMM . $D;
 
-        $valids = array('0229' => '0', '0230' => '0', '0231' => '0', '0431' => '0', '0631' => '0', '0931' => '0', '1131' => '0');
-
-        if (($YYYY == '2012' || $YYYY == '2016' || $YYYY == '2020' || $YYYY == '2024' || $YYYY == '2028' || $YYYY == '2030') && ($D == '29') && ($MMMM == '02'))
-            return 1;
-        else {
-            if ($valids[$hash] == '0')
-                return 0;
-            else
-                return 1;
-        }
+        $last = self::last_day_month($year, $month);
+        return $D <= $last;
     }
 
-    function last_day_month($year, $month) {
-        if ($month == '01' || $month == '03' || $month == '05' || $month == '07' || $month == '08' || $month == '10' || $month == '12')
-            return '31';
-        else if (($year == '2012' || $year == '2016' || $year == '2020' || $year == '2024' || $year == '2028' || $year == '2030') && ($month == '02'))
-            return '29';
-        else if (($year != '2012' && $year != '2016' && $year != '2020' && $year != '2024' && $year != '2028' && $year != '2030') && ($month == '02'))
-            return '28';
-        else
-            return '30';
+    static function last_day_month($year, $month) {
+        return cal_days_in_month(CAL_GREGORIAN, $month, $year);
     }
 
     public function statsGetStatisticsContent($args) {
@@ -2140,14 +2124,21 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        if ($stats == 1) {
-            // Moodle 1.9 Month
+        if ($stats == 1 || $stats == 5) {
+            // Moodle Month
+            if ($stats == 1) { //1.9
+                $table = 'agoraportal_moodle_stats_month';
+            } else { // 2.X
+                $table = 'agoraportal_moodle2_stats_month';
+            }
+
             $month_start = substr($date_start, 0, 6);
             $month_stop = substr($date_stop, 0, 6);
-            if ($month_start == $month_stop)
+            if ($month_start == $month_stop) {
                 $dates = "yearmonth = $month_start";
-            else
+            } else {
                 $dates = "yearmonth >= $month_start AND yearmonth <= $month_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2155,14 +2146,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'object_field_name' => array('educat'),
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_month', $joinInfo, $where, (string) $orderby . ', yearmonth');
-        }
-        else if ($stats == 2) {
-            // Moodle 1.9 Week
-            if ($date_start == $date_stop)
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', yearmonth');
+        } else if ($stats == 2 || $stats == 6) {
+            // Moodle Week
+            if ($stats == 1) { //1.9
+                $table = 'agoraportal_moodle_stats_week';
+            } else { // 2.X
+                $table = 'agoraportal_moodle2_stats_week';
+            }
+
+            if ($date_start == $date_stop) {
                 $dates = "date = $date_start";
-            else
+            } else {
                 $dates = "date >= $date_start AND date <= $date_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2171,14 +2168,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
 
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_week', $joinInfo, $where, (string) $orderby . ', date');
-        }
-        else if ($stats == 3) {
-            // Moodle 1.9 Day
-            if ($date_start == $date_stop)
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+        } else if ($stats == 3 || $stats == 7) {
+            // Moodle Day
+            if ($stats == 1) { //1.9
+                $table = 'agoraportal_moodle_stats_day';
+            } else { // 2.X
+                $table = 'agoraportal_moodle2_stats_day';
+            }
+
+            if ($date_start == $date_stop) {
                 $dates = "date = $date_start";
-            else
+            } else {
                 $dates = "date >= $date_start AND date <= $date_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2186,16 +2189,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'object_field_name' => array('educat'),
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo, $where, (string) $orderby . ', date');
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
         }
         else if ($stats == 4) {
             // Zikula Month
             $month_start = substr($date_start, 0, 6);
             $month_stop = substr($date_stop, 0, 6);
-            if ($month_start == $month_stop)
+            if ($month_start == $month_stop) {
                 $dates = "yearmonth = $month_start";
-            else
+            } else {
                 $dates = "yearmonth >= $month_start AND yearmonth <= $month_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2204,54 +2208,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
             $items = DBUtil::selectExpandedObjectArray('agoraportal_intranet_stats_day', $joinInfo, $where, (string) $orderby . ', yearmonth');
-        }
-        else if ($stats == 5) {
-            // Moodle 2 Month
-            $month_start = substr($date_start, 0, 6);
-            $month_stop = substr($date_stop, 0, 6);
-            if ($month_start == $month_stop)
-                $dates = "yearmonth = $month_start";
-            else
-                $dates = "yearmonth >= $month_start AND yearmonth <= $month_stop";
-            $where = $clients_text . $dates;
-            $joinInfo = array();
-            $joinInfo[] = array('join_table' => 'agoraportal_clients',
-                'join_field' => array('educat'),
-                'object_field_name' => array('educat'),
-                'compare_field_table' => 'clientDNS',
-                'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_month', $joinInfo, $where, (string) $orderby . ', yearmonth');
-        }
-        else if ($stats == 6) {
-            // Moodle 1.9 Week
-            if ($date_start == $date_stop)
-                $dates = "date = $date_start";
-            else
-                $dates = "date >= $date_start AND date <= $date_stop";
-            $where = $clients_text . $dates;
-            $joinInfo = array();
-            $joinInfo[] = array('join_table' => 'agoraportal_clients',
-                'join_field' => array('educat'),
-                'object_field_name' => array('educat'),
-                'compare_field_table' => 'clientDNS',
-                'compare_field_join' => 'clientDNS');
-
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_week', $joinInfo, $where, (string) $orderby . ', date');
-        }
-        else if ($stats == 7) {
-            // Moodle 1.9 Day
-            if ($date_start == $date_stop)
-                $dates = "date = $date_start";
-            else
-                $dates = "date >= $date_start AND date <= $date_stop";
-            $where = $clients_text . $dates;
-            $joinInfo = array();
-            $joinInfo[] = array('join_table' => 'agoraportal_clients',
-                'join_field' => array('educat'),
-                'object_field_name' => array('educat'),
-                'compare_field_table' => 'clientDNS',
-                'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_day', $joinInfo, $where, (string) $orderby . ', date');
         }
 
         if ($items === false) {
@@ -2262,11 +2218,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $totals = array();
 
         if (isset($items[0])) {
-            $i = 0;
             $results[0] = Array();
             foreach ($items[0] as $k => $item) {
-                $results[0][$i] = $k;
-                $i++;
+                $results[0][] = $k;
             }
         }
         $auxmonth = '0';
@@ -2294,9 +2248,10 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         }
                     }
 
-                    if ($key == 'clientDNS')
-                        $totals[$key] = 'Totals (' . count($num_centres) . ' centres)';
-                    else if ($key == 'yearmonth') {
+                    if ($key == 'clientDNS') {
+                        $totals['clientDNS'] = 'Totals (' . count($num_centres) . ' centres)';
+                        $totals['clientcode'] = '';
+                    } else if ($key == 'yearmonth') {
                         $totals[$key] = '';
                         $value = $value . "01";
                         $yearmonth = date("Y-m-d", strtotime($value));
@@ -2307,9 +2262,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     } elseif (($key == 'lastaccess') || ($key == 'lastaccess_date') || ($key == 'date') || ($key == 'lastaccess_user')) {
                         $totals[$key] = '';
                         $results[$i + 1][$key] = $value;
+                    } else {
+                        $totals[$key] += $value;
                     }
-                    else
-                        $totals[$key] = $totals[$key] + $value;
                 }
             }
         }
@@ -2360,9 +2315,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             //   }
         }
         $tot = 1;
-        if ($stats == 1) {
+        if ($stats == 1 || $stats == 5) {
             //Moodle Month
-            $est = "Mensuals Moodle";
+            if ($stats == 1) {
+                $est = "Mensuals Moodle";
+                $daystatstable = 'agoraportal_moodle_stats_day';
+                $monthstatstable = 'agoraportal_moodle_stats_month';
+            } else {
+                $est = "Mensuals Moodle 2";
+                $daystatstable = 'agoraportal_moodle2_stats_day';
+                $monthstatstable = 'agoraportal_moodle2_stats_month';
+            }
             if ($date != '*') {
                 $infotype = 'accessos';
                 if ($date != 'total') {
@@ -2389,7 +2352,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     $fi_sum = ")";
                 }
 
-                $sql = "SELECT tbl.clientDNS,tbl.date," . $intr_sum . "h0+h1+h2+h3+h4+h5+h6+h7+h8+h9+h10+h11+h12+h13+h14+h15+h16+h17+h18+h19+h20+h21+h22+h23" . $fi_sum . " FROM agoraportal_moodle_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $where_t . " GROUP BY date ORDER BY  date ASC";
+                $sql = "SELECT tbl.clientDNS,tbl.date, $intr_sum h0+h1+h2+h3+h4+h5+h6+h7+h8+h9+h10+h11+h12+h13+h14+h15+h16+h17+h18+h19+h20+h21+h22+h23 $fi_sum
+                        FROM $daystatstable AS tbl
+                        LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                        WHERE $where_t
+                        GROUP BY date ORDER BY  date ASC";
                 $ca = array('clientDNS', 'date', 'users');
                 $res = DBUtil::executeSQL($sql);
                 $items_users = DBUtil::marshallObjects($res, $ca);
@@ -2410,42 +2377,61 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             if ($datatype == 'totals') {
                 $where = $dates;
-                $sql = "SELECT tbl.clientDNS,tbl.yearmonth,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat   FROM agoraportal_moodle_stats_month AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS  WHERE " . $dates . " GROUP BY yearmonth ORDER BY clientDNS DESC, yearmonth";
+                $sql = "SELECT tbl.clientDNS,tbl.yearmonth,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat
+                    FROM $monthstatstable AS tbl
+                    LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                    WHERE $dates
+                    GROUP BY yearmonth
+                    ORDER BY clientDNS DESC, yearmonth";
                 $ca = array('clientDNS', 'yearmonth', 'users', 'courses', 'activities', 'lastaccess', 'lastaccess_date', 'lastaccess_user', 'total_access', 'educat');
                 $res = DBUtil::executeSQL($sql);
                 $items = DBUtil::marshallObjects($res, $ca);
                 $where_totals = $dates;
-                $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_month', $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
+                $items_totals = DBUtil::selectExpandedObjectArray($monthstatstable, $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
                 $tot = 0;
             } else {
                 $pos = strpos($clients_text, 'Total');
                 if ($pos === false) {
                     $where = $clients_text . $dates;
                     $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_month', $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
-                    $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_month', $joinInfo, $where, (string) $orderby . ', yearmonth');
+                    $items_totals = DBUtil::selectExpandedObjectArray($monthstatstable, $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
+                    $items = DBUtil::selectExpandedObjectArray($monthstatstable, $joinInfo, $where, (string) $orderby . ', yearmonth');
                 } else {
                     $where = $dates;
-                    $sql = "SELECT tbl.clientDNS,tbl.yearmonth,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat   FROM agoraportal_moodle_stats_month AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS  WHERE " . $dates . " GROUP BY yearmonth ORDER BY clientDNS DESC, yearmonth";
+                    $sql = "SELECT tbl.clientDNS,tbl.yearmonth,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat
+                        FROM $monthstatstable AS tbl
+                        LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                        WHERE $dates
+                        GROUP BY yearmonth
+                        ORDER BY clientDNS DESC, yearmonth";
                     $ca = array('clientDNS', 'yearmonth', 'users', 'courses', 'activities', 'lastaccess', 'lastaccess_date', 'lastaccess_user', 'total_access', 'educat');
                     $res = DBUtil::executeSQL($sql);
                     $items = DBUtil::marshallObjects($res, $ca);
                     $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_month', $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
+                    $items_totals = DBUtil::selectExpandedObjectArray($monthstatstable, $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
                     $tot = 0;
                 }
             }
-            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM agoraportal_moodle_stats_month AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
+            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)
+                FROM $monthstatstable AS tbl
+                LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                WHERE " . $dates;
             $ca = array('num_centres');
             $res = DBUtil::executeSQL($sql_num_centres);
             $num_centress = DBUtil::marshallObjects($res, $ca);
-        } else if ($stats == 2) {
+        } else if ($stats == 2 || $stats == 6) {
             //Moodle Week
-            $est = "Setmanals Moodle";
+            if ($stats == 2) {
+                $est = "Setmanals Moodle";
+                $daystatstable = 'agoraportal_moodle_stats_day';
+                $weekstatstable = 'agoraportal_moodle_stats_week';
+            } else {
+                $est = "Setmanals Moodle 2";
+                $daystatstable = 'agoraportal_moodle2_stats_day';
+                $weekstatstable = 'agoraportal_moodle2_stats_week';
+            }
             if ($date != '*') {
-
                 $infotype = 'accessos';
-
                 if ($date != 'total') {
 
                     $pos = strpos($clients_text, 'Total');
@@ -2467,7 +2453,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     $intr_sum = "SUM(";
                     $fi_sum = ")";
                 }
-                $sql = "SELECT tbl.clientDNS,tbl.date," . $intr_sum . "h0+h1+h2+h3+h4+h5+h6+h7+h8+h9+h10+h11+h12+h13+h14+h15+h16+h17+h18+h19+h20+h21+h22+h23" . $fi_sum . " FROM agoraportal_moodle_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $where_t . " GROUP BY date ORDER BY  date ASC";
+                $sql = "SELECT tbl.clientDNS,tbl.date, $intr_sum h0+h1+h2+h3+h4+h5+h6+h7+h8+h9+h10+h11+h12+h13+h14+h15+h16+h17+h18+h19+h20+h21+h22+h23 $fi_sum
+                    FROM $daystatstable AS tbl
+                    LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                    WHERE $where_t
+                    GROUP BY date ORDER BY  date ASC";
                 $ca = array('clientDNS', 'date', 'users');
                 $res = DBUtil::executeSQL($sql);
                 $items_users = DBUtil::marshallObjects($res, $ca);
@@ -2486,12 +2476,17 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             if ($datatype == 'totals') {
                 $where = $dates;
-                $sql = "SELECT tbl.clientDNS,tbl.date,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat   FROM agoraportal_moodle_stats_week AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates . " GROUP BY date ORDER BY  date ASC";
+                $sql = "SELECT tbl.clientDNS,tbl.date,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat
+                    FROM $weekstatstable AS tbl
+                    LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                    WHERE $dates
+                    GROUP BY date
+                    ORDER BY  date ASC";
                 $ca = array('clientDNS', 'date', 'users', 'courses', 'activities', 'lastaccess', 'lastaccess_date', 'lastaccess_user', 'total_access', 'educat');
                 $res = DBUtil::executeSQL($sql);
                 $items = DBUtil::marshallObjects($res, $ca);
                 $where_totals = $dates;
-                $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_week', $joinInfo, $where_totals, (string) $orderby . ', date');
+                $items_totals = DBUtil::selectExpandedObjectArray($weekstatstable, $joinInfo, $where_totals, (string) $orderby . ', date');
                 $tot = 0;
             } else {
                 $pos = strpos($clients_text, 'Total');
@@ -2499,16 +2494,21 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 if ($pos === false) {
                     $where = $clients_text . $dates;
                     $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_week', $joinInfo, $where_totals, (string) $orderby . ', date');
-                    $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_week', $joinInfo, $where, (string) $orderby . ',date');
+                    $items_totals = DBUtil::selectExpandedObjectArray($weekstatstable, $joinInfo, $where_totals, (string) $orderby . ', date');
+                    $items = DBUtil::selectExpandedObjectArray($weekstatstable, $joinInfo, $where, (string) $orderby . ',date');
                 } else {
                     $where = $dates;
-                    $sql = "SELECT tbl.clientDNS,tbl.date,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat   FROM agoraportal_moodle_stats_week AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates . " GROUP BY date ORDER BY clientDNS DESC, date";
+                    $sql = "SELECT tbl.clientDNS,tbl.date,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat
+                        FROM $weekstatstable AS tbl
+                        LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                        WHERE $dates
+                        GROUP BY date
+                        ORDER BY clientDNS DESC, date";
                     $ca = array('clientDNS', 'date', 'users', 'courses', 'activities', 'lastaccess', 'lastaccess_date', 'lastaccess_user', 'total_access', 'educat');
                     $res = DBUtil::executeSQL($sql);
                     $items = DBUtil::marshallObjects($res, $ca);
                     $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_week', $joinInfo, $where_totals, (string) $orderby . ', date');
+                    $items_totals = DBUtil::selectExpandedObjectArray($weekstatstable, $joinInfo, $where_totals, (string) $orderby . ', date');
                     $tot = 0;
                 }
             }
@@ -2517,17 +2517,28 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
             }
 
-            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM agoraportal_moodle_stats_week AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
+            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)
+                FROM $weekstatstable AS tbl
+                LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                WHERE $dates";
             $ca = array('num_centres');
             $res = DBUtil::executeSQL($sql_num_centres);
             $num_centress = DBUtil::marshallObjects($res, $ca);
-        } else if ($stats == 3) {
+        } else if ($stats == 3 || $stats == 7) {
             //Moodle Day
-            $est = "Diàries Moodle";
-            if ($date_start == $date_stop)
+            if ($stats == 3) {
+                $est = "Diàries Moodle";
+                $daystatstable = 'agoraportal_moodle_stats_day';
+            } else {
+                $est = "Diàries Moodle 2";
+                $daystatstable = 'agoraportal_moodle2_stats_day';
+            }
+
+            if ($date_start == $date_stop) {
                 $dates = "date = $date_start";
-            else
+            } else {
                 $dates = "date >= $date_start AND date <= $date_stop";
+            }
 
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2538,39 +2549,52 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             if ($datatype == 'totals') {
                 $where = $dates;
-                $sql = "SELECT tbl.clientDNS, tbl.date,sum(h0),sum(h1),sum(h2),sum(h3),sum(h4),sum(h5),sum(h6),sum(h7),sum(h8),sum(h9),sum(h10),sum(h11),sum(h12),sum(h13),sum(h14),sum(h15),sum(h16),sum(h17),sum(h18),sum(h19),sum(h20),sum(h21),sum(h22),sum(h23),total,educat FROM agoraportal_moodle_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates . " GROUP BY date ORDER BY clientDNS DESC, date";
+                $sql = "SELECT tbl.clientDNS, tbl.date,sum(h0),sum(h1),sum(h2),sum(h3),sum(h4),sum(h5),sum(h6),sum(h7),sum(h8),sum(h9),sum(h10),sum(h11),sum(h12),sum(h13),sum(h14),sum(h15),sum(h16),sum(h17),sum(h18),sum(h19),sum(h20),sum(h21),sum(h22),sum(h23),total,educat
+                    FROM $daystatstable AS tbl
+                    LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                    WHERE $dates
+                    GROUP BY date
+                    ORDER BY clientDNS DESC, date";
                 $ca = array('clientDNS', 'date', 'h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14', 'h15', 'h16', 'h17', 'h18', 'h19', 'h20', 'h21', 'h22', 'h23', 'total', 'educat');
                 $res = DBUtil::executeSQL($sql);
                 $items = DBUtil::marshallObjects($res, $ca);
                 $where_totals = $dates;
-                $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo, $where_totals, (string) $orderby . ', date');
+                $items_totals = DBUtil::selectExpandedObjectArray($daystatstable, $joinInfo, $where_totals, (string) $orderby . ', date');
                 $tot = 0;
             } else {
                 /* $where = $clients_text.$dates;
                   $where_totals=$dates;
-                  $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo , $where_totals, (string)$orderby.', date');
-                  $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo , $where, (string)$orderby.', date');
+                  $items_totals = DBUtil::selectExpandedObjectArray($daystatstable, $joinInfo , $where_totals, (string)$orderby.', date');
+                  $items = DBUtil::selectExpandedObjectArray($daystatstable, $joinInfo , $where, (string)$orderby.', date');
                  */
                 $pos = strpos($clients_text, 'Total');
 
                 if ($pos === false) {
                     $where = $clients_text . $dates;
                     $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo, $where_totals, (string) $orderby . ', date');
-                    $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo, $where, (string) $orderby . ',date');
+                    $items_totals = DBUtil::selectExpandedObjectArray($daystatstable, $joinInfo, $where_totals, (string) $orderby . ', date');
+                    $items = DBUtil::selectExpandedObjectArray($daystatstable, $joinInfo, $where, (string) $orderby . ',date');
                 } else {
                     $where = $dates;
-                    $sql = "SELECT tbl.clientDNS, tbl.date,sum(h0),sum(h1),sum(h2),sum(h3),sum(h4),sum(h5),sum(h6),sum(h7),sum(h8),sum(h9),sum(h10),sum(h11),sum(h12),sum(h13),sum(h14),sum(h15),sum(h16),sum(h17),sum(h18),sum(h19),sum(h20),sum(h21),sum(h22),sum(h23),total,educat FROM agoraportal_moodle_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates . " GROUP BY date ORDER BY clientDNS DESC, date";
+                    $sql = "SELECT tbl.clientDNS, tbl.date,sum(h0),sum(h1),sum(h2),sum(h3),sum(h4),sum(h5),sum(h6),sum(h7),sum(h8),sum(h9),sum(h10),sum(h11),sum(h12),sum(h13),sum(h14),sum(h15),sum(h16),sum(h17),sum(h18),sum(h19),sum(h20),sum(h21),sum(h22),sum(h23),total,educat
+                        FROM $daystatstable AS tbl
+                        LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                        WHERE " . $dates . "
+                        GROUP BY date
+                        ORDER BY clientDNS DESC, date";
 
                     $ca = array('clientDNS', 'date', 'h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'h11', 'h12', 'h13', 'h14', 'h15', 'h16', 'h17', 'h18', 'h19', 'h20', 'h21', 'h22', 'h23', 'total', 'educat');
                     $res = DBUtil::executeSQL($sql);
                     $items = DBUtil::marshallObjects($res, $ca);
                     $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo, $where_totals, (string) $orderby . ', date');
+                    $items_totals = DBUtil::selectExpandedObjectArray($daystatstable, $joinInfo, $where_totals, (string) $orderby . ', date');
                     $tot = 0;
                 }
             }
-            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM agoraportal_moodle_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
+            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)
+                FROM $daystatstable AS tbl
+                LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS
+                WHERE $dates";
             $ca = array('num_centres');
             $res = DBUtil::executeSQL($sql_num_centres);
             $num_centress = DBUtil::marshallObjects($res, $ca);
@@ -2603,84 +2627,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $items = DBUtil::selectExpandedObjectArray('agoraportal_intranet_stats_day', $joinInfo, $where, (string) $orderby . ', yearmonth');
 
             $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM agoraportal_intranet_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
-            $ca = array('num_centres');
-            $res = DBUtil::executeSQL($sql_num_centres);
-            $num_centress = DBUtil::marshallObjects($res, $ca);
-        } else if ($stats == 5) {   //Moodle 2 Month
-            $est = "Mensuals Moodle 2";
-            if ($date != '*') {
-                $infotype = 'accessos';
-                if ($date != 'total') {
-                    $pos = strpos($clients_text, 'Total');
-
-                    //list($D,$M,$Y) = explode("/",$date_start);
-                    list($Mst, $Yst) = explode("/", $date);
-                    $thelastday = self::last_day_month($Yst, $Mst);
-                    $date_st = date('Ymd', strtotime($Yst . $Mst . '01'));
-                    $date_sto = date('Ymd', strtotime("+1 month", strtotime($Yst . $Mst . '01')));
-                    $intr_sum = "";
-                    $fi_sum = "";
-
-                    if ($pos == FALSE) {
-                        $where_t = $clients_text . " " . $date_st . " <=date AND date <= " . $date_sto;
-                    } else {
-                        $where_t = $date_st . " <=date AND date <= " . $date_sto;
-                        $intr_sum = "SUM(";
-                        $fi_sum = ")";
-                    }
-                } else {
-                    $where_t = $date_start . " <=date AND date <= " . $date_stop;
-                    $intr_sum = "SUM(";
-                    $fi_sum = ")";
-                }
-
-                $sql = "SELECT tbl.clientDNS,tbl.date," . $intr_sum . "h0+h1+h2+h3+h4+h5+h6+h7+h8+h9+h10+h11+h12+h13+h14+h15+h16+h17+h18+h19+h20+h21+h22+h23" . $fi_sum . " FROM agoraportal_moodle2_stats_day AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $where_t . " GROUP BY date ORDER BY  date ASC";
-                $ca = array('clientDNS', 'date', 'users');
-                $res = DBUtil::executeSQL($sql);
-                $items_users = DBUtil::marshallObjects($res, $ca);
-            }
-            $month_start = substr($date_start, 0, 6);
-            $month_stop = substr($date_stop, 0, 6);
-            if ($month_start == $month_stop)
-                $dates = "yearmonth = $month_start";
-            else
-                $dates = "yearmonth >= $month_start AND yearmonth <= $month_stop";
-
-            $joinInfo = array();
-            $joinInfo[] = array('join_table' => 'agoraportal_clients',
-                'join_field' => array('educat'),
-                'object_field_name' => array('educat'),
-                'compare_field_table' => 'clientDNS',
-                'compare_field_join' => 'clientDNS');
-
-            if ($datatype == 'totals') {
-                $where = $dates;
-                $sql = "SELECT tbl.clientDNS,tbl.yearmonth,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat   FROM agoraportal_moodle2_stats_month AS tbl LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS  WHERE " . $dates . " GROUP BY yearmonth ORDER BY clientDNS DESC, yearmonth";
-                $ca = array('clientDNS', 'yearmonth', 'users', 'courses', 'activities', 'lastaccess', 'lastaccess_date', 'lastaccess_user', 'total_access', 'educat');
-                $res = DBUtil::executeSQL($sql);
-                $items = DBUtil::marshallObjects($res, $ca);
-                $where_totals = $dates;
-                $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_month', $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
-                $tot = 0;
-            } else {
-                $pos = strpos($clients_text, 'Total');
-                if ($pos === false) {
-                    $where = $clients_text . $dates;
-                    $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_month', $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
-                    $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_month', $joinInfo, $where, (string) $orderby . ', yearmonth');
-                } else {
-                    $where = $dates;
-                    $sql = "SELECT tbl.clientDNS,tbl.yearmonth,sum(tbl.users),sum(tbl.courses),sum(tbl.activities) ,tbl.lastaccess ,tbl.lastaccess_date ,tbl.lastaccess_user ,tbl.total_access , a.educat   FROM agoraportal_moodle2_stats_month AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS  WHERE " . $dates . " GROUP BY yearmonth ORDER BY clientDNS DESC, yearmonth";
-                    $ca = array('clientDNS', 'yearmonth', 'users', 'courses', 'activities', 'lastaccess', 'lastaccess_date', 'lastaccess_user', 'total_access', 'educat');
-                    $res = DBUtil::executeSQL($sql);
-                    $items = DBUtil::marshallObjects($res, $ca);
-                    $where_totals = $dates;
-                    $items_totals = DBUtil::selectExpandedObjectArray('agoraportal_moodle2_stats_month', $joinInfo, $where_totals, (string) $orderby . ', yearmonth');
-                    $tot = 0;
-                }
-            }
-            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM agoraportal_moodle2_stats_month AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
             $ca = array('num_centres');
             $res = DBUtil::executeSQL($sql_num_centres);
             $num_centress = DBUtil::marshallObjects($res, $ca);
@@ -2717,10 +2663,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         $date_array = array();
-        $kk = 0;
         $yearmonth = 0;
         $auxmonth = '0';
-        $k = 0;
         $kkdate = 0;
         $kkdate2 = 0;
         //omplim el vector results i totals per a retornar a la taula
@@ -2729,7 +2673,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             foreach ($item as $key => $value) {
 
                 if ($key == 'date' && $date == '*') {
-
                     $date_array[$kkdate2] = date('Ymd', strtotime($results[$i + 1][$key]));
                     $kkdate2++;
                 }
@@ -2741,9 +2684,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         $results[$i + 1][$key] = $value;
                     }
                 }
-                $kk++;
-                if ($key == 'clientDNS') {
-                    $totals[$key] = 'Totals (' . $num_centress[0]['num_centres'] . ' centres)';
+
+                if ($key == 'clientDNS' || $key == 'clientcode') {
+                    $totals['clientDNS'] = 'Totals (' . $num_centress[0]['num_centres'] . ' centres)';
+                    if(isset($item['clientcode'])) {
+                        $totals['clientcode'] = "";
+                    }
                     if ($tot == 0) {
                         $results[$i + 1][$key] = 'Total';
                         $usuari = 'Total';
@@ -2767,62 +2713,42 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 } elseif (($key == 'lastaccess') || ($key == 'lastaccess_date') || ($key == 'date') || ($key == 'lastaccess_user')) {
                     $totals[$key] = '';
                     $results[$i + 1][$key] = date("d/m/Y", strtotime($value));
-                }
-                else
+                } else {
                     $totals[$key] = $totals[$key] + $value;
+                }
             }
         }
 
-        $j = 0;
-        $l = 0;
-        $t = 0;
-        $kk = 0;
-        $dataaux1 = array();
-        $dataaux2 = array();
-        $dataaux3 = array();
         if ($date != '*') {
-            $m = 0;
-            $aux = array();
-
             foreach ($items_users as $key => $value) {
                 foreach ($value as $key2 => $value2) {
                     if ($key2 == 'users') {
-                        $datay1[$m] = $value2;
-                        $m++;
+                        $datay1[] = $value2;
                     } else if ($key2 == 'date') {
-                        $date_array[$kk] = date('Ymd', strtotime($value2));
-                        $kk++;
+                        $date_array[] = date('Ymd', strtotime($value2));
                     }
                 }
             }
-        }
-        //omplim el vector datay1 per a passar les dades per a generar els gràfics
-        else {
+        } else {
+            //omplim el vector datay1 per a passar les dades per a generar els gràfics
             foreach ($results as $i => $item) {
-
                 foreach ($item as $key => $value) {
-
                     if ($i != '0' && $value != ' ') {
-
                         if ($infotype == 'courses') {
                             if ($key == 'courses') {
-                                $datay1[$j] = $value;
-                                $j++;
+                                $datay1[] = $value;
                             }
                         } else if ($infotype == 'users') {
                             if ($key == 'users') {
-                                $datay1[$l] = $value;
-                                $l++;
+                                $datay1[] = $value;
                             }
                         } else if ($infotype == 'activities') {
                             if ($key == 'activities') {
-                                $datay1[$t] = $value;
-                                $t++;
+                                $datay1[] = $value;
                             }
                         } else {
-                            if (($key != 'educat') && ($key != 'users') && ($key != 'clientDNS') && ($key != 'total') && ($key != 'yearmonth') && ($key != 'lastaccess') && ($key != 'lastaccess_date') && ($key != 'date') && ($key != 'lastaccess_user')) {
-                                $datay1[$j] = $value;
-                                $j++;
+                            if (($key != 'educat') && ($key != 'users') && ($key != 'clientcode') && ($key != 'clientDNS') && ($key != 'total') && ($key != 'yearmonth') && ($key != 'lastaccess') && ($key != 'lastaccess_date') && ($key != 'date') && ($key != 'lastaccess_user')) {
+                                $datay1[] = $value;
                             }
                         }
                     }
@@ -2831,13 +2757,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         //omplim el vector dataytotals1 per a passar les dades per a generar els gràfics amb les dades dels totals
-        $j = 0;
         foreach ($totals as $key => $value) {
-
-
             if (($key != 'educat') && ($key != 'users') && ($key != 'clientDNS') && ($key != 'total') && ($key != 'yearmonth') && ($key != 'lastaccess') && ($key != 'lastaccess_date') && ($key != 'date') && ($key != 'lastaccess_user')) {
-                $dataytotals1[$j] = $value;
-                $j++;
+                $dataytotals1[] = $value;
             }
         }
 
@@ -2847,14 +2769,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
             $totals_bis = array();
             $num_centres = array();
-            $u = 0;
-
             foreach ($items as $i => $item) {
                 foreach ($item as $key => $value) {
                     if ($key == 'clientDNS') {
                         if (in_array($value, $num_centres) != TRUE) {
-                            $num_centres[$u] = $value;
-                            $u++;
+                            $num_centres[] = $value;
                         }
                     }
                 }
@@ -2863,30 +2782,32 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             foreach ($items_totals as $i => $item) {
 
                 foreach ($item as $key => $value) {
-                    if ($key == 'clientDNS') {
-                        $totals_bis[$key] = 'Totals (' . $num_centress[0]['num_centres'] . ' centres)';
-                    } else if ($key == 'yearmonth') {
-                        $totals_bis[$key] = '';
-                    } elseif (($key == 'lastaccess') || ($key == 'lastaccess_date') || ($key == 'date') || ($key == 'lastaccess_user')) {
-                        $totals_bis[$key] = '';
+                    if(isset($results[1][$key])) {
+                        if ($key == 'clientDNS') {
+                            $totals_bis['clientDNS'] = 'Totals (' . $num_centress[0]['num_centres'] . ' centres)';
+                        } else if ($key == 'clientcode') {
+                            if(!isset($results[1]['clientDNS'])) {
+                                $totals_bis['clientcode'] = 'Totals (' . $num_centress[0]['num_centres'] . ' centres)';
+                            } else {
+                                $totals_bis['clientcode'] = "";
+                            }
+                        } else if ($key == 'yearmonth') {
+                            $totals_bis[$key] = '';
+                        } elseif (($key == 'lastaccess') || ($key == 'lastaccess_date') || ($key == 'date') || ($key == 'lastaccess_user')) {
+                            $totals_bis[$key] = '';
+                        } else {
+                            $totals_bis[$key] += $value;
+                        }
                     }
-                    else
-                        $totals_bis[$key] = $totals_bis[$key] + $value;
                 }
             }
             $view->assign('totals', $totals_bis);
-        }
-        else {
-
+        } else {
             $view->assign('totals', $totals);
         }
         //codifiquem les dades que s'envien a la funcio que grafica depenent si cal enviar els totals o les dades en cru
-        if (($datatype == 'totals' && $stats == 1) || ($datatype == 'totals' && $stats == 2)) {
-            $datay1 = urlencode(serialize($datay1));
-        } elseif ($datatype == 'totals' && $stats != 1 && $stats != 2) {
-            $datay1 = urlencode(serialize($dataytotals1));
-        } else {
-            $datay1 = urlencode(serialize($datay1));
+        if ($datatype == 'totals' && $stats != 1 && $stats != 2 && $stats != 5 && $stats != 6) {
+            $datay1 = $dataytotals1;
         }
         //creem l'array de dates per a mostrar en les etiquetes dels gràfics
         // $date_array=array();
@@ -2900,23 +2821,24 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         if ($stats == 4) {
-            $i = 0;
             $date_sto_aux = strtotime($YYY . $MMM . "31");
             while ($date_sto_aux >= $date_start) {
-                $date_array[$i] = date('Ymd', $date_start);
+                $date_array[] = date('Ymd', $date_start);
                 $date_start = strtotime("+1 day", $date_start);
-                $i++;
             }
         }
 
-        $dates = urlencode(serialize($date_array));
-
-        $enllac = "index.php?module=Agoraportal&type=admin&func=statsservicesGraphs&stats=" . $datay1 . "&u=" . $usuari . "&e=" . $est . "&dates=" . $dates . "&yearmonth=" . $yearmonth . "&infotype=" . $infotype . "&datatype=" . $datatype;
-
         // Create output object
         $view->assign('results', $results);
-        $view->assign('enllac', $enllac);
         $view->assign('stats', $stats);
+        $args = array(
+            'stats'=> $datay1,
+            'usuari' => $usuari,
+            'titol' => $est,
+            'data_labels' => $date_array,
+            'infotype' => $infotype,
+            'datatype' => $datatype);
+        $this->statsservicesNewGraphs($view, $args);
 
 
         return $view->fetch('agoraportal_admin_statsStatisticsContent.tpl');
@@ -2961,14 +2883,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
         }
 
-        if ($stats == 1) {
-            //Moodle Month
+        if ($stats == 1 || $stats == 5) {
+            // Moodle Month
+            if ($stats == 1) { //1.9
+                $table = 'agoraportal_moodle_stats_month';
+            } else { // 2.X
+                $table = 'agoraportal_moodle2_stats_month';
+            }
             $month_start = substr($date_start, 0, 6);
             $month_stop = substr($date_stop, 0, 6);
-            if ($month_start == $month_stop)
+            if ($month_start == $month_stop) {
                 $dates = "yearmonth = $month_start";
-            else
+            } else {
                 $dates = "yearmonth >= $month_start AND yearmonth <= $month_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2976,15 +2904,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'object_field_name' => array('educat'),
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_month', $joinInfo, $where, (string) $orderby . ', yearmonth');
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', yearmonth');
             $_SESSION['items'] = $items;
-        }
-        else if ($stats == 2) {
-            //Moodle Week
-            if ($date_start == $date_stop)
+        } else if ($stats == 2 || $stats == 6) {
+            // Moodle Week
+            if ($stats == 1) { //1.9
+                $table = 'agoraportal_moodle_stats_week';
+            } else { // 2.X
+                $table = 'agoraportal_moodle2_stats_week';
+            }
+            if ($date_start == $date_stop) {
                 $dates = "date = $date_start";
-            else
+            } else {
                 $dates = "date >= $date_start AND date <= $date_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -2992,14 +2925,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'object_field_name' => array('educat'),
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_week', $joinInfo, $where, (string) $orderby . ', date');
-        }
-        else if ($stats == 3) {
-            //Moodle Day
-            if ($date_start == $date_stop)
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+        } else if ($stats == 3 || $stats == 7) {
+            // Moodle Day
+            if ($stats == 1) { //1.9
+                $table = 'agoraportal_moodle_stats_day';
+            } else { // 2.X
+                $table = 'agoraportal_moodle2_stats_day';
+            }
+
+            if ($date_start == $date_stop) {
                 $dates = "date = $date_start";
-            else
+            } else {
                 $dates = "date >= $date_start AND date <= $date_stop";
+            }
             $where = $clients_text . $dates;
             $joinInfo = array();
             $joinInfo[] = array('join_table' => 'agoraportal_clients',
@@ -3007,9 +2946,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'object_field_name' => array('educat'),
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
-            $items = DBUtil::selectExpandedObjectArray('agoraportal_moodle_stats_day', $joinInfo, $where, (string) $orderby . ', date');
-        }
-        else if ($stats == 4) {
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+        } else if ($stats == 4) {
             //Zikula Month
             $month_start = substr($date_start, 0, 6);
             $month_stop = substr($date_stop, 0, 6);
@@ -3050,9 +2988,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $results[$i + 1] = $item;
 
                 foreach ($item as $key => $value) {
-                    if ($key == 'clientDNS')
+                    if ($key == 'clientDNS') {
                         $totals[$key] = 'Totals (' . count($items) . ' centres)';
-                    else if ($key == 'yearmonth') {
+                    } else if ($key == 'yearmonth') {
                         $value = $value . "01";
                         $totals[$key] = '';
                         $yearmonth = date("Y-m-d", strtotime($value));
@@ -3137,190 +3075,97 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
     }
 
-    public function statsservicesGraphs($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
+    public function statsservicesNewGraphs($view, $args) {
+        $stats = $args['stats'];
+        $datesaux = $args['data_labels'];
+        $usuari = $args['usuari'];
+        $titol = $args['titol'];
+        $infotype = $args['infotype'];
+        $datatype = $args['datatype'];
+
+        if (count($stats) == 0 || count($stats) == 1) {
+            $view->assign('error', 'Les dades que has escollit no contenen prou valors');
+            return;
         }
 
-
-        $datayy1 = FormUtil::getPassedValue('stats', 1, 'GET');
-        $dates = FormUtil::getPassedValue('dates', 1, 'GET');
-        $yearmonth = FormUtil::getPassedValue('yearmonth', 1, 'GET');
-        $usuari = FormUtil::getPassedValue('u', 0, 'GET');
-        $titol = FormUtil::getPassedValue('e', 0, 'GET');
-        $infotype = FormUtil::getPassedValue('infotype', 0, 'GET');
-        $datatype = FormUtil::getPassedValue('datatype', 0, 'GET');
-        $datayyy1 = stripslashes($datayy1);
-        $datay1aux = unserialize(urldecode($datayy1));
-        $datesaux = unserialize(urldecode($dates));
-        $datay1 = array();
-        $datay2 = "";
-        $variablesx = "";
-        $i = 0;
-
-        foreach ($datay1aux as $indice => $valor) {
-            $datay1[$i] = $valor;
-            $variablesx[$i] = $indice;
-            $i++;
-        }
-
-        //echo $data_array;
         $variables = array();
-        if ($titol == 'Diàries Moodle') {
-            $i = 0;
-            foreach ($variablesx as $indice => $valor) {
-                $valoraus = (($valor % 24));
-                if ($datatype != 'totals')
-                    $variables[$indice] = date("d/m/y", strtotime($datesaux[$i])) . " - " . $valoraus . "h.";
-                else
-                    $variables[$indice] = $valoraus . "h.";
-                if (($valor % 24 == 23) && ($indice != 0)) {
-                    $i++;
-                    ;
-                }
-            }
-            if ($datatype != 'totals')
-                $dates = " De " . $variables[0] . " a " . $variables[$indice];
-            else {
-                $dia = substr($datesaux[sizeof($datesaux) - 1], -2, 2);
-                $mes = substr($datesaux[sizeof($datesaux) - 1], -4, 2);
-                $any = substr($datesaux[sizeof($datesaux) - 1], 0, 4);
-                $datafi = $any . $mes . $dia;
-                $dates = " De " . date("d/m/y", strtotime($datesaux[0])) . " a " . date("d/m/y", strtotime($datafi));
-            }
-        }
-        if ($titol == 'Mensuals Moodle') {
-            if ($infotype != 'accessos') {
+        switch($titol) {
+            case 'Diàries Moodle':
+            case 'Diàries Moodle 2':
                 $i = 0;
-                foreach ($variablesx as $indice => $valor) {
-                    $yearmont = date("Y-m-d", strtotime($datesaux[$i]));
-                    list($YYYY, $MMMM, $DDDD) = explode("-", $yearmont);
-                    $yearmont = $MMMM . "/" . $YYYY;
-                    $variables[$i] = $yearmont;
-                    $i++;
+                foreach ($stats as $valor => $notused) {
+                    $valoraus = $valor % 24;
+                    if ($datatype != 'totals') {
+                        $variables[] = date("d/m/y", strtotime($datesaux[$i])) . " - " . $valoraus . "h.";
+                        if ($valoraus == 23) {
+                            $i++;
+                        }
+                    } else {
+                        $variables[] = $valoraus . "h.";
+                    }
                 }
-            } else {
-                $i = 0;
-                foreach ($variablesx as $indice => $valor) {
-
-                    $variables[$indice] = date("d/m/Y", strtotime($datesaux[$i]));
-                    $i++;
-                    ;
+                if ($datatype != 'totals') {
+                    $dates_titol = " De " . $variables[0] . " a " . $variables[count($variables) - 1];
+                } else {
+                    $last_data = $datesaux[count($datesaux) - 1];
+                    $dia = substr($last_data, -2, 2);
+                    $mes = substr($last_data, -4, 2);
+                    $any = substr($last_data, 0, 4);
+                    $datafi = $any . $mes . $dia;
+                    $dates_titol = " De " . date("d/m/y", strtotime($datesaux[0])) . " a " . date("d/m/y", strtotime($datafi));
                 }
-            }
-            $dates = " De " . $variables[0] . " a " . $variables[$i - 1];
+                break;
+            case 'Mensuals Moodle':
+            case 'Mensuals Moodle 2':
+                if ($infotype != 'accessos') {
+                    foreach ($datesaux as $data) {
+                        $variables[] = date("m/Y", strtotime($data));
+                    }
+                } else {
+                    foreach ($datesaux as $data) {
+                        $variables[] = date("d/m/Y", strtotime($data));
+                    }
+                }
+                $dates_titol = " De " . $variables[0] . " a " . $variables[count($variables) - 1];
+                break;
+            case 'Setmanals Moodle':
+            case 'Setmanals Moodle 2':
+            case 'Mensuals Intranet':
+                foreach ($datesaux as $data) {
+                    $variables[] = date("d/m/y", strtotime($data));
+                }
+                if (($titol == 'Setmanals Moodle' || $titol == 'Setmanals Moodle 2') && $infotype != 'accessos') {
+                    $data_fi = date("d/m/y", strtotime("+7 days", strtotime($datesaux[count($datesaux) - 1])));
+                } else {
+                    $data_fi = $variables[count($datesaux) - 1];
+                }
+                $dates_titol = " De " . $variables[0] . " a " . $data_fi;
+                break;
         }
 
-        if ($titol == 'Setmanals Moodle' || $titol == 'Mensuals Intranet') {
-            $i = 0;
-            foreach ($variablesx as $indice => $valor) {
-
-                $variables[$indice] = date("d/m/y", strtotime($datesaux[$indice]));
-
-                $i++;
+        if ($titol == 'Diàries Moodle' || $titol == 'Diàries Moodle 2') {
+            $datalabel = "Nombre d'accessos (per hores)";
+        } elseif ($titol == 'Mensuals Intranet') {
+            $datalabel = "Nombre d'accessos (per dia)";
+        } else {
+            if ($infotype == 'courses') {
+                $datalabel = "Nombre de cursos";
+            } elseif ($infotype == 'users') {
+                $datalabel = "Nombre d'usuaris";
+            } elseif ($infotype == 'activities') {
+                $datalabel = "Nombre d'activitats";
+            } elseif ($infotype == 'accessos') {
+                $datalabel = "Nombre d'accessos";
             }
-            if ($titol == 'Setmanals Moodle' && $infotype != 'accessos')
-                $data_fi = date("d/m/y", strtotime("+7 days", strtotime($datesaux[$i - 1])));
-            else
-                $data_fi = $variables[$i - 1];
-            $dates = " De " . $variables[0] . " a " . $data_fi;
         }
 
-        // content="text/plain; charset=utf-8"
-        require_once ('modules/Agoraportal/includes/jpgraph/src/jpgraph.php');
-        require_once ('modules/Agoraportal/includes/jpgraph/src/jpgraph_line.php');
-
-        try {
-            // Setup the graph
-            $graph = new Graph(1200, 500);
-            if (sizeof($datay1) == 0 || sizeof($datay1) == 1) {
-                throw new JpGraphException('Les dades que has escollit no contenen prou valors');
-            }
-            $graph->SetScale("textlin", 0, max($datay1) + (max($datay1) / 10));
-
-            $theme_class = new UniversalTheme;
-
-            $graph->SetTheme($theme_class);
-            $graph->img->SetAntiAliasing(false);
-            $graph->SetBox(false);
-            $graph->img->SetMargin(60, 30, 20, 20);
-            $graph->img->SetAntiAliasing();
-
-            $graph->yaxis->HideZeroLabel();
-            $graph->yaxis->HideLine(false);
-            $graph->yaxis->HideTicks(false, false);
-
-            $graph->xgrid->Show();
-            $graph->xgrid->SetLineStyle("solid");
-            $graph->xaxis->SetTickLabels($variables);
-            if ($titol == 'Diàries Moodle') {
-                $graph->xaxis->SetLabelAngle(75);
-                $graph->xaxis->SetTextLabelInterval(4);
-                $graph->xaxis->SetLabelMargin(3);
-                $graph->xaxis->title->Set("Hores");
-                $graph->yaxis->title->Set("Nombre d'accessos");
-                $graph->legend->Pos(0.5, 0.96, "right", "center");
-                $nom_titol = $titol . ". " . $dates;
-            } elseif ($titol == 'Mensuals Intranet') {
-                $graph->xaxis->SetLabelAngle(75);
-                $graph->xaxis->SetTextLabelInterval(6);
-                $graph->xaxis->SetLabelMargin(3);
-                $graph->xaxis->SetLabelMargin(4);
-                $graph->xaxis->title->Set("Dia");
-                $graph->yaxis->title->Set("Nombre d'accessos");
-                $graph->legend->Pos(0.5, 0.96, "right", "center");
-                $nom_titol = $titol . $dates;
-            } else {
-                $graph->xaxis->SetLabelAngle(75);
-                $graph->xaxis->SetLabelMargin(4);
-                $graph->legend->Pos(0.5, 0.96, "right", "center");
-                //$graph->xaxis->SetTextLabelInterval(4);
-                if ($infotype == 'courses') {
-                    $titoltipus = "Nombre de cursos";
-                } elseif ($infotype == 'users') {
-                    $titoltipus = "Nombre d'usuaris";
-                } elseif ($infotype == 'activities') {
-                    $titoltipus = "Nombre d'activitats";
-                } elseif ($infotype == 'accessos') {
-                    $titoltipus = "Nombre d'accessos";
-                    $graph->xaxis->SetLabelAngle(75);
-                    $graph->xaxis->SetLabelMargin(3);
-                }
-                $graph->yaxis->title->Set($titoltipus);
-                $nom_titol = $titol . ". " . $titoltipus . "." . $dates;
-            }
-            $graph->title->Set("Estadístiques " . $nom_titol);
-            $graph->yaxis->SetTitleMargin(50);
-            $graph->xgrid->SetColor('#E3E3E3');
-            $graph->legend->SetLayout(LEGEND_HOR);
-            // Create the first line
-            $p1 = new LinePlot($datay1);
-            $graph->Add($p1);
-            $p1->SetColor("#FF1493");
-            $p1->SetLegend("$usuari");
-
-            //Create the second line
-            /*
-              $p2 = new LinePlot($datay2);
-              $graph->Add($p2);
-              $p2->SetColor("#B22222");
-              $p2->SetLegend($usuari);
-             */
-            // Create the third line
-            /* $p3 = new LinePlot($datay3);
-              $graph->Add($p3);
-              $p3->SetColor("#FF1493");
-              $p3->SetLegend('Line 3');
-             */
-            $graph->legend->SetFrameWeight(1);
-
-            // Output line
-            $graph->Stroke();
-        } catch (JpGraphException $e) {
-            // .. do necessary cleanup
-            // Send back error message
-            $e->Stroke();
-        }
+        $view->assign('graph_title', "Estadístiques " . $titol);
+        $view->assign('graph_dates', $dates_titol);
+        // Setup the graph
+        $view->assign('graph_data', $stats);
+        $view->assign('datalabel', $datalabel);
+        $view->assign('xlabels', $variables);
+        $view->assign('graph_legend', $usuari);
     }
 
     public function updateDiskUse($args) {

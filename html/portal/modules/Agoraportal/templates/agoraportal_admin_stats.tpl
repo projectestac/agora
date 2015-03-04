@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="modules/Agoraportal/javascript/calendar/css/agora/agora.css" />
 <script type="text/javascript" src="modules/Agoraportal/javascript/calendar/jscal2.js"></script>
 <script type="text/javascript" src="modules/Agoraportal/javascript/calendar/lang/ca.js"></script>
+<script src="modules/Agoraportal/includes/chartjs/Chart.min.js"></script>
 
 {include file="agoraportal_admin_menu.tpl"}
 <div class="z-admincontainer">
