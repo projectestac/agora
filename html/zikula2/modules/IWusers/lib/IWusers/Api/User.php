@@ -350,7 +350,7 @@ class IWusers_Api_User extends Zikula_AbstractApi {
         $pntables = DBUtil::getTables();
         $c = $pntables['IWusers_column'];
         $where = "WHERE $c[uid]=" . $uid;
-        $field = (ModUtil::getVar('IWusers', 'avatarChangeValidationNeeded') == 1 && !SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN)) ? 'newavatar' : $field;
+        $field = (ModUtil::getVar('IWusers', 'avatarChangeValidationNeeded') == 1 && !SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN) && !isset($args['delete'])) ? 'newavatar' : $field;
         $item = array($field => $args['avatar']);
         if (!DBUtil::updateObject($item, 'IWusers', $where)) {
             return LogUtil::registerError($this->__('Error! Update attempt failed.'));

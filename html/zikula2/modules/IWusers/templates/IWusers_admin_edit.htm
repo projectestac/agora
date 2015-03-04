@@ -1,11 +1,11 @@
-{include file="IWusers_admin_menu.htm"}
+{include file="IWusers_admin_menu.tpl"}
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='edit.png' set='icons/large'}</div>
     <h2>{gt text="Edit the users"}</h2>
     <form  class="z-form" enctype="multipart/form-data" method="post" name="usersList" action="{modurl modname="IWusers" type="admin" func="update"}">
            <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         {foreach item=user from=$users name=avatar}
-        <input type="hidden" name="uid[]" value="{$user.uid}" />
+        <input type="hidden" name="uidp[]" value="{$user.uid}" />
         <fieldset>
             <legend>{$usersNames[$user.uname]}</legend>
             <div class="z-formrow">
@@ -51,7 +51,7 @@
             <span class="z-buttons">
                 <input class="z-bt-ok z-bt-small" type="submit" value="{gt text="Edit"}" />
             </span>
-            <span class="z-buttons"
+            <span class="z-buttons">
                 <a href="{modurl modname="IWusers" type="admin" func="main"}">{img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}</a>
             </span>
         </div>

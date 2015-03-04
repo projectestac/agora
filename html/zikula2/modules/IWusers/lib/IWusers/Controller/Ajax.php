@@ -1,6 +1,26 @@
 <?php
 
 class IWusers_Controller_Ajax extends Zikula_Controller_AbstractAjax {
+    
+    public function orderGroupInfo($args) {
+        if (!SecurityUtil::checkPermission('IWusers::', '::', ACCESS_READ)) {
+            throw new Zikula_Exception_Fatal($this->__('No teniu autorització per accedir a aquesta informació.'));
+        }       
+
+        $orderBy = $this->request->request->get('orderBy', '');
+        if ($orderBy=='') $orderBy = "gid";
+        
+        $gi = UserUtil::getGroups('',$orderBy);
+        foreach ($gi as $key => $value) {
+            $groupInfo[] = array_slice($value,0,2);
+        }
+       
+        $view = Zikula_View::getInstance($this->name);
+        $view->assign('groupInfo', $groupInfo);
+        
+        $content = $view->fetch('IWusers_groupsTable.tpl');
+        return new Zikula_Response_Ajax(array('content' => $content));
+    }
 
     public function addContact($args) {
 
@@ -62,7 +82,7 @@ class IWusers_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         AjaxUtil::output(array('uid' => $uid,
             'gid' => $gid));
     }
-
+    
     public function addUserGroup($args) {
 
         if (!SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN)) {

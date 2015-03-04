@@ -174,8 +174,10 @@ class IWusers_Controller_User extends Zikula_AbstractController {
                         'info' => 'a',
                         'sv' => $sv));
             if (unlink(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'usersPictureFolder') . '/' . $userAvatar)) {
+				ModUtil::func('IWusers', 'user', 'deleteAvatar', array('avatarName' => UserUtil::getVar('uname') . '_s',
+                    'extensions' => array('jpg', 'png', 'gif')));
                 // delete user avatar extension from database
-                ModUtil::apiFunc('IWusers', 'user', 'changeAvatar', array('avatar' => ''));
+                ModUtil::apiFunc('IWusers', 'user', 'changeAvatar', array('delete' => true,'avatar' => ''));
             }
         }
 

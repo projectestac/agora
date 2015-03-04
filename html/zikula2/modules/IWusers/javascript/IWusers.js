@@ -6,13 +6,43 @@ function send(value){
             f.action="index.php?module=IWusers&type=admin&func=edit";
             break;
         case 1:
-            f.action="index.php?module=IWusers&type=admin&func=delete";
+            f.action="index.php?module=IWusers&type=admin&func=deleteUsers";
             break;
         case 2:
             f.action="index.php?module=IWusers&type=admin&func=editLogin";
             break;
     }
     f.submit();
+}
+
+function doIt(id, action){
+    //Simula la selecció de l'usuari en el formulari 
+    //per després cridar a la funció que fa el submit
+    jQuery('input:checkbox').removeAttr('checked');
+    document.getElementById("cb"+id).checked = true;
+    send(action);
+}
+
+
+function orderGroupInfo(orderBy){
+    var pars = {
+        orderBy: orderBy
+    }
+    //$('groupInfo').update('<img src="images/ajax/indicator.white.gif" /> ');
+    var myAjax = new Zikula.Ajax.Request(Zikula.Config.baseURL + "ajax.php?module=IWusers&func=orderGroupInfo", {
+        parameters: pars, 
+        onComplete: orderGroupInfo_response,
+        onFailure: addContact_failure
+    });
+}
+
+function orderGroupInfo_response(req){
+    if (!req.isSuccess()) {
+        Zikula.showajaxerror(req.getMessage());
+        return;
+    }
+    var b = req.getData();
+    $('groupInfo').update(b.content);
 }
 
 function addContact(fuid, gid){
@@ -186,4 +216,13 @@ function change_response(req){
 
 function change_failure(req){
 
+}
+
+function deleteUsr(usrId, usrname, msg){ //,uname
+    var r = confirm(msg+": Id: "+usrId+" // uname: "+usrname);
+    if (r == true) {
+        // Esborra
+        window.location.href = Zikula.Config.entrypoint + "?module=IWusers&type=admin&func=deleteUsers&uid=" +usrId;
+
+    }
 }

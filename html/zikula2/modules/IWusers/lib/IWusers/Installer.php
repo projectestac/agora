@@ -65,85 +65,97 @@ class IWusers_Installer extends Zikula_AbstractInstaller {
      * Update the IWusers module
      * @author Albert Pérez Monfort (aperezm@xtec.cat)
      * @author Jaume Fernàndez Valiente (jfern343@xtec.cat)
+     * @author Josep Ferràndiz Farré (jferran6@xtec.cat)
      * @return bool true if successful, false otherwise
      */
     public function Upgrade($oldversion) {
+        switch ($oldversion) {
+            case ($oldversion < '3.0.0'):
+// Add new columns
+                $c = "ALTER TABLE `IWusers` ADD `iw_avatar` VARCHAR(50) NOT NULL";
+                if (!DBUtil::executeSQL($c))
+                    return false;
+                $c = "ALTER TABLE `IWusers` ADD `iw_newavatar` VARCHAR(50) NOT NULL";
+                if (!DBUtil::executeSQL($c))
+                    return false;
+                $c = "ALTER TABLE `IWusers` ADD `iw_sex` TINYINT(4) NOT NULL DEFAULT '0'";
+                if (!DBUtil::executeSQL($c))
+                    return false;
 
-        // Add new columns
-        $c = "ALTER TABLE `IWusers` ADD `iw_avatar` VARCHAR(50) NOT NULL";
-        if (!DBUtil::executeSQL($c))
-            return false;
-        $c = "ALTER TABLE `IWusers` ADD `iw_newavatar` VARCHAR(50) NOT NULL";
-        if (!DBUtil::executeSQL($c))
-            return false;
-        $c = "ALTER TABLE `IWusers` ADD `iw_sex` TINYINT(4) NOT NULL DEFAULT '0'";
-        if (!DBUtil::executeSQL($c))
-            return false;
+                // Delete unneded columns
+                $c = array();
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_mobile` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_fix` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_parentsName` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_address` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_postal` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_identifyCard` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_refUser` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_sendSMS` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_active` ";
+                $c[] = "ALTER TABLE `IWusers` DROP `iw_parentsEMail` ";
+                foreach ($c as $sql) {
+                    DBUtil::executeSQL($sql);
+                }
 
-        // Delete unneded columns
-        $c = array();
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_mobile` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_fix` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_parentsName` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_address` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_postal` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_identifyCard` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_refUser` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_sendSMS` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_active` ";
-        $c[] = "ALTER TABLE `IWusers` DROP `iw_parentsEMail` ";
-        foreach ($c as $sql) {
-            DBUtil::executeSQL($sql);
+                // Modify column names
+                $c = array();
+                $c = "ALTER TABLE `IWusers` CHANGE `zk_obj_status` `pn_obj_status` VARCHAR(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT \'A\'";
+                $c = "ALTER TABLE `IWusers` CHANGE `zk_cr_date` `pn_cr_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
+                $c = "ALTER TABLE `IWusers` CHANGE `zk_cr_uid` `pn_cr_uid` INT(11) NOT NULL DEFAULT \'0\'";
+                $c = "ALTER TABLE `IWusers` CHANGE `zk_lu_date` `pn_lu_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
+                $c = "ALTER TABLE `IWusers` CHANGE `zk_lu_uid` `pn_lu_uid` INT(11) NOT NULL DEFAULT \'0\'";
+
+                $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_obj_status` `pn_obj_status` VARCHAR(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT \'A\'";
+                $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_cr_date` `pn_cr_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
+                $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_cr_uid` `pn_cr_uid` INT(11) NOT NULL DEFAULT \'0\'";
+                $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_lu_date` `pn_lu_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
+                $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_lu_uid` `pn_lu_uid` INT(11) NOT NULL DEFAULT \'0\'";
+                foreach ($c as $sql) {
+                    if (!DBUtil::executeSQL($sql))
+                        return false;
+                }
+
+
+                //Array de noms
+                $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWusers'", '', false, '');
+
+                $newVarsNames = Array('friendsSystemAvailable', 'invisibleGroupsInList', 'usersCanManageName',
+                    'allowUserChangeAvatar', 'allowUserSetTheirSex', 'allowUserDescribeTheirSelves',
+                    'avatarChangeValidationNeeded', 'usersPictureFolder');
+
+                $newVars = Array('friendsSystemAvailable' => 1,
+                    'invisibleGroupsInList' => '$',
+                    'usersCanManageName' => 0,
+                    'allowUserChangeAvatar' => '1',
+                    'allowUserSetTheirSex' => '0',
+                    'allowUserDescribeTheirSelves' => '1',
+                    'avatarChangeValidationNeeded' => '1',
+                    'usersPictureFolder' => 'photos');
+
+                // Delete unneeded vars
+                $del = array_diff($oldVarsNames, $newVarsNames);
+                foreach ($del as $i) {
+                    $this->delVar($i);
+                }
+
+                // Add new vars
+                $add = array_diff($newVarsNames, $oldVarsNames);
+                foreach ($add as $i) {
+                    $this->setVar($i, $newVars[$i]);
+                }
+
+            case '3.0.0':
+                // Add new column
+                $sql = "ALTER TABLE `IWusers` ADD `iw_code` VARCHAR(5)";
+                
+                if (!DBUtil::executeSQL($sql)){
+                        return false;
+                }
+            case '3.1.0':
+                // For future release
         }
-
-        // Modify column names
-        $c = array();
-        $c = "ALTER TABLE `IWusers` CHANGE `zk_obj_status` `pn_obj_status` VARCHAR(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT \'A\'";
-        $c = "ALTER TABLE `IWusers` CHANGE `zk_cr_date` `pn_cr_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
-        $c = "ALTER TABLE `IWusers` CHANGE `zk_cr_uid` `pn_cr_uid` INT(11) NOT NULL DEFAULT \'0\'";
-        $c = "ALTER TABLE `IWusers` CHANGE `zk_lu_date` `pn_lu_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
-        $c = "ALTER TABLE `IWusers` CHANGE `zk_lu_uid` `pn_lu_uid` INT(11) NOT NULL DEFAULT \'0\'";
-
-        $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_obj_status` `pn_obj_status` VARCHAR(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT \'A\'";
-        $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_cr_date` `pn_cr_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
-        $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_cr_uid` `pn_cr_uid` INT(11) NOT NULL DEFAULT \'0\'";
-        $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_lu_date` `pn_lu_date` DATETIME NOT NULL DEFAULT \'1970-01-01 00:00:00\'";
-        $c = "ALTER TABLE `IWusers_friends` CHANGE `zk_lu_uid` `pn_lu_uid` INT(11) NOT NULL DEFAULT \'0\'";
-        foreach ($c as $sql) {
-            if (!DBUtil::executeSQL($sql))
-                return false;
-        }
-
-
-        //Array de noms
-        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWusers'", '', false, '');
-
-        $newVarsNames = Array('friendsSystemAvailable', 'invisibleGroupsInList', 'usersCanManageName',
-            'allowUserChangeAvatar', 'allowUserSetTheirSex', 'allowUserDescribeTheirSelves', 
-            'avatarChangeValidationNeeded', 'usersPictureFolder');
-             
-        $newVars = Array('friendsSystemAvailable' => 1,
-            'invisibleGroupsInList' => '$',
-            'usersCanManageName' => 0,
-            'allowUserChangeAvatar' => '1',
-            'allowUserSetTheirSex' => '0',
-            'allowUserDescribeTheirSelves' => '1',
-            'avatarChangeValidationNeeded' => '1',
-            'usersPictureFolder' => 'photos');
-
-        // Delete unneeded vars
-        $del = array_diff($oldVarsNames, $newVarsNames);
-        foreach ($del as $i) {
-            $this->delVar($i);
-        }
-
-        // Add new vars
-        $add = array_diff($newVarsNames, $oldVarsNames);
-        foreach ($add as $i) {
-            $this->setVar($i, $newVars[$i]);
-        }
-        
-        
+                        
         return true;
     }
 

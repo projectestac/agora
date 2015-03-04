@@ -16,3 +16,11 @@ table.usertable th  {
 	background-color: #CFCFCF;
 	padding: 5px 5px 10px 5px; /* top, right, bottom, left */
 }
+
+.errormsg {
+    background: #F7CBCA 13px 50% no-repeat !important;
+    border: 1px solid #CC0000 !important;
+    color: #880000 !important;
+    margin: 5px 0 10px !important;
+    padding: 5px 5px 5px 5px !important;
+}

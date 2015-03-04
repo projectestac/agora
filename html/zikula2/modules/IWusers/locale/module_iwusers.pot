@@ -6,207 +6,45 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Zikula component\n"
+"Project-Id-Version: Zikula 1.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-25 14:20+0100\n"
+"POT-Creation-Date: 2014-03-13 22:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/IWusers/Api/User.php:108 lib/IWusers/Api/Admin.php:13
-#: lib/IWusers/Api/Admin.php:43 lib/IWusers/Api/Admin.php:79
-#: lib/IWusers/Api/Admin.php:116 lib/IWusers/Api/Admin.php:147
-#: lib/IWusers/Api/Admin.php:176 lib/IWusers/Api/Admin.php:205
-#: lib/IWusers/Api/Admin.php:236 lib/IWusers/Api/Admin.php:259
-msgid "Error! Could not do what you wanted. Please check your input."
+#: lib/IWusers/Block/Welcome.php:21
+msgid "Show a welcome message wend user is in home page"
 msgstr ""
 
-#: lib/IWusers/Api/User.php:127 lib/IWusers/Api/User.php:209
-msgid "Error! Could not load items."
+#: lib/IWusers/Block/Welcome.php:60 lib/IWusers/Block/Welcome.php:93
+msgid "Hi"
 msgstr ""
 
-#: lib/IWusers/Api/User.php:230 lib/IWusers/Api/Admin.php:17
-#: lib/IWusers/Api/Admin.php:57 lib/IWusers/Api/Admin.php:91
-#: lib/IWusers/Api/Admin.php:308
-msgid "Error! Creation attempt failed."
+#: lib/IWusers/Block/Welcome.php:61 lib/IWusers/Block/Welcome.php:94
+msgid "welcome to the intranet"
 msgstr ""
 
-#: lib/IWusers/Api/User.php:252 lib/IWusers/Api/Admin.php:154
-#: lib/IWusers/Api/Admin.php:183 lib/IWusers/Api/Admin.php:212
-#: lib/IWusers/Api/Admin.php:239 lib/IWusers/Api/Admin.php:262
-#: lib/IWusers/Api/Admin.php:265 lib/IWusers/Api/Admin.php:268
-msgid "Error! Sorry! Deletion attempt failed."
+#: lib/IWusers/Block/Welcome.php:97
+msgid "Geeting"
 msgstr ""
 
-#: lib/IWusers/Api/User.php:268 lib/IWusers/Api/Admin.php:126
-msgid "Error! Update attempt failed."
+#: lib/IWusers/Block/Welcome.php:98
+msgid "Welcome text"
 msgstr ""
 
-#: lib/IWusers/Api/User.php:277
-msgid "Shows the groups I belong"
+#: lib/IWusers/Block/Welcome.php:99
+msgid "Include date and time"
 msgstr ""
 
-#: lib/IWusers/Api/User.php:280
-msgid "Show all the groups"
-msgstr ""
-
-#: lib/IWusers/Api/User.php:283
-msgid "Show contacts' list"
-msgstr ""
-
-#: lib/IWusers/Api/Admin.php:151 lib/IWusers/Api/Admin.php:180
-#: lib/IWusers/Api/Admin.php:209
-msgid "You can not remove yourself"
-msgstr ""
-
-#: lib/IWusers/Api/Admin.php:1320
-msgid "Create user"
-msgstr ""
-
-#: lib/IWusers/Api/Admin.php:1321
-msgid "Show the list of users"
-msgstr ""
-
-#: lib/IWusers/Api/Admin.php:1322
-msgid "Configure the module"
-msgstr ""
-
-#: lib/IWusers/Controller/User.php:66 lib/IWusers/Controller/User.php:77
-#: lib/IWusers/Controller/User.php:87 lib/IWusers/Controller/Admin.php:232
-#: lib/IWusers/Controller/Admin.php:316 lib/IWusers/Controller/Admin.php:421
-#: lib/IWusers/Controller/Admin.php:467 lib/IWusers/Controller/Admin.php:614
-#: lib/IWusers/Controller/Admin.php:2198 lib/IWusers/Controller/Admin.php:2350
-#: lib/IWusers/Controller/Admin.php:2370 lib/IWusers/Controller/Admin.php:2437
-#: lib/IWusers/Controller/Admin.php:2509 lib/IWusers/Controller/Admin.php:2549
-#: lib/IWusers/Controller/Ajax.php:8 lib/IWusers/Controller/Ajax.php:48
-#: lib/IWusers/Controller/Ajax.php:69 lib/IWusers/Controller/Ajax.php:100
-msgid "Sorry! No authorization to access this module."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:195
-msgid "User name"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:196
-msgid "Name"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:197
-msgid "1st surname"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:198
-msgid "2nd surname"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:236 lib/IWusers/Controller/Admin.php:618
-#: lib/IWusers/Controller/Admin.php:2373
-msgid "No users have chosen"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:244 lib/IWusers/Controller/Admin.php:627
-#: lib/IWusers/Controller/Admin.php:800 lib/IWusers/Controller/Admin.php:2380
-msgid "No users found"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:330
-msgid "There was some mistake while editing"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:369
-msgid "Probably the note have been sent without the attached file"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:407 lib/IWusers/Controller/Admin.php:2496
-msgid "The records have been published successfully"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:477
-msgid "You do not have written the name of user"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:483
-msgid "You do not have written the password of the user"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:489
-msgid "You do not have written the e-mail to the user"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:495
-msgid "You have not selected the initial group of the user"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:508 lib/IWusers/Controller/Admin.php:2460
-msgid "Username"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:508 lib/IWusers/Controller/Admin.php:2460
-msgid "already exists. You have to choose another."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:515
+#: lib/IWusers/Installer.php:10
 msgid ""
-"The password chosen by the user is too short. The minimum character must "
-"have the password is"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:526
-msgid "There was an error in the creation of the user."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:545
-msgid "User without avatar"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:580
-msgid ""
-"The user has been created but there was an error in the entry of personal "
-"information. Create this user and makes it the right information."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:590
-msgid ""
-"The user has been created but there was an error in the allocation of the "
-"initial group of the user. Put this user in a group/s that you think "
-"appropriate  from the management module group."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:594
-msgid "We have created a user new"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:678
-msgid "There was an error and failed to remove the information from the user"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:686
-msgid "There was an error deleting user groups. The user could not be removed"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:695
-msgid "There was an error deleting users from the database"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:699
-msgid "The user or users have been deleted"
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:839
-msgid ""
-"An error occurred while creating the data file. Checks from the global "
-"configuration of the module (IWmain), the temporary directory exists."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:2493
-msgid "Has been a problem updating the user login information."
-msgstr ""
-
-#: lib/IWusers/Controller/Admin.php:2562
-msgid "The configuration has changed"
+"Module IWmain is needed. You have to install the IWmain module before "
+"installing it."
 msgstr ""
 
 #: lib/IWusers/Version.php:6 lib/IWusers/Version.php:8
@@ -217,32 +55,424 @@ msgstr ""
 msgid "Improves the chances of users of the module."
 msgstr ""
 
-#: lib/IWusers/Installer.php:10
+#: lib/IWusers/Api/User.php:108 lib/IWusers/Api/Admin.php:42
+#: lib/IWusers/Api/Admin.php:79 lib/IWusers/Api/Admin.php:110
+#: lib/IWusers/Api/Admin.php:139
+msgid "Error! Could not do what you wanted. Please check your input."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:127 lib/IWusers/Api/User.php:209
+#: lib/IWusers/Api/Admin.php:176
+msgid "Error! Could not load items."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:230 lib/IWusers/Api/User.php:267
+#: lib/IWusers/Api/User.php:292 lib/IWusers/Api/User.php:315
+#: lib/IWusers/Api/Admin.php:19 lib/IWusers/Api/Admin.php:54
+msgid "Error! Creation attempt failed."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:252 lib/IWusers/Api/Admin.php:117
+#: lib/IWusers/Api/Admin.php:142
+msgid "Error! Sorry! Deletion attempt failed."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:277 lib/IWusers/Api/User.php:300
+#: lib/IWusers/Api/User.php:323 lib/IWusers/Api/User.php:356
+#: lib/IWusers/Api/Admin.php:89
+msgid "Error! Update attempt failed."
+msgstr ""
+
+#: lib/IWusers/Api/User.php:364
+msgid "Shows the groups I belong"
+msgstr ""
+
+#: lib/IWusers/Api/User.php:367
+msgid "Show all the groups"
+msgstr ""
+
+#: lib/IWusers/Api/User.php:370
+msgid "Show contacts' list"
+msgstr ""
+
+#: lib/IWusers/Api/User.php:373
+msgid "Edit profile"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:114
+msgid "You can not remove yourself"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:154
+msgid "Create user"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:155
+msgid "Show the list of users"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:156 templates/IWusers_admin_config.htm:4
+msgid "Configure the module"
+msgstr ""
+
+#: lib/IWusers/Api/Admin.php:157
+#: templates/IWusers_admin_changeAvatarView.htm:4
+msgid "Avatar change request"
+msgstr ""
+
+#: lib/IWusers/Api/Account.php:29
+msgid "Perfil"
+msgstr ""
+
+#: lib/IWusers/Controller/User.php:144 lib/IWusers/Controller/Admin.php:360
 msgid ""
-"Module IWmain is needed. You have to install the IWmain module before "
-"installing it."
+"The information has been modified, but the uplaod of the avatar has failed "
+"because the file extension is not allowed. The allowed extensions are: png, "
+"jpg and gif"
 msgstr ""
 
-#: lib/IWusers/Block/welcome.php:50
-msgid "Show a welcome message wend user is in home page"
+#: lib/IWusers/Controller/User.php:209
+msgid "The values have changed correctly"
 msgstr ""
 
-#: lib/IWusers/Block/welcome.php:90 lib/IWusers/Block/welcome.php:126
-msgid "Hi"
+#: lib/IWusers/Controller/User.php:278 lib/IWusers/Controller/Ajax.php:139
+msgid "Sorry! No authorization to access this module."
 msgstr ""
 
-#: lib/IWusers/Block/welcome.php:91 lib/IWusers/Block/welcome.php:127
-msgid "welcome to the intranet"
+#: lib/IWusers/Controller/Admin.php:178 templates/IWusers_admin_main.htm:59
+msgid "User name"
 msgstr ""
 
-#: lib/IWusers/Block/welcome.php:130
-msgid "Geeting"
+#: lib/IWusers/Controller/Admin.php:179 templates/IWusers_admin_main.htm:60
+#: templates/IWusers_admin_edit.htm:12 templates/IWusers_user_profile.htm:10
+msgid "Name"
 msgstr ""
 
-#: lib/IWusers/Block/welcome.php:131
-msgid "Welcome text"
+#: lib/IWusers/Controller/Admin.php:180 templates/IWusers_admin_main.htm:61
+#: templates/IWusers_admin_edit.htm:16 templates/IWusers_user_profile.htm:14
+msgid "1st surname"
 msgstr ""
 
-#: lib/IWusers/Block/welcome.php:132
-msgid "Include date and time"
+#: lib/IWusers/Controller/Admin.php:181 templates/IWusers_admin_main.htm:62
+#: templates/IWusers_admin_edit.htm:20 templates/IWusers_user_profile.htm:18
+msgid "2nd surname"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:217
+msgid "No users have chosen"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:223
+msgid "No users found"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:288
+msgid "There was some mistake while editing"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:396
+msgid "The records have been published successfully"
+msgstr ""
+
+#: lib/IWusers/Controller/Admin.php:491
+msgid "The configuration has changed"
+msgstr ""
+
+#: lib/IWusers/Controller/Ajax.php:165
+msgid "Error deleting avatar"
+msgstr ""
+
+#: lib/IWusers/Controller/Ajax.php:177 lib/IWusers/Controller/Ajax.php:204
+#: lib/IWusers/Controller/Ajax.php:208
+msgid "Changing the avatar has failed."
+msgstr ""
+
+#: lib/IWusers/Controller/Ajax.php:191
+msgid "Error changing avatar"
+msgstr ""
+
+#: templates/IWusers_user_main.htm:4
+msgid "All the groups"
+msgstr ""
+
+#: templates/IWusers_user_main.htm:6
+msgid "Groups you're already a member"
+msgstr ""
+
+#: templates/IWusers_user_main.htm:12
+msgid "Group"
+msgstr ""
+
+#: templates/IWusers_user_main.htm:13
+msgid "N. components"
+msgstr ""
+
+#: templates/IWusers_admin_addGroupRow.htm:3
+msgid "Add group"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:4
+msgid "List of users"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:24 templates/IWusers_admin_main.htm:27
+msgid "All"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:33
+msgid "N. records"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:41
+msgid "Order"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:57
+msgid "Id"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:63
+msgid "Group/a"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:64
+#: templates/IWusers_admin_changeAvatarView.htm:12
+msgid "Options"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:109 templates/IWusers_admin_edit.htm:52
+msgid "Edit"
+msgstr ""
+
+#: templates/IWusers_admin_main.htm:117
+msgid "No. Records"
+msgstr ""
+
+#: templates/IWusers_admin_menu.htm:5 templates/IWusers_user_menu.htm:3
+msgid "Users"
+msgstr ""
+
+#: templates/IWusers_admin_addGroupForm.htm:3
+msgid "Choose a group..."
+msgstr ""
+
+#: templates/IWusers_admin_edit.htm:4
+msgid "Edit the users"
+msgstr ""
+
+#: templates/IWusers_admin_edit.htm:25
+msgid "Avatar"
+msgstr ""
+
+#: templates/IWusers_admin_edit.htm:33
+msgid "Delete avatar"
+msgstr ""
+
+#: templates/IWusers_admin_edit.htm:42
+msgid ""
+"The avatar image must be 90x120 px aproximately with the extensions jpg, gif "
+"or png"
+msgstr ""
+
+#: templates/IWusers_admin_edit.htm:55
+msgid "Cancel"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:8
+msgid "Set contacts list available"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:12
+msgid "Users can manage their real names"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:16
+msgid "Users can set their sex"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:20
+msgid "Users can describe theirselves"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:24
+msgid "Invisible groups in users search"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:34
+msgid "Folder where to look for the users pictures"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:38
+msgid "Users pictures directori hasn't been found"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:43
+msgid "This folder is not writeable."
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:49
+msgid "The users can change theirs avatars"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:53
+msgid "The avatar replacement needs validation"
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:59
+msgid ""
+"The users can not change theirs avatars because the directori of pictures "
+"does not exist or it has not the correct permissions."
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:64
+msgid ""
+"The users can change theirs avatars because the php's gd extensión is not "
+"available."
+msgstr ""
+
+#: templates/IWusers_admin_config.htm:69
+msgid "Modify the configuration"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:2
+msgid "User configurable values"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:8
+msgid "Change your real name"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:25
+msgid "Your sex"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:27
+msgid "Sex"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:29
+msgid "Choose an option..."
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:30
+msgid "Mail"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:31
+msgid "Femail"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:38
+msgid "Avatar replacement"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:43
+#: templates/IWusers_admin_changeAvatarView.htm:36
+msgid "Delete"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:52
+msgid "Upload your avatar"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:54
+msgid "If you want, you can change your avatar from here:"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:58
+msgid "(The avatar change required administrator validation)"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:64
+msgid ""
+"Your avatar's image sizes must be 90x120 px aproximately with one of the "
+"next formats: jpg, gif or png."
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:69
+msgid ""
+"Your avatar changement request is waiting for an administrator validation."
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:77
+msgid "Describe yourself"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:79
+msgid "Your description"
+msgstr ""
+
+#: templates/IWusers_user_profile.htm:87
+msgid "OK"
+msgstr ""
+
+#: templates/IWusers_user_members.htm:4
+msgid "List of users of the group"
+msgstr ""
+
+#: templates/IWusers_user_members.htm:6
+msgid "Contacts'"
+msgstr ""
+
+#: templates/IWusers_user_members.htm:23
+#: templates/IWusers_user_members_optionsContent.htm:3
+msgid "Delete from contacts' list"
+msgstr ""
+
+#: templates/IWusers_user_members.htm:27
+#: templates/IWusers_user_members_optionsContent.htm:7
+msgid "Add to contacts' list"
+msgstr ""
+
+#: templates/IWusers_user_members.htm:31
+#: templates/IWusers_user_members_optionsContent.htm:10
+msgid "Send a private message"
+msgstr ""
+
+#: templates/IWusers_user_members.htm:35
+msgid "No contacts found"
+msgstr ""
+
+#: templates/IWusers_admin_pager.htm:1
+msgid "Page"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:3
+msgid "Admin - change avatar"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:9
+msgid "User"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:10
+msgid "Current avatar"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:11
+msgid "New avatar"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:32
+msgid "Confirm the avatar change"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:33
+msgid "Approve the avatar changer"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:35
+msgid "Confirm the deletion"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:43
+msgid "Not requests found"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:51
+msgid "--- Deleting avatar ---"
+msgstr ""
+
+#: templates/IWusers_admin_changeAvatarView.htm:52
+msgid "--- Changing avatar ---"
 msgstr ""

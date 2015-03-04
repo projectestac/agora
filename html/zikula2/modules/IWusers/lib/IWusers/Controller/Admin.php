@@ -1,12 +1,21 @@
 <?php
+include 'vendor/csvImporter/CsvImporter.php';
 
 class IWusers_Controller_Admin extends Zikula_AbstractController {
-
+   /**
+     * Post initialise.
+     *
+     * Run after construction.
+     *
+     * @return void
+     */
     protected function postInitialize() {
-        // Set caching to false by default.
-        $this->view->setCaching(false);
+       // Disable caching by default.
+        $this->view->setCaching(Zikula_View::CACHE_DISABLED);
+        //$this->view->setCaching(false);
     }
-
+ 
+   
     /**
      * Show the list of users
      * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
@@ -89,11 +98,17 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
         // Get all the groups information
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $groupsInfo = ModUtil::func('IWmain', 'user', 'getAllGroupsInfo', array('sv' => $sv));
-        // Create the users that are in users table but are not in IWusers table
+        
+        // Create/delete the users that are in users table but are not in IWusers table
+        
+        ModUtil::apiFunc($this->name, 'admin', 'sincronize');
+        /*** canvi 09/06/2014 ************************************************
         $notExist = array_diff_key($usersUname, $allUsers);
         foreach ($notExist as $key => $value) {
             ModUtil::apiFunc('IWusers', 'admin', 'create', array('uid' => $key));
         }
+         * 
+         */
         // Count the users for the criteria
         $usersNumber = ModUtil::apiFunc('IWusers', 'user', 'countUsers', array('campfiltre' => $campfiltre,
                     'filtre' => $filtre));
@@ -197,7 +212,7 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
                         ->assign('numitems', $numitems)
                         ->assign('users', $usersArray)
                         ->assign('usersNumber', $usersNumber)
-                        ->fetch('IWusers_admin_main.htm');
+                        ->fetch('IWusers_admin_main.tpl');
     }
 
     /**
@@ -267,7 +282,7 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
      */
     public function update($args) {
 
-        $uid = FormUtil::getPassedValue('uid', isset($args) ? $args : null, 'POST');
+        $uid = FormUtil::getPassedValue('uidp', isset($args) ? $args : null, 'POST');
         $nom = FormUtil::getPassedValue('nom', isset($args) ? $args : null, 'POST');
         $cognom1 = FormUtil::getPassedValue('cognom1', isset($args) ? $args : null, 'POST');
         $cognom2 = FormUtil::getPassedValue('cognom2', isset($args) ? $args : null, 'POST');
@@ -301,10 +316,14 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
                     'list' => $usersList));
 
         $folder = ModUtil::getVar('IWmain', 'tempFolder');
-
+		$path = ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'usersPictureFolder') . '/';
         //update avatars
         foreach ($uid as $u) {
             if ($deleteAvatar[$u] != 1) {
+
+/* ////TODO Create common functions to avatar managing from user and admin
+///////This is the old code (with some problems) and the new one takes the user function way...
+
                 $user = 'avatar_' . $u;
                 $nom_fitxer = '';
                 $fileName = $_FILES['avatar_' . $u]['name'];
@@ -347,12 +366,45 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
 
                     //delete the avatar file in temporal folder
                     unlink(ModUtil::getVar('IWmain', 'documentRoot') . '/' . ModUtil::getVar('IWusers', 'tempFolder') . '/' . $nom_fitxer);
+///////////////////////
+*/
+            //gets the attached file array
+                $fileName = $_FILES['avatar_' . $u]['name'];
+                $file_extension = strtolower(substr(strrchr($fileName, "."), 1));
+                if ($file_extension != 'png' && $file_extension != 'gif' && $file_extension != 'jpg' && $fileName != '') {
+                    $errorMsg = $this->__('The information has been modified, but the uplaod of the avatar has failed because the file extension is not allowed. The allowed extensions are: png, jpg and gif');
+                    $fileName = '';
                 }
+                // update the attached file to the server
+                if ($fileName != '') {
+                    for ($i = 0; $i < 2; $i++) {
+                        $fileAvatarName = UserUtil::getVar('uname',$u);
+                        $userFileName = ($i == 0) ? $fileAvatarName . '.' . $file_extension : $fileAvatarName . '_s.' . $file_extension;
+                        $new_width = ($i == 0) ? 90 : 30;
+                        //source and destination
+                        $imgSource = $_FILES['avatar_' . $u]['tmp_name'];
+                        $prevalidated = (ModUtil::getVar('IWusers', 'avatarChangeValidationNeeded') == 1 && !SecurityUtil::checkPermission('IWusers::', "::", ACCESS_ADMIN)) ? '_' : '';
+                        $imgDest = $path . $prevalidated . $userFileName;
+                        //if success $errorMsg = ''
+                        $errorMsg = ModUtil::func('IWmain', 'user', 'thumb', array('imgSource' => $imgSource,
+                                'imgDest' => $imgDest,
+                                'new_width' => $new_width,
+                                'imageName' => $fileName));
+                        if ($errorMsg == '') {
+                            // save user avatar extension
+                            if (!ModUtil::apiFunc('IWusers', 'user', 'changeAvatar', array('avatar' => UserUtil::getVar('uname',$u) . '.' . $file_extension,
+                                )))
+                            $errorMsg = 'Changing the avatar has failed.';
+                        }
+                    }
+                }
+                
             } else {
                 ModUtil::func('IWusers', 'user', 'deleteAvatar', array('avatarName' => $usersNames[$u],
                     'extensions' => array('jpg', 'png', 'gif')));
                 ModUtil::func('IWusers', 'user', 'deleteAvatar', array('avatarName' => $usersNames[$u] . '_s',
                     'extensions' => array('jpg', 'png', 'gif')));
+				ModUtil::apiFunc('IWusers', 'user', 'changeAvatar', array('target' => 'avatar', 'uid' => $u,'avatar' => ''));
             }
         }
 
@@ -491,6 +543,314 @@ class IWusers_Controller_Admin extends Zikula_AbstractController {
                         ->assign('avatars', $avatars)
                         ->assign('path', $path)
                         ->fetch('IWusers_admin_changeAvatarView.htm');
+    }
+
+    /**
+     * Import users from CSV file. 
+     * @author Josep Ferràndiz Farré (jferran6@xtec.cat)
+     * **CSV File header** Allowed fields: uname,new_uname,email,password,forcechgpass,activated,firstname,lastname1,lastname2,birthdate,gender,code,in,out
+     * Fields "in" and "out" contains group IDs where the user will be added or removed, separated by "|" char
+     * Deletions will be made before insertions.
+     * 
+     */
+    public function import(){
+        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN));
+        // Sincronize tables users & IWUsers 
+        ModUtil::apiFunc($this->name, 'admin', 'sincronize');
+        $view = Zikula_View::getInstance($this->name);
+        
+        if ($this->request->isPost()) {
+            $this->checkCsrfToken();
+            $importFile = $this->request->files->get('importFile', null);
+            $delimiter  = $this->request->request->get('delimiter', ';');
+            // 1. Validate file: header & structure
+            if (is_null($importFile)) {
+                LogUtil::registerError($this->__('File error. Probably exceeds max. file size.'));
+            } else {
+                // Header fields table equivalents
+                $headerTrans =array('uname'       => 'uname', 
+                                    'new_uname'   => 'new_uname', 
+                                    'email'       => 'email',
+                                    'code'        => 'code',
+                                    'password'    => 'password',
+                                    'forcechgpass'=> 'forcechgpass',
+                                    'activated'   => 'activated',
+                                    'firstname'   => 'nom',
+                                    'lastname1'   => 'cognom1',
+                                    'lastname2'   => 'cognom2',
+                                    'description' => 'description',
+                                    'birthdate'   => 'naixement',
+                                    'gender'      => 'sex',
+                                    'in'          => 'in',
+                                    'out'         => 'out'
+                    );
+
+                $import = new CsvImporter($importFile['tmp_name'],true, $headerTrans, $delimiter);  
+                $header  = $import->getHeader();
+                $oHeader = $import->getOriHeader();
+                
+                $check  = ModUtil::apiFunc($this->name, 'admin', 'checkCsvHeader', $header);
+                // Check CSV file header
+                if (!$check['correcte']) {
+                    // CSV header incorrect
+                    LogUtil::registerError($check['msg']);
+                } else {
+                    // Get CSV file content
+                    $data = $import->get();
+                    // Initialize 
+                    $update = array();
+                    $insert = array();
+                    $optimizeGroups = ((in_array('in', $header)) || (in_array('out', $header)));
+                    $forcechgpass   = in_array('forcechgpass', $header);
+                    $iErrors = array();
+                    // Check file info
+                    foreach ($data as &$line) {
+                        $uid = UserUtil::getIdFromName($line['uname']);
+                        if ($optimizeGroups) {
+                            $res = ModUtil::apiFunc($this->name, 'admin', 'optimizeGroups', array('uid' => $uid, 'data'=> $line));
+                            $line['in'] = $res['in'];
+                            $line['out'] = $res['out'];                            
+                        }                            
+                        if ($uid){       
+                            $line['uid'] = $uid;
+                            // Update
+                            if (isset($line['activated'])){
+                                if ($line['activated']!=""){
+                                    $line['activated'] = $line['activated'] == '0' ? 0 : 1;                                    
+                                } else {
+                                    // Mantain actual value
+                                    $line['activated'] = DBUtil::selectField('users', 'activated', 'uid='.$uid);
+                                }                                
+                            }
+                            $update[] = $line;                                
+                        } else {
+                            // Insert new user
+                            if ($line['uname'] !=""){
+                                if (!isset($line['activated']) || (isset($line['activated']) && $line['activated']!='0')) $line['activated'] = 1;
+                                $insert[] = $line;
+                            } else {
+                                // Error. No username 
+                                $line['error'] = $this->__('No username.');
+                                $iErrors[] = $line;
+                            }
+                        }                            
+                    }
+                    // Process file information
+                    $allChanges = ModUtil::apiFunc($this->name, 'admin', 'applyCsvValues', array('update' => $update, 'insert' =>$insert));               
+                    unset($update); $update = array();
+                    unset($insert); $insert = array();
+                    foreach ($allChanges as $user){                       
+                        switch ($user['action']){
+                            case 'm':
+                                $update[] = $user;
+                                break;
+                            default:
+                                $insert[] = $user;
+                        }
+                        if (isset($user['error'])){ 
+                            // There are errors
+                            $iErrors[] = $user;
+                        }
+                    }
+                    $view->assign('insert', $insert);
+                    $view->assign('update', $update);
+                    $view->assign('iErrors', $iErrors);
+                    $view->assign('header', $oHeader);
+                    $view->assign('hc', count($oHeader));
+                    return $view->fetch('IWusers_admin_importResults.tpl');        
+
+                } // File header is correct
+            } // exist import file                
+        } // Is POST
+         
+        // Get zikula groups name and gid
+        $g = UserUtil::getGroups('','name');
+        foreach ($g as $key => $value) {
+            $groupInfo[] = array_slice($value,0,2);
+        }
+                
+        $view->assign('post_max_size', ini_get('post_max_size'));
+        $view->assign('groupInfo', $groupInfo);
+        
+        return $view->fetch('IWusers_admin_import.tpl');        
+    }
+        
+
+    public function exporter($args){
+        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWusers::', '::', ACCESS_ADMIN));
+        
+        // Sincronize tables users & IWusers
+        ModUtil::apiFunc($this->name, 'admin', 'sincronize');
+        
+        $view = Zikula_View::getInstance($this->name);
+        if ($this->request->isPost()) {
+            // Returning from a form POST operation. Process the input.
+            //$this->checkCsrfToken();
+            // Get fields selection
+            $d = date('YmdHi') ;
+            $defaultFilename  = "exportUsers". $d. '.csv';
+            $email        = $this->request->request->get('export_email', 0);
+            $activated    = $this->request->request->get('export_activated', 0);
+            $iw_nom       = $this->request->request->get('export_firstname', 0);
+            $iw_cognom1   = $this->request->request->get('export_lastname1', 0);
+            $iw_cognom2   = $this->request->request->get('export_lastname2', 0);
+            $iw_naixement = $this->request->request->get('export_birthdate', 0);
+            $iw_sex       = $this->request->request->get('export_gender', 0);
+            $export_groups= $this->request->request->get('export_groups', 0);
+            $filename     = $this->request->request->get('filename','');
+            if (!$filename) $filename =  $defaultFilename;
+            $delimiter    = $this->request->request->get('delimiter', ';');
+            
+            // Generate CSV file
+            // Get database values
+            $optFields = array();
+            $optFields =compact("email", 
+                                "activated",
+                                "iw_nom",
+                                "iw_cognom1", 
+                                "iw_cognom2",
+                                "iw_naixement",
+                                "iw_sex",
+                                "export_groups");
+            // Form fields
+            $view->assign('export_email',$email );
+            $view->assign('export_activated',$activated );
+            $view->assign('export_firstname',$iw_nom );
+            $view->assign('export_lastname1',$iw_cognom1);
+            $view->assign('export_lastname2',$iw_cognom2 );
+            $view->assign('export_birhtdate',$iw_naixement );
+            $view->assign('export_gender',$iw_sex );
+            $view->assign('export_groups',$export_groups );
+                        
+            // Get users info CSV file
+            $rs = ModUtil::apiFunc($this->name, 'admin', 'exportToCsv', array('optFields' => $optFields, 'filename' => $filename, 'delimiter' => $delimiter));     
+        }               
+        return $view->fetch('IWusers_admin_export.tpl');          
+    }        
+    
+    /**
+     * Display a form to confirm the deletion of one user, and then process the deletion.
+     *
+     * Parameters passed via GET:
+     * --------------------------
+     * numeric userid The user id of the user to be deleted.
+     * string  uname  The user name of the user to be deleted.
+     *
+     * Parameters passed via POST:
+     * ---------------------------
+     * array   userid         The array of user ids of the users to be deleted.
+     * boolean process_delete True to process the posted userid list, and delete the corresponding accounts; false or null to confirm first.
+     *
+     * Parameters passed via SESSION:
+     * ------------------------------
+     * None.
+     *
+     * @return string HTML string containing the rendered template.
+     *
+     * @throws Zikula_Exception_Forbidden Thrown if the current user does not have delete access, or if the method of accessing this function is improper.
+     */
+        
+    public function deleteUsers()
+    {
+        // check permissions
+        $this->throwForbiddenUnless(SecurityUtil::checkPermission('IWusers::', '::', ACCESS_DELETE));
+
+        $proceedToForm = false;
+        $processDelete = false;
+
+        if ($this->request->isPost()) {
+            $userid = $this->request->request->get('userId', null);
+            $processDelete = $this->request->request->get('process_delete', false);            
+            $proceedToForm = !$processDelete;            
+        } elseif ($this->request->isGet()) {
+            $userid = $this->request->query->get('uid', null);
+            $uname  = $this->request->query->get('uname', null);
+
+            // retreive userid from uname
+            if (empty($userid) && !empty($uname)) {
+                $userid = UserUtil::getIdFromName($users);
+            }
+
+            $proceedToForm = true;
+        } else {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        if (empty($userid)) {            
+            $this->registerError($this->__('No users have chosen'));
+            $proceedToForm = false;
+            $userid = array();
+        } elseif (!is_array($userid)) {
+            $userid = array($userid);
+        } 
+                    
+        $currentUser = UserUtil::getVar('uid');
+        $users = array();  
+        foreach ($userid as $key => $uid) {
+            if ($uid == 1) {
+                $this->registerError($this->__("Error! You can't delete the guest account."));
+                $proceedToForm = false;
+                $processDelete = false;
+            } elseif ($uid == 2) {
+                $this->registerError($this->__("Error! You can't delete the primary administrator account."));
+                $proceedToForm = false;
+                $processDelete = false;
+            } elseif ($uid == $currentUser) {
+                $this->registerError($this->__("Error! You can't delete the account you are currently logged into."));
+                $proceedToForm = false;
+                $processDelete = false;
+            }
+
+            // get the user vars
+            $users[$key] = UserUtil::getVars($uid);
+
+            if (empty($users[$key])) {
+                $this->registerError($this->__('Sorry! No such user found.'));
+                $proceedToForm = false;
+                $processDelete = false;
+            }
+        }
+
+        if ($processDelete) {      
+            $this->checkCsrfToken();
+            $valid = true;
+            foreach ($userid as $uid) {
+                $event = new Zikula_Event('module.users.ui.validate_delete', null, array('id' => $uid), new Zikula_Hook_ValidationProviders());
+                $validators = $this->eventManager->notify($event)->getData();
+
+                $hook = new Zikula_ValidationHook('users.ui_hooks.user.validate_delete', $validators);
+                $this->notifyHooks($hook);
+                $validators = $hook->getValidators();
+
+                if ($validators->hasErrors()) {
+                    $valid = false;
+                }
+            }
+
+            $proceedToForm = false;
+            if ($valid) {
+                $deleted = ModUtil::apiFunc($this->name, 'admin', 'deleteUser', array('uid' => $userid));
+
+                if ($deleted) {
+                    foreach ($userid as $uid) {
+                        $event = new Zikula_Event('module.users.ui.process_delete', null, array('id' => $uid));
+                        $this->eventManager->notify($event);
+
+                        $hook = new Zikula_ProcessHook('users.ui_hooks.user.process_delete', $uid);
+                        $this->notifyHooks($hook);
+                    }
+                    $count = count($userid);
+                    $this->registerStatus($this->_fn('Done! Deleted %1$d user account.', 'Done! Deleted %1$d user accounts.', $count, array($count)));
+                }
+            }
+        }
+
+        if ($proceedToForm) {
+            return $this->view->assign('users', $users)
+                ->fetch('IWusers_admin_deleteusers.tpl');
+        } else {
+            $this->redirect(ModUtil::url($this->name, 'admin', 'main'));
+        }
     }
 
 }
