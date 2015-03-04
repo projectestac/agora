@@ -19,6 +19,10 @@ ZIKULA
 - IWusers: Upgraded to version 3.1.0
 - Scribite: Added dummy catalan lang files for Xinha to avoid javascript errors
 
+Changes 15.03.04
+---------------------------------------------------------------------------------------
+NODES
+- Sets the order and the position for the boxes
 
 Changes 15.02.20
 ---------------------------------------------------------------------------------------
