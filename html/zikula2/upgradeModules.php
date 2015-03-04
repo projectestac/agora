@@ -56,7 +56,7 @@ $scribiteId = $result[0];
 echo "Scribite ID: ".$scribiteId."<br/>";
 
 // Modules to Upgrade
-$modulesToUpgrade = array("News", "IWnoteboard", "IWmessages", "IWforms", "Pages", "Content", "IWforums");
+$modulesToUpgrade = array("News", "IWnoteboard", "IWmessages", "IWforms", "Pages", "Content", "IWforums", "AdminMessages", "Blocks");
 
 foreach ($modulesToUpgrade as $module) {
 	$moduleId ='';
