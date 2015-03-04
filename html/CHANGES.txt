@@ -15,6 +15,7 @@ PORTAL
 - Agoraportal: New stats library chartjs, renew the stats function and apply reading stats for Moodle2
 
 ZIKULA
+- Added creation of hooks for AdminMessages and Blocks
 - IWbookings: Fixed loss of time frame when updating resource configuration
 - IWusers: Upgraded to version 3.1.0
 - Scribite: Added dummy catalan lang files for Xinha to avoid javascript errors
