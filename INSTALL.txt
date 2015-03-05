@@ -57,7 +57,7 @@ ZIKULA Installation
 
 2. Create MySQL database 'usu1' with collation 'utf8_general_ci'.
 
-3. Import sql/intranet_usu1.sql into database adminagora.
+3. Import sql/intranet_usu1.sql into database usu1.
 
 4. Make directory zkdata/usu1 and all its sudirectories writable by web 
    server.
@@ -66,6 +66,30 @@ ZIKULA Installation
 
 
 Note: Access to intranets can be done with admin - agora.
+
+
+
+WORDPRESS Installation
+--------------------------------------------------------
+
+1. Copy into the public HTML directory of the web server the html/wordpress
+   directory.
+
+2. Create MySQL database 'usu1' with collation 'utf8_general_ci'.
+
+3. Import sql/masterxxx.sql into database usu1 (xxx specifies the template: pri for
+Primary School, sec for Secondary School and cfa for Adults Education). Before
+importing it you'll need to open and replace "http://pwc-int.educacio.intranet/agora/masterpri/"
+to "http://yourserver/pathtoyourwordpressinstallation/".
+
+4. Make directory wpdata/usu1 and all its sudirectories writable by web server.
+Copy the content of sql/masterxxx.zip and unzip it (it contains the initial files
+for the template)
+
+5. Repeat steps 2 to 4 for usu2, usu3 and usu4
+
+
+Note: Access to WordPress can be done with admin - agora.
 
 
 
