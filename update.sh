@@ -17,7 +17,11 @@ function gitcheckout {
     echo "Entrant $dir BRANCH $branch REPO $remote ..."
     pushd $dir > /dev/null
     update_exec "git checkout $branch"
-    update_exec "git remote set-url origin $remote"
+
+    if [ ! -z "$remote" ]; then
+        update_exec "git remote set-url origin $remote"
+    fi
+
     git_pull $branch
 
     popd > /dev/null
@@ -25,12 +29,12 @@ function gitcheckout {
 }
 
 function git_pull {
-	branch=$1
+    branch=$1
     if [[ $action == 'stash' ]]
     then
         update_exec "git stash"
     fi
-    
+
     if [[ $action == 'reset' ]]
     then
         update_exec "git reset --hard origin/$branch"
@@ -74,34 +78,36 @@ git_pull master
 
 if [[ $action != 'reset' ]]
 then
-	echo 'Inicialitzant submòduls...'
-	update_exec "git submodule update --recursive --init"
+    echo 'Inicialitzant submòduls...'
+    update_exec "git submodule update --recursive --init --rebase"
 
-	echo 'Sincronitzant submòduls...'
-	update_exec "git submodule sync"
+    echo 'Sincronitzant submòduls...'
+    update_exec "git submodule sync"
 fi
 
+#El tercer paràmetre només es posa si el repositori és nostre per poder-hi escriure
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "STABLE_26" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
-gitcheckout "html/moodle2/blocks/rgrade" "master" " git@github.com:imartel/Rgrade.git"
+gitcheckout "html/moodle2/blocks/rgrade" "master"
 gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
 gitcheckout "html/moodle2/local/agora" "master" "git@github.com:projectestac/moodle-local_agora.git"
 gitcheckout "html/moodle2/local/agora/mailer" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/moodle2/local/bigdata" "master" "git@github.com:projectestac/moodle-local_bigdata.git"
 gitcheckout "html/moodle2/local/oauth" "master" "git@github.com:projectestac/moodle-local_oauth.git"
-gitcheckout "html/moodle2/local/mobile" "MOODLE_26_STABLE" "git@github.com:jleyva/moodle-local_mobile.git"
+gitcheckout "html/moodle2/local/mobile" "MOODLE_26_STABLE"
+gitcheckout "html/moodle2/message/output/airnotifier" "MOODLE_26_STABLE"
 gitcheckout "html/moodle2/mod/eoicampus" "master" "git@github.com:projectestac/moodle-mod_eoicampus.git"
 gitcheckout "html/moodle2/mod/geogebra" "master" "git@github.com:projectestac/moodle-mod_geogebra.git"
-gitcheckout "html/moodle2/mod/hotpot" "master" "git@github.com:gbateson/moodle-mod_hotpot.git"
+gitcheckout "html/moodle2/mod/hotpot" "master"
 gitcheckout "html/moodle2/mod/jclic" "master" "git@github.com:projectestac/moodle-mod_jclic.git"
 gitcheckout "html/moodle2/mod/journal" "MOODLE_26_STABLE" "git@github.com:projectestac/moodle-mod_journal.git"
 gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_26_STABLE" "git@github.com:projectestac/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/qv" "master" "git@github.com:projectestac/moodle-mod_qv.git"
-gitcheckout "html/moodle2/question/format/hotpot" "master" "git@github.com:gbateson/moodle-qformat_hotpot.git"
-gitcheckout "html/moodle2/question/type/ddimageortext" "master" "git@github.com:moodleou/moodle-qtype_ddimageortext.git"
-gitcheckout "html/moodle2/question/type/ddmarker" "master" "git@github.com:moodleou/moodle-qtype_ddmarker.git"
-gitcheckout "html/moodle2/question/type/ddwtos" "master" "git@github.com:moodleou/moodle-qtype_ddwtos.git"
-gitcheckout "html/moodle2/question/type/gapselect" "master" "git@github.com:moodleou/moodle-qtype_gapselect.git"
+gitcheckout "html/moodle2/question/format/hotpot" "master"
+gitcheckout "html/moodle2/question/type/ddimageortext" "master"
+gitcheckout "html/moodle2/question/type/ddmarker" "master"
+gitcheckout "html/moodle2/question/type/ddwtos" "master"
+gitcheckout "html/moodle2/question/type/gapselect" "master"
 gitcheckout "html/moodle2/report/coursequotas" "master" "git@github.com:projectestac/moodle-report_coursequotas.git"
 gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moodle-theme_xtec2.git"
 
