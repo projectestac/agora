@@ -1,13 +1,19 @@
-// I18N constants
-// LANG: "fr", ENCODING: UTF-8
+﻿// I18N constants
+//
+// LANG: "ca", ENCODING: UTF-8
+// Catalan translation
+//
+// Intraweb project
+//
+//
+// Distributed under the same terms as HTMLArea itself.
+// This notice MUST stay intact for use (see license.txt).
+
 {
-	"SmartReplace Settings" : "Paramètres SmartReplace",
-	"Enable automatic replacements" : "Activer le remplacement automatique",
-	"Convert all quotes and dashes in the current document": "Convertir tous les guillemets et tirets dans le document actuel",
-
-	"OpeningDoubleQuotes": "»",
-	"ClosingDoubleQuotes": "«",
-	"OpeningSingleQuote": "",
-	"ClosingSingleQuote": ""
-
-};
+  "Cancel": "Cancel·la",
+  "Convert all quotes and dashes in the current document": "Convertir totes les cometes del document",
+  "Enable automatic replacements": "Permet remplaçaments automàtics",
+  "OK": "OK",
+  "SmartReplace": "Substitució intel·ligent",
+  "SmartReplace Settings": "Paràmetres de la substitució intel·ligent"
+}

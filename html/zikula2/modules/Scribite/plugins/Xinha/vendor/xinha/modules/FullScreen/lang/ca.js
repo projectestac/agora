@@ -1,6 +1,6 @@
 // I18N constants
-// LANG: "es", ENCODING: UTF-8
+// LANG: "ca", ENCODING: UTF-8
 // translated: Derick Leony <dleony@gmail.com>
 {
-  "Maximize/Minimize Editor": "Maximizar/Minimizar Editor"
+  "Maximize/Minimize Editor": "Maximitza/Minimitza"
 };
