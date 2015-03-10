@@ -116,7 +116,7 @@ gitcheckout "html/moodle2/question/type/wq" "master" "git@github.com:projectesta
 gitcheckout "html/moodle2/question/type/truefalsewiris" "master" "git@github.com:projectestac/moodle-qtype_truefalsewiris.git"
 gitcheckout "html/moodle2/question/type/shortanswerwiris" "master" "git@github.com:projectestac/moodle-qtype_shortanswerwiris.git"
 gitcheckout "html/moodle2/question/type/multichoicewiris" "master" "git@github.com:projectestac/moodle-qtype_multichoicewiris.git"
-gitcheckout "html/moodle2/question/type/multianwswerwiris" "master" "git@github.com:projectestac/moodle-qtype_multianswerwiris.git"
+gitcheckout "html/moodle2/question/type/multianswerwiris" "master" "git@github.com:projectestac/moodle-qtype_multianswerwiris.git"
 gitcheckout "html/moodle2/question/type/matchwiris" "master" "git@github.com:projectestac/moodle-qtype_matchwiris.git"
 gitcheckout "html/moodle2/question/type/essaywiris" "master" "git@github.com:projectestac/moodle-qtype_essaywiris.git"
 
