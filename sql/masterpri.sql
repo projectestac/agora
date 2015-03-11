@@ -1903,7 +1903,7 @@ CREATE TABLE `wp_users` (
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 (1, 'admin', '6142bfd56a583d891f0b1dcdbb2a9ef8', 'admin', 'a8000006@xtec.cat', '', '2014-09-12 09:10:47', '', 0, 'admin'),
-(2, 'xtecadmin', '6142bfd56a583d891f0b1dcdbb2a9ef8', 'xtecadmin', 'agora-noreply@xtec.cat', '', '2014-09-12 09:26:41', '', 0, 'xtecadmin');
+(2, 'xtecadmin', '6142bfd56a583d891f0b1dcdbb2a9ef8', 'xtecadmin', 'agora@xtec.invalid', '', '2014-09-12 09:26:41', '', 0, 'xtecadmin');
 
 -- --------------------------------------------------------
 
