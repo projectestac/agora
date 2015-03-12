@@ -431,7 +431,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $files = array();
 
         foreach ($modelTypes as $modelType) {
-            $urlModels[] = $urlModelBase . $modelType['shortcode'];
+            $urlModels[] = $urlModelBase . $modelType['shortcode'] . '/';
             $keywords[] = $modelType['keyword'];
             if ($modelType['keyword'] == $client['extraFunc']) {
                 $shortcode = $modelType['shortcode'];
