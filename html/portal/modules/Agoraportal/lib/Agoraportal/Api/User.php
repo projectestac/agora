@@ -1679,7 +1679,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                 $port = isset($parts[1]) ? $parts[1]: "";
                 $username = $agora['nodes']['username'];
                 $password = $agora['nodes']['userpwd'];
-                $connect = new mysqli($host, $username, $password, '', $port);
+                $connect = new mysqli($host, $username, $password, '', (int)$port);
                 if ($connect->connect_error) {
                     $error = $connect->connect_error;
                     $connect = false;
