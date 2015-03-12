@@ -25,7 +25,7 @@ ZIKULA
 Changes 15.03.12
 ---------------------------------------------------------------------------------------
 NODES
-- Sets user priority on boxes
+- Set user priority on the boxes
 - Hidden unnecessary boxes
 - Added external links for Google Fonts
 
