@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
+- Agoraportal: Improved activation of Nodes
 - Agoraportal: Fixed the creation and the update of the block of notices for Intraweb
 - Agoraportal: Solved retrieving CLOB vars from batch SQL on Oracle
 - Agoraportal: Change MySQL timeout on batch SQL execution and on on executing operations
