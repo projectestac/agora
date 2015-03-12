@@ -22,6 +22,14 @@ ZIKULA
 - Scribite: Upgraded to tagged version 5.0.0.1 from intraweb-modules
 
 
+Changes 15.03.12
+---------------------------------------------------------------------------------------
+NODES
+- Sets user priority on boxes
+- Hidden unnecessary boxes
+- Added external links for Google Fonts
+
+
 Changes 15.03.04
 ---------------------------------------------------------------------------------------
 NODES
