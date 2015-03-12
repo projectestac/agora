@@ -15,26 +15,18 @@ PORTAL
 - Agoraportal: Adapt advices set to the new pseudoblock on Moodle2
 - Agoraportal: New stats library chartjs, renew the stats function and apply reading stats for Moodle2
 
+NODES
+- Set user priority on the boxes
+- Hidden unnecessary boxes
+- Added external links for Google Fonts
+- Sets the order and the position for the boxes
+
 ZIKULA
 - Added creation of hooks for AdminMessages and Blocks
 - IWbookings: Fixed loss of time frame when updating resource configuration
 - IWusers: Upgraded to version 3.1.0
 - Scribite: Added dummy catalan lang files for Xinha to avoid javascript errors
 - Scribite: Upgraded to tagged version 5.0.0.1 from intraweb-modules
-
-
-Changes 15.03.12
----------------------------------------------------------------------------------------
-NODES
-- Set user priority on the boxes
-- Hidden unnecessary boxes
-- Added external links for Google Fonts
-
-
-Changes 15.03.04
----------------------------------------------------------------------------------------
-NODES
-- Sets the order and the position for the boxes
 
 
 Changes 15.02.20
@@ -72,11 +64,6 @@ MOODLE2
 - XTEC2: Change horizontal padding of #page from 20px to 30px
 - XTEC2: Adding icons to notification status
 
-PORTAL
-- Agoraportal: Added ability to create database if not exists when creating new services
-- Agoraportal: Reviewed activation services mail messages (changed URL, added more information for Nodes...)
-- Agoraportal: Added support for CFA model
-
 NODES
 - Improved responsive design of header #59
 - Text under icons on header grid icons #56
@@ -86,6 +73,11 @@ NODES
 - Fix maximum size of feature image #86
 - Added two new color palettes #90
 - More flexibility to display the name of the school #94  
+
+PORTAL
+- Agoraportal: Added ability to create database if not exists when creating new services
+- Agoraportal: Reviewed activation services mail messages (changed URL, added more information for Nodes...)
+- Agoraportal: Added support for CFA model
 
 ZIKULA
 - IWdocmanager: Solved issue with the count of the documents inside the categories and function added that update the documents' number [AGIN 1051-2014-0038]
