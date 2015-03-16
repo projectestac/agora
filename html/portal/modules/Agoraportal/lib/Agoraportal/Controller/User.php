@@ -349,7 +349,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 LogUtil::registerError($this->__('No s\'ha trobat el client'));
                 return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
             } else {
-                LogUtil::registerError("No tens accés a cap servei. Això pot ser degut a un error.");
+                LogUtil::registerError("No teniu accés a cap servei. Això pot ser degut a un error.");
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
             }
         }
