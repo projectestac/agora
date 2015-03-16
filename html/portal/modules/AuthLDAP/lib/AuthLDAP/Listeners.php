@@ -94,8 +94,8 @@ class AuthLDAP_Listeners {
             restore_error_handler();
             
             // Check if this user is a school and check if it has nom propi
-            if (self::isUserSchool($uname)) {
-                $schoolData = self::getSchoolFromWS($uname);
+            if ($this->isUserSchool($uname)) {
+                $schoolData = $this->getSchoolFromWS($uname);
                 if (!$schoolData) {
                     return false; // Log message already set
                 }
@@ -154,7 +154,7 @@ class AuthLDAP_Listeners {
         }
         
         // Ensure that usernames that match a client code are clients
-        if (!self::createClient(
+        if (!$this->createClient(
                         array(
                             'uname' => $uname,
                             'uid' => $uid,
@@ -181,7 +181,7 @@ class AuthLDAP_Listeners {
         $uid = $args['uid'];
         $schoolData = $args['schoolData'];
         
-        if (self::isUserSchool($uname)) {
+        if ($this->isUserSchool($uname)) {
             $idGroupClients = UserUtil::getGroupIdList('name=\'Clients\'');
             $groups = userUtil::getGroupsForUser($uid);
             $isClient = (in_array($idGroupClients, $groups)) ? true : false;
