@@ -592,9 +592,10 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     $url .= '/wp-includes/xtec/scripts/list.php';
                     break;
                 default:
-                    return $this->getServiceActions_noaction();
+                    return $this->getServiceActions_noaction('No hi ha accions disponibles pel servei '.$serviceName);
                     break;
             }
+
             $curl_handle = curl_init();
             curl_setopt($curl_handle, CURLOPT_URL, $url);
             curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
@@ -604,20 +605,23 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             curl_close($curl_handle);
             if($actions){
                 return $actions;
+            } else {
+                return $this->getServiceActions_noaction('La URL '.$url.' no ha retornat cap acció');
             }
+        } else {
+            return $this->getServiceActions_noaction('Error calculant la URL');
         }
-        return $this->getServiceActions_noaction();
+        return $this->getServiceActions_noaction('No hi ha operacions disponibles');
     }
 
-    private function getServiceActions_noaction(){
+    private function getServiceActions_noaction($text){
         $actions = array();
         $noaction = new StdClass();
         $noaction->action = '';
-        $noaction->title = 'No hi ha operacions disponibles';
+        $noaction->title = $text;
         $actions[] = $noaction;
         return json_encode($actions);
     }
-
 
     /**
      * Display the list of clients
