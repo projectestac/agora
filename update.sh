@@ -79,7 +79,7 @@ git_pull master
 if [[ $action != 'reset' ]]
 then
     echo 'Inicialitzant submòduls...'
-    update_exec "git submodule update --recursive --init --rebase"
+    update_exec "git submodule update --recursive --init"
 
     echo 'Sincronitzant submòduls...'
     update_exec "git submodule sync"
