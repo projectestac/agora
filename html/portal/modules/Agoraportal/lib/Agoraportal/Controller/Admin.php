@@ -564,6 +564,18 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $serviceName = $services[$service]['serviceName'];
 
         $sites = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('service' => $service, 'state' => 1));
+        switch ($serviceName) {
+            case 'moodle2':
+                $post_url = '/local/agora/scripts/list.php';
+                break;
+            case 'nodes':
+                $post_url = '/wp-includes/xtec/scripts/list.php';
+                break;
+            default:
+                return $this->getServiceActions_noaction('No hi ha accions disponibles pel servei '.$serviceName);
+                break;
+        }
+
         $url = false;
         if (count($sites) > 0) {
             foreach ($sites as $site) {
@@ -581,21 +593,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     break;
                 }
             }
+        } else {
+            return $this->getServiceActions_noaction('No hi ha cap client amb el servei '.$serviceName);
         }
 
         if ($url) {
-            switch ($serviceName) {
-                case 'moodle2':
-                    $url .= '/local/agora/scripts/list.php';
-                    break;
-                case 'nodes':
-                    $url .= '/wp-includes/xtec/scripts/list.php';
-                    break;
-                default:
-                    return $this->getServiceActions_noaction('No hi ha accions disponibles pel servei '.$serviceName);
-                    break;
-            }
-
+            $url .= $post_url;
             $curl_handle = curl_init();
             curl_setopt($curl_handle, CURLOPT_URL, $url);
             curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
@@ -603,7 +606,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, true);
             $actions = curl_exec($curl_handle);
             curl_close($curl_handle);
-            if($actions){
+            if (json_decode($actions)) {
+
                 return $actions;
             } else {
                 return $this->getServiceActions_noaction('La URL '.$url.' no ha retornat cap acció');
@@ -619,6 +623,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $noaction = new StdClass();
         $noaction->action = '';
         $noaction->title = $text;
+        $noaction->description = $text;
         $actions[] = $noaction;
         return json_encode($actions);
     }
