@@ -1,7 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:import="http://www.gencat.cat/educacio/sscc/correu" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:esb="http://www.oracle.com/esb/" xmlns:ws="http://www.example.com/webservice" xmlns:tns="http://www.gencat.cat/educacio/sscc/correu" targetNamespace="http://www.gencat.cat/educacio/sscc/correu">
-    <import namespace="http://www.gencat.cat/educacio/sscc/correu" location="http://xtec-wc.educacio.intranet:8080/esb/slide/ESB_Projects/ServeisComuns_ESB-enviaCorreu/src/ESB-Correu.wsdl"/>
-    
+    <import namespace="http://www.gencat.cat/educacio/sscc/correu" location="http://xtec-wc.educacio.intranet:8080/esb/slide/ESB_Projects/ESB-EnviaCorreu_ESB-enviaCorreu/INT/ESB-Correu.wsdl"/>
     <binding name="__esb_EnviaCorreu_Correu" type="tns:Correu">
         <esb:binding/>
         <operation name="enviament">
