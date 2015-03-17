@@ -3,7 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes 15.02.20
+Changes in progress
+---------------------------------------------------------------------------------------
+
+
+
+Changes 15.03.20
 ---------------------------------------------------------------------------------------
 MOODLE2
 - Moodle upgraded to from 2.6.7 to 2.6.10
