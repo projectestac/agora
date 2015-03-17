@@ -585,9 +585,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 if ($services[$site['serviceId']]['serviceName'] != $serviceName) {
                     continue;
                 }
-                if ($site['educatNetwork'] == 1) {
+                /*if ($site['educatNetwork'] == 1) {
                 	continue;
-                }
+                }*/
                 $url = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
                 if ($url) {
                     break;
