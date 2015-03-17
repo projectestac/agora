@@ -94,8 +94,8 @@ class AuthLDAP_Listeners {
             restore_error_handler();
             
             // Check if this user is a school and check if it has nom propi
-            if ($this->isUserSchool($uname)) {
-                $schoolData = $this->getSchoolFromWS($uname);
+            if (self::isUserSchool($uname)) {
+                $schoolData = self::getSchoolFromWS($uname);
                 if (!$schoolData) {
                     return false; // Log message already set
                 }
@@ -154,7 +154,7 @@ class AuthLDAP_Listeners {
         }
         
         // Ensure that usernames that match a client code are clients
-        if (!$this->createClient(
+        if (!self::createClient(
                         array(
                             'uname' => $uname,
                             'uid' => $uid,
@@ -175,13 +175,13 @@ class AuthLDAP_Listeners {
      * @author Albert Pérez Monfort
      * @return bool true if succesful and false otherwise
      */
-    private function createClient($args) {
+    private static function createClient($args) {
         // Extract vars
         $uname = $args['uname'];
         $uid = $args['uid'];
         $schoolData = $args['schoolData'];
         
-        if ($this->isUserSchool($uname)) {
+        if (self::isUserSchool($uname)) {
             $idGroupClients = UserUtil::getGroupIdList('name=\'Clients\'');
             $groups = userUtil::getGroupsForUser($uid);
             $isClient = (in_array($idGroupClients, $groups)) ? true : false;
@@ -238,7 +238,7 @@ class AuthLDAP_Listeners {
      * @param string $uname
      * @return boolean false on error. String when success.
      */
-    private function getSchoolFromWS($uname) {
+    private static function getSchoolFromWS($uname) {
 
         $unameNum = transformClientCode($uname, 'letter2num');
 
@@ -278,7 +278,7 @@ class AuthLDAP_Listeners {
      * @param string $uname
      * @return boolean
      */
-    private function isUserSchool($uname) {
+    private static function isUserSchool($uname) {
        
         $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
         
