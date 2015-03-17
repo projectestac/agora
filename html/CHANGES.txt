@@ -3,8 +3,32 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 15.02.20
 ---------------------------------------------------------------------------------------
+MOODLE2
+- Moodle upgraded to from 2.6.7 to 2.6.10
+- Added airnotifier module in order to enable push notifications
+- Enable Mobile additional features when enabling mobile webservices
+- Xtec2 Theme: Created new advices pseudo-block
+- Xtec2 Theme: Spelling revision
+- Change translation of upload courses tool title
+- Local Agora: Renewed mailer library to not depend on Moodle
+- Local Agora: Enable service script is not autoregistering Moodle anymore
+- Local Agora: Added script to edit advices pseudo-block
+- Local Agora: Added script to delete orphaned assignments
+- Mailer: Add debugging function to emmancipate from Moodle
+- Question type ddimageortext: Solve error when showing more than one question in the same page
+- Updated modules:
+  - All Language packs included
+  - Mobile
+  - Hot Potatoes
+  - Questionnaire
+  - Wiris Quizzes
+  - Jclic 0.2.5
+    - Add protocol recognision through wwwroot url for the applet
+    - Set JClic default settings to https
+    - Solved problem showing url on mod edit form
+
 PORTAL
 - Agoraportal: Improved activation of Nodes
 - Agoraportal: Fixed the creation and the update of the block of notices for Intraweb
@@ -20,6 +44,18 @@ NODES
 - Hidden unnecessary boxes
 - Added external links for Google Fonts
 - Sets the order and the position for the boxes
+- GCE: Added default values for hidden parameters and remove some metaboxes to simplify user experience
+- GCE: Fixed warning message in list of calendars
+- MU-PLUGIN: Created common-functions.php pluggin to include common functions which are not related only with the theme
+- Fix: Show left sidebar on mobile version
+- Improved header image adjustament
+- Improved visualization for high screen sizes
+- Add upload images capability to contributor & Restricting contributors to view only media library items they upload
+- Enllaços educatius: Added two new icons ("intraweb" and "Portal de centre")
+- BPDOCS: Fixed bug when uploading files
+- THEME: Show comments in pages when they are enabled
+- MU-PLUGIN: Reviewed default position, hiddent and collapsed meta-boxes for pages and posts
+- THEME: Added some missing strings to Catalan translation like comments and edit (still is not complete)
 
 ZIKULA
 - Added creation of hooks for AdminMessages and Blocks
@@ -72,7 +108,7 @@ NODES
 - Changes external source resources to local source #85
 - Fix maximum size of feature image #86
 - Added two new color palettes #90
-- More flexibility to display the name of the school #94  
+- More flexibility to display the name of the school #94
 
 PORTAL
 - Agoraportal: Added ability to create database if not exists when creating new services
