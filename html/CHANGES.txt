@@ -43,6 +43,7 @@ PORTAL
 - Agoraportal: Repaired counting client services
 - Agoraportal: Adapt advices set to the new pseudoblock on Moodle2
 - Agoraportal: New stats library chartjs, renew the stats function and apply reading stats for Moodle2
+- Agoraportal: Fixed client not being created when user was in group Clients
 
 NODES
 - Set user priority on the boxes
