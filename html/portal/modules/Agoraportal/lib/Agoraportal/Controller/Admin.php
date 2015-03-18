@@ -1869,7 +1869,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
                         case 'moodle2':
                             $params = array();
-                            $params['text'] = str_replace("'", "''", $message);
+                            $params['text'] = $message;
                             $params['inici'] = $date_start;
                             $params['final'] = $date_stop;
                             $params['admins'] = $only_admins ? '1' : '0';
@@ -1895,7 +1895,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 }
 
                 $view->assign('success', $success);
-                $view->assign('messages', $messages);
+                $view->assign('messages', $$messages);
                 $view->assign('ok', $ok);
                 $view->assign('error', $error);
 
@@ -3960,6 +3960,20 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!$search['state']) {
             $exec_operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', array('state'=>'L'));
             $operations = array_merge($exec_operations, $operations);
+        }
+        foreach($operations as $k => $op) {
+            if (!empty($op['params'])) {
+                $params = "";
+                $op['params'] = str_replace("\r", "\\r", $op['params']);
+                $op['params'] = str_replace("\n", "\\n", $op['params']);
+                $opparams = json_decode($op['params']);
+                foreach($opparams as $key => $value) {
+                    $value = str_replace("\r", "<br/>", $value);
+                    $value = str_replace("\n", "<br/>", $value);
+                    $params .= $key.' = '.html_entity_decode($value).'<br/>';
+                }
+                $operations[$k]['params'] = $params;
+            }
         }
         $view->assign('rows', $operations);
 

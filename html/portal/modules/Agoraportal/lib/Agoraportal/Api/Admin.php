@@ -1723,7 +1723,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         } else {
             $operation['params'] = "";
         }
-
         $operation = DBUtil::insertObject($operation, 'agoraportal_queues');
         return $operation;
     }
@@ -1752,6 +1751,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         return ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operation['id']));
     }
 
+    public static function getOperationParams($params) {
+        $params = str_replace("\r", "\\r", $params);
+        $params = str_replace("\n", "\\n", $params);
+        return json_decode($params, true);
+    }
+
     /**
      * Execute operations to a service
      *
@@ -1777,12 +1782,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             if ($client) {
                 $service = DBUtil::selectObjectByID('agoraportal_services', $operation['serviceId'], 'serviceId');
                 if ($service) {
-
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperation',
                                     array('clientDNS' => $client['clientDNS'],
                                         'operation' => $operation['operation'],
                                         'serviceName' => $service['serviceName'],
-                                        'params' => json_decode($operation['params'], true)
+                                        'params' => self::getOperationParams($operation['params'])
                                     ));
                     $success = $result['success'];
                     $message = $result['result'];
@@ -1857,6 +1861,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         if ($params && is_array($params)) {
             foreach ($params as $key => $value) {
+                $value = str_replace("\r", "<br/>", $value);
+                $value = str_replace("\n", "<br/>", $value);
                 $command .= ' --'.$key.'="'.html_entity_decode($value).'"';
             }
         }
