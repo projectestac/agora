@@ -126,6 +126,8 @@ gitcheckout "html/zikula2/modules/IWagendas" "master" "git@github.com:intraweb-m
 gitcheckout "html/zikula2/modules/IWdocmanager" "master" "git@github.com:intraweb-modules13/IWdocmanager.git"
 gitcheckout "html/zikula2/modules/IWgroups" "master" "git@github.com:intraweb-modules13/IWgroups.git"
 
+gitcheckout "html/portal/modules/XtecMailer/includes" "master" "git@github.com:projectestac/mailer.git"
+
 echo "Garbage collecting..."
 git gc
 

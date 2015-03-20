@@ -43,6 +43,46 @@
  * Listeners class.
  */
 class XtecMailer_Listeners {
+
+    /**
+     * Loads the mailsender once
+     * @return Mailsender or false on error
+     */
+    private static function get_mailsender() {
+        global $agora, $mailsender;
+
+        // include php mailsender class file
+        require_once('modules/XtecMailer/includes/mailsender.class.php');
+        // include php message class file
+        require_once('modules/XtecMailer/includes/message.class.php');
+
+        if (!is_null($mailsender)) {
+            return $mailsender;
+        }
+
+        $idApp = ModUtil::getVar('XtecMailer', 'idApp');
+        $replyAddress = ModUtil::getVar('XtecMailer', 'replyAddress');
+        $sender = ModUtil::getVar('XtecMailer', 'sender');
+        $log = ModUtil::getVar('XtecMailer', 'log');
+        $debug = ModUtil::getVar('XtecMailer', 'debug');
+        $logpath = ModUtil::getVar('XtecMailer', 'logpath');
+
+        // Load the environment, if and URL is set, then user the WSDL, if not:
+        // @aginard: get environment info from html/config/env-config.php file, so
+        // it's automatically filled with proper value
+        $wsdl = ModUtil::getVar('XtecMailer','environment_url');
+        $wsdl = empty($wsdl) ? $agora['server']['enviroment'] : $wsdl;
+
+        try {
+            $mailsender = new mailsender($idApp, $replyAddress, $sender, $wsdl, $log, $debug, $logpath);
+        } catch (Exception $e){
+            LogUtil::registerError('ERROR: Cannot initialize mailsender, no mail will be sent');
+            LogUtil::registerError($e->getMessage());
+            LogUtil::registerError('The execution must go on!');
+            $mailsender = false;
+        }
+        return $mailsender;
+    }
     /**
      * Checks if the user is member of clients group and if it should be member of it
      * @author Albert Pérez Monfort
@@ -61,20 +101,6 @@ class XtecMailer_Listeners {
         $args['stringattachments'] = FormUtil::getPassedValue('stringattachments', isset($args['stringattachments']) ? $args['stringattachments'] : array(), 'POST');
         $args['embeddedimages'] = FormUtil::getPassedValue('embeddedimages', isset($args['embeddedimages']) ? $args['embeddedimages'] : array(), 'POST');
 */
-        // include php mailsender class file
-        if (file_exists($file = "modules/XtecMailer/includes/mailsender.class.php")) {
-            require_once($file);
-        } else {
-            return false;
-        }
-
-        // include php message class file
-        if (file_exists($file = "modules/XtecMailer/includes/message.class.php")) {
-            require_once($file);
-        } else {
-            return false;
-        }
-
         $enabled = ModUtil::getVar('XtecMailer', 'enabled');
 
         if ($enabled == 0) {
@@ -84,20 +110,14 @@ class XtecMailer_Listeners {
             return $result;
         }
 
-        $idApp = ModUtil::getVar('XtecMailer', 'idApp');
-        $replyAddress = ModUtil::getVar('XtecMailer', 'replyAddress');
-        $sender = ModUtil::getVar('XtecMailer', 'sender');
-        //$environment = ModUtil::getVar('XtecMailer','environment');
         $log = ModUtil::getVar('XtecMailer', 'log');
         $debug = ModUtil::getVar('XtecMailer', 'debug');
         $logpath = ModUtil::getVar('XtecMailer', 'logpath');
 
-        // @aginard: get environment info from html/config/env-config.php file, so
-        // it's automatically filled with proper value
-        global $agora;
-        $environment = $agora['server']['enviroment'];
-
-        $mail = new mailsender($idApp, $replyAddress, $sender, $environment, $log, $debug, $logpath);
+        $sender = self::get_mailsender();
+        if (!$sender) {
+            return false;
+        }
 
         // add body content type
         $contenttypes = ModUtil::func('XtecMailer', 'admin', 'getContentTypes');
@@ -105,7 +125,7 @@ class XtecMailer_Listeners {
         // set HTML mail if required
         if (isset($args['html']) && is_bool($args['html'])) {
             if ($args['html']) {
-                $bodyType = 'text/html';
+                $bodyType = TEXTHTML;
             } else {
                 $bodyType = TEXTPLAIN;
             }
@@ -180,17 +200,17 @@ class XtecMailer_Listeners {
         }
 
         //add message to mailsender
-        if (!$mail->add($message)) {
+        if (!$sender->add($message)) {
             // message not added
             return LogUtil::registerError(__f('Error! A problem occurred while adding an e-mail message to \'%1$s\' (%2$s) with subject \'%3$s\'', array($args['toname'], $args['toaddress'][0], $args['subject'])));
         }
 
         // send message
-        if (!$mail->send_mail()) {
+        if (!$sender->send_mail()) {
             // message not sent
             return LogUtil::registerError(__f('Error! A problem occurred while sending an e-mail message to \'%1$s\' (%2$s) with subject \'%3$s\'', array($args['toname'], $args['toaddress'][0], $args['subject'])));
         }
-        return true; // message sent    
+        return true; // message sent
     }
 
 }
