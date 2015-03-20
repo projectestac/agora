@@ -6,7 +6,7 @@
  * going to be done in software versions. The other two files (cronMoodle2 and
  * cronIntranet) must be recreated everyday to add and remove schools and are
  * used for maintenance in sites.
- * 
+ *
  * @param update: if present, update files are created. Otherwise, cron files
  *                 are created.
  * @param num_exec: if present when creating updateMoodle file, repeats
@@ -27,6 +27,7 @@ if (isset($_REQUEST['update'])) {
 
     // $new_version: if present, an special URL is added to updateMoodle.txt
     $new_version = (isset($_REQUEST['new_version'])) ? true : false;
+    $intranet_modules = (isset($_REQUEST['intranet_modules'])) ? true : false;
 
 
     /* MOODLE 2 update file */
@@ -58,7 +59,10 @@ if (isset($_REQUEST['update'])) {
 
     $schools_var = '';
     foreach ($schools as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgrader.php\n";
+        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgrade.php\n";
+        if ($intranet_modules) {
+            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
+        }
     }
 
     echo '<br /><br />';
@@ -69,8 +73,8 @@ if (isset($_REQUEST['update'])) {
 
     saveVarToFile($filename, $schools_var);
 
-    
-    
+
+
     /* NODES update file */
 
     $schools = getAllSchools('activedId', 'asc', 'nodes', '1');
@@ -87,8 +91,8 @@ if (isset($_REQUEST['update'])) {
     $filename = '../../adminInfo/updateNodes.txt';
 
     saveVarToFile($filename, $schools_var);
-    
-    
+
+
 } else {
 
     /* MOODLE 2 CRONFILE */
@@ -128,12 +132,12 @@ if (isset($_REQUEST['update'])) {
 
 /**
  * Save content of var into a file
- * 
+ *
  * @author Toni Ginard
- * 
+ *
  * @param $filename: path to file in filesystem
  * @param $schools_var: data to save to file
- * 
+ *
  * @return boolean true if successful
  */
 function saveVarToFile($filename = null, $schools_var = '') {
