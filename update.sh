@@ -125,6 +125,9 @@ gitcheckout "html/wordpress" "master" "git@github.com:projectestac/agora_nodes.g
 gitcheckout "html/zikula2/modules/IWagendas" "master" "git@github.com:intraweb-modules13/IWagendas.git"
 gitcheckout "html/zikula2/modules/IWdocmanager" "master" "git@github.com:intraweb-modules13/IWdocmanager.git"
 gitcheckout "html/zikula2/modules/IWgroups" "master" "git@github.com:intraweb-modules13/IWgroups.git"
+gitcheckout "html/zikula2/modules/XtecMailer/includes/mailer" "master" "git@github.com:projectestac/mailer.git"
+
+gitcheckout "html/portal/modules/XtecMailer/includes/mailer" "master" "git@github.com:projectestac/mailer.git"
 
 echo "Garbage collecting..."
 git gc

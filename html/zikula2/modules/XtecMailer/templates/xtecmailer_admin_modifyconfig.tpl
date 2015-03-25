@@ -14,7 +14,7 @@
                 </div>
             </fieldset>
             {* aginard: hide some params to everybody but xtecadmin *}
-            {if $showExtraFunc}
+            {if $showextraparams}
             <fieldset>
                 <legend>Paràmetres generals</legend>
                 <div class="z-formrow">

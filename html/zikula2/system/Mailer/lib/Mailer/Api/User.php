@@ -66,6 +66,14 @@ class Mailer_Api_User extends Zikula_AbstractApi
         if ($event->isStopped()) {
             return $event->getData();
         }
+        
+        // XTEC ************ AFEGIT - Don't send e-mail through Mailer if XtecMailer is active
+        // 2015.03.25 @aginard
+        $info = ModUtil::getInfoFromName('XtecMailer');
+        if ($info['state'] == 3) {
+            return true;
+        }
+        //************ FI
 
         // include php mailer class file
         require_once "system/Mailer/lib/vendor/class.phpmailer.php";
