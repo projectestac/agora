@@ -141,7 +141,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $acceptUseTerms = FormUtil::getPassedValue('acceptUseTerms', isset($args['acceptUseTerms']) ? $args['acceptUseTerms'] : null, 'GETPOST');
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
         $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'GETPOST');
-        
+
         $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
 
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
@@ -171,7 +171,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                     'searchText' => $clientCode,
                     'clientCode' => $clientCode,
                 ));
-        
+
         $clientServices = array();
         $haveMoodle = false;
         foreach ($clientInfo as $info) {
@@ -194,7 +194,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         foreach ($notsolicitedServices as $notsolicited) {
             $notsolicitedServices[$notsolicited['serviceId']]['disabled'] = (!$haveMoodle && $notsolicited['serviceName'] == 'marsupial') ? 1 : 0;
         }
-        
+
         // Reverse order
         arsort($notsolicitedServices);
 
@@ -212,10 +212,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     /**
      * Update client information for service ask
-     * 
+     *
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
      * @author: Toni Ginard
-     * 
+     *
      * @return:	Redirect user to the ask services information
      */
     public function updateAskService($args) {
@@ -232,7 +232,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         // Confirm authorisation code
         $this->checkCsrfToken();
-        
+
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
 
@@ -273,14 +273,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
-        
+
         if ($acceptUseTerms == null && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             LogUtil::registerError($this->__('No heu acceptat les condicions d\'ús'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
-        
+
         // Create the new service
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'updateAskService', array('clientCode' => $clientCode,
                     'serviceId' => $serviceId,
@@ -296,11 +296,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 1,
                 'action' => $this->__f('S\'ha fet la sol·licitud del servei %s', $serviceName)));
         }
-        
+
         if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora', array('clientCode' => $clientCode)));
         }
-        
+
         return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora'));
     }
 
@@ -413,7 +413,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 if (!isset($site['serviceId'])) {
                     continue;
                 }
-                
+
                 $serviceName = $services[$site['serviceId']]['serviceName'];
                 $hasDB = $services[$site['serviceId']]['hasDB'];
                 $link = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
@@ -450,7 +450,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $pager = ModUtil::func('Agoraportal', 'admin', 'pager', array('init' => $init,
                     'rpp' => $rpp,
                     'total' => $sitesNumber,
-                    'urltemplate' => "javascript:sitesList($typeId,$location,'$search','$searchText',%%,$rpp)"));
+                    'javascript' => true,
+                    'urltemplate' => "sitesList($typeId,$location,'$search','$searchText',%%,$rpp)"));
 
         // Create output object
         return $this->view->assign('sites', $sitesArray)
@@ -657,7 +658,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         global $agora;
 
         $serviceName = $services[$client[$clientServiceId]['serviceId']]['serviceName'];
-        
+
         // Get absolute path to usage file
         $dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
 
@@ -732,13 +733,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                     'clientDNS' => $clientDNS,
                     'clientOldDNS' => $clientOldDNS))) {
             LogUtil::registerStatus($this->__('S\ha canviat el nom propi del centre satisfactoriament'));
-            //Resgister log 
+            //Resgister log
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha canviat el DNS del centre de %1$s a %2$s', array($clientOldDNS, $clientDNS)),
                 'actionCode' => 1,
                 'clientCode' => $clientCode));
         } else {
             LogUtil::registerError($this->__('No s\'ha pogut canviar el nom propi del centre'));
-            //Resgister log 
+            //Resgister log
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('No s\'ha pogut canviar el DNS del centre de %1$s a %2$s', array($clientOldDNS, $clientDNS)),
                 'actionCode' => 3,
                 'clientCode' => $clientCode));
@@ -749,7 +750,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     /**
      * Verify the verifyCode sent by the user and change the active nevel if this is correct
-     * 
+     *
      * @author Fèlix Casanellas (fcasanel@xtec.cat)
      * @param string clientCode
      * @param string verifyCode of the user and clientCode
@@ -867,12 +868,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $logs = $response['content'];
         $numLogs = $response['numLogs'];
         $numPags = $response['numPags'];
-        
+
         $pags = array();
         for ($i = 1; $i <= $numPags; $i++) {
             $pags[$i] = $i;
         }
-        
+
         $config = array('init' => $init,
             'actionCode' => $actionCode,
             'uname' => $uname,
@@ -1243,14 +1244,14 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     /**
      * Get the services associated to a requestType which are active services
-     *  of the client associated to the current logged user (which is supposed 
+     *  of the client associated to the current logged user (which is supposed
      *  to be a manager)
-     * 
+     *
      * @author Toni Ginard
      * @author Aida Regi
-     * 
+     *
      * @param int requestTypeId
-     * 
+     *
      * @return array Services that meet the conditions
      */
     public function getRequestServices($args) {
@@ -1296,7 +1297,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function getServiceLink($args) {
         $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : null, 'POST');
         $clientDNS = FormUtil::getPassedValue('clientDNS', isset($args['clientDNS']) ? $args['clientDNS'] : null, 'POST');
-        
+
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
 
         return ModUtil::getVar('Agoraportal', 'siteBaseURL') . $clientDNS . '/' . $services['URL'];

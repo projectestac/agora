@@ -527,7 +527,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $pager = ModUtil::func('Agoraportal', 'admin', 'pager', array('init' => $init,
                     'rpp' => $rpp,
                     'total' => $clientsNumber,
-                    'urltemplate' => "javascript:servicesList($service,$stateFilter,$search,'$searchText',$order,%%,$rpp)"));
+                    'javascript' => true,
+                    'urltemplate' => "servicesList($service,$stateFilter,$search,'$searchText',$order,%%,$rpp);"));
         $locations = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations');
         $types = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
 
@@ -680,7 +681,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $pager = ModUtil::func('Agoraportal', 'admin', 'pager', array('init' => $init,
                     'rpp' => $rpp,
                     'total' => $clientsNumber,
-                    'urltemplate' => "javascript:clientsList('$search','$searchText',%%)"));
+                    'javascript' => true,
+                    'urltemplate' => "clientsList('$search','$searchText',%%)"));
 
 
 
@@ -936,6 +938,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $init = FormUtil::getPassedValue('init', isset($args['init']) ? $args['init'] : null, 'POST');
         $total = FormUtil::getPassedValue('total', isset($args['total']) ? $args['total'] : null, 'POST');
         $urltemplate = FormUtil::getPassedValue('urltemplate', isset($args['urltemplate']) ? $args['urltemplate'] : null, 'POST');
+        $javascript = FormUtil::getPassedValue('javascript', isset($args['javascript']) ? $args['javascript'] : false, 'POST');
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_READ)) {
             return LogUtil::registerPermissionError();
@@ -953,10 +957,16 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!isset($rpp) || empty($rpp)) {
             $rpp = 10;
         }
+
+        if ($javascript) {
+            $prelink = 'href="#" onclick';
+        } else {
+            $prelink = 'href';
+        }
         // Show startnum link
         if ($init != 1) {
             $url = preg_replace('/%%/', 1, $urltemplate);
-            $text = '<a href="' . $url . '"><<</a> | ';
+            $text = '<a '.$prelink.'="' . $url . '"><<</a> | ';
         } else {
             $text = '<< | ';
         }
@@ -973,7 +983,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ) {
                     // Not on this page - show link
                     $url = preg_replace('/%%/', $curnum, $urltemplate);
-                    $text = '<a href="' . $url . '">' . $pagenum . '</a> | ';
+                    $text = '<a '.$prelink.'="' . $url . '">' . $pagenum . '</a> | ';
                     $items[] = array('text' => $text);
                 }
                 //end mod by marsu
@@ -986,7 +996,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
         if (($curnum >= $rpp + 1) && ($init < $curnum - $rpp)) {
             $url = preg_replace('/%%/', $curnum - $rpp, $urltemplate);
-            $text = '<a href="' . $url . '">>></a>';
+            $text = '<a '.$prelink.'="' . $url . '">>></a>';
         } else {
             $text = '>>';
         }
