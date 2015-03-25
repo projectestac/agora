@@ -27,8 +27,9 @@ if (isset($_REQUEST['update'])) {
 
     // $new_version: if present, an special URL is added to updateMoodle.txt
     $new_version = (isset($_REQUEST['new_version'])) ? true : false;
+    $only_name = (isset($_REQUEST['only_name'])) ? true : false;
 
-    
+
     /* MOODLE 2 update file */
 
     // get services array where key value is activedId
@@ -36,11 +37,15 @@ if (isset($_REQUEST['update'])) {
 
     $schools_var = '';
     foreach ($schools as $school) {
-        if ($new_version) {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
-        }
-        for ($i = 0; $i < $num_exec; $i++) {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?lang=ca&autopilot=1\n";
+        if ($only_name) {
+            $schools_var .= $school['school_dns'] . "\n";
+        } else {
+            if ($new_version) {
+                $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
+            }
+            for ($i = 0; $i < $num_exec; $i++) {
+                $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?lang=ca&autopilot=1\n";
+            }
         }
     }
 
@@ -58,7 +63,11 @@ if (isset($_REQUEST['update'])) {
 
     $schools_var = '';
     foreach ($schools as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
+        if ($only_name) {
+            $schools_var .= $school['school_dns'] . "\n";
+        } else {
+            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
+        }
     }
 
     echo '<br /><br />';
@@ -77,7 +86,11 @@ if (isset($_REQUEST['update'])) {
 
     $schools_var = '';
     foreach ($schools as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
+        if ($only_name) {
+            $schools_var .= $school['school_dns'] . "\n";
+        } else {
+            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
+        }
     }
 
     echo '<br /><br />';
@@ -87,7 +100,7 @@ if (isset($_REQUEST['update'])) {
     $filename = '../../adminInfo/updateNodes.txt';
 
     saveVarToFile($filename, $schools_var);
-
+    
 } else {
 
     /* MOODLE 2 CRONFILE */
