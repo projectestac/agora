@@ -38,7 +38,7 @@ if (isset($_REQUEST['update'])) {
     $schools_var = '';
     foreach ($schools as $school) {
         if ($only_name) {
-            $schools_var .= $school['school_dns'];
+            $schools_var .= $school['school_dns'] . "\n";
         } else {
             if ($new_version) {
                 $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
@@ -64,9 +64,9 @@ if (isset($_REQUEST['update'])) {
     $schools_var = '';
     foreach ($schools as $school) {
         if ($only_name) {
-            $schools_var .= $school['school_dns'];
+            $schools_var .= $school['school_dns'] . "\n";
         } else {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgrader.php\n";
+            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
         }
     }
 
@@ -87,7 +87,7 @@ if (isset($_REQUEST['update'])) {
     $schools_var = '';
     foreach ($schools as $school) {
         if ($only_name) {
-            $schools_var .= $school['school_dns'];
+            $schools_var .= $school['school_dns'] . "\n";
         } else {
             $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
         }
@@ -100,8 +100,7 @@ if (isset($_REQUEST['update'])) {
     $filename = '../../adminInfo/updateNodes.txt';
 
     saveVarToFile($filename, $schools_var);
-
-
+    
 } else {
 
     /* MOODLE 2 CRONFILE */
