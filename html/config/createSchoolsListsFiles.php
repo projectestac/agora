@@ -27,9 +27,8 @@ if (isset($_REQUEST['update'])) {
 
     // $new_version: if present, an special URL is added to updateMoodle.txt
     $new_version = (isset($_REQUEST['new_version'])) ? true : false;
-    $intranet_modules = (isset($_REQUEST['intranet_modules'])) ? true : false;
 
-
+    
     /* MOODLE 2 update file */
 
     // get services array where key value is activedId
@@ -59,10 +58,7 @@ if (isset($_REQUEST['update'])) {
 
     $schools_var = '';
     foreach ($schools as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgrade.php\n";
-        if ($intranet_modules) {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
-        }
+        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
     }
 
     echo '<br /><br />';
@@ -91,7 +87,6 @@ if (isset($_REQUEST['update'])) {
     $filename = '../../adminInfo/updateNodes.txt';
 
     saveVarToFile($filename, $schools_var);
-
 
 } else {
 
