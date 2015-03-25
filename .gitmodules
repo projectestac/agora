@@ -16,3 +16,6 @@
 [submodule "html/portal/modules/XtecMailer/includes"]
 	path = html/portal/modules/XtecMailer/includes
 	url = https://github.com/projectestac/mailer.git
+[submodule "html/zikula2/modules/XtecMailer/includes/mailer"]
+	path = html/zikula2/modules/XtecMailer/includes/mailer
+	url = https://github.com/projectestac/mailer.git
