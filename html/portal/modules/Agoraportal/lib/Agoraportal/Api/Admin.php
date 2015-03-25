@@ -1590,7 +1590,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             $init = (isset($args['init']) && $args['init'] != 0) ? $args['init'] - 1 : '-1';
             $items = DBUtil::selectExpandedObjectArray('agoraportal_request', $myJoin, $where, $orderby, $init, $rpp);
         } else {
-            $items = DBUtil::selectExpandedObjectCount('agoraportal_request', $myJoin, $where);
+            $items = DBUtil::selectExpandedObjectArray('agoraportal_request', $myJoin, $where);
+            $items = count($items);
         }
 
 

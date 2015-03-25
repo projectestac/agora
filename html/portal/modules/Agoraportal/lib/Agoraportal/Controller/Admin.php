@@ -3675,13 +3675,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     'service' => $service,
                     'state' => $stateFilter,
                     'search' => $search,
-                    'order' => $order,
                     'searchText' => $searchText));
 
         $pager = ModUtil::func('Agoraportal', 'admin', 'pager', array('init' => $init,
                     'rpp' => $rpp,
                     'total' => $requestsNumber,
-                    'urltemplate' => "javascript:requestsList($service,$stateFilter,$search,'$searchText',$order,%%,$rpp)"));
+                    'javascript' => true,
+                    'urltemplate' => "requestsList($service,$stateFilter,$search,'$searchText',$order,%%,$rpp)"));
 
         $types = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
 
