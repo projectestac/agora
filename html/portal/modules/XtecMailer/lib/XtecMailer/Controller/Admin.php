@@ -44,7 +44,7 @@ class XtecMailer_Controller_Admin extends Zikula_AbstractController {
         $render->assign('replyAddress', System::getVar('adminmail'));
 
         // @aginard: configuration params will be shown to all admins
-        $render->assign('showextraparams', 1);
+        $render->assign('showextraparams', true);
 
 
         return $render->fetch('xtecmailer_admin_modifyconfig.tpl');

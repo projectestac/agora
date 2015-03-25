@@ -47,9 +47,9 @@ class XtecMailer_Controller_Admin extends Zikula_AbstractController {
         global $ZConfig;
 
         $is_xtecadmin = (UserUtil::getVar('uname') == 'xtecadmin') ? true : false;
-        $showExtraFunc = (!(bool)$ZConfig['Multisites']['multi'] || $is_xtecadmin) ? true : false;
+        $showextraparams = (!(bool)$ZConfig['Multisites']['multi'] || $is_xtecadmin) ? true : false;
 
-        $render->assign('showExtraFunc', $showExtraFunc);
+        $render->assign('showextraparams', $showextraparams);
 
         return $render->fetch('xtecmailer_admin_modifyconfig.tpl');
     }
