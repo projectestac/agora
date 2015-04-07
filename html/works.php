@@ -18,7 +18,13 @@ $m2ToTest = array();
 
 if ($isBigIP) {
     // Get info from allSchools.php file in web server
-    require_once '../syncdata/allSchools.php';
+    $allschools_file = $agora['dbsource']['dir'].'/allSchools.php';
+
+    if (!file_exists($allschools_file)) {
+        echo 'KO: El fitxer '.$allschools_file.' no existeix';
+    }
+    require_once($allschools_file);
+
     foreach ($schools as $school) {
         if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest)) {
             $nodesToTest[$school['id_nodes']] = $school['dbhost_nodes'];
