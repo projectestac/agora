@@ -8,6 +8,7 @@ html/config/env-config-pro.php
 html/config/config-restricted.php
 html/config/sync-config.sh
 html/config/.htaccess
+html/config/phpmemcache/Temp/*
 html/moodle2/config.php
 html/moodle2/auth/odissea
 html/*/sftp-config*.json
