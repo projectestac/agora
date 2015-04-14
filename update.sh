@@ -96,6 +96,7 @@ gitcheckout "html/moodle2/local/bigdata" "master" "git@github.com:projectestac/m
 gitcheckout "html/moodle2/local/oauth" "master" "git@github.com:projectestac/moodle-local_oauth.git"
 gitcheckout "html/moodle2/local/mobile" "MOODLE_26_STABLE" "https://github.com/jleyva/moodle-local_mobile.git"
 gitcheckout "html/moodle2/message/output/airnotifier" "MOODLE_26_STABLE" "https://github.com/jleyva/moodle-message_airnotifier.git"
+gitcheckout "html/moodle2/mod/choicegroup" "master" "git@github.com:projectestac/moodle-mod_choicegroup.git"
 gitcheckout "html/moodle2/mod/eoicampus" "master" "git@github.com:projectestac/moodle-mod_eoicampus.git"
 gitcheckout "html/moodle2/mod/geogebra" "master" "git@github.com:projectestac/moodle-mod_geogebra.git"
 gitcheckout "html/moodle2/mod/hotpot" "master" "https://github.com/gbateson/moodle-mod_hotpot.git"
