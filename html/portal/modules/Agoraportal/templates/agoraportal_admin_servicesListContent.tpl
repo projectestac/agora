@@ -24,7 +24,7 @@
              <td align="left" valign="top" class="codeandname">
                  <a href="{modurl modname='Agoraportal' type='user' func='myAgora' clientCode=$client.clientCode}">{$client.clientName}</a>
                  {if $client.state eq 1 && $services[$client.serviceId].serviceName neq 'marsupial'}
-                 (<a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}" target="_blank">{gt text="Entra-hi"}</a> - 
+                 (<a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}" target="_blank">{gt text="Entra-hi"}</a> -
                  <a href="{modurl modname='Agoraportal' type='admin' func='listDataDirs' serviceName=$services[$client.serviceId].serviceName activedId=$client.activedId}">{gt text="Fitxers"}</a>)
                  {/if}
                  <br />
@@ -78,11 +78,11 @@
                  {/if}
              </td>
              <td width="100" class="time">
-                 <span class="timeLetter">{gt text="e"}</span>: {$client.timeEdited|dateformat:"%d/%m/%Y"}
+                 <span class="timeLetter" title="Data d'edició">{gt text="e"}</span>: {$client.timeEdited|dateformat:"%d/%m/%Y"}
                  <br />
-                 <span class="timeLetter">{gt text="c"}</span>: {$client.timeCreated|dateformat:"%d/%m/%Y"}
+                 <span class="timeLetter" title="Data de creació">{gt text="c"}</span>: {$client.timeCreated|dateformat:"%d/%m/%Y"}
                  <br />
-                 <span class="timeLetter">{gt text="s"}</span>: {$client.timeRequested|dateformat:"%d/%m/%Y"}
+                 <span class="timeLetter" title="Data de sol·licitud">{gt text="s"}</span>: {$client.timeRequested|dateformat:"%d/%m/%Y"}
              </td>
              <td style="background-color: {$client.diskConsumeCellColor}; width: 70px; text-align:right;" class="diskusage">
                  {if $client.diskSpace gt 0}

@@ -1,4 +1,13 @@
 {include file="agoraportal_admin_menu.tpl"}
+
+{if $execOper}
+<script>
+    window.onload = function() {
+        operations_execute({/literal}{$execOper}{literal});
+    };
+</script>
+{/if}
+
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Llista de serveis dels clients"}</h2>

@@ -2,6 +2,12 @@
 
 class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
+    const STATUS_ENABLED = 1;
+    const STATUS_TOREVISE = 0;
+    const STATUS_DENIED = -2;
+    const STATUS_WITHDRAWN = -3;
+    const STATUS_DISABLED = -4;
+
     public function postInitialize() {
         $this->view->setCaching(false);
     }
@@ -170,7 +176,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $password = '';
 
             // If it is an activation, checks if the service exists. If not create it
-            if ($state == 1) {
+            if ($state == self::STATUS_ENABLED) {
                 if ($clientService['activedId'] == 0) {
                     $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService',
                                                 array('clientServiceId' => $clientServiceId,
@@ -190,14 +196,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
 
             // Deny the new service
-            if ($state == -2) {
+            if ($state == self::STATUS_DENIED) {
                 // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
                     'action' => $this->__f('S\'ha denegat el servei %s', $serviceName)));
             }
 
             // Withdraw the service
-            if ($state == -3) {
+            if ($state == self::STATUS_WITHDRAWN) {
                 // edit service information and delete the database assigned
                 $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
                             'items' => array('serviceDB' => '',
@@ -208,7 +214,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
 
             // Deactivate the new service
-            if ($state == -4) {
+            if ($state == self::STATUS_DISABLED) {
                 // Insert the action in logs table
                 ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
                     'action' => $this->__f('S\'ha desactivat el servei %s', $serviceName)));
@@ -285,11 +291,12 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
 
             LogUtil::registerStatus($this->__('El client i el servei s\'han modificat correctament'));
-            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array('init' => $init,
-                                'search' => $search,
-                                'searchText' => $searchText,
-                                'service' => $service,
-                                'stateFilter' => $stateFilter)));
+            return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList', array(
+                        'init' => $init,
+                        'search' => $search,
+                        'searchText' => $searchText,
+                        'service' => $service,
+                        'stateFilter' => $stateFilter)));
         }
     }
 
@@ -445,6 +452,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $rpp = $stateArray['rpp'];
         }
 
+        if (SessionUtil::getVar('execOper')) {
+            $execOper = SessionUtil::getVar('execOper');
+            SessionUtil::delVar('execOper');
+        } else {
+            $execOper = false;
+        }
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -463,6 +477,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('service', $service)
                         ->assign('stateFilter', $stateFilter)
                         ->assign('rpp', $rpp)
+                        ->assign('execOper', $execOper)
                         ->fetch('agoraportal_admin_servicesList.tpl');
     }
 
