@@ -9,6 +9,7 @@ RewriteRule ^config(.*)$ - [L]
 RewriteRule ^error(.*)$ - [L]
 RewriteRule ^works(.*)$ - [L]
 RewriteRule ^apc(.*)$ - [L]
+RewriteRule ^opcache.php$ - [L]
 RewriteRule ^index(.*)$ - [L]
 RewriteRule ^CHANGES(.*)$ - [L]
 
