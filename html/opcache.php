@@ -4,8 +4,70 @@ define('THOUSAND_SEPARATOR',true);
 
 if (!extension_loaded('Zend OPcache')) {
     echo '<div style="background-color: #F2DEDE; color: #B94A48; padding: 1em;">You do not have the Zend OPcache extension loaded, sample data is being shown instead.</div>';
-    require 'data-sample.php';
 }
+
+//XTEC ************ AFEGIT - To add clear cache function
+//2015.04.14 @pferre22
+// Original Opcache status retrieved from
+// https://github.com/rlerdorf/opcache-status
+if (isset($_REQUEST['clear_cache'])) {
+    define('ADMIN_USERNAME','opcache'); // Admin Username
+    if (file_exists('config/config-restricted.php')) {
+        include_once('config/config-restricted.php');
+        define('ADMIN_PASSWORD', $agora['opcache']['password']);
+    } else if (file_exists('config-restricted.php')) {
+        include_once('config-restricted.php');
+        define('ADMIN_PASSWORD', $agora['opcache']['password']);
+    } else {
+        header('Location: opcache.php');
+        die();
+    }
+
+    if (!isset($_SERVER['PHP_AUTH_USER']) ||
+            !isset($_SERVER['PHP_AUTH_PW']) ||
+            $_SERVER['PHP_AUTH_USER'] != ADMIN_USERNAME ||
+            $_SERVER['PHP_AUTH_PW'] != ADMIN_PASSWORD) {
+        Header("WWW-Authenticate: Basic realm=\"OpCache Login\"");
+        Header("HTTP/1.0 401 Unauthorized");
+
+        echo "<html><body>
+                <h1>Rejected!</h1>
+                <big>Wrong Username or Password!</big><br/>&nbsp;<br/>&nbsp;
+                <big><a href='opcache.php'>Continue...</a></big>
+                </body></html>";
+        exit;
+    } else {
+        // Clear Cache
+        opcache_reset();
+        header('Location: opcache.php');
+    }
+}
+//************** FI
+
+//XTEC ************ AFEGIT - To add Uptime info
+//2015.04.14 @pferre22
+function duration($ts) {
+    $time = time();
+    $years = (int)((($time - $ts)/(7*86400))/52.177457);
+    $rem = (int)(($time-$ts)-($years * 52.177457 * 7 * 86400));
+    $weeks = (int)(($rem)/(7*86400));
+    $days = (int)(($rem)/86400) - $weeks*7;
+    $hours = (int)(($rem)/3600) - $days*24 - $weeks*7*24;
+    $mins = (int)(($rem)/60) - $hours*60 - $days*24*60 - $weeks*7*24*60;
+    $str = '';
+    if($years==1) $str .= "$years year, ";
+    if($years>1) $str .= "$years years, ";
+    if($weeks==1) $str .= "$weeks week, ";
+    if($weeks>1) $str .= "$weeks weeks, ";
+    if($days==1) $str .= "$days day,";
+    if($days>1) $str .= "$days days,";
+    if($hours == 1) $str .= " $hours hour and";
+    if($hours>1) $str .= " $hours hours and";
+    if($mins == 1) $str .= " 1 minute";
+    else $str .= " $mins minutes";
+    return $str;
+}
+//************ FI
 
 class OpCacheDataModel
 {
@@ -21,12 +83,28 @@ class OpCacheDataModel
 
     public function getPageTitle()
     {
-        return 'PHP ' . phpversion() . " with OpCache {$this->_configuration['version']['version']}";
+        //XTEC ************ MODIFICAT - To add hostname
+        //2015.04.14 @pferre22
+        return 'OpCache '.getenv('HOSTNAME');
+        // ORIGINAL
+        // return 'PHP ' . phpversion() . " with OpCache {$this->_configuration['version']['version']}";
+        //************ FI
     }
 
     public function getStatusDataRows()
     {
         $rows = array();
+        //XTEC ************ AFEGIT - To add some info from APC
+        //2015.04.14 @pferre22
+        $rows[] = "<tr><th>OpCache Version</th><td>{$this->_configuration['version']['version']}</td></tr>\n";
+        $rows[] = "<tr><th>PHP Version</th><td>".phpversion()."</td></tr>\n";
+        if(!empty($_SERVER['SERVER_NAME']))
+            $rows[] = "<tr><th>Host</th><td>{$_SERVER['SERVER_NAME']}</td></tr>\n";
+        if(!empty($_SERVER['SERVER_SOFTWARE']))
+            $rows[] = "<tr><th>Server Software</th><td>{$_SERVER['SERVER_SOFTWARE']}</td></tr>\n";
+        $rows[] = "<tr><th>Uptime</th><td>".duration($this->_status['opcache_statistics']['start_time'])."</td></tr>\n";
+        $rows[] = '<tr><th>Clear cache</th><td><a href="?clear_cache=1">&#10006; Clear Cache</a></td></tr>'."\n";
+        //************ FI
         foreach ($this->_status as $key => $value) {
             if ($key === 'scripts') {
                 continue;
