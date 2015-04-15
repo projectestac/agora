@@ -627,11 +627,13 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                             $value = $this->replaceTree(trim($dbModel), $dbUser, $value);
                         }
 
-                        // Update school name and address
-                        $value['nomCanonicCentre'] = $clientName;
-                        $value['direccioCentre'] = $clientAddress;
-                        $value['cpCentre'] = $clientPC . ' ' . $clientCity;
-                        $value['nomCanonicCentre'] = $clientName;
+                        if ($field == 'reactor_options') {
+                            // Update school name and address
+                            $value['nomCanonicCentre'] = $clientName;
+                            $value['direccioCentre'] = $clientAddress;
+                            $value['cpCentre'] = $clientPC . ' ' . $clientCity;
+                            $value['nomCanonicCentre'] = $clientName;
+                        }
 
                         // Scape apostrophes for MySQL
                         $newValue = str_replace("'", "''", serialize($value));
