@@ -422,15 +422,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora, $ZConfig;
 
-        $urlModelBase = ModUtil::getVar('Agoraportal', 'URLNodesModelBase');
-        $dbModels = explode(',', ModUtil::getVar('Agoraportal', 'DBNodesModel'));
-
         $modelTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
-        $shortcode = '';
-        $files = array();
+        $shortcode = "";
+        $shortcodes = array();
 
         foreach ($modelTypes as $modelType) {
-            $urlModels[] = $urlModelBase . $modelType['shortcode'] . '/';
+            $shortcodes[] = $modelType['shortcode'];
             $keywords[] = $modelType['keyword'];
             if ($modelType['keyword'] == $client['extraFunc']) {
                 $shortcode = $modelType['shortcode'];
@@ -452,45 +449,29 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return false;
         }
 
-        if (!empty($shortcode)) {
-            $files = array(
-                'db' => $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql',
-                'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['nodes']['userprefix'] . '1/repository/files/master' . $shortcode . '.zip'
-            );
-        } else {
+        if (empty($shortcode)) {
             LogUtil::registerError($this->__("El codi curt de la maqueta indicada no està definit. Reviseu la configuració del mòdul."));
             return false;
         }
 
-        foreach ($files as $file) {
-            if (!file_exists($file)) {
-                LogUtil::registerError($this->__f("No s'ha trobat el fitxer %s", $file));
-                return false;
-            }
+        $dbfile = $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql';
+        $datafile = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['nodes']['userprefix'] . '1/repository/files/master' . $shortcode . '.zip';
+
+        if (!file_exists($dbfile)) {
+            LogUtil::registerError($this->__f("No s'ha trobat el fitxer de base de dades %s", $dbfile));
+            return false;
         }
 
-        // Get the params
-        $clientName = $client['clientName'];
-        $clientAddress = $client['clientAddress'];
-        $clientCity = $client['clientCity'];
-        $clientPC = $client['clientPC']; // Post Code
-        $clientDNS = $client['clientDNS'];
-        $clientCode = $client['clientCode'];
+        if (!file_exists($datafile)) {
+            LogUtil::registerError($this->__f("No s'ha trobat el fitxer de dades %s", $datafile));
+            return false;
+        }
 
-        // Generate a password for admin user
-        $passwordEnc = md5($password);
-
-        $prefix = $agora['nodes']['prefix'];
-        $serviceURL = $service['URL'];
-        $dbUser = $agora['nodes']['userprefix'] . $db;
-
-        $sqls = array();
-
+        // Import DB
         // Temporary variable, used to store current query
-        $templine = '';
+        $currentSQL = "";
         // Read in entire file
-        $lines = file($files['db']);
-
+        $lines = file($dbfile);
         // Loop through each line
         foreach ($lines as $line) {
             // Skip it if it's a comment
@@ -498,166 +479,27 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                 continue;
             }
             // Add this line to the current segment
-            $templine .= $line;
+            $currentSQL .= $line;
             // If it has a semicolon at the end, it's the end of the query
             if (substr(trim($line), -1, 1) == ';') {
                 // Perform the query
-                $sqls[] = $templine;
+                $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+                        'sql' => $currentSQL,
+                        'serviceName' => 'nodes',
+                        'host' => $dbHost
+                ));
                 // Reset temp variable to empty
-                $templine = '';
-            }
-        }
+                $currentSQL = "";
 
-        $value = DataUtil::formatForStore($clientName);
-        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogname'";
-
-        $siteURL = $agora['server']['server'] . $agora['server']['base'] . $clientDNS . "/" . $serviceURL;
-        $value = DataUtil::formatForStore($siteURL);
-        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='siteurl'";
-        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='home'";
-        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='wsl_settings_redirect_url'";
-
-        // Don't change default blog description
-        //$value = DataUtil::formatForStore('Espai del centre ' . $clientName);
-        //$sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogdescription'";
-
-        $value = DataUtil::formatForStore($clientCode . '@xtec.cat');
-        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='admin_email'";
-
-        $sqls[] = "UPDATE $prefix" . "_users set user_pass='$passwordEnc', user_email='$clientCode" . "@xtec.cat', user_registered=now() WHERE user_login='admin'";
-
-        $sqls[] = "UPDATE $prefix" . "_users set user_pass='" . $agora['xtecadmin']['password'] . "' WHERE user_login='xtecadmin'";
-
-        // Add SQLs to replace URLs
-        foreach ($urlModels as $string) {
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET action = REPLACE (action , '$string', '$siteURL')
-                WHERE action like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '$string', '$siteURL')
-                WHERE content like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET primary_link = REPLACE (primary_link , '$string', '$siteURL')
-                WHERE primary_link like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '$string', '$siteURL')
-                WHERE post_content like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_excerpt = REPLACE (post_excerpt , '$string', '$siteURL')
-                WHERE post_excerpt like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '$string', '$siteURL')
-                WHERE guid like '%$string%'";
-
-            $sqls[] = "UPDATE $prefix" . "_postmeta
-                SET meta_value = REPLACE (meta_value , '$string', '$siteURL')
-                WHERE meta_key = '_menu_item_url' AND meta_value like '%$string%'";
-        }
-
-        // Add SQLs to replace database names
-        foreach ($dbModels as $dbModel) {
-            // Remove any blank space that wouldn't be welcome
-            $dbModel = trim($dbModel);
-
-            $sqls[] = "UPDATE $prefix" . "_bp_activity
-                SET content = REPLACE (content , '/$dbModel/', '/$dbUser/')
-                WHERE content like '%/$dbModel/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET post_content = REPLACE (post_content , '/$dbModel/', '/$dbUser/')
-                WHERE post_content like '%/$dbModel/%'";
-
-            $sqls[] = "UPDATE $prefix" . "_posts
-                SET guid = REPLACE (guid , '/$dbModel/', '/$dbUser/')
-                WHERE guid like '%/$dbModel/%'";
-        }
-
-        // Reset stats table
-        $sqls[] = "TRUNCATE $prefix" . "_stats";
-
-        foreach ($sqls as $sql) {
-            // LogUtil::registerStatus($sql);
-            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                        'sql' => $sql,
-                        'serviceName' => 'nodes',
-                        'host' => $dbHost,
-            ));
-
-            if (!$result['success']) {
-                LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error: ' . $result['errorMsg']));
-                return false;
-            }
-        }
-
-        // Now update serialized wp_options fields
-        $fields = array ('my_option_name', 'widget_text', 'reactor_options', 'widget_socialmedia_widget', 'widget_xtec_widget', 'widget_grup_classe_widget');
-
-        foreach ($fields as $field) {
-            $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
-            // LogUtil::registerStatus($sql);
-
-            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                        'sql' => $sql,
-                        'serviceName' => 'nodes',
-                        'host' => $dbHost,
-            ));
-
-            $values = $result['values'];
-            //LogUtil::registerStatus(serialize($values));
-
-            if (is_array($values)) {
-
-                foreach ($values as $key => $value) {
-                    $value = $value['option_value'];
-
-                    if ($this->is_serialized($value)) {
-                        $value = unserialize($value);
-
-                        // Update URL recursively
-                        foreach ($urlModels as $string) {
-                            $value = $this->replaceTree($string, $siteURL, $value);
-                        }
-
-                        // Update user database recursively
-                        foreach ($dbModels as $dbModel) {
-                            $value = $this->replaceTree(trim($dbModel), $dbUser, $value);
-                        }
-
-                        if ($field == 'reactor_options') {
-                            // Update school name and address
-                            $value['nomCanonicCentre'] = $clientName;
-                            $value['direccioCentre'] = $clientAddress;
-                            $value['cpCentre'] = $clientPC . ' ' . $clientCity;
-                            $value['nomCanonicCentre'] = $clientName;
-                        }
-
-                        // Scape apostrophes for MySQL
-                        $newValue = str_replace("'", "''", serialize($value));
-
-                        $sql = "UPDATE $prefix" . "_options set option_value='$newValue' WHERE option_name='$field';";
-                        // LogUtil::registerStatus($sql);
-
-                        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
-                                    'sql' => $sql,
-                                    'serviceName' => 'nodes',
-                                    'host' => $dbHost,
-                        ));
-
-                        if (!$result) {
-                            LogUtil::registerError($this->__('No s\'ha pogut actualitzar la taula wp_options: ' . $sql));
-                            return false;
-                        }
-                    }
+                if (!$result['success']) {
+                    LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error: ' . $result['errorMsg']));
+                    return false;
                 }
             }
         }
 
         // Directory for the new site files
+        $dbUser = $agora['nodes']['userprefix'] . $db;
         $targetDir = $agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/';
 
         // If the directory doesn't exists, create it
@@ -674,22 +516,46 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         // Uncompress the files
         $zip = new ZipArchive();
 
-        $resource = $zip->open($files['files']);
+        $resource = $zip->open($datafile);
         if (!$resource) {
-            LogUtil::registerError($this->__f("No s'ha pogut obrir el fitxer %s", $files['files']));
+            LogUtil::registerError($this->__f("No s'ha pogut obrir el fitxer de base de %s", $datafile));
             return false;
         }
 
-        // Try to uncompress the file
+        // Try to extract the file
         if (!$zip->extractTo($targetDir)) {
-            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s al directori %s", array($files['files'], $targetDir)));
+            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s al directori %s", array($datafile, $targetDir)));
             $zip->close();
             return false;
         }
 
         $zip->close();
 
-        return true;
+        // Generate a password for Moodle admin user
+        $params = array();
+        $params['password'] = md5($password); //Admin password en md5
+        $params['clientName'] = $client['clientName'];
+        $params['clientAddress'] = $client['clientAddress'];
+        $params['clientCity'] = $client['clientCity'];
+        $params['clientPC'] = $client['clientPC']; // Postal Code
+        $params['clientDNS'] = $client['clientDNS'];
+        $params['clientCode'] = $client['clientCode'];
+        $params['URLNodesModelBase'] = ModUtil::getVar('Agoraportal', 'URLNodesModelBase');
+        $params['shortcodes'] = implode(',',$shortcodes);
+        $params['DBNodesModel'] = ModUtil::getVar('Agoraportal', 'DBNodesModel');
+
+        $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addExecuteOperation',
+                    array('operation' => 'script_enable_service',
+                        'clientId' => $client['clientId'],
+                        'serviceId' => $service['serviceId'],
+                        'params' => $params
+                    ));
+        if (!$operation['success']) {
+            LogUtil::registerError($this->__('Ha fallat l\'activació del servei. Error:' . $operation['result']));
+            return false;
+        }
+
+        return $operation['success'];
     }
 
     /**
