@@ -94,7 +94,7 @@
                         <td align="center" valign="top">{$row.id}</td>
                         <td align="left" valign="top">{$row.operation}</td>
                         <td align="center" valign="top">
-                            <a target="_blank" href="../{$row.clientDNS}/{$row.serviceName}">
+                            <a target="_blank" href="{$row.clientDNS|serviceLink:$row.serviceName}">
                                 {$row.clientName}
                             </a></td>
                         <td align="center" valign="top">{$row.serviceName}</td>

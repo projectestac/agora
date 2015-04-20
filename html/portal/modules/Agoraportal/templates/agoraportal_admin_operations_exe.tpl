@@ -40,10 +40,10 @@
                 <tr class="{cycle values='error-odd,error-even'}">
                     {/if}
                     <td>
-                        <a href="#{$prefix}{$client.activedId}">{$prefix}{$client.activedId}</a>
+                        {$prefix}{$client.activedId}
                     </td>
                     <td>
-                        <a target="_blank" href="../{$client.clientDNS}/{$serviceName}">{$client.clientName}</a>
+                        <a target="_blank" href="{$client.clientDNS|serviceLink:$serviceName}">{$client.clientName}</a>
                     </td>
                 </tr>
                 {/foreach}
