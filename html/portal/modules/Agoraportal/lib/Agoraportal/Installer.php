@@ -220,7 +220,9 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 $this->setVar('createDB', false)
                         ->setVar('URLNodesModelBase', 'http://pwc-int.educacio.intranet/agora/master')
                         ->setVar('DBNodesModel', 'usu6, usu7, usu8, usu9, usu10');
-
+            case '2.0.14':
+                if (!DBUtil::changeTable('agoraportal_queues'))
+                    return false;
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber
              * si s'han de tornar a crear. */
