@@ -116,18 +116,18 @@
                 <textarea id="news_hometext" name="story[hometext]" cols="40" rows="10">{$item.hometext|safetext}</textarea>
             </div>
             
-             </br> 
             {if $formattedcontent eq 0}
-            <div class="z-formrow"  style="display:none">
+            <div class="z-formrow">
                 <label for="news_hometextcontenttype">{gt text='Index page teaser format'}</label>
                <select id="news_hometextcontenttype" name="story[hometextcontenttype]">
-                    <option value="0"{if $item.hometextcontenttype eq 0} selected="selected"{/if}>{gt text='Plain text'}</option>
-                    <option value="1"{if $item.hometextcontenttype eq 1} selected="selected"{/if}>{gt text='Text formatted with mark-up language'}</option>
+                    <option value="0">{gt text='Plain text'}</option>
+                    <option value="1" selected="selected">{gt text='Text formatted with mark-up language'}</option>
                 </select>
             </div>
             {/if}
             
 
+            <br />
             <div class="z-formrow">
                 <label for="news_bodytext"><strong>{gt text='Article body text'}</strong></label>
                 <textarea id="news_bodytext" name="story[bodytext]" cols="40" rows="10">{$item.bodytext|safetext}</textarea>
@@ -135,11 +135,11 @@
 
             
             {if $formattedcontent eq 0}
-            <div class="z-formrow" style="display:none">
+            <div class="z-formrow">
                 <label for="news_bodytextcontenttype">{gt text='Article body format'}</label>
                 <select id="news_bodytextcontenttype" name="story[bodytextcontenttype]">
-                    <option value="0"{if $item.bodytextcontenttype eq 0} selected="selected"{/if}>{gt text='Plain text'}</option>
-                    <option value="1"{if $item.bodytextcontenttype eq 1} selected="selected"{/if}>{gt text='Text formatted with mark-up language'}</option>
+                    <option value="0">{gt text='Plain text'}</option>
+                    <option value="1" selected="selected">{gt text='Text formatted with mark-up language'}</option>
                 </select>
             </div>
             {/if}
