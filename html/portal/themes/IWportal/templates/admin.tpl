@@ -19,7 +19,7 @@
     <body>
         <div id="theme_page_container">
             <div id="theme_header_top">
-                <a href="http://www.gencat.cat/educacio" target="_blank"><span class="logodepart"></span></a>
+                <a href="http://www.gencat.cat/ensenyament" target="_blank"><span class="logodepart"></span></a>
                 <a href="http://www.xtec.cat" target="_blank"><span class="logoxtec"></span></a>
             </div>
 
