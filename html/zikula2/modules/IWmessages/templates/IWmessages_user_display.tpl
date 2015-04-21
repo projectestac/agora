@@ -19,7 +19,7 @@
             <br />
             {/if}
         {/if}
-        {*$posterdata.userFullName|safetext*}
+        {$posterdata.userFullName|safetext}
     </div>
 
     <div id="noteinfo_1" class="z-hide z-noteinfo">&nbsp;</div>
