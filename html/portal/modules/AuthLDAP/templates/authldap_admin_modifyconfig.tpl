@@ -1,6 +1,6 @@
 {include file="authldap_admin_menu.tpl"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{pnimg modname='core' src='configure.png' set='icons/large' __alt='Settings' }</div>
+    <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large' __alt='Settings' }</div>
     <h2>{gt text="Settings"}</h2>
     <form id="config" class="z-form" action="{modurl modname='AuthLDAP' type='admin' func='updateconfig'}" method="post" enctype="application/x-www-form-urlencoded">
         <div>
