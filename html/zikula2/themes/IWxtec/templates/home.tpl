@@ -18,7 +18,7 @@
     <body>
         <div id="wrapper">
             <div id="logotop">
-                <a href="http://www.gencat.cat/educacio" target="_blank">
+                <a href="http://www.gencat.cat/ensenyament" target="_blank">
                     <img src="{$imagepath}/edu_blanc.png" width="195" height="28" alt="Departament d'Ensenyament" title="Departament d'Ensenyament" />
                 </a>
             </div>

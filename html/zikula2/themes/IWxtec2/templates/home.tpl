@@ -20,7 +20,7 @@
     <body>
         <div id="theme_page_container">
             <div id="theme_header_top">
-                <a href="http://www.gencat.cat/educacio" target="_blank">
+                <a href="http://www.gencat.cat/ensenyament" target="_blank">
                     <span class="logodepart">
                         <img src="{$imagepath}/departament.png" alt="Departament d'Ensenyament" title="Departament d'Ensenyament" />
                     </span>
