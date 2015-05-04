@@ -5,6 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added global vars for proxy
+
+ZIKULA
+- Added support for proxy in SimplePie
 
 
 
