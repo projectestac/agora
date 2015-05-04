@@ -43,10 +43,17 @@
     $agora['dbsource']['syncdir']          = $agora['dbsource']['dir'] . 'sync/';
     $agora['dbsource']['filename']         = 'allSchools.php';
 
+    // xtecadmin
 	$agora['xtecadmin']['mail']		       = 'agora@xtec.invalid';
+
+    // Proxy settings
+    $agora['proxy']['host']                = '';
+    $agora['proxy']['port']                = '';
+    $agora['proxy']['user']                = '';
+    $agora['proxy']['pass']                = '';
+    
     // Constants used elsewhere
     define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
-    define('EOI_WWWROOT', 'http://agora-eoi.xtec.cat');
 
     // Load restricted vars
     include_once $agora['server']['root'] . 'html/config/config-restricted.php';
