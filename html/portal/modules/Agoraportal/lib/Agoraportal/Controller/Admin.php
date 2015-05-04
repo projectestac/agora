@@ -3860,8 +3860,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $params = array();
             foreach ($_POST as $key => $value) {
                 if (strpos($key,'parm_') === 0 && !empty($value)) {
-                    $key_ret = substr($key,5);
-                    $params[$key_ret] = FormUtil::getPassedValue($key, $args[$key], 'POST');
+                    $key_ret = substr($key, 5);
+                    $params[$key_ret] = FormUtil::getPassedValue($key, null, 'POST');
                 }
             }
             $view->assign('params', $params);
