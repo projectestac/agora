@@ -79,9 +79,7 @@
                 <div style="clear:both; height: 20px;"></div>
                 {/foreach}
             </form>
-            <div class="z-errormsg">
-                {gt text="Per problemes tècnics, la pujada de fitxers grans no funciona amb el navegador Google Chrome."}
-            </div>
+            <br />
             <div class="z-informationmsg">
                 <p>{gt text="Des d'aquí podeu afegir fitxers grans al vostre espai Moodle, tenint en compte les condicions següents:"}</p>
                 <ul>
