@@ -103,5 +103,3 @@ function debug_colorize_string($string){
 
 	return $string;
 }
-
-?>

@@ -51,5 +51,3 @@ $DEBUG_CONFIG                = 0;                            // Enable/Disable c
 $DEBUG_UPLOAD                = 0;                            // Enable/Disable debug mode in uploader. Dumps your CGI and loaded config settings to screen and exits. UPLOADS IMPOSSIBLE.
 $DEBUG_FINISHED              = 0;                            // Enable/Disable debug mode in the upload finished page. Dumps all values to screen and exits. UPLOADS POSSIBLE.
 $PHP_ERROR_REPORTING         = 1;                            // Enable/Disable PHP error_reporting(E_ALL). UPLOADS POSSIBLE.
-
-?>

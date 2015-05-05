@@ -181,5 +181,3 @@ function write_link_file($temp_dir, $upload_id, $debug_upload, $delete_link_file
 	}
 	else{ return false; }
 }
-
-?>

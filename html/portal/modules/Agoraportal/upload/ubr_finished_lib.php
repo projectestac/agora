@@ -371,5 +371,3 @@ function scriptParent(){
 	print "	parent.iniFilePage();\n";
 	print "</script>\n";
 }
-
-?>

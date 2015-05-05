@@ -70,4 +70,3 @@ $_CONFIG['log_uploads']                           = 0;
 $_CONFIG['log_dir']                               = '/tmp/ubr_logs/';
 $_CONFIG['opera_browser']                         = (strstr(getenv("HTTP_USER_AGENT"), "Opera"))  ? 1 : 0;
 $_CONFIG['safari_browser']                        = (strstr(getenv("HTTP_USER_AGENT"), "Safari")) ? 1 : 0;
-?>
