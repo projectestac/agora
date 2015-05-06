@@ -4490,8 +4490,8 @@ class SimplePie_File
 	var $redirects = 0;
 	var $error;
 	var $method = SIMPLEPIE_FILE_SOURCE_NONE;
-
-	public function __construct($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false)
+    
+    public function __construct($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false)
 	{
 		if (class_exists('idna_convert'))
 		{
@@ -4526,7 +4526,27 @@ class SimplePie_File
 					curl_setopt($fp, CURLOPT_ENCODING, '');
 				}
 				curl_setopt($fp, CURLOPT_URL, $url);
-				curl_setopt($fp, CURLOPT_HEADER, 1);
+
+                
+                // XTEC ************ AFEGIT - Added support for proxy in SimplePie
+                // 2015.05.04 @aginard
+
+                global $agora;
+                
+                if (!empty($agora['proxy']['host'])) {
+                    $proxy = $agora['proxy']['host'] . ':' . $agora['proxy']['port'];
+                    curl_setopt($fp, CURLOPT_PROXY, $proxy);
+                }
+
+                if (!empty($agora['proxy']['user'])) {
+                    $proxy_auth = $agora['proxy']['user'] . ':' . $agora['proxy']['pass'];
+                    curl_setopt($fp, CURLOPT_PROXYUSERPWD, $proxy_auth);
+                }
+
+                //************ FI
+                
+                
+                curl_setopt($fp, CURLOPT_HEADER, 1);
 				curl_setopt($fp, CURLOPT_RETURNTRANSFER, 1);
 				curl_setopt($fp, CURLOPT_TIMEOUT, $timeout);
 				curl_setopt($fp, CURLOPT_CONNECTTIMEOUT, $timeout);

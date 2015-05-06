@@ -25,7 +25,7 @@
 #****************************************************************************************
 #  ATTENTION: The $TEMP_DIR values MUST be duplicated in the "ubr_ini.php" file
 #****************************************************************************************
-my $TEMP_DIR = '/srv/www/agora/moodledata/ubr_uploads/tmp/';
+my $TEMP_DIR = '/dades/agora/docs/ubr_uploads/tmp/';
 
 $|++;                                         # Auto flush output buffer
 

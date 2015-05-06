@@ -531,7 +531,7 @@ function Agoraportal_tables() {
         'description' => "X NOTNULL DEFAULT ''",
         'userCommentsText' => "X NOTNULL DEFAULT ''");
 
-    
+
     // agoraportal_modelTypes table definition
     $table['agoraportal_modelTypes'] = DBUtil::getLimitedTablename('agoraportal_modelTypes');
     $table['agoraportal_modelTypes_column'] = array('modelTypeId' => 'modelTypeId',
@@ -636,7 +636,7 @@ function Agoraportal_tables() {
         'timeCreated' => "I(20)",
         'timeStart' => "I(20)",
         'timeEnd' => "I(20)",
-        'params' => "C(255) NOTNULL DEFAULT ''",
+        'params' => "X NOTNULL DEFAULT ''",
         'logId' => "I NOTNULL DEFAULT '0'"
     );
 

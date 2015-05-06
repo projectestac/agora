@@ -109,5 +109,3 @@ function GetBytesRead($temp_dir, $upload_id){
 
 	return $read_status;
 }
-
-?>

@@ -455,7 +455,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         if (!empty($shortcode)) {
             $files = array(
                 'db' => $ZConfig['System']['datadir'] . '/nodes/master' . $shortcode . '.sql',
-                'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . 'usu1/repository/files/master' . $shortcode . '.zip'
+                'files' => $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['nodes']['userprefix'] . '1/repository/files/master' . $shortcode . '.zip'
             );
         } else {
             LogUtil::registerError($this->__("El codi curt de la maqueta indicada no està definit. Reviseu la configuració del mòdul."));

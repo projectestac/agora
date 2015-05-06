@@ -68,6 +68,5 @@ $_CONFIG['to_email_address']                      = 'email1@yoursite.com,email2@
 $_CONFIG['from_email_address']                    = 'admin@yoursite.com';
 $_CONFIG['log_uploads']                           = 0;
 $_CONFIG['log_dir']                               = '/tmp/ubr_logs/';
-$_CONFIG['opera_browser']                         = (strstr(getenv("HTTP_USER_AGENT"), "Opera"))  ? 1 : 0;
-$_CONFIG['safari_browser']                        = (strstr(getenv("HTTP_USER_AGENT"), "Safari")) ? 1 : 0;
-?>
+$_CONFIG['opera_browser']                         = 0;
+$_CONFIG['safari_browser']                        = 0;

@@ -124,7 +124,7 @@ and the roundoff errors in the Gaussian blur process, are welcome.
 ////
 ////                  Unsharp Mask for PHP - version 2.1.1
 ////
-////    Unsharp mask algorithm by Torstein Hønsi 2003-07.
+////    Unsharp mask algorithm by Torstein Hï¿½nsi 2003-07.
 ////             thoensi_at_netcom_dot_no.
 ////               Please leave this notice.
 ////
@@ -258,7 +258,3 @@ and the roundoff errors in the Gaussian blur process, are welcome.
 
     return $img;
 }
-?>
-
-
-

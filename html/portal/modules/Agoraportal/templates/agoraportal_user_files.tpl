@@ -67,21 +67,19 @@
                     <!-- DO NOT USE "upfile_" for any of your values. -->
                     <input type="file" name="upfile_{$smarty.foreach.service.index}" size="30" onChange="addUploadSlot(1)"  onkeypress="return handleKey(event)" value="" />
                     <input type="button" id="upload_button" name="upload_button" value="Envia" onClick="document.forms['form_upload'].clientServiceId.value = {$usage.clientServiceId};linkUpload();document.getElementById('formsArea').style.display='none';" />
-                    { /if }
-                    { if $usage.percentage > 100}
+                    {/if}
+                    {if $usage.percentage > 100}
                     <div class="z-errormsg">
                         {gt text="Heu superat el límit de capacitat de pujada de fitxers al servidor.
                         Per poder pujar fitxers abans heu d'alliberar quota o obtenir-ne més.
                         Podeu trobar més informació de com sol·licitar l'ampliació de la quota en aquesta <a href=\"http://agora.xtec.cat/moodle/moodle/mod/glossary/view.php?id=461&amp;mode=entry&amp;hook=561\">pregunta freqüent d'Àgora</a>."}
                     </div>
-                    { /if }
+                    {/if}
                 </div>
                 <div style="clear:both; height: 20px;"></div>
                 {/foreach}
             </form>
-            <div class="z-errormsg">
-                {gt text="Per problemes tècnics, la pujada de fitxers grans no funciona amb el navegador Google Chrome."}
-            </div>
+            <br />
             <div class="z-informationmsg">
                 <p>{gt text="Des d'aquí podeu afegir fitxers grans al vostre espai Moodle, tenint en compte les condicions següents:"}</p>
                 <ul>

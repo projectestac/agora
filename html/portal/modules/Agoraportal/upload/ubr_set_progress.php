@@ -94,5 +94,3 @@ function deleteTempUploadDir($temp_dir, $upload_id){
 
 	@rmdir($temp_upload_dir);
 }
-
-?>
