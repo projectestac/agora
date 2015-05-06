@@ -59,14 +59,14 @@ class Mailer_Api_User extends Zikula_AbstractApi
 
             return true;
         }
-           
+
         // Check for installed advanced Mailer module
         $event = new Zikula_Event('module.mailer.api.sendmessage', $this, $args);
         $this->eventManager->notify($event);
         if ($event->isStopped()) {
             return $event->getData();
         }
-        
+
         // XTEC ************ AFEGIT - Don't send e-mail through Mailer if XtecMailer is active
         // 2015.03.25 @aginard
         $info = ModUtil::getInfoFromName('XtecMailer');

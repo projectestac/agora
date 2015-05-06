@@ -173,7 +173,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // Needed argument
-        $serviceName = $args['serviceName'];
+        $serviceName = strtolower($args['serviceName']);
         if (!isset($serviceName) || empty($serviceName)) {
             return LogUtil::registerError($this->__('Falta el nom del servei'));
         }
@@ -183,6 +183,12 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         if (!is_array($service)) {
             return LogUtil::registerError($this->__('No s\'ha trobat el servei '.$serviceName));
         }
+
+        $activeService_function = 'activeService_' . $serviceName;
+        if (!method_exists($this, $activeService_function)) {
+            return LogUtil::registerError('La funció d\'activació per al servei '.$serviceName.' no existeix.');
+        }
+
         $serviceId = $service['serviceId'];
 
         // Get dbHost form the func params
@@ -202,37 +208,30 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         // Get the actual Id
         $db = $this->getDBId($clientService, $serviceId, $client['clientId'], $serviceName, $dbHost);
-        if (!$db) {
-            LogUtil::registerError($this->__('No queda cap base de dades lliure'));
-            return false;
+        if (empty($db)) {
+            return LogUtil::registerError($this->__('No queda cap base de dades lliure'));
+        } else {
+            LogUtil::registerStatus('Base de dades seleccionada '.$db);
         }
 
         // Get the database value depending on the service requested
         // In MySQL is DB name. In Oracle is Oracle instance.
-        $serviceDB = $db;
-        switch ($serviceName) {
-            case 'intranet':
-                $database = $agora['intranet']['userprefix'] . $db;
-                break;
-            case 'nodes':
-                $database = $agora['nodes']['userprefix'] . $db;
-                break;
-            case 'moodle2':
-                $database = ModUtil::apiFunc('Agoraportal', 'user', 'calcOracleInstance', array('database' => $db));
-                $serviceDB = $database;
-                break;
-            case 'marsupial':
-                $database = 1;
-                break;
-            default:
-                // Unknown service
-                return false;
+        if ($serviceName == 'moodle2') {
+            $serviceDB = ModUtil::apiFunc('Agoraportal', 'user', 'calcOracleInstance', array('database' => $db));
+            if (empty($serviceDB)) {
+                return LogUtil::registerError('No s\'ha pogut calcular la instància d\'Oracle corresponent');
+            } else {
+                LogUtil::registerStatus('Instància Oracle seleccionada '.$serviceDB);
+            }
+        } else {
+            // This info is not necessary for other services
+            $serviceDB = "";
         }
 
-        // edit service information
+        // edit service information needed to execute activation
         $clientServiceEdited = ModUtil::apiFunc('Agoraportal', 'admin', 'editService',
                 array('clientServiceId' => $clientServiceId,
-                        'items' => array('serviceDB' => $database,
+                        'items' => array('serviceDB' => $serviceDB,
                                          'timeCreated' => time(),
                                          'activedId' => $db,
                                          'dbHost' => $dbHost,
@@ -240,15 +239,14 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                         )
                     )
                 );
+
         if (!$clientServiceEdited) {
-            LogUtil::registerError($this->__('Error en l\'edició del registre'));
-            return false;
+            return LogUtil::registerError($this->__('Error en l\'edició del registre'));
         }
 
         $password = $this->createRandomPass();
 
-        $function = 'activeService_' . $serviceName;
-        $result = $this->$function($db, $dbHost, $client, $service, $clientService, $password);
+        $result = $this->$activeService_function($db, $dbHost, $client, $service, $password);
 
         if (!$result) {
             // Fallback changes on error
@@ -262,8 +260,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                                         )
                     )
                 );
-            LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
-            return false;
+            return LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
         }
 
         // insert the action in logs table
@@ -271,7 +268,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             'actionCode' => 2,
             'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $serviceName)));
 
-        return array('serviceDB' => $serviceDB, 'password' => $password);
+        $return = array('serviceDB' => $serviceDB, 'password' => $password);
+        if ($result !== true && is_numeric($result)) {
+            SessionUtil::setVar('execOper', $result);
+        }
+        return $return;
     }
 
     /**
@@ -320,7 +321,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @return  array if Ok / boolean if error
      */
-    private function activeService_moodle2($db, $dbHost, $client, $service, $clientService, $password) {
+    private function activeService_moodle2($db, $dbHost, $client, $service, $password) {
 
         // Generate a password for Moodle admin user
         $params = array();
@@ -330,20 +331,18 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $params['clientAddress'] = $client['clientAddress'];
         $params['clientCity'] = $client['clientCity'];
         $params['clientDNS'] = $client['clientDNS'];
-        $params['clientId'] = $client['clientId'];
-        $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addExecuteOperation',
+         $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
                     array('operation' => 'script_enable_service',
-                        'clientId' => $clientService['clientId'],
+                        'clientId' => $client['clientId'],
                         'serviceId' => $service['serviceId'],
                         'params' => $params
                     ));
-        if (!$operation['success']) {
-            LogUtil::registerError($this->__('Ha fallat l\'activació del servei. Error:' . $operation['result']));
-        } else {
-            LogUtil::registerStatus($this->__('S\'ha activat el servei correctament'));
+        if (!$operation['id']) {
+            LogUtil::registerError('No s\'ha pogut afegir la operació d\'activació del servei');
+            return false;
         }
-
-        return $operation['success'];
+        LogUtil::registerStatus('S\'està activant el servei... si no s\'activa aneu a les cues');
+        return $operation['id'];
     }
 
     /**
@@ -357,7 +356,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @return 	array if Ok / boolean if error
      */
-    private function activeService_intranet($db, $dbHost, $client, $service, $clientService, $password) {
+    private function activeService_intranet($db, $dbHost, $client, $service, $password) {
         global $agora;
 
         // Get the params
@@ -419,7 +418,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @return 	array with dummy value
      */
-    private function activeService_nodes($db, $dbHost, $client, $service, $clientService, $password) {
+    private function activeService_nodes($db, $dbHost, $client, $service, $password) {
 
         global $agora, $ZConfig;
 
@@ -656,6 +655,20 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
+        // Directory for the new site files
+        $targetDir = $agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/';
+
+        // If the directory doesn't exists, create it
+        if (!file_exists($targetDir)) {
+            $newDir = mkdir($targetDir, 0777, true);
+            if ($newDir) {
+                LogUtil::registerStatus(__f("S'ha creat el directori %s", $targetDir));
+            } else {
+                LogUtil::registerError($this->__f("El directori %s no existia i no s'ha pogut crear", $targetDir));
+                return false;
+            }
+        }
+
         // Uncompress the files
         $zip = new ZipArchive();
 
@@ -665,8 +678,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return false;
         }
 
-        if (!$zip->extractTo($agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/')) {
-            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s", $files['files']));
+        // Try to uncompress the file
+        if (!$zip->extractTo($targetDir)) {
+            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s al directori %s", array($files['files'], $targetDir)));
             $zip->close();
             return false;
         }
@@ -683,7 +697,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @return 	array with dummy value
      */
-    private function activeService_marsupial($db, $dbHost, $client, $service, $clientService, $password) {
+    private function activeService_marsupial($db, $dbHost, $client, $service, $password) {
         return true;
     }
 
@@ -1736,8 +1750,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
         if(!isset($args['operation']) || empty($args['operation']) ||
             !isset($args['clientId']) || empty($args['clientId'])||
-            !isset($args['serviceId']) || empty($args['serviceId'])){
-                return false;
+            !isset($args['serviceId']) || empty($args['serviceId'])) {
+                return LogUtil::registerError('Falten dades per poder crear la operació');
         }
 
         $priority = isset($args['priority']) ? $args['priority'] : 0;

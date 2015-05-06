@@ -1584,15 +1584,15 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         //   will be 0. In that case, no offset is applied to $agora['moodle2']['database']
         if (empty($dbNumber)) {
             return $agora['moodle2']['database'];
-        } else {
-            $offset = floor($database / 200) + (($database % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
-            if ($offset > 1) {
-                $offset = (string) $offset; // Ensure there will not be cast issues
-            } else {
-                $offset = '';
-            }
-            return $agora['moodle2']['database'] . $offset;
         }
+
+        $offset = floor($database / 200) + (($database % 200) == 0 ? ($dbNumber - 1) : $dbNumber);
+        if ($offset > 1) {
+            $offset = (string) $offset; // Ensure there will not be cast issues
+        } else {
+            $offset = '';
+        }
+        return $agora['moodle2']['database'] . $offset;
     }
 
     /**
