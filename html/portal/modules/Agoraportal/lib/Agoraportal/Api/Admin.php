@@ -655,6 +655,20 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
+        // Directory for the new site files
+        $targetDir = $agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/';
+
+        // If the directory doesn't exists, create it
+        if (!file_exists($targetDir)) {
+            $newDir = mkdir($targetDir, 0777, true);
+            if ($newDir) {
+                LogUtil::registerStatus(__f("S'ha creat el directori %s", $targetDir));
+            } else {
+                LogUtil::registerError($this->__f("El directori %s no existia i no s'ha pogut crear", $targetDir));
+                return false;
+            }
+        }
+
         // Uncompress the files
         $zip = new ZipArchive();
 
@@ -664,8 +678,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return false;
         }
 
-        if (!$zip->extractTo($agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/')) {
-            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s", $files['files']));
+        // Try to uncompress the file
+        if (!$zip->extractTo($targetDir)) {
+            LogUtil::registerError($this->__f("S'ha produït un error en descomprimir el fitxer %s al directori %s", array($files['files'], $targetDir)));
             $zip->close();
             return false;
         }
