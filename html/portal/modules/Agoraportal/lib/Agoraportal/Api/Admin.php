@@ -422,8 +422,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora, $ZConfig;
 
-        $urlModelBase = $this->getVar('URLNodesModelBase');
-        $dbModels = explode(',', $this->getVar('DBNodesModel'));
+        $urlModelBase = ModUtil::getVar('Agoraportal', 'URLNodesModelBase');
+        $dbModels = explode(',', ModUtil::getVar('Agoraportal', 'DBNodesModel'));
 
         $modelTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
         $shortcode = '';
@@ -517,8 +517,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='home'";
         $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='wsl_settings_redirect_url'";
 
-        $value = DataUtil::formatForStore('Espai del centre ' . $clientName);
-        $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogdescription'";
+        // Don't change default blog description
+        //$value = DataUtil::formatForStore('Espai del centre ' . $clientName);
+        //$sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='blogdescription'";
 
         $value = DataUtil::formatForStore($clientCode . '@xtec.cat');
         $sqls[] = "UPDATE $prefix" . "_options set option_value='$value' WHERE option_name='admin_email'";
@@ -580,6 +581,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $sqls[] = "TRUNCATE $prefix" . "_stats";
 
         foreach ($sqls as $sql) {
+            // LogUtil::registerStatus($sql);
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $sql,
                         'serviceName' => 'nodes',
@@ -597,7 +599,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         foreach ($fields as $field) {
             $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name = '$field'";
-            //LogUtil::registerStatus($sql);
+            // LogUtil::registerStatus($sql);
 
             $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                         'sql' => $sql,
@@ -638,7 +640,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         $newValue = str_replace("'", "''", serialize($value));
 
                         $sql = "UPDATE $prefix" . "_options set option_value='$newValue' WHERE option_name='$field';";
-                        //LogUtil::registerStatus($sql);
+                        // LogUtil::registerStatus($sql);
 
                         $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
                                     'sql' => $sql,
