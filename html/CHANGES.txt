@@ -3,8 +3,40 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 15.05.19
 ---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 2.6.10 to 2.6.11
+- Added new activity choicegroup that allow group enrolling over a choice activity
+- Allow tracking of activities in frontpage to users without role
+- Update Mailer library to reduce log and improve stability
+- Remove warnings in admin page
+- Move sessioncookie to settings
+- Update Marsupial to be enabled by default
+- Added proxy settings
+- Updated modules:
+  - Marsupial rcontent now has reports
+  - Hotpot, Moodle mobile, DD question types...
+  
+NODES
+- Upgraded WordPress to version 4.0.5
+- CSV: Included first version of the import-users-from-csv-with-meta plugin
+- If user is not logged in, redirects at login screen on BuddyPress tabs 
+- Solved categories error on breadcrumbs 
+- Disabled gravatar requests.
+- PhpInfo for xtecadmins.
+- Avoid upload large images (>2MB).
+- Hide full size option post insertion (maximum size width 1024)
+- Slideshow: Added proportional mode
+- Added proxy support
+- Giny Enllaços educatius: added 'ePergam', 'La meva XTEC' and bug fix #111
+- Added constant SCHOOL_CODE 
+- Added shortcode to embed rss into post and page
+- Added author link in metadata author post
+- Added 'myposts' functions to replace Social Articles
+- Added script to massive upgrade of WordPress (script_upgrade.class.php)
+- Added Docs page to visibility widget params
+
 GENERAL
 - Added global vars for proxy
 
