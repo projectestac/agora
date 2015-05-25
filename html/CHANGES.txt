@@ -3,6 +3,13 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+ZIKULA
+- Content: Updated catalan language files
+
+
+
 Changes 15.05.19
 ---------------------------------------------------------------------------------------
 MOODLE
@@ -42,7 +49,6 @@ GENERAL
 
 ZIKULA
 - Added support for proxy in SimplePie
-
 
 
 Changes 15.03.20
