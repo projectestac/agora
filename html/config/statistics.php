@@ -611,7 +611,7 @@ function getSchoolMoodleStats_Activities($con, $timestamp, $prefix) {
  */
 function getSchoolMoodleStats_Users($con, $year, $month, $daysofmonth) {
 
-    $now = mktime();
+    $now = time();
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
     if ($now < $max) { // Protection against late executions
         $max = $now;
@@ -719,12 +719,12 @@ function getDiskConsume ($clientCode, $service) {
     if ($rows !== false) {
         // INSERT: Si no hi ha cap registre, el crea
         if (count($rows) > 0) {
-            $diskConsume = array_shift($rows)->diskConsume;
+            return array_shift($rows)->diskConsume;
         }
     }
 
     // En cas d'error, retorna 0
-    return '0';
+    return 0;
 }
 
 
@@ -989,7 +989,7 @@ function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
     }
 
     // Count the users not marked as spam that have logged in the last 30 days
-    $now = mktime();
+    $now = time();
     $max = mktime(23, 59, 59, $month, $daysofmonth, $year);
     if ($now < $max) { // Protection against late executions
         $max = $now;

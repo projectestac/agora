@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL:
+- Statistics.php: Fixed getDiskConsume()
+
 ZIKULA
 - Content: Updated catalan language files
 
