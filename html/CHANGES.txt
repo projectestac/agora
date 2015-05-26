@@ -8,8 +8,9 @@ Changes in progress
 GENERAL:
 - Updated CheckFiles script
 - Made update.sh script more intelligent
-- Add environment variable to test email
-- Move opcache to testlib
+- Added environment variable to test email
+- Moved opcache to testlib
+- dblib-mysql: Redirect Intraweb to Nodes if it is not enabled 
 
 PORTAL:
 - Add statistics generation to nodes
