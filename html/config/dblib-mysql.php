@@ -306,13 +306,16 @@ function getSchoolInfo($service) {
 
     global $school_info;
     $school_info = getSchoolInfoFromFile($centre, 1, $service);
-
     if (!$school_info || !isset($school_info['id_'.$service]) || empty($school_info['id_'.$service])) {
         if (defined('CLI_SCRIPT')) {
             echo 'Center '.$centre.' not enabled';
             echo "\nerror\n";
         } else {
-            header('location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
+            if ($service == 'intranet' && isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])) {
+                header('location: '.WWWROOT.$_REQUEST['ccentre']);
+            } else {
+                header('location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
+            }
         }
         exit(0);
     }
@@ -399,7 +402,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
             if (isset($service)) {
                 if ($service == 'moodle2' && !isset($school_info['id_moodle2'])) {
                     $school_info = null;
-                } else if ($service == 'intranet' && !isset($school_info['id_intranet'])) {
+                } else if ($service == 'intranet' && !isset($school_info['id_intranet']) && !isset($school_info['id_nodes'])) {
                     $school_info = null;
                 } else if ($service == 'nodes' && !isset($school_info['id_nodes'])) {
                     $school_info = null;
