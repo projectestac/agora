@@ -130,6 +130,8 @@ gitcheckout "html/zikula2/modules/XtecMailer/includes/mailer" "master" "git@gith
 
 gitcheckout "html/portal/modules/XtecMailer/includes/mailer" "master" "git@github.com:projectestac/mailer.git"
 
+gitcheckout "html/testlib" "master" "git@github.com:projectestac/testlib_PHP.git"
+
 echo "Garbage collecting..."
 git gc
 
