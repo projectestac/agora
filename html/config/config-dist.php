@@ -26,7 +26,7 @@
     $agora['nodes']['diskusagefile']       = 'diskUsageWp.txt';
 
     // General vars
-    $agora['server']['school_information'] = 'http://aplitic.educacio.intranet/pls/xtec/agora_dades_centre?p_codi_centre=';
+    $agora['server']['school_information'] = 'http://aplitic.xtec.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
     $agora['server']['cookie']             = 'agoraSchool'.$agora['server']['enviroment'];
 
