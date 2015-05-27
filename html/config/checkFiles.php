@@ -1,7 +1,7 @@
 <?php
-
 require_once('env-config.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +11,15 @@ require_once('env-config.php');
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
+
 <?php
+
+$fixCacheConfig = (isset($_GET['fixcacheconfig'])) ? true : false;
 
 echo '<h1>Check files</h1>';
 echo '<div class="well well-sm">Servidor web: ' . gethostname() . ' (' .php_uname('s') . ')<br/>';
 echo 'Hora del servidor: ' . date("d-m-Y H:i:s e (P)") . '</div>';
-echo '<h3>Prova de connexó de curl</h3>';
+echo '<h3>Prova de connexió de curl</h3>';
 
 $url = $agora['server']['school_information'] . '08011941';
 $curl_handle = curl_init();
@@ -64,6 +67,9 @@ foreach ($files as $file) {
     $filename = $file['filename'];
     echo '<h3>Fitxer: ' . $filename . '</h3>';
     if (file_exists($filename)) {
+        if ($fixCacheConfig && strpos($filename, '/muc/')) {
+            chmod($filename, 0777);
+        }
         echo '<div>';
         $linkinfo = is_link($filename) ? readlink($filename) : 'No és enllaç simbòlic';
         $size = filesize($filename);
