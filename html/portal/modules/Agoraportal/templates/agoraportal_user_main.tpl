@@ -42,7 +42,7 @@
                 {if $client.usageArray.maxDiskSpace gt 0}
                 <br />
                 <div style="float:left; margin:0px;">{gt text="Espai de disc ocupat:"}&nbsp;</div>
-                <div style="float:left; margin:0px; width:{$client.usageArray.widthUsage}px; background:url(modules/Agoraportal/images/usage.gif);">&nbsp;</div>
+                <div style="float:left; margin:0px; width:100px; border: 1px solid gray;"><div style="width:{$client.usageArray.widthUsage}px; background:url(modules/Agoraportal/images/usage.gif);">&nbsp;</div></div>
                 <div style="float:left; margin:0px;">&nbsp;{$client.usageArray.percentage}%</div>
                 <div style="float:left; margin:0px;">&nbsp;&nbsp;({$client.usageArray.usedDiskSpace}MB / {$client.usageArray.totalDiskSpace}MB) <a href="{modurl modname='Agoraportal' type='user' func='recalcConsume' clientServiceId=$client.clientServiceId}">{gt text="Actualitza"}</a></div>
                 {if $client.usageArray.alert eq 1}
@@ -51,7 +51,7 @@
                         {gt text="Sol·licita més espai"}
                     </a>
                 </div>
-                {/if}          
+                {/if}
                 {/if}
                 <br />
                 {/if}
@@ -66,7 +66,7 @@
     </div>
     {else}
     <div class="z-informationmsg">
-        {gt text="Recordeu que només poden sol·licitar l'alta als serveis d'Àgora els <a href=index.php?module=Agoraportal&func=managers>Gestors</a>."}    
+        {gt text="Recordeu que només poden sol·licitar l'alta als serveis d'Àgora els <a href=index.php?module=Agoraportal&func=managers>Gestors</a>."}
     </div>
     {/if}
     {/if}
