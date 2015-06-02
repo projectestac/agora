@@ -10,16 +10,9 @@ $environment = $agora['server']['enviroment'];
 
 checkOracle($agora['moodle2']['database'], $centre, $agora['moodle2']['userpwd'], $agora['moodle2']['prefix']);
 
-if (!empty($_REQUEST['user'])) {
-    $testuser = $_REQUEST['user'];
-} else {
-    show_warning('User not set, using agora');
-    $testuser = 'agora';
-}
+test_mail($CFG->apligestaplic);
 
-test_mail($CFG->apligestaplic, $testuser.'@xtec.cat');
-
-test_ldap($testuser, $environment);
+test_ldap(false, $environment);
 
 //test_proxy('http://www.google.com');
 //test_ftp('localhost');
