@@ -14,6 +14,10 @@ test_mail($CFG->apligestaplic);
 
 test_ldap(false, $environment);
 
+test_memcache();
+
+test_session();
+
 //test_proxy('http://www.google.com');
 //test_ftp('localhost');
 
