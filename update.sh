@@ -16,11 +16,12 @@ function gitcheckout {
 
     echo "Entrant $dir BRANCH $branch REPO $remote ..."
     pushd $dir > /dev/null
-    update_exec "git checkout $branch"
-
     if [ ! -z "$remote" ]; then
         update_exec "git remote set-url origin $remote"
+        update_exec "git fetch"
     fi
+
+    update_exec "git checkout $branch"
 
     git_pull $branch
 
