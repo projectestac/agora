@@ -10,6 +10,13 @@ PORTAL
 - Agoraportal: Reset table agoraportal_modelTypes (Trello #1027)
 - Agoraportal: Ensure table agoraportal_queues has correct structure (Trello #1027)
 - Agoraportal: Change of 'Nom propi' enqueues replace of URL (Trello #1026)
+- Agoraportal: Delete Agora Question block  (Trello #640)
+- Agoraportal: Move API functions form Controller to API (Trello #640)
+- Agoraportal: Make queues use less resources (Trello #640)
+- Agoraportal: Add pending operations to the top of the list (Trello #640)
+- Agoraportal: Delete warning MySQL has gone away by reconnecting (Trello #640)
+- Agoraportal: Some code improvements  (Trello #640)
+- Agoraportal: Auto select dbHost in Nodes when the school has Intraweb (Trello #1059)
 
 
 

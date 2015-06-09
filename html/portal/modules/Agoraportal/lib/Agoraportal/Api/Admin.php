@@ -198,7 +198,9 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // Get the actual Id
-        $db = $this->getDBId($clientService, $serviceId, $client['clientId'], $serviceName, $dbHost);
+        $dbinfo = $this->getDBInfo($serviceName, $client['clientId'], $clientService, $serviceId, $dbHost);
+        $db = $dbinfo['id'];
+        $dbHost = $dbinfo['host'];
         if (empty($db)) {
             return LogUtil::registerError($this->__('No queda cap base de dades lliure'));
         } else {
@@ -269,7 +271,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $log['timeCreated'] = time();
         DBUtil::insertObject($log, 'agoraportal_enable_service_log');
 
-        $return = array('serviceDB' => $serviceDB, 'password' => $password);
+        $return = array('serviceDB' => $serviceDB, 'password' => $password, 'dbHost' => $dbHost);
         if ($result !== true && is_numeric($result)) {
             SessionUtil::setVar('execOper', $result);
         }
@@ -285,31 +287,40 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @param  string $dbHost       to connect
      * @return integer/false  with the database to connect
      */
-    private function getDBId($clientService, $serviceId, $clientId, $serviceName, $dbHost) {
-        $params = array('serviceId' => $serviceId, 'serviceName' => $serviceName, 'dbHost' => $dbHost);
-        switch ($serviceName) {
+    private function getDBInfo($servicename, $clientid, $clientservice, $serviceid, $dbhost) {
+        $twinclientservice = false;
+        switch ($servicename) {
             case 'nodes':
                 // Look for the twin service
-                $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
+                $twinclientservice = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientid,
                     'serviceName' => 'intranet'));
                 break;
             case 'intranet':
                 // Look for the twin service
-                $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId,
+                $twinclientservice = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientid,
                     'serviceName' => 'nodes'));
                 break;
             case 'marsupial':
-                return 1;
+                return array('id' => 1, 'host' => $dbhost);
         }
 
         // Get a DB Id
-        if (!empty($clientService) && $clientService['activedId'] > 0) {
+        if (!empty($twinclientservice) && $twinclientservice['activedId'] > 0) {
+            // There is a twin client service with assigned id
+            $activeid = $twinclientservice['activedId'];
+            $host = $twinclientservice['dbHost'];
+        } else if ($clientservice['activedId'] > 0) {
             // This client-service has already an Id assigned
-            return $clientService['activedId'];
+            $activeid = $clientservice['activedId'];
+            $host = $clientservice['dbHost'];
         } else {
             // Get the actual Id
-            return ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', $params);
+            $params = array('serviceId' => $serviceid, 'serviceName' => $servicename, 'dbHost' => $dbhost);
+            $host = $dbhost;
+            $activeid = ModUtil::apiFunc('Agoraportal', 'admin', 'getFreeDataBase', $params);
         }
+
+        return array('id' => $activeid, 'host' => $host);
     }
 
     /**

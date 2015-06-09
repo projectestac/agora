@@ -174,6 +174,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     } else {
                         $serviceDB = $result['serviceDB'];
                         $password = $result['password'];
+                        $dbHost = $result['dbHost'];
                     }
                 }
             }
@@ -4250,6 +4251,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
             $serviceDB = $result['serviceDB'];
             $password = $result['password'];
+            $dbHost = $result['dbHost'];
 
             // This call activates the service
             ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
