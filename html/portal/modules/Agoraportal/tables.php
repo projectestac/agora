@@ -36,7 +36,6 @@ function Agoraportal_tables() {
         'noVisible' => 'noVisible',
         'extraFunc' => 'extraFunc',
         'educat' => 'educat',
-        'educatNetwork' => 'educatNetwork',
     );
 
     $table['agoraportal_clients_column_def'] = array('clientId' => "I NOTNULL AUTO PRIMARY",
@@ -55,7 +54,6 @@ function Agoraportal_tables() {
         'noVisible' => "I(1) NOTNULL DEFAULT '0'",
         'extraFunc' => "C(15) NOTNULL DEFAULT ''",
         'educat' => "I(1) NOTNULL DEFAULT 0",
-        'educatNetwork' => "I(1) NOTNULL DEFAULT 0",
     );
 
     // agoraportal_services table definition

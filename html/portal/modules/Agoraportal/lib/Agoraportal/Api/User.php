@@ -169,8 +169,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             'compare_field_table' => 'clientServiceId',
             'compare_field_join' => 'clientServiceId');
         $myJoin[] = array('join_table' => 'agoraportal_clients',
-            'join_field' => array('clientId', 'clientCode', 'clientName', 'clientDNS', 'clientPC', 'clientAddress', 'clientCity', 'clientState', 'clientDescription', 'locationId', 'typeId', 'noVisible', 'extraFunc', 'educat', 'educatNetwork'),
-            'object_field_name' => array('clientId', 'clientCode', 'clientName', 'clientDNS', 'clientPC', 'clientAddress', 'clientCity', 'clientState', 'clientDescription', 'locationId', 'typeId', 'noVisible', 'extraFunc', 'educat', 'educatNetwork'),
+            'join_field' => array('clientId', 'clientCode', 'clientName', 'clientDNS', 'clientPC', 'clientAddress', 'clientCity', 'clientState', 'clientDescription', 'locationId', 'typeId', 'noVisible', 'extraFunc', 'educat'),
+            'object_field_name' => array('clientId', 'clientCode', 'clientName', 'clientDNS', 'clientPC', 'clientAddress', 'clientCity', 'clientState', 'clientDescription', 'locationId', 'typeId', 'noVisible', 'extraFunc', 'educat'),
             'compare_field_table' => 'clientId',
             'compare_field_join' => 'clientId');
         $tables = DBUtil::getTables();
@@ -252,14 +252,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
                         $where .= "b.$lcolumn[educat]" . " = 1";
                     } else {
                         $where .= "b.$lcolumn[educat]" . " = 0";
-                    }
-                    break;
-                case 'educatNetwork':
-                    $where .= ( !empty($where) ) ? ' AND ' : '';
-                    if($include){
-                        $where .= "b.$lcolumn[educatNetwork]" . " = 1";
-                    } else {
-                        $where .= "b.$lcolumn[educatNetwork]" . " = 0";
                     }
                     break;
             }

@@ -60,10 +60,6 @@
             <input id="educat" type="checkbox" {if $client.educat eq 1}checked{/if} name="educat" value="1"/>
         </div>
         <div class="z-formrow">
-            <label for="educatNetwork">{gt text="Fa ús de la xarxa eduCAT 1x1"}:</label>
-            <input id="educatNetwork" type="checkbox" {if $client.educatNetwork eq 1}checked{/if} name="educatNetwork" value="1"/>
-        </div>
-        <div class="z-formrow">
             <label for="noVisible">{gt text="No visible a la llista pública de centres"}:</label>
             <input id="noVisible" type="checkbox" {if $client.noVisible eq 1}checked{/if} name="noVisible" value="1"/>
         </div>
