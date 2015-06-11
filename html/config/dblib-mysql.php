@@ -849,7 +849,7 @@ class agora_dbmanager{
             $this->connect();
         } catch (Exception $e) {
             return false;
-            throw new Exception ('Cannot connect to ' . $thiss->database);
+            throw new Exception ('Cannot connect to ' . $this->database);
         }
 
         if (!$result = $this->connection->query($sql)) {
