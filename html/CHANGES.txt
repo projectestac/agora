@@ -3,12 +3,46 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 15.06.18
 ---------------------------------------------------------------------------------------
 GENERAL:
 - Statistics.php: Fixed getDiskConsume()
+- Added testapp
+- Simplify sync-config.sh, does not require oracle
+- Changed apc to opcache
 
 MOODLE
+- Moodle upgraded to from 2.8.6
+- Hide some settings to non xtecadmins
+- Set stasharguments by default in config.php
+- Deleted participants as default course block
+- Configured new Logging system
+- Deleted patch to let teachers configure system cohorts
+- Changed TinyMCE to Atto
+- Deleted EOICampus
+- Updated theme XTEC2 with new features:
+  - Solved advices cache
+  - Added nodes color scheme
+  - Added new user menu
+  - Style maintenance page and popup layout
+  - Upgraded fontawesome to 4.3.0
+  - Toggle block view by clicking on each header
+  - Increased block icon size
+  - Deleted supercollapse on the grader
+  - Added footer whatsapp and skype icons
+- Added some extra atto modules:
+  - Font family
+  - Font size
+  - Wiris (added for Atto and deleted for tinyMCE)
+- Updated modules:
+  - Marsupial to 2.7.0.0 with code and settings cleaning
+  - Jclic, Geogebra i QV to version v0.2.7 with events, code and settings cleaning
+  - Geogebra now admits HTML5
+  - GoogleOauth, Choicegroup, Wiris, OpenUniversity question modules, Hotpotatoes, Journal, Questionnaire
+  - Language packs
+- Applied patches:
+  - MDL-49440 lib: Date picker duplicated week day names repaired
+  - MDL-49742 lib: Removed additional names on tables for sorting. (solved in 2.8.7)
 
 NODES
 - Forbidden access to admin-tools and edit-comments for Collaborator user roles (Trello #790)
@@ -20,9 +54,11 @@ NODES
 - Added disk quota control (Trello #733)
 - Removed plugin Social Articles (Trello #693)
 - Improvements in bpdocs styles (Pull request #195)
+- Moved some code to submodules
 
 PORTAL:
 - Deleted educatNetwork from agoraportal
+- Disable intro redirect on portal service and client pages
 
 ZIKULA
 - Content: Updated catalan language files
@@ -43,12 +79,12 @@ MOODLE
 - Updated modules:
   - Marsupial rcontent now has reports
   - Hotpot, Moodle mobile, DD question types...
-  
+
 NODES
 - Upgraded WordPress to version 4.0.5
 - CSV: Included first version of the import-users-from-csv-with-meta plugin
-- If user is not logged in, redirects at login screen on BuddyPress tabs 
-- Solved categories error on breadcrumbs 
+- If user is not logged in, redirects at login screen on BuddyPress tabs
+- Solved categories error on breadcrumbs
 - Disabled gravatar requests.
 - PhpInfo for xtecadmins.
 - Avoid upload large images (>2MB).
@@ -56,7 +92,7 @@ NODES
 - Slideshow: Added proportional mode
 - Added proxy support
 - Giny Enllaços educatius: added 'ePergam', 'La meva XTEC' and bug fix #111
-- Added constant SCHOOL_CODE 
+- Added constant SCHOOL_CODE
 - Added shortcode to embed rss into post and page
 - Added author link in metadata author post
 - Added 'myposts' functions to replace Social Articles
