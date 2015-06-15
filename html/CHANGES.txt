@@ -8,6 +8,22 @@ Changes in progress
 GENERAL:
 - Statistics.php: Fixed getDiskConsume()
 
+MOODLE
+
+NODES
+- Forbidden access to admin-tools and edit-comments for Collaborator user roles (Trello #790)
+- Don't allow admins to modify WordPress URL on wp-admin/options-general.php (Trello #797)
+- Role names translated in import-users-with-csv (Trello #625)
+- Widget Grup-classe: Add navigation buttons to calendar (Github #182)
+- Widget Grup-classe: Internationalization (Github #88)
+- Upgraded GCE to version 2.2.5 (Trello #800)
+- Added disk quota control (Trello #733)
+- Removed plugin Social Articles (Trello #693)
+- Improvements in bpdocs styles (Pull request #195)
+
+PORTAL:
+- Deleted educatNetwork from agoraportal
+
 ZIKULA
 - Content: Updated catalan language files
 
