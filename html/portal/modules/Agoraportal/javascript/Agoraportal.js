@@ -780,14 +780,6 @@ function autoActions(serviceId) {
         f.annotations.value = autoAnnotations;
         f.observations.value = autoObservations;
     }
-
-    if (serviceId == 3) {
-        if (f.state.value == 1) {
-            f.educatNetwork.checked = true;
-        } else {
-            f.educatNetwork.checked = false;
-        }
-    }
 }
 
 function autoActionsRequests() {

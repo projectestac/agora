@@ -109,7 +109,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $diskSpace = FormUtil::getPassedValue('diskSpace', isset($args['diskSpace']) ? $args['diskSpace'] : 0, 'POST');
         $extraFunc = FormUtil::getPassedValue('extraFunc', isset($args['extraFunc']) ? $args['extraFunc'] : null, 'POST');
         $educat = FormUtil::getPassedValue('educat', isset($args['educat']) ? $args['educat'] : 0, 'POST');
-        $educatNetwork = FormUtil::getPassedValue('educatNetwork', isset($args['educatNetwork']) ? $args['educatNetwork'] : 0, 'POST');
         $version = FormUtil::getPassedValue('version', isset($args['version']) ? $args['version'] : null, 'POST');
 
         // Security check
@@ -138,7 +137,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         'noVisible' => $noVisible,
                         'extraFunc' => $extraFunc,
                         'educat' => $educat,
-                        'educatNetwork' => $educatNetwork,
                         )));
 
         if (!$clientEdited) {
@@ -601,9 +599,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 if ($services[$site['serviceId']]['serviceName'] != $serviceName) {
                     continue;
                 }
-                /*if ($site['educatNetwork'] == 1) {
-                	continue;
-                }*/
                 $url = ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('clientDNS' => $site['clientDNS'], 'serviceName' => $serviceName));
                 if ($url) {
                     break;
