@@ -223,6 +223,10 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             case '2.0.14':
                 if (!DBUtil::changeTable('agoraportal_queues'))
                     return false;
+            case '2.0.15':
+                $sql = "ALTER TABLE agoraportal_clients DROP educatNetwork;";
+                DBUtil::executeSQL($sql);
+
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber
              * si s'han de tornar a crear. */
