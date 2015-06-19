@@ -18,7 +18,7 @@ global $school_info;
 
 checkOracle($school_info['database_moodle2'], $agora['moodle2']['username'] . $school_info['id_moodle2'], $agora['moodle2']['userpwd'], $agora['moodle2']['prefix']);
 
-test_mail($CFG->apligestaplic);
+test_mail($CFG->apligestaplic, false, $CFG->apligestenv);
 
 test_ldap(false, $environment);
 
