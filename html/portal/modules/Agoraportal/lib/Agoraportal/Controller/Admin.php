@@ -2237,6 +2237,39 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
             $items = DBUtil::selectExpandedObjectArray('agoraportal_intranet_stats_day', $joinInfo, $where, (string) $orderby . ', yearmonth');
+        } else if ($stats == 8) { // Nodes Day
+            $table = 'agoraportal_nodes_stats_day';
+            if ($date_start == $date_stop) {
+                $dates = "date = $date_start";
+            } else {
+                $dates = "date >= $date_start AND date <= $date_stop";
+            }
+            $where = $clients_text . $dates;
+            $joinInfo = array();
+            $joinInfo[] = array('join_table' => 'agoraportal_clients',
+                'join_field' => array('educat'),
+                'object_field_name' => array('educat'),
+                'compare_field_table' => 'clientDNS',
+                'compare_field_join' => 'clientDNS');
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+        } else if ($stats == 9) { // Nodes Month
+            $table = 'agoraportal_nodes_stats_month';
+            $month_start = substr($date_start, 0, 6);
+            $month_stop = substr($date_stop, 0, 6);
+
+            if ($month_start == $month_stop) {
+                $dates = "date = $month_start";
+            } else {
+                $dates = "date >= $month_start AND date <= $month_stop";
+            }
+            $where = $clients_text . $dates;
+            $joinInfo = array();
+            $joinInfo[] = array('join_table' => 'agoraportal_clients',
+                'join_field' => array('educat'),
+                'object_field_name' => array('educat'),
+                'compare_field_table' => 'clientDNS',
+                'compare_field_join' => 'clientDNS');
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
         }
 
         if ($items === false) {
@@ -2659,6 +2692,71 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             $ca = array('num_centres');
             $res = DBUtil::executeSQL($sql_num_centres);
             $num_centress = DBUtil::marshallObjects($res, $ca);
+
+        } else if ($stats == 8) {
+            // Nodes Day
+            $est = "Diàries Nodes";
+            $table = 'agoraportal_nodes_stats_day';
+            if ($date_start == $date_stop) {
+                $dates = "date = $date_start";
+            } else {
+                $dates = "date >= $date_start AND date <= $date_stop";
+            }
+
+            $joinInfo = array();
+            $joinInfo[] = array('join_table' => 'agoraportal_clients',
+                'join_field' => array('educat'),
+                'object_field_name' => array('educat'),
+                'compare_field_table' => 'clientDNS',
+                'compare_field_join' => 'clientDNS');
+
+            if ($datatype == 'totals') {
+                $where = $dates;
+            } else {
+                $where = $clients_text . $dates;
+                $where_totals = $dates;
+
+                $items_totals = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where_totals, (string) $orderby . ', date');
+            }
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+
+            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM $table AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
+            $ca = array('num_centres');
+            $res = DBUtil::executeSQL($sql_num_centres);
+            $num_centress = DBUtil::marshallObjects($res, $ca);
+        } else if ($stats == 9) {
+            // Nodes Month
+            $est = "Mensuals Nodes";
+            $table = 'agoraportal_nodes_stats_month';
+            $month_start = substr($date_start, 0, 6);
+            $month_stop = substr($date_stop, 0, 6);
+
+            $joinInfo = array();
+            $joinInfo[] = array('join_table' => 'agoraportal_clients',
+                'join_field' => array('educat'),
+                'object_field_name' => array('educat'),
+                'compare_field_table' => 'clientDNS',
+                'compare_field_join' => 'clientDNS');
+
+            if ($month_start == $month_stop) {
+                $dates = "date = $month_start";
+            } else {
+                $dates = "date >= $month_start AND date <= $month_stop";
+            }
+            if ($datatype == 'totals') {
+                $where = $dates;
+            } else {
+                $where = $clients_text . $dates;
+                $where_totals = $dates;
+
+                $items_totals = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where_totals, (string) $orderby . ', date');
+            }
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+
+            $sql_num_centres = "SELECT count(distinct tbl.clientDNS)  FROM $table AS tbl   LEFT JOIN agoraportal_clients a ON a.clientDNS = tbl.clientDNS WHERE " . $dates;
+            $ca = array('num_centres');
+            $res = DBUtil::executeSQL($sql_num_centres);
+            $num_centress = DBUtil::marshallObjects($res, $ca);
         }
 
         if ($orderby != 'totals') {
@@ -2992,7 +3090,41 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 'compare_field_table' => 'clientDNS',
                 'compare_field_join' => 'clientDNS');
             $items = DBUtil::selectExpandedObjectArray('agoraportal_intranet_stats_day', $joinInfo, $where, (string) $orderby . ', yearmonth');
-        }
+        }else if ($stats ==8 ) { // Nodes day
+            $table = 'agoraportal_nodes_stats_day';
+            if ($date_start == $date_stop) {
+                $dates = "date = $date_start";
+            } else {
+                $dates = "date >= $date_start AND date <= $date_stop";
+            }
+            $where = $clients_text . $dates;
+            $joinInfo = array();
+            $joinInfo[] = array('join_table' => 'agoraportal_clients',
+                'join_field' => array('educat'),
+                'object_field_name' => array('educat'),
+                'compare_field_table' => 'clientDNS',
+                'compare_field_join' => 'clientDNS');
+            $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+
+            } else if ($stats ==9 ) {// Nodes Month
+                $table = 'agoraportal_nodes_stats_month';
+                $month_start = substr($date_start, 0, 6);
+                $month_stop = substr($date_stop, 0, 6);
+                if ($month_start == $month_stop) {
+                    $dates = "date = $month_start";
+                } else {
+                    $dates = "date >= $month_start AND date <= $month_stop";
+                }
+                $where = $clients_text . $dates;
+                $joinInfo = array();
+                $joinInfo[] = array('join_table' => 'agoraportal_clients',
+                    'join_field' => array('educat'),
+                    'object_field_name' => array('educat'),
+                    'compare_field_table' => 'clientDNS',
+                    'compare_field_join' => 'clientDNS');
+                $items = DBUtil::selectExpandedObjectArray($table, $joinInfo, $where, (string) $orderby . ', date');
+                $_SESSION['items'] = $items;
+            }
 
         if ($items === false) {
             return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
