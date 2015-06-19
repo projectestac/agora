@@ -29,6 +29,8 @@
                     <option value="5" {if $stats_sel eq "5"}selected="selected"{/if}onclick="javascript:statsAssistent(1)">{gt text="Estadístiques mensuals Moodle 2"}</option>
                     <option value="6" {if $stats_sel eq "6"}selected="selected"{/if}>{gt text="Estadístiques setmanals Moodle 2"}</option>
                     <option value="7" {if $stats_sel eq "7"}selected="selected"{/if}>{gt text="Estadístiques diàries Moodle 2"}</option>
+                    <option value="8" {if $stats_sel eq "8"}selected="selected"{/if}>{gt text="Estadístiques diàries Nodes"}</option>
+                    <option value="9" {if $stats_sel eq "9"}selected="selected"{/if}>{gt text="Estadístiques mensuals Nodes"}</option>
                 </select>
                 <span id="reload"></span>
                 <br/>
