@@ -129,6 +129,7 @@ gitcheckout "html/moodle2/theme/xtec2" "master" "git@github.com:projectestac/moo
 #rm -Rf html/moodle2/lib/editor/tinymce/plugins/tiny_mce_wiris
 
 gitcheckout "html/wordpress" "master" "git@github.com:projectestac/agora_nodes.git"
+gitcheckout "html/wordpress/wp-content/mu-plugins/common" "master" "git@github.com:projectestac/wordpress-mu-common.git"
 gitcheckout "html/wordpress/wp-content/plugins/blogger-importer" "master" "git@github.com:projectestac/wordpress-blogger-importer.git"
 gitcheckout "html/wordpress/wp-content/plugins/google-analyticator" "master" "git@github.com:projectestac/wordpress-google-analyticator.git"
 gitcheckout "html/wordpress/wp-content/plugins/google-calendar-events" "master" "git@github.com:projectestac/wordpress-gce.git"
