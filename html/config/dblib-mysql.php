@@ -318,17 +318,6 @@ function getSchoolInfo($service) {
     }
     xtec_debug($school_info['source']);
 
-    if (!empty($school_info['new_dns'])) {
-        if (defined('CLI_SCRIPT')) {
-            echo 'Center '.$centre.' has new address';
-            echo "\nerror\n";
-        } else {
-            $newadress = WWWROOT . $school_info['new_dns'].'/'.$service;
-            header('location: '.WWWROOT.'error.php?newaddress='.$newadress);
-        }
-        exit(0);
-    }
-
     return $centre;
 }
 
@@ -365,22 +354,21 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
         $cookie = $_COOKIE[$agora['server']['cookie']];
         if (isValidCookie($cookie)) {
             $data = explode('__', $cookie);
-            if (count($data) == 17 && $data[0] == $dns) {
+            if (count($data) == 16 && $data[0] == $dns) {
                 $school_info['clientCode'] = $data[1];
-                $school_info['new_dns'] = $data[2];
-                $school_info['is_marsupial'] = $data[3];
-                $school_info['id_moodle2'] = $data[4];
-                $school_info['database_moodle2'] = $data[5];
-                $school_info['diskPercent_moodle2'] = $data[6];
-                $school_info['id_intranet'] = $data[7];
-                $school_info['database_intranet'] = $data[8];
-                $school_info['dbhost_intranet'] = $data[9];
-                $school_info['diskPercent_intranet'] = $data[10];
-                $school_info['version_intranet'] = $data[11];
-                $school_info['id_nodes'] = $data[12];
-                $school_info['database_nodes'] = $data[13];
-                $school_info['dbhost_nodes'] = $data[14];
-                $school_info['diskPercent_nodes'] = $data[15];
+                $school_info['is_marsupial'] = $data[2];
+                $school_info['id_moodle2'] = $data[3];
+                $school_info['database_moodle2'] = $data[4];
+                $school_info['diskPercent_moodle2'] = $data[5];
+                $school_info['id_intranet'] = $data[6];
+                $school_info['database_intranet'] = $data[7];
+                $school_info['dbhost_intranet'] = $data[8];
+                $school_info['diskPercent_intranet'] = $data[9];
+                $school_info['version_intranet'] = $data[10];
+                $school_info['id_nodes'] = $data[11];
+                $school_info['database_nodes'] = $data[12];
+                $school_info['dbhost_nodes'] = $data[13];
+                $school_info['diskPercent_nodes'] = $data[14];
 
                 // Debug info
                 $school_info['source'] = 'Cookie';
@@ -401,6 +389,11 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
         }
 
         if (isset($school_info)) {
+            // Redirect to New DNS directly
+            if (!empty($school_info['new_dns'])) {
+                redirectNewDNS($centre, $school_info['new_dns'], $service);
+            }
+
             // Debug info
             $school_info['source'] = 'allSchools';
             if (isset($service)) {
@@ -418,6 +411,12 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     // If error or other source specified, retrieve from Database
     if (!isset($school_info) || empty($school_info)) {
         $school_info = getSchoolDBInfo($dns);
+
+        // Redirect to New DNS directly
+        if (!empty($school_info['new_dns'])) {
+            redirectNewDNS($centre, $school_info['new_dns'], $service);
+        }
+
         // Debug info
         $school_info['source'] = 'DB';
     }
@@ -430,7 +429,6 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
 
         $bodycookie = $dns
                 . '__' . (isset($school_info['clientCode']) ? $school_info['clientCode'] : '')
-                . '__' . (isset($school_info['new_dns']) ? $school_info['new_dns'] : '')
                 . '__' . (isset($school_info['is_marsupial']) ? $school_info['is_marsupial'] : '')
                 . '__' . (isset($school_info['id_moodle2']) ? $school_info['id_moodle2'] : '')
                 . '__' . (isset($school_info['database_moodle2']) ? $school_info['database_moodle2'] : '')
@@ -454,6 +452,17 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     }
 
     return $school_info;
+}
+
+function redirectNewDNS($oldDNS, $newDNS, $service) {
+    if (defined('CLI_SCRIPT')) {
+        echo 'Center '.$oldDNS.' has new address: '.$newDNS;
+        echo "\nerror\n";
+    } else {
+        $newadress = WWWROOT . $newDNS.'/'.$service;
+        header('location: '.WWWROOT.'error.php?newaddress='.$newadress);
+    }
+    exit(0);
 }
 
 /**
