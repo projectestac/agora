@@ -14,6 +14,7 @@ GENERAL:
 PORTAL:
 - Add statistics generation to nodes
 - Increased maximum quota allowable to services to 2048 TB (Trello #856)
+- Fixed link to FAQ in front page (Trello #866)
 
 
 

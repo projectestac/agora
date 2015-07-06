@@ -33,7 +33,7 @@
     </div>
     {/if}
     <div class="hmenuElement">
-        <a href="http://agora.xtec.cat/moodle/moodle/mod/resource/view.php?id=581" target="_blank" ssl=false>
+        <a href="http://agora.xtec.cat/moodle/moodle/mod/page/view.php?id=1781" target="_blank" ssl=false>
             {gt text="PMF"}
         </a>
     </div>
