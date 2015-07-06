@@ -65,6 +65,7 @@
                 <th>{gt text="Parameters"}</th>
                 <th>{gt text="Date and time"}</th>
                 <th>{gt text="IP"}</th>
+                <th>{gt text="IP Forward"}</th>
                 <th>{gt text="Obre"}</th>
             </tr>
         </thead>
@@ -109,6 +110,9 @@
                     <a href="{modurl modname='IWstats' type='admin' func='deleteIp' ip=$record.ip}">
                         {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt='Remove'}
                     </a>
+                </td>
+                <td width="120">
+                    {$record.ipForward}
                 </td>
                 <td>
                     {if $record.moduleid gt 0}
