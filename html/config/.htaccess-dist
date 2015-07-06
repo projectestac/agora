@@ -4,5 +4,7 @@ AuthName "Es requereix contrasenya"
 AuthUserFile /srv/www/agora/html/config/.htpasswd
 Satisfy Any
 Order allow,deny
+SetEnvIF X-Forwarded-For "10.0.0.1" AllowIP
+Allow from env=AllowIP
 Allow from localhost
 Allow from 127.0.0.1
