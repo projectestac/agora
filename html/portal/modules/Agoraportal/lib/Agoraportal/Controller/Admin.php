@@ -3330,13 +3330,15 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     }
 
     public function updateDiskUse($args) {
-        // Security check
+       // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
             $allowedIpsArray = explode(',', $allowedIps);
 
             $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-            if (!in_array($requestaddr, $allowedIpsArray)) {
+            $requestaddr = explode(',', $requestaddr);
+
+            if (!in_array(trim(end($requestaddr)), $allowedIpsArray)) {
                 LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
                 return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
             }
