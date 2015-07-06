@@ -118,7 +118,7 @@ function Agoraportal_tables() {
         'timeCreated' => "C(25) NOTNULL DEFAULT ''",
         'observations' => "C(255) NOTNULL DEFAULT ''",
         'annotations' => "C(255) NOTNULL DEFAULT ''",
-        'diskSpace' => "I(6) NOTNULL DEFAULT 0",
+        'diskSpace' => "I NOTNULL DEFAULT 0",
         'timeEdited' => "C(25) NOTNULL DEFAULT ''",
         'timeRequested' => "C(25) NOTNULL DEFAULT ''",
         'diskConsume' => "C(15) NOTNULL DEFAULT ''",

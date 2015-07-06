@@ -6,13 +6,16 @@ development home at https://github.com/projectestac/agora
 Changes in progress
 ---------------------------------------------------------------------------------------
 GENERAL:
- - Updated CheckFiles script
- - Make Update.sh script more intelligent
- - Add environment variable to test email
- - Move opcache to testlib
+- Updated CheckFiles script
+- Made update.sh script more intelligent
+- Add environment variable to test email
+- Move opcache to testlib
 
 PORTAL:
- - Add statistics generation to nodes
+- Add statistics generation to nodes
+- Increased maximum quota allowable to services to 2048 TB (Trello #856)
+
+
 
 Changes 15.06.18
 ---------------------------------------------------------------------------------------
@@ -73,7 +76,6 @@ PORTAL:
 
 ZIKULA
 - Content: Updated catalan language files
-
 
 
 Changes 15.05.19
