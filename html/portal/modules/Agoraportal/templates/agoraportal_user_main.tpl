@@ -18,10 +18,10 @@
                     <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" alt="{$services[$client.serviceId].serviceName}" title="{$services[$client.serviceId].serviceName}" />
                 </legend>
                 <div>
-                <strong>{$services[$client.serviceId].serviceName}</strong>
+                <strong>{$services[$client.serviceId].serviceName}</strong>: {$services[$client.serviceId].description}
                 </div>
                 <div>
-                {gt text="Ha fet la sol·licitud"}: {$client.contactName} ({$client.contactMail})
+                <strong>{gt text="Ha fet la sol·licitud"}</strong>: {$client.contactName} ({$client.contactMail})
                 </div>
                 {if $client.state eq 0}
                 <span class="toCheck">{gt text="Servei pendent d'activació"}</span>
@@ -35,13 +35,13 @@
                     {/if}
                 {elseif $client.state eq 1}
                 {if $services[$client.serviceId].serviceName neq 'marsupial'}
-                {gt text="Accés"}: <a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}">{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}</a>
+                <strong>{gt text="Accés"}</strong>: <a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}">{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}</a>
                 <br />
                 {/if}
-                {gt text="Data d'activació"}: {$client.timeCreated|dateformat:"%d/%m/%Y"}
+                <strong>{gt text="Data d'activació"}</strong>: {$client.timeCreated|dateformat:"%d/%m/%Y"}
                 {if $client.usageArray.maxDiskSpace gt 0}
                 <br />
-                <div style="float:left; margin:0px;">{gt text="Espai de disc ocupat:"}&nbsp;</div>
+                <div style="float:left; margin:0px;"><strong>{gt text="Espai de disc ocupat"}</strong>:&nbsp;</div>
                 <div style="float:left; margin:0px; width:100px; border: 1px solid gray;"><div style="width:{$client.usageArray.widthUsage}px; background:url(modules/Agoraportal/images/usage.gif);">&nbsp;</div></div>
                 <div style="float:left; margin:0px;">&nbsp;{$client.usageArray.percentage}%</div>
                 <div style="float:left; margin:0px;">&nbsp;&nbsp;({$client.usageArray.usedDiskSpace}MB / {$client.usageArray.totalDiskSpace}MB) <a href="{modurl modname='Agoraportal' type='user' func='recalcConsume' clientServiceId=$client.clientServiceId}">{gt text="Actualitza"}</a></div>
@@ -54,6 +54,16 @@
                 {/if}
                 {/if}
                 <br />
+                {/if}
+                {if $isAdmin}
+                <div style="clear:both;" id="tools_{$services[$client.serviceId].serviceName}">
+                <fieldset style="background: #EEEEFF;">
+                <legend>Eines d'administració</legend>
+                <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId}">{gt text="Edita el servei"}</a>
+                 - <a href="{modurl modname='Agoraportal' type='admin' func='deleteService' clientServiceId=$client.clientServiceId}">{gt text="Esborra el servei"}</a>
+                 {include file="agoraportal_admin_serviceTools_aux.tpl"}
+                </fieldset>
+                </div>
                 {/if}
             </fieldset>
         </div>

@@ -1,10 +1,18 @@
 <div class="z-form">
-    <fieldset>
+    <fieldset style="background: #EEEEFF;">
         <legend>{gt text="Informació del client"}</legend>
-        {gt text="Nom client"}: {$client.clientName}
+        <strong>{gt text="Nom client"}</strong>: {$client.clientName}
         <br />
-        {gt text="Codi"}: {$client.clientCode}
+        <strong>{gt text="Codi"}</strong>: {$client.clientCode}
         <br />
-        {gt text="Nom propi"}: {$client.clientDNS}
+        <strong>{gt text="Nom propi"}</strong>: {$client.clientDNS}
+        <br />
+        <strong>{gt text="Antic Nom propi"}</strong>: {$client.clientOldDNS}
+        <br />
+        <strong>{gt text="Adreça"}</strong>: {$client.clientAddress}, {$client.clientPC} - {$client.clientCity} ({$client.clientCountry})
+        <br />
+        <strong>{gt text="Descripció"}</strong>: {$client.clientDescription}
+        <br />
+        <strong>{gt text="Xarxa educat"}</strong>: {$client.educat}
     </fieldset>
 </div>

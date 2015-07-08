@@ -4,60 +4,9 @@
     <h2>{gt text="Eines d'administració"}</h2>
     <div>{gt text="Nom client"}: <strong>{$client.clientName}</strong></div>
     <div>{gt text="Servei"}: <strong>{$services[$client.serviceId].serviceName}</strong></div>
+    <div><a href="{modurl modname='Agoraportal' type='user' func='myAgora' clientCode=$client.clientCode}">{gt text="Edita el client"}</a></div>
     <div class="serviceImgAdmin">
         <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" />
     </div>
-    {gt text="Accions disponibles:"}
-    {if $services[$client.serviceId].serviceName == 'moodle2'}
-    <ul>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='1' clientServiceId=$client.clientServiceId}">
-                {gt text="Restaura l'usuari xtecadmin a Moodle"}
-            </a>
-        </li>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='6' clientServiceId=$client.clientServiceId}">
-                {gt text="Recalcula l'espai consumit"}
-            </a>
-        </li>
-    </ul>
-    {elseif $services[$client.serviceId].serviceName == 'intranet'}
-    <ul>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='3' clientServiceId=$client.clientServiceId}">
-                {gt text="Crea o esborra l'usuari xtecadmin a la intranet"}
-            </a>
-        </li>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='4' clientServiceId=$client.clientServiceId}">
-                {gt text="Crea el primer permís d'administració"}
-            </a>
-        </li>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='5' clientServiceId=$client.clientServiceId}">
-                {gt text="Desactiva tots els blocs del portal (només fer-ho en cas de necessitat extrema)"}
-            </a>
-        </li>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='7' clientServiceId=$client.clientServiceId}">
-                {gt text="Recalcula l'espai consumit"}
-            </a>
-        </li>
-    </ul>
-    {elseif $services[$client.serviceId].serviceName == 'nodes'}
-    <ul>
-        <li>
-            <a href="{modurl modname='Agoraportal' type='admin' func='serviceTools' action='8' clientServiceId=$client.clientServiceId}">
-                {gt text="Recalcula l'espai consumit"}
-            </a>
-        </li>
-    </ul>
-    {else}
-    <div>
-        {gt text="No s'han trobat eines disponibles."}
-    </div>
-    {/if}
-    <div class="z-warningmsg">
-        {gt text="ATENCIÓ: No es demana confirmació per portar a terme les accions de la llista."}
-    </div>
+    {include file="agoraportal_admin_serviceTools_aux.tpl"}
 </div>
