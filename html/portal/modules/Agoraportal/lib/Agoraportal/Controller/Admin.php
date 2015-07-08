@@ -3504,7 +3504,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Admin report
-        if ($mailerAvailable) {
+        if ($mailerAvailable && !empty($adminReport)) {
             ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array(
                 'toname' => $this->__('Agoraportal admin'),
                 'toaddress' => $adminemails,
