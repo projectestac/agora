@@ -1,21 +1,5 @@
-<div class="pager">
-    {$numLogs}
-    {gt text=" registres - <b>Pàgines: </b>"}
-    {foreach from=$pags item=pag}
-    {if $pag eq $config.pag} 
-    <b>{$pag}</b>
-    {else}
-    <a href='javascript:logs({$config.init},
-       {if $config.actionCode eq ""}null{else}{$config.actionCode}{/if},
-       {if $config.fromDate eq ""}null{else}"{$config.fromDate}"{/if},
-       {if $config.toDate eq ""}null{else}"{$config.toDate}"{/if},
-       {if $config.uname eq ""}null{else}{$config.uname}{/if},
-       {$pag})'>{$pag}</a>
-    {/if}
-    {foreachelse} 0
-    {/foreach}
-</div>
-<table class="logtable">
+{$pager}
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>{gt text="Tipus d'acció"}</th>
@@ -28,31 +12,33 @@
     </thead>
     <tbody>
         {foreach from=$logs item=log}
-        <tr class="{cycle values='z-odd,z-even'}" id="formRow_{$log.logId}">
-            <td class="icon">
+        <tr>
+            <td>
                 {if $log.actionCode eq 1}
-                <img class="icon" src="images/icons/medium/db_add.png" alt="log_add" title="log_add"/>
+                    <span class="btn btn-success glyphicon glyphicon-plus" aria-hidden="true" aria-label="Addició/Alta" title="Addició/Alta"></span>
                 {elseif $log.actionCode eq 2}
-                <img class="icon" src="images/icons/medium/db_comit.png" alt="log_modify" title="log_modify"/>
-                {else}
-                <img class="icon" src="images/icons/medium/db_remove.png" alt="log_delete" title="log_delete"/>
+                    <span class="btn btn-info glyphicon glyphicon-flag" aria-hidden="true" aria-label="Modificació/Notificació" title="Modificació/Notificació"></span>
+                {elseif $log.actionCode eq 3}
+                    <span class="btn btn-warning glyphicon glyphicon-trash" aria-hidden="true" aria-label="Eliminació/Baixa" title="Eliminació/Baixa"></span>
+                {elseif $log.actionCode eq 4}
+                    <span class="btn btn-alert glyphicon glyphicon-remove" aria-hidden="true" aria-label="Error" title="Error"></span>
+                {elseif $log.actionCode eq -1}
+                    <span class="btn btn-primary glyphicon glyphicon-user" aria-hidden="true" aria-label="Adminitració" title="Adminitració"></span>
                 {/if}
             </td>
-            <td>
-                {$log.action|stripslashes}
-            </td>
+            <td>{$log.action|stripslashes}</td>
             {if $isAdmin}
-                <td class="autor">
+                <td>
                     {$log.uname}
                 </td>
             {/if}
-            <td class="time">
-                {$log.time|dateformat:"%d-%m-%Y"}
+            <td>
+                {$log.time|dateformat:"%d/%m/%Y"}
             </td>
         </tr>
         {foreachelse}
         <tr>
-            <td colspan="5" align="left">
+            <td colspan="4">
                 {gt text="No s'han trobat registres"}
             </td>
         </tr>

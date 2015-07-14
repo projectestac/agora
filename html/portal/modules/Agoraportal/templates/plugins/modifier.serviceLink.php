@@ -1,6 +1,6 @@
 <?php
 
 function smarty_modifier_serviceLink($clientDNS, $serviceName) {
-    return ModUtil::func('Agoraportal', 'user', 'getServiceLink', array('serviceName' => $serviceName,
-                'clientDNS' => $clientDNS));
+    $service = ServiceType::get_by_name($serviceName);
+    return ModUtil::getVar('Agoraportal', 'siteBaseURL') . $clientDNS . '/' . $service->URL;
 }

@@ -65,7 +65,7 @@ function transformClientCode($clientCode, $type = 'letter2num') {
  * @return Array with the schools information
  */
 function getAllSchoolsDBInfo($codeletter = false) {
-    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.clientDNS, s.serviceName, c.clientOldDNS, c.typeId, cs.diskSpace, cs.diskConsume
+    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, c.clientDNS, s.serviceName, c.clientOldDNS, c.typeId, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
 			ORDER BY c.clientDNS';
@@ -90,7 +90,7 @@ function getAllSchoolsDBInfo($codeletter = false) {
         $values[] = array(
             'id' => $row->activedId,
             'code' => $clientCode,
-            'dbhost' => $row->dbHost,
+            'dbhost' => $row->serviceDB,
             'database' => $row->serviceDB,
             'dns' => $row->clientDNS,
             'type' => $row->typeId,
@@ -98,6 +98,7 @@ function getAllSchoolsDBInfo($codeletter = false) {
             'old_dns' => $row->clientOldDNS,
             'diskPercent' => $diskPercent);
     }
+
     return $values;
 }
 
@@ -174,7 +175,7 @@ function getAllSchools($order = 'school_id', $desc = 'asc', $service='all', $sta
                 'school_typename' => $row->typeName,
                 'school_locationid' => $row->locationId,
                 'school_locationname' => $row->locationName,
-                'dbhost' => $row->dbHost,
+                'dbhost' => $row->serviceDB,
                 'service' => $row->serviceId,
                 'database' => $row->serviceDB,
                 'observations' => $row->observations,
@@ -216,7 +217,7 @@ function getSchoolDBInfo($dns, $codeletter = false) {
         return false;
     }
 
-    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
+    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
 			AND c.clientDNS = "' . $dns . '"';
@@ -231,7 +232,7 @@ function getSchoolDBInfo($dns, $codeletter = false) {
             $service = $row->serviceName;
 
             $value['id_' . $service] = $row->activedId;
-            $value['dbhost_' . $service] = $row->dbHost;
+            $value['dbhost_' . $service] = $row->serviceDB;
             $value['database_' . $service] = $row->serviceDB;
             $value['diskPercent_' . $service] = $diskPercent;
 
@@ -642,7 +643,7 @@ function getServicesToTest($service) {
         }
 
         foreach ($results as $row) {
-            $schools[$row->id] = $row->dbHost;
+            $schools[$row->id] = $row->serviceDB;
         }
     } else if ($service == 'moodle2') {
         // Get the list of Moodles to test
@@ -664,12 +665,12 @@ function getServicesToTest($service) {
     } else if ($service == 'intranet') {
         // DEPRECATED
         // Get the list of intranets to test
-        $sql = 'SELECT dbHost, min(activedId) as id
+        $sql = 'SELECT serviceDB, min(activedId) as id
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
                 AND activedId !=0 AND c.state=1
-                GROUP BY dbHost';
+                GROUP BY serviceDB';
 
         $results = get_rows_from_db($sql);
         if (!$results) {
@@ -677,19 +678,7 @@ function getServicesToTest($service) {
         }
 
         foreach ($results as $row) {
-            $sql = 'SELECT c.version
-                    FROM `agoraportal_client_services` c
-                    LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
-                    WHERE s.serviceName = \'' . $service . '\'
-                    AND c.activedId = ' . $row->id . '
-                    AND c.dbHost = \'' . $row->dbHost . '\'';
-
-            $results2 = get_rows_from_db($sql);
-            if ($results2 && $row2 = array_shift($results2)) {
-                $schools[$row->id] = array('dbhost' => $row->dbHost, 'zkversion' => $row2->version);
-            } else {
-                return false;
-            }
+            $schools[$row->id] = $row->serviceDB;
         }
     }
 
@@ -1007,7 +996,7 @@ function disconnect_moodle($con) {
  */
 function connect_intranet($school) {
     try {
-        $con = get_dbconnection('intranet', $school['id'], $school['dbhost']);
+        $con = get_dbconnection('intranet', $school['id'], $school['database']);
         return $con;
     } catch (Exception $e) {
         return false;
@@ -1023,7 +1012,7 @@ function connect_intranet($school) {
  */
 function connect_nodes($school) {
     try {
-        $con = get_dbconnection('nodes', $school['id'], $school['dbhost']);
+        $con = get_dbconnection('nodes', $school['id'], $school['database']);
         return $con;
     } catch (Exception $e) {
         return false;

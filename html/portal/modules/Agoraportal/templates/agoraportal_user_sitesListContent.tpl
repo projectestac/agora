@@ -1,5 +1,5 @@
-<div class="pager">{$sitesNumber} {gt text="centre/s"} {if $pager neq ''}-{/if} {$pager}</div>
-<table class="z-datatable">
+{$pager}
+<table class="table table-hover table-striped">
     <thead>
         <tr>
             <th>{gt text="Nom"}</th>
@@ -10,34 +10,22 @@
         </tr>
     </thead>
     <tbody>
-        {foreach item=client from=$sites}
-        <tr class="{cycle values="z-odd,z-even"}" id="formRow_{$client.clientId}">
-            <td align="left" valign="top">
-                 {$client.clientName}
-                 {if $client.educat eq 1}
-                 <div>
-                     <img src="modules/Agoraportal/images/educat.png" alt="educat" title="educat" align="middle" />
-                 </div>
+        {foreach item=client from=$clients}
+        <tr id="formRow_{$client->clientId}">
+            <td>
+                 {$client->clientName}
+                 {if $client->educat eq 1}
+                    <br/><img src="modules/Agoraportal/images/educat.png" alt="educat" title="educat" align="middle" />
                  {/if}
              </td>
-             <td align="left" valign="top">
-                 {if $client.typeId > 0}
-                 {$types[$client.typeId].typeName}
-                 {/if}
-             </td>
-             <td align="left" valign="top">
-                 {if $client.locationId > 0}
-                 {$locations[$client.locationId].locationName}
-                 {/if}
-             </td>
-             <td align="left" valign="top">
-                 {$client.clientCity}
-             </td>
-             <td align="left" valign="top" width="300">
-                 {if $client.logos != ''}
-                 {$client.logos}
+             <td>{$client->type_name}</td>
+             <td>{$client->location_name}</td>
+             <td>{$client->clientCity}</td>
+             <td  width="300">
+                 {if $client->logos != ''}
+                    {$client->logos}
                  {else}
-                 {gt text="No té espais actius"}
+                    {gt text="No té espais actius"}
                  {/if}
              </td>
          </tr>

@@ -1,8 +1,10 @@
 {ajaxheader modname=Agoraportal filename=Agoraportal.js}
 {admincategorymenu}
-<div class="z-adminbox">
-    <h1>{gt text="Administració de l'Àgora"}</h1>
-    <div class="z-menu">
+<h2>{gt text="Administració de l'Àgora"}</h2>
+<nav class="navbar navbar-border">
+    <div class="container-fluid">
         {AgoraportalMenuLinks}
     </div>
-</div>
+</nav>
+
+{insert name="getstatusmsg"}

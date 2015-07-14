@@ -63,7 +63,6 @@ function Agoraportal_tables() {
         'URL' => 'URL',
         'description' => 'description',
         'hasDB' => 'hasDB',
-        'version' => 'version',
         'defaultDiskSpace' => 'defaultDiskSpace',
         'allowedClients' => 'allowedClients',
         );
@@ -73,7 +72,6 @@ function Agoraportal_tables() {
         'URL' => "C(50) NOTNULL DEFAULT ''",
         'description' => "C(255) NOTNULL DEFAULT ''",
         'hasDB' => 'I(1) NOTNULL DEFAULT 0',
-        'version' => "C(15) NOTNULL DEFAULT ''",
         'defaultDiskSpace' => "I(6) NOTNULL DEFAULT 0",
         'allowedClients' => "X NOTNULL",
         );
@@ -86,13 +84,10 @@ function Agoraportal_tables() {
         'serviceDB' => 'serviceDB',
         'dbHost' => 'dbHost',
         'description' => 'description',
-        'version' => 'version',
         'state' => 'state',
         'activedId' => 'activedId',
         'contactName' => 'contactName',
-        'contactMail' => 'contactMail',
         'contactProfile' => 'contactProfile',
-        'lastVisit' => 'lastVisit',
         'timeCreated' => 'timeCreated',
         'observations' => 'observations',
         'annotations' => 'annotations',
@@ -108,13 +103,10 @@ function Agoraportal_tables() {
         'serviceDB' => "C(20) NOTNULL DEFAULT ''",
         'dbHost' => "C(25) NOTNULL DEFAULT ''",
         'description' => "C(255) NOTNULL DEFAULT ''",
-        'version' => "C(15) NOTNULL DEFAULT ''",
         'state' => "I(1) NOTNULL DEFAULT '0'",
         'activedId' => "I NOTNULL DEFAULT '0'",
         'contactName' => "C(150) NOTNULL DEFAULT ''",
-        'contactMail' => "C(30) NOTNULL DEFAULT ''",
         'contactProfile' => "C(50) NOTNULL DEFAULT ''",
-        'lastVisit' => "C(25) NOTNULL DEFAULT ''",
         'timeCreated' => "C(25) NOTNULL DEFAULT ''",
         'observations' => "C(255) NOTNULL DEFAULT ''",
         'annotations' => "C(255) NOTNULL DEFAULT ''",
@@ -337,7 +329,7 @@ function Agoraportal_tables() {
     $table['agoraportal_moodle_stats_month_column'] = array('clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
         'yearmonth' => 'yearmonth',
-        'users' => 'users',
+        'usersactive' => 'usersactive',
         'usersactivelast30days' => 'usersactivelast30days',
         'courses' => 'courses',
         'activities' => 'activities',
@@ -350,7 +342,7 @@ function Agoraportal_tables() {
     $table['agoraportal_moodle_stats_month_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
         'clientDNS' => 'C(50) NOTNULL',
         'yearmonth' => 'INT(6) NOT NULL',
-        'users' => 'I DEFAULT 0',
+        'usersactive' => 'I DEFAULT 0',
         'usersactivelast30days' => 'I DEFAULT 0',
         'courses' => 'I DEFAULT 0',
         'activities' => 'I DEFAULT 0',
@@ -393,7 +385,7 @@ function Agoraportal_tables() {
     $table['agoraportal_moodle_stats_week_column'] = array('clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
         'date' => 'date',
-        'users' => 'users',
+        'usersactive' => 'usersactive',
         'courses' => 'courses',
         'activities' => 'activities',
         'lastaccess' => 'lastaccess',
@@ -404,7 +396,7 @@ function Agoraportal_tables() {
     $table['agoraportal_moodle_stats_week_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
         'clientDNS' => 'C(50) NOTNULL',
         'date' => 'I(8) NOT NULL',
-        'users' => 'I DEFAULT 0',
+        'usersactive' => 'I DEFAULT 0',
         'courses' => 'I DEFAULT 0',
         'activities' => 'I DEFAULT 0',
         'lastaccess' => 'C(50) DEFAULT \'\'',
@@ -437,8 +429,8 @@ function Agoraportal_tables() {
         'total_access' => 'I DEFAULT 0',
         );
 
-    $table['agoraportal_intranet_stats_day'] = DBUtil::getLimitedTablename('agoraportal_intranet_stats_day');
-    $table['agoraportal_intranet_stats_day_column'] = array('clientcode' => 'clientcode',
+    $table['agoraportal_intranet_stats_month'] = DBUtil::getLimitedTablename('agoraportal_intranet_stats_month');
+    $table['agoraportal_intranet_stats_month_column'] = array('clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
         'yearmonth' => 'yearmonth',
         'd1' => 'd1',
@@ -473,9 +465,9 @@ function Agoraportal_tables() {
         'd30' => 'd30',
         'd31' => 'd31',
         'total' => 'total',
-        'users' => 'users',
+        'usersactive' => 'usersactive',
         );
-    $table['agoraportal_intranet_stats_day_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
+    $table['agoraportal_intranet_stats_month_column_def'] = array('clientcode' => 'C(10) NOT NULL default \'\'',
         'clientDNS' => 'C(50) NOTNULL DEFAULT \'\'',
         'yearmonth' => 'INT(6) NOTNULL',
         'd1' => 'I DEFAULT 0',
@@ -510,7 +502,7 @@ function Agoraportal_tables() {
         'd30' => 'I DEFAULT 0',
         'd31' => 'I DEFAULT 0',
         'total' => 'I DEFAULT 0',
-        'users' => 'I DEFAULT 0',
+        'usersactive' => 'I DEFAULT 0',
         );
 
     // agoraportal_requestTypes table definition
@@ -530,7 +522,6 @@ function Agoraportal_tables() {
     $table['agoraportal_modelTypes'] = DBUtil::getLimitedTablename('agoraportal_modelTypes');
     $table['agoraportal_modelTypes_column'] = array('modelTypeId' => 'modelTypeId',
         'shortcode' => 'shortcode',
-        'keyword' => 'keyword',
         'description' => 'description',
         'url' => 'url',
         'dbHost' => 'dbHost'
@@ -538,7 +529,6 @@ function Agoraportal_tables() {
 
     $table['agoraportal_modelTypes_column_def'] = array('modelTypeId' => "I NOTNULL AUTO PRIMARY",
         'shortcode' => "C(50) NOTNULL DEFAULT ''",
-        'keyword' => "C(50) NOTNULL DEFAULT ''",
         'description' => "C(255) NOTNULL DEFAULT ''",
         'url' => "C(255) NOTNULL DEFAULT ''",
         'dbHost' => "C(50) NOTNULL DEFAULT ''"
@@ -552,15 +542,6 @@ function Agoraportal_tables() {
 
     $table['agoraportal_requestTypesServices_column_def'] = array('requestTypeId' => "I NOTNULL",
         'serviceId' => "I NOTNULL");
-
-    // agoraportal_requestStates table definition
-    $table['agoraportal_requestStates'] = DBUtil::getLimitedTablename('agoraportal_requestStates');
-    $table['agoraportal_requestStates_column'] = array('requestStateId' => 'requestStateId',
-        'name' => 'name');
-
-    $table['agoraportal_requestStates_column_def'] = array('requestStateId' => "I NOTNULL AUTO PRIMARY",
-        'name' => "C(80) NOTNULL DEFAULT ''");
-
 
     // agoraportal_request table definition
     $table['agoraportal_request'] = DBUtil::getLimitedTablename('agoraportal_request');
@@ -592,7 +573,6 @@ function Agoraportal_tables() {
     $table['agoraportal_logs'] = DBUtil::getLimitedTablename('agoraportal_logs');
     $table['agoraportal_logs_column'] = array('logId' => 'logId',
         'clientCode' => 'clientCode',
-        'uid' => 'uid',
         'uname' => 'uname',
         'actionCode' => 'actionCode',
         'action' => 'action',
@@ -601,7 +581,6 @@ function Agoraportal_tables() {
 
     $table['agoraportal_logs_column_def'] = array('logId' => "I NOTNULL AUTO PRIMARY",
         'clientCode' => "C(15) NOTNULL DEFAULT ''",
-        'uid' => "I NOTNULL DEFAULT '0'",
         'uname' => "C(25) NOTNULL DEFAULT ''",
         'actionCode' => "I(1) NOTNULL DEFAULT '0'",
         'action' => "C(255) NOTNULL DEFAULT ''",
@@ -682,7 +661,7 @@ function Agoraportal_tables() {
     $table['agoraportal_nodes_stats_month_column'] = array(
         'clientcode' => 'clientcode',
         'clientDNS' => 'clientDNS',
-        'date' => 'date',
+        'yearmonth' => 'yearmonth',
         'total' => 'total',
         'posts' => 'posts',
         'userstotal' => 'userstotal',
@@ -693,7 +672,7 @@ function Agoraportal_tables() {
     $table['agoraportal_nodes_stats_month_column_def'] = array(
         'clientcode' => 'C(10) NOTNULL default \'\'',
         'clientDNS' => 'C(50) NOTNULL default \'\'',
-        'date' => 'I NOTNULL DEFAULT 0',
+        'yearmonth' => 'I NOTNULL DEFAULT 0',
         'total' => 'I NOTNULL DEFAULT 0',
         'posts' => 'I NOTNULL DEFAULT 0',
         'userstotal' => 'I NOTNULL DEFAULT 0',

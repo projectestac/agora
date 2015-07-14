@@ -1,55 +1,63 @@
-<div style="text-align:left;">
-    <strong>Servei</strong><br/>
-    <select name="service_sel" id="service_sel" onchange="sqlservicesList(); {$serviceSQL}" style="width:100%;">
-        <option value="0" {if $service_sel eq 0}selected="selected"{/if}>portal</option>
-        {foreach item=service from=$services}
-        <option value="{$service.serviceId}" {if $service_sel eq $service.serviceId}selected="selected"{/if}>{gt text="%s" tag1=$service.serviceName}</option>
+<div class="form-group">
+    <label for="service_sel">Servei</label>
+    <select class="form-control" name="service_sel" id="service_sel" onchange="filter_servicesList(); {$actiononchangeservice}" style="width:100%;">
+        {foreach item=service key=serviceId from=$services}
+        <option value="{$serviceId}" {if $service_sel eq $serviceId}selected="selected"{/if}>{gt text="%s" tag1=$service->serviceName}</option>
         {/foreach}
-    </select><br/><br/>
-    <fieldset style="width:100%; margin:0; border: 1px solid #CCC;">
-        <legend><strong>{gt text="Selecció de centres"}</strong></legend>
-        <select name="which" id="which" onchange="sqlservicesList()" style="width:100%;">
+    </select>
+</div>
+<br/>
+<div class="panel panel-default">
+    <div class="panel-heading">{gt text="Selecció de centres"} <span id="reload"></span></div>
+    <div class="panel-body">
+        <select class="form-control" name="which" id="which" onchange="filter_servicesList()" style="width:100%;">
             <option value="all" {if $which neq "selected"}selected="selected"{/if}>{gt text="Tots els centres"}</option>
             <option value="selected" {if $which eq "selected"}selected="selected"{/if}>{gt text="Només els seleccionats"}</option>
-        </select><br />
+        </select>
 
         <div class="{if $which eq "all"}hidden{/if}" id="cerca">
             <div id="servicesListContent" name="servicesListContent" class="{if $which eq 'all'}hidden{/if}"  style="width:100%;">
                 {$servicesListContent}
             </div>
-            <strong>{gt text="Ordenat per"}</strong><br/>
-            <select name="order" id="order" onchange="sqlservicesList()" style="width:100%;">
-                <option {if $order eq 1}selected{/if} value="1">{gt text="Nom del centre"}</option>
-                <option {if $order eq 3}selected{/if} value="3">{gt text="Id del centre"}</option>
-                <option {if $order eq 4}selected{/if} value="4">{gt text="Codi del centre"}</option>
-                <option {if $order eq 5}selected{/if} value="5">{gt text="DNS del centre"}</option>
-            </select><br/><br/>
-
-            <fieldset style="width:90%; margin:0 auto; border: 1px solid #CCC;">
-                <legend><strong>{gt text="Filtra"}</strong></legend>
-                <select id="search" name="search">
-                    <option {if $search eq 1}selected{/if} value="1">{gt text="Codi"}</option>
-                    <option {if $search eq 2}selected{/if} value="2">{gt text="Nom client"}</option>
-                    <option {if $search eq 3}selected{/if} value="3">{gt text="Ciutat"}</option>
-                    <option {if $search eq 4}selected{/if} value="4">{gt text="DNS"}</option>
-                    <option {if $search eq 5}selected{/if} value="5">{gt text="Id"}</option>
+            <div class="form-group">
+                <label for="order">{gt text="Ordenat per"}</label>
+                <select class="form-control" name="order" id="order" onchange="filter_servicesList()" style="width:100%;">
+                    <option {if $order eq 1}selected{/if} value="1">{gt text="Nom del centre"}</option>
+                    <option {if $order eq 3}selected{/if} value="3">{gt text="Id del centre"}</option>
+                    <option {if $order eq 4}selected{/if} value="4">{gt text="Codi del centre"}</option>
+                    <option {if $order eq 5}selected{/if} value="5">{gt text="DNS del centre"}</option>
                 </select>
-                <input type="text" value="{$searchText}" id="valueToSearch" name="valueToSearch" size="20"/><br/><br/>
-                Característica:
-                <select id="pilot" name="pilot" onchange="sqlservicesList()">
-                    <option {if $pilot === 0}selected{/if} value="0">{gt text="Cap"}</option>
-                    <option {if $pilot === 'educat'}selected{/if} value="educat">{gt text="Centre Educat"}</option>
-                    <option {if $pilot === 'marsupial'}selected{/if} value="marsupial">{gt text="Té Marsupial"}</option>
-                </select>
-                <select id="include" name="include" onchange="sqlservicesList()">
-                    <option {if $include eq 1}selected{/if} value="1">{gt text="Incloure"}</option>
-                    <option {if $include eq 0}selected{/if} value="0">{gt text="Excloure"}</option>
-                </select><br/><br/>
-                <center>
-                    <input type="button" value="Filtra" onclick="sqlservicesList()" />
-                </center>
-                <span id="reload"></span>
-            </fieldset>
+            </div>
+            <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">{gt text="Filtra"}</div>
+                <div class="panel-body">
+                    <div class="form-inline form-group">
+                        <select class="form-control" id="search" name="search">
+                            <option {if $search eq 1}selected{/if} value="1">{gt text="Codi"}</option>
+                            <option {if $search eq 2}selected{/if} value="2">{gt text="Nom client"}</option>
+                            <option {if $search eq 3}selected{/if} value="3">{gt text="Ciutat"}</option>
+                            <option {if $search eq 4}selected{/if} value="4">{gt text="DNS"}</option>
+                            <option {if $search eq 5}selected{/if} value="5">{gt text="Id"}</option>
+                        </select>
+                        <input class="form-control" type="text" value="{$searchText}" id="valueToSearch" name="valueToSearch" size="20"/><br/><br/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pilot">Característica:</label>
+                        <select class="form-control" id="pilot" name="pilot" onchange="filter_servicesList()">
+                            <option {if $pilot === 0}selected{/if} value="0">{gt text="Cap"}</option>
+                            <option {if $pilot === 'educat'}selected{/if} value="educat">{gt text="Centre Educat"}</option>
+                        </select>
+                        <select class="form-control" id="include" name="include" onchange="filter_servicesList()">
+                            <option {if $include eq 1}selected{/if} value="1">{gt text="Incloure"}</option>
+                            <option {if $include eq 0}selected{/if} value="0">{gt text="Excloure"}</option>
+                        </select>
+                    </div>
+                    <br/>
+                    <button type="button" class="form-control btn btn-primary" onclick="filter_servicesList()">
+                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtra</button>
+                </div>
+            </div>
         </div>
-    </fieldset>
+    </div>
 </div>

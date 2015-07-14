@@ -45,9 +45,6 @@ div.userpageicon img{
     padding-top: 5px;
 }
 
-p {
-    margin: 0px;
-}
 .serviceInfo{
     margin: 0px 0px 20px 0px;
 }
@@ -94,14 +91,22 @@ p {
     clear:both;
 }
 
-.useTerms{
+.useTerms {
     height: 500px;
     width: 98%;
     overflow: auto;
     border: 1px solid #666;
-    background-color: #eee;
+    background-color: #f9f9f9;
     padding: 8px;
     margin-top: 15px;
+    font-size: 90%;
+}
+
+.useTerms h1 {
+    font-size: 20px;
+}
+.useTerms h2 {
+    font-size: 16px;
 }
 
 .touAcceptance {
@@ -126,6 +131,10 @@ table.data{
     background-color: #ffff9f;
     text-align:center;
     border: 2px solid #333;
+}
+
+table tr td {
+    vertical-align: top;
 }
 
 .clientInfoBox {
@@ -185,14 +194,6 @@ h2#menuuserfiles a {
     margin: 5px;
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #9BB8D9;
-    background-color: #E6E6FF;
-    color: #27427D;
-}
-
-.askServiceLegend {
-    padding:3px;
-    font-size: 1.1em;
 }
 
 .askServiceDescription {
@@ -360,6 +361,10 @@ table.logtable td.autor{
     float: left;
 }
 
+.serviceLogo {
+    margin-right: 5px;
+}
+
 .actions img{
     cursor: pointer;
 }
@@ -431,4 +436,8 @@ li.tab_select span { /* settings for selected tab link */
 
 .fileListRow {
     /*border-bottom: 1px dotted #555;*/
+}
+
+#bar-legend {
+    list-style-type: none;
 }

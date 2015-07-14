@@ -1,20 +1,17 @@
 
 /**************** Body and tag styles ****************/
 
-*{margin:0; padding:0;}
 
 body {
-    font-family: Verdana,Tahoma,Arial,sans-serif;
-    font-size: 13px;
-    line-height: 1.4em;
-    text-align: center;
+    font-family: arial,helvetica,clean,sans-serif;
+    line-height: 20px;
     margin: 0px;
     padding: 0px;
+    padding-top: 50px;
 }
 
 a {
     color: #59110A;/*COLOR4*/
-    font-weight:bold;
     text-decoration:none;
 }
 
@@ -24,186 +21,147 @@ a:hover {
 }
 a img {border:none;}
 
-p {padding:0 0 1.6em 0;}
+a.btn-primary,
+a.btn-success,
+a.btn-info,
+a.btn-warning,
+a.btn-danger,
+a.btn-primary:hover,
+a.btn-success:hover,
+a.btn-info:hover,
+a.btn-warning:hover,
+a.btn-danger:hover
+ {
+    color: white;
+}
+
 p form {margin-top:0; margin-bottom:20px;}
+
+.form-horizontal .row .form-group {
+    margin: 0;
+}
+
+.form-inline-multiline .form-group{
+    margin-bottom: 15px;
+    vertical-align: baseline;
+
+}
 
 img.left,img.center,img.right{padding:4px; border:1px solid #a0a0a0;}
 img.left{float:left; margin:0 12px 5px 0;}
 img.center{display:block; margin:0 auto 5px auto;}
 img.right{float:right; margin:0 0 5px 12px;}
 
-.z-pageicon {
-    float:right;
-}
-
 textarea {
     width: 97%;
+}
+
+.panel-heading {
+    font-weight: bold;
+}
+
+#reload .glyphicon-refresh {
+    margin-left: 5px;
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
 }
 
 
 /**************** Header and navigation styles ****************/
 
-#theme_page_container{
-    width:100%;
-    margin: 0;
-    padding:0;
-    text-align:left;
-    background:#ffffff;
-    color:#303030;
-    border:0;
+
+header {
+  font-size: 1.3em;
+  background-color: #FFFFFF;
+  background-image: url("../images/top.jpg");
+  background-position: right center;
+  background-repeat: no-repeat;
+  border-bottom: #DDDDDD 1px solid;
+  clear: both;
+  float: none;
+  margin: 0;
+  width: 100%;
+  height: 110px;
+  padding: 0;
 }
 
-#theme_header_top{
-    background-color: #303030; /*COLOR3*/
-    background-image:url("../images/menubar.png");
-    background-position:center top;
-    background-repeat:repeat-x;
-    clear:both;
-    height:34px;
-    padding-top:10px;
-    width:100%;
-    float:right;
-    text-align:right;
+header h1 {
+  margin: 0 0 5px 20px;
+  padding-top: 37px;
+  text-align: left;
+  color: #AC2013;
+  text-align: left;
+  font-weight: bold;
 }
 
-.logodepart{
-    margin-left: 10px;
-    height:26px;
-    width:195px;
-    background-image: url("../images/departament.png");
-    float:left;
+#navbar_top{
+    background-color: #fafafa;
+    background-image: -moz-linear-gradient(top,#fff,#f2f2f2);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top,#fff,#f2f2f2);
+    background-image: -o-linear-gradient(top,#fff,#f2f2f2);
+    background-image: linear-gradient(to bottom,#fff,#f2f2f2);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#fff2f2f2',GradientType=0);
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+    border-bottom: 2px solid #AC2013;
 }
 
-.logoxtec{
-    margin-left: 10px;
-    height:26px;
-    width:97px;
-    background-image: url("../images/xtec.png");
-    float:left;
+#navbar_top .mainbrand {
+    line-height: 28px;
 }
 
-#theme_header{
-    font-size:1.3em;
-    background-color:#FFFFFF;
-    background-image:url("../images/top.jpg");
-    background-position:right center;
-    background-repeat:no-repeat;
-    border-bottom:#DDDDDD 1px solid;
-    clear:both;
-    float:none;
-    margin:0;
-    width:100%;
-    height: 110px;
-    padding:0;
+#navbar_top .brand{
+    display: block;
+    float: left;
+    margin-left: -20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: #777;
+    text-shadow: 0 1px 0 #fff;
+    padding: 10px 20px;
 }
 
-#theme_header h1{
-    margin-bottom:5px;
-    margin-left:20px;
-    padding-top:37px;
-    text-align:left;
-    color: #AC2013; /*COLOR1*/
-    text-align:left;
-    font-weight: bold;
+#navbar_top .brand.xtec {
+    padding-right: 40px;
 }
 
-#theme_header h1 a{
-    color: #AC2013; /*COLOR1*/
-}
-#theme_header h1 a:visited{
-    text-decoration:none;
+.navbar-default {
+    min-height: 0;
 }
 
-#theme_header h2{
-    font-style:italic;
-    color: #303030; /*COLOR3*/
-    margin-left:20px;
-    margin-top:20px;
-    text-align:left;
+.navbar-default .navbar-nav>li>a {
+    padding: 2px 10px;
 }
 
-#theme_navigation_bar{
-    background-color: #D0D0D0; /*COLOR5*/
-    background-image:url("../images/navigation.png");
-    background-position:center bottom;
-    background-repeat:repeat-x;
-    border-bottom:#DDDDDD 1px solid;
-    width:auto;
-    display:block;
-    min-width:0;
-    height:26px;
+.navbar-border {
+    border-color: #e7e7e7;
+    min-height: 0;
 }
 
-#theme_navigation_bar ul{
-    margin:0;
-    padding:0;
-}
-
-#theme_navigation_bar li{
-    display:block;
-    float:left;
-    list-style-type:none;
-    white-space:nowrap;
-    vertical-align:middle;
-    padding: 4px 15px;
-    border-right:1px solid #ffffff;
-    background-color:transparent;
-    color: #ffffff;
-}
-
-#theme_navigation_bar li a, #theme_navigation_bar li a:hover{
-    font-weight:normal;
-    text-transform:uppercase;
-    text-decoration:none;
-    color:#ffffff;
-    background-color:transparent;
-}
-
-* html #theme_navigation_bar a {width:1%;} /* this hack targets IE<7 */
-
-#theme_navigation_bar .selected, #theme_navigation_bar li:hover{
-    background-color: #AC2013; /*COLOR2*/
-    background-image:url("../images/navigation.png");
-    background-position:center bottom;
-    background-repeat:repeat-x;
-}
-
-/**************** Content styles ****************/
-
-#z-maincontent{
-    width: 95%;
-    padding: 0px;
-    margin: auto;
-}
-
-#z-maincontent h1{
-    display:block;
-    margin: 18px 0 10px 0;
-    font-size:1.9em;
-    font-weight:normal;
-    letter-spacing:-1px;
-    color:#505050;
-    background-color:inherit;
-}
-
-#z-maincontent h2{
-    display:block;
-    margin:0 0 16px 0;
-    font-size:1.7em;
-    font-weight:normal;
-    letter-spacing:-1px;
-    color:#505050;
-    background-color:inherit;
-}
-
-
-#theme_content h2 a {font-weight:normal;}
-#theme_content h3 {margin:0 0 5px 0; font-size:1.4em; letter-spacing:-1px;}
-#theme_content a:hover,#subcontent a:hover {text-decoration:underline;}
-#theme_content ul,#theme_content ol {margin:0 5px 16px 35px;}
-#theme_content dl {margin:0 5px 10px 25px;}
-#theme_content dt {font-weight:bold; margin-bottom:5px;}
-#theme_content dd {margin:0 0 10px 15px;}
 
 
 /**************** Blocks **************************/
@@ -263,6 +221,7 @@ h4.pn-block-title{
 
 .z-admin-breadcrumbs {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /**************** Menublock styles ****************/
@@ -283,13 +242,12 @@ div.navcontainer ul, div#navcontainer ul {
 
 /**************** Footer styles ****************/
 
-#theme_footer{
+footer{
+    border-top: 1px solid #CCC;
     text-align:center;
     clear:both;
-    padding:5px 0;
-    margin-top:15px;
-    font-size:0.9em;
-    vertical-align:middle;
+    padding:30px 0;
+    margin-top:30px;
 }
 
 #theme_footer a, #theme_footer img{
@@ -327,7 +285,7 @@ img {
 }
 
 
-/* Table styles based on style from the css table gallery 
+/* Table styles based on style from the css table gallery
    STYLESHEET: CLEAR BLUE, AUTHOR: ROBERT HARTL */
 
 table.pn-datatable {
@@ -406,9 +364,6 @@ table.pn-datatable tbody tr th:hover {
 
 
 /* Special block: Horizontal menú block */
-.menublock {
-    font-size: 1.2em;
-}
 .menublock ul {
     list-style: none;
     margin: 0px;
@@ -418,14 +373,75 @@ table.pn-datatable tbody tr th:hover {
     padding: 4px 10px 4px 10px;
     border-left: 1px solid #fff;
 }
-.menublock a {
-    color: #000;
-    font-weight: bold;
-}
+
 
 #menu {
     margin-top: -20px;
     height: 25px;
     clear: both;
-    background: url("../images/headermenu_bg.png") repeat-x;
+    background-color: #EEEEEE;
+}
+
+
+/**************** Body and tag styles ****************/
+/*
+ *TEMA: Grana   Escull  Or      Llima   Tardor  Nostalgia
+COLOR1: #AC2013 #FF0011 #CC7000 #74AB00 #CD6000 #457FB9
+COLOR2: #AC2013 #FF4444 #E99B00 #5A6E31 #E68804 #457FB9
+COLOR3: #303030 #00BBBB #0B3D41 #333333 #344D00 #457FB9
+COLOR4: #59110A #008888 #145C61 #000000 #4E7104 #457FB9
+COLOR5: #D0D0D0 #BBEEEE #87BDC1 #FFEDBA #B3CD7B #B3CADB
+*/
+
+/**************** Header and navigation styles ****************/
+
+#theme_header h1, #theme_header h1 a{
+    color: #AC2013; /*COLOR1*/
+}
+
+#theme_header h2{
+    color: #303030; /*COLOR3*/
+}
+
+#theme_navigation_bar{
+    background-color: #D0D0D0; /*COLOR5*/
+}
+
+#theme_navigation_bar .selected, #theme_navigation_bar li:hover{
+    background-color: #AC2013; /*COLOR2*/
+}
+
+
+#admintabs-container * {
+    -webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing: initial;
+}
+/**************** Blocks **************************/
+
+h4.pn-block-title{
+    background-color:#AC2013; /*COLOR2*/
+    border-color: #AC2013; /*COLOR2*/
+}
+
+
+
+/*IW Menu*/
+
+#iw_menu li:hover{ /*Personalizable*/
+    background-color: #AC2013 !important;
+    color: #FFFFFF !important;
+}
+
+#iw_menu>ul>li.branch{
+    border-bottom: 1px solid #AC2013 !important; /*Personalizable*/
+}
+
+#iw_menu li li:hover{ /*Personalizable*/
+    background-color: #AC2013 !important;
+    color: #FFFFFF !important;
+}
+
+#iw_menu li li.branch{ /*Personalizable*/
+    border-right: 3px solid #AC2013 !important;
 }

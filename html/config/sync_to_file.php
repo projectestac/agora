@@ -28,7 +28,7 @@ foreach ($allschools as $school) {
     $service = $school['service'];
 
     $schools[$dns]['id_'.$service]          = $school['id'];
-    $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
+    $schools[$dns]['dbhost_'.$service]      = $school['database']; // Deprecated
     $schools[$dns]['database_'.$service]    = $school['database'];
     $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
 

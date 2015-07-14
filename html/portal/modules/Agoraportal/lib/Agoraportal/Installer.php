@@ -27,8 +27,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             return false;
         if (!DBUtil::createTable('agoraportal_requestTypes'))
             return false;
-        if (!DBUtil::createTable('agoraportal_requestStates'))
-            return false;
         if (!DBUtil::createTable('agoraportal_request'))
             return false;
         if (!DBUtil::createTable('agoraportal_requestTypesServices'))
@@ -67,8 +65,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         DBUtil::createIndex($c['clientCode'], 'agoraportal_client_managers', 'clientCode');
         $c = $table['agoraportal_requestTypes_column'];
         DBUtil::createIndex($c['requestTypeId'], 'agoraportal_requestTypes', 'requestTypeId');
-        $c = $table['agoraportal_requestStates_column'];
-        DBUtil::createIndex($c['requestStateId'], 'agoraportal_requestStates', 'requestStateId');
         $c = $table['agoraportal_request_column'];
         DBUtil::createIndex($c['requestId'], 'agoraportal_request', 'requestId');
         $c = $table['agoraportal_logs_column'];
@@ -247,6 +243,55 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 $this->delVar('URLNodesModelBase');
                 $this->delVar('DBNodesModel');
                 $this->updateModelTypesData();
+            case '2.0.21':
+                require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+                $rows = DBUtil::selectObjectArray('agoraportal_modelTypes', "", '', -1, -1, '', null, null, array('keyword','shortcode'));
+                $templates = array();
+                foreach ($rows as $row) {
+                    $templates[$row['keyword']] = $row['shortcode'];
+                }
+
+                $rows = DBUtil::selectObjectArray('agoraportal_clients', "extraFunc != ''");
+                foreach ($rows as $row) {
+                    if (isset($templates[$row['extraFunc']])) {
+                        $client = new Client($row);
+                        $client->extraFunc = $templates[$client->extraFunc];
+                        $client->save();
+                    }
+                }
+            case '2.0.22':
+                $sql = "ALTER TABLE agoraportal_logs DROP uid;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_modelTypes DROP keyword;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_client_services DROP contactMail;";
+                DBUtil::executeSQL($sql);
+                $sql = "DROP TABLE agoraportal_requestStates";
+                DBUtil::executeSQL($sql);
+            case '2.0.23':
+                $sql = "ALTER TABLE agoraportal_moodle_stats_month CHANGE users usersactive INT;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_moodle_stats_week CHANGE users usersactive INT;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_nodes_stats_month CHANGE date yearmonth INT;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_intranet_stats_day CHANGE users usersactive INT;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_intranet_stats_day RENAME agoraportal_intranet_stats_month";
+                DBUtil::executeSQL($sql);
+            case '2.0.24':
+                $sql = "ALTER TABLE agoraportal_services DROP version;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_client_services DROP version;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_client_services DROP lastVisit;";
+                DBUtil::executeSQL($sql);
+
+                $rows = DBUtil::selectObjectArray('agoraportal_client_services', "dbHost != '' && serviceDB = ''");
+                foreach ($rows as $row) {
+                    $row['serviceDB'] = $row['dbHost'];
+                    DBUtil::updateObjectArray($row, 'clientServiceId');
+                }
 
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber
@@ -291,8 +336,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
 
         $obj = array('serviceName' => 'moodle2',
             'description' => 'Entorn Virtual d\'Aprenentatge (versió nova)',
-            'version' => '222',
-            'currentVersion' => '222',
             'usersNameField' => '',
             'defaultDiskSpace' => 2000,
             'allowedClients' => 'cap');
@@ -339,7 +382,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
 
         $obj = array('serviceName' => 'nodes',
             'description' => 'Web de centre fet amb WordPress',
-            'version' => '3.9.1',
             'defaultDiskSpace' => 500,
             'allowedClients' => 'cap');
 

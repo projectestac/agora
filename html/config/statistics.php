@@ -100,19 +100,19 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth)
     $date = $year . $month;
 
     // Consulta que comprova si el registre del mes del centre ja existeix o no
-    $sql = "SELECT yearmonth FROM agoraportal_intranet_stats_day WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT yearmonth FROM agoraportal_intranet_stats_month WHERE yearmonth=$date AND clientcode='" . $school['code'] . "'";
 
     // Executa la consulta
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
         // INSERT: Si no hi ha cap registre, el crea
         if ($rows == 0) {
-            $sql = "INSERT INTO agoraportal_intranet_stats_day
+            $sql = "INSERT INTO agoraportal_intranet_stats_month
                         (clientcode, yearmonth, clientDNS, total, users, d" . (int) $day . ")
                         VALUES ('" . $school['code'] . "', $date, '" . $school['dns'] . "', $month_usage, $month_users, $day_usage)";
         } else {
             // UPDATE: Si el registre ja existeix, l'actualitza
-            $sql = "UPDATE agoraportal_intranet_stats_day
+            $sql = "UPDATE agoraportal_intranet_stats_month
                         SET total = $month_usage,
                         users = $month_users,
                         d" . (int) $day . " = $day_usage
@@ -205,7 +205,7 @@ function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
     $days2sum = implode(' + ', $days_array); // d1 + d2 + d3 ...
 
     $sql = "SELECT $days2sum AS days2sum
-                FROM agoraportal_intranet_stats_day
+                FROM agoraportal_intranet_stats_month
                 WHERE yearmonth = '$year$month' AND clientcode = '$clientcode'";
 
     if (!$value = $statsCon->get_field($sql, 'days2sum')) {
@@ -816,14 +816,14 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
 
 
     // Insert or update stats_month
-    $sql = "SELECT date FROM agoraportal_nodes_stats_month WHERE date=$yearmonth AND clientcode='" . $school['code'] . "'";
+    $sql = "SELECT date FROM agoraportal_nodes_stats_month WHERE yearmonth=$yearmonth AND clientcode='" . $school['code'] . "'";
 
     $rows = $statsCon->count_rows($sql);
     if ($rows !== false) {
         if ($rows == 0) {
         // INSERT
             $sql = "INSERT INTO agoraportal_nodes_stats_month
-                (clientcode, clientDNS, date, total, posts, userstotal, usersactive,
+                (clientcode, clientDNS, yearmonth, total, posts, userstotal, usersactive,
                  	lastactivity, diskConsume)
                 VALUES ('" . $school['code'] . "', '" . $school['dns'] . "', $yearmonth, "
                     . "$numPagesTotal, $numPostsTotal, " . $users['total'] . ", " . $users['active'] . ", "
@@ -836,7 +836,7 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
                 usersactive  = " . $users['active'] . ",
                 lastactivity = '$lastActivity',
                 diskConsume  = $diskConsume
-                WHERE clientcode = '" . $school['code'] . "' AND date = '$yearmonth'";
+                WHERE clientcode = '" . $school['code'] . "' AND yearmonth = '$yearmonth'";
         }
         if (!$statsCon->execute_query($sql)) {
             cli_print_line($statsCon->get_error() . '<br />');

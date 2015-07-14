@@ -5,68 +5,68 @@ require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
 class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function servicesList($args) {
-
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $service = FormUtil::getPassedValue('service', -1, 'GET');
-        $stateFilter = FormUtil::getPassedValue('stateFilter', -1, 'GET');
-        $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = trim(FormUtil::getPassedValue('searchText', -1, 'GET'));
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $order = FormUtil::getPassedValue('order', -1, 'GET');
-        $rpp = FormUtil::getPassedValue('rpp', -1, 'GET');
 
-        $stateString = serialize(array('init' => $init,
+        $init = AgoraPortal_Util::getFormVar($args, 'init', -1, 'GET');
+        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', -1, 'GET');
+        $service = AgoraPortal_Util::getFormVar($args, 'service', -1, 'GET');
+        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', -1, 'GET');
+        $search = AgoraPortal_Util::getFormVar($args, 'search', -1, 'GET');
+        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', -1, 'GET');
+        $order = AgoraPortal_Util::getFormVar($args, 'order', -1, 'GET');
+
+        $args = array('init' => $init,
             'service' => $service,
             'stateFilter' => $stateFilter,
+            'order' => $order,
             'search' => $search,
             'searchText' => $searchText,
-            'rpp' => $rpp,
-                ));
-        SessionUtil::setVar('navState', $stateString);
+            'rpp' => $rpp
+        );
+        SessionUtil::setVar('serviceList', serialize($args));
 
-        $content = ModUtil::func('Agoraportal', 'admin', 'servicesListContent', array('init' => $init,
-                    'service' => $service,
-                    'stateFilter' => $stateFilter,
-                    'search' => $search,
-                    'order' => $order,
-                    'searchText' => $searchText,
-                    'rpp' => $rpp,
-                ));
+        $content = ModUtil::func('Agoraportal', 'admin', 'servicesListContent', $args);
         AjaxUtil::output(array('content' => $content));
     }
 
     public function getServiceActions($args) {
-
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $service = FormUtil::getPassedValue('service', 0, 'GET');
-
-        $stateString = serialize(array('service' => $service));
-        SessionUtil::setVar('navState', $stateString);
-
+        $service = AgoraPortal_Util::getFormVar($args, 'service', 0, 'GET');
         $content = ModUtil::func('Agoraportal', 'admin', 'getServiceActions', array('service' => $service));
         AjaxUtil::output(array('content' => $content));
     }
 
-    public function sqlservicesList($args) {
+    public function getServiceStats($args) {
+        if (!AgoraPortal_Util::isAdmin()) {
+            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
+        }
+        $service = AgoraPortal_Util::getFormVar($args, 'service', 0, 'GET');
+        $content = Stats::getServiceStats($service);
+        AjaxUtil::output(array('content' => $content));
+    }
+
+    public function filter_servicesList($args) {
 
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $service = FormUtil::getPassedValue('service', -1, 'GET');
-        $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = FormUtil::getPassedValue('searchText', -1, 'GET');
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $which = FormUtil::getPassedValue('which', "selected", 'GET');
-        $order = FormUtil::getPassedValue('order', 1, 'GET');
-        $pilot = FormUtil::getPassedValue('pilot', 0, 'GET');
-        $include = FormUtil::getPassedValue('include', 1, 'GET');
-        $clients = FormUtil::getPassedValue('clients', '', 'GET');
-        $content = ModUtil::func('Agoraportal', 'admin', 'sqlservicesListContent', array('init' => $init,
+        $service = AgoraPortal_Util::getFormVar($args, 'service', -1, 'GET');
+        $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName', -1, 'GET');
+        $search = AgoraPortal_Util::getFormVar($args, 'search', -1, 'GET');
+        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', -1, 'GET');
+        $init = AgoraPortal_Util::getFormVar($args, 'init', -1, 'GET');
+        $which = AgoraPortal_Util::getFormVar($args, 'which', "selected", 'GET');
+        $order = AgoraPortal_Util::getFormVar($args, 'order', 1, 'GET');
+        $pilot = AgoraPortal_Util::getFormVar($args, 'pilot', 0, 'GET');
+        $include = AgoraPortal_Util::getFormVar($args, 'include', 1, 'GET');
+        $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+        $content = ModUtil::func('Agoraportal', 'admin', 'filter_servicesList', array('init' => $init,
                     'service_sel' => $service,
+                    'serviceName' => $serviceName,
                     'search' => $search,
                     'searchText' => $searchText,
                     'order' => $order,
@@ -76,38 +76,22 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         AjaxUtil::output(array('content' => $content));
     }
 
-    public function statsservicesList($args) {
-
-        if (!AgoraPortal_Util::isAdmin()) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
-        }
-        $serviceName = FormUtil::getPassedValue('serviceName', -1, 'GET');
-        $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = FormUtil::getPassedValue('searchText', -1, 'GET');
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $which = FormUtil::getPassedValue('which', "selected", 'GET');
-        $content = ModUtil::func('Agoraportal', 'admin', 'statsservicesListContent', array('init' => $init,
-                    'serviceName' => $serviceName,
-                    'search' => $search,
-                    'searchText' => $searchText));
-        AjaxUtil::output(array('content' => $content));
-    }
-
     public function statsGetStatistics($args) {
 
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $stats = FormUtil::getPassedValue('stats', 1, 'GET');
-        $which = FormUtil::getPassedValue('which', "all", 'GET');
-        $date_start = FormUtil::getPassedValue('date_start', 0, 'GET');
-        $date_stop = FormUtil::getPassedValue('date_stop', 0, 'GET');
-        $clients = FormUtil::getPassedValue('clients', '', 'GET');
-        $orderby = FormUtil::getPassedValue('orderby', '', 'GET');
-        $content = ModUtil::func('Agoraportal', 'admin', 'statsGetStatisticsContent', array('init' => $init,
+        $stats = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'GET');
+        $service = AgoraPortal_Util::getFormVar($args, 'service', 1, 'GET');
+        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GET');
+        $date_start = AgoraPortal_Util::getFormVar($args, 'date_start', 0, 'GET');
+        $date_stop = AgoraPortal_Util::getFormVar($args, 'date_stop', 0, 'GET');
+        $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+        $orderby = AgoraPortal_Util::getFormVar($args, 'orderby', '', 'GET');
+        $content = ModUtil::func('Agoraportal', 'admin', 'statsGetStatisticsContent', array(
                     'stats' => $stats,
+                    'service' => $service,
                     'which' => $which,
                     'date_start' => $date_start,
                     'date_stop' => $date_stop,
@@ -121,27 +105,24 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $stats = FormUtil::getPassedValue('stats', 1, 'GET');
-        $which = FormUtil::getPassedValue('which', "all", 'GET');
-        $date_start = FormUtil::getPassedValue('date_start', 0, 'GET');
-        $date_stop = FormUtil::getPassedValue('date_stop', 0, 'GET');
-        $clients = FormUtil::getPassedValue('clients', '', 'GET');
-        $usuari = FormUtil::getPassedValue('usuari', '', 'GET');
-        $orderby = FormUtil::getPassedValue('orderby', '', 'GET');
-        $infotype = FormUtil::getPassedValue('infotype', 'all', 'GET');
-        $date = FormUtil::getPassedValue('date', 'all', 'GET');
+        $stats = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'GET');
+        $service = AgoraPortal_Util::getFormVar($args, 'service', 1, 'GET');
+        $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GET');
+        $date_start = AgoraPortal_Util::getFormVar($args, 'date_start', 0, 'GET');
+        $date_stop = AgoraPortal_Util::getFormVar($args, 'date_stop', 0, 'GET');
+        $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+        $totals = AgoraPortal_Util::getFormVar($args, 'totals', false, 'GET');
+        $column = AgoraPortal_Util::getFormVar($args, 'column', false, 'GET');
 
-        $content = ModUtil::func('Agoraportal', 'admin', 'statsGetGraphsContent', array('init' => $init,
+        $content = ModUtil::func('Agoraportal', 'admin', 'statsGetGraphsContent', array(
                     'stats' => $stats,
+                    'service' => $service,
                     'which' => $which,
                     'date_start' => $date_start,
                     'date_stop' => $date_stop,
                     'clients' => $clients,
-                    'usuari' => $usuari,
-                    'orderby' => $orderby,
-                    'orderby' => $infotype,
-                    'date' => $date));
+                    'totals' => $totals,
+                    'column' => $column));
 
         AjaxUtil::output(array('content' => $content));
     }
@@ -151,13 +132,13 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $stats = FormUtil::getPassedValue('stats', 1, 'GET');
-        $which = FormUtil::getPassedValue('which', 'all', 'GET');
-        $date_start = FormUtil::getPassedValue('date_start', 0, 'GET');
-        $date_stop = FormUtil::getPassedValue('date_stop', 0, 'GET');
-        $clients = FormUtil::getPassedValue('clients', '', 'GET');
-        $orderby = FormUtil::getPassedValue('orderby', '', 'GET');
+        $init = AgoraPortal_Util::getFormVar($args, 'init', -1, 'GET');
+        $stats = AgoraPortal_Util::getFormVar($args, 'stats', 1, 'GET');
+        $which = AgoraPortal_Util::getFormVar($args, 'which', 'all', 'GET');
+        $date_start = AgoraPortal_Util::getFormVar($args, 'date_start', 0, 'GET');
+        $date_stop = AgoraPortal_Util::getFormVar($args, 'date_stop', 0, 'GET');
+        $clients = AgoraPortal_Util::getFormVar($args, 'clients', '', 'GET');
+        $orderby = AgoraPortal_Util::getFormVar($args, 'orderby', '', 'GET');
 
         $content = ModUtil::func('Agoraportal', 'admin', 'statsGetCSVContent', array('init' => $init,
                     'stats' => $stats,
@@ -171,52 +152,24 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     }
 
     public function clientsList($args) {
-
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = FormUtil::getPassedValue('searchText', -1, 'GET');
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $content = ModUtil::func('Agoraportal', 'admin', 'clientsListContent', array('init' => $init,
-                    'search' => $search,
-                    'searchText' => $searchText));
+
+        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 15, 'GET');
+        $search = AgoraPortal_Util::getFormVar($args, 'search', "", 'GET');
+        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', "", 'GET');
+        $init = AgoraPortal_Util::getFormVar($args, 'init', -1, 'GET');
+
+        $args = array('init' => $init,
+            'search' => $search,
+            'searchText' => $searchText,
+            'rpp' => $rpp
+        );
+        SessionUtil::setVar('clientsList', serialize($args));
+
+        $content = ModUtil::func('Agoraportal', 'admin', 'clientsListContent', $args);
         AjaxUtil::output(array('content' => $content));
-    }
-
-    public function editUserRow($args) {
-
-        if (!AgoraPortal_Util::isManager()) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
-        }
-
-        $userRow = FormUtil::getPassedValue('userRow', -1, 'GET');
-        if ($userRow == -1) {
-            AjaxUtil::error('no user found');
-        }
-        $uname = FormUtil::getPassedValue('uname', -1, 'GET');
-        if ($uname == -1) {
-            AjaxUtil::error('no user found');
-        }
-        $clientCode = FormUtil::getPassedValue('clientCode', -1, 'GET');
-        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
-        $clientCode = $clientInfo['clientCode'];
-        // get user
-        $users = ModUtil::apiFunc('Agoraportal', 'user', 'getUsersToCreate', array('clientCode' => $clientCode,
-                    'action' => 1,
-                    'uname' => $uname));
-        $user = $users[$uname];
-
-        $isAdmin = (AgoraPortal_Util::isAdmin()) ? true : false;
-
-        $view = Zikula_View::getInstance('Agoraportal', false);
-        $view->assign('user', $user);
-        $view->assign('userRow', $userRow);
-        $view->assign('clientCode', $clientCode);
-        $view->assign('isAdmin', $isAdmin);
-        $content = $view->fetch('agoraportal_user_importCreateUsersEditRow.tpl');
-        AjaxUtil::output(array('userRow' => $userRow,
-            'content' => $content));
     }
 
     public function editService($args) {
@@ -224,23 +177,22 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $serviceId = FormUtil::getPassedValue('serviceId', -1, 'GET');
-        if ($serviceId == -1) {
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', -1, 'GET');
+        $servicetype = ServiceType::get_by_id($serviceId);
+        if (!$servicetype) {
             AjaxUtil::error('no service found');
         }
-        // get service
-        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices', array('serviceId' => $serviceId));
 
-        global $agora;
-        $service[$serviceId]['tablesPrefix'] = (isset($agora[$service[$serviceId]['serviceName']]['prefix'])) ? $agora[$service[$serviceId]['serviceName']]['prefix'] : '';
-        $service[$serviceId]['serverFolder'] = (isset($agora[$service[$serviceId]['serviceName']]['datadir'])) ? $agora[$service[$serviceId]['serviceName']]['datadir'] : '';
-
+        $extra = new StdClass();
+        $extra->serverFolder = $servicetype->getDataDirectory();
+        $extra->validFolder = is_dir($servicetype->getParentDataDirectory());
+        $extra->tablesPrefix = $servicetype->getTablePrefix();
 
         $view = Zikula_View::getInstance('Agoraportal', false);
-        $view->assign('service', $service[$serviceId]);
-        $content = $view->fetch('agoraportal_admin_editServiceRow.tpl');
-        AjaxUtil::output(array('serviceId' => $serviceId,
-            'content' => $content));
+        $view->assign('service', $servicetype);
+        $view->assign('extra', $extra);
+        $content = $view->fetch('config_editServiceRow.tpl');
+        AjaxUtil::output(array('serviceId' => $serviceId, 'content' => $content));
     }
 
     public function updateService($args) {
@@ -248,44 +200,40 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $serviceId = FormUtil::getPassedValue('serviceId', -1, 'GET');
-        if ($serviceId == -1)
-            AjaxUtil::error('no service found');
-        $serviceName = FormUtil::getPassedValue('serviceName', -1, 'GET');
-        if ($serviceName == -1)
-            AjaxUtil::error('no service name');
-        $URL = FormUtil::getPassedValue('URL', -1, 'GET');
-        $description = FormUtil::getPassedValue('description', -1, 'GET');
-        $version = FormUtil::getPassedValue('version', -1, 'GET');
-        if ($version == -1)
-            AjaxUtil::error('no service version');
-        $hasDB = FormUtil::getPassedValue('hasDB', -1, 'GET');
-        if ($hasDB == -1)
-            AjaxUtil::error('no service version');
-        $allowedClients = FormUtil::getPassedValue('allowedClients', -1, 'GET');
-        $defaultDiskSpace = FormUtil::getPassedValue('defaultDiskSpace', -1, 'GET');
-        $service = array('serviceName' => $serviceName,
-            'URL' => $URL,
-            'description' => $description,
-            'version' => $version,
-            'hasDB' => $hasDB,
-            'allowedClients' => $allowedClients,
-            'defaultDiskSpace' => $defaultDiskSpace);
-        // update information in database
-        $updated = ModUtil::apiFunc('Agoraportal', 'admin', 'updateService', array('serviceId' => $serviceId,
-                    'service' => $service));
-        if (!$updated) {
-            AjaxUtil::error('error updating service');
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', -1, 'GET');
+        $servicetype = ServiceType::get_by_id($serviceId);
+        if (!$servicetype) {
+            AjaxUtil::error('Service not found');
         }
-        global $agora;
-        $service['tablesPrefix'] = (isset($agora[$service['serviceName']]['prefix'])) ? $agora[$service['serviceName']]['prefix'] : '';
-        $service['serverFolder'] = (isset($agora[$service['serviceName']]['datadir'])) ? $agora[$service['serviceName']]['datadir'] : '';
+
+        $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName', false, 'GET');
+        if (!$serviceName) {
+            AjaxUtil::error('No service name');
+        }
+        $servicetype->serviceName = $serviceName;
+        $servicetype->URL = AgoraPortal_Util::getFormVar($args, 'URL', "", 'GET');
+        $servicetype->description = AgoraPortal_Util::getFormVar($args, 'description', "", 'GET');
+
+        $servicetype->hasDB = AgoraPortal_Util::getFormVar($args, 'hasDB', false, 'GET');
+        $servicetype->allowedClients = AgoraPortal_Util::getFormVar($args, 'allowedClients', "", 'GET');
+        $servicetype->defaultDiskSpace = AgoraPortal_Util::getFormVar($args, 'defaultDiskSpace', 0, 'GET');
+
+        $updated = $servicetype->save();
+
+        if (!$updated) {
+            AjaxUtil::error('Error updating service');
+        }
+
+        $extra = new StdClass();
+        $extra->serverFolder = $servicetype->getDataDirectory();
+        $extra->validFolder = is_dir($servicetype->getParentDataDirectory());
+        $extra->tablesPrefix = $servicetype->getTablePrefix();
 
         // reload row table
         $view = Zikula_View::getInstance('Agoraportal', false);
-        $view->assign('service', $service);
-        $view->assign('serviceId', $serviceId);
-        $content = $view->fetch('agoraportal_admin_updateServiceRow.tpl');
+        $view->assign('service', $servicetype);
+        $view->assign('extra', $extra);
+        $content = $view->fetch('config_serviceRow.tpl');
         AjaxUtil::output(array('serviceId' => $serviceId,
             'content' => $content));
     }
@@ -301,41 +249,8 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isUser()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $typeId = FormUtil::getPassedValue('typeId', -1, 'GET');
-        $location = FormUtil::getPassedValue('location', -1, 'GET');
-        $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = FormUtil::getPassedValue('searchText', -1, 'GET');
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $rpp = FormUtil::getPassedValue('rpp', -1, 'GET');
-        $content = ModUtil::func('Agoraportal', 'user', 'sitesListContent', array('init' => $init,
-                    'location' => $location,
-                    'typeId' => $typeId,
-                    'search' => $search,
-                    'searchText' => $searchText,
-                    'rpp' => $rpp));
+        $content = ModUtil::func('Agoraportal', 'user', 'sitesListContent', $args);
         AjaxUtil::output(array('content' => $content));
-    }
-
-    /**
-     * get the clients who have the three first leters like the parameter
-     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	args   value to search for
-     * @return:	A list of clients
-     */
-    public function autocompleteClient($args) {
-        if (!AgoraPortal_Util::isUser()) {
-            AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
-        }
-        $value = FormUtil::getPassedValue('value', -1, 'GET');
-        $clientsString = '';
-
-        //Get the client Name
-        $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getClientMainInfo', array('clientDNS' => $value));
-        foreach ($clients as $client) {
-            $clientsString .= "<div><a style=\"cursor: pointer;\" onclick=\"addClient('" . $client['clientDNS'] . "')\">" . $client['clientDNS'] . "</a></div>";
-        }
-
-        AjaxUtil::output(array('clients' => $clientsString));
     }
 
     /**
@@ -348,12 +263,12 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isClient()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $actionCode = FormUtil::getPassedValue('actionCode', -1, 'GET');
-        $fromDate = FormUtil::getPassedValue('fromDate', isset($args['fromDate']) ? $args['fromDate'] : null, 'GET');
-        $toDate = FormUtil::getPassedValue('toDate', isset($args['toDate']) ? $args['toDate'] : null, 'GET');
-        $uname = FormUtil::getPassedValue('uname', isset($args['uname']) ? $args['uname'] : null, 'GET');
-        $pag = FormUtil::getPassedValue('pag', isset($args['pag']) ? $args['pag'] : 1, 'GET');
+        $init = AgoraPortal_Util::getFormVar($args, 'init', -1, 'GET');
+        $actionCode = AgoraPortal_Util::getFormVar($args, 'actionCode', -1, 'GET');
+        $fromDate = AgoraPortal_Util::getFormVar($args, 'fromDate', null, 'GET');
+        $toDate = AgoraPortal_Util::getFormVar($args, 'toDate', null, 'GET');
+        $uname = AgoraPortal_Util::getFormVar($args, 'uname', null, 'GET');
+        $pag = AgoraPortal_Util::getFormVar($args, 'pag', 1, 'GET');
         $content = ModUtil::func('Agoraportal', 'user', 'logsContent', array('init' => $init,
                     'actionCode' => $actionCode,
                     'fromDate' => $fromDate,
@@ -376,49 +291,77 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
-        $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : 2, 'GETPOST');
-        $description = FormUtil::getPassedValue('description', isset($args['description']) ? $args['description'] : null, 'GETPOST');
-        $comand = FormUtil::getPassedValue('comand', isset($args['comand']) ? $args['comand'] : null, 'GETPOST');
-        $comandId = FormUtil::getPassedValue('comandId', isset($args['comandId']) ? $args['comandId'] : null, 'GETPOST');
-        $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : null, 'GETPOST');
-        $comand_type = FormUtil::getPassedValue('comand_type', isset($args['comand_type']) ? $args['comand_type'] : 0, 'GETPOST');
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', 2, 'GETPOST');
+        $description = AgoraPortal_Util::getFormVar($args, 'description', null, 'GETPOST');
+        $comand = AgoraPortal_Util::getFormVar($args, 'comand', null, 'GETPOST');
+        $comandId = AgoraPortal_Util::getFormVar($args, 'comandId', null, 'GETPOST');
+        $action = AgoraPortal_Util::getFormVar($args, 'action', null, 'GETPOST');
+        $comand_type = AgoraPortal_Util::getFormVar($args, 'comand_type', 0, 'GETPOST');
 
-        $where = "WHERE `comandId`=" . $comandId;
+        $msg = "";
+        switch($action) {
+            case 'insert':
 
-        if ($action == '1') {
-            $obj = array('serviceId' => $serviceId,
-                'comand' => $comand,
-                'description' => $description,
-                'type' => $comand_type);
-            if (!DBUtil::insertObject($obj, 'agoraportal_mysql_comands')) {
-                $msg = '<span style="color:red;">' . $this->__('No s\'ha pogut desar la nova comanda') . '</span>';
-            } else {
-                $msg = '<span style="color:green;">' . $this->__('S\'ha desat correctament la nova comanda') . '</span>';
-            }
-        } else if ($action == '2') {
-            if (!DBUtil::deleteWhere('agoraportal_mysql_comands', $where)) {
-                $msg = '<span style="color:red;">' . $this->__('No s\'ha pogut eliminar la comanda') . '</span>';
-            } else {
-                $msg = '<span style="color:green;">' . $this->__('La comanda s\'ha eliminat correctament') . '</span>';
-            }
-        } else if ($action == '3') {
-            $obj = array('comand' => $comand,
-                'description' => $description,
-                'type' => $comand_type);
-            if (!DBUtil::updateObject($obj, 'agoraportal_mysql_comands', $where)) {
-                $msg = '<span style="color:red;">' . $this->__('No s\'ha pogut modificat la comanda') . '</span>';
-            } else {
-                $msg = '<span style="color:green;">' . $this->__('La comanda s\'ha modificat correctament') . '</span>';
-            }
+                $obj = array('serviceId' => $serviceId,
+                    'comand' => $comand,
+                    'description' => $description,
+                    'type' => $comand_type);
+                $sql = SQLCommand::create($obj);
+                if (!$sql) {
+                    $msg = '<span class="alert alert-danger">' . $this->__('No s\'ha pogut desar la nova comanda') . '</span>';
+                } else {
+                    $msg = '<span class="alert alert-success">' . $this->__('S\'ha desat correctament la nova comanda') . '</span>';
+                }
+                break;
+            case 'delete':
+                if (!SQLCommand::delete($comandId)) {
+                    $msg = '<span class="alert alert-danger">' . $this->__('No s\'ha pogut eliminar la comanda') . '</span>';
+                } else {
+                    $msg = '<span class="alert alert-success">' . $this->__('La comanda s\'ha eliminat correctament') . '</span>';
+                }
+                break;
+            case 'update':
+                $sql = SQLCommand::get_by_id($comandId);
+                if (!$sql) {
+                    $msg = '<span class="alert alert-danger">' . $this->__('La comanda no existeix') . ' </span > ';
+                } else {
+                    $sql->comand = $comand;
+                    $sql->description = $description;
+                    $sql->type = $comand_type;
+                    if (!$sql->save()) {
+                        $msg = ' < span class="alert alert-danger" > ' . $this->__('No s\'ha pogut modificat la comanda') . '</span>';
+                    } else {
+                        $msg = '<span class="alert alert-success">' . $this->__('La comanda s\'ha modificat correctament') . '</span>';
+                    }
+                }
+                break;
         }
 
-        $comands = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', array('serviceId' => $serviceId,
-                    'comand_type' => $comand_type));
+        $comands = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', array('serviceId' => $serviceId, 'comand_type' => $comand_type));
 
         AjaxUtil::output(array('content' => $comands,
             'action' => $action,
             'msg' => $msg,
             'comand_type' => $comand_type));
+    }
+
+    /**
+     * Save, overwrite or delete SQL comands in the database
+     * @author: Fèlix Casanellas (fcasanel@xtec.cat)
+     * @param:  comand, description and action
+     * @return: result of the action
+     */
+    public function sqlCommandsUpdateTab($args) {
+        if (!AgoraPortal_Util::isAdmin()) {
+            AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
+        }
+
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', 2);
+        $commandtype = AgoraPortal_Util::getFormVar($args, 'commandtype', 'all');
+        $args = array('serviceId' => $serviceId, 'comand_type' => $commandtype);
+        $content = ModUtil::func('Agoraportal', 'admin', 'sqlComandList', $args);
+
+        AjaxUtil::output(array('content' => $content, 'commandtype' => $commandtype));
     }
 
     /**
@@ -432,38 +375,16 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : null, 'GETPOST');
-        $comandId = FormUtil::getPassedValue('comandId', isset($args['comandId']) ? $args['comandId'] : null, 'GETPOST');
-        $where = 'WHERE `comandId`=' . $comandId;
-        $content = DBUtil::selectObjectArray('agoraportal_mysql_comands', $where);
-        $comand = $content['0']['comand'];
-        $description = $content['0']['description'];
-        $comand_type = $content['0']['type'];
+        $commandId = AgoraPortal_Util::getFormVar($args, 'commandId', null, 'GETPOST');
+        $action = AgoraPortal_Util::getFormVar($args, 'action', null, 'GETPOST');
+        $command = SQLCommand::get_by_id($commandId);
 
-        AjaxUtil::output(array('comand' => $comand,
-            'description' => $description,
-            'comand_type' => $comand_type,
-            'action' => $action,
-            'comandId' => $comandId));
-    }
-
-    /**
-     * Build a dropdown menu with the services the client has
-     *
-     * @author Aida Regi
-     * @param int $requestTypeId
-     */
-    public function getRequestServices($args) {
-        $requestTypeId = FormUtil::getPassedValue('requestTypeId', -1, 'GET');
-
-        $services = ModUtil::func('Agoraportal', 'user', 'getRequestServices', array('requestTypeId' => $requestTypeId));
-
-        $view = Zikula_View::getInstance('Agoraportal', false);
-        $view->assign('services', $services);
-
-        $content = $view->fetch('agoraportal_user_requestsMenuServices.tpl');
-
-        AjaxUtil::output(array('content' => $content));
+        AjaxUtil::output(array(
+            'command' => $command->comand,
+            'description' => $command->description,
+            'type' => $command->type,
+            'commandId' => $commandId,
+            'action' => $action));
     }
 
     /**
@@ -474,30 +395,24 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $service = FormUtil::getPassedValue('service', -1, 'GET');
-        $stateFilter = FormUtil::getPassedValue('stateFilter', -1, 'GET');
-        $search = FormUtil::getPassedValue('search', -1, 'GET');
-        $searchText = trim(FormUtil::getPassedValue('searchText', -1, 'GET'));
-        $init = FormUtil::getPassedValue('init', -1, 'GET');
-        $order = FormUtil::getPassedValue('order', -1, 'GET');
-        $rpp = FormUtil::getPassedValue('rpp', -1, 'GET');
+        $service = AgoraPortal_Util::getFormVar($args, 'service', -1, 'GET');
+        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', -1, 'GET');
+        $search = AgoraPortal_Util::getFormVar($args, 'search', -1, 'GET');
+        $searchText = trim(AgoraPortal_Util::getFormVar($args, 'searchText', -1, 'GET'));
+        $init = AgoraPortal_Util::getFormVar($args, 'init', -1, 'GET');
+        $order = AgoraPortal_Util::getFormVar($args, 'order', -1, 'GET');
+        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', -1, 'GET');
 
-        $stateString = serialize(array('init' => $init,
+        $args = array('init' => $init,
             'service' => $service,
             'stateFilter' => $stateFilter,
             'search' => $search,
             'searchText' => $searchText,
-            'rpp' => $rpp));
+            'order' => $order,
+            'rpp' => $rpp);
 
-        SessionUtil::setVar('navStateRequests', $stateString);
-
-        $content = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', array('init' => $init,
-                    'service' => $service,
-                    'stateFilter' => $stateFilter,
-                    'search' => $search,
-                    'order' => $order,
-                    'searchText' => $searchText,
-                    'rpp' => $rpp));
+        SessionUtil::setVar('requestsList', serialize($args));
+        $content = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', $args);
 
         AjaxUtil::output(array('content' => $content));
     }
@@ -518,9 +433,9 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
-        $serviceId = FormUtil::getPassedValue('serviceId', '', 'GET');
-        $requestTypeId = FormUtil::getPassedValue('requestTypeId', '', 'GET');
-        $clientCode = FormUtil::getPassedValue('clientCode', '', 'GET');
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', '', 'GET');
+        $requestTypeId = AgoraPortal_Util::getFormVar($args, 'requestTypeId', '', 'GET');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', '', 'GET');
 
         if (empty($serviceId) || empty($requestTypeId) || empty($clientCode)) {
             return false;
@@ -530,21 +445,20 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $view->assign('requestTypeId', $requestTypeId);
 
         // Get info about the type of request
-        $requestTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getRequestTypes', array('requestTypeId' => $requestTypeId));
+        $requestType = RequestType::get_by_id($requestTypeId);
+        $view->assign('info', $requestType);
 
-        // Process request (1 = quota, 2 = admin pass)
-        switch ($requestTypeId) {
-            case '1':
-                // Check if user has exceeded disk request threshold
-                $thresholdExceeded = ModUtil::apiFunc('Agoraportal', 'user', 'checkDiskRequestThreshold', array('serviceId' => $serviceId,
-                            'clientCode' => $clientCode));
-                $view->assign('thresholdExceeded', $thresholdExceeded);
-                $view->assign('diskRequestThreshold', $this->getVar('diskRequestThreshold'));
-                $view->assign('maxFreeQuotaForRequest', $this->getVar('maxFreeQuotaForRequest'));
+        // Process request (1 = quota)
+        if ($requestTypeId == '1') {
+            $client = Client::get_by_code($clientCode);
+            // Get service data
+            $service = $client->get_service_by_id($serviceId);
+            // Check if quota usage exceeds disk request threshold
+            $thresholdExceeded = $service->is_quota_exceeded();
 
-            default :
-                $view->assign('info', $requestTypes['0']);
-                break;
+            $view->assign('thresholdExceeded', $thresholdExceeded);
+            $view->assign('diskRequestThreshold', $this->getVar('diskRequestThreshold'));
+            $view->assign('maxFreeQuotaForRequest', $this->getVar('maxFreeQuotaForRequest'));
         }
 
         $content = $view->fetch('agoraportal_user_requestsUserMessage.tpl');
@@ -556,30 +470,28 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         if (!AgoraPortal_Util::isClient()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
-        $filename = FormUtil::getPassedValue('filename', '', 'GET');
+        $filename = AgoraPortal_Util::getFormVar($args, 'filename', '', 'GET');
         $basename = basename($filename);
 
-        $clientCode = FormUtil::getPassedValue('clientCode', '', 'GET');
-        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
-        $clientCode = $clientInfo['clientCode'];
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', '', 'GET');
+        $clientCode = AgoraPortal_Util::getClientCodeFromUser($clientCode);
+        if(!$clientCode) {
+            throw new Zikula_Exception_Forbidden();
+        }
 
+        $client = Client::get_by_code($clientCode);
         // Removal of file or dir
         if (is_dir($filename)) {
             if ($this->is_dir_empty($filename)) {
                 rmdir($filename);
                 // Register log
-                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha esborrat el directori \'%s\' del repository \'Fitxers\' de Moodle', array($basename)),
-                    'actionCode' => 3,
-                    'clientCode' => $clientCode));
+                $client->add_log(ClientLog::CODE_DELETE, $this->__f('S\'ha esborrat el directori \'%s\' del repository \'Fitxers\' de Moodle', array($basename)));
             } else {
                 AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No es pot esborrar aquesta carpeta perquè no està buida.')));
             }
         } else {
             unlink($filename);
-            // Register log
-            ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha esborrat el fitxer \'%s\' del repository \'Fitxers\' de Moodle', array($basename)),
-                'actionCode' => 3,
-                'clientCode' => $clientCode));
+            $client->add_log(ClientLog::CODE_DELETE, $this->__f('S\'ha esborrat el fitxer \'%s\' del repository \'Fitxers\' de Moodle', array($basename)));
         }
 
         AjaxUtil::output(array('name' => $basename));
@@ -593,66 +505,64 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     }
 
     public function showOperationLog($args) {
-        $logid = FormUtil::getPassedValue('log', -1, 'GET');
-
         AgoraPortal_Util::requireAdmin();
 
-        $log = DBUtil::selectObjectByID('agoraportal_queues_log', $logid);
-
-        if ($log) {
-            return $log['content'];
-        }
-
-        return 'No hi ha registre';
+        $logid = AgoraPortal_Util::getFormVar($args, 'log', -1, 'GET');
+        return Agora_Queues_Operation::get_log_by_id($logid);
     }
 
     public function changeOperationPriority($args) {
-        $opid = FormUtil::getPassedValue('operation', false, 'GET');
-        $newpriority = FormUtil::getPassedValue('newpriority', false, 'GET');
+        AgoraPortal_Util::requireAdmin();
+
+        $opid = AgoraPortal_Util::getFormVar($args, 'operation', false, 'GET');
+        $newpriority = AgoraPortal_Util::getFormVar($args, 'newpriority', false, 'GET');
         if($opid === false || $newpriority === false) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No s\'han rebut dades')));
         }
 
-        AgoraPortal_Util::requireAdmin();
-
-        $operation = DBUtil::selectObjectByID('agoraportal_queues', $opid);
-
+        $operation = Agora_Queues_Operation::get_operation_by_id($opid);
         if (!$operation) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No s\'han trobat la operació')));
         }
 
-        if ($operation['state'] != 'P') {
+        $newpriority = $operation->changePriority($newpriority);
+        if ($newpriority === false) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('La operació no està en Pendent')));
         }
 
-        $operation['priority'] = $newpriority;
-        DBUtil::updateObject($operation, 'agoraportal_queues');
-
-        return $operation;
+        return $newpriority;
     }
 
     public function executeOperationId($args) {
-        $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operationid));
+        AgoraPortal_Util::requireAdmin();
+        $opid = AgoraPortal_Util::getFormVar($args, 'operation', -1, 'GET');
 
-        return $result['result'];
+        $operation = Agora_Queues_Operation::get_operation_by_id($opid);
+        if ($operation) {
+            $operation->execute();
+            return $operation->get_message();
+        }
+        return false;
     }
 
     public function changeStateOperationId($args) {
-        $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
-        $state = FormUtil::getPassedValue('state', false, 'GET');
+        AgoraPortal_Util::requireAdmin();
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'changeStateOperationId', array('opId' => $operationid, 'state' => $state));
+        $opid = AgoraPortal_Util::getFormVar($args, 'operation', -1, 'GET');
+        $state = AgoraPortal_Util::getFormVar($args, 'state', false, 'GET');
 
-        return $result;
+        $operation = Agora_Queues_Operation::get_operation_by_id($opid);
+        if ($operation) {
+            return $operation->changeState($state);
+        }
+        return false;
     }
 
     public function deleteOperationId($args) {
-        $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
+        AgoraPortal_Util::requireAdmin();
 
-        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'deleteOperationId', array('opId' => $operationid));
-
-        return $result;
+        $opid = AgoraPortal_Util::getFormVar($args, 'operation', -1, 'GET');
+        return Agora_Queues_Operation::delete($opid);
     }
 
 }

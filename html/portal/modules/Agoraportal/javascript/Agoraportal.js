@@ -1,322 +1,239 @@
-function servicesList(service, stateFilter, search, searchText,order,init,rpp) {
-    var pars = "module=Agoraportal&func=servicesList&service=" + service + "&stateFilter=" + stateFilter + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&init=" + init + "&rpp=" + rpp;
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: servicesList_response,
-        onFailure: servicesList_failure
-    });
-    return false;
+function servicesList(service, stateFilter, search, searchText, order, init, rpp) {
+    var pars = "func=servicesList&service=" + service + "&stateFilter=" + stateFilter + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&init=" + init + "&rpp=" + rpp;
+    return ajax_get(pars, servicesList_response);
+}
+
+function servicesList_response(req) {
+    var json = pndejsonize(req.responseText);
+    Element.update('servicesListContent', json.content);
 }
 
 function getServiceActions() {
     var service = document.getElementById("service_sel").value;
-    var pars = "module=Agoraportal&func=getServiceActions&service=" + service;
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: getServiceActions_response,
-        onFailure: servicesList_failure
-    });
+    var pars = "func=getServiceActions&service=" + service;
+    return ajax_get(pars, getServiceActions_response);
+}
+
+function getServiceActions_response(req) {
+    var json = pndejsonize(req.responseText);
+    actions = JSON.parse(json.content);
+    var text = "";
+    for (var x = 0; x < actions.length; x++) {
+        text += '<option value="'+actions[x].action+'" >'+actions[x].title+'</option>';
+    }
+
+    Element.update('actionselect', text);
+    prepareAction();
+}
+
+function prepareAction() {
+    var action = document.getElementById("actionselect").value;
+
+    if(action == ""){
+        Element.update('actiondescription', 'No hi ha cap acció seleccionada');
+        Element.update('actionparams', 'No hi ha paràmetres');
+    }
+
+    for (var x = 0; x < actions.length; x++) {
+        if (actions[x].action == action) {
+
+            if (actions[x].description != undefined && actions[x].description != '') {
+                Element.update('actiondescription', actions[x].description);
+            } else {
+                Element.update('actiondescription', 'No hi ha descripció disponible');
+            }
+
+            if (actions[x].params != undefined && actions[x].params.length > 0) {
+                var params = '<div class="form-horizontal">';
+                for (var y = 0; y < actions[x].params.length; y++) {
+                    params += '<div class="form-group"><label class="col-sm-4 control-label" for="parm_'+actions[x].params[y]+'">'+actions[x].params[y]+' </label>';
+                    params += '<div class="col-sm-8"><input class="form-control" id="parm_'+actions[x].params[y]+'" name="parm_'+actions[x].params[y]+'" type="text"/></div></div>';
+                }
+                params += '</div>';
+                Element.update('actionparams', params);
+            } else {
+                Element.update('actionparams', 'No hi ha paràmetres');
+            }
+            return false;
+        }
+    }
     return false;
 }
 
 function requestsList(service, stateFilter, search, searchText,order,init,rpp) {
-    var pars = "module=Agoraportal&func=requestsList&service=" + service + "&stateFilter=" + stateFilter + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&init=" + init + "&rpp=" + rpp;
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: requestsList_response,
-        onFailure: requestsList_failure
-    });
+    var pars = "func=requestsList&service=" + service + "&stateFilter=" + stateFilter + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&init=" + init + "&rpp=" + rpp;
+    return ajax_get(pars, requestsList_response);
 }
 
-function sqlservicesList() {
+function requestsList_response(req) {
+    var json = pndejsonize(req.responseText);
+    Element.update('requestListContent', json.content);
+}
 
-    var search = document.getElementById('search').value;
-    var searchText = document.getElementById('valueToSearch').value;
+function filter_servicesList() {
+
+    var which = document.getElementById("which").value;
     var service = document.getElementById("service_sel").value;
-    if(document.getElementById("order")){
-            order = document.getElementById("order").value;
+    if (which == "selected" && service != 0) {
+        var search = document.getElementById('search').value;
+        var searchText = document.getElementById('valueToSearch').value;
+        var order = document.getElementById("order") ? document.getElementById("order").value : 1;
+        var pilot = document.getElementById("pilot") ? document.getElementById("pilot").value : 0;
+        var include = document.getElementById("pilot") ? document.getElementById("include").value : 1;
+        var clients = get_clients_selected();
+
+        var pars = "func=filter_servicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include + "&clients=" + clients;
+        ajax_get(pars, filter_servicesList_response);
     } else {
-        order = 1;
-    }
-
-    if(document.getElementById("pilot")){
-        pilot = document.getElementById("pilot").value;
-        include = document.getElementById("include").value;
-    } else {
-        pilot = 0;
-        include = 1;
-    }
-
-    if(search == 0) return;
-
-    var which = document.getElementById("which").value;
-
-    if(which == "selected") {
-        var x = document.getElementById("clients_sel");
-        var clients = "";
-        for (i = 0; i < x.length; i++){
-            if(x.options[i].selected == true)
-                clients += x.options[i].value + ",";
-        }
-        clients = clients.substr(0, clients.length-1);
-
-        document.getElementById("servicesListContent").className="visible";
-        document.getElementById("cerca").className="visible";
-
-        // Service = 0 is a fake service to refer to the portal
-        if (service != 0) {
-            var pars = "module=Agoraportal&func=sqlservicesList&service=" + service + "&search=" + search + "&searchText=" + searchText + "&order=" + order + "&pilot=" + pilot + "&include=" + include + "&clients=" + clients;
-            Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-            var myAjax = new Ajax.Request("ajax.php",
-            {
-                method: 'get',
-                parameters: pars,
-                onComplete: servicesList_response,
-                onFailure: servicesList_failure
-            });
-        } else {
-            document.getElementById("servicesListContent").className="hidden";
-            document.getElementById("cerca").className="hidden";
-        }
-    }
-    else{
-        document.getElementById("servicesListContent").className="hidden";
-        document.getElementById("cerca").className="hidden";
-    }
-    if(document.getElementById("comandFormDiv"))sqlComandsUpdate(0); //Only with SQL sentences
-    return false;
-}
-
-function statsServiceSelected(search, searchText) {
-    if(search == 0) return;
-    var which = document.getElementById("which").value;
-
-    if(which == "selected"){
-        var stats_sel = document.getElementById("stats_sel").value;
-        switch (stats_sel) {
-            case '1':
-            case '2':
-            case '3':
-                serviceName = 'moodle';
-                break;
-            case '4':
-                 serviceName = 'intranet';
-                break;
-            case '5':
-            case '6':
-            case '7':
-                serviceName = 'moodle2';
-                break;
-        }
-
-        document.getElementById("servicesListContent").className = "visible";
-        document.getElementById("cerca").className = "visible";
-
-        var pars = "module=Agoraportal&func=statsservicesList&serviceName=" + serviceName + "&search=" + search + "&searchText=" + searchText;
-        Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-        var myAjax = new Ajax.Request("ajax.php",
-        {
-            method: 'get',
-            parameters: pars,
-            onComplete: servicesList_response,
-            onFailure: servicesList_failure
-        });
-    }
-    else{
         document.getElementById("servicesListContent").className = "hidden";
         document.getElementById("cerca").className = "hidden";
     }
+
+    return false;
 }
 
-function statsGetCSV(which,stat,date_start,date_stop,order){
+function filter_servicesList_response(req) {
+    var json = pndejsonize(req.responseText);
+    Element.update('servicesListContent', json.content);
 
-    var lastorder = document.getElementById("lastorder").value;
-    if (lastorder == orderby){
-        if (document.getElementById("order").value == "ASC"){
-            var order = "DESC";
-        }else{
-            var order = "ASC";
-        }
-        document.getElementById("order").value = order;
-    }else{
-        var order = "ASC";
-        document.getElementById("order").value = order;
-        document.getElementById("lastorder").value = orderby;
-    }
-
-    if(date_start < 20000101 || date_stop < 20000101){
-        Element.update('resultsContent', 'Incorrect data');
-        return;
-    }
-    if(date_stop < date_start){
-        Element.update('resultsContent', "No results");
-        return;
-    }
-
-    if(which = "selected"){
-        var x = document.getElementById("clients_sel");
-        var clients = "";
-        for (i = 0; i < x.length; i++){
-            if(x.options[i].selected == true)
-                clients += x.options[i].value + ",";
-        }
-        clients = clients.substr(0, clients.length-1); //erase the last comma
-    }
-
-    else var clients = "";
-    f=document.forms['statsForm'];
-    f.clients.value=clients;
-
-
-    f.action="index.php?module=Agoraportal&type=admin&func=statsGetCSVContent";
-
-    f.submit();
-    Element.update('resultsContent', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-/*var myAjax = new Ajax.Request("ajax.php",
-	{
-		method: 'get',
-		parameters: pars,
-		onComplete: statsResults_response,
-		onFailure: statsResults_failure
-	});*/
-/*    var pars = "module=Agoraportal&func=statsGetCSV&stats=" + stat + "&which=" + which + "&date_start=" + date_start + "&date_stop=" + date_stop + "&clients=" + clients + "&orderby=" + orderby + " " + order;
-	Element.update('resultsContent', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-	var myAjax = new Ajax.Request("ajax.php",
-	{
-		method: 'get',
-		parameters: pars,
-		onComplete: statsResults_response,
-		onFailure: statsResults_failure
-	});
-     */
-}
-function statsGetStatistics(which, stat, date_start, date_stop, orderby){
-
-    var lastorder = document.getElementById("lastorder").value;
-    if (lastorder == orderby){
-        if (document.getElementById("order").value == "ASC"){
-            var order = "ASC";
-        }else{
-            var order = "ASC";
-        }
-        document.getElementById("order").value = order;
-    }else{
-        var order = "ASC";
-        document.getElementById("order").value = order;
-        document.getElementById("lastorder").value = orderby;
-    }
-
-    if(date_start < 20000101 || date_stop < 20000101){
-        Element.update('resultsContent', 'Incorrect data');
-        return;
-    }
-    if(date_stop < date_start){
-        Element.update('resultsContent', "No results");
-        return;
-    }
-
-    if(which = "selected"){
-        var x = document.getElementById("clients_sel");
-        var clients = "";
-        for (i = 0; i < x.length; i++){
-            if(x.options[i].selected == true)
-                clients += x.options[i].value + ",";
-        }
-        clients = clients.substr(0, clients.length-1); //erase the last comma
-    }
-    else var clients = "";
-    var pars = "module=Agoraportal&func=statsGetStatistics&stats=" + stat + "&which=" + which + "&date_start=" + date_start + "&date_stop=" + date_stop + "&clients=" + clients + "&orderby=" + orderby + " " + order;
-    Element.update('resultsContent', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: statsResults_response,
-        onFailure: statsResults_failure
-    });
-
-
+    document.getElementById("servicesListContent").className = "visible";
+    document.getElementById("cerca").className = "visible";
 }
 
-function statsGetStatisticsGraphs(which,which2, stat, date_start, date_stop, orderby,datatype,infotype,date){
+function getServiceStats() {
+    var service = document.getElementById("service_sel").value;
+    var pars = "func=getServiceStats&service=" + service;
+    return ajax_get(pars, getServiceStats_response);
+}
 
-    var lastorder = document.getElementById("lastorder").value;
-    if (lastorder == orderby){
-        if (document.getElementById("order").value == "ASC"){
-            var order = "DESC";
-        }else{
-            var order = "ASC";
+function getServiceStats_response(req) {
+    var json = pndejsonize(req.responseText);
+    var stats = json.content;
+    var text = "";
+    if( typeof stats === 'string' ) {
+        text = '<option value="" >' + stats + '</option>';
+    } else {
+        for (var x in stats) {
+            text += '<option value="' + x + '">' + stats[x] + '</option>';
         }
-        document.getElementById("order").value = order;
-    }else{
-        var order = "ASC";
-        document.getElementById("order").value = order;
-        document.getElementById("lastorder").value = orderby;
     }
 
-    if(date_start < 20000101 || date_stop < 20000101){
-        Element.update('resultsContent', 'Incorrect data');
+    Element.update('stats', text);
+}
+
+function statsGetStatistics(orderby, clientDNS){
+
+    var service = document.getElementById("service_sel").value;
+    var stats = document.getElementById("stats").value;
+
+    if(!stats) {
+        Element.update('resultsContent', 'Sel·lecciona una estadística');
         return;
     }
-    if(date_stop < date_start){
-        Element.update('resultsContent', "No results");
+    var date_start = document.getElementById("date_start").value;
+    var date_stop = document.getElementById("date_stop").value;
+
+    var order;
+    if (orderby) {
+        var lastorder = document.getElementById("lastorder").value;
+        if (lastorder == orderby) {
+            order = document.getElementById("tableorder").value == "ASC" ? "DESC" : "ASC";
+        } else {
+            order = "ASC";
+            document.getElementById("lastorder").value = orderby;
+        }
+        document.getElementById("tableorder").value = order;
+    } else {
+        orderby = document.getElementById("lastorder").value
+        order = document.getElementById("tableorder").value;
+    }
+
+    if (!date_start || !date_stop) {
+        Element.update('resultsContent', 'Dates incorrectes');
+        return;
+    }
+    if (date_stop < date_start) {
+        Element.update('resultsContent', "Les dates no tenen l'ordre correcte");
         return;
     }
 
-    if(which = "selected"){
-        var x = document.getElementById("clients_sel");
-        var clients = "";
-        for (i = 0; i < x.length; i++){
-            if(x.options[i].selected == true)
-                clients += x.options[i].value + ",";
-        }
-        clients = clients.substr(0, clients.length-1); //erase the last comma
-    }
-    else {
-        var clients = "";
+    var which = document.getElementById("which").value;
+    var clients = "";
+    if (clientDNS) {
+        clients = clientDNS;
+        which = "selected";
+    } else if (which == "selected") {
+        clients = get_clients_selected();
     }
 
-    var pars = "module=Agoraportal&func=statsGetGraphs&stats=" + stat + "&which=" + which + "&date_start=" + date_start + "&date_stop=" + date_stop +"&datatype="+datatype+"&usuari=" + which2 + "&orderby=" + orderby + " " + order+"&infotype="+infotype+"&date="+date;
-    Element.update('resultsContent', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: statsResults_response,
-        onFailure: statsResults_failure
-    });
+    var pars = "func=statsGetStatistics&service="+service+"&stats=" + stats + "&which=" + which + "&date_start=" + date_start + "&date_stop=" + date_stop + "&clients=" + clients + "&orderby=" + orderby + " " + order;
+    return ajax_get(pars, statsResults_response, statsResults_failure);
+}
 
+function statsGetStatisticsGraphs(clientDNS, column){
+    var service = document.getElementById("service_sel").value;
+    var stats = document.getElementById("stats").value;
+    if(!stats) {
+        Element.update('graphsContent', 'Sel·lecciona una estadística');
+        return;
+    }
+    var date_start = document.getElementById("date_start").value;
+    var date_stop = document.getElementById("date_stop").value;
 
+    if (!date_start || !date_stop) {
+        Element.update('graphsContent', 'Dates incorrectes');
+        return;
+    }
+    if (date_stop < date_start) {
+        Element.update('graphsContent', "Les dates no tenen l'ordre correcte");
+        return;
+    }
+
+    var which = document.getElementById("which").value;
+    var clients = "";
+    if (clientDNS) {
+        clients = clientDNS;
+        which = "selected";
+    } else if (which == "selected") {
+        clients = get_clients_selected();
+    }
+
+    var pars = "func=statsGetGraphs&service="+service+"&stats=" + stats + "&which=" + which + "&date_start=" + date_start + "&date_stop=" + date_stop +"&clients=" + clients;
+    if (column) {
+        pars += "&column=" + column;
+    }
+    if (!clientDNS) {
+        pars += "&totals=true";
+    }
+    return ajax_get(pars, statsGraph_response, statsGraph_failure);
 }
 
 
 function statsResults_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
     Element.update('resultsContent', json.content);
 }
 
 function statsResults_failure() {
-    Element.update('resultsContent','Error');
+    Element.update('resultsContent','Error en descarregar les dades');
+}
+
+function statsGraph_response(req) {
+    var json = pndejsonize(req.responseText);
+    Element.update('graphsContent', json.content);
+}
+
+function statsGraph_failure() {
+    Element.update('graphsContent','Error en descarregar les dades');
 }
 
 function statsGenerateStatistics(date){
-    if(date < 20000101)
-        Element.update('generate', 'Incorrect date');
-    var day = date.substr(6,2);
-    var month = date.substr(4,2);
+    if (!date) {
+        Element.update('generate', 'Data incorrecta');
+    }
+
+    var day = date.substr(8,2);
+    var month = date.substr(5,2);
     var year = date.substr(0,4);
     var pars = "day="+day+"&month="+month+"&year="+year;
     Element.update('generate', 'Generant...');
@@ -329,53 +246,12 @@ function statsGenerateStatistics(date){
     });
 }
 function statsGenerateStatistics_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     Element.update('generate','OK');
 }
 
 function statsGenerateStatistics_failure() {
     Element.update('generate','Error');
 }
-
-function statsAssistent(key, data) {
-
-    if(key == 1){
-        // Monthly stats of Moodle selected.
-        // Put the first date of the moth in the origin field and the actual date in the end field
-        var d = new Date();
-
-        var year = d.getFullYear();
-        var month = d.getMonth()+1;
-        if(month < 10) month='0'+month;
-        var date = d.getDate();
-        if(date < 10) date='0'+date;
-        var today = year.toString()+month.toString()+date.toString();
-        var today=date.toString()+"/"+month.toString()+"/"+year.toString();
-        var firstday = year.toString()+month.toString()+'01';
-        var firstday = '01'+"/"+month.toString()+"/"+year.toString();
-        document.getElementById("date_start").value = firstday;
-        document.getElementById("date_stop").value = today;
-
-    }else if(key == 2){
-        // If first day of the month is selected and monthly mode is in use.
-        // Put the last day of the month in th end field
-        var date = data.toString();
-        var day = date.substr(6, 2);
-        var mode = document.getElementById("stats_sel").value;
-        //alert(mode);
-        if ((day == '01') && (mode == '1')){
-            var month = date.substr(4, 2);
-            var year = date.substr(0, 4);
-            var lastday = (new Date((new Date(parseInt(year,10), parseInt(month,10),1))-1)).getDate();
-            // document.getElementById("date_stop").value = year+month+lastday.toString();
-            document.getElementById("date_stop").value =lastday.toString()+"/"+month+"/"+year;
-        }
-    }
-}
-
 
 function sqlExampleUpdate() {
     var operation = document.getElementById('sqloperation').value;
@@ -400,93 +276,6 @@ function sqlExampleUpdate() {
     }
 }
 
-
-function servicesList_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    Element.update('servicesListContent', json.content);
-    Element.update('reload','');
-}
-
-function getServiceActions_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    actions = JSON.parse(json.content);
-    var text = "";
-
-    var x = 0;
-    while (x < actions.length) {
-        text += '<option value="'+actions[x].action+'" >'+actions[x].title+'</option>';
-        x++;
-    }
-    Element.update('actionselect', text);
-    Element.update('reload','');
-    prepareAction();
-    return false;
-}
-
-function prepareAction() {
-    var action = document.getElementById("actionselect").value;
-
-    if(action == ''){
-        Element.update('actiondescription', 'No hi ha cap acció seleccionada');
-        Element.update('actionparams', 'No hi ha paràmetres');
-    }
-
-    var x = 0;
-    while (x < actions.length) {
-        if(actions[x].action == action){
-
-            if(actions[x].description != undefined && actions[x].description != '') {
-                Element.update('actiondescription', actions[x].description);
-            } else {
-                Element.update('actiondescription', 'No hi ha descripció disponible');
-            }
-
-            if(actions[x].params != undefined && actions[x].params.length > 0) {
-                var y = 0;
-                var params = '<ul>';
-                while (y < actions[x].params.length) {
-                    params += '<li><label for="parm_'+actions[x].params[y]+'">'+actions[x].params[y]+' </label>';
-                    params += '<input id="parm_'+actions[x].params[y]+'" name="parm_'+actions[x].params[y]+'" type="text"/></li>';
-                    y++;
-                }
-                params += '</ul>';
-                Element.update('actionparams', params);
-            } else {
-                Element.update('actionparams', 'No hi ha paràmetres');
-            }
-            return false;
-        }
-        x++;
-    }
-    return false;
-}
-
-function servicesList_failure() {
-    Element.update('reload','');
-}
-
-function requestsList_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    Element.update('requestListContent', json.content);
-    Element.update('reload','');
-}
-
-function requestsList_failure() {
-    Element.update('reload','');
-}
-
 function editClientService() {
     var response;
     if (document.forms["editClientServiceForm"].state.value == -3) {
@@ -500,154 +289,45 @@ function editClientService() {
 
 }
 
-function autocompleteClient(value) {
-    if(value.length > 3){
-        var pars = "module=Agoraportal&func=autocompleteClient&value=" + value;
-        showAutoCompete();
-        var myAjax = new Ajax.Request("ajax.php",
-        {
-            method: 'get',
-            parameters: pars,
-            onComplete: autocompleteClient_response,
-            onFailure: autocompleteClient_failure
-        });
-    } else {
-        hideAutoCompete();
-    }
-}
-
-function autocompleteClient_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-    var json = pndejsonize(req.responseText);
-    Element.update('autocompletediv', json.clients).innerHTML;
-}
-
-function autocompleteClient_failure() {
-
-}
-
-function hideAutoCompete() {
-    $('autocompletediv').style.visibility = "hidden";
-}
-
-function addClient(value) {
-    document.forms['register_form'].clientDNS.value = value;
-    Element.update('autocompletediv', '').innerHTML;
-    $('autocompletediv').style.visibility = "hidden";
-}
-
-function showAutoCompete() {
-    $('autocompletediv').style.visibility = "visible";
-}
-
-function clientsList(search, searchText,init) {
-    var pars = "module=Agoraportal&func=clientsList&search=" + search + "&searchText=" + searchText + "&init=" + init;
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: clientsList_response,
-        onFailure: clientsList_failure
-    });
+function clientsList(search, searchText, init, rpp) {
+    var pars = "func=clientsList&search=" + search + "&searchText=" + searchText + "&init=" + init + "&rpp=" + rpp;
+    return ajax_get(pars, clientsList_response);
 }
 
 function clientsList_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
     Element.update('clientsListContent', json.content).innerHTML;
-    Element.update('reload','');
-}
-
-function clientsList_failure() {
-    Element.update('reload','');
-}
-
-function sendConfig() {
-    document.forms.config.submit();
-}
-
-function sendUpdateRequest() {
-    document.forms.editRequestForm.submit();
 }
 
 function editService(serviceId) {
-    var pars = "module=Agoraportal&func=editService&serviceId=" + serviceId;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: editService_response,
-        onFailure: editService_failure
-    });
+    var pars = "func=editService&serviceId=" + serviceId;
+    return ajax_get(pars, editService_response);
 }
 
 function editService_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
     Element.update('service' + json.serviceId, json.content);
-}
-
-function editService_failure() {
 }
 
 function updateService(serviceId) {
     var f = document.forms.servicesList;
-    var pars = "module=Agoraportal&func=updateService&serviceId=" + serviceId + "&serviceName=" + eval('f.serviceName_' + serviceId + '.value') + "&URL=" + eval('f.URL_' + serviceId + '.value') + "&description=" + eval('f.description_' + serviceId + '.value') + "&version=" + eval('f.version_' + serviceId + '.value') + "&hasDB=" + eval('f.hasDB_' + serviceId + '.value') + "&allowedClients=" + eval('f.allowedClients_' + serviceId + '.value') + "&defaultDiskSpace=" + eval('f.defaultDiskSpace_' + serviceId + '.value');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: updateService_response,
-        onFailure: updateService_failure
-    });
+    var pars = "func=updateService&serviceId=" + serviceId + "&serviceName=" + eval('f.serviceName_' + serviceId + '.value') + "&URL=" + eval('f.URL_' + serviceId + '.value') + "&description=" + eval('f.description_' + serviceId + '.value') + "&hasDB=" + eval('f.hasDB_' + serviceId + '.value') + "&allowedClients=" + eval('f.allowedClients_' + serviceId + '.value') + "&defaultDiskSpace=" + eval('f.defaultDiskSpace_' + serviceId + '.value');
+    return ajax_get(pars, updateService_response);
 }
 
 function updateService_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
     Element.update('service' + json.serviceId, json.content);
 }
 
-function updateService_failure() {
-}
-
 function sitesList(typeId,location,search,searchText,init,rpp) {
-    var pars = "module=Agoraportal&func=sitesList&typeId=" + typeId + "&location=" + location + "&search=" + search + "&searchText=" + searchText + "&init=" + init + "&rpp=" + rpp;
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: sitesList_response,
-        onFailure: sitesList_failure
-    });
+    var pars = "func=sitesList&typeId=" + typeId + "&location=" + location + "&search=" + search + "&searchText=" + searchText + "&init=" + init + "&rpp=" + rpp;
+    return ajax_get(pars, sitesList_response);
 }
 
 function sitesList_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
     Element.update('sitesListContent', json.content).innerHTML;
-    Element.update('reload','');
-}
-
-function sitesList_failure() {
-    Element.update('reload','');
 }
 
 function sendEditLocation() {
@@ -655,11 +335,9 @@ function sendEditLocation() {
     var error = false;
     if(f.locationName.value == ''){
         alert(noLocationName);
-        error = true;
+        return false;
     }
-    if(!error){
-        f.submit();
-    }
+    return true;
 }
 
 function sendEditRequestType() {
@@ -679,94 +357,49 @@ function sendEditRequestType() {
     }
     if(concat!=''){
         alert('Cal que omplis els següents camps: \n' + concat);
-        error=true;
+        return false;
     }
-    if(!error){
-        f.submit();
-    }
-}
-function sendNewLocation() {
-    var f = document.forms['addNewLocation'];
-    var error = false;
-    if(f.locationName.value == ''){
-        alert(noLocationName);
-        error = true;
-    }
-    if(!error){
-        f.submit();
-    }
+    return true;
 }
 
-function sendNewRequestType() {
-    var f = document.forms['addNewRequestType'];
+function sendEditModelType() {
+    var f = document.forms['editModelType'];
     var error = false;
     var concat='';
-    if(f.requestTypeName.value == '' )   {
-        concat=concat+' Nom del tipus de sol·licitud \n';
+    if(f.shortcode.value == '' )   {
+        concat=concat+' Codi curt \n';
     }
-    if(f.requestTypeUserCommentsText.value == ''){
-        concat=concat+' Text pel quadre de comentaris \n';
+    if(f.description.value == ''){
+        concat=concat+' Descripcio \n';
 
     }
-    if(f.requestTypeDescription.value == ''){
-        concat=concat+' Descripció del tipus de sol·licitud \n';
+    if(f.url.value == ''){
+        concat=concat+' URL \n';
+
+    }
+    if(f.dbHost.value == ''){
+        concat=concat+' Base de dades \n';
 
     }
     if(concat!=''){
         alert('Cal que omplis els següents camps: \n' + concat);
-        error=true;
+        return false;
     }
-    if(!error){
-        f.submit();
-    }
+    return true;
 }
 
-function sendNewRequestTypeService() {
-    var f = document.forms['addNewRequestTypeService'];
-    alert('entra');
+function confirm_delete(title) {
+    return confirm("Esteu segurs que voleu eliminar " + title + "?");
+}
 
-    f.submit();
-
-}
-function sendDeleteLocation() {
-    var f = document.forms['deleteLocation'];
-    f.submit();
-}
-function sendDeleteRequestType() {
-    var f = document.forms['deleteRequestType'];
-    f.submit();
-}
-function sendDeleteRequestTypeService() {
-    var f = document.forms['deleteRequestTypeService'];
-    f.submit();
-}
 function sendEditType() {
     var f = document.forms['editType'];
     var error = false;
     if(f.typeName.value == ''){
         alert(noTypeName);
-        error = true;
+        return false;
     }
-    if(!error){
-        f.submit();
-    }
-}
-
-function sendNewType() {
-    var f = document.forms['addNewType'];
-    var error = false;
-    if(f.typeName.value == ''){
-        alert(noTypeName);
-        error = true;
-    }
-    if(!error){
-        f.submit();
-    }
-}
-
-function sendDeleteType() {
-    var f = document.forms['deleteType'];
-    f.submit();
+    return true;
 }
 
 function autoActions(serviceId) {
@@ -786,21 +419,6 @@ function autoActionsRequests() {
     document.forms["editRequestForm"].sendMail.checked = true;
 }
 
-
-
-function modifySettings() {
-    var f = document.forms["settings"];
-    f.submit();
-}
-
-function deleteManager (managerId) {
-    $response = confirm(_AGORAPORTALCONFIRMMANAGERDELETION);
-    if ($response) {
-        var f = document.forms["deleteManager_" + managerId];
-        f.submit();
-    }
-}
-
 function addManager() {
     var f = document.forms["addManager"];
     var error = false;
@@ -812,20 +430,11 @@ function addManager() {
         alert(_AGORAPORTALUSERNAMENOTVALID);
         error = true;
     }
-    if (!error) {
-        f.submit();
-    }
-}
-function addRequest() {
-    var f = document.forms["addRequest"];
-    var error = false;
-    if (!error) {
-        f.submit();
-    }
+    return !error;
 }
 
-function logs(init, actionCode, fromDate, toDate, uname, pag) {
-    var pars = "module=Agoraportal&func=logs&init=" + init + "&actionCode=" + actionCode + "&pag=" + pag;
+function logs(clientCode, actionCode, fromDate, toDate, uname, init) {
+    var pars = "func=logs&clientCode=" + clientCode + "&actionCode=" + actionCode + "&init=" + init;
     if (uname!=""){
         pars = pars + "&uname=" + uname;
     }
@@ -836,525 +445,301 @@ function logs(init, actionCode, fromDate, toDate, uname, pag) {
         pars = pars + "&toDate=" + toDate;
     }
 
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: logs_response,
-        onFailure: logs_failure
-    });
+    return ajax_get(pars, logs_response);
 }
 
 function logs_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
     //alert(json.content);
     Element.update('logsContent', json.content).innerHTML;
-    Element.update('reload','');
 }
 
-function logs_failure(){
-    Element.update('reload','');
-}
-/*
-function editUser() {
-    var error = false;
-    var f = document.forms.editUser;
-    if(f.mail.value==""){
-        alert(_AGORAPORTALNOTUSERMAIL)
-        error = true;
-    }
-    if (echeck(f.mail.value)==false && !error) {
-        alert(_AGORAPORTALNOVALIDEMAIL)
-        error = true;
-    }
-    if(!error){
-        f.submit();
-    }
-}
-*/
-/**
- * DHTML email validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/)
- */
-function echeck(str) {
-    var at="@"
-    var dot="."
-    var lat=str.indexOf(at)
-    var lstr=str.length
-    var ldot=str.indexOf(dot)
-    if (str.indexOf(at)==-1){
-        return false
-    }
-
-    if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
-        return false
-    }
-
-    if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
-        return false
-    }
-
-    if (str.indexOf(at,(lat+1))!=-1){
-        return false
-    }
-
-    if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
-        return false
-    }
-
-    if (str.indexOf(dot,(lat+2))==-1){
-        return false
-    }
-
-    if (str.indexOf(" ")!=-1){
-        return false
-    }
-
-    return true
-}
-
-
-function sqlComandsUpdate(action, comandId, comandType){
-    var serviceId = document.getElementById("service_sel").value;
+function sqlSave() {
     var description = document.getElementById("description").value;
-    var comand = document.getElementById("sqlfunction").value;
-    var comand_type = document.getElementById("comand_type").value;
+    var sql = document.getElementById("sqlfunction").value;
 
-    Element.update('waitCircle', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-
-    if (action == 1){
-        if ((description == '') || (comand == '')){
-            alert('Heu d\'especificar una comanda i una descripció');
-            Element.update('waitCircle', '');
-            return;
-        }
-        if (document.getElementById('comandId').value != ''){
-            sqlComandsUpdate(3, document.getElementById('comandId').value);
-            return;
-        }
-        var pars = {
-            serviceId : serviceId,
-            description : description,
-            comand : comand,
-            comand_type : comand_type,
-            action : 1
-        };
-    }
-    else if (action == 2){
-        if (comandId != ''){
-            if(confirm("Voleu eliminar la comanda?")) {
-                var pars = {
-                    serviceId : serviceId,
-                    comandId : comandId,
-                    action : 2
-                };
-            }
-            else{
-                sqlComandsUpdate_failure;
-            }
-        }
-        else{
-            alert('Heu de seleccionar una comanda');
-            Element.update('waitCircle', '');
-            return;
-        }
-    }
-    else if (action == 3){
-        if (comandId != ''){
-            if(confirm("Voleu sobreescriure la comanda ?")) {
-                var pars = {
-                    serviceId : serviceId,
-                    comandId : comandId,
-                    comand : comand,
-                    description : description,
-                    comand_type : comand_type,
-                    action : 3
-                };
-            }
-            else{
-                sqlComandsUpdate_failure;
-            }
-        }
-        else{
-            alert('Heu de seleccionar una comanda');
-            Element.update('waitCircle', '');
-            return;
-        }
-    }
-    else{
-        if (comandType == ''){
-            comand_type = 0;
-        }
-        else{
-            comand_type = comandType
-        }
-        var pars = {
-            serviceId : serviceId,
-            action : 0,
-            comand_type : comand_type
-        };
-    }
-
-    var myAjax = new Ajax.Request("ajax.php?module=Agoraportal&func=sqlComandsUpdate",
-    {
-        method: 'post',
-        parameters: pars,
-        onComplete: sqlComandsUpdate_response,
-        onFailure: sqlComandsUpdate_failure
-    });
-
-}
-
-function sqlComandsUpdate_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        Element.update('waitCircle', '');
+    if ((description == '') || (sql == '')){
+        document.getElementById('description').focus();
+        alert('Heu d\'especificar una comanda i una descripció');
+        reload_off();
         return;
     }
+
+    var commandId = document.getElementById('commandId').value;
+    var serviceId = document.getElementById("service_sel").value;
+    var command_type = document.getElementById("command_type").value;
+    var pars = {
+        serviceId : serviceId,
+        description : description,
+        comand : sql,
+        comand_type : command_type
+    };
+
+    if (commandId != ''){
+        if(confirm("Voleu sobreesciure la comanda?")) {
+            pars.action = 'update';
+            pars.comandId = commandId;
+        } else {
+            sqlCommandsUpdate_failure;
+            return;
+        }
+    } else {
+        pars.action = 'insert';
+    }
+
+    return ajax_post("func=sqlComandsUpdate", pars, sqlCommandsUpdate_response, sqlCommandsUpdate_failure);
+}
+
+function sqlDelete(commandId){
+    var serviceId = document.getElementById("service_sel").value;
+
+    if (commandId != ''){
+        if(confirm("Voleu eliminar la comanda?")) {
+            var pars = {
+                serviceId : serviceId,
+                comandId : commandId,
+                action : 'delete'
+            };
+        } else {
+            sqlCommandsUpdate_failure;
+        }
+    } else {
+        alert('Heu de seleccionar una comanda');
+        reload_off();
+        return;
+    }
+
+    return ajax_post("func=sqlComandsUpdate", pars, sqlCommandsUpdate_response, sqlCommandsUpdate_failure);
+}
+
+function sqlComandsUpdateTab(commandtype){
+    var serviceId = document.getElementById("service_sel").value;
+    var pars = "func=sqlCommandsUpdateTab&serviceId="+serviceId+"&commandtype="+commandtype;
+    return ajax_get(pars, sqlCommandsUpdateTab_response, sqlCommandsUpdate_failure);
+}
+
+function sqlCommandsUpdateTab_response(req) {
     var json = pndejsonize(req.responseText);
-    Element.update('comandList', json.content).innerHTML;
+    Element.update('commandList', json.content);
+
+    var selected_tab = document.getElementById('selected_tab').value;
+    document.getElementById('tab_'+selected_tab).className = "";
+    document.getElementById('tab_'+json.commandtype).className = 'tab_select';
+    document.getElementById('selected_tab').value = json.commandtype;
+    document.getElementById('commandId').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('command_type').value = '0';
+    document.getElementById('commandFormDiv').className = 'hidden';
+}
+
+function sqlCommandsUpdate_failure() {
+    document.getElementById('commandId').value = "";
+    reload_off();
+}
+
+function sqlCommandsUpdate_response(req) {
+    var json = pndejsonize(req.responseText);
+    Element.update('commandList', json.content).innerHTML;
     Element.update('msg', json.msg).innerHTML;
 
     if ((json.action == 1) || (json.action == 2))document.getElementById('sqlfunction').value = '';
     var selected_tab = document.getElementById('selected_tab').value;
-    document.getElementById('tab_'+selected_tab).className='';
-    document.getElementById('tab_'+json.comand_type).className='tab_select';
-    document.getElementById('selected_tab').value=json.comand_type;
-    document.getElementById('comandId').value='';
+    document.getElementById('tab_'+selected_tab).className = '';
+    document.getElementById('tab_'+json.comand_type).className = 'tab_select';
+    document.getElementById('selected_tab').value = json.comand_type;
+    document.getElementById('commandId').value = '';
     document.getElementById('description').value = '';
-    document.getElementById('comand_type').value= '0';
-    document.getElementById('comandFormDiv').className='hidden';
-    Element.update('waitCircle', '');
+    document.getElementById('command_type').value= '0';
+    document.getElementById('commandFormDiv').className='hidden';
 }
 
-function sqlComandsUpdate_failure() {
-    document.getElementById('comandId').value='';
-    Element.update('waitCircle', '');
-}
-
-function sqlFunctionUpdate(action, comandId) {
-    Element.update('waitCircle', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var myAjax = new Ajax.Request("ajax.php?module=Agoraportal&func=sqlFunctionUpdate",
-    {
-        method: 'post',
-        parameters: {
-            comandId : comandId,
-            action : action
-        },
-        onComplete: sqlFunctionUpdate_response,
-        onFailure: sqlFunctionUpdate_failure
-    });
+function sqlFunctionUpdate(action, commandId) {
+    var pars = {
+        action : action,
+        commandId : commandId
+    };
+    return ajax_post("func=sqlFunctionUpdate", pars, sqlFunctionUpdate_response);
 }
 
 function sqlFunctionUpdate_response(req) {
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
-    document.getElementById('sqlfunction').value =  json.comand;
 
-    if (json.action == '2'){
-        document.getElementById('comandFormDiv').className='visible';
-        document.getElementById('description').value= json.description;
-        document.getElementById('comandId').value= json.comandId;
-        document.getElementById('comand_type').value= json.comand_type;
+    document.getElementById('sqlfunction').value =  json.command;
+    document.getElementById('description').value = json.description;
+    document.getElementById('commandId').value = json.commandId;
+    document.getElementById('command_type').value = json.type;
+    if (json.action == 'edit') {
+        document.getElementById('commandFormDiv').className = 'visible';
     }
-    Element.update('waitCircle', '');
     Element.update('msg', '');
 }
 
-function sqlFunctionUpdate_failure() {
-    Element.update('waitCircle', '');
-}
-
-function sqlSearch() {
+function sqlShowDescription() {
+    document.getElementById('commandFormDiv').className = 'visible';
     var sql_function = document.getElementById('sqlfunction').value;
-    var select_found = sql_function.search(/select/i);
-    var insert_found = sql_function.search(/insert/i);
-    var update_found = sql_function.search(/update/i);
-    var delete_found = sql_function.search(/delete/i);
-    var alter_found = sql_function.search(/alter/i);
 
-    if(select_found != -1) document.getElementById('comand_type').value= 1;
-    if(insert_found != -1) document.getElementById('comand_type').value= 2;
-    if(update_found != -1) document.getElementById('comand_type').value= 3;
-    if(delete_found != -1) document.getElementById('comand_type').value= 4;
-    if(alter_found != -1) document.getElementById('comand_type').value= 5;
+    var command_type = document.getElementById('command_type');
+    if (sql_function.search(/select/i) != -1) command_type.value = 'select';
+    else if(sql_function.search(/insert/i) != -1) command_type.value = 'insert';
+    else if(sql_function.search(/update/i) != -1) command_type.value = 'update';
+    else if(sql_function.search(/delete/i) != -1) command_type.value = 'delete';
+    else if(sql_function.search(/alter/i) != -1) command_type.value = 'alter';
 
+    document.getElementById('description').focus();
 }
 
-function refuseAns(answer) {
-    var confirmation;
-    var f;
-    f = document.forms['acceptrefuseform'];
-    f.answer.value = answer;
-    if (answer == 0) {
-        confirmation = confirm("Confirma que rebutges l'encàrrec.");
-        if (confirmation) {
-            f.submit();
-        }
-    } else {
-        f.submit();
-    }
-}
-
-function askServiceCheckActive(serviceName) {
-    var f=document.forms['askForService'];
-    if (serviceName == 'nodes') {
-        document.getElementById('askServiceEduLevelnodes').style.display = 'block';
-    } else {
-        document.getElementById('askServiceEduLevelnodes').style.display = 'none';
-    }
-}
-
-
-function showServices(requestTypeId) {
-
-    // Id = 0 means user has selected the "choose one" text
-    if (requestTypeId == 0) {
-        Element.update('menuservices', '');
-        Element.update('usermessage', '');
-        return ;
-    }
-
-    var pars = "module=Agoraportal&func=getRequestServices&requestTypeId="+requestTypeId;
-
-    Element.update('menuservices', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    Element.update('usermessage', '');
-
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: showServices_response,
-        onFailure: showServices_failure
-    });
-}
-
-function showServices_response(req) {
-
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-
-    var json = pndejsonize(req.responseText);
-
-    Element.update('menuservices', json.content);
-}
-
-
-function showServices_failure() {
-}
-
-
-
-function showRequestMessage(serviceId, requestTypeId, clientCode) {
+function showRequestMessage(serviceIdrequestTypeId, clientCode) {
+    var split = serviceIdrequestTypeId.split(":", 2);
+    var serviceId = split[0];
+    var requestTypeId = split[1];
 
     // Id = 0 means user has selected the "choose one" text
     if (serviceId == 0) {
-        Element.update('usermessage', '');
+        Element.update('usermessage', "");
+        reload_off();
         return ;
     }
 
-    var pars = "module=Agoraportal&func=getRequestMessage&serviceId="+serviceId+"&requestTypeId="+requestTypeId+"&clientCode="+clientCode;
-
-    Element.update('usermessage', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: showRequestMessage_response,
-        onFailure: showRequestMessage_failure
-    });
+    var pars = "func=getRequestMessage&serviceId="+serviceId+"&requestTypeId="+requestTypeId+"&clientCode="+clientCode;
+    return ajax_get(pars, showRequestMessage_response);
 }
 
 function showRequestMessage_response(req) {
-
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-
     var json = pndejsonize(req.responseText);
-
     Element.update('usermessage', json.content);
 }
 
-
-function showRequestMessage_failure() {
-}
-
-function display(target){
-    $('uploadFiles').style.display='none';
-    $('m2x').style.display='none';
-    $(target).style.display='block';
-}
-
-function deleteFileM2x(filename,name,clientCode){
-    if(!confirm("Confirmeu que voleu esborrar el fitxer '" + name + "'.")) {
+function deleteFileM2x(filename, name, clientCode){
+    if(!confirm("Confirmeu que voleu esborrar el fitxer '" + name + "'?")) {
+        console.log('fail');
         return;
     }
-    var pars = "module=Agoraportal&func=deleteFileM2x&filename=" + filename + "&name=" + name + "&clientCode=" + clientCode;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: deleteFileM2x_response,
-        onFailure: deleteFileM2x_failure
-    });
 
+    var pars = "func=deleteFileM2x&filename=" + filename + "&name=" + name + "&clientCode=" + clientCode;
+    return ajax_get(pars, deleteFileM2x_response);
 }
 
 function deleteFileM2x_response(req) {
-
-    if (req.status !== 200) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
-
     var json = pndejsonize(req.responseText);
-
     $('file_' + json.name).toggle();
 }
 
-function deleteFileM2x_failure() {
-}
-
-
 function operations_change_priority(id){
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
     var priority = document.getElementById('new_priority_'+id).value;
-    var pars = "module=Agoraportal&func=changeOperationPriority&operation=" + id + "&newpriority=" +priority;
-    console.log(pars);
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: operations_change_priority_complete,
-        onFailure: operations_failure
-    });
-
-    return false;
+    var pars = "func=changeOperationPriority&operation=" + id + "&newpriority=" +priority;
+    return ajax_get(pars, operations_change_priority_complete, operations_failure);
 }
 
 function operations_change_priority_complete(req){
-    Element.update('reload', '');
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var operation = pndejsonize(req.responseText);
-    var opid = operation.id;
-    var priority = operation.priority;
-    document.getElementById('new_priority_'+opid).value = priority;
+    document.getElementById('new_priority_'+operation.id).value = operation.priority;
 }
 
 function operations_show_params(text){
-    Zikula.UI.Alert(text,'Paràmetres');
+    Zikula.UI.Alert(text, 'Paràmetres');
 }
 
 function operations_show_log(logId){
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var pars = "module=Agoraportal&func=showOperationLog&log="+ logId;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: operations_show_log_complete,
-        onFailure: operations_failure
-    });
-
-    return false;
+    var pars = "func=showOperationLog&log="+ logId;
+    return ajax_get(pars, operations_show_log_complete, operations_failure);
 }
 
 function operations_show_log_complete(req){
-    Element.update('reload', '');
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
-    Zikula.UI.Alert(json.data,'Registre');
+    Zikula.UI.Alert(json.data, 'Registre');
 }
 
 
 function operations_execute(id){
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var pars = "module=Agoraportal&func=executeOperationId&operation=" + id;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: operations_execute_complete,
-        onFailure: operations_failure
-    });
-
-    return false;
+    var pars = "func=executeOperationId&operation=" + id;
+    return ajax_get(pars, operations_execute_complete, operations_failure);
 }
 
 function operations_changeState(id, state){
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var pars = "module=Agoraportal&func=changeStateOperationId&operation=" + id+"&state="+state;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: operations_changeState_complete,
-        onFailure: operations_failure
-    });
-
-    return false;
-}
-
-function operations_changeState_complete(req){
-    Element.update('reload', '');
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
+    var pars = "func=changeStateOperationId&operation=" + id+"&state="+state;
+    return ajax_get(pars, false, operations_failure);
 }
 
 function operations_delete(id, state){
-    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
-    var pars = "module=Agoraportal&func=deleteOperationId&operation=" + id;
-    var myAjax = new Ajax.Request("ajax.php",
-    {
-        method: 'get',
-        parameters: pars,
-        onComplete: operations_reload_complete,
-        onFailure: operations_failure
-    });
-
-    return false;
-}
-
-function operations_reload_complete(req){
-    Element.update('reload', '');
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
+    var pars = "func=deleteOperationId&operation=" + id;
+    return ajax_get(pars, false, operations_failure);
 }
 
 function operations_execute_complete(req){
-    Element.update('reload', '');
-    if (req.status != 200 ) {
-        pnshowajaxerror(req.responseText);
-        return;
-    }
     var json = pndejsonize(req.responseText);
-    Zikula.UI.Alert(json.data,'Executa');
+    Zikula.UI.Alert(json.data, 'Executa');
 }
 
 function operations_failure(req){
-    Element.update('reload', '');
-    Zikula.UI.Alert("Revisa els resultats",'Error');
-    console.log(req);
+    Zikula.UI.Alert('Revisa els resultats', 'Error');
+}
+
+function reload_off() {
+    if(document.getElementById('reload') != undefined) {
+        Element.update('reload', '');
+    }
+}
+
+function reload_on() {
+    if(document.getElementById('reload') != undefined) {
+        Element.update('reload', '<span class="glyphicon glyphicon-refresh"></span>');
+    }
+}
+
+function reload_error() {
+    if(document.getElementById('reload') != undefined) {
+        Element.update('reload', '<span class="text-danger glyphicon glyphicon-alert"></span>');
+    }
+}
+
+function ajax_get(params, success, failure) {
+    var obj = {
+        method: 'get',
+        parameters: "module=Agoraportal&" + params
+    };
+    return ajax_do("ajax.php", obj, success, failure);
+}
+
+function ajax_post(url, params, success, failure) {
+    var obj = {
+        method: 'post',
+        parameters: params
+    };
+    url = "ajax.php?module=Agoraportal&" + url;
+    return ajax_do(url, obj, success, failure);
+}
+
+function ajax_do(url, obj, success, failure) {
+    reload_on();
+    obj.onComplete = ajax_complete;
+    obj.onException = reload_error;
+    if (success != undefined && success != false) {
+        obj.onSuccess = success;
+    }
+    if (failure != undefined && failure != false) {
+        obj.onFailure = failure;
+    }
+    new Ajax.Request(url, obj);
+    return false;
+}
+
+function ajax_complete(req) {
+    if (req.status != 200){
+        console.error(req);
+        reload_error();
+    } else {
+        reload_off();
+    }
+}
+
+function get_clients_selected() {
+    var clients = "";
+    var clients_sel = document.getElementById("clients_sel").options;
+
+    for (var i in clients_sel){
+        if(clients_sel[i].selected) {
+            clients += clients_sel[i].value + ",";
+        }
+    }
+    return clients.substr(0, clients.length - 1); //erase the last comma
 }

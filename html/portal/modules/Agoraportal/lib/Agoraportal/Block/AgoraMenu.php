@@ -51,20 +51,9 @@ class Agoraportal_Block_AgoraMenu extends Zikula_Controller_AbstractBlock {
             return false;
         }
 
-        // Get variables from content block
-        $vars = BlockUtil::varsFromContent($blockinfo['content']);
-
         $logedIn = (UserUtil::isLoggedIn()) ? true : false;
 
-        if (AgoraPortal_Util::isAdmin()) {
-            $accessLevel = 'admin';
-        } elseif (AgoraPortal_Util::isManager()) {
-            $accessLevel = 'add';
-        } elseif (AgoraPortal_Util::isClient()) {
-            $accessLevel = 'comment';
-        } else {
-            $accessLevel = 'read';
-        }
+        $accessLevel = AgoraPortal_Util::getRole();
 
         $allowedAccessRequest = (ModUtil::getVar('Agoraportal', 'allowedAccessRequest') == 1) ? true : false;
 
@@ -77,7 +66,7 @@ class Agoraportal_Block_AgoraMenu extends Zikula_Controller_AbstractBlock {
         $view->assign('allowedAccessRequest', $allowedAccessRequest);
         $view->assign('uname', UserUtil::getVar('uname'));
 
-        $blockinfo['content'] = $view->fetch('agoraportal_block_agoraMenu.tpl');
+        $blockinfo['content'] = $view->fetch('block_agoraMenu.tpl');
 
         return BlockUtil::themeBlock($blockinfo);
     }
