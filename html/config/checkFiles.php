@@ -41,10 +41,11 @@ if (empty($buffer)) {
 $files[] = array('filename' => $agora['dbsource']['dir'] . $agora['dbsource']['filename'], 'perms' => '0664', 'link' => false);
 $files[] = array('filename' => $agora['dbsource']['syncdir'] . $agora['dbsource']['filename'], 'perms' => '0666', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/.htaccess', 'perms' => '0750', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'html/config/env-config.php', 'perms' => '0750', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'html/config/config.php', 'perms' => '0750', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'html/config/config-restricted.php', 'perms' => '0750', 'link' => false);
+$files[] = array('filename' => $agora['server']['root'] . 'html/config/env-config.php', 'perms' => '0664', 'link' => false);
+$files[] = array('filename' => $agora['server']['root'] . 'html/config/config.php', 'perms' => '0664', 'link' => false);
+$files[] = array('filename' => $agora['server']['root'] . 'html/config/config-restricted.php', 'perms' => '0664', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/config/sync-config.sh', 'perms' => '0750', 'link' => false);
+$files[] = array('filename' => $agora['server']['root'] . 'html/config/sync.sh', 'perms' => '0750', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/moodle2/config.php', 'perms' => '0640', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/moodle2/filter/tex/mimetex.linux', 'perms' => '0770', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/moodle2/local/agora/muc/', 'perms' => '0770', 'link' => false);
@@ -55,10 +56,8 @@ $files[] = array('filename' => $agora['server']['root'] . $agora['intranet']['da
 $files[] = array('filename' => $agora['server']['root'] . $agora['moodle2']['datadir'] .'diskUsageMdl2.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . $agora['nodes']['datadir'] .'diskUsageWp.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronIntranet.txt', 'perms' => '0644', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronMoodle.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronMoodle2.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'adminInfo/updateIntranet.txt', 'perms' => '0644', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/updateMoodle.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'adminInfo/updateMoodle2.txt', 'perms' => '0644', 'link' => false);
 
 echo '<h2>Fitxers</h2>';
