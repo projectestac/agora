@@ -3,19 +3,54 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 15.07.20
 ---------------------------------------------------------------------------------------
 GENERAL:
 - Updated CheckFiles script
 - Made update.sh script more intelligent
 - Added environment variable to test email
 - Moved opcache to testlib
-- dblib-mysql: Redirect Intraweb to Nodes if it is not enabled 
+- dblib-mysql: Redirect Intraweb to Nodes if it is not enabled
+- dblib-mysql: Redirect to info page when oldDNS is requested
+- MAILER: Avoid warnings in log
+
+MOODLE:
+- Moodle upgraded to from 2.8.7
+- Avoid using global variable section to solve a bug on week format
+- MARSUPIAL: Add new permission to allow users to change their own credentials only
+- Only enabled modules has to be backup
+- Reduce from 1 week to 1 the waiting time to purge temp files
+- Set empty SMTP hosts to avoid overhead in sending mails
+- Change locking from NFS to DB
+- Add loglifetime setting for backup logs
+- GEOGEBRA: Restore executing JS embedded in Geogebra files
+
+NODES:
+- Added submodule of Multisite common functions
+- Added message to warn user about quota exceeded in BuddyPress Activity+
+- Improved some styles (GCE, buttons, table and image margin with text and code styling) (GitHub #208)
+- GCE: Changed default cache duration to 300 seconds (Trello #875)
+- GCE: Fixed visualitzation of calendar in list mode (GitHub #219)
+- Convert Socialmedia to a plugin (GitHub #64 - Partial fix)
+- Convert Enllaços educatius to a plugin (GitHub #213)
+- Removed link to Social Articles in BuddyPress admin page
+- Updated mailer library
+- Added some information to replace URL script, for PORTAL
+- Fixed catalan spelling in Appearance | Customize | Colors (GitHub #206)
+- XTEC Stats: Added first version which includes just a widget to count visits (Trello #821)
+- BP-Docs: Hidden "Associated elements" in document edition (Trello #883)
+- Reactor-primaria-1: Deleted unused files for theme colours (GitHub #214)
+- Updated mailer library
+- Added two colour palettes to theme (GitHub #216)
+- Improved visualitzation of Visibility block in Appearance | Customize (GitHub #204)
+- Intraweb Importer: Added plugin import data from Intraweb (Trello #732)
+- Fixed removal of statistics older than one year (Trello #820)
 
 PORTAL:
 - Add statistics generation to nodes
 - Increased maximum quota allowable to services to 2048 TB (Trello #856)
 - Fixed link to FAQ in front page (Trello #866)
+- Add Some admin info in client service form
 
 
 
