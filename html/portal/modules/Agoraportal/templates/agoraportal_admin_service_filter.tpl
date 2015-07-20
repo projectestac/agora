@@ -39,6 +39,7 @@
                 <select id="pilot" name="pilot" onchange="sqlservicesList()">
                     <option {if $pilot === 0}selected{/if} value="0">{gt text="Cap"}</option>
                     <option {if $pilot === 'educat'}selected{/if} value="educat">{gt text="Centre Educat"}</option>
+                    <option {if $pilot === 'marsupial'}selected{/if} value="marsupial">{gt text="Té Marsupial"}</option>
                 </select>
                 <select id="include" name="include" onchange="sqlservicesList()">
                     <option {if $include eq 1}selected{/if} value="1">{gt text="Incloure"}</option>

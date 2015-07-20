@@ -283,15 +283,43 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             $args['rpp'] = (isset($args['rpp']) && $args['rpp'] > 0) ? $args['rpp'] : '-1';
             $init = (isset($args['init']) && $args['init'] != 0) ? $args['init'] - 1 : '-1';
             $items = DBUtil::selectExpandedObjectArray('agoraportal_client_services', $myJoin, $where, $orderby, $init, $args['rpp'], $key);
+
+            // Filter that that have marsupial
+            if ($pilot == 'marsupial') {
+                foreach($items as $i => $item) {
+                    $args = array();
+                    $args['clientCode'] = $item['clientCode'];
+                    $args['serviceName'] = 'marsupial';
+                    $havemarsu = $this->existsServiceInClient($args);
+                    if (($include && !$havemarsu) || (!$include && $havemarsu)) {
+                        unset($items[$i]);
+                    }
+                }
+            }
+
             if ($items === false) {
                 return LogUtil::registerError($this->__('S\'ha produït un error en carregar elements'));
             }
         } else {
             //$items = DBUtil::selectExpandedObjectCount('agoraportal_client_services', $myJoin, $where);
             $items = DBUtil::selectExpandedObjectArray('agoraportal_client_services', $myJoin, $where);
-            $items = count($items);
 
+            // Filter that that have marsupial
+            if ($pilot == 'marsupial') {
+                foreach($items as $i => $item) {
+                    $args = array();
+                    $args['clientCode'] = $item['clientCode'];
+                    $args['serviceName'] = 'marsupial';
+                    $havemarsu = $this->existsServiceInClient($args);
+                    if (($include && !$havemarsu) || (!$include && $havemarsu)) {
+                        unset($items[$i]);
+                    }
+                }
+            }
+            $items = count($items);
         }
+
+
 
         // Return the items
         return $items;
