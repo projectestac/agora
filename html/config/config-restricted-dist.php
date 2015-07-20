@@ -4,4 +4,3 @@
     $agora['config']['xtecadmin'] = $agora['xtecadmin']['password']; // Deprecated
     $agora['opcache']['password']     = 'agora';
     //$agora['moodle2']['airnotifier']     = '';
-    //$agora['moodle2']['airnotifiermarsupial']     = '';

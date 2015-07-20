@@ -26,18 +26,14 @@
         $dns     = $school['dns'];
         $service = $school['service'];
 
-        if ($service == 'marsupial') {
-            $schools[$dns]['is_'.$service] = 1;
-        } else {
-            $schools[$dns]['id_'.$service]          = $school['id'];
-            $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
-            $schools[$dns]['database_'.$service]    = $school['database'];
-            $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];            
-            $schools[$dns]['version_'.$service]     = $school['version'];            
-        }
+        $schools[$dns]['id_'.$service]          = $school['id'];
+        $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
+        $schools[$dns]['database_'.$service]    = $school['database'];
+        $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
+        $schools[$dns]['version_'.$service]     = $school['version'];
 
         $schools[$dns]['clientCode'] = $school['code'];
-        
+
         // Add an element: key = previous DNS, value = current DNS. This will be
         //   used to show an info page explaining that the DNS has changed
         if (isset($school['old_dns']) && !empty($school['old_dns'])) {

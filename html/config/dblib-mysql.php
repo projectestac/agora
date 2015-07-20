@@ -217,6 +217,14 @@ function getSchoolDBInfo($dns, $codeletter = false) {
         return false;
     }
 
+    // Check if the domain is not the correct one and move if it isn't
+    if (!defined('CLI_SCRIPT') && endsWith($agora['server']['server'], $_SERVER['HTTP_HOST']) === false) {
+        $location =  $agora['server']['server'].$_SERVER['REQUEST_URI'];
+        header ('HTTP/1.1 301 Moved Permanently');
+        header ('Location: '.$location);
+        exit;
+    }
+
     $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.typeId, s.serviceName, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
@@ -233,10 +241,6 @@ function getSchoolDBInfo($dns, $codeletter = false) {
         $clientCode = $row->clientCode;
         $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
         $service = $row->serviceName;
-
-        if ($service == 'marsupial') {
-            $value['is_' . $service] = 1;
-        }
 
         $value['id_' . $service] = $row->activedId;
         $value['dbhost_' . $service] = $row->dbHost;
@@ -359,7 +363,6 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
             $data = explode('__', $cookie);
             if (count($data) == 16 && $data[0] == $dns) {
                 $school_info['clientCode'] = $data[1];
-                $school_info['is_marsupial'] = $data[2];
                 $school_info['id_moodle2'] = $data[3];
                 $school_info['database_moodle2'] = $data[4];
                 $school_info['diskPercent_moodle2'] = $data[5];
@@ -432,7 +435,6 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
 
         $bodycookie = $dns
                 . '__' . (isset($school_info['clientCode']) ? $school_info['clientCode'] : '')
-                . '__' . (isset($school_info['is_marsupial']) ? $school_info['is_marsupial'] : '')
                 . '__' . (isset($school_info['id_moodle2']) ? $school_info['id_moodle2'] : '')
                 . '__' . (isset($school_info['database_moodle2']) ? $school_info['database_moodle2'] : '')
                 . '__' . (isset($school_info['diskPercent_moodle2']) ? $school_info['diskPercent_moodle2'] : '')
