@@ -26,6 +26,7 @@ MOODLE:
 - GEOGEBRA: Restore executing JS embedded in Geogebra files
 
 NODES:
+- Upgraded WordPress to version 4.2.2 (Trello #793)
 - Added submodule of Multisite common functions
 - Added message to warn user about quota exceeded in BuddyPress Activity+
 - Improved some styles (GCE, buttons, table and image margin with text and code styling) (GitHub #208)
@@ -45,6 +46,7 @@ NODES:
 - Improved visualitzation of Visibility block in Appearance | Customize (GitHub #204)
 - Intraweb Importer: Added plugin import data from Intraweb (Trello #732)
 - Fixed removal of statistics older than one year (Trello #820)
+- Fixed language string in attachment view in Media Library (Trello #898)
 
 PORTAL:
 - Add statistics generation to nodes
