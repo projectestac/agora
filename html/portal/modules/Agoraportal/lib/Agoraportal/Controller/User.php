@@ -683,36 +683,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         return $sumatoryString;
     }
 
-// Deprecated
-    /**
-     * can be used in case of exec functions fails
-     * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	Filter values
-     * @return:	The disk consumed
-     */
-/*
-    public function getSumatori($args) {
-        $dir = FormUtil::getPassedValue('dir', isset($args['dir']) ? $args['dir'] : null, 'POST');
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-        $handle = opendir($dir);
-        if ($handle) {
-            while (false !== ($file = readdir($handle))) {
-                if ($file != "." && $file != "..") {
-                    if ($dir . "/" . $file) {
-                        $array_items += filesize($dir . "/" . $file);
-                        $file = $dir . "/" . $file;
-                        $array_items = $array_items + ModUtil::func('Agoraportal', 'user', 'getSumatori', array('dir' => $file));
-                    }
-                }
-            }
-            closedir($handle);
-        }
-        return $array_items;
-    }
-*/
-
     /**
      * Verify the verifyCode sent by the user and change the active nevel if this is correct
      * @author: Fèlix Casanellas (fcasanel@xtec.cat)
