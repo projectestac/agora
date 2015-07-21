@@ -668,12 +668,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
 
         $sumatory = exec("du -sk " . $dir);
-        $sumatoryString = '';
-        $i = 0;
-        while (is_numeric(substr($sumatory, $i, 1))) {
-            $sumatoryString .= substr($sumatory, $i, 1);
-            $i++;
-        }
+        $sumatoryString = substr ( $sumatory, 0, strpos ( $sumatory, "\t" ) );
+        LogUtil::registerError($sumatoryString." ".$dir);
 
         // save value in database
         ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientServiceId,
