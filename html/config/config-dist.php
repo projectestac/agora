@@ -26,7 +26,18 @@
     $agora['nodes']['diskusagefile']       = 'diskUsageWp.txt';
 
     // General vars
-    $agora['server']['school_information'] = 'http://aplitic.xtec.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
+    switch($agora['server']['enviroment']) {
+        case 'INT':
+            $agora['server']['school_information'] = 'https://integracio.aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
+            break;
+        case 'ACC':
+            $agora['server']['school_information'] = 'https://preproduccio.aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
+            break;
+        case 'PRO':
+        default:
+            $agora['server']['school_information'] = 'https://aplicacions.ensenyament.gencat.cat/pls/xtec/agora_dades_centre?p_codi_centre=';
+            break;
+    }
     $agora['server']['html']               = $agora['server']['server'] . $agora['server']['base'];
     $agora['server']['cookie']             = 'agoraSchool'.$agora['server']['enviroment'];
 
@@ -51,7 +62,7 @@
     $agora['proxy']['port']                = '';
     $agora['proxy']['user']                = '';
     $agora['proxy']['pass']                = '';
-    
+
     // Constants used elsewhere
     define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
 

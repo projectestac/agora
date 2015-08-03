@@ -3,6 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+GENERAL:
+- Changed adresses from PL/SQL to access schools information
+
+
 Changes 15.07.20
 ---------------------------------------------------------------------------------------
 GENERAL:
