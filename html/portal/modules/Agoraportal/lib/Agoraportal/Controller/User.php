@@ -62,28 +62,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             $clientDNS = $clientOldDNS;
         } else {
-            // Build URL for the web service (initial letters are changed to numbers)
-            $uname = str_replace('a', '0', $clientCode);
-            $uname = str_replace('b', '1', $uname);
-            $uname = str_replace('c', '2', $uname);
-            $uname = str_replace('e', '4', $uname);
-            $url = $agora['server']['school_information'] . $uname;
-
-            // Get info from web service
-            $curl_handle = curl_init();
-            curl_setopt($curl_handle, CURLOPT_URL, $url);
-            curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-            curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-            $siteDNS = curl_exec($curl_handle);
-            curl_close($curl_handle);
-
-            // Web service provides school info using charset iso-8859
-            if (!empty($siteDNS)) {
-                $siteDNS = utf8_encode($siteDNS);
+            $schoolData = getSchoolFromWS($clientCode);
+            if(!$schoolData) {
+                return false;
             }
 
             // Assume there's info of the school
-            $school = explode('$$', $siteDNS);
+            $school = explode('$$', $schoolData);
             $clientDNS = (isset($school[1])) ? $school[1] : '';
             // Keyword equals to '0' means school exists and has no 'nom propi', so an error is shown
             if ($clientDNS == '0') {
