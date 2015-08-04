@@ -3,11 +3,17 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 15.08.10
 ---------------------------------------------------------------------------------------
 GENERAL:
 - Changed adresses from PL/SQL to access schools information
+- Updated all application Mailer WSDL's
 
+MOODLE:
+- Disabled marsupial as an independent service
+
+NODES:
+- Added new function to manage superadmin and xtecadmin
 
 Changes 15.07.20
 ---------------------------------------------------------------------------------------
