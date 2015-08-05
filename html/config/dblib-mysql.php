@@ -386,8 +386,8 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     // If cookie not set or invalid, continue
     // Load file with connection info of all clients
     if ($source == 1) {
-        if (file_exists($agora['dbsource']['dir'] . $agora['dbsource']['filename'])) {
-            include_once($agora['dbsource']['dir'] . $agora['dbsource']['filename']);
+        if (file_exists($agora['dbsource']['dir'] . 'allSchools.php')) {
+            include_once($agora['dbsource']['dir'] . 'allSchools.php');
             if (isset($schools[$dns])) {
                 $school_info = $schools[$dns];
             }

@@ -52,8 +52,6 @@
     // Database config info source
     $agora['dbsource']['defaulttype']      = 1; // 1.- allSchools.php  2.- Database
     $agora['dbsource']['dir']              = $agora['server']['root'] . 'syncdata/';
-    $agora['dbsource']['syncdir']          = $agora['dbsource']['dir'] . 'sync/';
-    $agora['dbsource']['filename']         = 'allSchools.php';
 
     // xtecadmin
 	$agora['xtecadmin']['mail']		       = 'agora@xtec.invalid';

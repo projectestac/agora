@@ -38,8 +38,7 @@ if (empty($buffer)) {
 }
 
 
-$files[] = array('filename' => $agora['dbsource']['dir'] . $agora['dbsource']['filename'], 'perms' => '0664', 'link' => false);
-$files[] = array('filename' => $agora['dbsource']['syncdir'] . $agora['dbsource']['filename'], 'perms' => '0666', 'link' => false);
+$files[] = array('filename' => $agora['dbsource']['dir'] . 'allSchools.php', 'perms' => '0664', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/.htaccess', 'perms' => '0750', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/config/env-config.php', 'perms' => '0664', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'html/config/config.php', 'perms' => '0664', 'link' => false);
