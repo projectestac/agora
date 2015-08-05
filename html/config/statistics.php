@@ -8,32 +8,26 @@ define('SECONDS_IN_AN_HOUR', '3600');
 define('SECONDS_IN_90_DAYS', '7776000');
 define('SECONDS_IN_30_DAYS', '2592000');
 
-include_once('env-config.php');
-include_once('dblib-mysql.php');
+require_once('env-config.php');
+require_once('dblib-mysql.php');
+require_once('cronslib.php');
+
+$args = get_webargs();
 
 date_default_timezone_set('Europe/Madrid');
 
 // Params to allow execution of stats of only one service
-$doIntranet = true;
-$doMoodle = true;
-$doNodes = true;
-if (isset($_REQUEST['onlyIntranet'])) {
-    $doMoodle = false;
-    $doNodes = false;
-}
-if (isset($_REQUEST['onlyMoodle2'])) {
-    $doIntranet = false;
-    $doNodes = false;
-}
-if (isset($_REQUEST['onlyNodes'])) {
-    $doIntranet = false;
-    $doMoodle = false;
+
+if (isset($args['only']) && !empty($args['only'])) {
+    $doonly = $args['only'];
+} else {
+    $doonly = false;
 }
 
 // Get optional params or set default values
-$year = (isset($_REQUEST['year']) && $_REQUEST['year'] != '') ? sprintf("%04d", $_REQUEST['year']) : date('Y', strtotime("-1 day"));
-$month = (isset($_REQUEST['month']) && $_REQUEST['month'] != '') ? sprintf("%02d", $_REQUEST['month']) : date('m', strtotime("-1 day"));
-$day = (isset($_REQUEST['day']) && $_REQUEST['day'] != '') ? sprintf("%02d", $_REQUEST['day']) : date('d', strtotime("-1 day"));
+$year = (isset($args['year']) && $args['year'] != '') ? sprintf("%04d", $args['year']) : date('Y', strtotime("-1 day"));
+$month = (isset($args['month']) && $args['month'] != '') ? sprintf("%02d", $args['month']) : date('m', strtotime("-1 day"));
+$day = (isset($args['day']) && $args['day'] != '') ? sprintf("%02d", $args['day']) : date('d', strtotime("-1 day"));
 
 // Calculate the day of the week
 $dayofweek = date('N', mktime(13, 00, 00, $month, $day, $year));
@@ -43,22 +37,27 @@ $timestampofstats = mktime(23, 59, 59, $month, $day, $year); // Timestamp of the
 $daysofmonth = date('t', $timestampofstats); // Number of days of the month
 $timestampofmonth = mktime(23, 59, 59, $month, $daysofmonth, $year);
 
-$allSchools = getAllSchoolsDBInfo(true);
+$allschools = getAllSchoolsDBInfo(true);
 
-foreach ($allSchools as $school) {
-    echo '<br />' . $school['service'] . '<br />';
-    if (($school['service'] == 'intranet') && $doIntranet) {
-        process_intranet_stats($school, $year, $month, $day, $timestampofmonth);
-    } else if (($school['service'] == 'moodle2') && $doMoodle) {
-        process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
-    } else if (($school['service'] == 'nodes') && $doNodes) {
-        process_nodes_stats($school, $year, $month, $day, $daysofmonth, $timestampofmonth);
+foreach ($allschools as $school) {
+    if (isset($args['only']) && !empty($args['only']) && $args['only'] != $school['service']) {
+        continue;
+    }
+    cli_print_line('<br />' . $school['service'] . '<br />');
+    switch($school['service']) {
+        case 'intranet':
+            process_intranet_stats($school, $year, $month, $day, $timestampofmonth);
+            break;
+        case 'moodle2':
+            process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth);
+            break;
+        case 'nodes':
+            process_nodes_stats($school, $year, $month, $day, $daysofmonth, $timestampofmonth);
+            break;
     }
 }
 
-echo '<p>FET!</p>';
-
-
+cli_print_line('<p>FET!</p>');
 
 
 /* INTRANET */
@@ -84,7 +83,7 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth)
     try {
         $statsCon = get_dbconnection('admin');
     } catch (Exception $e) {
-        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
+        cli_print_line('No s\'ha pogut connectar a la base de dades de les estadístiques');
         exit();
     }
 
@@ -110,11 +109,11 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth)
                         WHERE clientcode = '" . $school['code'] . "' AND yearmonth = '$date'";
         }
 
-        echo '<p>' . $sql . '</p>';
+        cli_print_line('<p>' . $sql . '</p>');
 
         // Executa la consulta anterior
         if (!$statsCon->execute_query($sql)) {
-            print $statsCon->get_error() . '<br />';
+            cli_print_line($statsCon->get_error() . '<br />');
         }
     }
 
@@ -134,7 +133,7 @@ function process_intranet_stats($school, $year, $month, $day, $timestampofmonth)
 function getSchoolIntranetStats_DayUsage($school, $year, $month, $day) {
 
     if (!($con = connect_intranet($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns']);
         return false;
     }
 
@@ -181,7 +180,7 @@ function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
     try {
         $statsCon = get_dbconnection('admin');
     } catch (Exception $e) {
-        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
+        cli_print_line('No s\'ha pogut connectar a la base de dades de les estadístiques');
         exit();
     }
 
@@ -219,7 +218,7 @@ function getSchoolIntranetStats_MonthUsage($school, $year, $month, $day) {
 function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth) {
 
     if (!($con = connect_intranet($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de la intranet del centre ' . $school['dns']);
         return false;
     }
 
@@ -257,14 +256,14 @@ function getSchoolIntranetStats_MonthUsers($school, $timestampofmonth) {
 function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofmonth, $timestampofmonth) {
 
     if (!($con = connect_moodle($school))) {
-        print 'No s\'ha pogut connectar a la base de dades del Moodle 2 del centre ' . $school['dns'];
+        cli_print_line('No s\'ha pogut connectar a la base de dades del Moodle 2 del centre ' . $school['dns']);
         return false;
     }
 
     try {
         $statsCon = get_dbconnection('admin');
     } catch (Exception $e) {
-        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
+        cli_print_line('No s\'ha pogut connectar a la base de dades de les estadístiques');
         exit();
     }
 
@@ -342,11 +341,11 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
 
         // Executa la consulta anterior
         if (!$statsCon->execute_query($sql)) {
-            print $statsCon->get_error() . '<br />';
+            cli_print_line($statsCon->get_error() . '<br />');
         }
     }
 
-    echo "<p>$sql</p>";
+    cli_print_line("<p>$sql</p>");
 
     $lastaccess = getSchoolMoodleStats_LastAccess($con);
 
@@ -390,11 +389,11 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
             }
             // Executa la consulta anterior
             if (!$statsCon->execute_query($sql)) {
-                print $statsCon->get_error() . '<br />';
+                cli_print_line($statsCon->get_error() . '<br />');
             }
         }
 
-        echo '<p>' . $sql . '</p>';
+        cli_print_line('<p>' . $sql . '</p>');
     }
 
 
@@ -435,11 +434,11 @@ function process_moodle_stats($school, $year, $month, $day, $dayofweek, $daysofm
         }
         //EXECUTE
         if (!$statsCon->execute_query($sql)) {
-            print $statsCon->get_error() . '<br />';
+            cli_print_line($statsCon->get_error() . '<br />');
         }
     }
 
-    echo '<p>' . $sql . '</p>';
+    cli_print_line('<p>' . $sql . '</p>');
 
     $statsCon->close();
     oci_close($con);
@@ -767,7 +766,7 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
     try {
         $statsCon = get_dbconnection('admin');
     } catch (Exception $e) {
-        print 'No s\'ha pogut connectar a la base de dades de les estadístiques';
+        cli_print_line('No s\'ha pogut connectar a la base de dades de les estadístiques');
         exit();
     }
 
@@ -799,11 +798,11 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
                 WHERE clientcode = '" . $school['code'] . "' AND date = '$date'";
         }
         if (!$statsCon->execute_query($sql)) {
-            print $statsCon->get_error() . '<br />';
+            cli_print_line($statsCon->get_error() . '<br />');
         }
     }
 
-    echo '<p>' . $sql . '</p>';
+    cli_print_line('<p>' . $sql . '</p>');
 
 
     // Insert or update stats_month
@@ -830,11 +829,11 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
                 WHERE clientcode = '" . $school['code'] . "' AND date = '$yearmonth'";
         }
         if (!$statsCon->execute_query($sql)) {
-            print $statsCon->get_error() . '<br />';
+            cli_print_line($statsCon->get_error() . '<br />');
         }
     }
 
-    echo '<p>' . $sql . '</p>';
+    cli_print_line('<p>' . $sql . '</p>');
 
     $statsCon->close();
 }
@@ -852,7 +851,7 @@ function process_nodes_stats($school, $year, $month, $day, $daysofmonth) {
 function getSchoolNodesStats_PagesDay($school, $year, $month, $day) {
 
     if (!($con = connect_nodes($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 
@@ -881,7 +880,7 @@ function getSchoolNodesStats_PagesTotal($school, $year, $month, $day) {
 
 
     if (!($con = connect_nodes($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 
@@ -909,7 +908,7 @@ function getSchoolNodesStats_PagesTotal($school, $year, $month, $day) {
 function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
 
     if (!($con = connect_nodes($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 
@@ -937,7 +936,7 @@ function getSchoolNodesStats_PostsDay($school, $year, $month, $day) {
 function getSchoolNodesStats_PostsTotal($school, $year, $month, $day) {
 
     if (!($con = connect_nodes($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 
@@ -970,7 +969,7 @@ function getSchoolNodesStats_PostsTotal($school, $year, $month, $day) {
 function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
 
     if (!($con = connect_nodes($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 
@@ -1034,7 +1033,7 @@ function getSchoolNodesStats_Users($school, $year, $month, $day, $daysofmonth) {
 function getSchoolNodesStats_LastActivity($school, $year, $month, $day) {
 
     if (!($con = connect_nodes($school))) {
-        print '<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns'];
+        cli_print_line('<br>No s\'ha pogut connectar a la base de dades de l\'espai Nodes del centre ' . $school['dns']);
         return false;
     }
 

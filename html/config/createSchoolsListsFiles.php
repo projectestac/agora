@@ -15,8 +15,8 @@
  *                      special URL to update major version of moodle. Default
  *                      value is false (don't add special URL).
  */
-include('dblib-mysql.php');
-include('cronslib.php');
+require_once('dblib-mysql.php');
+require_once('cronslib.php');
 
 $args = get_webargs();
 
