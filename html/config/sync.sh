@@ -4,8 +4,10 @@ DIRECTORY=$(cd `dirname $0` && pwd)
 
 . $DIRECTORY/sync-config.sh
 
-$PHP_PATH -f $DIRECTORY/sync_to_file.php --debug=on
+$PHP_PATH $DIRECTORY/sync_to_file.php --debug=on
 
-mv $DIRECTORY/../../syncdata/allSchools.php.tmp $DIRECTORY/../../syncdata/allSchools.php
+if [ -f $DIRECTORY/../../syncdata/allSchools.php.tmp ]; then
+    mv $DIRECTORY/../../syncdata/allSchools.php.tmp $DIRECTORY/../../syncdata/allSchools.php
+fi
 
 exit 0;

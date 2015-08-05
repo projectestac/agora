@@ -16,8 +16,13 @@ require_once('env-config.php');
 
 $fixCacheConfig = (isset($_GET['fixcacheconfig'])) ? true : false;
 
+$hostname = getenv('HOSTNAME');
+if (empty($hostname)) {
+    $hostname = gethostname();
+}
+
 echo '<h1>Check files</h1>';
-echo '<div class="well well-sm">Servidor web: ' . gethostname() . ' (' .php_uname('s') . ')<br/>';
+echo '<div class="well well-sm">Servidor web: ' . $hostname . ' (' .php_uname('s') . ')<br/>';
 echo 'Hora del servidor: ' . date("d-m-Y H:i:s e (P)") . '</div>';
 echo '<h3>Prova de connexió de curl</h3>';
 

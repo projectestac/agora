@@ -19,4 +19,4 @@ PHP_PATH=/usr/bin/php
 #PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/pre/1143/apache/php.ini"
 
 # FMO AGORA-EOI PRO
-#PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/pro/11143/apache/php.ini"
+#PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/pro/1143/apache/php.ini"
