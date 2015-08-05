@@ -9,7 +9,7 @@ mkdir $logs 2> /dev/null
 mkdir $basedir"adminInfo" 2> /dev/null
 
 cd $basedir/html/config
-php $basedir/html/config/createSchoolsListsFiles.php
+exec_cli $basedir/html/config/createSchoolsListsFiles.php
 sleep 5
 
 cd /tmp

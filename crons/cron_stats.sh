@@ -8,8 +8,8 @@ source "config.sh"
 
 cd /tmp
 
-get_wget '/config/statistics.php?onlyIntranet'
-get_wget '/config/statistics.php?onlyMoodle2'
-get_wget '/config/statistics.php?onlyNodes'
+exec_cli '/config/statistics.php?only=intranet'
+exec_cli '/config/statistics.php?onlyMoodle2'
+exec_cli '/config/statistics.php?onlyNodes'
 
 rm /tmp/statistics.php*
