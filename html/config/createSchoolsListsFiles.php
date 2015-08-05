@@ -16,126 +16,96 @@
  *                      value is false (don't add special URL).
  */
 include('dblib-mysql.php');
+include('cronslib.php');
+
+$args = get_webargs();
 
 // Decide if creating cron files or update files
-if (isset($_REQUEST['update'])) {
+if (isset($args['update'])) {
 
     /* Params for update Services files */
 
-    // $num_exec: if present, moodle URL have repetitions
-    $num_exec = (isset($_REQUEST['num_exec']) && is_numeric($_REQUEST['num_exec'])) ? $_REQUEST['num_exec'] : 1;
+    // $numexec: if present, moodle URL have repetitions
+    $numexec = (isset($args['num_exec']) && is_numeric($args['num_exec'])) ? $args['num_exec'] : 1;
 
-    // $new_version: if present, an special URL is added to updateMoodle.txt
-    $new_version = (isset($_REQUEST['new_version'])) ? true : false;
-    $only_name = (isset($_REQUEST['only_name'])) ? true : false;
+    // $newversion: if present, an special URL is added to updateMoodle.txt
+    $newversion = (isset($args['new_version'])) ? true : false;
+    $onlyname = (isset($args['only_name'])) ? true : false;
 
 
     /* MOODLE 2 update file */
-
-    // get services array where key value is activedId
     $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
 
-    $schools_var = '';
+    $schoolsvar = "";
     foreach ($schools as $school) {
-        if ($only_name) {
-            $schools_var .= $school['school_dns'] . "\n";
+        if ($onlyname) {
+            $schoolsvar .= $school['school_dns'] . "\n";
         } else {
-            if ($new_version) {
-                $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
+            if ($newversion) {
+                $schoolsvar .= $agora['server']['html'] . $school['school_dns'] .
+                    "/moodle/admin/index.php?confirmupgrade=1&confirmrelease=1&autopilot=1&confirmplugincheck=1&lang=ca&cache=0\n";
             }
-            for ($i = 0; $i < $num_exec; $i++) {
-                $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/index.php?lang=ca&autopilot=1\n";
+            for ($i = 0; $i < $numexec; $i++) {
+                $schoolsvar .= $agora['server']['html'] . $school['school_dns'] .
+                    "/moodle/admin/index.php?lang=ca&autopilot=1\n";
             }
         }
     }
 
-    echo '<b>File name: updateMoodle2.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
-
-    $filename = '../../adminInfo/updateMoodle2.txt';
-
-    saveVarToFile($filename, $schools_var);
+    saveVarToFile('updateMoodle2.txt', $schoolsvar);
 
 
     /* ZIKULA update file */
-
     $schools = getAllSchools('activedId', 'asc', 'intranet', '1');
 
-    $schools_var = '';
+    $schoolsvar = "";
     foreach ($schools as $school) {
-        if ($only_name) {
-            $schools_var .= $school['school_dns'] . "\n";
+        if ($onlyname) {
+            $schoolsvar .= $school['school_dns'] . "\n";
         } else {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
+            $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/intranet/upgradeModules.php\n";
         }
     }
 
-    echo '<br /><br />';
-    echo '<b>File name: updateIntranet.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
-
-    $filename = '../../adminInfo/updateIntranet.txt';
-
-    saveVarToFile($filename, $schools_var);
-
+    saveVarToFile('updateIntranet.txt', $schoolsvar);
 
 
     /* NODES update file */
-
     $schools = getAllSchools('activedId', 'asc', 'nodes', '1');
 
-    $schools_var = '';
+    $schoolsvar = '';
     foreach ($schools as $school) {
-        if ($only_name) {
-            $schools_var .= $school['school_dns'] . "\n";
+        if ($onlyname) {
+            $schoolsvar .= $school['school_dns'] . "\n";
         } else {
-            $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
+            $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/wp-admin/upgrade.php?step=1\n";
         }
     }
 
-    echo '<br /><br />';
-    echo '<b>File name: updateNodes.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
+    saveVarToFile('updateNodes.txt', $schoolsvar);
 
-    $filename = '../../adminInfo/updateNodes.txt';
-
-    saveVarToFile($filename, $schools_var);
-    
 } else {
 
     /* MOODLE 2 CRONFILE */
-
     $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
 
-    $schools_var = '';
+    $schoolsvar = "";
     foreach ($schools as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/cron.php\n";
+        $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/cron.php\n";
     }
 
-    echo '<b>File name: cronMoodle2.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
-
-    $filename = '../../adminInfo/cronMoodle2.txt';
-
-    saveVarToFile($filename, $schools_var);
+    saveVarToFile('cronMoodle2.txt', $schoolsvar);
 
 
     /* INTRANET CRONFILE */
-
     $schools = getAllSchools('activedId', 'asc', 'intranet', '1');
 
-    $schools_var = '';
+    $schoolsvar = '';
     foreach ($schools as $school) {
-        $schools_var .= $agora['server']['html'] . $school['school_dns'] . "/intranet/iwcron.php\n";
+        $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/intranet/iwcron.php\n";
     }
 
-    echo '<br /><br />';
-    echo '<b>File name: cronIntranet.txt</b><br />';
-    echo str_replace("\n", '<br />', $schools_var);
-
-    $filename = '../../adminInfo/cronIntranet.txt';
-
-    saveVarToFile($filename, $schools_var);
+    saveVarToFile('cronIntranet.txt', $schoolsvar);
 }
 
 /**
@@ -144,20 +114,40 @@ if (isset($_REQUEST['update'])) {
  * @author Toni Ginard
  *
  * @param $filename: path to file in filesystem
- * @param $schools_var: data to save to file
+ * @param $schoolsvar: data to save to file
  *
  * @return boolean true if successful
  */
-function saveVarToFile($filename = null, $schools_var = '') {
+function saveVarToFile($filename = null, $schoolsvar = "") {
+    $path = '../../adminInfo/';
+
+    cli_print_line('<br />');
+    cli_print_line('<b>File name: '.$filename.'</b><br />');
+    cli_print_line(str_replace("\n", "\n<br />", $schoolsvar));
+
+    if (!is_dir($path)) {
+        // Create syncdir if it doesn't exist
+        $old = umask(0);
+        if (@mkdir($path, 0777)) {
+            cli_print_line("$path directory created<br/>");
+        }
+        umask($old);
+    }
+
+    if (!is_dir($path)) {
+        cli_print_line("Directory $path does not exist<br/>");
+        return false;
+    }
+    $filename = $path.$filename;
 
     // Open $filename in append mode
     if (!$handle = fopen($filename, 'w')) {
-        echo "Cannot open file ($filename)<br />";
+        cli_print_line("Cannot open file ($filename)<br />");
         return false;
     }
 
-    if (fwrite($handle, $schools_var) === false) {
-        echo "Cannot write to file ($filename)<br />";
+    if (fwrite($handle, $schoolsvar) === false) {
+        cli_print_line("Cannot write to file ($filename)<br />");
         fclose($handle);
         return false;
     }

@@ -61,8 +61,6 @@ $files[] = array('filename' => $agora['server']['root'] . $agora['moodle2']['dat
 $files[] = array('filename' => $agora['server']['root'] . $agora['nodes']['datadir'] .'diskUsageWp.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronIntranet.txt', 'perms' => '0644', 'link' => false);
 $files[] = array('filename' => $agora['server']['root'] . 'adminInfo/cronMoodle2.txt', 'perms' => '0644', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/updateIntranet.txt', 'perms' => '0644', 'link' => false);
-$files[] = array('filename' => $agora['server']['root'] . 'adminInfo/updateMoodle2.txt', 'perms' => '0644', 'link' => false);
 
 echo '<h2>Fitxers</h2>';
 foreach ($files as $file) {
