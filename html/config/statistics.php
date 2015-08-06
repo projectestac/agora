@@ -22,6 +22,16 @@ if (isset($args['only']) && !empty($args['only'])) {
     $doonly = $args['only'];
 } else {
     $doonly = false;
+    /* Deprecated */
+    if (isset($args['onlyIntranet'])) {
+        $doonly = 'intranet';
+    }
+    if (isset($args['onlyMoodle2'])) {
+        $doonly = 'moodle2';
+    }
+    if (isset($args['onlyNodes'])) {
+        $doonly = 'nodes';
+    }
 }
 
 // Get optional params or set default values
