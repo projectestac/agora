@@ -8,9 +8,13 @@ Changes 15.08.10
 GENERAL:
 - Changed adresses from PL/SQL to access schools information
 - Updated all application Mailer WSDL's
+- CLIfy crons in config directory
+- Adapt mobile css for the 2nd version of the app
+- Simplify checkFiles.php and sync_to_file
 
 MOODLE:
 - Disabled marsupial as an independent service
+- Adapt mobile css for the 2nd version of the app
 
 NODES:
 - Added new function to manage superadmin and xtecadmin
