@@ -10,26 +10,19 @@
         </div>
 
         <div class="z-formrow">
-            <label for="allowedIpsForCalcDisckConsume">{gt text="IP des de les quals es pot executar el càlcul d'espai de disc consumit"}</label>
-            <textarea name="allowedIpsForCalcDisckConsume" style="width: 500px" rows="3">{$allowedIpsForCalcDisckConsume}</textarea>
-            <div class="z-informationmsg z-formnote">
-                {gt text="Separeu la llista d'IP per comes."}
-            </div>
-        </div>
-        <div class="z-formrow">
             <label for="warningMailsTo">{gt text="Adreces de correu a on s'han d'enviar els missatges relatius al consum del disc"}</label>
             <textarea name="warningMailsTo" style="width: 500px" rows="3">{$warningMailsTo}</textarea>
             <div class="z-informationmsg z-formnote">
                 {gt text="Separeu la llista d'IP per comes."}
             </div>
-        </div>    
+        </div>
         <div class="z-formrow">
             <label for="requestMailsTo">{gt text="Adreces de correu on s'ha d'avisar en cas de sol·licituds d'augment d'espai de disc"}</label>
             <textarea name="requestMailsTo" style="width: 500px" rows="3">{$requestMailsTo}</textarea>
             <div class="z-informationmsg z-formnote">
                 {gt text="Separeu la llista d'IP per comes."}
             </div>
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="diskRequestThreshold">{gt text="Ocupació a partir de la qual es pot demanar ampliació de quota (%)"}</label>
             <input type="text" name="diskRequestThreshold" size="10" maxlength="50" value="{$diskRequestThreshold}" />
@@ -37,30 +30,30 @@
         <div class="z-formrow">
             <label for="maxFreeQuotaForRequest">{gt text="Quota lliure màxima per poder demanar ampliació de quota (MB)"}</label>
             <input type="text" name="maxFreeQuotaForRequest" size="10" maxlength="50" value="{$maxFreeQuotaForRequest}" />
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="clientsMailThreshold">{gt text="Ocupació a partir de la qual s'avisa per correu electrònic als clients (%)"}</label>
             <input type="text" name="clientsMailThreshold" size="10" maxlength="50" value="{$clientsMailThreshold}" />
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="maxAbsFreeQuota">{gt text="Quota lliure màxima per a que s'avisi per correu electrònic als clients (MB)"}</label>
             <input type="text" name="maxAbsFreeQuota" size="10" maxlength="50" value="{$maxAbsFreeQuota}" />
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="createDB">{gt text="En fer una alta de Nodes, intenta crear la base de dades MySQL si no existeix"}</label>
             <input type="checkbox" name="createDB" {if $createDB}checked="checked"{/if} />
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="URLNodesModelBase">{gt text="URL base per a les maquetes de Nodes"}</label>
             <input type="text" name="URLNodesModelBase" size="10" maxlength="150" value="{$URLNodesModelBase}" />
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="DBNodesModel">{gt text="Bases de dades de les maquetes de Nodes"}</label>
             <textarea name="DBNodesModel" style="width: 500px" rows="3">{$DBNodesModel}</textarea>
             <div class="z-informationmsg z-formnote">
                 {gt text="Separeu la llista de bases de dades per comes."}
             </div>
-        </div> 
+        </div>
         <div class="z-formrow">
             <label for="locations">{gt text="Maquetes de Nodes"}</label>
             <table class="z-datatable" style="width: 500px">

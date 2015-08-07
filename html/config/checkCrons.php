@@ -154,7 +154,19 @@ if ($cronmoodle) {
 }
 
 echo '<h3>Cron Portal</h3>';
-checkOldFile($agora['server']['root'] . 'logs/updateDiskUse.txt', 86400);
+if (!($portalcon = get_dbconnection('admin'))) {
+    echo_error('No s\'ha pogut connectar a la base de dades del portal');
+} else {
+    $sql = 'SELECT `iw_value` FROM  IWmain WHERE `iw_name` = \'lastCron_updatedisk\' AND `iw_module` = \'agoraPortal\'';
+    $lastcron = $portalcon->get_field($sql, 'iw_value');
+    $portalcon->close();
+    echo '<a href="'.$urlbase.'portal/index.php?module=agoraPortal&type=admin&func=updateDiskUse" target="_blank">'.
+        $urlbase.'portal/index.php?module=agoraPortal&type=admin&func=updateDiskUse</a><br>';
+    echo '<strong>Darrer cron:</strong> ' . date(DATE_RFC822, $lastcron) . '<br>';
+    if ($time - $lastcron > 86400) {
+        echo_error('El cron no ha estat executat en les darreres 24h');
+    }
+}
 
 echo '<h3>Cron Stats</h3>';
 if (!($portalcon = get_dbconnection('admin'))) {

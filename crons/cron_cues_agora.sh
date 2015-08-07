@@ -5,6 +5,5 @@ source "config.sh"
 
 #Cues del portal
 #S'executa cada 5 minuts
-cd /tmp
-get_curl '/portal/queues_cron.php'
-rm -f /tmp/queues_cron.php*
+cd $basedir'html/portal'
+exec_cli queues_cron.php
