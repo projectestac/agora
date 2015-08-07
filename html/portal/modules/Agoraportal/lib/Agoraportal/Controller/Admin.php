@@ -873,7 +873,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
 
         return $this->view->assign('siteBaseURL', $this->getVar('siteBaseURL'))
-                        ->assign('allowedIpsForCalcDisckConsume', $this->getVar('allowedIpsForCalcDisckConsume'))
                         ->assign('warningMailsTo', $this->getVar('warningMailsTo'))
                         ->assign('requestMailsTo', $this->getVar('requestMailsTo'))
                         ->assign('diskRequestThreshold', $this->getVar('diskRequestThreshold'))
@@ -899,7 +898,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function updateConfig($args) {
         $siteBaseURL = FormUtil::getPassedValue('siteBaseURL', isset($args['siteBaseURL']) ? $args['siteBaseURL'] : null, 'POST');
-        $allowedIpsForCalcDisckConsume = FormUtil::getPassedValue('allowedIpsForCalcDisckConsume', isset($args['allowedIpsForCalcDisckConsume']) ? $args['allowedIpsForCalcDisckConsume'] : null, 'POST');
         $warningMailsTo = FormUtil::getPassedValue('warningMailsTo', isset($args['warningMailsTo']) ? $args['warningMailsTo'] : null, 'POST');
         $requestMailsTo = FormUtil::getPassedValue('requestMailsTo', isset($args['requestMailsTo']) ? $args['requestMailsTo'] : null, 'POST');
         $diskRequestThreshold = FormUtil::getPassedValue('diskRequestThreshold', isset($args['diskRequestThreshold']) ? $args['diskRequestThreshold'] : null, 'POST');
@@ -921,7 +919,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $createDB = ($createDB == 'on') ? true : false;
 
         $this->setVar('siteBaseURL', $siteBaseURL)
-                ->setVar('allowedIpsForCalcDisckConsume', $allowedIpsForCalcDisckConsume)
                 ->setVar('warningMailsTo', $warningMailsTo)
                 ->setVar('requestMailsTo', $requestMailsTo)
                 ->setVar('diskRequestThreshold', $diskRequestThreshold)
@@ -3332,13 +3329,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     public function updateDiskUse($args) {
        // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
-            $allowedIpsArray = explode(',', $allowedIps);
-
-            $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-            $requestaddr = explode(',', $requestaddr);
-
-            if (!in_array(trim(end($requestaddr)), $allowedIpsArray)) {
+            if (!defined('CLI_SCRIPT')) {
                 LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
                 return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
             }
@@ -3526,6 +3517,18 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                     'body' => $this->__('<p>S\'han produït errors en la gestió del consum de disc per part dels centres. Missatge de l\'error:</p><p>' . $errorMsg . '</p>'),
                     'html' => 1));
             }
+        } else {
+            $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
+            ModUtil::func('IWmain', 'user', 'userSetVar', array('uid' => -100,
+                'name' => 'lastCron_updatedisk',
+                'module' => 'updateDiskUse_cron',
+                'lifetime' => 1000 * 24 * 60 * 60,
+                'sv' => $sv,
+                'value' => time()));
+            if (!defined('CLI_SCRIPT')) {
+                echo '<br /><br />';
+            }
+            echo "ok\n";
         }
         return true;
     }
@@ -3859,11 +3862,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            $allowedIps = ModUtil::getVar('Agoraportal', 'allowedIpsForCalcDisckConsume');
-            $allowedIpsArray = explode(',', $allowedIps);
-
-            $requestaddr = (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-            if (!in_array($requestaddr, $allowedIpsArray)) {
+            if (!defined('CLI_SCRIPT')) {
                 LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
                 return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
             }

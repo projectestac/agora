@@ -6,6 +6,8 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL:
+- Moved cron_portal.sh to CLI
 
 ZIKULA:
 - Fixed Mobile theme

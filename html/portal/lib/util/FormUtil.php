@@ -103,15 +103,30 @@ class FormUtil
                 }
                 break;
             default:
-                if ($source) {
-                    static $valid = array('R', 'REQUEST', 'G', 'GET', 'P', 'POST', 'C', 'COOKIE', 'F', 'FILES', 'GP', 'GETPOST');
-                    if (!in_array($source, $valid)) {
-                        z_exit(__f('Invalid input source [%s] received.', DataUtil::formatForDisplay($source)));
-
-                        return $default;
+                //XTEC ** AFEGIT - Admit params from CLI
+                //2015.09.02 @pferre22
+                $clivars = self::parse_cli_args();
+                if ($clivars && isset($clivars[$key])) {
+                    if (is_array($clivars[$key])) {
+                        $clivars['flags'] = FILTER_REQUIRE_ARRAY;
                     }
+                    $value = filter_var($clivars[$key], $filter, $args);
+                    $failed = ($value === false) ? $args : null;
+                } else {
+                //************ FI
+                    if ($source) {
+                        static $valid = array('R', 'REQUEST', 'G', 'GET', 'P', 'POST', 'C', 'COOKIE', 'F', 'FILES', 'GP', 'GETPOST');
+                        if (!in_array($source, $valid)) {
+                            z_exit(__f('Invalid input source [%s] received.', DataUtil::formatForDisplay($source)));
+
+                            return $default;
+                        }
+                    }
+                    $value = $default;
+                //XTEC ** AFEGIT - Admit params from CLI
+                //2015.09.02 @pferre22
                 }
-                $value = $default;
+                //************ FI
         }
 
         if ($failed && $objectType) {
@@ -121,6 +136,63 @@ class FormUtil
 
         return $value;
     }
+
+    //XTEC ** AFEGIT - Admit params from CLI
+    //2015.09.02 @pferre22
+    /**
+     * Returns an array with the params parsed from CLI
+     * @return array with the parsed params
+     */
+    private static function parse_cli_args() {
+        global $cliargs;
+
+        if (isset($cliargs)) {
+            return $cliargs;
+        }
+
+        if (!isset($_SERVER['argv'])) {
+            $cliargs = false;
+            return false;
+        }
+
+        define('CLI_SCRIPT', true);
+        $cliargs = array();
+        $rawoptions = $_SERVER['argv'];
+
+        if (($key = array_search('--', $rawoptions)) !== false) {
+            $rawoptions = array_slice($rawoptions, 0, $key);
+        }
+
+        unset($rawoptions[0]);
+        foreach ($rawoptions as $raw) {
+            if (substr($raw, 0, 2) === '--') {
+                $value = substr($raw, 2);
+                $parts = explode('=', $value);
+                if (count($parts) == 1) {
+                    $key   = reset($parts);
+                    $value = true;
+                } else {
+                    $key = array_shift($parts);
+                    $value = implode('=', $parts);
+                }
+                $cliargs[$key] = $value;
+
+            } else if (substr($raw, 0, 1) === '-') {
+                $value = substr($raw, 1);
+                $parts = explode('=', $value);
+                if (count($parts) == 1) {
+                    $key   = reset($parts);
+                    $value = true;
+                } else {
+                    $key = array_shift($parts);
+                    $value = implode('=', $parts);
+                }
+                $cliargs[$key] = $value;
+            }
+        }
+        return $cliargs;
+    }
+    //************ FI
 
     /**
      * Return a boolean indicating whether the specified field is required.

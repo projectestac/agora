@@ -89,7 +89,6 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
         DBUtil::createIndex('idx_nodes_stats_month', 'agoraportal_nodes_stats_month', array('clientcode', 'date'));
         // create module vars
         $this->setVar('siteBaseURL', 'http://agora.xtec.cat')
-                ->setVar('allowedIpsForCalcDisckConsume', '')
                 ->setVar('warningMailsTo', '')
                 ->setVar('requestMailsTo', '')
                 ->setVar('diskRequestThreshold', '70')
@@ -228,6 +227,8 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             case '2.0.15':
                 if (!DBUtil::changeTable('agoraportal_client_services'))
                     return false;
+            case '2.0.16':
+                $this->delVar('allowedIpsForCalcDisckConsume');
 
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber
