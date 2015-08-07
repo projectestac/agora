@@ -26,7 +26,7 @@ echo '<div class="well well-sm">Servidor web: ' . $hostname . ' (' .php_uname('s
 echo 'Hora del servidor: ' . date("d-m-Y H:i:s e (P)") . '</div>';
 echo '<h3>Prova de connexió de curl</h3>';
 
-$url = $agora['server']['school_information'] . '08011941';
+$url = $agora['server']['school_information'] . '08000013';
 $curl_handle = curl_init();
 curl_setopt($curl_handle, CURLOPT_URL, $url);
 curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 5);
