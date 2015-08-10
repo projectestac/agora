@@ -39,6 +39,7 @@ if (empty($buffer)) {
     echo '<strong>Valor retornat per curl_exec():</strong> Empty buffer';
     echo '</div>';
 } else {
+    $buffer = utf8_encode($buffer);
     echo '<strong>Valor retornat per curl_exec():</strong> ' . $buffer . '<br>';
 }
 
