@@ -6,7 +6,7 @@
  */
 function get_webargs() {
     $arguments = array();
-    if (isset($_SERVER['argv'])) {
+    if (isset($_SERVER['argv'])&& !isset($_SERVER['HTTP_HOST'])) {
         define('CLI_SCRIPT', true);
         if (count($_SERVER['argv']) > 1) {
             $rawoptions = $_SERVER['argv'];
