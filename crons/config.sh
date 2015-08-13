@@ -35,24 +35,4 @@ PHP_PATH=/usr/bin/php
 # FMO AGORA-EOI PRO
 #PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/pro/1143/apache/php.ini"
 
-
-function exec_cli {
-    php $basedir$1
-}
-
-function get_curl {
-    get_curl_complete $urlbase$1
-}
-
-function get_curl_complete {
-    curl --silent $1 > /dev/null
-}
-
-function get_wget {
-    get_wget_complete $urlbase$1
-}
-
-function get_wget_complete {
-    wget -q -o /dev/null $1 > /dev/null
-}
-
+source "lib.sh"

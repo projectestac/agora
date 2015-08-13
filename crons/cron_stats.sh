@@ -9,7 +9,7 @@ source "config.sh"
 cd /tmp
 
 exec_cli '/config/statistics.php?only=intranet'
-exec_cli '/config/statistics.php?onlyMoodle2'
-exec_cli '/config/statistics.php?onlyNodes'
+exec_cli '/config/statistics.php?only=moodle2'
+exec_cli '/config/statistics.php?only=nodes'
 
 rm /tmp/statistics.php*
