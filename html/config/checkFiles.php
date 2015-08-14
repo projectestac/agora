@@ -33,17 +33,23 @@ curl_setopt($curlhandle, CURLOPT_URL, $url);
 curl_setopt($curlhandle, CURLOPT_CONNECTTIMEOUT, 5);
 curl_setopt($curlhandle, CURLOPT_RETURNTRANSFER, true);
 $buffer = curl_exec($curlhandle);
+$curlinfo = curl_getinfo($curlhandle);
 curl_close($curlhandle);
-echo '<strong>URL:</strong> ' . $url . '<br>';
 if (empty($buffer)) {
-    echo '<div class="alert-danger well">';
-    echo '<strong>Valor retornat per curl_exec():</strong> Empty buffer';
-    echo '</div>';
+    echo '<div class="alert-danger alert">';
+    $buffer = 'Empty buffer';
 } else {
+    echo '<div class="alert-success alert">';
     $buffer = utf8_encode($buffer);
-    echo '<strong>Valor retornat per curl_exec():</strong> ' . $buffer . '<br>';
 }
 
+echo '<strong>Contingut:</strong> ' . $buffer;
+foreach ($curlinfo as $key => $value) {
+    if (!is_array($value) && !empty($value)) {
+        echo '<br><strong>'.$key.'</strong>: '.$value;
+    }
+}
+echo '</div>';
 
 $files[] = array('filename' => $agora['dbsource']['dir'] . 'allSchools.php', 'perms' => 0660, 'link' => false,
     'message' => 'Error greu en informació d\'escoles', 'old' => 86400);
@@ -108,13 +114,13 @@ foreach ($files as $file) {
             if (!comparePermissions($perms, $file['perms'])) {
                 $perms += 0220;
                 chmod($filename, $perms);
-                echo '<div class="alert-danger">';
+                echo '<div class="alert-danger alert">';
                 echo '<strong>Assignats permissos a la MUC</strong>';
                 echo '</div>';
             }
         }
         if (!comparePermissions($perms, $file['perms'])) {
-            echo '<div class="alert-danger">';
+            echo '<div class="alert-danger alert">';
             echo '<strong>Permisos:</strong> ' . getPermissionsString($perms) . '. Mínim esperat: ' . getPermissionsString($file['perms']);
             echo '</div>';
             $error = true;
@@ -128,7 +134,7 @@ foreach ($files as $file) {
         }
 
         if (is_link($filename) != $file['link']) {
-            echo '<div class="alert-danger">';
+            echo '<div class="alert-danger alert">';
             echo '<strong>Enllaç simbòlic:</strong> ' . $linkinfo;
             echo '</div>';
             $error = true;
@@ -139,7 +145,7 @@ foreach ($files as $file) {
         echo '<strong>Darrera modificació:</strong> ' . date(DATE_RFC822, $filetime) . '<br>';
         if (isset($file['old']) && !empty($file['old'])) {
             if ($time - $filetime > $file['old']) {
-                echo '<div class="alert-danger">';
+                echo '<div class="alert-danger alert">';
                 echo '<strong>El fitxer és massa antic</strong>';
                 echo '</div>';
                 $error = true;
@@ -147,7 +153,7 @@ foreach ($files as $file) {
         }
         echo '<strong>Espai lliure:</strong> ' . fileSizeUnits(disk_free_space(dirname($filename))) . '<br>';
         if ($error && isset($file['message']) && !empty($file['message'])) {
-            echo '<div class="alert-danger  well-sm">'.$file['message'].'</div>';
+            echo '<div class="alert alert-danger">'.$file['message'].'</div>';
         }
     } else {
         echo '<div class="alert alert-danger">';
