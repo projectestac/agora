@@ -154,7 +154,7 @@ if ($cronmoodle) {
 }
 
 echo '<h3>Cron Portal</h3>';
-checkOldFile($agora['server']['root'] . 'logs/updateDiskUse', 86400);
+checkOldFile($agora['server']['root'] . 'logs/updateDiskUse.txt', 86400);
 
 echo '<h3>Cron Stats</h3>';
 if (!($portalcon = get_dbconnection('admin'))) {
