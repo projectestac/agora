@@ -62,17 +62,17 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             $clientDNS = $clientOldDNS;
         } else {
-            $schoolData = getSchoolFromWS($clientCode);
-            if(!$schoolData) {
-                return false;
-            }
-
-            // Assume there's info of the school
-            $school = explode('$$', $schoolData);
-            $clientDNS = (isset($school[1])) ? $school[1] : '';
-            // Keyword equals to '0' means school exists and has no 'nom propi', so an error is shown
-            if ($clientDNS == '0') {
-                return LogUtil::registerError("No s'ha trobat el nom propi del centre. Cal disposar de nom propi per poder sol·licitar serveis d'Àgora");
+            $schooldata = getSchoolFromWS($clientCode);
+            if (!$schooldata) {
+                $clientDNS = $clientOldDNS;
+            } else {
+                // Assume there's info of the school
+                $school = explode('$$', $schooldata);
+                $clientDNS = (isset($school[1])) ? $school[1] : '';
+                // Keyword equals to '0' means school exists and has no 'nom propi', so an error is shown
+                if ($clientDNS == '0') {
+                    return LogUtil::registerError("No s'ha trobat el nom propi del centre. Cal disposar de nom propi per poder sol·licitar serveis d'Àgora");
+                }
             }
         }
 

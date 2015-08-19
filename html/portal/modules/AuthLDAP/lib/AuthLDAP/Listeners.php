@@ -28,7 +28,7 @@ class AuthLDAP_Listeners {
 
     /**
      * Log in user via LDAP after the Zikula authentication has failed and create it if necessary
-     * 
+     *
      * @author Albert Pérez Monfort
      * @author Toni Ginard
      * @return bool true authentication successful
@@ -115,7 +115,7 @@ class AuthLDAP_Listeners {
               $item = array('pass' => '1$$' . md5($pass));
               $where = "uid=$uid";
               DBUtil::updateObject($item, 'users', $where);
-             * 
+             *
              */
         } else {
             // User doesn't exist. Create the user in Zikula users table
@@ -241,48 +241,49 @@ function createClient($args) {
 /**
  * Get the string with School Information from Web Service
  * Demo string: a8000001$$nompropi$$Nom del Centre$$c. Carrer, 18-24$$Valldeneu$$00000
- * 
+ *
  * @author Toni Ginard
- * 
+ *
  * @global array $agora
  * @param string $uname
  * @return boolean false on error. String on success.
  */
 function getSchoolFromWS($uname) {
-    $unameNum = transformClientCode($uname, 'letter2num');
-
     global $agora;
-    // Get school info
-    $url = $agora['server']['school_information'] . $unameNum;
 
-    $curl_handle = curl_init();
-    curl_setopt($curl_handle, CURLOPT_URL, $url);
-    curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 8);
-    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-    $buffer = curl_exec($curl_handle);
-    curl_close($curl_handle);
+    // Get school info
+    $unamenum = transformClientCode($uname, 'letter2num');
+    $url = $agora['server']['school_information'] . $unamenum;
+
+    $handle = curl_init();
+    curl_setopt($handle, CURLOPT_URL, $url);
+    curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 8);
+    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+    $buffer = curl_exec($handle);
+    curl_close($handle);
 
     // Get school Data
-    $schoolData = '';
+    $schooldata = '';
     if (!empty($buffer)) {
-        $schoolData = utf8_encode($buffer);
+        $schooldata = utf8_encode($buffer);
     } else {
-        LogUtil::registerError('No s\'ha pogut obtenir automàticament la informació del centre. Poseu-vos en contacte amb el SAU.');
+        LogUtil::registerError('No s\'ha pogut obtenir automàticament la informació del centre.
+            Aquest error no és greu, però si persisteix durant dies, poseu-vos en contacte amb el SAU.');
         return false;
     }
 
     // Additional check. This error should never happen.
-    if (strpos($schoolData, 'ERROR') !== false) {
+    if (strpos($schooldata, 'ERROR') !== false) {
         LogUtil::registerError('No se us ha reconegut com a centre docent perquè no figureu a la base de dades de centres de la XTEC. Poseu-vos en contacte amb el SAU.');
         return false;
     }
 
-    return $schoolData;
+    return $schooldata;
 }
 
 /**
  * Check if the username matches a school code.
- * 
+ *
  * @author Toni Ginard
  * @param string $uname
  * @return boolean
