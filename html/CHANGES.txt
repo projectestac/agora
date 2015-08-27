@@ -3,6 +3,15 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+
+Changes in progress
+---------------------------------------------------------------------------------------
+
+ZIKULA:
+- Fixed Mobile theme
+
+
+
 Changes 15.08.10
 ---------------------------------------------------------------------------------------
 GENERAL:
@@ -18,6 +27,7 @@ MOODLE:
 
 NODES:
 - Added new function to manage superadmin and xtecadmin
+
 
 Changes 15.07.20
 ---------------------------------------------------------------------------------------
