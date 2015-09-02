@@ -4,7 +4,7 @@ DIRECTORY=$(cd `dirname $0` && pwd)
 cd $DIRECTORY
 
 function exec_cli {
-    $PHP_PATH $basedir$1
+    $PHP_PATH $1
 }
 
 function get_curl {
