@@ -499,6 +499,52 @@ function isValidCookie($cookie) {
     }
 }
 
+/**
+ * Get the string with School Information from Web Service
+ * Demo string: a8000001$$nompropi$$Nom del Centre$$c. Carrer, 18-24$$Valldeneu$$00000
+ *
+ * @author Toni Ginard
+ *
+ * @global array $agora
+ * @param string $uname
+ * @return array
+ */
+function getSchoolFromWS($uname) {
+    global $agora;
+    $results = array('error' => 0, 'message' => '');
+
+    // Get school info
+    $unamenum = transformClientCode($uname, 'letter2num');
+    $url = $agora['server']['school_information'] . $unamenum;
+
+    $handle = curl_init();
+    curl_setopt($handle, CURLOPT_URL, $url);
+    curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 8);
+    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+    $buffer = curl_exec($handle);
+    curl_close($handle);
+
+    // Get school Data
+    $schooldata = '';
+    if (empty($buffer)) {
+        $results['error'] = 1;
+        $results['message'] = 'No s\'ha pogut obtenir automàticament la informació del centre.
+            Aquest error no és greu, però si persisteix durant dies, poseu-vos en contacte amb el SAU.';
+    } else {
+        $schooldata = utf8_encode($buffer);
+
+        // Additional check. This error should never happen.
+        if (strpos($schooldata, 'ERROR') !== false) {
+            $results['error'] = 1;
+            $results['message'] = "El codi de centre $unamenum no figura a la base de dades de centres de la XTEC. Poseu-vos en contacte amb el SAU.";
+        } else {
+            $results['message'] = $schooldata;
+        }
+    }
+    
+    return $results;
+}
+
 
 /**
  * Prints a message if DEBUG_ENABLED is on

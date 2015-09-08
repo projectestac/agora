@@ -8,6 +8,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL:
 - Moved cron_portal.sh to CLI
+- Agoraportal: Fixed access to myAgora
 
 ZIKULA:
 - Fixed Mobile theme

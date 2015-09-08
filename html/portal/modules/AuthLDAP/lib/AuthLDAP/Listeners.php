@@ -46,7 +46,7 @@ class AuthLDAP_Listeners {
 
         global $agora;
         $info = array();
-        $schoolData = '';
+        $schoolData = array();
 
         if ($agora['server']['enviroment'] != 'LOCAL') {
             // define the attributes we want to get in our search
@@ -95,8 +95,9 @@ class AuthLDAP_Listeners {
             // Check if this user is a school and check if it has nom propi
             if (isUserSchool($uname)) {
                 $schoolData = getSchoolFromWS($uname);
-                if (!$schoolData) {
-                    return false; // Log message already set
+                if ($schoolData['error'] == 1) {
+                    LogUtil::registerError($schoolData['message']);
+                    return false;
                 }
             }
         } else {
@@ -192,12 +193,12 @@ function createClient($args) {
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClient', array('clientCode' => $uname));
 
         if (!$isClient || !is_array($client)) {
-            if (!$schoolData) {
+            if (empty($schoolData)) {
                 return false; // Log errors already set
             }
 
             // Get school data
-            $school = explode('$$', $schoolData);
+            $school = explode('$$', $schoolData['message']);
             $clientCode = $school[0];
             $clientDNS = $school[1];
             $clientName = $school[2];
@@ -236,49 +237,6 @@ function createClient($args) {
         }
     }
     return true;
-}
-
-/**
- * Get the string with School Information from Web Service
- * Demo string: a8000001$$nompropi$$Nom del Centre$$c. Carrer, 18-24$$Valldeneu$$00000
- *
- * @author Toni Ginard
- *
- * @global array $agora
- * @param string $uname
- * @return boolean false on error. String on success.
- */
-function getSchoolFromWS($uname) {
-    global $agora;
-
-    // Get school info
-    $unamenum = transformClientCode($uname, 'letter2num');
-    $url = $agora['server']['school_information'] . $unamenum;
-
-    $handle = curl_init();
-    curl_setopt($handle, CURLOPT_URL, $url);
-    curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 8);
-    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-    $buffer = curl_exec($handle);
-    curl_close($handle);
-
-    // Get school Data
-    $schooldata = '';
-    if (!empty($buffer)) {
-        $schooldata = utf8_encode($buffer);
-    } else {
-        LogUtil::registerError('No s\'ha pogut obtenir automàticament la informació del centre.
-            Aquest error no és greu, però si persisteix durant dies, poseu-vos en contacte amb el SAU.');
-        return false;
-    }
-
-    // Additional check. This error should never happen.
-    if (strpos($schooldata, 'ERROR') !== false) {
-        LogUtil::registerError('No se us ha reconegut com a centre docent perquè no figureu a la base de dades de centres de la XTEC. Poseu-vos en contacte amb el SAU.');
-        return false;
-    }
-
-    return $schooldata;
 }
 
 /**

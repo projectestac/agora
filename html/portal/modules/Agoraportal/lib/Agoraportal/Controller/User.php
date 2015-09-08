@@ -59,15 +59,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         //Check if the client is pending of change his clientDNS
         //Only for site managers
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            $clientDNS = $clientOldDNS;
-        } else {
+        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             $schooldata = getSchoolFromWS($clientCode);
-            if (!$schooldata) {
-                $clientDNS = $clientOldDNS;
+            if ($schooldata['error'] == 1) {
+                LogUtil::registerError($schooldata['message']);
             } else {
                 // Assume there's info of the school
-                $school = explode('$$', $schooldata);
+                $school = explode('$$', $schooldata['message']);
                 $clientDNS = (isset($school[1])) ? $school[1] : '';
                 // Keyword equals to '0' means school exists and has no 'nom propi', so an error is shown
                 if ($clientDNS == '0') {
@@ -687,7 +685,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (ModUtil::apiFunc('Agoraportal', 'user', 'apiChangeDNS', array('clientCode' => $clientCode,
                     'clientDNS' => $clientDNS,
                     'clientOldDNS' => $clientOldDNS))) {
-            LogUtil::registerStatus($this->__('S\ha canviat el nom propi del centre satisfactoriament'));
+            LogUtil::registerStatus($this->__('S\'ha canviat el nom propi del centre'));
             //Resgister log
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('S\'ha canviat el DNS del centre de %1$s a %2$s', array($clientOldDNS, $clientDNS)),
                 'actionCode' => 1,
