@@ -93,7 +93,7 @@
         <form name="changeDNS" id="changeDNS" class="z-adminform" action="{modurl modname='Agoraportal' type='user' func='changeDNS'}" method="post">
             {gt text="El nom propi del vostre centre ha canviat, però els serveis d'Àgora encara utilitzen el nom propi antic. "}
             {gt text="L'actual és <strong>$clientOldDNS</strong> i el nom nou és <strong>$clientDNS</strong>. "}
-            {gt text="No cal que feu el canvi de nom propi ara però, si el voleu fer, heu de tenir en compte que pot afectar a alguns enllaços interns, tant del moodle com de la intranet, i no es pot desfer. En cas de que algun enllaç deixi de funcionar, l'haureu d'editar per corregir l'URL."}
+            {gt text="No cal que feu el canvi de nom propi ara però, si el voleu fer, heu de tenir en compte que pot afectar a alguns enllaços interns, tant en el cas del Moodle com en el del Nodes, i no es pot desfer. Abans de fer aquest canvi us recomanem que contacteu amb l'equip d'Àgora, <a target=\"_blank\" href=\"http://agora.xtec.cat/\">via fòrum</a>, per tal de que corregeixin els enllaços."}
             <br /><br />
             {gt text="Voleu fer aquest canvi?"}
             <br /><br />
