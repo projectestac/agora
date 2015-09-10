@@ -13,6 +13,7 @@ PORTAL:
 ZIKULA:
 - Fixed Mobile theme
 - Added script to update documentRoot
+- IWagendas: Fixed PHP warnings due to notes in personal agendas
 
 
 
