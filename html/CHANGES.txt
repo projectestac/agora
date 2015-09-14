@@ -6,6 +6,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE:
+- Moodle upgraded to from 2.8.8
+
 PORTAL:
 - Moved cron_portal.sh to CLI
 - Agoraportal: Fixed access to myAgora
