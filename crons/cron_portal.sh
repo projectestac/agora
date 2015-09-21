@@ -3,7 +3,6 @@ DIRECTORY=$(cd `dirname $0` && pwd)
 cd $DIRECTORY
 source "config.sh"
 
-
 mkdir $logs 2> /dev/null
 
 #Portal

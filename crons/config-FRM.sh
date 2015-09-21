@@ -1,8 +1,8 @@
 #!/bin/bash
 
-urlbase=http://agora/agora
-basedir=/dades/agora/
-apacheuser=apache2
+urlbase=http://agora.xtec.cat/formacio
+basedir="/serveis/dades/for/P02for/apache/1051_agora/"
+apacheuser=adP02php
 logs=$basedir"logs"
 
 NLS_LANG=AMERICAN_AMERICA.AL32UTF8
@@ -15,7 +15,7 @@ export TZ
 #APACHE_HOME=/etc/httpd/
 
 # DEV
-PHP_PATH=/usr/bin/php
+#PHP_PATH="/usr/bin/php"
 
 # CMO
 #PHP_PATH="/opt/xtk/php5/bin/php -c /opt/xtk/php5/lib/php.ini"
@@ -28,6 +28,9 @@ PHP_PATH=/usr/bin/php
 
 # FMO AGORA PRO
 #PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/pro/1051/apache/php.ini"
+
+# FMO AGORA FRM
+PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/for/P02for/apache/php.ini"
 
 # FMO AGORA-EOI PRE
 #PHP_PATH="/opt/rh/php54/root/usr/bin/php -c /serveis/conf/pre/1143/apache/php.ini"
