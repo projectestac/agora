@@ -28,4 +28,5 @@ html/moodle2/mod/geogebra/.gitignore
 .buildpath
 .project
 .settings/*
+.idea
 
