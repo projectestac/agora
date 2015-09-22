@@ -617,7 +617,7 @@ function getServicesToTest($service) {
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0
+                AND activedId !=0 AND c.state=1
                 GROUP BY dbHost';
 
         $results = get_rows_from_db($sql);
@@ -634,7 +634,7 @@ function getServicesToTest($service) {
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0
+                AND activedId !=0 AND c.state=1
                 GROUP BY serviceDB';
 
         $results = get_rows_from_db($sql);
@@ -652,7 +652,7 @@ function getServicesToTest($service) {
                 FROM `agoraportal_client_services` c
                 LEFT JOIN `agoraportal_services` s ON c.serviceId = s.serviceId
                 WHERE serviceName = \'' . $service . '\'
-                AND activedId !=0
+                AND activedId !=0 AND c.state=1
                 GROUP BY dbHost';
 
         $results = get_rows_from_db($sql);
