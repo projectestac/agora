@@ -6,7 +6,7 @@ source "update_functions.sh"
 # Moodle
 gitcheckout "html/moodle2" "master" "git@github.com:projectestac/agora_moodle2.git"
 gitcheckout "html/moodle2/auth/googleoauth2" "master" "git@github.com:projectestac/moodle-auth_googleoauth2.git"
-gitcheckout "html/moodle2/blocks/rgrade" "master" "git@github.com:projectestac/Rgrade.git"
+gitcheckout "html/moodle2/blocks/rgrade" "master" "https://github.com/imartel/Rgrade.git"
 gitcheckout "html/moodle2/course/format/simple" "master" "git@github.com:projectestac/moodle-format_simple.git"
 gitcheckout "html/moodle2/filter/wiris" "master" "git@github.com:projectestac/moodle-filter_wiris.git"
 gitcheckout "html/moodle2/langpacks" "master" "git@github.com:projectestac/moodle-langpacks.git"
