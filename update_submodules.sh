@@ -25,7 +25,7 @@ gitcheckout "html/moodle2/mod/jclic" "master" "git@github.com:projectestac/moodl
 gitcheckout "html/moodle2/mod/journal" "MOODLE_28_STABLE" "https://github.com/dmonllao/moodle-mod_journal.git"
 gitcheckout "html/moodle2/mod/questionnaire" "MOODLE_28_STABLE" "git@github.com:projectestac/moodle-mod_questionnaire.git"
 gitcheckout "html/moodle2/mod/qv" "master" "git@github.com:projectestac/moodle-mod_qv.git"
-gitcheckout "html/moodle2/question/format/hotpot" "master" "git@github.com:projectestac/moodle-mod_hotpot.git"
+gitcheckout "html/moodle2/question/format/hotpot" "master" "https://github.com/gbateson/moodle-qformat_hotpot.git"
 gitcheckout "html/moodle2/question/type/ddimageortext" "master" "https://github.com/moodleou/moodle-qtype_ddimageortext.git"
 gitcheckout "html/moodle2/question/type/ddmarker" "master" "https://github.com/moodleou/moodle-qtype_ddmarker.git"
 gitcheckout "html/moodle2/question/type/ddwtos" "master" "https://github.com/moodleou/moodle-qtype_ddwtos.git"
