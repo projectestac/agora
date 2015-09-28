@@ -12,6 +12,7 @@ MOODLE:
 PORTAL:
 - Moved cron_portal.sh to CLI
 - Agoraportal: Fixed access to myAgora
+- Agoraportal: Users that are clients now can always remove and add managers
 
 ZIKULA:
 - Fixed Mobile theme
