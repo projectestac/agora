@@ -16,6 +16,37 @@ GENERAL:
 
 MOODLE:
 - Moodle upgraded to from 2.8.8
+- Delete eoicampus_wsdl_path setting
+- Add more information to parse_query error (TO REPORT)
+- Updated langpacks on 2015.09.22
+- GoogleOauth2: Solve password lost problem
+- Local Àgora:
+  - Update mailer to save log
+  - Change mailsender log folder from the databse
+  - Delete filename from mailsender log
+  - Remove temp cleaning, core task is now doing it
+  - Move cron to lib.php
+  - New script to cleanup files, WIP
+  - Now the main Moodle admin has to be the first of the list
+  - Add FMO migration script to help changes in Moodle
+- Mailer changes:
+  - Limit retries of sending mails
+  - Reduce the log and add .invalid exception
+- Local Bigdata:
+ - Move cron to lib.php
+- Local Oauth:
+  - Move cron to lib.php
+- Geogebra:
+  - Remove fixed protocol in JavaScript file.
+- Theme XTEC2:
+  - Delete MDL-42634 solved in 2.8.8
+  - Solved warning on embedded
+- Thirdparty changes:
+   - Rgrade: Add Units without activities to the unit selector
+   - Wiris modules updated to 3.54.1 2015.08.25
+   - Wiris Quizzes question types updated to 3.35.0 2015.08.25
+   - Updated Local Mobile module, Hotpot
+   - Updated OU quetion type modules
 
 NODES:
 - Updated catalan translation for WordPress 4.2.2 (Trello #793)
@@ -43,6 +74,7 @@ NODES:
 - Added and improved translations (Trello #963)
 - Add specific variable for frontpage blog name in order to allow especial chars, like \n (Trello #972)
 - Wordpress-Importer: Added spanish translation
+- NODES: Added recaptcha plugin
 
 PORTAL:
 - Moved cron_portal.sh to CLI
