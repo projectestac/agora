@@ -6,11 +6,43 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+
+
+
+Changes 15.10.09
+---------------------------------------------------------------------------------------
 GENERAL:
 - Updated testlib
 
 MOODLE:
 - Moodle upgraded to from 2.8.8
+
+NODES:
+- Updated catalan translation for WordPress 4.2.2 (Trello #793)
+- Avoid deletion of main pages (Trello #909)
+- Modified code to check if is xtecadmin or superadmin (Trello #902)
+- Block access to install script (Trello #521)
+- Prevent the creation of restricted pages (Trello #871)
+- Hidden text icon in the mobile version (GitHub #229)
+- Grup-Classe: Second HTML box independent of first box (GitHub #228)
+- Social Media: Fixed automatic links (GitHub #108)
+- Enllaços educatius: Updated URL of edu3 (GitHub #225)
+- Changed login form layout (GitHub #79)
+- WSL: Hidden some tabs for all users but xtecadmin (GitHub #200)
+- WSL: Added access control using black and white lists (GitHub #62)
+- BuddyPress-Group-Email-Subscription: Updated module to version 3.5.1 and revised catalan translation (Trello #793)
+- BudyyPress-Like: Updated module to version 0.2.0 and improved catalan translation (Trello #793)
+- bbPress: Updated module to version 2.5.8 (Trello #793)
+- bbPress: Fixed media upload using Fancy Editor (GitHub #130)
+- Theme reactor-primaria-1: Added fields for custom CSS (GitHub #253)
+- Set default selected image size to large on page and article creation
+- BuddyPress Activity Plus: Updated module to version 1.6.2 (Trello #793)
+- Raw HTML: Upgraded to version 1.4.15 (Trello #793)
+- BuddyPress: Updated module to version 2.3.2.1 (Trello #965)
+- AddToAny: Installed version 1.6.6 (Trello #918)
+- Added and improved translations (Trello #963)
+- Add specific variable for frontpage blog name in order to allow especial chars, like \n (Trello #972)
+- Wordpress-Importer: Added spanish translation
 
 PORTAL:
 - Moved cron_portal.sh to CLI
@@ -21,7 +53,6 @@ ZIKULA:
 - Fixed Mobile theme
 - Added script to update documentRoot
 - IWagendas: Fixed PHP warnings due to notes in personal agendas
-
 
 
 Changes 15.08.10
