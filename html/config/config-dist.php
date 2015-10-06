@@ -64,6 +64,10 @@
 
     // Constants used elsewhere
     define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
+    define('EOI_WWWROOT', 'http://agora-eoi.xtec.cat');
+
+    $agora['recaptchapublickey']='6LcgQgsAAAAAAMZKqiYEDAhniHIY0hXC-MMVM6Rs';
+    $agora['recaptchaprivatekey']='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 
     // Load restricted vars
     include_once $agora['server']['root'] . 'html/config/config-restricted.php';
