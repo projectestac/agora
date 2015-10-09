@@ -229,6 +229,13 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                     return false;
             case '2.0.16':
                 $this->delVar('allowedIpsForCalcDisckConsume');
+            case '2.0.17':
+                $sql = "DELETE FROM agoraportal_client_managers WHERE state < 0;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_client_managers DROP verifyCode;";
+                DBUtil::executeSQL($sql);
+                $sql = "ALTER TABLE agoraportal_client_managers DROP state;";
+                DBUtil::executeSQL($sql);
 
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber

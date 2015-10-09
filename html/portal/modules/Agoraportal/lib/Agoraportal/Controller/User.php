@@ -302,9 +302,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if ($clientCode == null) {
             // check if user is a manager for a client
             $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => UserUtil::getVar('uname')));
-            if ($manager['state'] == 1) {
-                $clientCode = $manager['clientCode'];
-            }
+            $clientCode = $manager['clientCode'];
         }
         if ($clientCode == null) {
             // perhaps who is connected is a schoool, so client code is the its username
@@ -702,61 +700,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     /**
-     * Verify the verifyCode sent by the user and change the active nevel if this is correct
-     *
-     * @author Fèlix Casanellas (fcasanel@xtec.cat)
-     * @param string clientCode
-     * @param string verifyCode of the user and clientCode
-     * @return Error or succed message
-     */
-    public function managerChoose($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-        $verifyCode = FormUtil::getPassedValue('verifyCode', isset($args['verifyCode']) ? $args['verifyCode'] : null, 'POST');
-        $answer = FormUtil::getPassedValue('answer', isset($args['answer']) ? $args['answer'] : null, 'POST');
-
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        $uname = UserUtil::getVar('uname');
-        $uid = UserUtil::getVar('uid');
-
-        if ($answer == 1) {
-            //Check Verify Code
-            //Change manager state in manager table and change level of access of the user
-            if (!ModUtil::apiFunc('Agoraportal', 'user', 'managerAccept', array('clientCode' => $clientCode,
-                        'verifyCode' => $verifyCode,
-                        'uname' => $uname,
-                        'uid' => $uid))) {
-                return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
-            }
-
-            LogUtil::registerStatus($this->__('La validació s\'ha realitzat correctament'));
-
-            //Write the action in the client log
-            ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('L\'usuari/ària %s ha acceptat la funció de gestor/a del centre', $uname),
-                'actionCode' => 2,
-                'clientCode' => $clientCode));
-            return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora'));
-        } elseif ($answer == 0) {
-            ModUtil::apiFunc('Agoraportal', 'user', 'managerRefuse', array('clientCode' => $clientCode,
-                'verifyCode' => $verifyCode,
-                'uname' => $uname,
-                'uid' => $uid));
-
-            LogUtil::registerStatus($this->__('La cancel·lació s\'ha realitzat correctament'));
-            //Write the action in the client log
-            ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('action' => $this->__f('L\'usuari/ària %s ha rebutjat la funció de gestor/a del centre', $uname),
-                'actionCode' => 3,
-                'clientCode' => $clientCode));
-            return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
-        } else {
-            throw new Zikula_Exception_Forbidden();
-        }
-    }
-
-    /**
      * Show the menu for log parameters selection
      * @author: Fèlix Casanellas (fcasanel@xtec.cat)
      */
@@ -929,14 +872,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (count($managers) < 4 && SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             return true;
         }
-        $assigned = false;
-        foreach ($managers as $manager) {
-            if ($manager['state'] == 1) {
-                $assigned = true;
-            }
-        }
         // The user is the client but nobody has been delegated yet
-        if (UserUtil::getVar('uname') == $clientCode && !$assigned && count($managers) == 0) {
+        if (UserUtil::getVar('uname') == $clientCode && count($managers) == 0) {
             return true;
         }
         return false;
@@ -963,32 +900,28 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
-        $assigned = false;
-        foreach ($managers as $manager) {
-            if ($manager['state'] == 1) {
-                $assigned = true;
-            }
+
+        // check if assigned the user can delete de manager
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+            LogUtil::registerError($this->__('No pots esborrar el gestor.'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
         }
+
         // get a particular manager
         $thisManager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $managerId));
         // check if realy the user can delete de manager
-        if ($clientCode != $thisManager['clientCode'] || (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD) && $assigned)) {
-            LogUtil::registerError($this->__('No pots esborrar el gestor/a.'));
-            return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
-        }
-        // check if realy the user can delete de manager
         if (UserUtil::getVar('uname') == $thisManager['managerUName']) {
-            LogUtil::registerError($this->__('No et pots esborrar a tu mateix/a com a gestor/a.'));
+            LogUtil::registerError($this->__('No et pots esborrar a tu mateix com a gestor.'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
         }
         // the use can delete the manager
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'deleteManager', array('managerId' => $managerId))) {
-            LogUtil::registerError($this->__('S\'ha produït un error en esborrar el gestor/a.'));
+            LogUtil::registerError($this->__('S\'ha produït un error en esborrar el gestor.'));
         } else {
-            LogUtil::registerStatus($this->__('El gestor/a s\'ha esborrat correctament.'));
+            LogUtil::registerStatus($this->__('El gestor s\'ha esborrat correctament.'));
             // insert the action in logs table
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 3,
-                'action' => $this->__f('S\'ha esborrat el gestor amb nom d\'usuari/ària %s', $thisManager['managerUName'])));
+                'action' => $this->__f('S\'ha esborrat el gestor amb nom d\'usuari %s', $thisManager['managerUName'])));
         }
         if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
@@ -1004,7 +937,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      */
     public function addManager($args) {
         $managerUName = FormUtil::getPassedValue('managerUName', isset($args['managerUName']) ? $args['managerUName'] : null, 'POST');
-        $verifyCode = FormUtil::getPassedValue('verifyCode', isset($args['verifyCode']) ? $args['verifyCode'] : null, 'POST');
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             throw new Zikula_Exception_Forbidden();
@@ -1050,50 +982,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
         // the use can add the manager
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'addManager', array('clientCode' => $clientCode,
-                    'managerUName' => $managerUName,
-                    'verifyCode' => $verifyCode))) {
+                    'managerUName' => $managerUName))) {
             LogUtil::registerError($this->__('No s\'ha pogut crear el gestor/a.'));
         } else {
-            LogUtil::registerStatus($this->__('El gestor/a s\'ha creat correctament.'));
+            LogUtil::registerStatus($this->__("El gestor s'ha creat correctament. Aviseu a l'usuari designat que a partir d'ara podrà gestionar els serveis del centre des d'aquest portal."));
             // insert the action in logs table
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 1,
-                'action' => $this->__f('S\'ha afegit un gestor amb nom d\'usuari/ària %s', $managerUName)));
-
-            // Send an e-mail to the manager
-            // 1.- Check module mailer availability
-            $modinfo = ModUtil::getInfo(ModUtil::getIdFromName('Mailer'));
-
-            if ($modinfo['state'] == 3) {
-                global $agora;
-
-                // We need to know service base URL
-                $mailContent = $this->view->assign('baseURL', $agora['server']['server'] . $agora['server']['base'])
-                        ->assign('clientCode', $clientCode)
-                        ->assign('managerUName', $managerUName)
-                        ->fetch('agoraportal_user_sendMailToNewManager.tpl');
-
-                // get client's email (a8000001@xtec.cat)
-                $uidClient = UserUtil::getIdFromName($clientCode);
-                $clientVars = UserUtil::getVars($uidClient);
-
-                // Set destination
-                $toUsers = array($clientVars['email'], $managerUName . '@xtec.cat');
-
-                // Send the e-mail (BCC to site e-mail)
-                $sendMail = ModUtil::apiFunc('Mailer', 'user', 'sendmessage', array('toname' => $clientName,
-                            'toaddress' => $toUsers,
-                            'subject' => __('Gestió dels serveis Àgora'),
-                            'bcc' => System::getVar('adminmail'),
-                            'body' => $mailContent,
-                            'html' => 1));
-
-                if ($sendMail) {
-                    LogUtil::registerStatus($this->__('S\'ha enviat un missatge informatiu'));
-                }
-            }
-
-
-
+                'action' => $this->__f('S\'ha afegit un gestor amb nom d\'usuari %s', $managerUName)));
         }
         if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));

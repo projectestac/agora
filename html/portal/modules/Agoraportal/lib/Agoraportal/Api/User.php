@@ -917,67 +917,38 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * Verify if the verifyCode proposed by the user is correct, then convert the user to clientManager
-     * @author     Fèlix Casanellas (fcasanel@xtec.cat)
-     * @param      The clientCode, verifyCode, uname
-     * @return     True if the delete succed and error otherwise
+     * Confirm a Manager adding it to the managers group
+     * @author     Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @return     True if the confirmation succeed and redirect
      */
-    public function managerAccept($args) {
+    public function managerConfirm($args) {
+        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+            return true;
+        }
+
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
+            return false;
         }
 
-        $clientCode = $args['clientCode'];
+        $username = UserUtil::getVar('uname');
 
-        $pntable = DBUtil::getTables();
-        $c = $pntable['agoraportal_client_managers_column'];
-        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
-
-        if (!$objArray = DBUtil::selectObjectArray('agoraportal_client_managers', $where)) {
-            return LogUtil::registerError($this->__('No s \'ha trobat l\'usuari a la taula de gestors'));
+        $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => $username));
+        // Check if the user is in the Agoraportal_client_managers table
+        if (!$manager) {
+            return false;
         }
 
-        if ($objArray[0]['verifyCode'] != $args['verifyCode']) {
-            return LogUtil::registerError($this->__('La paraula clau de confirmació no coincideix amb la proporcionada pel centre. Assegura\'t de que està ben escrita i, en cas que els problemes persisteixin, contacta amb el gestor/a del centre.'));
-        }
-
-//        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
-        $items = array('state' => 1);
-        if (!DBUtil::updateObject($items, 'agoraportal_client_managers', $where)) {
-            return LogUtil::registerError($this->__('No s \'ha pogut habilitar el gestor'));
-        }
-
-        $items = array('gid' => 4, 'uid' => $args['uid']);
+        $userid = UserUtil::getVar('uid');
+        $groupid = UserUtil::getGroupIdList("name='Managers'");
+        $items = array('gid' => $groupid, 'uid' => $userid);
         if (!DBUtil::insertObject($items, 'group_membership')) {
+            // TODO: This message is not showing!
             return LogUtil::registerError($this->__('No s \'ha pogut habilitar el gestor'));
         }
 
-        return true;
-    }
-
-    /**
-     * Change the client state in client_managers table to -1 (refused)
-     * @author     Fèlix Casanellas (fcasanel@xtec.cat)
-     * @param      The clientCode and the uname
-     * @return     True if the delete succed and error otherwise
-     */
-    public function managerRefuse($args) {
-        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-
-        $clientCode = $args['clientCode'];
-
-        $pntable = DBUtil::getTables();
-        $c = $pntable['agoraportal_client_managers_column'];
-        $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "' AND " . $c['managerUName'] . " = '" . $args['uname'] . "'";
-        $items = array('state' => -1);
-        if (!DBUTil::updateObject($items, 'agoraportal_client_managers', $where)) {
-            return LogUtil::registerError($this->__('No s \'ha pogut fer la cancel·lació'));
-        }
-
+        // TODO: This message is not showing!
+        LogUtil::registerStatus($this->__('Has estat assignat com a gestor del centre '. $manager['clientCode']));
         return true;
     }
 
@@ -1153,14 +1124,10 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $clientCode = $clientInfo['clientCode'];
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
-        $assigned = false;
-        foreach ($managers as $managerOne) {
-            if ($managerOne['state'] == 1)
-                $assigned = true;
-        }
+
         // check if realy the user can delete de manager
-        if ($clientCode != $manager['clientCode'] || (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD) && $assigned) || UserUtil::getVar('uname') == $manager['managerUName']) {
-            return LogUtil::registerError($this->__('No pots esborrar el gestor/a.'));
+        if ((!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) || UserUtil::getVar('uname') == $manager['managerUName']) {
+            return LogUtil::registerError($this->__('No pots esborrar el gestor.'));
         }
         // user can delete the manager and it is deleted from data base
         $deleted = DBUtil::deleteObjectById('agoraportal_client_managers', $args['managerId'], 'managerId');
@@ -1186,7 +1153,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function addManager($args) {
         $managerUName = (isset($args['managerUName'])) ? $args['managerUName'] : null;
-        $verifyCode = (isset($args['verifyCode'])) ? $args['verifyCode'] : null;
         $clientCode = (isset($args['clientCode'])) ? $args['clientCode'] : null;
 
         // Security check
@@ -1205,9 +1171,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('No pots assignar a usuaris genèrics la gestió.'));
         }
         // add the user in database
-        $item = array('clientCode' => $clientCode,
-            'managerUName' => $managerUName,
-            'verifyCode' => $verifyCode);
+        $item = array('clientCode' => $clientCode, 'managerUName' => $managerUName);
         $newId = DBUtil::insertObject($item, 'agoraportal_client_managers', 'managerId');
         if (!$newId) {
             return LogUtil::registerError($this->__('L\'intent de creació ha fallat'));
