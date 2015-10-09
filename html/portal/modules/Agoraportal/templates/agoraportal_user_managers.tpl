@@ -7,7 +7,7 @@
     {/if}
     {if $accessLevel eq 'comment'}
     <div class="z-informationmsg">
-        {gt text='Els centres docents només poden designar el primer gestor/a. Una vegada ho hagin fet i aquest/a hagi acceptat, no podran assignar a cap altra persona aquesta responsabilitat. Tot i això, en tot moment podran consultar la llista de gestors, així com l\'estat dels serveis sol·licitats. Cada centre pot tenir fins a <u>tres gestors</u>.'}
+        {gt text='Els centres docents poden designar fins a <strong>quatre persones</strong> com a gestores dels serveis d\'Àgora del centre. En tot moment podran consultar la llista de gestors, així com l\'estat dels serveis sol·licitats.'}
         <br />
     </div>
     {/if}
@@ -15,39 +15,14 @@
     {if $managers|@count gt 0}
     <div class="z-form">
         <fieldset>
-            <legend>{gt text='Persones que poden administrar els serveis del centre'} </legend>
+            <legend>{gt text='Gestors dels serveis del centre'} </legend>
             <table style="margin: 10px 30px 10px 30px;">
-                <th>
-                    {gt text='Usuari/ària'}
-                </th>
-                <th>
-                    {gt text='Estat'}
-                </th>
-                <th>
-                    {gt text='Esborra'}
-                </th>
+                <th>{gt text='Usuari'}</th>
+                <th>{gt text='Esborra'}</th>
                 {foreach item="manager" from=$managers}
-                {if $manager.state eq 1}
-                {assign var="stateStyle" value="actived"}
-                {elseif $manager.state eq -1}
-                {assign var="stateStyle" value="denegated"}
-                {else}
-                {assign var="stateStyle" value="toCheck"}
-                {/if}
                 <tr>
-                    <td width="120">
-                        <div class="{$stateStyle}">{$manager.managerUName}</div>
-                    </td>
-                    <td width="220">
-                        {if $manager.state eq 1}
-                        {gt text='És un gestor/a del centre'}
-                        {elseif $manager.state eq -1}
-                        {gt text='L\'usuari/ària ha rebutjat l\'encàrrec'}
-                        {else}
-                        {gt text='L\'usuari/ària ha d\'acceptar l\'encàrrec'}
-                        {/if}
-                    </td width="120">
-                    {if $canDelegate || ($managers|@count eq 1 && $manager.state lt 1 && $accessLevel eq 'comment') || $accessLevel == 'add'}
+                    <td width="120" class="actived">{$manager.managerUName}</td>
+                    {if $canDelegate || $accessLevel eq 'comment' || $accessLevel == 'add'}
                     <td>
                         {if $uname neq $manager.managerUName}
                         {assign var='managerName' value=$manager.managerUName}
@@ -71,18 +46,16 @@
     {if $canDelegate && $managers|@count lt 4}
     <form id="addManager" class="z-form" action="{modurl modname='Agoraportal' type='user' func='addManager'}" method="post" enctype="application/x-www-form-urlencoded">
         <fieldset>
-            <legend>{gt text='Creació de gestors addicionals'}</legend>
+            <legend>{gt text='Afegeix un gestor'}</legend>
             <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
             <input type="hidden" name="clientCode" value="{$client.clientCode}" />
             <div class="z-formrow">
-                <label for="managerUName">{gt text="Nom d'usuari/ària XTEC del gestor/a"}:</label>
+                <label for="managerUName">{gt text="Nom d'usuari <strong>XTEC</strong> del gestor"}:</label>
                 <input name="managerUName" type="text" name="managerUName" />
             </div>
             <div class="z-formrow">
-                <label for="verifyCode">{gt text='Paraula clau de confirmació'}:</label>
-                <input name="verifyCode" type="text" name="verifyCode" />			
                 <div class="z-warningmsg z-formnote">
-                    {gt text='La persona designada com a gestora haurà d\'acceptar i escriure la paraula clau de confirmació indicada. Per fer-ho, haurà d\'entrar en aquest portal.'}
+                    {gt text="Aviseu a l'usuari designat que a partir d'ara podrà gestionar els serveis del centre des d'aquest portal."}
                 </div>
             </div>
             <div class="z-center">
@@ -110,8 +83,8 @@
     </form>
     {/if}
     <script>
-        var _AGORAPORTALCONFIRMMANAGERDELETION = "{{gt text='Confirmeu que voleu esborrar el gestor/a.'}}";
-        var _AGORAPORTALNOTUSERNAME = "{{gt text='No heu escrit el nom d\'usuari/ària XTEC.'}}";
-        var _AGORAPORTALNOTCONFIRMKEY = "{{gt text='No heu escrit la paraula clau de confirmació.'}}";
+        var _AGORAPORTALCONFIRMMANAGERDELETION = "{{gt text='Confirmeu que voleu esborrar el gestor.'}}";
+        var _AGORAPORTALNOTUSERNAME = "{{gt text='No heu escrit el nom d\'usuari XTEC.'}}";
+        var _AGORAPORTALUSERNAMENOTVALID = "{{gt text='No heu escrit un nom d\'usuari XTEC vàlid.'}}";
     </script>
 </div>

@@ -6,6 +6,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+PORTAL
+- Agoraportal: removed usage of confirmation word to become a manager (Trello #997)
+
 
 
 

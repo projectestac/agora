@@ -808,8 +808,8 @@ function addManager() {
         alert(_AGORAPORTALNOTUSERNAME);
         error = true;
     }
-    if (f.verifyCode.value == '' && !error) {
-        alert(_AGORAPORTALNOTCONFIRMKEY);
+    if (!error && f.managerUName.value.length > 8) {
+        alert(_AGORAPORTALUSERNAMENOTVALID);
         error = true;
     }
     if (!error) {

@@ -174,14 +174,10 @@ function Agoraportal_tables() {
     $table['agoraportal_client_managers'] = DBUtil::getLimitedTablename('agoraportal_client_managers');
     $table['agoraportal_client_managers_column'] = array('managerId' => 'managerId',
         'clientCode' => 'clientCode',
-        'managerUName' => 'managerUName',
-        'verifyCode' => 'verifyCode',
-        'state' => 'state');
+        'managerUName' => 'managerUName');
     $table['agoraportal_client_managers_column_def'] = array('managerId' => "I NOTNULL AUTO PRIMARY",
         'clientCode' => "C(15) NOTNULL DEFAULT ''",
-        'managerUName' => "C(15) NOTNULL DEFAULT ''",
-        'verifyCode' => "C(15) NOTNULL DEFAULT ''",
-        'state' => "I(1) NOTNULL DEFAULT '0'");
+        'managerUName' => "C(15) NOTNULL DEFAULT ''");
     //agoraportal_mysql_comands table definition
     $table['agoraportal_mysql_comands'] = DBUtil::getLimitedTablename('agoraportal_mysql_comands');
     $table['agoraportal_mysql_comands_column'] = array('comandId' => 'comandId',

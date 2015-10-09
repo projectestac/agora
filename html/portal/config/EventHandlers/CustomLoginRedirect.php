@@ -52,8 +52,10 @@ class CustomLoginRedirect extends Zikula_AbstractEventHandler
      */
     public function loginSucceeded(Zikula_Event $event)
     {
-        // This url automatically redirect to clientList or home if myAgora is not avalaible
-        $returnUrl = ModUtil::url('Agoraportal', 'user', 'myAgora');
-        $event->setArg('redirecturl', $returnUrl);
+        if (ModUtil::apiFunc('Agoraportal', 'user', 'managerConfirm')) {
+            // This url automatically redirect to clientList or home if myAgora is not avalaible
+            $returnUrl = ModUtil::url('Agoraportal', 'user', 'myAgora');
+            $event->setArg('redirecturl', $returnUrl);
+        }
     }
 }
