@@ -14,12 +14,13 @@ filename=$app"_v"$version
 cd /tmp
 git clone https://github.com/projectestac/$app.git
 cd $app
-./update.sh reset
+git submodule update --recursive --init
+
 find . -name '\.git*' -exec rm -rf {} \;
 
 echo "Comprimint $filename.tar.gz"
 tar cfzp ../$filename.tar.gz *
 
 echo "Comprimint $filename.zip"
-zip -r ../$filename.zip .
+zip -r -q ../$filename.zip .
 echo "Fet"
