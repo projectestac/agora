@@ -65,7 +65,7 @@ NODES:
 - BudyyPress-Like: Updated module to version 0.2.0 and improved catalan translation (Trello #793)
 - bbPress: Updated module to version 2.5.8 (Trello #793)
 - bbPress: Fixed media upload using Fancy Editor (GitHub #130)
-- Theme reactor-primaria-1: Added fields for custom CSS (GitHub #253)
+- Theme reactor-primaria-1: Added fields for custom CSS (GitHub #268)
 - Set default selected image size to large on page and article creation
 - BuddyPress Activity Plus: Updated module to version 1.6.2 (Trello #793)
 - Raw HTML: Upgraded to version 1.4.15 (Trello #793)
