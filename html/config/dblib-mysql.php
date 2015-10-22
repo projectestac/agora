@@ -360,7 +360,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
         $cookie = $_COOKIE[$agora['server']['cookie']];
         if (isValidCookie($cookie)) {
             $data = explode('__', $cookie);
-            if (count($data) == 15 && $data[0] == $dns) {
+            if (count($data) == 16 && $data[0] == $dns) {
                 $school_info['clientCode'] = $data[1];
                 $school_info['id_moodle2'] = $data[2];
                 $school_info['database_moodle2'] = $data[3];
@@ -374,10 +374,10 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 $school_info['database_nodes'] = $data[11];
                 $school_info['dbhost_nodes'] = $data[12];
                 $school_info['diskPercent_nodes'] = $data[13];
+                $school_info['type'] = $data[14];
 
                 // Debug info
                 $school_info['source'] = 'Cookie';
-
                 return $school_info;
             }
         }
@@ -392,7 +392,6 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 $school_info = $schools[$dns];
             }
         }
-
         if (isset($school_info)) {
             // Redirect to New DNS directly
             if (!empty($school_info['new_dns'])) {
@@ -445,7 +444,8 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 . '__' . (isset($school_info['id_nodes']) ? $school_info['id_nodes'] : '')
                 . '__' . (isset($school_info['database_nodes']) ? $school_info['database_nodes'] : '')
                 . '__' . (isset($school_info['dbhost_nodes']) ? $school_info['dbhost_nodes'] : '')
-                . '__' . (isset($school_info['diskPercent_nodes']) ? $school_info['diskPercent_nodes'] : '');
+                . '__' . (isset($school_info['diskPercent_nodes']) ? $school_info['diskPercent_nodes'] : '')
+                . '__' . (isset($school_info['type']) ? $school_info['type'] : '');
 
         // Add hash to the text for the cookie
         $cookiesalt = $agora['admin']['username'] . substr($agora['admin']['userpwd'], 0, 3);
@@ -1023,4 +1023,17 @@ function connect_nodes($school) {
     } catch (Exception $e) {
         return false;
     }
+}
+
+/**
+ * Check if the center is a "servei educatiu"
+ * @return bool
+ */
+function isServeiEducatiu()
+{
+    global $school_info;
+
+    if(!$school_info) getSchoolInfo('nodes');
+
+    return isset($school_info['type']) && $school_info['type'] == SERVEI_EDUCATIU_ID ? true : false;
 }
