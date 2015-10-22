@@ -69,6 +69,8 @@
     $agora['recaptchapublickey']='6LcgQgsAAAAAAMZKqiYEDAhniHIY0hXC-MMVM6Rs';
     $agora['recaptchaprivatekey']='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 
+    define('SERVEI_EDUCATIU_ID', 5);
+
     // Load restricted vars
     include_once $agora['server']['root'] . 'html/config/config-restricted.php';
 
