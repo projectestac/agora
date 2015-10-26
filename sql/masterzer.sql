@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: pdb-int:3308
--- Temps de generació: 16-10-2015 a les 14:03:25
+-- Temps de generació: 27-10-2015 a les 00:20:33
 -- Versió del servidor: 5.5.38
 -- Versió de PHP : 5.4.16
 
@@ -777,7 +777,7 @@ CREATE TABLE `wp_options` (
   `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2030 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2031 ;
 
 --
 -- Bolcant dades de la taula `wp_options`
@@ -1110,7 +1110,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (2023, '_transient_timeout_feed_mod_399a5712149df56f3495904f4224b5e2', '1444790163', 'no'),
 (2024, '_transient_feed_mod_399a5712149df56f3495904f4224b5e2', '1444746963', 'no'),
 (2027, '_site_transient_timeout_theme_roots', '1444808001', 'yes'),
-(2028, '_site_transient_theme_roots', 'a:2:{s:18:"reactor-primaria-1";s:7:"/themes";s:7:"reactor";s:7:"/themes";}', 'yes');
+(2028, '_site_transient_theme_roots', 'a:2:{s:18:"reactor-primaria-1";s:7:"/themes";s:7:"reactor";s:7:"/themes";}', 'yes'),
+(2030, 'common_css', 'body.buddypress .addtoany_share_save_container { display:none; } @media screen and (max-width: 48.063em) { body.single #sidebar { display:none; } }', 'yes');
 
 -- --------------------------------------------------------
 
