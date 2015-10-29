@@ -20,7 +20,7 @@ $lastCronSuccessfull = ModUtil::func('IWmain', 'user', 'userGetVar', array('uid'
             'name' => 'lastCronSuccessfull',
             'module' => 'Queues_cron',
             'sv' => $sv));
-if ($lastCronSuccessfull > time()- 5 * 60) { // Every 5 minutes
+if ($lastCronSuccessfull > time()- 4 * 60) { // Every 4 minutes
     if (isset($_REQUEST['return']) && $_REQUEST['return'] == 1) {
         LogUtil::registerError(__('The cron has been executed too recenty', $dom));
         return System::redirect(ModUtil::url('IWmain', 'admin', 'main'));
