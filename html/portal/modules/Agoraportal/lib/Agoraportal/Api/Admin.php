@@ -657,6 +657,82 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             }
         }
 
+// XTEC ************ AFEGIT - Now update serialized wp_postmeta fields
+// 2015.10.28 @nacho Abejaro       
+        
+        $fields = array ('slides');        
+        foreach ($fields as $field) {
+        	
+        	$sql = "SELECT meta_value FROM $prefix" . "_postmeta WHERE meta_key = '$field'";
+        	$result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+        			'sql' => $sql,
+        			'serviceName' => 'nodes',
+        			'host' => $dbHost,
+        	));
+        	$values = $result['values'];
+        	        	
+        	if (is_array($values)) {
+        		foreach ($values as $key => $Initialvalue) {
+        			$Initialvalue = $Initialvalue['meta_value'];
+        			
+        			if ($this->is_serialized($Initialvalue)) {
+        				$value = unserialize($Initialvalue);
+        				
+        				$leng = count($value);
+        				for ($i=0; $i<=$leng; $i++){
+        					if ( !empty($value[$i]['url']) ){
+        						// Change Site Url for ZER model
+        						$value = $this->replaceTree($value[$i]['url'], $siteURL, $value);
+        					}
+        				}
+			
+						// Scape apostrophes for MySQL
+        				$newValue = str_replace("'", "''", serialize($value));      				
+
+        				$sql = "UPDATE $prefix" . "_postmeta set meta_value='$newValue' WHERE meta_key='$field' AND meta_value='$Initialvalue';";
+        				$result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+        						'sql' => $sql,
+        						'serviceName' => 'nodes',
+        						'host' => $dbHost,
+        				));
+        						 
+        				if (!$result) {
+        					LogUtil::registerError($this->__('No s\'ha pogut actualitzar la taula wp_postmeta: ' . $sql));
+        					return false;
+						}
+        			}
+        		}
+        	}
+        }
+        
+        // Now update serialized nodesbox_name field
+        $sql = "SELECT option_value FROM $prefix" . "_options WHERE option_name ='blogname'";
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+        		'sql' => $sql,
+        		'serviceName' => 'nodes',
+        		'host' => $dbHost,
+        ));
+        $values = $result['values'];
+        
+        if (is_array($values)) {
+        	foreach ($values as $key => $Initialvalue) {
+        		$Initialvalue = $Initialvalue['option_value'];
+			    
+        		$sql = "UPDATE $prefix" . "_options SET option_value='$Initialvalue' WHERE option_name='nodesbox_name' ";
+			    $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executeSQL', array('database' => $db,
+			       		'sql' => $sql,
+			       		'serviceName' => 'nodes',
+			       		'host' => $dbHost,
+			    ));
+        	}
+        }
+        
+        if (!$result) {
+        	LogUtil::registerError($this->__('No s\'ha pogut actualitzar el camp nodesbox_name de la taula wp_options: ' . $sql));
+        	return false;        	
+        }
+//************ FI
+
         // Directory for the new site files
         $targetDir = $agora['server']['root'] . $agora['nodes']['datadir'] . $dbUser . '/';
 
@@ -707,7 +783,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *  Find free database number
      *
      * @author		Albert Pérez Monfort (aperezm@xtec.cat)
-     * @author     Toni Ginard
+     * @author     	Toni Ginard
      *
      * @param  		Client-service identity
      *
