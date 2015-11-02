@@ -1889,7 +1889,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $command = 'php '.$command.' > /dev/stdout 2>&1';
         $last = exec($command, $result);
 
-        $success = $last != 'error';
+        $success = $last == 'success';
         $result = nl2br(implode("\n", $result));
 
         if (empty($result)) {
