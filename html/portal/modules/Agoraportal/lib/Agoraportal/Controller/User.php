@@ -312,8 +312,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         }
         if ($clientCode == null) {
             if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-                //LogUtil::registerError($this->__('No s'ha trobat el client'));
-                return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
+                return LogUtil::registerError($this->__('No s\'ha trobat el client'));
             } else {
                 throw new Zikula_Exception_Forbidden();
             }
@@ -327,15 +326,12 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         if (!$client) {
             if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-                LogUtil::registerError($this->__('No s\'ha trobat el client'));
-                return System::redirect(ModUtil::url('Agoraportal', 'admin', 'clientsList'));
+                return LogUtil::registerError($this->__('No s\'ha trobat el client'));
             } else {
-                LogUtil::registerError("No teniu accés a cap servei. Això pot ser degut a un error.");
-                return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
+                return LogUtil::registerError("No teniu accés a cap servei");
             }
         }
-        return array('client' => $client,
-            'clientCode' => $clientCode);
+        return array('client' => $client, 'clientCode' => $clientCode);
     }
 
     /**

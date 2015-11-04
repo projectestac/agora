@@ -44,7 +44,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('L\'intent de creació ha fallat'));
         }
 
-        Loader::LoadClass('UserUtil');
+        //Loader::LoadClass('UserUtil');
         $idGroupClients = UserUtil::getGroupIdList('name=\'Clients\'');
 
         if (!isset($args['dontAddToGroup']) && !ModUtil::apiFunc('Groups', 'user', 'isgroupmember', array('gid' => $idGroupClients,
@@ -153,14 +153,11 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * Generic function to activate services. Does common operations and calls
      * specific function to complete the activation process
      *
-     * @global array $agora
      * @param array $args
      * @return boolean
      * @throws Zikula_Exception_Forbidden
      */
     public function activeService($args) {
-        global $agora;
-
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -264,9 +261,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         // insert the action in logs table
-        ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode,
+        ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $client['clientCode'],
             'actionCode' => 2,
             'action' => $this->__f('S\'ha aprovat la sol·licitud del servei %s', $serviceName)));
+
+        $log = array();
+        $log['clientId'] = $client['clientId'];
+        $log['clientCode'] = $client['clientCode'];
+        $log['serviceId'] = $serviceId;
+        $log['clientServiceId'] = $clientServiceId;
+        $log['password'] = $password;
+        $log['clientDNS'] = $client['clientDNS'];
+        $log['timeCreated'] = time();
+        DBUtil::insertObject($log, 'agoraportal_enable_service_log');
 
         $return = array('serviceDB' => $serviceDB, 'password' => $password);
         if ($result !== true && is_numeric($result)) {
@@ -331,7 +338,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $params['clientAddress'] = $client['clientAddress'];
         $params['clientCity'] = $client['clientCity'];
         $params['clientDNS'] = $client['clientDNS'];
-         $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+        $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
                     array('operation' => 'script_enable_service',
                         'clientId' => $client['clientId'],
                         'serviceId' => $service['serviceId'],
@@ -544,18 +551,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $params['shortcodes'] = implode(',',$shortcodes);
         $params['DBNodesModel'] = ModUtil::getVar('Agoraportal', 'DBNodesModel');
 
-        $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addExecuteOperation',
-                    array('operation' => 'script_enable_service',
-                        'clientId' => $client['clientId'],
-                        'serviceId' => $service['serviceId'],
-                        'params' => $params
-                    ));
-        if (!$operation['success']) {
-            LogUtil::registerError($this->__('Ha fallat l\'activació del servei. Error:' . $operation['result']));
+        $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+                array('operation' => 'script_enable_service',
+                    'clientId' => $client['clientId'],
+                    'serviceId' => $service['serviceId'],
+                    'params' => $params
+                ));
+
+        if (!$operation['id']) {
+            LogUtil::registerError('No s\'ha pogut afegir la operació d\'activació del servei');
             return false;
         }
-
-        return $operation['success'];
+        LogUtil::registerStatus('S\'està activant el servei... si no s\'activa aneu a les cues');
+        return $operation['id'];
     }
 
     /**
@@ -1961,7 +1969,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      *
      * @return boolean true or false
      */
-     function is_serialized($data) {
+    function is_serialized($data) {
         $data_unserialized = @unserialize($data);
         if ($data === 'b:0;' || $data_unserialized !== false) {
             return true;
@@ -1969,6 +1977,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return false;
         }
     }
+
     /**
      * Replace string recursively in multidimensional array
      *
