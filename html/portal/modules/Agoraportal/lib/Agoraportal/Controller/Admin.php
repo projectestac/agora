@@ -4158,4 +4158,212 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         return $view->fetch('agoraportal_admin_queues.tpl');
     }
+
+    /**
+     * Creates services in batch mode
+     * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @param:      The list of services to create
+     * @return:     The edit form
+     */
+    public function createBatch($args) {
+        $schoolCodes = FormUtil::getPassedValue('schoolCodes', isset($args['schoolCodes']) ? $args['schoolCodes'] : null, 'POST');
+        $service = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : 0, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', isset($args['dbHost']) ? $args['dbHost'] : null, 'POST');
+        $template = FormUtil::getPassedValue('template', isset($args['template']) ? $args['template'] : null, 'POST');
+        $createClient = FormUtil::getPassedValue('createClient', isset($args['createClient']) ? $args['createClient'] : null, 'POST');
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+
+        return $this->view->assign('schoolCodes', $schoolCodes)
+                        ->assign('service', $service)
+                        ->assign('services', $services)
+                        ->assign('dbHost', $dbHost)
+                        ->assign('template', $template)
+                        ->assign('createClient', $createClient)
+                        ->fetch('agoraportal_admin_createBatch.tpl');
+    }
+
+    /**
+     * Creates services in batch mode
+     * @author:     Pau Ferrer Ocaña (pferre22@xtec.cat)
+     * @param:      The list of services to create
+     * @return:     The edit form
+     */
+    public function createBatch_exec($args) {
+        global $agora;
+
+        $schoolCodes = FormUtil::getPassedValue('schoolCodes', isset($args['schoolCodes']) ? $args['schoolCodes'] : null, 'POST');
+        $service_sel = FormUtil::getPassedValue('service_sel', isset($args['service_sel']) ? $args['service_sel'] : 0, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', isset($args['dbHost']) ? $args['dbHost'] : null, 'POST');
+        $template = FormUtil::getPassedValue('template', isset($args['template']) ? $args['template'] : null, 'POST');
+        $createClient = FormUtil::getPassedValue('createClient', isset($args['createClient']) ? $args['createClient'] : null, 'POST');
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        if (empty($schoolCodes)) {
+            LogUtil::registerError('La llista de codis de centre no pot estar buida');
+            return $this->createBatch($args);
+        }
+
+        if (empty($service_sel)) {
+            LogUtil::registerError('S\'ha de seleccionar un servei');
+            return $this->createBatch($args);
+        }
+
+        $service = modUtil::apifunc('Agoraportal', 'user', 'getService', array('serviceId' => $service_sel));
+        if (!$service) {
+            LogUtil::registerError('No s\'ha de troabat el servei '.$service_sel);
+            return $this->createBatch($args);
+        }
+
+        $serviceId = $service['serviceId'];
+        $serviceName = $service['serviceName'];
+
+        if ($serviceName == 'nodes' && empty($template)) {
+            LogUtil::registerError('S\'ha de seleccionar una plantilla en el cas de nodes');
+            return $this->createBatch($args);
+        }
+
+        // Autofill dbHost var with default value. This is a guess. dbHost should come from web form.
+        if ((is_null($dbHost) || empty($dbHost)) && (($serviceName == 'intranet') || ($serviceName == 'nodes'))) {
+            $dbHost = $agora['intranet']['host'];
+        }
+
+        $pntable = DBUtil::getTables();
+        $clientCodes = explode(',', $schoolCodes);
+        $results = array();
+        $success = array();
+        $error = 0;
+        foreach ($clientCodes as $code) {
+            // Check code validity
+            $clientCode = Agoraportal_Api_User::checkCode($code);
+            if (!$clientCode) {
+                $results[$code] = "El codi <strong>$code</strong> no és vàlid.";
+                $error++;
+                continue;
+            }
+
+            // Pas 1: Obtenir les dades del client (taula clients)
+            $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClient', array('clientCode' => $clientCode));
+            if (!$client && $createClient) {
+                $clientName = 'form'.substr($clientCode, -3);
+
+                $c = $pntable['agoraportal_clients_column'];
+                $where = "$c[clientDNS]='$clientName'";
+                $client_exists = DBUtil::selectObject('agoraportal_clients', $where);
+                if ($client_exists) {
+                    $results[$clientCode] = "El centre amb DNS <strong>$clientName</strong> ja existeix, no es pot crear el client";
+                    $error++;
+                    continue;
+                }
+
+                $clientId = ModUtil::apiFunc('Agoraportal', 'admin', 'createClient', array(
+                    'clientCode' => $clientCode,
+                    'clientName' => $clientName,
+                    'clientDNS' => $clientName,
+                    'clientAddress' => "",
+                    'clientCity' => "",
+                    'clientPC' => "",
+                    'clientState' => "",
+                    'clientState' => 1,
+                    'clientDescription' => 'Alta automàtica'));
+                if (!$clientId) {
+                    $results[$clientCode] = "El centre amb codi <strong>$clientCode</strong> no està donat d'alta. I la seva creació ha fallat.";
+                    $error++;
+                    continue;
+                }
+                $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClientById', array('clientId' => $clientId));
+            }
+
+            if (!$client) {
+                $results[$clientCode] = "El centre amb codi <strong>$clientCode</strong> no està donat d'alta. Per tant, no es crea el seu servei.";
+                $error++;
+                continue;
+            }
+
+            $clientId = $client['clientId'];
+            $clientDNS = $client['clientDNS'];
+            $clientName = $client['clientName'];
+            $clientAddress = $client['clientAddress'];
+            $clientCity = $client['clientCity'];
+
+            // Pas 2: Comprovar que el centre encara no té el servei
+            $ClientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientId, 'serviceId' => $serviceId));
+            if ($ClientService) {
+                $results[$clientCode] = "El centre <strong>$clientName</strong> ja disposa del servei. Per tant, no es crearà.";
+                $error++;
+                continue;
+            }
+
+            // Pas 3: Crear el Servei
+            $item = array('serviceId' => $serviceId,
+                'clientId' => $clientId,
+                'contactName' => UserUtil::getVar('uname'),
+                'contactMail' => UserUtil::getVar('email'),
+                'contactProfile' => 'Alta automàtica',
+                'state' => self::STATUS_TOREVISE,
+                'timeRequested' => time(),
+                'diskSpace' => 2000,
+                'observations' => 'Alta automàtica');
+
+
+            if (!$clientService = DBUtil::insertObject($item, 'agoraportal_client_services', 'clientServiceId')) {
+                echo "No s'ha pogut crear el servei Moodle 2 per al centre <strong>$clientDNS</strong>";
+                $error++;
+                continue;
+            }
+
+            $clientServiceId = $clientService['clientServiceId'];
+
+            if ($serviceName == 'nodes') {
+                $c = $pntable['agoraportal_clients_column'];
+                $where = "$c[clientId] = $clientId";
+                $item = array('extraFunc' => $template);
+                DBUTil::updateObject($item, 'agoraportal_clients', $where);
+            }
+
+            // Pas 4: Activar el Servei
+            $result = ModUtil::apiFunc('Agoraportal', 'admin', 'activeService', array(
+                'clientServiceId' => $clientServiceId,
+                'serviceName' => $serviceName,
+                'dbHost' => $dbHost));
+            if (!$result) {
+                // If it fails, delete the recently created agoraportal_client_services
+                ModUtil::apiFunc('Agoraportal', 'admin', 'deleteService', array(
+                    'clientServiceId' => $clientServiceId));
+                $results[$clientCode] = "No s'ha pogut activar el servei";
+                $error++;
+                continue;
+            }
+            $serviceDB = $result['serviceDB'];
+            $password = $result['password'];
+
+            // This call activates the service
+            ModUtil::apiFunc('Agoraportal', 'admin', 'editService', array('clientServiceId' => $clientServiceId,
+                        'items' => array('state' =>  self::STATUS_ENABLED,
+                        'dbHost' => $dbHost,
+                        'serviceDB' => $serviceDB,
+                        'timeEdited' => time())));
+
+            $results[$clientCode] = "S'ha creat el servei per al centre <strong>$clientCode</strong> i password <strong>$password</strong>";
+            $success[$clientCode] = true;
+        }
+
+        return $this->view->assign('schoolCodes', $schoolCodes)
+                        ->assign('service', $service)
+                        ->assign('services', $services)
+                        ->assign('results', $results)
+                        ->assign('success', $success)
+                        ->assign('error', $error)
+                        ->assign('dbHost', $dbHost)
+                        ->assign('template', $template)
+                        ->assign('serviceName', $serviceName)
+                        ->assign('createClient', $createClient)
+                        ->fetch('agoraportal_admin_createBatch_exec.tpl');
+    }
 }

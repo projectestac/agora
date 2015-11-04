@@ -698,6 +698,30 @@ function Agoraportal_tables() {
         'diskConsume' => 'I NOTNULL DEFAULT 0',
         );
 
+    // agoraportal_queues definition
+    $table['agoraportal_enable_service_log'] = DBUtil::getLimitedTablename('agoraportal_enable_service_log');
+    $table['agoraportal_enable_service_log_column'] = array(
+        'id' => 'id',
+        'clientId' => 'clientId',
+        'clientCode' => 'clientCode',
+        'serviceId' => 'serviceId',
+        'clientServiceId' => 'clientServiceId',
+        'password' => 'password',
+        'clientDNS' => 'clientDNS',
+        'timeCreated' => 'timeCreated'
+    );
+
+    $table['agoraportal_enable_service_log_column_def'] = array(
+        'id' => "I NOTNULL AUTO PRIMARY",
+        'clientId' => "I NOTNULL",
+        'clientCode' => "C(50) NOTNULL DEFAULT ''",
+        'serviceId' => "I NOTNULL",
+        'clientServiceId' => "I NOTNULL",
+        'password' => "C(50) NOTNULL DEFAULT ''",
+        'clientDNS' => "C(50) NOTNULL DEFAULT ''",
+        'timeCreated' => "I(20)"
+    );
+
     return $table;
 }
 

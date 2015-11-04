@@ -45,9 +45,9 @@ MOODLE:
   - Mod and qformat Hotpot
   - Mod Questionnaire
 
-
 PORTAL
-- Agoraportal: removed usage of confirmation word to become a manager (Trello #997)
+- Agoraportal: Removed usage of confirmation word to become a manager (Trello #997)
+- Agoraportal: Moved createServices.php to portal and added support for Nodes (Trello #996)
 
 ZIKULA
 - AuthLDAP: Synced changes from portal

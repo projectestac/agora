@@ -1762,6 +1762,21 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         return $serviceActive;
     }
 
+    /**
+     * Check correct format value of school code
+     *
+     * @param string $clientCode
+     * @return string $clientCode or bool false
+     */
+    public static function checkCode($code) {
+        $code = trim($code);
+        $pattern = '/^[abce]\d{7}$/'; // Matches a1234567
+        if (preg_match($pattern, $code)) {
+            return $code;
+        }
+        return false;
+    }
+
 }
 
 class order {

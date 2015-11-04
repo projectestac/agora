@@ -41,6 +41,8 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
             return false;
         if (!DBUtil::createTable('agoraportal_queues_log'))
             return false;
+        if (!DBUtil::createTable('agoraportal_enable_service_log'))
+            return false;
 
         // Do not stop in case of error
         DBUtil::createTable('agoraportal_mysql_comands');
@@ -236,6 +238,9 @@ class Agoraportal_Installer extends Zikula_AbstractInstaller {
                 DBUtil::executeSQL($sql);
                 $sql = "ALTER TABLE agoraportal_client_managers DROP state;";
                 DBUtil::executeSQL($sql);
+            case '2.0.18':
+                if (!DBUtil::createTable('agoraportal_enable_service_log'))
+                    return false;
 
             /* IMPORTANT: DBUtil::changeTable elimina els índexos. Cal
              * afegir una comprovació amb DBUtil::metaIndexes per saber
