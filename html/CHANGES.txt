@@ -9,6 +9,8 @@ Changes in progress
 PORTAL
 - Agoraportal: removed usage of confirmation word to become a manager (Trello #997)
 
+ZIKULA
+- AuthLDAP: Synced changes from portal
 
 
 

@@ -128,7 +128,21 @@ class AuthLDAP_Listeners {
         LogUtil::getErrorMessages();
 
         UserUtil::setUserByUid($uid);
-        return System::redirect('index.php');
+        
+        $eventArgs = array();
+        $event = new Zikula_Event('module.users.ui.login.succeeded', $user, $eventArgs);
+        $manager = EventUtil::getManager();
+        $event = $manager->notify($event);
+
+        $returnPage = $event->hasArg('redirecturl') ? $event->getArg('redirecturl') : $returnPage;
+
+        if (empty($returnPage)) {
+            $returnPage = 'index.php';
+        }
+
+        System::redirect($returnPage);
+
+        return true;
     }
 
 }
