@@ -330,7 +330,7 @@ function getSchoolInfo($service) {
 // Envia a una pàgina d'error
 function school_error($service) {
     if (defined('CLI_SCRIPT')) {
-        echo 'Center '.$centre.' not enabled';
+        echo 'Center '.$_REQUEST['ccentre'].' not enabled';
         echo "\nerror\n";
     } else {
         header('location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
@@ -396,7 +396,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
         if (isset($school_info)) {
             // Redirect to New DNS directly
             if (!empty($school_info['new_dns'])) {
-                redirectNewDNS($centre, $school_info['new_dns'], $service);
+                redirectNewDNS($dns, $school_info['new_dns'], $service);
             }
 
             // Debug info
@@ -419,7 +419,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
 
         // Redirect to New DNS directly
         if (!empty($school_info['new_dns'])) {
-            redirectNewDNS($centre, $school_info['new_dns'], $service);
+            redirectNewDNS($dns, $school_info['new_dns'], $service);
         }
 
         // Debug info
@@ -458,13 +458,24 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     return $school_info;
 }
 
+/**
+ * Redirects a service that has changed the DNS (with 301) in CLI case, only notifies and dies
+ *
+ * @param $oldDNS old DNS (only for CLI)
+ * @param $newDNS new DNS where to redirect
+ * @param $service Service to be able to build the URL
+ */
 function redirectNewDNS($oldDNS, $newDNS, $service) {
     if (defined('CLI_SCRIPT')) {
         echo 'Center '.$oldDNS.' has new address: '.$newDNS;
         echo "\nerror\n";
     } else {
-        $newadress = WWWROOT . $newDNS.'/'.$service;
-        header('location: '.WWWROOT.'error.php?newaddress='.$newadress);
+        $newaddress = WWWROOT . $newDNS . '/';
+        if ($service != 'nodes') {
+            $newaddress .= $service . '/';
+        }
+        header ('HTTP/1.1 301 Moved Permanently');
+        header ('Location: ' . $newaddress);
     }
     exit(0);
 }
