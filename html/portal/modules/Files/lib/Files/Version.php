@@ -23,7 +23,7 @@ class Files_Version extends Zikula_AbstractVersion
     public function getMetaData()
     {
         $meta=array();
-        $meta['version'] = '1.0.1';
+        $meta['version'] = '1.0.3';
         $meta['description'] = $this->__('File manager for Zikula sites.');
         $meta['displayname'] = $this->__('File Manager');
         $meta['url'] = $this->__('files');

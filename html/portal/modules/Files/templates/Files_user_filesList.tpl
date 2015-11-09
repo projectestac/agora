@@ -142,9 +142,18 @@
                                  {$file.name}
                              </a>
                          {else}
-                             <a href="" onclick="javascript:alert('{gt text="Move the file to a public directory to get an access URL"}');" title="{gt text="Move the file to a public directory to get an access URL"}" class="fi_image" style="background: url({$baseurl}modules/Files/images/fileIcons/{$file.fileIcon}) no-repeat 0 50%;">
-                                 {$file.name}
-                             </a>
+{* XTEC ************ MODIFICAT - Modified download link por private folders * }
+{* // 2015.10.01 @author Nacho Abejaro *}
+                            {foreach item=option from=$file.options}
+                                <a href="{$option.url|safetext}">{$file.name}</a>
+                                {break}
+                            {/foreach}
+{* ORIGINAL *}
+                            {* <a href="" onclick="javascript:alert('{gt text="Move the file to a public directory to get an access URL"}');" title="{gt text="Move the file to a public directory to get an access URL"}" class="fi_image" style="background: url({$baseurl}modules/Files/images/fileIcons/{$file.fileIcon}) no-repeat 0 50%;">
+                                {$file.name}
+                            </a> 
+                            *}
+{* //************ FI *}
                          {/if}
                      </td>
                      <td align="right">

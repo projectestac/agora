@@ -1,4 +1,7 @@
-	
+/*
+Deprecated functions
+Only to  keep compatibility with old version of Xinha plugin, playing in no-updated Scribite module
+*/
 function FilesFindItemXinha(editor, maURL) {
     editor._popupDialog(maURL ,
         function(val){
@@ -22,7 +25,9 @@ function getFileName (value) {
     var filename = value.substr(value.lastIndexOf('/')+1,value.length);
     return filename;
 }
-
+/*
+End of dreprecated functions
+*/
 function modifySize(folder,image,factor,action,editor)
 {
     var pars = {
