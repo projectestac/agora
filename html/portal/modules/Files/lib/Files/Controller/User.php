@@ -436,7 +436,7 @@ class Files_Controller_User extends Zikula_AbstractController {
         header($header);
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: " . $fileSize);
-        readfile($initFolderPath . '/' . $file);
+        @readfile($initFolderPath . '/' . $file);
         return true;
     }
 

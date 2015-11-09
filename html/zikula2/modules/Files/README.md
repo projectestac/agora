@@ -1,6 +1,6 @@
 Files module
 ============
-Files module 1.0.2 **for Zikula 1.3.x**
+Files module 1.0.3 **for Zikula 1.3.x**
 
   - The module Files **allow users to manage their own files**. They can upload, rename, delete, zip and unzip files and folders. The users can decide if a folder is **public or private**. If a folder is set as public files stored in it are accessible trough the file *file.php*.
   - Administrators can set different **quotas** for different groups of users.

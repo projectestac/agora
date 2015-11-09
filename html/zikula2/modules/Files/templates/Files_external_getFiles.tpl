@@ -293,8 +293,9 @@
 			}
         }
         function menuOptions(file) {
-            file = file.split('.');
-            file = file.join('\\.');
+            //file = file.split('.');
+            //file = file.join('\\.');
+            file = file.replace( /(:|\.|\[|\]|,|\(|\))/g, "\\$1" );
             var index = "#menu_"+file;
             var newTarget = jQuery(index);
             jQuery('.menuTriggered').not(newTarget).slideUp('fast');

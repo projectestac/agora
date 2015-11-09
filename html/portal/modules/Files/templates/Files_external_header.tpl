@@ -23,8 +23,18 @@
 		<script type="text/javascript" src="javascript/helpers/Zikula.js"></script>
 		<script type="text/javascript" src="modules/Files/javascript/files.js"></script>
         <script src="modules/Files/javascript/getFiles.js" type="text/javascript"></script>
-        {if $editor eq 'Xinha'}<script src="modules/Scribite/includes/xinha/popups/popup.js" type="text/javascript"></script>{/if}
-        {if $editor eq 'TinyMCE'}<script type="text/javascript" src="modules/Scribite/includes/tinymce/tiny_mce_popup.js"></script>{/if}
+        {if $editor eq 'Xinha'}
+			{if $scribite_v4}<script src="modules/{$scribite_v4_name}/includes/xinha/popups/popup.js" type="text/javascript"></script>{/if}
+			{if $scribite_v5}<script src="modules/{$scribite_v5_name}/plugins/Xinha/vendor/xinha/popups/popup.js" type="text/javascript"></script>{/if}
+			<script>
+				window.resizeTo(600,600);
+			    __dlg_init(null,{width:600,height:600});
+			</script>
+		{/if}
+        {if $editor eq 'TinyMCE'}
+			{if $scribite_v4}<script type="text/javascript" src="modules/{$scribite_v4_name}/includes/tinymce/tiny_mce_popup.js"></script>{/if}
+			{if $scribite_v5}<script type="text/javascript" src="modules/Files/javascript/tiny_mce_popup_scv4.js"></script>{/if}
+		{/if}
         {if $jquery}
             <script type="text/javascript" src="{$jquery}"></script>
             <script type="text/javascript" src="javascript/jquery/noconflict.js"></script>

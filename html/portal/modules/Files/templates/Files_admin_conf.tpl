@@ -88,10 +88,34 @@
                         <input type="checkbox" id="defaultPublic" name="defaultPublic" value="1" {if $moduleVars.defaultPublic}checked="checked"{/if} />
                     </span>
         		</div>
+				<fieldset>
+					<legend>{gt text="Scribite module (for Files plugins)"}</legend>
+					<div class="z-formrow">
+                		<label for="scribite_v4">{gt text="Scribite module - version 4"}</label>
+                		<span>
+                        	<input type="checkbox" id="scribite_v4" name="scribite_v4" value="1" {if $moduleVars.scribite_v4}checked="checked"{/if} />
+                    	</span>
+						<label for="scribite_v4_name">{gt text="Module name"}</label>
+                		<span>
+                        	<input type="text" id="scribite_v4_name" name="scribite_v4_name" size="20" value="{$moduleVars.scribite_v4_name}" />
+                    	</span>
+        			</div>
+					<div class="z-formrow">
+                		<label for="scribite_v5">{gt text="Scribite module - version 5"}</label>
+                		<span>
+                        	<input type="checkbox" id="scribite_v5" name="scribite_v5" value="1" {if $moduleVars.scribite_v5}checked="checked"{/if} />
+                    	</span>
+						<label for="scribite_v5_name">{gt text="Module name"}</label>
+                		<span>
+                        	<input type="text" id="scribite_v5_name" name="scribite_v5_name" size="20" value="{$moduleVars.scribite_v5_name}" />
+                    	</span>
+        			</div>
+				</fieldset>
             </fieldset>
-            <div class="z-formbuttons">
-                {button src='button_ok.png' set='icons/small' __alt="Save the changes" __title="Save the changes"}
-            </div>
+            <div class="z-formbuttons z-buttons">
+            {button src='button_ok.png' set='icons/extrasmall' __alt='Save' __title='Save' __text='Save'}
+            <a href="{modurl modname='adminpanel' type='admin' func='adminpanel'}">{img modname='core' src='button_cancel.png' set='icons/extrasmall' __alt='Cancel'  __title='Cancel'} {gt text='Cancel'}</a>
+        </div>
         </div>
     </form>
     <div class="z-form">
