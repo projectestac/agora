@@ -77,6 +77,8 @@ class Files_Installer extends Zikula_AbstractInstaller
 				ModUtil::setVar('Files', 'scribite_v4_name', 'Scribite');
 				ModUtil::setVar('Files', 'scribite_v5_name', 'Scribite');
 			case '1.0.2':
+				//void
+			case '1.0.3':
 				//Actual version
         }
         return true;

@@ -37,6 +37,10 @@ class Files_Installer extends Zikula_AbstractInstaller
         ModUtil::setVar('Files', 'maxHeight', '250');
         ModUtil::setVar('Files', 'editableExtensions', 'php,htm,html,htaccess,css,js,tpl');
         ModUtil::setVar('Files', 'usersFolder', 'usersFiles');
+		ModUtil::setVar('Files', 'scribite_v4', false);
+		ModUtil::setVar('Files', 'scribite_v5', true);
+		ModUtil::setVar('Files', 'scribite_v4_name', 'Scribite');
+		ModUtil::setVar('Files', 'scribite_v5_name', 'Scribite');
 
         // Set up module hook
         ModUtil::registerHook('item', 'display', 'GUI', 'Files', 'user', 'Files');
@@ -67,6 +71,15 @@ class Files_Installer extends Zikula_AbstractInstaller
         switch ($oldversion) {
             case '1.0.0':
                  $this->delVar('folderPath');
+			case '1.0.1':
+				ModUtil::setVar('Files', 'scribite_v4', false);
+				ModUtil::setVar('Files', 'scribite_v5', true);
+				ModUtil::setVar('Files', 'scribite_v4_name', 'Scribite');
+				ModUtil::setVar('Files', 'scribite_v5_name', 'Scribite');
+			case '1.0.2':
+				//void
+			case '1.0.3':
+				//Actual version
         }
         return true;
     }

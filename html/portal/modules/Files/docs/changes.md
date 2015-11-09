@@ -1,3 +1,11 @@
+Files 1.0.3
+===========
+  - Fixing Scribite plugin problems (#20)
+
+Files 1.0.2
+===========
+  - Updating Scribite plugins: functional Xinha and TinyMCE plugins for Scribite v4 and v5
+
 Files 1.0.1 - Changes from 1.0.0
 ================================
   - Removed *InteractiveInstall* functions (deprecated on zk 1.3.6).

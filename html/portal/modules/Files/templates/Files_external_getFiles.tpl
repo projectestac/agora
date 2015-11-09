@@ -268,26 +268,34 @@
             if ('{{$editor}}' == 'TinyMCE'){ 
             	var ed = tinyMCEPopup.editor, dom = ed.dom;
             	if(val[0] == 'insertImg'){
-            	tinyMCEPopup.execCommand('mceInsertContent', false, dom.createHTML('img', {
+            	tinyMCEPopup.execCommand('mceReplaceContent', false, dom.createHTML('img', {
             	src : val[1],
             	border : 0
             	}));
             	} else if(val[0] == 'copyURL'){
-            		tinyMCEPopup.execCommand('mceInsertContent', false, Zikula.Config.baseURL+val[1]);
+            		tinyMCEPopup.execCommand('mceReplaceContent', false, Zikula.Config.baseURL+val[1]);
             	}else if (val[0] == 'gotoURL') {
                     window.open(Zikula.Config.baseURL+val[1],'_blank');
             	} else {
-            		tinyMCEPopup.execCommand('mceInsertLink', false, val[1]);
+            		// old code: tinyMCEPopup.execCommand('mceInsertLink', false, val[1]);
+					var text_link = tinyMCEPopup.editor.selection.getContent();
+					if (text_link == '') {
+						htmlLink = '<a href="' + val[1] + '" alt="' + filename + '" title="' + filename + '">' + filename + '</a>';
+					} else {
+						htmlLink = '<a href="' + val[1] + '" alt="' + filename + '" title="' + filename + '">' + text_link + '</a>';
+					}
+					tinyMCEPopup.execCommand('mceReplaceContent', false, htmlLink);
             	}
-            	tinyMCEPopup.close(); 
+            	tinyMCEPopup.close();
 			}
 			if ('{{$editor}}' == 'Xinha') {
             	__dlg_close(val,'tt');
 			}
         }
         function menuOptions(file) {
-            file = file.split('.');
-            file = file.join('\\.');
+            //file = file.split('.');
+            //file = file.join('\\.');
+            file = file.replace( /(:|\.|\[|\]|,|\(|\))/g, "\\$1" );
             var index = "#menu_"+file;
             var newTarget = jQuery(index);
             jQuery('.menuTriggered').not(newTarget).slideUp('fast');
