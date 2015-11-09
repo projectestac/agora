@@ -125,9 +125,17 @@ class Files_Controller_External extends Zikula_AbstractController
                 }
             }
         }
+		$scribite_v4 = ModUtil::getVar('Files', 'scribite_v4');
+        $this->view->assign('scribite_v4', $scribite_v4);
+		$scribite_v5 = ModUtil::getVar('Files', 'scribite_v5');
+        $this->view->assign('scribite_v5', $scribite_v5);
+		$scribite_v4_name = ModUtil::getVar('Files', 'scribite_v4_name');
+        $this->view->assign('scribite_v4_name', $scribite_v4_name);
+		$scribite_v5_name = ModUtil::getVar('Files', 'scribite_v5_name');
+        $this->view->assign('scribite_v5_name', $scribite_v5_name);
         $defaultPublic = ModUtil::getVar('Files', 'defaultPublic');
         $this->view->assign('defaultPublic', $defaultPublic);
-	$this->view->assign('editor', $editor);
+		$this->view->assign('editor', $editor);
         $this->view->assign('folderPath', DataUtil::formatForDisplay($folderPath));
         $this->view->assign('folderName', DataUtil::formatForDisplay($folderName));
         $this->view->assign('fileList', $fileList);

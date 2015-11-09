@@ -45,7 +45,11 @@ class Files_Controller_Admin extends Zikula_AbstractController {
             'maxHeight' => ModUtil::getVar('Files', 'maxHeight'),
             'showHideFiles' => ModUtil::getVar('Files', 'showHideFiles'),
             'editableExtensions' => ModUtil::getVar('Files', 'editableExtensions'),
-        	'defaultPublic' => ModUtil::getVar('Files', 'defaultPublic'));
+        	'defaultPublic' => ModUtil::getVar('Files', 'defaultPublic'),
+			'scribite_v4' => ModUtil::getVar('Files', 'scribite_v4'),
+			'scribite_v5' => ModUtil::getVar('Files', 'scribite_v5'),
+			'scribite_v4_name' => ModUtil::getVar('Files', 'scribite_v4_name'),
+			'scribite_v5_name' => ModUtil::getVar('Files', 'scribite_v5_name'));
         // check if file file.php exists in folder modules/Files
         $fileFileInModule = (file_exists('modules/Files/Resources/extras/file.php')) ? true : false;
         // check if file file.php exists in folder modules/Files
@@ -90,6 +94,10 @@ class Files_Controller_Admin extends Zikula_AbstractController {
         $maxHeight = FormUtil::getPassedValue('maxHeight', isset($args['maxHeight']) ? $args['maxHeight'] : null, 'POST');
         $editableExtensions = FormUtil::getPassedValue('editableExtensions', isset($args['editableExtensions']) ? $args['editableExtensions'] : null, 'POST');
         $defaultPublic = FormUtil::getPassedValue('defaultPublic', $args['defaultPublic']==1 ? $args['defaultPublic'] : 0, 'POST');
+		$scribite_v4 = FormUtil::getPassedValue('scribite_v4', $args['scribite_v4']== true ? true : false, 'POST');
+		$scribite_v5 = FormUtil::getPassedValue('scribite_v5', $args['scribite_v5']== true ? true : false, 'POST');
+		$scribite_v4_name = FormUtil::getPassedValue('scribite_v4_name', isset($args['scribite_v4_name']) ? $args['scribite_v4_name'] : '', 'POST');
+		$scribite_v5_name = FormUtil::getPassedValue('scribite_v5_name', isset($args['scribite_v5_name']) ? $args['scribite_v5_name'] : '', 'POST');
         // Security check
         if (!SecurityUtil::checkPermission('Files::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
@@ -104,7 +112,11 @@ class Files_Controller_Admin extends Zikula_AbstractController {
             'maxWidth' => $maxWidth,
             'maxHeight' => $maxHeight,
             'editableExtensions' => $editableExtensions,
-        	'defaultPublic' => $defaultPublic);
+        	'defaultPublic' => $defaultPublic,
+			'scribite_v4' => $scribite_v4,
+			'scribite_v5' => $scribite_v5,
+			'scribite_v4_name' => $scribite_v4_name,
+			'scribite_v5_name' => $scribite_v5_name);
         if ($usersFolder == '' || $usersFolder == null) {
             LogUtil::registerError($this->__("Users folder can't be empty"));
             return System::redirect(ModUtil::url('Files', 'admin', 'main'));

@@ -1,11 +1,13 @@
 /**
  * editor_plugin_src.js
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
+ * Files plugin for tinymce - Scribite 4
+ * developed by Joan Guillén i Pelegay
+ * https://github.com/zikula-modules/Files
  *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * requires Files module (v 1.0.2+), licensed under GPL
+ *
+ * Distributed under the same terms as Scribite itself.
  */
 
 (function () {
@@ -24,8 +26,8 @@
             ed.addCommand('mceFiles', function () {
                 ed.windowManager.open({
                     file : Zikula.Config.baseURL + Zikula.Config.entrypoint + '?module=Files&type=external&func=getFiles&editor=TinyMCE',
-                    width : (screen.width * 0.75),
-                    height : (screen.height * 0.66),
+                    width : 600,
+                    height : 600,
                     inline : 1,
                     scrollbars : true,
                     resizable : true
@@ -71,7 +73,7 @@
         getInfo : function () {
             return {
                 longname : 'Files for tinymce',
-                author : 'Albert Perez Monfort',
+                author : 'Joan Guillén i Pelegay',
                 authorurl : '',
                 infourl : '',
                 version : '1.0.0'
