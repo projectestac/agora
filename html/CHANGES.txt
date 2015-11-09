@@ -6,6 +6,46 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+MOODLE:
+- Moodle upgraded to from 2.8.9
+- Updated LangPacks
+- AuthIW: auth db is automatically configured if is agora and a intranet is enabled
+- Marsupial Rcontent: Solve problem solving reports
+- Auth/googleoauth2: Solve password lost problem
+- Local Bigdata: Add log of 2.7 to the default profile
+
+- Local Agora:
+  - File Cleeaning stripts Add not matching table file deleting
+  - Scripts: Add categories to scripts
+  - Scripts: Add error message when a suboperation is not found
+  - Scripts: Add success message
+
+- Geogebra:
+  - Add useBrowserForJS attribute
+  - Solve reset errors
+  - Remove fixed protocol in JavaScript file.
+
+- Jclic:
+  - Solve reset errors
+  - Remove fixed protocol in JavaScript file.
+
+- QV:
+  - Solve reset errors
+  - Remove fixed protocol in JavaScript file.
+
+- Report CourseQuotas:
+  - Recount filesize, one file at a time
+  - Add diff info
+  - Add user files
+  - Update chart library
+  - Repair repository files
+
+- 3rd party updated modules:
+  - Local Mobile
+  - Mod and qformat Hotpot
+  - Mod Questionnaire
+
+
 PORTAL
 - Agoraportal: removed usage of confirmation word to become a manager (Trello #997)
 
