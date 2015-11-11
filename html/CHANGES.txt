@@ -4,7 +4,7 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
 
-Changes in progress
+Changes 15.11.16
 ---------------------------------------------------------------------------------------
 MOODLE:
 - Moodle upgraded to from 2.8.9
@@ -44,6 +44,23 @@ MOODLE:
   - Local Mobile
   - Mod and qformat Hotpot
   - Mod Questionnaire
+
+NODES
+- Moved activation script of Nodes to WordPress (Trello #996)
+- Added support to activation script to serialized data in wp_postmeta (Trello #937)
+- Blogger Importer: Upgraded to version 0.9 (Trello #936)
+- wordpress-mu-common: Synced code with XTECBlocs. Changes have no effects to Nodes
+- Stats widget: Added margin-bottom (Trello #1009)
+- Theme reactor-primaria-1: Added new Color Palette "Purple and Green" (GitHub #307)
+- Theme reactor-primaria-1: Improvements to CSS styles and moved content from common_css to code (GitHub #303)
+- wp-recaptcha: Added default configuration for Nodes when activating plugin (Trello #926) 
+- Added ability to decide if a client is "Servei Educatiu" (Trello #981)
+- Added theme reactor-serveis-educatius (Trello #981)
+- Check if the path is absolute or relative to mount the header link (Trello #1008)
+- Fixed admin users not being able to delete users (Trello #991)
+- Blocked access to install.php (Trello #521)
+- Blocked access to bbpress administration to all users but xtecadmin (Trello #980)
+
 
 PORTAL
 - Agoraportal: Removed usage of confirmation word to become a manager (Trello #997)
