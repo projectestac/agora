@@ -29,10 +29,22 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	The list of available services
      */
     public function myAgora($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             throw new Zikula_Exception_Forbidden();
+        }
+
+        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
+        if (!$clientCode) {
+            $username = UserUtil::getVar('uname');
+
+            $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => $username));
+            // Check if the user is in the Agoraportal_client_managers table
+            if (!$manager) {
+                throw new Zikula_Exception_Forbidden();
+            }
+
+            $clientCode = $manager['clientCode'];
         }
         $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;

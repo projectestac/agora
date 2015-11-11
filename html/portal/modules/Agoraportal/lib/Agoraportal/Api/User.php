@@ -922,7 +922,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return     True if the confirmation succeed and redirect
      */
     public function managerConfirm($args) {
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+
+        $groupid = UserUtil::getGroupIdList("name='Managers'");
+        $users = UserUtil::getUsersForGroup($groupid);
+        $userid = UserUtil::getVar('uid');
+        if (in_array($userid, $users)) {
             return true;
         }
 
@@ -939,8 +943,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             return false;
         }
 
-        $userid = UserUtil::getVar('uid');
-        $groupid = UserUtil::getGroupIdList("name='Managers'");
         $items = array('gid' => $groupid, 'uid' => $userid);
         if (!DBUtil::insertObject($items, 'group_membership')) {
             // TODO: This message is not showing!
