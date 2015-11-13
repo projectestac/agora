@@ -197,16 +197,16 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error('no user found');
         }
         $clientCode = FormUtil::getPassedValue('clientCode', -1, 'GET');
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         // get user
         $users = ModUtil::apiFunc('Agoraportal', 'user', 'getUsersToCreate', array('clientCode' => $clientCode,
                     'action' => 1,
                     'uname' => $uname));
         $user = $users[$uname];
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            $isAdmin = true;
-        }
+
+        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('user', $user);
         $view->assign('userRow', $userRow);
@@ -558,7 +558,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         $basename = basename($filename);
 
         $clientCode = FormUtil::getPassedValue('clientCode', '', 'GET');
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
 
         // Removal of file or dir

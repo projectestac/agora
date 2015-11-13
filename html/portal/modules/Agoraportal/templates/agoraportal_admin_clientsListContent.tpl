@@ -52,9 +52,9 @@
                  <a href="{modurl modname='Agoraportal' type='admin' func='editClient' clientId=$client.clientId init=$init search=$search searchText=$searchText}">
                      {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
                  </a>
-                 <a href="{modurl modname='Agoraportal' type='admin' func='deleteClient' clientId=$client.clientId init=$init search=$search searchText=$searchText}">
+                 {*<a href="{modurl modname='Agoraportal' type='admin' func='deleteClient' clientId=$client.clientId init=$init search=$search searchText=$searchText}">
                      {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
-                 </a>
+                 </a>*}
              </td>
          </tr>
          {foreachelse}

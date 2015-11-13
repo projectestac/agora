@@ -1584,9 +1584,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @return  object created
      */
     public function addOperation($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+
         if(!isset($args['operation']) || empty($args['operation']) ||
             !isset($args['clientId']) || empty($args['clientId'])||
             !isset($args['serviceId']) || empty($args['serviceId'])){
@@ -1633,7 +1631,10 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                     'params' => $params
                 ));
 
-        if(!$operation) return false;
+        if(!$operation) {
+            return false;
+        }
+        
         return ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operation['id']));
     }
 

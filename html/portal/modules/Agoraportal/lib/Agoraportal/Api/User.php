@@ -599,7 +599,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
             throw new Zikula_Exception_Forbidden();
         }
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         // get client services information
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
@@ -866,7 +866,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
         $uname = DataUtil::formatForStore(UserUtil::getVar('uname'));
         $uid = DataUtil::formatForStore(UserUtil::getVar('uid'));
@@ -890,6 +890,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     /**
      * Change the clientDNS in the database and save the changed name in OldDNS field
      * @author     Fèlix Casanellas (fcasanel@xtec.cat)
+     * @author     Pau Ferrer (pferre22@xtec.cat)
      * @param      The clientCode
      * @return     True if the delete succed and false otherwise
      */
@@ -899,18 +900,63 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
 
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
+        global $agora;
 
-        $clientCode = $clientInfo['clientCode'];
+        $clientCode = $args['clientCode'];
+        $oldDNS = $args['clientOldDNS'];
+        $newDNS = $args['clientDNS'];
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_clients_column'];
         $where = "WHERE " . $c['clientCode'] . " = '" . $clientCode . "'";
-
-        $items = array('clientOldDNS' => $args['clientOldDNS'],
-            'clientDNS' => $args['clientDNS']);
+        $items = array('clientOldDNS' => $oldDNS, 'clientDNS' => $newDNS);
 
         if (!DBUtil::updateObject($items, 'agoraportal_clients', $where)) {
             return false;
+        }
+
+        $clientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
+            'rpp' => 50,
+            'service' => 0,
+            'state' => -1,
+            'search' => 1,
+            'searchText' => $clientCode,
+            'clientCode' => $clientCode));
+
+        if ($clientServices) {
+            $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+            foreach ($clientServices as $service) {
+                $serviceId = $service['serviceId'];
+                if ($services[$serviceId]['serviceName'] == 'moodle2') {
+                    $urlbase = $agora['server']['server'] . $agora['server']['base'];
+                    $urlbase = str_replace('http://', '://', $urlbase);
+                    $urlbase = str_replace('https://', '://', $urlbase);
+                    $params = array();
+                    $params['origintext'] = $urlbase . $oldDNS . '/moodle';
+                    $params['targettext'] = $urlbase . $newDNS . '/moodle';
+                    $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+                        array(
+                            'operation' => 'script_replace_database_text',
+                            'clientId' => $service['clientId'],
+                            'serviceId' => $service['serviceId'],
+                            'params' => $params
+                        ));
+                } else if ($services[$serviceId]['serviceName'] == 'nodes') {
+                    $urlbase = $agora['server']['html'];
+                    $urlbase = str_replace('http://', '://', $urlbase);
+                    $urlbase = str_replace('https://', '://', $urlbase);
+                    $params = array();
+                    $params['origin_url'] = $urlbase . $oldDNS . '/';
+                    $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
+                        array(
+                            'operation' => 'script_replace_url',
+                            'clientId' => $service['clientId'],
+                            'serviceId' => $service['serviceId'],
+                            'params' => $params
+                        ));
+                }
+            }
         }
 
         return true;
@@ -965,7 +1011,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             throw new Zikula_Exception_Forbidden();
         }
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
 
         $pntable = DBUtil::getTables();
@@ -1071,7 +1117,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
             throw new Zikula_Exception_Forbidden();
         }
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
 
         $tables = DBUtil::getTables();
@@ -1122,7 +1168,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $args['managerId']));
         $clientCode = $manager['clientCode'];
         // check if user can delete the manager
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
@@ -1162,7 +1208,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             throw new Zikula_Exception_Forbidden();
         }
         // check if user can add a new manager
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         $canDelegate = ModUtil::func('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
         if (!$canDelegate) {
@@ -1780,6 +1826,61 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         return false;
     }
 
+    /**
+     * Check if user can access to do the action
+     * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
+     * @param:  The code of the client
+     * @return:	Real client information
+     */
+    public function getRealClientCode($args) {
+        
+        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
+
+        // Security check
+        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
+            throw new Zikula_Exception_Forbidden();
+        }
+        
+        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        
+        if ($clientCode == null) {
+            // check if user is a manager for a client
+            $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => UserUtil::getVar('uname')));
+            $clientCode = $manager['clientCode'];
+        }
+        
+        if ($clientCode == null) {
+            // Perhaps who is connected is a schoool, so client code is the username
+            if (!$isAdmin) {
+                $clientCode = UserUtil::getVar('uname');
+            }
+        }
+
+        if ($clientCode == null) {
+            if ($isAdmin) {
+                return LogUtil::registerError($this->__('No s\'ha trobat el client'));
+            } else {
+                throw new Zikula_Exception_Forbidden();
+            }
+        }
+
+        // get client for security reasons
+        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClients', array('init' => 0,
+                    'rpp' => 50,
+                    'search' => 1,
+                    'returnClientCodeKey' => 1,
+                    'searchText' => $clientCode));
+
+        if (!$client) {
+            if ($isAdmin) {
+                return LogUtil::registerError($this->__('No s\'ha trobat el client'));
+            } else {
+                return LogUtil::registerError("No teniu accés a cap servei");
+            }
+        }
+
+        return array('client' => $client, 'clientCode' => $clientCode);
+    }
 }
 
 class order {
@@ -1836,6 +1937,4 @@ class order {
             usort($ary, $sortFn);
         }
     }
-
 }
-

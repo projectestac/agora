@@ -74,14 +74,11 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
     } else {
         $isManager = false;
     }
-    if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-        $isAdmin = true;
-    } else {
-        $isAdmin = false;
-    }
+
+    $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
 
     if (!$isAdmin) {
-        $clientInfo = ModUtil::func('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
     }
 
