@@ -885,8 +885,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('requesttypesservices', $requesttypesservices)
                         ->assign('modeltypes', $modeltypes)
                         ->assign('createDB', $this->getVar('createDB'))
-                        ->assign('URLNodesModelBase', $this->getVar('URLNodesModelBase'))
-                        ->assign('DBNodesModel', $this->getVar('DBNodesModel'))
                         ->fetch('agoraportal_admin_config.tpl');
     }
 
@@ -905,8 +903,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $maxAbsFreeQuota = FormUtil::getPassedValue('maxAbsFreeQuota', isset($args['maxAbsFreeQuota']) ? $args['maxAbsFreeQuota'] : null, 'POST');
         $maxFreeQuotaForRequest = FormUtil::getPassedValue('maxFreeQuotaForRequest', isset($args['maxFreeQuotaForRequest']) ? $args['maxFreeQuotaForRequest'] : null, 'POST');
         $createDB = FormUtil::getPassedValue('createDB', isset($args['createDB']) ? $args['createDB'] : false, 'POST');
-        $URLNodesModelBase = FormUtil::getPassedValue('URLNodesModelBase', isset($args['URLNodesModelBase']) ? $args['URLNodesModelBase'] : null, 'POST');
-        $DBNodesModel = FormUtil::getPassedValue('DBNodesModel', isset($args['DBNodesModel']) ? $args['DBNodesModel'] : null, 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -925,9 +921,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 ->setVar('clientsMailThreshold', $clientsMailThreshold)
                 ->setVar('maxAbsFreeQuota', $maxAbsFreeQuota)
                 ->setVar('maxFreeQuotaForRequest', $maxFreeQuotaForRequest)
-                ->setVar('createDB', $createDB)
-                ->setVar('URLNodesModelBase', $URLNodesModelBase)
-                ->setVar('DBNodesModel', $DBNodesModel);
+                ->setVar('createDB', $createDB);
 
         LogUtil::registerStatus($this->__('S\'ha modificat la configuració'));
 
@@ -1275,6 +1269,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $shortcode = FormUtil::getPassedValue('shortcode', isset($args['shortcode']) ? $args['shortcode'] : null, 'POST');
         $keyword = FormUtil::getPassedValue('keyword', isset($args['keyword']) ? $args['keyword'] : null, 'POST');
         $description = FormUtil::getPassedValue('description', isset($args['description']) ? $args['description'] : null, 'POST');
+        $url = FormUtil::getPassedValue('url', isset($args['url']) ? $args['url'] : null, 'POST');
+        $dbHost = FormUtil::getPassedValue('dbHost', isset($args['dbHost']) ? $args['dbHost'] : null, 'POST');
 
         // Security check
         if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
@@ -1290,7 +1286,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $this->checkCsrfToken();
 
         // Save the record
-        $modelId = ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('shortcode' => $shortcode, 'keyword' => $keyword, 'description' => $description));
+        $modelId = ModUtil::apiFunc('Agoraportal', 'admin', 'addNewModelType', array('shortcode' => $shortcode, 'keyword' => $keyword, 'description' => $description, 'url' => $url, 'dbHost' => $dbHost));
 
         if ($modelId) {
             LogUtil::registerStatus($this->__('S\'ha registrat un tipus nou de maqueta'));

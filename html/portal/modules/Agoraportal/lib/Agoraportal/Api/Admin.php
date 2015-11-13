@@ -429,35 +429,25 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         global $agora, $ZConfig;
 
-        $modelTypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
-        $shortcode = "";
-        $shortcodes = array();
-
-        foreach ($modelTypes as $modelType) {
-            $shortcodes[] = $modelType['shortcode'];
-            $keywords[] = $modelType['keyword'];
-            if ($modelType['keyword'] == $client['extraFunc']) {
-                $shortcode = $modelType['shortcode'];
-            }
-        }
-
-        // Allowed values in $client['extraFunc']
-        $allowedValues = implode(", ", $keywords);
-
-        // Check the value of extraFunc
         if (!isset($client['extraFunc']) || empty($client['extraFunc'])) {
-            LogUtil::registerError($this->__("Falta indicar el tipus de maqueta (Indicar <strong>" . $allowedValues . "</strong> al camp <strong>Funcionalitats addicionals</strong>)"));
-            return false;
+            return LogUtil::registerError($this->__("Falta indicar el tipus de plantilla al camp <strong>Funcionalitats addicionals</strong>"));
         }
+
+        $templatekeyword = $client['extraFunc'];
+        $templates = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes', array('keyword' => $templatekeyword));
+        $template = array_shift($templates);
 
         // If keyword provided by the user is not on the list, tell them and throw an error.
-        if (!in_array($client['extraFunc'], $keywords)) {
-            LogUtil::registerError($this->__("Els valors possibles del camp <strong>Funcionalitats addicionals</strong> són: <strong>" . $allowedValues . "</strong> (sense accents)."));
-            return false;
+        if (empty($template)) {
+            return LogUtil::registerError($this->__("No s'ha trobat la plantilla indicada $templatekeyword"));
         }
 
+        $shortcode = $template['shortcode'];
+        $origin_url = $template['url'];
+        $origin_bd = $template['dbHost'];
+
         if (empty($shortcode)) {
-            LogUtil::registerError($this->__("El codi curt de la maqueta indicada no està definit. Reviseu la configuració del mòdul."));
+            LogUtil::registerError($this->__("El codi curt de la plantilla indicada no està definit. Reviseu la configuració del mòdul."));
             return false;
         }
 
@@ -547,9 +537,8 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $params['clientPC'] = $client['clientPC']; // Postal Code
         $params['clientDNS'] = $client['clientDNS'];
         $params['clientCode'] = $client['clientCode'];
-        $params['URLNodesModelBase'] = ModUtil::getVar('Agoraportal', 'URLNodesModelBase');
-        $params['shortcodes'] = implode(',',$shortcodes);
-        $params['DBNodesModel'] = ModUtil::getVar('Agoraportal', 'DBNodesModel');
+        $params['origin_url'] = $origin_url;
+        $params['origin_bd'] = $origin_bd;
 
         $operation = ModUtil::apiFunc('Agoraportal', 'admin', 'addOperation',
                 array('operation' => 'script_enable_service',
@@ -873,11 +862,15 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $shortcode = $args['shortcode'];
         $keyword = $args['keyword'];
         $description = $args['description'];
+        $url = $args['url'];
+        $dbHost = $args['dbHost'];
 
         $item = array(
             'shortcode' => $shortcode,
             'keyword' => $keyword,
-            'description' => $description
+            'description' => $description,
+            'url' => $url,
+            'dbHost' => $dbHost
         );
 
         if (!DBUtil::insertObject($item, 'agoraportal_modelTypes', 'modelTypeId')) {

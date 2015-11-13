@@ -44,19 +44,8 @@
             <input type="checkbox" name="createDB" {if $createDB}checked="checked"{/if} />
         </div>
         <div class="z-formrow">
-            <label for="URLNodesModelBase">{gt text="URL base per a les maquetes de Nodes"}</label>
-            <input type="text" name="URLNodesModelBase" size="10" maxlength="150" value="{$URLNodesModelBase}" />
-        </div>
-        <div class="z-formrow">
-            <label for="DBNodesModel">{gt text="Bases de dades de les maquetes de Nodes"}</label>
-            <textarea name="DBNodesModel" style="width: 500px" rows="3">{$DBNodesModel}</textarea>
-            <div class="z-informationmsg z-formnote">
-                {gt text="Separeu la llista de bases de dades per comes."}
-            </div>
-        </div>
-        <div class="z-formrow">
-            <label for="locations">{gt text="Maquetes de Nodes"}</label>
-            <table class="z-datatable" style="width: 500px">
+            <label for="locations">{gt text="Plantilles de Nodes"}</label>
+            <table class="z-datatable" style="width: 700px">
                 <tbody>
                     <tr>
                         <th>
@@ -67,6 +56,12 @@
                         </th>
                         <th>
                             <strong>{gt text="Descripció (askServices)"}</strong>
+                        </th>
+                        <th>
+                            <strong>{gt text="URL (per replace)"}</strong>
+                        </th>
+                        <th>
+                            <strong>{gt text="Base de dades (per replace)"}</strong>
                         </th>
                         <th>
                             &nbsp;
@@ -83,6 +78,12 @@
                         <td>
                             {$type.description}
                         </td>
+                        <td>
+                            {$type.url}
+                        </td>
+                        <td>
+                            {$type.dbHost}
+                        </td>
                         <td align="center">
                             <a href="{modurl modname='Agoraportal' type='admin' func='deleteModelType' modelTypeId=$type.modelTypeId}">
                                 {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall' __alt="Esborra" __title="Esborra"}
@@ -91,16 +92,16 @@
                     </tr>
                     {foreachelse}
                     <tr>
-                        <td colspan="3">
-                            {gt text="No s'ha trobat cap tipus de maqueta"}
+                        <td colspan="6">
+                            {gt text="No s'ha trobat cap tipus de plantilla"}
                         </td>
                     </tr>
                     {/foreach}
                     <tr>
-                        <td colspan="3">
+                        <td colspan="6">
                             <hr />
                             <a href="{modurl modname='Agoraportal' type='admin' func='addNewModelType'}">
-                                {gt text="Afegeix un tipus de maqueta nou"}
+                                {gt text="Afegeix un tipus de plantilla nou"}
                             </a>
                         </td>
                     </tr>
