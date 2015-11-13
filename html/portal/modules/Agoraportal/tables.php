@@ -84,7 +84,6 @@ function Agoraportal_tables() {
         'serviceId' => 'serviceId',
         'clientId' => 'clientId',
         'serviceDB' => 'serviceDB',
-        'dbHost' => 'dbHost',
         'description' => 'description',
         'version' => 'version',
         'state' => 'state',
@@ -532,12 +531,16 @@ function Agoraportal_tables() {
         'shortcode' => 'shortcode',
         'keyword' => 'keyword',
         'description' => 'description',
+        'url' => 'url',
+        'dbHost' => 'dbHost'
         );
 
     $table['agoraportal_modelTypes_column_def'] = array('modelTypeId' => "I NOTNULL AUTO PRIMARY",
         'shortcode' => "C(50) NOTNULL DEFAULT ''",
         'keyword' => "C(50) NOTNULL DEFAULT ''",
         'description' => "C(255) NOTNULL DEFAULT ''",
+        'url' => "C(255) NOTNULL DEFAULT ''",
+        'dbHost' => "C(50) NOTNULL DEFAULT ''"
         );
 
 

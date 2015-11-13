@@ -1452,11 +1452,12 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
         // Get optional param
         $modelTypeId = isset($args['modelTypeId']) ? $args['modelTypeId'] : '';
+        $keyword = isset($args['keyword']) ? $args['keyword'] : '';
 
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_modelTypes_column'];
 
-        $where = (!empty($modelTypeId)) ? " WHERE $c[modelTypeId] = $modelTypeId " : '';
+        $where = (!empty($modelTypeId)) ? " WHERE $c[modelTypeId] = $modelTypeId " : (!empty($keyword)) ? " WHERE $c[keyword] = '$keyword' " : '';
 
         $items = DBUtil::selectObjectArray($tables['agoraportal_modelTypes'], $where, 'shortcode', -1, -1, 'modelTypeId');
 
