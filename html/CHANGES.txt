@@ -5,14 +5,11 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-NODES
-- XTEC lib: Changed replace_url to support only a single URL
-
 PORTAL
-- Agoraportal: Changed replace_url to support only a single URL
-- Agoraportal: Reset table agoraportal_modelTypes
-- Agoraportal: Ensure table agoraportal_queues has correct structure
-- Agoraportal: Change of 'Nom propi' enqueues replace of URL
+- Agoraportal: Changed replace_url to support only a single URL (Trello #1027)
+- Agoraportal: Reset table agoraportal_modelTypes (Trello #1027)
+- Agoraportal: Ensure table agoraportal_queues has correct structure (Trello #1027)
+- Agoraportal: Change of 'Nom propi' enqueues replace of URL (Trello #1026)
 
 
 
