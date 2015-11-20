@@ -1195,7 +1195,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             case 6: // Calculate consumed space in moodle2
             case 7: // Calculate consumed space in intranet
             case 8: // Calculate consumed space in nodes
-                ModUtil::func('Agoraportal', 'user', 'calcUsedSpace', array('clientCode' => $item[$clientServiceId]['clientCode'],
+                ModUtil::apiFunc('Agoraportal', 'user', 'calcUsedSpace', array('clientCode' => $item[$clientServiceId]['clientCode'],
                     'serviceId' => $item[$clientServiceId]['serviceId'],
                     'clientServiceId' => $clientServiceId));
                 break;

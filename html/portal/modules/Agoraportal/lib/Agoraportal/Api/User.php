@@ -1166,7 +1166,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         // check if user can add a new manager
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
-        $canDelegate = ModUtil::func('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
+        $canDelegate = ModUtil::apiFunc('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
         if (!$canDelegate) {
             return LogUtil::registerError($this->__('No pots crear gestors.'));
         }
@@ -1808,6 +1808,74 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         }
 
         return array('client' => $client, 'clientCode' => $clientCode);
+    }
+
+    /**
+     * check if a user can delegate others to manage services and users
+     * @author: Albert Pérez Monfort (aperezm@xtec.cat)
+     * @param: The client code
+     * @return: True if the user can and false otherwise
+     */
+    public function canDelegate($args) {
+        AgoraPortal_Util::requireClient();
+
+        $clientCode = isset($args['clientCode']) ? $args['clientCode'] : null;
+
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientCode = $clientInfo['clientCode'];
+        // get client managers
+        $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
+        // if the number of delegated users in lower than 4 and user is manager or client
+        if (count($managers) < 4 && AgoraPortal_Util::isClient()) {
+            return true;
+        }
+        // The user is the client but nobody has been delegated yet
+        if (UserUtil::getVar('uname') == $clientCode && count($managers) == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * calc the space used for a client and a service
+     * @author: Albert Pérez Monfort (aperezm@xtec.cat)
+     * @param:  service id
+     * @return: The use of disk for the given service
+     */
+    public function calcUsedSpace($args) {
+        $clientServiceId = isset($args['clientServiceId']) ? $args['clientServiceId'] : null;
+
+        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId,
+            'clientServiceId' => $clientServiceId));
+        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+
+        //calc the folder use
+        global $agora;
+
+        $serviceName = $services[$client[$clientServiceId]['serviceId']]['serviceName'];
+
+        // Get absolute path to usage file
+        $dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
+
+        if (!is_dir($dir)) {
+            LogUtil::registerError($this->__('No s\'ha trobat el directori ' . $dir));
+            return false;
+        }
+
+        $sumatory = exec("du -sk " . $dir);
+        $sumatoryString = '';
+        $i = 0;
+        while (is_numeric(substr($sumatory, $i, 1))) {
+            $sumatoryString .= substr($sumatory, $i, 1);
+            $i++;
+        }
+
+        // save value in database
+        ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientServiceId,
+            'diskConsume' => $sumatoryString,
+        ));
+
+        return $sumatoryString;
     }
 }
 
