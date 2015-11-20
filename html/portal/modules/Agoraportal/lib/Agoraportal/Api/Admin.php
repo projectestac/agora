@@ -1,5 +1,7 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     public static $operations_timeout = 1800; ///Half an hour
@@ -12,7 +14,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function createClient($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             //TODO: Protect correctly this function. It needs access from the AuthLDAP module in the first validation process
             //throw new Zikula_Exception_Forbidden();
         }
@@ -69,9 +71,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function editClient($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get client information
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClients', array('clientId' => $args['clientId']));
         if (!$client) {
@@ -95,9 +95,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function editService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $clientServiceId = $args['clientServiceId'];
 
         // Needed argument
@@ -127,9 +125,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $clientServiceId = $args['clientServiceId'];
         // Needed argument
         if (!isset($clientServiceId) || !is_numeric($clientServiceId)) {
@@ -159,9 +155,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function activeService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         // Needed argument
         $clientServiceId = $args['clientServiceId'];
@@ -578,9 +572,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function getFreeDataBase($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         // Needed for connectExtDB
         $dbHost = $args['dbHost'];
@@ -710,9 +702,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function updateService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_services_column'];
         $where = "$c[serviceId] = $args[serviceId]";
@@ -730,9 +720,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function editLocation($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get location information
         $location = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations', array('locationId' => $args['locationId']));
         if (!$location) {
@@ -756,9 +744,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function editRequestType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get location information
         $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes', array('requestTypeId' => $args['requestTypeId']));
         if (!$requestType) {
@@ -783,9 +769,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function addNewLocation($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // Check if the client DNS exists or the client code exists
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_location_column'];
@@ -806,9 +790,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function addNewRequestTypeService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // Check if the client DNS exists or the client code exists
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_requestTypesServices_column'];
@@ -829,9 +811,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function addNewRequestType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // Check if the client DNS exists or the client code exists
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_requestTypes_column'];
@@ -855,9 +835,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function addNewModelType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $shortcode = $args['shortcode'];
         $keyword = $args['keyword'];
@@ -889,9 +867,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteLocation($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get location information
         $location = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations', array('locationId' => $args['locationId']));
         if (!$location) {
@@ -914,9 +890,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function editType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get location information
         $location = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes', array('typeId' => $args['typeId']));
         if (!$location) {
@@ -940,9 +914,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteRequestTypeService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_requestTypesServices_column'];
@@ -968,9 +940,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteRequestType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get location information
         $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes', array('requestTypeId' => $requestTypeId));
         if (!$requestType) {
@@ -994,9 +964,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteModelType($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $modelTypeId = $args['modelTypeId'];
 
@@ -1026,9 +994,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function addNewType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // Check if the client DNS exists or the client code exists
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_clientType_column'];
@@ -1049,9 +1015,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteType($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get location information
         $location = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes', array('typeId' => $args['typeId']));
         if (!$location) {
@@ -1074,9 +1038,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function executeAction($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GETPOST');
         $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : null, 'GETPOST');
@@ -1252,9 +1214,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function getManagers($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Check for mandatory parameter
         if (!isset($args['clientCode'])) {
@@ -1283,9 +1243,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function editRequest($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $requestId = $args['requestId'];
         // Needed argument
         if (!isset($requestId) || !is_numeric($requestId)) {
@@ -1310,9 +1268,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function deleteRequest($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $clientRequestId = $args['requestId'];
         // Needed argument
         if (!isset($clientRequestId) || !is_numeric($clientRequestId)) {
@@ -1338,9 +1294,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      */
     public function getInfodeleteRequest($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $clientRequestId = $args['requestId'];
         // Needed argument
@@ -1401,9 +1355,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * @return	Array The list of available services. False in case of error.
      */
     public function getAllRequests($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $pntables = DBUtil::getTables();
         $c = $pntables['agoraportal_request_column'];
@@ -1505,9 +1457,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $host = (isset($args['host'])) ? $args['host'] : '';
         $serviceDB = (isset($args['serviceDB'])) ? $args['serviceDB'] : '';
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         global $agora;
 
@@ -1612,9 +1562,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     }
 
     public function addExecuteOperation($args){
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if(!isset($args['operation']) || empty($args['operation']) ||
             !isset($args['clientId']) || empty($args['clientId'])||
             !isset($args['serviceId']) || empty($args['serviceId'])) {
@@ -1634,7 +1582,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         if(!$operation) {
             return false;
         }
-        
+
         return ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operation['id']));
     }
 
@@ -1654,7 +1602,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
     public function executeOperationId($args) {
         $opId = $args['opId'];
 
-        if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!defined('CLI_SCRIPT') && !AgoraPortal_Util::isAdmin()) {
             throw new Zikula_Exception_Forbidden();
         }
 
@@ -1721,7 +1669,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         $clientDNS = $args['clientDNS'];
         $params = $args['params'];
 
-        if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!defined('CLI_SCRIPT') && !AgoraPortal_Util::isAdmin()) {
             throw new Zikula_Exception_Forbidden();
         }
 
@@ -1771,9 +1719,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     public function getOperations($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_queues_column'];
         $a = $tables['agoraportal_clients_column'];
@@ -1887,7 +1833,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
     public function executePendingOperations($args) {
 
-        if (!defined('CLI_SCRIPT') && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!defined('CLI_SCRIPT') && !AgoraPortal_Util::isAdmin()) {
             throw new Zikula_Exception_Forbidden();
         }
         $dom = ZLanguage::getModuleDomain('Agoraportal');
