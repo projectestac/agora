@@ -40,11 +40,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
             $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => $username));
             // Check if the user is in the Agoraportal_client_managers table
-            if (!$manager) {
-                throw new Zikula_Exception_Forbidden();
+            if ($manager) {
+                $clientCode = $manager['clientCode'];
             }
-
-            $clientCode = $manager['clientCode'];
         }
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
