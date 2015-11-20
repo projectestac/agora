@@ -576,48 +576,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     /**
-     * calc the space used for a client and a service
-     * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param:	service id
-     * @return:	The use of disk for the given service
-     */
-    public function calcUsedSpace($args) {
-        $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GETPOST');
-
-        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId,
-                    'clientServiceId' => $clientServiceId));
-        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-
-        //calc the folder use
-        global $agora;
-
-        $serviceName = $services[$client[$clientServiceId]['serviceId']]['serviceName'];
-
-        // Get absolute path to usage file
-        $dir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['userprefix'] . $client[$clientServiceId]['activedId'];
-
-        if (!is_dir($dir)) {
-            LogUtil::registerError($this->__('No s\'ha trobat el directori ' . $dir));
-            return false;
-        }
-
-        $sumatory = exec("du -sk " . $dir);
-        $sumatoryString = '';
-        $i = 0;
-        while (is_numeric(substr($sumatory, $i, 1))) {
-            $sumatoryString .= substr($sumatory, $i, 1);
-            $i++;
-        }
-
-        // save value in database
-        ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientServiceId,
-            'diskConsume' => $sumatoryString,
-        ));
-
-        return $sumatoryString;
-    }
-
-    /**
      * Verify the verifyCode sent by the user and change the active nevel if this is correct
      * @author: Fèlix Casanellas (fcasanel@xtec.cat)
      * @param: verifyCode of the user and clientCode
@@ -788,7 +746,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
-        $canDelegate = ModUtil::func('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
+        $canDelegate = ModUtil::apiFunc('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
         // get client services information
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
@@ -807,31 +765,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                         ->assign('accessLevel', $accessLevel)
                         ->assign('uname', UserUtil::getVar('uname'))
                         ->fetch('agoraportal_user_managers.tpl');
-    }
-
-    /**
-     * check if a user can delegate others to manage services and users
-     * @author: Albert Pérez Monfort (aperezm@xtec.cat)
-     * @param: The client code
-     * @return: True if the user can and false otherwise
-     */
-    public function canDelegate($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-        // Security check
-        AgoraPortal_Util::requireClient();
-        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
-        $clientCode = $clientInfo['clientCode'];
-        // get client managers
-        $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
-        // if the number of delegated users in lower than 4 and user is manager or client
-        if (count($managers) < 4 && AgoraPortal_Util::isClient()) {
-            return true;
-        }
-        // The user is the client but nobody has been delegated yet
-        if (UserUtil::getVar('uname') == $clientCode && count($managers) == 0) {
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -897,7 +830,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = $clientInfo['clientCode'];
         // Confirm authorisation code
         $this->checkCsrfToken();
-        $canDelegate = ModUtil::func('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
+        $canDelegate = ModUtil::apiFunc('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
         if (!$canDelegate) {
             LogUtil::registerError($this->__('No pots crear gestors.'));
             if (AgoraPortal_Util::isAdmin()) {
@@ -1115,7 +1048,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 throw new Zikula_Exception_Forbidden();
             }
         }
-        ModUtil::func('Agoraportal', 'user', 'calcUsedSpace', array('clientServiceId' => $clientServiceId));
+        ModUtil::apiFunc('Agoraportal', 'user', 'calcUsedSpace', array('clientServiceId' => $clientServiceId));
 
         LogUtil::registerStatus($this->__('L\'espai consumit s\'ha recalculat correctament.'));
         return System::redirect($_SERVER['HTTP_REFERER']);
