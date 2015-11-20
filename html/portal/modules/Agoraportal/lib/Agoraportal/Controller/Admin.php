@@ -1427,6 +1427,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clients_sel = AgoraPortal_Util::getFormVar($args, 'clients_sel');
         $which = AgoraPortal_Util::getFormVar($args, 'which', "all", 'GETPOST');
         $sqlfunc = AgoraPortal_Util::getFormVar($args, 'sqlfunction');
+        $sqlfunc = trim($sqlfunc);
         $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', '4', 'GETPOST');
 
         $view = Zikula_View::getInstance('Agoraportal', false);
@@ -4270,5 +4271,22 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                         ->assign('serviceName', $serviceName)
                         ->assign('createClient', $createClient)
                         ->fetch('agoraportal_admin_createBatch_exec.tpl');
+    }
+
+    public function changeStateOperationId($args) {
+        $operationid = AgoraPortal_Util::getFormVar($args, 'operation', -1, 'GET');
+        $state = AgoraPortal_Util::getFormVar($args, 'state', false, 'GET');
+
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'changeStateOperationId', array('opId' => $operationid, 'state' => $state));
+
+        return $result;
+    }
+
+    public function deleteOperationId($args) {
+        $operationid = AgoraPortal_Util::getFormVar($args, 'operation', -1, 'GET');
+
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'deleteOperationId', array('opId' => $operationid));
+
+        return $result;
     }
 }

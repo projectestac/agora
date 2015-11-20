@@ -1586,6 +1586,42 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         return json_decode($params, true);
     }
 
+    public function changeStateOperationId($args) {
+        if (!defined('CLI_SCRIPT') && !AgoraPortal_Util::isAdmin()) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $opId = $args['opId'];
+        $state = $args['state'];
+
+        if ($opId > 0 && ($state == 'OK' || $state == 'KO' || $state == 'P')) {
+            $operation = DBUtil::selectObjectByID('agoraportal_queues', $opId);
+            if ($operation) {
+                $operation['state'] = $state;
+                DBUtil::updateObject($operation, 'agoraportal_queues');
+                return $state;
+            }
+        }
+        return false;
+    }
+
+    public function deleteOperationId($args) {
+        if (!defined('CLI_SCRIPT') && !AgoraPortal_Util::isAdmin()) {
+            throw new Zikula_Exception_Forbidden();
+        }
+
+        $opId = $args['opId'];
+
+        if ($opId > 0) {
+            $operation = DBUtil::selectObjectByID('agoraportal_queues', $opId);
+            if ($operation && $operation['state'] == 'P') {
+                DBUtil::deleteObjectByID('agoraportal_queues', $opId);
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Execute operations to a service
      *
