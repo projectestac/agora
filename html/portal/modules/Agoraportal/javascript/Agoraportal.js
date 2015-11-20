@@ -1310,6 +1310,50 @@ function operations_execute(id){
     return false;
 }
 
+function operations_changeState(id, state){
+    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
+    var pars = "module=Agoraportal&func=changeStateOperationId&operation=" + id+"&state="+state;
+    var myAjax = new Ajax.Request("ajax.php",
+    {
+        method: 'get',
+        parameters: pars,
+        onComplete: operations_changeState_complete,
+        onFailure: operations_failure
+    });
+
+    return false;
+}
+
+function operations_changeState_complete(req){
+    Element.update('reload', '');
+    if (req.status != 200 ) {
+        pnshowajaxerror(req.responseText);
+        return;
+    }
+}
+
+function operations_delete(id, state){
+    Element.update('reload', '<img src="images/ajax/circle-ball-dark-antialiased.gif">');
+    var pars = "module=Agoraportal&func=deleteOperationId&operation=" + id;
+    var myAjax = new Ajax.Request("ajax.php",
+    {
+        method: 'get',
+        parameters: pars,
+        onComplete: operations_reload_complete,
+        onFailure: operations_failure
+    });
+
+    return false;
+}
+
+function operations_reload_complete(req){
+    Element.update('reload', '');
+    if (req.status != 200 ) {
+        pnshowajaxerror(req.responseText);
+        return;
+    }
+}
+
 function operations_execute_complete(req){
     Element.update('reload', '');
     if (req.status != 200 ) {

@@ -638,4 +638,21 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         return $result['result'];
     }
 
+    public function changeStateOperationId($args) {
+        $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
+        $state = FormUtil::getPassedValue('state', false, 'GET');
+
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'changeStateOperationId', array('opId' => $operationid, 'state' => $state));
+
+        return $result;
+    }
+
+    public function deleteOperationId($args) {
+        $operationid = FormUtil::getPassedValue('operation', -1, 'GET');
+
+        $result = ModUtil::apiFunc('Agoraportal', 'admin', 'deleteOperationId', array('opId' => $operationid));
+
+        return $result;
+    }
+
 }

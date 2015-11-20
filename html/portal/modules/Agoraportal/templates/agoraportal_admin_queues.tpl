@@ -144,22 +144,35 @@
                         {/if}
                         </td>
                         <td align="center" valign="top" class="actions">
+                        {if $row.state == 'KO' || $row.state == 'TO'}
+                            <img title="Executa de nou" src='images/icons/small/reload.png' onclick="operations_execute('{$row.id}');"/>
+                        {elseif $row.state == 'P'}
+                            <img title="Executa ara" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
+                            <img title="Elimina" src='images/icons/small/edit_remove.png' onclick="operations_delete('{$row.id}');"/>
+                        {elseif $row.state == 'L'}
+                            {if $row.timeStart < $smarty.now - 10*60}
+                                <img title="Executa de nou" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
+                            {/if}
+                        {/if}
+
+                        {if $row.state != 'P' && $row.state != 'L' }
+                            <img title="Torna a encuar" src='images/icons/small/quick_restart.png' onclick="operations_changeState('{$row.id}', 'P');"/>
+                        {/if}
+
+                        {if $row.state == 'TO' || $row.state == 'KO' }
+                            <img title="Dona per correcte" src='images/icons/small/button_ok.png' onclick="operations_changeState('{$row.id}', 'OK');"/>
+                        {/if}
+
+                        {if $row.state == 'TO' || $row.state == 'OK' }
+                            <img title="Dona per fallit" src='images/icons/small/button_cancel.png' onclick="operations_changeState('{$row.id}', 'KO');"/>
+                        {/if}
+
                         {if $row.params != ''}
                             <img title="Paràmetres" src='images/icons/small/package_graphics.png' onclick="operations_show_params('{$row.params|escape}');"/>
                         {/if}
 
                         {if $row.logId != 0}
                             <img title="Registre" src='images/icons/small/db.png' onclick="operations_show_log('{$row.logId}');"/>
-                        {/if}
-
-                        {if $row.state == 'KO' || $row.state == 'TO'}
-                            <img title="Executa de nou" src='images/icons/small/reload.png' onclick="operations_execute('{$row.id}');"/>
-                        {elseif $row.state == 'P'}
-                            <img title="Executa ara" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
-                        {elseif $row.state == 'L'}
-                            {if $row.timeStart < $smarty.now - 30*60}
-                                <img title="Executa de nou" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
-                            {/if}
                         {/if}
                         </td>
                     </tr>
