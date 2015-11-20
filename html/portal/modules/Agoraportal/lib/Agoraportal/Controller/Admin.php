@@ -4018,11 +4018,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search['rpp'] = $rpp;
 
         $operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', $search);
-
-        if (!$search['state']) {
-            $exec_operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', array('state'=>'L'));
-            $operations = array_merge($exec_operations, $operations);
-        }
         foreach($operations as $k => $op) {
             if (!empty($op['params'])) {
                 $params = "";
@@ -4038,6 +4033,25 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             }
         }
         $view->assign('rows', $operations);
+
+        $exec_operations = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', array('state'=>'L'));
+        foreach($exec_operations as $k => $op) {
+            if (!empty($op['params'])) {
+                $params = "";
+                $op['params'] = str_replace("\r", "\\r", $op['params']);
+                $op['params'] = str_replace("\n", "\\n", $op['params']);
+                $opparams = json_decode($op['params']);
+                foreach($opparams as $key => $value) {
+                    $value = str_replace("\r", "<br/>", $value);
+                    $value = str_replace("\n", "<br/>", $value);
+                    $params .= $key.' = '.html_entity_decode($value).'<br/>';
+                }
+                $exec_operations[$k]['params'] = $params;
+            }
+        }
+        $view->assign('exec_rows', $exec_operations);
+
+
 
         $search['count'] = 1;
         $operations_number = ModUtil::apiFunc('Agoraportal', 'admin', 'getOperations', $search);
