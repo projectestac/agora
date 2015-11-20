@@ -1813,6 +1813,19 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         return $items;
     }
 
+    public static function getNextOperation() {
+        $hour = (int)date('G');
+        $where = "state = 'P'";
+        if ($hour < 2 || $hour > 6) {
+            $where .= ' AND priority >=0';
+        }
+        $ops = DBUtil::selectObjectArray('agoraportal_queues', $where, 'priority DESC, timeCreated ASC, ClientId ASC', -1, 1);
+        if(empty($ops)) {
+            return false;
+        }
+        return reset($ops);
+    }
+
     public function timeoutOperations() {
         $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
         if (!empty($executings)) {
@@ -1834,44 +1847,38 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
 
         $this->timeoutOperations();
 
-        $executings = DBUtil::selectObjectArray('agoraportal_queues', "state = 'L'");
+        $executings = DBUtil::selectObjectCount('agoraportal_queues', "state = 'L'");
         if (!empty($executings)) {
-            print __('There are '.count($executings) .' operations executing!', $dom);
+            print 'There are '.$executings .' operations executing!';
             return 0;
         } else {
             $hour = (int)date('G');
             $where = "state = 'P'";
             if ($hour < 2 || $hour > 6) {
+                // Day runner
                 $where .= ' AND priority >=0';
-                $night_runner = false;
-            } else {
-                $night_runner = true;
             }
-            $pending = DBUtil::selectObjectArray('agoraportal_queues', $where, 'priority DESC, timeCreated ASC, ClientId ASC');
-            if (empty($pending)) {
-                print __('GREAT! No pending operations...', $dom);
+
+            $pendingnum = DBUtil::selectObjectCount('agoraportal_queues', $where);
+            if (!$pendingnum) {
+                print 'GREAT! No pending operations...';
                 return 1;
             }
-            print __('There are '.count($pending) .' pending operations...', $dom);
+            print 'There are '.$pendingnum .' pending operations...';
+
             echo '<ul>';
-            foreach($pending as $operation){
-                // Control again the hour to stop at the right time
-                if ($night_runner && $operation['priority'] < 0 ) {
-                    $hour = (int)date('G');
-                    if ($hour < 2 || $hour > 6) {
-                        // If it is not night, jumpt it
-                        print '<li>Operation id: '.$operation['id'].' Operation: '.$operation['operation'].' Priority: '.$operation['priority']. ' not executing now...';
-                        continue;
-                    }
-                }
+            while($operation = self::getNextOperation()) {
                 print '<li>Operation id: '.$operation['id'].' Operation: '.$operation['operation'].' Priority: '.$operation['priority'];
                 ModUtil::apiFunc('Agoraportal', 'admin', 'executeOperationId', array('opId' => $operation['id']));
+                print ' -> Done.';
             }
             echo '</ul>';
         }
 
         return 1;
     }
+
+
 
     /**
      * Create random password

@@ -33,11 +33,12 @@ if ($lastCronSuccessfull > time()- 4 * 60) { // Every 4 minutes
 $result = ModUtil::apiFunc('Agoraportal', 'admin', 'executePendingOperations');
 
 
-$executeTime = date('M, d Y - H.i', time());
-$lastCronSuccessfullTime = date('M, d Y - H.i', $lastCronSuccessfull);
-
-if ($lastCronSuccessfullTime == '')
+$executeTime = date('M, d Y - H.i');
+if (!$lastCronSuccessfull) {
     $lastCronSuccessfullTime = __('Never', $dom);
+} else {
+    $lastCronSuccessfullTime = date('M, d Y - H.i', $lastCronSuccessfull);
+}
 
 $cronResponse .= '<div>' . __('Last cron execution', $dom) . ': ' . $executeTime . '</div>';
 $cronResponse .= '<div>' . __('Last successful cron execution', $dom) . ': ' . $lastCronSuccessfullTime . '</div>';
