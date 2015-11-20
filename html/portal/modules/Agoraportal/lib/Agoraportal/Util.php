@@ -7,6 +7,10 @@
  */
 class AgoraPortal_Util {
 
+    public static function getFormVar($args, $varname, $default = null, $method = 'GETPOST') {
+        $value = isset($args[$varname]) ? $args[$varname] : $default;
+        return FormUtil::getPassedValue($varname, $value, $method);
+    }
 
     //PERMISSION FUNCTIONS
     private static function checkPermission($perm) {

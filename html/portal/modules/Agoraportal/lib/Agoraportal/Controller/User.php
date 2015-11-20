@@ -29,10 +29,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	The list of available services
      */
     public function myAgora($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
 
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
         if (!$clientCode) {
             $username = UserUtil::getVar('uname');
 
@@ -131,15 +130,15 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         // Access check
         if (!AgoraPortal_Util::isManager()) {
-            return $this->view->assign('noaccess', true)
-                            ->fetch('agoraportal_user_askServices.tpl');
+            return $this->view->assign('noaccess', true)->fetch('agoraportal_user_askServices.tpl');
         }
 
-        $acceptUseTerms = FormUtil::getPassedValue('acceptUseTerms', isset($args['acceptUseTerms']) ? $args['acceptUseTerms'] : null, 'GETPOST');
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
-        $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'GETPOST');
 
-        $isAdmin = (AgoraPortal_Util::isAdmin()) ? true : false;
+        $acceptUseTerms = AgoraPortal_Util::getFormVar($args, 'acceptUseTerms');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
+        $contactProfile = AgoraPortal_Util::getFormVar($args, 'contactProfile');
+
+        $isAdmin = AgoraPortal_Util::isAdmin();
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
@@ -216,14 +215,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	Redirect user to the ask services information
      */
     public function updateAskService($args) {
-        $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : null, 'POST');
-        $nodes = FormUtil::getPassedValue('nodes', isset($args['nodes']) ? $args['nodes'] : null, 'POST');
-        $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'POST');
-        $acceptUseTerms = FormUtil::getPassedValue('acceptUseTerms', isset($args['acceptUseTerms']) ? $args['acceptUseTerms'] : null, 'POST');
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-
-        // Security check
         AgoraPortal_Util::requireManager();
+
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', null, 'POST');
+        $nodes = AgoraPortal_Util::getFormVar($args, 'nodes', null, 'POST');
+        $contactProfile = AgoraPortal_Util::getFormVar($args, 'contactProfile', null, 'POST');
+        $acceptUseTerms = AgoraPortal_Util::getFormVar($args, 'acceptUseTerms', null, 'POST');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
 
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -305,8 +303,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	the client sites list main structure
      */
     public function sitesList() {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $sitesListContent = ModUtil::func('Agoraportal', 'user', 'sitesListContent');
         // Create output object
         return $this->view->assign('sitesListContent', $sitesListContent)
@@ -320,14 +318,15 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	The list of sites content
      */
     public function sitesListContent($args) {
-        $init = FormUtil::getPassedValue('init', isset($args['init']) ? $args['init'] : 1, 'POST');
-        $rpp = FormUtil::getPassedValue('rpp', isset($args['rpp']) ? $args['rpp'] : 10, 'POST');
-        $location = FormUtil::getPassedValue('location', isset($args['location']) ? $args['location'] : '0', 'POST');
-        $typeId = FormUtil::getPassedValue('typeId', isset($args['typeId']) ? $args['typeId'] : '0', 'POST');
-        $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : null, 'POST');
-        $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
-        // Security check
         AgoraPortal_Util::requireUser();
+
+        $init = AgoraPortal_Util::getFormVar($args, 'init', 1, 'POST');
+        $rpp = AgoraPortal_Util::getFormVar($args, 'rpp', 10, 'POST');
+        $location = AgoraPortal_Util::getFormVar($args, 'location', '0', 'POST');
+        $typeId =  AgoraPortal_Util::getFormVar($args, 'typeId', '0', 'POST');
+        $search =  AgoraPortal_Util::getFormVar($args, 'search', null, 'POST');
+        $searchText =  AgoraPortal_Util::getFormVar($args, 'searchText', null, 'POST');
+
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $locations = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations');
         $types = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
@@ -407,13 +406,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:	redirect user to the upload form
      */
     public function files($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GET');
-        $file = FormUtil::getPassedValue('file', isset($args['file']) ? $args['file'] : null, 'GET');
-        $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GET');
-        $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : 'uploadFiles', 'GET');
-
-        // Security check
         AgoraPortal_Util::requireManager();
+
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'GET');
+        $file = AgoraPortal_Util::getFormVar($args, 'file', null, 'GET');
+        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', null, 'GET');
+        $action = AgoraPortal_Util::getFormVar($args, 'action', null, 'GET');
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $isAdmin = AgoraPortal_Util::isAdmin();
         $clientCode = $clientInfo['clientCode'];
@@ -532,13 +531,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     public function downloadFile($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GET');
-        $filename = FormUtil::getPassedValue('filename', isset($args['filename']) ? $args['filename'] : null, 'GET');
-        $courseId = FormUtil::getPassedValue('courseId', isset($args['courseId']) ? $args['courseId'] : 0, 'GET');
-        $target = FormUtil::getPassedValue('target', isset($args['target']) ? $args['target'] : null, 'GET');
-
-        // Security check
         AgoraPortal_Util::requireManager();
+
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'GET');
+        $filename = AgoraPortal_Util::getFormVar($args, 'filename', null, 'GET');
+        $courseId = AgoraPortal_Util::getFormVar($args, 'courseId', 0, 'GET');
+        $target = AgoraPortal_Util::getFormVar($args, 'target', null, 'GET');
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
 
@@ -582,12 +581,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:  Error or succed message
      */
     public function changeDNS($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
 
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-        $clientDNS = FormUtil::getPassedValue('clientDNS', isset($args['clientDNS']) ? $args['clientDNS'] : null, 'POST');
-        $clientOldDNS = FormUtil::getPassedValue('clientOldDNS', isset($args['clientOldDNS']) ? $args['clientOldDNS'] : null, 'POST');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
+        $clientDNS = AgoraPortal_Util::getFormVar($args, 'clientDNS', null, 'POST');
+        $clientOldDNS = AgoraPortal_Util::getFormVar($args, 'clientOldDNS', null, 'POST');
 
         // Securize form info
         $changeDNS_clientCode = SessionUtil::getVar('changeDNS_clientCode', false);
@@ -625,9 +623,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @author: Fèlix Casanellas (fcasanel@xtec.cat)
      */
     public function logs($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         $isAdmin = AgoraPortal_Util::isAdmin();
@@ -656,16 +655,16 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return: all logs that satisfy the parameters, the number of pages and the actual paramaters
      */
     public function logsContent($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
-        $init = FormUtil::getPassedValue('init', isset($args['init']) ? $args['init'] : 1, 'POST');
-        $actionCode = FormUtil::getPassedValue('actionCode', isset($args['actionCode']) ? $args['actionCode'] : null, 'POST');
-        $uname = FormUtil::getPassedValue('uname', isset($args['uname']) ? $args['uname'] : null, 'POST');
-        $fromDate = FormUtil::getPassedValue('fromDate', isset($args['fromDate']) ? $args['fromDate'] : null, 'POST');
-        $toDate = FormUtil::getPassedValue('toDate', isset($args['toDate']) ? $args['toDate'] : null, 'POST');
-        $pag = FormUtil::getPassedValue('pag', isset($args['pag']) ? $args['pag'] : 1, 'POST');
-
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
+        $init = AgoraPortal_Util::getFormVar($args, 'init', null, 'POST');
+        $actionCode = AgoraPortal_Util::getFormVar($args, 'actionCode', null, 'POST');
+        $uname = AgoraPortal_Util::getFormVar($args, 'uname', null, 'POST');
+        $fromDate = AgoraPortal_Util::getFormVar($args, 'fromDate', null, 'POST');
+        $toDate = AgoraPortal_Util::getFormVar($args, 'toDate', null, 'POST');
+        $pag = AgoraPortal_Util::getFormVar($args, 'pag', 1, 'POST');
+
 
         $factor = 20;
 
@@ -711,7 +710,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:  And array with the client services
      */
     public function getActiveServices($args) {
-        $clientServices = FormUtil::getPassedValue('clientServices', isset($args['clientServices']) ? $args['clientServices'] : null, 'POST');
+        $clientServices = AgoraPortal_Util::getFormVar($args, 'clientServices', null, 'POST');
         foreach ($clientServices as $service) {
             if ($service['state'] == 1) {
                 $returnServices[$service['serviceId']] = $service;
@@ -727,9 +726,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return: True if success and false otherwise
      */
     public function managers($args) {
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         $isAdmin = AgoraPortal_Util::isAdmin();
@@ -774,9 +774,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return: True if success and false otherwise
      */
     public function deleteManager($args) {
-        $managerId = FormUtil::getPassedValue('managerId', isset($args['managerId']) ? $args['managerId'] : null, 'POST');
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $managerId = AgoraPortal_Util::getFormVar($args, 'managerId', null, 'POST');
+
         // get manager information
         $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $managerId));
         $clientCode = $manager['clientCode'];
@@ -822,9 +823,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return: The new manager if success and false otherwise
      */
     public function addManager($args) {
-        $managerUName = FormUtil::getPassedValue('managerUName', isset($args['managerUName']) ? $args['managerUName'] : null, 'POST');
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $managerUName = AgoraPortal_Util::getFormVar($args, 'managerUName', null, 'POST');
+
         // check if user can add a new manager
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array());
         $clientCode = $clientInfo['clientCode'];
@@ -887,11 +889,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:     The client requests list
      */
     public function requests($args) {
-        // client code is optional
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
-
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        // client code is optional
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
 
         // Get client info. If client code is empty, getRealClientCode will use the manager's client code
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
@@ -938,15 +939,15 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return:     The new request if success and error message otherwise
      */
     public function addRequest($args) {
-        $service = FormUtil::getPassedValue('requestMenuServices', isset($args['requestMenuServices']) ? $args['requestMenuServices'] : null, 'GETPOST');
-        $typeId = FormUtil::getPassedValue('requestFilter', isset($args['requestFilter']) ? $args['requestFilter'] : null, 'GETPOST');
-        $clientId = FormUtil::getPassedValue('clientId', isset($args['clienId']) ? $args['clientId'] : null, 'GETPOST');
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
-        $comments = FormUtil::getPassedValue('comments', isset($args['comments']) ? $args['comments'] : null, 'GETPOST');
-        $managerid = UserUtil::getVar('uid');
-
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $service = AgoraPortal_Util::getFormVar($args, 'requestMenuServices');
+        $typeId = AgoraPortal_Util::getFormVar($args, 'requestFilter');
+        $clientId = AgoraPortal_Util::getFormVar($args, 'clienId');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
+        $comments = AgoraPortal_Util::getFormVar($args, 'comments');
+
+        $managerid = UserUtil::getVar('uid');
 
         // the user can add the request
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'addRequest', array('clientId' => $clientId,
@@ -983,10 +984,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      * @return array Services that meet the conditions
      */
     public function getRequestServices($args) {
-        $requestTypeId = FormUtil::getPassedValue('requestTypeId', isset($args['requestTypeId']) ? $args['requestTypeId'] : null, 'GET');
-
-        // Security check
         AgoraPortal_Util::requireUser();
+
+        $requestTypeId = AgoraPortal_Util::getFormVar($args, 'requestTypeId', null, 'GET');
 
         // Get clientCode of the client associated to the user currently logged in Zikula
         $userLogged = UserUtil::getVar('uname');
@@ -1021,8 +1021,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     public function getServiceLink($args) {
-        $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : null, 'POST');
-        $clientDNS = FormUtil::getPassedValue('clientDNS', isset($args['clientDNS']) ? $args['clientDNS'] : null, 'POST');
+        $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName', null, 'POST');
+        $clientDNS = AgoraPortal_Util::getFormVar($args, 'clientDNS', null, 'POST');
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
 
@@ -1030,11 +1030,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     public function recalcConsume($args) {
-        // client code is optional
-        $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GET');
-
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        // client code is optional
+        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', null, 'GET');
+
         if (!AgoraPortal_Util::isAdmin()) {
             $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId,
                         'clientServiceId' => $clientServiceId));

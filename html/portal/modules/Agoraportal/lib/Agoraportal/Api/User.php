@@ -16,7 +16,6 @@ require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
 class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     public function getClientServices($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get required params (only one needed)
@@ -54,7 +53,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return array information of the client in table agoraportal_clients
      */
     public function getClient($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get required param
@@ -85,7 +83,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return array information of the client in table agoraportal_clients
      */
     public function getClientById($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get required param
@@ -115,7 +112,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return array services allowed for the request type
      */
     public function getRequestTypesServices($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get required param
@@ -358,6 +354,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllClientsAndServicesForSitesList($args) {
         AgoraPortal_Util::requireUser();
+
         $myJoin = array();
         $myJoin[] = array('join_table' => 'agoraportal_clients',
             'join_field' => array(),
@@ -506,8 +503,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The list of available services
      */
     public function getAllServices($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_services_column'];
 
@@ -533,8 +530,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The service information
      */
     public function getService($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         // @aginard: This func name is in conflict with inherited func name from lib/Zikula/AbstractBase.php,
         //  so a check for a needed arg is required!
         if (!is_array($args)) {
@@ -557,8 +554,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The service information
      */
     public function getServiceByName($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_services_column'];
         $where = "$c[serviceName] = '$args[serviceName]'";
@@ -579,7 +576,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	True if success and false otherwise
      */
     public function updateAskService($args) {
-        // Security check
         AgoraPortal_Util::requireManager();
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
@@ -636,8 +632,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The list of available locations
      */
     public function getAllLocations($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_location_column'];
         $where = '';
@@ -662,8 +658,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The list of available types
      */
     public function getAllTypes($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_clientType_column'];
         $where = '';
@@ -694,7 +690,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return array service information combined with client information
      */
     public function getClientService($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get the service ID
@@ -736,7 +731,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return Array Client-service record
      */
     public function getClientServiceById($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $clientServiceId = (isset($args['clientServiceId'])) ? $args['clientServiceId'] : false;
@@ -771,7 +765,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return Array Register of table client_services
      */
     public function getClientServiceFull($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $serviceName = $args['serviceName'];
@@ -810,8 +803,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return     True if the client exists and false otherwise
      */
     public function clientExists($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $tables = DBUtil::getTables();
         $column = $tables['agoraportal_clients_column'];
         $item = DBUtil::selectObjectByID('agoraportal_clients', $args['clientCode'], 'clientCode');
@@ -832,7 +825,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return     True if success and false otherwise
      */
     public function addLog($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
@@ -864,7 +856,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return     True if the delete succed and false otherwise
      */
     public function apiChangeDNS($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
 
         global $agora;
@@ -974,8 +965,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return: all logs that satisfy the parameters, the number of logs and the number of pags
      */
     public function getLogsContent($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
 
@@ -1037,8 +1028,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return    True if the clientCode has activated specified serviceName; false otherwise
      */
     public function existsServiceInClient($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $allServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $clientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
@@ -1076,7 +1067,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:     An array with the managers for a client
      */
     public function getManagers($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
@@ -1103,8 +1093,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:     An array with the manager information
      */
     public function getManager($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $key = (isset($args['managerUName'])) ? 'managerUName' : 'managerId';
         $item = DBUtil::selectObjectByID('agoraportal_client_managers', $args[$key], $key);
         if ($item == false) {
@@ -1120,8 +1110,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:     True if success and false otrerwise
      */
     public function deleteManager($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
+
         // get manager information
         $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $args['managerId']));
         $clientCode = $manager['clientCode'];
@@ -1158,11 +1148,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:     The new manager identity if success and false otrerwise
      */
     public function addManager($args) {
+        AgoraPortal_Util::requireClient();
+
         $managerUName = (isset($args['managerUName'])) ? $args['managerUName'] : null;
         $clientCode = (isset($args['clientCode'])) ? $args['clientCode'] : null;
 
-        // Security check
-        AgoraPortal_Util::requireClient();
         // check if user can add a new manager
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
@@ -1190,7 +1180,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return     True if the delete succed and false otherwise
      */
     public function getClientMainInfo($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $pntable = DBUtil::getTables();
@@ -1220,8 +1209,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     public function saveDiskConsume($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
+
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_client_services_column'];
         $where = "WHERE  $c[clientServiceId] = " . $args['clientServiceId'];
@@ -1240,14 +1229,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return      The new request identity if success and error message otherwise
      */
     public function addRequest($args) {
-        $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : null, 'GETPOST');
-        $clientId = FormUtil::getPassedValue('clientId', isset($args['clientId']) ? $args['clientId'] : null, 'GETPOST');
-        $typeId = FormUtil::getPassedValue('typeId', isset($args['typeId']) ? $args['typeId'] : null, 'GETPOST');
-        $comments = FormUtil::getPassedValue('comments', isset($args['comments']) ? $args['comments'] : null, 'GETPOST');
-        $managerid = FormUtil::getPassedValue('managerId', isset($args['managerId']) ? $args['managerId'] : null, 'GETPOST');
-
-        // Security check
         AgoraPortal_Util::requireClient();
+
+        $service = isset($args['service']) ? $args['service'] : null;
+        $clientId = isset($args['clientId']) ? $args['clientId'] : null;
+        $typeId = isset($args['typeId']) ? $args['typeId'] : null;
+        $comments = isset($args['comments']) ? $args['comments'] : null;
+        $managerid = isset($args['managerId']) ? $args['managerId'] : null;
 
         // add the request in database
         $item = array('clientId' => $clientId,
@@ -1274,7 +1262,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return
      */
     public function getAllRequests($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
@@ -1335,7 +1322,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return
      */
     public function getAllRequestTypes($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
@@ -1364,7 +1350,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return
      */
     public function getAllRequestsStates($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
@@ -1391,7 +1376,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return
      */
     public function getAllRequestTypesServices($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
@@ -1433,7 +1417,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return array Information of the model/s
      */
     public function getModelTypes($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get optional param
@@ -1462,7 +1445,6 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return array Information of the request/s
      */
     public function getRequestTypes($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get optional param
@@ -1495,12 +1477,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return boolean true if threshold is crossed, false if not.
      */
     public function checkDiskRequestThreshold($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
 
         // Get params
-        $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : '', 'GETPOST');
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : '', 'GETPOST');
+        $serviceId = isset($args['serviceId']) ? $args['serviceId'] : '';
+        $clientCode = isset($args['clientCode']) ? $args['clientCode'] : '';
 
         // Check for required params
         if (empty($serviceId) || empty($clientCode)) {
@@ -1539,8 +1520,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return  string instance name
      */
     public function calcOracleInstance($args) {
-        // Security check (might be no necessary)
-        AgoraPortal_Util::requireClient();
+        AgoraPortal_Util::requireClient(); // Might be no necessary
 
         global $agora;
 
@@ -1572,14 +1552,13 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return 	database connexion
      */
     public function connectExtDB($args) {
-        // Security check
         AgoraPortal_Util::requireClient();
 
-        $host = FormUtil::getPassedValue('host', (isset($args['host']) && (!empty($args['host']))) ? $args['host'] : null, 'GETPOST');
-        $database = FormUtil::getPassedValue('database', isset($args['database']) ? $args['database'] : null, 'GETPOST');
-        $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'intranet', 'GETPOST');
-        $serviceDB = FormUtil::getPassedValue('serviceDB', isset($args['serviceDB']) ? $args['serviceDB'] : '', 'GETPOST');
-        $forceCreateDB = FormUtil::getPassedValue('forceCreateDB', isset($args['forceCreateDB']) ? $args['forceCreateDB'] : 'false', 'GETPOST');
+        $host = isset($args['host']) ? $args['host'] : null;
+        $database = isset($args['database']) ? $args['database'] : null;
+        $serviceName = isset($args['serviceName']) ? $args['serviceName'] : 'intranet';
+        $serviceDB = isset($args['serviceDB']) ? $args['serviceDB'] : '';
+        $forceCreateDB = isset($args['forceCreateDB']) ? $args['forceCreateDB'] : 'false';
 
         // Needed argument
         if ($serviceName == 'moodle2' && (!isset($database) || !is_numeric($database))) {
@@ -1709,8 +1688,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return    True if the clientCode has activated specified serviceName; false otherwise
      */
     public function serviceClientIsActive($args) {
-        // Security check
         AgoraPortal_Util::requireUser();
+
         $allServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $clientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
@@ -1763,11 +1742,9 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	Real client information
      */
     public function getRealClientCode($args) {
-
-        $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
-
-        // Security check
         AgoraPortal_Util::requireUser();
+
+        $clientCode = isset($args['clientCode']) ? $args['clientCode'] : null;
 
         $isAdmin = AgoraPortal_Util::isAdmin();
 
