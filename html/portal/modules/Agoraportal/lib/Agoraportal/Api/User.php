@@ -1,5 +1,7 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 /**
  * Get the active services of a client. If clientId is present, uses this param
  *  to get the service info. If clientId is not present but clientCode is
@@ -15,9 +17,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     public function getClientServices($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get required params (only one needed)
         $clientId = (isset($args['clientId'])) ? $args['clientId'] : '';
@@ -55,9 +55,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getClient($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get required param
         $clientCode = (isset($args['clientCode'])) ? $args['clientCode'] : '';
@@ -88,9 +86,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getClientById($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get required param
         $clientId = (isset($args['clientId'])) ? $args['clientId'] : '';
@@ -120,9 +116,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getRequestTypesServices($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get required param
         $requestTypeId = (isset($args['requestTypeId'])) ? $args['requestTypeId'] : '';
@@ -150,9 +144,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The list of available services
      */
     public function getAllClientsAndServices($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $clientCode = (!isset($args['clientCode'])) ? 0 : $args['clientCode'];
         $key = (!isset($args['key'])) ? 'clientServiceId' : $args['key'];
@@ -181,7 +173,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             $where = "a.$ocolumn[clientServiceId] = $args[clientServiceId]";
         } else {
             // filter no visible sites
-            if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            if (!AgoraPortal_Util::isAdmin()) {
                 $where = "(b.$lcolumn[noVisible] = 0 || b.$lcolumn[clientCode] = '$clientCode')";
             }
         }
@@ -365,9 +357,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	The list of available services
      */
     public function getAllClientsAndServicesForSitesList($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $myJoin = array();
         $myJoin[] = array('join_table' => 'agoraportal_clients',
             'join_field' => array(),
@@ -468,7 +458,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => UserUtil::getVar('uname')));
         $clientCode = ($manager) ? $manager['clientCode'] : UserUtil::getVar('uname');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN) && $args['searchText'] != $clientCode) {
+        if (!AgoraPortal_Util::isAdmin() && $args['searchText'] != $clientCode) {
             throw new Zikula_Exception_Forbidden();
         }
         $key = (isset($args['returnClientCodeKey'])) ? 'clientCode' : 'clientId';
@@ -517,9 +507,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllServices($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_services_column'];
 
@@ -546,9 +534,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         // @aginard: This func name is in conflict with inherited func name from lib/Zikula/AbstractBase.php,
         //  so a check for a needed arg is required!
         if (!is_array($args)) {
@@ -572,9 +558,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getServiceByName($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_services_column'];
         $where = "$c[serviceName] = '$args[serviceName]'";
@@ -596,9 +580,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function updateAskService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireManager();
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         // get client services information
@@ -654,9 +637,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllLocations($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_location_column'];
         $where = '';
@@ -682,9 +663,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllTypes($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_clientType_column'];
         $where = '';
@@ -716,9 +695,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getClientService($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get the service ID
         if (isset($args['serviceId'])) {
@@ -760,9 +737,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getClientServiceById($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $clientServiceId = (isset($args['clientServiceId'])) ? $args['clientServiceId'] : false;
 
@@ -797,9 +772,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getClientServiceFull($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $serviceName = $args['serviceName'];
         $activedId = $args['activedId'];
@@ -838,9 +811,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function clientExists($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $tables = DBUtil::getTables();
         $column = $tables['agoraportal_clients_column'];
         $item = DBUtil::selectObjectByID('agoraportal_clients', $args['clientCode'], 'clientCode');
@@ -862,9 +833,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function addLog($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
@@ -896,9 +865,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function apiChangeDNS($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         global $agora;
 
@@ -977,7 +944,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         }
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
+        if (!AgoraPortal_Util::isUser()) {
             return false;
         }
 
@@ -1008,9 +975,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getLogsContent($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
 
@@ -1073,9 +1038,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function existsServiceInClient($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $allServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $clientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
@@ -1114,9 +1077,8 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getManagers($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
+
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
 
@@ -1142,9 +1104,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getManager($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $key = (isset($args['managerUName'])) ? 'managerUName' : 'managerId';
         $item = DBUtil::selectObjectByID('agoraportal_client_managers', $args[$key], $key);
         if ($item == false) {
@@ -1161,9 +1121,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function deleteManager($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         // get manager information
         $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $args['managerId']));
         $clientCode = $manager['clientCode'];
@@ -1174,7 +1132,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
 
         // check if realy the user can delete de manager
-        if ((!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) || UserUtil::getVar('uname') == $manager['managerUName']) {
+        if ((!AgoraPortal_Util::isClient()) || UserUtil::getVar('uname') == $manager['managerUName']) {
             return LogUtil::registerError($this->__('No pots esborrar el gestor.'));
         }
         // user can delete the manager and it is deleted from data base
@@ -1204,9 +1162,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $clientCode = (isset($args['clientCode'])) ? $args['clientCode'] : null;
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         // check if user can add a new manager
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
@@ -1235,9 +1191,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getClientMainInfo($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_clients_column'];
@@ -1267,9 +1221,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
 
     public function saveDiskConsume($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         $pntable = DBUtil::getTables();
         $c = $pntable['agoraportal_client_services_column'];
         $where = "WHERE  $c[clientServiceId] = " . $args['clientServiceId'];
@@ -1295,9 +1247,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         $managerid = FormUtil::getPassedValue('managerId', isset($args['managerId']) ? $args['managerId'] : null, 'GETPOST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         // add the request in database
         $item = array('clientId' => $clientId,
@@ -1325,9 +1275,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllRequests($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_request_column'];
@@ -1388,9 +1336,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllRequestTypes($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_requestTypes_column'];
@@ -1419,9 +1365,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllRequestsStates($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_requestStates_column'];
@@ -1448,9 +1392,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getAllRequestTypesServices($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         $tables = DBUtil::getTables();
         $c = $tables['agoraportal_requestTypesServices_column'];
@@ -1492,9 +1434,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getModelTypes($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get optional param
         $modelTypeId = isset($args['modelTypeId']) ? $args['modelTypeId'] : '';
@@ -1523,9 +1463,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function getRequestTypes($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get optional param
         $requestTypeId = isset($args['requestTypeId']) ? $args['requestTypeId'] : '';
@@ -1558,9 +1496,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function checkDiskRequestThreshold($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get params
         $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : '', 'GETPOST');
@@ -1604,9 +1540,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function calcOracleInstance($args) {
         // Security check (might be no necessary)
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         global $agora;
 
@@ -1639,9 +1573,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function connectExtDB($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         $host = FormUtil::getPassedValue('host', (isset($args['host']) && (!empty($args['host']))) ? $args['host'] : null, 'GETPOST');
         $database = FormUtil::getPassedValue('database', isset($args['database']) ? $args['database'] : null, 'GETPOST');
@@ -1778,9 +1710,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      */
     public function serviceClientIsActive($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $allServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $clientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
@@ -1833,22 +1763,20 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
      * @return:	Real client information
      */
     public function getRealClientCode($args) {
-        
+
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-        
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
-        
+        AgoraPortal_Util::requireUser();
+
+        $isAdmin = AgoraPortal_Util::isAdmin();
+
         if ($clientCode == null) {
             // check if user is a manager for a client
             $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => UserUtil::getVar('uname')));
             $clientCode = $manager['clientCode'];
         }
-        
+
         if ($clientCode == null) {
             // Perhaps who is connected is a schoool, so client code is the username
             if (!$isAdmin) {

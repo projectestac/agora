@@ -1,5 +1,7 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
     global $agora;
 
@@ -64,18 +66,9 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
     $AgoraportalMenuLinks = '';
 
     // Compacted if's don't work as espected here!
-    if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-        $isClient = true;
-    } else {
-        $isClient = false;
-    }
-    if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-        $isManager = true;
-    } else {
-        $isManager = false;
-    }
-
-    $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+    $isClient = AgoraPortal_Util::isClient();
+    $isManager = AgoraPortal_Util::isManager();
+    $isAdmin = AgoraPortal_Util::isAdmin();
 
     if (!$isAdmin) {
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));

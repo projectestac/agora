@@ -1,10 +1,12 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function servicesList($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $service = FormUtil::getPassedValue('service', -1, 'GET');
@@ -37,7 +39,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function getServiceActions($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $service = FormUtil::getPassedValue('service', 0, 'GET');
@@ -51,7 +53,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function sqlservicesList($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $service = FormUtil::getPassedValue('service', -1, 'GET');
@@ -76,7 +78,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function statsservicesList($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $serviceName = FormUtil::getPassedValue('serviceName', -1, 'GET');
@@ -93,7 +95,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function statsGetStatistics($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
@@ -116,7 +118,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function statsGetGraphs($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $init = FormUtil::getPassedValue('init', -1, 'GET');
@@ -146,7 +148,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function statsGetCSV($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $init = FormUtil::getPassedValue('init', -1, 'GET');
@@ -170,7 +172,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function clientsList($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $search = FormUtil::getPassedValue('search', -1, 'GET');
@@ -184,7 +186,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function editUserRow($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADD)) {
+        if (!AgoraPortal_Util::isManager()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
@@ -205,7 +207,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
                     'uname' => $uname));
         $user = $users[$uname];
 
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = (AgoraPortal_Util::isAdmin()) ? true : false;
 
         $view = Zikula_View::getInstance('Agoraportal', false);
         $view->assign('user', $user);
@@ -219,7 +221,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function editService($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $serviceId = FormUtil::getPassedValue('serviceId', -1, 'GET');
@@ -243,7 +245,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
 
     public function updateService($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $serviceId = FormUtil::getPassedValue('serviceId', -1, 'GET');
@@ -296,7 +298,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function sitesList($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_READ)) {
+        if (!AgoraPortal_Util::isUser()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $typeId = FormUtil::getPassedValue('typeId', -1, 'GET');
@@ -321,7 +323,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      * @return:	A list of clients
      */
     public function autocompleteClient($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_READ)) {
+        if (!AgoraPortal_Util::isUser()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML(_MODULENOAUTH));
         }
         $value = FormUtil::getPassedValue('value', -1, 'GET');
@@ -343,7 +345,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      * @return: all logs that satisfy the parameters
      */
     public function logs($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_COMMENT)) {
+        if (!AgoraPortal_Util::isClient()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $init = FormUtil::getPassedValue('init', -1, 'GET');
@@ -370,7 +372,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function sqlComandsUpdate($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
@@ -427,7 +429,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      */
     public function sqlFunctionUpdate($args) {
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : null, 'GETPOST');
@@ -469,7 +471,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      * @param type $args
      */
     public function requestsList($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $service = FormUtil::getPassedValue('service', -1, 'GET');
@@ -512,7 +514,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
      *
      */
     public function getRequestMessage($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
+        if (!AgoraPortal_Util::isUser()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
 
@@ -551,7 +553,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     }
 
     public function deleteFileM2x($args) {
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_COMMENT)) {
+        if (!AgoraPortal_Util::isClient()) {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No teniu autorització per accedir a aquest mòdul')));
         }
         $filename = FormUtil::getPassedValue('filename', '', 'GET');
@@ -593,9 +595,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
     public function showOperationLog($args) {
         $logid = FormUtil::getPassedValue('log', -1, 'GET');
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $log = DBUtil::selectObjectByID('agoraportal_queues_log', $logid);
 
@@ -613,9 +613,7 @@ class Agoraportal_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('No s\'han rebut dades')));
         }
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $operation = DBUtil::selectObjectByID('agoraportal_queues', $opid);
 

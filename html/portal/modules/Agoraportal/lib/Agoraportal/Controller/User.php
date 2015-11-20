@@ -1,5 +1,7 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 class Agoraportal_Controller_User extends Zikula_AbstractController {
 
     public function postInitialize() {
@@ -13,10 +15,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      */
     public function main() {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT) && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        AgoraPortal_Util::requireUser();
+        if (AgoraPortal_Util::isClient() && !AgoraPortal_Util::isAdmin()) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora'));
         }
         return System::redirect(ModUtil::url('Agoraportal', 'user', 'sitesList'));
@@ -30,9 +30,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      */
     public function myAgora($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
         if (!$clientCode) {
@@ -45,10 +43,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             }
         }
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = AgoraPortal_Util::isAdmin();
 
         // check user access level in Àgora
-        $accessLevel = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) ? 'add' : 'comment';
+        $accessLevel = (AgoraPortal_Util::isManager()) ? 'add' : 'comment';
 
         // Load Àgora config (needed later)
         global $agora;
@@ -69,7 +67,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         //Check if the client is pending of change his clientDNS
         //Only for site managers
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
+        if (AgoraPortal_Util::isManager()) {
             $schooldata = getSchoolFromWS($clientCode);
             // Data for debug (commented)
             // $schooldata['error'] = 0;
@@ -132,7 +130,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function askServices($args) {
 
         // Access check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
+        if (!AgoraPortal_Util::isManager()) {
             return $this->view->assign('noaccess', true)
                             ->fetch('agoraportal_user_askServices.tpl');
         }
@@ -141,7 +139,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
         $contactProfile = FormUtil::getPassedValue('contactProfile', isset($args['contactProfile']) ? $args['contactProfile'] : null, 'GETPOST');
 
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = (AgoraPortal_Util::isAdmin()) ? true : false;
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
@@ -184,7 +182,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $notsolicitedServices = array_diff_key($allowedServices, $clientServices);
 
         if (empty($notsolicitedServices)) {
-            if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
             }
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'main'));
@@ -225,9 +223,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireManager();
 
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -273,7 +269,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
 
-        if ($acceptUseTerms == null && !SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if ($acceptUseTerms == null && !AgoraPortal_Util::isAdmin()) {
             LogUtil::registerError($this->__('No heu acceptat les condicions d\'ús'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
                                 'contactProfile' => $contactProfile,
@@ -286,7 +282,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                     'contactProfile' => $contactProfile,
                     'observations' => $nodes))) {
             LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
-            if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
             }
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'main'));
@@ -296,7 +292,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 'action' => $this->__f('S\'ha fet la sol·licitud del servei %s', $serviceName)));
         }
 
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (AgoraPortal_Util::isAdmin()) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora', array('clientCode' => $clientCode)));
         }
 
@@ -310,9 +306,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      */
     public function sitesList() {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $sitesListContent = ModUtil::func('Agoraportal', 'user', 'sitesListContent');
         // Create output object
         return $this->view->assign('sitesListContent', $sitesListContent)
@@ -333,9 +327,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : null, 'POST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $locations = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations');
         $types = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
@@ -421,11 +413,9 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : 'uploadFiles', 'GET');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireManager();
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = AgoraPortal_Util::isAdmin();
         $clientCode = $clientInfo['clientCode'];
         $client = $clientInfo['client'];
         // get all services
@@ -548,9 +538,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $target = FormUtil::getPassedValue('target', isset($args['target']) ? $args['target'] : null, 'GET');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireManager();
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
 
@@ -637,9 +625,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
      */
     public function changeDNS($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
         $clientDNS = FormUtil::getPassedValue('clientDNS', isset($args['clientDNS']) ? $args['clientDNS'] : null, 'POST');
@@ -683,12 +669,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function logs($args) {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = AgoraPortal_Util::isAdmin();
         $client = $clientInfo['client'];
         $logsContent = ModUtil::func('Agoraportal', 'user', 'logsContent');
         // get client services information
@@ -723,9 +707,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $pag = FormUtil::getPassedValue('pag', isset($args['pag']) ? $args['pag'] : 1, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         $factor = 20;
 
@@ -754,7 +736,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             'toDate' => $toDate,
             'pag' => $pag);
 
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = AgoraPortal_Util::isAdmin();
 
         return $this->view->assign('logs', $logs)
                         ->assign('pags', $pags)
@@ -789,20 +771,18 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function managers($args) {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
-        $isAdmin = (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) ? true : false;
+        $isAdmin = AgoraPortal_Util::isAdmin();
         $client = $clientInfo['client'];
         // check user access level in Àgora
         $accessLevel = 'none';
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+        if (AgoraPortal_Util::isClient()) {
             $accessLevel = 'comment';
         }
 
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
+        if (AgoraPortal_Util::isManager()) {
             $accessLevel = 'add';
         }
 
@@ -838,15 +818,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function canDelegate($args) {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
         // if the number of delegated users in lower than 4 and user is manager or client
-        if (count($managers) < 4 && SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+        if (count($managers) < 4 && AgoraPortal_Util::isClient()) {
             return true;
         }
         // The user is the client but nobody has been delegated yet
@@ -865,9 +843,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function deleteManager($args) {
         $managerId = FormUtil::getPassedValue('managerId', isset($args['managerId']) ? $args['managerId'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         // get manager information
         $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerId' => $managerId));
         $clientCode = $manager['clientCode'];
@@ -879,7 +855,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
 
         // check if assigned the user can delete de manager
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+        if (!AgoraPortal_Util::isClient()) {
             LogUtil::registerError($this->__('No pots esborrar el gestor.'));
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
         }
@@ -900,7 +876,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 3,
                 'action' => $this->__f('S\'ha esborrat el gestor amb nom d\'usuari %s', $thisManager['managerUName'])));
         }
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (AgoraPortal_Util::isAdmin()) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
         }
         return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
@@ -915,9 +891,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function addManager($args) {
         $managerUName = FormUtil::getPassedValue('managerUName', isset($args['managerUName']) ? $args['managerUName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
         // check if user can add a new manager
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array());
         $clientCode = $clientInfo['clientCode'];
@@ -926,7 +900,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $canDelegate = ModUtil::func('Agoraportal', 'user', 'canDelegate', array('clientCode' => $clientCode));
         if (!$canDelegate) {
             LogUtil::registerError($this->__('No pots crear gestors.'));
-            if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
             }
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
@@ -941,7 +915,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // the user delegated can't have a code username
         if (is_numeric(substr($managerUName, 1, strlen($managerUName)))) {
             LogUtil::registerError($this->__('No pots assignar a usuaris genèrics la gestió.'));
-            if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
             }
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
@@ -952,7 +926,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             // get school name
             $clientMainInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getClientMainInfo', array('clientCode' => $manager['clientCode']));
             LogUtil::registerError($this->__f('L\'usuari/ària ja és gestor/a del centre <strong>%s</strong>. Una mateixa persona no pot ser gestora de dos centres simultàniament.', $clientMainInfo));
-            if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+            if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
             }
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
@@ -967,7 +941,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 1,
                 'action' => $this->__f('S\'ha afegit un gestor amb nom d\'usuari %s', $managerUName)));
         }
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (AgoraPortal_Util::isAdmin()) {
             return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers', array('clientCode' => $clientCode)));
         }
         return System::redirect(ModUtil::url('Agoraportal', 'user', 'managers'));
@@ -984,9 +958,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = FormUtil::getPassedValue('clientCode', isset($args['clientCode']) ? $args['clientCode'] : null, 'GETPOST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         // Get client info. If client code is empty, getRealClientCode will use the manager's client code
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
@@ -1041,9 +1013,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $managerid = UserUtil::getVar('uid');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireClient();
 
         // the user can add the request
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'addRequest', array('clientId' => $clientId,
@@ -1083,9 +1053,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $requestTypeId = FormUtil::getPassedValue('requestTypeId', isset($args['requestTypeId']) ? $args['requestTypeId'] : null, 'GET');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
 
         // Get clientCode of the client associated to the user currently logged in Zikula
         $userLogged = UserUtil::getVar('uname');
@@ -1133,10 +1101,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GET');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
-            throw new Zikula_Exception_Forbidden();
-        }
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        AgoraPortal_Util::requireClient();
+        if (!AgoraPortal_Util::isAdmin()) {
             $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId,
                         'clientServiceId' => $clientServiceId));
 
@@ -1156,9 +1122,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     }
 
     public function servicesTerms() {
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_READ)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireUser();
         return $this->view->fetch('agoraportal_user_terms.tpl');
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     const STATUS_ENABLED = 1;
@@ -19,9 +21,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function main() {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
     }
 
@@ -39,9 +39,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : 0, 'GET');
         $stateFilter = FormUtil::getPassedValue('stateFilter', isset($args['stateFilter']) ? $args['stateFilter'] : -1, 'GET');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
         $locations = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations');
@@ -112,9 +110,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $version = FormUtil::getPassedValue('version', isset($args['version']) ? $args['version'] : null, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         // Confirm authorisation code
         $this->checkCsrfToken();
@@ -310,9 +306,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GET');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GET');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClients', array('clientId' => $clientId));
         if (!$client) {
             LogUtil::registerError($this->__('No s\'ha trobat el client'));
@@ -340,9 +334,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clientId = FormUtil::getPassedValue('clientId', isset($args['clientId']) ? $args['clientId'] : null, 'GETPOST');
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get client information
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClients', array('clientId' => $clientId));
         if (!$client) {
@@ -394,9 +386,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clientServiceId = FormUtil::getPassedValue('clientServiceId', isset($args['clientServiceId']) ? $args['clientServiceId'] : null, 'GETPOST');
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // get client information
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
         if (!$client) {
@@ -458,9 +448,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'servicesListContent', array('init' => $init,
                     'search' => $search,
                     'searchText' => trim($searchText),
@@ -498,9 +486,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $searchText = addslashes($searchText);
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => $init,
                     'rpp' => $rpp,
@@ -570,9 +556,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     public function getServiceActions($args) {
         $service = FormUtil::getPassedValue('service', isset($args['service']) ? $args['service'] : '0', 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $serviceName = $services[$service]['serviceName'];
@@ -650,9 +634,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : '', 'GETPOST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : '', 'GETPOST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $clientsListContent = ModUtil::func('Agoraportal', 'admin', 'clientsListContent', array('init' => $init,
                     'search' => $search,
                     'searchText' => $searchText));
@@ -675,9 +657,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : null, 'POST');
         $searchText = FormUtil::getPassedValue('searchText', isset($args['searchText']) ? $args['searchText'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClients', array('init' => $init,
                     'rpp' => $rpp,
                     'search' => $search,
@@ -724,7 +704,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clientState = FormUtil::getPassedValue('clientState', isset($args['clientState']) ? $args['clientState'] : 0, 'GETPOST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             return LogUtil::registerPermissionError();
         }
         $client = array('clientCode' => $clientCode,
@@ -757,7 +737,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $clientDescription = FormUtil::getPassedValue('clientDescription', isset($args['clientDescription']) ? $args['clientDescription'] : null, 'POST');
         $clientState = FormUtil::getPassedValue('clientState', isset($args['clientState']) ? $args['clientState'] : 0, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             return LogUtil::registerPermissionError();
         }
         // Confirm authorisation code
@@ -826,9 +806,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $action = FormUtil::getPassedValue('action', isset($args['action']) ? $args['action'] : null, 'GET');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         // get client information
         $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
@@ -863,9 +841,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function config() {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $locations = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations');
         $schooltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
         $requesttypes = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes');
@@ -905,9 +881,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $createDB = FormUtil::getPassedValue('createDB', isset($args['createDB']) ? $args['createDB'] : false, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // Confirm authorisation code
         $this->checkCsrfToken();
 
@@ -942,7 +916,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $javascript = FormUtil::getPassedValue('javascript', isset($args['javascript']) ? $args['javascript'] : false, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_READ)) {
+        if (!AgoraPortal_Util::isUser()) {
             return LogUtil::registerPermissionError();
         }
         if ($total <= $rpp) {
@@ -1015,9 +989,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function services() {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         global $agora;
         // get services
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
@@ -1047,9 +1019,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $locationId = FormUtil::getPassedValue('locationId', isset($args['locationId']) ? $args['locationId'] : null, 'GETPOST');
         $locationName = FormUtil::getPassedValue('locationName', isset($args['locationName']) ? $args['locationName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $location = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations', array('locationId' => $locationId));
             return $this->view->assign('location', $location[$locationId])
@@ -1083,9 +1053,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $locationName = FormUtil::getPassedValue('locationName', isset($args['locationName']) ? $args['locationName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes', array('requestTypeId' => $requestTypeId));
 
@@ -1116,9 +1084,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $typeId = FormUtil::getPassedValue('typeId', isset($args['typeId']) ? $args['typeId'] : null, 'GETPOST');
         $typeName = FormUtil::getPassedValue('typeName', isset($args['typeName']) ? $args['typeName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $type = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes', array('typeId' => $typeId));
             $view = Zikula_View::getInstance('Agoraportal', false);
@@ -1147,9 +1113,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
         $locationName = FormUtil::getPassedValue('locationName', isset($args['locationName']) ? $args['locationName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             return $this->view->fetch('agoraportal_admin_addNewLocation.tpl');
         }
@@ -1176,9 +1140,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $requesttypeid = FormUtil::getPassedValue('requesttype', isset($args['requesttype']) ? $args['requesttype'] : null, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes');
             $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
@@ -1210,9 +1172,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $requestTypeUserCommentsText = FormUtil::getPassedValue('requestTypeUserCommentsText', isset($args['requestTypeUserCommentsText']) ? $args['requestTypeUserCommentsText'] : null, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             return $this->view->fetch('agoraportal_admin_addNewRequestType.tpl');
         }
@@ -1237,9 +1197,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
         $typeName = FormUtil::getPassedValue('typeName', isset($args['typeName']) ? $args['typeName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             return $this->view->fetch('agoraportal_admin_addNewType.tpl');
         }
@@ -1273,9 +1231,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $dbHost = FormUtil::getPassedValue('dbHost', isset($args['dbHost']) ? $args['dbHost'] : null, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         // Show the form or save the data?
         if ($confirmation == null) {
@@ -1309,9 +1265,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $locationId = FormUtil::getPassedValue('locationId', isset($args['locationId']) ? $args['locationId'] : null, 'GETPOST');
         $locationName = FormUtil::getPassedValue('locationName', isset($args['locationName']) ? $args['locationName'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $location = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations', array('locationId' => $locationId));
             return $this->view->assign('location', $location[$locationId])
@@ -1340,9 +1294,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $serviceid = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : null, 'GETPOST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypesServices', array('requestTypeId' => $requestTypeId,
                         'serviceId' => $serviceid));
@@ -1371,9 +1323,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
         $requestTypeId = FormUtil::getPassedValue('requestTypeId', isset($args['requestTypeId']) ? $args['requestTypeId'] : null, 'GETPOST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes', array('requestTypeId' => $requestTypeId));
 
@@ -1404,9 +1354,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $confirmation = FormUtil::getPassedValue('confirmation', isset($args['confirmation']) ? $args['confirmation'] : null, 'POST');
         $modelTypeId = FormUtil::getPassedValue('modelTypeId', isset($args['modelTypeId']) ? $args['modelTypeId'] : null, 'GETPOST');
 
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         if ($confirmation == null) {
             $modelType = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes', array('modelTypeId' => $modelTypeId));
@@ -1439,9 +1387,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $typeId = FormUtil::getPassedValue('typeId', isset($args['typeId']) ? $args['typeId'] : null, 'GETPOST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         if ($confirmation == null) {
             $type = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes', array('typeId' => $typeId));
             return $this->view->assign('type', $type[$typeId])
@@ -1469,9 +1415,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function sql($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
@@ -1644,9 +1588,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function advices($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $message = FormUtil::getPassedValue('message', isset($args['message']) ? $args['message'] : null, 'GETPOST');
@@ -1938,9 +1880,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function sqlservicesListContent($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         // Form usefull data
         $service = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
@@ -1992,9 +1932,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function sqlComandList($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $serviceId = FormUtil::getPassedValue('serviceId', isset($args['serviceId']) ? $args['serviceId'] : 2, 'REQUEST');
         $comand_type = FormUtil::getPassedValue('comand_type', isset($args['comand_type']) ? $args['comand_type'] : 0, 'REQUEST');
@@ -2013,9 +1951,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function stats($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
         $stats_sel = FormUtil::getPassedValue('stats_sel', isset($args['stats_sel']) ? $args['stats_sel'] : 0, 'GETPOST');
@@ -2073,9 +2009,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function statsservicesListContent($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $serviceName = FormUtil::getPassedValue('serviceName', isset($args['serviceName']) ? $args['serviceName'] : 'moodle2', 'GETPOST');
         $service = ModUtil::apiFunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => $serviceName));
         $search = FormUtil::getPassedValue('search', isset($args['search']) ? $args['search'] : 1, 'GETPOST');
@@ -2117,9 +2051,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function statsGetStatisticsContent($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $ruta = FormUtil::getPassedValue('ruta', 0, 'GET');
         $stats = FormUtil::getPassedValue('stats', 1, 'GET');
         $which = FormUtil::getPassedValue('which', "all", 'GET');
@@ -2334,9 +2266,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function statsGetGraphsContent($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $ruta = FormUtil::getPassedValue('ruta', 0, 'GET');
         $stats = FormUtil::getPassedValue('stats', 1, 'GET');
@@ -2972,9 +2902,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function statsGetCSVContent($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $stats = FormUtil::getPassedValue('stats_sel', 1, 'POST');
         $which = FormUtil::getPassedValue('which', "all", 'POST');
@@ -3206,9 +3134,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         if (!$export_pack = ModUtil::apiFunc('Export', 'admin', 'getExportPack', array('modules_selected' => $modules_selected))) {
             LogUtil::registerError($this->__('It\'s not possible to generate the export pack'));
         } else {
-            if (!SecurityUtil::checkPermission('Agoraportal::', '::', ACCESS_ADMIN)) {
-                throw new Zikula_Exception_Forbidden();
-            }
+            AgoraPortal_Util::requireAdmin();
+
             $fileSize = filesize($export_pack);
             $file = basename($export_pack);
             // begin writing headers
@@ -3324,7 +3251,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
     public function updateDiskUse($args) {
        // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             if (!defined('CLI_SCRIPT')) {
                 LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
                 return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
@@ -3545,9 +3472,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $stateFilter = FormUtil::getPassedValue('stateFilter', isset($args['stateFilter']) ? $args['stateFilter'] : -1, 'GET');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $requestsstates = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestsStates');
@@ -3599,9 +3524,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $sendMail = FormUtil::getPassedValue('sendMail', isset($args['sendMail']) ? $args['sendMail'] : null, 'POST');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         // Confirm authorisation code
         $this->checkCsrfToken();
 
@@ -3712,9 +3635,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $requestId = FormUtil::getPassedValue('requestId', isset($args['requestId']) ? $args['requestId'] : null, 'GETPOST');
         $confirm = FormUtil::getPassedValue('confirm', isset($args['confirm']) ? $args['confirm'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $client = ModUtil::apiFunc('Agoraportal', 'admin', 'getInfodeleteRequest', array('requestId' => $requestId));
         if (!$client) {
@@ -3762,9 +3683,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         }
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $servicesListContent = ModUtil::func('Agoraportal', 'admin', 'requestsListContent', array('init' => $init,
                     'search' => $search,
                     'searchText' => trim($searchText),
@@ -3801,9 +3720,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $searchText = addslashes($searchText);
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
 
         $requests = ModUtil::apiFunc('Agoraportal', 'admin', 'getAllRequests', array('init' => $init,
@@ -3857,7 +3774,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $activedId = FormUtil::getPassedValue('activedId');
 
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (!AgoraPortal_Util::isAdmin()) {
             if (!defined('CLI_SCRIPT')) {
                 LogUtil::registerError($this->__('No teniu accés a executar aquesta funcionalitat'));
                 return System::redirect(ModUtil::url('Agoraportal', 'admin', 'servicesList'));
@@ -3923,9 +3840,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function operations($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         $clients_sel = FormUtil::getPassedValue('clients_sel', isset($args['clients_sel']) ? $args['clients_sel'] : null, 'GETPOST');
         $which = FormUtil::getPassedValue('which', isset($args['which']) ? $args['which'] : "all", 'GETPOST');
@@ -4062,9 +3977,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      */
     public function queues($args) {
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $view = Zikula_View::getInstance('Agoraportal', false);
 
         $search = array();
@@ -4168,9 +4081,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $template = FormUtil::getPassedValue('template', isset($args['template']) ? $args['template'] : null, 'POST');
         $createClient = FormUtil::getPassedValue('createClient', isset($args['createClient']) ? $args['createClient'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
 
         return $this->view->assign('schoolCodes', $schoolCodes)
@@ -4197,9 +4108,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $template = FormUtil::getPassedValue('template', isset($args['template']) ? $args['template'] : null, 'POST');
         $createClient = FormUtil::getPassedValue('createClient', isset($args['createClient']) ? $args['createClient'] : null, 'POST');
         // Security check
-        if (!SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
-            throw new Zikula_Exception_Forbidden();
-        }
+        AgoraPortal_Util::requireAdmin();
 
         if (empty($schoolCodes)) {
             LogUtil::registerError('La llista de codis de centre no pot estar buida');

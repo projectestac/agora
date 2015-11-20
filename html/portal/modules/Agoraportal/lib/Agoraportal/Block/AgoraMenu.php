@@ -1,5 +1,7 @@
 <?php
 
+require_once('modules/Agoraportal/lib/Agoraportal/Util.php');
+
 class Agoraportal_Block_AgoraMenu extends Zikula_Controller_AbstractBlock {
 
     /**
@@ -54,11 +56,11 @@ class Agoraportal_Block_AgoraMenu extends Zikula_Controller_AbstractBlock {
 
         $logedIn = (UserUtil::isLoggedIn()) ? true : false;
 
-        if (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADMIN)) {
+        if (AgoraPortal_Util::isAdmin()) {
             $accessLevel = 'admin';
-        } elseif (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_ADD)) {
+        } elseif (AgoraPortal_Util::isManager()) {
             $accessLevel = 'add';
-        } elseif (SecurityUtil::checkPermission('Agoraportal::', "::", ACCESS_COMMENT)) {
+        } elseif (AgoraPortal_Util::isClient()) {
             $accessLevel = 'comment';
         } else {
             $accessLevel = 'read';
@@ -69,7 +71,7 @@ class Agoraportal_Block_AgoraMenu extends Zikula_Controller_AbstractBlock {
         // build the output
         $view = Zikula_View::getInstance('Agoraportal');
 
-        // assign your data to to the template 
+        // assign your data to to the template
         $view->assign('logedIn', $logedIn);
         $view->assign('accessLevel', $accessLevel);
         $view->assign('allowedAccessRequest', $allowedAccessRequest);
