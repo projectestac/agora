@@ -1,6 +1,5 @@
 {include file="agoraportal_admin_menu.tpl"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Cues"}</h2>
     <div>{gt text="Filtres"}
     <form name="serviceForm" action="index.php?module=Agoraportal&type=admin&func=queues" method="POST">
@@ -30,13 +29,11 @@
         <strong>Estat: </strong>
         <select name="state_filter">
             <option {if $state_filter === ''}selected{/if} value="">{gt text="Tots"}</option>
-            <option {if $state_filter === 'L'}selected{/if} value="L">{gt text="Executant"}</option>
             <option {if $state_filter === 'P'}selected{/if} value="P">{gt text="Pendent"}</option>
             <option {if $state_filter === 'OK'}selected{/if} value="OK">{gt text="Correcte"}</option>
             <option {if $state_filter === 'KO'}selected{/if} value="KO">{gt text="Error"}</option>
             <option {if $state_filter === 'TO'}selected{/if} value="TO">{gt text="Timeout"}</option>
             <option {if $state_filter === 'OK,KO,TO'}selected{/if} value="OK,KO,TO">{gt text="Acabat"}</option>
-            <option {if $state_filter === 'L,P'}selected{/if} value="L,P">{gt text="No acabat"}</option>
         </select><br/>
         <strong>{gt text="Des de: "}</strong>
         <input size="15" id="date_start" name="date_start"  value="{$date_start}"/><br/>
@@ -60,11 +57,81 @@
         <input type="submit" value="Filtra" />
     </form>
     </div>
+
+    {if $exec_rows}
+        <div>
+            {gt text="Operacions executant"}
+            <table class="z-datatable">
+                <thead>
+                    <tr>
+                        <th>{gt text="id"}</th>
+                        <th>{gt text="Operació"}</th>
+                        <th align="center">{gt text="Client"}</th>
+                        <th align="center">{gt text="Servei"}</th>
+                        <th align="center">{gt text="Prioritat"}</th>
+                        <th align="center">{gt text="Encuat"}</th>
+                        <th align="center">{gt text="Inici"}</th>
+                        <th align="center">{gt text="Fi"}</th>
+                        <th align="center">{gt text="Accions"}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach item=row from=$exec_rows}
+                        <tr class="{cycle values="info-odd,info-even"}">
+                            <td align="center" valign="top">{$row.id}</td>
+                            <td align="left" valign="top">{$row.operation}</td>
+                            <td align="center" valign="top">
+                                <a target="_blank" href="{$row.clientDNS|serviceLink:$row.serviceName}">
+                                    {$row.clientName}
+                                </a></td>
+                            <td align="center" valign="top">{$row.serviceName}</td>
+                            <td align="center" valign="top">{$row.priority}</td>
+                            <td align="center" valign="top">
+                            {if $row.timeCreated}
+                                {$row.timeCreated|date_format:"%d/%m/%Y - %H:%M:%S"}
+                            {else}
+                                -
+                            {/if}
+                            </td>
+                            <td align="center" valign="top">
+                            {if $row.timeStart}
+                                {$row.timeStart|date_format:"%d/%m/%Y - %H:%M:%S"}
+                            {else}
+                                -
+                            {/if}
+                            </td>
+                            <td align="center" valign="top">
+                            {if $row.timeEnd}
+                                {$row.timeEnd|date_format:"%d/%m/%Y - %H:%M:%S"}
+                            {else}
+                                -
+                            {/if}
+                            </td>
+                            <td align="center" valign="top" class="actions">
+                            {if $row.timeStart < $smarty.now - 10*60}
+                                <img title="Executa de nou" src='images/icons/small/cache.png' onclick="operations_execute('{$row.id}');"/>
+                            {/if}
+
+                            {if $row.params != ''}
+                                <img title="Paràmetres" src='images/icons/small/package_graphics.png' onclick="operations_show_params('{$row.params|escape}');"/>
+                            {/if}
+
+                            {if $row.logId != 0}
+                                <img title="Registre" src='images/icons/small/db.png' onclick="operations_show_log('{$row.logId}');"/>
+                            {/if}
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+    {/if}
+
     <div>
         <div class="pager">{$rowsNumber} {gt text="Operacions"}</div>
         {pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar='startnum'}
 
-        <span id="reload"></span>
+        <div id="reload" style="width:16px; height:16px;"></div>
         <table class="z-datatable">
             <thead>
                 <tr>
