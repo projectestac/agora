@@ -120,7 +120,7 @@
             </td>
             <td valign="top" align="center" width="70" class="actions">
                 <div style="float:left; padding:3px;">
-                    <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId init=$init search=$search searchText=$searchText stateFilter=$stateFilter service=$service}">
+                    <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId}">
                         {img modname='core' src='edit.png' set='icons/extrasmall' __alt="Edita" __title="Edita"}
                     </a>
                 </div>

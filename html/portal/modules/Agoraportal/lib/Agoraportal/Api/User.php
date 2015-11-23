@@ -570,7 +570,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     }
 
     /**
-     * insert a new service in data base
+     * Insert a new service in database
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:  The service information
      * @return:	True if success and false otherwise
@@ -578,7 +578,7 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
     public function updateAskService($args) {
         AgoraPortal_Util::requireManager();
 
-        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $args['clientCode']));
         $clientCode = $clientInfo['clientCode'];
         // get client services information
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
@@ -751,7 +751,11 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             return false;
         }
 
-        return $record;
+        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClientById', array('clientId' => $record['clientId']));
+        if(!$client) {
+            $client = array();
+        }
+        return array_merge($client, $record);
     }
 
     /**

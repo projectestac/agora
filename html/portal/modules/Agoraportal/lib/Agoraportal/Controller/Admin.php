@@ -34,14 +34,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         AgoraPortal_Util::requireAdmin();
 
         $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', null, 'GET');
-        $init = AgoraPortal_Util::getFormVar($args, 'init', 1, 'GET');
-        $search = AgoraPortal_Util::getFormVar($args, 'search', '', 'GET');
-        $searchText = AgoraPortal_Util::getFormVar($args, 'searchText', '', 'GET');
-        $service = AgoraPortal_Util::getFormVar($args, 'service', 0, 'GET');
-        $stateFilter = AgoraPortal_Util::getFormVar($args, 'stateFilter', -1, 'GET');
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('clientServiceId' => $clientServiceId));
+        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getClientServiceById', array('clientServiceId' => $clientServiceId));
         $locations = ModUtil::apiFunc('Agoraportal', 'user', 'getAllLocations');
         $types = ModUtil::apiFunc('Agoraportal', 'user', 'getAllTypes');
         // check module mailer availability
@@ -49,23 +44,18 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
         $modinfo = ModUtil::getInfo($modid);
         $mailer = ($modinfo['state'] == 3) ? true : false;
 
-        if ($client[$clientServiceId]['diskSpace'] == 0) {
-            $client[$clientServiceId]['diskSpace'] = $services[$client[$clientServiceId]['serviceId']]['defaultDiskSpace'];
+        if ($client['diskSpace'] == 0) {
+            $client['diskSpace'] = $services[$client['serviceId']]['defaultDiskSpace'];
         }
 
-        $client[$clientServiceId]['annotations'] = eregi_replace("[\n|\r|\n\r]", '', $client[$clientServiceId]['annotations']);
-        $client[$clientServiceId]['observations'] = eregi_replace("[\n|\r|\n\r]", '', $client[$clientServiceId]['observations']);
+        $client['annotations'] = preg_replace("[\n|\r|\n\r]", "", $client['annotations']);
+        $client['observations'] = preg_replace("[\n|\r|\n\r]", "", $client['observations']);
 
         return $this->view->assign('mailer', $mailer)
-                        ->assign('client', $client[$clientServiceId])
+                        ->assign('client', $client)
                         ->assign('services', $services)
-                        ->assign('init', $init)
-                        ->assign('search', $search)
-                        ->assign('searchText', $searchText)
                         ->assign('locations', $locations)
                         ->assign('types', $types)
-                        ->assign('service', $service)
-                        ->assign('stateFilter', $stateFilter)
                         ->fetch('agoraportal_admin_editService.tpl');
     }
 
@@ -191,7 +181,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
             // Deny the new service
             if ($state == self::STATUS_DENIED) {
                 // Insert the action in logs table
-                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
+                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode, 'actionCode' => 2,
                     'action' => $this->__f('S\'ha denegat el servei %s', $serviceName)));
             }
 
@@ -202,14 +192,14 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                             'items' => array('serviceDB' => '',
                                 'activedId' => '')));
                 // Insert the action in logs table
-                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
+                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode, 'actionCode' => 2,
                     'action' => $this->__f('S\'ha donat de baixa el servei %s', $serviceName)));
             }
 
             // Deactivate the new service
             if ($state == self::STATUS_DISABLED) {
                 // Insert the action in logs table
-                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('actionCode' => 2,
+                ModUtil::apiFunc('Agoraportal', 'user', 'addLog', array('clientCode' => $clientCode, 'actionCode' => 2,
                     'action' => $this->__f('S\'ha desactivat el servei %s', $serviceName)));
             }
 
@@ -1857,7 +1847,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 }
 
                 $view->assign('success', $success);
-                $view->assign('messages', $$messages);
+                $view->assign('messages', $messages);
                 $view->assign('ok', $ok);
                 $view->assign('error', $error);
 
@@ -1873,8 +1863,6 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         // Create output object
         $view->assign('servicesListContent', $this->sqlservicesListContent($args));
-        $view->assign('search', $search);
-        $view->assign('searchText', $searchText);
 
         return $view->fetch('agoraportal_admin_advices.tpl');
     }
@@ -1888,9 +1876,8 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     public function sqlservicesListContent($args) {
         AgoraPortal_Util::requireAdmin();
 
-        // Form usefull data
-        $service = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
-        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', $service['serviceId'], 'GETPOST');
+        $defaultservice = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle2'));
+        $service_sel = AgoraPortal_Util::getFormVar($args, 'service_sel', $defaultservice['serviceId'], 'GETPOST');
         $clients_sel = AgoraPortal_Util::getFormVar($args, 'clients_sel');
 
         // Sorting and filtering data
@@ -1902,9 +1889,11 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
 
-        // remove marsupial service from services array because sql are no necessary in marsupial
-        $service = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'marsupial'));
-        unset($services[$service['serviceId']]);
+        // Remove marsupial and moodle service from services array because sql are no necessary in marsupial
+        $unsetservice = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'marsupial'));
+        unset($services[$unsetservice['serviceId']]);
+        $unsetservice = modUtil::apifunc('Agoraportal', 'user', 'getServiceByName', array('serviceName' => 'moodle'));
+        unset($services[$unsetservice['serviceId']]);
 
         $clients = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices',
                 array('init' => 1, //Default
@@ -3135,7 +3124,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
     public function statsDownloadCSV() {
         AgoraPortal_Util::requireAdmin();
 
-        if (!$export_pack = ModUtil::apiFunc('Export', 'admin', 'getExportPack', array('modules_selected' => $modules_selected))) {
+        if (!$export_pack = ModUtil::apiFunc('Export', 'admin', 'getExportPack')) {
             LogUtil::registerError($this->__('It\'s not possible to generate the export pack'));
         } else {
             $fileSize = filesize($export_pack);
@@ -3769,11 +3758,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
      *
      * @return Boolean
      */
-    public function listDataDirs() {
-
-        $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName');
-        $activedId = AgoraPortal_Util::getFormVar($args, 'activedId');
-
+    public function listDataDirs($args) {
         // Security check
         if (!AgoraPortal_Util::isAdmin()) {
             if (!defined('CLI_SCRIPT')) {
@@ -3784,6 +3769,9 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
 
         // Load general config
         global $agora;
+
+        $serviceName = AgoraPortal_Util::getFormVar($args, 'serviceName');
+        $activedId = AgoraPortal_Util::getFormVar($args, 'activedId');
 
         if (isset($serviceName) && isset($activedId)) {
             $dataDir = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora['server']['userprefix'] . $activedId;

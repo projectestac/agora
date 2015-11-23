@@ -6,11 +6,6 @@
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="clientServiceId" value="{$client.clientServiceId}" />
         <input type="hidden" name="clientId" value="{$client.clientId}" />
-        <input type="hidden" name="init" value="{$init}" />
-        <input type="hidden" name="search" value="{$search}" />
-        <input type="hidden" name="searchText" value="{$searchText}" />
-        <input type="hidden" name="service" value="{$service}" />
-        <input type="hidden" name="stateFilter" value="{$stateFilter}" />
         <div class="serviceImg">
             <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" alt="{$services[$client.serviceId].serviceName}" title="{$services[$client.serviceId].serviceName}" align="middle"/>
         </div>

@@ -7,7 +7,7 @@
         <br />
         <strong>{gt text="Nom propi"}</strong>: {$client.clientDNS}
         <br />
-        <strong>{gt text="Antic Nom propi"}</strong>: {$client.clientOldDNS}
+        <strong>{gt text="Nom propi antic"}</strong>: {$client.clientOldDNS}
         <br />
         <strong>{gt text="Adreça"}</strong>: {$client.clientAddress}, {$client.clientPC} - {$client.clientCity} ({$client.clientCountry})
         <br />
