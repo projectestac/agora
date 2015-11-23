@@ -24,44 +24,53 @@
                 <strong>{gt text="Ha fet la sol·licitud"}</strong>: {$client.contactName} ({$client.contactMail})
                 </div>
                 {if $client.state eq 0}
-                <span class="toCheck">{gt text="Servei pendent d'activació"}</span>
+                    <span class="toCheck">{gt text="Servei pendent d'activació"}</span>
                 {elseif $client.state eq -2}
-                <span class="denegated">{gt text="Sol·licitud denegada"}</span>
+                    <span class="denegated">{gt text="Sol·licitud denegada"}</span>
                 {elseif $client.state eq -3 or $client.state eq -4}
                     {if $client.observations neq ''}
-                    <div class="denegated">
-                        {$client.observations|nl2br}
-                    </div>
+                        <div class="denegated">
+                            {$client.observations|nl2br}
+                        </div>
                     {/if}
                 {elseif $client.state eq 1}
-                {if $services[$client.serviceId].serviceName neq 'marsupial'}
-                <strong>{gt text="Accés"}</strong>: <a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}">{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}</a>
-                <br />
+                    {if $services[$client.serviceId].serviceName neq 'marsupial'}
+                        <strong>{gt text="Accés"}</strong>: <a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}">{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}</a>
+                        <br />
+                    {/if}
+                    {if $isAdmin}
+                        {if $services[$client.serviceId].serviceName neq 'marsupial'}
+                            <strong>{gt text="Usu"}</strong>: {$client.activedId}
+                            <br>
+                        {/if}
+                    {/if}
+                    <strong>{gt text="Data d'activació"}</strong>: {$client.timeCreated|dateformat:"%d/%m/%Y"}
+                    {if $client.usageArray.maxDiskSpace gt 0}
+                        <br />
+                        <div style="float:left; margin:0px;"><strong>{gt text="Espai de disc ocupat"}</strong>:&nbsp;</div>
+                        <div style="float:left; margin:0px; width:100px; border: 1px solid gray;"><div style="width:{$client.usageArray.widthUsage}px; background:url(modules/Agoraportal/images/usage.gif);">&nbsp;</div></div>
+                        <div style="float:left; margin:0px;">&nbsp;{$client.usageArray.percentage}%</div>
+                        <div style="float:left; margin:0px;">&nbsp;&nbsp;({$client.usageArray.usedDiskSpace}MB / {$client.usageArray.totalDiskSpace}MB) <a href="{modurl modname='Agoraportal' type='user' func='recalcConsume' clientServiceId=$client.clientServiceId}">{gt text="Actualitza"}</a></div>
+                        {if $client.usageArray.alert eq 1}
+                            <div style="float:left; margin:0px;">&nbsp;&nbsp;
+                                <a href="{modurl modname='Agoraportal' type='user' func='requests' clientCode=$client.clientCode}">
+                                    {gt text="Sol·licita més espai"}
+                                </a>
+                            </div>
+                        {/if}
+                    {/if}
+                    <br />
                 {/if}
-                <strong>{gt text="Data d'activació"}</strong>: {$client.timeCreated|dateformat:"%d/%m/%Y"}
-                {if $client.usageArray.maxDiskSpace gt 0}
-                <br />
-                <div style="float:left; margin:0px;"><strong>{gt text="Espai de disc ocupat"}</strong>:&nbsp;</div>
-                <div style="float:left; margin:0px; width:100px; border: 1px solid gray;"><div style="width:{$client.usageArray.widthUsage}px; background:url(modules/Agoraportal/images/usage.gif);">&nbsp;</div></div>
-                <div style="float:left; margin:0px;">&nbsp;{$client.usageArray.percentage}%</div>
-                <div style="float:left; margin:0px;">&nbsp;&nbsp;({$client.usageArray.usedDiskSpace}MB / {$client.usageArray.totalDiskSpace}MB) <a href="{modurl modname='Agoraportal' type='user' func='recalcConsume' clientServiceId=$client.clientServiceId}">{gt text="Actualitza"}</a></div>
-                {if $client.usageArray.alert eq 1}
-                <div style="float:left; margin:0px;">&nbsp;&nbsp;
-                    <a href="{modurl modname='Agoraportal' type='user' func='requests' clientCode=$client.clientCode}">
-                        {gt text="Sol·licita més espai"}
-                    </a>
-                </div>
-                {/if}
-                {/if}
-                <br />
-                {/if}
+
                 {if $isAdmin}
                 <div style="clear:both;" id="tools_{$services[$client.serviceId].serviceName}">
                 <fieldset style="background: #EEEEFF;">
                 <legend>Eines d'administració</legend>
                 <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId}">{gt text="Edita el servei"}</a>
                  - <a href="{modurl modname='Agoraportal' type='admin' func='deleteService' clientServiceId=$client.clientServiceId}">{gt text="Esborra el servei"}</a>
-                 {include file="agoraportal_admin_serviceTools_aux.tpl"}
+                {if $client.state eq 1}
+                    {include file="agoraportal_admin_serviceTools_aux.tpl"}
+                {/if}
                 </fieldset>
                 </div>
                 {/if}

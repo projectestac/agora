@@ -41,7 +41,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 $clientCode = $manager['clientCode'];
             }
         }
-        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $client = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientCode = $client['clientCode'];
+        $client = $client['client'][$clientCode];
+        $clientOldDNS = $client['clientDNS'];
+
         $isAdmin = AgoraPortal_Util::isAdmin();
 
         // check user access level in Àgora
@@ -50,10 +54,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // Load Àgora config (needed later)
         global $agora;
 
-        $clientCode = $clientInfo['clientCode'];
-        $client = $clientInfo['client'];
-        $clientarray = $client[$clientCode];
-        $clientOldDNS = $clientarray['clientDNS'];
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         //get client services information
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
@@ -108,7 +108,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
 
-        return $this->view->assign('client', $client[$clientCode])
+        return $this->view->assign('client', $client)
                         ->assign('clientArray', $clientInfoArray)
                         ->assign('services', $services)
                         ->assign('clientCode', $clientCode)
@@ -411,7 +411,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'GET');
         $file = AgoraPortal_Util::getFormVar($args, 'file', null, 'GET');
         $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', null, 'GET');
-        $action = AgoraPortal_Util::getFormVar($args, 'action', null, 'GET');
+        $action = AgoraPortal_Util::getFormVar($args, 'action', 'uploadFiles', 'GET');
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $isAdmin = AgoraPortal_Util::isAdmin();

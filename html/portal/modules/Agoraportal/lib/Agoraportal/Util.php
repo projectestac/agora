@@ -7,6 +7,32 @@
  */
 class AgoraPortal_Util {
 
+    public static function print_object($object) {
+        $print = print_r($object, true);
+        LogUtil::registerError('<pre>'.$print.'</pre>');
+    }
+
+    /**
+     * Create random password
+     * @author Toni Ginard
+     * @return string The password
+     */
+    public static function createRandomPass() {
+
+        // Chars allowed in password
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";
+
+        // Sets the seed for rand function
+        srand((float) microtime() * 1000000);
+
+        for ($i = 0, $pass = ''; $i < 8; $i++) {
+            $num = rand() % strlen($chars);
+            $pass = $pass . substr($chars, $num, 1);
+        }
+
+        return $pass;
+    }
+
     public static function getFormVar($args, $varname, $default = null, $method = 'GETPOST') {
         $value = isset($args[$varname]) ? $args[$varname] : $default;
         return FormUtil::getPassedValue($varname, $value, $method);

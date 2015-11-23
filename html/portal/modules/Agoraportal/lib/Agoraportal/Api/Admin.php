@@ -235,7 +235,7 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
             return LogUtil::registerError($this->__('Error en l\'edició del registre'));
         }
 
-        $password = $this->createRandomPass();
+        $password = AgoraPortal_Util::createRandomPass();
 
         $result = $this->$activeService_function($db, $dbHost, $client, $service, $password);
 
@@ -479,13 +479,14 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
                         'serviceName' => 'nodes',
                         'host' => $dbHost
                 ));
-                // Reset temp variable to empty
-                $currentSQL = "";
 
                 if (!$result['success']) {
-                    LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $sql . '. Error: ' . $result['errorMsg']));
+                    LogUtil::registerError($this->__('L\'execució de l\'sql ha fallat: ' . $currentSQL . '. Error: ' . $result['errorMsg']));
                     return false;
                 }
+
+                // Reset temp variable to empty
+                $currentSQL = "";
             }
         }
 
@@ -933,13 +934,13 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
      * Remove a request type
      * @author     Aida Regi Cosculluela (aregi@xtec.cat)
      * @param      The request type identity
-     * @return     Thue if success and false otherwise
+     * @return     True if success and false otherwise
      */
     public function deleteRequestType($args) {
         AgoraPortal_Util::requireAdmin();
 
         // get location information
-        $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes', array('requestTypeId' => $requestTypeId));
+        $requestType = ModUtil::apiFunc('Agoraportal', 'user', 'getAllRequestTypes', array('requestTypeId' => $args['requestTypeId']));
         if (!$requestType) {
             return LogUtil::registerError($this->__('No s\'ha trobat el tipus de sol·licitud'));
         }
@@ -1912,47 +1913,6 @@ class Agoraportal_Api_Admin extends Zikula_AbstractApi {
         }
 
         return 1;
-    }
-
-
-
-    /**
-     * Create random password
-     *
-     * @author Toni Ginard
-     *
-     * @return string The password
-     */
-    public function createRandomPass() {
-
-        // Chars allowed in password
-        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";
-
-        // Sets the seed for rand function
-        srand((float) microtime() * 1000000);
-
-        for ($i = 0, $pass = ''; $i < 8; $i++) {
-            $num = rand() % strlen($chars);
-            $pass = $pass . substr($chars, $num, 1);
-        }
-
-        return $pass;
-    }
-
-    /**
-     * Checks if a value is serialized
-     *
-     * @author Toni Ginard
-     *
-     * @return boolean true or false
-     */
-    function is_serialized($data) {
-        $data_unserialized = @unserialize($data);
-        if ($data === 'b:0;' || $data_unserialized !== false) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**

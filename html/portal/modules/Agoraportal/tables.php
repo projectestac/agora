@@ -84,6 +84,7 @@ function Agoraportal_tables() {
         'serviceId' => 'serviceId',
         'clientId' => 'clientId',
         'serviceDB' => 'serviceDB',
+        'dbHost' => 'dbHost',
         'description' => 'description',
         'version' => 'version',
         'state' => 'state',
