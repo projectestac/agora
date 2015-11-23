@@ -175,6 +175,11 @@ class Zikula_Doctrine_Listener_Profiler implements Doctrine_EventListener_Interf
      */
     public function preConnect(Doctrine_Event $event) {}
 
+    // XTEC AFEGIT - To avoid "MySQL server has gone away" errors!
+    public function preClose(Doctrine_Event $event) {}
+    public function postClose(Doctrine_Event $event) {}
+    // FI
+
     /**
      * Doctrine errors are not intercepted.
      *

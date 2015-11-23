@@ -305,6 +305,20 @@ class DBUtil
                 }
             }
         } catch (Exception $e) {
+            // XTEC AFEGIT - To avoid "MySQL server has gone away" errors!
+            if ($e->getPortableCode() == 2006) {
+                global $ZConfig;
+                $name = $connection->getName();
+                Doctrine_Manager::getInstance()->closeConnection($connection);
+
+                $connectionInfo = $ZConfig['DBInfo']['databases'][$name];
+                $dbh = new PDO("$connectionInfo[dbdriver]:host=$connectionInfo[host];dbname=$connectionInfo[dbname]", $connectionInfo['user'], $connectionInfo['password']);
+                $connection = Doctrine_Manager::connection($dbh, $name);
+                $connection->setOption('username', $connectionInfo['user']);
+                $connection->setOption('password', $connectionInfo['password']);
+                return self::executeSQL($sql, $limitOffset, $limitNumRows, $exitOnError, $verbose);
+            }
+            // FI
             echo 'Error in DBUtil::executeSQL: ' . $sql . '<br />' . $e->getMessage() . '<br />';
             if ((System::isDevelopmentMode() && SecurityUtil::checkPermission('.*', '.*', ACCESS_ADMIN))) {
                 echo nl2br($e->getTraceAsString());
