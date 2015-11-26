@@ -14,7 +14,7 @@
     // Params for Zikula
     $agora['intranet']['dbtype']           = 'mysql';              // oci (Oracle), mysql, ...
     $agora['intranet']['adminuser']        = 'adminagora';
-    $agora['intranet']['prefix']           = 'zk';                 // Table prefix
+    $agora['intranet']['prefix']           = "";                 // Table prefix
     $agora['intranet']['diskusagefile']    = 'diskUsageZk.txt';
     $agora['intranet']['moodle_dbtype']    = 'oci8';               // Tipus de BBDD del Moodle. El Zikula no accepta oci8po.
     $agora['intranet']['userprefix']       = $agora['server']['userprefix'];
