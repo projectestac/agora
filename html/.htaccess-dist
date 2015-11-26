@@ -12,6 +12,7 @@ RewriteRule ^opcache(.*)$ - [L]
 RewriteRule ^testapp(.*)$ - [L]
 RewriteRule ^index(.*)$ - [L]
 RewriteRule ^CHANGES(.*)$ - [L]
+RewriteRule ^monitor(.*)$ - [L]
 
 # Required for the proper functioning of cacti
 RewriteRule ^server-status$ - [L]

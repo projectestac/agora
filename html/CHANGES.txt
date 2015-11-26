@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL:
+- Added first version of the monitor in testlib
+
 PORTAL
 - Agoraportal: Changed replace_url to support only a single URL (Trello #1027)
 - Agoraportal: Reset table agoraportal_modelTypes (Trello #1027)
