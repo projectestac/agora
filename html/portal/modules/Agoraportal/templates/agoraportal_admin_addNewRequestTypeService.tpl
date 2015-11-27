@@ -6,7 +6,7 @@
         <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="confirmation" value="1" />
         <div class="z-formrow">
-            <label for="service">{gt text="Escull el servei:"}</label>
+            <label for="service">{gt text="Indiqueu el servei:"}</label>
             <select name="service" id="service">
                 {foreach item=serviceItem from=$services}
                 <option value="{$serviceItem.serviceId}">{$serviceItem.serviceName}</option>
@@ -14,7 +14,7 @@
             </select>
         </div>
         <div class="z-formrow">
-            <label for="service">{gt text="Escull el tipus de sol·:"}</label>
+            <label for="service">{gt text="Indiqueu el tipus de sol·licitud:"}</label>
             <select name="requesttype" id="type">
                 {foreach item=serviceItem from=$requestType}
                 <option value="{$serviceItem.requestTypeId}">{$serviceItem.name}</option>

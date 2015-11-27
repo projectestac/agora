@@ -1105,21 +1105,10 @@ function refuseAns(answer) {
 
 function askServiceCheckActive(serviceName) {
     var f=document.forms['askForService'];
-    if (serviceName == 'moodle2') {
-        if (document.getElementById('moodle2').checked) {
-            document.getElementById('marsupial').disabled = false;
-        }
-        if (!document.getElementById('moodle2').checked) {
-            document.getElementById('marsupial').disabled = true;
-            document.getElementById('marsupial').checked = false;
-        }
-    }
     if (serviceName == 'nodes') {
-        if (document.getElementById('askServiceEduLevelnodes').style.display == 'none') {
-            document.getElementById('askServiceEduLevelnodes').style.display = 'block';
-        } else {
-            document.getElementById('askServiceEduLevelnodes').style.display = 'none';
-        }
+        document.getElementById('askServiceEduLevelnodes').style.display = 'block';
+    } else {
+        document.getElementById('askServiceEduLevelnodes').style.display = 'none';
     }
 }
 

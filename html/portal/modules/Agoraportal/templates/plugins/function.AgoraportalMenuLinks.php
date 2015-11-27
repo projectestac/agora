@@ -60,7 +60,6 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
 
     $numClientServices = count($clientInfo);
 
-    $showAskServices = ($availableServicesNumber > $numClientServices) ? true : false;
     $showRequests = ($numClientServices > 0) ? true : false;
 
     $AgoraportalMenuLinks = '';
@@ -114,9 +113,6 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         if ($isManager && $showFilesManager) {
             $AgoraportalMenuLinks .= $params['separator'] . " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'files')) . "\">" . __('Gestió de fitxers') . "</a> ";
         }
-        if ($isManager && $showAskServices) {
-            $AgoraportalMenuLinks .= $params['separator'] . " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'askServices')) . "\">" . __('Sol·licitud de serveis') . "</a> ";
-        }
         if ($isManager && $showRequests) {
             $AgoraportalMenuLinks .= $params['separator'] . " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'requests')) . "\">" . __('Altres Sol·licituds') . "</a> ";
         }
@@ -133,9 +129,6 @@ function smarty_function_AgoraportalMenuLinks($params, &$smarty) {
         $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('agoraPortal', 'user', 'myAgora', array('clientCode' => $clientCode))) . "\">" . __('Serveis') . "</a> " . $params['separator'];
         if ($showFilesManager) {
             $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('agoraPortal', 'user', 'files', array('clientCode' => $clientCode))) . "\">" . __('Gestió de fitxers') . "</a> " . $params['separator'];
-        }
-        if ($showAskServices) {
-            $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('agoraPortal', 'user', 'askServices', array('clientCode' => $clientCode))) . "\">" . __('Sol·licitud de serveis') . "</a> " . $params['separator'];
         }
         if ($showRequests) {
             $AgoraportalMenuLinks .= " <a href=\"" . DataUtil::formatForDisplayHTML(ModUtil::url('Agoraportal', 'user', 'requests', array('clientCode' => $clientCode))) . "\">" . __('Altres Sol·licituds') . "</a> " . $params['separator'];

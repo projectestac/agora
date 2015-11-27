@@ -1,6 +1,5 @@
 {include file="agoraportal_user_menu.tpl"}
 <div class="usercontainer">
-    <div class="z-pageicon">{img modname='core' src='windowlist.png' set='icons/large'}</div>
     <h2>{gt text="Serveis del centre"}&nbsp;{$client.clientName}</h2>
     {if $isAdmin}
     {include file="agoraportal_admin_clientInfo.tpl"}
@@ -12,13 +11,14 @@
     </div>
     {/if}
     {foreach item=client from=$clientArray}
+    {assign var="serviceName" value=$services[$client.serviceId].serviceName}
         <div class="serviceInfo z-form">
             <fieldset>
                 <legend>
-                    <img src="modules/Agoraportal/images/{$services[$client.serviceId].serviceName}.gif" alt="{$services[$client.serviceId].serviceName}" title="{$services[$client.serviceId].serviceName}" />
+                    <img src="modules/Agoraportal/images/{$serviceName}.gif" alt="{$serviceName}" title="{$serviceName}" />
                 </legend>
                 <div>
-                <strong>{$services[$client.serviceId].serviceName}</strong>: {$services[$client.serviceId].description}
+                <strong>{$serviceName|capitalize}</strong>: {$services[$client.serviceId].description}
                 </div>
                 <div>
                 <strong>{gt text="Ha fet la sol·licitud"}</strong>: {$client.contactName} ({$client.contactMail})
@@ -34,12 +34,12 @@
                         </div>
                     {/if}
                 {elseif $client.state eq 1}
-                    {if $services[$client.serviceId].serviceName neq 'marsupial'}
-                        <strong>{gt text="Accés"}</strong>: <a href="{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}">{$client.clientDNS|serviceLink:$services[$client.serviceId].serviceName}</a>
+                    {if $serviceName neq 'marsupial'}
+                        <strong>{gt text="Accés"}</strong>: <a href="{$client.clientDNS|serviceLink:$serviceName}">{$client.clientDNS|serviceLink:$serviceName}</a>
                         <br />
                     {/if}
                     {if $isAdmin}
-                        {if $services[$client.serviceId].serviceName neq 'marsupial'}
+                        {if $serviceName neq 'marsupial'}
                             <strong>{gt text="Usu"}</strong>: {$client.activedId}
                             <br>
                         {/if}
@@ -63,7 +63,7 @@
                 {/if}
 
                 {if $isAdmin}
-                <div style="clear:both;" id="tools_{$services[$client.serviceId].serviceName}">
+                <div style="clear:both;" id="tools_{$serviceName}">
                 <fieldset style="background: #EEEEFF;">
                 <legend>Eines d'administració</legend>
                 <a href="{modurl modname='Agoraportal' type='admin' func='editService' clientServiceId=$client.clientServiceId}">{gt text="Edita el servei"}</a>
@@ -77,24 +77,33 @@
             </fieldset>
         </div>
     {foreachelse}
-    {if $managers|@count gt 0}
-    {gt text="No s'han trobat serveis.<br/><br/>"}
-    {if $accessLevel eq 'add'}
-    <div class="z-informationmsg">
-        {gt text="Per donar d'alta algun dels serveis que ofereix Àgora, accediu a l'apartat <a href=index.php?module=Agoraportal&func=askServices>Sol·licitud de serveis</a>."}
-    </div>
-    {else}
-    <div class="z-informationmsg">
-        {gt text="Recordeu que només poden sol·licitar l'alta als serveis d'Àgora els <a href=index.php?module=Agoraportal&func=managers>Gestors</a>."}
-    </div>
-    {/if}
-    {/if}
+        {if $managers|@count gt 0}
+            {gt text="No s'han trobat serveis.<br/><br/>"}
+            {if $accessLevel neq 'add'}
+                <div class="z-informationmsg">
+                    {gt text="Recordeu que només poden sol·licitar l'alta als serveis d'Àgora els <a href=index.php?module=Agoraportal&func=managers>Gestors</a>."}
+                </div>
+            {/if}
+        {/if}
     {/foreach}
 
-    {if $accessLevel eq 'add' and isset($askServices)}
-    <div class="z-informationmsg">
-        {gt text="Podeu donar d'alta altres serveis d'Àgora que també us interessin si accediu a l'apartat <a href=index.php?module=Agoraportal&func=askServices>Sol·licitud de serveis</a>."}
-    </div>
+    {if $accessLevel eq 'add' and $notsolicitedServices|@count gt 0}
+        <h2>{gt text="Altres serveis disponibles"}</h2>
+        <div class="serviceInfo z-form">
+        {foreach item=service from=$notsolicitedServices}
+            {assign var="serviceName" value=$notsolicitedServices[$service.serviceId].serviceName}
+            <div style="margin-bottom: 10px;">
+                <span class="z-buttons optionButton">
+                    <a href="{modurl modname='Agoraportal' type='user' func='askServices' serviceId=$service.serviceId clientCode=$clientCode}" style="padding:10px; line-height:25px;">
+                        <div style="float:left; min-width:80px; margin-right: 3px;">
+                        <img src="modules/Agoraportal/images/{$serviceName}.gif" alt="{$serviceName|capitalize}" title="{$serviceName|capitalize}" style="height: initial; width: initial;"/></div>
+                        Sol·licita'l ara
+                    </a>
+                </span>
+                <strong>{$serviceName|capitalize}</strong>: {$notsolicitedServices[$service.serviceId].description}
+            </div>
+        {/foreach}
+        </div>
     {/if}
 
     {if $clientOldDNS neq $clientDNS and $clientDNS neq ''}

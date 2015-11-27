@@ -114,6 +114,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         // get client managers
         $managers = ModUtil::apiFunc('Agoraportal', 'user', 'getManagers', array('clientCode' => $clientCode));
 
+        $notsolicitedServices =  ModUtil::apiFunc('Agoraportal', 'user', 'getServicesToRequest', array('clientCode' => $clientCode));
+
         return $this->view->assign('client', $client)
                         ->assign('clientArray', $clientInfoArray)
                         ->assign('services', $services)
@@ -124,6 +126,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                         ->assign('clientOldDNS', $clientOldDNS)
                         ->assign('clientDNS', $clientDNS)
                         ->assign('accessLevel', $accessLevel)
+                        ->assign('notsolicitedServices', $notsolicitedServices)
                         ->fetch('agoraportal_user_main.tpl');
     }
 
@@ -150,57 +153,21 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $clientCode = $clientInfo['clientCode'];
         $client = $clientInfo['client'];
 
-        $allowedServices = array();
-        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
         $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
 
-        foreach ($services as $service) {
-            if ($service['allowedClients'] != '') {
-                if (strpos($service['allowedClients'], $clientCode) !== false) {
-                    $allowedServices[$service['serviceId']] = $service;
-                }
-            } else {
-                $allowedServices[$service['serviceId']] = $service;
-            }
-        }
-
-        // Get active client services
-        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
-                    'rpp' => 50,
-                    'service' => 0,
-                    'state' => array(0, 1),
-                    'search' => 1,
-                    'searchText' => $clientCode,
-                    'clientCode' => $clientCode,
-                ));
-
-        $clientServices = array();
-        $haveMoodle = false;
-        foreach ($clientInfo as $info) {
-            if ($services[$info['serviceId']]['serviceName'] == 'moodle2') {
-                $haveMoodle = true;
-            }
-            $clientServices[$info['serviceId']] = $info['serviceId'];
-        }
-
         // Get not asked services
-        $notsolicitedServices = array_diff_key($allowedServices, $clientServices);
-
-        if (empty($notsolicitedServices)) {
+        $notsolicitedServices =  ModUtil::apiFunc('Agoraportal', 'user', 'getServicesToRequest', array('clientCode' => $clientCode));
+        $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId');
+        if (empty($serviceId) || empty($notsolicitedServices) || !isset($notsolicitedServices[$serviceId])) {
             if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
             }
-            return System::redirect(ModUtil::url('Agoraportal', 'user', 'main'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'myAgora'));
         }
 
-        foreach ($notsolicitedServices as $notsolicited) {
-            $notsolicitedServices[$notsolicited['serviceId']]['disabled'] = (!$haveMoodle && $notsolicited['serviceName'] == 'marsupial') ? 1 : 0;
-        }
+        $service = $notsolicitedServices[$serviceId];
 
-        // Reverse order
-        arsort($notsolicitedServices);
-
-        return $this->view->assign('notsolicitedServices', $notsolicitedServices)
+        return $this->view->assign('service', $service)
                         ->assign('contactName', UserUtil::getVar('uname'))
                         ->assign('contactProfile', $contactProfile)
                         ->assign('acceptUseTerms', $acceptUseTerms)
@@ -224,7 +191,6 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         AgoraPortal_Util::requireManager();
 
         $serviceId = AgoraPortal_Util::getFormVar($args, 'serviceId', null, 'POST');
-        $nodes = AgoraPortal_Util::getFormVar($args, 'nodes', null, 'POST');
         $contactProfile = AgoraPortal_Util::getFormVar($args, 'contactProfile', null, 'POST');
         $acceptUseTerms = AgoraPortal_Util::getFormVar($args, 'acceptUseTerms', null, 'POST');
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
@@ -243,27 +209,26 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                                 'acceptUseTerms' => $acceptUseTerms)));
         }
 
-        $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
-
-        // User can ask for many services at a time
-        foreach ($serviceId as $id) {
-            $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $id));
-            $serviceName = $service['serviceName'];
-            // If service is 'nodes' ensure that the model of service is selected
-            if ($serviceName == 'nodes') {
-                if (is_null($nodes)) {
-                    LogUtil::registerError($this->__('No heu indicat indicat quina maqueta voleu per al servei Nodes'));
-                    return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
-                                        'contactProfile' => $contactProfile,
-                                        'acceptUseTerms' => $acceptUseTerms)));
-                } else {
-                    foreach ($modeltypes as $modeltype) {
-                        if ($nodes == $modeltype['shortcode']) {
-                            $nodes = $modeltype['description'];
-                        }
+        $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId));
+        $serviceName = $service['serviceName'];
+        // If service is 'nodes' ensure that the model of service is selected
+        if ($serviceName == 'nodes') {
+            $plantilla = AgoraPortal_Util::getFormVar($args, 'nodes', null, 'POST');
+            if (empty($plantilla)) {
+                LogUtil::registerError($this->__('No heu indicat indicat quina plantilla voleu per al servei Nodes'));
+                return System::redirect(ModUtil::url('Agoraportal', 'user', 'askServices', array('clientCode' => $clientCode,
+                                    'contactProfile' => $contactProfile,
+                                    'acceptUseTerms' => $acceptUseTerms)));
+            } else {
+                $modeltypes = ModUtil::apiFunc('Agoraportal', 'user', 'getModelTypes');
+                foreach ($modeltypes as $modeltype) {
+                    if ($plantilla == $modeltype['shortcode']) {
+                        $plantilla = $modeltype['description'];
                     }
                 }
             }
+        } else {
+            $plantilla = "";
         }
 
         if ($contactProfile == '') {
@@ -284,7 +249,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         if (!ModUtil::apiFunc('Agoraportal', 'user', 'updateAskService', array('clientCode' => $clientCode,
                     'serviceId' => $serviceId,
                     'contactProfile' => $contactProfile,
-                    'observations' => $nodes))) {
+                    'observations' => $plantilla))) {
             LogUtil::registerError($this->__('S\'ha produït un error en la creació del servei.'));
             if (AgoraPortal_Util::isAdmin()) {
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
@@ -363,13 +328,13 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
                 $logos = '';
 
                 if ($hasDB) {
-                    $logos = "<div style=\"float:left;\" class=\"$serviceName\">
+                    $logos = "<div style=\"float:left; margin-right:3px;\" class=\"$serviceName\">
                                 <a href=\"$link\">
                                     <img src=\"modules/Agoraportal/images/$serviceName.gif\" alt=\"$serviceName\" title=\"$serviceName\" />
                                 </a>
                               </div>";
                 } else {
-                    $logos = "<div style=\"float:left;\" class=\"$serviceName\">
+                    $logos = "<div style=\"float:left; margin-right:3px;\" class=\"$serviceName\">
                                 <img src=\"modules/Agoraportal/images/$serviceName.gif\" alt=\"$serviceName\" title=\"$serviceName\" />
                               </div>";
                 }
