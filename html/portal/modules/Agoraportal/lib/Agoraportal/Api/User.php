@@ -346,6 +346,45 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
         return $items;
     }
 
+    public function getServicesToRequest($args) {
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
+
+        $isAdmin = AgoraPortal_Util::isAdmin();
+
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
+        $clientCode = $clientInfo['clientCode'];
+        $client = $clientInfo['client'];
+
+        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+        $allowedServices = array();
+        foreach ($services as $service) {
+            if ($service['allowedClients'] != '') {
+                if (strpos($service['allowedClients'], $clientCode) !== false) {
+                    $allowedServices[$service['serviceId']] = $service;
+                }
+            } else {
+                $allowedServices[$service['serviceId']] = $service;
+            }
+        }
+
+        // Get active client services
+        $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
+                    'rpp' => 50,
+                    'service' => 0,
+                    'state' => array(0, 1),
+                    'search' => 1,
+                    'searchText' => $clientCode,
+                    'clientCode' => $clientCode,
+                ));
+
+        foreach ($clientInfo as $info) {
+            unset($allowedServices[$info['serviceId']]);
+        }
+
+        // Get not asked services
+        return $allowedServices;
+    }
+
     /**
      * get all client services information from sites list
      * @author:	Albert Pérez Monfort (aperezm@xtec.cat)
@@ -597,29 +636,28 @@ class Agoraportal_Api_User extends Zikula_AbstractApi {
             $clientServices[$info['serviceId']] = $info['serviceId'];
             $clientId = $info['clientId'];
         }
-        // create services that have been asked
-        foreach ($args['serviceId'] as $serviceId) {
-            //check if the service has been created for security reasons
-            if (!in_array($serviceId, $clientServices)) {
-                // Check for nodes
-                $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId));
-                $serviceName = $service['serviceName'];
-                $obs = ($serviceName == 'nodes') ? $args['observations'] : '';
 
-                // Insert service in database
-                $item = array('serviceId' => $serviceId,
-                    'contactName' => UserUtil::getVar('uname'),
-                    'contactMail' => UserUtil::getVar('email'),
-                    'contactProfile' => $args['contactProfile'],
-                    'clientId' => $clientId,
-                    'state' => 0,
-                    'activedId' => 0,
-                    'timeRequested' => time(),
-                    'observations' => $obs);
+        $serviceId = $args['serviceId'];
+        // Check if the service has been created for security reasons
+        if (!in_array($serviceId, $clientServices)) {
+            // Check for nodes
+            $service = ModUtil::apiFunc('Agoraportal', 'user', 'getService', array('serviceId' => $serviceId));
+            $serviceName = $service['serviceName'];
+            $obs = ($serviceName == 'nodes') ? $args['observations'] : "";
 
-                if (!DBUtil::insertObject($item, 'agoraportal_client_services', 'clientServiceId')) {
-                    return LogUtil::registerError($this->__('No s\'ha pogut desar la sol·licitud del servei ' . $serviceName));
-                }
+            // Insert service in database
+            $item = array('serviceId' => $serviceId,
+                'contactName' => UserUtil::getVar('uname'),
+                'contactMail' => UserUtil::getVar('email'),
+                'contactProfile' => $args['contactProfile'],
+                'clientId' => $clientId,
+                'state' => 0,
+                'activedId' => 0,
+                'timeRequested' => time(),
+                'observations' => $obs);
+
+            if (!DBUtil::insertObject($item, 'agoraportal_client_services', 'clientServiceId')) {
+                return LogUtil::registerError($this->__('No s\'ha pogut desar la sol·licitud del servei ' . $serviceName));
             }
         }
         return true;

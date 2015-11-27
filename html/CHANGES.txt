@@ -20,6 +20,7 @@ PORTAL
 - Agoraportal: Delete warning MySQL has gone away by reconnecting (Trello #640)
 - Agoraportal: Some code improvements  (Trello #640)
 - Agoraportal: Auto select dbHost in Nodes when the school has Intraweb (Trello #1059)
+- Agoraportal: Only allow application for one service at a time (Trello #1067)
 - Users: Imported bugfix from Intraweb to allow import of users in more than one group (Trello #1070)
 
 
