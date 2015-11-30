@@ -8,7 +8,7 @@
     <div style="height:15px;">&nbsp;</div>
     {if $managers eq 0}
     <div class="z-warningmsg" style="clear:both;">
-        {gt text="A partir del curs 2011/2012, només podran sol·licitar serveis a Àgora i/o gestionar els ja existents (pujada de fitxers grans, consulta de la quota de disc consumida, ...) les persones físiques (gestors) que el centre hagi autoritzat. En aquests moments, el vostre centre encara no disposa de cap gestor/a, així que cal que en designeu un/a des de l'apartat <a href=index.php?module=Agoraportal&func=managers>Gestors</a>. Amb el codi de centre, podeu designar un únic gestor/a, el qual en podrà designar 2 més, fins a un total de 3."}
+        {gt text="Des del curs 2011/2012, només poden sol·licitar serveis a Àgora i/o gestionar els ja existents (pujada de fitxers grans, consulta de la quota de disc consumida, ...) les persones físiques (gestors) que el centre hagi autoritzat. En aquests moments, el vostre centre encara no disposa de cap gestor, així que cal que en designeu un des de l'apartat <a href=index.php?module=Agoraportal&func=managers>Gestors</a>. Amb el codi de centre, podeu afegir i treure gestors, fins a un màxim de quatre, però no podeu gestionar els serveis d'Àgora."}
     </div>
     {/if}
     {foreach item=client from=$clientArray}
