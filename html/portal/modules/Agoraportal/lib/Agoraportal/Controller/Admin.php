@@ -4016,6 +4016,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 foreach($opparams as $key => $value) {
                     $value = str_replace("\r", "<br/>", $value);
                     $value = str_replace("\n", "<br/>", $value);
+                    $value = str_replace("'", "\\'", $value);
                     $params .= $key.' = '.html_entity_decode($value).'<br/>';
                 }
                 $operations[$k]['params'] = $params;
@@ -4033,6 +4034,7 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 foreach($opparams as $key => $value) {
                     $value = str_replace("\r", "<br/>", $value);
                     $value = str_replace("\n", "<br/>", $value);
+                    $value = str_replace("'", "\\'", $value);
                     $params .= $key.' = '.html_entity_decode($value).'<br/>';
                 }
                 $exec_operations[$k]['params'] = $params;
