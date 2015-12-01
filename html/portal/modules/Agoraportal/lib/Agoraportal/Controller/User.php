@@ -32,9 +32,10 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         AgoraPortal_Util::requireClient();
 
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
+        $code = $clientCode;
         if (!$clientCode) {
             $username = UserUtil::getVar('uname');
-
+            $code = $username;
             $manager = ModUtil::apiFunc('Agoraportal', 'user', 'getManager', array('managerUName' => $username));
             // Check if the user is in the Agoraportal_client_managers table
             if ($manager) {
@@ -55,6 +56,11 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         global $agora;
 
         $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
+
+        if (!$clientCode) {
+            return LogUtil::registerError($this->__('Error greu. No existeix el client per al codi '.$code.' posseu-vos en contacte amb el SAU'));
+        }
+
         //get client services information
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => 0,
                     'rpp' => 50,
