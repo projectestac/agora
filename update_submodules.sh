@@ -55,6 +55,7 @@ gitcheckout "html/wordpress/wp-content/plugins/wordpress-social-login" "master" 
 gitcheckout "html/wordpress/wp-content/plugins/wp-recaptcha" "master" "git@github.com:projectestac/wordpress-recaptcha.git"
 gitcheckout "html/wordpress/wp-content/plugins/xtec-mail/lib" "master" "git@github.com:projectestac/mailer.git"
 gitcheckout "html/wordpress/wp-content/plugins/add-to-any" "master" "git@github.com:projectestac/wordpress-add-to-any.git"
+gitcheckout "html/wordpress/wp-content/plugins/invite-anyone" "master" "git@github.com:projectestac/wordpress-invite-anyone.git"
 gitcheckout "html/wordpress/wp-includes/xtec" "master" "git@github.com:projectestac/wordpress-xtec.git"
 
 # Intranet
