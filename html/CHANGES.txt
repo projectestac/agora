@@ -3,10 +3,34 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 15.12.14
 ---------------------------------------------------------------------------------------
-GENERAL:
+MOODLE
+- Settings: Enable html5 audio and video
+- Do not block cache if cacheconfig is not writable
+- Marsupial: Solve problem opening activities in a popup from my_books
+- Updated LangPacks
+- Local Agora:
+  - Scripts: Repair undefined variable in filesystem cleanup
+  - Scripts: Add script to disable intranet login
+- Updated Local Mobile
+- Jclic: Changed version numbering method, now the first two numbers are the minimum Moodle required version
+- QV: Changed version numbering method, now the first two numbers are the minimum Moodle required version
+
+NODES
+- XTEC lib: Changed replace_url to support only a single URL (Trello #1027)
+- Theme reactor-serveis-educatius: Improved menu and added search option in responsive version (Trello #981)
+- Theme reactor: Fixed position of the legends of the images in custom galleries inserted in articles (Trello #1011)
+- Theme reactor-primaria-1: Fixed side menu in pages when there are subpages. (Trello #1010)
+- BuddyPress: Updated catalan translation (Trello #987)
+- XTEC lib Fixed parsing apostrophes when activating a service and add support for table wp_term_taxonomy (Trello #1075)
+- Invite Anyone: Upgraded extension to version 1.3.9 (Trello #987)
+- Carrusel: Upgraded extension to version 2.3.1 (Trello #986)
+- Theme reactor: Modified legal conditions link (Trello #1073)
+
+GENERAL
 - Added first version of the monitor in testlib
+- Added template SSEE for Nodes
 
 PORTAL
 - Agoraportal: Changed replace_url to support only a single URL (Trello #1027)
@@ -21,8 +45,8 @@ PORTAL
 - Agoraportal: Some code improvements  (Trello #640)
 - Agoraportal: Auto select dbHost in Nodes when the school has Intraweb (Trello #1059)
 - Agoraportal: Only allow application for one service at a time (Trello #1067)
+- Agoraportal: Solve parsing apostrphes when using cli params (Trello #1075)
 - Users: Imported bugfix from Intraweb to allow import of users in more than one group (Trello #1070)
-
 
 
 Changes 15.11.16
@@ -68,7 +92,7 @@ NODES
 - Stats widget: Added margin-bottom (Trello #1009)
 - Theme reactor-primaria-1: Added new Color Palette "Purple and Green" (GitHub #307)
 - Theme reactor-primaria-1: Improvements to CSS styles and moved content from common_css to code (GitHub #303)
-- wp-recaptcha: Added default configuration for Nodes when activating plugin (Trello #926) 
+- wp-recaptcha: Added default configuration for Nodes when activating plugin (Trello #926)
 - Added ability to decide if a client is "Servei Educatiu" (Trello #981)
 - Added theme reactor-serveis-educatius (Trello #981)
 - Check if the path is absolute or relative to mount the header link (Trello #1008)

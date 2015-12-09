@@ -596,7 +596,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function logs($args) {
         AgoraPortal_Util::requireClient();
 
-        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
 
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $clientCode = $clientInfo['clientCode'];
@@ -628,7 +628,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
     public function logsContent($args) {
         AgoraPortal_Util::requireClient();
 
-        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'POST');
+        $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
         $init = AgoraPortal_Util::getFormVar($args, 'init', null, 'POST');
         $actionCode = AgoraPortal_Util::getFormVar($args, 'actionCode', null, 'POST');
         $uname = AgoraPortal_Util::getFormVar($args, 'uname', null, 'POST');
