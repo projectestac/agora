@@ -4,6 +4,13 @@ urlbase=http://agora/agora
 basedir=/dades/agora/
 apacheuser=vagrant
 logs=$basedir"logs"
+moodledata="docs/moodle2"
+portaldata="docs/portaldata"
+zkdata="zkdata"
+wpdata="docs/wpdata"
+mysqlsock="/var/run/mysqld/mysqld.sock"
+server="localhost"
+port="3306"
 
 NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 TZ=Europe/Madrid

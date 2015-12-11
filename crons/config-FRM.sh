@@ -4,6 +4,13 @@ urlbase=http://agora.xtec.cat/formacio
 basedir="/serveis/dades/for/P02for/apache/1051_agora/"
 apacheuser=adP02php
 logs=$basedir"logs"
+moodledata="dades/dades1/moodle2"
+portaldata="dades/dades2/portaldata"
+zkdata="dades/dades2/zkdata"
+wpdata="dades/dades2/wpdata"
+mysqlsock="/serveis/dades/for/P02for/myAgoraFrm/myAgoraFrm.sock"
+server="10.48.24.39"
+port="3307"
 
 NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 TZ=Europe/Madrid
