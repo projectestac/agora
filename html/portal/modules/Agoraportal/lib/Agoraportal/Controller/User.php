@@ -914,7 +914,7 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         $service = AgoraPortal_Util::getFormVar($args, 'requestMenuServices');
         $typeId = AgoraPortal_Util::getFormVar($args, 'requestFilter');
-        $clientId = AgoraPortal_Util::getFormVar($args, 'clienId');
+        $clientId = AgoraPortal_Util::getFormVar($args, 'clientId');
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode');
         $comments = AgoraPortal_Util::getFormVar($args, 'comments');
 
