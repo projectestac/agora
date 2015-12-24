@@ -3288,13 +3288,13 @@ class Agoraportal_Controller_Admin extends Zikula_AbstractController {
                 $userprefix = $agora[$service['serviceName']]['userprefix'];
 
                 if (!file_exists($path)) {
-                    $errorMsg .= $this->__('No s\'ha trobat el fitxer de consums de disc per al servei: ' . $service['serviceName'] . '<br />');
+                    $errorMsg .= $this->__('No s\'ha trobat el fitxer de consums de disc següent: ' . $path . '<br />');
                     $error = true;
                 } else {
                     $noValidFile = false;
                     // TODO: Check if it is a valid file. If not send a warning mail
                     if ($noValidFile) {
-                        $errorMsg .= $this->__('El fitxer de consums de disc no és valid per: ' . $service['serviceName'] . '<br />');
+                        $errorMsg .= $this->__('El fitxer de consums de disc següent no és valid: ' . $path . '<br />');
                         $error = true;
                     } else {
                         // Add service because usage file is generated correctly

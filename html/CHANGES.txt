@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 PORTAL
 - Files: Updated to version 1.0.3 and removed javascript alert for private files (Trello #561)
+- Agoraportal: Improved error message sent by e-mail when quotas file is not found
 
 
 
