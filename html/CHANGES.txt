@@ -107,6 +107,7 @@ NODES
 - Fixed admin users not being able to delete users (Trello #991)
 - Blocked access to install.php (Trello #521)
 - Blocked access to bbpress administration to all users but xtecadmin (Trello #980)
+- WSL: Allow admin blogs who are not superadmins to activate tab "Users" (Trello #955)
 
 PORTAL
 - Agoraportal: Removed usage of confirmation word to become a manager (Trello #997)
