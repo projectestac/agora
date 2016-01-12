@@ -64,10 +64,11 @@
 
     // Constants used elsewhere
     define('WWWROOT', $agora['server']['server'] . $agora['server']['base']);
-    define('EOI_WWWROOT', 'http://agora-eoi.xtec.cat');
 
-    $agora['recaptchapublickey']='6LddJgoTAAAAAFCT6LwNkKU2YR2qNMG7fQgIXse8';
-    $agora['recaptchaprivatekey']='6LddJgoTAAAAAKs-yBghGgTZmAB1oPLQlldWYKAh';
+    $agora['iseoi'] = false;
+
+    $agora['recaptchapublickey'] = '6LddJgoTAAAAAFCT6LwNkKU2YR2qNMG7fQgIXse8';
+    $agora['recaptchaprivatekey'] = '6LddJgoTAAAAAKs-yBghGgTZmAB1oPLQlldWYKAh';
 
     define('SERVEI_EDUCATIU_ID', 5);
 

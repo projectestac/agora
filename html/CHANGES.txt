@@ -5,6 +5,9 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL
+- Added param $agora['iseoi'] in config.php
+
 PORTAL
 - Files: Updated to version 1.0.3 and removed javascript alert for private files (Trello #561)
 - Agoraportal: Improved error message sent by e-mail when quotas file is not found
