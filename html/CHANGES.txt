@@ -14,6 +14,7 @@ MOODLE
 - Agora mailer: Change some address errors to warnings
 - Updated Local Mobile
 - Updated Hot Potatoes module
+- Added a script to clean temporary tables
 
 NODES
 - Added custom image for categories in page header (Trello #1054)
@@ -40,6 +41,7 @@ GENERAL
 - Added param $agora['iseoi'] in config.php
 
 PORTAL
+- Login: Remove the trailing string '@xtec.cat' in username in case it exists (Trello #1104)
 - Files: Updated to version 1.0.3 and removed javascript alert for private files (Trello #561)
 - Agoraportal: Improved error message sent by e-mail when quotas file is not found
 - Mailer lib: Added latest changes

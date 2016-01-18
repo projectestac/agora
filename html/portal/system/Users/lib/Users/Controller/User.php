@@ -1131,6 +1131,15 @@ class Users_Controller_User extends Zikula_AbstractController
             $reentrantToken = substr(SecurityUtil::generateCsrfToken(), 0, 10);
         }
 
+
+        // XTEC ************ AFEGIT - Filter username to remove trailing '@xtec.cat' in case it exists
+        // 2016.01.18 @aginard
+        if (strpos($authenticationInfo['login_id'], '@xtec.cat')) {
+            $authenticationInfo['login_id'] = substr($authenticationInfo['login_id'], 0, -strlen('@xtec.cat'));
+        }
+        // ************ FI
+
+
         // Any authentication information for use in this pass through login is gathered, so ensure any session variable
         // is cleared, even if we are coming in through a post or a function call that didn't gather info from the session.
         $this->request->getSession()->del('Users_Controller_User_login', 'Zikula_Users');
