@@ -3,8 +3,18 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 16.02.01
 ---------------------------------------------------------------------------------------
+MOODLE
+- Moodle upgraded to from 2.8.10
+- Updated LangPacks
+- isEOI is not defined anymore in general Àgora config
+- Marsupial: Change context module retrieve only if course is not SITEID
+- Agora mailer: Reviewed allowed_environments to put the correct CMO values for DES and INT
+- Agora mailer: Change some address errors to warnings
+- Updated Local Mobile
+- Updated Hotpotatoes module
+
 GENERAL
 - Added param $agora['iseoi'] in config.php
 
