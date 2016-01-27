@@ -13,7 +13,28 @@ MOODLE
 - Agora mailer: Reviewed allowed_environments to put the correct CMO values for DES and INT
 - Agora mailer: Change some address errors to warnings
 - Updated Local Mobile
-- Updated Hotpotatoes module
+- Updated Hot Potatoes module
+
+NODES
+- Added custom image for categories in page header (Trello #1054)
+- Themes reactor-primaria-1 and reactor-serveis-educatius: Minor format improvements in code
+- Themes: Moved common code to parent theme and done minor improvements (Trello #1094)
+- Intraweb Importer: Improved information text for users (Trello #1068)
+- Intraweb Importer: Improved import of 'Content' module (Trello #1051)
+- Carrusel: Allow loading picasa albums from URL (Trello #1056)
+- Carrusel: Fixed bug with new Google+ albums (were not working) (Trello #1055)
+- Blogger Importer: Reworked code in repository. Version 0.9 not changed (Trello #936)
+- Wordpress Importer: Removed XTEC change that was only used in multisite configuration (XTECBlocs) (Trello #936)
+- Mailer lib: Added latest changes
+- xtec-mailer: Moved idApp from database to code (Trello #894)
+- Google Analyticator: Upgraded to version 6.4.9.6 (Trello #994)
+- Email Subscribers: Added version 2.9.2 with first version of XTEC changes (Trello #833)
+- xtec-stats: Added register in wp_options to keep the number of visits and get the information from there (Trello #1098)
+- xtec-stats: Added option to allow not to count the visits of the administrators (Trello #1098)
+- BuddyPress: Updated from version 2.3.2.1 to version 2.4.3 (Trello #1040)
+- Invite anyone: Changed activation URL to avoid problems if users_can_register is disabled (Trello #1114)
+- GCE: Added default gce_feed_[start/end] default values for admin (Trello #1071)
+- xtec-ldap-login: Added first version of the plugin (Trello #1105)
 
 GENERAL
 - Added param $agora['iseoi'] in config.php
