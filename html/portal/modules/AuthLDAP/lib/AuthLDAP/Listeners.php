@@ -41,6 +41,11 @@ class AuthLDAP_Listeners {
             return false;
         }
 
+        // Filter username to remove trailing '@xtec.cat' in case it exists
+        if (strpos($authentication_info['login_id'], '@xtec.cat')) {
+            $authentication_info['login_id'] = substr($authentication_info['login_id'], 0, -strlen('@xtec.cat'));
+        }
+
         $uname = $authentication_info['login_id'];
         $pass = $authentication_info['pass'];
 
