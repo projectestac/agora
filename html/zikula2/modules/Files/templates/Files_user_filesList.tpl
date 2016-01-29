@@ -142,9 +142,9 @@
                                  {$file.name}
                              </a>
                          {else}
-                            <span title="{gt text="Move the file to a public directory to get an access URL"}"  class="fi_image" style="background: url({$baseurl}modules/Files/images/fileIcons/{$file.fileIcon}) no-repeat 0 50%;">
-                                {$file.name}
-                            </span>
+                             <a href="" onclick="javascript:alert('{gt text="Move the file to a public directory to get an access URL"}');" title="{gt text="Move the file to a public directory to get an access URL"}" class="fi_image" style="background: url({$baseurl}modules/Files/images/fileIcons/{$file.fileIcon}) no-repeat 0 50%;">
+                                 {$file.name}
+                             </a>
                          {/if}
                      </td>
                      <td align="right">

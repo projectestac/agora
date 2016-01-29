@@ -48,6 +48,7 @@ PORTAL
 
 ZIKULA
 - Mailer lib: Added latest changes
+- Files: Updated to version 1.0.3
 
 
 Changes 15.12.14
