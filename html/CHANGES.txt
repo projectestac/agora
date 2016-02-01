@@ -3,6 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+PORTAL
+- Added support for plupload in upload of big files
+
+
 Changes 16.02.01
 ---------------------------------------------------------------------------------------
 MOODLE
