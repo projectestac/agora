@@ -381,68 +381,58 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
 
         $clientCode = AgoraPortal_Util::getFormVar($args, 'clientCode', null, 'GET');
         $file = AgoraPortal_Util::getFormVar($args, 'file', null, 'GET');
-        $clientServiceId = AgoraPortal_Util::getFormVar($args, 'clientServiceId', null, 'GET');
         $action = AgoraPortal_Util::getFormVar($args, 'action', 'uploadFiles', 'GET');
-
         $clientInfo = ModUtil::apiFunc('Agoraportal', 'user', 'getRealClientCode', array('clientCode' => $clientCode));
         $isAdmin = AgoraPortal_Util::isAdmin();
         $clientCode = $clientInfo['clientCode'];
-        $client = $clientInfo['client'];
-        // get all services
-        $services = ModUtil::apiFunc('Agoraportal', 'user', 'getAllServices');
-        //print_r($services);
-        //get client services information
-        $clientServices = ModUtil::apiFunc('Agoraportal', 'user', 'getAllClientsAndServices', array('init' => -1,
-                    'rpp' => -1,
-                    'service' => 0,
-                    'state' => 1,
-                    'search' => 1,
-                    'searchText' => $clientCode,
-                    'clientCode' => $clientCode,
-                ));
+        $client = $clientInfo['client'][$clientCode];
+
+        $serviceName = 'moodle2';
+        $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $client['clientId'], 'serviceName' => $serviceName));
+
+        if (!$clientService) {
+            LogUtil::registerError($this->__('No s\'ha trobat el servei Moodle2'));
+            return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
+        }
+
         // Create output object
         $view = Zikula_View::getInstance('Agoraportal', false);
-        foreach ($clientServices as $clientService) {
-            if ($services[$clientService['serviceId']]['serviceName'] == 'moodle2') {
-                if ($action == 'uploadFiles') {
-                    if ($clientService['diskSpace'] > 0) {
-                        //TODO: Now the only service that allow to update files is moodle. In the future other services will allow to update files.
-                        //Then several changes in the cgi update script will be necessary
-                        $usedDiskSpace = $clientService['diskConsume'];
-                        $maxDiskSpace = $clientService['diskSpace'] * 1024;
-                        $percentage = round($usedDiskSpace * 100 / $maxDiskSpace);
-                        $widthUsage = ($percentage > 100) ? 100 : $percentage;
-                        $usageArray[$clientService['serviceId']] = array('serviceName' => $services[$clientService['serviceId']]['serviceName'],
-                            'maxDiskSpace' => $maxDiskSpace,
-                            'percentage' => $percentage,
-                            'totalDiskSpace' => round($maxDiskSpace / 1024),
-                            'usedDiskSpace' => round($usedDiskSpace / 1024),
-                            'widthUsage' => $widthUsage,
-                            'clientServiceId' => $clientService['clientServiceId'],
-                        );
-                        $actived[$clientService['serviceId']] = $clientService['activedId'];
-                    }
-                    $view->assign('usageArray', $usageArray);
-                }
-            }
-            $activedServicesNames[] = $services[$clientService['serviceId']]['serviceName'];
-        }
-        if (count($services) > count($clientServices)) {
-            $view->assign('askServices', true);
-        }
         $view->assign('isAdmin', $isAdmin);
-        $view->assign('client', $client[$clientCode]);
+        $view->assign('client', $client);
+        $view->assign('clientServiceId', $clientService['clientServiceId']);
         $view->assign('action', $action);
-        $view->assign('activedServicesNames', $activedServicesNames);
+        $version = ModUtil::getVar('Agoraportal', 'uploadFilesVersion');
+        $view->assign('version', $version);
+
+        if ($action == 'uploadFiles') {
+            if ($clientService['diskSpace'] <= 0) {
+                LogUtil::registerError($this->__('No està permès pujar fitxers a Moodle2'));
+                return System::redirect(ModUtil::url('Agoraportal', 'user', 'files', array('action' => 'm2x')));
+            }
+            // To use PLUPLOAD add the following row to module_vars table: Agoraportal	uploadFilesVersion	s:3:"new";
+            //TODO: Now the only service that allow to update files is moodle. In the future other services will allow to update files.
+            //Then several changes in the cgi update script will be necessary
+            $usedDiskSpace = $clientService['diskConsume'];
+            $maxDiskSpace = $clientService['diskSpace'] * 1024;
+            $percentage = round($usedDiskSpace * 100 / $maxDiskSpace);
+            $widthUsage = ($percentage > 100) ? 100 : $percentage;
+            $usage = array(
+                'maxDiskSpace' => $maxDiskSpace,
+                'percentage' => $percentage,
+                'totalDiskSpace' => round($maxDiskSpace / 1024),
+                'usedDiskSpace' => round($usedDiskSpace / 1024),
+                'widthUsage' => $widthUsage
+            );
+            $view->assign('usage', $usage);
+        }
 
         global $agora;
         // upload big file to service folder
         if ($file != null) {
             // send file to folder
             $fileToMove = $agora['server']['ubr_upload'] . $file;
-            $serviceName = $services[$clientServices[$clientServiceId]['serviceId']]['serviceName'];
             $folder = $agora['moodle2']['repository_files'];
-            $destination = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientServices[$clientServiceId]['activedId'] . $folder;
+            $destination = $agora['server']['root'] . $agora[$serviceName]['datadir'] . $agora[$serviceName]['username'] . $clientService['activedId'] . $folder;
             if (!file_exists($fileToMove)) {
                 LogUtil::registerError($this->__('No s\'ha trobat el directori d\'origen'));
                 return System::redirect(ModUtil::url('Agoraportal', 'user', 'main', array('clientCode' => $clientCode)));
@@ -459,8 +449,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
             } else {
                 LogUtil::registerStatus($this->__f('S\'ha pujat el fitxer <strong>%s</strong> al servidor. El trobareu en el repositori <strong>Fitxers</strong> del vostre Moodle.', $file));
                 $size = round(filesize($destination . $file) / 1024);
-                $diskConsume = $clientServices[$clientServiceId]['diskConsume'] + $size;
-                ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientServiceId,
+                $diskConsume = $clientService['diskConsume'] + $size;
+                ModUtil::apiFunc('Agoraportal', 'user', 'saveDiskConsume', array('clientServiceId' => $clientService['clientServiceId'],
                     'diskConsume' => $diskConsume,
                 ));
             }
@@ -471,10 +461,8 @@ class Agoraportal_Controller_User extends Zikula_AbstractController {
         $view->assign('cgi_script', $agora['server']['cgi_script']);
 
         // read moodle2 repository folder
-        if (in_array('moodle2', $activedServicesNames) && $action == 'm2x') {
-            $clientService = ModUtil::apiFunc('Agoraportal', 'user', 'getClientService', array('clientId' => $clientInfo['client'][$clientCode]['clientId'], 'serviceName' => 'moodle2'));
+        if ($action == 'm2x') {
             $folder = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $clientService['activedId'] . '/repository/files/';
-
             if (is_dir($folder)) {
                 $moodle2RepoFiles = array();
                 $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folder), RecursiveIteratorIterator::SELF_FIRST);
