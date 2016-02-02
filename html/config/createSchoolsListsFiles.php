@@ -36,7 +36,7 @@ if (isset($args['update'])) {
     /* MOODLE 2 update file */
     $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
 
-    $schoolsvar = "";
+    $schoolsvar = '';
     foreach ($schools as $school) {
         if ($onlyname) {
             $schoolsvar .= $school['school_dns'] . "\n";
@@ -58,7 +58,7 @@ if (isset($args['update'])) {
     /* ZIKULA update file */
     $schools = getAllSchools('activedId', 'asc', 'intranet', '1');
 
-    $schoolsvar = "";
+    $schoolsvar = '';
     foreach ($schools as $school) {
         if ($onlyname) {
             $schoolsvar .= $school['school_dns'] . "\n";
@@ -86,26 +86,34 @@ if (isset($args['update'])) {
 
 } else {
 
-    /* MOODLE 2 CRONFILE */
-    $schools = getAllSchools('activedId', 'asc', 'moodle2', '1');
+    $services = array (
+        array(
+            'name' => 'moodle2',
+            'url' => "/moodle/admin/cron.php\n",
+            'file' => 'cronMoodle2.txt',
+        ),
+        array(
+            'name' => 'intranet',
+            'url' => "/intranet/iwcron.php\n",
+            'file' => 'cronIntranet.txt',
+        ),
+        array(
+            'name' => 'nodes',
+            'url' => "/wp-cron.php\n",
+            'file' => 'cronNodes.txt',
+        ),
+    );
 
-    $schoolsvar = "";
-    foreach ($schools as $school) {
-        $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/moodle/admin/cron.php\n";
+    foreach ($services as $service) {
+        $schools = getAllSchools('activedId', 'asc', $service['name'], '1');
+        
+        $schoolsvar = '';
+        foreach ($schools as $school) {
+            $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . $service['url'];
+        }
+
+        saveVarToFile($service['file'], $schoolsvar);
     }
-
-    saveVarToFile('cronMoodle2.txt', $schoolsvar);
-
-
-    /* INTRANET CRONFILE */
-    $schools = getAllSchools('activedId', 'asc', 'intranet', '1');
-
-    $schoolsvar = '';
-    foreach ($schools as $school) {
-        $schoolsvar .= $agora['server']['html'] . $school['school_dns'] . "/intranet/iwcron.php\n";
-    }
-
-    saveVarToFile('cronIntranet.txt', $schoolsvar);
 }
 
 /**
@@ -113,12 +121,12 @@ if (isset($args['update'])) {
  *
  * @author Toni Ginard
  *
- * @param $filename: path to file in filesystem
- * @param $schoolsvar: data to save to file
+ * @param filename: path to file in filesystem
+ * @param schoolsvar: data to save to file
  *
  * @return boolean true if successful
  */
-function saveVarToFile($filename = null, $schoolsvar = "") {
+function saveVarToFile($filename = null, $schoolsvar = '') {
     $path = '../../adminInfo/';
 
     cli_print_line('<br />');
