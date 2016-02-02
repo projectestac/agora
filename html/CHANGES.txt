@@ -5,6 +5,10 @@ development home at https://github.com/projectestac/agora
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+GENERAL:
+- createSchoolsListsFiles.php: Added creation of cronNodes.txt
+- Crons: Added shell script to execute cron for Nodes
+
 PORTAL
 - Added support for plupload in upload of big files
 
