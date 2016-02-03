@@ -119,6 +119,30 @@ class FormUtil
             SessionUtil::setVar($objectType, $failed[$key], '/validationFailedObjects');
         }
 
+        //  XTEC ************ AFEGIT - Remove content of attribute onerror in images
+        // 2016.02.02 @aginard
+
+        // First check for onerror attribute. The goal is to add extra process only if there is a match here
+        if (is_string($value) && strpos($value, 'onerror')) {
+            $dom = new DOMDocument;
+            libxml_use_internal_errors(true); // Don't show warnings due to malformed HTML code
+            $dom->loadHTML($value);
+            $toRemove = '';
+
+            // Get the contents of all the img elements
+            foreach ($dom->getElementsByTagName('img') as $node) {
+                $dom->saveHtml($node);
+                if ($node->hasAttribute('onerror')) {
+                    $toRemove[] = $node->getAttribute('onerror');
+                }
+            }
+
+            // Remove the content of the onerror attribute
+            $value = str_replace($toRemove, '', $value);
+        }
+
+        //************ FI
+
         return $value;
     }
 
