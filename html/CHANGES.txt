@@ -3,8 +3,29 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
-Changes in progress
+Changes 16.02.22
 ---------------------------------------------------------------------------------------
+MOODLE
+- Updated all related wiris plugins
+- Moved local crons to Moodle tasks
+- Updates to prepare for Moodle 3 version
+- Updated Local Mobile
+
+NODES
+- Upgraded WordPress to version 4.2.7
+- Common: Moved edit cat description with HTML editor to common and added also tags (Trello #1129)
+- Google Analyticator: Added missing </div> that breaks view in mobile devices (Trello #1134)
+- Carrusel: Fixed bug with new Google+ albums (were not working) (Trello #1055)
+- Added again some Reading options for XTECBlocs administrators which are hidden in Nodes (Trello #1028)
+- mu-common: Added filter to remove content of attribute onerror in images (Trello #1050)
+- mu-common: Moved and improved code to remove the field "description" in category edition and in bp-docs tags (Trello #1129)
+- BuddyPress Docs: Upgraded to version 1.8.8 and converted to submodule (Trello #1041)
+- xtec-ldap-login: Completed support for single site. General improvements (Trello #1105)
+- mu-common and reactor: Get multiple categories and filter posts from URL (Trello #1142)
+- Grup-classe: changed param to call GCE widget in list view
+- bbpress: Fixed upload of images in bbpress using fancy upload when user is not admin nor mod (Trello #1143)
+- wp_stats: Added additional stats information when deleting some comments (Trello #627)
+
 GENERAL:
 - createSchoolsListsFiles.php: Added creation of cronNodes.txt
 - Crons: Added shell script to execute cron for Nodes
