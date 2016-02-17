@@ -24,6 +24,7 @@ NODES
 - mu-common and reactor: Get multiple categories and filter posts from URL (Trello #1142)
 - Grup-classe: changed param to call GCE widget in list view
 - bbpress: Fixed upload of images in bbpress using fancy upload when user is not admin nor mod (Trello #1143)
+- bbpress: Fixed editing time of the posts and comments (Trello #1143)
 - wp_stats: Added additional stats information when deleting some comments (Trello #627)
 
 GENERAL:
