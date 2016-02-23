@@ -65,7 +65,7 @@ function transformClientCode($clientCode, $type = 'letter2num') {
  * @return Array with the schools information
  */
 function getAllSchoolsDBInfo($codeletter = false) {
-    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.clientDNS, s.serviceName, c.clientOldDNS, c.typeId, cs.diskSpace, cs.diskConsume, cs.version
+    $sql = 'SELECT c.clientId, c.clientCode, cs.activedId, cs.serviceDB, cs.dbHost, c.clientDNS, s.serviceName, c.clientOldDNS, c.typeId, cs.diskSpace, cs.diskConsume
 			FROM agoraportal_clients c, agoraportal_client_services cs, agoraportal_services s
 			WHERE c.clientId = cs.clientId AND cs.serviceId = s.serviceId AND cs.state = "1"
 			ORDER BY c.clientDNS';
@@ -75,6 +75,7 @@ function getAllSchoolsDBInfo($codeletter = false) {
         return false;
     }
 
+    $values = array();
     foreach ($results as $row) {
 
         $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
@@ -95,10 +96,8 @@ function getAllSchoolsDBInfo($codeletter = false) {
             'type' => $row->typeId,
             'service' => $row->serviceName,
             'old_dns' => $row->clientOldDNS,
-            'diskPercent' => $diskPercent,
-            'version' => $row->version);
+            'diskPercent' => $diskPercent);
     }
-
     return $values;
 }
 
@@ -223,44 +222,42 @@ function getSchoolDBInfo($dns, $codeletter = false) {
 			AND c.clientDNS = "' . $dns . '"';
 
     $results = get_rows_from_db($sql);
-    if (!$results) {
-        return false;
-    }
-
     $value = array();
-    $clientCode = '';
-    foreach ($results as $row) {
-        $clientCode = $row->clientCode;
-        $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
-        $service = $row->serviceName;
-
-        $value['id_' . $service] = $row->activedId;
-        $value['dbhost_' . $service] = $row->dbHost;
-        $value['database_' . $service] = $row->serviceDB;
-        $value['diskPercent_' . $service] = $diskPercent;
-
-        // Transform client code if required (a8000000 -> 08000000)
-        if (!$codeletter) {
-            $clientCode = transformClientCode($row->clientCode);
-        } else {
+    if ($results) {
+        $clientCode = "";
+        foreach ($results as $row) {
             $clientCode = $row->clientCode;
+            $diskPercent = getDiskPercent($row->diskConsume, $row->diskSpace);
+            $service = $row->serviceName;
+
+            $value['id_' . $service] = $row->activedId;
+            $value['dbhost_' . $service] = $row->dbHost;
+            $value['database_' . $service] = $row->serviceDB;
+            $value['diskPercent_' . $service] = $diskPercent;
+
+            // Transform client code if required (a8000000 -> 08000000)
+            if (!$codeletter) {
+                $clientCode = transformClientCode($row->clientCode);
+            } else {
+                $clientCode = $row->clientCode;
+            }
+
+            // Do not overwrite type
+            if (empty($value['type'])) {
+                $value['type'] = $row->typeId;
+            }
         }
 
-        // Do not overwrite type
-        if (empty($value['type'])){
-            $value['type'] = $row->typeId;
+        // Get clientCode
+        if (!empty($clientCode)) {
+            $value['clientCode'] = $clientCode;
         }
-    }
-
-    // Get clientCode
-    if (!empty($clientCode)) {
-        $value['clientCode'] = $clientCode;
     }
 
     // Get new DNS
     $sql = 'SELECT c.clientDNS
-			FROM agoraportal_clients c
-			WHERE c.clientState = "1" AND c.clientOldDNS = "' . $dns . '"';
+            FROM agoraportal_clients c
+            WHERE c.clientState = "1" AND c.clientOldDNS = "' . $dns . '"';
 
     $results = get_rows_from_db($sql);
     if ($results && $row = array_shift($results)) {
@@ -271,7 +268,7 @@ function getSchoolDBInfo($dns, $codeletter = false) {
 }
 
 function getSchoolInfo($service) {
-    global $agora;
+    global $agora, $school_info;
 
     // Debug code
     $debugenabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
@@ -300,14 +297,6 @@ function getSchoolInfo($service) {
         school_error($service);
     }
 
-    // Check if the domain is not the correct one and move if it isn't
-    if (!defined('CLI_SCRIPT') && endsWith($agora['server']['server'], $_SERVER['HTTP_HOST']) === false) {
-        header ('HTTP/1.1 301 Moved Permanently');
-        header ('Location: '.$agora['server']['server'].$_SERVER['REQUEST_URI']);
-        exit;
-    }
-
-    global $school_info;
     $school_info = getSchoolInfoFromFile($centre, 1, $service);
     if (!$school_info || !isset($school_info['id_'.$service]) || empty($school_info['id_'.$service])) {
         if (defined('CLI_SCRIPT')) {
@@ -315,16 +304,41 @@ function getSchoolInfo($service) {
             echo "\nerror\n";
         } else {
             if ($service == 'intranet' && isset($school_info['id_nodes']) && !empty($school_info['id_nodes'])) {
-                header('location: '.WWWROOT.$_REQUEST['ccentre']);
+                header('Location: '.WWWROOT.$_REQUEST['ccentre']);
             } else {
-                header('location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
+                header('Location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
             }
         }
         exit(0);
     }
+
+    // Overwrite some agora variables for serveis Educatius
+    if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
+        $agora['server']['server'] = $agora['server']['se-url'];
+        $agora['server']['html'] = $agora['server']['server'] . $agora['server']['base'];
+    }
+
+    // Check if the domain is not the correct one and move if it isn't
+    if (!defined('CLI_SCRIPT') && !is_in_domain($agora['server']['server'])) {
+        header ('HTTP/1.1 301 Moved Permanently');
+        header ('Location: '.$agora['server']['server'].$_SERVER['REQUEST_URI']);
+        exit;
+    }
+
     xtec_debug($school_info['source']);
 
     return $centre;
+}
+
+/**
+ * Returns if the current URL is in the selected domain
+ * @param $domain to compare
+ * @return bool
+ */
+function is_in_domain($domain) {
+    $length = strlen($_SERVER['HTTP_HOST']);
+    $start = $length * -1; // negative
+    return substr($domain, $start) === $_SERVER['HTTP_HOST'];
 }
 
 // Envia a una pàgina d'error
@@ -333,7 +347,7 @@ function school_error($service) {
         echo 'Center '.$_REQUEST['ccentre'].' not enabled';
         echo "\nerror\n";
     } else {
-        header('location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
+        header('Location: '.WWWROOT.'error.php?s='.$service.'&dns='.$_REQUEST['ccentre']);
     }
     exit(0);
 }
@@ -349,7 +363,7 @@ function school_error($service) {
  * @return array Array with the school information
  */
 function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
-    global $agora;
+    global $agora, $school_info;
 
     if (!isValidDNS($dns)) {
         return false;
@@ -360,7 +374,7 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
         $cookie = $_COOKIE[$agora['server']['cookie']];
         if (isValidCookie($cookie)) {
             $data = explode('__', $cookie);
-            if (count($data) == 16 && $data[0] == $dns) {
+            if (count($data) == 15 && $data[0] == $dns) {
                 $school_info['clientCode'] = $data[1];
                 $school_info['id_moodle2'] = $data[2];
                 $school_info['database_moodle2'] = $data[3];
@@ -369,12 +383,11 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 $school_info['database_intranet'] = $data[6];
                 $school_info['dbhost_intranet'] = $data[7];
                 $school_info['diskPercent_intranet'] = $data[8];
-                $school_info['version_intranet'] = $data[9];
-                $school_info['id_nodes'] = $data[10];
-                $school_info['database_nodes'] = $data[11];
-                $school_info['dbhost_nodes'] = $data[12];
-                $school_info['diskPercent_nodes'] = $data[13];
-                $school_info['type'] = $data[14];
+                $school_info['id_nodes'] = $data[9];
+                $school_info['database_nodes'] = $data[10];
+                $school_info['dbhost_nodes'] = $data[11];
+                $school_info['diskPercent_nodes'] = $data[12];
+                $school_info['type'] = $data[13];
 
                 // Debug info
                 $school_info['source'] = 'Cookie';
@@ -393,10 +406,8 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
             }
         }
         if (isset($school_info)) {
-            // Redirect to New DNS directly
-            if (!empty($school_info['new_dns'])) {
-                redirectNewDNS($dns, $school_info['new_dns'], $service);
-            }
+            // Redirect to New DNS directly if needed
+            redirectNewDNS($dns, $service);
 
             // Debug info
             $school_info['source'] = 'allSchools';
@@ -416,10 +427,8 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
     if (!isset($school_info) || empty($school_info)) {
         $school_info = getSchoolDBInfo($dns);
 
-        // Redirect to New DNS directly
-        if (!empty($school_info['new_dns'])) {
-            redirectNewDNS($dns, $school_info['new_dns'], $service);
-        }
+        // Redirect to New DNS directly if needed
+        redirectNewDNS($dns, $service);
 
         // Debug info
         $school_info['source'] = 'DB';
@@ -440,7 +449,6 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
                 . '__' . (isset($school_info['database_intranet']) ? $school_info['database_intranet'] : '')
                 . '__' . (isset($school_info['dbhost_intranet']) ? $school_info['dbhost_intranet'] : '')
                 . '__' . (isset($school_info['diskPercent_intranet']) ? $school_info['diskPercent_intranet'] : '')
-                . '__' . (isset($school_info['version_intranet']) ? $school_info['version_intranet'] : '')
                 . '__' . (isset($school_info['id_nodes']) ? $school_info['id_nodes'] : '')
                 . '__' . (isset($school_info['database_nodes']) ? $school_info['database_nodes'] : '')
                 . '__' . (isset($school_info['dbhost_nodes']) ? $school_info['dbhost_nodes'] : '')
@@ -462,15 +470,24 @@ function getSchoolInfoFromFile($dns, $source = 1, $service = null) {
  * Redirects a service that has changed the DNS (with 301) in CLI case, only notifies and dies
  *
  * @param $oldDNS old DNS (only for CLI)
- * @param $newDNS new DNS where to redirect
  * @param $service Service to be able to build the URL
  */
-function redirectNewDNS($oldDNS, $newDNS, $service) {
+function redirectNewDNS($oldDNS, $service) {
+    global $agora, $school_info;
+    if (empty($school_info['new_dns'])) {
+        return;
+    }
+    $newDNS = $school_info['new_dns'];
+
     if (defined('CLI_SCRIPT')) {
         echo 'Center '.$oldDNS.' has new address: '.$newDNS;
         echo "\nerror\n";
     } else {
-        $newaddress = WWWROOT . $newDNS . '/';
+        if (isServeiEducatiu() && isset($agora['server']['se-url'])) {
+            $newaddress = $agora['server']['se-url'] . $agora['server']['base'] . $newDNS . '/';
+        } else {
+            $newaddress = $agora['server']['server'] . $agora['server']['base'] . $newDNS . '/';
+        }
         if ($service != 'nodes') {
             $newaddress .= $service . '/';
         }
@@ -517,7 +534,7 @@ function isValidCookie($cookie) {
  * @author Toni Ginard
  *
  * @global array $agora
- * @param string $uname
+ * @param string $uname Codi de centre
  * @return array
  */
 function getSchoolFromWS($uname) {
@@ -596,18 +613,6 @@ function getDiskInfo($dns, $service) {
     }
 
     return $value;
-}
-
-/**
- *
- * @param string $haystack
- * @param string $needle
- * @return boolean
- */
-function endsWith($haystack, $needle) {
-    $length = strlen($needle);
-    $start = $length * -1; // negative
-    return (substr($haystack, $start) === $needle);
 }
 
 /**
