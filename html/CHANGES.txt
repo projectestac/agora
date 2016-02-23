@@ -3,6 +3,12 @@ Release notes for Agora (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora
 
+Changes in progress
+---------------------------------------------------------------------------------------
+GENERAL
+- Works.php: Added check for data directories (Trello #1110)
+
+
 Changes 16.02.22
 ---------------------------------------------------------------------------------------
 MOODLE
@@ -27,7 +33,7 @@ NODES
 - bbpress: Fixed editing time of the posts and comments (Trello #1143)
 - wp_stats: Added additional stats information when deleting some comments (Trello #627)
 
-GENERAL:
+GENERAL
 - createSchoolsListsFiles.php: Added creation of cronNodes.txt
 - Crons: Added shell script to execute cron for Nodes
 

@@ -23,14 +23,15 @@ if ($isBigIP) {
     if (!file_exists($allschools_file)) {
         echo 'KO: El fitxer '.$allschools_file.' no existeix';
     }
+
     require_once($allschools_file);
 
     foreach ($schools as $school) {
         if (isset($school['dbhost_nodes']) && !in_array($school['dbhost_nodes'], $nodesToTest)) {
             $nodesToTest[$school['id_nodes']] = $school['dbhost_nodes'];
         }
-        if (isset($school['database_moodle']) && !in_array(strtoupper($school['database_moodle']), $m2ToTest)) {
-            $m2ToTest[$school['id_moodle']] = strtoupper($school['database_moodle']);
+        if (isset($school['database_moodle2']) && !in_array(strtoupper($school['database_moodle2']), $m2ToTest)) {
+            $m2ToTest[$school['id_moodle2']] = strtoupper($school['database_moodle2']);
         }
     }
 } else {
@@ -49,6 +50,13 @@ if ($isBigIP) {
             $state .= '<br>La consulta a la base de dades d\'administració ha fallat (MySQL - ' . $agora['admin']['host'] . '). <span style="color:red">No es pot comprovar si les instàncies Oracle i els servidors MySQL funcionen correctament.</span>';
         }
     }
+
+    // Check File system for portal
+    $dirToCheck = $agora['server']['root'] . $agora['admin']['datadir'] . 'data/';
+    if (!is_writable($dirToCheck)) {
+        $isok = false;
+        $state .= "<br>El directori de dades del <strong>portal</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
+    }
 }
 
 // Connect to the first school of each server with nodes service to check that the MySQL servers are working
@@ -59,6 +67,13 @@ foreach ($nodesToTest as $schoolid => $dbhost) {
     } elseif ($isBigIP) {
         $nodeok = true;
         break;
+    }
+
+    // Check File systems for Nodes
+    $dirToCheck = $agora['server']['root'] . $agora['nodes']['datadir'] . $agora['nodes']['userprefix'] . $schoolid . '/';
+    if (!is_writable($dirToCheck)) {
+        $isok = false;
+        $state .= "<br>El directori de dades de <strong>Nodes</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
     }
 }
 
@@ -71,6 +86,13 @@ if (($isBigIP && !$nodeok) || (!$isBigIP)) {
         } elseif ($isBigIP) {
             $nodeok = true;
             break;
+        }
+
+        // Check File systems for Moodle
+        $dirToCheck = $agora['server']['root'] . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $schoolid . '/';
+        if (!is_writable($dirToCheck)) {
+            $isok = false;
+            $state .= "<br>El directori de dades de <strong>Moodle</strong> ($dirToCheck), o bé no està muntat o bé no té permís d'escriptura.<br>";
         }
     }
 }
