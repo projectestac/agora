@@ -31,7 +31,6 @@ foreach ($allschools as $school) {
     $schools[$dns]['dbhost_'.$service]      = $school['dbhost'];
     $schools[$dns]['database_'.$service]    = $school['database'];
     $schools[$dns]['diskPercent_'.$service] = $school['diskPercent'];
-    $schools[$dns]['version_'.$service]     = $school['version'];
 
     $schools[$dns]['clientCode'] = $school['code'];
 
