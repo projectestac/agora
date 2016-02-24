@@ -1,12 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca" lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
     <head>
         <title>Servei &Agrave;gora</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="portal/config/style/style.css" />
-        <link rel="stylesheet" type="text/css" href="portal/config/style/style-media.css" media="print" />
-        <script language="javascript" type="text/javascript" src="portal/javascript/javascript.js"></script>
-
+        <meta charset="utf-8">
+        <script type="text/javascript" src="portal/javascript/javascript.js"></script>
+        <style>
+            body {
+                line-height: normal;
+                background: #739cce;
+                color: black;
+                padding: 0;
+                font-family : Arial, Helvetica, Univers, Sans-serif;
+                font-size: 10pt;
+                margin: 0;
+            }
+            a {
+                color: #739cce;
+            }
+            .wrapper {
+                width:610px;
+                margin: 0 auto;
+                background: white;
+            }
+            h1 {
+                text-align: center;
+                margin: 30px 10px;
+                font-size: 1.6em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .center {
+                text-align:center;
+            }
+            .right{
+                padding: 15px;
+                margin-bottom:10px;
+                color:#000;
+                text-align: right;
+            }
+            .xtec_int{background: url("portal/images/importat/xtec_int.gif") #113b83;}
+            .bottom{background:  url("portal/images/importat/au_titol.gif") repeat-x ; padding:9px; }
+        </style>
     </head>
 
 <?php
@@ -14,65 +49,40 @@
     include 'config/dblib-mysql.php';
     global $agora;
 ?>
-
     <body>
-        <div class="wrapper" id="#0">
+        <div class="wrapper">
             <div class="header imp">
                 <p class="xtec_int">&nbsp; </p>
-                <p class="quadres">&nbsp; </p>
                 <p class="bottom">&nbsp; </p>
             </div>
-
+            <div class="content">
             <?php if (isset($_GET['error'])) { ?>
-                <h1 class="titol imp">SERVEI &Agrave;GORA NO DISPONIBLE</h1>
-                <div class="content">
-                    <div>
-                        <p>El servei &Agrave;gora no està disponible en aquests moments. Estem treballant per solucionar els problemes t&egrave;cnics el més aviat possible.</p>
-                        <p>Disculpeu les mol&egrave;sties que aquesta aturada us pugui ocasionar.</p>
-                    </div>
-                </div>
+                <h1>SERVEI &Agrave;GORA NO DISPONIBLE</h1>
+                <p>El servei &Agrave;gora no està disponible en aquests moments. Estem treballant per solucionar els problemes t&egrave;cnics el més aviat possible.</p>
+                <p>Disculpeu les mol&egrave;sties que aquesta aturada us pugui ocasionar.</p>
             <?php } elseif (isset($_GET['newaddress'])) { ?>
-                <h1 class="titol imp">CANVI D'ADREÇA D'AQUEST ESPAI</h1>
-                <div class="content">
-                    <div>
-                        <p><br/><br/></p>
-                        <p>L'espai al que est&agrave;s intentant accedir ha canviat d'adreça.</p>
-                        <p>L'adreça nova &eacute;s:<br/> 
-                            <p style="text-align:center;"><a href="<?php echo $_GET['newaddress'] ?>"><?php echo $_GET['newaddress'] ?></a></p>
-                        </p>
-                        <p><br/>Per aquest motiu, és recomanable que, tan aviat com puguis, actualitzis l'enllaç i, en cas que siguis l'administrador/a t'asseguris de que no hi ha cap enllaç trencat.</p> 
-                    </div>
-                </div>	
+                <h1>CANVI D'ADREÇA D'AQUEST ESPAI</h1>
+                <p>L'espai al que esteu intentant accedir ha canviat d'adreça.</p>
+                <p>L'adreça nova &eacute;s:</p>
+                <p class="center"><a href="<?php echo $_GET['newaddress'] ?>"><?php echo $_GET['newaddress'] ?></a></p>
+                <p><br/>Per aquest motiu, és recomanable que, tan aviat com pugueu, actualitzeu l'enllaç i, en cas que sigueu l'administrador us assegureuque no hi ha cap enllaç trencat.</p>
             <?php } else {
                 $dns = $_GET['dns'];
                 if (!isValidDNS($dns)) {
                     // El nom propi no és vàlid. No es pot mostrar per evitar problemes de XSS.
                 ?>
-                    <h1 class="titol imp">URL D'ÀGORA NO VÀLID</h1>
-                    <div class="content">
-                        <p>L'URL que heu indicat no es correspon amb cap URL vàlid del servei Àgora
-                           de la XTEC. Si us plau, reviseu-lo i torneu-ho a provar.</p>
-                    </div>
+                    <h1>URL D'ÀGORA NO VÀLID</h1>
+                    <p>L'URL que heu indicat no es correspon amb cap URL vàlid del servei Àgora de la XTEC. Si us plau, reviseu-lo i torneu-ho a provar.</p>
                 <?php } else { ?>
-                    <h1 class="titol imp">ACC&Eacute;S ERRONI A UN SERVEI D'&Agrave;GORA</h1>
-                    <div class="content">
-                        <div>
-                            <p>No s'ha trobat l'espai al qual has intentat accedir. Les causes m&eacute;s probables s&oacute;n que hagis escrit
-                                l'adreça incorrecta a la finestra del navegador o que l'espai sol·licitat no estigui operatiu.</p>
-                            <p>L'adreça que has escrit ha estat <strong><?php echo $agora['server']['server'] . $agora['server']['base'] . $dns . '/' . $_GET['s'] ?></strong></p>
-                            <p>Si no ho heu fet encara, podeu sol·licitar l'alta als serveis d'&Agrave;gora des d'<a href="<?php echo $agora['server']['server'] . $agora['server']['base'] ?>portal/">aquí</a>.</p>
-                        </div>
-                        <div id="formulari">
-                            <div style="text-align: right;">
-                                <a href="<?php echo $agora['server']['server'] . $agora['server']['base'] ?>moodle/moodle/mod/resource/view.php?id=661">Condicions d'&uacute;s</a>
-                            </div>
-                        </div>
+                    <h1>ACC&Eacute;S ERRONI A UN SERVEI D'&Agrave;GORA</h1>
+                    <p>No s'ha trobat l'espai al qual heu intentat accedir. Les causes m&eacute;s probables s&oacute;n que hàgiu escrit l'adreça incorrecta a la finestra del navegador o que l'espai sol·licitat no estigui operatiu.</p>
+                    <p>L'adreça que heu escrit ha estat <strong><?php echo $agora['server']['server'] . $agora['server']['base'] . $dns . '/' . $_GET['s'] ?></strong></p>
+                    <p>Si no ho heu fet encara, podeu sol·licitar l'alta als serveis d'&Agrave;gora des d'<a href="<?php echo $agora['server']['server'] . $agora['server']['base'] ?>portal/">aquí</a>.</p>
+                    <div class="right">
+                        <a href="<?php echo $agora['server']['server'] . $agora['server']['base'] ?>moodle/moodle/mod/resource/view.php?id=661">Condicions d'&uacute;s</a>
                     </div>
             <?php } } ?>
 
-            <div class="footer imp">
-                <p>&nbsp;</p>
-            </div>
         </div>
     </body>
 </html>
