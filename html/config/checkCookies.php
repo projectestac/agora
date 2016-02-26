@@ -53,6 +53,10 @@ $agoracookies['BIGipServerphp-agora-pool'] = array(
     'phagoraf1' => '732797706.20480.0000',
     'phagoraf2' => '749574922.20480.0000',
     'phagorav1' => '799906570.20480.0000');
+// CMO FRM
+$agoracookies['BIGipServerphp-agora-formacio-pool'] = array(
+    'vmphpfrm01' => '1018010378.20480.0000',
+    'vmphpfrm02' => '2192415498.20480.0000');
 // FMO PRE
 $agoracookies['BIGipServerPOOL_ENS_1051_INTRANETBE_PREHPM'] = array(
     'lagosut0' => 'rd4025o00000000000000000000ffff0a311828o80',
